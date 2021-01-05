@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/01/2020
 ms.author: ccompy
-ms.openlocfilehash: 93b92da999c15255f543abca346fc2bf8840006c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0b93111357cf0d6e57eeb5495d50bd18a15dca77
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999454"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97812740"
 ---
 * Wielodostępne systemy obsługujące pełny zakres planów cenowych, z wyjątkiem izolowanych.
 * App Service Environment, który wdraża w sieci wirtualnej i obsługuje aplikacje izolowanego planu cenowego.
@@ -33,7 +33,7 @@ Istnieje kilka rzeczy, które nie są obsługiwane przez integrację sieci wirtu
 * Active Directory integrację.
 * NetBIOS.
 
-Integracja sieci wirtualnej wymagana przez bramę zapewnia dostęp do zasobów tylko w docelowej sieci wirtualnej lub w sieciach połączonych z docelową siecią wirtualną za pomocą komunikacji równorzędnej lub sieci VPN. Integracja sieci wirtualnej wymagana przez bramę nie umożliwia dostępu do zasobów dostępnych w ramach połączeń usługi Azure ExpressRoute lub współdziała z punktami końcowymi usługi.
+Integracja sieci wirtualnej wymagana przez bramę zapewnia dostęp do zasobów tylko w docelowej sieci wirtualnej lub w sieciach połączonych z docelową siecią wirtualną za pomocą komunikacji równorzędnej lub sieci VPN. Integracja sieci wirtualnej wymagana przez bramę nie umożliwia dostępu do zasobów dostępnych w ramach połączeń usługi Azure ExpressRoute lub pracy z punktami końcowymi usługi.
 
 Niezależnie od używanej wersji Integracja sieci wirtualnej zapewnia aplikacji dostęp do zasobów w sieci wirtualnej, ale nie przyznaje prywatnego dostępu do aplikacji z sieci wirtualnej. Dostęp do lokacji prywatnej odnosi się do udostępnienia aplikacji tylko z sieci prywatnej, na przykład z poziomu wirtualnej platformy Azure. Integracja z siecią wirtualną dotyczy tylko wykonywania połączeń wychodzących z aplikacji do sieci wirtualnej.
 

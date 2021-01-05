@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/11/2020
+ms.date: 12/29/2020
 ms.author: jeedes
-ms.openlocfilehash: 3a53a5b7e60ef214a3db58d9e280e9dee8fec609
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 11aac69816714611c168cd05c2828dd1ae85786e
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355923"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97813653"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-aws-clientvpn"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą AWS ClientVPN
 
@@ -89,7 +89,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     |
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu adresu URL logowania i adresu URL odpowiedzi. Skontaktuj się z [zespołem obsługi klienta AWS ClientVPN](https://aws.amazon.com/contact-us/) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe.  Zaktualizuj te wartości przy użyciu adresu URL logowania i adresu URL odpowiedzi.  Adres URL logowania i adres URL odpowiedzi mogą mieć taką samą wartość ( http://127.0.0.1:35001) .  Szczegółowe informacje znajdują się w [dokumentacji AWS klienta sieci VPN](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/client-authentication.html#ad) .   Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal. Skontaktuj się z [zespołem pomocy technicznej AWS ClientVPN](https://aws.amazon.com/contact-us/) w celu uzyskania problemów z konfiguracją. 
 
 1. W usłudze Azure Active Directory przejdź do **rejestracje aplikacji** a następnie wybierz pozycję **wszystkie aplikacje**.
 

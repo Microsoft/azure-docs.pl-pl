@@ -3,16 +3,14 @@ title: Koncepcje — aktualizacje i uaktualnienia w chmurze prywatnej
 description: Dowiedz się więcej na temat podstawowych procesów uaktualniania i funkcji w rozwiązaniu VMware platformy Azure.
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 380e97eae559145a9ef5ed7b6e7bf14f18039eed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6fb65a0e192fbf1f054857223b3fdaf58fc6a903
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316804"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97809653"
 ---
 # <a name="azure-vmware-solution-private-cloud-updates-and-upgrades"></a>Aktualizacje i uaktualnienia chmury prywatnej rozwiązania VMware platformy Azure
-
-## <a name="overview"></a>Omówienie
 
 Jedną z najważniejszych zalet chmur prywatnych rozwiązań platformy Azure VMware jest to, że platforma jest utrzymywana. Obsługa platformy obejmuje automatyczne aktualizacje pakietu oprogramowania zweryfikowanego przez oprogramowanie VMware, pomagając w upewnieniu się, że korzystasz z najnowszej wersji zweryfikowanego oprogramowania platformy Azure w chmurze prywatnej.
 

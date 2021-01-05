@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1c1a5a96742d380ce42c0aea8c77a199083df47f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: cbc22f9b55f8d20880b43516a2a5bc8f55d389f5
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492254"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814503"
 ---
 # <a name="azure-security-baseline-for-azure-ddos-protection-standard"></a>Podstawy zabezpieczeń platformy Azure dla Azure DDoS Protection Standard
 
@@ -38,7 +38,7 @@ Ta linia bazowa zabezpieczeń stosuje wskazówki z [testu porównawczego zabezpi
 
 Włącz ustawienia diagnostyczne dziennika aktywności platformy Azure i Wyślij dzienniki do obszaru roboczego Log Analytics, centrum zdarzeń platformy Azure lub konta usługi Azure Storage w celu archiwizacji. Dzienniki aktywności zapewniają wgląd w operacje wykonane w pamięci podręcznej platformy Azure dla wystąpień Redis na poziomie płaszczyzny kontroli. Korzystając z danych dziennika aktywności platformy Azure, można określić "co, kto i kiedy" dla operacji zapisu (PUT, POST, DELETE) wykonanych na poziomie płaszczyzny kontroli dla wystąpień Azure DDoS Protection.
 
-- [Jak skonfigurować alerty dla metryk ochrony DDoS](../../ddos-protection/telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics)
+- [Wyświetl i skonfiguruj rejestrowanie diagnostyczne DDoS](../../ddos-protection/diagnostic-logging.md)
 
 - [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../../azure-monitor/platform/activity-log.md)
 
@@ -60,7 +60,7 @@ Włącz ustawienia diagnostyczne dziennika aktywności platformy Azure i Wyślij
 
 **Wskazówki**: Włączanie ustawień diagnostycznych dziennika aktywności platformy Azure i wysyłanie dzienników do obszaru roboczego log Analytics. Wykonaj zapytania w Log Analytics, aby wyszukiwać terminy, identyfikować trendy, analizować wzorce i udostępniać wiele innych szczegółowych informacji na podstawie danych dziennika aktywności, które mogły zostać zebrane dla Recovery Services magazynów.
 
-- [Informacje na temat uzyskiwania dostępu do telemetrii, dzienników i analizy ataków dla usługi DDoS Protection Standard](../../ddos-protection/telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics)
+- [Informacje na temat uzyskiwania dostępu do telemetrii, dzienników i analizy ataków dla usługi DDoS Protection Standard](../../ddos-protection/telemetry.md)
 
 - [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../../azure-monitor/platform/activity-log.md)
 
@@ -76,7 +76,7 @@ Włącz ustawienia diagnostyczne dziennika aktywności platformy Azure i Wyślij
 
 Dołączanie obszaru roboczego Log Analytics do funkcji wskaźnikowej platformy Azure, ponieważ zapewnia rozwiązanie do automatycznej reakcji aranżacji zabezpieczeń (o). Pozwala to na tworzenie i używanie automatycznych rozwiązań elementy PlayBook w celu korygowania problemów z zabezpieczeniami. Ponadto można utworzyć niestandardowe alerty dzienników w obszarze roboczym Log Analytics przy użyciu Azure Monitor.
 
-- [Jak skonfigurować alerty dla metryk DDoS](https://azure.microsoft.com/blog/holiday-season-is-ddos-season/)
+- [Jak skonfigurować alerty dla metryk DDoS](../../ddos-protection/alerts.md)
 
 - [Jak dołączyć wskaźnik na platformie Azure](../../sentinel/quickstart-onboard.md)
 
@@ -142,7 +142,7 @@ Ponadto, aby ułatwić śledzenie dedykowanych kont administracyjnych, można u�
 
 - [Jak zarejestrować aplikację kliencką (nazwę główną usługi) w usłudze Azure AD](/rest/api/azure/#register-your-client-application-with-azure-ad)
 
-- [Informacje o interfejsie API usługi Azure DDos Protection](/rest/api/virtual-network/)
+- [Informacje o interfejsie API Azure DDoS Protection](/rest/api/virtual-network/)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -384,7 +384,7 @@ Usługa Azure Resource Graph umożliwia wykonywanie zapytań dotyczących zasob�
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: Ustanów bezpieczne konfiguracje dla wszystkich zasobów platformy Azure
 
-**Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla usługi Azure DDoS Protection przy użyciu Azure Policy. Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. Network", aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji magazynów Recovery Services.
+**Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla Azure DDoS Protection z Azure Policy. Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. Network", aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji magazynów Recovery Services.
 
 - [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
@@ -524,7 +524,7 @@ Przetestuj swoje założenia, w jaki sposób usługi będą reagować na ataki, 
 
 Wybierz dowolne dostępne metryki ochrony DDoS, aby poinformować użytkownika o aktywnym ograniczeniu podczas ataku przy użyciu konfiguracji alertu Azure Monitor. Gdy warunki są spełnione, określony adres otrzymuje wiadomość e-mail z alertem
 
-- [Konfigurowanie alertów dotyczących metryk ochrony DDoS](../../ddos-protection/telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics)
+- [Konfigurowanie alertów dotyczących metryk ochrony DDoS](../../ddos-protection/alerts.md)
 
 - [Jak skonfigurować eksport ciągły](../../security-center/continuous-export.md)
 

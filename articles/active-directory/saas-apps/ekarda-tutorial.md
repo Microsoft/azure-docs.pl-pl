@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/15/2020
+ms.date: 12/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 7bb74732074482c12d3bc760e259bb014ccf006f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d9e118620cb38e94cfc18d01d31888ac0a444bb7
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96179293"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97813432"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ekarda"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą ekarda
 
@@ -25,8 +25,6 @@ W tym samouczku dowiesz się, jak zintegrować usługę ekarda z usługą Azure 
 * Kontrolka w usłudze Azure AD, która ma dostęp do ekarda.
 * Umożliwienie użytkownikom automatycznego logowania się do usługi ekarda przy użyciu kont usługi Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji: Azure Portal.
-
-Aby dowiedzieć się więcej o integracji aplikacji oprogramowania jako usługi (SaaS) z usługą Azure AD, zobacz [co to jest logowanie jednokrotne (SSO)?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -41,13 +39,12 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 
 * Usługa ekarda obsługuje logowanie jednokrotne z użyciem zainicjowanych przez usługę SP i dostawcy tożsamości.
 * ekarda obsługuje Inicjowanie obsługi użytkowników just in Time.
-* Po skonfigurowaniu ekarda można wymusić kontrolę sesji. To zabezpieczenie chroni przed eksfiltracji i niefiltrowaniem poufnych danych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od Kontrola dostępu warunkowego aplikacji. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-ekarda-from-the-gallery"></a>Dodaj ekarda z galerii
 
 Aby skonfigurować integrację programu ekarda z usługą Azure AD, Dodaj ekarda z galerii do listy zarządzanych aplikacji SaaS:
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konto Microsoft prywatnego.
 
 1. W okienku po lewej stronie wybierz usługę **Azure Active Directory** .
 1. Przejdź do pozycji **Aplikacje dla przedsiębiorstw** i wybierz pozycję **Wszystkie aplikacje**.
@@ -55,7 +52,7 @@ Aby skonfigurować integrację programu ekarda z usługą Azure AD, Dodaj ekarda
 1. W sekcji **Dodaj z galerii** wpisz **ekarda** w polu wyszukiwania.
 1. Wybierz pozycję **ekarda** z panelu wyniki, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-ekarda"></a>Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD dla ekarda
+## <a name="configure-and-test-azure-ad-sso-for-ekarda"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla ekarda
 
 Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą ekarda przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy nawiązać relację między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w ekarda.
 
@@ -73,7 +70,7 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pom
 
 Wykonaj następujące kroki w Azure Portal, aby włączyć logowanie jednokrotne w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się do Portalu Azure.
 1. Na stronie integracja aplikacji **ekarda** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
 1. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** wybierz ikonę ołówka, aby edytować **podstawowe ustawienia konfiguracji protokołu SAML** .
@@ -95,7 +92,7 @@ Wykonaj następujące kroki w Azure Portal, aby włączyć logowanie jednokrotne
 
 1. Aby skonfigurować aplikację w trybie inicjowania programu SP, wybierz opcję **Ustaw dodatkowe adresy URL** i wykonaj następujące czynności:
 
-    * W polu tekstowym **adres URL logowania** wpisz adres URL, który następuje po tym wzorcu: `https://my.ekarda.com/users/saml_sso/<COMPANY_ID>`
+    W polu tekstowym **adres URL logowania** wpisz adres URL, który następuje po tym wzorcu:  `https://my.ekarda.com/users/saml_sso/<COMPANY_ID>`
 
     > [!NOTE]
     > Wartości w dwóch poprzednich krokach nie są rzeczywiste. Zaktualizuj je za pomocą rzeczywistego identyfikatora, adresu URL odpowiedzi i wartości adresu URL logowania. Skontaktuj się z [zespołem obsługi klienta ekarda](mailto:contact@ekarda.com) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
@@ -129,19 +126,24 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. Na liście Aplikacje wybierz pozycję **ekarda**.
 1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
 
-   ![Zrzut ekranu przedstawiający sekcję Zarządzanie z wyróżnionymi użytkownikami i grupami.](common/users-groups-blade.png)
-
 1. Wybierz pozycję **Dodaj użytkownika**, a następnie **Użytkownicy i grupy** w oknie dialogowym **Dodawanie przypisania**.
 
-    ![Zrzut ekranu przedstawiający sekcję Użytkownicy i grupy z wyróżnioną pozycją Dodaj użytkownika.](common/add-assign-user.png)
-
 1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy użytkowników. Następnie wybierz **pozycję zaznacz** w dolnej części ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, wybierz odpowiednią rolę dla użytkownika z listy w oknie dialogowym **Wybierz rolę** . Następnie wybierz **pozycję zaznacz** w dolnej części ekranu.
+1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
 1. W oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Przypisz**.
 
 ## <a name="configure-ekarda-sso"></a>Konfigurowanie logowania jednokrotnego ekarda
 
-1. W innym oknie przeglądarki sieci Web Zaloguj się do firmowej witryny ekarda jako administrator.
+1. Aby zautomatyzować konfigurację w programie ekarda, należy zainstalować **Moje aplikacje bezpieczne logowanie do przeglądarki** , klikając pozycję **Zainstaluj rozszerzenie**.
+
+    ![Rozszerzenie moje aplikacje](common/install-myappssecure-extension.png)
+
+2. Po dodaniu rozszerzenia do przeglądarki kliknij pozycję **Skonfiguruj** , aby przekierować użytkownika do aplikacji ekarda. Z tego miejsca podaj poświadczenia administratora, aby zalogować się do usługi ekarda. Rozszerzenie przeglądarki automatycznie skonfiguruje aplikację i automatyzuje kroki 3-6.
+
+    ![Konfiguracja konfiguracji](common/setup-sso.png)
+
+3. Jeśli chcesz ręcznie skonfigurować ekarda, w innym oknie przeglądarki sieci Web Zaloguj się do witryny firmy ekarda jako administrator.
+
 1. Wybierz pozycję **administrator**  >  **Moje konto**.
 
     ![Zrzut ekranu przedstawiający interfejs użytkownika witryny ekarda z wyróżnionym kontem w menu administratora.](./media/ekarda-tutorial/ekarda.png)
@@ -166,16 +168,20 @@ W tej sekcji użytkownik o nazwie B. Simon został utworzony w ekarda. ekarda ob
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD za pomocą portalu My Apps.
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji.
 
-Po wybraniu kafelka ekarda w portalu My Apps należy automatycznie zalogować się do witryny ekarda, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat portalu Moje aplikacje, zobacz [wprowadzenie do portalu My Apps](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Zainicjowano SP:
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie do adresu URL logowania ekarda, w którym można zainicjować przepływ logowania.
 
-* [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
-* [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](../conditional-access/overview.md)
-* [Wypróbuj ekarda z usługą Azure AD](https://aad.portal.azure.com/)
-* Użyj [rozwiązania ekarda Enterprise eCard](https://ekarda.com/ecards-ecards-with-logo-for-business-corporate-enterprise) , aby udostępnić klientom i współpracownikom dowolną liczbę pracowników, którzy mają do nich wysyłać eCards z logo firmy. Dowiedz się więcej o [aprowizacji ekarda jako rozwiązanie logowania jednokrotnego](https://support.ekarda.com/#SSO-Implementation).
-* [Co to jest kontrola sesji w Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
-* [Jak chronić ekarda z zaawansowaną widocznością i kontrolkami](/cloud-app-security/proxy-intro-aad)
+* Przejdź bezpośrednio do adresu URL logowania ekarda i zainicjuj w nim przepływ logowania.
+
+#### <a name="idp-initiated"></a>DOSTAWCY tożsamości zainicjowane:
+
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal i należy automatycznie zalogować się do ekarda, dla którego skonfigurowano Logowanie jednokrotne
+
+Możesz również użyć aplikacji Microsoft my Apps, aby przetestować aplikację w dowolnym trybie. Po kliknięciu kafelka ekarda w obszarze Moje aplikacje, jeśli jest skonfigurowany w trybie SP, nastąpi przekierowanie do strony logowania do aplikacji w celu zainicjowania przepływu logowania, a jeśli zostanie on skonfigurowany w trybie dostawcy tożsamości, należy automatycznie zalogować się do ekarda, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+## <a name="next-steps"></a>Następne kroki
+
+Po skonfigurowaniu ekarda można wymusić kontrolę sesji. To zabezpieczenie chroni przed eksfiltracji i niefiltrowaniem poufnych danych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od Kontrola dostępu warunkowego aplikacji. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

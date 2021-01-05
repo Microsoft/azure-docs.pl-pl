@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 834672274ade1f8551e86e7c636c4625368d997c
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: f0f64d910d03e42008c5fe6fef28a5b9c0917abd
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652198"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814469"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Optymalizowanie Azure Data Lake Storage Gen2 na potrzeby wydajności
 
@@ -21,11 +21,11 @@ Azure Data Lake Storage Gen2 obsługuje wysoką przepływność na potrzeby anal
 
 ![Data Lake Storage Gen2 wydajność](./media/data-lake-storage-performance-tuning-guidance/throughput.png)
 
-Data Lake Storage Gen2 można skalować w celu zapewnienia odpowiedniej przepływności dla całego scenariusza analizy. Domyślnie konto Data Lake Storage Gen2 zapewnia automatycznie wystarczającą przepływność, aby sprostać wymaganiom szerokiej kategorii przypadków użycia. W przypadkach, w których klienci mają domyślnie uruchomiony limit, konto Data Lake Storage Gen2 można skonfigurować w celu zapewnienia większej przepływności, kontaktując się z [pomocą techniczną platformy Azure](https://azure.microsoft.com/support/faq/).
+Data Lake Storage Gen2 można skalować w celu zapewnienia odpowiedniej przepływności dla wszystkich scenariuszy analizy. Domyślnie konto Data Lake Storage Gen2 zapewnia wystarczającą przepływność w konfiguracji domyślnej, aby zaspokoić potrzeby szerokiej kategorii przypadków użycia. W przypadkach, w których klienci mają domyślnie uruchomiony limit, konto Data Lake Storage Gen2 można skonfigurować w celu zapewnienia większej przepływności, kontaktując się z [pomocą techniczną platformy Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="data-ingestion"></a>Wprowadzanie danych
 
-W przypadku pozyskiwania danych z systemu źródłowego do Data Lake Storage Gen2 należy pamiętać, że sprzęt źródłowy, sprzęt sieciowy i połączenie sieciowe, które mają Data Lake Storage Gen2 może być wąskim gardłem.  
+W przypadku pozyskiwania danych z systemu źródłowego do Data Lake Storage Gen2 należy pamiętać, że sprzęt źródłowy, źródłowy sprzęt sieciowy lub połączenie sieciowe, które Data Lake Storage Gen2 może być wąskim gardłem.  
 
 ![Diagram przedstawiający czynniki, które należy wziąć pod uwagę podczas pozyskiwania danych z systemu źródłowego do Data Lake Storage Gen2.](./media/data-lake-storage-performance-tuning-guidance/bottleneck.png)
 
@@ -37,7 +37,7 @@ Niezależnie od tego, czy używasz lokalnych maszyn i maszyn wirtualnych na plat
 
 ### <a name="network-connectivity-to-data-lake-storage-gen2"></a>Łączność sieciowa z Data Lake Storage Gen2
 
-Połączenie sieciowe między danymi źródłowymi a Data Lake Storage Gen2 może czasami stanowić wąskie gardło. Jeśli dane źródłowe są lokalne, należy rozważyć użycie dedykowanego linku z [usługą Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) . Jeśli dane źródłowe są na platformie Azure, wydajność będzie najlepsza, gdy dane będą znajdować się w tym samym regionie platformy Azure co konto Data Lake Storage Gen2.
+Połączenie sieciowe między danymi źródłowymi a Data Lake Storage Gen2 może czasami stanowić wąskie gardło. Jeśli dane źródłowe są lokalne, należy rozważyć użycie dedykowanego linku z [usługą Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/). Jeśli dane źródłowe są na platformie Azure, wydajność będzie najlepsza, gdy dane będą znajdować się w tym samym regionie platformy Azure co konto Data Lake Storage Gen2.
 
 ### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>Konfigurowanie narzędzi pozyskiwania danych w celu uzyskania maksymalnej przetwarzanie równoległe
 
@@ -45,9 +45,9 @@ Po rozwiązaniu problemów ze źródłem zasobów sprzętowych i połączeń sie
 
 | Narzędzie               | Ustawienia | Więcej szczegółów                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| Pomocą distcp            | -m (mapowanie)   | [Powiązań](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
-| Azure Data Factory| parallelCopies    | [Powiązań](../../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | FS. Azure. Block. size,-m (Maper)    |   [Powiązań](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
+| Pomocą distcp            | -m (mapowanie)   | [Link](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
+| Azure Data Factory| parallelCopies    | [Link](../../data-factory/copy-activity-performance.md)                          |
+| Sqoop           | FS. Azure. Block. size,-m (Maper)    |   [Link](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
 
 ## <a name="structure-your-data-set"></a>Struktura zestawu danych
 

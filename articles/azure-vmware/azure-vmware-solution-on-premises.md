@@ -2,13 +2,13 @@
 title: Łączenie rozwiązania VMware z platformą Azure z środowiskiem lokalnym
 description: Dowiedz się, jak połączyć rozwiązanie VMware firmy Azure ze środowiskiem lokalnym.
 ms.topic: tutorial
-ms.date: 10/02/2020
-ms.openlocfilehash: 2a0cb641df00f3e580e87e38aff382d8e8101fc7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/28/2020
+ms.openlocfilehash: 753835b0206d8bbabe42b057fa40a2d6c4c8c414
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91583340"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97809687"
 ---
 # <a name="connect-azure-vmware-solution-to-your-on-premises-environment"></a>Łączenie rozwiązania VMware z platformą Azure z środowiskiem lokalnym
 
@@ -26,18 +26,14 @@ Przed rozpoczęciem należy wykonać dwa wymagania wstępne dotyczące łączeni
 
 Aby nawiązać połączenie lokalne z chmurą prywatną rozwiązania Azure VMware za pomocą ExpressRoute Global Reach, postępuj zgodnie ze [środowiskami lokalnymi, aby](tutorial-expressroute-global-reach-private-cloud.md) skorzystać z samouczka chmury prywatnej.
 
-
-
 ## <a name="verify-on-premises-network-connectivity"></a>Weryfikowanie łączności z siecią lokalną
 
 Należy teraz zobaczyć **na lokalnym routerze brzegowym** , gdzie ExpressRoute łączy segmenty sieci NSX-T i segmenty zarządzania rozwiązaniami VMware platformy Azure.
 
->[!NOTE]
+>[!IMPORTANT]
 >Każdy ma inne środowisko, a niektóre muszą zezwalać na propagację tych tras z powrotem do sieci lokalnej.  
 
-Niektóre środowiska będą mieć zapory chroniące obwód ExpressRoute.  Jeśli nie ma żadnych zapór i nie jest przeprowadzana oczyszczanie trasy, można wysłać polecenie ping do serwera vCenter rozwiązania Azure VMware lub [maszyny wirtualnej](deploy-azure-vmware-solution.md#add-a-vm-on-the-nsx-t-network-segment) w segmencie NSX-T ze środowiska lokalnego.
-
-Ponadto z poziomu maszyny wirtualnej w segmencie NSX-T można uzyskać dostęp do zasobów w środowisku lokalnym.
+Niektóre środowiska mają zapory chroniące obwód ExpressRoute.  W przypadku braku zapór i braku oczyszczania trasy należy wysłać polecenie ping do serwera vCenter rozwiązania Azure VMware lub [maszyny wirtualnej w segmencie NSX-T](deploy-azure-vmware-solution.md#add-a-vm-on-the-nsx-t-network-segment) ze środowiska lokalnego. Ponadto z poziomu maszyny wirtualnej w segmencie NSX-T można uzyskać dostęp do zasobów w środowisku lokalnym.
 
 ## <a name="next-steps"></a>Następne kroki
 

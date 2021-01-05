@@ -7,18 +7,21 @@ ms.service: storage
 ms.subservice: blobs
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 11/07/2017
+ms.date: 12/29/2020
 ms.author: fryu
-ms.openlocfilehash: 2d921a968f50f64788ccbd7637bc04c8492a3f90
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: dfc338844e310102447e2498ee9cce8f28a79b9f
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96010898"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97809568"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Obliczanie łącznego rozmiaru kontenera obiektów blob
 
 Ten skrypt oblicza rozmiar kontenera w usłudze Azure Blob Storage na potrzeby szacowania kosztów rozliczeń. Skrypt sumuje rozmiar obiektów blob w kontenerze.
+
+> [!IMPORTANT]
+> Przykładowy skrypt podany w tym artykule może nie obliczyć prawidłowo rozmiaru rozliczeń dla migawek obiektów BLOB.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
@@ -44,6 +47,7 @@ For-Each Signed Identifier[512 bytes]
 ```
 
 Podział jest następujący:
+
 * 48 bajtów narzutu dla każdego kontenera obejmuje godzinę ostatniej modyfikacji, uprawnienia, ustawienia publiczne i niektóre metadane systemu.
 
 * Nazwa kontenera jest przechowywana w formacie Unicode, więc należy pomnożyć liczbę znaków przez 2.

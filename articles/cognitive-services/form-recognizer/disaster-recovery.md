@@ -9,16 +9,16 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 168dcf994d00ba1cb2070665ada5a55cf86cfa4a
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 747ceb0106f437f9e2442c2b8c68c0b73a9107a6
+ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359816"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97808262"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Tworzenie kopii zapasowych i odzyskiwanie modeli aparatu rozpoznawania formularzy
 
-Podczas tworzenia zasobu aparatu rozpoznawania formularza w Azure Portal należy określić region. Od tego czasu zasób i wszystkie jego operacje pozostają skojarzone z tym określonym regionem serwera platformy Azure. Jest to rzadki, ale nie możliwe, aby napotkać problem z siecią, który trafi na cały region. Jeśli Twoje rozwiązanie musi być zawsze dostępne, należy zaprojektować je do pracy awaryjnej w innym regionie lub podzielić obciążenie między dwa lub więcej regionów. Oba podejścia wymagają co najmniej dwóch zasobów aparatu rozpoznawania formularzy w różnych regionach i możliwość synchronizowania [modeli niestandardowych](./quickstarts/curl-train-extract.md) w różnych regionach.
+Podczas tworzenia zasobu aparatu rozpoznawania formularza w Azure Portal należy określić region. Od tego czasu zasób i wszystkie jego operacje pozostają skojarzone z tym określonym regionem serwera platformy Azure. Jest to rzadki, ale nie możliwe, aby napotkać problem z siecią, który trafi na cały region. Jeśli Twoje rozwiązanie musi być zawsze dostępne, należy zaprojektować je do pracy awaryjnej w innym regionie lub podzielić obciążenie między dwa lub więcej regionów. Oba podejścia wymagają co najmniej dwóch zasobów aparatu rozpoznawania formularzy w różnych regionach i możliwość synchronizowania modeli niestandardowych w różnych regionach.
 
 Interfejs API kopiowania umożliwia korzystanie z tego scenariusza przez umożliwienie kopiowania modeli niestandardowych z jednego konta aparatu rozpoznawania formularzy lub do innych, które mogą istnieć w dowolnym obsługiwanym regionie geograficznym. W tym przewodniku pokazano, jak używać interfejsu API REST kopiowania z zwinięciem. Możesz również użyć usługi żądania HTTP, takiej jak program Poster, aby wydać żądania.
 

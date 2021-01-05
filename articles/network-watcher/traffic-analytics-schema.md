@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: ccfbb92c27e4508595f19c2ea6900730cde609b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 015b8e400e9d386fff8f35756a77139e61bbaff1
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74666379"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97809296"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Agregacja schematu i danych w Analiza ruchu
 
@@ -39,11 +39,11 @@ Analiza ruchu to rozwiązanie oparte na chmurze, które zapewnia wgląd w aktywn
 5. FlowStartTime_t pole wskazuje pierwsze wystąpienie tego zagregowanego przepływu (takie same cztery krotki) w czasie przetwarzania dziennika przepływu między "FlowIntervalStartTime_t" i "FlowIntervalEndTime_t".
 6. Dla każdego zasobu w tym przepływy wskazane w interfejsie użytkownika są łącznymi przepływami widocznymi przez sieciowej grupy zabezpieczeń, ale w Log Analytics użytkownik zobaczy tylko jeden rekord z ograniczeniami. Aby wyświetlić wszystkie przepływy, użyj pola blob_id, do którego odwołuje się magazyn. Całkowita liczba przepływów dla tego rekordu będzie zgodna z pojedynczymi przepływami widocznymi w obiekcie blob.
 
-Poniższe zapytanie pomaga w przeszukiwaniu wszystkich dzienników przepływów lokalnych w ciągu ostatnich 30 dni.
+Poniższe zapytanie pomaga sprawdzić wszystkie podsieci, które współpracują z publicznymi adresami IP spoza platformy Azure w ciągu ostatnich 30 dni.
 ```
 AzureNetworkAnalytics_CL
 | where SubType_s == "FlowLog" and FlowStartTime_t >= ago(30d) and FlowType_s == "ExternalPublic"
-| project Subnet_s  
+| project Subnet1_s, Subnet2_s  
 ```
 Aby wyświetlić ścieżkę obiektu BLOB dla przepływów w powyższym zapytaniu, użyj poniższego zapytania:
 

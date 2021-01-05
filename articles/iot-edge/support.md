@@ -8,12 +8,12 @@ ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6a08fc25083ecd6917f658f27cb954391228adf7
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 063ef6b76e031277d93297512e16d30a86aae45c
+ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188704"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97808525"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge obsługiwane systemy
 
@@ -95,7 +95,7 @@ Systemy wymienione w poniższej tabeli są uważane za zgodne z Azure IoT Edge, 
 <sup>1</sup> Debian 10 systemów, w tym RASPBERRY pi OS Buster, użyj wersji OpenSSL, która nie jest obsługiwana przez IoT Edge. Przed zainstalowaniem IoT Edge Użyj następującego polecenia:
 
 ```bash
-sudo apt-get install libssl1.0.2
+sudo apt-get install libssl1.1
 ```
 
 <sup>2</sup> Debian 9 pakietów z [repozytorium Azure IoT Edge wydań](https://github.com/Azure/azure-iotedge/releases) powinien wymusić wyjście z pudełka Ubuntu 20,04.

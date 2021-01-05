@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: f5cf432e3824ca0bb441a458a08fc7353291cf1f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: be8123d3c8a4acc684610aeaa9ee263c5defa17d
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96490061"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97813619"
 ---
 # <a name="auto-provisioning-agents-and-extensions-from-azure-security-center"></a>Inicjowanie obsługi administracyjnej agentów i rozszerzeń z Azure Security Center
 
@@ -30,6 +30,17 @@ Dane są zbierane przy użyciu:
 > Jak Security Center, typy zasobów, które mogą być monitorowane, również zostały nahodowane. Liczba rozszerzeń została również osiągnięta. Funkcja autoaprowizacji została rozszerzona o obsługę dodatkowych typów zasobów, wykorzystując możliwości Azure Policy.
 
 :::image type="content" source="./media/security-center-enable-data-collection/auto-provisioning-options.png" alt-text="Strona ustawień autoaprowizacji Security Center":::
+
+
+## <a name="availability"></a>Dostępność
+
+| Aspekt                  | Szczegóły                                                                                                                                                                                                                      |
+|-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Stan wydania:          | **Funkcja**: obsługa autoaprowizacji jest ogólnie dostępna (ga)<br>**Agent i rozszerzenia**: usługa log Analytics Agent dla maszyn wirtualnych platformy Azure jest w wersji zapoznawczej, a dodatek zasad dla Kubernetes został rozbudowany                |
+| Wpisaną                | Bezpłatna                                                                                                                                                                                                                         |
+| Obsługiwane miejsca docelowe: | ![Tak](./media/icons/yes-icon.png) Maszyny platformy Azure<br>![Nie](./media/icons/no-icon.png) Maszyny usługi Azure Arc<br>![Nie](./media/icons/no-icon.png) Kubernetes węzły<br>![Nie](./media/icons/no-icon.png) Usługa Virtual Machine Scale Sets |
+| Połączeń                 | ![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov, Chiny gov, inne gov                                                                                                      |
+|                         |                                                                                                                                                                                                                              |
 
 
 ## <a name="why-use-auto-provisioning"></a>Dlaczego warto używać autoaprowizacji?
@@ -120,7 +131,7 @@ Aby włączyć automatyczną obsługę rozszerzenia innego niż Agent Log Analyt
 
 1. Wybierz pozycję **Zapisz**. Zasady platformy Azure są przypisane i tworzone jest zadanie korygowania.
 
-    |Rozszerzenie  |Zasady  |
+    |Wewnętrzny  |Zasady  |
     |---------|---------|
     |Dodatek zasad dla Kubernetes|[Wdrażanie dodatku Azure Policy w klastrach usługi Azure Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fa8eff44f-8c92-45c3-a3fb-9880802d67a7)|
     |Microsoft Dependency Agent (wersja zapoznawcza) (maszyny wirtualne z systemem Windows)|[Wdróż agenta zależności dla maszyn wirtualnych z systemem Windows](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f1c210e94-a481-4beb-95fa-1571b434fb04)         |

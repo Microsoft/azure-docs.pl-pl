@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/11/2020
+ms.date: 12/29/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 300b9b6279231079807f8c923570bddab657ff56
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 93bcbab9445d83bf17b37b6affc1d2bc70703bbf
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92095912"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814333"
 ---
 # <a name="initiate-a-storage-account-failover"></a>Inicjowanie trybu failover konta magazynu
 
@@ -38,6 +38,13 @@ Aby można było wykonać tryb failover konta na koncie magazynu, upewnij się, 
 
 Aby uzyskać więcej informacji o nadmiarowości usługi Azure Storage, zobacz [nadmiarowość usługi Azure Storage](storage-redundancy.md).
 
+Należy pamiętać, że następujące funkcje i usługi nie są obsługiwane w przypadku trybu failover dla konta:
+
+- Azure File Sync nie obsługuje trybu failover dla konta magazynu. Kont magazynu zawierających udziały plików platformy Azure używane jako punkty końcowe w chmurze w usłudze Azure File Sync nie należy przełączać w tryb failover. Wykonanie tej operacji spowoduje, że synchronizacja przestanie działać, a także może spowodować nieoczekiwaną utratę danych w przypadku nowych plików warstwowych.
+- ADLS Gen2 konta magazynu (konta z włączoną hierarchiczną przestrzenią nazw) nie są w tej chwili obsługiwane.
+- Nie można przełączyć konta magazynu zawierającego blokowe obiekty blob w warstwie Premium. Konta magazynu obsługujące blokowe obiekty blob w warstwie Premium nie obsługują obecnie nadmiarowości geograficznej.
+- Nie można przełączyć do trybu failover konta magazynu zawierającego wszystkie kontenery z włączonymi [zasadami niezmiennościymi](../blobs/storage-blob-immutable-storage.md) . Odblokowanie/blokowanie oparte na czasie lub zasady wstrzymania w trybie failover w celu zachowania zgodności.
+
 ## <a name="initiate-the-failover"></a>Inicjowanie trybu failover
 
 ## <a name="portal"></a>[Portal](#tab/azure-portal)
@@ -54,7 +61,7 @@ Aby zainicjować tryb failover konta z Azure Portal, wykonaj następujące kroki
 1. Wybierz pozycję **Przygotuj się do przejścia do trybu failover**.
 1. Przejrzyj okno dialogowe potwierdzenia. Gdy wszystko będzie gotowe, wprowadź **wartość tak** , aby potwierdzić i zainicjować tryb failover.
 
-    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-confirm.png" alt-text="Zrzut ekranu przedstawiający replikację geograficzną i stan trybu failover":::
+    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-confirm.png" alt-text="Zrzut ekranu przedstawiający okno dialogowe potwierdzenia dla konta w trybie failover":::
 
 ## <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 

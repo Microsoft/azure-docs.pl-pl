@@ -4,12 +4,12 @@ description: Skonfiguruj akcję GitHub, która automatyzuje kroki do kompilowani
 ms.topic: article
 ms.date: 08/20/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 7dfa2a66851db760049e7c3dc3446223c7dffad1
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: c6c030e05953dc98c82c573704018c3b482d2fea
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97609160"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814282"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>Konfigurowanie akcji usługi GitHub w celu utworzenia wystąpienia kontenera
 
@@ -56,7 +56,7 @@ W przepływie pracy usługi GitHub należy podać poświadczenia platformy Azure
 Najpierw Pobierz identyfikator zasobu grupy zasobów. Zastąp nazwę grupy w następującym [AZ Group Show][az-group-show] polecenie:
 
 ```azurecli
-$groupId=$(az group show \
+groupId=$(az group show \
   --name <resource-group-name> \
   --query id --output tsv)
 ```
@@ -282,7 +282,7 @@ acr-build-helloworld-node.westus.azurecontainer.io     Succeeded
 
 Po aprowizacji wystąpienia przejdź do nazwy FQDN kontenera w przeglądarce, aby wyświetlić działającą aplikację sieci Web.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Zatrzymaj wystąpienie kontenera przy użyciu polecenia [az container delete][az-container-delete]:
 

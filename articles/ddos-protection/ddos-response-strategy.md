@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 0a80f03ee82e8d1216353482dc867402adcf7d09
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 2b31a8aa8b126c228ac7e9c3ca182300c710b098
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992237"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814061"
 ---
 # <a name="components-of-a-ddos-response-strategy"></a>Składniki strategii reagowania na ataki DDoS
 
@@ -56,7 +56,7 @@ Zalecamy używanie ćwiczeń symulacji jako zwykłych części planowania dostę
 
 ## <a name="alerts-during-an-attack"></a>Alerty w trakcie ataku
 
-Azure DDoS Protection Standard identyfikuje i zmniejsza ataki DDoS bez żadnej interwencji użytkownika. Aby otrzymywać powiadomienia, gdy istnieje aktywne środki zaradcze dla chronionego publicznego adresu IP, można [skonfigurować alert](telemetry-monitoring-alerting.md) dotyczący metryki w **obszarze atak DDoS**. Można utworzyć alerty dla innych metryk DDoS, aby zrozumieć skalę ataku, pozostały ruch oraz inne szczegóły.
+Azure DDoS Protection Standard identyfikuje i zmniejsza ataki DDoS bez żadnej interwencji użytkownika. Aby otrzymywać powiadomienia, gdy istnieje aktywne środki zaradcze dla chronionego publicznego adresu IP, można [skonfigurować alerty](alerts.md).
 
 ### <a name="when-to-contact-microsoft-support"></a>Kiedy należy skontaktować się z pomocą techniczną firmy Microsoft
 

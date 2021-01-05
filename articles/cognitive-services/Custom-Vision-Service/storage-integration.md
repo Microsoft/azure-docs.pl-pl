@@ -9,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: f4d9cc4c02ab062c73e9dbd977d9ea9e6ccdb60d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43cd03e8f4a66d18adc33c943481002ff7b326d3
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532785"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97813211"
 ---
 # <a name="integrate-azure-storage-for-notifications-and-backup"></a>Integrowanie usługi Azure Storage na potrzeby powiadomień i kopii zapasowych
 
@@ -206,4 +206,5 @@ Powiadomienie zostanie również odebrane w kolejce po zakończeniu eksportowani
 ## <a name="next-steps"></a>Następne kroki
 
 W tym przewodniku przedstawiono sposób kopiowania i przenoszenia projektu między zasobami Custom Vision. Następnie zapoznaj się z dokumentacją dotyczącą interfejsów API, aby zobaczyć, co jeszcze można zrobić z Custom Vision.
-* [Dokumentacja interfejsu API REST](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3)
+* [Dokumentacja interfejsu API REST (szkolenie)](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3)
+* [Dokumentacja interfejsu API REST (przewidywania)](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.1/operations/5eb37d24548b571998fde5f3)

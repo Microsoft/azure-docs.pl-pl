@@ -1,7 +1,7 @@
 ---
 title: 'Samouczek: Tworzenie modelu predykcyjnego za pomocą notesu (część 1 z 2)'
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak utworzyć i wdrożyć model uczenia maszynowego przy użyciu kodu w Jupyter Notebook, dzięki czemu można go użyć do przewidywania wyników w programie Microsoft Power BI.
+description: Dowiedz się, jak skompilować i wdrożyć model uczenia maszynowego przy użyciu kodu w Jupyter Notebook. Możesz użyć modelu do przewidywania wyników w programie Microsoft Power BI.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,69 +10,70 @@ ms.author: samkemp
 author: samuel100
 ms.reviewer: sdgilley
 ms.date: 12/11/2020
-ms.openlocfilehash: f8209c0d26cf8c572d10666696231b0468cfcbc6
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 1dfee56f90011d3c532767e136b383e4eb95c234
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97370267"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814775"
 ---
-# <a name="tutorial-power-bi-integration---create-the-predictive-model-with-a-notebook-part-1-of-2"></a>Samouczek: integracja Power BI — Tworzenie modelu predykcyjnego za pomocą notesu (część 1 z 2)
+# <a name="tutorial-power-bi-integration---create-the-predictive-model-by-using-a-jupyter-notebook-part-1-of-2"></a>Samouczek: integracja Power BI — Tworzenie modelu predykcyjnego za pomocą Jupyter Notebook (część 1 z 2)
 
-W pierwszej części tego samouczka nauczysz się i wdrożyć model uczenia maszynowego przy użyciu kodu w Jupyter Notebook. W części 2 zostanie następnie użyty model do przewidywania wyników w programie Microsoft Power BI.
+W części 1 tego samouczka nauczysz się i wdrożyć model uczenia maszynowego przy użyciu kodu w Jupyter Notebook. W części 2 będziesz używać modelu do przewidywania wyników w programie Microsoft Power BI.
 
 W tym samouczku zostały wykonane następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie notesu Jupyter
-> * Tworzenie wystąpienia obliczeniowego Azure Machine Learning
-> * Uczenie modelu regresji przy użyciu scikit — uczenie się
-> * Wdrażanie modelu w punkcie końcowym oceniania w czasie rzeczywistym
+> * Utwórz wystąpienie obliczeniowe Azure Machine Learning.
+> * Uczenie modelu regresji przy użyciu scikit — uczenie się.
+> * Wdróż model w punkcie końcowym oceniania w czasie rzeczywistym.
 
-Istnieją trzy różne sposoby tworzenia i wdrażania modelu, który będzie używany w Power BI.  W tym artykule omówiono opcję A: uczenie i wdrażanie modeli przy użyciu notesów.  Ta opcja umożliwia pokazanie środowiska tworzenia kodu przy użyciu notesów Jupyter hostowanych w programie Azure Machine Learning Studio. 
+Istnieją trzy sposoby tworzenia i wdrażania modelu, który będzie używany w Power BI.  W tym artykule opisano "opcja A: uczenie i wdrażanie modeli przy użyciu notesów".  Ta opcja jest interfejsem tworzenia kodu. Używa ona notesów Jupyter, które są hostowane w Azure Machine Learning Studio. 
 
-Zamiast tego można użyć:
+Zamiast tego można użyć jednej z innych opcji:
 
-* [Opcja B: uczenie i wdrażanie modeli przy użyciu narzędzia Projektant](tutorial-power-bi-designer-model.md)— środowisko tworzenia z niską ilością kodu przy użyciu narzędzia Projektant (interfejs użytkownika typu "przeciągnij i upuść").
-* [Opcja C: uczenie i wdrażanie modeli przy użyciu zautomatyzowanej](tutorial-power-bi-automated-model.md) sieci — środowisko tworzenia bez kodu, które w pełni automatyzuje przygotowanie danych i szkolenia modeli.
+* [Opcja B: uczenie i wdrażanie modeli przy użyciu narzędzia Azure Machine Learning Designer](tutorial-power-bi-designer-model.md). W tym środowisku tworzenia kodu jest wykorzystywany interfejs użytkownika typu "przeciągnij i upuść".
+* [Opcja C: uczenie i wdrażanie modeli przy użyciu funkcji automatycznego uczenia maszynowego](tutorial-power-bi-automated-model.md). To środowisko tworzenia kodu nie pełni całkowicie automatyzuje przygotowanie danych i szkolenia modeli.
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Subskrypcja platformy Azure ([dostępna jest bezpłatna wersja próbna](https://aka.ms/AMLFree)). 
-- Obszar roboczy usługi Azure Machine Learning. Jeśli jeszcze nie masz obszaru roboczego, postępuj zgodnie z instrukcjami [tworzenia obszar roboczy usługi Azure Machine Learning](./how-to-manage-workspace.md#create-a-workspace).
+- Subskrypcja platformy Azure. Jeśli nie masz jeszcze subskrypcji, możesz skorzystać z [bezpłatnej wersji próbnej](https://aka.ms/AMLFree). 
+- Obszar roboczy usługi Azure Machine Learning. Jeśli nie masz jeszcze obszaru roboczego, zapoznaj się z tematem [tworzenie Azure Machine Learning obszarów roboczych i zarządzanie nimi](./how-to-manage-workspace.md#create-a-workspace).
 - Wstępna wiedza dotycząca języka Python i przepływów pracy uczenia maszynowego.
 
 ## <a name="create-a-notebook-and-compute"></a>Tworzenie notesu i obliczeń
 
-Na stronie głównej [Azure Machine Learning Studio](https://ml.azure.com) wybierz pozycję **Utwórz nowy** , a następnie wpisz **Notes**:
+Na stronie głównej [**Azure Machine Learning Studio**](https://ml.azure.com) wybierz pozycję **Utwórz nowy**  >  **Notes**:
 
-:::image type="content" source="media/tutorial-power-bi/create-new-notebook.png" alt-text="Zrzut ekranu przedstawiający sposób tworzenia notesu":::
+:::image type="content" source="media/tutorial-power-bi/create-new-notebook.png" alt-text="Zrzut ekranu przedstawiający sposób tworzenia notesu.":::
  
-Zostanie wyświetlone okno dialogowe umożliwiające **utworzenie nowego pliku** :
+Na stronie **Tworzenie nowego pliku** :
 
-1. Nazwa pliku dla notesu (na przykład `my_model_notebook` )
-1. Zmień **Typ pliku** na **Notes**
+1. Nazwij Notes (na przykład *my_model_notebook*).
+1. Zmień **Typ pliku** na **Notes**.
+1. Wybierz przycisk **Utwórz**. 
+ 
+Następnie, aby uruchomić komórki kodu, Utwórz wystąpienie obliczeniowe i Dołącz je do notesu. Zacznij od wybrania ikony Plus w górnej części notesu:
 
-Wybierz pozycję **Utwórz**. Następnie musisz utworzyć pewne obliczenia i dołączyć je do notesu w celu uruchomienia komórek kodu. W tym celu wybierz ikonę Plus w górnej części notesu:
+:::image type="content" source="media/tutorial-power-bi/create-compute.png" alt-text="Zrzut ekranu przedstawiający sposób tworzenia wystąpienia obliczeniowego.":::
 
-:::image type="content" source="media/tutorial-power-bi/create-compute.png" alt-text="Zrzut ekranu przedstawiający sposób tworzenia wystąpienia obliczeniowego":::
+Na stronie **Tworzenie wystąpienia obliczeniowego** :
 
-Następnie na stronie **Tworzenie wystąpienia obliczeniowego** :
-
-1. Wybierz rozmiar maszyny wirtualnej procesora CPU — na potrzeby tego samouczka **Standard_D11_v2** (dwa rdzenie, 14 GB pamięci RAM) będą działać prawidłowo.
+1. Wybierz rozmiar maszyny wirtualnej procesora CPU. Na potrzeby tego samouczka można wybrać **Standard_D11_v2** z 2 rdzeniami i 14 GB pamięci RAM.
 1. Wybierz pozycję **Dalej**. 
-1. Na stronie **Konfigurowanie ustawień** podaj prawidłową **nazwę obliczeniową** (prawidłowe znaki to wielkie i małe litery, cyfry i znaki).
-1. Wybierz pozycję **Utwórz**.
+1. Na stronie **Konfigurowanie ustawień** podaj prawidłową **nazwę obliczeniową**. Prawidłowe znaki to wielkie i małe litery, cyfry i łączniki (-).
+1. Wybierz przycisk **Utwórz**.
 
-Możesz zauważyć, że w notesie, który został obrócony obok pozycji **obliczeniowej** , został włączony błękitny, co oznacza, że tworzone jest wystąpienie obliczeniowe:
+W notesie można zauważyć, że okrąg **znajduje się obok** pozycji "niebieskozielony". Ta zmiana koloru wskazuje, że wystąpienie obliczeniowe jest tworzone:
 
-:::image type="content" source="media/tutorial-power-bi/creating.png" alt-text="Zrzut ekranu przedstawiający tworzenie obliczeń":::
+:::image type="content" source="media/tutorial-power-bi/creating.png" alt-text="Zrzut ekranu przedstawiający tworzenie obliczeń.":::
 
 > [!NOTE]
-> Zainicjowanie obsługi obliczeń może potrwać około 2-4 minut.
+> Zainicjowanie obsługi wystąpienia obliczeniowego może potrwać od 2 do 4 minut.
 
-Po aprowizacji obliczeń można użyć notesu do wykonania komórek kodu. Na przykład wpisz w komórce:
+Po aprowizacji obliczeń można użyć notesu do uruchamiania komórek kodu. Na przykład w komórce można wpisać następujący kod:
 
 ```python
 import numpy as np
@@ -80,20 +81,20 @@ import numpy as np
 np.sin(3)
 ```
 
-A następnie **klawisz Shift-Enter** (lub **Control-Enter** lub zaznacz przycisk odtwarzania obok komórki). Powinny zostać wyświetlone następujące dane wyjściowe:
+Następnie wybierz klawisze Shift + Enter (lub Wybierz kontrolkę + Enter lub wybierz przycisk **odtwarzania** obok komórki). Powinny zostać wyświetlone następujące dane wyjściowe:
 
-:::image type="content" source="media/tutorial-power-bi/simple-sin.png" alt-text="Zrzut ekranu przedstawiający wykonywanie komórki":::
+:::image type="content" source="media/tutorial-power-bi/simple-sin.png" alt-text="Zrzut ekranu przedstawiający dane wyjściowe komórki.":::
 
-Teraz możesz przystąpić do kompilowania modelu Machine Learning!
+Teraz możesz przystąpić do kompilowania modelu uczenia maszynowego.
 
-## <a name="build-a-model-using-scikit-learn"></a>Tworzenie modelu przy użyciu scikit — informacje
+## <a name="build-a-model-by-using-scikit-learn"></a>Tworzenie modelu przy użyciu scikit — uczenie się
 
-W tym samouczku użyjesz [zestawu danych cukrzycą](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html), który jest dostępny na [platformie Azure Open DataSets](https://azure.microsoft.com/services/open-datasets/). 
+W tym samouczku użyjesz [zestawu danych cukrzycą](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html). Ten zestaw danych jest dostępny w [usłudze Azure Open DataSets](https://azure.microsoft.com/services/open-datasets/).
 
 
 ### <a name="import-data"></a>Importowanie danych
 
-Aby zaimportować dane, skopiuj i wklej poniższy kod do nowej **komórki kodu** w notesie:
+Aby zaimportować dane, Skopiuj poniższy kod i wklej go w nowej *komórce kodu* w notesie.
 
 ```python
 from azureml.opendatasets import Diabetes
@@ -106,11 +107,11 @@ y_df = y.to_pandas_dataframe()
 X_df.info()
 ```
 
-`X_df`Ramka danych Pandas zawiera 10 zmiennych wejściowych linii bazowej (takich jak wiek, płeć, indeks masy ciała, średnie ciśnienie krwi oraz sześć pomiarów surowicy krwi). `y_df`Ramka danych Pandas to zmienna docelowa zawierająca ilościową miarę postępów chorobowych w jednym roku po linii bazowej. Istnieje łącznie 442 rekordów.
+`X_df`Ramka danych Pandas zawiera 10 zmiennych wejściowych linii bazowej. Te zmienne obejmują wiek, płeć, indeks masy ciała, średnie ciśnienie krwi oraz sześć pomiarów surowicy krwi. `y_df`Ramka danych Pandas to zmienna docelowa. Zawiera ona ilościową miarę postępów chorób w jednym roku po linii bazowej. Ramka danych zawiera 442 rekordów.
 
-### <a name="train-model"></a>Trenowanie modelu
+### <a name="train-the-model"></a>Trenowanie modelu
 
-Utwórz nową **komórkę kodu** w notesie, a następnie skopiuj i wklej poniższy fragment kodu, który konstruuje model regresji pierścieniowej i serializować model przy użyciu formatu pakietu pickle języka Python:
+Utwórz nową *komórkę kodu* w notesie. Następnie skopiuj Poniższy kod i wklej go w komórce. Ten fragment kodu tworzy model regresji pierścieniowej i serializować model przy użyciu formatu pakietu pickle języka Python.
 
 ```python
 import joblib
@@ -122,9 +123,11 @@ joblib.dump(model, 'sklearn_regression_model.pkl')
 
 ### <a name="register-the-model"></a>Rejestrowanie modelu
 
-Oprócz zawartości samego pliku modelu zarejestrowany model będzie również przechowywać metadane modelu — opis modelu, Tagi i informacje o strukturze, które będą przydatne podczas zarządzania i wdrażania modeli w obszarze roboczym. Za pomocą tagów można na przykład kategoryzację modeli i zastosować filtry podczas wyświetlania listy modeli w obszarze roboczym. Ponadto oznaczenie tego modelu przy użyciu struktury scikit-uczenie upraszcza wdrażanie go jako usługi sieci Web, ponieważ będzie on widoczny w dalszej części.
+Oprócz zawartości samego pliku modelu zarejestrowany model będzie przechowywać metadane. Metadane obejmują opis modelu, Tagi i informacje dotyczące struktury. 
 
-Skopiuj i wklej poniższy kod do nowej **komórki kodu** w notesie:
+Metadane są przydatne podczas zarządzania i wdrażania modeli w obszarze roboczym. Za pomocą tagów można na przykład kategoryzację modeli i zastosować filtry podczas wyświetlania listy modeli w obszarze roboczym. Ponadto, jeśli oznaczesz ten model przy użyciu struktury scikit — Dowiedz się, jak uprościć wdrażanie jej jako usługi sieci Web.
+
+Skopiuj poniższy kod, a następnie wklej go w nowej *komórce kodu* w notesie.
 
 ```python
 import sklearn
@@ -150,21 +153,21 @@ print('Name:', model.name)
 print('Version:', model.version)
 ```
 
-Możesz również wyświetlić model w Azure Machine Learning Studio, przechodząc do **punktów końcowych** w menu po lewej stronie:
+Możesz również wyświetlić model w Azure Machine Learning Studio. W menu po lewej stronie wybierz pozycję **modele**:
 
-:::image type="content" source="media/tutorial-power-bi/model.png" alt-text="Zrzut ekranu przedstawiający model":::
+:::image type="content" source="media/tutorial-power-bi/model.png" alt-text="Zrzut ekranu przedstawiający sposób wyświetlania modelu.":::
 
 ### <a name="define-the-scoring-script"></a>Zdefiniuj skrypt oceniania
 
-Podczas wdrażania modelu do zintegrowania z programem Microsoft Power BI należy zdefiniować *skrypt oceniania* w języku Python i środowisko niestandardowe. Skrypt oceniania zawiera dwie funkcje:
+Podczas wdrażania modelu, który zostanie zintegrowany z Power BI, należy zdefiniować *skrypt oceniania* w języku Python i środowisko niestandardowe. Skrypt oceniania zawiera dwie funkcje:
 
-- `init()` — Ta funkcja jest wykonywana po uruchomieniu usługi. Ta funkcja ładuje model (należy zauważyć, że model jest automatycznie pobierany z rejestru modelu) i deserializacji.
-- `run(data)` — Ta funkcja jest wykonywana w przypadku wywołania do usługi z niektórymi danymi wejściowymi wymagającymi oceniania. 
+- `init()`Funkcja jest uruchamiana, gdy usługa zostanie uruchomiona. Ładuje on model (który jest automatycznie pobierany z rejestru modelowego) i deserializacji.
+- `run(data)`Funkcja jest uruchamiana, gdy wywołanie do usługi zawiera dane wejściowe, które muszą zostać ocenione. 
 
 >[!NOTE]
-> Używamy języka Python dekoratory do definiowania schematu danych wejściowych i wyjściowych, co jest ważne dla integracji z programem Microsoft Power BI.
+> W tym artykule opisano schemat danych wejściowych i wyjściowych w języku Python dekoratory. Ta konfiguracja jest ważna dla integracji Power BI.
 
-Skopiuj i wklej poniższy kod do nowej **komórki kodu** w notesie. Poniższy fragment kodu ma magiczną komórkę, która zapisze kod w zachowanej nazwie score.py.
+Skopiuj poniższy kod i wklej go do nowej *komórki kodu* w notesie. Poniższy fragment kodu ma magiczną komórkę, która zapisuje kod w pliku o nazwie *Score.py*.
 
 ```python
 %%writefile score.py
@@ -219,7 +222,7 @@ def run(data):
         result = model.predict(data)
         print("result.....")
         print(result)
-    # You can return any data type, as long as it is JSON serializable.
+    # You can return any data type, as long as it can be serialized by JSON.
         return result.tolist()
     except Exception as e:
         error = str(e)
@@ -228,9 +231,9 @@ def run(data):
 
 ### <a name="define-the-custom-environment"></a>Definiowanie środowiska niestandardowego
 
-Następnie musimy zdefiniować środowisko do oceny modelu — musimy zdefiniować w tym środowisku pakiety języka Python wymagane przez skrypt oceniania (score.py) zdefiniowane powyżej, takie jak Pandas, scikit-uczenie itp.
+Następnie zdefiniuj środowisko do oceny modelu. W środowisku Zdefiniuj pakiety języka Python, takie jak Pandas i scikit — Dowiedz się, że wymagany jest skrypt oceniania (*Score.py*).
 
-Aby zdefiniować środowisko, skopiuj i wklej poniższy kod do nowej **komórki kodu** w notesie:
+Aby zdefiniować środowisko, Skopiuj poniższy kod i wklej go w nowej *komórce kodu* w notesie.
 
 ```python
 from azureml.core.model import InferenceConfig
@@ -252,7 +255,7 @@ inference_config = InferenceConfig(entry_script='./score.py',environment=environ
 
 ### <a name="deploy-the-model"></a>Wdrażanie modelu
 
-Aby wdrożyć model, skopiuj i wklej poniższy kod do nowej **komórki kodu** w notesie:
+Aby wdrożyć model, Skopiuj poniższy kod i wklej go w nowej *komórce kodu* w notesie:
 
 ```python
 service_name = 'my-diabetes-model'
@@ -262,9 +265,9 @@ service.wait_for_deployment(show_output=True)
 ```
 
 >[!NOTE]
-> Wdrożenie usługi może potrwać 2-4 minut.
+> Wdrożenie usługi może potrwać od 2 do 4 minut.
 
-Powinny zostać wyświetlone następujące dane wyjściowe pomyślnie wdrożonej usługi:
+Jeśli usługa została pomyślnie wdrożona, powinny zostać wyświetlone następujące dane wyjściowe:
 
 ```txt
 Tips: You can try get_logs(): https://aka.ms/debugimage#dockerlog or local deployment: https://aka.ms/debugimage#debug-locally to debug if deployment takes longer than 10 minutes.
@@ -273,11 +276,11 @@ Succeeded
 ACI service creation operation finished, operation "Succeeded"
 ```
 
-Możesz również wyświetlić usługę w Azure Machine Learning Studio, przechodząc do **punktów końcowych** w menu po lewej stronie:
+Usługę można także wyświetlić w Azure Machine Learning Studio. W menu po lewej stronie wybierz pozycję **punkty końcowe**:
 
-:::image type="content" source="media/tutorial-power-bi/endpoint.png" alt-text="Zrzut ekranu przedstawiający punkt końcowy":::
+:::image type="content" source="media/tutorial-power-bi/endpoint.png" alt-text="Zrzut ekranu przedstawiający sposób wyświetlania usługi.":::
 
-Zaleca się przetestowanie usługi sieci Web, aby upewnić się, że działa zgodnie z oczekiwaniami. Wróć do notesu, wybierając pozycję **notesy** w menu po lewej stronie w Azure Machine Learning Studio. Skopiuj i wklej poniższy kod do nowej **komórki kodu** w notesie, aby przetestować usługę:
+Zalecamy przetestowanie usługi sieci Web, aby upewnić się, że działa zgodnie z oczekiwaniami. Aby zwrócić Notes, w Azure Machine Learning Studio w menu po lewej stronie wybierz pozycję **Notes**. Następnie skopiuj Poniższy kod i wklej go do nowej *komórki kodu* w notesie w celu przetestowania usługi.
 
 ```python
 import json
@@ -293,11 +296,11 @@ output = service.run(input_payload)
 print(output)
 ```
 
-Dane wyjściowe powinny wyglądać jak w następującej strukturze JSON: `{'predict': [[205.59], [68.84]]}` .
+Dane wyjściowe powinny wyglądać podobnie do tej struktury JSON: `{'predict': [[205.59], [68.84]]}` .
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono sposób kompilowania i wdrażania modelu w taki sposób, aby mogły być używane przez firmę Microsoft Power BI. W następnej części dowiesz się, jak korzystać z tego modelu z raportu Power BI.
+W tym samouczku pokazano, jak skompilować i wdrożyć model, aby mógł być wykorzystany przez Power BI. W następnej części dowiesz się, jak korzystać z tego modelu w raporcie Power BI.
 
 > [!div class="nextstepaction"]
 > [Samouczek: korzystanie z modelu w Power BI](/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)

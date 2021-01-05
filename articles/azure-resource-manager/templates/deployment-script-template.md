@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 12/28/2020
 ms.author: jgao
-ms.openlocfilehash: fbbccfb21f136d926ac0e3e701ad686d2a42e715
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 4d2a55355318a1bf916017fa77026a87a95b7f57
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674229"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97809721"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Używanie skryptów wdrażania w szablonach ARM
 
@@ -39,51 +39,45 @@ Zasób skryptu wdrożenia jest dostępny tylko w regionach, w których usługa A
 
 > [!IMPORTANT]
 > Interfejs API zasobów deploymentScripts w wersji 2020-10-01 obsługuje [OnBehalfofTokens (OBO)](../../active-directory/develop/v2-oauth2-on-behalf-of-flow.md). Korzystając z OBO, usługa skryptu wdrażania używa tokenu podmiotu zabezpieczeń wdrożenia do tworzenia zasobów źródłowych do uruchamiania skryptów wdrażania, takich jak Azure Container instance, konto usługi Azure Storage i przypisania ról dla tożsamości zarządzanej. W starszej wersji interfejsu API zarządzana tożsamość jest używana do tworzenia tych zasobów.
-> Logika ponawiania dla logowania platformy Azure jest teraz wbudowana w skrypt otoki. W przypadku przyznawania uprawnień w tym samym szablonie, w którym uruchamiane są skrypty wdrażania.  Usługa skryptu wdrażania ponawia próbę logowania przez 10 minut z upływem 10 sekund, dopóki nie zostanie zreplikowane przypisanie zarządzanej roli tożsamości.
+> Logika ponawiania dla logowania platformy Azure jest teraz wbudowana w skrypt otoki. W przypadku przyznawania uprawnień w tym samym szablonie, w którym uruchamiane są skrypty wdrażania. Usługa skryptu wdrażania ponawia próbę logowania przez 10 minut z upływem 10 sekund, dopóki nie zostanie zreplikowane przypisanie zarządzanej roli tożsamości.
 
-## <a name="prerequisites"></a>Wymagania wstępne
+## <a name="configure-the-minimum-permissions"></a>Konfigurowanie uprawnień minimalnych
 
-- **(Opcjonalnie) tożsamość zarządzana przypisana przez użytkownika z uprawnieniami wymaganymi do wykonywania operacji w skrypcie**. W przypadku interfejsu API skryptu wdrażania w wersji 2020-10-01 lub nowszej podmiot zabezpieczeń wdrożenia służy do tworzenia zasobów bazowych. Jeśli skrypt wymaga uwierzytelnienia na platformie Azure i wykonywania akcji specyficznych dla platformy Azure, zalecamy dostarczenie skryptu do tożsamości zarządzanej przypisanej przez użytkownika. Tożsamość zarządzana musi mieć wymagany dostęp w docelowej grupie zasobów, aby ukończyć operację w skrypcie. Możesz również zalogować się do platformy Azure we wdrożeniu skryptu. Aby wykonać operacje poza grupą zasobów, należy udzielić dodatkowych uprawnień. Na przykład Przypisz tożsamość do poziomu subskrypcji, jeśli chcesz utworzyć nową grupę zasobów. 
+W przypadku interfejsu API skryptu wdrożenia w wersji 2020-10-01 lub nowszej podmiot zabezpieczeń wdrożenia służy do tworzenia zasobów podstawowych wymaganych do wykonania zasobu skryptu wdrożenia — konta magazynu i wystąpienia kontenera platformy Azure. Jeśli skrypt wymaga uwierzytelnienia na platformie Azure i wykonywania akcji specyficznych dla platformy Azure, zalecamy dostarczenie skryptu do tożsamości zarządzanej przypisanej przez użytkownika. Tożsamość zarządzana musi mieć wymagany dostęp, aby zakończyć operację w skrypcie.
 
-  Aby utworzyć tożsamość, zobacz [Tworzenie tożsamości zarządzanej przypisanej przez użytkownika przy użyciu Azure Portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)lub przy [użyciu interfejsu wiersza polecenia platformy Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)lub przy [użyciu Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). Identyfikator tożsamości jest wymagany podczas wdrażania szablonu. Format tożsamości:
+Aby skonfigurować uprawnienia najniższych uprawnień, potrzebne są:
+
+- Przypisz rolę niestandardową o następujących właściwościach do podmiotu zabezpieczeń wdrożenia:
 
   ```json
-  /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
+  {
+    "roleName": "deployment-script-minimum-privilege-for-deployment-principal",
+    "description": "Configure least privilege for the deployment principal in deployment script",
+    "type": "customRole",
+    "IsCustom": true,
+    "permissions": [
+      {
+        "actions": [
+          "Microsoft.Storage/storageAccounts/*",
+          "Microsoft.ContainerInstance/containerGroups/*",
+          "Microsoft.Resources/deployments/*",
+          "Microsoft.Resources/deploymentScripts/*"
+        ],
+      }
+    ],
+    "assignableScopes": [
+      "[subscription().id]"
+    ]
+  }
   ```
 
-  Użyj poniższego skryptu interfejsu wiersza polecenia lub programu PowerShell, aby uzyskać identyfikator, podając nazwę grupy zasobów i nazwę tożsamości.
+  Jeśli dostawcy zasobów usługi Azure Storage i wystąpienia kontenera platformy Azure nie zostały zarejestrowani, należy również dodać `Microsoft.Storage/register/action` i `Microsoft.ContainerInstance/register/action` .
 
-  # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)
-
-  ```azurecli-interactive
-  echo "Enter the Resource Group name:" &&
-  read resourceGroupName &&
-  echo "Enter the managed identity name:" &&
-  read idName &&
-  az identity show -g $resourceGroupName -n $idName --query id
-  ```
-
-  # <a name="powershell"></a>[Program PowerShell](#tab/PowerShell)
-
-  ```azurepowershell-interactive
-  $idGroup = Read-Host -Prompt "Enter the resource group name for the managed identity"
-  $idName = Read-Host -Prompt "Enter the name of the managed identity"
-
-  (Get-AzUserAssignedIdentity -resourcegroupname $idGroup -Name $idName).Id
-  ```
-
-  ---
-
-- **Azure PowerShell** lub **interfejs wiersza polecenia platformy Azure**. Zapoznaj się z listą [obsługiwanych wersji Azure PowerShell](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Zapoznaj się z listą [obsługiwanych wersji interfejsu wiersza polecenia platformy Azure](https://mcr.microsoft.com/v2/azure-cli/tags/list).
-
-    >[!IMPORTANT]
-    > Skrypt wdrażania używa dostępnych obrazów interfejsu wiersza polecenia firmy Microsoft Container Registry (MCR). Zaświadczanie obrazu interfejsu wiersza polecenia dla skryptu wdrożenia trwa około miesiąca. Nie używaj wersji interfejsu wiersza polecenia, które zostały wydane w ciągu 30 dni. Aby znaleźć daty wydania dla obrazów, zobacz informacje o [wersji interfejsu wiersza polecenia platformy Azure](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). Jeśli używana jest nieobsługiwana wersja, komunikat o błędzie zawiera listę obsługiwanych wersji.
-
-    Te wersje nie są potrzebne do wdrażania szablonów. Jednak te wersje są zbędne do lokalnego testowania skryptów wdrażania. Zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Można użyć wstępnie skonfigurowanego obrazu platformy Docker.  Zobacz [Konfigurowanie środowiska deweloperskiego](#configure-development-environment).
+- Jeśli zarządzana tożsamość jest używana, podmiot wdrażania musi mieć rolę **operatora tożsamości zarządzanej** (wbudowaną) przypisaną do zasobu tożsamości zarządzanej.
 
 ## <a name="sample-templates"></a>Przykładowe szablony
 
-Poniższy kod JSON jest przykładem.  Najnowszy schemat szablonu można znaleźć [tutaj](/azure/templates/microsoft.resources/deploymentscripts).
+Poniższy kod JSON jest przykładem. Aby uzyskać więcej informacji, zobacz najnowszy [schemat szablonu](/azure/templates/microsoft.resources/deploymentscripts).
 
 ```json
 {
@@ -99,7 +93,7 @@ Poniższy kod JSON jest przykładem.  Najnowszy schemat szablonu można znaleź�
     }
   },
   "properties": {
-    "forceUpdateTag": 1,
+    "forceUpdateTag": "1",
     "containerSettings": {
       "containerGroupName": "mycustomaci"
     },
@@ -111,13 +105,17 @@ Poniższy kod JSON jest przykładem.  Najnowszy schemat szablonu można znaleź�
     "arguments": "-name \\\"John Dole\\\"",
     "environmentVariables": [
       {
-        "name": "someSecret",
-        "secureValue": "if this is really a secret, don't put it here... in plain text..."
+        "name": "UserName",
+        "value": "jdole"
+      },
+      {
+        "name": "Password",
+        "secureValue": "jDolePassword"
       }
     ],
     "scriptContent": "
       param([string] $name)
-      $output = 'Hello {0}' -f $name
+      $output = 'Hello {0}. The username is {1}, the password is {2}.' -f $name,${Env:UserName},${Env:Password}
       Write-Output $output
       $DeploymentScriptOutputs = @{}
       $DeploymentScriptOutputs['text'] = $output
@@ -131,37 +129,44 @@ Poniższy kod JSON jest przykładem.  Najnowszy schemat szablonu można znaleź�
 ```
 
 > [!NOTE]
-> Przykład służy do celów demonstracyjnych.  **scriptContent** i **primaryScriptUri** nie mogą współistnieć w szablonie.
+> Przykład jest przeznaczony do celów demonstracyjnych. Właściwości `scriptContent` i `primaryScriptUri` nie mogą współistnieć w szablonie.
 
 Szczegóły wartości właściwości:
 
-- **Tożsamość**: w przypadku interfejsu API skryptu wdrażania w wersji 2020-10-01 lub nowszej tożsamość zarządzana przez użytkownika jest opcjonalna, o ile nie trzeba wykonywać żadnych akcji specyficznych dla platformy Azure w skrypcie.  W przypadku interfejsu API w wersji 2019-10-01-Preview wymagana jest tożsamość zarządzana, ponieważ usługa skryptu wdrażania używa jej do wykonywania skryptów. Obecnie obsługiwana jest tylko tożsamość zarządzana przypisana przez użytkownika.
-- **rodzaj**: Określ typ skryptu. Obecnie obsługiwane są Azure PowerShell i skrypty interfejsu wiersza polecenia platformy Azure. Wartości to **AzurePowerShell** i **AzureCLI**.
-- **forceUpdateTag**: zmiana tej wartości między wdrożeniami szablonów Wymusza ponowne wykonanie skryptu wdrażania. Jeśli używasz funkcji newGuid () lub utcNow (), obie funkcje mogą być używane tylko w wartości domyślnej dla parametru. Aby dowiedzieć się więcej, zobacz [Uruchamianie skryptu więcej niż raz](#run-script-more-than-once).
-- **containerSettings**: Określ ustawienia umożliwiające dostosowanie wystąpienia kontenera platformy Azure.  **containerGroupName** służy do określania nazwy grupy kontenerów.  Jeśli nie zostanie określony, nazwa grupy jest generowana automatycznie.
-- **storageAccountSettings**: Określ ustawienia do użycia istniejącego konta magazynu. Jeśli nie zostanie określony, konto magazynu zostanie utworzone automatycznie. Zobacz [Korzystanie z istniejącego konta magazynu](#use-existing-storage-account).
-- **azPowerShellVersion** / **azCliVersion**: Określ wersję modułu, która ma zostać użyta. Aby zapoznać się z listą obsługiwanych wersji programu PowerShell i interfejsu wiersza polecenia, zobacz [wymagania wstępne](#prerequisites).
-- **argumenty**: Określ wartości parametrów. Wartości są rozdzielone spacjami.
+- `identity`: W przypadku interfejsu API skryptu wdrożenia w wersji 2020-10-01 lub nowszej tożsamość zarządzana przez użytkownika jest opcjonalna, o ile nie trzeba wykonywać żadnych akcji specyficznych dla platformy Azure w skrypcie.  W przypadku interfejsu API w wersji 2019-10-01-Preview wymagana jest tożsamość zarządzana, ponieważ usługa skryptu wdrażania używa jej do wykonywania skryptów. Obecnie obsługiwana jest tylko tożsamość zarządzana przypisana przez użytkownika.
+- `kind`: Określ typ skryptu. Obecnie obsługiwane są Azure PowerShell i skrypty interfejsu wiersza polecenia platformy Azure. Wartości to **AzurePowerShell** i **AzureCLI**.
+- `forceUpdateTag`: Zmiana tej wartości między wdrożeniami szablonów Wymusza ponowne uruchomienie skryptu wdrażania. Jeśli używasz `newGuid()` `utcNow()` funkcji lub, obie funkcje mogą być używane tylko w wartości domyślnej dla parametru. Aby dowiedzieć się więcej, zobacz [Uruchamianie skryptu więcej niż raz](#run-script-more-than-once).
+- `containerSettings`: Określ ustawienia umożliwiające dostosowanie wystąpienia kontenera platformy Azure.  `containerGroupName` służy do określania nazwy grupy kontenerów. Jeśli nie zostanie określony, nazwa grupy jest generowana automatycznie.
+- `storageAccountSettings`: Określ ustawienia do użycia istniejącego konta magazynu. Jeśli nie zostanie określony, konto magazynu zostanie utworzone automatycznie. Zobacz [Korzystanie z istniejącego konta magazynu](#use-existing-storage-account).
+- `azPowerShellVersion`/`azCliVersion`: Określ wersję modułu, która ma zostać użyta. Zapoznaj się z listą [obsługiwanych wersji Azure PowerShell](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Zapoznaj się z listą [obsługiwanych wersji interfejsu wiersza polecenia platformy Azure](https://mcr.microsoft.com/v2/azure-cli/tags/list).
 
-    Skrypty wdrażania dzielą argumenty na tablicę ciągów przez wywoływanie wywołania systemowego [CommandLineToArgvW ](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) . Ten krok jest niezbędny, ponieważ argumenty są przekazane jako [Właściwość polecenia](/rest/api/container-instances/containergroups/createorupdate#containerexec) do wystąpienia kontenera platformy Azure, a właściwość polecenia jest tablicą ciągów.
+  >[!IMPORTANT]
+  > Skrypt wdrażania używa dostępnych obrazów interfejsu wiersza polecenia firmy Microsoft Container Registry (MCR). Zaświadczanie obrazu interfejsu wiersza polecenia dla skryptu wdrożenia trwa około miesiąca. Nie używaj wersji interfejsu wiersza polecenia, które zostały wydane w ciągu 30 dni. Aby znaleźć daty wydania dla obrazów, zobacz informacje o [wersji interfejsu wiersza polecenia platformy Azure](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). Jeśli używana jest nieobsługiwana wersja, komunikat o błędzie zawiera listę obsługiwanych wersji.
 
-    Jeśli argumenty zawierają znaki ucieczki, użyj [JsonEscaper](https://www.jsonescaper.com/) do podwójnego ucieczki znaków. Wklej oryginalny ciąg ucieczki do narzędzia, a następnie wybierz pozycję **ucieczki**.  Narzędzie wyprowadza podwójnie zmieniony ciąg. Na przykład w poprzednim przykładowym szablonie argument ma wartość **-name \\ "Jan dole \\ "**.  Ciąg ucieczki to **-name \\ \\ \\ "Jan dole \\ \\ \\ "**.
+- `arguments`: Określ wartości parametrów. Wartości są rozdzielone spacjami.
 
-    Aby przekazać parametr szablonu ARM typu Object jako argument, przekonwertuj obiekt na ciąg za pomocą funkcji [String ()](./template-functions-string.md#string) , a następnie użyj funkcji [replace ()](./template-functions-string.md#replace) w celu zastąpienia dowolnego elementu **\\ "** INTO **\\ \\ \\ "**. Na przykład:
+  Skrypty wdrażania dzielą argumenty na tablicę ciągów przez wywoływanie wywołania systemowego [CommandLineToArgvW ](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) . Ten krok jest niezbędny, ponieważ argumenty są przekazane jako [Właściwość polecenia](/rest/api/container-instances/containergroups/createorupdate#containerexec) do wystąpienia kontenera platformy Azure, a właściwość polecenia jest tablicą ciągów.
 
-    ```json
-    replace(string(parameters('tables')), '\"', '\\\"')
-    ```
+  Jeśli argumenty zawierają znaki ucieczki, użyj [JsonEscaper](https://www.jsonescaper.com/) do podwójnego ucieczki znaków. Wklej oryginalny ciąg ucieczki do narzędzia, a następnie wybierz pozycję **ucieczki**.  Narzędzie wyprowadza podwójnie zmieniony ciąg. Na przykład w poprzednim przykładowym szablonie argument ma wartość `-name \"John Dole\"` . Ciąg ucieczki to `-name \\\"John Dole\\\"` .
 
-    Aby wyświetlić przykładowy szablon, wybierz [tutaj](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-jsonEscape.json).
+  Aby przekazać parametr szablonu ARM typu Object jako argument, przekonwertuj obiekt na ciąg za pomocą funkcji [String ()](./template-functions-string.md#string) , a następnie użyj funkcji [replace ()](./template-functions-string.md#replace) , aby zamienić wszystkie `\"` na `\\\"` . Na przykład:
 
-- **environmentVariables**: Określ zmienne środowiskowe, które mają zostać przekazane do skryptu. Aby uzyskać więcej informacji, zobacz temat [programowanie skryptów wdrażania](#develop-deployment-scripts).
-- **scriptContent**: Określ zawartość skryptu. Aby uruchomić zewnętrzny skrypt, należy `primaryScriptUri` zamiast tego użyć. Aby zapoznać się z przykładami, zobacz [używanie skryptu wbudowanego](#use-inline-scripts) i [używanie skryptu zewnętrznego](#use-external-scripts).
-- **primaryScriptUri**: Określ publicznie dostępny adres URL dla podstawowego skryptu wdrażania z obsługiwanymi rozszerzeniami plików.
-- **supportingScriptUris**: Określ tablicę dostępnych publicznie adresów URL do obsługi plików, które są wywoływane w `ScriptContent` lub `PrimaryScriptUri` .
-- **limit czasu**: Określ maksymalny dozwolony czas wykonywania skryptu określony w [formacie ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Wartość domyślna to **P1D**.
-- **cleanupPreference**. Określ preferencję oczyszczania zasobów wdrożenia, gdy wykonywanie skryptu jest odbierane w stanie terminalu. Ustawieniem domyślnym jest **zawsze**, co oznacza usunięcie zasobów pomimo stanu terminalu (zakończone powodzeniem, zakończone niepowodzeniem, anulowane). Aby dowiedzieć się więcej, zobacz [Oczyszczanie zasobów skryptu wdrażania](#clean-up-deployment-script-resources).
-- **retentionInterval**: Określ interwał, dla którego usługa zachowuje zasoby skryptu wdrożenia po osiągnięciu przez wykonanie skryptu wdrożenia stanu terminalu. Zasoby skryptu wdrażania zostaną usunięte po upływie tego czasu trwania. Czas trwania zależy od [wzorca ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Interwał przechowywania jest z przedziału od 1 do 26 godzin (PT26H). Ta właściwość jest używana, gdy cleanupPreference jest ustawiony na *onwygaśnięcia*. Właściwość *onwygaśnięcia* nie jest obecnie włączona. Aby dowiedzieć się więcej, zobacz [Oczyszczanie zasobów skryptu wdrażania](#clean-up-deployment-script-resources).
+  ```json
+  replace(string(parameters('tables')), '\"', '\\\"')
+  ```
+
+  Aby uzyskać więcej informacji, zobacz [przykładowy szablon](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-jsonEscape.json).
+
+- `environmentVariables`: Określ zmienne środowiskowe, które mają zostać przekazane do skryptu. Aby uzyskać więcej informacji, zobacz temat [programowanie skryptów wdrażania](#develop-deployment-scripts).
+- `scriptContent`: Określ zawartość skryptu. Aby uruchomić zewnętrzny skrypt, należy `primaryScriptUri` zamiast tego użyć. Aby zapoznać się z przykładami, zobacz [używanie skryptu wbudowanego](#use-inline-scripts) i [używanie skryptu zewnętrznego](#use-external-scripts).
+  > [!NOTE]
+  > Azure Portal nie może przeanalizować skryptu wdrożenia z wieloma wierszami. Aby wdrożyć szablon ze skryptem wdrażania z Azure Portal, można połączyć polecenia programu PowerShell za pomocą średników w jeden wiersz lub użyć `primaryScriptUri` właściwości z zewnętrznym plikiem skryptu.
+
+- `primaryScriptUri`: Określ publicznie dostępny adres URL dla podstawowego skryptu wdrożenia z obsługiwanymi rozszerzeniami plików.
+- `supportingScriptUris`: Określ tablicę dostępnych publicznie adresów URL do obsługi plików, które są wywoływane w `scriptContent` lub `primaryScriptUri` .
+- `timeout`: Określ maksymalny dozwolony czas wykonywania skryptu określony w [formacie ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Wartość domyślna to **P1D**.
+- `cleanupPreference`. Określ preferencję oczyszczania zasobów wdrożenia, gdy wykonywanie skryptu jest odbierane w stanie terminalu. Ustawieniem domyślnym jest **zawsze**, co oznacza usunięcie zasobów pomimo stanu terminalu (zakończone powodzeniem, zakończone niepowodzeniem, anulowane). Aby dowiedzieć się więcej, zobacz [Oczyszczanie zasobów skryptu wdrażania](#clean-up-deployment-script-resources).
+- `retentionInterval`: Określ interwał przechowywania zasobów skryptu wdrożenia przez usługę po osiągnięciu przez wykonanie skryptu wdrożenia stanu terminalu. Zasoby skryptu wdrażania zostaną usunięte po upływie tego czasu trwania. Czas trwania zależy od [wzorca ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Interwał przechowywania jest z przedziału od 1 do 26 godzin (PT26H). Ta właściwość jest używana `cleanupPreference` , gdy jest ustawiona na **onwygaśnięcia**. Właściwość **onwygaśnięcia** nie jest obecnie włączona. Aby dowiedzieć się więcej, zobacz [Oczyszczanie zasobów skryptu wdrażania](#clean-up-deployment-script-resources).
 
 ### <a name="additional-samples"></a>Dodatkowe przykłady
 
@@ -176,9 +181,9 @@ Następujący szablon ma zdefiniowany jeden zasób z `Microsoft.Resources/deploy
 :::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json" range="1-44" highlight="24-30":::
 
 > [!NOTE]
-> Ponieważ wbudowane skrypty wdrażania są ujęte w podwójne cudzysłowy, ciągi wewnątrz skryptów wdrażania muszą być wyprowadzane przy użyciu **&#92;** lub ujęte w apostrofy. Można również rozważyć użycie podstawienia ciągów, tak jak pokazano w poprzednim przykładzie JSON.
+> Ponieważ wbudowane skrypty wdrażania są ujęte w podwójne cudzysłowy, ciągi wewnątrz skryptów wdrażania muszą być wyprowadzane przy użyciu ukośnika odwrotnego (**&#92;**) lub ujętego w cudzysłów pojedynczy. Można również rozważyć użycie podstawienia ciągów, tak jak pokazano w poprzednim przykładzie JSON.
 
-Skrypt przyjmuje jeden parametr i wyprowadza wartość parametru. **DeploymentScriptOutputs** jest używany do przechowywania danych wyjściowych.  W sekcji dane wyjściowe wiersz **wartości** pokazuje, jak uzyskać dostęp do przechowywanych wartości. `Write-Output` jest używany do celów debugowania. Aby dowiedzieć się, jak uzyskać dostęp do pliku wyjściowego, zobacz [monitorowanie i rozwiązywanie problemów ze skryptami wdrażania](#monitor-and-troubleshoot-deployment-scripts).  Aby zapoznać się z opisami właściwości, zobacz [przykładowe szablony](#sample-templates).
+Skrypt przyjmuje jeden parametr i wyprowadza wartość parametru. `DeploymentScriptOutputs` służy do przechowywania danych wyjściowych. W sekcji dane wyjściowe `value` wiersz pokazuje, jak uzyskać dostęp do przechowywanych wartości. `Write-Output` jest używany do celów debugowania. Aby dowiedzieć się, jak uzyskać dostęp do pliku wyjściowego, zobacz [monitorowanie i rozwiązywanie problemów ze skryptami wdrażania](#monitor-and-troubleshoot-deployment-scripts). Aby zapoznać się z opisami właściwości, zobacz [przykładowe szablony](#sample-templates).
 
 Aby uruchomić skrypt, wybierz opcję **Wypróbuj** , aby otworzyć Cloud Shell, a następnie wklej poniższy kod do okienka powłoki.
 
@@ -199,17 +204,17 @@ Dane wyjściowe wyglądają następująco:
 
 ## <a name="use-external-scripts"></a>Korzystanie ze skryptów zewnętrznych
 
-Oprócz skryptów wbudowanych można również używać zewnętrznych plików skryptów. Obsługiwane są tylko podstawowe skrypty programu PowerShell z rozszerzeniem pliku **ps1** . W przypadku skryptów interfejsu wiersza polecenia skrypty podstawowe mogą mieć dowolne rozszerzenia (lub bez rozszerzenia), o ile skrypty są prawidłowymi skryptami bash. Aby użyć zewnętrznych plików skryptu, Zamień `scriptContent` na `primaryScriptUri` . Na przykład:
+Oprócz skryptów wbudowanych można również używać zewnętrznych plików skryptów. Obsługiwane są tylko podstawowe skrypty programu PowerShell z rozszerzeniem pliku _ps1_ . W przypadku skryptów interfejsu wiersza polecenia skrypty podstawowe mogą mieć dowolne rozszerzenia (lub bez rozszerzenia), o ile skrypty są prawidłowymi skryptami bash. Aby użyć zewnętrznych plików skryptu, Zamień `scriptContent` na `primaryScriptUri` . Na przykład:
 
 ```json
-"primaryScriptURI": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
+"primaryScriptUri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
 ```
 
-Aby zobaczyć przykład, wybierz [tutaj](https://github.com/Azure/azure-docs-json-samples/blob/master/deployment-script/deploymentscript-helloworld-primaryscripturi.json).
+Aby uzyskać więcej informacji, zobacz [przykładowy szablon](https://github.com/Azure/azure-docs-json-samples/blob/master/deployment-script/deploymentscript-helloworld-primaryscripturi.json).
 
-Pliki skryptów zewnętrznych muszą być dostępne.  Aby zabezpieczyć pliki skryptów, które są przechowywane na kontach usługi Azure Storage, zobacz [wdrażanie prywatnego szablonu usługi ARM z tokenem SAS](./secure-template-with-sas-token.md).
+Pliki skryptów zewnętrznych muszą być dostępne. Aby zabezpieczyć pliki skryptów, które są przechowywane na kontach usługi Azure Storage, zobacz [wdrażanie prywatnego szablonu usługi ARM z tokenem SAS](./secure-template-with-sas-token.md).
 
-Użytkownik jest odpowiedzialny za zapewnienie integralności skryptów, do których odwołuje się skrypt wdrożenia, to **PrimaryScriptUri** lub **SupportingScriptUris**.  Odwołuj się tylko do skryptów zaufanych.
+Użytkownik jest odpowiedzialny za zapewnienie integralności skryptów, do których odwołuje się skrypt wdrażania, `primaryScriptUri` lub `supportingScriptUris` . Odwołuj się tylko do skryptów zaufanych.
 
 ## <a name="use-supporting-scripts"></a>Używanie skryptów pomocniczych
 
@@ -233,11 +238,11 @@ Pliki pomocnicze są kopiowane do `azscripts/azscriptinput` środowiska uruchomi
 
 ## <a name="work-with-outputs-from-powershell-script"></a>Pracuj z wynikami z poziomu skryptu programu PowerShell
 
-Poniższy szablon pokazuje, jak przekazać wartości między dwoma zasobami deploymentScripts:
+Poniższy szablon pokazuje, jak przekazać wartości między dwoma `deploymentScripts` zasobami:
 
 :::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-basic.json" range="1-68" highlight="30-31,50":::
 
-W pierwszym zasobie należy zdefiniować zmienną o nazwie **$DeploymentScriptOutputs** i użyć jej do przechowywania wartości wyjściowych. Aby uzyskać dostęp do wartości wyjściowej z innego zasobu w ramach szablonu, użyj:
+W pierwszym zasobie należy zdefiniować zmienną o nazwie `$DeploymentScriptOutputs` i użyć jej do przechowywania wartości wyjściowych. Aby uzyskać dostęp do wartości wyjściowej z innego zasobu w ramach szablonu, użyj:
 
 ```json
 reference('<ResourceName>').output.text
@@ -245,9 +250,9 @@ reference('<ResourceName>').output.text
 
 ## <a name="work-with-outputs-from-cli-script"></a>Pracuj z wynikami z poziomu skryptu interfejsu wiersza polecenia
 
-Inaczej niż w przypadku skryptu wdrażania programu PowerShell obsługa interfejsu wiersza polecenia/bash nie uwidacznia wspólnej zmiennej do przechowywania danych wyjściowych skryptu, a zamiast tego występuje zmienna środowiskowa o nazwie **AZ_SCRIPTS_OUTPUT_PATH** , która przechowuje lokalizację, w której znajduje się plik danych wyjściowych skryptu. Jeśli skrypt wdrożenia jest uruchamiany z szablonu Menedżer zasobów, ta zmienna środowiskowa jest ustawiana automatycznie przez powłokę bash.
+Inaczej niż w przypadku skryptu wdrażania programu PowerShell obsługa interfejsu wiersza polecenia/bash nie uwidacznia wspólnej zmiennej do przechowywania danych wyjściowych skryptu, a zamiast tego występuje zmienna środowiskowa o nazwie, `AZ_SCRIPTS_OUTPUT_PATH` która przechowuje lokalizację, w której znajduje się plik danych wyjściowych skryptu. Jeśli skrypt wdrożenia jest uruchamiany z szablonu Menedżer zasobów, ta zmienna środowiskowa jest ustawiana automatycznie przez powłokę bash.
 
-Dane wyjściowe skryptu wdrożenia muszą być zapisane w lokalizacji AZ_SCRIPTS_OUTPUT_PATH, a wyjście musi być prawidłowym obiektem ciągu JSON. Zawartość pliku musi być zapisana jako para klucz-wartość. Na przykład tablica ciągów jest przechowywana jako {"result": ["foo", "bar"]}.  Przechowywanie tylko wyników tablicowych, na przykład ["foo", "bar"], jest nieprawidłowe.
+Dane wyjściowe skryptu wdrożenia muszą być zapisane w `AZ_SCRIPTS_OUTPUT_PATH` lokalizacji, a wyjście musi być prawidłowym obiektem ciągu JSON. Zawartość pliku musi być zapisana jako para klucz-wartość. Na przykład tablica ciągów jest przechowywana jako `{ "MyResult": [ "foo", "bar"] }` .  Przechowywanie tylko wyników tablicowych, na przykład `[ "foo", "bar" ]` jest nieprawidłowe.
 
 :::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-basic-cli.json" range="1-44" highlight="32":::
 
@@ -259,7 +264,7 @@ Konto magazynu i wystąpienie kontenera są niezbędne do wykonania skryptu i ro
 
 - Obsługiwane rodzaje kont magazynu:
 
-    | SKU             | Obsługiwany rodzaj     |
+    | Jednostka SKU             | Obsługiwany rodzaj     |
     |-----------------|--------------------|
     | Premium_LRS     | FileStorage        |
     | Premium_ZRS     | FileStorage        |
@@ -270,7 +275,8 @@ Konto magazynu i wystąpienie kontenera są niezbędne do wykonania skryptu i ro
     | Standard_RAGZRS | StorageV2          |
     | Standard_ZRS    | StorageV2          |
 
-    Te kombinacje obsługują udział plików.  Aby uzyskać więcej informacji, zobacz [Tworzenie udziału plików platformy Azure](../../storage/files/storage-how-to-create-file-share.md) i [typów kont magazynu](../../storage/common/storage-account-overview.md).
+    Te kombinacje obsługują udziały plików. Aby uzyskać więcej informacji, zobacz [Tworzenie udziału plików platformy Azure](../../storage/files/storage-how-to-create-file-share.md) i [typów kont magazynu](../../storage/common/storage-account-overview.md).
+
 - Reguły zapory konta magazynu nie są jeszcze obsługiwane. Aby uzyskać więcej informacji, zobacz [Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage](../../storage/common/storage-network-security.md).
 - Podmiot zabezpieczeń wdrożenia musi mieć uprawnienia do zarządzania kontem magazynu, w tym do odczytu, tworzenia i usuwania udziałów plików.
 
@@ -283,8 +289,8 @@ Aby określić istniejące konto magazynu, Dodaj następujący kod JSON do eleme
 },
 ```
 
-- **storageAccountName**: Określ nazwę konta magazynu.
-- **storageAccountKey "**: Określ jeden z kluczy konta magazynu. Możesz użyć funkcji, [`listKeys()`](./template-functions-resource.md#listkeys) Aby pobrać klucz. Na przykład:
+- `storageAccountName`: Określ nazwę konta magazynu.
+- `storageAccountKey`: Określ jeden z kluczy konta magazynu. Aby pobrać klucz, można użyć funkcji [listKeys ()](./template-functions-resource.md#listkeys) . Na przykład:
 
     ```json
     "storageAccountSettings": {
@@ -301,9 +307,9 @@ W przypadku korzystania z istniejącego konta magazynu usługa skryptów tworzy 
 
 ### <a name="handle-non-terminating-errors"></a>Obsługuj błędy niepowodujące zakończenia
 
-Można kontrolować, jak program PowerShell reaguje na błędy niepowodujące zakończenia przy użyciu zmiennej **$ErrorActionPreference** w skrypcie wdrożenia. Jeśli zmienna nie jest ustawiona w skrypcie wdrażania, usługa **skryptów będzie używać wartości domyślnej**.
+Można kontrolować, jak program PowerShell reaguje na błędy niepowodujące zakończenia przy użyciu `$ErrorActionPreference` zmiennej w skrypcie wdrożenia. Jeśli zmienna nie jest ustawiona w skrypcie wdrażania, usługa **skryptów będzie używać wartości domyślnej**.
 
-Usługa skryptów ustawia stan aprowizacji zasobów na **Niepowodzenie** , gdy skrypt napotka błąd pomimo ustawienia $ErrorActionPreference.
+Usługa skryptów ustawia stan aprowizacji zasobów na **Niepowodzenie** , gdy skrypt napotka błąd pomimo ustawienia `$ErrorActionPreference` .
 
 ### <a name="pass-secured-strings-to-deployment-script"></a>Przekaż zabezpieczone ciągi do skryptu wdrażania
 
@@ -319,17 +325,17 @@ Usługa skryptów tworzy [konto magazynu](../../storage/common/storage-account-o
 
 Skrypt użytkownika, wyniki wykonywania oraz plik stdout są przechowywane w udziałach plików konta magazynu. Istnieje folder o nazwie `azscripts` . W folderze istnieją dwa więcej folderów dla danych wejściowych i plików wyjściowych: `azscriptinput` i `azscriptoutput` .
 
-Folder wyjściowy zawiera **executionresult.js** i plik wyjściowy skryptu. Komunikat o błędzie wykonywania skryptu można zobaczyć w **executionresult.js**. Plik wyjściowy jest tworzony tylko po pomyślnym wykonaniu skryptu. Folder wejściowy zawiera systemowy plik skryptu programu PowerShell i pliki skryptów wdrażania użytkownika. Można zastąpić plik skryptu wdrożenia użytkownika zmienionym i ponownie uruchomić skrypt wdrażania z wystąpienia kontenera platformy Azure.
+Folder wyjściowy zawiera _executionresult.js_ i plik wyjściowy skryptu. Komunikat o błędzie wykonywania skryptu można zobaczyć w _executionresult.js_. Plik wyjściowy jest tworzony tylko po pomyślnym wykonaniu skryptu. Folder wejściowy zawiera systemowy plik skryptu programu PowerShell i pliki skryptów wdrażania użytkownika. Można zastąpić plik skryptu wdrożenia użytkownika zmienionym i ponownie uruchomić skrypt wdrażania z wystąpienia kontenera platformy Azure.
 
 ### <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
-Po wdrożeniu zasobu skryptu wdrożenia zasób zostanie wyświetlony w obszarze Grupa zasobów w Azure Portal. Poniższy zrzut ekranu przedstawia stronę przegląd zasobu skryptu wdrożenia:
+Po wdrożeniu zasobu skryptu wdrożenia zasób zostanie wyświetlony w obszarze Grupa zasobów w Azure Portal. Poniższy zrzut ekranu przedstawia stronę **Przegląd** zasobu skryptu wdrożenia:
 
 ![Omówienie portalu skryptów wdrażania Menedżer zasobów Template](./media/deployment-script-template/resource-manager-deployment-script-portal.png)
 
 Na stronie Przegląd są wyświetlane istotne informacje dotyczące zasobu, takie jak **stan aprowizacji**, **konto magazynu**, **wystąpienie kontenera** i **dzienniki**.
 
-Z menu po lewej stronie można wyświetlić zawartość skryptu wdrożenia, argumenty przekazane do skryptu i dane wyjściowe.  Możesz również wyeksportować szablon skryptu wdrażania, w tym skrypt wdrożenia.
+Z menu po lewej stronie można wyświetlić zawartość skryptu wdrożenia, argumenty przekazane do skryptu i dane wyjściowe. Możesz również wyeksportować szablon skryptu wdrażania, w tym skrypt wdrożenia.
 
 ### <a name="use-powershell"></a>Korzystanie z programu PowerShell
 
@@ -340,7 +346,7 @@ Za pomocą Azure PowerShell można zarządzać skryptami wdrażania w zakresie s
 - [Remove-AzDeploymentScript](/powershell/module/az.resources/remove-azdeploymentscript): usuwa skrypt wdrożenia i powiązane z nim zasoby.
 - [Save-AzDeploymentScriptLog](/powershell/module/az.resources/save-azdeploymentscriptlog): zapisuje dziennik wykonania skryptu wdrożenia na dysku.
 
-Dane wyjściowe Get-AzDeploymentScript są podobne do:
+`Get-AzDeploymentScript`Dane wyjściowe są podobne do:
 
 ```output
 Name                : runPowerShellInlineWithOutput
@@ -525,29 +531,29 @@ Konto magazynu i wystąpienie kontenera są niezbędne do wykonania skryptu i ro
 
 Cykl życia tych zasobów jest kontrolowany przez następujące właściwości w szablonie:
 
-- **cleanupPreference**: Wyczyść preferencję, gdy wykonywanie skryptu zostanie odszukane w stanie terminalu. Obsługiwane są następujące wartości:
+- `cleanupPreference`: Wyczyść preferencję, gdy wykonywanie skryptu zostanie odszukane w stanie terminalu. Obsługiwane są następujące wartości:
 
-  - **Zawsze**: Usuń automatycznie utworzone zasoby, gdy wykonywanie skryptu zostanie rozpoczęte w stanie terminalu. Jeśli używane jest istniejące konto magazynu, usługa skryptów usuwa udział plików utworzony na koncie magazynu. Ponieważ zasób deploymentScripts może nadal występować po oczyszczeniu zasobów, usługa skryptów zachowuje wyniki wykonywania skryptu, na przykład stdout, Output, Value Return itp., zanim zasoby zostaną usunięte.
+  - **Zawsze**: Usuń automatycznie utworzone zasoby, gdy wykonywanie skryptu zostanie rozpoczęte w stanie terminalu. Jeśli używane jest istniejące konto magazynu, usługa skryptów usuwa udział plików utworzony na koncie magazynu. Ponieważ `deploymentScripts` zasób może nadal występować po oczyszczeniu zasobów, usługa skryptów zachowuje wyniki wykonywania skryptu, na przykład stdout, Output i Value Return przed usunięciem zasobów.
   - **OnSuccess**: usuwanie automatycznie utworzonych zasobów tylko wtedy, gdy wykonywanie skryptu zakończyło się pomyślnie. Jeśli używane jest istniejące konto magazynu, usługa skryptów usuwa udział plików tylko po pomyślnym wykonaniu skryptu. Nadal możesz uzyskać dostęp do zasobów, aby znaleźć informacje debugowania.
-  - **Onwygaśnięcia**: usuwanie automatycznie utworzonych zasobów tylko wtedy, gdy ustawienie **retentionInterval** wygasło. Jeśli używane jest istniejące konto magazynu, usługa skryptów usuwa udział plików, ale zachowuje konto magazynu.
+  - **Onwygaśnięcia**: usuwanie automatycznie utworzonych zasobów tylko wtedy, gdy `retentionInterval` ustawienie wygasło. Jeśli używane jest istniejące konto magazynu, usługa skryptów usuwa udział plików, ale zachowuje konto magazynu.
 
-- **retentionInterval**: Określ interwał czasu, przez który zasób skryptu zostanie zachowany, a następnie zostanie usunięty.
+- `retentionInterval`: Określ przedział czasu, przez który zasób skryptu zostanie zachowany, a następnie jego ważność zostanie usunięta.
 
 > [!NOTE]
 > Nie zaleca się używania konta magazynu i wystąpienia kontenera, które są generowane przez usługę skryptów do innych celów. Te dwa zasoby mogą zostać usunięte w zależności od cyklu życia skryptu.
 
-Wystąpienie kontenera i konto magazynu są usuwane zgodnie z **cleanupPreference**. Jeśli jednak skrypt zakończy się niepowodzeniem, a **cleanupPreference** nie jest ustawiony na **zawsze**, proces wdrażania automatycznie będzie nadal działać przez jedną godzinę. Możesz użyć tej godziny do rozwiązywania problemów z skryptem. Aby zachować działanie kontenera po pomyślnym wdrożeniu, należy dodać krok uśpienia do skryptu. Na przykład Dodaj polecenie [Start-Uśpij](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep) do końca skryptu. Jeśli nie dodasz kroku uśpienia, kontener zostanie ustawiony na stan terminala i nie będzie można uzyskać do niego dostępu nawet wtedy, gdy nie został jeszcze usunięty.
+Wystąpienie kontenera i konto magazynu są usuwane zgodnie z `cleanupPreference` . Jeśli jednak skrypt zakończy się niepowodzeniem i `cleanupPreference` nie zostanie ustawiony na **zawsze**, proces wdrażania automatycznie będzie nadal działać przez jedną godzinę. Możesz użyć tej godziny do rozwiązywania problemów z skryptem. Aby zachować działanie kontenera po pomyślnym wdrożeniu, należy dodać krok uśpienia do skryptu. Na przykład Dodaj polecenie [Start-Uśpij](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep) do końca skryptu. Jeśli nie dodasz kroku uśpienia, kontener zostanie ustawiony na stan terminala i nie będzie można uzyskać do niego dostępu nawet wtedy, gdy nie został jeszcze usunięty.
 
 ## <a name="run-script-more-than-once"></a>Uruchom skrypt więcej niż raz
 
-Wykonanie skryptu wdrożenia jest operacją idempotentne. Jeśli żadna z właściwości zasobów deploymentScripts (łącznie z skryptem wbudowanym) nie zostanie zmieniona, skrypt nie zostanie wykonany po ponownym wdrożeniu szablonu. Usługa skryptu wdrażania porównuje nazwy zasobów w szablonie z istniejącymi zasobami w tej samej grupie zasobów. Istnieją dwie opcje, jeśli chcesz wykonać ten sam skrypt wdrażania wielokrotnie:
+Wykonanie skryptu wdrożenia jest operacją idempotentne. Jeśli żadna z `deploymentScripts` właściwości zasobów (łącznie z skryptem wbudowanym) nie zostanie zmieniona, skrypt nie zostanie wykonany po ponownym wdrożeniu szablonu. Usługa skryptu wdrażania porównuje nazwy zasobów w szablonie z istniejącymi zasobami w tej samej grupie zasobów. Istnieją dwie opcje, jeśli chcesz wykonać ten sam skrypt wdrażania wielokrotnie:
 
-- Zmień nazwę zasobu deploymentScripts. Na przykład użyj funkcji szablonu [UtcNow](./template-functions-date.md#utcnow) jako nazwy zasobu lub jako części nazwy zasobu. Zmiana nazwy zasobu powoduje utworzenie nowego zasobu deploymentScripts. Warto zachować historię wykonywania skryptu.
+- Zmień nazwę `deploymentScripts` zasobu. Na przykład użyj funkcji szablonu [UtcNow](./template-functions-date.md#utcnow) jako nazwy zasobu lub jako części nazwy zasobu. Zmiana nazwy zasobu powoduje utworzenie nowego `deploymentScripts` zasobu. Warto zachować historię wykonywania skryptu.
 
     > [!NOTE]
-    > Funkcja utcNow może być używana tylko w wartości domyślnej dla parametru.
+    > `utcNow`Funkcja może być używana tylko w wartości domyślnej dla parametru.
 
-- Określ inną wartość we `forceUpdateTag` Właściwości szablonu.  Na przykład użyj utcNow jako wartości.
+- Określ inną wartość we `forceUpdateTag` Właściwości szablonu. Na przykład użyj `utcNow` jako wartości.
 
 > [!NOTE]
 > Napisz skrypty wdrażania, które są idempotentne. Pozwala to zagwarantować, że jeśli zostaną uruchomione ponownie przypadkowo, nie spowoduje to zmian w systemie. Jeśli na przykład skrypt wdrożenia jest używany do tworzenia zasobów platformy Azure, przed utworzeniem zasobu należy sprawdzić, czy zasób nie istnieje, więc skrypt powiedzie się lub nie utworzysz ponownie zasobu.
@@ -595,4 +601,3 @@ W tym artykule przedstawiono sposób korzystania ze skryptów wdrażania. Aby za
 
 > [!div class="nextstepaction"]
 > [Uczenie modułu: Rozszerzonie szablonów ARM przy użyciu skryptów wdrażania](/learn/modules/extend-resource-manager-template-deployment-scripts/)
-

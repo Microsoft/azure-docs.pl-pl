@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: d8b6a852ff0aeb287b12d63bfa689a38a56d418f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 00ae812536e73f432b9bddb93fc1b4a958b379f5
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485061"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97812872"
 ---
 # <a name="what-is-azure-data-factory"></a>Co to jest usługa Azure Data Factory?
 
@@ -56,8 +56,7 @@ Gdy dane znajdują się w scentralizowanym magazynie danych w chmurze, przetwór
 Jeśli wolisz naliczać przekształcenia ręcznie, moduł ADF obsługuje działania zewnętrzne do wykonywania przekształceń usług obliczeniowych, takich jak HDInsight Hadoop, Spark, Data Lake Analytics i Machine Learning.
 
 ### <a name="cicd-and-publish"></a>CI/CD i publikowanie
-Data Factory oferuje pełną obsługę ciągłej integracji i ciągłego wdrażania potoków danych przy użyciu usług Azure DevOps i GitHub. Dzięki temu można stopniowo opracowywać i dostarczać procesy ETL przed opublikowaniem gotowego produktu. Po przekształceniu danych pierwotnych do postaci gotowej dla działań biznesowych należy załadować je do magazynu Azure Data Warehouse, bazy danych Azure SQL Database, bazy danych Azure CosmosDB lub dowolnego aparatu analizy, z którego mogą korzystać użytkownicy biznesowi przy użyciu swoich narzędzi do analizy biznesowej.
-
+[Data Factory oferuje pełną obsługę](continuous-integration-deployment.md) ciągłej integracji i ciągłego wdrażania potoków danych przy użyciu usług Azure DevOps i GitHub. Dzięki temu można stopniowo opracowywać i dostarczać procesy ETL przed opublikowaniem gotowego produktu. Po przekształceniu danych pierwotnych do postaci gotowej dla działań biznesowych należy załadować je do magazynu Azure Data Warehouse, bazy danych Azure SQL Database, bazy danych Azure CosmosDB lub dowolnego aparatu analizy, z którego mogą korzystać użytkownicy biznesowi przy użyciu swoich narzędzi do analizy biznesowej.
 ### <a name="monitor"></a>Monitorowanie
 Po pomyślnym utworzeniu i wdrożeniu potoku integracji danych, zapewniającego wartość biznesową danym przetworzonym, należy monitorować zaplanowane działania i potoki pod kątem współczynników powodzenia i niepowodzenia. Usługa Azure Data Factory dysponuje wbudowaną obsługą monitorowania potoków przy użyciu narzędzi Azure Monitor, API, PowerShell, dzienników usługi Azure Monitor i paneli kondycji w witrynie Azure Portal.
 

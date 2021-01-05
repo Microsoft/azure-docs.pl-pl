@@ -8,12 +8,12 @@ mms.devlang: na
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: kumud
-ms.openlocfilehash: 4cc0fd970f9adc26f5fdb024f501dcb0edf77bde
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 962f6bcf7747a82749e7ccab95de34f7834a8372
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992424"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814214"
 ---
 # <a name="partnering-with-azure-ddos-protection-standard"></a>Współpraca z usługą Azure DDoS Protection Standard
 W tym artykule opisano możliwości partnerskie włączane przez Standard Azure DDoS Protection. Ten artykuł ma na celu ułatwienie menedżerom produktów i rolom biznesowym zrozumienia ścieżki inwestycyjnej i zapewnienie wglądu w propozycję wartości partnerskiej.
@@ -40,8 +40,8 @@ Dla każdej chronionej aplikacji Azure DDoS Protection Standard automatycznie do
 Azure DDoS Protection identyfikuje i zmniejsza ataki DDoS bez żadnej interwencji użytkownika.
 
 - Jeśli chroniony zasób znajduje się w subskrypcji objętej Azure Security Center, DDoS Protection Standard automatycznie wyśle alert, aby Security Center za każdym razem, gdy zostanie wykryty atak DDoS i zostanie on skorygowany do chronionej aplikacji.
-- Alternatywnie, aby otrzymywać powiadomienia, gdy istnieje aktywne środki zaradcze dla chronionego publicznego adresu IP, można [skonfigurować alert](telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics) dotyczący metryki w obszarze atak DDoS.
-- Ponadto możesz utworzyć alerty dla innych metryk DDoS i [skonfigurować ataki analizy](telemetry-monitoring-alerting.md) , aby zrozumieć skalę ataku, porzuconego ruchu, wektorów ataków, najważniejszych współautorów i inne szczegóły.
+- Alternatywnie, aby otrzymywać powiadomienia, gdy istnieje aktywne środki zaradcze dla chronionego publicznego adresu IP, można [skonfigurować alert](alerts.md) dotyczący metryki w obszarze atak DDoS.
+- Ponadto możesz utworzyć alerty dla innych metryk DDoS i [skonfigurować telemetrię ataków](telemetry.md) , aby zrozumieć skalę ataku, porzuconego ruchu, wektorów ataków, najważniejszych współautorów i inne szczegóły.
 
 ![Metryki DDoS](./media/ddos-protection-partner-onboarding/ddos-metrics.png)
 
@@ -71,7 +71,7 @@ Aby partnerzy mogli skonfigurować integrację ze standardem Azure DDoS Protecti
 3. Włącz Standard Azure DDoS Protection w sieci wirtualnej usługi z publicznymi punktami końcowymi przy użyciu planu DDoS Protection utworzonego w pierwszym kroku. Aby uzyskać szczegółowe instrukcje, zobacz [Włączanie planu ochrony standardowego](manage-ddos-protection.md#enable-ddos-protection-for-an-existing-virtual-network) (Stpe) DDoS
    > [!IMPORTANT] 
    > Po włączeniu standardu Azure DDoS Protection w sieci wirtualnej wszystkie publiczne adresy IP w ramach tej sieci wirtualnej są automatycznie chronione. Te publiczne adresy IP mogą znajdować się na platformie Azure (subskrypcja klienta) lub poza platformą Azure. 
-4. Opcjonalnie można zintegrować Azure DDoS Protection standardowe dane telemetryczne i analizę ataków na pulpicie nawigacyjnym dostępnym dla klienta. Aby uzyskać więcej informacji o korzystaniu z telemetrii, zobacz [Wyświetlanie i Konfigurowanie telemetrii DDoS Protection](telemetry-monitoring-alerting.md). 
+4. Opcjonalnie można zintegrować Azure DDoS Protection standardowe dane telemetryczne i analizę ataków na pulpicie nawigacyjnym dostępnym dla klienta. Aby uzyskać więcej informacji o korzystaniu z telemetrii, zobacz [Wyświetlanie i Konfigurowanie telemetrii DDoS Protection](telemetry.md). 
 
 ### <a name="onboarding-guides-and-technical-documentation"></a>Przewodniki dołączania i dokumentacja techniczna
 
@@ -80,7 +80,7 @@ Aby partnerzy mogli skonfigurować integrację ze standardem Azure DDoS Protecti
 - [Dokumentacja interfejsu API Azure DDoS Protection](/rest/api/virtualnetwork/ddosprotectionplans)
 - [Dokumentacja interfejsu API usługi Azure Virtual Network](/rest/api/virtualnetwork/virtualnetworks)
 
-### <a name="get-help"></a>Uzyskaj pomoc
+### <a name="get-help"></a>Uzyskiwanie pomocy
 
 - Jeśli masz pytania dotyczące integracji aplikacji, usługi lub produktu ze standardem Azure DDoS Protection, skontaktuj się z [społecznością usługi Azure Security](https://techcommunity.microsoft.com/t5/security-identity/bd-p/Azure-Security).
 - Obserwuj dyskusje na [Stack Overflow](https://stackoverflow.com/tags/azure-ddos/).

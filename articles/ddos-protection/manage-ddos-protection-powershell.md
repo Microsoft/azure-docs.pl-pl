@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 49fa0c849a6b2eab0647922a711c50b4fe762584
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 69f9b5a74566879ecf8f15f23e689ebb731da45a
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095683"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814146"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard-using-azure-powershell"></a>Szybki Start: Tworzenie i Konfigurowanie standardu Azure DDoS Protection przy użyciu Azure PowerShell
 
@@ -45,7 +45,7 @@ Aby utworzyć grupę zasobów, użyj polecenie [New-AzResourceGroup](/powershell
 New-AzResourceGroup -Name MyResourceGroup -Location "East US"
 ```
 
-Teraz Utwórz plan ochrony DDoS o nazwie _MyDdosProtectionPlan_ :
+Teraz Utwórz plan ochrony DDoS o nazwie _MyDdosProtectionPlan_:
 
 ```azurepowershell-interactive
 New-AzDdosProtectionPlan -ResourceGroupName MyResourceGroup -Name MyDdosProtectionPlan -Location "East US"
@@ -55,7 +55,7 @@ New-AzDdosProtectionPlan -ResourceGroupName MyResourceGroup -Name MyDdosProtecti
 
 ### <a name="enable-ddos-for-a-new-virtual-network"></a>Włącz DDoS dla nowej sieci wirtualnej
 
-Ochronę DDoS można włączyć podczas tworzenia sieci wirtualnej. W tym przykładzie zmienimy nazwę naszej sieci wirtualnej _MyVnet_ : 
+Ochronę DDoS można włączyć podczas tworzenia sieci wirtualnej. W tym przykładzie zmienimy nazwę naszej sieci wirtualnej _MyVnet_: 
 
 ```azurepowershell-interactive
 New-AzVirtualNetwork -Name MyVnet -ResourceGroupName MyResourceGroup -Location "East US" -AddressPrefix 10.0.0.0/16
@@ -114,4 +114,4 @@ W celu usunięcia planu ochrony DDoS należy najpierw usunąć skojarzenie wszys
 Aby dowiedzieć się, jak wyświetlać i konfigurować dane telemetryczne dla planu ochrony DDoS, przejdź do samouczków.
 
 > [!div class="nextstepaction"]
-> [Wyświetlanie i konfigurowanie telemetrii ochrony przed atakami DDoS](telemetry-monitoring-alerting.md)
+> [Wyświetlanie i konfigurowanie telemetrii ochrony przed atakami DDoS](telemetry.md)

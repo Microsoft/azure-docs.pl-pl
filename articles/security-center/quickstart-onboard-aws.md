@@ -3,16 +3,16 @@ title: Połącz swoje konto AWS z Azure Security Center
 description: Monitorowanie zasobów AWS z poziomu Azure Security Center
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 12/29/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 23609613cace2f9be90ad5c88d4d51bb1c2f1a9b
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 4c919115efb39a8e8c008eab69dc087792f7b105
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573514"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814316"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Połącz konta AWS z Azure Security Center
 
@@ -41,7 +41,7 @@ Na poniższym zrzucie ekranu można zobaczyć konta AWS wyświetlane na pulpicie
 |----|:----|
 |Stan wydania:|Wersja zapoznawcza<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Wpisaną|Wymaga [usługi Azure Defender dla serwerów](defender-for-servers-introduction.md)|
-|Wymagane role i uprawnienia:|**Właściciel** lub **współautor** w odpowiedniej subskrypcji platformy Azure|
+|Wymagane role i uprawnienia:|**Właściciel** w odpowiedniej subskrypcji platformy Azure<br>**Współautor** może również połączyć konto AWS, jeśli właściciel poda szczegóły jednostki usługi|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
 |||
 
@@ -77,7 +77,7 @@ Istnieją dwa sposoby zezwalania Security Center na uwierzytelnianie AWS:
 
 1. Wybierz **role** i **Utwórz rolę**.
 1. Wybierz **inne konto AWS**.
-1. Wprowadź następujące wartości:
+1. Wprowadź następujące informacje:
 
     - **Identyfikator konta** — wprowadź identyfikator konta Microsoft (**158177204117**), jak pokazano na stronie łącznika AWS w Security Center.
     - **Wymagaj zewnętrznego identyfikatora** — należy wybrać
@@ -154,7 +154,7 @@ Menedżer systemów AWS jest wymagany do automatyzowania zadań w ramach zasobó
     1. Wybierz **grupę zasobów** i **region platformy Azure** , w ramach której zostaną dołączone odnalezione AWS EC2s w ramach wybranej subskrypcji.
     1. Wprowadź **Identyfikator jednostki usługi** i **klucz tajny klienta jednostki usługi** dla usługi Azure ARC, zgodnie z opisem w tym miejscu Utwórz jednostkę [usługi na potrzeby](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) dołączania na dużą skalę
     1. Jeśli komputer nawiązuje połączenie z Internetem za pośrednictwem serwera proxy, określ adres IP serwera proxy lub nazwę i numer portu używanego przez maszynę do komunikacji z serwerem proxy. Wprowadź wartość w formacie ```http://<proxyURL>:<proxyport>```
-    1. Wybierz pozycję **Przeglądanie + tworzenie**.
+    1. Wybierz pozycję **Przejrzyj i utwórz**.
 
         Przejrzyj informacje podsumowujące
 

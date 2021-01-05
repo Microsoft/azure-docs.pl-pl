@@ -12,20 +12,27 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 12/30/2020
 ms.author: memildin
-ms.openlocfilehash: bd8c5c31579ac22cd6c77dffd31103680e393f69
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d3ed064547b1202aa562fffdfde85a28cbe8514e
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187174"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97809551"
 ---
-# <a name="quickstart-setting-up-azure-security-center"></a>Szybki Start: Konfigurowanie Azure Security Center
+# <a name="quickstart-set-up-azure-security-center"></a>Szybki Start: Konfigurowanie Azure Security Center
 
 Usługa Azure Security Center zapewnia ujednolicone zarządzanie zabezpieczeniami i ochronę przed zagrożeniami na potrzeby różnych obciążeń chmury hybrydowej. Chociaż bezpłatne funkcje oferują ograniczone zabezpieczenia tylko dla zasobów platformy Azure, włączenie usługi Azure Defender rozszerza te możliwości do lokalnych i innych chmur. Usługa Azure Defender ułatwia znajdowanie i rozwiązywanie luk w zabezpieczeniach, stosowanie kontroli dostępu i aplikacji w celu blokowania złośliwych działań, wykrywanie zagrożeń przy użyciu analiz i analiz oraz szybkie reagowanie na ataki. Możesz bezpłatnie wypróbować usługę Azure Defender. Aby dowiedzieć się więcej, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/security-center/).
 
-W tym artykule opisano uaktualnienie do usługi Azure Defender w celu zwiększenia bezpieczeństwa i zainstalowanie agenta Log Analytics na maszynach w celu monitorowania luk w zabezpieczeniach i zagrożeń.
+Ten przewodnik Szybki Start przeprowadzi Cię przez włączenie usługi Azure Defender pod kątem dodatkowych zabezpieczeń i zainstalowanie agenta Log Analytics na maszynach w celu monitorowania luk w zabezpieczeniach i zagrożeń.
+
+Wykonaj następujące czynności:
+
+> [!div class="checklist"]
+> * Włączanie Security Center w ramach subskrypcji platformy Azure
+> * Włączanie usługi Azure Defender w ramach subskrypcji platformy Azure
+> * Włącz automatyczne zbieranie danych
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Do rozpoczęcia korzystania z usługi Security Center wymagana jest subskrypcja usługi Microsoft Azure. Jeśli nie masz subskrypcji, możesz zarejestrować się, aby uzyskać dostęp do [bezpłatnego konta](https://azure.microsoft.com/pricing/free-trial/).

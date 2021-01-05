@@ -2,13 +2,13 @@
 title: Ograniczenia dotyczące nazw zasobów
 description: Pokazuje reguły i ograniczenia dotyczące nazewnictwa zasobów platformy Azure.
 ms.topic: conceptual
-ms.date: 12/04/2020
-ms.openlocfilehash: a6aac03277a11cf671f5a618bc85ff987cfdc2dd
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.date: 12/29/2020
+ms.openlocfilehash: edcf3f09b57ed7628611c482effddb210ef8e456
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608320"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814384"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reguły i ograniczenia nazewnictwa zasobów platformy Azure
 
@@ -170,7 +170,7 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > | znajduj | grupa zasobów | 1-80 | Alfanumeryczne i kropki.<br><br>Zacznij i kończyć znakiem alfanumerycznym. |
 > | Galerie/aplikacje | galeria | 1-80 | Alfanumeryczne, łączniki i kropki.<br><br>Zacznij i kończyć znakiem alfanumerycznym. |
 > | Galerie/aplikacje/wersje | aplikacja | 32-bitowa liczba całkowita | Liczby i kropki. |
-> | Galerie/obrazy | galeria | 1-80 | Alfanumeryczne, łączniki i kropki.<br><br>Zacznij i kończyć znakiem alfanumerycznym. |
+> | Galerie/obrazy | galeria | 1-80 | Alfanumeryczne, podkreślenia, łączniki i kropki.<br><br>Zacznij i kończyć znakiem alfanumerycznym. |
 > | Galerie/obrazy/wersje | image (obraz) | 32-bitowa liczba całkowita | Liczby i kropki. |
 > | images | grupa zasobów | 1-80 | Alfanumeryczne, podkreślenia, kropki i łączniki.<br><br>Zacznij od znaków alfanumerycznych. Kończy się znakiem alfanumerycznym lub podkreśleniem. |
 > | Migawki | grupa zasobów | 1-80 | Alfanumeryczne, podkreślenia, kropki i łączniki.<br><br>Zacznij od znaków alfanumerycznych. Kończy się znakiem alfanumerycznym lub podkreśleniem. |
@@ -453,7 +453,7 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > | Jednostka | Zakres | Długość | Prawidłowe znaki |
 > | --- | --- | --- | --- |
 > | obszary robocze | grupa zasobów | 3-33 | Alfanumeryczne i łączniki. |
-> | obszary robocze/obliczenia | obszar roboczy | 2-16 | Alfanumeryczne i łączniki. |
+> | obszary robocze/obliczenia | obszar roboczy | 2–16 | Alfanumeryczne i łączniki. |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft. ManagedIdentity
 
@@ -537,7 +537,7 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > | Jednostka | Zakres | Długość | Prawidłowe znaki |
 > | --- | --- | --- | --- |
 > | oparty | grupa zasobów | 4-63 | Alfanumeryczne i łączniki.<br><br>Zacznij i kończyć znakiem alfanumerycznym. |
-> | obszary robocze | grupa zasobów | 4-63 | Alfanumeryczne i łączniki.<br><br>Zacznij i kończyć znakiem alfanumerycznym. |
+> | obszary robocze | global | 4-63 | Alfanumeryczne i łączniki.<br><br>Zacznij i kończyć znakiem alfanumerycznym. |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft. OperationsManagement
 

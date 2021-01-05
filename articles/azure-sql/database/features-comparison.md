@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: bonova, sstein
-ms.date: 11/10/2020
-ms.openlocfilehash: c30cecf0b480a1765f04ee48a0fd66f4ddd52708
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.reviewer: bonova, sstein, danil
+ms.date: 12/25/2020
+ms.openlocfilehash: 7bdde57c1d33118fd7d3c8e04a2507d8997c36d0
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630330"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97809517"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Porównanie funkcji: Azure SQL Database i wystąpienie zarządzane Azure SQL
 
@@ -51,7 +51,7 @@ Poniższa tabela zawiera listę głównych funkcji SQL Server i zawiera informac
 | [Sortowanie — serwer/wystąpienie](/sql/relational-databases/collations/set-or-change-the-server-collation) | Nie, domyślne sortowanie serwera `SQL_Latin1_General_CP1_CI_AS` jest zawsze używane. | Tak, można ustawić podczas [tworzenia wystąpienia](../managed-instance/scripts/create-powershell-azure-resource-manager-template.md) i nie można go później zaktualizować. |
 | [Indeksy magazynu kolumn](/sql/relational-databases/indexes/columnstore-indexes-overview) | Tak — [warstwa Premium, warstwa standardowa — S3 i wyższa, ogólnego przeznaczenia warstwy, krytyczne dla działania firmy i warstwy skalowania](/sql/relational-databases/indexes/columnstore-indexes-overview) |Tak |
 | [Środowisko uruchomieniowe języka wspólnego — CLR](/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | Nie | Tak, ale bez dostępu do systemu plików w `CREATE ASSEMBLY` instrukcji — zobacz [różnice w środowisku CLR](../managed-instance/transact-sql-tsql-differences-sql-server.md#clr) |
-| [Poświadczenia](/sql/relational-databases/security/authentication-access/credentials-database-engine) | Tak, ale tylko [poświadczenia w zakresie bazy danych](/sql/t-sql/statements/create-database-scoped-credential-transact-sql). | Tak, ale tylko **Azure Key Vault** i `SHARED ACCESS SIGNATURE` są obsługiwane zobacz [szczegóły](../managed-instance/transact-sql-tsql-differences-sql-server.md#credential) |
+| [Poświadczenia](/sql/relational-databases/security/authentication-access/credentials-database-engine) | Tak, ale tylko [poświadczenia w zakresie bazy danych](/sql/t-sql/statements/create-database-scoped-credential-transact-sql). | Tak, ale tylko **Azure Key Vault** i `SHARED ACCESS SIGNATURE` są obsługiwane — zobacz [szczegóły](../managed-instance/transact-sql-tsql-differences-sql-server.md#credential) |
 | [Kwerendy nazw między bazami danych/trzech części](/sql/relational-databases/linked-servers/linked-servers-database-engine) | Nie — zobacz [zapytania elastyczne](elastic-query-overview.md) | Tak, plus [zapytania elastyczne](elastic-query-overview.md) |
 | [Transakcje między bazami danych](/sql/relational-databases/linked-servers/linked-servers-database-engine) | Nie | Tak, w ramach wystąpienia. Zobacz [różnice między powiązanymi serwerami](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers) dla zapytań między wystąpieniami. |
 | [Poczta bazy danych — dbmail](/sql/relational-databases/database-mail/database-mail) | Nie | Tak |
@@ -128,6 +128,7 @@ Platforma Azure udostępnia wiele możliwości PaaS, które są dodawane jako do
 | [Azure Resource Health](../../service-health/resource-health-overview.md) | Tak | Nie |
 | Przechowywanie kopii zapasowej | Tak. wartość domyślna to 7 dni, maksymalnie 35 dni. | Tak. wartość domyślna to 7 dni, maksymalnie 35 dni. |
 | [Usługa migracji danych (DMS)](/sql/dma/dma-overview) | Tak | Tak |
+| [Zadania elastyczne](elastic-jobs-overview.md) | Tak — zobacz [zadania elastyczne (wersja zapoznawcza)](elastic-jobs-overview.md) | Nie (zamiast tego można użyć[programu SQL Agent](../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent) ). |
 | Dostęp do systemu plików | Nie. Użyj [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) lub [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) do uzyskiwania dostępu i ładowania danych z usługi Azure Blob Storage jako alternatywy. | Nie. Użyj [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) lub [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) do uzyskiwania dostępu i ładowania danych z usługi Azure Blob Storage jako alternatywy. |
 | [Przywracanie geograficzne](recovery-using-backups.md#geo-restore) | Tak | Tak |
 | [Architektura skalowania](service-tier-hyperscale.md) | Tak | Nie |
@@ -145,9 +146,9 @@ Platforma Azure udostępnia wiele możliwości PaaS, które są dodawane jako do
 | [Usługi SQL Server Integration Services (SSIS)](/sql/integration-services/sql-server-integration-services) | Tak, z zarządzanym środowiskiem SSIS w Azure Data Factory (ADF), w którym pakiety są przechowywane w SSISDB hostowanym przez Azure SQL Database i wykonywane na platformie Azure SSIS Integration Runtime (IR), zobacz [tworzenie Azure-SSIS IR w ADF](../../data-factory/create-azure-ssis-integration-runtime.md). <br/><br/>Aby porównać funkcje usług SSIS w SQL Database i wystąpieniu zarządzanym SQL, zobacz [porównanie SQL Database z wystąpieniem zarządzanym SQL](../../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance). | Tak, z zarządzanym środowiskiem SSIS w Azure Data Factory (ADF), w którym pakiety są przechowywane w SSISDB hostowanym przez wystąpienie zarządzane SQL i wykonywane na platformie Azure SSIS Integration Runtime (IR), zobacz [Create Azure-SSIS IR in ADF](../../data-factory/create-azure-ssis-integration-runtime.md). <br/><br/>Aby porównać funkcje usług SSIS w SQL Database i wystąpieniu zarządzanym SQL, zobacz [porównanie SQL Database z wystąpieniem zarządzanym SQL](../../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance). |
 | [SQL Server Reporting Services (SSRS)](/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | Nie — [zobacz Power BI](/power-bi/) | Nie — zamiast tego użyj raportów z podziałem na strony [Power BI](/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) lub HOSTOWANIE usług SSRS na maszynie wirtualnej platformy Azure. Chociaż wystąpienie zarządzane SQL nie może uruchamiać usług SSRS jako usługi, może hostować [bazy danych wykazu usług SSRS](/sql/reporting-services/install-windows/ssrs-report-server-create-a-report-server-database#database-server-version-requirements) dla serwera raportowania zainstalowanego na maszynie wirtualnej platformy Azure przy użyciu uwierzytelniania SQL Server. |
 | [Szczegółowe informacje o wydajności zapytań (QPI)](query-performance-insight-use.md) | Tak | Nie. Użyj wbudowanych raportów w SQL Server Management Studio i Azure Data Studio. |
-| [Environment](../../virtual-network/virtual-networks-overview.md) | Częściowo, umożliwia ograniczony dostęp za pomocą [punktów końcowych sieci wirtualnej](vnet-service-endpoint-rule-overview.md) | Tak, wystąpienie zarządzane SQL jest wstrzykiwane w sieci wirtualnej klienta. Zobacz [podsieci](../managed-instance/transact-sql-tsql-differences-sql-server.md#subnet) i Sieć [wirtualną](../managed-instance/transact-sql-tsql-differences-sql-server.md#vnet) |
+| [Sieć wirtualna](../../virtual-network/virtual-networks-overview.md) | Częściowo, umożliwia ograniczony dostęp za pomocą [punktów końcowych sieci wirtualnej](vnet-service-endpoint-rule-overview.md) | Tak, wystąpienie zarządzane SQL jest wstrzykiwane w sieci wirtualnej klienta. Zobacz [podsieci](../managed-instance/transact-sql-tsql-differences-sql-server.md#subnet) i Sieć [wirtualną](../managed-instance/transact-sql-tsql-differences-sql-server.md#vnet) |
 | Punkt końcowy usługi sieci wirtualnej | [Tak](vnet-service-endpoint-rule-overview.md) | Nie |
-| Globalna komunikacja równorzędna sieci wirtualnej | Tak, za pomocą [prywatnego adresu IP i punktów końcowych usługi](vnet-service-endpoint-rule-overview.md) | Nie, [wystąpienie zarządzane SQL nie jest obsługiwane](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) ze względu na [ograniczenie modułu równoważenia obciążenia w globalnej komunikacji równorzędnej sieci wirtualnej](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
+| Globalna komunikacja równorzędna sieci wirtualnej | Tak, za pomocą [prywatnego adresu IP i punktów końcowych usługi](vnet-service-endpoint-rule-overview.md) | Tak, za pomocą [komunikacji równorzędnej sieci wirtualnych](https://techcommunity.microsoft.com/t5/azure-sql/new-feature-global-vnet-peering-support-for-azure-sql-managed/ba-p/1746913). |
 
 ## <a name="tools"></a>Narzędzia
 
@@ -155,7 +156,7 @@ Azure SQL Database i wystąpienie zarządzane usługi Azure SQL obsługują ró�
 
 | **Narzędzie** | **Azure SQL Database** | **Wystąpienie zarządzane Azure SQL** |
 | --- | --- | --- |
-| Witryna Azure Portal | Tak | Tak |
+| Azure Portal | Tak | Tak |
 | Interfejs wiersza polecenia platformy Azure | Tak | Tak|
 | [Azure Data Studio](/sql/azure-data-studio/what-is) | Tak | Tak |
 | Azure PowerShell | Tak | Tak |
