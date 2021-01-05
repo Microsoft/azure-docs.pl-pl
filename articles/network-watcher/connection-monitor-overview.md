@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/23/2020
+ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: c5c3f8dedad47a819ce3648a0b81ffa3e65a1a1e
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 57228c6b7da04b139c7075c83e313b207907e214
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95544891"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898015"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>Monitorowanie łączności sieciowej z monitorem połączeń
 
@@ -271,7 +271,7 @@ W monitorach połączeń utworzonych przed rozpoczęciem korzystania z monitora 
 
 Korzystając z metryk, ustaw typ zasobu jako Microsoft. Network/networkWatchers/connectionMonitors
 
-| Metric | Nazwa wyświetlana | Jednostka | Typ agregacji | Opis | Wymiary |
+| Metryka | Nazwa wyświetlana | Jednostka | Typ agregacji | Opis | Wymiary |
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent | % Sond nie powiodło się | Procent | Średnia | Procent sond monitorowania łączności nie powiódł się. | Brak wymiarów |
 | AverageRoundtripMs | Średni czas błądzenia (MS) | ) | Średnia | Średni czas RTT sieci dla sond monitorowania łączności przesyłanych między źródłem a miejscem docelowym. |             Brak wymiarów |

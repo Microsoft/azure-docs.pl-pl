@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: 4851dfb4a96ab2ca19ba6ea67139772f9c091a69
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 552322b9452d380dd5507fb579d7cc44e1a456fe
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763966"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898911"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi G Suite do automatycznej aprowizacji użytkowników
 
@@ -63,15 +63,15 @@ Przed skonfigurowaniem pakietu G dla automatycznej aprowizacji użytkowników w 
 
 1. Zaloguj się do [konsoli administracyjnej G Suite](https://admin.google.com/) przy użyciu konta administratora, a następnie wybierz pozycję **zabezpieczenia**. Jeśli łącze nie jest widoczne, może być ukryte w menu **Więcej kontrolek** w dolnej części ekranu.
 
-    ![Zabezpieczenia w usłudze G Suite](./media/google-apps-provisioning-tutorial/gapps-security.png)
+    ![Zabezpieczenia w usłudze G Suite](./media/g-suite-provisioning-tutorial/gapps-security.png)
 
 2. Na stronie **zabezpieczenia** wybierz pozycję **Dokumentacja interfejsu API**.
 
-    ![Interfejs API usługi G Suite](./media/google-apps-provisioning-tutorial/gapps-api.png)
+    ![Interfejs API usługi G Suite](./media/g-suite-provisioning-tutorial/gapps-api.png)
 
 3. Wybierz pozycję **Włącz dostęp do interfejsu API**.
 
-    ![Włączono interfejs API usługi G Suite](./media/google-apps-provisioning-tutorial/gapps-api-enabled.png)
+    ![Włączono interfejs API usługi G Suite](./media/g-suite-provisioning-tutorial/gapps-api-enabled.png)
 
     > [!IMPORTANT]
    > Dla każdego użytkownika, który zamierzasz udostępnić do usługi G Suite, jego nazwa użytkownika w usłudze Azure AD **musi** być powiązana z domeną niestandardową. Na przykład nazwy użytkowników, które wyglądają jak bob@contoso.onmicrosoft.com nie są akceptowane przez pakiet G Suite. Z drugiej strony bob@contoso.com zostanie zaakceptowany. Istniejącą domenę użytkownika można zmienić, postępując zgodnie z instrukcjami znajdującymi się [tutaj](../fundamentals/add-custom-domain.md).
@@ -80,15 +80,15 @@ Przed skonfigurowaniem pakietu G dla automatycznej aprowizacji użytkowników w 
 
     a. W [konsoli administracyjnej programu G Suite](https://admin.google.com/)wybierz pozycję **domeny**.
 
-    ![Domeny pakietu G Suite](./media/google-apps-provisioning-tutorial/gapps-domains.png)
+    ![Domeny pakietu G Suite](./media/g-suite-provisioning-tutorial/gapps-domains.png)
 
     b. Wybierz pozycję **Dodaj domenę lub alias domeny**.
 
-    ![Dodaj domenę zestawu G Suite](./media/google-apps-provisioning-tutorial/gapps-add-domain.png)
+    ![Dodaj domenę zestawu G Suite](./media/g-suite-provisioning-tutorial/gapps-add-domain.png)
 
     c. Wybierz pozycję **Dodaj inną domenę**, a następnie wpisz nazwę domeny, którą chcesz dodać.
 
-    ![G Suite Dodaj kolejną](./media/google-apps-provisioning-tutorial/gapps-add-another.png)
+    ![G Suite Dodaj kolejną](./media/g-suite-provisioning-tutorial/gapps-add-another.png)
 
     d. Wybierz pozycję **Kontynuuj i sprawdź własność domeny**. Następnie postępuj zgodnie z instrukcjami, aby sprawdzić, czy jesteś właocicielem nazwy domeny. Aby uzyskać wyczerpujące instrukcje dotyczące weryfikowania domeny za pomocą usługi Google, zobacz [Sprawdzanie własności lokacji](https://support.google.com/webmasters/answer/35179).
 
@@ -96,11 +96,11 @@ Przed skonfigurowaniem pakietu G dla automatycznej aprowizacji użytkowników w 
 
 5. Następnie określ konto administratora, które ma być używane do zarządzania aprowizacji użytkowników w usłudze G Suite. Przejdź do **ról administratora**.
 
-    ![Administrator pakietu G Suite](./media/google-apps-provisioning-tutorial/gapps-admin.png)
+    ![Administrator pakietu G Suite](./media/g-suite-provisioning-tutorial/gapps-admin.png)
 
 6. W przypadku **roli administratora** tego konta Edytuj **uprawnienia** dla tej roli. Upewnij się, że wszystkie **uprawnienia administratora interfejsu API** są włączone, aby można było używać tego konta do obsługi administracyjnej.
 
-    ![Uprawnienia administratora w usłudze G Suite](./media/google-apps-provisioning-tutorial/gapps-admin-privileges.png)
+    ![Uprawnienia administratora w usłudze G Suite](./media/g-suite-provisioning-tutorial/gapps-admin-privileges.png)
 
 ## <a name="step-3-add-g-suite-from-the-azure-ad-application-gallery"></a>Krok 3. Dodaj pakiet G Suite z galerii aplikacji usługi Azure AD
 
@@ -126,9 +126,9 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**. Użytkownicy będą musieli zalogować się do portal.azure.com i nie będą mogli używać aad.portal.azure.com
 
-    ![Blok Aplikacje dla przedsiębiorstw](./media/google-apps-provisioning-tutorial/enterprise-applications.png)
+    ![Blok Aplikacje dla przedsiębiorstw](./media/g-suite-provisioning-tutorial/enterprise-applications.png)
 
-    ![Blok Wszystkie aplikacje](./media/google-apps-provisioning-tutorial/all-applications.png)
+    ![Blok Wszystkie aplikacje](./media/g-suite-provisioning-tutorial/all-applications.png)
 
 2. Na liście Aplikacje wybierz pozycję **G Suite**.
 
@@ -138,7 +138,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Zrzut ekranu przedstawiający opcje zarządzania z opcją aprowizacji o nazwie out.](common/provisioning.png)
 
-      ![Wprowadzenie — blok](./media/google-apps-provisioning-tutorial/get-started.png)
+      ![Wprowadzenie — blok](./media/g-suite-provisioning-tutorial/get-started.png)
 
 4. Ustaw **Tryb aprowizacji** na **Automatyczny**.
 
@@ -146,11 +146,11 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 5. W sekcji **poświadczenia administratora** kliknij pozycję **Autoryzuj**. Nastąpi przekierowanie do okna dialogowego autoryzacji Google w nowym oknie przeglądarki.
 
-      ![G Suite — Autoryzuj](./media/google-apps-provisioning-tutorial/authorize-1.png)
+      ![G Suite — Autoryzuj](./media/g-suite-provisioning-tutorial/authorize-1.png)
 
 6. Potwierdź, że chcesz nadać uprawnienia usługi Azure AD, aby wprowadzić zmiany w dzierżawie w usłudze G Suite. Wybierz pozycję **Zaakceptuj**.
 
-     ![Uwierzytelnianie dzierżawy w usłudze G Suite](./media/google-apps-provisioning-tutorial/gapps-auth.png)
+     ![Uwierzytelnianie dzierżawy w usłudze G Suite](./media/g-suite-provisioning-tutorial/gapps-auth.png)
 
 7. W Azure Portal kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z pakietem G Suite. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi G Suite ma uprawnienia administratora, a następnie spróbuj ponownie. Następnie spróbuj ponownie wykonać krok **Autoryzuj** .
 

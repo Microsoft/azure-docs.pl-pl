@@ -1,27 +1,27 @@
 ---
-title: Azure Stack Edge Zarządzanie udziałami Pro | Microsoft Docs
-description: Opisuje, jak używać Azure Portal do zarządzania udziałami w Azure Stack EDGE Pro.
+title: Azure Stack Edge FPGA Zarządzanie udziałami | Microsoft Docs
+description: Opisuje, jak używać Azure Portal do zarządzania udziałami na Azure Stack EDGE Pro-FPGA.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/25/2019
+ms.date: 01/04/2021
 ms.author: alkohli
-ms.openlocfilehash: 4d43b70c8f958ad37b6ac2d0ee043d5f07d11da9
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7fbb5ca43d2877e2e14914b71df7cc1bcdf27f88
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444592"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898381"
 ---
-# <a name="use-the-azure-portal-to-manage-shares-on-azure-stack-edge-pro"></a>Użyj Azure Portal, aby zarządzać udziałami na Azure Stack EDGE Pro
+# <a name="use-the-azure-portal-to-manage-shares-on-azure-stack-edge-pro-fpga"></a>Użyj Azure Portal, aby zarządzać udziałami na Azure Stack EDGE Pro FPGA 
 
-W tym artykule opisano sposób zarządzania udziałami na Azure Stack Edge. Możesz zarządzać Azure Stack Edge przy użyciu Azure Portal lub za pośrednictwem lokalnego interfejsu użytkownika sieci Web. Użyj Azure Portal, aby dodać, usunąć, odświeżyć udziały lub zsynchronizować klucz magazynu dla konta magazynu skojarzonego z udziałami.
+W tym artykule opisano sposób zarządzania udziałami na urządzeniu, na którym znajduje się Azure Stack FPGA Edge. Za pośrednictwem Azure Portal lub za pośrednictwem lokalnego interfejsu użytkownika sieci Web można zarządzać urządzeniem Azure Stack Edge FPGA. Użyj Azure Portal, aby dodać, usunąć, odświeżyć udziały lub zsynchronizować klucz magazynu dla konta magazynu skojarzonego z udziałami.
 
 ## <a name="about-shares"></a>Udziały — informacje
 
-Aby przesłać dane na platformę Azure, musisz utworzyć udziały na Azure Stack Edge. Udziały dodawane na urządzeniu Azure Stack EDGE Pro mogą być udziałami lokalnymi lub udziałami, które wypychanie danych do chmury.
+Aby przesłać dane na platformę Azure, musisz utworzyć udziały na Azure Stack EDGE Pro FPGA. Udziały dodawane na urządzeniu Azure Stack EDGE Pro mogą być udziałami lokalnymi lub udziałami, które wypychanie danych do chmury.
 
  - **Udziały lokalne**: Użyj tych udziałów, jeśli chcesz, aby dane były przetwarzane lokalnie na urządzeniu.
  - **Udziały**: te udziały mają być automatycznie wypychane na konto magazynu w chmurze. Wszystkie funkcje w chmurze, takie jak **odświeżanie** i **Synchronizacja kluczy magazynu** , mają zastosowanie do udziałów.
@@ -39,7 +39,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 Wykonaj następujące czynności w witrynie Azure Portal, aby utworzyć udział.
 
-1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do pozycji **brama > udziały**. Wybierz pozycję **+ Dodaj udział** na pasku poleceń.
+1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do **bramy magazynu w chmurze**. Przejdź do pozycji **udziały** , a następnie wybierz pozycję **+ Dodaj udział** na pasku poleceń.
 
     ![Wybierz pozycję Dodaj udział](media/azure-stack-edge-manage-shares/add-share-1.png)
 
@@ -72,7 +72,7 @@ Wykonaj następujące czynności w witrynie Azure Portal, aby utworzyć udział.
 
 ## <a name="add-a-local-share"></a>Dodawanie udziału lokalnego
 
-1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do pozycji **brama > udziały**. Wybierz pozycję **+ Dodaj udział** na pasku poleceń.
+1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do pozycji **> udziały w usłudze Cloud Storage Gateway**. Wybierz pozycję **+ Dodaj udział** na pasku poleceń.
 
    ![Wybierz pozycję Dodaj udział 2](media/azure-stack-edge-manage-shares/add-local-share-1.png)
 
@@ -96,15 +96,13 @@ Wykonaj następujące czynności w witrynie Azure Portal, aby utworzyć udział.
 
    ![Widok widoku udziałów aktualizacji](media/azure-stack-edge-manage-shares/add-local-share-3.png)
     
-    Wybierz udział, aby wyświetlić mountpoint lokalny dla modułów obliczeniowych Edge dla tego udziału.
 
-   ![Wyświetl szczegóły udziału lokalnego](media/azure-stack-edge-manage-shares/add-local-share-4.png)
 
 ## <a name="mount-a-share"></a>Instalowanie udziału
 
 Jeśli udział został utworzony przed skonfigurowaniem obliczeń na urządzeniu Azure Stack EDGE Pro, należy zainstalować udział. Wykonaj następujące kroki, aby zainstalować udział.
 
-1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do pozycji **brama > udziały**. Z listy udziałów wybierz udział, który chcesz zainstalować. Kolumna **użyta do obliczenia** będzie wyświetlać stan jako **wyłączony** dla wybranego udziału.
+1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do pozycji **> udziały w usłudze Cloud Storage Gateway**. Z listy udziałów wybierz udział, który chcesz zainstalować. Kolumna **użyta do obliczenia** będzie wyświetlać stan jako **wyłączony** dla wybranego udziału.
 
    ![Wybierz pozycję Udostępnij 3](media/azure-stack-edge-manage-shares/select-share-mount.png)
 
@@ -122,13 +120,13 @@ Jeśli udział został utworzony przed skonfigurowaniem obliczeń na urządzeniu
 
 5. Wybierz ponownie udział, aby wyświetlić lokalny mountpoint dla udziału. Moduł obliczeń brzegowych używa tego lokalnego mountpoint dla udziału.
 
-   ![Mountpoint lokalny dla udziału](media/azure-stack-edge-manage-shares/share-mountpoint.png)
+   ![Mountpoint lokalny dla udziału](media/azure-stack-edge-manage-shares/share-mountpoint.png) 
 
 ## <a name="unmount-a-share"></a>Odinstalowywanie udziału
 
 Aby odinstalować udział, wykonaj następujące czynności w Azure Portal.
 
-1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do pozycji **brama > udziały**.
+1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do pozycji **> udziały w usłudze Cloud Storage Gateway**.
 
    ![Wybierz pozycję Udostępnij 4](media/azure-stack-edge-manage-shares/select-share-unmount.png)
 
@@ -148,13 +146,13 @@ Aby odinstalować udział, wykonaj następujące czynności w Azure Portal.
 
 Wykonaj następujące czynności w witrynie Azure Portal, aby usunąć udział.
 
-1. Na liście udziałów kliknij udział, który chcesz usunąć.
+1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do pozycji **> udziały w usłudze Cloud Storage Gateway**. Na liście udziałów kliknij udział, który chcesz usunąć.
 
    ![Wybierz udział 5](media/azure-stack-edge-manage-shares/delete-share-1.png)
 
-2. Kliknij polecenie **Usuń**.
+2. Wybierz pozycję **Usuń**.
 
-   ![Klikanie polecenia Usuń](media/azure-stack-edge-manage-shares/delete-share-2.png)
+   ![Wybierz pozycję Usuń](media/azure-stack-edge-manage-shares/delete-share-2.png)
 
 3. Po wyświetleniu monitu o potwierdzenie kliknij przycisk **Tak**.
 
@@ -173,15 +171,15 @@ Funkcja odświeżania umożliwia odświeżenie zawartości udziału. Podczas od�
 
 Wykonaj następujące czynności w witrynie Azure Portal, aby odświeżyć udział.
 
-1. W witrynie Azure Portal przejdź do sekcji **Udziały**. Kliknij udział, który chcesz odświeżyć.
+1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do pozycji **> udziały w usłudze Cloud Storage Gateway**. Kliknij udział, który chcesz odświeżyć.
 
    ![Wybierz pozycję Udostępnij 6](media/azure-stack-edge-manage-shares/refresh-share-1.png)
 
-2. Kliknij przycisk **Odśwież**.
+2. Wybierz pozycję **Odśwież dane**.
 
-   ![Klikanie przycisku Odśwież](media/azure-stack-edge-manage-shares/refresh-share-2.png)
+   ![Wybierz pozycję Odśwież](media/azure-stack-edge-manage-shares/refresh-share-2.png)
  
-3. Po wyświetleniu monitu o potwierdzenie kliknij przycisk **Tak**. Zadanie rozpoczyna odświeżanie zawartości udziału lokalnego.
+3. Po wyświetleniu monitu o potwierdzenie wybierz pozycję **tak**. Zadanie rozpoczyna odświeżanie zawartości udziału lokalnego.
 
    ![Potwierdzanie odświeżania](media/azure-stack-edge-manage-shares/refresh-share-3.png)
 
@@ -199,7 +197,7 @@ Jeśli klucze konta magazynu zostały wymienione, należy zsynchronizować klucz
 
 Wykonaj następujące czynności w witrynie Azure Portal, aby zsynchronizować klucz dostępu do magazynu.
 
-1. W zasobie przejdź do sekcji **Przegląd**. Na liście udziałów kliknij udział skojarzony z kontem magazynu, które ma zostać zsynchronizowane.
+1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do pozycji **> udziały w usłudze Cloud Storage Gateway**. Na liście udziałów kliknij udział skojarzony z kontem magazynu, które ma zostać zsynchronizowane.
 
     ![Wybierz pozycję Udostępnij przy użyciu odpowiedniego konta magazynu](media/azure-stack-edge-manage-shares/sync-storage-key-1.png)
 

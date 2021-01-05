@@ -1,19 +1,19 @@
 ---
 title: Rozwiązanie VMware firmy Azure według CloudSimple — Konfigurowanie źródeł tożsamości programu vCenter w chmurze prywatnej
 description: Opisuje sposób konfigurowania programu vCenter w chmurze prywatnej do uwierzytelniania za pomocą Active Directory dla administratorów oprogramowania VMware w celu uzyskania dostępu do programu vCenter
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 60090dec56a177fac6ddad946d97142b484355af
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: a76fecb942c5c6da926e37149245e82dcbc4661b
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425752"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899154"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Skonfiguruj źródła tożsamości vCenter do użycia Active Directory
 
@@ -33,7 +33,7 @@ W tym przewodniku opisano zadania służące do konfigurowania Active Directory 
 Przed [dodaniem źródła tożsamości](#add-an-identity-source-on-vcenter)tymczasowo [Eskalacja uprawnień programu vCenter](escalate-private-cloud-privileges.md).
 
 > [!CAUTION]
-> Nowi użytkownicy muszą zostać dodani tylko *do chmury-właściciel-Grupa*, *chmura-Global-Cluster-admin-* Group, Cloud- *Global-Storage-Administrator-* Group, *Cloud-Global-Network-admin* -Group *Cloud-Global-VM-Admin-Group*  Użytkownicy dodani do grupy *administratorzy* zostaną usunięci automatycznie.  Tylko konta usług należy dodać do grupy *administratorzy* , a konta usług nie mogą być używane do logowania się do interfejsu użytkownika sieci Web vSphere.   
+> Nowi użytkownicy muszą zostać dodani tylko *do chmury-właściciel-Grupa*, *chmura-Global-Cluster-admin-* Group, Cloud- *Global-Storage-Administrator-* Group, *Cloud-Global-Network-admin* -Group   Użytkownicy dodani do grupy *administratorzy* zostaną usunięci automatycznie.  Tylko konta usług należy dodać do grupy *administratorzy* , a konta usług nie mogą być używane do logowania się do interfejsu użytkownika sieci Web vSphere.   
 
 
 ## <a name="identity-source-options"></a>Opcje źródła tożsamości
@@ -65,7 +65,7 @@ Podczas konfigurowania domeny Active Directory należy skorzystać z informacji 
 | **Adres URL serwera pomocniczego** | Adres serwera LDAP pomocniczego kontrolera domeny, który jest używany do pracy w trybie failover. |
 | **Wybieranie certyfikatu** | Jeśli chcesz używać LDAPs z serwerem LDAP Active Directory lub źródłem tożsamości serwera OpenLDAP, po wpisaniu `ldaps://` w polu tekstowym adresu URL zostanie wyświetlony przycisk Wybierz certyfikat. Pomocniczy adres URL nie jest wymagany. |
 | **Nazwa użytkownika** | Identyfikator użytkownika w domenie, który ma minimalny dostęp tylko do odczytu do podstawowej nazwy wyróżniającej dla użytkowników i grup. |
-| **Hasło** | Hasło użytkownika, który jest określony przez nazwę użytkownika. |
+| **Password** (Hasło) | Hasło użytkownika, który jest określony przez nazwę użytkownika. |
 
 Jeśli masz informacje w poprzedniej tabeli, możesz dodać swoje Active Directory lokalne jako pojedyncze Źródło tożsamości Sign-On w programie vCenter.
 

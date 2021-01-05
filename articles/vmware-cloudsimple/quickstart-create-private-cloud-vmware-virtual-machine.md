@@ -1,19 +1,19 @@
 ---
 title: Szybki Start — Tworzenie maszyny wirtualnej programu VMware platformy Azure w chmurze prywatnej — rozwiązanie Azure VMware według CloudSimple
 description: Dowiedz się, jak utworzyć maszynę wirtualną VMware w chmurze prywatnej CloudSimple. Uzyskaj dostęp do portalu CloudSimple z poziomu Azure Portal.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fd67a5a7f1bf665333e06c66f73c7f18727a3e12
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c741f01ccc3e34ec991aa77fc850fd9f60c4d8aa
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427760"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899290"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Tworzenie maszyn wirtualnych VMware w chmurze prywatnej
 
@@ -36,7 +36,7 @@ Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](http
 
 Teraz możesz uruchomić program vCenter, aby skonfigurować maszyny wirtualne i zasady.
 
-Aby uzyskać dostęp do programu vCenter, Zacznij od portalu CloudSimple. Na stronie głównej w obszarze **typowe zadania**kliknij pozycję **Uruchom program vSphere Client**.  Wybierz chmurę prywatną, a następnie kliknij pozycję **Uruchom klienta vSphere** w chmurze prywatnej.
+Aby uzyskać dostęp do programu vCenter, Zacznij od portalu CloudSimple. Na stronie głównej w obszarze **typowe zadania** kliknij pozycję **Uruchom program vSphere Client**.  Wybierz chmurę prywatną, a następnie kliknij pozycję **Uruchom klienta vSphere** w chmurze prywatnej.
 
    ![Uruchom klienta vSphere](media/launch-vcenter-from-cloudsimple-portal.png)
 
@@ -78,7 +78,7 @@ Aby uzyskać dostęp do programu vCenter, Zacznij od portalu CloudSimple. Na str
 8. Wybierz system operacyjny gościa w formacie ISO dla tworzonej maszyny wirtualnej, a następnie kliknij przycisk **dalej**.
     ![Zrzut ekranu pokazujący sposób wybierania systemu operacyjnego guese dla maszyny wirtualnej.](media/vcvm07.png)
 
-9. Wybierz opcje dysk twardy i sieć. W przypadku nowej stacji dysków CD/DVD wybierz pozycję **plik ISO magazynu**danych.  Jeśli chcesz zezwolić na ruch z publicznego adresu IP do tej maszyny wirtualnej, wybierz sieć jako **maszynę wirtualną-1**.
+9. Wybierz opcje dysk twardy i sieć. W przypadku nowej stacji dysków CD/DVD wybierz pozycję **plik ISO magazynu** danych.  Jeśli chcesz zezwolić na ruch z publicznego adresu IP do tej maszyny wirtualnej, wybierz sieć jako **maszynę wirtualną-1**.
     ![Zrzut ekranu, który podświetla, gdzie wybierasz plik ISO magazynu danych.](media/vcvm08.png)
 
 10. Zostanie otwarte okno wyboru. Wybierz plik, który został wcześniej przekazany do folderu obrazów ISO i templates, a następnie kliknij przycisk **OK**.
@@ -139,7 +139,7 @@ Strony sieci w portalu CloudSimple umożliwiają określenie konfiguracji tabel 
 5. Użyj suwaka, aby zmienić limit czasu bezczynności w razie potrzeby.
 6. Wprowadź lokalny adres IP, dla którego chcesz przypisać publiczny adres IP.
 7. W razie potrzeby wprowadź skojarzoną nazwę DNS.
-8. Kliknij pozycję **Gotowe**.
+8. Kliknij przycisk **Gotowe**.
 
     ![Publiczny adres IP](media/quick-create-pc-public-ip.png)
 

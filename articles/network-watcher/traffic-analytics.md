@@ -9,16 +9,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/15/2018
+ms.date: 01/04/2021
 ms.author: damendo
 ms.reviewer: vinigam
 ms.custom: references_regions
-ms.openlocfilehash: d259f3ab6434a75a641050acfaf3a3409e3555d9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8b1eedc47d2a89b9552c22b3ae770f655f926945
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492798"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898780"
 ---
 # <a name="traffic-analytics"></a>Analiza ruchu
 
@@ -64,7 +64,7 @@ Analizy ruchu można użyć dla sieciowych grup zabezpieczeń w jednym z następ
       Australia Środkowa  
       Australia Wschodnia  
       Australia Południowo-Wschodnia  
-      Brazil South  
+      Brazylia Południowa  
       Kanada Środkowa  
       Kanada Wschodnia  
       Indie Środkowe  
@@ -118,7 +118,7 @@ Obszar roboczy Log Analytics musi istnieć w następujących regionach:
       Australia Środkowa  
       Australia Wschodnia  
       Australia Południowo-Wschodnia  
-      Brazil South  
+      Brazylia Południowa  
       Kanada Środkowa  
       Indie Środkowe  
       Central US  
@@ -131,7 +131,7 @@ Obszar roboczy Log Analytics musi istnieć w następujących regionach:
       Wschodnie stany USA 2 — EUAP  
       Francja Środkowa  
       Niemcy Środkowo-Zachodnie  
-      Japan East  
+      Japonia Wschodnia  
       Korea Środkowa  
       Północno-środkowe stany USA  
       Europa Północna  

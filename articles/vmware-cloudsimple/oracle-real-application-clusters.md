@@ -1,19 +1,19 @@
 ---
 title: Rozwiązanie VMware firmy Azure przez CloudSimple — Optymalizuj chmurę prywatną CloudSimple dla programu Oracle RAC
 description: Opisuje sposób wdrażania nowego klastra i optymalizowania maszyny wirtualnej pod kątem instalacji i konfiguracji klastrów (RAC) firmy Oracle
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/06/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 980ba86a9916e13dd2ac7639bd06d3ab8546d2f1
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 3959aae5f490af10c6747cfa67d9960e0c4a203f
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424691"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899273"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Zoptymalizuj chmurę prywatną CloudSimple na potrzeby instalacji programu Oracle RAC
 
@@ -87,7 +87,7 @@ Dyski danych są głównie używane do przechowywania plików bazy danych.
 
 * Cztery dyski są skonfigurowane jako dyski wirtualne i instalowane na wszystkich maszynach wirtualnych z systemem Oracle z CERTYFIKATem.
 * Każdy dysk jest instalowany na innym kontrolerze SCSI.
-* Każdy dysk wirtualny jest skonfigurowany z **Eagerą o zerowej**alokacji.  
+* Każdy dysk wirtualny jest skonfigurowany z **Eagerą o zerowej** alokacji.  
 * Udostępnianie jest ustawione na **wiele modułów zapisujących**.  
 * Dyski muszą być skonfigurowane jako Grupa dysków automatycznej zarządzania magazynem (ASM).  
 * Nadmiarowość jest definiowana w magazynie przy użyciu zasad sieci vsanymi.  
@@ -102,7 +102,7 @@ Pliki dziennika wykonaj ponownie są używane do przechowywania kopii zmian wpro
 * Dyski dziennika wykonaj ponownie muszą być skonfigurowane jako wiele grup dysków.  
 * Sześć dysków jest tworzonych i instalowanych na wszystkich maszynach wirtualnych z systemem Oracle z CERTYFIKATem.
 * Dyski są instalowane na różnych kontrolerach SCSI
-* Każdy dysk wirtualny jest skonfigurowany z **Eagerą o zerowej**alokacji.
+* Każdy dysk wirtualny jest skonfigurowany z **Eagerą o zerowej** alokacji.
 * Udostępnianie jest ustawione na **wiele modułów zapisujących**.  
 * Dyski muszą być skonfigurowane jako dwie grupy dysków ASM.
 * Każda grupa dysków ASM zawiera trzy dyski, które znajdują się na różnych kontrolerach SCSI.  
@@ -130,7 +130,7 @@ Dyski głosujące zapewniają funkcjonalność dysku kworum jako dodatkowy kana�
 
 * Pięć dysków jest tworzonych i instalowanych na wszystkich maszynach wirtualnych z systemem Oracle z CERTYFIKATem.
 * Dyski są zainstalowane na jednym kontrolerze SCSI
-* Każdy dysk wirtualny jest skonfigurowany z **Eagerą o zerowej**alokacji.
+* Każdy dysk wirtualny jest skonfigurowany z **Eagerą o zerowej** alokacji.
 * Udostępnianie jest ustawione na **wiele modułów zapisujących**.  
 * Dyski muszą być skonfigurowane jako Grupa dysków ASM.  
 * Nadmiarowość ASM jest ustawiona na **wysoką** nadmiarowość.
@@ -143,7 +143,7 @@ Szybki odzyskiwanie obszaru (FRA) to system plików zarządzany przez grupę dys
 
 * Dwa dyski są tworzone i instalowane na wszystkich maszynach wirtualnych z systemem Oracle z CERTYFIKATem.
 * Dyski są zainstalowane na innym kontrolerze SCSI
-* Każdy dysk wirtualny jest skonfigurowany z **Eagerą o zerowej**alokacji.
+* Każdy dysk wirtualny jest skonfigurowany z **Eagerą o zerowej** alokacji.
 * Udostępnianie jest ustawione na **wiele modułów zapisujących**.  
 * Dyski muszą być skonfigurowane jako Grupa dysków ASM.  
 * Nadmiarowość ASM jest ustawiona na nadmiarowość **zewnętrzną** .
@@ -174,7 +174,7 @@ Zasady sieci vSAN definiują błędy, aby tolerować i rozkładać dysku dla dan
 3. Z menu po lewej stronie wybierz pozycję **zasady magazynu maszyny wirtualnej** , a następnie wybierz pozycję **Utwórz zasady magazynu maszyny wirtualnej**.
 4. Wprowadź zrozumiałą nazwę zasad i kliknij przycisk **dalej**.
 5. W sekcji **Struktura zasad** wybierz opcję **Włącz reguły dla magazynu sieci vSAN** , a następnie kliknij przycisk **dalej**.
-6. W sekcji **vSAN**  >  **dostępność** sieci vSAN wybierz pozycję **Brak** dla opcji Tolerancja awarii lokacji. Aby nie można było tolerować niepowodzeń, wybierz opcję **dublowania RAID** dla żądanych FTT.
+6. W sekcji   >  **dostępność** sieci vSAN wybierz pozycję **Brak** dla opcji Tolerancja awarii lokacji. Aby nie można było tolerować niepowodzeń, wybierz opcję **dublowania RAID** dla żądanych FTT.
     ![Ustawienia sieci vSAN ](media/oracle-rac-storage-wizard-vsan.png) .
 7. W sekcji **Zaawansowane** wybierz liczbę pasków dysków dla każdego obiektu. W przypadku rezerwacji przestrzeni obiektów zaznacz opcję **szeroka obsługa administracyjna**. Wybierz pozycję **Wyłącz sumę kontrolną obiektu**. Kliknij przycisk **dalej**.
 8. Postępuj zgodnie z instrukcjami wyświetlanymi na ekranie, aby wyświetlić listę zgodnych magazynów danych sieci vSAN, przejrzyj ustawienia i Zakończ konfigurację.

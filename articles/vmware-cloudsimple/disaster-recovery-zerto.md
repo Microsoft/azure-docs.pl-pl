@@ -1,19 +1,19 @@
 ---
 title: Rozwiązanie VMware firmy Azure przez CloudSimple — korzystanie z chmury prywatnej jako lokacji awaryjnej dla obciążeń lokalnych
 description: Opis sposobu konfigurowania prywatnej chmury CloudSimple jako lokacji odzyskiwania po awarii dla lokalnych obciążeń programu VMware
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0e019a9229b671be2fb73e758bd39f33657bc2d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dd1f157984cdb300cc3b375d71654e5da54d1ae
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77083134"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898134"
 ---
 # <a name="set-up-cloudsimple-private-cloud-as-a-disaster-recovery-site-for-on-premises-vmware-workloads"></a>Skonfiguruj chmurę prywatną CloudSimple jako lokację odzyskiwania po awarii dla lokalnych obciążeń programu VMware
 
@@ -93,6 +93,6 @@ Aby włączyć replikację wirtualną Zerto z poziomu środowiska lokalnego do c
 6. W razie potrzeby dostosuj ustawienia sieci dla poszczególnych maszyn wirtualnych i Utwórz VPG.
 7. Test pracy w trybie failover po zakończeniu replikacji.
 
-## <a name="reference"></a>Tematy pomocy
+## <a name="reference"></a>Dokumentacja
 
 [Dokumentacja Zerto](https://www.zerto.com/myzerto/technical-documentation/)

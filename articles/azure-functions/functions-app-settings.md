@@ -3,12 +3,12 @@ title: Dokumentacja ustawień aplikacji dla usługi Azure Functions
 description: Dokumentacja referencyjna dla ustawień aplikacji Azure Functions lub zmiennych środowiskowych.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 2b71bee620ab7d5b1ef98b60013d1978f49d127f
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 3d7292999fc4b53fed06822461857185127dc793
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505890"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898729"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Dokumentacja ustawień aplikacji dla usługi Azure Functions
 
@@ -185,6 +185,14 @@ Określa maksymalną liczbę procesów roboczych języka z wartością domyśln�
 |Klucz|Wartość przykładowa|
 |---|------------|
 |\_ \_ liczba procesów roboczych \_ funkcji|2|
+
+## <a name="python_threadpool_thread_count"></a>\_Liczba wątków puli wątków języka Python \_ \_
+
+Określa maksymalną liczbę wątków, które będą używane przez proces roboczy języka Python do wykonywania wywołań funkcji, z wartością domyślną `1` dla wersji języka Python `3.8` i poniżej. W przypadku wersji w języku Python `3.9` i nowszych wartość jest ustawiona na `None` . Należy zauważyć, że to ustawienie nie gwarantuje liczby wątków, które zostaną ustawione podczas wykonywania. Ustawienie umożliwia Python rozszerzanie liczby wątków do określonej wartości. To ustawienie dotyczy tylko aplikacji w języku Python. Ponadto to ustawienie ma zastosowanie do wywołań funkcji synchronicznych, a nie dla wspólnych procedur.
+
+|Klucz|Wartość przykładowa|Wartość maksymalna|
+|---|------------|---------|
+|\_Liczba wątków puli wątków języka Python \_ \_|2|32|
 
 
 ## <a name="functions_worker_runtime"></a>\_ \_ środowisko uruchomieniowe procesu roboczego

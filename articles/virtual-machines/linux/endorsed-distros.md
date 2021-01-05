@@ -11,14 +11,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: conceptual
-ms.date: 10/09/2020
+ms.date: 01/03/2021
 ms.author: guybo
-ms.openlocfilehash: b27b7344d84ce1361d8294fa4f3490c50afbb4c3
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 9d278582840404702bfef3e5fc9af395f659d844
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489662"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898083"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Zatwierdzone dystrybucje systemu Linux na platformie Azure
 
@@ -36,7 +36,7 @@ Agent systemu Azure Linux jest już wstępnie zainstalowany w obrazach portalu A
 | --- | --- | --- | --- |
 | CentOS przez oprogramowanie nieautoryzowane Wave |CentOS 6. x, 7. x, 8. x |CentOS 6,3: [pobieranie lis](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4 +: w jądrze |Pakiet: w [repozytorium](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) w obszarze "WALinuxAgent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)<p> CoreOS jest teraz [koniec okresu](https://coreos.com/os/eol/) ważności z 26 maja 2020. |Nie jest już dostępne | | |
-| Debian według credativ |8.x, 9.x |W jądrze |Pakiet: w repozytorium w obszarze "waagent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| Debian według credativ |8. x, 9. x, 10. x |W jądrze |Pakiet: w repozytorium w obszarze "waagent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |
 |Flatcar kontener systemu Linux przez Kinvolk| Pro, stabilny, beta| W jądrze | wa-Linux — Agent jest już zainstalowany w/usr/share/OEM/bin/waagent |
 | Oracle Linux przez firmę Oracle |6.x, 7.x, 8.x |W jądrze |Pakiet: w repozytorium w obszarze "WALinuxAgent" <br/>Kod źródłowy: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | [Red Hat Enterprise Linux przez Red Hat](../workloads/redhat/overview.md) |6.x, 7.x, 8.x |W jądrze |Pakiet: w repozytorium w obszarze "WALinuxAgent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |

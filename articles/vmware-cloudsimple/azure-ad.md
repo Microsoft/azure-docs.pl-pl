@@ -1,19 +1,19 @@
 ---
 title: Rozwiązanie VMware firmy Azure według CloudSimple — Użyj usługi Azure AD jako źródła tożsamości w chmurze prywatnej
 description: Opisuje sposób dodawania usługi Azure AD jako dostawcy tożsamości w prywatnej chmurze CloudSimple do uwierzytelniania użytkowników uzyskujących dostęp do CloudSimple z platformy Azure
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 93922986dfe0b2b4e8ba0923931df601cc12428b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f55a0f52f5e028f9cbf7a9fabbb3c24ad43c3800
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532532"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898610"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>Użyj usługi Azure AD jako dostawcy tożsamości dla programu vCenter w chmurze prywatnej CloudSimple
 
@@ -90,18 +90,18 @@ Opcjonalnie można skonfigurować inne funkcje usługi Azure AD.  Nie są one wy
     | **Nazwa domeny** | Nazwa FQDN domeny, na przykład example.com. W tym polu tekstowym nie należy podawać adresu IP. |
     | **Alias domeny** | *(opcjonalnie)* Nazwa NetBIOS domeny. Dodaj nazwę NetBIOS domeny Active Directory jako alias źródła tożsamości, jeśli używasz uwierzytelniania SSPI. |
     | **Podstawowa nazwa wyróżniająca dla grup** | Podstawowa nazwa wyróżniająca dla grup. W przypadku usługi Azure AD Użyj: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>`  przykład: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`|
-    | **Podstawowy adres URL serwera** | Serwer LDAP podstawowego kontrolera domeny dla domeny.<br><br>Użyj formatu  `ldaps://hostname:port` . Port jest zazwyczaj 636 dla połączeń LDAPs. <br><br>Certyfikat, który ustanawia zaufanie dla punktu końcowego LDAPs serwera Active Directory, jest wymagany w przypadku użycia  `ldaps://`   w podstawowym lub pomocniczym adresie URL LDAP. |
+    | **Podstawowy adres URL serwera** | Serwer LDAP podstawowego kontrolera domeny dla domeny.<br><br>Użyj formatu `ldaps://hostname:port`. Port jest zazwyczaj 636 dla połączeń LDAPs. <br><br>Certyfikat, który ustanawia zaufanie dla punktu końcowego LDAPs serwera Active Directory, jest wymagany w przypadku użycia `ldaps://` w podstawowym lub pomocniczym adresie URL LDAP. |
     | **Adres URL serwera pomocniczego** | Adres serwera LDAP pomocniczego kontrolera domeny, który jest używany do pracy w trybie failover. |
-    | **Wybieranie certyfikatu** | Jeśli chcesz używać LDAPs z serwerem LDAP Active Directory lub źródłem tożsamości serwera OpenLDAP, po wpisaniu  `ldaps://`   w polu tekstowym adresu URL zostanie wyświetlony przycisk Wybierz certyfikat. Pomocniczy adres URL nie jest wymagany. |
+    | **Wybieranie certyfikatu** | Jeśli chcesz używać LDAPs z serwerem LDAP Active Directory lub źródłem tożsamości serwera OpenLDAP, po wpisaniu `ldaps://` w polu tekstowym adresu URL zostanie wyświetlony przycisk Wybierz certyfikat. Pomocniczy adres URL nie jest wymagany. |
     | **Nazwa użytkownika** | Identyfikator użytkownika w domenie, który ma minimalny dostęp tylko do odczytu do podstawowej nazwy wyróżniającej dla użytkowników i grup. |
-    | **Hasło** | Hasło użytkownika, który jest określony przez nazwę użytkownika. |
+    | **Password** (Hasło) | Hasło użytkownika, który jest określony przez nazwę użytkownika. |
 
 3. Zaloguj się do prywatnej chmury programu vCenter po eskalacji uprawnień.
 4. Postępuj zgodnie z instrukcjami w temacie [Dodawanie źródła tożsamości w programie vCenter](set-vcenter-identity.md#add-an-identity-source-on-vcenter) przy użyciu wartości z poprzedniego kroku, aby skonfigurować Azure Active Directory jako źródło tożsamości.
 5. Dodaj użytkowników/grupy z usługi Azure AD do grup vCenter, zgodnie z opisem w temacie VMware [Dodaj członków do grupy vCenter Single Sign-On](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html).
 
 > [!CAUTION]
-> Nowi użytkownicy muszą zostać dodani tylko *do chmury-właściciel-Grupa*, *chmura-Global-Cluster-admin-* Group, Cloud- *Global-Storage-Administrator-* Group, *Cloud-Global-Network-admin* -Group *Cloud-Global-VM-Admin-Group*  Użytkownicy dodani do grupy *administratorzy* zostaną usunięci automatycznie.  Tylko konta usług należy dodać do grupy *administratorów* .
+> Nowi użytkownicy muszą zostać dodani tylko *do chmury-właściciel-Grupa*, *chmura-Global-Cluster-admin-* Group, Cloud- *Global-Storage-Administrator-* Group, *Cloud-Global-Network-admin* -Group   Użytkownicy dodani do grupy *administratorzy* zostaną usunięci automatycznie.  Tylko konta usług należy dodać do grupy *administratorów* .
 
 ## <a name="next-steps"></a>Następne kroki
 

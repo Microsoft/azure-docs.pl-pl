@@ -1,19 +1,19 @@
 ---
 title: Rozwiązanie VMware firmy Azure według CloudSimple — Konfigurowanie bramy sieci VPN
 description: Opisuje sposób konfigurowania bramy sieci VPN typu punkt-lokacja i bramy sieci VPN typu lokacja-lokacja oraz tworzenia połączeń między siecią lokalną i chmurą prywatną CloudSimple
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a8b7e238333196381524d189904871fe5933c906
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78f78bfbf885cbae7708a75cb54ce2d41e7b526c
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872004"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899103"
 ---
 # <a name="set-up-vpn-gateways-on-cloudsimple-network"></a>Konfigurowanie bram sieci VPN w sieci CloudSimple
 
@@ -44,7 +44,7 @@ Brama sieci VPN typu punkt-lokacja umożliwia zdefiniowanie zasad automatycznego
 
     ![Tworzenie bramy sieci VPN](media/create-vpn-gateway.png)
 
-4. W obszarze **Konfiguracja bramy**określ poniższe ustawienia, a następnie kliknij przycisk **dalej**.
+4. W obszarze **Konfiguracja bramy** określ poniższe ustawienia, a następnie kliknij przycisk **dalej**.
 
     * Wybierz **Sieć VPN typu lokacja-lokacja** jako typ bramy.
     * Wprowadź nazwę identyfikującą bramę.
@@ -62,7 +62,7 @@ Brama sieci VPN typu punkt-lokacja umożliwia zdefiniowanie zasad automatycznego
     * Dla adresu IP elementu równorzędnego wprowadź publiczny adres IP lokalnej bramy sieci VPN.
     * Wprowadź identyfikator równorzędny lokalnej bramy sieci VPN.  Identyfikator elementu równorzędnego jest zazwyczaj publicznym adresem IP lokalnej bramy sieci VPN.  Jeśli skonfigurowano określony identyfikator w bramie, wprowadź identyfikator.
     * Skopiuj klucz współużytkowany, który ma być używany na potrzeby połączenia z lokalnej bramy sieci VPN.  Aby zmienić domyślny klucz współużytkowany i określić nowy, kliknij ikonę Edytuj.
-    * W przypadku **prefiksów lokalnych**wprowadź prefiksy CIDR lokalnego, które będą miały dostęp do sieci CloudSimple.  Podczas tworzenia połączenia można dodać wiele prefiksów CIDR.
+    * W przypadku **prefiksów lokalnych** wprowadź prefiksy CIDR lokalnego, które będą miały dostęp do sieci CloudSimple.  Podczas tworzenia połączenia można dodać wiele prefiksów CIDR.
 
     ![Utwórz połączenie bramy sieci VPN typu lokacja-lokacja](media/create-vpn-gateway-s2s-connection.png)
 
@@ -87,14 +87,14 @@ Brama sieci VPN typu punkt-lokacja umożliwia zdefiniowanie zasad automatycznego
 
     ![Tworzenie bramy sieci VPN](media/create-vpn-gateway.png)
 
-4. W obszarze **Konfiguracja bramy**określ poniższe ustawienia, a następnie kliknij przycisk **dalej**.
+4. W obszarze **Konfiguracja bramy** określ poniższe ustawienia, a następnie kliknij przycisk **dalej**.
 
     * Wybierz **Sieć VPN typu punkt-lokacja** jako typ bramy.
     * Wprowadź nazwę identyfikującą bramę.
     * Wybierz lokalizację platformy Azure, w której wdrożono usługę CloudSimple.
     * Określ podsieć klienta dla bramy punkt-lokacja.  Po nawiązaniu połączenia będą nadawane adresy DHCP z podsieci klienta.
 
-5. W polu **połączenie/użytkownik**określ poniższe ustawienia, a następnie kliknij przycisk **dalej**.
+5. W polu **połączenie/użytkownik** określ poniższe ustawienia, a następnie kliknij przycisk **dalej**.
 
     * Aby automatycznie zezwolić wszystkim bieżącym i przyszłym użytkownikom na dostęp do chmury prywatnej za pomocą bramy punkt-lokacja, wybierz pozycję **automatycznie Dodaj wszystkich użytkowników**. Po wybraniu opcji Wszyscy użytkownicy z listy użytkowników są wybierani automatycznie. Możesz przesłonić opcję automatyczną, usuwając zaznaczenie poszczególnych użytkowników na liście.
     * Aby wybrać poszczególnych użytkowników, kliknij pola wyboru na liście użytkowników.

@@ -1,19 +1,19 @@
 ---
 title: Rozwiązanie VMware firmy Azure według CloudSimple — Konfigurowanie usługi DNS dla chmury prywatnej CloudSimple
 description: Opisuje sposób konfigurowania rozpoznawania nazw DNS na potrzeby dostępu do programu vCenter Server w chmurze prywatnej CloudSimple z lokalnych stacji roboczych
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 7a2b2344bbb110cd4b35cc1f6428f61e48552b01
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 63822050512421895b0cfed08fb141f77da20b03
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563011"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899256"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>Konfigurowanie systemu DNS do rozpoznawania nazw dla prywatnego dostępu vCenter w chmurze z lokalnych stacji roboczych
 

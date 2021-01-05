@@ -1,25 +1,25 @@
 ---
 title: Rozwiązanie VMware firmy Azure według CloudSimple — Tworzenie maszyny wirtualnej na platformie Azure przy użyciu szablonów maszyn wirtualnych
 description: Opisuje sposób tworzenia maszyn wirtualnych na platformie Azure przy użyciu szablonów maszyny wirtualnej w infrastrukturze VMware dla prywatnej chmury CloudSimple
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ee3029de9826aee17dc76d0e69f08b3c1068423b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b01afe60a78a746eb0dc5f03cc7b45989f8cf81e
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014505"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898763"
 ---
 # <a name="create-a-virtual-machine-in-azure-using-vm-templates-on-the-vmware-infrastructure"></a>Tworzenie maszyny wirtualnej na platformie Azure przy użyciu szablonów maszyn wirtualnych w infrastrukturze VMware
 
 Maszynę wirtualną można utworzyć w Azure Portal przy użyciu szablonów maszyn wirtualnych w infrastrukturze VMware, które zostały włączone dla Twojej subskrypcji przez administratora CloudSimple.
 
-## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 

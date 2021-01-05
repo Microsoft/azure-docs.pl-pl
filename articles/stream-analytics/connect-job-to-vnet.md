@@ -6,14 +6,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/23/2020
+ms.date: 01/04/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: a2d26689a3036f05d7c8e7f417fbbb447402aedc
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: f140384ee2c78b38982c99dab5912bc451584a42
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97762864"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898151"
 ---
 # <a name="connect-stream-analytics-jobs-to-resources-in-an-azure-virtual-network-vnet"></a>Łączenie Stream Analytics zadań z zasobami w usłudze Azure Virtual Network (VNet)
 
@@ -41,7 +41,7 @@ Zadania mogą łączyć się z następującymi usługami platformy Azure przy u�
 1. [BLOB Storage lub Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/stream-analytics/blob-output-managed-identity) — może to być konto magazynu zadania, dane wejściowe lub wyjściowe przesyłania strumieniowego.
 2. [Event Hubs platformy Azure](https://docs.microsoft.com/azure/stream-analytics/event-hubs-managed-identity) — może to być dane wejściowe lub wyjściowe przesyłania strumieniowego.
 
-Jeśli zadania wymagają połączenia z innymi typami danych wejściowych lub wyjściowych, jedyną opcją jest użycie prywatnych punktów końcowych w klastrach Stream Analytics.
+Jeśli zadania muszą łączyć się z innymi typami wejściowymi lub wyjściowymi, można napisać od Stream Analytics, aby Event Hubs dane wyjściowe najpierw, a następnie do dowolnie wybranego miejsca docelowego przy użyciu Azure Functions. Jeśli chcesz bezpośrednio pisać z Stream Analytics do innych typów wyjściowych zabezpieczonych w sieci wirtualnej lub zaporze, jedyną opcją jest użycie prywatnych punktów końcowych w klastrach Stream Analytics.
 
 ## <a name="next-steps"></a>Następne kroki
 
