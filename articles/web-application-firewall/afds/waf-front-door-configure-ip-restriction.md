@@ -5,20 +5,20 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.date: 03/26/2020
+ms.date: 12/22/2020
 ms.author: tyao
-ms.openlocfilehash: f260bfc7b097931cc1a978e790c1d9dd966703ac
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 60a4ef47bc30955c918983d54f613cbdb5cbed73
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94563515"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746766"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Konfigurowanie reguły ograniczeń adresów IP za pomocą zapory aplikacji sieci Web dla drzwi frontonu platformy Azure
 
 W tym artykule opisano sposób konfigurowania reguł ograniczeń adresów IP w zaporze aplikacji sieci Web (WAF) dla drzwi frontonu platformy Azure przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure, Azure PowerShell lub szablonu Azure Resource Manager.
 
-Reguła kontroli dostępu opartej na adresie IP to Niestandardowa reguła WAF, która umożliwia kontrolowanie dostępu do aplikacji sieci Web. W tym celu należy określić listę adresów IP lub zakresy adresów IP w formacie Inter-Domain routingu, bez klas.
+Reguła kontroli dostępu opartej na adresie IP to Niestandardowa reguła WAF, która umożliwia kontrolowanie dostępu do aplikacji sieci Web. W tym celu należy określić listę adresów IP lub zakresy adresów IP w formacie Inter-Domain routingu, bez klas. Istnieją dwa typy zmiennych dopasowania w adresie IP, **RemoteAddr** i **SocketAddr**. RemoteAddr to oryginalny adres IP klienta, który jest zazwyczaj wysyłany za pośrednictwem nagłówka żądania X-forwardd-for. SocketAddr to źródłowy adres IP WAF widzi. Jeśli użytkownik znajduje się za serwerem proxy, SocketAddr jest często adresem serwera proxy.
 
 Domyślnie aplikacja sieci Web jest dostępna z Internetu. Jeśli chcesz ograniczyć dostęp do klientów z listy znanych adresów IP lub zakresów adresów IP, możesz utworzyć regułę dopasowania adresów IP, która zawiera listę adresów IP jako pasujące wartości i zestawy, do "not" (Negate jest true) i akcję do **zablokowania**. Po zastosowaniu reguły ograniczeń adresów IP żądania, które pochodzą z adresów spoza tej listy dozwolonych, odbierają niedostępną odpowiedź 403.
 
@@ -30,8 +30,8 @@ Utwórz profil z przodu platformy Azure, postępując zgodnie z instrukcjami opi
 
 ### <a name="create-a-waf-policy"></a>Tworzenie zasad WAF
 
-1. Na Azure Portal wybierz pozycję **Utwórz zasób** , wpisz  **Zapora aplikacji sieci Web** w polu wyszukiwania, a następnie wybierz opcję **Zapora aplikacji sieci Web (WAF)**.
-2. Wybierz pozycję **Utwórz**.
+1. Na Azure Portal wybierz pozycję **Utwórz zasób**, wpisz  **Zapora aplikacji sieci Web** w polu wyszukiwania, a następnie wybierz opcję **Zapora aplikacji sieci Web (WAF)**.
+2. Wybierz przycisk **Utwórz**.
 3. Na stronie **Tworzenie zasad WAF** Użyj następujących wartości, aby ukończyć kartę **podstawowe** :
    
    |Ustawienie  |Wartość  |
@@ -109,7 +109,7 @@ Użyj polecenia [AZ Network Front-WAF-Policy Custom-Rule Create](/cli/azure/ext/
 
 W następujących przykładach:
 -  Zastąp *IPAllowPolicyExampleCLI* własnymi utworzonymi wcześniej zasadami.
--  Zastąp wartości *IP-Address-Range-1* , *IP-Address-Range-2* własnym zakresem.
+-  Zastąp wartości *IP-Address-Range-1*, *IP-Address-Range-2* własnym zakresem.
 
 Najpierw utwórz regułę zezwalania IP dla zasad utworzonych w poprzednim kroku. 
 > [!NOTE]
@@ -190,7 +190,7 @@ Utwórz profil z przodu platformy Azure, postępując zgodnie z instrukcjami opi
 
 ### <a name="define-an-ip-match-condition"></a>Zdefiniuj warunek dopasowania adresu IP
 Użyj polecenia [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) , aby zdefiniować warunek dopasowania adresów IP.
-W poniższym przykładzie Zastąp wartość *IP-Address-Range-1* , *IP-Address-Range-2* własnym zakresem.    
+W poniższym przykładzie Zastąp wartość *IP-Address-Range-1*, *IP-Address-Range-2* własnym zakresem.    
 ```powershell
 $IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
 -MatchVariable  RemoteAddr `
@@ -225,7 +225,7 @@ Znajdź nazwę grupy zasobów, która zawiera profil "drzwi frontonu Azure" przy
 
 ### <a name="link-a-waf-policy-to-an-azure-front-door-front-end-host"></a>Łączenie zasad WAF z hostem frontonu na platformie Azure
 
-Połącz obiekt zasad WAF z istniejącym hostem frontonu i zaktualizuj właściwości drzwi frontonu platformy Azure. Najpierw Pobierz obiekt z przodu platformy Azure za pomocą polecenia [Get-AzFrontDoor](/powershell/module/Az.FrontDoor/Get-AzFrontDoor). Następnie ustaw właściwość **WebApplicationFirewallPolicyLink** na identyfikator zasobu *$IPAllowPolicyExamplePS* , który został utworzony w poprzednim kroku przy użyciu polecenia [Set-AzFrontDoor](/powershell/module/Az.FrontDoor/Set-AzFrontDoor) .
+Połącz obiekt zasad WAF z istniejącym hostem frontonu i zaktualizuj właściwości drzwi frontonu platformy Azure. Najpierw Pobierz obiekt z przodu platformy Azure za pomocą polecenia [Get-AzFrontDoor](/powershell/module/Az.FrontDoor/Get-AzFrontDoor). Następnie ustaw właściwość **WebApplicationFirewallPolicyLink** na identyfikator zasobu *$IPAllowPolicyExamplePS*, który został utworzony w poprzednim kroku przy użyciu polecenia [Set-AzFrontDoor](/powershell/module/Az.FrontDoor/Set-AzFrontDoor) .
 
 ```azurepowershell
   $FrontDoorObjectExample = Get-AzFrontDoor `

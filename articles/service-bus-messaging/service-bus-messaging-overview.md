@@ -3,15 +3,15 @@ title: Omówienie obsługi komunikatów w usłudze Azure Service Bus | Microsoft
 description: Ten artykuł zawiera ogólne omówienie Azure Service Bus w pełni zarządzanego brokera komunikatów integracji przedsiębiorstwa.
 ms.topic: overview
 ms.date: 11/20/2020
-ms.openlocfilehash: b795d0c5b429a812d90e0759fbcde3d348b86e22
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 70e9d966a14f78866d72865eed4cbb2dfd6c18dd
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602720"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97755739"
 ---
 # <a name="what-is-azure-service-bus"></a>Co to jest Azure Service Bus?
-Microsoft Azure Service Bus to w pełni zarządzany Broker komunikatów przedsiębiorstwa z kolejkami komunikatów i tematami publicznymi subskrybowanymi. Service Bus służy do rozdzielania aplikacji i usług od siebie, co zapewnia następujące korzyści:
+Microsoft Azure Service Bus to w pełni zarządzany Broker komunikatów przedsiębiorstwa z kolejkami komunikatów i tematami publikowania/subskrybowania. Service Bus służy do rozdzielania aplikacji i usług od siebie, co zapewnia następujące korzyści:
 
 - Równoważenie obciążenia między konkurującymi pracownikami
 - Bezpieczne kierowanie i Transferowanie danych oraz kontrolowanie między granicami usług i aplikacji
@@ -134,7 +134,7 @@ Service Bus obsługuje standardowe protokoły [AMQP 1,0](service-bus-amqp-overvi
 
 W celu ochrony przed niechcianym ruchem Service Bus udostępnia [funkcje zabezpieczeń](network-security.md) , takie jak Zapora IP i integracja z sieciami wirtualnymi. 
 
-## <a name="client-libraries"></a>Biblioteki klienta
+## <a name="client-libraries"></a>Biblioteki klienckie
 
 W pełni obsługiwane Service Bus biblioteki klienckie są dostępne za pośrednictwem zestawu Azure SDK.
 

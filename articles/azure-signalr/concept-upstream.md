@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: chenyl
-ms.openlocfilehash: 1d51f5e8d2fac1e2b180a608c840d0a322e76271
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 33df4410b9dd82fd0b1c732eb03ab5e0e77e9869
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143239"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763119"
 ---
 # <a name="upstream-settings"></a>Ustawienia nadrzędne
 
@@ -53,16 +53,29 @@ Gdy klient w centrum "Rozmowa" wywoła metodę Hub `broadcast` , zostanie wysła
 http://host.com/chat/api/messages/broadcast
 ```
 
+### <a name="key-vault-secret-reference-in-url-template-settings"></a>Key Vault odwołanie do wpisu tajnego w ustawieniach szablonu adresu URL
+
+Adres URL elementu nadrzędnego nie jest szyfrowany w spoczynku. Jeśli masz jakieś informacje poufne, sugerowane jest użycie Key Vault do ich zapisania, gdy kontrola dostępu ma lepsze ubezpieczenie. W zasadzie można włączyć zarządzaną tożsamość usługi Azure Signal Service, a następnie udzielić uprawnienia do odczytu w wystąpieniu Key Vault i użyć odwołania Key Vault zamiast zwykłego tekstu w wzorcu nadrzędnego adresu URL.
+
+1. Dodawanie tożsamości przypisanej do systemu lub tożsamości przypisanej do użytkownika. Zobacz [jak dodać tożsamość zarządzaną w witrynie Azure Portal](./howto-use-managed-identity.md#add-a-system-assigned-identity)
+
+2. Przyznaj uprawnienia do odczytu dla tożsamości zarządzanej w zasadach dostępu w Key Vault. Zobacz [przypisywanie zasad dostępu Key Vault przy użyciu Azure Portal](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
+
+3. Zastąp poufny tekst składnią `{@Microsoft.KeyVault(SecretUri=<secret-identity>)}` w wzorcu nadrzędnego adresu URL.
+
+> [!NOTE]
+> Zawartość wpisu tajnego jest odczytywana tylko wtedy, gdy zmienisz ustawienia nadrzędnego lub zmienisz tożsamość zarządzaną. Upewnij się, że masz uprawnienia do odczytu tożsamości zarządzanej, przed użyciem Key Vault tajnego odwołania.
+
 ### <a name="rule-settings"></a>Ustawienia reguły
 
-Reguły dla *reguł centrum*, *reguł kategorii*i *reguł zdarzeń* można ustawić osobno. Reguła dopasowywania obsługuje trzy formaty. Wykonaj na przykład reguły zdarzeń:
+Reguły dla *reguł centrum*, *reguł kategorii* i *reguł zdarzeń* można ustawić osobno. Reguła dopasowywania obsługuje trzy formaty. Wykonaj na przykład reguły zdarzeń:
 - Użyj gwiazdki (*), aby dopasować wszystkie zdarzenia.
 - Użyj przecinka (,), aby dołączyć wiele zdarzeń. Na przykład `connected, disconnected` dopasowuje zdarzenia połączone i odłączone.
 - Użyj pełnej nazwy zdarzenia, aby dopasować zdarzenie. Na przykład `connected` dopasowuje zdarzenie połączone.
 
 > [!NOTE]
-> Jeśli używasz Azure Functions i [wyzwalacza sygnalizującego](../azure-functions/functions-bindings-signalr-service-trigger.md), wyzwalacz sygnalizujący udostępni pojedynczy punkt końcowy w następującym formacie: `https://<APP_NAME>.azurewebsites.net/runtime/webhooks/signalr?code=<API_KEY>` .
-> Po prostu można skonfigurować szablon adresu URL na tym adresie URL.
+> Jeśli używasz Azure Functions i [wyzwalacza sygnalizującego](../azure-functions/functions-bindings-signalr-service-trigger.md), wyzwalacz sygnalizujący udostępni pojedynczy punkt końcowy w następującym formacie: `<Function_App_URL>/runtime/webhooks/signalr?code=<API_KEY>` .
+> Można po prostu skonfigurować **Ustawienia szablonu adresu URL** dla tego adresu URL i zachować domyślne **Ustawienia reguły** . Zobacz [integracja usługi sygnalizującej](../azure-functions/functions-bindings-signalr-service-trigger.md#signalr-service-integration) , aby uzyskać szczegółowe informacje na temat sposobu znajdowania `<Function_App_URL>` i `<API_KEY>` .
 
 ### <a name="authentication-settings"></a>Ustawienia uwierzytelniania
 
@@ -80,9 +93,9 @@ Po wybraniu `ManagedIdentity` tej opcji należy najpierw włączyć zarządzaną
     :::image type="content" source="media/concept-upstream/upstream-portal.png" alt-text="Ustawienia nadrzędne":::
 
 3. Dodaj adresy URL w ramach **wzorca nadrzędnego adresu URL**. Następnie ustawienia, takie jak **reguły centrum** , będą zawierać wartość domyślną.
-4. Aby ustawić ustawienia dla **reguł centrum**, **reguły zdarzeń**, **reguły kategorii**i **uwierzytelnianie nadrzędne**, wybierz wartość **reguły centrum**. Zostanie wyświetlona strona, która umożliwia edytowanie ustawień:
+4. Aby ustawić ustawienia dla **reguł centrum**, **reguły zdarzeń**, **reguły kategorii** i **uwierzytelnianie nadrzędne**, wybierz wartość **reguły centrum**. Zostanie wyświetlona strona, która umożliwia edytowanie ustawień:
 
-    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Ustawienia nadrzędne":::
+    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Szczegóły ustawienia nadrzędnego":::
 
 5. Aby ustawić **uwierzytelnianie nadrzędne**, upewnij się, że została najpierw włączona tożsamość zarządzana. Następnie wybierz pozycję **Użyj tożsamości zarządzanej**. Zgodnie z potrzebami można wybrać opcje w obszarze **Identyfikator zasobu uwierzytelniania**. Szczegóły można znaleźć w temacie [zarządzane tożsamości dla usługi Azure Signal Service](howto-use-managed-identity.md) .
 
@@ -115,7 +128,7 @@ Aby utworzyć ustawienia nadrzędne przy użyciu [szablonu Azure Resource Manage
 
 ## <a name="serverless-protocols"></a>Protokoły bezserwerowe
 
-Usługa sygnałów platformy Azure wysyła komunikaty do punktów końcowych, które są zgodne z następującymi protokołami.
+Usługa sygnałów platformy Azure wysyła komunikaty do punktów końcowych, które są zgodne z następującymi protokołami. Możesz użyć [powiązania wyzwalacza usługi sygnalizującego](../azure-functions/functions-bindings-signalr-service-trigger.md) z aplikacja funkcji, który obsługuje te protokoły.
 
 ### <a name="method"></a>Metoda
 
@@ -170,3 +183,5 @@ Hex_encoded(HMAC_SHA256(accessKey, connection-id))
 
 - [Zarządzane tożsamości dla usługi Azure Signal Service](howto-use-managed-identity.md)
 - [Programowanie i konfigurowanie w usłudze Azure Functions za pomocą usługi Azure SignalR Service](signalr-concept-serverless-development-config.md)
+- [Obsługa komunikatów z usługi sygnalizującego (powiązanie wyzwalacza)](../azure-functions/functions-bindings-signalr-service-trigger.md)
+- [Przykład powiązania wyzwalacza usługi sygnalizującego](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BidirectionChat)

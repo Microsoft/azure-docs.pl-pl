@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: jushiman
-ms.openlocfilehash: 56a360f461c89d7c60e973bf2d6258d63113ab47
-ms.sourcegitcommit: 6b16e7cc62b29968ad9f3a58f1ea5f0baa568f02
+ms.openlocfilehash: 61897a790da8a5f52b1b8f8e208629e7755690fa
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2020
-ms.locfileid: "96303779"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97759742"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Obsługa maszyn wirtualnych 2. generacji na platformie Azure
 
@@ -36,7 +36,9 @@ Maszyny wirtualne generacji 1 są obsługiwane przez wszystkie rozmiary maszyn w
 * [Seria Dasv4](dav4-dasv4-series.md)
 * [Seria Ddsv4](ddv4-ddsv4-series.md)
 * [Seria Esv3](ev3-esv3-series.md)
+* [Seria Esv4](ev4-esv4-series.md)
 * [Seria Easv4](eav4-easv4-series.md)
+* [Seria Edsv4](edv4-edsv4-series.md)
 * [Seria Fsv2](fsv2-series.md)
 * [Seria GS](sizes-previous-gen.md#gs-series)
 * [Seria HB](hb-series.md)

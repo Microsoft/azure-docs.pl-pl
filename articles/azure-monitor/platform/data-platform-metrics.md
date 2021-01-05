@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: f64a91e3b285c265296c361366a10443eda18201
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: b7af6b489aeb919fd1db0e45ddba58a21b1c3633
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489423"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760145"
 ---
 # <a name="azure-monitor-metrics-overview"></a>Przegląd metryk Azure Monitor
 Metryki Azure Monitor są funkcją Azure Monitor, która zbiera dane liczbowe z [monitorowanych zasobów](../monitor-reference.md) do bazy danych szeregów czasowych. Metryki to wartości liczbowe, które są zbierane w regularnych odstępach czasu i opisują kilka aspektów systemu w danym momencie. Metryki w Azure Monitor są lekkie i mogą obsługiwać niemal scenariusze w czasie rzeczywistym, dzięki czemu są szczególnie przydatne w przypadku alertów i szybkiego wykrywania problemów. Możesz przeanalizować je interaktywnie przy użyciu Eksploratora metryk, otrzymywać powiadomienia o alertach, gdy wartość przekroczy próg lub Wizualizuj je w skoroszycie lub pulpicie nawigacyjnym.
@@ -56,7 +56,7 @@ Istnieją trzy podstawowe źródła metryk zbieranych przez Azure Monitor. Po ze
 ## <a name="metrics-explorer"></a>Eksplorator metryk
 Użyj [Eksplorator metryk](metrics-charts.md) , aby interaktywnie analizować dane w bazie danych metryk i wykresy wartości z wielu metryk w czasie. Możesz przypiąć wykresy do pulpitu nawigacyjnego, aby wyświetlić je z innymi wizualizacjami. Metryki można także pobrać przy użyciu [interfejsu API REST usługi Azure Monitoring](rest-api-walkthrough.md).
 
-![Eksplorator metryk](media/data-platform/metrics-explorer.png)
+![Eksplorator metryk](media/data-platform-metrics/metrics-explorer.png)
 
 - Zobacz Rozpoczynanie [pracy z programem Azure monitor Metrics Explorer](metrics-getting-started.md) , aby rozpocząć korzystanie z Eksploratora metryk.
 
@@ -71,13 +71,13 @@ Dane zbierane przez metryki Azure Monitor są przechowywane w bazie danych szere
 * Niektóre metryki mogą mieć wiele wymiarów, zgodnie z opisem w [wielowymiarowych metrykach](#multi-dimensional-metrics). Metryki niestandardowe mogą mieć maksymalnie 10 wymiarów.
 
 ## <a name="multi-dimensional-metrics"></a>Metryki wielowymiarowe
-Jednym z wyzwań związanych z danymi metryk jest to, że często zawiera ona ograniczone informacje w celu zapewnienia kontekstu zbieranych wartości. Azure Monitor rozwiązuje to wyzwanie przy użyciu metryk wielowymiarowych. Wymiary metryki to pary nazwa-wartość, które zawierają dodatkowe dane do opisywania wartości metryki. Na przykład _ilość dostępnego miejsca na dysku_ może mieć wymiar o nazwie _dysk_ z wartościami _C:_ , _D:_ , co zezwoli na wyświetlanie dostępnego miejsca na dysku na wszystkich dyskach lub poszczególnych dyskach osobno.
+Jednym z wyzwań związanych z danymi metryk jest to, że często zawiera ona ograniczone informacje w celu zapewnienia kontekstu zbieranych wartości. Azure Monitor rozwiązuje to wyzwanie przy użyciu metryk wielowymiarowych. Wymiary metryki to pary nazwa-wartość, które zawierają dodatkowe dane do opisywania wartości metryki. Na przykład _ilość dostępnego miejsca na dysku_ może mieć wymiar o nazwie _dysk_ z wartościami _C:_, _D:_, co zezwoli na wyświetlanie dostępnego miejsca na dysku na wszystkich dyskach lub poszczególnych dyskach osobno.
 
-Poniższy przykład ilustruje dwa zestawy danych dla hipotetycznej metryki o nazwie _przepływność sieci_. Pierwszy zestaw danych nie ma wymiarów. Drugi zestaw danych pokazuje wartości z dwoma wymiarami, _adresem IP_ i _kierunkiem_ :
+Poniższy przykład ilustruje dwa zestawy danych dla hipotetycznej metryki o nazwie _przepływność sieci_. Pierwszy zestaw danych nie ma wymiarów. Drugi zestaw danych pokazuje wartości z dwoma wymiarami, _adresem IP_ i _kierunkiem_:
 
 ### <a name="network-throughput"></a>Przepływność sieci
 
-| Timestamp     | Wartość metryki |
+| Znacznik czasu     | Wartość metryki |
 | ------------- |:-------------|
 | 8/9/2017 8:14 | 1 331,8 KB/s |
 | 8/9/2017 8:15 | 1 141,4 KB/s |
@@ -87,7 +87,7 @@ Ta Metryka niewymiarowa może odpowiedzieć wyłącznie na podstawowe pytanie, t
 
 ### <a name="network-throughput--two-dimensions-ip-and-direction"></a>Przepływność sieci + dwa wymiary ("IP" i "kierunek")
 
-| Timestamp     | Wymiar "IP"   | Wymiar "kierunek" | Wartość metryki|
+| Znacznik czasu     | Wymiar "IP"   | Wymiar "kierunek" | Wartość metryki|
 | ------------- |:-----------------|:------------------- |:-----------|
 | 8/9/2017 8:14 | IP = "192.168.5.2" | Direction = "Send"    | 646,5 KB/s |
 | 8/9/2017 8:14 | IP = "192.168.5.2" | Direction = "Receive" | 420,1 KB/s |

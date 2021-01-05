@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 12/23/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 426cf78f6b87acf1d8c7551b0b0a6172a30167b1
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 68a129f38e9a94a7e381d11ffa3c3d02791b025b
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621099"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97755773"
 ---
 # <a name="how-to-use-batch-transcription"></a>Jak korzystać z transkrypcji partii
 
-Transkrypcja usługi Batch to zestaw operacji interfejsu API REST, które umożliwiają transkrypcja dużej ilości danych audio w magazynie. Możesz wskazać pliki audio przy użyciu typowego identyfikatora URI lub identyfikatora URI sygnatury dostępu współdzielonego (SAS) i asynchronicznie otrzymywać wyniki transkrypcji. Za pomocą interfejsu API programu v 3.0 można transkrypcja jeden lub więcej plików audio lub przetwarzać cały kontener magazynu.
+Transkrypcja usługi Batch to zestaw operacji interfejsu API REST, które umożliwiają transkrypcja dużej ilości danych audio w magazynie. Możesz wskazać pliki audio przy użyciu typowego identyfikatora URI lub identyfikatora URI [sygnatury dostępu współdzielonego (SAS)](../../storage/common/storage-sas-overview.md) i asynchronicznie otrzymywać wyniki transkrypcji. Za pomocą interfejsu API programu v 3.0 można transkrypcja jeden lub więcej plików audio lub przetwarzać cały kontener magazynu.
 
 Korzystając z interfejsów API REST transkrypcji wsadowej, można wywołać następujące metody:
 
@@ -66,7 +66,7 @@ Aby utworzyć uporządkowaną końcową transkrypcję, użyj sygnatur czasowych 
 
 ### <a name="configuration"></a>Konfiguracja
 
-Parametry konfiguracji są podane jako dane JSON.
+Parametry konfiguracji są podane jako dane JSON. 
 
 **Jego przepisywania jeden lub więcej pojedynczych plików.** Jeśli masz więcej niż jeden plik do Transkrypcja, zalecamy wysłanie wielu plików w jednym żądaniu. W poniższym przykładzie użyto trzech plików:
 
@@ -85,7 +85,7 @@ Parametry konfiguracji są podane jako dane JSON.
 }
 ```
 
-**Przetwarzanie całego kontenera magazynu:**
+**Przetwarzanie całego kontenera magazynu.** [Sygnatura dostępu współdzielonego](../../storage/common/storage-sas-overview.md) kontenera powinna zawierać `r` uprawnienia (odczyt) i `l` (listę):
 
 ```json
 {
@@ -177,10 +177,10 @@ Użyj tych opcjonalnych właściwości, aby skonfigurować transkrypcję:
       `destinationContainerUrl`
    :::column-end:::
    :::column span="2":::
-      Opcjonalny adres URL z [usługą ad hoc SAS](../../storage/common/storage-sas-overview.md) do zapisywalnego kontenera na platformie Azure. Wynik jest przechowywany w tym kontenerze. Sygnatura dostępu współdzielonego z przechowywanymi zasadami zapisu **nie** jest obsługiwana. Jeśli nie zostanie określony, firma Microsoft zapisuje wyniki w kontenerze magazynu zarządzanym przez firmę Microsoft. Gdy transkrypcja zostanie usunięta przez wywołanie [usuwania transkrypcji](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription), dane wynikowe również zostaną usunięte.
+      Opcjonalny adres URL z [ad hoc SAS](../../storage/common/storage-sas-overview.md) do zapisywalnego kontenera na platformie Azure. Wynik jest przechowywany w tym kontenerze. Sygnatura dostępu współdzielonego z przechowywanymi zasadami zapisu **nie** jest obsługiwana. Jeśli nie zostanie określony, firma Microsoft zapisuje wyniki w kontenerze magazynu zarządzanym przez firmę Microsoft. Gdy transkrypcja zostanie usunięta przez wywołanie [usuwania transkrypcji](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription), dane wynikowe również zostaną usunięte.
 :::row-end:::
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Magazyn
 
 Transkrypcja usługi Batch może odczytywać dźwięk z publicznego, widocznego w Internecie identyfikatora URI i może odczytywać zapisy audio i zapisu przy użyciu identyfikatora URI sygnatury dostępu współdzielonego z [usługą Azure Blob Storage](../../storage/blobs/storage-blobs-overview.md).
 

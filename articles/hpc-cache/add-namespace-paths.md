@@ -4,14 +4,14 @@ description: Jak utworzyć ścieżki związane z klientem dla magazynu zaplecza 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 12/22/2020
 ms.author: v-erkel
-ms.openlocfilehash: e525fc0705dffcd4765e6a1f6c5235bdef260fcd
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 5549670dbd1f302bdb17b8b94cbd1fb5c4c1a1d9
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96339680"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760544"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>Konfigurowanie zagregowanej przestrzeni nazw
 
@@ -21,13 +21,13 @@ Zapoznaj się z tematem [Planowanie zagregowanej przestrzeni nazw](hpc-cache-nam
 
 Na stronie **przestrzeń nazw** w Azure Portal są wyświetlane ścieżki używane przez klientów do uzyskiwania dostępu do danych za pomocą pamięci podręcznej. Ta strona służy do tworzenia, usuwania i zmieniania ścieżek przestrzeni nazw. Ścieżki przestrzeni nazw można również skonfigurować za pomocą interfejsu wiersza polecenia platformy Azure.
 
-Wszystkie istniejące ścieżki skierowane na klienta są wyświetlane na stronie **przestrzeni nazw** . Jeśli obiekt docelowy magazynu nie ma żadnych ścieżek, nie jest wyświetlany w tabeli.
+Wszystkie ścieżki dotyczące klientów, które zostały zdefiniowane dla tej pamięci podręcznej, są wymienione na stronie **przestrzeni nazw** . Cele magazynu, które nie mają zdefiniowanych ścieżek przestrzeni nazw, nie są jeszcze wyświetlane w tabeli.
 
-Kolumny tabeli można sortować, klikając strzałki i lepiej zrozumieć zagregowaną przestrzeń nazw pamięci podręcznej.
+Można sortować kolumny tabeli, aby lepiej zrozumieć zagregowaną przestrzeń nazw pamięci podręcznej. Kliknij strzałki w nagłówkach kolumn, aby posortować ścieżki.
 
-![zrzut ekranu przedstawiający stronę przestrzeni nazw portalu z dwiema ścieżkami w tabeli. Nagłówki kolumn: ścieżka przestrzeni nazw, miejsce docelowe magazynu, ścieżka eksportu i podkatalog eksportu. Elementy w pierwszej kolumnie są łączami, które są klikane. Górne przyciski: Dodaj ścieżkę przestrzeni nazw, Odśwież, Usuń](media/namespace-page.png)
+[![zrzut ekranu przedstawiający stronę przestrzeni nazw portalu z dwiema ścieżkami w tabeli. Nagłówki kolumn: ścieżka przestrzeni nazw, miejsce docelowe magazynu, ścieżka eksportu i podkatalog eksportu oraz zasady dostępu klienta. Nazwy ścieżek w pierwszej kolumnie są łączami kliknięcia. Górne przyciski: Dodaj ścieżkę przestrzeni nazw, Odśwież, Usuń ](media/namespace-page.png)](media/namespace-page.png#lightbox)
 
-## <a name="add-or-edit-client-facing-namespace-paths"></a>Dodawanie lub edytowanie ścieżek przestrzeni nazw dostępnych dla klienta
+## <a name="add-or-edit-namespace-paths"></a>Dodawanie lub edytowanie ścieżek przestrzeni nazw
 
 Aby klienci mogli uzyskać dostęp do miejsca docelowego magazynu, należy utworzyć co najmniej jedną ścieżkę przestrzeni nazw. (Aby uzyskać więcej informacji o dostępie klientów, zobacz temat [Instalowanie pamięci podręcznej platformy Azure HPC](hpc-cache-mount.md) ).
 
@@ -43,15 +43,17 @@ Na Azure Portal Załaduj stronę ustawienia **przestrzeni nazw** . Na tej stroni
 
 * **Dodaj nową ścieżkę:** Kliknij przycisk **+ Dodaj** znajdujący się u góry i Wypełnij informacje w panelu Edycja.
 
-  * Wybierz miejsce docelowe magazynu z listy rozwijanej. (Na tym zrzucie ekranu nie można wybrać obiektu docelowego magazynu obiektów blob, ponieważ ma on już ścieżkę przestrzeni nazw).
+  ![Zrzut ekranu przedstawiający pola edycji Dodaj przestrzeń nazw z wybranym obiektem docelowym magazynu obiektów BLOB. Ścieżki eksportu i podkatalogu są ustawione na/i nie można ich edytować.](media/namespace-add-blob.png)
 
-    ![Zrzut ekranu przedstawiający nowe pola edycji przestrzeni nazw z udostępnionym selektorem elementu docelowego magazynu](media/namespace-select-storage-target.png)
+  * Wprowadź ścieżkę, która będzie używana przez klientów w celu uzyskania dostępu do tego miejsca docelowego magazynu.
+
+  * Wybierz zasady dostępu, które mają być używane dla tej ścieżki. Dowiedz się więcej o dostosowywaniu dostępu klientów w temacie [Korzystanie z zasad dostępu klienta](access-policies.md).
+
+  * Wybierz miejsce docelowe magazynu z listy rozwijanej. Jeśli obiekt docelowy magazynu obiektów BLOB ma już ścieżkę przestrzeni nazw, nie można go wybrać.
 
   * W przypadku celu usługi Azure Blob Storage ścieżki eksportu i podkatalogu są automatycznie ustawiane na ``/`` .
 
-* **Zmień istniejącą ścieżkę:** Kliknij ścieżkę przestrzeni nazw. Zostanie otwarty panel edycji i można zmodyfikować ścieżkę.
-
-  ![Zrzut ekranu strony przestrzeni nazw po kliknięciu ścieżki przestrzeni nazw obiektów BLOB — pola edycji są wyświetlane w okienku po prawej stronie](media/edit-namespace-blob.png)
+* **Zmień istniejącą ścieżkę:** Kliknij ścieżkę przestrzeni nazw. Zostanie otwarty panel edycji. Można zmodyfikować ścieżkę i zasady dostępu, ale nie można zmienić innego miejsca docelowego magazynu.
 
 * **Usuń ścieżkę przestrzeni nazw:** Zaznacz pole wyboru po lewej stronie ścieżki, a następnie kliknij przycisk **Usuń** .
 
@@ -81,7 +83,7 @@ Ta lista zawiera maksymalną liczbę ścieżek przestrzeni nazw na konfigurację
 
   * 3 TB pamięci podręcznej — 10 ścieżek przestrzeni nazw
   * 6 TB pamięci podręcznej — 10 ścieżek przestrzeni nazw
-  * 23 TB pamięci podręcznej-20 ścieżek przestrzeni nazw
+  * 12 TB pamięci podręcznej-20 ścieżek przestrzeni nazw
 
 * Do 4 GB/s przepływności:
 
@@ -109,13 +111,15 @@ Wypełnij te wartości dla każdej ścieżki przestrzeni nazw:
 
 * **Ścieżka przestrzeni nazw** — ścieżka pliku po stronie klienta.
 
+* **Zasady dostępu klienta** — wybierz zasady dostępu, które mają być używane dla tej ścieżki. Dowiedz się więcej o dostosowywaniu dostępu klientów w temacie [Korzystanie z zasad dostępu klienta](access-policies.md).
+
 * **Docelowy magazyn** — w przypadku tworzenia nowej ścieżki przestrzeni nazw wybierz miejsce docelowe magazynu z menu rozwijanego.
 
 * **Ścieżka eksportu** — wprowadź ścieżkę do eksportu systemu plików NFS. Upewnij się, że nazwa eksportu została prawidłowo wpisana — Portal sprawdza poprawność składni dla tego pola, ale nie sprawdza eksportu do momentu przesłania zmiany.
 
 * **Wyeksportuj podkatalog** — Jeśli chcesz, aby ta ścieżka instalowała określony podkatalog eksportu, wprowadź ją w tym miejscu. Jeśli nie, pozostaw to pole puste.
 
-![zrzut ekranu strony przestrzeni nazw portalu ze stroną aktualizacji otwartą w prawej](media/update-namespace-nfs.png)
+![zrzut ekranu strony przestrzeni nazw portalu z otwartą stroną Edytuj po prawej stronie. Formularz edycji pokazuje ustawienia ścieżki przestrzeni nazw docelowej magazynu NFS](media/namespace-edit-nfs.png)
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 

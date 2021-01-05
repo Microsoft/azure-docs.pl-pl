@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 0dd5f6a48175bad35b37155c8ff881e352922ca7
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: ea96e1056e6157cfddbdc2f0b6451ed55a74d1de
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674478"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97756062"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Monitorowanie i wyświetlanie dzienników i metryk przebiegów ML
 
@@ -121,7 +121,7 @@ Pliki dziennika są podstawowym zasobem do debugowania obciążeń związanych z
 W poniższych tabelach przedstawiono zawartość plików dziennika w folderach, które znajdują się w tej sekcji.
 
 > [!NOTE]
-> Informacje, które użytkownik powinien zauważyć, nawet jeśli skimmingYou nie zawsze będzie widzieć każdy plik dla każdego przebiegu. Na przykład 20_image_build_log *. txt pojawia się tylko wtedy, gdy tworzony jest nowy obraz (np. w przypadku zmiany środowiska).
+> Każdy plik nie musi być widoczny dla każdego przebiegu. Na przykład 20_image_build_log *. txt pojawia się tylko wtedy, gdy tworzony jest nowy obraz (np. w przypadku zmiany środowiska).
 
 #### <a name="azureml-logs-folder"></a>`azureml-logs` system32\drivers\etc
 

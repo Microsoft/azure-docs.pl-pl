@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: 30004306d9ff44df04a26640a2bd7a09256fce25
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 4c964f3661e120026189a75d331e6db975b41c70
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516679"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97756079"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Poświadczenia uwierzytelniania źródłowego w usłudze Azure kontrolą
 
@@ -73,7 +73,7 @@ Typ poświadczeń obsługiwany w kontrolą Dzisiaj:
 * Uwierzytelnianie SQL: **hasło** należy dodać jako klucz tajny w magazynie kluczy
 * Klucz konta: **klucz konta** zostanie dodany jako klucz tajny w magazynie kluczy
 
-Poniżej znajduje się więcej informacji na temat dodawania wpisów tajnych do magazynu kluczy: (Wstaw artykuł z magazynu kluczy)
+Aby uzyskać więcej informacji, zobacz [Dodawanie wpisu tajnego do Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
 
 Po zapisaniu wpisów tajnych w magazynie kluczy Utwórz nowe poświadczenie, wybierając pozycję + Nowy na pasku poleceń poświadczenia. Podaj wymagane informacje, w tym wybierając metodę uwierzytelniania i wystąpienie Key Vault, z którego ma zostać wybrana wartość klucza tajnego. Po wypełnieniu wszystkich szczegółów kliknij pozycję Utwórz.
 

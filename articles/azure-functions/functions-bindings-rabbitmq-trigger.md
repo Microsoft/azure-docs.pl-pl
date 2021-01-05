@@ -7,17 +7,17 @@ ms.topic: reference
 ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: 5930219486de8704c777496bcaf293411c5fb7b1
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 4ba19fdf700790d89fe04867985fb803c3b0a2fc
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673991"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760405"
 ---
 # <a name="rabbitmq-trigger-for-azure-functions-overview"></a>Wyzwalacz RabbitMQ dla Azure Functions przegląd
 
 > [!NOTE]
-> Powiązania RabbitMQ są w pełni obsługiwane tylko w planach **systemu Windows Premium i dedykowanych** . Użycie i system Linux nie są obecnie obsługiwane.
+> Powiązania RabbitMQ są w pełni obsługiwane tylko w planach **Premium i dedykowanych** . Użycie nie jest obsługiwane.
 
 Użyj wyzwalacza RabbitMQ, aby odpowiedzieć na komunikaty z kolejki RabbitMQ.
 
@@ -43,18 +43,23 @@ public static void RabbitMQTrigger_BasicDeliverEventArgs(
 Poniższy przykład pokazuje, jak odczytać komunikat jako POCO.
 
 ```cs
-public class TestClass
+namespace Company.Function
 {
-    public string x { get; set; }
-}
+    public class TestClass
+    {
+        public string x { get; set; }
+    }
 
-[FunctionName("RabbitMQTriggerCSharp")]
-public static void RabbitMQTrigger_BasicDeliverEventArgs(
-    [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")] TestClass pocObj,
-    ILogger logger
-    )
-{
-    logger.LogInformation($"C# RabbitMQ queue trigger function processed message: {Encoding.UTF8.GetString(pocObj)}");
+    public class RabbitMQTriggerCSharp{
+        [FunctionName("RabbitMQTriggerCSharp")]
+        public static void RabbitMQTrigger_BasicDeliverEventArgs(
+            [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")] TestClass pocObj,
+            ILogger logger
+            )
+        {
+            logger.LogInformation($"C# RabbitMQ queue trigger function processed message: {pocObj}");
+        }
+    }
 }
 ```
 
@@ -82,7 +87,7 @@ Oto dane powiązania w *function.js* pliku:
 
 Oto kod skryptu w języku C#:
 
-```csx
+```C#
 using System;
 
 public static void Run(string myQueueItem, ILogger log)
@@ -202,7 +207,7 @@ Zobacz [przykład](#example) wyzwalacza, aby uzyskać więcej szczegółów.
 
 ---
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `RabbitMQTrigger` atrybutu.
 
@@ -216,7 +221,7 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 |**userNameSetting**|**UserNameSetting**|(ignorowane, jeśli jest używany ConnectionStringSetting) <br>Nazwa ustawienia aplikacji, która zawiera nazwę użytkownika, aby uzyskać dostęp do kolejki. Np. UserNameSetting: "% < UserNameFromSettings >%"|
 |**passwordSetting**|**PasswordSetting**|(ignorowane, jeśli jest używany ConnectionStringSetting) <br>Nazwa ustawienia aplikacji, która zawiera hasło umożliwiające dostęp do kolejki. Np. PasswordSetting: "% < PasswordFromSettings >%"|
 |**connectionStringSetting**|**ConnectionStringSetting**|Nazwa ustawienia aplikacji, które zawiera parametry połączenia kolejki komunikatów RabbitMQ. Należy pamiętać, że w przypadku określenia parametrów połączenia bezpośrednio, a nie za pomocą ustawienia aplikacji w local.settings.jsna, wyzwalacz nie będzie działał. (Np.: w *function.jsna*: connectionStringSetting: "rabbitMQConnection" <br> W *local.settings.jsna*: "rabbitMQConnection": "< ActualConnectionstring >")|
-|**przewożąc**|**Port**|(ignorowane, jeśli jest używany ConnectionStringSetting) Pobiera lub ustawia używany port. Wartość domyślna to 0.|
+|**przewożąc**|**Port**|(ignorowane, jeśli jest używany ConnectionStringSetting) Pobiera lub ustawia używany port. Wartość domyślna to 0, która wskazuje domyślne ustawienie portu klienta RabbitMQ: 5672.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -275,12 +280,12 @@ W tej sekcji opisano globalne ustawienia konfiguracji dostępne dla tego powiąz
 }
 ```
 
-|Właściwość  |Domyślny | Opis |
+|Właściwość  |Domyślne | Opis |
 |---------|---------|---------|
 |prefetchCount|30|Pobiera lub ustawia liczbę komunikatów, które odbiorca wiadomości może jednocześnie zażądać i jest w pamięci podręcznej.|
 |Zmienną QueueName|n/d| Nazwa kolejki, z której mają zostać odebrane komunikaty.|
 |Parametry połączenia|n/d|Parametry połączenia kolejki komunikatów RabbitMQ. Należy pamiętać, że parametry połączenia są bezpośrednio określone w tym miejscu, a nie za pomocą ustawienia aplikacji.|
-|port|0|(ignorowane, jeśli jest używany ConnectionStringSetting) Pobiera lub ustawia używany port. Wartość domyślna to 0.|
+|port|0|(ignorowane, jeśli używany jest parametr connectionString) Pobiera lub ustawia używany port. Wartość domyślna to 0, która wskazuje domyślne ustawienie portu klienta RabbitMQ: 5672.|
 
 ## <a name="local-testing"></a>Testowanie lokalne
 
@@ -303,11 +308,26 @@ Jeśli testujesz lokalnie bez parametrów połączenia, należy ustawić ustawie
 }
 ```
 
-|Właściwość  |Domyślny | Opis |
+|Właściwość  |Domyślne | Opis |
 |---------|---------|---------|
-|Nazw|n/d|(ignorowane, jeśli jest używany ConnectStringSetting) <br>Nazwa hosta kolejki (np.: 10.26.45.210)|
-|userName|n/d|(ignorowane, jeśli jest używany ConnectionStringSetting) <br>Nazwa dostępu do kolejki |
-|hasło|n/d|(ignorowane, jeśli jest używany ConnectionStringSetting) <br>Hasło dostępu do kolejki|
+|Nazw|n/d|(ignorowane, jeśli używany jest parametr connectionString) <br>Nazwa hosta kolejki (np.: 10.26.45.210)|
+|userName|n/d|(ignorowane, jeśli używany jest parametr connectionString) <br>Nazwa dostępu do kolejki |
+|hasło|n/d|(ignorowane, jeśli używany jest parametr connectionString) <br>Hasło dostępu do kolejki|
+
+
+## <a name="enable-runtime-scaling"></a>Włącz skalowanie środowiska uruchomieniowego
+
+Aby wyzwalacz RabbitMQ mógł skalować w poziomie do wielu wystąpień, należy włączyć ustawienie **monitorowania skalowania w czasie wykonywania** . 
+
+W portalu tego ustawienia można znaleźć w obszarze   >  **Ustawienia środowiska uruchomieniowego funkcji** konfiguracji dla aplikacji funkcji.
+
+:::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
+
+W interfejsie wiersza polecenia można włączyć **monitorowanie skalowania w czasie wykonywania** za pomocą następującego polecenia:
+
+```azurecli-interactive
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
+```
 
 ## <a name="monitoring-rabbitmq-endpoint"></a>Punkt końcowy monitorowania RabbitMQ
 Aby monitorować kolejki i wymianę dla pewnego punktu końcowego RabbitMQ:

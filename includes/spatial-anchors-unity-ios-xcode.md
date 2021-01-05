@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 11/20/2020
 ms.author: parkerra
-ms.openlocfilehash: d969b1639dbb39b920c985964abe1239f068d740
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 81d2804d99896200ea6f68592ea168112e172c20
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185347"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97762617"
 ---
 Wybierz pozycję **kompilacja**. W otwartym okienku wybierz folder, do którego chcesz wyeksportować projekt Xcode.
 
@@ -30,9 +30,9 @@ open ./Unity-iPhone.xcodeproj
 
 Wybierz węzeł główny **Unity-iPhone** , aby wyświetlić ustawienia projektu, a następnie wybierz kartę **Ogólne** .
 
-W obszarze **podpisywanie** upewnij się, że funkcja **automatycznego zarządzania podpisywaniem** jest włączona. Jeśli tak nie jest, włącz ją, a następnie Zresetuj ustawienia kompilacji, wybierając opcję **Włącz automatyczne** w wyświetlonym okienku.
+W obszarze **Informacje o wdrożeniu** upewnij się, że element docelowy wdrożenia ma ustawioną wartość **iOS 11,0**.
 
-W obszarze **Informacje o wdrożeniu** upewnij się, że **element docelowy wdrożenia** ma wartość **11,0**.
+Wybierz kartę **możliwości podpisywania &** i upewnij się, że włączono **Automatyczne zarządzanie podpisywaniem** . Jeśli tak nie jest, włącz ją, a następnie Zresetuj ustawienia kompilacji, wybierając opcję **Włącz automatyczne** w wyświetlonym okienku.
 
 ## <a name="deploy-the-app-to-your-ios-device"></a>Wdrażanie aplikacji na urządzeniu z systemem iOS
 

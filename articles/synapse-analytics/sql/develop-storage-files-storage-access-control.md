@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6eff662ac0140e7a64cc3bab28856178708cb9b2
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
-ms.translationtype: MT
+ms.openlocfilehash: edb1d419900147b586ba1ff257d4307b237be537
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400679"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746732"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Kontrolowanie dostępu do konta magazynu dla puli SQL bezserwerowej w usłudze Azure Synapse Analytics
 
@@ -89,9 +89,67 @@ Można użyć następujących kombinacji typów autoryzacji i usługi Azure Stor
 
 \* Token sygnatury dostępu współdzielonego i tożsamość usługi Azure AD mogą być używane do uzyskiwania dostępu do magazynu, który nie jest chroniony za pomocą zapory.
 
-> [!IMPORTANT]
-> Podczas uzyskiwania dostępu do magazynu chronionego za pomocą zapory można używać tylko tożsamości zarządzanej. Musisz [zezwolić na zaufane usługi firmy Microsoft... ustawienie](../../storage/common/storage-network-security.md#trusted-microsoft-services) i jawne [przypisanie roli platformy Azure](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) do [zarządzanej tożsamości przypisanej do systemu](../../active-directory/managed-identities-azure-resources/overview.md) dla tego wystąpienia zasobu. W takim przypadku zakres dostępu dla wystąpienia odpowiada roli platformy Azure przypisanej do zarządzanej tożsamości.
->
+
+### <a name="querying-firewall-protected-storage"></a>Wykonywanie zapytania dotyczącego chronionego magazynu zapory
+
+Podczas uzyskiwania dostępu do magazynu chronionego za pomocą zapory można użyć **tożsamości użytkownika** lub **tożsamości zarządzanej**.
+
+#### <a name="user-identity"></a>Tożsamość użytkownika
+
+Aby uzyskać dostęp do magazynu chronionego za pomocą zapory za pośrednictwem tożsamości użytkownika, można użyć modułu programu PowerShell AZ. Storage.
+#### <a name="configuration-via-powershell"></a>Konfiguracja za pośrednictwem programu PowerShell
+
+Wykonaj następujące kroki, aby skonfigurować zaporę konta magazynu i dodać wyjątek dla obszaru roboczego Synapse.
+
+1. Otwórz program PowerShell lub [Zainstaluj program PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7.1&preserve-view=true )
+2. Zainstaluj zaktualizowany AZ. Moduł magazynu: 
+    ```powershell
+    Install-Module -Name Az.Storage -RequiredVersion 3.0.1-preview -AllowPrerelease
+    ```
+    > [!IMPORTANT]
+    > Upewnij się, że używasz wersji 3.0.1 lub nowszej. Możesz sprawdzić wersję AZ. Storage, uruchamiając następujące polecenie:  
+    > ```powershell 
+    > Get-Module -ListAvailable -Name  Az.Storage | select Version
+    > ```
+    > 
+
+3. Nawiąż połączenie z dzierżawcą platformy Azure: 
+    ```powershell
+    Connect-AzAccount
+    ```
+4. Definiuj zmienne w programie PowerShell: 
+    - Nazwa grupy zasobów — można to znaleźć w Azure Portal w temacie Omówienie obszaru roboczego Synapse.
+    - Nazwa konta — Nazwa konta magazynu, które jest chronione przez reguły zapory.
+    - Identyfikator dzierżawy — możesz go znaleźć w Azure Portal w Azure Active Directory informacji o dzierżawie.
+    - Identyfikator zasobu — można to znaleźć w Azure Portal w temacie Omówienie obszaru roboczego Synapse.
+
+    ```powershell
+        $resourceGroupName = "<resource group name>"
+        $accountName = "<storage account name>"
+        $tenantId = "<tenant id>"
+        $resourceId = "<Synapse workspace resource id>"
+    ```
+    > [!IMPORTANT]
+    > Upewnij się, że identyfikator zasobu jest zgodny z tym szablonem.
+    >
+    > Ważne jest, aby pisać **ResourceGroups** w małych przypadkach.
+    > Przykład jednego identyfikatora zasobu: 
+    > ```
+    > /subscriptions/{subscription-id}/resourcegroups/{resource-group}/providers/Microsoft.Synapse/workspaces/{name-of-workspace}
+    > ```
+    > 
+5. Dodaj regułę sieci magazynu: 
+    ```powershell
+        Add-AzStorageAccountNetworkRule -ResourceGroupName $resourceGroupName -Name $accountName -TenantId $tenantId -ResourceId $resourceId
+    ```
+6. Sprawdź, czy reguła została zastosowana na koncie magazynu: 
+    ```powershell
+        $rule = Get-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName
+        $rule.ResourceAccessRules
+    ```
+
+#### <a name="managed-identity"></a>Tożsamość zarządzana
+Musisz [zezwolić na zaufane usługi firmy Microsoft... ustawienie](../../storage/common/storage-network-security.md#trusted-microsoft-services) i jawne [przypisanie roli platformy Azure](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) do [zarządzanej tożsamości przypisanej do systemu](../../active-directory/managed-identities-azure-resources/overview.md) dla tego wystąpienia zasobu. W takim przypadku zakres dostępu dla wystąpienia odpowiada roli platformy Azure przypisanej do zarządzanej tożsamości.
 
 ## <a name="credentials"></a>Poświadczenia
 

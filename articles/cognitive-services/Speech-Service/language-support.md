@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 1b73b018432e5fb9a8af90fc141d009d1bb7b799
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: d0cb9dc3c54f409c3bdd71fbb57c823e15abc22d
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617055"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97762966"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Obsługa języka i głosu dla usługi mowy
 
@@ -137,6 +137,11 @@ Zestawy Microsoft Speech SDK i interfejsy API REST obsługują te głosy, z któ
 Neuronowych text-to-Speech to nowy typ syntezy mowy obsługiwanej przez głębokie sieci neuronowych. W przypadku korzystania z głosu neuronowych, synteza mowy jest niemal nieczytelna w odróżnieniu od nagrań ludzkich.
 
 Głosy neuronowych mogą służyć do współdziałania z rozszerzenie czatbotów i asystentów głosowych bardziej naturalnych i atrakcyjnych, dzięki czemu można konwertować cyfrowe teksty, takie jak książki elektroniczne, na Audiobooks i ulepszać systemy nawigacyjne w samodzielnym zakresie. Podobnie jak naturalna prosodya i wyraźny zbiór wyrazów, głosy neuronowych znacząco zmniejszają zmęczenie nasłuchiwania, gdy użytkownicy współpracują z systemami AI.
+
+> [!NOTE]
+> Głosy neuronowych są tworzone na podstawie próbek, które używają szybkości próbkowania 24 kHz.
+> Wszystkie głosy można próbkować lub próbkować do innych stawek próbkowania podczas syntezowania.
+
 
 | Język | Regionalne | Płeć | Nazwa głosu | Obsługa stylu |
 |---|---|---|---|---|
@@ -294,6 +299,11 @@ Aby dowiedzieć się, jak można skonfigurować i dostosować głosy neuronowych
 
 Ponad 75 standardowych głosów jest dostępnych w ponad 45 językach i ustawieniach regionalnych, które umożliwiają konwertowanie tekstu na mowę. Aby uzyskać więcej informacji na temat dostępności regionalnej, zobacz [regiony](regions.md#standard-and-neural-voices).
 
+> [!NOTE]
+> Z dwoma wyjątkami, głosy standardowe są tworzone na podstawie próbek, które używają szybkości próbkowania 16 kHz.
+> Głosy **en-us-AriaRUS** i **en-us-GuyRUS** są również tworzone na podstawie próbek, które używają szybkości próbkowania 24 kHz.
+> Wszystkie głosy można próbkować lub próbkować do innych stawek próbkowania podczas syntezowania.
+
 | Język | Ustawienia regionalne (BCP-47) | Płeć | Nazwa głosu |
 |--|--|--|--|
 | Arabski (arabski) | `ar-EG` | Kobiety | `ar-EG-Hoda`|
@@ -325,7 +335,7 @@ Ponad 75 standardowych głosów jest dostępnych w ponad 45 językach i ustawien
 | Angielski (Zjednoczone Królestwo) | `en-GB` | Kobiety | `en-GB-Susan`|
 | Angielski (Stany Zjednoczone) | `en-US` | Mężczyźni | `en-US-BenjaminRUS`|
 | Angielski (Stany Zjednoczone) | `en-US` | Mężczyźni | `en-US-GuyRUS`|
-| Angielski (Stany Zjednoczone) | `en-US` | Kobiety | `en-US-JessaRUS`|
+| Angielski (Stany Zjednoczone) | `en-US` | Kobiety | `en-US-AriaRUS`|
 | Angielski (Stany Zjednoczone) | `en-US` | Kobiety | `en-US-ZiraRUS`|
 | Fiński (Finlandia) | `fi-FI` | Kobiety | `fi-FI-HeidiRUS`|
 | francuski (Kanada) | `fr-CA` | Kobiety | `fr-CA-Caroline`|
@@ -430,7 +440,7 @@ Interfejs API **tłumaczenia mowy** obsługuje różne języki dla tłumaczenia 
 | Kiswahili               | `sw`          |
 | Klingon                 | `tlh-Latn`    |
 | Klingon (plqaD)         | `tlh-Piqd`    |
-| Koreański                  | `ko`          |
+| koreański                  | `ko`          |
 | Łotewski                 | `lv`          |
 | Litewski              | `lt`          |
 | Madagaskaru                | `mg`          |

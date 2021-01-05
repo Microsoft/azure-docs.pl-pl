@@ -5,14 +5,14 @@ author: mayanknayar
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 09/09/2020
+ms.date: 12/23/2020
 ms.author: manayar
-ms.openlocfilehash: 8c7574daced9cec078b6e98e378212ce30d6f4f6
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e22e8b81382614c2930c72a8150606f859be501d
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744716"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97762983"
 ---
 # <a name="preview-automatic-vm-guest-patching-for-windows-vms-in-azure"></a>Wersja zapoznawcza: automatyczne stosowanie poprawek gościa maszyny wirtualnej dla maszyn wirtualnych z systemem Windows na platformie Azure
 
@@ -34,11 +34,11 @@ Automatyczna poprawka gościa maszyny wirtualnej ma następującą charakterysty
 
 Jeśli na maszynie wirtualnej jest włączona automatyczna poprawka gościa maszyny wirtualnej, dostępne poprawki *krytyczne* i *zabezpieczeń* są pobierane i stosowane automatycznie na maszynie wirtualnej. Ten proces jest automatycznie rozpoczynany w każdym miesiącu, gdy nowe poprawki zostaną wydane przez Windows Update. Ocena poprawek i instalacja jest automatyczna, a proces obejmuje ponowne uruchomienie maszyny wirtualnej zgodnie z wymaganiami.
 
-Maszyny wirtualne są oceniane okresowo w celu określenia odpowiednich poprawek dla tej maszyny wirtualnej. Poprawki można instalować dowolnego dnia na maszynie wirtualnej poza godzinami szczytu maszyny wirtualnej. Ta automatyczna ocena gwarantuje, że wszystkie brakujące poprawki zostaną odnalezione w najwcześniejszym możliwym momencie.
+Maszyna wirtualna jest oceniana okresowo co kilka dni i wiele razy w ciągu 30-dniowego okresu, aby określić odpowiednie poprawki dla tej maszyny wirtualnej. Poprawki można instalować dowolnego dnia na maszynie wirtualnej poza godzinami szczytu maszyny wirtualnej. Ta automatyczna ocena gwarantuje, że wszystkie brakujące poprawki zostaną odnalezione w najwcześniejszym możliwym momencie.
 
-Poprawki są instalowane w ciągu 30 dni od comiesięcznego wydania Windows Update, co zostało opisane poniżej. Poprawki są instalowane tylko poza godzinami szczytu maszyny wirtualnej, w zależności od strefy czasowej maszyny wirtualnej. Maszyna wirtualna musi być uruchomiona w godzinach poza godzinami szczytu, aby poprawki były instalowane automatycznie. Jeśli maszyna wirtualna jest wyłączona podczas okresowej oceny, maszyna wirtualna zostanie automatycznie oceniona, a odpowiednie poprawki zostaną automatycznie zainstalowane podczas kolejnej oceny okresowej, gdy maszyna wirtualna jest włączona.
+Poprawki są instalowane w ciągu 30 dni od comiesięcznego wydania Windows Update, co zostało opisane poniżej. Poprawki są instalowane tylko poza godzinami szczytu maszyny wirtualnej, w zależności od strefy czasowej maszyny wirtualnej. Maszyna wirtualna musi być uruchomiona w godzinach poza godzinami szczytu, aby poprawki były instalowane automatycznie. Jeśli maszyna wirtualna jest wyłączona podczas okresowej oceny, maszyna wirtualna zostanie automatycznie oceniona, a odpowiednie poprawki zostaną automatycznie zainstalowane podczas kolejnej oceny okresowej (zwykle w ciągu kilku dni), gdy maszyna wirtualna jest włączona.
 
-Aby zainstalować poprawki z innymi klasyfikacjami poprawek lub zaplanować instalację poprawki w ramach własnego niestandardowego okna obsługi, można użyć [Update Management](tutorial-config-management.md#manage-windows-updates).
+Aktualizacje definicji i inne poprawki niesklasyfikowane jako *krytyczne* lub *zabezpieczenia* nie zostaną zainstalowane za pomocą automatycznej poprawki gościa maszyny wirtualnej. Aby zainstalować poprawki z innymi klasyfikacjami poprawek lub zaplanować instalację poprawki w ramach własnego niestandardowego okna obsługi, można użyć [Update Management](tutorial-config-management.md#manage-windows-updates).
 
 ### <a name="availability-first-patching"></a>Dostępność — pierwsza poprawka
 
@@ -69,11 +69,11 @@ Następujące jednostki SKU platformy są obecnie obsługiwane (i więcej jest d
 
 | Publisher               | Oferta systemu operacyjnego      |  SKU               |
 |-------------------------|---------------|--------------------|
-| Microsoft Corporation   | WindowsServer | 2012-R2-Datacenter |
-| Microsoft Corporation   | WindowsServer | 2016 — centrum danych    |
-| Microsoft Corporation   | WindowsServer | 2016 — Datacenter-Server-Core |
-| Microsoft Corporation   | WindowsServer | 2019 — centrum danych |
-| Microsoft Corporation   | WindowsServer | 2019 — Datacenter-Server-Core |
+| MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter |
+| MicrosoftWindowsServer  | WindowsServer | 2016 — centrum danych    |
+| MicrosoftWindowsServer  | WindowsServer | 2016 — Datacenter-Server-Core |
+| MicrosoftWindowsServer  | WindowsServer | 2019 — centrum danych |
+| MicrosoftWindowsServer  | WindowsServer | 2019 — centrum danych — rdzeń |
 
 ## <a name="patch-orchestration-modes"></a>Tryby aranżacji poprawek
 Maszyny wirtualne z systemem Windows na platformie Azure obsługują teraz następujące tryby aranżacji poprawek:
@@ -83,7 +83,7 @@ Maszyny wirtualne z systemem Windows na platformie Azure obsługują teraz nast�
 - Ten tryb jest wymagany w przypadku stosowania poprawek po pierwszej dostępności.
 - Ustawienie tego trybu wyłącza również natywne aktualizacje automatyczne na maszynie wirtualnej z systemem Windows, aby uniknąć duplikowania.
 - Ten tryb jest obsługiwany tylko w przypadku maszyn wirtualnych, które są tworzone za pomocą powyższych obrazów platformy obsługiwanej przez system operacyjny.
-- Aby użyć tego trybu, należy ustawić właściwość `osProfile.windowsConfiguration.enableAutomaticUpdates=true` i ustawić właściwość  `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatfom` w szablonie maszyny wirtualnej.
+- Aby użyć tego trybu, należy ustawić właściwość `osProfile.windowsConfiguration.enableAutomaticUpdates=true` i ustawić właściwość  `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatform` w szablonie maszyny wirtualnej.
 
 **AutomaticByOS:**
 - Ten tryb włącza aktualizacje automatyczne na maszynie wirtualnej z systemem Windows, a poprawki są instalowane na maszynie wirtualnej za pomocą funkcji Aktualizacje automatyczne.
@@ -107,7 +107,7 @@ Maszyny wirtualne z systemem Windows na platformie Azure obsługują teraz nast�
 - Maszyna wirtualna musi mieć dostęp do Windows Update punktów końcowych. Jeśli maszyna wirtualna jest skonfigurowana do korzystania z Windows Server Update Services (WSUS), odpowiednie punkty końcowe serwera usług WSUS muszą być dostępne.
 - Użyj interfejsu API obliczeń w wersji 2020-06-01 lub nowszej.
 
-Włączenie funkcji wersji zapoznawczej wymaga jednorazowej zgody na funkcję *InGuestAutoPatchVMPreview* na subskrypcję, jak opisano poniżej.
+Włączenie funkcji wersji zapoznawczej wymaga jednorazowej zgody na funkcję **InGuestAutoPatchVMPreview** na subskrypcję, jak opisano poniżej.
 
 ### <a name="rest-api"></a>Interfejs API REST
 W poniższym przykładzie opisano sposób włączania wersji zapoznawczej subskrypcji:
@@ -254,10 +254,10 @@ Wyniki instalacji poprawek dla maszyny wirtualnej można przejrzeć pod `lastPat
 ## <a name="on-demand-patch-assessment"></a>Ocena poprawek na żądanie
 Jeśli automatyczne stosowanie poprawek gościa maszyny wirtualnej jest już włączone dla maszyny wirtualnej, okresową ocenę poprawek przeprowadza się na maszynie wirtualnej w godzinach poza godzinami pracy maszyny wirtualnej. Ten proces jest automatyczny, a wyniki najnowszej oceny można przejrzeć w widoku wystąpienia maszyny wirtualnej zgodnie z opisem we wcześniejszej części tego dokumentu. Możesz również wyzwolić ocenę poprawek na żądanie dla maszyny wirtualnej w dowolnym momencie. Ocena poprawek może potrwać kilka minut, a stan najnowszej oceny zostanie zaktualizowany w widoku wystąpienia maszyny wirtualnej.
 
-Włączenie funkcji w wersji zapoznawczej wymaga jednorazowej zgody na funkcję *InGuestPatchVMPreview* na subskrypcję. Wersję zapoznawczą funkcji oceny poprawek na żądanie można włączyć zgodnie z wcześniejszym [procesem włączania wersji zapoznawczej](automatic-vm-guest-patching.md#requirements-for-enabling-automatic-vm-guest-patching) na potrzeby automatycznej poprawki gościa maszyny wirtualnej.
+Włączenie funkcji w wersji zapoznawczej wymaga jednorazowej zgody na funkcję **InGuestPatchVMPreview** na subskrypcję. Ta wersja zapoznawcza różni się od automatycznej rejestracji funkcji automatycznego stosowania poprawek gościa maszyny wirtualnej w programie **InGuestAutoPatchVMPreview**. Włączenie dodatkowej funkcji w wersji zapoznawczej jest osobnym i dodatkowym wymaganiem. Wersję zapoznawczą funkcji oceny poprawek na żądanie można włączyć zgodnie z wcześniejszym [procesem włączania wersji zapoznawczej](automatic-vm-guest-patching.md#requirements-for-enabling-automatic-vm-guest-patching) na potrzeby automatycznej poprawki gościa maszyny wirtualnej.
 
 > [!NOTE]
->Ocena poprawek na żądanie nie powoduje automatycznego wyzwolenia instalacji poprawki. Ocenione i odpowiednie poprawki dla maszyny wirtualnej zostaną zainstalowane tylko w godzinach poza godzinami pracy maszyny wirtualnej, zgodnie z procesem stosowania poprawek w pierwszej kolejności opisanej wcześniej w tym dokumencie.
+>Ocena poprawek na żądanie nie powoduje automatycznego wyzwolenia instalacji poprawki. Jeśli włączono automatyczną poprawkę gościa maszyny wirtualnej, oceniona i odpowiednia poprawka dla maszyny wirtualnej zostanie zainstalowana w godzinach poza godzinami pracy maszyny wirtualnej, zgodnie z procesem stosowania poprawek w pierwszej kolejności opisanej wcześniej w tym dokumencie.
 
 ### <a name="rest-api"></a>Interfejs API REST
 ```

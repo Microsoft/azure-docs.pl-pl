@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2020
+ms.date: 12/23/2020
 ms.author: memildin
-ms.openlocfilehash: 07a94685fb3655aa5aa21a8658b9d975c764daff
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 3899b00038f3c12add4dbf49a7f05e07141d8606
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512282"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97755858"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Usługa Azure Defender dla serwerów SQL na maszynach 
 
@@ -108,7 +108,7 @@ Wyniki oceny luk w zabezpieczeniach można wyświetlić bezpośrednio w Security
     W każdym widoku sprawdzanie zabezpieczeń jest sortowane według **ważności**. Kliknij określone sprawdzanie zabezpieczeń, aby wyświetlić okienko szczegółów z **opisem**, jak **rozwiązać ten** problem, oraz inne powiązane informacje, takie jak **wpływ** lub **test porównawczy**.
 
 ## <a name="azure-defender-for-sql-alerts"></a>Alerty usługi Azure Defender dla programu SQL
-Alerty są generowane przez nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do maszyn SQL lub korzystania z nich. Zdarzenia te mogą wyzwalać alerty wyświetlane w [sekcji alerty dla SQL Database i usługi Azure Synapse Analytics na stronie informacje o alertach](alerts-reference.md#alerts-sql-db-and-warehouse).
+Alerty są generowane przez nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do maszyn SQL lub korzystania z nich. Zdarzenia te mogą wyzwalać alerty wyświetlane na [stronie odniesienia alertów](alerts-reference.md#alerts-sql-db-and-warehouse).
 
 ## <a name="explore-and-investigate-security-alerts"></a>Eksplorowanie i badanie alertów zabezpieczeń
 
@@ -131,4 +131,3 @@ W przypadku pokrewnego materiału zapoznaj się z następującym artykułem:
 - [Alerty zabezpieczeń dotyczące SQL Database i usługi Azure Synapse Analytics](alerts-reference.md#alerts-sql-db-and-warehouse)
 - [Konfigurowanie powiadomień e-mail na potrzeby alertów zabezpieczeń](security-center-provide-security-contact-details.md)
 - [Dowiedz się więcej na temat platformy Azure — Wskaźnikowanie](../sentinel/index.yml)
-- [Pakiet zabezpieczeń danych Azure Security Center](../azure-sql/database/azure-defender-for-sql.md)

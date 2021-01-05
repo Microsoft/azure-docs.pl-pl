@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/25/2020
-ms.openlocfilehash: cabc243c6ba74217873b5b0a5fa51a7cb410512e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 12/23/2020
+ms.openlocfilehash: c5086eee805ffbcdf0741eae4db405b1bcbe8692
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96170841"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760364"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB bezserwerowe (wersja zapoznawcza)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -19,7 +19,7 @@ ms.locfileid: "96170841"
 > [!IMPORTANT]
 > Azure Cosmos DB bezserwerowy jest obecnie w wersji zapoznawczej. Ta wersja zapoznawcza jest dostępna bez Umowa dotycząca poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
 
-Azure Cosmos DB bezserwerowe umożliwia korzystanie z konta usługi Azure Cosmos w sposób, w którym opłata jest naliczana tylko za jednostki żądań używane przez operacje bazy danych i Magazyn używany przez dane. Użycie Azure Cosmos DB w trybie bezserwerowym nie wiąże się z opłatą minimalną.
+Azure Cosmos DB bezserwerowe umożliwia korzystanie z konta usługi Azure Cosmos w sposób, w którym opłata jest naliczana tylko za jednostki żądań używane przez operacje bazy danych i Magazyn używany przez dane. Kontenery bezserwerowe mogą obsłużyć tysiące żądań na sekundę bez opłat minimalnych i nie jest wymagane planowanie pojemności.
 
 > [!IMPORTANT] 
 > Czy masz opinię na temat bezserwerowego? Chcemy słyszeć! Śmiało, aby usunąć komunikat do zespołu bezserwerowego Azure Cosmos DB: [azurecosmosdbserverless@service.microsoft.com](mailto:azurecosmosdbserverless@service.microsoft.com) .
@@ -36,13 +36,12 @@ Azure Cosmos DB najwygodniejsze dla serwera scenariusze, których oczekujesz:
 - **Niski, sporadyczny i nieprzewidywalny ruch**: ponieważ pojemność aprowizacji w takich sytuacjach nie jest wymagana i może być kosztowna
 - **Średnia wydajność**: ponieważ kontenery bezserwerowe mają [określone charakterystyki wydajności](#performance)
 
-Z tego względu należy rozważyć Azure Cosmos DB bezserwerowym dla następujących typów obciążeń:
+Z tego względu należy rozważyć bezserwerowe Azure Cosmos DB w następujących sytuacjach:
 
-- Opracowywanie zawartości
-- Testowanie
-- Tworzenie prototypów
-- Weryfikacja koncepcji
-- Niekrytyczna aplikacja z lekkim ruchem
+- Wprowadzenie do Azure Cosmos DB
+- Programowanie, testowanie i Tworzenie prototypów nowych aplikacji
+- Uruchamianie małych i średnich aplikacji z sporadycznym ruchem, który jest trudny do prognozowania
+- Integrowanie z usługami obliczeniowymi bez serwera, takimi jak [Azure Functions](../azure-functions/functions-overview.md)
 
 Zapoznaj się z artykułem [jak wybrać między zainicjowaną przepływność i bezserwerowym](throughput-serverless.md) systemem, aby uzyskać więcej wskazówek dotyczących wybierania oferty najlepiej dopasowanej do Twojego przypadku użycia.
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: alkohli
-ms.openlocfilehash: c12935a4b0b9cbbf088ba7b9c5ea804be0ce85a1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8ea0c27fdd64bae1e6fe9443df76c86e0eb89a75
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447361"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97762926"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Wdrażanie maszyn wirtualnych na urządzeniu z systemem Azure Stack Edge na komputerze GPU przy użyciu interfejsu wiersza polecenia platformy Azure i języka Python
 
@@ -27,7 +27,7 @@ W tym samouczku opisano, jak utworzyć maszynę wirtualną i zarządzać nią na
 
 Przepływ pracy wdrażania przedstawiono na poniższym diagramie.
 
-![Przepływ pracy wdrożenia maszyny wirtualnej](media/azure-stack-edge-j-series-deploy-virtual-machine-powershell/vm-workflow_r.svg)
+![Przepływ pracy wdrożenia maszyny wirtualnej](media/azure-stack-edge-gpu-deploy-virtual-machine-powershell/vm-workflow-r.svg)
 
 Podsumowanie wysokiego poziomu przepływu pracy wdrożenia jest następujące:
 
@@ -43,7 +43,7 @@ Podsumowanie wysokiego poziomu przepływu pracy wdrożenia jest następujące:
 10. Tworzenie sieci wirtualnej
 11. Tworzenie wirtualnej karty sieciowej przy użyciu identyfikatora podsieci sieci wirtualnej
 
-Aby uzyskać szczegółowy opis diagramu przepływu pracy, zobacz [wdrażanie maszyn wirtualnych na urządzeniu Azure Stack EDGE Pro przy użyciu Azure PowerShell](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md). Aby uzyskać informacje na temat nawiązywania połączenia z usługą Azure Resource Manager, zobacz [nawiązywanie połączenia z Azure Resource Manager przy użyciu Azure PowerShell](azure-stack-edge-j-series-connect-resource-manager.md).
+Aby uzyskać szczegółowy opis diagramu przepływu pracy, zobacz [wdrażanie maszyn wirtualnych na urządzeniu Azure Stack EDGE Pro przy użyciu Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md). Aby uzyskać informacje na temat nawiązywania połączenia z usługą Azure Resource Manager, zobacz [nawiązywanie połączenia z Azure Resource Manager przy użyciu Azure PowerShell](azure-stack-edge-j-series-connect-resource-manager.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

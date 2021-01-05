@@ -4,14 +4,14 @@ description: Wyjaśnia sposób konfigurowania dodatkowych ustawień pamięci pod
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 05/06/2020
+ms.date: 12/21/2020
 ms.author: v-erkel
-ms.openlocfilehash: b01c4d896d5ec600e0fe22e3ca7b7816141776a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02bf862cdc3b20ef3e5fdb024f474267efa0c70d
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86497203"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760507"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>Skonfiguruj dodatkowe ustawienia pamięci podręcznej platformy Azure HPC
 
@@ -43,7 +43,7 @@ Jeśli nie chcesz zmieniać ustawień jednostki MTU dla innych składników syst
 Dowiedz się więcej o ustawieniach jednostki MTU w sieciach wirtualnych platformy Azure, odczytując [dostrajanie wydajności protokołu TCP/IP dla maszyn wirtualnych platformy Azure](../virtual-network/virtual-network-tcpip-performance-tuning.md).
 
 ## <a name="configure-root-squash"></a>Konfigurowanie katalogu głównego squash
-<!-- linked from troubleshoot -->
+<!-- linked from troubleshoot and from access policies -->
 
 Ustawienie **Włącz root squash** steruje sposobem, w jaki usługa Azure HPC cache traktuje żądania od użytkownika głównego na komputerach klienckich.
 
@@ -54,6 +54,9 @@ Jeśli główny squash jest wyłączony, żądanie od użytkownika głównego kl
 Ustawienie głównego squash w pamięci podręcznej może pomóc w zrekompensowaniu wymaganego ``no_root_squash`` Ustawienia w systemach nas, które są używane jako obiekty docelowe magazynu. (Dowiedz się więcej o [wymaganiach wstępnych dotyczących magazynu NFS](hpc-cache-prerequisites.md#nfs-storage-requirements)). Może również zwiększyć bezpieczeństwo, gdy jest używany z obiektami docelowymi usługi Azure Blob Storage.
 
 Ustawieniem domyślnym jest **tak**. (Pamięć podręczna utworzona przed 2020 kwietnia może mieć ustawienie domyślne **nie**.)
+
+> [!TIP]
+> Można również ustawić squash głównych dla określonych eksportów magazynu, dostosowując [zasady dostępu klientów](access-policies.md#root-squash).
 
 ## <a name="view-snapshots-for-blob-storage-targets"></a>Wyświetlanie migawek dla obiektów docelowych magazynu obiektów BLOB
 

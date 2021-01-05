@@ -3,12 +3,12 @@ title: Jak tworzyć zasady konfiguracji gościa dla systemu Windows
 description: Dowiedz się, jak utworzyć Azure Policy zasady konfiguracji gościa dla systemu Windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 124f747a1e7c7925efc2519ee826d62034e69cc5
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: d01f4fff28debc3fabcfb32b32b02c5029ce7323
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302688"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97755977"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Jak tworzyć zasady konfiguracji gościa dla systemu Windows
 
@@ -491,10 +491,15 @@ New-GuestConfigurationPackage `
 
 ## <a name="policy-lifecycle"></a>Cykl życia zasad
 
-Jeśli chcesz wydać aktualizację zasad, istnieją trzy pola, które wymagają uwagi.
+Jeśli chcesz wydać aktualizację zasad, wprowadź zmiany zarówno dla pakietu konfiguracji gościa, jak i szczegółów definicji Azure Policy.
 
 > [!NOTE]
 > `version`Właściwość przypisania konfiguracji gościa ma wpływ tylko na pakiety hostowane przez firmę Microsoft. Najlepszym rozwiązaniem w przypadku przechowywania wersji zawartości niestandardowej jest uwzględnienie wersji w nazwie pliku.
+
+Po pierwsze, należy `New-GuestConfigurationPackage` określić nazwę pakietu, który jest unikatowy w porównaniu z poprzednimi wersjami. Numer wersji można dołączyć do nazwy, takiej jak `PackageName_1.0.0` .
+Numer w tym przykładzie służy tylko do unikatowego pakietu, a nie do określenia, że pakiet powinien być uważany za nowszy lub starszy niż inne pakiety.
+
+Po drugie należy zaktualizować parametry używane z `New-GuestConfigurationPolicy` poleceniem cmdlet po każdym z poniższych wyjaśnień.
 
 - **Wersja**: po uruchomieniu `New-GuestConfigurationPolicy` polecenia cmdlet należy określić numer wersji większy niż aktualnie opublikowany.
 - **contentUri**: po uruchomieniu `New-GuestConfigurationPolicy` polecenia cmdlet należy określić identyfikator URI dla lokalizacji pakietu. Dołączenie wersji pakietu do nazwy pliku zapewni zmianę wartości tej właściwości w każdej wersji.
