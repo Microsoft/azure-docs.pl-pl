@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: cc0dd5e76227c0814659b74afc2ac46c8ca4de73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a51cd242eb26709464aa502938cd04807aea721
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87102872"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97805665"
 ---
 ## <a name="common-scenarios"></a>Typowe scenariusze
 Poniższe scenariusze mogą znacznie wzczerpać korzyści z rozszeregowania:
@@ -47,7 +47,7 @@ W poniższych przykładach pokazano, jak działa rozbicie z różnymi maszynami 
     - Liczba zainicjowanych MB/s: 25
     - Maksymalna liczba MB/s: 170 
 - 2 P10 dyski danych 
-    - Liczba zainicjowanych MB/s: 25
+    - Liczba zainicjowanych MB/s: 100
     - Maksymalna liczba MB/s: 170
 
  Po uruchomieniu maszyny wirtualnej program pobierze dane z dysku systemu operacyjnego. Ponieważ dysk systemu operacyjnego jest częścią maszyny wirtualnej, która rozpoczyna pracę, dysk systemu operacyjnego będzie w pełni zapełniony. Te kredyty umożliwią ponowne uruchomienie dysku systemu operacyjnego o 170 MB/s sekund, jak pokazano poniżej:

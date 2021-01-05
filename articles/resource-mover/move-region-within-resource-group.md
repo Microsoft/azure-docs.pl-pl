@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: raynew
-ms.openlocfilehash: 34064fe3fe88a34b0dd2430d7adec3ebcb17ebcc
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 79224c14fc5182df7a699864af3d78c9be36259f
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95528231"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797284"
 ---
 # <a name="move-resources-across-regions-from-resource-group"></a>Przenoszenie zasobów między regionami (z grupy zasobów)
 
@@ -57,6 +57,9 @@ W tym artykule dowiesz się, jak przenieść zasoby w określonej grupie zasobó
 ## <a name="select-resources-to-move"></a>Wybierz zasoby do przeniesienia
 
 Wybierz zasoby, które chcesz przenieść. Przenoszenie zasobów do regionu docelowego w subskrypcji regionu źródłowego. Jeśli chcesz zmienić subskrypcję, możesz to zrobić po przeniesieniu zasobów.
+
+> [!NOTE]
+>  Nie wybieraj skojarzonych dysków lub operacja zakończy się niepowodzeniem. Skojarzone dyski są automatycznie dołączane do przenoszenia maszyny wirtualnej.
 
 1. W Azure Portal Otwórz odpowiednią grupę zasobów.
 2. Na stronie Grupa zasobów wybierz zasoby, które chcesz przenieść.

@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/01/2020
+ms.date: 12/28/2020
 ms.author: kenwith
-ms.openlocfilehash: 677c9c0123c174fdf2cf8e94f9c8110656d21306
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e2b8bd47f7d124562a38413d36b849d1f7efacee
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649402"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802766"
 ---
 # <a name="quickstart-delete-an-application-from-your-azure-active-directory-azure-ad-tenant"></a>Szybki Start: Usuwanie aplikacji z dzierżawy usługi Azure Active Directory (Azure AD)
 
@@ -53,6 +53,6 @@ Po zakończeniu pracy z tą serią szybki start Rozważ usunięcie aplikacji w c
 
 ## <a name="next-steps"></a>Następne kroki
 
-Ukończono serię szybkiego startu! Następnym krokiem jest zapoznanie się z najlepszymi rozwiązaniami w zakresie zarządzania aplikacjami.
+Ukończono serię szybkiego startu! Aby dowiedzieć się więcej o pojedynczym Sign-On (SSO), zobacz [co to jest logowanie jednokrotne?](what-is-single-sign-on.md) Lub zapoznaj się z najlepszymi rozwiązaniami w zakresie zarządzania aplikacjami.
 > [!div class="nextstepaction"]
 > [Najlepsze rozwiązania dotyczące zarządzania aplikacjami](application-management-fundamentals.md)

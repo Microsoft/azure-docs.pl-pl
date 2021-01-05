@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: abhishgu
 ms.reviewer: abhishgu
-ms.openlocfilehash: a233845e8f19cc44cd9d00a0392b1341db297fd6
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 25972ba2bb30c39838c4822a42af292e8d8b1dba
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632965"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803633"
 ---
 # <a name="ingest-data-from-apache-kafka-into-azure-cosmos-db-cassandra-api-using-kafka-connect"></a>Pozyskiwanie danych z Apache Kafka do Azure Cosmos DB interfejs API Cassandra przy użyciu połączenia Kafka
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -22,7 +22,7 @@ Istniejące aplikacje Cassandra mogą łatwo współdziałać z [interfejs API C
 
 Dane w Apache Kafka (tematy) są użyteczne tylko wtedy, gdy są używane przez inne aplikacje lub pozyskiwane w innych systemach. Możliwe jest skompilowanie rozwiązania przy użyciu interfejsów API [producent/odbiorca Kafka](https://kafka.apache.org/documentation/#api) [przy użyciu wybranego języka i zestawu SDK klienta](https://cwiki.apache.org/confluence/display/KAFKA/Clients). Kafka Connect oferuje alternatywne rozwiązanie. Jest to platforma do przesyłania strumieniowego danych między Apache Kafka i innymi systemami w sposób skalowalny i niezawodny. Ponieważ program Kafka Connect obsługuje łączniki półek, które zawierają Cassandra, nie trzeba pisać kodu niestandardowego, aby zintegrować Kafka z Azure Cosmos DB interfejs API Cassandra. 
 
-W tym artykule będziemy używać [łącznika Apache Kafka](https://docs.datastax.com/kafka/doc/kafka/kafkaIntro.html)typu "open source", który działa w oparciu o program Kafka Connect Framework w celu pozyskiwania rekordów z tematu Kafka w wierszach z co najmniej jedną tabelą Cassandra. W przykładzie przedstawiono konfigurację wielokrotnego użytku przy użyciu Docker Compose. Jest to dość wygodne, ponieważ umożliwia uruchamianie wszystkich wymaganych składników lokalnie za pomocą jednego polecenia. Te składniki to: Kafka, dozorcy, Kafka Connect Worker i Przykładowa aplikacja generatora danych.
+W tym artykule będziemy używać [łącznika Apache Kafka](https://docs.datastax.com/en/kafka/doc/kafka/kafkaIntro.html)typu "open source", który działa w oparciu o program Kafka Connect Framework w celu pozyskiwania rekordów z tematu Kafka w wierszach z co najmniej jedną tabelą Cassandra. W przykładzie przedstawiono konfigurację wielokrotnego użytku przy użyciu Docker Compose. Jest to dość wygodne, ponieważ umożliwia uruchamianie wszystkich wymaganych składników lokalnie za pomocą jednego polecenia. Te składniki to: Kafka, dozorcy, Kafka Connect Worker i Przykładowa aplikacja generatora danych.
 
 Poniżej przedstawiono podział składników i ich definicji usług — można odwołać się do kompletnego `docker-compose` pliku [w repozytorium GitHub](https://github.com/Azure-Samples/cosmosdb-cassandra-kafka/blob/main/docker-compose.yaml).
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: d73bfd19a4135d09e9e19fcbcfedd50dbc1f7067
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 86d7b1a6d361ebbc0d8419d184f9a11d390a37f1
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632810"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803191"
 ---
 # <a name="tips-and-tricks-for-using-azure-application-consistent-snapshot-tool-preview"></a>Porady i wskazówki dotyczące korzystania z narzędzia migawek spójnych z aplikacjami platformy Azure (wersja zapoznawcza)
 
@@ -132,7 +132,7 @@ Migawkę woluminu magazynu można przywrócić do nowego woluminu ( `-c restore 
 
 Migawkę można skopiować z powrotem do obszaru danych SAP HANA, ale SAP HANA nie może być uruchomiona, gdy zostanie utworzona kopia ( `cp /hana/data/H80/mnt00001/.snapshot/hana_hourly.2020-06-17T113043.1586971Z/*` ).
 
-W przypadku dużego wystąpienia platformy Azure można skontaktować się z zespołem operacyjnym firmy Microsoft, otwierając żądanie obsługi, aby przywrócić żądaną migawkę z istniejących dostępnych migawek. Żądanie obsługi można otworzyć z Azure Portal: <https://portal.azure.com.>
+W przypadku dużego wystąpienia platformy Azure można skontaktować się z zespołem operacyjnym firmy Microsoft, otwierając żądanie obsługi, aby przywrócić żądaną migawkę z istniejących dostępnych migawek. Żądanie obsługi można otworzyć z Azure Portal: <https://portal.azure.com>
 
 W przypadku podjęcia decyzji o przełączeniu w tryb failover odzyskiwania po awarii `azacsnap -c restore --restore revertvolume` polecenie w witrynie Dr spowoduje automatyczne udostępnienie najnowszych `/hana/data` `/hana/logbackups` migawek woluminów (i), aby umożliwić odzyskanie SAP HANA. Tego polecenia należy używać ostrożnie, ponieważ przerywa replikację między lokacjami produkcyjnymi i DR.
 
@@ -249,7 +249,7 @@ Migawkę "Boot" można odzyskać w następujący sposób:
 
 1. Klient będzie musiał zamknąć serwer.
 1. Po wyłączeniu serwera klient będzie musiał otworzyć żądanie obsługi, które zawiera identyfikator komputera i migawkę do przywrócenia.
-    > Klienci mogą otworzyć żądanie obsługi z Azure Portal: <https://portal.azure.com.>
+    > Klienci mogą otworzyć żądanie obsługi z Azure Portal: <https://portal.azure.com>
 1. Firma Microsoft przywróci jednostkę LUN systemu operacyjnego przy użyciu określonego identyfikatora komputera i migawki, a następnie uruchamia serwer.
 1. Klient będzie musiał wtedy potwierdzić, że serwer jest uruchomiony i w dobrej kondycji.
 

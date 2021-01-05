@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/20/2020
+ms.date: 12/28/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: d435ced4c8ec56fae5081ede367b593d2b66ef0f
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 8812ab091037bcb3144a7fed53a449c3f5de353a
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936543"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802511"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)
 
@@ -112,7 +112,7 @@ Token sygnatury dostępu współdzielonego jest ciągiem generowanym po stronie 
 
 Aplikacje klienckie zapewniają identyfikator URI sygnatury dostępu współdzielonego do usługi Azure Storage w ramach żądania. Następnie usługa sprawdza parametry sygnatury dostępu współdzielonego i sygnaturę, aby sprawdzić, czy jest ona prawidłowa. Jeśli usługa sprawdza, czy podpis jest prawidłowy, żądanie jest autoryzowane. W przeciwnym razie żądanie zostanie odrzucone z kodem błędu 403 (dostęp zabroniony).
 
-Oto przykład identyfikatora URI sygnatury dostępu współdzielonego usługi przedstawiający identyfikator URI zasobu i token sygnatury dostępu współdzielonego:
+Oto przykład identyfikatora URI sygnatury dostępu współdzielonego usługi, pokazującego identyfikator URI zasobu i token sygnatury dostępu współdzielonego. Ponieważ token sygnatury dostępu współdzielonego składa się z ciągu zapytania identyfikatora URI, identyfikator URI zasobu musi poprzedzać znak zapytania, a następnie token sygnatury dostępu współdzielonego:
 
 ![Składniki identyfikatora URI sygnatury dostępu współdzielonego usługi](./media/storage-sas-overview/sas-storage-uri.png)
 

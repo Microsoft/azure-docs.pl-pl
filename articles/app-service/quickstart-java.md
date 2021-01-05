@@ -10,12 +10,13 @@ ms.date: 08/01/2020
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 3c5a04bd14bdcbf250908db78c622b963f191d91
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+adobe-target: true
+ms.openlocfilehash: b54df350e3f59720a92d7c1e74e28d9fcafddf94
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93333090"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802494"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>Szybki Start: Tworzenie aplikacji Java na Azure App Service
 
@@ -66,9 +67,9 @@ cd helloworld
 
 ## <a name="configure-the-maven-plugin"></a>Konfigurowanie wtyczki Maven
 
-Proces wdrażania do Azure App Service będzie używać poświadczeń platformy Azure automatycznie z poziomu interfejsu wiersza polecenia platformy Azure. Jeśli interfejs wiersza polecenia platformy Azure nie jest zainstalowany lokalnie, wtyczka Maven będzie uwierzytelniana przy użyciu uwierzytelniania OAuth lub urządzenia. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie przy użyciu wtyczek Maven](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
+Proces wdrażania w usłudze Azure App Service będzie używać automatycznie poświadczeń platformy Azure z poziomu interfejsu wiersza polecenia platformy Azure. Jeśli interfejs wiersza polecenia platformy Azure nie jest zainstalowany lokalnie, wtyczka Maven będzie uwierzytelniana przy użyciu uwierzytelniania OAuth lub urządzenia. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie przy użyciu wtyczek Maven](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
 
-Uruchom poniższe polecenie Maven w celu skonfigurowania wdrożenia. To polecenie pomoże Ci skonfigurować App Service system operacyjny, wersję Java i wersję tomcat.
+Uruchom poniższe polecenie programu Maven w celu skonfigurowania wdrożenia. To polecenie pomoże Ci skonfigurować App Service system operacyjny, wersję Java i wersję tomcat.
 
 ```bash
 mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
@@ -78,12 +79,12 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 
 # <a name="java-se"></a>[Java SE](#tab/javase)
 
-1. Po wyświetleniu monitu z opcją **subskrypcji** wybierz odpowiednią pozycję, `Subscription` wprowadzając liczbę drukowania w wierszu.
+1. Po wyświetleniu monitu z opcją **Subskrypcja** wybierz odpowiedni element `Subscription`, wprowadzając wartość liczbową na początku wiersza.
 1. Po wyświetleniu monitu z opcją **aplikacji sieci Web** Zaakceptuj opcję defaut, `<create>` naciskając klawisz ENTER lub wybierając istniejącą aplikację.
 1. Po wyświetleniu monitu z opcją systemu **operacyjnego** wybierz pozycję **Windows** , wprowadzając polecenie `3` .
 1. Po wyświetleniu monitu z opcją **warstwy cenowej** wybierz pozycję **B2** , wprowadzając polecenie `2` .
-1. Użyj domyślnej wersji języka Java, **Java 8** , naciskając klawisz ENTER.
-1. Na koniec naciśnij klawisz Enter przy ostatnim monicie, aby potwierdzić wybrane opcje.
+1. Użyj domyślnej wersji języka Java, **Java 8**, naciskając klawisz ENTER.
+1. Na koniec naciśnij klawisz Enter w ostatnim monicie, aby potwierdzić wybrane opcje.
 
     Podsumowanie danych wyjściowych będzie wyglądać podobnie do przedstawionego poniżej fragmentu kodu.
 
@@ -110,13 +111,13 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 
 # <a name="tomcat"></a>[Tomcat](#tab/tomcat)
 
-1. Po wyświetleniu monitu z opcją **subskrypcji** wybierz odpowiednią pozycję, `Subscription` wprowadzając liczbę drukowania w wierszu.
+1. Po wyświetleniu monitu z opcją **Subskrypcja** wybierz odpowiedni element `Subscription`, wprowadzając wartość liczbową na początku wiersza.
 1. Po wyświetleniu monitu z opcją **aplikacji sieci Web** Zaakceptuj opcję defaut, `<create>` naciskając klawisz ENTER lub wybierając istniejącą aplikację.
 1. Po wyświetleniu monitu z opcją systemu **operacyjnego** wybierz pozycję **Windows** , wprowadzając polecenie `3` .
 1. Po wyświetleniu monitu z opcją **warstwy cenowej** wybierz pozycję **B2** , wprowadzając polecenie `2` .
-1. Użyj domyślnej wersji języka Java, **Java 8** , naciskając klawisz ENTER.
-1. Użyj domyślnego kontenera sieci Web, **Tomcat 8,5** , naciskając klawisz ENTER.
-1. Na koniec naciśnij klawisz Enter przy ostatnim monicie, aby potwierdzić wybrane opcje.
+1. Użyj domyślnej wersji języka Java, **Java 8**, naciskając klawisz ENTER.
+1. Użyj domyślnego kontenera sieci Web, **Tomcat 8,5**, naciskając klawisz ENTER.
+1. Na koniec naciśnij klawisz Enter w ostatnim monicie, aby potwierdzić wybrane opcje.
 
     Podsumowanie danych wyjściowych będzie wyglądać podobnie do przedstawionego poniżej fragmentu kodu.
 
@@ -148,12 +149,12 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 
 ### <a name="java-se"></a>[Java SE](#tab/javase)
 
-1. Po wyświetleniu monitu z opcją **subskrypcji** wybierz odpowiednią pozycję, `Subscription` wprowadzając liczbę drukowania w wierszu.
+1. Po wyświetleniu monitu z opcją **Subskrypcja** wybierz odpowiedni element `Subscription`, wprowadzając wartość liczbową na początku wiersza.
 1. Po wyświetleniu monitu z opcją **aplikacji sieci Web** Zaakceptuj opcję defaut, `<create>` naciskając klawisz ENTER lub wybierając istniejącą aplikację.
 1. Po wyświetleniu monitu z opcją **systemu operacyjnego** wybierz pozycję **Linux** , naciskając klawisz ENTER.
 1. Po wyświetleniu monitu z opcją **warstwy cenowej** wybierz pozycję **B2** , wprowadzając polecenie `2` .
-1. Użyj domyślnej wersji języka Java, **Java 8** , naciskając klawisz ENTER.
-1. Na koniec naciśnij klawisz Enter przy ostatnim monicie, aby potwierdzić wybrane opcje.
+1. Użyj domyślnej wersji języka Java, **Java 8**, naciskając klawisz ENTER.
+1. Na koniec naciśnij klawisz Enter w ostatnim monicie, aby potwierdzić wybrane opcje.
 
     ```
     Please confirm webapp properties
@@ -177,13 +178,13 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 
 ### <a name="tomcat"></a>[Tomcat](#tab/tomcat)
 
-1. Po wyświetleniu monitu z opcją **subskrypcji** wybierz odpowiednią pozycję, `Subscription` wprowadzając liczbę drukowania w wierszu.
+1. Po wyświetleniu monitu z opcją **Subskrypcja** wybierz odpowiedni element `Subscription`, wprowadzając wartość liczbową na początku wiersza.
 1. Po wyświetleniu monitu z opcją **aplikacji sieci Web** Zaakceptuj opcję defaut, `<create>` naciskając klawisz ENTER lub wybierając istniejącą aplikację.
 1. Po wyświetleniu monitu z opcją **systemu operacyjnego** wybierz pozycję **Linux** , naciskając klawisz ENTER.
 1. Po wyświetleniu monitu z opcją **warstwy cenowej** wybierz pozycję **B2** , wprowadzając polecenie `2` .
-1. Użyj domyślnej wersji języka Java, **Java 8** , naciskając klawisz ENTER.
-1. Użyj domyślnego kontenera sieci Web, **Tomcat 8,5** , naciskając klawisz ENTER.
-1. Na koniec naciśnij klawisz Enter przy ostatnim monicie, aby potwierdzić wybrane opcje.
+1. Użyj domyślnej wersji języka Java, **Java 8**, naciskając klawisz ENTER.
+1. Użyj domyślnego kontenera sieci Web, **Tomcat 8,5**, naciskając klawisz ENTER.
+1. Na koniec naciśnij klawisz Enter w ostatnim monicie, aby potwierdzić wybrane opcje.
 
     ```
     Please confirm webapp properties
@@ -217,7 +218,7 @@ Właściwość | Wymagane | Opis | Wersja
 `<subscriptionId>` | fałsz | Określ Identyfikator subskrypcji. | 0.1.0 +
 `<resourceGroup>` | true | Grupa zasobów platformy Azure dla aplikacji sieci Web. | 0.1.0 +
 `<appName>` | true | Nazwa aplikacji sieci Web. | 0.1.0 +
-`<region>` | true | Określa region, w którym będzie hostowana aplikacja sieci Web; wartość domyślna to **westeurope**. Wszystkie prawidłowe regiony w sekcji [Obsługiwane regiony](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) . | 0.1.0 +
+`<region>` | true | Określa region, w którym będzie hostowana aplikacja sieci Web; wartość domyślna to **westeurope**. Wszystkie prawidłowe regiony w sekcji [Obsługiwane regiony](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) . | 0.1.0 +
 `<pricingTier>` | fałsz | Warstwa cenowa aplikacji sieci Web. Wartość domyślna to **P1V2** dla obciążenia produkcyjnego, a **B2** jest zalecanym minimum dla środowiska Java Dev/Test. [Dowiedz się więcej](https://azure.microsoft.com/pricing/details/app-service/linux/)| 0.1.0 +
 `<runtime>` | true | Konfiguracja środowiska uruchomieniowego, w [tym miejscu](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details)można zobaczyć szczegóły. | 0.1.0 +
 `<deployment>` | true | W konfiguracji wdrożenia można zobaczyć szczegóły [tutaj](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0 +
@@ -241,7 +242,7 @@ Następnie możesz wdrożyć aplikację Java na platformie Azure przy użyciu na
 mvn package azure-webapp:deploy
 ```
 
-Po zakończeniu wdrażania aplikacja będzie gotowa w wersji `http://<appName>.azurewebsites.net/` ( `http://helloworld-1590394316693.azurewebsites.net` w wersji demonstracyjnej). Otwórz adres URL z lokalną przeglądarką internetową, aby zobaczyć
+Po zakończeniu wdrażania aplikacja będzie gotowa pod adresem `http://<appName>.azurewebsites.net/`(`http://helloworld-1590394316693.azurewebsites.net` w pokazie). Otwórz adres URL z lokalną przeglądarką internetową, aby zobaczyć
 
 ![Przykładowa aplikacja działająca w Azure App Service](./media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
 
@@ -252,7 +253,7 @@ Po zakończeniu wdrażania aplikacja będzie gotowa w wersji `http://<appName>.a
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-W poprzednich krokach utworzono zasoby platformy Azure w grupie zasobów. Jeśli nie chcesz potrzebować tych zasobów w przyszłości, Usuń grupę zasobów z portalu lub uruchamiając następujące polecenie w Cloud Shell:
+W poprzednich krokach utworzono zasoby platformy Azure w grupie zasobów. Jeśli prawdopodobnie nie będziesz potrzebować tych zasobów w przyszłości, usuń grupę zasobów z portalu lub uruchamiając następujące polecenie w usłudze Cloud Shell:
 
 ```azurecli-interactive
 az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes

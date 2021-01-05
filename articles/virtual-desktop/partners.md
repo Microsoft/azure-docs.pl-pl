@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7a1b178450a1aa06db07d7b1ef525f7f781db9ef
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: e116c590e07ffcdb1b7c8ae2e30b2e76bb909bff
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602822"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802715"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integracja z partnerem pulpitu wirtualnego systemu Windows
 
@@ -62,7 +62,7 @@ Gdy wszystko będzie gotowe do uruchomienia, możesz użyć wszystkich skryptów
 Automai umożliwia korzystanie z tych samych skryptów do testowania wydajności, testowania funkcjonalnego, monitorowania wydajności, a nawet automatyzacji procesów zautomatyzowanych, wszystkich na jednej platformie.
 
 - [Zobacz Krótki opis wspólnego rozwiązania](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4B76N).
-- [Przejdź do witryny sieci Web partnera](https://www.automai.com/wvd-testing-monitoring?hs_preview=EyZXkOWu-30742040580).
+- [Przejdź do witryny sieci Web partnera](https://www.automai.com/windows-virtual-desktop-performance-testing/).
 
 ## <a name="cloudhouse"></a>Cloudhouse
 

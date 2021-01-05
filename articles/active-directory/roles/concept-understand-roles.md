@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 968ca6fa293e7bcc01bae6f48164c48c19b8267b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: db3eaef240e1f76e4c61a454e104336806666a7c
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501720"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803905"
 ---
 # <a name="understand-roles-in-azure-active-directory"></a>Informacje o rolach w Azure Active Directory
 
@@ -44,7 +44,7 @@ Gdy mówimy oddzielny system kontroli dostępu oparty na rolach. oznacza to, że
 
 ## <a name="why-some-azure-ad-roles-are-for-other-services"></a>Dlaczego niektóre role usługi Azure AD są przeznaczone dla innych usług
 
-Microsoft 365 ma wiele systemów kontroli dostępu opartych na rolach, które zostały opracowane niezależnie w czasie, z których każdy korzysta z własnego portalu usług. Aby zapewnić sobie możliwość zarządzania tożsamościami w Microsoft 365 z poziomu portalu usługi Azure AD, dodaliśmy pewne wbudowane role specyficzne dla usługi, z których każdy ma dostęp administracyjny do usługi Microsoft 365. Przykładem tego dodania jest rola Administrator programu Exchange w usłudze Azure AD. Ta rola jest równoważna z [grupą roli zarządzania organizacją](/exchange/organization-management-exchange-2013-help) w systemie kontroli dostępu opartej na rolach programu Exchange i może zarządzać wszystkimi aspektami programu Exchange. Podobnie dodaliśmy rolę administratora usługi Intune, administratora zespołów, administratora programu SharePoint i tak dalej. Role specyficzne dla serwera to jedna kategoria wbudowanych ról usługi Azure AD w poniższej sekcji.
+Microsoft 365 ma wiele systemów kontroli dostępu opartych na rolach, które zostały opracowane niezależnie w czasie, z których każdy korzysta z własnego portalu usług. Aby zapewnić sobie możliwość zarządzania tożsamościami w Microsoft 365 z poziomu portalu usługi Azure AD, dodaliśmy pewne wbudowane role specyficzne dla usługi, z których każdy ma dostęp administracyjny do usługi Microsoft 365. Przykładem tego dodania jest rola Administrator programu Exchange w usłudze Azure AD. Ta rola jest równoważna z [grupą roli zarządzania organizacją](/exchange/organization-management-exchange-2013-help) w systemie kontroli dostępu opartej na rolach programu Exchange i może zarządzać wszystkimi aspektami programu Exchange. Podobnie dodaliśmy rolę administratora usługi Intune, administratora zespołów, administratora programu SharePoint i tak dalej. Role specyficzne dla usług to jedna kategoria wbudowanych ról usługi Azure AD w poniższej sekcji.
 
 ## <a name="categories-of-azure-ad-roles"></a>Kategorie ról usługi Azure AD
 
@@ -58,7 +58,7 @@ Wbudowane role usługi Azure AD różnią się w zależności od tego, gdzie mog
 
 Poniższa tabela jest oferowana jako pomoc w zrozumieniu tych kategorii ról. Kategorie są nazywane arbitralnie i nie są przeznaczone do oznaczania innych możliwości wykraczających poza [udokumentowane uprawnienia roli](permissions-reference.md).
 
-Kategoria | Rola
+Kategoria | Role
 ---- | ----
 Role specyficzne dla usługi Azure AD | Administrator aplikacji<br>Deweloper aplikacji<br>Administrator uwierzytelniania<br>Administrator zestawu kluczy B2C IEF<br>Administrator zasad B2C IEF<br>Administrator aplikacji w chmurze<br>Administrator urządzenia w chmurze<br>Administrator dostępu warunkowego<br>Administratorzy urządzeń<br>Czytelnicy katalogów<br>Konta synchronizacji katalogów<br>Autorzy katalogów<br>Administrator przepływu użytkownika z IDENTYFIKATORem zewnętrznym<br>Administrator atrybutów przepływu użytkownika zewnętrznego ID<br>Administrator zewnętrznego dostawcy tożsamości<br>Administrator grup<br>Zapraszający gościa<br>Administrator pomocy technicznej<br>Administrator tożsamości hybrydowej<br>Administrator licencji<br>Obsługa pomoc partnera<br>Obsługa SVR partnera<br>Administrator haseł<br>Administrator uprzywilejowanego uwierzytelniania<br>Administrator ról uprzywilejowanych<br>Czytelnik raportów<br>Administrator konta użytkownika
 Role międzyusługowe | Administrator firmy<br>Administrator zgodności<br>Administrator danych zgodności<br>Czytelnik globalny<br>Administrator zabezpieczeń<br>Operator zabezpieczeń<br>Czytelnik zabezpieczeń<br>Administrator pomocy technicznej usługi

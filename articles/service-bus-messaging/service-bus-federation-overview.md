@@ -3,14 +3,14 @@ title: Replikacja komunikatów i międzyregionowa Federacja Azure Service Bus | 
 description: Ten artykuł zawiera Omówienie replikacji zdarzeń i federacji między regionami przy użyciu Azure Service Bus.
 ms.topic: article
 ms.date: 12/12/2020
-ms.openlocfilehash: 32d8c9112eeb2f71e7f2c8dcd6f8f73da2dc1ca9
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: d5153820feab8b7901356838ec435d992aa82116
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657516"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803276"
 ---
-# <a name="message-replication-and-cross-region-federation"></a>Replikacja komunikatów i międzyregionowa Federacja
+# <a name="message-replication-and-cross-region-federation"></a>Replikacja komunikatów i federacja między regionami
 
 W obszarze przestrzenie nazw Program Azure Service Bus obsługuje [Tworzenie topologii kolejek połączonych i subskrypcji tematu przy użyciu funkcji autoprzesyłania dalej](service-bus-auto-forwarding.md) , aby umożliwić implementację różnych wzorców routingu. Na przykład można zapewnić partnerom dedykowane kolejki, do których mają uprawnienia do wysyłania lub odbierania, które mogą być tymczasowo zawieszone w razie potrzeby i elastycznie połączyć je z innymi jednostkami, które są prywatne dla aplikacji. Można również tworzyć złożone topologie routingu z wieloma etapami lub tworzyć kolejki w stylu skrzynek pocztowych, które opróżniają subskrypcje podobne do kolejki i umożliwiają większej pojemności magazynu na subskrybenta. 
 
@@ -150,7 +150,7 @@ Azure Functions można uruchomić w ramach [tożsamości zarządzanej platformy 
 
 Ponadto Azure Functions pozwala na bezpośrednie integrowanie zadań replikacji z sieciami wirtualnymi platformy Azure i [punktami końcowymi usługi](../virtual-network/virtual-network-service-endpoints-overview.md) dla wszystkich usług Azure Messaging oraz łatwe zintegrowane z [Azure monitor](../azure-monitor/overview.md).
 
-Co najważniejsze, Azure Functions wstępnie skompilowane, skalowalne wyzwalacze i powiązania wyjściowe dla [Event Hubs platformy Azure](../azure-functions/functions-bindings-service-bus.md), [platformy azure IoT Hub](../azure-functions/functions-bindings-event-iot.md), [Azure Service Bus](../azure-functions/functions-bindings-service-bus.md), [Azure Event Grid](../azure-functions/functions-bindings-event-grid.md)i [platformy Azure queue storage](/azure-functions/functions-bindings-storage-queue.md), niestandardowe rozszerzenia dla [RabbitMQ](https://github.com/azure/azure-functions-rabbitmq-extension)i [Apache Kafka](https://github.com/azure/azure-functions-kafka-extension). Większość wyzwalaczy dynamicznie dostosowuje się do potrzeb dotyczących przepływności przez skalowanie liczby współbieżnie wykonywanych wystąpień w górę i w dół w oparciu o udokumentowane metryki. 
+Co najważniejsze, Azure Functions wstępnie skompilowane, skalowalne wyzwalacze i powiązania wyjściowe dla [Event Hubs platformy Azure](../azure-functions/functions-bindings-service-bus.md), [platformy azure IoT Hub](../azure-functions/functions-bindings-event-iot.md), [Azure Service Bus](../azure-functions/functions-bindings-service-bus.md), [Azure Event Grid](../azure-functions/functions-bindings-event-grid.md)i [platformy Azure queue storage](/azure/azure-functions/functions-bindings-storage-queue), niestandardowe rozszerzenia dla [RabbitMQ](https://github.com/azure/azure-functions-rabbitmq-extension)i [Apache Kafka](https://github.com/azure/azure-functions-kafka-extension). Większość wyzwalaczy dynamicznie dostosowuje się do potrzeb dotyczących przepływności przez skalowanie liczby współbieżnie wykonywanych wystąpień w górę i w dół w oparciu o udokumentowane metryki. 
 
 Zgodnie z planem użycia Azure Functions prekompilowane wyzwalacze mogą nawet skalować w dół do zera, a żadne komunikaty nie są dostępne do replikacji, co oznacza, że nie ponosisz żadnych kosztów, aby zachować konfigurację gotową do skalowania kopii zapasowej. Kluczowym minusem korzystania z planu zużycia jest to, że opóźnienie zadań replikacji "wznawianie" z tego stanu jest znacznie wyższe niż w przypadku planów hostingu, w których działa infrastruktura.  
 
@@ -165,6 +165,6 @@ Następnie można zapoznać się z artykułem jak skonfigurować aplikację repl
 - [Replikacja aplikacji w Azure Functions](service-bus-federation-replicator-functions.md)
 - [Replikowanie zdarzeń między jednostkami Service Bus](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopy)
 - [Kierowanie zdarzeń do usługi Azure Event Hubs](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub)
-- [Pozyskiwanie zdarzeń z usługi Azure Event Hubs](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubsCopyToServiceBus)
+- [Pozyskiwanie zdarzeń z usługi Azure Event Hubs](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus)
 
 [1]: ./media/service-bus-auto-forwarding/IC628632.gif 

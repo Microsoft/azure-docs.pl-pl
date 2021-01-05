@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: ed30c271e4c2458a33784cbcfc682001b542f2b6
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d57512d631685f1f8da7dcd22181bf4d4223937f
+ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964953"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97807573"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Wdrożenie Virtual Machines platformy Azure dla oprogramowania SAP NetWeaver
 
@@ -422,11 +422,11 @@ Poniższy schemat blokowy przedstawia sekwencję kroków czynności związanych 
 
 Najprostszym sposobem tworzenia nowej maszyny wirtualnej przy użyciu obrazu z witryny Azure Marketplace jest użycie Azure Portal.
 
-1.  Przejdź do adresu <https://portal.azure.com/#create/hub>.  Lub w menu Azure Portal wybierz pozycję **+ Nowy**.
+1.  Przejdź do witryny <https://portal.azure.com/#create/hub>.  Lub w menu Azure Portal wybierz pozycję **+ Nowy**.
 1.  Wybierz pozycję **obliczenia**, a następnie wybierz typ systemu operacyjnego, który chcesz wdrożyć. Na przykład: Windows Server 2012 R2, SUSE Linux Enterprise Server 12 (SLES 12), Red Hat Enterprise Linux 7,2 (RHEL 7,2) lub Oracle Linux 7,2. W widoku listy domyślnej nie są wyświetlane wszystkie obsługiwane systemy operacyjne. Aby uzyskać pełną listę, wybierz pozycję **Zobacz wszystko** . Aby uzyskać więcej informacji o obsługiwanych systemach operacyjnych na potrzeby wdrażania oprogramowania SAP, zobacz temat SAP Note [1928533].
 1.  Na następnej stronie Przejrzyj warunki i postanowienia.
 1.  W polu **Wybierz model wdrażania** wybierz pozycję **Menedżer zasobów**.
-1.  Wybierz pozycję **Utwórz**.
+1.  Wybierz przycisk **Utwórz**.
 
 Kreator przeprowadzi Cię przez proces konfigurowania wymaganych parametrów w celu utworzenia maszyny wirtualnej, a także wszystkich wymaganych zasobów, takich jak interfejsy sieciowe i konta magazynu. Niektóre z tych parametrów są następujące:
 
@@ -565,7 +565,7 @@ Poniższy schemat blokowy przedstawia sekwencję kroków czynności związanych 
 
 Najprostszym sposobem tworzenia nowej maszyny wirtualnej na podstawie obrazu dysku zarządzanego jest użycie Azure Portal. Aby uzyskać więcej informacji na temat tworzenia obrazu dysku zarządzanie, przeczytaj artykuł [Przechwytywanie obrazu zarządzanego uogólnionej maszyny wirtualnej na platformie Azure](../../windows/capture-image-resource.md)
 
-1.  Przejdź do adresu <https://ms.portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Compute%2Fimages>. Lub w menu Azure Portal wybierz pozycję **obrazy**.
+1.  Przejdź do witryny <https://ms.portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Compute%2Fimages>. Lub w menu Azure Portal wybierz pozycję **obrazy**.
 1.  Wybierz obraz dysku zarządzanego, który chcesz wdrożyć, a następnie kliknij pozycję **Utwórz maszynę wirtualną** .
 
 Kreator przeprowadzi Cię przez proces konfigurowania wymaganych parametrów w celu utworzenia maszyny wirtualnej, a także wszystkich wymaganych zasobów, takich jak interfejsy sieciowe i konta magazynu. Niektóre z tych parametrów są następujące:
@@ -857,12 +857,12 @@ Aby można było uzyskać dostęp do Internetu, należy prawidłowo skonfigurowa
 
 1. Przejdź do **menu Start**, wprowadź **gpedit. msc**, a następnie wybierz **klawisz ENTER**.
 1. Wybierz pozycję **Konfiguracja komputera**  >  **Szablony administracyjne**  >  **składniki systemu Windows**  >  **Internet Explorer**. Upewnij się, że ustawienie **Ustaw ustawienia serwera proxy na maszynę (zamiast użytkownika)** jest wyłączone lub nieskonfigurowane.
-1. W **Panelu sterowania** przejdź do opcji **internetowe centrum sieci i udostępniania**  >  **Internet Options**.
+1. W **Panelu sterowania** przejdź do opcji **internetowe centrum sieci i udostępniania**  >  .
 1. Na karcie **połączenia** wybierz przycisk **Ustawienia sieci LAN** .
 1. Wyczyść pole wyboru **Automatycznie wykryj ustawienia**.
 1. Zaznacz pole wyboru **Użyj serwera proxy dla sieci LAN** , a następnie wprowadź adres i port serwera proxy.
 1. Wybierz przycisk **Zaawansowane** .
-1. W polu **wyjątki** wprowadź adres IP **168.63.129.16**. Wybierz przycisk **OK**.
+1. W polu **wyjątki** wprowadź adres IP **168.63.129.16**. Wybierz pozycję **OK**.
 
 #### <a name="linux"></a>Linux
 
@@ -1070,8 +1070,14 @@ Nowe rozszerzenie maszyny wirtualnej dla oprogramowania SAP używa zarządzanej 
     Przykład:
 
     ```azurecli
+    # Azure CLI on Linux
     spID=$(az resource show -g <resource-group-name> -n <vm name> --query identity.principalId --out tsv --resource-type Microsoft.Compute/virtualMachines)
     rgId=$(az group show -g <resource-group-name> --query id --out tsv)
+    az role assignment create --assignee $spID --role 'Reader' --scope $rgId
+
+    # Azure CLI on Windows/PowerShell
+    $spID=az resource show -g <resource-group-name> -n <vm name> --query identity.principalId --out tsv --resource-type Microsoft.Compute/virtualMachines
+    $rgId=az group show -g <resource-group-name> --query id --out tsv
     az role assignment create --assignee $spID --role 'Reader' --scope $rgId
     ```
 
@@ -1079,11 +1085,19 @@ Nowe rozszerzenie maszyny wirtualnej dla oprogramowania SAP używa zarządzanej 
     Rozszerzenie jest obecnie obsługiwane tylko w AzureCloud. Platformy Azure z Chin, Azure Government lub innych specjalnych środowisk nie są jeszcze obsługiwane.
 
     ```azurecli
-    # For Linux machines
+    # Azure CLI on Linux
+    ## For Linux machines
     az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Linux --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{"system":"SAP"}'
 
-    #For Windows machines
+    ## For Windows machines
     az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Windows --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{"system":"SAP"}'
+
+    # Azure CLI on Windows/PowerShell
+    ## For Linux machines
+    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Linux --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{\"system\":\"SAP\"}'
+
+    ## For Windows machines
+    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Windows --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{\"system\":\"SAP\"}'
     ```
 
 ## <a name="checks-and-troubleshooting"></a><a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Sprawdzenia i rozwiązywanie problemów

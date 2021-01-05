@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 12/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 2350177373bc99907c437d814d8f01193f18f3fd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7bd85c60025475e8208847a12ccc2729743a975a
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95895727"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803922"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>Wykonaj przywracanie do punktu w czasie dla danych blokowych obiektów BLOB
 
@@ -23,7 +23,7 @@ Możesz użyć przywracania do punktu w czasie, aby przywrócić jeden lub więc
 Aby dowiedzieć się więcej o przywracaniu do punktu w czasie, zobacz [przywracanie do punktu w czasie dla blokowych obiektów BLOB](point-in-time-restore-overview.md).
 
 > [!CAUTION]
-> Przywracanie do punktu w czasie obsługuje operacje przywracania tylko dla blokowych obiektów BLOB. Nie można przywrócić operacji na kontenerach. W przypadku usunięcia kontenera z konta magazynu przez wywołanie operacji [usuwania kontenera](/rest/api/storageservices/delete-container) nie można przywrócić tego kontenera przy użyciu operacji przywracania. Zamiast usuwać kontener, Usuń pojedyncze obiekty blob, jeśli chcesz je przywrócić.
+> Przywracanie do punktu w czasie obsługuje operacje przywracania tylko dla blokowych obiektów BLOB. Nie można przywrócić operacji na kontenerach. W przypadku usunięcia kontenera z konta magazynu przez wywołanie operacji [usuwania kontenera](/rest/api/storageservices/delete-container) nie można przywrócić tego kontenera przy użyciu operacji przywracania. Zamiast usuwać cały kontener, Usuń pojedyncze obiekty blob, jeśli chcesz je później przywrócić.
 
 ## <a name="enable-and-configure-point-in-time-restore"></a>Włącz i skonfiguruj przywracanie do punktu w czasie
 
@@ -107,6 +107,8 @@ Przywracane są tylko blokowe obiekty blob. Stronicowe obiekty blob i dołączan
 > Podczas wykonywania operacji przywracania usługa Azure Storage blokuje operacje na danych w obiektach Blob w zakresach przywracanych przez czas trwania operacji. Operacje odczytu, zapisu i usuwania są blokowane w lokalizacji podstawowej. Z tego powodu operacje, takie jak kontenery list w Azure Portal, mogą nie działać zgodnie z oczekiwaniami podczas operacji przywracania.
 >
 > Operacje odczytu z lokalizacji pomocniczej mogą być przetwarzane w trakcie operacji przywracania, jeśli konto magazynu ma replikację geograficzną.
+>
+> Czas potrzebny na przywrócenie zestawu danych zależy od liczby operacji zapisu i usuwania dokonanych w okresie przywracania. Na przykład konto z 1 000 000 obiektami o 3 000 obiektach dodane dziennie, a 1 000 obiektów, które zostały usunięte dziennie, będzie wymagało około dwóch godzin, aby przywrócić je do punktu 30 dni w przeszłości. Okres przechowywania i przywrócenie ponad 90 dni w przeszłości nie będą zalecane dla konta z tą szybkością zmiany.
 
 ### <a name="restore-all-containers-in-the-account"></a>Przywróć wszystkie kontenery na koncie
 

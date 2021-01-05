@@ -7,25 +7,25 @@ ms.service: vnf-manager
 ms.topic: overview
 ms.date: 09/22/2020
 ms.author: wamota
-ms.openlocfilehash: fcc44bb1c8017d63ee7926a31177aebaafd832fc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 05f3b5b461e42c29a12f126928f69069b45007d3
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91336381"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797276"
 ---
 # <a name="what-is-azure-orbital-preview"></a>Co to jest Azure Orbital? (Wersja zapoznawcza)
 
-Orbita platformy Azure to w pełni zarządzana stacja naziemna oparta na chmurze jako usługa, która umożliwia komunikowanie się ze swoimi kosmicznymi lub Constellations satelitami, danymi zbieranymi i pasmem, przetwarzaniem danych w chmurze, usług łańcucha z usługami platformy Azure w ramach unikatowych scenariuszy oraz generowaniem produktów dla klientów. Orbita platformy Azure umożliwia skoncentrowanie się na danych o misjach i produktach przez wykluczenie obowiązków związanych z wdrażaniem i konserwacją zasobów stacji naziemnej. Ten system jest oparty na globalnej infrastrukturze platformy Azure i globalnej sieci Fiber o małym opóźnieniu.
+Orbita platformy Azure to w pełni zarządzana stacja naziemna oparta na chmurze jako usługa, która umożliwia komunikowanie się ze swoimi kosmicznymi lub Constellations satelitami, danymi zbieranymi i pasmem, przetwarzaniem danych w chmurze, usług łańcucha z usługami platformy Azure w ramach unikatowych scenariuszy oraz generowaniem produktów dla klientów. Orbita platformy Azure umożliwia skoncentrowanie się na danych o misjach i produktach przez Wykluczenie odpowiedzialności za wdrożenie i konserwację zasobów stacji naziemnej. Ten system jest oparty na globalnej infrastrukturze platformy Azure i globalnej sieci Fiber o małym opóźnieniu.
 
 Wideo na temat [:::image type="content" source="./media/azure-orbital-overview/orbital-all-ignite-link.png" alt-text="zapłonu w rozpoczęciu platformy Azure":::](https://aka.ms/orbitalatignite) 
  [Obejrzyj w kanale w witrynie Azure YouTube ogłoszenie dotyczące rozprowadzania na platformie Azure](https://aka.ms/orbitalatignite)
 
-Działy firmy Azure koncentrują się na tworzeniu ekosystemu partnerskiego, aby umożliwić klientom korzystanie z stacji naziemnych partnerów poza rozgłośnymi stacjami naziemnymi, a także korzystać z modemów chmurowych partnerów oprócz zintegrowanych modemów w chmurze.   Firma Microsoft koncentruje się na skoncentrowaniu się na współpracy z liderami branżowymi, takimi jak KSAT, a także z innymi dostawcami stacji naziemnych/teleport, takimi jak ViaSat (RTE) i USA Electrodynamics Inc., aby zapewnić szeroką gamę, która jest dostępna z góry. To partnerstwo obejmuje również Satcom dostawców telekomunikacyjnych, takich jak SES i inne stacje naziemne/dostawcy teleport, ViaSat w czasie rzeczywistym (RTE) i USA Electrodynamics Inc., aby oferować niespotykaną połączenia, takie jak globalny dostęp do floty LEO/MEO lub bezpośredni dostęp do platformy Azure na potrzeby komunikacji Constellations lub dostępu globalnego do floty LEO/MEO. Podjęto kroki służące do wirtualizacji sygnału RF i partnera ze liderami, takimi jak Kratos i Amergint — w celu przełączenia ich modemów do portalu Marketplace. Naszym celem jest umożliwienie naszym klientom osiągnięcia większej i większej liczby systemów Dzięki rozbudowanej, skalowalnej i wysoce elastycznej platformie usług stacji naziemnej.
+Działy firmy Azure koncentrują się na tworzeniu ekosystemu partnerskiego, aby umożliwić klientom korzystanie z stacji naziemnych partnerów poza rozgłośnymi stacjami naziemnymi, a także korzystać z modemów chmurowych partnerów oprócz zintegrowanych modemów w chmurze. Koncentrując się na platformie Azure, korzystając z liderów branżowych, takich jak KSAT, oprócz innych dostawców stacji naziemnych/teleportych, takich jak ViaSat (RTE) i USA Electrodynamics Inc., aby zapewnić szeroką gamę, która jest dostępna z góry. To partnerstwo obejmuje również Satcom dostawców telekomunikacyjnych, takich jak SES i inne stacje naziemne/dostawcy teleport, ViaSat w czasie rzeczywistym (RTE) i USA Electrodynamics Inc., aby oferować niespotykaną połączenia, takie jak globalny dostęp do floty LEO/MEO lub bezpośredni dostęp do platformy Azure na potrzeby komunikacji Constellations lub dostępu globalnego do floty LEO/MEO. Podjęto kroki służące do wirtualizacji sygnału RF i partnera ze liderami, takimi jak Kratos i Amergint — w celu przełączenia ich modemów do portalu Marketplace. Naszym celem jest umożliwienie naszym klientom osiągnięcia większej i większej liczby systemów Dzięki rozbudowanej, skalowalnej i wysoce elastycznej platformie usług stacji naziemnej.
 
 Orbita systemu Azure umożliwia korzystanie z wielu przypadków użycia dla naszych klientów, w tym obserwację naziemną i komunikację globalną. Zapewnia także platformę umożliwiającą cyfrowe przekształcanie istniejących stacji naziemnych przy użyciu wirtualizacji. Masz bezpośredni dostęp do wszystkich usług platformy Azure, globalnej infrastruktury platformy Azure, portalu Marketplace i dostępu do naszego ekosystemu partnerów partnerskich firmy Microsoft za pośrednictwem naszej usługi.
 
-:::image type="content" source="./media/azure-orbital-overview/orbital-all-overview.png" alt-text="zapłonu w rozpoczęciu platformy Azure":::
+:::image type="content" source="./media/azure-orbital-overview/orbital-all-overview.png" alt-text="Ogólne omówienie platformy Azure":::
 
 **Propozycja wartości dla użytkowników korzystających z platformy Azure:**
 
@@ -49,13 +49,13 @@ Aby uzyskać więcej informacji na temat naszej wersji zapoznawczej lub dowiedzi
 
 ## <a name="earth-observation"></a><a name="earth-observation"></a>Obserwacja Ziemi
 
-:::image type="content" source="./media/azure-orbital-overview/orbital-eos-dataflow.png" alt-text="zapłonu w rozpoczęciu platformy Azure" lightbox="./media/azure-orbital-overview/orbital-eos-dataflow-expanded.png":::
+:::image type="content" source="./media/azure-orbital-overview/orbital-eos-dataflow.png" alt-text="Azure — Orbita dla przepływu danych obserwacji Ziemi" lightbox="./media/azure-orbital-overview/orbital-eos-dataflow-expanded.png":::
 
 Korzystając z platformy Azure, możesz zaplanować kontakty z satelitami w oparciu o płatność zgodnie z rzeczywistym użyciem w celu utrzymania i utrzymywania ładunku downlinks. Użyj zaplanowanych czasów dostępu w celu pozyskiwania danych z satelity, monitorowania kondycji i stanu satelity oraz wysyłania poleceń do satelity. Dane przychodzące są dostarczane do prywatnej sieci wirtualnej, co pozwala na ich przetwarzanie lub przechowywanie na platformie Azure.
 
 Gdy usługa jest w pełni cyfrowo, modem programowy z Kratos i Amergint może służyć do wykonywania funkcji modulacji/dekodowania oraz kodowania/dekodu w celu odzyskania danych. Będziesz mieć możliwość kupowania w portalu Marketplace lub poinformowania nas o tym. Ponadto Integruj się z usługą Kubos, aby w pełni wykorzystać kompleksowe rozwiązanie do zarządzania operacjami i telemetrią, śledzeniem, & formantem (TT&C). Zaimplementuj swoje obciążenia na platformie Azure przy użyciu zasobów i przyborników platformy Azure, aby manipulować danymi ładunku w ostateczne oferty.
 
-:::image type="content" source="./media/azure-orbital-overview/orbital-eos-schedule.png" alt-text="zapłonu w rozpoczęciu platformy Azure":::
+:::image type="content" source="./media/azure-orbital-overview/orbital-eos-schedule.png" alt-text="Planowanie obserwacji w przypadku platformy Azure":::
 
 ### <a name="scheduling-contacts"></a><a name="scheduling-contacts"></a>Planowanie kontaktów
 
@@ -71,7 +71,7 @@ Aby uzyskać więcej informacji na temat naszej wersji zapoznawczej lub dowiedzi
 
 ## <a name="global-communication"></a><a name="global-communication"></a>Komunikacja globalna
 
-:::image type="content" source="./media/azure-orbital-overview/orbital-communications-use-flow.png" alt-text="zapłonu w rozpoczęciu platformy Azure":::
+:::image type="content" source="./media/azure-orbital-overview/orbital-communications-use-flow.png" alt-text="Orbita na platformie Azure na potrzeby globalnej komunikacji Useflow":::
 
 Dostawcy usług satelitarnych, którzy dostarczają klientom możliwości komunikacji globalnej, mogą używać platformy Azure w celu rozłożenia nowych stacji naziemnych w centrach danych platformy Azure lub w sieci platformy Azure albo między nimi połączyć istniejące stacje robocze z globalnym szkieletem platformy Azure. Mogą następnie kierować ruchem do globalnej sieci firmy Microsoft, korzystać z Internetu zagadnień z brzegu sieci platformy Azure, aby zapewnić klientom usługi internetowe i inne zarządzane usługi.
 
@@ -85,7 +85,7 @@ W przypadku tworzenia własnych stacji naziemnych platforma Azure umożliwia kli
 
 Stacje naziemne i dostawcy teleport mogą współistnieć z platformą Azure w celu cyfrowego przekształcania ich stacji. Dzięki temu klienci mogą korzystać z tych stacji naziemnych w celu zaplanowania kontaktów do swoich satelitów, przy jednoczesnym wykorzystaniu wszystkich możliwości przetwarzania i przetwarzania danych w oprogramowaniu, które są oferowane przez platformę i partnerów. Usługa jest ściśle zintegrowana z obciążeniami w chmurze, a żywe ekosystemy rozwiązań innych firm za pośrednictwem portalu Marketplace, takiego jak modemy, zarządzanie zasobami i usługi kontroli służbowej. Wszystkie dane mogą również korzystać z małych opóźnień i wysokiej niezawodności globalnej sieci światłowodowej platformy Azure. Wspólnie uważamy, że firma Microsoft będzie oferować szeroki zakres & elastyczność dla naszych klientów w celu komunikowania się z satelitami o najwyższej elastyczności i niezawodności.
 
-:::image type="content" source="./media/azure-orbital-overview/orbital-all-digital-transformations.png" alt-text="zapłonu w rozpoczęciu platformy Azure":::
+:::image type="content" source="./media/azure-orbital-overview/orbital-all-digital-transformations.png" alt-text="Orbita na platformie Azure na potrzeby transformacji cyfrowej":::
 
 Aby uzyskać więcej informacji na temat naszej wersji zapoznawczej lub dowiedzieć się, jak wziąć udział w wersji zapoznawczej, Wypełnij formularz kontaktu [tutaj](https://aka.ms/iaminterested)lub Wyślij wiadomość e-mail na adres [MSAzureOrbital@microsoft.com](mailto:MSAzureOrbital@microsoft.com) .
 
@@ -93,7 +93,7 @@ Aby uzyskać więcej informacji na temat naszej wersji zapoznawczej lub dowiedzi
 
 Gdy przejdziemy do przodu, będziemy dodawać do naszego ekosystemu więcej partnerów, aby ułatwić naszym klientom korzystanie z platformy Azure. Firma Microsoft będzie prowadziła współpracę w ramach naszych rozwiązań podczas tworzenia Orbitów platformy Azure. Naszym celem jest również stworzenie ogólnoświatowego ekosystemu partnerów w celu wspólnego tworzenia większej wartości zarówno dla naszych partnerów, jak i naszych klientów. Pomyśl o tym jako Reef korala!
 
-:::image type="content" source="./media/azure-orbital-overview/orbital-all-partners.png" alt-text="zapłonu w rozpoczęciu platformy Azure":::
+:::image type="content" source="./media/azure-orbital-overview/orbital-all-partners.png" alt-text="Partnerzy na platformie Azure":::
 
 W poniższych sekcjach przedstawiono listę kategorii partnerów i partnerów z systemem Azure, które są już częścią ekosystemu:
 
@@ -113,7 +113,7 @@ Usługa SES będzie korzystać z naszej globalnej sieci szkieletowej, aby kierow
 
 ### <a name="ttc-solution-partner"></a>Partner rozwiązań TT&C
 
-Współpracujemy z [Kubosą](https://www.kubos.com/) , aby uzyskać główne, oparte na chmurze oprogramowanie do sterowania misjami, do portalu Azure Marketplace dla klientów z systemem Azure.
+Współpracujemy z [Kubosą](https://www.kubos.com/) , aby uzyskać główne, Cloud-Based oprogramowanie do sterowania misjami, do portalu Azure Marketplace dla klientów z rozłożeniami platformy Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 

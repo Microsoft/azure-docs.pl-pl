@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/07/2020
+ms.date: 12/28/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2408db2d91740350405f11e2a1250ab9b3a4fe31
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 56818862b6bc4eb38b819185aceb121e6e78488e
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181207"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803531"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Raporty dotyczące aprowizacji w portalu Azure Active Directory (wersja zapoznawcza)
 
@@ -44,6 +44,7 @@ Ten temat zawiera omówienie raportu aprowizacji.
 ### <a name="who-can-access-the-data"></a>Kto może uzyskać dostęp do danych?
 * Właściciele aplikacji mogą wyświetlać dzienniki dla aplikacji, których są właścicielami
 * Użytkownicy w rolach administrator zabezpieczeń, czytelnik zabezpieczeń, czytelnik raportu, administrator aplikacji i administrator aplikacji w chmurze
+* Użytkownicy w roli niestandardowej z [uprawnieniem provisioningLogs](https://docs.microsoft.com/azure/active-directory/roles/custom-enterprise-app-permissions#full-list-of-permissions)
 * Administratorzy globalni
 
 
@@ -56,12 +57,12 @@ Dzierżawca musi mieć skojarzoną licencję Azure AD — wersja Premium, aby wy
 Dzienniki aprowizacji zapewniają odpowiedzi na następujące pytania:
 
 * Które grupy zostały pomyślnie utworzone w usługi ServiceNow?
-* Jakie role zostały zaimportowane z Amazon Web Services?
+* Jakie użytkowników zostało pomyślnie usuniętych z firmy Adobe?
 * Które użytkowników nie zostały pomyślnie utworzone w usłudze DropBox?
 
 Dostęp do dzienników aprowizacji można uzyskać, wybierając pozycję **dzienniki aprowizacji** w sekcji **monitorowanie** w bloku **Azure Active Directory** w [Azure Portal](https://portal.azure.com). W przypadku niektórych rekordów aprowizacji w portalu może upłynąć do dwóch godzin.
 
-![Dzienniki aprowizacji](./media/concept-provisioning-logs/access-provisioning-logs.png "Dzienniki aprowizowania")
+![Dzienniki aprowizowania](./media/concept-provisioning-logs/access-provisioning-logs.png "Dzienniki aprowizowania")
 
 
 Dziennik aprowizacji zawiera domyślny widok listy, który pokazuje:
@@ -95,7 +96,7 @@ Możesz filtrować dane aprowizacji. Niektóre wartości filtru są dynamicznie 
 W widoku domyślnym można wybrać następujące filtry:
 
 - Tożsamość
-- Data
+- Date
 - Stan
 - Akcja
 
@@ -120,7 +121,7 @@ Po wybraniu niestandardowego przedziału czasu można skonfigurować datę pocz�
 Filtr **stanu** umożliwia wybranie:
 
 - Wszystko
-- Powodzenie
+- Success
 - Niepowodzenie
 - Pominięto
 
@@ -129,7 +130,7 @@ Filtr **stanu** umożliwia wybranie:
 Filtr **akcji** umożliwia filtrowanie:
 
 - Utwórz 
-- Aktualizacja
+- Aktualizowanie
 - Usuń
 - Wyłącz
 - Inne
@@ -219,7 +220,9 @@ Karta **Podsumowanie** zawiera przegląd informacji o tym, co się stało i iden
 
 - W przypadku użytkowników, którzy nie znajdują się w zakresie, mogą zostać wyświetlone pominięte zdarzenia. Jest to oczekiwane, szczególnie w przypadku, gdy zakres synchronizacji jest ustawiony na wszystkich użytkowników i grupy. Nasza usługa oceni wszystkie obiekty w dzierżawie, nawet te, które znajdują się poza zakresem. 
 
-- Dzienniki aprowizacji są obecnie niedostępne w chmurze dla instytucji rządowych. Jeśli nie możesz uzyskać dostępu do dzienników aprowizacji, użyj dzienników inspekcji jako tymczasowego obejścia.  
+- Dzienniki aprowizacji są obecnie niedostępne w chmurze dla instytucji rządowych. Jeśli nie możesz uzyskać dostępu do dzienników aprowizacji, użyj dzienników inspekcji jako tymczasowego obejścia. 
+
+- Dzienniki aprowizacji nie wyświetlają importów ról (dotyczy to AWS, SalesForce i systemu Zendesk). Dzienniki dla importowanych ról można znaleźć w dziennikach inspekcji. 
 
 ## <a name="error-codes"></a>Kody błędów
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: ril
 ms.reviewer: juliako
-ms.openlocfilehash: 1a106874277f64a006584f9deb98fb9729263b1b
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 048635a33c3d84416dae00b731b386572aa3f89d
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040711"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802579"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Redagowanie twarzy przy użyciu przewodnika Azure Media Analytics
 
@@ -30,7 +30,7 @@ ms.locfileid: "93040711"
 
 **Azure Media redactor** to procesor Media [Azure Media Analytics](./legacy-components.md) (MP), który oferuje skalowalne możliwości redakcyjne w chmurze. Redakcja twarzy umożliwia modyfikowanie wideo w celu rozmycia powierzchni wybranych osób. Możesz chcieć użyć usługi redakcyjnej ze stroną w scenariuszach bezpieczeństwa publicznego i mediów informacyjnych. Kilka minut filmu, które zawiera wiele twarzy, może zająć więcej czasu, ale w przypadku tej usługi proces redakcyjny twarzy będzie wymagał zaledwie kilku prostych kroków. Aby uzyskać więcej informacji, zobacz [ten](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
 
-Aby uzyskać szczegółowe informacje na temat  **Azure Media redactor** , zobacz temat [Omówienie redakcji czołowej](media-services-face-redaction.md) .
+Aby uzyskać szczegółowe informacje na temat  **Azure Media redactor**, zobacz temat [Omówienie redakcji czołowej](media-services-face-redaction.md) .
 
 W tym temacie przedstawiono instrukcje krok po kroku dotyczące uruchamiania pełnego przepływu pracy redakcyjnego za pomocą Eksploratora Azure Media Services (AMSE) i Azure Media Redactor wizualizatora (narzędzia typu "open source").
 
@@ -133,6 +133,6 @@ Jeśli jesteś deweloperem próbującym analizować dane adnotacji JSON, zapozna
 ## <a name="related-links"></a>Linki pokrewne
 [Omówienie Azure Media Services Analytics](./legacy-components.md)
 
-[Demonstracje Azure Media Analytics](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Demonstracje Azure Media Analytics](http://amslabs.azurewebsites.net/demos/Analytics.html)
 
 [Zapowiedź redakcyjną dla Azure Media Analytics](https://azure.microsoft.com/blog/azure-media-redactor/)

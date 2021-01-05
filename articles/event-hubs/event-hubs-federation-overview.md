@@ -4,14 +4,14 @@ description: Ten artykuł zawiera omówienie Federacji wielolokacjowej i wielore
 ms.topic: article
 ms.date: 12/12/2020
 ms.author: spelluru
-ms.openlocfilehash: 02057d505308902d780e20e095bc248d1eaa1a74
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 7deb6fe04241225f1f97a204cc62b4aefad9f440
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657464"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97804041"
 ---
-# <a name="multi-site-and-multi-region-federation"></a>Federacja wielolokacjowa i wieloregionowa
+# <a name="multi-site-and-multi-region-federation"></a>Federacja z wieloma lokacjami i wieloma regionami
 
 Wiele zaawansowanych rozwiązań wymaga, aby te same strumienie zdarzeń były dostępne do użycia w wielu lokalizacjach, lub wymagają, aby strumienie zdarzeń były zbierane w wielu lokalizacjach, a następnie skonsolidowane w określonej lokalizacji w celu użycia. Często istnieje również potrzeba wzbogacania lub zmniejszania strumieni zdarzeń lub wykonywania konwersji w formacie zdarzeń, również w ramach jednego regionu i rozwiązania.
 
@@ -148,9 +148,9 @@ Wdrożenie powyższych wzorców wymaga skalowalnego i niezawodnego środowiska w
 
 W przypadku aplikacji do replikacji stanowych, które wymagają uwzględnienia relacji między zdarzeniami, tworzenia zdarzeń złożonych, wzbogacania zdarzeń lub zmniejszania zdarzeń, tworzenia agregacji danych i Transform ładunków zdarzeń, [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) jest najlepszą opcją implementacji.
 
-W Azure Stream Analytics [tworzysz zadania](../stream-analytics/stream-analytics-quick-create-portal.md) , które integrują dane [wejściowe](../stream-analytics/stream-analytics-add-inputs.md) i [wyjściowe](../stream-analytics/stream-analytics-define-outputs.md) oraz integrują je z danych wejściowych za pośrednictwem [zapytań](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference.md) , które dają wynik, który jest następnie dostępny w danych wyjściowych.
+W Azure Stream Analytics [tworzysz zadania](../stream-analytics/stream-analytics-quick-create-portal.md) , które integrują dane [wejściowe](../stream-analytics/stream-analytics-add-inputs.md) i [wyjściowe](../stream-analytics/stream-analytics-define-outputs.md) oraz integrują je z danych wejściowych za pośrednictwem [zapytań](/stream-analytics-query/stream-analytics-query-language-reference) , które dają wynik, który jest następnie dostępny w danych wyjściowych.
 
-Zapytania są oparte na [języku zapytań SQL](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference.md) i mogą być używane do łatwego filtrowania, sortowania, agregowania i przyłączania danych przesyłanych strumieniowo w danym okresie czasu. Możesz również zwiększyć ten język SQL za pomocą [języka JavaScript](../stream-analytics/stream-analytics-javascript-user-defined-functions.md) i [funkcji zdefiniowanych przez użytkownika w języku C# (UDF)](../stream-analytics/stream-analytics-edge-csharp-udf-methods.md). Można łatwo dostosować opcje porządkowania zdarzeń oraz czas trwania systemu Windows podczas wykonywania operacji agregacji za pomocą prostych konstrukcji i/lub konfiguracji języka.
+Zapytania są oparte na [języku zapytań SQL](/stream-analytics-query/stream-analytics-query-language-reference) i mogą być używane do łatwego filtrowania, sortowania, agregowania i przyłączania danych przesyłanych strumieniowo w danym okresie czasu. Możesz również zwiększyć ten język SQL za pomocą [języka JavaScript](../stream-analytics/stream-analytics-javascript-user-defined-functions.md) i [funkcji zdefiniowanych przez użytkownika w języku C# (UDF)](../stream-analytics/stream-analytics-edge-csharp-udf-methods.md). Można łatwo dostosować opcje porządkowania zdarzeń oraz czas trwania systemu Windows podczas wykonywania operacji agregacji za pomocą prostych konstrukcji i/lub konfiguracji języka.
 
 Każde zadanie ma jedno lub kilka danych wyjściowych dla przekształconych danych i pozwala kontrolować, co dzieje się w odpowiedzi na informacje, które zostały przeanalizowane. Możesz na przykład:
 
@@ -191,7 +191,7 @@ W tym artykule przedstawiono szereg wzorców Federacji i wyjaśniono rolę Azure
 
 Następnie można zapoznać się z artykułem jak skonfigurować aplikację replikatora przy użyciu Azure Stream Analytics lub Azure Functions, a następnie jak replikować przepływy zdarzeń między Event Hubs i różnymi systemami obsługi zdarzeń i komunikatów:
 
-- [Wzorce zadań replikacji zdarzeń][10]
+- [Wzorce zadań do replikacji zdarzeń][10]
 - [Przetwarzanie danych za pomocą Azure Stream Analytics][9]
 - [Aplikacje Replikator zdarzeń w Azure Functions][1]
 - [Replikowanie zdarzeń między Event Hubs][2]

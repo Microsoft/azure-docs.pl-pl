@@ -12,17 +12,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 11/13/2020
-ms.openlocfilehash: 138cd03989008aa4fbd7d6ca3e06aff94fa76e33
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: a70571dcf380fc2186565a40778991ac70a218d6
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94989483"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797217"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Odzyskiwanie przy użyciu zautomatyzowanych kopii zapasowych bazy danych — Azure SQL Database & wystąpienie zarządzane SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Poniższe opcje są dostępne do odzyskiwania bazy danych przy użyciu [zautomatyzowanych kopii zapasowych bazy danych](automated-backups-overview.md). Możesz:
+Poniższe opcje są dostępne do odzyskiwania bazy danych przy użyciu [zautomatyzowanych kopii zapasowych bazy danych](automated-backups-overview.md). Oto co możesz zrobić:
 
 - Utwórz nową bazę danych na tym samym serwerze, a następnie Odzyskaj ją do określonego punktu w czasie w okresie przechowywania.
 - Utwórz bazę danych na tym samym serwerze, a następnie Odzyskaj do czasu usunięcia usuniętej bazy danych.
@@ -95,7 +95,7 @@ Aby odzyskać bazę danych wystąpienia zarządzanego do punktu w czasie za pomo
   ![Zrzut ekranu przedstawiający Opcje przywracania bazy danych dla wystąpienia zarządzanego SQL.](./media/recovery-using-backups/pitr-backup-managed-instance-annotated.png)
 
 > [!TIP]
-> Aby programowo przywrócić bazę danych z kopii zapasowej, zobacz programowe [wykonywanie odzyskiwania przy użyciu zautomatyzowanych kopii zapasowych](recovery-using-backups.md).
+> Aby programowo przywrócić bazę danych z kopii zapasowej, zobacz [odzyskiwanie programistyczne przy użyciu zautomatyzowanych kopii zapasowych](recovery-using-backups.md).
 
 ## <a name="deleted-database-restore"></a>Przywracanie usuniętej bazy danych
 

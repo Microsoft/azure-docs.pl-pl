@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: f82adad5273f1c5559cbeb1924f59e57c863f6b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48e954eab9da5dfc638f93a7c4e55c675c4f2ac9
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91303458"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797251"
 ---
 # <a name="how-to-manage-model-and-learning-settings"></a>Jak zarządzać ustawieniami modelu i uczenia
 
@@ -18,7 +18,7 @@ Model uczenia maszynowego i ustawienia uczenia można wyeksportować do kopii za
 
 ## <a name="export-the-personalizer-model"></a>Eksportowanie modelu personalizowania
 
-W sekcji Zarządzanie zasobami dla **ustawień model i nauka**przejrzyj temat Tworzenie modelu i Data ostatniej aktualizacji oraz wyeksportuj bieżący model. Za pomocą Azure Portal lub interfejsów API personalizacji można eksportować plik modelu na potrzeby archiwizowania.
+W sekcji Zarządzanie zasobami dla **ustawień model i nauka** przejrzyj temat Tworzenie modelu i Data ostatniej aktualizacji oraz wyeksportuj bieżący model. Za pomocą Azure Portal lub interfejsów API personalizacji można eksportować plik modelu na potrzeby archiwizowania.
 
 ![Eksportuj bieżący model personalizacji](media/settings/export-current-personalizer-model.png)
 
@@ -55,4 +55,4 @@ Ustawienia [zasad nauki](concept-active-learning.md#understand-learning-policy-s
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Dowiedz się, jak zarządzać zasadami uczenia](how-to-manage-model.md)
+[Analizuj pętlę szkoleniową przy użyciu oceny w trybie offline](how-to-offline-evaluation.md)

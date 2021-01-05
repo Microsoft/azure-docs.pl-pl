@@ -3,12 +3,12 @@ title: Strefowo nadmiarowy rejestr w celu zapewnienia wysokiej dostępności
 description: Dowiedz się więcej na temat włączania nadmiarowości stref w Azure Container Registry, tworząc rejestr kontenerów lub replikację w strefie dostępności platformy Azure. Nadmiarowość stref jest funkcją warstwy usługi Premium.
 ms.topic: article
 ms.date: 12/11/2020
-ms.openlocfilehash: f94d5a8d61c42e8833e21f035303be173c81764d
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 1553beef47a3d493f066e47cd39751093d83fc24
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97681814"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803514"
 ---
 # <a name="enable-zone-redundancy-in-azure-container-registry-for-resiliency-and-high-availability"></a>Włącz nadmiarowość stref w Azure Container Registry na potrzeby odporności i wysokiej dostępności
 
@@ -25,7 +25,6 @@ Nadmiarowość stref to funkcja w **wersji zapoznawczej** warstwy usługi konten
 * Nie można wyłączyć nadmiarowości strefy w regionie.
 * [Zadania ACR](container-registry-tasks-overview.md) jeszcze nie obsługują stref dostępności.
 * Obecnie obsługiwane za pomocą szablonów Azure Resource Manager lub Azure Portal. Obsługa interfejsu wiersza polecenia platformy Azure zostanie włączona w przyszłej wersji.
-* Obecnie po przeniesieniu Strefowo nadmiarowego rejestru kontenerów do innej grupy zasobów ustawienie nadmiarowości strefy pokazuje jako `Disabled` .
 
 ## <a name="about-zone-redundancy"></a>Informacje o nadmiarowości strefy
 
@@ -58,7 +57,7 @@ Aby utworzyć strefowo nadmiarową replikację:
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-W razie potrzeby uruchom polecenie [AZ Group Create](/cli/az/group#az_group_create) , aby utworzyć grupę zasobów dla rejestru w regionie, który [obsługuje strefy dostępności](../availability-zones/az-region.md) dla Azure Container Registry, takich jak *Wschodnie*.
+W razie potrzeby uruchom polecenie [AZ Group Create](/cli/azure/group) , aby utworzyć grupę zasobów dla rejestru w regionie, który [obsługuje strefy dostępności](../availability-zones/az-region.md) dla Azure Container Registry, takich jak *Wschodnie*.
 
 ```azurecli
 az group create --name <resource-group-name> --location <location>
@@ -164,7 +163,7 @@ Skopiuj poniższą zawartość do nowego pliku i Zapisz go przy użyciu nazwy pl
   }
 ```
 
-Uruchom następujące polecenie [AZ Deployment Group Create](/cli/az/deployment#az_group_deployment_create) , aby utworzyć rejestr przy użyciu poprzedniego pliku szablonu. Gdzie to wskazane, podaj:
+Uruchom następujące polecenie [AZ Deployment Group Create](/cli/azure/deployment?view=azure-cli-latest) , aby utworzyć rejestr przy użyciu poprzedniego pliku szablonu. Gdzie to wskazane, podaj:
 
 * Unikatowa nazwa rejestru lub wdrożenie szablonu bez parametrów i spowoduje utworzenie unikatowej nazwy
 * Lokalizacja repliki obsługującej strefy dostępności, na przykład *westus2*

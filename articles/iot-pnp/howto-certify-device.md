@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 1b17729437b238b98f60e2cd97664fa6aafcccd4
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b3ba007f03b3aa4883d9455dc43b2bc19676da59
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462460"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803973"
 ---
 # <a name="how-to-certify-iot-plug-and-play-devices"></a>Jak przeprowadzić certyfikację urządzenia IoT Plug and Play
 
@@ -41,7 +41,7 @@ Aby spełnić wymagania dotyczące certyfikacji, urządzenie musi:
 - Nawiązuje połączenie z usługą Azure IoT Hub przy użyciu usługi [DPS](../iot-dps/about-iot-dps.md).
 - Zaimplementuj dane telemetryczne, właściwości lub polecenia po Konwencji Plug and Play IoT.
 - Opisz interakcję urządzenia z modelem [DTDL v2](https://aka.ms/dtdl) .
-- Publikuj model i wszystkie wymagane interfejsy w [repozytorium modelu publicznego usługi Azure IoT](https://devicemodels.azureiotsolutions.com/)
+- Publikuj model i wszystkie wymagane interfejsy w repozytorium modelu publicznego usługi Azure IoT
 - Wyślij Identyfikator modelu podczas rejestracji w usłudze [DPS](./concepts-developer-guide-device.md#dps-payload) w ładunku aprowizacji.
 - Ogłoś Identyfikator modelu podczas połączenia usługi [MQTT](./concepts-developer-guide-device.md#model-id-announcement).
 - Wszystkie modele urządzeń muszą być zgodne z [usługą Azure IoT Central](../iot-central/core/overview-iot-central-developer.md).
@@ -174,7 +174,7 @@ Poniższe kroki pokazują, jak korzystać z [portalu urządzenia z certyfikatem 
 
 Aby korzystać z [portalu certyfikacji](https://aka.ms/acdp), musisz użyć Azure Active Directory z dzierżawy służbowej.
 
-Aby opublikować modele w repozytorium modelu publicznego usługi Azure IoT, Twoje konto musi być członkiem [Microsoft Partner Network](https://partner.microsoft.com). System sprawdza, czy identyfikator Microsoft Partner Network istnieje, a konto jest w pełni zbadane przed opublikowaniem w katalogu urządzeń.
+Aby opublikować modele w [repozytorium modelu publicznego usługi Azure IoT](https://github.com/Azure/iot-plugandplay-models), Twoje konto musi być członkiem [Microsoft Partner Network](https://partner.microsoft.com). System sprawdza, czy identyfikator Microsoft Partner Network istnieje, a konto jest w pełni zbadane przed opublikowaniem w katalogu urządzeń.
 
 ### <a name="company-profile"></a>Profil firmy
 

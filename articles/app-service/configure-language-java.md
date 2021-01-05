@@ -10,12 +10,13 @@ ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: aa3329c3d9e241fb8224ecc69199779d53027474
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+adobe-target: true
+ms.openlocfilehash: 0334e259f75440cae25f1e165c0621c85f7c7705
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183145"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97804007"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Konfigurowanie aplikacji Java dla Azure App Service
 
@@ -25,7 +26,7 @@ Ten przewodnik zawiera najważniejsze pojęcia i instrukcje dla deweloperów ję
 
 ## <a name="deploying-your-app"></a>Wdrażanie aplikacji
 
-Za pomocą [wtyczki aplikacji sieci Web platformy Azure dla Maven](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) można wdrożyć pliki War lub jar. Wdrożenie ze popularną środowisk IDE jest również obsługiwane w przypadku [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/) lub [Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse).
+Za pomocą [wtyczki aplikacji sieci Web platformy Azure dla Maven](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) można wdrożyć pliki War lub jar. Wdrożenie ze popularną środowisk IDE jest również obsługiwane w przypadku [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/) lub [Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse).
 
 W przeciwnym razie metoda wdrażania będzie zależeć od typu archiwum:
 
@@ -43,7 +44,7 @@ Aby wdrożyć pliki War do Tomcat, użyj `/api/wardeploy/` punktu końcowego, ab
 
 Aby wdrożyć pliki War do JBoss, użyj `/api/wardeploy/` punktu końcowego, aby opublikować plik archiwum. Aby uzyskać więcej informacji na temat tego interfejsu API, zobacz [tę dokumentację](./deploy-zip.md#deploy-war-file).
 
-Aby wdrożyć pliki. [use FTP](deploy-ftp.md)
+Aby wdrożyć pliki. [](deploy-ftp.md)
 
 ::: zone-end
 
@@ -429,7 +430,7 @@ Aby skonfigurować Tomcat do korzystania z łączności z bazą danych Java (JDB
 </appSettings>
 ```
 
-Lub Ustaw zmienne środowiskowe na stronie **Configuration**  >  **Ustawienia aplikacji** konfiguracji w Azure Portal.
+Lub Ustaw zmienne środowiskowe na stronie   >  **Ustawienia aplikacji** konfiguracji w Azure Portal.
 
 Następnie ustal, czy źródło danych powinno być dostępne dla jednej aplikacji, czy dla wszystkich aplikacji uruchomionych na Tomcat serwletu.
 
@@ -507,7 +508,7 @@ Aby skonfigurować Tomcat do korzystania z łączności z bazą danych Java (JDB
 </appSettings>
 ```
 
-Lub Ustaw zmienne środowiskowe na stronie **Configuration**  >  **Ustawienia aplikacji** konfiguracji w Azure Portal.
+Lub Ustaw zmienne środowiskowe na stronie   >  **Ustawienia aplikacji** konfiguracji w Azure Portal.
 
 Następnie ustal, czy źródło danych powinno być dostępne dla jednej aplikacji, czy dla wszystkich aplikacji uruchomionych na Tomcat serwletu.
 
@@ -541,7 +542,7 @@ Następnie ustal, czy źródło danych powinno być dostępne dla jednej aplikac
 
 #### <a name="shared-server-level-resources"></a>Udostępnione zasoby na poziomie serwera
 
-Dodanie udostępnionego źródła danych na poziomie serwera wymaga edytowania server.xml tomcat. Najpierw przekaż [skrypt uruchamiania](faq-app-service-linux.md#built-in-images) i Ustaw ścieżkę do skryptu w **Configuration**  >  **poleceniu uruchamiania** konfiguracji. Można przekazać skrypt uruchamiania przy użyciu [protokołu FTP](deploy-ftp.md).
+Dodanie udostępnionego źródła danych na poziomie serwera wymaga edytowania server.xml tomcat. Najpierw przekaż [skrypt uruchamiania](faq-app-service-linux.md#built-in-images) i Ustaw ścieżkę do skryptu w   >  **poleceniu uruchamiania** konfiguracji. Można przekazać skrypt uruchamiania przy użyciu [protokołu FTP](deploy-ftp.md).
 
 Skrypt uruchamiania wykona [przekształcenie XSL](https://www.w3schools.com/xml/xsl_intro.asp) do pliku server.xml i wyprowadza wynikowy plik XML do `/usr/local/tomcat/conf/server.xml` . Skrypt uruchamiania powinien instalować libxslt za pośrednictwem APK. Plik XSL i skrypt uruchamiania można przekazać za pośrednictwem protokołu FTP. Poniżej znajduje się przykładowy skrypt uruchamiania.
 

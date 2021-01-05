@@ -3,14 +3,14 @@ title: Omówienie zasad platformy Azure
 description: Azure Policy to usługa platformy Azure, która umożliwia tworzenie i przypisywanie definicji zasad oraz zarządzanie nimi w środowisku platformy Azure.
 ms.date: 10/05/2020
 ms.topic: overview
-ms.openlocfilehash: 8a32e32afb544588bb033cc64ede5ecbe6e2bac2
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 96fd29b5e3d24bc3e678461a95005e004a8a3a80
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097392"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803956"
 ---
-# <a name="what-is-azure-policy"></a>Co to jest Azure Policy?
+# <a name="what-is-azure-policy"></a>Co to jest usługa Azure Policy?
 
 Usługa Azure Policy pomaga wymuszać standardy organizacyjne i oceniać zgodność na dużą skalę. Pulpit nawigacyjny zgodności udostępnia Zagregowany widok do oceny ogólnego stanu środowiska, z możliwością przechodzenia do szczegółów dla poszczególnych zasobów i stopnia szczegółowości poszczególnych zasad. Pomaga również zapewnić zgodność zasobów dzięki korygowaniu zbiorczemu dla istniejących zasobów i automatycznym korygowaniu nowych zasobów.
 
@@ -37,7 +37,7 @@ Aby uzyskać szczegółowe informacje o tym, kiedy i jak odbywa się Ocena zasad
 
 ### <a name="control-the-response-to-an-evaluation"></a>Sterowanie odpowiedzią na ocenę
 
-Reguły biznesowe do obsługi niezgodnych zasobów różnią się między organizacjami. Przykłady sposobu, w jaki organizacja chce odpowiedzieć na platformę do zasobów niezwiązanych z skargą:
+Reguły biznesowe do obsługi niezgodnych zasobów różnią się między organizacjami. Przykłady sposobu, w jaki organizacja chce reagować na platformę na niezgodny zasób, obejmuje:
 
 - Odmowa zmiany zasobu
 - Rejestruj zmianę w zasobie
@@ -137,7 +137,7 @@ Definicja inicjatywy to kolekcja definicji zasad dostosowanych w celu osiągnię
 
 W ramach tej inicjatywy mogą występować definicje zasad, takie jak:
 
-- **Monitorowanie nieszyfrowanej bazy danych SQL w Security Center ** — do monitorowania niezaszyfrowanych baz danych i serwerów SQL.
+- **Monitorowanie nieszyfrowanej bazy danych SQL w Security Center** — do monitorowania niezaszyfrowanych baz danych i serwerów SQL.
 - **Monitorowanie luk w zabezpieczeniach systemu operacyjnego w usłudze Security Center** — do monitorowania serwerów, które nie spełniają wymagań skonfigurowanego punktu odniesienia.
 - **Monitorowanie brakującej ochrony punktów końcowych w Security Center** — do monitorowania serwerów bez zainstalowanego agenta chroniącego punkty końcowe.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: f861f9efa6ecc1886647ed6c460b6718ff97e8a1
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 90831c0e8d5ab73f65dc801319a357d59799cbc6
+ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522332"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97807556"
 ---
 # <a name="troubleshoot-azure-private-endpoint-connectivity-problems"></a>Rozwiązywanie problemów z łącznością z prywatnym punktem końcowym platformy Azure
 
@@ -100,8 +100,24 @@ Zapoznaj się z tymi krokami, aby upewnić się, że wszystkie typowe konfigurac
     
        ![Reguły ruchu wychodzącego sieciowej grupy zabezpieczeń](./media/private-endpoint-tsg/nsg-outbound-rules.png)
 
+1. Źródłowa maszyna wirtualna powinna mieć trasy do prywatnego adresu IP punktu końcowego jako InterfaceEndpoints w ramach tras sieciowych. 
+
+    a. Jeśli nie widzisz trasy prywatnego punktu końcowego na źródłowej maszynie wirtualnej, sprawdź, czy 
+     - Źródłowa maszyna wirtualna i prywatny punkt końcowy należą do tej samej sieci wirtualnej. Jeśli tak, należy skontaktować się z pomocą techniczną. 
+     - Źródłowa maszyna wirtualna i prywatny punkt końcowy są częścią różnych sieci wirtualnych, a następnie sprawdzają połączenie IP między sieci wirtualnych. Jeśli istnieje połączenie IP i nadal nie możesz zobaczyć trasy, należy wziąć pod uwagę pomoc techniczną. 
+
 1. Jeśli połączenie ma zweryfikowane wyniki, problem z łącznością może być związany z innymi aspektami, takimi jak wpisy tajne, tokeny i hasła w warstwie aplikacji.
-   - W takim przypadku należy przejrzeć konfigurację zasobu link prywatny skojarzonego z prywatnym punktem końcowym. Aby uzyskać więcej informacji, zobacz [Przewodnik rozwiązywania problemów z prywatnym linkiem na platformie Azure](troubleshoot-private-link-connectivity.md).
+   - W takim przypadku należy przejrzeć konfigurację zasobu link prywatny skojarzonego z prywatnym punktem końcowym. Aby uzyskać więcej informacji, zobacz [Przewodnik rozwiązywania problemów z prywatnym linkiem na platformie Azure](troubleshoot-private-link-connectivity.md)
+   
+1. Zawsze warto zawęzić ją przed podniesieniem biletu pomocy technicznej. 
+
+    a. Jeśli źródło jest połączone z prywatnym punktem końcowym na platformie Azure i ma problemy, spróbuj nawiązać połączenie 
+      - Na inną maszynę wirtualną z lokalnego i sprawdź, czy masz połączenie IP z Virtual Network z lokalnego. 
+      - Z maszyny wirtualnej w Virtual Network do prywatnego punktu końcowego.
+      
+    b. Jeśli źródłem jest Azure, a prywatny punkt końcowy znajduje się w różnych Virtual Network, spróbuj nawiązać połączenie 
+      - Do prywatnego punktu końcowego z innego źródła. W ten sposób można odizolować wszelkie problemy specyficzne dla maszyn wirtualnych. 
+      - Do dowolnej maszyny wirtualnej, która jest częścią tego samego Virtual Network tego prywatnego punktu końcowego.  
 
 1. Skontaktuj się z zespołem [pomocy technicznej systemu Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) , jeśli problem nadal nie zostanie rozwiązany i nadal istnieje problem z łącznością.
 

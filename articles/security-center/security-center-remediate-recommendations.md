@@ -1,6 +1,6 @@
 ---
 title: Koryguj zalecenia w Azure Security Center | Microsoft Docs
-description: W tym artykule wyjaśniono, jak skorygować zalecenia w Azure Security Center, aby chronić zasoby i zachować zgodność z zasadami zabezpieczeń.
+description: W tym artykule wyjaśniono, jak odpowiedzieć na zalecenia w Azure Security Center, aby chronić zasoby i spełnić zasady zabezpieczeń.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/08/2020
 ms.author: memildin
-ms.openlocfilehash: 3d4b968d0d5e091d72cf718d58b11ade68ddf8c6
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: dabd7e9e2c3c74225efc4611c7ad3523a6c76ba5
+ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637092"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97807994"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Rekomendacje dotyczące korygowania w usłudze Azure Security Center
 
@@ -26,41 +26,41 @@ Zalecenia zawierają sugestie dotyczące lepszego zabezpieczania zasobów. Zalec
 
 ## <a name="remediation-steps"></a>Kroki zaradcze <a name="remediation-steps"></a>
 
-Po przejrzeniu wszystkich zaleceń Zdecyduj, które z nich należy skorygować w pierwszej kolejności. Zalecamy użycie [wpływu na ocenę](security-center-recommendations.md#monitor-recommendations) , aby pomóc w ustaleniu, co należy zrobić w pierwszej kolejności.
+Po przejrzeniu wszystkich zaleceń Zdecyduj, które z nich należy skorygować w pierwszej kolejności. Zalecamy, aby określić priorytety kontroli zabezpieczeń z największą możliwością zwiększenia bezpiecznego wyniku.
 
-1. Na liście kliknij zalecenie.
+1. Z listy wybierz zalecenie.
 
 1. Postępuj zgodnie z instrukcjami w sekcji **kroki zaradcze** . Każde zalecenie ma swój własny zestaw instrukcji. Poniższy zrzut ekranu przedstawia kroki korygowania dotyczące konfigurowania aplikacji tak, aby zezwalały na ruch za pośrednictwem protokołu HTTPS.
 
-    ![Szczegóły rekomendacji](./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png)
+    :::image type="content" source="./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png" alt-text="Kroki ręcznego korygowania zalecenia" lightbox="./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png":::
 
-1. Po zakończeniu zostanie wyświetlone powiadomienie z informacją o tym, czy korygowanie zakończyło się pomyślnie.
+1. Po zakończeniu zostanie wyświetlone powiadomienie informujące o tym, czy problem został rozwiązany.
 
-## <a name="quick-fix-remediation"></a>Szybkie rozwiązywanie problemów<a name="one-click"></a>
+## <a name="quick-fix-remediation"></a>Szybkie rozwiązywanie problemów
 
-Szybka naprawa upraszcza korygowanie i pozwala szybko zwiększyć swój Bezpieczny wynik, zwiększając bezpieczeństwo środowiska.
+Aby uprościć korygowanie i poprawić bezpieczeństwo środowiska (i zwiększyć swój Bezpieczny wynik), wiele zaleceń obejmuje opcję szybkiej naprawy.
 
-Szybkie rozwiązanie pozwala szybko skorygować zalecenia dotyczące wielu zasobów. 
+Szybka poprawka pomaga szybko skorygować zalecenia dotyczące wielu zasobów.
 
 > [!TIP]
-> Szybka poprawka jest dostępna tylko dla konkretnych zaleceń. Aby znaleźć zalecenia z opcją szybkie rozwiązanie, użyj dedykowanego filtru w górnej części listy zaleceń:
+> Rozwiązania szybkiej naprawy są dostępne tylko dla konkretnych zaleceń. Aby znaleźć zalecenia, które mają dostępną szybką poprawkę, Użyj filtru **Akcje odpowiedzi** dla listy zaleceń:
 > 
 > :::image type="content" source="media/security-center-remediate-recommendations/quick-fix-filter.png" alt-text="Użyj filtrów powyżej listy zaleceń, aby znaleźć zalecenia z opcją szybkie rozwiązanie":::
 
-Aby zaimplementować szybkie korygowanie poprawek:
+Aby zaimplementować rozwiązanie szybkiej naprawy:
 
-1. Z listy zaleceń, które mają **szybką poprawkę!** Kliknij zalecenie.
+1. Z listy zaleceń, które mają **szybką poprawkę!** Wybierz zalecenie.
 
-    [![Wybierz pozycję szybka naprawa.](media/security-center-remediate-recommendations/security-center-one-click-fix-select.png)](media/security-center-remediate-recommendations/security-center-one-click-fix-select.png#lightbox)
+    [![Wybierz pozycję szybka naprawa.](media/security-center-remediate-recommendations/security-center-quick-fix-select.png)](media/security-center-remediate-recommendations/security-center-quick-fix-select.png#lightbox)
 
-1. Na karcie **zasoby w złej kondycji** Wybierz zasoby, dla których chcesz wdrożyć zalecenie, a następnie kliknij przycisk **Koryguj**.
+1. Na karcie **zasoby w złej kondycji** Wybierz zasoby, dla których chcesz wdrożyć zalecenie, a następnie wybierz pozycję **Koryguj**.
 
     > [!NOTE]
     > Niektóre z wymienionych zasobów mogą być wyłączone, ponieważ nie masz odpowiednich uprawnień, aby je modyfikować.
 
 1. W polu potwierdzenia Przeczytaj szczegóły dotyczące korygowania i implikacje.
 
-    ![Szybka naprawa](./media/security-center-remediate-recommendations/security-center-one-click-fix-view.png)
+    ![Szybka naprawa](./media/security-center-remediate-recommendations/security-center-quick-fix-view.png)
 
     > [!NOTE]
     > Implikacje są wymienione w szarym polu okna **korygowanie zasobów** , które jest otwierane po kliknięciu przycisku **Koryguj**. Wyświetlają one zmiany, które są wykonywane podczas korygowania szybkiej korekty.
@@ -79,7 +79,7 @@ Operacja korygowania używa wdrożenia szablonu lub wywołania interfejsu API po
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym dokumencie przedstawiono sposób korygowania zaleceń w Security Center. Aby dowiedzieć się więcej na temat Security Center, zobacz następujące tematy:
+W tym dokumencie przedstawiono sposób korygowania zaleceń w Security Center. Aby dowiedzieć się więcej na temat Security Center, zobacz następujące strony:
 
 * [Ustawianie zasad zabezpieczeń w Azure Security Center](tutorial-security-policy.md) — informacje na temat konfigurowania zasad zabezpieczeń dla subskrypcji i grup zasobów platformy Azure.
 * [Monitorowanie kondycji zabezpieczeń w Azure Security Center](security-center-monitoring.md) — informacje na temat monitorowania kondycji zasobów platformy Azure.

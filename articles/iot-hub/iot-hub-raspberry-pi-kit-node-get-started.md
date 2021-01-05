@@ -13,12 +13,12 @@ ms.author: wesmc
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-js
-ms.openlocfilehash: 1d6a51e2e9c052be0c59435b287c5fdde459f55d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c96f674b64401250d45542d0f59f13654cf37caa
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334195"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802528"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Połącz Raspberry Pi z platformą Azure IoT Hub (Node.js)
 
@@ -81,7 +81,7 @@ Następujące elementy są opcjonalne:
 > [!NOTE]
 > Jeśli nie masz elementów opcjonalnych, możesz użyć symulowanych danych czujników.
 
-## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT
+## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -97,7 +97,7 @@ Przygotuj kartę microSD na potrzeby instalacji obrazu raspbian.
 
 1. Pobierz raspbian.
 
-   a. [Raspbian Buster z pulpitem](https://www.raspberrypi.org/downloads/raspbian/) (plik. zip).
+   a. [Raspbian Buster z pulpitem](https://www.raspberrypi.org/software/) (plik. zip).
 
    b. Wyodrębnij obraz raspbian do folderu na komputerze.
 

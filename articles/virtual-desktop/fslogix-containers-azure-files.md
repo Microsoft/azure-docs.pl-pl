@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 669f4baa723b78b8933f3a75fc361c468f9e2df9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3bd667bc7fce8f9fb10b852cae7a6c4ad198d75
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88002400"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797200"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Kontenery profili FSLogix i pliki platformy Azure
 
@@ -57,7 +57,7 @@ W poniższej tabeli przedstawiono zalety i ograniczenia dotyczące wcześniejszy
 
 UPD wymaga [bezpośrednie miejsca do magazynowania (S2D)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) , aby rozwiązać wymagania dotyczące wydajności. UPD używa protokołu SMB (Server Message Block). Kopiuje profil do maszyny wirtualnej, w której użytkownik jest rejestrowany. UPD z funkcją S2D to rozwiązanie, które zalecamy dla pulpitu wirtualnego systemu Windows.
 
-#### <a name="cost"></a>Koszty
+#### <a name="cost"></a>Cost (Koszt)
 
 Gdy klastry funkcji S2D osiągnąą wymaganą wydajność, koszt jest kosztowny dla klientów korporacyjnych, ale szczególnie kosztownych dla małych i średnich klientów. W przypadku tego rozwiązania firmy płacisz za dyski magazynu, a także koszt maszyn wirtualnych korzystających z dysków dla udziału.
 
@@ -87,7 +87,7 @@ Aby zapewnić, że środowisko pulpitu wirtualnego systemu Windows jest zgodne z
 
 - Konto magazynu Azure Files musi znajdować się w tym samym regionie co maszyny wirtualne hosta sesji.
 - Uprawnienia Azure Files powinny być zgodne z uprawnieniami opisanymi w [kontenerach wymagań — profile](/fslogix/fslogix-storage-config-ht).
-- Każda pula hostów musi być zbudowana z tego samego typu i rozmiaru maszyny wirtualnej na podstawie tego samego obrazu wzorcowego.
+- Każda maszyna wirtualna puli hostów musi być zbudowana z tego samego typu maszyn wirtualnych o takim samym typie i rozmiarze na podstawie tego samego obrazu wzorcowego.
 - Każda maszyna wirtualna puli hostów musi znajdować się w tej samej grupie zasobów, aby ułatwić zarządzanie, skalowanie i aktualizowanie.
 - W celu uzyskania optymalnej wydajności rozwiązanie magazynu i kontener profilu FSLogix powinny znajdować się w tej samej lokalizacji centrum danych.
 - Konto magazynu zawierające obraz wzorcowy musi znajdować się w tym samym regionie i w ramach subskrypcji, w której są obsługiwane maszyny wirtualne.

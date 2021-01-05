@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 12/28/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ca09e41e6d5b83f14d2dfee4107135585b7e945a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 518df665db0ba3770bee757f45d02b6ccd303a00
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95908799"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803871"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Przywracanie do punktu w czasie dla blokowych obiektów BLOB
 
@@ -43,7 +43,7 @@ Operacja **przywracania zakresów obiektów BLOB** zwraca identyfikator przywrac
 > Operacje odczytu z lokalizacji pomocniczej mogą być przetwarzane w trakcie operacji przywracania, jeśli konto magazynu ma replikację geograficzną.
 
 > [!CAUTION]
-> Przywracanie do punktu w czasie obsługuje operacje przywracania tylko dla blokowych obiektów BLOB. Nie można przywrócić operacji na kontenerach. W przypadku usunięcia kontenera z konta magazynu przez wywołanie operacji [usuwania kontenera](/rest/api/storageservices/delete-container) nie można przywrócić tego kontenera przy użyciu operacji przywracania. Zamiast usuwać kontener, Usuń pojedyncze obiekty blob, jeśli chcesz je przywrócić.
+> Przywracanie do punktu w czasie obsługuje operacje przywracania tylko dla blokowych obiektów BLOB. Nie można przywrócić operacji na kontenerach. W przypadku usunięcia kontenera z konta magazynu przez wywołanie operacji [usuwania kontenera](/rest/api/storageservices/delete-container) nie można przywrócić tego kontenera przy użyciu operacji przywracania. Zamiast usuwać cały kontener, Usuń pojedyncze obiekty blob, jeśli chcesz je później przywrócić.
 
 ### <a name="prerequisites-for-point-in-time-restore"></a>Wymagania wstępne dotyczące przywracania do punktu w czasie
 
@@ -57,9 +57,12 @@ Przywracanie do punktu w czasie wymaga włączenia następujących funkcji usłu
 
 Po włączeniu przywracania do określonego momentu dla konta magazynu należy określić okres przechowywania. Blokowe obiekty blob na koncie magazynu mogą zostać przywrócone w okresie przechowywania.
 
-Okres przechowywania rozpoczyna się po włączeniu przywracania do punktu w czasie. Należy pamiętać, że nie można przywrócić obiektów BLOB do stanu przed rozpoczęciem okresu przechowywania. Jeśli na przykład włączono funkcję przywracania do punktu w czasie od 1 maja i trwa okres utrzymywania 30 dni, w dniu 15 maja można przywrócić maksymalnie 15 dni. 1 czerwca można przywrócić dane z przedziału od do 30 dni.
+Okres przechowywania rozpoczyna się kilka minut po włączeniu przywracania do punktu w czasie. Należy pamiętać, że nie można przywrócić obiektów BLOB do stanu przed rozpoczęciem okresu przechowywania. Jeśli na przykład włączono funkcję przywracania do punktu w czasie od 1 maja i trwa okres utrzymywania 30 dni, w dniu 15 maja można przywrócić maksymalnie 15 dni. 1 czerwca można przywrócić dane z przedziału od do 30 dni.
 
 Okres przechowywania dla przywracania do określonego momentu musi być co najmniej jeden dzień krótszy niż okres przechowywania określony dla operacji usuwania nietrwałego. Jeśli na przykład okres przechowywania nietrwałego usuwania ma wartość 7 dni, okres przechowywania przywracania do określonego momentu może wynosić od 1 do 6 dni.
+
+> [!IMPORTANT]
+> Czas potrzebny na przywrócenie zestawu danych zależy od liczby operacji zapisu i usuwania dokonanych w okresie przywracania. Na przykład konto z 1 000 000 obiektami o 3 000 obiektach dodane dziennie, a 1 000 obiektów, które zostały usunięte dziennie, będzie wymagało około dwóch godzin, aby przywrócić je do punktu 30 dni w przeszłości. Okres przechowywania i przywrócenie ponad 90 dni w przeszłości nie będą zalecane dla konta z tą szybkością zmiany.
 
 ### <a name="permissions-for-point-in-time-restore"></a>Uprawnienia do przywracania do punktu w czasie
 
