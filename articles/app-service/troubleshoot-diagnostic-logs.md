@@ -4,13 +4,13 @@ description: Dowiedz się, jak włączyć rejestrowanie diagnostyczne i dodać i
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
-ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
-ms.openlocfilehash: 99a3c9a9c26eebe8dfdf11baf718fd13f7539607
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.custom: devx-track-csharp, seodec18
+ms.openlocfilehash: 875254071d0ea252508242b83102fb8ca8b44e53
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025280"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825379"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Włączanie rejestrowania diagnostycznego dla aplikacji w Azure App Service
 ## <a name="overview"></a>Omówienie
@@ -62,9 +62,9 @@ Wybierz **poziom** lub poziom szczegółów do zarejestrowania. W poniższej tab
 
 | Poziom | Uwzględnione kategorie |
 |-|-|
-|**Wyłączone** | Brak |
+|**Disabled** | Brak |
 |**Błąd** | Błąd, krytyczny |
-|**Wyświetlania** | Ostrzeżenie, błąd, krytyczny|
+|**Ostrzeżenie** | Ostrzeżenie, błąd, krytyczny|
 |**Informacje** | Informacje, ostrzeżenie, błąd, krytyczne|
 |**Pełne** | Trace, Debug, info, Warning, Error, krytyczny (wszystkie kategorie) |
 
@@ -108,9 +108,9 @@ Oba typy dzienników są przechowywane w systemie plików App Service. Błędy d
 
 ## <a name="add-log-messages-in-code"></a>Dodawanie komunikatów dziennika w kodzie
 
-W kodzie aplikacji należy używać zwykłych funkcji rejestrowania do wysyłania komunikatów dziennika do dzienników aplikacji. Przykład:
+W kodzie aplikacji należy używać zwykłych funkcji rejestrowania do wysyłania komunikatów dziennika do dzienników aplikacji. Na przykład:
 
-- Aplikacje ASP.NET mogą używać klasy [System. Diagnostics. Trace](/dotnet/api/system.diagnostics.trace) do rejestrowania informacji w dzienniku diagnostyki aplikacji. Przykład:
+- Aplikacje ASP.NET mogą używać klasy [System. Diagnostics. Trace](/dotnet/api/system.diagnostics.trace) do rejestrowania informacji w dzienniku diagnostyki aplikacji. Na przykład:
 
     ```csharp
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
@@ -138,12 +138,12 @@ Aby przesłać strumieniowo dzienniki na żywo w [Cloud Shell](../cloud-shell/ov
 az webapp log tail --name appname --resource-group myResourceGroup
 ```
 
-Aby odfiltrować określone zdarzenia, takie jak błędy, użyj parametru **--Filter** . Przykład:
+Aby odfiltrować określone zdarzenia, takie jak błędy, użyj parametru **--Filter** . Na przykład:
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --filter Error
 ```
-Aby filtrować określone typy dzienników, takie jak HTTP, użyj parametru **--Path** . Przykład:
+Aby filtrować określone typy dzienników, takie jak HTTP, użyj parametru **--Path** . Na przykład:
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --path http

@@ -4,16 +4,16 @@ description: Typowe problemy, obejścia i kroki diagnostyczne podczas korzystani
 author: ealsur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 03/13/2020
+ms.date: 12/29/2020
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 9fc5da214a50cb000d2154d08bb9b6f6f98ac5ec
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 1b7b82ea07b7e00d281739011c9c9f83ab4dff73
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340536"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825615"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnozowanie i rozwiązywanie problemów podczas korzystania z wyzwalacza Azure Functions dla Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -85,16 +85,18 @@ Koncepcja "zmiana" jest operacją w dokumencie. Najczęstsze scenariusze, w któ
 
 ### <a name="some-changes-are-missing-in-my-trigger"></a>W moim wyzwalaczu brakuje niektórych zmian
 
-Jeśli okaże się, że niektóre zmiany, które wystąpiły w kontenerze usługi Azure Cosmos, nie są wybierane przez funkcję systemu Azure, istnieje etap wstępnego badania, który musi zostać przeprowadzona.
+Jeśli okaże się, że niektóre zmiany, które wystąpiły w kontenerze usługi Azure Cosmos, nie są odbierane przez funkcję platformy Azure lub w miejscu docelowym brakuje niektórych zmian, wykonaj poniższe kroki.
 
 Gdy funkcja platformy Azure otrzymuje zmiany, często przetwarza je i może opcjonalnie wysłać wynik do innego miejsca docelowego. Podczas badania brakujących zmian upewnij się, że **miary są odbierane w punkcie** pozyskiwania (gdy funkcja platformy Azure zostanie uruchomiona), a nie w miejscu docelowym.
 
 Jeśli w miejscu docelowym brakuje niektórych zmian, może to oznaczać, że wystąpił błąd podczas wykonywania funkcji platformy Azure po odebraniu zmian.
 
-W tym scenariuszu najlepszym sposobem działania jest dodanie `try/catch` bloków w kodzie i wewnątrz pętli, które mogą przetwarzać zmiany, wykrywanie wszelkich błędów dla określonego podzestawu elementów i ich odpowiednie obsłużenie (wysłanie ich do innego magazynu w celu dalszej analizy lub ponowienie próby). 
+W tym scenariuszu najlepszym sposobem działania jest dodanie `try/catch` bloków w kodzie i wewnątrz pętli, które mogą przetwarzać zmiany, wykrywanie wszelkich błędów dla określonego podzestawu elementów i ich odpowiednie obsłużenie (wysłanie ich do innego magazynu w celu dalszej analizy lub ponowienie próby).
 
 > [!NOTE]
 > Wyzwalacz usługi Azure Functions dla usługi Cosmos DB domyślnie nie będzie ponawiać próby przetworzenia partii zmian, jeśli wystąpił nieobsługiwany wyjątek podczas wykonywania kodu. Oznacza to, że powodem, że zmiany nie dotarły do lokalizacji docelowej, jest to, że nie można ich przetworzyć.
+
+Jeśli miejsce docelowe jest innym kontenerem Cosmos i wykonujesz operacje upsert w celu skopiowania elementów, **Sprawdź, czy definicja klucza partycji w kontenerze monitorowanych i docelowych jest taka sama**. Operacje upsert mogą zapisywać wiele elementów źródłowych jako jeden w miejscu docelowym z powodu różnicy konfiguracji.
 
 Jeśli okaże się, że niektóre zmiany nie zostały odebrane przez wyzwalacz, najbardziej typowym scenariuszem jest **uruchomienie innej funkcji platformy Azure**. Może to być inna funkcja platformy Azure wdrożona na platformie Azure lub funkcja platformy Azure działająca lokalnie na komputerze dewelopera, który ma **dokładnie taką samą konfigurację** (te same kontenery monitorowane i dzierżawy), a ta funkcja platformy Azure służy do kradzieży podzbioru zmian, które mają być przetwarzane przez funkcję platformy Azure.
 

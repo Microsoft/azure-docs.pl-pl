@@ -3,15 +3,15 @@ title: Przewodnik referencyjny dotyczący funkcji w wyrażeniach
 description: Przewodnik referencyjny dotyczący funkcji w wyrażeniach dla Azure Logic Apps i automatyzacji
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: a4646263eeb93a33a03e32107b46bb6dc104ce06
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 5c03d9b64f957f6ef8450197477f185dc8d15b2d
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326305"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825854"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Przewodnik referencyjny dotyczący używania funkcji w wyrażeniach dla Azure Logic Apps i automatyzacji
 
@@ -128,7 +128,7 @@ Aby działać z warunkami, porównywać wartości i wyniki wyrażeń lub ocenia�
 | Logiczna funkcja porównywania | Zadanie |
 | --------------------------- | ---- |
 | [and](../logic-apps/workflow-definition-language-functions-reference.md#and) | Sprawdź, czy wszystkie wyrażenia mają wartość PRAWDA. |
-| [equals](../logic-apps/workflow-definition-language-functions-reference.md#equals) | Sprawdź, czy obie wartości są równoważne. |
+| [ubiegł](../logic-apps/workflow-definition-language-functions-reference.md#equals) | Sprawdź, czy obie wartości są równoważne. |
 | [greater](../logic-apps/workflow-definition-language-functions-reference.md#greater) | Sprawdź, czy pierwsza wartość jest większa od drugiej wartości. |
 | [greaterOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#greaterOrEquals) | Sprawdź, czy pierwsza wartość jest większa lub równa drugiej wartości. |
 | [if](../logic-apps/workflow-definition-language-functions-reference.md#if) | Sprawdź, czy wyrażenie ma wartość true lub false. W oparciu o wynik Zwraca określoną wartość. |
@@ -166,7 +166,7 @@ Aby zmienić typ lub format wartości, można użyć tych funkcji konwersji. Na 
 | [liczba zmiennoprzecinkowa](../logic-apps/workflow-definition-language-functions-reference.md#float) | Zwróć liczbę zmiennoprzecinkową dla wartości wejściowej. |
 | [int](../logic-apps/workflow-definition-language-functions-reference.md#int) | Zwróć wersję całkowitą dla ciągu. |
 | [kodu](../logic-apps/workflow-definition-language-functions-reference.md#json) | Zwróć wartość typu JavaScript Object Notation (JSON) lub obiekt dla ciągu lub XML. |
-| [ciąg](../logic-apps/workflow-definition-language-functions-reference.md#string) | Zwraca wersję ciągu dla wartości wejściowej. |
+| [parametry](../logic-apps/workflow-definition-language-functions-reference.md#string) | Zwraca wersję ciągu dla wartości wejściowej. |
 | [uriComponent](../logic-apps/workflow-definition-language-functions-reference.md#uriComponent) | Zwróć wersję z kodowaniem URI dla wartości wejściowej przez zastępowanie znaków w adresie URL bez znaku ucieczki. |
 | [uriComponentToBinary](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToBinary) | Zwróć wersję binarną dla ciągu zakodowanego za pomocą identyfikatora URI. |
 | [uriComponentToString](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToString) | Zwraca wersję ciągu dla ciągu zakodowanego przy użyciu identyfikatora URI. |
@@ -282,7 +282,7 @@ Aby uzyskać pełne informacje o każdej z tych funkcji, zobacz [alfabetyczną l
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Zwróć treść określonej części w danych wyjściowych akcji z wieloma częściami. |
 | [wydajności](../logic-apps/workflow-definition-language-functions-reference.md#outputs) | Zwraca dane wyjściowe akcji w czasie wykonywania. |
 | [wejściowe](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Zwraca wartość parametru, który jest opisany w definicji przepływu pracy. |
-| [wynika](../logic-apps/workflow-definition-language-functions-reference.md#result) | Zwraca dane wejściowe i wyjściowe ze wszystkich akcji w określonym zakresie akcji, takich jak `For_each` , `Until` , i `Scope` . |
+| [result](../logic-apps/workflow-definition-language-functions-reference.md#result) | Zwraca dane wejściowe i wyjściowe ze wszystkich akcji w określonym zakresie akcji, takich jak `For_each` , `Until` , i `Scope` . |
 | [uruchamiać](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Zwraca dane wyjściowe wyzwalacza w czasie wykonywania lub z innych par nazw i wartości JSON. Zobacz również [triggerOutputs](#triggerOutputs) i [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). |
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Zwraca `body` dane wyjściowe wyzwalacza w czasie wykonywania. Zobacz [wyzwalacz](../logic-apps/workflow-definition-language-functions-reference.md#trigger). |
 | [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | Zwróć pojedynczą wartość odpowiadającą nazwie klucza w danych wyjściowych wyzwalacza *form-Data* lub *form* . |
@@ -1678,7 +1678,7 @@ decodeUriComponent('<value>')
 Ten przykład zastępuje znaki ucieczki w tym ciągu z zdekodowanymi wersjami:
 
 ```
-decodeUriComponent('http%3A%2F%2Fcontoso.com')
+decodeUriComponent('https%3A%2F%2Fcontoso.com')
 ```
 
 I zwraca ten wynik: `"https://contoso.com"`
@@ -1753,7 +1753,7 @@ W tym przykładzie tworzona jest wersja zakodowana przy użyciu identyfikatora U
 encodeUriComponent('https://contoso.com')
 ```
 
-I zwraca ten wynik: `"http%3A%2F%2Fcontoso.com"`
+I zwraca ten wynik: `"https%3A%2F%2Fcontoso.com"`
 
 <a name="empty"></a>
 
@@ -4174,7 +4174,7 @@ Ten przykład tworzy tablicę z wartości klucza "feedUrl" w danych wyjściowych
 triggerFormDataMultiValues('feedUrl')
 ```
 
-I zwraca tę tablicę jako przykładowy wynik: `["http://feeds.reuters.com/reuters/topNews"]`
+I zwraca tę tablicę jako przykładowy wynik: `["https://feeds.a.dj.com/rss/RSSMarketsMain.xml"]`
 
 <a name="triggerFormDataValue"></a>
 
@@ -4205,7 +4205,7 @@ Ten przykład tworzy ciąg z wartości klucza "feedUrl" w danych wyjściowych fo
 triggerFormDataValue('feedUrl')
 ```
 
-I zwraca ten ciąg jako przykładowy wynik: `"http://feeds.reuters.com/reuters/topNews"`
+I zwraca ten ciąg jako przykładowy wynik: `"https://feeds.a.dj.com/rss/RSSMarketsMain.xml"`
 
 <a name="triggerMultipartBody"></a>
 
@@ -4336,7 +4336,7 @@ W tym przykładzie tworzona jest wersja zakodowana przy użyciu identyfikatora U
 uriComponent('https://contoso.com')
 ```
 
-I zwraca ten wynik: `"http%3A%2F%2Fcontoso.com"`
+I zwraca ten wynik: `"https%3A%2F%2Fcontoso.com"`
 
 <a name="uriComponentToBinary"></a>
 
@@ -4363,7 +4363,7 @@ uriComponentToBinary('<value>')
 W tym przykładzie tworzona jest wersja binarna dla tego ciągu zakodowanego przy użyciu identyfikatora URI:
 
 ```
-uriComponentToBinary('http%3A%2F%2Fcontoso.com')
+uriComponentToBinary('https%3A%2F%2Fcontoso.com')
 ```
 
 I zwraca ten wynik:
@@ -4398,7 +4398,7 @@ uriComponentToString('<value>')
 Ten przykład tworzy zdekodowaną wersję ciągu dla tego ciągu kodowanego URI:
 
 ```
-uriComponentToString('http%3A%2F%2Fcontoso.com')
+uriComponentToString('https%3A%2F%2Fcontoso.com')
 ```
 
 I zwraca ten wynik: `"https://contoso.com"`
@@ -4458,7 +4458,7 @@ uriPath('<uri>')
 Ten przykład umożliwia znalezienie `path` wartości dla tego identyfikatora URI:
 
 ```
-uriPath('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriPath('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 I zwraca ten wynik: `"/catalog/shownew.htm"`
@@ -4488,7 +4488,7 @@ uriPathAndQuery('<uri>')
 Ten przykład umożliwia znalezienie `path` `query` wartości i dla tego identyfikatora URI:
 
 ```
-uriPathAndQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriPathAndQuery('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 I zwraca ten wynik: `"/catalog/shownew.htm?date=today"`
@@ -4518,7 +4518,7 @@ uriPort('<uri>')
 Ten przykład zwraca `port` wartość dla tego identyfikatora URI:
 
 ```
-uriPort('http://www.localhost:8080')
+uriPort('https://www.localhost:8080')
 ```
 
 I zwraca ten wynik: `8080`
@@ -4548,7 +4548,7 @@ uriQuery('<uri>')
 Ten przykład zwraca `query` wartość dla tego identyfikatora URI:
 
 ```
-uriQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriQuery('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 I zwraca ten wynik: `"?date=today"`
@@ -4578,7 +4578,7 @@ uriScheme('<uri>')
 Ten przykład zwraca `scheme` wartość dla tego identyfikatora URI:
 
 ```
-uriScheme('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriScheme('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 I zwraca ten wynik: `"http"`
@@ -4918,16 +4918,16 @@ Oto wynik: `30`
 
 *Przykład 8*
 
-W tym przykładzie Załóżmy, że masz ten ciąg XML, który zawiera przestrzeń nazw dokumentu XML `xmlns="http://contoso.com"` :
+W tym przykładzie Załóżmy, że masz ten ciąg XML, który zawiera przestrzeń nazw dokumentu XML `xmlns="https://contoso.com"` :
 
 ```xml
-<?xml version="1.0"?><file xmlns="http://contoso.com"><location>Paris</location></file>
+<?xml version="1.0"?><file xmlns="https://contoso.com"><location>Paris</location></file>
 ```
 
-Wyrażenia te używają wyrażenia XPath `/*[name()="file"]/*[name()="location"]` lub `/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]` , aby znaleźć węzły, które pasują do `<location></location>` węzła. W tych przykładach przedstawiono składnię używaną w Projektancie aplikacji logiki lub edytorze wyrażeń:
+Wyrażenia te używają wyrażenia XPath `/*[name()="file"]/*[name()="location"]` lub `/*[local-name()="file" and namespace-uri()="https://contoso.com"]/*[local-name()="location"]` , aby znaleźć węzły, które pasują do `<location></location>` węzła. W tych przykładach przedstawiono składnię używaną w Projektancie aplikacji logiki lub edytorze wyrażeń:
 
 * `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
-* `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]')`
+* `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="https://contoso.com"]/*[local-name()="location"]')`
 
 Oto węzeł wynikowy zgodny z `<location></location>` węzłem: 
 

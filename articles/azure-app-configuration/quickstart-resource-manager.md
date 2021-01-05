@@ -8,12 +8,12 @@ ms.date: 10/16/2020
 ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: feabac62564729338e41bf30eaf8d9f5a6317126
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 56505c95e65911cafbaaa403cd09332695439d97
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149003"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825669"
 ---
 # <a name="quickstart-create-an-azure-app-configuration-store-by-using-an-arm-template"></a>Szybki Start: Tworzenie magazynu konfiguracji aplikacji platformy Azure przy użyciu szablonu ARM
 
@@ -46,10 +46,10 @@ Przewodnik Szybki Start używa `copy` elementu, aby utworzyć wiele wystąpień 
 
 Dwa zasoby platformy Azure są zdefiniowane w szablonie:
 
-- [Microsoft. AppConfiguration/configurationStores](/azure/templates/microsoft.appconfiguration/2020-06-01/configurationstores): Tworzenie magazynu konfiguracji aplikacji.
-- Microsoft. AppConfiguration/configurationStores/wartości kluczowe: Utwórz klucz-wartość w magazynie konfiguracji aplikacji.
+- [Microsoft. AppConfiguration/configurationStores](/azure/templates/microsoft.appconfiguration/2020-07-01-preview/configurationstores): Tworzenie magazynu konfiguracji aplikacji.
+- [Microsoft. AppConfiguration/configurationStores/wartości](/azure/templates/microsoft.appconfiguration/2020-07-01-preview/configurationstores/keyvalues)kluczowe: Utwórz klucz-wartość w magazynie konfiguracji aplikacji.
 
-> [!NOTE]
+> [!TIP]
 > `keyValues`Nazwa zasobu jest kombinacją klucza i etykiety. Klucz i etykieta są przyłączone przez `$` ogranicznik. Etykieta jest opcjonalna. W powyższym przykładzie `keyValues` zasób o nazwie `myKey` tworzy klucz-wartość bez etykiety.
 >
 > Kodowanie procentowe, znane także jako kodowanie adresów URL, umożliwia używanie klawiszy lub etykiet do dołączania znaków, które nie są dozwolone w nazwach zasobów szablonu ARM. `%` nie jest dozwolonym znakiem, więc `~` jest używany w jego miejscu. Aby poprawnie zakodować nazwę, wykonaj następujące kroki:
@@ -59,6 +59,13 @@ Dwa zasoby platformy Azure są zdefiniowane w szablonie:
 > 3. Zamień `%` na `~`
 >
 > Na przykład, aby utworzyć parę klucz-wartość z nazwą klucza `AppName:DbEndpoint` i nazwą etykiety `Test` , nazwa zasobu powinna być `AppName~3ADbEndpoint$Test` .
+
+> [!NOTE]
+> Konfiguracja aplikacji umożliwia dostęp do danych klucza za pośrednictwem [prywatnego linku](concept-private-endpoint.md) do sieci wirtualnej. Domyślnie po włączeniu tej funkcji wszystkie żądania dotyczące danych konfiguracyjnych aplikacji za pośrednictwem sieci publicznej są odrzucane. Ponieważ szablon ARM jest uruchamiany poza siecią wirtualną, dostęp do danych z szablonu ARM nie jest dozwolony. Aby zezwolić na dostęp do danych z szablonu usługi ARM w przypadku użycia linku prywatnego, można włączyć dostęp do sieci publicznej za pomocą następującego polecenia interfejsu CLI platformy Azure. Należy wziąć pod uwagę implikacje zabezpieczeń dotyczące włączania dostępu do sieci publicznej w tym scenariuszu.
+>
+> ```azurecli-interactive
+> az appconfig update -g MyResourceGroup -n MyAppConfiguration --enable-public-network true
+> ```
 
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
@@ -86,7 +93,7 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. W polu wyszukiwania Azure Portal wpisz **Konfiguracja aplikacji**. Z listy wybierz pozycję **Konfiguracja aplikacji** .
 1. Wybierz nowo utworzony zasób konfiguracji aplikacji.
-1. W obszarze **operacje**kliknij pozycję **Eksplorator konfiguracji**.
+1. W obszarze **operacje** kliknij pozycję **Eksplorator konfiguracji**.
 1. Sprawdź, czy istnieją dwa wartości kluczy.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów

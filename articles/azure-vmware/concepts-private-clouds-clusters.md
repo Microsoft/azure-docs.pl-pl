@@ -3,12 +3,12 @@ title: Pojęcia — chmury prywatne i klastry
 description: Dowiedz się więcej na temat kluczowych możliwości rozwiązań VMware platformy Azure zdefiniowanych przez oprogramowanie oraz klastrów vSphere.
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: af34bb0d83d9571ae91dce90cab198a61cfe82a1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 7f8508abed3446c58a683454bc49ec7dbb49d051
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967384"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825089"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Rozwiązanie Azure VMware Private Cloud i pojęcia dotyczące klastrów
 
@@ -48,18 +48,8 @@ Hosty używane do kompilowania lub skalowania klastrów pochodzą z izolowanej p
 
 ## <a name="vmware-software-versions"></a>Wersje oprogramowania VMware
 
-Bieżące wersje oprogramowania VMware używane w klastrach chmur prywatnych rozwiązania Azure VMware są następujące:
+[!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
 
-| Oprogramowanie              |    Wersja   |
-| :---                  |     :---:    |
-| VCSA/vSphere/ESXi |    6,7 U3    | 
-| ESXi                  |    6,7 U3    | 
-| Sieci vSAN                  |    6,7 U3    |
-| NSX-T                 |      2.5     |
-
-W przypadku każdego nowego klastra w chmurze prywatnej wersja oprogramowania jest zgodna z aktualnie uruchomionymi usługami. W przypadku każdej nowej chmury prywatnej w ramach subskrypcji zostanie zainstalowana najnowsza wersja stosu oprogramowania.
-
-Ogólne zasady uaktualniania i procesy można znaleźć dla oprogramowania platformy Azure VMware Solution platform opisanego w artykule [aktualizacje i uaktualnienia w chmurze prywatnej](concepts-upgrades.md).
 
 ## <a name="host-maintenance-and-lifecycle-management"></a>Zarządzanie konserwacją i cyklem życia hosta
 

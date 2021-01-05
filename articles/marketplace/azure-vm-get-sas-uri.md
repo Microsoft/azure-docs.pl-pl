@@ -7,12 +7,12 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
 ms.date: 10/19/2020
-ms.openlocfilehash: ead367568762d4b76de7164feb56b7a31cd53e0d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e28942a77a1d695a17f3231901f337695e602c64
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129120"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825552"
 ---
 # <a name="how-to-generate-a-sas-uri-for-a-vm-image"></a>Jak wygenerować identyfikator URI sygnatury dostępu współdzielonego dla obrazu maszyny wirtualnej
 
@@ -34,12 +34,12 @@ Istnieją dwa popularne narzędzia służące do tworzenia adresu SAS (URL):
 
 ### <a name="using-tool-1-azure-storage-explorer"></a>Korzystanie z narzędzia 1: Eksplorator usługi Azure Storage
 
-1. Przejdź do **konta magazynu** .
-1. Otwórz **Eksplorator usługi Storage** .
+1. Przejdź do **konta magazynu**.
+1. Otwórz **Eksplorator usługi Storage**.
 
     :::image type="content" source="media/create-vm/storge-account-explorer.png" alt-text="Okno konta magazynu.":::
 
-3. W **kontenerze** kliknij prawym przyciskiem myszy plik VHD i wybierz pozycję **Pobierz sygnaturę dostępu do udziału** .
+3. W **kontenerze** kliknij prawym przyciskiem myszy plik VHD i wybierz pozycję **Pobierz sygnaturę dostępu do udziału**.
 4. W oknie dialogowym **sygnatura dostępu współdzielonego** wypełnij następujące pola:
 
     1. Czas rozpoczęcia — data rozpoczęcia uprawnienia dostępu do dysku VHD. Podaj datę, która jest dniem poprzedzającym bieżącą datę.
@@ -49,7 +49,7 @@ Istnieją dwa popularne narzędzia służące do tworzenia adresu SAS (URL):
 
     ![Okno dialogowe sygnatura dostępu współdzielonego.](media/vm/create-sas-uri-storage-explorer.png)
 
-5. Aby utworzyć skojarzony identyfikator URI sygnatury dostępu współdzielonego dla tego wirtualnego dysku twardego, wybierz pozycję **Utwórz** .
+5. Aby utworzyć skojarzony identyfikator URI sygnatury dostępu współdzielonego dla tego wirtualnego dysku twardego, wybierz pozycję **Utwórz**.
 6. Skopiuj identyfikator URI i Zapisz go w pliku tekstowym w bezpiecznej lokalizacji. Ten wygenerowany identyfikator URI SAS dotyczy dostępu na poziomie kontenera. Aby wprowadzić właściwe informacje, edytuj plik tekstowy, aby dodać nazwę dysku VHD.
 7. Wstaw nazwę wirtualnego dysku twardego po ciągu VHD w identyfikatorze URI sygnatury dostępu współdzielonego (w tym ukośniku). Końcowy identyfikator URI sygnatury dostępu współdzielonego powinien wyglądać następująco:
 
@@ -62,7 +62,7 @@ Istnieją dwa popularne narzędzia służące do tworzenia adresu SAS (URL):
 1. Pobierz i zainstaluj [Microsoft Azure CL](/cli/azure/install-azure-cli)i. Wersje są dostępne dla systemów Windows, macOS i różnych dystrybucje systemu Linux.
 2. Utwórz plik programu PowerShell (rozszerzenie pliku ps1), Skopiuj poniższy kod, a następnie zapisz go lokalnie.
 
-    ```JSON
+    ```azurecli-interactive
     az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net’ --name <vhd-name> --permissions rl --start ‘<start-date>’ --expiry ‘<expiry-date>’
     ```
 
@@ -70,25 +70,26 @@ Istnieją dwa popularne narzędzia służące do tworzenia adresu SAS (URL):
 
     - Nazwa konta — Nazwa konta usługi Azure Storage.
     - klucz konta — klucz konta usługi Azure Storage.
-    - Nazwa wirtualnego dysku twardego — nazwa wirtualnego dysku twardego.
     - Data rozpoczęcia — Data początkowa uprawnienia dostępu do dysku VHD. Podaj datę o jeden dzień przed bieżącą datą.
     - Data wygaśnięcia — Data wygaśnięcia uprawnień dla dostępu do dysku VHD. Podaj datę z co najmniej trzech tygodni od bieżącej daty.
 
     Oto przykład prawidłowych wartości parametrów (w czasie pisania):
 
-    `az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ON c+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net’ --name vhds -- permissions rl --start ‘2020-04-01T00:00:00Z’ --expiry ‘2021-04-01T00:00:00Z’`
+    ```azurecli-interactive
+    az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ON c+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net’ --name vhds -- permissions rl --start ‘2020-04-01T00:00:00Z’ --expiry ‘2021-04-01T00:00:00Z’
+    ```
 
 1. Zapisz zmiany.
 2. Korzystając z jednej z następujących metod, Uruchom ten skrypt z uprawnieniami administracyjnymi, aby utworzyć parametry połączenia sygnatury dostępu współdzielonego na poziomie kontenera:
 
-    - Uruchom skrypt z konsoli programu. W systemie Windows kliknij prawym przyciskiem myszy skrypt, a następnie wybierz polecenie **Uruchom jako administrator** .
+    - Uruchom skrypt z konsoli programu. W systemie Windows kliknij prawym przyciskiem myszy skrypt, a następnie wybierz polecenie **Uruchom jako administrator**.
     - Uruchom skrypt z edytora skryptów programu PowerShell, takiego jak [Windows PowerShell ISE](/powershell/scripting/components/ise/introducing-the-windows-powershell-ise). Ten ekran przedstawia tworzenie parametrów połączenia sygnatury dostępu współdzielonego w ramach tego edytora:
 
     [![Tworzenie parametrów połączenia sygnatury dostępu współdzielonego w edytorze programu PowerShell](media/vm/create-sas-uri-power-shell-ise.png)](media/vm/create-sas-uri-power-shell-ise.png#lightbox)
 
 6. Skopiuj parametry połączenia sygnatury dostępu współdzielonego i Zapisz je w pliku tekstowym w bezpiecznej lokalizacji. Edytuj ten ciąg, aby dodać informacje o lokalizacji wirtualnego dysku twardego w celu utworzenia końcowego identyfikatora URI sygnatury dostępu współdzielonego.
 7. W Azure Portal przejdź do magazynu obiektów blob, który zawiera dysk VHD skojarzony z nowym identyfikatorem URI.
-8. Skopiuj adres URL punktu końcowego usługi thebBlob:
+8. Skopiuj adres URL punktu końcowego usługi BLOB Service:
 
     ![Kopiowanie adresu URL punktu końcowego usługi BLOB Service.](media/vm/create-sas-uri-blob-endpoint.png)
 

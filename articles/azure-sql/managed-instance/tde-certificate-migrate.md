@@ -4,19 +4,19 @@ description: Migrowanie certyfikatu ochrona klucza szyfrowania bazy danych za po
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: security
-ms.custom: sqldbrb=1, devx-track-azurecli
+ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein, jovanpop
 ms.date: 07/21/2020
-ms.openlocfilehash: 80ff16156348db9c3a209757b48b7d54615d9104
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c465da3d5d812ea7e811cbe59318122700c6e786
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790699"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97824672"
 ---
 # <a name="migrate-a-certificate-of-a-tde-protected-database-to-azure-sql-managed-instance"></a>Migrowanie certyfikatu chronionej bazy danych TDE do wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -41,7 +41,7 @@ Do wykonania kroków opisanych w tym artykule potrzebne jest spełnienie następ
 * Narzędzie wiersza polecenia [Pvk2Pfx](/windows-hardware/drivers/devtest/pvk2pfx) zainstalowane na serwerze lokalnym lub innym komputerze z dostępem do certyfikatu wyeksportowanego jako plik. Narzędzie Pvk2Pfx jest częścią [zestawu sterowników przedsiębiorstwa systemu Windows](/windows-hardware/drivers/download-the-wdk), czyli środowiska wiersza polecenia.
 * Zainstalowany program [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell) w wersji 5.0 lub nowszej.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Upewnij się, że masz:
 
@@ -125,13 +125,13 @@ Jeśli certyfikat jest przechowywany w magazynie certyfikatów na komputerze lok
 
 2. W przystawce MMC Certyfikaty rozwiń węzeł osobiste > certyfikaty, aby wyświetlić listę certyfikatów.
 
-3. Kliknij prawym przyciskiem myszy certyfikat, a następnie kliknij pozycję **Eksportuj** .
+3. Kliknij prawym przyciskiem myszy certyfikat, a następnie kliknij pozycję **Eksportuj**.
 
 4. Postępuj zgodnie z instrukcjami kreatora, aby wyeksportować certyfikat i klucz prywatny do formatu PFX.
 
 ## <a name="upload-the-certificate-to-azure-sql-managed-instance-using-an-azure-powershell-cmdlet"></a>Przekaż certyfikat do wystąpienia zarządzanego usługi Azure SQL za pomocą polecenia cmdlet Azure PowerShell
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 1. Rozpocznij od kroków przygotowawczych w programie PowerShell:
 

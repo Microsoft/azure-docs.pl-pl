@@ -11,13 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Technical Support'
-- devx-track-azurecli
-ms.openlocfilehash: bdd9d5fd878094326331e60fc1a639eef08b7ea3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9487fc562fa099d2650aabc8d15fc1449c7fcb5c
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792467"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825185"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Strumienie urządzeń IoT Hub (wersja zapoznawcza)
 
@@ -57,7 +56,7 @@ Programowe tworzenie strumienia urządzeń za pomocą zestawu SDK obejmuje nast�
 
 1. Aplikacja urządzenia rejestruje wywołanie zwrotne z wyprzedzeniem, aby otrzymywać powiadomienia o tym, kiedy nowy strumień urządzenia zostanie zainicjowany do urządzenia. Ten krok zazwyczaj odbywa się podczas uruchamiania urządzenia i łączenia się z IoT Hub.
 
-2. Program po stronie usługi inicjuje strumień urządzenia w razie konieczności, podając identyfikator urządzenia ( _nie_ adres IP).
+2. Program po stronie usługi inicjuje strumień urządzenia w razie konieczności, podając identyfikator urządzenia (_nie_ adres IP).
 
 3. Centrum IoT powiadamia program po stronie urządzenia przez wywołanie wywołania zwrotnego zarejestrowanego w kroku 1. Urządzenie może zaakceptować lub odrzucić żądanie zainicjowania strumienia. Ta logika może być specyficzna dla scenariusza aplikacji. Jeśli żądanie strumienia zostało odrzucone przez urządzenie, IoT Hub informuje odpowiednio usługę; w przeciwnym razie wykonaj poniższe kroki.
 
@@ -129,9 +128,9 @@ Można skonfigurować Azure Monitor do zbierania [dzienników zasobów dla strum
 
 Wykonaj poniższe kroki, aby utworzyć ustawienie diagnostyki umożliwiające wysyłanie dzienników strumieni urządzeń dla IoT Hub do Azure Monitor dzienników:
 
-1. W Azure Portal przejdź do centrum IoT Hub. W okienku po lewej stronie w obszarze **monitorowanie** wybierz pozycję **Ustawienia diagnostyczne** . Następnie wybierz pozycję **Dodaj ustawienie diagnostyczne** .
+1. W Azure Portal przejdź do centrum IoT Hub. W okienku po lewej stronie w obszarze **monitorowanie** wybierz pozycję **Ustawienia diagnostyczne**. Następnie wybierz pozycję **Dodaj ustawienie diagnostyczne**.
 
-2. Podaj nazwę dla ustawienia diagnostyki i wybierz pozycję **DeviceStreams** z listy dzienników. Następnie wybierz pozycję **Wyślij do log Analytics** . Będziesz mieć możliwość wybrania istniejącego obszaru roboczego Log Analytics lub utworzenia nowego.
+2. Podaj nazwę dla ustawienia diagnostyki i wybierz pozycję **DeviceStreams** z listy dzienników. Następnie wybierz pozycję **Wyślij do log Analytics**. Będziesz mieć możliwość wybrania istniejącego obszaru roboczego Log Analytics lub utworzenia nowego.
 
     :::image type="content" source="media/iot-hub-device-streams-overview/device-streams-configure-diagnostics.png" alt-text="Włączanie dzienników strumieni urządzeń":::
 
@@ -183,7 +182,7 @@ W przykładzie lokalnego serwera proxy przedstawiono sposób włączania tunelow
 
 W tej sekcji opisano użycie strumieni urządzeń w celu umożliwienia użytkownikowi SSH na urządzeniu za pośrednictwem strumieni urządzeń (przypadek dla protokołu RDP lub innej aplikacji klienta/serwera jest podobny przy użyciu odpowiedniego portu protokołu).
 
-Instalator korzysta z dwóch *lokalnych programów serwera proxy* przedstawionych na poniższym rysunku, mianowicie *serwera proxy lokalnego urządzenia* i *lokalnego serwera proxy usługi* . Lokalne programy proxy są odpowiedzialne za wykonywanie [uzgadniania inicjacji strumienia urządzenia](#device-stream-creation-flow) z IoT Hub i współdziałanie z klientem SSH oraz demonem SSH przy użyciu zwykłych gniazd klienta/serwera.
+Instalator korzysta z dwóch *lokalnych programów serwera proxy* przedstawionych na poniższym rysunku, mianowicie *serwera proxy lokalnego urządzenia* i *lokalnego serwera proxy usługi*. Lokalne programy proxy są odpowiedzialne za wykonywanie [uzgadniania inicjacji strumienia urządzenia](#device-stream-creation-flow) z IoT Hub i współdziałanie z klientem SSH oraz demonem SSH przy użyciu zwykłych gniazd klienta/serwera.
 
 !["Konfiguracja serwera proxy usługi Device Stream dla protokołu SSH/RDP"](./media/iot-hub-device-streams-overview/iot-hub-device-streams-ssh.png)
 
