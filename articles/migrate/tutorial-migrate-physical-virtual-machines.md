@@ -5,14 +5,14 @@ author: rahulg1190
 ms.author: rahugup
 ms.manager: bsiva
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 01/02/2021
 ms.custom: MVC
-ms.openlocfilehash: af1c321e5c537fbd3af770cb392c538e6056e075
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: bd560a6ef4a3b4ab5eb4632e7741c764f6e314e1
+ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752876"
+ms.lasthandoff: 01/03/2021
+ms.locfileid: "97854931"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrowanie maszyn jako serwerów fizycznych na platformę Azure
 
@@ -25,7 +25,7 @@ W tym artykule opisano sposób migrowania maszyn jako serwerów fizycznych na pl
 - Migrowanie maszyn wirtualnych działających w chmurach publicznych, takich jak Amazon Web Services (AWS) lub Google Cloud Platform (GCP).
 
 
-Ten samouczek jest trzecią częścią serii, która pokazuje, jak oceniać i migrować serwery fizyczne na platformę Azure. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek jest trzecią częścią serii, która pokazuje, jak oceniać i migrować serwery fizyczne na platformę Azure. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Przygotowanie do korzystania z platformy Azure z Azure Migrate: Migracja serwera.
@@ -109,7 +109,7 @@ Przygotuj się do wdrożenia urządzenia w następujący sposób:
 - Przygotuj komputer do hostowania urządzenia replikacji. [Zapoznaj](migrate-replication-appliance.md#appliance-requirements) się z wymaganiami dotyczącymi maszyn.
 - Urządzenie do replikacji używa programu MySQL. Zapoznaj się z [opcjami](migrate-replication-appliance.md#mysql-installation) instalacji bazy danych MySQL na urządzeniu.
 - Przejrzyj adresy URL platformy Azure wymagane przez urządzenie replikacji, aby uzyskać dostęp do chmur [publicznych](migrate-replication-appliance.md#url-access) i [instytucji rządowych](migrate-replication-appliance.md#azure-government-url-access) .
-- Zapoznaj się z tematem [port] (Migrowanie-replikacja-urządzenie. MD # port-dostęp) wymagania dostępu dla urządzenia replikacji.
+- Przejrzyj wymagania dotyczące dostępu do [portów](migrate-replication-appliance.md#port-access) dla urządzenia replikacji.
 
 > [!NOTE]
 > Urządzenia replikacji nie należy instalować na maszynie źródłowej, która ma zostać zreplikowana lub na urządzeniu odnajdywania Azure Migrate i ocenie, które zainstalowano wcześniej.
@@ -287,7 +287,7 @@ Po rozpoczęciu replikacji różnicowej można przeprowadzić migrację testową
 Wykonaj migrację testową w następujący sposób:
 
 
-1. W obszarze serwery **celów migracji**  >  **Servers**  >  **Azure Migrate: Migracja serwera**, kliknij przycisk **Testuj zmigrowane serwery**.
+1. W obszarze serwery **celów migracji**  >    >  **Azure Migrate: Migracja serwera**, kliknij przycisk **Testuj zmigrowane serwery**.
 
      ![Serwery z przeprowadzoną migracją testową](./media/tutorial-migrate-physical-virtual-machines/test-migrated-servers.png)
 
@@ -307,7 +307,7 @@ Wykonaj migrację testową w następujący sposób:
 
 Po zweryfikowaniu, że migracja testowa działa zgodnie z oczekiwaniami, można przeprowadzić migrację maszyn lokalnych.
 
-1. W Azure Migrate serwery > Project **Servers**  >  **Azure Migrate: Migracja serwera**, kliknij przycisk **replikowanie serwerów**.
+1. W Azure Migrate serwery > Project   >  **Azure Migrate: Migracja serwera**, kliknij przycisk **replikowanie serwerów**.
 
     ![Replikowanie serwerów](./media/tutorial-migrate-physical-virtual-machines/replicate-servers.png)
 

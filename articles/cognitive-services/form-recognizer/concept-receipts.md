@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 769dea079339af2c6307d9230e047a654dc3d5dd
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 82f6c5989149b50a1ef5e6c6fb5350d474476436
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95492214"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845472"
 ---
 # <a name="receipt-concepts"></a>Pojęcia dotyczące rachunków
 
@@ -456,12 +456,11 @@ Dane wyjściowe paragonu są również przydatne do ogólnego utrzymywania się 
 
 Paragony zawierają przydatne dane, których można użyć do analizowania zachowań klientów i trendów zakupów.
 
-Interfejs API paragonów zapewnia również [funkcję przetwarzania AIBuilder](/ai-builder/prebuilt-receipt-processing).
+Interfejs API paragonu zapewnia również [funkcję przetwarzania paragonów programu AI Builder](/ai-builder/prebuilt-receipt-processing).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Wykonaj kroki z [przewodnikiem Szybki Start dla biblioteki klienta aparatu rozpoznawania](quickstarts/client-library.md) , aby rozpocząć pisanie aplikacji do przetwarzania paragonów za pomocą aparatu rozpoznawania formularzy w wybranym języku.
-- Lub postępuj zgodnie z [przewodnikiem Szybki start interfejsu API usługi Paragon](./quickstarts/python-receipts.md) , aby rozpoznawać potwierdzenia przy użyciu interfejsu API REST.
+- Ukończ [Przewodnik Szybki Start dla aparatu rozpoznawania formularzy](quickstarts/client-library.md) , aby rozpocząć pisanie aplikacji do przetwarzania dokumentów z użyciem aparatu rozpoznawania formularzy w wybranym języku.
 
 ## <a name="see-also"></a>Zobacz także
 

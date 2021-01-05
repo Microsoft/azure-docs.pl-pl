@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/31/2020
 ms.author: robreed
-ms.openlocfilehash: 8d11ff6eaab8ed6a13c3c2aa1b712cc57e7825ea
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: aa95d6792f2f5754a237c7bf5e90a11e2e011ede
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94960975"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861780"
 ---
 # <a name="custom-script-extension-for-windows"></a>Rozszerzenie niestandardowego skryptu dla systemu Windows
 
@@ -61,7 +61,7 @@ Jeśli skrypt znajduje się na serwerze lokalnym, może być konieczne otwarcie 
 * Dozwolony czas uruchamiania skryptu wynosi 90 minut — każdy dłuższy czas spowoduje niepowodzenie aprowizacji rozszerzenia.
 * Nie umieszczaj operacji ponownego uruchamiania wewnątrz skryptu; ta akcja spowoduje problemy z innymi instalowanymi rozszerzeniami. Po ponownym uruchomieniu rozszerzenie nie będzie kontynuować pracy, gdy zostanie uruchomione jeszcze raz.
 * Jeśli masz skrypt, który spowoduje ponowne uruchomienie komputera, zainstaluj aplikacje i Uruchom skrypty, możesz zaplanować ponowne uruchomienie przy użyciu zaplanowanego zadania systemu Windows lub użyć narzędzi takich jak DSC, Chef lub Puppet.
-* Nie zaleca się uruchamiania skryptu, który spowoduje zatrzymanie lub aktualizację agenta maszyny wirtualnej. Może to pozwolić na rozszerzenie stanu przejścia, co prowadzi do przekroczenia limitu czasu.
+* Nie zaleca się uruchamiania skryptu, który spowoduje zatrzymanie lub aktualizację agenta maszyny wirtualnej. Może to opuścić rozszerzenie w stanie przejścia, co prowadzi do przekroczenia limitu czasu.
 * Rozszerzenie uruchomi skrypt tylko raz. Jeśli chcesz uruchomić skrypt przy każdym rozruchu, musisz użyć rozszerzenia w celu utworzenia zaplanowanego zadania systemu Windows.
 * Jeśli chcesz zaplanować czas uruchomienia skryptu, użyj rozszerzenia w celu utworzenia zaplanowanego zadania systemu Windows.
 * W trakcie działania skryptu będziesz widzieć tylko stan „przechodzenie” z witryny Azure Portal lub interfejsu wiersza polecenia. Jeśli potrzebujesz częstszych aktualizacji stanu działającego skryptu, musisz utworzyć własne rozwiązanie.
@@ -125,7 +125,7 @@ Te elementy powinny być traktowane jako dane poufne i określone w konfiguracji
 
 | Nazwa | Wartość/przykład | Typ danych |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | data |
+| apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Compute | ciąg |
 | typ | CustomScriptExtension | ciąg |
 | typeHandlerVersion | 1.10 | int |
@@ -283,7 +283,7 @@ Jeśli używasz polecenia [Invoke-WebRequest](/powershell/module/microsoft.power
 ```error
 The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
 ```
-## <a name="virtual-machine-scale-sets"></a>Zestawy skali maszyn wirtualnych
+## <a name="virtual-machine-scale-sets"></a>Usługa Virtual Machine Scale Sets
 
 Aby wdrożyć rozszerzenie niestandardowego skryptu na zestawie skalowania, zobacz [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension?view=azps-3.3.0)
 
@@ -345,7 +345,7 @@ gdzie `<n>` jest dziesiętną liczbą całkowitą, która może ulec zmianie mi�
 
 Po wykonaniu `commandToExecute` polecenia rozszerzenie ustawia ten katalog (na przykład `...\Downloads\2` ) jako bieżący katalog roboczy. Ten proces umożliwia lokalizowanie plików pobranych za pośrednictwem właściwości przy użyciu ścieżek względnych `fileURIs` . Przykłady można znaleźć w poniższej tabeli.
 
-Ze względu na to, że absolutna ścieżka pobierania może się różnić w miarę upływu czasu, lepiej jest wybrać względne ścieżki skryptów/plików w `commandToExecute` ciągu, jeśli jest to możliwe. Przykład:
+Ze względu na to, że absolutna ścieżka pobierania może się różnić w miarę upływu czasu, lepiej jest wybrać względne ścieżki skryptów/plików w `commandToExecute` ciągu, jeśli jest to możliwe. Na przykład:
 
 ```json
 "commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""

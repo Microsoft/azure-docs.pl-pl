@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: cshoe
-ms.openlocfilehash: e3bad12362358620d0f2dc105bb2820dfb691d00
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 673852f8f9aa81c838a7c1db68681bb9ee0b7e0b
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92000215"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862021"
 ---
 # <a name="tutorial-publish-a-jekyll-site-to-azure-static-web-apps-preview"></a>Samouczek: publikowanie witryny Jekyll w wersji zapoznawczej usługi Azure static Web Apps
 
@@ -98,15 +98,15 @@ Poniższe kroki pokazują, jak utworzyć nową aplikację ze statyczną lokacją
 
 1. Kliknij pozycję **Utwórz**.
 
-1. W obszarze **subskrypcja**Zaakceptuj subskrypcję wymienioną na liście lub wybierz nową z listy rozwijanej.
+1. W obszarze **subskrypcja** Zaakceptuj subskrypcję wymienioną na liście lub wybierz nową z listy rozwijanej.
 
-1. W obszarze _Grupa zasobów_wybierz pozycję **Nowy**. W polu _Nazwa nowej grupy zasobów_wprowadź **Jekyll-static-App** , a następnie wybierz **przycisk OK**.
+1. W obszarze _Grupa zasobów_ wybierz pozycję **Nowy**. W polu _Nazwa nowej grupy zasobów_ wprowadź **Jekyll-static-App** , a następnie wybierz **przycisk OK**.
 
 1. Następnie podaj nazwę aplikacji w polu _Nazwa_ . Prawidłowe znaki to `a-z` , `A-Z` `0-9` i `-` .
 
-1. W _obszarze region_wybierz dostępny region blisko siebie.
+1. W _obszarze region_ wybierz dostępny region blisko siebie.
 
-1. W obszarze _jednostka SKU_wybierz pozycję **bezpłatnie**.
+1. W obszarze _jednostka SKU_ wybierz pozycję **bezpłatnie**.
 
     :::image type="content" source="./media/publish-jekyll/basic-app-details.png" alt-text="Szczegóły wypełnione":::
 
@@ -118,7 +118,7 @@ Poniższe kroki pokazują, jak utworzyć nową aplikację ze statyczną lokacją
 
 1. Dla _gałęzi_ wybierz gałąź **główna**.
 
-    :::image type="content" source="./media/publish-jekyll/completed-github-info.png" alt-text="Szczegóły wypełnione":::
+    :::image type="content" source="./media/publish-jekyll/completed-github-info.png" alt-text="Zakończono informacje z serwisu GitHub":::
 
 ### <a name="build"></a>Kompilacja
 
@@ -150,7 +150,7 @@ Następnie Dodaj ustawienia konfiguracji, które są używane przez proces kompi
 
     ```yml
     - name: Set up Ruby
-      uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
+      uses: ruby/setup-ruby@v1.59.1
       with:
         ruby-version: 2.6
     - name: Install dependencies
@@ -171,7 +171,7 @@ Następnie Dodaj ustawienia konfiguracji, które są używane przez proces kompi
 
 1. W oknie _przegląd_ Azure Portal kliknij link _adresu URL_ , aby otworzyć wdrożoną aplikację.
 
-   :::image type="content" source="./media/publish-jekyll/deployed-app.png" alt-text="Szczegóły wypełnione":::
+   :::image type="content" source="./media/publish-jekyll/deployed-app.png" alt-text="Wdrożona aplikacja":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

@@ -1,15 +1,15 @@
 ---
 title: Przegląd infrastruktury BareMetal na platformie Azure
-description: Omówienie sposobu wdrażania infrastruktury BareMetal na platformie Azure.
+description: Omówienie infrastruktury BareMetal na platformie Azure.
 ms.custom: references_regions
 ms.topic: conceptual
-ms.date: 12/31/2020
-ms.openlocfilehash: db974d9260344d1f6050235bb2a9fbaa0420659b
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.date: 1/4/2021
+ms.openlocfilehash: eb4dc129719dc410f7101598e3d72e68f17809c1
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97829268"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97860987"
 ---
 #  <a name="what-is-baremetal-infrastructure-preview-on-azure"></a>Co to jest BareMetal Infrastructure w wersji zapoznawczej na platformie Azure?
 
@@ -25,7 +25,7 @@ Infrastruktura BareMetal dla obciążeń wyspecjalizowanych i ogólnego przeznac
 - South Central US
 
 >[!NOTE]
->**Rev 4,2** to najnowsza BareMetal infrastruktura, która używa istniejącej architektury rev 4.  Rev 4 zapewnia bliższą bliskość hostom maszyn wirtualnych platformy Azure i obniża opóźnienie między maszynami wirtualnymi platformy Azure i jednostkami wystąpień BareMetal. Możesz uzyskać dostęp do wystąpień BareMetal i zarządzać nimi za pomocą Azure Portal. 
+>**Rev 4,2** to najnowsza BareMetal infrastruktura z wykorzystaniem istniejącej architektury rev 4.  Rev 4 zapewnia bliższą bliskość hostom maszyn wirtualnych platformy Azure. W przypadku opóźnień sieci między maszynami wirtualnymi platformy Azure i jednostkami wystąpienia BareMetal wdrożonymi w znacznikach lub wierszach z 4.  Możesz uzyskać dostęp do wystąpień BareMetal i zarządzać nimi za pomocą Azure Portal. 
 
 ## <a name="support"></a>Pomoc techniczna
 Infrastruktura BareMetal jest zgodna z normami ISO 27001, ISO 27017, SOC 1 i SOC 2.  Używa ona również modelu "BYOL" (przyjęcie): systemu operacyjnego, wyspecjalizowanego obciążenia i aplikacji innych firm.  
@@ -35,13 +35,13 @@ Po otrzymaniu dostępu głównego i pełnej kontroli przyjmujesz odpowiedzialno�
 - Licencjonowanie, zabezpieczenia i pomoc techniczna dla systemów operacyjnych i oprogramowania innych firm
 
 Firma Microsoft jest odpowiedzialna za:
-- Zapewnianie certyfikowanego sprzętu dla wyspecjalizowanych obciążeń 
+- Udostępnianie sprzętu dla wyspecjalizowanych obciążeń 
 - Inicjowanie obsługi systemu operacyjnego
 
 :::image type="content" source="media/baremetal-support-model.png" alt-text="Model obsługi infrastruktury BareMetal" border="false":::
 
 ## <a name="compute"></a>Wystąpienia obliczeniowe
-Infrastruktura BareMetal oferuje wiele jednostek SKU certyfikowanych dla wyspecjalizowanych obciążeń. Dostępne jednostki SKU są dostępne w zakresie od mniejszego systemu dwugniazdowego do systemu 24-gniazdowego. Używaj certyfikowanych jednostek SKU z certyfikatem dla wyspecjalizowanego obciążenia.
+Infrastruktura BareMetal oferuje wiele jednostek SKU dla wyspecjalizowanych obciążeń. Dostępne jednostki SKU są dostępne w zakresie od mniejszego systemu dwugniazdowego do systemu 24-gniazdowego. Użyj jednostek SKU specyficznych dla obciążenia dla wyspecjalizowanego obciążenia.
 
 Sama sygnatura wystąpienia BareMetal łączy następujące składniki:
 
@@ -72,10 +72,10 @@ Dostępne wersje systemu operacyjnego Linux to:
    - SLES 15 SP1
 
 ## <a name="storage"></a>Magazyn
-Wystąpienia BareMetal oparte na konkretnym typie jednostki SKU są dostarczane ze wstępnie zdefiniowanym magazynem systemu plików NFS na podstawie określonego typu obciążenia. Po udostępnieniu BareMetal można zarezerwować dodatkowy magazyn na podstawie szacowanego wzrostu przez przesłanie żądania pomocy technicznej. Wszystkie magazyny są dostarczane z dyskiem flash z poprawkami 4,2 z obsługą NFSv3 i NFSv4. Zostanie udostępniona nowsza wersja 4,5 interfejsu SSD. Aby uzyskać więcej informacji na temat określania rozmiarów magazynu, zobacz sekcję [Typ obciążenia BareMetal](../../../virtual-machines/workloads/sap/get-started.md) .
+Wystąpienia BareMetal oparte na konkretnym typie jednostki SKU są dostępne ze wstępnie zdefiniowanym magazynem NFS dla określonego typu obciążenia. Po udostępnieniu BareMetal można udostępnić więcej przestrzeni dyskowej na podstawie szacowanego wzrostu przez przesłanie żądania pomocy technicznej. Wszystkie magazyny są dostarczane z dyskiem flash z poprawkami 4,2 z obsługą NFSv3 i NFSv4. Zostanie udostępniona nowsza wersja 4,5 interfejsu SSD. Aby uzyskać więcej informacji na temat określania rozmiarów magazynu, zobacz sekcję [Typ obciążenia BareMetal](../../../virtual-machines/workloads/sap/get-started.md) .
 
 >[!NOTE]
->Magazyn używany na potrzeby BareMetal spełnia wymagania dotyczące zabezpieczeń standardu FIPS 140-2, które domyślnie oferują szyfrowanie. Dane są bezpiecznie przechowywane na dyskach.
+>Magazyn używany do BareMetal jest zgodny z wymaganiami dotyczącymi [publikacji FIPS (Federal Information Processing Standard) 140-2](/microsoft-365/compliance/offering-fips-140-2) . Dane są bezpiecznie przechowywane na dyskach.
 
 ## <a name="networking"></a>Networking
 Architektura usług sieciowych platformy Azure to kluczowy składnik dla pomyślnego wdrożenia wyspecjalizowanych obciążeń w wystąpieniach BareMetal. Prawdopodobnie nie wszystkie systemy IT znajdują się już na platformie Azure. Platforma Azure oferuje technologię sieciową, dzięki której platforma Azure będzie wyglądać jak wirtualne centrum danych do lokalnych wdrożeń oprogramowania. Funkcje sieci platformy Azure wymagane przez wystąpienia BareMetal są następujące:
@@ -91,10 +91,10 @@ Wystąpienia BareMetal są obsługiwane w zakresie adresów IP serwera sieci wir
 :::image type="content" source="media/baremetal-infrastructure-portal/baremetal-infrastructure-diagram.png" alt-text="Diagram infrastruktury usługi Azure BareMetal" lightbox="media/baremetal-infrastructure-portal/baremetal-infrastructure-diagram.png" border="false":::
 
 Pokazana architektura jest podzielona na trzy sekcje:
-- Z **lewej:** Pokazuje infrastrukturę lokalną klienta, która uruchamia różne aplikacje, łącząc się za pomocą partnera lub lokalnego routera brzegowego, takiego jak Equinix. Aby uzyskać więcej informacji, zobacz temat [dostawcy i lokalizacje połączeń: Azure ExpressRoute](../../../expressroute/expressroute-locations.md).
-- **Wyśrodkuj:** Pokazuje [ExpressRoute](../../../expressroute/expressroute-introduction.md) zainicjowany przy użyciu subskrypcji platformy Azure, która oferuje łączność z usługą Azure Edge Network.
-- **Prawo:** Pokazuje usługę Azure IaaS, a w tym przypadku używa maszyn wirtualnych do hostowania aplikacji, które są obsługiwane w ramach sieci wirtualnej platformy Azure.
-- **Dół:** Pokazuje korzystanie z bramy ExpressRoute z włączoną obsługą [ExpressRoute FastPath](../../../expressroute/about-fastpath.md) dla łączności BareMetal oferującej małe opóźnienia.   
+- **Po lewej:** pokazuje lokalną infrastrukturę klienta, która uruchamia różne aplikacje, łącząc się za pomocą partnera lub lokalnego routera brzegowego, takiego jak Equinix. Aby uzyskać więcej informacji, zobacz temat [dostawcy i lokalizacje połączeń: Azure ExpressRoute](../../../expressroute/expressroute-locations.md).
+- **Wyśrodkuj:** pokazuje [ExpressRoute](../../../expressroute/expressroute-introduction.md) zainicjowany przy użyciu subskrypcji platformy Azure, która oferuje łączność z usługą Azure Edge Network.
+- **Prawo:** pokazuje usługę Azure IaaS, a w tym przypadku używa maszyn wirtualnych do hostowania aplikacji, które są obsługiwane w ramach sieci wirtualnej platformy Azure.
+- **U dołu:** pokazuje, że za pomocą bramy ExpressRoute włączono usługę [ExpressRoute FastPath](../../../expressroute/about-fastpath.md) dla łączności BareMetal z małymi opóźnieniami.   
    >[!TIP]
    >W celu zapewnienia obsługi tej bramy ExpressRoute powinna być UltraPerformance.  Aby uzyskać więcej informacji, zobacz [Informacje o bramach sieci wirtualnej ExpressRoute](../../../expressroute/expressroute-about-virtual-network-gateways.md).
 

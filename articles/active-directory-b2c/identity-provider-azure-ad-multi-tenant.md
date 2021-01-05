@@ -8,34 +8,35 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/04/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 71e3bf429c7b8d3f4f8fe205c05b0701732fdef9
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: c9ac92f836e1d0c1210bb16b5c1d6e232fd5c22e
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653813"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858471"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurowanie logowania do Azure Active Directory z wieloma dzierżawcami przy użyciu zasad niestandardowych w programie Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-::: zone pivot="b2c-custom-policy"
+::: zone pivot="b2c-user-flow"
 
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-limited-to-custom-policy.md)]
 
 ::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+W tym artykule opisano sposób włączania logowania dla użytkowników przy użyciu wielodostępnego punktu końcowego dla Azure Active Directory (Azure AD). Dzięki temu użytkownicy z wielu dzierżawców usługi Azure AD mogą logować się przy użyciu Azure AD B2C, bez konieczności konfigurowania dostawcy tożsamości dla każdej dzierżawy. Jednak członkowie gościa w żadnej z tych dzierżawców **nie będą** mogli się zalogować. W tym celu należy [indywidualnie skonfigurować każdą dzierżawę](identity-provider-azure-ad-single-tenant.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
-
-W tym artykule opisano sposób włączania logowania dla użytkowników przy użyciu wielodostępnego punktu końcowego dla Azure Active Directory (Azure AD). Dzięki temu użytkownicy z wielu dzierżawców usługi Azure AD mogą logować się przy użyciu Azure AD B2C, bez konieczności konfigurowania dostawcy tożsamości dla każdej dzierżawy. Jednak członkowie gościa w żadnej z tych dzierżawców **nie będą** mogli się zalogować. W tym celu należy [indywidualnie skonfigurować każdą dzierżawę](identity-provider-azure-ad-single-tenant.md).
-
 
 ## <a name="register-an-application"></a>Rejestrowanie aplikacji
 
@@ -71,41 +72,6 @@ Jeśli chcesz uzyskać `family_name` `given_name` oświadczenia i usługi Azure 
 1. W polu **Typ tokenu** wybierz pozycję **Identyfikator**.
 1. Wybierz opcjonalne oświadczenia do dodania, `family_name` a następnie `given_name` .
 1. Kliknij pozycję **Dodaj**.
-
-::: zone pivot="b2c-user-flow"
-
-## <a name="configure-azure-ad-as-an-identity-provider"></a>Konfigurowanie usługi Azure AD jako dostawcy tożsamości
-
-1. Upewnij się, że używasz katalogu, który zawiera Azure AD B2C dzierżawcy. W górnym menu wybierz pozycję **katalog i subskrypcja** , a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
-1. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
-1. Wybierz pozycję **dostawcy tożsamości**, a następnie wybierz pozycję **Nowy dostawca połączenia OpenID Connect**.
-1. Wprowadź **nazwę**. Na przykład wprowadź nazwę *contoso Azure AD*.
-1. W polu **adres URL metadanych** wprowadź następujący adres URL zastępujący `{tenant}` nazwą domeny dzierżawy usługi Azure AD:
-
-    ```
-    https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
-    ```
-
-    Na przykład `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`.
-    Na przykład `https://login.microsoftonline.com/contoso.com/v2.0/.well-known/openid-configuration`.
-
-1. W polu **Identyfikator klienta** wprowadź wcześniej zarejestrowany identyfikator aplikacji.
-1. W polu **klucz tajny klienta** wprowadź wcześniej zarejestrowany klucz tajny klienta.
-1. Dla **zakresu**, wprowadź `openid profile` .
-1. Pozostaw wartości domyślne dla **typu odpowiedzi**, **trybu odpowiedzi** i **wskazówki domeny**.
-1. W obszarze **Mapowanie oświadczeń dostawcy tożsamości** wybierz następujące oświadczenia:
-
-    - **Identyfikator użytkownika**: *OID*
-    - **Nazwa wyświetlana**: *Nazwa*
-    - **Imię:** *given_name*
-    - **Nazwisko**: *family_name*
-    - **Adres e-mail**: *preferred_username*
-
-1. Wybierz pozycję **Zapisz**.
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
 
 ## <a name="create-a-policy-key"></a>Tworzenie klucza zasad
 
@@ -243,24 +209,6 @@ Teraz, gdy masz już przycisk, musisz połączyć go z akcją. W tym przypadku a
     Zaktualizuj wartość **TechnicalProfileReferenceId** na **Identyfikator** utworzonego wcześniej profilu technicznego. Na przykład `Common-AAD`.
 
 3. Zapisz plik *TrustFrameworkExtensions.xml* i przekaż go ponownie w celu weryfikacji.
-
-::: zone-end
-
-::: zone pivot="b2c-user-flow"
-
-## <a name="add-azure-ad-identity-provider-to-a-user-flow"></a>Dodawanie dostawcy tożsamości usługi Azure AD do przepływu użytkownika 
-
-1. W dzierżawie Azure AD B2C wybierz pozycję **przepływy użytkownika**.
-1. Kliknij przepływ użytkownika, który ma być dostawcą tożsamości usługi Azure AD.
-1. W obszarze **dostawcy tożsamości społecznościowej** wybierz pozycję **contoso Azure AD**.
-1. Wybierz pozycję **Zapisz**.
-1. Aby przetestować zasady, wybierz pozycję **Uruchom przepływ użytkownika**.
-1. W przypadku **aplikacji** wybierz aplikację sieci Web o nazwie *testapp1* , która została wcześniej zarejestrowana. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
-1. Kliknij pozycję **Uruchom przepływ użytkownika**
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
 
 ## <a name="update-and-test-the-relying-party-file"></a>Aktualizowanie i testowanie pliku jednostki uzależnionej
 

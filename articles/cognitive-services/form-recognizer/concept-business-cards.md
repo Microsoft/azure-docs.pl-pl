@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 76e19c36f0fa4096966c5dd23d2384b6b30f2271
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: ed57c496443c9d1541bfa9933e7718213da116d7
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95498864"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845608"
 ---
 # <a name="business-card-concepts"></a>Pojęcia dotyczące wizytówek
 
@@ -374,7 +374,7 @@ Zobacz następujący przykład pomyślnej odpowiedzi JSON: węzeł "readResults"
 }
 ```
 
-Postępuj zgodnie z przewodnikiem Szybki Start dotyczący [wyodrębniania](./QuickStarts/python-business-cards.md) danych z kart służbowych przy użyciu języka Python i interfejsu API REST.
+Postępuj zgodnie z przewodnikiem [Szybki Start, aby](./QuickStarts/client-library.md) zaimplementować wyodrębnianie danych z kart służbowych przy użyciu języka Python i interfejsu API REST.
 
 ## <a name="customer-scenarios"></a>Scenariusze klientów  
 
@@ -385,11 +385,11 @@ Dane wyodrębnione za pomocą interfejsu API kart służbowych mogą służyć d
 * Śledź potencjalne wyniki sprzedaży.  
 * Pobieraj zbiorczo informacje kontaktowe z istniejących obrazów kart służbowych. 
 
-Interfejs API kart służbowych zapewnia również [funkcję przetwarzania karty biznesowej AIBuilder](/ai-builder/prebuilt-business-card).
+Interfejs API kart służbowych zapewnia również [funkcję przetwarzania karty biznesowej programu AI Builder](/ai-builder/prebuilt-business-card).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Postępuj zgodnie z [przewodnikiem Szybki Start dotyczący kart służbowych](./quickstarts/python-business-cards.md) w języku Python, aby rozpocząć rozpoznawanie kart służbowych.
+- Postępuj zgodnie z [przewodnikiem Szybki Start](./quickstarts/client-library.md) , aby rozpocząć rozpoznawanie kart służbowych.
 
 ## <a name="see-also"></a>Zobacz także
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: 96c0242414c67d97fc324977b1259f63c27c3a26
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: e8d0afab14d02ffe16db535f173456b55ab53d69
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696816"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97860925"
 ---
 # <a name="what-is-azure-load-balancer"></a>Co to jest usługa Azure Load Balancer?
 
@@ -66,7 +66,7 @@ Kluczowe scenariusze, które można wykonać za pomocą usługa Load Balancer w 
 
 ### <a name="secure-by-default"></a><a name="securebydefault"></a>Zabezpieczenie domyślne
 
-Usługa Load Balancer w warstwie Standardowa jest oparty na modelu zabezpieczeń sieci o zerowym zaufaniu. Usługa Load Balancer w warstwie Standardowa domyślnie zabezpieczone i jest częścią sieci wirtualnej. Sieć wirtualna jest siecią prywatną i izolowaną.  Oznacza to, że standardowe usługi równoważenia obciążenia i standardowe publiczne adresy IP są zamykane dla przepływów przychodzących, chyba że są otwierane przez sieciowe grupy zabezpieczeń. Sieciowych grup zabezpieczeń są używane do jawnego zezwalania na dozwolony ruch.  Jeśli nie masz sieciowej grupy zabezpieczeń w podsieci lub karcie sieciowej zasobu maszyny wirtualnej, ruch nie może nawiązać połączenia z tym zasobem. Aby dowiedzieć się więcej o sieciowych grup zabezpieczeń i sposobach ich stosowania w danym scenariuszu, zobacz [sieciowe grupy zabezpieczeń](../virtual-network/network-security-groups-overview.md).
+Usługa Load Balancer w warstwie Standardowa jest oparty na modelu zabezpieczeń sieci o zerowym zaufaniu. Usługa Load Balancer w warstwie Standardowa jest zabezpieczony domyślnie i częścią sieci wirtualnej. Sieć wirtualna jest siecią prywatną i izolowaną.  Oznacza to, że standardowe usługi równoważenia obciążenia i standardowe publiczne adresy IP są zamykane dla przepływów przychodzących, chyba że są otwierane przez sieciowe grupy zabezpieczeń. Sieciowych grup zabezpieczeń są używane do jawnego zezwalania na dozwolony ruch.  Jeśli nie masz sieciowej grupy zabezpieczeń w podsieci lub karcie sieciowej zasobu maszyny wirtualnej, ruch nie może nawiązać połączenia z tym zasobem. Aby dowiedzieć się więcej o sieciowych grup zabezpieczeń i sposobach ich stosowania w danym scenariuszu, zobacz [sieciowe grupy zabezpieczeń](../virtual-network/network-security-groups-overview.md).
 Podstawowa Load Balancer jest domyślnie otwarta w Internecie. Ponadto Load Balancer nie przechowuje danych klienta.
 
 ## <a name="pricing-and-sla"></a>Cennik i Umowa SLA

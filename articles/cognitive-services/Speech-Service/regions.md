@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.custom: seodec18
-ms.openlocfilehash: 7b872340c50c800ebe4d4d6c7ca56b3b327bf162
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.custom: seodec18,references_regions
+ms.openlocfilehash: f11ccafd58cc64e6186ef590bbbccbfab3335ea4
+ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95972655"
+ms.lasthandoff: 01/03/2021
+ms.locfileid: "97854863"
 ---
 # <a name="speech-service-supported-regions"></a>Obsługiwane regiony usługi Speech
 
@@ -44,6 +44,8 @@ Usługa Speech jest dostępna w tych regionach na potrzeby **rozpoznawania mowy*
 
 Jeśli używasz [zestawu Speech SDK](speech-sdk.md), regiony są określane przez **Identyfikator regionu** (na przykład jako parametr do `SpeechConfig.FromSubscription` ). Upewnij się, że region jest zgodny z regionem subskrypcji.
 
+Jeśli planujesz uczenie modelu niestandardowego z danymi audio, użyj jednego z [regionów z dedykowanym sprzętem](custom-speech-overview.md#set-up-your-azure-account) do szybszego szkolenia. Możesz użyć [interfejsu API REST](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) , aby skopiować w pełni przeszkolony model do innego regionu później.
+
 ### <a name="intent-recognition"></a>Rozpoznawanie intencji
 
 Dostępne regiony do **rozpoznawania intencji** za pośrednictwem zestawu Speech SDK są następujące:
@@ -61,23 +63,27 @@ Dostępne regiony do **rozpoznawania intencji** za pośrednictwem zestawu Speech
 | Ameryka Północna | Zachodnio-środkowe stany USA  | `westcentralus`      |
 | Ameryka Północna | Zachodnie stany USA          | `westus`             |
 | Ameryka Północna | Zachodnie stany USA 2        | `westus2`            |
-| Ameryka Południowa | Brazil South     | `brazilsouth`        |
+| Ameryka Południowa | Brazylia Południowa     | `brazilsouth`        |
 
 Jest to podzestaw regionów publikowania obsługiwanych przez [usługę Language Understanding (Luis)](../luis/luis-reference-regions.md).
 
 ### <a name="voice-assistants"></a>Asystenci głosowi
 
-[Zestaw Speech SDK](speech-sdk.md) obsługuje funkcje **asystenta głosowego** w następujących regionach:
+[Zestaw Speech SDK](speech-sdk.md) obsługuje funkcje **asystenta głosowego** za pośrednictwem [bezpośredniej linii mowy](https://docs.microsoft.com/azure/cognitive-services/speech-service/direct-line-speech) w następujących regionach:
 
-| Region (Region)         | Identyfikator regionu |
-| -------------- | -------------------- |
-| Zachodnie stany USA        | `westus`             |
-| Zachodnie stany USA 2      | `westus2`            |
-| East US        | `eastus`             |
-| Wschodnie stany USA 2      | `eastus2`            |
-| West Europe    | `westeurope`         |
-| Europa Północna   | `northeurope`        |
-| Azja Południowo-Wschodnia | `southeastasia`      |
+| Region globalny | Region (Region)           | Identyfikator regionu    |
+| ------------- | ---------------- | -------------------- |
+| Ameryka Północna | Zachodnie stany USA          | `westus`             |
+| Ameryka Północna | Zachodnie stany USA 2        | `westus2`            |
+| Ameryka Północna | East US          | `eastus`             |
+| Ameryka Północna | Wschodnie stany USA 2        | `eastus2`            |
+| Ameryka Północna | Zachodnio-środkowe stany USA  | `westcentralus`      |
+| Ameryka Północna | South Central US | `southcentralus`     |
+| Europa        | West Europe      | `westeurope`         |
+| Europa        | Europa Północna     | `northeurope`        |
+| Azja          | Azja Wschodnia        | `eastasia`           |
+| Azja          | Southeast Asia   | `southeastasia`      |
+| Indie         | Indie Środkowe    | `centralindia`       |
 
 ### <a name="speaker-recognition"></a>Rozpoznawanie osoby mówiącej
 

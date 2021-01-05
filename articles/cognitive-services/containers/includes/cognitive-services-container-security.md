@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 11/11/2020
+ms.date: 12/17/2020
 ms.author: aahi
-ms.openlocfilehash: bb9b0da609169288521d21ee6d5e412a786c7549
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 4b106ebc5606c4e5a290e12728d4e2011e80f6a2
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94573898"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861808"
 ---
 ## <a name="azure-cognitive-services-container-security"></a>Zabezpieczenia kontenera Cognitive Services platformy Azure
 
@@ -44,7 +44,7 @@ Host powinien zezwalać na listę **portów 443** i następujących domen:
 
 #### <a name="disable-deep-packet-inspection"></a>Wyłącz dokładną inspekcję pakietów
 
-> [Głębokie Inspekcja pakietów](https://en.wikipedia.org/wiki/Deep_packet_inspection) (dpi) to typ przetwarzania danych, który sprawdza szczegółowo dane wysyłane przez sieć komputerową i zazwyczaj wykonuje akcję przez zablokowanie, ponowne kierowanie lub zarejestrowanie odpowiednio.
+[Głębokie Inspekcja pakietów](https://en.wikipedia.org/wiki/Deep_packet_inspection) (dpi) to typ przetwarzania danych, który sprawdza szczegółowo dane wysyłane przez sieć komputerową i zazwyczaj wykonuje akcję przez zablokowanie, ponowne kierowanie lub zarejestrowanie odpowiednio.
 
 Wyłącz wartość DPI w bezpiecznych kanałach, które kontenery Cognitive Services tworzyć na serwerach firmy Microsoft. Niewykonanie tej czynności uniemożliwi poprawne działanie kontenera.
 

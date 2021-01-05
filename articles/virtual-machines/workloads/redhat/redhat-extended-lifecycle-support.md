@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: mathapli
 ms.reviewer: cynthn
-ms.openlocfilehash: 1f31cc982e5e7f92cfe7e8adf588dd96628f2c6f
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: fd36d365eb02819352bc14caf9d8e258a8663c70
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95744045"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861386"
 ---
 # <a name="red-hat-enterprise-linux-rhel-extended-lifecycle-support"></a>Red Hat Enterprise Linux (RHEL) rozszerzona obsługa cyklu życia
 Ten artykuł zawiera informacje o rozszerzonej obsłudze cyklu życia obrazów systemu Red Hat Enterprise:
@@ -38,6 +38,12 @@ Począwszy od 30 listopada 2020, Red Hat Enterprise Linux 6 zostanie osiągnięt
 
 #### <a name="what-is-the-additional-charge-for-using-red-hat-enterprise-linux-extended-life-cycle-support-els-add-on"></a>Jaka jest dodatkowa opłata za korzystanie z usługi Red Hat Enterprise Linux dodatkowym obsłudze cyklu życia (ELS)?
 Koszty związane z rozszerzoną obsługą cyklu życia można znaleźć za pomocą [formularza Els](https://aka.ms/els-form)
+
+#### <a name="ive-deployed-a-vm-by-using-custom-image-how-can-i-add-extended-lifecycle-support-to-this-vm"></a>Maszyna wirtualna została wdrożona przy użyciu obrazu niestandardowego. Jak dodać rozszerzoną obsługę cyklu życia do tej maszyny wirtualnej?
+Musisz bezpośrednio kontaktować się z firmą Red Hat i uzyskać pomoc techniczną bezpośrednio z nich.
+
+#### <a name="ive-deployed-a-vm-by-using-custom-image-can-i-convert-this-vm-to-a-payg-vm"></a>Maszyna wirtualna została wdrożona przy użyciu obrazu niestandardowego. Czy mogę przekonwertować tę maszynę wirtualną na maszynę wirtualną PAYG?
+Nie. Konwersja nie jest obecnie obsługiwana na platformie Azure.
 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -172,12 +172,12 @@
           href: how-to-migrate.md
         - name: Przygotowanie maszyn do migracji
           href: prepare-for-migration.md
+        - name: Przygotowywanie serwerów z systemem Windows 2003 do migracji
+          href: prepare-windows-server-2003-migration.md
         - name: Migrowanie maszyn wirtualnych VMware
           items:
             - name: Migrowanie maszyn wirtualnych programu VMware do szyfrowanych maszyn wirtualnych platformy Azure
               href: how-to-migrate-vmware-vms-with-cmk-disks.md
-            - name: Przygotowywanie serwerów z systemem Windows 2003 do migracji
-              href: prepare-windows-server-2003-migration.md
         - name: Skalowanie migracji
           items:
             - name: Automatyzowanie migracji dużej liczby maszyn wirtualnych

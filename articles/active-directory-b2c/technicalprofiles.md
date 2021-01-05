@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 99ed7d3ad81202ab6fe67bf52888bbdbf0b28d2a
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: b7bd04790c7ac124afe3e9b503803f27118ae959
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387092"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861874"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -52,7 +52,7 @@ Wszystkie typy profilów technicznych mają takie same koncepcje. Wysyłasz ośw
 ![Diagram ilustrujący przepływ profilu technicznego](./media/technical-profiles/technical-profile-flow.png)
 
 1. **Zarządzanie sesjami logowania** jednokrotnego — przywraca stan sesji profilu technicznego przy użyciu funkcji [zarządzania sesjami logowania jednokrotnego](custom-policy-reference-sso.md).
-1. **Przekształcanie oświadczeń wejściowych** — przed rozpoczęciem pracy z profilem technicznym Azure AD B2C uruchamia dane wejściowe [przekształcenie oświadczeń]. (claimstransformations.md).
+1. **Przekształcanie oświadczeń wejściowych** — przed rozpoczęciem pracy z profilem technicznym Azure AD B2C uruchamia [transformację oświadczeń](claimstransformations.md)wejściowych.
 1. **Oświadczenia wejściowe** — oświadczenia są pobierane z zbioru oświadczeń, który jest używany w profilu technicznym.
 1. **Wykonywanie profilu technicznego** — profil techniczny wymienia oświadczenia ze skonfigurowaną stroną. Na przykład:
     - Przekieruj użytkownika do dostawcy tożsamości, aby zakończyć logowanie. Po pomyślnym zalogowaniu użytkownik wraca do tyłu, a wykonywanie profilu technicznego będzie kontynuowane.

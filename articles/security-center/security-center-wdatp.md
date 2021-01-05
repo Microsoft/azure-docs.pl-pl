@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 5645a2e0449a1929421f9444bf645f08ad0525e9
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 10fa47a8f613218b1331259040be77df867ade95
+ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296815"
+ms.lasthandoff: 01/03/2021
+ms.locfileid: "97854846"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Ochrona punktów końcowych za pomocą zintegrowanego rozwiązania EDR Security Center: Microsoft Defender for Endpoint
 
@@ -42,10 +42,10 @@ Microsoft Defender for Endpoint to całościowe, dostarczone w chmurze rozwiąza
 |---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Stan wydania:                  | Ogólnie dostępna (GA)                                                                                                                                                                                                                                                                                      |
 | Wpisaną                        | Wymaga [usługi Azure Defender dla serwerów](security-center-pricing.md)                                                                                                                                                                                                                                             |
-| Obsługiwane platformy:            | ![Tak](./media/icons/yes-icon.png) Maszyny platformy Azure z systemem Windows<br>![Tak](./media/icons/yes-icon.png) Komputery z systemem Windows w usłudze Azure Arc|
-| Obsługiwane wersje systemu Windows:  | Usługa Defender for Endpoint jest wbudowana w system Windows 10 1703 (i nowsze) i system Windows Server 2019.<br>Security Center obsługuje wykrywanie w systemach Windows Server 2016, 2012 R2 i 2008 R2 SP1.<br>Monitorowanie punktu końcowego serwera przy użyciu tej integracji zostało wyłączone dla klientów usługi Office 365 w zatoce. |
-| Wymagane role i uprawnienia: | Aby włączyć/wyłączyć integrację: **administrator zabezpieczeń** lub **właściciel**<br>Aby wyświetlić alerty MDATP w Security Center: **czytelnik zabezpieczeń**, **czytelnik**, **współautor grupy zasobów**, **właściciel grupy zasobów**, **administrator zabezpieczeń**, **właściciel subskrypcji** lub **współautor subskrypcji**                         |
-| Połączeń                         | ![Tak](./media/icons/yes-icon.png) Chmury komercyjne.<br>![Nie](./media/icons/no-icon.png) Klienci korzystający z usług w ramach usługi w chmurze w globalnych chmurach platformy Azure<br>![Tak](./media/icons/yes-icon.png) US Gov<br>![Nie](./media/icons/no-icon.png) Chiny gov, inne gov                                                        |
+| Obsługiwane platformy:            | Maszyny platformy Azure z systemem Windows<br>Komputery z systemem Windows w usłudze Azure Arc|
+| Obsługiwane wersje systemu Windows:  |  • Security Center obsługuje wykrywanie w systemach Windows Server 2016, 2012 R2 i 2008 R2 z dodatkiem SP1<br> • Monitorowanie punktu końcowego serwera przy użyciu tej integracji zostało wyłączone dla klientów z pakietem Office 365 w zatoce<br> • Brak obsługi systemu Windows Server 2019, Windows 10 1703 (i nowszego) lub Linux|
+| Wymagane role i uprawnienia: | Aby włączyć/wyłączyć integrację: **administrator zabezpieczeń** lub **właściciel**<br>Aby wyświetlić alerty MDATP w Security Center: **czytelnik zabezpieczeń**, **czytelnik**, **współautor grupy zasobów**, **właściciel grupy zasobów**, **administrator zabezpieczeń**, **właściciel subskrypcji** lub **współautor subskrypcji**|
+| Połączeń                         | ![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov<br>![Nie](./media/icons/no-icon.png) Chiny gov, inne gov<br>![Nie](./media/icons/no-icon.png) Klienci korzystający z usług w ramach usługi w chmurze w globalnych chmurach platformy Azure                                                        |
 |                                 |                                                                                                                                                                                                                                                                                                               |
 
 

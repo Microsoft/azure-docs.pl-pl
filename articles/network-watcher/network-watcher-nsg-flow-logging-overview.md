@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 79f442c5ab7db92e69f5396f3f9205212bdf4d4d
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: d6b916ce03c6850f78217f1aac0b63048a6aff3b
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97399251"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858505"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Wprowadzenie do rejestrowania przepływu dla sieciowych grup zabezpieczeń
 
@@ -353,6 +353,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 **Zagadnienia dotyczące konta magazynu**: 
 
 - Lokalizacja: używane konto magazynu musi znajdować się w tym samym regionie co sieciowej grupy zabezpieczeń.
+- Warstwa wydajności: obecnie obsługiwane są tylko konta magazynu w warstwie Standardowa.
 - Samozarządzanie rotacją kluczy: Jeśli zmienisz/przeniesiesz klucze dostępu do konta magazynu, dzienniki przepływu sieciowej grupy zabezpieczeń przestaną działać. Aby rozwiązać ten problem, należy wyłączyć i ponownie włączyć dzienniki przepływu sieciowej grupy zabezpieczeń.
 
 **Koszty rejestrowania** w usłudze Flow: w przypadku rejestrowania przepływu sieciowej grupy zabezpieczeń są naliczane opłaty za ilość generowanych dzienników. Duże natężenie ruchu może skutkować dużym woluminem dziennika przepływu i powiązanymi kosztami. Cennik dziennika przepływu sieciowej grupy zabezpieczeń nie obejmuje podstawowych kosztów magazynu. Korzystanie z funkcji zasad przechowywania z rejestrowaniem przepływu sieciowej grupy zabezpieczeń oznacza, że są to różne koszty magazynowania przez dłuższy czas. Jeśli nie jest wymagana funkcja zasad przechowywania, zalecamy ustawienie wartości 0. Aby uzyskać więcej informacji, zobacz [cennik Network Watcher](https://azure.microsoft.com/pricing/details/network-watcher/) i [Cennik usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/) , aby uzyskać dodatkowe informacje.
@@ -374,7 +375,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 **Włącz rejestrowanie przepływu sieciowej grupy zabezpieczeń na wszystkich sieciowych grup zabezpieczeńach dołączonych do zasobu**: rejestrowanie przepływu na platformie Azure jest konfigurowane na zasobie sieciowej grupy zabezpieczeń. Przepływ zostanie skojarzony tylko z jedną regułą sieciowej grupy zabezpieczeń. W scenariuszach, w których jest używany wiele sieciowych grup zabezpieczeń, zalecamy włączenie dzienników przepływów sieciowej grupy zabezpieczeń na wszystkich sieciowych grup zabezpieczeń zastosowanych w podsieci lub interfejsie sieciowym zasobu, aby upewnić się, że cały ruch jest rejestrowany. Aby uzyskać więcej informacji, zobacz [jak oceniany jest ruch](../virtual-network/network-security-group-how-it-works.md) w sieciowych grupach zabezpieczeń. 
 
 Kilka typowych scenariuszy:
-1. **Wiele sieciowej grupy zabezpieczeń na karcie sieciowej**: w przypadku podłączenia wielu sieciowych grup zabezpieczeń do karty sieciowej należy włączyć rejestrowanie przepływu dla wszystkich z nich
+1. **Wiele kart sieciowych na maszynie wirtualnej**: w przypadku połączenia wielu kart sieciowych z maszyną wirtualną należy włączyć rejestrowanie przepływu dla wszystkich z nich
 1. **Mając sieciowej grupy zabezpieczeń na poziomie karty sieciowej i podsieci**: w przypadku sieciowej grupy zabezpieczeń jest skonfigurowany na karcie sieciowej, a także poziomie podsieci, rejestrowanie przepływu musi być włączone zarówno w sieciowych grup zabezpieczeń. 
 
 **Inicjowanie obsługi administracyjnej magazynu**: zainicjowanie obsługi magazynu należy zamieścić z oczekiwanym woluminem dziennika przepływów.

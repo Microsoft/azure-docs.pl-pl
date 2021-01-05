@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 06/25/2020
 ms.author: osamaz
-ms.openlocfilehash: 4f513da4e7883cd273098039c9c4a4645d849f0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e13dc868512dba15c5b335c1774aaa540eef8157
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85516264"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861406"
 ---
 # <a name="azure-for-network-engineers"></a>Platforma Azure dla inżynierów sieci
 Jako konwencjonalny inżynier sieci korzystasz z zasobów fizycznych, takich jak routery, przełączniki, kable i zapory, aby utworzyć infrastrukturę. W warstwie logicznej skonfigurowano wirtualną sieć LAN (VLAN), łączenie protokołu drzewa (STP), protokoły routingu (RIP, OSPF, BGP). Zarządzasz siecią przy użyciu narzędzi do zarządzania i interfejsu wiersza polecenia. Sieci w chmurze różnią się, gdzie punkty końcowe sieci są logiczne, a korzystanie z protokołów routingu jest minimalne. Do konfigurowania zasobów i zarządzania nimi na platformie Azure można używać interfejsów API Azure Resource Manager, interfejsu wiersza polecenia platformy Azure i programu PowerShell. W chmurze rozpocznie się podróż do sieci, opisując podstawowe dzierżawy sieci platformy Azure. 
@@ -67,7 +67,7 @@ Gdy w tabeli routingu istnieją konkurencyjne wpisy, platforma Azure wybiera nas
 
 ## <a name="security"></a>Zabezpieczenia
 
-Można filtrować ruch sieciowy do i z zasobów w sieci wirtualnej przy użyciu sieciowych grup zabezpieczeń. W przypadku trzciny stosowane są również wirtualne urządzenia sieciowe (urządzenie WUS), takie jak Zapora platformy Azure lub zapory od innych dostawców. Można kontrolować sposób, w jaki platforma Azure kieruje ruchem z podsieci. Można także ograniczyć, kto w organizacji może współpracować z zasobami w sieciach wirtualnych.
+Można filtrować ruch sieciowy do i z zasobów w sieci wirtualnej przy użyciu sieciowych grup zabezpieczeń. Możesz również użyć wirtualnych urządzeń sieciowych (urządzenie WUS), takich jak Zapora platformy Azure lub zapory od innych dostawców. Można kontrolować sposób, w jaki platforma Azure kieruje ruchem z podsieci. Można także ograniczyć, kto w organizacji może współpracować z zasobami w sieciach wirtualnych.
 
 Sieciowa grupa zabezpieczeń zawiera listę reguł listy kontroli dostępu (ACL), które blokują lub zezwalają na ruch sieciowy do podsieci i/lub kart sieciowych. Sieciowe grupy zabezpieczeń można kojarzyć z podsieciami lub poszczególnymi kartami sieciowymi połączonymi z podsiecią. Gdy sieciowa grupa zabezpieczeń jest skojarzona z podsiecią, reguły listy ACL dotyczą wszystkich maszyn wirtualnych w tej podsieci. Ponadto ruch do poszczególnych kart sieciowych można ograniczyć przez skojarzenie sieciowej grupy zabezpieczeń bezpośrednio z kartą sieciową.
 

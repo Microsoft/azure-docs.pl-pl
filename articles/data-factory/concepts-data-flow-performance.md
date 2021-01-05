@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 11/24/2020
-ms.openlocfilehash: cc06f12317f5e30721452e07bd4dc5f50dfdb7ec
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 12/18/2020
+ms.openlocfilehash: d23b2f65f25b704beaee12c53e47706653dcc208
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022364"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858590"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Przewodnik dotyczący wydajności i dostrajania przepływu danych
 
@@ -169,7 +169,7 @@ Możesz czytać z Azure SQL Database przy użyciu tabeli lub zapytania SQL. Jeś
 
 ### <a name="azure-synapse-analytics-sources"></a>Źródła analiz usługi Azure Synapse
 
-W przypadku korzystania z usługi Azure Synapse Analytics w opcjach źródła istnieje ustawienie o nazwie **Włącz przemieszczanie** . Pozwala to na odczytywanie ADF z Synapse przy użyciu ```Polybase``` , co znacznie zwiększa wydajność odczytu. Włączenie ```Polybase``` wymaga określenia Azure Data Lake Storage usługi Azure Blob Storage lub lokalizacji tymczasowej Gen2 w ustawieniach działania przepływu danych.
+W przypadku korzystania z usługi Azure Synapse Analytics w opcjach źródła istnieje ustawienie o nazwie **Włącz przemieszczanie** . Pozwala to na odczytywanie ADF z Synapse przy użyciu ```Staging``` , co znacznie zwiększa wydajność odczytu. Włączenie ```Staging``` wymaga określenia Azure Data Lake Storage usługi Azure Blob Storage lub lokalizacji tymczasowej Gen2 w ustawieniach działania przepływu danych.
 
 ![Włączanie trybu przejściowego](media/data-flow/enable-staging.png "Włączanie trybu przejściowego")
 
@@ -216,9 +216,9 @@ Zaplanuj zmianę rozmiarów źródła i ujścia usługi Azure SQL DB oraz DW prz
 
 ### <a name="azure-synapse-analytics-sinks"></a>Ujścia usługi Azure Synapse Analytics
 
-Podczas zapisywania do usługi Azure Synapse Analytics upewnij się, że właściwość **enable Staging** ma wartość true. Dzięki temu ADF można napisać przy użyciu [bazy](/sql/relational-databases/polybase/polybase-guide) danych, która efektywnie ładuje dane zbiorczo. W przypadku korzystania z bazy danych należy odwoływać się do Azure Data Lake Storage Gen2 lub konta Blob Storage platformy Azure.
+Podczas zapisywania do usługi Azure Synapse Analytics upewnij się, że właściwość **enable Staging** ma wartość true. Dzięki temu APD można napisać przy użyciu [polecenia COPY SQL](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) , które skutecznie ładuje dane. Aby przemieszczać dane podczas korzystania z przemieszczania, należy odwoływać się do Azure Data Lake Storage Gen2 lub konta Blob Storage platformy Azure.
 
-Podobnie jak w przypadku bazy wiedzy, te same najlepsze rozwiązania dotyczą usługi Azure Synapse Analytics jako Azure SQL Database.
+Oprócz przemieszczenia te same najlepsze rozwiązania dotyczą usługi Azure Synapse Analytics jako Azure SQL Database.
 
 ### <a name="file-based-sinks"></a>Ujścia oparte na plikach 
 
@@ -309,6 +309,14 @@ Uruchamianie zadań sekwencyjnych będzie prawdopodobnie trwać najdłużej, ale
 ### <a name="overloading-a-single-data-flow"></a>Przeciążanie pojedynczego przepływu danych
 
 Jeśli umieścisz całą logikę wewnątrz pojedynczego przepływu danych, moduł ADF wykona całe zadanie na jednym wystąpieniu platformy Spark. Chociaż może to spowodować obniżenie kosztów, nastąpi łączenie różnych przepływów logicznych i może być trudne do monitorowania i debugowania. Jeśli jeden składnik ulegnie awarii, wszystkie pozostałe części zadania również będą kończyć się niepowodzeniem. Zespół Azure Data Factory zaleca organizowanie przepływów danych przez niezależne przepływy logiki biznesowej. Jeśli przepływ danych jest zbyt duży, dzielenie go na osobne składniki ułatwia monitorowanie i debugowanie. Chociaż nie ma żadnych stałych limitów liczby transformacji w przepływie danych, zbyt wiele spowoduje, że zadanie będzie skomplikowane.
+
+### <a name="execute-sinks-in-parallel"></a>Uruchom ujścia równolegle
+
+Domyślne zachowanie ujścia przepływu danych polega na wykonaniu każdego ujścia sekwencyjnie, w sposób szeregowy i do niepowodzenia przepływu danych w przypadku wystąpienia błędu w ujścia. Ponadto wszystkie ujścia są ustawiane domyślnie do tej samej grupy, o ile nie przejdziesz do właściwości przepływu danych i ustawisz różne priorytety dla ujścia.
+
+Przepływy danych umożliwiają grupowanie zlewów w grupach z karty właściwości przepływu danych w projektancie interfejsu użytkownika. Można ustawić kolejność wykonywania ujścia, a także grupować ujścia przy użyciu tego samego numeru grupy. Aby ułatwić zarządzanie grupami, można zażądać uruchamiania APD w tej samej grupie, aby uruchamiała się równolegle.
+
+W działaniu przepływu danych przebiegu potoku w sekcji "właściwości ujścia" jest opcja włączenia równoległego ładowania obiektów sink. Po włączeniu funkcji "Uruchom równolegle" są narzucane dane przepływów zapisu w połączonych ujściach w tym samym czasie, a nie w sposób sekwencyjny. Aby można było użyć opcji Parallel, ujścia musi być zgrupowane razem i połączone z tym samym strumieniem za pośrednictwem nowej gałęzi lub podziału warunkowego.
 
 ## <a name="next-steps"></a>Następne kroki
 

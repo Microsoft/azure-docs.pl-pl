@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: 513d98ae274c668197b066c742119055248f37f9
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 661b0bbf1aa389dc76567d95ad917548255a1b35
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911719"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845597"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Tworzenie zestawu danych szkoleniowych dla modelu niestandardowego
 
@@ -72,11 +72,8 @@ Jeśli dodasz następującą zawartość do treści żądania, interfejs API bę
 
 Teraz, gdy wiesz już, jak utworzyć zestaw danych szkoleniowych, postępuj zgodnie z przewodnikiem Szybki Start, aby przeprowadzić uczenie niestandardowego modelu aparatu rozpoznawania formularzy i rozpocząć korzystanie z niego w formularzach.
 
-* [Uczenie modelu i wyodrębnianie danych formularza przy użyciu biblioteki klienckiej](./quickstarts/client-library.md)
-* [Uczenie modelu i wyodrębnianie danych formularza przy użyciu Zwinięciea](./quickstarts/curl-train-extract.md)
-* [Uczenie modelu i wyodrębnianie danych formularza przy użyciu interfejsu API REST i języka Python](./quickstarts/python-train-extract.md)
+* [Uczenie modelu i wyodrębnianie danych formularza przy użyciu biblioteki klienta lub interfejsu API REST](./quickstarts/client-library.md)
 * [Uczenie z etykietami przy użyciu narzędzia do etykietowania przykładowego](./quickstarts/label-tool.md)
-* [Trenowanie z użyciem etykiet za pomocą interfejsu API REST i języka Python](./quickstarts/python-labeled-data.md)
 
 ## <a name="see-also"></a>Zobacz także
 

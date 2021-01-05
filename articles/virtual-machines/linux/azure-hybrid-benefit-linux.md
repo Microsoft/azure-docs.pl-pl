@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: a153f832fdfc075cdde03241f7dae19faa2334ce
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: ba7081c877f3c3adae6e678280592c9445a95d1b
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631369"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858811"
 ---
 # <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Jak Korzyść użycia hybrydowego platformy Azure ma zastosowanie w przypadku maszyn wirtualnych z systemem Linux
 
@@ -39,7 +39,7 @@ Korzyść użycia hybrydowego platformy Azure jest dostępny dla wszystkich obra
 
 Wystąpienia zarezerwowane, dedykowane wystąpienia hosta platformy Azure i korzyści z używania hybrydowej bazy danych SQL nie kwalifikują się do Korzyść użycia hybrydowego platformy Azure, jeśli masz już korzyść z maszynami wirtualnymi z systemem Linux.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 ### <a name="red-hat-customers"></a>Klienci firmy Red Hat
 
@@ -172,7 +172,7 @@ Aby uzyskać więcej informacji na temat zgodności subskrypcji Red Hat, aktuali
 
 ### <a name="suse"></a>SUSE
 
-Aby móc używać Korzyść użycia hybrydowego platformy Azure dla maszyn wirtualnych SLES, musisz najpierw zarejestrować [program w chmurze publicznej firmy SUSE](https://www.suse.com/media/guide/suse_public_cloud_service_provider_program_overview.pdf). Po zakupieniu subskrypcji systemu SUSE należy zarejestrować maszyny wirtualne korzystające z tych subskrypcji do własnych źródeł aktualizacji. Użyj centrum klient SUSE, serwera narzędzia do zarządzania subskrypcjami lub Menedżera SUSE dla tej rejestracji.
+Aby użyć Korzyść użycia hybrydowego platformy Azure dla maszyn wirtualnych SLES i uzyskać informacje dotyczące przechodzenia z SLES PAYG do BYOS lub przechodzenia z SLES BYOS do PAYG, zobacz [SUSE Linux Enterprise i korzyść użycia hybrydowego platformy Azure](https://www.suse.com/c/suse-linux-enterprise-and-azure-hybrid-benefit/). 
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 *P: Czy można użyć typu licencji `RHEL_BYOS` z SLES obrazem lub odwrotnie?*
@@ -210,6 +210,10 @@ Odp.: nie. Wystąpienia zarezerwowane nie są obecnie w zakresie Korzyść użyc
 *P: Czy można używać Korzyść użycia hybrydowego platformy Azure na maszynie wirtualnej wdrożonej dla SQL Server na obrazach RHEL?*
 
 Odp.: nie. Nie ma planu obsługi tych maszyn wirtualnych.
+
+*P: Czy można użyć Korzyść użycia hybrydowego platformy Azure w mojej subskrypcji RHEL Virtual Data Center?*
+
+Odp.: nie. VDC nie jest obsługiwana na platformie Azure, łącznie z AHB.  
  
 
 ## <a name="common-problems"></a>Typowe problemy

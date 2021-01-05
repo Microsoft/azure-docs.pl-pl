@@ -3,12 +3,12 @@ title: Monitorowanie SQL Server baz danych na maszynie wirtualnej platformy Azur
 description: W tym artykule opisano sposób zarządzania i monitorowania SQL Server baz danych, które są uruchomione na maszynie wirtualnej platformy Azure.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: b0df22002521c8148cac1200e79aeb0ae5a60546
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e37e6fc211b34b7e427b66db374a705faafd25f9
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021507"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858742"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Zarządzanie kopiami zapasowymi baz danych programu SQL Server i ich monitorowanie
 
@@ -20,7 +20,7 @@ Jeśli kopie zapasowe baz danych SQL Server nie zostały jeszcze skonfigurowane,
 
 Azure Backup przedstawia wszystkie operacje zaplanowane i na żądanie w obszarze **zadania tworzenia kopii zapasowej** w portalu, z wyjątkiem zaplanowanych kopii zapasowych dzienników, ponieważ mogą one być bardzo częste. Zadania widoczne w tym portalu obejmują odnajdywanie i rejestrację bazy danych, konfigurację kopii zapasowej oraz operacje tworzenia kopii zapasowych i przywracania.
 
-![Portal zadań tworzenia kopii zapasowej](./media/backup-azure-sql-database/jobs-list.png)
+![Portal zadań tworzenia kopii zapasowej](./media/backup-azure-sql-database/sql-backup-jobs-list.png)
 
 Aby uzyskać szczegółowe informacje na temat scenariuszy monitorowania, przejdź do [obszaru monitorowanie w Azure Portal](backup-azure-monitoring-built-in-monitor.md) i [monitorowanie przy użyciu Azure monitor](backup-azure-monitoring-use-azuremonitor.md).  
 
@@ -36,13 +36,9 @@ Aby monitorować alerty kopii zapasowej bazy danych:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. Na pulpicie nawigacyjnym magazynu wybierz pozycję **alerty i zdarzenia**.
+2. Na pulpicie nawigacyjnym magazynu wybierz pozycję **alerty kopii zapasowych**.
 
-   ![Wybieranie pozycji Alerty i zdarzenia](./media/backup-azure-sql-database/vault-menu-alerts-events.png)
-
-3. W obszarze **alerty i zdarzenia** wybierz pozycję **alerty kopii zapasowych**.
-
-   ![Wybieranie pozycji Alerty kopii zapasowej](./media/backup-azure-sql-database/backup-alerts-dashboard.png)
+   ![Wybieranie pozycji Alerty kopii zapasowej](./media/backup-azure-sql-database/sql-backup-alerts-list.png)
 
 ## <a name="stop-protection-for-a-sql-server-database"></a>Zatrzymywanie ochrony bazy danych programu SQL Server
 
@@ -83,7 +79,7 @@ Aby zatrzymać ochronę bazy danych:
 >
 >Aby uzyskać więcej informacji na temat opcji Usuń dane, zobacz często zadawane pytania poniżej:
 >
->- [Czy po usunięciu bazy danych z wystąpienia z ochroną chronioną będą wykonywane kopie zapasowe?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
+>- [Co się stanie z kopiami zapasowymi, jeśli usunę bazę danych z wystąpienia z ochroną automatyczną?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
 >- [Czy w przypadku zatrzymania operacji tworzenia kopii zapasowej bazy danych z ochroną chronioną jej zachowaniem?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
 >
 >

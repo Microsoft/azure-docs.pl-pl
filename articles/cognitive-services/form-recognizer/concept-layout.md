@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 60ef490bbba4dca4f01b82967ad6ea8636e7bd4e
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: a63f910b3a939e33b8c71d8f22d15f6d610a12cc
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353701"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845568"
 ---
 # <a name="form-recognizer-layout-service"></a>Usługa układu aparatu rozpoznawania formularzy
 
@@ -89,10 +89,9 @@ Układ wyodrębnia także znaczniki wyboru z dokumentów. Wyodrębnione znacznik
 ## <a name="next-steps"></a>Następne kroki
 
 - Wypróbuj własną ekstrakcję układu przy użyciu [przykładowego interfejsu użytkownika aparatu rozpoznawania formularzy](https://fott-preview.azurewebsites.net/)
-- Aby rozpocząć wyodrębnianie układów w wybranym języku, wykonaj kroki [przewodnika Szybki Start dla biblioteki klienta aparatu rozpoznawania formularzy](quickstarts/client-library.md) .
-- Można też postępować zgodnie z przewodnikiem Szybki Start do wdrażania [danych układu przy](./QuickStarts/python-layout.md) użyciu języka Python i interfejsu API REST.
+- Ukończ [Przewodnik Szybki Start dla aparatu rozpoznawania](quickstarts/client-library.md) , aby rozpocząć wyodrębnianie układów w wybranym języku.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Co to jest rozpoznawanie formularzy?](./overview.md)
 * [Dokumentacja interfejsu API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeLayoutAsync)

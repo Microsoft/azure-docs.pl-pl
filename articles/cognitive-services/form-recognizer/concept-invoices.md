@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 9a3a6bd6489baea90ed4143b42a09e7d697bbc50
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 7acfa9c2ffdd4cdd62e965041cdc42dc44d469c5
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602448"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845585"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Wbudowany model faktury aparatu rozpoznawania formularzy
 
@@ -34,7 +34,7 @@ Aby wypróbować tę usługę, przejdź do narzędzia przykładowego interfejsu 
 > [!div class="nextstepaction"]
 > [Wypróbuj wbudowane modele](https://fott-preview.azurewebsites.net/)
 
-Potrzebna jest subskrypcja platformy Azure ([Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)) i Recognzier punkt końcowy [zasobu](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) oraz klucz do wypróbowania usługi faktury rozpoznawania formularzy. 
+Potrzebna jest subskrypcja platformy Azure ([Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)) i punkt końcowy [zasobu aparatu rozpoznawania formularzy](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) oraz klucz służący do wypróbowania usługi faktury dla aparatu rozpoznawania formularzy. 
 
 ![Przykład analizowanej faktury](./media/analyze-invoice.png)
 
@@ -80,8 +80,8 @@ Usługa Invoice wyodrębni pola tekstu, tabel i 26 pól faktury. Poniżej przeds
 | CustomerId | ciąg | Identyfikator odwołania dla klienta | IDENTYFIKATOR CID 12345 |  |
 | PurchaseOrder | ciąg | Numer referencyjny zamówienia zakupu | ZZ – 3333 | |  |
 | InvoiceId | ciąg | Identyfikator dla tej konkretnej faktury (często "numer faktury") | INV-100 | |  |
-| InvoiceDate | data | Data wystawienia faktury | 11/15/2019 | 
-| DueDate | data | Data płatności dla tej faktury przypada | 12/15/2019 | 2019-12-15 | 2019-11-15 |
+| InvoiceDate | date | Data wystawienia faktury | 11/15/2019 | 
+| DueDate | date | Data płatności dla tej faktury przypada | 12/15/2019 | 2019-12-15 | 2019-11-15 |
 | NazwaDostawcy | ciąg | Dostawca, który utworzył tę fakturę | CONTOSO LTD. | |
 | VendorAddress | ciąg | Adres korespondencyjny dla dostawcy | 123 456th St New York, NY, 10001 | |
 | VendorAddressRecipient | ciąg | Nazwa skojarzona z VendorAddress | Oddział firmy Contoso | |
@@ -99,16 +99,16 @@ Usługa Invoice wyodrębni pola tekstu, tabel i 26 pól faktury. Poniżej przeds
 | ServiceAddressRecipient | ciąg | Nazwa skojarzona z elementem serviceAddress | Usługi firmy Microsoft | |
 | RemittanceAddress | ciąg | Jawny przelew lub adres płatności dla klienta | 123 — Nowy Jork, NY, 10001 |  |
 | RemittanceAddressRecipient | ciąg | Nazwa skojarzona z RemittanceAddress | Rozliczenia firmy Contoso |  |
-| ServiceStartDate | data | Pierwszy dzień okresu usługi (na przykład okres usługi Billa narzędzia) | 14/10/2019 | 2019-10-14 |
-| Serviceenddate | data | Data końcowa okresu usługi (na przykład okres usługi Billa narzędzia) | 11/14/2019 | 2019-11-14 |
+| ServiceStartDate | date | Pierwszy dzień okresu usługi (na przykład okres usługi Billa narzędzia) | 14/10/2019 | 2019-10-14 |
+| Serviceenddate | date | Data końcowa okresu usługi (na przykład okres usługi Billa narzędzia) | 11/14/2019 | 2019-11-14 |
 | PreviousUnpaidBalance | liczba | Jawne wcześniej niepłatne saldo | $500,00 | 500 |
 
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Wypróbuj własne faktury i przykłady w [przykładowym interfejsie użytkownika aparatu rozpoznawania formularzy](https://fott-preview.azurewebsites.net/).
-- Wykonaj kroki z [przewodnikiem Szybki Start dla biblioteki klienta aparatu rozpoznawania](quickstarts/client-library.md) , aby rozpocząć pisanie aplikacji do przetwarzania faktur przy użyciu aparatu rozpoznawania formularzy w wybranym języku.
-- Lub postępuj zgodnie z przewodnikiem Szybki Start dla [danych faktury](./quickstarts/python-invoices.md) , aby zaimplementować wyodrębnianie danych z faktury za pomocą języka Python i interfejsu API REST.
+- Ukończ [Przewodnik Szybki Start dla aparatu rozpoznawania formularzy](quickstarts/client-library.md) , aby rozpocząć pisanie aplikacji do przetwarzania faktur za pomocą aparatu rozpoznawania formularzy w wybranym języku.
+
 ## <a name="see-also"></a>Zobacz także
 
 * [Co to jest rozpoznawanie formularzy?](./overview.md)

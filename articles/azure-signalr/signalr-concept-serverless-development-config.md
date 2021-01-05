@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: acb85a04b8a1ca491058702510079a36b93fc657
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3d69b72012819e3d9099e447b9048fe07aea86d3
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151048"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858709"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Programowanie i konfigurowanie w usłudze Azure Functions za pomocą usługi Azure SignalR Service
 
@@ -43,17 +43,17 @@ Użyj wyzwalanej przez protokół HTTP funkcji platformy Azure i powiązania dan
 
 [Model oparty na klasie](#class-based-model) w języku C# nie wymaga powiązania danych wejściowych *SignalRConnectionInfo* i może znacznie ułatwić Dodawanie niestandardowych oświadczeń. Zobacz [środowisko negocjacji w modelu opartym na klasie](#negotiate-experience-in-class-based-model)
 
-Aby uzyskać więcej informacji na temat tworzenia funkcji Negotiate, zobacz odwołanie do [powiązania danych wejściowych *SignalRConnectionInfo* ](../azure-functions/functions-bindings-signalr-service-input.md).
+Aby uzyskać więcej informacji na temat tworzenia funkcji Negotiate, zobacz odwołanie do [powiązania danych wejściowych *SignalRConnectionInfo*](../azure-functions/functions-bindings-signalr-service-input.md).
 
 Aby dowiedzieć się więcej o sposobie tworzenia uwierzytelnionego tokenu, zapoznaj się z tematem [Korzystanie z uwierzytelniania App Service](#using-app-service-authentication).
 
 ### <a name="handle-messages-sent-from-signalr-service"></a>Obsługa komunikatów wysyłanych z usługi sygnalizującego
 
-Użyj powiązania *wyzwalacza sygnalizującego* , aby obsłużyć komunikaty wysyłane z usługi sygnalizującej. Można wyzwalać, gdy klienci wysyłają lub odłączają wiadomości.
+Użyj powiązania *wyzwalacza sygnalizującego* , aby obsłużyć komunikaty wysyłane z usługi sygnalizującej. Można otrzymywać powiadomienia, gdy klienci wysyłają lub odłączają komunikaty.
 
-Aby uzyskać więcej informacji, zobacz [Informacje o powiązaniach *wyzwalacza sygnału* ](../azure-functions/functions-bindings-signalr-service-trigger.md).
+Aby uzyskać więcej informacji, zobacz [Informacje o powiązaniach *wyzwalacza sygnału*](../azure-functions/functions-bindings-signalr-service-trigger.md).
 
-Należy również skonfigurować punkt końcowy funkcji jako nadrzędny, aby usługa wyzwoli funkcję, w której zostanie wyświetlony komunikat od klienta. Aby uzyskać więcej informacji na temat konfigurowania nadrzędnego, zapoznaj się z tym [dokumentem](concept-upstream.md).
+Należy również skonfigurować punkt końcowy funkcji jako nadrzędny, aby usługa wyzwoli tę funkcję, gdy zostanie wyświetlony komunikat od klienta. Aby uzyskać więcej informacji na temat konfigurowania nadrzędnego, zapoznaj się z tym [dokumentem](concept-upstream.md).
 
 ### <a name="sending-messages-and-managing-group-membership"></a>Wysyłanie komunikatów i zarządzanie członkostwem w grupie
 
@@ -61,7 +61,7 @@ Użyj powiązania danych wyjściowych *sygnalizującego* , aby wysyłać komunik
 
 Użytkowników można dodawać do co najmniej jednej grupy. Można również użyć powiązania danych wyjściowych *sygnalizującego* , aby dodać lub usunąć użytkowników do/z grup.
 
-Aby uzyskać więcej informacji, zobacz [Informacje o powiązaniach wyjściowych *sygnalizującego* ](../azure-functions/functions-bindings-signalr-service-output.md).
+Aby uzyskać więcej informacji, zobacz [Informacje o powiązaniach wyjściowych *sygnalizującego*](../azure-functions/functions-bindings-signalr-service-output.md).
 
 ### <a name="signalr-hubs"></a>Centra sygnałów
 
@@ -111,7 +111,7 @@ Wszystkie funkcje, które chcą wykorzystać model oparty na klasie, muszą być
 
 ### <a name="define-hub-method"></a>Zdefiniuj metodę Hub
 
-Wszystkie metody centrum **muszą** mieć argument `InvocationContext` dekoracyjny według `[SignalRTrigger]` atrybutu i używać konstruktora bez parametrów. Następnie **Nazwa metody** jest traktowana jako **zdarzenie**parametru.
+Wszystkie metody centrum **muszą** mieć argument `InvocationContext` dekoracyjny według `[SignalRTrigger]` atrybutu i używać konstruktora bez parametrów. Następnie **Nazwa metody** jest traktowana jako **zdarzenie** parametru.
 
 Domyślnie, `category=messages` z wyjątkiem nazwy metody jest jedną z następujących nazw:
 

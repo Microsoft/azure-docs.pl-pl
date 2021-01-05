@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: aef332e54fa650e1abbebe671560238d7eb318de
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f2d55d1fcc92abdc629581d6e4d277ec0294dce0
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492050"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858692"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Rozwiązywanie problemów z Azure Files w systemie Windows (SMB)
 
@@ -406,6 +406,8 @@ Polecenie cmdlet wykonuje poniższe testy w sekwencji i zawiera wskazówki dotyc
 5. CheckSidHasAadUser: Sprawdź, czy zalogowany użytkownik usługi AD jest synchronizowany z usługą Azure AD. Jeśli chcesz sprawdzić, czy określony użytkownik usługi AD jest synchronizowany z usługą Azure AD, możesz określić parametry-UserName i-Domain w parametrach wejściowych. 
 6. CheckGetKerberosTicket: spróbuj uzyskać bilet protokołu Kerberos, aby nawiązać połączenie z kontem magazynu. Jeśli nie ma prawidłowego tokenu Kerberos, uruchom polecenie cmdlet Klist-CIFS/Storage-account-name. plik. Core. Windows. NET i Przeanalizuj kod błędu do katalogu głównego — spowoduje to niepowodzenie pobierania biletu.
 7. CheckStorageAccountDomainJoined: Sprawdź, czy uwierzytelnianie usługi AD zostało włączone i czy są wypełniane właściwości usługi AD konta. W przeciwnym razie zapoznaj się z instrukcją w [tym miejscu](./storage-files-identity-ad-ds-enable.md) , aby włączyć uwierzytelnianie AD DS w Azure Files. 
+8. CheckUserRbacAssignment: Sprawdź, czy użytkownik usługi AD ma odpowiednie przypisanie roli RBAC, aby zapewnić uprawnienia dostępu do Azure Files. W przeciwnym razie zapoznaj się z instrukcją w [tym miejscu](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-assign-permissions) , aby skonfigurować uprawnienie na poziomie udziału. (Obsługiwane w programie AzFilesHybrid v 0.2.3 + version)
+9. CheckUserFileAccess: Sprawdź, czy użytkownik usługi AD ma odpowiednie uprawnienie katalogu/pliku (listy ACL systemu Windows), aby uzyskać dostęp do Azure Files. W przeciwnym razie zapoznaj się z instrukcją w [tym miejscu](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-configure-permissions) , aby skonfigurować uprawnienie na poziomie katalogu/pliku. (Obsługiwane w programie AzFilesHybrid v 0.2.3 + version)
 
 ## <a name="unable-to-configure-directoryfile-level-permissions-windows-acls-with-windows-file-explorer"></a>Nie można skonfigurować uprawnień na poziomie katalogu/pliku (listy ACL systemu Windows) przy użyciu Eksploratora plików systemu Windows
 

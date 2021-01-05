@@ -3,12 +3,12 @@ title: Wzorce zadań replikacji zdarzeń — Azure Event Hubs | Microsoft Docs
 description: Ten artykuł zawiera szczegółowe wskazówki dotyczące implementowania określonych wzorców zadań replikacji zdarzeń
 ms.topic: article
 ms.date: 12/12/2020
-ms.openlocfilehash: 7702b1987faabfce8d97e7b5c9b18766df72caad
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 494de442b636d535fa1ed6fdeeeda28db9783952
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803990"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861380"
 ---
 # <a name="event-replication-tasks-patterns"></a>Wzorce zadań replikacji zdarzeń
 
@@ -20,7 +20,7 @@ W tym artykule szczegółowo przedstawiono wskazówki dotyczące implementacji k
 
 Wzorzec replikacji kopiuje zdarzenia z jednego centrum zdarzeń do następnego lub z centrum zdarzeń do innego miejsca docelowego, takiego jak Kolejka Service Bus. Zdarzenia są przekazywane bez wprowadzania jakichkolwiek modyfikacji ładunku zdarzenia.
 
-Implementacja tego wzorca jest objęta [replikacją zdarzeń między Event Hubs](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopy) i [replikacją zdarzeń między Event Hubs i Service Bus](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus) próbkami.
+Implementacja tego wzorca jest objęta [replikacją zdarzeń między Event Hubs](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopy) i [replikacją zdarzeń między Event Hubs i Service Bus](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus) przykładami, a następnie [Użyj Apache Kafka narzędzia MirrorMaker z Event Hubs](event-hubs-kafka-mirror-maker-tutorial.md) samouczkiem dotyczącym określonego przypadku replikowania danych z brokera Apache Kafka do Event Hubs.
 
 ### <a name="streams-and-order-preservation"></a>Strumienie i zachowywanie kolejności
 

@@ -3,12 +3,12 @@ title: Korzystanie z centrum zdarzeń w programie Apache Kafka App — Azure Eve
 description: Ten artykuł zawiera informacje na temat obsługi Apache Kafka przez usługę Azure Event Hubs.
 ms.topic: article
 ms.date: 09/25/2020
-ms.openlocfilehash: d9aa8af30d5ef5e1a985e4d73a9d4a8921ac7d45
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b0f0da76bba68f8a66695700d530e871cbd35e3c
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369594"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861347"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Korzystanie z Event Hubs platformy Azure z aplikacji Apache Kafka
 Event Hubs udostępnia punkt końcowy zgodny z interfejsami API Apache Kafka® producenta i konsumenta, które mogą być używane przez większość istniejących aplikacji klienckich Apache Kafka jako alternatywę dla uruchamiania własnego klastra Apache Kafka. Event Hubs obsługuje klientów Apache Kafka z klientami i klienta interfejsu API w wersji 1,0 lub nowszej.
@@ -118,9 +118,7 @@ Ta funkcja jest ogólnie dostępna w szanse z modelem wieloprotokołowym platfor
 
 ### <a name="log-compaction"></a>Kompaktowanie dziennika
 
-Kompaktowanie dzienników Apache Kafka to funkcja, która umożliwia wykluczenie wszystkich, ale ostatniego rekordu każdego klucza z partycji, co skutecznie włącza temat Apache Kafka w magazynie klucz-wartość, gdzie Ostatnia dodana wartość zastępuje poprzednią. Wzorzec magazynu klucz-wartość, nawet z częstymi aktualizacjami, jest znacznie lepiej obsługiwany przez usługi bazy danych, takie jak [Azure Cosmos DB](../cosmos-db/introduction.md).
-
-Funkcja kompaktowania dzienników jest używana przez struktury klienta Kafka Connect i Kafka.
+Kompaktowanie dzienników Apache Kafka to funkcja, która umożliwia wykluczenie wszystkich, ale ostatniego rekordu każdego klucza z partycji, co skutecznie włącza temat Apache Kafka w magazynie klucz-wartość, gdzie Ostatnia dodana wartość zastępuje poprzednią. Ta funkcja jest obecnie nieimplementowana przez usługę Azure Event Hubs. Wzorzec magazynu klucz-wartość, nawet z częstymi aktualizacjami, jest znacznie lepiej obsługiwany przez usługi bazy danych, takie jak [Azure Cosmos DB](../cosmos-db/introduction.md). Aby uzyskać więcej informacji, zapoznaj się z tematem [rzutowania dzienników](event-hubs-federation-overview.md#log-projections) w temacie Wskazówki dotyczące Federacji Event Hubs. 
 
 ### <a name="kafka-streams"></a>Kafka strumienie
 

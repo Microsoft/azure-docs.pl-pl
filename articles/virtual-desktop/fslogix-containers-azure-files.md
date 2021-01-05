@@ -3,15 +3,15 @@ title: Pliki kontenerów profilu FSLogix pulpitu wirtualnego systemu Windows —
 description: W tym artykule opisano kontenery profilu FSLogix w ramach usług pulpitu wirtualnego systemu Windows i usługi Azure Files.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 01/04/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e3bd667bc7fce8f9fb10b852cae7a6c4ad198d75
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: ef7f19d835f4fef1a911da01015321b2dda67682
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97797200"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861876"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Kontenery profili FSLogix i pliki platformy Azure
 
@@ -70,7 +70,7 @@ Klastry funkcji S2D wymagają systemu operacyjnego, który jest instalowany, akt
 19 listopada 2018 [firma Microsoft pozyskali FSLogix](https://blogs.microsoft.com/blog/2018/11/19/microsoft-acquires-fslogix-to-enhance-the-office-365-virtualization-experience/). FSLogix rozwiązuje wiele wyzwań dotyczących kontenera profilu. Klucz między nimi:
 
 - **Wydajność:** [Kontenery profilu FSLogix](/fslogix/configure-profile-container-tutorial/) są wysoce wydajne i rozwiązują problemy z wydajnością, które mają historycznie zablokowany tryb wymiany programu Exchange.
-- **Usługa OneDrive:** Bez kontenerów profilów FSLogix usługa OneDrive dla firm nie jest obsługiwana w środowiskach nietrwałych hosta usług pulpitu zdalnego lub infrastruktury VDI. [Najlepsze rozwiązania w zakresie usług OneDrive dla firm i FSLogix](/fslogix/overview/) opisują sposób ich działania. Aby uzyskać więcej informacji, zobacz [Korzystanie z klienta synchronizacji na pulpitach wirtualnych](/deployoffice/rds-onedrive-business-vdi/).
+- **Usługa OneDrive:** Bez kontenerów profilów FSLogix usługa OneDrive dla firm nie jest obsługiwana w środowiskach nietrwałych hosta usług pulpitu zdalnego lub infrastruktury VDI. Na [stronie pomocy technicznej usługi ONEDRIVE VDI](/onedrive/sync-vdi-support) znajdziesz informacje o sposobie ich działania. Aby uzyskać więcej informacji, zobacz [Korzystanie z klienta synchronizacji na pulpitach wirtualnych](/deployoffice/rds-onedrive-business-vdi/).
 - **Dodatkowe foldery:** FSLogix zapewnia możliwość rozbudowania profilów użytkowników w celu uwzględnienia dodatkowych folderów.
 
 Od momentu nabycia firma Microsoft rozpoczęła wymianę istniejących rozwiązań profilu użytkownika, takich jak UPD, z kontenerami profilu FSLogix.

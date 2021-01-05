@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9c50bd71f4e2e5bbe12518f5a5d1cd486af9723a
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 0f0f3b6ffcb7ee12a692470b922cf23a3f0f40f0
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509755"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858438"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -231,6 +231,7 @@ Gdy protokół to `SAML` , element metadanych zawiera następujące elementy.
 | KeyEncryptionMethod| Nie | Wskazuje metodę, za pomocą której Azure AD B2C szyfrować kopię klucza użytego do szyfrowania danych. Metadane sterują wartością  `<EncryptedKey>` elementu w odpowiedzi SAML. Możliwe wartości: ` Rsa15` (domyślnie) — algorytm szyfrowania RSA (Public Key Cryptography standard) (PKCS) w wersji 1,5 ` RsaOaep` . |
 | UseDetachedKeys | Nie |  Możliwe wartości: `true` , lub `false` (wartość domyślna). Gdy wartość jest ustawiona na `true` , Azure AD B2C zmienia format szyfrowanych zatwierdzeń. Użycie odłączonych kluczy powoduje dodanie zaszyfrowanego potwierdzenia jako elementu podrzędnego EncrytedAssertion, w przeciwieństwie do EncryptedData. |
 | WantsSignedResponses| Nie | Wskazuje, czy Azure AD B2C podpisać `Response` sekcję odpowiedzi SAML. Możliwe wartości: `true` (ustawienie domyślne) lub `false` .  |
+| RemoveMillisecondsFromDateTime| Nie | Wskazuje, czy millisconds zostanie usunięta z wartości daty/godziny w odpowiedzi SAML (dotyczy to m.in. IssueInstant, NotBefore, NotOnOrAfter i AuthnInstant). Możliwe wartości: `false` (ustawienie domyślne) lub `true` .  |
 
 ### <a name="outputclaims"></a>OutputClaims
 

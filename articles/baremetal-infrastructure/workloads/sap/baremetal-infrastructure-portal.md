@@ -2,20 +2,22 @@
 title: Jednostki wystąpień BareMetal na platformie Azure
 description: Dowiedz się, jak identyfikować jednostki wystąpień BareMetal i korzystać z nich za pomocą Azure Portal.
 ms.topic: how-to
-ms.date: 12/31/2020
-ms.openlocfilehash: 927baa79519781ef74920b17bc9fcd858f0f6c6f
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.date: 1/4/2021
+ms.openlocfilehash: 30e1661e82546dbaf6d8dc4288ad896df89f401e
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97829251"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861032"
 ---
 # <a name="manage-baremetal-instances-through-the-azure-portal"></a>Zarządzanie wystąpieniami BareMetal za pomocą witryny Azure Portal
  
 W tym artykule pokazano, jak [Azure Portal](https://portal.azure.com/) są wyświetlane [wystąpienia BareMetal](baremetal-overview-architecture.md). W tym artykule przedstawiono również czynności, które można wykonać w Azure Portal ze wdrożonymi jednostkami wystąpienia BareMetal. 
  
 ## <a name="register-the-resource-provider"></a>Rejestrowanie dostawcy zasobów
-Dostawca zasobów platformy Azure dla wystąpień BareMetal zapewnia widoczność wystąpień w Azure Portal, obecnie w publicznej wersji zapoznawczej. Domyślnie subskrypcja platformy Azure używana dla wdrożeń wystąpień BareMetal rejestruje dostawcę zasobów *BareMetalInfrastructure* . Jeśli nie widzisz wdrożonych jednostek wystąpienia usługi BareMetal, musisz zarejestrować dostawcę zasobów w ramach subskrypcji. Istnieją dwa sposoby rejestrowania dostawcy zasobów wystąpienia BareMetal:
+Dostawca zasobów platformy Azure dla wystąpień BareMetal zapewnia widoczność wystąpień w Azure Portal, obecnie w publicznej wersji zapoznawczej. Domyślnie subskrypcja platformy Azure używana dla wdrożeń wystąpień BareMetal rejestruje dostawcę zasobów *BareMetalInfrastructure* . Jeśli nie widzisz wdrożonych jednostek wystąpienia usługi BareMetal, musisz zarejestrować dostawcę zasobów w ramach subskrypcji. 
+
+Istnieją dwa sposoby rejestrowania dostawcy zasobów wystąpienia BareMetal:
  
 * [Interfejs wiersza polecenia platformy Azure](#azure-cli)
  
@@ -85,15 +87,15 @@ Atrybuty w obrazie różnią się od atrybutów maszyny wirtualnej platformy Azu
 Po prawej stronie zobaczysz nazwę jednostki, system operacyjny, adres IP i jednostkę SKU, która pokazuje liczbę wątków procesora CPU i pamięci. Zobaczysz również stan zasilacza i wersja sprzętowa (poprawka sygnatury wystąpienia BareMetal). Stan zasilania wskazuje, czy jednostka sprzętowa jest włączona, czy wyłączona. Jednak szczegóły systemu operacyjnego nie wskazują, czy jest on uruchomiony.
  
 Możliwe wersje sprzętu to:
+
+* Poprawka 3 (rev 3)
+
+* Poprawka 4 (rev 4)
  
-* Poprawka 3
- 
-* Wersja 4
- 
-* Poprawka 4,2
+* Poprawka 4,2 (rev 4,2)
  
 >[!NOTE]
->Poprawka 4,2 to najnowsza BareMetal infrastruktura z wykorzystaniem architektury poprawek 4. W przypadku opóźnień sieci między maszynami wirtualnymi platformy Azure i jednostkami wystąpienia BareMetal wdrożonymi w wystawce lub wierszach poprawki wystąpiły znaczne ulepszenia. Aby uzyskać więcej informacji na temat różnych poprawek, zobacz [infrastruktura BareMetal na platformie Azure](baremetal-overview-architecture.md).
+>Rev 4,2 to najnowsza BareMetal infrastruktura z wykorzystaniem istniejącej architektury rev 4. Rev 4 zapewnia bliższą bliskość hostom maszyn wirtualnych platformy Azure. W przypadku opóźnień sieci między maszynami wirtualnymi platformy Azure i jednostkami wystąpienia BareMetal wdrożonymi w znacznikach lub wierszach z 4. Możesz uzyskać dostęp do wystąpień BareMetal i zarządzać nimi za pomocą Azure Portal. Aby uzyskać więcej informacji, zobacz [infrastruktura BareMetal na platformie Azure](baremetal-overview-architecture.md).
  
 Ponadto po prawej stronie znajduje się nazwa [grupy umieszczania usługi Azure zbliżeniowe](../../../virtual-machines/linux/co-location.md) , która jest tworzona automatycznie dla każdej wdrożonej jednostki wystąpienia BareMetal. Odwołuje się do grupy położenia zbliżeniowe podczas wdrażania maszyn wirtualnych platformy Azure, które obsługują warstwę aplikacji. W przypadku korzystania z grupy umieszczania zbliżeniowe skojarzonej z jednostką wystąpienia BareMetal upewnij się, że maszyny wirtualne platformy Azure zostaną wdrożone blisko jednostki wystąpienia BareMetal.
  

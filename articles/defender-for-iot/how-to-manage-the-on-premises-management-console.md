@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 34efef4a01b58cc26fd1567336184837a703ade2
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 7bbac0d8593d47c3162a8ea43e928343a88f2de4
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97841997"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861434"
 ---
 # <a name="manage-the-on-premises-management-console"></a>Zarządzanie lokalną konsolą zarządzania
 
@@ -298,6 +298,26 @@ Aby zresetować hasło:
 
 > [!NOTE]
 > Czujnik jest połączony z subskrypcją, z którą został pierwotnie połączony. Hasło można odzyskać tylko przy użyciu tej samej subskrypcji, do której jest dołączona.
+
+## <a name="update-the-software-version"></a>Zaktualizuj wersję oprogramowania
+
+Poniższa procedura zawiera opis sposobu aktualizowania wersji oprogramowania lokalnej konsoli zarządzania. Proces aktualizacji trwa około 30 minut.
+
+1. Przejdź do witryny [Azure Portal](https://portal.azure.com/).
+
+1. Przejdź do usługi Defender for IoT.
+
+1. Przejdź do strony **aktualizacje** .
+
+1. Wybierz wersję z sekcji lokalna Konsola zarządzania.
+
+1. Wybierz pozycję **Pobierz** i Zapisz plik.
+
+1. Zaloguj się do lokalnej konsoli zarządzania i wybierz pozycję **Ustawienia systemowe** z menu po stronie.
+
+1. W okienku **Aktualizacja wersji** wybierz pozycję **Aktualizuj**.
+
+1. Wybierz plik pobrany ze strony **aktualizacje** usługi Defender for IoT.
 
 ## <a name="see-also"></a>Zobacz także
 

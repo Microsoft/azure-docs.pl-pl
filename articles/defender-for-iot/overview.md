@@ -1,63 +1,86 @@
 ---
 title: Omówienie usługi
-description: Dowiedz się więcej o usłudze Defender dla funkcji i usług IoT oraz poznać sposób, w jaki usługa Azure Defender dla IoT oferuje kompleksowe zabezpieczenia IoT.
+description: Dowiedz się więcej o usłudze Defender dla funkcji i usług IoT oraz zapoznaj się ze sposobem, w jaki usługa Defender for IoT oferuje kompleksowe zabezpieczenia IoT.
 services: defender-for-iot
-ms.service: defender-for-iot
+ms.service: azure
 documentationcenter: na
-author: rkarlin
+author: shhazam-ms
 manager: rkarlin
-editor: ''
+ms.author: shhazam
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/07/2020
-ms.author: rkarlin
-ms.openlocfilehash: 1d039208ba99ba11cb562f82301a5bb3c02c6603
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.date: 12/09/2020
+ms.openlocfilehash: 13f9e2271dd18121ba740c843e99fae86c76821d
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089999"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845411"
 ---
-# <a name="introducing-azure-defender-for-iot-preview"></a>Wprowadzenie do usługi Azure Defender for IoT Preview
+# <a name="welcome-to-azure-defender-for-iot"></a>Usługa Azure Defender dla IoT — Zapraszamy!
 
-> [!IMPORTANT]
-> Usługa Azure Defender for IoT jest obecnie w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Sieci technologii operacyjnych (OT) zużywają wiele najważniejszych aspektów naszego społeczeństwa. Jednak wiele z tych technologii nie została zaprojektowana z myślą o bezpieczeństwie i nie można jej chronić przy użyciu tradycyjnych kontroli bezpieczeństwa IT. Tymczasem Internet rzeczy (IoT) jest umożliwienie nowej Wave innowacji z rozliczeniami połączonych urządzeń, zwiększając obszar ataków i ryzyko.  
 
-W miarę jak przedsiębiorstwa implementują transformację cyfrową, aby zwiększyć wydajność i produktywność, zespoły tablic i zarządzania są coraz bardziej zainteresowani odpowiedzialnością i ryzykiem finansowym, które wynikają z wdrożenia dużej liczby urządzeń niezarządzanych Internet rzeczy (IoT) i technologii operacyjnych.
-Aktorzy zagrożeń ukierunkowane na tę rozwiniętą powierzchnię ataku mogą spowodować znaczny wpływ na firmę, w tym zdarzenia dotyczące bezpieczeństwa i środowiska, kosztowne przestoje produkcyjne i kradzież poufnej własności intelektualnej.
+Usługa Azure Defender for IoT to ujednolicone rozwiązanie w zakresie zabezpieczeń służące do identyfikowania zasobów i zagrożeń związanych z IoT. Dzięki temu można zabezpieczyć całe środowisko IoT/OT, niezależnie od tego, czy należy chronić istniejące urządzenia IoT/OT, czy też tworzyć zabezpieczenia w nowych innowacje IoT.  
 
-Starsze urządzenia IoT i OT nie obsługują agentów i są często niezgodne, niepoprawnie skonfigurowane i niewidoczne dla zespołów IT — czyniąc je niezależnym aktorom, które chcą przeszukiwać do sieci firmowej. 
+Usługa Azure Defender for IoT oferuje dwa zestawy funkcji spełniających potrzeby Twojego środowiska.
 
-Tradycyjne narzędzia do monitorowania zabezpieczeń sieci opracowane dla firmowych sieci IT nie mogą rozwiązać tych środowisk, ponieważ nie mają dogłębnej wiedzy na temat wyspecjalizowanych protokołów, urządzeń i zachowań typu "Machine-to-Machine" (M2M), które znajdują się w środowiskach IoT i OT.
+W przypadku organizacji użytkowników końcowych ze środowiskami IoT/OT usługa Azure Defender dla IoT oferuje bez wykorzystania agentów monitorowanie warstwy sieciowej:
 
-Usługa Azure Defender for IoT to kompleksowe rozwiązanie, które w sposób ciągły odnajduje, monitoruje i zarządza niektórymi zagrożeniami, ryzykiem i lukami w zabezpieczeniach na wszystkich urządzeniach IoT i niezarządzanych, bez względu na to, czy są to nowsze urządzenia zarządzane za pośrednictwem platformy Azure IoT Hub, czy starszych Usługa Azure Defender for IoT ułatwia przyspieszenie odpowiedzi na zdarzenia, zapewnia wgląd w wyzwania operacyjne i upraszcza ochronę obciążeń hybrydowych dzięki zapewnieniu ujednoliconych rzeczy i widoczności i kontroli.
+- Można szybko wdrożyć.
+- Łatwo integruje się z różnorodnymi urządzeniami przemysłowymi i narzędziami SOC.
+- Nie ma wpływu na wydajność lub stabilność sieci IoT/rzeczy. 
 
-To całościowe rozwiązanie dotyczy najważniejszych przypadków użycia, które obejmują:
-- Automatyczne odnajdowanie zasobów dla wszystkich urządzeń IoT i rzeczy
-- Ciągłe zarządzanie IoT i ryzyko i luki w zabezpieczeniach
-- Łowiectwo i reagowanie na zagrożenia
-- Wydajność operacyjna 
+Platformę można wdrożyć w pełni lokalnie lub w środowiskach z platformą Azure — połączonej i hybrydowej.  
 
-Usługa Azure Defender for IoT to ujednolicone rozwiązanie dla IoT i zabezpieczeń na wszystkich urządzeniach. Zapewnia ona narzędzia do tworzenia zabezpieczeń na nowych urządzeniach IoT i spoza urządzeń zarządzanych za pośrednictwem usługi Azure IoT Hub, a także możliwości monitorowania warstwy sieciowej bez agenta, które są potrzebne do ochrony niezarządzanych rzeczy i zasobów.
+W przypadku konstruktorów urządzeń IoT usługa Azure Defender for IoT oferuje także lekki a Micro Agent obsługujący standardowe systemy operacyjne IoT, takie jak Linux i RTO. Ten lekki Agent pomaga zapewnić, że zabezpieczenia są wbudowane w inicjatywy IoT/OT z brzegu do chmury. Zawiera kod źródłowy dla elastycznego, dostosowywalnego wdrożenia. 
 
-## <a name="unified-visibility-and-control"></a>Ujednolicona widoczność i kontrola
+## <a name="agentless-solution-for-organizations"></a>Rozwiązanie bez agenta dla organizacji 
 
-Uzyskaj ujednolicony widok zabezpieczeń we wszystkich obciążeniach lokalnych i w chmurze, w tym w rozwiązaniu Azure IoT. Dołączaj nowe urządzenia i stosuj zasady zabezpieczeń w ramach obciążeń (urządzeń typu liść, urządzeń Microsoft Edge, IoT Hub), aby zapewnić zgodność ze standardami zabezpieczeń i zwiększyć bezpieczeństwo stan.
+Starsze urządzenia IoT i OT nie obsługują agentów i są często niezgodne, niepoprawnie skonfigurowane i niewidoczne dla zespołów IT. Te klasy sprawiają, że są to nietrwałe cele dla uczestników zagrożeń, którzy chcą uzyskać dokładniejsze przestawianie do sieci firmowych. 
 
-## <a name="adaptive-threat-prevention"></a>Adaptacyjne zapobieganie zagrożeniom
+Tradycyjne narzędzia do monitorowania zabezpieczeń sieci opracowane dla firmowych sieci IT nie mogą zająć się tymi środowiskami, ponieważ nie mają dogłębnej wiedzy na temat wyspecjalizowanych protokołów, urządzeń i zachowań typu "Machine-to-Machine" (M2M), które znajdują się w środowiskach IoT i OT. 
 
-Usługa Defender for IoT służy do ciągłego monitorowania zabezpieczeń maszyn, sieci i usług platformy Azure. Wybieraj spośród setek wbudowanych ocen zabezpieczeń lub Utwórz własne na pulpicie nawigacyjnym centralnej usługi Defender dla IoT Hub. Zoptymalizuj ustawienia zabezpieczeń i popraw ocenę zabezpieczeń, korzystając z rekomendacji z możliwością podejmowania działań w ramach maszyn wirtualnych, sieci, aplikacji i danych. Dzięki nowo dodanym możliwościom usługi IoT możesz teraz zmniejszyć obszar ataków na rozwiązanie Azure IoT i skorygować problemy, zanim będą mogły zostać wykorzystane.
+Możliwości monitorowania bez agenta w usłudze Azure Defender dla IoT zapewniają widoczność i bezpieczeństwo tych sieci. Następnie można rozwiązać kluczowe zagadnienia dotyczące tych środowisk. 
 
-## <a name="intelligent-threat-detection-and-response"></a>Inteligentne wykrywanie zagrożeń i reagowanie na nie
+### <a name="automatic-device-discovery"></a>Automatyczne odnajdowanie urządzeń  
 
-Użyj zaawansowanej analizy i Microsoft Intelligent Security Graph, aby uzyskać krawędzie przed rozwijającym się atakami cybernetycznymi. Wbudowana analiza behawioralna i uczenie maszynowe identyfikują ataki i luki w zabezpieczeniach. Monitoruj rozwiązanie IoT pod kątem ataków przychodzących i działań po naruszeniu naruszeń. Usprawnij badanie i korygowanie urządzeń za pomocą interaktywnych narzędzi i kontekstowej analizy zagrożeń.
+Używaj pasywnego, bezagentowego monitorowania sieci, aby uzyskać pełny spis wszystkich zasobów IoT/OT, ich szczegóły i sposób komunikowania się z zerowym wpływem na sieć IoT/OT.  
 
-## <a name="next-steps"></a>Następne kroki
+### <a name="proactive-visibility-into-risk-and-vulnerabilities"></a>Proaktywne wgląd w ryzyko i luki w zabezpieczeniach
+ 
+Identyfikowanie zagrożeń i luk w zabezpieczeniach w środowisku IoT/OT. Można na przykład identyfikować urządzenia bez poprawek, otwierać porty, nieautoryzowane aplikacje i Nieautoryzowane połączenia. Możesz również identyfikować zmiany w konfiguracjach urządzeń, kodzie PLC i oprogramowaniu układowym. 
 
-W tym omówieniu przedstawiono informacje na temat funkcji i usług usługi Defender for IoT. Aby dowiedzieć się więcej o architekturze usługi Defender for IoT, wymaganiach wstępnych i dowiedzieć się, jak rozpocząć pracę, zobacz następujące artykuły:
+### <a name="iotot-threat-detection"></a>Wykrywania IoT/niezagrożeń  
 
-- [Będąc](architecture.md)
-- [Rozpoczęcie pracy](getting-started.md)
+Wykrywaj nietypowe lub nieautoryzowane działania z wyspecjalizowaną analizą zagrożeń IoT/nieświadomą i analizą behawioralną. Możesz nawet wykrywać zaawansowane zagrożenia nieodebrane przez IOCs statyczne, takie jak złośliwe oprogramowanie, złośliwe oprogramowanie, chroniące przed nim i żywe taktykę. 
+
+### <a name="unified-security-management-across-iotot"></a>Ujednolicone Zarządzanie zabezpieczeniami w IoT/rzeczy
+
+Zintegruj z platformą Azure wskaźnikiem, aby uzyskać wgląd w całą organizację. Wdrażaj ujednolicone Zarządzanie zabezpieczeniami IoT/OT dzięki integracji z istniejącymi przepływami pracy, w tym narzędziami innych firm, takimi jak Splunk, IBM QRadar i usługi ServiceNow. 
+
+## <a name="agent-based-solution-for-device-builders"></a>Rozwiązanie oparte na agencie dla konstruktorów urządzeń 
+
+Bezpieczeństwo jest niemal uniwersalnym zagadnieniem dla realizatorów IoT. Urządzenia IoT mają unikatowe potrzeby w zakresie monitorowania punktów końcowych, zarządzania stan zabezpieczeń i wykrywania zagrożeń — wszystko to w przypadku wysoce konkretnych wymagań dotyczących wydajności. 
+
+Agenci zabezpieczeń usługi Azure Defender dla IoT mogą tworzyć zabezpieczenia bezpośrednio na nowych urządzeniach IoT i projektach usługi Azure IoT. Micro agent ma elastyczne opcje wdrażania, w tym możliwość wdrażania jako pakiet binarny lub modyfikacji kodu źródłowego. I Micro Agent jest dostępny dla standardowych systemów operacyjnych IoT, takich jak Linux i Azure RTO.  
+
+Usługa Azure Defender dla programu IoT Micro zapewnia widoczność punktów końcowych w celu zarządzania Stanami zabezpieczeń, wykrywania zagrożeń i integracji z innymi narzędziami zabezpieczeń firmy Microsoft w celu zapewnienia ujednoliconego zarządzania zabezpieczeniami. 
+
+### <a name="security-posture-management"></a>Security stan Management
+
+Proaktywne monitorowanie stan zabezpieczeń urządzeń IoT. Usługa Azure Defender for IoT oferuje zalecenia dotyczące zabezpieczeń stan w oparciu o testy porównawcze CIS oraz Zalecenia dotyczące urządzeń. Uzyskaj wgląd w zabezpieczenia systemu operacyjnego, w tym konfigurację systemu operacyjnego, konfigurację zapory i uprawnienia. 
+
+### <a name="endpoint-iotot-threat-detection"></a>Wykrywanie w punkcie końcowym IoT/niezagrożeniu
+
+Wykrywaj zagrożenia, takie jak botnetami, próby odzyskania, wyszukiwarek używa tego kryptograficzne i podejrzaną aktywność sieciową. Twórz niestandardowe alerty, aby kierować się najważniejszymi zagrożeniami w unikatowej organizacji. 
+
+### <a name="flexible-distribution-and-deployment-models"></a>Elastyczne modele dystrybucji i wdrażania 
+
+Usługa Azure Defender dla programu IoT Micro Agent zawiera kod źródłowy, dlatego możesz dołączyć do oprogramowania układowego Micro agent lub dostosować go, aby zawierał tylko to, czego potrzebujesz. Jest ona również dostępna jako pakiet binarny lub zintegrowana bezpośrednio z innymi rozwiązaniami usługi Azure IoT. 
+
+## <a name="see-also"></a>Zobacz także
+
+[Architektura usługi Azure Defender for IoT](architecture.md)

@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 11/24/2020
-ms.openlocfilehash: 1c0ed7cf38cc01623169216ec45e88d198ede3d2
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.date: 01/03/2021
+ms.openlocfilehash: 3eff23a42a6ac5f5360bdebfcc692e13acb3e8b0
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095087"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858788"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Aktywność przepływu danych w Azure Data Factory
 
@@ -38,6 +38,8 @@ Użyj działania przepływu danych do przekształcania i przenoszenia danych za 
          "computeType": "General"
       },
       "traceLevel": "Fine",
+      "runConcurrently": true,
+      "continueOnError": true,      
       "staging": {
           "linkedService": {
               "referenceName": "MyStagingLinkedService",
@@ -95,6 +97,14 @@ Jeśli korzystasz z usługi Azure Synapse Analytics jako ujścia lub źródło, 
 Jeśli nie jest wymagane każde wykonanie potoku działań przepływu danych w celu pełnego rejestrowania wszystkich pełnych dzienników telemetrii, możesz opcjonalnie ustawić poziom rejestrowania na "podstawowa" lub "Brak". Podczas wykonywania przepływów danych w trybie "verbose" (ustawienie domyślne), żądanie ADF można w pełni rejestrować na poszczególnych poziomach partycji podczas przekształcania danych. Może to być kosztowna operacja, dzięki czemu można ją włączyć tylko wtedy, gdy Rozwiązywanie problemów może poprawić ogólny przepływ danych i wydajność potoku. Tryb "podstawowy" spowoduje rejestrowanie tylko czasów trwania transformacji, gdy wartość "Brak" spowoduje jedynie podsumowanie czasu trwania.
 
 ![Poziom rejestrowania](media/data-flow/logging.png "Ustaw poziom rejestrowania")
+
+## <a name="sink-properties"></a>Właściwości ujścia
+
+Funkcja grupowania w przepływach danych umożliwia zarówno Ustawianie kolejności wykonywania ujścia, jak i grupowanie obiektów ujścia przy użyciu tego samego numeru grupy. Aby ułatwić zarządzanie grupami, można zadawać ADF w celu uruchomienia ujścia, w tej samej grupie równolegle. Można również ustawić, aby grupa ujścia kontynuowała działanie nawet po napotkaniu błędu przez jeden z zlewów.
+
+Domyślne zachowanie ujścia przepływu danych polega na wykonaniu każdego ujścia sekwencyjnie, w sposób szeregowy i do niepowodzenia przepływu danych w przypadku wystąpienia błędu w ujścia. Ponadto wszystkie ujścia są ustawiane domyślnie do tej samej grupy, o ile nie przejdziesz do właściwości przepływu danych i ustawisz różne priorytety dla ujścia.
+
+![Właściwości ujścia](media/data-flow/sink-properties.png "Ustaw właściwości ujścia")
 
 ## <a name="parameterizing-data-flows"></a>Parametryzacja przepływy danych
 

@@ -3,18 +3,27 @@ title: Replikacja geograficzna — odzyskiwanie po awarii — Event Hubs platfor
 description: Jak używać regionów geograficznych do przełączania awaryjnego i wykonywania odzyskiwania po awarii na platformie Azure Event Hubs
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 6dd2385a6f6e61136a1284171532aedd70a9cc96
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: e10ac5847a38190c8feaae5e51f9b55bee4c4fbc
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608354"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861475"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs — odzyskiwanie geograficzne 
-W przypadku awarii całego regionu platformy Azure lub centrów danych (jeśli nie są używane [strefy dostępności](../availability-zones/az-overview.md) ) nie ma możliwości zapewnienia przestoju, ale ma to na celu kontynuowanie działania w innym regionie lub w centrum. W związku z tym *odzyskiwanie geograficzne* i *replikacja geograficzna* są ważnymi funkcjami dla każdego przedsiębiorstwa. Usługa Azure Event Hubs obsługuje zarówno odzyskiwanie geograficzne po awarii, jak i replikację geograficzną, na poziomie przestrzeni nazw. 
 
-> [!NOTE]
-> Funkcja odzyskiwania geograficznego po awarii jest dostępna tylko dla [standardowej i dedykowanej jednostki SKU](https://azure.microsoft.com/pricing/details/event-hubs/).  
+Odporność na katastrofalne przestoju zasobów przetwarzania danych jest wymagana dla wielu przedsiębiorstw, a w niektórych przypadkach jest wymagana przez regulacje branżowe. 
+
+Platforma Azure Event Hubs już rozłożyć ryzyko katastrofalnych awarii poszczególnych maszyn, a nawet kompletnych stojaków w klastrach obejmujących wiele domen awarii w centrum danych i implementuje przejrzyste mechanizmy wykrywania błędów i trybu failover w taki sposób, aby usługa kontynuowała działanie w ramach gwarantowanych poziomów usług i zwykle bez zauważalnych przerw w wystąpieniu takich niepowodzeń. Jeśli Event Hubs przestrzeń nazw została utworzona z opcją Enabled dla [stref dostępności](../availability-zones/az-overview.md), ryzyko wystąpienia awarii będzie jeszcze bardziej rozłożone na trzy fizycznie rozdzielone urządzenia, a usługa ma wystarczającą ilość rezerw, aby szybko sprostać całkowitej, krytycznej utracie całego obiektu. 
+
+Model klastra "All-Active" platformy Azure Event Hubs z obsługą stref dostępności zapewnia odporność na słabe błędy sprzętu i nawet katastrofalną utratę całych centrów danych. Nadal mogą wystąpić poważne sytuacje w przypadku rozległego zniszczenia fizycznego, które nawet te środki nie mogą zapewnić wystarczającej obrony. 
+
+Event Hubs funkcja odzyskiwania geograficznego po awarii została zaprojektowana, aby ułatwić odzyskanie sprawności od awarii i porzucić niepowodzenie regionu platformy Azure dla dobra i bez konieczności zmiany konfiguracji aplikacji. Opuszczenie regionu platformy Azure zwykle obejmuje kilka usług, a ta funkcja ma głównie na celu zachowanie integralności konfiguracji złożonej aplikacji.  
+
+Funkcja odzyskiwania Geo-Disaster zapewnia, że cała konfiguracja przestrzeni nazw (Event Hubs, grup konsumentów i ustawień) jest ciągle replikowana z podstawowej przestrzeni nazw do pomocniczej przestrzeni nazw po sparowaniu i umożliwia zainicjowanie przejścia w tryb failover tylko raz z poziomu podstawowego do pomocniczego w dowolnym momencie. Przeniesienie do trybu failover spowoduje ponowne wskazanie wybranej nazwy aliasu dla przestrzeni nazw dla pomocniczej przestrzeni nazw, a następnie przerwanie parowania. Tryb failover jest niemal natychmiast po zainicjowaniu. 
+
+> [!IMPORTANT]
+> Ta funkcja umożliwia natychmiastowe ciągłość operacji z tą samą konfiguracją, ale **nie replikuje danych zdarzenia**. O ile awaria spowodowała utratę wszystkich stref, dane zdarzenia są zachowywane w podstawowym centrum zdarzeń po odwróceniu trybu failover, a zdarzenia historyczne mogą zostać uzyskane z tego momentu, gdy zostanie przywrócony dostęp. Aby replikować dane zdarzeń i obsłużyć odpowiednie przestrzenie nazw w konfiguracjach aktywnych/aktywnych w celu sprostania awariom i katastrofom, nie należy obsłużyć tej funkcji odzyskiwania po awarii geograficznej, ale postępuj zgodnie ze [wskazówkami dotyczącymi replikacji](event-hubs-federation-overview.md).  
 
 ## <a name="outages-and-disasters"></a>Awarie i katastrofy
 
@@ -45,10 +54,10 @@ Obsługiwane są następujące kombinacje podstawowych i pomocniczych przestrzen
 
 | Podstawowa przestrzeń nazw | Pomocnicza przestrzeń nazw | Obsługiwane | 
 | ----------------- | -------------------- | ---------- |
-| Standardowa | Standardowa | Tak | 
-| Standardowa | Dedykowane | Tak | 
+| Standard | Standard | Tak | 
+| Standard | Dedykowane | Tak | 
 | Dedykowane | Dedykowane | Tak | 
-| Dedykowane | Standardowa | Nie | 
+| Dedykowane | Standard | Nie | 
 
 > [!NOTE]
 > Nie można sparować przestrzeni nazw, które znajdują się w tym samym dedykowanym klastrze. Można sparować przestrzenie nazw, które znajdują się w osobnych klastrach. 

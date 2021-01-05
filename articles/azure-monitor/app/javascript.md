@@ -4,12 +4,12 @@ description: Pobierz liczbę wyświetlanych stron i sesji, dane klienta sieci We
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 0588a3eac4ced6cec1e7aea431c6555bbe8bff0a
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 6678c662c4646a8181b1617ccddf9b8718c957bf
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559883"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858556"
 ---
 # <a name="application-insights-for-web-pages"></a>Usługa Application Insights dla stron sieci Web
 
@@ -132,7 +132,7 @@ appInsights.trackPageView();
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Wysyłanie danych telemetrycznych do Azure Portal
 
-Domyślnie Application Insights zestaw SDK języka JavaScript zbiera wiele elementów telemetrycznych, które są przydatne podczas określania kondycji aplikacji i środowiska użytkownika. Są one następujące:
+Domyślnie Application Insights zestaw SDK języka JavaScript zbiera wiele elementów telemetrycznych, które są przydatne podczas określania kondycji aplikacji i środowiska użytkownika. Należą do nich:
 
 - **Nieprzechwycone wyjątki** w aplikacji, w tym informacje o
     - Ślad stosu
@@ -167,10 +167,10 @@ appInsights.addTelemetryInitializer(() => false); // Nothing is sent after this 
 appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ```
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 Większość pól konfiguracji ma takie nazwy, że można je domyślnie określić jako FAŁSZ. Wszystkie pola są opcjonalne z wyjątkiem `instrumentationKey` .
 
-| Nazwa | Domyślny | Opis |
+| Nazwa | Domyślne | Opis |
 |------|---------|-------------|
 | instrumentationKey | wartość null | **Wymagane**<br>Klucz Instrumentacji uzyskany w Azure Portal. |
 | accountId | wartość null | Opcjonalny identyfikator konta, jeśli aplikacja grupuje użytkowników na kontach. Bez spacji, przecinków, średników, równości lub pionowych słupków |
@@ -339,7 +339,7 @@ Istotne zmiany w wersji zestawu SDK V2:
 - Aby umożliwić lepsze sygnatury interfejsu API, niektóre wywołania interfejsu API, takie jak trackPageView i trackexception, zostały zaktualizowane. Uruchamianie w programie Internet Explorer 8 i wcześniejszych wersjach przeglądarki nie jest obsługiwane.
 - Koperta telemetrii ma zmiany nazwy pola i struktury ze względu na aktualizacje schematu danych.
 - Przeniesiono `context.operation` do `context.telemetryTrace` . Niektóre pola zostały również zmienione ( `operation.id`  -->  `telemetryTrace.traceID` ).
-  - Aby ręcznie odświeżyć bieżący identyfikator pageview (na przykład w aplikacjach SPA), użyj `appInsights.properties.context.telemetryTrace.traceID = Util.generateW3CId()` .
+  - Aby ręcznie odświeżyć bieżący identyfikator pageview (na przykład w aplikacjach SPA), użyj `appInsights.properties.context.telemetryTrace.traceID = Microsoft.ApplicationInsights.Telemetry.Util.generateW3CId()` .
     > [!NOTE]
     > Aby zachować unikatowy identyfikator śledzenia, z którego wcześniej korzystano `Util.newId()` , teraz Użyj `Util.generateW3CId()` . Oba ostatecznie kończą się IDENTYFIKATORem operacji.
 

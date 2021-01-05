@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: 130cd643856b38471eac6d6869cdc1ed8b0bcd2e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 5a912790b4a7a86c44576b98ce7e95f44b810c9e
+ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499156"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857379"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Trenowanie i wdrażanie modelu usługi Custom Speech
 
@@ -67,7 +67,7 @@ Po wdrożeniu punktu końcowego nazwa punktu końcowego jest wyświetlana jako l
 
 ## <a name="view-logging-data"></a>Wyświetlanie danych rejestrowania
 
-Dane rejestrowania są dostępne do pobrania w obszarze Szczegóły **punktu końcowego**  >  **Details**.
+Dane rejestrowania są dostępne do eksportowania, jeśli przejdziesz do strony punktu końcowego w obszarze **wdrożenia**.
 > [!NOTE]
 >Dane rejestrowania są dostępne przez 30 dni w magazynie należącym do firmy Microsoft. Zostanie on później usunięty. Jeśli konto magazynu należące do klienta jest połączone z subskrypcją Cognitive Services, dane rejestrowania nie zostaną automatycznie usunięte.
 
@@ -75,7 +75,7 @@ Dane rejestrowania są dostępne do pobrania w obszarze Szczegóły **punktu ko�
 
 * [Dowiedz się, jak korzystać z niestandardowego modelu](how-to-specify-source-language.md)
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Przygotowywanie i testowanie danych](./how-to-custom-speech-test-and-train.md)
 - [Inspekcja danych](how-to-custom-speech-inspect-data.md)

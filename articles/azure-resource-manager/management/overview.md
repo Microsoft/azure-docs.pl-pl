@@ -4,12 +4,12 @@ description: Opis wdrażania zasobów na platformie Azure, kontrolowania dostęp
 ms.topic: overview
 ms.date: 09/01/2020
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: f3b3ebce3dd34637a787895e7724736adfc186fb
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: fad49db94195bbd2f9e5e32f8596f33fab586752
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032256"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858522"
 ---
 # <a name="what-is-azure-resource-manager"></a>Co to jest usługa Azure Resource Manager?
 
@@ -33,7 +33,7 @@ Jeśli dopiero zaczynasz korzystać z usługi Azure Resource Manager, oto kilka 
 
 * **zasób** — element do zarządzania, który jest dostępny za pomocą platformy Azure. Przykładami zasobów są maszyny wirtualne, konta magazynu, aplikacje internetowe, bazy danych i sieci wirtualne. Grupy zasobów, subskrypcje, grupy zarządzania i Tagi są również przykładami zasobów.
 * **Grupa zasobów** — kontener, który zawiera powiązane zasoby dla rozwiązania platformy Azure. Grupa zasobów zawiera zasoby, którymi chcesz zarządzać jako grupą. Należy zdecydować, które zasoby należą do grupy zasobów, w oparciu o to, co jest najrozsądniejsze dla Twojej organizacji. Zobacz [Grupy zasobów](#resource-groups).
-* **Dostawca zasobów** — usługa dostarczająca zasoby platformy Azure. Na przykład typowym dostawcą zasobów jest Microsoft.Compute, który dostarcza zasób maszyny wirtualnej. Innym typowym dostawcą zasobów jest Microsoft.Storage. Zobacz [dostawcy zasobów i ich typy](resource-providers-and-types.md).
+* **Dostawca zasobów** — usługa dostarczająca zasoby platformy Azure. Na przykład typowy dostawca zasobów to `Microsoft.Compute` , który dostarcza zasób maszyny wirtualnej. `Microsoft.Storage` jest innym wspólnym dostawcą zasobów. Zobacz [dostawcy zasobów i ich typy](resource-providers-and-types.md).
 * **Szablon Menedżer zasobów** — plik JavaScript Object Notation (JSON), który definiuje co najmniej jeden zasób do wdrożenia w grupie zasobów, subskrypcji, grupie zarządzania lub dzierżawie. Szablon może służyć do spójnego i wielokrotnego wdrażania zasobów. Zobacz [Template Deployment przegląd](../templates/overview.md).
 * **Składnia deklaratywna** — składnia pozwalająca określić, co zamierzasz utworzyć, bez konieczności pisania w tym celu sekwencji poleceń programistycznych. Przykładem składni deklaratywnej jest szablon usługi Resource Manager. W tym pliku definiuje się właściwości infrastruktury do wdrożenia na platformie Azure.  Zobacz [Template Deployment przegląd](../templates/overview.md).
 
@@ -99,11 +99,11 @@ Definiując grupę zasobów, należy wziąć pod uwagę pewne ważne czynniki:
 
 ## <a name="resiliency-of-azure-resource-manager"></a>Odporność Azure Resource Manager
 
-Usługa Azure Resource Manager została zaprojektowana pod kątem odporności i ciągłej dostępności. Operacje płaszczyzny Menedżer zasobów i kontroli (żądania wysyłane do management.azure.com) w interfejsie API REST są następujące:
+Usługa Azure Resource Manager została zaprojektowana pod kątem odporności i ciągłej dostępności. Operacje płaszczyzny Menedżer zasobów i kontroli (żądania wysyłane do `management.azure.com` ) w interfejsie API REST są następujące:
 
 * Rozproszone w różnych regionach. Niektóre usługi są regionalne.
 
-* Dystrybuowane między Strefy dostępności (jak również regiony) w lokalizacjach, które mają wiele Strefy dostępności.
+* Dystrybuowane między Strefy dostępności (a także regiony) w lokalizacjach, które mają wiele Strefy dostępności.
 
 * Nie jest zależne od pojedynczego logicznego centrum danych.
 

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
-ms.openlocfilehash: 1da43d0ef208d61ced6c8ca8dbc7603e0ef51155
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 9363a2dacd91d3868e69e47381eea528e358935c
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96021575"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845453"
 ---
 # <a name="language-and-region-support-for-luis"></a>Obsługa języka i regionu w programie LUIS
 
@@ -30,22 +30,22 @@ LUIS rozumie wyrażenia długości w następujących językach:
 
 | Język |Regionalne  |  Preskompilowana domena | Wstępnie utworzona jednostka | Zalecenia dotyczące listy fraz | **[Analiza tekstu](../text-analytics/language-support.md)<br>(Tonacji i<br>Służąc|
 |--|--|:--:|:--:|:--:|:--:|
-| Angielski (Stany Zjednoczone) |`en-US` | ✔ | ✔  |✔|✔|
 | Arabski (wersja zapoznawcza — nowoczesny Standard arabski) |`ar-AR`|-|-|-|-|
 | *[Chiński](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
 | Niderlandzki |`nl-NL` |✔|-|-|✔|
-| Francuski (Francja) |`fr-FR` |✔| ✔ |✔ |✔|
+| Angielski (Stany Zjednoczone) |`en-US` | ✔ | ✔  |✔|✔|
 | francuski (Kanada) |`fr-CA` |-|-|-|✔|
-| Niemiecki |`de-DE` |✔| ✔ |✔ |✔|
+| Francuski (Francja) |`fr-FR` |✔| ✔ |✔ |✔|
+| niemiecki |`de-DE` |✔| ✔ |✔ |✔|
 | Gudżarati | `gu-IN`|-|-|-|-|
 | Hindi | `hi-IN`|-|✔|-|-|
 | Włoski |`it-IT` |✔| ✔ |✔|✔|
 | *[Japoński](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Tylko fraza klucza|
-| Koreański |`ko-KR` |✔|-|-|Tylko fraza klucza|
+| koreański |`ko-KR` |✔|-|-|Tylko fraza klucza|
 | Marathi | `mr-IN`|-|-|-|-|
 | Portugalski (Brazylia) |`pt-BR` |✔| ✔ |✔ |nie wszystkie hodowle podrzędne|
-| hiszpański (Hiszpania) |`es-ES` |✔| ✔ |✔|✔|
 | Hiszpański (Meksyk)|`es-MX` |-|-|✔|✔|
+| hiszpański (Hiszpania) |`es-ES` |✔| ✔ |✔|✔|
 | Tamilski | `ta-IN`|-|-|-|-|
 | Telugu | `te-IN`|-|-|-|-|
 | Turecki | `tr-TR` |✔|✔|-|Tylko tonacji|
@@ -90,12 +90,12 @@ Aby wykonać Uczenie maszynowe, LUIS dzieli wypowiedź na [tokeny](luis-glossary
 |Angielski (en-us)|✔ |||
 |Francuski (fr-FR)|✔|||
 |Francuski (fr-CA)|✔|||
-|Niemiecki|✔||✔|
+|niemiecki|✔||✔|
 |Gudżarati|✔|||
 |Hindi|✔|||
 |Włoski|✔|||
 |japoński|||✔
-|Koreański||✔||
+|koreański||✔||
 |Marathi|✔|||
 |Portugalski (Brazylia)|✔|||
 |Hiszpański (es-ES)|✔|||
@@ -111,8 +111,8 @@ Następujące kultury mają niestandardowe wersje tokenizatora:
 
 |Kultura|Wersja|Przeznaczenie|
 |--|--|--|
-|Niemiecki<br>`de-de`|1.0.0|Tokenizes wyrazy, dzieląc je za pomocą tokenizatora opartych na uczeniu maszynowym, które próbują podzielić wyrazy złożone na ich pojedyncze składniki.<br>Jeśli użytkownik wprowadzi `Ich fahre einen krankenwagen` jako wypowiedź, jest on włączony `Ich fahre einen kranken wagen` . Zezwalanie na oznaczanie `kranken` i `wagen` niezależnie jako różne jednostki.|
-|Niemiecki<br>`de-de`|1.0.2|Tokenizes wyrazy, dzieląc je na spacje.<br> Jeśli użytkownik wprowadzi `Ich fahre einen krankenwagen` jako wypowiedź, pozostaje pojedynczym tokenem. Oznacza `krankenwagen` to, że jest oznaczona jako pojedyncza jednostka. |
+|niemiecki<br>`de-de`|1.0.0|Tokenizes wyrazy, dzieląc je za pomocą tokenizatora opartych na uczeniu maszynowym, które próbują podzielić wyrazy złożone na ich pojedyncze składniki.<br>Jeśli użytkownik wprowadzi `Ich fahre einen krankenwagen` jako wypowiedź, jest on włączony `Ich fahre einen kranken wagen` . Zezwalanie na oznaczanie `kranken` i `wagen` niezależnie jako różne jednostki.|
+|niemiecki<br>`de-de`|1.0.2|Tokenizes wyrazy, dzieląc je na spacje.<br> Jeśli użytkownik wprowadzi `Ich fahre einen krankenwagen` jako wypowiedź, pozostaje pojedynczym tokenem. Oznacza `krankenwagen` to, że jest oznaczona jako pojedyncza jednostka. |
 |Niderlandzki<br>`nl-nl`|1.0.0|Tokenizes wyrazy, dzieląc je za pomocą tokenizatora opartych na uczeniu maszynowym, które próbują podzielić wyrazy złożone na ich pojedyncze składniki.<br>Jeśli użytkownik wprowadzi `Ik ga naar de kleuterschool` jako wypowiedź, jest on włączony `Ik ga naar de kleuter school` . Zezwalanie na oznaczanie `kleuter` i `school` niezależnie jako różne jednostki.|
 |Niderlandzki<br>`nl-nl`|1.0.1|Tokenizes wyrazy, dzieląc je na spacje.<br> Jeśli użytkownik wprowadzi `Ik ga naar de kleuterschool` jako wypowiedź, pozostaje pojedynczym tokenem. Oznacza `kleuterschool` to, że jest oznaczona jako pojedyncza jednostka. |
 

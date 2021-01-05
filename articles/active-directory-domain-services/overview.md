@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 12/03/2020
 ms.author: justinha
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 99a207810f51949b0da0e78b1cb0e0a7f8bc95e3
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 765aa10e57c472d7a1af0952364783bb1d711078
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027343"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861502"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>Co to są usługi Azure Active Directory Domain Services?
 
@@ -41,7 +41,7 @@ W środowisku hybrydowym z lokalnym środowiskiem AD DS [Azure AD Connect][azure
 
 ![Synchronizacja w Azure AD Domain Services z usługą Azure AD i lokalnym AD DS przy użyciu programu AD Connect](./media/active-directory-domain-services-design-guide/sync-topology.png)
 
-Usługa Azure AD DS replikuje informacje o tożsamościach z usługi Azure AD, więc współpracuje z dzierżawami usługi Azure AD, które są przeznaczone tylko do chmury lub są synchronizowane z lokalnym (AD DS środowiskiem). Ten sam zestaw funkcji platformy Azure AD DS istnieje w obu środowiskach.
+Usługa Azure AD DS replikuje informacje o tożsamościach z usługi Azure AD, więc współpracuje z dzierżawami usługi Azure AD, które są przeznaczone tylko do chmury, lub zsynchronizowane ze środowiskiem lokalnym AD DS. Ten sam zestaw funkcji platformy Azure AD DS istnieje w obu środowiskach.
 
 * Jeśli masz istniejące lokalne środowisko AD DS, możesz synchronizować informacje o kontach użytkowników, aby zapewnić użytkownikom spójną tożsamość. Aby dowiedzieć się więcej, zobacz [jak obiekty i poświadczenia są synchronizowane w domenie zarządzanej][synchronization].
 * W przypadku środowisk opartych tylko na chmurze nie jest wymagane tradycyjne lokalne środowisko AD DS do używania scentralizowanych usług tożsamości usługi Azure AD DS.

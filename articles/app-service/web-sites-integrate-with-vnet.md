@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 764e0262c8a26511c55740aa1797b5ec9b59cc8e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: cbae833c1b207669e35b467707f946e9bafe31d2
+ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999456"
+ms.lasthandoff: 01/03/2021
+ms.locfileid: "97854948"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrowanie aplikacji z usługą Azure Virtual Network
 
@@ -118,11 +118,11 @@ W przypadku korzystania z integracji sieci wirtualnej wymaganej przez bramę z u
 
 1. Dodaj połączenie komunikacji równorzędnej w sieci wirtualnej, z którą łączy się aplikacja. Po dodaniu połączenia komunikacji równorzędnej Włącz **dostęp do sieci wirtualnej** i wybierz opcję **Zezwalaj na przekazywanie dalej ruchu** i **Zezwalaj na tranzyt bramy**.
 1. Dodaj połączenie komunikacji równorzędnej w sieci wirtualnej, która jest połączona z siecią wirtualną, z którą nawiązano połączenie. Po dodaniu połączenia komunikacji równorzędnej w docelowej sieci wirtualnej Włącz **dostęp do usługi Virtual Network** i wybierz opcję **Zezwalaj na przekazywanie dalej ruchu** i **Zezwalaj na bramy zdalne**.
-1. Przejdź do **App Service planowanie**  >  **Networking**  >  interfejsu użytkownika **integracji sieci wirtualnej** w portalu. Wybierz sieć wirtualną, z którą aplikacja nawiązuje połączenie. W sekcji Routing Dodaj zakres adresów sieci wirtualnej, która jest połączona z siecią wirtualną.
+1. Przejdź do **App Service planowanie**  >    >  interfejsu użytkownika **integracji sieci wirtualnej** w portalu. Wybierz sieć wirtualną, z którą aplikacja nawiązuje połączenie. W sekcji Routing Dodaj zakres adresów sieci wirtualnej, która jest połączona z siecią wirtualną.
 
 ## <a name="manage-vnet-integration"></a>Zarządzanie integracją sieci wirtualnej
 
-Łączenie i rozłączanie z siecią wirtualną jest na poziomie aplikacji. Operacje, które mogą mieć wpływ na integrację sieci wirtualnej w wielu aplikacjach, są na poziomie planu App Service. W portalu integracji sieci wirtualnej z aplikacją > **Networking**  >  **VNet Integration** możesz uzyskać szczegółowe informacje dotyczące sieci wirtualnej. Podobne informacje można wyświetlić na poziomie planu App Service w **App Service plan**  >  **Networking**  >  portalu **integracji sieci wirtualnej** App Service plan.
+Łączenie i rozłączanie z siecią wirtualną jest na poziomie aplikacji. Operacje, które mogą mieć wpływ na integrację sieci wirtualnej w wielu aplikacjach, są na poziomie planu App Service. W portalu integracji sieci wirtualnej z aplikacją > **Networking**  >   możesz uzyskać szczegółowe informacje dotyczące sieci wirtualnej. Podobne informacje można wyświetlić na poziomie planu App Service w   >    >  portalu **integracji sieci wirtualnej** App Service plan.
 
 Jedyną operacją, którą można wykonać w widoku aplikacji wystąpienia integracji sieci wirtualnej, jest rozłączenie aplikacji z sieci wirtualnej, z którą jest ona aktualnie połączona. Aby odłączyć aplikację od sieci wirtualnej, wybierz pozycję **Rozłącz**. Aplikacja zostanie uruchomiona ponownie po rozłączeniu z siecią wirtualną. Rozłączanie nie zmienia sieci wirtualnej. Podsieć lub Brama nie jest usuwana. Jeśli chcesz usunąć sieć wirtualną, najpierw Odłącz aplikację od sieci wirtualnej i Usuń z niej zasoby, takie jak bramy.
 
@@ -152,6 +152,7 @@ Trzy opłaty są związane z korzystaniem z funkcji integracji sieci wirtualnej 
 
 > [!NOTE]
 > Integracja sieci wirtualnej nie jest obsługiwana w przypadku scenariuszy Docker Compose w App Service.
+> Ograniczenia dostępu Azure Functions są ignorowane, jeśli istnieje prywatny punkt końcowy.
 >
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]

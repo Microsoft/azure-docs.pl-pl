@@ -2,13 +2,13 @@
 title: Funkcje szablonu — zasoby
 description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager (szablon ARM) do pobierania wartości dotyczących zasobów.
 ms.topic: conceptual
-ms.date: 11/18/2020
-ms.openlocfilehash: 166e9104a9d791ac6d82ed0e8e2d3659efd2ae0d
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.date: 01/04/2021
+ms.openlocfilehash: f16e8e06bf5deb2b66af7758f2944fe256cfa268
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96919984"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861419"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funkcje zasobów dla szablonów ARM
 
@@ -175,7 +175,7 @@ Wbudowane definicje zasad to zasoby na poziomie dzierżawy. Aby zapoznać się z
 
 `list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)`
 
-Składnia tej funkcji różni się od nazwy operacji na liście. Każda implementacja zwraca wartości dla typu zasobu, który obsługuje operację listy. Nazwa operacji musi rozpoczynać się od `list` . Niektóre typowe zastosowania to `listKeys` , `listKeyValue` i `listSecrets` .
+Składnia tej funkcji różni się od nazwy operacji na liście. Każda implementacja zwraca wartości dla typu zasobu, który obsługuje operację listy. Nazwa operacji musi rozpoczynać się od `list` i może mieć sufiks. Niektóre typowe zastosowania to `list` ,, `listKeys` `listKeyValue` , i `listSecrets` .
 
 ### <a name="parameters"></a>Parametry
 

@@ -3,12 +3,12 @@ title: Centrum kopii zapasowych — często zadawane pytania
 description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące centrum kopii zapasowych
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: c5b23a32b60f651cd3ff91819155d83a7465491a
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5befa39411c22253bfccc689d8b5c5967a8cd759
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173814"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858624"
 ---
 # <a name="backup-center---frequently-asked-questions"></a>Centrum kopii zapasowych — często zadawane pytania
 
@@ -34,7 +34,9 @@ Nie. Centrum kopii zapasowych jest gotowe do użycia. Aby jednak wyświetlić [r
 
 ### <a name="do-i-need-to-have-any-special-permissions-to-use-backup-center"></a>Czy muszę mieć specjalne uprawnienia do korzystania z centrum kopii zapasowych?
 
-Centrum kopii zapasowych nie wymaga żadnych nowych uprawnień. O ile dysponujesz odpowiednim poziomem dostępu RBAC na platformie Azure dla zasobów, którymi zarządzasz, możesz użyć centrum kopii zapasowych dla tych zasobów. Aby na przykład wyświetlić informacje o kopiach zapasowych, musisz mieć dostęp do swoich magazynów przez **czytelnika** . Aby skonfigurować kopię zapasową i wykonać inne akcje związane z kopiami zapasowymi, musisz mieć role **współautor kopii zapasowej** lub **Operatorzy kopii zapasowych** . Dowiedz się więcej o [rolach platformy Azure dla Azure Backup](./backup-rbac-rs-vault.md).
+Centrum kopii zapasowych nie wymaga żadnych nowych uprawnień. O ile dysponujesz odpowiednim poziomem dostępu RBAC na platformie Azure dla zasobów, którymi zarządzasz, możesz użyć centrum kopii zapasowych dla tych zasobów. Aby na przykład wyświetlić informacje o kopiach zapasowych, musisz mieć dostęp do swoich magazynów przez **czytelnika** . Aby skonfigurować kopię zapasową i wykonać inne akcje związane z kopiami zapasowymi, musisz mieć role **współautor kopii zapasowej** lub **Operatorzy kopii zapasowych** . Dowiedz się więcej o [rolach platformy Azure dla Azure Backup](./backup-rbac-rs-vault.md). 
+
+Jeśli używasz [raportów kopii zapasowych](./configure-reports.md) w ramach centrum kopii zapasowych, będziesz potrzebować dostępu do log Analytics obszarów roboczych, do których magazyny są wysyłane dane, aby wyświetlić raporty dla tych magazynów.
 
 ## <a name="pricing"></a>Cennik
 

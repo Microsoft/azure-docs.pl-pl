@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
-ms.openlocfilehash: 9f8004b41e8048dfc97fb61bb67a634963c0c575
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: a913bc0ae01507cb26c1650d63918a8319eeacf4
+ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317558"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857430"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alerty dzienników w Azure Monitor
 
@@ -64,7 +64,7 @@ Podobnie jak w przypadku usługi log Analytics, zakres czasu ogranicza dane zapy
 
 Na przykład zapytanie skanuje 60 minut, gdy zakres czasu wynosi 60 minut, nawet jeśli tekst zawiera **temu (1D)**. Zakres czasu i filtrowanie czasu zapytania muszą być zgodne. W przykładzie w przypadku zmiany **okresu**  /  **przesłonięcia zapytania** do jednego dnia program będzie działał zgodnie z oczekiwaniami.
 
-### <a name="measure"></a>Measure
+### <a name="measure"></a>Miara
 
 Alerty dziennika umożliwiają logowanie do wartości liczbowych, które można ocenić. Można mierzyć dwie różne rzeczy:
 
@@ -102,7 +102,7 @@ W przypadku obszarów roboczych i Application Insights jest ona wywoływana **w 
 
 ### <a name="aggregation-type"></a>Typ agregacji
 
-Obliczenia wykonywane na wielu rekordach w celu zagregowania ich do jednej wartości liczbowej. Przykład:
+Obliczenia wykonywane na wielu rekordach w celu zagregowania ich do jednej wartości liczbowej. Na przykład:
 - **Liczba** zwraca liczbę rekordów w zapytaniu
 - Wartość **średnia** zwraca średnią zdefiniowaną [**stopień szczegółowości agregacji**](#aggregation-granularity) kolumny miary.
 
@@ -120,6 +120,8 @@ W obszarach roboczych i Application Insights jest obsługiwana tylko w typie mia
 ### <a name="split-by-alert-dimensions"></a>Podziel według wymiarów alertów
 
 Podziel alerty według liczby lub kolumn ciągów na oddzielne alerty, grupując je na unikatowe kombinacje. Podczas tworzenia alertów skoncentrowanych na zasobach w skali (zakres subskrypcji lub grupy zasobów) można podzielić według kolumny identyfikatora zasobu platformy Azure. Podział w kolumnie Identyfikator zasobu platformy Azure zmieni obiekt docelowy alertu na określony zasób.
+
+Dzielenie według kolumny identyfikatora zasobu platformy Azure jest zalecane, jeśli chcesz monitorować ten sam warunek dla wielu zasobów platformy Azure. Na przykład monitorowanie wszystkich maszyn wirtualnych pod kątem użycia procesora CPU powyżej 80%. Możesz również zrezygnować z podziału, jeśli chcesz mieć warunek dotyczący wielu zasobów w zakresie, takich jak monitorowanie, że co najmniej pięć maszyn w zakresie grupy zasobów ma użycie procesora CPU powyżej 80%.
 
 W obszarach roboczych i Application Insights jest obsługiwana tylko w typie miary **pomiaru metryki** . Pole jest nazywane **agregacją**. Jest ona ograniczona do trzech kolumn. Posiadanie więcej niż trzech grup według kolumn w zapytaniu może prowadzić do nieoczekiwanych wyników. We wszystkich innych typach zasobów jest on konfigurowany w sekcji **dzielenie według wymiarów** w warunku (ograniczone do sześciu podziałów).
 

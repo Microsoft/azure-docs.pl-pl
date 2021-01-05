@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5eec15871279f3ca38c726fcd1ef1b21d0d38699
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ba314963058389e171601407ff00411049eecd45
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88750186"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845431"
 ---
 # <a name="durable-orchestrations"></a>Nietrwałe aranżacje
 
@@ -124,7 +124,7 @@ Po zakończeniu punktu kontrolnego funkcja programu Orchestrator jest bezpłatna
 
 Po zakończeniu historia funkcji pokazanej wcześniej wygląda podobnie do poniższej tabeli na platformie Azure Table Storage (skrócony dla celów ilustracyjnych):
 
-| PartitionKey (identyfikator wystąpienia)                     | Typ zdarzenia             | Timestamp               | Dane wejściowe | Nazwa             | Wynik                                                    | Stan |
+| PartitionKey (identyfikator wystąpienia)                     | Typ zdarzenia             | Znacznik czasu               | Dane wejściowe | Nazwa             | Wynik                                                    | Stan |
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
 | eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852 Z | wartość null  | E1_HelloSequence |                                                           |                     |
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362 Z |       |                  |                                                           |                     |
@@ -141,7 +141,7 @@ Po zakończeniu historia funkcji pokazanej wcześniej wygląda podobnie do poni�
 | eaee885b | TaskCompleted         | 2017-05-05T18:45:34.919 Z |       |                  | "" Hello Londyn! ""                                       |                     |
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:35.032 Z |       |                  |                                                           |                     |
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:35.044 Z |       |                  |                                                           |                     |
-| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044 Z |       |                  | "[" Hello Tokio! "", "Hello Seattle!" "," Hello Londyn! ""] " | Ukończone           |
+| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044 Z |       |                  | "[" Hello Tokio! "", "Hello Seattle!" "," Hello Londyn! ""] " | Zakończone           |
 
 Kilka informacji o wartościach kolumn:
 
@@ -293,7 +293,7 @@ Nie jest możliwe bezpośrednie przekazywanie wielu parametrów do funkcji dzia�
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-W programie .NET można także używać obiektów [ValueTuples](/dotnet/csharp/tuples) . Poniższy przykład korzysta z nowych funkcji [ValueTuples](/dotnet/csharp/tuples) dodanych w [języku C# 7](/dotnet/csharp/whats-new/csharp-7#tuples):
+W programie .NET można także używać obiektów [ValueTuple](/dotnet/csharp/tuples) . Poniższy przykład korzysta z nowych funkcji [ValueTuple](/dotnet/csharp/tuples) dodanych w [języku C# 7](/dotnet/csharp/whats-new/csharp-7#tuples):
 
 ```csharp
 [FunctionName("GetCourseRecommendations")]

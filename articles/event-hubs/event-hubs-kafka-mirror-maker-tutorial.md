@@ -2,17 +2,17 @@
 title: Użyj Apache Kafka narzędzia MirrorMaker — Azure Event Hubs | Microsoft Docs
 description: Ten artykuł zawiera informacje dotyczące używania Kafka narzędzia MirrorMaker do dublowania klastra Kafka w centrach AzureEvent.
 ms.topic: how-to
-ms.date: 06/23/2020
-ms.openlocfilehash: f2e7ac6951c84adfd8fc313995724021640ee0ab
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.date: 01/04/2021
+ms.openlocfilehash: 654e9e19dfde0d0c58d00e41cf8ab0ba8e1484d7
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503203"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861002"
 ---
-# <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Użyj Kafka narzędzia MirrorMaker z Event Hubs dla Apache Kafka
+# <a name="use-apache-kafka-mirrormaker-with-event-hubs"></a>Użyj Apache Kafka narzędzia MirrorMaker z Event Hubs
 
-W tym samouczku pokazano, jak zdublować brokera Kafka w centrum zdarzeń przy użyciu Kafka narzędzia MirrorMaker.
+W tym samouczku pokazano, jak zdublować brokera Kafka w centrum zdarzeń platformy Azure przy użyciu Kafka narzędzia MirrorMaker. Jeśli przechowujesz Apache Kafka na Kubernetes za pomocą operatora CNCF Strimzi, możesz zapoznać się z samouczkiem w [tym wpisie w blogu](https://strimzi.io/blog/2020/06/09/mirror-maker-2-eventhub/) , aby dowiedzieć się, jak skonfigurować Kafka za pomocą Strimzi i tworzenia duplikatów 2. 
 
    ![Kafka narzędzia MirrorMaker z Event Hubs](./media/event-hubs-kafka-mirror-maker-tutorial/evnent-hubs-mirror-maker1.png)
 
@@ -22,7 +22,7 @@ W tym samouczku pokazano, jak zdublować brokera Kafka w centrum zdarzeń przy u
 > [!NOTE]
 > Ten artykuł zawiera odwołania do warunku *dozwolonych*, termin, przez który firma Microsoft już nie używa. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Tworzenie przestrzeni nazw usługi Event Hubs
 > * Klonowanie projektu przykładowego
@@ -31,9 +31,11 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Uruchom Kafka narzędzia MirrorMaker
 
 ## <a name="introduction"></a>Wprowadzenie
-Ważnym zagadnieniem dotyczącym nowoczesnych aplikacji w skali chmury jest możliwość aktualizowania, ulepszania i zmiany infrastruktury bez zakłócania usługi. W tym samouczku pokazano, jak centrum zdarzeń i Kafka narzędzia MirrorMaker mogą zintegrować istniejący potok Kafka z platformą Azure przez "dublowanie" strumienia danych wejściowych Kafka w usłudze Event Hubs. 
+W tym samouczku pokazano, jak centrum zdarzeń i Kafka narzędzia MirrorMaker mogą zintegrować istniejący potok Kafka z platformą Azure przez "dublowanie" strumienia danych wejściowych Kafka w usłudze Event Hubs, co umożliwia integrację Apache Kafka strumieni przy użyciu kilku [wzorców Federacji](event-hubs-federation-overview.md). 
 
-Punkt końcowy usługi Azure Event Hubs Kafka umożliwia nawiązanie połączenia z usługą Azure Event Hubs przy użyciu protokołu Kafka (czyli klientów Kafka). Wprowadzając minimalne zmiany w aplikacji Kafka, możesz połączyć się z platformą Azure Event Hubs i korzystać z zalet ekosystemu platformy Azure. Event Hubs obecnie obsługuje Kafka w wersji 1,0 lub nowszej.
+Punkt końcowy usługi Azure Event Hubs Kafka umożliwia nawiązanie połączenia z usługą Azure Event Hubs przy użyciu protokołu Kafka (czyli klientów Kafka). Wprowadzając minimalne zmiany w aplikacji Kafka, możesz połączyć się z platformą Azure Event Hubs i korzystać z zalet ekosystemu platformy Azure. Event Hubs obecnie obsługuje protokół Apache Kafka w wersji 1,0 lub nowszej.
+
+Możesz użyć Apache Kafka narzędzia MirrorMaker 1 jednokierunkowy z Apache Kafka do Event Hubs. Narzędzia MirrorMaker 2 można użyć w obu kierunkach, ale [ `MirrorCheckpointConnector` i, `MirrorHeartbeatConnector` które można skonfigurować w narzędzia MirrorMaker 2](https://cwiki.apache.org/confluence/display/KAFKA/KIP-382%3A+MirrorMaker+2.0) , muszą być skonfigurowane tak, aby wskazywały brokera Apache Kafka, a nie Event Hubs. W tym samouczku przedstawiono Konfigurowanie narzędzia MirrorMaker 1.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

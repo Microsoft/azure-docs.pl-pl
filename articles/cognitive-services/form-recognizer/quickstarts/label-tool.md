@@ -11,12 +11,12 @@ ms.date: 09/30/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: Przetwarzanie dokumentu
-ms.openlocfilehash: 7671d8d58ffbd0fca444eefe53c46c99a4e76d37
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: a1cf919e17e22cb6280dce27faceb7cd034a6962
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96009334"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845544"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Uczenie modelu aparatu rozpoznawania formularzy z etykietami przy użyciu narzędzia do etykietowania przykładowego
 
@@ -103,10 +103,10 @@ Użyjesz aparatu platformy Docker, aby uruchomić przykładowe narzędzie do ety
 
     --- 
 
-   To polecenie spowoduje udostępnienie przykładowego narzędzia do etykietowania za pomocą przeglądarki sieci Web. Przejdź do adresu `http://localhost:3000`.
+   To polecenie spowoduje udostępnienie przykładowego narzędzia do etykietowania za pomocą przeglądarki sieci Web. Przejdź do witryny `http://localhost:3000`.
 
 > [!NOTE]
-> Możesz także oznaczyć dokumenty i pouczenie modeli przy użyciu interfejsu API REST aparatu rozpoznawania formularzy. Aby nauczyć się i analizować za pomocą interfejsu API REST, zobacz [uczenie się z etykietami przy użyciu interfejsu API REST i języka Python](./python-labeled-data.md).
+> Możesz także oznaczyć dokumenty i pouczenie modeli przy użyciu interfejsu API REST aparatu rozpoznawania formularzy. Aby nauczyć się i analizować za pomocą interfejsu API REST, zobacz [uczenie się z etykietami przy użyciu interfejsu API REST i języka Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
 
 ## <a name="set-up-input-data"></a>Konfigurowanie danych wejściowych
 
@@ -137,7 +137,9 @@ Wypełnij pola następującymi wartościami:
 
 * **Nazwa wyświetlana** — nazwa wyświetlana połączenia.
 * **Opis** — opis projektu.
-* **Adres URL** sygnatury dostępu współdzielonego (SAS) dla kontenera BLOB Storage platformy Azure. Aby pobrać adres URL SAS, Otwórz Eksplorator usługi Microsoft Azure Storage, kliknij prawym przyciskiem myszy kontener i wybierz polecenie **Pobierz sygnaturę dostępu współdzielonego**. Ustaw czas wygaśnięcia na dowolną godzinę po skorzystaniu z usługi. Upewnij się, że uprawnienia **Odczyt**, **zapis**, **usuwanie** i **Wyświetlanie listy** są zaznaczone, a następnie kliknij pozycję **Utwórz**. Następnie skopiuj wartość z sekcji **URL** . Powinna ona mieć postać: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* **Adres URL** sygnatury dostępu współdzielonego (SAS) dla kontenera BLOB Storage platformy Azure. [!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
+
+   :::image type="content" source="../media/quickstarts/get-sas-url.png" alt-text="Pobieranie adresu URL SAS":::
 
 :::image type="content" source="../media/label-tool/connections.png" alt-text="Ustawienia połączenia przykładowego narzędzia do etykietowania.":::
 
@@ -223,7 +225,7 @@ Postępuj zgodnie z powyższymi krokami, aby oznaczyć co najmniej pięć formul
 
 ### <a name="specify-tag-value-types"></a>Określanie typów wartości tagów
 
-Opcjonalnie można ustawić oczekiwany typ danych dla każdego tagu. Otwórz menu kontekstowe z prawej strony znacznika i wybierz typ z menu. Ta funkcja umożliwia algorytmowi wykrywania wykonywanie pewnych założeń, które spowodują poprawienie dokładności wykrywania tekstu. Zapewnia również, że wykryte wartości będą zwracane w formacie standardowym w końcowym danych wyjściowych JSON. 
+Opcjonalnie można ustawić oczekiwany typ danych dla każdego tagu. Otwórz menu kontekstowe z prawej strony znacznika i wybierz typ z menu. Ta funkcja umożliwia algorytmowi wykrywania wykonywanie pewnych założeń, które spowodują poprawienie dokładności wykrywania tekstu. Zapewnia również, że wykryte wartości będą zwracane w formacie standardowym w końcowym danych wyjściowych JSON. Informacje o typie wartości są zapisywane w *fields.js* w pliku w tej samej ścieżce co pliki etykiet.
 
 > [!div class="mx-imgBorder"]
 > ![Wybór typu wartości z przykładowym narzędziem do etykietowania](../media/whats-new/formre-value-type.png)
@@ -266,7 +268,7 @@ Następujące typy wartości i różnice są obecnie obsługiwane:
 
 Kliknij ikonę szkolenia w okienku po lewej stronie, aby otworzyć stronę szkolenia. Następnie kliknij przycisk **uczenie** , aby rozpocząć uczenie modelu. Po zakończeniu procesu szkolenia zostaną wyświetlone następujące informacje:
 
-* **Identyfikator modelu** — Identyfikator modelu, który został utworzony i przeszkolony. Każde wywołanie szkoleniowe tworzy nowy model z własnym IDENTYFIKATORem. Skopiuj ten ciąg do bezpiecznej lokalizacji; będzie ona potrzebna, jeśli chcesz wykonywać wywołania prognoz za pomocą [interfejsu API REST](./curl-train-extract.md) lub [biblioteki klienckiej](./client-library.md).
+* **Identyfikator modelu** — Identyfikator modelu, który został utworzony i przeszkolony. Każde wywołanie szkoleniowe tworzy nowy model z własnym IDENTYFIKATORem. Skopiuj ten ciąg do bezpiecznej lokalizacji; będzie ona potrzebna, jeśli chcesz wykonywać wywołania prognoz za pomocą [interfejsu API REST](./client-library.md?pivots=programming-language-rest-api) lub [biblioteki klienckiej](./client-library.md).
 * **Średnia dokładność** — średnia dokładność modelu. Możesz poprawić dokładność modelu przez etykietowanie dodatkowych formularzy i szkoleń, aby utworzyć nowy model. Zalecamy rozpoczęcie od etykietowania pięciu formularzy i dodanie większej liczby formularzy zgodnie z wymaganiami.
 * Lista tagów i Szacowana dokładność na tag.
 
@@ -276,7 +278,7 @@ Kliknij ikonę szkolenia w okienku po lewej stronie, aby otworzyć stronę szkol
 Po zakończeniu szkolenia Przejrzyj wartość **średnia dokładność** . Jeśli jest to niska, należy dodać więcej dokumentów wejściowych i powtórz powyższe kroki. Dokumenty, które zostały już oznaczone etykietami, pozostaną w indeksie projektu.
 
 > [!TIP]
-> Możesz również uruchomić proces szkolenia przy użyciu wywołania interfejsu API REST. Aby dowiedzieć się, jak to zrobić, zobacz [uczenie się z etykietami przy użyciu języka Python](./python-labeled-data.md).
+> Możesz również uruchomić proces szkolenia przy użyciu wywołania interfejsu API REST. Aby dowiedzieć się, jak to zrobić, zobacz [uczenie się z etykietami przy użyciu języka Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
 
 ## <a name="compose-trained-models"></a>Twórz przeszkolone modele
 
@@ -299,7 +301,7 @@ Aby zredagować modele w narzędziu przykładowego etykietowania, kliknij ikonę
 Kliknij ikonę przewidywania (żarówki) po lewej stronie, aby przetestować model. Przekaż dokument formularza, który nie był używany w procesie szkoleniowym. Następnie kliknij przycisk **predykcyjny** po prawej stronie, aby uzyskać prognozy klucza/wartości dla formularza. Narzędzie zastosuje znaczniki w obwiedniach i zgłosi zaufanie każdego tagu.
 
 > [!TIP]
-> Można również uruchomić analizowanie interfejsu API z wywołaniem REST. Aby dowiedzieć się, jak to zrobić, zobacz [uczenie się z etykietami przy użyciu języka Python](./python-labeled-data.md).
+> Można również uruchomić analizowanie interfejsu API z wywołaniem REST. Aby dowiedzieć się, jak to zrobić, zobacz [uczenie się z etykietami przy użyciu języka Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
 
 ## <a name="improve-results"></a>Popraw wyniki
 
@@ -326,7 +328,7 @@ Na koniec przejdź do strony głównej (ikona domu), a następnie kliknij pozycj
 W tym przewodniku szybki start przedstawiono sposób użycia narzędzia do etykietowania przykładowego aparatu rozpoznawania formularzy do uczenia modelu z ręcznymi etykietami danych. Jeśli chcesz utworzyć własne narzędzie do etykietowania danych szkoleniowych, Użyj interfejsów API REST, które zajmują się szkoleniem dotyczącym danych z etykietami.
 
 > [!div class="nextstepaction"]
-> [Uczenie z etykietami przy użyciu języka Python](./python-labeled-data.md)
+> [Uczenie z etykietami przy użyciu języka Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
 
 * [Co to jest rozpoznawanie formularzy?](../overview.md)
-* [Przewodnik Szybki Start dotyczący biblioteki klienta aparatu rozpoznawania formularzy](client-library.md)
+* [Szybki Start dla aparatu rozpoznawania formularzy](client-library.md)

@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: e7b4a1b2e1d737dad0054cbdf08443436ac2c181
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 90532a88e145507b09de9d36f704bc5c88899e95
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705561"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861893"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>Samouczek: odnajdywanie maszyn wirtualnych funkcji Hyper-V z oceną serwera
 
@@ -42,7 +42,7 @@ Przed rozpoczęciem tego samouczka zapoznaj się z wymaganiami wstępnymi.
 **Wymaganie** | **Szczegóły**
 --- | ---
 **Host funkcji Hyper-V** | Hosty funkcji Hyper-V, na których znajdują się maszyny wirtualne, mogą być autonomiczne lub w klastrze.<br/><br/> Na hoście musi być uruchomiony system Windows Server 2019, Windows Server 2016 lub Windows Server 2012 R2.<br/><br/> Sprawdź, czy połączenia przychodzące są dozwolone na porcie WinRM 5985 (HTTP), tak aby urządzenie mogło nawiązać połączenie w celu ściągnięcia metadanych maszyny wirtualnej i danych wydajności przy użyciu sesji model wspólnych informacji (CIM).
-**Wdrażanie urządzenia** | Host funkcji Hyper-v wymaga zasobów do przydzielenia maszyny wirtualnej dla urządzenia:<br/><br/> — Windows Server 2016<br/><br/> -16 GB pamięci RAM<br/><br/> -Osiem procesorów wirtualnych vCPU<br/><br/> -Około 80 GB miejsca na dysku.<br/><br/> — Zewnętrzny przełącznik wirtualny.<br/><br/> — Dostęp do Internetu dla maszyny wirtualnej, bezpośrednio lub za pośrednictwem serwera proxy.
+**Wdrażanie urządzenia** | Host funkcji Hyper-V wymaga zasobów do przydzielenia maszyny wirtualnej dla urządzenia:<br/><br/> — Windows Server 2016<br/><br/> -16 GB pamięci RAM<br/><br/> -Osiem procesorów wirtualnych vCPU<br/><br/> -Około 80 GB miejsca na dysku.<br/><br/> — Zewnętrzny przełącznik wirtualny.<br/><br/> — Dostęp do Internetu dla maszyny wirtualnej, bezpośrednio lub za pośrednictwem serwera proxy.
 **Maszyny wirtualne** | Na maszynach wirtualnych może działać dowolny system operacyjny Windows lub Linux. 
 
 Przed rozpoczęciem możesz [przejrzeć dane](migrate-appliance.md#collected-data---hyper-v) zbierane przez urządzenie podczas odnajdywania.
@@ -88,7 +88,7 @@ Skonfiguruj konto z dostępem administratora na hostach funkcji Hyper-V. Urządz
 
 ## <a name="set-up-a-project"></a>Konfigurowanie projektu
 
-konfiguruje nowy projekt Azure Migrate.
+Skonfiguruj nowy projekt Azure Migrate.
 
 1. W witrynie Azure Portal > **Wszystkie usługi** znajdź pozycję **Azure Migrate**.
 2. W obszarze **Usługi** wybierz pozycję **Azure Migrate**.

@@ -6,18 +6,18 @@ services: application-gateway
 author: surajmb
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 01/02/2021
 ms.author: victorh
-ms.openlocfilehash: a72f0106088d26eb2ff53456840c598c3d9619a7
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: aadd4904ff218613c0dd24daff784ad5b8b90fbb
+ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397556"
+ms.lasthandoff: 01/03/2021
+ms.locfileid: "97854914"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Konfigurowanie App Service przy użyciu Application Gateway
 
-Ponieważ usługa App Service jest usługą z wieloma dzierżawami zamiast wdrożenia dedykowanego, używa nagłówka hosta w żądaniu przychodzącym, aby rozwiązać żądanie do poprawnego punktu końcowego usługi App Service. Zwykle nazwa DNS aplikacji, która z kolei jest nazwą DNS skojarzoną z frontonem usługi App Service, różni się od nazwy domeny usługi aplikacji zaplecza. W związku z tym nagłówek hosta w oryginalnym żądaniu odebranym przez bramę aplikacji nie jest taki sam jak nazwa hosta usługi wewnętrznej bazy danych. Z tego względu, jeśli nagłówek hosta w żądaniu z bramy Application Gateway do zaplecza nie zostanie zmieniony na nazwę hosta usługi wewnętrznej bazy danych, nadmiarowe punkty końcowe z wieloma dzierżawcami nie będą mogły rozpoznać żądania do prawidłowego punktu końcowego.
+Ponieważ usługa App Service to usługa z wieloma dzierżawami, a nie wdrożenie dedykowane, rozpoznanie właściwego punktu końcowego usługi App Service dla przychodzącego żądania odbywa się na podstawie nagłówka hosta w tym żądaniu. Zwykle nazwa DNS aplikacji, która z kolei jest nazwą DNS skojarzoną z frontonem usługi App Service, różni się od nazwy domeny usługi aplikacji zaplecza. W związku z tym nagłówek hosta w oryginalnym żądaniu odebranym przez bramę aplikacji nie jest taki sam jak nazwa hosta usługi wewnętrznej bazy danych. Z tego względu, jeśli nagłówek hosta w żądaniu z bramy Application Gateway do zaplecza nie zostanie zmieniony na nazwę hosta usługi wewnętrznej bazy danych, nadmiarowe punkty końcowe z wieloma dzierżawcami nie będą mogły rozpoznać żądania do prawidłowego punktu końcowego.
 
 Application Gateway udostępnia przełącznik, `Pick host name from backend target` który zastępuje nagłówek hosta w żądaniu nazwą hosta zaplecza, gdy żądanie jest kierowane z Application Gateway do zaplecza. Ta funkcja umożliwia obsługę zaplecza z wieloma dzierżawami, takich jak usługa Azure App Service i API Management. 
 

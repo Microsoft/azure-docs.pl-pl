@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 7d07dda7741aa075b8d853a8d06d3d3218ca901a
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: fafa4c1e8c12ce26a90cfdf9df940823abf5ff25
+ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94563821"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857447"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Co to jest wystąpienie obliczeniowe usługi Azure Machine Learning?
 
@@ -102,7 +102,7 @@ Możesz użyć `/tmp` katalogu w wystąpieniu obliczeniowym dla danych tymczasow
 
 ## <a name="managing-a-compute-instance"></a>Zarządzanie wystąpieniem obliczeniowym
 
-W obszarze roboczym programu Azure Machine Learning Studio wybierz pozycję **obliczenia** , a następnie na górze wybierz pozycję **wystąpienie obliczeniowe** .
+W obszarze roboczym programu Azure Machine Learning Studio wybierz pozycję **obliczenia**, a następnie na górze wybierz pozycję **wystąpienie obliczeniowe** .
 
 ![Zarządzanie wystąpieniem obliczeniowym](./media/concept-compute-instance/manage-compute-instance.png)
 
@@ -129,6 +129,11 @@ Te akcje mogą być kontrolowane przez funkcję RBAC platformy Azure:
 * *Microsoft. MachineLearningServices/obszary robocze/obliczenia/uruchomienie/akcja*
 * *Microsoft. MachineLearningServices/obszary robocze/obliczenia/akcja*
 * *Microsoft. MachineLearningServices/obszary robocze/obliczenia/ponowne uruchomienie/akcja*
+
+Należy pamiętać o utworzeniu wystąpienia obliczeniowego użytkownik musi mieć uprawnienia do następujących akcji:
+* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/zapis*
+* *Microsoft. MachineLearningServices/obszary robocze/checkComputeNameAvailability/akcja*
+
 
 ### <a name="create-a-compute-instance"></a><a name="create"></a>Tworzenie wystąpienia obliczeniowego
 

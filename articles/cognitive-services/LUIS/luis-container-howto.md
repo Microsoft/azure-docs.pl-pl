@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: aahi
 keywords: lokalna, Docker, kontener
-ms.openlocfilehash: 778fe388ae3db68d836384299a8a1c7c06e31f41
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2bef6aa4e624386750a4c989d7e56cc1b22aaa5e
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96001811"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862003"
 ---
 # <a name="install-and-run-docker-containers-for-luis"></a>Instalowanie i uruchamianie kontenerów platformy Docker dla usługi LUIS
 
@@ -60,7 +60,7 @@ Tworzenie interfejsów API dla spakowanych aplikacji:
 
 W poniższej tabeli wymieniono minimalne i zalecane wartości dla hosta kontenerów. Wymagania mogą ulec zmianie w zależności od ilości ruchu sieciowego.
 
-|Kontener| Minimum | Zalecane | TPS<br>(Minimum, maksimum)|
+|Kontener| Minimum | Zalecane | DODATEK<br>(Minimum, maksimum)|
 |-----------|---------|-------------|--|
 |LUIS|1 rdzeń, 2 GB pamięci|1 rdzeń, 4 GB pamięci|20, 40|
 
@@ -373,9 +373,6 @@ Kontener LUIS wysyła informacje o rozliczeniach do platformy Azure przy użyciu
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Aby uzyskać więcej informacji na temat tych opcji, zobacz [Konfigurowanie kontenerów](luis-container-configuration.md).
-
-<!--blogs/samples/video courses -->
-[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>Podsumowanie
 

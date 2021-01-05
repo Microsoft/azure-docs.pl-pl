@@ -4,14 +4,14 @@ description: Typowe problemy związane z alertami metryk Azure Monitor i możliw
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 11/25/2020
+ms.date: 01/03/2021
 ms.subservice: alerts
-ms.openlocfilehash: fc54d2ba3ca4e7a150a1602c671b99f58197bc44
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 9a05fe509e032681a0bf5ed989595a25f66d33c6
+ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657298"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857345"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Rozwiązywanie problemów z alertami metryk usługi Azure Monitor 
 
@@ -265,6 +265,23 @@ Zalecamy wybranie *stopnia szczegółowości agregacji (okres)* , który jest wi
 -   Reguła alertu metryki, która monitoruje wiele wymiarów — po dodaniu nowej kombinacji wartości wymiaru
 -   Reguła alertu metryki, która monitoruje wiele zasobów — po dodaniu nowego zasobu do zakresu
 -   Reguła alertu dotyczącego metryki, która monitoruje metrykę nieemitowaną ciągle (metrykę rozrzedzoną) — gdy Metryka jest emitowana po okresie dłuższym niż 24 godziny, w którym nie została wyemitowana
+
+## <a name="the-dynamic-thresholds-borders-dont-seem-to-fit-the-data"></a>Obramowania dynamiczne nie nadają się do danych
+
+Jeśli zachowanie metryki zmieniło się ostatnio, zmiany nie będą miały wpływu na granice progu dynamicznego (górne i dolne granice) natychmiast, ponieważ są one obliczane na podstawie danych metryk z ostatnich 10 dni. Podczas przeglądania granic progu dynamicznego dla danej metryki, upewnij się, że trend metryki w ubiegłym tygodniu, a nie tylko dla ostatnich godzin lub dni.
+
+## <a name="why-is-weekly-seasonality-not-detected-by-dynamic-thresholds"></a>Dlaczego cotygodniowe sezonowości nie są wykrywane przez progi dynamiczne?
+
+Aby zidentyfikować cotygodniowe sezonowości, model dynamicznych progów wymaga co najmniej trzech tygodni danych historycznych. Po udostępnieniu wystarczającej ilości danych historycznych każdy tygodniowy sezonowości, który istnieje w danych metryki, zostanie zidentyfikowany, a model zostanie odpowiednio dostosowany. 
+
+## <a name="dynamic-thresholds-shows-a-negative-lower-bound-for-a-metric-even-though-the-metric-always-has-positive-values"></a>Progi dynamiczne pokazują ujemną dolną granicę dla metryki, mimo że Metryka zawsze ma wartości dodatnie
+
+Gdy Metryka wykazuje duże wahania, dynamiczne progi spowodują skompilowanie szerszego modelu wokół wartości metryk, co może spowodować, że Dolna granica jest mniejsza od zera. W tym celu może się to zdarzyć w następujących przypadkach:
+1. Wartość ustawienia czułość jest niska 
+2. Wartości Media są bliskie zero
+3. Metryka wykazuje nieregularne zachowanie z wysoką wariancją (w danych znajdują się wartości graniczne lub wartości DIP).
+
+Gdy dolna granica ma wartość ujemną, oznacza to, że jest ona niedostępna dla metryki do osiągnięcia wartości zerowej ze względu na nieregularne zachowanie metryki. Możesz rozważyć wybranie wyższej czułości lub większego *stopnia szczegółowości agregacji (okres)* , aby model był mniej wrażliwy, lub użyć opcji *Ignoruj dane przed* wykluczeniem ostatnich irregulaity z danych historycznych użytych do skompilowania modelu.
 
 ## <a name="next-steps"></a>Następne kroki
 

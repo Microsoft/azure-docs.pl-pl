@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: Automatyczne przetwarzanie danych, przetwarzanie dokumentów, automatyczne wprowadzanie danych, przetwarzanie formularzy
-ms.openlocfilehash: 39243f4428d055ee5d4491c3e87b4b91213f63f1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: ed940622f72271ef3e606c5068babcb6366c31b6
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353684"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845525"
 ---
 # <a name="what-is-form-recognizer"></a>Co to jest rozpoznawanie formularzy?
 
@@ -108,23 +108,21 @@ Model wizytówek umożliwia wyodrębnienie informacji, takich jak imię i nazwis
 
 Skorzystaj z [przykładowego narzędzia rozpoznawania formularzy](https://fott.azurewebsites.net/) lub Skorzystaj z przewodnika Szybki Start, aby rozpocząć wyodrębnianie danych z formularzy. Zalecamy korzystanie z bezpłatnej usługi podczas nauki technologii. Należy pamiętać, że liczba bezpłatnych stron jest ograniczona do 500 miesięcznie.
 
-* [Przewodniki Szybki Start dotyczące biblioteki klienta](./quickstarts/client-library.md) (wszystkie języki, wiele scenariuszy)
+* [Biblioteka klienta/interfejs API REST — szybki start](./quickstarts/client-library.md) (wszystkie języki, wiele scenariuszy)
 * Przewodnik Szybki Start dotyczący interfejsu użytkownika sieci Web
   * [Szkolenie z etykietami — przykładowe narzędzie do etykietowania](quickstarts/label-tool.md)
-* Przewodniki Szybki Start
+* Przykłady REST (GitHub)
  * Wyodrębnij tekst, znaczniki wyboru i strukturę tabeli z dokumentów
-    * [Wyodrębnij dane układu — Python](quickstarts/python-layout.md)
+    * [Wyodrębnij dane układu — Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-layout.md)
   * Uczenie modeli niestandardowych i wyodrębnianie danych formularza
-    * [Uczenie bez etykiet — zwinięcie](quickstarts/curl-train-extract.md)
-    * [Uczenie bez etykiet — Python](quickstarts/python-train-extract.md)
-    * [Uczenie z etykietami — Python](quickstarts/python-labeled-data.md)
+    * [Uczenie bez etykiet — Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-train-extract.md)
+    * [Uczenie z etykietami — Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
   * Wyodrębnij dane z faktur
-    * [Wyodrębnij dane faktury — Python](quickstarts/python-invoices.md)
+    * [Wyodrębnij dane faktury — Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-invoices.md)
   * Wyodrębnij dane z przyjęć sprzedaży
-    * [Wyodrębnij dane przyjęcia — zwinięcie](quickstarts/curl-receipts.md)
-    * [Wyodrębnij dane przyjęcia — Python](quickstarts/python-receipts.md)
+    * [Wyodrębnij dane przyjęcia — Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-receipts.md)
   * Wyodrębnianie danych z wizytówek
-    * [Wyodrębnianie danych z kart służbowych — Python](quickstarts/python-business-cards.md)
+    * [Wyodrębnianie danych z kart służbowych — Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-business-cards.md)
 
 ### <a name="review-the-rest-apis"></a>Przeglądanie interfejsów API REST
 
@@ -162,4 +160,4 @@ Podobnie jak w przypadku wszystkich usług poznawczych, deweloperzy korzystając
 
 ## <a name="next-steps"></a>Następne kroki
 
-Ukończ [Przewodnik Szybki Start dla biblioteki klienta](quickstarts/client-library.md) , aby rozpocząć pisanie aplikacji przetwarzania formularzy przy użyciu aparatu rozpoznawania formularzy w wybranym języku.
+Ukończ [Przewodnik Szybki Start](quickstarts/client-library.md) , aby rozpocząć pisanie aplikacji przetwarzania formularzy przy użyciu aparatu rozpoznawania formularzy w wybranym języku.

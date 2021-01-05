@@ -4,16 +4,16 @@ description: Dowiedz się, jak włączyć uwierzytelnianie oparte na tożsamośc
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/21/2020
+ms.date: 01/03/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: deed7c3dce2d7da1940a8a4871efac7453e2cf60
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 340455450cd6a18adfd8d0843fee423f82f10a45
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033684"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858403"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Włącz uwierzytelnianie Azure Active Directory Domain Services na Azure Files
 
@@ -22,8 +22,7 @@ ms.locfileid: "97033684"
 Jeśli dopiero zaczynasz korzystanie z udziałów plików platformy Azure, zalecamy zapoznanie się z naszym [przewodnikiem planowania](storage-files-planning.md) przed przeczytaniem następującej serii artykułów.
 
 > [!NOTE]
-> Azure Files obsługuje uwierzytelnianie Kerberos za pomocą usługi Azure AD DS z szyfrowaniem RC4-HMAC. Szyfrowanie AES Kerberos nie jest jeszcze obsługiwane.
-> Azure Files obsługuje uwierzytelnianie dla AD DS platformy Azure z pełną synchronizacją z usługą Azure AD. Jeśli włączono synchronizację z zakresem w usłudze Azure AD DS, która synchronizuje tylko ograniczony zestaw tożsamości z usługi Azure AD, uwierzytelnianie i autoryzacja nie są obsługiwane.
+> Azure Files obsługuje uwierzytelnianie Kerberos za pomocą usługi Azure AD DS z szyfrowaniem RC4-HMAC i AES 256. Azure Files obsługuje uwierzytelnianie dla AD DS platformy Azure z pełną synchronizacją z usługą Azure AD. Jeśli włączono synchronizację z zakresem w usłudze Azure AD DS, która synchronizuje tylko ograniczony zestaw tożsamości z usługi Azure AD, uwierzytelnianie i autoryzacja nie są obsługiwane.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -59,7 +58,7 @@ Przed włączeniem usługi Azure AD za pośrednictwem protokołu SMB dla udział
 
 ## <a name="regional-availability"></a>Dostępność regionalna
 
-Uwierzytelnianie Azure Files za pomocą usługi Azure AD DS jest dostępne we [wszystkich regionach usług Azure Public i gov](https://azure.microsoft.com/global-infrastructure/locations/).
+Uwierzytelnianie Azure Files za pomocą usługi Azure AD DS jest dostępne we [wszystkich regionach usług Azure Public, gov i Chiny](https://azure.microsoft.com/global-infrastructure/locations/).
 
 ## <a name="overview-of-the-workflow"></a>Przegląd przepływu pracy
 

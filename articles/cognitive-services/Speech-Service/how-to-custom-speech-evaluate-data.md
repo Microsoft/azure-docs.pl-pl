@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: b8b3a0aa6d9790dbb5900eac2d79074f44a749d2
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 54a54dccd82e4f6cfd72a1cc8a71b51f9fd4ed95
+ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025654"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857362"
 ---
 # <a name="evaluate-and-improve-custom-speech-accuracy"></a>Ocenianie i poprawianie dokładności usługi Custom Speech
 
@@ -23,7 +23,7 @@ W tym artykule dowiesz się, jak ilościowo mierzyć i poprawiać dokładność 
 
 ## <a name="evaluate-custom-speech-accuracy"></a>Ocena dokładności usługi Custom Speech
 
-Standardem branżowym do mierzenia dokładności modelu jest *Współczynnik błędów programu Word* . Funkcja Raportowanie błędów systemu Windows zlicza błędne słowa identyfikowane podczas rozpoznawania, a następnie dzieli przez łączną liczbę wyrazów w transkrypcji z etykietami ludzkimi (pokazane poniżej jako N). Na koniec ten numer jest mnożony przez 100%, aby obliczyć raportowanie błędów.
+Standardem branżowym do mierzenia dokładności modelu jest [Współczynnik błędów programu Word](https://en.wikipedia.org/wiki/Word_error_rate) . Funkcja Raportowanie błędów systemu Windows zlicza błędne słowa identyfikowane podczas rozpoznawania, a następnie dzieli przez łączną liczbę wyrazów w transkrypcji z etykietami ludzkimi (pokazane poniżej jako N). Na koniec ten numer jest mnożony przez 100%, aby obliczyć raportowanie błędów.
 
 ![Formuła raportowanie błędów](./media/custom-speech/custom-speech-wer-formula.png)
 
@@ -36,6 +36,8 @@ Niepoprawnie zidentyfikowane słowa dzielą się na trzy kategorie:
 Oto przykład:
 
 ![Przykład niepoprawnie zidentyfikowanych wyrazów](./media/custom-speech/custom-speech-dis-words.png)
+
+Jeśli chcesz lokalnie replikować pomiary funkcji Raportowanie błędów, możesz użyć sclite z [SCTK](https://github.com/usnistgov/SCTK).
 
 ## <a name="resolve-errors-and-improve-wer"></a>Rozwiązywanie problemów i ulepszanie funkcji Raportowanie błędów systemu Windows
 
@@ -96,7 +98,7 @@ W poniższych sekcjach opisano, jak każdy rodzaj dodatkowych danych szkoleniowy
 
 ### <a name="add-related-text-sentences"></a>Dodaj powiązane zdania tekstowe
 
-Dodatkowe powiązane zdania tekstowe mogą przede wszystkim ograniczyć błędy podstawiania związane z błędami rozpoznawania typowych słów i słów specyficznych dla domeny, pokazując je w kontekście. Słowa specyficzne dla domeny mogą być nietypowe lub wykonane słowa, ale ich wymowa musi być prosta do rozpoznania.
+Podczas uczenia nowego modelu niestandardowego Zacznij od dodania pokrewnego tekstu w celu usprawnienia rozpoznawania słów i fraz specyficznych dla domeny. Powiązane zdania tekstowe mogą przede wszystkim zmniejszać błędy podstawiania związane z błędami rozpoznawania typowych słów i słów specyficznych dla domeny, pokazując je w kontekście. Słowa specyficzne dla domeny mogą być nietypowe lub wykonane słowa, ale ich wymowa musi być prosta do rozpoznania.
 
 > [!NOTE]
 > Unikaj powiązanych zdań tekstowych, które zawierają szum, takie jak nierozpoznawalne znaki lub wyrazy.
@@ -111,6 +113,12 @@ Należy wziąć pod uwagę następujące szczegóły:
 * Unikaj przykładów zawierających błędy transkrypcji, ale Uwzględnij różnorodność jakości audio.
 * Unikaj zdań, które nie są związane z Twoją domeną problemu. Niepowiązane zdania mogą uszkodzić model.
 * Gdy jakość transkrypcji jest różna, można zduplikować wyjątkowo dobre zdania (na przykład doskonałe transkrypcje zawierające kluczowe frazy) w celu zwiększenia ich wagi.
+* Usługa Speech automatycznie użyje transkrypcji w celu usprawnienia rozpoznawania słów i fraz specyficznych dla domeny, tak jakby były one dodane jako powiązane teksty.
+* Szkolenia przy użyciu dźwięku zapewniają największą korzyść, jeśli dźwięk jest również trudny do zrozumienia dla ludzi. W większości przypadków należy zacząć uczenie się, korzystając tylko z pokrewnego tekstu.
+* Ukończenie operacji szkoleniowej może potrwać kilka dni. Aby zwiększyć szybkość szkolenia, pamiętaj, aby utworzyć subskrypcję usługi mowy w [regionie z dedykowanym sprzętem](custom-speech-overview.md#set-up-your-azure-account) do szkoleń.
+
+> [!NOTE]
+> Nie wszystkie modele podstawowe obsługują szkolenia z dźwiękiem. Jeśli model podstawowy nie obsługuje tego elementu, usługa mowy będzie używać tylko tekstu z transkrypcji i ignorować dźwięk.
 
 ### <a name="add-new-words-with-pronunciation"></a>Dodawanie nowych wyrazów z wymowęm
 

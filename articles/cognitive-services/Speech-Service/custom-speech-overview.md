@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: be01309fee3454fbd4be78130f9826b493e7bf7a
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 51f9ad4fea1c139cee5974ecd81645c9a904feb4
+ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033769"
+ms.lasthandoff: 01/03/2021
+ms.locfileid: "97854897"
 ---
 # <a name="what-is-custom-speech"></a>Czym jest usługa Custom Speech?
 
@@ -43,6 +43,23 @@ Ten diagram przedstawia elementy wchodzące w skład [portalu Custom Speech](htt
 ## <a name="set-up-your-azure-account"></a>Skonfiguruj swoje konto platformy Azure
 
 Musisz mieć subskrypcję usługi Azure Account i Speech Service, aby można było utworzyć niestandardowy model przy użyciu [portalu Custom Speech](https://speech.microsoft.com/customspeech) . Jeśli nie masz konta i subskrypcji, [Wypróbuj usługę mowy bezpłatnie](overview.md#try-the-speech-service-for-free).
+
+Jeśli planujesz uczenie modelu niestandardowego z danymi audio, wybierz jeden z następujących regionów, w których jest dostępny dedykowany sprzęt do szkoleń. Pozwala to skrócić czas potrzebny do uczenia modelu.
+
+* Australia Wschodnia
+* Kanada Środkowa
+* Indie Środkowe
+* East US
+* Wschodnie stany USA 2
+* Północno-środkowe stany USA
+* Europa Północna
+* South Central US
+* Southeast Asia
+* Południowe Zjednoczone Królestwo
+* US Gov Arizona
+* US Gov Wirginia
+* West Europe
+* Zachodnie stany USA 2
 
 > [!NOTE]
 > Pamiętaj, aby utworzyć subskrypcję standardową (S0). Bezpłatne subskrypcje (F0) nie są obsługiwane.
