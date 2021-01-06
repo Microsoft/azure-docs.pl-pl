@@ -417,6 +417,8 @@
           href: functions-recover-storage-account.md
         - name: Rozwiązywanie problemów z funkcjami języka Python
           href: recover-python-functions.md
+        - name: Skalowanie i wydajność funkcji języka Python
+          href: python-scale-performance-reference.md
 - name: Dokumentacja
   items:
     - name: Dokumentacja interfejsu API

@@ -211,6 +211,8 @@
       href: /rest/api/securityinsights/
     - name: Schemat normalizacji sieci
       href: normalization-schema.md
+    - name: Wzbogacanie z użyciem analizy behawioralnej użytkowników i jednostek
+      href: ueba-enrichments.md
 - name: Zasoby
   items:
     - name: Przydatne zasoby
