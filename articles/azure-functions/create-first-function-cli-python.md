@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 5f8bf6fb6f464bcb74d34e2d99fac16c24b12615
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5e2d21a5f9f764f260695f17c93d5a615fc62efa
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175716"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937216"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>Szybki Start: Tworzenie funkcji języka Python na platformie Azure z poziomu wiersza polecenia
 
@@ -256,7 +256,7 @@ Użyj następujących poleceń, aby utworzyć te elementy. Obsługiwane są zar�
     
     W poprzednim przykładzie Zastąp ciąg `<STORAGE_NAME>` nazwą konta użytego w poprzednim kroku i Zastąp ciąg `<APP_NAME>` globalnie unikatową nazwą, która jest odpowiednia dla Ciebie.  `<APP_NAME>` jest również domyślną domeną DNS aplikacji funkcji. 
     
-    To polecenie tworzy aplikację funkcji działającą w określonym środowisku uruchomieniowym języka zgodnie z [planem zużycia Azure Functions](functions-scale.md#consumption-plan), który jest bezpłatny dla nakładu pracy w tym miejscu. Polecenie udostępnia również skojarzone wystąpienie usługi Azure Application Insights w tej samej grupie zasobów, za pomocą którego można monitorować aplikację funkcji i wyświetlać dzienniki. Aby uzyskać więcej informacji, zobacz [Monitor Azure Functions](functions-monitoring.md). Wystąpienie nie wiąże się z żadnymi kosztami, dopóki nie zostanie uaktywnione.
+    To polecenie tworzy aplikację funkcji działającą w określonym środowisku uruchomieniowym języka zgodnie z [planem zużycia Azure Functions](consumption-plan.md), który jest bezpłatny dla nakładu pracy w tym miejscu. Polecenie udostępnia również skojarzone wystąpienie usługi Azure Application Insights w tej samej grupie zasobów, za pomocą którego można monitorować aplikację funkcji i wyświetlać dzienniki. Aby uzyskać więcej informacji, zobacz [Monitor Azure Functions](functions-monitoring.md). Wystąpienie nie wiąże się z żadnymi kosztami, dopóki nie zostanie uaktywnione.
 
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
 

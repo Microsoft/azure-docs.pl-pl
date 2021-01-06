@@ -3,12 +3,12 @@ title: Zagadnienia dotyczące magazynu Azure Functions
 description: Dowiedz się więcej o wymaganiach dotyczących magazynu Azure Functions i o szyfrowaniu przechowywanych danych.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: 67ff822208f065041e479fc484173d9f06a773ba
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 66bfded384be47224e86ee8e0a2999fe3d4ed5d9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107247"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936162"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Zagadnienia dotyczące magazynu Azure Functions
 
@@ -18,7 +18,7 @@ Azure Functions wymaga konta usługi Azure Storage podczas tworzenia wystąpieni
 |Usługa magazynu  | Użycie funkcji  |
 |---------|---------|
 | [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)     | Zachowaj stan powiązań i klucze funkcji.  <br/>Używane także przez [centra zadań w Durable Functions](durable/durable-functions-task-hubs.md). |
-| [Azure Files](../storage/files/storage-files-introduction.md)  | Udział plików używany do przechowywania i uruchamiania kodu aplikacji funkcji w [planie użycia](functions-scale.md#consumption-plan) i [planu Premium](functions-scale.md#premium-plan). |
+| [Azure Files](../storage/files/storage-files-introduction.md)  | Udział plików używany do przechowywania i uruchamiania kodu aplikacji funkcji w [planie użycia](consumption-plan.md) i [planu Premium](functions-premium-plan.md). |
 | [Usługa Azure queue storage](../storage/queues/storage-queues-introduction.md)     | Używane przez [centra zadań w Durable Functions](durable/durable-functions-task-hubs.md).   |
 | [Azure Table storage](../storage/tables/table-storage-overview.md)  |  Używane przez [centra zadań w Durable Functions](durable/durable-functions-task-hubs.md).       |
 
@@ -32,6 +32,8 @@ Podczas tworzenia aplikacji funkcji należy utworzyć konto usługi Azure Storag
 Aby dowiedzieć się więcej na temat typów kont magazynu, zobacz [Wprowadzenie do usług Azure Storage](../storage/common/storage-introduction.md#core-storage-services). 
 
 Chociaż możesz użyć istniejącego konta magazynu z aplikacją funkcji, musisz upewnić się, że spełnia ono wymagania. Konta magazynu utworzone w ramach przepływu tworzenia aplikacji funkcji w Azure Portal są gwarantowane spełnianie wymagań dotyczących konta magazynu. W portalu nieobsługiwane konta są odfiltrowane w przypadku wybrania istniejącego konta magazynu podczas tworzenia aplikacji funkcji. W tym przepływie można wybrać tylko istniejące konta magazynu w tym samym regionie, w którym jest tworzona aplikacja funkcji. Aby dowiedzieć się więcej, zobacz [Lokalizacja konta magazynu](#storage-account-location).
+
+<!-- JH: Does using a Premium Storage account improve perf? -->
 
 ## <a name="storage-account-guidance"></a>Wskazówki dotyczące konta magazynu
 
@@ -59,7 +61,15 @@ Istnieje możliwość udostępnienia tego samego konta magazynu dla wielu aplika
 
 [!INCLUDE [functions-storage-encryption](../../includes/functions-storage-encryption.md)]
 
-## <a name="mount-file-shares-linux"></a>Zainstaluj udziały plików (Linux)
+### <a name="in-region-data-residency"></a>Zamieszkania danych w regionie
+
+Gdy wszystkie dane klienta muszą pozostawać w jednym regionie, konto magazynu skojarzone z aplikacją funkcji musi być jednym z [nadmiarowości w regionie](../storage/common/storage-redundancy.md). Konto magazynu nadmiarowego w regionie musi być również używane z [usługą Azure Durable Functions](./durable/durable-functions-perf-and-scale.md#storage-account-selection).
+
+Inne dane klienta zarządzane przez platformę są przechowywane w regionie tylko podczas hostowania w ramach wewnętrznego równoważenia obciążenia App Service Environment (ASE). Aby dowiedzieć się więcej, zobacz [nadmiarowość stref środowiska ASE](../app-service/environment/zone-redundancy.md#in-region-data-residency).
+
+## <a name="mount-file-shares"></a>Zainstaluj udziały plików
+
+_Ta funkcja jest obecnie dostępna tylko w przypadku uruchamiania w systemie Linux._ 
 
 Istniejące udziały Azure Files można zainstalować w aplikacjach funkcji systemu Linux. Instalując udział w aplikacji funkcji systemu Linux, możesz korzystać z istniejących modeli uczenia maszynowego lub innych danych w swoich funkcjach. Możesz użyć polecenia, [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) Aby zainstalować istniejący udział w aplikacji funkcji systemu Linux. 
 

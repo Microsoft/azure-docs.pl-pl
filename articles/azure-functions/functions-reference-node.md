@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 21ab58095fa919e6302251c16e474b02f1445993
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: bf6ebd01a18a0ebf0ab5dd7d7ac3aa34256b4696
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302000"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936808"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Przewodnik dla deweloperów Azure Functions JavaScript
 
@@ -493,7 +493,7 @@ Podczas pracy z wyzwalaczami HTTP można uzyskiwać dostęp do obiektów żądan
 
 ## <a name="scaling-and-concurrency"></a>Skalowanie i współbieżność
 
-Domyślnie Azure Functions automatycznie monitoruje obciążenie aplikacji i tworzy dodatkowe wystąpienia hosta dla Node.js, zgodnie z potrzebami. Funkcja używa wbudowanych wartości progowych (nie można skonfigurować użytkownika) dla różnych typów wyzwalaczy, aby określić, kiedy należy dodać wystąpienia, takie jak wiek komunikatów i rozmiar kolejki dla QueueTrigger. Aby uzyskać więcej informacji, zobacz [jak działają plany zużycia i Premium](functions-scale.md#how-the-consumption-and-premium-plans-work).
+Domyślnie Azure Functions automatycznie monitoruje obciążenie aplikacji i tworzy dodatkowe wystąpienia hosta dla Node.js, zgodnie z potrzebami. Funkcja używa wbudowanych wartości progowych (nie można skonfigurować użytkownika) dla różnych typów wyzwalaczy, aby określić, kiedy należy dodać wystąpienia, takie jak wiek komunikatów i rozmiar kolejki dla QueueTrigger. Aby uzyskać więcej informacji, zobacz [jak działają plany zużycia i Premium](event-driven-scaling.md).
 
 To zachowanie skalowania jest wystarczające dla wielu aplikacji Node.js. W przypadku aplikacji powiązanych z PROCESORem można dodatkowo poprawić wydajność przy użyciu wielu procesów roboczych języka.
 
@@ -551,7 +551,7 @@ Istnieją dwa sposoby instalowania pakietów na aplikacja funkcji:
 
 
 ### <a name="using-kudu"></a>Korzystanie z kudu
-1. Przejdź do adresu `https://<function_app_name>.scm.azurewebsites.net`.
+1. Przejdź do witryny `https://<function_app_name>.scm.azurewebsites.net`.
 
 2. Kliknij pozycję **Debuguj konsolę**  >  **cmd**.
 

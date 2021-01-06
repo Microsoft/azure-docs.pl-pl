@@ -1,14 +1,14 @@
 ---
 title: Reguły dostępu zapory
-description: Skonfiguruj reguły dostępu do usługi Azure Container Registry za zaporą, zezwalając na dostęp do ("listy dozwolonych") interfejsów API REST i nazw domen punktów końcowych danych lub zakresów adresów IP specyficznych dla usługi.
+description: Skonfiguruj reguły dostępu do rejestru kontenerów platformy Azure za zaporą, zezwalając na dostęp do interfejsu API REST i nazw domen punktów końcowych danych lub zakresów adresów IP specyficznych dla usługi.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: b9ecd5f802176cdc6881294f5dedefd3dd467244
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 548d64632c1d726111770dfb49f705d31f5ca714
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148518"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935992"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Konfigurowanie reguł dostępu do usługi Azure Container Registry za zaporą
 
@@ -40,7 +40,7 @@ Jeśli organizacja ma zasady zezwalające na dostęp tylko do określonych adres
 Aby znaleźć zakresy adresów IP punktów końcowych usługi ACR REST, dla których należy zezwolić na dostęp, Wyszukaj **AzureContainerRegistry** w pliku JSON.
 
 > [!IMPORTANT]
-> Zakresy adresów IP dla usług platformy Azure mogą ulec zmianie, a aktualizacje są publikowane co tydzień. Regularnie Pobieraj plik JSON i wprowadź niezbędne aktualizacje w regułach dostępu. Jeśli scenariusz obejmuje skonfigurowanie reguł sieciowej grupy zabezpieczeń w sieci wirtualnej platformy Azure lub używasz zapory platformy Azure, zamiast tego użyj **AzureContainerRegistry** [znacznika usługi](#allow-access-by-service-tag) AzureContainerRegistry.
+> Zakresy adresów IP dla usług platformy Azure mogą ulec zmianie, a aktualizacje są publikowane co tydzień. Regularnie Pobieraj plik JSON i wprowadź niezbędne aktualizacje w regułach dostępu. Jeśli scenariusz obejmuje skonfigurowanie reguł sieciowej grupy zabezpieczeń w sieci wirtualnej platformy Azure lub używasz zapory platformy Azure, zamiast tego użyj  [znacznika usługi](#allow-access-by-service-tag) AzureContainerRegistry.
 >
 
 ### <a name="rest-ip-addresses-for-all-regions"></a>Adresy IP REST dla wszystkich regionów

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 647009854ef5a0c0811fc303914f724272f1a3f5
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: da04e7704274336f7f92237c1d7c30459caa7bc8
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486661"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936485"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Przewodnik wdrażania platformy SAP BusinessObjects BI dla systemu Linux na platformie Azure
 
@@ -317,8 +317,9 @@ Domyślnie utworzony serwer jest chroniony za pomocą zapory i nie jest dostępn
 
    # auditbl1 is the database name of Audit database. You can provide the name you want for CMS database.
    CREATE SCHEMA `auditbl1` DEFAULT CHARACTER SET utf8;
-
-4. Create user account to connect to schema
+   ```
+   
+4. Utwórz konto użytkownika, aby nawiązać połączenie ze schematem
 
    ```sql
    # Create a user that can connect from any host, use the '%' wildcard as a host part
@@ -585,7 +586,7 @@ Implementacja tego rozwiązania różni się w zależności od rodzaju konfigura
 
 Wysoka dostępność odnosi się do zestawu technologii, które mogą zminimalizować zakłócenia, zapewniając ciągłość działania aplikacji/usług za pomocą nadmiarowych, odpornych na uszkodzenia lub składników chronionych przez tryb failover w tym samym centrum danych. W naszym przypadku centra danych znajdują się w obrębie jednego regionu świadczenia usługi Azure. [Architektura i scenariusze wysokiej dostępności artykułu dla oprogramowania SAP](sap-high-availability-architecture-scenarios.md) zapewniają wstępny wgląd w różne techniki wysokiej dostępności i rekomendacje oferowane w przypadku aplikacji SAP na platformie Azure, które pomogą wykonać instrukcje podane w tej sekcji.
 
-Na podstawie wyniku zmiany wielkości platformy SAP BOBI należy zaprojektować krajobraz i określić dystrybucję składników analizy biznesowej między Virtual Machinesami i podsieciami platformy Azure. Poziom nadmiarowości w architekturze rozproszonej zależy od wymaganego przez firmę celu czasu odzyskiwania (RTO) i celu punktu odzyskiwania. Platforma SAP BOBI obejmuje różne warstwy i składniki w każdej warstwie, powinny być zaprojektowane w celu zapewnienia nadmiarowości. W związku z tym, jeśli jeden składnik ulegnie awarii, nie ma przerw w działaniu aplikacji SAP BOBI. Na przykład
+Na podstawie wyniku zmiany wielkości platformy SAP BOBI należy zaprojektować krajobraz i określić dystrybucję składników analizy biznesowej między Virtual Machinesami i podsieciami platformy Azure. Poziom nadmiarowości w architekturze rozproszonej zależy od wymaganego przez firmę celu czasu odzyskiwania (RTO) i celu punktu odzyskiwania. Platforma SAP BOBI obejmuje różne warstwy i składniki w każdej warstwie, powinny być zaprojektowane w celu zapewnienia nadmiarowości. W związku z tym, jeśli jeden składnik ulegnie awarii, nie ma przerw w działaniu aplikacji SAP BOBI. Przykład:
 
 - Nadmiarowe serwery aplikacji, takie jak serwery aplikacji analizy biznesowej i serwer sieci Web
 - Unikatowe składniki, takie jak CMS Database, serwer repozytorium plików, Load Balancer

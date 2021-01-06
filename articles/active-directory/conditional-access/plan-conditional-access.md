@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20b51cc747d3a24b1437eda988397a2e999f6ab3
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: a43200985820779c56983f09b81a86989261c36f
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837485"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935006"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planowanie wdrażania dostępu warunkowego
 
@@ -24,7 +24,7 @@ Planowanie wdrożenia dostępu warunkowego ma kluczowe znaczenie dla osiągnięc
 
 W świecie w chmurze mobilnej na urządzeniach przenośnych użytkownicy uzyskują dostęp do zasobów organizacji z dowolnego miejsca przy użyciu różnych urządzeń i aplikacji. W efekcie skoncentrowanie się na tym, kto może uzyskać dostęp do zasobu, nie jest już wystarczające. Należy również wziąć pod uwagę, w jaki sposób użytkownik jest, używane urządzenie, dostęp do zasobu i nie tylko. 
 
-Azure Active Directory (Azure AD) analizy dostępu warunkowego (CA) są sygnałami, takimi jak użytkownik, urządzenie i lokalizacja, aby zautomatyzować decyzje i wymusić zasady dostępu organizacyjnego dla zasobu. Zasad urzędu certyfikacji można użyć do zastosowania kontroli dostępu, takich jak Multi-Factor Authentication (MFA). Zasady dotyczące urzędów certyfikacji umożliwiają monitowanie użytkowników o uwierzytelnianie wieloskładnikowe, gdy jest to potrzebne w celu zapewnienia bezpieczeństwa, i niepotrzebnych użytkowników.
+Usługi Azure Active Directory (Azure AD) analizy dostępu warunkowego, takie jak użytkownik, urządzenie i lokalizacja, umożliwiają automatyzowanie decyzji i wymuszanie zasad dostępu organizacji dla zasobu. Zasady dostępu warunkowego umożliwiają stosowanie kontroli dostępu, takich jak Multi-Factor Authentication (MFA). Zasady dostępu warunkowego umożliwiają monitowanie użytkowników o uwierzytelnianie wieloskładnikowe, gdy jest to potrzebne do zabezpieczenia, i niepotrzebnych użytkowników.
 
 ![Omówienie dostępu warunkowego](./media/plan-conditional-access/conditional-access-overview-how-it-works.png)
 
@@ -38,7 +38,7 @@ Przed rozpoczęciem upewnij się, że rozumiesz, jak działa [dostęp warunkowy]
 
 Korzyści wynikające z wdrożenia dostępu warunkowego są następujące:
 
-* Zwiększ produktywność. Przerywaj użytkowników tylko przy użyciu stanu logowania, takiego jak MFA, gdy co najmniej jeden z tych sygnałów gwarantuje. Zasady dotyczące urzędów certyfikacji umożliwiają kontrolowanie czasu, w którym użytkownicy są monitowani o uwierzytelnianie wieloskładnikowe, gdy dostęp jest zablokowany, a kiedy muszą korzystać z zaufanego urządzenia.
+* Zwiększ produktywność. Przerywaj użytkowników tylko przy użyciu stanu logowania, takiego jak MFA, gdy co najmniej jeden z tych sygnałów gwarantuje. Zasady dostępu warunkowego umożliwiają kontrolowanie, kiedy użytkownicy są monitowani o uwierzytelnianie wieloskładnikowe, gdy dostęp jest zablokowany, a kiedy muszą korzystać z zaufanego urządzenia.
 
 * Zarządzanie ryzykiem. Automatyzacja oceny ryzyka z warunkami zasad oznacza, że ryzykowne logowania są już zidentyfikowane i skorygowane lub zablokowane. Sprzężenie dostępu warunkowego z usługą [Identity Protection](../identity-protection/overview-identity-protection.md), które wykrywa anomalie i podejrzane zdarzenia, umożliwia kierowanie w przypadku zablokowania lub warunkowego dostępu do zasobów. 
 
@@ -71,7 +71,7 @@ Następujące zasoby mogą być przydatne podczas nauki na temat dostępu warunk
 
 * [Co to jest dostęp warunkowy?](https://youtu.be/ffMAw2IVO7A)
 * [Jak wdrożyć dostęp warunkowy?](https://youtu.be/c_izIRNJNuk)
-* [Jak wdrożyć zasady urzędu certyfikacji dla użytkowników końcowych?](https://youtu.be/0_Fze7Zpyvc)
+* [Jak wdrożyć zasady dostępu warunkowego dla użytkowników końcowych?](https://youtu.be/0_Fze7Zpyvc)
 * [Dostęp warunkowy przy użyciu kontrolek urządzeń](https://youtu.be/NcONUf-jeS4)
 * [Dostęp warunkowy za pomocą usługi Azure AD MFA](https://youtu.be/Tbc-SU97G-w)
 * [Dostęp warunkowy w Enterprise Mobility + Security](https://youtu.be/A7IrxAH87wc)
@@ -102,13 +102,13 @@ Jeśli nowe zasady są gotowe dla danego środowiska, wdróż je w fazach w śro
 > [!NOTE]
 > W przypadku wdrażania nowych zasad, które nie są specyficzne dla administratorów, Wyklucz wszystkich administratorów. Dzięki temu administratorzy mogą nadal uzyskiwać dostęp do zasad i wprowadzać zmiany lub odwoływać je, jeśli wystąpi znaczący wpływ. Przed zastosowaniem do wszystkich użytkowników należy zawsze sprawdzać poprawność zasad z mniejszymi grupami użytkowników.
 
-## <a name="understand-ca-policy-components"></a>Informacje o składnikach zasad urzędu certyfikacji
-Zasady urzędu certyfikacji są instrukcjami if-then: Jeśli zostanie spełnione przypisanie, Zastosuj te kontrole dostępu.
+## <a name="understand-conditional-access-policy-components"></a>Informacje o składnikach zasad dostępu warunkowego
+Zasady dostępu warunkowego to instrukcje if-then: Jeśli zostało spełnione przypisanie, Zastosuj te kontrole dostępu.
 
-W przypadku konfigurowania zasad urzędu certyfikacji warunki są nazywane *przypisaniami*. Zasady dotyczące urzędów certyfikacji umożliwiają wymuszanie kontroli dostępu w aplikacjach organizacji na podstawie określonych przypisań.
+Podczas konfigurowania zasad dostępu warunkowego, warunki są nazywane *przypisaniami*. Zasady dostępu warunkowego umożliwiają wymuszanie kontroli dostępu w aplikacjach organizacji na podstawie określonych przypisań.
 
 
-Aby uzyskać więcej informacji, zobacz [Kompilowanie zasad urzędu certyfikacji](concept-conditional-access-policies.md).
+Aby uzyskać więcej informacji, zobacz [Tworzenie zasad dostępu warunkowego](concept-conditional-access-policies.md).
 
 ![ekran tworzenia zasad](media/plan-conditional-access/create-policy.png)
 
@@ -195,7 +195,7 @@ Ważne jest, aby zrozumieć, jak są wydawane tokeny dostępu.
 ![Diagram wystawiania tokenów dostępu](media/plan-conditional-access/CA-policy-token-issuance.png)
 
 > [!NOTE]
-> Jeśli przypisanie nie jest wymagane, a zasady urzędu certyfikacji nie obowiązują, to domyślne zachowanie ma na celu wystawienie tokenu dostępu. 
+> Jeśli przypisanie nie jest wymagane, a zasady dostępu warunkowego nie są stosowane, to domyślne zachowanie ma na celu wystawienie tokenu dostępu. 
 
 Rozważmy na przykład zasady, w których:
 
@@ -207,14 +207,14 @@ Jeśli użytkownik nie znajduje się w grupie 1 próbuje uzyskać dostęp do apl
 
 Struktura dostępu warunkowego zapewnia dużą elastyczność konfiguracji. Jednak doskonałe elastyczność oznacza, że należy uważnie przejrzeć wszystkie zasady konfiguracji przed jej zwolnieniem, aby uniknąć niepożądanych wyników.
 
-### <a name="apply-ca-policies-to-every-app"></a>Stosowanie zasad urzędu certyfikacji do każdej aplikacji
+### <a name="apply-conditional-access-policies-to-every-app"></a>Zastosuj zasady dostępu warunkowego do każdej aplikacji
 
-Tokeny dostępu są domyślnie wysyłane, jeśli warunek zasad urzędu certyfikacji nie wyzwala kontroli dostępu. Upewnij się, że dla każdej aplikacji zastosowano co najmniej jedną zasadę dostępu warunkowego
+Tokeny dostępu są domyślnie wysyłane, jeśli warunek zasad dostępu warunkowego nie wyzwala kontroli dostępu. Upewnij się, że dla każdej aplikacji zastosowano co najmniej jedną zasadę dostępu warunkowego
 
 > [!IMPORTANT]
 > Należy zachować ostrożność w przypadku korzystania z bloków i wszystkich aplikacji w ramach jednej zasady. Może to spowodować zablokowanie administratorów z portalu administracyjnego platformy Azure, a wykluczenia nie można skonfigurować dla ważnych punktów końcowych, takich jak Microsoft Graph.
 
-### <a name="minimize-the-number-of-ca-policies"></a>Minimalizacja liczby zasad urzędu certyfikacji
+### <a name="minimize-the-number-of-conditional-access-policies"></a>Minimalizacja liczby zasad dostępu warunkowego
 
 Tworzenie zasad dla każdej aplikacji nie jest wydajne i prowadzi do trudnej administracji. Dostęp warunkowy obejmuje tylko pierwsze zasady 195 dla każdego użytkownika. Zalecamy analizowanie aplikacji i grupowanie ich w aplikacje, które mają takie same wymagania dotyczące zasobów dla tych samych użytkowników. Na przykład jeśli wszystkie aplikacje Microsoft 365 lub wszystkie aplikacje kadr mają takie same wymagania dla tych samych użytkowników, należy utworzyć pojedynczą zasadę i uwzględnić wszystkie aplikacje, do których ma zastosowanie. 
 
@@ -228,9 +228,9 @@ Jeśli zasady zostały nieprawidłowo skonfigurowane, można zablokować organiz
 
   * Utwórz lokalną grupę zabezpieczeń i zsynchronizuj ją z usługą Azure AD. Grupa zabezpieczeń powinna zawierać dedykowane konto administracyjne zasad. 
 
-   * Wyłącz tę grupę zabezpieczeń, aby utworzyć wszystkie zasady urzędu certyfikacji.
+   * Wyklucz tę grupę zabezpieczeń formularza wszystkie zasady dostępu warunkowego.
 
-   * Po wystąpieniu awarii usługi należy dodać innych administratorów do grupy lokalnej zgodnie z potrzebami i wymusić synchronizację. Pozwala to na animowanie wykluczenia do zasad urzędu certyfikacji.
+   * Po wystąpieniu awarii usługi należy dodać innych administratorów do grupy lokalnej zgodnie z potrzebami i wymusić synchronizację. Pozwala to animować ich wykluczenia do zasad dostępu warunkowego.
 
 ### <a name="set-up-report-only-mode"></a>Konfigurowanie trybu tylko do raportowania
 
@@ -240,9 +240,9 @@ Może być trudne do przewidywania liczby i nazw użytkowników, których dotycz
 * wymaganie uwierzytelniania wieloskładnikowego
 * Implementowanie zasad dotyczących ryzyka związanego z logowaniem
 
-[Tryb tylko do raportowania ](concept-conditional-access-report-only.md) pozwala administratorom na ocenę wpływu zasad urzędu certyfikacji przed włączeniem ich w środowisku.
+[Tryb tylko do raportowania ](concept-conditional-access-report-only.md) pozwala administratorom na ocenę wpływu zasad dostępu warunkowego przed włączeniem ich w środowisku.
 
-Dowiedz się, jak [skonfigurować tryb tylko do raportowania dla zasad urzędu certyfikacji](howto-conditional-access-insights-reporting.md).
+Dowiedz się, jak [skonfigurować tryb tylko do raportowania dla zasad dostępu warunkowego](howto-conditional-access-insights-reporting.md).
 
 ### <a name="plan-for-disruption"></a>Planowanie przerw w działaniu
 
@@ -295,7 +295,7 @@ Jeśli nowe zasady są gotowe dla danego środowiska, przed jego zwolnieniem upe
 
 ## <a name="common-policies"></a>Wspólne zasady
 
-Planując rozwiązanie zasad urzędu certyfikacji, należy ocenić, czy należy utworzyć zasady, aby osiągnąć poniższe wyniki.
+Planując rozwiązanie zasad dostępu warunkowego, należy ocenić, czy należy utworzyć zasady, aby osiągnąć poniższe wyniki.
 
 * [Wymaganie uwierzytelniania wieloskładnikowego](#require-mfa)
 * [Reagowanie na potencjalnie naruszone konta](#respond-to-potentially-compromised-accounts)
@@ -319,7 +319,7 @@ Typowe przypadki użycia w celu wymagania dostępu MFA:
 
 ### <a name="respond-to-potentially-compromised-accounts"></a>Reagowanie na potencjalnie naruszone konta
 
-Korzystając z zasad urzędu certyfikacji, można zaimplementować automatyczne odpowiedzi na potrzeby logowania przez potencjalnie naruszone tożsamości. Prawdopodobieństwo naruszenia zabezpieczeń konta jest wyrażone w formie poziomów ryzyka. Istnieją dwa poziomy ryzyka obliczone przez ochronę tożsamości: ryzyko związane z logowaniem i ryzykiem użytkownika. Następujące trzy domyślne zasady, które można włączyć.
+Korzystając z zasad dostępu warunkowego, można zaimplementować automatyczne odpowiedzi na potrzeby logowania przez potencjalnie złamane tożsamości. Prawdopodobieństwo naruszenia zabezpieczeń konta jest wyrażone w formie poziomów ryzyka. Istnieją dwa poziomy ryzyka obliczone przez ochronę tożsamości: ryzyko związane z logowaniem i ryzykiem użytkownika. Następujące trzy domyślne zasady, które można włączyć.
 
 * [Wymagaj, aby wszyscy użytkownicy rejestrowali się w usłudze MFA](howto-conditional-access-policy-risk.md)
 
@@ -374,7 +374,7 @@ W tym celu niektóre organizacje mają do tego celu test dzierżawców. Może je
 
 ### <a name="create-a-test-plan"></a>Utwórz plan testu
 
-Plan testu jest istotny do porównania między oczekiwanymi wynikami i rzeczywistymi wynikami. Przed przeprowadzeniem testowania należy zawsze oczekiwać. W poniższej tabeli przedstawiono przykładowe przypadki testowe. Dostosuj scenariusze i oczekiwane wyniki w zależności od sposobu skonfigurowania zasad urzędu certyfikacji.
+Plan testu jest istotny do porównania między oczekiwanymi wynikami i rzeczywistymi wynikami. Przed przeprowadzeniem testowania należy zawsze oczekiwać. W poniższej tabeli przedstawiono przykładowe przypadki testowe. Dostosuj scenariusze i oczekiwane wyniki na podstawie sposobu konfigurowania zasad dostępu warunkowego.
 
 | Zasady| Scenariusz| Oczekiwany wynik |
 | - | - | - |
@@ -389,9 +389,9 @@ Plan testu jest istotny do porównania między oczekiwanymi wynikami i rzeczywis
 
 ### <a name="configure-the-test-policy"></a>Konfigurowanie zasad testów
 
-W [Azure Portal](https://portal.azure.com/)należy skonfigurować zasady urzędu certyfikacji w obszarze Azure Active Directory > zabezpieczenia > dostęp warunkowy.
+W [Azure Portal](https://portal.azure.com/)można skonfigurować zasady dostępu warunkowego w obszarze Azure Active Directory > zabezpieczenia > dostęp warunkowy.
 
-Jeśli chcesz dowiedzieć się więcej o sposobie tworzenia zasad urzędu certyfikacji, zobacz ten przykład: [zasady urzędu certyfikacji, które monitują o usługę MFA, gdy użytkownik zaloguje się do Azure Portal](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json). Ten przewodnik Szybki Start pomaga:
+Jeśli chcesz dowiedzieć się więcej o tworzeniu zasad dostępu warunkowego, zobacz ten przykład: [zasady dostępu warunkowego, aby monitować o usługę MFA, gdy użytkownik zaloguje się do Azure Portal](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json). Ten przewodnik Szybki Start pomaga:
 
 * Zapoznaj się z interfejsem użytkownika
 
@@ -415,7 +415,7 @@ Zagregowany wpływ zasad dostępu warunkowego można wyświetlić w podglądzie 
 Innym sposobem weryfikacji zasad dostępu warunkowego jest użycie [Narzędzia warunkowego](troubleshoot-conditional-access-what-if.md), które symuluje, które zasady byłyby stosowane do logowania użytkownika w hipotetycznych warunkach. Wybierz atrybuty logowania, które chcesz przetestować (takie jak użytkownik, aplikacja, platforma urządzenia i lokalizacja) i zobacz, które zasady będą stosowane.
 
 > [!NOTE] 
-> Gdy symulowane uruchomienie daje dobrym pomysłom wpływ zasad urzędu certyfikacji, nie zastępuje rzeczywistego przebiegu testu.
+> Chociaż symulowane uruchomienie daje dobrym pomysłom wpływ na zasady dostępu warunkowego, nie zastępuje rzeczywistego przebiegu testu.
 
 ### <a name="test-your-policy"></a>Testowanie zasad
 
@@ -442,14 +442,14 @@ W przypadku konieczności wycofania nowo wdrożonych zasad należy użyć co naj
 
 ## <a name="manage-access-to-cloud-apps"></a>Zarządzanie dostępem do aplikacji w chmurze
 
-Poniższe opcje zarządzania umożliwiają kontrolowanie zasad urzędu certyfikacji i zarządzanie nimi:
+Użyj następujących opcji zarządzania, aby kontrolować zasady dostępu warunkowego i zarządzać nimi:
 
 ![Zrzut ekranu przedstawia opcje zarządzania dla zasad C A, w tym nazwanych lokalizacji, kontrolek niestandardowych, Warunki użytkowania, połączenie V P N i wybrane zasady klasyczne.](media/plan-conditional-access/manage-access.png)
 
 
 ### <a name="named-locations"></a>Nazwane lokalizacje
 
-Warunek lokalizacji zasad urzędu certyfikacji umożliwia powiązanie ustawień kontroli dostępu z lokalizacjami sieciowymi użytkowników. Przy użyciu [nazwanych lokalizacji](location-condition.md)można tworzyć logiczne grupowania zakresów adresów IP lub krajów i regionów.
+Warunek lokalizacji zasad dostępu warunkowego umożliwia powiązanie ustawień kontroli dostępu z lokalizacjami sieciowymi użytkowników. Przy użyciu [nazwanych lokalizacji](location-condition.md)można tworzyć logiczne grupowania zakresów adresów IP lub krajów i regionów.
 
 ### <a name="custom-controls"></a>Kontrolki niestandardowe
 
@@ -461,7 +461,7 @@ Przed uzyskaniem dostępu do niektórych aplikacji w chmurze w Twoim środowisku
 
 ## <a name="troubleshoot-conditional-access"></a>Rozwiązywanie problemów z dostępem warunkowym
 
-Jeśli użytkownik ma problem z zasadami urzędu certyfikacji, Zbierz poniższe informacje, aby ułatwić rozwiązywanie problemów.
+Jeśli użytkownik ma problem z zasadami dostępu warunkowego, Zbierz poniższe informacje, aby ułatwić rozwiązywanie problemów.
 
 * Nazwa zasady użytkownika
 
@@ -493,4 +493,4 @@ Po zebraniu informacji zapoznaj się z następującymi zasobami:
 
 [Dowiedz się więcej na temat ochrony tożsamości](../identity-protection/overview-identity-protection.md)
 
-[Zarządzanie zasadami urzędu certyfikacji za pomocą interfejsu API Microsoft Graph](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md)
+[Zarządzanie zasadami dostępu warunkowego za pomocą interfejsu API Microsoft Graph](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md)

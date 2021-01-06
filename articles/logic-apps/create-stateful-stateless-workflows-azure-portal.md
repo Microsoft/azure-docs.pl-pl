@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: d10689937a037469399863395e0190e399334bd3
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: a7e19894a4688fe270422e93f7081f98e0b699a3
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96924517"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936536"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-the-azure-portal-with-azure-logic-apps-preview"></a>Twórz stanowe i bezstanowe przepływy pracy w Azure Portal z podglądem Azure Logic Apps
 
@@ -74,11 +74,11 @@ W tym artykule przedstawiono sposób tworzenia aplikacji logiki i przepływu pra
 
    | Właściwość | Wymagany | Wartość | Opis |
    |----------|----------|-------|-------------|
-   | **Subskrypcja** | Tak | <*Azure — nazwa subskrypcji*> | Subskrypcja platformy Azure do użycia w aplikacji logiki. |
-   | **Grupa zasobów** | Tak | <*Azure-Resource-Group-Name*> | Grupa zasobów platformy Azure, w której tworzysz aplikację logiki i powiązane zasoby. Ta nazwa zasobu musi być unikatowa w różnych regionach i może zawierać tylko litery, cyfry, łączniki ( **-** ), podkreślenia (**_**), nawiasy (**()**) i kropki (**.**). <p><p>Ten przykład tworzy grupę zasobów o nazwie `Fabrikam-Workflows-RG` . |
-   | **Nazwa aplikacji logiki** | Tak | <*Logic-App-Name*> | Nazwa, która ma być używana w aplikacji logiki. Ta nazwa zasobu musi być unikatowa w różnych regionach i może zawierać tylko litery, cyfry, łączniki ( **-** ), podkreślenia (**_**), nawiasy (**()**) i kropki (**.**). <p><p>W tym przykładzie jest tworzona aplikacja logiki o nazwie `Fabrikam-Workflows` . <p><p>**Uwaga**: Nazwa aplikacji logiki automatycznie pobiera sufiks, `.azurewebsites.net` ponieważ zasób **aplikacji logiki (wersja zapoznawcza)** jest obsługiwany przez Azure Functions, który używa tej samej konwencji nazewnictwa aplikacji. |
-   | **Publikowanie** | Tak | <*wdrożenie — środowisko*> | Miejsce docelowe wdrożenia aplikacji logiki. Możesz wdrożyć na platformie Azure, wybierając **przepływ pracy** lub kontener platformy Docker. <p><p>Ten przykład używa **przepływu pracy**, który jest zasobem **aplikacji logiki (wersja zapoznawcza)** na platformie Azure. <p><p>W przypadku wybrania **kontenera Docker** [Określ kontener, który ma być używany w ustawieniach aplikacji logiki](#set-docker-container). |
-   | **Region** | Tak | <*Platforma Azure — region*> | Region platformy Azure, który ma być używany podczas tworzenia grupy zasobów i zasobów. <p><p>W tym przykładzie zastosowano **zachodnie stany USA**. |
+   | **Subskrypcja** | Yes | <*Azure — nazwa subskrypcji*> | Subskrypcja platformy Azure do użycia w aplikacji logiki. |
+   | **Grupa zasobów** | Yes | <*Azure-Resource-Group-Name*> | Grupa zasobów platformy Azure, w której tworzysz aplikację logiki i powiązane zasoby. Ta nazwa zasobu musi być unikatowa w różnych regionach i może zawierać tylko litery, cyfry, łączniki ( **-** ), podkreślenia (**_**), nawiasy (**()**) i kropki (**.**). <p><p>Ten przykład tworzy grupę zasobów o nazwie `Fabrikam-Workflows-RG` . |
+   | **Nazwa aplikacji logiki** | Yes | <*Logic-App-Name*> | Nazwa, która ma być używana w aplikacji logiki. Ta nazwa zasobu musi być unikatowa w różnych regionach i może zawierać tylko litery, cyfry, łączniki ( **-** ), podkreślenia (**_**), nawiasy (**()**) i kropki (**.**). <p><p>W tym przykładzie jest tworzona aplikacja logiki o nazwie `Fabrikam-Workflows` . <p><p>**Uwaga**: Nazwa aplikacji logiki automatycznie pobiera sufiks, `.azurewebsites.net` ponieważ zasób **aplikacji logiki (wersja zapoznawcza)** jest obsługiwany przez Azure Functions, który używa tej samej konwencji nazewnictwa aplikacji. |
+   | **Publikowanie** | Yes | <*wdrożenie — środowisko*> | Miejsce docelowe wdrożenia aplikacji logiki. Możesz wdrożyć na platformie Azure, wybierając **przepływ pracy** lub kontener platformy Docker. <p><p>Ten przykład używa **przepływu pracy**, który jest zasobem **aplikacji logiki (wersja zapoznawcza)** na platformie Azure. <p><p>W przypadku wybrania **kontenera Docker** [Określ kontener, który ma być używany w ustawieniach aplikacji logiki](#set-docker-container). |
+   | **Region** | Yes | <*Platforma Azure — region*> | Region platformy Azure, który ma być używany podczas tworzenia grupy zasobów i zasobów. <p><p>W tym przykładzie zastosowano **zachodnie stany USA**. |
    |||||
 
    Oto przykład:
@@ -89,10 +89,10 @@ W tym artykule przedstawiono sposób tworzenia aplikacji logiki i przepływu pra
 
    | Właściwość | Wymagany | Wartość | Opis |
    |----------|----------|-------|-------------|
-   | **Konto magazynu** | Tak | <*Azure-Storage-account-name*> | [Konto usługi Azure Storage](../storage/common/storage-account-overview.md) do użycia w przypadku transakcji magazynu. Ta nazwa zasobu musi być unikatowa w różnych regionach i zawierać 3-24 znaków z tylko cyframi i małymi literami. Wybierz istniejące konto lub Utwórz nowe konto. <p><p>Ten przykład tworzy konto magazynu o nazwie `fabrikamstorageacct` . |
-   | **Typ planu** | Tak | <*Azure-hosting — Plan*> | [Plan hostingu](../app-service/overview-hosting-plans.md) używany do wdrażania aplikacji logiki, która jest [**planem usługi**](../azure-functions/functions-scale.md#app-service-plan) [**Premium**](../azure-functions/functions-scale.md#premium-plan) lub App Service. Wybór ma wpływ na warstwy cenowe, które można wybrać później. <p><p>Ten przykład używa **planu usługi App Service**. <p><p>**Uwaga**: podobnie jak w przypadku Azure Functions, typ zasobu **aplikacja logiki (wersja zapoznawcza)** wymaga planu hostingu i warstwy cenowej. Plany hostingu zużycia nie są obsługiwane ani niedostępne dla tego typu zasobu. Aby uzyskać więcej informacji, zapoznaj się z następującymi tematami: <p><p>- [Azure Functions skalowanie i hosting](../azure-functions/functions-scale.md) <br>- [App Service szczegóły cennika](https://azure.microsoft.com/pricing/details/app-service/) <p><p> |
-   | **Plan systemu Windows** | Tak | <*Nazwa planu*> | Nazwa planu do użycia. Wybierz istniejący plan lub podaj nazwę nowego planu. <p><p>Ten przykład używa nazwy `Fabrikam-Service-Plan` . |
-   | **Jednostka SKU i rozmiar** | Tak | <*Cennik — warstwa*> | [Warstwa cenowa](../app-service/overview-hosting-plans.md) używana do hostowania aplikacji logiki. Do wybranych przez siebie typu planu została wybrana wartość. Aby zmienić warstwę domyślną, wybierz pozycję **Zmień rozmiar**. Następnie można wybrać inne warstwy cenowe na podstawie obciążenia, którego potrzebujesz. <p><p>W tym przykładzie zastosowano bezpłatną **warstwę cenową F1** dla obciążeń **deweloperskich/testowych** . Aby uzyskać więcej informacji, zobacz [szczegóły cennika App Service](https://azure.microsoft.com/pricing/details/app-service/). |
+   | **Konto magazynu** | Yes | <*Azure-Storage-account-name*> | [Konto usługi Azure Storage](../storage/common/storage-account-overview.md) do użycia w przypadku transakcji magazynu. Ta nazwa zasobu musi być unikatowa w różnych regionach i zawierać 3-24 znaków z tylko cyframi i małymi literami. Wybierz istniejące konto lub Utwórz nowe konto. <p><p>Ten przykład tworzy konto magazynu o nazwie `fabrikamstorageacct` . |
+   | **Typ planu** | Yes | <*Azure-hosting — Plan*> | [Plan hostingu](../app-service/overview-hosting-plans.md) używany do wdrażania aplikacji logiki, która jest [**planem usługi**](../azure-functions/dedicated-plan.md) [**Premium**](../azure-functions/functions-premium-plan.md) lub App Service. Wybór ma wpływ na warstwy cenowe, które można wybrać później. <p><p>Ten przykład używa **planu usługi App Service**. <p><p>**Uwaga**: podobnie jak w przypadku Azure Functions, typ zasobu **aplikacja logiki (wersja zapoznawcza)** wymaga planu hostingu i warstwy cenowej. Plany hostingu zużycia nie są obsługiwane ani niedostępne dla tego typu zasobu. Aby uzyskać więcej informacji, zapoznaj się z następującymi tematami: <p><p>- [Azure Functions skalowanie i hosting](../azure-functions/functions-scale.md) <br>- [App Service szczegóły cennika](https://azure.microsoft.com/pricing/details/app-service/) <p><p> |
+   | **Plan systemu Windows** | Yes | <*Nazwa planu*> | Nazwa planu do użycia. Wybierz istniejący plan lub podaj nazwę nowego planu. <p><p>Ten przykład używa nazwy `Fabrikam-Service-Plan` . |
+   | **Jednostka SKU i rozmiar** | Yes | <*Cennik — warstwa*> | [Warstwa cenowa](../app-service/overview-hosting-plans.md) używana do hostowania aplikacji logiki. Do wybranych przez siebie typu planu została wybrana wartość. Aby zmienić warstwę domyślną, wybierz pozycję **Zmień rozmiar**. Następnie można wybrać inne warstwy cenowe na podstawie obciążenia, którego potrzebujesz. <p><p>W tym przykładzie zastosowano bezpłatną **warstwę cenową F1** dla obciążeń **deweloperskich/testowych** . Aby uzyskać więcej informacji, zobacz [szczegóły cennika App Service](https://azure.microsoft.com/pricing/details/app-service/). |
    |||||
 
 1. Następnie, jeśli ustawienia tworzenia i wdrażania obsługują używanie [Application Insights](../azure-monitor/app/app-insights-overview.md), można opcjonalnie włączyć rejestrowanie diagnostyczne i śledzenie dla aplikacji logiki.
@@ -103,7 +103,7 @@ W tym artykule przedstawiono sposób tworzenia aplikacji logiki i przepływu pra
 
 1. Po sprawdzeniu przez platformę Azure ustawień aplikacji logiki na karcie **Recenzja i tworzenie** wybierz pozycję **Utwórz**.
 
-   Na przykład:
+   Przykład:
 
    ![Zrzut ekranu przedstawiający Azure Portal i nowe ustawienia zasobów aplikacji logiki.](./media/create-stateful-stateless-workflows-azure-portal/check-logic-app-resource-settings.png)
 
@@ -223,9 +223,9 @@ Aby można było dodać wyzwalacz do pustego przepływu pracy, należy się upew
 
    | Właściwość | Wymagany | Wartość | Opis |
    |----------|----------|-------|-------------|
-   | **Do** | Tak | <*adres e-mail użytkownika*> | Odbiorca wiadomości e-mail, który może być Twoim adresem e-mail do celów testowych. Ten przykład używa fikcyjnej poczty e-mail `sophiaowen@fabrikam.com` . |
-   | **Temat** | Tak | `An email from your example workflow` | Temat wiadomości e-mail |
-   | **Treść** | Tak | `Hello from your example workflow!` | Zawartość wiadomości e-mail |
+   | **Do** | Yes | <*adres e-mail użytkownika*> | Odbiorca wiadomości e-mail, który może być Twoim adresem e-mail do celów testowych. Ten przykład używa fikcyjnej poczty e-mail `sophiaowen@fabrikam.com` . |
+   | **Temat** | Yes | `An email from your example workflow` | Temat wiadomości e-mail |
+   | **Treść** | Yes | `Hello from your example workflow!` | Zawartość wiadomości e-mail |
    ||||
 
    > [!NOTE]
@@ -385,7 +385,7 @@ Aby ułatwić debugowanie bezstanowego przepływu pracy, można włączyć histo
 
 1. W polu **wartość** Wprowadź następującą wartość: `WithStatelessRunHistory`
 
-   Na przykład:
+   Przykład:
 
    ![Zrzut ekranu pokazujący zasób Azure Portal i Logic App (wersja zapoznawcza) z otwartym okienkiem "Konfiguracja" > "nowe ustawienie aplikacji" < "Dodaj/Edytuj ustawienie aplikacji" i "przepływy pracy". {yourWorkflowName}. Opcja "OperationOptions" ma wartość "WithStatelessRunHistory".](./media/create-stateful-stateless-workflows-azure-portal/stateless-operation-options-run-history.png)
 

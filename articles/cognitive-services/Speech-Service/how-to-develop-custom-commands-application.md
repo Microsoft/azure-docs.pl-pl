@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: trbye
-ms.openlocfilehash: b3e9c1e8ad23ea0ebf540eddbd6d4a03b8a72fe2
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 1a002b6efbe2603ae254c19f9e3cc7377198cea2
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835078"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935822"
 ---
 # <a name="develop-custom-commands-applications"></a>Opracowywanie aplikacji poleceń niestandardowych
 
@@ -178,12 +178,12 @@ Zacznij od edycji istniejącego `TurnOn` polecenia, aby włączyć i wyłączyć
    1. Wybierz pozycję **Aktualizuj**.
 
        > [!div class="mx-imgBorder"]
-       > ![Zrzut ekranu przedstawiający lokalizację, w której ma zostać utworzona wymagana odpowiedź parametru.](media/custom-commands/add-required-on-off-parameter-response.png)
+       > ![Zrzut ekranu pokazujący sekcję "Dodawanie odpowiedzi dla wymaganego parametru" z wybraną kartą "prosty edytor".](media/custom-commands/add-required-on-off-parameter-response.png)
    
    1. Skonfiguruj właściwości parametru, korzystając z poniższej tabeli. Aby uzyskać informacje na temat wszystkich właściwości konfiguracji polecenia, zobacz [pojęcia i definicje poleceń niestandardowych](./custom-commands-references.md).
       
 
-       | Konfiguracja      | Sugerowana wartość     | Opis                                                      |
+       | Konfigurowanie      | Sugerowana wartość     | Opis                                                      |
        | ------------------ | ----------------| ---------------------------------------------------------------------|
        | **Nazwa**               | `OnOff`           | Opisowa nazwa parametru                                                                           |
        | **Jest globalny**          | Niezaznaczone       | Pole wyboru wskazujące, czy wartość tego parametru jest stosowana globalnie do wszystkich poleceń w aplikacji.|
@@ -221,7 +221,7 @@ Zacznij od edycji istniejącego `TurnOn` polecenia, aby włączyć i wyłączyć
 
 #### <a name="modify-example-sentences"></a>Modyfikuj przykładowe zdania
 
-W przypadku poleceń korzystających z parametrów warto dodać przykładowe zdania, które obejmują wszystkie możliwe kombinacje. Na przykład:
+W przypadku poleceń korzystających z parametrów warto dodać przykładowe zdania, które obejmują wszystkie możliwe kombinacje. Przykład:
 
 * Pełne informacje o parametrach: `turn {OnOff} the {SubjectDevice}`
 * Informacje o części parametru: `turn it {OnOff}`
@@ -279,7 +279,7 @@ Zmodyfikuj `SetTemperature` polecenie, aby umożliwić mu ustawienie temperatury
 
 Dodaj `Temperature` parametr. Użyj następującej konfiguracji:
 
-| Konfiguracja      | Sugerowana wartość     |
+| Konfigurowanie      | Sugerowana wartość     |
 | ------------------ | ----------------|
 | **Nazwa**               | `Temperature`           |
 | **Wymagane**           | Wybrane         |
@@ -298,7 +298,7 @@ change the temperature
 
 Edytuj istniejące reguły uzupełniania. Użyj poniższej konfiguracji.
 
-| Konfiguracja      | Sugerowana wartość     |
+| Konfigurowanie      | Sugerowana wartość     |
 | ------------------ | ----------------|
 | **Warunki**         | **Wymagany parametr**  >  **Temperatura**           |
 | **Akcje**           | **Wyślij odpowiedź na mowę** > `Ok, setting temperature to {Temperature} degrees` |

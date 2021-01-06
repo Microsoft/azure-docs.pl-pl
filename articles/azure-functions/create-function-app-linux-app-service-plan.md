@@ -3,22 +3,22 @@ title: Tworzenie aplikacji funkcji w systemie Linux z poziomu Azure Portal
 description: Dowiedz się, jak utworzyć pierwszą funkcję platformy Azure w systemie Linux przy użyciu Azure Portal.
 ms.topic: how-to
 ms.date: 04/29/2020
-ms.openlocfilehash: 20390239ed58e42749e9a3bae472a2f3f6324bb2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 34a93795b5e041ccef8e9576f97092e16c429444
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181258"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937182"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Tworzenie aplikacji funkcji w systemie Linux w planie Azure App Service
 
-Usługa Azure Functions umożliwia obsługę funkcji w systemie Linux w domyślnym kontenerze usługi Azure App Service. W tym artykule przedstawiono sposób użycia [Azure Portal](https://portal.azure.com) do utworzenia aplikacji funkcji hostowanej w systemie Linux, która jest uruchamiana w [planie App Service](functions-scale.md#app-service-plan). Możesz również [skorzystać z własnego kontenera niestandardowego](functions-create-function-linux-custom-image.md).
+Usługa Azure Functions umożliwia obsługę funkcji w systemie Linux w domyślnym kontenerze usługi Azure App Service. W tym artykule przedstawiono sposób użycia [Azure Portal](https://portal.azure.com) do utworzenia aplikacji funkcji hostowanej w systemie Linux, która jest uruchamiana w [planie App Service](dedicated-plan.md). Możesz również [skorzystać z własnego kontenera niestandardowego](functions-create-function-linux-custom-image.md).
 
 ![Tworzenie aplikacji funkcji w witrynie Azure Portal](./media/create-function-app-linux-app-service-plan/function-app-in-portal-editor.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Zaloguj się do witryny Azure Portal pod adresem <https://portal.azure.com> przy użyciu danych konta Azure.
 
@@ -46,11 +46,11 @@ Do obsługi wykonywania funkcji w systemie Linux potrzebna jest aplikacja funkcj
 
     :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-basics-linux.png" alt-text="Strona Podstawy":::
 
-1. Wybierz pozycję **Dalej: hosting**. Na stronie **hosting** wprowadź następujące ustawienia.
+1. Wybierz pozycję **Dalej: Hosting**. Na stronie **hosting** wprowadź następujące ustawienia.
 
     | Ustawienie      | Sugerowana wartość  | Opis |
     | ------------ | ---------------- | ----------- |
-    | **[Konto magazynu](../storage/common/storage-account-create.md)** |  Nazwa unikatowa w skali globalnej |  Utwórz konto magazynu używane przez aplikację funkcji. Nazwy kont magazynu muszą mieć długość od 3 do 24 znaków i mogą zawierać tylko cyfry i małe litery. Możesz również użyć istniejącego konta, które musi spełniać [wymagania dotyczące konta magazynu](../azure-functions/functions-scale.md#storage-account-requirements). |
+    | **[Konto magazynu](../storage/common/storage-account-create.md)** |  Nazwa unikatowa w skali globalnej |  Utwórz konto magazynu używane przez aplikację funkcji. Nazwy kont magazynu muszą mieć długość od 3 do 24 znaków i mogą zawierać tylko cyfry i małe litery. Możesz również użyć istniejącego konta, które musi spełniać [wymagania dotyczące konta magazynu](../azure-functions/storage-considerations.md#storage-account-requirements). |
     |**System operacyjny**| **Linux** | System operacyjny jest wstępnie wybrany na podstawie wybranego stosu środowiska uruchomieniowego, ale w razie potrzeby można zmienić to ustawienie. |
     | **[Planowanie](../azure-functions/functions-scale.md)** | **Zużycie (bezserwerowe)** | Plan hostingu określający sposób przydzielania zasobów do aplikacji funkcji. W domyślnym planie **Zużycie** zasoby są dodawane dynamicznie zgodnie z wymaganiami funkcji. W tym przypadku hostingu [bezserwerowego](https://azure.microsoft.com/overview/serverless-computing/) płacisz tylko za czas wykonywania funkcji. W przypadku uruchomienia w ramach planu usługi App Service musisz zarządzać [skalowaniem aplikacji funkcji](../azure-functions/functions-scale.md).  |
 
@@ -119,7 +119,7 @@ W tej sekcji pokazano, jak utworzyć funkcję w nowej aplikacji funkcji w portal
 
    ![Podgląd dziennika usługi Functions w witrynie Azure Portal.](./media/create-function-app-linux-app-service-plan/function-view-logs.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 

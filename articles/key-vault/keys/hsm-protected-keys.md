@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: 99339914b66dc40f686cc46cacbcea15438c9004
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 7fa8590b4fb148b2a8969c4f474f6627cea263df
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413347"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935329"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importowanie kluczy chronionych przez moduł HSM do usługi Key Vault
 
@@ -44,5 +44,5 @@ Transferowanie kluczy chronionych przez moduł HSM do Key Vault jest obsługiwan
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Postępuj zgodnie z [Key Vault najlepszych](../general/best-practices.md) rozwiązań, aby zapewnić bezpieczeństwo, trwałość i monitorowanie kluczy.
+* Zapoznaj się z [omówieniem zabezpieczeń Key Vault](../general/security-overview.md) , aby zapewnić bezpieczeństwo, trwałość i monitorowanie kluczy.
 * Aby uzyskać pełny opis nowej metody BYOK, zobacz [specyfikację BYOK](./byok-specification.md)

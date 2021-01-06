@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: d3d5fd34ee6c1d73429af63693094acdaed6c9d2
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 7d1e4018382d26e4df289838ffbb03f1c87505e6
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784613"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935023"
 ---
 # <a name="quickstart-azure-key-vault-keys-client-library-for-python"></a>Szybki Start: Biblioteka klienta kluczy Azure Key Vault dla języka Python
 
@@ -33,7 +33,7 @@ W tym przewodniku szybki start założono, że uruchomiono [interfejs wiersza po
 
 Ten przewodnik Szybki Start korzysta z biblioteki Azure Identity Library z interfejsem wiersza polecenia platformy Azure w celu uwierzytelniania użytkowników w usługach platformy Azure. Deweloperzy mogą również używać programu Visual Studio lub Visual Studio Code do uwierzytelniania wywołań, aby uzyskać więcej informacji, zobacz [uwierzytelnianie klienta przy użyciu biblioteki klienta tożsamości platformy Azure](/java/api/overview/azure/identity-readme).
 
-### <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
+### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 1. Uruchom polecenie `login`.
 
@@ -86,7 +86,7 @@ set KEY_VAULT_NAME=<your-key-vault-name>
 ````
 Windows PowerShell
 ```powershell
-$Env:KEY_VAULT_NAME=<your-key-vault-name>
+$Env:KEY_VAULT_NAME="<your-key-vault-name>"
 ```
 
 macOS lub Linux
@@ -134,7 +134,7 @@ print(" done.")
 
 ## <a name="run-the-code"></a>Uruchamianie kodu
 
-Upewnij się, że kod w poprzedniej sekcji znajduje się w pliku o nazwie *kv_keys. PR* . Następnie uruchom kod przy użyciu następującego polecenia:
+Upewnij się, że kod w poprzedniej sekcji znajduje się w pliku o nazwie *kv_keys. PR*. Następnie uruchom kod przy użyciu następującego polecenia:
 
 ```terminal
 python kv_keys.py
@@ -211,5 +211,5 @@ az group delete --resource-group KeyVault-PythonQS-rg
 - [Omówienie usługi Azure Key Vault](../general/overview.md)
 - [Bezpieczny dostęp do magazynu kluczy](../general/secure-your-key-vault.md)
 - [Przewodnik dewelopera Azure Key Vault](../general/developers-guide.md)
-- [Azure Key Vault najlepszych praktyk](../general/best-practices.md)
+- [Omówienie zabezpieczeń Key Vault](../general/security-overview.md)
 - [Uwierzytelnianie za pomocą Key Vault](../general/authentication.md)

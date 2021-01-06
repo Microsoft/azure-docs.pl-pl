@@ -16,12 +16,12 @@ ms.date: 05/12/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c274424641ee0173d68f0de9061415815b0df588
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 45b6b182d030c267dcec7ed57c0c0dd1901b0cb1
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107434"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935091"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Często zadawane pytania dotyczące Azure Active Directory raportów
 
@@ -143,8 +143,8 @@ Odp **.:** Aby rozpocząć:
 
 Odp **.:** Stan dostępu warunkowego może mieć następujące wartości:
 
-* **Nie zastosowano**: oznacza to, że nie ma żadnych zasad urzędu certyfikacji z zakresem użytkownika i aplikacji. 
-* **Sukces**: oznacza to, że wystąpiły zasady urzędu certyfikacji z użytkownikiem i aplikacją w zakresie, a zasady urzędu certyfikacji zostały pomyślnie spełnione. 
+* **Nie zastosowano**: oznacza to, że nie ma żadnych zasad dostępu warunkowego z użytkownikiem i aplikacją w zakresie. 
+* **Sukces**: oznacza to, że wystąpiły zasady dostępu warunkowego z użytkownikiem i aplikacją w zakresie, a zasady dostępu warunkowego zostały pomyślnie spełnione. 
 * **Niepowodzenie**: zalogowanie zostało spełnione warunek użytkownika i aplikacji co najmniej jednej zasady dostępu warunkowego, a kontrolki grantu nie są spełnione lub ustawione na zablokowanie dostępu.
     
 **P: Jakie są wszystkie możliwe wartości wyniku zasady dostępu warunkowego?**
@@ -158,7 +158,7 @@ Odp **.:** Zasady dostępu warunkowego mogą mieć następujące wyniki:
     
 **P: Nazwa zasad we wszystkich raportach logowania nie jest zgodna z nazwą zasad w urzędzie certyfikacji. Dlaczego?**
 
-Odp **.:** Nazwa zasad we wszystkich raportach logowania jest oparta na nazwie zasad urzędu certyfikacji w momencie logowania. Ta wartość może być niespójna z nazwą zasad w urzędzie certyfikacji w przypadku późniejszej aktualizacji nazwy zasad, czyli po zalogowaniu się.
+Odp **.:** Nazwa zasad we wszystkich raportach logowania jest oparta na nazwie zasad dostępu warunkowego w momencie logowania. Ta wartość może być niespójna z nazwą zasad w urzędzie certyfikacji w przypadku późniejszej aktualizacji nazwy zasad, czyli po zalogowaniu się.
 
 **P: moje logowanie zostało zablokowane z powodu zasad dostępu warunkowego, ale raport działań związanych z logowaniem pokazuje, że logowanie powiodło się. Zalet?**
 

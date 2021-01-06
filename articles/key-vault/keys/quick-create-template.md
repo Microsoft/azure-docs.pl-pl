@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 10/14/2020
 ms.author: sebansal
-ms.openlocfilehash: 73c52963df65dc4037f087a93108ccfacb3fb5d4
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 566ddae3893a5499ddefe0ccd1ade8caff4567c2
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461556"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934989"
 ---
 # <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template-preview"></a>Szybki Start: Tworzenie magazynu kluczy platformy Azure i klucza przy użyciu szablonu ARM (wersja zapoznawcza)
 
@@ -217,4 +217,4 @@ W tym przewodniku szybki start utworzono Magazyn kluczy i klucz przy użyciu sza
 
 - Zapoznaj się [z omówieniem Azure Key Vault](../general/overview.md)
 - Dowiedz się więcej o usłudze [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-- Przegląd [Azure Key Vault najlepszych](../general/best-practices.md) rozwiązań
+- Zapoznaj się z [omówieniem zabezpieczeń Key Vault](../general/security-overview.md)

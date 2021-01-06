@@ -1,17 +1,17 @@
 ---
-title: Przegląd Azure Logic Apps wersji zapoznawczej
+title: Omówienie usługi Azure Logic Apps (wersja zapoznawcza)
 description: Wersja zapoznawcza Azure Logic Apps to rozwiązanie w chmurze służące do tworzenia zautomatyzowanych stanowych i bezstanowych przepływów pracy, które integrują aplikacje, dane, usługi i systemy z minimalnym kodem dla scenariuszy na poziomie przedsiębiorstwa.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 0c4d0416c107c9ceb4cd0dbdf80761ab9b52d56c
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 7c15b3a854b533d93bc05f7e5302671711da75c2
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96924426"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936128"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Przegląd: Podgląd Azure Logic Apps
 
@@ -148,7 +148,7 @@ Wersja zapoznawcza Azure Logic Apps obejmuje wiele bieżących i dodatkowych mo�
 
 Po utworzeniu nowego typu aplikacji logiki w Azure Portal lub wdrożeniu z Visual Studio Code musisz wybrać plan hostingu, [App Service lub Premium](../azure-functions/functions-scale.md), aby można było użyć aplikacji logiki. Ten plan określa model cen, który ma zastosowanie do uruchamiania aplikacji logiki. W przypadku wybrania planu App Service należy również wybrać [warstwę cenową](../app-service/overview-hosting-plans.md).
 
-Przepływy pracy *stanowych* korzystają z [magazynu zewnętrznego](../azure-functions/functions-scale.md#storage-account-requirements), więc [Cennik usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/) dotyczy transakcji magazynu, które wykonuje środowisko uruchomieniowe w wersji zapoznawczej Azure Logic Apps. Na przykład kolejki są używane do planowania, natomiast tabele i obiekty blob są używane do przechowywania stanów przepływu pracy.
+Przepływy pracy *stanowych* korzystają z [magazynu zewnętrznego](../azure-functions/storage-considerations.md#storage-account-requirements), więc [Cennik usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/) dotyczy transakcji magazynu, które wykonuje środowisko uruchomieniowe w wersji zapoznawczej Azure Logic Apps. Na przykład kolejki są używane do planowania, natomiast tabele i obiekty blob są używane do przechowywania stanów przepływu pracy.
 
 > [!NOTE]
 > W publicznej wersji zapoznawczej uruchamianie aplikacji logiki na App Service nie wiąże się z *dodatkowymi* opłatami na podstawie wybranego planu.

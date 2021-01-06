@@ -9,12 +9,12 @@ ms.subservice: keys
 ms.topic: quickstart
 ms.date: 03/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 3cea28fa278bb699a7fb5aaa0c79bf1e71f59ac1
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: e3570a716eccf131cf19192454bfbc1008a6306e
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940501"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935040"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-powershell"></a>Szybki Start: Ustawianie i pobieranie klucza z Azure Key Vault przy użyciu Azure PowerShell
 
@@ -94,4 +94,4 @@ W tym przewodniku szybki start utworzono Key Vault i Zapisano w nim certyfikat. 
 
 - Zapoznaj się [z omówieniem Azure Key Vault](../general/overview.md)
 - Zobacz informacje dotyczące [Azure PowerShell poleceń cmdlet Key Vault](/powershell/module/az.keyvault/)
-- Przegląd [Azure Key Vault najlepszych](../general/best-practices.md) rozwiązań
+- Zapoznaj się z [omówieniem zabezpieczeń Key Vault](../general/security-overview.md)

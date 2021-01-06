@@ -4,12 +4,12 @@ description: Dowiedz się, jak wyświetlać i wykonywać zapytania dotyczące Az
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 1d8d9cc9a7a4111e98b1d9141957769d6f157d45
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 14b6ed3964900e3395ca335c301dfd0285da46e7
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027734"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937301"
 ---
 # <a name="analyze-azure-functions-telemetry-in-application-insights"></a>Analizuj dane telemetryczne Azure Functions w Application Insights 
 
@@ -108,7 +108,7 @@ traces
 
 ## <a name="consumption-plan-specific-metrics"></a>Metryki specyficzne dla planu zużycia
 
-W przypadku korzystania z [planu zużycia](functions-scale.md#consumption-plan) *koszt* wykonania pojedynczego wykonania funkcji jest mierzony w *GB-sekund*. Koszt wykonywania jest obliczany przez połączenie jego użycia pamięci z jego czasem wykonywania. Aby dowiedzieć się więcej, zobacz [szacowanie kosztów planu zużycia](functions-consumption-costs.md).
+W przypadku korzystania z [planu zużycia](consumption-plan.md) *koszt* wykonania pojedynczego wykonania funkcji jest mierzony w *GB-sekund*. Koszt wykonywania jest obliczany przez połączenie jego użycia pamięci z jego czasem wykonywania. Aby dowiedzieć się więcej, zobacz [szacowanie kosztów planu zużycia](functions-consumption-costs.md).
 
 Następujące zapytania telemetryczne są specyficzne dla metryk, które wpływają na koszt działania funkcji w planie zużycia.
 

@@ -1,26 +1,26 @@
 ---
 title: Konfigurowanie środowiska deweloperskiego na potrzeby skryptów wdrażania w szablonach | Microsoft Docs
-description: Skonfiguruj środowisko deweloperskie na potrzeby skryptów wdrażania w szablonach Azure Resource Manager.
+description: Konfigurowanie środowiska deweloperskiego na potrzeby skryptów wdrażania w szablonach Azure Resource Manager (szablony ARM).
 services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: jgao
-ms.openlocfilehash: d12ec5e3fef45429741fff1665f435d68e6c83f6
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 13dc072e31f0d27768de8d9a62ea942d55460713
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734185"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936400"
 ---
-# <a name="configure-development-environment-for-deployment-scripts-in-templates"></a>Konfigurowanie środowiska deweloperskiego na potrzeby skryptów wdrażania w szablonach
+# <a name="configure-development-environment-for-deployment-scripts-in-arm-templates"></a>Konfigurowanie środowiska deweloperskiego na potrzeby skryptów wdrażania w szablonach ARM
 
 Dowiedz się, jak utworzyć środowisko programistyczne na potrzeby tworzenia i testowania skryptów wdrażania przy użyciu obrazu skryptu wdrażania. Można utworzyć [wystąpienie kontenera platformy Azure](../../container-instances/container-instances-overview.md) lub użyć platformy [Docker](https://docs.docker.com/get-docker/). Oba te zagadnienia zostały omówione w tym artykule.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz skryptu wdrożenia, możesz utworzyć plik **hello.ps1** z następującą zawartością:
+Jeśli nie masz skryptu wdrożenia, możesz utworzyć plik _hello.ps1_ z następującą zawartością:
 
 ```powershell
 param([string] $name)
@@ -39,11 +39,11 @@ Aby tworzyć skrypty na komputerze, należy utworzyć konto magazynu i zainstalo
 
 ### <a name="create-an-azure-container-instance"></a>Tworzenie wystąpienia kontenera platformy Azure
 
-Poniższy szablon ARM tworzy wystąpienie kontenera i udział plików, a następnie instaluje udział plików na obrazie kontenera.
+Poniższy szablon Azure Resource Manager (szablon ARM) tworzy wystąpienie kontenera i udział plików, a następnie instaluje udział plików na obrazie kontenera.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "projectName": {
@@ -153,9 +153,10 @@ Poniższy szablon ARM tworzy wystąpienie kontenera i udział plików, a następ
   ]
 }
 ```
-Wartość domyślna dla ścieżki instalacji to **deploymentScript**.  Jest to ścieżka do wystąpienia kontenera, w którym jest on instalowany w udziale plików.
 
-Domyślny obraz kontenera określony w szablonie to **MCR.Microsoft.com/azuredeploymentscripts-PowerShell:az4.3 "**.   Zapoznaj się z listą [obsługiwanych wersji Azure PowerShell](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Zapoznaj się z listą [obsługiwanych wersji interfejsu wiersza polecenia platformy Azure](https://mcr.microsoft.com/v2/azure-cli/tags/list).
+Wartość domyślna dla ścieżki instalacji to `deploymentScript` . Jest to ścieżka do wystąpienia kontenera, w którym jest on instalowany w udziale plików.
+
+Domyślny obraz kontenera określony w szablonie to `mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3` . Zapoznaj się z listą [obsługiwanych wersji Azure PowerShell](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Zapoznaj się z listą [obsługiwanych wersji interfejsu wiersza polecenia platformy Azure](https://mcr.microsoft.com/v2/azure-cli/tags/list).
 
   >[!IMPORTANT]
   > Skrypt wdrażania używa dostępnych obrazów interfejsu wiersza polecenia firmy Microsoft Container Registry (MCR). Zaświadczanie obrazu interfejsu wiersza polecenia dla skryptu wdrożenia trwa około miesiąca. Nie używaj wersji interfejsu wiersza polecenia, które zostały wydane w ciągu 30 dni. Aby znaleźć daty wydania dla obrazów, zobacz informacje o [wersji interfejsu wiersza polecenia platformy Azure](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). Jeśli używana jest nieobsługiwana wersja, komunikat o błędzie zawiera listę obsługiwanych wersji.
@@ -196,7 +197,7 @@ Możesz również przekazać plik przy użyciu Azure Portal i interfejsu wiersza
 
 1. W Azure Portal Otwórz grupę zasobów, w której wdrożono wystąpienie kontenera i konto magazynu.
 1. Otwórz grupę kontenerów. Domyślną nazwą grupy kontenerów jest nazwa projektu z dołączonym elementem **CG** . Zobaczysz, że wystąpienie kontenera jest w stanie **uruchomienia** .
-1. Z menu po lewej stronie wybierz pozycję **kontenery** . Zobaczysz wystąpienie kontenera.  Nazwa wystąpienia kontenera jest nazwą projektu z dołączonym **kontenerem** .
+1. Z menu po lewej stronie wybierz pozycję **kontenery** . Zobaczysz wystąpienie kontenera. Nazwa wystąpienia kontenera jest nazwą projektu z dołączonym **kontenerem** .
 
     ![wystąpienie kontenera łączenia skryptu wdrażania](./media/deployment-script-template-configure-dev/deployment-script-container-instance-connect.png)
 
@@ -248,7 +249,7 @@ Należy również skonfigurować udostępnianie plików, aby zainstalować katal
     docker run -v <host drive letter>:/<host directory name>:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3
     ```
 
-    Zastąp **&lt; literę>sterownika hosta** i **&lt; nazwę katalogu hosta>** z istniejącym folderem na dysku udostępnionym.  Mapuje folder do folderu **/Data** w kontenerze. Aby uzyskać przykłady mapowania D:\docker:
+    Zastąp **&lt; literę>sterownika hosta** i **&lt; nazwę katalogu hosta>** z istniejącym folderem na dysku udostępnionym. Mapuje folder do folderu _/Data_ w kontenerze. Na przykład, aby zmapować _D:\docker_:
 
     ```command
     docker run -v d:/docker:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3
@@ -262,7 +263,7 @@ Należy również skonfigurować udostępnianie plików, aby zainstalować katal
     docker run -v d:/docker:/data -it mcr.microsoft.com/azure-cli:2.0.80
     ```
 
-1. Poniższy zrzut ekranu przedstawia sposób uruchomienia skryptu programu PowerShell z uwzględnieniem pliku helloworld.ps1 na dysku udostępnionym.
+1. Poniższy zrzut ekranu przedstawia sposób uruchomienia skryptu programu PowerShell z uwzględnieniem pliku _helloworld.ps1_ na dysku udostępnionym.
 
     ![Skrypt wdrażania szablonu Menedżer zasobów — polecenie Docker](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
 
@@ -273,4 +274,4 @@ Po pomyślnym przetestowaniu skryptu można go użyć jako skryptu wdrożenia w 
 W tym artykule przedstawiono sposób korzystania ze skryptów wdrażania. Aby zapoznać się z samouczkiem dotyczącym skryptu wdrożenia:
 
 > [!div class="nextstepaction"]
-> [Samouczek: używanie skryptów wdrażania w szablonach Azure Resource Manager](./template-tutorial-deployment-script.md)
+> [Samouczek: używanie skryptów wdrażania w szablonach ARM](./template-tutorial-deployment-script.md)

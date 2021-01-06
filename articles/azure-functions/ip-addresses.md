@@ -3,12 +3,12 @@ title: Adresy IP w Azure Functions
 description: Dowiedz się, jak znaleźć przychodzące i wychodzące adresy IP dla aplikacji funkcji i co powoduje ich zmianę.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 1d2cf34ee4712705eaa1c0da5ad63712f9e649fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 291a1cda7b8a2acc5426ea255519e1c2e58a2d7c
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652469"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936723"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Adresy IP w Azure Functions
 
@@ -27,7 +27,7 @@ Każda aplikacja funkcji ma jeden adres IP ruchu przychodzącego. Aby znaleźć 
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Przejdź do aplikacji funkcji.
-3. Wybierz pozycję **Funkcje platformy**.
+3. Wybierz **funkcje platformy**.
 4. Wybierz **Właściwości**, a adres IP ruchu przychodzącego jest wyświetlany w obszarze **wirtualny adres IP**.
 
 ## <a name="function-app-outbound-ip-addresses"></a><a name="find-outbound-ip-addresses"></a>Wychodzące adresy IP aplikacji funkcji
@@ -51,7 +51,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 ```
 
 > [!NOTE]
-> W przypadku skalowania aplikacji funkcji uruchamianej zgodnie z [planem zużycia](functions-scale.md#consumption-plan) lub [planu Premium](functions-scale.md#premium-plan) można przypisać nowy zakres wychodzących adresów IP. W przypadku korzystania z jednego z tych planów może być konieczne dodanie całego centrum danych do listy dozwolonych.
+> W przypadku skalowania aplikacji funkcji uruchamianej zgodnie z [planem zużycia](consumption-plan.md) lub [planu Premium](functions-premium-plan.md) można przypisać nowy zakres wychodzących adresów IP. W przypadku korzystania z jednego z tych planów może być konieczne dodanie całego centrum danych do listy dozwolonych.
 
 ## <a name="data-center-outbound-ip-addresses"></a>Wychodzące adresy IP centrum danych
 
@@ -89,7 +89,7 @@ Adres IP ruchu przychodzącego **może** ulec zmianie, gdy:
 - Usuń ostatnią aplikację funkcji w kombinacji grupy zasobów i regionu i utwórz ją ponownie.
 - Usuń powiązanie TLS, takie jak podczas [odnawiania certyfikatu](../app-service/configure-ssl-certificate.md#renew-certificate).
 
-Gdy aplikacja funkcji jest uruchamiana w [planie zużycia](functions-scale.md#consumption-plan) lub w [planie Premium](functions-scale.md#premium-plan), adres IP ruchu przychodzącego może ulec zmianie nawet wtedy, gdy nie wykonano żadnych akcji, takich jak [wymienione powyżej](#inbound-ip-address-changes).
+Gdy aplikacja funkcji jest uruchamiana w [planie zużycia](consumption-plan.md) lub w [planie Premium](functions-premium-plan.md), adres IP ruchu przychodzącego może ulec zmianie nawet wtedy, gdy nie wykonano żadnych akcji, takich jak [wymienione powyżej](#inbound-ip-address-changes).
 
 ## <a name="outbound-ip-address-changes"></a>Zmiany wychodzącego adresu IP
 
@@ -98,7 +98,7 @@ Zestaw dostępnych wychodzących adresów IP dla aplikacji funkcji może ulec zm
 * Wykonaj wszelkie akcje, które mogą zmienić przychodzące adresy IP.
 * Zmień warstwę cenową planu App Service. Lista wszystkich możliwych wychodzących adresów IP, które mogą być używane przez aplikację dla wszystkich warstw cenowych, znajduje się we `possibleOutboundIPAddresses` właściwości. Zobacz [Znajdź wychodzące adresy IP](#find-outbound-ip-addresses).
 
-Gdy aplikacja funkcji jest uruchamiana w [planie zużycia](functions-scale.md#consumption-plan) lub w [planie Premium](functions-scale.md#premium-plan), wychodzący adres IP może ulec zmianie nawet wtedy, gdy nie wykonano żadnych akcji, takich jak [wymienione powyżej](#inbound-ip-address-changes).
+Gdy aplikacja funkcji jest uruchamiana w [planie zużycia](consumption-plan.md) lub w [planie Premium](functions-premium-plan.md), wychodzący adres IP może ulec zmianie nawet wtedy, gdy nie wykonano żadnych akcji, takich jak [wymienione powyżej](#inbound-ip-address-changes).
 
 Aby celowo wymusić zmianę wychodzącego adresu IP:
 

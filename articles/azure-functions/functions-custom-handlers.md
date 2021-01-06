@@ -5,12 +5,12 @@ author: anthonychu
 ms.author: antchu
 ms.date: 12/1/2020
 ms.topic: article
-ms.openlocfilehash: 099f90ba8c5d9dabb6c4c505e50d8c077e3eaf0f
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: f527b387afc01eb60bd582adc13a4ad3d516055b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746033"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936995"
 ---
 # <a name="azure-functions-custom-handlers"></a>Azure Functions niestandardowe programy obsługi
 
@@ -60,7 +60,7 @@ Na poniższym diagramie przedstawiono, jak te pliki wyglądają w systemie plik�
 | handler.exe
 ```
 
-### <a name="configuration"></a>Konfiguracja
+### <a name="configuration"></a>Konfigurowanie
 
 Aplikacja jest konfigurowana za pomocą *host.js* i *local.settings.jsna* plikach.
 
@@ -407,7 +407,7 @@ Przez ustawienie danych `message` wyjściowych równych dane zamówienia, które
 W przypadku funkcji wyzwalanych przez protokół HTTP bez dodatkowych powiązań i danych wyjściowych może być konieczne, aby program obsługi pracował bezpośrednio z żądaniem HTTP i odpowiedzią, a nie z niestandardowymi [żądaniami](#request-payload) obsługi i ładunkiem [odpowiedzi](#response-payload) . To zachowanie można skonfigurować w *host.jsna* korzystanie z tego `enableForwardingHttpRequest` Ustawienia.
 
 > [!IMPORTANT]
-> Głównym celem funkcji obsługi niestandardowych jest włączenie języków i środowisk uruchomieniowych, które nie mają obecnie wsparcia dla pierwszej klasy w Azure Functions. Chociaż może być możliwe uruchamianie aplikacji sieci Web przy użyciu niestandardowych programów obsługi, Azure Functions nie jest standardowym zwrotnym serwerem proxy. Niektóre funkcje, takie jak przesyłanie strumieniowe odpowiedzi, HTTP/2 i WebSockets, są niedostępne. Niektóre składniki żądania HTTP, takie jak określone nagłówki i trasy, mogą być ograniczone. Aplikacja może również napotkać nadmierne [zimne uruchomienie](functions-scale.md#cold-start).
+> Głównym celem funkcji obsługi niestandardowych jest włączenie języków i środowisk uruchomieniowych, które nie mają obecnie wsparcia dla pierwszej klasy w Azure Functions. Chociaż może być możliwe uruchamianie aplikacji sieci Web przy użyciu niestandardowych programów obsługi, Azure Functions nie jest standardowym zwrotnym serwerem proxy. Niektóre funkcje, takie jak przesyłanie strumieniowe odpowiedzi, HTTP/2 i WebSockets, są niedostępne. Niektóre składniki żądania HTTP, takie jak określone nagłówki i trasy, mogą być ograniczone. Aplikacja może również napotkać nadmierne [zimne uruchomienie](event-driven-scaling.md#cold-start).
 >
 > Aby rozwiązać te okoliczności, Rozważ uruchomienie aplikacji sieci Web na [Azure App Service](../app-service/overview.md).
 

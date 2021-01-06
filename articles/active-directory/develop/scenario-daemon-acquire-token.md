@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c13b6ed991403e65c4c4d71c964f1f7f4d1ffe7b
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 9416005c708cafe5adbad2b09ce70c41fae66fd7
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443317"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936026"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Aplikacja demona, która wywołuje interfejsy API sieci Web — pozyskiwanie tokenu
 
@@ -57,7 +57,7 @@ Zakres używany na potrzeby poświadczeń klienta zawsze powinien być IDENTYFIK
 
 > [!IMPORTANT]
 > Gdy MSAL żąda tokenu dostępu dla zasobu, który akceptuje token dostępu w wersji 1,0, usługa Azure AD analizuje żądanych odbiorców od żądanego zakresu, pobierając wszystko przed ostatnim ukośnikiem i używając go jako identyfikatora zasobu.
-> Tak więc jeśli, podobnie jak Azure SQL Database ( **https: \/ /Database.Windows.NET** ), zasób oczekuje odbiorców kończących się ukośnikiem (dla Azure SQL Database `https://database.windows.net/` ), należy zażądać zakresu `https://database.windows.net//.default` . (Należy pamiętać o podwójnym ukośniku). Zobacz również #747 problemu MSAL.NET [: zostanie pominięty końcowy ukośnik adresu URL zasobu, co spowodowało błąd uwierzytelniania SQL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
+> Tak więc jeśli, podobnie jak Azure SQL Database (**https: \/ /Database.Windows.NET**), zasób oczekuje odbiorców kończących się ukośnikiem (dla Azure SQL Database `https://database.windows.net/` ), należy zażądać zakresu `https://database.windows.net//.default` . (Należy pamiętać o podwójnym ukośniku). Zobacz również #747 problemu MSAL.NET [: zostanie pominięty końcowy ukośnik adresu URL zasobu, co spowodowało błąd uwierzytelniania SQL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
 
 ## <a name="acquiretokenforclient-api"></a>Interfejs API AcquireTokenForClient
 
@@ -91,6 +91,10 @@ catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
     // Mitigation: Change the scope to be as expected.
 }
 ```
+
+### <a name="acquiretokenforclient-uses-the-application-token-cache"></a>AcquireTokenForClient używa pamięci podręcznej tokenów aplikacji
+
+W programie MSAL.NET `AcquireTokenForClient` używa pamięci podręcznej token aplikacji. (Wszystkie inne metody AcquireToken *XX* używają pamięci podręcznej tokenów użytkowników). Nie wywołuj `AcquireTokenSilent` przed wywołaniem `AcquireTokenForClient` , ponieważ `AcquireTokenSilent` używa pamięci podręcznej tokenów *użytkownika* . `AcquireTokenForClient` sprawdza sam pamięć podręczną tokenu *aplikacji* i aktualizuje go.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -200,10 +204,6 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 Aby uzyskać więcej informacji, zobacz dokumentację protokołu: [Microsoft Identity platform oraz przepływ poświadczeń klienta OAuth 2,0](v2-oauth2-client-creds-grant-flow.md).
 
-## <a name="application-token-cache"></a>Pamięć podręczna tokenów aplikacji
-
-W programie MSAL.NET `AcquireTokenForClient` używa pamięci podręcznej token aplikacji. (Wszystkie inne metody AcquireToken *XX* używają pamięci podręcznej tokenów użytkowników). Nie wywołuj `AcquireTokenSilent` przed wywołaniem `AcquireTokenForClient` , ponieważ `AcquireTokenSilent` używa pamięci podręcznej tokenów *użytkownika* . `AcquireTokenForClient` sprawdza sam pamięć podręczną tokenu *aplikacji* i aktualizuje go.
-
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 ### <a name="did-you-use-the-resourcedefault-scope"></a>Czy używasz tego zakresu zasobu/. default?
@@ -228,6 +228,12 @@ Content: {
   }
 }
 ```
+
+### <a name="are-you-calling-your-own-api"></a>Czy wywołujesz własny interfejs API?
+
+Jeśli wywołasz własny internetowy interfejs API i nie udało Ci się dodać uprawnienia aplikacji do rejestracji aplikacji dla aplikacji demona, czy chcesz uwidocznić rolę aplikacji w interfejsie API sieci Web?
+
+Aby uzyskać szczegółowe informacje, zobacz [udostępnianie uprawnień aplikacji (ról aplikacji)](scenario-protected-web-api-app-registration.md#exposing-application-permissions-app-roles) , a w szczególności [zapewnienie, że usługa Azure AD wystawia tokeny dla internetowego interfejsu API tylko dla dozwolonych klientów](scenario-protected-web-api-app-registration.md#ensuring-that-azure-ad-issues-tokens-for-your-web-api-to-only-allowed-clients).
 
 ## <a name="next-steps"></a>Następne kroki
 

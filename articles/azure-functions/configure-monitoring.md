@@ -4,12 +4,12 @@ description: Dowiedz się, jak połączyć aplikację funkcji, aby Application I
 ms.date: 8/31/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 77cc87e44990f471ef38871c0225835660779a3c
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 24350eb07481db66907d199cd96f84a02cc98c9e
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825755"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937284"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Jak skonfigurować monitorowanie dla Azure Functions
 
@@ -197,7 +197,7 @@ Aby dowiedzieć się więcej, zobacz [próbkowanie w Application Insights](../az
 
 _Ta funkcja jest w wersji zapoznawczej._ 
 
-[Kontroler skalowania Azure Functions](./functions-scale.md#runtime-scaling) może wysyłać dzienniki do Application Insights lub do magazynu obiektów blob, aby lepiej zrozumieć decyzje podejmowane przez kontroler skalowania dla aplikacji funkcji.
+[Kontroler skalowania Azure Functions](./event-driven-scaling.md#runtime-scaling) może wysyłać dzienniki do Application Insights lub do magazynu obiektów blob, aby lepiej zrozumieć decyzje podejmowane przez kontroler skalowania dla aplikacji funkcji.
 
 Aby włączyć tę funkcję, należy dodać ustawienie aplikacji o nazwie `SCALE_CONTROLLER_LOGGING_ENABLED` do ustawień aplikacji funkcji. Wartość tego ustawienia musi być w formacie `<DESTINATION>:<VERBOSITY>` , w oparciu o następujące:
 

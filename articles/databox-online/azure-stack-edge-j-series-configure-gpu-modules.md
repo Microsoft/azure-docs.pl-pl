@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 01/04/2021
 ms.author: alkohli
-ms.openlocfilehash: 8b9f1180639f638e72fdea2f87958628a2e9e86b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d172ce98ba93360c621a91fb0e2a55d022470943
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891465"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935564"
 ---
 # <a name="configure-and-run-a-module-on-gpu-on-azure-stack-edge-pro-device"></a>Konfigurowanie i uruchamianie modułu na procesorach GPU na Azure Stack na urządzeniu brzegowym Pro
 
@@ -30,45 +30,58 @@ Przed rozpoczęciem upewnij się, że:
 
 ## <a name="configure-module-to-use-gpu"></a>Konfigurowanie modułu do użycia procesora GPU
 
-Aby skonfigurować moduł do używania procesora GPU na urządzeniu z systemem Azure Stack Edge w wersji Pro w celu uruchomienia modułu, wykonaj następujące kroki.
+Aby skonfigurować moduł do korzystania z procesora GPU na urządzeniu Azure Stack brzeg Pro w celu uruchomienia modułu,<!--Can it be simplified? "To configure a module to be run by the GPU on your Azure Stack Edge Pro device,"?--> wykonaj te kroki.
 
-1. W Azure Portal przejdź do zasobu skojarzonego z urządzeniem. 
+1. W Azure Portal przejdź do zasobu skojarzonego z urządzeniem.
 
-2. Przejdź do pozycji **obliczenia graniczne > wprowadzenie**. Na kafelku **konfigurowania obliczeń brzegowych** wybierz pozycję Konfiguruj.
+2. W obszarze **Przegląd** wybierz pozycję **IoT Edge**.
 
     ![Konfigurowanie modułu do użycia procesora GPU 1](media/azure-stack-edge-j-series-configure-gpu-modules/configure-compute-1.png)
 
-3. W bloku **Konfigurowanie obliczeń krawędzi** :
+3. W obszarze **Włączanie usługi IoT Edge** wybierz pozycję **Dodaj**.
 
-    1. W obszarze **IoT Hub**wybierz pozycję **Utwórz nowy**.
-    2. Podaj nazwę zasobu IoT Hub, który chcesz utworzyć dla urządzenia. Aby skorzystać z warstwy Bezpłatna, wybierz istniejący zasób. 
-    3. Zanotuj urządzenie IoT Edge i urządzenie bramy IoT utworzone przy użyciu zasobu IoT Hub. Te informacje będą używane w dalszych krokach.
+   ![Konfigurowanie modułu do korzystania z procesora GPU 2](media/azure-stack-edge-j-series-configure-gpu-modules/configure-compute-2.png)
 
-    ![Konfigurowanie modułu do korzystania z procesora GPU 2](media/azure-stack-edge-j-series-configure-gpu-modules/configure-compute-2.png)
+4. W obszarze **Tworzenie usługi IoT Edge** wprowadź ustawienia dla zasobu IoT Hub:
 
-4. Utworzenie zasobu IoT Hub może zająć kilka minut. Po utworzeniu zasobu na kafelku **konfigurowania obliczeń brzegowych** wybierz pozycję **Wyświetl konfigurację** , aby wyświetlić szczegóły zasobu IoT Hub.
+   |Pole   |Wartość    |
+   |--------|---------|
+   |Subskrypcja      | Subskrypcja używana przez zasób Azure Stack Edge. |
+   |Grupa zasobów    | Grupa zasobów używana przez zasób Azure Stack Edge. |
+   |Usługa IoT Hub           | Wybierz opcję **Utwórz nową** lub **Użyj istniejącej**. <br> Domyślnie warstwa standardowa (S1) jest używana do tworzenia zasobu IoT. Aby użyć zasobu IoT warstwy Bezpłatna, utwórz go, a następnie wybierz istniejący zasób. <br> W każdym przypadku zasób IoT Hub używa tej samej subskrypcji i grupy zasobów, która jest używana przez zasób Azure Stack Edge.     |
+   |Nazwa              | Jeśli nie chcesz używać domyślnej nazwy podanej dla nowego zasobu IoT Hub, wprowadź inną nazwę. |
 
-    ![Konfigurowanie modułu do użycia procesora GPU 4](media/azure-stack-edge-j-series-configure-gpu-modules/configure-compute-4.png)
+   Po zakończeniu ustawień wybierz pozycję **Przegląd + Utwórz**. Sprawdź ustawienia zasobu IoT Hub i wybierz pozycję **Utwórz**.
 
-5. Przejdź do pozycji **Automatyczne zarządzanie urządzeniami > IoT Edge**.
+   ![Wprowadzenie do obliczeń obliczeniowych 2](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
 
-    ![Konfigurowanie modułu do użycia procesora GPU 6](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-2.png)
+   Tworzenie zasobów dla zasobu IoT Hub trwa kilka minut. Po utworzeniu zasobu **Przegląd** wskazuje, że usługa IoT Edge jest teraz uruchomiona.
 
-    W okienku po prawej stronie zostanie wyświetlone urządzenie IoT Edge skojarzone z urządzeniem Azure Stack EDGE Pro. Odnosi się to do IoT Edge urządzenia utworzonego w poprzednim kroku podczas tworzenia zasobu IoT Hub. 
-    
-6. Wybierz to urządzenie IoT Edge.
+   ![Wprowadzenie do obliczeń obliczeniowych 3](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-4.png)
+
+5. Aby upewnić się, że skonfigurowano rolę obliczeń brzegowych, wybierz pozycję **Właściwości**.
+
+   ![Wprowadzenie do obliczeń obliczeniowych 4](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
+
+6. W obszarze **Właściwości** wybierz łącze **IoT Edge urządzenia**.
+
+   ![Konfigurowanie modułu do użycia procesora GPU 6](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-2.png)
+
+   W okienku po prawej stronie zostanie wyświetlone urządzenie IoT Edge skojarzone z urządzeniem Azure Stack EDGE Pro. To urządzenie odpowiada urządzeniu IoT Edge, które zostało utworzone podczas tworzenia zasobu IoT Hub.
+ 
+7. Wybierz to urządzenie IoT Edge.
 
    ![Konfigurowanie modułu do korzystania z procesora GPU 7](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-3.png)
 
-7.  Wybierz pozycję **Ustaw moduły**.
+8. Wybierz pozycję **Ustaw moduły**.
 
-    ![Konfigurowanie modułu do użycia procesora GPU 8](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-4.png)
+   ![Konfigurowanie modułu do użycia procesora GPU 8](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-4.png)
 
-8. Wybierz pozycję **+ Dodaj** , a następnie pozycję **+ moduł IoT Edge**. 
+9. Wybierz pozycję **+ Dodaj** , a następnie pozycję **+ moduł IoT Edge**. 
 
     ![Konfigurowanie modułu do korzystania z procesora GPU 9](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-5.png)
 
-9. Na karcie **Dodaj moduł IoT Edge** :
+10. Na karcie **Dodaj moduł IoT Edge** :
 
     1. Podaj **Identyfikator URI obrazu**. W tym miejscu będziesz używać publicznie dostępnych **cyfr** modułu NVIDIA. 
     
@@ -78,32 +91,32 @@ Aby skonfigurować moduł do używania procesora GPU na urządzeniu z systemem A
     
     ![Konfigurowanie modułu do użycia procesora GPU 10](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-6.png)
 
-10. Na karcie **zmienne środowiskowe** Podaj nazwę zmiennej i odpowiednią wartość. 
+11. Na karcie **zmienne środowiskowe** Podaj nazwę zmiennej i odpowiednią wartość. 
 
     1. Aby bieżący moduł używał jednego procesora GPU na tym urządzeniu, użyj NVIDIA_VISIBLE_DEVICES. 
 
-    2. Ustaw wartość na 0 lub 1. Gwarantuje to, że urządzenie jest używane co najmniej jeden procesor GPU dla tego modułu. Ustawienie wartości 0, 1 oznacza, że w tym module są używane procesory GPU na urządzeniu.
+    2. Ustaw wartość na 0 lub 1. Wartość 0 lub 1 zapewnia, że na urządzeniu jest używany co najmniej jeden procesor GPU dla tego modułu. Ustawienie wartości 0, 1 oznacza, że w tym module są używane procesory GPU na urządzeniu.
 
-        ![Konfigurowanie modułu do korzystania z procesora GPU 11](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-7.png)
+       ![Konfigurowanie modułu do korzystania z procesora GPU 11](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-7.png)
 
-        Aby uzyskać więcej informacji na temat zmiennych środowiskowych, których można użyć z procesorem GPU NVIDIA, przejdź do [środowiska uruchomieniowego kontenera NVIDIA](https://github.com/NVIDIA/nvidia-container-runtime#environment-variables-oci-spec).
+       Aby uzyskać więcej informacji na temat zmiennych środowiskowych, których można użyć z procesorem GPU NVIDIA, przejdź do [środowiska uruchomieniowego kontenera NVIDIA](https://github.com/NVIDIA/nvidia-container-runtime#environment-variables-oci-spec).
 
     > [!NOTE]
-    > Procesor GPU można zamapować tylko do jednego modułu. Moduł może jednak używać jednego lub bez procesorów GPU. 
+    > Procesor GPU można zamapować tylko do jednego modułu. Moduł może jednak używać jednego lub bez procesorów GPU.
 
-11. Wprowadź nazwę modułu. W tym momencie możesz wybrać opcję tworzenia kontenera i zmodyfikować ustawienia sznurka modułu lub jeśli to zrobisz, wybierz pozycję **Dodaj**. 
+12. Wprowadź nazwę modułu. W tym momencie możesz wybrać opcję tworzenia kontenera i zmodyfikować ustawienia sznurka modułu lub jeśli to zrobisz, wybierz pozycję **Dodaj**. 
 
     ![Konfigurowanie modułu do użycia procesora GPU 12](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-8.png)
 
-12. Upewnij się, że moduł jest uruchomiony, a następnie wybierz pozycję **Przegląd + Utwórz**.    
+13. Upewnij się, że moduł jest uruchomiony, a następnie wybierz pozycję **Przegląd + Utwórz**.
 
     ![Konfigurowanie modułu do użycia procesora GPU 13](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-9.png)
 
-13. Na karcie **Recenzja + tworzenie** zostaną wyświetlone wybrane opcje wdrażania. Przejrzyj opcje i wybierz pozycję **Utwórz**.
+14. Na karcie **Recenzja + tworzenie** zostaną wyświetlone wybrane opcje wdrażania. Przejrzyj opcje i wybierz pozycję **Utwórz**.
     
     ![Konfigurowanie modułu do użycia procesora GPU 14](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-10.png)
 
-14. Zanotuj **stan środowiska uruchomieniowego** modułu. 
+15. Zanotuj **stan środowiska uruchomieniowego** modułu.
     
     ![Konfigurowanie modułu do użycia procesora GPU 15](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-11.png)
 

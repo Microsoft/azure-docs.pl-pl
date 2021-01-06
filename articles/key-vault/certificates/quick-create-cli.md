@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurecli
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 55a25f4f40668172aa8a9c80dd08d9fafcef78af
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 2bb718d038dd7b3f5aa6f3bac1ce1de572c8e829
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94516480"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936366"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-cli"></a>Szybki Start: Ustawianie i pobieranie certyfikatu z Azure Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -50,8 +50,8 @@ az keyvault create --name "Contoso-Vault2" --resource-group "ContosoResourceGrou
 
 Dane wyjściowe tego polecenia cmdlet pokazują właściwości nowo utworzonej usługi Key Vault. Zanotuj dwie poniższe właściwości:
 
-- **Nazwa magazynu** : w tym przykładzie jest to **Contoso-Vault2**. Ta nazwa będzie używana do innych poleceń usługi Key Vault.
-- **Identyfikator URI magazynu** : w tym przykładzie jest to https://contoso-vault2.vault.azure.net/. Aplikacje korzystające z magazynu za pomocą jego interfejsu API REST muszą używać tego identyfikatora URI.
+- **Nazwa magazynu**: w tym przykładzie jest to **Contoso-Vault2**. Ta nazwa będzie używana do innych poleceń usługi Key Vault.
+- **Identyfikator URI magazynu**: w tym przykładzie jest to https://contoso-vault2.vault.azure.net/. Aplikacje korzystające z magazynu za pomocą jego interfejsu API REST muszą używać tego identyfikatora URI.
 
 Twoje konto platformy Azure jest teraz jedynym kontem z uprawnieniami do wykonywania jakichkolwiek operacji na tym nowym magazynie.
 
@@ -91,4 +91,4 @@ W tym przewodniku szybki start utworzono Key Vault i Zapisano w nim certyfikat. 
 
 - Zapoznaj się [z omówieniem Azure Key Vault](../general/overview.md)
 - Zobacz odwołanie do [interfejsu wiersza polecenia platformy Azure AZ](/cli/azure/keyvault?view=azure-cli-latest)
-- Przegląd [Azure Key Vault najlepszych](../general/best-practices.md) rozwiązań
+- Zapoznaj się z [omówieniem zabezpieczeń Key Vault](../general/security-overview.md)

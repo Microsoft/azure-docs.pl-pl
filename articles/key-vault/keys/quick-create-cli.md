@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/30/2020
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 69801c9b70ea3d34838ba0b35deab3e6802ecb1f
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 3906de9cd94b4db3e675c2b822df2f061040c586
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94515782"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935295"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-cli"></a>Szybki Start: Ustawianie i pobieranie klucza z Azure Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -50,8 +50,8 @@ az keyvault create --name "Contoso-Vault2" --resource-group "ContosoResourceGrou
 
 Dane wyjściowe tego polecenia cmdlet pokazują właściwości nowo utworzonej usługi Key Vault. Zanotuj dwie poniższe właściwości:
 
-- **Nazwa magazynu** : w tym przykładzie jest to **Contoso-Vault2**. Ta nazwa będzie używana do innych poleceń usługi Key Vault.
-- **Identyfikator URI magazynu** : w tym przykładzie jest to https://contoso-vault2.vault.azure.net/. Aplikacje korzystające z magazynu za pomocą jego interfejsu API REST muszą używać tego identyfikatora URI.
+- **Nazwa magazynu**: w tym przykładzie jest to **Contoso-Vault2**. Ta nazwa będzie używana do innych poleceń usługi Key Vault.
+- **Identyfikator URI magazynu**: w tym przykładzie jest to https://contoso-vault2.vault.azure.net/. Aplikacje korzystające z magazynu za pomocą jego interfejsu API REST muszą używać tego identyfikatora URI.
 
 Twoje konto platformy Azure jest teraz jedynym kontem z uprawnieniami do wykonywania jakichkolwiek operacji na tym nowym magazynie.
 
@@ -91,4 +91,4 @@ W tym przewodniku szybki start utworzono Key Vault i Zapisano w nim klucz. Aby d
 
 - Zapoznaj się [z omówieniem Azure Key Vault](../general/overview.md)
 - Zobacz odwołanie do [interfejsu wiersza polecenia platformy Azure AZ](/cli/azure/keyvault?view=azure-cli-latest)
-- Przegląd [Azure Key Vault najlepszych](../general/best-practices.md) rozwiązań
+- Zapoznaj się z [omówieniem zabezpieczeń Key Vault](../general/security-overview.md)

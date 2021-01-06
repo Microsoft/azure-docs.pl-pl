@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć funkcję języka JavaScript z poziomu w
 ms.date: 11/03/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4a178cb0e69a6e2b666247bcb8e76ab2c7e272e1
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 3b14b7d9f97be12a73ffcb2416a00cd4a51bca5f
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635674"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937250"
 ---
 # <a name="quickstart-create-a-javascript-function-in-azure-from-the-command-line"></a>Szybki Start: Tworzenie funkcji języka JavaScript na platformie Azure z poziomu wiersza polecenia
 
@@ -97,7 +97,7 @@ W razie potrzeby możesz pominąć, aby [uruchomić funkcję lokalnie](#run-the-
 
 :::code language="javascript" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-JavaScript/index.js":::
 
-Dla wyzwalacza HTTP funkcja otrzymuje dane żądania w zmiennej `req` , zgodnie z definicją w *function.json*. Obiekt zwracany, zdefiniowany jako `$return` w *function.json* , jest odpowiedzią. Aby dowiedzieć się więcej, zobacz [Azure Functions wyzwalacze i powiązania HTTP](./functions-bindings-http-webhook.md?tabs=javascript).
+Dla wyzwalacza HTTP funkcja otrzymuje dane żądania w zmiennej `req` , zgodnie z definicją w *function.json*. Obiekt zwracany, zdefiniowany jako `$return` w *function.json*, jest odpowiedzią. Aby dowiedzieć się więcej, zobacz [Azure Functions wyzwalacze i powiązania HTTP](./functions-bindings-http-webhook.md?tabs=javascript).
 
 #### <a name="functionjson"></a>function.json
 
@@ -133,7 +133,7 @@ Każde powiązanie wymaga kierunku, typu i unikatowej nazwy. Wyzwalacz HTTP ma p
     
     W poprzednim przykładzie Zastąp ciąg `<STORAGE_NAME>` nazwą konta użytego w poprzednim kroku i Zastąp ciąg `<APP_NAME>` globalnie unikatową nazwą, która jest odpowiednia dla Ciebie. `<APP_NAME>` jest również domyślną domeną DNS aplikacji funkcji. 
     
-    To polecenie tworzy aplikację funkcji działającą w określonym środowisku uruchomieniowym języka zgodnie z [planem zużycia Azure Functions](functions-scale.md#consumption-plan), który jest bezpłatny dla nakładu pracy w tym miejscu. Polecenie udostępnia również skojarzone wystąpienie usługi Azure Application Insights w tej samej grupie zasobów, za pomocą którego można monitorować aplikację funkcji i wyświetlać dzienniki. Aby uzyskać więcej informacji, zobacz [Monitor Azure Functions](functions-monitoring.md). Wystąpienie nie wiąże się z żadnymi kosztami, dopóki nie zostanie uaktywnione.
+    To polecenie tworzy aplikację funkcji działającą w określonym środowisku uruchomieniowym języka zgodnie z [planem zużycia Azure Functions](consumption-plan.md), który jest bezpłatny dla nakładu pracy w tym miejscu. Polecenie udostępnia również skojarzone wystąpienie usługi Azure Application Insights w tej samej grupie zasobów, za pomocą którego można monitorować aplikację funkcji i wyświetlać dzienniki. Aby uzyskać więcej informacji, zobacz [Monitor Azure Functions](functions-monitoring.md). Wystąpienie nie wiąże się z żadnymi kosztami, dopóki nie zostanie uaktywnione.
 
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
 

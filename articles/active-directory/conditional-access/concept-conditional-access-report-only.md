@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df25278d37e518e99bc315a315e017b98c7f4e58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: deced953089fcbb2640cbf3e402db24cb511e769
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049387"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935890"
 ---
 # <a name="what-is-conditional-access-report-only-mode"></a>Co to jest tryb tylko do raportowania dostępu warunkowego?
 
@@ -30,7 +30,7 @@ Tryb tylko do raportowania jest nowym stanem zasad dostępu warunkowego, który 
 - Klienci z subskrypcją Azure Monitor mogą monitorować wpływ ich zasad dostępu warunkowego za pomocą skoroszytu dostępu warunkowego usługi Insights.
 
 > [!WARNING]
-> Zasady w trybie tylko do raportowania, które wymagają zgodnych urządzeń, mogą monitować użytkowników o komputery Mac, iOS i Android w celu wybrania certyfikatu urządzenia podczas obliczania zasad, nawet jeśli zgodność urządzenia nie jest wymuszana. Te polecenia mogą powtarzać się, dopóki urządzenie nie zostanie zgodne. Aby uniemożliwić użytkownikom końcowym otrzymywanie pojawiających się w trakcie logowania, należy wykluczyć platformy urządzeń Mac, iOS i Android z zasad tylko do raportowania, które wykonują testy zgodności urządzeń. Należy pamiętać, że tryb tylko do raportowania nie dotyczy zasad urzędu certyfikacji z zakresem "akcje użytkownika".
+> Zasady w trybie tylko do raportowania, które wymagają zgodnych urządzeń, mogą monitować użytkowników o komputery Mac, iOS i Android w celu wybrania certyfikatu urządzenia podczas obliczania zasad, nawet jeśli zgodność urządzenia nie jest wymuszana. Te polecenia mogą powtarzać się, dopóki urządzenie nie zostanie zgodne. Aby uniemożliwić użytkownikom końcowym otrzymywanie pojawiających się w trakcie logowania, należy wykluczyć platformy urządzeń Mac, iOS i Android z zasad tylko do raportowania, które wykonują testy zgodności urządzeń. Należy pamiętać, że tryb tylko do raportowania nie ma zastosowania do zasad dostępu warunkowego z zakresem "akcje użytkownika".
 
 ![Karta tylko raport w dzienniku logowania usługi Azure AD](./media/concept-conditional-access-report-only/report-only-detail-in-sign-in-log.png)
 

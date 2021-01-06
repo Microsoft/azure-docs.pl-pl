@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 8706ac588f2cc868805de7126140a1edd4b8c735
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 6bf21205c028eaff08eef91757424f8b52764ada
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92445532"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936145"
 ---
 # <a name="tutorial-configure-single-sign-on-sso-between-azure-active-directory-and-f5"></a>Samouczek: Konfigurowanie logowania jednokrotnego między Azure Active Directory i F5
 
@@ -174,7 +174,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij pozycję **Utwórz**.
+   1. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -195,7 +195,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 1. Kliknij pozycję **dostęp warunkowy** .
 1. Kliknij pozycję **nowe zasady**.
-1. Teraz możesz zobaczyć aplikację F5 jako zasób dla zasad urzędu certyfikacji i zastosować dowolny dostęp warunkowy, w tym uwierzytelnianie wieloskładnikowe, kontrolę dostępu na podstawie urządzenia lub zasady ochrony tożsamości.
+1. Teraz możesz zobaczyć aplikację F5 jako zasób dla zasad dostępu warunkowego i zastosować dowolny dostęp warunkowy, w tym uwierzytelnianie wieloskładnikowe, kontrolę dostępu na podstawie urządzenia lub zasady ochrony tożsamości.
 
 ## <a name="configure-f5-sso"></a>Konfigurowanie rejestracji jednokrotnej F5
 
@@ -209,7 +209,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Otwórz nowe okno przeglądarki sieci Web i zaloguj się do firmowej firmy jako administrator i wykonaj następujące czynności:
 
-1. Przejdź do **systemu > zarządzanie certyfikatami > zarządzania certyfikatami, > listy certyfikatów SSL**. Wybierz pozycję **Importuj** z prawej strony. Określ **nazwę certyfikatu** (zostanie przywoływana później w konfiguracji). W **źródle certyfikatu**wybierz pozycję Przekaż plik Określ certyfikat pobrany z platformy Azure podczas konfigurowania logowania jednokrotnego SAML. Kliknij pozycję **Importuj**.
+1. Przejdź do **systemu > zarządzanie certyfikatami > zarządzania certyfikatami, > listy certyfikatów SSL**. Wybierz pozycję **Importuj** z prawej strony. Określ **nazwę certyfikatu** (zostanie przywoływana później w konfiguracji). W **źródle certyfikatu** wybierz pozycję Przekaż plik Określ certyfikat pobrany z platformy Azure podczas konfigurowania logowania jednokrotnego SAML. Kliknij pozycję **Importuj**.
 
     ![Zrzut ekranu przedstawia listę certyfikatu S S L, w której można wybrać nazwę certyfikatu i źródło certyfikatu.](./media/headerf5-tutorial/configure12.png)
  
@@ -230,7 +230,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Zrzut ekranu przedstawia stronę właściwości dostawcy usług.](./media/headerf5-tutorial/configure03.png) 
 
-1. W tym przykładzie tworzymy nowy serwer wirtualny jako 192.168.30.20 z portem 443. Określ adres IP serwera wirtualnego w **adresie docelowym**. Wybierz **profil SSL**klienta, a następnie wybierz pozycję Utwórz nowy. Określ wcześniej przekazany certyfikat aplikacji (certyfikat wieloznaczny w tym przykładzie) i skojarzony klucz, a następnie kliknij przycisk **zapisz & dalej**.
+1. W tym przykładzie tworzymy nowy serwer wirtualny jako 192.168.30.20 z portem 443. Określ adres IP serwera wirtualnego w **adresie docelowym**. Wybierz **profil SSL** klienta, a następnie wybierz pozycję Utwórz nowy. Określ wcześniej przekazany certyfikat aplikacji (certyfikat wieloznaczny w tym przykładzie) i skojarzony klucz, a następnie kliknij przycisk **zapisz & dalej**.
 
     >[!NOTE]
     >w tym przykładzie nasz wewnętrzny serwer WebServer jest uruchomiony na porcie 888 i chcemy opublikować go z 443.
@@ -241,7 +241,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Zrzut ekranu przedstawia stronę ustawień łącznika zewnętrzny dostawca tożsamości.](./media/headerf5-tutorial/configure05.png)
  
-1. W obszarze **wybierz pulę**określ pozycję **Utwórz nową** (Alternatywnie wybierz już istniejącą pulę). Zezwól na ustawienie wartości domyślnej. W obszarze serwery puli wpisz adres IP w obszarze **adres IP/nazwa węzła**. Określ **port**. Kliknij przycisk **zapisz & dalej**.
+1. W obszarze **wybierz pulę** określ pozycję **Utwórz nową** (Alternatywnie wybierz już istniejącą pulę). Zezwól na ustawienie wartości domyślnej. W obszarze serwery puli wpisz adres IP w obszarze **adres IP/nazwa węzła**. Określ **port**. Kliknij przycisk **zapisz & dalej**.
 
     ![Zrzut ekranu przedstawia stronę właściwości puli.](./media/headerf5-tutorial/configure06.png)
 
@@ -355,9 +355,9 @@ Ta sekcja jest przeznaczona do użycia, jeśli nie można użyć konfiguracji z 
 
     f. **Zgodne źródło =% {Session. Server. landinguri}** 
 
-    przykład **Zgodna wartość =/**_
+    przykład **Zgodna wartość =/** _
 
-    h. Kliknij _*Update**
+    h. Kliknij _ *Update**
 
     i. Kliknij przycisk **OK** .
 

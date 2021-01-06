@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-powershell
 - devx-track-azurecli
-ms.openlocfilehash: 45745419932a40a34abe65f54c61c87ab245f487
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: abbe3b9ed4d9a8c9bf30c6be3e6980228d319090
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93425090"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937233"
 ---
 # <a name="quickstart-create-a-powershell-function-in-azure-from-the-command-line"></a>Szybki Start: Tworzenie funkcji programu PowerShell na platformie Azure z poziomu wiersza polecenia
 
@@ -97,7 +97,7 @@ W razie potrzeby możesz pominąć, aby [uruchomić funkcję lokalnie](#run-the-
 
 :::code language="powershell" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-PowerShell/run.ps1":::
 
-Dla wyzwalacza HTTP funkcja otrzymuje dane żądania przekazywane do `$Request` param zdefiniowanego w *function.json*. Obiekt zwracany, zdefiniowany jako `Response` w *function.json* , jest przesyłany do `Push-OutputBinding` polecenia cmdlet jako odpowiedź. 
+Dla wyzwalacza HTTP funkcja otrzymuje dane żądania przekazywane do `$Request` param zdefiniowanego w *function.json*. Obiekt zwracany, zdefiniowany jako `Response` w *function.json*, jest przesyłany do `Push-OutputBinding` polecenia cmdlet jako odpowiedź. 
 
 #### <a name="functionjson"></a>function.json
 
@@ -133,7 +133,7 @@ Każde powiązanie wymaga kierunku, typu i unikatowej nazwy. Wyzwalacz HTTP ma p
     
     W poprzednim przykładzie Zastąp ciąg `<STORAGE_NAME>` nazwą konta użytego w poprzednim kroku i Zastąp ciąg `<APP_NAME>` globalnie unikatową nazwą, która jest odpowiednia dla Ciebie. `<APP_NAME>` jest również domyślną domeną DNS aplikacji funkcji. 
     
-    To polecenie tworzy aplikację funkcji działającą w określonym środowisku uruchomieniowym języka zgodnie z [planem zużycia Azure Functions](functions-scale.md#consumption-plan), który jest bezpłatny dla nakładu pracy w tym miejscu. Polecenie udostępnia również skojarzone wystąpienie usługi Azure Application Insights w tej samej grupie zasobów, za pomocą którego można monitorować aplikację funkcji i wyświetlać dzienniki. Aby uzyskać więcej informacji, zobacz [Monitor Azure Functions](functions-monitoring.md). Wystąpienie nie wiąże się z żadnymi kosztami, dopóki nie zostanie uaktywnione.
+    To polecenie tworzy aplikację funkcji działającą w określonym środowisku uruchomieniowym języka zgodnie z [planem zużycia Azure Functions](consumption-plan.md), który jest bezpłatny dla nakładu pracy w tym miejscu. Polecenie udostępnia również skojarzone wystąpienie usługi Azure Application Insights w tej samej grupie zasobów, za pomocą którego można monitorować aplikację funkcji i wyświetlać dzienniki. Aby uzyskać więcej informacji, zobacz [Monitor Azure Functions](functions-monitoring.md). Wystąpienie nie wiąże się z żadnymi kosztami, dopóki nie zostanie uaktywnione.
 
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
 

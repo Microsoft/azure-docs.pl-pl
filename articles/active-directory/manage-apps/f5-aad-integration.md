@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e011417b936ed83b4658e6dad25bf8e8ee88aed
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: b5c960c7fbcc29d0aaea7511ba2187c916e84ab3
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96318028"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935244"
 ---
 # <a name="f5-big-ip-access-policy-manager-and-azure-active-directory-integration-for-secure-hybrid-access"></a>F5 BIG-IP Access Manager and Azure Active Directory Integration dla bezpiecznego dostępu hybrydowego
 
@@ -37,7 +37,7 @@ Posiadanie wstępnego uwierzytelniania dostępu usługi Azure AD do usług opubl
 
 - [Wykrywanie przecieków poświadczeń](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-risks)
 
-- [Samoobsługowe resetowanie hasła](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-sspr)
+- [Samoobsługowe resetowanie hasła (SSPR)](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-sspr)
 
 - [Współpraca z partnerami](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users) — Zarządzanie prawami dla dostępu gościa
 
@@ -71,7 +71,7 @@ Kroki 1-4 na diagramie ilustrują wymianę przed uwierzytelnianiem wstępnym mi�
 |:------|:-----------|
 | 1. | Użytkownik wybiera ikonę aplikacji w portalu, rozwiązując adres URL do protokołu SAML SP (BIG-IP) |
 | 2. | Usługa BIG-IP przekierowuje użytkownika do usługi SAML dostawcy tożsamości (Azure AD) w celu wstępnego uwierzytelniania|
-| 3. | Usługa Azure AD przetwarza zasady urzędu certyfikacji i [kontrolki sesji](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-session) na potrzeby autoryzacji|
+| 3. | Usługa Azure AD przetwarza zasady dostępu warunkowego i [kontrolki sesji](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-session) na potrzeby autoryzacji|
 | 4. | Użytkownik przekierowuje do usługi BIG-IP prezentowanie oświadczeń SAML wystawionych przez usługę Azure AD |
 | 5. | BIG-IP żąda wszelkich dodatkowych informacji o sesji do uwzględnienia w [rejestracji jednokrotnej](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso) i [kontroli dostępu opartej na rolach (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) do opublikowanej usługi |
 | 6. | BIG-IP przekazuje żądanie klienta do usługi wewnętrznej bazy danych
@@ -144,7 +144,7 @@ Poniższe samouczki zawierają szczegółowe wskazówki dotyczące wdrażania ni
 
 - [Zabezpieczanie BIG-Połączenie SSL z adresu IP-VPN za pomocą usługi Azure AD SHA](f5-aad-password-less-vpn.md)
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Koniec hasła, przejdź bezhasło](https://www.microsoft.com/security/business/identity/passwordless)
 

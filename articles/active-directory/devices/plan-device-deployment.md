@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf30570f10f176c47aed0f99127e03a027eff775
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: fc631e4329c1df2cdcbfe57c2b43ccccf14afa85
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093093"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936451"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planowanie wdrożenia urządzenia Azure Active Directory
 
@@ -44,7 +44,7 @@ Najważniejsze zalety nadawania urządzeniom tożsamości usługi Azure AD:
 
 * Zwiększ produktywność — dzięki usłudze Azure AD użytkownicy mogą [bezproblemowo zalogować](./azuread-join-sso.md) się do zasobów lokalnych i w chmurze, co umożliwia ich produktywność wszędzie tam, gdzie się znajdują.
 
-* Zwiększ bezpieczeństwo — urządzenia usługi Azure AD umożliwiają stosowanie [zasad dostępu warunkowego (CA)](../conditional-access/require-managed-devices.md) do zasobów na podstawie tożsamości urządzenia lub użytkownika. Zasady urzędu certyfikacji mogą oferować dodatkową ochronę przy użyciu [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md). Przyłączanie urządzenia do usługi Azure AD jest wymaganiem wstępnym w celu zwiększenia bezpieczeństwa dzięki strategii [uwierzytelniania bez hasła](../authentication/concept-authentication-passwordless.md) .
+* Zwiększ bezpieczeństwo — urządzenia usługi Azure AD umożliwiają stosowanie [zasad dostępu warunkowego](../conditional-access/require-managed-devices.md) do zasobów na podstawie tożsamości urządzenia lub użytkownika. Zasady dostępu warunkowego mogą oferować dodatkową ochronę przy użyciu [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md). Przyłączanie urządzenia do usługi Azure AD jest wymaganiem wstępnym w celu zwiększenia bezpieczeństwa dzięki strategii [uwierzytelniania bez hasła](../authentication/concept-authentication-passwordless.md) .
 
 * Ulepsz środowisko użytkownika — z tożsamościami urządzeń w usłudze Azure AD możesz zapewnić użytkownikom łatwy dostęp do zasobów w chmurze w organizacji zarówno z urządzeń osobistych, jak i firmowych. Administratorzy mogą włączać [Enterprise State roaming](enterprise-state-roaming-overview.md) w celu zapewnienia ujednoliconego środowiska na wszystkich urządzeniach z systemem Windows.
 
@@ -129,7 +129,7 @@ Dostęp warunkowy <br>(Wymagaj hybrydowych urządzeń przyłączonych do usługi
 
 Zarejestrowane urządzenia są często zarządzane przy użyciu [Microsoft Intune](/mem/intune/enrollment/device-enrollment). Urządzenia są zarejestrowane w usłudze Intune na wiele sposobów, w zależności od systemu operacyjnego. 
 
-Zarejestrowane urządzenia usługi Azure AD zapewniają obsługę logowania do zasobów w chmurze na urządzeniach z systemem (BYOD) i należących do firmy. Dostęp do zasobów jest oparty na [zasadach urzędu certyfikacji](../conditional-access/require-managed-devices.md) usługi Azure AD stosowanych do urządzenia i użytkownika.
+Zarejestrowane urządzenia usługi Azure AD zapewniają obsługę logowania do zasobów w chmurze na urządzeniach z systemem (BYOD) i należących do firmy. Dostęp do zasobów jest oparty na [zasadach dostępu warunkowego](../conditional-access/require-managed-devices.md) usługi Azure AD, które są stosowane do urządzenia i użytkownika.
 
 ### <a name="registering-devices"></a>Rejestrowanie urządzeń
 

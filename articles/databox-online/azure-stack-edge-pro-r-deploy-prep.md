@@ -6,30 +6,30 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 12/16/2020
+ms.date: 01/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro R so I can use it to transfer data to Azure.
-ms.openlocfilehash: 7ca9b21838d35b54b4ed84d5aaf3aa797b02d9e0
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: dd0b6833c4c51c218497cea4fec04390200edff4
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630772"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935360"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-r"></a>Samouczek: przygotowanie do wdrożenia Azure Stack EDGE Pro R
 
-Jest to pierwszy samouczek z serii samouczków wdrażania, które są wymagane do całkowitego wdrożenia Azure Stack EDGE Pro R. W tym samouczku opisano sposób przygotowania Azure Portal w celu wdrożenia Azure Stackego zasobu brzegowego. W tym samouczku jest stosowane urządzenie z 1-węzłowym Azure Stack EDGE Pro R z zasilaczem UPS.
+Ten samouczek jest pierwszą częścią serii samouczków wdrażania, które są wymagane do całkowitego wdrożenia Azure Stack EDGE Pro R. W tym samouczku opisano sposób przygotowania Azure Portal w celu wdrożenia Azure Stackego zasobu brzegowego. W tym samouczku jest stosowane urządzenie z 1-węzłowym Azure Stack EDGE Pro R z zasilaczem UPS.
 
 Do ukończenia procesu instalacji i konfiguracji niezbędne są uprawnienia administratora. Przygotowanie portalu zajmuje mniej niż 10 minut.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
 > * Tworzenie nowego zasobu
 > * Uzyskiwanie klucza aktywacji
 
-### <a name="get-started"></a>Wprowadzenie
+### <a name="get-started"></a>Rozpoczęcie pracy
 
 Aby wdrożyć Azure Stack EDGE Pro R, zapoznaj się z poniższymi samouczkami w określonej kolejności.
 
@@ -37,7 +37,7 @@ Aby wdrożyć Azure Stack EDGE Pro R, zapoznaj się z poniższymi samouczkami w 
 | --- | --- |
 | **Preparacie** |Te kroki należy wykonać w celu przygotowania do nadchodzącego wdrożenia. |
 | **[Lista kontrolna konfiguracji wdrożenia](#deployment-configuration-checklist)** |Ta lista kontrolna umożliwia zbieranie i rejestrowanie informacji przed wdrożeniem i w jego trakcie. |
-| **[Wymagania wstępne dotyczące wdrażania](#prerequisites)** |Służą do sprawdzania, czy środowisko jest gotowe do przeprowadzenia wdrożenia. |
+| **[Wymagania wstępne dotyczące wdrażania](#prerequisites)** |Te wymagania wstępne sprawdzają, czy środowisko jest gotowe do wdrożenia. |
 |  | |
 |**Samouczki dotyczące wdrażania** |Te samouczki są wymagane do wdrożenia w środowisku produkcyjnym urządzenia z usługą Azure Stack EDGE Pro. |
 |**[1. Przygotuj Azure Portal dla urządzenia](azure-stack-edge-pro-r-deploy-prep.md)** |Utwórz i skonfiguruj zasób Azure Stack Edge przed zainstalowaniem urządzenia fizycznego z krawędzią okna Azure Stack. |
@@ -47,7 +47,7 @@ Aby wdrożyć Azure Stack EDGE Pro R, zapoznaj się z poniższymi samouczkami w 
 |**[5. Konfigurowanie ustawień urządzenia](azure-stack-edge-pro-r-deploy-set-up-device-update-time.md)** |Przypisz nazwę urządzenia i domenę DNS, skonfiguruj serwer aktualizacji i godzinę urządzenia. |
 |**[6. Skonfiguruj ustawienia zabezpieczeń](azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption.md)** |Skonfiguruj certyfikaty, sieci VPN, szyfrowanie w spoczynku dla urządzenia. Użyj certyfikatów wygenerowanych przez urządzenia lub Przenieś własne certyfikaty.   |
 |**[7. Aktywuj urządzenie](azure-stack-edge-pro-r-deploy-activate.md)** |Aktywuj urządzenie przy użyciu klucza aktywacji z usługi. Urządzenie jest gotowe do skonfigurowania udziałów SMB lub NFS lub łączenia się za pośrednictwem interfejsu REST. |
-|**[8. Konfigurowanie obliczeń](azure-stack-edge-gpu-deploy-configure-compute.md)** |Skonfiguruj rolę obliczeń na urządzeniu. Spowoduje to również utworzenie klastra Kubernetes. |
+|**[8. Konfigurowanie obliczeń](azure-stack-edge-gpu-deploy-configure-compute.md)** |Skonfiguruj rolę obliczeń na urządzeniu. Tworzony jest również klaster Kubernetes. |
 
 Teraz możesz rozpocząć konfigurowanie witryny Azure Portal.
 
@@ -109,7 +109,7 @@ Aby utworzyć zasób Azure Stack Edge, wykonaj następujące czynności w Azure 
     
     |Ustawienie  |Wartość  |
     |---------|---------|
-    |Subskrypcja    |Jest to wypełniane automatycznie w oparciu o wcześniejszy wybór. Subskrypcja jest połączona z kontem rozliczeniowym. |
+    |Subskrypcja    |Subskrypcja zostanie automatycznie wypełniona w oparciu o wcześniejszy wybór. Subskrypcja jest połączona z kontem rozliczeniowym. |
     |Grupa zasobów  |Wybierz istniejącą grupę lub utwórz nową.<br>Dowiedz się więcej o [grupach zasobów platformy Azure](../azure-resource-manager/management/overview.md).     |
 
 7. Wprowadź lub wybierz następujące **szczegóły wystąpienia**.
@@ -150,7 +150,7 @@ Po pomyślnym utworzeniu i wdrożeniu zasobu zostanie wyświetlone powiadomienie
 
 Po złożeniu zamówienia firma Microsoft przegląda zamówienie i dotrze do Ciebie (za pośrednictwem poczty e-mail), podając szczegóły dotyczące wysyłki.
 
-<!--![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png)-->
+<!--![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png) - If this is restored, it must go above "After the resource is successfully created." The azure-stack-edge-resource-1.png would seem superfluous in that case.--> 
 
 W przypadku wystąpienia problemów występujących w procesie zamówienia zobacz [Rozwiązywanie problemów z kolejnością](azure-stack-edge-troubleshoot-ordering.md).
 
@@ -158,20 +158,17 @@ W przypadku wystąpienia problemów występujących w procesie zamówienia zobac
 
 Po rozpoczęciu i uruchomieniu Azure Stack brzegowej należy uzyskać klucz aktywacji. Ten klucz służy do uaktywniania i łączenia urządzenia Azure Stack EDGE Pro z zasobem. Ten klucz można uzyskać już teraz za pośrednictwem witryny Azure Portal.
 
-1. Wybierz utworzony zasób. Wybierz pozycję **Przegląd** , a następnie wybierz pozycję **Konfiguracja urządzenia**.
+1. Wybierz utworzony zasób, a następnie wybierz pozycję **Przegląd**.
 
-    ![Wybierz konfigurację urządzenia](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-2.png)
+2. W prawym okienku Podaj nazwę Azure Key Vault lub zaakceptuj nazwę domyślną. Nazwa magazynu kluczy może mieć długość od 3 do 24 znaków.
 
-2. Na kafelku **Aktywuj** podaj nazwę Azure Key Vault lub zaakceptuj nazwę domyślną. Nazwa magazynu kluczy może mieć długość od 3 do 24 znaków. 
+   Magazyn kluczy jest tworzony dla każdego zasobu usługi Azure Stack Edge, który został aktywowany z urządzeniem. Magazyn kluczy pozwala przechowywać klucze tajne i uzyskiwać do nich dostęp, na przykład klucz integralności kanału (CIK) dla usługi jest przechowywany w magazynie kluczy.
 
-    Magazyn kluczy jest tworzony dla każdego zasobu usługi Azure Stack Edge, który został aktywowany z urządzeniem. Magazyn kluczy pozwala przechowywać klucze tajne i uzyskiwać do nich dostęp, na przykład klucz integralności kanału (CIK) dla usługi jest przechowywany w magazynie kluczy. 
+   Po określeniu nazwy magazynu kluczy wybierz pozycję **Generuj klucz aktywacji** , aby utworzyć klucz aktywacji.
 
-    Po określeniu nazwy magazynu kluczy wybierz pozycję **Generuj klucz** , aby utworzyć klucz aktywacji. 
+   ![Pobieranie klucza aktywacji](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-3.png)
 
-    ![Pobieranie klucza aktywacji](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-3.png)
-
-    Poczekaj kilka minut, aż zostanie utworzony magazyn kluczy i klucz aktywacji. Wybierz ikonę kopiowania, aby skopiować klucz i zapisać go do użytku w przyszłości.
-
+   Poczekaj kilka minut, gdy zostanie utworzony magazyn kluczy i klucz aktywacji. Wybierz ikonę kopiowania, aby skopiować klucz i zapisać go do użytku w przyszłości.<!--Verify that the new screen has a copy icon.-->
 
 > [!IMPORTANT]
 > - Klucz aktywacji wygasa po trzech dniach od jego wygenerowania.

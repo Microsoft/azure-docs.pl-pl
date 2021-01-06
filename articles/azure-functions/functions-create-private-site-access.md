@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: 75e3886e31592b0672487bacd5ff2266e07e39cd
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 766ad12daeb6d2763f7ed5fe026cd4a0021eaf33
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182511"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937046"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Samouczek: ustanawianie Azure Functions dostępu do lokacji prywatnej
 
@@ -91,7 +91,7 @@ Pierwszym krokiem w tym samouczku jest utworzenie nowej maszyny wirtualnej w sie
 1. Na karcie _Sieć_ upewnij się, że dla _publicznego adresu IP_ nie wybrano opcji **Brak** .
 1. Wybierz kartę _Zarządzanie_ , a następnie w obszarze _konto magazynu diagnostycznego_ wybierz pozycję **Utwórz nowy** , aby utworzyć nowe konto magazynu.
 1. Pozostaw wartości domyślne dla sekcji _tożsamość_, _automatyczne zamykanie_ i _kopia zapasowa_ .
-1. Wybierz pozycję _Przeglądanie + tworzenie_. Po zakończeniu walidacji wybierz pozycję **Utwórz**. Proces tworzenia maszyny wirtualnej trwa kilka minut.
+1. Wybierz pozycję _Przejrzyj i utwórz_. Po zakończeniu walidacji wybierz pozycję **Utwórz**. Proces tworzenia maszyny wirtualnej trwa kilka minut.
 
 ## <a name="configure-azure-bastion"></a>Konfigurowanie usługi Azure bastionu
 
@@ -130,7 +130,7 @@ Pierwszym krokiem w tym samouczku jest utworzenie nowej maszyny wirtualnej w sie
 
 ## <a name="create-an-azure-functions-app"></a>Tworzenie aplikacji funkcji platformy Azure
 
-Następnym krokiem jest utworzenie aplikacji funkcji na platformie Azure przy użyciu [planu zużycia](functions-scale.md#consumption-plan). Kod funkcji jest wdrażany w tym zasobie w dalszej części tego samouczka.
+Następnym krokiem jest utworzenie aplikacji funkcji na platformie Azure przy użyciu [planu zużycia](consumption-plan.md). Kod funkcji jest wdrażany w tym zasobie w dalszej części tego samouczka.
 
 1. W portalu wybierz pozycję **Dodaj** w górnej części widoku grupy zasobów.
 1. Wybierz **> obliczeniowe aplikacja funkcji**
@@ -149,7 +149,7 @@ Następnym krokiem jest utworzenie aplikacji funkcji na platformie Azure przy u�
 
     | Ustawienie      | Sugerowana wartość  | Opis      |
     | ------------ | ---------------- | ---------------- |
-    | _Konto magazynu_ | Nazwa unikatowa w skali globalnej | Utwórz konto magazynu używane przez aplikację funkcji. Nazwy kont usługi Storage muszą mieć długość od 3 do 24 znaków i mogą zawierać tylko cyfry i małe litery. Możesz również użyć istniejącego konta, które musi spełniać [wymagania dotyczące konta magazynu](./functions-scale.md#storage-account-requirements). |
+    | _Konto magazynu_ | Nazwa unikatowa w skali globalnej | Utwórz konto magazynu używane przez aplikację funkcji. Nazwy kont usługi Storage muszą mieć długość od 3 do 24 znaków i mogą zawierać tylko cyfry i małe litery. Możesz również użyć istniejącego konta, które musi spełniać [wymagania dotyczące konta magazynu](storage-considerations.md#storage-account-requirements). |
     | _System operacyjny_ | Preferowany system operacyjny | System operacyjny jest wstępnie wybrany na podstawie wybranego stosu środowiska uruchomieniowego, ale w razie potrzeby można zmienić to ustawienie. |
     | _Planowanie_ | Zużycie | [Plan hostingu](./functions-scale.md) określa, jak aplikacja funkcji jest skalowana i jakie zasoby są dostępne dla każdego wystąpienia. |
 1. Wybierz pozycję **Przegląd + Utwórz** , aby przejrzeć wybrane opcje konfiguracji aplikacji.
@@ -195,7 +195,7 @@ Następnym krokiem w tym samouczku jest utworzenie funkcji platformy Azure wyzwa
 1. Wykonaj jeden z następujących przewodników Szybki Start, aby utworzyć i wdrożyć aplikację Azure Functions.
 
     * [Visual Studio Code](./create-first-function-vs-code-csharp.md)
-    * [Visual Studio](./functions-create-your-first-function-visual-studio.md)
+    * [Program Visual Studio](./functions-create-your-first-function-visual-studio.md)
     * [Wiersz polecenia](./create-first-function-cli-csharp.md)
     * [Maven (Java)](./create-first-function-cli-java.md?tabs=bash,browser)
 

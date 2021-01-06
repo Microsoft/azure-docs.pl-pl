@@ -3,12 +3,12 @@ title: Azure Backup słownik
 description: W tym artykule opisano warunki pomocne podczas korzystania z Azure Backup.
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: 8baa47667e86b99ebbbf273610809814e768c077
-ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
+ms.openlocfilehash: 1e28f0c2ad5d14ea2a8dc6ce8d5fa2b21c7e65ac
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733450"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935074"
 ---
 # <a name="azure-backup-glossary"></a>Azure Backup słownik
 
@@ -172,7 +172,7 @@ Przyrostowe kopie zapasowe przechowują tylko te bloki, które uległy zmianie o
 
 ## <a name="instant-restore"></a>Natychmiastowe przywracanie
 
-Natychmiastowe przywracanie polega na przywróceniu maszyny bezpośrednio z migawki kopii zapasowej, a nie z kopii migawki w magazynie. Natychmiastowe przywracanie jest szybsze niż przywrócenie z magazynu. Liczba dostępnych natychmiastowych punktów przywracania zależy od czasu przechowywania skonfigurowanego dla migawek.
+(Termin określony dla obciążenia) Natychmiastowe przywracanie polega na przywróceniu maszyny bezpośrednio z migawki kopii zapasowej, a nie z kopii migawki w magazynie. Natychmiastowe przywracanie jest szybsze niż przywrócenie z magazynu. Liczba dostępnych natychmiastowych punktów przywracania zależy od czasu przechowywania skonfigurowanego dla migawek. Obecnie dotyczy tylko kopii zapasowych maszyny wirtualnej platformy Azure.
 
 ## <a name="iops"></a>Liczba operacji we/wy na sekundę
 
@@ -226,23 +226,19 @@ Odzyskiwanie wykonane z punktu przywracania do lokalizacji źródłowej, z któr
 
 Hasło jest używane do szyfrowania i odszyfrowywania danych podczas tworzenia kopii zapasowej lub przywracania lokalnego lub maszyny lokalnej przy użyciu agenta MARS na platformie lub z platformy Azure.
 
-## <a name="point-in-time-restore"></a>Przywracanie do punktu w czasie
-
-Przywracanie elementu do jego stanu w określonym punkcie czasu (PIT).
-
 ## <a name="private-endpoint"></a>Prywatny punkt końcowy
 
 Zapoznaj się z [dokumentacją prywatnego punktu końcowego](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
 
 ## <a name="protected-instance"></a>Chronione wystąpienie
 
-Chronione wystąpienie odwołuje się do komputera, fizycznego lub wirtualnego serwera używanego do konfigurowania kopii zapasowych na platformie Azure.  Z **punktu widzenia rozliczenia** liczba chronionych wystąpień dla komputera jest funkcją rozmiaru frontonu. [Dowiedz się więcej](https://azure.microsoft.com/pricing/details/backup/).
+Chronione wystąpienie odwołuje się do komputera, fizycznego lub wirtualnego serwera używanego do konfigurowania kopii zapasowych na platformie Azure.  Z **punktu widzenia rozliczenia** liczba chronionych wystąpień dla komputera jest funkcją rozmiaru frontonu. W związku z tym pojedyncze wystąpienie kopii zapasowej (na przykład maszyna wirtualna utworzona na platformie Azure) może odpowiadać wielu chronionym wystąpieniu, w zależności od jego rozmiaru frontonu. [Dowiedz się więcej](https://azure.microsoft.com/pricing/details/backup/).
 
 ## <a name="rbac-role-based-access-control"></a>RBAC (kontrola dostępu oparta na rolach)
 
 Zapoznaj się z [dokumentacją RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
-## <a name="recovery-point-restore-point-retention-point"></a>Punkt odzyskiwania/punkt przywracania/punkt przechowywania
+## <a name="recovery-point-restore-point-retention-point--point-in-time-pit"></a>Punkt odzyskiwania/punkt przywracania/punkt przechowywania/punkt w czasie (PIT)
 
 Kopia pierwotnych danych, których kopia zapasowa jest tworzona. Punkt przechowywania jest skojarzony z sygnaturą czasową, aby można było użyć tej funkcji do przywrócenia elementu do określonego punktu w czasie.
 
@@ -264,11 +260,11 @@ Zdefiniowana przez użytkownika Reguła określająca, jak długo mają być prz
 
 ## <a name="rpo-recovery-point-objective"></a>CEL punktu odzyskiwania
 
-Cel punktu odzyskiwania wskazuje maksymalną utratę danych, która jest akceptowalna w scenariuszu utraty danych. Jest to określane przez częstotliwość tworzenia kopii zapasowych.
+Cel punktu odzyskiwania wskazuje maksymalną utratę danych, która jest możliwa w scenariuszu utraty danych. Jest to określane przez częstotliwość tworzenia kopii zapasowych.
 
 ## <a name="rto-recovery-time-objective"></a>RTO (cel czasu odzyskiwania)
 
-RTO wskazuje maksymalny akceptowalny czas, w którym dane mogą zostać przywrócone do ostatniego dostępnego punktu w czasie po przypadku utraty danych.
+RTO wskazuje maksymalny możliwy czas, w którym dane mogą zostać przywrócone do ostatniego dostępnego punktu w czasie po utracie danych.
 
 ## <a name="scheduled-backup"></a>Zaplanowana kopia zapasowa
 
@@ -284,7 +280,7 @@ Usuwanie nietrwałe jest funkcją, która pomaga chronić przed przypadkowym usu
 
 ## <a name="snapshot"></a>Snapshot
 
-Migawka to pełna kopia tylko do odczytu wirtualnego dysku twardego (VHD). [Dowiedz się więcej](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk).
+Migawka to pełna kopia tylko do odczytu wirtualnego dysku twardego (VHD) lub udziału plików platformy Azure. Dowiedz się więcej na temat [migawek dysków](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk) i [migawek plików](https://docs.microsoft.com/azure/storage/files/storage-snapshots-files).
 
 ## <a name="storage-account"></a>Konto magazynu
 
@@ -314,7 +310,7 @@ Jednostka magazynu na platformie Azure, która przechowuje dane kopii zapasowej.
 
 ## <a name="vault-credentials"></a>Poświadczenia magazynu
 
-Plik poświadczeń magazynu to certyfikat wygenerowany przez portal dla każdego magazynu. Ta wartość jest używana podczas rejestrowania serwera w magazynie. [Dowiedz się więcej](backup-azure-dpm-introduction.md).
+Plik poświadczeń magazynu to certyfikat wygenerowany przez portal dla każdego magazynu. Ta wartość jest używana podczas rejestrowania serwera lokalnego w magazynie. [Dowiedz się więcej](backup-azure-dpm-introduction.md).
 
 ## <a name="vnet-virtual-network"></a>Sieć wirtualna (Virtual Network)
 

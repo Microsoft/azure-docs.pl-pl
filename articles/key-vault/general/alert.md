@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
-ms.openlocfilehash: 7ff3daded48612fd308396420dca65cd81d9fafc
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 5946a5d6d1adb5f609f497b4c2194582f624fe24
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724701"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934598"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Monitorowanie i zgłaszanie alertów dla Azure Key Vault
 
@@ -25,8 +25,8 @@ ms.locfileid: "97724701"
 Po rozpoczęciu korzystania z magazynu kluczy do przechowywania własnych wpisów tajnych należy monitorować kondycję magazynu kluczy, aby upewnić się, że usługa działa zgodnie z oczekiwaniami. Po rozpoczęciu skalowania usługi liczba żądań wysyłanych do magazynu kluczy wzrośnie. Jest to możliwe, aby zwiększyć opóźnienie żądań i w skrajnych przypadkach, co spowoduje ograniczenie żądań, co wpłynie na wydajność usługi. Należy również otrzymywać alerty, jeśli Magazyn kluczy wysyła nietypową liczbę kodów błędów, dzięki czemu można szybko otrzymywać powiadomienia o wszelkich problemach z zasadami dostępu lub konfiguracją zapory. Ten dokument obejmuje następujące tematy:
 
 + Podstawowe metryki Key Vault do monitorowania
-+ Jak skonfigurować metryki i utworzyć pulpit nawigacyjny 
-+ Jak utworzyć alerty w określonych progach 
++ Jak skonfigurować metryki i utworzyć pulpit nawigacyjny
++ Jak utworzyć alerty w określonych progach
 
 ## <a name="basic-key-vault-metrics-to-monitor"></a>Podstawowe metryki Key Vault do monitorowania
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: da3ad4f70e0cc41fe95327eb74093c1471c877bd
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 14708ddcc5c0e06ee58f5e9db5945c4e9f1a1d08
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351575"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937148"
 ---
 # <a name="tutorial-configure-zscaler-private-access-zpa-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie prywatnego dostępu rozwiązania Zscaler (ZPA) w celu automatycznego aprowizacji użytkowników
 
@@ -117,6 +117,9 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 > Możesz również włączyć funkcję logowania jednokrotnego opartego na protokole SAML na potrzeby rozwiązania Zscaler prywatnego dostępu (ZPA), postępując zgodnie z instrukcjami podanymi w [samouczku Logowanie jednokrotne (rozwiązania Zscaler Private Access) (ZPA)](./zscalerprivateaccess-tutorial.md). Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji użytkowników, chociaż te dwie funkcje uzupełniają się wzajemnie.
 
 > [!NOTE]
+> Po zainicjowaniu obsługi administracyjnej użytkowników i grup, zalecamy okresowe ponowne uruchomienie aprowizacji, aby upewnić się, że członkostwa w grupach zostały prawidłowo zaktualizowane. Ponowne uruchomienie spowoduje wymuszenie ponownego oszacowania wszystkich grup i zaktualizowania członkostw przez naszą usługę.  
+
+> [!NOTE]
 > Aby dowiedzieć się więcej na temat Standard scim punktu końcowego dostępu prywatnego rozwiązania Zscaler, zapoznaj się z [tym](https://www.zscaler.com/partners/microsoft)tematem.
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-private-access-zpa-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi administracyjnej użytkowników w usłudze rozwiązania Zscaler Private Access (ZPA) w usłudze Azure AD:
@@ -181,7 +184,7 @@ Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/l
 
 Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

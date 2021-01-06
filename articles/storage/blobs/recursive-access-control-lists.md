@@ -9,12 +9,12 @@ ms.date: 11/17/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 2544711054678ec1bb5c43d40e4497eec9af2941
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: fc407978f18198c9d9525a49a9c8b66de8663065
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96600340"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934496"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Ustawianie list kontroli dostępu (ACL) rekursywnie dla Azure Data Lake Storage Gen2
 
@@ -175,7 +175,7 @@ $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseCon
 
 W poniższej tabeli przedstawiono każdą z obsługiwanych ról i ich możliwości ustawienia listy ACL.
 
-|Role|Możliwość ustawienia listy ACL|
+|Rola|Możliwość ustawienia listy ACL|
 |--|--|
 |[Właściciel danych obiektu blob usługi Storage](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|Wszystkie katalogi i pliki na koncie.|
 |[Współautor danych obiektu blob usługi Storage](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|Tylko katalogi i pliki należące do podmiotu zabezpieczeń.|
@@ -230,27 +230,14 @@ using Azure.Identity;
 
 Pobierz identyfikator klienta, klucz tajny klienta i identyfikator dzierżawy. Aby to zrobić, zobacz [pozyskiwanie tokenu z usługi Azure AD w celu autoryzowania żądań z aplikacji klienckiej](../common/storage-auth-aad-app.md). W ramach tego procesu należy przypisać jedną z następujących ról [kontroli dostępu opartej na rolach (Azure RBAC)](../../role-based-access-control/overview.md) do podmiotu zabezpieczeń. 
 
-|Role|Możliwość ustawienia listy ACL|
+|Rola|Możliwość ustawienia listy ACL|
 |--|--|
 |[Właściciel danych obiektu blob usługi Storage](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|Wszystkie katalogi i pliki na koncie.|
 |[Współautor danych obiektu blob usługi Storage](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|Tylko katalogi i pliki należące do podmiotu zabezpieczeń.|
 
 Ten przykład tworzy wystąpienie [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) przy użyciu identyfikatora klienta, klucza tajnego klienta i identyfikatora dzierżawy.  
 
-```cs
-public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceClient, 
-    String accountName, String clientID, string clientSecret, string tenantID)
-{
-
-    TokenCredential credential = new ClientSecretCredential(
-        tenantID, clientID, clientSecret, new TokenCredentialOptions());
-
-    string dfsUri = "https://" + accountName + ".dfs.core.windows.net";
-
-    dataLakeServiceClient = new DataLakeServiceClient(new Uri(dfsUri), credential);
-}
-
-``` 
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Authorize_DataLake.cs" id="Snippet_AuthorizeWithAAD":::
 
 #### <a name="connect-by-using-an-account-key"></a>Nawiązywanie połączenia przy użyciu klucza konta
 
@@ -258,19 +245,7 @@ To podejście jest najprostszym sposobem nawiązywania połączenia z kontem.
 
 Ten przykład tworzy wystąpienie [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) przy użyciu klucza konta.
 
-```cs
-public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceClient,
-    string accountName, string accountKey)
-{
-    StorageSharedKeyCredential sharedKeyCredential =
-        new StorageSharedKeyCredential(accountName, accountKey);
-
-    string dfsUri = "https://" + accountName + ".dfs.core.windows.net";
-
-    dataLakeServiceClient = new DataLakeServiceClient
-        (new Uri(dfsUri), sharedKeyCredential);
-}
-```
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Authorize_DataLake.cs" id="Snippet_AuthorizeWithKey":::
 
 > [!NOTE]
 > Aby uzyskać więcej przykładów, zobacz dokumentację [biblioteki klienta tożsamości platformy Azure dla programu .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity) .
@@ -338,7 +313,7 @@ Aby uwierzytelnić aplikację w usłudze Azure AD, możesz użyć [biblioteki kl
 
 Ten przykład tworzy wystąpienie **DataLakeServiceClient** przy użyciu identyfikatora klienta, klucza tajnego klienta i identyfikatora dzierżawy.  Aby uzyskać te wartości, zobacz [pozyskiwanie tokenu z usługi Azure AD w celu autoryzowania żądań z aplikacji klienckiej](../common/storage-auth-aad-app.md). W ramach tego procesu należy przypisać jedną z następujących ról [kontroli dostępu opartej na rolach (Azure RBAC)](../../role-based-access-control/overview.md) do podmiotu zabezpieczeń. 
 
-|Role|Możliwość ustawienia listy ACL|
+|Rola|Możliwość ustawienia listy ACL|
 |--|--|
 |[Właściciel danych obiektu blob usługi Storage](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|Wszystkie katalogi i pliki na koncie.|
 |[Współautor danych obiektu blob usługi Storage](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|Tylko katalogi i pliki należące do podmiotu zabezpieczeń.|
@@ -413,7 +388,7 @@ Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $
 ```
 
 > [!NOTE]
-> Jeśli chcesz ustawić **domyślny** wpis listy ACL, użyj parametru **-DefaultScope** podczas uruchamiania polecenia **Set-AzDataLakeGen2ItemAclObject** . Przykład: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx -DefaultScope`.
+> Jeśli chcesz ustawić **domyślny** wpis listy ACL, użyj parametru **-DefaultScope** podczas uruchamiania polecenia **Set-AzDataLakeGen2ItemAclObject** . Na przykład: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx -DefaultScope`.
 
 Aby zobaczyć przykład, który ustawia listy ACL rekursywnie w partiach przez określenie rozmiaru partii, zobacz artykuł dotyczący [zestawu AzDataLakeGen2AclRecursive](/powershell/module/az.storage/set-azdatalakegen2aclrecursive) .
 
@@ -438,39 +413,7 @@ Jeśli chcesz ustawić **domyślny** wpis listy ACL, możesz ustawić właściwo
 
 Ten przykład ustawia listę ACL katalogu o nazwie `my-parent-directory` . Ta metoda akceptuje parametr logiczny o nazwie `isDefaultScope` , który określa, czy ma zostać ustawiona domyślna lista ACL. Ten parametr jest używany w konstruktorze [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem). Wpisy listy ACL nadają użytkownikowi właściciela uprawnienia do odczytu, zapisu i wykonania, dają grupie będącej właścicielem tylko uprawnienia do odczytu i wykonywania, a inni nie mają dostępu. Ostatni wpis listy ACL w tym przykładzie daje określonemu użytkownikowi identyfikator "" xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx "uprawnień do odczytu i wykonywania.
 
-```cs
-public async void SetACLRecursively(DataLakeServiceClient serviceClient, bool isDefaultScope)
-{
-    DataLakeDirectoryClient directoryClient =
-        serviceClient.GetFileSystemClient("my-container").
-            GetDirectoryClient("my-parent-directory");
-
-    List<PathAccessControlItem> accessControlList = 
-        new List<PathAccessControlItem>() 
-    {
-        new PathAccessControlItem(AccessControlType.User, 
-            RolePermissions.Read | 
-            RolePermissions.Write | 
-            RolePermissions.Execute, isDefaultScope),
-                    
-        new PathAccessControlItem(AccessControlType.Group, 
-            RolePermissions.Read | 
-            RolePermissions.Execute, isDefaultScope),
-                    
-        new PathAccessControlItem(AccessControlType.Other, 
-            RolePermissions.None, isDefaultScope),
-
-        new PathAccessControlItem(AccessControlType.User, 
-            RolePermissions.Read | 
-            RolePermissions.Execute, isDefaultScope,
-            entityId: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"),
-    };
-
-    await directoryClient.SetAccessControlRecursiveAsync
-        (accessControlList, null);
-}
-
-```
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/ACL_DataLake.cs" id="Snippet_SetACLRecursively":::
 
 Aby zobaczyć przykład, który ustawia listy ACL rekursywnie w partiach przez określenie rozmiaru partii, zobacz [przykład](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0)platformy .NET.
 
@@ -606,7 +549,7 @@ Update-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Pat
 ```
 
 > [!NOTE]
-> Jeśli chcesz zaktualizować **domyślny** wpis listy ACL, użyj parametru **-DefaultScope** podczas uruchamiania polecenia **Set-AzDataLakeGen2ItemAclObject** . Przykład: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission rwx -DefaultScope`.
+> Jeśli chcesz zaktualizować **domyślny** wpis listy ACL, użyj parametru **-DefaultScope** podczas uruchamiania polecenia **Set-AzDataLakeGen2ItemAclObject** . Na przykład: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission rwx -DefaultScope`.
 
 Aby zobaczyć przykład, który aktualizuje listy ACL rekursywnie w partiach przez określenie rozmiaru partii, zobacz artykuł dotyczący [aktualizacji AzDataLakeGen2AclRecursive](/powershell/module/az.storage/update-azdatalakegen2aclrecursive) .
 
@@ -631,28 +574,7 @@ Jeśli chcesz zaktualizować **domyślny** wpis listy kontroli dostępu, możesz
 
 Ten przykład aktualizuje wpis listy ACL z uprawnieniami do zapisu. Ta metoda akceptuje parametr logiczny o nazwie `isDefaultScope` , który określa, czy zaktualizować domyślną listę ACL. Ten parametr jest używany w konstruktorze [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem).
 
-```cs
-public async void UpdateACLsRecursively(DataLakeServiceClient serviceClient, bool isDefaultScope)
-{
-    DataLakeDirectoryClient directoryClient =
-        serviceClient.GetFileSystemClient("my-container").
-        GetDirectoryClient("my-parent-directory");
-
-    List<PathAccessControlItem> accessControlListUpdate = 
-        new List<PathAccessControlItem>()
-    {
-        new PathAccessControlItem(AccessControlType.User, 
-            RolePermissions.Read |
-            RolePermissions.Write | 
-            RolePermissions.Execute, isDefaultScope, 
-            entityId: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"),
-    };
-
-    await directoryClient.UpdateAccessControlRecursiveAsync
-        (accessControlListUpdate, null);
-
-}
-```
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/ACL_DataLake.cs" id="Snippet_UpdateACLsRecursively":::
 
 Aby zobaczyć przykład, który aktualizuje listy ACL rekursywnie w partiach przez określenie rozmiaru partii, zobacz [przykład](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0)platformy .NET.
 
@@ -747,7 +669,7 @@ Remove-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName  -Ac
 ```
 
 > [!NOTE]
-> Jeśli chcesz usunąć **domyślny** wpis listy ACL, użyj parametru **-DefaultScope** podczas uruchamiania polecenia **Set-AzDataLakeGen2ItemAclObject** . Przykład: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission "---" -DefaultScope`.
+> Jeśli chcesz usunąć **domyślny** wpis listy ACL, użyj parametru **-DefaultScope** podczas uruchamiania polecenia **Set-AzDataLakeGen2ItemAclObject** . Na przykład: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission "---" -DefaultScope`.
 
 Aby zobaczyć przykład, który usuwa listy ACL cyklicznie w partiach przez określenie rozmiaru partii, zobacz artykuł dotyczący [usuwania-AzDataLakeGen2AclRecursive](/powershell/module/az.storage/remove-azdatalakegen2aclrecursive) .
 
@@ -772,25 +694,7 @@ Jeśli chcesz usunąć **domyślny** wpis listy kontroli dostępu, możesz ustaw
 
 Ten przykład usuwa wpis listy ACL z listy ACL katalogu o nazwie `my-parent-directory` . Ta metoda akceptuje parametr logiczny o nazwie `isDefaultScope` , który określa, czy usunąć wpis z domyślnej listy ACL. Ten parametr jest używany w konstruktorze [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem).
 
-```cs
-public async void RemoveACLsRecursively(DataLakeServiceClient serviceClient, isDefaultScope)
-{
-    DataLakeDirectoryClient directoryClient =
-        serviceClient.GetFileSystemClient("my-container").
-            GetDirectoryClient("my-parent-directory");
-
-    List<RemovePathAccessControlItem> accessControlListForRemoval = 
-        new List<RemovePathAccessControlItem>()
-        {
-            new RemovePathAccessControlItem(AccessControlType.User, isDefaultScope,
-            entityId: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"),
-        };
-
-    await directoryClient.RemoveAccessControlRecursiveAsync
-        (accessControlListForRemoval, null);
-
-}
-```
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/ACL_DataLake.cs" id="Snippet_RemoveACLRecursively":::
 
 Aby zobaczyć przykład, który usuwa listy ACL cyklicznie w partiach przez określenie rozmiaru partii, zobacz [przykład](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0)platformy .NET.
 
@@ -894,34 +798,7 @@ az storage fs access set-recursive --acl "user::rw-,group::r-x,other::---" --con
 
 Ten przykład zwraca token kontynuacji w przypadku wystąpienia błędu. Aplikacja może wywołać tę przykładową metodę ponownie po rozpoczęciu błędu i przekazać token kontynuacji. Jeśli ta Przykładowa Metoda jest wywoływana po raz pierwszy, aplikacja może przekazać wartość `null` dla parametru tokenu kontynuacji. 
 
-```cs
-public async Task<string> ResumeAsync(DataLakeServiceClient serviceClient,
-    DataLakeDirectoryClient directoryClient,
-    List<PathAccessControlItem> accessControlList, 
-    string continuationToken)
-{
-    try
-    {
-        var accessControlChangeResult =
-            await directoryClient.SetAccessControlRecursiveAsync(
-                accessControlList, continuationToken: continuationToken, null);
-
-        if (accessControlChangeResult.Value.Counters.FailedChangesCount > 0)
-        {
-            continuationToken =
-                accessControlChangeResult.Value.ContinuationToken;
-        }
-
-        return continuationToken;
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine(ex.ToString());
-        return continuationToken;
-    }
-
-}
-```
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/ACL_DataLake.cs" id="Snippet_ResumeContinuationToken":::
 
 Aby zobaczyć przykład, który ustawia listy ACL rekursywnie w partiach przez określenie rozmiaru partii, zobacz [przykład](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0)platformy .NET.
 
@@ -1021,28 +898,7 @@ Aby upewnić się, że proces kończy się nieprzerwanie, przekaż obiekt **Acce
 
 Ten przykład ustawia cyklicznie wpisy listy ACL. Jeśli ten kod napotyka błąd uprawnień, rejestruje ten błąd i kontynuuje wykonywanie. Ten przykład drukuje liczbę błędów w konsoli programu. 
 
-```cs
-public async Task ContinueOnFailureAsync(DataLakeServiceClient serviceClient,
-    DataLakeDirectoryClient directoryClient, 
-    List<PathAccessControlItem> accessControlList)
-{
-    var accessControlChangeResult = 
-        await directoryClient.SetAccessControlRecursiveAsync(
-            accessControlList, null, new AccessControlChangeOptions() 
-            { ContinueOnFailure = true });
-
-    var counters = accessControlChangeResult.Value.Counters;
-
-    Console.WriteLine("Number of directories changed: " +
-        counters.ChangedDirectoriesCount.ToString());
-
-    Console.WriteLine("Number of files changed: " +
-        counters.ChangedFilesCount.ToString());
-
-    Console.WriteLine("Number of failures: " +
-        counters.FailedChangesCount.ToString());
-}
-```
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/ACL_DataLake.cs" id="Snippet_ContinueOnFailure":::
 
 Aby zobaczyć przykład, który ustawia listy ACL rekursywnie w partiach przez określenie rozmiaru partii, zobacz [przykład](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0)platformy .NET.
 
@@ -1123,13 +979,13 @@ Ta sekcja zawiera linki do bibliotek i przykładów kodu.
 
 #### <a name="code-samples"></a>Przykłady kodu
 
-- PowerShell: [Readme](https://recursiveaclpr.blob.core.windows.net/privatedrop/README.txt?sv=2019-02-02&st=2020-08-24T17%3A03%3A18Z&se=2021-08-25T17%3A03%3A00Z&sr=b&sp=r&sig=sPdKiCSXWExV62sByeOYqBTqpGmV2h9o8BLij3iPkNQ%3D)  |  [przykład](https://recursiveaclpr.blob.core.windows.net/privatedrop/samplePS.ps1?sv=2019-02-02&st=2020-08-24T17%3A04%3A44Z&se=2021-08-25T17%3A04%3A00Z&sr=b&sp=r&sig=dNNKS%2BZcp%2F1gl6yOx6QLZ6OpmXkN88ZjBeBtym1Mejo%3D) Readme
+- PowerShell: [](https://recursiveaclpr.blob.core.windows.net/privatedrop/README.txt?sv=2019-02-02&st=2020-08-24T17%3A03%3A18Z&se=2021-08-25T17%3A03%3A00Z&sr=b&sp=r&sig=sPdKiCSXWExV62sByeOYqBTqpGmV2h9o8BLij3iPkNQ%3D)  |  [przykład](https://recursiveaclpr.blob.core.windows.net/privatedrop/samplePS.ps1?sv=2019-02-02&st=2020-08-24T17%3A04%3A44Z&se=2021-08-25T17%3A04%3A00Z&sr=b&sp=r&sig=dNNKS%2BZcp%2F1gl6yOx6QLZ6OpmXkN88ZjBeBtym1Mejo%3D) Readme
 
 - Interfejs wiersza polecenia platformy Azure: [przykład](https://github.com/Azure/azure-cli/blob/2a55a5350696a3a93a13f364f2104ec8bc82cdd3/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)
 
-- NET: [Readme](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FREADME%2520for%2520net%3Fsv%3D2019-02-02%26st%3D2020-08-25T23%253A20%253A42Z%26se%3D2021-08-26T23%253A20%253A00Z%26sr%3Db%26sp%3Dr%26sig%3DKrnHvasHoSoVeUyr2g%2fSc2aDVW3De4A%2fvx0lFWZs494%253D&data=02%7C01%7Cnormesta%40microsoft.com%7Cda902e4fe6c24e6a07d908d8494fd4bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637339954503767961&sdata=gd%2B2LphTtDFVb7pZko9rkGO9OG%2FVvmeXprHB9IOEYXE%3D&reserved=0)  |  [przykład](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0) Readme
+- NET: [](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FREADME%2520for%2520net%3Fsv%3D2019-02-02%26st%3D2020-08-25T23%253A20%253A42Z%26se%3D2021-08-26T23%253A20%253A00Z%26sr%3Db%26sp%3Dr%26sig%3DKrnHvasHoSoVeUyr2g%2fSc2aDVW3De4A%2fvx0lFWZs494%253D&data=02%7C01%7Cnormesta%40microsoft.com%7Cda902e4fe6c24e6a07d908d8494fd4bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637339954503767961&sdata=gd%2B2LphTtDFVb7pZko9rkGO9OG%2FVvmeXprHB9IOEYXE%3D&reserved=0)  |  [przykład](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0) Readme
 
-- Python: [Readme](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FREADME%2520for%2520python%3Fsv%3D2019-02-02%26st%3D2020-08-25T23%253A21%253A47Z%26se%3D2021-08-26T23%253A21%253A00Z%26sr%3Db%26sp%3Dr%26sig%3DRq6Bl5lXrtYk79thy8wX7UTbjyd2f%252B6xzVBFFVYbdYg%253D&data=02%7C01%7Cnormesta%40microsoft.com%7Cda902e4fe6c24e6a07d908d8494fd4bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637339954503777915&sdata=3e46Lp2miOHj755Gh0odH3M0%2BdTF3loGCCBENrulVTM%3D&reserved=0)  |  [przykład](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py) Readme
+- Python: [](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FREADME%2520for%2520python%3Fsv%3D2019-02-02%26st%3D2020-08-25T23%253A21%253A47Z%26se%3D2021-08-26T23%253A21%253A00Z%26sr%3Db%26sp%3Dr%26sig%3DRq6Bl5lXrtYk79thy8wX7UTbjyd2f%252B6xzVBFFVYbdYg%253D&data=02%7C01%7Cnormesta%40microsoft.com%7Cda902e4fe6c24e6a07d908d8494fd4bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637339954503777915&sdata=3e46Lp2miOHj755Gh0odH3M0%2BdTF3loGCCBENrulVTM%3D&reserved=0)  |  [przykład](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py) Readme
 
 ## <a name="best-practice-guidelines"></a>Wskazówki dotyczące najlepszych rozwiązań
 
@@ -1155,7 +1011,7 @@ Aby zmniejszyć opóźnienie, zalecamy uruchomienie cyklicznego procesu listy AC
 
 Maksymalna liczba list ACL, które można zastosować do katalogu lub pliku, to 32 listy ACL dostępu i domyślne listy ACL 32. Aby uzyskać więcej informacji, zobacz [Kontrola dostępu w Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Kontrola dostępu w usłudze Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md)
 - [Znane problemy](data-lake-storage-known-issues.md)

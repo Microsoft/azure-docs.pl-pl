@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/24/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 41f3d60d91b7418d6e9733b8351d4830b31dbace
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 419fe72d400177ce9fa3d9811d7dfa06e74c0810
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "81424195"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935057"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-the-azure-portal"></a>Szybki Start: Ustawianie i pobieranie klucza z Azure Key Vault przy użyciu Azure Portal
 
@@ -31,13 +31,13 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 ## <a name="create-a-vault"></a>Tworzenie magazynu
 
 1. W menu Azure Portal lub na stronie **głównej** wybierz pozycję **Utwórz zasób**.
-2. W polu wyszukiwania wpisz **Key Vault**.
+2. W polu wyszukiwania wprowadź **Key Vault**.
 3. Na liście wyników wybierz pozycję **Key Vault**.
 4. W sekcji Key Vault, wybierz przycisk **Utwórz**.
 5. W sekcji **Tworzenie magazynu kluczy** podaj następujące informacje:
     - **Nazwa**: wymagana jest unikatowa nazwa. W tym przewodniku szybki start użyjemy **przykładowego magazynu**. 
     - **Subskrypcja**: wybierz subskrypcję.
-    - W obszarze **Grupa zasobów**wybierz pozycję **Utwórz nową** , a następnie wprowadź nazwę grupy zasobów.
+    - W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową** , a następnie wprowadź nazwę grupy zasobów.
     - W menu rozwijanym **Lokalizacja** wybierz lokalizację.
     - Dla pozostałych opcji zostaw wartości domyślne.
 6. Po podaniu powyższych informacje wybierz przycisk **Utwórz**.
@@ -60,7 +60,7 @@ Aby dodać klucz do magazynu, wystarczy wykonać kilka dodatkowych kroków. W ty
 3. Na ekranie **Tworzenie klucza** wybierz następujące wartości:
     - **Opcje**: generate.
     - **Nazwa**: ExampleKey.
-    - Dla pozostałych opcji zostaw wartości domyślne. Kliknij pozycję **Utwórz**.
+    - Dla pozostałych opcji zostaw wartości domyślne. Kliknij przycisk **Utwórz**.
 
 Po otrzymaniu komunikatu o tym, że klucz został pomyślnie utworzony, możesz kliknąć go na liście. Zostaną wtedy wyświetlone niektóre jego właściwości. Jeśli klikniesz bieżącą wersję, zostanie wyświetlona wartość określona w poprzednim kroku.
 
@@ -83,4 +83,4 @@ W tym przewodniku szybki start utworzono Key Vault i Zapisano w nim klucz. Aby d
 
 - Zapoznaj się [z omówieniem Azure Key Vault](../general/overview.md)
 - Zobacz [przewodnik dewelopera Azure Key Vault](../general/developers-guide.md)
-- Przegląd [Azure Key Vault najlepszych](../general/best-practices.md) rozwiązań
+- Zapoznaj się z [omówieniem zabezpieczeń Key Vault](../general/security-overview.md)

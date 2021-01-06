@@ -4,12 +4,12 @@ description: Poznaj Azure Functions koncepcje i techniki, które są potrzebne d
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: 54bfd770fba9a1766396d66c0c263111c233c9c2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: dd9a517749030f9f99731d36947c4d4ff2f13b01
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96167883"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936740"
 ---
 # <a name="azure-functions-developer-guide"></a>Azure Functions — przewodnik dla deweloperów
 W Azure Functions określone funkcje udostępniają kilka podstawowych pojęć i składników technicznych, niezależnie od używanego języka lub powiązania. Przed przejściem do szczegółów szczegółowych informacji dotyczących danego języka lub powiązania należy zapoznać się z tym omówieniem, który ma zastosowanie do wszystkich z nich.
@@ -69,7 +69,7 @@ Aplikacje funkcji można tworzyć i publikować przy użyciu różnych narzędzi
 Edytor funkcji wbudowanych w Azure Portal pozwala aktualizować kod i *function.jsna* pliku bezpośrednio w wierszu. Jest to zalecane tylko w przypadku małych zmian lub prób koncepcji — najlepszym rozwiązaniem jest użycie lokalnego narzędzia programistycznego, takiego jak VS Code.
 
 ## <a name="parallel-execution"></a>Wykonywanie równoległe
-Gdy wielokrotne zdarzenia wyzwalające są wykonywane szybciej niż środowisko uruchomieniowe funkcji pojedynczego wątku, może je przetworzyć, ale środowisko uruchomieniowe może wielokrotnie wywołać funkcję.  Jeśli aplikacja funkcji korzysta z [planu hostingu zużycia](functions-scale.md#how-the-consumption-and-premium-plans-work), aplikacja funkcji może automatycznie skalować w poziomie.  Każde wystąpienie aplikacji funkcji, niezależnie od tego, czy aplikacja działa zgodnie z planem hostingu zużycia czy regularnym [App Service planem hostingu](../app-service/overview-hosting-plans.md), może przetwarzać współbieżne wywołania funkcji równolegle przy użyciu wielu wątków.  Maksymalna liczba współbieżnych wywołań funkcji w każdym wystąpieniu aplikacji funkcji różni się w zależności od typu używanego wyzwalacza oraz zasobów używanych przez inne funkcje w aplikacji funkcji.
+Gdy wielokrotne zdarzenia wyzwalające są wykonywane szybciej niż środowisko uruchomieniowe funkcji pojedynczego wątku, może je przetworzyć, ale środowisko uruchomieniowe może wielokrotnie wywołać funkcję.  Jeśli aplikacja funkcji korzysta z [planu hostingu zużycia](event-driven-scaling.md), aplikacja funkcji może automatycznie skalować w poziomie.  Każde wystąpienie aplikacji funkcji, niezależnie od tego, czy aplikacja działa zgodnie z planem hostingu zużycia czy regularnym [App Service planem hostingu](../app-service/overview-hosting-plans.md), może przetwarzać współbieżne wywołania funkcji równolegle przy użyciu wielu wątków.  Maksymalna liczba współbieżnych wywołań funkcji w każdym wystąpieniu aplikacji funkcji różni się w zależności od typu używanego wyzwalacza oraz zasobów używanych przez inne funkcje w aplikacji funkcji.
 
 ## <a name="functions-runtime-versioning"></a>Przechowywanie wersji środowiska uruchomieniowego funkcji
 

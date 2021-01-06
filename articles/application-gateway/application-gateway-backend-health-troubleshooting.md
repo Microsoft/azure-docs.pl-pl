@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: b8acf1b025a5943773821c8ab78de6288eb6bec2
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 05df2144b892aed764f9606fb19bd6a3242b97f3
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397902"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934904"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Rozwiązywanie problemów z kondycją zaplecza w Application Gateway
 ==================================================
@@ -21,6 +21,9 @@ ms.locfileid: "93397902"
 --------
 
 Domyślnie usługa Azure Application Gateway sonduje serwery zaplecza, aby sprawdzić ich stan kondycji i sprawdzić, czy są one gotowe do obsłużenia żądań. Użytkownicy mogą również tworzyć niestandardowe sondy, aby wspominać o nazwie hosta, ścieżce do sondowania oraz kodów stanu, które mają być akceptowane w dobrej kondycji. W każdym przypadku, jeśli serwer zaplecza nie odpowie pomyślnie, Application Gateway oznacza, że serwer jest w złej kondycji i przestanie przekazywać przekazywanie żądań do serwera. Po pomyślnym rozpoczęciu odpowiedzi serwer Application Gateway wznawia przekazywanie żądań.
+
+> [!NOTE]
+> Ten artykuł zawiera odwołania do warunku *dozwolonych*, termin, przez który firma Microsoft już nie używa. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
 
 ### <a name="how-to-check-backend-health"></a>Sprawdzanie kondycji zaplecza
 
@@ -32,7 +35,7 @@ Stan pobrany przez dowolną z tych metod może być jednym z następujących:
 
 - Nieprawidłowy
 
-- Nieznany
+- Nieznane
 
 Jeśli kondycja zaplecza serwera jest w dobrej kondycji, oznacza to, że Application Gateway przekaże żądania do tego serwera. Jeśli jednak kondycja zaplecza dla wszystkich serwerów w puli zaplecza jest zła lub nieznana, podczas próby uzyskania dostępu do aplikacji mogą wystąpić problemy. W tym artykule opisano objawy, przyczynę i rozwiązanie dla każdego z wymienionych błędów.
 
@@ -157,7 +160,7 @@ Sprawdź również, czy jakakolwiek sieciowej grupy zabezpieczeń/UDR/zapora blo
 
     a.  Otwórz wiersz polecenia (Win + R- \> cmd), wprowadź `netstat` i wybierz ENTER.
 
-    b.  Sprawdź, czy serwer nasłuchuje na skonfigurowanym porcie. Na przykład:
+    b.  Sprawdź, czy serwer nasłuchuje na skonfigurowanym porcie. Przykład:
     ```
             Proto Local Address Foreign Address State PID
             TCP 0.0.0.0:80 0.0.0.0:0 LISTENING 4
@@ -191,7 +194,7 @@ Aby utworzyć niestandardową sondę, wykonaj następujące [kroki](./applicatio
 
 **Komunikat:** Treść odpowiedzi HTTP zaplecza jest \' niezgodna z ustawieniem sondy. Odebrana treść odpowiedzi nie zawiera ciągu {String}.
 
-**Przyczyna:** Podczas tworzenia niestandardowej sondy można oznaczyć serwer zaplecza jako zdrowy przez dopasowanie ciągu z treści odpowiedzi. Można na przykład skonfigurować Application Gateway tak, aby akceptował "nieautoryzowane" jako ciąg do dopasowania. Jeśli odpowiedź serwera wewnętrznej bazy danych dla żądania sondowania zawiera ciąg **nieautoryzowany** , zostanie oznaczony jako w dobrej kondycji. W przeciwnym razie zostanie ona oznaczona jako w złej kondycji za pomocą tej wiadomości.
+**Przyczyna:** Podczas tworzenia niestandardowej sondy można oznaczyć serwer zaplecza jako zdrowy przez dopasowanie ciągu z treści odpowiedzi. Można na przykład skonfigurować Application Gateway tak, aby akceptował "nieautoryzowane" jako ciąg do dopasowania. Jeśli odpowiedź serwera wewnętrznej bazy danych dla żądania sondowania zawiera ciąg **nieautoryzowany**, zostanie oznaczony jako w dobrej kondycji. W przeciwnym razie zostanie ona oznaczona jako w złej kondycji za pomocą tej wiadomości.
 
 **Rozwiązanie:** Aby rozwiązać ten problem, wykonaj następujące kroki:
 
@@ -257,7 +260,7 @@ Aby uzyskać więcej informacji na temat wyodrębniania i przekazywania zaufanyc
 > [!NOTE]
 > Ten błąd może również wystąpić, jeśli serwer wewnętrznej bazy danych nie wymienia kompletnego łańcucha certyfikatu, łącznie z głównym > pośrednią (jeśli dotyczy) > liścia podczas uzgadniania TLS. Aby sprawdzić, można użyć poleceń OpenSSL z dowolnego klienta i połączyć się z serwerem zaplecza przy użyciu skonfigurowanych ustawień sondy Application Gateway.
 
-Na przykład:
+Przykład:
 ```
 OpenSSL> s_client -connect 10.0.0.4:443 -servername www.example.com -showcerts
 ```
@@ -359,7 +362,7 @@ Takie zachowanie może wystąpić z następujących powodów:
 
 **Rozwiązanie:**
 
-1.  Sprawdź, czy Twój sieciowej grupy zabezpieczeń blokuje dostęp do portów 65503-65534 (SKU v1) lub 65200-65535 (jednostka SKU v2) z **Internetu** :
+1.  Sprawdź, czy Twój sieciowej grupy zabezpieczeń blokuje dostęp do portów 65503-65534 (SKU v1) lub 65200-65535 (jednostka SKU v2) z **Internetu**:
 
     a.  Na karcie **przegląd** Application Gateway wybierz łącze **Virtual Network/podsieć** .
 
@@ -373,15 +376,15 @@ Takie zachowanie może wystąpić z następujących powodów:
 
     f.  Wybierz pozycję **Zapisz** i sprawdź, czy zaplecze można wyświetlić w dobrej kondycji. Alternatywnie możesz to zrobić za poorednictwem [programu PowerShell/interfejsu wiersza polecenia](../virtual-network/manage-network-security-group.md).
 
-1.  Sprawdź, czy Twój UDR ma trasę domyślną (0.0.0.0/0) z następnym przeskokiem, który nie został ustawiony jako **Internet** :
+1.  Sprawdź, czy Twój UDR ma trasę domyślną (0.0.0.0/0) z następnym przeskokiem, który nie został ustawiony jako **Internet**:
     
     a.  Wykonaj kroki 1a i 1B, aby określić podsieć.
 
     b.  Sprawdź, czy nie ma skonfigurowanych UDR. Jeśli jest, wyszukaj zasób na pasku wyszukiwania lub w obszarze **wszystkie zasoby**.
 
-    c.  Sprawdź, czy istnieją trasy domyślne (0.0.0.0/0) z następnym przeskokiem nie ustawionym jako **Internet**. Jeśli to ustawienie jest **urządzeniem wirtualnym** lub **bramą Virtual Network** , należy upewnić się, że urządzenie wirtualne lub urządzenie lokalne może prawidłowo skierować pakiet z powrotem do internetowego miejsca docelowego bez modyfikowania pakietu.
+    c.  Sprawdź, czy istnieją trasy domyślne (0.0.0.0/0) z następnym przeskokiem nie ustawionym jako **Internet**. Jeśli to ustawienie jest **urządzeniem wirtualnym** lub **bramą Virtual Network**, należy upewnić się, że urządzenie wirtualne lub urządzenie lokalne może prawidłowo skierować pakiet z powrotem do internetowego miejsca docelowego bez modyfikowania pakietu.
 
-    d.  W przeciwnym razie zmień następny przeskok na **Internet** , wybierz pozycję **Zapisz** , a następnie Sprawdź kondycję zaplecza.
+    d.  W przeciwnym razie zmień następny przeskok na **Internet**, wybierz pozycję **Zapisz**, a następnie Sprawdź kondycję zaplecza.
 
 1.  Trasa domyślna anonsowana przez połączenie ExpressRoute/VPN z siecią wirtualną za pośrednictwem protokołu BGP:
 

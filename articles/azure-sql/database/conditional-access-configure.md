@@ -12,12 +12,12 @@ ms.reviewer: vanto
 ms.custom: sqldbrb=1
 ms.date: 04/28/2020
 tag: azure-synpase
-ms.openlocfilehash: eae7d0a34d6bd76dae5998f05f9d64e0d40f7d9b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c18d235977f1256a10e813fa8e02aa3590366fe1
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321613"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936417"
 ---
 # <a name="conditional-access-with-azure-sql-database-and-azure-synapse-analytics"></a>Dostęp warunkowy przy użyciu Azure SQL Database i usługi Azure Synapse Analytics
 
@@ -25,7 +25,7 @@ ms.locfileid: "93321613"
 
 [Azure SQL Database](sql-database-paas-overview.md), [wystąpienie zarządzane usługi Azure SQL](../managed-instance/sql-managed-instance-paas-overview.md)i [usługa Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) obsługują dostęp warunkowy do firmy Microsoft.
 
-Poniższe kroki pokazują, jak skonfigurować Azure SQL Database, wystąpienie zarządzane SQL lub usługę Azure Synapse w celu wymuszenia zasad dostępu warunkowego (CA).  
+Poniższe kroki pokazują, jak skonfigurować Azure SQL Database, wystąpienie zarządzane SQL lub usługę Azure Synapse w celu wymuszenia zasad dostępu warunkowego.  
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -37,21 +37,21 @@ Poniższe kroki pokazują, jak skonfigurować Azure SQL Database, wystąpienie z
 > [!NOTE]
 > Poniższy przykład używa Azure SQL Database, ale należy wybrać odpowiedni produkt, dla którego chcesz skonfigurować dostęp warunkowy.
 
-1. Zaloguj się do Azure Portal, wybierz pozycję **Azure Active Directory** , a następnie wybierz pozycję **dostęp warunkowy**. Aby uzyskać więcej informacji, zobacz [Azure Active Directory informacje techniczne dotyczące dostępu warunkowego](../../active-directory/conditional-access/concept-conditional-access-conditions.md).  
+1. Zaloguj się do Azure Portal, wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję **dostęp warunkowy**. Aby uzyskać więcej informacji, zobacz [Azure Active Directory informacje techniczne dotyczące dostępu warunkowego](../../active-directory/conditional-access/concept-conditional-access-conditions.md).  
    ![Blok dostępu warunkowego](./media/conditional-access-configure/conditional-access-blade.png)
 
-2. W bloku **zasady dostępu warunkowego** kliknij pozycję **nowe zasady** , podaj nazwę, a następnie kliknij pozycję **Konfiguruj reguły**.  
-3. W obszarze **przypisania** wybierz pozycję **Użytkownicy i grupy** , zaznacz pole wyboru **Użytkownicy i grupy** , a następnie wybierz użytkownika lub grupę do dostępu warunkowego. Kliknij pozycję **Wybierz** , a następnie kliknij pozycję **gotowe** , aby zaakceptować wybór.  
+2. W bloku **zasady dostępu warunkowego** kliknij pozycję **nowe zasady**, podaj nazwę, a następnie kliknij pozycję **Konfiguruj reguły**.  
+3. W obszarze **przypisania** wybierz pozycję **Użytkownicy i grupy**, zaznacz pole wyboru **Użytkownicy i grupy**, a następnie wybierz użytkownika lub grupę do dostępu warunkowego. Kliknij pozycję **Wybierz**, a następnie kliknij pozycję **gotowe** , aby zaakceptować wybór.  
    ![Wybieranie użytkowników i grup](./media/conditional-access-configure/select-users-and-groups.png)  
 
-4. Wybierz pozycję **aplikacje w chmurze** , a następnie kliknij pozycję **Wybierz aplikacje**. Zobaczysz wszystkie aplikacje dostępne dla dostępu warunkowego. Wybierz pozycję **Azure SQL Database** , a następnie kliknij pozycję **Wybierz** , a następnie kliknij pozycję **gotowe**.  
+4. Wybierz pozycję **aplikacje w chmurze**, a następnie kliknij pozycję **Wybierz aplikacje**. Zobaczysz wszystkie aplikacje dostępne dla dostępu warunkowego. Wybierz pozycję **Azure SQL Database**, a następnie kliknij pozycję **Wybierz**, a następnie kliknij pozycję **gotowe**.  
    ![Wybierz SQL Database](./media/conditional-access-configure/select-sql-database.png)  
    Jeśli nie możesz znaleźć **Azure SQL Database** wymienionych na poniższym, trzecim zrzucie ekranu, wykonaj następujące czynności:
    - Nawiąż połączenie z bazą danych w Azure SQL Database przy użyciu programu SSMS z kontem administratora usługi Azure AD.  
    - Wykonaj `CREATE USER [user@yourtenant.com] FROM EXTERNAL PROVIDER` .  
    - Zaloguj się do usługi Azure AD i sprawdź, czy Azure SQL Database, wystąpienie zarządzane SQL lub usługa Azure Synapse są wymienione w aplikacjach w wystąpieniu usługi Azure AD.  
 
-5. Wybierz pozycję **Kontrola dostępu** , wybierz pozycję **Udziel** , a następnie sprawdź zasady, które chcesz zastosować. W tym przykładzie wybieramy opcję **Wymagaj uwierzytelniania wieloskładnikowego**.  
+5. Wybierz pozycję **Kontrola dostępu**, wybierz pozycję **Udziel**, a następnie sprawdź zasady, które chcesz zastosować. W tym przykładzie wybieramy opcję **Wymagaj uwierzytelniania wieloskładnikowego**.  
    ![Wybierz pozycję Udziel dostępu](./media/conditional-access-configure/grant-access.png)  
 
 ## <a name="summary"></a>Podsumowanie

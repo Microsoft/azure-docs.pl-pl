@@ -6,19 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/21/2020
+ms.date: 01/05/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: cdfd012d5015e156439a1afa89e818bf82b64dc6
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e8b58069dc41d5272c67edcb1f05ebd9f1bc5ad4
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96449325"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935612"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>Samouczek: przygotowanie do wdrożenia Azure Stack EDGE Pro z procesorem GPU 
 
-Jest to pierwszy samouczek z serii samouczków wdrażania, które są wymagane do całkowitego wdrożenia Azure Stack EDGE Pro z procesorem GPU. W tym samouczku opisano sposób przygotowania Azure Portal w celu wdrożenia Azure Stackego zasobu brzegowego.
+Ten samouczek jest pierwszą częścią serii samouczków wdrażania, które są wymagane do całkowitego wdrożenia Azure Stack EDGE Pro z procesorem GPU. W tym samouczku opisano sposób przygotowania Azure Portal w celu wdrożenia Azure Stackego zasobu brzegowego.
 
 Do ukończenia procesu instalacji i konfiguracji niezbędne są uprawnienia administratora. Przygotowanie portalu zajmuje mniej niż 10 minut.
 
@@ -28,15 +28,15 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Tworzenie nowego zasobu
 > * Uzyskiwanie klucza aktywacji
 
-### <a name="get-started"></a>Wprowadzenie
+### <a name="get-started"></a>Rozpoczęcie pracy
 
 W przypadku wdrożenia programu Azure Stack EDGE Pro należy najpierw przygotować swoje środowisko. Gdy środowisko będzie gotowe, wykonaj wymagane kroki i w razie potrzeby opcjonalne kroki i procedury, aby całkowicie wdrożyć urządzenie. Instrukcje krok po kroku wskazują, kiedy należy wykonać każdy z tych wymaganych i opcjonalnych kroków.
 
 | Krok | Opis |
 | --- | --- |
-| **Przygotowanie** |Te kroki należy wykonać w celu przygotowania do nadchodzącego wdrożenia. |
+| **Preparacie** |Te kroki należy wykonać w celu przygotowania do nadchodzącego wdrożenia. |
 | **[Lista kontrolna konfiguracji wdrożenia](#deployment-configuration-checklist)** |Ta lista kontrolna umożliwia zbieranie i rejestrowanie informacji przed wdrożeniem i w jego trakcie. |
-| **[Wymagania wstępne dotyczące wdrażania](#prerequisites)** |Służą do sprawdzania, czy środowisko jest gotowe do przeprowadzenia wdrożenia. |
+| **[Wymagania wstępne dotyczące wdrażania](#prerequisites)** |Te wymagania wstępne sprawdzają, czy środowisko jest gotowe do wdrożenia. |
 |  | |
 |**Samouczki dotyczące wdrażania** |Te samouczki są wymagane do wdrożenia urządzenia z usługą Azure Stack Edge w środowisku produkcyjnym. |
 |**[1. Przygotuj Azure Portal dla Azure Stack brzeg Pro](azure-stack-edge-gpu-deploy-prep.md)** |Utwórz i skonfiguruj zasób Azure Stack Edge przed zainstalowaniem urządzenia fizycznego z krawędzią okna Azure Stack. |
@@ -44,9 +44,9 @@ W przypadku wdrożenia programu Azure Stack EDGE Pro należy najpierw przygotowa
 |**[3. Nawiązywanie połączenia z usługą Azure Stack EDGE Pro](azure-stack-edge-gpu-deploy-connect.md)** |Po zainstalowaniu urządzenia Połącz się z lokalnym interfejsem użytkownika sieci Web urządzenia.  |
 |**[4. Skonfiguruj ustawienia sieci dla Azure Stack EDGE Pro](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md)** |Skonfiguruj sieć, w tym ustawienia sieci Web i internetowego serwera proxy dla Twojego urządzenia.   |
 |**[5. Skonfiguruj ustawienia urządzenia dla programu Azure Stack EDGE Pro](azure-stack-edge-gpu-deploy-set-up-device-update-time.md)** |Przypisz nazwę urządzenia i domenę DNS, skonfiguruj serwer aktualizacji i godzinę urządzenia. |
-|**[6. Skonfiguruj ustawienia zabezpieczeń dla Azure Stack EDGE Pro](azure-stack-edge-gpu-deploy-configure-certificates.md)** |Skonfiguruj certyfikaty dla urządzenia. Użyj certyfikatów wygenerowanych przez urządzenia lub Przenieś własne certyfikaty.   |
+|**[6. Skonfiguruj ustawienia zabezpieczeń dla Azure Stack EDGE Pro](azure-stack-edge-gpu-deploy-configure-certificates.md)** |Skonfiguruj certyfikaty dla urządzenia. Korzystanie z certyfikatów generowanych przez urządzenia lub przenoszenie własnych certyfikatów.   |
 |**[7. Aktywuj Azure Stack Edge w wersji Pro](azure-stack-edge-gpu-deploy-activate.md)** |Aktywuj urządzenie przy użyciu klucza aktywacji z usługi. Urządzenie jest gotowe do skonfigurowania udziałów SMB lub NFS lub łączenia się za pośrednictwem interfejsu REST. |
-|**[8. Konfigurowanie obliczeń](azure-stack-edge-gpu-deploy-configure-compute.md)** |Skonfiguruj rolę obliczeń na urządzeniu. Spowoduje to również utworzenie klastra Kubernetes. |
+|**[8. Konfigurowanie obliczeń](azure-stack-edge-gpu-deploy-configure-compute.md)** |Skonfiguruj rolę obliczeń na urządzeniu. Tworzony jest również klaster Kubernetes. |
 |**[9a. Transferowanie danych za pomocą udziałów brzegowych](azure-stack-edge-j-series-deploy-add-shares.md)** |Dodaj udziały i nawiąż z nimi połączenie za pomocą protokołu SMB lub NFS. |
 |**[9b. Transferowanie danych za pomocą kont magazynu Edge](azure-stack-edge-j-series-deploy-add-storage-accounts.md)** |Dodawanie kont magazynu i nawiązywanie połączenia z usługą BLOB Storage za pośrednictwem interfejsów API REST. |
 
@@ -66,7 +66,7 @@ Poniżej przedstawiono wymagania wstępne dotyczące konfiguracji dla zasobu us�
 
 Przed rozpoczęciem upewnij się, że:
 
-- Subskrypcja Microsoft Azure jest włączona dla zasobu Azure Stack Edge. Upewnij się, że użyto obsługiwanej subskrypcji, takiej jak [Microsoft Umowa Enterprise (EA)](https://azure.microsoft.com/overview/sales-number/), [dostawca rozwiązań w chmurze (CSP)](/partner-center/azure-plan-lp)lub [dostęp sponsorowany Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0036p/). Subskrypcje z płatnością zgodnie z rzeczywistym użyciem nie są obsługiwane. Aby zidentyfikować typ posiadanej subskrypcji platformy Azure, zobacz artykuł [co to jest oferta platformy Azure?](../cost-management-billing/manage/switch-azure-offer.md#what-is-an-azure-offer)
+- Twoja subskrypcja platformy Microsoft Azure obsługuje zasób rozwiązania Azure Stack Edge. Upewnij się, że użyto obsługiwanej subskrypcji, takiej jak [Microsoft Umowa Enterprise (EA)](https://azure.microsoft.com/overview/sales-number/), [dostawca rozwiązań w chmurze (CSP)](/partner-center/azure-plan-lp)lub [dostęp sponsorowany Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0036p/). Subskrypcje z płatnością zgodnie z rzeczywistym użyciem nie są obsługiwane. Aby zidentyfikować typ posiadanej subskrypcji platformy Azure, zobacz artykuł [co to jest oferta platformy Azure?](../cost-management-billing/manage/switch-azure-offer.md#what-is-an-azure-offer)
 - Masz uprawnienia właściciela lub współautora na poziomie grupy zasobów dla Azure Stack EDGE Pro/Data Box Gateway, IoT Hub i zasobów usługi Azure Storage.
 
     - Aby utworzyć dowolny zasób Azure Stack Edge/Data Box Gateway, należy mieć uprawnienia jako współautora (lub wyższe) w zakresie na poziomie grupy zasobów. 
@@ -107,7 +107,7 @@ Aby utworzyć zasób Azure Stack Edge, wykonaj następujące czynności w Azure 
 
 1. Użyj poświadczeń Microsoft Azure, aby zalogować się do Azure Portal pod tym adresem URL: [https://portal.azure.com](https://portal.azure.com) .
 
-2. W okienku po lewej stronie wybierz pozycję **+ Utwórz zasób**. Wyszukaj i wybierz pozycję **Azure Stack Edge/Data Box Gateway**. Wybierz pozycję **Utwórz**. 
+2. W okienku po lewej stronie wybierz pozycję **+ Utwórz zasób**. Wyszukaj i wybierz pozycję **Azure Stack Edge/Data Box Gateway**. Wybierz przycisk **Utwórz**. 
 
 3. Wybierz subskrypcję, która ma być używana na potrzeby urządzenia z Azure Stack EDGE Pro. Wybierz kraj, w którym chcesz wysłać to urządzenie fizyczne. Wybierz pozycję **Pokaż urządzenia**.
 
@@ -125,21 +125,21 @@ Aby utworzyć zasób Azure Stack Edge, wykonaj następujące czynności w Azure 
     
     |Ustawienie  |Wartość  |
     |---------|---------|
-    |Subskrypcja    |Jest to wypełniane automatycznie w oparciu o wcześniejszy wybór. Subskrypcja jest połączona z kontem rozliczeniowym. |
+    |Subskrypcja    |Subskrypcja zostanie automatycznie wypełniona w oparciu o wcześniejszy wybór. Subskrypcja jest połączona z kontem rozliczeniowym. |
     |Grupa zasobów  |Wybierz istniejącą grupę lub utwórz nową.<br>Dowiedz się więcej o [grupach zasobów platformy Azure](../azure-resource-manager/management/overview.md).     |
 
 7. Wprowadź lub wybierz następujące **szczegóły wystąpienia**.
 
     |Ustawienie  |Wartość  |
     |---------|---------|
-    |Nazwa   | Przyjazna nazwa identyfikująca zasób.<br>Nazwa może zawierać od 2 do 50 znaków, w tym litery, cyfry i łączniki.<br> Nazwa rozpoczyna się i kończy literą lub cyfrą.        |
+    |Nazwa   | Przyjazna nazwa identyfikująca zasób.<br>Nazwa ma od 2 do 50 znaków zawierających litery, cyfry i łączniki.<br> Nazwa rozpoczyna się i kończy literą lub cyfrą.        |
     |Region (Region)     |Aby uzyskać listę wszystkich regionów, w których jest dostępny zasób Azure Stack Edge, zobacz [dostępność produktów platformy Azure według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). W przypadku korzystania z Azure Government wszystkie regiony rządowe są dostępne, jak pokazano w [regionach świadczenia usługi Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Wybierz lokalizację najbliżej regionu geograficznego, w którym chcesz wdrożyć urządzenie.|
 
     ![Tworzenie zasobu 5](media/azure-stack-edge-gpu-deploy-prep/create-resource-5.png)
 
 8. Wybierz pozycję **Dalej: adres wysyłkowy**.
 
-    - Jeśli masz już urządzenie, zaznacz pole kombi dla **urządzenia z Azure Stack EDGE Pro**.
+    - Jeśli masz już urządzenie, zaznacz pole kombi, dla którego **masz już urządzenie**.
 
         ![Tworzenie zasobu 6](media/azure-stack-edge-gpu-deploy-prep/create-resource-6.png)
 
@@ -155,7 +155,7 @@ Aby utworzyć zasób Azure Stack Edge, wykonaj następujące czynności w Azure 
 
     Użytkownik otrzymuje również powiadomienie, że podczas tworzenia zasobu jest włączony tożsamość usługi zarządzanej (MSI), który umożliwia uwierzytelnianie w usługach w chmurze. Ta tożsamość istnieje pod warunkiem, że istnieje zasób.
 
-11. Wybierz pozycję **Utwórz**.
+11. Wybierz przycisk **Utwórz**.
 
 Tworzenie zasobu trwa kilka minut. Tworzony jest również plik MSI, który umożliwia Azure Stack urządzeniu brzegowego komunikowanie się z dostawcą zasobów na platformie Azure.
 
@@ -176,19 +176,17 @@ W przypadku wystąpienia problemów występujących w procesie zamówienia zobac
 
 Po rozpoczęciu i uruchomieniu Azure Stack brzegowej należy uzyskać klucz aktywacji. Ten klucz służy do uaktywniania i łączenia urządzenia Azure Stack EDGE Pro z zasobem. Ten klucz można uzyskać już teraz za pośrednictwem witryny Azure Portal.
 
-1. Wybierz utworzony zasób. Wybierz pozycję **Przegląd** , a następnie wybierz pozycję **Konfiguracja urządzenia**.
+1. Wybierz utworzony zasób, a następnie wybierz pozycję **Przegląd**.
 
-    ![Wybierz konfigurację urządzenia](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png)
+2. W okienku po prawej stronie Wprowadź nazwę Azure Key Vault lub zaakceptuj nazwę domyślną. Nazwa magazynu kluczy może mieć długość od 3 do 24 znaków.
 
-2. Na kafelku **Aktywuj** podaj nazwę Azure Key Vault lub zaakceptuj nazwę domyślną. Nazwa magazynu kluczy może mieć długość od 3 do 24 znaków. 
+   Magazyn kluczy jest tworzony dla każdego zasobu usługi Azure Stack Edge, który został aktywowany z urządzeniem. Magazyn kluczy pozwala przechowywać klucze tajne i uzyskiwać do nich dostęp, na przykład klucz integralności kanału (CIK) dla usługi jest przechowywany w magazynie kluczy. 
 
-    Magazyn kluczy jest tworzony dla każdego zasobu usługi Azure Stack Edge, który został aktywowany z urządzeniem. Magazyn kluczy pozwala przechowywać klucze tajne i uzyskiwać do nich dostęp, na przykład klucz integralności kanału (CIK) dla usługi jest przechowywany w magazynie kluczy. 
+   Po określeniu nazwy magazynu kluczy wybierz pozycję **Generuj klucz** , aby utworzyć klucz aktywacji. 
 
-    Po określeniu nazwy magazynu kluczy wybierz pozycję **Generuj klucz** , aby utworzyć klucz aktywacji. 
+   ![Pobieranie klucza aktywacji](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-3.png)
 
-    ![Pobieranie klucza aktywacji](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-3.png)
-
-    Poczekaj kilka minut, aż zostanie utworzony magazyn kluczy i klucz aktywacji. Wybierz ikonę kopiowania, aby skopiować klucz i zapisać go do użytku w przyszłości.
+   Poczekaj kilka minut, gdy zostanie utworzony magazyn kluczy i klucz aktywacji. Wybierz ikonę kopiowania, aby skopiować klucz i zapisać go do użytku w przyszłości.<!--Verify that the new screen has a copy icon.-->
 
 
 > [!IMPORTANT]

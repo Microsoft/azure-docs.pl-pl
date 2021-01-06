@@ -4,12 +4,12 @@ description: Poznaj różne sposoby wdrażania kodu do Azure Functions.
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 7a75408008a90a2c40553b1f6c5c196775a48e61
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 04d96a09d41ace64bed5667bb9f0fa6e4beed244
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96168104"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936961"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Technologie wdrażania w Azure Functions
 
@@ -25,7 +25,7 @@ W poniższej tabeli opisano dostępne metody wdrażania dla projektu funkcji.
 | -- | -- | -- |
 | Oparte na narzędziach | &bull;&nbsp;[&nbsp; &nbsp; Publikowanie kodu w programie Visual Studio &nbsp;](functions-develop-vs-code.md#publish-to-azure)<br/>&bull;&nbsp;[Publikowanie w programie Visual Studio](functions-develop-vs.md#publish-to-azure)<br/>&bull;&nbsp;[Publikowanie podstawowych narzędzi](functions-run-local.md#publish) | Wdrożenia podczas opracowywania i inne wdrożenia usługi AD-Hock. Wdrożenia są zarządzane lokalnie przez narzędzia. | 
 | App Service zarządzane| &bull;&nbsp;[&nbsp;Centrum wdrażania &nbsp; (Ci/CD)](functions-continuous-deployment.md)<br/>&bull;&nbsp;[Wdrożenia kontenerów &nbsp;](functions-create-function-linux-custom-image.md#enable-continuous-deployment-to-azure) |  Ciągłe wdrażanie (CI/CD) z kontroli źródła lub z rejestru kontenerów. Wdrożenia są zarządzane przez platformę App Service (kudu).|
-| Potoki zewnętrzne|&bull;&nbsp;[Potoki DevOps](functions-how-to-azure-devops.md)<br/>&bull;&nbsp;[Akcje GitHub](functions-how-to-github-actions.md) | Potoki produkcyjne i DevOps, które obejmują dodatkowe sprawdzanie poprawności, testowanie i inne akcje, są uruchamiane w ramach zautomatyzowanego wdrożenia. Wdrożenia są zarządzane przez potok. |
+| Potoki zewnętrzne|&bull;&nbsp;[Azure Pipelines](functions-how-to-azure-devops.md)<br/>&bull;&nbsp;[Akcje GitHub](functions-how-to-github-actions.md) | Potoki produkcyjne i DevOps, które obejmują dodatkowe sprawdzanie poprawności, testowanie i inne akcje, są uruchamiane w ramach zautomatyzowanego wdrożenia. Wdrożenia są zarządzane przez potok. |
 
 Podczas gdy określone funkcje wdrożenia korzystają z najlepszej technologii na podstawie ich kontekstu, większość metod wdrażania jest oparta na [rozmieszczeniu zip](#zip-deploy).
 
@@ -33,9 +33,9 @@ Podczas gdy określone funkcje wdrożenia korzystają z najlepszej technologii n
 
 Azure Functions obsługuje Międzyplatformowe programowanie lokalne i hosting w systemach Windows i Linux. Obecnie dostępne są trzy plany hostingu:
 
-+ [Wyrażon](functions-scale.md#consumption-plan)
-+ [Tytułu](functions-scale.md#premium-plan)
-+ [Dedykowane (App Service)](functions-scale.md#app-service-plan)
++ [Zużycie](consumption-plan.md)
++ [Premium](functions-premium-plan.md)
++ [Dedykowane (App Service)](dedicated-plan.md)
 
 Każdy plan ma inne zachowania. Nie wszystkie technologie wdrażania są dostępne dla każdej wersji Azure Functions. Na poniższym wykresie przedstawiono, które technologie wdrażania są obsługiwane dla każdej kombinacji systemu operacyjnego i planu hostingu:
 
@@ -96,7 +96,7 @@ Aplikacje funkcji systemu Linux działające w ramach planu zużycia nie mają w
 
 ##### <a name="dedicated-and-premium-plans"></a>Plany dedykowane i Premium
 
-Aplikacje funkcji działające w systemie Linux w ramach [dedykowanego planu (App Service)](functions-scale.md#app-service-plan) i [planu Premium](functions-scale.md#premium-plan) mają również ograniczoną witrynę SCM/kudu.
+Aplikacje funkcji działające w systemie Linux w ramach [dedykowanego planu (App Service)](dedicated-plan.md) i [planu Premium](functions-premium-plan.md) mają również ograniczoną witrynę SCM/kudu.
 
 ## <a name="deployment-technology-details"></a>Szczegóły technologii wdrażania
 
@@ -187,7 +187,7 @@ W edytorze opartym na portalu można bezpośrednio edytować pliki znajdujące s
 >
 >* [Visual Studio Code](./create-first-function-vs-code-csharp.md)
 >* [Azure Functions Core Tools (wiersz polecenia)](functions-run-local.md)
->* [Visual Studio](functions-create-your-first-function-visual-studio.md)
+>* [Program Visual Studio](functions-create-your-first-function-visual-studio.md)
 
 W poniższej tabeli przedstawiono systemy operacyjne i języki obsługujące edycję portalu:
 

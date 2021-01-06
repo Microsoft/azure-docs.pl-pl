@@ -2,16 +2,25 @@
 title: Integrowanie narzędzia Apache Kafka Connect z usługą Azure Event Hubs | Microsoft Docs
 description: Ten artykuł zawiera informacje dotyczące korzystania z programu Kafka Connect with Azure Event Hubs for Kafka.
 ms.topic: how-to
-ms.date: 06/23/2020
-ms.openlocfilehash: d37d2465d9389a0bcfaabdec32bad0c86846cfb2
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 01/06/2021
+ms.openlocfilehash: f82dcdafa7921f4a994361371536b2f1ace7cbc5
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369543"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935159"
 ---
-# <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Integrowanie obsługi narzędzia Apache Kafka Connect w usłudze Azure Event Hubs (wersja zapoznawcza)
-Wraz ze wzrostem ilości danych pozyskiwanych do celów biznesowych zwiększa się poziom wymagań dotyczących pozyskiwania dla różnych ujść i źródeł zewnętrznych. Narzędzie [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) udostępnia platformę do łączenia i importowania/eksportowania danych w dowolnym systemie zewnętrznym, takim jak MySQL, HDFS i system plików za pośrednictwem klastra platformy Kafka. Ten samouczek przeprowadzi Cię przez proces używania programu Kafka Connect Framework z Event Hubs.
+# <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs"></a>Integrowanie obsługi narzędzia Apache Kafka Connect w usłudze Azure Event Hubs
+[Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) to struktura służąca do łączenia i importowania/eksportowania danych z/do dowolnego systemu zewnętrznego, takiego jak MySQL, HDFS i system plików, za pośrednictwem klastra Kafka. Ten samouczek przeprowadzi Cię przez proces używania programu Kafka Connect Framework z Event Hubs.
+
+> [!WARNING]
+> Korzystanie z usługi Apache Kafka Connect Framework i jej łączników **nie kwalifikuje się do pomocy technicznej produktu za pomocą usługi Microsoft Azure**.
+>
+> Apache Kafka Connect przyjmuje, że konfiguracja dynamiczna będzie utrzymywana w kompaktowych tematach, w przeciwnym razie nieograniczony czas przechowywania. Usługa Azure Event Hubs nie [implementuje kompaktowania jako funkcji brokera](event-hubs-federation-overview.md#log-projections) i zawsze nakłada limit przechowywania na podstawie czasu dla zachowanych zdarzeń, z reguły, którą usługa Azure Event Hubs jest aparatem przesyłania strumieniowego zdarzeń w czasie rzeczywistym, a nie z długoterminowym magazynem danych lub konfiguracją.
+>
+> Chociaż projekt Apache Kafka może być wygodniejszy do mieszania tych ról, platforma Azure uważa, że takie informacje najlepiej są zarządzane w odpowiedniej bazie danych lub w magazynie konfiguracji.
+>
+> Wiele scenariuszy Apache Kafka Connect będzie funkcjonalnych, ale te różnice koncepcyjne między modelami przechowywania Apache Kafka i Event Hubs platformy Azure mogą spowodować, że niektóre konfiguracje nie będą działać zgodnie z oczekiwaniami. 
 
 Ten samouczek przeprowadzi Cię przez integrację Kafka z centrum zdarzeń i wdrażanie podstawowych łączników FileStreamSource i FileStreamSink. Ta funkcja jest obecnie w wersji zapoznawczej. Te łączniki nie są przeznaczone do użycia w środowisku produkcyjnym — służą one do zaprezentowania pełnego scenariusza narzędzia Kafka Connect, w którym usługa Azure Event Hubs działa jako broker platformy Kafka.
 
@@ -31,7 +40,7 @@ W tym samouczku wykonasz następujące kroki:
 Aby ukończyć ten przewodnik, upewnij się, że dysponujesz następującymi elementami:
 
 - Subskrypcja platformy Azure. Jeśli jej nie masz, [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
-- [Git](https://www.git-scm.com/downloads)
+- [Narzędzia](https://www.git-scm.com/downloads)
 - Linux/MacOS
 - Platforma Kafka (wersja 1.1.1, Scala w wersji 2.11), dostępna na stronie [kafka.apache.org](https://kafka.apache.org/downloads#1.1.1)
 - Przeczytaj artykuł z wprowadzeniem [Usługa Event Hubs dla platformy Apache Kafka](./event-hubs-for-kafka-ecosystem-overview.md)
@@ -101,7 +110,7 @@ W tym kroku proces roboczy narzędzia Kafka Connect został uruchomiony lokalnie
 
 1. Zapisz powyższy plik `connect-distributed.properties` lokalnie.  Zamień wszystkie wartości w nawiasach klamrowych.
 2. Przejdź do lokalizacji platformy Kafka w maszynie.
-4. Należy uruchomić polecenie `./bin/connect-distributed.sh /PATH/TO/connect-distributed.properties`.  Pojawienie się tekstu `'INFO Finished starting connectors and tasks'` oznacza, że interfejs API REST procesu roboczego narzędzia Connect jest gotowy do interakcji. 
+4. Uruchom polecenie `./bin/connect-distributed.sh /PATH/TO/connect-distributed.properties`.  Pojawienie się tekstu `'INFO Finished starting connectors and tasks'` oznacza, że interfejs API REST procesu roboczego narzędzia Connect jest gotowy do interakcji. 
 
 > [!NOTE]
 > Kafka Connect używa interfejsu API Kafka AdminClient do automatycznego tworzenia tematów z zalecanymi konfiguracjami, w tym kompaktowania. Z szybkiego sprawdzenia przestrzeni nazw w witrynie Azure Portal wynika, że tematy wewnętrzne procesu roboczego narzędzia Connect zostały utworzone automatycznie.

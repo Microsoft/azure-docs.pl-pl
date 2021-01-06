@@ -4,12 +4,12 @@ description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure �
 ms.topic: sample
 ms.date: 07/03/2018
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 760017439ddc65ee929db1612b34b093d8bed8a0
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 9ec4d3cb9d47608aa98075ba98aacfde51f341cd
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565420"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934428"
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Tworzenie funkcji platformy Azure łączącej się z usługą Azure Cosmos DB
 
@@ -37,7 +37,7 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Tworzy grupę zasobów w lokalizacji. |
 | [az storage accounts create](/cli/azure/storage/account#az-storage-account-create) | Tworzenie konta magazynu |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Tworzy aplikację funkcji w [planie zużycia](../functions-scale.md#consumption-plan)bezserwerowego. |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Tworzy aplikację funkcji w [planie zużycia](../consumption-plan.md)bezserwerowego. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Tworzy bazę danych usługi Azure Cosmos DB. |
 | [AZ cosmosdb show](/cli/azure/cosmosdb#az-cosmosdb-show)| Pobiera połączenie z kontem bazy danych. |
 | [az cosmosdb list-keys](/cli/azure/cosmosdb#az-cosmosdb-list-keys)| Pobiera klucze dla bazy danych. |

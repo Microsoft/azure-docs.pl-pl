@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 708478f50078276245a7dfab7d185dd50d597407
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: f9c11c0671db882edd9a72bca8d11c7326edee43
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589801"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936893"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatyzowanie wdrażania zasobów dla aplikacji funkcji w Azure Functions
 
@@ -175,7 +175,7 @@ Te właściwości są określone w `appSettings` kolekcji we `siteConfig` Właś
 
 ## <a name="deploy-on-consumption-plan"></a>Wdróż w planie zużycia
 
-Plan zużycia automatycznie przydziela moc obliczeniową, gdy kod jest uruchomiony, skaluje się w miarę potrzeb do obsługi obciążenia, a następnie skaluje się, gdy kod nie jest uruchomiony. Nie musisz uiszczać bezczynnych maszyn wirtualnych i nie musisz zarezerwować z góry pojemności. Aby dowiedzieć się więcej, zobacz [Azure Functions skalowanie i hosting](functions-scale.md#consumption-plan).
+Plan zużycia automatycznie przydziela moc obliczeniową, gdy kod jest uruchomiony, skaluje się w miarę potrzeb do obsługi obciążenia, a następnie skaluje się, gdy kod nie jest uruchomiony. Nie musisz uiszczać bezczynnych maszyn wirtualnych i nie musisz zarezerwować z góry pojemności. Aby dowiedzieć się więcej, zobacz [Azure Functions skalowanie i hosting](consumption-plan.md).
 
 Aby zapoznać się z przykładowym szablonem Azure Resource Manager, zobacz [aplikacji funkcji w planie zużycia].
 

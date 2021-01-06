@@ -3,12 +3,12 @@ title: Integrowanie Azure Functions z siecią wirtualną platformy Azure
 description: Samouczek krok po kroku pokazujący, jak połączyć funkcję z siecią wirtualną platformy Azure
 ms.topic: article
 ms.date: 4/23/2020
-ms.openlocfilehash: f50c923104fdfcf26f400f20f0de66a82eb3d245
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: efc936111d162d73b1cc5465ae6b677c9006ab32
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87387527"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937034"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Samouczek: integrowanie usługi Functions z siecią wirtualną platformy Azure
 
@@ -60,13 +60,13 @@ Następnie Utwórz wstępnie skonfigurowaną maszynę wirtualną z systemem Word
     | **Subskrypcja** | Twoja subskrypcja | Subskrypcja, w ramach której są tworzone zasoby. | 
     | **[Grupa zasobów](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Wybierz `myResourceGroup` lub grupę zasobów utworzoną za pomocą aplikacji funkcji. Korzystanie z tej samej grupy zasobów dla aplikacji funkcji, maszyny wirtualnej WordPress i planu hostingu ułatwia czyszczenie zasobów po zakończeniu pracy z tym samouczkiem. |
     | **Nazwa maszyny wirtualnej** | VNET-Wordpress | Nazwa maszyny wirtualnej musi być unikatowa w grupie zasobów |
-    | **[Region](https://azure.microsoft.com/regions/)** | Terenie Europa Zachodnia | Wybierz region znajdujący się w sąsiedztwie lub w sąsiedztwie funkcji, które uzyskują dostęp do maszyny wirtualnej. |
+    | **[Region (Region)](https://azure.microsoft.com/regions/)** | Terenie Europa Zachodnia | Wybierz region znajdujący się w sąsiedztwie lub w sąsiedztwie funkcji, które uzyskują dostęp do maszyny wirtualnej. |
     | **Rozmiar** | B1s | Wybierz **Zmień rozmiar** , a następnie wybierz obraz B1s Standard, który ma 1 vCPU i 1 GB pamięci. |
     | **Authentication type** (Typ uwierzytelniania) | Hasło | Aby używać uwierzytelniania hasła, należy również określić **nazwę użytkownika**, bezpieczne **hasło**, a następnie **potwierdzić hasło**. W tym samouczku nie będzie konieczne zalogowanie się do maszyny wirtualnej, chyba że trzeba rozwiązać problemy. |
 
 1. Wybierz kartę **Sieć** , a następnie w obszarze Konfiguruj sieci wirtualne wybierz pozycję **Utwórz nowy**.
 
-1. W obszarze **Utwórz sieć wirtualną**Użyj ustawień w tabeli poniżej obrazu:
+1. W obszarze **Utwórz sieć wirtualną** Użyj ustawień w tabeli poniżej obrazu:
 
     ![Karta Sieć w obszarze Utwórz maszynę wirtualną](./media/functions-create-vnet/create-vm-2.png)
 
@@ -81,9 +81,9 @@ Następnie Utwórz wstępnie skonfigurowaną maszynę wirtualną z systemem Word
 
 1. Na karcie **Sieć** wybierz opcję **Brak** dla **publicznego adresu IP**.
 
-1. Wybierz kartę **Zarządzanie** , a następnie w obszarze **konto magazynu diagnostyki**wybierz konto magazynu utworzone za pomocą aplikacji funkcji.
+1. Wybierz kartę **Zarządzanie** , a następnie w obszarze **konto magazynu diagnostyki** wybierz konto magazynu utworzone za pomocą aplikacji funkcji.
 
-1. Wybierz pozycję **Przeglądanie + tworzenie**. Po zakończeniu walidacji wybierz pozycję **Utwórz**. Proces tworzenia maszyny wirtualnej trwa kilka minut. Utworzona maszyna wirtualna może uzyskać dostęp tylko do sieci wirtualnej.
+1. Wybierz pozycję **Przejrzyj i utwórz**. Po zakończeniu walidacji wybierz pozycję **Utwórz**. Proces tworzenia maszyny wirtualnej trwa kilka minut. Utworzona maszyna wirtualna może uzyskać dostęp tylko do sieci wirtualnej.
 
 1. Po utworzeniu maszyny wirtualnej wybierz pozycję **Przejdź do zasobu** , aby wyświetlić stronę nowej maszyny wirtualnej, a następnie wybierz pozycję **Sieć** w obszarze **Ustawienia**.
 
@@ -99,15 +99,15 @@ W przypadku witryny WordPress działającej na maszynie wirtualnej w sieci wirtu
 
 1. W nowej aplikacji funkcji wybierz pozycję **Sieć** w menu po lewej stronie.
 
-1. W obszarze integracja z siecią **wirtualną**wybierz **pozycję kliknij tutaj, aby ją skonfigurować**.
+1. W obszarze integracja z siecią **wirtualną** wybierz **pozycję kliknij tutaj, aby ją skonfigurować**.
 
     :::image type="content" source="./media/functions-create-vnet/networking-0.png" alt-text="Wybieranie sieci w aplikacji funkcji":::
 
 1. Na stronie **integracja z siecią wirtualną** wybierz pozycję **Dodaj sieć wirtualną**.
 
-    :::image type="content" source="./media/functions-create-vnet/networking-2.png" alt-text="Wybieranie sieci w aplikacji funkcji":::
+    :::image type="content" source="./media/functions-create-vnet/networking-2.png" alt-text="Dodawanie wersji zapoznawczej integracji sieci wirtualnej":::
 
-1. W obszarze **stan funkcji sieci**Użyj ustawień w tabeli poniżej obrazu:
+1. W obszarze **stan funkcji sieci** Użyj ustawień w tabeli poniżej obrazu:
 
     ![Zdefiniuj sieć wirtualną aplikacji funkcji](./media/functions-create-vnet/networking-3.png)
 
@@ -129,7 +129,7 @@ Przy włączonej integracji sieci wirtualnej można utworzyć w aplikacji funkcj
 
 1. W aplikacji funkcji wybierz pozycję  **serwery proxy** z menu po lewej stronie, a następnie wybierz pozycję **Dodaj**. Użyj ustawień serwera proxy w tabeli poniżej obrazu:
 
-    :::image type="content" source="./media/functions-create-vnet/create-proxy.png" alt-text="Wybieranie sieci w aplikacji funkcji":::
+    :::image type="content" source="./media/functions-create-vnet/create-proxy.png" alt-text="Definiowanie ustawień serwera proxy":::
 
     | Ustawienie  | Sugerowana wartość  | Opis      |
     | -------- | ---------------- | ---------------- |
@@ -139,7 +139,7 @@ Przy włączonej integracji sieci wirtualnej można utworzyć w aplikacji funkcj
 
 1. Wybierz pozycję **Utwórz** , aby dodać serwer proxy do aplikacji funkcji.
 
-## <a name="try-it-out"></a>Wypróbowywanie działania
+## <a name="try-it-out"></a>Czas to wypróbować
 
 1. W przeglądarce spróbuj uzyskać dostęp do adresu URL, który był używany jako **adres URL zaplecza**. Zgodnie z oczekiwaniami upłynął limit czasu żądania. Limit czasu występuje, ponieważ witryna WordPress jest połączona tylko z siecią wirtualną, a nie z Internetem.
 
@@ -160,4 +160,4 @@ Funkcje działające w planie Premium współdzielą tę samą podstawową infra
 > [!div class="nextstepaction"]
 > [Dowiedz się więcej o opcjach sieci w funkcjach](./functions-networking-options.md)
 
-[Plan Premium]: functions-scale.md#premium-plan
+[Plan Premium]: functions-premium-plan.md

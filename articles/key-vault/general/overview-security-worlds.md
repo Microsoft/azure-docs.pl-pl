@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 07/03/2017
-ms.openlocfilehash: 3584f83c5e1a5e83d069373395227b70c084eae9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d21deea13aac3d40c452a183c340d3108a1a01f4
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81428955"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936332"
 ---
 # <a name="azure-key-vault-security-worlds-and-geographic-boundaries"></a>Azure Key Vault światy zabezpieczeń i granice geograficzne
 
@@ -43,6 +43,3 @@ W artykule produkty według regionów na przykład na karcie **Ameryki Północn
 >Wyjątkiem jest to, że Stany USA i US DOD USA mają własne światowe zabezpieczenia. 
 
 Podobnie na karcie **Europa** , Europa Północna i Europa Zachodnia są mapowane do regionu Europa. Ta sama wartość dotyczy również karty **Azja i Pacyfik** .
-
-
-

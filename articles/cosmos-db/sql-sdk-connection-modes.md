@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: maquaran
 ms.custom: devx-track-dotnet, contperf-fy21q2
-ms.openlocfilehash: c30e97a4bff8fa845f6eb3c3092a00ee541e59f4
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: cf985999bac0cf45eec5d8f0f5f9e921b6f4591c
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032800"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934955"
 ---
 # <a name="azure-cosmos-db-sql-sdk-connectivity-modes"></a>Azure Cosmos DB tryby łączności z zestawem SDK SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -28,7 +28,7 @@ Istnieją dwa dostępne tryby łączności:
       
     Tryb bramy jest obsługiwany na wszystkich platformach SDK. Jeśli aplikacja działa w sieci firmowej z rygorystycznymi ograniczeniami zapory, najlepszym wyborem jest tryb bramy, ponieważ używa on standardowego portu HTTPS i pojedynczego punktu końcowego DNS. Jednak jest to, że tryb bramy obejmuje dodatkowy przeskok sieciowy za każdym razem, gdy dane są odczytywane lub zapisywane w Azure Cosmos DB. Zalecamy również tryb połączenia bramy w przypadku uruchamiania aplikacji w środowiskach, które mają ograniczoną liczbę połączeń gniazd.
 
-    Korzystając z zestawu SDK w Azure Functions, szczególnie w [planie zużycia](../azure-functions/functions-scale.md#consumption-plan), należy pamiętać o bieżących [limitach połączeń](../azure-functions/manage-connections.md).
+    Korzystając z zestawu SDK w Azure Functions, szczególnie w [planie zużycia](../azure-functions/consumption-plan.md), należy pamiętać o bieżących [limitach połączeń](../azure-functions/manage-connections.md).
 
   * Tryb bezpośredni
 

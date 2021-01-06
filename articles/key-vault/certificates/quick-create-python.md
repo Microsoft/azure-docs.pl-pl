@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: d9fdfc89c8c02749fdf677ad119f1eed5a4b1fa2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 6ae20c55a16b12f7543af3f08d96400a8e5f20c9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185185"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934921"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-python"></a>Szybki Start: Azure Key Vault Biblioteka kliencka certyfikatów dla języka Python
 
@@ -33,7 +33,7 @@ W tym przewodniku szybki start założono, że uruchomiono [interfejs wiersza po
 
 Ten przewodnik Szybki Start korzysta z biblioteki Azure Identity Library z interfejsem wiersza polecenia platformy Azure w celu uwierzytelniania użytkowników w usługach platformy Azure. Deweloperzy mogą również używać programu Visual Studio lub Visual Studio Code do uwierzytelniania wywołań, aby uzyskać więcej informacji, zobacz [uwierzytelnianie klienta przy użyciu biblioteki klienta tożsamości platformy Azure](/java/api/overview/azure/identity-readme)
 
-### <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
+### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 1. Uruchom polecenie `login`.
 
@@ -86,7 +86,7 @@ set KEY_VAULT_NAME=<your-key-vault-name>
 ````
 Windows PowerShell
 ```powershell
-$Env:KEY_VAULT_NAME=<your-key-vault-name>
+$Env:KEY_VAULT_NAME="<your-key-vault-name>"
 ```
 
 macOS lub Linux
@@ -200,7 +200,7 @@ Możesz sprawdzić, czy certyfikat został usunięty za pomocą polecenia interf
 
 Po usunięciu certyfikat pozostaje w stanie usunięty, ale jest w nim możliwy do odzyskania. Jeśli ponownie uruchomisz kod, użyj innej nazwy certyfikatu.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Aby eksperymentować z wpisami [tajnymi](../secrets/quick-create-python.md) i [kluczami](../keys/quick-create-python.md), możesz ponownie użyć Key Vault utworzonych w tym artykule.
 
@@ -215,5 +215,5 @@ az group delete --resource-group KeyVault-PythonQS-rg
 - [Omówienie usługi Azure Key Vault](../general/overview.md)
 - [Bezpieczny dostęp do magazynu kluczy](../general/secure-your-key-vault.md)
 - [Przewodnik dewelopera Azure Key Vault](../general/developers-guide.md)
-- [Azure Key Vault najlepszych praktyk](../general/best-practices.md)
+- [Omówienie zabezpieczeń Key Vault](../general/security-overview.md)
 - [Uwierzytelnianie za pomocą Key Vault](../general/authentication.md)

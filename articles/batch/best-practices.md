@@ -3,12 +3,12 @@ title: Najlepsze rozwiązania
 description: Poznaj najlepsze rozwiązania i przydatne porady dotyczące tworzenia rozwiązań Azure Batch.
 ms.date: 12/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5c3521a3b5fe0dd9c2d1534f6e2a6864647f5da3
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 7e2a49c8307af89fb3898f5f2513fb493d0f5d90
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694177"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934292"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch najlepszych praktyk
 
@@ -24,6 +24,9 @@ W tym artykule omówiono zbiór najlepszych rozwiązań i przydatne porady dotyc
 ### <a name="pool-configuration-and-naming"></a>Konfiguracja puli i nazewnictwo
 
 - **Tryb alokacji puli** Podczas tworzenia konta usługi Batch można wybrać jeden z dwóch trybów alokacji puli: **Usługa Batch** lub **subskrypcja użytkownika**. W większości przypadków należy użyć domyślnego trybu usługi Batch, w którym pule są przyliczane w tle w ramach subskrypcji zarządzanych przez usługę Batch. W alternatywnym trybie subskrypcji użytkownika maszyny wirtualne i inne zasoby usługi Batch są tworzone bezpośrednio w Twojej subskrypcji po utworzeniu puli. Konta subskrypcji użytkowników są głównie używane do włączania ważnych, ale małych podzestawów scenariuszy. Więcej informacji na temat trybu subskrypcji użytkownika można znaleźć w [dodatkowej konfiguracji trybu subskrypcji użytkownika](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
+
+- **"cloudServiceConfiguration" lub "virtualMachineConfiguration".**
+    należy użyć "virtualMachineConfiguration". Wszystkie funkcje zadań wsadowych są obsługiwane przez pule "virtualMachineConfiguration". Nie wszystkie funkcje są obsługiwane dla pul "cloudServiceConfiguration" i nie są planowane żadne nowe możliwości.
 
 - **Podczas określania zadania do mapowania puli należy wziąć pod uwagę czas wykonywania zadania i zadania.**
     Jeśli zadania składają się głównie z zadań wykonywanych przed chwilą, a oczekiwana całkowita liczba zadań jest mała, w związku z czym ogólna oczekiwany czas wykonywania zadania nie jest długa, nie należy przydzielać nowej puli dla każdego zadania. Czas wykonywania tego zadania będzie zmniejszać czas ich alokacji.

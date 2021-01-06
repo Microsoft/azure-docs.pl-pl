@@ -3,14 +3,14 @@ title: Ograniczenia i limity subskrypcji platformy Azure
 description: Zawiera listę typowych limitów subskrypcji i usług platformy Azure, przydziałów i ograniczeń. Ten artykuł zawiera informacje o sposobach zwiększania limitów oraz wartości maksymalnych.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 4d56c5c3fd33d1cda05e23d5bc53e7540428671b
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 182df937ae5c0194aecfbe20b5962b44b363c708
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547852"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934484"
 ---
-# <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Limity subskrypcji i usług platformy Azure, przydziały i ograniczenia
+# <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Limity subskrypcji i usług, limity przydziału oraz ograniczenia platformy Azure
 
 Ten dokument zawiera listę najbardziej typowych limitów Microsoft Azure, które są również czasami nazywane przydziałami.
 
@@ -132,7 +132,7 @@ Aby uzyskać Azure Database for PostgreSQL limitów, zobacz [ograniczenia w Azur
 
 [!INCLUDE [functions-limits](../../../includes/functions-limits.md)]
 
-Aby uzyskać więcej informacji, zobacz temat [funkcje — porównanie planów hostingu](../../azure-functions/functions-scale.md#hosting-plans-comparison).
+Aby uzyskać więcej informacji, zobacz temat [funkcje — porównanie planów hostingu](../../azure-functions/functions-scale.md).
 
 ## <a name="azure-kubernetes-service-limits"></a>Limity usługi Azure Kubernetes
 
@@ -446,7 +446,7 @@ Istnieją limity dla każdej subskrypcji dotyczące wdrażania zasobów przy uż
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Informacje o limitach i ograniczeniach platformy Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 * [Rozmiary maszyn wirtualnych i usług w chmurze dla platformy Azure](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

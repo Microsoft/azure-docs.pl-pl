@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: jehollan
-ms.openlocfilehash: bed76a6f3a17332f9a1e411ff1d4efb52703f3e1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f4d7611f285535680469f3a334ab889b0b644bfe
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021004"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936881"
 ---
 # <a name="azure-functions-networking-options"></a>Opcje sieciowe usługi Azure Functions
 
@@ -21,9 +21,9 @@ Modele hostingu mają różne poziomy izolacji sieci. Wybranie odpowiedniej opcj
 Aplikacje funkcji można hostować na kilka sposobów:
 
 * Możesz wybrać spośród opcji planu, które są uruchamiane w infrastrukturze wielodostępnej, z różnymi poziomami łączności sieci wirtualnej i opcji skalowania:
-    * [Plan zużycia](functions-scale.md#consumption-plan) jest skalowany dynamicznie w odpowiedzi na obciążenie i oferuje minimalne opcje izolacji sieci.
-    * [Plan Premium](functions-scale.md#premium-plan) również skaluje się dynamicznie i oferuje bardziej kompleksową izolację sieci.
-    * [Plan App Service](functions-scale.md#app-service-plan) platformy Azure działa ze stałą skalą i oferuje izolację sieci podobną do planu Premium.
+    * [Plan zużycia](consumption-plan.md) jest skalowany dynamicznie w odpowiedzi na obciążenie i oferuje minimalne opcje izolacji sieci.
+    * [Plan Premium](functions-premium-plan.md) również skaluje się dynamicznie i oferuje bardziej kompleksową izolację sieci.
+    * [Plan App Service](dedicated-plan.md) platformy Azure działa ze stałą skalą i oferuje izolację sieci podobną do planu Premium.
 * Funkcje można uruchamiać w [App Service Environment](../app-service/environment/intro.md). Ta metoda wdraża funkcję w sieci wirtualnej i oferuje pełną kontrolę sieci i izolację.
 
 ## <a name="matrix-of-networking-features"></a>Macierz funkcji sieciowych
@@ -34,7 +34,7 @@ Aplikacje funkcji można hostować na kilka sposobów:
 
 Ograniczeń dostępu można użyć do zdefiniowania uporządkowanej według priorytetu listy adresów IP, które są dozwolone lub odrzucane przez dostęp do aplikacji. Lista może zawierać adresy IPv4 i IPv6 lub określone podsieci sieci wirtualnej, korzystając z [punktów końcowych usługi](#use-service-endpoints). W przypadku co najmniej jednego wpisu na końcu listy występuje niejawne "odmowa wszystkich". Ograniczenia adresów IP działają ze wszystkimi opcjami hostingu funkcji.
 
-Ograniczenia dostępu są dostępne w warstwach [Premium](functions-premium-plan.md), [zużycie](functions-scale.md#consumption-plan)i [App Service](functions-scale.md#app-service-plan).
+Ograniczenia dostępu są dostępne w warstwach [Premium](functions-premium-plan.md), [zużycie](consumption-plan.md)i [App Service](dedicated-plan.md).
 
 > [!NOTE]
 > W przypadku ograniczeń sieciowych można wdrożyć tylko z poziomu sieci wirtualnej lub po umieszczeniu adresu IP komputera, którego używasz, aby uzyskać dostęp do Azure Portal na liście bezpiecznych adresatów. Można jednak nadal zarządzać funkcją przy użyciu portalu.
@@ -128,7 +128,7 @@ Obecnie można używać funkcji wyzwalacza innego niż HTTP z poziomu sieci wirt
 
 ### <a name="premium-plan-with-virtual-network-triggers"></a>Plan Premium z wyzwalaczami sieci wirtualnej
 
-Po uruchomieniu planu Premium można połączyć funkcje wyzwalacza inne niż HTTP z usługami, które działają w sieci wirtualnej. W tym celu należy włączyć obsługę wyzwalacza sieci wirtualnej dla aplikacji funkcji. Ustawienie **monitorowania skali środowiska uruchomieniowego** znajduje się w [Azure Portal](https://portal.azure.com) w **Configuration** obszarze  >  **Ustawienia środowiska uruchomieniowego funkcji** konfiguracji.
+Po uruchomieniu planu Premium można połączyć funkcje wyzwalacza inne niż HTTP z usługami, które działają w sieci wirtualnej. W tym celu należy włączyć obsługę wyzwalacza sieci wirtualnej dla aplikacji funkcji. Ustawienie **monitorowania skali środowiska uruchomieniowego** znajduje się w [Azure Portal](https://portal.azure.com) w obszarze  >  **Ustawienia środowiska uruchomieniowego funkcji** konfiguracji.
 
 :::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 
@@ -143,7 +143,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 Wyzwalacze sieci wirtualnej są obsługiwane w wersji 2. x i powyżej środowiska uruchomieniowego funkcji. Obsługiwane są następujące typy wyzwalaczy inne niż HTTP.
 
-| Rozszerzenie | Minimalna wersja |
+| Wewnętrzny | Minimalna wersja |
 |-----------|---------| 
 |[Microsoft. Azure. WebJobs. Extensions. Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/) | 3.0.10 lub nowszy |
 |[Microsoft. Azure. WebJobs. Extensions. EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs)| 4.1.0 lub nowszy|
@@ -177,7 +177,7 @@ Ograniczenia wychodzącego adresu IP są dostępne w planie Premium, planie App 
 
 W przypadku integrowania aplikacji funkcji w planie Premium lub planu App Service z siecią wirtualną aplikacja nadal może domyślnie nawiązywać połączenia wychodzące do Internetu. Po dodaniu ustawienia aplikacji `WEBSITE_VNET_ROUTE_ALL=1` wymusisz, aby cały ruch wychodzący był wysyłany do sieci wirtualnej, w którym można używać zasad grupy zabezpieczeń sieci do ograniczania ruchu.
 
-## <a name="automation"></a>Automation
+## <a name="automation"></a>Automatyzacja
 Poniższe interfejsy API umożliwiają programowe zarządzanie integracją regionalnej sieci wirtualnej:
 
 + **Interfejs wiersza polecenia platformy Azure**: Użyj [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) poleceń, aby dodać, wyświetlić lub usunąć integrację regionalnej sieci wirtualnej.  

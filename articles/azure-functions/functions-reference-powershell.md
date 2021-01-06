@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
-ms.openlocfilehash: af9490433c344c712da55e9b29bf9df364380736
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 61ed3ed274505101c65e251260bd759fe78f7b31
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422539"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936791"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Przewodnik dewelopera programu Azure Functions PowerShell
 
@@ -53,7 +53,7 @@ W katalogu głównym projektu znajduje się plik udostępniony, za pomocą [`hos
 
 Niektóre powiązania wymagają obecności `extensions.csproj` pliku. Rozszerzenia powiązań wymagane w [wersji 2. x i nowszych wersjach](functions-versions.md) środowiska uruchomieniowego funkcji są zdefiniowane w `extensions.csproj` pliku z rzeczywistymi plikami biblioteki w `bin` folderze. Podczas programowania lokalnego należy [zarejestrować rozszerzenia powiązań](functions-bindings-register.md#extension-bundles). Podczas tworzenia funkcji w Azure Portal Rejestracja jest wykonywana.
 
-W aplikacjach funkcji programu PowerShell możesz opcjonalnie mieć, `profile.ps1` które są uruchamiane, gdy rozpocznie się uruchamianie aplikacji funkcji (w przeciwnym razie jako *[zimny start](#cold-start)* ). Aby uzyskać więcej informacji, zobacz [profil programu PowerShell](#powershell-profile).
+W aplikacjach funkcji programu PowerShell możesz opcjonalnie mieć, `profile.ps1` które są uruchamiane, gdy rozpocznie się uruchamianie aplikacji funkcji (w przeciwnym razie jako *[zimny start](#cold-start)*). Aby uzyskać więcej informacji, zobacz [profil programu PowerShell](#powershell-profile).
 
 ## <a name="defining-a-powershell-script-as-a-function"></a>Definiowanie skryptu programu PowerShell jako funkcji
 
@@ -388,7 +388,7 @@ W poniższej tabeli przedstawiono wersje programu PowerShell dostępne dla każd
 
 | Wersja funkcji | Wersja programu PowerShell                               | Wersja platformy .NET  | 
 |-------------------|--------------------------------------------------|---------------|
-| 3. x (zalecane) | PowerShell 7 (zalecane)<br/>Program PowerShell Core 6 | .NET Core 3,1<br/>.NET Core 2.1 |
+| 3. x (zalecane) | PowerShell 7 (zalecane)<br/>Program PowerShell Core 6 | .NET Core 3.1<br/>.NET Core 2.1 |
 | 2.x               | Program PowerShell Core 6                                | .NET Core 2.2 |
 
 Bieżącą wersję można zobaczyć, drukując ją `$PSVersionTable` z dowolnej funkcji.
@@ -424,7 +424,7 @@ Aby zmienić wersję programu PowerShell używaną przez aplikację funkcji, nal
 
 1. Wybierz żądaną **wersję rdzenia programu PowerShell** i wybierz pozycję **Zapisz**. Po wyświetleniu ostrzeżenia o oczekującym ponownym uruchomieniu wybierz pozycję **Kontynuuj**. Aplikacja funkcji jest uruchamiana ponownie w wybranej wersji programu PowerShell. 
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 Uruchom następujący skrypt, aby zmienić wersję programu PowerShell: 
 
@@ -525,7 +525,7 @@ Proces roboczy języka programu PowerShell często korzysta z kilku modułów. T
 Bieżąca lista modułów jest następująca:
 
 * [Microsoft. PowerShell. Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive): moduł używany do pracy z archiwami, takimi jak `.zip` , `.nupkg` i innymi.
-* **ThreadJob** : implementacja oparta na wątkach interfejsów API zadań programu PowerShell.
+* **ThreadJob**: implementacja oparta na wątkach interfejsów API zadań programu PowerShell.
 
 Domyślnie funkcje używają najnowszej wersji tych modułów. Aby użyć określonej wersji modułu, należy umieścić tę określoną wersję w `Modules` folderze aplikacji funkcji.
 
@@ -649,11 +649,11 @@ Podczas pracy z funkcjami programu PowerShell należy pamiętać o zagadnieniach
 
 ### <a name="cold-start"></a>Zimne uruchomienie
 
-Podczas opracowywania Azure Functions w [modelu hostingu bezserwerowego](functions-scale.md#consumption-plan)zimny start jest rzeczywistości. *Zimny start* odnosi się do okresu czasu potrzebnego na uruchomienie aplikacji funkcji w celu przetworzenia żądania. Zimny przebieg występuje częściej od planu zużycia, ponieważ aplikacja funkcji jest zamykana w okresach braku aktywności.
+Podczas opracowywania Azure Functions w [modelu hostingu bezserwerowego](consumption-plan.md)zimny start jest rzeczywistości. *Zimny start* odnosi się do okresu czasu potrzebnego na uruchomienie aplikacji funkcji w celu przetworzenia żądania. Zimny przebieg występuje częściej od planu zużycia, ponieważ aplikacja funkcji jest zamykana w okresach braku aktywności.
 
 ### <a name="bundle-modules-instead-of-using-install-module"></a>Moduły pakietu zamiast używania `Install-Module`
 
-Skrypt jest uruchamiany na każdym wywołaniu. Unikaj używania `Install-Module` w skrypcie. Zamiast tego należy użyć `Save-Module` przed opublikowaniem, aby funkcja nie mogła tracić czasu na pobranie modułu. Jeśli zimne uruchomienie ma wpływ na funkcje, warto rozważyć wdrożenie aplikacji funkcji w planie [App servicem](functions-scale.md#app-service-plan) ustawionym na *zawsze włączony* lub do [planu Premium](functions-scale.md#premium-plan).
+Skrypt jest uruchamiany na każdym wywołaniu. Unikaj używania `Install-Module` w skrypcie. Zamiast tego należy użyć `Save-Module` przed opublikowaniem, aby funkcja nie mogła tracić czasu na pobranie modułu. Jeśli zimne uruchomienie ma wpływ na funkcje, warto rozważyć wdrożenie aplikacji funkcji w planie [App servicem](dedicated-plan.md) ustawionym na *zawsze włączony* lub do [planu Premium](functions-premium-plan.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

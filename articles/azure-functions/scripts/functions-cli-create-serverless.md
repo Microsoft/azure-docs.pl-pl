@@ -6,16 +6,16 @@ ms.topic: sample
 ms.date: 07/03/2018
 ms.author: glenga
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: e5fa6b5a25b07585e3c0ea07fb4a361ab82a9815
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 3a52d7ea8c940a33f4fbd2b9ad69f4f889615e7f
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565107"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934343"
 ---
 # <a name="create-a-function-app-for-serverless-code-execution"></a>Tworzenie aplikacji funkcji do bezserwerowego wykonywania kodu 
 
-Ten przykładowy skrypt usługi Azure Functions tworzy aplikację funkcji, która jest kontenerem dla funkcji. Aplikacja funkcji jest tworzona przy użyciu [planu zużycia](../functions-scale.md#consumption-plan), który jest idealnym rozwiązaniem w przypadku obciążeń bezserwerowych sterowanych zdarzeniami.
+Ten przykładowy skrypt usługi Azure Functions tworzy aplikację funkcji, która jest kontenerem dla funkcji. Aplikacja funkcji jest tworzona przy użyciu [planu zużycia](../consumption-plan.md), który jest idealnym rozwiązaniem w przypadku obciążeń bezserwerowych sterowanych zdarzeniami.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -25,7 +25,7 @@ Ten przykładowy skrypt usługi Azure Functions tworzy aplikację funkcji, któr
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
-Ten skrypt tworzy aplikację funkcji platformy Azure przy użyciu [planu zużycia](../functions-scale.md#consumption-plan).
+Ten skrypt tworzy aplikację funkcji platformy Azure przy użyciu [planu zużycia](../consumption-plan.md).
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-consumption/create-function-app-consumption.sh "Create an Azure Function on a Consumption plan")]
 

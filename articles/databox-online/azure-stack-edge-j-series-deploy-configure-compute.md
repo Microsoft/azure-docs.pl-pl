@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/28/2020
+ms.date: 01/05/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 75428b28095b0e425a1670caffcf960aa6ae58f6
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 28b5c107fb35c7bda9b1680050b92004436b98ff
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185508"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935503"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro"></a>Samouczek: Przekształcanie danych za pomocą Azure Stack EDGE Pro
 
@@ -25,7 +25,7 @@ W tym samouczku opisano sposób konfigurowania roli obliczeniowej na urządzeniu
 Wykonanie tej procedury może potrwać około 10 do 15 minut.
 
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Konfigurowanie obliczeń
@@ -37,7 +37,6 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed skonfigurowaniem roli obliczeniowej na urządzeniu z systemem Azure Stack EDGE Pro upewnij się, że:
-
 - Twoje urządzenie Azure Stack EDGE Pro zostało aktywowane zgodnie z opisem w artykule [aktywuj Azure Stack EDGE Pro](azure-stack-edge-gpu-deploy-activate.md).
 
 
@@ -45,36 +44,36 @@ Przed skonfigurowaniem roli obliczeniowej na urządzeniu z systemem Azure Stack 
 
 W celu skonfigurowania obliczeń na Azure Stack EDGE Pro utworzysz zasób IoT Hub.
 
-1. W Azure Portal Azure Stack zasobów brzegowych przejdź do **omówienia**. W okienku po prawej stronie na kafelku **Oblicz** wybierz pozycję **Rozpocznij**.
+1. W Azure Portal Azure Stack zasobów brzegowych przejdź do **omówienia** i wybierz pozycję **IoT Edge**.
 
-    ![Wprowadzenie do obliczeń](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-1.png)
+   ![Wprowadzenie do obliczeń](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-1.png)
 
-2. Na kafelku **Konfigurowanie obliczeń krawędzi** wybierz pozycję **Konfiguruj obliczenia**.
+2. W obszarze **Włączanie usługi IoT Edge** wybierz pozycję **Dodaj**.
 
-    ![Konfigurowanie obliczeń](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-2.png)
+   ![Konfigurowanie obliczeń](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-2.png)
 
-3. W bloku **Konfigurowanie obliczeń krawędzi** wprowadź następujące dane:
+3. W obszarze **Tworzenie usługi IoT Edge** wprowadź ustawienia dla zasobu IoT Hub:
 
-   
-    |Pole  |Wartość  |
-    |---------|---------|
-    |Usługa IoT Hub     | Wybierz pozycję **Nowy** lub **istniejący**. <br> Domyślnie warstwa standardowa (S1) jest używana do tworzenia zasobu IoT. Aby użyć zasobu IoT warstwy Bezpłatna, utwórz go, a następnie wybierz istniejący zasób. <br> W każdym przypadku zasób IoT Hub używa tej samej subskrypcji i grupy zasobów, która jest używana przez zasób Azure Stack Edge.     |
-    |Nazwa     |Wprowadź nazwę dla zasobu IoT Hub.         |
+   |Pole   |Wartość    |
+   |--------|---------|
+   |Subskrypcja      | Subskrypcja używana przez zasób Azure Stack Edge. |
+   |Grupa zasobów    | Grupa zasobów używana przez zasób Azure Stack Edge. |
+   |Usługa IoT Hub           | Wybierz opcję **Utwórz nową** lub **Użyj istniejącej**. <br> Domyślnie warstwa standardowa (S1) jest używana do tworzenia zasobu IoT. Aby użyć zasobu IoT warstwy Bezpłatna, utwórz go, a następnie wybierz istniejący zasób. <br> W każdym przypadku zasób IoT Hub używa tej samej subskrypcji i grupy zasobów, która jest używana przez zasób Azure Stack Edge.     |
+   |Nazwa              | Jeśli nie chcesz używać domyślnej nazwy podanej dla nowego zasobu IoT Hub, wprowadź inną nazwę. |
 
     ![Wprowadzenie do obliczeń obliczeniowych 2](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
 
-4. Wybierz przycisk **Utwórz**. Tworzenie zasobów IoT Hub trwa kilka minut. Po utworzeniu zasobu IoT Hub, **Skonfiguruj kafelek Oblicz** aktualizacje, aby pokazać konfigurację obliczeń. 
+4. Po zakończeniu ustawień wybierz pozycję **Przegląd + Utwórz**. Sprawdź ustawienia zasobu IoT Hub i wybierz pozycję **Utwórz**.
+
+   Tworzenie zasobów dla zasobu IoT Hub trwa kilka minut. Po utworzeniu zasobu **Przegląd** wskazuje, że usługa IoT Edge jest teraz uruchomiona.
 
     ![Wprowadzenie do obliczeń obliczeniowych 3](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-4.png)
 
-5. Aby upewnić się, że skonfigurowano rolę obliczeniową brzegową, wybierz pozycję **Wyświetl obliczenia** na kafelku **Konfiguruj obliczenia** .
-    
-    ![Wprowadzenie do obliczeń obliczeniowych 4](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
+5. Aby upewnić się, że skonfigurowano rolę obliczeń brzegowych, wybierz pozycję **Właściwości**.
 
-    > [!NOTE]
-    > Jeśli okno dialogowe **Konfigurowanie obliczeń** zostanie zamknięte przed skojarzeniem IoT Hub z urządzeniem z programem Azure Stack EDGE Pro, IoT Hub zostanie utworzona, ale nie zostanie pokazany w konfiguracji obliczeniowej. 
-    
-    Po skonfigurowaniu roli funkcji obliczeniowej Edge na urządzeniu Edge tworzone są dwa urządzenia: urządzenie IoT i urządzenie IoT Edge. Oba urządzenia można wyświetlić w zasobie usługi IoT Hub. Środowisko uruchomieniowe IoT Edge jest również uruchomione na tym urządzeniu IoT Edge. W chwili obecnej dla urządzenia IoT Edge jest dostępna tylko platforma Linux.
+   ![Wprowadzenie do obliczeń obliczeniowych 4](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
+
+   Po skonfigurowaniu roli funkcji obliczeniowej Edge na urządzeniu Edge tworzone są dwa urządzenia: urządzenie IoT i urządzenie IoT Edge. Oba urządzenia można wyświetlić w zasobie usługi IoT Hub. Środowisko uruchomieniowe IoT Edge jest również uruchomione na tym urządzeniu IoT Edge. W chwili obecnej dla urządzenia IoT Edge jest dostępna tylko platforma Linux.
 
 
 ## <a name="add-shares"></a>Dodaj udziały
@@ -94,11 +93,11 @@ W przypadku prostego wdrażania w tym samouczku potrzebne są dwa udziały: jede
 
         ![Dodawanie udziału brzegowego](./media/azure-stack-edge-j-series-deploy-configure-compute/add-edge-share-1.png) 
 
-    Jeśli utworzono lokalny udział NFS, użyj następującej opcji synchronizacji zdalnej (rsync), aby skopiować pliki do udziału:
+    Jeśli utworzono lokalny udział NFS, użyj następującej opcji polecenia Remote Sync ( `rsync` ), aby skopiować pliki do udziału:
 
     `rsync <source file path> < destination file path>`
 
-    Aby uzyskać więcej informacji o `rsync` poleceniu, przejdź do [dokumentacji rsync](https://www.computerhope.com/unix/rsync.htm).
+    Aby uzyskać więcej informacji o `rsync` poleceniu, przejdź do [ `Rsync` dokumentacji](https://www.computerhope.com/unix/rsync.htm).
 
     > [!NOTE]
     > Aby można było zainstalować udział NFS w ramach obliczeń, Sieć obliczeniowa musi być skonfigurowana w tej samej podsieci co wirtualny adres IP systemu plików NFS. Aby uzyskać szczegółowe informacje na temat konfigurowania sieci obliczeniowej, przejdź do pozycji [Włącz sieć obliczeniową w Azure Stack Edge](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
@@ -154,15 +153,15 @@ Wykonaj poniższe kroki, aby sprawdzić, czy moduł jest uruchomiony:
  
 1. W Eksploratorze plików Połącz się z utworzonymi wcześniej udziałami lokalnymi i krawędziami krawędzi.
 
-    ![Weryfikowanie przekształcania danych](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-2.png) 
+    ![Weryfikowanie przekształcenia danych-1](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-2.png) 
  
 1. Dodaj dane do udziału lokalnego.
 
-    ![Weryfikowanie przekształcania danych](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-3.png) 
+    ![Weryfikowanie przekształcenia danych-2](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-3.png) 
  
    Dane zostaną przeniesione do udziału chmurowego.
 
-    ![Weryfikowanie przekształcania danych](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-4.png)  
+    ![Weryfikowanie przekształcenia danych-3](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-4.png)  
 
    Następnie dane zostaną wypchnięte z udziału chmurowego na konto magazynu. Aby wyświetlić dane, można użyć Eksplorator usługi Storage.
 

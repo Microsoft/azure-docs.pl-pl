@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 1/04/2021
+ms.date: 1/05/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 6f95b4eca8dbaf6cfaa7546fddada7577a1541b3
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 4674fe41a0e3d63ef0cadc6ad55eca02fc69618e
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916256"
+ms.locfileid: "97935907"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Instrukcje: dostarczanie opcjonalnych oświadczeń do aplikacji
 
@@ -94,7 +94,7 @@ Niektóre ulepszenia formatu tokenu v2 są dostępne dla aplikacji korzystający
 
 | Claim JWT     | Nazwa                            | Opis | Uwagi |
 |---------------|---------------------------------|-------------|-------|
-|`aud`          | Grupy odbiorców | Zawsze występuje w JWTs, ale w tokenach dostępu w wersji 1 może być emitowane na różne sposoby, co może być trudne do kodu w przypadku przeprowadzania walidacji tokenu.  Użyj [dodatkowych właściwości tego żądania](#additional-properties-of-optional-claims) , aby upewnić się, że jest on zawsze ustawiony na identyfikator GUID w tokenach dostępu w wersji 1. | tylko tokeny dostępu JWT w wersji 1|
+|`aud`          | Grupy odbiorców | Zawsze występuje w JWTs, ale w tokenach dostępu w wersji 1 może być emitowane na różne sposoby — dowolnego identyfikatora URI appID, z lub bez końcowego ukośnika, a także identyfikatora klienta zasobu. To Generowanie losowe może być trudne do kodu przed wykonaniem walidacji tokenu.  Użyj [dodatkowych właściwości tego żądania](#additional-properties-of-optional-claims) , aby upewnić się, że jest on zawsze ustawiony na identyfikator klienta zasobu w tokenach dostępu w wersji 1. | tylko tokeny dostępu JWT w wersji 1|
 |`preferred_username` | Preferowana nazwa użytkownika        | Zapewnia nazwę preferowanego żądania username w ramach tokenów v1. Ułatwia to aplikacjom udostępnianie wskazówek dotyczących nazwy użytkownika i wyświetlanie nazw wyświetlanych przez człowieka, niezależnie od ich typu tokenu.  Zaleca się użycie tego opcjonalnego zgłoszenia zamiast używania np. `upn` lub `unique_name` . | tokeny i tokeny dostępu w wersji 1 |
 
 ### <a name="additional-properties-of-optional-claims"></a>Dodatkowe właściwości oświadczeń opcjonalnych
@@ -108,8 +108,8 @@ Niektóre opcjonalne oświadczenia można skonfigurować w celu zmiany sposobu z
 | `upn`          |                          | Może być używany w przypadku odpowiedzi SAML i JWT oraz dla tokenów v 1.0 i v 2.0. |
 |                | `include_externally_authenticated_upn`  | Zawiera nazwę UPN gościa przechowywaną w dzierżawie zasobów. Na przykład `foo_hometenant.com#EXT#@resourcetenant.com` |
 |                | `include_externally_authenticated_upn_without_hash` | Tak samo jak powyżej, z tą różnicą, że znaki hash ( `#` ) są zastępowane znakami podkreślenia ( `_` ), na przykład `foo_hometenant.com_EXT_@resourcetenant.com`|
-| `aud`          |                          | W tokenach dostępu w wersji 1 jest używany do zmiany formatu `aud` żądania.  Nie ma to wpływu na tokeny w wersji 2 lub tokeny identyfikatorów, gdzie wartość tego `aud` żądania to zawsze identyfikator klienta. W tym celu należy się upewnić, że interfejs API może łatwiej wykonywać walidację odbiorców. Podobnie jak wszystkie opcjonalne oświadczenia, które wpływają na token dostępu, zasób w żądaniu musi ustawić to oświadczenie opcjonalne, ponieważ zasoby są właścicielami tokenu dostępu.|
-|                | `use_guid`               | Emituje identyfikator klienta zasobu (API) w formacie identyfikatora GUID jako jako rolę `aud` żądania, a nie identyfikator URI identyfikatora aplikacji lub identyfikatora GUID. Dlatego jeśli identyfikator klienta zasobu to `bb0a297b-6a42-4a55-ac40-09a501456577` , każda aplikacja, która żąda tokenu dostępu do tego zasobu, otrzyma token dostępu z `aud` : `bb0a297b-6a42-4a55-ac40-09a501456577` .|
+| `aud`          |                          | W tokenach dostępu w wersji 1 jest używany do zmiany formatu `aud` żądania.  Nie ma to wpływu na tokeny w wersji 2 lub tokeny identyfikatorów, gdzie wartość tego `aud` żądania to zawsze identyfikator klienta. Użyj tej konfiguracji, aby upewnić się, że interfejs API może łatwiej wykonywać walidację odbiorców. Podobnie jak wszystkie opcjonalne oświadczenia, które wpływają na token dostępu, zasób w żądaniu musi ustawić to oświadczenie opcjonalne, ponieważ zasoby są właścicielami tokenu dostępu.|
+|                | `use_guid`               | Emituje identyfikator klienta zasobu (API) w formacie GUID jako rolę `aud` zawsze, zamiast w zależności od środowiska uruchomieniowego. Na przykład jeśli zasób ustawi tę flagę, a jej identyfikator klienta to `bb0a297b-6a42-4a55-ac40-09a501456577` , każda aplikacja, która żąda tokenu dostępu do tego zasobu, otrzyma token dostępu z `aud` : `bb0a297b-6a42-4a55-ac40-09a501456577` . </br></br> Bez tego zestawu roszczeń interfejs API może uzyskać tokeny z `aud` zastrzeżeniem `api://MyApi.com` `api://MyApi.com/` `api://myapi.com/AdditionalRegisteredField` lub inną wartością ustawioną jako identyfikator URI aplikacji dla tego interfejsu API, a także identyfikator klienta zasobu. |
 
 #### <a name="additional-properties-example"></a>Przykład dodatkowych właściwości
 
@@ -272,7 +272,7 @@ W tej sekcji omówiono opcje konfiguracji w obszarze opcjonalne oświadczenia do
    - "DirectoryRole"
    - "Aplikacja" (Ta opcja obejmuje tylko grupy, które są przypisane do aplikacji)
 
-   Na przykład:
+   Przykład:
 
     ```json
     "groupMembershipClaims": "SecurityGroup"

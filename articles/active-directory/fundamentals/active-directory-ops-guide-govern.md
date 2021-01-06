@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: d4df373f78a9c74584d0e4046f7532a2190f3a3f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ba3ca140abe36a31ffa03422420ea537bbe4f39a
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370971"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935754"
 ---
 # <a name="azure-active-directory-governance-operations-reference-guide"></a>Przewodnik dotyczący referencyjnych operacji ładu Azure Active Directory
 
@@ -59,7 +59,7 @@ Istnieją zmiany, które wymagają specjalnych zagadnień podczas testowania, od
 | Scenariusz| Zalecenie |
 |-|-|
 |Zmiana typu uwierzytelniania z federacyjnego na PHS/PTA lub odwrotnie| Użyj [wdrożenia etapowego](../hybrid/how-to-connect-staged-rollout.md) , aby przetestować wpływ zmiany typu uwierzytelniania.|
-|Wdrażanie nowych zasad dostępu warunkowego (CA) lub zasad ochrony tożsamości|Utwórz nowe zasady urzędu certyfikacji i przypisz je do użytkowników testowych.|
+|Wdrażanie nowych zasad dostępu warunkowego (CA) lub zasad ochrony tożsamości|Utwórz nowe zasady dostępu warunkowego i przypisz je do użytkowników testowych.|
 |Dołączanie środowiska testowego aplikacji|Dodaj aplikację do środowiska produkcyjnego, Ukryj ją z poziomu panelu Moje aplikacje i przypisz ją do użytkowników testowych w fazie oceny jakości (pytań i odpowiedzi).|
 |Zmiana reguł synchronizacji|Wykonaj zmiany w Azure AD Connect testowym z tą samą konfiguracją, która jest obecnie w środowisku produkcyjnym, znana także jako tryb przejściowy, i analizuj wyniki CSExport. Jeśli są spełnione, Zamień na produkcję produkcyjną, gdy jest gotowa.|
 |Zmiana marki|Przetestuj w oddzielnym dzierżawie testowej.|

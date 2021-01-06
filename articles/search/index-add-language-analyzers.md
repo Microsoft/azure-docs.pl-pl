@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.openlocfilehash: ca5f237585f74225a04091b5694dbfad12864332
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 555709776c88dd3003e400bbcefe2ec1cfa0f4af
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656040"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934173"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Dodawanie analizatorów języka do pól ciągów w indeksie Wyszukiwanie poznawcze platformy Azure
 
@@ -68,9 +68,9 @@ Aby uzyskać więcej informacji o właściwościach indeksu, zobacz [create inde
 ## <a name="language-analyzer-list"></a>Lista analizatorów języka 
  Poniżej znajduje się lista obsługiwanych języków razem z nazwami Lucene i Microsoft Analyzer.  
 
-| Język | Nazwa analizatora firmy Microsoft | Nazwa analizatora Lucene |  |
-|--|--|--|--|
-| Arabski | ar. Microsoft | ar. Lucene |  |
+| Język | Nazwa analizatora firmy Microsoft | Nazwa analizatora Lucene |
+|--|--|--|
+| Arabski | ar. Microsoft | ar. Lucene |
 | Armeński |  | HY. Lucene |  |
 | Języku | mld USD. Microsoft |  |  |
 | Baskijski |  | UE. Lucene |  |
@@ -129,7 +129,7 @@ Aby uzyskać więcej informacji o właściwościach indeksu, zobacz [create inde
 
  Wszystkie analizatory z nazwami oznaczonymi jako " **Lucene** " są obsługiwane przez [analizatory języka Apache Lucene](https://lucene.apache.org/core/6_6_1/core/overview-summary.html ).
 
-## <a name="see-also"></a>Zobacz także  
+## <a name="see-also"></a>Zobacz też  
 
 + [Utwórz indeks &#40;interfejsu API REST usługi Azure Wyszukiwanie poznawcze&#41;](/rest/api/searchservice/create-index)  
 

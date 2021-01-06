@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/04/2021
+ms.date: 01/05/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Mini R device so I can use it to transfer data to Azure.
-ms.openlocfilehash: 03b4ed41b3110825d4e4797f2c5f733152504919
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 4535368b7d8d044469a4b0effee914176aca78e4
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913791"
+ms.locfileid: "97935411"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-mini-r"></a>Samouczek: przygotowanie do wdrożenia Azure Stack Edge mini R
 
@@ -101,7 +101,7 @@ Aby utworzyć zasób Azure Stack Edge, wykonaj następujące czynności w Azure 
     [![Tworzenie zasobu 2](media/azure-stack-edge-mini-r-deploy-prep/create-resource-2.png)](media/azure-stack-edge-mini-r-deploy-prep/create-resource-2.png#lightbox)
 
 
-6. Na karcie **podstawowe** wprowadź lub wybierz poniższe **szczegóły projektu**.
+5. Na karcie **podstawowe** wprowadź lub wybierz poniższe **szczegóły projektu**.
     
     |Ustawienie  |Wartość  |
     |---------|---------|
@@ -109,7 +109,7 @@ Aby utworzyć zasób Azure Stack Edge, wykonaj następujące czynności w Azure 
     |Grupa zasobów  |Wybierz istniejącą grupę lub utwórz nową.<br>Dowiedz się więcej o [grupach zasobów platformy Azure](../azure-resource-manager/management/overview.md).     |
 
 
-7. Wprowadź lub wybierz następujące **szczegóły wystąpienia**.
+6. Wprowadź lub wybierz następujące **szczegóły wystąpienia**.
 
     |Ustawienie  |Wartość  |
     |---------|---------|
@@ -119,25 +119,25 @@ Aby utworzyć zasób Azure Stack Edge, wykonaj następujące czynności w Azure 
     ![Tworzenie zasobu 4](media/azure-stack-edge-mini-r-deploy-prep/create-resource-4.png)
 
 
-8. Wybierz pozycję **Dalej: adres wysyłkowy**.
+7. Wybierz pozycję **Dalej: adres wysyłkowy**.
 
     - Jeśli masz już urządzenie, zaznacz pole kombi, dla którego **masz już urządzenie**.
 
-        ![Tworzenie zasobu 5](media/azure-stack-edge-mini-r-deploy-prep/create-resource-5.png)
+     ![Tworzenie zasobu 5](media/azure-stack-edge-mini-r-deploy-prep/create-resource-5.png)
 
     - Jeśli jest to nowe urządzenie, które ma być uporządkowane, wprowadź nazwę kontaktu, firmę, adres, na który ma zostać wydane urządzenie, i informacje kontaktowe.
 
-        ![Tworzenie zasobu 6](media/azure-stack-edge-mini-r-deploy-prep/create-resource-6.png)
+     ![Tworzenie zasobu 6](media/azure-stack-edge-mini-r-deploy-prep/create-resource-6.png)
 
-9. Wybierz pozycję **Dalej: Tagi**. Opcjonalnie możesz podać znaczniki kategoryzacji zasobów i skonsolidować rozliczenia. Wybierz pozycję **Dalej: Przeglądanie i tworzenie**.
+8. Wybierz pozycję **Dalej: Tagi**. Opcjonalnie możesz podać znaczniki kategoryzacji zasobów i skonsolidować rozliczenia. Wybierz pozycję **Dalej: Przeglądanie i tworzenie**.
 
-10. Na karcie **Recenzja + tworzenie** Przejrzyj **szczegóły cennika**, **warunki użytkowania** i szczegóły dotyczące zasobu. Zaznacz pole kombi dla **zrecenzowanych warunków zachowania poufności informacji**.
+9. Na karcie **Recenzja + tworzenie** Przejrzyj **szczegóły cennika**, **warunki użytkowania** i szczegóły dotyczące zasobu. Zaznacz pole kombi dla **zrecenzowanych warunków zachowania poufności informacji**.
 
     ![Tworzenie zasobu 7](media/azure-stack-edge-mini-r-deploy-prep/create-resource-7.png)
 
     Zostanie również powiadomiony o tym, że podczas tworzenia zasobów jest włączone tożsamość usługi zarządzanej (MSI), które umożliwia uwierzytelnianie w usługach w chmurze. Ta tożsamość istnieje pod warunkiem, że istnieje zasób.
 
-8. Wybierz przycisk **Utwórz**.
+10. Wybierz przycisk **Utwórz**.
 
     Tworzenie zasobu trwa kilka minut. Tworzony jest również plik MSI, który umożliwia Azure Stack urządzeniu brzegowego komunikowanie się z dostawcą zasobów na platformie Azure.
     
@@ -153,19 +153,19 @@ Aby utworzyć zasób Azure Stack Edge, wykonaj następujące czynności w Azure 
 
 Po rozpoczęciu i uruchomieniu Azure Stack brzegowej należy uzyskać klucz aktywacji. Ten klucz służy do uaktywniania i łączenia urządzenia Azure Stack Edge mini R z zasobem. Ten klucz można uzyskać już teraz za pośrednictwem witryny Azure Portal.
 
-1. Wybierz utworzony zasób. Wybierz pozycję **Przegląd** , a następnie wybierz pozycję **Konfiguracja urządzenia**.
+1. Wybierz utworzony zasób, a następnie wybierz pozycję **Przegląd**.
 
-    ![Wybierz konfigurację urządzenia](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-2.png)
+   ![Wybierz konfigurację urządzenia](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-2.png)
 
 2. Na kafelku **Aktywuj** Podaj nazwę dla Azure Key Vault lub zaakceptuj nazwę domyślną. Nazwa magazynu kluczy może mieć długość od 3 do 24 znaków. 
 
     Magazyn kluczy jest tworzony dla każdego zasobu usługi Azure Stack Edge, który został aktywowany z urządzeniem. Magazyn kluczy umożliwia przechowywanie kluczy tajnych i uzyskiwanie do nich dostępu. Na przykład klucz integralności kanału (CIK) dla usługi jest przechowywany w magazynie kluczy.
 
-    Po określeniu nazwy magazynu kluczy wybierz pozycję **Generuj klucz** , aby utworzyć klucz aktywacji. 
+    Po określeniu nazwy magazynu kluczy wybierz pozycję **Generuj klucz aktywacji** , aby utworzyć klucz aktywacji.
 
     [![Pobieranie klucza aktywacji](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-3.png)](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-3.png#lightbox)
 
-    Poczekaj kilka minut, aż zostanie utworzony magazyn kluczy i klucz aktywacji. Wybierz ikonę kopiowania, aby skopiować klucz i zapisać go do użytku w przyszłości.
+    Poczekaj kilka minut, gdy zostanie utworzony magazyn kluczy i klucz aktywacji. Wybierz ikonę kopiowania, aby skopiować klucz i zapisać go do użytku w przyszłości.
 
 > [!IMPORTANT]
 > - Klucz aktywacji wygasa po trzech dniach od jego wygenerowania.

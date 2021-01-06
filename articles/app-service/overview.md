@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 07/06/2020
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: e9c49d472f6cf0b9f0e5b3e2f7728417034059b1
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: d59dfe5b0fe3268dcda20fbc83aa31bba8a8713b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007097"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936213"
 ---
 # <a name="app-service-overview"></a>Omówienie usługi App Service
 
@@ -45,6 +45,12 @@ App Service mogą również hostować aplikacje sieci Web w systemie Linux w prz
 ### <a name="built-in-languages-and-frameworks"></a>Wbudowane Języki i struktury
 
 App Service w systemie Linux obsługuje wiele wbudowanych obrazów specyficznych dla języka. Po prostu Wdróż swój kod. Obsługiwane języki to: Node.js, Java (JRE 8 & JRE 11), PHP, Python, .NET Core i Ruby. Uruchom, [`az webapp list-runtimes --linux`](/cli/azure/webapp#az-webapp-list-runtimes) Aby wyświetlić najnowsze Języki i obsługiwane wersje. Jeśli środowisko uruchomieniowe wymagane przez aplikację nie jest obsługiwane w wbudowanych obrazach, można je wdrożyć z kontenerem niestandardowym.
+
+Nieaktualne środowiska uruchomieniowe są okresowo usuwane z Web Apps tworzenia i konfigurowania bloków w portalu. Te środowiska uruchomieniowe są ukryte w portalu, gdy są przestarzałe przez organizację utrzymującą lub wykryte w celu uzyskania znaczących luk w zabezpieczeniach. Te opcje są ukryte, aby zapewnić klientom najnowsze środowiska uruchomieniowe, w których będą najbardziej pomyślne. 
+
+Gdy nieaktualne środowisko uruchomieniowe jest ukryte w portalu, wszystkie istniejące witryny korzystające z tej wersji będą nadal działać. Jeśli środowisko uruchomieniowe zostanie całkowicie usunięte z platformy App Service, właściciele subskrypcji platformy Azure otrzymają wiadomość e-mail przed usunięciem.
+
+Jeśli musisz utworzyć inną aplikację sieci Web z nieaktualną wersją środowiska uruchomieniowego, która nie jest już wyświetlana w portalu, zobacz przewodniki dotyczące konfiguracji języka, aby uzyskać instrukcje dotyczące sposobu uzyskania wersji środowiska uruchomieniowego. Za pomocą interfejsu wiersza polecenia platformy Azure można utworzyć inną lokację przy użyciu tego samego środowiska uruchomieniowego. Alternatywnie możesz użyć przycisku **Eksportuj szablon** w bloku aplikacji sieci Web w portalu, aby wyeksportować szablon ARM lokacji. Możesz ponownie użyć tego szablonu, aby wdrożyć nową lokację z tym samym środowiskiem uruchomieniowym i konfiguracją.
 
 ### <a name="limitations"></a>Ograniczenia
 

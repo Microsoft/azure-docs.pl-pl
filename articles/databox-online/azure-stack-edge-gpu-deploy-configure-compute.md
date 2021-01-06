@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/28/2020
+ms.date: 01/05/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 711da24b3edf08f4867109d0d70165955236c39a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c884ad6850b8f94baa7c658d685651c3241be33f
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184658"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935690"
 ---
 # <a name="tutorial-configure-compute-on-azure-stack-edge-pro-gpu-device"></a>Samouczek: Konfigurowanie obliczeń na urządzeniach z procesorem GPU w Azure Stack Edge
 
@@ -25,7 +25,7 @@ W tym samouczku opisano, jak skonfigurować rolę obliczeniową i utworzyć klas
 Wykonanie tej procedury może potrwać od 20 do 30 minut.
 
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Konfigurowanie obliczeń
@@ -45,40 +45,38 @@ Przed skonfigurowaniem roli obliczeniowej na urządzeniu z systemem Azure Stack 
 
 W celu skonfigurowania obliczeń na Azure Stack EDGE Pro utworzysz zasób IoT Hub za pośrednictwem Azure Portal.
 
-1. W Azure Portal Azure Stack zasobów brzegowych przejdź do **omówienia**. W okienku po prawej stronie na kafelku **Oblicz** wybierz pozycję **Rozpocznij**.
+1. W Azure Portal Azure Stack zasobów brzegowych przejdź do **omówienia** i wybierz pozycję **IoT Edge**.
 
-    ![Wprowadzenie do obliczeń](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-1.png)
+   ![Wprowadzenie do obliczeń](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-1.png)
 
-2. Na kafelku **Konfigurowanie obliczeń krawędzi** wybierz pozycję **Konfiguruj obliczenia**.
+2. W obszarze **Włączanie usługi IoT Edge** wybierz pozycję **Dodaj**.
 
-    ![Konfigurowanie obliczeń](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-2.png)
+   ![Konfigurowanie obliczeń](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-2.png)
 
-3. W bloku **Konfigurowanie obliczeń krawędzi** wprowadź następujące dane:
-
+3. W bloku **Konfigurowanie obliczeń krawędzi** wprowadź następujące informacje:
    
-    |Pole  |Wartość  |
-    |---------|---------|
-    |Usługa IoT Hub     | Wybierz pozycję **Nowy** lub **istniejący**. <br> Domyślnie warstwa standardowa (S1) jest używana do tworzenia zasobu IoT. Aby użyć zasobu IoT warstwy Bezpłatna, utwórz go, a następnie wybierz istniejący zasób. <br> W każdym przypadku zasób IoT Hub używa tej samej subskrypcji i grupy zasobów, która jest używana przez zasób Azure Stack Edge.     |
-    |Nazwa     |Wprowadź nazwę dla zasobu IoT Hub.         |
+   |Pole  |Wartość  |
+   |---------|---------|
+   |Usługa IoT Hub     | Wybierz pozycję **Nowy** lub **istniejący**. <br> Domyślnie warstwa standardowa (S1) jest używana do tworzenia zasobu IoT. Aby użyć zasobu IoT warstwy Bezpłatna, utwórz go, a następnie wybierz istniejący zasób. <br> W każdym przypadku zasób IoT Hub używa tej samej subskrypcji i grupy zasobów, która jest używana przez zasób Azure Stack Edge.     |
+   |Nazwa     |Wprowadź nazwę dla zasobu IoT Hub.         |
 
-    ![Wprowadzenie do obliczeń obliczeniowych 2](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
+   ![Wprowadzenie do obliczeń obliczeniowych 2](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-3.png)
 
-4. Wybierz przycisk **Utwórz**. Tworzenie zasobów IoT Hub trwa kilka minut. Po utworzeniu zasobu IoT Hub, **Skonfiguruj kafelek Oblicz** aktualizacje, aby pokazać konfigurację obliczeń. 
+4. Po zakończeniu ustawień wybierz pozycję **Przegląd + Utwórz**. Sprawdź ustawienia zasobu IoT Hub i wybierz pozycję **Utwórz**.
 
-    ![Wprowadzenie do obliczeń obliczeniowych 3](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-4.png)
+   Tworzenie zasobów dla zasobu IoT Hub trwa kilka minut. Po utworzeniu zasobu **Przegląd** wskazuje, że usługa IoT Edge jest teraz uruchomiona.
 
-5. Aby upewnić się, że skonfigurowano rolę obliczeniową brzegową, wybierz pozycję **Wyświetl obliczenia** na kafelku **Konfiguruj obliczenia** .
-    
-    ![Wprowadzenie do obliczeń obliczeniowych 4](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
+   ![Wprowadzenie do obliczeń obliczeniowych 3](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-4.png)
 
-    > [!NOTE]
-    > Jeśli okno dialogowe **Konfigurowanie obliczeń** zostanie zamknięte przed skojarzeniem IoT Hub z urządzeniem z programem Azure Stack EDGE Pro, IoT Hub zostanie utworzona, ale nie zostanie pokazany w konfiguracji obliczeniowej. 
-    
-Po skonfigurowaniu roli funkcji obliczeniowej Edge na urządzeniu Edge tworzone są dwa urządzenia: urządzenie IoT i urządzenie IoT Edge. Oba urządzenia można wyświetlić w zasobie usługi IoT Hub. Środowisko uruchomieniowe IoT Edge jest również uruchomione na tym urządzeniu IoT Edge. W chwili obecnej dla urządzenia IoT Edge jest dostępna tylko platforma Linux.
+5. Aby upewnić się, że skonfigurowano rolę obliczeń brzegowych, wybierz pozycję **Właściwości**.
 
-Skonfigurowanie obliczeń może potrwać 20-30 minut, ponieważ w tle są tworzone maszyny wirtualne i klaster Kubernetes. 
+   ![Wprowadzenie do obliczeń obliczeniowych 4](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-5.png)
 
-Po pomyślnym skonfigurowaniu obliczeń w Azure Portal jest to klaster Kubernetes i domyślny użytkownik skojarzony z przestrzenią nazw IoT (systemowa przestrzeń nazw kontrolowana przez Azure Stack EDGE Pro) istnieje. 
+   Po skonfigurowaniu roli funkcji obliczeniowej Edge na urządzeniu Edge tworzone są dwa urządzenia: urządzenie IoT i urządzenie IoT Edge. Oba urządzenia można wyświetlić w zasobie usługi IoT Hub. Środowisko uruchomieniowe IoT Edge jest również uruchomione na tym urządzeniu IoT Edge. W chwili obecnej dla urządzenia IoT Edge jest dostępna tylko platforma Linux.
+
+Skonfigurowanie obliczeń może potrwać 20-30 minut, ponieważ w tle są tworzone maszyny wirtualne i klaster Kubernetes.
+
+Po pomyślnym skonfigurowaniu obliczeń w Azure Portal jest klaster Kubernetes i domyślny użytkownik skojarzony z przestrzenią nazw IoT (systemowa przestrzeń nazw kontrolowana przez Azure Stack EDGE Pro) istnieje.
 
 ## <a name="get-kubernetes-endpoints"></a>Pobierz punkty końcowe Kubernetes
 
@@ -89,7 +87,7 @@ Aby skonfigurować klienta do uzyskiwania dostępu do klastra Kubernetes, wymaga
 
     ![Strona urządzenia w lokalnym interfejsie użytkownika](./media/azure-stack-edge-j-series-create-kubernetes-cluster/device-kubernetes-endpoint-1.png)
 
-3. Zapisz ciąg punktu końcowego. Będzie on używany później podczas konfigurowania klienta do uzyskiwania dostępu do klastra Kubernetes za pośrednictwem polecenia kubectl.
+3. Zapisz ciąg punktu końcowego. Ten ciąg punktu końcowego będzie używany później podczas konfigurowania klienta do uzyskiwania dostępu do klastra Kubernetes za pośrednictwem polecenia kubectl.
 
 4. Gdy jesteś w lokalnym interfejsie użytkownika sieci Web, możesz:
 
@@ -97,7 +95,7 @@ Aby skonfigurować klienta do uzyskiwania dostępu do klastra Kubernetes, wymaga
 
         ![Strona urządzenia w lokalnym interfejsie użytkownika 1](./media/azure-stack-edge-gpu-deploy-configure-compute/download-advanced-config-1.png)
 
-        Jeśli podano klucz od firmy Microsoft (wybierz opcję Użytkownicy mogą mieć ten element), możesz użyć tego pliku konfiguracji.
+        Jeśli podano klucz od firmy Microsoft (wybierz opcję Użytkownicy mogą mieć klucz), możesz użyć tego pliku konfiguracji.
 
         ![Strona urządzenia w lokalnym interfejsie użytkownika 2](./media/azure-stack-edge-gpu-deploy-configure-compute/download-advanced-config-2.png)
 

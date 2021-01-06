@@ -3,12 +3,12 @@ title: Dane wyjściowe w szablonach
 description: Opisuje sposób definiowania wartości wyjściowych w szablonie Azure Resource Manager (szablon ARM).
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 6a375dfbc767bcbbfd8ec6b7f8cb9e942e275582
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9e4ac134e9c1864bca8dd56c3a6e2311d0328d7d
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353531"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934734"
 ---
 # <a name="outputs-in-arm-templates"></a>Dane wyjściowe w szablonach ARM
 
@@ -47,7 +47,7 @@ Aby uzyskać prosty przykład danych wyjściowych warunkowych, zobacz [warunkowy
 
 ## <a name="dynamic-number-of-outputs"></a>Dynamiczna liczba danych wyjściowych
 
-W niektórych scenariuszach nie wiadomo, ile wystąpień wartości należy zwrócić podczas tworzenia szablonu. Można zwrócić zmienną liczbę wartości za pomocą elementu **copy** .
+W niektórych scenariuszach nie wiadomo, ile wystąpień wartości należy zwrócić podczas tworzenia szablonu. Można zwrócić zmienną liczbę wartości za pomocą `copy` elementu.
 
 ```json
 "outputs": {
@@ -61,7 +61,7 @@ W niektórych scenariuszach nie wiadomo, ile wystąpień wartości należy zwró
 }
 ```
 
-Aby uzyskać więcej informacji, zobacz [iteracja danych wyjściowych w szablonach Azure Resource Manager](copy-outputs.md).
+Aby uzyskać więcej informacji, zobacz [iteracja danych wyjściowych w szablonach ARM](copy-outputs.md).
 
 ## <a name="linked-templates"></a>Połączone szablony
 

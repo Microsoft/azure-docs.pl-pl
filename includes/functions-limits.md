@@ -4,14 +4,14 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 05/04/2020
 ms.author: glenga
-ms.openlocfilehash: 826fccad043b067ce86d5f56eaebc6ee48b532d1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: aa75d1d57f44bb1a4d6513823ac97ac9917b260f
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96028234"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934473"
 ---
-| Zasób |[Plan Zużycie](../articles/azure-functions/functions-scale.md#consumption-plan)|[Plan Premium](../articles/azure-functions/functions-scale.md#premium-plan)|[Plan dedykowany](../articles/azure-functions/functions-scale.md#app-service-plan)|[ASE](../articles/app-service/environment/intro.md)| [Kubernetes](../articles/aks/quotas-skus-regions.md) |
+| Zasób |[Plan Zużycie](../articles/azure-functions/consumption-plan.md)|[Plan Premium](../articles/azure-functions/functions-premium-plan.md)|[Plan dedykowany](../articles/azure-functions/dedicated-plan.md)|[ASE](../articles/app-service/environment/intro.md)| [Kubernetes](../articles/aks/quotas-skus-regions.md) |
 | --- | --- | --- | --- | --- | --- |
 |Domyślny [limit czasu](../articles/azure-functions/functions-scale.md#timeout) (w min) |5 | 30 |30<sup>1</sup> | 30 | 30 |
 |Maksymalny [czas trwania](../articles/azure-functions/functions-scale.md#timeout) (w min) |10 | niepowiązane<sup>7</sup> | niepowiązane<sup>2</sup> | Unbounded | Unbounded |
@@ -28,10 +28,10 @@ ms.locfileid: "96028234"
 | [Obsługa protokołu SSL](../articles/app-service/configure-ssl-bindings.md) domeny niestandardowej |uwzględniono niepowiązane połączenie SNI SSL | uwzględniono niepowiązane SNI SSL i 1 Połączenie SSL z adresu IP połączeń |uwzględniono niepowiązane SNI SSL i 1 Połączenie SSL z adresu IP połączeń | uwzględniono niepowiązane SNI SSL i 1 Połączenie SSL z adresu IP połączeń | n/d |
 
 <sup>1</sup> domyślnie przekroczenie limitu czasu dla funkcji 1. x środowiska uruchomieniowego w planie App Service jest niepowiązane.  
-<sup>2</sup> wymaga, aby plan App Service był ustawiony na wartość [zawsze włączone](../articles/azure-functions/functions-scale.md#always-on). Płatność według [stawek](https://azure.microsoft.com/pricing/details/app-service/)standardowych.  
+<sup>2</sup> wymaga, aby plan App Service był ustawiony na wartość [zawsze włączone](../articles/azure-functions/dedicated-plan.md#always-on). Płatność według [stawek](https://azure.microsoft.com/pricing/details/app-service/)standardowych.  
 <sup>3</sup> te limity są [ustawiane na hoście](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/web.config).  
 <sup>4</sup> rzeczywista liczba aplikacji funkcji, które można hostować, zależy od aktywności aplikacji, rozmiaru wystąpień maszyn i odpowiedniego wykorzystania zasobów.  
 <sup>5</sup> limit magazynowania to całkowity rozmiar zawartości w magazynie tymczasowym dla wszystkich aplikacji w ramach tego samego planu App Service. W planie użycia Azure Files tymczasowego magazynu.  
-<sup>6</sup> gdy aplikacja funkcji jest hostowana w [planie zużycia](../articles/azure-functions/functions-scale.md#consumption-plan), obsługiwana jest tylko opcja CNAME. W przypadku aplikacji funkcji w [planie Premium](../articles/azure-functions/functions-scale.md#premium-plan) lub w [planie App Service](../articles/azure-functions/functions-scale.md#app-service-plan)można zmapować domenę niestandardową przy użyciu rekordu CNAME lub a.  
+<sup>6</sup> gdy aplikacja funkcji jest hostowana w [planie zużycia](../articles/azure-functions/consumption-plan.md), obsługiwana jest tylko opcja CNAME. W przypadku aplikacji funkcji w [planie Premium](../articles/azure-functions/functions-premium-plan.md) lub w [planie App Service](../articles/azure-functions/dedicated-plan.md)można zmapować domenę niestandardową przy użyciu rekordu CNAME lub a.  
 <sup>7</sup> gwarantujemy do 60 minut.  
 <sup>8</sup> procesów roboczych to role obsługujące aplikacje klienta. Procesy robocze są dostępne w trzech stałych rozmiarach: jeden vCPU/3,5 GB pamięci RAM; Dwa vCPU/7 GB pamięci RAM; Cztery vCPU/14 GB pamięci RAM.

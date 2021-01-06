@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 59784b6e618e875a6eedc947ce75afdf3bd1df74
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 0d4945ee97a46c78aac3c4ac508c5f89f5942296
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327410"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937165"
 ---
 # <a name="tutorial-configure-zscaler-beta-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie rozwiązania Zscaler beta dla automatycznej aprowizacji użytkowników
 
@@ -80,6 +80,9 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 > [!TIP]
 > Możesz również włączyć funkcję logowania jednokrotnego opartego na protokole SAML dla rozwiązania Zscaler beta, postępując zgodnie z instrukcjami podanymi w [samouczku logowanie](zscaler-beta-tutorial.md)jednokrotne w rozwiązania Zscaler beta. Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji użytkowników, chociaż te dwie funkcje napadają nawzajem.
+
+> [!NOTE]
+> Po zainicjowaniu obsługi administracyjnej użytkowników i grup, zalecamy okresowe ponowne uruchomienie aprowizacji, aby upewnić się, że członkostwa w grupach zostały prawidłowo zaktualizowane. Ponowne uruchomienie spowoduje wymuszenie ponownego oszacowania wszystkich grup i zaktualizowania członkostw przez naszą usługę.  
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-beta-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla programu rozwiązania Zscaler beta w usłudze Azure AD:
 
@@ -155,7 +158,7 @@ Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/l
 
 Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

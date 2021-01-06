@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.custom: mvc, devx-track-azurecli
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: 8689b6851ae219ee6f41ebf58736692e557b2344
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 626d7f161d23e6105eea0ca160cd2c9be0ed0ea0
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289726"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935941"
 ---
 # <a name="tutorial-import-a-certificate-in-azure-key-vault"></a>Samouczek: Importowanie certyfikatu w Azure Key Vault
 
@@ -42,12 +42,12 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 ## <a name="create-a-vault"></a>Tworzenie magazynu
 
 1. W menu Azure Portal lub na stronie **głównej** wybierz pozycję **Utwórz zasób**.
-2. W polu wyszukiwania wpisz **Key Vault**.
+2. W polu wyszukiwania wprowadź **Key Vault**.
 3. Na liście wyników wybierz pozycję **Key Vault**.
 4. W sekcji Key Vault, wybierz przycisk **Utwórz**.
 5. W sekcji **Tworzenie magazynu kluczy** podaj następujące informacje:
-    - **Nazwa** : wymagana jest unikatowa nazwa. W tym przewodniku szybki start użyjemy **przykładowego magazynu**. 
-    - **Subskrypcja** : wybierz subskrypcję.
+    - **Nazwa**: wymagana jest unikatowa nazwa. W tym przewodniku szybki start użyjemy **przykładowego magazynu**. 
+    - **Subskrypcja**: wybierz subskrypcję.
     - W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową** , a następnie wprowadź nazwę grupy zasobów.
     - W menu rozwijanym **Lokalizacja** wybierz lokalizację.
     - Dla pozostałych opcji zostaw wartości domyślne.
@@ -55,8 +55,8 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
 Zanotuj dwie poniższe właściwości:
 
-* **Nazwa magazynu** : w tym przykładzie **przykład-magazyn**. Użyjesz tej nazwy w innych krokach.
-* **Identyfikator URI magazynu** : w tym przykładzie jest to https://example-vault.vault.azure.net/. Aplikacje korzystające z magazynu za pomocą jego interfejsu API REST muszą używać tego identyfikatora URI.
+* **Nazwa magazynu**: w tym przykładzie **przykład-magazyn**. Użyjesz tej nazwy w innych krokach.
+* **Identyfikator URI magazynu**: w tym przykładzie jest to https://example-vault.vault.azure.net/. Aplikacje korzystające z magazynu za pomocą jego interfejsu API REST muszą używać tego identyfikatora URI.
 
 Twoje konto platformy Azure jest teraz jedynym kontem z uprawnieniami do wykonywania operacji na tym nowym magazynie.
 
@@ -74,11 +74,11 @@ Aby zaimportować certyfikat do magazynu, należy mieć plik certyfikatu PEM lub
 1. Na stronie właściwości Key Vault wybierz pozycję **Certyfikaty**.
 2. Kliknij pozycję **Wygeneruj/zaimportuj**.
 3. Na ekranie **Tworzenie certyfikatu** wybierz następujące wartości:
-    - **Metoda tworzenia certyfikatu** : import.
-    - **Nazwa certyfikatu** : ExampleCertificate.
-    - **Przekaż plik certyfikatu** : Wybierz plik certyfikatu z dysku
+    - **Metoda tworzenia certyfikatu**: import.
+    - **Nazwa certyfikatu**: ExampleCertificate.
+    - **Przekaż plik certyfikatu**: Wybierz plik certyfikatu z dysku
     - **Hasło** : w przypadku przekazywania pliku certyfikatu chronionego hasłem Podaj tutaj hasło. W przeciwnym razie pozostaw to pole puste. Po pomyślnym zaimportowaniu pliku certyfikatu Magazyn kluczy usunie to hasło.
-4. Kliknij pozycję **Utwórz**.
+4. Kliknij przycisk **Utwórz**.
 
 ![Właściwości certyfikatu](../media/certificates/tutorial-import-cert/cert-import.png)
 
@@ -154,4 +154,4 @@ W tym samouczku utworzono Key Vault i zaimportowano do niego certyfikat. Aby dow
 
 - Przeczytaj więcej [na temat zarządzania tworzeniem certyfikatów w Azure Key Vault](./create-certificate-scenarios.md)
 - Zobacz przykłady [importowania certyfikatów przy użyciu interfejsów API REST](/rest/api/keyvault/importcertificate/importcertificate)
-- Przegląd [Azure Key Vault najlepszych](../general/best-practices.md) rozwiązań
+- Zapoznaj się z [omówieniem zabezpieczeń Key Vault](../general/security-overview.md)

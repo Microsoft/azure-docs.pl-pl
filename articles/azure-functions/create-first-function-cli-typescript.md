@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć funkcję języka TypeScript z poziomu w
 ms.date: 11/03/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 981c96bb8775a3fdd3f951d079cd7ad285d09680
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 488ef9fa3fd5b6c09ed435483dbf8f6fa3eb5bef
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637034"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937199"
 ---
 # <a name="quickstart-create-a-typescript-function-in-azure-from-the-command-line"></a>Szybki Start: Tworzenie funkcji języka TypeScript na platformie Azure z poziomu wiersza polecenia
 
@@ -95,7 +95,7 @@ W razie potrzeby możesz pominąć, aby [uruchomić funkcję lokalnie](#run-the-
 
 :::code language="typescript" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-TypeScript/index.ts":::
 
-Dla wyzwalacza HTTP funkcja otrzymuje dane żądania w zmiennej `req` typu **HttpRequest** zgodnie z definicją w *function.json*. Obiekt zwracany, zdefiniowany jako `$return` w *function.json* , jest odpowiedzią. 
+Dla wyzwalacza HTTP funkcja otrzymuje dane żądania w zmiennej `req` typu **HttpRequest** zgodnie z definicją w *function.json*. Obiekt zwracany, zdefiniowany jako `$return` w *function.json*, jest odpowiedzią. 
 
 #### <a name="functionjson"></a>function.json
 
@@ -164,7 +164,7 @@ Każde powiązanie wymaga kierunku, typu i unikatowej nazwy. Wyzwalacz HTTP ma p
         
     W poprzednim przykładzie Zastąp ciąg `<STORAGE_NAME>` nazwą konta użytego w poprzednim kroku i Zastąp ciąg `<APP_NAME>` globalnie unikatową nazwą, która jest odpowiednia dla Ciebie. `<APP_NAME>` jest również domyślną domeną DNS aplikacji funkcji. 
     
-    To polecenie tworzy aplikację funkcji działającą w określonym środowisku uruchomieniowym języka zgodnie z [planem zużycia Azure Functions](functions-scale.md#consumption-plan), który jest bezpłatny dla nakładu pracy w tym miejscu. Polecenie udostępnia również skojarzone wystąpienie usługi Azure Application Insights w tej samej grupie zasobów, za pomocą którego można monitorować aplikację funkcji i wyświetlać dzienniki. Aby uzyskać więcej informacji, zobacz [Monitor Azure Functions](functions-monitoring.md). Wystąpienie nie wiąże się z żadnymi kosztami, dopóki nie zostanie uaktywnione.
+    To polecenie tworzy aplikację funkcji działającą w określonym środowisku uruchomieniowym języka zgodnie z [planem zużycia Azure Functions](consumption-plan.md), który jest bezpłatny dla nakładu pracy w tym miejscu. Polecenie udostępnia również skojarzone wystąpienie usługi Azure Application Insights w tej samej grupie zasobów, za pomocą którego można monitorować aplikację funkcji i wyświetlać dzienniki. Aby uzyskać więcej informacji, zobacz [Monitor Azure Functions](functions-monitoring.md). Wystąpienie nie wiąże się z żadnymi kosztami, dopóki nie zostanie uaktywnione.
 
 ## <a name="deploy-the-function-project-to-azure"></a>Wdróż projekt funkcji na platformie Azure
 

@@ -3,12 +3,12 @@ title: Zmienne w szablonach
 description: Opisuje sposób definiowania zmiennych w szablonie Azure Resource Manager (szablon ARM).
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 5d9b58d63e96656c45d3494d24099bbeadc46b11
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 7f782f9c7d3107472a74fcab73290c4cebf73693
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353463"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934666"
 ---
 # <a name="variables-in-arm-template"></a>Zmienne w szablonie ARM
 
@@ -28,7 +28,7 @@ W poniższym przykładzie przedstawiono definicję zmiennej. Tworzy wartość ci
 },
 ```
 
-Nie można użyć funkcji [Reference](template-functions-resource.md#reference) ani żadnej z funkcji [list](template-functions-resource.md#list) w sekcji zmienne. Te funkcje uzyskują stan środowiska uruchomieniowego zasobu i nie można ich wykonać przed wdrożeniem, gdy zmienne są rozwiązane.
+Nie można użyć funkcji [Reference](template-functions-resource.md#reference) ani żadnej z funkcji [list](template-functions-resource.md#list) w `variables` sekcji. Te funkcje uzyskują stan środowiska uruchomieniowego zasobu i nie można ich wykonać przed wdrożeniem, gdy zmienne są rozwiązane.
 
 ## <a name="use-variable"></a>Użyj zmiennej
 
@@ -63,7 +63,7 @@ Można zdefiniować zmienne, które przechowują powiązane wartości w celu sko
 },
 ```
 
-W parametrach można utworzyć wartość wskazującą, które wartości konfiguracji mają być używane.
+W programie `parameters` utworzysz wartość wskazującą, które wartości konfiguracji mają być używane.
 
 ```json
 "parameters": {

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81f4407ee7721332a4143952d1720151bb70d8c9
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 61f655d459592022a2e34b87adc50e3d49b03dc9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837542"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935771"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>Dostęp warunkowy: Zabezpieczanie rejestracji informacji zabezpieczających
 
@@ -61,7 +61,7 @@ Niektóre z nich mogą korzystać z stanu urządzenia zamiast lokalizacji w krok
 
 > [!WARNING]
 > Jeśli używasz stanu urządzenia jako warunku w zasadach, może to mieć wpływ na użytkowników-Gości w katalogu. [Tryb tylko do raportowania](concept-conditional-access-report-only.md) może pomóc w ustaleniu wpływu decyzji dotyczących zasad.
-> Należy pamiętać, że tryb tylko do raportowania nie dotyczy zasad urzędu certyfikacji z zakresem "akcje użytkownika".
+> Należy pamiętać, że tryb tylko do raportowania nie ma zastosowania do zasad dostępu warunkowego z zakresem "akcje użytkownika".
 
 ## <a name="next-steps"></a>Następne kroki
 

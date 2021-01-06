@@ -3,12 +3,12 @@ title: Szacowanie kosztów planu zużycia w Azure Functions
 description: Dowiedz się, jak lepiej oszacować koszty, które mogą zostać naliczone podczas uruchamiania aplikacji funkcji w planie zużycia na platformie Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 58082e03c1416848e9aa1e97308bed1ceaa67295
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 430804d478df718f51ae1da9adb6693f597157a9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168119"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934887"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Szacowanie kosztów planu zużycia
 
@@ -16,9 +16,9 @@ Obecnie istnieją trzy typy planów hostingu dla aplikacji, która działa w Azu
 
 | Planowanie | Opis |
 | ---- | ----------- |
-| [**Wyrażon**](functions-scale.md#consumption-plan) | Opłata jest naliczana tylko za czas, w którym działa aplikacja funkcji. Ten plan obejmuje [bezpłatną][stronę cenową] dotacji dla każdej subskrypcji.|
-| [**Premium**](functions-scale.md#premium-plan) | Zapewnia te same funkcje i mechanizm skalowania co plan zużycia, ale z ulepszoną wydajnością i dostępem do sieci wirtualnej. Koszt jest określany na podstawie wybranej warstwy cenowej. Aby dowiedzieć się więcej, zobacz [Azure Functions plan Premium](functions-premium-plan.md). |
-| [**Dedykowane (App Service)**](functions-scale.md#app-service-plan) <br/>(warstwa podstawowa lub wyższa) | Jeśli musisz uruchomić program na dedykowanych maszynach wirtualnych lub w izolacji, użyj niestandardowych obrazów lub chcesz użyć nadmiernej pojemności planu App Service. Stosuje [regularne rozliczanie planu App Service](https://azure.microsoft.com/pricing/details/app-service/). Koszt jest określany na podstawie wybranej warstwy cenowej.|
+| [**Zużycie**](consumption-plan.md) | Opłata jest naliczana tylko za czas, w którym działa aplikacja funkcji. Ten plan obejmuje [bezpłatną][stronę cenową] dotacji dla każdej subskrypcji.|
+| [**Premium**](functions-premium-plan.md) | Zapewnia te same funkcje i mechanizm skalowania co plan zużycia, ale z ulepszoną wydajnością i dostępem do sieci wirtualnej. Koszt jest określany na podstawie wybranej warstwy cenowej. Aby dowiedzieć się więcej, zobacz [Azure Functions plan Premium](functions-premium-plan.md). |
+| [**Dedykowane (App Service)**](dedicated-plan.md) <br/>(warstwa podstawowa lub wyższa) | Jeśli musisz uruchomić program na dedykowanych maszynach wirtualnych lub w izolacji, użyj niestandardowych obrazów lub chcesz użyć nadmiernej pojemności planu App Service. Stosuje [regularne rozliczanie planu App Service](https://azure.microsoft.com/pricing/details/app-service/). Koszt jest określany na podstawie wybranej warstwy cenowej.|
 
 Wybrano plan, który najlepiej obsługuje wymagania dotyczące wydajności i kosztów. Aby dowiedzieć się więcej, zobacz [Azure Functions skalowanie i hosting](functions-scale.md).
 
@@ -89,7 +89,7 @@ Użyj [Eksploratora metryk Azure monitor](../azure-monitor/platform/metrics-gett
 
 1. Wybierz pozycję **Zastosuj** , aby wybrać aplikację funkcji jako zasób do monitorowania.
 
-1. Z **metryki**wybierz kolejno pozycje **wykonywanie funkcji liczba** i **Suma** dla **agregacji**. Spowoduje to dodanie sumy liczby wykonań w wybranym okresie do wykresu.
+1. Z **metryki** wybierz kolejno pozycje **wykonywanie funkcji liczba** i **Suma** dla **agregacji**. Spowoduje to dodanie sumy liczby wykonań w wybranym okresie do wykresu.
 
     ![Zdefiniuj metrykę aplikacji funkcji, która ma zostać dodana do wykresu](media/functions-consumption-costing/monitor-metrics-add-metric.png)
 

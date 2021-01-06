@@ -4,12 +4,12 @@ description: Dowiedz się, jak opracowywać Azure Functions przy użyciu języka
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 9e11d013b6e7473f290ba1ccb54857034491d116
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 77ae736c787666df5e78358bc78e06eee9b7d4f9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672669"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936927"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Dokumentacja dla deweloperów Azure Functions C#
 
@@ -138,7 +138,7 @@ public static class BindingExpressionsExample
 
 Proces kompilacji tworzy *function.js* w pliku w folderze funkcji w folderze Build. Jak wspomniano wcześniej, ten plik nie jest przeznaczony do edycji bezpośrednio. Nie można zmienić konfiguracji powiązań ani wyłączyć funkcji, edytując ten plik. 
 
-Celem tego pliku jest udostępnienie informacji kontrolerowi skalowania do użycia w celu [skalowania w ramach planu zużycia](functions-scale.md#how-the-consumption-and-premium-plans-work). Z tego powodu plik zawiera tylko informacje wyzwalacza, a nie dane wejściowe i wyjściowe.
+Celem tego pliku jest udostępnienie informacji kontrolerowi skalowania do użycia w celu [skalowania w ramach planu zużycia](event-driven-scaling.md). Z tego powodu plik zawiera tylko informacje wyzwalacza, a nie dane wejściowe i wyjściowe.
 
 Wygenerowany *function.jsw* pliku zawiera `configurationSource` Właściwość, która informuje środowisko uruchomieniowe, aby używało atrybutów .NET dla powiązań, a nie *function.jsw* konfiguracji. Oto przykład:
 
@@ -208,7 +208,7 @@ Jeśli instalujesz podstawowe narzędzia przy użyciu programu npm, które nie m
 
 ## <a name="readytorun"></a>ReadyToRun
 
-Aplikację funkcji można skompilować jako plik [binarny ReadyToRun](/dotnet/core/whats-new/dotnet-core-3-0#readytorun-images). ReadyToRun jest formą kompilacji z wyprzedzeniem, która może poprawić wydajność uruchamiania, aby pomóc w zmniejszeniu wpływu [zimnego uruchomienia](functions-scale.md#cold-start) w ramach [planu zużycia](functions-scale.md#consumption-plan).
+Aplikację funkcji można skompilować jako plik [binarny ReadyToRun](/dotnet/core/whats-new/dotnet-core-3-0#readytorun-images). ReadyToRun jest formą kompilacji z wyprzedzeniem, która może poprawić wydajność uruchamiania, aby pomóc w zmniejszeniu wpływu [zimnego uruchomienia](event-driven-scaling.md#cold-start) w ramach [planu zużycia](consumption-plan.md).
 
 ReadyToRun jest dostępny w programie .NET 3,0 i wymaga [wersji 3,0 środowiska uruchomieniowego Azure Functions](functions-versions.md).
 
@@ -618,7 +618,7 @@ public static class IBinderExample
 
 ### <a name="multiple-attribute-example"></a>Przykład wielu atrybutów
 
-W poprzednim przykładzie jest pobierane ustawienie aplikacji dla głównych parametrów połączenia konta magazynu aplikacji funkcji (co to jest `AzureWebJobsStorage` ). Możesz określić niestandardowe ustawienie aplikacji do użycia dla konta magazynu, dodając [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) i przekazując tablicę atrybutów do `BindAsync<T>()` . Użyj `Binder` parametru, a nie `IBinder` .  Na przykład:
+W poprzednim przykładzie jest pobierane ustawienie aplikacji dla głównych parametrów połączenia konta magazynu aplikacji funkcji (co to jest `AzureWebJobsStorage` ). Możesz określić niestandardowe ustawienie aplikacji do użycia dla konta magazynu, dodając [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) i przekazując tablicę atrybutów do `BindAsync<T>()` . Użyj `Binder` parametru, a nie `IBinder` .  Przykład:
 
 ```cs
 public static class IBinderExampleMultipleAttributes

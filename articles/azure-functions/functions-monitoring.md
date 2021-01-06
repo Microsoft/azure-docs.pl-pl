@@ -5,12 +5,12 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.custom: devx-track-csharp, fasttrack-edit, contperf-fy21q2, devx-track-js
-ms.openlocfilehash: 7dbaa8712e09de9084e2bcb66d43f2181af292a0
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 6dc3c582466fe0646b0350213947ff2173368bde
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033038"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936842"
 ---
 # <a name="monitor-azure-functions"></a>Monitorowanie usługi Azure Functions
 
@@ -113,7 +113,7 @@ Ponieważ funkcje programu integrują się również z Azure Monitor, można tak
 
 _Ta funkcja jest w wersji zapoznawczej._ 
 
-[Kontroler Azure Functions skalowania](./functions-scale.md#runtime-scaling) monitoruje wystąpienia Azure Functions hosta, na którym działa aplikacja. Ten kontroler podejmuje decyzje dotyczące sytuacji, w których należy dodawać lub usuwać wystąpienia na podstawie bieżącej wydajności. Kontroler skalowania może wysyłać dzienniki, aby Application Insights, aby lepiej zrozumieć decyzje podejmowane przez kontroler skalowania dla aplikacji funkcji. Możesz również przechowywać wygenerowane dzienniki w usłudze BLOB Storage na potrzeby analizy przez inną usługę. 
+[Kontroler Azure Functions skalowania](./event-driven-scaling.md#runtime-scaling) monitoruje wystąpienia Azure Functions hosta, na którym działa aplikacja. Ten kontroler podejmuje decyzje dotyczące sytuacji, w których należy dodawać lub usuwać wystąpienia na podstawie bieżącej wydajności. Kontroler skalowania może wysyłać dzienniki, aby Application Insights, aby lepiej zrozumieć decyzje podejmowane przez kontroler skalowania dla aplikacji funkcji. Możesz również przechowywać wygenerowane dzienniki w usłudze BLOB Storage na potrzeby analizy przez inną usługę. 
 
 Aby włączyć tę funkcję, należy dodać ustawienie aplikacji o nazwie `SCALE_CONTROLLER_LOGGING_ENABLED` do ustawień aplikacji funkcji. Aby dowiedzieć się, jak to zrobić, zobacz [Konfigurowanie dzienników kontrolera skalowania](configure-monitoring.md#configure-scale-controller-logs).
 

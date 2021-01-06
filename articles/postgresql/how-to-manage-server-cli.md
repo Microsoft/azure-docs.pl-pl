@@ -3,15 +3,15 @@ title: Zarządzanie serwerem — interfejs wiersza polecenia platformy Azure —
 description: Dowiedz się, jak zarządzać serwerem Azure Database for PostgreSQL przy użyciu interfejsu wiersza polecenia platformy Azure.
 author: ajlam
 ms.author: andrela
-ms.service: mysql
+ms.service: postgresql
 ms.topic: how-to
 ms.date: 9/22/2020
-ms.openlocfilehash: d99634388b9c4db99c996cfccb9bb5f12682f217
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2ea07e2bc12e6fc0d62abd462b8537c6a93689f9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490122"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935805"
 ---
 # <a name="manage-an-azure-database-for-postgresql-single-server-using-the-azure-cli"></a>Zarządzanie Azure Database for PostgreSQL jednym serwerem przy użyciu interfejsu wiersza polecenia platformy Azure
 

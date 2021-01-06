@@ -3,12 +3,12 @@ title: Węzły i pule w Azure Batch
 description: Zapoznaj się z węzłami obliczeniowymi i pulami oraz sposobem ich użycia w przepływie pracy Azure Batch z punktu widzenia rozwoju.
 ms.topic: conceptual
 ms.date: 11/20/2020
-ms.openlocfilehash: 880a956a2d839483c59578afad1b62146799578a
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: c229381ba1019a5a40a4ca6b7db88f534f57de29
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95243073"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934649"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Węzły i pule w Azure Batch
 
@@ -64,6 +64,9 @@ Podczas tworzenia puli usługi Batch należy określić konfigurację maszyny wi
 
 Istnieją dwa typy konfiguracji puli dostępne w usłudze Batch.
 
+> [!IMPORTANT]
+> Pule należy skonfigurować przy użyciu opcji "Konfiguracja maszyny wirtualnej", a nie "Cloud Services konfiguracji". Wszystkie funkcje zadań wsadowych są obsługiwane przez pule "Konfiguracja maszyn wirtualnych" i dodawane są nowe funkcje. Pule Cloud Services Configuration nie obsługują wszystkich funkcji i nie są planowane żadne nowe możliwości.
+
 ### <a name="virtual-machine-configuration"></a>Konfiguracja maszyny wirtualnej
 
 **Konfiguracja maszyny wirtualnej** określa, że Pula składa się z maszyn wirtualnych platformy Azure. Te maszyny wirtualne można tworzyć na podstawie obrazów systemu Windows albo Linux.
@@ -101,7 +104,7 @@ Podczas tworzenia puli można określić, które typy węzłów mają być i dla
 - **Węzły dedykowane.** Dedykowane węzły obliczeniowe są zarezerwowane dla konkretnych obciążeń. Są one droższe niż węzły o niskim priorytecie, ale mają gwarancję, że nigdy nie zostaną przerwane.
 - **Węzły o niskim priorytecie.** Węzły o niskim priorytecie wykorzystują nadwyżkę wydajności na platformie Azure do uruchamiania obciążeń usługi Batch. Węzły o niskim priorytecie są mniej kosztowne na godzinę niż w przypadku węzłów dedykowanych i umożliwiają korzystanie z obciążeń wymagających znacznej mocy obliczeniowej. Aby uzyskać więcej informacji, zobacz [Use low-priority VMs with Batch](batch-low-pri-vms.md) (Używanie maszyn wirtualnych o niskim priorytecie z usługą Batch).
 
-Węzły o niskim priorytecie mogą zostać przeniesiona, gdy platforma Azure ma niewystarczającą wydajność. Jeśli węzeł zostanie przerwany podczas przetwarzania zadań, zadania te są ponownie umieszczane w kolejce, a następnie ponownie uruchamiane, kiedy węzeł obliczeniowy znowu stanie się dostępny. Węzły o niskim priorytecie są dobrą opcją w przypadku obciążeń, dla których czas ukończenia zadania jest elastyczny, a praca jest rozproszona na wielu węzłach. Przed podjęciem decyzji o użyciu węzłów o niskim priorytecie w danym scenariuszu upewnij się, że wszelkie zadania utracone ze względu na wywłaszczania są minimalne i łatwe do odtworzenia.
+Węzły o niskim priorytecie mogą zostać przeniesiona, gdy platforma Azure ma niewystarczającą wydajność. Jeśli węzeł zostanie przerwany podczas przetwarzania zadań, zadania te są ponownie umieszczane w kolejce, a następnie ponownie uruchamiane, kiedy węzeł obliczeniowy znowu stanie się dostępny. Węzły o niskim priorytecie są dobrą opcją w przypadku obciążeń, dla których czas ukończenia zadania jest elastyczny, a praca jest rozproszona na wielu węzłach. Przed podjęciem decyzji o użyciu węzłów niskiego priorytetu dla danego scenariusza upewnij się, że w wyniku nadpisania praca zostanie utracona w minimalnym zakresie i że będzie można ją łatwo odtworzyć.
 
 W tej samej puli mogą istnieć węzły obliczeniowe o niskim priorytecie i węzły dedykowane. Każdy typ węzła ma własne ustawienie docelowe, dla którego można określić żądaną liczbę węzłów.
 

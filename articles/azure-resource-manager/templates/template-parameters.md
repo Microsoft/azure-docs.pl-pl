@@ -3,12 +3,12 @@ title: Parametry w szablonach
 description: Opisuje sposób definiowania parametrów w szablonie Azure Resource Manager (szablon ARM).
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 4ac1aeb579040b35b2a9b4cb90fb5687f91ebd3b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 929d871bc0087d4fda585773b349dee4e0945c7c
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353514"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934717"
 ---
 # <a name="parameters-in-arm-templates"></a>Parametry w szablonach ARM
 
@@ -20,7 +20,7 @@ Każdy parametr musi być ustawiony na jeden z [typów danych](template-syntax.m
 
 ## <a name="define-parameter"></a>Zdefiniuj parametr
 
-Poniższy przykład pokazuje prostą definicję parametru. Definiuje parametr o nazwie **storageSKU**. Parametr jest wartością ciągu i akceptuje tylko wartości, które są prawidłowe dla zamierzonego użycia. Parametr używa wartości domyślnej, jeśli podczas wdrażania nie podano żadnej wartości.
+Poniższy przykład pokazuje prostą definicję parametru. Definiuje parametr o nazwie `storageSKU` . Parametr jest wartością ciągu i akceptuje tylko wartości, które są prawidłowe dla zamierzonego użycia. Parametr używa wartości domyślnej, jeśli podczas wdrażania nie podano żadnej wartości.
 
 ```json
 "parameters": {

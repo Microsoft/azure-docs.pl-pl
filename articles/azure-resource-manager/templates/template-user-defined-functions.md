@@ -3,12 +3,12 @@ title: Funkcje zdefiniowane przez użytkownika w szablonach
 description: Opisuje sposób definiowania i używania funkcji zdefiniowanych przez użytkownika w szablonie Azure Resource Manager (szablon ARM).
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 12199aca788438e4558ed2c607b866f0dc723e2a
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: f428fa3bc827af3820ad9f928f4f92b881c9c84c
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436967"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934683"
 ---
 # <a name="user-defined-functions-in-arm-template"></a>Funkcje zdefiniowane przez użytkownika w szablonie ARM
 
@@ -44,7 +44,7 @@ Funkcje wymagają wartości przestrzeni nazw, aby uniknąć konfliktów nazw z f
 
 ## <a name="use-the-function"></a>Korzystanie z funkcji
 
-Poniższy przykład pokazuje szablon, który zawiera funkcję zdefiniowaną przez użytkownika. Używa tej funkcji, aby uzyskać unikatową nazwę konta magazynu. Szablon zawiera parametr o nazwie **storageNamePrefix** , który jest przekazywany jako parametr do funkcji.
+Poniższy przykład pokazuje szablon, który zawiera funkcję zdefiniowaną przez użytkownika. Używa tej funkcji, aby uzyskać unikatową nazwę konta magazynu. Szablon ma parametr o nazwie `storageNamePrefix` , który przekazuje jako parametr do funkcji.
 
 ```json
 {

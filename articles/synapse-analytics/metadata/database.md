@@ -10,18 +10,18 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 14ae8b8670db53761d085bc019711e829633601b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 93602e522338166abac98c3e4a198e1aff392d21
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451815"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934972"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Udostępniona baza danych usługi Azure Synapse Analytics
 
-Usługa Azure Synapse Analytics pozwala różnym aparatom obszarów roboczych obliczeniowych na udostępnianie baz danych i tabel między jej pulami Apache Spark i bezserwerowym aparatem puli SQL.
+Usługa Azure Synapse Analytics umożliwia korzystanie z różnych aparatów obszarów roboczych obliczeniowych w celu udostępniania baz danych i tabel. Obecnie bazy danych i tabele Parquet utworzone w pulach Apache Spark są automatycznie udostępniane z aparatem puli SQL bezserwerowym.
 
-Baza danych utworzona za pomocą zadania Spark stanie się widoczna z tą samą nazwą dla wszystkich bieżących i przyszłych pul platformy Spark w obszarze roboczym, w tym bezserwerowego aparatu puli SQL.
+Baza danych utworzona za pomocą zadania Spark stanie się widoczna z tą samą nazwą dla wszystkich bieżących i przyszłych pul platformy Spark w obszarze roboczym, w tym bezserwerowego aparatu puli SQL. Nie można dodawać obiektów niestandardowych (tabel zewnętrznych, widoków, procedur) bezpośrednio w tej zreplikowanej bazie danych przy użyciu puli SQL bezserwerowej.
 
 Domyślna baza danych Spark, wywołana `default` , będzie również widoczna w kontekście puli SQL bezserwerowej jako baza danych o nazwie `default` .
 

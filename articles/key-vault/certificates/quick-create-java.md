@@ -1,6 +1,6 @@
 ---
-title: Szybki Start — Azure Key Vault Biblioteka kliencka certyfikatów dla języka Java
-description: Zawiera Przewodnik Szybki Start dotyczący biblioteki klienta Azure Key Vault Certificate dla języka Java.
+title: Przewodnik Szybki Start dotyczący Azure Key Vault Biblioteka kliencka certyfikatów — Java
+description: Więcej informacji na temat biblioteki klienta Azure Key Vault Certificate dla języka Java z krokami opisanymi w tym przewodniku Szybki Start.
 author: msmbaldwin
 ms.custom: devx-track-java, devx-track-azurecli
 ms.author: mbaldwin
@@ -8,14 +8,14 @@ ms.date: 12/18/2020
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
-ms.openlocfilehash: 1890c2a3d4043d43dd890f06942dbe704e3f7689
-ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
+ms.openlocfilehash: 99b8c63060cebeffea0f3473e03b5f49a415230b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733512"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936043"
 ---
-# <a name="quickstart-azure-key-vault-certificate-client-library-for-java"></a>Szybki Start: Azure Key Vault Biblioteka kliencka certyfikatów dla języka Java
+# <a name="quickstart-azure-key-vault-certificate-client-library-for-java-certificates"></a>Szybki Start: Azure Key Vault Biblioteka kliencka certyfikatów dla języka Java (certyfikaty)
 Zacznij korzystać z biblioteki klienta Azure Key Vault Certificate dla języka Java. Wykonaj poniższe kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.
 
 Dodatkowe zasoby:
@@ -126,7 +126,7 @@ set KEY_VAULT_NAME=<your-key-vault-name>
 ````
 Windows PowerShell
 ```powershell
-$Env:KEY_VAULT_NAME=<your-key-vault-name>
+$Env:KEY_VAULT_NAME="<your-key-vault-name>"
 ```
 
 macOS lub Linux

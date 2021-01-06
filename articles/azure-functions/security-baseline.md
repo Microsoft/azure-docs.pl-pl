@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 86e13c0f57b30d2c53d9194e89ec89e7abdf1574
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 707c69efddeda364f0c62e9719ae1a6073dfe9ad
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187055"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935737"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Podstawa zabezpieczeń platformy Azure dla Azure Functions
 
@@ -80,7 +80,7 @@ Ponadto skonfiguruj bramę frontonu, taką jak Zapora aplikacji sieci Web platfo
 
 - [Opcje sieciowe usługi Azure Functions](./functions-networking-options.md)
 
-- [Plan Azure Functions Premium](./functions-scale.md#premium-plan)
+- [Plan Azure Functions Premium](./functions-premium-plan.md)
 
 - [Wprowadzenie do środowisk App Service Environment](../app-service/environment/intro.md)
 
@@ -124,7 +124,7 @@ Alternatywnie istnieje wiele opcji portalu Marketplace, takich jak Barracuda WAF
 
 - [Opcje sieciowe usługi Azure Functions](./functions-networking-options.md)
 
-- [Plan Azure Functions Premium](./functions-scale.md#premium-plan)
+- [Plan Azure Functions Premium](./functions-premium-plan.md)
 
 - [Wprowadzenie do środowisk App Service Environment](../app-service/environment/intro.md)
 
@@ -146,7 +146,7 @@ Alternatywnie istnieje wiele opcji portalu Marketplace, takich jak Barracuda WAF
 
 - [Opcje sieciowe usługi Azure Functions](./functions-networking-options.md)
 
-- [Plan Azure Functions Premium](./functions-scale.md#premium-plan)
+- [Plan Azure Functions Premium](./functions-premium-plan.md)
 
 - [Wprowadzenie do środowisk App Service Environment](../app-service/environment/intro.md)
 
@@ -181,7 +181,7 @@ Alternatywnie istnieje wiele opcji portalu Marketplace, takich jak Barracuda WAF
 
 Możesz również użyć planów platformy Azure, aby uprościć wdrożenia platformy Azure na dużą skalę przez pakowanie kluczowych artefaktów środowiska, takich jak szablony Azure Resource Manager, kontrola dostępu oparta na rolach (RBAC) na platformie Azure i zasady w ramach jednej definicji planu. Możesz łatwo zastosować plan do nowych subskrypcji, środowisk i dostrajania kontroli i zarządzania przy użyciu wersji.
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+- [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
 - [Jak utworzyć Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
@@ -413,7 +413,7 @@ Ponadto, aby ułatwić śledzenie dedykowanych kont administracyjnych, można u�
 
 **Wskazówki**: Włączanie Azure Active Directory (AD) Multi-Factor Authentication (MFA) i postępuj zgodnie z zaleceniami dotyczącymi zarządzania tożsamościami i dostępem Azure Security Center.
 
-- [Jak włączyć uwierzytelnianie wieloskładnikowe na platformie Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Jak włączyć usługę MFA na platformie Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 - [Jak monitorować tożsamość i dostęp w Azure Security Center](../security-center/security-center-identity-access.md)
 
@@ -427,7 +427,7 @@ Ponadto, aby ułatwić śledzenie dedykowanych kont administracyjnych, można u�
 
 - [Dowiedz się więcej o stacjach roboczych uprzywilejowanego dostępu](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [Jak włączyć uwierzytelnianie wieloskładnikowe na platformie Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Jak włączyć usługę MFA na platformie Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -551,7 +551,7 @@ Do przeprowadzenia izolacji sieci można także użyć prywatnych punktów końc
 
 - [Opcje sieciowe usługi Azure Functions](./functions-networking-options.md)
 
-- [Plan Azure Functions Premium](./functions-scale.md#premium-plan)
+- [Plan Azure Functions Premium](./functions-premium-plan.md)
 
 - [Omówienie prywatnego punktu końcowego](../private-link/private-endpoint-overview.md)
 
@@ -625,7 +625,7 @@ Firma Microsoft zarządza podstawową infrastrukturą dla Azure Functions i ma z
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: Udostępnione
+**Odpowiedzialność**: Współużytkowane
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4,9: Rejestruj i Ostrzegaj o zmianach krytycznych zasobów platformy Azure
 
@@ -687,7 +687,7 @@ Ponadto postępuj zgodnie z zaleceniami Azure Security Center, aby pomóc w zabe
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
-**Odpowiedzialność**: Udostępnione
+**Odpowiedzialność**: Współużytkowane
 
 ## <a name="inventory-and-asset-management"></a>Zarządzanie magazynem i zasobami
 
@@ -749,7 +749,7 @@ Ponadto Użyj zasad platformy Azure, aby wprowadzić ograniczenia dotyczące typ
 
 Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasobów w ramach subskrypcji.  Upewnij się, że wszystkie zasoby platformy Azure obecne w środowisku są zatwierdzone. 
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+- [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
 - [Jak tworzyć zapytania za pomocą usługi Azure Graph](../governance/resource-graph/first-query-portal.md)
 
@@ -785,7 +785,7 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasob�
 
 **Wskazówki**: Użyj Azure Policy, aby wprowadzić ograniczenia dotyczące typu zasobów, które mogą być tworzone w subskrypcjach klientów, przy użyciu następujących wbudowanych definicji zasad: Niedozwolone typy zasobów dozwolone typy zasobów
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+- [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
 - [Jak odmówić określonego typu zasobu za pomocą Azure Policy](../governance/policy/samples/index.md)
 
@@ -827,7 +827,7 @@ Wdrażaj aplikacje funkcji platformy Azure o wysokim ryzyku do własnych Virtual
 
 - [Opcje sieciowe usługi Azure Functions](./functions-networking-options.md)
 
-- [Plan Azure Functions Premium](./functions-scale.md#premium-plan)
+- [Plan Azure Functions Premium](./functions-premium-plan.md)
 
 - [Networking considerations for an App Service Environment (Zagadnienia dotyczące sieci w środowisku App Service Environment)](../app-service/environment/network-info.md)
 
@@ -856,7 +856,7 @@ Jak utworzyć wewnętrzny ASE:
 
 - [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+- [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -874,7 +874,7 @@ Jak utworzyć wewnętrzny ASE:
 
 **Wskazówki**: Użyj zasad platformy Azure [Odmów] i [Wdróż, jeśli nie istnieje], aby wymusić bezpieczne ustawienia dla zasobów platformy Azure.
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+- [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
 - [Zrozumienie efektów Azure Policy](../governance/policy/concepts/effects.md)
 
@@ -920,7 +920,7 @@ Jak utworzyć wewnętrzny ASE:
 
 **Wskazówki**: Użyj wbudowanych definicji Azure Policy, a także aliasów Azure Policy w przestrzeni nazw "Microsoft. Web", aby utworzyć zasady niestandardowe na potrzeby alertów, inspekcji i wymuszania konfiguracji systemu. Dodatkowo opracowuj proces i potok na potrzeby zarządzania wyjątkami zasad.
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+- [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -938,7 +938,7 @@ Jak utworzyć wewnętrzny ASE:
 
 **Wskazówki**: Użyj wbudowanych definicji Azure Policy, a także aliasów Azure Policy w przestrzeni nazw "Microsoft. Web", aby utworzyć zasady niestandardowe na potrzeby alertów, inspekcji i wymuszania konfiguracji systemu. Użyj zasad platformy Azure [Audit], [Odmów] i [Wdróż, jeśli nie istnieje], aby automatycznie wymuszać konfiguracje dla zasobów platformy Azure.
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+- [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -982,7 +982,7 @@ Jak utworzyć wewnętrzny ASE:
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7,13: eliminowanie nieprzewidzianego narażenia na poświadczenia
 
-**Wskazówki**: Implementuj skaner poświadczeń, aby identyfikować poświadczenia w kodzie. Skaner poświadczeń zachęca również do przemieszczania odnalezionych poświadczeń do bardziej bezpiecznych lokalizacji, takich jak Azure Key Vault. 
+**Wskazówki**: Implementuj skaner poświadczeń, aby identyfikować poświadczenia w kodzie. Skaner poświadczeń ułatwia również przenoszenie odnalezionych poświadczeń do bezpieczniejszych lokalizacji, takich jak usługa Azure Key Vault. 
 
 - [Jak skonfigurować skaner poświadczeń](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
@@ -1091,7 +1091,7 @@ Jeśli używasz kluczy zarządzanych przez klienta, upewnij się, Soft-Delete w 
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
-**Odpowiedzialność**: Udostępnione
+**Odpowiedzialność**: Współużytkowane
 
 ## <a name="incident-response"></a>Reagowanie na zdarzenia
 
@@ -1099,7 +1099,7 @@ Jeśli używasz kluczy zarządzanych przez klienta, upewnij się, Soft-Delete w 
 
 ### <a name="101-create-an-incident-response-guide"></a>10,1: Tworzenie przewodnika odpowiedzi na zdarzenia
 
-**Wskazówki**: Tworzenie przewodnika odpowiedzi na zdarzenia dla organizacji. Upewnij się, że istnieją zarejestrowane plany reakcji na zdarzenia, które definiują wszystkie role pracowników, a także etapy obsługi zdarzeń/zarządzania z wykrywania do oceny po zdarzeniu.
+**Wskazówka**: Utwórz przewodnik odpowiedzi na zdarzenia dla swojej organizacji. Upewnij się, że istnieją zarejestrowane plany reakcji na zdarzenia, które definiują wszystkie role pracowników, a także etapy obsługi zdarzeń/zarządzania od wykrywania do oceny po zdarzeniu.
 
 - [Jak skonfigurować automatyzację przepływu pracy w programie Azure Security Center](../security-center/security-center-planning-and-operations-guide.md)
 
@@ -1121,11 +1121,11 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład produkcyjny, nieprodukcyjny) i 
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
-**Odpowiedzialność**: Udostępnione
+**Odpowiedzialność**: Współużytkowane
 
 ### <a name="103-test-security-response-procedures"></a>10,3: procedury odpowiedzi na zabezpieczenia testowe
 
-**Wskazówki**: przeprowadzanie ćwiczeń w celu przetestowania możliwości reagowania na zdarzenia systemu w regularnych erze. Zidentyfikuj słabe punkty i przerwy i popraw plan zgodnie z wymaganiami.
+**Wskazówki**: przeprowadzanie ćwiczeń w celu przetestowania możliwości reagowania na zdarzenia systemu w regularnych erze. Zidentyfikuj słabe punkty i przerwy oraz popraw plan zgodnie z wymaganiami.
 
 - [Zapoznaj się z publikacją NIST: Przewodnik dotyczący testowania, uczenia i ćwiczeń programów dla planów i możliwości IT](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
@@ -1175,11 +1175,11 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład produkcyjny, nieprodukcyjny) i 
 
 - [Reguły testów penetracyjnych zaangażowania](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-- [Działania typu „red team” w chmurze firmy Microsoft](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Testy typu „red team” w chmurze firmy Microsoft](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: Udostępnione
+**Odpowiedzialność**: Współużytkowane
 
 ## <a name="next-steps"></a>Następne kroki
 

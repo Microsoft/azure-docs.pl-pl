@@ -6,16 +6,16 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8033235cde5b7ebe298bb1fa8d4222e208df998b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a29d81be9b750d89230a180b8a7c786466d99bb8
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183009"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936434"
 ---
 # <a name="azure-app-service-plan-overview"></a>Plan usługi Azure App Service — omówienie
 
-W App Service (Web Apps, API Apps lub Mobile Apps) aplikacja zawsze jest uruchamiana w _planie App Service_. Ponadto [Azure Functions](../azure-functions/functions-scale.md#app-service-plan) ma także opcję uruchamiania w _planie App Service_. Plan usługi App Service definiuje zestaw zasobów obliczeniowych dla aplikacji internetowej używanych podczas jej uruchamiania. Te zasoby obliczeniowe są analogiczne do [_farmy serwerów_](https://wikipedia.org/wiki/Server_farm) w konwencjonalnym hostingu sieci Web. Co najmniej jedna aplikacja może być skonfigurowana do uruchamiania w tych samych zasobach obliczeniowych (lub w tym samym planie App Service).
+W App Service (Web Apps, API Apps lub Mobile Apps) aplikacja zawsze jest uruchamiana w _planie App Service_. Ponadto [Azure Functions](../azure-functions/dedicated-plan.md) ma także opcję uruchamiania w _planie App Service_. Plan usługi App Service definiuje zestaw zasobów obliczeniowych dla aplikacji internetowej używanych podczas jej uruchamiania. Te zasoby obliczeniowe są analogiczne do [_farmy serwerów_](https://wikipedia.org/wiki/Server_farm) w konwencjonalnym hostingu sieci Web. Co najmniej jedna aplikacja może być skonfigurowana do uruchamiania w tych samych zasobach obliczeniowych (lub w tym samym planie App Service).
 
 Po utworzeniu planu App Service w określonym regionie (na przykład Europa Zachodnia) zestaw zasobów obliczeniowych jest tworzony dla tego planu w tym regionie. Niezależnie od tego, które aplikacje zostały umieszczone w tym App Service planie, są uruchamiane na tych zasobach obliczeniowych zgodnie z planem App Service. Każdy plan usługi App Service definiuje następujące informacje:
 

@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: functions
 author: jeffhollan
 ms.service: azure-functions
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2020
 ms.author: jehollan, glenga
 ms.custom: include file
-ms.openlocfilehash: 4dc85988d904fdec72e1e6d92f03582a2a8f1427
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4eaea46044f0da4766fda051655d57caee9d98b6
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85121332"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937023"
 ---
 1. W menu witryny Azure Portal lub na **stronie głównej** wybierz pozycję **Utwórz zasób**.
 
@@ -36,7 +36,7 @@ ms.locfileid: "85121332"
 
     | Ustawienie      | Sugerowana wartość  | Opis |
     | ------------ | ---------------- | ----------- |
-    | **[Konto magazynu](../articles/storage/common/storage-account-create.md)** |  Nazwa unikatowa w skali globalnej |  Utwórz konto magazynu używane przez aplikację funkcji. Nazwy kont usługi Storage muszą mieć długość od 3 do 24 znaków i mogą zawierać tylko cyfry i małe litery. Możesz również użyć istniejącego konta, które musi spełniać [wymagania dotyczące konta magazynu](../articles/azure-functions/functions-scale.md#storage-account-requirements). |
+    | **[Konto magazynu](../articles/storage/common/storage-account-create.md)** |  Nazwa unikatowa w skali globalnej |  Utwórz konto magazynu używane przez aplikację funkcji. Nazwy kont usługi Storage muszą mieć długość od 3 do 24 znaków i mogą zawierać tylko cyfry i małe litery. Możesz również użyć istniejącego konta, które musi spełniać [wymagania dotyczące konta magazynu](../articles/azure-functions/storage-considerations.md#storage-account-requirements). |
     |**System operacyjny**| Preferowany system operacyjny | System operacyjny jest wstępnie wybrany na podstawie wybranego stosu środowiska uruchomieniowego, ale w razie potrzeby można zmienić to ustawienie. Język Python jest obsługiwany tylko w systemie Linux. |
     | **[Planowanie](../articles/azure-functions/functions-scale.md)** | Premium | Plan hostingu określający sposób przydzielania zasobów do aplikacji funkcji. Wybierz pozycję **Premium**. Domyślnie tworzony jest nowy plan App Service. Domyślną jednostką **SKU i rozmiarem** jest **EP1**, gdzie EP oznacza _elastyczną usługę Premium_. Aby dowiedzieć się więcej, zobacz [listę jednostek SKU w warstwie Premium](../articles/azure-functions/functions-premium-plan.md#available-instance-skus).<br/>Podczas uruchamiania funkcji JavaScript w planie Premium należy wybrać wystąpienie, które ma mniej procesorów wirtualnych vCPU. Aby uzyskać więcej informacji, zobacz [Wybierz pojedyncze podstawowe plany Premium](../articles/azure-functions/functions-reference-node.md#considerations-for-javascript-functions).  |
 

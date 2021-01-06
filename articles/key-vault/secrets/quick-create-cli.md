@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurecli
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 36688586cc0b9c94a07873bacfa6210f31695d36
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 01741540d94d906fc6d41693392f48c17dbae5ce
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517261"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934819"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Szybki start: konfigurowanie i pobieranie wpisów tajnych z usługi Azure Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -50,8 +50,8 @@ az keyvault create --name "Contoso-Vault2" --resource-group "ContosoResourceGrou
 
 Dane wyjściowe tego polecenia cmdlet pokazują właściwości nowo utworzonej usługi Key Vault. Zanotuj dwie poniższe właściwości:
 
-- **Nazwa magazynu** : w tym przykładzie jest to **Contoso-Vault2**. Ta nazwa będzie używana do innych poleceń usługi Key Vault.
-- **Identyfikator URI magazynu** : w tym przykładzie jest to https://contoso-vault2.vault.azure.net/. Aplikacje korzystające z magazynu za pomocą jego interfejsu API REST muszą używać tego identyfikatora URI.
+- **Nazwa magazynu**: w tym przykładzie jest to **Contoso-Vault2**. Ta nazwa będzie używana do innych poleceń usługi Key Vault.
+- **Identyfikator URI magazynu**: w tym przykładzie jest to https://contoso-vault2.vault.azure.net/. Aplikacje korzystające z magazynu za pomocą jego interfejsu API REST muszą używać tego identyfikatora URI.
 
 Twoje konto platformy Azure jest teraz jedynym kontem z uprawnieniami do wykonywania jakichkolwiek operacji na tym nowym magazynie.
 
@@ -59,7 +59,7 @@ Twoje konto platformy Azure jest teraz jedynym kontem z uprawnieniami do wykonyw
 
 Aby dodać wpis tajny do magazynu, wystarczy tylko wykonać kilka dodatkowych czynności. Tego hasła może używać aplikacja. Hasło będzie miało nazwę **ExamplePassword** i będzie w nim przechowywana wartość **hVFkk965BuUv**.
 
-Wpisz poniższe polecenia, aby utworzyć wpis tajny w usłudze Key Vault o nazwie **ExamplePassword** , w którym będzie przechowywana wartość **hVFkk965BuUv** :
+Wpisz poniższe polecenia, aby utworzyć wpis tajny w usłudze Key Vault o nazwie **ExamplePassword**, w którym będzie przechowywana wartość **hVFkk965BuUv**:
 
 ```azurecli
 az keyvault secret set --vault-name "Contoso-Vault2" --name "ExamplePassword" --value "hVFkk965BuUv"
@@ -90,4 +90,4 @@ W tym przewodniku szybki start utworzono Key Vault i Zapisano w nim wpis tajny. 
 
 - Zapoznaj się [z omówieniem Azure Key Vault](../general/overview.md)
 - Zobacz odwołanie do [interfejsu wiersza polecenia platformy Azure AZ](/cli/azure/keyvault?view=azure-cli-latest)
-- Przegląd [Azure Key Vault najlepszych](../general/best-practices.md) rozwiązań
+- Zapoznaj się z [omówieniem zabezpieczeń Key Vault](../general/security-overview.md)

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95f70005f2c7f53833163dcd5f0d2ee89b3db37c
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: d7e4d0c41990fcc23dd19b5682997f6381bfdb20
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861293"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937097"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Utwórz odporną strategię zarządzania kontrolą dostępu za pomocą Azure Active Directory
 
@@ -38,8 +38,8 @@ Niniejszy dokument zawiera wskazówki dotyczące strategii podejmowanych przez o
 W tym dokumencie znajdują się cztery kluczowe wnioski:
 
 * Należy unikać blokowania administratorów przy użyciu kont dostępu awaryjnego.
-* Implementowanie usługi MFA przy użyciu dostępu warunkowego (CA), a nie usługi MFA dla poszczególnych użytkowników.
-* Ograniczanie blokady użytkownika przy użyciu wielu kontrolek dostępu warunkowego (CA).
+* Implementowanie usługi MFA przy użyciu dostępu warunkowego, a nie usługi MFA dla poszczególnych użytkowników.
+* Ograniczanie blokady użytkownika przy użyciu wielu kontroli dostępu warunkowego.
 * Ograniczanie blokady użytkownika przez inicjowanie obsługi wielu metod uwierzytelniania lub odpowiedników dla każdego użytkownika.
 
 ## <a name="before-a-disruption"></a>Przed zakłóceniami
@@ -120,7 +120,7 @@ Zasady awaryjnego dostępu warunkowego to **zasady tworzenia kopii zapasowych** 
 * Skonfiguruj zestaw zasad powrotu, jeśli zakłócenia w jednym typie poświadczeń lub jeden mechanizm kontroli dostępu ma wpływ na dostęp do aplikacji. Skonfiguruj zasady w stanie "tylko raport", który wymaga przyłączenia do domeny jako kontrolki jako kopii zapasowej aktywnej zasady, która wymaga dostawcy MFA innej firmy.
 * Ogranicz ryzyko nieprawidłowych uczestników odgadnąć hasła, gdy uwierzytelnianie wieloskładnikowe nie jest wymagane, postępując zgodnie z zasadami [zawartymi w dokumencie wytyczne dotyczące haseł](https://aka.ms/passwordguidance) .
 * Wdróż [usługę Azure ad Self-Service Resetowanie hasła (SSPR)](./tutorial-enable-sspr.md) i [ochronę hasłem usługi Azure AD](./howto-password-ban-bad-on-premises-deploy.md) , aby upewnić się, że użytkownicy nie używają wspólnych haseł i postanowień dotyczących zakazu.
-* Użyj zasad, które ograniczają dostęp w aplikacjach, jeśli nie zostanie osiągnięty określony poziom uwierzytelniania zamiast po prostu z powrotem do pełnego dostępu. Na przykład:
+* Użyj zasad, które ograniczają dostęp w aplikacjach, jeśli nie zostanie osiągnięty określony poziom uwierzytelniania zamiast po prostu z powrotem do pełnego dostępu. Przykład:
   * Skonfiguruj zasady tworzenia kopii zapasowych, które wysyłają do programów Exchange i SharePoint żądania ograniczonej sesji.
   * Jeśli Twoja organizacja używa Microsoft Cloud App Security, rozważ powracanie do zasad, które angażują MCAS, a następnie MCAS zezwala na dostęp tylko do odczytu, ale nie do przekazywania.
 * Nazwij swoje zasady, aby upewnić się, że można je łatwo znaleźć w trakcie przerw w działaniu. Uwzględnij następujące elementy w nazwie zasad:
@@ -138,9 +138,9 @@ Ten standard nazewnictwa dla zasad awaryjnych będzie następujący:
 EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions]
 ```
 
-Poniższy przykład: **przykładowo zasady dotyczące zasad urzędu certyfikacji w celu przywrócenia dostępu do aplikacji do współpracy o znaczeniu krytycznym** są typowymi zagrożeniami firmowymi. W tym scenariuszu Organizacja zwykle wymaga uwierzytelniania wieloskładnikowego dla wszystkich usług Exchange Online i SharePoint Online, a w takim przypadku zakłócenia jest w tym przypadku dostawcą usługi MFA dla klienta jest przestój (czy usługa Azure AD MFA, dostawca lokalnego uwierzytelniania MFA czy MFA innej firmy). Te zasady ograniczają tę awarię przez umożliwienie określonym użytkownikom mającym dostęp do tych aplikacji z zaufanych urządzeń z systemem Windows tylko wtedy, gdy uzyskują oni dostęp do aplikacji z ich zaufanej sieci firmowej. Spowoduje to również Wykluczenie kont awaryjnych i administratorów podstawowych z tych ograniczeń. Użytkownicy dokierowany do usługi Exchange Online i SharePoint Online będą mogli uzyskiwać dostęp do aplikacji, a inni użytkownicy nadal nie będą mieli dostępu do nich z powodu przestoju. Ten przykład wymaga, aby nazwana lokalizacja sieciowa **CorpNetwork** i Grupa zabezpieczeń **ContingencyAccess** z użytkownikami docelowymi, Grupa o nazwie **CoreAdmins** z podstawowymi administratorami i Grupa o nazwie **EmergencyAccess** z kontami dostępu awaryjnego. Sytuacje awaryjne wymagają czterech zasad, aby zapewnić żądany dostęp. 
+Poniższy przykład: **przykładowe zasady dostępu warunkowego, które umożliwiają przywrócenie dostępu do aplikacji do współpracy o znaczeniu krytycznym**, są typowymi zagrożeniami firmowymi. W tym scenariuszu Organizacja zwykle wymaga uwierzytelniania wieloskładnikowego dla wszystkich usług Exchange Online i SharePoint Online, a w takim przypadku zakłócenia jest w tym przypadku dostawcą usługi MFA dla klienta jest przestój (czy usługa Azure AD MFA, dostawca lokalnego uwierzytelniania MFA czy MFA innej firmy). Te zasady ograniczają tę awarię przez umożliwienie określonym użytkownikom mającym dostęp do tych aplikacji z zaufanych urządzeń z systemem Windows tylko wtedy, gdy uzyskują oni dostęp do aplikacji z ich zaufanej sieci firmowej. Spowoduje to również Wykluczenie kont awaryjnych i administratorów podstawowych z tych ograniczeń. Użytkownicy dokierowany do usługi Exchange Online i SharePoint Online będą mogli uzyskiwać dostęp do aplikacji, a inni użytkownicy nadal nie będą mieli dostępu do nich z powodu przestoju. Ten przykład wymaga, aby nazwana lokalizacja sieciowa **CorpNetwork** i Grupa zabezpieczeń **ContingencyAccess** z użytkownikami docelowymi, Grupa o nazwie **CoreAdmins** z podstawowymi administratorami i Grupa o nazwie **EmergencyAccess** z kontami dostępu awaryjnego. Sytuacje awaryjne wymagają czterech zasad, aby zapewnić żądany dostęp. 
 
-**Przykład: zasady urzędu certyfikacji awaryjnej umożliwiające przywrócenie dostępu do aplikacji do współpracy o kluczowym znaczeniu.**
+**Przykład — zasady dostępu warunkowego awaryjnego w celu przywrócenia dostępu do aplikacji do współpracy krytycznej dla działalności:**
 
 * Zasady 1: Wymagaj urządzeń przyłączonych do domeny dla programów Exchange i SharePoint
   * Name: EM001 — Włącz w sytuacjach AWARYJNych: zakłócenia MFA [1/4] — Exchange SharePoint — wymaga sprzężenia hybrydowego usługi Azure AD
@@ -180,9 +180,9 @@ Kolejność aktywacji:
 5. Włącz zasady 4: Upewnij się, że wszyscy użytkownicy nie mogą uzyskać usługi Exchange Online z natywnych aplikacji poczty na urządzeniach przenośnych.
 6. Wyłącz istniejące zasady MFA dla usługi SharePoint Online i Exchange Online.
 
-W tym następnym przykładzie **przykład B — Zasady bezawaryjnego urzędu certyfikacji, aby umożliwić dostęp mobilny do usługi Salesforce**, przywracany jest dostęp do aplikacji biznesowej. W tym scenariuszu klient zazwyczaj wymaga, aby pracownicy sprzedaży mogli uzyskiwać dostęp do usług Salesforce (skonfigurowanych do logowania jednokrotnego przy użyciu usługi Azure AD) z urządzeń przenośnych wyłącznie z poziomu zgodnych urządzeń. Zakłócenia w tym przypadku polega na tym, że występuje problem z ocenami zgodności urządzeń i przestojem, gdy zespół sprzedaży potrzebuje dostępu do usługi Salesforce, aby zamknąć oferty. Te zasady awaryjne umożliwią użytkownikom dostęp do usług Salesforce z urządzenia przenośnego, aby mogli nadal zamykać oferty i nie zakłócać działania firmy. W tym przykładzie **SalesforceContingency** zawiera wszystkich pracowników działu sprzedaży, którzy muszą zachować dostęp, a **SalesAdmins** zawiera niezbędnych administratorów usługi Salesforce.
+W następnym przykładzie **przykład B — Zasady dostępu warunkowego awaryjnego w celu umożliwienia dostępu mobilnego do usługi Salesforce** są przywracane przez aplikację biznesową. W tym scenariuszu klient zazwyczaj wymaga, aby pracownicy sprzedaży mogli uzyskiwać dostęp do usług Salesforce (skonfigurowanych do logowania jednokrotnego przy użyciu usługi Azure AD) z urządzeń przenośnych wyłącznie z poziomu zgodnych urządzeń. Zakłócenia w tym przypadku polega na tym, że występuje problem z ocenami zgodności urządzeń i przestojem, gdy zespół sprzedaży potrzebuje dostępu do usługi Salesforce, aby zamknąć oferty. Te zasady awaryjne umożliwią użytkownikom dostęp do usług Salesforce z urządzenia przenośnego, aby mogli nadal zamykać oferty i nie zakłócać działania firmy. W tym przykładzie **SalesforceContingency** zawiera wszystkich pracowników działu sprzedaży, którzy muszą zachować dostęp, a **SalesAdmins** zawiera niezbędnych administratorów usługi Salesforce.
 
-**Przykład B — Zasady urzędu certyfikacji awaryjnej:**
+**Przykład B — Zasady dostępu warunkowego awaryjnego:**
 
 * Zasady 1: Blokuj wszystkie osoby niebędące członkami zespołu SalesContingency
   * Name: EM001 — Włącz w sytuacjach AWARYJNych: zakłócenia zgodności urządzenia [1/2] — Salesforce — Blokuj wszystkich użytkowników z wyjątkiem SalesforceContingency
@@ -282,7 +282,7 @@ Jeśli Twoja organizacja korzysta ze starszych zasad usługi MFA dla użytkownik
 >[!NOTE]
  > Konfigurowanie [zaufanych adresów IP](./howto-mfa-mfasettings.md) dla usługi Azure AD MFA jest dostępne tylko z [licencjami Azure AD — wersja Premium](./concept-mfa-licensing.md).
 
-## <a name="learn-more"></a>Więcej informacji
+## <a name="learn-more"></a>Dowiedz się więcej
 
 * [Dokumentacja uwierzytelniania usługi Azure AD](./howto-mfaserver-iis.md)
 * [Zarządzanie kontami administracyjnymi dostępu awaryjnego w usłudze Azure AD](../roles/security-emergency-access.md)

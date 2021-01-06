@@ -1,20 +1,20 @@
 ---
 title: Zasoby podrzędne w szablonach
-description: Opisuje sposób ustawiania nazwy i typu dla zasobów podrzędnych w szablonie Azure Resource Manager.
+description: Opisuje sposób ustawiania nazwy i typu zasobów podrzędnych w szablonie Azure Resource Manager (szablon ARM).
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: c594096fd95f663db2120b29c575b341924dcc36
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 408914fd309676da36904a364f905a8ee809d648
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97721947"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934309"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>Ustawianie nazwy i typu dla zasobów podrzędnych
 
 Zasoby podrzędne to zasoby, które istnieją tylko w kontekście innego zasobu. Na przykład [rozszerzenie maszyny wirtualnej](/azure/templates/microsoft.compute/virtualmachines/extensions) nie może istnieć bez [maszyny wirtualnej](/azure/templates/microsoft.compute/virtualmachines). Zasób rozszerzenia jest elementem podrzędnym maszyny wirtualnej.
 
-Każdy zasób nadrzędny akceptuje tylko niektóre typy zasobów jako zasoby podrzędne. Typ zasobu dla zasobu podrzędnego zawiera typ zasobu dla zasobu nadrzędnego. Na przykład **firma Microsoft. Web/Sites/config** oraz **Microsoft. Web/Sites/Extensions** są zasobami podrzędnymi **firmy Microsoft. Web/** sites. Akceptowane typy zasobów są określone w [schemacie szablonu](https://github.com/Azure/azure-resource-manager-schemas) zasobu nadrzędnego.
+Każdy zasób nadrzędny akceptuje tylko niektóre typy zasobów jako zasoby podrzędne. Typ zasobu dla zasobu podrzędnego zawiera typ zasobu dla zasobu nadrzędnego. Na przykład `Microsoft.Web/sites/config` i `Microsoft.Web/sites/extensions` są zasobami podrzędnymi `Microsoft.Web/sites` . Akceptowane typy zasobów są określone w [schemacie szablonu](https://github.com/Azure/azure-resource-manager-schemas) zasobu nadrzędnego.
 
 W szablonie Azure Resource Manager (szablon ARM) można określić zasób podrzędny w ramach zasobu nadrzędnego lub poza nim. Poniższy przykład pokazuje zasób podrzędny uwzględniony we właściwości Resources zasobu nadrzędnego.
 
@@ -89,7 +89,7 @@ Poniższy przykład przedstawia sieć wirtualną i podsieć. Należy zauważyć,
 ]
 ```
 
-Pełny typ zasobu to nadal **Microsoft. Network/virtualNetworks/Subnets**. Nie podajesz usługi **Microsoft. Network/virtualNetworks/** , ponieważ jest ona zajmowana z nadrzędnego typu zasobu.
+Pełny typ zasobu jest nadal `Microsoft.Network/virtualNetworks/subnets` . Nie jest to możliwe, `Microsoft.Network/virtualNetworks/` ponieważ zakłada się, że jest ona zajmowana z nadrzędnego typu zasobu.
 
 Nazwa zasobu podrzędnego jest ustawiona na **Subnet1** , ale pełna nazwa zawiera nazwę nadrzędną. Nie udostępniasz **VNet1** , ponieważ jest ona założono z zasobu nadrzędnego.
 
@@ -102,7 +102,7 @@ Po zdefiniowaniu poza zasobem nadrzędnym można sformatować typ i z ukośnikam
 "name": "{parent-resource-name}/{child-resource-name}",
 ```
 
-W poniższym przykładzie pokazano sieć wirtualną i podsieć, które są zdefiniowane na poziomie głównym. Należy zauważyć, że podsieć nie znajduje się w tablicy Resources dla sieci wirtualnej. Nazwa jest ustawiona na **VNet1/Subnet1** , a typ jest ustawiony na **Microsoft. Network/virtualNetworks/Subnets**. Zasób podrzędny jest oznaczony jako zależny od zasobu nadrzędnego, ponieważ musi istnieć zasób nadrzędny, aby można było wdrożyć zasób podrzędny.
+W poniższym przykładzie pokazano sieć wirtualną i podsieć, które są zdefiniowane na poziomie głównym. Należy zauważyć, że podsieć nie znajduje się w tablicy Resources dla sieci wirtualnej. Nazwa jest ustawiona na **VNet1/Subnet1** , a typ jest ustawiony na `Microsoft.Network/virtualNetworks/subnets` . Zasób podrzędny jest oznaczony jako zależny od zasobu nadrzędnego, ponieważ musi istnieć zasób nadrzędny, aby można było wdrożyć zasób podrzędny.
 
 ```json
 "resources": [
@@ -136,6 +136,6 @@ W poniższym przykładzie pokazano sieć wirtualną i podsieć, które są zdefi
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej na temat tworzenia szablonów ARM, zobacz Tworzenie [szablonów](template-syntax.md).
+* Aby dowiedzieć się więcej na temat tworzenia szablonów ARM, zobacz [Omówienie struktury i składni szablonów ARM](template-syntax.md).
 
 * Aby dowiedzieć się więcej o formacie nazwy zasobu podczas odwoływania się do zasobu, zobacz [Funkcja Reference](template-functions-resource.md#reference).

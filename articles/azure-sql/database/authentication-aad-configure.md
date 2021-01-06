@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: 5558480f568e802637deb30c9f1b41c00826c9b5
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2c7db937905baed94c6fe81adeb44c8b3f5be52b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96454494"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936077"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Konfigurowanie uwierzytelniania usługi Azure AD i zarządzanie nim za pomocą usługi Azure SQL
 
@@ -395,7 +395,7 @@ CREATE USER [appName] FROM EXTERNAL PROVIDER;
 ```
 
 > [!NOTE]
-> To polecenie wymaga, aby program SQL Server w imieniu zalogowanego użytkownika miał dostęp do usługi Azure AD ("dostawca zewnętrzny"). Czasami powstają sytuacje, w których usługa Azure AD zwróci wyjątek z powrotem do bazy danych SQL. W takich przypadkach użytkownik zobaczy błąd SQL 33134, który powinien zawierać komunikat o błędzie dotyczący usługi Azure AD. W większości przypadków błąd oznacza odmowa dostępu lub że użytkownik musi zarejestrować się w usłudze MFA w celu uzyskania dostępu do zasobu lub uzyskać dostęp między aplikacjami pierwszej firmy, muszą być obsługiwane za pośrednictwem autoryzacji wstępnej. W pierwszych dwóch przypadkach problem jest zwykle spowodowany przez zasady dostępu warunkowego, które są ustawione w dzierżawie usługi Azure AD użytkownika: uniemożliwia użytkownikowi dostęp do zewnętrznego dostawcy. Aktualizacja zasad urzędu certyfikacji w celu zezwolenia na dostęp do aplikacji "00000002-0000-0000-C000-000000000000" (Identyfikator aplikacji usługi Azure AD interfejs API programu Graph) powinna rozwiązać ten problem. W przypadku, gdy błąd mówi dostępu między aplikacjami pierwszej firmy, muszą być obsługiwane za pośrednictwem autoryzacji wstępnej. przyczyną tego problemu jest to, że użytkownik jest zalogowany jako nazwa główna usługi. Polecenie powinno zakończyć się pomyślnie, jeśli zostanie wykonane przez użytkownika.
+> To polecenie wymaga, aby program SQL Server w imieniu zalogowanego użytkownika miał dostęp do usługi Azure AD ("dostawca zewnętrzny"). Czasami powstają sytuacje, w których usługa Azure AD zwróci wyjątek z powrotem do bazy danych SQL. W takich przypadkach użytkownik zobaczy błąd SQL 33134, który powinien zawierać komunikat o błędzie dotyczący usługi Azure AD. W większości przypadków błąd oznacza odmowa dostępu lub że użytkownik musi zarejestrować się w usłudze MFA w celu uzyskania dostępu do zasobu lub uzyskać dostęp między aplikacjami pierwszej firmy, muszą być obsługiwane za pośrednictwem autoryzacji wstępnej. W pierwszych dwóch przypadkach problem jest zwykle spowodowany przez zasady dostępu warunkowego, które są ustawione w dzierżawie usługi Azure AD użytkownika: uniemożliwia użytkownikowi dostęp do zewnętrznego dostawcy. Aktualizacja zasad dostępu warunkowego w celu zezwolenia na dostęp do aplikacji "00000002-0000-0000-C000-000000000000" (Identyfikator aplikacji usługi Azure AD interfejs API programu Graph) powinna rozwiązać ten problem. W przypadku, gdy błąd mówi dostępu między aplikacjami pierwszej firmy, muszą być obsługiwane za pośrednictwem autoryzacji wstępnej. przyczyną tego problemu jest to, że użytkownik jest zalogowany jako nazwa główna usługi. Polecenie powinno zakończyć się pomyślnie, jeśli zostanie wykonane przez użytkownika.
 
 > [!TIP]
 > Nie można bezpośrednio utworzyć użytkownika na podstawie Azure Active Directory innego niż Azure Active Directory skojarzony z subskrypcją platformy Azure. Jednak elementy członkowskie innych aktywnych katalogów, które są zaimportowani użytkownicy w skojarzonych Active Directory (nazywanych użytkownikami zewnętrznymi) można dodać do grupy Active Directory w Active Directory dzierżawcy. Utworzenie użytkownika zawartej bazy danych dla tej grupy usługi AD pozwala użytkownikom z Active Directory zewnętrznych uzyskać dostęp do SQL Database.

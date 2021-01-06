@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.openlocfilehash: bbea6a0aa31034cd1c04145fb50b72432c9f8520
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 9e5d12bcea1bd7a587568c30b49c8c4ee95f8362
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319011"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937386"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Akamai
 
@@ -36,7 +36,7 @@ Na poniższym obrazie opisano, gdzie Akamai EAA mieści się w szerszym scenariu
 
 ### <a name="key-authentication-scenarios"></a>Scenariusze uwierzytelniania kluczy
 
-Poza Azure Active Directory natywną integracją z obsługą nowoczesnych protokołów uwierzytelniania, takich jak Open ID Connect, SAML i WS-karmione, Akamai EAA rozszerza bezpieczny dostęp do aplikacji uwierzytelniania opartych na starszych wersjach dla dostępu wewnętrznego i zewnętrznego z usługą Azure AD, umożliwiając nowoczesne scenariusze (na przykład dostęp bez hasła) do tych aplikacji. Możliwości obejmują:
+Poza Azure Active Directory natywną integracją z obsługą nowoczesnych protokołów uwierzytelniania, takich jak Open ID Connect, SAML i WS-karmione, Akamai EAA rozszerza bezpieczny dostęp do aplikacji uwierzytelniania opartych na starszych wersjach dla dostępu wewnętrznego i zewnętrznego z usługą Azure AD, umożliwiając nowoczesne scenariusze (na przykład dostęp bez hasła) do tych aplikacji. Obejmuje to następujące działania:
 
 * Aplikacje uwierzytelniania oparte na nagłówkach
 * Pulpit zdalny
@@ -53,7 +53,7 @@ Partnerstwo firmy Microsoft i Akamai EAA pozwala elastycznie spełnić wymagania
 
 #### <a name="integration-scenario-1"></a>Scenariusz integracji 1
 
-Akamai EAA jest skonfigurowany jako pojedyncza aplikacja w usłudze Azure AD. Administrator może skonfigurować zasady urzędu certyfikacji w aplikacji, a gdy warunki są spełnione, użytkownicy będą mogli uzyskać dostęp do portalu Akamai EAA.
+Akamai EAA jest skonfigurowany jako pojedyncza aplikacja w usłudze Azure AD. Administrator może skonfigurować zasady dostępu warunkowego dla aplikacji, a gdy warunki są spełnione, użytkownicy będą mogli uzyskać dostęp do portalu Akamai EAA.
 
 **Specjaliści**:
 
@@ -63,13 +63,13 @@ Akamai EAA jest skonfigurowany jako pojedyncza aplikacja w usłudze Azure AD. Ad
 
 * Użytkownicy kończący dwa portale aplikacji
 
-* Pojedyncze typowe pokrycie zasad urzędu certyfikacji dla wszystkich aplikacji.
+* Pojedyncze typowe pokrycie zasad dostępu warunkowego dla wszystkich aplikacji.
 
 ![Scenariusz integracji 1](./media/header-akamai-tutorial/scenario1.png)
 
 #### <a name="integration-scenario-2"></a>Scenariusz integracji 2
 
-Aplikacja Akamai EAA jest skonfigurowana indywidualnie w portalu usługi Azure AD. Administrator może skonfigurować zasady dotyczące poszczególnych urzędów certyfikacji w aplikacjach, a gdy warunki są spełnione, użytkownicy będą mogli bezpośrednio przekierowywać do określonej aplikacji.
+Aplikacja Akamai EAA jest skonfigurowana indywidualnie w portalu usługi Azure AD. Administrator może skonfigurować zasady dostępu warunkowego dla aplikacji, a gdy warunki są spełnione, użytkownicy będą mogli bezpośrednio przekierowywać do określonej aplikacji.
 
 **Specjaliści**:
 
@@ -169,7 +169,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij pozycję **Utwórz**.
+   1. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -196,7 +196,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 **Konfiguracja AKAMAI EAA dostawcy tożsamości**
 
 1. Zaloguj się do **Akamai konsoli dostępu aplikacji przedsiębiorstwa** .
-1. W **konsoli Akamai EAA**wybierz pozycję **Identity**  >  **dostawcy tożsamości** tożsamości i kliknij pozycję **Dodaj dostawcę tożsamości**.
+1. W **konsoli Akamai EAA** wybierz pozycję   >  **dostawcy tożsamości** tożsamości i kliknij pozycję **Dodaj dostawcę tożsamości**.
 
     ![Zrzut ekranu przedstawiający okno dostawców tożsamości konsoli Akamai EAA. Wybierz pozycję dostawcy tożsamości w menu tożsamość, a następnie wybierz pozycję Dodaj dostawcę tożsamości.](./media/header-akamai-tutorial/configure01.png)
 
@@ -253,7 +253,7 @@ Pomiń ustawienia zaawansowane/odwołaj się do dokumentacji Akamai, aby uzyska�
 
 ![Zrzut ekranu karty Zaawansowane ustawienia konsoli Akamai EAA przedstawiający ustawienia dla klienta EAA, zaawansowane i OIDC do mostkowania SAML.](./media/header-akamai-tutorial/advancesettings.png)
 
-### <a name="deployment"></a>Wdrożenie
+### <a name="deployment"></a>Wdrażanie
 
 1. Kliknij pozycję Wdróż dostawcę tożsamości.
 
@@ -269,7 +269,7 @@ Uwierzytelnianie na podstawie nagłówka Akamai
 
     ![Zrzut ekranu przedstawiający Kreatora dodawania aplikacji w konsoli Akamai EAA z CustomHTTP wymienionym w sekcji Aplikacje dostępu.](./media/header-akamai-tutorial/configure05.png)
 
-2. Wprowadź **nazwę** i **Opis**aplikacji.
+2. Wprowadź **nazwę** i **Opis** aplikacji.
 
     ![Zrzut ekranu przedstawiający okno dialogowe niestandardowa aplikacja HTTP z ustawieniami nazwy i opisu aplikacji.](./media/header-akamai-tutorial/configure06.png)
 
@@ -277,7 +277,7 @@ Uwierzytelnianie na podstawie nagłówka Akamai
 
     ![Zrzut ekranu przedstawiający konsolę Akamai EAA z ustawieniami certyfikatu i lokalizacji.](./media/header-akamai-tutorial/configure08.png)
 
-#### <a name="authentication"></a>Uwierzytelnianie
+#### <a name="authentication"></a>Authentication
 
 1. Wybierz kartę **uwierzytelnianie** .
 
@@ -295,7 +295,7 @@ Kliknij przycisk Zapisz i przejdź do uwierzytelniania.
 
 #### <a name="advanced-settings"></a>Ustawienia zaawansowane
 
-1. W **nagłówkach HTTP klienta**Określ atrybut **CustomerHeader** i **SAML**.
+1. W **nagłówkach HTTP klienta** Określ atrybut **CustomerHeader** i **SAML**.
 
     ![Zrzut ekranu przedstawiający kartę Ustawienia zaawansowane konsoli Akamai EAA z polem zarejestrowany adres URL logowania jednokrotnego w obszarze Uwierzytelnianie.](./media/header-akamai-tutorial/configure12.png)
 
@@ -331,7 +331,7 @@ Kliknij przycisk Zapisz i przejdź do uwierzytelniania.
 
     ![Zrzut ekranu przedstawiający Kreatora dodawania aplikacji w konsoli Akamai EAA z informacjami o protokole RDP wymienionym wśród aplikacji w sekcji Aplikacje dostępu.](./media/header-akamai-tutorial/configure16.png)
 
-1. Wprowadź **nazwę** i **Opis**aplikacji.
+1. Wprowadź **nazwę** i **Opis** aplikacji.
 
     ![Zrzut ekranu przedstawiający okno dialogowe aplikacji RDP pokazujące ustawienia nazwy i opisu aplikacji.](./media/header-akamai-tutorial/configure17.png)
 
@@ -341,7 +341,7 @@ Kliknij przycisk Zapisz i przejdź do uwierzytelniania.
 
     ![Zrzut ekranu przedstawiający konsolę Akamai EAA z ustawieniami certyfikatu i lokalizacji. Skojarzone łączniki są ustawione na USWST-CON1.](./media/header-akamai-tutorial/configure19.png)
 
-#### <a name="authentication"></a>Uwierzytelnianie
+#### <a name="authentication"></a>Authentication
 
 Kliknij przycisk **Zapisz i przejdź do usługi**.
 
@@ -385,7 +385,7 @@ Kliknij przycisk **Zapisz i przejdź do pozycji Ustawienia zaawansowane**.
 
     ![Zrzut ekranu przedstawiający Kreatora dodawania aplikacji w konsoli Akamai EAA z informacją o użyciu protokołu SSH na liście aplikacji w sekcji Aplikacje dostępu.](./media/header-akamai-tutorial/configure25.png)
 
-1. Wprowadź **nazwę** i **Opis**aplikacji.
+1. Wprowadź **nazwę** i **Opis** aplikacji.
 
     ![Zrzut ekranu przedstawiający okno dialogowe aplikacji SSH z ustawieniami nazwy i opisu aplikacji.](./media/header-akamai-tutorial/configure26.png)
 
@@ -403,7 +403,7 @@ Kliknij przycisk **Zapisz i przejdź do pozycji Ustawienia zaawansowane**.
 
     e. Określ lokalizację łącznika i wybierz łącznik.
 
-#### <a name="authentication"></a>Uwierzytelnianie
+#### <a name="authentication"></a>Authentication
 
 Kliknij przycisk **Zapisz i przejdź do usług**.
 
@@ -423,7 +423,7 @@ Kliknij pozycję Zapisz i przejdź do wdrożenia
 
 ![Zrzut ekranu konsoli usługi Akamai EAA niestandardowe ustawienia nagłówków HTTP dla SSH-SECURE przy użyciu przycisku Zapisz i przejdź do wdrożenia w prawym dolnym rogu.](./media/header-akamai-tutorial/configure31.png)
 
-#### <a name="deployment"></a>Wdrożenie
+#### <a name="deployment"></a>Wdrażanie
 
 1. Kliknij pozycję **Wdróż aplikację**.
 
@@ -555,7 +555,7 @@ Przypisywanie dostawcy tożsamości
 
 #### <a name="step-5-import-keytab-in-the-akamai-eaa-console"></a>Krok 5. Importowanie plik KEYTAB w konsoli AKAMAI EAA
 
-1. Kliknij **System**pozycję  >  **karty**systemowe.
+1. Kliknij pozycję  >  **karty** systemowe.
 
     ![Zrzut ekranu przedstawiający konsolę Akamai EAA z kartami, które są wybierane z menu systemowego.](./media/header-akamai-tutorial/keytabs.png)
 

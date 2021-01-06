@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9a1404969b67a0c4919902a407427227ce397d9a
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: cecf8330b7060a4cbc4691f64571a3c7865c575c
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825940"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935261"
 ---
 # <a name="quickstart-azure-key-vault-key-client-library-for-net-sdk-v4"></a>Szybki Start: Azure Key Vault kluczową bibliotekę klienta dla platformy .NET (SDK v4)
 
@@ -108,7 +108,7 @@ set KEY_VAULT_NAME=<your-key-vault-name>
 ````
 Windows PowerShell
 ```powershell
-$Env:KEY_VAULT_NAME=<your-key-vault-name>
+$Env:KEY_VAULT_NAME="<your-key-vault-name>"
 ```
 
 macOS lub Linux
@@ -260,4 +260,4 @@ Aby dowiedzieć się więcej na temat Key Vault i sposobu integrowania go z apli
 - Wyświetlanie [Key Vault dostępu z poziomu samouczka aplikacji App Service](../general/tutorial-net-create-vault-azure-web-app.md)
 - Zobacz [Key Vault dostępu z poziomu samouczka maszyny wirtualnej](../general/tutorial-net-virtual-machine.md)
 - Zobacz [przewodnik dewelopera Azure Key Vault](../general/developers-guide.md)
-- Przegląd [Azure Key Vault najlepszych](../general/best-practices.md) rozwiązań
+- Zapoznaj się z [omówieniem zabezpieczeń Key Vault](../general/security-overview.md)

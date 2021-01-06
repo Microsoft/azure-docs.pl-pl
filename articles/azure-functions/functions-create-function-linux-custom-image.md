@@ -5,12 +5,12 @@ ms.date: 12/2/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions-full
-ms.openlocfilehash: f270f74f97a9b9306d7b23dacec12c38f418dbd1
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: fb85920b04e3cd457dc36d1ba1fd0f18dcd7abb6
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921815"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937063"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Tworzenie funkcji w systemie Linux przy użyciu kontenera niestandardowego
 
@@ -20,7 +20,7 @@ W tym samouczku utworzysz i wdrożono kod w celu Azure Functions jako niestandar
 Azure Functions obsługuje dowolny język lub środowisko uruchomieniowe przy użyciu [niestandardowych programów obsługi](functions-custom-handlers.md). W przypadku niektórych języków, takich jak język programowania R używany w tym samouczku, należy zainstalować środowisko uruchomieniowe lub dodatkowe biblioteki jako zależności wymagające użycia kontenera niestandardowego.
 ::: zone-end
 
-Wdrożenie kodu funkcji w niestandardowym kontenerze systemu Linux wymaga [planu Premium](functions-premium-plan.md#features) lub [dedykowanego planu (App Service)](functions-scale.md#app-service-plan) . Ukończenie tego samouczka wiąże się z pozostałymi kosztami korzystania z kilku dolarów amerykańskich na koncie platformy Azure, które można zminimalizować przez [oczyszczenie zasobów](#clean-up-resources) po zakończeniu.
+Wdrożenie kodu funkcji w niestandardowym kontenerze systemu Linux wymaga [planu Premium](functions-premium-plan.md) lub [dedykowanego planu (App Service)](dedicated-plan.md) . Ukończenie tego samouczka wiąże się z pozostałymi kosztami korzystania z kilku dolarów amerykańskich na koncie platformy Azure, które można zminimalizować przez [oczyszczenie zasobów](#clean-up-resources) po zakończeniu.
 
 Można również użyć domyślnego kontenera Azure App Service, zgodnie z opisem w temacie [Tworzenie pierwszej funkcji hostowanej w systemie Linux](./create-first-function-cli-csharp.md?pivots=programming-language-python). Obsługiwane obrazy podstawowe dla Azure Functions są dostępne w [repozytorium Azure Functions obrazów podstawowych](https://hub.docker.com/_/microsoft-azure-functions-base).
 

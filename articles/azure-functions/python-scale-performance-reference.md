@@ -4,19 +4,19 @@ description: Dowiedz się, jak opracowywać aplikacje Azure Functions przy użyc
 ms.topic: article
 ms.date: 10/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 3383ec322903d15c6090630890d14ce6d90bc96f
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: baa362f029678f266f154df912a9178a6626667d
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97899404"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935873"
 ---
 # <a name="improve-throughput-performance-of-python-apps-in-azure-functions"></a>Zwiększenie wydajności przepływności aplikacji w języku Python w Azure Functions
 
 Podczas tworzenia dla Azure Functions przy użyciu języka Python należy zrozumieć, w jaki sposób działają funkcje, oraz wpływ tej wydajności na sposób skalowania aplikacji funkcji. Konieczność jest bardziej ważna podczas projektowania wysoce wydajnych aplikacji. Główne czynniki, które należy wziąć pod uwagę podczas projektowania, pisania i konfigurowania aplikacji funkcji, to skalowanie w poziomie i konfiguracja wydajności przepływności.
 
 ## <a name="horizontal-scaling"></a>Skalowanie w poziomie
-Domyślnie Azure Functions automatycznie monitoruje obciążenie aplikacji i tworzy dodatkowe wystąpienia hosta dla języka Python zgodnie z potrzebami. Azure Functions używa wbudowanych progów dla różnych typów wyzwalaczy, aby określić, kiedy należy dodać wystąpienia, takie jak wiek komunikatów i rozmiar kolejki dla QueueTrigger. Progi te nie są konfigurowane przez użytkownika. Aby uzyskać więcej informacji, zobacz [jak działają plany zużycia i Premium](functions-scale.md#how-the-consumption-and-premium-plans-work).
+Domyślnie Azure Functions automatycznie monitoruje obciążenie aplikacji i tworzy dodatkowe wystąpienia hosta dla języka Python zgodnie z potrzebami. Azure Functions używa wbudowanych progów dla różnych typów wyzwalaczy, aby określić, kiedy należy dodać wystąpienia, takie jak wiek komunikatów i rozmiar kolejki dla QueueTrigger. Progi te nie są konfigurowane przez użytkownika. Aby uzyskać więcej informacji, zobacz [skalowanie oparte na zdarzeniach w Azure Functions](event-driven-scaling.md).
 
 ## <a name="improving-throughput-performance"></a>Zwiększanie wydajności przepływności
 

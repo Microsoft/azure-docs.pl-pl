@@ -4,12 +4,12 @@ description: Dowiedz się, jak uniknąć problemów z wydajnością w Azure Func
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 02/25/2018
-ms.openlocfilehash: 53848e6273cf59439d44b431652981b18bdd5ba6
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: ec16ce3e7f9793be2a012a029bcca31c9a7ea4cf
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97755960"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936706"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Zarządzanie połączeniami w Azure Functions
 
@@ -19,7 +19,7 @@ Działa w ramach zasobów funkcji udział aplikacji. Wśród tych udostępnionyc
 
 Liczba dostępnych połączeń jest ograniczona częściowo, ponieważ aplikacja funkcji jest uruchamiana w [środowisku piaskownicy](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Jednym z ograniczeń, które nakładają się w Twoim kodzie, jest ograniczenie liczby połączeń wychodzących, które obecnie są 600 aktywne (1 200 łącznie) dla każdego wystąpienia. Po osiągnięciu tego limitu środowisko uruchomieniowe funkcji zapisuje następujący komunikat do dzienników: `Host thresholds exceeded: Connections` . Aby uzyskać więcej informacji, zobacz [limity usługi Functions](functions-scale.md#service-limits).
 
-Ten limit jest przypadany na wystąpienie. Gdy [kontroler skalowania dodaje wystąpienia aplikacji funkcji](functions-scale.md#how-the-consumption-and-premium-plans-work) do obsługi większej liczby żądań, każde wystąpienie ma limit połączeń niezależnych. Oznacza to, że nie ma limitu połączenia globalnego i można mieć znacznie więcej niż 600 aktywnych połączeń we wszystkich aktywnych wystąpieniach.
+Ten limit jest przypadany na wystąpienie. Gdy [kontroler skalowania dodaje wystąpienia aplikacji funkcji](event-driven-scaling.md) do obsługi większej liczby żądań, każde wystąpienie ma limit połączeń niezależnych. Oznacza to, że nie ma limitu połączenia globalnego i można mieć znacznie więcej niż 600 aktywnych połączeń we wszystkich aktywnych wystąpieniach.
 
 W przypadku rozwiązywania problemów upewnij się, że włączono Application Insights dla aplikacji funkcji. Application Insights umożliwia wyświetlanie metryk dla aplikacji funkcji, takich jak wykonania. Aby uzyskać więcej informacji, zobacz [Wyświetlanie telemetrii w Application Insights](analyze-telemetry-data.md#view-telemetry-in-application-insights).  
 

@@ -3,12 +3,12 @@ title: Dokumentacja ustawień aplikacji dla usługi Azure Functions
 description: Dokumentacja referencyjna dla ustawień aplikacji Azure Functions lub zmiennych środowiskowych.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 3d7292999fc4b53fed06822461857185127dc793
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 72b42e392f350a8693ca8a052bdec1d5fd337234
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898729"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937114"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Dokumentacja ustawień aplikacji dla usługi Azure Functions
 
@@ -256,7 +256,7 @@ Do użycia tylko w planach Premium &. Ścieżka pliku do kodu i konfiguracji apl
 Maksymalna liczba wystąpień, do których aplikacja funkcji może skalować w poziomie. Wartość domyślna nie jest ograniczona.
 
 > [!IMPORTANT]
-> To ustawienie jest w wersji zapoznawczej.  Dodano [Właściwość App dla funkcji maksymalnego skalowania w](./functions-scale.md#limit-scale-out) poziomie i jest to zalecany sposób ograniczania skalowania w poziomie.
+> To ustawienie jest w wersji zapoznawczej.  Dodano [Właściwość App dla funkcji maksymalnego skalowania w](./event-driven-scaling.md#limit-scale-out) poziomie i jest to zalecany sposób ograniczania skalowania w poziomie.
 
 |Klucz|Wartość przykładowa|
 |---|------------|

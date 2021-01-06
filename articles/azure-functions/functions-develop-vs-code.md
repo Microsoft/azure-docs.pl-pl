@@ -4,12 +4,12 @@ description: Dowiedz się, jak opracowywać i testować Azure Functions przy uż
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
-ms.openlocfilehash: 573177615ff898326eb29649a7f766b5df34b587
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 33adcb853099778c4b06a9cd428f480f6138ee8b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96168439"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936978"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Opracowywanie funkcji usługi Azure Functions przy użyciu programu Visual Studio Code
 
@@ -93,7 +93,7 @@ Szablon projektu tworzy projekt w wybranym języku i instaluje wymagane zależno
 
 W zależności od języka tworzone są te inne pliki:
 
-# <a name="c"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[S\#](#tab/csharp)
 
 * [Plik biblioteki klas HttpExample.cs](functions-dotnet-class-library.md#functions-class-library-project) , który implementuje funkcję.
 
@@ -125,7 +125,7 @@ Możesz również [dodać nową funkcję do projektu](#add-a-function-to-your-pr
 
 Z wyjątkiem wyzwalaczy HTTP i Timer, powiązania są implementowane w pakietach rozszerzeń. Należy zainstalować pakiety rozszerzeń dla wyzwalaczy i powiązań, które ich potrzebują. Proces instalacji rozszerzeń powiązań zależy od języka projektu.
 
-# <a name="c"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[S\#](#tab/csharp)
 
 Uruchom polecenie [dotnet Add Package](/dotnet/core/tools/dotnet-add-package) w oknie terminalu, aby zainstalować pakiety rozszerzeń, które są potrzebne w projekcie. Następujące polecenie instaluje rozszerzenie usługi Azure Storage, które implementuje powiązania dla obiektów blob, Queue i Table Storage.
 
@@ -145,7 +145,7 @@ Nową funkcję można dodać do istniejącego projektu przy użyciu jednego ze w
 
 Wyniki tej akcji zależą od języka projektu:
 
-# <a name="c"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[S\#](#tab/csharp)
 
 Do projektu zostanie dodany nowy plik biblioteki klas C# (. cs).
 
@@ -161,7 +161,7 @@ Funkcję można rozszerzyć przez dodanie powiązań wejściowych i wyjściowych
 
 Poniższe przykłady nawiązują połączenie z kolejką magazynu o nazwie `outqueue` , gdzie parametry połączenia dla konta magazynu są ustawiane w `MyStorageConnection` ustawieniach aplikacji w local.settings.jsna.
 
-# <a name="c"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[S\#](#tab/csharp)
 
 Zaktualizuj metodę funkcji, aby dodać następujący parametr do `Run` definicji metody:
 
@@ -255,7 +255,7 @@ Poniższe kroki umożliwiają opublikowanie projektu w nowej aplikacji funkcji u
     | ------ | ----- | ----------- |
     | Wybieranie aplikacji funkcji na platformie Azure | Utwórz nowe aplikacja funkcji na platformie Azure | W następnym monicie wpisz globalnie unikatową nazwę, która identyfikuje nową aplikację funkcji, a następnie wybierz klawisz ENTER. Prawidłowe znaki dla nazwy aplikacji funkcji to `a-z`, `0-9` i `-`. |
     | Wybierz system operacyjny | Windows | Aplikacja funkcji jest uruchamiana w systemie Windows. |
-    | Wybierz plan hostingu | Plan Zużycie | Jest używany [host planu zużycia](functions-scale.md#consumption-plan) bezserwerowego. |
+    | Wybierz plan hostingu | Plan Zużycie | Jest używany [host planu zużycia](consumption-plan.md) bezserwerowego. |
     | Wybierz środowisko uruchomieniowe dla nowej aplikacji | Język projektu | Środowisko uruchomieniowe musi pasować do projektu, który jest publikowany. |
     | Wybierz grupę zasobów dla nowych zasobów | Utwórz nową grupę zasobów | W następnym monicie wpisz nazwę grupy zasobów, na przykład `myResourceGroup` , a następnie wybierz klawisz ENTER. Możesz również wybrać istniejącą grupę zasobów. |
     | Wybierz konto magazynu | Tworzenie nowego konta magazynu | W następnym monicie wpisz globalnie unikatową nazwę nowego konta magazynu używanego przez aplikację funkcji, a następnie wybierz klawisz ENTER. Nazwy kont magazynu muszą mieć długość od 3 do 24 znaków i mogą zawierać tylko cyfry i małe litery. Możesz również wybrać istniejące konto. |
@@ -311,7 +311,7 @@ Ta sekcja używa [rozszerzenia usługi Azure Storage dla Visual Studio Code](htt
 
 Aby ustawić parametry połączenia konta magazynu:
 
-1. W programie Visual Studio Otwórz program **Cloud Explorer**, rozwiń węzeł **konto magazynu**  >  **Your Storage Account**, a następnie wybierz pozycję **Właściwości** i skopiuj wartość **podstawowe parametry połączenia** .
+1. W programie Visual Studio Otwórz program **Cloud Explorer**, rozwiń węzeł **konto magazynu**  >  , a następnie wybierz pozycję **Właściwości** i skopiuj wartość **podstawowe parametry połączenia** .
 
 2. W projekcie Otwórz local.settings.jsw pliku i ustaw wartość klucza **AzureWebJobsStorage** na skopiowane parametry połączenia.
 
@@ -396,9 +396,9 @@ Aby dowiedzieć się więcej na temat monitorowania za pomocą Application Insig
 
 Domyślnie wszystkie projekty C# są tworzone jako [projekty bibliotek klas skompilowanych w języku c#](functions-dotnet-class-library.md). Jeśli wolisz pracować z projektami skryptów C# zamiast tego, musisz wybrać opcję skrypt C# jako język domyślny w ustawieniach rozszerzenia Azure Functions:
 
-1. Wybierz **File** pozycję  >  **Preferences**  >  **Ustawienia** preferencji pliku.
+1. Wybierz pozycję  >    >  **Ustawienia** preferencji pliku.
 
-1. Przejdź do pozycji **Ustawienia użytkownika**  >  **Extensions**  >  **Azure Functions**.
+1. Przejdź do pozycji **Ustawienia użytkownika**  >    >  **Azure Functions**.
 
 1. Wybierz **skrypt języka C #** z **funkcji platformy Azure: język projektu**.
 
