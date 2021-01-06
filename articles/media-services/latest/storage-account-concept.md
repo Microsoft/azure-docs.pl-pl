@@ -10,14 +10,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 01/05/2021
 ms.author: inhenkel
-ms.openlocfilehash: f37b453a294a0d0a7b9a99bfebe8f3eff09e8956
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36593efd4f2583f28dffbb4f5b491fbeec7ba21d
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89291198"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916324"
 ---
 # <a name="azure-storage-accounts"></a>Konta usługi Azure Storage
 
@@ -54,6 +54,9 @@ Aby chronić zasoby w spoczynku, zasoby powinny być szyfrowane przez szyfrowani
 |[Szyfrowanie po stronie klienta magazynu](../../storage/common/storage-client-side-encryption.md)|Szyfrowanie po stronie klienta oferowane przez usługę Azure Storage, klucz zarządzany przez klienta w Key Vault.|Nieobsługiwane.|
 
 <sup>1</sup> w Media Services v3, szyfrowanie magazynu (szyfrowanie AES-256) jest obsługiwane tylko w przypadku zgodności z poprzednimi wersjami, gdy zasoby zostały utworzone przy użyciu Media Services V2, co oznacza, że V3 działa z istniejącymi zasobami zaszyfrowanymi magazynu, ale nie umożliwia tworzenia nowych.
+
+## <a name="double-encryption"></a>Podwójne szyfrowanie
+Media Services obsługuje podwójne szyfrowanie.  Aby dowiedzieć się więcej na temat podwójnego szyfrowania, zobacz [Azure podwójne szyfrowanie](https://docs.microsoft.com/azure/security/fundamentals/double-encryption).
 
 ## <a name="storage-account-errors"></a>Błędy konta magazynu
 

@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: dd350cc5fa0c3b30b4f0d57938348a8328af311a
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.openlocfilehash: 22c49502883cb444027bd59a24bfb5bb3c32da4c
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827397"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915168"
 ---
-# <a name="view-and-configure-ddos-diagnostic-logging"></a>Wyświetl i skonfiguruj rejestrowanie diagnostyczne DDoS
+# <a name="view-and-configure-ddos-diagnostic-logging"></a>Wyświetlanie i konfigurowanie rejestrowania diagnostycznego dotyczącego ataków DDoS
 
 Azure DDoS Protection Standard zapewnia szczegółowe informacje o atakach i wizualizacje z DDoSą analizą ataków. Klienci chroniący sieci wirtualne przed atakami DDoS mają szczegółowy wgląd w ruch związany z atakami i działania podejmowane w celu ograniczenia ataku za pośrednictwem raportów ograniczenia ataków, które &ją dzienniki przepływów ograniczenia. Bogate dane telemetryczne są udostępniane za pośrednictwem Azure Monitor, w tym szczegółowych metryk w czasie trwania ataku DDoS. Alerty można skonfigurować dla dowolnych metryk Azure Monitor uwidocznionych przez DDoS Protection. Rejestrowanie może być dodatkowo zintegrowane z [platformą Azure](../sentinel/connect-azure-ddos-protection.md), Splunk (Azure Event Hubs), pakietem OMS log Analytics i usługą Azure Storage, aby uzyskać zaawansowaną analizę za pośrednictwem interfejsu diagnostyki Azure monitor.
 
@@ -40,7 +40,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 - Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Przed wykonaniem kroków opisanych w tym samouczku należy najpierw utworzyć [Plan ochrony usługi Azure DDoS Standard](manage-ddos-protection.md) , a w sieci wirtualnej musi być włączona funkcja DDoS Protection Standard.
-- DDoS monitoruje publiczne adresy IP przypisane do zasobów w ramach sieci wirtualnej. Jeśli nie masz żadnych zasobów z publicznymi adresami IP w sieci wirtualnej, musisz najpierw utworzyć zasób z publicznym adresem IP. Możesz monitorować publiczny adres IP wszystkich zasobów wdrożonych za pomocą Menedżer zasobów (nieklasyczny) wymieniony w [sieci wirtualnej dla usług platformy Azure (w](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) tym modułów równoważenia obciążenia platformy Azure, w których znajdują się maszyny wirtualne zaplecza w sieci wirtualnej), z wyjątkiem środowisk Azure App Service i VPN Gateway platformy Azure. Aby kontynuować pracę z tym samouczkiem, możesz szybko utworzyć maszynę wirtualną z [systemem Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) lub [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) .    
+- DDoS monitoruje publiczne adresy IP przypisane do zasobów w ramach sieci wirtualnej. Jeśli nie masz żadnych zasobów z publicznymi adresami IP w sieci wirtualnej, musisz najpierw utworzyć zasób z publicznym adresem IP. Możesz monitorować publiczny adres IP wszystkich zasobów wdrożonych za pomocą Menedżer zasobów (nieklasyczny) wymieniony w [sieci wirtualnej dla usług platformy Azure (w](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) tym modułów równoważenia obciążenia platformy Azure, w których znajdują się maszyny wirtualne zaplecza w sieci wirtualnej), z wyjątkiem środowisk Azure App Service. Aby kontynuować pracę z tym samouczkiem, możesz szybko utworzyć maszynę wirtualną z [systemem Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) lub [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) .    
 
 ## <a name="configure-ddos-diagnostic-logs"></a>Konfigurowanie dzienników diagnostycznych DDoS
 
@@ -73,7 +73,7 @@ W poniższej tabeli wymieniono nazwy pól i opisy:
 | **ResourceId** | Identyfikator zasobu publicznego adresu IP. |
 | **Kategoria** | W przypadku powiadomień będzie to możliwe `DDoSProtectionNotifications` .|
 | **ResourceGroup** | Grupa zasobów zawierająca publiczny adres IP i sieć wirtualną. |
-| **SubscriptionId** | Identyfikator subskrypcji planu ochrony DDoS. |
+| **Identyfikator** | Identyfikator subskrypcji planu ochrony DDoS. |
 | **Zasób** | Nazwa publicznego adresu IP. |
 | **ResourceType** | Zawsze będzie to możliwe `PUBLICIPADDRESS` . |
 | **OperationName** | W przypadku powiadomień będzie to możliwe `DDoSProtectionNotifications` .  |
@@ -89,7 +89,7 @@ W poniższej tabeli wymieniono nazwy pól i opisy:
 | **ResourceId** | Identyfikator zasobu publicznego adresu IP. |
 | **Kategoria** | W przypadku dzienników przepływów będzie to możliwe `DDoSMitigationFlowLogs` .|
 | **ResourceGroup** | Grupa zasobów zawierająca publiczny adres IP i sieć wirtualną. |
-| **SubscriptionId** | Identyfikator subskrypcji planu ochrony DDoS. |
+| **Identyfikator** | Identyfikator subskrypcji planu ochrony DDoS. |
 | **Zasób** | Nazwa publicznego adresu IP. |
 | **ResourceType** | Zawsze będzie to możliwe `PUBLICIPADDRESS` . |
 | **OperationName** | W przypadku dzienników przepływów będzie to możliwe `DDoSMitigationFlowLogs` . |
@@ -108,7 +108,7 @@ W poniższej tabeli wymieniono nazwy pól i opisy:
 | **ResourceId** | Identyfikator zasobu publicznego adresu IP. |
 | **Kategoria** | W przypadku powiadomień będzie to możliwe `DDoSProtectionNotifications` .|
 | **ResourceGroup** | Grupa zasobów zawierająca publiczny adres IP i sieć wirtualną. |
-| **SubscriptionId** | Identyfikator subskrypcji planu ochrony DDoS. |
+| **Identyfikator** | Identyfikator subskrypcji planu ochrony DDoS. |
 | **Zasób** | Nazwa publicznego adresu IP. |
 | **ResourceType** | Zawsze będzie to możliwe `PUBLICIPADDRESS` . |
 | **OperationName** | W przypadku raportów zaradczych będzie to możliwe `DDoSMitigationReports` . |
@@ -163,4 +163,4 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 Aby dowiedzieć się, jak skonfigurować alerty ataków, przejdź do następnego samouczka.
 
 > [!div class="nextstepaction"]
-> [Wyświetlanie i Konfigurowanie alertów dotyczących ochrony DDoS](alerts.md)
+> [Wyświetlanie i konfigurowanie alertów ochrony przed atakami DDoS](alerts.md)

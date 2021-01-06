@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: troubleshooting
 ms.date: 10/16/2019
 ms.author: charwen
-ms.openlocfilehash: f3c142491363f30513877ae4368f291430aa3675
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4f5d4b7fed8f14f048794616ee272342d1e8343
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85831934"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915559"
 ---
 # <a name="troubleshoot-azure-bastion"></a>Rozwiązywanie problemów z usługą Azure Bastion
 
@@ -81,7 +81,7 @@ Odp **.:** Transfer plików nie jest w tej chwili obsługiwany. Pracujemy nad do
 
 ## <a name="black-screen-in-the-azure-portal"></a><a name="blackscreen"></a>Czarny ekran w Azure Portal
 
-**P:** Podczas próby nawiązania połączenia przy użyciu usługi Azure bastionu pojawia się czarny ekran w Azure Portal.
+**P:** Gdy próbuję nawiązać połączenie za pomocą usługi Azure bastionu, nie mogę podłączaj odgradzania docelowej maszyny wirtualnej i pojawia się czarny ekran w Azure Portal.
 
 Odp **.:** Dzieje się tak, gdy występuje problem z łącznością sieciową między przeglądarką sieci Web i usługą Azure bastionu (Zapora internetowa klienta może blokować ruch usługi WebSockets lub podobną) lub między usługą Azure bastionu i docelową maszyną wirtualną. Większość przypadków obejmuje sieciowej grupy zabezpieczeń zastosowany do AzureBastionSubnet lub w docelowej podsieci maszyny wirtualnej, która blokuje ruch RDP/SSH w sieci wirtualnej. Zezwól na ruch w sieci WebSockets w zaporze internetowej klienta i sprawdź sieciowych grup zabezpieczeń w docelowej podsieci maszyny wirtualnej.
 

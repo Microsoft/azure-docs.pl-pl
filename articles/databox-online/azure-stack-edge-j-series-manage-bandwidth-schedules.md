@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/05/2021
 ms.author: alkohli
-ms.openlocfilehash: a0d596c7c1046ea26ac389a48c17fa5abccbfd12
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 3182258245701903e7b3d6d6163cf3e2bd55c1fc
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951608"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915474"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-pro-gpu"></a>Użyj Azure Portal do zarządzania harmonogramami przepustowości na Azure Stack brzegowej procesora GPU 
 
@@ -40,12 +40,12 @@ Wykonaj następujące kroki w Azure Portal, aby dodać harmonogram.
 
     ![Wybierz przepustowość](media/azure-stack-edge-j-series-manage-bandwidth-schedules/add-schedule-1.png)
 
-3. W obszarze **Dodaj harmonogram**: 
+3. W obszarze **Dodaj harmonogram**:
 
-   1. Podaj **dzień rozpoczęcia**, **dzień zakończenia**, **godzinę rozpoczęcia**i **godzinę zakończenia** harmonogramu.
+   1. Podaj **dzień rozpoczęcia**, **dzień zakończenia**, **godzinę rozpoczęcia** i **godzinę zakończenia** harmonogramu.
    2. Zaznacz opcję **wszystkie dni** , jeśli ten harmonogram ma być uruchamiany cały dzień.
    3. **Przepustowość** to przepustowość w megabitach na sekundę (MB/s) używana przez urządzenie w operacjach związanych z chmurą (zarówno w przypadku przekazywania i pobierania). Podaj liczbę z zakresu od 20 do 2 147 483 647 dla tego pola.
-   4. Zaznacz pole **Nieograniczona** przepustowość, jeśli nie chcesz ustalać czasu przekazywania i pobierania.
+   4. Wybierz opcję **nieograniczone przepustowość** , jeśli nie chcesz ograniczać przekazywania i pobierania danych.
    5. Wybierz pozycję **Dodaj**.
 
       ![Dodaj harmonogram](media/azure-stack-edge-j-series-manage-bandwidth-schedules/add-schedule-2.png)
@@ -58,9 +58,10 @@ Wykonaj następujące kroki w Azure Portal, aby dodać harmonogram.
 
 Wykonaj poniższe czynności, aby edytować harmonogram przepustowości.
 
-1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do obszaru **przepustowość**. 
+1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do obszaru **przepustowość**.
 2. Z listy harmonogramów przepustowości Wybierz harmonogram, który chcesz zmodyfikować.
-    ![Wybieranie harmonogramu przepustowości](media/azure-stack-edge-j-series-manage-bandwidth-schedules/modify-schedule-1.png)
+
+   ![Wybieranie harmonogramu przepustowości](media/azure-stack-edge-j-series-manage-bandwidth-schedules/modify-schedule-1.png)
 
 3. Wprowadź i zapisz odpowiednie zmiany.
 
@@ -77,7 +78,7 @@ Wykonaj następujące kroki, aby usunąć harmonogram przepustowości skojarzony
 
 1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do obszaru **przepustowość**.  
 
-2. Na liście harmonogramów przepustowości wybierz harmonogram, który chcesz usunąć. W obszarze **Edytuj harmonogram**wybierz pozycję **Usuń**. Po wyświetleniu monitu o potwierdzenie wybierz pozycję **tak**.
+2. Na liście harmonogramów przepustowości wybierz harmonogram, który chcesz usunąć. W obszarze **Edytuj harmonogram** wybierz pozycję **Usuń**. Po wyświetleniu monitu o potwierdzenie wybierz pozycję **tak**.
 
    ![Usuwanie użytkownika](media/azure-stack-edge-j-series-manage-bandwidth-schedules/delete-schedule-2.png)
 

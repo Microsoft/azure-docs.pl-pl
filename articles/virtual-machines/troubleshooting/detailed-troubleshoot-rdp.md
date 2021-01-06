@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 91f15e32866cca008553286f7585247909d9a4ba
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5782765504eb1e0cb57558d3d4772d08de6b4d25
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002684"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913111"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Szczegółowe procedury rozwiązywania problemów z połączeniem pulpitu zdalnego z maszynami wirtualnymi systemu Windows na platformie Azure
 Ten artykuł zawiera szczegółowe kroki rozwiązywania problemów w celu zdiagnozowania i rozwiązania złożonych błędów Pulpit zdalny dla maszyn wirtualnych platformy Azure opartych na systemie Windows.
@@ -135,7 +135,7 @@ W przypadku maszyn wirtualnych utworzonych przy użyciu klasycznego modelu wdra�
 
 Następnie Zainstaluj Azure PowerShell, jeśli jeszcze tego nie zrobiono. Zobacz artykuł [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/).
 
-Następnie otwórz wiersz polecenia Azure PowerShell i Zmień bieżący folder na lokalizację pliku skryptu **InstallWinRMCertAzureVM.ps1** . Aby uruchomić skrypt Azure PowerShell, należy ustawić odpowiednie zasady wykonywania. Uruchom polecenie **Get-ExecutionPolicy** , aby określić bieżący poziom zasad. Aby uzyskać informacje na temat ustawiania odpowiedniego poziomu, zobacz [Set-executionpolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-5.1).
+Następnie otwórz wiersz polecenia Azure PowerShell i Zmień bieżący folder na lokalizację pliku skryptu **InstallWinRMCertAzureVM.ps1** . Aby uruchomić skrypt Azure PowerShell, należy ustawić odpowiednie zasady wykonywania. Uruchom polecenie **Get-ExecutionPolicy** , aby określić bieżący poziom zasad. Aby uzyskać informacje na temat ustawiania odpowiedniego poziomu, zobacz [Set-executionpolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-5.1&preserve-view=true).
 
 Następnie wprowadź nazwę subskrypcji platformy Azure, nazwę usługi w chmurze i nazwę maszyny wirtualnej (usuwając < i > znaki), a następnie Uruchom te polecenia.
 

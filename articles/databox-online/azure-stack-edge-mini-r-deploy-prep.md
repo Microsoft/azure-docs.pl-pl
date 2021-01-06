@@ -6,29 +6,29 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 12/16/2020
+ms.date: 01/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Mini R device so I can use it to transfer data to Azure.
-ms.openlocfilehash: 6d41c186a5d239ad7228c37902f5691085e43dbf
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 03b4ed41b3110825d4e4797f2c5f733152504919
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631248"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913791"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-mini-r"></a>Samouczek: przygotowanie do wdrożenia Azure Stack Edge mini R
 
-Jest to pierwszy samouczek dotyczący serii samouczków wdrażania, które są wymagane do całkowitego wdrożenia urządzenia Azure Stack Edge mini R. W tym samouczku opisano sposób przygotowania Azure Portal w celu wdrożenia Azure Stackego zasobu brzegowego.
+Ten samouczek jest pierwszą częścią serii samouczków wdrażania, które są wymagane do całkowitego wdrożenia urządzenia z systemem Azure Stack Edge mini R. W tym samouczku opisano sposób przygotowania Azure Portal w celu wdrożenia Azure Stackego zasobu brzegowego.
 
 Do ukończenia procesu instalacji i konfiguracji niezbędne są uprawnienia administratora. Przygotowanie portalu zajmuje mniej niż 10 minut.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie nowego zasobu
 > * Uzyskiwanie klucza aktywacji
 
-### <a name="get-started"></a>Wprowadzenie
+### <a name="get-started"></a>Rozpoczęcie pracy
 
 Aby wdrożyć Azure Stack Edge w trybie mini R, zapoznaj się z poniższymi samouczkami w określonej kolejności.
 
@@ -36,7 +36,7 @@ Aby wdrożyć Azure Stack Edge w trybie mini R, zapoznaj się z poniższymi samo
 | --- | --- |
 | **Preparacie** |Te kroki należy wykonać w celu przygotowania do nadchodzącego wdrożenia. |
 | **[Lista kontrolna konfiguracji wdrożenia](#deployment-configuration-checklist)** |Ta lista kontrolna umożliwia zbieranie i rejestrowanie informacji przed wdrożeniem i w jego trakcie. |
-| **[Wymagania wstępne dotyczące wdrażania](#prerequisites)** |Służą do sprawdzania, czy środowisko jest gotowe do przeprowadzenia wdrożenia. |
+| **[Wymagania wstępne dotyczące wdrażania](#prerequisites)** |Te wymagania wstępne sprawdzają, czy środowisko jest gotowe do wdrożenia. |
 |  | |
 |**Samouczki dotyczące wdrażania** |Te samouczki są wymagane do wdrożenia w środowisku produkcyjnym urządzenia z usługą Azure Stack Edge mini R. |
 |**[1. Przygotuj Azure Portal dla urządzenia](azure-stack-edge-mini-r-deploy-prep.md)** |Utwórz i skonfiguruj zasób Azure Stack Edge przed zainstalowaniem urządzenia fizycznego. |
@@ -46,7 +46,7 @@ Aby wdrożyć Azure Stack Edge w trybie mini R, zapoznaj się z poniższymi samo
 |**[5. Konfigurowanie ustawień urządzenia](azure-stack-edge-mini-r-deploy-set-up-device-update-time.md)** |Przypisz nazwę urządzenia i domenę DNS, skonfiguruj serwer aktualizacji i godzinę urządzenia. |
 |**[6. Skonfiguruj ustawienia zabezpieczeń](azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption.md)** |Skonfiguruj certyfikaty przy użyciu własnych certyfikatów, skonfiguruj sieć VPN i skonfiguruj szyfrowanie na urządzeniu.   |
 |**[7. Aktywuj urządzenie](azure-stack-edge-mini-r-deploy-activate.md)** |Aktywuj urządzenie przy użyciu klucza aktywacji z usługi. Urządzenie jest gotowe do skonfigurowania udziałów SMB lub NFS lub łączenia się za pośrednictwem interfejsu REST. |
-|**[8. Konfigurowanie obliczeń](azure-stack-edge-gpu-deploy-configure-compute.md)** |Skonfiguruj rolę obliczeń na urządzeniu. Spowoduje to również utworzenie klastra Kubernetes. |
+|**[8. Konfigurowanie obliczeń](azure-stack-edge-gpu-deploy-configure-compute.md)** |Skonfiguruj rolę obliczeń na urządzeniu. Tworzony jest również klaster Kubernetes. |
 
 Teraz możesz rozpocząć konfigurowanie witryny Azure Portal.
 
@@ -105,7 +105,7 @@ Aby utworzyć zasób Azure Stack Edge, wykonaj następujące czynności w Azure 
     
     |Ustawienie  |Wartość  |
     |---------|---------|
-    |Subskrypcja    |Jest to wypełniane automatycznie w oparciu o wcześniejszy wybór. Subskrypcja jest połączona z kontem rozliczeniowym. |
+    |Subskrypcja    |Subskrypcja zostanie automatycznie wypełniona w oparciu o wcześniejszy wybór. Subskrypcja jest połączona z kontem rozliczeniowym. |
     |Grupa zasobów  |Wybierz istniejącą grupę lub utwórz nową.<br>Dowiedz się więcej o [grupach zasobów platformy Azure](../azure-resource-manager/management/overview.md).     |
 
 
@@ -113,7 +113,7 @@ Aby utworzyć zasób Azure Stack Edge, wykonaj następujące czynności w Azure 
 
     |Ustawienie  |Wartość  |
     |---------|---------|
-    |Nazwa   | Przyjazna nazwa identyfikująca zasób.<br>Nazwa może zawierać od 2 do 50 znaków, w tym litery, cyfry i łączniki.<br> Nazwa rozpoczyna się i kończy literą lub cyfrą.        |
+    |Nazwa   | Przyjazna nazwa identyfikująca zasób.<br>Nazwa ma od 2 do 50 znaków, w tym litery, cyfry i łączniki.<br> Nazwa rozpoczyna się i kończy literą lub cyfrą.        |
     |Region (Region)     |Aby uzyskać listę wszystkich regionów, w których jest dostępny zasób Azure Stack Edge, zobacz [dostępność produktów platformy Azure według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). W przypadku korzystania z Azure Government wszystkie regiony rządowe są dostępne, jak pokazano w [regionach świadczenia usługi Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Wybierz lokalizację najbliżej regionu geograficznego, w którym chcesz wdrożyć urządzenie.|
 
     ![Tworzenie zasobu 4](media/azure-stack-edge-mini-r-deploy-prep/create-resource-4.png)
@@ -121,11 +121,11 @@ Aby utworzyć zasób Azure Stack Edge, wykonaj następujące czynności w Azure 
 
 8. Wybierz pozycję **Dalej: adres wysyłkowy**.
 
-    - Jeśli masz już urządzenie, zaznacz pole kombi w przypadku, gdy **jest dostępne urządzenie Azure Stack EDGE Pro R**.
+    - Jeśli masz już urządzenie, zaznacz pole kombi, dla którego **masz już urządzenie**.
 
         ![Tworzenie zasobu 5](media/azure-stack-edge-mini-r-deploy-prep/create-resource-5.png)
 
-    - Jeśli jest to nowe urządzenie, które ma być uporządkowane, wprowadź nazwę kontaktu, firmę, adres, który ma zostać wysłany do urządzenia, i informacje kontaktowe.
+    - Jeśli jest to nowe urządzenie, które ma być uporządkowane, wprowadź nazwę kontaktu, firmę, adres, na który ma zostać wydane urządzenie, i informacje kontaktowe.
 
         ![Tworzenie zasobu 6](media/azure-stack-edge-mini-r-deploy-prep/create-resource-6.png)
 
@@ -133,9 +133,9 @@ Aby utworzyć zasób Azure Stack Edge, wykonaj następujące czynności w Azure 
 
 10. Na karcie **Recenzja + tworzenie** Przejrzyj **szczegóły cennika**, **warunki użytkowania** i szczegóły dotyczące zasobu. Zaznacz pole kombi dla **zrecenzowanych warunków zachowania poufności informacji**.
 
-    ![Tworzenie zasobu 7](media/azure-stack-edge-mini-r-deploy-prep/create-resource-7.png) 
+    ![Tworzenie zasobu 7](media/azure-stack-edge-mini-r-deploy-prep/create-resource-7.png)
 
-    Użytkownik otrzymuje również powiadomienie, że podczas tworzenia zasobu jest włączony tożsamość usługi zarządzanej (MSI), który umożliwia uwierzytelnianie w usługach w chmurze. Ta tożsamość istnieje pod warunkiem, że istnieje zasób.
+    Zostanie również powiadomiony o tym, że podczas tworzenia zasobów jest włączone tożsamość usługi zarządzanej (MSI), które umożliwia uwierzytelnianie w usługach w chmurze. Ta tożsamość istnieje pod warunkiem, że istnieje zasób.
 
 8. Wybierz przycisk **Utwórz**.
 
@@ -157,9 +157,9 @@ Po rozpoczęciu i uruchomieniu Azure Stack brzegowej należy uzyskać klucz akty
 
     ![Wybierz konfigurację urządzenia](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-2.png)
 
-2. Na kafelku **Aktywuj** podaj nazwę Azure Key Vault lub zaakceptuj nazwę domyślną. Nazwa magazynu kluczy może mieć długość od 3 do 24 znaków. 
+2. Na kafelku **Aktywuj** Podaj nazwę dla Azure Key Vault lub zaakceptuj nazwę domyślną. Nazwa magazynu kluczy może mieć długość od 3 do 24 znaków. 
 
-    Magazyn kluczy jest tworzony dla każdego zasobu usługi Azure Stack Edge, który został aktywowany z urządzeniem. Magazyn kluczy pozwala przechowywać klucze tajne i uzyskiwać do nich dostęp, na przykład klucz integralności kanału (CIK) dla usługi jest przechowywany w magazynie kluczy. 
+    Magazyn kluczy jest tworzony dla każdego zasobu usługi Azure Stack Edge, który został aktywowany z urządzeniem. Magazyn kluczy umożliwia przechowywanie kluczy tajnych i uzyskiwanie do nich dostępu. Na przykład klucz integralności kanału (CIK) dla usługi jest przechowywany w magazynie kluczy.
 
     Po określeniu nazwy magazynu kluczy wybierz pozycję **Generuj klucz** , aby utworzyć klucz aktywacji. 
 

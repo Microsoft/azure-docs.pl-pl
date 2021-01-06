@@ -6,21 +6,18 @@ ms.subservice: sizes
 author: vikancha-MSFT
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 01/05/2021
 ms.author: vikancha
-ms.openlocfilehash: 2de6cceb1e3b85060a146b18a689b57573bc932e
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 6463e54fb7f0a2cc03ffa043c00048c1131899ce
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585432"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913434"
 ---
-# <a name="ncast4_v3-series-in-preview"></a>Seria NCasT4_v3 (w wersji zapoznawczej) 
+# <a name="ncast4_v3-series"></a>Seria NCasT4_v3 
 
 Maszyny wirtualne z serii NCasT4_v3 są obsługiwane przez procesory [NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) GPU i AMD EPYC 7V12 (Rzym). Maszyny wirtualne są wyposażone w maksymalnie 4 procesory GPU T4 z 16 GB pamięci, do 64 rdzeni procesora AMD EPYC 7V12 (Rzym) i 440 GiB pamięci systemowej. Te maszyny wirtualne są idealnym rozwiązaniem do wdrażania usług AI, takich jak inferencing w czasie rzeczywistym żądań generowanych przez użytkowników, lub interaktywnych obciążeń graficznych i wizualizacji przy użyciu sterownika siatki firmy NVIDIA i technologii wirtualnej procesora GPU. Standardowe obciążenia procesora GPU oparte na CUDA, TensorRT, Caffe, ONNX i innych strukturach, a także technologiach opartych na procesorze GPU, oparte na technologii OpenGL i DirectX, można wdrożyć ekonomicznie, z bliską bliskością użytkowników w serii NCasT4_v3.
-
-> [!NOTe]
-> [Prześlij żądanie](https://aka.ms/NCT4v3Preview) do programu w wersji zapoznawczej.
 
 <br>
 

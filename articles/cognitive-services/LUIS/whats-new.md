@@ -4,13 +4,13 @@ description: Ten artykuł jest regularnie aktualizowany za pomocą wiadomości o
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 06/15/2020
-ms.openlocfilehash: 52f8aad0a429d3378d46265fab719b1cb9f07fd0
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.date: 01/05/2021
+ms.openlocfilehash: 4591bc26c848032d1c0f8b96720c4ec66b9b064d
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813194"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916358"
 ---
 # <a name="whats-new-in-language-understanding"></a>Co nowego w Language Understanding
 
@@ -20,7 +20,8 @@ Dowiedz się, co nowego w usłudze. Te elementy obejmują informacje o wersji, k
 
 ### <a name="december-2020"></a>Grudzień 2020 r.
 
-* Wszyscy użytkownicy LUIS są zobowiązani do [migracji do zasobu Luis authorint](luis-migration-authoring.md)
+* Wszyscy użytkownicy LUIS są zobowiązani do [migracji do zasobu tworzenia Luis](luis-migration-authoring.md)
+* Nowe [punkty końcowe oceny](luis-how-to-batch-test.md#batch-testing-using-the-rest-api) , które umożliwiają przesyłanie testów wsadowych USTING interfejs API REST i uzyskiwanie wyników dokładności dla zamiar i jednostek. Dostępne od punktu końcowego LUIS v 3.0 — wersja zapoznawcza.
 
 ### <a name="june-2020"></a>Czerwiec 2020 r.
 

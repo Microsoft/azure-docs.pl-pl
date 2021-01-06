@@ -1,86 +1,74 @@
 ---
 title: 'Cognitive Services: co nowego w dokumentacji'
-description: 'Co nowego w dokumentacji Cognitive Services w dokumentacji dotyczącej 1 listopada 2020 do 30 listopada 2020. '
+description: Co nowego w dokumentacji Cognitive Services 1 grudnia 2020 – 31 grudnia 2020.
 author: erhopf
 manager: nitinme
 ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
-ms.date: 12/07/2020
-ms.openlocfilehash: 9069a53166b30e206559f0c68c4bcef2ec136ac5
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.date: 01/05/2021
+ms.openlocfilehash: dad3cf9ce79ade827e77e442a38b3404ee35bfb3
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631503"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913128"
 ---
-# <a name="cognitive-services-docs-whats-new-for-november-1-2020---november-30-2020"></a>Cognitive Services docs: co nowego w 1 listopada 2020 — 30 listopada 2020
+# <a name="cognitive-services-docs-whats-new-for-december-1-2020---december-31-2020"></a>Cognitive Services docs: co nowego w dniu 1 grudnia 2020 grudnia, 2020
 
-Witamy w nowościach Cognitive Services dokumentach z 1 listopada 2020 do 30 listopada 2020. W tym artykule wymieniono niektóre istotne zmiany w dokumentach w tym okresie.
+Witamy w nowościach Cognitive Services dokumentach z 1 grudnia 2020 do 31 grudnia 2020. W tym artykule wymieniono niektóre istotne zmiany w dokumentach w tym okresie.
 
 ## <a name="cognitive-services"></a>Cognitive Services
 
+### <a name="new-articles"></a>Nowe artykuły
+
+- [Planowanie i zarządzanie kosztami Cognitive Services platformy Azure](plan-manage-costs.md)
+
 ### <a name="updated-articles"></a>Zaktualizowane artykuły
 
-- [Szybki Start: Tworzenie zasobu Cognitive Services przy użyciu interfejsu Azure Command-Line Interface (CLI)](cognitive-services-apis-create-account-cli.md)
-- [Opcje programowania usług Cognitive Services](cognitive-services-development-options.md)
-- [Obsługa Cognitive Services platformy Azure i opcje pomocy](cognitive-services-support-options.md)
-- [Włączanie rejestrowania diagnostycznego dla usługi Azure Cognitive Services](diagnostic-logging.md)
-- [Obsługa języka naturalnego na platformie Azure Cognitive Services](language-support.md)
-- [Podstawa zabezpieczeń platformy Azure dla Cognitive Services](security-baseline.md)
+- [Konfigurowanie sieci wirtualnych usług Azure Cognitive Services](cognitive-services-virtual-networks.md)
+
+## <a name="anomaly-detector"></a>Narzędzie do wykrywania anomalii
+
+### <a name="updated-articles"></a>Zaktualizowane artykuły
+
+- [Interfejs API REST narzędzia do wykrywania anomalii](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/quickstarts/client-libraries?tabs=windows&pivots=rest-api)
+
+## <a name="bing-visual-search"></a>Wyszukiwanie wizualne Bing
+
+### <a name="updated-articles"></a>Zaktualizowane artykuły
+
+- [Korzystanie z tokenu Insights w celu uzyskania szczegółowych informacji dotyczących obrazu](/azure/cognitive-services/bing-visual-search/use-insights-token.md)
 
 ## <a name="containers"></a>Kontenery
 
 ### <a name="updated-articles"></a>Zaktualizowane artykuły
 
-- [Informacje o wersji i znacznikach obrazu kontenera Cognitive Services platformy Azure](/azure/cognitive-services/containers/container-image-tags)
+- [Wdrażanie i uruchamianie kontenera w wystąpieniu kontenera platformy Azure](/azure/cognitive-services/containers/azure-container-instance-recipe.md)
 
 ## <a name="form-recognizer"></a>Rozpoznawanie formularzy
 
-### <a name="new-articles"></a>Nowe artykuły
-
-- [Wbudowany model faktury aparatu rozpoznawania formularzy](/azure/cognitive-services/form-recognizer/concept-invoices)
-- [Usługa układu aparatu rozpoznawania formularzy](/azure/cognitive-services/form-recognizer/concept-layout)
-- [Szybki Start: wyodrębnianie danych z faktury przy użyciu interfejsu API REST aparatu rozpoznawania formularzy w języku Python](/azure/cognitive-services/form-recognizer/quickstarts/python-invoices)
-
 ### <a name="updated-articles"></a>Zaktualizowane artykuły
 
-- [Pojęcia dotyczące rachunków](/azure/cognitive-services/form-recognizer/concept-receipts)
-- [Co to jest rozpoznawanie formularzy?](/azure/cognitive-services/form-recognizer/overview)
-- [Uczenie modelu aparatu rozpoznawania formularzy z etykietami przy użyciu narzędzia do etykietowania przykładowego](/azure/cognitive-services/form-recognizer/quickstarts/label-tool)
-- [Szybki Start: wyodrębnianie danych z kart służbowych przy użyciu interfejsu API REST usługi rozpoznawania formularzy w języku Python](/azure/cognitive-services/form-recognizer/quickstarts/python-business-cards)
-- [Co nowego w usłudze Rozpoznawanie formularzy?](/azure/cognitive-services/form-recognizer/whats-new)
-
-## <a name="metrics-advisor"></a>Metrics Advisor
-
-### <a name="new-articles"></a>Nowe artykuły
-
-- [Klasyfikator metryk: co nowego w dokumentacji](/azure/cognitive-services/metrics-advisor/whats-new)
-
-### <a name="updated-articles"></a>Zaktualizowane artykuły
-
-- [Zapewnianie nietypowej opinii](/azure/cognitive-services/metrics-advisor/how-tos/anomaly-feedback)
-- [Często zadawane pytania dotyczące klasyfikatora metryk](/azure/cognitive-services/metrics-advisor/faq)
-- [Szybki Start: korzystanie z bibliotek klienta lub interfejsów API REST w celu dostosowania rozwiązania](/azure/cognitive-services/metrics-advisor/quickstarts/rest-api-and-client-library)
-
-## <a name="qna-maker"></a>QnA Maker 
-
-### <a name="new-articles"></a>Nowe artykuły 
-
-* [QnA Maker Zarządzanie ogłoszeniem publicznej wersji zapoznawczej](https://techcommunity.microsoft.com/t5/azure-ai/introducing-qna-maker-managed-now-in-public-preview/ba-p/1845575)
-* [Utwórz nową QnA Maker usługę zarządzaną](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/set-up-qnamaker-service-azure?tabs=v2)
-* [Migrowanie istniejącej bazy wiedzy do QnA Maker zarządzanej](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/migrate-knowledge-base)
+- [Strona docelowa aparatu rozpoznawania formularzy](/azure/cognitive-services/form-recognizer/index.yml)
+- [Szybki Start: korzystanie z biblioteki klienta aparatu rozpoznawania formularzy](/azure/cognitive-services/form-recognizer/quickstarts/client-library.md)
 
 ## <a name="text-analytics"></a>Analiza tekstu
 
 ### <a name="updated-articles"></a>Zaktualizowane artykuły
 
-- [Limity danych i szybkości dla interfejs API analizy tekstu](/azure/cognitive-services/text-analytics/concepts/data-limits)
-- [Instrukcje: korzystanie z analiza tekstu na potrzeby kondycji (wersja zapoznawcza)](/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health)
-- [Jak wywołać interfejs API REST analiza tekstu](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api)
-- [Jak używać rozpoznawania jednostek nazwanych w analiza tekstu](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking)
-- [Instrukcje: Analiza Tonacjia i wyszukiwanie opinii](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis)
-- [Co nowego w interfejsie API analizy tekstu?](/azure/cognitive-services/text-analytics/whats-new)
-- [Przykład: wykrywanie języka za pomocą analiza tekstu](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection)
+- [Obsługa języków interfejs API analizy tekstu v3](/azure/cognitive-services/text-analytics/language-support.md)
+- [Jak wywołać interfejs API REST analiza tekstu](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api.md)
+- [Jak używać rozpoznawania jednostek nazwanych w analiza tekstu](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
+- [Przykład: Jak wyodrębnić kluczowe frazy przy użyciu analiza tekstu](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-keyword-extraction.md)
+- [Dokumentacja interfejsu API analizy tekstu — samouczki i dokumentacja interfejsu API — Azure Cognitive Services | Microsoft Docs](/azure/cognitive-services/text-analytics/index.yml)
+- [Szybki Start: korzystanie z biblioteki klienta analiza tekstu i interfejsu API REST](/azure/cognitive-services/text-analytics/quickstarts/client-libraries-rest-api.md)
+
+## <a name="community-contributors"></a>Współautorzy społeczności
+
+Następujące osoby współczyniły do Cognitive Services dokumentów w tym okresie. Dziękujemy!
+
+- [hyoshioka0128](https://github.com/hyoshioka0128) -Hiroshi Yoshioka (1)
+- [pymia](https://github.com/pymia) -Mia//Huai-Wen zmian (1)
 
 [!INCLUDE [Service specific updates](./includes/service-specific-updates.md)]

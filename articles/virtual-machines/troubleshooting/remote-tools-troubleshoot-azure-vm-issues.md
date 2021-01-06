@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
-ms.openlocfilehash: c5974388c096c9bc8693c5fc2cf918989c6eadd3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 0681346252f840173d5cd7d4cfe5ef40076f0068
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488735"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97912601"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Rozwiązywanie problemów z MASZYNami wirtualnymi platformy Azure za pomocą narzędzi zdalnych
 
@@ -251,7 +251,7 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać więcej informacji na temat polecenia cmdlet Enter-PSSession, zobacz [Enter-PSSession](/powershell/module/microsoft.powershell.core/enter-pssession?view=powershell-5.1).
+- Aby uzyskać więcej informacji na temat polecenia cmdlet Enter-PSSession, zobacz [Enter-PSSession](/powershell/module/microsoft.powershell.core/enter-pssession?view=powershell-5.1&preserve-view=true).
 - Aby uzyskać więcej informacji o rozszerzeniu niestandardowego skryptu dla systemu Windows przy użyciu klasycznego modelu wdrażania, zobacz [rozszerzenie niestandardowego skryptu dla systemu Windows](../extensions/custom-script-windows.md).
 - PsExec jest częścią [pakietu program PsTools](https://download.sysinternals.com/files/PSTools.zip).
 - Aby uzyskać więcej informacji na temat pakietu program PsTools, zobacz [program PsTools](/sysinternals/downloads/pstools).

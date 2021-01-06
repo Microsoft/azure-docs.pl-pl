@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/30/2020
+ms.date: 1/04/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: e0185cc8786dc101375262ddfd187c5d8e7e054f
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 6f95b4eca8dbaf6cfaa7546fddada7577a1541b3
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509567"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916256"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Instrukcje: dostarczanie opcjonalnych oświadczeń do aplikacji
 
@@ -66,7 +66,7 @@ Zestaw opcjonalnych oświadczeń dostępnych domyślnie dla aplikacji do użycia
 | `ztdid`                    | Identyfikator wdrożenia bez dotknięcia | JWT | | Tożsamość urządzenia używana na potrzeby [Autopilotażu systemu Windows](/windows/deployment/windows-autopilot/windows-10-autopilot) |
 | `email`                    | Adres e-mail dla tego użytkownika, jeśli użytkownik go ma.  | JWT, SAML | MSA, Azure AD | Ta wartość jest uwzględniana domyślnie, jeśli użytkownik jest gościem w dzierżawie.  W przypadku użytkowników zarządzanych (użytkowników w ramach dzierżawy) należy zażądać ich przez to opcjonalne żądanie lub tylko w wersji 3.0, z zakresem OpenID Connect.  W przypadku użytkowników zarządzanych adres e-mail musi być ustawiony w [portalu administracyjnym pakietu Office](https://portal.office.com/adminportal/home#/users).|
 | `acct`                | Stan konta użytkowników w dzierżawie | JWT, SAML | | Jeśli użytkownik jest członkiem dzierżawy, wartość jest `0` . Jeśli jest gościem, wartość to `1` . |
-| `groups`| Opcjonalne formatowanie oświadczeń grupy |JWT, SAML| |Używany w połączeniu z ustawieniem GroupMembershipClaims w [manifeście aplikacji](reference-app-manifest.md), który musi być również ustawiony. Aby uzyskać szczegółowe informacje, zobacz poniższe [oświadczenia grupy](#configuring-groups-optional-claims) . Aby uzyskać więcej informacji na temat oświadczeń grup, zobacz [jak skonfigurować oświadczenia grupy](../hybrid/how-to-connect-fed-group-claims.md)
+| `groups`| Opcjonalne formatowanie oświadczeń grupy |JWT, SAML| |Używany z ustawieniem GroupMembershipClaims w [manifeście aplikacji](reference-app-manifest.md), który musi być również ustawiony. Aby uzyskać szczegółowe informacje, zobacz poniższe [oświadczenia grupy](#configuring-groups-optional-claims) . Aby uzyskać więcej informacji na temat oświadczeń grup, zobacz [jak skonfigurować oświadczenia grupy](../hybrid/how-to-connect-fed-group-claims.md)
 | `upn`                      | UserPrincipalName | JWT, SAML  |           | Identyfikator dla użytkownika, którego można użyć z parametrem username_hint.  Nie jest to trwały identyfikator użytkownika i nie należy go używać do unikatowej tożsamości informacji o użytkowniku (np. klucza bazy danych). Zamiast tego należy użyć identyfikatora obiektu użytkownika ( `oid` ) jako klucza bazy danych. Użytkownicy logujący się przy użyciu [alternatywnego identyfikatora logowania](../authentication/howto-authentication-use-email-signin.md) nie powinny być pokazywane nazwy głównej użytkownika (UPN). Zamiast tego należy użyć następujących oświadczeń tokenu identyfikatora do wyświetlania stanu logowania dla użytkownika: `preferred_username` lub `unique_name` tokenów V1 oraz `preferred_username` tokenów v2. Chociaż to zgłoszenie jest automatycznie dołączane, można je określić jako opcjonalne, aby dołączyć dodatkowe właściwości, aby zmodyfikować jego zachowanie w przypadku użytkownika-gościa.  |
 | `idtyp`                    | Typ tokenu   | Tokeny dostępu JWT | Specjalne: tylko w tokenach dostępu tylko do aplikacji |  Wartość jest `app` , gdy token jest tokenem obsługującym tylko aplikację. Jest to najdokładniejszy sposób, aby określić, czy token jest tokenem aplikacji, czy aplikacją i tokenem użytkownika.|
 
@@ -85,7 +85,17 @@ Te oświadczenia są zawsze uwzględniane w tokenach usługi Azure AD w wersji 1
 | `in_corp`     | Wewnątrz sieci firmowej        | Sygnalizuje, czy klient loguje się z sieci firmowej. W przeciwnym razie oświadczenia nie są uwzględniane.   |  Na podstawie ustawień [zaufanych adresów IP](../authentication/howto-mfa-mfasettings.md#trusted-ips) w usłudze MFA.    |
 | `family_name` | Nazwisko                       | Zawiera nazwisko, nazwisko lub nazwę rodziny użytkownika, zgodnie z definicją w obiekcie użytkownika. <br>"family_name": "Miller" | Obsługiwane w usłudze MSA i usłudze Azure AD. Wymaga `profile` zakresu.   |
 | `given_name`  | Imię                      | Określa imię i nazwisko użytkownika, zgodnie z ustawieniem obiektu użytkownika.<br>"given_name": "Piotr"                   | Obsługiwane w usłudze MSA i usłudze Azure AD.  Wymaga `profile` zakresu. |
-| `upn`         | Nazwa główna użytkownika | Identyfikator dla użytkownika, którego można użyć z parametrem username_hint.  Nie jest to trwały identyfikator użytkownika i nie należy go używać do unikatowej tożsamości informacji o użytkowniku (np. klucza bazy danych). Zamiast tego należy użyć identyfikatora obiektu użytkownika ( `oid` ) jako klucza bazy danych. Użytkownicy logujący się przy użyciu [alternatywnego identyfikatora logowania](../authentication/howto-authentication-use-email-signin.md) nie powinny być pokazywane nazwy głównej użytkownika (UPN). Zamiast tego należy użyć następujących oświadczeń tokenu identyfikatora do wyświetlania stanu logowania dla użytkownika: `preferred_username` lub `unique_name` tokenów V1 oraz `preferred_username` tokenów v2. | Zapoznaj się z [dodatkowymi właściwościami](#additional-properties-of-optional-claims) poniżej w celu skonfigurowania żądania. Wymaga `profile` zakresu.|
+| `upn`         | Nazwa główna użytkownika | Identyfikator dla użytkownika, którego można użyć z parametrem username_hint.  Nie jest to trwały identyfikator użytkownika i nie należy go używać do unikatowej tożsamości informacji o użytkowniku (np. klucza bazy danych). Zamiast tego należy użyć identyfikatora obiektu użytkownika ( `oid` ) jako klucza bazy danych. Użytkownicy logujący się przy użyciu [alternatywnego identyfikatora logowania](../authentication/howto-authentication-use-email-signin.md) nie powinny być pokazywane nazwy głównej użytkownika (UPN). Zamiast tego należy użyć następującego `preferred_username` żądania, aby wyświetlić stan logowania do użytkownika. | Zapoznaj się z [dodatkowymi właściwościami](#additional-properties-of-optional-claims) poniżej w celu skonfigurowania żądania. Wymaga `profile` zakresu.|
+
+
+**Tabela 4: tylko opcjonalne oświadczenia**
+
+Niektóre ulepszenia formatu tokenu v2 są dostępne dla aplikacji korzystających z formatu tokenu V1, ponieważ zwiększają one bezpieczeństwo i niezawodność. Nie będą one obowiązywać w przypadku tokenów identyfikatorów żądanych z punktu końcowego v2 ani dostępu do tokenów dla interfejsów API korzystających z formatu tokenu v2. 
+
+| Claim JWT     | Nazwa                            | Opis | Uwagi |
+|---------------|---------------------------------|-------------|-------|
+|`aud`          | Grupy odbiorców | Zawsze występuje w JWTs, ale w tokenach dostępu w wersji 1 może być emitowane na różne sposoby, co może być trudne do kodu w przypadku przeprowadzania walidacji tokenu.  Użyj [dodatkowych właściwości tego żądania](#additional-properties-of-optional-claims) , aby upewnić się, że jest on zawsze ustawiony na identyfikator GUID w tokenach dostępu w wersji 1. | tylko tokeny dostępu JWT w wersji 1|
+|`preferred_username` | Preferowana nazwa użytkownika        | Zapewnia nazwę preferowanego żądania username w ramach tokenów v1. Ułatwia to aplikacjom udostępnianie wskazówek dotyczących nazwy użytkownika i wyświetlanie nazw wyświetlanych przez człowieka, niezależnie od ich typu tokenu.  Zaleca się użycie tego opcjonalnego zgłoszenia zamiast używania np. `upn` lub `unique_name` . | tokeny i tokeny dostępu w wersji 1 |
 
 ### <a name="additional-properties-of-optional-claims"></a>Dodatkowe właściwości oświadczeń opcjonalnych
 
@@ -97,7 +107,9 @@ Niektóre opcjonalne oświadczenia można skonfigurować w celu zmiany sposobu z
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Może być używany w przypadku odpowiedzi SAML i JWT oraz dla tokenów v 1.0 i v 2.0. |
 |                | `include_externally_authenticated_upn`  | Zawiera nazwę UPN gościa przechowywaną w dzierżawie zasobów. Na przykład `foo_hometenant.com#EXT#@resourcetenant.com` |
-|                | `include_externally_authenticated_upn_without_hash` | Tak samo jak powyżej, z tą różnicą, że znaki hash ( `#` ) są zastępowane znakami podkreślenia ( `_` ), na przykład `foo_hometenant.com_EXT_@resourcetenant.com` |
+|                | `include_externally_authenticated_upn_without_hash` | Tak samo jak powyżej, z tą różnicą, że znaki hash ( `#` ) są zastępowane znakami podkreślenia ( `_` ), na przykład `foo_hometenant.com_EXT_@resourcetenant.com`|
+| `aud`          |                          | W tokenach dostępu w wersji 1 jest używany do zmiany formatu `aud` żądania.  Nie ma to wpływu na tokeny w wersji 2 lub tokeny identyfikatorów, gdzie wartość tego `aud` żądania to zawsze identyfikator klienta. W tym celu należy się upewnić, że interfejs API może łatwiej wykonywać walidację odbiorców. Podobnie jak wszystkie opcjonalne oświadczenia, które wpływają na token dostępu, zasób w żądaniu musi ustawić to oświadczenie opcjonalne, ponieważ zasoby są właścicielami tokenu dostępu.|
+|                | `use_guid`               | Emituje identyfikator klienta zasobu (API) w formacie identyfikatora GUID jako jako rolę `aud` żądania, a nie identyfikator URI identyfikatora aplikacji lub identyfikatora GUID. Dlatego jeśli identyfikator klienta zasobu to `bb0a297b-6a42-4a55-ac40-09a501456577` , każda aplikacja, która żąda tokenu dostępu do tego zasobu, otrzyma token dostępu z `aud` : `bb0a297b-6a42-4a55-ac40-09a501456577` .|
 
 #### <a name="additional-properties-example"></a>Przykład dodatkowych właściwości
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: 5c03d9b64f957f6ef8450197477f185dc8d15b2d
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: b15849fb8fbfed5d55b9c224f51634047b7c75b2
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825854"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914488"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Przewodnik referencyjny dotyczący używania funkcji w wyrażeniach dla Azure Logic Apps i automatyzacji
 
@@ -103,7 +103,7 @@ Do pracy z kolekcjami, ogólnie tablicami, ciągami i czasami słownikami można
 
 | Funkcja kolekcji | Zadanie |
 | ------------------- | ---- |
-| [wyświetlana](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Sprawdź, czy kolekcja zawiera określony element. |
+| [zawiera](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Sprawdź, czy kolekcja zawiera określony element. |
 | [puste](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Sprawdź, czy kolekcja jest pusta. |
 | [pierwszego](../logic-apps/workflow-definition-language-functions-reference.md#first) | Zwróć pierwszy element z kolekcji. |
 | [część wspólną](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Zwróć kolekcję, która ma *tylko* wspólne elementy w określonej kolekcji. |
@@ -135,7 +135,7 @@ Aby działać z warunkami, porównywać wartości i wyniki wyrażeń lub ocenia�
 | [wcześniejsz](../logic-apps/workflow-definition-language-functions-reference.md#less) | Sprawdź, czy pierwsza wartość jest mniejsza od drugiej wartości. |
 | [lessOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#lessOrEquals) | Sprawdź, czy pierwsza wartość jest mniejsza lub równa drugiej wartości. |
 | [niemożliwe](../logic-apps/workflow-definition-language-functions-reference.md#not) | Sprawdź, czy wyrażenie ma wartość false. |
-| [oraz](../logic-apps/workflow-definition-language-functions-reference.md#or) | Sprawdź, czy co najmniej jedno wyrażenie ma wartość true. |
+| [lub](../logic-apps/workflow-definition-language-functions-reference.md#or) | Sprawdź, czy co najmniej jedno wyrażenie ma wartość true. |
 |||
 
 <a name="conversion-functions"></a>
@@ -2072,7 +2072,7 @@ formatNumber(1234567890, '0,0.00', 'is-is')
 Załóżmy, że chcesz sformatować liczbę `17.35` . Ten przykład służy do formatowania liczby do ciągu "$17,35".
 
 ```
-formatNumber(17.36, 'C2')
+formatNumber(17.35, 'C2')
 ```
 
 *Przykład 4*
@@ -2080,7 +2080,7 @@ formatNumber(17.36, 'C2')
 Załóżmy, że chcesz sformatować liczbę `17.35` . Ten przykład formatuje liczbę do ciągu "17, 35 KR".
 
 ```
-formatNumber(17.36, 'C2', 'is-is')
+formatNumber(17.35, 'C2', 'is-is')
 ```
 
 <a name="getFutureTime"></a>
@@ -2719,15 +2719,11 @@ lastIndexOf('<text>', '<searchText>')
 
 Jeśli ciąg lub wartość podciągu są puste, występuje następujące zachowanie:
 
-* Jeśli wartość ciągu jest pusta, `-1` zwracana jest:
+* Jeśli tylko wartość ciągu jest pusta, funkcja zwraca `-1` .
 
-* Jeśli ciąg i wartości podciągów są puste, `0` są zwracane.
+* Jeśli ciąg i wartości podciągów są puste, funkcja zwraca `0` .
 
-* Jeśli tylko wartość podciągu jest pusta, zwracana jest większa z dwóch następujących wartości:
-
-  * `0`
-
-  * Długość ciągu, minus 1.
+* Jeśli tylko wartość podciągu jest pusta, funkcja zwraca długość ciągu minus 1.
 
 *Przykłady*
 

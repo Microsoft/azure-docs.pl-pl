@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8d6e10b025b9e9524982b1558beacfab1970eb59
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: f9f37bc27c54971c15db457abf157e04cc5d60e8
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216440"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914675"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Samouczek: monitorowanie zmian i aktualizowanie maszyny wirtualnej z systemem Windows na platformie Azure
 
@@ -37,7 +37,7 @@ Możesz również otworzyć Cloud Shell na osobnej karcie przeglądarki, przecho
 
 Aby w tym samouczku móc skonfigurować monitorowanie i zarządzanie aktualizacjami na platformie Azure, konieczne jest posiadanie maszyny wirtualnej z systemem Windows na platformie Azure.
 
-Najpierw ustaw nazwę użytkownika i hasło administratora maszyny wirtualnej przy użyciu polecenia [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1):
+Najpierw ustaw nazwę użytkownika i hasło administratora maszyny wirtualnej przy użyciu polecenia [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1&preserve-view=true):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
@@ -113,13 +113,13 @@ Aby zaplanować nowe wdrożenie aktualizacji dla maszyny wirtualnej, wybierz poz
 | **Nazwa** |Wprowadź unikatową nazwę identyfikującą wdrożenie aktualizacji. |
 |**System operacyjny**| Wybierz system **Linux** lub **Windows**.|
 | **Grupy do zaktualizowania** |W przypadku maszyn wirtualnych hostowanych na platformie Azure Zdefiniuj zapytanie na podstawie kombinacji subskrypcji, grup zasobów, lokalizacji i tagów. To zapytanie tworzy dynamiczną grupę maszyn wirtualnych hostowanych na platformie Azure do uwzględnienia we wdrożeniu. </br></br>W przypadku maszyn wirtualnych, które nie są hostowane na platformie Azure, wybierz istniejące zapisane wyszukiwanie. Korzystając z tego wyszukiwania, możesz wybrać grupę tych maszyn wirtualnych, które mają zostać uwzględnione we wdrożeniu. </br></br> Aby dowiedzieć się więcej, zobacz [grupy dynamiczne](../../automation/update-management/configure-groups.md).|
-| **Maszyny do zaktualizowania** |Wybierz pozycję **zapisane wyszukiwanie**, **zaimportowana Grupa**lub **maszyny**.<br/><br/>W przypadku wybrania opcji **maszyny**można wybrać poszczególne komputery z listy rozwijanej. Gotowość poszczególnych maszyn jest pokazywana w kolumnie **Aktualizuj gotowość agenta** tabeli.</br></br> Aby dowiedzieć się więcej na temat różnych metod tworzenia grup komputerów w dziennikach usługi Azure Monitor, zobacz [Computer groups in Azure Monitor logs (Grupy komputerów w dziennikach usługi Azure Monitor)](../../azure-monitor/platform/computer-groups.md) |
+| **Maszyny do zaktualizowania** |Wybierz pozycję **zapisane wyszukiwanie**, **zaimportowana Grupa** lub **maszyny**.<br/><br/>W przypadku wybrania opcji **maszyny** można wybrać poszczególne komputery z listy rozwijanej. Gotowość poszczególnych maszyn jest pokazywana w kolumnie **Aktualizuj gotowość agenta** tabeli.</br></br> Aby dowiedzieć się więcej na temat różnych metod tworzenia grup komputerów w dziennikach usługi Azure Monitor, zobacz [Computer groups in Azure Monitor logs (Grupy komputerów w dziennikach usługi Azure Monitor)](../../azure-monitor/platform/computer-groups.md) |
 |**Klasyfikacje aktualizacji**|Wybierz wszystkie niezbędne klasyfikacje aktualizacji.|
 |**Uwzględnij/Wyklucz aktualizacje**|Wybierz tę opcję, aby otworzyć okienko **Uwzględnij/wykluczania** . Aktualizacje do uwzględnienia, które mają zostać wykluczone, znajdują się na oddzielnych kartach. Aby uzyskać więcej informacji na temat obsługi dołączania, zobacz [Planowanie wdrożenia aktualizacji](../../automation/update-management/deploy-updates.md#schedule-an-update-deployment). |
 |**Ustawienia harmonogramu**|Wybierz godzinę do uruchomienia i wybierz **jeden raz** lub **cyklicznie**.|
 | **Skrypty przed skryptami + po skrypcie**|Wybierz skrypty do uruchomienia przed i po wdrożeniu.|
 | **Okno obsługi** | Wprowadź liczbę minut ustawioną dla aktualizacji. Prawidłowe wartości mieszczą się w zakresie od 30 do 360 minut. |
-| **Kontrola ponownego uruchamiania**| Wybierz sposób obsługi ponownych uruchomień. Dostępne opcje to:<ul><li>**Uruchom ponownie, jeśli jest to wymagane**</li><li>**Zawsze uruchamiaj ponownie**</li><li>**Nigdy nie uruchamiaj ponownie**</li><li>**Tylko ponowny rozruch**</li></ul>**Ponowne uruchomienie, jeśli** jest to wymagane jest wybór domyślny. W przypadku wybrania opcji **tylko ponowny rozruch**aktualizacje nie zostaną zainstalowane.|
+| **Kontrola ponownego uruchamiania**| Wybierz sposób obsługi ponownych uruchomień. Dostępne opcje to:<ul><li>**Uruchom ponownie, jeśli jest to wymagane**</li><li>**Zawsze uruchamiaj ponownie**</li><li>**Nigdy nie uruchamiaj ponownie**</li><li>**Tylko ponowny rozruch**</li></ul>**Ponowne uruchomienie, jeśli** jest to wymagane jest wybór domyślny. W przypadku wybrania opcji **tylko ponowny rozruch** aktualizacje nie zostaną zainstalowane.|
 
 Po zakończeniu konfigurowania harmonogramu kliknij przycisk **Utwórz** , aby powrócić do pulpitu nawigacyjnego stanu. W **planowanej** tabeli przedstawiono utworzony harmonogram wdrożenia.
 
@@ -170,7 +170,7 @@ Po włączeniu rozwiązania może upłynąć trochę czasu na zebranie spisu na 
 
 ### <a name="track-changes"></a>Śledzenie zmian
 
-Na maszynie wirtualnej w obszarze **operacje**wybierz pozycję **Change Tracking** a następnie wybierz pozycję **Edytuj ustawienia**. Zostanie otwarte okienko **Change Tracking** . Wybierz typ ustawienia do śledzenia, a następnie kliknij pozycję **+ Dodaj** w celu skonfigurowania ustawień.
+Na maszynie wirtualnej w obszarze **operacje** wybierz pozycję **Change Tracking** a następnie wybierz pozycję **Edytuj ustawienia**. Zostanie otwarte okienko **Change Tracking** . Wybierz typ ustawienia do śledzenia, a następnie kliknij pozycję **+ Dodaj** w celu skonfigurowania ustawień.
 
 Dostępne opcje ustawień dla systemu Windows to:
 

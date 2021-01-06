@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 01/04/2020
+ms.date: 01/05/2020
 ms.author: b-juche
-ms.openlocfilehash: e74b729f837c8e6ebe86514a01b6c8bdddc616e4
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: d296f80d85bb5081c466b27e6a8624e8b3f2c924
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881093"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915003"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Tworzenie woluminu Dual-Protocol (NFSv3 i SMB) dla Azure NetApp Files
 
@@ -133,7 +133,10 @@ Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików 
     * Inny komputer w domenie zawierający certyfikat główny  
 
 3. Wyeksportuj certyfikat głównego urzędu certyfikacji.  
-    Certyfikaty głównego urzędu certyfikacji można eksportować z prywatnych lub zaufanych głównych urzędów certyfikacji.   
+    Certyfikaty głównego urzędu certyfikacji można eksportować z katalogu osobistych lub zaufanych głównych urzędów certyfikacji, jak pokazano w następujących przykładach:   
+    ![zrzut ekranu pokazujący osobiste certyfikaty](../media/azure-netapp-files/personal-certificates.png)   
+    ![zrzut ekranu przedstawiający Zaufane główne urzędy certyfikacji](../media/azure-netapp-files/trusted-root-certification-authorities.png)    
+
     Upewnij się, że certyfikat został wyeksportowany w formacie X. 509 z kodowaniem Base-64 (. CER): 
 
     ![Kreator eksportu certyfikatów](../media/azure-netapp-files/certificate-export-wizard.png)

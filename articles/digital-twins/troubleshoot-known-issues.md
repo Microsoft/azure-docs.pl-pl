@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: d0c26255e6d9d35d51390ed2b432b9c5dc9ab2be
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: db29fbda404900c29f85fa876e9427994ee9a093
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862456"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915916"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Znane problemy w usłudze Azure Digital bliźniaczych reprezentacji
 
@@ -47,11 +47,11 @@ Ten artykuł zawiera informacje o znanych problemach związanych z usługą Azur
 
 ## <a name="issue-with-default-azure-credential-authentication-on-azureidentity-130"></a>Problem z domyślnym uwierzytelnianiem poświadczeń platformy Azure na platformie Azure. tożsamość 1.3.0
 
-**Opis problemu:** Podczas pisania kodu uwierzytelniania w aplikacjach Digital bliźniaczych reprezentacji platformy Azure przy użyciu wersji **1.3.0** biblioteki **[Azure. Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true)** mogą wystąpić problemy z metodą [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet?view=azure-dotnet&preserve-view=true) używaną w wielu przykładach w tych dokumentach. Jest to odpowiedź na błąd "Azure. Identity. AuthenticationFailedException: SharedTokenCacheCredential Authentication nie powiodła się", gdy kod próbuje się uwierzytelnić.
+**Opis problemu:** Podczas pisania kodu uwierzytelniania przy użyciu wersji **1.3.0** biblioteki **[Azure. Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true)** niektórzy użytkownicy napotykali problemy z metodą [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet?view=azure-dotnet&preserve-view=true) używaną w wielu przykładach w tej dokumentacji Digital bliźniaczych reprezentacji for Azure. Jest to odpowiedź na błąd "Azure. Identity. AuthenticationFailedException: SharedTokenCacheCredential Authentication nie powiodła się", gdy kod próbuje się uwierzytelnić.
 
 | Czy ma to wpływ na mnie? | Przyczyna | Rozwiązanie |
 | --- | --- | --- |
-| DefaultAzureCredential jest używany w większości przykładów dokumentacji, które obejmują uwierzytelnianie. Jeśli piszesz kod uwierzytelniania przy użyciu DefaultAzureCredential i korzystasz z wersji 1.3.0 `Azure.Identity` biblioteki, prawdopodobnie wpłynie to na Ciebie. | Ten problem występuje w przypadku używania DefaultAzureCredential z wersją **1.3.0** `Azure.Identity` biblioteki. | Aby rozwiązać ten problem, przełącz aplikację do [wersji 1.2.2](https://www.nuget.org/packages/Azure.Identity/1.2.2) programu `Azure.Identity` . Po zmianie wersji biblioteki uwierzytelnianie powinno być pomyślne zgodnie z oczekiwaniami. |
+| `DefaultAzureCredential` jest używany w większości przykładów dokumentacji dla tej usługi, która obejmuje uwierzytelnianie. W przypadku pisania kodu uwierzytelniania przy użyciu programu `DefaultAzureCredential` z wersją 1.3.0 `Azure.Identity` biblioteki i wyświetlenia tego komunikatu o błędzie ma to wpływ na użytkownika. | Jest to prawdopodobnie spowodowane jakimś problemem z konfiguracją programu `Azure.Identity` . | Jedną z strategii rozwiązania tego problemu jest wykluczenie `SharedTokenCacheCredential` z poświadczeń, zgodnie z opisem w tym artykule [DefaultAzureCredential](https://github.com/Azure/azure-sdk/issues/1970) , który jest aktualnie otwarty `Azure.Identity` .<br>Inną opcją jest zmiana aplikacji tak, aby korzystała z wcześniejszej wersji programu `Azure.Identity` , takiej jak [wersja 1.2.3](https://www.nuget.org/packages/Azure.Identity/1.2.3). Nie ma to wpływu na funkcjonalność usługi Azure Digital bliźniaczych reprezentacji, więc jest to również zaakceptowane rozwiązanie. |
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,7 +1,7 @@
 ---
 title: Integracja z uczeniem maszynowym Open Source
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, w jaki sposób używać platform do uczenia maszynowego w języku Python, jak uczenie i wdrażanie kompleksowych rozwiązań uczenia maszynowego w programie Azure Machine Learning oraz zarządzania nimi.
+description: Dowiedz się, jak używać platform do uczenia maszynowego w języku Python, wdrażania i zarządzania kompleksowymi rozwiązaniami uczenia maszynowego w Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 12/16/2020
-ms.openlocfilehash: b3fa9767310bfc300087c9dc7384f33993aca70d
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: d987d21700e5f19ad8228b08508e8da842cc39eb
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97675952"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914114"
 ---
 # <a name="open-source-integration-with-azure-machine-learning-projects"></a>Integracja z programem Open Source z projektami Azure Machine Learning
 
@@ -52,7 +52,7 @@ Uczenie modelu uczenia głębokiego od podstaw często wymaga dużej ilości cza
 
 Uczenie wzmacniające to sztuczna technika analizy, która pociąga za siebie odpowiednie działania, Stany i nagrody: agenci nauczania wzmacniający poznają zestaw wstępnie zdefiniowanych akcji, które maksymalizują określone nagrody w zależności od bieżącego stanu środowiska. 
 
-Projekt [Ray RLLib](https://github.com/ray-project/ray) ma funkcje zestawu umożliwiające wysoką skalowalność w całym procesie szkolenia. Proces iteracyjny to zarówno czasochłonne, jak i mocno obciążające zasoby, ponieważ agenci uczenia wzmocni próbują poznać optymalny sposób osiągnięcia zadania.  RLLib Ray również natywnie obsługuje platformy uczenia głębokiego, takie jak TensorFlow i PyTorch.  
+Projekt [Ray RLLib](https://github.com/ray-project/ray) ma zestaw funkcji, które umożliwiają wysoką skalowalność w całym procesie szkolenia. Proces iteracyjny to zarówno czasochłonne, jak i mocno obciążające zasoby, ponieważ agenci uczenia wzmocni próbują poznać optymalny sposób osiągnięcia zadania.  RLLib Ray również natywnie obsługuje platformy uczenia głębokiego, takie jak TensorFlow i PyTorch.  
 
 Aby dowiedzieć się, jak używać Ray RLLib z Azure Machine Learning, zobacz [Jak szkolić model uczenia wzmocnienie](how-to-use-reinforcement-learning.md).
 
@@ -101,4 +101,4 @@ Machine Learning Operations (MLOps), często przemyślane jako DevOps for Machin
 
 Korzystając z DevOps praktyk, takich jak ciągłej integracji (CI) i ciągłego wdrażania (CD), Możesz zautomatyzować kompleksowy cykl życia usługi Machine Learning i przechwycić dane dotyczące zarządzania. Możesz zdefiniować potok ciągłej integracji/ciągłego wdrażania [w usłudze GitHub](./how-to-github-actions-machine-learning.md) , aby uruchomić Azure Machine Learning zadania szkoleniowe i wdrożeniowe. 
 
-Przechwytywanie zależności oprogramowania, metryk, metadanych, wersji danych i modelu jest ważną częścią procesu MLOps, aby tworzyć przezroczyste, odtwarzalne i objęte inspekcją potoki. W przypadku tego zadania można [użyć MLFlow w Azure Machine Learning](how-to-use-mlflow.md) oraz podczas [uczenia modeli uczenia maszynowego w Azure Databricks](./how-to-use-mlflow-azure-databricks.md).
+Przechwytywanie zależności oprogramowania, metryk, metadanych, wersji danych i modelu jest ważną częścią procesu MLOps, aby tworzyć przezroczyste, odtwarzalne i objęte inspekcją potoki. W przypadku tego zadania można [użyć MLFlow w Azure Machine Learning](how-to-use-mlflow.md) oraz podczas [uczenia modeli uczenia maszynowego w Azure Databricks](./how-to-use-mlflow-azure-databricks.md). [Modele MLflow można także wdrożyć jako usługę sieci Web platformy Azure](how-to-deploy-mlflow-models.md). 

@@ -1,18 +1,21 @@
 ---
 title: Partycjonowanie Service Fabric usług
-description: Opisuje sposób partycjonowania Service Fabric usługi stanowe. Partycje umożliwiają przechowywanie danych na maszynach lokalnych, dzięki czemu można skalować dane i obliczenia jednocześnie.
+description: Dowiedz się, jak podzielić się Service Fabric bezstanowe i stanowe usługi
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d33e7b5ee293cf9dfb49e509bec2e1950033a956
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 199ae9d9844149c1931da638633110f717fe0517
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89005432"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915899"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partition Service Fabric reliable services (Partycjonowanie usług Reliable Services w ramach usługi Service Fabric)
-Ten artykuł zawiera wprowadzenie do podstawowych pojęć dotyczących partycjonowania Service Fabric niezawodnych usług Azure. Kod źródłowy używany w artykule jest również dostępny w witrynie [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
+Ten artykuł zawiera wprowadzenie do podstawowych pojęć dotyczących partycjonowania Service Fabric niezawodnych usług Azure. Partycjonowanie umożliwia przechowywanie danych na maszynach lokalnych, dzięki czemu można skalować dane i obliczenia jednocześnie.
+
+> [!TIP]
+> [Pełny przykład](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions) kodu w tym artykule jest dostępny w witrynie GitHub.
 
 ## <a name="partitioning"></a>Partycjonowanie
 Partycjonowanie nie jest unikatowe dla Service Fabric. W rzeczywistości jest to podstawowy wzorzec tworzenia skalowalnych usług. W szerszym sensie można myśleć o partycjonowaniu jako koncepcji dzielenia stanu (danych) i obliczeń na mniejsze jednostki dostępne w celu poprawy skalowalności i wydajności. Dobrze znana postać partycjonowania to [Partycjonowanie danych][wikipartition], znane także jako fragmentowania.
@@ -348,14 +351,14 @@ Ponieważ firma Microsoft chce mieć jedną partycję na literę, można użyć 
     
     ![Zrzut ekranu przeglądarki](./media/service-fabric-concepts-partitioning/samplerunning.png)
 
-Cały kod źródłowy przykładu jest dostępny w witrynie [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
+Kompletne rozwiązanie kodu użytego w tym artykule jest dostępne tutaj: https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions .
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać informacje na temat pojęć Service Fabric, zobacz następujące tematy:
+Dowiedz się więcej na temat usług Service Fabric Services:
 
+* [Łączenie się z usługami w Service Fabric i komunikowanie się z nimi](service-fabric-connect-and-communicate-with-services.md)
 * [Dostępność usług Service Fabric Services](service-fabric-availability-services.md)
 * [Skalowalność usług Service Fabric Services](service-fabric-concepts-scalability.md)
-* [Planowanie pojemności dla aplikacji Service Fabric](service-fabric-capacity-planning.md)
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 

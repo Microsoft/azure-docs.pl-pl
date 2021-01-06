@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: drewbat
-ms.openlocfilehash: 1c28b4e9821f31f927ef4f640aa664d330cf8792
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: fbe517c766b3835bf4265a1309b8737a25925b7c
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96570998"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914964"
 ---
 # <a name="pull-settings-to-app-configuration-with-azure-pipelines"></a>Ustawienia ściągnięcia do konfiguracji aplikacji z Azure Pipelines
 
@@ -60,7 +60,7 @@ Przypisz odpowiednią rolę konfiguracji aplikacji do połączenia z usługą u�
 
 W tej sekcji zawarto informacje dotyczące korzystania z zadania konfiguracji aplikacji platformy Azure w potoku kompilacji usługi Azure DevOps.
 
-1. Przejdź do strony potoku kompilacji, klikając **pozycję potoki potoki**  >  **Pipelines**. Aby zapoznać się z dokumentacją potoku kompilacji, zobacz  [Tworzenie pierwszego potoku](/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=net%2Ctfs-2018-2%2Cbrowser).
+1. Przejdź do strony potoku kompilacji, klikając **pozycję potoki potoki**  >  . Aby zapoznać się z dokumentacją potoku kompilacji, zobacz  [Tworzenie pierwszego potoku](/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=net%2Ctfs-2018-2%2Cbrowser).
       - W przypadku tworzenia nowego potoku kompilacji kliknij pozycję **Nowy potok**, wybierz repozytorium dla potoku. Wybierz pozycję **Pokaż asystenta** po prawej stronie potoku, a następnie wyszukaj zadanie **konfiguracji aplikacji platformy Azure** .
       - Jeśli używasz istniejącego potoku kompilacji, wybierz pozycję **Edytuj** , aby edytować potok. Na karcie **zadania** Wyszukaj zadanie **Konfiguracja aplikacji platformy Azure** .
 1. Skonfiguruj parametry niezbędne do wykonania zadania w celu ściągnięcia wartości klucza z magazynu konfiguracji aplikacji. Opisy parametrów są dostępne w poniższej sekcji **Parametry** i w etykietce narzędzia obok każdego parametru.
@@ -73,7 +73,7 @@ W tej sekcji zawarto informacje dotyczące korzystania z zadania konfiguracji ap
 
 W tej sekcji zawarto informacje dotyczące korzystania z zadania konfiguracji aplikacji platformy Azure w potoku wydania usługi Azure DevOps.
 
-1. Przejdź do strony potoku wydania, wybierając pozycję wersje **potoków**  >  **Releases**. Aby uzyskać dokumentację potoku wydania, zobacz temat [potoki wersji](/azure/devops/pipelines/release?view=azure-devops).
+1. Przejdź do strony potoku wydania, wybierając pozycję wersje **potoków**  >  . Aby uzyskać dokumentację potoku wydania, zobacz temat [potoki wersji](/azure/devops/pipelines/release?view=azure-devops).
 1. Wybierz istniejący potok wersji. Jeśli go nie masz, kliknij pozycję **Nowy potok** , aby utworzyć nowy.
 1. Wybierz przycisk **Edytuj** w prawym górnym rogu, aby edytować potoku wydania.
 1. Wybierz **etap** , aby dodać zadanie. Aby uzyskać więcej informacji na temat etapów, zobacz [Dodawanie etapów, zależności, & warunków](/azure/devops/pipelines/release/environments?view=azure-devops).
@@ -103,6 +103,9 @@ Na przykład jeśli kolejne zadanie uruchamia skrypt programu PowerShell, może 
 echo "$env:myBuildSetting"
 ```
 A wartość zostanie wydrukowany w konsoli programu.
+
+> [!NOTE]
+> Odwołania Azure Key Vault w ramach konfiguracji aplikacji zostaną rozwiązane i ustawione jako [zmienne tajne](/azure/devops/pipelines/process/variables#secret-variables). W przypadku potoków platformy Azure zmienne tajne są maskowane z dziennika. Nie są one przenoszone do zadań jako zmienne środowiskowe i muszą zostać przesłane jako dane wejściowe. 
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 

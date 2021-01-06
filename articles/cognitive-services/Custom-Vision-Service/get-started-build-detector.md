@@ -12,12 +12,12 @@ ms.date: 09/30/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: Rozpoznawanie obrazu, aplikacja rozpoznawania obrazu, niestandardowa wizja
-ms.openlocfilehash: ab747ad5e7b9362e9c587741198a0191c032b124
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8274ddd0e492d1a27ebc1579fc6efdcc8cc84955
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018381"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97912988"
 ---
 # <a name="quickstart-build-an-object-detector-with-the-custom-vision-website"></a>Szybki Start: Tworzenie detektora obiektów przy użyciu witryny sieci Web Custom Vision
 
@@ -100,6 +100,7 @@ Po zakończeniu szkolenia model jest obliczany i wyświetlany. Usługa Custom Vi
 
 - **Precyzja** wskazuje ułamek zidentyfikowanych klasyfikacji, które były poprawne. Na przykład jeśli model zidentyfikował 100 obrazów jako psy, a 99 z nich rzeczywiście miało psy, dokładność będzie 99%.
 - **Odwołanie** wskazuje ułamek rzeczywistych klasyfikacji, które zostały prawidłowo zidentyfikowane. Na przykład jeśli w rzeczywistości istniało 100 obrazów z jabłek, a model zidentyfikowano 80 jako jabłka, przywoływanie będzie 80%.
+- Średnia **precyzja** to średnia wartość średniej precyzji (AP). AP to obszar pod krzywą precyzji/odwoływania (precyzja została wykreślona względem odwołania dla każdego wykonanego przewidywania).
 
 ![Wyniki szkolenia przedstawiają ogólną precyzję i odwołanie oraz średnią precyzję.](./media/get-started-build-detector/trained-performance.png)
 

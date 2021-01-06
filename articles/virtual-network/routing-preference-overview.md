@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/02/2020
 ms.author: mnayak
-ms.openlocfilehash: c1c2c5f27143be7fc10269c948bee9d5465d565a
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 656f8a0e0530a20807fc8fddd4cd96d1d955c8ac
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96530446"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97912703"
 ---
 # <a name="what-is-routing-preference-preview"></a>Co to jest preferencja routingu (wersja zapoznawcza)?
 
@@ -66,17 +66,12 @@ W przypadku usługi Storage podstawowe punkty końcowe zawsze używają **sieci 
 
 * Obiekty blob
 * Pliki
-* Sieć Web
+* Internet
 * Azure DataLake
 
-## <a name="pricing"></a>Ceny
+## <a name="pricing"></a>Cennik
 Różnica między cenami w obu opcjach jest uwzględniana w cenach transferu danych wychodzących z Internetu. Funkcja routingu za pośrednictwem usługi **Microsoft Global Network** Data Transfer jest taka sama jak bieżąca cena wychodząca z Internetu. Aby uzyskać najnowsze informacje o cenach, odwiedź [stronę z cennikiem usługi Azure przepustowość](https://azure.microsoft.com/pricing/details/bandwidth/) . 
 
-## <a name="availability"></a>Dostępność
-
-Obsługa preferencji routingu jest dostępna w następujących regionach dla usług takich jak maszyna wirtualna i moduł równoważenia obciążenia dostępnego z Internetu, który korzysta z publicznego adresu IP dla ruchu wychodzącego z Internetu — Europa Północna, Europa Zachodnia, Francja Południowa, Południowe Zjednoczone Królestwo, Wschodnie stany USA, Północno-środkowe stany USA, Południowo-środkowe stany USA, zachodnie stany USA, zachodnie stany USA, Szwajcaria Zachodnia Niemcy Środkowo-Zachodnie Azja Południowo-Wschodnia,
-
-Obsługa preferencji routingu dla konta magazynu jest dostępna w następujących regionach platformy Azure — Północno-środkowe stany USA, zachodnio-środkowe stany USA, Południowo-środkowe stany USA, wschód USA, zachodnie Stany Zjednoczone, Europa Północna, Francja Południowa, Niemcy Środkowo-Zachodnie, Szwajcaria Zachodnia, Południowe Azja Wschodnia, Japonia Wschodnia i Japonia Zachodnia.
 ## <a name="limitations"></a>Ograniczenia
 
 * Preferencja routingu jest zgodna tylko z standardową jednostką SKU publicznego adresu IP. Podstawowa jednostka SKU publicznego adresu IP nie jest obsługiwana.

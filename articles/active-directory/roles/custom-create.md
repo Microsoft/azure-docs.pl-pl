@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/04/2020
+ms.date: 01/05/2021
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4436385b07dd4f1da81f17eb19b38e922e21a1ef
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c0adb88cd49dd3de8649703ed45821c68a31776e
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180425"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914471"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Tworzenie i przypisywanie roli niestandardowej w Azure Active Directory
 
@@ -58,17 +58,26 @@ Najpierw należy [pobrać moduł programu PowerShell usługi Azure AD Preview](h
 Aby zainstalować moduł Azure AD PowerShell, użyj następujących poleceń:
 
 ``` PowerShell
-Install-Module AzureADPreview
-Import-Module AzureADPreview
+install-module azureadpreview 
+import-module azureadpreview 
 ```
 
 Aby sprawdzić, czy moduł jest gotowy do użycia, użyj następującego polecenia:
 
 ``` PowerShell
-Get-Module AzureADPreview
-  ModuleType Version      Name                         ExportedCommands
-  ---------- ---------    ----                         ----------------
-  Binary     2.0.2.31     azuread                      {Add-AzureADAdministrati...}
+get-module azureadpreview 
+
+  ModuleType Version      Name                         ExportedCommands 
+  ---------- ---------    ----                         ---------------- 
+  Binary     2.0.0.115    azureadpreview               {Add-AzureADAdministrati...} 
+```
+
+### <a name="connect-to-azure"></a>Nawiązywanie połączenia z usługą Azure
+
+Aby nawiązać połączenie z Azure Active Directory, użyj następującego polecenia:
+
+``` PowerShell
+Connect-AzureAD
 ```
 
 ### <a name="create-the-custom-role"></a>Utwórz rolę niestandardową

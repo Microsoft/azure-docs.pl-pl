@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 66967c1fa8f6ca42459559caf46bffb0e5afe925
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0bef344414a9ba27d5808fcd17ed664b7f51bddc
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743594"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916010"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-stack-edge-pro"></a>Użyj Azure Portal, aby zarządzać użytkownikami na Azure Stack brzegowej Pro
 
@@ -30,19 +30,19 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 ## <a name="about-users"></a>Informacje o użytkownikach
 
-Użytkownicy mogą mieć prawo tylko do odczytu lub pełne uprawnienia. Jak sugerują nazwy, użytkownicy z prawem tylko do odczytu mogą wyłącznie wyświetlać dane udziału. Użytkownicy z pełnymi uprawnieniami mogą odczytywać dane udziału, dokonywać zapisu w tych udziałach oraz modyfikować lub usuwać dane udziału.
+Użytkownicy mogą mieć prawo tylko do odczytu lub pełne uprawnienia. Użytkownicy tylko do odczytu mogą wyświetlać tylko dane udostępnione. Użytkownicy z pełnymi uprawnieniami mogą odczytywać dane udostępniania, zapisywać je w tych udziałach i modyfikować i usuwać dane udziału.
 
  - **Użytkownik z pełnymi uprawnieniami** — użytkownik lokalny z pełnym dostępem.
  - **Użytkownik z prawem tylko do odczytu** — użytkownik lokalny z dostępem tylko do odczytu. Ci użytkownicy są powiązani z udziałami, które umożliwiają wykonywanie operacji tylko do odczytu.
 
-Uprawnienia użytkownika są definiowane podczas jego tworzenia w czasie tworzenia udziału. Po zdefiniowaniu uprawnień związanych z użytkownikiem można je zmodyfikować za pomocą Eksploratora plików.
+Uprawnienia użytkownika są definiowane podczas jego tworzenia w czasie tworzenia udziału. Można je modyfikować za pomocą Eksploratora plików.
 
 
 ## <a name="add-a-user"></a>Dodawanie użytkownika
 
 Wykonaj następujące czynności w witrynie Azure Portal, aby dodać użytkownika.
 
-1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do **omówienia > użytkowników**. Wybierz pozycję **+ Dodaj użytkownika** na pasku poleceń.
+1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do pozycji **Użytkownicy**. Wybierz pozycję **+ Dodaj użytkownika** na pasku poleceń.
 
     ![Wybierz pozycję Dodaj użytkownika](media/azure-stack-edge-j-series-manage-users/add-user-1.png)
 
@@ -59,7 +59,7 @@ Wykonaj następujące czynności w witrynie Azure Portal, aby dodać użytkownik
 ## <a name="modify-user"></a>Modyfikowanie harmonogramu
 
 Po utworzeniu użytkownika możesz zmienić przypisane do niego hasło. Wybierz z listy użytkowników. Wprowadź i Potwierdź nowe hasło. Zapisz zmiany.
- 
+
 ![Modyfikowanie harmonogramu](media/azure-stack-edge-j-series-manage-users/modify-user-1.png)
 
 
@@ -68,7 +68,7 @@ Po utworzeniu użytkownika możesz zmienić przypisane do niego hasło. Wybierz 
 Wykonaj następujące czynności w witrynie Azure Portal, aby usunąć użytkownika.
 
 
-1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do **omówienia > użytkowników**.
+1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do pozycji **Użytkownicy**.
 
     ![Wybierz użytkownika do usunięcia](media/azure-stack-edge-j-series-manage-users/delete-user-1.png)
 

@@ -10,15 +10,15 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/13/2019
+ms.date: 01/05/2020
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: 05e966d3f4631e3c344bd97c0faec99cc3c6dd66
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a33c7e7d637b519b249c250481a73d04c661d4d5
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819896"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915848"
 ---
 # <a name="microsoft-global-network"></a>Globalna sieć firmy Microsoft
 
@@ -71,4 +71,5 @@ Te zasady mają zastosowanie do wszystkich warstw sieci: z interfejsu sieciowego
 Wykładniczy wzrost liczby platform Azure i jej sieci osiągnęło punkt, w którym ostatecznie zakończył się, że Intuition przez człowieka nie mogą już być używane do zarządzania globalnymi operacjami sieciowymi. Aby spełnić wymagania dotyczące długotrwałych, średnich i krótkoterminowych zmian w sieci, opracowano platformę do dublowania i emulowania naszej sieci produkcyjnej syntetycznie. Możliwość tworzenia dublowanych środowisk i uruchamiania milionów symulacji pozwala na testowanie zmian oprogramowania i sprzętu oraz ich wpływu przed przekazaniem ich do naszej platformy produkcyjnej i sieci. 
 
 ## <a name="next-steps"></a>Następne kroki
+- [Dowiedz się, jak firma Microsoft zwiększa niezawodność sieci globalnej poprzez inteligentne oprogramowanie](https://azure.microsoft.com/blog/advancing-global-network-reliability-through-intelligent-software-part-1-of-2/)
 - [Dowiedz się więcej na temat usług sieciowych oferowanych na platformie Azure](https://azure.microsoft.com/product-categories/networking/)

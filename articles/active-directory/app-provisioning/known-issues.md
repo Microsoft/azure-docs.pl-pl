@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 12/14/2020
+ms.date: 01/05/2021
 ms.reviewer: arvinh
-ms.openlocfilehash: 78e9d7355b8c96295456f8aa9cb80b1d3bdd2fab
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: bde5cecc4052724f795cac03f6efceb3451ea2ee
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509550"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914352"
 ---
 # <a name="known-issues-application-provisioning"></a>Znane problemy: Inicjowanie obsługi aplikacji
 Znane problemy, które należy wziąć pod uwagę podczas pracy z obsługą aplikacji. Aby przekazać opinię na temat usługi Application Provisioning w witrynie UserVoice, zobacz temat [udostępnianie aplikacji usługi Azure AD](https://aka.ms/appprovisioningfeaturerequest)w usłudze UserVoice. Uważnie obserwujemy usługę UserVoice, abyśmy mogli ulepszyć usługi. 
@@ -82,6 +82,10 @@ Jeśli utworzysz rejestrację aplikacji, odpowiadająca jej jednostka usługi w 
 **Zmiany, które nie zostały przeniesione z aplikacji docelowej do usługi Azure AD**
 
 Usługa aprowizacji aplikacji nie wie o zmianach wprowadzonych w aplikacjach zewnętrznych. W związku z tym nie jest podejmowana żadna akcja wycofywania. Usługa aprowizacji aplikacji opiera się na zmianach wprowadzonych w usłudze Azure AD. 
+
+**Przełączanie z synchronizacji wszystkich do przydzielonej synchronizacji nie działa**
+
+Po zmianie zakresu z elementu "Synchronizuj wszystko" na "przypisana synchronizacja" Upewnij się, że jest również wykonywane ponowne uruchomienie w celu upewnienia się, że zmiana zacznie obowiązywać. Ponowne uruchomienie można wykonać przy użyciu interfejsu użytkownika.
 
 **Cykl aprowizacji jest kontynuowany do momentu ukończenia**
 

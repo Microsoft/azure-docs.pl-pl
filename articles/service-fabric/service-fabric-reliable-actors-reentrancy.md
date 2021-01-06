@@ -4,12 +4,12 @@ description: Wprowadzenie do współużytkowania wątkowości Service Fabric Rel
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c2356db0eee82a133afad6aa95299ced0595db32
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 9578b676e46d21fe5d30de92ad59c852a8b05f70
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576064"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915882"
 ---
 # <a name="reliable-actors-reentrancy"></a>Reliable Actors współużytkowania wątkowości
 Domyślnie środowisko uruchomieniowe Reliable Actors zezwala na współużytkowania wątkowości na kontekst wywołania logicznego. Pozwala to na współużytkowanie aktorów, jeśli znajdują się w tym samym łańcuchu kontekstu wywołania. Na przykład aktor A wysyła komunikat do aktora B, który wysyła komunikat do aktora C. W ramach przetwarzania wiadomości, jeśli aktor w języku C wywołuje aktora A, komunikat jest współużytkowany, więc będzie dozwolony. Wszystkie inne komunikaty, które są częścią innego kontekstu wywołania, będą blokowane na aktora A do momentu zakończenia przetwarzania.
@@ -101,4 +101,4 @@ static class Program
 
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej o współużytkowania wątkowości w dokumentacji dotyczącej [interfejsu API aktora](/previous-versions/azure/dn971626(v=azure.100))
+* Dowiedz się więcej na temat współużytkowania wątkowości w [dokumentacji referencyjnej interfejsu API aktora](/dotnet/api/microsoft.servicefabric.actors?view=azure-dotnet))

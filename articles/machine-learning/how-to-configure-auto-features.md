@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to,automl,contperf-fy21q2
 ms.date: 12/18/2020
-ms.openlocfilehash: 526afe758063ce6c5f6bd86f8192f56d5f844a85
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: b26b0d9086f464556cbca2c70773374c3cccbd52
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694000"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915865"
 ---
 # <a name="data-featurization-in-automated-machine-learning"></a>Cechowania danych w zautomatyzowanej usłudze Machine Learning
 
@@ -68,9 +68,6 @@ Poniższa tabela zawiera podsumowanie technik, które są automatycznie stosowan
 |_*Generuj więcej funkcji**_ |W przypadku funkcji DateTime: Year, month, Day, Day tygodnia, Day Year, Quarter, Week of Year, Hour, minute, Second.<br><br> _For prognozowania zadań, * są tworzone następujące dodatkowe funkcje DateTime: rok ISO, półroczny rok, miesiąc kalendarzowy jako ciąg, tydzień, dzień tygodnia jako ciąg, dzień kwartału, dzień roku, AM/PM (0 Jeśli godzina jest wcześniejsza niż południe (12 PM), 1 (w przeciwnym razie), AM/PM jako ciąg, godzina dnia (stawka 12-HR)<br/><br/>W przypadku funkcji tekstowych: Częstotliwość okresu oparta na unigrams, rozgramach i trigrams. Dowiedz się więcej o [tym, jak to zrobić za pomocą Bert.](#bert-integration)|
 |**Przekształć i Koduj** _|Przekształć funkcje liczbowe, które mają kilka unikatowych wartości w funkcjach kategorii.<br/><br/>Kodowanie jednostronicowe jest używane w przypadku funkcji kategorii o niskiej kardynalności. Kodowanie jednostronicowe jest używane w przypadku funkcji kategorii wysoka Kardynalność.|
 |*Osadzenie wyrazów**|Tekst featurized konwertuje wektory tokenów tekstowych na wektory zdania przy użyciu wstępnie nauczonego modelu. Wektor osadzania każdego wyrazu w dokumencie jest agregowany wraz z resztą w celu utworzenia wektora funkcji dokumentu.|
-|**Kodowanie docelowe**|W przypadku funkcji kategorii ten krok mapuje każdą kategorię ze średnią wartością docelową dla problemów z regresją oraz do prawdopodobieństwa klasy dla każdej klasy w przypadku problemów z klasyfikacją. Wagi oparte na częstotliwościach i k-zgięcie krzyżowe są stosowane w celu zmniejszenia zamontowania mapowania i szumów spowodowanych przez kategorie danych rozrzedzonych.|
-|**Kodowanie obiektu docelowego tekstu**|W przypadku wprowadzania tekstu, skumulowany model liniowy z zbiorem słów jest używany do generowania prawdopodobieństwa każdej klasy.|
-|**Waga dowodu (WoE)**|Oblicza WoE jako miarę korelacji kolumn kategorii z kolumną docelową. WoE jest obliczany jako dziennik współczynnika prawdopodobieństwa w klasie a. Ten krok powoduje wygenerowanie jednej kolumny funkcji liczbowej dla każdej klasy i eliminuje konieczność jawnego dodawania brakujących wartości i odstającej funkcjonalności.|
 |**Odległość klastra**|Pociąga k-oznacza model klastra dla wszystkich kolumn liczbowych. Tworzy *k* nowe funkcje (jedna nowa funkcja liczbowa na klaster), które zawierają odległość poszczególnych próbek do centroida każdego klastra.|
 
 ## <a name="data-guardrails"></a>Guardrails danych
@@ -123,7 +120,7 @@ Obsługiwane dostosowania obejmują:
 |--|--|
 |**Aktualizacja celu kolumny**|Zastąp automatycznie wykryty typ funkcji dla określonej kolumny.|
 |**Aktualizacja parametru Transformer** |Zaktualizuj parametry dla określonej funkcji przekształcania. Obecnie obsługuje *program* obsługujący (Oredni, najczęstszy i średni) oraz *HashOneHotEncoder*.|
-|**Upuszczanie kolumn** |Określa kolumny do porzucenia z featurized.|
+|**Usuwanie kolumn** |Określa kolumny do porzucenia z featurized.|
 |**Blokuj Transformatory**| Określa Transformatory blokowe, które mają być używane w procesie cechowania.|
 
 Utwórz `FeaturizationConfig` Obiekt przy użyciu wywołań interfejsu API:

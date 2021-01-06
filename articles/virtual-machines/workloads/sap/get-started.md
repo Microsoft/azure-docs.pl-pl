@@ -14,15 +14,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/04/2021
+ms.date: 01/05/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d56ed0cdae9046cb7d76f7d74545309ee6292ecd
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: f74e6435af9084b0c8f222c33dc922fe678bc4c7
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883099"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914523"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Korzystanie z platformy Azure do hostowania i uruchamiania scenariuszy obciążeń SAP
 
@@ -83,6 +83,7 @@ W tej sekcji znajdziesz dokumenty o integracji z firmą Microsoft Power BI ze ź
 
 ## <a name="change-log"></a>Dziennik zmian
 
+- 01/05/2021: zmiany w [SAP HANA skalowanie w poziomie za pomocą węzła wstrzymywania na maszynach wirtualnych platformy Azure z usługą ANF na SLES](./sap-hana-scale-out-standby-netapp-files-suse.md) i [SAP HANA skalowanie w poziomie za pomocą węzła rezerwy na maszynach wirtualnych platformy Azure z ANF na RHEL](./sap-hana-scale-out-standby-netapp-files-rhel.md), zmieniając konfigurację zalecaną, aby umożliwić agentowi hosta SAP Zarządzanie zakresem portów lokalnych  
 - 01/04/2021: Dodaj nowe regiony platformy Azure obsługiwane przez element HLI do [co SAP HANA na platformie Azure (duże wystąpienia)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
 - 12/29/2020: Dodaj zalecenia dotyczące architektury dla określonych regionów świadczenia usługi Azure w [konfiguracjach obciążeń SAP za pomocą strefy dostępności platformy Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones)
 - 12/21/2020: Dodaj nowe certyfikaty do jednostek SKU w dużych wystąpieniach platformy HANA w dostępnych jednostkach [SKU dla elementu HLI](./hana-available-skus.md)

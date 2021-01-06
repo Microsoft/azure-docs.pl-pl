@@ -4,12 +4,12 @@ description: Omówienie modelu komunikacji Reliable Services, w tym otwierania d
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e7dc10055633c8e6dd2c645f28b774d5d5f3ac3f
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 3436d29446e963faea9bda47f5a5247b7de7d859
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574330"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97912618"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Jak używać interfejsów API komunikacji Reliable Services
 Usługa Azure Service Fabric jako platforma jest całkowicie niezależny od o komunikację między usługami. Wszystkie protokoły i stosy są akceptowalne z protokołu UDP do protokołu HTTP. Aby wybrać sposób komunikacji usług, należy do deweloperów usług. Reliable Services Application Framework zawiera wbudowane stosy komunikacji oraz interfejsy API, których można używać do tworzenia niestandardowych składników komunikacji.
@@ -288,7 +288,7 @@ public class MyCommunicationClient implements CommunicationClient {
 }
 ```
 
-Fabryka klienta jest przede wszystkim odpowiedzialna za tworzenie klientów komunikacyjnych. W przypadku klientów, którzy nie utrzymują połączenia trwałego, takiego jak klient HTTP, fabryka musi jedynie utworzyć i zwrócić klienta. Inne protokoły, które utrzymują trwałe połączenie, takie jak niektóre protokoły binarne, powinny być również weryfikowane przez fabrykę w celu ustalenia, czy połączenie musi zostać utworzone.  
+Fabryka klienta jest przede wszystkim odpowiedzialna za tworzenie klientów komunikacyjnych. W przypadku klientów, którzy nie utrzymują połączenia trwałego, takiego jak klient HTTP, fabryka musi jedynie utworzyć i zwrócić klienta. Inne protokoły, które utrzymują trwałe połączenie, takie jak niektóre protokoły binarne, powinny być również weryfikowane ( `ValidateClient(string endpoint, MyCommunicationClient client)` ) przez fabrykę, aby określić, czy połączenie musi zostać utworzone.  
 
 ```csharp
 public class MyCommunicationClientFactory : CommunicationClientFactoryBase<MyCommunicationClient>

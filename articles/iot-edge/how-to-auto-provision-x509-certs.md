@@ -9,12 +9,13 @@ ms.date: 04/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 761b031916dd9ead71f5be6a6887208a1f200f58
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 385a67e117bf0cf9508b81d014e3accac4725744
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966138"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914913"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Tworzenie i Inicjowanie obsługi urządzenia IoT Edge przy użyciu certyfikatów X. 509
 
@@ -87,7 +88,7 @@ Aby uzyskać więcej informacji na temat rejestracji w usłudze Device Provision
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do wystąpienia IoT Hub Device Provisioning Service.
 
-1. W obszarze **Ustawienia**wybierz pozycję **Zarządzaj rejestracjami**.
+1. W obszarze **Ustawienia** wybierz pozycję **Zarządzaj rejestracjami**.
 
 1. Wybierz pozycję **Dodaj rejestrację indywidualną** , a następnie wykonaj następujące kroki, aby skonfigurować rejestrację:  
 
@@ -172,7 +173,7 @@ Aby uzyskać więcej informacji na temat rejestracji w usłudze Device Provision
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do wystąpienia IoT Hub Device Provisioning Service.
 
-1. W obszarze **Ustawienia**wybierz pozycję **Zarządzaj rejestracjami**.
+1. W obszarze **Ustawienia** wybierz pozycję **Zarządzaj rejestracjami**.
 
 1. Wybierz pozycję **Dodaj grupę rejestracji** , a następnie wykonaj następujące kroki, aby skonfigurować rejestrację:
 
@@ -205,7 +206,7 @@ Aby uzyskać więcej informacji na temat rejestracji w usłudze Device Provision
 
 Teraz, gdy istnieje Rejestracja dla tego urządzenia, środowisko uruchomieniowe IoT Edge może automatycznie zainicjować obsługę administracyjną urządzenia podczas instalacji. Przejdź do następnej sekcji, aby skonfigurować urządzenie IoT Edge.
 
-## <a name="install-the-iot-edge-runtime"></a>Zainstaluj środowisko uruchomieniowe IoT Edge
+## <a name="install-the-iot-edge-runtime"></a>Instalowanie środowiska uruchomieniowego usługi IoT Edge
 
 Środowisko uruchomieniowe usługi IoT Edge jest wdrażane na wszystkich urządzeniach usługi IoT Edge. Jego składniki działają w kontenerach i umożliwiają wdrożenie dodatkowych kontenerów na urządzeniu, aby można było uruchomić kod na krawędzi.
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/16/2020
+ms.date: 01/05/2020
 ms.author: b-juche
-ms.openlocfilehash: 1537a87999f9a8eecf83a2431b2f53d3ceaedacb
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 913d61c506505d18fff416291e7f3b718f1d92f3
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854703"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913502"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Często zadawane pytania dotyczące Azure NetApp Files
 
@@ -137,6 +137,16 @@ Można określić, czy konto główne może uzyskać dostęp do woluminu, czy ni
 Tak, możesz. Jednak ścieżka pliku musi być używana w innej subskrypcji lub innym regionie.   
 
 Na przykład utworzysz wolumin o nazwie `vol1` . Następnie tworzony jest również inny wolumin `vol1` w innej puli pojemności, ale w tej samej subskrypcji i regionie. W takim przypadku użycie tej samej nazwy woluminu `vol1` spowoduje wystąpienie błędu. Aby użyć tej samej ścieżki pliku, nazwa musi znajdować się w innym regionie lub subskrypcji.
+
+### <a name="when-i-try-to-access-nfs-volumes-through-a-windows-client-why-does-the-client-take-a-long-time-to-search-folders-and-subfolders"></a>Kiedy próbuję uzyskać dostęp do woluminów NFS za pomocą klienta systemu Windows, dlaczego przeszukiwanie folderów i podfolderów przez klienta zajmuje dużo czasu?
+
+Upewnij się, że `CaseSensitiveLookup` włączono na kliencie systemu Windows przyspieszenie wyszukiwania folderów i podfolderów:
+
+1. Aby włączyć CaseSensitiveLookup, użyj następującego polecenia programu PowerShell:   
+    `Set-NfsClientConfiguration -CaseSensitiveLookup 1`    
+2. Zainstaluj wolumin na serwerze z systemem Windows.   
+    Przykład:   
+    `Mount -o rsize=1024 -o wsize=1024 -o mtype=hard \\10.x.x.x\testvol X:*`
 
 ## <a name="smb-faqs"></a>Protokół SMB — często zadawane pytania
 

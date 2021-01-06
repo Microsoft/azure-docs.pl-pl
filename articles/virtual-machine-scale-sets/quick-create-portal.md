@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 33f7f407c1df45131b0ebb5b14e8fcad2626bffd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8243619bc7a32c5fa86b6e108d954674b54394e5
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87077543"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913734"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Szybki start: tworzenie zestawu skalowania maszyn wirtualnych w witrynie Azure Portal
 
@@ -40,10 +40,10 @@ Najpierw utwórz publiczną usługa Load Balancer w warstwie Standardowa przy u�
     | Subskrypcja  | Wybierz subskrypcję.    |    
     | Grupa zasobów | Wybierz pozycję **Utwórz nowy** i wpisz *myVMSSResourceGroup* w polu tekstowym.|
     | Nazwa           | *myLoadBalancer*         |
-    | Region         | Wybierz pozycję **Wschodnie stany USA**.       |
+    | Region (Region)         | Wybierz pozycję **Wschodnie stany USA**.       |
     | Typ          | Wybierz pozycję **Publiczna**.       |
     | Jednostka SKU           | Wybierz pozycję **Standardowy**.       |
-    | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. |
+    | Publiczny adres IP | Wybierz pozycję **Utwórz nowy**. |
     | Nazwa publicznego adresu IP  | *myPip*   |
     | Przypisanie| Static |
     | Strefa dostępności | Wybierz pozycję **Strefowo nadmiarowa**. |
@@ -56,24 +56,23 @@ Najpierw utwórz publiczną usługa Load Balancer w warstwie Standardowa przy u�
 ## <a name="create-virtual-machine-scale-set"></a>Tworzenie zestawu skalowania maszyn wirtualnych
 Możesz wdrożyć zestaw skalowania z obrazu systemu Windows Server lub obrazu systemu Linux, takiego jak RHEL, CentOS, Ubuntu i SLES.
 
-1. Wpisz **zestaw skalowania** w polu wyszukiwania. W wynikach w obszarze **Marketplace**wybierz pozycję **zestawy skalowania maszyn wirtualnych**. Wybierz pozycję **Utwórz** na stronie **zestawy skalowania maszyn wirtualnych** , która spowoduje otwarcie strony **Tworzenie zestawu skalowania maszyn wirtualnych** . 
+1. Wpisz **zestaw skalowania** w polu wyszukiwania. W wynikach w obszarze **Marketplace** wybierz pozycję **zestawy skalowania maszyn wirtualnych**. Wybierz pozycję **Utwórz** na stronie **zestawy skalowania maszyn wirtualnych** , która spowoduje otwarcie strony **Tworzenie zestawu skalowania maszyn wirtualnych** . 
 1. Na karcie **Podstawowe**, w obszarze **Szczegóły projektu**, upewnij się, że wybrano poprawną subskrypcję, a następnie wybierz opcję **Utwórz nową** grupę zasobów. Wpisz *myVMSSResourceGroup* jako nazwę, a następnie wybierz przycisk **OK** . 
 1. Wpisz *myScaleSet* jako nazwę zestawu skalowania.
-1. W obszarze **region**wybierz region blisko Twojego obszaru.
-1. Pozostaw wartość domyślną **zestawu skalowania maszyn wirtualnych** dla **trybu aranżacji**.
+1. W obszarze **region** wybierz region blisko Twojego obszaru.
 1. Wybierz obraz z witryny Marketplace dla **obrazu**. W tym przykładzie wybrano *Ubuntu Server 18,04 LTS*.
 1. Wprowadź żądaną nazwę użytkownika, a następnie wybierz typ uwierzytelniania, który preferujesz.
    - **Hasło** musi mieć długość co najmniej 12 znaków i spełniać trzy z czterech następujących wymagań dotyczących złożoności: jedna mała litera, jedna wielka litera, jedna cyfra i jeden znak specjalny. Aby uzyskać więcej informacji, zobacz [wymagania dotyczące nazwy użytkownika i hasła](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm).
    - Jeśli wybierzesz obraz dysku systemu operacyjnego Linux, zamiast tego możesz wybrać **klucz publiczny SSH**. Podaj tylko swój klucz publiczny, taki jak *~/.ssh/id_rsa.pub*. Możesz użyć usługi Azure Cloud Shell z portalu, aby [tworzyć i używać kluczy SSH](../virtual-machines/linux/mac-create-ssh-keys.md).
    
-    ![Tworzenie zestawu skalowania maszyn wirtualnych](./media/virtual-machine-scale-sets-create-portal/quick-create-scaleset.png)
+    :::image type="content" source="./media/virtual-machine-scale-sets-create-portal/quick-create-scale-set.png" alt-text="Obraz przedstawia opcje tworzenia zestawów skalowania w Azure Portal.":::
 
 1. Wybierz pozycję **dalej** , aby przenieść inne strony. 
 1. Pozostaw wartości domyślne dla stron **wystąpienia** i **dyski** .
-1. Na stronie **Sieć** w obszarze **równoważenie obciążenia**wybierz pozycję **tak** , aby umieścić wystąpienia zestawu skalowania za modułem równoważenia obciążenia. 
-1. W obszarze **Opcje równoważenia obciążenia**wybierz pozycję **moduł równoważenia obciążenia platformy Azure**.
-1. W obszarze **Wybierz moduł równoważenia obciążenia**wybierz pozycję *myLoadBalancer* , która została utworzona wcześniej.
-1. W obszarze **wybierz pulę zaplecza**wybierz pozycję **Utwórz nową**, wpisz *myBackendPool*, a następnie wybierz pozycję **Utwórz**.
+1. Na stronie **Sieć** w obszarze **równoważenie obciążenia** wybierz pozycję **tak** , aby umieścić wystąpienia zestawu skalowania za modułem równoważenia obciążenia. 
+1. W obszarze **Opcje równoważenia obciążenia** wybierz pozycję **moduł równoważenia obciążenia platformy Azure**.
+1. W obszarze **Wybierz moduł równoważenia obciążenia** wybierz pozycję *myLoadBalancer* , która została utworzona wcześniej.
+1. W obszarze **wybierz pulę zaplecza** wybierz pozycję **Utwórz nową**, wpisz *myBackendPool*, a następnie wybierz pozycję **Utwórz**.
 1. Gdy skończysz, wybierz pozycję **Przegląd + Utwórz**. 
 1. Po przeprowadzeniu walidacji wybierz pozycję **Utwórz** , aby wdrożyć zestaw skalowania.
 

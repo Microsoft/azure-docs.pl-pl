@@ -17,12 +17,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e8268630b2c108dc95ded059ce41866a14fadd0e
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 3fe87f94ce05efa4a784ba7e3f65e53abb00fd05
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359255"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914250"
 ---
 # <a name="automate-management-with-the-sql-server-iaas-agent-extension"></a>Automatyzowanie zarządzania przy użyciu rozszerzenia agenta SQL Server IaaS
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -42,20 +42,21 @@ SQL Server rozszerzenia agenta IaaS zapewnia szereg korzyści dla SQL Server na 
 
 - **Bezpłatnie**: rozszerzenie we wszystkich trzech trybach zarządzania jest całkowicie bezpłatne. Brak dodatkowych kosztów skojarzonych z rozszerzeniem lub zmianami trybów zarządzania. 
 
-- **Uproszczone zarządzanie licencjami**: rozszerzenie upraszcza zarządzanie licencjami SQL Server i umożliwia szybkie identyfikowanie SQL Server maszyn wirtualnych z korzyść użycia hybrydowego platformy Azure włączony przy użyciu [Azure Portal](manage-sql-vm-portal.md), interfejsu wiersza polecenia platformy Azure lub programu PowerShell: 
-
-   # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
-
-   ```azurecli-interactive
-   $vms = az sql vm list | ConvertFrom-Json
-   $vms | Where-Object {$_.sqlServerLicenseType -eq "AHUB"}
-   ```
+- **Uproszczone zarządzanie licencjami**: rozszerzenie upraszcza zarządzanie licencjami SQL Server i umożliwia szybkie identyfikowanie SQL Server maszyn wirtualnych z korzyść użycia hybrydowego platformy Azure włączony przy użyciu [Azure Portal](manage-sql-vm-portal.md), programu PowerShell lub interfejsu wiersza polecenia platformy Azure: 
 
    # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
    ```powershell-interactive
    Get-AzSqlVM | Where-Object {$_.LicenseType -eq 'AHUB'}
    ```
+
+   # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+   ```azurecli-interactive
+   $ az sql vm list --query "[?sqlServerLicenseType=='AHUB']"
+   ```
+
+
 
    ---
 
@@ -71,7 +72,7 @@ Rozszerzenie agenta SQL Server IaaS odblokowuje szereg korzyści z używania fun
 Poniższa tabela zawiera szczegółowe informacje na temat tych korzyści: 
 
 
-| Cecha | Opis |
+| Cechy | Opis |
 | --- | --- |
 | **Portal zarządzania** | Umożliwia odblokowanie [zarządzania w portalu](manage-sql-vm-portal.md), dzięki czemu można wyświetlić wszystkie SQL Server maszyny wirtualne w jednym miejscu, co pozwoli na włączenie i wyłączenie funkcji specyficznych dla bazy danych SQL bezpośrednio z poziomu portalu. 
 | **Automatyczna kopia zapasowa** |Automatyzuje Planowanie kopii zapasowych dla wszystkich baz danych dla wystąpienia domyślnego lub [poprawnie zainstalowane](frequently-asked-questions-faq.md#administration) nazwane wystąpienie SQL Server na maszynie wirtualnej. Aby uzyskać więcej informacji, zobacz [zautomatyzowane tworzenie kopii zapasowych SQL Server w usłudze Azure Virtual Machines (Menedżer zasobów)](automated-backup-sql-2014.md). |

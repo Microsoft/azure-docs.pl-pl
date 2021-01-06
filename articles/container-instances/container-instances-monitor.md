@@ -2,13 +2,13 @@
 title: Monitorowanie wystąpień kontenerów
 description: Jak monitorować użycie zasobów obliczeniowych, takich jak procesor CPU i pamięć, w Azure Container Instances.
 ms.topic: article
-ms.date: 04/24/2019
-ms.openlocfilehash: b10c370b599233d00b2b4a65268f6c61a11cbd5c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 12/17/2020
+ms.openlocfilehash: 83a8a5ab2c8c49f4044564c2d899685914103b0b
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96007260"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916092"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Monitorowanie zasobów kontenerów w usłudze Azure Container Instances
 
@@ -27,11 +27,11 @@ W tej chwili Azure Monitor metryki są dostępne tylko dla kontenerów systemu L
 
 Azure Monitor udostępnia następujące [metryki dla Azure Container Instances][supported-metrics]. Te metryki są dostępne dla grupy kontenerów i poszczególnych kontenerów. Domyślnie metryki są agregowane jako średnie.
 
-* **Użycie procesora CPU** — mierzone w **millicores**. Jeden millicore to 1/1000th rdzeń procesora CPU, więc 500 millicores reprezentuje użycie procesora CPU 0,5.
-
-* **Użycie pamięci** — w bajtach.
-
-* **Bajty odebrane przez sieć na sekundę** i **bajty przesyłane przez sieć na sekundę**. 
+- **Użycie procesora CPU** mierzone w **millicores**. 
+  - Jeden millicore to 1/1000th rdzeń procesora CPU, więc 500 millicores reprezentuje użycie procesora CPU 0,5.
+- **Użycie pamięci** w bajtach
+- **Bajty odebrane przez sieć** na sekundę
+- **Bajty przesyłane przez sieć** na sekundę 
 
 ## <a name="get-metrics---azure-portal"></a>Pobieranie metryk — Azure Portal
 
@@ -39,7 +39,7 @@ Po utworzeniu grupy kontenerów dane usługi Azure Monitor są dostępne w witry
 
 ![podwójny wykres][dual-chart]
 
-W grupie kontenerów zawierającej wiele kontenerów Użyj [wymiaru][monitor-dimension] , aby przedstawić metryki według kontenera. Aby utworzyć wykres z metrykami pojedynczego kontenera, wykonaj następujące kroki:
+W grupie kontenerów zawierającej wiele kontenerów Użyj [wymiaru][monitor-dimension] , aby wyświetlić metryki według kontenera. Aby utworzyć wykres z metrykami pojedynczego kontenera, wykonaj następujące kroki:
 
 1. Na stronie **Przegląd** wybierz jeden z wykresów metryk, takich jak **procesor CPU**. 
 1. Wybierz przycisk **Zastosuj podział** , a następnie wybierz pozycję **nazwa kontenera**.
@@ -64,18 +64,11 @@ az monitor metrics list --resource $CONTAINER_GROUP --metric CPUUsage --output t
 ```output
 Timestamp            Name       Average
 -------------------  ---------  ---------
-2019-04-23 22:59:00  CPU Usage
-2019-04-23 23:00:00  CPU Usage
-2019-04-23 23:01:00  CPU Usage  0.0
-2019-04-23 23:02:00  CPU Usage  0.0
-2019-04-23 23:03:00  CPU Usage  0.5
-2019-04-23 23:04:00  CPU Usage  0.5
-2019-04-23 23:05:00  CPU Usage  0.5
-2019-04-23 23:06:00  CPU Usage  1.0
-2019-04-23 23:07:00  CPU Usage  0.5
-2019-04-23 23:08:00  CPU Usage  0.5
-2019-04-23 23:09:00  CPU Usage  1.0
-2019-04-23 23:10:00  CPU Usage  0.5
+2020-12-17 23:34:00  CPU Usage
+. . .
+2020-12-18 00:25:00  CPU Usage
+2020-12-18 00:26:00  CPU Usage  0.4
+2020-12-18 00:27:00  CPU Usage  0.0
 ```
 
 Zmień wartość `--metric` parametru w poleceniu, aby uzyskać inne [obsługiwane metryki][supported-metrics]. Na przykład użyj poniższego polecenia, aby uzyskać metryki użycia **pamięci** . 

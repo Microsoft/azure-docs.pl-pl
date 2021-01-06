@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: fac26c616c977eedc466f004a9455297ec995fb8
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9fe1b7a077142b00aaf2a8502faa0e166c4311c4
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352545"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915627"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Zabezpiecz i Izoluj klastry usługi Azure HDInsight za pomocą prywatnego linku (wersja zapoznawcza)
 
@@ -29,7 +29,7 @@ Domyślnie element RP usługi HDInsight używa połączenia *przychodzącego* z 
 
 Podstawowe usługi równoważenia obciążenia używane w domyślnej architekturze sieci wirtualnej automatycznie zapewniają publiczne translatora adresów sieciowych (NAT), aby uzyskać dostęp do wymaganych zależności wychodzących, takich jak HDInsight RP. Jeśli chcesz ograniczyć łączność wychodzącą do publicznej sieci Internet, możesz [skonfigurować zaporę](./hdinsight-restrict-outbound-traffic.md), ale nie jest to wymagane.
 
-Skonfigurowanie `resourceProviderConnection` do wychodzącego umożliwia również dostęp do zasobów specyficznych dla klastra, takich jak Azure Data Lake Storage Gen2 lub zewnętrznych magazynów metadanych, za pomocą prywatnych punktów końcowych. Używanie prywatnych punktów końcowych dla tych zasobów nie jest mandetory, ale jeśli planujesz posiadanie prywatnych punktów końcowych dla tych zasobów, musisz skonfigurować prywatne punkty końcowe i wpisy DNS, `before` które tworzą klaster usługi HDInsight. Zalecamy utworzenie i udostępnienie wszystkich potrzebnych zewnętrznych baz danych SQL, takich jak Apache Ranger, Ambari, Oozie i Hive, w czasie tworzenia klastra. Wymaganiem jest, że wszystkie te zasoby muszą być dostępne z wewnątrz podsieci klastra przy użyciu własnego prywatnego punktu końcowego lub w inny sposób.
+Skonfigurowanie `resourceProviderConnection` do wychodzącego umożliwia również dostęp do zasobów specyficznych dla klastra, takich jak Azure Data Lake Storage Gen2 lub zewnętrznych magazynów metadanych, za pomocą prywatnych punktów końcowych. Używanie prywatnych punktów końcowych dla tych zasobów nie jest obowiązkowe, ale jeśli zamierzasz mieć prywatne punkty końcowe dla tych zasobów, musisz skonfigurować prywatne punkty końcowe i wpisy DNS, `before` które tworzą klaster usługi HDInsight. Zalecamy utworzenie i udostępnienie wszystkich potrzebnych zewnętrznych baz danych SQL, takich jak Apache Ranger, Ambari, Oozie i Hive, w czasie tworzenia klastra. Wymaganiem jest, że wszystkie te zasoby muszą być dostępne z wewnątrz podsieci klastra przy użyciu własnego prywatnego punktu końcowego lub w inny sposób.
 
 Używanie prywatnych punktów końcowych dla Azure Key Vault nie jest obsługiwane. Jeśli używasz Azure Key Vault do szyfrowania CMK w spoczynku, punkt końcowy Azure Key Vault musi być dostępny z poziomu podsieci usługi HDInsight bez prywatnego punktu końcowego.
 

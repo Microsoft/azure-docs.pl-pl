@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5917de03468b86b67520c0b4f04dfd732377a021
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 57826fcff03e79d5617c7eb69aac7d535d3c86f7
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366296"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915712"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>Dostęp warunkowy: Wymagaj uwierzytelniania wieloskładnikowego dla administratorów
 
@@ -31,6 +31,7 @@ Firma Microsoft zaleca wymaganie uwierzytelniania wieloskładnikowego na następ
 * Administrator globalny
 * Administrator pomocy technicznej
 * Administrator haseł
+* Administrator ról uprzywilejowanych
 * Administrator zabezpieczeń
 * Administrator programu SharePoint
 * Administrator użytkowników
@@ -51,11 +52,11 @@ Zasady dostępu warunkowego to zaawansowane narzędzia, dlatego zalecamy wyklucz
 Poniższe kroki pomogą utworzyć zasady dostępu warunkowego, aby wymagać przypisanych ról administracyjnych do uwierzytelniania wieloskładnikowego.
 
 1. Zaloguj się do **Azure Portal** jako Administrator globalny, administrator zabezpieczeń lub administrator dostępu warunkowego.
-1. Przejdź do **Azure Active Directory**  >  **Security**  >  **dostępu warunkowego**zabezpieczeń.
+1. Przejdź do **Azure Active Directory**  >    >  **dostępu warunkowego** zabezpieczeń.
 1. Wybierz pozycję **nowe zasady**.
 1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
-1. W obszarze **przypisania**wybierz pozycję **Użytkownicy i grupy**
-   1. W obszarze **dołączanie**wybierz pozycję **role katalogu (wersja zapoznawcza)** i wybierz co najmniej następujące role:
+1. W obszarze **przypisania** wybierz pozycję **Użytkownicy i grupy**
+   1. W obszarze **dołączanie** wybierz pozycję **role katalogu (wersja zapoznawcza)** i wybierz co najmniej następujące role:
       * Administrator uwierzytelniania
       * Administrator rozliczeń
       * Administrator dostępu warunkowego
@@ -70,11 +71,11 @@ Poniższe kroki pomogą utworzyć zasady dostępu warunkowego, aby wymagać przy
       > [!WARNING]
       > Zasady dostępu warunkowego nie obsługują użytkowników, którym przypisano rolę katalogu [zakresu do jednostki administracyjnej](../roles/admin-units-assign-roles.md) lub ról katalogu w zakresie bezpośrednio do obiektu, na przykład za pomocą [ról niestandardowych](../roles/custom-create.md).
 
-   1. W obszarze **Wyklucz**wybierz pozycję **Użytkownicy i grupy** , a następnie wybierz opcję dostęp awaryjny lub konta w ramach swojej organizacji. 
+   1. W obszarze **Wyklucz** wybierz pozycję **Użytkownicy i grupy** , a następnie wybierz opcję dostęp awaryjny lub konta w ramach swojej organizacji. 
    1. Wybierz pozycję **Gotowe**.
-1. W obszarze **aplikacje lub akcje w chmurze**  >  **Include**wybierz pozycję **wszystkie aplikacje w chmurze**, a następnie wybierz pozycję **gotowe**.
-1. W **obszarze warunki**  >  **aplikacje klienta**Przełącz pozycję **Konfiguruj** na **wartość tak** , a następnie w obszarze **Wybierz aplikacje klienckie, które będą stosowane przez te zasady** , a następnie wybierz pozycję **gotowe**.
-1. W obszarze **Kontrola dostępu**  >  **przyznawanie**wybierz pozycję **Udziel dostępu**, **Wymagaj uwierzytelniania wieloskładnikowego**, a następnie wybierz pozycję **Wybierz**.
+1. W obszarze **aplikacje lub akcje w chmurze**  >  wybierz pozycję **wszystkie aplikacje w chmurze**, a następnie wybierz pozycję **gotowe**.
+1. W **obszarze warunki**  >  **aplikacje klienta** Przełącz pozycję **Konfiguruj** na **wartość tak** , a następnie w obszarze **Wybierz aplikacje klienckie, które będą stosowane przez te zasady** , a następnie wybierz pozycję **gotowe**.
+1. W obszarze **Kontrola dostępu**  >  **przyznawanie** wybierz pozycję **Udziel dostępu**, **Wymagaj uwierzytelniania wieloskładnikowego**, a następnie wybierz pozycję **Wybierz**.
 1. Potwierdź ustawienia i ustaw opcję **Włącz zasady** na **włączone**.
 1. Wybierz pozycję **Utwórz** , aby utworzyć zasady.
 

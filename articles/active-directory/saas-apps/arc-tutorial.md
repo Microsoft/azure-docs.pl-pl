@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/21/2019
+ms.date: 12/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 8227ea4df6ccce6a0e287e861ed9dc8efade1086
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: fe6f4a1c66b07a518c4bccad9027c4d16e3d18a6
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457762"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913856"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-arc-publishing---sso"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z publikowaniem Arc — Logowanie jednokrotne
 
@@ -25,8 +25,6 @@ W tym samouczku dowiesz się, jak zintegrować publikowanie Arc — Logowanie je
 * Kontrolka w usłudze Azure AD, która ma dostęp do publikowania łuku — Logowanie jednokrotne.
 * Zezwól użytkownikom na automatyczne logowanie do usługi Arc Publishing — Logowanie jednokrotne przy użyciu kont w usłudze Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
-
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -39,8 +37,6 @@ Aby rozpocząć, potrzebne są następujące elementy:
 
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-
-
 * Aplikacja Arc Publishing — SSO obsługuje logowanie jednokrotne inicjowane przez **dostawcę usług oraz dostawcę tożsamości**
 * Aplikacja Arc Publishing — SSO obsługuje aprowizowanie użytkowników typu **just in time**
 
@@ -49,7 +45,7 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 
 Aby skonfigurować integrację aplikacji Arc Publishing — SSO z usługą Azure AD, należy dodać tę aplikację z galerii do listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
 1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
@@ -57,11 +53,11 @@ Aby skonfigurować integrację aplikacji Arc Publishing — SSO z usługą Azure
 1. Wybierz opcję **Publikowanie łuku — logowanie JEDNOkrotne** z poziomu panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-arc-publishing---sso"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD na potrzeby publikowania Arc — Logowanie jednokrotne
+## <a name="configure-and-test-azure-ad-sso-for-arc-publishing---sso"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD na potrzeby publikowania w usłudze Arc-SSO
 
 Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD przy użyciu publikowania Arc — Logowanie jednokrotne przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w obszarze publikowanie Arc — Logowanie jednokrotne.
 
-Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD przy użyciu publikowania Arc-SSO, wykonaj następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD przy użyciu publikowania Arc-SSO, wykonaj następujące czynności:
 
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
     1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
@@ -74,9 +70,9 @@ Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD prz
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie do **publikowania łuku — integracja aplikacji z logowaniem jednokrotnym** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
+1. W Azure Portal na stronie do **publikowania łuku — integracja aplikacji z logowaniem JEDNOkrotnym** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -108,7 +104,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     | grupy | user.assignedroles |
 
     > [!NOTE]
-    > W tym miejscu atrybut **groups** jest zamapowany na atrybut **user.assignedroles**. Są to role niestandardowe utworzone w usłudze Azure AD do mapowania nazw grup w aplikacji. Więcej wskazówek znajdziesz [tutaj](../develop/active-directory-enterprise-app-role-management.md) na temat tworzenia ról niestandardowych w usłudze Azure AD
+    > W tym miejscu atrybut **groups** jest zamapowany na atrybut **user.assignedroles**. Są to role niestandardowe utworzone w usłudze Azure AD do mapowania nazw grup w aplikacji. Więcej wskazówek na temat tworzenia niestandardowych ról w usłudze Azure AD można znaleźć [tutaj](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui).
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
@@ -128,7 +124,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij pozycję **Utwórz**.
+   1. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -137,15 +133,9 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Na liście aplikacji wybierz pozycję **Arc Publishing — SSO**.
 1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
-
-   ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
-
 1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
-
-    ![Link Dodaj użytkownika](common/add-assign-user.png)
-
 1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli skonfigurowano role zgodnie z opisem w powyższej tabeli, można wybrać ją z listy rozwijanej **Wybierz rolę** .
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
 ## <a name="configure-arc-publishing---sso-sso"></a>Konfigurowanie publikowania Arc — Logowanie jednokrotne SSO
@@ -161,16 +151,21 @@ W tej sekcji w aplikacji Arc Publishing — SSO jest tworzony użytkownik o nazw
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji. 
 
-Po kliknięciu kafelka Arc Publishing — SSO w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji Arc Publishing — SSO, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Zainicjowano SP:
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie do publikowania Arc — adres URL logowania jednokrotnego, w którym można zainicjować przepływ logowania.  
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
+* Przejdź do strony publikowanie Arc — adres URL logowania jednokrotnego (SSO), a następnie zainicjuj w tym miejscu przepływ logowania.
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>DOSTAWCY tożsamości zainicjowane:
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal i należy automatycznie zalogować się do programu Arc Publishing — Logowanie jednokrotne, dla którego skonfigurowano Logowanie jednokrotne 
 
-- [Wypróbuj publikowanie Arc — Logowanie jednokrotne za pomocą usługi Azure AD](https://aad.portal.azure.com/)
+Możesz również użyć aplikacji Microsoft my Apps, aby przetestować aplikację w dowolnym trybie. Po kliknięciu kafelka publikowanie-Logowanie jednokrotne w obszarze Moje aplikacje, jeśli skonfigurowano w trybie SP, nastąpi przekierowanie do strony logowania do aplikacji w celu zainicjowania przepływu logowania, a jeśli zostanie on skonfigurowany w trybie dostawcy tożsamości, należy automatycznie zalogować się do programu Arc Publishing-SSO, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+
+## <a name="next-steps"></a>Następne kroki
+
+Po skonfigurowaniu publikowania Arc — Logowanie jednokrotne umożliwia wymuszenie kontroli sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
