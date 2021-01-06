@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 12/29/2020
-ms.openlocfilehash: a6f4b0a503e942b79dff28212863831055892246
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 0834b8f00e4c414b3a36314b80f6c99fb8f2aea2
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916562"
+ms.locfileid: "97955216"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Testowanie wsadowe z zestawem przykład wyrażenia długości
 
@@ -168,7 +168,7 @@ Dwie sekcje wykresu w kolorze zielonym pasują do oczekiwanego przewidywania.
 
 LUIS umożliwia wsadowe testowanie przy użyciu portalu LUIS i interfejsu API REST. Punkty końcowe interfejsu API REST są wymienione poniżej. Aby uzyskać informacje o testowaniu wsadowym przy użyciu portalu LUIS, zobacz [Samouczek: zestawy danych testów wsadowych](luis-tutorial-batch-testing.md). Użyj pełnych adresów URL poniżej, zastępując wartości symboli zastępczych własnym kluczem i punktem końcowym przewidywania LUIS. 
 
-Pamiętaj, aby dodać klucz LUIS do `Apim-Subscription-Id` nagłówka i ustawić wartość `Content-Type` `application/json` .
+Pamiętaj, aby dodać klucz LUIS do `Ocp-Apim-Subscription-Key` nagłówka i ustawić wartość `Content-Type` `application/json` .
 
 ### <a name="start-a-batch-test"></a>Rozpocznij Test wsadowy
 

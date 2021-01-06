@@ -3,12 +3,12 @@ title: Przykład wdrażania planu PCI-DSS v 3.2.1
 description: Wdróż kroki dla przykładowej usługi Payment Card Industry Data Security Standard v 3.2.1 z uwzględnieniem szczegółów parametrów artefaktu.
 ms.date: 08/19/2020
 ms.topic: sample
-ms.openlocfilehash: a7917f09e5e5ff898bd155f0961e5c9765b8d791
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0b1d635a073dc19e41a7ba73e130d6028daca99
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88649214"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955675"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Wdróż przykład planu PCI-DSS v 3.2.1
 
@@ -33,7 +33,7 @@ Najpierw zaimplementuj przykład strategii, tworząc nową strategię w środowi
 
 1. Wprowadź _podstawowe_ informacje dotyczące tego przykładu strategii:
 
-   - **Nazwa**planu: Podaj nazwę kopii przykładu planu PCI-DSS w wersji 3.2.1.
+   - **Nazwa** planu: Podaj nazwę kopii przykładu planu PCI-DSS w wersji 3.2.1.
    - **Lokalizacja definicji**: Użyj wielokropka i wybierz grupę zarządzania, w której ma zostać zapisana kopia przykładu.
 
 1. Wybierz kartę _Artefakty_ w górnej części strony lub pozycję **Dalej: Artefakty** w dolnej części strony.
@@ -52,7 +52,7 @@ Twoja kopia przykładu strategii została utworzona w środowisku. Została ona 
 
 ## <a name="assign-the-sample-copy"></a>Przypisywanie kopii przykładu
 
-Po pomyślnym **opublikowaniu**kopii przykładowej strategii można ją przypisać do subskrypcji w grupie zarządzania, w której został on zapisany. W tym kroku udostępniane są parametry, dzięki którym każde wdrożenie kopii przykładowej strategii będzie unikatowe.
+Po pomyślnym **opublikowaniu** kopii przykładowej strategii można ją przypisać do subskrypcji w grupie zarządzania, w której został on zapisany. W tym kroku udostępniane są parametry, dzięki którym każde wdrożenie kopii przykładowej strategii będzie unikatowe.
 
 1. W okienku po lewej stronie wybierz pozycję **Wszystkie usługi**. Wyszukaj i wybierz pozycję **Strategie**.
 
@@ -68,7 +68,7 @@ Po pomyślnym **opublikowaniu**kopii przykładowej strategii można ją przypisa
      - **Nazwa przypisania**: nazwa jest wstępnie wypełniona dla Ciebie na podstawie nazwy planu.
        Jeśli chcesz, możesz ją zmienić lub pozostawić.
      - **Lokalizacja**: Wybierz region, w którym ma zostać utworzona zarządzana tożsamość. Usługa Azure Blueprint używa tej tożsamości zarządzanej do wdrażania wszystkich artefaktów w przypisanej strategii. Aby dowiedzieć się więcej, zobacz [zarządzane tożsamości dla zasobów platformy Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Wersja definicji**planu: Wybierz **opublikowaną** wersję kopii przykładowej strategii.
+     - **Wersja definicji** planu: Wybierz **opublikowaną** wersję kopii przykładowej strategii.
 
    - Przypisanie blokady
 
@@ -93,7 +93,7 @@ Poniższa tabela zawiera listę parametrów artefaktów strategii:
 
 |Nazwa artefaktu|Typ artefaktu|Nazwa parametru|Opis|
 |-|-|-|-|
-|\[Inspekcja w wersji zapoznawczej \] PCI v 3.2.1:2018 r kontrolki i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji|Przypisanie zasad|Lista typów zasobów | Inspekcja ustawień diagnostycznych dla wybranych typów zasobów. Wartość domyślna to wszystkie zasoby są wybrane| 
+|PCI v 3.2.1:2018 r|Przypisanie zasad|Lista typów zasobów | Inspekcja ustawień diagnostycznych dla wybranych typów zasobów. Wartość domyślna to wszystkie zasoby są wybrane| 
 |Dozwolone lokalizacje|Przypisanie zasad|Lista dozwolonych lokalizacji|Lista lokalizacji centrów danych dozwolonych dla każdego zasobu, który ma zostać wdrożony w programie. Ta lista jest dostosowywana do odpowiednich lokalizacji platformy Azure globalnie. Wybierz lokalizacje, które chcesz zezwolić.| 
 |Dozwolone lokalizacje grup zasobów|Przypisanie zasad |Dozwolona lokalizacja |Te zasady pozwalają ograniczyć lokalizacje, w których organizacja może tworzyć grupy zasobów w programie. Służy do wymuszania wymagań dotyczących zgodności obszarów geograficznych.| 
 |Wdrażanie inspekcji na serwerach SQL|Przypisanie zasad|Dni przechowywania|Przechowywanie danych w liczbie dni. Wartość domyślna to 180, ale PCI wymaga 365.| 

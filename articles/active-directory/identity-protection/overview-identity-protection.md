@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 08/24/2020
+ms.date: 01/05/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperf-fy21q1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 242e0e4614994c30d0a14b8fe3d7a5c2b217bb5a
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 6e274d35fde6a3d55c05bcb5a9f22e75a37aa3c6
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033344"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955403"
 ---
 # <a name="what-is-identity-protection"></a>Co to jest ochrona tożsamości?
 
@@ -49,13 +49,16 @@ Ochrona tożsamości identyfikuje ryzyko w następujących klasyfikacjach:
 
 | Typ wykrywania ryzyka | Opis |
 | --- | --- |
-| Nietypowa podróż | Zaloguj się z nietypowej lokalizacji na podstawie ostatnich logowań użytkownika. |
 | Anonimowy adres IP | Zaloguj się przy użyciu anonimowego adresu IP (na przykład: przeglądarki tor, sieci VPN Anonymizer). |
-| Nieznane właściwości logowania | Zaloguj się przy użyciu właściwości, które nie były ostatnio widziane dla danego użytkownika. |
+| Nietypowa podróż | Zaloguj się z nietypowej lokalizacji na podstawie ostatnich logowań użytkownika. |
 | Połączony adres IP złośliwego oprogramowania | Zaloguj się przy użyciu połączonego adresu IP złośliwego oprogramowania. |
+| Nieznane właściwości logowania | Zaloguj się przy użyciu właściwości, które nie były ostatnio widziane dla danego użytkownika. |
 | Nieujawnione poświadczenia | Wskazuje, że nieprawidłowe poświadczenia użytkownika zostały ujawnione. |
 | Rozpylanie hasła | Wskazuje, że wiele nazw użytkowników jest zaatakowanych przy użyciu typowych haseł w jednolity sposób. |
 | Analiza zagrożeń usługi Azure AD | Wewnętrzne i zewnętrzne źródła analizy zagrożeń firmy Microsoft określiły znany wzorzec ataku. |
+| Nowy kraj | To wykrywanie jest odnajdywane przez [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#activity-from-infrequent-country). |
+| Aktywność z anonimowego adresu IP | To wykrywanie jest odnajdywane przez [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#activity-from-anonymous-ip-addresses). |
+| Podejrzane przekazywanie skrzynki odbiorczej | To wykrywanie jest odnajdywane przez [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-forwarding). |
 
 Bardziej szczegółowe informacje o tych zagrożeniach i sposobie ich obliczenia można znaleźć w artykule, [co jest ryzykowne](concept-identity-protection-risks.md).
 
@@ -104,15 +107,15 @@ Administratorzy dostępu warunkowego mogą również tworzyć zasady, które są
 
 | Możliwość | Szczegóły  | Aplikacje Azure AD — wersja Bezpłatna/Microsoft 365 | Usługa Azure AD — wersja Premium P1|Usługa Azure AD — wersja Premium P2 |
 | --- | --- | --- | --- | --- |
-| Zasady dotyczące ryzyka | Zasady ryzyka użytkownika (za pośrednictwem ochrony tożsamości)  | Nie | Nie |Tak | 
-| Zasady dotyczące ryzyka | Zasady dotyczące ryzyka związanego z logowaniem (za pośrednictwem funkcji ochrony tożsamości lub dostępu warunkowego)  | Nie |  Nie |Tak |
-| Raporty dotyczące zabezpieczeń | Omówienie |  Nie | Nie |Tak |
+| Zasady dotyczące ryzyka | Zasady ryzyka użytkownika (za pośrednictwem ochrony tożsamości)  | Nie | Nie |Yes | 
+| Zasady dotyczące ryzyka | Zasady dotyczące ryzyka związanego z logowaniem (za pośrednictwem funkcji ochrony tożsamości lub dostępu warunkowego)  | Nie |  Nie |Yes |
+| Raporty dotyczące zabezpieczeń | Omówienie |  Nie | Nie |Yes |
 | Raporty dotyczące zabezpieczeń | Ryzykowni użytkownicy  | Ograniczone informacje. Wyświetlane są tylko użytkownicy z średnim i wysokim ryzykiem. Brak szczegółów szuflady lub historii ryzyka. | Ograniczone informacje. Wyświetlane są tylko użytkownicy z średnim i wysokim ryzykiem. Brak szczegółów szuflady lub historii ryzyka. | Dostęp pełny|
 | Raporty dotyczące zabezpieczeń | Ryzykowne logowania  | Ograniczone informacje. Nie podano szczegółów ryzyka ani poziomu ryzyka. | Ograniczone informacje. Nie podano szczegółów ryzyka ani poziomu ryzyka. | Dostęp pełny|
 | Raporty dotyczące zabezpieczeń | Wykrycia ryzyka   | Nie | Ograniczone informacje. Brak szuflady szczegółów.| Dostęp pełny|
-| Powiadomienia | Użytkownicy zagrożeni wykrytymi alertami  | Nie | Nie |Tak |
-| Powiadomienia | Podsumowanie tygodniowe| Nie | Nie | Tak | 
-| | Zasady rejestracji uwierzytelniania wieloskładnikowego | Nie | Nie | Tak |
+| Powiadomienia | Użytkownicy zagrożeni wykrytymi alertami  | Nie | Nie |Yes |
+| Powiadomienia | Podsumowanie tygodniowe| Nie | Nie | Yes | 
+| | Zasady rejestracji uwierzytelniania wieloskładnikowego | Nie | Nie | Yes |
 
 Więcej informacji na temat tych bogatych raportów można znaleźć w artykule, [jak: badanie ryzyka](howto-identity-protection-investigate-risk.md#navigating-the-reports).
 

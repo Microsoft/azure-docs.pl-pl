@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 01/05/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f10d8a94be53780f732112c012600a7fb840642b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 18e504579c750caf452ef74844c4a388ec96448a
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180646"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954489"
 ---
 # <a name="what-is-risk"></a>Co to jest ryzyko?
 
@@ -63,6 +63,9 @@ Te zagrożenia mogą być obliczane w czasie rzeczywistym lub obliczane w trybie
 | Podejrzane reguły manipulowania skrzynką odbiorczą | Tryb offline | To wykrywanie jest odnajdywane przez [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-manipulation-rules). To wykrywanie powoduje profilowanie środowiska i wyzwala alerty w przypadku podejrzanych reguł, które usuwają lub przenoś wiadomości lub foldery są ustawiane w skrzynce odbiorczej użytkownika. To wykrywanie może wskazywać na naruszenie zabezpieczeń konta użytkownika, a tym samym celowe ukrycie komunikatów oraz użycie tej skrzynki pocztowej do dystrybucji spamu lub złośliwego oprogramowania w organizacji. |
 | Rozpylanie hasła | Tryb offline | Atak polegający na napylania hasła polega na tym, że wiele nazw użytkowników jest zaatakowanych przy użyciu typowych haseł w ujednoliconej sile, aby uzyskać nieautoryzowany dostęp. To wykrywanie ryzyka jest wyzwalane, gdy zostanie wykonane ataki z wykorzystaniem hasła. |
 | Niemożliwa podróż | Tryb offline | To wykrywanie jest odnajdywane przez [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#impossible-travel). To wykrywanie identyfikuje dwie działania użytkownika (jest to jedna lub wiele sesji) pochodzące z lokalizacji geograficznie odległych w przedziale czasowym krótszym niż czas, w którym użytkownik przejdzie od pierwszej lokalizacji do drugiego, co oznacza, że inny użytkownik korzysta z tych samych poświadczeń. |
+| Nowy kraj | Tryb offline | To wykrywanie jest odnajdywane przez [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#activity-from-infrequent-country). Ten wykrycie traktuje przeszłe lokalizacje działań w celu określenia nowych i rzadko używanych lokalizacji. Aparat wykrywania anomalii przechowuje informacje o poprzednich lokalizacjach używanych przez użytkowników w organizacji. |
+| Aktywność z anonimowego adresu IP | Tryb offline | To wykrywanie jest odnajdywane przez [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#activity-from-anonymous-ip-addresses). To wykrywanie wskazuje, że użytkownicy byli aktywni przy użyciu adresu IP, który został zidentyfikowany jako anonimowy adres IP serwera proxy. |
+| Podejrzane przekazywanie skrzynki odbiorczej | Tryb offline | To wykrywanie jest odnajdywane przez [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-forwarding). Ten mechanizm wykrywania szuka podejrzanych reguł przekazywania poczty e-mail, na przykład jeśli użytkownik utworzył regułę skrzynki odbiorczej, która przekazuje kopię wszystkich wiadomości e-mail na adres zewnętrzny. |
 
 ### <a name="other-risk-detections"></a>Inne wykrycia ryzyka
 

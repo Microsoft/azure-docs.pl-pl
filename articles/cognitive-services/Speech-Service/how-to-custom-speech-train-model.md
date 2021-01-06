@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: 5a912790b4a7a86c44576b98ce7e95f44b810c9e
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: a7227195c767d90141a9b6cd95f784c239a31fd5
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857379"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955199"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Trenowanie i wdrażanie modelu usługi Custom Speech
 
@@ -48,6 +48,11 @@ W tabeli **szkoleń** zostanie wyświetlony nowy wpis odpowiadający nowemu mode
 
 Zobacz, [jak](how-to-custom-speech-evaluate-data.md) oceniać i usprawnić Custom Speech dokładność modelu. Jeśli zdecydujesz się na przetestowanie dokładności, ważne jest, aby wybrać akustyczny zestaw danych, który jest inny niż ten, który był używany z modelem, aby uzyskać realistyczny sens wydajności modelu.
 
+> [!NOTE]
+> Modele podstawowe i modele niestandardowe mogą być używane tylko do określonej daty (zobacz [cykl życia modelu](custom-speech-overview.md#model-lifecycle)). Program Speech Studio Wyświetla tę datę w kolumnie **wygaśnięcia** dla każdego modelu i punktu końcowego. Po upływie tego żądania do punktu końcowego lub transkrypcji wsadowej może się nie powieść lub powróci do modelu podstawowego.
+>
+> Ponownie nauczenie modelu przy użyciu najnowszego modelu podstawowego, aby skorzystać z ulepszeń dokładności i uniknąć tego, że Twój model wygaśnie.
+
 ## <a name="deploy-a-custom-model"></a>Wdrażanie modelu niestandardowego
 
 Po przekazaniu i sprawdzeniu danych, ocenie dokładności i uczeniu modelu niestandardowego można wdrożyć niestandardowy punkt końcowy do użycia z aplikacjami, narzędziami i produktami. 
@@ -63,7 +68,7 @@ Następnie wybierz pozycję **Dodaj punkt końcowy** i wprowadź **nazwę** i **
 
 Następnie wybierz pozycję **Utwórz**. Ta akcja powoduje powrót do strony **wdrożenia** . Tabela zawiera teraz wpis odpowiadający niestandardowemu punktowi końcowemu. Stan punktu końcowego pokazuje jego bieżący stan. Utworzenie wystąpienia nowego punktu końcowego przy użyciu modeli niestandardowych może potrwać do 30 minut. Gdy stan wdrożenia zmieni się na **ukończone**, punkt końcowy jest gotowy do użycia.
 
-Po wdrożeniu punktu końcowego nazwa punktu końcowego jest wyświetlana jako link. Wybierz link, aby wyświetlić informacje specyficzne dla danego punktu końcowego, takie jak klucz punktu końcowego, adres URL punktów końcowych i przykładowy kod.
+Po wdrożeniu punktu końcowego nazwa punktu końcowego jest wyświetlana jako link. Wybierz link, aby wyświetlić informacje specyficzne dla danego punktu końcowego, takie jak klucz punktu końcowego, adres URL punktów końcowych i przykładowy kod. Zanotuj datę wygaśnięcia i zaktualizuj model punktu końcowego przed tą datą, aby zapewnić nieprzerwane działanie usługi.
 
 ## <a name="view-logging-data"></a>Wyświetlanie danych rejestrowania
 

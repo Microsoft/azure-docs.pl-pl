@@ -4,15 +4,15 @@ description: Rozwiązywanie problemów z czujnikiem i lokalną konsolą zarządz
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/12/2020
+ms.date: 1/3/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: a57db4f88de4a3b32b4fb315fb331500f955d501
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: b91827fc0a6fb8380c9f8aa87a3def3bc1819523
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97843006"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955437"
 ---
 # <a name="troubleshoot-the-sensor-and-on-premises-management-console"></a>Rozwiązywanie problemów z czujnikiem i lokalną konsolą zarządzania
 
@@ -28,22 +28,33 @@ W tym artykule opisano podstawowe narzędzia do rozwiązywania problemów z czuj
 
 ### <a name="investigate-password-failure-at-initial-sign-in"></a>Zbadaj niepowodzenie hasła przy początkowej rejestracji
 
-Gdy logujesz się do wstępnie skonfigurowanego czujnika strzałek po raz pierwszy, musisz wykonać następujące Odzyskiwanie hasła:
+Po pierwszym zalogowaniu się do wstępnie skonfigurowanego czujnika strzałek należy wykonać odzyskiwanie hasła.
 
-1. Na ekranie logowania do usługi Defender for IoT wybierz opcję **odzyskiwania hasła** . 
+Aby odzyskać hasło:
 
-   Zostanie otwarty ekran **Odzyskiwanie hasła** . Zostanie wyświetlony monit o wybranie użytkownika i subskrypcji, a użytkownik otrzymuje unikatowy identyfikator.
+1. Na ekranie logowania do usługi Defender for IoT wybierz pozycję  **Odzyskiwanie hasła**. Zostanie otwarty ekran **Odzyskiwanie hasła** .
 
-1. Przejdź do strony usługi Defender dla **witryn i czujników** , a następnie wybierz kartę **Odzyskaj hasło** .
+1. Wybierz opcję **CyberX** lub **support** i skopiuj unikatowy identyfikator.
+
+1. Przejdź do Azure Portal i wybierz pozycję **Lokacje i czujniki**.  
+
+1. Wybierz kartę **odzyskiwanie na lokalnym komputerze konsoli zarządzania** .
+
+   :::image type="content" source="media/password-recovery-images/recover-button.png" alt-text="Wybierz przycisk Odzyskaj lokalne zarządzanie, aby pobrać plik odzyskiwania.":::
 
 1. Wprowadź unikatowy identyfikator otrzymany na ekranie **odzyskiwania hasła** i wybierz polecenie **Odzyskaj**. `password_recovery.zip`Plik zostanie pobrany.
 
-   > [!NOTE]
-   > Nie zmieniaj pliku aktywacji. Jest to podpisany plik i nie będzie działał w przypadku naruszenia go.
+    > [!NOTE]
+    > Nie zmieniaj pliku odzyskiwania hasła. Jest to podpisany plik i nie będzie działał w przypadku naruszenia go.
 
-1. Na ekranie **Odzyskiwanie hasła** Przekaż `password_recovery.zip` plik i wybierz przycisk **dalej**.
+1. Na ekranie **Odzyskiwanie hasła** wybierz pozycję **Przekaż**. Zostanie otwarte okno **odzyskiwanie pliku odzyskiwania hasła** .
 
-Następnie otrzymasz hasło wygenerowane przez system dla konsoli zarządzania. 
+1. Wybierz pozycję **Przeglądaj** , aby zlokalizować `password_recovery.zip` plik, lub przeciągnij `password_recovery.zip` do okna.
+
+1. Po wybraniu opcji **dalej** zostanie wyświetlone hasło użytkownika i wygenerowanego przez system hasła do konsoli zarządzania.
+
+    > [!NOTE]
+    > Gdy logujesz się do czujnika lub lokalnej konsoli zarządzania po raz pierwszy, zostanie ona połączona z subskrypcją, z którą nawiązano połączenie. Jeśli musisz zresetować hasło dla użytkownika CyberX lub pomocy technicznej, musisz wybrać tę subskrypcję. Aby uzyskać więcej informacji o odzyskiwaniu hasła użytkownika CyberX lub pomocy technicznej, zobacz [Resetowanie hasła użytkownika dla czujnika lub lokalnej konsoli zarządzania](how-to-create-and-manage-users.md#resetting-a-users-password-for-the-sensor-or-on-premises-management-console)
 
 ### <a name="investigate-a-lack-of-traffic"></a>Badanie braku ruchu
 
@@ -65,35 +76,35 @@ Aby sprawdzić wydajność systemu:
 
    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/dashboard-view-v2.png" alt-text="Zrzut ekranu przedstawiający przykładowy pulpit nawigacyjny."::: 
 
-2. Z menu po stronie wybierz pozycję **urządzenia**.
+1. Z menu po stronie wybierz pozycję **urządzenia**.
 
-3. W oknie **urządzenia** upewnij się, że urządzenia są wykrywane.
+1. W oknie **urządzenia** upewnij się, że urządzenia są wykrywane.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/discovered-devices.png" alt-text="Upewnij się, że urządzenia zostały odnalezione.":::
 
-4. Z menu po stronie wybierz pozycję **wyszukiwanie danych**.
+1. Z menu po stronie wybierz pozycję **wyszukiwanie danych**.
 
-5. W oknie **wyszukiwanie danych** wybierz pozycję **wszystkie** i Wygeneruj raport.
+1. W oknie **wyszukiwanie danych** wybierz pozycję **wszystkie** i Wygeneruj raport.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/new-report-generated.png" alt-text="Generowanie nowego raportu przy użyciu funkcji wyszukiwania danych.":::
 
-6. Upewnij się, że raport zawiera dane.
+1. Upewnij się, że raport zawiera dane.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/new-report-generated.png" alt-text="Upewnij się, że raport zawiera dane.":::
 
-7. Z menu po stronie wybierz pozycję **trendy & Statystyka**.
+1. Z menu po stronie wybierz pozycję **trendy & Statystyka**.
 
-8. W oknie **trendy & statystyk** wybierz pozycję **Dodaj widżet**.
+1. W oknie **trendy & statystyk** wybierz pozycję **Dodaj widżet**.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/add-widget.png" alt-text="Dodaj widżet, zaznaczając go.":::
 
-9. Dodaj widżet i upewnij się, że zawiera on dane.
+1. Dodaj widżet i upewnij się, że zawiera on dane.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/widget-data.png" alt-text="Upewnij się, że element widget pokazuje dane.":::
 
-10. Z menu po stronie wybierz pozycję **alerty**. Zostanie wyświetlone okno **alerty** .
+1. Z menu po stronie wybierz pozycję **alerty**. Zostanie wyświetlone okno **alerty** .
 
-11. Upewnij się, że alerty zostały utworzone.
+1. Upewnij się, że alerty zostały utworzone.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/alerts-created.png" alt-text="Upewnij się, że alerty zostały utworzone.":::
 
@@ -154,9 +165,9 @@ Aby naprawić konfigurację:
 
 1. Kliknij prawym przyciskiem myszy ikonę chmury na mapie urządzenia i wybierz pozycję **Eksportuj adresy IP**. Skopiuj publiczne zakresy, które są prywatne, i Dodaj je do listy podsieć. Aby uzyskać więcej informacji, zobacz [Configure Subnets](how-to-control-what-traffic-is-monitored.md#configure-subnets).
 
-2. Generuj nowy raport wyszukiwania danych dla połączeń internetowych.
+1. Generuj nowy raport wyszukiwania danych dla połączeń internetowych.
 
-3. W raporcie wyszukiwania danych wybierz pozycję, :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/administrator-mode.png" border="false"::: Aby wprowadzić tryb administratora i usunąć adresy IP urządzeń usługi ICS.
+1. W raporcie wyszukiwania danych wybierz pozycję, :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/administrator-mode.png" border="false"::: Aby wprowadzić tryb administratora i usunąć adresy IP urządzeń usługi ICS.
 
 ### <a name="tweak-the-sensors-quality-of-service"></a>Dostrajanie jakości usług czujnika
 
@@ -179,7 +190,7 @@ Aby dostosować jakość usługi:
    > [!NOTE]
    > W przypadku urządzenia fizycznego należy użyć interfejsu EM1.
 
-2. Aby wyczyścić ograniczenie interfejsu, wprowadź `sudo cyberx-xsense-limit-interface -i eth0 -l 1mbps -c` .
+1. Aby wyczyścić ograniczenie interfejsu, wprowadź `sudo cyberx-xsense-limit-interface -i eth0 -l 1mbps -c` .
 
 ## <a name="on-premises-management-console-troubleshooting-tools"></a>Narzędzia do rozwiązywania problemów z lokalną konsolą zarządzania
 
@@ -203,7 +214,7 @@ Aby dostosować jakość usługi:
 
 1. Zaloguj się jako użytkownik usługi Defender for IoT. 
 
-2. Sprawdź wartości domyślne:
+1. Sprawdź wartości domyślne:
 
    ```bash
    grep \"notifications\" /var/cyberx/properties/management.properties
@@ -216,20 +227,20 @@ Aby dostosować jakość usługi:
    notifications.max_time_to_report=10 (seconds)
    ```
 
-3. Edytuj ustawienia domyślne:
+1. Edytuj ustawienia domyślne:
 
    ```bash
    sudo nano /var/cyberx/properties/management.properties
    ```
 
-4. Edytuj ustawienia następujących wierszy:
+1. Edytuj ustawienia następujących wierszy:
 
    ```bash
    notifications.max_number_to_report=50
    notifications.max_time_to_report=10 (seconds)
    ```
 
-5. Zapisz zmiany. Nie jest wymagane ponowne uruchomienie.
+1. Zapisz zmiany. Nie jest wymagane ponowne uruchomienie.
 
 ## <a name="export-information-for-troubleshooting"></a>Eksportuj informacje na potrzeby rozwiązywania problemów
 
@@ -239,13 +250,13 @@ Aby wyeksportować dzienniki:
 
 1. W okienku po lewej stronie wybierz pozycję **Ustawienia systemowe**.
 
-2. Wybierz pozycję **Eksportuj dzienniki**.
+1. Wybierz pozycję **Eksportuj dzienniki**.
 
     :::image type="content" source="media/how-to-export-information-for-troubleshooting/export-a-log.png" alt-text="Wyeksportuj dziennik do obsługi systemu.":::
 
-3. W polu **Nazwa pliku** wprowadź nazwę pliku, który ma być używany do eksportowania dziennika. Wartość domyślna to bieżąca data.
+1. W polu **Nazwa pliku** wprowadź nazwę pliku, który ma być używany do eksportowania dziennika. Wartość domyślna to bieżąca data.
 
-4. Aby określić, które dane mają zostać wyeksportowane, wybierz kategorie danych:  
+1. Aby określić, które dane mają zostać wyeksportowane, wybierz kategorie danych:  
 
     | Eksportuj kategorię | Opis |
     |--|--|
@@ -261,21 +272,21 @@ Aby wyeksportować dzienniki:
     | **Dzienniki aplikacji sieci Web** | Wybierz tę opcję, aby uzyskać informacje o wszystkich żądaniach wysyłanych z interfejsu internetowego aplikacji. |
     | **Kopia zapasowa systemu** | Wybierz tę opcję, aby wyeksportować kopię zapasową wszystkich danych systemowych na potrzeby badania dokładnego stanu systemu. |
     | **Statystyka odcięć** | Wybierz tę opcję, aby umożliwić zaawansowaną inspekcję statystyk protokołów. |
-    | **Dzienniki bazy danych** | Wybierz tę opcję, aby wyeksportować dzienniki z systemowej bazy danych. Badanie dzienników systemu pomaga zidentyfikować problemy systemowe. |
+    | **Dzienniki bazy danych** | Wybierz tę opcję, aby wyeksportować dzienniki z systemowej bazy danych. Badanie dzienników systemu pomaga identyfikować problemy z systemem. |
     | **Konfiguracja** | Wybierz tę opcję, aby wyeksportować informacje o wszystkich konfigurowalnych parametrach, aby upewnić się, że wszystko zostało poprawnie skonfigurowane. |
 
-5. Aby wybrać wszystkie opcje, wybierz pozycję **Zaznacz wszystko** obok pozycji **Kategorie**.
+1. Aby wybrać wszystkie opcje, wybierz pozycję **Zaznacz wszystko** obok pozycji **Kategorie**.
 
-6. Wybierz pozycję **Eksportuj dzienniki**.
+1. Wybierz pozycję **Eksportuj dzienniki**.
 
 Wyeksportowane dzienniki zostaną dodane do listy **zarchiwizowane dzienniki** . Wyślij OTP do zespołu pomocy technicznej w oddzielnym komunikacie i średnim z wyeksportowanych dzienników. Zespół pomocy technicznej będzie mógł wyodrębnić wyeksportowane dzienniki tylko przy użyciu unikatowego uwierzytelniania OTP, który jest używany do szyfrowania dzienników.
 
 Lista zarchiwizowanych dzienników może zawierać maksymalnie pięć elementów. Jeśli liczba elementów na liście wykracza poza tę liczbę, najwcześniejszy element zostanie usunięty.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Wyświetlanie alertów](how-to-view-alerts.md)
 
-- [Konfigurowanie monitorowania usługi SNMP MIB](how-to-set-up-snmp-mib-monitoring.md)
+- [Konfigurowanie monitorowania SNMP MIB](how-to-set-up-snmp-mib-monitoring.md)
 
 - [Opis zdarzeń odłączenia czujnika](how-to-manage-sensors-from-the-on-premises-management-console.md#understand-sensor-disconnection-events)

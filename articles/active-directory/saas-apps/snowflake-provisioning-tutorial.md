@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: ac6981d998f25b8df7cea553fe152d68cd43fee5
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: cc88712dd686983baed858de47e11dfa44e85350
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181428"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955522"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie płatnej śniegu na potrzeby automatycznego aprowizacji użytkowników
 
@@ -107,7 +107,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-8. Kliknij przycisk **Zapisz**.
+8. Kliknij pozycję **Zapisz**.
 
 9. W sekcji **mapowania** wybierz opcję **Synchronizuj Azure Active Directory użytkownicy z płatą śniegu**.
 
@@ -159,6 +159,12 @@ Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, a
 ## <a name="connector-limitations"></a>Ograniczenia łącznika
 
 * Tokeny Standard scim wygenerowały płaty śniegu wygaśnie w ciągu 6 miesięcy. Należy pamiętać, że należy je odświeżyć przed wygaśnięciem, aby umożliwić kontynuowanie synchronizacji aprowizacji. 
+
+## <a name="troubleshooting-tips"></a>Wskazówki dotyczące rozwiązywania problemów
+
+* **Zakresy adresów IP** 
+
+   Usługa Azure AD Provisioning aktualnie działa pod określonymi zakresami adresów IP. Dlatego jeśli jest to wymagane, można ograniczyć inne zakresy adresów IP i dodać te konkretne zakresy adresów IP do dozwolonych aplikacji, aby umożliwić przepływ ruchu z usługi Azure AD Provisioning do aplikacji. Zapoznaj się z dokumentacją w obszarze [zakresy adresów IP](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#ip-ranges).
 
 ## <a name="change-log"></a>Dziennik zmian
 

@@ -3,12 +3,12 @@ title: Omówienie funkcji — Azure Event Hubs | Microsoft Docs
 description: Ten artykuł zawiera szczegółowe informacje o funkcjach i terminologii Event Hubs platformy Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: a38cf4ba6a06dc6e977f9ea168fcf67ce83ff5de
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 0730a5fa3abbc6b27cb96431125564a2475a90d1
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96339986"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955653"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funkcje i terminologia w usłudze Azure Event Hubs
 
@@ -16,32 +16,48 @@ Azure Event Hubs to skalowalna usługa przetwarzania zdarzeń, która pobiera i 
 
 W tym artykule opisano informacje zawarte w [artykule Omówienie](./event-hubs-about.md)i przedstawiono techniczne i szczegółowe informacje dotyczące Event Hubs składników i funkcji.
 
+> [!TIP]
+> [Obsługa protokołu dla klientów **Apache Kafka**](event-hubs-for-kafka-ecosystem-overview.md)  (wersje >= 1,0) zawiera punkty końcowe sieci, które umożliwiają aplikacjom skompilowanym przez aplikacje używanie Apache Kafka z dowolnym klientem do korzystania z Event Hubs. Większość istniejących aplikacji Kafka można po prostu zmienić konfigurację, aby wskazywały na przestrzeń nazw centrum zdarzeń, a nie serwer ładowania początkowego klastra Kafka. 
+>
+>Z punktu widzenia kosztów, nakładu pracy i niezawodności usługa Azure Event Hubs to świetna alternatywa dla wdrażania i obsługi własnych klastrów Kafka i dozorcy oraz ofert Kafka-as-Service, które nie są natywne dla platformy Azure. 
+>
+> Oprócz uzyskania tych samych podstawowych funkcji programu Apache Kafka brokera można także uzyskać dostęp do funkcji centrum zdarzeń platformy Azure, takich jak automatyczne tworzenie i archiwizowanie przy użyciu [Event Hubs przechwytywania](event-hubs-capture-overview.md), automatycznego skalowania i równoważenia, odzyskiwania po awarii, obsługi stref dostępności neutralnych kosztów, elastycznej i zabezpieczonej integracji sieci oraz obsługi wieloprotokołowej, w tym protokołu AMQP-over-WebSockets (przyjazny dla zapory).
+
+
 ## <a name="namespace"></a>Przestrzeń nazw
-Przestrzeń nazw Event Hubs zapewnia unikatowy kontener określania zakresu, do którego odwołuje się jego w [pełni kwalifikowana nazwa domeny](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), w którym można utworzyć jeden lub więcej centrów zdarzeń lub tematów Kafka. 
-
-## <a name="event-hubs-for-apache-kafka"></a>Usługa Event Hubs dla platformy Apache Kafka
-
-[Ta funkcja](event-hubs-for-kafka-ecosystem-overview.md) udostępnia punkt końcowy, który umożliwia klientom komunikowanie się z Event Hubs przy użyciu protokołu Kafka. Ta integracja zapewnia klientom Kafka punkt końcowy. Dzięki temu klienci mogą konfigurować istniejące aplikacje Kafka, aby komunikować się z Event Hubs, zapewniając alternatywę dla uruchamiania własnych klastrów Kafka. Event Hubs dla Apache Kafka obsługuje protokół Kafka 1,0 i nowsze. 
-
-W ramach tej integracji nie trzeba uruchamiać klastrów Kafka ani zarządzać nimi za pomocą dozorcy. Pozwala to również na korzystanie z najbardziej wymagających funkcji Event Hubs takich jak przechwytywanie, autorozdęcie i odzyskiwanie po awarii geograficznej.
-
-Ta Integracja umożliwia również aplikacjom, takim jak dublowanie lub środowisko, takie jak Kafka, łączenie się z klastrem pracy i tylko zmianami konfiguracji. 
+Przestrzeń nazw Event Hubs zawiera zintegrowane punkty końcowe sieci DNS oraz zakres funkcji kontroli dostępu i zarządzania integracją sieci, takich jak [filtrowanie adresów IP](event-hubs-ip-filtering.md), [punkt końcowy usługi sieci wirtualnej](event-hubs-service-endpoints.md)i [link prywatny](private-link-service.md) , a także jest kontenerem zarządzania dla jednego z wielu wystąpień centrów zdarzeń (lub tematów w Kafka sprzężeniem).
 
 ## <a name="event-publishers"></a>Wydawcy zdarzeń
 
-Każda jednostka, która wysyła dane do centrum zdarzeń, jest producentem zdarzeń lub *wydawcą zdarzeń*. Wydawcy zdarzeń mogą publikować zdarzenia przy użyciu protokołu HTTPS lub AMQP 1,0 lub Kafka 1,0 i nowszych. Wydawcy zdarzeń używają tokenu sygnatury dostępu współdzielonego w celu identyfikowania siebie w centrum zdarzeń i mogą mieć unikatową tożsamość lub używają typowego tokenu sygnatury dostępu współdzielonego.
+Każda jednostka, która wysyła dane do centrum zdarzeń, jest *wydawcą zdarzeń* (z synonimem używanym przez *producenta zdarzeń*). Wydawcy zdarzeń mogą publikować zdarzenia przy użyciu protokołów HTTPS lub AMQP 1,0 lub protokołu Kafka. Wydawcy zdarzeń używają Azure Active Directory autoryzacja przy użyciu tokenów JWT wystawionych przez OAuth2 lub token sygnatury dostępu współdzielonego (SAS) określony dla centrum zdarzeń.
 
 ### <a name="publishing-an-event"></a>Publikowanie zdarzenia
 
-Można opublikować wydarzenie za pośrednictwem AMQP 1,0, Kafka 1,0 (lub nowszego) lub HTTPS. Usługa Event Hubs zapewnia interfejsy [API REST](/rest/api/eventhub/) i [.NET](event-hubs-dotnet-standard-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [JavaScript](event-hubs-node-get-started-send.md)i [go](event-hubs-go-get-started-send.md) w celu publikowania zdarzeń w centrum zdarzeń. W przypadku innych środowisk uruchomieniowych i platform można używać dowolnego klienta protokołu AMQP 1.0, na przykład [Apache Qpid](https://qpid.apache.org/). 
+Można opublikować zdarzenie za pośrednictwem AMQP 1,0, protokołu Kafka lub HTTPS. Usługa Event Hubs zapewnia interfejsy [API REST](/rest/api/eventhub/) i [.NET](event-hubs-dotnet-standard-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [JavaScript](event-hubs-node-get-started-send.md)i [go](event-hubs-go-get-started-send.md) w celu publikowania zdarzeń w centrum zdarzeń. W przypadku innych środowisk uruchomieniowych i platform można używać dowolnego klienta protokołu AMQP 1.0, na przykład [Apache Qpid](https://qpid.apache.org/). 
 
-Zdarzenia można publikować indywidualnie lub w partiach. Pojedyncza publikacja (wystąpienie danych zdarzeń) ma limit 1 MB, niezależnie od tego, czy jest to pojedyncze zdarzenie, czy partia. Publikowanie zdarzeń większych niż ten próg spowoduje wystąpienie błędu. Najlepszym rozwiązaniem dla wydawców jest nieznajomość partycji w centrum zdarzeń i określenie tylko *klucza partycji* (wprowadzone w następnej sekcji) lub tożsamości za pomocą ich tokenu sygnatury dostępu współdzielonego.
+Decyzja o korzystaniu z protokołu AMQP lub HTTPS jest specyficzna dla scenariusza użycia. Protokół AMQP wymaga ustanowienia trwałego gniazda dwukierunkowego oprócz protokołu TLS lub SSL/ TLS. AMQP dysponuje wyższymi kosztami sieci podczas inicjowania sesji, jednak protokół HTTPS wymaga dodatkowych obciążeń protokołu TLS dla każdego żądania. AMQP ma znacznie wyższą wydajność dla często wydawców i może osiągać znacznie mniejsze opóźnienia, gdy są używane z asynchronicznym kodem publikacji.
 
-Decyzja o korzystaniu z protokołu AMQP lub HTTPS jest specyficzna dla scenariusza użycia. Protokół AMQP wymaga ustanowienia trwałego gniazda dwukierunkowego oprócz protokołu TLS lub SSL/ TLS. AMQP dysponuje wyższymi kosztami sieci podczas inicjowania sesji, jednak protokół HTTPS wymaga dodatkowych obciążeń protokołu TLS dla każdego żądania. Protokół AMQP charakteryzują się wyższą wydajnością dla częstych wydawców.
+Możesz publikować zdarzenia pojedynczo lub zbiorczo. Jedna publikacja ma limit 1 MB, niezależnie od tego, czy jest to pojedyncze zdarzenie, czy partia. Publikowanie zdarzeń większych niż ten próg zostanie odrzucone. 
+
+Event Hubs przepływność jest skalowana przy użyciu partycji i alokacji jednostek przepływności (patrz poniżej). Najlepszym rozwiązaniem dla wydawców jest pozostawanie nieznanego modelu partycjonowania wybranego dla centrum zdarzeń i określenie tylko *klucza partycji* , który jest używany do spójnego przypisywania powiązanych zdarzeń do tej samej partycji.
 
 ![Klucze partycji](./media/event-hubs-features/partition_keys.png)
 
-Usługa Event Hubs zapewnia, że wszystkie zdarzenia współużytkujące wartość klucza partycji są poprawnie dostarczane na tę samą partycję. Jeśli klucze partycji są używane wraz z zasadami wydawcy, to tożsamość wydawcy i wartość klucza partycji muszą być zgodne. W przeciwnym razie wystąpi błąd.
+Event Hubs zapewnia, że wszystkie zdarzenia współużytkujące wartość klucza partycji są przechowywane razem i dostarczane w kolejności przybycia. Jeśli klucze partycji są używane wraz z zasadami wydawcy, to tożsamość wydawcy i wartość klucza partycji muszą być zgodne. W przeciwnym razie wystąpi błąd.
+
+### <a name="event-retention"></a>Przechowywanie zdarzeń
+
+Opublikowane zdarzenia są usuwane z centrum zdarzeń na podstawie konfigurowalnych zasad przechowywania opartych na czasie. Wartość domyślna i najkrótszy możliwy okres przechowywania to 1 dzień (24 godziny). W przypadku Event Hubs Standard maksymalny okres przechowywania wynosi 7 dni. W przypadku Event Hubs — warstwa Dedykowana maksymalny okres przechowywania to 90 dni.
+
+> [!NOTE]
+> Event Hubs to aparat strumienia zdarzeń w czasie rzeczywistym i nie jest przeznaczony do użycia zamiast bazy danych i/lub jako trwały magazyn dla nieskończonie przechowywanych strumieni zdarzeń. 
+> 
+> Im większa jest historia strumienia zdarzeń, tym bardziej potrzebne będą indeksy pomocnicze w celu znalezienia określonego wycinka historycznego danego strumienia. Inspekcja ładunków zdarzeń i indeksowania nie znajduje się w zakresie funkcji Event Hubs (lub Apache Kafka). Bazy danych i wyspecjalizowane sklepy analityczne, takie jak [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md), [Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-overview.md) i [Azure Synapse](../synapse-analytics/overview-what-is.md) , są w związku z tym znacznie lepiej dopasowane do przechowywania wydarzeń historycznych.
+>
+> [Przechwytywanie Event Hubs](event-hubs-capture-overview.md) jest integrowane bezpośrednio z usługą Azure Blob Storage i Azure Data Lake Storage i za pomocą tej integracji umożliwia również [przepływ zdarzeń bezpośrednio do usługi Azure Synapse](store-captured-data-data-warehouse.md).
+>
+> Jeśli chcesz użyć wzorca określania [źródła zdarzeń](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) dla aplikacji, należy wyrównać strategię migawki z limitami przechowywania Event Hubs. Nie należy dążyć do odbudowywania widoków z nieprzetworzonych zdarzeń, zaczynając od początku czasu. Należy pamiętać, aby zamienić tę strategię, gdy aplikacja jest w trakcie produkcji przez pewien czas i jest dobrze użyta, a Twój Konstruktor projekcji ma być zmieniany przez lata zdarzeń zmiany podczas próby przechwycenia do najnowszych i bieżących zmian. 
+
 
 ### <a name="publisher-policy"></a>Zasady wydawcy
 

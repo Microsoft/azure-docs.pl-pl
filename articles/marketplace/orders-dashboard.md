@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 943f1361a2a9d6bf8d891f8b4f2137b8738f0836
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 31216db98cc02724ac3625eb1a8fa18b0f75c6ee
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450759"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955029"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny Zamówienia w analizie komercyjnej platformy handlowej
 
@@ -109,19 +109,18 @@ W tabeli Order Details (szczegóły zamówienia) wyświetlana jest lista numerow
 - Dane można wyodrębnić do. Wolumin CSV lub. TSV, jeśli liczba rekordów jest mniejsza niż 1 000.
 - Jeśli liczba rekordów przekracza 1 000, eksportowane dane będą asynchroniczne umieszczane na stronie pobierania przez następne 30 dni.
 - Zastosuj filtry do tabeli **Order Details** , aby wyświetlić tylko te dane, które Cię interesują. Filtruj według kraju/regionu, typu licencji platformy Azure, typu licencji komercyjnej witryny Marketplace, typu oferty, stanu zamówienia, bezpłatnych identyfikatorów, subskrypcji portalu Marketplace, identyfikatora klienta i nazwy firmy.
-- Ponieważ oferty SaaS zakupione za pomocą witryny Azure Marketplace lub Microsoft AppSource nie wymagają subskrypcji platformy Azure, Identyfikator subskrypcji portalu Marketplace zostanie wyświetlony w formie 00000000-0000-0000-0000-000000000000 w sekcji **szczegółowe dane zamówień** .
 - Gdy zamówienie jest kupowane przez chronionego klienta, informacje w obszarze **szczegółowe dane zamówień** są maskowane (* * * * * * * * * * * *).
 
 **_Tabela 1: słownik terminów dotyczących danych_* _
 
 | Nazwa kolumny | Nazwa atrybutu | Definicja |
 | ------------ | ------------- | ------------- |
-| Identyfikator subskrypcji witryny Marketplace | Identyfikator subskrypcji witryny Marketplace | Unikatowy identyfikator skojarzony z subskrypcją platformy Azure używany przez klienta do kupowania komercyjnej oferty portalu Marketplace. Identyfikator był dawniej identyfikatorem GUID subskrypcji platformy Azure. |
+| Identyfikator subskrypcji witryny Marketplace | Identyfikator subskrypcji witryny Marketplace | Unikatowy identyfikator skojarzony z subskrypcją platformy Azure używany przez klienta do kupowania komercyjnej oferty portalu Marketplace. W przypadku ofert infrastruktury jest to identyfikator GUID subskrypcji klienta platformy Azure. W przypadku ofert SaaS ta wartość jest wyświetlana jako zero, ponieważ zakupy SaaS nie wymagają subskrypcji platformy Azure. |
 | MonthStartDate | Data rozpoczęcia miesiąca | Data rozpoczęcia miesiąca reprezentuje miesiąc zakupu. |
 | Typ oferty | Typ oferty | Typ komercyjnej oferty portalu Marketplace. |
-| Typ licencji platformy Azure | Typ licencji platformy Azure | Typ umowy licencyjnej używanej przez klientów do kupowania platformy Azure. Znany również jako kanał. Możliwe wartości są następujące:<ul><li>Dostawca rozwiązań w chmurze</li><li>Enterprise</li><li>Przedsiębiorstwo przez odsprzedawcę</li><li>Płatność zgodnie z rzeczywistym użyciem</li></ul> |
+| Typ licencji platformy Azure | Typ licencji platformy Azure | Typ umowy licencyjnej używanej przez klientów do kupowania platformy Azure. Znany również jako kanał. Możliwe wartości są następujące:<ul><li>Dostawca rozwiązań w chmurze</li><li>Przedsiębiorstwa</li><li>Przedsiębiorstwo przez odsprzedawcę</li><li>Płatność zgodnie z rzeczywistym użyciem</li></ul> |
 | Typ licencji Marketplace | Typ licencji Marketplace | Metoda rozliczeń komercyjnej oferty portalu Marketplace. Różne wartości to:<ul><li>Rozliczanie za pomocą platformy Azure</li><li>Korzystanie z własnej licencji</li><li>Bezpłatna</li><li>Firma Microsoft jako odsprzedawca</li></ul> |
-| SKU | SKU | Plan skojarzony z ofertą |
+| Jednostka SKU | Jednostka SKU | Plan skojarzony z ofertą |
 | Kraj klienta | Kraj/region klienta | Nazwa kraju/regionu podana przez klienta. Kraj/region może być inny niż kraj/region w subskrypcji platformy Azure klienta. |
 | Jest jednostką SKU wersji zapoznawczej | Jest jednostką SKU wersji zapoznawczej | Wartość będzie informować o tym, czy jest oznaczona jako wersja zapoznawcza. Wartość będzie równa "yes", jeśli jednostka SKU została odpowiednio oznaczona, a tylko subskrypcje platformy Azure autoryzowane przez użytkownika, można wdrożyć i korzystać z tego obrazu. Wartość będzie równa "No", jeśli jednostka SKU nie została zidentyfikowana jako "wersja zapoznawcza". |
 | Identyfikator zamówienia | Identyfikator zamówienia | Unikatowy identyfikator zamówienia klienta dla komercyjnej usługi portalu Marketplace. Oferty oparte na użyciu maszyny wirtualnej nie są skojarzone z kolejnością. |

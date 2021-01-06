@@ -3,12 +3,12 @@ title: Co to jest usługa Azure Event Hubs? — usługa pozyskiwania danych big 
 description: Informacje na temat usługi Azure Event Hubs, usługi strumieniowego przesyłania danych big data, umożliwiającej pozyskiwanie milionów zdarzeń na sekundę.
 ms.topic: overview
 ms.date: 06/23/2020
-ms.openlocfilehash: 6669760bceee558a058878fbb89342aedda80117
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b0124f023eab6638c986beb2305b1c4c375b47ee
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88927905"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954349"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Usługa Azure Event Hubs — platforma przesyłania strumieniowego danych big data i usługa pozyskiwania zdarzeń
 Usługa Azure Event Hubs to platforma przesyłania strumieniowego danych big data i usługa pozyskiwania zdarzeń. Może odbierać i przetwarzać miliony zdarzeń na sekundę. Dane wysłane do centrum zdarzeń mogą zostać przekształcone i zmagazynowane przy użyciu dowolnego dostawcy analityki czasu rzeczywistego lub adapterów przetwarzania wsadowego/magazynowania.
@@ -52,10 +52,9 @@ Korzystając z usługi Event Hubs, możesz zacząć od strumieni danych liczonyc
 
 ## <a name="rich-ecosystem"></a>Zaawansowany ekosystem
 
-Usługa [Event Hubs dla ekosystemów platformy Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) umożliwia klientom i aplikacjom platformy [Apache Kafka (w wersji 1.0 lub nowszej)](https://kafka.apache.org/) komunikowanie się z usługą Event Hubs. Nie trzeba przy tym instalować i konfigurować własnych klastrów platformy Kafka ani zarządzać nimi.
+Z szerokim ekosystemem opartym na standardzie branżowym AMQP 1,0 i dostępnym w różnych językach [.NET](https://github.com/Azure/azure-sdk-for-net/), [Java](https://github.com/Azure/azure-sdk-for-java/), [Python](https://github.com/Azure/azure-sdk-for-python/)i [JavaScript](https://github.com/Azure/azure-sdk-for-js/), można łatwo rozpocząć przetwarzanie strumieni od Event Hubs. Wszystkie obsługiwane języki klienta zapewniają integrację niskiego poziomu. Ten ekosystem umożliwia również bezproblemową integrację z usługami platformy Azure, takimi jak Azure Stream Analytics i Azure Functions, umożliwiając w ten sposób tworzenie architektur bezserwerowych.
 
-W przypadku szerokiego ekosystemu dostępnego w różnych językach [.NET](https://github.com/Azure/azure-sdk-for-net/), [Java](https://github.com/Azure/azure-sdk-for-java/), [Python](https://github.com/Azure/azure-sdk-for-python/)i [JavaScript](https://github.com/Azure/azure-sdk-for-js/)można łatwo rozpocząć przetwarzanie strumieni od Event Hubs. Wszystkie obsługiwane języki klienta zapewniają integrację niskiego poziomu. Ten ekosystem umożliwia również bezproblemową integrację z usługami platformy Azure, takimi jak Azure Stream Analytics i Azure Functions, umożliwiając w ten sposób tworzenie architektur bezserwerowych.
-
+[Event Hubs dla ekosystemów Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) dodatkowo umożliwia klientom i aplikacjom [Apache Kafka (1,0 i nowszych)](https://kafka.apache.org/) komunikowanie się z Event Hubs. Nie trzeba konfigurować i konfigurować własnych klastrów Kafka i dozorcy ani zarządzać nimi ani korzystać z innej oferty Kafka-as-a-Service, która nie jest natywna dla platformy Azure.
 ## <a name="key-architecture-components"></a>Główne składniki architektury
 Usługa Event Hubs zawiera następujące [kluczowe składniki](event-hubs-features.md):
 

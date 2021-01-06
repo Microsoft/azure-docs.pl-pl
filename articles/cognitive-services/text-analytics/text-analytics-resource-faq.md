@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 01/05/2021
 ms.author: aahi
-ms.openlocfilehash: ffa70afa0edf29181bc622cbef6ff8716134b1f7
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 9a4e179767cc38169cd794f4cd629604bdcdaab0
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94364942"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955046"
 ---
-# <a name="frequently-asked-questions-faq-about-the-text-analytics-cognitive-service"></a>Często zadawane pytania dotyczące usługi analiza tekstu poznawczej
+# <a name="frequently-asked-questions-faq-about-the-text-analytics-api"></a>Często zadawane pytania dotyczące interfejs API analizy tekstu
 
- Znajdź odpowiedzi na często zadawane pytania dotyczące pojęć, kodu i scenariuszy związanych z interfejs API analizy tekstu Microsoft Cognitive Services na platformie Azure.
+ Znajdź odpowiedzi na często zadawane pytania dotyczące pojęć, kodu i scenariuszy związanych z interfejs API analizy tekstu w usłudze Azure Cognitive Services.
 
 ## <a name="can-text-analytics-identify-sarcasm"></a>Czy analiza tekstu identyfikować sarkazmu?
 
@@ -47,11 +47,21 @@ Ogólnie rzecz biorąc, dane wyjściowe składają się z rzeczowników i obiekt
 
 Udoskonalenia modeli i algorytmów są ogłaszane w przypadku, gdy zmiana jest główna lub jest w trybie cichym włączana do usługi, jeśli aktualizacja jest niewielka. W miarę upływu czasu można stwierdzić, że te same dane wejściowe są wynikiem innym wynikami tonacji lub zwrotów kluczy. Jest to normalna i zacelowa konsekwencja użycia zarządzanych zasobów uczenia maszynowego w chmurze.
 
+## <a name="service-availability-and-redundancy"></a>Dostępność i nadmiarowość usługi
+
+### <a name="is-text-analytics-service-zone-resilient"></a>Czy analiza tekstu strefy usługi są odporne?
+
+Tak. Usługa analiza tekstu jest domyślnie odporna na strefy.
+
+### <a name="how-do-i-configure-the-text-analytics-service-to-be-zone-resilient"></a>Jak mogę skonfigurować usługę analiza tekstu, aby była odporna na strefy?
+
+W celu włączenia odporności stref nie trzeba wykonywać żadnych czynności konfiguracyjnych. Odporność stref na zasoby analiza tekstu jest domyślnie dostępna i zarządzana przez samą usługę.
+
 ## <a name="next-steps"></a>Następne kroki
 
 Czy masz pytanie dotyczące brakującej funkcji lub funkcji? Rozważ zażądanie lub oddanie głosu w naszej [witrynie sieci Web](https://cognitive.uservoice.com/forums/555922-text-analytics)w usłudze UserVoice.
 
 ## <a name="see-also"></a>Zobacz też
 
- [StackOverflow: interfejs API analizy tekstu](https://stackoverflow.com/questions/tagged/text-analytics-api)   
- [StackOverflow: Cognitive Services](https://stackoverflow.com/questions/tagged/microsoft-cognitive)
+ * [StackOverflow: interfejs API analizy tekstu](https://stackoverflow.com/questions/tagged/text-analytics-api)   
+ * [StackOverflow: Cognitive Services](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

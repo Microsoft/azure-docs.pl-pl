@@ -5,15 +5,15 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 11/24/2020
+ms.date: 01/05/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: ce906ad62b51956cb85f854846740fa09e06895d
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 780da47e6f071d854a16ca1d1c5cd02dbdd6bef0
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97665156"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955652"
 ---
 Centrum zdarzeń organizuje sekwencje zdarzeń na co najmniej jedną partycję. Po nadejściu nowszych zdarzeń są one dodawane na końcu tej sekwencji. Partycję można traktować jako „dziennik zatwierdzania”.
 
@@ -21,11 +21,11 @@ Partycje przechowują dane zdarzeń zawierające treść zdarzenia, zdefiniowany
 
 ![Diagram przedstawiający starszą i nowszą sekwencję zdarzeń.](./media/event-hubs-partitions/partition.png)
 
-Event Hubs zaprojektowano w celu ułatwienia przetwarzania bardzo dużych ilości zdarzeń, a partycjonowanie ułatwia to:
+Event Hubs jest zaprojektowana w celu ułatwienia przetwarzania dużych ilości zdarzeń, a partycjonowanie ułatwia to na dwa sposoby:
 
 Po pierwsze, mimo że Event Hubs jest usługą PaaS, istnieje fizyczna rzeczywistość poniżej i konserwowanie dziennika, który zachowuje porządek zdarzeń, wymaga, aby te zdarzenia były przechowywane razem w magazynie bazowym i jego replikach, co powoduje górny limit przepływności dla tego dziennika. Partycjonowanie umożliwia używanie wielu dzienników równoległych dla tego samego centrum zdarzeń, co w związku z tym mnoży dostępną pierwotną przepływność we/wy.
 
-Po drugie, własne aplikacje muszą być w stanie kontynuować przetwarzanie ilości zdarzeń wysyłanych do centrum zdarzeń. To może być dość skomplikowane i wymaga znacznej, skalowanej pojemności przetwarzania równoległego. Uzasadnienie dla partycji jest takie samo jak powyżej: pojemność pojedynczego procesu obsługującego zdarzenia jest ograniczona, w związku z czym potrzebne jest kilka procesów, a partycje to sposób, w jaki Twoje rozwiązanie pobiera strumieniowo te procesy, a mimo to zapewnia, że każde zdarzenie ma zrozumiały właściciel przetwarzania. 
+Po drugie, własne aplikacje muszą być w stanie kontynuować przetwarzanie ilości zdarzeń wysyłanych do centrum zdarzeń. Może to być złożone i wymaga znacznej, skalowanej pojemności przetwarzania równoległego. Uzasadnienie dla partycji jest takie samo jak powyżej: pojemność pojedynczego procesu obsługującego zdarzenia jest ograniczona, w związku z czym potrzebne jest kilka procesów, a partycje to sposób, w jaki Twoje rozwiązanie pobiera strumieniowo te procesy, a mimo to zapewnia, że każde zdarzenie ma zrozumiały właściciel przetwarzania. 
 
 Event Hubs zachowuje zdarzenia dla skonfigurowanego czasu przechowywania stosowanego dla wszystkich partycji. Zdarzenia są usuwane automatycznie po osiągnięciu okresu przechowywania. Jeśli określisz okres przechowywania o jeden dzień, zdarzenie stanie się niedostępne dokładnie przez 24 godziny od momentu jego zaakceptowania. Nie można jawnie usunąć zdarzeń. 
 
@@ -51,7 +51,7 @@ Określenie klucza partycji umożliwia utrzymywanie powiązanych zdarzeń w tej 
 
 Sekwencja zdarzeń identyfikowanych przez klucz partycji jest *strumieniem*. Partycja to multipleksowy magazyn dzienników dla wielu takich strumieni. 
 
-Po utworzeniu centrum zdarzeń można zwiększyć liczbę partycji centrum zdarzeń, ale Rozkład strumieni między partycjami ulegnie zmianie, gdy zostanie on zmieniony w miarę zmiany mapowania kluczy partycji na partycje, dlatego należy spróbować trudno uniknąć takich zmian, jeśli względna kolejność zdarzeń w aplikacji.
+Liczba partycji centrum zdarzeń w [dedykowanym klastrze Event Hubs](../articles/event-hubs/event-hubs-dedicated-overview.md) można [zwiększyć](../articles/event-hubs/dynamically-add-partitions.md) po utworzeniu centrum zdarzeń, ale Rozkład strumieni między partycjami ulegnie zmianie, gdy zostanie on zmieniony, gdy zostanie zmienione mapowanie kluczy partycji na partycje, dlatego należy spróbować trudno uniknąć takich zmian, jeśli względna kolejność zdarzeń w aplikacji.
 
 Ustawienie liczby partycji na maksymalną dozwoloną wartość jest uciążliwe, ale zawsze należy pamiętać, że strumienie zdarzeń muszą być strukturalne, aby można było korzystać z wielu partycji. Jeśli potrzebujesz bezwzględnie zamówionej kolejności dla wszystkich zdarzeń lub tylko kilku podstrumienia, możesz nie być w stanie korzystać z wielu partycji. Ponadto wiele partycji sprawia, że przetwarzanie jest bardziej skomplikowane. 
 

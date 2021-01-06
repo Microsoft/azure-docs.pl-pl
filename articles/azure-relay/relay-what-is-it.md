@@ -3,12 +3,12 @@ title: Co to jest usługa Azure Relay? | Microsoft Docs
 description: Ten artykuł zapewnia omówienie usługi Azure Relay, która umożliwia opracowywanie aplikacji w chmurze używających usług lokalnych uruchomionych w sieci firmowej, bez otwierania połączenia przez zaporę ani wprowadzania niepożądanych zmian w infrastrukturze sieci.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 0c9a67bcad47ad2e7284bcf6e70914d2ffb06a8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbf1b2134a4c2dce7a3e6a62668d0852dc08c18a
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85322648"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955386"
 ---
 # <a name="what-is-azure-relay"></a>Co to jest usługa Azure Relay?
 Usługa Azure Relay umożliwia bezpieczne uwidacznianie usług uruchomionych w sieci firmowej do chmury publicznej. Możesz to zrobić bez otwierania portu na zaporze lub wprowadzania niepożądanych zmian w firmowej infrastrukturze sieci. 
@@ -17,7 +17,7 @@ Usługa przekazywania obsługuje następujące scenariusze pomiędzy usługami l
 
 - Tradycyjne, jednokierunkowe żądania/odpowiedzi oraz komunikacja równorzędna; 
 - dystrybucja zdarzeń w zakresie Internetu w celu obsługi scenariuszów publikowania/subskrybowania; 
-- dwukierunkowa i niebuforowana komunikacja przez gniazdo w granicach sieci.
+- Komunikacja dwukierunkowa i niebuforowana gniazda między granicami sieci
 
 Usługa Azure Relay różni się od technologii integracji na poziomie sieci, takich jak sieci VPN. Usługa Azure Relay może mieć zakres jednego punktu końcowego aplikacji na jednej maszynie. Technologia VPN narzuca więcej zmian, ponieważ polega na modyfikowaniu środowiska sieciowego. 
 
@@ -56,7 +56,7 @@ Zarówno połączenia hybrydowe, jak i przekaźniki WCF umożliwiają bezpieczne
 | **WCF** |x | |
 | **.NET Core** | |x |
 | **.NET Framework** |x |x |
-| **Java script/Node.JS** | |x |
+| **JavaScript/Node.js** | |x |
 | **Protokół otwarty oparty na standardach** | |x |
 | **Modele programowania RPC** | |x |
 

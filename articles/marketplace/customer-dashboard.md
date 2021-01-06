@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 878fa181ff09d547ef6594a238e9c1d883cc89b7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c98b47507a7543002f00aae82370f5ea0043510d
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460487"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954281"
 ---
 # <a name="customers-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny klientów w komercyjnej analizie Marketplace
 
@@ -144,7 +144,7 @@ _**Tabela 1: słownik terminów dotyczących danych**_
 
 | Nazwa kolumny | Nazwa atrybutu | Definicja |
 | ------------ | ------------- | ------------- |
-| Identyfikator subskrypcji witryny Marketplace | Identyfikator subskrypcji witryny Marketplace | Unikatowy identyfikator skojarzony z subskrypcją platformy Azure używany przez klienta do kupowania komercyjnej oferty portalu Marketplace. Identyfikator był dawniej identyfikatorem GUID subskrypcji platformy Azure. |
+| Identyfikator subskrypcji witryny Marketplace | Identyfikator subskrypcji witryny Marketplace | Unikatowy identyfikator skojarzony z subskrypcją platformy Azure używany przez klienta do kupowania komercyjnej oferty portalu Marketplace. W przypadku ofert infrastruktury jest to identyfikator GUID subskrypcji klienta platformy Azure. W przypadku ofert SaaS ta wartość jest wyświetlana jako zero, ponieważ zakupy SaaS nie wymagają subskrypcji platformy Azure. |
 | DateAcquired | Data pozyskania | Pierwszy dzień zakupu opublikowanej oferty przez klienta. |
 | DateLost | Data utraty | Ostatnia data anulowania ostatniego zakupionego oferty przez klienta. |
 | Nazwa dostawcy | Nazwa dostawcy | Nazwa dostawcy występującego w relacji między firmą Microsoft a klientem. Jeśli klient jest przedsiębiorstwem do odsprzedawcy, będzie to odsprzedawca. Jeśli jest używany dostawca rozwiązań w chmurze (CSP), będzie to dostawca usług kryptograficznych. |
@@ -157,7 +157,7 @@ _**Tabela 1: słownik terminów dotyczących danych**_
 | Kod pocztowy klienta | Kod pocztowy klienta | Kod pocztowy dostarczony przez klienta. Kod może być inny niż kod pocztowy podany w subskrypcji platformy Azure klienta. |
 | CustomerCommunicationCulture | Język komunikacji klienta | Język preferowany przez klienta do komunikacji. |
 | CustomerCountryRegion | Kraj/region klienta | Nazwa kraju/regionu podana przez klienta. Kraj/region może być inny niż kraj/region w subskrypcji platformy Azure klienta. |
-| AzureLicenseType | Typ licencji platformy Azure | Typ umowy licencyjnej używanej przez klientów do kupowania platformy Azure. Znany również jako _kanał_. Możliwe wartości są następujące:<ul><li>Dostawca rozwiązań w chmurze</li><li>Enterprise</li><li>Przedsiębiorstwo przez odsprzedawcę</li><li>Płatność zgodnie z rzeczywistym użyciem</li></ul> |
+| AzureLicenseType | Typ licencji platformy Azure | Typ umowy licencyjnej używanej przez klientów do kupowania platformy Azure. Znany również jako _kanał_. Możliwe wartości są następujące:<ul><li>Dostawca rozwiązań w chmurze</li><li>Przedsiębiorstwa</li><li>Przedsiębiorstwo przez odsprzedawcę</li><li>Płatność zgodnie z rzeczywistym użyciem</li></ul> |
 | PromotionalCustomers | Czy kontakt promocyjny jest wybierany | Ta wartość informuje o tym, czy klient aktywnie zabrał w celu skontaktowania się z wydawcami. W tej chwili nie prezentujemy opcji klientom, dlatego w całej tablicy podano wartość "No". Po wdrożeniu tej funkcji rozpocznie się aktualizowanie. |
 | CustomerState | Stan klienta | Stan miejsca zamieszkania dostarczonego przez klienta. Stan może być inny niż stan podany w subskrypcji platformy Azure klienta. |
 | CommerceRootCustomer | Główny klient handlowy | Jeden identyfikator konta rozliczeniowego może być skojarzony z wieloma identyfikatorami klientów.<br>Jedna kombinacja identyfikatora konta rozliczeniowego i identyfikatora klienta może być skojarzona z wieloma komercyjnymi subskrypcjami portalu Marketplace.<br>Główny klient handlowy oznacza nazwę klienta subskrypcji. |

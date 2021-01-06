@@ -3,17 +3,17 @@ title: Co nowego w programie Virtual Desktop systemu Windows? — Azure
 description: Nowe funkcje i aktualizacje produktów dla pulpitu wirtualnego systemu Windows.
 author: Heidilohr
 ms.topic: overview
-ms.date: 12/02/2020
+ms.date: 01/06/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: e42e49f69a159bf3bfdc732d41dc66a9a707f42f
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: df3dd8b5b18ec2997ee20ad4955ffd7bc1dc573d
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617361"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955012"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Co nowego w programie Virtual Desktop systemu Windows?
 
@@ -25,6 +25,44 @@ Regularnie aktualizacje pulpitu wirtualnego systemu Windows. W tym artykule znaj
 - Poprawki błędów
 
 Ten artykuł jest aktualizowany co miesiąc. Upewnij się, że w tym miejscu często należy zaznaczyć, aby zachować nowe aktualizacje.
+
+## <a name="december-2020"></a>Grudzień 2020 r.
+
+Poniżej przedstawiono zmiany w grudniu 2020: 
+
+### <a name="azure-monitor-for-windows-virtual-desktop"></a>Azure Monitor dla pulpitu wirtualnego systemu Windows
+
+Publiczna wersja zapoznawcza Azure Monitor dla pulpitu wirtualnego systemu Windows jest teraz dostępna. Ta nowa funkcja obejmuje niezawodny pulpit nawigacyjny utworzony w oparciu o Azure Monitor skoroszyty, aby ułatwić specjalistom IT zrozumieć swoje środowiska pulpitu wirtualnego systemu Windows. Zapoznaj [się z ogłoszeniem w naszym blogu,](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/azure-monitor-for-windows-virtual-desktop-public-preview/m-p/1946587) Aby uzyskać więcej szczegółów. 
+
+### <a name="azure-resource-manager-template-change"></a>Azure Resource Manager zmianę szablonu 
+
+W najnowszej aktualizacji usunięto wszystkie parametry publicznego adresu IP z szablonu Azure Resource Manager na potrzeby tworzenia i inicjowania obsługi administracyjnej pul hostów. Zdecydowanie zalecamy uniknięcie używania publicznych adresów IP dla pulpitu wirtualnego systemu Windows, aby zachować bezpieczeństwo wdrożenia. Jeśli Twoje wdrożenie korzysta z publicznych adresów IP, należy zmienić ich konfigurację tak, aby korzystały z prywatnych adresów IP. w przeciwnym razie wdrożenie nie będzie działało prawidłowo.
+
+### <a name="msix-app-attach-public-preview"></a>Dołączanie publicznej wersji zapoznawczej aplikacji MSIX 
+
+Dołączenie do aplikacji MSIX to inna usługa, która rozpoczęła swoją publiczną wersję zapoznawczą w tym miesiącu. Dołączenie do aplikacji MSIX to usługa, która dynamicznie przedstawia aplikacje MSIX na maszynach wirtualnych hosta sesji usług pulpitu wirtualnego systemu Windows. Zapoznaj [się z ogłoszeniem w naszym blogu,](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/msix-app-attach-azure-portal-integration-public-preview/m-p/1986231) Aby uzyskać więcej szczegółów. 
+
+### <a name="screen-capture-protection"></a>Ochrona przechwytywania ekranu 
+
+W tym miesiącu oznaczono również początek publicznej wersji zapoznawczej ochrony przed przechwytywaniem ekranu. Ta funkcja służy do zapobiegania przechwytywaniu poufnych informacji w punktach końcowych klienta. Spróbuj wykonać ochronę za pomocą przechwytywania ekranu, przechodząc do [tej strony](https://aka.ms/WVDScreenCaptureProtection).  
+
+### <a name="built-in-roles"></a>Wbudowane role
+
+Dodaliśmy nowe wbudowane role dla pulpitu wirtualnego systemu Windows na potrzeby uprawnień administratora. Aby uzyskać więcej informacji, zobacz [wbudowane role dla pulpitu wirtualnego systemu Windows](rbac.md). 
+
+### <a name="application-group-limit-increase"></a>Zwiększenie limitu grupy aplikacji
+
+Zwiększono domyślny limit grup aplikacji dla Azure Active Directory dzierżawy do grup 200.
+
+### <a name="client-updates-for-december-2020"></a>Aktualizacje klienta z grudnia 2020
+
+Udostępnimy nowe wersje następujących klientów: 
+
+- Android
+- macOS
+- Windows
+
+Aby uzyskać więcej informacji o aktualizacjach klientów, zobacz [aktualizacje klienta](whats-new.md#client-updates).
 
 ## <a name="november-2020"></a>Listopad 2020 r.
 
@@ -155,7 +193,7 @@ Aby dowiedzieć się więcej o nowych funkcjach, zapoznaj się z [wpisem w blogu
 
 Najnowsza wersja narzędzia skalowania automatycznego, która była w wersji zapoznawczej, jest teraz ogólnie dostępna. To narzędzie używa konta usługi Azure Automation i aplikacji logiki platformy Azure, aby automatycznie zamykać i ponownie uruchamiać maszyny wirtualne hosta sesji (VM) w puli hostów, zmniejszając koszty związane z infrastrukturą. Dowiedz się więcej na temat [skalowania hostów sesji przy użyciu Azure Automation](set-up-scaling-script.md).
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 Teraz można wykonać następujące czynności w Azure Portal na pulpicie wirtualnym systemu Windows: 
 

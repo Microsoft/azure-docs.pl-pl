@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: b26643daede9e26f2bf1807ae99a6ced5d1cb08c
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 072abffcc74b8b060d98c07d1f310413c7b323ef
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901576"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954944"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Połącz platformę Azure z narzędziami narzędzia ITSM przy użyciu łącznik zarządzania usługami IT
 
@@ -127,30 +127,34 @@ Aby utworzyć grupy akcji, należy wykonać czynności opisane w poniższej proc
 
 8. Jeśli chcesz wypełnić pola z ustalonymi wartościami, wybierz opcję **Użyj szablonu niestandardowego**. W przeciwnym razie wybierz istniejący [szablon](#template-definitions) na liście **szablon** i wprowadź wartości ustalone w polach szablon.
 
-9. W ostatniej sekcji definicji grupy akcji narzędzia ITSM można zdefiniować, ile alertów zostanie utworzonych z każdego alertu. Ta sekcja ma zastosowanie tylko w przypadku alertów wyszukiwania w dzienniku.
+9. W ostatniej sekcji definicji grupy akcji narzędzia ITSM można zdefiniować liczbę elementów roboczych, które zostaną utworzone dla każdego alertu.
+
+    >[!NOTE]
+    >
+    > * Ta sekcja ma zastosowanie tylko w przypadku alertów wyszukiwania w dzienniku.
+    > * Alerty metryk i alerty dziennika aktywności zawsze tworzą jeden element roboczy dla każdego alertu.
 
     * W przypadku wybrania opcji na liście rozwijanej element roboczy "zdarzenie" lub "Alert":
-        * W przypadku zaznaczenia pola wyboru **Utwórz poszczególne elementy robocze dla każdego elementu konfiguracji** każdy element konfiguracji w każdym alercie utworzy nowy element roboczy. W systemie narzędzia ITSM może istnieć więcej niż jeden element roboczy na element konfiguracji.
+        * W przypadku zaznaczenia pola wyboru **"Utwórz poszczególne elementy robocze dla każdego elementu konfiguracji"** każdy element konfiguracji w każdym alercie utworzy nowy element roboczy. W systemie narzędzia ITSM może istnieć więcej niż jeden element roboczy na element konfiguracji.
 
-            Na przykład:
+            Przykład:
             1) Alert 1 z 3 elementami konfiguracji: A, B, C-utworzy 3 elementy robocze.
-            2) Alert 2 z 1 elementem konfiguracji: D-utworzy 1 element roboczy.
+            2) Alert 2 z 1 elementem konfiguracji: A — utworzy 1 element roboczy.
 
-                **Na koniec tego przepływu będą 4 alerty**
-        * Jeśli wyczyścisz pole wyboru **Utwórz poszczególne elementy robocze dla każdego elementu konfiguracji** , zostaną wyświetlone alerty, które nie spowodują utworzenia nowego elementu pracy. elementy robocze zostaną scalone według reguły alertu.
+        * W przypadku wyczyszczenia pola wyboru **"Utwórz poszczególne elementy robocze dla każdego elementu konfiguracji"** Łącznik narzędzia ITSM utworzy pojedynczy element roboczy dla każdej reguły alertu i doda do niego wszystkie elementy konfiguracji, których to dotyczy. Zostanie utworzony nowy element roboczy, jeśli poprzedni zostanie zamknięty.
+        >[!NOTE]
+        > W takim przypadku część wygenerowanego alertu nie spowoduje wygenerowania nowych elementów roboczych w narzędziu narzędzia ITSM.
 
-            Na przykład:
-            1) Alert 1 z 3 elementami konfiguracji: A, B, C-utworzy 1 element roboczy.
-            2) Alert 2 dla tej samej reguły alertu co faza 1 z 1 elementem konfiguracji: D-zostanie scalony z elementem roboczym w fazie 1.
-            3) Alert 3 dla innej reguły alertu z 1 elementem konfiguracji: E-utworzy 1 element roboczy.
-
-                **Po zakończeniu tego przepływu zostaną 2 alerty**
+            For example:
+            1) Alert 1 with 3 Configuration Items: A, B, C - will create 1 work item.
+            2) Alert 2 for the same alert rule as phase 1 with 1 Configuration Item: D - will be merged to the work item in phase 1.
+            3) Alert 3 for a different alert rule with 1 Configuration Item: E - will create 1 work item.
 
        ![Zrzut ekranu przedstawiający okno zdarzenia narzędzia ITSM.](media/itsmc-overview/itsm-action-configuration.png)
 
     * W przypadku wybrania opcji "zdarzenie" w menu rozwijanym elementu pracy:
-        * W przypadku wybrania opcji **Utwórz indywidualne elementy robocze dla każdego wpisu dziennika** w wyborze przycisków radiowych zostanie utworzony alert dla każdego wiersza w wynikach wyszukiwania zapytania o alert przeszukiwania dzienników. W ładunku alertu Właściwość Description będzie miała wiersz z wyników wyszukiwania.
-        * W przypadku wybrania opcji **Utwórz poszczególne elementy robocze dla każdego elementu konfiguracji** w wyborze przycisków radiowych każdy element konfiguracji w każdym alercie zostanie utworzony nowy element roboczy. W systemie narzędzia ITSM może istnieć więcej niż jeden element roboczy na element konfiguracji. Ta wartość będzie taka sama jak zaznaczenie pola wyboru w sekcji incydentu/alertu.
+        * W przypadku wybrania opcji **"Utwórz pojedyncze elementy robocze dla każdego wpisu dziennika (pole elementu konfiguracji nie jest wypełnione. Może spowodować powstanie dużej liczby elementów roboczych.) "** w obszarze przyciski radiowe zostanie utworzony alert dla każdego wiersza w wynikach wyszukiwania zapytania dotyczącego alertu wyszukiwania w dzienniku. W ładunku alertu Właściwość Description będzie miała wiersz z wyników wyszukiwania.
+        * W przypadku wybrania opcji **"Utwórz indywidualne elementy robocze dla każdego elementu konfiguracji"** w wyborze przycisków radiowych każdy element konfiguracji w każdym alercie zostanie utworzony nowy element roboczy. W systemie narzędzia ITSM może istnieć więcej niż jeden element roboczy na element konfiguracji. Ta wartość będzie taka sama jak zaznaczenie pola wyboru w sekcji incydentu/alertu.
     ![Zrzut ekranu przedstawiający okno zdarzenia narzędzia ITSM.](media/itsmc-overview/itsm-action-configuration-event.png)
 
 10. Wybierz pozycję **OK**.

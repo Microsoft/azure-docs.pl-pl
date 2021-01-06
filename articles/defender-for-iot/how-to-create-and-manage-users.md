@@ -4,15 +4,15 @@ description: Twórz i Zarządzaj użytkownikami czujników oraz lokalną konsol�
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/21/2020
+ms.date: 1/3/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: c3a9e1c7e96d0392e1f94b71549f612738622dea
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 22d0c59110ba033232fbdf41062b49e9a146ca6f
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97843337"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955108"
 ---
 # <a name="about-defender-for-iot-console-users"></a>Informacje o usłudze Defender dla użytkowników konsoli IoT
 
@@ -89,8 +89,8 @@ W tej sekcji opisano sposób definiowania użytkowników. Użytkownicy Cyberx, p
 Aby zdefiniować użytkownika:
 
 1. W okienku po lewej stronie czujnika lub lokalnej konsoli zarządzania wybierz pozycję **Użytkownicy**.
-2. W oknie **Użytkownicy** wybierz pozycję **Utwórz użytkownika**.
-3. W okienku **Tworzenie użytkownika** Zdefiniuj następujące parametry:
+1. W oknie **Użytkownicy** wybierz pozycję **Utwórz użytkownika**.
+1. W okienku **Tworzenie użytkownika** Zdefiniuj następujące parametry:
 
    - **Nazwa użytkownika**: Wprowadź nazwę użytkownika.
    - **Poczta e-mail**: wprowadź adres e-mail użytkownika.
@@ -122,7 +122,7 @@ Aby uzyskać dostęp do polecenia:
 
 1. Zaloguj się do interfejsu wiersza polecenia dla czujnika lub lokalnej konsoli zarządzania przy użyciu usługi Defender dla poświadczeń administracyjnych IoT.
 
-2. Wprowadź `sudo nano /var/cyberx/properties/authentication`.
+1. Wprowadź `sudo nano /var/cyberx/properties/authentication`.
 
 ```azurecli-interactive
     infinity_session_expiration = true
@@ -138,7 +138,6 @@ Aby uzyskać dostęp do polecenia:
 Aby wyłączyć tę funkcję, przejdź `infinity_session_expiration = true` do `infinity_session_expiration = false` .
 
 Aby zaktualizować okresy zliczania wylogowania, Dostosuj `= <number>` wartość do wymaganego czasu.
-
 
 ## <a name="track-user-activity"></a>Śledzenie aktywności użytkownika 
 
@@ -171,11 +170,11 @@ Aby skonfigurować Active Directory:
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-system-settings-v2.png" alt-text="Wyświetl ustawienia systemu Active Directory.":::
 
-2. W okienku **Ustawienia systemu** wybierz pozycję **Active Directory**.
+1. W okienku **Ustawienia systemu** wybierz pozycję **Active Directory**.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-configurations-v2.png" alt-text="Edytuj konfiguracje Active Directory.":::
 
-3. W oknie dialogowym **Edytowanie konfiguracji Active Directory** wybierz pozycję **Active Directory Integracja włączona**  >  **Zapisz**. Zostanie rozwinięte okno dialogowe **Edytowanie konfiguracji Active Directory** i można teraz wprowadzić parametry w celu skonfigurowania Active Directory.
+1. W oknie dialogowym **Edytowanie konfiguracji Active Directory** wybierz pozycję **Active Directory Integracja włączona**  >  **Zapisz**. Zostanie rozwinięte okno dialogowe **Edytowanie konfiguracji Active Directory** i można teraz wprowadzić parametry w celu skonfigurowania Active Directory.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-integration-enabled-v2.png" alt-text="Wprowadź parametry, aby skonfigurować Active Directory.":::
 
@@ -184,7 +183,7 @@ Aby skonfigurować Active Directory:
     > - Dla wszystkich parametrów Active Directory użyj tylko małych liter. Używaj małych liter, nawet jeśli konfiguracje w Active Directory używają wielkich liter.
     > - Nie można skonfigurować zarówno protokołu LDAP, jak i LDAPs dla tej samej domeny. Można jednak używać obu jednocześnie dla różnych domen.
 
-4. Ustaw parametry serwera Active Directory w następujący sposób:
+1. Ustaw parametry serwera Active Directory w następujący sposób:
 
    | Parametr serwera | Opis |
    |--|--|
@@ -194,11 +193,81 @@ Aby skonfigurować Active Directory:
    | Grupy Active Directory | Wprowadź nazwy grup, które są zdefiniowane w konfiguracji Active Directory na serwerze LDAP. |
    | Domeny zaufane | Aby dodać domenę zaufaną, należy dodać nazwę domeny i typ połączenia zaufanej domeny. <br />Domeny zaufane można skonfigurować tylko dla użytkowników, którzy zostali zdefiniowani w obszarze Użytkownicy. |
 
-5. Wybierz pozycję **Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
-6. Aby dodać zaufany serwer, wybierz pozycję **Dodaj serwer** i skonfiguruj inny serwer.
+1. Aby dodać zaufany serwer, wybierz pozycję **Dodaj serwer** i skonfiguruj inny serwer.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="resetting-a-users-password-for-the-sensor-or-on-premises-management-console"></a>Resetowanie hasła użytkownika dla czujnika lub lokalnej konsoli zarządzania
+
+### <a name="cyberx-or-support-user"></a>Użytkownik CyberX lub pomoc techniczna
+
+Tylko użytkownik **CyberX** i **Pomoc techniczna** mają dostęp do funkcji **odzyskiwania hasła** . Jeśli użytkownik **CyberX** lub **pomocy technicznej** nie pamięta swojego hasła, może zresetować hasło za pomocą opcji **odzyskiwania hasła** na stronie logowania usługi Defender for IoT.
+
+Aby zresetować hasło dla użytkownika CyberX lub pomocy technicznej:
+
+1. Na ekranie logowania do usługi Defender for IoT wybierz pozycję  **Odzyskiwanie hasła**. Zostanie otwarty ekran **Odzyskiwanie hasła** .
+
+1. Wybierz opcję **CyberX** lub **support** i skopiuj unikatowy identyfikator.
+
+1. Przejdź do Azure Portal i wybierz pozycję **Lokacje i czujniki**.  
+
+1. Wybierz ikonę **Filtr subskrypcji** na :::image type="icon" source="media/password-recovery-images/subscription-icon.png" border="false":::  górnym pasku narzędzi i wybierz subskrypcję, z którą jest połączony czujnik.
+
+1. Wybierz kartę **odzyskiwanie na lokalnym komputerze konsoli zarządzania** .
+
+   :::image type="content" source="media/password-recovery-images/recover-button.png" alt-text="Wybierz przycisk Odzyskaj lokalne zarządzanie, aby pobrać plik odzyskiwania.":::
+
+1. Wprowadź unikatowy identyfikator otrzymany na ekranie **odzyskiwania hasła** i wybierz polecenie **Odzyskaj**. `password_recovery.zip`Plik zostanie pobrany.
+
+    > [!NOTE]
+    > Nie zmieniaj pliku odzyskiwania hasła. Jest to podpisany plik i nie będzie działał w przypadku naruszenia go.
+
+1. Na ekranie **Odzyskiwanie hasła** wybierz pozycję **Przekaż**. Zostanie otwarte okno **odzyskiwanie pliku odzyskiwania hasła** .
+
+   :::image type="content" source="media/password-recovery-images/upload.png" alt-text="Przekaż plik odzyskiwania, aby uzyskać nowe hasło.":::
+
+1. Wybierz pozycję **Przeglądaj** , aby zlokalizować `password_recovery.zip` plik, lub przeciągnij `password_recovery.zip` do okna.
+
+    > [!NOTE]
+    > Może pojawić się komunikat o błędzie wskazujący, że plik jest nieprawidłowy. Aby naprawić ten komunikat o błędzie, upewnij się, że wybrano odpowiednią subskrypcję przed pobraniem `password_recovery.zip` i pobraniem.  
+
+1. Po wybraniu opcji **dalej** zostanie wyświetlone hasło użytkownika i wygenerowanego przez system hasła do konsoli zarządzania.
+
+### <a name="administrator-security-analyst-and-read-only-user"></a>Administrator, analityk zabezpieczeń i użytkownik tylko do odczytu
+
+Analitycy tylko do odczytu i zabezpieczenia nie mogą resetować własnego hasła i muszą kontaktować się z użytkownikiem przy użyciu ról Administrator, pomoc techniczna lub CyberX, aby zresetować swoje hasło. Użytkownik administrator musi skontaktować się z użytkownikiem **CyberX** lub **pomocą techniczną** w celu zresetowania hasła.
+
+Aby zresetować hasło użytkownika do czujnika:
+
+1. Administrator, pomoc techniczna lub użytkownik roli CyberX powinni zalogować się do czujnika.
+
+1. Wybierz pozycję **Użytkownicy** w panelu po lewej stronie.
+
+   :::image type="content" source="media/password-recovery-images/sensor-page.png" alt-text="Wybierz opcję użytkownika z okienka po lewej stronie.":::
+
+1. Znajdź użytkownika i wybierz opcję **Edytuj** z menu rozwijanego **Akcje** .
+
+   :::image type="content" source="media/password-recovery-images/edit.png" alt-text="Wybierz pozycję Edytuj z menu rozwijanego akcje.":::
+
+1. Wprowadź nowe hasło w polach **nowe hasło** i **Potwierdź nowe hasło** .
+
+1. Wybierz pozycję **Aktualizuj**.
+
+Aby zresetować hasło użytkownika w lokalnej konsoli zarządzania:
+
+1. Administrator, pomoc techniczna lub użytkownik roli CyberX powinni zalogować się do czujnika.
+
+1. Wybierz pozycję **Użytkownicy** w panelu po lewej stronie.
+
+   :::image type="content" source="media/password-recovery-images/console-page.png" alt-text="Na panelu po lewej stronie wybierz opcję użytkownika.":::
+
+1. Znajdź użytkownika i wybierz ikonę edycji :::image type="icon" source="media/password-recovery-images/edit-icon.png" border="false"::: .
+
+1. Wprowadź nowe hasło w polach **nowe hasło** i **Potwierdź nowe hasło** .
+
+1. Wybierz pozycję **Aktualizuj**.
+
+## <a name="see-also"></a>Zobacz też
 
 [Aktywowanie i Konfigurowanie czujnika](how-to-activate-and-set-up-your-sensor.md) 
  [Aktywuj i skonfiguruj lokalną konsolę zarządzania](how-to-activate-and-set-up-your-on-premises-management-console.md) 

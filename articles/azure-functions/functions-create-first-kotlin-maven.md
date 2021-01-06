@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 03/25/2020
 ms.author: dglover
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 167e7c447fe43851255677a44043c508cbdc4239
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 8b597f54f22aaf6d904ba276ebdfa3a051b93b2d
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934836"
+ms.locfileid: "97954298"
 ---
 # <a name="quickstart-create-your-first-function-with-kotlin-and-maven"></a>Szybki Start: Tworzenie pierwszej funkcji za pomocą Kotlin i Maven
 
@@ -32,9 +32,9 @@ Aby opracowywać funkcje przy użyciu Kotlin, musisz mieć zainstalowane następ
 > [!IMPORTANT]
 > Aby wykonać wszystkie czynności opisane w tym przewodniku Szybki start, dla zmiennej środowiskowej JAVA_HOME należy ustawić lokalizację instalacji zestawu JDK.
 
-## <a name="generate-a-new-functions-project"></a>Generowanie nowego projektu usługi Functions
+## <a name="generate-a-new-azure-functions-project"></a>Generuj nowy projekt Azure Functions
 
-W pustym folderze uruchom następujące polecenie, aby wygenerować projekt usługi Functions z [archetypu narzędzia Maven](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
+W pustym folderze Uruchom następujące polecenie, aby wygenerować projekt Azure Functions z [Maven Archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
 
 # <a name="bash"></a>[bash](#tab/bash)
 ```bash
@@ -164,7 +164,7 @@ Proces wdrażania w usłudze Azure Functions korzysta z poświadczeń konta z in
 az login
 ```
 
-Wdróż swój kod w nowej aplikacji funkcji, używając elementu docelowego `azure-functions:deploy` narzędzia Maven.
+Wdróż swój kod w nowej aplikacji funkcji przy użyciu `azure-functions:deploy` elementu docelowego Maven.
 
 > [!NOTE]
 > Jeśli używasz Visual Studio Code do wdrożenia aplikacji funkcji, pamiętaj, aby wybrać niebezpłatną subskrypcję lub wystąpił błąd. Możesz obejrzeć swoją subskrypcję po lewej stronie IDE.
@@ -173,7 +173,7 @@ Wdróż swój kod w nowej aplikacji funkcji, używając elementu docelowego `azu
 mvn azure-functions:deploy
 ```
 
-Po zakończeniu wdrażania zostanie wyświetlony adres URL umożliwiający uzyskanie dostępu do aplikacji funkcji platformy Azure:
+Po zakończeniu wdrażania zobaczysz adres URL, którego można użyć w celu uzyskania dostępu do aplikacji funkcji:
 
 <pre>
 [INFO] Successfully deployed Function App with package.
@@ -198,7 +198,7 @@ Hello AzureFunctions!
 
 ## <a name="make-changes-and-redeploy"></a>Wprowadzanie zmian i ponowne wdrażanie
 
-Otwórz do edycji plik źródłowy `src/main.../Function.java` w wygenerowanym projekcie, aby zmienić tekst zwracany przez aplikację funkcji. Zmień ten wiersz:
+Edytuj `src/main.../Function.java` plik źródłowy w wygenerowanym projekcie, aby zmienić tekst zwracany przez aplikację funkcji. Zmień ten wiersz:
 
 ```kotlin
 return request
@@ -231,7 +231,7 @@ Hi, AzureFunctionsTest
 
 ## <a name="reference-bindings"></a>Powiązania odwołań
 
-Aby można było korzystać z [wyzwalaczy i powiązań funkcji](functions-triggers-bindings.md) innych niż wyzwalacz http i wyzwalacza czasomierza, należy zainstalować rozszerzenia powiązań. Chociaż nie jest to wymagane w tym artykule, musisz wiedzieć, jak włączyć rozszerzenia podczas pracy z innymi typami powiązań.
+Aby można było współpracować z wyzwalaczami [Azure Functions i powiązaniami](functions-triggers-bindings.md) innymi niż wyzwalacz http i wyzwalaczem Timer, należy zainstalować rozszerzenia powiązań. Chociaż nie jest to wymagane w tym artykule, musisz wiedzieć, jak włączyć rozszerzenia podczas pracy z innymi typami powiązań.
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
@@ -239,7 +239,7 @@ Aby można było korzystać z [wyzwalaczy i powiązań funkcji](functions-trigge
 
 Utworzono aplikację funkcji Kotlin z prostym wyzwalaczem HTTP i wdrożono ją w Azure Functions.
 
-- Zapoznaj się z  [przewodnikiem dewelopera usługi Java Functions](functions-reference-java.md) , aby uzyskać więcej informacji na temat opracowywania funkcji Java i Kotlin.
+- Zapoznaj się z [przewodnikiem dewelopera Azure Functions Java](functions-reference-java.md) , aby uzyskać więcej informacji na temat opracowywania funkcji Java i Kotlin.
 - Dodaj do swojego projektu kolejne funkcje z różnymi wyzwalaczami, używając elementu docelowego `azure-functions:add` narzędzia Maven.
 - Pisanie i debugowanie funkcji lokalnie za pomocą oprogramowania [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md) i [Eclipse](functions-create-maven-eclipse.md). 
 - Debuguj funkcje wdrożone na platformie Azure przy użyciu programu Visual Studio Code. Zobacz dokumentację [bezserwerowych aplikacji Java](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud) programu Visual Studio Code, aby uzyskać instrukcje.

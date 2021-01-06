@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 575903654a165bef0d09ac6abf0793af3f6784e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fa0b6ca41349d20614a64006536e78d8ee71844
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940610"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955369"
 ---
 # <a name="offline-deployment-overview"></a>Przegląd wdrożenia w trybie offline
 
@@ -22,7 +22,7 @@ Zazwyczaj obrazy kontenerów używane podczas tworzenia kontrolera danych usług
 
 Ponieważ dostępne są comiesięczne aktualizacje dla usług danych z obsługą usługi Azure Arc i istnieje duża liczba obrazów kontenerów, najlepiej wykonać ten proces ściągania, tagowania i wypychania obrazów kontenera do prywatnego rejestru kontenerów za pomocą skryptu.  Skrypt może być zautomatyzowany lub uruchamiany ręcznie.
 
-[Przykładowy skrypt](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/scripts/pull-and-push-arc-data-services-images-to-private-registry.py) znajduje się w repozytorium usługi Azure Arc w witrynie GitHub.
+[Przykładowy skrypt](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/scripts/pull-and-push-arc-data-services-images-to-private-registry.py) znajduje się w repozytorium usługi Azure Arc w witrynie GitHub.
 
 > [!NOTE]
 > Ten skrypt wymaga instalacji języka Python i [interfejsu wiersza polecenia platformy Docker](https://docs.docker.com/install/).
@@ -36,7 +36,7 @@ Skrypt będzie interaktywnie monitował o poniższe informacje.  Alternatywnie, 
 |Podaj nazwę użytkownika dla rejestru kontenerów źródłowych — naciśnij klawisz ENTER, aby użyć opcji Brak:|SOURCE_DOCKER_USERNAME|Podaj wartość tylko w przypadku ściągania obrazów kontenera ze źródła, które wymaga logowania.  Container Registry firmy Microsoft nie wymaga logowania.|
 |Podaj hasło do rejestru źródłowego kontenera — naciśnij klawisz ENTER, aby użyć opcji Brak:|SOURCE_DOCKER_PASSWORD|Podaj wartość tylko w przypadku ściągania obrazów kontenera ze źródła, które wymaga logowania.  Container Registry firmy Microsoft nie wymaga logowania. Jest to monit o zamaskowanie hasła.  Hasło nie zostanie wyświetlone, jeśli wpiszesz lub wkleisz je w programie.|
 |Podaj tag obrazu kontenera dla obrazów w źródle — naciśnij klawisz ENTER, aby użyć " `<current monthly release tag>` ":|SOURCE_DOCKER_TAG|Domyślna nazwa tagu zostanie zaktualizowana co miesiąc, aby odzwierciedlić miesiąc i rok bieżącej wersji w Container Registry firmy Microsoft.|
-|Podaj nazwę DNS lub adres IP rejestru kontenera docelowego:|TARGET_DOCKER_REGISTRY|Docelowa nazwa DNS lub adres IP.  Jest to rejestr, _do_którego będą wypychane obrazy.|
+|Podaj nazwę DNS lub adres IP rejestru kontenera docelowego:|TARGET_DOCKER_REGISTRY|Docelowa nazwa DNS lub adres IP.  Jest to rejestr, _do_ którego będą wypychane obrazy.|
 |Podaj repozytorium docelowego rejestru kontenerów:|TARGET_DOCKER_REPOSITORY|Repozytorium w rejestrze docelowym, do którego będą wypychane obrazy.|
 |Podaj nazwę użytkownika dla rejestru kontenerów docelowych — naciśnij klawisz ENTER, aby użyć opcji Brak:|TARGET_DOCKER_USERNAME|Nazwa użytkownika (jeśli istnieje) służąca do logowania się do docelowego rejestru kontenerów.|
 |Podaj hasło do rejestru kontenerów docelowych — naciśnij klawisz ENTER, aby użyć opcji Brak:|TARGET_DOCKER_PASSWORD|Hasło (jeśli istnieje) używane do logowania się do docelowego rejestru kontenerów. Jest to monit o zamaskowanie hasła.  Hasło nie zostanie wyświetlone, jeśli wpiszesz lub wkleisz je w programie.|

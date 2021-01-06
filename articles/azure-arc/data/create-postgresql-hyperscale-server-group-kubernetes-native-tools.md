@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: f447c6028b1750aa96e531a97e7b0861f66a5749
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30852b6b3f9a4b490c4b58fe07f34ee49c60fa9f
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761672"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955250"
 ---
 # <a name="create-a-postgresql-hyperscale-server-group-using-kubernetes-tools"></a>Tworzenie grupy serwerów PostgreSQL do skalowania przy użyciu narzędzi Kubernetes
 
@@ -34,7 +34,7 @@ Aby utworzyć grupę serwerów PostgreSQL do skalowania, należy utworzyć wpis 
 
 ## <a name="create-a-yaml-file"></a>Utwórz plik YAML
 
-Plik [YAML szablonu](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/postsgresql.yaml) można użyć jako punktu wyjścia, aby utworzyć własny plik YAML PostgreSQL grupy serwerów wieloskalowej.  Pobierz ten plik na komputer lokalny i otwórz go w edytorze tekstu.  Warto używać edytora tekstu, takiego jak [vs Code](https://code.visualstudio.com/download) , które obsługują wyróżnianie składni i zaznaczanie błędów dla plików YAML.
+Plik [YAML szablonu](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/postgresql.yaml) można użyć jako punktu wyjścia, aby utworzyć własny plik YAML PostgreSQL grupy serwerów wieloskalowej.  Pobierz ten plik na komputer lokalny i otwórz go w edytorze tekstu.  Warto używać edytora tekstu, takiego jak [vs Code](https://code.visualstudio.com/download) , które obsługują wyróżnianie składni i zaznaczanie błędów dla plików YAML.
 
 Jest to przykładowy plik YAML:
 
@@ -86,7 +86,7 @@ Wpis tajny Kubernetes jest przechowywany jako ciąg zakodowany w formacie base64
 
 Możesz użyć narzędzia online do kodowania base64 żądanej nazwy użytkownika i hasła lub użyć wbudowanych narzędzi interfejsu wiersza polecenia w zależności od platformy.
 
-Program PowerShell
+PowerShell
 
 ```console
 [Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes('<your string to encode here>'))

@@ -11,16 +11,28 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2020
 ms.author: errobin
-ms.openlocfilehash: dcfce06bb158888b56483a73ededd354c229a99b
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 3acaaba86c9a546a0bd45b5386287908168d50d0
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696323"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955624"
 ---
-# <a name="troubleshoot-resource-health-frontend-and-backend-availability-issues"></a>Rozwiązywanie problemów dotyczących kondycji zasobów, frontonu i dostępności zaplecza 
+# <a name="troubleshoot-resource-health-and-inbound-availability-issues"></a>Rozwiązywanie problemów z kondycją zasobów i problemy z dostępnością ruchu przychodzącego 
 
 Ten artykuł zawiera wskazówki dotyczące badania problemów mających wpływ na dostępność adresów IP frontonu usługi równoważenia obciążenia i zasobów zaplecza. 
+
+Sprawdzenie Resource Health (systemie RHC występuje) dla Load Balancer służy do określania kondycji modułu równoważenia obciążenia. Analizuje metrykę dostępności ścieżki danych przez **2-minutowy** interwał, aby określić, czy dostępne są punkty końcowe równoważenia obciążenia, kombinacje adresów IP frontonu i portów frontonu z regułami równoważenia obciążenia.
+
+Poniższa tabela zawiera opis logiki systemie RHC występuje używanej do określania kondycji modułu równoważenia obciążenia.
+
+| Stan kondycji zasobu | Opis |
+| --- | --- |
+| Dostępne | Zasób standardowego modułu równoważenia obciążenia jest w dobrej kondycji i jest dostępny. |
+| Obniżona wydajność | Moduł równoważenia obciążenia w warstwie Standardowa ma zdarzenia zainicjowane przez platformę lub użytkownika, które mają wpływ na wydajność. Metryka Dostępność ścieżki danych od co najmniej dwóch minut zgłasza kondycję niższą niż 90%, ale wyższą niż 25%. Zostanie napotkany umiarkowany wpływ na wydajność. 
+| Niedostępny | Zasób standardowego modułu równoważenia obciążenia nie jest w dobrej kondycji. Metryka dostępności ścieżki datapath zgłosiła mniej niż 25% kondycji przez co najmniej dwie minuty. Wystąpi znaczny wpływ na wydajność lub brak dostępności dla łączności przychodzącej. Mogą istnieć zdarzenia użytkownika lub platformy powodujące niedostępność. |
+| Nieznane | Stan kondycji zasobu dla zasobu standardowego modułu równoważenia obciążenia nie został jeszcze zaktualizowany lub nie otrzymał informacji o dostępności ścieżki danych dla ostatnich 10 minut. Ten stan powinien występować przejściowo i zmienić się na prawidłowy stan po otrzymaniu danych. |
+
 
 ## <a name="about-the-metrics-well-use"></a>Informacje o metrykach, z których będziemy korzystać
 Dwie metryki, które mają być używane są stanem *dostępności ścieżki danych* i *sondy kondycji* i są ważne, aby zrozumieć ich znaczenie w celu uzyskania poprawnych szczegółowych informacji. 

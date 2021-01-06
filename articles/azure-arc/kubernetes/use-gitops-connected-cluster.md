@@ -1,5 +1,5 @@
 ---
-title: Wdrażanie konfiguracji przy użyciu usługi GitOps w klastrze Kubernetes (wersja zapoznawcza)
+title: Wdrażanie konfiguracji przy użyciu metodyki GitOps w klastrach platformy Kubernetes z włączoną usługą Azure Arc (wersja zapoznawcza)
 services: azure-arc
 ms.service: azure-arc
 ms.date: 05/19/2020
@@ -8,14 +8,14 @@ author: mlearned
 ms.author: mlearned
 description: Użyj GitOps, aby skonfigurować klaster Kubernetes z obsługą usługi Azure ARC (wersja zapoznawcza)
 keywords: GitOps, Kubernetes, K8s, Azure, ARC, Azure Kubernetes Service, AKS, kontenery
-ms.openlocfilehash: 85771824a6cecd10346937220e400028a4570377
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 906021377cbfd6960769f98f9dbd15a5c430c71f
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653456"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955335"
 ---
-# <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Wdrażanie konfiguracji przy użyciu usługi GitOps w klastrze Kubernetes (wersja zapoznawcza)
+# <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Wdrażanie konfiguracji przy użyciu metodyki GitOps w klastrach platformy Kubernetes z włączoną usługą Azure Arc (wersja zapoznawcza)
 
 GitOps, w odniesieniu do Kubernetes, jest podejściem do deklarowania żądanego stanu konfiguracji Kubernetes (wdrożenia, przestrzenie nazw itp.) w repozytorium git, a następnie wdrożenia tych konfiguracji w klastrze przy użyciu operatora. Ten dokument obejmuje konfigurację takich przepływów pracy w klastrach Kubernetes z obsługą usługi Azure Arc.
 
@@ -150,7 +150,7 @@ Aby dostosować konfigurację, poniżej przedstawiono więcej parametrów, któr
 
 `--helm-operator-chart-version` : *Opcjonalna* wersja wykresu dla operatora Helm (jeśli jest włączona). Wartość domyślna: "1.2.0".
 
-`--operator-namespace` : *Opcjonalna* nazwa przestrzeni nazw operatora. Wartość domyślna: "default"
+`--operator-namespace` : *Opcjonalna* nazwa przestrzeni nazw operatora. Wartość domyślna: "default". Maksymalnie 23 znaki.
 
 `--operator-params` : Parametry *opcjonalne* dla operatora. Musi być określona w cudzysłowie pojedynczym. Na przykład ```--operator-params='--git-readonly --git-path=releases --sync-garbage-collection' ```
 
@@ -169,12 +169,6 @@ Opcje obsługiwane w--operator-params
 | --git-email  | Wiadomość e-mail do użycia na potrzeby zatwierdzenia git. |
 
 * Jeśli nie ustawiono opcji "--Git-User" lub "--Git-email" (co oznacza, że nie chcesz mieć strumienia do zapisu w repozytorium), a następnie--plik git-ReadOnly zostanie automatycznie ustawiony (jeśli nie został jeszcze ustawiony).
-
-* Jeśli enableHelmOperator ma wartość true, wówczas ciągi operatorInstanceName + operatorNamespace nie mogą zawierać więcej niż 47 znaków.  W przypadku niepowodzenia przestrzegania tego limitu zostanie wyświetlony następujący błąd:
-
-   ```console
-   {"OperatorMessage":"Error: {failed to install chart from path [helm-operator] for release [<operatorInstanceName>-helm-<operatorNamespace>]: err [release name \"<operatorInstanceName>-helm-<operatorNamespace>\" exceeds max length of 53]} occurred while doing the operation : {Installing the operator} on the config","ClusterState":"Installing the operator"}
-   ```
 
 Aby uzyskać więcej informacji, zobacz [Dokumentacja strumienia](https://aka.ms/FluxcdReadme).
 
@@ -251,7 +245,7 @@ Podczas procesu aprowizacji `sourceControlConfiguration` wystąpią pewne zmiany
 
 ## <a name="apply-configuration-from-a-private-git-repository"></a>Zastosuj konfigurację z prywatnego repozytorium git
 
-Jeśli używasz prywatnego repozytorium git, musisz skonfigurować klucz publiczny SSH w repozytorium. Klucz publiczny można skonfigurować w repozytorium Git lub użytkownikowi git, który ma dostęp do repozytorium. Klucz publiczny SSH będzie taki sam, jak ty lub który generuje strumień.
+Jeśli używasz prywatnego repozytorium git, musisz skonfigurować klucz publiczny SSH w repozytorium. Klucz publiczny można skonfigurować w odniesieniu do określonego repozytorium Git lub użytkownika git, który ma dostęp do repozytorium. Klucz publiczny SSH będzie taki sam, jak ty lub który generuje strumień.
 
 **Pobierz swój własny klucz publiczny**
 
@@ -260,7 +254,7 @@ Jeśli wygenerowałeś własne klucze SSH, masz już klucze prywatne i publiczne
 **Pobierz klucz publiczny przy użyciu interfejsu wiersza polecenia platformy Azure (przydatne, jeśli strumień generuje klucze)**
 
 ```console
-$ az k8sconfiguration show --resource-group <resource group name> --cluster-name <connected cluster name> --name <configuration name> --query 'repositoryPublicKey'
+$ az k8sconfiguration show --resource-group <resource group name> --cluster-name <connected cluster name> --name <configuration name> --cluster-type connectedClusters --query 'repositoryPublicKey' 
 Command group 'k8sconfiguration' is in preview. It may be changed/removed in a future release.
 "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAREDACTED"
 ```
