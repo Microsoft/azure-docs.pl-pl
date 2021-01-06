@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 12/1/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
-ms.openlocfilehash: 58dacc9e65da6502d083446cb7202c222cb7e795
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 1b43a1ceb1f9e098e4932b405553ae8f33e27262
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97034041"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937352"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Zarządzanie przydziałami i zwiększanie limitów zasobów przy użyciu Azure Machine Learning
 
@@ -29,7 +29,7 @@ Na platformie Azure są stosowane limity i przydziały, które uniemożliwiają 
 > + Zwiększenie limitu przydziału.
 > + Prywatne przydziały punktów końcowych i DNS.
 
-Wraz z zarządzaniem przydziałami można dowiedzieć się, jak [planować i zarządzać kosztami Azure Machine Learning](concept-plan-manage-cost.md).
+Wraz z zarządzaniem przydziałami można dowiedzieć się, jak [planować i zarządzać kosztami Azure Machine Learning](concept-plan-manage-cost.md) lub dowiedzieć się więcej o [limitach usługi w Azure Machine Learning](resource-limits-quotas-capacity.md).
 
 ## <a name="special-considerations"></a>Uwagi specjalne
 
@@ -53,7 +53,9 @@ Ta sekcja zawiera informacje o domyślnych i maksymalnych limitach przydziału d
 + Azure Storage
 
 > [!IMPORTANT]
-> Limity mogą ulec zmianie. Aby uzyskać najnowsze informacje, zobacz [limity dotyczące subskrypcji i usług platformy Azure, przydziałów i ograniczeń](../azure-resource-manager/management/azure-subscription-service-limits.md) dla wszystkich platform Azure.
+> Limity mogą ulec zmianie. Najnowsze informacje znajdują się  [w temacie limity usługi w Azure Machine Learning](resource-limits-quotas-capacity.md).
+
+
 
 ### <a name="azure-machine-learning-assets"></a>Zasoby Azure Machine Learning
 Poniższe ograniczenia dotyczące zasobów dotyczą poszczególnych obszarów roboczych. 
@@ -104,7 +106,7 @@ W poniższej tabeli przedstawiono dodatkowe limity na platformie. Skontaktuj si�
 #### <a name="azure-machine-learning-pipelines"></a>Potoki Azure Machine Learning
 [Potoki Azure Machine Learning](concept-ml-pipelines.md) mają następujące limity.
 
-| **Zasób** | **Limit** |
+| **Zasób** | **Granice** |
 | --- | --- |
 | Etapy potoku | 30 000 |
 | Obszary robocze na grupę zasobów | 800 |
@@ -210,3 +212,4 @@ Aby zażądać przydziału dla tych scenariuszy, wykonaj następujące czynnośc
 ## <a name="next-steps"></a>Następne kroki
 
 + [Planowanie i zarządzanie kosztami Azure Machine Learning](concept-plan-manage-cost.md)
++ [Limity usługi w Azure Machine Learning](resource-limits-quotas-capacity.md)
