@@ -4,12 +4,12 @@ description: Informacje o schemacie JSON, który jest publikowany w adresie URL 
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
-ms.openlocfilehash: a73ab12d1729acba132aeffd4104ca7846ecb9e8
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: b48f094b460a2871b502c72b39b849ed68b9c085
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901440"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916641"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Elementy webhook dla alertów dziennika aktywności platformy Azure
 W ramach definicji grupy akcji można skonfigurować punkty końcowe elementu webhook, aby otrzymywać powiadomienia o alertach dziennika aktywności. Za pomocą elementów webhook można kierować te powiadomienia do innych systemów na potrzeby akcji wykonywanych po przetworzeniu lub w niestandardowym. W tym artykule przedstawiono sposób, w jaki zostanie wyświetlony ładunek dla wpisu HTTP dla elementu webhook.
@@ -40,6 +40,7 @@ Element webhook może opcjonalnie użyć autoryzacji opartej na tokenach na potr
 > Jeśli warunek (w regułach akcji, elementach webhook, aplikacja logiki lub inne konfiguracje) jest obecnie oparty na właściwości **"Description"** dla alertów dziennika aktywności, może być konieczne zmodyfikowanie go na podstawie właściwości **"Opis zdarzenia dziennika aktywności"** .
 >
 > Aby wypełnić nową właściwość **"Description"** , można dodać opis w definicji reguły alertu.
+> ![Wyzwolone alerty dziennika aktywności](media/activity-log-alerts-webhook/activity-log-alert-fired.png)
 
 ### <a name="common"></a>Wspólne
 

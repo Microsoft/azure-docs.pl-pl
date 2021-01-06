@@ -14,18 +14,18 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 09c306b85c910e8ec2021abf15013935c44b0df3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91e74668224d1cdbbc462bf6c2c0a22c4f0a9837
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707714"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916579"
 ---
 # <a name="monitor-media-services-metrics"></a>Monitorowanie metryk usług Media Services
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-[Azure monitor](../../azure-monitor/overview.md) umożliwia monitorowanie metryk i dzienników diagnostycznych, które ułatwiają zrozumienie sposobu działania aplikacji. Aby uzyskać szczegółowy opis tej funkcji oraz sprawdzić, dlaczego warto używać Azure Media Services metryki i dzienniki diagnostyczne, zobacz [monitorowanie Media Services metryk i dzienników diagnostycznych](media-services-metrics-diagnostic-logs.md).
+[Azure monitor](../../azure-monitor/overview.md) umożliwia monitorowanie metryk i dzienników diagnostycznych, które ułatwiają zrozumienie sposobu działania aplikacji. Aby uzyskać szczegółowy opis tej funkcji i zrozumieć, dlaczego należy używać Azure Media Services metryk i dzienników diagnostycznych, zobacz [monitorowanie Media Services metryk i dzienników diagnostycznych](media-services-metrics-diagnostic-logs.md).
 
 Azure Monitor oferuje kilka sposobów współpracy z metrykami, w tym wykresów w portalu, uzyskiwania do nich dostępu za pośrednictwem interfejsu API REST lub wykonywania zapytań przy użyciu wiersza polecenia platformy Azure. W tym artykule przedstawiono sposób monitorowania metryk przy użyciu wykresów Azure Portal i interfejsu wiersza polecenia platformy Azure.
 
@@ -38,24 +38,21 @@ Azure Monitor oferuje kilka sposobów współpracy z metrykami, w tym wykresów 
 
 1. Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 1. Przejdź do konta Azure Media Services i wybierz pozycję **metryki**.
-1. Kliknij pole **zasób** i wybierz zasób, dla którego chcesz monitorować metryki.
+1. Kliknij pole **zakres** i wybierz zasób, który chcesz monitorować.
 
-    Po prawej stronie zostanie wyświetlone okno **Wybierz zasób** z listą dostępnych zasobów. W takim przypadku zobaczysz:
+    Po prawej stronie zostanie wyświetlone okno **Wybierz zakres** z listą dostępnych zasobów. W takim przypadku zobaczysz:
 
     * &lt;Nazwa konta Media Services&gt;
     * &lt;Nazwa konta programu Media Services nazwa &gt; / &lt; punktu końcowego przesyłania strumieniowego&gt;
     * &lt;Nazwa konta magazynu&gt;
 
-    Wybierz zasób i naciśnij przycisk **Zastosuj**. Aby uzyskać szczegółowe informacje o obsługiwanych zasobach i metrykach, zobacz [monitorowanie Media Services metryki](media-services-metrics-diagnostic-logs.md).
-
-    ![Zrzut ekranu pokazujący wybrany zasób i wyróżniony przycisk Zastosuj.](media/media-services-metrics/metrics02.png)
+    Odfiltruj, a następnie wybierz zasób i naciśnij przycisk **Zastosuj**. Aby uzyskać szczegółowe informacje o obsługiwanych zasobach i metrykach, zobacz [monitorowanie Media Services metryki](media-services-metrics-diagnostic-logs.md).
 
     > [!NOTE]
-    > Aby przełączać się między zasobami, dla których chcesz monitorować metryki, kliknij ponownie pole **zasobu** i powtórz ten krok.
-1. (Opcjonalnie) Nadaj wykresowi nazwę (Edytuj nazwę, naciskając ołówek u góry).
-1. Dodaj metryki, które chcesz wyświetlić.
+    > Aby przełączać się między zasobami, które chcesz monitorować, kliknij ponownie pole **źródłowe** i powtórz ten krok.
 
-    ![Metryki](media/media-services-metrics/metrics03.png)
+1. Opcjonalne: nadaj wykresowi nazwę (Edytuj nazwę, naciskając ołówek u góry).
+1. Dodaj metryki, które chcesz wyświetlić.
 1. Możesz przypiąć wykres do pulpitu nawigacyjnego.
 
 ## <a name="view-metrics-with-azure-cli"></a>Wyświetlanie metryk przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -72,8 +69,8 @@ Aby uzyskać inne metryki, Zastąp ciąg "wychodzące" dla nazwy metryki, która
 
 ## <a name="see-also"></a>Zobacz też
 
-* [Metryki Azure Monitor](../../azure-monitor/platform/data-platform.md)
-* [Twórz i wyświetlaj alerty metryk i zarządzaj nimi za pomocą Azure monitor](../../azure-monitor/platform/alerts-metric.md).
+- [Metryki usługi Azure Monitor](../../azure-monitor/platform/data-platform.md)
+- [Twórz i wyświetlaj alerty metryk i zarządzaj nimi za pomocą Azure monitor](../../azure-monitor/platform/alerts-metric.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

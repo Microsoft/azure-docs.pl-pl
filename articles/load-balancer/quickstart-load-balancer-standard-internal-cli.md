@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 12/19/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: fd85021da36d0e5ef32ce3f42c72b83016d38749
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 15060a367bba2d50d7054730321f7f20d4c25e46
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901355"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916681"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Szybki Start: Tworzenie wewnętrznego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -54,6 +54,8 @@ Utwórz grupę zasobów za pomocą [AZ Group Create](/cli/azure/group#az_group_c
 >[!NOTE]
 >Moduł równoważenia obciążenia w warstwie Standardowa jest zalecany w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji o jednostkach SKU, zobacz **[Azure Load Balancer SKU](skus.md)**.
 
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="Zasoby usługi równoważenia obciążenia w warstwie Standardowa utworzone w ramach szybkiego startu." border="false":::
+
 ## <a name="configure-virtual-network---standard"></a>Konfigurowanie sieci wirtualnej — standardowa
 
 Przed wdrożeniem maszyn wirtualnych i wdrożeniem modułu równoważenia obciążenia, należy utworzyć pomocnicze zasoby sieci wirtualnej.
@@ -84,7 +86,7 @@ Utwórz sieć wirtualną za pomocą polecenia [AZ Network VNET Create](/cli/azur
 Użyj [AZ Network Public-IP Create](/cli/azure/network/public-ip#az-network-public-ip-create) , aby utworzyć publiczny adres IP dla hosta bastionu:
 
 * Utwórz strefę Standard nadmiarowy publiczny adres IP o nazwie **myBastionIP**.
-* W * * CCreateIntLBQS-RG * *.
+* W **CreateIntLBQS-RG**.
 
 ```azurecli-interactive
 az network public-ip create \
@@ -99,7 +101,7 @@ Użyj [AZ Network VNET Subnet Create](/cli/azure/network/vnet/subnet#az-network-
 * O nazwie **AzureBastionSubnet**.
 * Prefiks adresu **10.1.1.0/24**.
 * W sieci wirtualnej **myVNet**.
-* W grupie zasobów * * CreateIntLBQS-RG * *.
+* W grupie zasobów **CreateIntLBQS-RG**.
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -114,7 +116,7 @@ az network vnet subnet create \
 Użyj [AZ Network bastionu Create](/cli/azure/network/bastion#az-network-bastion-create) , aby utworzyć hosta bastionu:
 
 * O nazwie **myBastionHost**.
-* W * * CreateIntLBQS-RG * *.
+* W **CreateIntLBQS-RG**.
 * Skojarzone z publicznym adresem IP **myBastionIP**.
 * Skojarzone z **myVNet** sieci wirtualnej.
 * W lokalizacji **wschodniego** .
@@ -348,6 +350,8 @@ Dodaj maszyny wirtualne do puli zaplecza za pomocą [AZ Network nic IP-config Ad
 
 >[!NOTE]
 >Moduł równoważenia obciążenia w warstwie Standardowa jest zalecany w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji o jednostkach SKU, zobacz **[Azure Load Balancer SKU](skus.md)**.
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal-basic.png" alt-text="Zasoby podstawowego modułu równoważenia obciążenia utworzone w ramach szybkiego startu." border="false":::
 
 ## <a name="configure-virtual-network---basic"></a>Konfigurowanie sieci wirtualnej — podstawowe
 

@@ -8,16 +8,32 @@ ms.date: 09/15/2020
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 661cfd5bb410a714bc42e0cd9676ac2ec08f8a45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a37c86268d2424971058021044c60185a25348f
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708894"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916460"
 ---
 # <a name="troubleshoot-azure-nfs-file-shares"></a>Rozwiązywanie problemów z udziałami plików NFS systemu Azure
 
 W tym artykule wymieniono niektóre typowe problemy związane z udziałami plików NFS systemu Azure. Zapewnia potencjalne przyczyny i obejścia w przypadku napotkania tych problemów.
+
+## <a name="chgrp-filename-failed-invalid-argument-22"></a>chgrp "filename" nie powiodła się: nieprawidłowy argument (22)
+
+### <a name="cause-1-idmapping-is-not-disabled"></a>Przyczyna 1: idmapping nie jest wyłączona
+Azure Files nie zezwala na alfanumeryczne UID/GID. Idmapping musi być wyłączona. 
+
+### <a name="cause-2-idmapping-was-disabled-but-got-re-enabled-after-encountering-bad-filedir-name"></a>Przyczyna 2: idmapping została wyłączona, ale po napotkaniu nieprawidłowej nazwy pliku/katalogu otrzymasz ponowną obsługę
+Nawet jeśli idmapping została prawidłowo wyłączona, ustawienia dotyczące wyłączania idmapping są zastępowane w niektórych przypadkach. Na przykład gdy Azure Files napotka nieprawidłową nazwę pliku, spowoduje to wysłanie błędu. Gdy widzisz ten konkretny kod błędu, klient systemu plików NFS w wersji 4,1 z systemem Linux zdecyduje się ponownie włączyć idmapping, a przyszłe żądania są wysyłane ponownie z alfanumerycznym identyfikatorem UID/GID. Aby zapoznać się z listą nieobsługiwanych znaków w Azure Files, zobacz ten [artykuł](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#:~:text=The%20Azure%20File%20service%20naming%20rules%20for%20directory,be%20no%20more%20than%20255%20characters%20in%20length). Dwukropek jest jednym z nieobsługiwanych znaków. 
+
+### <a name="workaround"></a>Obejście
+Sprawdź, czy usługa idmapping jest wyłączona i nic nie jest ponownie włączane, a następnie wykonaj następujące czynności:
+
+- Odinstaluj udział
+- Wyłącz mapowanie identyfikatorów przy użyciu # echo Y >/sys/module/NFS/Parameters/nfs4_disable_idmapping
+- Instalowanie udziału z powrotem
+- W przypadku uruchomienia rsync należy uruchomić rsync z argumentem "— liczbowy-ID" z katalogu, który nie ma żadnej nieprawidłowej nazwy Dir/File.
 
 ## <a name="unable-to-create-an-nfs-share"></a>Nie można utworzyć udziału NFS
 
@@ -52,7 +68,7 @@ System plików NFS jest dostępny tylko na kontach magazynu z następującą kon
 - Warstwa — Premium
 - Rodzaj konta — FileStorage
 - Nadmiarowość — LRS
-- Regiony — Wschodnie stany USA, Wschodnie stany USA 2, Południowe Zjednoczone Królestwo, Azja Południowo-Wschodnia
+- Regiony — [Lista obsługiwanych regionów](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-nfs-shares?tabs=azure-portal#regional-availability)
 
 #### <a name="solution"></a>Rozwiązanie
 
@@ -90,7 +106,7 @@ Na poniższym diagramie przedstawiono łączność przy użyciu publicznych punk
     - Komunikacja równorzędna sieci wirtualnych z sieciami wirtualnymi hostowanymi w prywatnym punkcie końcowym daje dostęp do klientów w równorzędnych sieciach wirtualnych.
     - Prywatne punkty końcowe mogą być używane z ExpressRoute, punkt-lokacja i sieci VPN typu lokacja-lokacja.
 
-:::image type="content" source="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg" alt-text="Diagram łączności między publicznymi punktami końcowymi." lightbox="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg":::
+:::image type="content" source="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg" alt-text="Diagram łączności między prywatnymi punktami końcowymi." lightbox="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg":::
 
 ### <a name="cause-2-secure-transfer-required-is-enabled"></a>Przyczyna 2: włączono bezpieczny transfer
 
@@ -100,7 +116,7 @@ Szyfrowanie podwójne nie jest jeszcze obsługiwane w przypadku udziałów NFS. 
 
 W bloku Konfiguracja konta magazynu jest wymagane wyłączenie bezpiecznego transferu.
 
-:::image type="content" source="media/storage-files-how-to-mount-nfs-shares/storage-account-disable-secure-transfer.png" alt-text="Diagram łączności między publicznymi punktami końcowymi.":::
+:::image type="content" source="media/storage-files-how-to-mount-nfs-shares/storage-account-disable-secure-transfer.png" alt-text="Zrzut ekranu przedstawiający blok Konfiguracja konta magazynu, który jest wymagany do bezpiecznego transferu.":::
 
 ### <a name="cause-3-nfs-common-package-is-not-installed"></a>Przyczyna 3: nie zainstalowano pakietu Common NFS
 Przed uruchomieniem polecenia mount Zainstaluj pakiet, uruchamiając polecenie dystrybucji.

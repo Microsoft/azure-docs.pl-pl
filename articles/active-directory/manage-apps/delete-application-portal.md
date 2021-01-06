@@ -8,18 +8,20 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 12/28/2020
+ms.date: 1/5/2021
 ms.author: kenwith
-ms.openlocfilehash: e2b8bd47f7d124562a38413d36b849d1f7efacee
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: a3468b6f74519018f73f6bf32df74bd6cbb458f6
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97802766"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916698"
 ---
 # <a name="quickstart-delete-an-application-from-your-azure-active-directory-azure-ad-tenant"></a>Szybki Start: Usuwanie aplikacji z dzierżawy usługi Azure Active Directory (Azure AD)
 
 Ten przewodnik Szybki Start używa Azure Portal do usuwania aplikacji, która została dodana do dzierżawy usługi Azure Active Directory (Azure AD).
+
+Dowiedz się więcej o rejestracji jednokrotnej i platformie Azure, zobacz [co to jest Single Sign-On (SSO)](what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

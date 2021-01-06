@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 85080c018749f9aab716eff0a4527363da987007
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 53e6d6e67a90cd1f39aed7f9cd7c2368282b2d1f
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620481"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916596"
 ---
 # <a name="what-is-azure-machine-learning"></a>Co to jest usługa Azure Machine Learning?
 
@@ -118,7 +118,7 @@ Azure Machine Learning współpracuje z innymi usługami na platformie Azure, a 
 + __Sieci wirtualne platformy Azure__. Aby uzyskać więcej informacji, zobacz [Omówienie izolacji i prywatności w sieci wirtualnej](how-to-network-security-overview.md).
 + __Azure Pipelines__. Aby uzyskać więcej informacji, zobacz [uczenie i wdrażanie modeli uczenia maszynowego](/azure/devops/pipelines/targets/azure-machine-learning).
 + __Dzienniki repozytorium git__. Aby uzyskać więcej informacji, zobacz Integracja z usługą [git](concept-train-model-git-integration.md).
-+ __MLFlow__. Aby uzyskać więcej informacji, zobacz [MLflow do śledzenia metryk i wdrażania modeli](how-to-use-mlflow.md) 
++ __MLFlow__. Aby uzyskać więcej informacji, zobacz [MLflow do śledzenia metryk](how-to-use-mlflow.md) i [wdrażania modeli MLflow jako usługi sieci Web](how-to-deploy-mlflow-models.md) . 
 + __Kubeflow__. Aby uzyskać więcej informacji, zobacz [Tworzenie kompleksowych potoków przepływu pracy](https://www.kubeflow.org/docs/azure/).
 
 ### <a name="secure-communications"></a>Bezpieczna komunikacja

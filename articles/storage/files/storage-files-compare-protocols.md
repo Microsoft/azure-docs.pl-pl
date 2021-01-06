@@ -8,12 +8,12 @@ ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 288d1740c1c4c67dd8756de5fc0652966ae89488
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: e914bcece9a30270d12d5c2cc09d3fd1014783c6
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620978"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916511"
 ---
 # <a name="azure-file-share-protocols"></a>Protokoły udziałów plików platformy Azure
 
@@ -24,10 +24,10 @@ Azure Files oferuje dwa protokoły do łączenia i instalowania udziałów plik�
 |Cechy  |NFS (wersja zapoznawcza)  |SMB  |
 |---------|---------|---------|
 |Protokoły dostępu     |SYSTEM PLIKÓW NFS 4,1         |SMB 2,1, SMB 3,0         |
-|Obsługiwane systemy operacyjne     |Jądro systemu Linux w wersji 4.3 +         |Windows 2008 R2 +, jądro systemu Linux w wersji 4.11 +         |
+|Zalecany system operacyjny     |Jądro systemu Linux w wersji 4.3 +         |Windows 2008 R2 +, jądro systemu Linux w wersji 4.11 +         |
 |[Dostępne warstwy](storage-files-planning.md#storage-tiers)     |Premium Storage         |Usługa Premium Storage, zoptymalizowana pod kątem transakcji, gorąca, chłodna         |
 |[Nadmiarowość](storage-files-planning.md#redundancy)     |LRS, ZRS         |LRS, ZRS, GRS         |
-|Uwierzytelnianie     |Tylko uwierzytelnianie oparte na hoście        |Uwierzytelnianie oparte na tożsamościach, uwierzytelnianie na podstawie użytkownika         |
+|Authentication     |Tylko uwierzytelnianie oparte na hoście        |Uwierzytelnianie oparte na tożsamościach, uwierzytelnianie na podstawie użytkownika         |
 |Uprawnienia     |Uprawnienia w stylu systemu UNIX         |Uprawnienia w stylu systemu plików NTFS         |
 |Semantyka systemu plików     |Zgodne ze standardem POSIX         |Nie jest zgodny ze standardem POSIX         |
 |Rozróżnianie wielkości liter     |Uwzględnianie wielkości liter         |Bez uwzględniania wielkości liter         |
@@ -57,7 +57,7 @@ System plików NFS z Azure Files jest idealnym rozwiązaniem dla:
 - Obciążenia wymagające udziałów plików zgodnych ze standardem POSIX, czułość wielkości liter lub uprawnienia do stylu systemu UNIX (UID/GID).
 - Obciążenia skoncentrowane na systemie Linux, które nie wymagają dostępu do systemu Windows.
 
-### <a name="security"></a>Bezpieczeństwo
+### <a name="security"></a>Zabezpieczenia
 
 Wszystkie dane Azure Files są szyfrowane w stanie spoczynku. W celu szyfrowania podczas przesyłania, platforma Azure udostępnia warstwę szyfrowania dla wszystkich danych przesyłanych między centrami datasites za pomocą [MACsec](https://en.wikipedia.org/wiki/IEEE_802.1AE). W tym przypadku szyfrowanie istnieje, gdy dane są przesyłane między centrami danych platformy Azure. W przeciwieństwie do Azure Files przy użyciu protokołu SMB udziały plików korzystające z protokołu NFS nie oferują uwierzytelniania opartego na użytkownikach. Uwierzytelnianie dla udziałów NFS odbywa się na podstawie skonfigurowanych reguł zabezpieczeń sieciowych. W związku z tym, aby zapewnić, że tylko bezpieczne połączenia są nawiązywane z udziałem NFS, należy użyć punktów końcowych usługi lub prywatnych punktów końcowych. Jeśli chcesz uzyskać dostęp do udziałów z zasobów lokalnych, oprócz prywatnego punktu końcowego, musisz skonfigurować sieć VPN lub ExpressRoute. Żądania, które nie pochodzą z następujących źródeł, zostaną odrzucone:
 
