@@ -75,7 +75,7 @@
         - name: Często zadawane pytania — magazyny usługi Recovery Services
           href: backup-azure-backup-faq.md
         - name: Często zadawane pytania — centrum kopii zapasowych
-          href: backup-center-faq.md
+          href: backup-center-faq.yml
         - name: Często zadawane pytania — kopia zapasowa maszyny wirtualnej platformy Azure
           href: backup-azure-vm-backup-faq.md
         - name: Często zadawane pytania — agent usługi MARS
