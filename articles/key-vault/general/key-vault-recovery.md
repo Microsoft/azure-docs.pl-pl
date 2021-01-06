@@ -8,12 +8,12 @@ ms.author: mbaldwin
 author: msmbaldwin
 manager: rkarlin
 ms.date: 09/30/2020
-ms.openlocfilehash: 258d100276b20ea2437ebffb1473492a247657e8
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: a9a783333d8edd40556b7744eb7cf7dfb52953a7
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704218"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97933986"
 ---
 # <a name="azure-key-vault-recovery-management-with-soft-delete-and-purge-protection"></a>Azure Key Vault zarządzanie odzyskiwaniem z użyciem nietrwałego usuwania i przeczyszczania ochrony
 
@@ -394,4 +394,4 @@ Aby uzyskać więcej informacji na temat usuwania nietrwałego, zobacz [Azure Ke
 - [Jak włączyć rejestrowanie Key Vault](howto-logging.md)
 - [Bezpieczny dostęp do magazynu kluczy](secure-your-key-vault.md)
 - [Przewodnik dewelopera Azure Key Vault](developers-guide.md)
-- [Najlepsze rozwiązania dotyczące korzystania z magazynu kluczy](best-practices.md)
+- [Najlepsze rozwiązania dotyczące korzystania z magazynu kluczy](security-overview.md)

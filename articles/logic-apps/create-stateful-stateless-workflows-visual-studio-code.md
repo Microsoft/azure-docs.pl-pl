@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: a74244cc45e1a3d2116f98ac73290d184f4affc0
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: be8d00d795c19399d494db21578e9a7ba8dd9711
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632064"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934020"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Twórz stanowe i bezstanowe przepływy pracy w Visual Studio Code z rozszerzeniem Azure Logic Apps (wersja zapoznawcza)
 
@@ -421,9 +421,9 @@ Przepływ pracy w tym przykładzie używa tego wyzwalacza i następujących akcj
 
    | Właściwość | Wymagany | Wartość | Opis |
    |----------|----------|-------|-------------|
-   | **Do** | Tak | <*adres e-mail użytkownika*> | Odbiorca wiadomości e-mail, który może być Twoim adresem e-mail do celów testowych. Ten przykład używa fikcyjnej poczty e-mail `sophiaowen@fabrikam.com` . |
-   | **Temat** | Tak | `An email from your example workflow` | Temat wiadomości e-mail |
-   | **Treść** | Tak | `Hello from your example workflow!` | Zawartość wiadomości e-mail |
+   | **Do** | Yes | <*adres e-mail użytkownika*> | Odbiorca wiadomości e-mail, który może być Twoim adresem e-mail do celów testowych. Ten przykład używa fikcyjnej poczty e-mail `sophiaowen@fabrikam.com` . |
+   | **Temat** | Yes | `An email from your example workflow` | Temat wiadomości e-mail |
+   | **Treść** | Yes | `Hello from your example workflow!` | Zawartość wiadomości e-mail |
    ||||
 
    > [!NOTE]
@@ -742,7 +742,7 @@ Aplikację logiki można opublikować jako nowy zasób, co spowoduje automatyczn
 
       ![Zrzut ekranu przedstawiający okienko "Azure: Logic Apps (wersja zapoznawcza)" oraz monit o podanie nazwy nowej aplikacji logiki do utworzenia.](./media/create-stateful-stateless-workflows-visual-studio-code/enter-logic-app-name.png)
 
-   1. Wybierz plan hostingu dla nowej aplikacji logiki, [**App Service plan**](../azure-functions/functions-scale.md#app-service-plan) lub [**Premium**](../azure-functions/functions-scale.md#premium-plan). Ten przykład wybiera **App Service plan**.
+   1. Wybierz plan hostingu dla nowej aplikacji logiki, [**App Service plan**](../azure-functions/dedicated-plan.md) lub [**Premium**](../azure-functions/functions-premium-plan.md). Ten przykład wybiera **App Service plan**.
 
       ![Zrzut ekranu przedstawiający okienko "Azure: Logic Apps (wersja zapoznawcza)" oraz monit o wybranie opcji "App Service plan" lub "Premium".](./media/create-stateful-stateless-workflows-visual-studio-code/select-hosting-plan.png)
 

@@ -13,22 +13,22 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27c34135a59521eca361c59a1c82854469626616
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 8dd570a31813ef12ee8a007c84facb8aa5e7aca4
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97744099"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97933136"
 ---
 # <a name="manage-external-access-with-conditional-access-policies"></a>Zarządzanie dostępem zewnętrznym przy użyciu zasad dostępu warunkowego 
 
-[Dostęp warunkowy](../conditional-access/overview.md) jest narzędziem wykorzystywanym przez usługę Azure AD do łączenia sygnałów, wymuszania zasad i określania, czy użytkownik powinien mieć dostęp do zasobów. Aby uzyskać szczegółowe informacje na temat tworzenia i używania zasad dostępu warunkowego (zasad urzędu certyfikacji), zobacz [Planowanie wdrożenia dostępu warunkowego](../conditional-access/plan-conditional-access.md). 
+[Dostęp warunkowy](../conditional-access/overview.md) jest narzędziem wykorzystywanym przez usługę Azure AD do łączenia sygnałów, wymuszania zasad i określania, czy użytkownik powinien mieć dostęp do zasobów. Aby uzyskać szczegółowe informacje na temat tworzenia i używania zasad dostępu warunkowego (zasady dostępu warunkowego), zobacz [Planowanie wdrożenia dostępu warunkowego](../conditional-access/plan-conditional-access.md). 
 
 ![Diagram sygnałów dostępu warunkowego i decyzji](media/secure-external-access//7-conditional-access-signals.png)
 
 
 
-W tym artykule omówiono stosowanie zasad urzędu certyfikacji do użytkowników zewnętrznych i przyjęto założenie, że nie masz dostępu do funkcji [zarządzania prawami](../governance/entitlement-management-overview.md) . Zasady urzędu certyfikacji mogą być i są używane razem z zarządzaniem prawami.
+W tym artykule omówiono stosowanie zasad dostępu warunkowego do użytkowników zewnętrznych i przyjęto założenie, że nie masz dostępu do funkcji [zarządzania prawami](../governance/entitlement-management-overview.md) . Zasady dostępu warunkowego mogą być i są używane razem z zarządzaniem prawami.
 
 Wcześniej w tym zestawie dokumentów został [utworzony plan zabezpieczeń](3-secure-access-plan.md) , który zawiera opis:
 
@@ -36,27 +36,27 @@ Wcześniej w tym zestawie dokumentów został [utworzony plan zabezpieczeń](3-s
 
 * Wymagania dotyczące logowania dla użytkowników zewnętrznych.
 
-Ten plan zostanie użyty do utworzenia zasad urzędu certyfikacji dla dostępu zewnętrznego. 
+Ten plan zostanie użyty do utworzenia zasad dostępu warunkowego dla dostępu zewnętrznego. 
 
 > [!IMPORTANT]
 > Utwórz kilka zewnętrznych kont testów użytkowników, aby umożliwić przetestowanie utworzonych zasad przed ich zastosowaniem do wszystkich użytkowników zewnętrznych.
 
 ## <a name="conditional-access-policies-for-external-access"></a>Zasady dostępu warunkowego dla dostępu zewnętrznego
 
-Poniżej przedstawiono najlepsze rozwiązania dotyczące zarządzania dostępem zewnętrznym przy użyciu zasad urzędu certyfikacji.
+Poniżej przedstawiono najlepsze rozwiązania dotyczące zarządzania dostępem zewnętrznym przy użyciu zasad dostępu warunkowego.
 
-* Jeśli nie możesz użyć połączonych organizacji w usłudze zarządzania prawami, Utwórz grupę zabezpieczeń usługi Azure AD lub grupę Microsoft 365 dla każdej organizacji partnera, z którą pracujesz. Przypisz wszystkim użytkownikom z tego partnera do grupy. Te grupy mogą być następnie używane w zasadach urzędu certyfikacji.
+* Jeśli nie możesz użyć połączonych organizacji w usłudze zarządzania prawami, Utwórz grupę zabezpieczeń usługi Azure AD lub grupę Microsoft 365 dla każdej organizacji partnera, z którą pracujesz. Przypisz wszystkim użytkownikom z tego partnera do grupy. Następnie można używać tych grup w zasadach dostępu warunkowego.
 
-* Utwórz jak najmniejszej liczby zasad urzędu certyfikacji. W przypadku aplikacji, które mają taki sam dostęp, należy dodać je wszystkie do tych samych zasad.  
+* Utwórz możliwie najmniejsze zasady dostępu warunkowego. W przypadku aplikacji, które mają taki sam dostęp, należy dodać je wszystkie do tych samych zasad.  
 ‎ 
    > [!NOTE]
-   > Zasady urzędu certyfikacji mogą dotyczyć maksymalnie 250 aplikacji. Jeśli więcej niż 250 aplikacji ma takie same potrzeby dostępu, Utwórz zduplikowane zasady. Zasady A zostaną zastosowane do aplikacji 1-250, zasady B będą stosowane do aplikacji 251-500 itd.
+   > Zasady dostępu warunkowego mogą dotyczyć maksymalnie 250 aplikacji. Jeśli więcej niż 250 aplikacji ma takie same potrzeby dostępu, Utwórz zduplikowane zasady. Zasady A zostaną zastosowane do aplikacji 1-250, zasady B będą stosowane do aplikacji 251-500 itd.
 
 * Jasno nazywaj zasady specyficzne dla dostępu zewnętrznego z konwencją nazewnictwa. Jedna Konwencja nazewnictwa jest *ExternalAccess_actiontaken_AppGroup*. Na przykład ExternalAccess_Block_FinanceApps.
 
 ## <a name="block-all-external-users-from-resources"></a>Blokuj wszystkich użytkowników zewnętrznych z zasobów
 
-Można zablokować użytkownikom zewnętrznym dostęp do określonych zestawów zasobów przy użyciu zasad urzędu certyfikacji. Po ustaleniu zestawu zasobów, do których ma zostać zablokowany dostęp, Utwórz zasady.
+Można zablokować użytkownikom zewnętrznym dostęp do określonych zestawów zasobów przy użyciu zasad dostępu warunkowego. Po ustaleniu zestawu zasobów, do których ma zostać zablokowany dostęp, Utwórz zasady.
 
 Aby utworzyć zasadę, która blokuje dostęp użytkownikom zewnętrznym do zestawu aplikacji:
 

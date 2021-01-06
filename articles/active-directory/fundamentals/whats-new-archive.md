@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e90adcb5312df6e1dfe6d4b58407edeb924a8809
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 6e561a0e05cf1a0870d85369867caba6c4d6bf12
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862451"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932422"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Co nowego w Azure Active Directory?
 
@@ -3313,7 +3313,7 @@ Wiadomości e-mail w usłudze Azure Active Directory (Azure AD) teraz oferują z
 
 - Przeglądy dostępu w usłudze Azure AD
 - Azure AD Connect Health
-- Azure AD Identity Protection
+- Usługa Azure AD Identity Protection
 - Azure AD Privileged Identity Management
 - Powiadomienie o wygaśnięciu certyfikatu aplikacji dla przedsiębiorstw
 - Powiadomienia usługi aprowizacji aplikacji dla przedsiębiorstw
@@ -3733,7 +3733,7 @@ Aby uzyskać więcej informacji na temat tworzenia listy aplikacji w galerii apl
 
 **Typ:** Nowa **Kategoria usługi funkcji:** inny **produkt:** katalog
 
-Nowe instrukcje krok po kroku dotyczące sposobu wdrażania Azure Active Directory (Azure AD), w tym samoobsługowego resetowania hasła (SSPR), logowania jednokrotnego (SSO), dostępu warunkowego (CA), serwera proxy aplikacji, aprowizacji użytkowników, Active Directory Federation Services (ADFS) do uwierzytelniania przekazywanego (PTA) i usług ADFS do synchronizacji skrótów haseł (PHS).
+Nowe instrukcje krok po kroku dotyczące sposobu wdrażania Azure Active Directory (Azure AD), w tym samoobsługowego resetowania hasła (SSPR), logowania jednokrotnego (SSO), dostępu warunkowego, serwera proxy aplikacji, aprowizacji użytkowników, Active Directory Federation Services (ADFS) do uwierzytelniania przekazywanego (PTA) i usług ADFS do synchronizacji skrótów haseł (PHS).
 
 Aby wyświetlić przewodniki wdrażania, przejdź do repozytorium [przewodniki wdrażania tożsamości](./active-directory-deployment-plans.md) w witrynie GitHub. Aby przekazać opinię na temat przewodników wdrażania, użyj [formularza Opinia dotycząca planu wdrożenia](https://aka.ms/deploymentplanfeedback). Jeśli masz jakieś pytania dotyczące przewodników wdrażania, skontaktuj się z nami pod adresem [IDGitDeploy](mailto:idgitdeploy@microsoft.com).
 

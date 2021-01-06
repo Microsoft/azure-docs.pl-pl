@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2e670525840b801df874e3f8dcbdbadc0955a12
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 4122e645b76751e8944704a6405cf5dee09129f1
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746307"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932439"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planowanie wdrożenia Azure Active Directory przeglądy dostępu
 
@@ -333,9 +333,9 @@ Grupy, które są synchronizowane z Active Directory lokalnych, nie mogą mieć 
 > [!NOTE]
 > Zalecamy zdefiniowanie zasad biznesowych, które definiują sposób tworzenia grup, aby zapewnić przejrzyste własności grup i odpowiedzialność za regularne przeglądy członkostwa. 
 
-### <a name="review-membership-of-exclusion-groups-in-ca-policies"></a>Przejrzyj członkostwo grup wykluczeń w zasadach urzędu certyfikacji 
+### <a name="review-membership-of-exclusion-groups-in-conditional-access-policies"></a>Przeglądanie członkostwa grup wykluczeń w zasadach dostępu warunkowego 
 
-Istnieją przypadki, w których zasady dostępu warunkowego (CA) przeznaczone do zapewnienia bezpieczeństwa sieci nie powinny mieć zastosowania do wszystkich użytkowników. Na przykład zasady urzędu certyfikacji, które umożliwiają użytkownikom logowanie się tylko w sieci firmowej, mogą nie dotyczyć zespołu sprzedaży, który jest szeroko przenoszone. W takim przypadku członkowie zespołu sprzedaży zostałyby przeniesieni do grupy, a grupa ta zostanie wykluczona z zasad urzędu certyfikacji. 
+Istnieją przypadki, w których zasady dostępu warunkowego mające na celu zapewnienie bezpieczeństwa sieci nie powinny mieć zastosowania do wszystkich użytkowników. Na przykład zasady dostępu warunkowego, które umożliwiają użytkownikom logowanie się tylko w sieci firmowej, mogą nie dotyczyć zespołu sprzedaży, który jest szeroko przenoszone. W takim przypadku członkowie zespołu sprzedaży zostaną przeniesieni do grupy, a grupa ta zostanie wykluczona z zasad dostępu warunkowego. 
 
 Należy regularnie przeglądać takie członkostwo w grupach, ponieważ wykluczenie reprezentuje potencjalne ryzyko, jeśli złe elementy członkowskie zostały wykluczone z wymogu.
 

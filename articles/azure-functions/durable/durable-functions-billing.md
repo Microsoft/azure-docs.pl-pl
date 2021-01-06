@@ -5,18 +5,18 @@ author: cgillum
 ms.topic: overview
 ms.date: 08/31/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 504ef93a0002895bc5662d95ad269c8593170ee2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2ec1b080c195a47caafd0120240b5fb61ede062b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "74233009"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932286"
 ---
 # <a name="durable-functions-billing"></a>Rozliczanie Durable Functions
 
 [Durable Functions](durable-functions-overview.md) jest rozliczany w taki sam sposób jak Azure Functions. Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
 
-Podczas wykonywania funkcji programu Orchestrator w [planie zużycia](../functions-scale.md#consumption-plan)Azure Functions należy mieć świadomość niektórych zachowań rozliczania. W poniższych sekcjach opisano te zachowania i ich skutki bardziej szczegółowo.
+Podczas wykonywania funkcji programu Orchestrator w [planie zużycia](../consumption-plan.md)Azure Functions należy mieć świadomość niektórych zachowań rozliczania. W poniższych sekcjach opisano te zachowania i ich skutki bardziej szczegółowo.
 
 ## <a name="orchestrator-function-replay-billing"></a>Rozliczanie powtarzania funkcji programu Orchestrator
 
@@ -45,7 +45,7 @@ Niektóre czynniki przyczyniają się do rzeczywistych kosztów usługi Azure St
 
 * Pojedyncza aplikacja funkcji jest skojarzona z jednym centrum zadań, który udostępnia zestaw zasobów usługi Azure Storage. Te zasoby są używane przez wszystkie funkcje trwałe w aplikacji funkcji. Rzeczywista liczba funkcji w aplikacji funkcji nie ma wpływu na koszty transakcji usługi Azure Storage.
 * Każde wystąpienie aplikacji funkcji wewnętrznie sonduje wiele kolejek na koncie magazynu przy użyciu algorytmu sondowania wykładniczego wycofywania. Wystąpienie aplikacji bezczynne sonduje kolejki rzadziej niż w przypadku aktywnej aplikacji, co powoduje zmniejszenie kosztów transakcji. Aby uzyskać więcej informacji na temat zachowania sondowania kolejki Durable Functions, zobacz [sekcję sondowanie kolejki w artykule dotyczącym wydajności i skalowania](durable-functions-perf-and-scale.md#queue-polling).
-* Po uruchomieniu w planach użycia Azure Functions lub Premium [kontroler skalowania Azure Functions](../functions-scale.md#how-the-consumption-and-premium-plans-work) regularnie sonduje wszystkie kolejki centrum zadań w tle. Jeśli aplikacja funkcji jest pod kątem średniej skali, tylko pojedyncze wystąpienie kontrolera skalowania będzie sondował te kolejki. Jeśli aplikacja funkcji jest skalowana do dużej liczby wystąpień, można dodać więcej wystąpień kontrolera skalowania. Te dodatkowe wystąpienia kontrolera skalowania mogą zwiększyć łączną liczbę kosztów transakcji kolejki.
+* Po uruchomieniu w planach użycia Azure Functions lub Premium [kontroler skalowania Azure Functions](../event-driven-scaling.md) regularnie sonduje wszystkie kolejki centrum zadań w tle. Jeśli aplikacja funkcji jest pod kątem średniej skali, tylko pojedyncze wystąpienie kontrolera skalowania będzie sondował te kolejki. Jeśli aplikacja funkcji jest skalowana do dużej liczby wystąpień, można dodać więcej wystąpień kontrolera skalowania. Te dodatkowe wystąpienia kontrolera skalowania mogą zwiększyć łączną liczbę kosztów transakcji kolejki.
 * Każde wystąpienie aplikacji funkcji konkuruje z zestawem dzierżaw obiektów BLOB. Te wystąpienia będą okresowo podejmować wywołania do Blob service platformy Azure, aby odnowić dzierżawy lub próbować uzyskać nowe dzierżawy. Liczba partycji skonfigurowana przez centrum zadań określa liczbę dzierżaw obiektów BLOB. Skalowanie w górę do większej liczby wystąpień aplikacji może spowodować zwiększenie kosztów transakcji usługi Azure Storage skojarzonych z tymi operacjami dzierżawy.
 
 Więcej informacji na temat cennika usługi Azure Storage można znaleźć w dokumentacji [cennika usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/) . 

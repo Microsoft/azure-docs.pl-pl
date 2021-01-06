@@ -3,12 +3,12 @@ title: Wdrażanie i uaktualnianie przy użyciu Azure Resource Manager
 description: Dowiedz się, jak wdrażać aplikacje i usługi w klastrze Service Fabric przy użyciu szablonu Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: bb866eb24fb1b286f496bad9845d1ee557baa221
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: ed6bc7d96cb3ea0934929e6543c5e637a9f42c1f
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681673"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97930841"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Zarządzanie aplikacjami i usługami jako zasobami Azure Resource Manager
 
@@ -50,13 +50,12 @@ Poniższy fragment kodu przedstawia różne rodzaje zasobów, którymi można za
 }
 ```
 
-
 ## <a name="add-a-new-application-to-your-resource-manager-template"></a>Dodawanie nowej aplikacji do szablonu Menedżer zasobów
 
 1. Przygotuj szablon Menedżer zasobów klastra do wdrożenia. Aby uzyskać więcej informacji na ten temat [, zobacz Tworzenie klastra Service Fabric przy użyciu Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) .
 2. Zastanów się nad niektórymi aplikacjami, które planujesz wdrożyć w klastrze. Czy istnieją jakieś, które będą zawsze uruchamiane, czy inne aplikacje mogą przyjmować zależności? Czy planujesz wdrożenie wszelkich aplikacji do zarządzania klastrami lub konfiguracji? Te różne aplikacje są najlepiej zarządzane za pośrednictwem szablonu Menedżer zasobów, jak opisano powyżej. 
-3. Po ustaleniu aplikacji, które mają zostać wdrożone w ten sposób, aplikacje muszą być spakowane, spakowane i umieszczone w udziale plików. Udział musi być dostępny za pomocą punktu końcowego REST, aby Azure Resource Manager do użycia podczas wdrażania.
-4. W szablonie Menedżer zasobów poniżej deklaracji klastra opisz właściwości poszczególnych aplikacji. Te właściwości obejmują liczbę replik lub wystąpień oraz wszystkie łańcuchy zależności między zasobami (innymi aplikacjami lub usługami). Aby uzyskać listę kompleksowych właściwości, zobacz [specyfikację Swagger interfejsu API REST](https://aka.ms/sfrpswaggerspec). Należy zauważyć, że nie zastępuje to manifestów aplikacji ani usług, ale zamiast tego opisuje niektóre z nich w ramach szablonu Menedżer zasobów klastra. Oto przykładowy szablon, który obejmuje wdrożenie *Service1* usługi bezstanowej i usługi stanowej *Językowej2* w ramach *Application1*:
+3. Po ustaleniu aplikacji, które mają zostać wdrożone w ten sposób, aplikacje muszą być spakowane, spakowane i umieszczone w udziale magazynu. Udział musi być dostępny za pomocą punktu końcowego REST, aby Azure Resource Manager do użycia podczas wdrażania. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie konta magazynu](service-fabric-concept-resource-model.md#create-a-storage-account) .
+4. W szablonie Menedżer zasobów poniżej deklaracji klastra opisz właściwości poszczególnych aplikacji. Te właściwości obejmują liczbę replik lub wystąpień oraz wszystkie łańcuchy zależności między zasobami (innymi aplikacjami lub usługami). Należy zauważyć, że nie zastępuje to manifestów aplikacji ani usług, ale zamiast tego opisuje niektóre z nich w ramach szablonu Menedżer zasobów klastra. Oto przykładowy szablon, który obejmuje wdrożenie *Service1* usługi bezstanowej i usługi stanowej *Językowej2* w ramach *Application1*:
 
    ```json
    {
@@ -244,7 +243,7 @@ Poniższy fragment kodu przedstawia różne rodzaje zasobów, którymi można za
    ```
 
    > [!NOTE] 
-   > Wartość *apiVersion* musi być ustawiona na wartość `"2019-03-01"` . Ten szablon można również wdrożyć niezależnie od klastra, o ile klaster został już wdrożony.
+   > Zapoznaj się z tematem [Azure Resource Manager](/azure/templates/microsoft.servicefabric/clusters/applicationtypes) Service Fabric, aby znaleźć użycie i szczegółowe informacje dotyczące właściwości poszczególnych szablonów.
 
 5. Wdrażanie! 
 

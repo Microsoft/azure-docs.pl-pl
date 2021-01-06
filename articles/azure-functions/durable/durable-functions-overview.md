@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 12/23/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 3725970c982c2d060685bf0b99d12a8fc998f20a
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 2079a3a7c9ce6817186e743bb09d31facdecf0e7
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763578"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97931725"
 ---
 # <a name="what-are-durable-functions"></a>Co to jest Durable Functions?
 
@@ -697,7 +697,7 @@ Aby zapewnić niezawodne i długotrwałe gwarancje wykonywania, funkcje programu
 
 ## <a name="billing"></a>Rozliczenia
 
-Opłaty za rozszerzenie Durable Functions są naliczane tak samo, jak w przypadku usługi Azure Functions. Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Functions](https://azure.microsoft.com/pricing/details/functions/). Podczas wykonywania funkcji programu Orchestrator w [planie zużycia](../functions-scale.md#consumption-plan)Azure Functions należy pamiętać o rozliczeniach. Aby uzyskać więcej informacji na temat tych zachowań, zobacz artykuł dotyczący [rozliczeń Durable Functions](durable-functions-billing.md) .
+Opłaty za rozszerzenie Durable Functions są naliczane tak samo, jak w przypadku usługi Azure Functions. Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Functions](https://azure.microsoft.com/pricing/details/functions/). Podczas wykonywania funkcji programu Orchestrator w [planie zużycia](../consumption-plan.md)Azure Functions należy pamiętać o rozliczeniach. Aby uzyskać więcej informacji na temat tych zachowań, zobacz artykuł dotyczący [rozliczeń Durable Functions](durable-functions-billing.md) .
 
 ## <a name="jump-right-in"></a>Błyskawicznie rozpocznij pracę
 
@@ -710,7 +710,7 @@ Ukończ jeden z tych samouczków Szybki start dotyczących poszczególnych języ
 
 W tych przewodnikach szybki start utworzysz i testujesz funkcję trwałego "Hello World". Kod funkcji zostanie następnie opublikowany na platformie Azure. Utworzona przez Ciebie funkcja aranżuje i łączy w łańcuchy wywołania do innych funkcji.
 
-## <a name="learn-more"></a>Więcej tutaj
+## <a name="learn-more"></a>Dowiedz się więcej
 
 Poniższy klip wideo prezentuje zalety rozszerzenia Durable Functions:
 

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2157a1cb96475209762e829c549d628f2c35fd91
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 49a350b77958901aae5e54e82d856e4f3772702e
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97425849"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97930790"
 ---
 # <a name="set-up-a-file-share-for-msix-app-attach-preview"></a>Skonfiguruj udział plików do dołączenia do aplikacji MSIX (wersja zapoznawcza)
 
@@ -64,6 +64,12 @@ Oto kilka innych rzeczy, które zalecamy, aby zoptymalizować wydajność dołą
 Proces instalacji udziału plików dołączania aplikacji MSIX jest w dużym stopniu taki sam jak [proces instalacji udziałów plików profilu FSLogix](create-host-pools-user-profile.md). Należy jednak przypisać użytkownikom różne uprawnienia. Dołączenie do aplikacji MSIX wymaga uprawnień tylko do odczytu w celu uzyskania dostępu do udziału plików.
 
 Jeśli przechowujesz aplikacje MSIX w Azure Files, to w przypadku hostów sesji należy przypisać wszystkie maszyny wirtualne hosta sesji zarówno kontrola dostępu oparta na rolach (RBAC), jak i udział plików nowe uprawnienia systemu plików (NTFS) do udziału.
+
+| Obiekt platformy Azure                      | Wymagana rola                                     | Funkcja roli                                  |
+|-----------------------------------|--------------------------------------------------|-----------------------------------------------|
+| Host sesji (obiekty komputera maszyny wirtualnej)| Współautor udziału SMB danych w pliku magazynu          | Odczyt i wykonywanie, Odczyt, wyświetlanie zawartości folderu  |
+| Administratorzy w udziale plików              | Współautor udziału SMB danych w pliku magazynu z podwyższonym poziomem uprawnień | Pełna kontrola                                  |
+| Użytkownicy w udziale plików               | Współautor udziału SMB danych w pliku magazynu          | Odczyt i wykonywanie, Odczyt, wyświetlanie zawartości folderu  |
 
 Aby przypisać uprawnienia do maszyn wirtualnych hosta sesji dla konta magazynu i udziału plików:
 

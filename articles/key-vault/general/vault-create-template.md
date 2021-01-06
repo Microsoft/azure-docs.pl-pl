@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/5/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 1ab382ec10d932b94961c73b7d7ac9082125a88c
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: e19277aa3639031371e0e8dd28f4dd849efd4597
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704524"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97933935"
 ---
 # <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>Jak utworzyć zasady dostępu magazynu i magazynu kluczy platformy Azure przy użyciu szablonu Menedżer zasobów
 
@@ -213,7 +213,7 @@ Write-Host "Press [ENTER] to continue..."
 
 - Zapoznaj się [z omówieniem Azure Key Vault](../general/overview.md).
 - Dowiedz się więcej o [Azure Resource Manager](../../azure-resource-manager/management/overview.md).
-- Zapoznaj się z [najlepszymi rozwiązaniami Azure Key Vault](../general/best-practices.md).
+- Zapoznaj się z [omówieniem zabezpieczeń Azure Key Vault](security-overview.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

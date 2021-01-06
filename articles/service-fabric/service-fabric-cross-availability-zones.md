@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 73a3be62e57991b63525372f008e15d8e4f36a74
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 1217ecba7a5fcb3c0fc95f505e7ca07fc76129b2
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401733"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97930824"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Wdróż klaster Service Fabric platformy Azure w Strefy dostępności
 Strefy dostępności na platformie Azure to oferta wysokiej dostępności, która chroni Twoje aplikacje i dane przed awariami centrów danych. Strefa dostępności jest unikatową lokalizacją fizyczną z niezależną mocą, chłodzeniem i siecią w regionie świadczenia usługi Azure.
@@ -35,7 +35,7 @@ Zalecana topologia dla typu węzła podstawowego wymaga opisanych poniżej zasob
 >[!NOTE]
 > Właściwość pojedynczej grupy położenia zestawu skalowania maszyn wirtualnych musi być ustawiona na wartość true, ponieważ Service Fabric nie obsługuje pojedynczego zestawu skalowania maszyn wirtualnych obejmującego strefy.
 
- ![Architektura strefy dostępności usługi Azure Service Fabric][sf-architecture]
+ ![Diagram przedstawiający architekturę strefy dostępności Service Fabric platformy Azure.][sf-architecture]
 
 ## <a name="networking-requirements"></a>Wymagania dotyczące sieci
 ### <a name="public-ip-and-load-balancer-resource"></a>Publiczny adres IP i zasób Load Balancer

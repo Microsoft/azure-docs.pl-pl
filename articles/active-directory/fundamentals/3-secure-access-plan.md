@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a08a4f4a31893fc93789d019ea87dff390552f6a
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: fd04d24e0e46b053381858be037a009b1987f8e9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97744198"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932524"
 ---
 # <a name="3-create-a-security-plan-for-external-access"></a>3. Utwórz plan zabezpieczeń dla dostępu zewnętrznego 
 
@@ -134,7 +134,7 @@ Mimo że zasady zostaną odpowiednio dostosowane do Twoich potrzeb, należy rozw
 
 * **Grupy Microsoft 365**. Ustaw [zasady wygasania grupy](https://docs.microsoft.com/microsoft-365/solutions/microsoft-365-groups-expiration-policy?view=o365-worldwide) dla grup Microsoft 365, do których są zapraszani użytkownicy zewnętrzni. 
 
-* **Inne opcje**. Jeśli użytkownicy zewnętrzni mają dostęp poza pakietami dostępu do zarządzania prawami lub grupami Microsoft 365, skonfiguruj proces biznesowy, aby sprawdzić, kiedy konta powinny być nieaktywne lub usunięte. Na przykład:
+* **Inne opcje**. Jeśli użytkownicy zewnętrzni mają dostęp poza pakietami dostępu do zarządzania prawami lub grupami Microsoft 365, skonfiguruj proces biznesowy, aby sprawdzić, kiedy konta powinny być nieaktywne lub usunięte. Przykład:
 
    * Usuń możliwość logowania dla dowolnego konta, które nie jest zalogowane do 90 dni.
 
@@ -175,7 +175,7 @@ Usługa Azure AD P2 i Microsoft 365 E5 mają pełen pakiet narzędzi zabezpiecze
 | Zarządzanie prawami| **Dodawanie użytkownika za pośrednictwem przypisywania lub samoobsługowego dostępu**| **Pakiety dostępu**| **Pakiety dostępu**|  |
 | Grupa pakietu Office 365| | Dostęp do witryn (i powiązanej zawartości) dołączonych do grupy| Dostęp do zespołów (i powiązanej zawartości) dołączonych do grupy|  |
 | Etykiety poufności| | **Ręczne i automatyczne klasyfikowanie i ograniczanie dostępu**| **Ręczne i automatyczne klasyfikowanie i ograniczanie dostępu**| **Ręczne i automatyczne klasyfikowanie i ograniczanie dostępu** |
-| Grupy zabezpieczeń usługi Azure AD| **Zasady urzędu certyfikacji dla dostępu nie są uwzględnione w pakietach dostępu**| | |  |
+| Grupy zabezpieczeń usługi Azure AD| **Zasady dostępu warunkowego dla dostępu nie są uwzględnione w pakietach dostępu**| | |  |
 
 
 ### <a name="entitlement-management"></a>Zarządzanie prawami 
@@ -195,7 +195,7 @@ Możesz uzyskać niezawodne zarządzanie przy użyciu usługi Azure AD P1 i Micr
 | Współpraca B2B w usłudze Azure AD| **Zapraszanie za pośrednictwem poczty e-mail, OTP, samoobsługowy**| Bezpośrednia Federacja B2B| **Okresowe przeglądy na partnera**| Usuń konto<br>Ogranicz logowanie |
 | Grupy Microsoft lub Office 365| | | | Wygaśnięcie lub usunięcie grupy.<br>Usuwanie z grupy. |
 | Grupy zabezpieczeń| | **Dodawanie użytkowników zewnętrznych do grup zabezpieczeń (organizacja, zespół, projekt itp.)**| |  |
-| Zasady dostępu warunkowego| | **Zasady logowania do urzędu certyfikacji dla użytkowników zewnętrznych**| |  |
+| Zasady dostępu warunkowego| | **Zasady dostępu warunkowego logowania dla użytkowników zewnętrznych**| |  |
 
 
  ### <a name="access-to-resources"></a>Dostęp do zasobów.
@@ -204,7 +204,7 @@ Możesz uzyskać niezawodne zarządzanie przy użyciu usługi Azure AD P1 i Micr
 | - |-|-|-|-|
 | Grupy Microsoft lub Office 365| | **Dostęp do witryn dołączonych do grupy (i skojarzonej zawartości)**|**Dostęp do zespołów dołączonych do grupy Microsoft 365 (i powiązanej zawartości)**|  |
 | Etykiety poufności| | Ręczne klasyfikowanie i ograniczanie dostępu| Ręczne klasyfikowanie i ograniczanie dostępu.| Ręczne klasyfikowanie w celu ograniczenia i szyfrowania |
-| Zasady dostępu warunkowego| Zasady urzędu certyfikacji na potrzeby kontroli dostępu| | |  |
+| Zasady dostępu warunkowego| Zasady dostępu warunkowego dotyczące kontroli dostępu| | |  |
 | Dodatkowe metody| | Ogranicz dostęp do witryny programu SharePoint w sposób szczegółowy przy użyciu grup zabezpieczeń.<br>Nie Zezwalaj na bezpośrednie udostępnianie.| **Ogranicz zaproszenia zewnętrzne z poziomu zespołów**|  |
 
 

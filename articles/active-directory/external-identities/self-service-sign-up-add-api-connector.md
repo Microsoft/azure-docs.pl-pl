@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f34ca47d5ff6c809eef40f89ee0049285cfd7d42
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: aa6726bb5c60dceab0a58632da99c04361183246
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355397"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932694"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Dodawanie łącznika interfejsu API do przepływu użytkownika
 
@@ -249,8 +249,8 @@ Content-type: application/json
 
 | Parametr                                          | Typ              | Wymagane | Opis                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Wersja                                            | Ciąg            | Tak      | Wersja interfejsu API.                                                                                                                                                                                                                                                                |
-| akcja                                             | Ciąg            | Tak      | Wartość musi być `Continue` .                                                                                                                                                                                                                                                              |
+| Wersja                                            | Ciąg            | Yes      | Wersja interfejsu API.                                                                                                                                                                                                                                                                |
+| akcja                                             | Ciąg            | Yes      | Wartość musi być `Continue` .                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | Nie       | Wartości mogą być przechowywane w katalogu, jeśli wybrano jako rolę _,*Aby otrzymać** w konfiguracji łącznika interfejsu API i **atrybutów użytkownika** dla przepływu użytkownika. Wartości mogą być zwracane w tokenie, jeśli są wybrane jako **wnioski aplikacji**.                                              |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Nie       | Zwróconego żądania nie musi zawierać `_<extensions-app-id>_` . Wartości są przechowywane w katalogu, jeśli zostały wybrane jako jako "jako" jako "jako" jako "jako" jako "jako" jako "jako" **jako jako rolę w** **atrybucie User** Connector dla przepływu użytkownika. Nie można ponownie wysłać atrybutów niestandardowych do tokenu. |
 
@@ -271,9 +271,9 @@ Content-type: application/json
 
 | Parametr   | Typ   | Wymagane | Opis                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
-| Wersja     | Ciąg | Tak      | Wersja interfejsu API.                                                    |
-| akcja      | Ciąg | Tak      | Wartość musi być równa `ShowBlockPage`                                              |
-| userMessage | Ciąg | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
+| Wersja     | Ciąg | Yes      | Wersja interfejsu API.                                                    |
+| akcja      | Ciąg | Yes      | Wartość musi być równa `ShowBlockPage`                                              |
+| userMessage | Ciąg | Yes      | Komunikat wyświetlany użytkownikowi.                                            |
 | kod        | Ciąg | Nie       | Kod błędu. Może służyć do celów debugowania. Niewidoczne dla użytkownika. |
 
 **Środowisko użytkownika końcowego z odpowiedzią blokującą**
@@ -297,10 +297,10 @@ Content-type: application/json
 
 | Parametr   | Typ    | Wymagane | Opis                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
-| Wersja     | Ciąg  | Tak      | Wersja interfejsu API.                                                    |
-| akcja      | Ciąg  | Tak      | Wartość musi być `ValidationError` .                                           |
-| status      | Liczba całkowita | Tak      | Musi być wartością `400` dla odpowiedzi ValidationError.                        |
-| userMessage | Ciąg  | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
+| Wersja     | Ciąg  | Yes      | Wersja interfejsu API.                                                    |
+| akcja      | Ciąg  | Yes      | Wartość musi być `ValidationError` .                                           |
+| status      | Liczba całkowita | Yes      | Musi być wartością `400` dla odpowiedzi ValidationError.                        |
+| userMessage | Ciąg  | Yes      | Komunikat wyświetlany użytkownikowi.                                            |
 | kod        | Ciąg  | Nie       | Kod błędu. Może służyć do celów debugowania. Niewidoczne dla użytkownika. |
 
 **Środowisko użytkownika końcowego z odpowiedzią na błędy weryfikacji**
@@ -319,7 +319,7 @@ Upewnij się, że:
 * **Adres URL punktu końcowego** łącznika interfejsu API wskazuje na prawidłowy punkt końcowy interfejsu API.
 * Interfejs API jawnie sprawdza wartości null odebranych oświadczeń.
 * Interfejs API reaguje tak szybko, jak to możliwe, aby zapewnić środowisko użytkownika systemu.
-    * Jeśli używana jest funkcja bezserwerowa lub skalowalna usługa sieci Web, należy użyć planu hostingu, który utrzymuje interfejs API "w stanie" lub "grzane". Aby uzyskać Azure Functions, zaleca się korzystanie z [planu Premium](../../azure-functions/functions-scale.md#premium-plan). 
+    * Jeśli używana jest funkcja bezserwerowa lub skalowalna usługa sieci Web, należy użyć planu hostingu, który utrzymuje interfejs API "w stanie" lub "grzane". Aby uzyskać Azure Functions, zaleca się korzystanie z [planu Premium](../../azure-functions/functions-premium-plan.md). 
 
 
 ### <a name="use-logging"></a>Korzystanie z rejestrowania

@@ -10,16 +10,16 @@ ms.topic: reference
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 12/21/2020
-ms.openlocfilehash: 132c4b223b99f7110cd4553bb0dd93f1e58f4cdd
-ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
+ms.openlocfilehash: b675e72df4f128d0ce096b3ac398fab63c20557e
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733327"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97930807"
 ---
 # <a name="service-limits-in-azure-machine-learning"></a>Limity usługi w Azure Machine Learning
 
-W tej sekcji przedstawiono podstawowe limity przydziału i progi ograniczania w Azure Machine Learning.
+W tej sekcji przedstawiono podstawowe limity przydziału i progi ograniczania w Azure Machine Learning. Aby dowiedzieć się, jak zwiększyć limity przydziału zasobów, zobacz ["Zarządzanie i zwiększanie limitów przydziału zasobów"](how-to-manage-quotas.md) .
 
 ## <a name="workspaces"></a>Obszary robocze
 | Limit | Wartość |
@@ -73,3 +73,5 @@ Niektóre limity można zwiększyć dla poszczególnych obszarów roboczych, [ko
 ## <a name="next-steps"></a>Następne kroki
 
 - [Skonfiguruj środowisko Azure Machine Learning](how-to-configure-environment.md)
+- Dowiedz się, jak zwiększyć limity przydziału zasobów w temacie ["Zarządzanie i zwiększanie limitów przydziału zasobów"](how-to-manage-quotas.md).
+

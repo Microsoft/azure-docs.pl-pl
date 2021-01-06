@@ -13,12 +13,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 60d789c4297c400b812cd6c5c19c8c6148cb347d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f43cb80a148f5dadb409f506f237cb1210a2000a
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91575983"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934003"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Szybki start: Konfigurowanie dzierżawy
 
@@ -55,7 +55,7 @@ Wielu deweloperów uzyskało już dzierżawy za pośrednictwem usług lub subskr
 > [!TIP]
 > Aby znaleźć identyfikator dzierżawy, możesz wykonać następujące czynności:
 > * Umieść wskaźnik myszy nad nazwą konta, aby uzyskać identyfikator katalogu/dzierżawy. Ewentualnie:
-> * Wybierz kolejno pozycje **Azure Active Directory > Właściwości > Identyfikator katalogu** w witrynie Azure Portal
+> * Wyszukaj i wybierz **Azure Active Directory właściwości > > identyfikator dzierżawy** w Azure Portal
 
 Jeśli nie masz istniejącej dzierżawy skojarzonej z kontem, pod nazwą konta zostanie wyświetlony identyfikator GUID i nie będzie można przykład zarejestrować aplikacji, dopóki nie zostaną wykonane czynności opisane w kolejnej sekcji.
 

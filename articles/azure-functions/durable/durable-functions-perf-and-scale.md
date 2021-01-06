@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: b9fc465b5e5f132264fd36e004fa3ee7623b87a5
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: c94218248f1122cdb60ab8124bc9d9365fe8947b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854992"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97931742"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Wydajność i skalowanie w usłudze Durable Functions (Azure Functions)
 
@@ -51,7 +51,7 @@ Rozszerzenie zadania trwałego implementuje losowy wykładniczy algorytm wycofyw
 Maksymalne opóźnienie sondowania można skonfigurować za pomocą `maxQueuePollingInterval` właściwości w [host.jsna pliku](../functions-host-json.md#durabletask). Ustawienie tej właściwości na wyższą wartość może skutkować większymi opóźnieniami przetwarzania komunikatów. Wyższe opóźnienia byłyby oczekiwane tylko po okresach braku aktywności. Ustawienie tej właściwości na niższą wartość może skutkować wyższym kosztem magazynowania spowodowanym zwiększonymi transakcjami magazynu.
 
 > [!NOTE]
-> Po uruchomieniu w planach użycia Azure Functions i Premium [kontroler Azure Functions skalowania](../functions-scale.md#how-the-consumption-and-premium-plans-work) będzie sondował każdą kolejkę formantów i elementów roboczych co 10 sekund. Ta dodatkowa sonda jest konieczna do określenia, kiedy należy aktywować wystąpienia aplikacji funkcji i podejmować decyzje dotyczące skalowania. W czasie pisania ten 10-sekundowy interwał jest stały i nie można go skonfigurować.
+> Po uruchomieniu w planach użycia Azure Functions i Premium [kontroler Azure Functions skalowania](../event-driven-scaling.md) będzie sondował każdą kolejkę formantów i elementów roboczych co 10 sekund. Ta dodatkowa sonda jest konieczna do określenia, kiedy należy aktywować wystąpienia aplikacji funkcji i podejmować decyzje dotyczące skalowania. W czasie pisania ten 10-sekundowy interwał jest stały i nie można go skonfigurować.
 
 ### <a name="orchestration-start-delays"></a>Opóźnienia rozpoczęcia aranżacji
 Wystąpienia aranżacji są uruchamiane przez umieszczenie `ExecutionStarted` komunikatu w jednej z kolejek sterowania centrum zadań. W pewnych warunkach mogą wystąpić opóźnienia Wielosekundowe między rozpoczęciem planowania i uruchomieniem jego działania. W tym przedziale czasu wystąpienie aranżacji pozostanie w `Pending` stanie. Istnieją dwie potencjalne przyczyny tego opóźnienia:
@@ -138,7 +138,7 @@ Ogólnie mówiąc, funkcje programu Orchestrator mają być lekkie i nie powinny
 
 ## <a name="auto-scale"></a>Automatyczne skalowanie
 
-Podobnie jak w przypadku wszystkich Azure Functions działających w planach użycia i elastycznych warstw Premium, Durable Functions obsługuje skalowanie automatyczne za pośrednictwem [kontrolera Azure Functions skali](../functions-scale.md#runtime-scaling). Kontroler skalowania monitoruje opóźnienie wszystkich kolejek przez okresowe wydawanie poleceń _wglądu_ . Na podstawie opóźnień wiadomości z wglądem, kontroler skalowania zdecyduje się, czy dodać lub usunąć maszyny wirtualne.
+Podobnie jak w przypadku wszystkich Azure Functions działających w planach użycia i elastycznych warstw Premium, Durable Functions obsługuje skalowanie automatyczne za pośrednictwem [kontrolera Azure Functions skali](../event-driven-scaling.md#runtime-scaling). Kontroler skalowania monitoruje opóźnienie wszystkich kolejek przez okresowe wydawanie poleceń _wglądu_ . Na podstawie opóźnień wiadomości z wglądem, kontroler skalowania zdecyduje się, czy dodać lub usunąć maszyny wirtualne.
 
 Jeśli kontroler skalowania ustali, że opóźnienia komunikatów w kolejce sterującej są zbyt wysokie, to spowoduje dodanie wystąpień maszyn wirtualnych do momentu zmniejszenia opóźnienia komunikatów do akceptowalnego poziomu lub osiągnie liczbę partycji kolejki kontroli. Podobnie kontroler skalowania ciągle dodaje wystąpienia maszyn wirtualnych, jeśli opóźnienia kolejki elementu pracy są wysokie, niezależnie od liczby partycji.
 
