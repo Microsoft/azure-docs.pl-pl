@@ -15,12 +15,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2
-ms.openlocfilehash: e7a8f54abbadb63c870c4d92843699c67f59752c
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 393d0c69201f87ad7c96bd2f9a1f9f57df512e31
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505634"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964528"
 ---
 # <a name="register-sql-server-vm-with-sql-iaas-agent-extension"></a>Zarejestruj SQL Server maszynę wirtualną przy użyciu rozszerzenia programu SQL IaaS Agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -189,6 +189,9 @@ $sqlvm.SqlManagementType
 
 SQL Server maszyny wirtualne, które zarejestrowały rozszerzenie w trybie *uproszczonym* , można uaktualnić do _pełnej_ wersji przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure lub Azure PowerShell. SQL Server maszyny wirtualne w trybie _noagent_ można uaktualnić do wersji _pełnej_ po uaktualnieniu systemu operacyjnego do wersji Windows 2008 R2 lub nowszej. Nie jest możliwe przeprowadzenie obniżenia — w tym celu należy [wyrejestrować](#unregister-from-extension) SQL Server maszynę wirtualną z rozszerzenia agenta SQL IaaS. Spowoduje to usunięcie _zasobu_ **maszyny wirtualnej SQL** , ale nie spowoduje usunięcia rzeczywistej maszyny wirtualnej. 
 
+> [!NOTE]
+> Po uaktualnieniu trybu zarządzania rozszerzenia SQL IaaS do pełnej zostanie ponownie uruchomiona usługa SQL Server. W niektórych przypadkach ponowne uruchomienie może spowodować, że nazwy główne usługi (SPN) skojarzone z usługą SQL Server nie zmienią na nieprawidłowe konto użytkownika. Jeśli masz problemy z łącznością po uaktualnieniu trybu zarządzania do pełnej, [Wyrejestruj i zarejestruj ponownie nazwy SPN](/sql/database-engine/configure-windows/register-a-service-principal-name-for-kerberos-connections).
+
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -279,7 +282,7 @@ Wyrejestrowanie maszyny wirtualnej SQL przy użyciu rozszerzenia programu SQL Ia
 
 Aby wyrejestrować SQL Server maszynę wirtualną z rozszerzenia przy użyciu Azure Portal, wykonaj następujące kroki:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com).
 1. Przejdź do zasobu maszyny wirtualnej SQL. 
   
    ![Zasób maszyn wirtualnych SQL](./media/sql-agent-extension-manually-register-single-vm/sql-vm-manage.png)

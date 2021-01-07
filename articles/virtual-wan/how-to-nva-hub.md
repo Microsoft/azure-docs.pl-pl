@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub.
-ms.openlocfilehash: 0e174f9b78606e0bea5cded3a176f4207745bb5c
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 7a52d3971e4ec0cb8ec104a57ba7fb4057c23b72
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077307"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964647"
 ---
 # <a name="how-to-create-a-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Jak utworzyć sieciowe urządzenie wirtualne w centrum sieci wirtualnej platformy Azure (wersja zapoznawcza)
 
@@ -21,7 +21,7 @@ W tym artykule pokazano, jak używać wirtualnej sieci WAN do łączenia się z 
 
 Kroki opisane w tym artykule ułatwiają tworzenie wirtualnego urządzenia sieciowego **Barracuda CLOUDGEN WAN** w koncentratorze sieci WAN. Aby wykonać to ćwiczenie, musisz mieć urządzenie lokalne w chmurze Barracuda (CPE) i licencję na urządzenie sieci WAN CloudGen Barracuda, które zostało wdrożone w centrum przed rozpoczęciem.
 
-Aby zapoznać się z dokumentacją dotyczącą wdrażania **Cisco SD-WAN** w wirtualnej sieci WAN platformy Azure, Wyślij wiadomość E-mail do firmy Cisco pod następującym adresem e-mail: vwan_public_preview@external.cisco.com
+Aby zapoznać się z dokumentacją dotyczącą wdrażania **Cisco SD-WAN** w ramach wirtualnej sieci WAN platformy Azure — zobacz [Cisco Cloud Onpochylni dla chmury wielochmurowej](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701). Aby zarejestrować swoje konto i uzyskać niezbędne licencje Cisco SD-WAN, Wyślij wiadomość e-mail do firmy Cisco pod następującym adresem e-mail: vwan_public_preview@external.cisco.com
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -66,14 +66,14 @@ W tym kroku utworzysz sieciowe urządzenie wirtualne w centrum. Procedura dla ka
 
 1. Znajdź koncentrator wirtualnej sieci WAN utworzony w poprzednim kroku, a następnie otwórz go.
 
-   :::image type="content" source="./media/how-to-nva-hub/nva-hub.png" alt-text="Podstawy":::
+   :::image type="content" source="./media/how-to-nva-hub/nva-hub.png" alt-text="Koncentrator wirtualny":::
 1. Znajdź kafelek sieciowe urządzenia wirtualne i wybierz łącze **Utwórz** .
 1. W bloku **wirtualnego urządzenia sieciowego** wybierz pozycję **Barracuda CloudGen WAN**, a następnie wybierz przycisk **Utwórz** .
 
-   :::image type="content" source="./media/how-to-nva-hub/select-nva.png" alt-text="Podstawy":::
+   :::image type="content" source="./media/how-to-nva-hub/select-nva.png" alt-text="Wybierz urządzenie WUS":::
 1. Spowoduje to przejście do oferty portalu Azure Marketplace dotyczącej bramy Barracuda CloudGen WAN. Przeczytaj warunki, a następnie wybierz przycisk **Utwórz** , gdy wszystko będzie gotowe.
 
-   :::image type="content" source="./media/how-to-nva-hub/barracuda-create-basics.png" alt-text="Podstawy":::
+   :::image type="content" source="./media/how-to-nva-hub/barracuda-create-basics.png" alt-text="Podstawowe informacje dotyczące Barracuda urządzenie WUS":::
 1. Na stronie **podstawowe** należy podać następujące informacje:
 
    * **Subskrypcja** — wybierz subskrypcję używaną do wdrożenia wirtualnej sieci WAN i centrum.
@@ -83,7 +83,7 @@ W tym kroku utworzysz sieciowe urządzenie wirtualne w centrum. Procedura dla ka
    * **Zarządzana Grupa zasobów** — jest to nazwa zarządzanej grupy zasobów, w której Barracuda będą wdrażać zarządzane przez nich zasoby. Nazwa powinna być wstępnie wypełniona.
 1. Wybierz przycisk **Dalej: CLOUDGEN WAN Gateway** .
 
-   :::image type="content" source="./media/how-to-nva-hub/barracuda-cloudgen-wan.png" alt-text="Podstawy":::
+   :::image type="content" source="./media/how-to-nva-hub/barracuda-cloudgen-wan.png" alt-text="Brama sieci WAN CloudGen":::
 1. Podaj następujące informacje:
 
    * **Wirtualne Centrum sieci WAN** — Wirtualne Centrum sieci WAN, do którego chcesz WDROŻYĆ ten urządzenie WUS.

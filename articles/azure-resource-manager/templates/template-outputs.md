@@ -3,16 +3,16 @@ title: Dane wyjściowe w szablonach
 description: Opisuje sposób definiowania wartości wyjściowych w szablonie Azure Resource Manager (szablon ARM).
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 9e4ac134e9c1864bca8dd56c3a6e2311d0328d7d
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: f8f13b6caf063cea79dc71775fb936f406a3ee6c
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934734"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964018"
 ---
 # <a name="outputs-in-arm-templates"></a>Dane wyjściowe w szablonach ARM
 
-W tym artykule opisano sposób definiowania wartości wyjściowych w szablonie Azure Resource Manager (szablon ARM). Dane wyjściowe są używane, gdy trzeba zwrócić wartości ze wdrożonych zasobów.
+W tym artykule opisano sposób definiowania wartości wyjściowych w szablonie Azure Resource Manager (szablon ARM). Używasz, `outputs` gdy musisz zwrócić wartości ze wdrożonych zasobów.
 
 Format każdej wartości wyjściowej musi być zgodny z jednym z [typów danych](template-syntax.md#data-types).
 
@@ -31,7 +31,7 @@ Poniższy przykład pokazuje, jak zwrócić identyfikator zasobu dla publicznego
 
 ## <a name="conditional-output"></a>Dane wyjściowe warunkowe
 
-W sekcji dane wyjściowe można warunkowo zwrócić wartość. Zazwyczaj warunek jest używany w danych wyjściowych, gdy [warunkowo wdrożono](conditional-resource-deployment.md) zasób. Poniższy przykład pokazuje, jak warunkowo zwrócić identyfikator zasobu dla publicznego adresu IP na podstawie tego, czy został wdrożony nowy:
+W `outputs` sekcji można warunkowo zwrócić wartość. Zazwyczaj `condition` w `outputs` przypadku [warunkowego wdrożenia](conditional-resource-deployment.md) zasobu należy użyć programu. Poniższy przykład pokazuje, jak warunkowo zwrócić identyfikator zasobu dla publicznego adresu IP na podstawie tego, czy został wdrożony nowy:
 
 ```json
 "outputs": {

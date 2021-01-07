@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: 87d6ca8ee69ca49cf52b61e6beddb56721658afa
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: bdbbf3e808e1dda0970aaf87d154ee79bea4dcb1
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593743"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964171"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Udostępnianie i odbieranie danych z usługi Azure SQL Database i usługi Azure Synapse Analytics
 
@@ -55,7 +55,7 @@ Aby skonfigurować wymagania wstępne, można wykonać [pokaz krok po kroku](htt
 
 * SQL Server dostęp do zapory. Można to zrobić, wykonując następujące czynności: 
     1. W Azure Portal przejdź do programu SQL Server. Wybierz *zapory i sieci wirtualne* z nawigacji po lewej stronie.
-    1. Kliknij **Yes** przycisk tak *, aby zezwolić usługom i zasobom platformy Azure na dostęp do tego serwera*.
+    1. Kliknij  przycisk tak *, aby zezwolić usługom i zasobom platformy Azure na dostęp do tego serwera*.
     1. Kliknij pozycję **+ Dodaj adres IP klienta**. Adres IP klienta może ulec zmianie. Ten proces może wymagać powtarzania przy następnym udostępnieniu danych SQL z Azure Portal. Możesz również dodać zakres adresów IP.
     1. Kliknij pozycję **Zapisz**. 
 
@@ -76,7 +76,7 @@ Aby skonfigurować wymagania wstępne, można wykonać [pokaz krok po kroku](htt
 
 * Dostęp do zapory obszaru roboczego Synapse. Można to zrobić, wykonując następujące czynności: 
     1. W Azure Portal przejdź do obszaru roboczego Synapse. Wybierz pozycję *zapory* na lewym pasku nawigacyjnym.
-    1. Kliknij **ON** pozycję Włącz *, aby zezwolić usługom i zasobom platformy Azure na dostęp do tego obszaru roboczego*.
+    1. Kliknij  pozycję Włącz *, aby zezwolić usługom i zasobom platformy Azure na dostęp do tego obszaru roboczego*.
     1. Kliknij pozycję **+ Dodaj adres IP klienta**. Adres IP klienta może ulec zmianie. Ten proces może wymagać powtarzania przy następnym udostępnieniu danych SQL z Azure Portal. Możesz również dodać zakres adresów IP.
     1. Kliknij pozycję **Zapisz**. 
 
@@ -104,7 +104,7 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
     | Nazwa | *datashareaccount* | Określ nazwę konta udziału danych. |
     | | |
 
-1. Wybierz pozycję **Przegląd + Utwórz** , a następnie pozycję **Utwórz** , aby zainicjować obsługę konta udziału danych. Inicjowanie obsługi nowego konta udziału danych zwykle trwa około 2 minuty. 
+1. Wybierz pozycję **Przegląd + Utwórz**, a następnie pozycję **Utwórz** , aby zainicjować obsługę konta udziału danych. Inicjowanie obsługi nowego konta udziału danych zwykle trwa około 2 minuty. 
 
 1. Po zakończeniu wdrażania wybierz pozycję **Przejdź do zasobu**.
 
@@ -116,7 +116,7 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
 
 1. Wybierz pozycję **Rozpocznij udostępnianie danych**.
 
-1. Wybierz pozycję **Utwórz**.   
+1. Wybierz przycisk **Utwórz**.   
 
 1. Wprowadź szczegółowe informacje o udziale. Określ nazwę, typ udziału, opis zawartości udziału i warunki użytkowania (opcjonalnie). 
 
@@ -150,7 +150,7 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
 
 1. Wybierz opcję **Kontynuuj**.
 
-1. Na karcie Recenzja + tworzenie przejrzyj zawartość pakietu, ustawienia, adresatów i ustawienia synchronizacji. Wybierz pozycję **Utwórz**.
+1. Na karcie Recenzja + tworzenie przejrzyj zawartość pakietu, ustawienia, adresatów i ustawienia synchronizacji. Wybierz przycisk **Utwórz**.
 
 Udział danych platformy Azure został utworzony, a odbiorca Twojego udziału danych jest teraz gotowy do zaakceptowania Twojego zaproszenia. 
 
@@ -195,7 +195,7 @@ Aby skonfigurować wymagania wstępne, można wykonać [pokaz krok po kroku](htt
 
 * SQL Server dostęp do zapory. Można to zrobić, wykonując następujące czynności: 
     1. W programie SQL Server w Azure Portal przejdź do *zapór i sieci wirtualnych*
-    1. Kliknij **Yes** przycisk tak *, aby zezwolić usługom i zasobom platformy Azure na dostęp do tego serwera*.
+    1. Kliknij  przycisk tak *, aby zezwolić usługom i zasobom platformy Azure na dostęp do tego serwera*.
     1. Kliknij pozycję **+ Dodaj adres IP klienta**. Adres IP klienta może ulec zmianie. Ten proces może wymagać powtarzania przy następnym udostępnieniu danych SQL z Azure Portal. Możesz również dodać zakres adresów IP.
     1. Kliknij pozycję **Zapisz**. 
  
@@ -218,7 +218,7 @@ Aby skonfigurować wymagania wstępne, można wykonać [pokaz krok po kroku](htt
 
 * Dostęp do zapory obszaru roboczego Synapse. Można to zrobić, wykonując następujące czynności: 
     1. W Azure Portal przejdź do obszaru roboczego Synapse. Wybierz pozycję *zapory* na lewym pasku nawigacyjnym.
-    1. Kliknij **ON** pozycję Włącz *, aby zezwolić usługom i zasobom platformy Azure na dostęp do tego obszaru roboczego*.
+    1. Kliknij  pozycję Włącz *, aby zezwolić usługom i zasobom platformy Azure na dostęp do tego obszaru roboczego*.
     1. Kliknij pozycję **+ Dodaj adres IP klienta**. Adres IP klienta może ulec zmianie. Ten proces może wymagać powtarzania przy następnym udostępnieniu danych SQL z Azure Portal. Możesz również dodać zakres adresów IP.
     1. Kliknij pozycję **Zapisz**. 
 
@@ -279,7 +279,7 @@ Te kroki dotyczą tylko udostępniania opartego na migawce.
 
    ![Wyzwalanie migawki](./media/trigger-snapshot.png "Wyzwalanie migawki") 
 
-1. Po *pomyślnym* zakończeniu ostatniego uruchomienia Przejdź do docelowego magazynu danych, aby wyświetlić odebrane dane. Wybierz pozycję **zestawy danych** , a następnie kliknij link w ścieżce docelowej. 
+1. Po *pomyślnym* zakończeniu ostatniego uruchomienia Przejdź do docelowego magazynu danych, aby wyświetlić odebrane dane. Wybierz pozycję **zestawy danych**, a następnie kliknij link w ścieżce docelowej. 
 
    ![Zestawy danych dla odbiorców](./media/consumer-datasets.png "Mapowanie zestawu danych klienta") 
 
@@ -293,11 +293,11 @@ Po udostępnieniu danych ze źródła SQL następujące mapowanie są używane z
 |:--- |:--- |
 | bigint |Int64 |
 | binarny |Byte [] |
-| bit |Boolean |
+| bit |Wartość logiczna |
 | char |String, Char [] |
-| data |Data i godzina |
-| Datetime (data/godzina) |Data i godzina |
-| datetime2 |Data i godzina |
+| date |DateTime |
+| Datetime (data/godzina) |DateTime |
+| datetime2 |DateTime |
 | DateTimeOffset |DateTimeOffset |
 | Liczba dziesiętna |Liczba dziesiętna |
 | FILESTREAM — atrybut (varbinary (max)) |Byte [] |
@@ -309,9 +309,9 @@ Po udostępnieniu danych ze źródła SQL następujące mapowanie są używane z
 | ntext |String, Char [] |
 | numeryczne |Liczba dziesiętna |
 | nvarchar |String, Char [] |
-| liczba rzeczywista |Pojedynczy |
+| liczba rzeczywista |Pojedyncze |
 | rowversion |Byte [] |
-| smalldatetime |Data i godzina |
+| smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Liczba dziesiętna |
 | sql_variant |Obiekt |
@@ -322,7 +322,7 @@ Po udostępnieniu danych ze źródła SQL następujące mapowanie są używane z
 | uniqueidentifier |Guid (identyfikator GUID) |
 | varbinary |Byte [] |
 | varchar |String, Char [] |
-| xml |String |
+| xml |Ciąg |
 
 >[!NOTE]
 > 1. W przypadku typów danych, które są mapowane na typ pośredni dziesiętnego, obecnie migawka obsługuje dokładność do 28. Jeśli masz dane wymagające dokładności większej niż 28, Rozważ przekonwertowanie na ciąg. 
@@ -341,7 +341,7 @@ Na wydajność migawki SQL ma wpływ wiele czynników. Zawsze zaleca się przepr
 * Lokalizacja źródłowych i docelowych magazynów danych. 
 
 ## <a name="troubleshoot-sql-snapshot-failure"></a>Rozwiązywanie problemów z niepowodzeniem migawek SQL
-Najczęstszym powodem błędu migawki jest to, że udział danych nie ma uprawnień do źródłowego lub docelowego magazynu danych. Aby udzielić uprawnienia do udostępniania danych źródłowej lub docelowej Azure SQL Database lub usługi Azure Synapse Analytics (dawniej usługa Azure SQL DW), należy uruchomić podany skrypt SQL podczas łączenia się z bazą danych SQL przy użyciu uwierzytelniania Azure Active Directory. Aby rozwiązać problem z dodatkowym błędem migawki SQL, zobacz [Rozwiązywanie problemów z błędem migawki](data-share-troubleshoot.md#snapshot-failed).
+Najczęstszym powodem błędu migawki jest to, że udział danych nie ma uprawnień do źródłowego lub docelowego magazynu danych. Aby udzielić uprawnienia do udostępniania danych źródłowej lub docelowej Azure SQL Database lub usługi Azure Synapse Analytics (dawniej usługa Azure SQL DW), należy uruchomić podany skrypt SQL podczas łączenia się z bazą danych SQL przy użyciu uwierzytelniania Azure Active Directory. Aby rozwiązać problem z dodatkowym błędem migawki SQL, zobacz [Rozwiązywanie problemów z błędem migawki](data-share-troubleshoot.md#snapshots).
 
 ## <a name="next-steps"></a>Następne kroki
 Wiesz już, jak udostępniać i odbierać dane ze źródeł SQL za pomocą usługi udziału danych platformy Azure. Aby dowiedzieć się więcej o udostępnianiu z innych źródeł danych, przejdź do [obsługiwanych magazynów danych](supported-data-stores.md).

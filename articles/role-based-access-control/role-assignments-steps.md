@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
-ms.openlocfilehash: 56b6638462acaf43b6353787495e5b7993acb413
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 565b84603a14452dd2ec49f8cf61da128503bc03
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648280"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964256"
 ---
 # <a name="steps-to-add-a-role-assignment"></a>Kroki umożliwiające dodanie przypisania roli
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] W tym artykule opisano procedurę wysokiego poziomu służącą do dodawania przypisania roli przy użyciu [Azure Portal](role-assignments-portal.md), [Azure PowerShell](role-assignments-powershell.md), interfejsu [wiersza polecenia platformy Azure](role-assignments-cli.md)lub [interfejsu API REST](role-assignments-rest.md).
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] W tym artykule opisano procedurę wysokiego poziomu służącą do dodawania przypisania roli przy użyciu [Azure Portal](role-assignments-portal.md), [Azure PowerShell](role-assignments-powershell.md), interfejsu [wiersza polecenia platformy Azure](role-assignments-cli.md)lub [interfejsu API REST](role-assignments-rest.md).
 
 ## <a name="step-1-determine-who-needs-access"></a>Krok 1. Określanie, kto potrzebuje dostępu
 
@@ -62,7 +62,7 @@ Pozostałe role wbudowane umożliwiają zarządzanie określonymi zasobami platf
 
 ![Zakres w przypisaniu roli](./media/shared/rbac-scope.png)
 
-Po przypisaniu roli w zakresie nadrzędnym uprawnienia te są dziedziczone do zakresów podrzędnych. Na przykład:
+Po przypisaniu roli w zakresie nadrzędnym uprawnienia te są dziedziczone do zakresów podrzędnych. Przykład:
 
 - Jeśli przypiszesz rolę [czytelnik](built-in-roles.md#reader) do użytkownika w zakresie grupy zarządzania, ten użytkownik będzie mógł odczytywać wszystkie wszystkie subskrypcje w grupie zarządzania.
 - Jeśli przypiszesz rolę [czytelnik rozliczeń](built-in-roles.md#billing-reader) do grupy w zakresie subskrypcji, członkowie tej grupy mogą odczytywać dane dotyczące rozliczeń dla każdej grupy zasobów i zasobu w subskrypcji.

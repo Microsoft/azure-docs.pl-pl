@@ -13,16 +13,16 @@ ms.workload: identity
 ms.date: 11/13/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1e05ecd162ccb333c6ab29b0185f6ffcb04a6213
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: dc8a704fd864fbb0e11da6cd062e0c5325679d8b
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591365"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964240"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Dodawanie przypisań ról platformy Azure przy użyciu szablonów Azure Resource Manager
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Oprócz używania Azure PowerShell lub interfejsu wiersza polecenia platformy Azure można przypisywać role przy użyciu [szablonów Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). Szablony mogą być przydatne, jeśli trzeba spójnie i wielokrotnie wdrażać zasoby. W tym artykule opisano sposób przypisywania ról przy użyciu szablonów.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] Oprócz używania Azure PowerShell lub interfejsu wiersza polecenia platformy Azure można przypisywać role przy użyciu [szablonów Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). Szablony mogą być przydatne, jeśli trzeba spójnie i wielokrotnie wdrażać zasoby. W tym artykule opisano sposób przypisywania ról przy użyciu szablonów.
 
 ## <a name="get-object-ids"></a>Pobierz identyfikatory obiektów
 

@@ -3,12 +3,12 @@ title: Zasoby podrzędne w szablonach
 description: Opisuje sposób ustawiania nazwy i typu zasobów podrzędnych w szablonie Azure Resource Manager (szablon ARM).
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: 408914fd309676da36904a364f905a8ee809d648
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: a950d72751b829c0a2aa3ba5ca27316a0544d9cc
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934309"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963916"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>Ustawianie nazwy i typu dla zasobów podrzędnych
 
@@ -137,5 +137,4 @@ W poniższym przykładzie pokazano sieć wirtualną i podsieć, które są zdefi
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby dowiedzieć się więcej na temat tworzenia szablonów ARM, zobacz [Omówienie struktury i składni szablonów ARM](template-syntax.md).
-
 * Aby dowiedzieć się więcej o formacie nazwy zasobu podczas odwoływania się do zasobu, zobacz [Funkcja Reference](template-functions-resource.md#reference).

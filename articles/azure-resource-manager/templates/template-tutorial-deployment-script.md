@@ -11,12 +11,12 @@ ms.devlang: na
 ms.date: 12/16/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7eda805a5fdf24a7a55b9296a0f0a1c9a5bfc576
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 36fb54b4b6521d87c7461936c84a644bf22f7e31
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683503"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963967"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate"></a>Samouczek: Tworzenie certyfikatu z podpisem własnym za pomocą skryptów wdrażania
 
@@ -329,13 +329,13 @@ Skrypt wdrażania dodaje certyfikat do magazynu kluczy. Skonfiguruj zasady dost�
 
     ![Zasoby skryptu wdrażania Menedżer zasobów szablonu](./media/template-tutorial-deployment-script/resource-manager-template-deployment-script-resources.png)
 
-    Oba pliki mają sufiks **azscripts** . Jednym z nich jest konto magazynu, a drugie to wystąpienie kontenera.
+    Oba pliki mają sufiks _azscripts_ . Jednym z nich jest konto magazynu, a drugie to wystąpienie kontenera.
 
     Wybierz pozycję **Pokaż ukryte typy** , aby wyświetlić listę `deploymentScripts` zasobów.
 
-1. Wybierz konto magazynu z sufiksem **azscripts** .
-1. Wybierz kafelek **udziały plików** . Zobaczysz folder **azscripts** . Folder zawiera pliki wykonywania skryptu wdrożenia.
-1. Wybierz pozycję **azscripts**. Zobaczysz dwa foldery **azscriptinput** i **azscriptoutput**. Folder wejściowy zawiera systemowy plik skryptu programu PowerShell i pliki skryptów wdrażania użytkownika. Folder wyjściowy zawiera _executionresult.js_ i plik wyjściowy skryptu. Komunikat o błędzie można zobaczyć w _executionresult.js_. Plik wyjściowy nie istnieje, ponieważ wykonywanie nie powiodło się.
+1. Wybierz konto magazynu z sufiksem _azscripts_ .
+1. Wybierz kafelek **udziały plików** . Zobaczysz folder _azscripts_ zawierający pliki wykonawcze skryptu wdrażania.
+1. Wybierz pozycję _azscripts_. Zobaczysz dwa foldery _azscriptinput_ i _azscriptoutput_. Folder wejściowy zawiera systemowy plik skryptu programu PowerShell i pliki skryptów wdrażania użytkownika. Folder wyjściowy zawiera _executionresult.js_ i plik wyjściowy skryptu. Komunikat o błędzie można zobaczyć w _executionresult.js_. Plik wyjściowy nie istnieje, ponieważ wykonywanie nie powiodło się.
 
 Usuń `Write-Output1` wiersz i ponownie Wdróż szablon.
 

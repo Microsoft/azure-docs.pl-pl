@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 96533c1742e8ad5fde9796ea2073f6e402ac8dcf
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 22600f6519a44e71ae5c4b59b0165401b54e55fd
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862375"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964545"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Samouczek: kodowanie za pomocą cyfrowych interfejsów API usługi Azure bliźniaczych reprezentacji
 
@@ -60,9 +60,6 @@ Pozostaw otwarte okno polecenia, ponieważ będziesz nadal korzystać z niego w 
 Następnie **Dodaj dwie zależności do projektu** , które będą konieczne do pracy z usługą Azure Digital bliźniaczych reprezentacji. Możesz użyć linków poniżej, aby przejść do pakietów w pakiecie NuGet, gdzie można znaleźć polecenia konsoli (w tym dla interfejsu wiersza polecenia platformy .NET), aby dodać je do projektu.
 * [**Azure. DigitalTwins. Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Jest to pakiet dla [zestawu SDK Digital bliźniaczych reprezentacji systemu Azure dla platformy .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). Dodaj najnowszą wersję.
 * [**Azure. Identity**](https://www.nuget.org/packages/Azure.Identity). Ta biblioteka zawiera narzędzia, które ułatwiają uwierzytelnianie na platformie Azure. Dodaj wersję 1.2.2.
-
->[!NOTE]
-> Obecnie występuje [znany problem](troubleshoot-known-issues.md#issue-with-default-azure-credential-authentication-on-azureidentity-130) wpływający na możliwość korzystania z platformy Azure. tożsamość wersja 1.3.0 z tym samouczkiem. Użyj wersji 1.2.2, gdy ten problem będzie nadal występował.
 
 ## <a name="get-started-with-project-code"></a>Wprowadzenie do kodu projektu
 

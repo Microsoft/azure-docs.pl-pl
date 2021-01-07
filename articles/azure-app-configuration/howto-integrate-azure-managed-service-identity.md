@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: 8ef3ff20c67eefa2091ffb1732ced813b169e596
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: d6b3d60a44725869d68dd9f1158d2279f3cf3e86
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929756"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963984"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>Uzyskiwanie dostępu do usługi App Configuration przy użyciu tożsamości zarządzanych
 
@@ -102,7 +102,7 @@ Aby skonfigurować tożsamość zarządzaną w portalu, należy najpierw utworzy
     using Azure.Identity;
     ```
 
-1. Jeśli chcesz uzyskać dostęp tylko do wartości przechowywanych bezpośrednio w konfiguracji aplikacji, zaktualizuj `CreateWebHostBuilder` metodę, zastępując `config.AddAzureAppConfiguration()` metodę.
+1. Jeśli chcesz uzyskać dostęp tylko do wartości przechowywanych bezpośrednio w konfiguracji aplikacji, zaktualizuj `CreateWebHostBuilder` metodę, zastępując `config.AddAzureAppConfiguration()` metodę (jest to dostępne w `Microsoft.Azure.AppConfiguration.AspNetCore` pakiecie).
 
     > [!IMPORTANT]
     > `CreateHostBuilder` zastępuje `CreateWebHostBuilder` w programie .NET Core 3,0.  Wybierz poprawną składnię opartą na Twoim środowisku.

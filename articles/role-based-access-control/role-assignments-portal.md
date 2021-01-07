@@ -10,16 +10,16 @@ ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1aebb80fcba6c21ccce63772195af80b94092bde
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7c58641f0039982f05be14d0f24ba89c62273d4b
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368322"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964307"
 ---
-# <a name="add-or-remove-azure-role-assignments-using-the-azure-portal"></a>Dodawanie i usuwanie przypisań ról platformy Azure przy użyciu Azure Portal
+# <a name="add-or-remove-azure-role-assignments-using-the-azure-portal"></a>Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] W tym artykule opisano sposób przypisywania ról przy użyciu Azure Portal.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] W tym artykule opisano sposób przypisywania ról przy użyciu Azure Portal.
 
 Jeśli musisz przypisać role administratorów w Azure Active Directory, zobacz [Wyświetlanie i przypisywanie ról administratorów w Azure Active Directory](../active-directory/roles/manage-roles-portal.md).
 
@@ -49,11 +49,11 @@ Aby była najbardziej efektywna ze stroną kontroli dostępu (IAM), należy wyko
 
 W celu udzielenia dostępu do zasobu platformy Azure w usłudze Azure RBAC należy dodać przypisanie roli. Wykonaj następujące kroki, aby przypisać rolę.
 
-1. W Azure Portal kliknij pozycję **wszystkie usługi** , a następnie wybierz zakres, do którego chcesz udzielić dostępu. Można na przykład wybrać **grupy zarządzania**, **subskrypcje**, **grupy zasobów**lub zasób.
+1. W Azure Portal kliknij pozycję **wszystkie usługi** , a następnie wybierz zakres, do którego chcesz udzielić dostępu. Można na przykład wybrać **grupy zarządzania**, **subskrypcje**, **grupy zasobów** lub zasób.
 
 1. Kliknij konkretny zasób dla tego zakresu.
 
-1. Kliknij pozycję **Kontrola dostępu (IAM)** .
+1. Kliknij pozycję **Kontrola dostępu (IAM)**.
 
 1. Kliknij kartę **przypisania roli** , aby wyświetlić przypisania ról w tym zakresie.
 
@@ -130,7 +130,7 @@ Wykonaj następujące kroki, aby przypisać rolę do zarządzanej tożsamości p
 
     ![Tożsamość zarządzana przypisana przez system](./media/shared/identity-system-assigned.png)
 
-1. W obszarze **uprawnienia**kliknij pozycję **przypisania ról platformy Azure**.
+1. W obszarze **uprawnienia** kliknij pozycję **przypisania ról platformy Azure**.
 
     Jeśli role są już przypisane do wybranej tożsamości zarządzanej przypisanej do systemu, zostanie wyświetlona lista przypisań ról. Ta lista zawiera wszystkie przypisania ról, do których masz uprawnienia do odczytu.
 
@@ -140,7 +140,7 @@ Wykonaj następujące kroki, aby przypisać rolę do zarządzanej tożsamości p
 
 1. Kliknij pozycję **Dodaj przypisanie roli (wersja zapoznawcza)**.
 
-1. Użyj list rozwijanych, aby wybrać zestaw zasobów, do których ma zastosowanie przypisanie roli, takie jak **subskrypcja**, **Grupa zasobów**lub zasób.
+1. Użyj list rozwijanych, aby wybrać zestaw zasobów, do których ma zastosowanie przypisanie roli, takie jak **subskrypcja**, **Grupa zasobów** lub zasób.
 
     Jeśli nie masz uprawnień do zapisu przypisania roli dla wybranego zakresu, zostanie wyświetlony komunikat w wierszu. 
 
@@ -168,7 +168,7 @@ Wykonaj następujące kroki, aby przypisać rolę do tożsamości zarządzanej p
 
 1. Kliknij pozycję **Dodaj przypisanie roli (wersja zapoznawcza)**.
 
-1. Użyj list rozwijanych, aby wybrać zestaw zasobów, do których ma zastosowanie przypisanie roli, takie jak **subskrypcja**, **Grupa zasobów**lub zasób.
+1. Użyj list rozwijanych, aby wybrać zestaw zasobów, do których ma zastosowanie przypisanie roli, takie jak **subskrypcja**, **Grupa zasobów** lub zasób.
 
     Jeśli nie masz uprawnień do zapisu przypisania roli dla wybranego zakresu, zostanie wyświetlony komunikat w wierszu. 
 

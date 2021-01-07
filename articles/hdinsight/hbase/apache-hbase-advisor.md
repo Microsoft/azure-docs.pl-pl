@@ -8,22 +8,22 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/03/2021
-ms.openlocfilehash: 36d40215f759190cc9e6c6e3f4918dcbc384f94f
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 73af7e2a1920e6cfdad9245d965908255ef95a1f
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97893292"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964596"
 ---
 # <a name="apache-hbase-advisories-in-azure-hdinsight"></a>Klasyfikatory Apache HBase w usłudze Azure HDInsight
 
-W tym artykule opisano kilka klasyfikatorów, które pomagają zoptymalizować wydajność usługi Apache HBase w usłudze Azure HDInsight. 
+W tym artykule opisano kilka klasyfikatorów, które ułatwiają optymalizację wydajności Apache HBase w usłudze Azure HDInsight. 
 
 ## <a name="optimize-hbase-to-read-most-recently-written-data"></a>Optymalizuj HBase, aby odczytywać ostatnio zapisywane dane
 
-W przypadku korzystania z platformy Apache HBase w usłudze Azure HDInsight można zoptymalizować konfigurację HBase dla scenariusza, w którym aplikacja odczytuje ostatnio zapisywane dane. W celu uzyskania wysokiej wydajności optymalne jest, że odczyty HBase są obsługiwane z magazynu, a nie z magazynu zdalnego.
+Jeśli UseCase obejmuje odczytywanie ostatnio pisanych danych z HBase, ten poradnik może Ci pomóc. W celu uzyskania wysokiej wydajności optymalne jest, że odczyty HBase są obsługiwane z magazynu, a nie z magazynu zdalnego.
 
-Klasyfikator zapytań wskazuje, że dla danej rodziny kolumn w tabeli znajdują się > odczyty 75%, które są obsługiwane przez magazynu. Ten wskaźnik sugeruje, że nawet jeśli opróżnianie występuje na magazynu, należy uzyskać dostęp do najnowszego pliku i musi on być w pamięci podręcznej. Dane są najpierw zapisywane, aby magazynu system uzyskuje dostęp do najnowszych danych w tym miejscu. Istnieje szansa, że wewnętrzne wątki HBase opróżniania wykryją, że dany region osiągnął rozmiar 128M (domyślny) i może wyzwolić opróżnianie. W tym scenariuszu występuje nawet najnowsze dane, które zostały zapisaną, gdy magazynu miało 128M rozmiar. W związku z tym później odczytywanie tych najnowszych rekordów może wymagać odczytu pliku, a nie z magazynu. W związku z tym najlepszym rozwiązaniem jest zoptymalizowanie, że mimo że ostatnio opróżnione dane mogą znajdować się w pamięci podręcznej.
+Klasyfikator zapytania wskazuje, że dla danej rodziny kolumn w tabeli > odczyty 75%, które są obsługiwane przez magazynu. Ten wskaźnik sugeruje, że nawet jeśli opróżnianie występuje na magazynu, należy uzyskać dostęp do najnowszego pliku i musi on być w pamięci podręcznej. Dane są najpierw zapisywane, aby magazynu system uzyskuje dostęp do najnowszych danych w tym miejscu. Istnieje szansa, że wewnętrzne wątki HBase opróżniania wykryją, że dany region osiągnął rozmiar 128M (domyślny) i może wyzwolić opróżnianie. W tym scenariuszu występuje nawet najnowsze dane, które zostały zapisaną, gdy magazynu miało 128M rozmiar. W związku z tym później odczytywanie tych najnowszych rekordów może wymagać odczytu pliku, a nie z magazynu. W związku z tym najlepszym rozwiązaniem jest zoptymalizowanie, że mimo że ostatnio opróżnione dane mogą znajdować się w pamięci podręcznej.
 
 Aby zoptymalizować ostatnie dane w pamięci podręcznej, należy wziąć pod uwagę następujące ustawienia konfiguracji:
 
@@ -33,9 +33,9 @@ Aby zoptymalizować ostatnie dane w pamięci podręcznej, należy wziąć pod uw
 
 3. Jeśli przeobserwujesz krok 2 i ustawisz compactionThreshold, następnie zmienisz `hbase.hstore.compaction.max` na przykład wyższą wartość `100` , a także zwiększy wartość konfiguracji `hbase.hstore.blockingStoreFiles` na przykład na wyższą wartość `300` .
 
-4. Jeśli masz pewność, że musisz odczytywać tylko ostatnie dane, ustaw opcję Konfiguracja na wartość `hbase.rs.cachecompactedblocksonwrite` **włączone**. Ta konfiguracja informuje system, że nawet w przypadku kompaktowania dane pozostają w pamięci podręcznej. Konfiguracje można ustawić na poziomie rodziny. 
+4. Jeśli masz pewność, że musisz odczytać tylko najnowsze dane, ustaw opcję Konfiguracja na wartość `hbase.rs.cachecompactedblocksonwrite` **włączone**. Ta konfiguracja informuje system, że nawet w przypadku kompaktowania dane pozostają w pamięci podręcznej. Konfiguracje można ustawić na poziomie rodziny. 
 
-   W powłoce HBase Uruchom następujące polecenie:
+   W powłoce HBase Uruchom następujące polecenie, aby ustawić `hbase.rs.cachecompactedblocksonwrite` konfigurację:
    
    ```
    alter '<TableName>', {NAME => '<FamilyName>', CONFIGURATION => {'hbase.hstore.blockingStoreFiles' => '300'}}
@@ -43,15 +43,15 @@ Aby zoptymalizować ostatnie dane w pamięci podręcznej, należy wziąć pod uw
 
 5. Pamięć podręczną bloków można wyłączyć dla danej rodziny w tabeli. Upewnij się, że jest **włączona dla rodzin** , które mają najnowsze operacje odczytu danych. Domyślnie pamięć podręczna bloków jest włączona dla wszystkich rodzin w tabeli. Jeśli pamięć podręczna bloków została wyłączona dla rodziny i musi ona zostać włączona, użyj polecenia ALTER z powłoki HBase.
 
-   Te konfiguracje zapewniają, że dane są w pamięci podręcznej oraz że najnowsze dane nie są poddawane kompaktom. Jeśli w danym scenariuszu jest możliwy czas wygaśnięcia, rozważ użycie kompaktowania warstwowego. Aby uzyskać więcej informacji, zobacz temat [Przewodnik dotyczący programu Apache HBase: kompaktowanie warstwowe.](https://hbase.apache.org/book.html#ops.date.tiered)  
+   Te konfiguracje zapewniają, że dane są dostępne w pamięci podręcznej, a najnowsze dane nie są poddawane kompaktom. Jeśli w danym scenariuszu jest możliwy czas wygaśnięcia, rozważ użycie kompaktowania warstwowego. Aby uzyskać więcej informacji, zobacz temat [Przewodnik dotyczący programu Apache HBase: kompaktowanie warstwowe.](https://hbase.apache.org/book.html#ops.date.tiered)  
 
 ## <a name="optimize-the-flush-queue"></a>Optymalizowanie kolejki opróżniania
 
-Optymalizacja w kolejce bloków opróżniania wskazuje, że opróżniania HBase mogą wymagać dostrajania. Procedury obsługi opróżniania mogą nie być wystarczająco duże zgodnie z konfiguracją.
+Ten poradnik wskazuje, że opróżnianie HBase może wymagać dostrajania. Bieżąca konfiguracja programów obsługi opróżniania może nie być wystarczająco wysoka, aby można było obsługiwać ruch związany z zapisem, co może prowadzić do spowolnienia operacji opróżniania.
 
 W interfejsie użytkownika serwera regionu Zwróć uwagę, czy kolejka opróżniania przekracza 100. Ten próg wskazuje, że operacje opróżniania są wolne i konieczne może być dostosowanie   `hbase.hstore.flusher.count` konfiguracji. Domyślnie wartość jest równa 2. Upewnij się, że maksymalna liczba wątków opróżniania nie wzrasta dłużej niż 6.
 
-Ponadto sprawdź, czy masz rekomendacje dotyczące dostrajania liczby regionów. Jeśli tak, najpierw spróbuj dostroić region, aby zobaczyć, czy ułatwia to szybsze opróżnianie. Dostrajanie wątków opróżniania może pomóc w wielu sposobach, takich jak 
+Ponadto sprawdź, czy masz rekomendacje dotyczące dostrajania liczby regionów. Jeśli będziemy nam, zalecamy wypróbowanie dostrajania regionu, aby zobaczyć, czy ułatwia to szybsze opróżnianie. W przeciwnym razie dostrojenie wątków opróżniania może Ci pomóc.
 
 ## <a name="region-count-tuning"></a>Dostrajanie liczby regionów
 
@@ -65,7 +65,7 @@ Przykładowy scenariusz:
 
 - W przypadku wprowadzenia tych ustawień liczba regionów wynosi 100. Magazynu globalna 4 GB jest teraz dzielona w 100 regionach. Dlatego efektywnie każdy region otrzymuje tylko 40 MB dla magazynu. Gdy zapisy są jednorodne, system wykonuje częste opróżnianie i mniejszy rozmiar zamówienia < 40 MB. Wiele wątków opróżniania może zwiększyć szybkość opróżniania `hbase.hstore.flusher.count` .
 
-Poradnik oznacza, że warto replikować liczbę regionów na serwer, rozmiar sterty i globalną konfigurację rozmiaru magazynu wraz z dostrajania opróżniania wątków, aby można było uniknąć takich aktualizacji.
+Poradnik oznacza, że warto replikować liczbę regionów na serwer, rozmiar sterty i globalną konfigurację rozmiaru magazynu oraz dostrajać wątki opróżniania, aby uniknąć zablokowania aktualizacji.
 
 ## <a name="compaction-queue-tuning"></a>Dostrajanie kolejki kompaktowania
 

@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 12/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 15d8a198df4769b94bced49b82f7be827c771994
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 9038d6bc9cd061200ef4553242889776f30d2dc1
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630919"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964562"
 ---
 # <a name="trigger-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Wyzwalanie potoków uczenia maszynowego za pomocą zestawu SDK Azure Machine Learning dla języka Python
 
@@ -190,16 +190,19 @@ Po udostępnieniu aplikacji logiki wykonaj następujące kroki, aby skonfigurowa
 1. Skonfiguruj harmonogram, aby ustawić wartość dowolnej [ścieżki dataPipelineParameters](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-datapath-and-pipelineparameter.ipynb) :
 
     ```json
-    "DataPathAssignments": { 
-         "input_datapath": { 
-                            "DataStoreName": "<datastore-name>", 
-                            "RelativePath": "@triggerBody()?['Name']" 
-    } 
-    }, 
-    "ExperimentName": "MyRestPipeline", 
-    "ParameterAssignments": { 
-    "input_string": "sample_string3" 
-    },
+    {
+      "DataPathAssignments": {
+        "input_datapath": {
+          "DataStoreName": "<datastore-name>",
+          "RelativePath": "@{triggerBody()?['Name']}" 
+        }
+      },
+      "ExperimentName": "MyRestPipeline",
+      "ParameterAssignments": {
+        "input_string": "sample_string3"
+      },
+      "RunSource": "SDK"
+    }
     ```
 
     Użyj `DataStoreName` dodanych do obszaru roboczego jako [warunek wstępny](#prerequisites).

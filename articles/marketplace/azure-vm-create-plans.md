@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: 023dc877158c7074f46945893d40291e94ab2f09
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: e5fb425afdd4b212a0b28ce91418eb0ee9e3632f
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629560"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964437"
 ---
 # <a name="how-to-create-plans-for-a-virtual-machine-offer"></a>Jak utworzyć plany dla oferty maszyny wirtualnej
 
@@ -42,9 +42,9 @@ W oknie dialogowym **nowy plan** wprowadź unikatowy **identyfikator planu** dla
 > [!NOTE]
 > Nie można zmienić identyfikatora planu po wybraniu opcji **Utwórz**.
 
-Wprowadź **nazwę planu**. Klienci widzą tę nazwę podczas wybierania planu do wyboru w ramach oferty. Utwórz unikatową nazwę, która jasno wskazuje różnice między planami. Na przykład możesz wprowadzić **system Windows Server** z opcją *płatność zgodnie z rzeczywistym* użyciem, *BYOL* , *zaawansowanym* i planem *przedsiębiorstwa* .
+Wprowadź **nazwę planu**. Klienci widzą tę nazwę podczas wybierania planu do wyboru w ramach oferty. Utwórz unikatową nazwę, która jasno wskazuje różnice między planami. Na przykład możesz wprowadzić **system Windows Server** z opcją *płatność zgodnie z rzeczywistym* użyciem, *BYOL*, *zaawansowanym* i planem *przedsiębiorstwa* .
 
-Wybierz pozycję **Utwórz**. Spowoduje to otwarcie strony **Konfiguracja planu** .
+Wybierz przycisk **Utwórz**. Spowoduje to otwarcie strony **Konfiguracja planu** .
 
 ## <a name="plan-setup"></a>Konfigurowanie planu
 
@@ -126,7 +126,7 @@ W przypadku miesięcznego planu rozliczeniowego opartego na użyciu należy skor
 - **Na rozmiar podstawowy** — zapewnianie cen według rozmiaru rdzenia w USD. Firma Microsoft oblicza ceny i konwertuje ją na waluty lokalne przy użyciu bieżącego kursu wymiany.
 - **Na rynek i rozmiar podstawowy** — zapewniają ceny każdego rozmiaru rdzenia dla wszystkich rynków. Ceny można zaimportować z arkusza kalkulacyjnego.
 
-Wprowadź **cenę za rdzeń** , a następnie wybierz pozycję **Cena za rozmiar podstawowy** , aby wyświetlić tabelę obliczeń cen/godzin.
+Wprowadź **cenę za rdzeń**, a następnie wybierz pozycję **Cena za rozmiar podstawowy** , aby wyświetlić tabelę obliczeń cen/godzin.
 
 > [!NOTE]
 > Zapisz zmiany cen, aby włączyć eksport danych cen. Po opublikowaniu ceny na rynku planu nie można jej później zmienić. Aby upewnić się, że ceny są prawidłowe przed ich opublikowaniem, wyeksportuj arkusz cen i przejrzyj ceny na każdym rynku.
@@ -139,9 +139,9 @@ Możesz zaoferować swoim klientom jedną z trzech lub sześć-miesięcznych **b
 
 Każdy plan można zaprojektować jako widoczny dla wszystkich lub tylko do wybranych użytkowników. Przypisywanie członkostw w tych ograniczonych odbiorcach przy użyciu identyfikatorów subskrypcji platformy Azure.
 
-**Publiczna** : Twój plan może być widoczny dla każdego.
+**Publiczna**: Twój plan może być widoczny dla każdego.
 
-**Prywatne** : Ustaw swój plan jako widoczny tylko dla wybranych odbiorców. Po opublikowaniu jako planu prywatnego można zaktualizować odbiorców lub zmienić je na publiczną. Po dokonaniu publicznego planu nie musi on być publiczny. Nie można jej zmienić z powrotem do planu prywatnego.
+**Prywatne**: Ustaw swój plan jako widoczny tylko dla wybranych odbiorców. Po opublikowaniu jako planu prywatnego można zaktualizować odbiorców lub zmienić je na publiczną. Po dokonaniu publicznego planu nie musi on być publiczny. Nie można jej zmienić z powrotem do planu prywatnego.
 
 Przypisz odbiorców, którzy będą mieli dostęp do tego planu prywatnego przy użyciu **identyfikatora subskrypcji platformy Azure**. Opcjonalnie Dołącz **Opis** każdego przypisanego identyfikatora subskrypcji platformy Azure. W przypadku importowania arkusza kalkulacyjnego CSV ręcznie Dodaj do 10 identyfikatorów subskrypcji lub maksymalnie 20 000. Identyfikatory subskrypcji platformy Azure są reprezentowane jako identyfikatory GUID, a wszystkie litery muszą być małymi literami.
 
@@ -191,7 +191,7 @@ Generowanie maszyny wirtualnej definiuje sprzęt wirtualny, którego używa. W z
 
 1. Podczas tworzenia nowej oferty wybierz **Typ generacji** i wprowadź żądane szczegóły:
 
-    :::image type="content" source="./media/create-vm/azure-vm-generations-image-details-1.png" alt-text="Widok listy rozwijanej generacja.":::
+    :::image type="content" source="./media/create-vm/azure-vm-generations-image-details-1.png" alt-text="Widok sekcji Szczegóły generowania w centrum partnerskim.":::
 
 2. Aby dodać kolejną generację do planu, wybierz pozycję **Dodaj generację**...
 
@@ -203,9 +203,7 @@ Generowanie maszyny wirtualnej definiuje sprzęt wirtualny, którego używa. W z
 
 <!--    The **Generation ID** you choose will be visible to customers in places such as product URLs and ARM templates (if applicable). Use only lowercase, alphanumeric characters, dashes, or underscores; it cannot be modified once published.
 -->
-3. Aby zaktualizować istniejącą maszynę wirtualną, która ma już opublikowaną generację, Edytuj szczegóły na tej stronie **konfiguracji technicznej** :
-
-    :::image type="content" source="./media/create-vm/azure-vm-generations-updating.png" alt-text="Widok strony planowanie konfiguracji technicznej.":::
+3. Aby zaktualizować istniejącą maszynę wirtualną, która została już opublikowana, Edytuj szczegóły na stronie **konfiguracja techniczna** .
 
 Aby dowiedzieć się więcej o różnicach między możliwościami generacji 1 i 2, zobacz [Obsługa maszyn wirtualnych 2. generacji na platformie Azure](../virtual-machines/generation-2.md).
 
@@ -215,15 +213,15 @@ Podaj wersję dysku i identyfikator URI sygnatury dostępu współdzielonego (SA
 
 Te dwa wymagane pola są pokazane na poprzedniej ilustracji powyżej:
 
-- **Wersja dysku** : wersja dostarczanego obrazu.
+- **Wersja dysku**: wersja dostarczanego obrazu.
 - **Łącze wirtualnego dysku twardego** systemu operacyjnego: lokalizacja na koncie usługi Azure Storage dla wirtualnego dysku twardego systemu operacyjnego. Aby dowiedzieć się, jak uzyskać identyfikator URI sygnatury [dostępu współdzielonego, zobacz temat Uzyskiwanie identyfikatora URI dla tego obrazu maszyny wirtualnej](azure-vm-get-sas-uri.md).
 
-Dyski danych (wybierz opcję **Dodaj dysk danych (maksymalnie 16)** ) to również identyfikatory URI sygnatury dostępu współdzielonego, które są przechowywane na kontach usługi Azure Storage. Dodaj tylko jeden obraz do każdego przesłania w planie.
+Dyski danych (wybierz opcję **Dodaj dysk danych (maksymalnie 16)**) to również identyfikatory URI sygnatury dostępu współdzielonego, które są przechowywane na kontach usługi Azure Storage. Dodaj tylko jeden obraz do każdego przesłania w planie.
 
 Niezależnie od używanego systemu operacyjnego, należy dodać tylko minimalną liczbę dysków z danymi wymaganą przez rozwiązanie. Podczas wdrażania klienci nie mogą usunąć dysków, które są częścią obrazu, ale zawsze mogą dodawać dyski w trakcie wdrażania lub po nim.
 
-Wybierz pozycję **Zapisz wersję roboczą** , a następnie wybierz pozycję **Przegląd planu ←** w lewym górnym rogu, aby zobaczyć właśnie utworzony plan.
+Wybierz pozycję **Zapisz wersję roboczą**, a następnie wybierz pozycję **Przegląd planu ←** w lewym górnym rogu, aby zobaczyć właśnie utworzony plan.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Odsprzedaż za poorednictwem dostawców CSP](azure-vm-create-resell-csp.md)
+- [Odsprzedaż za pośrednictwem dostawców CSP](azure-vm-create-resell-csp.md)

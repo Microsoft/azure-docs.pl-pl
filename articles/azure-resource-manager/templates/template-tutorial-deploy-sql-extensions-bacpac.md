@@ -5,12 +5,12 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 2d50903f464c03157ee393787af6ddfdad975aed
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 1bd9f7408baf40791c31626ea9e87a73c65b999c
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588050"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964001"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Samouczek: Importowanie plików BACPAC SQL za pomocą szablonów ARM
 
@@ -55,7 +55,7 @@ Plik BACPAC musi być przechowywany na koncie usługi Azure Storage, aby można 
 * Przekazywanie pliku BACPAC do kontenera.
 * Wyświetl klucz konta magazynu i adres URL obiektu BLOB.
 
-1. Wybierz pozycję **Wypróbuj** , aby otworzyć powłokę. Następnie wklej następujący skrypt programu PowerShell do okna powłoki.
+1. Wybierz pozycję **Wypróbuj,** aby otworzyć Azure Cloud Shell. Następnie wklej następujący skrypt programu PowerShell do okna powłoki.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
@@ -245,7 +245,7 @@ W Azure Portal wybierz bazę danych z nowo wdrożonej grupy zasobów. Wybierz po
 
 ![Edytor zapytań (wersja zapoznawcza)](./media/template-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac-query-editor.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów.
 
