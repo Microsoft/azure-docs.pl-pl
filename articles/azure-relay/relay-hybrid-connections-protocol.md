@@ -3,18 +3,18 @@ title: Przewodnik po protokole Połączenia hybrydowe Azure Relay | Microsoft Do
 description: W tym artykule opisano interakcje po stronie klienta z usługą Połączenia hybrydowe Relay do łączenia klientów w rolach odbiornika i nadawcy.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 8a812aa401077b81934d89ada99cf1dc312d8dbc
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 36321f88de173a37c9aa6615c4c0f2b29aec9f20
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862330"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976966"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protokół Połączenia hybrydowe Azure Relay
 
 Azure Relay to jeden z najważniejszych filarów funkcji Azure Service Bus platform. Nowe _połączenia hybrydowe_ możliwości przekazywania to bezpieczna, dwukierunkowa ewolucja, oparta na protokołach http i WebSockets. Zastępuje ona dawną funkcję o nazwie _BizTalk Services_ , która została zbudowana na mocy własnościowego protokołu. Integracja Połączenia hybrydowe z platformą Azure App Services będzie nadal działać zgodnie z oczekiwaniami.
 
-Połączenia hybrydowe umożliwia dwukierunkowe, dwukierunkową komunikację w strumieniu i prosty przepływ datagramów między dwiema aplikacjami sieciowymi. Obie strony mogą znajdować się za translatorem adresów sieciowych lub zaporami.
+Połączenia hybrydowe umożliwia komunikację dwukierunkową, odpowiedź typu żądanie i strumień binarny oraz prosty przepływ datagramu między dwiema aplikacjami sieciowymi. Obie strony mogą znajdować się za translatorem adresów sieciowych lub zaporami.
 
 W tym artykule opisano interakcje po stronie klienta z usługą Połączenia hybrydowe Relay do łączenia klientów w rolach odbiornika i nadawcy. Opisano w nim również, jak odbiorniki akceptują nowe połączenia i żądania.
 
@@ -49,7 +49,7 @@ W przypadku Połączenia hybrydowe, jeśli istnieją co najmniej dwa aktywne det
 Gdy nadawca otworzy nowe połączenie z usługą, usługa wybiera i powiadamia jeden z aktywnych odbiorników w połączeniu hybrydowym. To powiadomienie jest wysyłane do odbiornika przez otwarty kanał kontrolny jako komunikat JSON. Komunikat zawiera adres URL punktu końcowego protokołu WebSocket, z którym odbiornik musi nawiązać połączenie w celu zaakceptowania połączenia.
 
 Adres URL może i musi być używany bezpośrednio przez odbiornik bez żadnej dodatkowej pracy.
-Zakodowane informacje są prawidłowe tylko przez krótki czas, głównie w przypadku, gdy nadawca chce czekać na zakończenie ustanawiania połączenia. Maksymalna wartość jest równa 30 sekund. Adresu URL można użyć tylko dla jednej próby nawiązania połączenia. Gdy tylko zostanie nawiązane połączenie protokołu WebSocket z terminem URL, wszystkie dalsze działania dotyczące tego obiektu WebSocket są przekazywane od i do nadawcy. Dzieje się tak bez interwencji lub interpretacji przez usługę.
+Zakodowane informacje są prawidłowe tylko przez krótki czas, głównie w przypadku, gdy nadawca chce czekać na zakończenie ustanawiania połączenia. Maksymalna wartość jest równa 30 sekund. Adresu URL można użyć tylko dla jednej próby nawiązania połączenia. Gdy tylko zostanie nawiązane połączenie protokołu WebSocket z terminem URL, wszystkie dalsze działania dotyczące tego obiektu WebSocket są przekazywane od i do nadawcy. Takie zachowanie ma miejsce bez jakichkolwiek interwencji ani interpretacji przez usługę.
 
 ### <a name="request-message"></a>Komunikat żądania
 
@@ -57,7 +57,7 @@ Oprócz połączeń protokołu WebSocket odbiornik może również odbierać ram
 
 Odbiorniki, które dołączają do Połączenia hybrydowe z obsługą protokołu HTTP, muszą obsługiwać `request` gest. Odbiornik, który nie obsługuje `request` i w związku z tym powoduje, że powtarzające się błędy przekroczenia limitu czasu podczas połączenia mogą zostać zablokowane przez usługę w przyszłości.
 
-Metadane nagłówka ramki HTTP są tłumaczone na format JSON w celu uproszczenia obsługi przez platformę odbiornika, również ponieważ biblioteki analizy nagłówków HTTP są rzadkie niż analizatory JSON. Metadane HTTP, które mają zastosowanie tylko do relacji między nadawcą i bramą protokołu HTTP przekaźnika, w tym informacje o autoryzacji, nie są przekazywane. Treść żądania HTTP jest w niewidoczny sposób transferowana jako binarne ramki protokołu WebSocket.
+Metadane nagłówka ramki HTTP są tłumaczone na format JSON w celu uproszczenia obsługi przez platformę odbiornika, również ponieważ biblioteki analizy nagłówków HTTP są rzadkie niż analizatory JSON. Metadane HTTP, które mają zastosowanie tylko do relacji między nadawcą i bramą protokołu HTTP przekaźnika, w tym informacje o autoryzacji, nie są przekazywane dalej. Treść żądania HTTP jest w niewidoczny sposób transferowana jako binarne ramki protokołu WebSocket.
 
 Odbiornik może odpowiadać na żądania HTTP przy użyciu równoważnego gestu odpowiedzi.
 
@@ -65,7 +65,7 @@ Przepływ żądania/odpowiedzi domyślnie używa kanału kontroli, ale może by�
 
 W przypadku kanału kontroli jednostki żądań i odpowiedzi są ograniczone do maksymalnie 64 kB. Metadane nagłówka HTTP są ograniczone do całkowitej 32 kB. Jeśli żądanie lub odpowiedź przekracza ten próg, odbiornik musi uaktualnić do terminowego protokołu WebSocket przy użyciu gestu równoważnego do obsługi [akceptacji](#accept-message).
 
-W przypadku żądań usługa decyduje o kierowaniu żądań do kanału kontroli. Obejmuje to, ale mogą nie być ograniczone do przypadków, gdy żądanie przekracza 64 kB (nagłówki Plus treść) z prawej strony, lub jeśli żądanie jest wysyłane z użyciem ["fragmentarycznego" kodowania transferu](https://tools.ietf.org/html/rfc7230#section-4.1) , a usługa ma powód oczekiwania na przekroczenie 64 KB lub odczytanie żądania nie jest chwilowo. Jeśli usługa zdecyduje się na dostarczenie żądania na życzenie, przekazuje on tylko ten adres.
+W przypadku żądań usługa decyduje o kierowaniu żądań do kanału kontroli. Obejmuje to, ale mogą nie być ograniczone do przypadków, gdy żądanie przekracza 64 kB (nagłówki Plus treść) z prawej strony, lub jeśli żądanie jest wysyłane z użyciem ["fragmentarycznego" kodowania transferu](https://tools.ietf.org/html/rfc7230#section-4.1) , a usługa ma powód, aby żądanie przekroczy 64 KB lub odczytywać żądanie nie jest chwilowo wykonywane. Jeśli usługa zdecyduje się na dostarczenie żądania na życzenie, przekazuje on tylko ten adres.
 Odbiornik musi ustalić termin protokołu WebSocket, a usługa bezzwłocznie dostarcza pełne żądanie, w tym treści w terminach protokołu WebSocket. W odpowiedzi musi również być używany termin WebSocket.
 
 W przypadku żądań, które docierają do kanału kontroli, odbiornik decyduje o tym, czy odpowiedzieć na kanał kontrolny, czy przez termin. Usługa musi zawierać adres dla każdego żądania kierowanego w kanale kontroli. Ten adres jest prawidłowy tylko w przypadku uaktualniania z bieżącego żądania.
@@ -202,7 +202,7 @@ Adres URL musi być używany jako — służy do ustanawiania gniazda akceptują
 `{path}` jest ścieżką przestrzeni nazw zakodowaną w adresie URL wstępnie skonfigurowanego połączenia hybrydowego, na którym ma zostać zarejestrowany ten odbiornik. To wyrażenie jest dołączane do `$hc/` części stałej ścieżki.
 
 `path`Wyrażenie może być rozszerzone z sufiksem i wyrażeniem ciągu zapytania, które następuje po nazwie zarejestrowanej po oddzieleniu kreski ułamkowej.
-Umożliwia to klientowi wysyłającemu przekazywanie argumentów wysyłki do odbiornika akceptującego, gdy nie można uwzględnić nagłówków HTTP. Oczekuje się, że struktura odbiornika analizuje część stałej ścieżki i zarejestrowaną nazwę ze ścieżki i tworzy resztę, prawdopodobnie bez argumentów ciągu zapytania, które są poprzedzone przez `sb-` , dostępne dla aplikacji w celu podjęcia decyzji o zaakceptowaniu połączenia.
+Ten parametr umożliwia klientowi wysyłającemu przekazywanie argumentów wysyłania do odbiornika akceptującego, gdy nie można uwzględnić nagłówków HTTP. Oczekuje się, że struktura odbiornika analizuje część stałej ścieżki i zarejestrowaną nazwę ze ścieżki i tworzy resztę, prawdopodobnie bez argumentów ciągu zapytania, które są poprzedzone przez `sb-` , dostępne dla aplikacji w celu podjęcia decyzji o zaakceptowaniu połączenia.
 
 Więcej informacji można znaleźć w sekcji "Protokół nadawcy".
 
@@ -249,7 +249,7 @@ Po poprawnym ukończeniu tego uzgadniania celowe nie powiedzie się z kodem bł�
 `request`Wiadomość jest wysyłana przez usługę do odbiornika w kanale kontroli. Ten sam komunikat jest również wysyłany w momencie ustanowienia protokołu WebSocket.
 
 `request`Składa się z dwóch części: nagłówka i binarnych ramek treści.
-W przypadku braku treści ramki treści są pomijane. Wskazuje, czy treść jest obecna `body` w komunikacie żądania.
+W przypadku braku treści ramki treści są pomijane. Właściwość Boolean `body` wskazuje, czy treść jest obecna w komunikacie żądania.
 
 W przypadku żądania z treścią żądania struktura może wyglądać następująco:
 
@@ -290,7 +290,7 @@ Dla żądania bez treści istnieje tylko jedna ramka tekstowa.
 
 Zawartość JSON dla programu `request` jest następująca:
 
-* ciąg **adresu** URI. Jest to termin używany w przypadku tego żądania. Jeśli żądanie przychodzące ma rozmiar większy niż 64 kB, pozostała część tego komunikatu pozostaje pusta, a klient musi zainicjować uzgodnienie terminowe równoważne `accept` operacji opisanej poniżej. Następnie usługa zostanie ukończona `request` na ustanowionym gnieździe sieci Web. Jeśli oczekiwana ilość odpowiedzi może przekroczyć 64 kB, odbiornik musi również inicjować uzgadnianie terminów, a następnie przenieść odpowiedź przez ustanowione gniazdo sieci Web.
+* ciąg **adresu** URI. Jest to termin, który ma być używany dla tego żądania. Jeśli żądanie przychodzące ma rozmiar większy niż 64 kB, pozostała część tego komunikatu pozostaje pusta, a klient musi zainicjować uzgodnienie terminowe równoważne `accept` operacji opisanej poniżej. Następnie usługa zostanie ukończona `request` na ustanowionym gnieździe sieci Web. Jeśli oczekiwana ilość odpowiedzi może przekroczyć 64 kB, odbiornik musi również inicjować uzgadnianie terminów, a następnie przenieść odpowiedź przez ustanowione gniazdo sieci Web.
 * **ID** — ciąg. Unikatowy identyfikator dla tego żądania.
 * **requestHeaders** — ten obiekt zawiera wszystkie nagłówki HTTP, które zostały dostarczone do punktu końcowego przez nadawcę, z wyjątkiem informacji o autoryzacji, jak wyjaśniono [powyżej](#request-operation), oraz nagłówków, które ściśle odnoszą się do połączenia z bramą. W konkretnym przypadku wszystkie nagłówki zdefiniowane lub zarezerwowane w [RFC7230](https://tools.ietf.org/html/rfc7230), z wyjątkiem `Via` , są usuwane i nie są przekazywane:
 
@@ -303,9 +303,9 @@ Zawartość JSON dla programu `request` jest następująca:
   * `Upgrade` (RFC7230, sekcja 6,7)
   * `Close`  (RFC7230, sekcja 8,1)
 
-* **requestTarget** — ciąg. Ta właściwość zawiera  ["cel żądania" (RFC7230, sekcja 5,3)](https://tools.ietf.org/html/rfc7230#section-5.3) żądania. Obejmuje to fragment ciągu zapytania, który jest usuwany ze wszystkich `sb-hc-` parametrów z prefiksem.
+* **requestTarget** — ciąg. Ta właściwość zawiera  ["cel żądania" (RFC7230, sekcja 5,3)](https://tools.ietf.org/html/rfc7230#section-5.3) żądania. Zawiera część ciągu zapytania, która jest usuwana ze wszystkich parametrów z `sb-hc-` prefiksem.
 * **Metoda** -ciąg. Jest to metoda żądania, na [RFC7231, sekcja 4](https://tools.ietf.org/html/rfc7231#section-4). `CONNECT`Metoda nie może być używana.
-* **Body** — wartość logiczna. Wskazuje, czy jedna lub więcej binarnych ramek treści jest następująca.
+* **Body** — wartość logiczna. Wskazuje, czy jedna lub więcej ramek treści binarnych jest następująca.
 
 ``` JSON
 {
@@ -451,9 +451,9 @@ Jeśli połączenie z protokołem WebSocket jest celowo zamykane przez usługę 
 
 | Stan usługi WS | Opis
 | --------- | ------------------------------------------------------------------------------- 
-| 1000      | Odbiornik zamknie gniazdo.
+| 1000      | Odbiornik zamyka gniazdo.
 | 1001      | Ścieżka połączenia hybrydowego została usunięta lub wyłączona.
-| 1008      | Token zabezpieczający wygasł, dlatego zasady autoryzacji zostały naruszone.
+| 1008      | Token zabezpieczający wygasł, więc zasady autoryzacji zostały naruszone.
 | 1011      | Wystąpił problem w usłudze.
 
 ### <a name="http-request-protocol"></a>Protokół żądań HTTP
@@ -467,7 +467,7 @@ https://{namespace-address}/{path}?sb-hc-token=...
 
 _Przestrzeń nazw_ jest w pełni kwalifikowaną nazwą domeny Azure Relay przestrzeni nazw, która hostuje połączenie hybrydowe, zazwyczaj formularz `{myname}.servicebus.windows.net` .
 
-Żądanie może zawierać dowolne dodatkowe nagłówki HTTP, w tym zdefiniowane przez aplikację. Wszystkie podane nagłówki, z wyjątkiem tych, które zostały bezpośrednio zdefiniowane w RFC7230 (zobacz [komunikat żądania](#request-message)), do odbiornika i można je znaleźć w `requestHeader` obiekcie komunikatu **żądania** .
+Żądanie może zawierać dowolne dodatkowe nagłówki HTTP, w tym zdefiniowane przez aplikację. Wszystkie podane nagłówki, z wyjątkiem tych, które są bezpośrednio zdefiniowane w RFC7230 (zobacz [komunikat żądania](#request-message)) przepływ do odbiornika i można je znaleźć w `requestHeader` obiekcie komunikatu **żądania** .
 
 Opcje parametrów ciągu zapytania są następujące:
 

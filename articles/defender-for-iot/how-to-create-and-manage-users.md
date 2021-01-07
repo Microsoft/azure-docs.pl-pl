@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/3/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 22d0c59110ba033232fbdf41062b49e9a146ca6f
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: c33b3e5fee19edc5d4ac85284e507b53e96234a0
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955108"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97977017"
 ---
 # <a name="about-defender-for-iot-console-users"></a>Informacje o usłudze Defender dla użytkowników konsoli IoT
 
@@ -223,8 +223,6 @@ Aby zresetować hasło dla użytkownika CyberX lub pomocy technicznej:
     > Nie zmieniaj pliku odzyskiwania hasła. Jest to podpisany plik i nie będzie działał w przypadku naruszenia go.
 
 1. Na ekranie **Odzyskiwanie hasła** wybierz pozycję **Przekaż**. Zostanie otwarte okno **odzyskiwanie pliku odzyskiwania hasła** .
-
-   :::image type="content" source="media/password-recovery-images/upload.png" alt-text="Przekaż plik odzyskiwania, aby uzyskać nowe hasło.":::
 
 1. Wybierz pozycję **Przeglądaj** , aby zlokalizować `password_recovery.zip` plik, lub przeciągnij `password_recovery.zip` do okna.
 

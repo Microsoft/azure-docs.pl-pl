@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 06/04/2020
-ms.openlocfilehash: c855be6d31a1ee46434ecadbeae7a36dd6a3ff95
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 41423ce34a62dfdbd5b9a60f683a2366a94d1bfd
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95018807"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976796"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Limity dotyczące modelu i kluczy LUIS
 LUIS ma kilka obszarów ograniczeń. Pierwszy to [Limit modelu](#model-limits), który steruje intencjami, jednostkami i funkcjami w Luis. Drugi obszar ma [limity przydziału](#key-limits) na podstawie typu klucza. Trzeci obszar limitów jest [kombinacją klawiatury](#keyboard-controls) służącą do kontrolowania witryny sieci Web Luis. Czwarty obszar to [Mapowanie regionów świata](luis-reference-regions.md) między witryną sieci Web Luis Authoring a interfejsem API Luis [Endpoint](luis-glossary.md#endpoint) .
@@ -21,7 +21,7 @@ LUIS ma kilka obszarów ograniczeń. Pierwszy to [Limit modelu](#model-limits), 
 
 Jeśli Twoja aplikacja przekracza limity modelu LUIS, rozważ użycie aplikacji do [wysyłania Luis](luis-concept-enterprise.md#dispatch-tool-and-model) lub [kontenera Luis](luis-container-howto.md).
 
-|Obszar|Limit|
+|Warstwowy|Limit|
 |--|:--|
 | [Nazwa aplikacji][luis-get-started-create-app] | * Maksimum znaku domyślnego |
 | Aplikacje| 500 aplikacji na zasób tworzenia na platformie Azure |
@@ -30,7 +30,7 @@ Jeśli Twoja aplikacja przekracza limity modelu LUIS, rozważ użycie aplikacji 
 | Jednostki zewnętrzne | Brak limitów |
 | [Intencje][intents]|500 na aplikację: 499 niestandardowe intencje i wymagane opcje _none_ .<br>Aplikacja [oparta na wysyłce](https://aka.ms/dispatch-tool) ma odpowiednie źródła wysyłania 500.|
 | [Wyświetlanie listy jednostek](./luis-concept-entity-types.md) | Element nadrzędny: 50, element podrzędny: 20 000 elementów. Nazwa kanoniczna to * domyślny znak maksymalny. Wartości synonimów nie mają ograniczenia długości. |
-| [jednostki uczenia maszynowego + role](./luis-concept-entity-types.md):<br> złożone<br>ułatwia<br>rola jednostki|Limit 100 jednostek nadrzędnych lub 330 jednostek, w zależności od liczby trafień użytkownika. Rola jest traktowana jako jednostka na potrzeby tego limitu. Przykładem jest kompozyt z prostą jednostką, która ma 2 role: 1 złożona + 1 prosta + 2 role = 4 jednostek 330.<br>Podjednostki można zagnieżdżać do 5 poziomów.|
+| [jednostki uczenia maszynowego + role](./luis-concept-entity-types.md):<br> złożone<br>ułatwia<br>rola jednostki|Limit 100 jednostek nadrzędnych lub 330 jednostek, w zależności od liczby trafień użytkownika. Rola jest traktowana jako jednostka na potrzeby tego limitu. Przykładem jest kompozyt z prostą jednostką, która ma 2 role: 1 złożona + 1 prosta + 2 role = 4 jednostek 330.<br>Podjednostki mogą być zagnieżdżane do 5 poziomów, z maksymalnie 10 elementami podrzędnymi na poziom.|
 |Model jako funkcja| Maksymalna liczba modeli, które mogą być używane jako funkcja do określonego modelu do 10 modeli. Maksymalna liczba list fraz używanych jako funkcja dla określonego modelu do 10 list fraz.|
 | [Wersja zapoznawcza — jednostki listy dynamicznej](./luis-migration-api-v3.md)|2 listy ~ 1K na żądanie punktu końcowego przewidywania zapytań|
 | [Wzorce](luis-concept-patterns.md)|500 wzorców na aplikację.<br>Maksymalna długość wzorca to 400 znaków.<br>3 wzorzec. wszystkie jednostki na wzorzec<br>Maksymalnie 2 zagnieżdżonych dodatkowych tekstów w wzorcu|

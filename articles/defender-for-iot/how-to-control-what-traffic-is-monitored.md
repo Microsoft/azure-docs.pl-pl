@@ -1,5 +1,5 @@
 ---
-title: Kontroluj, jaki ruch jest monitorowany
+title: Sterowanie monitorowanym ruchem
 description: Czujniki automatycznie wykonują głębokie wykrywanie pakietów dla ruchu IT i niezwiązanych z ruchem oraz rozwiązują informacje o urządzeniach sieciowych, takich jak atrybuty urządzenia i zachowanie sieciowe. Dostępnych jest kilka narzędzi do sterowania typem ruchu wykrywanym przez poszczególne czujnika.
 author: shhazam-ms
 manager: rkarlin
@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 08afba8ade30775a49492f337bb5337320b9e282
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: b2f95ddb13896ed461a20f1948fef34569586d1f
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97843427"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97977086"
 ---
-# <a name="control-what-traffic-is-monitored"></a>Kontroluj, jaki ruch jest monitorowany
+# <a name="control-what-traffic-is-monitored"></a>Sterowanie monitorowanym ruchem
 
 Czujniki automatycznie wykonują głębokie wykrywanie pakietów dla ruchu IT i niezwiązanych z ruchem oraz rozwiązują informacje o urządzeniach sieciowych, takich jak atrybuty i zachowania urządzeń. Dostępnych jest kilka narzędzi do sterowania typem ruchu wykrywanym przez poszczególne czujnika.
 
@@ -228,7 +228,7 @@ Przy użyciu elementu zawartości testowej Sprawdź, czy zdefiniowane ustawienia
 
 3. W polu **adres wyszukiwania** wprowadź adres dla okna dialogowego **test wyszukiwania wstecznego DNS dla serwera** .
 
-    :::image type="content" source="media/how-to-enrich-asset-information/dns-reverse-looup-test-screen.png" alt-text="Zrzut ekranu pokazujący obszar adresów wyszukiwania.":::
+    :::image type="content" source="media/how-to-enrich-asset-information/dns-reverse-lookup-test-screen.png" alt-text="Zrzut ekranu pokazujący obszar adresów wyszukiwania.":::
 
 4. Kliknij przycisk **Testuj**.
 
@@ -295,7 +295,7 @@ Aby wyświetlić wyniki skanowania:
 
 1. Po zakończeniu skanowania w okienku **Akcje** wybierz pozycję **Wyświetl wyniki skanowania**. Plik CSV z wynikami skanowania zostanie pobrany na komputer.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Badanie wykrywania czujników w spisie urządzeń](how-to-investigate-sensor-detections-in-a-device-inventory.md) 
  [Badanie wykrywania czujników na mapie urządzeń](how-to-work-with-the-sensor-device-map.md)

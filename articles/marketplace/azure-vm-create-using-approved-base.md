@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: krsh
-ms.date: 10/20/2020
-ms.openlocfilehash: 74cab14cd162ba608a9c5d0168485e9055661f55
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.date: 01/06/2021
+ms.openlocfilehash: 9164c1e2542024a02bf4868658d0f29728f32c7b
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590798"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976864"
 ---
 # <a name="how-to-create-a-virtual-machine-using-an-approved-base"></a>Jak utworzyć maszynę wirtualną przy użyciu zatwierdzonej podstawy
 
@@ -40,15 +40,11 @@ System Azure oferuje zakres zatwierdzonych dystrybucji systemu Linux. Aby zapozn
 2. Wybierz pozycję **Maszyny wirtualne**.
 3. Wybierz pozycję **+ Dodaj** , aby otworzyć ekran **Utwórz maszynę wirtualną** .
 4. Wybierz obraz z listy rozwijanej lub wybierz pozycję **Przeglądaj wszystkie obrazy publiczne i prywatne** , aby przeszukać lub przejrzeć wszystkie dostępne obrazy maszyn wirtualnych.
-5. Jeśli chcesz utworzyć maszynę wirtualną **generacji 1** , przejdź do karty **dyski** i ustaw opcję **Użyj dysku zarządzanego** na wartość **nie** , aby umożliwić uzyskanie wirtualnego dysku twardego maszyny wirtualnej na określonym koncie magazynu
-
-   :::image type="content" source="media/create-vm/create-virtual-machine-sizes-2.png" alt-text="Wybierz pozycję dysk niezarządzany.":::
-   
-6. Aby utworzyć maszynę wirtualną **generacji 2** , przejdź do karty **Zaawansowane** i wybierz opcję **generacji 2** .
+5. Aby utworzyć maszynę wirtualną **generacji 2** , przejdź do karty **Zaawansowane** i wybierz opcję **generacji 2** .
 
     :::image type="content" source="media/create-vm/vm-gen-option.png" alt-text="Wybierz pozycję Gen 1 lub Gen 2.":::
 
-7. Wybierz rozmiar maszyny wirtualnej do wdrożenia.
+6. Wybierz rozmiar maszyny wirtualnej do wdrożenia.
 
     :::image type="content" source="media/create-vm/create-virtual-machine-sizes.png" alt-text="Wybierz zalecany rozmiar maszyny wirtualnej dla wybranego obrazu.":::
 
@@ -56,7 +52,6 @@ System Azure oferuje zakres zatwierdzonych dystrybucji systemu Linux. Aby zapozn
 8. Wybierz pozycję **Recenzja + Utwórz** , aby przejrzeć wybrane opcje. Gdy zostanie wyświetlony komunikat **weryfikacja przebiegła pomyślnie** , wybierz pozycję  **Utwórz**.
 
 Platforma Azure rozpocznie Inicjowanie obsługi określonej maszyny wirtualnej. Śledź postęp, wybierając kartę **Virtual Machines** w menu po lewej stronie. Po jego utworzeniu stan maszyny wirtualnej zmieni się na **uruchomiony**.
-
 
 ## <a name="configure-the-vm"></a>Konfigurowanie maszyny wirtualnej
 

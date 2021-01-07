@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: d0cb9dc3c54f409c3bdd71fbb57c823e15abc22d
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 68a384197409115343a81aea23b0f7d42166d716
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97762966"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976813"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Obsługa języka i głosu dla usługi mowy
 
@@ -53,9 +53,9 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Arabski (Zjednoczone Emiraty Arabskie)      | `ar-AE` | Model językowy                                   |
 | Bułgarski (Bułgaria)               | `bg-BG` | Model językowy                                   |
 | Kataloński                    | `ca-ES` | Model językowy                                   |
-| Chiński (kantoński, tradycyjny)   | `zh-HK` | Model językowy                                   |
+| Chiński (kantoński, tradycyjny)   | `zh-HK` | Model akustyczny<br>Model językowy                 |
 | Chiński (mandarynki, uproszczony)     | `zh-CN` | Model akustyczny<br>Model językowy                 |
-| Chiński (tajwański mandarynki)       | `zh-TW` | Model językowy                                   |
+| Chiński (tajwański mandarynki)       | `zh-TW` | Model akustyczny<br>Model językowy                 |
 | Chorwacki (Chorwacja)                 | `hr-HR` | Model językowy                                   |
 | Czeski (Czechy)             | `cs-CZ` | Model języka                                   |
 | Duński (Dania)                   | `da-DK` | Model językowy                                   |
@@ -83,8 +83,8 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Węgierski (Węgry)                | `hu-HU` | Model języka                                   |
 | Irlandzki (Irlandia)                     | `ga-IE` | Model językowy                                   |
 | Włoski (Włochy)                    | `it-IT` | Model akustyczny<br>Model językowy<br>Fonetyczn|
-| Japoński (Japonia)                   | `ja-JP` | Model językowy                                   |
-| Koreański (Korea)                     | `ko-KR` | Model językowy                                   |
+| Japoński (Japonia)                   | `ja-JP` | Model akustyczny<br>Model językowy                 |
+| Koreański (Korea)                     | `ko-KR` | Model akustyczny<br>Model językowy                 |
 | Łotewski (Łotwa)                   | `lv-LV` | Model językowy                                   |
 | Litewski (Litwa)             | `lt-LT` | Model językowy                                   |
 | Maltański (Malta)                     | `mt-MT` | Model językowy                                   |
@@ -440,7 +440,7 @@ Interfejs API **tłumaczenia mowy** obsługuje różne języki dla tłumaczenia 
 | Kiswahili               | `sw`          |
 | Klingon                 | `tlh-Latn`    |
 | Klingon (plqaD)         | `tlh-Piqd`    |
-| koreański                  | `ko`          |
+| Koreański                  | `ko`          |
 | Łotewski                 | `lv`          |
 | Litewski              | `lt`          |
 | Madagaskaru                | `mg`          |
@@ -484,18 +484,18 @@ Zapoznaj się z poniższą tabelą dla obsługiwanych języków dla różnych ro
 | Język | Ustawienia regionalne (BCP-47) | Weryfikacja zależna od tekstu | Weryfikacja niezależna od tekstu | Identyfikacja niezależna od tekstu |
 |----|----|----|----|----|
 |Angielski (Stany Zjednoczone)  |  en-US  |  tak  |  tak  |  tak |
-|Chiński (mandarynki, uproszczony) | zh-CN     |     n/d |     tak |     tak|
-|Angielski (Australia)     | en-AU     | n/d     | tak     | tak|
-|Angielski (Kanada)     | EN-CA     | n/d |     tak |     tak|
-|Angielski (Zjednoczone Królestwo)     | en-GB     | n/d     | tak     | tak|
-|francuski (Kanada)     | fr — CA     | n/d     | tak |     tak|
-|Francuski (Francja)     | fr-FR     | n/d     | tak     | tak|
-|Niemiecki (Niemcy)     | de-DE     | n/d     | tak     | tak|
-|Włoski | it-IT     |     n/d     | tak |     tak|
-|japoński     | ja-JP | n/d     | tak     | tak|
-|Portugalski (Brazylia) | pt-BR |     n/d |     tak |     tak|
-|Hiszpański (Meksyk)     | es — MX     | n/d |     tak |     tak|
-|hiszpański (Hiszpania)     | es-ES | n/d     | tak |     tak|
+|Chiński (mandarynki, uproszczony) | zh-CN     |     nie dotyczy |     tak |     tak|
+|Angielski (Australia)     | en-AU     | nie dotyczy     | tak     | tak|
+|Angielski (Kanada)     | EN-CA     | nie dotyczy |     tak |     tak|
+|Angielski (Zjednoczone Królestwo)     | en-GB     | nie dotyczy     | tak     | tak|
+|francuski (Kanada)     | fr — CA     | nie dotyczy     | tak |     tak|
+|Francuski (Francja)     | fr-FR     | nie dotyczy     | tak     | tak|
+|Niemiecki (Niemcy)     | de-DE     | nie dotyczy     | tak     | tak|
+|Włoski | it-IT     |     nie dotyczy     | tak |     tak|
+|japoński     | ja-JP | nie dotyczy     | tak     | tak|
+|Portugalski (Brazylia) | pt-BR |     nie dotyczy |     tak |     tak|
+|Hiszpański (Meksyk)     | es — MX     | nie dotyczy |     tak |     tak|
+|hiszpański (Hiszpania)     | es-ES | nie dotyczy     | tak |     tak|
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b53c0002af3680567aabf0955f6bb4e0d99c2ab1
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 3ff8406a3634fa946ab8ce7aca694bbc57d556a5
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093438"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976405"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania związane z ciągłością biznesową i odzyskiwaniem po awarii w usłudze Azure Kubernetes Service (AKS)
 
@@ -119,10 +119,7 @@ Typową strategią jest zapewnienie wspólnego punktu magazynu, w którym aplika
 
 ![Replikacja asynchroniczna oparta na infrastrukturze](media/operator-best-practices-bc-dr/aks-infra-based-async-repl.png)
 
-Jeśli używasz usługi Azure Managed Disks, możesz wybrać replikację i rozwiązania odzyskiwania po awarii, takie jak następujące:
-
-* [Velero na platformie Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md)
-* [Azure Backup](../backup/backup-overview.md)
+W przypadku korzystania z usługi Azure Managed Disks istnieje kilka opcji, których można użyć do obsługi replikacji i odzyskiwania po awarii. [Velero na platformie Azure][velero] i [Kasten][kasten] są kopiami zapasowymi rozwiązań natywnych dla Kubernetes, ale nie są obsługiwane.
 
 ### <a name="application-based-asynchronous-replication"></a>Replikacja asynchroniczna oparta na aplikacji
 
@@ -140,3 +137,6 @@ Ten artykuł koncentruje się na zagadnieniach związanych z ciągłością bizn
 <!-- INTERNAL LINKS -->
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
+
+[velero]: https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md
+[kasten]: https://www.kasten.io/

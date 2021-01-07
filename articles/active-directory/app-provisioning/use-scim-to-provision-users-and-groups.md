@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: a0abbacc55cff2f561323a22dd83311c87b1511d
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 90debef39b3e657bf96221dfaf5fa762d332a364
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584497"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976524"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Samouczek — Tworzenie punktu końcowego Standard scim i Konfigurowanie aprowizacji użytkowników przy użyciu usługi Azure AD
 
@@ -330,7 +330,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 *POBRAĆ wartość/users? Filter = userName EQ "Test_User_dfeef4c5-5681 -4387-b016-bdf221e82081"*
 
-##### <a name="response"></a><a name="response-2"></a>Reakcji
+##### <a name="response"></a><a name="response-2"></a>Reakcja
 
 *HTTP/1.1 200 OK*
 ```json
@@ -371,7 +371,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 *POBRAĆ wartość/users? Filter = userName EQ "nieistniejącego użytkownika"*
 
-##### <a name="response"></a><a name="response-3"></a>Reakcji
+##### <a name="response"></a><a name="response-3"></a>Reakcja
 
 *HTTP/1.1 200 OK*
 ```json
@@ -408,7 +408,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-4"></a>Reakcji
+##### <a name="response"></a><a name="response-4"></a>Reakcja
 
 *HTTP/1.1 200 OK*
 ```json
@@ -452,7 +452,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-5"></a>Reakcji
+##### <a name="response"></a><a name="response-5"></a>Reakcja
 
 *HTTP/1.1 200 OK*
 ```json
@@ -501,7 +501,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-14"></a>Reakcji
+##### <a name="response"></a><a name="response-14"></a>Reakcja
 
 ```json
 {
@@ -541,7 +541,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 *Usuń/users/5171a35d82074e068ce2 HTTP/1.1*
 
-##### <a name="response"></a><a name="response-6"></a>Reakcji
+##### <a name="response"></a><a name="response-6"></a>Reakcja
 
 *HTTP/1.1 204 Brak zawartości*
 
@@ -568,7 +568,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-7"></a>Reakcji
+##### <a name="response"></a><a name="response-7"></a>Reakcja
 
 *Utworzono protokół HTTP/1.1 201*
 ```json
@@ -593,7 +593,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 *GET/Groups/40734ae655284ad3abcc? excludedAttributes = Members HTTP/1.1*
 
-##### <a name="response"></a><a name="response-8"></a>Reakcji
+##### <a name="response"></a><a name="response-8"></a>Reakcja
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -614,7 +614,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 ##### <a name="request"></a><a name="request-9"></a>Żądanie
 *GET/Groups? excludedAttributes = memberss&Filter = displayName EQ "displayName" HTTP/1.1*
 
-##### <a name="response"></a><a name="response-9"></a>Reakcji
+##### <a name="response"></a><a name="response-9"></a>Reakcja
 
 *HTTP/1.1 200 OK*
 ```json
@@ -654,7 +654,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-10"></a>Reakcji
+##### <a name="response"></a><a name="response-10"></a>Reakcja
 
 *HTTP/1.1 204 Brak zawartości*
 
@@ -677,7 +677,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-11"></a>Reakcji
+##### <a name="response"></a><a name="response-11"></a>Reakcja
 
 *HTTP/1.1 204 Brak zawartości*
 
@@ -700,7 +700,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-12"></a>Reakcji
+##### <a name="response"></a><a name="response-12"></a>Reakcja
 
 *HTTP/1.1 204 Brak zawartości*
 
@@ -710,7 +710,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 *Usuń/Groups/cdb1ce18f65944079d37 HTTP/1.1*
 
-##### <a name="response"></a><a name="response-13"></a>Reakcji
+##### <a name="response"></a><a name="response-13"></a>Reakcja
 
 *HTTP/1.1 204 Brak zawartości*
 
@@ -1217,7 +1217,7 @@ Kroki w przepływie przydzielenia kodu OAuth:
 > [!NOTE]
 > Chociaż nie jest możliwe skonfigurowanie uwierzytelniania OAuth w aplikacji spoza galerii, można ręcznie wygenerować token dostępu z serwera autoryzacji i dane wejściowe w polu token tajny aplikacji spoza galerii. Dzięki temu można sprawdzić zgodność serwera Standard scim z klientem usługi Azure AD Standard scim przed dołączeniem do galerii aplikacji, która obsługuje przyznanie kodu OAuth.  
 
-**Tokeny okaziciela OAuth o długim czasie trwania:** Jeśli aplikacja nie obsługuje przepływu przydzielenia kodu autoryzacji OAuth, można również wygenerować token okaziciela OAuth o długim czasie trwania, który może być używany przez administratora do skonfigurowania integracji aprowizacji. Token powinien być tymczasowy lub w przeciwnym razie zadanie aprowizacji zostanie poddane [kwarantannie](application-provisioning-quarantine-status.md) po wygaśnięciu tokenu. Token musi być poniżej rozmiarze 1 KB w rozmiarze.  
+**Tokeny okaziciela OAuth o długim czasie trwania:** Jeśli aplikacja nie obsługuje przepływu przydzielenia kodu autoryzacji OAuth, można również wygenerować token okaziciela OAuth o długim czasie trwania, który może być używany przez administratora do skonfigurowania integracji aprowizacji. Token powinien być tymczasowy lub w przeciwnym razie zadanie aprowizacji zostanie poddane [kwarantannie](application-provisioning-quarantine-status.md) po wygaśnięciu tokenu.
 
 Aby uzyskać dodatkowe metody uwierzytelniania i autoryzacji, daj nam znać w witrynie [UserVoice](https://aka.ms/appprovisioningfeaturerequest).
 

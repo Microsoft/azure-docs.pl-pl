@@ -16,12 +16,12 @@ ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74bc659c11c4f43ab3cf85cdc53f704cd07a1cde
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 25d4152783129fa1c5950d6cf6287332bf90d32a
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96172371"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976881"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect Synchronize: rozszerzenia katalogów
 Możesz użyć rozszerzeń katalogów, aby rozszerzać schemat w Azure Active Directory (Azure AD) z własnymi atrybutami z Active Directory lokalnych. Ta funkcja umożliwia tworzenie aplikacji biznesowych przez konsumowanie atrybutów, które nadal są zarządzane lokalnie. Te atrybuty mogą być używane przez [rozszerzenia](/graph/extensibility-overview
@@ -46,7 +46,7 @@ Instalacja pokazuje następujące atrybuty, które są prawidłowymi kandydatami
 
 
 >[!NOTE]
-> Chociaż Azure AD Connect obsługuje synchronizowanie atrybutów Active Directory z obsługą wartości wielowartościowych w usłudze Azure AD jako rozszerzenia katalogów z obsługą wartości wielowartościowych, nie ma obecnie możliwości pobierania/wykorzystywania danych przekazywanych w atrybutach rozszerzenia katalogu o wiele wartości.
+> Po Azure AD Connect zsynchronizowany atrybut Active Directory o wartości wielowartościowej do usługi Azure AD jako rozszerzenie atrybutu wielowartościowego możliwe jest dołączenie atrybutu do żądania SAML. Nie jest jednak możliwe korzystanie z tych danych za poorednictwem wywołania interfejsu API.
 
 Lista atrybutów jest odczytana z pamięci podręcznej schematu, która została utworzona podczas instalacji Azure AD Connect. Jeśli schemat Active Directory został rozszerzony o dodatkowe atrybuty, należy [odświeżyć schemat](how-to-connect-installation-wizard.md#refresh-directory-schema) , zanim te nowe atrybuty są widoczne.
 

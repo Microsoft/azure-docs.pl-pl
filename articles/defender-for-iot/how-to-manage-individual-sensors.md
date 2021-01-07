@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie indywidualnymi czujnikami
+title: Zarządzanie pojedynczymi czujnikami
 description: Dowiedz się, jak zarządzać indywidualnymi czujnikami, w tym zarządzaniem plikami aktywacji, wykonywaniem kopii zapasowych i aktualizowaniem czujników autonomicznych.
 author: shhazam-ms
 manager: rkarlin
@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 12/22/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 87bc3b172fdbd99130dbb36cceb5f3d16fc39dbd
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: daaca1d7c6cf43f69241e6a23f8bdfaf4015ba23
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97841987"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976949"
 ---
-# <a name="manage-individual-sensors"></a>Zarządzanie indywidualnymi czujnikami
+# <a name="manage-individual-sensors"></a>Zarządzanie pojedynczymi czujnikami
 
 W tym artykule opisano sposób zarządzania indywidualnymi czujnikami. Zadania obejmują zarządzanie plikami aktywacji, wykonywanie kopii zapasowych i aktualizowanie czujników autonomicznych.
 
@@ -427,8 +427,6 @@ Możesz przesłać dalej alerty do stron trzecich, aby przedstawić szczegóły:
 
 - Błędy zdalnej kopii zapasowej
 
-:::image type="content" source="media/how-to-work-with-system-notifications/image81.png" alt-text="Zrzut ekranu przedstawiający widok poczty stanu systemu zarządzania.] (nośnik/image80.png)! [Zrzut ekranu przedstawiający stan systemu zarządzania widok poczty":::
-
 Te informacje są wysyłane podczas tworzenia reguły przekazywania dla powiadomień systemowych.
 
 > [!NOTE]
@@ -457,7 +455,7 @@ Aby uzyskać dostęp do właściwości systemu:
 
 3. Wybierz pozycję **Właściwości systemu** z sekcji **Ogólne** .
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Badania i pakiety analizy zagrożeń](how-to-work-with-threat-intelligence-packages.md)
 

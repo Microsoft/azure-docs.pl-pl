@@ -1,18 +1,18 @@
 ---
-title: Korzystanie z mapy urządzenia czujnika
+title: Praca z mapą urządzeń czujników
 description: Mapa urządzenia oferuje graficzną reprezentację wykrytych urządzeń sieciowych. Za pomocą mapy można analizować informacje o urządzeniach, wycinki sieci i generować raporty oraz zarządzać nimi.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/07/2020
+ms.date: 1/7/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: dd0f28411dccab1a1dd36fbd01d2d1acbcc689e0
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: fd1721060bdc4b18f324a94f7c367bacde6ed4e8
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97843862"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976762"
 ---
 # <a name="investigate-sensor-detections-in-the-device-map"></a>Badanie wykrywania czujników na mapie urządzeń
 
@@ -59,7 +59,7 @@ Każda podsieć jest prezentowana jako pojedyncza jednostka na mapie urządzeń,
 
 Poniższy rysunek przedstawia zwinięty podsieć IT z 27 elementów sieci IT.
 
-:::image type="content" source="media/how-to-work-with-maps/shrunk-it-subnet.png" alt-text="zwinięty podsieć IT z 27 elementów sieci IT":::
+:::image type="content" source="media/how-to-work-with-maps/shrunk-it-subnet-v2.png" alt-text="zwinięty podsieć IT z 27 elementów sieci IT":::
 
 Aby włączyć funkcję zwijania sieci IT:
 
@@ -86,7 +86,7 @@ Aby rozwinąć podsieć IT:
 
 4. Zostanie wyświetlone okno potwierdzenia z informacją o tym, że nie można ponownie wykonać zmiany układu.
 
-5. Wybierz pozycję **OK**. Elementy podsieci IT są wyświetlane na mapie.
+5. Wybierz przycisk **OK**. Elementy podsieci IT są wyświetlane na mapie.
 
    :::image type="content" source="media/how-to-work-with-maps/fixed-map.png" alt-text="OK":::
 
@@ -120,7 +120,7 @@ Dostępne są następujące wstępnie zdefiniowane grupy:
 
 | Nazwa grupy | Opis |
 |--|--|
-| **Znane aplikacje lub porty inne niż Standrad (domyślnie)** | Urządzenia korzystające z portów zarezerwowanych, takich jak TCP. Urządzenia używające niestandardowych portów lub portów, które nie przypisały aliasu. |
+| **Znane aplikacje lub porty inne niż standardowe (domyślnie)** | Urządzenia korzystające z portów zarezerwowanych, takich jak TCP. Urządzenia używające niestandardowych portów lub portów, które nie przypisały aliasu. |
 | **Protokoły (domyślnie)** | Urządzenia, które obsługują ruch z niedostępnym. |
 | **Autoryzacja (domyślnie)** | Urządzenia, które zostały wykryte w sieci podczas procesu uczenia lub zostały oficjalnie dodane do sieci |
 | **Filtry spisu urządzeń** | Urządzenia pogrupowane zgodnie z filtrami zapisywanymi w tabeli spisu urządzeń. |
@@ -226,7 +226,7 @@ Ikona typu urządzenia jest pokazywana z podłączonymi urządzeniami.
 
 Widok szczegółowy przedstawia urządzenia i etykiety urządzeń oraz wskaźniki z następującymi informacjami:
 
-:::image type="content" source="media/how-to-work-with-maps/device-map.png" alt-text="Widok szczegółowy":::
+:::image type="content" source="media/how-to-work-with-maps/device-map-v2.png" alt-text="Widok szczegółowy":::
 
 ### <a name="control-the-zoom-view"></a>Kontrolowanie widoku powiększenia
 
@@ -236,7 +236,7 @@ Wyświetlany widok mapy zależy od poziomu powiększenia mapy. Przełączanie mi
 
 ### <a name="enable-simplified-zoom-views"></a>Włącz uproszczone widoki powiększenia
 
-Administratorzy, którzy chcą uzyskiwać dostęp do widoków połączeń Brid i urządzeń i typów w widokach, powinni włączyć uproszczoną opcję widoku.
+Administratorzy, którzy chcą uzyskiwać dostęp do widoków połączeń ptaków i urządzeń i typów połączenia z dostępem do ptaków oraz z typu danych, powinny włączyć opcję widoku uproszczonego.
 
 Aby włączyć uproszczone widoki mapy:
 
@@ -482,7 +482,7 @@ Alerty są wyzwalane, gdy nieautoryzowane urządzenia programistyczne wykonują 
 
 W tej sekcji opisano sposób wyświetlania plików programistycznych i porównywania wersji. Wyszukiwanie określonych plików wysyłanych na urządzenie z zaprogramowanym programem. Wyszukaj pliki na podstawie:
 
-  - Date
+  - Data
 
   - Typ pliku
 
@@ -492,7 +492,7 @@ W tej sekcji opisano sposób wyświetlania plików programistycznych i porównyw
 |--|--|
 | Urządzenie z zaprogramowanym | Zawiera szczegółowe informacje o urządzeniu, na którym zainstalowano program, w tym nazwę hosta i plik. |
 | Ostatnie zdarzenia | Przedstawia 50 ostatnich zdarzeń wykrytych przez czujnik. <br />Aby zaznaczyć zdarzenie, umieść je na nim i kliknij gwiazdkę. :::image type="icon" source="media/how-to-work-with-maps/star.png" border="false"::: <br /> Ostatnie zdarzenia 50 można wyświetlić. |
-| Files | Wyświetla pliki wykryte dla wybranej daty i rozmiaru pliku na urządzeniu zaprogramowanym. <br /> Domyślnie maksymalna liczba plików dostępnych do wyświetlenia na urządzenie to 300. <br /> Domyślnie maksymalny rozmiar pliku dla każdego pliku wynosi 15 MB. |
+| Pliki | Wyświetla pliki wykryte dla wybranej daty i rozmiaru pliku na urządzeniu zaprogramowanym. <br /> Domyślnie maksymalna liczba plików dostępnych do wyświetlenia na urządzenie to 300. <br /> Domyślnie maksymalny rozmiar pliku dla każdego pliku wynosi 15 MB. |
 | Stan pliku :::image type="icon" source="media/how-to-work-with-maps/status-v2.png" border="false"::: | Etykiety plików wskazują stan pliku na urządzeniu, w tym: <br /> **Dodano**: plik został dodany do punktu końcowego w wybranym dniu lub o wybranej godzinie. <br /> **Zaktualizowano**: plik został zaktualizowany w wybranym dniu lub o wybranej godzinie. <br /> **Usunięto**: ten plik został usunięty. <br /> **Brak etykiety**: plik nie został zmieniony.   |
 | Programowanie urządzenia | Urządzenie, które dokonało zmiany programistycznej. Wiele urządzeń mogło przebiegać zmiany programistyczne na jednym z programów z zaprogramowanym programem. Zostanie wyświetlona nazwa hosta, Data lub godzina zmiany i zalogowanego użytkownika. |
 | :::image type="icon" source="media/how-to-work-with-maps/current.png" border="false"::: | Wyświetla bieżący plik zainstalowany na zaprogramowanym urządzeniu. |
@@ -706,6 +706,6 @@ Aby wyeksportować:
 
 1. Wybierz opcję eksportowania.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Badanie wykrywania czujników w spisie urządzeń](how-to-investigate-sensor-detections-in-a-device-inventory.md)

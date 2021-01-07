@@ -4,15 +4,15 @@ description: W tym przewodniku opisano powszechnie używane metody horyzontu.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/19/2020
+ms.date: 1/7/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 3266517b9ddc8fc7ac7b06a137286c05ea9a28fa
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 6d2e3fccd6a61fe129050faa29cb7bb77674ccfe
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97841757"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976916"
 ---
 # <a name="horizon-api"></a>Interfejs API horyzontu 
 
@@ -24,7 +24,7 @@ Aby uzyskać więcej informacji na temat pracy z horyzontem i platformą CyberX,
 
 - W przypadku zestawu SDK open Development Environment (Node) można skontaktować się z przedstawicielem usługi CyberX.
 - Aby uzyskać pomoc techniczną i rozwiązywanie problemów, skontaktuj się z firmą <support@cyberx-labs.com> .
-- Aby uzyskać dostęp do podręcznika użytkownika programu Cyberx z poziomu konsoli programu CyberX, wybierz pozycję, :::image type="icon" source="media/references-horizon-api//image3.png"::: a następnie wybierz pozycję **Pobierz podręcznik użytkownika**.
+- Aby uzyskać dostęp do podręcznika użytkownika programu Cyberx z poziomu konsoli programu CyberX, wybierz pozycję, :::image type="icon" source="media/references-horizon-api/profile-icon.png"::: a następnie wybierz pozycję **Pobierz podręcznik użytkownika**.
 
 ## `horizon::protocol::BaseParser`
 

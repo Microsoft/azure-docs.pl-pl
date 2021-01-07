@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 08/24/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: beb38be985457ea36b2cea9a6dc337ba305d503f
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 4237aba81a01423a3356a30879fbd27450c876bd
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108505"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976507"
 ---
 # <a name="page-layout-versions"></a>Wersje układu strony
 
@@ -51,7 +51,7 @@ Pakiety układów stron są okresowo aktualizowane w celu uwzględnienia poprawe
 - Fokus jest teraz umieszczany w polu hasło po zweryfikowaniu wiadomości e-mail.
 - Usunięte `autofocus` z kontrolki CheckBox. 
 - Dodano obsługę kontrolki wyświetlania dla weryfikacji numeru telefonu.
-- Teraz możesz dodać `data-preload="true"` atrybut [w TAGACH html] (Dostosowywanie-UI-with-html. MD # wytycznych — dla
+- Teraz możesz dodać `data-preload="true"` atrybut [do tagów HTML](customize-ui-with-html.md#guidelines-for-using-custom-page-content)
   - Załaduj połączone pliki CSS jednocześnie jako szablon HTML, aby nie "migotać" między ładowaniem plików.
   - Kontroluj kolejność, w jakiej `script` Tagi są pobierane i wykonywane przed załadowaniem strony.
 - Pole e-mail to teraz `type=email` , a klawiatury przenośne zapewniają poprawne sugestie.
@@ -112,7 +112,7 @@ Pakiety układów stron są okresowo aktualizowane w celu uwzględnienia poprawe
 - Dodano element UXString, który `heading` oprócz `intro` elementu ma być wyświetlany na stronie jako tytuł. Ta wartość jest domyślnie ukryta.  
 - Dodano obsługę używania zasad lub parametru QueryString w `pageFlavor` celu wybrania układu (klasyczny, oceanBlue lub slateGray).
 
-**1.2.1**
+**ppkt**
 
 - Poprawki ułatwień dostępu w domyślnych szablonach
 

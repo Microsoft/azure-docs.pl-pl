@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d634978333e2b833324228fb0908cfba61a786d
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 0d04f2d1717e1d95f8bcafb8f72f2b0a2f83a248
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96919745"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976830"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Uprawnienia ról administratorów w usłudze Azure Active Directory
 
@@ -1434,6 +1434,14 @@ Nie używaj — nie jest przeznaczony do użytku ogólnego.
 
 | **Akcje** | **Opis** |
 | --- | --- |
+| Microsoft. Directory/Applications/appRoles/Update | Zarządzaj rolami aplikacji i Żądaj delegowanych uprawnień dla aplikacji. |
+| Microsoft. katalog/aplikacje/odbiorcy/aktualizacja | Aktualizowanie odbiorców dla wszystkich typów aplikacji. |
+| Microsoft. katalog/aplikacje/uwierzytelnianie/aktualizacja | Zaktualizuj uwierzytelnianie dla wszystkich typów aplikacji. |
+| Microsoft. Directory/Applications/Basic/Update | Zaktualizuj podstawowe właściwości wszystkich typów aplikacji. |
+| Microsoft. Directory/Applications/Credentials/Update | Zaktualizuj poświadczenia dla wszystkich typów aplikacji. |
+| Microsoft. Directory/Applications/Owners/Update | Aktualizowanie właścicieli wszystkich typów aplikacji. |
+| Microsoft. Directory/Applications/Permissions/Update | Aktualizuj uwidocznione uprawnienia i wymagane uprawnienia dla wszystkich typów aplikacji. |
+| Microsoft. Directory/Applications/policies/Update | Zaktualizuj Właściwość Applications. policies w Azure Active Directory. |
 | Microsoft. Directory/Contacts/Basic/Update | Aktualizowanie podstawowych właściwości kontaktów w Azure Active Directory. |
 | Microsoft. Directory/Contacts/Create | Utwórz kontakty w Azure Active Directory. |
 | Microsoft. Directory/kontakty/usuwanie | Usuń kontakty w Azure Active Directory. |
@@ -1467,6 +1475,14 @@ Nie używaj — nie jest przeznaczony do użytku ogólnego.
 
 | **Akcje** | **Opis** |
 | --- | --- |
+| Microsoft. Directory/Applications/appRoles/Update | Zarządzaj rolami aplikacji i Żądaj delegowanych uprawnień dla aplikacji. |
+| Microsoft. katalog/aplikacje/odbiorcy/aktualizacja | Aktualizowanie odbiorców dla wszystkich typów aplikacji. |
+| Microsoft. katalog/aplikacje/uwierzytelnianie/aktualizacja | Zaktualizuj uwierzytelnianie dla wszystkich typów aplikacji. |
+| Microsoft. Directory/Applications/Basic/Update | Zaktualizuj podstawowe właściwości wszystkich typów aplikacji. |
+| Microsoft. Directory/Applications/Credentials/Update | Zaktualizuj poświadczenia dla wszystkich typów aplikacji. |
+| Microsoft. Directory/Applications/Owners/Update | Aktualizowanie właścicieli wszystkich typów aplikacji. |
+| Microsoft. Directory/Applications/Permissions/Update | Aktualizuj uwidocznione uprawnienia i wymagane uprawnienia dla wszystkich typów aplikacji. |
+| Microsoft. Directory/Applications/policies/Update | Zaktualizuj Właściwość Applications. policies w Azure Active Directory. |
 | Microsoft. Directory/Contacts/Basic/Update | Aktualizowanie podstawowych właściwości kontaktów w Azure Active Directory. |
 | Microsoft. Directory/Contacts/Create | Utwórz kontakty w Azure Active Directory. |
 | Microsoft. Directory/kontakty/usuwanie | Usuń kontakty w Azure Active Directory. |

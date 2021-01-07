@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/31/2020
 ms.author: robreed
-ms.openlocfilehash: aa95d6792f2f5754a237c7bf5e90a11e2e011ede
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: b0502fb05043a54d81d768a7809d19b108cc6248
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861780"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976847"
 ---
 # <a name="custom-script-extension-for-windows"></a>Rozszerzenie niestandardowego skryptu dla systemu Windows
 
@@ -50,6 +50,8 @@ Rozszerzenie można skonfigurować tak, aby korzystało z poświadczeń usługi 
 ### <a name="internet-connectivity"></a>Łączność z Internetem
 
 Jeśli konieczne jest pobranie skryptu z zewnątrz, takiego jak z witryny GitHub lub Azure Storage, należy otworzyć dodatkową zaporę i porty sieciowej grupy zabezpieczeń. Jeśli na przykład skrypt znajduje się w usłudze Azure Storage, możesz zezwolić na dostęp za pomocą tagów usługi Azure sieciowej grupy zabezpieczeń dla [magazynu](../../virtual-network/network-security-groups-overview.md#service-tags).
+
+Należy zauważyć, że rozszerzenie CustomScript nie ma żadnego sposobu pomijania sprawdzania poprawności certyfikatu. Dlatego jeśli pobierasz z zabezpieczonej lokalizacji z przykładem. certyfikat z podpisem własnym może zakończyć się błędami, takimi jak *"certyfikat zdalny jest nieprawidłowy zgodnie z procedurą walidacji"*. Upewnij się, że certyfikat został poprawnie zainstalowany w magazynie *"Zaufane główne urzędy certyfikacji"* na maszynie wirtualnej.
 
 Jeśli skrypt znajduje się na serwerze lokalnym, może być konieczne otwarcie dodatkowych portów zapory i sieciowych grup zabezpieczeń.
 
@@ -283,7 +285,7 @@ Jeśli używasz polecenia [Invoke-WebRequest](/powershell/module/microsoft.power
 ```error
 The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
 ```
-## <a name="virtual-machine-scale-sets"></a>Usługa Virtual Machine Scale Sets
+## <a name="virtual-machine-scale-sets"></a>Virtual Machine Scale Sets
 
 Aby wdrożyć rozszerzenie niestandardowego skryptu na zestawie skalowania, zobacz [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension?view=azps-3.3.0)
 
