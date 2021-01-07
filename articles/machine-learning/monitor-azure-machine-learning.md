@@ -9,19 +9,19 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/01/2020
-ms.openlocfilehash: a77f9c8f7e37d2c5a040a48b6bd96bef11d51f14
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 183d8b415ccb35d22dcc23ccf11d0707ad0778dd
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533484"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963659"
 ---
 # <a name="monitor-azure-machine-learning"></a>Monitorowanie usługi Azure Machine Learning
 
 Jeśli masz krytyczne aplikacje i procesy biznesowe polegające na zasobach platformy Azure, chcesz monitorować te zasoby pod kątem ich dostępności, wydajności i operacji. W tym artykule opisano dane monitorowania wygenerowane przez Azure Machine Learning oraz sposób analizowania i generowania alertów dotyczących tych danych przy użyciu Azure Monitor.
 
 > [!TIP]
-> Informacje przedstawione w tym dokumencie są przeznaczone głównie dla __administratorów__ , ponieważ opisują monitorowanie usługi Azure Machine Learning i skojarzonych usług platformy Azure. Jeśli jesteś analitykiem __danych__ lub __deweloperem__ , a chcesz monitorować informacje specyficzne dla *przebiegów szkoleniowych modelu* , zobacz następujące dokumenty:
+> Informacje przedstawione w tym dokumencie są przeznaczone głównie dla __administratorów__, ponieważ opisują monitorowanie usługi Azure Machine Learning i skojarzonych usług platformy Azure. Jeśli jesteś analitykiem __danych__ lub __deweloperem__, a chcesz monitorować informacje specyficzne dla *przebiegów szkoleniowych modelu*, zobacz następujące dokumenty:
 >
 > * [Uruchamianie, monitorowanie i anulowanie przebiegów szkoleniowych](how-to-manage-runs.md)
 > * [Rejestrowanie metryk dla przebiegów treningowych](how-to-track-experiments.md)
@@ -91,6 +91,8 @@ Wszystkie metryki dla Azure Machine Learning znajdują się w **obszarze roboczy
 
 W przypadku odwołania można zobaczyć listę [wszystkich metryk zasobów obsługiwanych w Azure monitor](../azure-monitor/platform/metrics-supported.md).
 
+> [!TIP]
+> Dane metryk Azure Monitor są dostępne przez 90 dni. Jednak podczas tworzenia wykresów można wizualizować tylko 30 dni. Na przykład jeśli chcesz wizualizować 90-dniowy okres, musisz go podzielić na trzy wykresy o 30 dni w okresie 90 dni.
 ### <a name="filtering-and-splitting"></a>Filtrowanie i dzielenie
 
 W przypadku metryk, które obsługują wymiary, można zastosować filtry przy użyciu wartości wymiaru. Na przykład filtrowanie **aktywnych rdzeni** dla **nazwy klastra** `cpu-cluster` . 

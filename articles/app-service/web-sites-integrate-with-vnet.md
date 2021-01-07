@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: cbae833c1b207669e35b467707f946e9bafe31d2
-ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
+ms.openlocfilehash: 077d200dcaf957f636acecebb441ff99a68eb96f
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2021
-ms.locfileid: "97854948"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963591"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrowanie aplikacji z usługą Azure Virtual Network
 
@@ -131,6 +131,12 @@ W interfejsie użytkownika integracji z siecią wirtualną App Service są wyśw
 * **Synchronizacja sieci**: operacja synchronizacji sieci jest używana tylko w przypadku funkcji integracji wirtualnej zależnej od bramy. Wykonanie operacji synchronizacji sieci gwarantuje, że certyfikaty i informacje o sieci są zsynchronizowane. W przypadku dodania lub zmiany serwera DNS sieci wirtualnej wykonaj operację synchronizacji sieci. Ta operacja uruchamia ponownie wszystkie aplikacje używające tej sieci wirtualnej. Ta operacja nie będzie działała, jeśli używasz aplikacji i sieci wirtualnej należącej do różnych subskrypcji.
 * **Dodawanie tras**: Dodawanie tras dysków ruch wychodzący do sieci wirtualnej.
 
+Prywatny adres IP przypisany do wystąpienia jest udostępniany za pośrednictwem zmiennej środowiskowej, **WEBSITE_PRIVATE_IP**. Interfejs użytkownika konsoli kudu również pokazuje listę zmiennych środowiskowych dostępnych dla aplikacji sieci Web. Ten adres IP jest przypisany z zakresu adresów podsieci zintegrowanej. W przypadku integracji z regionalną siecią wirtualną wartość WEBSITE_PRIVATE_IP jest adresem IP z zakresu adresów podsieci delegowanej, a w przypadku integracji z siecią wirtualną wymaganą przez bramę wartość jest adresem IP z zakresu adres puli adresów punkt-lokacja skonfigurowanej w bramie Virtual Network. Jest to adres IP, który będzie używany przez aplikację internetową do łączenia się z zasobami za pomocą Virtual Network. 
+
+> [!NOTE]
+> Wartość WEBSITE_PRIVATE_IP jest powiązana ze zmianą. Będzie on jednak adresem IP w zakresie adresów podsieci integracji lub zakresu adresów typu punkt-lokacja, dlatego trzeba będzie zezwolić na dostęp z całego zakresu adresów.
+>
+
 ### <a name="gateway-required-vnet-integration-routing"></a>Routing integracji sieci wirtualnej wymagane przez bramę
 Trasy, które są zdefiniowane w sieci wirtualnej, są używane do kierowania ruchu do sieci wirtualnej z aplikacji. Aby wysłać dodatkowy ruch wychodzący do sieci wirtualnej, Dodaj te bloki adresów tutaj. Ta funkcja działa tylko z integracją sieci wirtualnej wymaganą przez bramę. Tabele tras nie wpływają na ruch aplikacji, gdy używasz integracji sieci wirtualnej wymagane przez bramę w taki sposób, aby korzystała z regionalnej integracji sieci wirtualnej.
 
@@ -157,7 +163,7 @@ Trzy opłaty są związane z korzystaniem z funkcji integracji sieci wirtualnej 
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
 
-## <a name="automation"></a>Automation
+## <a name="automation"></a>Automatyzacja
 
 Obsługa interfejsu wiersza polecenia jest dostępna dla integracji regionalnej sieci wirtualnej. Aby uzyskać dostęp do poniższych poleceń, [Zainstaluj interfejs wiersza polecenia platformy Azure][installCLI].
 

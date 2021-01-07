@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 1217ecba7a5fcb3c0fc95f505e7ca07fc76129b2
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: f729c00d3b78631a32013ec9453302584cecbd16
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97930824"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97962435"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Wdróż klaster Service Fabric platformy Azure w Strefy dostępności
 Strefy dostępności na platformie Azure to oferta wysokiej dostępności, która chroni Twoje aplikacje i dane przed awariami centrów danych. Strefa dostępności jest unikatową lokalizacją fizyczną z niezależną mocą, chłodzeniem i siecią w regionie świadczenia usługi Azure.
@@ -344,7 +344,7 @@ Pełny przykładowy szablon jest dostępny [tutaj](https://github.com/Azure-Samp
 Aby włączyć strefy na zestawie skalowania maszyn wirtualnych, należy uwzględnić następujące trzy wartości w zasobie zestawu skalowania maszyn wirtualnych.
 
 * Pierwsza wartość to właściwość **Zones** , która określa strefy dostępności obecną w zestawie skalowania maszyn wirtualnych.
-* Druga wartość to właściwość "singlePlacementGroup", która musi mieć wartość true.
+* Druga wartość to właściwość "singlePlacementGroup", która musi mieć wartość true. **Zestaw skalowania, który został przełączony w 3 AZs, może skalować do 300 maszyn wirtualnych nawet przy użyciu "singlePlacementGroup = true".**
 * Trzecia wartość to "zoneBalance" i jest opcjonalna, co zapewnia ścisłe równoważenie strefy, jeśli ma wartość true. Przeczytaj o [zoneBalancing](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing).
 * Zastąpień FaultDomain i UpgradeDomain nie są wymagane do skonfigurowania.
 

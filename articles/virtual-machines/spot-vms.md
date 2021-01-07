@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: b8e5c6b6b755134772cc8eaea3dab3af7f5346c9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e1666b7e74ceefd7e7e4fe6e499667b09efa0ac7
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963367"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963797"
 ---
 # <a name="use-spot-vms-in-azure"></a>Korzystanie z maszyn wirtualnych na platformie Azure
 
@@ -81,7 +81,7 @@ Możesz wyświetlić historyczne ceny i stawki wykluczenia według rozmiaru w re
 
 **Tabela**:
 
-:::image type="content" source="./media/spot-table.png" alt-text="Zrzut ekranu przedstawiający opcje regionu z różnicą cen i stawek wykluczenia jako wykresu.":::
+:::image type="content" source="./media/spot-table.png" alt-text="Zrzut ekranu przedstawiający opcje regionu z różnicą cen i stawek wykluczania w postaci tabeli.":::
 
 
 
@@ -110,6 +110,11 @@ Odp **.:** Tak, będzie można przesłać żądanie w celu zwiększenia limitu p
 **P:** Gdzie mogę publikować pytania?
 
 Odp **.:** Możesz ogłosić pytanie i oznaczyć je za pomocą `azure-spot` [elementu Q&a](/answers/topics/azure-spot.html). 
+
+
+**P:** Jak mogę zmienić maksymalną cenę maszyny wirtualnej na miejscu?
+
+Odp **.:** Aby zmienić cenę maksymalną, należy cofnąć przydział maszyny wirtualnej. Następnie można zmienić maksymalną cenę w portalu, z sekcji **konfiguracji** maszyny wirtualnej. 
 
 ## <a name="next-steps"></a>Następne kroki
 Wdrażaj maszyny wirtualne za pomocą [interfejsu wiersza polecenia](./linux/spot-cli.md), [portalu](spot-portal.md), [ARM](./linux/spot-template.md)lub [programu PowerShell](./windows/spot-powershell.md) .

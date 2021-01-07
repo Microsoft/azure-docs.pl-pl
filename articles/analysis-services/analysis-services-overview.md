@@ -8,12 +8,12 @@ ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 555c41a9d53b27119299e5e9dca7c9e392fc5e25
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 4be8c8a6163fe0400b37a3f2e1884ff389c00518
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955488"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963710"
 ---
 # <a name="what-is-azure-analysis-services"></a>Co to są usługi Azure Analysis Services?
 
@@ -160,7 +160,7 @@ Poziom zgodności dotyczy zachowań specyficznych dla wersji w aparacie Analysis
 
 ## <a name="your-data-is-secure"></a>Twoje dane są bezpieczne
 
-Usługa Azure Analysis Services oferuje zabezpieczenia danych poufnych na wielu poziomach. Usługi Analysis Services, jako usługi platformy Azure, udostępniają automatycznie włączony poziom **Podstawowy** ataków typu DDoS (rozproszona odmowa usługi) w ramach platformy Azure. Aby dowiedzieć się więcej, zobacz [Azure DDoS Protection Standard overview (Omówienie usługi Azure DDoS Protection w warstwie Standardowa)](../ddos-protection/ddos-protection-overview.md). 
+Usługa Azure Analysis Services oferuje zabezpieczenia danych poufnych na wielu poziomach. Jako usługa platformy Azure Analysis Services zapewnia ochronę **podstawowe** ataków typu "odmowa usługi" (DDoS), które są automatycznie włączane w ramach platformy Azure. Aby dowiedzieć się więcej, zobacz [Azure DDoS Protection Standard overview (Omówienie usługi Azure DDoS Protection w warstwie Standardowa)](../ddos-protection/ddos-protection-overview.md). 
 
 Na poziomie serwera usługi Analysis Services oferują zaporę, uwierzytelnianie platformy Azure, role administratora serwera i szyfrowanie po stronie serwera. Na poziomie modelu danych zabezpieczenia ról użytkownika, na poziomie wiersza i na poziomie zapewniają bezpieczeństwo danych, które będą widoczne tylko dla użytkowników, którzy powinni je widzieć.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 612576698d9eb40807b90e9d70f401aa6e9b864e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 57b1d47fa40c0af4bced1e4169fe60cd759ee2f3
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92512909"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963642"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Samouczek: integracja Azure Active Directory z programem Palo Alto Networks — interfejs użytkownika administratora
 
@@ -72,7 +72,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W Azure Portal na stronie **Palo Alto Networks — administrator — integracja aplikacji interfejsu użytkownika** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -169,7 +169,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     c. Wyczyść pole wyboru **Validate Identity Provider Certificate** (Sprawdź poprawność certyfikatu dostawcy tożsamości).
 
-    d. Wybierz przycisk **OK**.
+    d. Wybierz pozycję **OK**.
 
     e. Aby zatwierdzić konfiguracje zapory, wybierz pozycję **Commit** (Zatwierdź).
 
@@ -183,7 +183,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
   
     a. W polu **Identity Provider SLO URL** (Adres URL wylogowania jednokrotnego dostawcy tożsamości) zastąp poprzednio zaimportowany adres URL wylogowania jednokrotnego następującym adresem URL: `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0`
   
-    b. Wybierz przycisk **OK**.
+    b. Wybierz pozycję **OK**.
 
 7. W interfejsie użytkownika administratora zapory Palo Alto Networks wybierz pozycję **Device** (Urządzenie), a następnie wybierz pozycję **Admin Roles** (Role administratora).
 
@@ -218,9 +218,9 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
     f. Zaznacz pole wyboru **All** (Wszystko) lub wybierz użytkowników i grupy, które mogą uwierzytelniać się za pomocą tego profilu.  
     Podczas uwierzytelniania użytkownika zapora dopasowuje skojarzoną nazwę użytkownika lub grupę do wpisów na tej liście. Jeśli nie dodasz wpisów, żaden użytkownik nie będzie mógł się uwierzytelnić.
 
-    przykład Wybierz przycisk **OK**.
+    przykład Wybierz pozycję **OK**.
 
-13. Aby umożliwić administratorom używanie logowania jednokrotnego SAML przy użyciu **Device**platformy Azure, wybierz pozycję  >  **Konfiguracja**urządzenia. W okienku **Setup** (Konfiguracja) wybierz kartę **Management** (Zarządzanie), a następnie w obszarze **Authentication Settings** (Ustawienia uwierzytelniania) wybierz przycisk **Settings** (Ustawienia), czyli koło zębate.
+13. Aby umożliwić administratorom używanie logowania jednokrotnego SAML przy użyciu platformy Azure, wybierz pozycję  >  **Konfiguracja** urządzenia. W okienku **Setup** (Konfiguracja) wybierz kartę **Management** (Zarządzanie), a następnie w obszarze **Authentication Settings** (Ustawienia uwierzytelniania) wybierz przycisk **Settings** (Ustawienia), czyli koło zębate.
 
     ![Przycisk Settings (Ustawienia)](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsetup.png)
 
@@ -228,7 +228,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Pole Authentication Profile (Profil uwierzytelniania)](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsettings.png)
 
-15. Wybierz przycisk **OK**.
+15. Wybierz pozycję **OK**.
 
 16. Aby zatwierdzić konfigurację, wybierz pozycję **Commit** (Zatwierdź).
 
@@ -240,11 +240,11 @@ Aplikacja Palo Alto Networks - Admin UI obsługuje aprowizację użytkownika „
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji. 
 
-1. Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie do Palo Alto Networks — adres URL logowania administratora interfejsu użytkownika, w którym można zainicjować przepływ logowania. 
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie do Palo Alto Networks — adres URL logowania administratora interfejsu użytkownika, w którym można zainicjować przepływ logowania. 
 
-2. Przejdź do Palo Alto Networks — adres URL logowania administratora interfejsu użytkownika bezpośrednio i zainicjuj tam przepływ logowania.
+* Przejdź do Palo Alto Networks — adres URL logowania administratora interfejsu użytkownika bezpośrednio i zainicjuj tam przepływ logowania.
 
-3. Możesz użyć panelu programu Microsoft Access. Po kliknięciu kafelka interfejsu użytkownika Palo Alto Networks-admin w panelu dostępu należy automatycznie zalogować się do interfejsu użytkownika Palo Alto Networks-administrator, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
+* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka interfejsu użytkownika Palo Alto Networks-admin w obszarze Moje aplikacje należy automatycznie zalogować się do interfejsu użytkownika Palo Alto Networks-administrator, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Następne kroki

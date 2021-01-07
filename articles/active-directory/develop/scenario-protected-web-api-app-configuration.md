@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: bfbfb1ff5b6cb9c711d987608226c51822dfc935
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 12eba5a0de85f97dba9c220ed71679bdd35d7482
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442960"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963336"
 ---
 # <a name="protected-web-api-code-configuration"></a>Chroniony internetowy interfejs API: Konfiguracja kodu
 
@@ -140,7 +140,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
- Obecnie szablony ASP.NET Core tworzą interfejsy API sieci Web Azure Active Directory (Azure AD), które logują użytkowników w organizacji lub dowolnej organizacji. Użytkownicy nie logują się przy użyciu kont osobistych. Można jednak zmienić szablony, aby używać punktu końcowego platformy tożsamości firmy Microsoft przy użyciu [Microsoft. Identity. Web](https://www.nuget.org/packages/Microsoft.Identity.Web) zastępując kod w *Startup.cs* :
+ Obecnie szablony ASP.NET Core tworzą interfejsy API sieci Web Azure Active Directory (Azure AD), które logują użytkowników w organizacji lub dowolnej organizacji. Użytkownicy nie logują się przy użyciu kont osobistych. Można jednak zmienić szablony, aby używać punktu końcowego platformy tożsamości firmy Microsoft przy użyciu [Microsoft. Identity. Web](https://www.nuget.org/packages/Microsoft.Identity.Web) zastępując kod w *Startup.cs*:
 
 ```csharp
 using Microsoft.Identity.Web;
@@ -170,12 +170,12 @@ services.AddControllers();
 ```
 
 > [!NOTE]
-> Jeśli używasz Microsoft. Identity. Web i nie ustawisz `Audience` w *appsettings.jsna* , używane są następujące elementy:
+> Jeśli używasz Microsoft. Identity. Web i nie ustawisz `Audience` w *appsettings.jsna*, używane są następujące elementy:
 > -  `$"{ClientId}"` w przypadku ustawienia [wersji zaakceptowanej tokenu dostępu](scenario-protected-web-api-app-registration.md#accepted-token-version) na `2` lub Azure AD B2C interfejsów API sieci Web.
 > - `$"api://{ClientId}` we wszystkich innych przypadkach (dla [tokenów dostępu](access-tokens.md)w wersji 1.0).
 > Aby uzyskać szczegółowe informacje, zobacz Microsoft. Identity. Web [Code Source](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/Resource/RegisterValidAudience.cs#L70-L83).
 
-Poprzedni fragment kodu jest wyodrębniany z [wielostopniowego samouczka interfejsu API sieci web ASP.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/63087e83326e6a332d05fee6e1586b66d840b08f/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Startup.cs#L23-L28). Szczegóły **AddMicrosoftIdentityWebApiAuthentication** są dostępne w [witrynie Microsoft. Identity. Web](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/WebApiExtensions/WebApiServiceCollectionExtensions.cs#L27). Ta metoda wywołuje [AddMicrosoftWebAPI](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/WebApiExtensions/WebApiAuthenticationBuilderExtensions.cs#L58), która sama nakazuje oprogramowaniu pośredniczącemu na sprawdzanie poprawności tokenu. Aby uzyskać szczegółowe informacje, zobacz jego [kod źródłowy](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/WebApiExtensions/WebApiAuthenticationBuilderExtensions.cs#L104-L122).
+Poprzedni fragment kodu jest wyodrębniany z [wielostopniowego samouczka interfejsu API sieci web ASP.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/63087e83326e6a332d05fee6e1586b66d840b08f/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Startup.cs#L23-L28). Szczegóły **AddMicrosoftIdentityWebApiAuthentication** są dostępne w [witrynie Microsoft. Identity. Web](microsoft-identity-web.md). Ta metoda wywołuje [AddMicrosoftIdentityWebAPI](https://docs.microsoft.com/dotnet/api/microsoft.identity.web.microsoftidentitywebapiauthenticationbuilderextensions.addmicrosoftidentitywebapi?view=azure-dotnet-preview&preserve-view=true), która sama nakazuje oprogramowaniu pośredniczącemu na sprawdzanie poprawności tokenu.
 
 ## <a name="token-validation"></a>Sprawdzanie poprawności tokenu
 
@@ -210,7 +210,7 @@ Moduły walidacji są skojarzone z właściwościami klasy **TokenValidationPara
 
 W większości przypadków nie trzeba zmieniać parametrów. Aplikacje, które nie są pojedynczymi dzierżawcami, są wyjątkami. Te aplikacje sieci Web akceptują użytkowników z dowolnej organizacji lub z osobistych kont Microsoft. W takim przypadku należy sprawdzić poprawność wystawców. Firma Microsoft. Identity. Web zajmuje się również sprawdzaniem poprawności wystawcy. Aby uzyskać szczegółowe informacje, zobacz Microsoft. Identity. Web [AadIssuerValidator](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web/Resource/AadIssuerValidator.cs).
 
-W ASP.NET Core, jeśli chcesz dostosować parametry sprawdzania poprawności tokenu, użyj następującego fragmentu kodu w *Startup.cs* :
+W ASP.NET Core, jeśli chcesz dostosować parametry sprawdzania poprawności tokenu, użyj następującego fragmentu kodu w *Startup.cs*:
 
 ```c#
 services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

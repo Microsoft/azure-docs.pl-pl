@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: a0b76c21ee76731f78ecd7f482472908fe93a9ee
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 72072feebfcf8dba249d2045a399e09714177698
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92513334"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963693"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-palo-alto-networks---globalprotect"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą Palo Alto Networks — GlobalProtect
 
@@ -70,7 +70,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W Azure Portal na stronie **Palo Alto Networks-GlobalProtect** Application Integration Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -145,11 +145,11 @@ W tej sekcji użytkownik o nazwie B. Simon został utworzony w Palo Alto Network
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji. 
 
-1. Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie do Palo Alto Networks-GlobalProtect adres URL logowania, w którym można zainicjować przepływ logowania. 
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie do Palo Alto Networks-GlobalProtect adres URL logowania, w którym można zainicjować przepływ logowania. 
 
-2. Przejdź do adresu URL Palo Alto Networks-GlobalProtect Sign-on bezpośrednio i zainicjuj tam przepływ logowania.
+* Przejdź do adresu URL Palo Alto Networks-GlobalProtect Sign-on bezpośrednio i zainicjuj tam przepływ logowania.
 
-3. Możesz użyć panelu programu Microsoft Access. Po kliknięciu kafelka Palo Alto Networks-GlobalProtect w panelu dostępu należy automatycznie zalogować się do programu Palo Alto Networks-GlobalProtect, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
+* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka Palo Alto Networks-GlobalProtect (Moje aplikacje) należy automatycznie zalogować się do usługi Palo Alto Networks-GlobalProtect, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

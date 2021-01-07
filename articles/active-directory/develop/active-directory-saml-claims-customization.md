@@ -13,12 +13,12 @@ ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 1c88b9f77513021609b99c81ea572c2b5b3d365b
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 9c316362e2cd3fca9290e5f8070879567d9b7ea5
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936798"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963506"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Instrukcje: Dostosowywanie oświadczeń wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw
 
@@ -56,7 +56,7 @@ Z listy rozwijanej **Wybierz format identyfikatora nazwy** można wybrać jedną
 
 | Format NameID | Opis |
 |---------------|-------------|
-| **Wartooć** | Platforma tożsamości firmy Microsoft będzie używać domyślnego formatu źródła. |
+| **Domyślne** | Platforma tożsamości firmy Microsoft będzie używać domyślnego formatu źródła. |
 | **Stale** | Platforma tożsamości firmy Microsoft będzie używać trwałego formatu NameID. |
 | **EmailAddress (Adres e-mail)** | Platforma tożsamości firmy Microsoft będzie używać EmailAddress jako formatu NameID. |
 | **Nie określono** | Platforma tożsamości firmy Microsoft będzie używać nieokreślone jako formatu NameID. |
@@ -135,7 +135,7 @@ Aby przekształcić oświadczenia, można użyć następujących funkcji.
 | **StartWith()** | Wyprowadza atrybut lub stałą, jeśli dane wejściowe zaczynają się od określonej wartości. W przeciwnym razie można określić inne dane wyjściowe, jeśli nie ma żadnego dopasowania.<br/>Na przykład jeśli chcesz emitować, gdzie wartość jest identyfikator pracownika użytkownika, jeśli kraj/region zaczyna się od "US", w przeciwnym razie chcesz wyprowadzić atrybut rozszerzenia. W tym celu należy skonfigurować następujące wartości:<br/>*Parametr 1 (wejście)*: User. Country<br/>*Wartość*: "US"<br/>Parametr 2 (Output): User. IDPracownika<br/>Parametr 3 (dane wyjściowe w przypadku braku dopasowania): User. extensionAttribute1 |
 | **Wyodrębnij () — po dopasowaniu** | Zwraca podciąg po dopasowaniu określonej wartości.<br/>Na przykład, jeśli wartość wejściowa to "Finance_BSimon", odpowiadająca wartość to "Finance_", wówczas wynikiem żądania jest "BSimon". |
 | **Extract () — przed dopasowaniem** | Zwraca podciąg, dopóki nie pasuje do określonej wartości.<br/>Na przykład, jeśli wartość wejściowa to "BSimon_US", odpowiadająca wartość to "_US", wówczas wynikiem żądania jest "BSimon". |
-| **Extract () — między dopasowaniem** | Zwraca podciąg, dopóki nie pasuje do określonej wartości.<br/>Na przykład, jeśli wartość wejściowa to "Finance_BSimon_US", pierwsza zgodna wartość to "Finance_", druga pasująca wartość to "_US", a następnie dane wyjściowe żądania to "BSimon". |
+| **Extract () — między dopasowaniem** | Zwraca podciąg, dopóki nie pasuje do określonej wartości.<br/>Na przykład, jeśli wartość wejściowa to "Finance_BSimon_US", pierwsza zgodna wartość to "Finanse \_ ", druga zgodna wartość to " \_ US", a następnie dane wyjściowe żądania to "BSimon". |
 | **ExtractAlpha () — prefiks** | Zwraca wartość alfabetyczną prefiksu ciągu.<br/>Na przykład, jeśli wartość wejściowa to "BSimon_123", zwraca "BSimon". |
 | **ExtractAlpha () — sufiks** | Zwraca alfabetyczną część ciągu.<br/>Na przykład, jeśli wartość wejściowa to "123_Simon", zwraca "Simon". |
 | **ExtractNumeric () — prefiks** | Zwraca część liczbową prefiksu ciągu.<br/>Na przykład, jeśli wartość wejściowa to "123_BSimon", zwraca "123". |

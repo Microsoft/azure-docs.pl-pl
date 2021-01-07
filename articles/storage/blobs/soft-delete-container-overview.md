@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 01/06/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 1ebfa137357e60a1f462ef90c6430cbf0cb5b968
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: references_regions
+ms.openlocfilehash: 85d880966c4c3864206c7e92256eb8e705812f20
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746587"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97962180"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Usuwanie nietrwałe dla kontenerów (wersja zapoznawcza)
 
@@ -53,11 +53,9 @@ W wersji 2019-12-12 i nowszej interfejsu API REST usługi Azure Storage obsługi
 
 Usuwanie nietrwałe kontenera jest dostępne dla następujących typów kont magazynu:
 
-- Konta magazynu ogólnego przeznaczenia w wersji 2
+- Konto magazynu ogólnego przeznaczenia w wersji 2 i w wersji 1
 - Blokuj konta magazynu obiektów BLOB
 - Konta usługi Blob Storage
-
-Jeśli konto magazynu jest kontem ogólnego przeznaczenia w wersji 1, użyj Azure Portal, aby przeprowadzić uaktualnienie do konta ogólnego przeznaczenia w wersji 2. Aby uzyskać więcej informacji na temat kont magazynu, zobacz [Omówienie konta usługi Azure Storage](../common/storage-account-overview.md).
 
 Obsługiwane są również konta magazynu z hierarchiczną przestrzenią nazw włączoną do użycia z Azure Data Lake Storage Gen2.
 
@@ -65,7 +63,7 @@ Obsługiwane są również konta magazynu z hierarchiczną przestrzenią nazw w�
 
 Aby zarejestrować się w wersji zapoznawczej usuwania nietrwałego kontenera, użyj programu PowerShell lub interfejsu wiersza polecenia platformy Azure w celu przesłania żądania zarejestrowania tej funkcji w ramach subskrypcji. Po zatwierdzeniu żądania można włączyć funkcję usuwania nietrwałego kontenera przy użyciu dowolnego nowego lub istniejącego konta programu ogólnego przeznaczenia w wersji 2, BLOB Storage lub Premium Storage.
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 Aby zarejestrować się w programie PowerShell, wywołaj polecenie [register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) .
 
@@ -93,7 +91,7 @@ az provider register --namespace 'Microsoft.Storage'
 
 Aby sprawdzić stan rejestracji, użyj programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 Aby sprawdzić stan rejestracji w programie PowerShell, wywołaj polecenie [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) .
 
