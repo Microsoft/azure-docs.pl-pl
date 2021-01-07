@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
-ms.openlocfilehash: 2b54ee29b1b03bab5af8410a3fae06438180299d
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: ce7c0cba4a231fbdb33679f8cdac7d57c79845f5
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507527"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968878"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Mapowanie schematu i typu danych w działaniu kopiowania
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -66,7 +66,7 @@ Poniżej znajdują się następujące właściwości obsługiwane `translator` w
 
 Na przykład, aby skopiować dane z usługi Salesforce do Azure SQL Database i jawnie zmapować trzy kolumny:
 
-1. W obszarze działanie kopiowania — > mapowanie, kliknij przycisk **Importuj schemat** , aby zaimportować schematy źródłowe i ujścia.
+1. Na > działanie kopiowania — karta mapowanie, kliknij przycisk **Importuj schematy** , aby zaimportować schematy źródłowe i ujścia.
 
 2. Zamapuj potrzebne pola i Wyklucz/Usuń resztę.
 
@@ -180,7 +180,7 @@ I chcesz skopiować ten plik do pliku tekstowego w następującym formacie z lin
 
 Można zdefiniować takie mapowanie w interfejsie użytkownika Data Factory tworzenia:
 
-1. W obszarze działanie kopiowania — > mapowanie, kliknij przycisk **Importuj schemat** , aby zaimportować schematy źródłowe i ujścia. Jak Data Factory podczas importowania schematu przykłady najważniejszych obiektów, jeśli jakieś pola nie są wyświetlane, można je dodać do właściwej warstwy w hierarchii — na początku na istniejącej nazwie pola i wybrać opcję dodania węzła, obiektu lub tablicy.
+1. Na > działanie kopiowania — karta mapowanie, kliknij przycisk **Importuj schematy** , aby zaimportować schematy źródłowe i ujścia. Jak Data Factory podczas importowania schematu przykłady najważniejszych obiektów, jeśli jakieś pola nie są wyświetlane, można je dodać do właściwej warstwy w hierarchii — na początku na istniejącej nazwie pola i wybrać opcję dodania węzła, obiektu lub tablicy.
 
 2. Wybierz tablicę, z której chcesz wykonać iterację i wyodrębnić dane. Zostanie ono automatycznie wypełnione jako **odwołanie do kolekcji**. Uwaga dla tej operacji jest obsługiwana tylko jedna tablica.
 

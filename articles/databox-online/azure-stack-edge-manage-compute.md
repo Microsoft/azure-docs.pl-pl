@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/20/2019
+ms.date: 01/06/2021
 ms.author: alkohli
-ms.openlocfilehash: 0d93edbefb61cb8ded09f6402ca1e1661429efe1
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: ebf967fe02ab6424b9952bb0315b70fadb547fe3
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952152"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97967834"
 ---
 # <a name="manage-compute-on-your-azure-stack-edge-pro"></a>Zarządzanie obliczeniami na Azure Stack Edge
 
@@ -38,7 +38,7 @@ Zdarzenia to rzeczy dziejące się w środowisku chmury lub na urządzeniu, wzgl
 
 Wykonaj następujące kroki w Azure Portal, aby utworzyć wyzwalacz.
 
-1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do pozycji **Oblicz compute > Trigger**. Wybierz pozycję **+ Dodaj wyzwalacz** na pasku poleceń.
+1. W Azure Portal przejdź do Azure Stack zasobu brzegowego, a następnie przejdź do pozycji **IoT Edge > wyzwalacze**. Wybierz pozycję **+ Dodaj wyzwalacz** na pasku poleceń.
 
     ![Wybierz pozycję Dodaj wyzwalacz](media/azure-stack-edge-manage-compute/add-trigger-1.png)
 
@@ -68,15 +68,15 @@ Aby usunąć wyzwalacz, wykonaj następujące czynności w Azure Portal.
 
 1. Z listy wyzwalaczy Wybierz wyzwalacz, który chcesz usunąć.
 
-    ![Wybierz wyzwalacz](media/azure-stack-edge-manage-compute/add-trigger-1.png)
+    ![Wybierz wyzwalacz](media/azure-stack-edge-manage-compute/delete-trigger-1.png)
 
 2. Kliknij prawym przyciskiem myszy, a następnie wybierz pozycję **Usuń**.
 
-    ![Wybierz pozycję Usuń](media/azure-stack-edge-manage-compute/add-trigger-1.png)
+    ![Wybierz pozycję Usuń](media/azure-stack-edge-manage-compute/delete-trigger-2.png)
 
 3. Po wyświetleniu monitu o potwierdzenie kliknij przycisk **Tak**.
 
-    ![Potwierdzenie usunięcia](media/azure-stack-edge-manage-compute/add-trigger-1.png)
+    ![Potwierdzenie usunięcia](media/azure-stack-edge-manage-compute/delete-trigger-3.png)
 
 Lista wyzwalaczy jest aktualizowana w celu odzwierciedlenia usunięcia.
 
@@ -88,11 +88,11 @@ Użyj Azure Portal, aby wyświetlić konfigurację obliczeń, usunąć istnieją
 
 Wykonaj następujące kroki w Azure Portal, aby wyświetlić konfigurację obliczeń dla urządzenia.
 
-1. W Azure Portal przejdź do Azure Stack zasobów brzegowych, a następnie przejdź do pozycji **Oblicz compute > modules**. Wybierz pozycję **Wyświetl obliczenia** na pasku poleceń.
+1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do pozycji **IoT Edge > przegląd**. 
 
     ![Wybierz pozycję Wyświetl obliczenia](media/azure-stack-edge-manage-compute/view-compute-1.png)
 
-2. Zanotuj konfigurację obliczeń na urządzeniu. Podczas konfigurowania obliczeń tworzony jest zasób IoT Hub. W ramach tego IoT Hub zasobów skonfigurowano urządzenie IoT i urządzenie IoT Edge. Tylko moduły systemu Linux są obsługiwane do uruchamiania na urządzeniu IoT Edge.
+2. Przejdź do strony **Właściwości** . Zanotuj konfigurację obliczeń na urządzeniu. Podczas konfigurowania obliczeń tworzony jest zasób IoT Hub. W ramach tego IoT Hub zasobów skonfigurowano urządzenie IoT i urządzenie IoT Edge. Tylko moduły systemu Linux są obsługiwane do uruchamiania na urządzeniu IoT Edge.
 
     ![Wyświetl konfigurację](media/azure-stack-edge-manage-compute/view-compute-2.png)
 
@@ -101,7 +101,7 @@ Wykonaj następujące kroki w Azure Portal, aby wyświetlić konfigurację oblic
 
 Wykonaj następujące kroki w Azure Portal, aby usunąć istniejącą konfigurację obliczeń krawędzi dla urządzenia.
 
-1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do pozycji **Oblicz compute > Rozpocznij**. Na pasku poleceń wybierz pozycję **Usuń obliczenia** .
+1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do pozycji **IoT Edge > przegląd**. Na pasku poleceń wybierz pozycję **Usuń** .
 
     ![Wybierz pozycję Usuń obliczenia](media/azure-stack-edge-manage-compute/remove-compute-1.png)
 
@@ -119,7 +119,7 @@ Jeśli urządzenie IoT i IoT Edge klucze zostały obrócone, należy odświeży�
 
 Aby zsynchronizować klucze dostępu dla urządzenia, wykonaj następujące czynności w Azure Portal.
 
-1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do pozycji **Oblicz compute > Rozpocznij**. Wybierz pozycję **Odśwież konfigurację** na pasku poleceń.
+1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do pozycji **IoT Edge > przegląd**. Wybierz pozycję **Odśwież konfigurację** na pasku poleceń.
 
     ![Wybierz konfigurację odświeżania](media/azure-stack-edge-manage-compute/refresh-configuration-1.png)
 

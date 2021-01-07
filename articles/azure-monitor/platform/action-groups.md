@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: b5b6a697e6a5cae064a6a48419246dc12e8d048c
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 72caeb60fc058b88158979d211a0bc38985975c7
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695812"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968861"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Tworzenie grup akcji i zarządzanie nimi w witrynie Azure Portal
 Grupa akcji to zbiór preferencji powiadomień definiowanych przez właściciela subskrypcji platformy Azure. Alerty Azure Monitor i Service Health umożliwiają Powiadamianie użytkowników o wyzwoleniu alertu. Różne alerty mogą korzystać z tej samej grupy akcji lub różnych grup akcji w zależności od wymagań użytkownika. 
@@ -318,7 +318,11 @@ Cennik dla obsługiwanych krajów/regionów znajduje się na [stronie cennika Az
 ### <a name="webhook"></a>Webhook
 
 > [!NOTE]
-> Użycie akcji elementu webhook wymaga, aby docelowy punkt końcowy elementu webhook nie wymagał pomyślnego funkcjonowania alertu lub może on przeanalizować informacje kontekstu alertu, które są dostarczane jako część operacji POST. Jeśli punkt końcowy elementu webhook nie może samodzielnie obsłużyć informacji kontekstu alertu, możesz użyć rozwiązania, takiego jak [Akcja aplikacji logiki](./action-groups-logic-app.md) do niestandardowego manipulowania informacjami kontekstu alertu w celu dopasowania do oczekiwanego formatu danych elementu webhook.
+> Użycie akcji elementu webhook wymaga, aby docelowy punkt końcowy elementu webhook nie wymagał pomyślnego funkcjonowania alertu lub może on przeanalizować informacje kontekstu alertu, które są dostarczane jako część operacji POST. 
+
+> Użytkownik powinien być **właścicielem** jednostki usługi elementu webhook, aby upewnić się, że zabezpieczenia nie zostały naruszone. Ponieważ dowolny klient platformy Azure może uzyskać dostęp do wszystkich identyfikatorów obiektów za pomocą portalu bez sprawdzania właściciela, każdy może dodać bezpieczny element webhook do własnej grupy akcji dla powiadomień o alertach usługi Azure monitor, które naruszają zabezpieczenia.
+
+> Jeśli punkt końcowy elementu webhook nie może samodzielnie obsłużyć informacji kontekstu alertu, możesz użyć rozwiązania, takiego jak [Akcja aplikacji logiki](./action-groups-logic-app.md) do niestandardowego manipulowania informacjami kontekstu alertu w celu dopasowania do oczekiwanego formatu danych elementu webhook.
 
 Elementy webhook są przetwarzane przy użyciu następujących reguł
 - Podjęto próbę wywołania elementu webhook z maksymalnie 3 razy.

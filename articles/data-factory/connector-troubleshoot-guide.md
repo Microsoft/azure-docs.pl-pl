@@ -5,16 +5,16 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 12/30/2020
+ms.date: 01/07/2021
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: e6591762ed6a7e2b462a209730276f3198d86ae8
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 68547b8fb673cd54b7c21963ede122553bbbc390
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97821472"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97967127"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Rozwiązywanie problemów z łącznikami usługi Azure Data Factory
 
@@ -124,7 +124,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 - **Zalecenie**: Sprawdź błąd w obszarze Szczegóły. Zapoznaj się z [dokumentem pomocy CosmosDb](https://docs.microsoft.com/azure/cosmos-db/troubleshoot-dot-net-sdk). Skontaktuj się z zespołem CosmosDb, jeśli potrzebujesz pomocy.
 
 
-## <a name="azure-data-lake-storage-gen1"></a>Usługa Azure Data Lake Storage 1. generacji
+## <a name="azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1
 
 ### <a name="error-message-the-underlying-connection-was-closed-could-not-establish-trust-relationship-for-the-ssltls-secure-channel"></a>Komunikat o błędzie: Połączenie podstawowe zostało zamknięte: nie można ustanowić relacji zaufania dla bezpiecznego kanału SSL/TLS.
 
@@ -458,34 +458,15 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 - **Przyczyna**: problem z analizą usługi Azure Synapse Analytics w tabeli zewnętrznej w usłudze Azure Storage.
 
 - **Rozwiązanie**: Uruchom to samo zapytanie w programie SSMS i sprawdź, czy widzisz ten sam wynik. Jeśli tak, Otwórz bilet pomocy technicznej w usłudze Azure Synapse Analytics i podaj nazwę serwera usługi Azure Synapse Analytics oraz bazę danych, aby kontynuować rozwiązywanie problemów.
-            
-
-### <a name="low-performance-when-load-data-into-azure-sql"></a>Niska wydajność podczas ładowania danych do usługi Azure SQL
-
-- **Objawy**: kopiowanie danych w programie do usługi Azure SQL powoduje powolne działanie.
-
-- **Przyczyna**: główna przyczyna problemu jest przede wszystkim wyzwalana przez wąskie gardło po stronie usługi Azure SQL. Poniżej przedstawiono niektóre możliwe przyczyny:
-
-    - Warstwa usługi Azure DB nie jest wystarczająco duża.
-
-    - Użycie jednostek DTU usługi Azure DB jest bliskie 100%. Możesz [monitorować wydajność](https://docs.microsoft.com/azure/azure-sql/database/monitor-tune-overview) i zastanowić się nad uaktualnieniem warstwy bazy danych.
-
-    - Indeksy nie są ustawione prawidłowo. Usuń wszystkie indeksy przed załadowaniem danych i utwórz je ponownie po zakończeniu ładowania.
-
-    - WriteBatchSize nie jest wystarczająco duży, aby dopasować rozmiar wiersza schematu. Spróbuj powiększyć Właściwość problemu.
-
-    - Zamiast zbiorczego wstawania, jest używana procedura składowana, która powinna mieć gorszą wydajność. 
-
-- **Rozwiązanie**: Zapoznaj się z TSG na potrzeby [wydajności działania kopiowania](https://docs.microsoft.com/azure/data-factory/copy-activity-performance-troubleshooting)
 
 
 ### <a name="performance-tier-is-low-and-leads-to-copy-failure"></a>Warstwa wydajności jest niska i prowadzi do niepowodzenia kopiowania
 
-- **Objawy**: podczas kopiowania danych do usługi Azure SQL wystąpił następujący komunikat o błędzie: `Database operation failed. Error message from database execution : ExecuteNonQuery requires an open and available Connection. The connection's current state is closed.`
+- **Objawy**: podczas kopiowania danych do Azure SQL Database wystąpił następujący komunikat o błędzie: `Database operation failed. Error message from database execution : ExecuteNonQuery requires an open and available Connection. The connection's current state is closed.`
 
-- **Przyczyna**: jest używana usługa Azure SQL S1, w takim przypadku trafij limity operacji we/wy.
+- **Przyczyna**: jest używana Azure SQL Database S1, w takim przypadku trafią limity we/wy.
 
-- **Rozwiązanie**: Uaktualnij warstwę wydajności usługi Azure SQL, aby rozwiązać ten problem. 
+- **Rozwiązanie**: uaktualnij Azure SQL Database warstwę wydajności, aby rozwiązać ten problem. 
 
 
 ### <a name="sql-table-cannot-be-found"></a>Nie można znaleźć tabeli SQL 
@@ -619,31 +600,6 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 - **Przyczyna**: serwer Dynamics jest niestabilny lub niedostępny lub wystąpił problem z siecią.
 
 - **Zalecenie**: sprawdź łączność sieciową lub Sprawdź dziennik programu Dynamics Server, aby uzyskać więcej szczegółów. Skontaktuj się z pomocą techniczną w celu uzyskania dalszej pomocy.
-
-
-## <a name="excel-format"></a>Format programu Excel
-
-### <a name="timeout-or-slow-performance-when-parsing-large-excel-file"></a>Przekroczenie limitu czasu lub niska wydajność podczas analizowania dużego pliku programu Excel
-
-- **Objawy**:
-
-    - Podczas tworzenia zestawu danych programu Excel i importowania schematu z usługi Connect/Store, podglądu danych, listy lub odświeżania arkuszy można napotkać błąd limitu czasu, jeśli rozmiar pliku programu Excel jest duży.
-
-    - W przypadku używania działania kopiowania do kopiowania danych z dużego pliku programu Excel (>= 100 MB) do innych magazynów danych może wystąpić problem z niską wydajnością lub OOM.
-
-- **Przyczyna**: 
-
-    - W przypadku operacji, takich jak importowanie schematu, Podgląd danych i wyświetlanie listy arkuszy danych programu Excel, limit czasu to 100 s i static. W przypadku dużych plików programu Excel te operacje mogą nie kończyć się wartością limitu czasu.
-
-    - Działanie kopiowania ADF odczytuje cały plik programu Excel do pamięci, a następnie lokalizuje określony arkusz i komórki do odczytu danych. To zachowanie jest spowodowane użyciem bazowego ADF zestawu SDK.
-
-- **Rozwiązanie**: 
-
-    - W przypadku importowania schematu można wygenerować mniejszy przykładowy plik, który jest podzbiorem oryginalnego pliku, a następnie wybrać opcję "Importuj schemat z pliku przykładowego" zamiast "Importuj schemat z połączenia/magazynu".
-
-    - W przypadku arkusza z listą, na liście rozwijanej arkusza można kliknąć pozycję "Edytuj" i wprowadzić zamiast niej nazwę/indeks arkusza.
-
-    - Aby skopiować duży plik programu Excel (>100 MB) do innego sklepu, możesz użyć źródła programu Excel dotyczącego przepływu danych, które umożliwia odczytanie i przeprowadzenie przesyłania strumieniowego przez Sport.
     
 
 ## <a name="ftp"></a>FTP

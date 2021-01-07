@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/09/2020
-ms.openlocfilehash: d22d040b0001ee30e29c551e686a7cb6bc47c2af
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.date: 01/07/2021
+ms.openlocfilehash: ee6105376f5e8dc884f13e04db51126c039328e9
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921926"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968895"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Rozwiązywanie problemów z wydajnością działania kopiowania
 
@@ -172,6 +172,60 @@ Gdy wydajność kopiowania nie spełnia oczekiwań, aby rozwiązywać problemy z
 
   - Rozważ stopniowe dopasowanie [kopii równoległych](copy-activity-performance-features.md), co oznacza, że zbyt wiele kopii równoległych może nawet obniżyć wydajność.
 
+
+## <a name="connector-and-ir-performance"></a>Wydajność łącznika i podczerwieni
+
+W tej sekcji omówiono niektóre przewodniki dotyczące rozwiązywania problemów z wydajnością dla określonego typu łącznika lub środowiska Integration Runtime.
+
+### <a name="activity-execution-time-varies-using-azure-ir-vs-azure-vnet-ir"></a>Czas wykonywania działania różni się w zależności od Azure IR sieci wirtualnej Azure
+
+Czas wykonywania działania jest różny w zależności od tego, czy zestaw danych opiera się na różnych Integration Runtime.
+
+- **Objawy**: po prostu przełączeniu listy rozwijanej połączonej usługi w zestawie danych wykonuje te same działania potoku, ale znacząco różnią się w czasie wykonywania. Gdy zestaw danych jest oparty na zarządzanym Integration Runtime Virtual Network, do ukończenia uruchomienia trwa więcej niż 2 minuty, ale ukończenie przebiegu trwa około 20 sekund, podczas gdy na podstawie domyślnego Integration Runtime.
+
+- **Przyczyna**: sprawdzanie szczegółów uruchomień potoku, można zobaczyć, że powolny potok jest uruchomiony na zarządzanym sieci wirtualnej (Virtual Network), podczas gdy normalne działanie jest uruchomione na Azure IR. Zgodnie z projektem zarządzana Sieć wirtualna w sieci wirtualnej trwa dłużej niż Azure IR, ponieważ nie obsługujemy jednego węzła obliczeniowego na fabrykę danych, więc istnieje rozgrzewanie około 2 minut dla każdego działania kopiowania do uruchomienia i występuje przede wszystkim przy przyłączaniu do sieci wirtualnej, a nie Azure IR.
+
+    
+### <a name="low-performance-when-loading-data-into-azure-sql-database"></a>Niska wydajność podczas ładowania danych do Azure SQL Database
+
+- **Objawy**: kopiowanie danych w programie do Azure SQL Database powoduje spowolnienie.
+
+- **Przyczyna**: główna przyczyna problemu jest w większości wyzwalana przez wąskie gardło po stronie Azure SQL Database. Poniżej przedstawiono niektóre możliwe przyczyny:
+
+    - Warstwa Azure SQL Database nie jest wystarczająco wysoka.
+
+    - Użycie jednostek DTU Azure SQL Database jest bliskie 100%. Można [monitorować wydajność](https://docs.microsoft.com/azure/azure-sql/database/monitor-tune-overview) i zastanowić się nad uaktualnieniem warstwy Azure SQL Database.
+
+    - Indeksy nie są ustawione prawidłowo. Usuń wszystkie indeksy przed załadowaniem danych i utwórz je ponownie po zakończeniu ładowania.
+
+    - WriteBatchSize nie jest wystarczająco duży, aby dopasować rozmiar wiersza schematu. Spróbuj powiększyć Właściwość problemu.
+
+    - Zamiast zbiorczego wstawania, jest używana procedura składowana, która powinna mieć gorszą wydajność. 
+
+- **Rozwiązanie**: Zapoznaj się z tematem [Rozwiązywanie problemów z wydajnością działania kopiowania](https://docs.microsoft.com/azure/data-factory/copy-activity-performance-troubleshooting).
+
+### <a name="timeout-or-slow-performance-when-parsing-large-excel-file"></a>Przekroczenie limitu czasu lub niska wydajność podczas analizowania dużego pliku programu Excel
+
+- **Objawy**:
+
+    - Podczas tworzenia zestawu danych programu Excel i importowania schematu z usługi Connect/Store, podglądu danych, listy lub odświeżania arkuszy można napotkać błąd limitu czasu, jeśli rozmiar pliku programu Excel jest duży.
+
+    - W przypadku używania działania kopiowania do kopiowania danych z dużego pliku programu Excel (>= 100 MB) do innych magazynów danych może wystąpić problem z niską wydajnością lub OOM.
+
+- **Przyczyna**: 
+
+    - W przypadku operacji, takich jak importowanie schematu, Podgląd danych i wyświetlanie listy arkuszy danych programu Excel, limit czasu to 100 s i static. W przypadku dużych plików programu Excel te operacje mogą nie kończyć się wartością limitu czasu.
+
+    - Działanie kopiowania ADF odczytuje cały plik programu Excel do pamięci, a następnie lokalizuje określony arkusz i komórki do odczytu danych. To zachowanie jest spowodowane użyciem bazowego ADF zestawu SDK.
+
+- **Rozwiązanie**: 
+
+    - W przypadku importowania schematu można wygenerować mniejszy przykładowy plik, który jest podzbiorem oryginalnego pliku, a następnie wybrać opcję "Importuj schemat z pliku przykładowego" zamiast "Importuj schemat z połączenia/magazynu".
+
+    - W przypadku arkusza z listą, na liście rozwijanej arkusza można kliknąć pozycję "Edytuj" i wprowadzić zamiast niej nazwę/indeks arkusza.
+
+    - Aby skopiować duży plik programu Excel (>100 MB) do innego sklepu, możesz użyć źródła programu Excel dotyczącego przepływu danych, które umożliwia odczytanie i przeprowadzenie przesyłania strumieniowego przez Sport.
+    
 ## <a name="other-references"></a>Inne odwołania
 
 Poniżej przedstawiono informacje dotyczące monitorowania wydajności i dostrajania dla niektórych obsługiwanych magazynów danych:

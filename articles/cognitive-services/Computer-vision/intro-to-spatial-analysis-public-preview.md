@@ -10,16 +10,16 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.openlocfilehash: 158a5e5f859749ec2ca20bfa4783fe32cc17ee0e
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 402ee6d5efdd489914cb7d283c7c46d4f7d175f6
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964613"
+ms.locfileid: "97968062"
 ---
 # <a name="introduction-to-computer-vision-spatial-analysis"></a>Wprowadzenie do analizy przestrzennej przetwarzanie obrazów
 
-Przetwarzanie obrazów Analiza przestrzenna to nowa funkcja usługi Azure Cognitive Services przetwarzanie obrazów, która ułatwia organizacjom maksymalizowanie wartości miejsc fizycznych przez zrozumienie ruchów i obecności osób w danym obszarze. Pozwala to na pozyskiwanie wideo z kamer CCTV lub nadzoru, uruchamianie operacji AI w celu wyodrębnienia szczegółowych informacji z strumieni wideo oraz generowanie zdarzeń, które mają być używane przez inne systemy. W przypadku danych wejściowych ze strumienia aparatów operacja AI może posłużyć do policzania liczby osób wprowadzających miejsce lub mierzenia zgodności z maską powierzchni i wskazówkami distancing społecznościowych.
+Przetwarzanie obrazów Analiza przestrzenna to nowa funkcja usługi Azure Cognitive Services przetwarzanie obrazów, która ułatwia organizacjom maksymalizowanie wartości miejsc fizycznych przez zrozumienie ruchów i obecności osób w danym obszarze. Pozwala to na pozyskiwanie wideo z kamer CCTV lub nadzoru, uruchamianie umiejętności AI w celu wyodrębnienia szczegółowych informacji z strumieni wideo oraz generowanie zdarzeń, które mają być używane przez inne systemy. Dzięki wejściu ze strumienia aparatów, umiejętność systemu AI może posłużyć do policzania liczby osób wprowadzających miejsce lub mierzenia zgodności z przepisami distancing społecznościowych.
 
 ## <a name="the-basics-of-spatial-analysis"></a>Podstawy analizy przestrzennej
 
@@ -30,10 +30,9 @@ Obecnie podstawowe operacje związane z analizą przestrzenną są zbudowane na 
 | Okres | Definicja |
 |------|------------|
 | Wykrywanie osób | Ten składnik odpowiada na pytanie "gdzie znajdują się osoby z tego obrazu"? Znajduje ludzie w obrazie i przekazuje pole ograniczenia wskazujące lokalizację każdej osoby do składnika śledzenia osób. |
-| Śledzenie osób | Ten składnik łączy wykrywania osób z upływem czasu, gdy ludzie poruszają się przed kamerą. Korzysta ona z logiki czasowej dotyczącej sposobu, w jaki ludzie zwykle przechodzą i podstawowe informacje o ogólnym wyglądzie osób, aby to zrobić. Nie śledzi osób w wielu aparatach. Jeśli osoba już istnieje w polu widzenia z aparatu przez czas dłuższy niż około minuty, a następnie ponownie przejdzie do widoku aparatu, system będzie postrzegał to jako nową osobę. Śledzenie osób nie identyfikuje jednoznacznie użytkowników w różnych kamerach. Nie używa rozpoznawania twarzy ani śledzenia chodu. |
-| Wykrywanie maski rozpoznawania | Ten składnik wykrywa lokalizację działania osoby w polu "widok" aparatu i identyfikuje obecność maski czołowej. W tym celu operacja AI skanuje obrazy z filmu wideo; gdy zostanie wykryta, usługa zapewnia ograniczone pole wokół czołowej. Korzystając z możliwości wykrywania obiektów, identyfikuje on obecność masek krawędzi w polu ograniczenia. Wykrywanie maski twarzy nie obejmuje rozróżniania jednej twarzy od innej twarzy, przewidywania ani klasyfikowania atrybutów twarzy ani do rozpoznawania twarzy. |
-| Region zainteresowania | Jest to strefa lub linia zdefiniowana w wejściowym wideo w ramach konfiguracji. Gdy osoba współdziała z regionem wideo, system generuje zdarzenie. Na przykład dla operacji PersonCrossingLine wiersz jest zdefiniowany w filmie wideo. Gdy osoba przecina ten wiersz, generowane jest zdarzenie. |
-| Zdarzenie | Zdarzenie to podstawowy wynik analizy przestrzennej. Każda operacja emituje określone zdarzenie okresowo (np. raz na minutę) lub w przypadku wystąpienia określonego wyzwalacza. Zdarzenie zawiera informacje o tym, co się stało w wejściowym filmie wideo, ale nie zawiera obrazów ani filmów wideo. Na przykład operacja PeopleCount może emitować zdarzenie zawierające zaktualizowaną liczbę za każdym razem, gdy liczba osób ulegnie zmianie (wyzwalacz) lub co minutę (okresowo). |
+| Śledzenie osób | Ten składnik łączy wykrywania osób z upływem czasu, gdy ludzie poruszają się przed kamerą. Korzysta ona z logiki czasowej dotyczącej sposobu, w jaki ludzie zwykle przechodzą i podstawowe informacje o ogólnym wyglądzie osób, aby to zrobić. Nie może ona śledzić osób w wielu aparatach ani ponownie identyfikować osoby, która zniknęła przez więcej niż około minutę. Śledzenie osób nie używa żadnych znaczników biometrycznych, takich jak rozpoznawanie lub śledzenie chodu. |
+| Region zainteresowania | Jest to strefa lub linia zdefiniowana w wejściowym wideo w ramach konfiguracji. Gdy osoba współdziała z regionem wideo, system generuje zdarzenie. Na przykład w przypadku umiejętności PersonCrossingLine linia jest definiowana w filmie wideo. Gdy osoba przecina ten wiersz, generowane jest zdarzenie. |
+| Zdarzenie | Zdarzenie to podstawowy wynik analizy przestrzennej. Każda umiejętność emituje określone zdarzenie okresowo (np. raz na minutę) lub w przypadku wystąpienia określonego wyzwalacza. Zdarzenie zawiera informacje o tym, co się stało w wejściowym filmie wideo, ale nie zawiera obrazów ani filmów wideo. Na przykład umiejętność PeopleCount może emitować zdarzenie zawierające zaktualizowaną liczbę za każdym razem, gdy liczba osób ulegnie zmianie (wyzwalacz) lub co minutę (okresowo). |
 
 ## <a name="example-use-cases-for-spatial-analysis"></a>Przykładowe przypadki użycia na potrzeby analizy przestrzennej
 
@@ -44,8 +43,6 @@ Poniżej przedstawiono przykładowe przypadki użycia, które mamy na uwadze w p
 **Analiza klientów** — w sklepie spożywczym są wykorzystywane kamery wskazane na wyświetlaczach produktów, aby zmierzyć wpływ zmian w ruchu w sklepie. System umożliwia menedżerowi magazynu zidentyfikowanie, które nowe produkty są dyskami z największą zmianą zaangażowania.
 
 **Zarządzanie kolejką** — kamery wskazywane w kolejkach wyewidencjonowania zapewniają alerty menedżerom, gdy czas oczekiwania jest zbyt długi, co pozwala na otwieranie większej liczby wierszy. Dane historyczne dotyczące odrzucenia kolejki dają wgląd w zachowanie konsumenta.
-
-**Zgodność z maską czołową** — sklepy detaliczne mogą korzystać z kamer wskazujących przód w sklepie, aby sprawdzać, czy klienci przeanalizują dane w sklepie, czy są one w stanie zapewnić zgodność z bezpieczeństwem i analizować zagregowane dane statystyczne w celu uzyskania wglądu w trendy dotyczące użycia masek. 
 
 **Kompilowanie &ego analizy** — Kompilowanie pakietu Office korzysta z kamer ukierunkowanych na wejścia, aby mierzyć FootFall oraz jak ludzie korzystają z miejsca pracy. Usługa Insights umożliwia menedżerowi kompilacji dostosowanie usługi i układu w celu lepszego obkorzystania przez użytkowników.
 

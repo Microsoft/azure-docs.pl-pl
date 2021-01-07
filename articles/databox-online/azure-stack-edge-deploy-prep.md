@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 11/11/2020
+ms.date: 01/06/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 3943caba5249432b3a0a4b7c2e63b2b818e2b7a1
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: aabc141666fe5c9fb52a3eac5ee1866f390e4551
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575707"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968502"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro"></a>Samouczek: przygotowanie do wdrożenia Azure Stack EDGE Pro  
 
@@ -31,7 +31,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Aby wdrożyć Azure Stack EDGE Pro, zapoznaj się z poniższymi samouczkami w określonej kolejności.
 
@@ -150,11 +150,11 @@ Po złożeniu zamówienia firma Microsoft przegląda zamówienie i dotrze do Cie
 
 Po rozpoczęciu i uruchomieniu Azure Stack brzegowej należy uzyskać klucz aktywacji. Ten klucz służy do uaktywniania i łączenia urządzenia Azure Stack EDGE Pro z zasobem. Ten klucz można uzyskać już teraz za pośrednictwem witryny Azure Portal.
 
-1. Wybierz utworzony zasób. Wybierz pozycję **Przegląd** , a następnie wybierz pozycję **Konfiguracja urządzenia**.
+1. Przejdź do utworzonego zasobu i wybierz pozycję **Przegląd**. Zobaczysz powiadomienie, że Twoje zamówienie jest przetwarzane.
 
-    ![Wybierz konfigurację urządzenia](media/azure-stack-edge-deploy-prep/data-box-edge-select-devicesetup.png)
+    ![Wybierz przegląd](media/azure-stack-edge-deploy-prep/data-box-edge-select-devicesetup.png)
 
-2. Na kafelku **Aktywuj** wybierz pozycję **Generuj klucz** , aby utworzyć klucz aktywacji. Wybierz ikonę kopiowania, aby skopiować klucz i zapisać go do użytku w przyszłości.
+2. Gdy zamówienie zostanie przetworzone, a urządzenie będzie w swojej organizacji **, aktualizacje są** aktualizowane. Zaakceptuj domyślną **nazwę Azure Key Vault** lub wprowadź nową. Wybierz pozycję **Generuj klucz aktywacji**. Wybierz ikonę kopiowania, aby skopiować klucz i zapisać go do użytku w przyszłości.
 
     ![Pobieranie klucza aktywacji](media/azure-stack-edge-deploy-prep/get-activation-key.png)
 

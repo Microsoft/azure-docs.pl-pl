@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: a7227195c767d90141a9b6cd95f784c239a31fd5
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 41fdb3d2e69ae39dbe80f21a953fd9fdaa6d1127
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955199"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968470"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Trenowanie i wdrażanie modelu usługi Custom Speech
 
@@ -35,12 +35,12 @@ Jeśli napotykasz problemy z rozpoznawaniem z modelem podstawowym, możesz uży�
 
 Pierwszym krokiem do uczenia modelu jest przekazanie danych szkoleniowych. Zobacz [przygotowanie i przetestowanie danych](./how-to-custom-speech-test-and-train.md) , aby uzyskać instrukcje krok po kroku dotyczące przygotowywania transkrypcji z etykietami i powiązanego tekstu (wyrażenia długości i wymowy). Po przekazaniu danych szkoleniowych postępuj zgodnie z poniższymi instrukcjami, aby rozpocząć uczenie modelu:
 
-1. Zaloguj się do [portalu Custom Speech](https://speech.microsoft.com/customspeech).
+1. Zaloguj się do [portalu Custom Speech](https://speech.microsoft.com/customspeech). Jeśli planujesz uczenie modelu z zestawami danych w formacie audio + z etykietami ludzkimi, wybierz subskrypcję mowy w [regionie z dedykowanym sprzętem](custom-speech-overview.md#set-up-your-azure-account) do szkoleń.
 2. Przejdź do pozycji **Zamiana mowy na tekst**  >  **Custom Speech**  >  **[nazwa projektu]**  >  **szkolenie**.
 3. Wybierz pozycję **Testuj model**.
 4. Nadaj swojemu szkoleniowi **nazwę** i **Opis**.
 5. Z listy **model scenariusza i linia bazowa** Wybierz scenariusz, który najlepiej pasuje do domeny. Jeśli nie masz pewności, który scenariusz wybrać, wybierz pozycję **Ogólne**. Model linii bazowej jest punktem początkowym szkolenia. Najnowszym modelem jest zazwyczaj najlepszy wybór.
-6. Na stronie **Wybierz dane szkoleniowe** wybierz co najmniej jeden zestaw danych, który ma być używany do szkolenia.
+6. Na stronie **Wybierz dane szkoleniowe** wybierz jeden lub więcej powiązanych zestawów danych tekstowych lub zestawy danych do transkrypcji audio + z etykietami, które mają być używane do szkoleń. Podczas uczenia nowego modelu Zacznij od pokrewnego tekstu; szkolenie z użyciem zapisu z dźwiękiem i ludzkich etykiet może trwać znacznie dłużej (do [kilku dni](how-to-custom-speech-evaluate-data.md#improve-model-recognition)).
 7. Po zakończeniu szkolenia można przeprowadzić testy dokładności dla nowo przeszkolonego modelu. Ta czynność jest opcjonalna.
 8. Wybierz pozycję **Utwórz** , aby skompilować niestandardowy model.
 

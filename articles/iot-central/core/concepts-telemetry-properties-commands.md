@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: c29af68433f29d7bdd363bedfa6d36316b952f4c
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 87fb7f0eb4017a39aca081f73de543a67400d4b5
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97795347"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97969065"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Ładunki telemetrii, właściwości i polecenia
 
@@ -719,9 +719,9 @@ IoT Central oczekuje odpowiedzi z urządzenia na zapisywalne aktualizacje właś
 
 | Wartość | Etykieta | Opis |
 | ----- | ----- | ----------- |
-| `'ac': 200` | Zakończone | Operacja zmiany właściwości została pomyślnie ukończona. |
+| `'ac': 200` | Ukończone | Operacja zmiany właściwości została pomyślnie ukończona. |
 | `'ac': 202`  oraz `'ac': 201` | Oczekiwanie | Operacja zmiany właściwości jest w stanie oczekiwania lub w toku |
-| `'ac': 4xx` | Błąd | Żądana zmiana właściwości jest nieprawidłowa lub wystąpił błąd |
+| `'ac': 4xx` | Błąd | Żądana zmiana właściwości nie jest prawidłowa lub wystąpił błąd |
 | `'ac': 5xx` | Błąd | Urządzenie napotkało nieoczekiwany błąd podczas przetwarzania żądanej zmiany. |
 
 `av` jest numerem wersji wysyłanym do urządzenia.
@@ -828,9 +828,6 @@ Urządzenie powinno wysłać następujący ładunek JSON do IoT Central po przet
 ```
 
 ## <a name="commands"></a>Polecenia
-
-> [!NOTE]
-> W interfejsie użytkownika sieci Web IoT Central można wybrać opcję **kolejki, jeśli w trybie offline** dla polecenia. To ustawienie nie jest uwzględniane w przypadku eksportowania modelu lub interfejsu z szablonu urządzenia.
 
 Poniższy fragment kodu z modelu urządzenia pokazuje definicję polecenia, które nie ma parametrów i która nie oczekuje, że urządzenie nie zwróci żadnego elementu:
 
@@ -1000,6 +997,91 @@ Po zakończeniu przetwarzania żądania przez urządzenie należy wysłać wła�
 }
 ```
 
+### <a name="offline-commands"></a>Polecenia w trybie offline
+
+W interfejsie użytkownika sieci Web IoT Central można wybrać opcję **kolejki, jeśli w trybie offline** dla polecenia. Polecenia w trybie offline to jednokierunkowe powiadomienia do urządzenia z rozwiązania, które zostały dostarczone zaraz po nawiązaniu połączenia z urządzeniem. Polecenia w trybie offline mogą zawierać parametry żądania, ale nie zwracają odpowiedzi.
+
+Jeśli podczas eksportowania modelu lub interfejsu z szablonu urządzenia nie dołączono ustawienia **offline kolejki** . Nie można powiedzieć, patrząc na wyeksportowany model lub kod JSON polecenia, że polecenie jest poleceniem w trybie offline.
+
+Polecenia w trybie offline [IoT Hub używają komunikatów z chmury do urządzeń](../../iot-hub/iot-hub-devguide-messages-c2d.md) w celu wysłania polecenia i ładunku do urządzenia.
+
+Poniższy fragment kodu z modelu urządzenia pokazuje definicję polecenia. Polecenie ma parametr obiektu z polem DateTime i wyliczeniem:
+
+```json
+{
+  "@type": "Command",
+  "displayName": {
+    "en": "Generate Diagnostics"
+  },
+  "name": "GenerateDiagnostics",
+  "request": {
+    "@type": "CommandPayload",
+    "displayName": {
+      "en": "Payload"
+    },
+    "name": "Payload",
+    "schema": {
+      "@type": "Object",
+      "displayName": {
+        "en": "Object"
+      },
+      "fields": [
+        {
+          "displayName": {
+            "en": "StartTime"
+          },
+          "name": "StartTime",
+          "schema": "dateTime"
+        },
+        {
+          "displayName": {
+            "en": "Bank"
+          },
+          "name": "Bank",
+          "schema": {
+            "@type": "Enum",
+            "displayName": {
+              "en": "Enum"
+            },
+            "enumValues": [
+              {
+                "displayName": {
+                  "en": "Bank 1"
+                },
+                "enumValue": 1,
+                "name": "Bank1"
+              },
+              {
+                "displayName": {
+                  "en": "Bank2"
+                },
+                "enumValue": 2,
+                "name": "Bank2"
+              },
+              {
+                "displayName": {
+                  "en": "Bank3"
+                },
+                "enumValue": 2,
+                "name": "Bank3"
+              }
+            ],
+            "valueSchema": "integer"
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+W przypadku włączenia opcji **kolejki w trybie offline** w interfejsie użytkownika szablonu urządzenia dla polecenia w poprzednim fragmencie kodu komunikat odbierany przez urządzenie zawiera następujące właściwości:
+
+| Nazwa właściwości | Przykładowa wartość |
+| ---------- | ----- |
+| `custom_properties` | `{'method-name': 'GenerateDiagnostics'}` |
+| `data` | `{"StartTime":"2021-01-05T08:00:00.000Z","Bank":2}` |
+
 ## <a name="next-steps"></a>Następne kroki
 
-Jako deweloper dla urządzeń, teraz "warto zapoznać się z szablonami urządzeń, sugerowanym następnym etapem jest zapoznawanie się z [usługą Azure IoT Central](./concepts-get-connected.md) , aby dowiedzieć się więcej na temat rejestrowania urządzeń w usłudze IoT Central i sposobu, w jaki IoT Central zabezpiecza połączenia urządzeń.
+Jako deweloper urządzenia teraz wiesz już, jak korzystać z szablonów urządzeń, sugerowane następne kroki to zapoznanie się z [usługą Azure IoT Central](./concepts-get-connected.md) , aby dowiedzieć się więcej na temat rejestrowania urządzeń w usłudze IoT Central i sposobu, w jaki IoT Central zabezpiecza połączenia urządzeń.

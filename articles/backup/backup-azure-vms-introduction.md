@@ -3,12 +3,12 @@ title: Informacje o kopii zapasowej maszyny wirtualnej platformy Azure
 description: W tym artykule dowiesz się, jak usługa Azure Backup wykonuje kopie zapasowe maszyn wirtualnych platformy Azure oraz jak postępować zgodnie z najlepszymi rozwiązaniami.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 7fa47b83eb8fa06c028079cf47ea0cb46df31860
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 291c50d4ac52d34a218b1b7cc76d625da3119d25
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325234"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968997"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Omówienie kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -76,7 +76,7 @@ Azure Backup wykonuje migawki zgodnie z harmonogramem tworzenia kopii zapasowych
 
 W poniższej tabeli objaśniono różne typy spójności migawek:
 
-**Zdjęcie** | **Szczegóły** | **Odzyskiwania** | **Zagadnienie**
+**Zdjęcie** | **Szczegóły** | **Odzyskiwania** | **Kwestie do rozważenia**
 --- | --- | --- | ---
 **Spójna na poziomie aplikacji** | Kopie zapasowe spójne z aplikacjami przechwytują zawartość pamięci i oczekujące operacje we/wy. Migawki spójne z aplikacjami używają składnika zapisywania usługi VSS (lub skryptów pre/post dla systemu Linux), aby zapewnić spójność danych aplikacji przed wystąpieniem kopii zapasowej. | Podczas odzyskiwania maszyny wirtualnej za pomocą migawki spójnej na poziomie aplikacji maszyna wirtualna jest uruchamiana. Nie występują uszkodzenia ani utrata danych. Aplikacje są uruchamiane w spójnym stanie. | System Windows: wszystkie składniki zapisywania usługi VSS zostały pomyślnie zakończone<br/><br/> Linux: skrypty poprzedzające i końcowe zostały skonfigurowane i zakończyły się powodzeniem
 **Spójny system plików** | Spójne kopie zapasowe systemu plików zapewniają spójność, pobierając migawkę wszystkich plików w tym samym czasie.<br/><br/> | Podczas odzyskiwania maszyny wirtualnej za pomocą migawki spójnej z systemem plików, maszyna wirtualna jest uruchamiana. Nie występują uszkodzenia ani utrata danych. Aplikacje muszą implementować własny mechanizm naprawy, aby upewnić się, że przywrócone dane są spójne. | System Windows: niepowodzenie niektórych składników zapisywania usługi VSS <br/><br/> Linux: wartość domyślna (Jeśli skrypty pre/post nie są skonfigurowane lub zakończyły się niepowodzeniem)
@@ -87,7 +87,7 @@ W poniższej tabeli objaśniono różne typy spójności migawek:
 
 ## <a name="backup-and-restore-considerations"></a>Zagadnienia dotyczące tworzenia kopii zapasowych i przywracania
 
-**Zagadnienie** | **Szczegóły**
+**Kwestie do rozważenia** | **Szczegóły**
 --- | ---
 **3,5** | Tworzenie kopii zapasowych dysków maszyny wirtualnej jest równoległe. Na przykład jeśli maszyna wirtualna ma cztery dyski, usługa tworzenia kopii zapasowych próbuje wykonać kopię zapasową wszystkich czterech dysków równolegle. Kopia zapasowa jest przyrostowa (dotyczy tylko zmienionych danych).
 **Planowanie** |  Aby zmniejszyć ruch kopii zapasowych, wykonaj kopię zapasową różnych maszyn wirtualnych w różnych porach dnia i upewnij się, że czasy nie nakładają się na siebie. Tworzenie kopii zapasowych maszyn wirtualnych w tym samym czasie powoduje korki.
@@ -121,6 +121,7 @@ Podczas konfigurowania kopii zapasowych maszyn wirtualnych sugerujemy następuj�
 - Jeśli przywracasz maszyny wirtualne z jednego magazynu, zdecydowanie zalecamy użycie różnych [kont magazynu ogólnego przeznaczenia w wersji 2](../storage/common/storage-account-upgrade.md) , aby upewnić się, że docelowe konto magazynu nie zostanie ograniczone. Na przykład każda maszyna wirtualna musi mieć inne konto magazynu. Na przykład jeśli zostaną przywrócone 10 maszyn wirtualnych, użyj 10 różnych kont magazynu.
 - W przypadku tworzenia kopii zapasowych maszyn wirtualnych korzystających z usługi Premium Storage z natychmiastowym przywracaniem zalecamy alokowanie *50%* wolnego miejsca w łącznym przydzielonym miejscu do magazynowania, które jest wymagane **tylko** dla pierwszej kopii zapasowej. Ilość wolnego miejsca na 50% nie jest wymagana w przypadku kopii zapasowych po wykonaniu pierwszej kopii zapasowej
 - Limit liczby dysków na konto magazynu jest określany względem tego, w jakim stopniu aplikacje działające na maszynie wirtualnej w modelu infrastruktura jako usługa (IaaS) uzyskują dostęp do dysków. Zgodnie z ogólną praktyką, jeśli na jednym koncie magazynu znajduje się od 5 do 10 dysków lub więcej, należy zrównoważyć obciążenie przez przeniesienie niektórych dysków do oddzielnych kont magazynu.
+- Aby przywrócić maszyny wirtualne z dyskami zarządzanymi przy użyciu programu PowerShell, podaj dodatkowy parametr **_TargetResourceGroupName_* _, aby określić grupę zasobów, do której zostaną przywrócone zarządzane dyski, [Dowiedz się więcej tutaj](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-managed-disks).
 
 ## <a name="backup-costs"></a>Koszty kopii zapasowych
 
@@ -130,7 +131,7 @@ Rozliczanie nie rozpocznie się, dopóki nie zostanie ukończona pierwsza kopia 
 
 Rozliczanie dla określonej maszyny wirtualnej zatrzymuje się tylko wtedy, gdy ochrona została zatrzymana i wszystkie dane kopii zapasowej zostaną usunięte. Po zatrzymaniu ochrony, gdy nie ma aktywnych zadań kopii zapasowej, rozmiar ostatniej pomyślnej kopii zapasowej maszyny wirtualnej to rozmiar chronionego wystąpienia użyty dla rachunku miesięcznego.
 
-Obliczanie rozmiaru chronionego wystąpienia jest zależne od *rzeczywistego* rozmiaru maszyny wirtualnej. Rozmiar maszyny wirtualnej to suma wszystkich danych w maszynie wirtualnej, z wyłączeniem magazynu tymczasowego. Cennik jest oparty na rzeczywistych danych przechowywanych na dyskach danych, a nie na maksymalnym obsługiwanym rozmiarze dla każdego dysku danych dołączonego do maszyny wirtualnej.
+Obliczanie rozmiaru chronionego wystąpienia jest zależne od _actual * rozmiaru maszyny wirtualnej. Rozmiar maszyny wirtualnej to suma wszystkich danych w maszynie wirtualnej, z wyłączeniem magazynu tymczasowego. Cennik jest oparty na rzeczywistych danych przechowywanych na dyskach danych, a nie na maksymalnym obsługiwanym rozmiarze dla każdego dysku danych dołączonego do maszyny wirtualnej.
 
 Podobnie opłata za magazyn kopii zapasowych zależy od ilości danych przechowywanych w Azure Backup, która jest sumą rzeczywistych danych w poszczególnych punktach odzyskiwania.
 

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 05/20/2019
+ms.date: 01/06/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro for advanced deployment flow so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: bcad165f5d0ba2cf652cff35091e05b4414193c8
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 8946dfca9a416009effb45cad1e81348dd900f98
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951795"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968292"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro-for-advanced-deployment-flow"></a>Samouczek: Przekształcanie danych za pomocą Azure Stack EDGE Pro dla zaawansowanego przepływu wdrażania
 
@@ -26,12 +26,12 @@ Obliczenia można skonfigurować dla prostego lub zaawansowanego przepływu wdra
 |------------------|--------------------------------------------------|---------------------------------------|
 | Przeznaczone dla     | Administratorzy IT                                | Deweloperzy                            |
 | Typ             | Wdrażanie modułów przy użyciu usługi Azure Stack Edge      | Wdrażanie modułów przy użyciu usługi IoT Hub |
-| Wdrożone moduły | Pojedynczy                                           | Łańcucha lub wiele modułów           |
+| Wdrożone moduły | Pojedyncze                                           | Łańcucha lub wiele modułów           |
 
 
 Wykonanie tej procedury może potrwać od 20 do 30 minut.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Konfigurowanie obliczeń
@@ -52,32 +52,34 @@ Przed skonfigurowaniem roli obliczeniowej na urządzeniu z systemem Azure Stack 
 
 W celu skonfigurowania obliczeń na Azure Stack EDGE Pro utworzysz zasób IoT Hub.
 
-1. W Azure Portal Azure Stack zasobów brzegowych przejdź do **omówienia**. W okienku po prawej stronie na kafelku **Oblicz** wybierz pozycję **Rozpocznij**.
+1. W Azure Portal Azure Stack zasobów brzegowych przejdź do **omówienia**. W okienku po prawej stronie wybierz kafelek **IoT Edge** .
 
     ![Wprowadzenie do obliczeń](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-1.png)
 
-2. Na kafelku **Konfigurowanie obliczeń krawędzi** wybierz pozycję **Konfiguruj obliczenia**.
+2. Na kafelku **Enable IoT Edge Service** wybierz pozycję **Dodaj**. Ta akcja umożliwia IoT Edge usługę, która umożliwia wdrażanie modułów IoT Edge lokalnie na urządzeniu.
 
     ![Wprowadzenie do obliczeń obliczeniowych 2](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-2.png)
 
-3. W bloku **Konfigurowanie obliczeń krawędzi** wprowadź następujące dane:
+3. Na stronie **tworzenie IoT Edge** wprowadź następujące dane:
 
    
     |Pole  |Wartość  |
     |---------|---------|
-    |IoT Hub     | Wybierz pozycję **Nowy** lub **istniejący**. <br> Domyślnie warstwa standardowa (S1) jest używana do tworzenia zasobu IoT. Aby użyć zasobu IoT warstwy Bezpłatna, utwórz go, a następnie wybierz istniejący zasób. <br> W każdym przypadku zasób IoT Hub używa tej samej subskrypcji i grupy zasobów, która jest używana przez zasób Azure Stack Edge.     |
-    |Nazwa     |Wprowadź nazwę dla zasobu IoT Hub.         |
+    |Subskrypcja     |Wybierz subskrypcję dla zasobu IoT Hub. Możesz wybrać tę samą subskrypcję, która jest używana przez zasób Azure Stack Edge.        |
+    |Grupa zasobów     |Wprowadź nazwę grupy zasobów dla zasobu IoT Hub. Możesz wybrać tę samą grupę zasobów, która jest używana przez zasób Azure Stack Edge.         |
+    |Usługa IoT Hub     | Wybierz pozycję **Nowy** lub **istniejący**. <br> Domyślnie warstwa standardowa (S1) jest używana do tworzenia zasobu IoT. Aby użyć zasobu IoT warstwy Bezpłatna, utwórz go, a następnie wybierz istniejący zasób.      |
+    |Nazwa     |Zaakceptuj wartość domyślną lub wprowadź nazwę zasobu IoT Hub.         |
 
     ![Wprowadzenie do obliczeń obliczeniowych 3](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-3.png)
 
-4. Wybierz pozycję **Utwórz**. Tworzenie zasobów IoT Hub trwa kilka minut. Po utworzeniu zasobu IoT Hub, konfiguracja kafelka **obliczenia krawędzi** zostanie zaktualizowana tak, aby pokazywać konfigurację obliczeniową. Aby upewnić się, że skonfigurowano rolę obliczeniową brzegową, wybierz pozycję **Wyświetl konfigurację** na kafelku **Konfiguruj obliczenia** .
-    
+4. Wybierz pozycję **Recenzja + Utwórz**. Tworzenie zasobów IoT Hub trwa kilka minut. Po utworzeniu zasobu IoT Hub **Omówienie** aktualizacji, aby wskazać, że usługa IoT Edge jest uruchomiona. 
+
+    Gdy usługa IoT Edge jest skonfigurowana na urządzeniu brzegowym, tworzy dwa urządzenia: urządzenie IoT i urządzenie IoT Edge. Oba urządzenia można wyświetlić w zasobie usługi IoT Hub. Środowisko uruchomieniowe IoT Edge jest również uruchomione na tym urządzeniu IoT Edge. W chwili obecnej dla urządzenia IoT Edge jest dostępna tylko platforma Linux.
+
+    Aby upewnić się, że skonfigurowano rolę obliczeniową brzegową, wybierz pozycję **IoT Edge > właściwości usługi** i Wyświetl urządzenie IoT i IoT Edge. 
+
     ![Wprowadzenie do obliczeń obliczeniowych 4](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-4.png)
-
-    Po skonfigurowaniu roli funkcji obliczeniowej Edge na urządzeniu Edge tworzone są dwa urządzenia: urządzenie IoT i urządzenie IoT Edge. Oba urządzenia można wyświetlić w zasobie usługi IoT Hub. Środowisko uruchomieniowe IoT Edge jest również uruchomione na tym urządzeniu IoT Edge.
-
-    W chwili obecnej dla urządzenia IoT Edge jest dostępna tylko platforma Linux.
-
+    
 
 ## <a name="add-shares"></a>Dodaj udziały
 
@@ -85,19 +87,13 @@ W przypadku wdrożenia zaawansowanego w tym samouczku potrzebne są dwa udziały
 
 1. Dodaj udział graniczny na urządzeniu, wykonując następujące czynności:
 
-    1. W przystawce zasób Azure Stack Edge przejdź do pozycji **Oblicz compute > Rozpocznij**.
-    2. Na kafelku **Dodaj udziały** wybierz pozycję **Dodaj**.
+    1. W zasobie Azure Stack Edge przejdź do pozycji **IoT Edge > udziały**.
+    2. Na stronie **udziały** na pasku poleceń wybierz pozycję **+ Dodaj udział**.
     3. W bloku **Dodaj udział** Podaj nazwę udziału i wybierz typ udziału.
     4. Aby zainstalować udział brzegowy, zaznacz pole wyboru **Użyj opcji Udostępnij przy użyciu obliczeń brzegowych**.
     5. Wybierz **konto magazynu**, **usługę magazynu**, istniejącego użytkownika, a następnie wybierz pozycję **Utwórz**.
 
         ![Dodawanie udziału brzegowego](./media/azure-stack-edge-deploy-configure-compute-advanced/add-edge-share-1.png)
-
-    <!--If you created a local NFS share, use the following remote sync (rsync) command option to copy files onto the share:
-
-    `rsync <source file path> < destination file path>`
-
-    For more information about the rsync command, go to [Rsync documentation](https://www.computerhope.com/unix/rsync.htm).-->
 
     Po utworzeniu udziału brzegowego otrzymasz powiadomienie o pomyślnym utworzeniu. Lista udziałów jest aktualizowana w celu odzwierciedlenia nowego udziału.
 
@@ -124,7 +120,7 @@ W przypadku wdrożenia zaawansowanego w tym samouczku potrzebne są dwa udziały
 
 ## <a name="add-a-trigger"></a>Dodawanie wyzwalacza
 
-1. Przejdź do pozycji **Oblicz compute > Triggers**. Wybierz pozycję **+ Dodaj wyzwalacz**.
+1. Przejdź do zasobu Azure Stack Edge, a następnie przejdź do pozycji **IoT Edge > wyzwalacze**. Wybierz pozycję **+ Dodaj wyzwalacz**.
 
     ![Dodawanie wyzwalacza](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-1.png)
 
@@ -154,7 +150,7 @@ Na tym urządzeniu brzegowym nie ma modułów niestandardowych. Możliwe jest do
 
 W tej sekcji dowiesz się, jak dodać niestandardowy moduł do urządzenia IoT Edge utworzonego w programie [opracowywanie modułu C# dla Azure Stack EDGE Pro](azure-stack-edge-create-iot-edge-module.md). Ten moduł niestandardowy pobiera pliki z udziału lokalnego z krawędzi na urządzeniu brzegowym i przenosi je do udziału brzegowego (chmurowego) na urządzeniu. Następnie udział chmurowy wypycha pliki na konto magazynu platformy Azure skojarzone z tym udziałem chmurowym.
 
-1. Przejdź do pozycji **obliczenia graniczne > wprowadzenie**. Na kafelku **Dodawanie modułów** wybierz typ scenariusza jako **Zaawansowany**. Wybierz pozycję **Przejdź do IoT Hub**.
+1. Przejdź do zasobu Azure Stack Edge, a następnie przejdź do pozycji **IoT Edge > przegląd**. Na kafelku **moduły** wybierz pozycję **Przejdź do usługi Azure IoT Hub**.
 
     ![Wybieranie wdrożenia zaawansowanego](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-1.png)
 
@@ -168,7 +164,7 @@ W tej sekcji dowiesz się, jak dodać niestandardowy moduł do urządzenia IoT E
 
     ![Przejdź do urządzenia IoT Edge w IoT Hub](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-2.png)
 
-3. W obszarze **szczegóły urządzenia**wybierz pozycję **Ustaw moduły**.
+3. W obszarze **szczegóły urządzenia** wybierz pozycję **Ustaw moduły**.
 
     ![Link Ustawianie modułów](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-3.png)
 
@@ -215,7 +211,7 @@ W tej sekcji dowiesz się, jak dodać niestandardowy moduł do urządzenia IoT E
 
         ![Dodawanie modułu niestandardowego 2](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-6.png)
  
-5. W obszarze **Określ trasy**Ustaw trasy między modułami.  
+5. W obszarze **Określ trasy** Ustaw trasy między modułami.  
    
    ![Określanie tras](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-7.png)
 

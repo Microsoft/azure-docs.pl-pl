@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: fc0f148da518c718dafaab082f9598ccd4372a1f
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 2d7c732771749c0c0372c5433b76c3e30469e2b0
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963814"
+ms.locfileid: "97968419"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Połącz platformę Azure z narzędziami narzędzia ITSM przy użyciu łącznik zarządzania usługami IT
 
@@ -43,7 +43,7 @@ Aby można było utworzyć połączenie, należy dodać ITSMC.
    >[!NOTE]
    >W ramach trwającego przejścia z Microsoft Operations Management Suite (OMS) do Azure Monitor, obszary robocze OMS są teraz określane jako *log Analytics obszary robocze*.
 
-5. Wybierz pozycję **OK**.
+5. Wybierz przycisk **OK**.
 
 Po wdrożeniu zasobu ITSMC w prawym górnym rogu okna pojawi się powiadomienie.
 
@@ -137,27 +137,28 @@ Aby utworzyć grupy akcji, należy wykonać czynności opisane w poniższej proc
     * W przypadku wybrania opcji na liście rozwijanej element roboczy "zdarzenie" lub "Alert":
         * W przypadku zaznaczenia pola wyboru **"Utwórz poszczególne elementy robocze dla każdego elementu konfiguracji"** każdy element konfiguracji w każdym alercie utworzy nowy element roboczy. W systemie narzędzia ITSM może istnieć więcej niż jeden element roboczy na element konfiguracji.
 
-            Przykład:
-            1) Alert 1 z 3 elementami konfiguracji: A, B, C-utworzy 3 elementy robocze.
-            2) Alert 2 z 1 elementem konfiguracji: A — utworzy 1 element roboczy.
-       >[!NOTE]
-        > W takim przypadku część wygenerowanego alertu nie spowoduje wygenerowania nowych elementów roboczych w narzędziu narzędzia ITSM.
+             Na przykład:
+             1) Alert 1 z 3 elementami konfiguracji: A, B, C-utworzy 3 elementy robocze.
+             2) Alert 2 z 1 elementem konfiguracji: A — utworzy 1 element roboczy.
 
         * W przypadku wyczyszczenia pola wyboru **"Utwórz poszczególne elementy robocze dla każdego elementu konfiguracji"** Łącznik narzędzia ITSM utworzy pojedynczy element roboczy dla każdej reguły alertu i doda do niego wszystkie elementy konfiguracji, których to dotyczy. Zostanie utworzony nowy element roboczy, jeśli poprzedni zostanie zamknięty.
 
-            Przykład:
-             1) Alert 1 z 3 elementami konfiguracji: A, B, C-utworzy 1 element roboczy.
-             2) Alert 2 dla tej samej reguły alertu co faza 1 z 1 elementem konfiguracji: D-zostanie scalony z elementem roboczym w fazie 1.
-             3) Alert 3 dla innej reguły alertu z 1 elementem konfiguracji: E-utworzy 1 element roboczy.
+        >[!NOTE]
+        > W takim przypadku część wygenerowanego alertu nie spowoduje wygenerowania nowych elementów roboczych w narzędziu narzędzia ITSM.
+
+        Na przykład:
+         1) Alert 1 z 3 elementami konfiguracji: A, B, C-utworzy 1 element roboczy.
+         2) Alert 2 dla tej samej reguły alertu co faza 1 z 1 elementem konfiguracji: D-zostanie scalony z elementem roboczym w fazie 1.
+         3) Alert 3 dla innej reguły alertu z 1 elementem konfiguracji: E-utworzy 1 element roboczy.
 
        ![Zrzut ekranu przedstawiający okno zdarzenia narzędzia ITSM.](media/itsmc-overview/itsm-action-configuration.png)
 
     * W przypadku wybrania opcji "zdarzenie" w menu rozwijanym elementu pracy:
-        * W przypadku wybrania opcji **"Utwórz pojedyncze elementy robocze dla każdego wpisu dziennika (pole elementu konfiguracji nie jest wypełnione. Może spowodować powstanie dużej liczby elementów roboczych.) "** w obszarze przyciski radiowe zostanie utworzony alert dla każdego wiersza w wynikach wyszukiwania zapytania dotyczącego alertu wyszukiwania w dzienniku. W ładunku alertu Właściwość Description będzie miała wiersz z wyników wyszukiwania.
+        * W przypadku wybrania opcji **"Utwórz pojedyncze elementy robocze dla każdego wpisu dziennika (pole elementu konfiguracji nie jest wypełnione. Może spowodować powstanie dużej liczby elementów roboczych.) "** w obszarze przyciski radiowe zostanie utworzony element roboczy dla każdego wiersza w wynikach wyszukiwania zapytania o alert przeszukiwania dzienników. W ładunku elementu pracy Właściwość Description będzie zawierać wiersz z wyników wyszukiwania.
         * W przypadku wybrania opcji **"Utwórz indywidualne elementy robocze dla każdego elementu konfiguracji"** w wyborze przycisków radiowych każdy element konfiguracji w każdym alercie zostanie utworzony nowy element roboczy. W systemie narzędzia ITSM może istnieć więcej niż jeden element roboczy na element konfiguracji. Ta wartość będzie taka sama jak zaznaczenie pola wyboru w sekcji incydentu/alertu.
     ![Zrzut ekranu przedstawiający okno zdarzenia narzędzia ITSM.](media/itsmc-overview/itsm-action-configuration-event.png)
 
-10. Wybierz pozycję **OK**.
+10. Wybierz przycisk **OK**.
 
 Gdy tworzysz lub edytujesz regułę alertu platformy Azure, Użyj grupy akcji, która ma akcję narzędzia ITSM. Po wyzwoleniu alertu element roboczy jest tworzony lub aktualizowany w narzędziu narzędzia ITSM.
 

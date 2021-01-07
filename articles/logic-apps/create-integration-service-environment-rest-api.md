@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 12/29/2020
-ms.openlocfilehash: 34a5dfb44ee78245b56c1774701f48b3b8a494df
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.date: 12/30/2020
+ms.openlocfilehash: ee6c116d02a7be1682d9e8379037ef1b8c92bce8
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827482"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97967042"
 ---
 # <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Tworzenie środowiska usługi integracji (ISE) przy użyciu interfejsu API REST usługi Logic Apps
 
@@ -121,7 +121,7 @@ Poniżej przedstawiono składnię treści żądania opisującą właściwości u
             }
          ]
       },
-      // Include `certificates` object to enable self-signed certiificate and certificate issued by Enterprise Certificate Authority
+      // Include `certificates` object to enable self-signed certificate and the certificate issued by Enterprise Certificate Authority
       "certificates": {
          "testCertificate": {
             "publicCertificate": "{base64-encoded-certificate}",
@@ -185,6 +185,7 @@ W tej przykładowej treści żądania pokazano przykładowe wartości:
    }
 }
 ```
+
 ## <a name="add-custom-root-certificates"></a>Dodawanie niestandardowych certyfikatów głównych
 
 Często używasz ISE do łączenia się z usługami niestandardowymi w sieci wirtualnej lub lokalnie. Te niestandardowe usługi są często chronione przez certyfikat wystawiony przez niestandardowy urząd certyfikacji przedsiębiorstwa, taki jak urząd certyfikacji lub certyfikat z podpisem własnym. Aby uzyskać więcej informacji o korzystaniu z certyfikatów z podpisem własnym, zobacz [bezpieczny dostęp i dostęp do danych dla wywołań wychodzących do innych usług i systemów](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests). Aby ISE pomyślnie łączył się z tymi usługami za poorednictwem usługi Transport Layer Security (TLS), ISE musi mieć dostęp do tych certyfikatów głównych. Aby zaktualizować ISE za pomocą niestandardowego zaufanego certyfikatu głównego, wprowadź to `PATCH` żądanie https:

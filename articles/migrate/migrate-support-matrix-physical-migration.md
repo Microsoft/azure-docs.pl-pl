@@ -6,12 +6,12 @@ ms.author: rahugup
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: c549cae0b7bdc5e237ec3cf704a1ead53db91449
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: a1203133d8749b43a92d89e7251539a1e002bfd8
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754032"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968572"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Macierz obsługi dla migracji serwera fizycznego
 
@@ -48,7 +48,7 @@ W tabeli zestawiono obsługę serwerów fizycznych, które mają być migrowane 
 **Rozruch z interfejsem UEFI** | Obsługiwane. Maszyny z interfejsem UEFI zostaną zmigrowane do maszyn wirtualnych generacji 2 platformy Azure.  <br/><br/> Dysk systemu operacyjnego powinien mieć maksymalnie cztery partycje, a woluminy powinny być sformatowane w systemie plików NTFS.
 **Interfejs UEFI — bezpieczny rozruch**         | Migracja nie jest obsługiwana.
 **Dysk docelowy** | Maszyny wirtualne można migrować tylko do dysków zarządzanych (dysk twardy w warstwie Standardowa, dysk SSD w warstwie Premium) na platformie Azure.
-**Rozmiar dysku** | dysk systemu operacyjnego 2 TB (rozruch w systemie BIOS); dysk systemu operacyjnego 4 TB (UEFI); 8 TB dla dysków z danymi.
+**Rozmiar dysku** | dysk systemu operacyjnego: 2 TB; 32 TB dla dysków z danymi.
 **Limity dysku** |  Do 63 dysków na maszynę.
 **Zaszyfrowane dyski/woluminy** |  Maszyny z szyfrowanymi dyskami/woluminami nie są obsługiwane na potrzeby migracji.
 **Udostępniony klaster dysków** | Nieobsługiwane.

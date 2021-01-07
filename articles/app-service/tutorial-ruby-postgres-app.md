@@ -5,12 +5,12 @@ ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/18/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
-ms.openlocfilehash: f565fcef60b2cb4726b180eb67e6ac1fcaefc24b
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: f501fb6b5bca5b19e15eb03d9639d08b848ad02f
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347850"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968606"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Tworzenie aplikacji w języku Ruby i korzystającej z bazy danych Postgres w usłudze Azure App Service w systemie Linux
 
@@ -37,7 +37,8 @@ W celu ukończenia tego samouczka:
 - [Zainstaluj oprogramowanie Git](https://git-scm.com/)
 - [Zainstaluj język Ruby 2,6](https://www.ruby-lang.org/en/documentation/installation/)
 - [Zainstaluj oprogramowanie Ruby on Rails 5.1](https://guides.rubyonrails.org/v5.1/getting_started.html)
-- [Instalowanie i uruchamianie PostgreSQL](https://www.postgresql.org/download/)
+- [Zainstaluj i uruchom serwer PostgreSQL](https://www.postgresql.org/download/)
+
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="prepare-local-postgres"></a>Przygotowywanie lokalnej bazy danych Postgres
@@ -291,7 +292,7 @@ git remote add azure <paste-copied-url-here>
 Wykonaj wypchnięcie na zdalną platformę Azure w celu wdrożenia aplikacji platformy Ruby on Rails. Zostanie wyświetlony monit o podanie hasła określonego wcześniej w ramach tworzenia użytkownika wdrożenia.
 
 ```bash
-git push azure master
+git push azure main
 ```
 
 Podczas wdrażania usługa Azure App Service przekaże postęp za pomocą narzędzi Git.
@@ -302,7 +303,7 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
@@ -421,7 +422,7 @@ Zatwierdź wszystkie zmiany w narzędziu Git, a następnie wypchnij zmiany kodu 
 ```bash
 git add .
 git commit -m "added complete checkbox"
-git push azure master
+git push azure main
 ```
 
 Po zakończeniu wykonywania polecenia `git push` przejdź do aplikacji platformy Azure i przetestuj nowe funkcje.

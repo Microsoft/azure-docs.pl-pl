@@ -4,12 +4,12 @@ description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych pla
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: a6a5d78385cc61838a606a3f3d2a7277f6b66a4d
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: 9670178a9c9d772d8966413371f998aa1f0cf5f3
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858539"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968307"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Macierz obsługi odzyskiwania po awarii maszyny wirtualnej platformy Azure między regionami platformy Azure
 
@@ -198,6 +198,7 @@ Maszyny wirtualne migrowane przy użyciu Site Recovery | Obsługiwane | Jeśli m
 Zasady kontroli RBAC platformy Azure | Nieobsługiwane | Zasady kontroli dostępu opartej na rolach (Azure RBAC) na maszynach wirtualnych nie są replikowane do maszyny wirtualnej trybu failover w regionie docelowym.
 Rozszerzenia | Nieobsługiwane | Rozszerzenia nie są replikowane do maszyny wirtualnej trybu failover w regionie docelowym. Należy ją zainstalować ręcznie po przejściu do trybu failover.
 Grupy umieszczania zbliżeniowe | Obsługiwane | Maszyny wirtualne znajdujące się w grupie umieszczania w sąsiedztwie mogą być chronione przy użyciu Site Recovery.
+Tagi  | Obsługiwane | Tagi wygenerowane przez użytkownika zastosowane na źródłowych maszynach wirtualnych są przenoszone do docelowych maszyn wirtualnych po przejściu do trybu failover lub przejścia w tryb failover.
 
 
 ## <a name="replicated-machines---disk-actions"></a>Zreplikowane maszyny — akcje dysku
@@ -256,6 +257,7 @@ Dyski interfejsu NVMe | Nieobsługiwane
 Dyski udostępnione platformy Azure | Nieobsługiwane
 Opcja bezpiecznego transferu | Obsługiwane
 Dyski z włączonym akceleratorem zapisu | Nieobsługiwane
+Tagi  | Tagi generowane przez użytkownika są replikowane co 24 godziny.
 
 >[!IMPORTANT]
 > Aby uniknąć problemów z wydajnością, należy się upewnić, że są używane elementy docelowe skalowalności i wydajności dysków maszyny wirtualnej dla maszyn wirtualnych z systemem [Linux](../virtual-machines/linux/disk-scalability-targets.md) lub [Windows](../virtual-machines/windows/disk-scalability-targets.md) . Jeśli używasz ustawień domyślnych, Site Recovery tworzy wymagane dyski i konta magazynu na podstawie konfiguracji źródłowej. Jeśli dostosowujesz i wybierasz własne ustawienia, postępuj zgodnie z celami skalowalności i wydajności dysków dla źródłowych maszyn wirtualnych.
@@ -302,6 +304,7 @@ Wydajniejsze sieci | Obsługiwane | Na źródłowej maszynie wirtualnej musi by�
 Urządzenie sieciowe Palo Alto | Nieobsługiwane | W przypadku urządzeń innych firm istnieją często ograniczenia nakładane przez dostawcę w ramach maszyny wirtualnej. Azure Site Recovery wymaga, aby Agent, rozszerzenia i łączność wychodząca były dostępne. Ale urządzenie nie zezwala na skonfigurowanie żadnego działania wychodzącego w ramach maszyny wirtualnej.
 Protokół IPv6  | Nieobsługiwane | Konfiguracje mieszane, które obejmują zarówno protokół IPv4, jak i IPv6, nie są również obsługiwane. Zwolnij podsieć zakresu adresów IPv6 przed jakąkolwiek operacją Site Recovery.
 Prywatny dostęp do połączenia z usługą Site Recovery | Obsługiwane | [Dowiedz się więcej](azure-to-azure-how-to-enable-replication-private-endpoints.md)
+Tagi  | Obsługiwane | Tagi generowane przez użytkownika na kartach sieciowych są replikowane co 24 godziny.
 
 
 

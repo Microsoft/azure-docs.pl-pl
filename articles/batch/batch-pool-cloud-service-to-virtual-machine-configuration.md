@@ -2,19 +2,21 @@
 title: Migruj konfigurację puli partii z Cloud Services do Virtual Machines
 description: Dowiedz się, jak zaktualizować konfigurację puli do najnowszej i zalecanej konfiguracji
 ms.topic: how-to
-ms.date: 1/4/2021
-ms.openlocfilehash: 52e1762dc8e81b3eb7e1bce388d91dfd2c76191a
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 1/6/2021
+ms.openlocfilehash: b6f4184f7c4f133f74cb3157638b1621dad25fda
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937708"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97969031"
 ---
 # <a name="migrate-batch-pool-configuration-from-cloud-services-to-virtual-machines"></a>Migruj konfigurację puli partii z Cloud Services do Virtual Machines
 
 Pule usługi Batch można tworzyć przy użyciu [cloudServiceConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) lub [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration). "virtualMachineConfiguration" jest zalecaną konfiguracją, ponieważ obsługuje ona wszystkie możliwości partii. pule "cloudServiceConfiguration" nie obsługują wszystkich funkcji i nie są planowane żadne nowe funkcje.
 
-W przypadku używania pul "cloudServiceConfiguration" zdecydowanie zaleca się przechodzenie do korzystania z pul "virtualMachineConfiguration". W tym artykule opisano, jak przeprowadzić migrację do zalecanej konfiguracji "virtualMachineConfiguration".
+W przypadku używania pul "cloudServiceConfiguration" zdecydowanie zaleca się przechodzenie do korzystania z pul "virtualMachineConfiguration". Dzięki temu można korzystać ze wszystkich możliwości usługi Batch, takich jak Rozszerzona funkcja [wybierania maszyn](batch-pool-vm-sizes.md)wirtualnych, maszyn wirtualnych z systemem Linux, [kontenerów](batch-docker-container-workloads.md), [Azure Resource Manager sieci wirtualnych](batch-virtual-network.md)i [szyfrowania dysków węzłowych](disk-encryption.md).
+
+W tym artykule opisano sposób migracji do programu "virtualMachineConfiguration".
 
 ## <a name="new-pools-are-required"></a>Wymagane są nowe pule
 

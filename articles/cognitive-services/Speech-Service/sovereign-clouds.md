@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 12/26/2020
+ms.date: 01/07/2021
 ms.author: alexeyo
-ms.openlocfilehash: a1c3fcf868af76865eec9fa2be4f0fdb58074867
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 539ea6f80604eabdbbe56a3280cf5ddb367c0439
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964460"
+ms.locfileid: "97966787"
 ---
 # <a name="speech-services-in-sovereign-clouds"></a>Usługi mowy w ramach suwerennych chmur
 
@@ -41,15 +41,7 @@ Dostępne tylko dla instytucji rządowych Stanów Zjednoczonych i ich partnerów
   - Neuronowych
   - Niestandardowy głos
 - **Obsługiwane języki:**
-  - Arabski (AR-*)
-  - Chiński (ZH-*)
-  - Angielski (EN-*)
-  - Francuski (fr-*)
-  - Niemiecki (de-*)
-  - Hindi (Hi-IN)
-  - Koreański (ko-KR)
-  - Rosyjski (ru-RU)
-  - Hiszpański (ES-*)
+  - Zobacz listę obsługiwanych języków [tutaj](language-support.md)
 
 ### <a name="endpoint-information"></a>Informacje o punkcie końcowym
 
