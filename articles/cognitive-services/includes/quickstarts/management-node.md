@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: eddee6bc0fdcd636b7b9ffb81b121052499251b2
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 97b8f889bf625ac36917debe2cc2848cb1a97e37
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97745739"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97956505"
 ---
 [Dokumentacja](/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices)  |  źródłowy biblioteki [Pakiet (npm)](https://www.npmjs.com/package/@azure/arm-cognitiveservices)  |  [Przykłady](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices#sample-code)
 
@@ -74,7 +74,7 @@ Następnie Dodaj następującą funkcję, `quickstart` Aby obsłużyć główną
 
 Dodaj następujący kod na końcu `quickstart` funkcji, aby wyświetlić listę dostępnych zasobów, utworzyć przykładowy zasób, wyświetlić zasoby należące do użytkownika, a następnie usunąć przykładowy zasób. Te funkcje zostaną zdefiniowane w następnych krokach.
 
-## <a name="create-a-cognitive-services-resource"></a>Tworzenie zasobu usług Cognitive Services
+## <a name="create-a-cognitive-services-resource-nodejs"></a>Tworzenie zasobu Cognitive Services (Node.js)
 
 Aby utworzyć nowy zasób Cognitive Services i subskrybować go, użyj funkcji **Create** . Ta funkcja dodaje nowy zasób rozliczany do grupy zasobów, która została przekazana. Podczas tworzenia nowego zasobu należy znać "rodzaj" usługi, która ma być używana, wraz z jej warstwą cenową (lub jednostką SKU) i lokalizacją platformy Azure. Następująca funkcja przyjmuje wszystkie te argumenty i tworzy zasób.
 
@@ -114,7 +114,7 @@ Następnie w oknie konsoli Uruchom aplikację za pomocą `node` polecenia.
 node index.js
 ```
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Dokumentacja zestawu SDK zarządzania platformy Azure](/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest)
 * [Co to jest platforma Azure Cognitive Services?](../../what-are-cognitive-services.md)
