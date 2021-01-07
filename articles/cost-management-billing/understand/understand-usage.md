@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 01/04/2021
 ms.author: banders
-ms.openlocfilehash: 559fe43bbd9b8951a97733ae1250046f65f10404
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 07e3cfdce238d5fc4e2737a49dde6fd624de8506
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149364"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882504"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Interpretacja terminów w pliku Użycie i opłaty platformy Azure
 
@@ -126,10 +126,24 @@ UsageDate | Data
 UsageEnd | Data
 UsageStart | Data
 
-
 ## <a name="ensure-charges-are-correct"></a>Sprawdzanie, czy opłaty są poprawne
 
 Aby dowiedzieć się więcej na temat szczegółów użycia i opłat, przeczytaj więcej na temat interpretowania faktury typu [Płatność zgodnie z rzeczywistym użyciem](review-individual-bill.md) lub [Umowa klienta firmy Microsoft](review-customer-agreement-bill.md).
+
+## <a name="unexpected-usage-or-charges"></a>Nieoczekiwane użycie lub opłaty
+
+W przypadku pojawienia się użycia lub opłat, których nie rozpoznajesz, istnieje kilka czynności, które można wykonać w celu wyjaśnienia sytuacji:
+
+- Przegląd faktury, która zawiera opłaty za zasób
+- Przegląd zafakturowanych kosztów w analizie kosztów
+- Znajdowanie osób odpowiedzialnych za zasób i kontaktowanie się z nimi
+- Analizowanie dzienników inspekcji
+- Analizowanie uprawnień użytkowników do nadrzędnego zakresu zasobu
+- Utwórz [wniosek o pomoc techniczną platformy Azure](https://go.microsoft.com/fwlink/?linkid=2083458), aby pomóc w zidentyfikowaniu opłat
+
+Aby uzyskać więcej informacji, zobacz [Analizowanie nieoczekiwanych opłat](analyze-unexpected-charges.md).
+
+Pamiętaj, że platforma Azure nie rejestruje większości akcji użytkownika. Zamiast tego, firma Microsoft rejestruje użycie zasobów na potrzeby rozliczeń. Jeśli zauważysz wzrost użycia w przeszłości, a rejestrowanie nie zostało włączone, firma Microsoft nie może wskazać przyczyny. Włącz rejestrowanie dla usługi, dla której chcesz wyświetlić zwiększone użycie, aby odpowiedni zespół techniczny mógł pomóc Ci w rozwiązaniu problemu.
 
 ## <a name="need-help-contact-us"></a>Potrzebujesz pomocy? Skontaktuj się z nami.
 

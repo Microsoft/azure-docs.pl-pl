@@ -14,7 +14,7 @@
   items:
     - name: Wdrażanie bazy danych
       items:
-        - name: GitHub Actions
+        - name: Akcje usługi GitHub
           href: how-to-deploy-github-action.md
     - name: Migracja
       items:
@@ -234,7 +234,7 @@
               displayName: 'scale server, reset password'
         - name: Ponowne uruchamianie serwera
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: howto-restart-server-portal.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: howto-restart-server-cli.md
@@ -242,7 +242,7 @@
               href: howto-restart-server-powershell.md
         - name: Reguły zapory
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: howto-manage-firewall-using-portal.md
               displayName: 'firewall, portal, rules'
             - name: Interfejs wiersza polecenia platformy Azure
@@ -297,7 +297,7 @@
           displayName: 'application development, TLS'
         - name: Konfigurowanie parametrów serwera
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: howto-configure-server-parameters-using-portal.md
               displayName: 'application development, server parameters'
             - name: Interfejs wiersza polecenia platformy Azure
@@ -308,7 +308,7 @@
               displayName: 'application development, server parameters'
         - name: Automatyczne zwiększanie rozmiaru magazynu
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: howto-auto-grow-storage-portal.md
               displayName: 'business continuity, scale , storage'
             - name: Interfejs wiersza polecenia platformy Azure
@@ -319,7 +319,7 @@
               displayName: 'business continuity, scale , storage'
         - name: Dzienniki dostępu
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: howto-configure-server-logs-in-portal.md
               displayName: 'access logs, monitor'
             - name: Interfejs wiersza polecenia platformy Azure
@@ -504,7 +504,7 @@
                   href: flexible-server/how-to-connect-tls-ssl.md
         - name: Konfigurowanie parametrów serwera
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: flexible-server/howto-configure-server-parameters-using-portal.md
               displayName: 'application development, server parameters'
             - name: Interfejs wiersza polecenia platformy Azure
@@ -640,6 +640,8 @@
           href: howto-hyperscale-create-users.md
         - name: Rozproszone dane
           items:
+            - name: Określanie rozmiaru tabeli
+              href: howto-hyperscale-table-size.md
             - name: Rozpowszechnianie i modyfikowanie tabel
               href: howto-hyperscale-modify-distributed-tables.md
         - name: Wysoka dostępność
@@ -657,6 +659,8 @@
             - name: Rozwiązywanie problemów z błędami połączenia
               href: howto-hyperscale-troubleshoot-common-connection-issues.md
               displayName: 'connection errors, hyperscale'
+            - name: Przydatne zapytania diagnostyczne
+              href: howto-hyperscale-useful-diagnostic-queries.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure

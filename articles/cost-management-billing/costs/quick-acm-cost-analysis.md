@@ -3,18 +3,18 @@ title: Szybki start — eksplorowanie kosztów platformy Azure za pomocą analiz
 description: Ten przewodnik Szybki start ułatwia eksplorowanie i analizowanie kosztów organizacyjnych platformy Azure za pomocą funkcji analizy kosztów.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/20/2020
+ms.date: 01/04/2021
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 1926a5a2ee81b6be4abee5e4064a4a23354da1a1
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 83f2d87e3f4a03ff17526ea5706e4f87b8f39487
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033582"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882453"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Szybki start: Eksplorowanie i analizowanie kosztów za pomocą analizy kosztów
 
@@ -72,6 +72,8 @@ Prognoza kosztów pokazuje szacowane koszty w wybranym okresie. Model jest opart
 
 Model używa maksymalnie sześciu miesięcy danych treningowych w celu prognozowania kosztów na rok. Zmiana prognozy wymaga danych treningowych z co najmniej siedmiu dni. Prognoza jest oparta na znaczących zmianach, takich jak istotny wzrost lub spadek, we wzorcach kosztów i użycia. Prognoza nie generuje oddzielnych przewidywań dla każdego elementu we właściwościach **Grupuj według**. Zapewnia jedynie prognozę dla łącznych, skumulowanych kosztów. W przypadku korzystania z wielu walut model udostępnia prognozę kosztów tylko w USD.
 
+Ze względu na zależność modelu od danych wzrostowych i spadkowych, duże zakupy, takie jak wystąpienia zarezerwowane, spowodują sztuczne zawyżenie prognozy. Okres prognozy i wielkość zakupów wpływają na to, jak długo dane zmiany oddziałują na prognozę. Prognoza powraca do normy w momencie ustabilizowania wydatków.
+
 ## <a name="customize-cost-views"></a>Dostosowywanie widoków kosztów
 
 Analiza kosztów ma cztery wbudowane widoki zoptymalizowane pod kątem najpopularniejszych celów:
@@ -123,7 +125,7 @@ Domyślnie analiza kosztów pokazuje wszystkie koszty użycia i zakupów, które
 
 ![Zmiana kosztu rzeczywistego na zamortyzowany w celu wyświetlenia zakupów rezerwacji rozłożonych w całym okresie i przydzielonych do zasobów, które używały rezerwacji](./media/quick-acm-cost-analysis/metric-picker.png)
 
-Koszt zamortyzowany dzieli zakupy rezerwacji na dzienne fragmenty i rozkłada je w czasie trwania terminu rezerwacji. Na przykład zamiast zakupu na kwotę 365 USD 1 stycznia, każdego dnia w okresie od 1 stycznia do 31 grudnia będzie wyświetlany zakup w wysokości 1,00 USD. Oprócz podstawowej amortyzacji te koszty są również ponownie przydzielane i kojarzone przy użyciu określonych zasobów, które używały rezerwacji. Jeśli na przykład opłata dzienna w wysokości 1,00 USD została podzielona między dwie maszyny wirtualne, każdego dnia będą widoczne dwie opłaty w wysokości 0,50 USD. Jeśli część rezerwacji nie została wykorzystana danego dnia, zobaczysz jedną opłatę 0,50 USD skojarzoną z odpowiednią maszyną wirtualną i drugą opłatę 0,50 USD typu `UnusedReservation`. Pamiętaj, że koszty niewykorzystanych rezerwacji są widoczne tylko w przypadku wyświetlania kosztu zamortyzowanego.
+Koszt zamortyzowany dzieli zakupy rezerwacji na dzienne fragmenty i rozkłada je w czasie trwania terminu rezerwacji. Na przykład zamiast zakupu na kwotę 365 USD 1 stycznia, każdego dnia w okresie od 1 stycznia do 31 grudnia będzie wyświetlany zakup w wysokości 1,00 USD. Oprócz podstawowej amortyzacji te koszty są również ponownie przydzielane i kojarzone przy użyciu określonych zasobów, które używały rezerwacji. Jeśli na przykład opłata dzienna w wysokości 1,00 USD została podzielona między dwie maszyny wirtualne, każdego dnia będą widoczne dwie opłaty w wysokości 0,50 USD. Jeśli część rezerwacji nie została wykorzystana danego dnia, zobaczysz jedną opłatę 0,50 USD skojarzoną z odpowiednią maszyną wirtualną i drugą opłatę 0,50 USD typu `UnusedReservation`. Koszty nieużywanych rezerwacji mogą być widoczne tylko w przypadku wyświetlania kosztu amortyzowanego.
 
 W związku ze zmianą sposobu reprezentowania kosztów trzeba pamiętać, że w widokach kosztów rzeczywistych i zamortyzowanych będą wyświetlane różne sumy. Ogólnie rzecz biorąc, podczas przeglądania kosztów zamortyzowanych suma kosztów w miesiącach z zakupem rezerwacji będzie się zmniejszała, a w miesiącach po zakupie rezerwacji — zwiększała. Amortyzacja jest dostępna tylko w przypadku zakupów rezerwacji i w tej chwili nie dotyczy zakupów w witrynie Azure Marketplace.
 
@@ -151,17 +153,17 @@ Obejrzyj klip wideo [Udostępnianie i zapisywanie widoków w usłudze Azure Cost
 
 >[!VIDEO https://www.youtube.com/embed/kQkXXj-SmvQ]
 
-Aby przypiąć analizę kosztów, wybierz ikonę pinezki w prawym górnym rogu lub bezpośrednio po nagłówku <Subscription Name> | Analiza kosztów”. Przypięcie analizy kosztów spowoduje zapisanie tylko głównego wykresu lub widoku tabeli. Udostępnij pulpit nawigacyjny, aby umożliwić innym użytkownikom dostęp do kafelka. Pamiętaj, że spowoduje to tylko udostępnienie konfiguracji pulpitu nawigacyjnego i nie udzieli innym użytkownikom dostępu do danych źródłowych. Jeśli nie masz dostępu do kosztów, ale masz dostęp do udostępnionego pulpitu nawigacyjnego, zobaczysz komunikat „odmowa dostępu”.
+Aby przypiąć analizę kosztów, wybierz ikonę pinezki w prawym górnym rogu lub bezpośrednio po nagłówku <Subscription Name> | Analiza kosztów”. Przypięcie analizy kosztów spowoduje zapisanie tylko głównego wykresu lub widoku tabeli. Udostępnij pulpit nawigacyjny, aby umożliwić innym użytkownikom dostęp do kafelka. Funkcja udostępniania udostępnia tylko konfigurację pulpitu nawigacyjnego i nie udzieli innym użytkownikom dostępu do danych źródłowych. Jeśli nie masz dostępu do kosztów, ale masz dostęp do udostępnionego pulpitu nawigacyjnego, zobaczysz komunikat „odmowa dostępu”.
 
-Aby udostępnić link do analizy kosztów, wybierz pozycję **Udostępnij** w górnej części bloku. Zostanie wyświetlony niestandardowy adres URL, który otwiera ten konkretny widok dla określonego zakresu. Jeśli nie masz dostępu do kosztów i uzyskasz ten adres URL, zobaczysz komunikat „odmowa dostępu”.
+Aby udostępnić link do analizy kosztów, wybierz pozycję **Udostępnij** w górnej części okna. Zostanie wyświetlony niestandardowy adres URL, który otwiera ten konkretny widok dla określonego zakresu. Jeśli nie masz dostępu do kosztów i uzyskasz ten adres URL, zobaczysz komunikat „odmowa dostępu”.
 
 ## <a name="download-usage-data"></a>Pobieranie danych użycia
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Czasami musisz pobrać dane do dalszej analizy, scalić je z własnymi danymi lub zintegrować ze swoimi systemami. Usługa Cost Management oferuje kilka różnych opcji. Na początek, jeśli potrzebujesz podsumowania wysokiego poziomu ad hoc, takiego jak to, które otrzymujesz w ramach analizy kosztów, utwórz potrzebny widok. Następnie pobierz go, wybierając pozycję **Eksportuj**, a następnie pozycję **Pobierz dane do pliku CSV** lub **Pobierz dane do programu Excel**. Pobranie danych do programu Excel zapewnia dodatkowy kontekst w widoku użytym do wygenerowania pobierania, taki jak zakres, konfiguracja zapytania, suma i data wygenerowania.
+Czasami musisz pobrać dane do dalszej analizy, scalić je z własnymi danymi lub zintegrować ze swoimi systemami. Usługa Cost Management oferuje kilka różnych opcji. Na początek, jeśli potrzebujesz szybkiego podsumowania wysokiego poziomu, takiego jak to, które otrzymujesz w ramach analizy kosztów, utwórz potrzebny widok. Następnie pobierz go, wybierając pozycję **Eksportuj**, a następnie pozycję **Pobierz dane do pliku CSV** lub **Pobierz dane do programu Excel**. Pobranie danych do programu Excel zapewnia więcej kontekstu w widoku użytym do wygenerowania pobierania, takiego jak zakres, konfiguracja zapytania, suma i data wygenerowania.
 
-Jeśli potrzebujesz pełnego, niezagregowanego zestawu danych, pobierz go z konta rozliczeniowego. Następnie na liście usług w okienku nawigacji po lewej stronie portalu przejdź do pozycji **Zarządzanie kosztami i rozliczenia**. Wybierz konto rozliczeniowe, jeśli ma to zastosowanie. Przejdź do pozycji **Użycie + opłaty**, a następnie wybierz ikonę **Pobierz** dla żądanego okresu rozliczeniowego.
+Jeśli potrzebujesz pełnego, niezagregowanego zestawu danych, pobierz go z konta rozliczeniowego. Następnie na liście usług w okienku nawigacji po lewej stronie portalu przejdź do pozycji **Zarządzanie kosztami i rozliczenia**. Wybierz konto rozliczeniowe, jeśli ma to zastosowanie. Przejdź do pozycji **Użycie + opłaty**, a następnie wybierz ikonę **Pobierz** dla okresu rozliczeniowego.
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 

@@ -123,6 +123,8 @@
           href: troubleshoot-cross-region-replication.md
         - name: Rozwiązywanie problemów z woluminami używającymi dwóch protokołów
           href: troubleshoot-dual-protocol-volumes.md
+        - name: Rozwiązywanie problemów z woluminami Kerberos systemu NFS 4.1
+          href: troubleshoot-nfsv41-kerberos-volumes.md
         - name: Rozwiązywanie problemów z zasadami migawek
           href: troubleshoot-snapshot-policies.md
         - name: Rozwiązywanie problemów powodowanych przez błędy dostawcy zasobów

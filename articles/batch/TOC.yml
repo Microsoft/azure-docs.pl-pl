@@ -137,6 +137,8 @@
           href: batch-automatic-scaling.md
         - name: Wybieranie rozmiaru maszyny wirtualnej dla węzłów obliczeniowych
           href: batch-pool-vm-sizes.md
+        - name: Przejście z usługi w chmurze do pul maszyn wirtualnych
+          href: batch-pool-cloud-service-to-virtual-machine-configuration.md
         - name: Konfigurowanie dostępu do węzłów obliczeniowych
           href: pool-endpoint-configuration.md
         - name: Tworzenie puli za pomocą usługi Shared Image Gallery

@@ -141,8 +141,16 @@
     - name: Porównywanie wersji środowiska uruchomieniowego
       href: functions-versions.md
       displayName: 'migrate, migration, v3'
-    - name: Plan Premium
-      href: functions-premium-plan.md
+    - name: Hostowanie i skalowanie
+      items:
+        - name: Plan Zużycie
+          href: consumption-plan.md
+        - name: Plan Premium
+          href: functions-premium-plan.md
+        - name: Dedykowany plan
+          href: dedicated-plan.md
+        - name: Skalowanie oparte na zdarzeniach
+          href: event-driven-scaling.md
     - name: Wdrożenia
       href: functions-deployment-technologies.md
     - name: Zdarzenia i komunikaty
@@ -261,6 +269,8 @@
                   href: create-function-app-linux-app-service-plan.md
                 - name: Plan Zużycie w systemie Linux
                   href: create-first-function-cli-python.md
+                - name: Plan Premium
+                  href: create-premium-plan-function-app-portal.md
                 - name: Azure for Students Starter
                   href: functions-create-student-starter.md
             - name: Wyzwalacz usługi Azure Cosmos DB
