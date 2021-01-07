@@ -51,6 +51,11 @@
               href: azure-network-latency.md
             - name: Preferencja routingu internetowego na platformie Azure
               href: ../virtual-network/routing-preference-overview.md
+        - name: Zabezpieczenia
+          items:
+            - name: Kontrole zabezpieczeń usługi Azure Policy
+              displayName: 'regulatory, compliance, standards, domains'
+              href: ./security-controls-policy.md
         - name: Sieci wirtualne
           href: ../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Równoważenie obciążenia sieciowego
@@ -135,6 +140,9 @@
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
     - name: REST
       href: 'https://msdn.microsoft.com/library/mt163658.aspx'
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Zasoby
   items:
     - name: Tworzenie szablonów

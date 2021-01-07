@@ -275,26 +275,14 @@
           href: /java/api/com.microsoft.azure.management.eventhub?view=azure-java-stable
     - name: Python
       items:
-        - name: Migrowanie z biblioteki azure-eventhub w wersji 1 do wersji 5
-          href: 'https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md'
         - name: Biblioteka kliencka
-          items:
-            - name: azure-eventhub w wersji 5
-              href: /python/api/azure-eventhub/?view=azure-python
-            - name: azure-eventhub w wersji 1
-              href: /python/api/azure-eventhub/?view=azure-python-previous
+          href: /python/api/overview/azure/eventhub-readme?view=azure-python
         - name: Biblioteka zarządzania
           href: /python/api/overview/azure/event-hub?view=azure-python
     - name: JavaScript
       items:
-        - name: Migrowanie z biblioteki azure/eventhubs w wersji 2 do wersji 5
-          href: 'https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md'
         - name: Biblioteka kliencka
-          items:
-            - name: azure/eventhubs w wersji 5
-              href: /javascript/api/@azure/event-hubs/?view=azure-node-latest
-            - name: azure/eventhubs w wersji 2
-              href: /javascript/api/@azure/event-hubs/?view=azure-node-legacy
+          href: /javascript/api/overview/azure/event-hubs-readme?view=azure-node-latest
         - name: Biblioteka zarządzania
           href: /javascript/api/@azure/arm-eventhub/?view=azure-node-latest
     - name: Przejdź

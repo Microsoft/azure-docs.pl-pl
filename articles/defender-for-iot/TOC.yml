@@ -3,6 +3,8 @@
 - name: Omówienie
   href: overview.md
   items:
+    - name: Co nowego?
+      href: release-notes.md
     - name: Architektura rozwiązania
       href: architecture.md
 - name: Przewodniki Szybki start
