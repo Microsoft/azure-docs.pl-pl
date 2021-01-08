@@ -3,16 +3,15 @@ title: Skalowanie w górę i w dół w Azure Stream Analytics zadaniach
 description: W tym artykule opisano sposób skalowania zadania Stream Analytics przez Partycjonowanie danych wejściowych, dostrajanie zapytania i Ustawianie jednostek przesyłania strumieniowego zadań.
 author: JSeb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: c12c4b9f4a3757a3974e4aff7699d0265bfd7840
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e3d4fd6b6b83681284278d10409a1c16394db31f
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124377"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018687"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Skalowanie zadania Azure Stream Analytics w celu zwiększenia przepływności
 W tym artykule opisano sposób dostrajania zapytania Stream Analytics, aby zwiększyć przepływność zadań analizy przesyłania strumieniowego. Poniższy przewodnik umożliwia skalowanie zadania w celu obsługi wyższego obciążenia i wykorzystanie większej ilości zasobów systemowych (takich jak większa przepustowość, więcej zasobów procesora CPU, więcej pamięci).
@@ -24,7 +23,7 @@ Jako warunek wstępny może być konieczne zapoznanie się z następującymi art
 Jeśli zapytanie jest z założenia w pełni działania równoległego między partycjami wejściowymi, można wykonać następujące czynności:
 1.  Utwórz zapytanie, aby było zaskakująco równoległe za pomocą słowa kluczowego **Partition by** . Więcej szczegółów znajduje się w sekcji zaskakująco Jobs Jobs [na tej stronie](stream-analytics-parallelization.md).
 2.  W zależności od typów danych wyjściowych używanych w zapytaniu niektóre dane wyjściowe mogą nie być działania równoległego lub muszą być zaskakująco równoległe w dalszej konfiguracji. Na przykład dane wyjściowe usługi PowerBI nie są działania równoległego. Dane wyjściowe są zawsze scalane przed wysłaniem do ujścia danych wyjściowych. Obiekty blob, tabele, ADLS, Service Bus i funkcja platformy Azure są automatycznie równoległe. Dane wyjściowe usług SQL i Azure Synapse Analytics mają opcję przetwarzanie równoległe. Centrum zdarzeń musi mieć ustawioną konfigurację PartitionKey, aby pasowała do pola **Partition by** (zazwyczaj PartitionID). W przypadku centrum zdarzeń należy również zwrócić szczególną uwagę na liczbę partycji dla wszystkich danych wejściowych i wszystkich wyjść, aby uniknąć przekroczenia między partycjami. 
-3.  Uruchom zapytanie z **6 Su** (to jest pełna pojemność jednego węzła obliczeniowego), aby zmierzyć maksymalną osiągalną przepływność, a jeśli używasz funkcji **Grupuj według** , Zmierz liczbę grup (Kardynalność), które może obsłużyć zadanie. Poniżej znajdują się ogólne objawy działania, które ograniczają zasoby systemowe.
+3.  Uruchom zapytanie z **6 Su** (to jest pełna pojemność jednego węzła obliczeniowego), aby zmierzyć maksymalną osiągalną przepływność, a jeśli używasz funkcji **Grupuj według**, Zmierz liczbę grup (Kardynalność), które może obsłużyć zadanie. Poniżej znajdują się ogólne objawy działania, które ograniczają zasoby systemowe.
     - Metryka użycia SU% jest ponad 80%. Oznacza to, że użycie pamięci jest wysokie. Czynniki, które przyczyniają się do zwiększenia tej metryki, zostały opisane [tutaj](stream-analytics-streaming-unit-consumption.md). 
     -   Wyjściowa sygnatura czasowa jest uwzględniana w odniesieniu do zegara ściany. W zależności od logiki zapytania wyjściowa sygnatura czasowa może być przesunięta do logiki od czasu zegara ściany. Należy jednak postępować w przybliżeniu z tą samą szybkością. Jeśli sygnatura czasowa wyjściowa jest w dalszej i dalszej stopniu, jest wskaźnikiem, że system jest przesłonięty. Może to wynikać z przepływności wyjściowej wyjściowego ujścia lub wysokie wykorzystanie procesora CPU. W tej chwili nie udostępniamy metryki użycia procesora, więc może być trudne odróżnienie tych dwóch.
         - Jeśli problem jest związany z ograniczaniem ujścia, może być konieczne zwiększenie liczby partycji wyjściowych (a także partycji wejściowych, aby zapewnić całkowite działania równoległego zadania) lub zwiększyć ilość zasobów ujścia (na przykład liczba jednostek żądań dla CosmosDB).
@@ -42,7 +41,7 @@ Jeśli zapytanie nie jest zaskakująco równolegle, możesz wykonać następują
 2.  W przypadku osiągnięcia przewidywanego obciążenia w zakresie przepływności można wykonać te czynności. Alternatywnie możesz zdecydować się na zmierzenie tego samego zadania uruchomionego o godzinie 3 i 1 SU, aby dowiedzieć się, jaka jest minimalna liczba identyfikatorów SU, które działają w danym scenariuszu.
 3.  Jeśli nie można osiągnąć żądanej przepływności, spróbuj przerwać zapytanie w wielu krokach, jeśli jest to możliwe, jeśli nie ma już wielu kroków i Przydziel do 6 SU dla każdego kroku w zapytaniu. Na przykład jeśli masz 3 kroki, Przydziel 18-SU w opcji "Skaluj".
 4.  Podczas uruchamiania takiego zadania Stream Analytics każdy krok jest umieszczany w osobnym węźle z dedykowanym 6 zasobami SU. 
-5.  Jeśli nadal nie osiągnięto celu ładowania, możesz spróbować użyć **partycji** , rozpoczynając od kroków zbliżonych do danych wejściowych. Dla operatora **Grupuj według** , który nie może być naturalnie partycjonowany, można użyć wzorca zagregowanego lokalnego/globalnego do wykonywania partycjonowanej **grupy** , po której następuje niepartycjonowana **Grupa według** . Na przykład, jeśli chcesz policzyć liczbę samochodów przechodzących przez każdy z nich, co 3 minuty, a ilość danych przekracza to, co może być obsługiwane przez 6 SU.
+5.  Jeśli nadal nie osiągnięto celu ładowania, możesz spróbować użyć **partycji** , rozpoczynając od kroków zbliżonych do danych wejściowych. Dla operatora **Grupuj według** , który nie może być naturalnie partycjonowany, można użyć wzorca zagregowanego lokalnego/globalnego do wykonywania partycjonowanej **grupy** , po której następuje niepartycjonowana **Grupa według**. Na przykład, jeśli chcesz policzyć liczbę samochodów przechodzących przez każdy z nich, co 3 minuty, a ilość danych przekracza to, co może być obsługiwane przez 6 SU.
 
 Zapytanie:
 

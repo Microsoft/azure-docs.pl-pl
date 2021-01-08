@@ -13,12 +13,12 @@ ms.date: 10/05/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 7c0efbae3576a5b57433fe70885fd97aae5e87e3
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 476261181ca4a8f32bb307a13aa6faa2f1ef9d26
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107944"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017395"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Szybki Start: uzyskiwanie tokenu i wywoływanie Microsoft Graph interfejsu API przy użyciu tożsamości aplikacji konsoli
 
@@ -49,13 +49,13 @@ Ten przewodnik Szybki Start wymaga [programu .NET Core 3,1](https://www.microsof
 > #### <a name="step-1-register-your-application"></a>Krok 1. Rejestrowanie aplikacji
 > Aby ręcznie zarejestrować aplikację i dodać informacje na temat rejestracji aplikacji do rozwiązania, wykonaj następujące czynności:
 >
-> 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+> 1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 > 1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę, w którym chcesz zarejestrować aplikację.
 > 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
 > 1. W obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**  >  **Nowa rejestracja**.
 > 1. Wprowadź **nazwę** aplikacji, na przykład `Daemon-console` . Użytkownicy Twojej aplikacji mogą zobaczyć tę nazwę i można ją później zmienić.
 > 1. Wybierz pozycję **Zarejestruj**, aby utworzyć aplikację.
-> 1. W obszarze **Zarządzaj** wybierz pozycję **Certyfikaty & wpisy tajne**.
+> 1. W obszarze **Zarządzanie** wybierz pozycję **Certyfikaty i wpisy tajne**.
 > 1. W obszarze wpisy **tajne klienta** wybierz pozycję **Nowy wpis tajny klienta**, wprowadź nazwę, a następnie wybierz pozycję **Dodaj**. Zapisz wartość klucza tajnego w bezpiecznej lokalizacji do użycia w późniejszym kroku.
 > 1. W obszarze **Zarządzaj** wybierz pozycję **uprawnienia interfejsu API**  >  **Dodaj uprawnienie**. Wybierz **Microsoft Graph**.
 > 1. Wybierz pozycję **Uprawnienia aplikacji**.

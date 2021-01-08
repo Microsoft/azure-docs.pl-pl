@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/07/2020
 ms.author: tisande
-ms.openlocfilehash: 2d99e0e2b65f7131e564e6ab64e454d2947c58a6
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 00c80fa311837918a78f26e941f00cb17f1dc279
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903024"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019180"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Zasady indeksowania w usłudze Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -135,7 +135,7 @@ Domyślnie Azure Cosmos DB nie utworzy żadnych indeksów przestrzennych. Jeśli
 
 ## <a name="composite-indexes"></a>Indeksy złożone
 
-Zapytania, które mają `ORDER BY` klauzulę mającą co najmniej dwie właściwości, wymagają złożonego indeksu. Można również zdefiniować indeks złożony, aby zwiększyć wydajność wielu zapytań równości i zakresu. Domyślnie nie są zdefiniowane żadne indeksy złożone, dlatego należy [dodać indeksy złożone](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) zgodnie z wymaganiami.
+Zapytania, które mają `ORDER BY` klauzulę mającą co najmniej dwie właściwości, wymagają złożonego indeksu. Można również zdefiniować indeks złożony, aby zwiększyć wydajność wielu zapytań równości i zakresu. Domyślnie nie są zdefiniowane żadne indeksy złożone, dlatego należy [dodać indeksy złożone](how-to-manage-indexing-policy.md#composite-index) zgodnie z wymaganiami.
 
 W przeciwieństwie do ścieżek uwzględnionych lub wykluczonych nie można utworzyć ścieżki z `/*` symbolem wieloznacznym. Każda ścieżka złożona ma niejawną `/?` na końcu ścieżki, której nie trzeba określać. Ścieżki złożone prowadzą do wartości skalarnej i jest to jedyna wartość, która jest uwzględniona w indeksie złożonym.
 

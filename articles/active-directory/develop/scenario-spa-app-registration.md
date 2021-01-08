@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: e42b6b7ffa39110ce356094de690bb353a3fb10f
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 0050eb61aac53b69c74306b9aaab797d8adfa915
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107791"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017004"
 ---
 # <a name="single-page-application-app-registration"></a>Aplikacja jednostronicowa: Rejestracja aplikacji
 
@@ -27,7 +27,7 @@ Aby zarejestrować aplikację jednostronicową (SPA) na platformie tożsamości 
 
 W przypadku aplikacji opartych na MSAL.js 1,0 i 2,0 Zacznij od wykonania poniższych kroków, aby utworzyć początkową rejestrację aplikacji.
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę, w którym chcesz zarejestrować aplikację.
 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
 1. W obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**  >  **Nowa rejestracja**.

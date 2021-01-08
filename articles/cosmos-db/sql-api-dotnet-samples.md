@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 07/23/2019
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 7f520d6f0f9774fcd945d8d2453644e8e2db7f6f
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 2e7bfd3735a57ddfa5d6100e18cf7a5676c1b9b1
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359578"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019044"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: przykłady platformy .NET dla interfejsu SQL API
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -91,7 +91,7 @@ Metoda [RunDocumentsDemo](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/m
 | [Odczytywanie dokumentu tylko wtedy, gdy został zmieniony](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/code-samples/DocumentManagement/Program.cs#L454-L500) |[DocumentClient.AccessCondition](/dotnet/api/microsoft.azure.documents.client.accesscondition)<br>[Documents.Client.AccessConditionType](/dotnet/api/microsoft.azure.documents.client.accessconditiontype) |
 
 ## <a name="indexing-examples"></a>Przykłady dotyczące indeksowania
-Metoda [RunIndexDemo](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/code-samples/IndexManagement/Program.cs#L93-L115) przykładowego projektu *IndexManagement* pokazuje, jak wykonać poniższe zadania. Aby dowiedzieć się więcej na temat indeksowania w Azure Cosmos DB przed uruchomieniem poniższych przykładów, zobacz [zasady indeksu](index-policy.md), [typy indeksów](index-overview.md#index-kinds)i [ścieżki indeksów](index-policy.md#include-exclude-paths). 
+Metoda [RunIndexDemo](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/code-samples/IndexManagement/Program.cs#L93-L115) przykładowego projektu *IndexManagement* pokazuje, jak wykonać poniższe zadania. Aby dowiedzieć się więcej na temat indeksowania w Azure Cosmos DB przed uruchomieniem poniższych przykładów, zobacz [zasady indeksu](index-policy.md), [typy indeksów](index-overview.md#index-types)i [ścieżki indeksów](index-policy.md#include-exclude-paths). 
 
 | Zadanie | Dokumentacja interfejsu API |
 | --- | --- |

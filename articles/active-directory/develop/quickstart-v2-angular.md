@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 72d9aefcdda5d224b256c6e969b7a75259a97005
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: c34ea5e2c622b7b203c56c6de2b611d6eca1d35c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95750777"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017514"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Szybki Start: Logowanie użytkowników i uzyskiwanie tokenu dostępu w jednostronicowej aplikacji pojedynczej
 
@@ -35,7 +35,7 @@ W tym przewodniku szybki start pobrano i uruchomimy przykład kodu, który demon
 >
 > ### <a name="option-1-express-register-and-automatically-configure-the-app-and-then-download-the-code-sample"></a>Opcja 1 (Express): Zarejestruj i automatycznie Skonfiguruj aplikację, a następnie Pobierz przykładowy kod
 >
-> 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+> 1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 > 1. Jeśli Twoje konto ma dostęp do więcej niż jednej dzierżawy, wybierz konto w prawym górnym rogu, a następnie ustaw sesję portalu w dzierżawie usługi Azure Active Directory (Azure AD), która ma być używana.
 > 1. Otwórz okienko nowe [rejestracje aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) w Azure Portal.
 > 1. Wprowadź nazwę aplikacji, a następnie wybierz pozycję **zarejestruj**.
@@ -45,7 +45,7 @@ W tym przewodniku szybki start pobrano i uruchomimy przykład kodu, który demon
 >
 > #### <a name="step-1-register-the-application"></a>Krok 1. rejestrowanie aplikacji
 >
-> 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+> 1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 > 1. Jeśli Twoje konto ma dostęp do więcej niż jednej dzierżawy, wybierz swoje konto w prawym górnym rogu i ustaw sesję portalu dla dzierżawy usługi Azure AD, której chcesz użyć.
 > 1. Postępuj zgodnie z instrukcjami, aby [zarejestrować aplikację jednostronicową](./scenario-spa-app-registration.md) w Azure Portal.
 > 1. Dodaj nową platformę w okienku **uwierzytelnianie** rejestracji aplikacji i zarejestruj identyfikator URI przekierowania: `http://localhost:4200/` .

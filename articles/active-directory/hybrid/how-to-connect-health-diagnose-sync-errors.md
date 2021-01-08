@@ -3,7 +3,7 @@ title: Azure AD Connect Health — Diagnozowanie błędów synchronizacji zdupli
 description: W tym dokumencie opisano proces diagnostyki zduplikowanych błędów synchronizacji atrybutów i potencjalną poprawkę scenariuszy oddzielonych obiektów bezpośrednio z Azure Portal.
 services: active-directory
 documentationcenter: ''
-author: zhiweiwangmsft
+author: billmath
 manager: maheshu
 editor: billmath
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2bd2e72b05cc01b1a351880d565323662635364
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20f1e152d67e653b10b8378b7d667106c48dc116
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89278687"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016936"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnozowanie i naprawianie błędów synchronizacji zduplikowanego atrybutu
 
@@ -97,11 +97,11 @@ To pytanie próbuje zidentyfikować obiekt źródłowy istniejącego użytkownik
    - Jeśli nie odnaleziono obiektu, Odpowiedz **tak**.
 
 W tych przykładach Pytanie próbuje sprawdzić, czy w Active Directory lokalnym istnieje niezależna **metoda Jacksona** .
-W przypadku **typowego scenariusza**zarówno użytkownicy Jan **Johnsonem** , jak i Jan **jacksona** są obecni w Active Directory lokalnych. Obiekty poddane kwarantannie są dwoma różnymi użytkownikami.
+W przypadku **typowego scenariusza** zarówno użytkownicy Jan **Johnsonem** , jak i Jan **jacksona** są obecni w Active Directory lokalnych. Obiekty poddane kwarantannie są dwoma różnymi użytkownikami.
 
 ![Diagnozuj typowy scenariusz błędu synchronizacji](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
 
-W przypadku **scenariusza oddzielonego obiektu**tylko pojedynczy użytkownik Jan **Johnsonem** jest obecny w Active Directory lokalnym:
+W przypadku **scenariusza oddzielonego obiektu** tylko pojedynczy użytkownik Jan **Johnsonem** jest obecny w Active Directory lokalnym:
 
 ![Diagnozuj oddzielony obiekt o błędzie synchronizacji * czy użytkownik istnieje * scenariusz](./media/how-to-connect-health-diagnose-sync-errors/IIdFixOrphanedCase.png)
 
@@ -138,7 +138,7 @@ Użytkownik z atrybutem powodującym konflikt w usłudze Azure AD powinien zosta
 **Aktualizowanie zakotwiczenia źródła do użytkownika opartego na chmurze w dzierżawie nie jest obsługiwane.**  
 Użytkownik oparty na chmurze w usłudze Azure AD nie powinien mieć kotwicy źródłowej. Aktualizacja kotwicy źródła nie jest obsługiwana w tym przypadku. Poprawka ręczna jest wymagana w środowisku lokalnym. 
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 **Pytania.** Co się stanie w przypadku niepowodzenia wykonania **zastosowania poprawki** ?  
 **Z.** Jeśli wykonanie nie powiedzie się, istnieje możliwość, że Azure AD Connect jest uruchomiony błąd eksportu. Odśwież stronę portalu i ponów próbę po następnej synchronizacji. Domyślny cykl synchronizacji to 30 minut. 
 
@@ -148,7 +148,7 @@ Użytkownik oparty na chmurze w usłudze Azure AD nie powinien mieć kotwicy źr
 
 
 **Pytania.** Jakie uprawnienie musi wykonać użytkownik, aby zastosować poprawkę?  
-**Z.** **Administrator globalny**lub **współautor** z usługi Azure RBAC ma uprawnienia dostępu do procesu diagnostyki i rozwiązywania problemów.
+**Z.** **Administrator globalny** lub **współautor** z usługi Azure RBAC ma uprawnienia dostępu do procesu diagnostyki i rozwiązywania problemów.
 
 
 **Pytania.** Czy muszę skonfigurować Azure AD Connect lub zaktualizować agenta Azure AD Connect Health dla tej funkcji?  

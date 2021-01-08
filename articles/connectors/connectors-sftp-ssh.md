@@ -4,28 +4,20 @@ description: Automatyzowanie zadań, które monitorują, tworzą, zarządzają, 
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
-ms.reviewer: estfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 11/03/2020
+ms.date: 01/07/2021
 tags: connectors
-ms.openlocfilehash: 31714eee2e79481bbc8afb47718ed38e178d5b82
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 388d747da692160ab6d0a89c0c35de348d921486
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324237"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016766"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorowanie i tworzenie plików SFTP oraz zarządzanie nimi za pomocą protokołu SSH i usługi Azure Logic Apps
 
 Aby zautomatyzować zadania, które monitorują, tworzą, wysyłają i odbierają pliki na serwerze [zabezpieczonym protokół transferu plików (SFTP)](https://www.ssh.com/ssh/sftp/) przy użyciu protokołu [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/) , można tworzyć i automatyzować przepływy pracy integracji przy użyciu Azure Logic Apps oraz łącznika SFTP-SSH. SFTP to protokół sieciowy, który zapewnia dostęp do plików, transfer plików i zarządzanie plikami za pośrednictwem dowolnego niezawodnego strumienia danych.
-
-> [!NOTE]
-> Łącznik SFTP-SSH aktualnie nie obsługuje tych serwerów SFTP:
-> 
-> * IBM datapowershell
-> * MessageWay
-> * OpenText Secure MFT
-> * OpenText GXS
 
 Poniżej przedstawiono kilka przykładowych zadań, które można zautomatyzować:
 
@@ -41,6 +33,13 @@ Aby uzyskać różnice między łącznikiem protokołu SFTP-SSH a łącznikiem S
 
 ## <a name="limits"></a>Limity
 
+* Łącznik SFTP-SSH aktualnie nie obsługuje tych serwerów SFTP:
+
+  * IBM datapowershell
+  * MessageWay
+  * OpenText Secure MFT
+  * OpenText GXS
+
 * Łącznik SFTP-SSH obsługuje uwierzytelnianie klucza prywatnego lub uwierzytelnianie przy użyciu hasła.
 
 * W przypadku akcji protokołu SFTP-SSH, które obsługują dzielenie może obsłużyć pliki o rozmiarze do 1 GB, natomiast akcje SFTP-SSH, które nie obsługują fragmentów [, mogą obsługiwać](../logic-apps/logic-apps-handle-large-messages.md) pliki do 50 MB. Mimo że domyślny rozmiar fragmentu to 15 MB, ten rozmiar można dynamicznie zmieniać, rozpoczynając od 5 MB i stopniowo zwiększając do 50 MB, na podstawie takich czynników, jak opóźnienie sieci, czas odpowiedzi serwera i tak dalej.
@@ -48,7 +47,7 @@ Aby uzyskać różnice między łącznikiem protokołu SFTP-SSH a łącznikiem S
   > [!NOTE]
   > W przypadku aplikacji logiki w [środowisku usługi integracji (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), wersja tego łącznika z oznaczeniem ISE wymaga, aby w zamian używały [limitów komunikatów ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) .
 
-  Można zastąpić to zachowanie adaptacyjne w przypadku [określenia stałego rozmiaru fragmentu](#change-chunk-size) do użycia. Ten rozmiar może nawiązać od 5 MB do 50 MB. Załóżmy na przykład, że masz plik 45 MB i sieć, która może obsługiwać ten rozmiar plików bez opóźnień. Adaptacyjne rozdzielenie skutkuje wieloma wywołaniami, a tym samym wywołaniem. Aby zmniejszyć liczbę wywołań, można spróbować ustawić rozmiar fragmentu 50 MB. W innym scenariuszu, jeśli aplikacja logiki ma limit czasu, na przykład w przypadku używania fragmentów 15 MB można spróbować zmniejszyć rozmiar do 5 MB.
+  Można zastąpić to zachowanie adaptacyjne w przypadku [określenia stałego rozmiaru fragmentu](#change-chunk-size) do użycia. Ten rozmiar może nawiązać od 5 MB do 50 MB. Załóżmy na przykład, że masz plik 45-MB i sieć, która może obsługiwać ten rozmiar plików bez opóźnień. Adaptacyjne rozdzielenie skutkuje wieloma wywołaniami, a tym samym wywołaniem. Aby zmniejszyć liczbę wywołań, można spróbować ustawić rozmiar segmentu 50-MB. W innym scenariuszu, jeśli aplikacja logiki jest przekroczenia limitu czasu, na przykład w przypadku używania fragmentów 15 MB można spróbować zmniejszyć rozmiar do 5 MB.
 
   Rozmiar fragmentu jest skojarzony z połączeniem, co oznacza, że można użyć tego samego połączenia dla akcji, które obsługują rozdzielenie, a następnie dla akcji, które nie obsługują rozdzielania. W tym przypadku rozmiar fragmentu dla akcji, które nie obsługują zakresów podziału z 5 MB do 50 MB. W tej tabeli przedstawiono, które działania SFTP obsługują fragmenty:
 
@@ -86,7 +85,7 @@ Poniżej przedstawiono inne kluczowe różnice między łącznikiem SFTP-SSH a �
 
 * Udostępnia akcję **zmiany nazwy pliku** , która zmienia nazwę pliku na serwerze SFTP.
 
-* Buforuje połączenie z serwerem SFTP *przez maksymalnie 1 godzinę* , co zwiększa wydajność i zmniejsza liczbę prób nawiązania połączenia z serwerem. Aby ustawić czas trwania tego zachowania buforowania, Edytuj Właściwość [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) w konfiguracji SSH na serwerze SFTP.
+* Buforuje połączenie z serwerem SFTP *przez maksymalnie 1 godzinę*, co zwiększa wydajność i zmniejsza liczbę prób nawiązania połączenia z serwerem. Aby ustawić czas trwania tego zachowania buforowania, Edytuj Właściwość [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) w konfiguracji SSH na serwerze SFTP.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -98,13 +97,13 @@ Poniżej przedstawiono inne kluczowe różnice między łącznikiem SFTP-SSH a �
   >
   > Łącznik SFTP-SSH obsługuje *tylko* te formaty kluczy prywatnych, algorytmy i odciski palców:
   >
-  > * **Formaty kluczy prywatnych** : klucze RSA (Rivest Shamir Adleman) i DSA (algorytm podpisywania cyfrowego) w formatach OpenSSH i SSH.com. Jeśli klucz prywatny jest w formacie. PPK), najpierw [przekonwertuj klucz na format pliku OpenSSH (PEM)](#convert-to-openssh).
+  > * **Formaty kluczy prywatnych**: klucze RSA (Rivest Shamir Adleman) i DSA (algorytm podpisywania cyfrowego) w formatach OpenSSH i SSH.com. Jeśli klucz prywatny jest w formacie. PPK), najpierw [przekonwertuj klucz na format pliku OpenSSH (PEM)](#convert-to-openssh).
   >
-  > * **Algorytmy szyfrowania** : des-EDE3-CBC, des-EDE3-CFB, des-CBC, aes-128-CBC, AES-192-CBC i AES-256-CBC
+  > * **Algorytmy szyfrowania**: des-EDE3-CBC, des-EDE3-CFB, des-CBC, aes-128-CBC, AES-192-CBC i AES-256-CBC
   >
-  > * **Odcisk palca** : MD5
+  > * **Odcisk palca**: MD5
   >
-  > Po dodaniu wyzwalacza SFTP-SSH lub akcji do aplikacji logiki należy podać informacje o połączeniu dla serwera SFTP. Po podaniu prywatnego klucza SSH dla tego połączenia * *_nie wprowadzaj ręcznie ani nie edytuj klucza_* _, co może spowodować niepowodzenie połączenia. Zamiast tego należy _*_skopiować klucz_*_ z pliku prywatnego klucza SSH i _*_wkleić_*_ go do szczegółów połączenia. 
+  > Po dodaniu wyzwalacza SFTP-SSH lub akcji do aplikacji logiki należy podać informacje o połączeniu dla serwera SFTP. Po podaniu prywatnego klucza SSH dla tego połączenia **_nie wprowadzaj ręcznie ani nie edytuj klucza_* _, co może spowodować niepowodzenie połączenia. Zamiast tego należy _*_skopiować klucz_*_ z pliku prywatnego klucza SSH i _*_wkleić_*_ go do szczegółów połączenia. 
   > Aby uzyskać więcej informacji, zobacz sekcję [łączenie się](#connect) z PROTOKOŁem SSH w dalszej części tego artykułu.
 
 Podstawowa wiedza na temat [tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)
@@ -113,7 +112,11 @@ Podstawowa wiedza na temat [tworzenia aplikacji logiki](../logic-apps/quickstart
 
 ## <a name="how-sftp-ssh-triggers-work"></a>Jak działają wyzwalacze SFTP-SSH
 
-Protokół SFTP-SSH wyzwalacze działają przez sondowanie systemu plików SFTP i wyszukiwanie plików, które zostały zmienione od czasu ostatniego sondowania. Niektóre narzędzia pozwalają zachować sygnaturę czasową, gdy pliki zmienią się. W takich przypadkach należy wyłączyć tę funkcję, aby wyzwalacz mógł funkcjonować. Poniżej przedstawiono niektóre typowe ustawienia:
+<a name="polling-behavior"></a>
+
+### <a name="polling-behavior"></a>Zachowanie sondowania
+
+Protokół SFTP-SSH wyzwala sondowanie systemu plików SFTP i szuka każdego pliku, który zmienił się od czasu ostatniego sondowania. Niektóre narzędzia pozwalają zachować sygnaturę czasową, gdy pliki zmienią się. W takich przypadkach należy wyłączyć tę funkcję, aby wyzwalacz mógł funkcjonować. Poniżej przedstawiono niektóre typowe ustawienia:
 
 | Klient SFTP | Akcja |
 |-------------|--------|
@@ -123,6 +126,12 @@ Protokół SFTP-SSH wyzwalacze działają przez sondowanie systemu plików SFTP 
 
 Gdy wyzwalacz odnajdzie nowy plik, wyzwalacz sprawdza, czy nowy plik jest zakończony i nie jest częściowo zapisany. Na przykład plik może mieć zmiany w toku, gdy wyzwalacz sprawdza serwer plików. Aby uniknąć powrotu częściowo zapisywanego pliku, wyzwalacz odnotowuje sygnaturę czasową dla pliku, który ma ostatnio wprowadzone zmiany, ale nie zwraca natychmiast tego pliku. Wyzwalacz zwraca plik tylko wtedy, gdy ponownie sonduje serwer. Czasami takie zachowanie może spowodować opóźnienie, który jest maksymalnie dwa razy interwał sondowania wyzwalacza.
 
+<a name="trigger-recurrence-shift-drift"></a>
+
+### <a name="trigger-recurrence-shift-and-drift"></a>Wyzwól przesunięcie i przesunięcia cykli
+
+Wyzwalacze oparte na połączeniach, w których należy utworzyć połączenie, takie jak wyzwalacz SFTP-SSH, różnią się od wbudowanych wyzwalaczy, które działają natywnie w Azure Logic Apps, takich jak [wyzwalacz cyklu](../connectors/connectors-native-recurrence.md). W cyklicznych wyzwalaczach opartych na połączeniach harmonogram cyklu nie jest jedynym sterownikiem, które steruje wykonywaniem, a strefa czasowa określa tylko początkowy czas rozpoczęcia. Kolejne uruchomienia są zależne od harmonogramu cyklu, ostatniego wykonania wyzwalacza *i* innych czynników, które mogą spowodować przekroczenie czasu uruchomienia lub wygenerowanie nieoczekiwanego zachowania, na przykład niezachowywanie określonego harmonogramu, gdy czas letni (DST) zaczyna się i skończy. Aby upewnić się, że czas cyklu nie zostanie przesunięty, gdy zmiana czasu zacznie obowiązywać, ręcznie Dostosuj cykl, aby aplikacja logiki nadal działała o oczekiwanym czasie. W przeciwnym razie czas rozpoczęcia jest przesuwany o jedną godzinę do przodu, gdy DST zaczyna się od godziny i do tyłu po zakończeniu DST. Aby uzyskać więcej informacji, zobacz [cykl dla wyzwalaczy opartych na połączeniach](../connectors/apis-list.md#recurrence-connection-based).
+
 <a name="convert-to-openssh"></a>
 
 ## <a name="convert-putty-based-key-to-openssh"></a>Konwertuj wyskakujące klucze na OpenSSH
@@ -131,7 +140,7 @@ Jeśli klucz prywatny jest w formacie pobierania, który używa rozszerzenia naz
 
 ### <a name="unix-based-os"></a>System operacyjny oparty na systemie UNIX
 
-1. Jeśli w systemie nie zainstalowano narzędzi do prezentacji, zrób to teraz, na przykład:
+1. Jeśli nie masz zainstalowanych narzędzi w systemie, zrób to teraz, na przykład:
 
    `sudo apt-get install -y putty`
 
@@ -139,7 +148,7 @@ Jeśli klucz prywatny jest w formacie pobierania, który używa rozszerzenia naz
 
    `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
 
-   Przykład:
+   Na przykład:
 
    `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
 
@@ -159,7 +168,7 @@ Jeśli klucz prywatny jest w formacie pobierania, który używa rozszerzenia naz
 
 1. Zapisz plik klucza prywatnego z `.pem` rozszerzeniem nazwy pliku.
 
-## <a name="considerations"></a>Kwestie do rozważenia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 
 W tej sekcji opisano zagadnienia dotyczące wyzwalaczy i akcji tego łącznika.
 
@@ -211,7 +220,7 @@ Aby utworzyć plik na serwerze SFTP, możesz skorzystać z akcji **Utwórz plik*
 
 Aby zastąpić domyślne zachowanie adaptacyjne używane do rozdzielania, można określić stały rozmiar fragmentu od 5 MB do 50 MB.
 
-1. W prawym górnym rogu akcji wybierz przycisk wielokropka ( **...** ), a następnie wybierz pozycję **Ustawienia**.
+1. W prawym górnym rogu akcji wybierz przycisk wielokropka (**...**), a następnie wybierz pozycję **Ustawienia**.
 
    ![Otwórz ustawienia protokołu SFTP-SSH](./media/connectors-sftp-ssh/sftp-ssh-connector-setttings.png)
 
@@ -219,7 +228,7 @@ Aby zastąpić domyślne zachowanie adaptacyjne używane do rozdzielania, można
 
    ![Określ rozmiar fragmentu do użycia zamiast niego](./media/connectors-sftp-ssh/specify-chunk-size-override-default.png)
 
-1. Po zakończeniu wybierz pozycję **Gotowe**.
+1. Po zakończeniu wybierz pozycję **gotowe**.
 
 ## <a name="examples"></a>Przykłady
 
@@ -229,7 +238,7 @@ Aby zastąpić domyślne zachowanie adaptacyjne używane do rozdzielania, można
 
 Ten wyzwalacz uruchamia przepływ pracy aplikacji logiki, gdy na serwerze SFTP zostanie dodany lub zmieniony plik. Na przykład można dodać warunek, który sprawdza zawartość pliku i pobiera zawartość w zależności od tego, czy zawartość spełnia określony warunek. Następnie można dodać akcję, która pobiera zawartość pliku i umieszcza tę zawartość w folderze na serwerze SFTP.
 
-**Przykład przedsiębiorstwa** : ten wyzwalacz służy do monitorowania folderu SFTP dla nowych plików reprezentujących zamówienia klienta. Następnie można użyć akcji SFTP, takiej jak **pobieranie zawartości pliku** , aby uzyskać zawartość zamówienia do dalszej obróbki i przechowywać ją w bazie danych zamówień.
+**Przykład przedsiębiorstwa**: ten wyzwalacz służy do monitorowania folderu SFTP dla nowych plików reprezentujących zamówienia klienta. Następnie można użyć akcji SFTP, takiej jak **pobieranie zawartości pliku** , aby uzyskać zawartość zamówienia do dalszej obróbki i przechowywać ją w bazie danych zamówień.
 
 <a name="get-content"></a>
 
@@ -239,21 +248,9 @@ Ta akcja pobiera zawartość z pliku na serwerze SFTP przez określenie ścieżk
 
 <a name="troubleshooting-errors"></a>
 
-## <a name="troubleshoot-errors"></a>Rozwiązywanie problemów
+## <a name="troubleshoot-problems"></a>Rozwiązywanie problemów
 
 W tej sekcji opisano możliwe rozwiązania typowych błędów lub problemów.
-
-<a name="file-does-not-exist"></a>
-
-### <a name="404-error-a-reference-was-made-to-a-file-or-folder-which-does-not-exist"></a>404 błąd: "odwołanie zostało wykonane do pliku lub folderu, który nie istnieje"
-
-Ten błąd może wystąpić, gdy aplikacja logiki utworzy nowy plik na serwerze SFTP za pośrednictwem akcji **tworzenia pliku** SFTP-SSH, ale nowo utworzony plik zostanie natychmiast przeniesiony przed uzyskaniem metadanych pliku przez usługę Logic Apps. Gdy aplikacja logiki uruchamia akcję **Utwórz plik** , usługa Logic Apps automatycznie WYWOŁA serwer SFTP w celu pobrania metadanych pliku. Jeśli jednak plik zostanie przeniesiony, usługa Logic Apps nie będzie już znajdować pliku, więc zostanie wyświetlony `404` komunikat o błędzie.
-
-Jeśli nie możesz uniknąć ani opóźnić przeniesienia pliku, możesz pominąć odczytywanie metadanych pliku po utworzeniu pliku, wykonując następujące czynności:
-
-1. W akcji **Utwórz plik** Otwórz listę **Dodaj nowy parametr** , wybierz właściwość **Pobierz wszystkie metadane pliku** i ustaw wartość na **nie**.
-
-1. Jeśli te metadane pliku są potrzebne później, można użyć akcji **Pobierz metadane pliku** .
 
 <a name="connection-attempt-failed"></a>
 
@@ -272,6 +269,18 @@ Ten błąd może wystąpić, gdy aplikacja logiki nie może pomyślnie nawiąza�
 * Aby zmniejszyć koszt ustanowienia połączenia, w konfiguracji SSH dla serwera SFTP Zwiększ wartość właściwości [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) na około 1 godzinę.
 
 * Przejrzyj dziennik serwera SFTP, aby sprawdzić, czy żądanie z aplikacji logiki osiągnęło serwer SFTP. Aby uzyskać więcej informacji na temat problemu z łącznością, można również uruchomić śledzenie sieci na zaporze i na serwerze SFTP.
+
+<a name="file-does-not-exist"></a>
+
+### <a name="404-error-a-reference-was-made-to-a-file-or-folder-which-does-not-exist"></a>404 błąd: "odwołanie zostało wykonane do pliku lub folderu, który nie istnieje"
+
+Ten błąd może wystąpić, gdy aplikacja logiki tworzy nowy plik na serwerze SFTP za pomocą akcji **tworzenia pliku** SFTP-SSH, ale natychmiast przenosi nowo utworzony plik przed uzyskaniem metadanych pliku przez usługę Logic Apps. Gdy aplikacja logiki uruchamia akcję **Utwórz plik** , usługa Logic Apps automatycznie WYWOŁA serwer SFTP w celu pobrania metadanych pliku. Jeśli jednak aplikacja logiki przeniesie plik, usługa Logic Apps nie będzie już znajdować pliku, więc zostanie wyświetlony `404` komunikat o błędzie.
+
+Jeśli nie możesz uniknąć ani opóźnić przeniesienia pliku, możesz pominąć odczytywanie metadanych pliku po utworzeniu pliku, wykonując następujące czynności:
+
+1. W akcji **Utwórz plik** Otwórz listę **Dodaj nowy parametr** , wybierz właściwość **Pobierz wszystkie metadane pliku** i ustaw wartość na **nie**.
+
+1. Jeśli te metadane pliku są potrzebne później, można użyć akcji **Pobierz metadane pliku** .
 
 ## <a name="connector-reference"></a>Dokumentacja łączników
 

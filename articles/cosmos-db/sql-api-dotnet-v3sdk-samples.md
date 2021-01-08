@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 10/07/2019
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 37ecca6829f348137bbbc8b76fb1934c024550fd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e605c10a765379c8f7d33dbd4d1f884d0e08734e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097264"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018653"
 ---
 # <a name="azure-cosmos-dbnet-v3-sdk-microsoftazurecosmos-examples-for-the-sql-api"></a>Przykłady zestawu SDK platformy Azure Cosmos DB.NET v3 (Microsoft. Azure. Cosmos) dla interfejsu API SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -38,7 +38,7 @@ Repozytorium GitHub [Azure-Cosmos-dotnet-v3](https://github.com/Azure/azure-cosm
 
 Program Visual Studio 2019 z zainstalowanym przepływem pracy projektowania platformy Azure
 
-- Możesz pobrać **bezpłatnie** [program Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)i korzystać z niego. Podczas instalacji programu Visual Studio upewnij się, że jest włączona opcja **Programowanie na platformie Azure** .
+- Możesz pobrać **bezpłatnie** [program Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)i korzystać z niego. Podczas instalacji programu Visual Studio upewnij się, że jest włączona opcja **Programowanie na platformie Azure**.
 
    [Pakiet NuGet Microsoft. Azure. Cosmos](https://www.nuget.org/packages/Microsoft.Azure.cosmos/)
 
@@ -83,7 +83,7 @@ Metoda [RunItemsDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/maste
 
 | Zadanie | Dokumentacja interfejsu API |
 | --- | --- |
-| [Utwórz element](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L161-L200) |[Container. CreateItemAsync](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet&preserve-view=true) |
+| [Tworzenie elementu](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L161-L200) |[Container. CreateItemAsync](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet&preserve-view=true) |
 | [Odczytywanie elementów na podstawie Identyfikatora](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L203-L241) |[wbudowane. ReadItemAsync](/dotnet/api/microsoft.azure.cosmos.container.readitemasync?view=azure-dotnet&preserve-view=true) |
 | [Zapytanie o elementy](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L244-L320) |[wbudowane. GetItemQueryIterator](/dotnet/api/microsoft.azure.cosmos.container.getitemqueryiterator?view=azure-dotnet&preserve-view=true) |
 | [Zastąp element](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L415-L456) |[wbudowane. ReplaceItemAsync](/dotnet/api/microsoft.azure.cosmos.container.replaceitemasync?view=azure-dotnet&preserve-view=true) |
@@ -93,7 +93,7 @@ Metoda [RunItemsDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/maste
 
 ## <a name="indexing-examples"></a>Przykłady dotyczące indeksowania
 
-Metoda [RunIndexDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/IndexManagement/Program.cs#L108-L122) przykładowego projektu *IndexManagement* pokazuje, jak wykonać poniższe zadania. Aby dowiedzieć się więcej na temat indeksowania w Azure Cosmos DB przed uruchomieniem poniższych przykładów, zobacz [zasady indeksu](index-policy.md), [typy indeksów](index-overview.md#index-kinds)i [ścieżki indeksów](index-policy.md#include-exclude-paths). 
+Metoda [RunIndexDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/IndexManagement/Program.cs#L108-L122) przykładowego projektu *IndexManagement* pokazuje, jak wykonać poniższe zadania. Aby dowiedzieć się więcej na temat indeksowania w Azure Cosmos DB przed uruchomieniem poniższych przykładów, zobacz [zasady indeksu](index-policy.md), [typy indeksów](index-overview.md#index-types)i [ścieżki indeksów](index-policy.md#include-exclude-paths). 
 
 | Zadanie | Dokumentacja interfejsu API |
 | --- | --- |

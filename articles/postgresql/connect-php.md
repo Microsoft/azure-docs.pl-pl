@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 2/28/2018
-ms.openlocfilehash: 4e82c8402584f694cb32bb37ae3e6eae9366eaf7
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 200fdd126e2ed95804f81c1dd36804ecc6c61d85
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341437"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019690"
 ---
 # <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Szybki Start: używanie języka PHP do nawiązywania połączeń i wykonywania zapytań dotyczących danych na pojedynczym serwerze Azure Database for PostgreSQL
 
@@ -31,13 +31,13 @@ Zainstaluj język PHP na własnym serwerze lub utwórz [aplikację internetową]
 - Pobierz [bezpieczny, niestanowiący zagrożenia język PHP w wersji 7.1.4 (x64)](https://windows.php.net/download#php-7.1).
 - Zainstaluj język PHP i zapoznaj się z [podręcznikiem języka PHP](https://secure.php.net/manual/install.windows.php) w celu przeprowadzenia dalszej konfiguracji.
 - Kod używa klasy **pgsql** (ext/php_pgsql.dll) uwzględnionej w instalacji języka PHP. 
-- Włącz rozszerzenie **pgsql** , edytując plik konfiguracji php.ini, który zazwyczaj znajduje się w folderze `C:\Program Files\PHP\v7.1\php.ini`. Plik konfiguracji powinien zawierać wiersz z tekstem `extension=php_pgsql.so`. Jeśli nie jest wyświetlany, dodaj tekst i zapisz plik. Jeśli tekst jest wyświetlany, ale zawiera komentarz z prefiksem ze średnikiem, usuń komentarz z tekstu, usuwając średnik.
+- Włącz rozszerzenie **pgsql**, edytując plik konfiguracji php.ini, który zazwyczaj znajduje się w folderze `C:\Program Files\PHP\v7.1\php.ini`. Plik konfiguracji powinien zawierać wiersz z tekstem `extension=php_pgsql.so`. Jeśli nie jest wyświetlany, dodaj tekst i zapisz plik. Jeśli tekst jest wyświetlany, ale zawiera komentarz z prefiksem ze średnikiem, usuń komentarz z tekstu, usuwając średnik.
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
 - Pobierz [bezpieczny, niestanowiący zagrożenia język PHP w wersji 7.1.4 (x64)](https://secure.php.net/downloads.php). 
 - Zainstaluj język PHP i zapoznaj się z [podręcznikiem języka PHP](https://secure.php.net/manual/install.unix.php) w celu przeprowadzenia dalszej konfiguracji.
 - Kod używa klasy **pgsql** (php_pgsql.so). Zainstaluj ją, uruchamiając element `sudo apt-get install php-pgsql`.
-- Włącz rozszerzenie **pgsql** , edytując plik konfiguracji `/etc/php/7.0/mods-available/pgsql.ini`. Plik konfiguracji powinien zawierać wiersz z tekstem `extension=php_pgsql.so`. Jeśli nie jest wyświetlany, dodaj tekst i zapisz plik. Jeśli tekst jest wyświetlany, ale zawiera komentarz z prefiksem ze średnikiem, usuń komentarz z tekstu, usuwając średnik.
+- Włącz rozszerzenie **pgsql**, edytując plik konfiguracji `/etc/php/7.0/mods-available/pgsql.ini`. Plik konfiguracji powinien zawierać wiersz z tekstem `extension=php_pgsql.so`. Jeśli nie jest wyświetlany, dodaj tekst i zapisz plik. Jeśli tekst jest wyświetlany, ale zawiera komentarz z prefiksem ze średnikiem, usuń komentarz z tekstu, usuwając średnik.
 
 ### <a name="macos"></a>MacOS
 - Pobierz [język PHP w wersji 7.1.4](https://secure.php.net/downloads.php).
@@ -46,7 +46,7 @@ Zainstaluj język PHP na własnym serwerze lub utwórz [aplikację internetową]
 ## <a name="get-connection-information"></a>Pobieranie informacji o połączeniu
 Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z usługą Azure Database for PostgreSQL. Potrzebna jest w pełni kwalifikowana nazwa serwera i poświadczenia logowania.
 
-1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
 2. W menu po lewej stronie w witrynie Azure Portal kliknij pozycję **Wszystkie zasoby** i wyszukaj utworzony serwer, taki jak **mydemoserver**.
 3. Kliknij nazwę serwera.
 4. Po przejściu do panelu **Przegląd** serwera zanotuj **nazwę serwera** i **nazwę logowania administratora serwera**. Jeśli zapomnisz hasła, możesz również je zresetować z poziomu tego panelu.
@@ -87,7 +87,7 @@ Zastąp parametry `$host`, `$database`, `$user` i `$password` własnymi wartośc
     // Insert some data into table.
     $name = '\'banana\'';
     $quantity = 150;
-    $query = "INSERT INTO inventory (name, quantity) VALUES ($1, $2);";
+    $query = "INSERT INTO inventory (name, quantity) VALUES ($name, $quantity);";
     pg_query($connection, $query) 
         or die("Encountered an error when executing given sql statement: ". pg_last_error(). "<br/>");
 

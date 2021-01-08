@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 07/11/2017
+ms.topic: reference
+ms.date: 01/07/2021
 ms.author: kenwith
-ms.openlocfilehash: b9786f9d9da363f15bd2f59390d5dddf86bc1bf9
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: aedcecf528f07d9d7f89c1d5659d8fcd2cb36df2
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658854"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016732"
 ---
 # <a name="understand-how-users-are-assigned-to-apps-in-azure-active-directory"></a>Informacje na temat sposobu przypisywania użytkowników do aplikacji w Azure Active Directory
 Ten artykuł ułatwia zrozumienie sposobu, w jaki użytkownicy są przypisani do aplikacji w dzierżawie.
@@ -30,7 +30,7 @@ Aby użytkownik mógł uzyskać dostęp do aplikacji, musi zostać najpierw przy
     * [Dynamiczna grupa zabezpieczeń](../enterprise-users/groups-dynamic-membership.md) utworzona w chmurze
     * Grupa Microsoft 365 utworzona w chmurze
     * Grupa [Wszyscy użytkownicy](../fundamentals/active-directory-groups-create-azure-portal.md)
-*  Administrator umożliwia [samoobsługowy dostęp do aplikacji](./manage-self-service-access.md) , aby umożliwić użytkownikowi dodawanie aplikacji przy użyciu funkcji [My Apps](../user-help/my-apps-portal-end-user-access.md) **Dodaj** aplikacje do aplikacji **bez konieczności zatwierdzania firmy**
+*  Administrator umożliwia [samoobsługowy dostęp do aplikacji](./manage-self-service-access.md) , aby umożliwić użytkownikowi dodawanie aplikacji przy użyciu funkcji [](../user-help/my-apps-portal-end-user-access.md) **Dodaj** aplikacje do aplikacji **bez konieczności zatwierdzania firmy**
 *  Administrator umożliwia [samoobsługowy dostęp do aplikacji](./manage-self-service-access.md) , aby umożliwić użytkownikowi dodawanie aplikacji za pomocą funkcji [Moje aplikacje](../user-help/my-apps-portal-end-user-access.md) **Dodaj aplikację** , ale tylko **z wcześniejszym zatwierdzeniem z wybranego zestawu osób zatwierdzających firmy** .
 *  Administrator umożliwia samoobsługowe [Zarządzanie grupami](../enterprise-users/groups-self-service-management.md) , aby umożliwić użytkownikowi dołączenie do grupy, do której aplikacja jest przypisana **bez zgody firmy**
 *  Administrator umożliwia samoobsługowe [Zarządzanie grupami](../enterprise-users/groups-self-service-management.md) , aby umożliwić użytkownikowi dołączenie do grupy, do której przypisano aplikację, ale tylko **z poprzednią zgodą z wybranego zestawu osób zatwierdzających firmy** .

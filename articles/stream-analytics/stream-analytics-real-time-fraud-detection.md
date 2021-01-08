@@ -1,24 +1,24 @@
 ---
 title: Samouczek — analizowanie fałszywych danych wywołań za pomocą Azure Stream Analytics i wizualizacji wyników na pulpicie nawigacyjnym Power BI
 description: Ten samouczek zawiera kompleksowy opis sposobu używania usługi Azure Stream Analytics do analizowania fałszywych połączeń w strumieniu połączeń telefonicznych.
-author: mamccrea
-ms.author: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: contperf-fy21q2
 ms.date: 12/17/2020
-ms.openlocfilehash: b8744d86300287403ca390d93c70b25215bcac4f
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 1e26159c07ca551a78ee2f83a0ca64779c60f7b4
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822135"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018874"
 ---
 # <a name="tutorial-analyze-fraudulent-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Samouczek: analizowanie fałszywych danych wywołań za pomocą Stream Analytics i wizualizacji wyników na pulpicie nawigacyjnym Power BI
 
 W tym samouczku pokazano, jak analizować dane połączeń telefonicznych przy użyciu Azure Stream Analytics. Dane połączenia telefonicznego generowane przez aplikację kliencką zawierają fałszywe wywołania, które są filtrowane według zadania Stream Analytics. Możesz użyć technik z tego samouczka, aby uzyskać inne typy wykrywania oszustw, takie jak oszustwa kart kredytowych lub kradzieży tożsamości.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Generuj przykładowe dane połączenia telefonicznego i wyślij je do usługi Azure Event Hubs.

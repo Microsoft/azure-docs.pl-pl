@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 95a0dbd61e44e9c5b1f2854f8b3215aa4ef9403c
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 349caa9a4fa34d87e0a4d99089a1063be66307f4
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97439638"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017565"
 ---
 # <a name="quickstart-aspnet-core-web-app-that-signs-in-users-and-calls-microsoft-graph-on-their-behalf"></a>Szybki Start: ASP.NET Core aplikacji sieci Web, która umożliwia logowanie użytkowników i wywoływanie Microsoft Graph w ich imieniu
 
@@ -47,7 +47,7 @@ Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 > #### <a name="step-1-register-your-application"></a>Krok 1. Rejestrowanie aplikacji
 > Aby ręcznie zarejestrować aplikację i dodać informacje na temat rejestracji aplikacji do rozwiązania, wykonaj następujące czynności:
 >
-> 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+> 1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 > 1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę, w którym chcesz zarejestrować aplikację.
 > 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
 > 1. W obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**  >  **Nowa rejestracja**.

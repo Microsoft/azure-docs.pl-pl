@@ -1,22 +1,22 @@
 ---
 title: Korzystanie z platformy .NET dla Apache Spark
 description: Dowiedz się więcej o korzystaniu z platformy .NET i Apache Spark do przetwarzania wsadowego, przesyłania strumieniowego w czasie rzeczywistym, uczenia maszynowego i zapisywania zapytań ad hoc w notesach usługi Azure Synapse Analytics.
-author: mamccrea
+author: luisquintanilla
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 05/01/2020
-ms.author: mamccrea
+ms.author: luquinta
 ms.reviewer: jrasnick
-ms.openlocfilehash: 753c7ff48960711cbedbf6b5d8644a26502dd413
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 895d766cc1e70e6a001904770d6f3ef12b6945cd
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023746"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018665"
 ---
-# <a name="use-net-for-apache-spark-with-azure-synapse-analytics"></a>Korzystanie z platformy .NET dla Apache Spark przy użyciu usługi Azure Synapse Analytics
+# <a name="use-net-for-apache-spark-with-azure-synapse-analytics"></a>Korzystanie z platformy .NET for Apache Spark z usługą Azure Synapse Analytics
 
 [Platforma .NET dla Apache Spark](https://dot.net/spark) zapewnia bezpłatną [, niezależną](https://github.com/dotnet/spark)i międzyplatformową obsługę platformy .NET dla platformy Spark. 
 

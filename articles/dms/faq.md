@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: bf6e61ef3dfb1c50166cf17168b4deeb21e958d7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 200753c6458698d515b02252933e4fdf6d88df55
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94962913"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019095"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>Często zadawane pytania dotyczące korzystania z Azure Database Migration Service
 
@@ -50,6 +50,9 @@ Azure Database Migration Service jest preferowaną metodą migracji bazy danych 
 
 **Pytania. Jak Azure Database Migration Service porównać z ofertą Azure Migrate?**
 Azure Migrate pomaga w migracji lokalnych maszyn wirtualnych do usługi Azure IaaS. Usługa ocenia przydatność migracji i ustalanie rozmiarów na podstawie wydajności, a także umożliwia oszacowanie kosztów uruchamiania lokalnych maszyn wirtualnych na platformie Azure. Azure Migrate jest przydatne do przenoszenia i przesunięcia lokalnych obciążeń opartych na maszynach wirtualnych do maszyn wirtualnych platformy Azure IaaS. Jednak, w przeciwieństwie do Azure Database Migration Service, Azure Migrate nie jest wyspecjalizowaną ofertą usługi migracji bazy danych dla platform Azure PaaS relacyjnych baz danych, takich jak Azure SQL Database lub wystąpienie zarządzane usługi Azure SQL.
+
+**Pytania. Czy Database Migration Service przechowywać dane klienta?**
+Nie. Database Migration Service nie przechowuje danych klienta.
 
 ## <a name="setup"></a>Konfigurowanie
 

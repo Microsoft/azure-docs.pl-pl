@@ -6,15 +6,15 @@ author: damendo
 Customer intent: I need to enable the network security group flow logs by using an Azure Resource Manager template.
 ms.service: network-watcher
 ms.topic: quickstart
-ms.date: 07/22/2020
+ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: subject-armqs
-ms.openlocfilehash: 563f111a656376899fcd0201b42f87bfea445865
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: ded7b24461fdcdbc3d020a487cafc20620633097
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488046"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019724"
 ---
 # <a name="quickstart-configure-network-security-group-flow-logs-by-using-an-arm-template"></a>Szybki Start: Konfigurowanie dzienników przepływu sieciowych grup zabezpieczeń przy użyciu szablonu ARM
 
@@ -117,12 +117,12 @@ Poniższy szablon umożliwia wykonywanie dzienników przepływu dla programu sie
 
 > [!NOTE]
 > - Nazwa zasobu używa formatu _ParentResource_ChildResource_. W naszym przykładzie zasób nadrzędny jest regionalnym wystąpieniem usługi Azure Network Watcher:
->    - **Format** : NetworkWatcher_RegionName
->    - **Przykład** : NetworkWatcher_centraluseuap
+>    - **Format**: NetworkWatcher_RegionName
+>    - **Przykład**: NetworkWatcher_centraluseuap
 > - `targetResourceId` jest IDENTYFIKATORem zasobu docelowej sieciowej grupy zabezpieczeń.
 > - `storageId` jest IDENTYFIKATORem zasobu docelowego konta magazynu.
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 W tym samouczku przyjęto założenie, że masz istniejącą grupę zasobów i sieciowej grupy zabezpieczeń, w której można włączyć logowanie do przepływu.
 

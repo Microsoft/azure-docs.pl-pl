@@ -1,18 +1,17 @@
 ---
 title: Dane wyjściowe usługi Azure Synapse Analytics z Azure Stream Analytics
 description: W tym artykule opisano usługę Azure Synapse Analytics jako dane wyjściowe dla Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 65752321f94bfa1403839889ead284d46b5f7191
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 7e85df8ae67624a253a9fb617629d7355109c210
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740066"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019605"
 ---
 # <a name="azure-synapse-analytics-output-from-azure-stream-analytics"></a>Dane wyjściowe usługi Azure Synapse Analytics z Azure Stream Analytics
 

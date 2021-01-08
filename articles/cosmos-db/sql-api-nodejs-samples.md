@@ -8,14 +8,14 @@ ms.topic: sample
 ms.date: 08/23/2019
 ms.author: dech
 ms.custom: devx-track-js
-ms.openlocfilehash: 261ffc97d12202b588e519502895d338453c4380
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 192af33c6f07d38daef3a183fa8d746ff082ce2b
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097247"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018976"
 ---
-# <a name="nodejs-examples-to-manage-data-in-azure-cosmos-db"></a>Node.js przykłady zarządzania danymi w Azure Cosmos DB
+# <a name="nodejs-examples-to-manage-data-in-azure-cosmos-db"></a>Przykłady środowiska Node.js do zarządzania danymi w usłudze Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "93097247"
 > 
 > 
 
-Przykładowe rozwiązania do wykonywania operacji CRUD i innych typowych działań na zasobach usługi Azure Cosmos DB można znaleźć w repozytorium [azure-cosmos-js](https://github.com/Azure/azure-cosmos-js/tree/master/samples) w witrynie GitHub. Ten artykuł zawiera:
+Przykładowe rozwiązania, które wykonują operacje CRUD i inne typowe operacje na Azure Cosmos DB zasoby są zawarte w repozytorium GitHub [Azure-Cosmos-js](https://github.com/Azure/azure-cosmos-js/tree/master/samples) . Ten artykuł zawiera:
 
 * Linki do zadań w poszczególnych przykładowych plikach projektów platformy Node.js.
 * Linki do powiązanej dokumentacji interfejsu API.
@@ -88,7 +88,7 @@ Plik [ItemManagement](https://github.com/Azure/azure-cosmos-js/blob/master/sampl
 
 ## <a name="indexing-examples"></a>Przykłady dotyczące indeksowania
 
-Plik [IndexManagement](https://github.com/Azure/azure-cosmos-js/blob/master/samples/IndexManagement.ts) pokazuje, jak zarządzać indeksowanie. Aby dowiedzieć się więcej na temat indeksowania Azure Cosmos DB przed uruchomieniem poniższych przykładów, zobacz [zasady indeksowania](index-policy.md), [typy indeksowania](index-overview.md#index-kinds)i [ścieżki indeksowania](index-policy.md#include-exclude-paths) artykuły koncepcyjne. 
+Plik [IndexManagement](https://github.com/Azure/azure-cosmos-js/blob/master/samples/IndexManagement.ts) pokazuje, jak zarządzać indeksowanie. Aby dowiedzieć się więcej na temat indeksowania Azure Cosmos DB przed uruchomieniem poniższych przykładów, zobacz [zasady indeksowania](index-policy.md), [typy indeksowania](index-overview.md#index-types)i [ścieżki indeksowania](index-policy.md#include-exclude-paths) artykuły koncepcyjne. 
 
 | Zadanie | Dokumentacja interfejsu API |
 | --- | --- |

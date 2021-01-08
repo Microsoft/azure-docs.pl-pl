@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 383f7f37e93b4705419ba1f93f509c86eaab192b
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 4b6da5fce9c4ebac671b90a91b39053fcc4c4d2c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030641"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017310"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Szybki Start: Dodawanie logowania z firmą Microsoft do aplikacji sieci Web w języku Python
 
@@ -50,7 +50,7 @@ Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 >
 > Aby ręcznie zarejestrować aplikację i dodać informacje na temat rejestracji aplikacji do rozwiązania, wykonaj następujące czynności:
 >
-> 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+> 1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 > 1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę, w którym chcesz zarejestrować aplikację.
 > 1. W obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**  >  **Nowa rejestracja**.
 > 1. Wprowadź **nazwę** aplikacji, na przykład `python-webapp` . Użytkownicy Twojej aplikacji mogą zobaczyć tę nazwę i można ją później zmienić.

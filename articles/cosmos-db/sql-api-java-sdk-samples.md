@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 09/23/2020
 ms.custom: devx-track-java
 ms.author: anfeldma
-ms.openlocfilehash: 6b732c2af204cba6e93f9207648a5123b75660b1
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 0b0bdd204b2aa322adeb7373911b90e742c71999
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545540"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018997"
 ---
 # <a name="azure-cosmos-db-sql-api-java-sdk-v4-examples"></a>Azure Cosmos DB SQL API: przykłady dla języka Java SDK v4
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -164,7 +164,7 @@ Plik [przykłady dokumentu CRUD](https://github.com/Azure/azure-documentdb-java/
 | [Odczytywanie dokumentu tylko wtedy, gdy został zmieniony](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/documentcrud/sync/DocumentCRUDQuickstart.java#L266-L300) | AccessCondition. SetType<br>AccessCondition. setcondition |
 
 ## <a name="indexing-examples"></a>Przykłady dotyczące indeksowania
-Plik [przykładów CRUD kolekcji](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) pokazuje, jak wykonać poniższe zadania. Aby dowiedzieć się więcej na temat indeksowania Azure Cosmos DB przed uruchomieniem poniższych przykładów, zobacz [zasady indeksowania](index-policy.md), [typy indeksowania](index-overview.md#index-kinds)i [ścieżki indeksowania](index-policy.md#include-exclude-paths) artykuły koncepcyjne. 
+Plik [przykładów CRUD kolekcji](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) pokazuje, jak wykonać poniższe zadania. Aby dowiedzieć się więcej na temat indeksowania Azure Cosmos DB przed uruchomieniem poniższych przykładów, zobacz [zasady indeksowania](index-policy.md), [typy indeksowania](index-overview.md#index-types)i [ścieżki indeksowania](index-policy.md#include-exclude-paths) artykuły koncepcyjne. 
 
 | Zadanie | Dokumentacja interfejsu API |
 | --- | --- |

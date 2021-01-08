@@ -1,18 +1,17 @@
 ---
 title: Azure Functions dane wyjściowe z Azure Stream Analytics
 description: W tym artykule opisano usługę Azure Functions jako dane wyjściowe dla Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: ffaf66cbb5d9fa0b294f5749a1923684f16c2979
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: e5ea7a1abbbd6ab4be32955179227fbd539cf641
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488105"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019622"
 ---
 # <a name="azure-functions-output-from-azure-stream-analytics"></a>Azure Functions dane wyjściowe z Azure Stream Analytics
 
@@ -25,7 +24,7 @@ Azure Stream Analytics wywołuje Azure Functions za pośrednictwem wyzwalacza HT
 | Nazwa właściwości | Opis |
 | --- | --- |
 | Aplikacja funkcji |Nazwa aplikacji Azure Functions. |
-| Function |Nazwa funkcji w aplikacji Azure Functions. |
+| Funkcja |Nazwa funkcji w aplikacji Azure Functions. |
 | Klucz |Jeśli chcesz użyć funkcji platformy Azure z innej subskrypcji, możesz to zrobić, podając klucz, aby uzyskać dostęp do funkcji. |
 | Maksymalny rozmiar wsadu |Właściwość, która umożliwia ustawienie maksymalnego rozmiaru dla każdej partii wyjściowej, która jest wysyłana do funkcji platformy Azure. Jednostka wejściowa jest w bajtach. Wartość domyślna to 262 144 bajtów (256 KB). |
 | Maksymalna liczba partii  |Właściwość, która umożliwia określenie maksymalnej liczby zdarzeń w każdej partii, która jest wysyłana do Azure Functions. Wartość domyślna to 100. |

@@ -1,18 +1,17 @@
 ---
 title: Wybieranie rozwiązania do przetwarzania w czasie rzeczywistym i przesyłania strumieniowego na platformie Azure
 description: Dowiedz się, jak wybrać odpowiednią technologię analizy i przetwarzania strumieniowego w czasie rzeczywistym w celu skompilowania aplikacji na platformie Azure.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: a204aacc0061091e0a273581e766bb669d191f0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c10a91971357001723adcb783253c9867cf6d87
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903699"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019061"
 ---
 # <a name="choose-a-real-time-analytics-and-streaming-processing-technology-on-azure"></a>Wybierz technologię analizy i przetwarzania strumieniowego w czasie rzeczywistym na platformie Azure
 

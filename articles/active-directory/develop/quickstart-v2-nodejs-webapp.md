@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: 643305057490cc550a5a8e39a892297b000cbc8e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c9aa73767fcb9d57ada11f5830fec00b10eee812
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169413"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017344"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Szybki Start: Dodawanie logowania za pomocą usługi OpenID Connect nawiązywanie połączenia z aplikacją sieci Web Node.js
 
@@ -29,38 +29,29 @@ W tym przewodniku szybki start pobrano i uruchomimy przykład kodu, który pokaz
 - [Node.js](https://nodejs.org/en/download/).
 
 ## <a name="register-your-application"></a>Rejestrowanie aplikacji
-1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu konta służbowego lub konto Microsoft prywatnego.
-1. Jeśli Twoje konto jest obecne w więcej niż jednej dzierżawie usługi Azure AD:
-    - Wybierz swój profil z menu w prawym górnym rogu strony, a następnie **Przełącz katalog**.
-    - Zmień sesję na dzierżawę usługi Azure AD, w której chcesz utworzyć aplikację.
 
-1. Przejdź do [Azure Active Directory > rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) , aby zarejestrować aplikację.
-
-1. Wybierz pozycję **Nowa rejestracja.**
-
-1. Gdy zostanie wyświetlona strona **zarejestruj aplikację** , wprowadź informacje rejestracyjne swojej aplikacji:
-    - W sekcji **Nazwa** wprowadź zrozumiałą nazwę, która będzie wyświetlana użytkownikom aplikacji. Na przykład: MyWebApp
-    - W sekcji **obsługiwane typy kont** wybierz pozycję **konta w dowolnym katalogu organizacyjnym i osobiste konta Microsoft (np. Skype, Xbox, Outlook.com)**.
+1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę, w którym chcesz zarejestrować aplikację.
+1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
+1. W obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**  >  **Nowa rejestracja**.
+1. Wprowadź **nazwę** aplikacji, na przykład `MyWebApp` . Użytkownicy Twojej aplikacji mogą zobaczyć tę nazwę i można ją później zmienić.
+1. W sekcji **obsługiwane typy kont** wybierz pozycję **konta w dowolnym katalogu organizacyjnym i osobiste konta Microsoft (np. Skype, Xbox, Outlook.com)**.
 
     Jeśli istnieje więcej niż jeden identyfikator URI przekierowania, należy dodać je z karty **uwierzytelnianie** później po pomyślnym utworzeniu aplikacji.
 
 1. Wybierz pozycję **zarejestruj** , aby utworzyć aplikację.
-
 1. Na stronie **Przegląd** aplikacji Znajdź wartość **Identyfikator aplikacji (klienta)** i Zapisz ją jako nowszą. Ta wartość będzie potrzebna do późniejszego skonfigurowania aplikacji w tym projekcie.
+1. W obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie**.
+1. Wybierz pozycję **Dodaj platformę**  >  **sieci Web** 
+1. W sekcji **identyfikatory URI przekierowania** wprowadź wartość `http://localhost:3000/auth/openid/return` .
+1. Wprowadź **adres URL wylogowywania** `https://localhost:3000` .
+1. W sekcji niejawne udzielenie Sprawdź **tokeny identyfikatora** , ponieważ ten przykład wymaga, aby [przepływ niejawnego przydzielenia](./v2-oauth2-implicit-grant-flow.md) był włączony do logowania użytkownika.
+1. Wybierz pozycję **Konfiguruj**.
+1. W obszarze **Zarządzaj** wybierz pozycję **Certyfikaty &** wpisy tajne  >  **nowy klucz tajny klienta**.
+1. Wprowadź opis klucza (dla wpisu tajnego aplikacji wystąpienia).
+1. Wybierz kluczowy okres trwania z przedziału **1 roku, w ciągu 2 lat** lub **nigdy nie wygasa**.
+1. Wybierz pozycję **Dodaj**. Zostanie wyświetlona wartość klucza. Skopiuj wartość klucza i Zapisz ją w bezpiecznym miejscu do późniejszego użycia.
 
-1. Na liście stron dla aplikacji wybierz pozycję **Uwierzytelnianie**.
-    - W sekcji **adresy URI przekierowania** wybierz pozycję **Sieć Web** w polu kombi i wprowadź następujący identyfikator URI przekierowania: `http://localhost:3000/auth/openid/return`
-    - W sekcji **Ustawienia zaawansowane** ustaw pole **Adres URL wylogowywania** na wartość `https://localhost:3000`.
-    - W sekcji **Ustawienia zaawansowane > niejawnego** przypisywania Sprawdź **tokeny identyfikatorów** , ponieważ ten przykład wymaga włączenia [niejawnego przepływu dotacji](./v2-oauth2-implicit-grant-flow.md) do logowania użytkownika.
-
-1. Wybierz pozycję **Zapisz**.
-
-1. Na stronie **certyfikaty & wpisy tajne** w sekcji **klucze tajne klienta** wybierz pozycję **Nowy wpis tajny klienta**.
-    - Wprowadź opis klucza (dla wpisu tajnego aplikacji wystąpienia).
-    - Wybierz kluczowy okres trwania z przedziału **1 roku, w ciągu 2 lat** lub **nigdy nie wygasa**.
-    - Po kliknięciu przycisku **Dodaj** zostanie wyświetlona wartość klucza. Skopiuj wartość klucza i Zapisz ją w bezpiecznej lokalizacji.
-
-    Ten klucz będzie potrzebny później do skonfigurowania aplikacji. Ta wartość klucza nie będzie ponownie wyświetlana ani nie można jej pobrać z innych metod, dlatego Zapisz ją tak szybko, jak to będzie widoczne w Azure Portal.
 
 ## <a name="download-the-sample-application-and-modules"></a>Pobieranie przykładowej aplikacji i modułów
 

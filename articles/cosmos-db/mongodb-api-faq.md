@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun
-ms.openlocfilehash: 4c93aea5a37fb286b49dabfb97522bf40c8f5429
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 08899018d03209dab09f61d4dd74feceee03b246
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93333175"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019022"
 ---
 # <a name="frequently-asked-questions-about-the-azure-cosmos-dbs-api-for-mongodb"></a>Często zadawane pytania dotyczące interfejsu API Azure Cosmos DB dla MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -29,12 +29,7 @@ Aby uzyskać więcej informacji, zobacz [łączenie się z bazą danych Cosmos p
 
 ## <a name="error-codes-while-using-azure-cosmos-dbs-api-for-mongodb"></a>Kody błędów podczas korzystania z interfejsu API Azure Cosmos DB dla MongoDB?
 
-Wraz ze wspólnymi kodami błędów MongoDB interfejs API Azure Cosmos DB dla MongoDB ma własne konkretne kody błędów:
-
-| Błąd               | Kod  | Opis  | Rozwiązanie  |
-|---------------------|-------|--------------|-----------|
-| TooManyRequests     | 16500 | Całkowita liczba zużytych jednostek żądania jest większa niż stawka żądania aprowizacji dla kontenera i została ograniczona. | Rozważ przeskalowanie przepływności przypisanej do kontenera lub zestawu kontenerów z Azure Portal lub ponowienie próby. |
-| ExceededMemoryLimit | 16501 | W ramach usługi wielodostępnej Operacja przekroczyła przydział pamięci klienta. | Zmniejsz zakres operacji przy użyciu bardziej restrykcyjnych kryteriów zapytania lub skontaktuj się z pomocą techniczną z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br> Przykład: `db.getCollection('users').aggregate([{$match: {name: "Andy"}}, {$sort: {age: -1}}]))` |
+Wraz ze wspólnymi kodami błędów MongoDB interfejs API Azure Cosmos DB dla MongoDB ma własne konkretne kody błędów. Można je znaleźć w [przewodniku rozwiązywania problemów](mongodb-troubleshoot.md).
 
 ## <a name="supported-drivers"></a>Obsługiwane sterowniki
 

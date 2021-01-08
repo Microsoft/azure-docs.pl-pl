@@ -10,18 +10,18 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 548db64bd93dd561f9c69e9f594d01f4c0825db9
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 47418b9c5235255ff7dbf4a1a151e51e4c9aba58
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94948344"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019673"
 ---
 # <a name="azure-role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Uprawnienia kontroli dostępu opartej na rolach na platformie Azure wymagane do korzystania z funkcji Network Watcher
 
-Kontrola dostępu oparta na rolach na platformie Azure (RBAC) umożliwia przypisywanie tylko określonych czynności do członków organizacji, których potrzebują do wykonania przypisanych im obowiązków. Aby można było korzystać z funkcji Network Watcher, konto, które logujesz się do platformy Azure za [Owner](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#owner)pomocą programu, musi być przypisane do wbudowanych ról współautor, [współautor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#contributor)lub [sieci](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-contributor) lub przypisane do [roli niestandardowej](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) , do której przypisano akcje wymienione dla każdej Network Watcher możliwości w poniższych sekcjach. Aby dowiedzieć się więcej o możliwościach Network Watcher, zobacz [co to jest Network Watcher?](network-watcher-monitoring-overview.md).
+Kontrola dostępu oparta na rolach na platformie Azure (RBAC) umożliwia przypisywanie tylko określonych czynności do członków organizacji, których potrzebują do wykonania przypisanych im obowiązków. Aby można było korzystać z funkcji Network Watcher, konto, które logujesz się do platformy Azure za [](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#owner)pomocą programu, musi być przypisane do wbudowanych ról współautor, [współautor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#contributor)lub [sieci](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-contributor) lub przypisane do [roli niestandardowej](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) , do której przypisano akcje wymienione dla każdej Network Watcher możliwości w poniższych sekcjach. Aby dowiedzieć się więcej o możliwościach Network Watcher, zobacz [co to jest Network Watcher?](network-watcher-monitoring-overview.md).
 
 ## <a name="network-watcher"></a>Network Watcher
 

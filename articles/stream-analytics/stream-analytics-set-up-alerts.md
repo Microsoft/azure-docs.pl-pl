@@ -3,17 +3,16 @@ title: Konfigurowanie alertów monitorowania dla zadań Azure Stream Analytics
 description: W tym artykule opisano sposób konfigurowania monitorowania i alertów dla Azure Stream Analytics zadań przy użyciu Azure Portal.
 author: jseb225
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.custom: contperf-fy21q1
 ms.date: 06/21/2019
-ms.openlocfilehash: 8d591bb9c4b2ef8100946082f19115b99b30dde1
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 7884f8baa24180fcb94f77a45c3457ba62d3f351
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027496"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018143"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Konfigurowanie alertów dla zadań Azure Stream Analytics
 

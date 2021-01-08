@@ -5,12 +5,12 @@ ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: e37a14b2634395d7f31565d6d5a6f6ec96a4a2f1
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 5c9612547fcfed8e583f5b2fbcfe0bddd5dc412c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97954531"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019112"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Tworzenie pierwszej funkcji w witrynie Azure Portal
 
@@ -61,13 +61,13 @@ Następnie Utwórz funkcję w nowej aplikacji funkcji.
 
     ![Kopiowanie adresu URL funkcji z witryny Azure Portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-1. Wklej adres URL funkcji do paska adresu przeglądarki. Dodaj wartość ciągu zapytania `&name=<your_name>` na końcu tego adresu URL i naciśnij klawisz ENTER, aby uruchomić żądanie. 
+1. Wklej adres URL funkcji do paska adresu przeglądarki. Dodaj wartość ciągu zapytania `?name=<your_name>` na końcu tego adresu URL i naciśnij klawisz ENTER, aby uruchomić żądanie. 
 
     Poniższy przykład przedstawia odpowiedź w przeglądarce:
 
     ![Odpowiedź funkcji wyświetlona w przeglądarce.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
-    Adres URL żądania zawiera klucz, który domyślnie jest wymagany do uzyskania dostępu do funkcji za pośrednictwem protokołu HTTP.
+    Jeśli adres URL żądania zawiera [klucz dostępu](functions-bindings-http-webhook-trigger.md#authorization-keys) ( `?code=...` ), oznacza to, że podczas tworzenia funkcji jest wybierana **Funkcja** , a nie **anonimowy** poziom dostępu. W takim przypadku należy zamiast tego dołączyć `&name=<your_name>` .
 
 1. Gdy funkcja działa, informacje o śledzeniu są zapisywane w dziennikach. Aby wyświetlić dane wyjściowe śledzenia, Wróć do strony **Code + test** w portalu i rozwiń strzałkę **dzienniki** w dolnej części strony.
 

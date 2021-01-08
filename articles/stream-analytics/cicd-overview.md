@@ -4,16 +4,15 @@ description: Ten artykuł zawiera omówienie potoku ciągłej integracji i wdra�
 services: stream-analytics
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 9/22/2020
-ms.openlocfilehash: b5057eb8c84e839f504060228986ea759c8bdc3d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 940813f12d542715db47781731144a75e854a98e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123171"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019571"
 ---
 # <a name="continuous-integration-and-deployment-cicd-for-azure-stream-analytics"></a>Ciągła integracja i wdrażanie (CI/CD) dla Azure Stream Analytics
 

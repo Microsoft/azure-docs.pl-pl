@@ -1,19 +1,18 @@
 ---
 title: Azure Stream Analytics dane wyjściowe do Azure Cosmos DB
 description: W tym artykule opisano, jak używać Azure Stream Analytics do zapisywania danych wyjściowych do Azure Cosmos DB na potrzeby danych wyjściowych JSON, do archiwizacji danych i zapytań o małym opóźnieniu dla danych JSON bez struktury.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/2/2020
 ms.custom: seodec18
-ms.openlocfilehash: 35231eda43e766b5febd8ba90c4d92a44537e0ef
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 2d00d489ff248ecf5599d78e0a351c93248cf8ee
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97703759"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018093"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Stream Analytics dane wyjściowe do Azure Cosmos DB  
 Azure Stream Analytics może kierować [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) do danych wyjściowych JSON, co umożliwia archiwizowanie danych i uruchamianie zapytań o małym opóźnieniu na dane JSON bez struktury. W tym dokumencie opisano najlepsze rozwiązania dotyczące wdrażania tej konfiguracji. Zalecamy ustawienie poziomu zgodności zadania 1,2 przy użyciu Azure Cosmos DB jako dane wyjściowe.

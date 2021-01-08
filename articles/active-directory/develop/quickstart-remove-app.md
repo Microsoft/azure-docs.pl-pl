@@ -13,12 +13,12 @@ ms.date: 11/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: marsma, aragra, lenalepa, sureshja
-ms.openlocfilehash: edfed8ca361d456e622096e23079d5887f96ab30
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 033d5cfa5dbe5e0010bc1182f54643ec04db3ce3
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452993"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017616"
 ---
 # <a name="how-to-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Usuwanie aplikacji zarejestrowanej za pomocą platformy tożsamości firmy Microsoft
 
@@ -39,7 +39,7 @@ Aplikacje zarejestrowane przez Ciebie lub Twoją aplikację są reprezentowane p
 
 Aby usunąć aplikację, musisz być właścicielem aplikacji lub mieć uprawnienia administratora.
 
-1. Zaloguj się do [witryny Azure Portal](https://portal.azure.com) przy użyciu służbowego lub osobistego konta Microsoft.
+1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. Jeśli Twoje konto umożliwia dostęp do więcej niż jednej dzierżawy, wybierz konto w prawym górnym rogu, a następnie ustaw sesję portalu na odpowiednią dzierżawę usługi Azure AD.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** a następnie wybierz pozycję **rejestracje aplikacji**. Znajdź i wybierz aplikację, którą chcesz skonfigurować. Po wybraniu aplikacji zobaczysz stronę **Przegląd** aplikacji.
 1. Na stronie **Przegląd** wybierz pozycję **Usuń**.

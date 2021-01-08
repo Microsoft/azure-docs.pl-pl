@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
-ms.openlocfilehash: 1469fcfa68b10353b78d31ccc758c61bf7746692
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c540c1b032676e07450eccfea3f9618ddc3ee64
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88120698"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017078"
 ---
 # <a name="azure-portal-registration-fields-for-custom-developed-apps"></a>Pola rejestracji aplikacji niestandardowej w witrynie Azure Portal
 
@@ -24,7 +24,7 @@ Ten artykuł zawiera krótki opis wszystkich dostępnych pól w formularzu rejes
 
 ## <a name="register-a-new-application"></a>Rejestrowanie nowej aplikacji
 
--   Aby zarejestrować nową aplikację, przejdź do [Azure Portal](https://portal.azure.com).
+-   Aby zarejestrować nową aplikację, przejdź do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
 -   W okienku nawigacji po lewej stronie kliknij pozycję **Azure Active Directory.**
 
@@ -47,7 +47,7 @@ Po wypełnieniu powyższych pól aplikacja zostanie zarejestrowana w Azure Porta
 | Pole           | Opis        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Identyfikator aplikacji  | Po zarejestrowaniu aplikacji usługa Azure AD przypisuje aplikację identyfikator aplikacji. IDENTYFIKATORA aplikacji można użyć do unikatowego identyfikowania aplikacji w żądaniach uwierzytelniania do usługi Azure AD, a także do uzyskiwania dostępu do zasobów, takich jak interfejs API programu Graph.                                                          |
-| Identyfikator URI identyfikatora aplikacji      | Powinien to być unikatowy identyfikator URI, zazwyczaj w postaci ** &lt; \_ &gt; / &lt; \_ nazwy &gt; aplikacji https://dzierżawy.** Ta wartość jest używana podczas przepływu przydzielania autoryzacji jako unikatowy identyfikator, aby określić zasób, dla którego ma zostać wystawiony token. Jego stan zmieni się również na "AUD" w wystawionym tokenie dostępu. |
+| Identyfikator URI identyfikatora aplikacji      | Powinien to być unikatowy identyfikator URI, zazwyczaj w postaci **&lt; \_ &gt; / &lt; \_ nazwy &gt; aplikacji https://dzierżawy.** Ta wartość jest używana podczas przepływu przydzielania autoryzacji jako unikatowy identyfikator, aby określić zasób, dla którego ma zostać wystawiony token. Jego stan zmieni się również na "AUD" w wystawionym tokenie dostępu. |
 
 ### <a name="branding"></a>Znakowanie
 

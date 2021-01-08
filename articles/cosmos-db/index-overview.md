@@ -1,18 +1,18 @@
 ---
 title: Indeksowanie w usłudze Azure Cosmos DB
-description: Dowiedz się, jak indeksowanie działa w Azure Cosmos DB, różne rodzaje indeksów, takie jak zakres, przestrzenny, obsługiwane indeksy złożone.
+description: Dowiedz się, jak indeksowanie działa w Azure Cosmos DB, różne typy indeksów, takie jak zakres, przestrzenny, obsługiwane indeksy złożone.
 author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: 4211f13324b9fda0b0823b2d035eb03863cb686d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b7349a08b93810dcc3befd6058302d6c4573ab8d
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339760"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019333"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indeksowanie w usłudze Azure Cosmos DB — omówienie
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -64,13 +64,13 @@ Poniżej znajdują się ścieżki każdej właściwości z przykładowego elemen
 
 Po zapisaniu elementu Azure Cosmos DB efektywnie indeksuje ścieżkę każdej właściwości i odpowiadającą jej wartość.
 
-## <a name="index-kinds"></a>Rodzaje indeksów
+## <a name="types-of-indexes"></a><a id="index-types"></a>Typy indeksów
 
-Azure Cosmos DB obecnie obsługuje trzy rodzaje indeksów.
+Azure Cosmos DB obecnie obsługuje trzy typy indeksów. Te typy indeksów można skonfigurować podczas definiowania zasad indeksowania.
 
 ### <a name="range-index"></a>Indeks zakresu
 
-Indeks **zakresu** jest oparty na uporządkowanej strukturze podobnej do drzewa. Rodzaj indeksu zakresu jest używany dla:
+Indeks **zakresu** jest oparty na uporządkowanej strukturze podobnej do drzewa. Typ indeksu zakresu jest używany dla:
 
 - Zapytania o równość:
 
@@ -122,11 +122,11 @@ Indeks **zakresu** jest oparty na uporządkowanej strukturze podobnej do drzewa.
    SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'
    ```
 
-Indeksów zakresu można używać w przypadku wartości skalarnych (String lub Number).
+Indeksów zakresu można używać w przypadku wartości skalarnych (String lub Number). Domyślne zasady indeksowania dla nowo utworzonych kontenerów wymuszają indeksy zakresu dla wszelkich ciągów i liczb. Aby dowiedzieć się, jak skonfigurować indeksy zakresów, zobacz [przykłady zasad indeksowania zakresu](how-to-manage-indexing-policy.md#range-index)
 
 ### <a name="spatial-index"></a>Indeks przestrzenny
 
-Indeksy **przestrzenne** umożliwiają wydajne zapytania dotyczące obiektów geoprzestrzennych, takich jak punkty, linie, wielokąty i MultiPolygon. Te zapytania używają ST_DISTANCE, ST_WITHIN ST_INTERSECTS słów kluczowych. Poniżej przedstawiono kilka przykładów, które używają rodzaju indeksu przestrzennego:
+Indeksy **przestrzenne** umożliwiają wydajne zapytania dotyczące obiektów geoprzestrzennych, takich jak punkty, linie, wielokąty i MultiPolygon. Te zapytania używają ST_DISTANCE, ST_WITHIN ST_INTERSECTS słów kluczowych. Poniżej przedstawiono przykłady, w których jest używany indeks przestrzenny:
 
 - Zapytania dotyczące odległości geograficznej:
 
@@ -146,7 +146,7 @@ Indeksy **przestrzenne** umożliwiają wydajne zapytania dotyczące obiektów ge
    SELECT * FROM c WHERE ST_INTERSECTS(c.property, { 'type':'Polygon', 'coordinates': [[ [31.8, -5], [32, -5], [31.8, -5] ]]  })  
    ```
 
-Indeksów przestrzennych można używać w poprawnie sformatowanych obiektach [GEOJSON](./sql-query-geospatial-intro.md) . Punkty, LineStrings, wielokąty i wielowielokąty są obecnie obsługiwane.
+Indeksów przestrzennych można używać w poprawnie sformatowanych obiektach [GEOJSON](./sql-query-geospatial-intro.md) . Punkty, LineStrings, wielokąty i wielowielokąty są obecnie obsługiwane. Aby użyć tego typu indeksu, należy ustawić przy użyciu `"kind": "Range"` właściwości podczas konfigurowania zasad indeksowania. Aby dowiedzieć się, jak skonfigurować indeksy przestrzenne, zobacz [przykłady zasad indeksowania przestrzennego](how-to-manage-indexing-policy.md#spatial-index)
 
 ### <a name="composite-indexes"></a>Indeksy złożone
 
@@ -170,11 +170,13 @@ Indeksy **złożone** zwiększają wydajność podczas wykonywania operacji na w
  SELECT * FROM container c WHERE c.property1 = 'value' AND c.property2 > 'value'
 ```
 
-Tak długo, jak jeden predykat filtru używa jednego z rodzajów indeksu, aparat zapytań obliczy to przed skanowaniem reszty. Na przykład jeśli masz zapytanie SQL, takie jak `SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
+Tak długo, jak jeden predykat filtru używa jednego z typów indeksu, aparat kwerend zostanie oceniony przed skanowaniem reszty. Na przykład jeśli masz zapytanie SQL, takie jak `SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
 
 * Powyższe zapytanie najpierw filtruje wpisy, w których firstName = "Andrew" przy użyciu indeksu. Następnie przekazuje wszystkie wpisy firstName = "Andrew" przy użyciu kolejnego potoku, aby obliczyć predykat zawierający filtr.
 
 * Można przyspieszyć zapytania i uniknąć pełnego skanowania kontenera podczas korzystania z funkcji, które nie używają indeksu (np. CONTAINS) przez dodanie dodatkowych predykatów filtru, które używają indeksu. Kolejność klauzul filtru nie jest ważna. Aparat zapytań będzie określać, które predykaty są bardziej wybiórcze i odpowiednio uruchomić zapytanie.
+
+Aby dowiedzieć się, jak skonfigurować indeksy złożone, zobacz [przykłady zasad indeksowania złożonego](how-to-manage-indexing-policy.md#composite-index)
 
 ## <a name="querying-with-indexes"></a>Wykonywanie zapytań przy użyciu indeksów
 

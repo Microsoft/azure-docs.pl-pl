@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/23/2019
-ms.openlocfilehash: c45445415f3eaa7cb0f9069dd5f64b57c19e5836
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: b24ea79737c9e1f64abb7f62807352dbd9573695
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437154"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018075"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>Migrowanie setek terabajtów danych do usługi Azure Cosmos DB 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -43,7 +43,7 @@ Wyzwania opisane w powyższej sekcji można rozwiązać przy użyciu niestandard
 
 Narzędzie niestandardowe używa biblioteki wykonawców zbiorczych i obsługuje skalowanie w poziomie między wieloma klientami oraz śledzenie błędów w procesie pozyskiwania. Aby można było używać tego narzędzia, dane źródłowe powinny być partycjonowane na różne pliki w Azure Data Lake Storage (ADLS), dzięki czemu różne procesy robocze migracji mogą pobrać każdy plik i pozyskiwać je do Azure Cosmos DB. Narzędzie niestandardowe korzysta z oddzielnej kolekcji, która przechowuje metadane dotyczące postępu migracji każdego pliku źródłowego w programie ADLS i śledzi wszelkie związane z nimi błędy.  
 
-Na poniższej ilustracji opisano proces migracji przy użyciu tego niestandardowego narzędzia. Narzędzie jest uruchamiane na zestawie maszyn wirtualnych, a każda maszyna wirtualna wysyła zapytanie do kolekcji śledzenia w Azure Cosmos DB, aby uzyskać dzierżawę na jednej z partycji danych źródłowych. Po wykonaniu tej czynności partycja danych źródłowych zostanie odczytana przez narzędzie i przeprowadzona do Azure Cosmos DB przy użyciu biblioteki modułu wykonawczego BULK. Następnie kolekcja śledzenia jest aktualizowana, aby rejestrować postęp pozyskiwania danych i napotkane błędy. Po przetworzeniu partycji danych Narzędzie próbuje wykonać zapytanie o następną dostępną partycję źródłową. Kontynuuje przetwarzanie następnej partycji źródłowej, dopóki nie zostaną zmigrowane wszystkie dane. Kod źródłowy narzędzia jest dostępny [tutaj](https://github.com/Azure-Samples/azure-cosmosdb-bulkingestion).  
+Na poniższej ilustracji opisano proces migracji przy użyciu tego niestandardowego narzędzia. Narzędzie jest uruchamiane na zestawie maszyn wirtualnych, a każda maszyna wirtualna wysyła zapytanie do kolekcji śledzenia w Azure Cosmos DB, aby uzyskać dzierżawę na jednej z partycji danych źródłowych. Po wykonaniu tej czynności partycja danych źródłowych zostanie odczytana przez narzędzie i przeprowadzona do Azure Cosmos DB przy użyciu biblioteki modułu wykonawczego BULK. Następnie kolekcja śledzenia jest aktualizowana, aby rejestrować postęp pozyskiwania danych i napotkane błędy. Po przetworzeniu partycji danych Narzędzie próbuje wykonać zapytanie o następną dostępną partycję źródłową. Kontynuuje przetwarzanie następnej partycji źródłowej, dopóki nie zostaną zmigrowane wszystkie dane. Kod źródłowy narzędzia jest dostępny w repozytorium pozyskiwania [zbiorczego Azure Cosmos DB](https://github.com/Azure-Samples/azure-cosmosdb-bulkingestion) .  
 
  
 :::image type="content" source="./media/migrate-cosmosdb-data/migrationsetup.png" alt-text="Konfiguracja narzędzia migracji" border="false":::

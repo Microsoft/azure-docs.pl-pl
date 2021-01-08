@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 7fa13a328a55b0e9eaa546e70bf0711f4f011cf1
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 10fb55cc133d5d6b39ca2809474ff20dfe500708
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173434"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017803"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Używanie Microsoft Authenticator lub Intune — Portal firmy w aplikacjach platformy Xamarin
 
@@ -183,7 +183,7 @@ Dodaj identyfikator URI przekierowania do rejestracji aplikacji w [Azure Portal]
 
 **Aby wygenerować identyfikator URI przekierowania:**
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 1. Wybierz **Azure Active Directory**  >  **rejestracje aplikacji** > zarejestrowanej aplikacji
 1. Wybieranie **uwierzytelniania**  >  **Dodawanie platformy**  >  **iOS/macOS**
 1. Wprowadź identyfikator pakietu, a następnie wybierz pozycję **Konfiguruj**.
@@ -239,7 +239,7 @@ result = await app.AcquireTokenInteractive(scopes)
 
 MSAL używa adresów URL do wywołania brokera, a następnie powrotu do aplikacji. Aby ukończyć tę rundę, należy zarejestrować **Identyfikator URI przekierowania** dla aplikacji przy użyciu [Azure Portal](https://portal.azure.com).
 
-Format identyfikatora URI przekierowania dla aplikacji zależy od certyfikatu użytego do podpisania APK. Przykład:
+Format identyfikatora URI przekierowania dla aplikacji zależy od certyfikatu użytego do podpisania APK. Na przykład:
 
 ```
 msauth://com.microsoft.xforms.testApp/hgbUYHVBYUTvuvT&Y6tr554365466=
@@ -315,7 +315,7 @@ Zmodyfikuj manifest aplikacji, aby dodać filtr zamierzeń:
 
 Na przykład jeśli masz identyfikator URI przekierowania z `msauth://com.microsoft.xforms.testApp/hgbUYHVBYUTvuvT&Y6tr554365466=` , manifest powinien wyglądać podobnie do poniższego fragmentu kodu XML.
 
-`/`Wymagany jest ukośnik () znajdujący się przed sygnaturą w `android:path` wartości. **required**
+`/`Wymagany jest ukośnik () znajdujący się przed sygnaturą w `android:path` wartości. 
 
 ```xml
 <!-- NOTE the SLASH (required) that prefixes the signature value in the path attribute.

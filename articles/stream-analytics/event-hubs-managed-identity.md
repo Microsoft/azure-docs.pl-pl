@@ -1,17 +1,17 @@
 ---
 title: Uzyskiwanie dostępu do centrum zdarzeń z zadania Azure Stream Analytics za pomocą tożsamości zarządzanych (wersja zapoznawcza)
 description: W tym artykule opisano sposób używania tożsamości zarządzanych do uwierzytelniania zadania Azure Stream Analytics na platformie Azure Event Hubs danych wejściowych i wyjściowych.
-author: mamccrea
-ms.author: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/04/2021
-ms.openlocfilehash: ca27df7188c5edd1da94fc41707f6c25eb4034bf
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 4dc718f21f2ef3beabc31821bd60b571ac07be05
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97895142"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018755"
 ---
 # <a name="use-managed-identities-to-access-event-hubfrom-an-azure-stream-analytics-job-preview"></a>Uzyskiwanie dostępu do centrum zdarzeń z zadania Azure Stream Analytics za pomocą tożsamości zarządzanych (wersja zapoznawcza)
 
@@ -56,7 +56,7 @@ Aby zadanie Stream Analytics uzyskać dostęp do centrum zdarzeń przy użyciu t
    |---------|-----|
    |Rola|Właściciel danych Event Hubs platformy Azure|
    |Przypisz dostęp do|Użytkownik, Grupa lub nazwa główna usługi|
-   |Wybierz pozycję|Wprowadź nazwę zadania Stream Analytics|
+   |Wybierz|Wprowadź nazwę zadania Stream Analytics|
 
    :::image type="content" source="media/event-hubs-managed-identity/add-role-assignment.png" alt-text="Dodaj przypisanie roli":::
 
