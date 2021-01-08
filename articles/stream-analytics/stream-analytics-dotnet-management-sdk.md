@@ -3,17 +3,16 @@ title: Zestaw SDK platformy .NET dla Azure Stream Analytics
 description: Wprowadzenie do zestawu SDK platformy .NET do zarządzania Stream Analytics. Informacje na temat konfigurowania i uruchamiania zadań analitycznych. Utwórz projekt, dane wejściowe, wyjścia i przekształcenia.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 93e10baa5281481b57e945f93b7375060b574de5
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 633885bb1062edac8226c073768ffdeba84fcb55
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126859"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012635"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Zestaw SDK zarządzania .NET: Konfigurowanie i uruchamianie zadań analitycznych za pomocą interfejsu API Azure Stream Analytics dla platformy .NET
 Informacje na temat konfigurowania i uruchamiania zadań analitycznych przy użyciu interfejsu API Stream Analytics dla platformy .NET przy użyciu zestawu .NET SDK zarządzania. Skonfiguruj projekt, twórz źródła danych wejściowych i wyjściowych, przekształcenia oraz zadania uruchamiania i zatrzymywania. W przypadku zadań analitycznych można przesyłać strumieniowo dane z magazynu obiektów blob lub z centrum zdarzeń.
@@ -167,7 +166,7 @@ Poniższy kod tworzy zadanie Stream Analytics w ramach zdefiniowanej grupy zasob
    ```
 
 ## <a name="create-a-stream-analytics-input-source"></a>Tworzenie źródła danych wejściowych Stream Analytics
-Poniższy kod tworzy Stream Analytics źródło danych wejściowych z typem źródła danych wejściowych obiektu BLOB i serializacją woluminu CSV. Aby utworzyć źródło danych wejściowych centrum zdarzeń, użyj **EventHubStreamInputDataSource** zamiast **BlobStreamInputDataSource** . Analogicznie, można dostosować typ serializacji źródła danych wejściowych.
+Poniższy kod tworzy Stream Analytics źródło danych wejściowych z typem źródła danych wejściowych obiektu BLOB i serializacją woluminu CSV. Aby utworzyć źródło danych wejściowych centrum zdarzeń, użyj **EventHubStreamInputDataSource** zamiast **BlobStreamInputDataSource**. Analogicznie, można dostosować typ serializacji źródła danych wejściowych.
 
    ```csharp
    // Create an input

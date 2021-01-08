@@ -13,12 +13,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: f43cb80a148f5dadb409f506f237cb1210a2000a
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 869b37aea823cf91dc59211b23fcaccd7646afb9
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934003"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012023"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Szybki start: Konfigurowanie dzierżawy
 
@@ -47,7 +47,7 @@ Podręcznik Szybki start został podzielony na dwa scenariusze, w zależności o
 
 Wielu deweloperów uzyskało już dzierżawy za pośrednictwem usług lub subskrypcji, które są powiązane z dzierżawami usługi Azure AD, na przykład subskrypcji rozwiązania Microsoft 365 lub platformy Azure.
 
-1. Aby sprawdzić dzierżawę, zaloguj się w witrynie [Azure Portal](https://portal.azure.com) przy użyciu konta, którego chcesz użyć do zarządzania aplikacją.
+1. Aby sprawdzić dzierżawę, zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> przy użyciu konta, którego chcesz używać do zarządzania aplikacją.
 1. Sprawdź prawy górny róg. Jeśli masz dzierżawę, nastąpi automatyczne zalogowanie do niej, a nazwa dzierżawy zostanie wyświetlona bezpośrednio pod nazwą Twojego konta.
    * Umieść wskaźnik myszy na nazwie konta w prawym górnym rogu witryny Azure Portal, aby wyświetlić swoją nazwę, adres e-mail, identyfikator katalogu/dzierżawy (GUID) oraz domenę.
    * Jeśli Twoje konto jest skojarzone z wieloma dzierżawami, możesz wybrać nazwę swojego konta, aby otworzyć menu, w którym można przełączać się między dzierżawami. Każda dzierżawa ma własny identyfikator dzierżawy.

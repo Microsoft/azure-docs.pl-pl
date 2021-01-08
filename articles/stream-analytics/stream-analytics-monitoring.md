@@ -1,19 +1,18 @@
 ---
 title: Informacje o monitorowaniu zadań w Azure Stream Analytics
 description: W tym artykule opisano sposób monitorowania Azure Stream Analytics zadań w Azure Portal.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: f8e0d49c2a35a1e97c79e6d4b8c867a4a8ab88b3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5141c7fcfe1128574145930548f41731529c2ad8
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006682"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012465"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Informacje o monitorowaniu zadań Stream Analytics i sposobach monitorowania zapytań
 
@@ -27,7 +26,7 @@ Okno zostanie wyświetlone w sposób pokazany:
 ![Pulpit nawigacyjny monitorowania zadania Stream Analytics](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
 
 ## <a name="metrics-available-for-stream-analytics"></a>Metryki dostępne dla Stream Analytics
-| Metric                 | Definicja                               |
+| Metryka                 | Definicja                               |
 | ---------------------- | ---------------------------------------- |
 | Zaległe zdarzenia wejściowe       | Liczba zarejestrowanych zdarzeń wejściowych. Wartość różna od zera dla tej metryki oznacza, że zadanie nie jest w stanie zachować liczby zdarzeń przychodzących. Jeśli ta wartość jest powoli zwiększana lub konsekwentnie różna od zera, należy przeskalować zadanie. Więcej informacji można znaleźć w [opisie i dostosowaniu jednostek przesyłania strumieniowego](stream-analytics-streaming-unit-consumption.md). |
 | Błędy konwersji danych | Liczba zdarzeń wyjściowych, których nie można przekonwertować na oczekiwany schemat wyjściowy. Zasady błędów można zmienić na "Drop", aby porzucić zdarzenia, które napotykają ten scenariusz. |

@@ -2,17 +2,17 @@
 title: Analizowanie JSON i AVRO w Azure Stream Analytics
 description: W tym artykule opisano sposób działania na złożonych typach danych, takich jak tablice, JSON, dane w formacie CSV.
 ms.service: stream-analytics
-author: mamccrea
-ms.author: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.topic: conceptual
 ms.date: 01/29/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 6c2eb4225cb014b3251d12470e4e9827150a5cf2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f6cb131fb3ff3cab4122aac5e1c6960dee4f8421
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123357"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012244"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Analizowanie danych JSON i Avro w Azure Stream Analytics
 
@@ -121,7 +121,7 @@ WHERE
     GetRecordPropertyValue(input.SensorReadings, thresholds.SensorName) > thresholds.Value
 ```
 
-**GetRecordPropertyValue** wybiera właściwość w *SensorReadings* , która jest zgodna z nazwą właściwości pochodzącą z danych referencyjnych. Następnie skojarzona wartość z *SensorReadings* jest wyodrębniana.
+**GetRecordPropertyValue** wybiera właściwość w *SensorReadings*, która jest zgodna z nazwą właściwości pochodzącą z danych referencyjnych. Następnie skojarzona wartość z *SensorReadings* jest wyodrębniana.
 
 Wynik:
 
@@ -207,7 +207,7 @@ Następnie można utworzyć krok w zapytaniu Stream Analytics, jak pokazano poni
 
 Typy danych tablicy to uporządkowana Kolekcja wartości. Poniżej przedstawiono niektóre typowe operacje dotyczące wartości tablicy. W tych przykładach użyto funkcji [GetArrayElement](/stream-analytics-query/getarrayelement-azure-stream-analytics), [GetArrayElements](/stream-analytics-query/getarrayelements-azure-stream-analytics), [GetArrayLength](/stream-analytics-query/getarraylength-azure-stream-analytics)i operator [apply](/stream-analytics-query/apply-azure-stream-analytics) .
 
-Oto przykład pojedynczego zdarzenia. Obie `CustomSensor03` i `SensorMetadata` są typu **Array** :
+Oto przykład pojedynczego zdarzenia. Obie `CustomSensor03` i `SensorMetadata` są typu **Array**:
 
 ```json
 {

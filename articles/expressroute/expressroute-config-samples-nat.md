@@ -5,25 +5,25 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 01/07/2021
 ms.author: duau
-ms.openlocfilehash: 4b57dec32a3a008cadf68c19ea52353a23fb2cd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae0a39d65bf0f1bc5221cd5e46493c489f7630f8
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89397498"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012669"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Przykłady konfiguracji routera do konfigurowania translatora adresów sieciowych i zarządzania nim
 
-Ta strona zawiera przykłady konfiguracji NAT dla routerów serii Cisco ASA i Juniper SRX podczas pracy z usługą ExpressRoute. Są one przeznaczone wyłącznie do celów informacyjnych i nie mogą być używane zgodnie z oczekiwaniami. Możesz skontaktować się z dostawcą, aby uzyskać odpowiednie konfiguracje dla sieci.
+W tym artykule przedstawiono przykłady konfiguracji NAT dla routerów serii Cisco ASA i Juniper SRX podczas pracy z usługą ExpressRoute. Te konfiguracje routera są przeznaczone tylko do celów informacyjnych i nie mogą być używane. Należy skontaktować się z dostawcą, aby uzyskać odpowiednie konfiguracje dla sieci.
 
 > [!IMPORTANT]
 > Przykłady na tej stronie mają być przeznaczone wyłącznie do celów informacyjnych. Musisz współpracować z zespołem ds. sprzedaży/technicznym i zespołem sieciowym, aby sprostać potrzebom. Firma Microsoft nie będzie obsługiwać problemów związanych z konfiguracjami wymienionymi na tej stronie. Aby uzyskać pomoc techniczną, należy skontaktować się z dostawcą urządzenia.
 > 
 > 
 
-* Poniższe przykłady konfiguracji routera dotyczą usług komunikacji równorzędnej Azure Public i Microsoft. Nie należy konfigurować translatora adresów sieciowych dla prywatnej komunikacji równorzędnej Azure. Aby uzyskać więcej informacji, przejrzyj wymagania dotyczące [komunikacji równorzędnej ExpressRoute](expressroute-circuit-peerings.md) i [ExpressRoute translatora adresów sieciowych](expressroute-nat.md) .
+* Poniższe przykłady konfiguracji routera dotyczą usług komunikacji równorzędnej Azure Public i Microsoft. Nie konfigurujesz translatora adresów sieciowych dla prywatnej komunikacji równorzędnej Azure. Aby uzyskać więcej informacji, przejrzyj wymagania dotyczące [komunikacji równorzędnej ExpressRoute](expressroute-circuit-peerings.md) i [ExpressRoute translatora adresów sieciowych](expressroute-nat.md) .
 
 * Do połączenia z Internetem i ExpressRoute należy użyć oddzielnych pul adresów IP NAT. Używanie tej samej puli adresów IP NAT przez Internet i ExpressRoute spowoduje asymetryczne Routing i utratę łączności.
 
@@ -361,5 +361,5 @@ Zapoznaj się z przykładami na stronie Przykłady [konfiguracji routingu](expre
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Szczegółowe informacje znajdują się w artykule [ExpressRoute FAQ](expressroute-faqs.md) (Usługa ExpressRoute — często zadawane pytania).
+Więcej informacji znajduje się w artykule [Usługa ExpressRoute — często zadawane pytania](expressroute-faqs.md).
 

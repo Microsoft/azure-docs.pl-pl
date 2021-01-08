@@ -3,17 +3,16 @@ title: Agregacje zdefiniowane przez użytkownika w języku JavaScript w Azure St
 description: W tym artykule opisano sposób wykonywania zaawansowanych zapytań Mechanics z agregacjami zdefiniowanymi przez użytkownika w języku JavaScript w Azure Stream Analytics.
 author: rodrigoaatmicrosoft
 ms.author: rodrigoa
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
 ms.custom: devx-track-js
-ms.openlocfilehash: 8891bb5cd3b8bd8ae9e02c871d6d0ffe42078c0b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e9695a268d1c6ec43a737afd36536e4ec2a41a41
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124768"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012482"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates"></a>Azure Stream Analytics kodu JavaScript zdefiniowanych przez użytkownika
  
@@ -83,7 +82,7 @@ Alias funkcji jest identyfikatorem UDA. Gdy jest wywoływana w Stream Analytics 
 
 ### <a name="function-type"></a>Typ funkcji
 
-W przypadku UDA typ funkcji powinien mieć wartość **JavaScript uda** .
+W przypadku UDA typ funkcji powinien mieć wartość **JavaScript uda**.
 
 ### <a name="output-type"></a>Typ danych wyjściowych
 
@@ -123,7 +122,7 @@ Poniżej przeprowadzimy proces tworzenia UDA z portalu. Przykładem używanym w 
 Teraz Utwórzmy kod JavaScript UDA w ramach istniejącego zadania ASA, wykonując następujące kroki.
 
 1. Zaloguj się do Azure Portal i Znajdź istniejące Stream Analytics zadanie.
-1. Następnie kliknij link funkcje w obszarze **topologia zadania** .
+1. Następnie kliknij link funkcje w obszarze **topologia zadania**.
 1. Kliknij ikonę **Dodaj** , aby dodać nową funkcję.
 1. W obszarze nowy widok funkcji wybierz pozycję **JavaScript uda** jako typ funkcji, a następnie w edytorze zostanie wyświetlony domyślny szablon uda.
 1. Wypełnij wartość "TWA" jako alias UDA i Zmień implementację funkcji w następujący sposób:
@@ -174,7 +173,7 @@ Teraz Utwórzmy kod JavaScript UDA w ramach istniejącego zadania ASA, wykonują
 
 ## <a name="calling-javascript-uda-in-asa-query"></a>Wywołanie JavaScript UDA w zapytaniu ASA
 
-W Azure Portal i Otwórz zadanie, Edytuj zapytanie i wywołaj funkcję TWA () z prefiksem mandatu "uda". Przykład:
+W Azure Portal i Otwórz zadanie, Edytuj zapytanie i wywołaj funkcję TWA () z prefiksem mandatu "uda". Na przykład:
 
 ```SQL
 WITH value AS

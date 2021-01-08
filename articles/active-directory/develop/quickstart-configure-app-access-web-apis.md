@@ -13,12 +13,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: 2630984d54134ca8fca94fdc1960265ba71935a6
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: fdaaf935dc458a6a5b2a87a81bb98a1392f1034a
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031304"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012125"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Szybki Start: Konfigurowanie aplikacji klienckiej w celu uzyskania dostępu do internetowego interfejsu API
 
@@ -42,7 +42,7 @@ Ten diagram przedstawia, w jaki sposób dwie rejestracje aplikacji są powiązan
 
 Po zarejestrowaniu zarówno aplikacji klienckiej, jak i interfejsu API sieci Web, a interfejs API został ujawniony przez Tworzenie zakresów, można skonfigurować uprawnienia klienta do interfejsu API, wykonując następujące czynności:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę zawierający rejestrację aplikacji klienckiej.
 1. Wybierz pozycję **Azure Active Directory**  >  **rejestracje aplikacji**, a następnie wybierz aplikację kliencką (*nie* interfejs API sieci Web).
 1. Wybierz pozycję **uprawnienia interfejsu API**  >  **Dodaj uprawnienie**  >  **Moje interfejsy API**.
@@ -71,7 +71,7 @@ Oprócz uzyskiwania dostępu do własnego internetowego interfejsu API w imieniu
 
 Skonfiguruj delegowane uprawnienie do Microsoft Graph, aby umożliwić aplikacji klienckiej wykonywanie operacji w imieniu zalogowanego użytkownika, na przykład odczytując swoją wiadomość e-mail lub modyfikując swój profil. Domyślnie użytkownicy aplikacji klienckiej są monitowani o zalogowanie się, aby wyrazić zgodę na delegowane uprawnienia, które zostały przez Ciebie skonfigurowane.
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę zawierający rejestrację aplikacji klienckiej.
 1. Wybierz pozycję **Azure Active Directory**  >  **rejestracje aplikacji**, a następnie wybierz aplikację kliencką.
 1. Wybierz **uprawnienia interfejsu API**  >  **Dodaj**  >  **Microsoft Graph** uprawnień
@@ -96,7 +96,7 @@ Skonfiguruj uprawnienia aplikacji dla aplikacji, która musi być uwierzytelnian
 
 W poniższych krokach przyznasz uprawnienia do *plików Microsoft Graph. uprawnienie Read. All* jako przykład.
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę zawierający rejestrację aplikacji klienckiej.
 1. Wybierz pozycję **Azure Active Directory**  >  **rejestracje aplikacji**, a następnie wybierz aplikację kliencką.
 1. Wybierz pozycję **uprawnienia interfejsu API**  >  **Dodaj uprawnienie**  >  **Microsoft Graph**  >  **uprawnienia aplikacji**.

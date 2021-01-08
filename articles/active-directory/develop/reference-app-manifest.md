@@ -13,12 +13,12 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 1f4e1def81fc79ec159ce6be825793a9bd8d0ce7
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: b29d8007ba7c6fb41209ad4f792069667416616b
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286961"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011547"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifest aplikacji usługi Azure Active Directory
 
@@ -33,7 +33,7 @@ Atrybuty aplikacji można skonfigurować za pomocą Azure Portal lub programowo 
 
 Aby skonfigurować manifest aplikacji:
 
-1. Przejdź do witryny [Azure Portal](https://portal.azure.com). Wyszukaj i wybierz usługę **Azure Active Directory** .
+1. Przejdź do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. Wyszukaj i wybierz usługę **Azure Active Directory** .
 1. Wybierz pozycję **Rejestracje aplikacji**.
 1. Wybierz aplikację, którą chcesz skonfigurować.
 1. Na stronie **Przegląd** aplikacji wybierz sekcję **Manifest**. Zostanie otwarty Edytor manifestu oparty na sieci Web, który umożliwia edytowanie manifestu w portalu. Opcjonalnie możesz wybrać pozycję **Pobierz** , aby edytować manifest lokalnie, a następnie użyć opcji **Przekaż** , aby ponownie zastosować ją do aplikacji.
@@ -46,7 +46,7 @@ W tej sekcji opisano atrybuty znalezione w manifeście aplikacji.
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| identyfikator | String |
+| identyfikator | Ciąg |
 
 Unikatowy identyfikator aplikacji w katalogu. Ten identyfikator nie jest identyfikatorem używanym do identyfikowania aplikacji w żadnej transakcji protokołu. Służy do odwoływania się do obiektu w zapytaniach w katalogu.
 
@@ -105,7 +105,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| allowPublicClient | Boolean |
+| allowPublicClient | Wartość logiczna |
 
 Określa typ aplikacji rezerwowej. Usługa Azure AD domyślnie wnioskuje typ aplikacji z replyUrlsWithType. Istnieją pewne scenariusze, w których usługa Azure AD nie może określić typu aplikacji klienta. Na przykład, taki scenariusz to [ROPC](https://tools.ietf.org/html/rfc6749#section-4.3) , gdzie żądanie HTTP odbywa się bez przekierowania adresu URL. W takich przypadkach usługa Azure AD interpretuje typ aplikacji na podstawie wartości tej właściwości. Jeśli ta wartość jest równa true, typ aplikacji rezerwowej jest ustawiany jako klient publiczny, taki jak zainstalowana aplikacja uruchomiona na urządzeniu przenośnym. Wartość domyślna to false, co oznacza, że rezerwowy typ aplikacji to poufny klient, taki jak aplikacja sieci Web.
 
@@ -119,7 +119,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| availableToOtherTenants | Boolean |
+| availableToOtherTenants | Wartość logiczna |
 
 Ustaw wartość PRAWDA, jeśli aplikacja jest udostępniana innym dzierżawcom; w przeciwnym razie false.
 
@@ -130,7 +130,7 @@ Ustaw wartość PRAWDA, jeśli aplikacja jest udostępniana innym dzierżawcom; 
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| appId | String |
+| appId | Ciąg |
 
 Określa unikatowy identyfikator aplikacji przypisanej do aplikacji przez usługę Azure AD.
 
@@ -180,7 +180,7 @@ Nazwa wyświetlana aplikacji.
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| errorUrl | String |
+| errorUrl | Ciąg |
 
 Ich.
 
@@ -188,7 +188,7 @@ Ich.
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-|groupMembershipClaims | String |
+|groupMembershipClaims | Ciąg |
 
 Konfiguruje `groups` w tokenie dostępu użytkownika lub OAuth 2,0, który oczekuje aplikacja. Aby ustawić ten atrybut, należy użyć jednej z następujących prawidłowych wartości ciągu:
 
@@ -207,7 +207,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| głównej |String |
+| głównej |Ciąg |
 
 Adres URL strony głównej aplikacji.
 
@@ -218,7 +218,7 @@ Adres URL strony głównej aplikacji.
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-|Obiektu | String |
+|objectId | Ciąg |
 
 Unikatowy identyfikator aplikacji w katalogu.
 
@@ -234,7 +234,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| optionalClaims | String |
+| optionalClaims | Ciąg |
 
 Opcjonalne oświadczenia zwracane w tokenie przez usługę tokenu zabezpieczającego dla tej konkretnej aplikacji.
 
@@ -266,7 +266,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| informationalUrls | String |
+| informationalUrls | Ciąg |
 
 Określa linki do warunków użytkowania i zasad zachowania poufności informacji aplikacji. Warunki użytkowania usługi i zasady zachowania poufności informacji są udostępniane użytkownikom za pomocą funkcji wyrażania zgody użytkownika. Aby uzyskać więcej informacji, zobacz [jak: Dodawanie warunków użytkowania i zasad zachowania poufności informacji dla zarejestrowanych aplikacji usługi Azure AD](howto-add-terms-of-service-privacy-statement.md).
 
@@ -323,7 +323,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| logoUrl | String |
+| logoUrl | Ciąg |
 
 Wartość tylko do odczytu wskazująca adres URL usługi CDN na logo, które zostało przekazane w portalu.
 
@@ -337,7 +337,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| logoutUrl | String |
+| logoutUrl | Ciąg |
 
 Adres URL do wylogowania z aplikacji.
 
@@ -351,7 +351,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| name | String |
+| name | Ciąg |
 
 Nazwa wyświetlana aplikacji.
 
@@ -365,7 +365,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| oauth2AllowImplicitFlow | Boolean |
+| oauth2AllowImplicitFlow | Wartość logiczna |
 
 Określa, czy ta aplikacja sieci Web może żądać niejawnych tokenów dostępu protokołu OAuth 2.0. Wartością domyślną jest false. Ta flaga jest używana w przypadku aplikacji opartych na przeglądarce, takich jak aplikacje jednostronicowe języka JavaScript. Aby dowiedzieć się więcej, wprowadź `OAuth 2.0 implicit grant flow` w spisie treści i zobacz tematy dotyczące przepływu niejawnego.
 
@@ -379,7 +379,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| oauth2AllowIdTokenImplicitFlow | Boolean |
+| oauth2AllowIdTokenImplicitFlow | Wartość logiczna |
 
 Określa, czy ta aplikacja sieci Web może żądać niejawnych tokenów identyfikatora przepływu OAuth 2.0. Wartością domyślną jest false. Ta flaga jest używana w przypadku aplikacji opartych na przeglądarce, takich jak aplikacje jednostronicowe języka JavaScript.
 
@@ -418,7 +418,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| oauth2RequiredPostResponse | Boolean |
+| oauth2RequiredPostResponse | Wartość logiczna |
 
 Określa, czy w ramach żądania tokenu OAuth 2,0 usługa Azure AD będzie zezwalać na żądania POST, w przeciwieństwie do żądań GET. Wartość domyślna to false, co oznacza, że dozwolone są tylko żądania GET.
 
@@ -432,7 +432,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| parentalControlSettings | String |
+| parentalControlSettings | Ciąg |
 
 - `countriesBlockedForMinors` Określa kraje/regiony, w których aplikacja jest zablokowana dla małoletnich.
 - `legalAgeGroupRule` Określa regułę grupy wieku prawnego, która ma zastosowanie do użytkowników aplikacji. Można ustawić na `Allow` , `RequireConsentForPrivacyServices` ,, `RequireConsentForMinors` `RequireConsentForKids` lub `BlockMinors` .
@@ -493,7 +493,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| publicClient | Boolean|
+| publicClient | Wartość logiczna|
 
 Określa, czy ta aplikacja jest klientem publicznym (na przykład zainstalowaną aplikacją uruchomioną na urządzeniu przenośnym).
 
@@ -503,7 +503,7 @@ Ta właściwość jest dostępna tylko w środowisku **rejestracje aplikacji (st
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| publisherDomain | String |
+| publisherDomain | Ciąg |
 
 Zweryfikowana domena wydawcy dla aplikacji. Tylko do odczytu.
 
@@ -579,7 +579,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| samlMetadataUrl | String |
+| samlMetadataUrl | Ciąg |
 
 Adres URL metadanych SAML dla aplikacji.
 
@@ -593,7 +593,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| signInUrl | String |
+| signInUrl | Ciąg |
 
 Określa adres URL strony głównej aplikacji.
 
@@ -607,7 +607,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| signInAudience | String |
+| signInAudience | Ciąg |
 
 Określa, jakie konta Microsoft są obsługiwane przez bieżącą aplikację. Obsługiwane są następujące wartości:
 - `AzureADMyOrg` -Użytkownicy z kontem służbowym firmy Microsoft w dzierżawie usługi Azure AD w organizacji (na przykład z jedną dzierżawą)

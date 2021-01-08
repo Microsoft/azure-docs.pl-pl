@@ -3,26 +3,25 @@ title: Używaj punktów końcowych Azure Machine Learning Studio (klasycznych) w
 description: W tym artykule opisano sposób korzystania z funkcji zdefiniowanych przez użytkownika w języku maszynowym w programie Azure Stream Analytics.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/11/2019
-ms.openlocfilehash: 236191710dac19a08db0e8ce94dc695d393009a7
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: a36162d24e18371fdf6b19835e4748e3043d1f24
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127131"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012529"
 ---
 # <a name="azure-machine-learning-studio-classic-integration-in-stream-analytics-preview"></a>Integracja Azure Machine Learning Studio (klasyczny) w Stream Analytics (wersja zapoznawcza)
 Stream Analytics obsługuje funkcje zdefiniowane przez użytkownika, które wywołują Azure Machine Learning Studio (klasyczne) punkty końcowe. Obsługa interfejsu API REST dla tej funkcji jest szczegółowa w [bibliotece interfejsu API rest Stream Analytics](/rest/api/streamanalytics/). Ten artykuł zawiera dodatkowe informacje, które są odpowiednie do pomyślnej implementacji tej możliwości w Stream Analytics. Samouczek został również ogłoszony i jest dostępny w [tym miejscu](stream-analytics-machine-learning-integration-tutorial.md).
 
 ## <a name="overview-azure-machine-learning-studio-classic-terminology"></a>Przegląd: Azure Machine Learning Studio (klasyczny) terminologia
-Microsoft Azure Machine Learning Studio (klasyczny) to narzędzie do współpracy typu "przeciągnij i upuść", które służy do kompilowania, testowania i wdrażania rozwiązań analizy predykcyjnej na danych. To narzędzie jest nazywane *Azure Machine Learning Studio (klasyczne)* . Studio (klasyczny) służy do interakcji z zasobami uczenia maszynowego i łatwego kompilowania, testowania i iteracji w projekcie. Te zasoby i ich definicje są poniżej.
+Microsoft Azure Machine Learning Studio (klasyczny) to narzędzie do współpracy typu "przeciągnij i upuść", które służy do kompilowania, testowania i wdrażania rozwiązań analizy predykcyjnej na danych. To narzędzie jest nazywane *Azure Machine Learning Studio (klasyczne)*. Studio (klasyczny) służy do interakcji z zasobami uczenia maszynowego i łatwego kompilowania, testowania i iteracji w projekcie. Te zasoby i ich definicje są poniżej.
 
-* **Obszar roboczy** : *obszar roboczy* to kontener, który zawiera wszystkie inne zasoby uczenia maszynowego w kontenerze do zarządzania i kontroli.
-* **Eksperymentowanie** : *eksperymenty* są tworzone przez analityków danych do korzystania z zestawu danych i uczenia modelu uczenia maszynowego.
-* **Punkt końcowy** : *punkty końcowe* to obiekt Studio (klasyczny) służący do podejmowania funkcji jako danych wejściowych, stosowania określonego modelu uczenia maszynowego i zwracania oceny danych wyjściowych.
+* **Obszar roboczy**: *obszar roboczy* to kontener, który zawiera wszystkie inne zasoby uczenia maszynowego w kontenerze do zarządzania i kontroli.
+* **Eksperymentowanie**: *eksperymenty* są tworzone przez analityków danych do korzystania z zestawu danych i uczenia modelu uczenia maszynowego.
+* **Punkt końcowy**: *punkty końcowe* to obiekt Studio (klasyczny) służący do podejmowania funkcji jako danych wejściowych, stosowania określonego modelu uczenia maszynowego i zwracania oceny danych wyjściowych.
 * **Ocenianie** usługi sieci Web: usługa sieci *Web oceniania* jest kolekcją punktów końcowych, jak wspomniano powyżej.
 
 Każdy punkt końcowy ma interfejsy API do wykonywania wsadowego i wykonywania synchronicznego. Stream Analytics używa wykonywania synchronicznego. Określona usługa nosi nazwę [usługi żądanie/odpowiedź](../machine-learning/classic/consume-web-services.md) w Azure Machine Learning Studio (klasyczny).

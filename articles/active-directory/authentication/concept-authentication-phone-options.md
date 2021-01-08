@@ -10,12 +10,12 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9d3a00491bc0628244a5a7907f0dee03a5f8d3c
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: fdff7e62753e75a14d6711b77dd451603353dae5
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744197"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012839"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Metody uwierzytelniania w opcjach Azure Active Directory-Phone
 
@@ -58,6 +58,8 @@ Jeśli masz problemy z uwierzytelnianiem za pomocą telefonu w usłudze Azure AD
 
 * "Osiągnięto nasz limit wywołań weryfikacyjnych" lub "osiągnięto nasz limit kodów weryfikacyjnych tekstu" podczas logowania
    * Firma Microsoft może ograniczyć powtarzające się próby uwierzytelniania wykonywane przez tego samego użytkownika w krótkim czasie. To ograniczenie nie dotyczy Microsoft Authenticator ani kodu weryfikacyjnego. Jeśli osiągnięto te limity, możesz użyć aplikacji Authenticator, kodu weryfikacyjnego lub spróbować zalogować się ponownie za kilka minut.
+* "Niestety, wystąpił problem podczas weryfikowania konta" podczas logowania
+   * Firma Microsoft może ograniczyć lub zablokować próby uwierzytelniania głosu lub wiadomości SMS wykonywane przez tego samego użytkownika, numer telefonu lub organizację ze względu na dużą liczbę nieudanych prób uwierzytelnienia głosu lub SMS. Jeśli ten błąd występuje, możesz wypróbować inną metodę, taką jak aplikacja uwierzytelniania lub kod weryfikacyjny, lub skontaktować się z administratorem w celu uzyskania pomocy.
 * Zablokowany identyfikator obiektu wywołującego na pojedynczym urządzeniu.
    * Przejrzyj wszystkie zablokowane numery skonfigurowane na urządzeniu.
 * Błędny numer telefonu lub nieprawidłowy kod kraju/regionu lub pomyłek między osobistym numerem telefonu a numerem telefonu służbowego.

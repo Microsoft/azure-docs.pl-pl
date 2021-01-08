@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/07/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 0398056c3182ec50a1ec170f64ff079633f70c68
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 0257f4d97e0f6f7cef4907276423d9513568e027
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030556"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011711"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Szybki start: wywoływanie interfejsu API programu Microsoft Graph z poziomu aplikacji platformy UWP
 
@@ -47,7 +47,7 @@ Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 > [!div renderon="docs"]
 > #### <a name="step-1-register-your-application"></a>Krok 1. Rejestrowanie aplikacji
 > Aby zarejestrować aplikację i dodać informacje na temat rejestracji aplikacji do rozwiązania, wykonaj następujące czynności:
-> 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+> 1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 > 1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę, w którym chcesz zarejestrować aplikację.
 > 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
 > 1. W obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**  >  **Nowa rejestracja**.

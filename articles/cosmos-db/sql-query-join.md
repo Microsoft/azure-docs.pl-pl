@@ -1,25 +1,25 @@
 ---
 title: Zapytania SPRZĘŻENIa SQL dla Azure Cosmos DB
 description: Dowiedz się, jak dołączać wiele tabel w Azure Cosmos DB, aby wykonywać zapytania dotyczące danych
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/17/2019
-ms.author: mjbrown
-ms.openlocfilehash: c3fad0c7eed2b42a9ac340a091f17b90e22b000a
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.date: 01/07/2021
+ms.author: tisande
+ms.openlocfilehash: cb7b2e62a9fabeeca675edb8e6aa356213e0999e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93333853"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011401"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Sprzężenia w Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 W relacyjnej bazie danych sprzężenia między tabelami jest logicznym współrzutem do projektowania znormalizowanych schematów. W przeciwieństwie do interfejsu API SQL jest używany nieznormalizowany model danych elementów bez schematu, który jest logicznym odpowiednikiem *samosprzężenia*.
 
-Sprzężenia wewnętrzne powodują pełny iloczyn skrzyżowania zestawów uczestniczących w sprzężeniu. Wynik sprzężenia N-kierunkowego jest zestawem N-elementowych krotek, gdzie każda wartość w spójnej kolekcji jest skojarzona z zestawem aliasów uczestniczącym w sprzężeniu i można uzyskać do niego dostęp, odwołując się do tego aliasu w innych klauzulach.
+Sprzężenia powodują pełny iloczyn skrzyżowania zestawów uczestniczących w sprzężeniu. Wynik sprzężenia N-kierunkowego jest zestawem N-elementowych krotek, gdzie każda wartość w spójnej kolekcji jest skojarzona z zestawem aliasów uczestniczącym w sprzężeniu i można uzyskać do niego dostęp, odwołując się do tego aliasu w innych klauzulach.
 
 ## <a name="syntax"></a>Składnia
 
@@ -253,6 +253,8 @@ Wyniki są następujące:
       }
     ]
 ```
+
+Jeśli zapytanie ma SPRZĘŻENIe i filtry, możesz ponownie napisać część zapytania jako [podzapytanie](sql-query-subquery.md#optimize-join-expressions) , aby zwiększyć wydajność.
 
 ## <a name="next-steps"></a>Następne kroki
 

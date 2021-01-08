@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: dce2cd0d77ff0a98d4d68e1c99edb472e61ce8a5
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 1e8c7805cf9804e8380f8638781f9634d2d3d081
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509465"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011513"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Samouczek: wywoływanie interfejsu API Microsoft Graph z aplikacji platforma uniwersalna systemu Windows (platformy UWP)
 
@@ -346,7 +346,7 @@ private async Task DisplayMessageAsync(string message)
 
 Teraz musisz zarejestrować aplikację:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę, w którym chcesz zarejestrować aplikację.
 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
 1. W obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**  >  **Nowa rejestracja**.
@@ -357,7 +357,7 @@ Teraz musisz zarejestrować aplikację:
 
 Skonfiguruj uwierzytelnianie dla aplikacji:
 
-1. Z powrotem w [Azure Portal](https://portal.azure.com)w obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie**  >  **Dodaj platformę**, a następnie wybierz pozycję **aplikacje mobilne i klasyczne**.
+1. Z powrotem w <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span></a>w obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie**  >  **Dodaj platformę**, a następnie wybierz pozycję **aplikacje mobilne i klasyczne**.
 1. W sekcji **identyfikatory URI przekierowania** Sprawdź **https://login.microsoftonline.com/common/oauth2/nativeclient** .
 1. Wybierz pozycję **Konfiguruj**.
 

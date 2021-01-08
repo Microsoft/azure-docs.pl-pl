@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 61059c3e0f9737df6ace338f4252a338ea1f200c
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 680b1f3b6af186eba27a4dd926016a04cd863760
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663845"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013496"
 ---
 # <a name="app-service-environment-networking"></a>App Service Environment sieci
 
@@ -27,14 +27,18 @@ ASEv3 używa dwóch podsieci.  Jedna podsieć jest używana dla prywatnego punkt
 ## <a name="addresses"></a>Adresy 
 Podczas tworzenia środowisko ASE ma następujące adresy:
 
-| Typ adresu | description (opis) |
+| Typ adresu | description |
 |--------------|-------------|
 | Adres przychodzący | Adres przychodzący to prywatny adres punktu końcowego używany przez środowisko ASE. |
 | Podsieć wychodząca | Podsieć wychodząca jest również podsiecią środowiska ASE. W trakcie podglądu ta podsieć jest używana tylko dla ruchu wychodzącego. |
 | Adres wychodzący systemu Windows | Aplikacje systemu Windows w tym środowisku ASE będą używać tego adresu domyślnie podczas wykonywania wywołań wychodzących do Internetu. |
 | Adres wychodzący systemu Linux | W przypadku aplikacji systemu Linux w tym środowisku ASE ten adres jest domyślnie używany podczas wykonywania wywołań wychodzących do Internetu. |
 
-W przypadku usunięcia prywatnego punktu końcowego używanego przez środowisko ASE nie będzie można nawiązać połączenia z aplikacjami w środowisku ASE. Nie usuwaj Azure DNS strefy prywatnej skojarzonej ze środowiskiem ASE.  
+ASEv3 zawiera szczegółowe informacje dotyczące adresów używanych przez środowisko ASE w części **adresy IP** portalu środowiska ASE.
+
+![Interfejs użytkownika środowiska ASE](./media/networking/networking-ip-addresses.png)
+
+W przypadku usunięcia prywatnego punktu końcowego używanego przez środowisko ASE nie będzie można nawiązać połączenia z aplikacjami w środowisku ASE.  
 
 Środowisko ASE używa adresów w podsieci wychodzącej do obsługi infrastruktury używanej przez środowisko ASE. W miarę skalowania planów App Service w środowisku ASE będziesz używać więcej adresów. Aplikacje w środowisku ASE nie mają dedykowanych adresów w podsieci wychodzącej. Adresy używane przez aplikację w podsieci wychodzącej przez aplikację zmieniają się z upływem czasu.
 
@@ -48,7 +52,7 @@ W przeciwieństwie do ASEv2, z ASEv3 można ustawić sieciowe grupy zabezpiecze�
 
 ## <a name="dns"></a>DNS
 
-Aplikacje w środowisku ASE będą używać systemu DNS, z którym jest skonfigurowana Sieć wirtualna. Jeśli chcesz, aby niektóre aplikacje używały innego serwera DNS, możesz ustawić je ręcznie dla poszczególnych aplikacji przy użyciu ustawień aplikacji WEBSITE_DNS_SERVER i WEBSITE_DNS_ALT_SERVER. Ustawienie aplikacji WEBSITE_DNS_ALT_SERVER konfiguruje pomocniczy serwer DNS. Pomocniczy serwer DNS jest używany tylko wtedy, gdy nie ma odpowiedzi z podstawowego serwera DNS. 
+Aplikacje w środowisku ASE będą używać systemu DNS, z którym jest skonfigurowana Sieć wirtualna. Postępuj zgodnie z instrukcjami w temacie [using a App Service Environment](https://docs.microsoft.com/azure/app-service/environment/using#dns-configuration) , aby skonfigurować serwer DNS tak, aby WSKAZYWAŁ środowisko ASE. Jeśli chcesz, aby niektóre aplikacje używały innego serwera DNS niż konfiguracja sieci wirtualnej, możesz ustawić je ręcznie dla poszczególnych aplikacji przy użyciu ustawień aplikacji WEBSITE_DNS_SERVER i WEBSITE_DNS_ALT_SERVER. Ustawienie aplikacji WEBSITE_DNS_ALT_SERVER konfiguruje pomocniczy serwer DNS. Pomocniczy serwer DNS jest używany tylko wtedy, gdy nie ma odpowiedzi z podstawowego serwera DNS. 
 
 ## <a name="preview-limitation"></a>Ograniczenie wersji zapoznawczej
 

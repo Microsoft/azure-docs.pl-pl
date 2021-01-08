@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: cd35cea28e23e88ba97bb7a27dc252d6bebd65e4
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 087a7ead1ef5f9f46f5b81f8d42fcc0ea0209e61
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739658"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013281"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Utwórz projekt etykietowania danych i Eksportuj etykiety 
 
@@ -54,7 +54,7 @@ Projekty etykiet są administrowane przy użyciu Azure Machine Learning. Strona 
 
 Jeśli dane są już w usłudze Azure Blob Storage, należy udostępnić ją jako magazyn danych przed utworzeniem projektu etykietowania. Aby zapoznać się z przykładem korzystania z magazynu danych, zobacz [Samouczek: Tworzenie pierwszego projektu etykietowania klasyfikacji obrazu](tutorial-labeling.md).
 
-Aby utworzyć projekt, wybierz pozycję **Dodaj projekt**. Nadaj projektowi odpowiednią nazwę i wybierz pozycję **etykieta typ zadania**.
+Aby utworzyć projekt, wybierz pozycję **Dodaj projekt**. Nadaj projektowi odpowiednią nazwę i wybierz pozycję **etykieta typ zadania**. Nie można ponownie użyć nazwy projektu, nawet jeśli projekt zostanie usunięty w przyszłości.
 
 :::image type="content" source="media/how-to-create-labeling-projects/labeling-creation-wizard.png" alt-text="Kreator tworzenia etykiet dla projektu":::
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 3679bf9d55ddccefddb4bf3b2a96ec1b427315af
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: c0ceae8727681c045c3bbf3e6626937633b38997
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663661"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013536"
 ---
 # <a name="using-an-app-service-environment"></a>Korzystanie z App Service Environment
 
@@ -78,13 +78,20 @@ Adres URL usługi SCM służy do uzyskiwania dostępu do konsoli usługi kudu lu
 
 ### <a name="dns-configuration"></a>Konfiguracja usługi DNS 
 
-Środowisko ASE używa prywatnych punktów końcowych dla ruchu przychodzącego i jest automatycznie konfigurowane z Azure DNS strefami prywatnymi. Jeśli chcesz użyć własnego serwera DNS, musisz dodać następujące rekordy:
+Środowisko ASE używa prywatnych punktów końcowych dla ruchu przychodzącego. Nie jest on automatycznie konfigurowany przy użyciu stref prywatnych Azure DNS. Jeśli chcesz użyć własnego serwera DNS, musisz dodać następujące rekordy:
 
 1. Utwórz strefę dla &lt; nazwy środowiska ASE &gt; . appserviceenvironment.NET
 1. Utwórz rekord A w tej strefie, który wskazuje * na adres IP ruchu przychodzącego używany przez prywatny punkt końcowy środowiska ASE
 1. Utwórz w tej strefie rekord A wskazujący, że adres IP dla ruchu przychodzącego używany przez prywatny punkt końcowy środowiska ASE
 1. Utwórz strefę w programie &lt; ASE Name &gt; . appserviceenvironment.NET o nazwie SCM
 1. Utwórz rekord A w strefie SCM, który wskazuje na adres IP używany przez prywatny punkt końcowy środowiska ASE
+
+Aby skonfigurować serwer DNS w Azure DNS strefach prywatnych:
+
+1. Utwórz Azure DNS strefę prywatną o nazwie <ASE name> . appserviceenvironment.NET
+1. Utwórz rekord A w tej strefie, który wskazuje * na adres IP ILB
+1. Utwórz rekord A w tej strefie, który wskazuje na ILB adres IP
+1. Utwórz rekord A w tej strefie, który wskazuje *. SCM na adres IP ILB
 
 Ustawienia DNS dla domyślnego sufiksu domeny środowiska ASE nie ograniczają aplikacji do dostępu do tych nazw. Możesz ustawić niestandardową nazwę domeny bez żadnej weryfikacji aplikacji w środowisku ASE. Jeśli chcesz utworzyć strefę o nazwie *contoso.NET*, możesz to zrobić i wskazać adres IP dla ruchu przychodzącego. Niestandardowa nazwa domeny działa w przypadku żądań aplikacji, ale nie dla witryny SCM. Witryna SCM jest dostępna tylko w witrynie *&lt; nazwa_aplikacji &gt; . SCM. &lt; asename &gt; . appserviceenvironment.NET*. 
 
@@ -125,7 +132,7 @@ Możesz zintegrować środowisko ASE z Azure Monitor, aby wysyłać dzienniki do
 Aby włączyć rejestrowanie w środowisku ASE:
 
 1. W portalu przejdź do pozycji **Ustawienia diagnostyki**.
-1. Wybierz pozycję **Dodaj ustawienie diagnostyczne**.
+1. Wybierz pozycję **Dodaj ustawienia diagnostyczne**.
 1. Podaj nazwę dla integracji dzienników.
 1. Wybierz i skonfiguruj lokalizacje docelowe dzienników.
 1. Wybierz pozycję **AppServiceEnvironmentPlatformLogs**.

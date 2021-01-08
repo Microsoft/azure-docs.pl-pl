@@ -3,8 +3,8 @@ title: Azure AD Connect Health — dane usługi kondycji są nieaktualne Microso
 description: W tym dokumencie opisano przyczynę alertu "dane usługi kondycji są nieaktualne" i jak rozwiązać ten problem.
 services: active-directory
 documentationcenter: ''
-author: zhiweiwangmsft
-manager: SamuelD
+author: billmath
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.subservice: hybrid
@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 02/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63d1d87d9b576a8e181b5b339052a6b6512f18a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00518eb91e57efaacb7abc63b6ad4531619be2ce
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85359232"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012873"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>Dane usługi kondycji są nieaktualne
 

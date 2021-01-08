@@ -3,16 +3,16 @@ title: Nawiązywanie połączenia z usługą SQL Server, Azure SQL Database lub 
 description: Automatyzowanie zadań związanych z bazami danych SQL w środowisku lokalnym lub w chmurze przy użyciu Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, jonfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 01/07/2021
 tags: connectors
-ms.openlocfilehash: ce7679fff86d2c96588cf2b704d44238535963b3
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 75c657236b6e06a7e0f6c717d746bcc8c034d423
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130939"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013451"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatyzowanie przepływów pracy dla bazy danych SQL przy użyciu Azure Logic Apps
 
@@ -38,7 +38,7 @@ Jeśli dopiero zaczynasz tworzyć aplikacje logiki, zapoznaj [się z tematem Azu
 
   * W przypadku Azure SQL Database te szczegóły można znaleźć w parametrach połączenia.
   
-    Na przykład aby znaleźć ten ciąg w Azure Portal, Otwórz bazę danych. W menu Baza danych wybierz opcję **Parametry połączenia** lub **Właściwości** :
+    Na przykład aby znaleźć ten ciąg w Azure Portal, Otwórz bazę danych. W menu Baza danych wybierz opcję **Parametry połączenia** lub **Właściwości**:
 
     `Server=tcp:{your-server-name}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
 
@@ -74,17 +74,17 @@ Gdy po raz pierwszy dodasz [wyzwalacz SQL](#add-sql-trigger) lub [akcję SQL](#a
 
 1. W polu **Typ uwierzytelniania** wybierz Uwierzytelnianie, które jest wymagane i włączone dla bazy danych w Azure SQL Database lub wystąpieniu zarządzanym Azure SQL:
 
-   | Authentication | Opis |
+   | Uwierzytelnianie | Opis |
    |----------------|-------------|
    | [**Integracja z usługą Azure AD**](../azure-sql/database/authentication-aad-overview.md) | -Obsługuje łącznik SQL Server ISE i ISE. <p><p>-Wymaga prawidłowej tożsamości w usłudze Azure Active Directory (Azure AD), która ma dostęp do bazy danych. <p>Więcej informacji można znaleźć w następujących tematach: <p>- [Omówienie zabezpieczeń usługi Azure SQL — uwierzytelnianie](../azure-sql/database/security-overview.md#authentication) <br>- [Autoryzowanie dostępu do bazy danych do usługi Azure SQL — uwierzytelnianie i autoryzacja](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) <br>- [Azure SQL — uwierzytelnianie zintegrowane z usługą Azure AD](../azure-sql/database/authentication-aad-overview.md) |
    | [**Uwierzytelnianie programu SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | -Obsługuje łącznik SQL Server ISE i ISE. <p><p>-Wymaga prawidłowej nazwy użytkownika i silnego hasła, które są tworzone i przechowywane w bazie danych. <p>Więcej informacji można znaleźć w następujących tematach: <p>- [Omówienie zabezpieczeń usługi Azure SQL — uwierzytelnianie](../azure-sql/database/security-overview.md#authentication) <br>- [Autoryzowanie dostępu do bazy danych do usługi Azure SQL — uwierzytelnianie i autoryzacja](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
    |||
 
-   Ten przykład jest kontynuowany z **integracją z usługą Azure AD** :
+   Ten przykład jest kontynuowany z **integracją z usługą Azure AD**:
 
    ![Zrzut ekranu przedstawiający okno połączenia "SQL Server" z otwartą listą "typ uwierzytelniania" i wybraną opcją "Azure AD Integrated".](./media/connectors-create-api-sqlazure/select-azure-ad-authentication.png)
 
-1. Po wybraniu opcji **integracja z usługą Azure AD** wybierz pozycję **Zaloguj** . W zależności od tego, czy używasz Azure SQL Database, czy z wystąpienia zarządzanego Azure SQL, wybierz poświadczenia użytkownika na potrzeby uwierzytelniania.
+1. Po wybraniu opcji **integracja z usługą Azure AD** wybierz pozycję **Zaloguj**. W zależności od tego, czy używasz Azure SQL Database, czy z wystąpienia zarządzanego Azure SQL, wybierz poświadczenia użytkownika na potrzeby uwierzytelniania.
 
 1. Wybierz następujące wartości dla bazy danych:
 
@@ -98,7 +98,7 @@ Gdy po raz pierwszy dodasz [wyzwalacz SQL](#add-sql-trigger) lub [akcję SQL](#a
    > [!TIP]
    > Aby zapewnić informacje dotyczące bazy danych i tabeli, możesz korzystać z następujących opcji:
    > 
-   > * Znajdź te informacje w parametrach połączenia bazy danych. Na przykład w Azure Portal Znajdź i Otwórz bazę danych. W menu Baza danych wybierz opcję **Parametry połączenia** lub **Właściwości** , gdzie można znaleźć ten ciąg:
+   > * Znajdź te informacje w parametrach połączenia bazy danych. Na przykład w Azure Portal Znajdź i Otwórz bazę danych. W menu Baza danych wybierz opcję **Parametry połączenia** lub **Właściwości**, gdzie można znaleźć ten ciąg:
    >
    >   `Server=tcp:{your-server-address}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
    >
@@ -123,13 +123,13 @@ Gdy po raz pierwszy dodasz [wyzwalacz SQL](#add-sql-trigger) lub [akcję SQL](#a
 
 1. W **polu Typ uwierzytelniania** wybierz Uwierzytelnianie, które jest wymagane i włączone na SQL Server:
 
-   | Authentication | Opis |
+   | Uwierzytelnianie | Opis |
    |----------------|-------------|
    | [**Uwierzytelnianie systemu Windows**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) | -Obsługuje tylko ISE łącznik SQL Server, który wymaga zasobu bramy danych, który został wcześniej utworzony na platformie Azure dla połączenia, niezależnie od tego, czy używasz wielodostępnej platformy Azure, czy ISE. <p><p>-Wymaga prawidłowej nazwy użytkownika i hasła systemu Windows w celu potwierdzenia tożsamości za pomocą konta systemu Windows. <p>Aby uzyskać więcej informacji, zobacz [uwierzytelnianie systemu Windows](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) |
    | [**Uwierzytelnianie programu SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | -Obsługuje łącznik SQL Server ISE i ISE. <p><p>-Wymaga prawidłowej nazwy użytkownika i silnego hasła, które są tworzone i przechowywane w SQL Server. <p>Aby uzyskać więcej informacji, zobacz [SQL Server Authentication](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
    |||
 
-   Ten przykład jest kontynuowany z **uwierzytelnianiem systemu Windows** :
+   Ten przykład jest kontynuowany z **uwierzytelnianiem systemu Windows**:
 
    ![Wybierz typ uwierzytelniania do użycia](./media/connectors-create-api-sqlazure/select-windows-authentication.png)
 
@@ -142,7 +142,7 @@ Gdy po raz pierwszy dodasz [wyzwalacz SQL](#add-sql-trigger) lub [akcję SQL](#a
    | **Nazwa użytkownika** | Tak | Nazwa użytkownika serwera SQL i bazy danych |
    | **Password** (Hasło) | Tak | Hasło do programu SQL Server i bazy danych |
    | **Subskrypcja** |  Tak, na potrzeby uwierzytelniania systemu Windows | Subskrypcja platformy Azure dla zasobu bramy danych, który został wcześniej utworzony na platformie Azure |
-   | **Brama połączenia** | Tak, na potrzeby uwierzytelniania systemu Windows | Nazwa zasobu bramy danych, który został wcześniej utworzony na platformie Azure <p><p>**Porada** : Jeśli Brama nie pojawia się na liście, sprawdź poprawność [konfiguracji bramy](../logic-apps/logic-apps-gateway-connection.md). |
+   | **Brama połączenia** | Tak, na potrzeby uwierzytelniania systemu Windows | Nazwa zasobu bramy danych, który został wcześniej utworzony na platformie Azure <p><p>**Porada**: Jeśli Brama nie pojawia się na liście, sprawdź poprawność [konfiguracji bramy](../logic-apps/logic-apps-gateway-connection.md). |
    |||
 
    > [!TIP]
@@ -157,7 +157,7 @@ Gdy po raz pierwszy dodasz [wyzwalacz SQL](#add-sql-trigger) lub [akcję SQL](#a
 
    ![Ukończono tworzenie połączenia SQL Server](./media/connectors-create-api-sqlazure/sql-server-create-connection-complete.png)
 
-1. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz** .
+1. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz**.
 
 1. Teraz wykonaj kroki, które nie zostały jeszcze wykonane w obszarze [Dodaj wyzwalacz SQL](#add-sql-trigger) lub [Dodaj akcję SQL](#add-sql-action).
 
@@ -178,12 +178,18 @@ Gdy po raz pierwszy dodasz [wyzwalacz SQL](#add-sql-trigger) lub [akcję SQL](#a
 1. Aby dodać inne właściwości dostępne dla tego wyzwalacza, Otwórz listę **Dodaj nowy parametr** .
 
    Ten wyzwalacz zwraca tylko jeden wiersz z wybranej tabeli i nic nie jest inne. Aby wykonać inne zadania, Kontynuuj przez dodanie [akcji łącznika SQL](#add-sql-action) lub [innej akcji](../connectors/apis-list.md) , która wykonuje następne zadanie w przepływie pracy aplikacji logiki.
-   
+
    Na przykład, aby wyświetlić dane w tym wierszu, można dodać inne akcje, które tworzą plik, który zawiera pola z zwróconego wiersza, a następnie wysyła alerty e-mail. Aby dowiedzieć się więcej o innych dostępnych akcjach dla tego łącznika, zobacz [stronę odwołania łącznika](/connectors/sql/).
 
-1. Na pasku narzędzi projektanta wybierz pozycję **Zapisz** .
+1. Na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
 
    Mimo że ten krok automatycznie włącza i publikuje aplikację logiki na żywo na platformie Azure, jedyną akcją, którą zajmuje bieżąca aplikacja logiki, jest sprawdzenie bazy danych na podstawie określonego interwału i częstotliwości.
+
+<a name="trigger-recurrence-shift-drift"></a>
+
+### <a name="trigger-recurrence-shift-and-drift"></a>Wyzwól przesunięcie i przesunięcia cykli
+
+Wyzwalacze oparte na połączeniach, w których należy utworzyć połączenie, takie jak wyzwalacz SQL, różnią się od wbudowanych wyzwalaczy, które działają natywnie w Azure Logic Apps, takich jak [wyzwalacz cyklu](../connectors/connectors-native-recurrence.md). W cyklicznych wyzwalaczach opartych na połączeniach harmonogram cyklu nie jest jedynym sterownikiem, które steruje wykonywaniem, a strefa czasowa określa tylko początkowy czas rozpoczęcia. Kolejne uruchomienia są zależne od harmonogramu cyklu, ostatniego wykonania wyzwalacza *i* innych czynników, które mogą spowodować przekroczenie czasu uruchomienia lub wygenerowanie nieoczekiwanego zachowania, na przykład niezachowywanie określonego harmonogramu, gdy czas letni (DST) zaczyna się i skończy. Aby upewnić się, że czas cyklu nie zostanie przesunięty, gdy zmiana czasu zacznie obowiązywać, ręcznie Dostosuj cykl, aby aplikacja logiki nadal działała o oczekiwanym czasie. W przeciwnym razie czas rozpoczęcia jest przesuwany o jedną godzinę do przodu, gdy DST zaczyna się od godziny i do tyłu po zakończeniu DST. Aby uzyskać więcej informacji, zobacz [cykl dla wyzwalaczy opartych na połączeniach](../connectors/apis-list.md#recurrence-connection-based).
 
 <a name="add-sql-action"></a>
 
@@ -193,25 +199,25 @@ W tym przykładzie aplikacja logiki rozpoczyna się od [wyzwalacza cykl](../conn
 
 1. W [Azure Portal](https://portal.azure.com) lub w programie Visual Studio Otwórz aplikację logiki w Projektancie aplikacji logiki. Ten przykład kontynuuje Azure Portal.
 
-1. W obszarze wyzwalacza lub akcji, w której chcesz dodać akcję SQL, wybierz pozycję **nowy krok** .
+1. W obszarze wyzwalacza lub akcji, w której chcesz dodać akcję SQL, wybierz pozycję **nowy krok**.
 
    ![Dodawanie akcji do aplikacji logiki](./media/connectors-create-api-sqlazure/select-new-step-logic-app.png)
 
-   Lub, aby dodać akcję między istniejącymi krokami, przesuń wskaźnik myszy na strzałkę łączącą. Wybierz wyświetlony znak plus ( **+** ), a następnie wybierz pozycję **Dodaj akcję** .
+   Lub, aby dodać akcję między istniejącymi krokami, przesuń wskaźnik myszy na strzałkę łączącą. Wybierz wyświetlony znak plus ( **+** ), a następnie wybierz pozycję **Dodaj akcję**.
 
-1. W obszarze **Wybierz akcję** , w polu wyszukiwania wpisz `sql server` . Z listy Akcje wybierz żądaną akcję SQL. W tym przykładzie zostanie użyta akcja **Pobierz wiersz** , która pobiera jeden rekord.
+1. W obszarze **Wybierz akcję**, w polu wyszukiwania wpisz `sql server` . Z listy Akcje wybierz żądaną akcję SQL. W tym przykładzie zostanie użyta akcja **Pobierz wiersz** , która pobiera jeden rekord.
 
    ![Wybieranie akcji "Pobierz wiersz" SQL](./media/connectors-create-api-sqlazure/select-sql-get-row-action.png)
 
 1. Jeśli łączysz się z usługą SQL Database po raz pierwszy, zostanie wyświetlony monit o [utworzenie połączenia z usługą SQL Database](#create-connection). Po utworzeniu tego połączenia możesz przejść do następnego kroku.
 
-1. Wybierz **nazwę tabeli** , która jest `SalesLT.Customer` w tym przykładzie. Wprowadź **Identyfikator wiersza** dla żądanego rekordu.
+1. Wybierz **nazwę tabeli**, która jest `SalesLT.Customer` w tym przykładzie. Wprowadź **Identyfikator wiersza** dla żądanego rekordu.
 
    ![Wybierz nazwę tabeli i określ identyfikator wiersza](./media/connectors-create-api-sqlazure/specify-table-row-id.png)
 
    Ta akcja zwraca tylko jeden wiersz z wybranej tabeli, nic innego. Aby wyświetlić dane w tym wierszu, możesz dodać inne akcje, które tworzą plik, który zawiera pola z zwróconego wiersza, i zapisać ten plik na koncie magazynu w chmurze. Aby dowiedzieć się więcej o innych dostępnych akcjach dla tego łącznika, zobacz [stronę odwołania łącznika](/connectors/sql/).
 
-1. Gdy skończysz, na pasku narzędzi projektanta wybierz pozycję **Zapisz** .
+1. Gdy skończysz, na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
 
    Ten krok powoduje automatyczne włączenie i opublikowanie aplikacji logiki na żywo na platformie Azure.
 
@@ -221,7 +227,7 @@ W tym przykładzie aplikacja logiki rozpoczyna się od [wyzwalacza cykl](../conn
 
 Czasami musisz współpracować z zestawami wyników tak długo, że łącznik nie zwróci wszystkich wyników w tym samym czasie lub chcesz mieć lepszą kontrolę nad rozmiarem i strukturą zestawów wyników. Oto kilka sposobów obsługi takich dużych zestawów wyników:
 
-* Aby ułatwić zarządzanie wynikami w postaci mniejszych zestawów, Włącz *podział na strony* . Aby uzyskać więcej informacji, zobacz [pobieranie danych zbiorczych, rekordów i elementów za pomocą dzielenia na strony](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md). Aby uzyskać więcej informacji, zobacz [podział na strony SQL na potrzeby zbiorczego transferu danych za pomocą Logic Apps](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx).
+* Aby ułatwić zarządzanie wynikami w postaci mniejszych zestawów, Włącz *podział na strony*. Aby uzyskać więcej informacji, zobacz [pobieranie danych zbiorczych, rekordów i elementów za pomocą dzielenia na strony](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md). Aby uzyskać więcej informacji, zobacz [podział na strony SQL na potrzeby zbiorczego transferu danych za pomocą Logic Apps](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx).
 
 * Utwórz [*procedurę przechowywaną*](/sql/relational-databases/stored-procedures/stored-procedures-database-engine) , która organizuje wyniki w odpowiedni sposób. Łącznik SQL udostępnia wiele funkcji zaplecza, do których można uzyskać dostęp za pomocą Azure Logic Apps, dzięki czemu można łatwiej zautomatyzować zadania biznesowe, które współpracują z tabelami usługi SQL Database.
 
@@ -242,30 +248,34 @@ Po wywołaniu procedury składowanej przy użyciu łącznika SQL Server, zwracan
 
 1. Wyświetl format danych wyjściowych, wykonując przebieg testu. Skopiuj i Zapisz przykładowe dane wyjściowe.
 
-1. W projektancie w obszarze działania, w którym wywołujesz procedurę składowaną, wybierz pozycję **nowy krok** .
+1. W projektancie w obszarze działania, w którym wywołujesz procedurę składowaną, wybierz pozycję **nowy krok**.
 
 1. W obszarze **Wybierz akcję** Znajdź i wybierz akcję [**Przeanalizuj dane JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) .
 
-1. W akcji **Przeanalizuj dane JSON** wybierz pozycję **Użyj przykładowego ładunku do wygenerowania schematu** .
+1. W akcji **Przeanalizuj dane JSON** wybierz pozycję **Użyj przykładowego ładunku do wygenerowania schematu**.
 
-1. W polu **wprowadź lub wklej przykładowy ładunek JSON** wklej przykładowe dane wyjściowe, a następnie wybierz pozycję **gotowe** .
+1. W polu **wprowadź lub wklej przykładowy ładunek JSON** wklej przykładowe dane wyjściowe, a następnie wybierz pozycję **gotowe**.
 
    > [!NOTE]
    > Jeśli zostanie wyświetlony komunikat o błędzie, który Logic Apps nie może wygenerować schematu, sprawdź, czy składnia przykładowych danych wyjściowych jest prawidłowo sformatowana. Jeśli nadal nie można wygenerować schematu, w polu **schemat** ręcznie wprowadź schemat.
 
-1. Na pasku narzędzi projektanta wybierz pozycję **Zapisz** .
+1. Na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
 
 1. Aby odwołać się do właściwości zawartości JSON, kliknij wewnątrz pól edycji, w których chcesz odwołać się do tych właściwości, aby wyświetlić listę zawartości dynamicznej. Na liście pod nagłówkiem [**JSON analizy**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) wybierz tokeny danych dla właściwości zawartości JSON, które chcesz.
 
 ## <a name="troubleshoot-problems"></a>Rozwiązywanie problemów
 
-* Problemy z połączeniem mogą być często wykonywane, dlatego w celu rozwiązywania problemów i rozwiązywania tych problemów sprawdź [Błędy łączności, aby SQL Server](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server). Oto kilka przykładów:
+<a name="connection-problems"></a>
 
-  * `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
+### <a name="connection-problems"></a>Problemy z połączeniem
 
-  * `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
+Problemy z połączeniem mogą być często wykonywane, dlatego w celu rozwiązywania problemów i rozwiązywania tych problemów sprawdź [Błędy łączności, aby SQL Server](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server). Oto kilka przykładów:
 
-  * `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
+* `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
+
+* `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
+
+* `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
 
 ## <a name="connector-specific-details"></a>Szczegóły dotyczące łącznika
 

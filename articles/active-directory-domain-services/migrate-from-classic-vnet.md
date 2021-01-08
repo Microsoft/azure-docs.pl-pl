@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: justinha
-ms.openlocfilehash: 1fcd46870a4f85d1b88d22d77de5c201404c3a09
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 694ed5304e838057141b7df043565d58188fc870
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96619372"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013043"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Przeprowadź migrację Azure Active Directory Domain Services z modelu klasycznej sieci wirtualnej do Menedżer zasobów
 
@@ -155,8 +155,8 @@ Migracja do modelu wdrażania Menedżer zasobów i sieci wirtualnej jest podziel
 |---------|--------------------|-----------------|-----------|-------------------|
 | [Krok 1 — aktualizowanie i lokalizowanie nowej sieci wirtualnej](#update-and-verify-virtual-network-settings) | Azure Portal | 15 minut | Brak wymaganego przestoju | Nie dotyczy |
 | [Krok 2. Przygotowanie domeny zarządzanej do migracji](#prepare-the-managed-domain-for-migration) | PowerShell | średnio 15 – 30 minut | Czas przestoju AD DS platformy Azure zostanie uruchomiony po zakończeniu tego polecenia. | Wycofaj i Przywróć dostępne. |
-| [Krok 3. przeniesienie domeny zarządzanej do istniejącej sieci wirtualnej](#migrate-the-managed-domain) | PowerShell | 1 – 3 godziny średnio | Po zakończeniu tego polecenia jest dostępny jeden kontroler domeny, przestoje zakończy się. | W przypadku niepowodzenia dostępne są zarówno wycofywanie (samoobsługowe) i przywracanie. |
-| [Krok 4. testowanie i oczekiwanie na replikę kontrolera domeny](#test-and-verify-connectivity-after-the-migration)| PowerShell i Azure Portal | 1 godzina lub więcej, w zależności od liczby testów | Oba kontrolery domeny są dostępne i powinny działać normalnie. | Nie dotyczy. Po pomyślnym przeprowadzeniu migracji pierwszej maszyny wirtualnej nie jest dostępna opcja wycofywania ani przywracania. |
+| [Krok 3. przeniesienie domeny zarządzanej do istniejącej sieci wirtualnej](#migrate-the-managed-domain) | PowerShell | 1 – 3 godziny średnio | Po zakończeniu tego polecenia jest dostępny jeden kontroler domeny. | W przypadku niepowodzenia dostępne są zarówno wycofywanie (samoobsługowe) i przywracanie. |
+| [Krok 4. testowanie i oczekiwanie na replikę kontrolera domeny](#test-and-verify-connectivity-after-the-migration)| PowerShell i Azure Portal | 1 godzina lub więcej, w zależności od liczby testów | Oba kontrolery domeny są dostępne i powinny działać normalnie, przestoje kończą się nieprzerwanie. | Nie dotyczy. Po pomyślnym przeprowadzeniu migracji pierwszej maszyny wirtualnej nie jest dostępna opcja wycofywania ani przywracania. |
 | [Krok 5 — opcjonalne kroki konfiguracji](#optional-post-migration-configuration-steps) | Azure Portal i maszyny wirtualne | Nie dotyczy | Brak wymaganego przestoju | Nie dotyczy |
 
 > [!IMPORTANT]
@@ -262,16 +262,14 @@ Na tym etapie można opcjonalnie przenieść inne istniejące zasoby z klasyczne
 
 ## <a name="test-and-verify-connectivity-after-the-migration"></a>Testowanie i weryfikowanie łączności po migracji
 
-Pomyślna instalacja drugiego kontrolera domeny może zająć trochę czasu i będzie można go używać w domenie zarządzanej.
+Pomyślna instalacja drugiego kontrolera domeny może zająć trochę czasu i będzie można go używać w domenie zarządzanej. Drugi kontroler domeny powinien być dostępny 1-2 godzin po zakończeniu migracji. W modelu wdrażania Menedżer zasobów zasoby sieciowe dla domeny zarządzanej są wyświetlane w Azure Portal lub Azure PowerShell. Aby sprawdzić, czy drugi kontroler domeny jest dostępny, sprawdź na stronie **Właściwości** dla domeny zarządzanej w Azure Portal. Jeśli pokazane są dwa adresy IP, drugi kontroler domeny jest gotowy.
 
-W modelu wdrażania Menedżer zasobów zasoby sieciowe dla domeny zarządzanej są wyświetlane w Azure Portal lub Azure PowerShell. Aby dowiedzieć się więcej o tym, co to są zasoby sieciowe i jak to zrobić, zobacz [zasoby sieciowe używane przez usługę Azure AD DS][network-resources].
-
-Gdy jest dostępny co najmniej jeden kontroler domeny, wykonaj następujące czynności konfiguracyjne dla łączności sieciowej z maszynami wirtualnymi:
+Po udostępnieniu drugiego kontrolera domeny wykonaj następujące czynności konfiguracyjne, aby uzyskać łączność sieciową z maszynami wirtualnymi:
 
 * **Zaktualizuj ustawienia serwera DNS** Aby umożliwić innym zasobom w Menedżer zasobów sieci wirtualnej rozpoznawanie i używanie domeny zarządzanej, zaktualizuj ustawienia DNS przy użyciu adresów IP nowych kontrolerów domeny. Azure Portal mogą automatycznie konfigurować te ustawienia.
 
     Aby dowiedzieć się więcej o konfigurowaniu Menedżer zasobów sieci wirtualnej, zobacz temat [Aktualizowanie ustawień DNS dla sieci wirtualnej platformy Azure][update-dns].
-* **Uruchom ponownie przyłączone do domeny maszyny wirtualne** — w przypadku zmiany adresów IP serwera DNS dla kontrolerów domeny AD DS platformy Azure ponownie uruchom wszystkie maszyny wirtualne przyłączone do domeny, tak aby korzystały z nowych ustawień serwera DNS. Jeśli aplikacje lub maszyny wirtualne ręcznie skonfigurowali ustawienia DNS, należy je zaktualizować ręcznie przy użyciu nowych adresów IP serwerów DNS kontrolerów domeny, które są wyświetlane w Azure Portal.
+* **Uruchom ponownie przyłączone do domeny maszyny wirtualne (opcjonalnie)** W miarę zmiany adresów IP serwera DNS dla kontrolerów domeny AD DS platformy Azure można uruchomić ponownie wszystkie maszyny wirtualne przyłączone do domeny, a następnie użyć nowych ustawień serwera DNS. Jeśli aplikacje lub maszyny wirtualne ręcznie skonfigurowali ustawienia DNS, należy je zaktualizować ręcznie przy użyciu nowych adresów IP serwerów DNS kontrolerów domeny, które są wyświetlane w Azure Portal. Ponowne uruchamianie przyłączonych do domeny maszyn wirtualnych uniemożliwiają problemy z łącznością spowodowaną przez adresy IP, które nie są odświeżane.
 
 Teraz Przetestuj połączenie z siecią wirtualną i rozpoznawanie nazw. Na maszynie wirtualnej, która jest połączona z siecią wirtualną Menedżer zasobów lub z nią komunikacji równorzędnej, wypróbuj następujące testy komunikacji sieciowej:
 
@@ -280,7 +278,7 @@ Teraz Przetestuj połączenie z siecią wirtualną i rozpoznawanie nazw. Na masz
 1. Sprawdź rozpoznawanie nazw domen zarządzanych, takich jak `nslookup aaddscontoso.com`
     * Określ nazwę DNS dla własnej domeny zarządzanej, aby sprawdzić, czy ustawienia DNS są poprawne i rozwiązuje.
 
-Drugi kontroler domeny powinien być dostępny 1-2 godzin po zakończeniu migracji. Aby sprawdzić, czy drugi kontroler domeny jest dostępny, sprawdź na stronie **Właściwości** dla domeny zarządzanej w Azure Portal. Jeśli pokazane są dwa adresy IP, drugi kontroler domeny jest gotowy.
+Aby dowiedzieć się więcej o innych zasobach sieciowych, zobacz [zasoby sieciowe używane przez usługę Azure AD DS][network-resources].
 
 ## <a name="optional-post-migration-configuration-steps"></a>Opcjonalne kroki konfiguracji po migracji
 

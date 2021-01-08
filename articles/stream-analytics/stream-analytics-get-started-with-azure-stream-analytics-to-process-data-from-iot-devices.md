@@ -1,18 +1,17 @@
 ---
 title: Przetwarzanie strumieni danych IoT w czasie rzeczywistym za pomocą Azure Stream Analytics
 description: Używanie tagów czujników IoT i strumieni danych z analizą strumieni i przetwarzaniem danych w czasie rzeczywistym
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/26/2019
-ms.openlocfilehash: 311aca139220622a0436d490e73a536c3fc898c9
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: a438401ff93c20d8759e6128936c3626bd3de484
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129018"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012686"
 ---
 # <a name="process-real-time-iot-data-streams-with-azure-stream-analytics"></a>Przetwarzanie strumieni danych IoT w czasie rzeczywistym za pomocą Azure Stream Analytics
 
@@ -44,13 +43,13 @@ W celu ułatwienia pracy w tym przewodniku z wprowadzeniem udostępniono przykł
 
 ## <a name="create-a-stream-analytics-job"></a>Tworzenie zadania usługi Stream Analytics
 
-1. W [Azure Portal](https://portal.azure.com)wybierz pozycję **+ Utwórz zasób** z menu nawigacji po lewej stronie. Następnie wybierz **zadanie Stream Analytics** z **analizy** .
+1. W [Azure Portal](https://portal.azure.com)wybierz pozycję **+ Utwórz zasób** z menu nawigacji po lewej stronie. Następnie wybierz **zadanie Stream Analytics** z **analizy**.
    
     ![Tworzenie nowego zadania usługi Stream Analytics](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-02.png)
 
 1. Wprowadź unikatową nazwę zadania i sprawdź, czy subskrypcja jest poprawna dla zadania. Utwórz nową grupę zasobów lub wybierz istniejącą z subskrypcji.
 
-1. Wybierz lokalizację dla zadania. Użyj tej samej lokalizacji dla grupy zasobów i wszystkich zasobów, aby zwiększyć szybkość przetwarzania i zmniejszyć koszty. Po dokonaniu konfiguracji wybierz pozycję **Utwórz** .
+1. Wybierz lokalizację dla zadania. Użyj tej samej lokalizacji dla grupy zasobów i wszystkich zasobów, aby zwiększyć szybkość przetwarzania i zmniejszyć koszty. Po dokonaniu konfiguracji wybierz pozycję **Utwórz**.
    
     ![Tworzenie szczegółów nowego zadania usługi Stream Analytics](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03.png)
 
@@ -60,7 +59,7 @@ Następnym krokiem po utworzeniu zadania jest napisanie zapytania. Można testow
 Pobierz [HelloWorldASA-InputStream.js](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json
 ) z witryny GitHub. Następnie przejdź do zadania Azure Stream Analytics w Azure Portal.
 
-Wybierz pozycję **zapytanie** w obszarze **topologia zadania** z menu po lewej stronie. Następnie wybierz pozycję **Przekaż przykładowe dane wejściowe** . Przekaż `HelloWorldASA-InputStream.json` plik, a następnie wybierz **przycisk OK** .
+Wybierz pozycję **zapytanie** w obszarze **topologia zadania** z menu po lewej stronie. Następnie wybierz pozycję **Przekaż przykładowe dane wejściowe**. Przekaż `HelloWorldASA-InputStream.json` plik, a następnie wybierz **przycisk OK**.
 
 ![Kafelek zapytania pulpitu nawigacyjnego Stream Analytics](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
 
@@ -125,7 +124,7 @@ HAVING Avg(temp)>100
 
 ![Zapytanie z filtrowaniem co 30 sekund](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
 
-Powinny być widoczne wyniki, które zawierają tylko 245 wierszy i nazw czujników, gdzie średnia temperatura jest większa niż 100. W tym zapytaniu strumień zdarzeń został pogrupowany według wartości **dspl** , czyli nazwy czujnika, i wartości **Okno wirowania** równej 30 sekund. Zapytania czasowe muszą określać, jak należy postępować. Za pomocą klauzuli **timestamp by** została określona kolumna **OUTPUTTIME** , która ma zostać skojarzona z wszystkimi obliczeniami czasowymi. Aby uzyskać szczegółowe informacje, przeczytaj temat [Zarządzanie czasem](/stream-analytics-query/time-management-azure-stream-analytics) i [funkcje okna](/stream-analytics-query/windowing-azure-stream-analytics).
+Powinny być widoczne wyniki, które zawierają tylko 245 wierszy i nazw czujników, gdzie średnia temperatura jest większa niż 100. W tym zapytaniu strumień zdarzeń został pogrupowany według wartości **dspl**, czyli nazwy czujnika, i wartości **Okno wirowania** równej 30 sekund. Zapytania czasowe muszą określać, jak należy postępować. Za pomocą klauzuli **timestamp by** została określona kolumna **OUTPUTTIME** , która ma zostać skojarzona z wszystkimi obliczeniami czasowymi. Aby uzyskać szczegółowe informacje, przeczytaj temat [Zarządzanie czasem](/stream-analytics-query/time-management-azure-stream-analytics) i [funkcje okna](/stream-analytics-query/windowing-azure-stream-analytics).
 
 ### <a name="query-detect-absence-of-events"></a>Zapytanie: wykrywanie braku zdarzeń
 
@@ -148,7 +147,7 @@ WHERE t2.dspl IS NULL
 
 ![Wykrywanie braku zdarzeń](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
 
-W tym przypadku zostanie użyte sprzężenie **LEFT OUTER** względem tego samego strumienia danych (samosprzężenie). W przypadku sprzężenia **INNER** wynik jest zwracany tylko wtedy, gdy zostanie znalezione dopasowanie.  Natomiast w przypadku sprzężenia **LEFT OUTER** , jeśli zdarzenie z lewej strony sprzężenia jest niedopasowane, dla wszystkich kolumn po prawej stronie wiersza jest zwracany wiersz z wartością NULL. Ta technika jest bardzo przydatna do wyszukiwania braku zdarzeń. Aby uzyskać więcej informacji, zobacz [Join](/stream-analytics-query/join-azure-stream-analytics).
+W tym przypadku zostanie użyte sprzężenie **LEFT OUTER** względem tego samego strumienia danych (samosprzężenie). W przypadku sprzężenia **INNER** wynik jest zwracany tylko wtedy, gdy zostanie znalezione dopasowanie.  Natomiast w przypadku sprzężenia **LEFT OUTER**, jeśli zdarzenie z lewej strony sprzężenia jest niedopasowane, dla wszystkich kolumn po prawej stronie wiersza jest zwracany wiersz z wartością NULL. Ta technika jest bardzo przydatna do wyszukiwania braku zdarzeń. Aby uzyskać więcej informacji, zobacz [Join](/stream-analytics-query/join-azure-stream-analytics).
 
 ## <a name="conclusion"></a>Podsumowanie
 

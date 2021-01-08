@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: twooley
 ms.openlocfilehash: 9bb787138267fd8a9fab4dea233c1c828b457d67
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 01/08/2021
 ms.locfileid: "92109191"
 ---
 # <a name="copy-data-between-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>Kopiuj dane między Data Lake Storage Gen1 i Azure SQL Database przy użyciu Sqoop
@@ -121,7 +121,7 @@ Dla klastra HDInsight An dostępne są już pakiety Sqoop. Jeśli klaster usług
     -rwxrwxrwx   0 sshuser hdfs         18 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00003
     ```
 
-   Każdy plik **części-m-*** odnosi się do wiersza w tabeli źródłowej ( **Tabela1**). Możesz wyświetlić zawartość części-m-* plików do zweryfikowania.
+   Każda **część-m-** _ plik odnosi się do wiersza w tabeli źródłowej _ *Tabela1 * *. Możesz wyświetlić zawartość części-m-* plików do zweryfikowania.
 
 ### <a name="export-data-from-data-lake-storage-gen1-into-azure-sql-database"></a>Eksportowanie danych z Data Lake Storage Gen1 do Azure SQL Database
 

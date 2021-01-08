@@ -3,16 +3,15 @@ title: Korzystanie z przetwarzanie równoległe zapytań i skalowanie w Azure St
 description: W tym artykule opisano sposób skalowania Stream Analytics zadań przez skonfigurowanie partycji wejściowych, dostrajanie definicji zapytania i ustawienie jednostek przesyłania strumieniowego zadań.
 author: JSeb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 326af3bc38ce70cc7cb205384bb4302c5ff73d28
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 9149413d070bbb5eb8d0f8d0c99fe5ff705bcefb
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704184"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012329"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Korzystanie z przetwarzanie równoległe zapytań w Azure Stream Analytics
 W tym artykule pokazano, jak korzystać z przetwarzanie równoległe w Azure Stream Analytics. Dowiesz się, jak skalować Stream Analytics zadania przez skonfigurowanie partycji wejściowych i dostrajanie definicji zapytania analitycznego.
@@ -313,7 +312,7 @@ Wszystkie [przesyłane strumieniowo przykłady platformy Azure](https://github.c
 
 Użyj okienka metryki w zadaniu Azure Stream Analytics, aby identyfikować wąskie gardła w potoku. Przejrzyj **zdarzenia wejściowe/wyjściowe** dla przepływności i ["opóźnienie znaku wodnego"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) lub **zaległe zdarzenia** , aby sprawdzić, czy zadanie jest zgodne z szybkością danych wejściowych. W przypadku metryk centrum zdarzeń należy poszukać **żądań z ograniczeniami** i odpowiednio dostosować jednostki progowe. W przypadku metryk Cosmos DB Sprawdź **maksymalną liczbę użytych jednostek ru/s na klucz partycji** w obszarze przepływność, aby upewnić się, że zakresy kluczy partycji są jednolicie używane. W przypadku usługi Azure SQL DB Monitoruj **operacje we/wy dziennika** i **procesora CPU**.
 
-## <a name="get-help"></a>Uzyskiwanie pomocy
+## <a name="get-help"></a>Uzyskaj pomoc
 
 Aby uzyskać dalszą pomoc, Wypróbuj naszą [stronę pytań firmy&Microsoft dotyczącą Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
-ms.date: 04/20/2018
+ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: 2d5f6f9cfaff722245f6105b5e86390b8aeb769f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 42174ce094242a6e7412deea0bf1f0eed0f3b6ea
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94539723"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013179"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnozowanie problemu z routingiem sieciowym maszyny wirtualnej — interfejs wiersza polecenia platformy Azure
 
@@ -44,7 +44,7 @@ Przed utworzeniem maszyny wirtualnej musisz utworzyć grupę zasobów, która b�
 az group create --name myResourceGroup --location eastus
 ```
 
-Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm#az-vm-create). Jeśli klucze SSH nie istnieją jeszcze w domyślnej lokalizacji kluczy, to polecenie je utworzy. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`. Poniższy przykład tworzy maszynę wirtualną o nazwie *myVm* :
+Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm#az-vm-create). Jeśli klucze SSH nie istnieją jeszcze w domyślnej lokalizacji kluczy, to polecenie je utworzy. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`. Poniższy przykład tworzy maszynę wirtualną o nazwie *myVm*:
 
 ```azurecli-interactive
 az vm create \

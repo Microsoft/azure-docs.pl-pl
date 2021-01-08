@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/27/2018
+ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 25c58f99f56a4328527d1dd970e3ade21eb51819
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a556ea66bb54f994349ce9ba4d12fb486827edf
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987165"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013300"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Samouczek: diagnozowanie problemu z komunikacją między sieciami przy użyciu witryny Azure Portal
 
@@ -97,7 +97,7 @@ Brama jest połączona z innymi sieciami za pośrednictwem połączenia bramy. Z
 
     Na karcie **Stan** diagnostyka sieci VPN informuje o nieprawidłowościach, a na karcie **Akcja** są udostępniane sugestie dotyczących przyczyn problemu.
 
-    Jeśli testowana brama została wdrożona za pomocą [skryptu](../vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) z sekcji [Wymagania wstępne](#prerequisites), problem wyświetlany na karcie **Stan** i dwa pierwsze elementy na karcie ** Akcje** dokładnie odpowiadają występującemu problemowi. Skrypt konfiguruje zastępczy adres IP 23.99.221.164 dla lokalnego urządzenia bramy sieci VPN.
+    Jeśli testowana brama została wdrożona za pomocą [skryptu](../vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) z sekcji [Wymagania wstępne](#prerequisites), problem wyświetlany na karcie **Stan** i dwa pierwsze elementy na karcie **Akcje** dokładnie odpowiadają występującemu problemowi. Skrypt konfiguruje zastępczy adres IP 23.99.221.164 dla lokalnego urządzenia bramy sieci VPN.
 
     Aby rozwiązać ten problem, należy się upewnić, że lokalna brama sieci VPN jest [poprawnie skonfigurowana](../vpn-gateway/vpn-gateway-about-vpn-devices.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json), i zmienić adres IP skonfigurowany za pomocą skryptu dla bramy sieci lokalnej na rzeczywisty publiczny adres lokalnej bramy sieci VPN.
 
