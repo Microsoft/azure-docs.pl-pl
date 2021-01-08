@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
-ms.openlocfilehash: a8dbadd3af9dc21ced54af151e4de705f854e011
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 950482a96604165a8f1ff20cab9e3eafe1224c90
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97696055"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98029002"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Tworzenie i wyświetlanie alertów dzienników oraz zarządzanie nimi za pomocą Azure Monitor
 
@@ -33,7 +33,7 @@ Reguły alertów dzienników można także tworzyć przy użyciu szablonów Azur
 
 Poniżej przedstawiono procedurę tworzenia zapytań dotyczących alertów:
 
-1. Przejdź do zasobu, dla którego chcesz otrzymywać alerty.
+1. Przejdź do zasobu, dla którego chcesz otrzymywać alerty. Należy rozważyć skonfigurowanie reguł alertów dla wielu zasobów, w miarę możliwości zaznaczając subskrypcję lub zakres grupy zasobów. Alerty dotyczące wielu zasobów zmniejszają koszty i muszą zarządzać wieloma regułami alertów.
 1. W obszarze **monitor** wybierz pozycję **dzienniki**.
 1. Wykonaj zapytanie o dane dziennika, które mogą wskazywać na problem. Możesz użyć [przykładu zapytania dotyczącego alertu](../log-query/example-queries.md) , aby zrozumieć, co można odkryć lub [zacząć pisać przy tworzeniu własnych zapytań](../log-query/log-analytics-tutorial.md). Ponadto [dowiedz się, jak tworzyć zoptymalizowane zapytania alertów](alerts-log-query.md).
 1. Naciśnij przycisk "+ Nowa reguła alertu", aby uruchomić przepływ tworzenia alertu.
@@ -155,7 +155,7 @@ Poniżej przedstawiono procedurę tworzenia zapytań dotyczących alertów:
     1. W razie konieczności wybierz pozycję [podział alertów według wymiarów](alerts-unified-log.md#split-by-alert-dimensions): 
        - **Kolumna Identyfikator zasobu** jest wybierana automatycznie, jeśli zostanie wykryta, i zmieni kontekst wywoływanego alertu na zasób rekordu. 
        - **Kolumnę identyfikator zasobu** można usunąć z alertów dotyczących subskrypcji lub grup zasobów. Cofanie wyboru jest przydatne, gdy wyniki zapytania są oparte na zasobach krzyżowych. Na przykład zapytanie sprawdzające, czy 80% maszyn wirtualnych grupy zasobów ma duże użycie procesora CPU.
-       - Można również wybrać maksymalnie sześć dodatkowych podziałów dla dowolnego typu kolumn liczbowych lub tekstowych przy użyciu tabeli Dimensions.
+       - Można również wybrać maksymalnie sześć kolejnych podziałów dla dowolnego typu kolumn liczbowych lub tekstowych przy użyciu tabeli Dimensions.
        - Alerty są uruchamiane oddzielnie, zgodnie z podziałem na podstawie unikatowych kombinacji i ładunku alertów zawiera te informacje.
     
         ![Wybieranie parametrów agregacji i ich podział](media/alerts-log/select-aggregation-parameters-and-splitting.png)

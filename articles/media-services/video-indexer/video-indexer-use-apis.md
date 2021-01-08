@@ -8,15 +8,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 11/10/2020
+ms.date: 01/07/2021
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cdba4ce36322f9c3fb0f898cb7eb1d1185ed1dc6
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: fcd194e2503610db314f6a975a4afb1d27962f8c
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636949"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028220"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Samouczek: używanie interfejsu API usługi Video Indexer
 
@@ -29,8 +29,10 @@ W tym artykule pokazano, jak deweloperzy mogą korzystać z [interfejsu API usł
 ## <a name="subscribe-to-the-api"></a>Subskrybowanie interfejsu API
 
 1. Zaloguj się w [portalu dla deweloperów usługi Video Indexer](https://api-portal.videoindexer.ai/).
+
+    Zapoznaj się z [informacjami o](release-notes.md#october-2020)wersji dotyczącej logowania.
     
-    ![Zaloguj się do portalu Video Indexer Developer](./media/video-indexer-use-apis/video-indexer-api01.png)
+     ![Zaloguj się do portalu Video Indexer Developer](./media/video-indexer-use-apis/sign-in.png)
 
    > [!Important]
    > * Musisz użyć tego samego dostawcy, który został użyty podczas tworzenia konta w usłudze Video Indexer.
@@ -40,14 +42,14 @@ W tym artykule pokazano, jak deweloperzy mogą korzystać z [interfejsu API usł
 
     Wybierz kartę [produkty](https://api-portal.videoindexer.ai/products) . Następnie wybierz pozycję autoryzacja i Subskrybuj.
     
-    ![Karta produkty w portalu Video Indexer Developer](./media/video-indexer-use-apis/video-indexer-api02.png)
+    ![Karta produkty w portalu Video Indexer Developer](./media/video-indexer-use-apis/authorization.png)
 
     > [!NOTE]
     > Nowi użytkownicy automatycznie subskrybują autoryzację.
     
-    Po zasubskrybowaniu możesz znaleźć swoją subskrypcję w **Products** obszarze  ->  **autoryzacja** produktów. Na stronie subskrypcja znajdują się klucze podstawowe i pomocnicze. Te klucze należy chronić. Powinno się ich używać tylko w kodzie serwera. Nie powinny być dostępne po stronie klienta (. js,. html itp.).
+    Po zasubskrybowaniu możesz znaleźć swoją subskrypcję w obszarze  ->  **autoryzacja** produktów. Na stronie subskrypcja znajdują się klucze podstawowe i pomocnicze. Te klucze należy chronić. Powinno się ich używać tylko w kodzie serwera. Nie powinny być dostępne po stronie klienta (. js,. html itp.).
 
-    ![Subskrypcja i klucze w portalu Video Indexer Developer](./media/video-indexer-use-apis/video-indexer-api03.png)
+    ![Subskrypcja i klucze w portalu Video Indexer Developer](./media/video-indexer-use-apis/subscriptions.png)
 
 > [!TIP]
 > Usługa Video Indexer może używać klucza pojedynczej subskrypcji do łączenia się z wieloma kontami usługi Video Indexer. Te konta usługi Video Indexer można następnie połączyć z różnymi kontami usługi Media Services.
@@ -64,7 +66,7 @@ Każde wywołanie interfejsu API operacji powinno być skojarzone z tokenem dost
 
 Możesz kontrolować, czy te tokeny są tylko do odczytu, czy też zezwalają na edycję, określając **AllowEdit = true/false**.
 
-W przypadku większości scenariuszy serwer-serwer prawdopodobnie używasz tego samego tokenu **konta** , ponieważ obejmuje on operacje na **kontach** i operacje **wideo** . Jeśli jednak planujesz nawiązanie połączeń po stronie klienta z Video Indexer (na przykład z poziomu języka JavaScript), użyj tokenu dostępu **wideo** , aby uniemożliwić klientom uzyskiwanie dostępu do całego konta. Jest to również powód, aby podczas osadzania Video Indexer kod klienta na kliencie (na przykład za pomocą **widżetu Get Insights** lub **uzyskać Widżet odtwarzacza** ), należy podać token dostępu **wideo** .
+W przypadku większości scenariuszy serwer-serwer prawdopodobnie używasz tego samego tokenu **konta** , ponieważ obejmuje on operacje na **kontach** i operacje **wideo** . Jeśli jednak planujesz nawiązanie połączeń po stronie klienta z Video Indexer (na przykład z poziomu języka JavaScript), użyj tokenu dostępu **wideo** , aby uniemożliwić klientom uzyskiwanie dostępu do całego konta. Jest to również powód, aby podczas osadzania Video Indexer kod klienta na kliencie (na przykład za pomocą **widżetu Get Insights** lub **uzyskać Widżet odtwarzacza**), należy podać token dostępu **wideo** .
 
 Aby ułatwić sprawę, można uzyskać informacje o kontach za pomocą pozycji **Authorization** API (Interfejs API autoryzacji) > **GetAccounts** (Pobierz konta) bez wcześniejszego pobierania tokenu użytkownika. Można również zażądać informacji o kontach z ważnymi tokenami, co umożliwia pominięcie dodatkowego wywołania w celu pobrania tokenu konta.
 
@@ -76,7 +78,7 @@ Możesz rozpocząć Integrowanie z interfejsem API. Zapoznaj się ze [szczegół
 
 Identyfikator konta to parametr wymagany we wszystkich wywołaniach interfejsu API operacji. Identyfikator konta jest identyfikatorem GUID, który można uzyskać w jeden z następujących sposobów:
 
-* Uzyskiwanie identyfikatora konta za pomocą **witryny internetowej usługi Video Indexer** :
+* Uzyskiwanie identyfikatora konta za pomocą **witryny internetowej usługi Video Indexer**:
 
     1. Przejdź do witryny internetowej [Video Indexer](https://www.videoindexer.ai/) i zaloguj się.
     2. Przejdź do strony **Settings** (Ustawienia).

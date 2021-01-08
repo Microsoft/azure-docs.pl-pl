@@ -11,12 +11,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
-ms.openlocfilehash: 3f8c296860fc36772a85039e27c86a72614c2a50
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e551925bbd1426256a81ac2ca3f245af7697245b
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791056"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028016"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Rozpocznij pracę z SQL Database dynamiczną maskowanie danych przy użyciu Azure Portal
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "92791056"
 W tym artykule pokazano, jak zaimplementować [Dynamiczne maskowanie danych](dynamic-data-masking-overview.md) przy użyciu Azure Portal. Możesz również zaimplementować Dynamiczne maskowanie danych za pomocą [poleceń cmdlet Azure SQL Database](/powershell/module/az.sql/) lub [interfejsu API REST](/rest/api/sql/).
 
 > [!NOTE]
-> Nie można ustawić tej funkcji przy użyciu portalu dla platformy Azure Synapse (Użyj programu PowerShell lub interfejsu API REST) ani wystąpienia zarządzanego SQL. Aby uzyskać więcej informacji, zobacz [Dynamiczne maskowanie danych](/sql/relational-databases/security/dynamic-data-masking).
+> Nie można ustawić tej funkcji przy użyciu portalu dla wystąpienia zarządzanego SQL (Użyj programu PowerShell lub interfejsu API REST). Aby uzyskać więcej informacji, zobacz [Dynamiczne maskowanie danych](/sql/relational-databases/security/dynamic-data-masking).
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-the-azure-portal"></a>Skonfiguruj Dynamiczne maskowanie danych dla bazy danych przy użyciu Azure Portal
 
@@ -42,7 +42,7 @@ W tym artykule pokazano, jak zaimplementować [Dynamiczne maskowanie danych](dyn
 
     ![Zrzut ekranu przedstawiający stronę Dodawanie konfiguracji reguły maskowania.](./media/dynamic-data-masking-configure-portal/6_ddm_add_mask.png)
 
-6. Wybierz **schemat** , **tabelę** i **kolumnę** , aby zdefiniować wyznaczono pole do maskowania.
+6. Wybierz **schemat**, **tabelę** i **kolumnę** , aby zdefiniować wyznaczono pole do maskowania.
 7. **Wybierz sposób maskowania** z listy kategorii poufne maskowanie danych.
 
     ![Zrzut ekranu przedstawiający kategorie z maską danych poufnych w sekcji Wybierz sposób maskowania.](./media/dynamic-data-masking-configure-portal/7_ddm_mask_field_format.png)

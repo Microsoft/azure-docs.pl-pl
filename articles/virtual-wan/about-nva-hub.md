@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: scottnap
 Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in the Virtual WAN hub.
-ms.openlocfilehash: 1e4b8a2d801d7d7eccfaf558c3926ead1ab0a953
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 365ed60e73be9bb2098022fa767f4ae54b93c37c
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91313777"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028084"
 ---
 # <a name="about-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Informacje o urządzeniu wirtualnym sieci w centrum sieci wirtualnej platformy Azure (wersja zapoznawcza)
 
 Wirtualna sieć WAN platformy Azure pracowała z partnerami sieciowymi, aby utworzyć automatyzację, która ułatwia łączenie urządzeń lokalnych klienta (CPE) z bramą sieci VPN platformy Azure w koncentratorze wirtualnym. Platforma Azure współpracuje z wybieraniem partnerów sieciowych w celu umożliwienia klientom wdrażania zewnętrznego urządzenia sieciowego (urządzenie WUS) innej firmy bezpośrednio w koncentratorze wirtualnym. Pozwala to klientom, którzy chcą połączyć swoją gałąź CPE z tą samą marką urządzenie WUS w koncentratorze wirtualnym, dzięki czemu mogą oni korzystać z zastrzeżonych możliwości kompleksowej klasy SD-WAN.
 
-Barracuda Networks to pierwszy partner, który udostępnia ofertę urządzenie WUS, którą można wdrożyć bezpośrednio w koncentratorze sieci WAN [Barracuda CloudGen](https://www.barracuda.com/products/cloudgenwan) . Platforma Azure współpracuje z większą liczbą partnerów, dlatego należy zobaczyć inne oferty.
+Sieci Barracuda i firmy Cisco są pierwszymi partnerami, aby zapewnić urządzeń WUS, które mogą być wdrażane bezpośrednio w koncentratorze sieci wirtualnej.  Zapoznaj się z dokumentacją produktu [Barracuda CLOUDGEN WAN](https://www.barracuda.com/products/cloudgenwan) i [Cisco Cloud onrampy dla wielochmurowego](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) . Platforma Azure współpracuje z większą liczbą partnerów, dlatego należy zobaczyć inne oferty.
 
 > [!NOTE]
 > Tylko oferty urządzenie WUS dostępne do wdrożenia w wirtualnym koncentratorze sieci WAN można wdrożyć w wirtualnym koncentratorze sieci WAN. Nie można ich wdrożyć w ramach dowolnej sieci wirtualnej na platformie Azure.
@@ -50,7 +50,7 @@ Partnerzy urządzenie WUS mogą tworzyć różne zasoby w zależności od wdroż
 * **Grupa zasobów klienta** — będzie zawierać symbol zastępczy aplikacji zarządzanej. Partnerzy mogą korzystać z tej opcji, aby ujawnić dowolne właściwości klienta, które wybierzemy tutaj.
 * **Grupa zasobów zarządzanych** — klienci nie mogą bezpośrednio konfigurować ani zmieniać zasobów w tej grupie zasobów, ponieważ są one kontrolowane przez wydawcę zarządzanej aplikacji. Ta grupa zasobów będzie zawierać zasób **NetworkVirtualAppliances** .
 
-:::image type="content" source="./media/about-nva-hub/managed-app.png" alt-text="Przegląd procesu":::
+:::image type="content" source="./media/about-nva-hub/managed-app.png" alt-text="Grupy zasobów aplikacji zarządzanej":::
 
 ### <a name="nva-infrastructure-units"></a><a name="units"></a>Jednostki infrastruktury urządzenie WUS
 
@@ -85,7 +85,7 @@ URZĄDZENIE WUS w koncentratorze wirtualnym jest dostępny w wersji zapoznawczej
 | Azja | Japan East |
 | Australia | Australia Wschodnia |
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 ### <a name="i-am-a-network-appliance-partner-and-want-to-get-our-nva-in-the-hub--can-i-join-this-partner-program"></a>Jestem partnerem urządzenia sieciowego i chcesz uzyskać nasze urządzenie WUS w centrum.  Czy mogę dołączyć do tego programu partnerskiego?
 
@@ -93,11 +93,11 @@ Niestety, w tej chwili nie ma możliwości dowolnych nowych ofert partnerskich. 
 
 ### <a name="can-i-deploy-any-nva-from-azure-marketplace-into-the-virtual-wan-hub"></a>Czy mogę wdrożyć dowolne urządzenie WUS z witryny Azure Marketplace w ramach wirtualnego centrum sieci WAN?
 
-Nie. W tej chwili dostępna jest tylko [Barracuda CloudGen sieci WAN](https://aka.ms/BarracudaMarketPlaceOffer) do wdrożenia w wirtualnym KONCENTRATORZE sieci WAN.
+W tej chwili tylko aplikacja [Barracuda CloudGen sieci WAN](https://aka.ms/BarracudaMarketPlaceOffer) i [Cisco Cloud vWAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cisco.cisco_cloud_vwan_app?tab=Overview) są dostępne do wdrożenia w wirtualnym koncentratorze sieci WAN.
 
 ### <a name="what-is-the-cost-of-the-nva"></a>Jaki jest koszt urządzenie WUS?
 
-Musisz zakupić licencję dla Barracuda CloudGen WAN urządzenie WUS z Barracuda. Aby uzyskać więcej informacji na temat licencjonowania, zobacz [stronę sieci WAN Barracuda CloudGen](https://www.barracuda.com/products/cloudgenwan). Ponadto naliczane są opłaty od firmy Microsoft dla jednostek infrastruktury urządzenie WUS, które są używane, a także inne zasoby, z których korzystasz. Aby uzyskać więcej informacji, zobacz [pojęcia cenowe](pricing-concepts.md).
+Musisz zakupić licencję dla urządzenie WUS od dostawcy urządzenie WUS.  W przypadku usługi Barracuda CloudGen WAN urządzenie WUS z licencji Barracuda zobacz [stronę Barracuda WAN CloudGen](https://www.barracuda.com/products/cloudgenwan). Cisco obecnie oferuje tylko BYOLy model licencjonowania, który należy uzyskać bezpośrednio z firmy Cisco. Ponadto naliczane są opłaty od firmy Microsoft dla jednostek infrastruktury urządzenie WUS, które są używane, a także inne zasoby, z których korzystasz. Aby uzyskać więcej informacji, zobacz [pojęcia cenowe](pricing-concepts.md).
 
 ### <a name="can-i-deploy-an-nva-to-a-basic-hub"></a>Czy mogę wdrożyć urządzenie WUS w centrum Basic?
 
@@ -109,7 +109,7 @@ Tak. Barracuda CloudGen sieci WAN można wdrożyć w centrum za pomocą zapory p
 
 ### <a name="can-i-connect-any-cpe-device-in-my-branch-office-to-barracuda-cloudgen-wan-nva-in-the-hub"></a>Czy mogę połączyć każde urządzenie CPE w biurze oddziału, aby Barracuda CloudGen WAN urządzenie WUS w centrum?
 
-Nie. Barracuda CloudGen WAN jest zgodny z urządzeniami Barracuda CPE. Aby dowiedzieć się więcej o wymaganiach dotyczących sieci WAN CloudGen, zobacz [stronę sieci WAN CloudGen Barracuda](https://www.barracuda.com/products/cloudgenwan).
+Nie. Barracuda CloudGen WAN jest zgodny z urządzeniami Barracuda CPE. Aby dowiedzieć się więcej o wymaganiach dotyczących sieci WAN CloudGen, zobacz [stronę sieci WAN CloudGen Barracuda](https://www.barracuda.com/products/cloudgenwan). W przypadku programu Cisco istnieje kilka urządzeń z systemem SD-WAN CPE, które są zgodne. Zapoznaj się z artykułem [Cisco Cloud onpochylni dla zawiera z obsługą](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) CPEs.
 
 ### <a name="what-routing-scenarios-are-supported-with-nva-in-the-hub"></a>Jakie scenariusze routingu są obsługiwane w usłudze urządzenie WUS w centrum?
 

@@ -2,13 +2,13 @@
 title: Zalecane konfiguracje dla klientów Apache Kafka — Azure Event Hubs
 description: Ten artykuł zawiera zalecane konfiguracje Apache Kafka dla klientów korzystających z usługi Azure Event Hubs na potrzeby Apache Kafka.
 ms.topic: reference
-ms.date: 07/20/2020
-ms.openlocfilehash: f9a03d1d3433461a575b32cd69893408a8b0ef97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/07/2021
+ms.openlocfilehash: 713900a3cc7e2b9f6f176edb21455faa577098d6
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87097670"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028832"
 ---
 # <a name="recommended-configurations-for-apache-kafka-clients"></a>Zalecane konfiguracje dla klientów Apache Kafka
 Poniżej przedstawiono zalecane konfiguracje korzystania z platformy Azure Event Hubs z aplikacji klienckich Apache Kafka. 
@@ -79,7 +79,7 @@ Zapoznaj się z poniższą tabelą typowych scenariuszy błędów związanych z 
 
 Objawy | Problem | Rozwiązanie
 ----|---|-----
-Przesunięte błędy zatwierdzania z powodu ponownego zrównoważenia | Odbiorca czeka zbyt długo między wywołaniami sondowania (), a Usługa uruchamia odbiorcę z grupy. | Istnieje kilka rozwiązań: <ul><li>Zwiększ limit czasu sesji</li><li>zmniejszenie rozmiaru partii komunikatów w celu przyspieszenia przetwarzania</li><li>Popraw przetwarzanie równoległe przetwarzania, aby uniknąć zablokowania konsumenta. sonda ()</li></ul> Zastosowanie jakiejś kombinacji trzech jest najprawdopodobniej.
+Przesunięte błędy zatwierdzania z powodu ponownego zrównoważenia | Odbiorca czeka zbyt długo między wywołaniami sondowania (), a Usługa uruchamia odbiorcę z grupy. | Istnieje kilka rozwiązań: <ul><li>Zwiększ limit czasu przetwarzania sondowania ( `max.poll.interval.ms` )</li><li>Zmniejszenie rozmiaru partii komunikatów w celu przyspieszenia przetwarzania</li><li>Popraw przetwarzanie równoległe przetwarzania, aby uniknąć zablokowania konsumenta. sonda ()</li></ul> Zastosowanie jakiejś kombinacji trzech jest najprawdopodobniej.
 Wyjątki sieciowe o wysokiej przepływności tworzenia | Czy używasz klienta Java + domyślny maksymalny rozmiar żądania.  Twoje żądania mogą być zbyt duże. | Zobacz konfiguracje języka Java powyżej.
 
 ## <a name="next-steps"></a>Następne kroki

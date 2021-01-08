@@ -4,12 +4,12 @@ description: Dowiedz się, jak obsłużyć interakcję człowieka i limity czasu
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4e0f71369bc02fdce5625d9c74e1d52264ed86be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cba3cd0fd5d8727c4ffa4d1b42d7cd9250f21032
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80335759"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028307"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interakcja przez człowieka w przykładowej weryfikacji Durable Functions-telefonie
 
@@ -45,7 +45,7 @@ W tym artykule przedstawiono następujące funkcje w przykładowej aplikacji:
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs?range=17-70)]
 
 > [!NOTE]
-> Może nie być oczywisty w pierwszej kolejności, ale ta funkcja programu Orchestrator jest całkowicie deterministyczna. Jest to deterministyczne, ponieważ `CurrentUtcDateTime` Właściwość jest używana do obliczania czasu wygaśnięcia czasomierza i zwraca tę samą wartość w każdym odwrocie w tym momencie w kodzie programu Orchestrator. Takie zachowanie jest ważne, aby upewnić się, że te same `winner` wyniki z każdego Powtórzonego wywołania do `Task.WhenAny` .
+> Może nie być oczywisty w pierwszej kolejności, ale ten koordynator nie narusza [ograniczenia aranżacji](durable-functions-code-constraints.md). Jest to deterministyczne, ponieważ `CurrentUtcDateTime` Właściwość jest używana do obliczania czasu wygaśnięcia czasomierza i zwraca tę samą wartość w każdym odwrocie w tym momencie w kodzie programu Orchestrator. Takie zachowanie jest ważne, aby upewnić się, że te same `winner` wyniki z każdego Powtórzonego wywołania do `Task.WhenAny` .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -58,7 +58,20 @@ Oto kod implementujący funkcję:
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
 
 > [!NOTE]
-> Może nie być oczywisty w pierwszej kolejności, ale ta funkcja programu Orchestrator jest całkowicie deterministyczna. Jest to deterministyczne, ponieważ `currentUtcDateTime` Właściwość jest używana do obliczania czasu wygaśnięcia czasomierza i zwraca tę samą wartość w każdym odwrocie w tym momencie w kodzie programu Orchestrator. Takie zachowanie jest ważne, aby upewnić się, że te same `winner` wyniki z każdego Powtórzonego wywołania do `context.df.Task.any` .
+> Może nie być oczywisty w pierwszej kolejności, ale ten koordynator nie narusza [ograniczenia aranżacji](durable-functions-code-constraints.md). Jest to deterministyczne, ponieważ `currentUtcDateTime` Właściwość jest używana do obliczania czasu wygaśnięcia czasomierza i zwraca tę samą wartość w każdym odwrocie w tym momencie w kodzie programu Orchestrator. Takie zachowanie jest ważne, aby upewnić się, że te same `winner` wyniki z każdego Powtórzonego wywołania do `context.df.Task.any` .
+
+# <a name="python"></a>[Python](#tab/python)
+
+Funkcja **E4_SmsPhoneVerification** używa standardowego *function.jsna* potrzeby funkcji programu Orchestrator.
+
+[!code-json[Main](~/samples-durable-functions-python/samples/human_interaction/E4_SmsPhoneVerification/function.json)]
+
+Oto kod implementujący funkcję:
+
+[!code-python[Main](~/samples-durable-functions-python/samples/human_interaction/E4_SmsPhoneVerification/\_\_init\_\_.py)]
+
+> [!NOTE]
+> Może nie być oczywisty w pierwszej kolejności, ale ten koordynator nie narusza [ograniczenia aranżacji](durable-functions-code-constraints.md). Jest to deterministyczne, ponieważ `currentUtcDateTime` Właściwość jest używana do obliczania czasu wygaśnięcia czasomierza i zwraca tę samą wartość w każdym odwrocie w tym momencie w kodzie programu Orchestrator. Takie zachowanie jest ważne, aby upewnić się, że te same `winner` wyniki z każdego Powtórzonego wywołania do `context.df.Task.any` .
 
 ---
 
@@ -94,6 +107,16 @@ Funkcja **E4_SendSmsChallenge** używa powiązania Twilio do wysyłania wiadomo�
 A Oto kod generujący czterocyfrowy kod testu i wysyła komunikat SMS:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/index.js)]
+
+# <a name="python"></a>[Python](#tab/python)
+
+*function.json* został zdefiniowany w następujący sposób:
+
+[!code-json[Main](~/samples-durable-functions-python/samples/human_interaction/SendSMSChallenge/function.json)]
+
+A Oto kod generujący czterocyfrowy kod testu i wysyła komunikat SMS:
+
+[!code-python[Main](~/samples-durable-functions-python/samples/human_interaction/SendSMSChallenge/\_\_init\_\_.py)]
 
 ---
 

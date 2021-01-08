@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 1/05/2021
+ms.date: 1/06/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: fd3e4a4442f7da89ffee1557e7d908db805931ed
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 1debeab6e420d9021ebba1cecb2d551cf21c9fe2
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014876"
+ms.locfileid: "98028475"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Instrukcje: dostarczanie opcjonalnych oświadczeń do aplikacji
 
@@ -87,10 +87,12 @@ Te oświadczenia są zawsze uwzględniane w tokenach usługi Azure AD w wersji 1
 | `given_name`  | Imię                      | Określa imię i nazwisko użytkownika, zgodnie z ustawieniem obiektu użytkownika.<br>"given_name": "Piotr"                   | Obsługiwane w usłudze MSA i usłudze Azure AD.  Wymaga `profile` zakresu. |
 | `upn`         | Nazwa główna użytkownika | Identyfikator dla użytkownika, którego można użyć z parametrem username_hint.  Nie jest to trwały identyfikator użytkownika i nie należy go używać do unikatowej tożsamości informacji o użytkowniku (np. klucza bazy danych). Zamiast tego należy użyć identyfikatora obiektu użytkownika ( `oid` ) jako klucza bazy danych. Użytkownicy logujący się przy użyciu [alternatywnego identyfikatora logowania](../authentication/howto-authentication-use-email-signin.md) nie powinny być pokazywane nazwy głównej użytkownika (UPN). Zamiast tego należy użyć następującego `preferred_username` żądania, aby wyświetlić stan logowania do użytkownika. | Zapoznaj się z [dodatkowymi właściwościami](#additional-properties-of-optional-claims) poniżej w celu skonfigurowania żądania. Wymaga `profile` zakresu.|
 
+## <a name="v10-specific-optional-claims-set"></a>v 1.0 — zestaw oświadczeń opcjonalnych określonych
+
+Niektóre ulepszenia formatu tokenu v2 są dostępne dla aplikacji korzystających z formatu tokenu V1, ponieważ zwiększają one bezpieczeństwo i niezawodność. Nie będą one obowiązywać w przypadku tokenów identyfikatorów żądanych z punktu końcowego v2 ani dostępu do tokenów dla interfejsów API korzystających z formatu tokenu v2. Dotyczy to tylko tokenów JWTs, not SAML. 
 
 **Tabela 4: tylko opcjonalne oświadczenia**
 
-Niektóre ulepszenia formatu tokenu v2 są dostępne dla aplikacji korzystających z formatu tokenu V1, ponieważ zwiększają one bezpieczeństwo i niezawodność. Nie będą one obowiązywać w przypadku tokenów identyfikatorów żądanych z punktu końcowego v2 ani dostępu do tokenów dla interfejsów API korzystających z formatu tokenu v2. 
 
 | Claim JWT     | Nazwa                            | Opis | Uwagi |
 |---------------|---------------------------------|-------------|-------|

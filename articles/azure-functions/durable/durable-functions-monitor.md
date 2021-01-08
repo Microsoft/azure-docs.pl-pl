@@ -4,12 +4,12 @@ description: Dowiedz się, jak zaimplementować Monitor stanu przy użyciu rozsz
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ed92156df9d8e1e07b56cea4b1e64edee11d68d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e70c50098ece516312e1e92984185624c276301b
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77562126"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028424"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Scenariusz monitorowania w przykładowym monitorze Durable Functions-Pogoda
 
@@ -72,6 +72,9 @@ Oto kod implementujący funkcję:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
 
+# <a name="python"></a>[Python](#tab/python)
+Mamy inny Samouczek dotyczący wzorca monitorowania w języku Python, zobacz go [tutaj](durable-functions-monitor-python.md).
+
 ---
 
 Ta funkcja programu Orchestrator wykonuje następujące akcje:
@@ -83,8 +86,7 @@ Ta funkcja programu Orchestrator wykonuje następujące akcje:
 5. Tworzy trwały czasomierz w celu wznowienia aranżacji przy następnym interwale sondowania. Przykład używa zakodowanej wartości zwięzłości.
 6. Kontynuuje działanie do momentu upływu czasu wygaśnięcia bieżącego monitora lub wysłania alertu programu SMS.
 
-Jednocześnie można uruchamiać wiele wystąpień programu Orchestrator, wywołując funkcję programu Orchestrator wiele razy. Można określić lokalizację do monitorowania i numer telefonu, na który ma zostać wysłany alert programu SMS.
-
+Jednocześnie można uruchamiać wiele wystąpień programu Orchestrator, wywołując funkcję programu Orchestrator wiele razy. Można określić lokalizację do monitorowania i numer telefonu, na który ma zostać wysłany alert programu SMS. Na koniec należy pamiętać, że funkcja programu Orchestrator *nie* jest uruchomiona podczas oczekiwania na czasomierz, więc opłata nie zostanie naliczona.
 ### <a name="e3_getisclear-activity-function"></a>Funkcja działania E3_GetIsClear
 
 Podobnie jak w przypadku innych próbek, funkcje działania pomocnika są regularnymi funkcjami, które używają `activityTrigger` powiązania wyzwalacza. Funkcja **E3_GetIsClear** pobiera bieżące warunki pogodowe przy użyciu podziemnego interfejsu API Pogoda i określa, czy ta wartość jest wyczyszczona.
@@ -102,6 +104,9 @@ Podobnie jak w przypadku innych próbek, funkcje działania pomocnika są regula
 A oto implementacja.
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
+
+# <a name="python"></a>[Python](#tab/python)
+Mamy inny Samouczek dotyczący wzorca monitorowania w języku Python, zobacz go [tutaj](durable-functions-monitor-python.md).
 
 ---
 
@@ -125,6 +130,9 @@ Funkcja **E3_SendGoodWeatherAlert** używa powiązania Twilio do wysyłania wiad
 A Oto kod, który wysyła wiadomość SMS:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
+
+# <a name="python"></a>[Python](#tab/python)
+Mamy inny Samouczek dotyczący wzorca monitorowania w języku Python, zobacz go [tutaj](durable-functions-monitor-python.md).
 
 ---
 
@@ -169,7 +177,7 @@ Działanie aranżacji można zobaczyć, przeglądając dzienniki funkcji w porta
 2018-03-01T01:14:54.030 Function completed (Success, Id=561d0c78-ee6e-46cb-b6db-39ef639c9a2c, Duration=62ms)
 ```
 
-Aranżacja zostanie [zakończona](durable-functions-instance-management.md) po osiągnięciu limitu czasu lub wykryciu Skies. Można również użyć `TerminateAsync` (.NET) lub `terminate` (JavaScript) wewnątrz innej funkcji lub wywołać element webhook **terminatePostUri** http, do którego odwołuje się powyżej 202 powyżej, zastępując `{text}` z powód zakończenia:
+Aranżacja kończy się po osiągnięciu limitu czasu lub wykryciu czyszczenia Skies. Można również użyć `terminate` interfejsu API wewnątrz innej funkcji lub wywołać element webhook **terminatePostUri** http, do którego odwołuje się powyżej powyższej odpowiedzi 202. Aby użyć elementu webhook, Zastąp `{text}` z przyczyną wczesnego zakończenia. Adres URL POST protokołu HTTP będzie wyglądać w następujący sposób:
 
 ```
 POST https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}

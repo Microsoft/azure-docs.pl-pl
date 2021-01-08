@@ -5,15 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 12/12/2018
+ms.date: 01/07/2021
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 16a86982813b667ed5c761da27c8e9e5a43ab6cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27f16ac7d7d799c5467b11fd93352dc5fdef666c
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322499"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028067"
 ---
 # <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Konfigurowanie Global Reach ExpressRoute przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -48,7 +48,7 @@ az account set --subscription <your subscription ID>
 
 ### <a name="identify-your-expressroute-circuits-for-configuration"></a>Zidentyfikuj obwody usługi ExpressRoute na potrzeby konfiguracji
 
-Można włączyć ExpressRoute Global Reach między dowolnymi dwoma obwodami ExpressRoute, o ile znajdują się one w obsługiwanych krajach/regionach i zostały utworzone w różnych lokalizacjach komunikacji równorzędnej. Jeśli Twoja subskrypcja jest właścicielem obu obwodów, możesz wybrać opcję obwód, aby uruchomić konfigurację zgodnie z opisem w dalszej części tego artykułu. Jeśli dwa obwody znajdują się w różnych subskrypcjach platformy Azure, użytkownik musi mieć autoryzację z jednej subskrypcji platformy Azure i musi przekazać swój klucz autoryzacji po uruchomieniu polecenia konfiguracji w innej subskrypcji platformy Azure.
+Można włączyć ExpressRoute Global Reach między dowolnymi dwoma obwodami ExpressRoute. Obwody muszą znajdować się w obsługiwanych krajach/regionach i zostały utworzone w różnych lokalizacjach komunikacji równorzędnej. Jeśli Twoja subskrypcja jest właścicielem obu obwodów, możesz wybrać jeden z obwodów, aby uruchomić konfigurację. Jeśli jednak dwa obwody znajdują się w różnych subskrypcjach platformy Azure, należy utworzyć klucz autoryzacji z jednego obwodu. Przy użyciu klucza autoryzacji wygenerowanego na podstawie pierwszego obwodu można włączyć Global Reach w drugim obwodzie.
 
 ## <a name="enable-connectivity-between-your-on-premises-networks"></a>Włącz łączność między sieciami lokalnymi
 
@@ -58,7 +58,7 @@ Po uruchomieniu polecenia, aby włączyć łączność, należy zwrócić uwagę
 
   > /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}
 
-* *prefiks adresu* musi być podsiecią IPv4 "/29" (na przykład "10.0.0.0/29"). Adresy IP w tej podsieci są używane do nawiązywania łączności między dwoma obwodami usługi ExpressRoute. Nie należy używać adresów w tej podsieci w sieciach wirtualnych platformy Azure ani w sieciach lokalnych.
+* *prefiks adresu* musi być podsiecią IPv4 "/29" (na przykład "10.0.0.0/29"). Adresy IP w tej podsieci są używane do nawiązywania łączności między dwoma obwodami usługi ExpressRoute. Adresów w tej podsieci nie można używać w sieciach wirtualnych platformy Azure ani w sieciach lokalnych.
 
 Uruchom następujące polecenie interfejsu wiersza polecenia, aby połączyć dwa obwody usługi ExpressRoute:
 
@@ -94,7 +94,7 @@ Po zakończeniu tej operacji będziesz mieć łączność między sieciami lokal
 
 ## <a name="enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions"></a>Włączanie łączności między obwodami usługi ExpressRoute w różnych subskrypcjach platformy Azure
 
-Jeśli dwa obwody nie znajdują się w tej samej subskrypcji platformy Azure, musisz mieć autoryzację. W poniższej konfiguracji można wygenerować autoryzację w ramach subskrypcji obwodu 2 i przekazać klucz autoryzacji do obwodu 1.
+Jeśli dwa obwody nie znajdują się w tej samej subskrypcji platformy Azure, musisz mieć autoryzację. W poniższej konfiguracji wygenerujesz autoryzację w ramach subskrypcji obwodu 2. Następnie Przekaż klucz autoryzacji do obwodu 1.
 
 1. Generuj klucz autoryzacji:
 

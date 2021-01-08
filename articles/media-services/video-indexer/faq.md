@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: juliako
-ms.openlocfilehash: 721af069a76497576b92c4203a93656d19c283aa
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 0fc28a1f808eeb2977b1dcca5046ed29933b8aa8
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217732"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028798"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Video Indexer często zadawane pytania
 
@@ -183,7 +183,7 @@ Obecnie istnieją pewne nakładające się funkcje interfejsu API Video Indexer 
 
 Interfejs API Video Indexer zawiera interfejs API autoryzacji i interfejs API operacji. Interfejs API autoryzacji zawiera wywołania, które dają dostęp do tokenu dostępu. Każde wywołanie interfejsu API operacji powinno być skojarzone z tokenem dostępu zgodnym z zakresem autoryzacji wywołania.
 
-Tokeny dostępu są konieczne do używania interfejsów API Video Indexer ze względów bezpieczeństwa. Daje to pewność, że wszystkie wywołania pochodzą z użytkownika lub osoby, które mają uprawnienia dostępu do Twojego konta. 
+Tokeny dostępu są konieczne do używania interfejsów API Video Indexer ze względów bezpieczeństwa. Daje to pewność, że wszystkie wywołania pochodzą z użytkownika lub osoby, które mają uprawnienia dostępu do Twojego konta. 
 
 ### <a name="what-is-the-difference-between-account-access-token-user-access-token-and-video-access-token"></a>Jaka jest różnica między tokenem dostępu do konta, tokenem dostępu użytkowników i tokenem dostępu wideo?
 
@@ -197,7 +197,7 @@ Tokeny dostępu wygasają co godzinę, więc musisz wygenerować nowy token dost
 
 ### <a name="what-are-the-login-options-to-video-indexer-developer-portal"></a>Jakie są opcje logowania do Video Indexer portalu dla deweloperów?
 
-Możesz zalogować się przy użyciu usługi Azure AD, konto Microsoft, konta Google lub konta w serwisie Facebook. 
+Zapoznaj się z [informacjami o](release-notes.md#october-2020)wersji dotyczącej logowania.
 
 Po zarejestrowaniu konta e-mail przy użyciu dostawcy tożsamości nie można użyć tego konta e-mail z innym dostawcą tożsamości.
 

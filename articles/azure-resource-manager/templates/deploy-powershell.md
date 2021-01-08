@@ -3,12 +3,12 @@ title: Wdrażanie zasobów przy użyciu programu PowerShell i szablonu
 description: Użyj Azure Resource Manager i Azure PowerShell do wdrożenia zasobów na platformie Azure. Zasoby są zdefiniowane w szablonie usługi Resource Manager.
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 5266aa51422dce6dfa4b82238e905f4f630ccf48
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 40ee659f5892c983f84409a10634c6a8d6d78cc5
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92668563"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028493"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>Wdrażanie zasobów za pomocą szablonów ARM i Azure PowerShell
 
@@ -16,26 +16,26 @@ W tym artykule wyjaśniono, jak używać Azure PowerShell z szablonami Azure Res
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Musisz mieć szablon do wdrożenia. Jeśli jeszcze tego nie zrobiono, Pobierz i Zapisz [przykładowy szablon](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) z repozytorium szablonów szybkiego startu platformy Azure. Nazwa pliku lokalnego użyta w tym artykule jest **c:\MyTemplates\azuredeploy.jsw dniu** .
+Musisz mieć szablon do wdrożenia. Jeśli jeszcze tego nie zrobiono, Pobierz i Zapisz [przykładowy szablon](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) z repozytorium szablonów szybkiego startu platformy Azure. Nazwa pliku lokalnego użyta w tym artykule jest _C:\MyTemplates\azuredeploy.jsw dniu_.
 
 Musisz zainstalować Azure PowerShell i nawiązać połączenie z platformą Azure:
 
 - **Zainstaluj Azure PowerShell polecenia cmdlet na komputerze lokalnym.** Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z programem Azure PowerShell](/powershell/azure/get-started-azureps).
-- **Połącz się z platformą Azure za pomocą polecenia [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)** . Jeśli masz wiele subskrypcji platformy Azure, może być również konieczne uruchomienie [polecenie Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). Aby uzyskać więcej informacji, zobacz [Korzystanie z wielu subskrypcji platformy Azure](/powershell/azure/manage-subscriptions-azureps).
+- **Połącz się z platformą Azure za pomocą polecenia [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)**. Jeśli masz wiele subskrypcji platformy Azure, może być również konieczne uruchomienie [polecenie Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). Aby uzyskać więcej informacji, zobacz [Korzystanie z wielu subskrypcji platformy Azure](/powershell/azure/manage-subscriptions-azureps).
 
-Jeśli nie masz zainstalowanego programu PowerShell, możesz użyć Cloud Shell. Aby uzyskać więcej informacji, zobacz [wdrażanie szablonów ARM z Cloud Shell](deploy-cloud-shell.md).
+Jeśli nie masz zainstalowanego programu PowerShell, możesz użyć Azure Cloud Shell. Aby uzyskać więcej informacji, zobacz [wdrażanie szablonów ARM z Azure Cloud Shell](deploy-cloud-shell.md).
 
 ## <a name="deployment-scope"></a>Zakres wdrożenia
 
 Wdrożenie można określić w grupie zasobów, subskrypcji, grupie zarządzania lub dzierżawie. W zależności od zakresu wdrożenia używane są inne polecenia.
 
-* Aby wdrożyć w **grupie zasobów** , użyj polecenie [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
+- Aby wdrożyć w **grupie zasobów**, użyj polecenie [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
 
   ```azurepowershell
   New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
   ```
 
-* Aby wdrożyć w **ramach subskrypcji** , użyj polecenie New-AzSubscriptionDeployment:
+- Aby wdrożyć w **ramach subskrypcji**, użyj polecenia [New-AzSubscriptionDeployment](/powershell/module/az.resources/new-azdeployment) , które jest aliasem elementu `New-AzDeployment` cmdlet:
 
   ```azurepowershell
   New-AzSubscriptionDeployment -Location <location> -TemplateFile <path-to-template>
@@ -43,7 +43,7 @@ Wdrożenie można określić w grupie zasobów, subskrypcji, grupie zarządzania
 
   Aby uzyskać więcej informacji o wdrożeniach na poziomie subskrypcji, zobacz [Tworzenie grup zasobów i zasobów na poziomie subskrypcji](deploy-to-subscription.md).
 
-* Aby wdrożyć w **grupie zarządzania** , użyj polecenie [New-AzManagementGroupDeployment](/powershell/module/az.resources/New-AzManagementGroupDeployment).
+- Aby wdrożyć w **grupie zarządzania**, użyj polecenie [New-AzManagementGroupDeployment](/powershell/module/az.resources/New-AzManagementGroupDeployment).
 
   ```azurepowershell
   New-AzManagementGroupDeployment -Location <location> -TemplateFile <path-to-template>
@@ -51,7 +51,7 @@ Wdrożenie można określić w grupie zasobów, subskrypcji, grupie zarządzania
 
   Aby uzyskać więcej informacji o wdrożeniach na poziomie grupy zarządzania, zobacz [Tworzenie zasobów na poziomie grupy zarządzania](deploy-to-management-group.md).
 
-* Aby wdrożyć aplikację w **dzierżawie** , użyj polecenie [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
+- Aby wdrożyć aplikację w **dzierżawie**, użyj polecenie [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
 
   ```azurepowershell
   New-AzTenantDeployment -Location <location> -TemplateFile <path-to-template>
@@ -209,7 +209,7 @@ Zamiast przekazywania parametrów jako wartości śródwierszowych w skrypcie pr
 
 Aby uzyskać więcej informacji na temat pliku parametrów, zobacz [Tworzenie pliku parametrów usługi Resource Manager](parameter-files.md).
 
-Aby przekazać lokalny plik parametrów, użyj parametru **TemplateParameterFile** :
+Aby przekazać lokalny plik parametrów, użyj `TemplateParameterFile` parametru:
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
@@ -217,7 +217,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
   -TemplateParameterFile c:\MyTemplates\storage.parameters.json
 ```
 
-Aby przekazać zewnętrzny plik parametrów, użyj parametru **TemplateParameterUri** :
+Aby przekazać zewnętrzny plik parametrów, użyj `TemplateParameterUri` parametru:
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
@@ -230,4 +230,4 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
 - Aby wrócić do pomyślnego wdrożenia, gdy wystąpi błąd, zobacz [wycofywanie po pomyślnym wdrożeniu](rollback-on-error.md).
 - Aby określić sposób obsługi zasobów, które istnieją w grupie zasobów, ale nie są zdefiniowane w szablonie, zobacz [Azure Resource Manager trybami wdrożenia](deployment-modes.md).
 - Aby zrozumieć, jak definiować parametry w szablonie, zobacz [Opis struktury i składni szablonów ARM](template-syntax.md).
-- Informacje o wdrażaniu szablonu wymagającego tokenu SAS można znaleźć w temacie [Deploy Private Template with SAS token](secure-template-with-sas-token.md).
+- Aby uzyskać informacje na temat wdrażania szablonu wymagającego tokenu SAS, zobacz [wdrażanie prywatnego szablonu usługi ARM z tokenem SAS](secure-template-with-sas-token.md).

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/19/2020
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: c60adb09da05ba945bcf6ccb55e71c395f064211
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2adca03a820d02731bca252dee99c76debc85e2e
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965106"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028135"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Limity danych i szybkości dla interfejs API analizy tekstu
 <a name="data-limits"></a>
@@ -35,14 +35,22 @@ Skorzystaj z tego artykułu, aby znaleźć limity rozmiaru i stawek, które umo�
 | Maksymalny rozmiar pojedynczego dokumentu ( `/analyze` punkt końcowy)  | 125K znaki mierzone przez [StringInfo. lengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). Nie ma zastosowania do analiza tekstu na potrzeby kondycji. |
 | Maksymalny rozmiar całego żądania | 1 MB. Ma również zastosowanie do analiza tekstu na potrzeby kondycji. |
 
-Maksymalna liczba dokumentów, które można wysłać w ramach pojedynczego żądania, będzie zależeć od używanej wersji interfejsu API i funkcji. `/analyze`Punkt końcowy odrzuci całe żądanie, jeśli którykolwiek dokument przekracza maksymalny rozmiar (125K znaków)
+
+Jeśli dokument przekracza limit znaków, interfejs API będzie zachowywać się inaczej w zależności od używanego punktu końcowego:
+
+* `/analyze` punktu końcowego
+  * Interfejs API odrzuci całe żądanie i zwróci błąd, `400 bad request` Jeśli którykolwiek dokument w nim przekracza maksymalny rozmiar.
+* Wszystkie pozostałe punkty końcowe:  
+  * Interfejs API nie będzie przetwarzać dokumentu, który przekracza maksymalny rozmiar, i zwróci błąd nieprawidłowego dokumentu. Jeśli żądanie interfejsu API ma wiele dokumentów, interfejs API kontynuuje przetwarzanie ich, jeśli znajdują się w limicie znaków.
+
+Maksymalna liczba dokumentów, które można wysłać w jednym żądaniu, zależy od używanej wersji interfejsu API i funkcji, która jest opisana w poniższej tabeli.
 
 #### <a name="version-3"></a>[Wersja 3](#tab/version-3)
 
 W przypadku bieżącego interfejsu API v3 obowiązują następujące limity. Przekroczenie poniższych limitów spowoduje wygenerowanie kodu błędu HTTP 400.
 
 
-| Obiekt feature | Maksymalna liczba dokumentów na żądanie | 
+| Cechy | Maksymalna liczba dokumentów na żądanie | 
 |----------|-----------|
 | Wykrywanie języka | 1000 |
 | Analiza tonacji | 10 |
@@ -55,7 +63,7 @@ W przypadku bieżącego interfejsu API v3 obowiązują następujące limity. Prz
 
 #### <a name="version-2"></a>[Wersja 2](#tab/version-2)
 
-| Obiekt feature | Maksymalna liczba dokumentów na żądanie | 
+| Cechy | Maksymalna liczba dokumentów na żądanie | 
 |----------|-----------|
 | Wykrywanie języka | 1000 |
 | Analiza tonacji | 1000 |
@@ -81,7 +89,7 @@ Twoje limity szybkości różnią się w zależności od [warstwy cenowej](https
 Stawki żądań są mierzone osobno dla każdej funkcji analiza tekstu. Można w tym samym czasie wysyłać maksymalną liczbę żądań dla warstwy cenowej do każdej funkcji. Na przykład jeśli jesteś w `S` warstwie i wysyłasz żądania 1000 w jeden raz, nie będzie możliwe wysłanie kolejnego żądania przez 59 sekund.
 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Co to jest interfejs API analizy tekstu](../overview.md)
 * [Szczegóły cennika](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)

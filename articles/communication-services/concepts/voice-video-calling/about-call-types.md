@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 11c20f3f79a4fceafaca9b1a948f1b4a425dad87
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 00aa24f0ff8c918c645239ca36888c6a214062c8
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572715"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028764"
 ---
 # <a name="voice-and-video-concepts"></a>Pojęcia dotyczące głosu i wideo
 
@@ -49,7 +49,7 @@ Obsługujemy H. 264 (MPEG-4)
 Obsługujemy do pełnej rozdzielczości HD w natywnych zestawach SDK (iOS, Android). W przypadku zestawu SDK dla sieci Web (JS) jest obsługiwany standardowy dysk HD 720. Jakość zależy od dostępnej przepustowości.  
 
 ### <a name="rooms-concept"></a>Koncepcje pokojów
-Pokoje są zestawem interfejsów API i zestawów SDK, które umożliwiają łatwe dodawanie interakcji audio, wideo, udostępniania ekranu, sieci PSTN i wiadomości SMS do witryny internetowej lub aplikacji natywnej.
+Pokoje są zestawem interfejsów API i zestawów SDK, które umożliwiają łatwe dodawanie funkcji audio, wideo, udostępniania ekranu, sieci PSTN i wiadomości SMS do witryny internetowej lub aplikacji natywnych.
 W trakcie korzystania z wersji zapoznawczej można użyć identyfikatora grupy do dołączenia do tej samej konwersacji. Można utworzyć dowolną liczbę identyfikatorów grup i oddzielić użytkowników od "pokojów". Przechodzenie do przodu spowoduje zwiększenie kontroli wokół "pokojów" 
 
 ## <a name="next-steps"></a>Następne kroki

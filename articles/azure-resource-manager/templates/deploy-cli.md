@@ -3,12 +3,12 @@ title: Wdrażanie zasobów przy użyciu interfejsu wiersza polecenia platformy A
 description: Użyj Azure Resource Manager i interfejsu wiersza polecenia platformy Azure, aby wdrożyć zasoby na platformie Azure. Zasoby są zdefiniowane w szablonie usługi Resource Manager.
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 7b1639f31b696f300177d05107a98effc3f3ae23
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a2caea70a51a737bfa433a089c03b43f252b5d6e
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676195"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028152"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Wdrażanie zasobów za pomocą szablonów ARM i interfejsu wiersza polecenia platformy Azure
 
@@ -18,19 +18,19 @@ Polecenia wdrożenia zmieniły się w interfejsie CLI platformy Azure w wersji 2
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-Jeśli nie masz zainstalowanego interfejsu wiersza polecenia platformy Azure, możesz użyć Cloud Shell. Aby uzyskać więcej informacji, zobacz [wdrażanie szablonów ARM z Cloud Shell](deploy-cloud-shell.md).
+Jeśli nie masz zainstalowanego interfejsu wiersza polecenia platformy Azure, możesz użyć Azure Cloud Shell. Aby uzyskać więcej informacji, zobacz [wdrażanie szablonów ARM z Azure Cloud Shell](deploy-cloud-shell.md).
 
 ## <a name="deployment-scope"></a>Zakres wdrożenia
 
 Wdrożenie można określić w grupie zasobów, subskrypcji, grupie zarządzania lub dzierżawie. W zależności od zakresu wdrożenia używane są inne polecenia.
 
-* Aby wdrożyć w **grupie zasobów** , użyj [AZ Deployment Group Create](/cli/azure/deployment/group#az-deployment-group-create):
+* Aby wdrożyć w **grupie zasobów**, użyj [AZ Deployment Group Create](/cli/azure/deployment/group#az-deployment-group-create):
 
   ```azurecli-interactive
   az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
   ```
 
-* Aby wdrożyć w **ramach subskrypcji** , użyj polecenie [AZ Deployment sub Create](/cli/azure/deployment/sub#az-deployment-sub-create):
+* Aby wdrożyć w **ramach subskrypcji**, użyj polecenie [AZ Deployment sub Create](/cli/azure/deployment/sub#az-deployment-sub-create):
 
   ```azurecli-interactive
   az deployment sub create --location <location> --template-file <path-to-template>
@@ -38,7 +38,7 @@ Wdrożenie można określić w grupie zasobów, subskrypcji, grupie zarządzania
 
   Aby uzyskać więcej informacji o wdrożeniach na poziomie subskrypcji, zobacz [Tworzenie grup zasobów i zasobów na poziomie subskrypcji](deploy-to-subscription.md).
 
-* Aby wdrożyć w **grupie zarządzania** , użyj [AZ Deployment mg Create](/cli/azure/deployment/mg#az-deployment-mg-create):
+* Aby wdrożyć w **grupie zarządzania**, użyj [AZ Deployment mg Create](/cli/azure/deployment/mg#az-deployment-mg-create):
 
   ```azurecli-interactive
   az deployment mg create --location <location> --template-file <path-to-template>
@@ -46,7 +46,7 @@ Wdrożenie można określić w grupie zasobów, subskrypcji, grupie zarządzania
 
   Aby uzyskać więcej informacji o wdrożeniach na poziomie grupy zarządzania, zobacz [Tworzenie zasobów na poziomie grupy zarządzania](deploy-to-management-group.md).
 
-* Aby wdrożyć aplikację w **dzierżawie** , użyj polecenie [AZ Deployment dzierżawca Create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
+* Aby wdrożyć aplikację w **dzierżawie**, użyj polecenie [AZ Deployment dzierżawca Create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
 
   ```azurecli-interactive
   az deployment tenant create --location <location> --template-file <path-to-template>
@@ -169,7 +169,7 @@ Aby przekazać wartości parametrów, można użyć parametrów wbudowanych lub 
 
 ### <a name="inline-parameters"></a>Parametry wbudowane
 
-Aby przekazać parametry wbudowane, podaj wartości w `parameters` . Na przykład, aby przekazać ciąg i tablicę do szablonu, jest powłoką bash, użyj:
+Aby przekazać parametry wbudowane, podaj wartości w `parameters` . Na przykład aby przekazać ciąg i tablicę do szablonu w bash Shell, użyj:
 
 ```azurecli-interactive
 az deployment group create \
@@ -191,7 +191,7 @@ az deployment group create \
 
 Pobieranie wartości parametru z pliku jest przydatne, gdy trzeba podać wartości konfiguracyjne. Można na przykład udostępnić [wartości z usługi Cloud-init dla maszyny wirtualnej z systemem Linux](../../virtual-machines/linux/using-cloud-init.md).
 
-arrayContent.jsw formacie:
+_arrayContent.jsw_ formacie:
 
 ```json
 [
@@ -228,7 +228,7 @@ Zamiast przekazywania parametrów jako wartości śródwierszowych w skrypcie pr
 
 Aby uzyskać więcej informacji na temat pliku parametrów, zobacz [Tworzenie pliku parametrów usługi Resource Manager](parameter-files.md).
 
-Aby przekazać lokalny plik parametrów, użyj, `@` Aby określić plik lokalny o nazwie storage.parameters.json.
+Aby przekazać lokalny plik parametrów, użyj, `@` Aby określić plik lokalny o nazwie _storage.parameters.json_.
 
 ```azurecli-interactive
 az deployment group create \

@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 07/17/2019
+ms.date: 11/23/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: 6f089a67262c78f31092780bb8b4d7d803d47e0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d8c67fa5373afc8ea8bae5a49b87309f3893a12
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91369097"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028730"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Samouczek: ładowanie danych do puli SQL usługi Azure Synapse Analytics
 
@@ -24,9 +24,6 @@ W tym samouczku pokazano, jak załadować magazyn danych WideWorldImportersDW z 
 
 > [!div class="checklist"]
 >
-> * Tworzenie magazynu danych przy użyciu puli SQL w Azure Portal
-> * Konfigurowanie reguły zapory na poziomie serwera w witrynie Azure Portal
-> * Nawiązywanie połączenia z pulą SQL za pomocą programu SSMS
 > * Tworzenie użytkownika wyznaczonego do ładowania danych
 > * Tworzenie tabel zewnętrznych używających obiektu blob platformy Azure jako źródła danych
 > * Ładowanie danych do magazynu danych za pomocą instrukcji CTAS T-SQL
@@ -36,114 +33,11 @@ W tym samouczku pokazano, jak załadować magazyn danych WideWorldImportersDW z 
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Zanim rozpoczniesz ten samouczek, pobierz i zainstaluj najnowszą wersję programu [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
 
-## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
-
-Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-
-## <a name="create-a-blank-data-warehouse-in-sql-pool"></a>Tworzenie pustego magazynu danych w puli SQL
-
-Zostanie utworzona Pula SQL ze zdefiniowanym zestawem [zasobów obliczeniowych](memory-concurrency-limits.md). Pula SQL jest tworzona w [grupie zasobów platformy Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) i w [logicznym serwerze SQL](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
-
-Wykonaj następujące kroki, aby utworzyć pustą pulę SQL.
-
-1. Wybierz pozycję **Utwórz zasób** w Azure Portal.
-
-1. Na stronie **Nowy** wybierz pozycję **bazy danych** , a następnie wybierz pozycję **Azure Synapse Analytics** w obszarze **proponowane** na **nowej** stronie.
-
-    ![Utwórz pulę SQL](./media/load-data-wideworldimportersdw/create-empty-data-warehouse.png)
-
-1. Wypełnij sekcję **szczegóły projektu** , podając następujące informacje:
-
-   | Ustawienie | Przykład | Opis |
-   | ------- | --------------- | ----------- |
-   | **Subskrypcja** | Twoja subskrypcja  | Aby uzyskać szczegółowe informacje o subskrypcjach, zobacz [Subskrypcje](https://account.windowsazure.com/Subscriptions). |
-   | **Grupa zasobów** | myResourceGroup | Prawidłowe nazwy grup zasobów opisano w artykule [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (Reguły i ograniczenia nazewnictwa). |
-
-1. W obszarze **szczegóły puli SQL**Podaj nazwę puli SQL. Następnie wybierz istniejący serwer na liście rozwijanej lub wybierz pozycję **Utwórz nowy** w obszarze Ustawienia **serwera** , aby utworzyć nowy serwer. Wypełnij formularz, używając poniższych informacji:
-
-    | Ustawienie | Sugerowana wartość | Opis |
-    | ------- | --------------- | ----------- |
-    |**Nazwa puli SQL**|SampleDW| Prawidłowe nazwy baz danych znajdują się w temacie [identyfikatory baz danych](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). |
-    | **Nazwa serwera** | Dowolna nazwa unikatowa w skali globalnej | Prawidłowe nazwy serwera opisano w artykule [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (Reguły i ograniczenia nazewnictwa). |
-    | **Identyfikator logowania administratora serwera** | Dowolna prawidłowa nazwa | Prawidłowe nazwy logowania można znaleźć w temacie [identyfikatory baz danych](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
-    | **Hasło** | Dowolne prawidłowe hasło | Hasło musi mieć co najmniej osiem znaków i musi zawierać znaki z trzech z następujących kategorii: wielkie litery, małe litery, cyfry i znaki inne niż alfanumeryczne. |
-    | **Lokalizacja** | Dowolna prawidłowa lokalizacja | Aby uzyskać informacje na temat regionów, zobacz temat [Regiony systemu Azure](https://azure.microsoft.com/regions/). |
-
-    ![Utwórz serwer](./media/load-data-wideworldimportersdw/create-database-server.png)
-
-1. **Wybierz pozycję poziom wydajności**. Suwak domyślnie jest ustawiony na **DW1000c**. Przesuń suwak w górę i w dół, aby wybrać żądaną skalę wydajności.
-
-    ![Utwórz serwer 2](./media/load-data-wideworldimportersdw/create-data-warehouse.png)
-
-1. Na stronie **Ustawienia dodatkowe** ustaw opcję **Użyj istniejących danych** na brak i Pozostaw domyślne ustawienie *SQL_Latin1_General_CP1_CI_AS*. **Collation**
-
-1. Wybierz pozycję **Przegląd + Utwórz** , aby przejrzeć ustawienia, a następnie wybierz pozycję **Utwórz** , aby utworzyć magazyn danych. Postęp można monitorować, otwierając stronę **wdrożenia w toku** z menu **powiadomienia** .
-
-     ![Zrzut ekranu przedstawia powiadomienia z wdrożeniem w toku.](./media/load-data-wideworldimportersdw/notification.png)
-
-## <a name="create-a-server-level-firewall-rule"></a>Tworzenie reguły zapory na poziomie serwera
-
-Usługa Azure Synapse Analytics tworzy zaporę na poziomie serwera, która uniemożliwia zewnętrznym aplikacjom i narzędziom łączenie się z serwerem lub dowolnymi bazami danych na serwerze. Aby umożliwić łączność, możesz dodać reguły zezwalające na połączenia dla konkretnych adresów IP.  Wykonaj następujące kroki, aby utworzyć [regułę zapory na poziomie serwera](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) dla Twojego adresu IP klienta.
-
-> [!NOTE]
-> Pula SQL usługi Azure Synapse Analytics komunikuje się przez port 1433. Jeśli próbujesz nawiązać połączenie z sieci firmowej, ruch wychodzący na porcie 1433 może być blokowany przez zaporę sieciową. W takim przypadku nie można nawiązać połączenia z serwerem, chyba że dział IT otworzy port 1433.
->
-
-1. Po zakończeniu wdrożenia Wyszukaj nazwę puli w polu wyszukiwania w menu nawigacji, a następnie wybierz zasób puli SQL. Wybierz nazwę serwera.
-
-    ![Przejdź do zasobu](./media/load-data-wideworldimportersdw/search-for-sql-pool.png)
-
-1. Wybierz nazwę serwera.
-    ![nazwa serwera](././media/load-data-wideworldimportersdw/find-server-name.png)
-
-1. Wybierz pozycję **Pokaż ustawienia zapory**. Zostanie otwarta strona **Ustawienia zapory** dla serwera.
-
-    ![ustawienia serwera](./media/load-data-wideworldimportersdw/server-settings.png)
-
-1. Na stronie **zapory i sieci wirtualne** wybierz pozycję Dodaj adres **IP klienta** , aby dodać bieżący adres IP do nowej reguły zapory. Reguła zapory może otworzyć port 1433 dla pojedynczego adresu IP lub zakresu adresów IP.
-
-    ![reguła zapory serwera](./media/load-data-wideworldimportersdw/server-firewall-rule.png)
-
-1. Wybierz pozycję **Zapisz**. Reguła zapory na poziomie serwera jest tworzona dla bieżącego adresu IP otwierającego port 1433 na serwerze.
-
-Teraz możesz nawiązać połączenie z serwerem przy użyciu adresu IP klienta. Połączenie działa z programu SQL Server Management Studio lub dowolnego innego narzędzia. Przy łączeniu się używaj wcześniej utworzonego konta administratora serwera.  
-
-> [!IMPORTANT]
-> Domyślnie dostęp za pośrednictwem zapory usługi SQL Database jest włączony dla wszystkich usług platformy Azure. Kliknij pozycję **WYŁĄCZ** na tej stronie, a następnie kliknij przycisk **Zapisz**, aby wyłączyć zaporę dla wszystkich usług platformy Azure.
-
-## <a name="get-the-fully-qualified-server-name"></a>Uzyskiwanie w pełni kwalifikowanej nazwy serwera
-
-W pełni kwalifikowana nazwa serwera jest używana do nawiązywania połączenia z serwerem. Przejdź do zasobu puli SQL w Azure Portal i Wyświetl w pełni kwalifikowaną nazwę w polu **Nazwa serwera**.
-
-![nazwa serwera](././media/load-data-wideworldimportersdw/find-server-name.png)
-
-## <a name="connect-to-the-server-as-server-admin"></a>Nawiąż połączenie z serwerem jako administrator serwera
-
-Ta sekcja używa [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) do nawiązywania połączenia z serwerem.
-
-1. Otwórz program SQL Server Management Studio.
-
-2. W oknie dialogowym **Połącz z serwerem** wprowadź następujące informacje:
-
-    | Ustawienie      | Sugerowana wartość | Opis |
-    | ------------ | --------------- | ----------- |
-    | Typ serwera | Aparat bazy danych | Ta wartość jest wymagana |
-    | Nazwa serwera | W pełni kwalifikowana nazwa serwera | Na przykład **sqlpoolservername.Database.Windows.NET** to w pełni kwalifikowana nazwa serwera. |
-    | Uwierzytelnianie | Uwierzytelnianie programu SQL Server | Uwierzytelnianie SQL to jedyny typ uwierzytelniania skonfigurowany w tym samouczku. |
-    | Zaloguj się | Konto administratora serwera | To konto określono podczas tworzenia serwera. |
-    | Hasło | Hasło konta administratora serwera | To hasło określono podczas tworzenia serwera. |
-
-    ![łączenie z serwerem](./media/load-data-wideworldimportersdw/connect-to-server.png)
-
-3. Kliknij przycisk **Połącz**. W programie SSMS zostanie otwarte okno Eksplorator obiektów.
-
-4. W Eksploratorze obiektów rozwiń pozycję **Bazy danych**. Następnie rozwiń węzły **Systemowe bazy danych** i **master**, aby wyświetlić obiekty w bazie danych master.  Rozwiń węzeł **SampleDW** , aby wyświetlić obiekty w nowej bazie danych.
-
-    ![obiekty bazy danych](./media/load-data-wideworldimportersdw/connected.png)
+W tym samouczku założono, że utworzono już dedykowaną pulę SQL z poziomu poniższego [samouczka](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-portal#connect-to-the-server-as-server-admin).
 
 ## <a name="create-a-user-for-loading-data"></a>Tworzenie użytkownika do ładowania danych
 

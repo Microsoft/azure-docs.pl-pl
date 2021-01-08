@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 07b511182950095c356887d72ffde75ac098674d
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 82eaa597796bf3772faa90a9dbc4151da935c46a
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94904756"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98027727"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-powershell"></a>Migrowanie zasobów IaaS z klasycznej do Azure Resource Manager przy użyciu programu PowerShell
 
@@ -265,7 +265,7 @@ Jeśli gotowa konfiguracja wygląda dobrze, można przenieść do przodu i zatwi
 Po zakończeniu migrowania maszyn wirtualnych wykonaj następujące sprawdzenia wymagań wstępnych przed przeprowadzeniem migracji kont magazynu.
 
 > [!NOTE]
-> Jeśli konto magazynu nie ma skojarzonych dysków lub danych maszyny wirtualnej, możesz przejść bezpośrednio do sekcji "Weryfikowanie kont magazynu i rozpoczynanie migracji".
+> Jeśli konto magazynu nie ma skojarzonych dysków lub danych maszyny wirtualnej, możesz przejść bezpośrednio do sekcji "Weryfikowanie kont magazynu i rozpoczynanie migracji". Należy również pamiętać, że usunięcie dysków klasycznych, obrazów maszyn wirtualnych lub obrazów systemu operacyjnego nie powoduje usunięcia źródłowych plików VHD na koncie magazynu. Jednak spowoduje to przerwanie dzierżawy dla tych plików VHD, dzięki czemu można je ponownie wykorzystać do tworzenia dysków lub obrazów ARM po migracji.
 
 * Sprawdzanie wymagań wstępnych w przypadku migrowania dowolnych maszyn wirtualnych lub konta magazynu ma zasoby dyskowe:
     * Migruj maszyny wirtualne, których dyski są przechowywane na koncie magazynu.

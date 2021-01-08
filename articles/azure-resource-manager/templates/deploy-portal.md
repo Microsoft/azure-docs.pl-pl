@@ -3,12 +3,12 @@ title: Wdrażanie zasobów za pomocą Azure Portal
 description: Użyj Azure Portal i Zarządzaj zasobami platformy Azure, aby wdrożyć swoje zasoby w grupie zasobów w ramach subskrypcji.
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: b87ac48bbaec7f94d5e75939cf5ec17df0ff2d2f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: d8467bb4e51fc4e6ba89a84f1260a8d2743758d2
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92668759"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028679"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-portal"></a>Wdrażanie zasobów za pomocą szablonów ARM i Azure Portal
 
@@ -29,20 +29,20 @@ W tym artykule przedstawiono obie metody.
 
    ![Wybierz grupy zasobów](./media/deploy-portal/select-resource-groups.png)
 
-1. W obszarze grupy zasobów wybierz pozycję **Dodaj** .
+1. W obszarze grupy zasobów wybierz pozycję **Dodaj**.
 
    ![Dodaj grupę zasobów](./media/deploy-portal/add-resource-group.png)
 
 1. Wybierz lub wprowadź następujące wartości właściwości:
 
-    - **Subskrypcja** : wybierz subskrypcję platformy Azure.
-    - **Grupa zasobów** : nadaj nazwę grupie zasobów.
-    - **Region** : Określ lokalizację platformy Azure. Ta lokalizacja polega na tym, że grupa zasobów przechowuje metadane dotyczące zasobów. Ze względów związanych ze zgodnością warto określić miejsce przechowywania metadanych. Ogólnie rzecz biorąc, zalecamy określenie lokalizacji, w której będą się znajdować większość zasobów. Korzystanie z tej samej lokalizacji może uprościć szablon.
+    - **Subskrypcja**: wybierz subskrypcję platformy Azure.
+    - **Grupa zasobów**: nadaj nazwę grupie zasobów.
+    - **Region**: Określ lokalizację platformy Azure. Ta lokalizacja polega na tym, że grupa zasobów przechowuje metadane dotyczące zasobów. Ze względów związanych ze zgodnością warto określić miejsce przechowywania metadanych. Ogólnie rzecz biorąc, zalecamy określenie lokalizacji, w której będą się znajdować większość zasobów. Korzystanie z tej samej lokalizacji może uprościć szablon.
 
    ![Ustawianie wartości grupy](./media/deploy-portal/set-group-properties.png)
 
-1. Wybierz pozycję **Przeglądanie + tworzenie** .
-1. Przejrzyj wartości, a następnie wybierz pozycję **Utwórz** .
+1. Wybierz pozycję **Przejrzyj i utwórz**.
+1. Przejrzyj wartości, a następnie wybierz pozycję **Utwórz**.
 1. Wybierz pozycję **Odśwież** , aby wyświetlić nową grupę zasobów na liście.
 
 ## <a name="deploy-resources-to-a-resource-group"></a>Wdrażanie zasobów w grupie zasobów
@@ -67,7 +67,7 @@ Po utworzeniu grupy zasobów można wdrożyć zasoby w grupie z portalu Marketpl
 
    ![Wyświetl powiadomienie](./media/deploy-portal/view-notification.png)
 
-1. Po wdrożeniu zasobów możesz dodać więcej zasobów do grupy zasobów, wybierając pozycję **Dodaj** .
+1. Po wdrożeniu zasobów możesz dodać więcej zasobów do grupy zasobów, wybierając pozycję **Dodaj**.
 
    ![Dodaj zasób](./media/deploy-portal/add-resource.png)
 
@@ -80,49 +80,49 @@ Jeśli chcesz wykonać wdrożenie, ale nie używasz żadnego z szablonów w port
 > [!NOTE]
 > Interfejs portalu nie obsługuje odwoływania się do [wpisu tajnego z Key Vault](key-vault-parameter.md). Zamiast tego należy użyć [programu PowerShell](deploy-powershell.md) lub [interfejsu wiersza polecenia platformy Azure](deploy-cli.md) do wdrożenia szablonu lokalnie lub z zewnętrznego identyfikatora URI.
 
-1. Aby wdrożyć dostosowany szablon za pomocą portalu, wybierz pozycję **Utwórz zasób** , Wyszukaj **szablon** . a następnie wybierz pozycję **Template Deployment** .
+1. Aby wdrożyć dostosowany szablon za pomocą portalu, wybierz pozycję **Utwórz zasób**, Wyszukaj **szablon**. a następnie wybierz pozycję **Template Deployment**.
 
    ![Wyszukaj wdrożenie szablonu](./media/deploy-portal/search-template.png)
 
-1. Wybierz pozycję **Utwórz** .
+1. Wybierz pozycję **Utwórz**.
 1. Zobaczysz kilka opcji tworzenia szablonu:
 
-    - **Kompiluj własny szablon w edytorze** : Utwórz własny szablon w edytorze szablonów portalu.
-    - **Szablony wspólne** : Wybierz spośród typowych rozwiązań.
-    - **Załaduj szablon szybkiego startu usługi GitHub** : wybierz pozycję [Szablony szybkiego startu](https://azure.microsoft.com/resources/templates/).
+    - **Kompiluj własny szablon w edytorze**: Utwórz własny szablon w edytorze szablonów portalu.
+    - **Szablony wspólne**: Wybierz spośród typowych rozwiązań.
+    - **Załaduj szablon szybkiego startu usługi GitHub**: wybierz pozycję [Szablony szybkiego startu](https://azure.microsoft.com/resources/templates/).
 
    ![Opcje widoku](./media/deploy-portal/see-options.png)
 
     Ten samouczek zawiera instrukcje dotyczące ładowania szablonu szybkiego startu.
 
-1. W obszarze **ładowanie szablonu szybkiego startu usługi GitHub** wpisz lub wybierz pozycję **101-Storage-account-Create** .
+1. W obszarze **ładowanie szablonu szybkiego startu usługi GitHub** wpisz lub wybierz pozycję **101-Storage-account-Create**.
 
     Dostępne są dwie opcje:
 
-    - **Wybierz szablon** : Wdróż szablon.
-    - **Edytuj szablon** : Edytuj szablon szybkiego startu przed jego wdrożeniem.
+    - **Wybierz szablon**: Wdróż szablon.
+    - **Edytuj szablon**: Edytuj szablon szybkiego startu przed jego wdrożeniem.
 
-1. Wybierz pozycję **Edytuj szablon** , aby poznać Edytor szablonów portalu. Szablon jest ładowany w edytorze. Należy zauważyć, że istnieją dwa parametry: **storageAccountType** i **Location** .
+1. Wybierz pozycję **Edytuj szablon** , aby poznać Edytor szablonów portalu. Szablon jest ładowany w edytorze. Należy zauważyć, że istnieją dwa parametry: `storageAccountType` i `location` .
 
    ![Tworzenie szablonu](./media/deploy-portal/show-json.png)
 
-1. Wprowadź drobne zmiany w szablonie. Na przykład zaktualizuj zmienną **storageAccountName** do:
+1. Wprowadź drobne zmiany w szablonie. Na przykład zaktualizuj `storageAccountName` zmienną do:
 
     ```json
     "storageAccountName": "[concat('azstore', uniquestring(resourceGroup().id))]"
     ```
 
-1. Wybierz pozycję **Zapisz** . Teraz zostanie wyświetlony interfejs wdrożenia szablonu portalu. Zwróć uwagę na dwa parametry zdefiniowane w szablonie.
+1. Wybierz pozycję **Zapisz**. Teraz zostanie wyświetlony interfejs wdrożenia szablonu portalu. Zwróć uwagę na dwa parametry zdefiniowane w szablonie.
 1. Wprowadź lub wybierz wartości właściwości:
 
-    - **Subskrypcja** : wybierz subskrypcję platformy Azure.
-    - **Grupa zasobów** : wybierz pozycję **Utwórz nową** i nadaj jej nazwę.
-    - **Lokalizacja** : Wybierz lokalizację platformy Azure.
-    - **Typ konta magazynu** : Użyj wartości domyślnej.
-    - **Lokalizacja** : Użyj wartości domyślnej.
-    - **Wyrażam zgodę na powyższe warunki i postanowienia** : (wybierz)
+    - **Subskrypcja**: wybierz subskrypcję platformy Azure.
+    - **Grupa zasobów**: wybierz pozycję **Utwórz nową** i nadaj jej nazwę.
+    - **Lokalizacja**: Wybierz lokalizację platformy Azure.
+    - **Typ konta magazynu**: Użyj wartości domyślnej.
+    - **Lokalizacja**: Użyj wartości domyślnej.
+    - **Wyrażam zgodę na powyższe warunki i postanowienia**: (wybierz)
 
-1. Wybierz pozycję **Kup** .
+1. Wybierz pozycję **Kup**.
 
 ## <a name="next-steps"></a>Następne kroki
 

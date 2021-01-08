@@ -4,12 +4,12 @@ description: Dowiedz się, jak wdrożyć grupę kontenerów w nowej lub istniej�
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 02cf514e6c19387e3a9e2f1c78b65f346fff764e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b791d3f37809c2eca53f5a3cd34f7c44dd11ce40
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746897"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028883"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Wdrażanie wystąpień kontenerów w sieci wirtualnej platformy Azure
 
@@ -20,7 +20,7 @@ W tym artykule pokazano, jak za pomocą polecenia [AZ Container Create][az-conta
 Aby poznać scenariusze i ograniczenia dotyczące sieci, zobacz [scenariusze i zasoby sieci wirtualnej dla Azure Container Instances](container-instances-virtual-network-concepts.md).
 
 > [!IMPORTANT]
-> Wdrożenie grupy kontenerów w sieci wirtualnej jest ogólnie dostępne dla kontenerów systemu Linux w większości regionów, w których Azure Container Instances jest dostępna. Aby uzyskać szczegółowe informacje, zobacz [regiony i dostępność zasobów](container-instances-virtual-network-concepts.md#where-to-deploy). 
+> Wdrożenie grupy kontenerów w sieci wirtualnej jest ogólnie dostępne dla kontenerów systemu Linux w większości regionów, w których Azure Container Instances jest dostępna. Aby uzyskać szczegółowe informacje, zobacz [regiony i dostępność zasobów][container-regions]. 
 
 Przykłady w tym artykule są sformatowane dla powłoki bash. Jeśli wolisz inną powłokę, taką jak program PowerShell lub wiersz polecenia, Dostosuj odpowiednio znaki kontynuacji wiersza.
 
@@ -83,7 +83,7 @@ W danych wyjściowych zostanie wyświetlony adres IP grupy kontenerów w podsiec
 10.0.0.4
 ```
 
-Teraz ustaw `CONTAINER_GROUP_IP` adres IP pobrany z `az container show` poleceniem i wykonaj następujące `az container create` polecenie. Ten drugi kontener, *commchecker* , uruchamia obraz oparty na systemie Linux i jest wykonywany `wget` w odniesieniu do pierwszego adresu IP podsieci prywatnej grupy kontenerów.
+Teraz ustaw `CONTAINER_GROUP_IP` adres IP pobrany z `az container show` poleceniem i wykonaj następujące `az container create` polecenie. Ten drugi kontener, *commchecker*, uruchamia obraz oparty na systemie Linux i jest wykonywany `wget` w odniesieniu do pierwszego adresu IP podsieci prywatnej grupy kontenerów.
 
 ```azurecli
 CONTAINER_GROUP_IP=<container-group-IP-address>
@@ -139,7 +139,7 @@ Przykładowe dane wyjściowe:
 /subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-aci-subnet
 ```
 
-Gdy masz identyfikator profilu sieciowego, Skopiuj następujący YAML do nowego pliku o nazwie *VNET-Deploy-ACI. YAML* . W obszarze `networkProfile` , Zastąp `id` wartość identyfikatorem, który właśnie został pobrany, a następnie Zapisz plik. Ta YAML tworzy grupę kontenerów o nazwie *appcontaineryaml* w sieci wirtualnej.
+Gdy masz identyfikator profilu sieciowego, Skopiuj następujący YAML do nowego pliku o nazwie *VNET-Deploy-ACI. YAML*. W obszarze `networkProfile` , Zastąp `id` wartość identyfikatorem, który właśnie został pobrany, a następnie Zapisz plik. Ta YAML tworzy grupę kontenerów o nazwie *appcontaineryaml* w sieci wirtualnej.
 
 ```YAML
 apiVersion: '2019-12-01'
@@ -204,7 +204,7 @@ Ta funkcja wymaga obecnie kilku dodatkowych poleceń w celu usunięcia utworzony
 Przed wykonaniem skryptu Ustaw `RES_GROUP` zmienną na nazwę grupy zasobów zawierającej sieć wirtualną i podsieć, która ma zostać usunięta. Zaktualizuj nazwę sieci wirtualnej, jeśli nie używasz `aci-vnet` sugerowanej wcześniej nazwy. Skrypt jest sformatowany dla powłoki bash. Jeśli wolisz innej powłoki, takiej jak PowerShell lub wiersz polecenia, musisz odpowiednio dostosować przypisanie zmiennych i metody dostępu.
 
 > [!WARNING]
-> Ten skrypt usuwa zasoby! Usuwa sieć wirtualną i wszystkie podsieci, które zawiera. Upewnij się, że nie potrzebujesz już *żadnych* zasobów w sieci wirtualnej, w tym wszystkich podsieci, które zawiera, przed uruchomieniem tego skryptu. Po usunięciu **te zasoby są nieodwracalne** .
+> Ten skrypt usuwa zasoby! Usuwa sieć wirtualną i wszystkie podsieci, które zawiera. Upewnij się, że nie potrzebujesz już *żadnych* zasobów w sieci wirtualnej, w tym wszystkich podsieci, które zawiera, przed uruchomieniem tego skryptu. Po usunięciu **te zasoby są nieodwracalne**.
 
 ```azurecli
 # Replace <my-resource-group> with the name of your resource group
@@ -238,3 +238,4 @@ Aby wdrożyć nową sieć wirtualną, podsieć, profil sieci i grupę konteneró
 [az-container-show]: /cli/azure/container#az-container-show
 [az-network-vnet-create]: /cli/azure/network/vnet#az-network-vnet-create
 [az-network-profile-list]: /cli/azure/network/profile#az-network-profile-list
+[container-regions]: container-instances-region-availability.md

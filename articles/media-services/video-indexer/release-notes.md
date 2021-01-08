@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 10/30/2020
+ms.date: 01/06/2021
 ms.author: juliako
-ms.openlocfilehash: 81e52d4a6827492931179055d040b541d51228eb
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 3552d55d995608dd0d471c84cd5e9f9988ebe2c0
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916664"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028645"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Informacje o wersji Azure Media Services Video Indexer
 
@@ -30,7 +30,7 @@ Aby zachować aktualność najnowszych zmian, ten artykuł zawiera informacje na
 * Poprawki błędów
 * Funkcje uznane za przestarzałe
 
-##  <a name="december-2020"></a>Grudzień 2020 r.
+##  <a name="december-2020"></a>Grudzień 2020 r.
 
 ### <a name="video-indexer-deployed-in-the-switzerland-west-and-switzerland-north"></a>Video Indexer wdrożone w Szwajcaria Zachodnia i Szwajcaria Północna
 
@@ -44,12 +44,15 @@ Video Indexer obsługuje wykrywanie, grupowanie i rozpoznawanie znaków w animow
 
 ### <a name="planned-video-indexer-website-authenticatication-changes"></a>Planowane zmiany authenticatication witryny sieci Web Video Indexer
 
-Począwszy od 1 stycznia 2021, nie będzie już można zarejestrować się i zalogować się do witryny sieci Web [Video Indexer](https://www.videoindexer.ai/) (oferty wersji próbnej) za pomocą serwisu Facebook lub LinkedIn.
+Od 1 marca 2021, nie będzie już można zarejestrować się i zalogować się do witryny sieci Web [Video Indexer](https://www.videoindexer.ai/) za pomocą serwisu Facebook lub LinkedIn.
 
 Będziesz w stanie zarejestrować się i zalogować się przy użyciu jednego z następujących dostawców: Azure AD, Microsoft i Google.
 
 > [!NOTE]
-> Zaleca się wyeksportowanie zawartości do 1 stycznia 2021, ponieważ konta połączone z serwisem LinkedIn i Facebook zostaną usunięte, a zawartość nie będzie już dostępna.
+> Konta Video Indexer połączone z serwisem LinkedIn i serwisem Facebook nie będą dostępne po 1 marca 2021. 
+> 
+> Należy [zaprosić](invite-users.md) do konta Video Indexer usługi Azure AD, Microsoft lub Google, aby nadal mieć dostęp.<br/>
+> Alternatywnie możesz utworzyć konto płatne i przeprowadzić migrację danych.
 
 ## <a name="august-2020"></a>Sierpień 2020 r.
 
@@ -213,13 +216,13 @@ Kod stanu 409 będzie teraz zwracany przez [ponowne indeksowanie wideo](https://
     
     W przypadku przekazywania wideo zamieniono polecenie zh-HANS na zh-CN, obie są obsługiwane, ale zaleca się, aby Metoda zh-CN była zalecana i bardziej dokładna.
     
-## <a name="october-2019"></a>Październik 2019 r.
+## <a name="october-2019"></a>Październik 2019 r.
  
 * Wyszukaj animowane znaki w galerii
 
     W przypadku indeksowania animowanych znaków można teraz wyszukiwać je w postaci szpaltowej wideo na koncie. Aby uzyskać więcej informacji, zobacz [rozpoznawanie znaków animowanych](animated-characters-recognition.md).
 
-## <a name="september-2019"></a>Wrzesień 2019 r.
+## <a name="september-2019"></a>Wrzesień 2019
  
 Wiele zaliczek zapowiedziano w IBC 2019:
  
@@ -239,7 +242,7 @@ Wiele zaliczek zapowiedziano w IBC 2019:
     
     Temat inferencing model obsługuje teraz bardziej szczegółowy stopień szczegółowości taksonomii IPTC. Przeczytaj wszystkie szczegółowe informacje o [Azure Media Services nowych innowacyjności opartych na AI](https://azure.microsoft.com/blog/azure-media-services-new-ai-powered-innovation/).
 
-## <a name="august-2019"></a>Sierpień 2019 r.
+## <a name="august-2019"></a>Sierpień 2019 r.
  
 ### <a name="video-indexer-deployed-in-uk-south"></a>Video Indexer wdrożony w programie Południowe Zjednoczone Królestwo
 
@@ -276,7 +279,7 @@ Obsługa ciągu zapytania URL o 4096 (zamiast 2048) na indeksowaniu wideo.
 
 Projekty można teraz tworzyć w oparciu o wideo indeksowane w różnych językach (tylko interfejsy API).
 
-## <a name="july-2019"></a>Lipiec 2019 r.
+## <a name="july-2019"></a>Lipiec 2019
 
 ### <a name="editor-as-a-widget"></a>Edytor jako widżet
 

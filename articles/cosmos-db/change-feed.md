@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.reviewer: sngun
 ms.custom: seodec18, "seo-nov-2020"
-ms.openlocfilehash: c8c479050b434904de57397e5e7d73594090e031
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: c6856a0cb70123f1a3570b611c81660a592fdc1b
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94336135"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98027807"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Zestawienie zmian w usłudze Azure Cosmos DB
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[appliesto-all-apis-except-table](includes/appliesto-all-apis-except-table.md)]
 
 Źródło zmian w Azure Cosmos DB jest trwałym rekordem zmian w kontenerze w kolejności ich występowania. Obsługa zestawienia zmian w usłudze Azure Cosmos DB działa przez nasłuchiwanie zmian w kontenerze usługi Azure Cosmos. Następnie tworzone są dane wyjściowe w postaci posortowanej listy zmienionych dokumentów w kolejności, w której zostały zmodyfikowane. Utrwalone zmiany mogą być przetwarzane asynchronicznie i przyrostowo, a dane wyjściowe mogą być dystrybuowane do jednego lub większej liczby użytkowników do przetwarzania równoległego.
 
@@ -26,7 +26,7 @@ Dowiedz się więcej o [wzorcach projektowych źródeł zmian](change-feed-desig
 
 Ta funkcja jest obecnie obsługiwana przez następujące Azure Cosmos DB interfejsów API i zestawów SDK klienta.
 
-| **Sterowniki klienta** | **INTERFEJS API SQL** | **Interfejs API Azure Cosmos DB dla Cassandra** | **Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB** | **Interfejs API języka Gremlin**|**Interfejs API tabel** |
+| **Sterowniki klienta** | **INTERFEJS API SQL** | **Interfejs API Azure Cosmos DB dla Cassandra** | **Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB** | **Interfejs API Gremlin**|**Interfejs API tabel** |
 | --- | --- | --- | --- | --- | --- | --- |
 | .NET | Tak | Tak | Tak | Tak | Nie |
 |Java|Tak|Tak|Tak|Tak|Nie|

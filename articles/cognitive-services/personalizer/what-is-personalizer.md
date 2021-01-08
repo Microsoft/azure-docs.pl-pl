@@ -7,16 +7,16 @@ ms.topic: overview
 ms.date: 08/27/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: Personalizacja, Personalizacja platformy Azure, uczenie maszynowe
-ms.openlocfilehash: 28aae130d062eaf57a66a9b90a6602c3874f1494
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 33c1770c5c8722a55d8f1df4aff9b1637d903977
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094152"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028781"
 ---
 # <a name="what-is-personalizer"></a>Co to jest usługa Personalizacja?
 
-Personalizacja Azure to usługa oparta na chmurze, która ułatwia aplikacjom wybranie najlepszego elementu zawartości do wyświetlania użytkowników. Możesz użyć usługi personalizacji, aby określić, który produkt ma zasugerować kupujący, lub ustalić optymalną pozycję anonsu. Gdy zawartość jest pokazywana użytkownikowi, system monitoruje zachowanie użytkownika w czasie rzeczywistym i raportuje wynik odzyskania do usługi personalizacji. Pozwala to na ciągłe ulepszanie modelu uczenia maszynowego i personalizowanie możliwości wybierania najlepszego elementu zawartości na podstawie informacji kontekstowych, które otrzymuje.
+Personalizacja Azure to usługa oparta na chmurze, która ułatwia aplikacjom wybranie najlepszego elementu zawartości do wyświetlania użytkowników. Możesz użyć usługi personalizacji, aby określić, który produkt ma zasugerować kupujący, lub ustalić optymalną pozycję anonsu. Gdy zawartość jest pokazywana użytkownikowi, aplikacja monitoruje jej reakcji i raportuje wynik z odliczenia do usługi personalizacji. Pozwala to na ciągłe ulepszanie modelu uczenia maszynowego i personalizowanie możliwości wybierania najlepszego elementu zawartości na podstawie informacji kontekstowych, które otrzymuje.
 
 > [!TIP]
 > Zawartość to dowolna jednostka informacji, taka jak tekst, obrazy, adresy URL, wiadomości e-mail lub inne elementy, które chcesz wybrać i pokazać użytkownikom.
@@ -65,7 +65,7 @@ Personalizacja wykorzystuje uczenie wzmacniające, aby wybrać jedną najlepszą
 
 Użyj personalizacji, gdy Twoja zawartość:
 
-* Ma ograniczony zestaw elementów (maks. ~ 50) do wyboru. Jeśli masz większą listę, [Użyj aparatu rekomendacji](where-can-you-use-personalizer.md#how-to-use-personalizer-with-a-recommendation-solution) , aby zmniejszyć listę do 50 elementów.
+* Zawiera ograniczony zestaw akcji lub elementów (maks. ~ 50) do wyboru spośród poszczególnych zdarzeń personalizacji. Jeśli masz większą listę, [Użyj aparatu rekomendacji](where-can-you-use-personalizer.md#how-to-use-personalizer-with-a-recommendation-solution) , aby zmniejszyć listę elementów do 50 dla każdego wywołania rangi w usłudze personalizacji.
 * Zawiera informacje opisujące zawartość, którą chcesz klasyfikować: _akcje z funkcjami_ i _funkcjami kontekstu_.
 * Ma co najmniej ~ KB/dzień zdarzeń związanych z zawartością dla personalizacji, aby można było efektywnie. Jeśli Personalizacja nie odbiera minimalnych wymagań dotyczących ruchu, usługa zajmuje więcej czasu na ustalenie pojedynczego elementu zawartości.
 
@@ -94,7 +94,7 @@ Ponieważ program Personalizujer używa informacji zbiorczych niemal w czasie rz
     |--|--|
     |Wybrany użytkownik: najlepszy, pojedynczy element _zawartości_ (Identyfikator akcji nagradzania)|**1**|
     |Użytkownik zaznaczył inną zawartość|**0**|
-    |Użytkownik wstrzymał pracę, przewijając się w sposób niedecydujący, przed wybraniem najlepszego, pojedynczego elementu _zawartości_ (Identyfikator akcji nagradzania)|**0,5**|
+    |Użytkownik wstrzymał pracę, przewijając się w sposób niedecydujący, przed wybraniem najlepszego, pojedynczego elementu _zawartości_ (Identyfikator akcji nagradzania)|**0.5**|
 
     1. Dodaj wywołanie **zarobkowe** wysyłające wynik nagrody z zakresu od 0 do 1
         * Natychmiast po pokazywania zawartości

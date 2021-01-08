@@ -3,23 +3,23 @@ title: Przycisk Wdróż na platformie Azure
 description: Użyj przycisku, aby wdrożyć szablony Azure Resource Manager z repozytorium GitHub.
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: 65891cace1cb17614abbfe091e1592d6f13feff4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: abe59f377474540e9209691df8b1d1a7b806c26d
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185729"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028747"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Użyj przycisku wdrożenia, aby wdrożyć szablony z repozytorium GitHub
 
-W tym artykule opisano sposób wdrażania szablonów z repozytorium GitHub za pomocą przycisku **Wdróż na platformie Azure** . Możesz dodać przycisk bezpośrednio do pliku README.md w repozytorium GitHub. Można też dodać przycisk do strony sieci Web, która odwołuje się do repozytorium.
+W tym artykule opisano sposób wdrażania szablonów z repozytorium GitHub za pomocą przycisku **Wdróż na platformie Azure** . Możesz dodać przycisk bezpośrednio do pliku _README.MD_ w repozytorium GitHub. Można też dodać przycisk do strony sieci Web, która odwołuje się do repozytorium.
 
 Zakres wdrożenia jest określany przez schemat szablonu. Aby uzyskać więcej informacji, zobacz:
 
-* [grupy zasobów](deploy-to-resource-group.md)
-* [opłaty](deploy-to-subscription.md)
-* [grupy zarządzania](deploy-to-management-group.md)
-* [dzierżaw](deploy-to-tenant.md)
+- [grupy zasobów](deploy-to-resource-group.md)
+- [opłaty](deploy-to-subscription.md)
+- [grupy zarządzania](deploy-to-management-group.md)
+- [dzierżaw](deploy-to-tenant.md)
 
 ## <a name="use-common-image"></a>Użyj wspólnego obrazu
 
@@ -78,7 +78,7 @@ Masz pełny adres URL linku.
 
 Zwykle hostuje szablon w publicznym repozytorium. Jeśli używasz repozytorium prywatnego, musisz dołączyć token, aby uzyskać dostęp do nieprzetworzonej zawartości szablonu. Token wygenerowany przez witrynę GitHub jest ważny tylko przez krótki czas. Należy często aktualizować link.
 
-Jeśli korzystasz [z narzędzia Git z Azure Repos](/azure/devops/repos/git/) zamiast repozytorium GitHub, możesz nadal korzystać z przycisku Wdróż na platformie Azure. Upewnij się, że Twoje repozytorium jest publiczne. Użyj [operacji Items](/rest/api/azure/devops/git/items/get) , aby pobrać szablon. Twoje żądanie powinno mieć następujący format:
+Jeśli korzystasz [z narzędzia Git z Azure Repos](/azure/devops/repos/git/) zamiast repozytorium GitHub, możesz nadal korzystać z przycisku **Wdróż na platformie Azure** . Upewnij się, że Twoje repozytorium jest publiczne. Użyj [operacji Items](/rest/api/azure/devops/git/items/get) , aby pobrać szablon. Twoje żądanie powinno mieć następujący format:
 
 ```http
 https://dev.azure.com/{organization-name}/{project-name}/_apis/git/repositories/{repository-name}/items?scopePath={url-encoded-path}&api-version=6.0
@@ -90,7 +90,7 @@ Koduj ten adres URL żądania.
 
 Na koniec Umieść link i obraz razem.
 
-Aby dodać przycisk z opcją inpromocji w pliku README.md w repozytorium GitHub lub stronie sieci Web, użyj:
+Aby dodać przycisk z opcją inpromocji w pliku _README.MD_ w repozytorium GitHub lub stronie sieci Web, użyj:
 
 ```markdown
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json)
@@ -122,4 +122,4 @@ W portalu zostanie wyświetlone okienko pozwalające łatwo podawać wartości p
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby dowiedzieć się więcej na temat szablonów, zobacz [Opis struktury i składni szablonów Azure Resource Manager](template-syntax.md).
+- Aby dowiedzieć się więcej na temat szablonów, zobacz [Omówienie struktury i składni szablonów ARM](template-syntax.md).

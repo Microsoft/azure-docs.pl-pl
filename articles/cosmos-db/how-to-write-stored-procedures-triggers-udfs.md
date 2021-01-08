@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 7938920459654bd59620ad0992f3a13db85ff4fb
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 7600d8aa2f78e06ea4046273635fdbba18042010
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019021"
+ms.locfileid: "98028866"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Jak pisać procedury składowane, wyzwalacze i funkcje zdefiniowane przez użytkownika w usłudze Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -284,7 +284,7 @@ function async_sample() {
 
 ## <a name="how-to-write-triggers"></a><a id="triggers"></a>Jak pisać wyzwalacze
 
-Usługa Azure Cosmos DB obsługuje wyzwalacze wykonywane przed operacją (pre-trigger) i po operacji (post-trigger). Przed modyfikacją elementu bazy danych wykonywane są przede wszystkim wyzwalacze i Wyzwalacze po modyfikacji elementu bazy danych. Wyzwalacze nie są automatyczne. Muszą one być określone dla każdej operacji bazy danych, w której mają być wykonywane.
+Usługa Azure Cosmos DB obsługuje wyzwalacze wykonywane przed operacją (pre-trigger) i po operacji (post-trigger). Te pierwsze są wykonywane przed modyfikacją elementu bazy danych, a te drugie są wykonywane po modyfikacji elementu bazy danych. Wyzwalacze nie są wykonywane automatycznie, muszą być określone dla każdej operacji bazy danych, w której mają być wykonywane. Po zdefiniowaniu wyzwalacza należy [zarejestrować i wywołać wyzwalacz wstępny](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) przy użyciu zestawów SDK Azure Cosmos DB.
 
 ### <a name="pre-triggers"></a><a id="pre-triggers"></a>Wyzwalacze wstępne
 
