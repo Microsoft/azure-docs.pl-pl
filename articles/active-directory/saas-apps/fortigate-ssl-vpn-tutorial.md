@@ -2,25 +2,21 @@
 title: 'Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą FortiGate SSL sieci VPN | Microsoft Docs'
 description: Informacje o krokach, które należy wykonać, aby zintegrować sieci VPN FortiGate SSL z usługą Azure Active Directory (Azure AD).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 18a3d9d5-d81c-478c-be7e-ef38b574cb88
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 08/11/2020
+ms.date: 12/26/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 021550598452516d45ae67c1139c2f891629a875
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: b9a22025f124e7639aa1b9a157dbbd020e2ff966
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296577"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020268"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fortigate-ssl-vpn"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą FortiGate SSL sieci VPN
 
@@ -29,8 +25,6 @@ W tym samouczku dowiesz się, jak zintegrować sieci VPN FortiGate SSL z usług�
 * Użyj usługi Azure AD, aby kontrolować, kto może uzyskać dostęp do sieci VPN SSL FortiGate.
 * Zezwól użytkownikom na automatyczne logowanie do FortiGate sieci VPN SSL przy użyciu kont usługi Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji: Azure Portal.
-
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -45,13 +39,12 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 
 FortiGate SSL sieci VPN obsługuje logowanie jednokrotne zainicjowane przez usługę SP.
 
-Po skonfigurowaniu sieci VPN FortiGate SSL można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-fortigate-ssl-vpn-from-the-gallery"></a>Dodawanie sieci VPN FortiGate SSL z galerii
 
 Aby skonfigurować integrację sieci VPN FortiGate SSL z usługą Azure AD, musisz dodać sieć VPN FortiGate SSL z galerii do listy zarządzanych aplikacji SaaS:
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W lewym okienku wybierz pozycję **Azure Active Directory**.
 1. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać aplikację, wybierz pozycję **Nowa aplikacja**.
@@ -69,13 +62,13 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD przy u
     1. **[Udziel użytkownikowi testowemu dostępu](#grant-access-to-the-test-user)** do usługi Azure AD Logowanie jednokrotne dla tego użytkownika.
 1. **[Skonfiguruj logowanie JEDNOkrotne SSL sieci VPN Fortigate](#configure-fortigate-ssl-vpn-sso)** na stronie aplikacji.
     1. **Utwórz użytkownika testowego sieci VPN FORTIGATE SSL** jako odpowiednik do reprezentacji usługi Azure AD użytkownika.
-1. **[Przetestuj Logowanie jednokrotne](#test-single-sign-on)** , aby sprawdzić, czy konfiguracja działa.
+1. **[Przetestuj Logowanie jednokrotne](#test-sso)** , aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne w usłudze Azure AD w Azure Portal:
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **sieci VPN Fortigate SSL** w sekcji **Zarządzanie** wybierz pozycję **Logowanie jednokrotne**.
+1. W Azure Portal na stronie integracja aplikacji **sieci VPN FORTIGATE SSL** w sekcji **Zarządzanie** wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
 1. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** wybierz przycisk ołówek dla **podstawowej konfiguracji SAML** , aby edytować ustawienia:
 
@@ -106,17 +99,26 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne w usłudze Azu
    | group | User. Groups |
    
    Aby utworzyć te dodatkowe oświadczenia:
+
+   a. Obok pozycji **atrybuty użytkownika & oświadczenia** wybierz pozycję **Edytuj**.
+
+   b. Wybierz pozycję **Dodaj nowe** zgłoszenie.
+
+   c. W obszarze **Nazwa wprowadź nazwę** **użytkownika**.
+
+   d. Dla **atrybutu Source** wybierz pozycję **User. userPrincipalName**.
+
+   e. Wybierz pozycję **Zapisz**.
+
+   f. Wybierz pozycję **Dodaj zgłoszenie do grupy**.
+
+   przykład Wybierz pozycję **Wszystkie grupy**.
+
+   h. Zaznacz pole wyboru **Dostosuj nazwę żądania grupy** .
+
+   i. W obszarze **Nazwa** wprowadź polecenie **Grupuj**.
    
-   1. Obok pozycji **atrybuty użytkownika & oświadczenia** wybierz pozycję **Edytuj**.
-   1. Wybierz pozycję **Dodaj nowe** zgłoszenie.
-   1. W obszarze **Nazwa wprowadź nazwę** **użytkownika**.
-   1. Dla **atrybutu Source** wybierz pozycję **User. userPrincipalName**.
-   1. Wybierz pozycję **Zapisz**.
-   1. Wybierz pozycję **Dodaj zgłoszenie do grupy**.
-   1. Wybierz pozycję **Wszystkie grupy**.
-   1. Seect **Dostosuj nazwę** pola wyboru.
-   1. W obszarze **Nazwa** wprowadź polecenie **Grupuj**.
-   1. Wybierz pozycję **Zapisz**.   
+   j. Wybierz pozycję **Zapisz**.   
 
 1. Na stronie **Konfigurowanie pojedynczego Sign-On przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** wybierz łącze **pobierania** obok pozycji **certyfikat (base64)** , aby pobrać certyfikat i zapisać go na komputerze:
 
@@ -136,7 +138,7 @@ W tej sekcji utworzysz użytkownika testowego o nazwie B. Simon w Azure Portal.
    1. W polu **Nazwa** wprowadź wartość **B. Simon**.  
    1. W polu **Nazwa użytkownika** wprowadź \<username> @ \<companydomain> . \<extension> . Na przykład `B.Simon@contoso.com`.
    1. Wybierz pozycję **Pokaż hasło**, a następnie Zapisz wartość wyświetlaną w polu **hasło** .
-   1. Wybierz pozycję **Utwórz**.
+   1. Wybierz przycisk **Utwórz**.
 
 #### <a name="grant-access-to-the-test-user"></a>Udzielanie dostępu użytkownikowi testowemu
 
@@ -144,14 +146,8 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Na liście Aplikacje wybierz pozycję **FORTIGATE SSL sieci VPN**.
-1. Na stronie Przegląd aplikacji w sekcji **Zarządzanie** wybierz pozycję **Użytkownicy i grupy**:
-
-   ![Zrzut ekranu pokazujący opcję Użytkownicy i grupy.](common/users-groups-blade.png)
-
-1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** :
-
-    ![Zrzut ekranu pokazujący przycisk Dodaj użytkownika.](common/add-assign-user.png)
-
+1. Na stronie Przegląd aplikacji w sekcji **Zarządzanie** wybierz pozycję **Użytkownicy i grupy**.
+1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
 1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** na liście **Użytkownicy** , a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 1. Jeśli oczekujesz, że jakakolwiek wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz z listy odpowiednią rolę dla użytkownika. Kliknij przycisk **Wybierz** w dolnej części ekranu.
 1. W oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Przypisz**.
@@ -170,7 +166,7 @@ W tej sekcji utworzysz grupę zabezpieczeń w Azure Active Directory dla użytko
    1. W polu **Typ członkostwa** wybierz pozycję **przypisano**.
    1. W obszarze **Członkowie** wybierz pozycję **nie wybrano żadnych członków**.
    1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy **Użytkownicy** , a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-   1. Wybierz pozycję **Utwórz**.
+   1. Wybierz przycisk **Utwórz**.
 1. Po powrocie do sekcji **grupy** w Azure Active Directory Znajdź grupę **dostępu Fortigate** i zanotuj **Identyfikator obiektu**. Będzie ona potrzebna później.
 
 ### <a name="configure-fortigate-ssl-vpn-sso"></a>Konfigurowanie logowania jednokrotnego w sieci VPN FortiGate SSL
@@ -185,7 +181,7 @@ Po zakończeniu konfiguracji protokołu SAML aplikacji FortiGate w dzierżawie z
 1. Wybierz pozycję **Importuj**  >  **certyfikat zdalny**.
 1. Przejdź do certyfikatu pobranego ze wdrożenia aplikacji FortiGate w dzierżawie platformy Azure, wybierz go, a następnie wybierz **przycisk OK**.
 
-Po przekazaniu certyfikatu Zanotuj jego nazwę w obszarze Certyfikaty **systemowe**  >  **Certificates**  >  **certyfikat zdalny**. Domyślnie zostanie nazwany REMOTE_Cert_ *n*, gdzie *N* jest wartością całkowitą.
+Po przekazaniu certyfikatu Zanotuj jego nazwę w obszarze Certyfikaty **systemowe**  >    >  **certyfikat zdalny**. Domyślnie zostanie nazwany REMOTE_Cert_ *n*, gdzie *N* jest wartością całkowitą.
 
 #### <a name="complete-fortigate-command-line-configuration"></a>Ukończ konfigurację wiersza polecenia FortiGate
 
@@ -256,22 +252,17 @@ W tej sekcji opisano konfigurowanie portali sieci VPN FortiGate i zasad zapory, 
 
 Współpraca z [zespołem pomocy technicznej Fortigate](mailto:tac_amer@fortinet.com) w celu dodania portali sieci VPN i zasad zapory do platformy sieci VPN Fortigate. Ten krok należy wykonać przed użyciem rejestracji jednokrotnej.
 
-### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
+## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD za pomocą panelu dostępu.
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji. 
 
-Po wybraniu kafelka sieci VPN FortiGate SSL w panelu dostępu należy automatycznie zalogować się do sieci VPN FortiGate SSL, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie do adresu URL logowania do sieci VPN FortiGate, w którym można zainicjować przepływ logowania. 
 
-Firma Microsoft i FortiGate zaleca korzystanie z platformy Fortinet VPN Client, FortiClient w celu uzyskania najlepszego środowiska użytkownika końcowego.
+* Przejdź bezpośrednio do adresu URL logowania sieci VPN FortiGate, a następnie zainicjuj w nim przepływ logowania.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+* Możesz korzystać z aplikacji Microsoft my Apps. Kliknięcie kafelka sieci VPN FortiGate w obszarze Moje aplikacje spowoduje przekierowanie do adresu URL logowania do sieci VPN FortiGate. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Samouczki dotyczące integracji aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
 
-- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Następne kroki
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](../conditional-access/overview.md)
-
-- [Wypróbuj FortiGate SSL sieci VPN z usługą Azure AD](https://aad.portal.azure.com/)
-
-- [Co to jest kontrola sesji w Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+Po skonfigurowaniu sieci VPN FortiGate można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)

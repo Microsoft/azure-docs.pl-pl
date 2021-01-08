@@ -3,16 +3,15 @@ title: Debugowanie oparte na danych w Azure Stream Analytics
 description: W tym artykule opisano sposób rozwiązywania problemów z zadaniem Azure Stream Analytics przy użyciu diagramu zadania i metryk w Azure Portal.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/01/2017
-ms.openlocfilehash: e4ee868125ee30d40ef0d9ca5a42881ad003e9a8
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 6d20454515088ccca87665d9b3b27c0d82c3cdf9
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123986"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020404"
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Data-driven debugging by using the job diagram (Debugowanie oparte na danych za pomocą diagramu zadań)
 
@@ -20,7 +19,7 @@ Diagram zadań w bloku **monitorowanie** w Azure Portal może ułatwić wizualiz
 
 ## <a name="using-the-job-diagram"></a>Korzystanie z diagramu zadań
 
-W Azure Portal, podczas Stream Analytics zadania, w obszarze **Pomoc techniczna i rozwiązywanie problemów** wybierz pozycję **Diagram zadań** :
+W Azure Portal, podczas Stream Analytics zadania, w obszarze **Pomoc techniczna i rozwiązywanie problemów** wybierz pozycję **Diagram zadań**:
 
 ![Diagram zadań z metrykami — lokalizacja](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-1.png)
 

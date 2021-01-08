@@ -1,19 +1,18 @@
 ---
 title: Samouczek — pisanie funkcji zdefiniowanych przez użytkownika w języku C# dla zadań Azure Stream Analytics w programie Visual Studio (wersja zapoznawcza)
 description: W tym samouczku przedstawiono sposób pisania funkcji zdefiniowanych przez użytkownika w języku c# dla zadań Stream Analytics w programie Visual Studio.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: d53f13cb740b3feb39dc64ce012ff320afbb1db5
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 851229e441aa2fbdf7b6eec05390c0ce2b149da2
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130497"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020472"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-job-preview"></a>Samouczek: pisanie funkcji zdefiniowanej przez użytkownika w języku C# dla zadania Azure Stream Analytics (wersja zapoznawcza)
 
@@ -31,7 +30,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 Przed rozpoczęciem upewnij się, że następujące wymagania wstępne zostały spełnione:
 
 * Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Zainstaluj narzędzia [Stream Analytics Tools for Visual Studio](stream-analytics-tools-for-visual-studio-install.md) oraz obciążenia **Programowanie na platformie Azure** i **Magazynowanie i przetwarzanie danych** .
+* Zainstaluj narzędzia [Stream Analytics Tools for Visual Studio](stream-analytics-tools-for-visual-studio-install.md) oraz obciążenia **Programowanie na platformie Azure** i **Magazynowanie i przetwarzanie danych**.
 * Zapoznaj się z istniejącym [przewodnikiem projektowania Stream Analytics Edge](stream-analytics-tools-for-visual-studio-edge-jobs.md) , jeśli tworzysz zadanie IoT Edge.
 
 ## <a name="create-a-container-in-your-azure-storage-account"></a>Tworzenie kontenera na koncie usługi Azure Storage
@@ -42,21 +41,21 @@ Tworzony kontener będzie używany do przechowywania skompilowanego pakietu jęz
 
 1. Uruchom program Visual Studio.
 
-2. Wybierz pozycję **Plik > Nowy > Projekt** .
+2. Wybierz pozycję **Plik > Nowy > Projekt**.
 
-3. Na liście szablony po lewej stronie wybierz pozycję **Stream Analytics** , a następnie wybierz pozycję **Azure Stream Analytics aplikacja brzegowa** lub **aplikacja Azure Stream Analytics** .
+3. Na liście szablony po lewej stronie wybierz pozycję **Stream Analytics**, a następnie wybierz pozycję **Azure Stream Analytics aplikacja brzegowa** lub **aplikacja Azure Stream Analytics**.
 
-4.  Wprowadź **nazwę** , **lokalizację** oraz **nazwę rozwiązania** dla projektu i wybierz przycisk **OK** .
+4.  Wprowadź **nazwę**, **lokalizację** oraz **nazwę rozwiązania** dla projektu i wybierz przycisk **OK**.
 
     ![Tworzenie projektu usługi Azure Stream Analytics Edge w programie Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-create-edge-app.png)
 
 ## <a name="configure-assembly-package-path"></a>Konfigurowanie ścieżki pakietu zestawu
 
-1. Otwórz program Visual Studio i przejdź do **Eksploratora rozwiązań** .
+1. Otwórz program Visual Studio i przejdź do **Eksploratora rozwiązań**.
 
 2. Kliknij dwukrotnie plik konfiguracji zadania `EdgeJobConfig.json`.
 
-3. Rozwiń sekcję **Konfiguracja kodu skonfigurowana przez użytkownika** , a następnie wypełnij konfigurację za pomocą następujących sugerowanych wartości:
+3. Rozwiń sekcję **Konfiguracja kodu skonfigurowana przez użytkownika**, a następnie wypełnij konfigurację za pomocą następujących sugerowanych wartości:
 
    |**Ustawienie**|**Sugerowana wartość**|
    |-------|---------------|
@@ -69,9 +68,9 @@ Tworzony kontener będzie używany do przechowywania skompilowanego pakietu jęz
 
 
 ## <a name="write-a-c-udf-with-codebehind"></a>Pisanie funkcji zdefiniowanej przez użytkownika w języku C# przy użyciu metody CodeBehind
-Plik CodeBehind jest plikiem języka C# skojarzonym z pojedynczym skryptem zapytania ASA. Narzędzia programu Visual Studio będą automatycznie pakować plik CodeBehind i przekazywać go do konta usługi Azure Storage po przesłaniu. Wszystkie klasy muszą być zdefiniowane jako *publiczne* , a wszystkie obiekty — jako *statyczne publiczne* .
+Plik CodeBehind jest plikiem języka C# skojarzonym z pojedynczym skryptem zapytania ASA. Narzędzia programu Visual Studio będą automatycznie pakować plik CodeBehind i przekazywać go do konta usługi Azure Storage po przesłaniu. Wszystkie klasy muszą być zdefiniowane jako *publiczne*, a wszystkie obiekty — jako *statyczne publiczne*.
 
-1. W **Eksploratorze rozwiązań** rozwiń węzeł **Script.asql** , aby znaleźć plik CodeBehind **Script.asaql.cs** .
+1. W **Eksploratorze rozwiązań** rozwiń węzeł **Script.asql**, aby znaleźć plik CodeBehind **Script.asaql.cs**.
 
 2. Zastąp kod następującym przykładem:
 
@@ -97,7 +96,7 @@ Plik CodeBehind jest plikiem języka C# skojarzonym z pojedynczym skryptem zapyt
 
 ## <a name="implement-the-udf"></a>Implementowanie funkcji zdefiniowanej przez użytkownika
 
-1. W **Eksploratorze rozwiązań** otwórz plik **Script.asaql** .
+1. W **Eksploratorze rozwiązań** otwórz plik **Script.asaql**.
 
 2. Zastąp istniejące zapytanie następującym:
 
@@ -111,11 +110,11 @@ Plik CodeBehind jest plikiem języka C# skojarzonym z pojedynczym skryptem zapyt
 
 1. Pobierz [przykładowy plik danych symulatora temperatury](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Sample%20Data/TemperatureSampleData.json).
 
-2. W **Eksploratorze rozwiązań** rozwiń węzeł **Dane wejściowe** , kliknij prawym przyciskiem myszy plik **Input.json** i wybierz pozycję **Dodaj lokalne dane wejściowe** .
+2. W **Eksploratorze rozwiązań** rozwiń węzeł **Dane wejściowe**, kliknij prawym przyciskiem myszy plik **Input.json** i wybierz pozycję **Dodaj lokalne dane wejściowe**.
 
    ![Dodawanie lokalnych danych wejściowych do zadania usługi Stream Analytics w programie Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-add-local-input.png)
 
-3. Określ ścieżkę pliku lokalnych danych wejściowych dla przykładowych pobranych danych i wybierz pozycję **Zapisz** .
+3. Określ ścieżkę pliku lokalnych danych wejściowych dla przykładowych pobranych danych i wybierz pozycję **Zapisz**.
 
     ![Konfiguracja lokalnych danych wejściowych dla zadania usługi Stream Analytics w programie Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-local-input-config.png)
 
@@ -123,7 +122,7 @@ Plik CodeBehind jest plikiem języka C# skojarzonym z pojedynczym skryptem zapyt
 
     ![Lokalne uruchamianie zadania usługi Azure Stream Analytics przy użyciu programu Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-run-locally.png)
 
-5. Można również wybrać pozycję **Otwórz folder wyników** , aby wyświetlić nieprzetworzone pliki w formacie JSON i CSV.
+5. Można również wybrać pozycję **Otwórz folder wyników**, aby wyświetlić nieprzetworzone pliki w formacie JSON i CSV.
 
     ![Wyświetlanie wyników lokalnego zadania usługi Azure Stream Analytics przy użyciu programu Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-view-local-results.png)
 
@@ -134,7 +133,7 @@ Funkcję zdefiniowaną przez użytkownika w języku C# można debugować lokalni
 
     ![Dodawanie punktów przerwania do zdefiniowanej przez użytkownika funkcji usługi Stream Analytics w programie Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-breakpoints.png)
 
-2. Naciśnij klawisz **F5** , aby uruchomić debugowanie. Zgodnie z oczekiwaniami program będzie zatrzymywać się w punktach przerwania.
+2. Naciśnij klawisz **F5**, aby uruchomić debugowanie. Zgodnie z oczekiwaniami program będzie zatrzymywać się w punktach przerwania.
 
     ![Wyświetlanie wyników debugowania zdefiniowanej przez użytkownika funkcji usługi Stream Analytics](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-debug.png)
 

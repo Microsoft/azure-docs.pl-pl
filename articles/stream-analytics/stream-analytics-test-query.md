@@ -1,19 +1,18 @@
 ---
 title: Testowanie zadania Azure Stream Analytics przy użyciu przykładowych danych
 description: W tym artykule opisano sposób użycia Azure Portal do testowania Azure Stream Analytics zadania, przykładowe dane wejściowe i przekazywanie przykładowych danych.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: ajetasin
+ms.author: ajetasi
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8e08c4c34495b58c105560dba9d818be9ebf5e34
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: eff9103f476e6074ab46198ff8cc78588675569f
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490971"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020047"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Testowanie zadania Azure Stream Analytics w portalu
 
@@ -23,7 +22,7 @@ W Azure Stream Analytics można testować zapytanie bez uruchamiania lub zatrzym
 
 Azure Stream Analytics automatycznie pobiera zdarzenia z danych wejściowych przesyłania strumieniowego. Można uruchamiać zapytania na domyślnym przykładzie lub ustawić określony przedział czasu dla przykładu.
 
-1. Zaloguj się w witrynie Azure Portal.
+1. Zaloguj się do Portalu Azure.
 
 2. Znajdź i wybierz istniejące zadanie Stream Analytics.
 
@@ -37,11 +36,11 @@ Azure Stream Analytics automatycznie pobiera zdarzenia z danych wejściowych prz
     
    c. Jeśli wyświetlane dane nie są aktualne, wybierz pozycję **Odśwież** , aby wyświetlić najnowsze zdarzenia.
 
-   W poniższej tabeli przedstawiono przykład danych w **formacie tabeli** :
+   W poniższej tabeli przedstawiono przykład danych w **formacie tabeli**:
 
    ![Azure Stream Analytics przykładowe dane wejściowe w formacie tabeli](./media/stream-analytics-test-query/asa-sample-table.png)
 
-   W poniższej tabeli przedstawiono przykład danych w **formacie nieprzetworzonym** :
+   W poniższej tabeli przedstawiono przykład danych w **formacie nieprzetworzonym**:
 
    ![Azure Stream Analytics przykładowe dane wejściowe w formacie nieprzetworzonym](./media/stream-analytics-test-query/asa-sample-raw.png)
 
@@ -71,7 +70,7 @@ Azure Stream Analytics automatycznie pobiera zdarzenia z danych wejściowych prz
 
 Zamiast korzystać z danych na żywo, można użyć przykładowych danych z pliku lokalnego do testowania kwerendy Azure Stream Analytics.
 
-1. Zaloguj się w witrynie Azure Portal.
+1. Zaloguj się do Portalu Azure.
    
 2. Znajdź istniejące zadanie Stream Analytics i wybierz je.
 

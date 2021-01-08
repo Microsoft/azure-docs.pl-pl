@@ -2,18 +2,18 @@
 title: Analiza tonacji w czasie rzeczywistym w usłudze Twitter przy użyciu Azure Stream Analytics
 description: W tym artykule opisano, jak używać Stream Analytics do analizy tonacji w czasie rzeczywistym. Wskazówki krok po kroku dotyczące generowania zdarzeń do danych na aktywnym pulpicie nawigacyjnym.
 services: stream-analytics
-author: mamccrea
-ms.author: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 02/10/2020
-ms.openlocfilehash: 0941e3d5141b5b8841f5d37e3db0d0b1b1474547
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3b321e318621c5687a2e3e5f0649985210a2d16c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019824"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019877"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Analiza opinii w usłudze Twitter w czasie rzeczywistym za pomocą usługi Azure Stream Analytics
 
@@ -60,7 +60,7 @@ W tej sekcji utworzysz przestrzeń nazw centrum zdarzeń i dodasz centrum zdarze
 
 6. Nazwij nowe centrum zdarzeń *socialtwitter-EH*. Możesz użyć innej nazwy. Jeśli to zrobisz, zanotuj je, ponieważ potrzebujesz tej nazwy później. Nie trzeba ustawiać żadnych innych opcji centrum zdarzeń.
  
-7. Wybierz pozycję **Utwórz**.
+7. Wybierz przycisk **Utwórz**.
 
 ### <a name="grant-access-to-the-event-hub"></a>Udzielanie dostępu do centrum zdarzeń
 
@@ -75,7 +75,7 @@ Aby proces mógł wysyłać dane do centrum zdarzeń, centrum zdarzeń musi mie�
 
 3.  Na stronie zasady dostępu wybierz pozycję **+ Dodaj**. Następnie wprowadź *socialtwitter — dostęp* do **nazwy zasad** i zaznacz pole wyboru **Zarządzaj** .
  
-4.  Wybierz pozycję **Utwórz**.
+4.  Wybierz przycisk **Utwórz**.
 
 5.  Po wdrożeniu zasad wybierz zasady z listy zasad dostępu współdzielonego.
 
@@ -148,13 +148,13 @@ Teraz, gdy zdarzenia tweetu są przesyłane strumieniowo w czasie rzeczywistym z
 
     Dobrym pomysłem jest umieszczenie zadania i centrum zdarzeń w tym samym regionie w celu uzyskania najlepszej wydajności, aby nie zapłaciła za transfer danych między regionami.
 
-3. Wybierz pozycję **Utwórz**. Następnie przejdź do zadania po zakończeniu wdrożenia.
+3. Wybierz przycisk **Utwórz**. Następnie przejdź do zadania po zakończeniu wdrożenia.
 
 ## <a name="specify-the-job-input"></a>Określ dane wejściowe zadania
 
 1. W zadaniu Stream Analytics wybierz pozycję **dane wejściowe** z menu po lewej stronie w obszarze **topologia zadania**.
 
-2. Wybierz pozycję Dodaj centrum zdarzeń **+ &nbsp; wejścia strumienia**  >  **Event Hub**. Wypełnij nowy formularz **wejściowy** z następującymi informacjami:
+2. Wybierz pozycję Dodaj centrum zdarzeń **+ &nbsp; wejścia strumienia**  >  . Wypełnij nowy formularz **wejściowy** z następującymi informacjami:
 
    |**Ustawienie**  |**Sugerowana wartość**  |**Opis**  |
    |---------|---------|---------|

@@ -1,19 +1,18 @@
 ---
 title: Handel o wysokiej częstotliwości przy użyciu Azure Stream Analytics
 description: Sposób przeprowadzania szkolenia i oceniania modelu regresji liniowej w ramach zadania usługi Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: e5d346a6f412b5764400a42e2bebbafec610009b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f8f7744e07abb56d825ce44d5bb30190e7e87c4
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89015428"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020421"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Symulacja transakcji o wysokiej częstotliwości za pomocą usługi Stream Analytics
 Usługa Azure Stream Analytics umożliwia korzystanie z funkcji zdefiniowanych przez użytkownika (UDF) i agregatów zdefiniowanych przez użytkownika (UDA) napisanych w języku JavaScript. Połączenie tych możliwości z językiem SQL pozwala użytkownikom przeprowadzać zaawansowane analizy. Mogą one obejmować szkolenie i ocenianie w ramach uczenia maszynowego online oraz symulację procesów stanowych. W tym artykule opisano sposób przeprowadzania regresji liniowej w zadaniu usługi Azure Stream Analytics, które w sposób ciągły przeprowadza ocenianie i szkolenie w ramach scenariusza transakcji o wysokiej częstotliwości.

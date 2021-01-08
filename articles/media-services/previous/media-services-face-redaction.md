@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/17/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1a7bd36a6e3f3cc5b785745fc51f0aede3b47b74
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 2029ec2d0b0f27d7078f381880cf7ca177d24ca0
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803310"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020208"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Redagowanie twarzy przy użyciu Azure Media Analytics
 
@@ -36,6 +36,9 @@ Ten artykuł zawiera szczegółowe informacje dotyczące **Azure Media redactor*
 Redakcja twarzy działa przez wykrywanie powierzchni w każdej klatce wideo i śledzenie obiektu twarzy zarówno do przodu, jak i do tyłu, tak aby ta sama osoba mogła być zamazana z innych kątów. Zautomatyzowany proces redakcyjny jest skomplikowany i nie zawsze produkuje 100% żądanych danych wyjściowych. z tego powodu Media Analytics udostępnia kilka sposobów modyfikowania końcowych danych wyjściowych.
 
 Oprócz pełnego trybu automatycznego istnieje dwuprzebiegowy przepływ pracy, który umożliwia zaznaczanie/usuwanie wybranych twarzy przez listę identyfikatorów. Ponadto w celu dostrojenia dowolnej ramki pakiet MP używa pliku metadanych w formacie JSON. Ten przepływ pracy jest podzielony na tryby **analizowania** i **redagowania** . Dwa tryby można połączyć w jednym przebiegu, który uruchamia oba zadania w jednym zadaniu. Ten tryb jest wywoływany **razem**.
+
+   > [!NOTE]
+   > Procesor nośnika z wykrywaczem kroju został uznany za przestarzały od 2020 czerwca, [Azure Media Services starsze składniki](./legacy-components.md). Rozważ użycie interfejsu API Azure Media Services v3.
 
 ### <a name="combined-mode"></a>Tryb połączony
 

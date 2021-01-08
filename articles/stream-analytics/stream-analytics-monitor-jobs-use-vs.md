@@ -3,17 +3,16 @@ title: Monitoruj Azure Stream Analytics i zarządzaj nimi za pomocą programu Vi
 description: W tym artykule opisano, jak za pomocą programu Visual Studio monitorować zadania Azure Stream Analytics i zarządzać nimi.
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: a151d4ce5a2f9860c3b7919496a2edd25cc58ede
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e0db101e47a5ec8eb88d3b999058e7c8521f0ff9
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123629"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020285"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-visual-studio"></a>Monitoruj Stream Analytics zadania i zarządzaj nimi za pomocą programu Visual Studio
 

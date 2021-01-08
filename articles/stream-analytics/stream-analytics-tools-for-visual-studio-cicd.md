@@ -3,16 +3,15 @@ title: Użyj Azure Stream Analytics pakiet NuGet ciągłej integracji/ciągłego
 description: W tym artykule opisano sposób użycia pakietu NuGet pozostałej integracji i ciągłego wdrażania programu Azure Stream Analytics.
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/15/2019
-ms.openlocfilehash: c05db2d9ba184da89665a236994c851355cc2644
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9fe1aaed58d6069cd583f8607f7bd6332f97674e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019858"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019894"
 ---
 # <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>Użyj pakietu NuGet pozostałej CI/CD Azure Stream Analytics na potrzeby integracji i programowania 
 W tym artykule opisano sposób użycia pakietu NuGet Azure Stream Analytics/CD w celu skonfigurowania ciągłego procesu integracji i wdrażania.
@@ -45,7 +44,7 @@ Po pomyślnym skompilowaniu projektu programu Stream Analytics Visual Studio gen
 Parametry domyślne w parameters.jsna pliku pochodzą z ustawień w projekcie programu Visual Studio. Jeśli chcesz wdrożyć program w innym środowisku, Zastąp odpowiednio parametry.
 
 > [!NOTE]
-> Dla wszystkich poświadczeń wartości domyślne są ustawiane na wartość null. Musisz ustawić **required** wartości przed wdrożeniem w chmurze.
+> Dla wszystkich poświadczeń wartości domyślne są ustawiane na wartość null. Musisz ustawić  wartości przed wdrożeniem w chmurze.
 
 ```json
 "Input_EntryStream_sharedAccessPolicyKey": {

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: 7e27c3dd6e70d9a532c326d8187d82e14bf7ddda
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: d37fca06a3d2eafa0af9e31c3a30ac66be5404f0
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591620"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020608"
 ---
 # <a name="cicd-for-custom-speech"></a>Ciągła integracja/ciągłe wdrażanie dla usługi Custom Speech
 
@@ -83,7 +83,7 @@ Aby uzyskać już zaimplementowane rozwiązanie DevOps dla Custom Speech, przejd
 [Repozytorium szablonów DevOps mowy](https://github.com/Azure-Samples/Speech-Service-DevOps-Template) zawiera infrastrukturę i szczegółowe wskazówki dotyczące:
 
 - Skopiuj repozytorium szablonów do swojego konta usługi GitHub, a następnie utwórz zasoby platformy Azure i jednostkę [usług](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) dla przepływów pracy Ci/CD akcji usługi GitHub.
-- Zapoznaj się z tematem "[Pętla wewnętrzna dev](https://mitchdenny.com/the-inner-loop/)". Aktualizowanie szkoleń i testowania danych z gałęzi funkcji, testowanie zmian przy użyciu tymczasowego modelu programowania i zgłaszanie żądania ściągnięcia w celu zaproponowania i przejrzenia zmian.
+- Zapoznaj się z tematem "[Pętla wewnętrzna dev](/dotnet/architecture/containerized-lifecycle/design-develop-containerized-apps/docker-apps-inner-loop-workflow)". Aktualizowanie szkoleń i testowania danych z gałęzi funkcji, testowanie zmian przy użyciu tymczasowego modelu programowania i zgłaszanie żądania ściągnięcia w celu zaproponowania i przejrzenia zmian.
 - Gdy dane szkoleniowe są aktualizowane w ramach żądania ściągnięcia do *głównych*, nauczenie modeli z przepływem pracy Ci akcji usługi GitHub.
 - Wykonaj zautomatyzowane testowanie dokładności, aby określić [Współczynnik błędów wyrazów](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) dla modelu. Przechowaj wyniki testów w obiekcie blob platformy Azure.
 - Wykonaj przepływ pracy na dysku CD, aby utworzyć punkt końcowy, gdy raportowanie błędów systemu Windows poprawi.

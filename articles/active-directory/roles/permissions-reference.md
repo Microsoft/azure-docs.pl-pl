@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d04f2d1717e1d95f8bcafb8f72f2b0a2f83a248
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: 6da053bb04e5ee3f2b2b307c382f2695663669e5
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97976830"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020659"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Uprawnienia ról administratorów w usłudze Azure Active Directory
 
@@ -87,6 +87,14 @@ Uprawnienie [administrator uwierzytelniania uprzywilejowanego](#privileged-authe
 >* Grupa zabezpieczeń i właściciele grup Microsoft 365, którzy mogą zarządzać członkostwem w grupie. Te grupy mogą udzielić dostępu do poufnych lub prywatnych informacji lub konfiguracji krytycznej w usłudze Azure AD i w innym miejscu.
 >* Administratorzy w innych usługach poza usługą Azure AD, np. Exchange Online, Centrum zabezpieczeń i zgodności pakietu Office oraz systemy kadr.
 >* Użytkownicy niebędący administratorami, w tym członkowie kierownictwa, prawnik prawny i pracownicy działu kadr, którzy mogą mieć dostęp do poufnych lub prywatnych informacji.
+
+### <a name="attack-payload-author"></a>[Autor ładunku ataku](#attack-payload-author-permissions)
+
+Użytkownicy w tej roli mogą tworzyć ładunki ataków, ale nie są faktycznie uruchamiane lub zaplanowali. Ładunki ataków są następnie dostępne dla wszystkich administratorów w dzierżawie, którzy mogą ich używać do tworzenia symulacji.
+
+### <a name="attack-simulation-administrator"></a>[Administrator symulacji ataku](#attack-simulation-administrator-permissions)
+
+Użytkownicy w tej roli mogą tworzyć i zarządzać wszystkimi aspektami tworzenia symulacji ataków, uruchamiać i planować symulację oraz przeglądać wyniki symulacji. Członkowie tej roli mają dostęp do wszystkich symulacji w dzierżawie.
 
 ### <a name="azure-devops-administrator"></a>[Administrator usługi Azure DevOps](#azure-devops-administrator-permissions)
 
@@ -489,6 +497,10 @@ Użytkownicy z tą rolą mogą zarządzać [urządzeniami certyfikowanymi przez 
 
 Użytkownicy w tej roli mogą zarządzać wszystkimi aspektami obciążeń programu Microsoft Teams za pośrednictwem Centrum administracyjnego Microsoft Teams & Skype dla firm i odpowiednich modułów programu PowerShell. Obejmuje to między innymi wszystkie narzędzia do zarządzania dotyczące telefonii, wiadomości, spotkań i samych zespołów. Ta rola dodatkowo daje możliwość tworzenia wszystkich grup Microsoft 365 i zarządzania nimi, zarządzania biletami pomocy technicznej oraz monitorowania kondycji usługi.
 
+### <a name="usage-summary-reports-reader"></a>[Czytnik raportów podsumowujących użycia](#usage-summary-reports-reader-permissions)
+
+Użytkownicy z tą rolą mogą uzyskać dostęp do zagregowanych danych na poziomie dzierżawy i skojarzonych z nimi szczegółowych informacji w centrum administracyjnym Microsoft 365 w celu użycia i oceny produktywności, ale nie mogą uzyskać dostępu do dowolnych szczegółów na poziomie użytkownika ani szczegółowych danych. W Microsoft 365 centrum administracyjnym dla dwóch raportów rozróżniamy zagregowane dane na poziomie dzierżawy i szczegóły na poziomie użytkownika. Ta rola zapewnia dodatkową warstwę ochrony dla poszczególnych użytkowników, których dane zostały zlecone przez klientów i zespoły prawne. 
+
 ### <a name="user-administrator"></a>[Administrator użytkowników](#user-administrator-permissions)
 
 Użytkownicy z tą rolą mogą tworzyć użytkowników i zarządzać wszystkimi aspektami użytkowników z pewnymi ograniczeniami (zobacz tabelę), a także aktualizować zasady wygasania haseł. Ponadto użytkownicy z tą rolą mogą tworzyć wszystkie grupy i zarządzać nimi. Ta rola obejmuje również możliwość tworzenia widoków użytkowników i zarządzania nimi, zarządzania biletami pomocy technicznej oraz monitorowania kondycji usługi. Administratorzy użytkowników nie mają uprawnień do zarządzania niektórymi właściwościami użytkowników w większości ról administratorów. Użytkownik z tą rolą nie ma uprawnień do zarządzania usługą MFA. Role, które są wyjątkami do tego ograniczenia, są wymienione w poniższej tabeli.
@@ -591,6 +603,25 @@ Zezwolenie na wyświetlanie, ustawianie i Resetowanie informacji o metodach uwie
 | Microsoft. Office 365. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Service Health Microsoft 365. |
 | Microsoft. Office 365. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej pakietu Office 365 i zarządzaj nimi. |
 | Microsoft. Directory/Users/hasło/aktualizacja | Aktualizowanie haseł dla wszystkich użytkowników w organizacji Microsoft 365. Zobacz dokumentację online, aby uzyskać więcej szczegółów. |
+
+### <a name="attack-payload-author-permissions"></a>Uprawnienia autora ładunku ataku
+
+Może utworzyć ładunki ataków, które mogą zostać później wdrożone przez administratora.
+
+| **Akcje** | **Opis** |
+| --- | --- |
+| Microsoft. Office 365. protectionCenter/attackSimulator/ładunek/allProperties/allTasks | Twórz i Zarządzaj ładunkiem ataków w symulatorze ataków. |
+| Microsoft. Office 365. protectionCenter/attackSimulator/Reports/allProperties/Read | Przeczytaj raporty dotyczące symulacji ataku, odpowiedzi i powiązanego szkolenia. |
+
+### <a name="attack-simulation-administrator-permissions"></a>Uprawnienia administratora symulacji ataku
+
+Może tworzyć wszystkie aspekty kampanii związanych z symulacją ataków i zarządzać nimi.
+
+| **Akcje** | **Opis** |
+| --- | --- |
+| Microsoft. Office 365. protectionCenter/attackSimulator/ładunek/allProperties/allTasks | Twórz i Zarządzaj ładunkiem ataków w symulatorze ataków. |
+| Microsoft. Office 365. protectionCenter/attackSimulator/Reports/allProperties/Read | Przeczytaj raporty dotyczące symulacji ataku, odpowiedzi i powiązanego szkolenia. |
+| Microsoft. Office 365. protectionCenter/attackSimulator/symulacja/allProperties/allTasks | Twórz i Zarządzaj szablonami symulacji ataków w symulatorze ataków. |
 
 ### <a name="azure-devops-administrator-permissions"></a>Uprawnienia administratora usługi Azure DevOps
 
@@ -1876,6 +1907,14 @@ Może zarządzać usługą Microsoft Teams.
 | Microsoft. 365. webports/allEntities/Basic/Read | Zapoznaj się z podstawowymi właściwościami wszystkich zasobów w Microsoft. 365. webport. |
 | Microsoft. Teams/allEntities/allProperties/allTasks | Zarządzanie wszystkimi zasobami w zespołach. |
 
+### <a name="usage-summary-reports-reader-permissions"></a>Uprawnienia czytelnika do raportów podsumowania użycia
+Może wyświetlać tylko agregacje poziomu dzierżawy w analizie użycia M365 i ocenę wydajności.
+
+| **Akcje** | **Opis** |
+| --- | --- |
+| Microsoft. Office 365. usageReports/allEntities/Standard/Read | Odczytaj zagregowane raporty użycia pakietu Office 365 na poziomie dzierżawy. |
+| Microsoft. 365. webports/allEntities/Standard/Read | Zapoznaj się z podstawowymi właściwościami wszystkich zasobów w Microsoft. 365. webport.|
+
 ### <a name="user-administrator-permissions"></a>Uprawnienia administratora użytkownika
 Może zarządzać wszystkimi aspektami użytkowników i grup, w tym resetowania haseł dla ograniczonych administratorów.
 
@@ -1922,6 +1961,8 @@ Nazwa wyświetlana wykresu | Nazwa wyświetlana Azure Portal | directoryRoleTemp
 Administrator aplikacji | Administrator aplikacji | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
 Deweloper aplikacji | Deweloper aplikacji | CF1C38E5-3621-4004-A7CB-879624DCED7C
 Administrator uwierzytelniania | Administrator uwierzytelniania | c4e39bd9-1100-46d3-8c65-fb160da0071f
+Autor ładunku ataku | Autor ładunku ataku | 9c6df0f2-1e7c-4dc3-b195-66dfbd24aa8f
+Administrator symulacji ataku | Administrator symulacji ataku | c430b396-e693-46cc-96f3-db01bf8bb62a
 Administrator usługi Azure DevOps | Administrator usługi Azure DevOps | e3973bdf-4987-49ae-837a-ba8e231c7286
 Azure Information Protection administrator | Azure Information Protection administrator | 7495fdc4-34c4-4d15-a289-98788ce399fd
 Administrator zestawu kluczy B2C IEF | Administrator zestawu kluczy B2C IEF | aaf43236-0c0d-4d5f-883a-6955382ac081
@@ -1985,6 +2026,7 @@ Inżynierowie pomocy technicznej dla zespołów | Inżynierowie pomocy techniczn
 Zespoły ds. pomocy technicznej | Zespoły ds. pomocy technicznej | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
 Administrator urządzeń zespołów | Administrator urządzeń zespołów | 3d762c5a-1b6c-493f-843e-55a3b42923d4
 Administrator usługi Teams | Administrator usługi Teams | 69091246-20e8-4a56-aa4d-066075b2a7a8
+Czytnik raportów podsumowujących użycia | Czytnik raportów podsumowujących użycia | 75934031-6c7e-415a-99d7-48dbd49e875e
 Użytkownik | Niepokazywany, ponieważ nie można go użyć | a0b1b346-4d3e-4e8b-98f8-753987be4970
 Administrator konta użytkownika | Administrator użytkowników | fe930be7-5e62-47db-91af-98c3a49a38b1
 Dołączanie urządzenia w miejscu pracy | Przestarzałe | c34f683f-4d5a-4403-AFFD-6615e00e3a7f

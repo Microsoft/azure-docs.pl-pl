@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 12c9fd43933f9f54e013752c5fe482ce31650536
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 52a43874060748479beebc994bf0a9b663cde9dc
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95238398"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020183"
 ---
 # <a name="create-an-app-service-environment"></a>Tworzenie App Service Environment
 
@@ -20,10 +20,9 @@ ms.locfileid: "95238398"
 > Ten artykuł dotyczy App Service Environment v3 (wersja zapoznawcza)
 > 
 
-[App Service Environment (ASE)][Intro] jest wdrożeniem pojedynczej dzierżawy App Service, która wprowadza do Virtual Network platformy Azure.  ASEv3 obsługuje tylko udostępnianie aplikacji na prywatnym adresie w sieci wirtualnej. Po utworzeniu ASEv3 w wersji zapoznawczej do subskrypcji są dodawane trzy zasoby.
+[App Service Environment (ASE)][Intro] jest wdrożeniem pojedynczej dzierżawy App Service, która wprowadza do Virtual Network platformy Azure.  ASEv3 obsługuje tylko udostępnianie aplikacji na prywatnym adresie w sieci wirtualnej. Po utworzeniu ASEv3 w wersji zapoznawczej te zasoby są dodawane do subskrypcji.
 
 - Środowisko usługi App Service
-- Strefa prywatna Azure DNS
 - Prywatny punkt końcowy
 
 Wdrożenie środowiska ASE wymaga użycia dwóch podsieci.  Jedna podsieć będzie przechowywać prywatny punkt końcowy.  Ta podsieć może być używana do innych elementów, takich jak maszyny wirtualne.  Druga podsieć jest używana na potrzeby wywołań wychodzących wykonanych z środowiska ASE.  Tej podsieci nie można użyć dla niczego innego niż środowisko ASE. 

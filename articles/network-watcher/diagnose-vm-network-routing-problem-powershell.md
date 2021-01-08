@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
-ms.date: 04/20/2018
+ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: 362157f023f7ed4d2da81962acd32e2da968193e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6569a99ec851da478151665921e7689e1c3488f1
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84738791"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020217"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-powershell"></a>Diagnozowanie problemu z routingiem sieciowym maszyny wirtualnej — Azure PowerShell
 
@@ -94,7 +94,7 @@ Get-AzNetworkWatcherNextHop `
   -DestinationIPAddress 13.107.21.200
 ```
 
-Po kilku sekundach dane wyjściowe informuje o tym, że **NextHopType** jest **Internet**i że **RouteTableId** jest **trasą systemową**. Dzięki temu wiadomo, że istnieje prawidłowa trasa do miejsca docelowego.
+Po kilku sekundach dane wyjściowe informuje o tym, że **NextHopType** jest **Internet** i że **RouteTableId** jest **trasą systemową**. Dzięki temu wiadomo, że istnieje prawidłowa trasa do miejsca docelowego.
 
 Przetestuj komunikację wychodzącą z maszyny wirtualnej do adresu 172.31.0.100:
 
@@ -106,7 +106,7 @@ Get-AzNetworkWatcherNextHop `
   -DestinationIPAddress 172.31.0.100
 ```
 
-Zwrócone dane wyjściowe informuje o tym, że **żaden** z nich nie jest **NextHopType**i że **RouteTableId** jest również **trasą systemową**. Ten wynik oznacza, że istnieje prawidłowa trasa systemowa do miejsca docelowego, ale nie ma następnego przeskoku umożliwiającego kierowanie ruchu do miejsca docelowego.
+Zwrócone dane wyjściowe informuje o tym, że **żaden** z nich nie jest **NextHopType** i że **RouteTableId** jest również **trasą systemową**. Ten wynik oznacza, że istnieje prawidłowa trasa systemowa do miejsca docelowego, ale nie ma następnego przeskoku umożliwiającego kierowanie ruchu do miejsca docelowego.
 
 ## <a name="view-details-of-a-route"></a>Wyświetlanie szczegółów trasy
 
