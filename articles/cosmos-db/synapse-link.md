@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.reviewer: sngun
-ms.openlocfilehash: d083bc0b7726a284dcfd03e49d47c2a342db023c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ed909cf3feb17930b045dee1031ed5a6209b63d2
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461803"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98029019"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db"></a>Co to jest link usługa Azure Synapse Link dla usługi Azure Cosmos DB?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -105,7 +105,7 @@ Aby uzyskać więcej informacji o obsłudze środowiska uruchomieniowego usługi
 
 Łącze Synapse jest zalecane w następujących przypadkach:
 
-* Jeśli jesteś Azure Cosmos DB klientem i chcesz uruchamiać analizy, analizy biznesowej i uczenia maszynowego na danych operacyjnych. W takich przypadkach łącze Synapse zapewnia bardziej zintegrowane środowisko analityczne bez wpływu na przepływność zainicjowaną przez magazyn transakcyjny. Przykład:
+* Jeśli jesteś Azure Cosmos DB klientem i chcesz uruchamiać analizy, analizy biznesowej i uczenia maszynowego na danych operacyjnych. W takich przypadkach łącze Synapse zapewnia bardziej zintegrowane środowisko analityczne bez wpływu na przepływność zainicjowaną przez magazyn transakcyjny. Na przykład:
 
   * Jeśli używasz analizy lub analizy biznesowej Azure Cosmos DB danych operacyjnych bezpośrednio przy użyciu osobnych łączników, lub
 
@@ -117,13 +117,15 @@ W takich przypadkach łącze Synapse zapewnia bardziej zintegrowane środowisko 
 
 ## <a name="limitations"></a>Ograniczenia
 
-* Obecnie usługa Azure Synapse Link dla usługi Azure Cosmos DB jest obsługiwana w przypadku interfejsu API SQL oraz interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB. Nie jest obsługiwana w przypadku interfejsu API Gremlin i interfejsu API tabel. Pomoc techniczna dla interfejs API Cassandra jest w prywatnej wersji zapoznawczej. Aby uzyskać więcej informacji, skontaktuj się z [zespołem usługi Azure Synapse](mailto:cosmosdbsynapselink@microsoft.com).  
+* Usługa Azure Synapse link dla Azure Cosmos DB jest obsługiwana w przypadku interfejsu API SQL i interfejsu API Azure Cosmos DB dla MongoDB. Nie jest on obsługiwany w przypadku interfejsów API Gremlin, interfejs API Cassandra i interfejs API tabel. 
 
-* Obecnie magazyn analityczny można włączyć tylko dla nowych kontenerów. Aby używać magazynu analitycznego dla istniejących kontenerów, Migruj dane z istniejących kontenerów do nowych kontenerów za pomocą [narzędzi do migracji Azure Cosmos DB](cosmosdb-migrationchoices.md). Link Synapse można włączyć na nowych i istniejących kontach Azure Cosmos DB.
+* Magazyn analityczny można włączyć tylko dla nowych kontenerów. Aby używać magazynu analitycznego dla istniejących kontenerów, Migruj dane z istniejących kontenerów do nowych kontenerów za pomocą [narzędzi do migracji Azure Cosmos DB](cosmosdb-migrationchoices.md). Link Synapse można włączyć na nowych i istniejących kontach Azure Cosmos DB.
 
 * W przypadku kontenerów z włączonym magazynem analitycznym automatyczne tworzenie kopii zapasowych i przywracanie danych w magazynie analitycznym nie jest obecnie obsługiwane. Gdy łącze Synapse jest włączone na koncie bazy danych, Azure Cosmos DB będzie nadal automatycznie [tworzyć kopie zapasowe](./online-backup-and-restore.md) danych w magazynie transakcyjnym (tylko) kontenerów z zaplanowanym interwałem tworzenia kopii zapasowych, tak jak zawsze. Należy pamiętać, że gdy kontener z włączonym magazynem analitycznym zostanie przywrócony do nowego konta, kontener zostanie przywrócony tylko z magazynem transakcyjnym i nie włączono magazynu analitycznego. 
 
 * Uzyskiwanie dostępu do Sklepu Azure Cosmos DB Analytics z zainicjowaną obsługą SQL Synapse nie jest obecnie dostępne.
+
+* Izolacja sieci dla magazynu analitycznego usługi Azure Cosmso DB przy użyciu zarządzanych prywatnych punktów końcowych w usłudze Azure Synapse Analytics nie jest obecnie obsługiwana.
 
 ## <a name="pricing"></a>Cennik
 

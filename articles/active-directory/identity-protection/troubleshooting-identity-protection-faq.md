@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: troubleshooting
-ms.date: 10/07/2020
+ms.date: 01/07/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eb63a4a0b7b7fdefd636d3460b182f8d907dd36
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 0d80b8f41e11f2fffa86dc7597fdf44dd27825fc
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558933"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028900"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Często zadawane pytania dotyczące ochrony tożsamości w programie Azure Active Directory
 
@@ -35,7 +35,7 @@ Istnieje obecnie znany problem powodujący opóźnienie w przepływie nieprzerwa
 
 Jeśli jesteś klientem Azure AD Identity Protection, przejdź do widoku [ryzykowne użytkownicy](howto-identity-protection-investigate-risk.md#risky-users) i kliknij użytkownika o podwyższonym ryzyku. W szufladzie na dole karta "Historia ryzyka" będzie zawierać wszystkie zdarzenia, które doprowadziły do zmiany ryzyka użytkownika. Aby wyświetlić wszystkie ryzykowne logowania dla użytkownika, kliknij pozycję ryzykowne logowania użytkownika. Aby wyświetlić wszystkie wykrycia ryzyka dla tego użytkownika, kliknij pozycję wykrycia ryzyka użytkownika.
 
-## <a name="why-was-my-sign-in-blocked-but-identity-protection-didnt-generate-a-risk-detection"></a>Dlaczego moje logowanie zostało zablokowane, ale Ochrona tożsamości nie wygenerowała wykrywania ryzyka?
+### <a name="why-was-my-sign-in-blocked-but-identity-protection-didnt-generate-a-risk-detection"></a>Dlaczego moje logowanie zostało zablokowane, ale Ochrona tożsamości nie wygenerowała wykrywania ryzyka?
 Logowania można blokować z kilku powodów. Należy pamiętać, że program Identity Protection generuje wyłącznie wykrywanie ryzyka, gdy w żądaniu uwierzytelniania są używane poprawne poświadczenia. Jeśli użytkownik używa nieprawidłowych poświadczeń, nie zostanie oflagowany przez ochronę tożsamości, ponieważ nie ma ryzyka naruszenia bezpieczeństwa poświadczeń, chyba że nieprawidłowy aktor używa poprawnych poświadczeń. Niektóre powody, dla których użytkownik może zostać zablokowany do podpisywania, który nie będzie generował usługi Identity Protection, obejmuje następujące kwestie:
 * Adres **IP można zablokować** ze względu na złośliwe działanie z adresu IP. Komunikat zablokowany przez adres IP nie różni się od tego, czy poświadczenia były poprawne. Jeśli adres IP jest zablokowany i nie są używane poprawne poświadczenia, nie spowoduje to wygenerowania wykrywania ochrony tożsamości
 * **[Inteligentna blokada](../authentication/howto-password-smart-lockout.md)** może blokować logowanie się po wielu nieudanych próbach
@@ -96,3 +96,7 @@ Ze względu na to, że ryzyko związane z użytkownikiem ma charakter zbiorczy i
 ### <a name="why-does-a-sign-in-have-a-sign-in-risk-aggregate-score-of-high-when-the-detections-associated-with-it-are-of-low-or-medium-risk"></a>Dlaczego logowanie ma wynik "ryzyko związane z logowaniem (zagregowany)" o wysokim stopniu, gdy powiązane z nim środki wykrywania mają niski lub średniego ryzyka?
 
 Wysoki zagregowany wskaźnik ryzyka może opierać się na innych funkcjach logowania lub w przypadku, gdy wygenerowane jest więcej niż jedno wykrycie dla tego logowania. Z drugiej strony Logowanie może mieć ryzyko związane z logowaniem (zagregowany), nawet jeśli wykrycie skojarzone z logowaniem ma wysokie ryzyko.
+
+### <a name="what-is-the-difference-between-the-activity-from-anonymous-ip-address-and-anonymous-ip-address-detections"></a>Czym różnią się wykrywanie "aktywność z anonimowego adresu IP" i "anonimowe adresy IP"?
+
+Źródło wykrywania "anonimowego adresu IP" jest Azure AD Identity Protection, podczas gdy wykrywanie aktywności z anonimowego adresu IP jest zintegrowane z MCAS (Microsoft Cloud App Security). Chociaż mają bardzo podobne nazwy i jest możliwe, że w tych sygnałach może się pojawić nakładanie się, mają różne wykrycia zaplecza.

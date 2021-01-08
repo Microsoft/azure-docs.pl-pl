@@ -3,12 +3,12 @@ title: Wdrażanie zasobów za pomocą interfejsu API REST i szablonu
 description: Użyj Azure Resource Manager i Menedżer zasobów interfejsu API REST do wdrażania zasobów na platformie Azure. Zasoby są zdefiniowane w szablonie usługi Resource Manager.
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: d1c8a365153007d3337d922bc163ba3767eeddc9
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 77192aff9ed4fe33269b5e11891c30e15bc312dd
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675410"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028968"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-resource-manager-rest-api"></a>Wdrażanie zasobów za pomocą szablonów ARM i interfejsu API REST Azure Resource Manager
 
@@ -20,13 +20,13 @@ Możesz dołączyć szablon do treści żądania lub połączyć się z plikiem.
 
 Wdrożenie można określić w grupie zasobów, subskrypcji platformy Azure, grupie zarządzania lub dzierżawie. W zależności od zakresu wdrożenia używane są inne polecenia.
 
-* Aby wdrożyć w **grupie zasobów** , użyj [wdrożeń — Utwórz](/rest/api/resources/deployments/createorupdate). Żądanie jest wysyłane do:
+- Aby wdrożyć w **grupie zasobów**, użyj [wdrożeń — Utwórz](/rest/api/resources/deployments/createorupdate). Żądanie jest wysyłane do:
 
   ```HTTP
   PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-06-01
   ```
 
-* Aby wdrożyć w **ramach subskrypcji** , użyj [wdrożeń — Utwórz zakres subskrypcji](/rest/api/resources/deployments/createorupdateatsubscriptionscope). Żądanie jest wysyłane do:
+- Aby wdrożyć w **ramach subskrypcji**, użyj [wdrożeń — Utwórz zakres subskrypcji](/rest/api/resources/deployments/createorupdateatsubscriptionscope). Żądanie jest wysyłane do:
 
   ```HTTP
   PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-06-01
@@ -34,7 +34,7 @@ Wdrożenie można określić w grupie zasobów, subskrypcji platformy Azure, gru
 
   Aby uzyskać więcej informacji o wdrożeniach na poziomie subskrypcji, zobacz [Tworzenie grup zasobów i zasobów na poziomie subskrypcji](deploy-to-subscription.md).
 
-* Aby wdrożyć w **grupie zarządzania** , należy użyć [wdrożenia — tworzenie w zakresie grupy zarządzania](/rest/api/resources/deployments/createorupdateatmanagementgroupscope). Żądanie jest wysyłane do:
+- Aby wdrożyć w **grupie zarządzania**, należy użyć [wdrożenia — tworzenie w zakresie grupy zarządzania](/rest/api/resources/deployments/createorupdateatmanagementgroupscope). Żądanie jest wysyłane do:
 
   ```HTTP
   PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-06-01
@@ -42,7 +42,7 @@ Wdrożenie można określić w grupie zasobów, subskrypcji platformy Azure, gru
 
   Aby uzyskać więcej informacji o wdrożeniach na poziomie grupy zarządzania, zobacz [Tworzenie zasobów na poziomie grupy zarządzania](deploy-to-management-group.md).
 
-* Aby wdrożyć w **dzierżawie** , użyj [wdrożeń — Utwórz lub zaktualizuj w zakresie dzierżawy](/rest/api/resources/deployments/createorupdateattenantscope). Żądanie jest wysyłane do:
+- Aby wdrożyć w **dzierżawie**, użyj [wdrożeń — Utwórz lub zaktualizuj w zakresie dzierżawy](/rest/api/resources/deployments/createorupdateattenantscope). Żądanie jest wysyłane do:
 
   ```HTTP
   PUT https://management.azure.com/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-06-01
@@ -83,7 +83,7 @@ W przykładach w tym artykule są używane wdrożenia grup zasobów.
 
    W treści żądania Podaj link do szablonu i pliku parametrów. Aby uzyskać więcej informacji na temat pliku parametrów, zobacz [Tworzenie pliku parametrów usługi Resource Manager](parameter-files.md).
 
-   Zauważ, że **tryb** jest ustawiony na wartość **przyrostowa** . Aby przeprowadzić kompletne wdrożenie, ustaw **tryb** na **ukończone** . Należy zachować ostrożność w przypadku korzystania z trybu kompletnego, ponieważ można przypadkowo usunąć zasoby, które nie znajdują się w szablonie.
+   Zauważ, że `mode` ustawiono wartość **przyrostowa**. Aby uruchomić całe wdrożenie, ustaw `mode` na **zakończone**. Należy zachować ostrożność w przypadku korzystania z trybu kompletnego, ponieważ można przypadkowo usunąć zasoby, które nie znajdują się w szablonie.
 
    ```json
    {
@@ -122,9 +122,9 @@ W przykładach w tym artykule są używane wdrożenia grup zasobów.
    }
    ```
 
-    Konto magazynu można skonfigurować tak, aby korzystało z tokenu sygnatury dostępu współdzielonego (SAS). Aby uzyskać więcej informacji, zobacz [delegowanie dostępu za pomocą sygnatury dostępu współdzielonego](/rest/api/storageservices/delegating-access-with-a-shared-access-signature).
+    Konto magazynu można skonfigurować tak, aby korzystało z tokenu sygnatury dostępu współdzielonego (SAS). Aby uzyskać więcej informacji, zobacz [delegowanie dostępu za pomocą sygnatury dostępu współdzielonego](/rest/api/storageservices/delegate-access-with-shared-access-signature).
 
-    Jeśli musisz podać wartość poufną dla parametru (na przykład hasła), Dodaj tę wartość do magazynu kluczy. Pobierz Magazyn kluczy podczas wdrażania, jak pokazano w poprzednim przykładzie. Aby uzyskać więcej informacji, zobacz [Przekazywanie bezpiecznych wartości podczas wdrażania](key-vault-parameter.md).
+    Jeśli musisz podać wartość poufną dla parametru (na przykład hasła), Dodaj tę wartość do magazynu kluczy. Pobierz Magazyn kluczy podczas wdrażania, jak pokazano w poprzednim przykładzie. Aby uzyskać więcej informacji, zobacz [używanie Azure Key Vault do przekazywania zabezpieczonej wartości parametrów podczas wdrażania](key-vault-parameter.md).
 
 1. Zamiast łączyć się z plikami szablonu i parametrów, można je uwzględnić w treści żądania. Poniższy przykład pokazuje treść żądania z szablonem i parametrem wbudowanym:
 
@@ -217,4 +217,3 @@ Aby uniknąć konfliktów z jednoczesnymi wdrożeniami i zapewnić unikatowe wpi
 - Aby określić sposób obsługi zasobów, które istnieją w grupie zasobów, ale nie są zdefiniowane w szablonie, zobacz [Azure Resource Manager trybami wdrożenia](deployment-modes.md).
 - Aby dowiedzieć się więcej o obsłudze asynchronicznych operacji REST, zobacz [śledzenie asynchronicznych operacji na platformie Azure](../management/async-operations.md).
 - Aby dowiedzieć się więcej na temat szablonów, zobacz [Omówienie struktury i składni szablonów ARM](template-syntax.md).
-

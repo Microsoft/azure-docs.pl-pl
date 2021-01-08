@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20f1e152d67e653b10b8378b7d667106c48dc116
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 5942d208fa3859d0a4a80de5f072f2e798fe040f
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/08/2021
-ms.locfileid: "98016936"
+ms.locfileid: "98028934"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnozowanie i naprawianie błędów synchronizacji zduplikowanego atrybutu
 
@@ -137,6 +137,9 @@ Użytkownik z atrybutem powodującym konflikt w usłudze Azure AD powinien zosta
 
 **Aktualizowanie zakotwiczenia źródła do użytkownika opartego na chmurze w dzierżawie nie jest obsługiwane.**  
 Użytkownik oparty na chmurze w usłudze Azure AD nie powinien mieć kotwicy źródłowej. Aktualizacja kotwicy źródła nie jest obsługiwana w tym przypadku. Poprawka ręczna jest wymagana w środowisku lokalnym. 
+
+**Zaktualizowanie wartości przez proces naprawy nie powiodło się.**
+Określone ustawienia, takie jak [UserWriteback w Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-preview#user-writeback) nie są obsługiwane. Wyłącz ustawienia. 
 
 ## <a name="faq"></a>Często zadawane pytania
 **Pytania.** Co się stanie w przypadku niepowodzenia wykonania **zastosowania poprawki** ?  

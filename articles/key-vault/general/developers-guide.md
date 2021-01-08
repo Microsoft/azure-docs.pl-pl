@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 895b8441f340d085932cade513c9f8929491b374
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: b7980bfc58ed696a74d3da259e23fb7e428621a9
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96904265"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028917"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Przewodnik dewelopera usługi Azure Key Vault
 
@@ -41,7 +41,7 @@ Dostęp do warstwy zarządzania jest kontrolowany przez funkcję [kontroli dost�
 
 | Interfejs wiersza polecenia platformy Azure | PowerShell | Interfejs API REST | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[Odwołanie](/cli/azure/keyvault)<br>[Szybki start](quick-create-cli.md)|[Odwołanie](/powershell/module/az.keyvault)<br>[Szybki start](quick-create-powershell.md)|[Odwołanie](/rest/api/keyvault/)|[Odwołanie](/azure/templates/microsoft.keyvault/vaults)|[Odwołanie](/dotnet/api/microsoft.azure.management.keyvault)|[Odwołanie](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)|[Odwołanie](/java/api/com.microsoft.azure.management.keyvault)|[Odwołanie](/javascript/api/@azure/arm-keyvault)|
+|[Odwołanie](/cli/azure/keyvault)<br>[Szybki start](quick-create-cli.md)|[Odwołanie](/powershell/module/az.keyvault)<br>[Szybki start](quick-create-powershell.md)|[Odwołanie](/rest/api/keyvault/)|[Odwołanie](/azure/templates/microsoft.keyvault/vaults)|[Odwołanie](/dotnet/api/microsoft.azure.management.keyvault)<br>[Szybki start](https://docs.microsoft.com/azure/key-vault/general/vault-create-template)|[Odwołanie](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)|[Odwołanie](/java/api/com.microsoft.azure.management.keyvault)|[Odwołanie](/javascript/api/@azure/arm-keyvault)|
 
 Zobacz [biblioteki klienckie](client-libraries.md) dla pakietów instalacyjnych i kodu źródłowego.
 
@@ -68,9 +68,13 @@ Powyższe scenariusze uwierzytelniania są obsługiwane przez **bibliotekę klie
 Aby uzyskać więcej informacji na temat usługi Azure Identity Client libarary, zobacz:
 
 ### <a name="azure-identity-client-libraries"></a>Biblioteki klienta tożsamości platformy Azure
+
 | .NET | Python | Java | JavaScript |
 |--|--|--|--|
 |[Azure Identity SDK .NET](/dotnet/api/overview/azure/identity-readme)|[Zestaw Azure Identity SDK Python](/python/api/overview/azure/identity-readme)|[Zestaw Azure Identity SDK Java](/java/api/overview/azure/identity-readme)|[Azure Identity SDK JavaScript](/javascript/api/overview/azure/identity-readme)|     
+
+>[!Note]
+> [Biblioteka uwierzytelniania aplikacji](https://docs.microsoft.com/dotnet/api/overview/azure/service-to-service-authentication) zalecana dla Key Vault .NET SDK w wersji 3, która jest obecnie depracated. Skorzystaj z [AppAuthentication na platformie Azure. wskazówki dotyczące migracji tożsamości](https://docs.microsoft.com/dotnet/api/overview/azure/app-auth-migration) do migracji do Key Vault .NET SDK w wersji 4.
 
 Aby zapoznać się z samouczkami dotyczącymi uwierzytelniania Key Vault w aplikacjach, zobacz:
 - [Uwierzytelnianie w Key Vault w aplikacji hostowanej w maszynie wirtualnej na platformie .NET](./tutorial-net-virtual-machine.md)
@@ -86,14 +90,14 @@ Dostęp do kluczy, wpisów tajnych i certyfikatów jest kontrolowany przez płas
 
 | Interfejs wiersza polecenia platformy Azure | PowerShell | Interfejs API REST | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[Odwołanie](/cli/azure/keyvault/key)<br>[Szybki start](../keys/quick-create-cli.md)|[Odwołanie](/powershell/module/az.keyvault/)<br>[Szybki start](../keys/quick-create-powershell.md)|[Odwołanie](/rest/api/keyvault/#key-operations)|Nie dotyczy|[Odwołanie](/dotnet/api/azure.security.keyvault.keys)|[Odwołanie](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br>[Szybki start](../keys/quick-create-python.md)|[Odwołanie](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)|[Odwołanie](/javascript/api/@azure/keyvault-keys/)|
+|[Odwołanie](/cli/azure/keyvault/key)<br>[Szybki start](../keys/quick-create-cli.md)|[Odwołanie](/powershell/module/az.keyvault/)<br>[Szybki start](../keys/quick-create-powershell.md)|[Odwołanie](/rest/api/keyvault/#key-operations)|[Odwołanie](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/keys)<br>[Szybki start](../keys/quick-create-template.md)|[Odwołanie](/dotnet/api/azure.security.keyvault.keys)<br>[Szybki start](../keys/quick-create-net.md)|[Odwołanie](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br>[Szybki start](../keys/quick-create-python.md)|[Odwołanie](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)<br>[Szybki start](../keys/quick-create-java.md)|[Odwołanie](/javascript/api/@azure/keyvault-keys/)<br>[Szybki start](../keys/quick-create-node.md)|
 
 **Interfejsy API i zestawy SDK certyfikatów**
 
 
 | Interfejs wiersza polecenia platformy Azure | PowerShell | Interfejs API REST | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[Odwołanie](/cli/azure/keyvault/certificate)<br>[Szybki start](../certificates/quick-create-cli.md)|[Odwołanie](/powershell/module/az.keyvault)<br>[Szybki start](../certificates/quick-create-powershell.md)|[Odwołanie](/rest/api/keyvault/#certificate-operations)|Nie dotyczy|[Odwołanie](/dotnet/api/azure.security.keyvault.certificates)|[Odwołanie](/python/api/overview/azure/keyvault-certificates-readme)<br>[Szybki start](../certificates/quick-create-python.md)|[Odwołanie](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-certificates/4.1.0/index.html)|[Odwołanie](/javascript/api/@azure/keyvault-certificates/)|
+|[Odwołanie](/cli/azure/keyvault/certificate)<br>[Szybki start](../certificates/quick-create-cli.md)|[Odwołanie](/powershell/module/az.keyvault)<br>[Szybki start](../certificates/quick-create-powershell.md)|[Odwołanie](/rest/api/keyvault/#certificate-operations)|Nie dotyczy|[Odwołanie](/dotnet/api/azure.security.keyvault.certificates)<br>[Szybki start](../certificates/quick-create-net.md)|[Odwołanie](/python/api/overview/azure/keyvault-certificates-readme)<br>[Szybki start](../certificates/quick-create-python.md)|[Odwołanie](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-certificates/4.1.0/index.html)<br>[Szybki start](../certificates/quick-create-java.md)|[Odwołanie](/javascript/api/@azure/keyvault-certificates/)<br>[Szybki start](../certificates/quick-create-node.md)|
 
 **Interfejsy API i zestawy SDK kluczy tajnych**
 
@@ -119,7 +123,7 @@ Poniższe artykuły i scenariusze zapewniają wskazówki dotyczące zadań zwią
 - Dostęp do [Key Vault za zaporą](access-behind-firewall.md) — Aby uzyskać dostęp do magazynu kluczy, aplikacja kliencka magazynu kluczy musi mieć dostęp do wielu punktów końcowych dla różnych funkcji.
 - Jak wdrażać certyfikaty na maszynach wirtualnych z Key Vault — [Windows](../../virtual-machines/extensions/key-vault-windows.md), [Linux](../../virtual-machines/extensions/key-vault-linux.md) — aplikacja w chmurze działająca na maszynie wirtualnej na platformie Azure wymaga certyfikatu. Jak uzyskać ten certyfikat na tę maszynę wirtualną dzisiaj?
 - [Wdrażanie certyfikatu aplikacji sieci Web platformy Azure za pomocą Key Vault](../../app-service/configure-ssl-certificate.md#import-a-certificate-from-key-vault)
-- Przypisz zasady dostępu (Portal[CLI](assign-access-policy-cli.md)  |  [PowerShell](assign-access-policy-powershell.md)  |  [Portal](assign-access-policy-portal.md)). 
+- Przypisz zasady dostępu (Portal[CLI](assign-access-policy-cli.md)  |  [PowerShell](assign-access-policy-powershell.md)  |  [](assign-access-policy-portal.md)). 
 - [Jak używać narzędzia Key Vault Soft-Delete with CLI](./key-vault-recovery.md) przeprowadzi Cię przez użycie i cykl życia magazynu kluczy oraz różne obiekty magazynu kluczy z włączonym usuwaniem nietrwałego.
 - [Jak przekazać bezpieczne wartości (takie jak hasła) podczas wdrażania](../../azure-resource-manager/templates/key-vault-parameter.md) — Jeśli chcesz przekazać bezpieczną wartość (na przykład hasło) jako parametr podczas wdrażania, możesz zapisać tę wartość jako klucz tajny w Azure Key Vault i odwołać się do wartości w innych szablonach Menedżer zasobów.
 
