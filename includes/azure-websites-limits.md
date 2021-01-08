@@ -4,12 +4,12 @@ ms.service: app-service
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: jroth
-ms.openlocfilehash: 6265a7cde8e276570409238cadfd5ebc777b4527
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 71782661fd960cae3248005a8b90944eff9bef45
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97531898"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98024375"
 ---
 | Zasób | Bezpłatna | Udostępniona | Podstawowa | Standardowa (Standard) | Premium (v1-v3) | Izolowana </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -31,6 +31,7 @@ ms.locfileid: "97531898"
 | [Obsługa protokołu SSL](../articles/app-service/configure-ssl-certificate.md) domeny niestandardowej |Nieobsługiwane, certyfikat wieloznaczny dla \* . azurewebsites.NET jest domyślnie dostępny|Nieobsługiwane, certyfikat wieloznaczny dla \* . azurewebsites.NET jest domyślnie dostępny|Nieograniczone połączenia SNI SSL |Uwzględniono nieograniczone SNI SSL i 1 Połączenie SSL z adresu IP połączeń |Uwzględniono nieograniczone SNI SSL i 1 Połączenie SSL z adresu IP połączeń | Uwzględniono nieograniczone SNI SSL i 1 Połączenie SSL z adresu IP połączeń|
 | Połączenia hybrydowe | | | 5 na plan | 25 na plan | 200 na aplikację | 200 na aplikację |
 | [Integracja sieci wirtualnej](../articles/app-service/web-sites-integrate-with-vnet.md) | | |   |  X |  X  |  X  |
+| [Prywatne punkty końcowe](../articles/app-service/networking/private-endpoint.md) | | |   |   |  100 na aplikację  |    |
 | Zintegrowana usługa równoważenia obciążenia | |X |X |X |X |X<sup>10</sup> |
 | [Ograniczenia dostępu](../articles/app-service/networking-features.md#access-restrictions) | 512 reguł na aplikację | 512 reguł na aplikację | 512 reguł na aplikację | 512 reguł na aplikację | 512 reguł na aplikację | 512 reguł na aplikację |
 | [Zawsze włączone](../articles/app-service/configure-common.md) | | |X |X |X |X |

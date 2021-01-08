@@ -199,9 +199,9 @@
           href: event-hubs-kafka-spark-tutorial.md
         - name: Łączenie platformy Apache Flink z centrum zdarzeń
           href: event-hubs-kafka-flink-tutorial.md
-        - name: Integrowanie narzędzia Apache Kafka Connect z centrum (wersja zapoznawcza)
+        - name: Integrowanie narzędzia Apache Kafka Connect
           href: event-hubs-kafka-connect-tutorial.md
-        - name: Integrowanie narzędzia Apache Kafka Connect (wersja zapoznawcza) z usługą Debezium
+        - name: Integrowanie narzędzia Apache Kafka Connect z usługą Debezium
           href: event-hubs-kafka-connect-debezium.md
         - name: Łączenie usługi Akka Streams z centrum zdarzeń
           href: event-hubs-kafka-akka-streams-tutorial.md

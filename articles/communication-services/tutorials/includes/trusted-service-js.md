@@ -8,12 +8,12 @@ ms.author: dademath
 ms.date: 07/28/2020
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: daf2d675bbbee324769b6e1e8d8d34587d37c72f
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 9755cebf66a8c468b29737262bc3c32ae9f5422f
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886627"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98024179"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -112,14 +112,8 @@ module.exports = async function (context, req) {
 
     const userToken = await tokenClient.issueToken(user, ["voip"]);
 
-    const response = {
-        "User" : userToken.user,
-        "Token": userToken.token,
-        "ExpiresOn": userToken.expiresOn
-    }
-
     context.res = {
-        body: response
+        body: userToken
     };
 }
 ```
@@ -130,7 +124,7 @@ W przypadku istniejących usług komunikacyjnych `CommunicationUser` można pomi
 
 Uruchom lokalnie funkcję platformy Azure przy użyciu polecenia `F5` . Spowoduje to zainicjowanie funkcji platformy Azure lokalnie i udostępnienie jej w programie: `http://localhost:7071/api/FUNCTION_NAME` . Zapoznaj się z dodatkową dokumentacją na temat [uruchamiania lokalnego](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript#run-the-function-locally)
 
-Otwórz adres URL w przeglądarce i dla tokenu powinna zostać wyświetlona treść odpowiedzi z identyfikatorem użytkownika, tokenem i wygaśnięciem komunikacji.
+Otwórz adres URL w przeglądarce i dla tokenu powinna zostać wyświetlona treść odpowiedzi z IDENTYFIKATORem użytkownika, tokenem i wygaśnięciem komunikacji.
 
 :::image type="content" source="../media/trusted-service-sample-response.png" alt-text="Zrzut ekranu przedstawiający przykład odpowiedzi dla utworzonej funkcji platformy Azure.":::
 

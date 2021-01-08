@@ -14,6 +14,8 @@
   items:
     - name: Tworzenie modułu Azure Dedicated HSM przy użyciu programu Azure PowerShell
       href: quickstart-create-hsm-powershell.md
+    - name: Tworzenie modułu Azure Dedicated HSM przy użyciu interfejsu wiersza polecenia platformy Azure
+      href: quickstart-hsm-azure-cli.md
 - name: Pojęcia
   items:
     - name: Wysoka dostępność
