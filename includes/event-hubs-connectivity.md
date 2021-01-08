@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/19/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: dac82692c76d9d36b1f25d7b93b5c3a2e2400672
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7ebb9dbce020086a716872c86221b97b4b7a6653
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002799"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97978887"
 ---
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Jakie porty muszę otworzyć na zaporze? 
 Do wysyłania i odbierania zdarzeń można użyć następujących protokołów z usługą Azure Event Hubs:
@@ -72,7 +72,7 @@ Jeśli używasz **nadmiarowości strefy** dla przestrzeni nazw, musisz wykonać 
     > [!NOTE]
     > Adres IP zwrócony przez `nslookup` polecenie nie jest statycznym adresem IP. Jednak pozostaje stałą do momentu usunięcia lub przeniesienia bazowego wdrożenia do innego klastra.
 
-### <a name="where-can-i-find-client-ip-sending-or-receiving-messages-to-my-namespace"></a>Gdzie można znaleźć adresy IP klienta wysyłające lub otrzymujące komunikaty do mojej przestrzeni nazw?
+### <a name="what-client-ips-are-sending-events-to-or-receiving-events-from-my-namespace"></a>Jakie adresy IP klientów wysyłają zdarzenia do zdarzeń z mojej przestrzeni nazw lub je odbierały?
 Najpierw włącz [filtrowanie adresów IP](../articles/event-hubs/event-hubs-ip-filtering.md) w przestrzeni nazw. 
 
 Następnie Włącz dzienniki diagnostyczne dla [zdarzeń połączeń sieci wirtualnej Event Hubs](../articles/event-hubs/event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) , wykonując instrukcje podane w temacie [Włączanie dzienników diagnostycznych](../articles/event-hubs/event-hubs-diagnostic-logs.md#enable-diagnostic-logs). Zobaczysz adres IP, dla którego odmówiono nawiązania połączenia.
@@ -92,3 +92,6 @@ Następnie Włącz dzienniki diagnostyczne dla [zdarzeń połączeń sieci wirtu
 
 > [!IMPORTANT]
 > Dzienniki sieci wirtualnej są generowane tylko wtedy, gdy przestrzeń nazw zezwala na dostęp z **określonych adresów IP** (reguł filtrów IP). Jeśli nie chcesz ograniczać dostępu do przestrzeni nazw przy użyciu tych funkcji i nadal chcesz uzyskać dzienniki sieci wirtualnych do śledzenia adresów IP klientów łączących się z przestrzenią nazw Event Hubs, możesz użyć następującego obejścia: Włącz filtrowanie adresów IP i Dodaj zakres adresów IPv4 (1.0.0.0/1-255.0.0.0/1). Event Hubs nie obsługuje zakresów adresów IPv6. 
+
+> [!NOTE]
+> Obecnie nie jest możliwe ustalenie źródłowego adresu IP pojedynczej wiadomości lub zdarzenia. 

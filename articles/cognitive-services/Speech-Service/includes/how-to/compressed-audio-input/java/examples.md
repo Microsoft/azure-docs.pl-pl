@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
 ms.author: trbye
-ms.openlocfilehash: caada98d3a2bcc4acb566cb02065c6451c233066
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9b980dcbe42694137c7b29ee3bddaa7802db3da
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86544109"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97978892"
 ---
-Aby przesłać strumieniowo w skompresowanym formacie audio do usługi mowy, Utwórz `PullAudioInputStream` lub `PushAudioInputStream` . Następnie Utwórz obiekt `AudioConfig` z wystąpienia klasy strumienia, określając format kompresji strumienia.
+Aby skonfigurować zestaw Speech SDK do akceptowania danych wejściowych skompresowanego dźwięku, Utwórz `PullAudioInputStream` lub `PushAudioInputStream` . Następnie Utwórz obiekt `AudioConfig` z wystąpienia klasy strumienia, określając format kompresji strumienia.
 
 Załóżmy, że masz klasę strumienia wejściowego o nazwie `pullStream` i używają Opus/OGG. Twój kod może wyglądać następująco:
 
