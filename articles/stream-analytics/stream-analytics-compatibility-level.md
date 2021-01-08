@@ -1,17 +1,17 @@
 ---
 title: Azure Stream Analytics poziomów zgodności
 description: Dowiedz się, jak ustawić poziom zgodności dla zadania Azure Stream Analytics i istotne zmiany na najnowszym poziomie zgodności
-author: mamccrea
-ms.author: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 11014c5a5c5cd0cabae1b62083bd5e662be2c6b7
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 8105988cd2036f44d214befad3365cf9ee96ee0d
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348937"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015984"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Poziom zgodności dla zadań Azure Stream Analytics
 
@@ -53,7 +53,7 @@ Następujące istotne zmiany są wprowadzane w obszarze poziom zgodności 1,2:
 
 ###  <a name="amqp-messaging-protocol"></a>AMQP Messaging Protocol
 
-**poziom 1,2** : Azure Stream Analytics używa protokołu obsługi komunikatów [protokołu Advanced Message Queueing Protocol (AMQP)](../service-bus-messaging/service-bus-amqp-overview.md) do zapisu w Service Bus kolejkach i tematach. AMQP umożliwia tworzenie aplikacji hybrydowych dla wielu platform przy użyciu protokołu Open Standard.
+**poziom 1,2**: Azure Stream Analytics używa protokołu obsługi komunikatów [protokołu Advanced Message Queueing Protocol (AMQP)](../service-bus-messaging/service-bus-amqp-overview.md) do zapisu w Service Bus kolejkach i tematach. AMQP umożliwia tworzenie aplikacji hybrydowych dla wielu platform przy użyciu protokołu Open Standard.
 
 ### <a name="geospatial-functions"></a>Funkcje geoprzestrzenne
 

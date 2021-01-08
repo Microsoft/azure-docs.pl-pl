@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 3fe1b966b56142fd312850ac5d77839b7d9db434
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: e451171859efc49753131b145642aec4864db45d
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97706207"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015679"
 ---
 | Zasób | Podstawowa | Standardowa (Standard) | Premium |
 |---|---|---|---|
@@ -22,8 +22,8 @@ ms.locfileid: "97706207"
 | Maksymalny rozmiar warstwy obrazu (GiB) | 200 | 200 | 200 |
 | ReadOps na minutę<sup>2, 3</sup> | 1000 | 3000 | 10 000 |
 | WriteOps na minutę<sup>2, 4</sup> | 100 | 500 | 2000 |
-| Pobierz przepustowość<sup>2</sup> MB/s | 30 | 60 | 100 |
-| Przepustowość przekazywania<sup>2</sup> MB/s | 10 | 20 | 50 |
+| Pobierz przepustowość<sup>2</sup> (MB/s) | 30 | 60 | 100 |
+| Przepustowość przekazywania <sup>2</sup> (MB/s) | 10 | 20 | 50 |
 | Elementy webhook | 2 | 10 | 500 |
 | Replikacja geograficzna | NIE DOTYCZY | NIE DOTYCZY | [Obsługiwane][geo-replication] |
 | Strefy dostępności | NIE DOTYCZY | NIE DOTYCZY | [Wersja zapoznawcza][zones] |
@@ -38,7 +38,7 @@ ms.locfileid: "97706207"
 | &bull; Repozytoria na mapę zakresu | NIE DOTYCZY | NIE DOTYCZY | 500 |
 
 
-<sup>1</sup> magazyn uwzględniony w dziennej stawce dla każdej warstwy. W przypadku dodatkowego magazynu opłata jest naliczana za dodatkową dzienną stawkę za GiB, aż do limitu magazynu. Aby uzyskać informacje o stawkach, zobacz [Cennik usługi Azure Container Registry][pricing].
+<sup>1</sup> magazyn uwzględniony w dziennej stawce dla każdej warstwy. Można użyć dodatkowego magazynu, do limitu magazynu rejestru, przy dodatkowej dziennej stawce za GiB. Aby uzyskać informacje o stawkach, zobacz [Cennik usługi Azure Container Registry][pricing].
 
 <sup>2</sup>*ReadOps*, *WriteOps* i *przepustowość* są minimalnymi oszacowaniami. Azure Container Registry dąży do poprawy wydajności, ponieważ wymaga użycia.
 

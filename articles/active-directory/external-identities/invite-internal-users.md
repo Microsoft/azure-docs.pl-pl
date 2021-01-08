@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75839893d0048841440f2c790df7d23ad825d962
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 8acc547552cecaebb60888bb7b9777f6279b9b7c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093472"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015763"
 ---
 # <a name="invite-internal-users-to-b2b-collaboration"></a>Zapraszanie użytkowników wewnętrznych do współpracy B2B
 
@@ -44,8 +44,7 @@ W tych przypadkach, jeśli użytkownik wewnętrzny musi zostać zmieniony na uż
 
 Możesz użyć programu PowerShell lub interfejsu API zaproszenia do wysłania zaproszenia B2B do użytkownika wewnętrznego. Upewnij się, że adres e-mail, który ma być używany dla zaproszenia, jest ustawiony jako zewnętrzny adres e-mail w obiekcie użytkownika wewnętrznego.
 
-- Dla użytkownika tylko w chmurze Użyj adresu e-mail we właściwości User. OtherMails dla zaproszenia.
-- W przypadku użytkownika z synchronizacją lokalną należy użyć wartości we właściwości User. mail dla zaproszenia.
+- Musisz użyć adresu e-mail we właściwości User. mail dla zaproszenia.
 - Domena we właściwościach poczty użytkownika musi być zgodna z kontem używanym do logowania. W przeciwnym razie niektóre usługi, takie jak zespoły, nie będą mogły uwierzytelnić użytkownika.
 
 Domyślnie zaproszenie wyśle użytkownikowi wiadomość e-mail z informacją o tym, że zostały zaproszone, ale możesz pominąć tę wiadomość e-mail i wysłać własne.

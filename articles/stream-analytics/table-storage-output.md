@@ -1,18 +1,17 @@
 ---
 title: Dane wyjściowe magazynu tabel z Azure Stream Analytics
 description: W tym artykule opisano usługę Azure Table Storage jako dane wyjściowe dla Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: ea775ef472687485dbd2f30c4f60adc33c0eaa73
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 558ddf065d33a552034c5b129ea70bc144c494ca
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127352"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013893"
 ---
 # <a name="table-storage-output-from-azure-stream-analytics"></a>Dane wyjściowe magazynu tabel z Azure Stream Analytics
 

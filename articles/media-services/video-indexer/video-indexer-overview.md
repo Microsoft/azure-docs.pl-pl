@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/11/2020
 ms.author: juliako
-ms.openlocfilehash: b327facc2ac9ad64cf5237ecddc3e4024f75daa6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b5a228c12cfc874673dda854de6d4dcc25f28c1
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90052141"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014539"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>Co to jest Azure Media Services Video Indexer?
 
@@ -76,7 +76,7 @@ Na poniższej liście przedstawiono szczegółowe informacje, które można pobr
 
 * **Transkrypcja audio**: konwertuje mowę na tekst w 12 językach i zezwala na rozszerzenia. Obsługiwane języki: angielski, arabski, chiński mandaryński, francuski, hiszpański, hindi, japoński, koreański, niemiecki, portugalski, rosyjski i włoski.
 * **Automatyczne wykrywanie języka**: automatycznie rozpoznaje dominujący język mówiony. Obsługiwane języki: angielski, chiński mandaryński, francuski, hiszpański, japoński, niemiecki, portugalski, rosyjski i włoski. Jeśli nie można z pewnością zidentyfikować języka, usługa Video Indexer zakłada, że język mówiony to język angielski. Aby uzyskać więcej informacji, zobacz [Model identyfikacji języka](language-identification-model.md).
-* **Identyfikacja i transkrypcja mowy w wielu językach** (wersja zapoznawcza): automatycznie identyfikuje język mówiony w różnych segmentach z dźwiękiem. Wysyła każdy segment pliku multimedialnego do transkrypcji, a następnie łączy transkrypcję z powrotem z jedną ujednoliconą transkrypcją. Aby uzyskać więcej informacji, zobacz [Automatyczne identyfikowanie i transkrybowanie zawartości w wielu językach](multi-language-identification-transcription.md).
+* **Identyfikacja i transkrypcja mowy w wielu językach**: automatycznie identyfikuje język mówiony w różnych segmentach z audio. Wysyła każdy segment pliku multimedialnego do transkrypcji, a następnie łączy transkrypcję z powrotem z jedną ujednoliconą transkrypcją. Aby uzyskać więcej informacji, zobacz [Automatyczne identyfikowanie i transkrybowanie zawartości w wielu językach](multi-language-identification-transcription.md).
 * **Napisy (transkrypcja)**: tworzy napisy w trzech formatach: VTT, TTML i SRT.
 * **Przetwarzanie dwóch kanałów**: automatycznie wykrywa odrębne transkrypcje i scala do pojedynczej osi czasu.
 * **Redukcja szumu**: czyści nagranie audio lub szumów z dźwiękiem (na podstawie filtrów Skype).
@@ -118,7 +118,7 @@ Jeśli używasz witryny sieci Web, szczegółowe informacje są dodawane jako me
 
 ## <a name="next-steps"></a>Następne kroki
 
-Możesz już rozpocząć pracę z usługą Video Indexer. Aby uzyskać więcej informacji zobacz następujące artykuły:
+Możesz już rozpocząć pracę z usługą Video Indexer. Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - [Rozpocznij pracę z witryną sieci web video Indexer](video-indexer-get-started.md).
 - [Przetwarzaj zawartość za pomocą interfejsu API REST Video Indexer](video-indexer-use-apis.md).

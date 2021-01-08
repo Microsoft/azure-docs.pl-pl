@@ -1,18 +1,17 @@
 ---
 title: Service Bus dane wyjściowe kolejek z Azure Stream Analytics
 description: W tym artykule opisano Service Bus kolejek jako dane wyjściowe Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 3527bdbbf1ba337d24dc390f97ed090c8dfbe039
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 9f71a0f9c6d3fdca4b81be3a69479c78236fcc31
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348393"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014216"
 ---
 # <a name="service-bus-queues-output-from-azure-stream-analytics"></a>Service Bus dane wyjściowe kolejek z Azure Stream Analytics
 
@@ -32,7 +31,7 @@ W poniższej tabeli wymieniono nazwy właściwości i ich opisy dotyczące tworz
 | Nazwa zasad kolejki |Podczas tworzenia kolejki można także utworzyć zasady dostępu współdzielonego na karcie **Konfiguracja** kolejki. Każda zasada dostępu współdzielonego ma określoną nazwę, uprawnienia oraz klucze dostępu. |
 | Klucz zasad kolejki |Współużytkowany klucz dostępu używany do uwierzytelniania dostępu do przestrzeni nazw Service Bus. |
 | Format serializacji zdarzeń |Format serializacji danych wyjściowych. Obsługiwane są kod JSON, CSV i Avro. |
-| Kodowanie |W przypadku plików CSV i JSON jedynym obsługiwanym formatem kodowania jest UTF-8. |
+| Encoding |W przypadku plików CSV i JSON jedynym obsługiwanym formatem kodowania jest UTF-8. |
 | Ogranicznik |Dotyczy tylko serializacji woluminu CSV. Stream Analytics obsługuje wiele ograniczników do serializacji danych w formacie CSV. Obsługiwane wartości to przecinek, średnik, spacja, tabulator i pionowy pasek. |
 | Format |Dotyczy tylko typu JSON. **Linia rozdzielona** określa, że dane wyjściowe są formatowane przy użyciu każdego obiektu JSON oddzielonego przez nowy wiersz. W przypadku wybrania opcji **rozdzielone linią** kod JSON jest odczytywany po jednym obiekcie naraz. Cała zawartość nie będzie prawidłowym kodem JSON. **Tablica** określa, że dane wyjściowe są formatowane jako tablica obiektów JSON. |
 | Kolumny właściwości | Opcjonalny. Kolumny oddzielone przecinkami, które muszą być dołączone jako właściwości użytkownika wiadomości wychodzącej zamiast ładunku. Więcej informacji na temat tej funkcji znajduje się w sekcji [właściwości metadanych niestandardowych dla danych wyjściowych](#custom-metadata-properties-for-output). |

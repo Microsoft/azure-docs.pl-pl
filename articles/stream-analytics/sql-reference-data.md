@@ -1,18 +1,17 @@
 ---
 title: Używanie SQL Database danych referencyjnych w zadaniu Azure Stream Analytics
 description: W tym artykule opisano sposób użycia SQL Database jako referencyjne dane wejściowe dla zadania Azure Stream Analytics w Azure Portal i w programie Visual Studio.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: 7e2826221bd9d15472467c4dd8676d3d0538e0d6
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: e7d16de8a7a5c6f5353d64e25580b19845ce96c1
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326577"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016409"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Korzystanie z danych referencyjnych z SQL Database dla zadania Azure Stream Analytics
 

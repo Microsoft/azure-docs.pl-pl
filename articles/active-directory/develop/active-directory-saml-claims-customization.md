@@ -13,12 +13,12 @@ ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 9c316362e2cd3fca9290e5f8070879567d9b7ea5
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 9fb5e229882532fed076f2e0d800f32acfcdbf4c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963506"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013791"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Instrukcje: Dostosowywanie oświadczeń wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw
 
@@ -81,7 +81,7 @@ Aby uzyskać więcej informacji, zobacz [tabela 3: prawidłowe wartości identyf
 
 Możesz również przypisać dowolną stałą (statyczną) wartość do wszelkich oświadczeń zdefiniowanych w usłudze Azure AD. Postępuj zgodnie z poniższymi instrukcjami, aby przypisać stałą wartość:
 
-1. W [Azure Portal](https://portal.azure.com/), w sekcji **atrybuty użytkownika & oświadczenia** , kliknij ikonę **Edytuj** , aby edytować oświadczenia.
+1. W <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span></a>, w sekcji **atrybuty użytkownika & oświadczenia** , kliknij ikonę **Edytuj** , aby edytować oświadczenia.
 
 1. Kliknij wymagane żądanie, które chcesz zmodyfikować.
 

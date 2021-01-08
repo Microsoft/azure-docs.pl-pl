@@ -3,16 +3,15 @@ title: Używanie danych referencyjnych do wyszukiwania w Azure Stream Analytics
 description: W tym artykule opisano sposób używania danych referencyjnych do wyszukiwania lub skorelowania danych w projekcie zapytania Azure Stream Analytics zadania.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/18/2020
-ms.openlocfilehash: e7f5b3ae0a4dc7faa67a361b210b1d014e1f1b93
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: d4053cd02dd11922a402971c7f3934a8b818eaa4
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722134"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015907"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Używanie danych referencyjnych do wyszukiwania w Stream Analytics
 
@@ -82,7 +81,7 @@ Azure Stream Analytics automatycznie skanuje w poszukiwaniu odświeżonych obiek
 3. Obiekty BLOB danych referencyjnych **nie** są uporządkowane według czasu "Ostatnia modyfikacja" obiektu BLOB, ale tylko według czasu i daty określonej w nazwie obiektu BLOB przy użyciu podstawiania {date} i {Time}.
 3. Aby uniknąć konieczności wyświetlania listy dużej liczby obiektów blob, należy rozważyć usunięcie bardzo starych obiektów blob, dla których przetwarzanie nie zostanie już wykonane. Należy pamiętać, że w przypadku programu ASA może wystąpić konieczność ponownego przetworzenia niewielkiej ilości w niektórych scenariuszach, takich jak ponowne uruchomienie.
 
-## <a name="azure-sql-database"></a>Usługa Azure SQL Database
+## <a name="azure-sql-database"></a>Azure SQL Database
 
 Dane referencyjne Azure SQL Database są pobierane przez zadanie Stream Analytics i są przechowywane jako migawka w pamięci do przetwarzania. Migawka danych referencyjnych jest również przechowywana w kontenerze na koncie magazynu określonym w ustawieniach konfiguracji. Kontener jest tworzony przy użyciu autostartu, gdy zadanie zostanie uruchomione. Jeśli zadanie zostanie zatrzymane lub przejdzie do stanu niepowodzenia, tworzone przez siebie kontenery zostaną usunięte po ponownym uruchomieniu zadania.  
 

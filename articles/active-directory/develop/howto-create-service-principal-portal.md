@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 46781edad6ad9290932216b9e9f23a359d25497a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 284ab3a2aabb2395636982237159117a10151019
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366160"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014947"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Instrukcje: używanie portalu do tworzenia aplikacji usługi Azure AD i jednostki usługi w celu uzyskiwania dostępu do zasobów
 
@@ -43,7 +43,7 @@ Musisz mieć wystarczające uprawnienia, aby zarejestrować aplikację w dzierż
    ![Znajdź rolę. Jeśli jesteś użytkownikiem, upewnij się, że użytkownicy niebędący administratorami mogą rejestrować aplikacje](./media/howto-create-service-principal-portal/view-user-info.png)
 
 1. W okienku po lewej stronie wybierz pozycję **Ustawienia użytkownika**.
-1. Sprawdź ustawienie **rejestracje aplikacji** . Tę wartość można ustawić tylko przez administratora. W przypadku wybrania **opcji tak**każdy użytkownik w dzierżawie usługi Azure AD może zarejestrować aplikację.
+1. Sprawdź ustawienie **rejestracje aplikacji** . Tę wartość można ustawić tylko przez administratora. W przypadku wybrania **opcji tak** każdy użytkownik w dzierżawie usługi Azure AD może zarejestrować aplikację.
 
 Jeśli ustawienie rejestracje aplikacji ma wartość **nie**, tylko użytkownicy z rolą administratora mogą rejestrować te typy aplikacji. Zobacz [dostępne role](../roles/permissions-reference.md#available-roles) i [uprawnienia roli](../roles/permissions-reference.md#role-permissions) , aby dowiedzieć się więcej na temat dostępnych ról administratorów i określonych uprawnień w usłudze Azure AD, które są nadawane każdej roli. Jeśli Twoje konto ma przypisaną rolę użytkownika, ale ustawienie rejestracji aplikacji jest ograniczone do użytkowników administracyjnych, poproszenie administratora o przypisanie jednej z ról administratora, które mogą tworzyć wszystkie aspekty rejestracji aplikacji i zarządzać nimi, lub umożliwić użytkownikom rejestrowanie aplikacji.
 
@@ -53,9 +53,9 @@ W ramach subskrypcji platformy Azure Twoje konto musi mieć `Microsoft.Authoriza
 
 Aby sprawdzić uprawnienia do subskrypcji:
 
-1. Wyszukaj i wybierz pozycję **subskrypcje**lub wybierz pozycję **subskrypcje** na stronie **głównej** .
+1. Wyszukaj i wybierz pozycję **subskrypcje** lub wybierz pozycję **subskrypcje** na stronie **głównej** .
 
-   ![Wyszukiwanie](./media/howto-create-service-principal-portal/select-subscription.png)
+   ![Wyszukaj](./media/howto-create-service-principal-portal/select-subscription.png)
 
 1. Wybierz subskrypcję, w której chcesz utworzyć nazwę główną usługi.
 
@@ -75,11 +75,11 @@ Aby sprawdzić uprawnienia do subskrypcji:
 
 Przejdźmy bezpośrednio do tworzenia tożsamości. Jeśli napotkasz problem, sprawdź [wymagane uprawnienia](#permissions-required-for-registering-an-app) , aby upewnić się, że konto może utworzyć tożsamość.
 
-1. Zaloguj się do konta platformy Azure za pomocą [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do konta platformy Azure za pomocą <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 1. Wybierz pozycję **Azure Active Directory**.
 1. Wybierz pozycję **Rejestracje aplikacji**.
 1. Wybierz pozycję **Nowa rejestracja**.
-1. Nadaj nazwę aplikacji. Wybierz obsługiwany typ konta, który określa, kto może korzystać z aplikacji. W obszarze **Identyfikator URI przekierowania**wybierz pozycję **Sieć Web** dla typu aplikacji, którą chcesz utworzyć. Wprowadź identyfikator URI, do którego jest wysyłany token dostępu. Nie można utworzyć poświadczeń dla [aplikacji natywnej](../manage-apps/application-proxy-configure-native-client-application.md). Nie można użyć tego typu dla zautomatyzowanej aplikacji. Po ustawieniu wartości wybierz pozycję **zarejestruj**.
+1. Nadaj nazwę aplikacji. Wybierz obsługiwany typ konta, który określa, kto może korzystać z aplikacji. W obszarze **Identyfikator URI przekierowania** wybierz pozycję **Sieć Web** dla typu aplikacji, którą chcesz utworzyć. Wprowadź identyfikator URI, do którego jest wysyłany token dostępu. Nie można utworzyć poświadczeń dla [aplikacji natywnej](../manage-apps/application-proxy-configure-native-client-application.md). Nie można użyć tego typu dla zautomatyzowanej aplikacji. Po ustawieniu wartości wybierz pozycję **zarejestruj**.
 
    ![Wpisz nazwę aplikacji](./media/howto-create-service-principal-portal/create-app.png)
 
@@ -91,7 +91,7 @@ Aby uzyskać dostęp do zasobów w ramach subskrypcji, musisz przypisać rolę d
 
 Zakres można ustawić na poziomie subskrypcji, grupy zasobów lub zasobu. Uprawnienia są dziedziczone do niższych poziomów zakresu. Na przykład dodanie aplikacji do roli *czytelnik* dla grupy zasobów oznacza, że może ona odczytać grupę zasobów i wszystkie zawarte w niej zasoby.
 
-1. W Azure Portal wybierz poziom zakresu, do którego chcesz przypisać aplikację. Aby na przykład przypisać rolę w zakresie subskrypcji, Wyszukaj i wybierz pozycję **subskrypcje**lub wybierz pozycję **subskrypcje** na stronie **głównej** .
+1. W Azure Portal wybierz poziom zakresu, do którego chcesz przypisać aplikację. Aby na przykład przypisać rolę w zakresie subskrypcji, Wyszukaj i wybierz pozycję **subskrypcje** lub wybierz pozycję **subskrypcje** na stronie **głównej** .
 
    ![Na przykład Przypisz rolę w zakresie subskrypcji](./media/howto-create-service-principal-portal/select-subscription.png)
 
@@ -109,7 +109,7 @@ Zakres można ustawić na poziomie subskrypcji, grupy zasobów lub zasobu. Upraw
 
 1. Wybierz pozycję **Zapisz** , aby zakończyć Przypisywanie roli. Aplikacja zostanie wyświetlona na liście użytkowników z rolą dla tego zakresu.
 
-Nazwa główna usługi została skonfigurowana. Możesz rozpocząć korzystanie z niego do uruchamiania skryptów lub aplikacji. Aby zarządzać **jednostką**usługi (uprawnienia, uprawnienia użytkowników, którzy wyraził zgodę, sprawdzić uprawnienia, zobacz informacje logowania i inne), przejdź do pozycji aplikacje dla przedsiębiorstw.
+Nazwa główna usługi została skonfigurowana. Możesz rozpocząć korzystanie z niego do uruchamiania skryptów lub aplikacji. Aby zarządzać **jednostką** usługi (uprawnienia, uprawnienia użytkowników, którzy wyraził zgodę, sprawdzić uprawnienia, zobacz informacje logowania i inne), przejdź do pozycji aplikacje dla przedsiębiorstw.
 
 W następnej sekcji pokazano, jak uzyskać wartości, które są konieczne podczas logowania programowo.
 
@@ -181,7 +181,7 @@ Jeśli zdecydujesz się nie używać certyfikatu, możesz utworzyć nowy klucz t
 ## <a name="configure-access-policies-on-resources"></a>Konfigurowanie zasad dostępu do zasobów
 Należy pamiętać, że konieczne może być skonfigurowanie dodatkowych uprawnień do zasobów wymaganych przez aplikację. Na przykład należy również [zaktualizować zasady dostępu magazynu kluczy](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) , aby zapewnić aplikacji dostęp do kluczy, wpisów tajnych lub certyfikatów.
 
-1. W [Azure Portal](https://portal.azure.com)przejdź do magazynu kluczy i wybierz pozycję **zasady dostępu**.
+1. W <a href="https://portal.azure.com/" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> Azure Portal</a>przejdź do magazynu kluczy i wybierz pozycję **zasady dostępu**.
 1. Wybierz pozycję **Dodaj zasady dostępu**, a następnie wybierz uprawnienia Key, Secret i Certificate, które chcesz udzielić aplikacji.  Wybierz nazwę główną usługi utworzoną wcześniej.
 1. Wybierz pozycję **Dodaj** , aby dodać zasady dostępu, a następnie pozycję **Zapisz** , aby zatwierdzić zmiany.
     ![Dodawanie zasad dostępu](./media/howto-create-service-principal-portal/add-access-policy.png)

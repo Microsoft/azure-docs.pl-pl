@@ -1,19 +1,18 @@
 ---
 title: Tworzenie rozwiązania IoT przy użyciu Azure Stream Analytics
 description: Samouczek z wprowadzeniem do Stream Analytics rozwiązania IoT scenariusza Tollbooth
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 87ec59d19fb442293fb7f14d110cf513015ec9f7
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: ddec53b18cd6f374a5665298b43b46122bcfa143
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130803"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016154"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Tworzenie rozwiązania IoT przy użyciu Stream Analytics
 
@@ -134,7 +133,7 @@ Istnieje kilka zasobów, które można łatwo wdrożyć w grupie zasobów razem 
 
 9. Wybierz pozycję **Kup** , aby wdrożyć przykładowy szablon.
 
-10. Po kilku chwilach zostanie wyświetlone powiadomienie informujące o **pomyślnym wdrożeniu** .
+10. Po kilku chwilach zostanie wyświetlone powiadomienie informujące o **pomyślnym wdrożeniu**.
 
 ### <a name="review-the-azure-stream-analytics-tollapp-resources"></a>Przeglądanie Azure Stream Analytics zasobów TollApp
 
@@ -176,20 +175,20 @@ Istnieje kilka zasobów, które można łatwo wdrożyć w grupie zasobów razem 
 ## <a name="start-the-tollapp-streaming-job"></a>Uruchamianie zadania przesyłania strumieniowego TollApp
 Wykonaj następujące kroki, aby uruchomić zadanie przesyłania strumieniowego:
 
-1. Na stronie **Przegląd** zadania wybierz pozycję **Rozpocznij** .
+1. Na stronie **Przegląd** zadania wybierz pozycję **Rozpocznij**.
 
-2. W okienku **Uruchamianie zadania** wybierz pozycję **teraz** .
+2. W okienku **Uruchamianie zadania** wybierz pozycję **teraz**.
 
 3. Po kilku chwilach, gdy zadanie jest uruchomione, na stronie **Przegląd** zadania przesyłania strumieniowego Wyświetl wykres **monitorowania** . Wykres powinien zawierać kilka tysięcy zdarzeń wejściowych i dziesiątki zdarzeń wyjściowych.
 
 ## <a name="review-the-cosmosdb-output-data"></a>Przeglądanie danych wyjściowych CosmosDB
 1. Znajdź grupę zasobów zawierającą zasoby TollApp.
 
-2. Wybierz konto Azure Cosmos DB z wzorcem nazwy **tollapp \<random\> -Cosmos** .
+2. Wybierz konto Azure Cosmos DB z wzorcem nazwy **tollapp \<random\> -Cosmos**.
 
 3. Wybierz **Eksplorator danych** nagłówek, aby otworzyć stronę Eksplorator danych.
 
-4. Rozwiń dokumenty **tollAppDatabase**  >  **tollAppCollection**  >  **Documents** .
+4. Rozwiń dokumenty **tollAppDatabase**  >  **tollAppCollection**  >  .
 
 5. Na liście identyfikatorów kilka dokumentów jest pokazywanych po udostępnieniu danych wyjściowych.
 
@@ -214,7 +213,7 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 ### <a name="to-update-the-tollapp-streaming-job-query-syntax"></a>Aby zaktualizować składnię zapytania zadania przesyłania strumieniowego TollApp:
 
-1. Na stronie **Przegląd** zadania wybierz pozycję **Zatrzymaj** .
+1. Na stronie **Przegląd** zadania wybierz pozycję **Zatrzymaj**.
 
 2. Poczekaj chwilę na powiadomienie, że zadanie zostało zatrzymane.
 
@@ -224,9 +223,9 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 5. Wybierz pozycję **Zapisz** , aby zapisać zapytanie. Potwierdź **,** aby zapisać zmiany.
 
-6. Na stronie **Przegląd** zadania wybierz pozycję **Rozpocznij** .
+6. Na stronie **Przegląd** zadania wybierz pozycję **Rozpocznij**.
 
-7. W okienku **Uruchamianie zadania** wybierz pozycję **teraz** .
+7. W okienku **Uruchamianie zadania** wybierz pozycję **teraz**.
 
 ### <a name="review-the-total-time-in-the-output"></a>Przejrzyj łączny czas w danych wyjściowych
 Powtórz kroki opisane w poprzedniej sekcji, aby przejrzeć dane wyjściowe CosmosDB z zadania przesyłania strumieniowego. Zapoznaj się z najnowszymi dokumentami JSON.
@@ -301,9 +300,9 @@ Aby skalować zadanie przesyłania strumieniowego do większej liczby jednostek 
 
 2. Zaktualizuj składnię zapytania na stronie **kwerendy< >** i Zapisz zmiany.
 
-3. W obszarze Konfigurowanie nagłówka w zadaniu przesyłania strumieniowego wybierz pozycję **Skala** .
+3. W obszarze Konfigurowanie nagłówka w zadaniu przesyłania strumieniowego wybierz pozycję **Skala**.
 
-4. Przesuń suwak **jednostki przesyłania strumieniowego** z 1 do 6. Jednostki przesyłania strumieniowego definiują ilość mocy obliczeniowej, którą może odbierać zadanie. Wybierz pozycję **Zapisz** .
+4. Przesuń suwak **jednostki przesyłania strumieniowego** z 1 do 6. Jednostki przesyłania strumieniowego definiują ilość mocy obliczeniowej, którą może odbierać zadanie. Wybierz pozycję **Zapisz**.
 
 5. **Rozpocznij** zadanie przesyłania strumieniowego, aby zademonstrować dodatkową skalę. Azure Stream Analytics dystrybuuje prace w większej ilości zasobów obliczeniowych i osiągają lepszą przepływność, co pozwala na partycjonowanie pracy w obrębie zasobów przy użyciu kolumny wyznaczonej w klauzuli PARTITION BY.
 
@@ -319,7 +318,7 @@ Możesz również uzyskać dostęp do **dzienników aktywności** z obszaru **Us
 
 2. Znajdź grupę zasobów zawierającą osiem zasobów związanych z szablonem TollApp.
 
-3. Wybierz pozycję **Usuń grupę zasobów** . Wpisz nazwę grupy zasobów, aby potwierdzić usunięcie.
+3. Wybierz pozycję **Usuń grupę zasobów**. Wpisz nazwę grupy zasobów, aby potwierdzić usunięcie.
 
 ## <a name="conclusion"></a>Podsumowanie
 To rozwiązanie wprowadza do usługi Azure Stream Analytics. Przedstawiono w nim sposób konfigurowania danych wejściowych i wyjściowych dla zadania Stream Analytics. Za pomocą scenariusza danych o cle, rozwiązanie objaśniono typowe typy problemów, które powstają w przypadku danych w ruchu i jak można je rozwiązać przy użyciu prostych zapytań przypominających SQL w Azure Stream Analytics. Rozwiązanie opisane w opisie rozszerzeń SQL do pracy z danymi czasowymi. Pokazano, jak sprzęgać strumienie danych, jak wzbogacać strumień danych ze statycznymi danymi referencyjnymi oraz jak skalować zapytanie w celu uzyskania większej przepływności.

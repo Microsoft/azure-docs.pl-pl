@@ -1,18 +1,17 @@
 ---
 title: Azure Cosmos DB dane wyjściowe z Azure Stream Analytics
 description: W tym artykule opisano sposób wyprowadzania danych z Azure Stream Analytics do Azure Cosmos DB.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: a086d9fe150766c6b31210f29bf802a75e0ee4ec
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 9382ac8dc71d1ccb3a85dc0a7a027c8e99296cc6
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491736"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016581"
 ---
 # <a name="azure-cosmos-db-output-from-azure-stream-analytics"></a>Azure Cosmos DB dane wyjściowe z Azure Stream Analytics
 
@@ -34,7 +33,7 @@ W poniższej tabeli opisano właściwości tworzenia Azure Cosmos DB danych wyj�
 | Identyfikator konta | Nazwa lub identyfikator URI punktu końcowego konta Azure Cosmos DB. |
 | Klucz konta | Współużytkowany klucz dostępu dla konta Azure Cosmos DB. |
 | baza danych | Nazwa bazy danych Azure Cosmos DB. |
-| Nazwa kontenera | Nazwa kontenera do użycia, która musi istnieć w Cosmos DB. Przykład:  <br /><ul><li> Obiekt _Webcontainerer_ : kontener o nazwie "The containerer" musi istnieć.</li>|
+| Nazwa kontenera | Nazwa kontenera do użycia, która musi istnieć w Cosmos DB. Przykład:  <br /><ul><li> Obiekt _Webcontainerer_: kontener o nazwie "The containerer" musi istnieć.</li>|
 | Identyfikator dokumentu |Opcjonalny. Nazwa pola w zdarzeniach wyjściowych, które służy do określania klucza podstawowego, na którym bazują operacje wstawiania lub aktualizacji.
 
 ## <a name="partitioning"></a>Partycjonowanie

@@ -1,17 +1,17 @@
 ---
 title: Kody błędów danych — Azure Stream Analytics
 description: Rozwiązywanie problemów Azure Stream Analytics z kodami błędów danych.
-ms.author: mamccrea
-author: mamccrea
+ms.author: sidram
+author: sidramadoss
 ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
-ms.openlocfilehash: 56d7527eebb91bd09895f6cd0238721574df1015
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33e617c8c3589d76d649dd2ea2236a4247b12500
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86037328"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016494"
 ---
 # <a name="azure-stream-analytics-data-error-codes"></a>Kody błędów danych Azure Stream Analytics
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 12/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 7e71058e1899cf83e712025b534e51a1be1f6bdb
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: e6b4175f4f47c9dd378bec84da2575c079a2079f
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591790"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014437"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Samouczek: integracja Azure Active Directory z Amazon Web Services (AWS) (starszy samouczek)
 
@@ -89,11 +89,11 @@ W Amazon Web Services (AWS) Przypisz wartość **Nazwa użytkownika** w usłudze
 
 Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą Amazon Web Services (AWS), wykonaj następujące czynności:
 
-1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Konfigurowanie logowania jednokrotnego w usługach Amazon Web Services (AWS)](#configure-amazon-web-services-aws-single-sign-on)** — aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
-3. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
+1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
+2. **[Skonfiguruj Amazon Web Services (AWS) logowanie JEDNOkrotne](#configure-amazon-web-services-aws-sso)** — aby skonfigurować ustawienia pojedynczego Sign-On po stronie aplikacji.
+3. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
+### <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
 W tej sekcji włączasz Logowanie jednokrotne w usłudze Azure AD w Azure Portal i skonfiguruj Logowanie jednokrotne w aplikacji Amazon Web Services (AWS).
 
@@ -107,7 +107,7 @@ W tej sekcji włączasz Logowanie jednokrotne w usłudze Azure AD w Azure Portal
 
     ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
 
-3. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij ikonę **Edytuj**, aby otworzyć okno dialogowe **Podstawowa konfiguracja protokołu SAML**.
+3. Na stronie **Konfigurowanie pojedynczego Sign-On przy użyciu języka SAML** kliknij ikonę **ołówka** , aby otworzyć okno dialogowe **podstawowe ustawienia SAML** .
 
     ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -143,11 +143,14 @@ W tej sekcji włączasz Logowanie jednokrotne w usłudze Azure AD w Azure Portal
 
     przykład Kliknij pozycję **Zapisz**.
 
+    >[!NOTE]
+    >Aby uzyskać więcej informacji na temat ról w usłudze Azure AD, zobacz [tutaj](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui).
+
 7. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** kliknij pozycję **Pobierz** , aby pobrać **plik XML metadanych Federacji** i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/metadataxml.png)
 
-### <a name="configure-amazon-web-services-aws-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usług Amazon Web Services (AWS)
+### <a name="configure-amazon-web-services-aws-sso"></a>Konfigurowanie logowania jednokrotnego w usłudze Amazon Web Services (AWS)
 
 1. W innym oknie przeglądarki zaloguj się do usług Amazon Web Services (AWS) jako administrator.
 
@@ -231,7 +234,7 @@ W tej sekcji włączasz Logowanie jednokrotne w usłudze Azure AD w Azure Portal
 
     ![Zrzut ekranu pokazuje, gdzie konto D pojawia się w oknie A.](./media/aws-multi-accounts-tutorial/aws-accountid.png)
 
-1. Teraz Zaloguj się do [Azure Portal](https://portal.azure.com/) i przejdź do **grup**.
+1. Teraz Zaloguj się do Azure Portal i przejdź do **grup**.
 
 1. Utwórz nowe grupy o takiej samej nazwie jak w przypadku utworzonych wcześniej ról mapy IAM i zanotuj **identyfikatory obiektów** tych nowych grup.
 
@@ -347,11 +350,11 @@ W tej sekcji włączasz Logowanie jednokrotne w usłudze Azure AD w Azure Portal
     > [!Note]
     > Należy pamiętać, że należy odświeżyć sesję w Azure Portal, aby zobaczyć nowe role.
 
-### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego
+### <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
+Ta sekcja umożliwia testowanie konfiguracji logowania jednokrotnego usługi Azure AD przy użyciu aplikacji Moje aplikacje.
 
-Po kliknięciu kafelka Amazon Web Services (AWS) w panelu dostępu należy uzyskać stronę aplikacji Amazon Web Services (AWS) z opcją, aby wybrać rolę.
+Po kliknięciu kafelka Amazon Web Services (AWS) w obszarze Moje aplikacje należy uzyskać stronę aplikacji Amazon Web Services (AWS) z opcją, aby wybrać rolę.
 
 ![Test Single Sign-ON1](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-screen.png)
 
@@ -359,7 +362,7 @@ Możesz również zweryfikować odpowiedź SAML, aby zobaczyć role przekazywane
 
 ![Testuj jednokrotne — On2](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-saml.png)
 
-Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
+Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

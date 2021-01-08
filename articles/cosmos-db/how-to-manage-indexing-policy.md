@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/02/2020
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: cd51210a64223fab5d2d48a91bd3d0a6521a9627
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 8d52f8c59e83a4aae8724100770965f756a439fb
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341318"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015695"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Zarządzanie zasadami indeksowania w usłudze Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -27,7 +27,7 @@ W Azure Cosmos DB dane są indeksowane zgodnie z [zasadami indeksowania](index-p
 
 Poniżej przedstawiono kilka przykładów zasad indeksowania pokazywanych w [ich formacie JSON](index-policy.md#include-exclude-paths), które są widoczne na Azure Portal. Te same parametry można ustawić za pomocą interfejsu wiersza polecenia platformy Azure lub dowolnego zestawu SDK.
 
-### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>Wycofaj zasady, aby selektywnie wykluczać niektóre ścieżki właściwości
+### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a><a id="range-index"></a>Wycofaj zasady, aby selektywnie wykluczać niektóre ścieżki właściwości
 
 ```json
     {
@@ -146,7 +146,7 @@ Te zasady indeksowania są równoważne z tymi, które są ustawiane ręcznie ``
 > [!NOTE]
 > Ogólnie zaleca się użycie zasad indeksowania **rezygnacji** , aby umożliwić Azure Cosmos DB aktywne indeksowanie wszelkich nowych właściwości, które mogą zostać dodane do modelu danych.
 
-### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Używanie indeksu przestrzennego tylko dla określonej ścieżki właściwości
+### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a><a id="spatial-index"></a>Używanie indeksu przestrzennego tylko dla określonej ścieżki właściwości
 
 ```json
 {
@@ -176,7 +176,7 @@ Te zasady indeksowania są równoważne z tymi, które są ustawiane ręcznie ``
 }
 ```
 
-## <a name="composite-indexing-policy-examples"></a>Przykłady złożonych zasad indeksowania
+## <a name="composite-indexing-policy-examples"></a><a id="composite-index"></a>Przykłady złożonych zasad indeksowania
 
 Oprócz dołączania lub wykluczania ścieżek dla poszczególnych właściwości można również określić indeks złożony. Jeśli chcesz wykonać zapytanie z `ORDER BY` klauzulą dla wielu właściwości, wymagany jest [indeks złożony](index-policy.md#composite-indexes) dla tych właściwości. Ponadto indeksy złożone będą mieć korzyść wydajności dla zapytań, które mają wiele filtrów lub klauzule Filter i ORDER BY.
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: c1d448fe9da72654ac1600009e66c88c5e7b93b4
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 5f2560cdc062edb41ecda935eb9b8efe630949dc
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509431"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015950"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Samouczek: Tworzenie demona z wieloma dzierżawcami korzystającą z platformy tożsamości firmy Microsoft
 
@@ -93,7 +93,7 @@ Jeśli nie chcesz używać automatyzacji, wykonaj kroki opisane w poniższych se
 
 ### <a name="choose-the-azure-ad-tenant"></a>Wybierz dzierżawę usługi Azure AD
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę, w którym chcesz zarejestrować aplikację.
 
 
@@ -203,7 +203,7 @@ Ten projekt zawiera projekty aplikacji sieci Web i interfejsów API sieci Web. W
 
 ### <a name="create-and-publish-dotnet-web-daemon-v2-to-an-azure-website"></a>Tworzenie i publikowanie dotnet-Web-DAEMON-v2 w witrynie sieci Web platformy Azure
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 1. W lewym górnym rogu wybierz pozycję **Utwórz zasób**.
 1. Wybierz pozycję **Web**  >  **App** Web, a następnie nadaj nazwę witrynie sieci Web. Na przykład nadaj mu nazwę **dotnet-Web-DAEMON-v2-contoso.azurewebsites.NET**.
 1. Wybierz informacje dotyczące **subskrypcji**, **grupy zasobów** i **planu i lokalizacji usługi App Service**. System **operacyjny** to **Windows** i **publikuje** **kod**.
@@ -224,7 +224,7 @@ Program Visual Studio opublikuje projekt i automatycznie otworzy przeglądarkę 
 
 ### <a name="update-the-azure-ad-tenant-application-registration-for-dotnet-web-daemon-v2"></a>Aktualizowanie rejestracji aplikacji dzierżawy usługi Azure AD dla programu dotnet-Web-DAEMON-v2
 
-1. Wróć do [Azure Portal](https://portal.azure.com).
+1. Wróć do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 1. W okienku po lewej stronie wybierz usługę **Azure Active Directory** a następnie wybierz pozycję **rejestracje aplikacji**.
 1. Wybierz aplikację **dotnet-Web-demon-v2** .
 1. Na stronie **uwierzytelnianie** dla swojej aplikacji zaktualizuj pola **adresu URL wylogowywania** z adresem usługi. Użyj na przykład nazwy `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.

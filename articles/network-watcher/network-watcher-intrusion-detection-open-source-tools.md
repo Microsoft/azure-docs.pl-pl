@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 6834f9cc8202f49f53c20f3941945bba4a4b2efd
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: b4b38112e32a55739ea14d5ff06e327819171557
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026750"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014556"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Wykrywanie intruzów w sieci za pomocą Network Watcher i narzędzi open source
 
@@ -276,7 +276,7 @@ Przykładowy pulpit nawigacyjny zawiera kilka wizualizacji dzienników alertów 
 
 Aby uzyskać więcej dokumentacji dotyczącej tworzenia niestandardowych wizualizacji i pulpitów nawigacyjnych, zobacz [oficjalną dokumentację Kibana](https://www.elastic.co/guide/en/kibana/current/introduction.html).
 
-## <a name="conclusion"></a>Wniosek
+## <a name="conclusion"></a>Podsumowanie
 
 Łącząc przechwycenia pakietów udostępniane przez Network Watcher i identyfikatory Open Source, takie jak Suricata, można przeprowadzić wykrywanie wtargnięcia w sieci dla szerokiego zakresu zagrożeń. Te pulpity nawigacyjne pozwalają szybko wyszukiwać trendy i anomalie w sieci, a także Dig dane w celu odnalezienia głównych przyczyn alertów, takich jak złośliwi agenci użytkowników lub zagrożone porty. Korzystając z tych wyodrębnionych danych, można podejmować świadome decyzje dotyczące sposobu reagowania i ochrony sieci przed wszelkimi szkodliwymi próbami włamania oraz utworzyć reguły zapobiegające przyszłym włamaniom do sieci.
 

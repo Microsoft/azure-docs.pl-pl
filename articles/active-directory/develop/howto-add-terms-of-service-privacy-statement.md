@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 73c4931533e3926086320531a0800a572d13808c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46919a97364aeff29e2b458c619315571dba7710
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89535776"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013672"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Instrukcje: Konfigurowanie warunków użytkowania i zasad zachowania poufności informacji dla aplikacji
 
@@ -58,7 +58,7 @@ Gdy warunki użytkowania usługi i zasady zachowania poufności informacji są g
 ### <a name="using-the-azure-portal"></a><a name="azure-portal"></a>Korzystanie z witryny Azure Portal
 Wykonaj następujące kroki w Azure Portal.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com/), wybierz prawidłową dzierżawę AzureAD (nie B2C).
+1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>, wybierz prawidłową dzierżawę AZUREAD (nie B2C).
 2. Przejdź do sekcji **rejestracje aplikacji** i wybierz aplikację.
 3. Otwórz okienko **znakowania** .
 4. Wypełnij pola adres **URL warunków** użytkowania i **zasady zachowania poufności informacji** .

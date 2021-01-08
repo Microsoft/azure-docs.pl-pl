@@ -3,17 +3,16 @@ title: Tworzenie klastra Azure Stream Analytics — Szybki Start
 description: Dowiedz się, jak utworzyć klaster Azure Stream Analytics.
 author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: a7be204c30d242be991fb9a57d239b69342ace97
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: eb36af5b3f1e142405b24ade16516d0268b4ab2f
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90947474"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016562"
 ---
 # <a name="quickstart-create-a-dedicated-azure-stream-analytics-cluster-using-azure-portal"></a>Szybki Start: tworzenie dedykowanego klastra Azure Stream Analytics przy użyciu Azure Portal
 
@@ -46,7 +45,7 @@ W tej sekcji utworzysz zasób klastra Stream Analytics.
 
    ![Tworzenie klastra](./media/create-cluster/create-cluster.png)
 
-1. Wybierz pozycję **Przeglądanie + tworzenie**. Możesz pominąć sekcje **Tagi** .
+1. Wybierz pozycję **Przejrzyj i utwórz**. Możesz pominąć sekcje **Tagi** .
 
 1. Przejrzyj ustawienia klastra, a następnie wybierz pozycję **Utwórz**. Tworzenie klastra to długotrwała operacja, której ukończenie może potrwać około 60 minut. Poczekaj na wyświetlenie komunikatu **Wdrożenie zostało ukończone** na stronie portalu. W międzyczasie można tworzyć i opracowywać [zadania Stream Analytics](stream-analytics-quick-create-portal.md#create-a-stream-analytics-job) , które mają być uruchamiane w tym klastrze, jeśli nie zostały jeszcze.
 

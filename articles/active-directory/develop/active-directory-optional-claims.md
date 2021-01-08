@@ -12,12 +12,12 @@ ms.date: 1/05/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 4674fe41a0e3d63ef0cadc6ad55eca02fc69618e
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: fd3e4a4442f7da89ffee1557e7d908db805931ed
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935907"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014876"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Instrukcje: dostarczanie opcjonalnych oświadczeń do aplikacji
 
@@ -136,7 +136,7 @@ Ten obiekt OptionalClaims powoduje, że token identyfikatora zwrócony klientowi
 
 Opcjonalne oświadczenia dla aplikacji można skonfigurować za pomocą interfejsu użytkownika lub manifestu aplikacji.
 
-1. Przejdź do witryny [Azure Portal](https://portal.azure.com). 
+1. Przejdź do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. 
 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
 1. W obszarze **Zarządzanie** wybierz pozycję **Rejestracje aplikacji**.
 1. Wybierz aplikację, dla której chcesz skonfigurować oświadczenia opcjonalne.
@@ -245,7 +245,7 @@ W tej sekcji omówiono opcje konfiguracji w obszarze opcjonalne oświadczenia do
 
 **Konfigurowanie grup opcjonalnych oświadczeń za pomocą interfejsu użytkownika:**
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 1. Po uwierzytelnieniu wybierz dzierżawę usługi Azure AD, wybierając ją w prawym górnym rogu strony.
 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
 1. W obszarze **Zarządzanie** wybierz pozycję **Rejestracje aplikacji**.
@@ -258,7 +258,7 @@ W tej sekcji omówiono opcje konfiguracji w obszarze opcjonalne oświadczenia do
 
 **Konfigurowanie grup opcjonalnych oświadczeń za pomocą manifestu aplikacji:**
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 1. Po uwierzytelnieniu wybierz dzierżawę usługi Azure AD, wybierając ją w prawym górnym rogu strony.
 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
 1. Wybierz aplikację, dla której chcesz skonfigurować oświadczenia opcjonalne.
@@ -272,7 +272,7 @@ W tej sekcji omówiono opcje konfiguracji w obszarze opcjonalne oświadczenia do
    - "DirectoryRole"
    - "Aplikacja" (Ta opcja obejmuje tylko grupy, które są przypisane do aplikacji)
 
-   Przykład:
+   Na przykład:
 
     ```json
     "groupMembershipClaims": "SecurityGroup"
@@ -389,7 +389,7 @@ W poniższym przykładzie użyjesz interfejsu użytkownika i manifestu **konfigu
 
 **Konfiguracja interfejsu użytkownika:**
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 1. Po uwierzytelnieniu wybierz dzierżawę usługi Azure AD, wybierając ją w prawym górnym rogu strony.
 
 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
@@ -412,7 +412,7 @@ W poniższym przykładzie użyjesz interfejsu użytkownika i manifestu **konfigu
 
 **Konfiguracja manifestu:**
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 1. Po uwierzytelnieniu wybierz dzierżawę usługi Azure AD, wybierając ją w prawym górnym rogu strony.
 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
 1. Znajdź aplikację, dla której chcesz skonfigurować opcjonalne oświadczenia na liście, a następnie wybierz ją.

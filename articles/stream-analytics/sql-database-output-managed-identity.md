@@ -1,17 +1,17 @@
 ---
 title: Uzyskaj dostęp do Azure SQL Database lub usługi Azure Synapse Analytics przy użyciu tożsamości zarządzanych — Azure Stream Analytics
 description: W tym artykule opisano sposób używania tożsamości zarządzanych do uwierzytelniania zadania Azure Stream Analytics do Azure SQL Database lub danych wyjściowych usługi Azure Synapse Analytics.
-author: mamccrea
-ms.author: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/30/2020
-ms.openlocfilehash: ee617b50d85f611e130ec5533239c8924efecc6b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 244f8a446e33102e018881b3ec8f32ba9d8cbcc6
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352188"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014149"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-or-azure-synapse-analytics-from-an-azure-stream-analytics-job-preview"></a>Korzystanie z tożsamości zarządzanych do uzyskiwania dostępu do Azure SQL Database lub analizy Synapse Azure z poziomu zadania Azure Stream Analytics (wersja zapoznawcza)
 
@@ -121,7 +121,7 @@ Po utworzeniu użytkownika zawartej bazy danych i uzyskaniu dostępu do usług p
 
 #### <a name="azure-synapse-analytics"></a>[Azure Synapse Analytics](#tab/azure-synapse)
 
-Po utworzeniu użytkownika zawartej bazy danych i uzyskaniu dostępu do usług platformy Azure w portalu zgodnie z opisem w poprzedniej sekcji zadanie Stream Analytics ma uprawnienia od tożsamości zarządzanej do **łączenia** się z zasobem usługi Azure Synapse Database za pośrednictwem tożsamości zarządzanej. Zalecamy, aby dodatkowo przyznać uprawnienia do operacji ZBIORCZych SELECT, INSERT i ADMINISTRUJ do zadania Stream Analytics, ponieważ będą one potrzebne później w przepływie pracy Stream Analytics. Uprawnienie **Wybierz** umożliwia przetestowanie połączenia z tabelą w bazie danych usługi Azure Synapse. Uprawnienia **INSERT** do **operacji zbiorczych wstawiania i administrowania bazami danych** umożliwiają testowanie kompleksowych zapytań Stream Analytics po skonfigurowaniu danych wejściowych i danych wyjściowych usługi Azure Synapse Database.
+Po utworzeniu użytkownika zawartej bazy danych i uzyskaniu dostępu do usług platformy Azure w portalu zgodnie z opisem w poprzedniej sekcji zadanie Stream Analytics ma uprawnienia od tożsamości zarządzanej do **łączenia** się z zasobem usługi Azure Synapse Database za pośrednictwem tożsamości zarządzanej. Zalecamy, aby dodatkowo przyznać uprawnienia do operacji ZBIORCZych SELECT, INSERT i ADMINISTRUJ do zadania Stream Analytics, ponieważ będą one potrzebne później w przepływie pracy Stream Analytics. Uprawnienie **Wybierz** umożliwia przetestowanie połączenia z tabelą w bazie danych usługi Azure Synapse. Uprawnienia  do **operacji zbiorczych wstawiania i administrowania bazami danych** umożliwiają testowanie kompleksowych zapytań Stream Analytics po skonfigurowaniu danych wejściowych i danych wyjściowych usługi Azure Synapse Database.
 
 Aby udzielić uprawnienia do zarządzania OPERACJAmi ZBIORCZymi dla bazy danych, należy udzielić wszystkim uprawnieniam, które są oznaczone jako **kontrolki** w ramach [domyślnych uprawnień bazy danych](/sql/t-sql/statements/grant-database-permissions-transact-sql?view=azure-sqldw-latest#remarks) do zadania Stream Analytics. To uprawnienie jest wymagane, ponieważ zadanie Stream Analytics wykonuje instrukcję COPY, która wymaga [zarządzania operacjami zbiorczymi bazy danych i wstawiania](/sql/t-sql/statements/copy-into-transact-sql).
 

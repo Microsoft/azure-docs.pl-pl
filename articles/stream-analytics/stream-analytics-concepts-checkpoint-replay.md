@@ -1,25 +1,24 @@
 ---
 title: Koncepcje odzyskiwania punktów kontrolnych i powtarzania w Azure Stream Analytics
 description: W tym artykule opisano pojęcia dotyczące odzyskiwania punktów kontrolnych i powtarzania zadań w Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 10d9053e082a995085fa255cc0d9f63a2b4e2b17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df31f8538bb9eabeca37fe4c52c4443fd447e415
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84020612"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015322"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Pojęcia dotyczące punktów kontrolnych i powtarzania w zadaniach Azure Stream Analytics
 W tym artykule opisano wewnętrzne punkty kontrolne i koncepcje powtarzania w programie Azure Stream Analytics oraz wpływ na odzyskiwanie zadań. Przy każdym uruchomieniu zadania Stream Analytics informacje o stanie są obsługiwane wewnętrznie. Informacje o stanie są zapisywane okresowo w punkcie kontrolnym. W niektórych scenariuszach informacje o punkcie kontrolnym są używane do odzyskiwania zadań, jeśli wystąpi błąd lub uaktualnienie zadania. W innych sytuacjach punkt kontrolny nie może być używany do odzyskiwania, a odtwarzanie jest konieczne.
 
-## <a name="stateful-query-logicin-temporal-elements"></a>Logika zapytań stanowych w elementach czasowych
-Jedną z unikatowych możliwości Azure Stream Analytics zadania jest wykonywanie przetwarzania stanowego, takiego jak agregacje okienkowe, sprzężenia czasowe i funkcje analityczne. Każdy z tych operatorów utrzymuje informacje o stanie, gdy zadanie jest uruchomione.Maksymalny rozmiar okna dla tych elementów zapytania wynosi siedem dni. 
+## <a name="stateful-query-logic-in-temporal-elements"></a>Logika zapytań stanowych w elementach czasowych
+Jedną z unikatowych możliwości Azure Stream Analytics zadania jest wykonywanie przetwarzania stanowego, takiego jak agregacje okienkowe, sprzężenia czasowe i funkcje analityczne. Każdy z tych operatorów utrzymuje informacje o stanie, gdy zadanie jest uruchomione. Maksymalny rozmiar okna dla tych elementów zapytania wynosi siedem dni. 
 
 Koncepcja okna danych czasowych pojawia się w kilku Stream Analytics elementach zapytania:
 1. Zagregowane okna (Grupuj według wirowania, przeskoku i ruchomych okien)

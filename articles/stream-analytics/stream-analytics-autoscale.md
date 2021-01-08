@@ -3,16 +3,15 @@ title: Automatyczne skalowanie zadań Stream Analytics
 description: W tym artykule opisano sposób automatycznego skalowania Stream Analytics zadania na podstawie wstępnie zdefiniowanego harmonogramu lub wartości metryk zadania
 author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/03/2020
-ms.openlocfilehash: 8e5bcdaeaf1ec99387a708199f4353736b6bc60f
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: a8e089e302e9d40c69cf7ff2a3480c17894e1463
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129851"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016290"
 ---
 # <a name="autoscale-stream-analytics-jobs-using-azure-automation"></a>Automatyczne skalowanie zadań Stream Analytics przy użyciu Azure Automation
 
@@ -31,9 +30,9 @@ Dodaj następujące zmienne w ramach konta Azure Automation. Te zmienne zostaną
 
 | Nazwa | Typ | Wartość |
 | --- | --- | --- |
-| **jobName** | String | Nazwa zadania Stream Analytics, które ma być skalowane automatycznie. |
-| **resourceGroupName** | String | Nazwa grupy zasobów, w której znajduje się to zadanie. |
-| **subId** | String | Identyfikator subskrypcji, w której znajduje się to zadanie. |
+| **jobName** | Ciąg | Nazwa zadania Stream Analytics, które ma być skalowane automatycznie. |
+| **resourceGroupName** | Ciąg | Nazwa grupy zasobów, w której znajduje się to zadanie. |
+| **subId** | Ciąg | Identyfikator subskrypcji, w której znajduje się to zadanie. |
 | **increasedSU** | Liczba całkowita | Wyższa wartość SU, w której ma być skalowane zadanie w harmonogramie. Ta wartość musi być jedną z prawidłowych opcji SU, które są widoczne w ustawieniach **skalowania** zadania podczas jego działania. |
 | **decreasedSU** | Liczba całkowita | Dolna wartość SU, na którą zadanie ma być skalowane w harmonogramie. Ta wartość musi być jedną z prawidłowych opcji SU, które są widoczne w ustawieniach **skalowania** zadania podczas jego działania. |
 | **maxSU** | Liczba całkowita | Maksymalna wartość SU, w której ma być skalowane zadanie, w przypadku automatycznego skalowania przez załadowanie. Ta wartość musi być jedną z prawidłowych opcji SU, które są widoczne w ustawieniach **skalowania** zadania podczas jego działania. |
@@ -43,7 +42,7 @@ Dodaj następujące zmienne w ramach konta Azure Automation. Te zmienne zostaną
 
 ### <a name="create-runbooks"></a>Tworzenie elementów Runbook
 Następnym krokiem jest utworzenie dwóch elementów Runbook programu PowerShell. Jeden na potrzeby skalowania w górę i w dół dla operacji skalowania w dół.
-1. Na koncie Azure Automation przejdź do pozycji **elementy Runbook** w obszarze **Automatyzacja procesów**  , a następnie wybierz pozycję **Utwórz element Runbook** .
+1. Na koncie Azure Automation przejdź do pozycji **elementy Runbook** w obszarze **Automatyzacja procesów**  , a następnie wybierz pozycję **Utwórz element Runbook**.
 2. Nazwij pierwszy element Runbook *ScaleUpRunbook* z typem ustawionym na PowerShell. Użyj [skryptu ScaleUpRunbook PowerShell](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/ScaleUpRunbook.ps1) dostępnego w serwisie GitHub. Zapisz i Opublikuj.
 3. Utwórz inny element Runbook o nazwie *ScaleDownRunbook* z typem PowerShell. Użyj [skryptu ScaleDownRunbook PowerShell](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/ScaleDownRunbook.ps1) dostępnego w serwisie GitHub. Zapisz i Opublikuj.
 
@@ -53,27 +52,27 @@ Masz teraz elementy Runbook, które mogą automatycznie wyzwalać operacje skalo
 
 ## <a name="autoscale-based-on-a-schedule"></a>Automatyczne skalowanie na podstawie harmonogramu
 Azure Automation umożliwia skonfigurowanie harmonogramu wyzwalania elementów Runbook.
-1. Na koncie Azure Automation wybierz pozycję **harmonogramy** w obszarze **zasoby udostępnione** . Następnie wybierz pozycję **Dodaj harmonogram** .
+1. Na koncie Azure Automation wybierz pozycję **harmonogramy** w obszarze **zasoby udostępnione**. Następnie wybierz pozycję **Dodaj harmonogram**.
 2. Można na przykład utworzyć dwa harmonogramy. Reprezentuje to, kiedy zadanie ma być skalowane w górę, a drugie, które reprezentuje, gdy zadanie ma być skalowane w dół. Można zdefiniować cykl dla tych harmonogramów.
 
    ![Harmonogramy w Azure Automation](./media/autoscale/schedules.png)
 
-3. Otwórz **ScaleUpRunbook** a następnie wybierz pozycję **harmonogramy** w obszarze **zasoby** . Następnie można połączyć element Runbook z harmonogramem utworzonym w poprzednich krokach. Można mieć wiele harmonogramów połączonych z tym samym elementem Runbook, co może być przydatne, jeśli chcesz uruchomić tę samą operację skalowania w różnych porach dnia.
+3. Otwórz **ScaleUpRunbook** a następnie wybierz pozycję **harmonogramy** w obszarze **zasoby**. Następnie można połączyć element Runbook z harmonogramem utworzonym w poprzednich krokach. Można mieć wiele harmonogramów połączonych z tym samym elementem Runbook, co może być przydatne, jeśli chcesz uruchomić tę samą operację skalowania w różnych porach dnia.
 
 ![Planowanie elementów Runbook w Azure Automation](./media/autoscale/schedulerunbook.png)
 
-1. Powtórz poprzedni krok dla **ScaleDownRunbook** .
+1. Powtórz poprzedni krok dla **ScaleDownRunbook**.
 
 ## <a name="autoscale-based-on-load"></a>Automatyczne skalowanie na podstawie obciążenia
 Mogą wystąpić sytuacje, w których nie można przewidzieć obciążenia wejściowego. W takich przypadkach bardziej optymalne jest skalowanie w górę i w dół w ramach kroków w ramach minimalnej i maksymalnej wartości. Reguły alertów można skonfigurować w zadaniach Stream Analytics, aby wyzwalać elementy Runbook, gdy metryki zadań przechodzą powyżej lub poniżej wartości progowej.
-1. W ramach konta Azure Automation Utwórz dwie zmienne o wartościach całkowitych o nazwie **minSU** i **maxSU** . To ustawienie określa granice, w ramach których zadanie będzie skalowane w ramach kroków.
+1. W ramach konta Azure Automation Utwórz dwie zmienne o wartościach całkowitych o nazwie **minSU** i **maxSU**. To ustawienie określa granice, w ramach których zadanie będzie skalowane w ramach kroków.
 2. Utwórz dwa nowe elementy Runbook. Możesz użyć [skryptu programu StepScaleUp PowerShell](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/StepScaleUp.ps1) , który zwiększa liczbę usług SUs zadania w przyrostach do wartości **maxSU** . Można również użyć [skryptu programu StepScaleDown PowerShell](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/StepScaleDown.ps1) , który zmniejsza liczbę czynności programu SUs dla zadania, dopóki nie zostanie osiągnięta wartość **minSU** . Alternatywnie można użyć elementów Runbook z poprzedniej sekcji, jeśli masz określone wartości SU, do których chcesz skalować.
-3. W zadaniu Stream Analytics wybierz pozycję **reguły alertów** w obszarze **monitorowanie** . 
-4. Utwórz dwie grupy akcji. Jeden do użycia podczas operacji skalowania w górę i innej dla operacji skalowania w dół. Wybierz pozycję **Zarządzaj akcjami** , a następnie kliknij pozycję **Dodaj grupę akcji** . 
-5. Wypełnij pola wymagane. Wybierz **element Runbook usługi Automation** po wybraniu **typu akcji** . Wybierz element Runbook, który ma zostać wyzwolony po uruchomieniu alertu. Następnie utwórz grupę akcji.
+3. W zadaniu Stream Analytics wybierz pozycję **reguły alertów** w obszarze **monitorowanie**. 
+4. Utwórz dwie grupy akcji. Jeden do użycia podczas operacji skalowania w górę i innej dla operacji skalowania w dół. Wybierz pozycję **Zarządzaj akcjami** , a następnie kliknij pozycję **Dodaj grupę akcji**. 
+5. Wypełnij pola wymagane. Wybierz **element Runbook usługi Automation** po wybraniu **typu akcji**. Wybierz element Runbook, który ma zostać wyzwolony po uruchomieniu alertu. Następnie utwórz grupę akcji.
 
    ![Tworzenie grupy akcji](./media/autoscale/create-actiongroup.png)
-6. Utwórz [**nową regułę alertu**](./stream-analytics-set-up-alerts.md#set-up-alerts-in-the-azure-portal) w zadaniu. Określ warunek na podstawie wybranej metryki. [ *Zdarzenia wejściowe* , *użycie Su%* lub *zaległe zdarzenia wejściowe*](./stream-analytics-monitoring.md#metrics-available-for-stream-analytics) są zalecanymi metrykami używanymi do definiowania logiki skalowania automatycznego. Zaleca się również korzystanie z 1-minutowej *szczegółowości agregacji* i *częstotliwości oceny* podczas wyzwalania operacji skalowania w górę. Pozwoli to zagwarantować, że zadanie będzie miało dużo zasobów do poradzenia z dużymi skokami w woluminie wejściowym.
+6. Utwórz [**nową regułę alertu**](./stream-analytics-set-up-alerts.md#set-up-alerts-in-the-azure-portal) w zadaniu. Określ warunek na podstawie wybranej metryki. [ *Zdarzenia wejściowe*, *użycie Su%* lub *zaległe zdarzenia wejściowe*](./stream-analytics-monitoring.md#metrics-available-for-stream-analytics) są zalecanymi metrykami używanymi do definiowania logiki skalowania automatycznego. Zaleca się również korzystanie z 1-minutowej *szczegółowości agregacji* i *częstotliwości oceny* podczas wyzwalania operacji skalowania w górę. Pozwoli to zagwarantować, że zadanie będzie miało dużo zasobów do poradzenia z dużymi skokami w woluminie wejściowym.
 7. Wybierz grupę akcji utworzoną w ostatnim kroku i Utwórz alert.
 8. Powtórz kroki od 2 do 4 dla wszelkich dodatkowych operacji skalowania, które mają być wyzwalane na podstawie warunku metryk zadań.
 

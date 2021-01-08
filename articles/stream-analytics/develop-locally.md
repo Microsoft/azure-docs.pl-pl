@@ -1,17 +1,17 @@
 ---
 title: Lokalne opracowywanie i debugowanie zadań Azure Stream Analytics
 description: Dowiedz się, jak opracowywać i testować Azure Stream Analytics zadania na komputerze lokalnym przed ich uruchomieniem w Azure Portal.
-ms.author: mamccrea
-author: mamccrea
+ms.author: sujie
+author: su-jie
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.service: stream-analytics
-ms.openlocfilehash: 797577ce976f71f41ece0d103bd0145775d48b56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18df480dab90d9ab127bb96971fc19cdc5a361ce
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90885588"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016477"
 ---
 # <a name="develop-and-debug-azure-stream-analytics-jobs-locally"></a>Lokalne opracowywanie i debugowanie zadań Azure Stream Analytics
 

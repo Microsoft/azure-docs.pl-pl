@@ -1,14 +1,14 @@
 ---
 title: Warstwy i funkcje usługi Registry
-description: Dowiedz się więcej o funkcjach i ograniczeniach w warstwach usług podstawowa, standardowa i Premium (SKU) Azure Container Registry.
+description: Dowiedz się więcej o funkcjach i limitach (przydziały) w warstwach usługi podstawowa, standardowa i Premium (SKU) Azure Container Registry.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: e2a5ad52775e9000aa0beb0a926d809da1c5a0e0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b55fc16dcd6dcb544ed4597ce4bdc6ba17b52646
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048478"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015672"
 ---
 # <a name="azure-container-registry-service-tiers"></a>Azure Container Registry warstw usług
 
@@ -16,8 +16,8 @@ Azure Container Registry jest dostępny w wielu warstwach usług (nazywanych ró
 
 | Warstwa | Opis |
 | --- | ----------- |
-| **Podstawowe** | Zoptymalizowany pod kątem kosztów punkt wejścia dla deweloperów poznających usługę Azure Container Registry. Podstawowe rejestry mają takie same funkcje programistyczne jak standard i Premium (takie jak Azure Active Directory [integracja z uwierzytelnianiem](container-registry-authentication.md#individual-login-with-azure-ad), [Usuwanie obrazu][container-registry-delete]i elementy [webhook][container-registry-webhook]). Jednak przepływność dołączonego magazynu i obrazu jest najbardziej odpowiednia w przypadku małych scenariuszy użycia. |
-| **Standardowy** | Standardowe rejestry oferują te same możliwości co podstawowa, dzięki czemu można zwiększyć pojemność magazynu i przepływność obrazu. Rejestry w warstwie Standardowa powinny spełniać wymagania większości scenariuszy produkcyjnych. |
+| **Podstawowa** | Zoptymalizowany pod kątem kosztów punkt wejścia dla deweloperów poznających usługę Azure Container Registry. Podstawowe rejestry mają takie same funkcje programistyczne jak standard i Premium (takie jak Azure Active Directory [integracja z uwierzytelnianiem](container-registry-authentication.md#individual-login-with-azure-ad), [Usuwanie obrazu][container-registry-delete]i elementy [webhook][container-registry-webhook]). Jednak przepływność dołączonego magazynu i obrazu jest najbardziej odpowiednia w przypadku małych scenariuszy użycia. |
+| **Standardowa** | Standardowe rejestry oferują te same możliwości co podstawowa, dzięki czemu można zwiększyć pojemność magazynu i przepływność obrazu. Rejestry w warstwie Standardowa powinny spełniać wymagania większości scenariuszy produkcyjnych. |
 | **Premium** | Rejestry Premium zapewniają największą ilość dołączonego magazynu i współbieżnych operacji, co umożliwia wykonywanie scenariuszy o dużej pojemności. Oprócz wyższej przepływności obrazów funkcja Premium dodaje funkcje, takie jak [replikacja geograficzna][container-registry-geo-replication] służąca do zarządzania pojedynczym rejestrem w wielu regionach, [zaufania zawartości](container-registry-content-trust.md) dla podpisywania tagów obrazu, [prywatnego linku z prywatnymi punktami końcowymi](container-registry-private-link.md) w celu ograniczenia dostępu do rejestru. |
 
 Warstwy Basic, standard i Premium zapewniają te same funkcje programistyczne. Wszystkie korzyści z [magazynu obrazów][container-registry-storage] są również zarządzane całkowicie przez platformę Azure. Wybranie warstwy wyższego poziomu zapewnia lepszą wydajność i skalowalność. W przypadku wielu warstw usług możesz rozpocząć pracę z usługą Basic, a następnie przekonwertować ją na Standard i Premium w miarę wzrostu użycia rejestru.
@@ -30,7 +30,9 @@ W poniższej tabeli przedstawiono szczegółowe informacje o funkcjach i limitac
 
 ## <a name="changing-tiers"></a>Zmiana warstw
 
-Warstwę usług w rejestrze można zmienić za pomocą interfejsu wiersza polecenia platformy Azure lub w Azure Portal. Możesz swobodnie poruszać się między warstwą, dopóki warstwa, do której chcesz się przełączyć, ma wymaganą maksymalną pojemność magazynu. 
+Warstwę usług w rejestrze można zmienić za pomocą interfejsu wiersza polecenia platformy Azure lub w Azure Portal. Można swobodnie przesuwać się między warstwami, o ile przełączana warstwa ma wymaganą maksymalną pojemność magazynu. 
+
+Podczas przechodzenia między warstwami usług nie ma żadnego przestoju rejestru ani wpływu na operacje rejestru.
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 

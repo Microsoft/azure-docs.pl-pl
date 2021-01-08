@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 05258e201c65138e53e861f0631eb33e08c9c199
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 391febcf8852147aedf5ef61d2442b2f50b4c9ae
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92673589"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014743"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>Migrowanie aplikacji jednostronicowej JavaScript z niejawnego przydzielenia do przepływu kodu uwierzytelniania
 
-Biblioteka Microsoft Authentication Library for JavaScript (MSAL.js) v 2.0 obsługuje przepływ kodu autoryzacji z PKCE i CORS do aplikacji jednostronicowych na platformie tożsamości firmy Microsoft. Wykonaj kroki opisane w poniższych sekcjach, aby przeprowadzić migrację aplikacji MSAL.js 1. x przy użyciu niejawnego przydzielenia do MSAL.js 2.0 + (poniżej *2. x* ) i przepływu kodu uwierzytelniania.
+Biblioteka Microsoft Authentication Library for JavaScript (MSAL.js) v 2.0 obsługuje przepływ kodu autoryzacji z PKCE i CORS do aplikacji jednostronicowych na platformie tożsamości firmy Microsoft. Wykonaj kroki opisane w poniższych sekcjach, aby przeprowadzić migrację aplikacji MSAL.js 1. x przy użyciu niejawnego przydzielenia do MSAL.js 2.0 + (poniżej *2. x*) i przepływu kodu uwierzytelniania.
 
 MSAL.js 2. x ulepsza MSAL.js 1. x przez obsługę przepływu kodu autoryzacji w przeglądarce zamiast niejawnego przepływu dotacji. MSAL.js 2. x nie **obsługuje przepływu** niejawnego.
 
@@ -30,7 +30,7 @@ MSAL.js 2. x ulepsza MSAL.js 1. x przez obsługę przepływu kodu autoryzacji w 
 Aby zaktualizować aplikację do MSAL.js 2. x i przepływ kodu uwierzytelniania, należy wykonać trzy podstawowe czynności:
 
 1. Przełącz identyfikatory URI przekierowania [rejestracji aplikacji](#switch-redirect-uris-to-spa-platform) z platformy **sieci Web** na **jednostronicową** platformę aplikacji.
-1. Zaktualizuj [kod](#switch-redirect-uris-to-spa-platform) z MSAL.js 1. x do **2. x** .
+1. Zaktualizuj [kod](#switch-redirect-uris-to-spa-platform) z MSAL.js 1. x do **2. x**.
 1. Wyłącz [niejawne przyznanie](#disable-implicit-grant-settings) w rejestracji aplikacji, gdy wszystkie aplikacje, które współużytkują rejestrację, zostały zaktualizowane do MSAL.js 2. x i przepływ kodu uwierzytelniania.
 
 W poniższych sekcjach opisano każdy krok z dodatkowymi szczegółami.
@@ -41,18 +41,18 @@ Jeśli chcesz kontynuować korzystanie z istniejącej rejestracji aplikacji dla 
 
 Wykonaj następujące kroki w przypadku rejestracji aplikacji skonfigurowanych obecnie przy użyciu identyfikatorów URI przekierowań platformy **sieci Web** :
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz dzierżawę **Azure Active Directory** .
-1. W **rejestracje aplikacji** wybierz aplikację, a następnie pozycję **uwierzytelnianie** .
+1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span></a> i wybierz dzierżawę **Azure Active Directory** .
+1. W **rejestracje aplikacji** wybierz aplikację, a następnie pozycję **uwierzytelnianie**.
 1. Na kafelku Platforma **sieci Web** w obszarze **identyfikatory URI przekierowania** wybierz transparent ostrzegawczy wskazujący, że chcesz migrować identyfikatory URI.
 
     :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-01-implicit-warning-banner.png" alt-text="Transparent ostrzeżenia o niejawnym przepływie na kafelku aplikacji sieci Web w Azure Portal":::
-1. Wybierz *tylko* te identyfikatory URI przekierowania, których aplikacje będą używać MSAL.js 2. x, a następnie wybierz pozycję **Konfiguruj** .
+1. Wybierz *tylko* te identyfikatory URI przekierowania, których aplikacje będą używać MSAL.js 2. x, a następnie wybierz pozycję **Konfiguruj**.
 
-    :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-02-select-redirect-uri.png" alt-text="Transparent ostrzeżenia o niejawnym przepływie na kafelku aplikacji sieci Web w Azure Portal":::
+    :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-02-select-redirect-uri.png" alt-text="Wybieranie okienka URI przekierowania w okienku SPA w Azure Portal":::
 
 Te identyfikatory URI przekierowania powinny teraz pojawić się na kafelku platformy **aplikacji jednostronicowej** , pokazując, że obsługa mechanizmu CORS z przepływem kodu autoryzacji i PKCE jest włączona dla tych identyfikatorów URI.
 
-:::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-03-spa-redirect-uri-tile.png" alt-text="Transparent ostrzeżenia o niejawnym przepływie na kafelku aplikacji sieci Web w Azure Portal":::
+:::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-03-spa-redirect-uri-tile.png" alt-text="Kafelek aplikacji jednostronicowej w ramach rejestracji aplikacji w Azure Portal":::
 
 Możesz również [utworzyć nową rejestrację aplikacji](scenario-spa-app-registration.md) zamiast aktualizować identyfikatory URI przekierowania w istniejącej rejestracji.
 
