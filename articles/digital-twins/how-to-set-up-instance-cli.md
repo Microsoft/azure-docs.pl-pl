@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 26302fa67394e6c3122b159866c3814fb5677ba6
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 8e82f8974b53224b3e471d1628a1ca5819ce2955
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494990"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98044496"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Konfigurowanie wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji (CLI)
 
@@ -35,12 +35,12 @@ W tej wersji tego artykułu przechodzą te kroki ręcznie, po jednym z nich przy
 ## <a name="create-the-azure-digital-twins-instance"></a>Tworzenie wystąpienia usługi Azure Digital bliźniaczych reprezentacji
 
 W tej sekcji utworzysz **nowe wystąpienie usługi Azure Digital bliźniaczych reprezentacji** przy użyciu polecenia Cloud Shell. Musisz podać:
-* Grupa zasobów, w której ma zostać wdrożona. Jeśli nie masz jeszcze istniejącej grupy zasobów, możesz utworzyć ją teraz za pomocą tego polecenia:
+* Grupa zasobów, w której zostanie wdrożone wystąpienie. Jeśli nie masz jeszcze istniejącej grupy zasobów, możesz utworzyć ją teraz za pomocą tego polecenia:
     ```azurecli-interactive
     az group create --location <region> --name <name-for-your-resource-group>
     ```
 * Region wdrożenia. Aby zobaczyć, które regiony obsługują usługę Azure Digital bliźniaczych reprezentacji, odwiedź stronę [*usługi Azure dostępne według regionów*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
-* Nazwa wystąpienia. Nazwa nowego wystąpienia musi być unikatowa w obrębie regionu subskrypcji (co oznacza, że jeśli subskrypcja ma inne wystąpienie usługi Azure Digital bliźniaczych reprezentacji w regionie, w którym już korzystasz z wybranej nazwy, zostanie wyświetlony monit o wybranie innej nazwy).
+* Nazwa wystąpienia. Jeśli Twoja subskrypcja ma inne wystąpienie usługi Azure Digital bliźniaczych reprezentacji w regionie, w którym już korzystasz z określonej nazwy, zostanie wyświetlony monit o wybranie innej nazwy.
 
 Użyj tych wartości w poniższym poleceniu, aby utworzyć wystąpienie:
 
@@ -54,7 +54,7 @@ Jeśli wystąpienie zostało utworzone pomyślnie, wynik w Cloud Shell będzie w
 
 :::image type="content" source="media/how-to-set-up-instance/cloud-shell/create-instance.png" alt-text="okno Polecenie pomyślne utworzenie grupy zasobów i wystąpienia usługi Azure Digital bliźniaczych reprezentacji":::
 
-Zwróć uwagę na nazwy *hosta*, *nazwę*i *źródłową* wystąpienia usługi Azure Digital bliźniaczych reprezentacji z danych wyjściowych. Są to wszystkie ważne wartości, które mogą być potrzebne podczas dalszej pracy z wystąpieniem usługi Azure Digital bliźniaczych reprezentacji, aby skonfigurować uwierzytelnianie i powiązane zasoby platformy Azure. Jeśli inni użytkownicy będą programowanie względem wystąpienia, należy udostępnić te wartości.
+Zwróć uwagę na nazwy **hosta**, **nazwę** i **źródłową** wystąpienia usługi Azure Digital bliźniaczych reprezentacji z danych wyjściowych. Są to wszystkie ważne wartości, które mogą być potrzebne podczas dalszej pracy z wystąpieniem usługi Azure Digital bliźniaczych reprezentacji, aby skonfigurować uwierzytelnianie i powiązane zasoby platformy Azure. Jeśli inni użytkownicy będą programowanie względem wystąpienia, należy udostępnić te wartości.
 
 > [!TIP]
 > Można wyświetlić te właściwości wraz ze wszystkimi właściwościami wystąpienia w dowolnym momencie, uruchamiając polecenie `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
@@ -80,7 +80,7 @@ Wynikiem tego polecenia jest informacje o utworzonym przypisaniu roli.
 >
 > Użyj [Azure Portal stronie Azure Active Directory użytkowników](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) , aby wybrać konto użytkownika i otworzyć jego szczegóły. Skopiuj *Identyfikator obiektu użytkownika:*
 >
-> :::image type="content" source="media/includes/user-id.png" alt-text="okno Polecenie pomyślne utworzenie grupy zasobów i wystąpienia usługi Azure Digital bliźniaczych reprezentacji" lightbox="media/includes/user-id.png":::
+> :::image type="content" source="media/includes/user-id.png" alt-text="Widok strony użytkownika w Azure Portal wyróżniania identyfikatora GUID w polu &quot;Identyfikator obiektu&quot;" lightbox="media/includes/user-id.png":::
 >
 > Następnie powtórz polecenie listy przypisywania ról przy użyciu *identyfikatora obiektu* użytkownika dla `assignee` powyższego parametru.
 

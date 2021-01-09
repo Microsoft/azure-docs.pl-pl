@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 12/07/2020
-ms.openlocfilehash: 6ad58283ad9078088f241a67426657eb7a538e10
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 0114c75d99d79041631e5078deb33f77863dc35a
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96781134"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98043782"
 ---
 # <a name="migration-of-co-sell-solutions-from-ocp-gtm-to-the-commercial-marketplace"></a>Migracja rozwiązań do sprzedaży ze OCP GTM do komercyjnej witryny Marketplace
 
@@ -136,7 +136,7 @@ Szczegółowe instrukcje dotyczące informacji, które należy podać przed opub
 
     :::image type="content" source="media/co-sell-migrate/offer-setup.png" alt-text="Karty Ustawienia oferty przegląd w centrum partnerskim.":::
 
-3. Niektóre szczegóły dotyczące sprzedawcy firmy Microsoft zostały skopiowane za pośrednictwem rozwiązania OCP GTM. Uzupełnij pozostałe wymagane informacje na karcie **współsprzedaż z firmą Microsoft** , aby zaoferować swoją ofertę gotowość do sprzedaży. Po zakończeniu wybierz pozycję **Przejrzyj i Opublikuj**.
+3. Niektóre szczegóły dotyczące sprzedawcy firmy Microsoft zostały skopiowane za pośrednictwem rozwiązania OCP GTM. Uzupełnij pozostałe wymagane informacje na karcie **współsprzedaż z firmą Microsoft** , aby zaoferować swoją ofertę gotowość do sprzedaży. Po zakończeniu wybierz pozycję **Przejrzyj i Opublikuj**. Aby uzyskać więcej informacji, zobacz [Jak przesłać materiały towarzyszące w centrum partnerskim](marketplace-co-sell.md#how-to-submit-co-sell-materials-in-partner-center).
 
     :::image type="content" source="media/co-sell-migrate/co-sell-page.png" alt-text="Karta oferta do sprzedaży w centrum partnerskim.":::
 
@@ -154,4 +154,6 @@ Szczegółowe instrukcje dotyczące informacji, które należy podać przed opub
 ## <a name="next-steps"></a>Następne kroki
 
 - [Odsprzedaż za pośrednictwem partnerów CSP](cloud-solution-providers.md)
+- [Jak przesłać materiały towarzyszące w centrum partnerskim](marketplace-co-sell.md#how-to-submit-co-sell-materials-in-partner-center)
 - Wyświetlanie tych [często zadawanych pytań](https://partner.microsoft.com/resources/detail/co-sell-requirements-publish-commercial-marketplace-faq-pdf) (PDF)
+

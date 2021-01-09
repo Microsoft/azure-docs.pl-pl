@@ -1,14 +1,14 @@
 ---
 title: Przykład wdrażania planu IRS 1075
 description: Wdróż kroki dla przykładowego planu IRS 1075 (Rev. 11-2016), w tym szczegóły parametru artefaktu.
-ms.date: 08/19/2020
+ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 5f2c58b69519f27f759ddfc79d3333e55ed4eb54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4be1b642961b9642ea9d638521653dbc33f0334
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653736"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045210"
 ---
 # <a name="deploy-the-irs-1075-blueprint-sample"></a>Wdróż przykład planu IRS 1075
 
@@ -33,7 +33,7 @@ Najpierw zaimplementuj przykład strategii, tworząc nową strategię w środowi
 
 1. Wprowadź _podstawowe_ informacje dotyczące tego przykładu strategii:
 
-   - **Nazwa**planu: Podaj nazwę kopii przykładu planu IRS 1075 (Rev. 11-2016).
+   - **Nazwa** planu: Podaj nazwę kopii przykładu planu IRS 1075 (Rev. 11-2016).
    - **Lokalizacja definicji**: Użyj wielokropka i wybierz grupę zarządzania, w której ma zostać zapisana kopia przykładu.
 
 1. Wybierz kartę _Artefakty_ w górnej części strony lub pozycję **Dalej: Artefakty** w dolnej części strony.
@@ -52,7 +52,7 @@ Twoja kopia przykładu strategii została utworzona w środowisku. Została ona 
 
 ## <a name="assign-the-sample-copy"></a>Przypisywanie kopii przykładu
 
-Po pomyślnym **opublikowaniu**kopii przykładowej strategii można ją przypisać do subskrypcji w grupie zarządzania, w której został on zapisany. W tym kroku udostępniane są parametry, dzięki którym każde wdrożenie kopii przykładowej strategii będzie unikatowe.
+Po pomyślnym **opublikowaniu** kopii przykładowej strategii można ją przypisać do subskrypcji w grupie zarządzania, w której został on zapisany. W tym kroku udostępniane są parametry, dzięki którym każde wdrożenie kopii przykładowej strategii będzie unikatowe.
 
 1. W okienku po lewej stronie wybierz pozycję **Wszystkie usługi**. Wyszukaj i wybierz pozycję **Strategie**.
 
@@ -68,7 +68,7 @@ Po pomyślnym **opublikowaniu**kopii przykładowej strategii można ją przypisa
      - **Nazwa przypisania**: nazwa jest wstępnie wypełniona dla Ciebie na podstawie nazwy planu.
        Jeśli chcesz, możesz ją zmienić lub pozostawić.
      - **Lokalizacja**: Wybierz region, w którym ma zostać utworzona zarządzana tożsamość. Usługa Azure Blueprint używa tej tożsamości zarządzanej do wdrażania wszystkich artefaktów w przypisanej strategii. Aby dowiedzieć się więcej, zobacz [zarządzane tożsamości dla zasobów platformy Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Wersja definicji**planu: Wybierz **opublikowaną** wersję kopii przykładowej strategii.
+     - **Wersja definicji** planu: Wybierz **opublikowaną** wersję kopii przykładowej strategii.
 
    - Przypisanie blokady
 

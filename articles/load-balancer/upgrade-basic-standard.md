@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: d54994a7c64718835e70381f92abed83ef693018
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: ef018e58f8336220b96eba568c94efc40a0fb0c7
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938515"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045397"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Uaktualnij Load Balancer publicznej platformy Azure
 [Usługa Azure usługa Load Balancer w warstwie Standardowa](load-balancer-overview.md) oferuje bogaty zestaw funkcji i wysokiej dostępności za pomocą nadmiarowości stref. Aby dowiedzieć się więcej na temat Load Balancer SKU, zobacz [tabela porównania](./skus.md#skus).
@@ -120,10 +120,6 @@ Ukończenie skryptu zwykle trwa około 5-10 minut i może trwać dłużej w zale
 ### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-basic-load-balancer-to-the-newly-created-standard-load-balancer"></a>Czy skrypt Azure PowerShell przełączany jest również ruch z mojego podstawowego Load Balancer do nowo utworzonego usługa Load Balancer w warstwie Standardowa?
 
 Tak. Skrypt Azure PowerShell nie tylko uaktualnia publiczny adres IP, kopiuje konfigurację z warstwy Podstawowa do usługa Load Balancer w warstwie Standardowa, ale również migruje maszynę wirtualną wyłącznie do nowo utworzonego standardowego Load Balancer publicznego. 
-
-### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Wystąpił problem z używaniem tego skryptu. Jak uzyskać pomoc?
-  
-Możesz wysłać wiadomość e-mail na adres slbupgradesupport@microsoft.com , otworzyć sprawę pomocy technicznej w ramach pomocy technicznej platformy Azure lub obie te czynności.
 
 ## <a name="next-steps"></a>Następne kroki
 

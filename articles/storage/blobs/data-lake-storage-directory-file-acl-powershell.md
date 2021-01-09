@@ -10,12 +10,12 @@ ms.date: 01/06/2021
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 83a19074eb131b4024c0eaf92631a7b2f3d266d9
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: fb715840ec3b3b1d5e65f17d4c18eb719e6acf80
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014471"
+ms.locfileid: "98043578"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Użyj programu PowerShell do zarządzania katalogami, plikami i listami ACL w Azure Data Lake Storage Gen2
 
@@ -51,34 +51,36 @@ W tym artykule przedstawiono sposób użycia programu PowerShell do tworzenia ka
 
 ## <a name="connect-to-the-account"></a>Połącz z kontem
 
-Otwórz okno polecenia programu Windows PowerShell, a następnie zaloguj się do subskrypcji platformy Azure za pomocą `Connect-AzAccount` polecenia i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
-
-```powershell
-Connect-AzAccount
-```
-
-Jeśli Twoja tożsamość jest skojarzona z więcej niż jedną subskrypcją, ustaw aktywną subskrypcję na konto magazynu, w którym chcesz utworzyć katalogi i zarządzać nimi. W tym przykładzie Zastąp `<subscription-id>` wartość symbolu zastępczego identyfikatorem subskrypcji.
-
-```powershell
-Select-AzSubscription -SubscriptionId <subscription-id>
-```
-
-Następnie wybierz, w jaki sposób polecenia mają uzyskać autoryzację na konto magazynu. 
+Wybierz, w jaki sposób polecenia mają uzyskać autoryzację na konto magazynu. 
 
 ### <a name="option-1-obtain-authorization-by-using-azure-active-directory-ad"></a>Opcja 1: uzyskiwanie autoryzacji za pomocą Azure Active Directory (AD)
 
-W ramach tego podejścia system gwarantuje, że konto użytkownika ma odpowiednie przypisania kontroli dostępu opartej na rolach (Azure RBAC) i listy ACL. 
+W ramach tego podejścia system gwarantuje, że konto użytkownika ma odpowiednie przypisania kontroli dostępu opartej na rolach (Azure RBAC) i listy ACL.
 
-```powershell
-$ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
-```
+1. Otwórz okno polecenia programu Windows PowerShell, a następnie zaloguj się do subskrypcji platformy Azure za pomocą `Connect-AzAccount` polecenia i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
+
+   ```powershell
+   Connect-AzAccount
+   ```
+
+2. Jeśli Twoja tożsamość jest skojarzona z więcej niż jedną subskrypcją, ustaw aktywną subskrypcję na konto magazynu, w którym chcesz utworzyć katalogi i zarządzać nimi. W tym przykładzie Zastąp `<subscription-id>` wartość symbolu zastępczego identyfikatorem subskrypcji.
+
+   ```powershell
+   Select-AzSubscription -SubscriptionId <subscription-id>
+   ``` 
+
+3. Pobierz kontekst konta magazynu.
+
+   ```powershell
+   $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
+   ```
 
 ### <a name="option-2-obtain-authorization-by-using-the-storage-account-key"></a>Opcja 2: uzyskiwanie autoryzacji przy użyciu klucza konta magazynu
 
-W tym podejściu system nie sprawdza uprawnień usługi Azure RBAC ani listy ACL.
+W tym podejściu system nie sprawdza uprawnień usługi Azure RBAC ani listy ACL. Pobierz kontekst konta magazynu przy użyciu klucza konta.
 
 ```powershell
-$ctx = New-AzStorageContext -StorageAccountName "<storage-account-name>" -StorageAccountKey "<storage-account-key>"
+$ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -StorageAccountKey '<storage-account-key>'
 ```
 
 ## <a name="create-a-container"></a>Tworzenie kontenera

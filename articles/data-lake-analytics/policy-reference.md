@@ -1,18 +1,18 @@
 ---
 title: Wbudowane definicje zasad dla Azure Data Lake Analytics
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Data Lake Analytics. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 11/20/2020
+ms.date: 01/08/2021
 ms.topic: reference
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: data-lake-analytics
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 6e6355b47752df062914bc755d5840991d0c0dfe
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 6c6bec5016012229fdd457322cdb3dbeb846fe08
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94987955"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045993"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-data-lake-analytics"></a>Azure Policy wbudowane definicje Azure Data Lake Analytics
 

@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/23/2020
-ms.openlocfilehash: c5086eee805ffbcdf0741eae4db405b1bcbe8692
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.date: 01/08/2021
+ms.openlocfilehash: d39bc35d1edcbcfef4c7774259112ec5144efa15
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760364"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98044360"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB bezserwerowe (wersja zapoznawcza)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -31,16 +31,13 @@ W przypadku korzystania z Azure Cosmos DB każda operacja bazy danych ma koszt w
 
 ## <a name="use-cases"></a>Przypadki użycia
 
-Azure Cosmos DB najwygodniejsze dla serwera scenariusze, których oczekujesz:
-
-- **Niski, sporadyczny i nieprzewidywalny ruch**: ponieważ pojemność aprowizacji w takich sytuacjach nie jest wymagana i może być kosztowna
-- **Średnia wydajność**: ponieważ kontenery bezserwerowe mają [określone charakterystyki wydajności](#performance)
-
-Z tego względu należy rozważyć bezserwerowe Azure Cosmos DB w następujących sytuacjach:
+Azure Cosmos DB bezserwerowo najlepiej pasuje do scenariuszy, w których oczekiwany jest **sporadyczny i nieprzewidywalny ruch** z długi czas bezczynności. Ponieważ obsługa administracyjna w takich sytuacjach nie jest wymagana i może być kosztowna, Azure Cosmos DB bezserwerowa należy wziąć pod uwagę następujące przypadki użycia:
 
 - Wprowadzenie do Azure Cosmos DB
-- Programowanie, testowanie i Tworzenie prototypów nowych aplikacji
-- Uruchamianie małych i średnich aplikacji z sporadycznym ruchem, który jest trudny do prognozowania
+- Uruchamianie aplikacji za pomocą
+    - rozbicie, sporadyczny ruch, który jest trudny do prognozowania lub
+    - Niska (<10%) współczynnik ruchu średniego do szczytu
+- Opracowywanie, testowanie i Tworzenie prototypów i uruchamianie ich w środowisku produkcyjnym nowe aplikacje, w których wzorzec ruchu jest nieznany
 - Integrowanie z usługami obliczeniowymi bez serwera, takimi jak [Azure Functions](../azure-functions/functions-overview.md)
 
 Zapoznaj się z artykułem [jak wybrać między zainicjowaną przepływność i bezserwerowym](throughput-serverless.md) systemem, aby uzyskać więcej wskazówek dotyczących wybierania oferty najlepiej dopasowanej do Twojego przypadku użycia.
@@ -74,14 +71,7 @@ Ten sam wykres można znaleźć podczas korzystania z Azure Monitor, zgodnie z o
 
 ## <a name="performance"></a><a id="performance"></a>Wydajność
 
-Zasoby bezserwerowe mają szczególne cechy wydajności, które różnią się od obsługiwanych zasobów przepływności:
-
-- **Dostępność**: gdy oferta bezserwerowa stanie się ogólnie dostępna, dostępność kontenerów bezserwerowych zostanie objęta umowa dotycząca poziomu usług (SLA) 99,9%, gdy strefy dostępności (nadmiarowość strefy) nie są używane. W przypadku używania Strefy dostępności umowa SLA wynosi 99,99%.
-- **Opóźnienie**: po ogólnym udostępnieniu oferty bezserwerowej opóźnienie kontenerów bezserwerowych zostanie objęte przeznaczeniem poziomu usługi (SLO) wynoszącym 10 milisekund lub mniej w przypadku operacji odczytu i 30 milisekund. Operacja odczytu punktu polega na pobieraniu pojedynczego elementu przez jego identyfikator i wartość klucza partycji.
-- Możliwości **przenoszenia: gdy** oferta bezserwerowa będzie ogólnie dostępna, możliwości przenoszenia kontenerów bezserwerowych będą objęte celem poziomu usługi (SLO) wynoszącym 95%. Oznacza to, że maksymalne możliwości można osiągnąć przez co najmniej 95% czasu.
-
-> [!NOTE]
-> Jako wersja zapoznawcza platformy Azure usługa Azure Cosmos DB bezserwerowa jest wykluczona z umów dotyczących poziomu usług (SLA). Wymienione powyżej cechy wydajności są dostępne jako wersja zapoznawcza tego, co oferta będzie dostarczana, gdy jest ogólnie dostępna.
+Zasoby bezserwerowe mają szczególne cechy wydajności, które różnią się od ilości dostarczanych zasobów przepływności. Gdy oferta bezserwerowa będzie ogólnie dostępna, opóźnienie kontenerów bezserwerowych będzie objęte przeznaczeniem poziomu usługi (SLO) wynoszącym 10 milisekund lub mniej dla operacji odczytu i 30 milisekund. Operacja odczytu punktu polega na pobieraniu pojedynczego elementu przez jego identyfikator i wartość klucza partycji.
 
 ## <a name="next-steps"></a>Następne kroki
 

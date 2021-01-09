@@ -3,17 +3,17 @@ title: Wymagania dotyczące pakietu rysowania w programie Microsoft Azure Maps C
 description: Dowiedz się więcej o wymaganiach dotyczących pakietów rysowania w celu przekonwertowania plików projektu funkcji na dane mapy
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 1/08/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 26b6273b4dd2371790025515e35b71d1fc863ebe
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: bed5373cbb9967bd1d86bb80bb3a449430c3b6ae
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903466"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98044785"
 ---
 # <a name="drawing-package-requirements"></a>Wymagania dotyczące pakietu do rysowania
 
@@ -41,7 +41,7 @@ Aby uzyskać łatwe odwołanie, poniżej przedstawiono niektóre terminy i defin
 | Warstwa | Warstwa programu AutoCAD DWG.|
 | Poziom | Obszar budynku z zestawem podniesienia uprawnień. Na przykład piętro budynku. |
 | Linki XREF  |Plik w formacie programu AutoCAD DWG (. dwg), dołączony do podstawowego rysunku jako odwołanie zewnętrzne.  |
-| Cecha | Obiekt, który łączy geometrię z dodatkowymi informacjami o metadanych. |
+| Cechy | Obiekt, który łączy geometrię z więcej informacji metadanych. |
 | Klasy funkcji | Typowy plan dla funkcji. Na przykład *Jednostka* jest klasą funkcji, a *pakiet Office* jest funkcją. |
 
 ## <a name="drawing-package-structure"></a>Struktura pakietu rysowania
@@ -49,9 +49,9 @@ Aby uzyskać łatwe odwołanie, poniżej przedstawiono niektóre terminy i defin
 Pakiet rysowania to archiwum zip, które zawiera następujące pliki:
 
 * Pliki DWG w formacie pliku DWG programu AutoCAD.
-* _manifest.jsw_ pliku dla pojedynczej funkcji.
+* _manifest.jsw_ pliku, który OPISUJE pliki DWG w pakiecie rysowania.
 
-Pliki DWG można organizować w dowolny sposób wewnątrz folderu, ale plik manifestu musi znajdować się w katalogu głównym folderu. Musisz mieć folder zip w jednym pliku archiwum z rozszerzeniem. zip. W następnych sekcjach szczegółowo przedstawiono wymagania dotyczące plików DWG, pliku manifestu i zawartości tych plików.  
+Pakiet rysowania musi być spakowany w jednym pliku archiwum z rozszerzeniem zip. Pliki DWG można organizować w dowolny sposób wewnątrz pakietu, ale plik manifestu musi znajdować się w katalogu głównym pakietu spakowanego. W następnych sekcjach opisano wymagania dotyczące plików DWG, pliku manifestu i zawartości tych plików.
 
 ## <a name="dwg-files-requirements"></a>Wymagania dotyczące plików DWG
 
@@ -60,6 +60,7 @@ Dla każdego poziomu funkcji wymagany jest pojedynczy plik DWG. Dane poziomu mus
 * Należy zdefiniować warstwy _zewnętrzne_ i _jednostkowe_ . Opcjonalnie można zdefiniować następujące warstwy opcjonalne: _ściany_, _drzwi_, _UnitLabel_, _strefy_ i _ZoneLabel_.
 * Nie może zawierać funkcji z wielu poziomów.
 * Nie może zawierać funkcji z wielu obiektów.
+* Musi odwoływać się do tego samego systemu pomiarowego i jednostki miary, jak inne pliki DWG w pakiecie rysunku.
 
 [Usługa konwersji Azure Maps](/rest/api/maps/conversion) może wyodrębnić następujące klasy funkcji z pliku DWG:
 
@@ -78,19 +79,19 @@ Warstwy DWG muszą również spełniać następujące kryteria:
 
 * Źródła rysunków dla wszystkich plików DWG muszą być wyrównane do tej samej szerokości i długości geograficznej.
 * Każdy poziom musi być w tej samej orientacji co inne poziomy.
-* Wielokąty samodzielne są automatycznie naprawiane, a [Usługa konwersji Azure Maps](/rest/api/maps/conversion) zgłasza ostrzeżenie. Należy ręcznie sprawdzić naprawione wyniki, ponieważ mogą one być niezgodne z oczekiwanymi wynikami.
+* Wielokąty samodzielne są automatycznie naprawiane, a [Usługa konwersji Azure Maps](/rest/api/maps/conversion) zgłasza ostrzeżenie. Zaleca się ręczne sprawdzenie naprawionych wyników, ponieważ mogą one być niezgodne z oczekiwanymi wynikami.
 
-Wszystkie jednostki warstwy muszą być jednym z następujących typów: liniowy, łamaną, Wielokąt, łuk okręgu, okrąg lub tekst (pojedynczy wiersz). Wszystkie inne typy jednostek są ignorowane.
+Wszystkie jednostki warstwy muszą być jednym z następujących typów: liniowy, łamaną, Wielokąt, łuk okręgu, okrąg, wielokropek (zamknięty) lub tekst (pojedynczy wiersz). Wszystkie inne typy jednostek są ignorowane.
 
-W poniższej tabeli przedstawiono obsługiwane typy jednostek i obsługiwane funkcje dla każdej warstwy. Jeśli warstwa zawiera nieobsługiwane typy jednostek, [Usługa konwersji Azure Maps](/rest/api/maps/conversion) ignoruje te jednostki.  
+W poniższej tabeli przedstawiono obsługiwane typy jednostek i przekonwertowane funkcje mapy dla każdej warstwy. Jeśli warstwa zawiera nieobsługiwane typy jednostek, [Usługa konwersji Azure Maps](/rest/api/maps/conversion) ignoruje te jednostki.  
 
-| Warstwa | Typy jednostek | Funkcje |
+| Warstwa | Typy jednostek | Funkcje skonwertowane |
 | :----- | :-------------------| :-------
-| [Krawężnik](#exterior-layer) | Wielokąt, łamane (zamknięte), okrąg | Poziomy
-| [Jednostka](#unit-layer) |  Wielokąt, łamane (zamknięte), okrąg | Penetracja pionowa, jednostki
-| [Osłon](#wall-layer)  | Wielokąt, łamane (zamknięte), okrąg | Nie dotyczy. Aby uzyskać więcej informacji, zobacz [ścianka warstwy](#wall-layer).
+| [Krawężnik](#exterior-layer) | Wielokąt, łamane (zamknięte), okrąg, wielokropek (zamknięty) | Poziomy
+| [Jednostka](#unit-layer) |  Wielokąt, łamane (zamknięte), okrąg, wielokropek (zamknięty) | Penetracja pionowa, jednostka
+| [Osłon](#wall-layer)  | Wielokąt, łamane (zamknięte), okrąg, wielokropek (zamknięty) | Nie dotyczy. Aby uzyskać więcej informacji, zobacz [ścianka warstwy](#wall-layer).
 | [Drzwi](#door-layer) | Wielokąt, łamana, linia, CircularArc, okrąg | Wakaty
-| [Strefa](#zone-layer) | Wielokąt, łamane (zamknięte), okrąg | Strefa
+| [Strefa](#zone-layer) | Wielokąt, łamane (zamknięte), okrąg, wielokropek (zamknięty) | Strefa
 | [UnitLabel](#unitlabel-layer) | Tekst (pojedynczy wiersz) | Nie dotyczy. Ta warstwa może dodawać tylko właściwości do funkcji jednostki z warstwy jednostki. Aby uzyskać więcej informacji, zobacz [warstwę UnitLabel](#unitlabel-layer).
 | [ZoneLabel](#zonelabel-layer) | Tekst (pojedynczy wiersz) | Nie dotyczy. Ta warstwa może dodawać tylko właściwości do funkcji strefy z ZonesLayer. Aby uzyskać więcej informacji, zobacz [warstwę ZoneLabel](#zonelabel-layer).
 
@@ -102,8 +103,10 @@ Plik DWG dla każdego poziomu musi zawierać warstwę, aby zdefiniować obwód t
 
 Niezależnie od tego, ile rysunków jednostek znajduje się w warstwie zewnętrznej, [wynikający z nich zestaw danych funkcji](tutorial-creator-indoor-maps.md#create-a-feature-stateset) będzie zawierać tylko jeden poziom funkcji dla każdego pliku DWG. Dodatkowo:
 
-* Zewnętrzne muszą być rysowane jako Wielokąt, łamane (zamknięte) lub koło.
-* Zewnętrzne dane mogą się nakładać, ale są rozwiązane w jednej geometrii.
+* Zewnętrzne muszą być rysowane jako Wielokąt, łamane (zamknięte), okrąg lub Elipsa (zamknięte).
+* Zewnętrzne mogą się nakładać, ale są rozwiązane w jednej geometrii.
+* Funkcja wynikająca z poziomu musi mieć co najmniej 4 metry kwadratowe.
+* Funkcja poziomu wynikający nie może być większa niż 400 metrów kwadratowych.
 
 Jeśli warstwa zawiera wiele nakładających się linii, linie łamane są rozwiązane w funkcji jednego poziomu. Alternatywnie, jeśli warstwa zawiera wiele nienakładających się linii przecinających, funkcja na poziomie wyniku ma wielowielokątną reprezentację.
 
@@ -111,9 +114,11 @@ Przykładową warstwę zewnętrzna można zobaczyć jako warstwę konspektu w [p
 
 ### <a name="unit-layer"></a>Warstwa jednostkowa
 
-Plik DWG dla każdego poziomu definiuje warstwę zawierającą jednostki. Jednostki są miejscami do nawigacji w budynku, takie jak biura, korytarzach, schody i windy. Warstwa jednostek powinna być zgodna z następującymi wymaganiami:
+Plik DWG dla każdego poziomu definiuje warstwę zawierającą jednostki. Jednostki są miejscami do nawigacji w budynku, takie jak biura, korytarzach, schody i windy. Jeśli `VerticalPenetrationCategory` Właściwość jest zdefiniowana, jednostki nawigacji, które obejmują wiele poziomów, takich jak windy i schody, są konwertowane na funkcje penetracji pionowej. Funkcje penetracji pionowej, które nakładają się na siebie, są przypisane do jednego `setid` .
 
-* Jednostki muszą być rysowane jako Wielokąt, łamane (zamknięte) lub koło.
+Warstwa jednostek powinna być zgodna z następującymi wymaganiami:
+
+* Jednostki muszą być rysowane jako Wielokąt, łamane (zamknięte), okrąg lub Elipsa (zamknięte).
 * Jednostki muszą przypadać w granicach zewnętrznego obwodu funkcji.
 * Jednostki nie mogą częściowo nakładać się na siebie.
 * Jednostki nie mogą zawierać żadnej własnej geometrii.
@@ -126,7 +131,7 @@ Można zobaczyć przykład warstwy jednostki w [przykładowym pakiecie rysowania
 
 Plik DWG dla każdego poziomu może zawierać warstwę, która definiuje fizyczne zakresy ścian, kolumn i innych struktur konstrukcyjnych.
 
-* Ściany muszą być rysowane jako Wielokąt, łamane (zamknięte) lub koło.
+* Ściany muszą być rysowane jako Wielokąt, łamane (zamknięte), okrąg lub Elipsa (zamknięte).
 * Warstwa ścian lub warstwy powinna zawierać tylko geometrię, która jest interpretowana jako struktura budynku.
 
 Przykład warstwy ściany można zobaczyć w przykładowym [pakiecie rysowania](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
@@ -141,9 +146,9 @@ Otwarte drzwi w zestawie danych Azure Maps są reprezentowane jako segment jedno
 
 ### <a name="zone-layer"></a>Warstwa strefy
 
-Plik DWG dla każdego poziomu może zawierać warstwę strefy, która definiuje fizyczne zakresy stref. Strefa może być pustą spacją lub z tyłu.
+Plik DWG dla każdego poziomu może zawierać warstwę strefy, która definiuje fizyczne zakresy stref. Strefa to nieedytowalne miejsce, które może być nazwane i renderowane. Strefy mogą obejmować wiele poziomów i są zgrupowane razem przy użyciu właściwości zoneSetId.
 
-* Strefy muszą być rysowane jako Wielokąt, łamane (zamknięte) lub koło.
+* Strefy muszą być rysowane jako Wielokąt, łamane (zamknięte) lub wielokropek (zamknięte).
 * Strefy mogą nakładać się na siebie.
 * Strefy mogą znajdować się wewnątrz lub poza obwodem zewnętrznym obiektu.
 
@@ -153,7 +158,7 @@ Można zobaczyć przykład warstwy strefy w [przykładowym pakiecie rysowania](h
 
 ### <a name="unitlabel-layer"></a>Warstwa UnitLabel
 
-Plik DWG dla każdego poziomu może zawierać warstwę UnitLabel. Warstwa UnitLabel dodaje właściwość Name do jednostek wyodrębnionych z warstwy jednostkowej. Jednostki o właściwości Name mogą zawierać dodatkowe szczegóły określone w pliku manifestu.
+Plik DWG dla każdego poziomu może zawierać warstwę UnitLabel. Warstwa UnitLabel dodaje właściwość Name do jednostek wyodrębnionych z warstwy jednostkowej. Jednostki o właściwości nazwy mogą mieć więcej szczegółów określonych w pliku manifestu.
 
 * Etykiety jednostek muszą być jednostkami tekstu jednowierszowego.
 * Etykiety jednostek muszą znajdować się wewnątrz granic ich jednostek.
@@ -163,7 +168,7 @@ Przykład warstwy UnitLabel można zobaczyć w przykładowym [pakiecie rysowania
 
 ### <a name="zonelabel-layer"></a>Warstwa ZoneLabel
 
-Plik DWG dla każdego poziomu może zawierać warstwę ZoneLabel. Ta warstwa dodaje właściwość Name do stref wyodrębnionych z warstwy strefy. Strefy z właściwością nazwa mogą zawierać dodatkowe szczegóły określone w pliku manifestu.
+Plik DWG dla każdego poziomu może zawierać warstwę ZoneLabel. Ta warstwa dodaje właściwość Name do stref wyodrębnionych z warstwy strefy. Strefy o właściwości Name mogą zawierać więcej szczegółów w pliku manifestu.
 
 * Etykiety stref muszą być jednostkami tekstu jednowierszowego.
 * Etykiety stref muszą znajdować się wewnątrz granic swojej strefy.
@@ -186,8 +191,8 @@ Chociaż istnieją wymagania dotyczące korzystania z obiektów manifestu, nie w
 | `buildingLevels` | true | Określa poziomy budynków i pliki zawierające projekt poziomów. |
 | `georeference` | true | Zawiera liczbowe informacje geograficzne dla rysowania obiektu. |
 | `dwgLayers` | true | Wyświetla listę nazw warstw, a każda warstwa zawiera nazwy własnych funkcji. |
-| `unitProperties` | fałsz | Może służyć do wstawiania dodatkowych metadanych dla funkcji jednostkowych. |
-| `zoneProperties` | fałsz | Może służyć do wstawiania dodatkowych metadanych dla funkcji strefy. |
+| `unitProperties` | fałsz | Może służyć do wstawiania większej liczby metadanych dla funkcji jednostkowych. |
+| `zoneProperties` | fałsz | Może służyć do wstawiania większej liczby metadanych dla funkcji strefy. |
 
 W następnych sekcjach szczegółowo przedstawiono wymagania dla każdego obiektu.
 
@@ -260,7 +265,7 @@ W następnych sekcjach szczegółowo przedstawiono wymagania dla każdego obiekt
 |`verticalPenetrationDirection`|    ciąg|    fałsz    |Jeśli `verticalPenetrationCategory` jest zdefiniowany, opcjonalnie Zdefiniuj prawidłowy kierunek podróży. Dozwolone wartości to: `lowToHigh` , `highToLow` , `both` i `closed` . Wartość domyślna to `both`.|
 | `nonPublic` | bool | fałsz | Wskazuje, czy jednostka jest otwarta publicznie. |
 | `isRoutable` | bool | fałsz | Gdy ta właściwość jest ustawiona na `false` , nie można przejść do jednostki ani przez nią. Wartość domyślna to `true`. |
-| `isOpenArea` | bool | fałsz | Zezwala agentowi nawigacyjnemu na przejście do jednostki bez konieczności otwierania dołączonej do jednostki. Domyślnie ta wartość jest ustawiona na `true` dla jednostek bez otwartych i `false` dla jednostek z otwartymi. Ręczne ustawienie `isOpenArea` `false` w jednostce bez otwartych wyników powoduje ostrzeżenie. Wynika to z faktu, że jednostka, która nie będzie osiągalna przez agenta nawigowania.|
+| `isOpenArea` | bool | fałsz | Zezwala agentowi nawigacyjnemu na przejście do jednostki bez konieczności otwierania dołączonej do jednostki. Domyślnie ta wartość jest ustawiona na `true` dla jednostek bez otwartych i `false` dla jednostek z otwartymi. Ręczne ustawienie `isOpenArea` `false` w jednostce bez otwartych wyników powoduje ostrzeżenie, ponieważ wynikowa jednostka nie będzie osiągalna przez agenta nawigowania.|
 
 ### `zoneProperties`
 
@@ -276,7 +281,7 @@ W następnych sekcjach szczegółowo przedstawiono wymagania dla każdego obiekt
 
 ### <a name="sample-drawing-package-manifest"></a>Przykładowy manifest pakietu rysowania
 
-Poniżej znajduje się przykładowy plik manifestu dla przykładowego pakietu do rysowania. Aby pobrać cały pakiet, zobacz [przykładowy pakiet rysowania](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+Poniżej znajduje się plik manifestu dla przykładowego pakietu rysowania. Aby pobrać cały pakiet, zobacz [przykładowy pakiet rysowania](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 #### <a name="manifest-file"></a>Plik manifestu
 

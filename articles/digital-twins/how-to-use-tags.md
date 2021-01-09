@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c2620b52c426871b0ec85e3db237be2d373d42f1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9a1a55bdf21b74116450ca32f66d891f1aa206d3
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458706"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045414"
 ---
 # <a name="add-tags-to-digital-twins"></a>Dodawanie tagów do cyfrowego bliźniaczych reprezentacji 
 
@@ -32,23 +32,7 @@ Znaczniki znacznika są modelowane jako mapa [DTDL](https://github.com/Azure/ope
 
 Poniżej znajduje się fragment modelu dwuosiowego implementujący tag znacznika jako właściwość:
 
-```json
-{
-  "@type": "Property",
-  "name": "tags",
-  "schema": {
-    "@type": "Map",
-    "mapKey": {
-      "name": "tagName",
-      "schema": "string"
-    },
-    "mapValue": {
-      "name": "tagValue",
-      "schema": "boolean"
-    }
-  }
-}
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/tags.json" range="2-16":::
 
 ### <a name="add-marker-tags-to-digital-twins"></a>Dodawanie tagów znacznika do cyfrowego bliźniaczych reprezentacji
 
@@ -56,11 +40,7 @@ Gdy `tags` Właściwość jest częścią modelu przędzy cyfrowej, można ustaw
 
 Oto przykład, który wypełnia znacznik `tags` dla trzech bliźniaczych reprezentacji:
 
-```csharp
-entity-01: "tags": { "red": true, "round": true } 
-entity-02: "tags": { "blue": true, "round": true } 
-entity-03: "tags": { "red": true, "large": true } 
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesMarker":::
 
 ### <a name="query-with-marker-tags"></a>Zapytanie ze znacznikami znaczników
 
@@ -68,15 +48,11 @@ Po dodaniu tagów do cyfrowego bliźniaczych reprezentacji Tagi mogą służyć 
 
 Oto zapytanie, aby pobrać wszystkie bliźniaczych reprezentacji oznaczone jako "Red": 
 
-```sql
-SELECT * FROM digitaltwins WHERE is_defined(tags.red) 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags1":::
 
 Możesz również łączyć Tagi, aby uzyskać bardziej skomplikowane zapytania. Oto zapytanie, aby pobrać wszystkie bliźniaczych reprezentacji, które są okrągłe, a nie czerwony: 
 
-```sql
-SELECT * FROM digitaltwins WHERE NOT is_defined(tags.red) AND is_defined(tags.round) 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags2":::
 
 ## <a name="value-tags"></a>Tagi wartości 
 
@@ -88,23 +64,7 @@ Tagi wartości są modelowane jako mapa [DTDL](https://github.com/Azure/opendigi
 
 Poniżej znajduje się fragment modelu dwuosiowego implementujący tag wartości jako właściwość:
 
-```json
-{
-  "@type": "Property",
-  "name": "tags",
-  "schema": {
-    "@type": "Map",
-    "mapKey": {
-      "name": "tagName",
-      "schema": "string"
-    },
-    "mapValue": {
-      "name": "tagValue",
-      "schema": "string"
-    }
-  }
-} 
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/tags.json" range="17-31":::
 
 ### <a name="add-value-tags-to-digital-twins"></a>Dodawanie tagów wartości do Digital bliźniaczych reprezentacji
 
@@ -112,11 +72,7 @@ Podobnie jak w przypadku znaczników znacznika, można ustawić tag wartości w 
 
 Oto przykład, który wypełnia wartość `tags` dla trzech bliźniaczych reprezentacji:
 
-```csharp
-entity-01: "tags": { "red": "", "size": "large" } 
-entity-02: "tags": { "purple": "", "size": "small" } 
-entity-03: "tags": { "red": "", "size": "small" } 
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesValue":::
 
 Należy zauważyć, że `red` i `purple` są używane jako znaczniki znaczników w tym przykładzie.
 
@@ -124,17 +80,13 @@ Należy zauważyć, że `red` i `purple` są używane jako znaczniki znaczników
 
 Podobnie jak w przypadku tagów znacznika, można użyć tagów wartości do filtrowania bliźniaczych reprezentacji w zapytaniach. Możesz również używać tagów wartości i znaczników znaczników jednocześnie.
 
-Z powyższego przykładu `red` jest używany jako tag znacznika. Oto zapytanie, aby pobrać wszystkie bliźniaczych reprezentacji oznaczone jako "Red": 
+Z powyższego przykładu `red` jest używany jako tag znacznika. Należy pamiętać, że jest to zapytanie, aby pobrać wszystkie bliźniaczych reprezentacji, które zostały oznaczone jako "Red": 
 
-```sql
-SELECT * FROM digitaltwins WHERE is_defined(tags.red) 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags1":::
 
 Oto zapytanie umożliwiające pobieranie wszystkich jednostek, które są małe (tag wartości), a nie czerwonych: 
 
-```sql
-SELECT * FROM digitaltwins WHERE NOT is_defined(tags.red) AND tags.size = 'small' 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerValueTags":::
 
 ## <a name="next-steps"></a>Następne kroki
 

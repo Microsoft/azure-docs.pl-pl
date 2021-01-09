@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 1a9a2f9d999a51f2b4600e8379d4a8913675b338
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 33233e8a6aa54e65094e0cc6130e804241d7201c
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97360020"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98044292"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Samouczek: wymagania wstępne dotyczące tworzenia grup dostępności na SQL Server na platformie Azure Virtual Machines
 
@@ -125,7 +125,7 @@ Nowa sieć wirtualna ma jedną podsieć o nazwie **admin**. Kontrolery domeny u�
 
 5. Aby utworzyć drugą podsieć, wybierz pozycję **+ podsieć**.
 6. W obszarze **Dodaj podsieć** Skonfiguruj podsieć, wpisując w polu **Nazwa** wartość **sqlsubnet** . Platforma Azure automatycznie określa prawidłowy **zakres adresów**. Sprawdź, czy ten zakres adresów zawiera co najmniej 10 adresów. W środowisku produkcyjnym może być wymagane więcej adresów.
-7. Wybierz przycisk **OK**.
+7. Wybierz pozycję **OK**.
 
     ![Konfigurowanie podsieci](./media/availability-group-manually-configure-prerequisites-tutorial-/08-configuresubnet.png)
 
@@ -189,8 +189,8 @@ W poniższej tabeli przedstawiono ustawienia tych dwóch maszyn:
 | --- | --- |
 | **Nazwa** |Pierwszy kontroler domeny: *AD-Primary-DC*.</br>Drugi kontroler domeny *AD-pomocniczy — DC*. |
 | **Typ dysku maszyny wirtualnej** |SSD |
-| **Nazwa użytkownika** |Administrator domeny |
-| **Hasło** |Contoso! 0000 |
+| **User name** (Nazwa użytkownika) |Administrator domeny |
+| **Password** (Hasło) |Contoso! 0000 |
 | **Subskrypcja** |*Twoja subskrypcja* |
 | **Grupa zasobów** |SQL-HA — RG |
 | **Lokalizacja** |*Twoja lokalizacja* |
@@ -422,7 +422,7 @@ Teraz można przyłączyć maszyny wirtualne do **Corp.contoso.com**. Wykonaj na
 2. W **Menedżerze serwera** wybierz pozycję **Serwer lokalny**.
 3. Wybierz łącze **grupy roboczej** .
 4. W sekcji **Nazwa komputera** wybierz pozycję **Zmień**.
-5. Zaznacz pole wyboru **domena** i wpisz **Corp.contoso.com** w polu tekstowym. Wybierz przycisk **OK**.
+5. Zaznacz pole wyboru **domena** i wpisz **Corp.contoso.com** w polu tekstowym. Wybierz pozycję **OK**.
 6. W podręcznym oknie dialogowym **zabezpieczenia systemu Windows** określ poświadczenia dla domyślnego konta administratora domeny (**CORP\DomainAdmin**) i hasło (**contoso! 0000**).
 7. Gdy zostanie wyświetlony komunikat "Witamy w domenie corp.contoso.com", wybierz **przycisk OK**.
 8. Wybierz pozycję **Zamknij**, a następnie w oknie podręcznym wybierz pozycję **Uruchom ponownie teraz** .
@@ -472,7 +472,7 @@ Aby skonfigurować grupę dostępności, użyj konta instalacji (CORP\install). 
 
 1. Ustaw Logowanie jako należące do stałej roli serwera **sysadmin** .
 
-1. Wybierz przycisk **OK**.
+1. Wybierz pozycję **OK**.
 
 Powtórz powyższe kroki na drugiej maszynie SQL Server VM.
 
@@ -539,7 +539,7 @@ Powtórz kroki na drugiej maszynie wirtualnej SQL Server.
 
 ### <a name="tuning-failover-cluster-network-thresholds"></a>Dostrajanie progów sieci klastra trybu failover
 
-W przypadku uruchamiania węzłów klastra trybu failover systemu Windows na maszynach wirtualnych platformy Azure z funkcją SQL Server AlwaysOn zaleca się zmianę ustawienia klastra na bardziej swobodny stan monitorowania.  Dzięki temu klaster jest znacznie bardziej stabilny i niezawodny.  Aby uzyskać szczegółowe informacje na ten temat, zobacz [IaaS with SQL AlwaysOn-dostrajania sieci klastra trybu failover](/windows-server/troubleshoot/iaas-sql-failover-cluster).
+W przypadku uruchamiania węzłów klastra trybu failover systemu Windows na maszynach wirtualnych platformy Azure z grupami dostępności SQL Server Zmień ustawienie klastra na bardziej swobodny stan monitorowania.  Dzięki temu klaster jest znacznie bardziej stabilny i niezawodny.  Aby uzyskać szczegółowe informacje na ten temat, zobacz [IaaS z progami sieci klastra trybu failover z systemem SQL Server](/windows-server/troubleshoot/iaas-sql-failover-cluster).
 
 
 ## <a name="configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"></a> Skonfiguruj zaporę na każdej maszynie wirtualnej SQL Server

@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: Automatyczne przetwarzanie danych, przetwarzanie dokumentów, automatyczne wprowadzanie danych, przetwarzanie formularzy
-ms.openlocfilehash: ed940622f72271ef3e606c5068babcb6366c31b6
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: e1e5a4abf8eab96af62b160e28f98d95cf527eaf
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845525"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98044768"
 ---
 # <a name="what-is-form-recognizer"></a>Co to jest rozpoznawanie formularzy?
 
@@ -42,11 +42,11 @@ Aby wypróbować usługę aparat rozpoznawania formularzy, przejdź do narzędzi
 
 # <a name="v20"></a>[Wersja 2.0](#tab/v2-0)
 > [!div class="nextstepaction"]
-> [Wypróbuj wbudowane modele](https://fott.azurewebsites.net/)
+> [Wypróbuj aparat rozpoznawania formularzy](https://fott.azurewebsites.net/)
 
 # <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1)
 > [!div class="nextstepaction"]
-> [Wypróbuj wbudowane modele](https://fott-preview.azurewebsites.net/)
+> [Wypróbuj aparat rozpoznawania formularzy](https://fott-preview.azurewebsites.net/)
 
 ---
 
@@ -152,7 +152,18 @@ Zapoznaj się z [dokumentacją interfejsu API REST](https://westus2.dev.cognitiv
 
 ## <a name="deploy-on-premises-using-docker-containers"></a>Wdrażanie lokalnie przy użyciu kontenerów platformy Docker
 
-[Używanie kontenerów aparatu rozpoznawania formularzy (wersja zapoznawcza)](form-recognizer-container-howto.md) do wdrażania funkcji interfejsu API w środowisku lokalnym. Ten kontener platformy Docker umożliwia przełączenie usługi do danych pod kątem zgodności, zabezpieczeń lub innych przyczyn operacyjnych.
+[Używanie kontenerów aparatu rozpoznawania formularzy (wersja zapoznawcza)](form-recognizer-container-howto.md) do wdrażania funkcji interfejsu API w środowisku lokalnym. Ten kontener platformy Docker umożliwia przełączenie usługi do danych pod kątem zgodności, zabezpieczeń lub innych przyczyn operacyjnych. 
+
+## <a name="service-availability-and-redundancy"></a>Dostępność i nadmiarowość usługi
+
+### <a name="is-form-recognizer-service-zone-resilient"></a>Czy usługa aparat rozpoznawania formularzy jest odporna na błędy?
+
+Tak. Usługa aparat rozpoznawania formularzy domyślnie jest odporna na strefy.
+
+### <a name="how-do-i-configure-the-form-recognizer-service-to-be-zone-resilient"></a>Jak mogę skonfigurować usługę aparat rozpoznawania formularzy, aby była odporna na strefy?
+
+W celu włączenia odporności stref nie trzeba wykonywać żadnych czynności konfiguracyjnych. Odporność stref na zasoby dla aparatu rozpoznawania formularzy jest domyślnie dostępna i zarządzana przez samą usługę.
+
 
 ## <a name="data-privacy-and-security"></a>Prywatność i zabezpieczenia danych
 

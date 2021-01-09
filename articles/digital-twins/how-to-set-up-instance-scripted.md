@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5806ea094abd3431cd7e22064c6acd8ad150726a
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 1667c21b9a35b8e93feffb8cf1b37d4409da73c3
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495021"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98044309"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Konfigurowanie wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji (skrypty)
 
@@ -20,7 +20,7 @@ ms.locfileid: "92495021"
 
 W tym artykule opisano procedurę **konfigurowania nowego wystąpienia usługi Azure Digital bliźniaczych reprezentacji**, w tym tworzenia wystąpienia i konfigurowania uwierzytelniania. Po ukończeniu tego artykułu będzie dostępne wystąpienie usługi Azure Digital bliźniaczych reprezentacji gotowe do rozpoczęcia programowania.
 
-Ta wersja tego artykułu wykonuje te kroki, uruchamiając przykładowy [ **skrypt wdrażania automatycznego** ](/samples/azure-samples/digital-twins-samples/digital-twins-samples/) , który usprawnia proces. 
+Ta wersja tego artykułu wykonuje te kroki, uruchamiając przykładowy [ **skrypt wdrażania automatycznego**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/) , który usprawnia proces. 
 * Aby zapoznać się z ręcznymi krokami interfejsu wiersza polecenia, które są wykonywane przez skrypt w tle, zobacz wersja interfejsu wiersza polecenia w tym artykule: [*instrukcje: Konfigurowanie wystąpienia i uwierzytelniania (CLI)*](how-to-set-up-instance-cli.md).
 * Aby zapoznać się z ręcznymi krokami zgodnie z Azure Portal, zobacz wersja portalu w tym artykule: [*instrukcje: Konfigurowanie wystąpienia i uwierzytelniania (Portal)*](how-to-set-up-instance-portal.md).
 
@@ -33,7 +33,7 @@ Przykładowy skrypt jest zapisywana w programie PowerShell. Jest ona częścią 
 
 Spowoduje to pobranie przykładowego projektu do maszyny jako _**Azure_Digital_Twins_end_to_end_samples.zip**_. Przejdź do folderu na swoim komputerze i rozpakuj go, aby wyodrębnić pliki.
 
-W folderze rozpakowanym skrypt wdrożenia znajduje się w _Azure_Digital_Twins_end_to_end_samples > skrypty > **deploy.ps1** _.
+W folderze rozpakowanym skrypt wdrożenia znajduje się w _Azure_Digital_Twins_end_to_end_samples > skrypty > **deploy.ps1**_.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -50,15 +50,13 @@ Poniżej przedstawiono procedurę uruchamiania skryptu wdrażania w Cloud Shell.
  
 2. Na pasku ikon Cloud Shell upewnij się, że Cloud Shell jest ustawiony do uruchamiania wersji programu PowerShell.
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Okno Cloud Shell pokazujące wybór wersji programu PowerShell&quot;:::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Okno Cloud Shell pokazujące wybór wersji programu PowerShell":::
 
-1. Wybierz ikonę &quot;przekazywanie/pobieranie plików" i wybierz pozycję "Przekaż".
+1. Wybierz ikonę "przekazywanie/pobieranie plików" i wybierz pozycję "Przekaż".
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Okno Cloud Shell pokazujące wybór wersji programu PowerShell&quot;:::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Okno Cloud Shell pokazujące wybór ikony przekazywania":::
 
-1. Wybierz ikonę &quot;przekazywanie/pobieranie plików":::
-
-    Przejdź do pliku _**deploy.ps1**_ na komputerze (w _Azure_Digital_Twins_end_to_end_samples > skrypty > **deploy.ps1** _) i naciśnij klawisz "Otwórz". Spowoduje to przekazanie pliku do Cloud Shell, aby można było uruchomić go w oknie Cloud Shell.
+    Przejdź do pliku _**deploy.ps1**_ na komputerze (w _Azure_Digital_Twins_end_to_end_samples > skrypty > **deploy.ps1**_) i naciśnij klawisz "Otwórz". Spowoduje to przekazanie pliku do Cloud Shell, aby można było uruchomić go w oknie Cloud Shell.
 
 4. Uruchom skrypt, wysyłając `./deploy.ps1` polecenie w oknie Cloud Shell. Możesz skopiować poniższe polecenie (odwołaj się do Cloud Shell, możesz użyć **klawiszy Ctrl + Shift + v** w systemach Windows i Linux lub **cmd + Shift + v** w macOS. Możesz również użyć menu po kliknięciu prawym przyciskiem myszy.
 
@@ -72,13 +70,11 @@ Poniżej przedstawiono procedurę uruchamiania skryptu wdrażania w Cloud Shell.
     * Dla wystąpienia: *Identyfikator subskrypcji* subskrypcji platformy Azure do użycia
     * Dla wystąpienia: *Lokalizacja* , w której chcesz wdrożyć wystąpienie. Aby zobaczyć, które regiony obsługują usługę Azure Digital bliźniaczych reprezentacji, odwiedź stronę [*usługi Azure dostępne według regionów*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
     * Dla wystąpienia: nazwa *grupy zasobów* . Możesz użyć istniejącej grupy zasobów lub wprowadzić nową nazwę, która ma zostać utworzona.
-    * Dla wystąpienia: *Nazwa* wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Nazwa nowego wystąpienia musi być unikatowa w obrębie regionu subskrypcji (co oznacza, że jeśli subskrypcja ma inne wystąpienie usługi Azure Digital bliźniaczych reprezentacji w regionie, w którym już korzystasz z wybranej nazwy, zostanie wyświetlony monit o wybranie innej nazwy).
+    * Dla wystąpienia: *Nazwa* wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Jeśli Twoja subskrypcja ma inne wystąpienie usługi Azure Digital bliźniaczych reprezentacji w regionie, w którym już korzystasz z określonej nazwy, zostanie wyświetlony monit o wybranie innej nazwy.
 
 Poniżej znajduje się fragment dziennika danych wyjściowych ze skryptu:
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png" alt-text="Okno Cloud Shell pokazujące wybór wersji programu PowerShell&quot;:::
-
-1. Wybierz ikonę &quot;przekazywanie/pobieranie plików" lightbox="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png" alt-text="Okno Cloud Shell pokazujące dziennik danych wejściowych i wyjściowych za pomocą uruchomienia skryptu wdrażania" lightbox="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png":::
 
 Jeśli skrypt zakończy się pomyślnie, zostanie wyświetlony końcowy wydruk `Deployment completed successfully` . W przeciwnym razie należy rozwiązać ten problem, a następnie uruchomić skrypt. Spowoduje to pominięcie czynności, które zostały już wykonane, i ponowne zażądanie danych wejściowych w miejscu, w którym zostało przerwane.
 
@@ -86,7 +82,7 @@ Jeśli skrypt zakończy się pomyślnie, zostanie wyświetlony końcowy wydruk `
 > Skrypt aktualnie przypisuje wymaganą rolę zarządzania w usłudze Azure Digital bliźniaczych reprezentacji (*właściciel danych Digital bliźniaczych reprezentacji platformy Azure*) do tego samego użytkownika, który uruchamia skrypt z Cloud Shell. Jeśli musisz przypisać tę rolę osobie, która będzie zarządzać wystąpieniem, możesz to zrobić teraz za pomocą Azure Portal ([instrukcje](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) lub interfejsu wiersza polecenia ([instrukcje](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
 
 >[!NOTE]
->Obecnie występuje **znany problem** z konfiguracją inicjowaną przez skrypty, w której niektórzy użytkownicy (zwłaszcza użytkownicy korzystający z osobistych [kont Microsoft (kont MSA)](https://account.microsoft.com/account)) mogą znaleźć **przypisanie roli do _właściciela danych Digital bliźniaczych reprezentacji platformy Azure_ **.
+>Obecnie występuje **znany problem** z konfiguracją inicjowaną przez skrypty, w której niektórzy użytkownicy (zwłaszcza użytkownicy korzystający z osobistych [kont Microsoft (kont MSA)](https://account.microsoft.com/account)) mogą znaleźć **przypisanie roli do _właściciela danych Digital bliźniaczych reprezentacji platformy Azure_**.
 >
 >Możesz sprawdzić przypisanie roli za pomocą sekcji [*Weryfikuj przypisanie roli użytkownika*](#verify-user-role-assignment) w dalszej części tego artykułu i — w razie konieczności — Skonfiguruj przypisanie roli ręcznie przy użyciu [Azure Portal](how-to-set-up-instance-portal.md#set-up-user-access-permissions) lub [interfejsu wiersza polecenia](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
 >
@@ -108,11 +104,9 @@ Jeśli weryfikacja nie powiodła się, można ponowić próbę utworzenia wystą
 
 ### <a name="collect-instance-values"></a>Zbierz wartości wystąpień
 
-Wybierz nazwę wystąpienia ze [strony Digital bliźniaczych reprezentacji systemu Azure](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances) , aby otworzyć stronę *omówienia* tego wystąpienia. Zanotuj jego *nazwę*, *grupę zasobów*i *nazwę hosta*. Może być potrzebne później do zidentyfikowania wystąpienia i nawiązania z nim połączenia.
+Wybierz nazwę wystąpienia ze [strony Digital bliźniaczych reprezentacji systemu Azure](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances) , aby otworzyć stronę *omówienia* tego wystąpienia. Zanotuj jego *nazwę*, *grupę zasobów* i *nazwę hosta*. Może być potrzebne później do zidentyfikowania wystąpienia i nawiązania z nim połączenia.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Okno Cloud Shell pokazujące wybór wersji programu PowerShell&quot;:::
-
-1. Wybierz ikonę &quot;przekazywanie/pobieranie plików":::
+:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Wyróżnianie ważnych wartości na stronie przeglądowej wystąpienia":::
 
 ### <a name="verify-user-role-assignment"></a>Weryfikuj przypisanie roli użytkownika
 

@@ -1,20 +1,20 @@
 ---
 title: Przykładowe kontrolki planu IRS 1075
 description: Sterowanie mapowaniem przykładu planu IRS 1075. Każda kontrolka jest zamapowana na co najmniej jedną definicję Azure Policy, która pomaga w ocenie.
-ms.date: 08/19/2020
+ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 17f66c38454c209fde28244f62fa806e1886b949
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 08ce69d13f201e6f0bd1d649ebfe3bbf5c38f927
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932536"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045227"
 ---
 # <a name="control-mapping-of-the-irs-1075-blueprint-sample"></a>Sterowanie mapowaniem przykładu planu IRS 1075
 
 W poniższym artykule szczegółowo opisano sposób, w jaki usługa Azure planuje urząd skarbowy w systemie 1075, jest mapowana na kontrolki urzędu 1075 skarbowego. Aby uzyskać więcej informacji na temat kontrolek, zobacz [IRS 1075](https://www.irs.gov/pub/irs-pdf/p1075.pdf).
 
-Następujące mapowania są do kontrolek **IRS 1075** . Użyj nawigacji po prawej stronie, aby przejść bezpośrednio do określonego mapowania formantów. Wiele zamapowanych formantów jest implementowanych z inicjatywą [Azure Policy](../../../policy/overview.md) . Aby zapoznać się z pełną inicjatywą, Otwórz **zasady** w Azure Portal i wybierz stronę **definicje** . Następnie Znajdź i wybierz wersję ** \[ zapoznawczą \] : Inspekcja urzędu skarbowego 1075 i wdrażanie określonych rozszerzeń maszyn wirtualnych w celu obsługi funkcji inspekcji wbudowanych wymagań** zasad.
+Następujące mapowania są do kontrolek **IRS 1075** . Użyj nawigacji po prawej stronie, aby przejść bezpośrednio do określonego mapowania formantów. Wiele zamapowanych formantów jest implementowanych z inicjatywą [Azure Policy](../../../policy/overview.md) . Aby zapoznać się z pełną inicjatywą, Otwórz **zasady** w Azure Portal i wybierz stronę **definicje** . Następnie Znajdź i wybierz wersję **\[ zapoznawczą \] : Inspekcja urzędu skarbowego 1075 i wdrażanie określonych rozszerzeń maszyn wirtualnych w celu obsługi funkcji inspekcji wbudowanych wymagań** zasad.
 
 > [!IMPORTANT]
 > Każda kontrolka poniżej jest skojarzona z co najmniej jedną definicją [Azure Policy](../../../policy/overview.md) . Te zasady mogą pomóc w [ocenie zgodności](../../../policy/how-to/get-compliance-data.md) z kontrolką; jednak często nie jest to jeden lub kompletny odpowiednik między kontrolką a co najmniej jedną zasadą. W związku z tym **zgodność** w Azure Policy odnosi się tylko do samych zasad; nie gwarantuje to, że jest w pełni zgodne ze wszystkimi wymaganiami formantu. Ponadto Standard zgodności zawiera kontrolki, które nie są obecnie rozwiązywane przez żadną Azure Policy definicje. W związku z tym zgodność w Azure Policy jest tylko częściowym widokiem ogólnego stanu zgodności. Skojarzenia między kontrolkami i definicjami Azure Policy dla tego przykładowego planu zgodności mogą ulec zmianie z upływem czasu. Aby wyświetlić historię zmian, zobacz [historię zatwierdzeń usługi GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/irs-1075/control-mapping.md).

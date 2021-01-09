@@ -8,16 +8,16 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 8/26/2020
 ms.author: alkemper
-ms.openlocfilehash: d1dc843ff676429f202c0b9077057d067294f738
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 6996fdd9dce4314e9365177815d7d310ac80c7cb
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076168"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98046077"
 ---
 # <a name="quickstart-add-feature-flags-to-an-azure-functions-app"></a>Szybki Start: Dodawanie flag funkcji do aplikacji Azure Functions
 
-W tym przewodniku szybki start utworzysz implementację zarządzania funkcjami w aplikacji Azure Functions przy użyciu usługi Azure App Configuration. Za pomocą usługi konfiguracji aplikacji można centralnie przechowywać wszystkie flagi funkcji i kontrolować ich Stany. 
+W tym przewodniku szybki start utworzysz aplikację Azure Functions i używasz w niej flag funkcji. Za pomocą funkcji zarządzania funkcją w konfiguracji aplikacji platformy Azure można centralnie przechowywać wszystkie flagi funkcji i kontrolować ich Stany.
 
 Biblioteki zarządzania funkcjami platformy .NET zwiększają platformę z obsługą flagi funkcji. Te biblioteki są zbudowane na podstawie systemu konfiguracji platformy .NET. Integrują się z konfiguracją aplikacji za pomocą jej dostawcy konfiguracji platformy .NET.
 
@@ -46,66 +46,113 @@ Biblioteki zarządzania funkcjami platformy .NET zwiększają platformę z obsł
 
 ## <a name="connect-to-an-app-configuration-store"></a>Nawiązywanie połączenia z magazynem konfiguracji aplikacji
 
-1. Kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję **Zarządzaj pakietami NuGet**. Na karcie **Przeglądaj** Wyszukaj i Dodaj następujące pakiety NuGet do swojego projektu. Sprawdź `Microsoft.Extensions.DependencyInjection` , czy jesteś w najnowszej stabilnej kompilacji. 
+Ten projekt będzie używać [iniekcji zależności w programie .net Azure Functions](/azure/azure-functions/functions-dotnet-dependency-injection). Dodaje konfigurację aplikacji platformy Azure jako dodatkowe źródło konfiguracji, w którym są przechowywane flagi funkcji.
 
-    ```
-    Microsoft.Extensions.DependencyInjection
-    Microsoft.Extensions.Configuration
-    Microsoft.FeatureManagement
-    ```
+1. Kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję **Zarządzaj pakietami NuGet**. Na karcie **Przeglądaj** Wyszukaj i Dodaj następujące pakiety NuGet do projektu.
+   - [Microsoft.Extensions.Configwersja. AzureAppConfiguration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureAppConfiguration/) w wersji 4.1.0 lub nowszej
+   - [Microsoft. FeatureManagement](https://www.nuget.org/packages/Microsoft.FeatureManagement/) w wersji 2.2.0 lub nowszej
+   - [Microsoft. Azure. Functions. Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/) w wersji 1.1.0 lub nowszej 
 
-
-1. Otwórz *Function1.cs*i Dodaj przestrzenie nazw tych pakietów.
+2. Dodaj nowy plik *Startup.cs* z poniższym kodem. Definiuje klasę o nazwie `Startup` implementującej `FunctionsStartup` klasę abstrakcyjną. Atrybut Assembly służy do określania nazwy typu używanej podczas uruchamiania Azure Functions.
 
     ```csharp
+    using System;
+    using Microsoft.Azure.Functions.Extensions.DependencyInjection;
     using Microsoft.Extensions.Configuration;
     using Microsoft.FeatureManagement;
-    using Microsoft.Extensions.DependencyInjection;
-    ```
 
-1. Dodaj `Function1` Poniższy Konstruktor statyczny, aby zainicjować dostawcę konfiguracji aplikacji platformy Azure. Następnie Dodaj dwa `static` elementy członkowskie, pole o nazwie `ServiceProvider` , aby utworzyć pojedyncze wystąpienie `ServiceProvider` , i Właściwość poniżej `Function1` o nazwie, `FeatureManager` Aby utworzyć pojedyncze wystąpienie `IFeatureManager` . Następnie połącz się z konfiguracją aplikacji w programie `Function1` , wywołując polecenie `AddAzureAppConfiguration()` . Ten proces spowoduje załadowanie konfiguracji podczas uruchamiania aplikacji. To samo wystąpienie konfiguracji będzie używane w celu późniejszego wywołania funkcji. 
+    [assembly: FunctionsStartup(typeof(FunctionApp.Startup))]
 
-    ```csharp
-        // Implements IDisposable, cached for life time of function
-        private static ServiceProvider ServiceProvider; 
-
-        static Function1()
+    namespace FunctionApp
+    {
+        class Startup : FunctionsStartup
         {
-            IConfigurationRoot configuration = new ConfigurationBuilder()
-                .AddAzureAppConfiguration(options =>
-                {
-                    options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
-                           .UseFeatureFlags();
-                }).Build();
+            public override void ConfigureAppConfiguration(IFunctionsConfigurationBuilder builder)
+            {
+            }
 
-            var services = new ServiceCollection();                                                                             
-            services.AddSingleton<IConfiguration>(configuration).AddFeatureManagement();
-
-            ServiceProvider = services.BuildServiceProvider(); 
+            public override void Configure(IFunctionsHostBuilder builder)
+            {
+            }
         }
-
-        private static IFeatureManager FeatureManager => ServiceProvider.GetRequiredService<IFeatureManager>();
+    }
     ```
 
-1. Zaktualizuj `Run` metodę, aby zmienić wartość wyświetlanego komunikatu w zależności od stanu flagi funkcji.
+
+3. Zaktualizuj `ConfigureAppConfiguration` metodę i Dodaj dostawcę konfiguracji aplikacji platformy Azure jako dodatkowe źródło konfiguracji, wywołując polecenie `AddAzureAppConfiguration()` . 
+
+   `UseFeatureFlags()`Metoda nakazuje dostawcy załadować flagi funkcji. Wszystkie flagi funkcji mają domyślne wygaśnięcie pamięci podręcznej wynoszącą 30 sekund przed ponownym sprawdzeniem pod kątem zmian. Interwał wygaśnięcia można zaktualizować, ustawiając `FeatureFlagsOptions.CacheExpirationInterval` Właściwość przekazaną do `UseFeatureFlags` metody. 
 
     ```csharp
-        [FunctionName("Function1")]
-        public static async Task<IActionResult> Run(
-                [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
-                ILogger log)
-            {
-                string message = await FeatureManager.IsEnabledAsync("Beta")
-                     ? "The Feature Flag 'Beta' is turned ON"
-                     : "The Feature Flag 'Beta' is turned OFF";
-                
-                return (ActionResult)new OkObjectResult(message); 
-            }
+    public override void ConfigureAppConfiguration(IFunctionsConfigurationBuilder builder)
+    {
+        builder.ConfigurationBuilder.AddAzureAppConfiguration(options =>
+        {
+            options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
+                   .Select("_")
+                   .UseFeatureFlags();
+        });
+    }
+    ```
+   > [!TIP]
+   > Jeśli nie chcesz, aby żadna konfiguracja inna niż flagi funkcji została załadowana do aplikacji, możesz wywołać `Select("_")` tylko załadowanie nieistniejącego klucza fikcyjnego "_". Domyślnie wszystkie wartości klucza konfiguracji w magazynie konfiguracji aplikacji zostaną załadowane, jeśli żadna `Select` Metoda nie zostanie wywołana.
+
+4. Zaktualizuj `Configure` metodę, aby udostępnić usługi Azure App Configuration Services i Menedżera funkcji za pomocą iniekcji zależności.
+
+    ```csharp
+    public override void Configure(IFunctionsHostBuilder builder)
+    {
+        builder.Services.AddAzureAppConfiguration();
+        builder.Services.AddFeatureManagement();
+    }
+    ```
+
+5. Otwórz *Function1.cs* i Dodaj następujące przestrzenie nazw.
+
+    ```csharp
+    using System.Linq;
+    using Microsoft.FeatureManagement;
+    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+    ```
+
+   Dodaj Konstruktor używany do uzyskiwania wystąpień `_featureManagerSnapshot` i `IConfigurationRefresherProvider` poprzez iniekcję zależności. W programie `IConfigurationRefresherProvider` można uzyskać wystąpienie `IConfigurationRefresher` .
+
+    ```csharp
+    private readonly IFeatureManagerSnapshot _featureManagerSnapshot;
+    private readonly IConfigurationRefresher _configurationRefresher;
+
+    public Function1(IFeatureManagerSnapshot featureManagerSnapshot, IConfigurationRefresherProvider refresherProvider)
+    {
+        _featureManagerSnapshot = featureManagerSnapshot;
+        _configurationRefresher = refresherProvider.Refreshers.First();
+    }
+    ```
+
+6. Zaktualizuj `Run` metodę, aby zmienić wartość wyświetlanego komunikatu w zależności od stanu flagi funkcji.
+
+   `TryRefreshAsync`Metoda jest wywoływana na początku wywołania funkcji w celu odświeżenia flag funkcji. Jeśli przedział czasu wygaśnięcia pamięci podręcznej nie zostanie osiągnięty, będzie to wartość No-op. Usuń `await` operator, jeśli wolisz odświeżać flagi funkcji bez blokowania bieżącego wywołania funkcji. W takim przypadku późniejsze wywołania funkcji będą otrzymywać zaktualizowane wartości.
+
+    ```csharp
+    [FunctionName("Function1")]
+    public async Task<IActionResult> Run(
+        [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
+        ILogger log)
+    {
+        log.LogInformation("C# HTTP trigger function processed a request.");
+
+        await _configurationRefresher.TryRefreshAsync();
+
+        string message = await _featureManagerSnapshot.IsEnabledAsync("Beta")
+                ? "The Feature Flag 'Beta' is turned ON"
+                : "The Feature Flag 'Beta' is turned OFF";
+
+        return (ActionResult)new OkObjectResult(message);
+    }
     ```
 
 ## <a name="test-the-function-locally"></a>Lokalne testowanie funkcji
 
-1. Ustaw zmienną środowiskową o nazwie **ConnectionString**, gdzie wartość jest kluczem dostępu pobranym wcześniej w magazynie konfiguracji aplikacji w obszarze **klucze dostępu**. Jeśli używasz wiersza polecenia systemu Windows, uruchom następujące polecenie i ponownie uruchom wiersz polecenia, aby zezwolić na wprowadzenie zmiany:
+1. Ustaw zmienną środowiskową o nazwie **ConnectionString**, gdzie wartość to parametry połączenia pobrane wcześniej w magazynie konfiguracji aplikacji w obszarze **klucze dostępu**. Jeśli używasz wiersza polecenia systemu Windows, uruchom następujące polecenie i ponownie uruchom wiersz polecenia, aby zezwolić na wprowadzenie zmiany:
 
     ```cmd
         setx ConnectionString "connection-string-of-your-app-configuration-store"
@@ -133,15 +180,16 @@ Biblioteki zarządzania funkcjami platformy .NET zwiększają platformę z obsł
 
     ![Flaga funkcji szybkiego startu wyłączona](./media/quickstarts/functions-launch-ff-disabled.png)
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **wszystkie zasoby**, a następnie wybierz utworzone wystąpienie magazynu konfiguracji aplikacji.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **wszystkie zasoby** i wybierz utworzony przez siebie magazyn konfiguracji aplikacji.
 
 1. Wybierz pozycję **Menedżer funkcji**, a następnie Zmień stan klucza **beta** na **włączone**.
 
-1. Wróć do wiersza polecenia i Anuluj uruchomiony proces przez naciśnięcie klawisza `Ctrl-C` .  Uruchom ponownie aplikację, naciskając klawisz F5. 
-
-1. Skopiuj adres URL funkcji z danych wyjściowych środowiska uruchomieniowego Azure Functions przy użyciu tego samego procesu jak w kroku 3. Wklej adres URL żądania HTTP w pasku adresu przeglądarki. Odpowiedź przeglądarki powinna ulec zmianie, aby wskazać, że flaga funkcji `Beta` jest włączona, jak pokazano na poniższej ilustracji.
+1. Odśwież przeglądarkę kilka razy. Gdy flaga funkcji w pamięci podręcznej wygaśnie po 30 sekundach, Strona powinna zostać zmieniona, aby wskazać, że flaga funkcji `Beta` jest włączona, jak pokazano na poniższej ilustracji.
  
     ![Włączono flagę funkcji szybkiego startu](./media/quickstarts/functions-launch-ff-enabled.png)
+
+> [!NOTE]
+> Przykładowy kod używany w tym samouczku można pobrać z [repozytorium GitHub konfiguracji aplikacji platformy Azure](https://github.com/Azure/AppConfiguration/tree/master/examples/DotNetCore/AzureFunction).
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
@@ -149,8 +197,10 @@ Biblioteki zarządzania funkcjami platformy .NET zwiększają platformę z obsł
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono flagę funkcji i użyto jej z aplikacją Azure Functionsową za pośrednictwem [dostawcy konfiguracji aplikacji](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration).
+W tym przewodniku szybki start utworzono flagę funkcji i użyto jej z aplikacją Azure Functions za pośrednictwem biblioteki [Microsoft. FeatureManagement](/dotnet/api/microsoft.featuremanagement) .
 
-- Dowiedz się więcej o [zarządzaniu funkcjami](./concept-feature-management.md).
-- [Zarządzaj flagami funkcji](./manage-feature-flags.md).
+- Dowiedz się więcej o [zarządzaniu funkcjami](./concept-feature-management.md)
+- [Zarządzanie flagami funkcji](./manage-feature-flags.md)
+- [Użyj flag funkcji warunkowej](./howto-feature-filters-aspnet-core.md)
+- [Włącz etapowe wdrażanie funkcji dla docelowych odbiorców](./howto-targetingfilter-aspnet-core.md)
 - [Używanie konfiguracji dynamicznej w aplikacji Azure Functions](./enable-dynamic-configuration-azure-functions-csharp.md)

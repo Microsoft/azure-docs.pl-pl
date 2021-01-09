@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: c872c2a2799eee3ae9e39653b0046b70ca5d7e8b
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 44f23e4f5b3f65fb4f3c69b2ddc55af8c983aa23
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887539"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98043731"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Wprowadzenie do grupy wywołującej przykład Hero
 
@@ -72,7 +72,7 @@ Jeśli chcemy wdrożyć lokalnie, musimy uruchomić obie aplikacje. Gdy aplikacj
 
 Możesz przetestować przykład lokalnie, otwierając wiele sesji przeglądarki z adresem URL wywołania w celu symulowania wywołania z wieloma użytkownikami.
 
-## <a name="before-running-the-sample-for-the-first-time"></a>Przed uruchomieniem przykładu po raz pierwszy
+### <a name="before-running-the-sample-for-the-first-time"></a>Przed uruchomieniem przykładu po raz pierwszy
 
 1. Otwórz wystąpienie programu PowerShell, terminalu systemu Windows, wiersza polecenia lub równoważne i przejdź do katalogu, do którego chcesz sklonować przykład.
 2. `git clone https://github.com/Azure-Samples/communication-services-web-calling-hero.git`

@@ -1,18 +1,18 @@
 ---
 title: Wbudowane definicje zasad dla usług sieciowych platformy Azure
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla usług sieciowych platformy Azure. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 11/19/2020
+ms.date: 01/08/2021
 ms.topic: reference
 author: KumudD
 ms.author: kumud
 ms.service: virtual-network
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 378d29785b3b19a42fe5d7895edcb0336ea92a8f
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 0a65f575ba999bcdbcf1b742b34593fd106fd3e4
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97965888"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045884"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-networking-services"></a>Azure Policy wbudowane definicje dla usług sieciowych platformy Azure
 

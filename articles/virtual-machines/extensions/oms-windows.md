@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: akjosh
-ms.openlocfilehash: 389842901a4c508015d527c0fd8fd87af57dcd9b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 22cc9bf1bdfdb8a3026bb09f44e007ab3438325a
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967928"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98046825"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Rozszerzenie maszyny wirtualnej usługi Log Analytics dla systemu Windows
 
@@ -35,18 +35,19 @@ Szczegółowe informacje o obsługiwanych systemach operacyjnych Windows można 
 ### <a name="agent-and-vm-extension-version"></a>Wersja rozszerzenia agenta i maszyny wirtualnej
 Poniższa tabela zawiera mapowanie wersji rozszerzenia maszyny wirtualnej z systemem Windows Log Analytics i pakietu agenta Log Analytics dla każdej wersji. 
 
-| Wersja pakietu Log Analytics Windows Agent | Log Analytics wersja rozszerzenia maszyny wirtualnej z systemem Windows | Data wydania | Uwagi do wersji |
+| Wersja pakietu Log Analytics Windows Agent | Log Analytics wersja rozszerzenia maszyny wirtualnej z systemem Windows | Data wydania | Informacje o wersji |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
+| 10.20.18053| 1.0.18053.0 | Październik 2020 r.   | <ul><li>Nowe narzędzie do rozwiązywania problemów z agentem</li><li>Aktualizacje dotyczące sposobu, w jaki Agent obsługuje zmiany certyfikatów w usługach platformy Azure</li></ul> |
 | 10.20.18040 | 1.0.18040.2 | Sierpień 2020 r.   | <ul><li>Rozwiązuje problem w usłudze Azure Arc</li></ul> |
 | 10.20.18038 | 1.0.18038 | Kwiecień 2020 r.   | <ul><li>Umożliwia łączność za pośrednictwem prywatnego linku przy użyciu Azure Monitor zakresy linków prywatnych</li><li>Dodaje ograniczenie pozyskiwania, aby uniknąć nagłego i przypadkowego napływu w obszarze roboczym</li><li>Dodaje obsługę dodatkowych chmur Azure Government i regionów</li><li>Rozwiązuje usterkę, w której HealthService.exe awaria</li></ul> |
 | 10.20.18029 | 1.0.18029 | Marzec 2020 r.   | <ul><li>Dodaje obsługę podpisywania kodu SHA-2</li><li>Udoskonalenie instalacji i zarządzania rozszerzeniami maszyny wirtualnej</li><li>Rozwiązuje usterkę w usłudze Azure Arc na potrzeby integracji serwerów</li><li>Dodaje wbudowane narzędzie do rozwiązywania problemów z obsługą klienta</li><li>Dodaje obsługę dodatkowych regionów Azure Government</li> |
-| 10.20.18018 | 1.0.18018 | Październik 2019 r. | <ul><li> Drobne poprawki błędów i ulepszenia stabilizacji </li></ul> |
-| 10.20.18011 | 1.0.18011 | Lipiec 2019 r. | <ul><li> Drobne poprawki błędów i ulepszenia stabilizacji </li><li> Zwiększono MaxExpressionDepth do 10000 </li></ul> |
+| 10.20.18018 | 1.0.18018 | Październik 2019 r. | <ul><li> Drobne poprawki błędów i ulepszenia stabilizacji </li></ul> |
+| 10.20.18011 | 1.0.18011 | Lipiec 2019 | <ul><li> Drobne poprawki błędów i ulepszenia stabilizacji </li><li> Zwiększono MaxExpressionDepth do 10000 </li></ul> |
 | 10.20.18001 | 1.0.18001 | Czerwiec 2019 r. | <ul><li> Drobne poprawki błędów i ulepszenia stabilizacji </li><li> Dodano możliwość wyłączania poświadczeń domyślnych podczas nawiązywania połączenia z serwerem proxy (obsługa WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH) </li></ul>|
-| 10.19.13515 | 1.0.13515 | Marzec 2019 r. | <ul><li>Niewielkie poprawki stabilizacji </li></ul> |
+| 10.19.13515 | 1.0.13515 | Marzec 2019 | <ul><li>Niewielkie poprawki stabilizacji </li></ul> |
 | 10.19.10006 | n/d | Dec 2018 | <ul><li> Niewielkie poprawki stabilizacji </li></ul> | 
 | 8.0.11136 | n/d | Września 2018 |  <ul><li> Dodano obsługę wykrywania zmiany identyfikatora zasobu podczas przenoszenia maszyny wirtualnej </li><li> Dodano obsługę identyfikatora zasobu raportowania podczas korzystania z instalacji niezwiązanej z rozszerzeniem </li></ul>| 
-| 8.0.11103 | n/d |  Kwiecień 2018 r. | |
+| 8.0.11103 | n/d |  Kwiecień 2018 | |
 | 8.0.11081 | 1.0.11081 | Lis 2017 | | 
 | 8.0.11072 | 1.0.11072 | Września 2017 | |
 | 8.0.11049 | 1.0.11049 | 2017 lutego | |
@@ -93,7 +94,7 @@ Poniższy kod JSON przedstawia schemat rozszerzenia agenta Log Analytics. Rozsze
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft. EnterpriseCloud. Monitoring |
 | typ | MicrosoftMonitoringAgent |
-| typeHandlerVersion | 1,0 |
+| typeHandlerVersion | 1.0 |
 | Identyfikator obszaru roboczego (np.) * | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (np.) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI + rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ = = |
 

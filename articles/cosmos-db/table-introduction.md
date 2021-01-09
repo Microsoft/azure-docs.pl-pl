@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
-ms.date: 11/25/2020
+ms.date: 01/08/2021
 ms.author: sngun
-ms.openlocfilehash: 98b1db18b72aad0c68f2faee031cc040a2a1f369
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1cf3bf30b37a09b5dfe94bf1e754a7f8e9dcd82c
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181241"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045669"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Wprowadzenie do usługi Azure Cosmos DB: Interfejs API tabel
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -20,7 +20,7 @@ ms.locfileid: "96181241"
 Usługa [Azure Cosmos DB](introduction.md) zapewnia interfejs API tabel dla aplikacji korzystających z usługi Azure Table Storage, które wymagają funkcji warstwy Premium, takich jak:
 
 * [Gotowe globalna](distribute-data-globally.md).
-* [Dedykowana przepływność](partitioning-overview.md) na całym świecie.
+* [Dedykowana przepływność](partitioning-overview.md) na całym świecie (w przypadku korzystania z zainicjowanej przepływności).
 * Opóźnienie rzędu kilku milisekund na poziomie 99. percentyla.
 * Gwarantowana wysoka dostępność.
 * Automatyczne indeksowanie pomocnicze.
@@ -44,10 +44,10 @@ Jeśli obecnie używasz usługi Azure Table Storage, po rozpoczęciu korzystania
 | Indeksowanie | Tylko podstawowy indeks PartitionKey i RowKey. Brak dodatkowych indeksów. | Automatyczne i kompletne indeksowanie wszystkich właściwości, bez zarządzania indeksem. |
 | Zapytanie | Wykonanie zapytania wykorzystuje indeks klucza podstawowego, a w przeciwnym przypadku skanuje. | Zapytania mogą korzystać z automatycznego indeksowania właściwości, co skraca czas odpowiedzi. |
 | Spójność | Na poziomie „strong” w regionie podstawowym, na poziomie „eventual” w regionie pomocniczym. | [Pięć dobrze zdefiniowanych poziomów spójności](consistency-levels.md) , aby zapewnić dostępność, opóźnienia, przepływność i spójność w zależności od potrzeb aplikacji. |
-| Cennik | Optymalizacja pod kątem magazynu. | Optymalizacja pod kątem przepływności. |
+| Cennik | Na podstawie użycia. | Dostępne zarówno w trybie dyspozycyjności, jak [i z](serverless.md) [obsługą administracyjną](set-throughput.md) . |
 | Umowy SLA | 99,9% do 99,99% dostępności, w zależności od strategii replikacji. | 99,999% dostępności odczytu, 99,99% dostępności zapisu na koncie w jednym regionie i 99,999% o dostępności na kontach wieloregionowych. [Kompleksowe umowy SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/) obejmujące dostępność, opóźnienia, przepływność i spójność. |
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Utwórz konto usługi Azure Cosmos DB w witrynie [Azure Portal](https://portal.azure.com). Następnie zapoznaj się z naszym [przewodnikiem Szybki Start dotyczącym korzystania z interfejsu API tabel przy użyciu programu .NET](create-table-dotnet.md). 
 

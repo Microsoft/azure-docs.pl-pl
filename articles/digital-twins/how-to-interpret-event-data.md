@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 22bedcf7921e3c8d4f2566a70515eef3e3b136b6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: a0f2b971eae5d37e8fb0771e213075289af6c519
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461026"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045261"
 ---
 # <a name="understand-event-data"></a>Informacje o zdarzeniach
 
@@ -93,7 +93,7 @@ W tej sekcji szczegółowo omówiono różne typy powiadomień emitowanych przez
 
 ### <a name="digital-twin-life-cycle-notifications"></a>Powiadomienia o cyklu życia cyfrowych przędzy
 
-Wszystkie powiadomienia dotyczące emisji [Digital bliźniaczych reprezentacji](concepts-twins-graph.md) , niezależnie od tego, czy reprezentują one [IoT Hub urządzenia w usłudze Azure Digital bliźniaczych reprezentacji](how-to-ingest-iot-hub-data.md) . Dzieje się tak z powodu powiadomień dotyczących cyklu życia, które są związane z **samodzielnymi**przędzami cyfrowymi.
+Wszystkie powiadomienia dotyczące emisji [Digital bliźniaczych reprezentacji](concepts-twins-graph.md) , niezależnie od tego, czy reprezentują one [IoT Hub urządzenia w usłudze Azure Digital bliźniaczych reprezentacji](how-to-ingest-iot-hub-data.md) . Dzieje się tak z powodu powiadomień dotyczących cyklu życia, które są związane z **samodzielnymi** przędzami cyfrowymi.
 
 Powiadomienia o cyklu życia są wyzwalane, gdy:
 * Zostanie utworzona dwuosiowa cyfra
@@ -262,20 +262,7 @@ Treść `Twin.Update` powiadomienia jest dokumentem poprawki JSON zawierającym 
 
 Załóżmy na przykład, że cyfrowa dwuosiowa została zaktualizowana przy użyciu następującej poprawki.
 
-```json
-[
-    {
-        "op": "replace",
-        "value": 40,
-        "path": "/Temperature"
-    },
-    {
-        "op": "add",
-        "value": 30,
-        "path": "/comp1/prop1"
-    }
-]
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/patch-component-2.json":::
 
 Odpowiednie powiadomienie (jeśli synchronicznie wykonywane przez usługę, takie jak usługa Azure Digital bliźniaczych reprezentacji, aktualizacja wielocyfrowej sznurka) będzie miało treść taką jak:
 

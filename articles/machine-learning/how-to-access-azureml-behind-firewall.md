@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 11/18/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 0fa3492555b2870ae7b95abec08bbd3280cdc985
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 8ffbe5debaa980385a2c6dc0078de5f1cc2e9bde
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705068"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045516"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Używanie obszaru roboczego za zaporą dla Azure Machine Learning
 
@@ -27,7 +27,7 @@ W tym artykule dowiesz się, jak skonfigurować zaporę platformy Azure w celu k
 
 ## <a name="azure-firewall"></a>Azure Firewall
 
-W przypadku korzystania z zapory platformy Azure należy używać funkcji __translacji adresów sieciowych (DNAT)__ do tworzenia reguł NAT dla ruchu przychodzącego. Dla ruchu wychodzącego Utwórz reguły __sieci__ i/lub __aplikacji__ . Te kolekcje reguł są szczegółowo opisane w [artykule Co to są niektóre pojęcia związane z zaporą platformy Azure](../firewall/firewall-faq.md#what-are-some-azure-firewall-concepts).
+W przypadku korzystania z zapory platformy Azure należy używać funkcji __translacji adresów sieciowych (DNAT)__ do tworzenia reguł NAT dla ruchu przychodzącego. Dla ruchu wychodzącego Utwórz reguły __sieci__ i/lub __aplikacji__ . Te kolekcje reguł są szczegółowo opisane w [artykule Co to są niektóre pojęcia związane z zaporą platformy Azure](../firewall/firewall-faq.yml#what-are-some-azure-firewall-concepts).
 
 ### <a name="inbound-configuration"></a>Konfiguracja przychodząca
 
@@ -113,7 +113,7 @@ Hosty w tej sekcji należą do firmy Microsoft i zapewniają usługi wymagane do
 
 | **Wymagane przez** | **Azure — publiczna** | **Azure Government** | **Azure w Chinach — 21Vianet** |
 | ----- | ----- | ----- | ----- |
-| Usługa Azure Active Directory | login.microsoftonline.com | login.microsoftonline.us | login.chinacloudapi.cn |
+| Azure Active Directory | login.microsoftonline.com | login.microsoftonline.us | login.chinacloudapi.cn |
 | Azure Portal | management.azure.com | management.azure.us | management.azure.cn |
 
 **Hosty Azure Machine Learning**
@@ -121,7 +121,7 @@ Hosty w tej sekcji należą do firmy Microsoft i zapewniają usługi wymagane do
 | **Wymagane przez** | **Azure — publiczna** | **Azure Government** | **Azure w Chinach — 21Vianet** |
 | ----- | ----- | ----- | ----- |
 | Studio uczenia maszynowego Azure | ml.azure.com | ml.azure.us | studio.ml.azure.cn |
-| interfejs API |\*. azureml.ms | \*. ml.azure.us | \*. ml.azure.cn |
+| Interfejs API |\*. azureml.ms | \*. ml.azure.us | \*. ml.azure.cn |
 | Eksperymentowanie, historia, moje napędy, etykietowanie | \*. experiments.azureml.net | \*. ml.azure.us | \*. ml.azure.cn |
 | Zarządzanie modelem | \*. modelmanagement.azureml.net | \*. ml.azure.us | \*. ml.azure.cn |
 | Potok | \*. aether.ms | \*. ml.azure.us | \*. ml.azure.cn |

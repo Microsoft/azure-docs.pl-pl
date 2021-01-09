@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: df7462cf047dd113c34669d9a5f68f2589cc50f4
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 47883c742d77a88adb662e8dded0723f0e105385
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672997"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98044190"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Tworzenie zapytań dotyczących grafu bliźniaczych reprezentacjiów cyfrowych platformy Azure
 
@@ -28,43 +28,28 @@ Ten artykuł rozpoczyna się od przykładowych zapytań, które ilustrują struk
 
 Oto podstawowe zapytanie, które zwróci listę wszystkich bliźniaczych reprezentacji cyfrowych w wystąpieniu:
 
-```sql
-SELECT *
-FROM DIGITALTWINS
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="GetAllTwins":::
 
 ## <a name="query-by-property"></a>Zapytanie według właściwości
 
 Pobieranie bliźniaczych reprezentacji cyfrowych według **Właściwości** (łącznie z identyfikatorami i metadanymi):
 
-```sql
-SELECT  *
-FROM DigitalTwins T  
-WHERE T.firmwareVersion = '1.1'
-AND T.$dtId in ['123', '456']
-AND T.Temperature = 70
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty1":::
 
 > [!TIP]
 > Identyfikator dwucyfrowego podpisu jest wysyłany przy użyciu pola metadanych `$dtId` .
 
 Możesz również uzyskać bliźniaczych reprezentacji na podstawie tego, **czy określona właściwość jest zdefiniowana**. Oto zapytanie, które pobiera bliźniaczych reprezentacji, które mają zdefiniowaną Właściwość *Location* :
 
-```sql
-SELECT * FROM DIGITALTWINS WHERE IS_DEFINED(Location)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty2":::
 
 Może to ułatwić uzyskanie bliźniaczych reprezentacji przez ich właściwości *tagów* , zgodnie z opisem w temacie [Dodawanie tagów do Digital bliźniaczych reprezentacji](how-to-use-tags.md). Oto zapytanie, które pobiera wszystkie bliźniaczych reprezentacji oznaczone *czerwonymi*:
 
-```sql
-SELECT * FROM DIGITALTWINS WHERE IS_DEFINED(tags.red)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags1":::
 
 Możesz również uzyskać bliźniaczych reprezentacji na podstawie **typu właściwości**. Oto zapytanie, które pobiera bliźniaczych reprezentacji, którego właściwość *temperatury* jest liczbą:
 
-```sql
-SELECT * FROM DIGITALTWINS T WHERE IS_NUMBER(T.Temperature)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty3":::
 
 ## <a name="query-by-model"></a>Zapytanie według modelu
 
@@ -82,30 +67,22 @@ Jeśli na przykład kwerenda dotyczy bliźniaczych reprezentacji modelu `dtmi:ex
 Najprostszym zastosowaniem jest `IS_OF_MODEL` tylko `twinTypeName` parametr: `IS_OF_MODEL(twinTypeName)` .
 Oto przykład zapytania, który przekazuje wartość w tym parametrze:
 
-```sql
-SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:example:thing;1')
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByModel1":::
 
 Aby określić kolekcję przędzy do przeszukania, gdy istnieje więcej niż jeden (jak w przypadku `JOIN` użycia), Dodaj `twinCollection` parametr: `IS_OF_MODEL(twinCollection, twinTypeName)` .
 Oto przykład zapytania, które dodaje wartość dla tego parametru:
 
-```sql
-SELECT * FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:example:thing;1')
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByModel2":::
 
 Aby wykonać dokładne dopasowanie, Dodaj `exact` parametr: `IS_OF_MODEL(twinTypeName, exact)` .
 Oto przykład zapytania, które dodaje wartość dla tego parametru:
 
-```sql
-SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:example:thing;1', exact)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByModel3":::
 
 Można również przekazać wszystkie trzy argumenty jednocześnie: `IS_OF_MODEL(twinCollection, twinTypeName, exact)` .
 Oto przykład zapytania określającego wartość dla wszystkich trzech parametrów:
 
-```sql
-SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:example:thing;1', exact)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByModel4":::
 
 ## <a name="query-by-relationship"></a>Zapytanie według relacji
 
@@ -127,12 +104,7 @@ Aby uzyskać zestaw danych, który zawiera relacje, należy użyć pojedynczej `
 
 Oto przykład zapytania opartego na relacji. Ten fragment kodu wybiera wszystkie cyfrowe bliźniaczych reprezentacji z właściwością *ID* "ABC" i wszystkie cyfrowe bliźniaczych reprezentacji powiązane z tymi cyfrowymi bliźniaczych reprezentacji za pośrednictwem relacji *zawiera* .
 
-```sql
-SELECT T, CT
-FROM DIGITALTWINS T
-JOIN CT RELATED T.contains
-WHERE T.$dtId = 'ABC'
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByRelationship1":::
 
 > [!NOTE]
 > Deweloper nie musi skorelować tego `JOIN` z wartością klucza w `WHERE` klauzuli (lub określić wartości klucza wbudowanej z `JOIN` definicją). Ta korelacja jest obliczana automatycznie przez system, ponieważ właściwości relacji same identyfikują jednostkę docelową.
@@ -144,13 +116,7 @@ Język zapytań usługi Azure Digital bliźniaczych reprezentacji umożliwia fil
 
 Na przykład rozważmy relację *servicedBy* , która ma właściwość *reportedCondition* . W poniższym zapytaniu ta relacja ma alias "R", aby można było odwołać się do jego właściwości.
 
-```sql
-SELECT T, SBT, R
-FROM DIGITALTWINS T
-JOIN SBT RELATED T.servicedBy R
-WHERE T.$dtId = 'ABC'
-AND R.reportedCondition = 'clean'
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByRelationship2":::
 
 W powyższym przykładzie Zwróć uwagę na to, jak *reportedCondition* jest właściwością relacji *SERVICEDBY* (a nie z nieruchomą dwuosiową z relacją *servicedBy* ).
 
@@ -160,58 +126,27 @@ W powyższym przykładzie Zwróć uwagę na to, jak *reportedCondition* jest wł
 
 Oto przykład zapytania z wielosprzężeniem, które pobiera wszystkie żarówki zawarte w panelach lekkich w pokojach 1 i 2.
 
-```sql
-SELECT LightBulb
-FROM DIGITALTWINS Room
-JOIN LightPanel RELATED Room.contains
-JOIN LightBulb RELATED LightPanel.contains
-WHERE IS_OF_MODEL(LightPanel, 'dtmi:contoso:com:lightpanel;1')
-AND IS_OF_MODEL(LightBulb, 'dtmi:contoso:com:lightbulb ;1')
-AND Room.$dtId IN ['room1', 'room2']
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByRelationship3":::
 
 ## <a name="count-items"></a>Liczba elementów
 
 Liczbę elementów w zestawie wyników można obliczyć przy użyciu `Select COUNT` klauzuli:
 
-```sql
-SELECT COUNT()
-FROM DIGITALTWINS
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="SelectCount1":::
 
 Dodaj `WHERE` klauzulę, aby policzyć liczbę elementów spełniających określone kryteria. Oto kilka przykładów zliczania z zastosowanym filtrem na podstawie typu modelu sznurka (Aby uzyskać więcej informacji na temat tej składni, zobacz [*zapytania według modelu*](#query-by-model) poniżej):
 
-```sql
-SELECT COUNT()
-FROM DIGITALTWINS
-WHERE IS_OF_MODEL('dtmi:sample:Room;1')
-
-SELECT COUNT()
-FROM DIGITALTWINS c
-WHERE IS_OF_MODEL('dtmi:sample:Room;1') AND c.Capacity > 20
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="SelectCount2":::
 
 Można również użyć `COUNT` razem z `JOIN` klauzulą. Oto zapytanie, które zlicza wszystkie żarówki zawarte w panelach lekkich pokojów 1 i 2:
 
-```sql
-SELECT COUNT()  
-FROM DIGITALTWINS Room  
-JOIN LightPanel RELATED Room.contains  
-JOIN LightBulb RELATED LightPanel.contains  
-WHERE IS_OF_MODEL(LightPanel, 'dtmi:contoso:com:lightpanel;1')  
-AND IS_OF_MODEL(LightBulb, 'dtmi:contoso:com:lightbulb ;1')  
-AND Room.$dtId IN ['room1', 'room2']
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="SelectCount3":::
 
 ## <a name="filter-results-select-top-items"></a>Wyniki filtrowania: wybierz pierwsze elementy
 
 Można wybrać kilka elementów "Top" w zapytaniu przy użyciu `Select TOP` klauzuli.
 
-```sql
-SELECT TOP (5)
-FROM DIGITALTWINS
-WHERE ...
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="SelectTop":::
 
 ## <a name="filter-results-specify-return-set-with-projections"></a>Wyniki filtrowania: Określ zestaw zwrotny z projekcjami
 
@@ -222,54 +157,25 @@ Korzystając z projekcji w `SELECT` instrukcji, można wybrać kolumny, które b
 
 Oto przykład zapytania korzystającego z projekcji do zwracania bliźniaczych reprezentacji i relacji. Następujące zapytanie bada *odbiorcę*, *fabrykę* i *krawędź* w scenariuszu, w którym *fabryka* z identyfikatorem *ABC* jest związana z *konsumentem* za pośrednictwem relacji *fabryki. Klient*, a ta relacja jest prezentowana jako *krawędź*.
 
-```sql
-SELECT Consumer, Factory, Edge
-FROM DIGITALTWINS Factory
-JOIN Consumer RELATED Factory.customer Edge
-WHERE Factory.$dtId = 'ABC'
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="Projections1":::
 
 Można również użyć projekcji, aby zwrócić Właściwość sznurka. Następujące zapytanie bada Właściwość *name* *odbiorców* , którzy są powiązani z *fabryką* z identyfikatorem *ABC* za pomocą relacji *fabryki. Klient*.
 
-```sql
-SELECT Consumer.name
-FROM DIGITALTWINS Factory
-JOIN Consumer RELATED Factory.customer Edge
-WHERE Factory.$dtId = 'ABC'
-AND IS_PRIMITIVE(Consumer.name)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="Projections2":::
 
 Można również użyć projekcji do zwrócenia właściwości relacji. Podobnie jak w poprzednim przykładzie, następujące zapytanie projektuje Właściwość *name* *odbiorców* związanych z *fabryką* z identyfikatorem *ABC* przez relację *fabryki. Klient*; ale teraz zwraca również dwie właściwości tej relacji, *Prop1* i *prop2*. Robi to poprzez nazwę *krawędzi* relacji i gromadzenie jej właściwości.  
 
-```sql
-SELECT Consumer.name, Edge.prop1, Edge.prop2, Factory.area
-FROM DIGITALTWINS Factory
-JOIN Consumer RELATED Factory.customer Edge
-WHERE Factory.$dtId = 'ABC'
-AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Edge.prop1) AND IS_PRIMITIVE(Edge.prop2)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="Projections3":::
 
 Aliasów można również używać do uproszczenia zapytań z projekcją.
 
 Następujące zapytanie wykonuje te same operacje co w poprzednim przykładzie, ale aliasuje nazwy właściwości do `consumerName` , `first` , `second` , i `factoryArea` .
 
-```sql
-SELECT Consumer.name AS consumerName, Edge.prop1 AS first, Edge.prop2 AS second, Factory.area AS factoryArea
-FROM DIGITALTWINS Factory
-JOIN Consumer RELATED Factory.customer Edge
-WHERE Factory.$dtId = 'ABC'
-AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Edge.prop1) AND IS_PRIMITIVE(Edge.prop2)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="Projections4":::
 
 Poniżej znajduje się podobne zapytanie, które wysyła zapytania do tego samego zestawu, co powyżej, ale zawiera projekty tylko właściwość *Consumer.Name* jako `consumerName` i  tworzy jako dwuosiowe wszystkie projekty.
 
-```sql
-SELECT Consumer.name AS consumerName, Factory
-FROM DIGITALTWINS Factory
-JOIN Consumer RELATED Factory.customer Edge
-WHERE Factory.$dtId = 'ABC'
-AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="Projections5":::
 
 ## <a name="build-efficient-queries-with-the-in-operator"></a>Tworzenie wydajnych zapytań za pomocą operatora IN
 
@@ -279,12 +185,7 @@ Rozważmy na przykład scenariusz, w którym *budynki* zawierają *piętra* i *p
 
 1. Znajdź piętra w budynku na podstawie `contains` relacji.
 
-    ```sql
-    SELECT Floor
-    FROM DIGITALTWINS Building
-    JOIN Floor RELATED Building.contains
-    WHERE Building.$dtId = @buildingId
-    ```
+    :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="INOperatorWithout":::
 
 2. Aby znaleźć pokoje, zamiast rozważać piętra jeden-do-jednego i uruchamiać `JOIN` zapytanie, aby znaleźć pokoje dla każdej z nich, można wykonać zapytanie z kolekcją podłóg w budynku (nazwane *piętro* w zapytaniu poniżej).
 
@@ -296,26 +197,18 @@ Rozważmy na przykład scenariusz, w którym *budynki* zawierają *piętra* i *p
     
     W zapytaniu:
     
-    ```sql
-    
-    SELECT Room
-    FROM DIGITALTWINS Floor
-    JOIN Room RELATED Floor.contains
-    WHERE Floor.$dtId IN ['floor1','floor2', ..'floorn']
-    AND Room. Temperature > 72
-    AND IS_OF_MODEL(Room, 'dtmi:com:contoso:Room;1')
-    
-    ```
+    :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="INOperatorWith":::
 
 ## <a name="other-compound-query-examples"></a>Inne przykładowe zapytania złożone
 
 Można **połączyć** dowolne z powyższych typów zapytań za pomocą operatorów kombinacji, aby dołączać więcej szczegółów w pojedynczym zapytaniu. Oto kilka dodatkowych przykładów zapytania złożonego, które wykonują zapytania dla więcej niż jednego typu dwuosiowego deskryptora.
 
-| Opis | Zapytanie |
-| --- | --- |
-| Z urządzeń, które pozostało *123* , zwróć urządzenia zestawu deweloperskiego, które obsługują rolę operatora | `SELECT device`<br>`FROM DigitalTwins space`<br>`JOIN device RELATED space.has`<br>`WHERE space.$dtid = 'Room 123'`<br>`AND device.$metadata.model = 'dtmi:contoso:com:DigitalTwins:MxChip:3'`<br>`AND has.role = 'Operator'` |
-| Pobierz bliźniaczych reprezentacji, które mają relację o nazwie *Contains* z innym przędzą o identyfikatorze *ID1* | `SELECT Room`<br>`FROM DIGITALTWINS Room`<br>`JOIN Thermostat RELATED Room.Contains`<br>`WHERE Thermostat.$dtId = 'id1'` |
-| Pobierz wszystkie pokoje tego modelu pokojowego, które są zawarte w *floor11* | `SELECT Room`<br>`FROM DIGITALTWINS Floor`<br>`JOIN Room RELATED Floor.Contains`<br>`WHERE Floor.$dtId = 'floor11'`<br>`AND IS_OF_MODEL(Room, 'dtmi:contoso:com:DigitalTwins:Room;1')` |
+* Z urządzeń, które pozostało *123* , zwróć urządzenia zestawu deweloperskiego, które obsługują rolę operatora
+    :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="OtherExamples1":::
+* Pobierz bliźniaczych reprezentacji, które mają relację o nazwie *Contains* z innym przędzą o identyfikatorze *ID1*
+    :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="OtherExamples2":::
+* Pobierz wszystkie pokoje tego modelu pokojowego, które są zawarte w *floor11*
+    :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="OtherExamples3":::
 
 ## <a name="run-queries-with-the-api"></a>Uruchamianie zapytań za pomocą interfejsu API
 
@@ -325,42 +218,13 @@ Interfejs API można wywołać bezpośrednio lub użyć jednego z [zestawów SDK
 
 Poniższy fragment kodu ilustruje wywołanie [zestawu SDK .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) z aplikacji klienckiej:
 
-```csharp
-    string adtInstanceEndpoint = "https://<your-instance-hostname>";
-
-    var credential = new DefaultAzureCredential();
-    DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceEndpoint), credential);
-
-    // Run a query for all twins   
-    string query = "SELECT * FROM DIGITALTWINS";
-    AsyncPageable<BasicDigitalTwin> result = client.QueryAsync<BasicDigitalTwin>(query);
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="RunQuery":::
 
 To wywołanie zwraca wyniki zapytania w postaci obiektu [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet&preserve-view=true) .
 
 Wywołania zapytań obsługują stronicowanie. Oto kompletny przykład użycia `BasicDigitalTwin` jako typ wyniku zapytania z obsługą błędów i stronicowaniem:
 
-```csharp
-try
-{
-    await foreach(BasicDigitalTwin twin in result)
-        {
-            // You can include your own logic to print the result
-            // The logic below prints the twin's ID and contents
-            Console.WriteLine($"Twin ID: {twin.Id} \nTwin data");
-            IDictionary<string, object> contents = twin.Contents;
-            foreach (KeyValuePair<string, object> kvp in contents)
-            {
-                Console.WriteLine($"{kvp.Key}  {kvp.Value}");
-            }
-        }
-}
-catch (RequestFailedException e)
-{
-    Console.WriteLine($"Error {e.Status}: {e.Message}");
-    throw;
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="FullQuerySample":::
 
 ## <a name="next-steps"></a>Następne kroki
 

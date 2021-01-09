@@ -3,14 +3,14 @@ title: Zabezpieczenia danych Azure Automation
 description: Ten artykuł pomaga dowiedzieć się, jak Azure Automation chroni prywatność i zabezpiecza dane.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 07/20/2020
+ms.date: 01/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 610c2050150a533e246bc74ed7750ce87f7cf617
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40405607e7f7198f190f621121022537ac3b3171
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87004651"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98046043"
 ---
 # <a name="management-of-azure-automation-data"></a>Zarządzanie danymi usługi Azure Automation
 
@@ -26,11 +26,9 @@ Aby zapewnić bezpieczeństwo danych podczas przesyłania do Azure Automation, z
 
 * Węzły DSC
 
-Starsze wersje protokołu TLS/SSL (SSL) są zagrożone i chociaż nadal działają tak, aby umożliwić zgodność z poprzednimi wersjami, nie są **zalecane**. Od września 2020 zaczynamy wymuszać protokół TLS 1,2 i nowsze wersje protokołu szyfrowania.
+Starsze wersje protokołu TLS/SSL (SSL) są zagrożone i chociaż nadal działają tak, aby umożliwić zgodność z poprzednimi wersjami, nie są **zalecane**. Nie zalecamy jawnego ustawienia agenta do używania protokołu TLS 1,2, chyba że jest to absolutnie konieczne, ponieważ może to spowodować przerwanie funkcji zabezpieczeń na poziomie platformy, które umożliwiają automatyczne wykrywanie i korzystanie z nowszych bezpieczniejszych protokołów, gdy staną się dostępne, takich jak TLS 1,3.
 
-Nie zalecamy jawnego ustawienia agenta do używania protokołu TLS 1,2, chyba że jest to absolutnie konieczne, ponieważ może to spowodować przerwanie funkcji zabezpieczeń na poziomie platformy, które umożliwiają automatyczne wykrywanie i korzystanie z nowszych bezpieczniejszych protokołów, gdy staną się dostępne, takich jak TLS 1,3.
-
-Aby uzyskać informacje o obsłudze protokołu TLS 1,2 z agentem Log Analytics dla systemów Windows i Linux, który jest zależnością roli hybrydowego procesu roboczego elementu Runbook, zobacz [Omówienie agenta log Analytics — TLS 1,2](..//azure-monitor/platform/log-analytics-agent.md#tls-12-protocol). 
+Aby uzyskać informacje o obsłudze protokołu TLS 1,2 z agentem Log Analytics dla systemów Windows i Linux, który jest zależnością roli hybrydowego procesu roboczego elementu Runbook, zobacz [Omówienie agenta log Analytics — TLS 1,2](..//azure-monitor/platform/log-analytics-agent.md#tls-12-protocol).
 
 ### <a name="platform-specific-guidance"></a>Wskazówki dotyczące platformy
 
@@ -51,7 +49,7 @@ Poniższa tabela zawiera podsumowanie zasad przechowywania dla różnych zasobó
 |:--- |:--- |
 | Konta |Konto zostanie trwale usunięte 30 dni po usunięciu go przez użytkownika. |
 | Elementy zawartości |Zasób zostanie trwale usunięty 30 dni po usunięciu go przez użytkownika lub 30 dni po usunięciu przez użytkownika konta, które zawiera element zawartości. Zasoby obejmują zmienne, harmonogramy, poświadczenia, certyfikaty, pakiety Python 2 i połączenia. |
-| Węzły DSC |Węzeł DSC zostanie trwale usunięty 30 dni po wyrejestrowaniu z konta usługi Automation przy użyciu Azure Portal lub polecenia cmdlet [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-3.7.0) w programie Windows PowerShell. Węzeł zostanie również trwale usunięty 30 dni po usunięciu konta, które zawiera węzeł. |
+| Węzły DSC |Węzeł DSC zostanie trwale usunięty 30 dni po wyrejestrowaniu z konta usługi Automation przy użyciu Azure Portal lub polecenia cmdlet [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode) w programie Windows PowerShell. Węzeł zostanie również trwale usunięty 30 dni po usunięciu konta, które zawiera węzeł. |
 | Stanowiska |Zadanie jest usuwane i trwale usuwane po 30 dniach od modyfikacji, na przykład po zakończeniu zadania zostanie zatrzymane lub wstrzymane. |
 | Moduły |Moduł zostanie trwale usunięty 30 dni po usunięciu go przez użytkownika lub 30 dni po usunięciu przez użytkownika konta, które zawiera moduł. |
 | Konfiguracje węzłów/pliki MOF |Stara konfiguracja węzła zostanie trwale usunięta 30 dni po wygenerowaniu nowej konfiguracji węzła. |
@@ -80,7 +78,7 @@ Nie można pobrać wartości szyfrowanych zmiennych lub pól haseł poświadcze�
 
 ### <a name="dsc-configurations"></a>Konfiguracje DSC
 
-Konfiguracje DSC można wyeksportować do plików skryptów przy użyciu Azure Portal lub polecenia cmdlet [Export-AzAutomationDscConfiguration](/powershell/module/az.automation/export-azautomationdscconfiguration?view=azps-3.7.0) w programie Windows PowerShell. Możesz importować te konfiguracje i używać ich w innym koncie usługi Automation.
+Konfiguracje DSC można wyeksportować do plików skryptów przy użyciu Azure Portal lub polecenia cmdlet [Export-AzAutomationDscConfiguration](/powershell/module/az.automation/export-azautomationdscconfiguration) w programie Windows PowerShell. Możesz importować te konfiguracje i używać ich w innym koncie usługi Automation.
 
 ## <a name="geo-replication-in-azure-automation"></a>Replikacja geograficzna w Azure Automation
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ca56c285baff9982ff465b0d4115d15eadedb8c9
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: a8b2fdf99b33df3322748b7e073cc4ab18957c84
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534759"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045244"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Zarządzanie modelami Digital bliźniaczych reprezentacji na platformie Azure
 
@@ -36,40 +36,12 @@ Rozważmy przykład, w którym Szpital chce cyfrowo reprezentować pokoje. Każd
 
 Pierwszym krokiem w kierunku rozwiązania jest utworzenie modeli do reprezentowania aspektów szpitala. Pokój pacjenta w tym scenariuszu może być opisany w następujący sposób:
 
-```json
-{
-  "@id": "dtmi:com:contoso:PatientRoom;1",
-  "@type": "Interface",
-  "@context": "dtmi:dtdl:context;2",
-  "displayName": "Patient Room",
-  "contents": [
-    {
-      "@type": "Property",
-      "name": "visitorCount",
-      "schema": "double"
-    },
-    {
-      "@type": "Property",
-      "name": "handWashCount",
-      "schema": "double"
-    },
-    {
-      "@type": "Property",
-      "name": "handWashPercentage",
-      "schema": "double"
-    },
-    {
-      "@type": "Relationship",
-      "name": "hasDevices"
-    }
-  ]
-}
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/PatientRoom.json":::
 
 > [!NOTE]
 > Jest to Przykładowa treść pliku JSON, w którym model jest zdefiniowany i zapisany do przekazania w ramach projektu klienta. Wywołanie interfejsu API REST, z drugiej strony, pobiera tablicę definicji modelu, takich jak powyższa część (która jest mapowana na zestaw `IEnumerable<string>` SDK platformy .NET). Aby używać tego modelu bezpośrednio w interfejsie API REST, umieść go w nawiasach.
 
-Ten model definiuje nazwę i unikatowy identyfikator pokoju pacjenta oraz właściwości przedstawiające liczbę odwiedzających i stan odmycia (te liczniki zostaną zaktualizowane z czujników ruchu i inteligentnych rozdzielaczy SOAP) i zostaną użyte razem w celu obliczenia *handwash wartości procentowej* . Model definiuje również relację *hasDevices* , która będzie używana do łączenia wszelkich [cyfrowych bliźniaczych reprezentacji](concepts-twins-graph.md) opartych na tym modelu *pokoju* na rzeczywistych urządzeniach.
+Ten model definiuje nazwę i unikatowy identyfikator pokoju pacjenta oraz właściwości przedstawiające liczbę odwiedzających i stan odmycia (te liczniki zostaną zaktualizowane z czujników ruchu i inteligentnych rozdzielaczy SOAP) i zostaną użyte razem w celu obliczenia *handwash wartości procentowej* . Model definiuje również relację *hasDevices*, która będzie używana do łączenia wszelkich [cyfrowych bliźniaczych reprezentacji](concepts-twins-graph.md) opartych na tym modelu *pokoju* na rzeczywistych urządzeniach.
 
 Korzystając z tej metody, można wykonać Definiowanie modeli dla danych szpitalnych, stref lub samego szpitala.
 
@@ -86,48 +58,16 @@ Po utworzeniu modeli można je przekazać do wystąpienia usługi Azure Digital 
 
 Gdy wszystko jest gotowe do przekazania modelu, można użyć następującego fragmentu kodu:
 
-```csharp
-// 'client' is an instance of DigitalTwinsClient
-// Read model file into string (not part of SDK)
-StreamReader r = new StreamReader("MyModelFile.json");
-string dtdl = r.ReadToEnd(); r.Close();
-string[] dtdls = new string[] { dtdl };
-client.CreateModels(dtdls);
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="CreateModel":::
 
 Zwróć uwagę, że `CreateModels` Metoda akceptuje wiele plików w jednej pojedynczej transakcji. Oto przykład, który ilustruje:
 
-```csharp
-var dtdlFiles = Directory.EnumerateFiles(sourceDirectory, "*.json");
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="CreateModels_multi":::
 
-List<string> dtdlStrings = new List<string>();
-foreach (string fileName in dtdlFiles)
-{
-    // Read model file into string (not part of SDK)
-    StreamReader r = new StreamReader(fileName);
-    string dtdl = r.ReadToEnd(); r.Close();
-    dtdlStrings.Add(dtdl);
-}
-client.CreateModels(dtdlStrings);
-```
+Pliki modelu mogą zawierać więcej niż jeden model. W takim przypadku modele muszą być umieszczone w tablicy JSON. Na przykład:
 
-Pliki modelu mogą zawierać więcej niż jeden model. W takim przypadku modele muszą być umieszczone w tablicy JSON. Przykład:
+:::code language="json" source="~/digital-twins-docs-samples/models/Planet-Moon.json":::
 
-```json
-[
-  {
-    "@id": "dtmi:com:contoso:Planet",
-    "@type": "Interface",
-    //...
-  },
-  {
-    "@id": "dtmi:com:contoso:Moon",
-    "@type": "Interface",
-    //...
-  }
-]
-```
- 
 Przy przekazywaniu pliki modelu są sprawdzane przez usługę.
 
 ## <a name="retrieve-models"></a>Pobierz modele
@@ -141,18 +81,7 @@ Poniżej przedstawiono następujące opcje:
 
 Oto kilka przykładowych wywołań:
 
-```csharp
-// 'client' is a valid DigitalTwinsClient object
-
-// Get a single model, metadata and data
-DigitalTwinsModelData md1 = client.GetModel(id);
-
-// Get a list of the metadata of all available models
-Pageable<DigitalTwinsModelData> pmd2 = client.GetModels();
-
-// Get models and metadata for a model ID, including all dependencies (models that it inherits from, components it references)
-Pageable<DigitalTwinsModelData> pmd3 = client.GetModels(new GetModelsOptions { IncludeModelDefinition = true });
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="GetModels":::
 
 Interfejs API wywołuje pobieranie modeli wszystkich zwracanych `DigitalTwinsModelData` obiektów. `DigitalTwinsModelData` zawiera metadane dotyczące modelu przechowywanego w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji, takie jak nazwa, DTMI i Data utworzenia modelu. `DigitalTwinsModelData`Obiekt również opcjonalnie zawiera sam model. W zależności od parametrów można w ten sposób użyć wywołań pobierania, aby pobrać tylko metadane (co jest przydatne w scenariuszach, w których chcesz wyświetlić listę dostępnych narzędzi, na przykład) lub cały model.
 
@@ -208,12 +137,7 @@ Są to osobne funkcje, które nie wpływają na siebie, ale mogą być używane 
 
 Oto kod likwidowania modelu:
 
-```csharp
-// 'client' is a valid DigitalTwinsClient  
-client.DecommissionModel(dtmiOfPlanetInterface);
-// Write some code that deletes or transitions digital twins
-//...
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="DecommissionModel":::
 
 Stan likwidowania modelu jest uwzględniany w `ModelData` rekordach zwracanych przez interfejsy API pobierania modelu.
 
@@ -244,10 +168,8 @@ Nawet jeśli model spełnia wymagania, aby natychmiast je usunąć, warto najpie
 6. Usuń model 
 
 Aby usunąć model, użyj tego wywołania:
-```csharp
-// 'client' is a valid DigitalTwinsClient
-await client.DeleteModelAsync(IDToDelete);
-```
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="DeleteModel":::
 
 #### <a name="after-deletion-twins-without-models"></a>Po usunięciu: bliźniaczych reprezentacji bez modeli
 

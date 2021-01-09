@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 1/7/2020
+ms.date: 1/5/2021
 ms.author: jeedes
-ms.openlocfilehash: 1a473ce1856c250dc29e92b99bda93921c618774
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: b6c76f136c6b986a9fcbf4463654d1f9cc5cb80e
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521740"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98046196"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-upshotly"></a>Samouczek: integracja z logowaniem jednokrotnym (SSO) Azure Active Directory z odciskiem
 
@@ -25,8 +25,6 @@ W tym samouczku dowiesz się, jak zintegrować z usługą Azure Active Directory
 * Kontrolka w usłudze Azure AD, która ma dostęp do odstrzału.
 * Zezwól użytkownikom na automatyczne logowanie się, aby móc korzystać z ich kont usługi Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
-
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -45,33 +43,33 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 
 Aby skonfigurować integrację z usługą Azure AD, musisz dodać ją z galerii do listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
 1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
 1. W sekcji **Dodaj z galerii** **wpisz ją** w polu wyszukiwania.
 1. Wybierz **opcję** z panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-upshotly"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD w celu odstrzału
+## <a name="configure-and-test-azure-ad-sso-for-upshotly"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD w celu odstrzału
 
 Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem.
 
-Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD z odciskiem, wykonaj następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą programu, wykonaj następujące czynności:
 
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
-    * **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
-    * **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
+    1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
+    1. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
 1. **[Skonfiguruj wbudowane Logowanie jednokrotne](#configure-upshotly-sso)** — w celu skonfigurowania ustawień logowania jednokrotnego na stronie aplikacji.
-    * **[Utwórz z odstrzelonym użytkownikiem testowym](#create-upshotly-test-user)** , aby dysponować odpowiednikiem B. Simon, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
+    1. **[Utwórz z odstrzelonym użytkownikiem testowym](#create-upshotly-test-user)** , aby dysponować odpowiednikiem B. Simon, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
 1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [Azure Portal](https://portal.azure.com/)na **stronie z wbudowaną integracją aplikacji Znajdź** sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
+1. W Azure Portal na **stronie z wbudowaną integracją aplikacji Znajdź** sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/ołówek, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -102,7 +100,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -112,19 +110,23 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. Z listy Aplikacje wybierz opcję **odstrzelone**.
 1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
 
-   ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
-
 1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
 
-    ![Link Dodaj użytkownika](common/add-assign-user.png)
-
 1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
 ## <a name="configure-upshotly-sso"></a>Konfigurowanie z odstrzelonym logowaniem jednokrotnym
 
-1. W innym oknie przeglądarki sieci Web Zaloguj się do witryny firmowej jako administrator.
+1. Aby zautomatyzować konfigurację w ramach programu, należy zainstalować **Moje aplikacje bezpieczne logowanie do przeglądarki** , klikając pozycję **Zainstaluj rozszerzenie**.
+
+    ![Rozszerzenie moje aplikacje](common/install-myappssecure-extension.png)
+
+2. Po dodaniu rozszerzenia do przeglądarki kliknij pozycję **Skonfiguruj** ponownie, aby skierować do aplikacji z oddaną aplikacją. Z tego miejsca podaj poświadczenia administratora, aby zalogować się na odstrzałie. Rozszerzenie przeglądarki automatycznie skonfiguruje aplikację i automatyzuje kroki 3-4.
+
+    ![Konfiguracja konfiguracji](common/setup-sso.png)
+
+3. Jeśli chcesz ręcznie skonfigurować program w innym oknie przeglądarki sieci Web, zaloguj się do witryny firmowej jako administrator.
 
 1. Kliknij **profil użytkownika** i przejdź do sekcji **administrator > Logowanie jednokrotne** i wykonaj następujące czynności:
 
@@ -140,16 +142,20 @@ W tej sekcji utworzysz użytkownika o nazwie B. Simon w odstrzałce w chmurze. P
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji.
 
-Po kliknięciu kafelka z odstrzałem w panelu dostępu należy automatycznie zalogować się do programu, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Zainicjowano SP:
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie na adres URL, który umożliwia zainicjowanie przepływu logowania.
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
+* Przejdź bezpośrednio do adresu URL w celu uzyskania bezpośredniego logowania i zainicjuj przepływ logowania.
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>DOSTAWCY tożsamości zainicjowane:
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal i należy automatycznie zalogować się do programu, dla którego skonfigurowano Logowanie jednokrotne
 
-- [Spróbuj ponownie za pomocą usługi Azure AD](https://aad.portal.azure.com/)
+Możesz również użyć aplikacji Microsoft my Apps, aby przetestować aplikację w dowolnym trybie. Po kliknięciu kafelka z odstrzałem w obszarze Moje aplikacje, jeśli skonfigurowano w trybie SP, nastąpi przekierowanie do strony logowania do aplikacji w celu zainicjowania przepływu logowania, a jeśli zostanie on skonfigurowany w trybie dostawcy tożsamości, należy automatycznie zalogować się do usługi, w której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+## <a name="next-steps"></a>Następne kroki
+
+Po skonfigurowaniu aplikacji można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

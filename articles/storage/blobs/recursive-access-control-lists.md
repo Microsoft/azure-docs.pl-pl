@@ -9,12 +9,12 @@ ms.date: 11/17/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: fc407978f18198c9d9525a49a9c8b66de8663065
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 6b48b156ca8d4c64d26d96d7bed525f251832554
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934496"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98046060"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Ustawianie list kontroli dostępu (ACL) rekursywnie dla Azure Data Lake Storage Gen2
 
@@ -151,27 +151,9 @@ Można nawiązać połączenie za pomocą Azure Active Directory (AD) lub klucza
 
 ### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-Otwórz okno polecenia programu Windows PowerShell, a następnie zaloguj się do subskrypcji platformy Azure za pomocą `Connect-AzAccount` polecenia i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
-
-```powershell
-Connect-AzAccount
-```
-
-Jeśli Twoja tożsamość jest skojarzona z więcej niż jedną subskrypcją, ustaw aktywną subskrypcję na konto magazynu, w którym chcesz utworzyć katalogi i zarządzać nimi. W tym przykładzie Zastąp `<subscription-id>` wartość symbolu zastępczego identyfikatorem subskrypcji.
-
-```powershell
-Select-AzSubscription -SubscriptionId <subscription-id>
-```
-
-Następnie wybierz, w jaki sposób polecenia mają uzyskać autoryzację na konto magazynu. 
-
-### <a name="option-1-obtain-authorization-by-using-azure-active-directory-ad"></a>Opcja 1: uzyskiwanie autoryzacji za pomocą Azure Active Directory (AD)
+#### <a name="connect-by-using-azure-active-directory-ad"></a>Łączenie przy użyciu Azure Active Directory (AD)
 
 W ramach tego podejścia system gwarantuje, że konto użytkownika ma odpowiednie przypisania kontroli dostępu opartej na rolach (Azure RBAC) i listy ACL. 
-
-```powershell
-$ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
-```
 
 W poniższej tabeli przedstawiono każdą z obsługiwanych ról i ich możliwości ustawienia listy ACL.
 
@@ -180,13 +162,29 @@ W poniższej tabeli przedstawiono każdą z obsługiwanych ról i ich możliwoś
 |[Właściciel danych obiektu blob usługi Storage](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|Wszystkie katalogi i pliki na koncie.|
 |[Współautor danych obiektu blob usługi Storage](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|Tylko katalogi i pliki należące do podmiotu zabezpieczeń.|
 
-### <a name="option-2-obtain-authorization-by-using-the-storage-account-key"></a>Opcja 2: uzyskiwanie autoryzacji przy użyciu klucza konta magazynu
+1. Otwórz okno polecenia programu Windows PowerShell, a następnie zaloguj się do subskrypcji platformy Azure za pomocą `Connect-AzAccount` polecenia i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
 
-W tym podejściu system nie sprawdza uprawnień usługi Azure RBAC ani listy ACL.
+   ```powershell
+   Connect-AzAccount
+   ```
+
+2. Jeśli Twoja tożsamość jest skojarzona z więcej niż jedną subskrypcją, ustaw aktywną subskrypcję na konto magazynu, w którym chcesz utworzyć katalogi i zarządzać nimi. W tym przykładzie Zastąp `<subscription-id>` wartość symbolu zastępczego identyfikatorem subskrypcji.
+
+   ```powershell
+   Select-AzSubscription -SubscriptionId <subscription-id>
+   ```
+3. Pobierz kontekst konta magazynu.
+
+   ```powershell
+   $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
+   ```
+
+#### <a name="connect-by-using-an-account-key"></a>Nawiązywanie połączenia przy użyciu klucza konta
+
+W tym podejściu system nie sprawdza uprawnień usługi Azure RBAC ani listy ACL. Pobierz kontekst konta magazynu przy użyciu klucza konta.
 
 ```powershell
-$storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
-$ctx = $storageAccount.Context
+$ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -StorageAccountKey '<storage-account-key>'
 ```
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)

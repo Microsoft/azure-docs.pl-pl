@@ -1,18 +1,18 @@
 ---
 title: Azure Policy kontroli zgodności z przepisami dla Azure Database for MariaDB
 description: Wyświetla listę Azure Policy kontroli zgodności z przepisami, które są dostępne dla Azure Database for MariaDB. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
-ms.date: 11/20/2020
+ms.date: 01/08/2021
 ms.topic: sample
 author: savjani
 ms.author: pariks
 ms.service: mariadb
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 6b7f7a1cae3ba0b9d2a8404b849cf4013b22a1b1
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: e196b2d84af38e5e22e0ac75bd6d4494c9f1a3fe
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94988533"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98046994"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-database-for-mariadb"></a>Azure Policy kontroli zgodności z przepisami dla Azure Database for MariaDB
 

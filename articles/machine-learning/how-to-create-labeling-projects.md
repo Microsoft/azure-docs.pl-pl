@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: 087a7ead1ef5f9f46f5b81f8d42fcc0ea0209e61
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 2fe217d08203aec2d25a5d1219a2556bd0dcbcd7
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013281"
+ms.locfileid: "98046111"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Utwórz projekt etykietowania danych i Eksportuj etykiety 
 
@@ -267,6 +267,7 @@ Skorzystaj z tych wskazówek, Jeśli zobaczysz którykolwiek z tych problemów.
 |Po utworzeniu projekt pokazuje "Inicjowanie" przez długi czas.     | Ręcznie Odśwież stronę. Inicjalizacja powinna być w przybliżeniu 20 punktów, na sekundę. Brak autoodświeżania to znany problem.         |
 |Podczas recenzowania obrazów nie są wyświetlane nowe obrazy z etykietami.     |   Aby załadować wszystkie obrazy z etykietami, wybierz **pierwszy** przycisk. **Pierwszy** przycisk przeprowadzi Cię z powrotem do początku listy, ale ładuje wszystkie dane z etykietami.      |
 |Naciśnięcie klawisza Esc podczas etykietowania dla wykrywania obiektów tworzy etykietę o zerowej wielkości w lewym górnym rogu. Przesyłanie etykiet w tym stanie nie powiodło się.     |   Usuń etykietę, klikając znak krzyżyka obok niego.  |
+|Nie można przypisać zestawu zadań do określonego Labeler.     |   Jest to znane ograniczenie bieżącej wersji.  |
 
 ## <a name="next-steps"></a>Następne kroki
 
