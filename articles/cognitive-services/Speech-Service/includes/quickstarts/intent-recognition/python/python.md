@@ -6,12 +6,12 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 44c4427540e1b94ebcaf00e6875723e0a654e9ef
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 8eada631b7e1f632148993e586c70b6811cf9ac9
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425283"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98052933"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -70,6 +70,12 @@ Wstaw ten kod poniżej `IntentRecognizer` . Upewnij się, że zastąpisz `"YourL
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=19-27)]
 
 Ten przykład używa `add_intents()` funkcji, aby dodać listę jawnie zdefiniowanych intencji. Jeśli chcesz dodać wszystkie intencje z modelu, użyj `add_all_intents(model)` i przekaż model.
+
+> [!NOTE]
+> Można utworzyć LanguageUnderstandingModel, przekazując adres URL punktu końcowego do metody FromEndpoint.
+> Zestaw Speech SDK obsługuje tylko punkty końcowe LUIS v 2.0, a punkty końcowe LUIS v 2.0 zawsze obserwują jeden z tych dwóch wzorców:
+> * `https://{AzureResourceName}.cognitiveservices.azure.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
+> * `https://{Region}.api.cognitive.microsoft.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
 
 ## <a name="recognize-an-intent"></a>Rozpoznawanie zamiaru
 

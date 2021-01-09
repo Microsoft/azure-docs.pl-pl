@@ -3,12 +3,12 @@ title: Dołączanie jako partner Azure Event Grid przy użyciu Azure Portal
 description: Użyj Azure Portal, aby dołączyć partnera Azure Event Grid.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 8344fcd822bfcdc67e2c27b200d97fa70dfefdf2
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 44dece4d46a6d702d48fa49983818986fcd59f7b
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349390"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050956"
 ---
 # <a name="onboard-as-an-azure-event-grid-partner-using-the-azure-portal"></a>Dołączanie jako partner Azure Event Grid przy użyciu Azure Portal
 W tym artykule opisano sposób, w jaki dostawcy SaaS innych firm, znani również wydawców lub partnerów zdarzeń, są dołączane do Event Grid, aby można było publikować zdarzenia z ich usług oraz jak te zdarzenia są używane przez użytkowników końcowych.
@@ -112,7 +112,6 @@ Aby wykonać pozostałe kroki, upewnij się, że masz:
     1. W sekcji **szczegóły kanału** wykonaj następujące czynności:
         1. W polu **Nazwa kanału zdarzenia** wprowadź nazwę kanału zdarzenia. 
         1. Wprowadź **Źródło**. Zobacz [specyfikacje zdarzeń 1,0 w chmurze](https://github.com/cloudevents/spec/blob/v1.0/spec.md#source-1) , aby uzyskać pomysł na odpowiednią wartość dla źródła. Zobacz również [Ten przykładowy schemat zdarzeń w chmurze](cloud-event-schema.md#sample-event-using-cloudevents-schema).
-        1. Wprowadź źródło (co to jest?).
     1. W sekcji **szczegóły miejsca docelowego** wprowadź szczegóły dotyczące tematu partnera docelowego, który zostanie utworzony dla tego kanału zdarzeń. 
         1. Wprowadź **Identyfikator subskrypcji** , w której zostanie utworzony temat partnera. 
         1. Wprowadź **nazwę grupy zasobów** , w której zostanie utworzony zasób tematu partnera. 

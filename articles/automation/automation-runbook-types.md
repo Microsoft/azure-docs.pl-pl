@@ -3,14 +3,14 @@ title: Azure Automation typy elementów Runbook
 description: W tym artykule opisano typy elementów Runbook, których można użyć w Azure Automation i zagadnienia dotyczące określania, który typ ma być używany.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/22/2020
+ms.date: 01/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 1a0c12297f19d30bf13ffbe594e0433c83914a8e
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: c1398d25b6d2540abea0012acd69555e5e53e25c
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733964"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050973"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation typy elementów Runbook
 
@@ -117,7 +117,6 @@ Kompilacja elementów Runbook języka Python w języku Python 2 i Python 3. Elem
 * Aby korzystać z bibliotek innych firm, należy [zaimportować pakiety](python-packages.md) do konta usługi Automation.
 * Użycie polecenia cmdlet **Start-AutomationRunbook**   w przepływie pracy programu PowerShell/programu PowerShell w celu uruchomienia elementu Runbook języka Python 3 (wersja zapoznawcza) nie działa. Aby obejść to ograniczenie, można użyć polecenia cmdlet **Start-AzAutomationRunbook** z modułu AZ. Automation lub polecenia cmdlet **Start-AzureRmAutomationRunbook** z modułu AzureRm. Automation.  
 * Elementy Runbook języka Python 3 (wersja zapoznawcza) i pakiety nie działają w programie PowerShell.
-* Korzystanie z elementu webhook do uruchamiania elementów Runbook języka Python nie jest obsługiwane.
 * Azure Automation nie obsługuje pliku **sys. stderr**.
 
 ### <a name="known-issues"></a>Znane problemy
