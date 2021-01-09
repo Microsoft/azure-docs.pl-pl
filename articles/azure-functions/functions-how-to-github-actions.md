@@ -6,18 +6,18 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, github-actions-azure
-ms.openlocfilehash: 0018b7bafa8ff2ecd328a150df752082c85484e2
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: bc80a4f5c6c2919f0cb3faa15958fb75eed70270
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97608514"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98035227"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Ciągłe dostarczanie za pomocą akcji GitHub
 
-Użyj [akcji usługi GitHub](https://github.com/features/actions) , aby zdefiniować przepływ pracy umożliwiający automatyczne Kompilowanie i wdrażanie kodu w aplikacji funkcji platformy Azure. 
+Użyj [akcji usługi GitHub](https://github.com/features/actions) , aby zdefiniować przepływ pracy umożliwiający automatyczne Kompilowanie i wdrażanie kodu w aplikacji funkcji w Azure Functions. 
 
-W akcjach usługi GitHub [przepływ pracy](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) to zautomatyzowany proces zdefiniowany w repozytorium GitHub. Ten proces zawiera informacje dotyczące kompilowania i wdrażania projektu aplikacji usługi Functions w witrynie GitHub. 
+W akcjach usługi GitHub [przepływ pracy](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) to zautomatyzowany proces zdefiniowany w repozytorium GitHub. Ten proces zawiera informacje dotyczące kompilowania i wdrażania projektu aplikacji funkcji w witrynie GitHub. 
 
 Przepływ pracy jest definiowany przez plik YAML (. yml) w `/.github/workflows/` ścieżce w repozytorium. Ta definicja zawiera różne kroki i parametry wchodzące w skład przepływu pracy. 
 
@@ -187,6 +187,7 @@ Poniższy przykład przedstawia część przepływu pracy, który kompiluje apli
 ---
 
 ## <a name="deploy-the-function-app"></a>Wdrażanie aplikacji funkcji
+
 Użyj `Azure/functions-action` akcji, aby wdrożyć kod w aplikacji funkcji. Ta akcja ma trzy parametry:
 
 |Parametr |Wyjaśnienie  |
@@ -202,7 +203,7 @@ W poniższym przykładzie użyta zostanie wersja 1 programu `functions-action` i
 Skonfiguruj przepływ pracy programu .NET Linux, który używa profilu publikowania.
 
 ```yaml
-name: Deploy DotNet project to Azure function app with a Linux environment
+name: Deploy DotNet project to function app with a Linux environment
 
 on:
   [push]
@@ -241,7 +242,7 @@ jobs:
 Skonfiguruj przepływ pracy programu .NET dla systemu Windows, który używa profilu publikowania.
 
 ```yaml
-name: Deploy DotNet project to Azure function app with a Windows environment
+name: Deploy DotNet project to function app with a Windows environment
 
 on:
   [push]
@@ -283,7 +284,7 @@ jobs:
 Skonfiguruj przepływ pracy środowiska Java Linux, który używa profilu publikowania.
 
 ```yaml
-name: Deploy Java project to Azure Function App
+name: Deploy Java project to function app
 
 on:
   [push]
@@ -325,7 +326,7 @@ jobs:
 Skonfiguruj przepływ pracy systemu Windows w języku Java, który używa profilu publikowania.
 
 ```yaml
-name: Deploy Java project to Azure Function App
+name: Deploy Java project to function app
 
 on:
   [push]
@@ -369,7 +370,7 @@ jobs:
 Skonfiguruj przepływ pracy Node.JS systemu Linux, który używa profilu publikowania.
 
 ```yaml
-name: Deploy Node.js project to Azure Function App
+name: Deploy Node.js project to function app
 
 on:
   [push]
@@ -411,7 +412,7 @@ jobs:
 Skonfiguruj Node.JS przepływ pracy systemu Windows, który używa profilu publikowania.
 
 ```yaml
-name: Deploy Node.js project to Azure Function App
+name: Deploy Node.js project to function app
 
 on:
   [push]
@@ -455,7 +456,7 @@ jobs:
 Skonfiguruj przepływ pracy w języku Python systemu Linux, który używa profilu publikowania.
 
 ```yaml
-name: Deploy Python project to Azure Function App
+name: Deploy Python project to function app
 
 on:
   [push]

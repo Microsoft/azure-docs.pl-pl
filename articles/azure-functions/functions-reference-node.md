@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: bf6ebd01a18a0ebf0ab5dd7d7ac3aa34256b4696
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 0b32efe3738dedbe8178889b3e9008964d485b00
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936808"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034921"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Przewodnik dla deweloperów Azure Functions JavaScript
 
@@ -20,7 +20,7 @@ Jako Express.js, Node.js lub programista JavaScript, jeśli dopiero zaczynasz Az
 
 | Wprowadzenie | Pojęcia| Nauka z przewodnikiem |
 | -- | -- | -- | 
-| <ul><li>[ FunkcjaNode.js przy użyciu Visual Studio Code](./create-first-function-vs-code-node.md)</li><li>[ FunkcjaNode.js z terminalem/wierszem polecenia](./create-first-function-cli-java.md)</li></ul> | <ul><li>[Przewodnik dla deweloperów](functions-reference.md)</li><li>[Opcje hostingu](functions-scale.md)</li><li>[Funkcje języka TypeScript](#typescript)</li><li>[&nbsp;Zagadnienia dotyczące wydajności](functions-best-practices.md)</li></ul> | <ul><li>[Tworzenie aplikacji bezserwerowych](/learn/paths/create-serverless-applications/)</li><li>[Refaktoryzacja Node.js i Express API do bezserwerowych interfejsów API](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
+| <ul><li>[ FunkcjaNode.js przy użyciu Visual Studio Code](./create-first-function-vs-code-node.md)</li><li>[ FunkcjaNode.js z terminalem/wierszem polecenia](./create-first-function-cli-node.md)</li></ul> | <ul><li>[Przewodnik dla deweloperów](functions-reference.md)</li><li>[Opcje hostingu](functions-scale.md)</li><li>[Funkcje języka TypeScript](#typescript)</li><li>[&nbsp;Zagadnienia dotyczące wydajności](functions-best-practices.md)</li></ul> | <ul><li>[Tworzenie aplikacji bezserwerowych](/learn/paths/create-serverless-applications/)</li><li>[Refaktoryzacja Node.js i Express API do bezserwerowych interfejsów API](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
 ## <a name="javascript-function-basics"></a>Podstawowe funkcje języka JavaScript
 

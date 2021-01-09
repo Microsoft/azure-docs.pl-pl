@@ -7,40 +7,40 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d2606f793c7ab2e3ac29b1eb869e60a2c8e634ad
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: ff7c50d08962fec55584e8c4b3259fb8fda1fd97
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145926"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98035295"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Pozyskiwanie danych telemetrycznych IoT Hub na platformie Azure Digital bliźniaczych reprezentacji
 
 Usługa Azure Digital bliźniaczych reprezentacji jest oparta na danych z urządzeń IoT i innych źródeł. Typowym źródłem danych urządzenia do użycia w usłudze Azure Digital bliźniaczych reprezentacji jest [IoT Hub](../iot-hub/about-iot-hub.md).
 
-Proces pozyskiwania danych w usłudze Azure Digital bliźniaczych reprezentacji polega na skonfigurowaniu zewnętrznego zasobu obliczeniowego, takiego jak [Funkcja platformy Azure](../azure-functions/functions-overview.md), która odbiera dane, i używa [interfejsów API DigitalTwins](/rest/api/digital-twins/dataplane/twins) do ustawiania właściwości lub zdarzeń telemetrii na potrzeby [bliźniaczych reprezentacji w cyfrowych](concepts-twins-graph.md) . 
+Proces pozyskiwania danych w usłudze Azure Digital bliźniaczych reprezentacji polega na skonfigurowaniu zewnętrznego zasobu obliczeniowego, takiego jak funkcja, która została wykonana przy użyciu [Azure Functions](../azure-functions/functions-overview.md). Funkcja otrzymuje dane i używa [interfejsów API DigitalTwins](/rest/api/digital-twins/dataplane/twins) do ustawiania właściwości lub zdarzeń telemetrii na potrzeby [cyfrowego bliźniaczych reprezentacji](concepts-twins-graph.md) odpowiednio. 
 
-Ten dokument zawiera instrukcje dotyczące tworzenia funkcji platformy Azure, która może pozyskać dane telemetryczne z IoT Hub.
+Ten dokument zawiera instrukcje dotyczące tworzenia funkcji, która może pozyskać dane telemetryczne z IoT Hub.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed kontynuowaniem tego przykładu należy skonfigurować następujące zasoby jako wymagania wstępne:
-* **Centrum IoT** . Aby uzyskać instrukcje, zobacz sekcję *tworzenie IoT Hub* w [tym IoT Hub przewodniku szybki start](../iot-hub/quickstart-send-telemetry-cli.md).
-* **Funkcja platformy Azure** z prawidłowymi uprawnieniami do wywoływania Twojego wystąpienia cyfrowej sieci dwuosiowej. Aby uzyskać instrukcje, zobacz [*How to: set up a Azure Function for processing Data*](how-to-create-azure-function.md). 
+* **Centrum IoT**. Aby uzyskać instrukcje, zobacz sekcję *tworzenie IoT Hub* w [tym IoT Hub przewodniku szybki start](../iot-hub/quickstart-send-telemetry-cli.md).
+* **Funkcja** z odpowiednimi uprawnieniami do wywoływania swojego wystąpienia cyfrowej pojedynczej sieci. Aby uzyskać instrukcje, zobacz [*How to: set up a function in Azure for processing Data*](how-to-create-azure-function.md). 
 * **Wystąpienie usługi Azure Digital bliźniaczych reprezentacji** , które będzie odbierać dane telemetryczne urządzenia. Aby uzyskać instrukcje, zobacz [*How to: set up the Azure Digital bliźniaczych reprezentacji instance and Authentication*](./how-to-set-up-instance-portal.md).
 
 ### <a name="example-telemetry-scenario"></a>Przykładowy scenariusz telemetrii
 
-Ten sposób przedstawia sposób wysyłania komunikatów z IoT Hub do usługi Azure Digital bliźniaczych reprezentacji przy użyciu funkcji platformy Azure. Istnieje wiele możliwych konfiguracji i strategie dopasowania, których można użyć do wysyłania wiadomości, ale przykład tego artykułu zawiera następujące części:
+W tym temacie opisano sposób wysyłania komunikatów z IoT Hub do usługi Azure Digital bliźniaczych reprezentacji przy użyciu funkcji platformy Azure. Istnieje wiele możliwych konfiguracji i strategie dopasowania, których można użyć do wysyłania wiadomości, ale przykład tego artykułu zawiera następujące części:
 * Urządzenie termometru w IoT Hub ze znanym IDENTYFIKATORem urządzenia
 * Cyfrowa dwuosiowa do reprezentowania urządzenia, o zgodnym IDENTYFIKATORze
 
 > [!NOTE]
 > W tym przykładzie zastosowano prostą zgodność identyfikatora między IDENTYFIKATORem urządzenia i odpowiadającym mu IDENTYFIKATORem cyfrowej sznurka, ale można zapewnić bardziej zaawansowane mapowania z urządzenia do jego sznurka (na przykład z tabelą mapowania).
 
-Za każdym razem, gdy urządzenie z termostatem wysyła zdarzenie telemetryczne dotyczące temperatury, funkcja platformy Azure przetwarza dane telemetryczne i Właściwość *temperatura* cyfrowych sznurka. Ten scenariusz przedstawiono na poniższym diagramie:
+Za każdym razem, gdy zdarzenie telemetrii temperatury jest wysyłane przez urządzenie termostatu, funkcja przetwarza dane telemetryczne i Właściwość *temperatura* cyfr cyfrowych. Ten scenariusz przedstawiono na poniższym diagramie:
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="Diagram przedstawiający wykres przepływu. Na wykresie urządzenie IoT Hub wysyła dane telemetryczne dotyczące temperatury za pomocą IoT Hub do funkcji platformy Azure, która aktualizuje właściwość temperatury na sznurze w usłudze Azure Digital bliźniaczych reprezentacji." border="false":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="Diagram przedstawiający wykres przepływu. Na wykresie urządzenie IoT Hub wysyła dane telemetryczne dotyczące temperatury poprzez IoT Hub do funkcji na platformie Azure, która aktualizuje właściwość temperatury na sznurze w usłudze Azure Digital bliźniaczych reprezentacji." border="false":::
 
 ## <a name="add-a-model-and-twin"></a>Dodaj model i sznurki
 
@@ -62,13 +62,13 @@ Model wygląda następująco:
 }
 ```
 
-Aby **przekazać ten model do wystąpienia usługi bliźniaczych reprezentacji** , Otwórz interfejs wiersza polecenia platformy Azure i uruchom następujące polecenie:
+Aby **przekazać ten model do wystąpienia usługi bliźniaczych reprezentacji**, Otwórz interfejs wiersza polecenia platformy Azure i uruchom następujące polecenie:
 
 ```azurecli-interactive
 az dt model create --models '{  "@id": "dtmi:contosocom:DigitalTwins:Thermostat;1",  "@type": "Interface",  "@context": "dtmi:dtdl:context;2",  "contents": [    {      "@type": "Property",      "name": "Temperature",      "schema": "double"    }  ]}' -n {digital_twins_instance_name}
 ```
 
-Następnie należy **utworzyć jedną sznurek przy użyciu tego modelu** . Użyj następującego polecenia, aby utworzyć dwuosiową i ustawić 0,0 jako początkową wartość temperatury.
+Następnie należy **utworzyć jedną sznurek przy użyciu tego modelu**. Użyj następującego polecenia, aby utworzyć dwuosiową i ustawić 0,0 jako początkową wartość temperatury.
 
 ```azurecli-interactive
 az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}' --dt-name {digital_twins_instance_name}
@@ -93,9 +93,9 @@ Dane wyjściowe pomyślnego utworzenia dwuosiowego polecenia powinny wyglądać 
 }
 ```
 
-## <a name="create-an-azure-function"></a>Tworzenie funkcji platformy Azure
+## <a name="create-a-function"></a>Tworzenie funkcji
 
-Ta sekcja używa tych samych kroków uruchamiania programu Visual Studio i szkieletu funkcji platformy Azure z pozostałej części [*: Konfigurowanie funkcji platformy Azure do przetwarzania danych*](how-to-create-azure-function.md). Szkielet obsługuje uwierzytelnianie i tworzy klienta usługi, gotowy do przetwarzania danych i wywoływania interfejsów API Digital bliźniaczych reprezentacji w odpowiedzi na platformie Azure. 
+Ta sekcja używa tych samych kroków uruchamiania i szkieletu funkcji programu Visual Studio, które są [*następujące: Konfigurowanie funkcji do przetwarzania danych*](how-to-create-azure-function.md). Szkielet obsługuje uwierzytelnianie i tworzy klienta usługi, gotowy do przetwarzania danych i wywoływania interfejsów API Digital bliźniaczych reprezentacji w odpowiedzi na platformie Azure. 
 
 W kolejnych krokach dodasz do niego konkretny kod służący do przetwarzania zdarzeń telemetrii IoT z IoT Hub.  
 
@@ -123,11 +123,11 @@ await client.UpdateDigitalTwinAsync(deviceId, updateTwinData);
 ...
 ```
 
-### <a name="update-your-azure-function-code"></a>Aktualizowanie kodu funkcji platformy Azure
+### <a name="update-your-function-code"></a>Aktualizowanie kodu funkcji
 
-Teraz, gdy rozumiesz kod z wcześniejszych przykładów, Otwórz funkcję platformy Azure w sekcji [*wymagania wstępne*](#prerequisites) w programie Visual Studio. (Jeśli nie masz funkcji platformy Azure, odwiedź link w sekcji wymagania wstępne, aby utworzyć go teraz).
+Teraz, gdy rozumiesz kod z wcześniejszych przykładów, Otwórz funkcję z sekcji [*wymagania wstępne*](#prerequisites) w programie Visual Studio. (Jeśli nie masz funkcji, która została utworzona na platformie Azure, przejdź do linku w sekcji wymagania wstępne, aby utworzyć ją teraz).
 
-Zamień kod funkcji platformy Azure na ten przykładowy kod.
+Zamień kod funkcji na ten przykładowy kod.
 
 ```csharp
 using System;
@@ -189,7 +189,7 @@ namespace IotHubtoTwins
     }
 }
 ```
-Zapisz kod funkcji i Opublikuj aplikację funkcji na platformie Azure. Można to zrobić, odwołując się do sekcji [*publikowanie aplikacja funkcji,*](./how-to-create-azure-function.md#publish-the-function-app-to-azure) jak to zrobić [*: Konfigurowanie funkcji platformy Azure do przetwarzania danych*](how-to-create-azure-function.md).
+Zapisz kod funkcji i Opublikuj aplikację funkcji na platformie Azure. Aby dowiedzieć się, jak to zrobić, zobacz temat [*publikowanie aplikacji funkcji*](./how-to-create-azure-function.md#publish-the-function-app-to-azure) w artykule [*jak skonfigurować funkcję na platformie Azure do przetwarzania danych*](how-to-create-azure-function.md).
 
 Po pomyślnym opublikowaniu dane wyjściowe będą widoczne w oknie poleceń programu Visual Studio, jak pokazano poniżej:
 
@@ -205,34 +205,34 @@ Po pomyślnym opublikowaniu dane wyjściowe będą widoczne w oknie poleceń pro
 ```
 Możesz również sprawdzić stan procesu publikowania w [Azure Portal](https://portal.azure.com/). Wyszukaj _grupę zasobów_ i przejdź do _dziennika aktywności_ i poszukaj w obszarze _Pobierz profil publikowania aplikacji sieci Web_ na liście i sprawdź, czy stan został zakończony pomyślnie.
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/azure-function-publish-activity-log.png" alt-text="Diagram przedstawiający wykres przepływu. Na wykresie urządzenie IoT Hub wysyła dane telemetryczne dotyczące temperatury za pomocą IoT Hub do funkcji platformy Azure, która aktualizuje właściwość temperatury na sznurze w usłudze Azure Digital bliźniaczych reprezentacji.":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/azure-function-publish-activity-log.png" alt-text="Zrzut ekranu przedstawiający Azure Portal, który pokazuje stan procesu publikowania.":::
 
 ## <a name="connect-your-function-to-iot-hub"></a>Połącz funkcję z IoT Hub
 
 Skonfiguruj miejsce docelowe zdarzenia dla danych centrum.
-W [Azure Portal](https://portal.azure.com/)przejdź do wystąpienia IoT Hub utworzonego w sekcji [*wymagania wstępne*](#prerequisites) . W obszarze **zdarzenia** Utwórz subskrypcję dla funkcji platformy Azure.
+W [Azure Portal](https://portal.azure.com/)przejdź do wystąpienia IoT Hub utworzonego w sekcji [*wymagania wstępne*](#prerequisites) . W obszarze **zdarzenia** Utwórz subskrypcję funkcji.
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Diagram przedstawiający wykres przepływu. Na wykresie urządzenie IoT Hub wysyła dane telemetryczne dotyczące temperatury za pomocą IoT Hub do funkcji platformy Azure, która aktualizuje właściwość temperatury na sznurze w usłudze Azure Digital bliźniaczych reprezentacji.":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Zrzut ekranu przedstawiający Azure Portal, który pokazuje Dodawanie subskrypcji zdarzeń.":::
 
 Na stronie **Tworzenie subskrypcji zdarzeń** Wypełnij pola w następujący sposób:
   1. W polu **Nazwa** Nazwij subskrypcję, którą chcesz.
-  2. W obszarze **schemat zdarzenia** wybierz pozycję _Event Grid schemat_ .
+  2. W obszarze **schemat zdarzenia** wybierz pozycję _Event Grid schemat_.
   3. W obszarze **typy zdarzeń** zaznacz pole wyboru dane _telemetryczne urządzenia_ i usuń zaznaczenie pozycji inne typy zdarzeń.
-  4. W obszarze **Typ punktu końcowego** wybierz pozycję _Funkcja platformy Azure_ .
+  4. W obszarze **Typ punktu końcowego** wybierz pozycję _Funkcja platformy Azure_.
   5. W obszarze **punkt końcowy** wybierz łącze _Wybierz punkt końcowy_ , aby utworzyć punkt końcowy.
     
-:::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Diagram przedstawiający wykres przepływu. Na wykresie urządzenie IoT Hub wysyła dane telemetryczne dotyczące temperatury za pomocą IoT Hub do funkcji platformy Azure, która aktualizuje właściwość temperatury na sznurze w usłudze Azure Digital bliźniaczych reprezentacji.":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Zrzut ekranu przedstawiający Azure Portal, aby utworzyć szczegóły subskrypcji zdarzeń":::
 
 Na stronie _Wybierz funkcję platformy Azure_ , która zostanie otwarta, sprawdź poniższe szczegóły.
- 1. **Subskrypcja** : Subskrypcja platformy Azure
- 2. **Grupa zasobów** : Grupa zasobów
- 3. **Aplikacja funkcji** : Nazwa aplikacji funkcji
- 4. **Gniazdo** : _produkcja_
- 5. **Funkcja** : wybierz funkcję platformy Azure z listy rozwijanej.
+ 1. **Subskrypcja**: Subskrypcja platformy Azure
+ 2. **Grupa zasobów**: Grupa zasobów
+ 3. **Aplikacja funkcji**: Nazwa aplikacji funkcji
+ 4. **Gniazdo**: _produkcja_
+ 5. **Funkcja**: wybierz funkcję z listy rozwijanej.
 
 Zapisz szczegóły, wybierając przycisk _Potwierdź wybór_ .            
       
-:::image type="content" source="media/how-to-ingest-iot-hub-data/select-azure-function.png" alt-text="Diagram przedstawiający wykres przepływu. Na wykresie urządzenie IoT Hub wysyła dane telemetryczne dotyczące temperatury za pomocą IoT Hub do funkcji platformy Azure, która aktualizuje właściwość temperatury na sznurze w usłudze Azure Digital bliźniaczych reprezentacji.":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/select-azure-function.png" alt-text="Zrzut ekranu przedstawiający Azure Portal, aby wybrać funkcję.":::
 
 Wybierz przycisk _Utwórz_ , aby utworzyć subskrypcję zdarzeń.
 

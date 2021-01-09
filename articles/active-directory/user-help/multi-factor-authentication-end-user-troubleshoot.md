@@ -13,12 +13,12 @@ ms.date: 09/01/2020
 ms.author: curtand
 ms.reviewer: kexia
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: caa2c66d66cce09f5b5b0fe0948ab924389d756e
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 0cb5e3463eda5d77bbbdefe223954105fd125c71
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033786"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033986"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Typowe problemy z weryfikacją dwuskładnikową i kontem służbowym
 
@@ -74,7 +74,7 @@ Nie otrzymasz kodu weryfikacyjnego jest powszechnym problemem. Problem jest zwyk
 
 Wypróbuj | Informacje wskazówki
 --------- | ------------
-Korzystanie z aplikacji Microsoft Authenticator lub kodów weryfikacyjnych | Otrzymujesz "osiągnięto nasz limit wywołań weryfikacyjnych" lub "osiągnięto nasz limit kodów weryfikacyjnych tekstu" podczas logowania. <br/><br/>Firma Microsoft może ograniczyć powtarzające się próby uwierzytelniania wykonywane przez tego samego użytkownika w krótkim czasie. To ograniczenie nie dotyczy Microsoft Authenticator ani kodu weryfikacyjnego. Jeśli osiągnięto te limity, możesz użyć aplikacji Authenticator, kodu weryfikacyjnego lub spróbować zalogować się ponownie za kilka minut.
+Korzystanie z aplikacji Microsoft Authenticator lub kodów weryfikacyjnych | Otrzymujesz "osiągnięto nasz limit wywołań weryfikacyjnych" lub "osiągnięto nasz limit kodów weryfikacyjnych tekstu" podczas logowania. <br/><br/>Firma Microsoft może ograniczyć powtarzające się próby uwierzytelniania wykonywane przez tego samego użytkownika w krótkim czasie. To ograniczenie nie dotyczy Microsoft Authenticator ani kodu weryfikacyjnego. Jeśli osiągnięto te limity, możesz użyć aplikacji Authenticator, kodu weryfikacyjnego lub spróbować zalogować się ponownie za kilka minut. <br/><br/> "Niestety, wystąpił problem podczas weryfikowania Twojego konta" podczas logowania. <br/><br/> Firma Microsoft może ograniczyć lub zablokować próby uwierzytelniania głosu lub wiadomości SMS wykonywane przez tego samego użytkownika, numer telefonu lub organizację ze względu na dużą liczbę nieudanych prób uwierzytelnienia głosu lub SMS. Jeśli ten błąd występuje, możesz wypróbować inną metodę, taką jak aplikacja uwierzytelniania lub kod weryfikacyjny, lub skontaktować się z administratorem w celu uzyskania pomocy.
 Ponowne uruchamianie urządzenia przenośnego | Czasami urządzenie wymaga odświeżenia. Po ponownym uruchomieniu urządzenia zostaną zakończone wszystkie procesy i usługi w tle. Ponowne uruchomienie powoduje także zamknięcie podstawowych składników urządzenia. Wszystkie usługi lub składniki są odświeżane po ponownym uruchomieniu urządzenia.
 Sprawdź, czy informacje zabezpieczające są poprawne | Upewnij się, że informacje o metodzie weryfikacji zabezpieczeń są dokładne, a zwłaszcza numery telefonów. Jeśli umieścisz w niewłaściwym numerze telefonu, wszystkie alerty przechodzą do tej niepoprawnej liczby. Na szczęście ten użytkownik nie będzie mógł wykonywać żadnych czynności dotyczących alertów, ale również nie pomoże Ci zalogować się do konta. Aby upewnić się, że informacje są poprawne, zapoznaj się z instrukcjami w artykule [Zarządzanie ustawieniami metody weryfikacji dwuskładnikowej](multi-factor-authentication-end-user-manage-settings.md) .
 Sprawdź, czy powiadomienia są włączone | Upewnij się, że na urządzeniu przenośnym włączono powiadomienia. Upewnij się, że są dozwolone następujące tryby powiadomień: <br/><br/> &bull; Rozmowy telefoniczne <br/> &bull; Aplikacja uwierzytelniania <br/> &bull; Twoja aplikacja do obsługi wiadomości SMS <br/><br/> Upewnij się, że te tryby tworzą alert _widoczny_ na urządzeniu.

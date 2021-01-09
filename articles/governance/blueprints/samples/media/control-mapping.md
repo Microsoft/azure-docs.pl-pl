@@ -1,20 +1,20 @@
 ---
 title: Przykładowe kontrolki multimediów
 description: Sterowanie mapowaniem przykładów planu multimediów. Każda kontrolka jest zamapowana na co najmniej jedną definicję Azure Policy, która pomaga w ocenie.
-ms.date: 08/13/2020
+ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: ec4850b4e3061d267610bfd9c2c0e33c670472b4
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: e1356acfd7b6b9693322000077b221781b58681f
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931873"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98035040"
 ---
 # <a name="control-mapping-of-the-media-blueprint-sample"></a>Sterowanie mapowaniem przykładu planu multimediów
 
 W tym artykule szczegółowo przedstawiono sposób mapowania przykładu planu nośnika na platformę Azure do kontrolek multimediów. Aby uzyskać więcej informacji na temat kontrolek, zobacz [Media](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html).
 
-Następujące mapowania znajdują się w kontrolkach **multimediów** . Użyj nawigacji po prawej stronie, aby przejść bezpośrednio do określonego mapowania formantów. Wiele zamapowanych formantów jest implementowanych z inicjatywą [Azure Policy](../../../policy/overview.md) . Aby zapoznać się z pełną inicjatywą, Otwórz **zasady** w Azure Portal i wybierz stronę **definicje** . Następnie Znajdź i wybierz pozycję ** \[ Podgląd \] : Inspekcja nośnika** — wbudowana inicjatywa Policy.
+Następujące mapowania znajdują się w kontrolkach **multimediów** . Użyj nawigacji po prawej stronie, aby przejść bezpośrednio do określonego mapowania formantów. Wiele zamapowanych formantów jest implementowanych z inicjatywą [Azure Policy](../../../policy/overview.md) . Aby zapoznać się z pełną inicjatywą, Otwórz **zasady** w Azure Portal i wybierz stronę **definicje** . Następnie Znajdź i wybierz pozycję **\[ Podgląd \] : Inspekcja nośnika** — wbudowana inicjatywa Policy.
 
 > [!IMPORTANT]
 > Każda kontrolka poniżej jest skojarzona z co najmniej jedną definicją [Azure Policy](../../../policy/overview.md) . Te zasady mogą pomóc w [ocenie zgodności](../../../policy/how-to/get-compliance-data.md) z kontrolką; jednak często nie jest to jeden lub kompletny odpowiednik między kontrolką a co najmniej jedną zasadą. W związku z tym **zgodność** w Azure Policy odnosi się tylko do samych zasad; nie gwarantuje to, że jest w pełni zgodne ze wszystkimi wymaganiami formantu. Ponadto Standard zgodności zawiera kontrolki, które nie są obecnie rozwiązywane przez żadną Azure Policy definicje. W związku z tym zgodność w Azure Policy jest tylko częściowym widokiem ogólnego stanu zgodności. Skojarzenia między kontrolkami i definicjami Azure Policy dla tego przykładowego planu zgodności mogą ulec zmianie z upływem czasu. Aby wyświetlić historię zmian, zobacz [historię zatwierdzeń usługi GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/media/control-mapping.md).

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 20dc6cde9cce6a9d57047940a38adb5cf004ae6a
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 4fc2426189384856d2d2e95887cdabd2f9e9ebea
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347680"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033782"
 ---
 # <a name="azure-table-storage-input-bindings-for-azure-functions"></a>Powiązania danych wejściowych usługi Azure Table Storage dla Azure Functions
 
@@ -296,97 +296,6 @@ public class Person : TableEntity
 }
 ```
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-Poniższy przykład przedstawia powiązanie danych wejściowych tabeli w *function.jsw* pliku i [kodzie JavaScript](functions-reference-node.md) , który używa powiązania. Funkcja używa wyzwalacza kolejki do odczytywania pojedynczego wiersza tabeli. 
-
-*function.jsw* pliku określa `partitionKey` i `rowKey` . `rowKey`Wartość "{queueTrigger}" wskazuje, że klucz wiersza pochodzi z ciągu komunikatu kolejki.
-
-```json
-{
-  "bindings": [
-    {
-      "queueName": "myqueue-items",
-      "connection": "MyStorageConnectionAppSetting",
-      "name": "myQueueItem",
-      "type": "queueTrigger",
-      "direction": "in"
-    },
-    {
-      "name": "personEntity",
-      "type": "table",
-      "tableName": "Person",
-      "partitionKey": "Test",
-      "rowKey": "{queueTrigger}",
-      "connection": "MyStorageConnectionAppSetting",
-      "direction": "in"
-    }
-  ],
-  "disabled": false
-}
-```
-
-W sekcji [Konfiguracja](#configuration) objaśniono te właściwości.
-
-Oto kod JavaScript:
-
-```javascript
-module.exports = function (context, myQueueItem) {
-    context.log('Node.js queue trigger function processed work item', myQueueItem);
-    context.log('Person entity name: ' + context.bindings.personEntity.Name);
-    context.done();
-};
-```
-
-# <a name="python"></a>[Python](#tab/python)
-
-Wiersz pojedynczej tabeli 
-
-```json
-{
-  "scriptFile": "__init__.py",
-  "bindings": [
-    {
-      "name": "messageJSON",
-      "type": "table",
-      "tableName": "messages",
-      "partitionKey": "message",
-      "rowKey": "{id}",
-      "connection": "AzureWebJobsStorage",
-      "direction": "in"
-    },
-    {
-      "authLevel": "function",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ],
-      "route": "messages/{id}"
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
-    }
-  ],
-  "disabled": false
-}
-```
-
-```python
-import json
-
-import azure.functions as func
-
-def main(req: func.HttpRequest, messageJSON) -> func.HttpResponse:
-
-    message = json.loads(messageJSON)
-    return func.HttpResponse(f"Table row: {messageJSON}")
-```
-
 # <a name="java"></a>[Java](#tab/java)
 
 Poniższy przykład pokazuje funkcję wyzwalaną przez protokół HTTP, która zwraca listę obiektów osób znajdujących się w określonej partycji w magazynie tabel. W tym przykładzie klucz partycji jest wyodrębniany z trasy http, a TableName i Connection pochodzą z ustawień funkcji. 
@@ -440,7 +349,7 @@ public HttpResponseMessage get(
 }
 ```
 
-Poniższe przykłady używają filtru do wykonywania zapytań dotyczących osób mających określoną nazwę w tabeli platformy Azure i ograniczają liczbę możliwych dopasowań do 10 wyników.
+Poniższy przykład używa filtru do wykonywania zapytań dotyczących osób o określonej nazwie w tabeli platformy Azure i ogranicza liczbę możliwych dopasowań do 10 wyników.
 
 ```java
 @FunctionName("getPersonsByName")
@@ -454,6 +363,143 @@ public Person[] get(
 
     return persons;
 }
+```
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Poniższy przykład przedstawia powiązanie danych wejściowych tabeli w *function.jsw* pliku i [kodzie JavaScript](functions-reference-node.md) , który używa powiązania. Funkcja używa wyzwalacza kolejki do odczytywania pojedynczego wiersza tabeli. 
+
+*function.jsw* pliku określa `partitionKey` i `rowKey` . `rowKey`Wartość "{queueTrigger}" wskazuje, że klucz wiersza pochodzi z ciągu komunikatu kolejki.
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "personEntity",
+      "type": "table",
+      "tableName": "Person",
+      "partitionKey": "Test",
+      "rowKey": "{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+W sekcji [Konfiguracja](#configuration) objaśniono te właściwości.
+
+Oto kod JavaScript:
+
+```javascript
+module.exports = function (context, myQueueItem) {
+    context.log('Node.js queue trigger function processed work item', myQueueItem);
+    context.log('Person entity name: ' + context.bindings.personEntity.Name);
+    context.done();
+};
+```
+
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+Poniższa funkcja używa wyzwalacza kolejki, aby odczytać pojedynczy wiersz tabeli jako dane wejściowe do funkcji.
+
+W tym przykładzie Konfiguracja powiązania określa wartość jawną tabeli `partitionKey` i używa wyrażenia do przekazania do `rowKey` . `rowKey`Wyrażenie wskazuje, `{queueTrigger}` że klucz wiersza pochodzi z ciągu komunikatu kolejki.
+
+Konfiguracja powiązania w _function.jsna_:
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "MyQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "PersonEntity",
+      "type": "table",
+      "tableName": "Person",
+      "partitionKey": "Test",
+      "rowKey": "{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Kod programu PowerShell w _run.ps1_:
+
+```powershell
+param($MyQueueItem, $PersonEntity, $TriggerMetadata)
+Write-Host "PowerShell queue trigger function processed work item: $MyQueueItem"
+Write-Host "Person entity name: $($PersonEntity.Name)"
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+Poniższa funkcja używa wyzwalacza kolejki, aby odczytać pojedynczy wiersz tabeli jako dane wejściowe do funkcji.
+
+W tym przykładzie Konfiguracja powiązania określa wartość jawną tabeli `partitionKey` i używa wyrażenia do przekazania do `rowKey` . `rowKey`Wyrażenie wskazuje, `{id}` że klucz wiersza pochodzi z ciągu komunikatu kolejki.
+
+Konfiguracja powiązania w _function.jsw_ pliku:
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "messageJSON",
+      "type": "table",
+      "tableName": "messages",
+      "partitionKey": "message",
+      "rowKey": "{id}",
+      "connection": "AzureWebJobsStorage",
+      "direction": "in"
+    },
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ],
+      "route": "messages/{id}"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Kod języka Python w pliku *\_ \_ init \_ \_ . PR* :
+
+```python
+import json
+
+import azure.functions as func
+
+def main(req: func.HttpRequest, messageJSON) -> func.HttpResponse:
+
+    message = json.loads(messageJSON)
+    return func.HttpResponse(f"Table row: {messageJSON}")
 ```
 
 ---
@@ -522,17 +568,21 @@ Konto magazynu do użycia jest określane w następującej kolejności:
 
 Atrybuty nie są obsługiwane przez skrypt języka C#.
 
+# <a name="java"></a>[Java](#tab/java)
+
+W [bibliotece środowiska uruchomieniowego funkcji Java](/java/api/overview/azure/functions/runtime)Użyj `@TableInput` adnotacji w parametrach, których wartość pochodzi z magazynu tabel.  Tej adnotacji można używać w przypadku natywnych typów Java, Pojo lub wartości null przy użyciu `Optional<T>` .
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Atrybuty nie są obsługiwane przez język JavaScript.
 
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+Atrybuty nie są obsługiwane przez program PowerShell.
+
 # <a name="python"></a>[Python](#tab/python)
 
 Atrybuty nie są obsługiwane przez język Python.
-
-# <a name="java"></a>[Java](#tab/java)
-
-W [bibliotece środowiska uruchomieniowego funkcji Java](/java/api/overview/azure/functions/runtime)Użyj `@TableInput` adnotacji w parametrach, których wartość pochodzi z magazynu tabel.  Tej adnotacji można używać w przypadku natywnych typów Java, Pojo lub wartości null przy użyciu `Optional<T>` .
 
 ---
 
@@ -548,7 +598,7 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 |**tableName** | **TableName** | Nazwa tabeli.| 
 |**partitionKey** | **PartitionKey** |Opcjonalny. Klucz partycji jednostki tabeli do odczytania. Zapoznaj się z sekcją [użycie](#usage) , aby uzyskać wskazówki dotyczące sposobu korzystania z tej właściwości.| 
 |**rowKey** |**RowKey** | Opcjonalny. Klucz wiersza jednostki tabeli, który ma zostać odczytany. Zapoznaj się z sekcją [użycie](#usage) , aby uzyskać wskazówki dotyczące sposobu korzystania z tej właściwości.| 
-|**take (pobierz)** |**Czasochłonn** | Opcjonalny. Maksymalna liczba jednostek do odczytania w języku JavaScript. Zapoznaj się z sekcją [użycie](#usage) , aby uzyskać wskazówki dotyczące sposobu korzystania z tej właściwości.| 
+|**czasochłonn** |**Czasochłonn** | Opcjonalny. Maksymalna liczba jednostek do odczytania w języku JavaScript. Zapoznaj się z sekcją [użycie](#usage) , aby uzyskać wskazówki dotyczące sposobu korzystania z tej właściwości.| 
 |**filtru** |**Filtr** | Opcjonalny. Wyrażenie filtru OData dla danych wejściowych tabeli w języku JavaScript. Zapoznaj się z sekcją [użycie](#usage) , aby uzyskać wskazówki dotyczące sposobu korzystania z tej właściwości.| 
 |**połączenia** |**Połączenie** | Nazwa ustawienia aplikacji, które zawiera parametry połączenia magazynu, które będą używane dla tego powiązania. Ustawienie to może być nazwą prefiksu "AzureWebJobs" lub nazwą parametrów połączenia. Na przykład, jeśli nazwa ustawienia to "AzureWebJobsMyStorage", w tym miejscu możesz określić "WebStorage". Środowisko uruchomieniowe funkcji automatycznie szuka ustawienia aplikacji o nazwie "AzureWebJobsMyStorage". Jeśli pozostawisz `connection` puste, środowisko uruchomieniowe funkcji używa domyślnych parametrów połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage` .|
 
@@ -582,17 +632,21 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
   > [!NOTE]
   > `IQueryable` nie jest obsługiwany w [środowisku uruchomieniowym funkcji v2](functions-versions.md). Alternatywą jest [użycie parametru metody w chmurze paramName](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) , aby odczytać tabelę przy użyciu zestawu SDK usługi Azure Storage. Jeśli próbujesz powiązać z `CloudTable` i otrzymać komunikat o błędzie, upewnij się, że masz odwołanie do [odpowiedniej wersji zestawu SDK magazynu](./functions-bindings-storage-table.md#azure-storage-sdk-version-in-functions-1x).
 
+# <a name="java"></a>[Java](#tab/java)
+
+Atrybut [TableInput](/java/api/com.microsoft.azure.functions.annotation.tableinput) umożliwia dostęp do wiersza tabeli, który wyzwolił funkcję.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Ustaw `filter` właściwości i `take` . Nie ustawiaj `partitionKey` ani `rowKey` . Uzyskaj dostęp do jednostki tabeli wejściowej (lub jednostek) za pomocą `context.bindings.<BINDING_NAME>` . Deserializowane obiekty mają `RowKey` właściwości i `PartitionKey` .
 
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+Dane są przesyłane do parametru wejściowego określonego przez `name` klucz w *function.js* pliku. Określenie `partitionKey` i `rowKey` umożliwia filtrowanie do określonych rekordów. Zobacz [przykład programu PowerShell](#example) , aby uzyskać więcej szczegółów.
+
 # <a name="python"></a>[Python](#tab/python)
 
 Dane tabeli są przesyłane do funkcji jako ciąg JSON. Deserializowanie komunikatu przez wywołanie metody `json.loads` , jak pokazano w [przykładzie](#example)wejściowym.
-
-# <a name="java"></a>[Java](#tab/java)
-
-Atrybut [TableInput](/java/api/com.microsoft.azure.functions.annotation.tableinput) umożliwia dostęp do wiersza tabeli, który wyzwolił funkcję.
 
 ---
 

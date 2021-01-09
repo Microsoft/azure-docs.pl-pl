@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 707c69efddeda364f0c62e9719ae1a6073dfe9ad
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 993cd614f150866817e8d71dbd9dca9be606465f
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935737"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98035159"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Podstawa zabezpieczeń platformy Azure dla Azure Functions
 
@@ -56,16 +56,16 @@ Jeśli używasz sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń) z 
 
 ### <a name="13-protect-critical-web-applications"></a>1,3: Ochrona krytycznych aplikacji sieci Web
 
-**Wskazówki**: aby w pełni zabezpieczyć punkty końcowe funkcji platformy Azure w środowisku produkcyjnym, należy rozważyć implementację jednej z następujących opcji zabezpieczeń na poziomie aplikacji:
+**Wskazówki**: aby w pełni zabezpieczyć Azure Functions punkty końcowe w środowisku produkcyjnym, należy rozważyć implementację jednej z następujących opcji zabezpieczeń na poziomie aplikacji:
 - Włącz App Service uwierzytelnianie/autoryzację dla aplikacji funkcji,
 - Użyj usługi Azure API Management (APIM) do uwierzytelniania żądań lub
 - Wdróż aplikację funkcji w Azure App Service Environment.
 
-Ponadto upewnij się, że debugowanie zdalne zostało wyłączone dla Azure Functions produkcyjnych. Ponadto udostępnianie zasobów między źródłami (CORS) nie powinno zezwalać wszystkim domenom na dostęp do aplikacji funkcji platformy Azure. Zezwalaj na współdziałanie z aplikacją funkcji platformy Azure tylko wymagane domeny.
+Ponadto upewnij się, że debugowanie zdalne zostało wyłączone dla Azure Functions produkcyjnych. Ponadto funkcja udostępniania zasobów między źródłami (CORS) nie powinna zezwalać wszystkim domenom na dostęp do aplikacji funkcji na platformie Azure. Zezwalaj na współdziałanie z aplikacją funkcji tylko dla wymaganych domen.
 
 Rozważ wdrożenie zapory aplikacji sieci Web platformy Azure (WAF) jako części konfiguracji sieci w celu przeprowadzenia dodatkowej inspekcji ruchu przychodzącego. Włącz ustawienie diagnostyczne dla WAF i pobierania dzienników do konta magazynu, centrum zdarzeń lub Log Analytics obszaru roboczego. 
 
-- [Jak zabezpieczyć punkty końcowe funkcji platformy Azure w środowisku produkcyjnym](./functions-bindings-http-webhook-trigger.md?tabs=csharp#secure-an-http-endpoint-in-production)
+- [Jak zabezpieczyć Azure Functions punkty końcowe w środowisku produkcyjnym](./functions-bindings-http-webhook-trigger.md?tabs=csharp#secure-an-http-endpoint-in-production)
 
 - [Jak wdrożyć usługę Azure WAF](../web-application-firewall/ag/create-waf-policy-ag.md)
 
@@ -76,7 +76,7 @@ Rozważ wdrożenie zapory aplikacji sieci Web platformy Azure (WAF) jako częśc
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1,4: odmowa komunikacji ze znanymi złośliwymi adresami IP
 
 **Wskazówki**: Włączanie standardu DDoS Protection w sieciach wirtualnych skojarzonych z aplikacjami funkcji Functions w celu ochrony przed atakami DDoS. Użyj Azure Security Center zintegrowanej analizy zagrożeń, aby odmówić komunikacji ze znanymi złośliwymi lub nieużywanymi publicznymi adresami IP.
-Ponadto skonfiguruj bramę frontonu, taką jak Zapora aplikacji sieci Web platformy Azure, aby uwierzytelniać wszystkie żądania przychodzące i odfiltrować złośliwy ruch. Zapora aplikacji sieci Web platformy Azure może pomóc w zabezpieczeniu aplikacji funkcji platformy Azure, sprawdzając ruch przychodzący w sieci Web, aby blokować iniekcje SQL, skrypty między lokacjami, operacje przekazywania złośliwego oprogramowania i ataki DDoS. Wprowadzenie WAF wymaga App Service Environment lub użycia prywatnych punktów końcowych (wersja zapoznawcza). Upewnij się, że prywatne punkty końcowe nie są już w wersji zapoznawczej przed użyciem ich w przypadku obciążeń produkcyjnych.
+Ponadto skonfiguruj bramę frontonu, taką jak Zapora aplikacji sieci Web platformy Azure, aby uwierzytelniać wszystkie żądania przychodzące i odfiltrować złośliwy ruch. Zapora aplikacji sieci Web platformy Azure może pomóc w zabezpieczeniu aplikacji funkcji przez inspekcję przychodzącego ruchu sieciowego w celu blokowania iniekcji SQL, skryptów między lokacjami, przekazywania złośliwego oprogramowania i ataków DDoS. Wprowadzenie WAF wymaga App Service Environment lub użycia prywatnych punktów końcowych (wersja zapoznawcza). Upewnij się, że prywatne punkty końcowe nie są już w wersji zapoznawczej przed użyciem ich w przypadku obciążeń produkcyjnych.
 
 - [Opcje sieciowe usługi Azure Functions](./functions-networking-options.md)
 
@@ -176,8 +176,8 @@ Alternatywnie istnieje wiele opcji portalu Marketplace, takich jak Barracuda WAF
 
 **Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla ustawień sieciowych związanych z Azure Functions. Użyj aliasów Azure Policy w przestrzeniach nazw "Microsoft. Web" i "Microsoft. Network", aby utworzyć niestandardowe zasady inspekcji lub wymuszania konfiguracji sieci Azure Functions. Możesz również używać wbudowanych definicji zasad dla Azure Functions, takich jak:
 - Mechanizm CORS nie powinien zezwalać wszystkim zasobom na dostęp do aplikacji funkcji
-- aplikacja funkcji powinna być dostępna tylko za pośrednictwem protokołu HTTPS
-- Najnowsza wersja protokołu TLS powinna być używana w aplikacja funkcji
+- Aplikacja funkcji powinna być dostępna tylko za pośrednictwem protokołu HTTPS
+- Najnowsza wersja protokołu TLS powinna być używana w aplikacji funkcji
 
 Możesz również użyć planów platformy Azure, aby uprościć wdrożenia platformy Azure na dużą skalę przez pakowanie kluczowych artefaktów środowiska, takich jak szablony Azure Resource Manager, kontrola dostępu oparta na rolach (RBAC) na platformie Azure i zasady w ramach jednej definicji planu. Możesz łatwo zastosować plan do nowych subskrypcji, środowisk i dostrajania kontroli i zarządzania przy użyciu wersji.
 
@@ -233,7 +233,7 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 Azure Functions również oferuje wbudowaną integrację z usługą Azure Application Insights do monitorowania funkcji. Application Insights zbiera dane o dzienniku, wydajności i błędach. Automatycznie wykrywa anomalie wydajności i oferuje zaawansowane narzędzia analityczne ułatwiające diagnozowanie problemów oraz zrozumienie sposobu korzystania z funkcji.
 
-Jeśli masz wbudowane niestandardowe rejestrowanie zabezpieczeń/inspekcji w aplikacji funkcji platformy Azure, Włącz ustawienie Diagnostyka "FunctionAppLogs" i Wyślij dzienniki do obszaru roboczego Log Analytics, usługi Azure Event Hub lub konta usługi Azure Storage w celu archiwizacji. 
+Jeśli masz wbudowane niestandardowe rejestrowanie zabezpieczeń/inspekcji w aplikacji funkcji, Włącz ustawienie Diagnostyka "FunctionAppLogs" i Wyślij dzienniki do obszaru roboczego Log Analytics, usługi Azure Event Hub lub konta usługi Azure Storage w celu archiwizacji. 
 
 Opcjonalnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej lub SIEM innych firm. 
 
@@ -253,7 +253,7 @@ Opcjonalnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej
 
 **Wskazówki**: na potrzeby rejestrowania inspekcji płaszczyzny kontroli, Włącz ustawienia diagnostyki dziennika aktywności platformy Azure i Wyślij dzienniki do obszaru roboczego log Analytics, centrum zdarzeń platformy Azure lub konta usługi Azure Storage w celu archiwizacji. Korzystając z danych dziennika aktywności platformy Azure, można określić "co, kto i kiedy" dla operacji zapisu (PUT, POST, DELETE) wykonanych na poziomie płaszczyzny kontroli dla zasobów platformy Azure.
 
-Jeśli masz wbudowane niestandardowe rejestrowanie zabezpieczeń/inspekcji w aplikacji funkcji platformy Azure, Włącz ustawienie Diagnostyka "FunctionAppLogs" i Wyślij dzienniki do obszaru roboczego Log Analytics, usługi Azure Event Hub lub konta usługi Azure Storage w celu archiwizacji. 
+Jeśli masz wbudowane niestandardowe rejestrowanie zabezpieczeń/inspekcji w aplikacji funkcji, Włącz ustawienie Diagnostyka "FunctionAppLogs" i Wyślij dzienniki do obszaru roboczego Log Analytics, usługi Azure Event Hub lub konta usługi Azure Storage w celu archiwizacji. 
 
 - [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md)
 
@@ -273,7 +273,7 @@ Jeśli masz wbudowane niestandardowe rejestrowanie zabezpieczeń/inspekcji w apl
 
 ### <a name="25-configure-security-log-storage-retention"></a>2,5: Konfigurowanie przechowywania magazynu dzienników zabezpieczeń
 
-**Wskazówki**: w Azure monitor ustawić okres przechowywania dziennika dla log Analytics obszarów roboczych skojarzonych z aplikacjami Azure Functions zgodnie z regulacjami zgodności w organizacji.
+**Wskazówki**: w Azure monitor ustawić okres przechowywania dziennika dla log Analytics obszarów roboczych skojarzonych z aplikacjami funkcji zgodnie z regulacjami zgodności w organizacji.
 
 - [Jak ustawić parametry przechowywania dziennika](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
@@ -283,11 +283,11 @@ Jeśli masz wbudowane niestandardowe rejestrowanie zabezpieczeń/inspekcji w apl
 
 ### <a name="26-monitor-and-review-logs"></a>2,6: dzienniki monitorowania i przeglądania
 
-**Wskazówki**: Włączanie ustawień diagnostycznych dziennika aktywności platformy Azure oraz ustawień diagnostycznych aplikacji Azure Functions i wysyłanie dzienników do log Analytics obszaru roboczego. Wykonuj zapytania w Log Analytics, aby wyszukiwać terminy, identyfikować trendy, analizować wzorce i udostępniać wiele innych szczegółowych informacji na podstawie zebranych danych.
+**Wskazówki**: Włączanie ustawień diagnostycznych dziennika aktywności platformy Azure oraz ustawień diagnostycznych aplikacji funkcji i wysyłanie dzienników do obszaru roboczego log Analytics. Wykonuj zapytania w Log Analytics, aby wyszukiwać terminy, identyfikować trendy, analizować wzorce i udostępniać wiele innych szczegółowych informacji na podstawie zebranych danych.
 
-Włącz Application Insights aplikacji Azure Functions do zbierania danych o dzienniku, wydajności i błędach. Można wyświetlić dane telemetryczne zbierane przez Application Insights w Azure Portal.
+Włącz Application Insights aplikacji funkcji w celu zbierania danych dzienników, wydajności i błędów. Można wyświetlić dane telemetryczne zbierane przez Application Insights w Azure Portal.
 
-Jeśli masz wbudowane niestandardowe rejestrowanie zabezpieczeń/inspekcji w aplikacji funkcji platformy Azure, Włącz ustawienie Diagnostyka "FunctionAppLogs" i Wyślij dzienniki do obszaru roboczego Log Analytics, usługi Azure Event Hub lub konta usługi Azure Storage w celu archiwizacji. 
+Jeśli masz wbudowane niestandardowe rejestrowanie zabezpieczeń/inspekcji w aplikacji funkcji, Włącz ustawienie Diagnostyka "FunctionAppLogs" i Wyślij dzienniki do obszaru roboczego Log Analytics, usługi Azure Event Hub lub konta usługi Azure Storage w celu archiwizacji. 
 
 Opcjonalnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej lub SIEM innych firm. 
 
@@ -305,9 +305,9 @@ Opcjonalnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej
 
 ### <a name="27-enable-alerts-for-anomalous-activity"></a>2,7: Włączanie alertów dla nietypowego działania
 
-**Wskazówki**: Włączanie ustawień diagnostycznych dziennika aktywności platformy Azure oraz ustawień diagnostycznych aplikacji Azure Functions i wysyłanie dzienników do log Analytics obszaru roboczego. Wykonuj zapytania w Log Analytics, aby wyszukiwać terminy, identyfikować trendy, analizować wzorce i udostępniać wiele innych szczegółowych informacji na podstawie zebranych danych. Możesz tworzyć alerty oparte na zapytaniach obszaru roboczego Log Analytics.
+**Wskazówki**: Włączanie ustawień diagnostycznych dziennika aktywności platformy Azure oraz ustawień diagnostycznych aplikacji funkcji i wysyłanie dzienników do obszaru roboczego log Analytics. Wykonuj zapytania w Log Analytics, aby wyszukiwać terminy, identyfikować trendy, analizować wzorce i udostępniać wiele innych szczegółowych informacji na podstawie zebranych danych. Możesz tworzyć alerty oparte na zapytaniach obszaru roboczego Log Analytics.
 
-Włącz Application Insights aplikacji Azure Functions do zbierania danych o dzienniku, wydajności i błędach. Możesz wyświetlić dane telemetryczne zbierane przez Application Insights i utworzyć alerty w Azure Portal.
+Włącz Application Insights aplikacji funkcji w celu zbierania danych dzienników, wydajności i błędów. Możesz wyświetlić dane telemetryczne zbierane przez Application Insights i utworzyć alerty w Azure Portal.
 
 Opcjonalnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej lub SIEM innych firm. 
 
@@ -327,7 +327,7 @@ Opcjonalnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej
 
 ### <a name="28-centralize-anti-malware-logging"></a>2,8: scentralizowanie rejestrowania chroniącego przed złośliwym oprogramowaniem
 
-**Wskazówki**: nie dotyczy; Aplikacje Azure Functions nie przetwarzają ani nie generują dzienników związanych z oprogramowaniem chroniącym przed złośliwym kodem.
+**Wskazówki**: nie dotyczy; aplikacje funkcji nie przetwarzają ani nie generują dzienników związanych z oprogramowaniem chroniącym przed złośliwym kodem.
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -335,7 +335,7 @@ Opcjonalnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej
 
 ### <a name="29-enable-dns-query-logging"></a>2,9: Włączanie rejestrowania zapytań DNS
 
-**Wskazówki**: nie dotyczy; Aplikacje Azure Functions nie przetwarzają ani nie generują dzienników związanych z usługą DNS.
+**Wskazówki**: nie dotyczy; aplikacje funkcji nie przetwarzają ani nie generują dzienników związanych z usługą DNS.
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -399,7 +399,7 @@ Ponadto, aby ułatwić śledzenie dedykowanych kont administracyjnych, można u�
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3,4: Korzystaj z logowania jednokrotnego (SSO) z usługą Azure Active Directory
 
-**Wskazówki**: wszędzie tam, gdzie to możliwe, użyj Azure Active Directory rejestracji jednokrotnej zamiast konfigurować indywidualne poświadczenia autonomiczne na potrzeby dostępu do danych do aplikacji funkcji. Użyj Azure Security Center zalecenia dotyczące zarządzania tożsamościami i dostępem. Zaimplementuj Logowanie jednokrotne dla aplikacji Azure Functions przy użyciu funkcji uwierzytelniania App Service/autoryzacji.
+**Wskazówki**: wszędzie tam, gdzie to możliwe, użyj Azure Active Directory rejestracji jednokrotnej zamiast konfigurować indywidualne poświadczenia autonomiczne na potrzeby dostępu do danych do aplikacji funkcji. Użyj Azure Security Center zalecenia dotyczące zarządzania tożsamościami i dostępem. Implementowanie logowania jednokrotnego dla aplikacji funkcji przy użyciu funkcji uwierzytelniania App Service/autoryzacji.
 
 - [Informacje o uwierzytelnianiu i autoryzacji w Azure Functions](../app-service/overview-authentication-authorization.md#identity-providers)
 
@@ -459,9 +459,9 @@ Ponadto za pomocą funkcji wykrywania ryzyka usługi Azure AD można wyświetla�
 
 ### <a name="39-use-azure-active-directory"></a>3,9: Użyj Azure Active Directory
 
-**Wskazówki**: Użyj Azure Active Directory (AD) jako centralnego systemu uwierzytelniania i autoryzacji dla aplikacji Azure Functions. Usługa Azure AD chroni dane przy użyciu silnego szyfrowania danych przechowywanych i przesyłanych. Usługa Azure AD również Sole, skróty i bezpieczne przechowywanie poświadczeń użytkownika.
+**Wskazówki**: Użyj Azure Active Directory (AD) jako centralnego systemu uwierzytelniania i autoryzacji dla aplikacji funkcji. Usługa Azure AD chroni dane przy użyciu silnego szyfrowania danych przechowywanych i przesyłanych. Usługa Azure AD również Sole, skróty i bezpieczne przechowywanie poświadczeń użytkownika.
 
-- [Jak skonfigurować aplikację Azure Functions do korzystania z logowania za pomocą usługi Azure AD](../app-service/configure-authentication-provider-aad.md)
+- [Jak skonfigurować aplikację funkcji do korzystania z logowania do usługi Azure AD](../app-service/configure-authentication-provider-aad.md)
 
 - [Jak utworzyć i skonfigurować wystąpienie usługi Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
@@ -483,13 +483,13 @@ Ponadto za pomocą funkcji wykrywania ryzyka usługi Azure AD można wyświetla�
 
 ### <a name="311-monitor-attempts-to-access-deactivated-accounts"></a>3,11: Monitor próbuje uzyskać dostęp do zdezaktywowanych kont
 
-**Wskazówki**: Użyj Azure Active Directory (AD) jako centralnego systemu uwierzytelniania i autoryzacji dla aplikacji funkcji platformy Azure. Usługa Azure AD chroni dane przy użyciu silnego szyfrowania danych przechowywanych i przesyłanych. Usługa Azure AD również Sole, skróty i bezpieczne przechowywanie poświadczeń użytkownika.
+**Wskazówki**: Użyj Azure Active Directory (AD) jako centralnego systemu uwierzytelniania i autoryzacji dla aplikacji funkcji. Usługa Azure AD chroni dane przy użyciu silnego szyfrowania danych przechowywanych i przesyłanych. Usługa Azure AD również Sole, skróty i bezpieczne przechowywanie poświadczeń użytkownika.
 
 Masz dostęp do źródeł działań związanych z logowaniem do usługi Azure AD, inspekcją i ryzykiem dzienników zdarzeń, które umożliwiają integrację z platformą Azure, lub SIEM innych firm.
 
 Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytkowników usługi Azure AD i wysyłając dzienniki inspekcji i dzienniki logowania do obszaru roboczego Log Analytics. Żądane alerty dzienników można skonfigurować w ramach Log Analytics.
 
-- [Jak skonfigurować aplikację Azure Functions do korzystania z logowania za pomocą usługi Azure AD](../app-service/configure-authentication-provider-aad.md)
+- [Jak skonfigurować aplikację funkcji do korzystania z logowania do usługi Azure AD](../app-service/configure-authentication-provider-aad.md)
 
 - [Jak zintegrować dzienniki aktywności platformy Azure z usługą Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -501,7 +501,7 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3,12: odchylenia zachowania podczas logowania do konta
 
-**Wskazówki**: Użyj Azure Active Directory (AD) jako centralnego systemu uwierzytelniania i autoryzacji dla aplikacji Azure Functions. W przypadku pominięcia zachowania logowania do konta na płaszczyźnie kontroli (Azure Portal) Użyj funkcji ochrony tożsamości usługi Azure Active Directory (AD) i wykrywania ryzyka, aby skonfigurować automatyczne odpowiedzi na wykryte podejrzane działania związane z tożsamościami użytkowników. Możesz również pozyskać dane do usługi Azure wskaźnikowej na potrzeby dalszej analizy.
+**Wskazówki**: Użyj Azure Active Directory (AD) jako centralnego systemu uwierzytelniania i autoryzacji dla aplikacji funkcji. W przypadku pominięcia zachowania logowania do konta na płaszczyźnie kontroli (Azure Portal) Użyj funkcji ochrony tożsamości usługi Azure Active Directory (AD) i wykrywania ryzyka, aby skonfigurować automatyczne odpowiedzi na wykryte podejrzane działania związane z tożsamościami użytkowników. Możesz również pozyskać dane do usługi Azure wskaźnikowej na potrzeby dalszej analizy.
 
 - [Jak wyświetlić ryzykowne logowania w usłudze Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
@@ -539,9 +539,9 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4,2: Izoluj systemy przechowujące lub przetwarzające informacje poufne
 
-**Wskazówki**: implementowanie oddzielnych subskrypcji i/lub grup zarządzania na potrzeby tworzenia, testowania i produkcji. Aplikacje funkcji platformy Azure powinny być rozdzielone przez sieć wirtualną (VNet)/Subnet i odpowiednio oznakowane.
+**Wskazówki**: implementowanie oddzielnych subskrypcji i/lub grup zarządzania na potrzeby tworzenia, testowania i produkcji. aplikacje funkcji powinny być rozdzielone przez sieć wirtualną (VNet)/Subnet i odpowiednio oznakowane.
 
-Do przeprowadzenia izolacji sieci można także użyć prywatnych punktów końcowych. Prywatny punkt końcowy platformy Azure to interfejs sieciowy, który nawiązuje połączenie prywatnie i bezpiecznie z usługą (na przykład: Azure Functions punkt końcowy HTTPs aplikacji) obsługiwanej przez link prywatny platformy Azure. Prywatny punkt końcowy używa prywatnego adresu IP z Twojej sieci wirtualnej, skutecznie przenosząc usługę do sieci wirtualnej. Prywatne punkty końcowe są w (wersja zapoznawcza) dla aplikacji funkcji działających w ramach planu Premium. Upewnij się, że prywatne punkty końcowe nie są już w wersji zapoznawczej przed użyciem ich w przypadku obciążeń produkcyjnych.
+Do przeprowadzenia izolacji sieci można także użyć prywatnych punktów końcowych. Prywatny punkt końcowy platformy Azure to interfejs sieciowy, który nawiązuje połączenie prywatnie i bezpiecznie z usługą (na przykład: punkt końcowy HTTPs aplikacji funkcji) obsługiwanej przez link prywatny platformy Azure. Prywatny punkt końcowy używa prywatnego adresu IP z Twojej sieci wirtualnej, skutecznie przenosząc usługę do sieci wirtualnej. Prywatne punkty końcowe są w (wersja zapoznawcza) dla aplikacji funkcji działających w ramach planu Premium. Upewnij się, że prywatne punkty końcowe nie są już w wersji zapoznawczej przed użyciem ich w przypadku obciążeń produkcyjnych.
 
 - [Jak utworzyć dodatkowe subskrypcje platformy Azure](../cost-management-billing/manage/create-subscription.md)
 
@@ -575,7 +575,7 @@ Firma Microsoft zarządza podstawową infrastrukturą dla Azure Functions i ma z
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4,4: Szyfruj wszystkie poufne informacje podczas przesyłania
 
-**Wskazówki**: w Azure Portal aplikacji funkcji platformy Azure w obszarze "funkcje platformy: sieć: SSL" Włącz ustawienie "tylko https" i ustaw minimalną wersję protokołu TLS na 1,2.
+**Wskazówki**: w Azure Portal aplikacji funkcji w obszarze "funkcje platformy: sieć: SSL" Włącz ustawienie "tylko https" i ustaw minimalną wersję protokołu TLS na 1,2.
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -595,7 +595,7 @@ W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Micr
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów
 
-**Wskazówki**: Użyj kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure, aby kontrolować dostęp do płaszczyzny kontroli funkcji platformy azure (Azure Portal). 
+**Wskazówki**: Użyj kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure, aby kontrolować dostęp do płaszczyzny kontroli aplikacji funkcji (Azure Portal). 
 
 - [Jak skonfigurować usługę Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
@@ -629,7 +629,7 @@ Firma Microsoft zarządza podstawową infrastrukturą dla Azure Functions i ma z
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4,9: Rejestruj i Ostrzegaj o zmianach krytycznych zasobów platformy Azure
 
-**Wskazówki**: Użyj Azure monitor z dziennikiem aktywności platformy Azure, aby utworzyć alerty, kiedy zmiany są wprowadzane do produkcyjnych aplikacji funkcji platformy Azure, a także innych krytycznych lub pokrewnych zasobów.
+**Wskazówki**: Użyj Azure monitor w dzienniku aktywności platformy Azure, aby utworzyć alerty dotyczące zmian w aplikacjach funkcji produkcyjnych, a także innych krytycznych lub pokrewnych zasobów.
 
 - [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -643,9 +643,9 @@ Firma Microsoft zarządza podstawową infrastrukturą dla Azure Functions i ma z
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5,1: uruchamianie narzędzi do skanowania automatycznych luk w zabezpieczeniach
 
-**Wskazówki**: należy wdrożyć DevSecOpsą, aby zapewnić bezpieczeństwo aplikacji Azure Functions i zachować bezpieczeństwo, jak to możliwe przez cały czas trwania cyklu życia. DevSecOps w organizacji zespół ds. zabezpieczeń i ich możliwości w DevOpsych praktykach, co sprawia, że bezpieczeństwo jest odpowiedzialne za wszystkich członków zespołu.
+**Wskazówki**: należy przyjąć DevSecOpsą, aby zapewnić bezpieczeństwo aplikacji funkcji i jak najbezpieczniejszych przez cały czas trwania cyklu życia. DevSecOps w organizacji zespół ds. zabezpieczeń i ich możliwości w DevOpsych praktykach, co sprawia, że bezpieczeństwo jest odpowiedzialne za wszystkich członków zespołu.
 
-Ponadto postępuj zgodnie z zaleceniami Azure Security Center, aby pomóc w zabezpieczeniu aplikacji funkcji platformy Azure.
+Ponadto postępuj zgodnie z zaleceniami Azure Security Center, aby pomóc w zabezpieczeniu aplikacji funkcji.
 
 - [Jak dodać ciągłą weryfikację zabezpieczeń do potoku CI/CD](/azure/devops/migrate/security-validation-cicd-pipeline?view=azure-devops)
 
@@ -821,9 +821,9 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasob�
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6,13: fizyczne lub logiczne rozdzielenie aplikacji wysokiego ryzyka
 
-**Wskazówki**: dla wrażliwych lub wysoce narażonych aplikacji funkcji platformy Azure, zaimplementuj osobne subskrypcje i/lub grupy zarządzania, aby zapewnić izolację.
+**Wskazówki**: w przypadku aplikacji wrażliwych lub o wysokim ryzyku Zaimplementuj osobne subskrypcje i/lub grupy zarządzania, aby zapewnić izolację.
 
-Wdrażaj aplikacje funkcji platformy Azure o wysokim ryzyku do własnych Virtual Network (VNet). Zabezpieczenia obwodowe w Azure Functions są realizowane za sieci wirtualnych. Funkcje działające w planie Premium lub App Service Environment (ASE) można zintegrować z sieci wirtualnych. Wybierz najlepszą architekturę przypadku użycia.
+Wdrażaj aplikacje funkcji wysokiego ryzyka w swoich Virtual Network (VNet). Zabezpieczenia obwodowe aplikacji funkcji są realizowane za poorednictwem sieci wirtualnych. Funkcje działające w planie Premium lub App Service Environment (ASE) można zintegrować z sieci wirtualnych. Wybierz najlepszą architekturę przypadku użycia.
 
 - [Opcje sieciowe usługi Azure Functions](./functions-networking-options.md)
 
@@ -849,10 +849,10 @@ Jak utworzyć wewnętrzny ASE:
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: Ustanów bezpieczne konfiguracje dla wszystkich zasobów platformy Azure
 
-**Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń aplikacji funkcji platformy Azure przy użyciu Azure Policy. Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. Web", aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji aplikacji Azure Functions. Możesz również używać wbudowanych definicji zasad, takich jak:
-- Tożsamość zarządzana powinna być używana w aplikacja funkcji
+**Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla aplikacji funkcji przy użyciu Azure Policy. Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. Web", aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji aplikacji funkcji. Możesz również używać wbudowanych definicji zasad, takich jak:
+- Tożsamość zarządzana powinna być używana w aplikacji funkcji
 - Zdalne debugowanie powinno zostać wyłączone dla aplikacji funkcji
-- aplikacja funkcji powinna być dostępna tylko za pośrednictwem protokołu HTTPS
+- Aplikacja funkcji powinna być dostępna tylko za pośrednictwem protokołu HTTPS
 
 - [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
@@ -972,7 +972,7 @@ Jak utworzyć wewnętrzny ASE:
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7,12: bezpieczne i automatyczne zarządzanie tożsamościami
 
-**Wskazówki**: używanie tożsamości zarządzanych do udostępniania aplikacji funkcji platformy Azure z automatyczną tożsamością zarządzaną w usłudze Azure AD. Tożsamości zarządzane umożliwiają uwierzytelnianie w dowolnej usłudze, która obsługuje uwierzytelnianie usługi Azure AD, w tym Key Vault, bez żadnych poświadczeń w kodzie.
+**Wskazówki**: Użyj tożsamości zarządzanych, aby zapewnić aplikacji funkcji automatycznie zarządzaną tożsamość w usłudze Azure AD. Tożsamości zarządzane umożliwiają uwierzytelnianie w dowolnej usłudze, która obsługuje uwierzytelnianie usługi Azure AD, w tym Key Vault, bez żadnych poświadczeń w kodzie.
 
 - [Jak używać tożsamości zarządzanych do App Service i Azure Functions](../app-service/overview-managed-identity.md)
 

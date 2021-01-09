@@ -1,6 +1,6 @@
 ---
 title: Wdróż moduł zabezpieczeń IoT Edge
-description: Dowiedz się, jak wdrożyć agenta zabezpieczeń usługi Defender for IoT na IoT Edge.
+description: Dowiedz się więcej o sposobie wdrażania agenta zabezpieczeń usługi Defender for IoT na IoT Edge.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: c2b440413599ce07112231af17daa0bc14817b76
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 9ac283721526488f587fcabc68348dafac1835db
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832781"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033357"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Wdrażanie modułu zabezpieczeń na urządzeniu IoT Edge
 
@@ -51,13 +51,13 @@ Wykonaj następujące kroki, aby wdrożyć moduł Defender Security for IoT dla 
 
 1. W Azure Portal Otwórz **witrynę Marketplace**.
 
-1. Wybierz pozycję **Internet rzeczy**, a następnie wyszukaj ciąg **Defender for IoT** i wybierz go.
+1. Wybierz pozycję **Internet rzeczy**, a następnie wyszukaj pozycję **Azure Security Center for IoT** i wybierz ją.
 
    :::image type="content" source="media/howto/edge-onboarding-8.png" alt-text="Wybieranie usługi Defender dla IoT":::
 
-1. Kliknij przycisk **Utwórz** , aby skonfigurować wdrożenie.
+1. Wybierz pozycję **Utwórz** , aby skonfigurować wdrożenie.
 
-1. Wybierz **subskrypcję** platformy Azure IoT Hub, a następnie wybierz **IoT Hub**.<br>Wybierz pozycję **Wdróż na urządzeniu** przeznaczonym dla jednego urządzenia lub wybierz pozycję **Wdróż w odpowiedniej skali** , aby wybrać miejsce docelowe wielu urządzeń, a następnie kliknij pozycję **Utwórz**. Aby uzyskać więcej informacji na temat wdrażania w skali, zobacz artykuł [jak wdrożyć](../iot-edge/how-to-deploy-at-scale.md).
+1. Wybierz **subskrypcję** platformy Azure IoT Hub, a następnie wybierz **IoT Hub**.<br>Wybierz pozycję **Wdróż na urządzeniu** przeznaczonym dla jednego urządzenia lub wybierz pozycję **Wdróż w odpowiedniej skali** , aby wybrać miejsce docelowe wielu urządzeń, a następnie wybierz pozycję **Utwórz**. Aby uzyskać więcej informacji na temat wdrażania w skali, zobacz artykuł [jak wdrożyć](../iot-edge/how-to-deploy-at-scale.md).
 
     >[!Note]
     >W przypadku wybrania **wdrożenia w odpowiedniej skali** należy dodać nazwę i szczegóły urządzenia przed przejściem do karty **Dodawanie modułów** w poniższych instrukcjach.
@@ -68,7 +68,7 @@ Wykonaj każdy krok, aby ukończyć wdrażanie IoT Edge dla usługi Defender for
 
 1. Wybierz moduł **AzureSecurityCenterforIoT** .
 1. Na karcie **Ustawienia modułu** Zmień **nazwę** na **azureiotsecurity**.
-1. Na karcie **zmienne środowiskowe** , w razie potrzeby Dodaj zmienną (na przykład poziom debugowania).
+1. Na karcie **zmienne środowiskowe** Dodaj zmienną w razie potrzeby (na przykład możesz dodać *poziom debugowania* i ustawić ją na jedną z następujących wartości: "krytyczne", "błąd", "ostrzeżenie" lub "informacje").
 1. Na karcie **Opcje tworzenia kontenera** Dodaj następującą konfigurację:
 
     ``` json
@@ -112,8 +112,12 @@ Wykonaj każdy krok, aby ukończyć wdrażanie IoT Edge dla usługi Defender for
 #### <a name="step-2-runtime-settings"></a>Krok 2. Ustawienia środowiska uruchomieniowego
 
 1. Wybierz pozycję **Ustawienia środowiska uruchomieniowego**.
-1. W obszarze **centrum brzegowe** Zmień **obraz** na **MCR.Microsoft.com/azureiotedge-Hub:1.0.8.3**.
-1. Sprawdź, czy **opcja Utwórz** jest ustawiona na następującą konfigurację:
+2. W obszarze **centrum brzegowe** Zmień **obraz** na **MCR.Microsoft.com/azureiotedge-Hub:1.0.8.3**.
+
+    >[!Note]
+    > Obecnie jest obsługiwana wersja 1.0.8.3 lub starsza.
+
+3. Sprawdź, czy **opcja Utwórz** jest ustawiona na następującą konfigurację:
 
     ``` json
     {
@@ -139,9 +143,9 @@ Wykonaj każdy krok, aby ukończyć wdrażanie IoT Edge dla usługi Defender for
     }
     ```
 
-1. Wybierz pozycję **Zapisz**.
+4. Wybierz pozycję **Zapisz**.
 
-1. Wybierz pozycję **Dalej**.
+5. Wybierz pozycję **Dalej**.
 
 #### <a name="step-3-specify-routes"></a>Krok 3. Określanie tras
 

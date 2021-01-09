@@ -1,21 +1,21 @@
 ---
 title: Na poziomie 5 — przykładowe kontrolki planu
 description: Sterowanie mapowaniem przykładu na poziom wpływu na 5 planów. Każda kontrolka jest zamapowana na co najmniej jedną definicję Azure Policy, która pomaga w ocenie.
-ms.date: 09/17/2020
+ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: fc187480f5342f076a7f07f058e8e570a0e7f146
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 01f786684e5f8d73f57eb9f4741593c01fe1c8d4
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91929493"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034785"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-5-blueprint-sample"></a>Sterowanie mapowaniem przykładu "5" planu wpływu na wartość DoD
 
 W tym artykule szczegółowo przedstawiono sposób, w jaki dział planu Azure planuje wpływ obrony na poziom 5 (DoD IL5) jest mapowany do kontrolek poziomu 5. Aby uzyskać więcej informacji na temat kontrolek, zobacz [dod Cloud obliczeniowe Requirements Guide (SRG)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/Cloud_Computing_SRG_v1r3.pdf).
 Agencja ds. systemów informatycznych (DISA) jest agencją Departamentu Obrony Stanów Zjednoczonych (DoD), która jest odpowiedzialna za opracowywanie i utrzymywanie przewodnika dotyczącego wymagań w zakresie zabezpieczeń w chmurze DoD (SRG). SRG definiuje podstawowe wymagania dotyczące zabezpieczeń dla dostawców usług w chmurze (CSP), którzy hostią informacje, systemy i aplikacje, oraz do korzystania z usług w chmurze w wysokości DoD.  
 
-Następujące mapowania znajdują się w kontrolkach **poziomu wpływu na wartość dod 5** . Użyj nawigacji po prawej stronie, aby przejść bezpośrednio do określonego mapowania formantów. Wiele zamapowanych formantów jest implementowanych z inicjatywą [Azure Policy](../../../policy/overview.md) . Aby zapoznać się z pełną inicjatywą, Otwórz **zasady** w Azure Portal i wybierz stronę **definicje** . Następnie Znajdź i wybierz wersję ** \[ zapoznawczą \] :** dodatek "5" z wbudowaną inicjatywą Policy Level.
+Następujące mapowania znajdują się w kontrolkach **poziomu wpływu na wartość dod 5** . Użyj nawigacji po prawej stronie, aby przejść bezpośrednio do określonego mapowania formantów. Wiele zamapowanych formantów jest implementowanych z inicjatywą [Azure Policy](../../../policy/overview.md) . Aby zapoznać się z pełną inicjatywą, Otwórz **zasady** w Azure Portal i wybierz stronę **definicje** . Następnie Znajdź i wybierz wersję **\[ zapoznawczą \] :** dodatek "5" z wbudowaną inicjatywą Policy Level.
 
 > [!IMPORTANT]
 > Każda kontrolka poniżej jest skojarzona z co najmniej jedną definicją [Azure Policy](../../../policy/overview.md) . Te zasady mogą pomóc w [ocenie zgodności](../../../policy/how-to/get-compliance-data.md) z kontrolką; jednak często nie jest to jeden lub kompletny odpowiednik między kontrolką a co najmniej jedną zasadą. W związku z tym **zgodność** w Azure Policy odnosi się tylko do samych zasad; nie gwarantuje to, że jest w pełni zgodne ze wszystkimi wymaganiami formantu. Ponadto Standard zgodności zawiera kontrolki, które nie są obecnie rozwiązywane przez żadną Azure Policy definicje. W związku z tym zgodność w Azure Policy jest tylko częściowym widokiem ogólnego stanu zgodności. Skojarzenia między kontrolkami i definicjami Azure Policy dla tego przykładowego planu zgodności mogą ulec zmianie z upływem czasu. Aby wyświetlić historię zmian, zobacz [historię zatwierdzeń usługi GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/dod-impact-level-5/control-mapping.md).

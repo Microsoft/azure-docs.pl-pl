@@ -1,14 +1,14 @@
 ---
 title: Przykład wdrażania planu multimediów
 description: Wdróż kroki dla przykładu planu multimediów, w tym szczegóły parametrów artefaktu.
-ms.date: 08/13/2020
+ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: c8ac1726bc5007c1790f5efbc45c72f9712fcdf2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dc3720ceb1bdd8e50ab220288cef64c73e304ff
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88208431"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98035006"
 ---
 # <a name="deploy-the-media-blueprint-sample"></a>Wdróż przykład planu multimediów
 
@@ -33,7 +33,7 @@ Najpierw zaimplementuj przykład strategii, tworząc nową strategię w środowi
 
 1. Wprowadź _podstawowe_ informacje dotyczące tego przykładu strategii:
 
-   - **Nazwa**planu: Podaj nazwę kopii przykładu strategii.
+   - **Nazwa** planu: Podaj nazwę kopii przykładu strategii.
    - **Lokalizacja definicji**: Użyj wielokropka i wybierz grupę zarządzania, w której ma zostać zapisana kopia przykładu.
 
 1. Wybierz kartę _Artefakty_ w górnej części strony lub pozycję **Dalej: Artefakty** w dolnej części strony.
@@ -52,7 +52,7 @@ Twoja kopia przykładu strategii została utworzona w środowisku. Została ona 
 
 ## <a name="assign-the-sample-copy"></a>Przypisywanie kopii przykładu
 
-Po pomyślnym **opublikowaniu**kopii przykładowej strategii można ją przypisać do subskrypcji w grupie zarządzania, w której został on zapisany. W tym kroku udostępniane są parametry, dzięki którym każde wdrożenie kopii przykładowej strategii będzie unikatowe.
+Po pomyślnym **opublikowaniu** kopii przykładowej strategii można ją przypisać do subskrypcji w grupie zarządzania, w której został on zapisany. W tym kroku udostępniane są parametry, dzięki którym każde wdrożenie kopii przykładowej strategii będzie unikatowe.
 
 1. Wybierz pozycję **wszystkie usługi** i Wyszukaj i wybierz pozycję **zasady** w okienku po lewej stronie. Na stronie **zasady** wybierz pozycję **plany**.
 
@@ -68,7 +68,7 @@ Po pomyślnym **opublikowaniu**kopii przykładowej strategii można ją przypisa
      - **Nazwa przypisania**: nazwa jest wstępnie wypełniona dla Ciebie na podstawie nazwy planu.
        Jeśli chcesz, możesz ją zmienić lub pozostawić.
      - **Lokalizacja**: Wybierz region, w którym ma zostać utworzona zarządzana tożsamość. Usługa Azure Blueprint używa tej tożsamości zarządzanej do wdrażania wszystkich artefaktów w przypisanej strategii. Aby dowiedzieć się więcej, zobacz [zarządzane tożsamości dla zasobów platformy Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Wersja definicji**planu: Wybierz **opublikowaną** wersję kopii przykładowej strategii.
+     - **Wersja definicji** planu: Wybierz **opublikowaną** wersję kopii przykładowej strategii.
 
    - Przypisanie blokady
 

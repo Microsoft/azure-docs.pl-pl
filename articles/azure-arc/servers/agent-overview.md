@@ -1,14 +1,14 @@
 ---
 title: Omówienie agenta połączonej maszyny z systemem Windows
 description: Ten artykuł zawiera szczegółowe omówienie dostępnego agenta usługi Azure ARC dla serwerów, który obsługuje monitorowanie maszyn wirtualnych hostowanych w środowiskach hybrydowych.
-ms.date: 12/21/2020
+ms.date: 01/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: bff76cbaa678ed82538eb6d75633aa94cdce30bf
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 86d524665b70725108324b1d88521a4c3cb8ff05
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97723273"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033969"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Omówienie agenta serwerów z obsługą usługi Azure Arc
 
@@ -69,6 +69,8 @@ Następujące wersje systemu operacyjnego Windows i Linux są oficjalnie obsług
 
 Przed skonfigurowaniem maszyn przy użyciu serwerów z obsługą usługi Azure Arc Przejrzyj limity [subskrypcji](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) Azure Resource Manager i [limity grup zasobów](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) , aby zaplanować liczbę maszyn, które mają być połączone.
 
+Serwery z obsługą usługi Azure Arc obsługują do 5 000 wystąpień maszyn w grupie zasobów.
+
 ### <a name="transport-layer-security-12-protocol"></a>Protokół Transport Layer Security 1,2
 
 Aby zapewnić bezpieczeństwo danych przesyłanych do platformy Azure, zdecydowanie zalecamy skonfigurowanie komputera do korzystania z Transport Layer Security (TLS) 1,2. Starsze wersje protokołu TLS/SSL (SSL) są zagrożone i chociaż nadal działają tak, aby umożliwić zgodność z poprzednimi wersjami, nie są **zalecane**.
@@ -100,8 +102,8 @@ Adresy
 | Zasób agenta | Opis |
 |---------|---------|
 |`management.azure.com`|Azure Resource Manager|
-|`login.windows.net`|Usługa Azure Active Directory|
-|`login.microsoftonline.com`|Usługa Azure Active Directory|
+|`login.windows.net`|Azure Active Directory|
+|`login.microsoftonline.com`|Azure Active Directory|
 |`dc.services.visualstudio.com`|Application Insights|
 |`*.guestconfiguration.azure.com` |Konfiguracja gościa|
 |`*.his.arc.azure.com`|Hybrydowa usługa tożsamości|

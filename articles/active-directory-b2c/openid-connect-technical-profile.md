@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8364e67e71143729e97c5253f0dfd7b30a1e5c2f
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: d088a2834f5acb643e4f626d02b49954cc9fa3c2
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559824"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033573"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj profil techniczny OpenID Connect Connect w zasadach niestandardowych Azure Active Directory B2C
 
@@ -92,8 +92,9 @@ Profil techniczny zwraca również oświadczenia, które nie są zwracane przez 
 | MarkAsFailureOnStatusCode5xx | Nie | Wskazuje, czy żądanie do usługi zewnętrznej powinno być oznaczone jako błąd, jeśli kod stanu HTTP znajduje się w zakresie 5xx. Wartość domyślna to `false`. |
 | DiscoverMetadataByTokenIssuer | Nie | Wskazuje, czy metadane OIDC powinny być odnajdywane przy użyciu wystawcy w tokenie JWT. |
 | IncludeClaimResolvingInClaimsHandling  | Nie | W przypadku oświadczeń wejściowych i wyjściowych określa, czy w profilu technicznym znajduje się [rozpoznawanie oświadczeń](claim-resolver-overview.md) . Możliwe wartości: `true` , lub `false` (wartość domyślna). Jeśli chcesz użyć programu rozpoznawania oświadczeń w profilu technicznym, ustaw dla tej opcji wartość `true` . |
-|token_endpoint_auth_method| Nie| Określa sposób, w jaki Azure AD B2C wysyła nagłówek uwierzytelniania do punktu końcowego tokenu. Możliwe wartości: `client_secret_post` (wartość domyślna), `private_key_jwt` (publiczna wersja zapoznawcza) i `client_secret_basic` (publiczna wersja zapoznawcza). Aby uzyskać więcej informacji, zobacz [sekcję OpenID Connect Connect Client Authentication](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
-|SingleLogoutEnabled| Nie| Wskazuje, czy podczas logowania profil techniczny próbuje wylogować się z federacyjnych dostawców tożsamości. Aby uzyskać więcej informacji, zobacz [Azure AD B2C wylogowania sesji](session-behavior.md#sign-out).  Możliwe wartości: `true` (ustawienie domyślne) lub `false` .|
+| token_endpoint_auth_method | Nie | Określa sposób, w jaki Azure AD B2C wysyła nagłówek uwierzytelniania do punktu końcowego tokenu. Możliwe wartości: `client_secret_post` (ustawienie domyślne) i `client_secret_basic` (publiczna wersja zapoznawcza). Aby uzyskać więcej informacji, zobacz [sekcję OpenID Connect Connect Client Authentication](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
+| token_signing_algorithm | Nie | Algorytm podpisywania używany na potrzeby potwierdzeń klientów, gdy metadane **token_endpoint_auth_method** są ustawione na `private_key_jwt` . Możliwe wartości: `RS256` (wartość domyślna). |
+| SingleLogoutEnabled | Nie | Wskazuje, czy podczas logowania profil techniczny próbuje wylogować się z federacyjnych dostawców tożsamości. Aby uzyskać więcej informacji, zobacz [Azure AD B2C wylogowania sesji](session-overview.md#sign-out).  Możliwe wartości: `true` (ustawienie domyślne) lub `false` . |
 
 ```xml
 <Metadata>
@@ -124,7 +125,8 @@ Element **CryptographicKeys** zawiera następujący atrybut:
 
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| client_secret | Tak | Klucz tajny klienta aplikacji dostawcy tożsamości. Klucz kryptograficzny jest wymagany tylko wtedy, gdy metadane **response_types** są ustawione na `code` . W takim przypadku Azure AD B2C wykonuje inne wywołanie wymiany kodu autoryzacji dla tokenu dostępu. Jeśli metadane są ustawione na wartość można `id_token` pominąć klucz kryptograficzny.  |
+| client_secret | Tak | Klucz tajny klienta aplikacji dostawcy tożsamości. Ten klucz kryptograficzny jest wymagany tylko wtedy, gdy **response_types** metadanych ma ustawioną wartość `code` i **token_endpoint_auth_method** jest ustawiona na `client_secret_post` lub `client_secret_basic` . W takim przypadku Azure AD B2C wykonuje inne wywołanie wymiany kodu autoryzacji dla tokenu dostępu. Jeśli metadane są ustawione na wartość można `id_token` pominąć klucz kryptograficzny.  |
+| assertion_signing_key | Tak | Klucz prywatny RSA, który będzie używany do podpisywania potwierdzenia klienta. Ten klucz kryptograficzny jest wymagany tylko wtedy, gdy metadane **token_endpoint_auth_method** są ustawione na `private_key_jwt` . |
 
 ## <a name="redirect-uri"></a>Identyfikator URI przekierowania
 

@@ -1,14 +1,14 @@
 ---
 title: Przykład wdrażania FedRAMP High plan
 description: Wdróż kroki dla przykładu FedRAMP High plan, w tym szczegóły parametru artefaktu strategii.
-ms.date: 10/26/2020
+ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 5d08eb932748ca01fd5780266248bde4025a3d2b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 065f1343066f5d0ac9b0846de790124e907a5e24
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669310"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034870"
 ---
 # <a name="deploy-the-fedramp-high-blueprint-sample"></a>Wdróż przykład FedRAMP High plan
 
@@ -25,38 +25,38 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Najpierw zaimplementuj przykład strategii, tworząc nową strategię w środowisku przy użyciu przykładu jako wzorca.
 
-1. W okienku po lewej stronie wybierz pozycję **Wszystkie usługi** . Wyszukaj i wybierz pozycję **Strategie** .
+1. W okienku po lewej stronie wybierz pozycję **Wszystkie usługi**. Wyszukaj i wybierz pozycję **Strategie**.
 
-1. Na stronie **Wprowadzenie** z lewej strony wybierz przycisk **Utwórz** w obszarze _Tworzenie strategii_ .
+1. Na stronie **Wprowadzenie** z lewej strony wybierz przycisk **Utwórz** w obszarze _Tworzenie strategii_.
 
-1. Znajdź przykład **FedRAMP High** plan w obszarze _inne przykłady_ i wybierz opcję **Użyj tego przykładu** .
+1. Znajdź przykład **FedRAMP High** plan w obszarze _inne przykłady_ i wybierz opcję **Użyj tego przykładu**.
 
 1. Wprowadź _podstawowe_ informacje dotyczące tego przykładu strategii:
 
    - **Nazwa** planu: Podaj nazwę kopii przykładu FedRAMP High plan.
-   - **Lokalizacja definicji** : Użyj wielokropka i wybierz grupę zarządzania, w której ma zostać zapisana kopia przykładu.
+   - **Lokalizacja definicji**: Użyj wielokropka i wybierz grupę zarządzania, w której ma zostać zapisana kopia przykładu.
 
 1. Wybierz kartę _Artefakty_ w górnej części strony lub pozycję **Dalej: Artefakty** w dolnej części strony.
 
-1. Zapoznaj się z listą artefaktów, które składają się na przykład strategii. Wiele artefaktów ma parametry, które zdefiniujemy później. Po zakończeniu przeglądania przykładu strategii wybierz pozycję **Zapisz wersję roboczą** .
+1. Zapoznaj się z listą artefaktów, które składają się na przykład strategii. Wiele artefaktów ma parametry, które zdefiniujemy później. Po zakończeniu przeglądania przykładu strategii wybierz pozycję **Zapisz wersję roboczą**.
 
 ## <a name="publish-the-sample-copy"></a>Publikowanie kopii przykładu
 
-Twoja kopia przykładu strategii została utworzona w środowisku. Została ona utworzona w trybie **wersji roboczej** i musi zostać **opublikowana** , zanim będzie można ją przypisać i wdrożyć. Kopię przykładowej strategii można dostosować do środowiska i potrzeb, ale zmiana ta może nie przełączać się do wyrównania z FedRAMP wysokimi kontrolkami.
+Twoja kopia przykładu strategii została utworzona w środowisku. Została ona utworzona w trybie **wersji roboczej** i musi zostać **opublikowana**, zanim będzie można ją przypisać i wdrożyć. Kopię przykładowej strategii można dostosować do środowiska i potrzeb, ale zmiana ta może nie przełączać się do wyrównania z FedRAMP wysokimi kontrolkami.
 
-1. W okienku po lewej stronie wybierz pozycję **Wszystkie usługi** . Wyszukaj i wybierz pozycję **Strategie** .
+1. W okienku po lewej stronie wybierz pozycję **Wszystkie usługi**. Wyszukaj i wybierz pozycję **Strategie**.
 
-1. Po lewej stronie wybierz stronę **Definicje strategii** . Użyj filtrów, aby znaleźć kopię przykładowej strategii, a następnie wybierz ją.
+1. Po lewej stronie wybierz stronę **Definicje strategii**. Użyj filtrów, aby znaleźć kopię przykładowej strategii, a następnie wybierz ją.
 
-1. W górnej części strony wybierz pozycję **Publikuj strategię** . Na nowej stronie, po prawej, w polu **Wersja** podaj wersję kopii przykładu strategii. Ta właściwość jest przydatna w przypadku dokonywania późniejszych modyfikacji. Podaj **Informacje o zmianach** , takie jak "Pierwsza wersja opublikowana z przykładu FedRAMP High plan". Następnie wybierz pozycję **Publikuj** w dolnej części strony.
+1. W górnej części strony wybierz pozycję **Publikuj strategię**. Na nowej stronie, po prawej, w polu **Wersja** podaj wersję kopii przykładu strategii. Ta właściwość jest przydatna w przypadku dokonywania późniejszych modyfikacji. Podaj **Informacje o zmianach** , takie jak "Pierwsza wersja opublikowana z przykładu FedRAMP High plan". Następnie wybierz pozycję **Publikuj** w dolnej części strony.
 
 ## <a name="assign-the-sample-copy"></a>Przypisywanie kopii przykładu
 
 Po pomyślnym **opublikowaniu** kopii przykładowej strategii można ją przypisać do subskrypcji w grupie zarządzania, w której został on zapisany. W tym kroku udostępniane są parametry, dzięki którym każde wdrożenie kopii przykładowej strategii będzie unikatowe.
 
-1. W okienku po lewej stronie wybierz pozycję **Wszystkie usługi** . Wyszukaj i wybierz pozycję **Strategie** .
+1. W okienku po lewej stronie wybierz pozycję **Wszystkie usługi**. Wyszukaj i wybierz pozycję **Strategie**.
 
-1. Po lewej stronie wybierz stronę **Definicje strategii** . Użyj filtrów, aby znaleźć kopię przykładowej strategii, a następnie wybierz ją.
+1. Po lewej stronie wybierz stronę **Definicje strategii**. Użyj filtrów, aby znaleźć kopię przykładowej strategii, a następnie wybierz ją.
 
 1. Wybierz pozycję **Przypisz strategię** w górnej części strony definicji strategii.
 
@@ -64,10 +64,10 @@ Po pomyślnym **opublikowaniu** kopii przykładowej strategii można ją przypis
 
    - Podstawy
 
-     - **Subskrypcje** : Wybierz co najmniej jedną subskrypcję znajdującą się w grupie zarządzania, do której została zapisana kopia przykładu planu. W przypadku wybrania więcej niż jednej subskrypcji dla każdej z nich zostanie utworzone przypisanie przy użyciu wprowadzonych parametrów.
-     - **Nazwa przypisania** : nazwa jest wstępnie wypełniona dla Ciebie na podstawie nazwy planu.
+     - **Subskrypcje**: Wybierz co najmniej jedną subskrypcję znajdującą się w grupie zarządzania, do której została zapisana kopia przykładu planu. W przypadku wybrania więcej niż jednej subskrypcji dla każdej z nich zostanie utworzone przypisanie przy użyciu wprowadzonych parametrów.
+     - **Nazwa przypisania**: nazwa jest wstępnie wypełniona dla Ciebie na podstawie nazwy planu.
        Jeśli chcesz, możesz ją zmienić lub pozostawić.
-     - **Lokalizacja** : Wybierz region, w którym ma zostać utworzona zarządzana tożsamość. Usługa Azure Blueprint używa tej tożsamości zarządzanej do wdrażania wszystkich artefaktów w przypisanej strategii. Aby dowiedzieć się więcej, zobacz [zarządzane tożsamości dla zasobów platformy Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
+     - **Lokalizacja**: Wybierz region, w którym ma zostać utworzona zarządzana tożsamość. Usługa Azure Blueprint używa tej tożsamości zarządzanej do wdrażania wszystkich artefaktów w przypisanej strategii. Aby dowiedzieć się więcej, zobacz [zarządzane tożsamości dla zasobów platformy Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
      - **Wersja definicji** planu: Wybierz **opublikowaną** wersję kopii przykładowej strategii.
 
    - Przypisanie blokady
@@ -85,7 +85,7 @@ Po pomyślnym **opublikowaniu** kopii przykładowej strategii można ją przypis
 1. Po wprowadzeniu wszystkich parametrów wybierz pozycję **Przypisz** w dolnej części strony. Tworzone jest przypisanie strategii i rozpoczyna się wdrażanie artefaktu. Wdrażanie zajmuje trochę czasu. Aby sprawdzić stan wdrożenia, otwórz przypisanie strategii.
 
 > [!WARNING]
-> Usługa Azure Blueprints i wbudowane przykłady strategii są udostępniane **bezpłatnie** . Opłaty za zasoby platformy Azure są [ustalane według produktu](https://azure.microsoft.com/pricing/). Skorzystaj z [kalkulatora cen](https://azure.microsoft.com/pricing/calculator/), aby oszacować koszt działania zasobów wdrożonych za pomocą tego przykładu strategii.
+> Usługa Azure Blueprints i wbudowane przykłady strategii są udostępniane **bezpłatnie**. Opłaty za zasoby platformy Azure są [ustalane według produktu](https://azure.microsoft.com/pricing/). Skorzystaj z [kalkulatora cen](https://azure.microsoft.com/pricing/calculator/), aby oszacować koszt działania zasobów wdrożonych za pomocą tego przykładu strategii.
 
 ## <a name="artifact-parameters-table"></a>Tabela parametrów artefaktów
 

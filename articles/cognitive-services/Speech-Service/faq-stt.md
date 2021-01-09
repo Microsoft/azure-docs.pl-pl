@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: a78e18de1f495feb6234fa5bfd97162d8b80de4c
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: 25848d313fc01fc41ef8874707bd10b2fa9912d3
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857328"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033516"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Zamiana mowy na tekst często zadawanych pytań
 
@@ -134,11 +134,11 @@ Odp.: możesz utworzyć autonomiczną **aplikację do zbierania** danych lub uż
 
 Odp **.: tak**. Możesz transkrypcja go samodzielnie lub korzystać z profesjonalnej usługi transkrypcji. Niektórzy użytkownicy preferują profesjonalne transcribers i inne korzystają z crowdsourcing lub same transkrypcji.
 
-**P: jak długo trwa uczenie danych audio modelu niestandardowego?**
+**P: jak długo trwa uczenie modelu niestandardowego z danymi audio?**
 
 Odp **.:** uczenie modelu z danymi audio to długotrwały proces. W zależności od ilości danych Tworzenie niestandardowego modelu może potrwać kilka dni. Jeśli nie można jej zakończyć w ciągu jednego tygodnia, usługa może przerwać operację uczenia i zgłosić model jako niepowodzenie. W celu uzyskania szybszych wyników użyj jednego z [regionów](custom-speech-overview.md#set-up-your-azure-account) , w których dedykowany sprzęt jest dostępny do uczenia się. Możesz skopiować w pełni przeszkolony model do innego regionu przy użyciu [interfejsu API REST](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription). Szkolenie z zaledwie tekstem jest znacznie szybsze i zwykle kończy się w ciągu kilku minut.
 
-Niektóre modele podstawowe nie mogą być dostosowane do danych audio. W przypadku korzystania z nich, usługa będzie po prostu używać tekstu transkrypcji do uczenia i odrzucania danych audio. Szkolenie zostanie wykonane znacznie szybciej, a wyniki będą takie same jak w przypadku szkoleń w postaci zwykłego tekstu.
+Niektóre modele podstawowe nie mogą być dostosowane do danych audio. W przypadku usługi będą po prostu używać tekstu transkrypcji do uczenia i ignorować dane audio. Szkolenie zostanie wykonane znacznie szybciej, a wyniki będą takie same jak w przypadku szkoleń w postaci zwykłego tekstu.
 
 ## <a name="accuracy-testing"></a>Testowanie dokładności
 

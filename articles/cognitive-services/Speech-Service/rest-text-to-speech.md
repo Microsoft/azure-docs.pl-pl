@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: bfdea5f2e2bd20a35ee948e99b3be9bf55038b13
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: 9bee5fa6b76aad9305947ebe460f37c399340038
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760660"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033474"
 ---
 # <a name="text-to-speech-rest-api"></a>Interfejs API REST zamiany tekstu na mowę
 
@@ -35,7 +35,7 @@ Przed użyciem tego interfejsu API należy zrozumieć następujące informacje:
 * Interfejs API REST zamiany tekstu na mowę wymaga nagłówka autoryzacji. Oznacza to, że należy zakończyć wymianę tokenów, aby uzyskać dostęp do usługi. Aby uzyskać więcej informacji, zobacz [Authentication](#authentication) (Uwierzytelnianie).
 
 > [!TIP]
-> Zobacz punkty końcowe dla [systemu Azure](/azure/azure-government/compare-azure-government-global-azure) dla instytucji rządowych (FairFax).
+> Zobacz [ten artykuł](sovereign-clouds.md) , aby uzyskać Azure Government i punkty końcowe platformy Azure w Chinach.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -48,7 +48,7 @@ Przed użyciem tego interfejsu API należy zrozumieć następujące informacje:
 | Region (Region) | Punkt końcowy |
 |--------|----------|
 | Australia Wschodnia | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Brazylia Południowa | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Brazil South | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Kanada Środkowa | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Central US | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Azja Wschodnia | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -56,7 +56,7 @@ Przed użyciem tego interfejsu API należy zrozumieć następujące informacje:
 | Wschodnie stany USA 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Francja Środkowa | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Indie Środkowe | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Japonia Wschodnia | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Japan East | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Korea Środkowa | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Północno-środkowe stany USA | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Europa Północna | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -76,7 +76,10 @@ Ta tabela zawiera listę wymaganych i opcjonalnych nagłówków dla żądań zam
 
 | Nagłówek | Opis | Wymagane/opcjonalne |
 |--------|-------------|---------------------|
-| `Authorization` | Token autoryzacji poprzedzony słowem `Bearer` . Aby uzyskać więcej informacji, zobacz [Authentication](#authentication) (Uwierzytelnianie). | Wymagane |
+| `Ocp-Apim-Subscription-Key` | Klucz subskrypcji usługi rozpoznawania mowy. | Ten nagłówek lub `Authorization` jest wymagany. |
+| `Authorization` | Token autoryzacji poprzedzony słowem `Bearer` . Aby uzyskać więcej informacji, zobacz [Authentication](#authentication) (Uwierzytelnianie). | Ten nagłówek lub `Ocp-Apim-Subscription-Key` jest wymagany. |
+
+
 
 ### <a name="request-body"></a>Treść żądania
 
@@ -90,7 +93,7 @@ To żądanie wymaga tylko nagłówka autoryzacji.
 GET /cognitiveservices/voices/list HTTP/1.1
 
 Host: westus.tts.speech.microsoft.com
-Authorization: Bearer [Base64 access_token]
+Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 ```
 
 ### <a name="sample-response"></a>Przykładowa odpowiedź
