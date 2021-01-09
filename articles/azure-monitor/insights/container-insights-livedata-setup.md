@@ -2,14 +2,14 @@
 title: Skonfiguruj Azure Monitor dla kontenerów dane dynamiczne (wersja zapoznawcza) | Microsoft Docs
 description: W tym artykule opisano sposób konfigurowania widoku w czasie rzeczywistym dzienników kontenerów (stdout/stderr) i zdarzeń bez używania polecenia kubectl z Azure Monitor dla kontenerów.
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 01/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: 62bc7613995296504dfba551cdb631ac3386aa75
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: d5b978e7138e10ed88f5748b84ff62ddd22bebec
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830789"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050786"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Jak skonfigurować funkcję Live Data (wersja zapoznawcza)
 
@@ -29,8 +29,6 @@ W tym artykule wyjaśniono, jak skonfigurować uwierzytelnianie, aby kontrolowa�
 - Kubernetes z obsługą kontroli dostępu opartej na rolach (Kubernetes RBAC)
 - Azure Active Directory zintegrowany klaster AKS.
 
->[!NOTE]
->Klastry AKS włączone jako [klastry prywatne](https://azure.microsoft.com/updates/aks-private-cluster/) są nieobsługiwane w przypadku tej funkcji. Ta funkcja wykorzystuje bezpośrednio dostęp do interfejsu API Kubernetes za pośrednictwem serwera proxy z przeglądarki. Włączenie zabezpieczeń sieci w celu blokowania interfejsu API Kubernetes z tego serwera proxy spowoduje zablokowanie tego ruchu.
 
 ## <a name="authentication-model"></a>Model uwierzytelniania
 

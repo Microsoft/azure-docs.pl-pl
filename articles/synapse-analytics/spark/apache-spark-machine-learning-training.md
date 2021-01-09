@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 09/13/2020
-ms.openlocfilehash: 805bc2aecda37599234c81dd928868d8c14aea4e
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 242ff1d7c16ca952b19f44fb139f8fae7562524a
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97091993"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98048321"
 ---
 # <a name="train-machine-learning-models"></a>Uczenie modeli uczenia maszynowego
 Apache Spark w usłudze Azure Synapse Analytics umożliwia Uczenie maszynowe przy użyciu danych Big Data, zapewniając możliwość uzyskiwania cennych informacji z dużych ilości danych strukturalnych, niestrukturalnych i szybko przenoszonych. Istnieje kilka opcji szkolenia modeli uczenia maszynowego przy użyciu platformy Azure Spark w usłudze Azure Synapse Analytics: Apache Spark MLlib, Azure Machine Learning i różne inne biblioteki Open Source. 
@@ -58,6 +58,6 @@ W przypadku korzystania z zautomatyzowanej ML w ramach usługi Azure Synapse Ana
 ## <a name="next-steps"></a>Następne kroki
 Ten artykuł zawiera omówienie różnych opcji uczenia modeli uczenia maszynowego w ramach pul Apache Spark w usłudze Azure Synapse Analytics. Więcej informacji na temat szkoleń modeli można znaleźć w poniższym samouczku:
 
-- Uruchamianie zautomatyzowanych eksperymentów ML przy użyciu Azure Machine Learning i usługi Azure Synapse Analytics: [samouczek zautomatyzowanej ml](./spark/../apache-spark-autoscale.md) 
-- Uruchamianie eksperymentów SparkML: [Apache SparkML — samouczek](../spark/apache-spark-azure-machine-learning-tutorial.md)
+- Uruchamianie zautomatyzowanych eksperymentów ML przy użyciu Azure Machine Learning i usługi Azure Synapse Analytics: [samouczek zautomatyzowanej ml](../spark/apache-spark-azure-machine-learning-tutorial.md) 
+- Uruchamianie eksperymentów SparkML: [Apache SparkML — samouczek](../spark/apache-spark-machine-learning-mllib-notebook.md)
 - Wyświetlanie bibliotek domyślnych: [środowisko uruchomieniowe usługi Azure Synapse Analytics](../spark/apache-spark-version-support.md)

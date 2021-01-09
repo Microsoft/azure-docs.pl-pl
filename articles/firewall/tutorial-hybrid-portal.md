@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/17/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 78e934a90b8d4e8feccf18a5cada3ec4920e1642
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 86e27c190b269763d8dd2f562a207b3f2020da29
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734457"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051075"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Samouczek: wdrażanie i Konfigurowanie zapory platformy Azure w sieci hybrydowej przy użyciu Azure Portal
 
@@ -29,7 +29,7 @@ W tym samouczku zostaną utworzone trzy sieci wirtualne:
 
 ![Zapora w sieci hybrydowej](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Deklarowanie zmiennych
@@ -78,13 +78,13 @@ Najpierw utwórz grupę zasobów zawierającą zasoby do celów tego samouczka:
 3. W polu **Subskrypcja** wybierz subskrypcję.
 1. W obszarze **Nazwa grupy zasobów** wpisz polecenie **PD-hybrydowy-test**.
 2. W **obszarze region** wybierz pozycję **(US) Wschodnie stany USA**. Wszystkie zasoby, które tworzysz później, muszą znajdować się w tej samej lokalizacji.
-3. Wybierz pozycję **Recenzja + Utwórz**.
+3. Wybierz pozycję **Przejrzyj i utwórz**.
 4. Wybierz pozycję **Utwórz**.
 
 Teraz Utwórz sieć wirtualną:
 
 > [!NOTE]
-> Rozmiar podsieci AzureFirewallSubnet to/26. Aby uzyskać więcej informacji o rozmiarze podsieci, zobacz [często zadawane pytania dotyczące zapory platformy Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+> Rozmiar podsieci AzureFirewallSubnet to/26. Aby uzyskać więcej informacji o rozmiarze podsieci, zobacz [często zadawane pytania dotyczące zapory platformy Azure](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
 
 1. Na stronie głównej Azure Portal wybierz pozycję **Utwórz zasób**.
 2. W obszarze **Sieć** wybierz pozycję **Sieć wirtualna**.
@@ -138,7 +138,7 @@ Teraz Utwórz drugą podsieć dla bramy.
 2. Wybierz pozycję **+ podsieć**.
 3. W obszarze **Nazwa** wpisz **GatewaySubnet**.
 4. Dla typu **zakresu adresów podsieci** **192.168.2.0/24**.
-5. Wybierz przycisk **OK**.
+5. Wybierz pozycję **OK**.
 
 ## <a name="configure-and-deploy-the-firewall"></a>Konfigurowanie i wdrażanie zapory
 
@@ -186,7 +186,7 @@ Teraz Dodaj regułę zezwalającą na ruch RDP.
 
 W drugim wierszu reguły wpisz następujące informacje:
 
-1. **Name** Wpisz **AllowRDP**.
+1. Wpisz **AllowRDP**.
 2. W polu **Protokół** wybierz **TCP**.
 3. W obszarze **Typ źródła** wybierz pozycję **adres IP**.
 4. W obszarze **Źródło** wpisz **192.168.1.0/24**.
@@ -246,7 +246,7 @@ W tym kroku utworzysz połączenie z sieci wirtualnej koncentratora do lokalnej 
 5. Wybierz pozycję **Sieć wirtualna-sieć wirtualna** dla **typu połączenia**.
 6. W przypadku **drugiej bramy sieci wirtualnej** wybierz pozycję **GW-lokalnego**.
 7. Dla **klucza współużytkowanego (PSK)** wpisz **AzureA1b2C3**.
-8. Wybierz przycisk **OK**.
+8. Wybierz pozycję **OK**.
 
 Utwórz połączenie z lokalnej sieci wirtualnej do sieci wirtualnej koncentratora. Ten krok jest podobny do poprzedniego, jednak w tym przypadku tworzysz połączenie z sieci VNet-Onprem do sieci VNet-hub. Upewnij się, że klucze współużytkowane są zgodne. Po kilku minutach połączenie zostanie ustanowione.
 
@@ -257,7 +257,7 @@ Utwórz połączenie z lokalnej sieci wirtualnej do sieci wirtualnej koncentrato
 5. Wybierz pozycję **Sieć wirtualna-sieć wirtualna** dla **typu połączenia**.
 6. W przypadku **drugiej bramy sieci wirtualnej** wybierz pozycję **GW-Hub**.
 7. Dla **klucza współużytkowanego (PSK)** wpisz **AzureA1b2C3**.
-8. Wybierz przycisk **OK**.
+8. Wybierz pozycję **OK**.
 
 
 #### <a name="verify-the-connection"></a>Weryfikowanie połączenia
@@ -313,7 +313,7 @@ Następnie należy utworzyć kilka tras:
 6. Wybierz z grupy zasobów opcję **PD-hybrydowy-test** .
 8. W polu **region** wybierz tę samą lokalizację, która została wcześniej użyta.
 1. W polu Nazwa wpisz **UDR-Hub-szprych**.
-9. Wybierz pozycję **Recenzja + Utwórz**.
+9. Wybierz pozycję **Przejrzyj i utwórz**.
 10. Wybierz pozycję **Utwórz**.
 11. Po utworzeniu tabeli tras wybierz ją, aby otworzyć stronę tabela tras.
 12. W lewej kolumnie Wybierz pozycję **trasy** .
@@ -322,7 +322,7 @@ Następnie należy utworzyć kilka tras:
 15. Dla prefiksu adresu wpisz **10.6.0.0/16**.
 16. W polu Typ następnego przeskoku wybierz pozycję **urządzenie wirtualne**.
 17. W polu adres następnego przeskoku wpisz zanotowany wcześniej prywatny adres IP zapory.
-18. Wybierz przycisk **OK**.
+18. Wybierz pozycję **OK**.
 
 Teraz Skojarz trasę z podsiecią.
 
@@ -330,7 +330,7 @@ Teraz Skojarz trasę z podsiecią.
 2. Wybierz pozycję **Skojarz**.
 3. W obszarze **Sieć wirtualna** wybierz pozycję Virtual **-Hub**.
 1. W obszarze **podsieć** wybierz pozycję **GatewaySubnet**.
-2. Wybierz przycisk **OK**.
+2. Wybierz pozycję **OK**.
 
 Teraz Utwórz trasę domyślną z podsieci szprych.
 
@@ -342,7 +342,7 @@ Teraz Utwórz trasę domyślną z podsieci szprych.
 8. W polu **region** wybierz tę samą lokalizację, która została wcześniej użyta.
 1. W polu Nazwa wpisz **UDR-DG**.
 4. W przypadku **propagacji trasy bramy** wybierz pozycję **nie**.
-5. Wybierz pozycję **Recenzja + Utwórz**.
+5. Wybierz pozycję **Przejrzyj i utwórz**.
 6. Wybierz pozycję **Utwórz**.
 7. Po utworzeniu tabeli tras wybierz ją, aby otworzyć stronę tabela tras.
 8. W lewej kolumnie Wybierz pozycję **trasy** .
@@ -351,7 +351,7 @@ Teraz Utwórz trasę domyślną z podsieci szprych.
 11. Dla prefiksu adresu wpisz **0.0.0.0/0**.
 12. W polu Typ następnego przeskoku wybierz pozycję **urządzenie wirtualne**.
 13. W polu adres następnego przeskoku wpisz zanotowany wcześniej prywatny adres IP zapory.
-14. Wybierz przycisk **OK**.
+14. Wybierz pozycję **OK**.
 
 Teraz Skojarz trasę z podsiecią.
 
@@ -359,7 +359,7 @@ Teraz Skojarz trasę z podsiecią.
 2. Wybierz pozycję **Skojarz**.
 3. W obszarze **Sieć wirtualna** wybierz pozycję **VNET-szprychy**.
 1. W obszarze **podsieć** wybierz pozycję **SN-obciążenie**.
-2. Wybierz przycisk **OK**.
+2. Wybierz pozycję **OK**.
 
 ## <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
 

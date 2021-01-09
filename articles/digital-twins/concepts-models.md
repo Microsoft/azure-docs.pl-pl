@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 0a38f9b8135fed08a95df68f108e44c34fec6325
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: dfea6d531dfb87a5344c5d8e53570b6e1ae8e598
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955331"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049324"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Zrozumienie modeli bliźniaczych w usłudze Azure Digital bliźniaczych reprezentacji
 
@@ -88,53 +88,7 @@ Ta sekcja zawiera przykład typowego modelu, który został zapisany jako interf
  
 Należy wziąć pod uwagę, że planety może także wchodzić w pracę z **przyzwyczajami** , które są swoimi satelitami i mogą zawierać **kontenery**. W poniższym przykładzie `Planet` model wyraża połączenia z tymi innymi jednostkami, odwołując się do dwóch modeli zewnętrznych — `Moon` i `Crater` . Te modele są również zdefiniowane w przykładowym kodzie poniżej, ale są bardzo proste, aby nie rozciągać się z podstawowego `Planet` przykładu.
 
-```json
-[
-  {
-    "@id": "dtmi:com:contoso:Planet;1",
-    "@type": "Interface",
-    "@context": "dtmi:dtdl:context;2",
-    "displayName": "Planet",
-    "contents": [
-      {
-        "@type": "Property",
-        "name": "name",
-        "schema": "string"
-      },
-      {
-        "@type": "Property",
-        "name": "mass",
-        "schema": "double"
-      },
-      {
-        "@type": "Telemetry",
-        "name": "Temperature",
-        "schema": "double"
-      },
-      {
-        "@type": "Relationship",
-        "name": "satellites",
-        "target": "dtmi:com:contoso:Moon;1"
-      },
-      {
-        "@type": "Component",
-        "name": "deepestCrater",
-        "schema": "dtmi:com:contoso:Crater;1"
-      }
-    ]
-  },
-  {
-    "@id": "dtmi:com:contoso:Crater;1",
-    "@type": "Interface",
-    "@context": "dtmi:dtdl:context;2"
-  },
-  {
-    "@id": "dtmi:com:contoso:Moon;1",
-    "@type": "Interface",
-    "@context": "dtmi:dtdl:context;2"
-  }
-]
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/Planet-Crater-Moon.json":::
 
 Pola modelu są następujące:
 
@@ -166,57 +120,7 @@ Czasami warto utworzyć bardziej wyspecjalizowany model. Na przykład może być
 
 Poniższy przykład ponownie Przypuść model *globalnej* z wcześniejszego przykładu DTDL jako podtyp większego modelu *CelestialBody* . Model "nadrzędny" jest definiowany jako pierwszy, a następnie model "podrzędny" kompiluje na nim przy użyciu pola `extends` .
 
-```json
-[
-  {
-    "@id": "dtmi:com:contoso:CelestialBody;1",
-    "@type": "Interface",
-    "@context": "dtmi:dtdl:context;2",
-    "displayName": "Celestial body",
-    "contents": [
-      {
-        "@type": "Property",
-        "name": "name",
-        "schema": "string"
-      },
-      {
-        "@type": "Property",
-        "name": "mass",
-        "schema": "double"
-      },
-      {
-        "@type": "Telemetry",
-        "name": "temperature",
-        "schema": "double"
-      }
-    ]
-  },
-  {
-    "@id": "dtmi:com:contoso:Planet;1",
-    "@type": "Interface",
-    "@context": "dtmi:dtdl:context;2",
-    "displayName": "Planet",
-    "extends": "dtmi:com:contoso:CelestialBody;1",
-    "contents": [
-      {
-        "@type": "Relationship",
-        "name": "satellites",
-        "target": "dtmi:com:contoso:Moon;1"
-      },
-      {
-        "@type": "Component",
-        "name": "deepestCrater",
-        "schema": "dtmi:com:contoso:Crater;1"
-      }
-    ]
-  },
-  {
-    "@id": "dtmi:com:contoso:Crater;1",
-    "@type": "Interface",
-    "@context": "dtmi:dtdl:context;2"
-  }
-]
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/CelestialBody-Planet-Crater.json":::
 
 W tym przykładzie *CelestialBody* współtworzy nazwę, masę i temperaturę do *globalnej*. `extends`Sekcja jest nazwą interfejsu lub tablicą nazw interfejsów (umożliwiając rozszerzanie interfejsu w razie potrzeby dziedziczenie z wielu modeli nadrzędnych).
 

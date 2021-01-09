@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: b563fac9044dccd832aa42c0193eed24cad26754
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 5b5ae695ac11ae687a9b076005a765feaa46f83c
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94737918"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049511"
 ---
 # <a name="support-lifecycle-for-azure-red-hat-openshift-4"></a>Cykl życia wsparcia platformy Azure Red Hat OpenShift 4
 
@@ -100,13 +100,13 @@ Zapoznaj się z następującym przewodnikiem dotyczącym [historycznej wersji pl
 |4.3|Styczeń 2020 r.|Kwiecień 2020 r.| Sierpień 2020 r.|
 |4.4|Maj 2020 r.|Lipiec 2020 r.|4,6 GA|
 |4.5|Lipiec 2020 r.| Listopad 2020 r.|4,7 GA
-|4,6|Październik 2020 r.| Grudzień 2020|4,8 GA|
+|4,6|Październik 2020 r.| Luty 2021|4,8 GA|
 
 ## <a name="faq"></a>Często zadawane pytania
 
 **Co się stanie, gdy użytkownik uaktualnia klaster OpenShift z nieobsługiwaną wersją pomocniczą?**
 
-Jeśli korzystasz z wersji N-2 lub starszej, oznacza to, że użytkownik jest poza pomocą techniczną i zostanie poproszony o uaktualnienie. Gdy uaktualnienie z wersji N-2 do N-1 powiedzie się, nastąpi powrót do naszych zasad pomocy technicznej. Przykład:
+Jeśli korzystasz z wersji N-2 lub starszej, oznacza to, że użytkownik jest poza pomocą techniczną i zostanie poproszony o uaktualnienie. Gdy uaktualnienie z wersji N-2 do N-1 powiedzie się, nastąpi powrót do naszych zasad pomocy technicznej. Na przykład:
 * Jeśli najstarsza obsługiwana wersja usługi Azure Red Hat OpenShift to 4.4. z i używasz programu 4.3. z lub starszej wersji, jesteś poza pomocą techniczną.
 * Gdy uaktualnienie z programu 4.3. z do 4.4. z lub nowsze powiedzie się, nastąpi powrót do naszych zasad pomocy technicznej.
 

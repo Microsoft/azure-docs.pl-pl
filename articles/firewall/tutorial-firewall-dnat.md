@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 71eda40abd38b4885b8e88085e338667b608902f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 281d0587ca4c041c7149e49aad6227f6dc0b7fbf
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655140"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050871"
 ---
 # <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Samouczek: filtrowanie przychodzącego ruchu internetowego za pomocą usługi Azure firewall DNAT przy użyciu Azure Portal
 
 Możesz skonfigurować funkcję translacji docelowych adresów sieciowych (DNAT) usługi Azure Firewall do wykonywania translacji i filtrowania ruchu internetowego przychodzącego do podsieci. Po skonfigurowaniu DNAT akcja kolekcje reguł translatora adresów sieciowych jest ustawiona na **DNAT**. Każda reguła w kolekcji reguł NAT umożliwia wykonanie translacji publicznego adresu IP i portu zapory na prywatny adres IP i port. Reguły DNAT niejawnie dodają odpowiednią regułę sieci zezwalającą na przetłumaczony ruch. Aby przesłonić to zachowanie, jawnie dodaj kolekcję reguł sieci z regułami odmowy zgodnymi z przetłumaczonym ruchem. Aby dowiedzieć się więcej na temat logiki przetwarzania reguł usługi Azure Firewall, zobacz [Azure Firewall rule processing logic (Logika przetwarzania reguł usługi Azure Firewall)](rule-processing.md).
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Konfigurowanie testowego środowiska sieciowego
@@ -66,7 +66,7 @@ Najpierw utwórz sieci wirtualne, a następnie połącz je przy użyciu komunika
 
      Zapora będzie znajdować się w tej podsieci, a nazwą podsieci **musi** być AzureFirewallSubnet.
      > [!NOTE]
-     > Rozmiar podsieci AzureFirewallSubnet to/26. Aby uzyskać więcej informacji o rozmiarze podsieci, zobacz [często zadawane pytania dotyczące zapory platformy Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+     > Rozmiar podsieci AzureFirewallSubnet to/26. Aby uzyskać więcej informacji o rozmiarze podsieci, zobacz [często zadawane pytania dotyczące zapory platformy Azure](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
 
 10. W obszarze **zakres adresów** wpisz **10.0.1.0/26**.
 11. Użyj innych ustawień domyślnych, a następnie wybierz pozycję **Utwórz**.
@@ -98,7 +98,7 @@ Teraz połącz sieci wirtualne przy użyciu komunikacji równorzędnej.
 5. Jako sieć wirtualną wybierz **VN-Spoke**.
 6. Wpisz **peer-SpokeHub** dla **nazwy komunikacji równorzędnej z VN-Spoke do centrum VN**.
 7. Dla opcji **Zezwalaj na ruch przesłany z VN-Spoke do centrum z ODczynem VN** wybierz opcję **włączone**.
-8. Wybierz przycisk **OK**.
+8. Wybierz pozycję **OK**.
 
 ## <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
@@ -130,7 +130,7 @@ Utwórz maszynę wirtualną obciążenia i umieść ją w podsieci **SN-Workload
 **Zarządzanie**
 
 1. W obszarze **Diagnostyka rozruchu** wybierz pozycję **wyłączone**.
-1. Wybierz pozycję **Recenzja + Utwórz**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
 
 **Przegląd + tworzenie**
 
@@ -177,7 +177,7 @@ Na potrzeby podsieci **SN-Workload** skonfiguruj trasę domyślną ruchu wychodz
 10. Wybierz pozycję **podsieci**, a następnie wybierz pozycję **Skojarz**.
 11. Wybierz pozycję **Sieć wirtualna**, a następnie wybierz pozycję **VN-szprycha**.
 12. W polu **Podsieć** wybierz pozycję **SN-Workload**.
-13. Wybierz przycisk **OK**.
+13. Wybierz pozycję **OK**.
 14. Wybierz pozycję **trasy**, a następnie wybierz pozycję **Dodaj**.
 15. W polu **Nazwa trasy** wpisz wartość **FW-DG**.
 16. W polu **Prefiks adresu** wpisz wartość **0.0.0.0/0**.
@@ -185,7 +185,7 @@ Na potrzeby podsieci **SN-Workload** skonfiguruj trasę domyślną ruchu wychodz
 
     Usługa Azure Firewall to w rzeczywistości usługa zarządzana, ale urządzenie wirtualne działa w tej sytuacji.
 18. W polu **Adres następnego skoku** wpisz wcześniej zanotowany prywatny adres IP zapory.
-19. Wybierz przycisk **OK**.
+19. Wybierz pozycję **OK**.
 
 ## <a name="configure-a-nat-rule"></a>Konfigurowanie reguł translatora adresów sieciowych
 

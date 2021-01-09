@@ -7,12 +7,12 @@ ms.service: firewall-manager
 ms.topic: tutorial
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 3d4d1e65c2200aee178abefb46d3e330acbd3108
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5d662efc927235711c4dd5e8a424d8775279c30b
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023690"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98048049"
 ---
 # <a name="tutorial-secure-your-hub-virtual-network-using-azure-firewall-manager"></a>Samouczek: Zabezpieczanie sieci wirtualnej centrum przy użyciu Menedżera zapory platformy Azure
 
@@ -30,7 +30,7 @@ W tym samouczku zostaną utworzone trzy sieci wirtualne:
 
 ![Sieć hybrydowa](media/tutorial-hybrid-portal/hybrid-network-firewall.png)
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie zasad zapory
@@ -101,13 +101,13 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
     Dla lokalizacji docelowej wpisz **10.6.0.0/16**
 
 1. Wybierz pozycję **Dodaj**.
-2. Wybierz pozycję **Recenzja + Utwórz**.
+2. Wybierz pozycję **Przejrzyj i utwórz**.
 3. Przejrzyj szczegóły, a następnie wybierz pozycję **Utwórz**.
 
 ## <a name="create-the-firewall-hub-virtual-network"></a>Tworzenie sieci wirtualnej koncentratora zapory
 
 > [!NOTE]
-> Rozmiar podsieci AzureFirewallSubnet to/26. Aby uzyskać więcej informacji o rozmiarze podsieci, zobacz [często zadawane pytania dotyczące zapory platformy Azure](../firewall/firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+> Rozmiar podsieci AzureFirewallSubnet to/26. Aby uzyskać więcej informacji o rozmiarze podsieci, zobacz [często zadawane pytania dotyczące zapory platformy Azure](../firewall/firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
 
 1. Na stronie głównej Azure Portal wybierz pozycję **Utwórz zasób**.
 2. W obszarze **Sieć** wybierz pozycję **Sieć wirtualna**.

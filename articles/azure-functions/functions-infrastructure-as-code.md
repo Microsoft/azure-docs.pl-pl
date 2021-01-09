@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f9c11c0671db882edd9a72bca8d11c7326edee43
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: dbb380dca231f75f6d6e77676c9059ef3762dac5
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936893"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050939"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatyzowanie wdrażania zasobów dla aplikacji funkcji w Azure Functions
 
@@ -140,7 +140,7 @@ Aplikacja funkcji musi zawierać następujące ustawienia aplikacji:
 | Nazwa ustawienia                 | Opis                                                                               | Przykładowe wartości                        |
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
 | AzureWebJobsStorage          | Parametry połączenia z kontem magazynu, które są używane przez środowisko uruchomieniowe funkcji dla kolejki wewnętrznej | Zobacz [konto magazynu](#storage)       |
-| FUNCTIONS_EXTENSION_VERSION  | Wersja środowiska uruchomieniowego Azure Functions                                                | `~2`                                  |
+| FUNCTIONS_EXTENSION_VERSION  | Wersja środowiska uruchomieniowego Azure Functions                                                | `~3`                                  |
 | FUNCTIONS_WORKER_RUNTIME     | Stos języka, który ma być używany dla funkcji w tej aplikacji                                   | `dotnet`, `node` , `java` , `python` lub `powershell` |
 | WEBSITE_NODE_DEFAULT_VERSION | Wymagany tylko w przypadku używania `node` stosu języka, określa wersję do użycia              | `10.14.1`                             |
 
@@ -164,7 +164,7 @@ Te właściwości są określone w `appSettings` kolekcji we `siteConfig` Właś
             },
             {
                 "name": "FUNCTIONS_EXTENSION_VERSION",
-                "value": "~2"
+                "value": "~3"
             }
         ]
     }
@@ -251,7 +251,7 @@ W systemie Windows plan zużycia wymaga dwóch dodatkowych ustawień w konfigura
                 },
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
-                    "value": "~2"
+                    "value": "~3"
                 }
             ]
         }
@@ -290,7 +290,7 @@ W systemie Linux aplikacja funkcji musi mieć `kind` ustawioną wartość `funct
                 },
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
-                    "value": "~2"
+                    "value": "~3"
                 }
             ]
         },
@@ -371,7 +371,7 @@ Aplikacja funkcji w planie Premium musi mieć `serverFarmId` ustawioną właści
                 },
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
-                    "value": "~2"
+                    "value": "~3"
                 }
             ]
         }
@@ -459,7 +459,7 @@ Aplikacja funkcji w planie App Service musi mieć `serverFarmId` ustawioną wła
                 },
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
-                    "value": "~2"
+                    "value": "~3"
                 }
             ]
         }
@@ -467,13 +467,13 @@ Aplikacja funkcji w planie App Service musi mieć `serverFarmId` ustawioną wła
 }
 ```
 
-Aplikacje systemu Linux powinny również zawierać `linuxFxVersion` Właściwość w obszarze `siteConfig` . Jeśli po prostu wdrażasz kod, wartość tego elementu jest określana na podstawie żądanego stosu środowiska uruchomieniowego:
+Aplikacje systemu Linux powinny również zawierać `linuxFxVersion` Właściwość w obszarze `siteConfig` . Jeśli po prostu wdrażasz kod, wartość tego elementu jest określana na podstawie żądanego stosu środowiska uruchomieniowego w formacie ```runtime|runtimeVersion``` :
 
 | Stos            | Przykładowa wartość                                         |
 |------------------|-------------------------------------------------------|
-| Python           | `DOCKER|microsoft/azure-functions-python3.6:2.0`      |
-| JavaScript       | `DOCKER|microsoft/azure-functions-node8:2.0`          |
-| .NET             | `DOCKER|microsoft/azure-functions-dotnet-core2.0:2.0` |
+| Python           | `python|3.7`      |
+| JavaScript       | `node|12`          |
+| .NET             | `dotnet|3.0` |
 
 ```json
 {
@@ -504,10 +504,10 @@ Aplikacje systemu Linux powinny również zawierać `linuxFxVersion` Właściwo�
                 },
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
-                    "value": "~2"
+                    "value": "~3"
                 }
             ],
-            "linuxFxVersion": "DOCKER|microsoft/azure-functions-node8:2.0"
+            "linuxFxVersion": "node|12"
         }
     }
 }
@@ -544,7 +544,7 @@ W przypadku [wdrażania niestandardowego obrazu kontenera](./functions-create-fu
                 },
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
-                    "value": "~2"
+                    "value": "~3"
                 },
                 {
                     "name": "DOCKER_REGISTRY_SERVER_URL",
@@ -594,7 +594,7 @@ Aplikacja funkcji ma wiele zasobów podrzędnych, których można użyć we wdro
         "appSettings": [
             {
                 "name": "FUNCTIONS_EXTENSION_VERSION",
-                "value": "~2"
+                "value": "~3"
             },
             {
                 "name": "Project",
@@ -616,7 +616,7 @@ Aplikacja funkcji ma wiele zasobów podrzędnych, których można użyć we wdro
         "properties": {
           "AzureWebJobsStorage": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]",
           "AzureWebJobsDashboard": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]",
-          "FUNCTIONS_EXTENSION_VERSION": "~2",
+          "FUNCTIONS_EXTENSION_VERSION": "~3",
           "FUNCTIONS_WORKER_RUNTIME": "dotnet",
           "Project": "src"
         }

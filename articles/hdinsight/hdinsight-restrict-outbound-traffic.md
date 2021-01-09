@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: dc6412a85beba67551e7683c8127a65730f9218f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 4c703fc1ddac4af2e3cf8716764a21da7e870b19
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535471"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98048678"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Konfigurowanie wychodzącego ruchu sieciowego dla klastrów usługi Azure HDInsight przy użyciu zapory
 
@@ -53,7 +53,7 @@ Utwórz kolekcję reguł aplikacji, która umożliwia klastrowi wysyłanie i odb
 
 1. Wybierz nową zaporę **test-FW01** z Azure Portal.
 
-1. Przejdź do **ustawień**  >  **reguły**  >  **aplikacja Kolekcja reguł aplikacji**  >  **+ Dodaj kolekcję reguł aplikacji** .
+1. Przejdź do **ustawień**  >  **reguły**  >  **aplikacja Kolekcja reguł aplikacji**  >  **+ Dodaj kolekcję reguł aplikacji**.
 
     ![Title: Dodawanie kolekcji reguł aplikacji](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
@@ -83,13 +83,13 @@ Utwórz kolekcję reguł aplikacji, która umożliwia klastrowi wysyłanie i odb
 
    ![Title: Wprowadź szczegóły kolekcji reguł aplikacji](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
 
-1. Wybierz pozycję **Dodaj** .
+1. Wybierz pozycję **Dodaj**.
 
 ### <a name="configure-the-firewall-with-network-rules"></a>Konfigurowanie zapory przy użyciu reguł sieci
 
 Utwórz reguły sieciowe w celu poprawnego skonfigurowania klastra usługi HDInsight.
 
-1. Kontynuując poprzedni krok, przejdź do sekcji **Kolekcja reguł sieciowych**  >  **+ Dodawanie kolekcji reguł sieci** .
+1. Kontynuując poprzedni krok, przejdź do sekcji **Kolekcja reguł sieciowych**  >  **+ Dodawanie kolekcji reguł sieci**.
 
 1. Na ekranie **Dodawanie kolekcji reguł sieci** podaj następujące informacje:
 
@@ -105,28 +105,28 @@ Utwórz reguły sieciowe w celu poprawnego skonfigurowania klastra usługi HDIns
 
     | Nazwa | Protokół | Adresy źródłowe | Tagi usługi | Porty docelowe | Uwagi |
     | --- | --- | --- | --- | --- | --- |
-    | Rule_5 | TCP | * | SQL | 1433 | Jeśli używasz domyślnych serwerów SQL udostępnianych przez usługę HDInsight, skonfiguruj regułę sieci w sekcji Tagi usług dla programu SQL, która umożliwi rejestrowanie i inspekcję ruchu SQL. O ile punkty końcowe usługi nie zostały skonfigurowane dla SQL Server w podsieci usługi HDInsight, co spowoduje ominięcie zapory. Jeśli używasz niestandardowego programu SQL Server dla Ambari, Oozie, Ranger i Hive metastroes, musisz zezwolić na ruch tylko do własnych niestandardowych serwerów SQL.|
+    | Rule_5 | TCP | * | SQL | 1433 | Jeśli używasz domyślnych serwerów SQL udostępnianych przez usługę HDInsight, skonfiguruj regułę sieci w sekcji Tagi usług dla programu SQL, która umożliwi rejestrowanie i inspekcję ruchu SQL. O ile punkty końcowe usługi nie zostały skonfigurowane dla SQL Server w podsieci usługi HDInsight, co spowoduje ominięcie zapory. Jeśli używasz niestandardowego programu SQL Server do obsługi Ambari, Oozie, Ranger i metadanych Hive, musisz zezwolić na ruch tylko do własnych niestandardowych serwerów SQL.|
     | Rule_6 | TCP | * | Azure Monitor | * | obowiązkowe Klienci, którzy planują korzystanie z funkcji automatycznego skalowania, powinni dodać tę regułę. |
     
    ![Title: wprowadzanie kolekcji reguł aplikacji](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
-1. Wybierz pozycję **Dodaj** .
+1. Wybierz pozycję **Dodaj**.
 
 ### <a name="create-and-configure-a-route-table"></a>Tworzenie i Konfigurowanie tabeli tras
 
 Utwórz tabelę tras z następującymi wpisami:
 
-* Wszystkie adresy IP z [usług kondycji i zarządzania](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-all-regions) z typem następnego przeskoku **Internet** . Powinien zawierać 4 adresy IP regionów ogólnych, a także 2 adresy IP dla danego regionu. Ta reguła jest wymagana tylko wtedy, gdy ResourceProviderConnection jest ustawiona na wartość *przychodzące* . Jeśli ResourceProviderConnection jest ustawiony na *wychodzące* , te adresy IP nie są konieczne w UDR. 
+* Wszystkie adresy IP z [usług kondycji i zarządzania](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-all-regions) z typem następnego przeskoku **Internet**. Powinien zawierać 4 adresy IP regionów ogólnych, a także 2 adresy IP dla danego regionu. Ta reguła jest wymagana tylko wtedy, gdy ResourceProviderConnection jest ustawiona na wartość *przychodzące*. Jeśli ResourceProviderConnection jest ustawiony na *wychodzące* , te adresy IP nie są konieczne w UDR. 
 
 * Jedna trasa wirtualnego urządzenia dla adresu IP 0.0.0.0/0 z następnym przeskokiem jako prywatny adres IP zapory platformy Azure.
 
 Aby na przykład skonfigurować tabelę tras dla klastra utworzonego w regionie US USA, należy wykonać następujące czynności:
 
-1. Wybierz test zapory platformy Azure **— FW01** . Skopiuj **prywatny adres IP** wymieniony na stronie **Przegląd** . W tym przykładzie użyjemy **przykładowego adresu 10.0.2.4** .
+1. Wybierz test zapory platformy Azure **— FW01**. Skopiuj **prywatny adres IP** wymieniony na stronie **Przegląd** . W tym przykładzie użyjemy **przykładowego adresu 10.0.2.4**.
 
-1. Następnie przejdź do **wszystkich usług**  >  **sieciowych** usługi  >  **trasy tabele** i **Utwórz tabelę tras** .
+1. Następnie przejdź do **wszystkich usług**  >  **sieciowych** usługi  >  **trasy tabele** i **Utwórz tabelę tras**.
 
-1. W nowej trasie przejdź do **ustawień**  >  **trasy**  >  **+ Dodaj** . Dodaj następujące trasy:
+1. W nowej trasie przejdź do **ustawień**  >  **trasy**  >  **+ Dodaj**. Dodaj następujące trasy:
 
 | Nazwa trasy | Prefiks adresu | Typ następnego przeskoku | Adres następnego skoku |
 |---|---|---|---|
@@ -140,13 +140,13 @@ Aby na przykład skonfigurować tabelę tras dla klastra utworzonego w regionie 
 
 Ukończ konfigurację tabeli tras:
 
-1. Przypisz utworzoną tabelę tras do podsieci usługi HDInsight, wybierając pozycję **podsieci** w obszarze **Ustawienia** .
+1. Przypisz utworzoną tabelę tras do podsieci usługi HDInsight, wybierając pozycję **podsieci** w obszarze **Ustawienia**.
 
-1. Wybierz pozycję **+ Skojarz** .
+1. Wybierz pozycję **+ Skojarz**.
 
 1. Na ekranie **Skojarz podsieć** wybierz sieć wirtualną, w której został utworzony klaster. I **podsieć** użyta dla klastra usługi HDInsight.
 
-1. Wybierz przycisk **OK** .
+1. Wybierz pozycję **OK**.
 
 ## <a name="edge-node-or-custom-application-traffic"></a>Ruch graniczny węzła lub aplikacji niestandardowej
 
@@ -170,7 +170,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 
 Integracja zapory platformy Azure z dziennikami Azure Monitor jest przydatna podczas pierwszego działania aplikacji. Szczególnie wtedy, gdy nie ma informacji o wszystkich zależnościach aplikacji. Więcej informacji na temat dzienników Azure Monitor można znaleźć [w temacie Analizowanie danych dzienników w Azure monitor](../azure-monitor/log-query/log-query-overview.md)
 
-Aby dowiedzieć się więcej o granicach skalowania zapory platformy Azure i zwiększania żądań, zobacz [ten](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits) dokument lub zapoznaj się z [często zadawanymi pytaniami](../firewall/firewall-faq.md).
+Aby dowiedzieć się więcej o granicach skalowania zapory platformy Azure i zwiększania żądań, zobacz [ten](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits) dokument lub zapoznaj się z [często zadawanymi pytaniami](../firewall/firewall-faq.yml).
 
 ## <a name="access-to-the-cluster"></a>Dostęp do klastra
 

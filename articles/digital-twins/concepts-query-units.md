@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 33c572719d76a2add39aec37329679113fcddb76
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 86f2abb8bfb95d5b9e72936ca3e9464747c00b1c
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146334"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049307"
 ---
 # <a name="query-units-in-azure-digital-twins"></a>Jednostki zapytań w usłudze Azure Digital bliźniaczych reprezentacji 
 
@@ -35,34 +35,7 @@ Usługi Azure Digital bliźniaczych reprezentacji [SDK](how-to-use-apis-sdks.md)
 
 Poniższy fragment kodu demonstruje, jak można wyodrębnić opłaty za zapytania podczas wywoływania interfejsu API zapytań. Najpierw wykonuje iterację na stronach odpowiedzi, aby uzyskać dostęp do nagłówka opłaty zapytania, a następnie wykonuje iterację przez cyfrowe sznurki na każdej stronie. 
 
-```csharp
-AsyncPageable<string> asyncPageableResponseWithCharge = client.QueryAsync("SELECT * FROM digitaltwins");
-int pageNum = 0;
-
-// The "await" keyword here is required, as a call is made when fetching a new page.
-
-await foreach (Page<string> page in asyncPageableResponseWithCharge.AsPages())
-{
-    Console.WriteLine($"Page {++pageNum} results:");
-
-    // Extract the query-charge header from the page
-
-    if (QueryChargeHelper.TryGetQueryCharge(page, out float queryCharge))
-    {
-        Console.WriteLine($"Query charge was: {queryCharge}");
-    }
-
-    // Iterate over the twin instances.
-
-    // The "await" keyword is not required here, as the paged response is local.
-
-    foreach (string response in page.Values)
-    {
-        BasicDigitalTwin twin = JsonSerializer.Deserialize<BasicDigitalTwin>(response);
-        Console.WriteLine($"Found digital twin '{twin.Id}'");
-    }
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/getQueryCharges.cs":::
 
 ## <a name="next-steps"></a>Następne kroki
 

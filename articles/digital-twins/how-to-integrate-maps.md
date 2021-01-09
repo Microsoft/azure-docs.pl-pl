@@ -8,12 +8,12 @@ ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 3e5eb49a91e2c8bbd73f5dd37ed90f10b406fa3d
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 7b2039f8b1aebef65112067e4fd9184777192015
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496041"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051585"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Użyj usługi Azure Digital bliźniaczych reprezentacji, aby zaktualizować mapę pomieszczeń Azure Maps
 
@@ -31,7 +31,7 @@ Ta procedura obejmuje następujące zagadnienia:
     * Będziesz rozszerzać ten dwuosiowy z dodatkowym punktem końcowym i trasą. Możesz również dodać kolejną funkcję do aplikacji funkcji z tego samouczka. 
 * Postępuj zgodnie z Azure Maps [*samouczkiem: Użyj kreatora Azure Maps, aby utworzyć mapy wewnętrzne*](../azure-maps/tutorial-creator-indoor-maps.md) , aby utworzyć Azure Maps mapę pomieszczeń z *funkcją stateset*.
     * [Funkcja statesets](../azure-maps/creator-indoor-maps.md#feature-statesets) to kolekcje właściwości dynamicznych (Stanów) przypisanych do funkcji zestawu danych, takich jak pokoje lub sprzęt. W powyższym samouczku Azure Maps funkcja stateset przechowuje stan pokoju, który będzie wyświetlany na mapie.
-    * Będziesz potrzebować *identyfikatora stateset* Azure Maps i *identyfikatora subskrypcji*usługi.
+    * Będziesz potrzebować *identyfikatora stateset* Azure Maps i *identyfikatora subskrypcji* usługi.
 
 ### <a name="topology"></a>Topologia
 
@@ -78,60 +78,7 @@ Zapoznaj się z następującym dokumentem, aby uzyskać informacje referencyjne:
 
 Zastąp kod funkcji poniższym kodem. Spowoduje to odfiltrowanie tylko aktualizacji bliźniaczych reprezentacji miejsca, odczytanie zaktualizowanej temperatury i wysłanie tych informacji do Azure Maps.
 
-```C#
-using Microsoft.Azure.EventGrid.Models;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Threading.Tasks;
-using System.Net.Http;
-
-namespace SampleFunctionsApp
-{
-    public static class ProcessDTUpdatetoMaps
-    {   //Read maps credentials from application settings on function startup
-        private static string statesetID = Environment.GetEnvironmentVariable("statesetID");
-        private static string subscriptionKey = Environment.GetEnvironmentVariable("subscription-key");
-        private static HttpClient httpClient = new HttpClient();
-
-        [FunctionName("ProcessDTUpdatetoMaps")]
-        public static async Task Run([EventGridTrigger]EventGridEvent eventGridEvent, ILogger log)
-        {
-            JObject message = (JObject)JsonConvert.DeserializeObject(eventGridEvent.Data.ToString());
-            log.LogInformation("Reading event from twinID:" + eventGridEvent.Subject.ToString() + ": " +
-                eventGridEvent.EventType.ToString() + ": " + message["data"]);
-
-            //Parse updates to "space" twins
-            if (message["data"]["modelId"].ToString() == "dtmi:contosocom:DigitalTwins:Space;1")
-            {   //Set the ID of the room to be updated in your map. 
-                //Replace this line with your logic for retrieving featureID. 
-                string featureID = "UNIT103";
-
-                //Iterate through the properties that have changed
-                foreach (var operation in message["data"]["patch"])
-                {
-                    if (operation["op"].ToString() == "replace" && operation["path"].ToString() == "/Temperature")
-                    {   //Update the maps feature stateset
-                        var postcontent = new JObject(new JProperty("States", new JArray(
-                            new JObject(new JProperty("keyName", "temperature"),
-                                 new JProperty("value", operation["value"].ToString()),
-                                 new JProperty("eventTimestamp", DateTime.Now.ToString("s"))))));
-
-                        var response = await httpClient.PostAsync(
-                            $"https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetID}&featureID={featureID}&subscription-key={subscriptionKey}",
-                            new StringContent(postcontent.ToString()));
-
-                        log.LogInformation(await response.Content.ReadAsStringAsync());
-                    }
-                }
-            }
-        }
-    }
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/updateMaps.cs":::
 
 Musisz ustawić dwie zmienne środowiskowe w aplikacji funkcji. Jednym z nich jest [Azure Maps podstawowy klucz subskrypcji](../azure-maps/quick-demo-map-app.md#get-the-primary-key-for-your-account), a drugi to [Azure Maps identyfikator stateset](../azure-maps/tutorial-creator-indoor-maps.md#create-a-feature-stateset).
 
@@ -152,7 +99,7 @@ Aby wyświetlić temperaturę aktualizacji na żywo, wykonaj następujące czynn
 
 Oba próbki wysyłają temperaturę w zgodnym zakresie, dlatego należy zobaczyć kolor pokoju 121 aktualizacji na mapie co 30 sekund.
 
-:::image type="content" source="media/how-to-integrate-maps/maps-temperature-update.png" alt-text="Widok usług platformy Azure w kompleksowym scenariuszu, wyróżnianie części integracji z mapami pomieszczeń":::
+:::image type="content" source="media/how-to-integrate-maps/maps-temperature-update.png" alt-text="Mapa biura pokazująca Pokój 121 kolor pomarańczowy":::
 
 ## <a name="store-your-maps-information-in-azure-digital-twins"></a>Przechowywanie informacji o mapach w usłudze Azure Digital bliźniaczych reprezentacji
 

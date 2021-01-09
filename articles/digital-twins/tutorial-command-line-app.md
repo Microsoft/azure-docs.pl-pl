@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: a9d8c42432d619ab120afd0bd5734f6fa269b514
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: db85bf19c1b040fea1ed2f5d6dcf904288366c7f
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458100"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050242"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Samouczek: Eksplorowanie usługi Azure Digital bliźniaczych reprezentacji za pomocą przykładowej aplikacji klienckiej
 
@@ -51,27 +51,15 @@ Wybierz pozycję *Room.jsna* , aby otworzyć ją w oknie edycji i zmienić ją w
 1. **Edytuj Właściwość**. Zmień nazwę `Humidity` właściwości na *HumidityLevel* (lub coś innego, jeśli chcesz. Jeśli używasz czegoś innego niż *HumidityLevel*, Zapamiętaj, które z nich korzystasz, i Kontynuuj, korzystając z niego, zamiast *HumidityLevel* w całym samouczku).
 1. **Dodaj właściwość**. Poniżej `HumidityLevel` właściwości, która zostanie zakończona w wierszu 15, wklej następujący kod, aby dodać `RoomName` Właściwość do pokoju:
 
-    ```json
-    ,
-    {
-      "@type": "Property",
-      "name": "RoomName",
-      "schema": "string"
-    }
-    ```
+    :::code language="json" source="~/digital-twins-docs-samples/models/Room.json" range="16-20":::
+
 1. **Dodaj relację**. Poniżej `RoomName` dodawanej właściwości wklej poniższy kod, aby dodać możliwość dla tego typu sznurka do formularza *zawiera* relacje z innymi bliźniaczych reprezentacji:
 
-    ```json
-    ,
-    {
-      "@type": "Relationship",
-      "name": "contains"
-    }
-    ```
+    :::code language="json" source="~/digital-twins-docs-samples/models/Room.json" range="21-24":::
 
-Gdy skończysz, zaktualizowany model powinien wyglądać następująco:
+Gdy skończysz, zaktualizowany model powinien być zgodny z:
 
-:::image type="content" source="media/tutorial-command-line-app/room-model.png" alt-text="Edytowano Room.jsprzy użyciu zaktualizowanego numeru wersji, właściwości HumidityLevel i Roomname oraz zawiera relację" border="false":::
+:::code language="json" source="~/digital-twins-docs-samples/models/Room.json":::
 
 Pamiętaj, aby zapisać plik przed przechodzeniem.
 

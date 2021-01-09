@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 11/20/2020
+ms.date: 01/08/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: cf638e1de116532136b9e78df1933048c8305b7b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 907bf06c009738eb098532ac5ff53e13dbd16826
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005468"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98047715"
 ---
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -65,3 +65,4 @@ ms.locfileid: "96005468"
 |[Konto magazynu zawierające kontener z dziennikami aktywności musi być zaszyfrowane za pomocą BYOK](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffbb99e8e-e444-4da0-9ff1-75c92f5a85b2) |Ta zasada przeprowadza inspekcję, jeśli konto magazynu zawierające kontener z dziennikami aktywności jest szyfrowane za pomocą BYOK. Zasady działają tylko wtedy, gdy konto magazynu należy do tej samej subskrypcji, co w przypadku dzienników aktywności. Więcej informacji na temat szyfrowania usługi Azure Storage w spoczynku można znaleźć tutaj [https://aka.ms/azurestoragebyok](https://aka.ms/azurestoragebyok) .  |AuditIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_StorageAccountBYOK_Audit.json) |
 |[Agenta Log Analytics należy zainstalować na Virtual Machine Scale Sets](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fefbde977-ba53-4479-b8e9-10b957924fbf) |Ta zasada przeprowadza inspekcję wszystkich Virtual Machine Scale Sets systemu Windows/Linux, jeśli Agent Log Analytics nie jest zainstalowany. |AuditIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/VMSS_LogAnalyticsAgent_AuditIfNotExists.json) |
 |[Na maszynach wirtualnych należy zainstalować agenta Log Analytics](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa70ca396-0a34-413a-88e1-b956c1e683be) |Ta zasada przeprowadza inspekcję wszystkich maszyn wirtualnych z systemem Windows/Linux, jeśli Agent Log Analytics nie jest zainstalowany. |AuditIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/VirtualMachines_LogAnalyticsAgent_AuditIfNotExists.json) |
+|[Skoroszyty należy zapisywać na kontach magazynu, które można kontrolować](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6fc8115b-2008-441f-8c61-9b722c1e537f) |W przypadku używania własnego magazynu (BYOS) skoroszyty są przekazywane do konta magazynu, które kontrolujesz. Oznacza to, że steruje zasadami szyfrowania w czasie spoczynku, zasadami zarządzania okresem istnienia i dostępem do sieci. Użytkownik będzie jednak odpowiedzialny za koszty związane z tym kontem magazynu. Aby uzyskać więcej informacji, odwiedź stronę [https://aka.ms/workbooksByos](https://aka.ms/workbooksByos) |Odmów, inspekcja, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/Workbooks_BYOSEnabled_Audit.json) |

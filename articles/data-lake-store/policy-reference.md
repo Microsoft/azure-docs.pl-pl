@@ -1,18 +1,18 @@
 ---
 title: Wbudowane definicje zasad dla Azure Data Lake Storage Gen1
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Data Lake Storage Gen1. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 11/20/2020
+ms.date: 01/08/2021
 ms.topic: reference
 author: twooley
 ms.author: twooley
 ms.service: data-lake-store
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 6c895c65e122154afeb2a29cb2d905460316538f
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: a79a1a2d77893087c73e96f17f05eff55b301520
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94988448"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98048628"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-data-lake-storage-gen1"></a>Azure Policy wbudowane definicje Azure Data Lake Storage Gen1
 
@@ -20,7 +20,7 @@ Ta strona jest indeksem [Azure Policy](../governance/policy/overview.md) wbudowa
 
 Nazwa każdej wbudowanej definicji zasad łączy się z definicją zasad w Azure Portal. Użyj linku w kolumnie **wersja** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
 
-## <a name="azure-data-lake-storage-gen1"></a>Usługa Azure Data Lake Storage 1. generacji
+## <a name="azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1
 
 [!INCLUDE [azure-policy-reference-rp-dlstoregen1](../../includes/policy/reference/byrp/microsoft.datalakestore.md)]
 

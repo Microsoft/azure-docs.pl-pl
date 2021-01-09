@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 12/11/2020
 ms.author: cherylmc
-ms.openlocfilehash: b0937bbd72460b1d46ce0394af1933e858424966
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: c2efd9ac137c226c1d3a77e2cb6ebe17d75cb496
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97360326"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051534"
 ---
 # <a name="manage-secure-access-to-resources-in-spoke-vnets-for-user-vpn-clients"></a>Zarządzanie bezpiecznym dostępem do zasobów w sieci wirtualnych szprych dla klientów sieci VPN użytkowników
 
@@ -115,7 +115,7 @@ Po wykonaniu tych kroków zostanie utworzona architektura umożliwiająca użytk
 1. Wybierz pozycję **Dalej: centra**.
 1. Na karcie **centra** wybierz opcję **Skojarz centra wirtualne**.
 1. Wybierz utworzony wcześniej centrum wirtualne, a następnie wybierz pozycję **Dodaj**.
-1. Wybierz pozycję **Przeglądanie + tworzenie**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
 1. Wybierz pozycję **Utwórz**.
 
 Ukończenie tego procesu może potrwać co najmniej 5 minut.
@@ -147,4 +147,4 @@ Sprawdź konfigurację bezpiecznego centrum.
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby uzyskać więcej informacji na temat wirtualnej sieci WAN, zobacz temat [często zadawane pytania dotyczące wirtualnej sieci WAN](virtual-wan-faq.md).
-* Aby uzyskać więcej informacji na temat zapory platformy Azure, zobacz [często zadawane pytania dotyczące zapory platformy Azure](../firewall/firewall-faq.md).
+* Aby uzyskać więcej informacji na temat zapory platformy Azure, zobacz [często zadawane pytania dotyczące zapory platformy Azure](../firewall/firewall-faq.yml).

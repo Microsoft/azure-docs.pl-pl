@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 3d99293ea83c883f8d0870d78dfbec58f74c9bd1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e2531d511193586ef4605cc3732968b6db28d9f
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87927321"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050565"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Jak rozwiązywać problemy z agentem usługi Log Analytics dla systemu Windows 
 
@@ -21,6 +21,40 @@ Jeśli żadna z tych kroków nie zadziałała, dostępne są również następuj
 * Klienci korzystający z usług Premier Premium mogą otworzyć żądanie pomocy technicznej w wersji [Premium.](https://premier.microsoft.com/)
 * Klienci z umowami pomocy technicznej systemu Azure mogą otworzyć żądanie pomocy technicznej [w Azure Portal](https://manage.windowsazure.com/?getsupport=true).
 * Odwiedź stronę Log Analytics opinię, aby przejrzeć przesłane pomysły i usterki [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) albo plik nowy. 
+
+## <a name="log-analytics-troubleshooting-tool"></a>Narzędzie do rozwiązywania problemów Log Analytics
+
+Narzędzie do rozwiązywania problemów z programem Log Analytics Agent to zbiór skryptów programu PowerShell, które ułatwiają znajdowanie i diagnozowanie problemów z agentem Log Analytics. Jest on automatycznie dołączany do agenta podczas instalacji. Uruchomienie narzędzia powinno być pierwszym krokiem w diagnozowaniu problemu.
+
+### <a name="how-to-use"></a>Sposób użycia
+1. Otwórz wiersz polecenia programu PowerShell jako administrator na komputerze, na którym zainstalowano agenta Log Analytics.
+1. Przejdź do katalogu, w którym znajduje się narzędzie.
+   * `cd "C:\Program Files\Microsoft Monitoring Agent\Agent\Troubleshooter"`
+1. Wykonaj główny skrypt za pomocą tego polecenia:
+   * `.\GetAgentInfo.ps1`
+1. Wybierz scenariusz rozwiązywania problemów.
+1. Postępuj zgodnie z instrukcjami w konsoli programu. (Uwaga: kroki dzienników śledzenia wymagają ręcznej interwencji, aby zatrzymać zbieranie dzienników. Na podstawie odtwarzalności problemu poczekaj na czas trwania i naciśnij przycisk "aby zatrzymać zbieranie dzienników i przejść do następnego kroku".
+
+   Lokalizacje pliku wynikowego są rejestrowane po zakończeniu i zostanie otwarte nowe okno Eksploratora.
+
+### <a name="installation"></a>Instalacja
+Narzędzie do rozwiązywania problemów jest automatycznie dołączane podczas instalacji programu Log Analytics Build 10.20.18053.0 i nowszych.
+
+### <a name="scenarios-covered"></a>Omówione scenariusze
+Poniżej znajduje się lista scenariuszy sprawdzanych przez narzędzie do rozwiązywania problemów:
+
+- Agent nie zgłasza danych lub danych pulsu
+- Niepowodzenie wdrażania rozszerzenia agenta
+- Awaria agenta
+- Agent zużywający duże użycie procesora CPU/pamięci
+- Błędy instalacji/dezinstalacji
+- Problem z dziennikami niestandardowymi
+- Problem z bramą OMS
+- Problem z licznikami wydajności
+- Zbierz wszystkie dzienniki
+
+>[!NOTE]
+>Uruchom narzędzie do rozwiązywania problemów w przypadku wystąpienia problemu. Podczas otwierania biletu początkowo dzienniki będą bardzo pomocne w rozwiązaniu problemu.
 
 ## <a name="important-troubleshooting-sources"></a>Ważne źródła rozwiązywania problemów
 
@@ -34,10 +68,10 @@ Sprawdź, czy zapora lub serwer proxy został skonfigurowany tak, aby zezwalał 
 
 |Zasób agenta|Porty |Kierunek |Obejście inspekcji HTTPS|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |port 443 |Outbound|Tak |  
-|*.oms.opinsights.azure.com |port 443 |Outbound|Tak |  
-|*.blob.core.windows.net |port 443 |Outbound|Tak |  
-|*. agentsvc.azure-automation.net |port 443 |Outbound|Tak |  
+|*.ods.opinsights.azure.com |port 443 |Wychodzący|Tak |  
+|*.oms.opinsights.azure.com |port 443 |Wychodzący|Tak |  
+|*.blob.core.windows.net |port 443 |Wychodzący|Tak |  
+|*. agentsvc.azure-automation.net |port 443 |Wychodzący|Tak |  
 
 Informacje dotyczące zapory wymagane do Azure Government można znaleźć w temacie [Azure Government Management](../../azure-government/compare-azure-government-global-azure.md#azure-monitor). Jeśli planujesz używać Azure Automation hybrydowego procesu roboczego elementu Runbook do nawiązywania połączenia z usługą Automation i zarejestrowania się z nią w celu używania elementów Runbook lub rozwiązań do zarządzania w danym środowisku, musi on mieć dostęp do numeru portu i adresów URL opisanych w temacie [Konfigurowanie sieci dla hybrydowego procesu roboczego elementu Runbook](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
@@ -59,7 +93,7 @@ Istnieje kilka sposobów, aby sprawdzić, czy Agent pomyślnie komunikuje się z
 
     ![Wyniki wykonywania narzędzia TestCloudConnection](./media/agent-windows-troubleshoot/output-testcloudconnection-tool-01.png)
 
-- Przefiltruj dziennik zdarzeń *Operations Manager* według **źródeł zdarzeń**  -  *Usługa kondycji modułów*, *HealthService*i *łącznika usługi* , a następnie Przefiltruj *Error* według *ostrzeżenia* na **poziomie zdarzenia** i sprawdź, czy zarejestrowano zdarzenia z poniższej tabeli. Jeśli są, przejrzyj kroki rozwiązywania dotyczące każdego możliwego zdarzenia.
+- Przefiltruj dziennik zdarzeń *Operations Manager* według **źródeł zdarzeń**  -  *Usługa kondycji modułów*, *HealthService* i *łącznika usługi* , a następnie Przefiltruj  według *ostrzeżenia* na **poziomie zdarzenia** i sprawdź, czy zarejestrowano zdarzenia z poniższej tabeli. Jeśli są, przejrzyj kroki rozwiązywania dotyczące każdego możliwego zdarzenia.
 
     |Identyfikator zdarzenia |Źródło |Opis |Rozwiązanie |
     |---------|-------|------------|-----------|

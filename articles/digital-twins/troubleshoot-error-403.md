@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: aeae1f1a99d1fa574df8202efd2405232855628b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1517c066fe20d478094f57d85d6e27f355a93601
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091807"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049817"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>Żądanie usługi nie powiodło się. Stan: 403 (dostęp zabroniony)
 
@@ -25,7 +25,7 @@ Ten błąd może wystąpić w przypadku wielu typów żądań obsługi, które w
 
 ### <a name="cause-1"></a>Przyczyna #1
 
-Najczęściej ten błąd oznacza, że uprawnienia kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure nie są poprawnie skonfigurowane. Wiele akcji wystąpienia usługi Azure Digital bliźniaczych reprezentacji wymaga posiadania roli *właściciela danych Digital bliźniaczych reprezentacji platformy Azure* **w wystąpieniu, które próbujesz zarządzać** . 
+Najczęściej ten błąd oznacza, że uprawnienia kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure nie są poprawnie skonfigurowane. Wiele akcji wystąpienia usługi Azure Digital bliźniaczych reprezentacji wymaga posiadania roli *właściciela danych Digital bliźniaczych reprezentacji platformy Azure* **w wystąpieniu, które próbujesz zarządzać**. 
 
 [!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
@@ -44,7 +44,7 @@ Pierwsze rozwiązanie polega na sprawdzeniu, czy użytkownik platformy Azure ma 
 Należy zauważyć, że ta rola różni się od...
 * Imię i nazwisko dla tej roli w trakcie okresu zapoznawczego — *właściciel Digital bliźniaczych reprezentacji systemu Azure (wersja zapoznawcza)* (rola jest taka sama, ale zmieniono nazwę).
 * rola *właściciela* w całej subskrypcji platformy Azure. *Właściciel danych Digital bliźniaczych reprezentacji systemu Azure* jest rolą w ramach usługi Azure Digital bliźniaczych reprezentacji i jest objęty zakresem tego indywidualnego wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
-* rola *właściciela* w usłudze Azure Digital bliźniaczych reprezentacji. Są to dwie odrębne role usługi Azure Digital bliźniaczych reprezentacji Management, a *właściciel danych Digital bliźniaczych reprezentacji platformy Azure* to rola, która powinna być używana do zarządzania w ramach wersji zapoznawczej.
+* rola *właściciela* w usłudze Azure Digital bliźniaczych reprezentacji. Są to dwie odrębne role usługi Azure Digital bliźniaczych reprezentacji Management, a *właściciel danych Digital bliźniaczych reprezentacji platformy Azure* to rola, która powinna być używana do zarządzania.
 
 #### <a name="check-current-setup"></a>Sprawdź bieżącą konfigurację
 
@@ -52,7 +52,7 @@ Należy zauważyć, że ta rola różni się od...
 
 #### <a name="fix-issues"></a>Rozwiązywanie problemów 
 
-Jeśli nie masz tego przypisania roli, ktoś mający rolę właściciela w **subskrypcji platformy Azure** powinien uruchomić następujące polecenie, aby udzielić użytkownikowi platformy Azure roli *właściciela danych Digital bliźniaczych reprezentacji* w **wystąpieniu usługi Azure Digital bliźniaczych reprezentacji** . 
+Jeśli nie masz tego przypisania roli, ktoś mający rolę właściciela w **subskrypcji platformy Azure** powinien uruchomić następujące polecenie, aby udzielić użytkownikowi platformy Azure roli *właściciela danych Digital bliźniaczych reprezentacji* w **wystąpieniu usługi Azure Digital bliźniaczych reprezentacji**. 
 
 Jeśli jesteś właścicielem subskrypcji, możesz uruchomić to polecenie samodzielnie. Jeśli nie, skontaktuj się z właścicielem, aby uruchomić to polecenie w Twoim imieniu.
 
@@ -60,7 +60,7 @@ Jeśli jesteś właścicielem subskrypcji, możesz uruchomić to polecenie samod
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Data Owner"
 ```
 
-Aby uzyskać więcej informacji na temat tego wymagania roli i procesu przypisywania, zobacz [sekcję *Konfigurowanie uprawnień dostępu użytkownika*](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) w temacie *How to: Konfigurowanie wystąpienia i uwierzytelniania (CLI lub portal)* .
+Aby uzyskać więcej informacji na temat tego wymagania roli i procesu przypisywania, zobacz [sekcję *Konfigurowanie uprawnień dostępu użytkownika*](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) w temacie *How to: Konfigurowanie wystąpienia i uwierzytelniania (CLI lub portal)*.
 
 Jeśli masz już to przypisanie roli *i* używasz rejestracji aplikacji usługi Azure AD do uwierzytelniania aplikacji klienckiej, możesz przejść do następnego rozwiązania, jeśli to rozwiązanie nie rozwiązało problemu 403.
 
@@ -80,11 +80,11 @@ Powinna zostać wyświetlona już utworzona Rejestracja aplikacji na liście. Wy
 
 Najpierw sprawdź, czy ustawienia uprawnień Digital bliźniaczych reprezentacji systemu Azure zostały prawidłowo ustawione podczas rejestracji. W tym celu wybierz pozycję *manifest* z paska menu, aby wyświetlić kod manifestu rejestracji aplikacji. Przewiń w dół okna kod i poszukaj tych pól w obszarze `requiredResourceAccess` . Wartości powinny być zgodne z poniższymi zrzutu ekranu:
 
-:::image type="content" source="media/troubleshoot-error-403/verify-manifest.png" alt-text="Strona Rejestracje aplikacji w Azure Portal":::
+:::image type="content" source="media/troubleshoot-error-403/verify-manifest.png" alt-text="Widok portalu dla rejestracji aplikacji usługi Azure AD":::
 
 Następnie wybierz pozycję *uprawnienia interfejsu API* na pasku menu, aby sprawdzić, czy ta rejestracja aplikacji zawiera uprawnienia do odczytu/zapisu w usłudze Azure Digital bliźniaczych reprezentacji. Powinien zostać wyświetlony wpis podobny do tego:
 
-:::image type="content" source="media/troubleshoot-error-403/verify-api-permissions.png" alt-text="Strona Rejestracje aplikacji w Azure Portal":::
+:::image type="content" source="media/troubleshoot-error-403/verify-api-permissions.png" alt-text="Widok portalu uprawnień interfejsu API dla rejestracji aplikacji usługi Azure AD, pokazujący uprawnienie do odczytu/zapisu dla usługi Azure Digital bliźniaczych reprezentacji":::
 
 #### <a name="fix-issues"></a>Rozwiązywanie problemów
 

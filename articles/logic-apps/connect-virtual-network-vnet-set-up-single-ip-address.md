@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: 9ee804f7bed01ca0c7f365a04e6108afd9598157
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40f4845ecc21d05ca5e8394dccba080f8a1f8936
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87066396"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049715"
 ---
 # <a name="set-up-a-single-ip-address-for-one-or-more-integration-service-environments-in-azure-logic-apps"></a>Skonfiguruj pojedynczy adres IP dla co najmniej jednego środowiska usługi integracji w Azure Logic Apps
 
@@ -61,7 +61,7 @@ W tym temacie pokazano, jak skierować ruch wychodzący za pośrednictwem zapory
 
 ## <a name="set-up-network-rule"></a>Konfigurowanie reguły sieci
 
-1. W Azure Portal Znajdź i wybierz zaporę. W menu Zapora w obszarze **Ustawienia**wybierz pozycję **reguły**. W okienku reguły wybierz pozycję **Kolekcja reguł sieciowych**  >  **Dodaj kolekcję reguł sieci**.
+1. W Azure Portal Znajdź i wybierz zaporę. W menu Zapora w obszarze **Ustawienia** wybierz pozycję **reguły**. W okienku reguły wybierz pozycję **Kolekcja reguł sieciowych**  >  **Dodaj kolekcję reguł sieci**.
 
    ![Dodawanie kolekcji reguł sieci do zapory](./media/connect-virtual-network-vnet-set-up-single-ip-address/add-network-rule-collection.png)
 
@@ -76,7 +76,7 @@ W tym temacie pokazano, jak skierować ruch wychodzący za pośrednictwem zapory
    | Właściwość | Wartość | Opis |
    |----------|-------|-------------|
    | **Nazwa** | <*Sieć-reguła-kolekcja-nazwa*> | Nazwa kolekcji reguł sieci |
-   | **Priority** | <*priorytet — poziom*> | Kolejność, w której ma zostać uruchomiona Kolekcja reguł. Aby uzyskać więcej informacji, zobacz [co to są niektóre zagadnienia dotyczące zapory platformy Azure](../firewall/firewall-faq.md#what-are-some-azure-firewall-concepts)? |
+   | **Priority** | <*priorytet — poziom*> | Kolejność, w której ma zostać uruchomiona Kolekcja reguł. Aby uzyskać więcej informacji, zobacz [co to są niektóre zagadnienia dotyczące zapory platformy Azure](../firewall/firewall-faq.yml#what-are-some-azure-firewall-concepts)? |
    | **Akcja** | **Zezwalaj** | Typ akcji do wykonania dla tej reguły |
    |||
 
@@ -95,7 +95,7 @@ W tym temacie pokazano, jak skierować ruch wychodzący za pośrednictwem zapory
 
    * [Konfigurowanie reguły sieci](../firewall/tutorial-firewall-deploy-portal.md#configure-a-network-rule)
    * [Logika przetwarzania reguł usługi Azure Firewall](../firewall/rule-processing.md#network-rules-and-applications-rules)
-   * [Zapora platformy Azure — często zadawane pytania](../firewall/firewall-faq.md)
+   * [Zapora platformy Azure — często zadawane pytania](../firewall/firewall-faq.yml)
    * [Azure PowerShell: New-AzFirewallNetworkRule](/powershell/module/az.network/new-azfirewallnetworkrule)
    * [Interfejs wiersza polecenia platformy Azure: AZ Network firewall Network-Rule](/cli/azure/ext/azure-firewall/network/firewall/network-rule?view=azure-cli-latest#ext-azure-firewall-az-network-firewall-network-rule-create)
 

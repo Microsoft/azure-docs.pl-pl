@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/15/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: e73f11ec178c067941ee33e02f37c96605460ee0
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 40e4a3d3a819280255ee931e5e12206f99ef28fe
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658591"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051517"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Samouczek: wdrażanie i konfigurowanie usługi Azure Firewall w witrynie Azure Portal
 
@@ -35,7 +35,7 @@ W przypadku wdrożeń produkcyjnych zaleca się [model Hub i szprych](/azure/arc
 
 ![Infrastruktura sieci samouczka](media/tutorial-firewall-deploy-portal/tutorial-network.png)
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Konfigurowanie testowego środowiska sieciowego
@@ -72,7 +72,7 @@ Grupa zasobów zawiera wszystkie zasoby wymagane w tym samouczku.
 Ta sieć wirtualna będzie zawierać trzy podsieci.
 
 > [!NOTE]
-> Rozmiar podsieci AzureFirewallSubnet to/26. Aby uzyskać więcej informacji o rozmiarze podsieci, zobacz [często zadawane pytania dotyczące zapory platformy Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+> Rozmiar podsieci AzureFirewallSubnet to/26. Aby uzyskać więcej informacji o rozmiarze podsieci, zobacz [często zadawane pytania dotyczące zapory platformy Azure](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
 
 1. W menu witryny Azure Portal lub na **stronie głównej** wybierz pozycję **Utwórz zasób**.
 1. Wybierz **pozycję Sieć**  >  **Sieć wirtualna**.
@@ -110,7 +110,7 @@ Teraz Utwórz maszynę wirtualną obciążenia i umieść ją w podsieci **obci�
    |Grupa zasobów     |**Test-PD-RG**|
    |Nazwa maszyny wirtualnej     |**SRV — Work**|
    |Region (Region)     |Taki sam jak poprzedni|
-   |Image (Obraz)|Windows Server 2019 Datacenter|
+   |Obraz|Windows Server 2019 Datacenter|
    |Nazwa użytkownika administratora     |Wpisz nazwę użytkownika|
    |Hasło     |Wpisz hasło|
 
@@ -165,7 +165,7 @@ Na potrzeby podsieci **Workload-SN** skonfiguruj trasę domyślną ruchu wychodz
 11. Wybierz pozycję **Virtual Network**  >  **test-PD-VN**.
 12. W obszarze **podsieć** wybierz pozycję **obciążenie — SN**. Upewnij się, że dla tej trasy jest zaznaczona tylko podsieć **obciążenia-SN** , w przeciwnym razie Zapora nie będzie działała poprawnie.
 
-13. Wybierz przycisk **OK**.
+13. Wybierz pozycję **OK**.
 14. Wybierz pozycję **trasy** , a następnie wybierz pozycję **Dodaj**.
 15. Dla **nazwy trasy** wpisz **PD-DG**.
 16. W polu **Prefiks adresu** wpisz wartość **0.0.0.0/0**.
@@ -173,7 +173,7 @@ Na potrzeby podsieci **Workload-SN** skonfiguruj trasę domyślną ruchu wychodz
 
     Usługa Azure Firewall to w rzeczywistości usługa zarządzana, ale urządzenie wirtualne działa w tej sytuacji.
 18. W polu **Adres następnego skoku** wpisz wcześniej zanotowany prywatny adres IP zapory.
-19. Wybierz przycisk **OK**.
+19. Wybierz pozycję **OK**.
 
 ## <a name="configure-an-application-rule"></a>Konfigurowanie reguły aplikacji
 

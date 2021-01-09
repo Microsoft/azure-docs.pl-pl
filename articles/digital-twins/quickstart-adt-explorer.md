@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: d42a32e236eb73f2aa9f2f61d9708314783564dd
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f6bd6b13ab4a2e654bdabc86355f2c3388abed31
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187305"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050531"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Przewodnik Szybki Start — Eksplorowanie przykładowego scenariusza usługi Azure Digital bliźniaczych reprezentacji za pomocą Eksploratora ADT
 
@@ -171,7 +171,7 @@ Wykonaj następujące kroki, aby zaimportować wykres.
 
    :::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="W polu widok wykresu zostanie wyróżniona ikona. Pokazuje strzałkę wskazującą chmurę." lightbox="media/quickstart-adt-explorer/import-graph.png":::
 
-2. W polu Selektor plików przejdź do folderu **Azure_Digital_Twins__ADT__explorer/Client/examples** i wybierz **buildingScenario.xlsx** plik arkusza kalkulacyjnego. Ten plik zawiera opis przykładowego wykresu. Wybierz przycisk **OK**.
+2. W polu Selektor plików przejdź do folderu **Azure_Digital_Twins__ADT__explorer/Client/examples** i wybierz **buildingScenario.xlsx** plik arkusza kalkulacyjnego. Ten plik zawiera opis przykładowego wykresu. Wybierz pozycję **OK**.
 
    Po kilku sekundach Eksplorator ADT otwiera widok **importu** , który pokazuje podgląd grafu do załadowania.
 
@@ -185,7 +185,7 @@ Wykonaj następujące kroki, aby zaimportować wykres.
     :::column-end:::
    :::row-end:::
 
-4. Eksplorator ADT używa teraz przekazanego pliku do utworzenia żądanego bliźniaczych reprezentacji i relacji między nimi. Po zakończeniu zostanie wyświetlone okno dialogowe. Wybierz pozycję **Close** (Zamknij).
+4. Eksplorator ADT używa teraz przekazanego pliku do utworzenia żądanego bliźniaczych reprezentacji i relacji między nimi. Po zakończeniu zostanie wyświetlone okno dialogowe. Wybierz pozycję **Zamknij**.
 
    :::row:::
     :::column:::
@@ -251,9 +251,7 @@ W tej sekcji zostanie uruchomione zapytanie, aby odpowiedzieć na pytanie, ile b
 
 Aby wyświetlić odpowiedź, uruchom następujące zapytanie w polu **Eksplorator zapytań** .
 
-```SQL
-SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="TemperatureQuery":::
 
 Wycofaj z wyświetlania właściwości przędzy wcześniej, że Room0 ma temperaturę 70, a Room1 ma temperaturę 80. Z tego powodu tylko Room1 są wyświetlane w wynikach w tym miejscu.
     
@@ -278,15 +276,13 @@ Właściwości na tej liście są edytowalne. Wybierz wartość temperatury **70
     :::column-end:::
 :::row-end:::
 
-Teraz zobaczysz okno **informacji o poprawkach** , w której zostanie wyświetlony kod poprawki, który został użyty w tle za pomocą [interfejsu API](how-to-use-apis-sdks.md) Digital bliźniaczych reprezentacji platformy Azure, aby przeprowadzić aktualizację. Wybierz pozycję **Close** (Zamknij).
+Teraz zobaczysz okno **informacji o poprawkach** , w której zostanie wyświetlony kod poprawki, który został użyty w tle za pomocą [interfejsu API](how-to-use-apis-sdks.md) Digital bliźniaczych reprezentacji platformy Azure, aby przeprowadzić aktualizację. Wybierz pozycję **Zamknij**.
 
 ### <a name="query-to-see-the-result"></a>Zapytanie w celu wyświetlenia wyniku
 
 Aby sprawdzić, czy wykres pomyślnie zarejestrował aktualizację do temperatury Room0, należy ponownie uruchomić zapytanie ze starszej wersji, aby uzyskać wszystkie bliźniaczych reprezentacji w środowisku z temperaturą powyżej 75.
 
-```SQL
-SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="TemperatureQuery":::
 
 Teraz, gdy temperatura Room0 została zmieniona z 70 na 76, oba bliźniaczych reprezentacji powinny być widoczne w wyniku.
 
@@ -306,7 +302,7 @@ Celem tego ćwiczenia jest zademonstrowanie, jak można użyć grafu Digital bli
 
 W tym przewodniku Szybki Start Aktualizacja temperatury została wprowadzona ręcznie. Jest ona często oparta na usłudze Azure Digital bliźniaczych reprezentacji, która umożliwia łączenie cyfrowych bliźniaczych reprezentacji z rzeczywistymi urządzeniami IoT w taki sposób, aby automatycznie otrzymywały aktualizacje na podstawie danych telemetrycznych. W ten sposób można utworzyć Graf na żywo, który zawsze odzwierciedla rzeczywiste Stany środowiska. Za pomocą zapytań można uzyskać informacje o tym, co dzieje się w danym środowisku w czasie rzeczywistym.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Aby zagnieździć prace dla tego przewodnika Szybki Start, należy najpierw zakończyć uruchomioną aplikację konsolową. Ta akcja powoduje wyłączenie połączenia z aplikacją ADT Explorer w przeglądarce. Nie będzie już można wyświetlać danych na żywo w przeglądarce. Możesz zamknąć kartę przeglądarka.
 

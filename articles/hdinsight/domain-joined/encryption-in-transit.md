@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.openlocfilehash: ba1542d1bb10933edb34b697f1c81cc5e3e7f1c9
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 88a7a0240a4711bebad0ea9007caf6590436e371
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705374"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049783"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>Szyfrowanie IPSec podczas przesyłania dla usługi Azure HDInsight
 
@@ -24,7 +24,7 @@ Usługa Azure HDInsight oferuje różne funkcje zabezpieczeń w celu zabezpiecza
 
 Szyfrowanie w spoczynku obejmuje szyfrowanie po stronie serwera na kontach usługi Azure Storage, a także szyfrowanie dysków na maszynach wirtualnych platformy Azure, które są częścią klastra usługi HDInsight.
 
-Szyfrowanie danych przesyłanych w usłudze HDInsight jest realizowane przy użyciu [Transport Layer Security (TLS)](../transport-layer-security.md) w celu uzyskania dostępu do bram klastra i [zabezpieczeń protokołu internetowego (IPSec)](https://wikipedia.org/wiki/IPsec) między węzłami klastra. Protokół IPSec może być opcjonalnie włączony między wszystkimi węzłami głównymi, węzłami procesu roboczego, węzłami krawędzi i węzłami dozorcy. Nie jest on włączony dla ruchu między węzłami bramy lub [brokera identyfikatora](./identity-broker.md) , które są maszynami wirtualnymi opartymi na systemie Windows i innymi węzłami systemu Linux w klastrze.
+Szyfrowanie danych przesyłanych w usłudze HDInsight jest realizowane przy użyciu [Transport Layer Security (TLS)](../transport-layer-security.md) w celu uzyskania dostępu do bram klastra i [zabezpieczeń protokołu internetowego (IPSec)](https://wikipedia.org/wiki/IPsec) między węzłami klastra. Protokół IPSec może być opcjonalnie włączony między wszystkimi węzłami głównymi, węzłami roboczymi, węzłami krawędzi, węzłami dozorcy, a także węzłami [brokera i identyfikatora](./identity-broker.md) bramy.
 
 ## <a name="enable-encryption-in-transit"></a>Włącz szyfrowanie podczas przesyłania
 

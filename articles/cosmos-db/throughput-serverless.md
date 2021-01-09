@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/23/2020
-ms.openlocfilehash: a6f8b79ecc8dcac71dc8f5d1be2bb58a0288a307
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.date: 01/08/2021
+ms.openlocfilehash: 3f5c3400f319a3f9d5f1544457b009f90d479634
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760337"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049834"
 ---
 # <a name="how-to-choose-between-provisioned-throughput-and-serverless"></a>Jak wybrać między zainicjowaną przepływność a bezserwerową
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -25,11 +25,11 @@ Azure Cosmos DB jest dostępny w dwóch różnych trybach pojemności: [zainicjo
 | Kryteria | Aprowizowana przepływność | Praca bezserwerowa |
 | --- | --- | --- |
 | Stan | Ogólnie dostępne | W wersji zapoznawczej |
-| Najlepiej dopasowane do | Obciążenia o krytycznym znaczeniu wymagające przewidywalnej wydajności | Małe i średnie obciążenia z lekkim i tymczasowym ruchem, który jest trudny do prognozowania |
+| Najlepiej dopasowane do | Obciążenia z ciągłym ruchem wymagający przewidywalnej wydajności | Obciążenia z sporadycznym lub nieprzewidywalnym ruchem oraz niski średni ruch do szczytu ruchu |
 | Jak to działa | W przypadku każdego kontenera należy udostępnić pewną ilość przepływności wyrażoną w [jednostkach żądań](request-units.md) na sekundę. Co sekundę ta liczba jednostek żądania jest dostępna dla operacji bazy danych. Tymczasową przepływność można aktualizować ręcznie lub automatycznie korygować przy użyciu funkcji automatycznego [skalowania](provision-throughput-autoscale.md). | Uruchamiasz operacje bazy danych względem kontenerów bez konieczności aprowizacji żadnej pojemności. |
 | Dystrybucja geograficzna | Dostępne (nieograniczona liczba regionów świadczenia usługi Azure) | Niedostępne (konta bezserwerowe można uruchamiać tylko w 1 regionie platformy Azure) |
 | Maksymalny rozmiar magazynu na kontener | Nieograniczona liczba | 50 GB |
-| Wydajność | 99,99% do 99,999% dostępności objętej umową SLA<br>< 10 ms opóźnienia do odczytu punktów i zapisów objętych umową SLA<br>99,99% gwarantowaną przepływność objętą umową SLA | 99,9% do 99,99% dostępności objętej umową SLA<br>< 10 ms opóźnienia do odczytu punktów i < 30 ms dla zapisów objętych przez cel SLO<br>95% możliwości przenoszenia objętej umową SLO |
+| Wydajność | < 10 ms opóźnienia do odczytu punktów i zapisów objętych umową SLA | < 10 ms opóźnienia do odczytu punktów i < 30 ms dla zapisów objętych przez cel SLO |
 | Model rozliczania | Opłaty są naliczane za godzinę, dla których Zainicjowano obsługę RU, niezależnie od liczby użytych jednostek ru. | Opłaty są naliczane za godzinę dla ilości jednostek ru zużytych przez operacje bazy danych. |
 
 > [!IMPORTANT]

@@ -1,20 +1,20 @@
 ---
 title: Omówienie kont magazynu
 titleSuffix: Azure Storage
-description: Zapoznaj się z omówieniem kont magazynu w usłudze Azure Storage. Przejrzyj nazwy kont, warstwy wydajności, warstwy dostępu, nadmiarowość, szyfrowanie, punkty końcowe i nie tylko.
+description: Dowiedz się więcej o różnych typach kont magazynu w usłudze Azure Storage. Przejrzyj nazwy kont, warstwy wydajności, warstwy dostępu, nadmiarowość, szyfrowanie, punkty końcowe i nie tylko.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/11/2020
+ms.date: 01/08/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2c9c4cd643e2e4b89f9a7d8f44a6569d0dde2b37
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 5cf43310c68c8446b9465a39d85f84c8273a68d8
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357385"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051228"
 ---
 # <a name="storage-account-overview"></a>Omówienie kont magazynu
 
@@ -24,7 +24,40 @@ Aby dowiedzieć się, jak utworzyć konto magazynu usługi Azure Storage, zobacz
 
 ## <a name="types-of-storage-accounts"></a>Typy kont magazynu
 
-[!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
+Usługa Azure Storage oferuje kilka typów kont magazynu. Każdy typ obsługuje różne funkcje i ma własny model cen. Te różnice należy wziąć pod uwagę przed utworzeniem konta magazynu w celu określenia typu konta najlepszego dla aplikacji. Oto typy kont magazynu:
+
+- **Konta ogólnego przeznaczenia w wersji 2**: typ konta magazynu podstawowego dla obiektów blob, plików, kolejek i tabel. Zalecane w przypadku większości scenariuszy korzystających z usługi Azure Storage.
+- **Konta ogólnego przeznaczenia w wersji 1**: typ konta starsze dla obiektów blob, plików, kolejek i tabel. Zamiast tego używaj kont ogólnego przeznaczenia w wersji 2.
+- **Konta BlockBlobStorage**: konta magazynu z charakterystyką wydajności Premium dla blokowych obiektów blob i dołączanie obiektów BLOB. Zalecane w scenariuszach mających wysokie stawki transakcji lub scenariusze, które używają mniejszych obiektów lub wymagają spójnego niskiego opóźnienia magazynu.
+- **Konta FileStorage**: tylko pliki magazynu z charakterystyką wydajności Premium. Zalecane w przypadku aplikacji do skalowania w przedsiębiorstwie lub wysokiej wydajności.
+- **Konta BlobStorage**: starsze konta magazynu tylko na poziomie obiektów BLOB. Zamiast tego używaj kont ogólnego przeznaczenia w wersji 2.
+
+W poniższej tabeli opisano typy kont magazynu, obsługiwanych przez nich usług oraz obsługiwane modele wdrażania dla każdego typu konta:
+
+| Typ konta magazynu | Obsługiwane usługi | Opcje nadmiarowości | Model wdrażania<sup>1</sup> |
+|--|--|--|--|
+| Ogólnego przeznaczenia w wersji 2 | Obiektów blob, plików, kolejek, tabel, dysków i Data Lake Gen2<sup>2</sup> | LRS, GRS, RA-GRS, ZRS, GZRS, RA-GZRS<sup>3</sup> | Resource Manager |
+| Ogólnego przeznaczenia w wersji 1 | Obiekt BLOB, plik, kolejka, tabela i dysk | LRS, GRS, RA-GRS | Menedżer zasobów, klasyczny |
+| BlockBlobStorage | Obiekt BLOB (Blokuj obiekty blob i Dołącz tylko obiekty blob) | LRS, ZRS<sup>3</sup> | Resource Manager |
+| FileStorage | Tylko plik | LRS, ZRS<sup>3</sup> | Resource Manager |
+| BlobStorage | Obiekt BLOB (Blokuj obiekty blob i Dołącz tylko obiekty blob) | LRS, GRS, RA-GRS | Resource Manager |
+
+<sup>1</sup> Zalecane jest korzystanie z modelu wdrażania Azure Resource Manager. Konta magazynu korzystające z klasycznego modelu wdrażania można nadal tworzyć w niektórych lokalizacjach, a istniejące konta klasyczne są nadal obsługiwane. Aby uzyskać więcej informacji, zobacz [Azure Resource Manager a wdrożenie klasyczne: Omówienie modeli wdrażania i stanu zasobów](../../azure-resource-manager/management/deployment-models.md).
+
+<sup>2</sup> Azure Data Lake Storage Gen2 to zestaw funkcji przeznaczonych do analizy danych Big Data, opartych na usłudze Azure Blob Storage. Data Lake Storage Gen2 jest obsługiwana tylko na kontach magazynu ogólnego przeznaczenia w wersji 2 z włączoną hierarchiczną przestrzenią nazw. Aby uzyskać więcej informacji na temat Data Lake Storage Gen2, zobacz [wprowadzenie do Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md).
+
+<sup>3</sup> Magazyn strefowo nadmiarowy (ZRS) i geograficznie nadmiarowy magazyn (GZRS/RA-GZRS) są dostępne tylko dla kont standardowych ogólnego przeznaczenia w wersji 2, BlockBlobStorage i FileStorage w określonych regionach. Aby uzyskać więcej informacji na temat opcji nadmiarowości usługi Azure Storage, zobacz [nadmiarowość usługi Azure Storage](storage-redundancy.md).
+
+### <a name="storage-account-redundancy"></a>Nadmiarowość konta magazynu
+
+Opcje nadmiarowości dla konta magazynu obejmują:
+
+- **Magazyn lokalnie nadmiarowy (LRS)**: prosta, tania strategia nadmiarowości. Dane są kopiowane synchronicznie trzykrotnie w jednej lokalizacji fizycznej w regionie podstawowym.
+- **Magazyn strefowo nadmiarowy (ZRS)**: nadmiarowość dla scenariuszy wymagających wysokiej dostępności. Dane są kopiowane synchronicznie w trzech strefach dostępności platformy Azure w regionie podstawowym.
+- **Magazyn Geograficznie nadmiarowy (GRS)**: wieloregionalna nadmiarowość do ochrony przed awarią regionalną. Dane są kopiowane synchronicznie do regionu podstawowego, a następnie kopiowane asynchronicznie do regionu pomocniczego. Aby uzyskać dostęp do odczytu do danych w regionie pomocniczym, Włącz magazyn Geograficznie nadmiarowy z dostępem do odczytu (RA-GRS).
+- **Magazyn Geograficznie nadmiarowy (GZRS)**: nadmiarowość dla scenariuszy wymagających zarówno wysokiej dostępności, jak i maksymalnej trwałości. Dane są kopiowane synchronicznie w trzech strefach dostępności platformy Azure w regionie podstawowym, a następnie kopiowane asynchronicznie do regionu pomocniczego. Aby uzyskać dostęp do odczytu do danych w regionie pomocniczym, Włącz strefę geograficzną z dostępem do odczytu (RA-GZRS).
+
+Aby uzyskać więcej informacji na temat opcji nadmiarowości w usłudze Azure Storage, zobacz [nadmiarowość usługi Azure Storage](storage-redundancy.md).
 
 ### <a name="general-purpose-v2-accounts"></a>Konta ogólnego przeznaczenia, wersja 2
 
@@ -32,7 +65,7 @@ Konta magazynu ogólnego przeznaczenia w wersji 2 obsługują najnowsze funkcje 
 
 - Obiekty blob (wszystkie typy: Block, append, Page)
 - Data Lake Gen2
-- Files
+- Pliki
 - Dyski
 - Kolejki
 - Tabele
@@ -49,7 +82,7 @@ Konta magazynu ogólnego przeznaczenia w wersji 2 oferują wiele warstw dostępu
 Konta magazynu ogólnego przeznaczenia w wersji 1 zapewniają dostęp do wszystkich usług Azure Storage, ale mogą nie mieć najnowszych funkcji lub najniższych cen za gigabajt. Konta magazynu ogólnego przeznaczenia w wersji 1 obsługują te usługi Azure Storage:
 
 - Obiekty blob (wszystkie typy)
-- Files
+- Pliki
 - Dyski
 - Kolejki
 - Tabele
@@ -83,7 +116,17 @@ Podczas określania nazwy konta magazynu należy pamiętać o następujących re
 
 ## <a name="performance-tiers"></a>Warstwy wydajności
 
-W zależności od typu tworzonego konta magazynu można wybrać warstwę wydajności warstwy Standardowa i Premium.
+W zależności od typu tworzonego konta magazynu można wybrać warstwę wydajności warstwy Standardowa i Premium. Poniższa tabela zawiera podsumowanie warstw wydajności dostępnych dla tego typu konta magazynu.
+
+| Typ konta magazynu | Obsługiwane warstwy wydajności |
+|--|--|
+| Ogólnego przeznaczenia w wersji 2 | Standard, Premium<sup>1</sup> |
+| Ogólnego przeznaczenia w wersji 1 | Standard, Premium<sup>1</sup> |
+| BlockBlobStorage | Premium |
+| FileStorage | Premium |
+| BlobStorage | Standardowa |
+
+<sup>1</sup> Wydajność warstwy Premium dla kont ogólnego przeznaczenia w wersji 2 i ogólnego przeznaczenia w wersji 1 jest dostępna tylko dla dysków i stron obiektów BLOB. Wydajność warstwy Premium dla obiektów BLOB bloków lub dołączania jest dostępna tylko na kontach BlockBlobStorage. Wydajność warstwy Premium dla plików jest dostępna tylko na kontach FileStorage.
 
 ### <a name="general-purpose-storage-accounts"></a>Konta magazynu ogólnego przeznaczenia
 
@@ -112,12 +155,20 @@ Dostępne są następujące warstwy dostępu:
 
 W przypadku zmiany wzorca użycia danych można w dowolnym momencie przełączyć się między tymi warstwami dostępu. Aby uzyskać więcej informacji o warstwach dostępu, zobacz [Azure Blob Storage: warstwy dostępu gorąca, chłodna i archiwalna](../blobs/storage-blob-storage-tiers.md).
 
+W poniższej tabeli przedstawiono warstwy dostępu dostępne dla obiektów BLOB w poszczególnych typach kont magazynu.
+
+| Typ konta magazynu | Obsługiwane warstwy dostępu |
+|--|--|
+| Ogólnego przeznaczenia w wersji 2 | Gorąca, chłodna, Archiwum<sup>1</sup> |
+| Ogólnego przeznaczenia w wersji 1 | Nie dotyczy |
+| BlockBlobStorage | Nie dotyczy |
+| FileStorage | Nie dotyczy |
+| BlobStorage | Gorąca, chłodna, Archiwum<sup>1</sup> |
+
+<sup>1</sup> magazyn archiwum i Obsługa warstw na poziomie obiektów BLOB obsługują tylko blokowe obiekty blob. Warstwa archiwum jest dostępna tylko na poziomie pojedynczego obiektu BLOB, a nie na poziomie konta magazynu. Aby uzyskać więcej informacji, zobacz [warstwy dostępu dla platformy Azure Blob Storage — gorąca, chłodna i archiwalna](../blobs/storage-blob-storage-tiers.md).
+
 > [!IMPORTANT]
-> Zmiana warstwy dostępu dla istniejącego konta magazynu lub obiektu BLOB może spowodować naliczenie dodatkowych opłat. Aby uzyskać więcej informacji, zobacz [sekcję rozliczanie konta magazynu](#storage-account-billing).
-
-## <a name="redundancy"></a>Nadmiarowość
-
-[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
+> Zmiana warstwy dostępu dla istniejącego konta magazynu lub obiektu BLOB może spowodować naliczenie dodatkowych opłat. Aby uzyskać więcej informacji, zobacz [rozliczenia kont magazynu](#storage-account-billing).
 
 ## <a name="encryption"></a>Szyfrowanie
 
@@ -127,13 +178,15 @@ Wszystkie dane na koncie magazynu są szyfrowane po stronie usługi. Aby uzyska�
 
 Konto magazynu zapewnia unikatową przestrzeń nazw na platformie Azure dla danych użytkownika. Każdy obiekt przechowywany w usłudze Azure Storage ma adres, który zawiera unikatową nazwę konta. Kombinacja nazwy konta i punktu końcowego usługi Azure Storage stanowi punkty końcowe konta magazynu.
 
-Na przykład jeśli Twoje konto magazynu ogólnego przeznaczenia ma nazwę *mojekontomagazynu*, domyślne punkty końcowe dla tego konta są następujące:
+W poniższej tabeli wymieniono punkty końcowe dla każdej usługi Azure Storage.
 
-- Magazyn obiektów blob: `https://*mystorageaccount*.blob.core.windows.net`
-- Magazyn tabel: `https://*mystorageaccount*.table.core.windows.net`
-- Kolejka magazynu: `https://*mystorageaccount*.queue.core.windows.net`
-- Azure Files: `https://*mystorageaccount*.file.core.windows.net`
-- Azure Data Lake Storage Gen2: `https://*mystorageaccount*.dfs.core.windows.net` (używa [sterownika ABFS zoptymalizowanego pod kątem danych Big Data](../blobs/data-lake-storage-introduction.md#key-features-of-data-lake-storage-gen2)).
+| Usługa magazynu | Punkt końcowy |
+|--|--|
+| Blob Storage | `https://<storage-account>.blob.core.windows.net` |
+| Usługa Azure Data Lake Storage 2. generacji | `https://<storage-account>.dfs.core.windows.net` |
+| Azure Files | `https://<storage-account>.file.core.windows.net` |
+| Queue Storage | `https://<storage-account>.queue.core.windows.net` |
+| Table Storage | `https://<storage-account>.table.core.windows.net` |
 
 > [!NOTE]
 > Blokowe obiekty blob i BLOB Storage uwidaczniają tylko Blob service punkt końcowy.
@@ -184,7 +237,17 @@ Aby uzyskać więcej informacji na temat interfejsu API REST usługi Azure Stora
 
 ## <a name="storage-account-billing"></a>Rozliczanie konta usługi Storage
 
-[!INCLUDE [storage-account-billing-include](../../../includes/storage-account-billing-include.md)]
+Rachunki usługi Azure Storage na podstawie użycia konta magazynu. Wszystkie obiekty w koncie magazynu są rozliczane wspólnie jako grupa. Koszty magazynu są obliczane na podstawie następujących czynników:
+
+- **Region** odnosi się do regionu geograficznego, w którym bazuje Twoje konto.
+- **Typ konta** odnosi się do typu konta magazynu, którego używasz.
+- **Warstwa dostępu** odnosi się do wzorca użycia danych określonego dla konta ogólnego przeznaczenia w wersji 2 lub BLOB Storage.
+- **Pojemność** to stopień przydziału konta magazynu używanego do przechowywania danych.
+- **Replikacja** określa liczbę kopii danych, które są przechowywane jednocześnie, oraz lokalizacje.
+- **Transakcje** odnoszą się do wszystkich operacji odczytu i zapisu w usłudze Azure Storage.
+- **Dane** wychodzące odnoszą się do wszystkich danych transferowanych z regionu platformy Azure. Po uzyskaniu dostępu do danych na koncie magazynu przez aplikację, która nie działa w tym samym regionie, opłaty są naliczone za wychodzące dane. Aby uzyskać informacje o korzystaniu z grup zasobów w celu grupowania danych i usług w tym samym regionie w celu ograniczenia opłat za ruch wychodzący, zobacz [co to jest Grupa zasobów platformy Azure?](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group).
+
+Strona [Cennik usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/) zawiera szczegółowe informacje o cenach w zależności od typu konta, pojemności magazynu, replikacji i transakcji. Artykuł [Szczegóły cennika transferów danych](https://azure.microsoft.com/pricing/details/data-transfers/) zawiera szczegółowe informacje o cenach za wyjście danych. Artykuł [Kalkulator cen usługi Azure Storage](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) zawiera informacje, które ułatwią szacowanie kosztów.
 
 [!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
 

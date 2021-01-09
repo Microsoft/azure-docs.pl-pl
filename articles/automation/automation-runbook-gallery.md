@@ -3,21 +3,21 @@ title: Używanie Azure Automation elementów Runbook i modułów w programie Gal
 description: W tym artykule opisano sposób używania elementów Runbook i modułów z firmy Microsoft i społeczności w Galeria programu PowerShell.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/17/2020
+ms.date: 01/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 26dfedf1961cf39645c3bcf3ce5fa2db6c14119e
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 590220782a7f43e785cc7885e68eefa99afb7d1d
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97682769"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049120"
 ---
 # <a name="use-runbooks-and-modules-in-powershell-gallery"></a>Używanie elementów runbook i modułów w Galerii programu PowerShell
 
 Zamiast tworzyć własne elementy Runbook i moduły w Azure Automation, możesz uzyskać dostęp do scenariuszy, które zostały już utworzone przez firmę Microsoft i społeczność. Elementy Runbook i [moduły](#modules-in-powershell-gallery) programu PowerShell można pobrać z Galeria programu PowerShell i [elementów Runbook języka Python](#use-python-runbooks) z Azure Automation organizacji usługi GitHub. Możesz również współtworzyć społeczność, udostępniając [scenariusze, które opracowujesz](#add-a-powershell-runbook-to-the-gallery).
 
 > [!NOTE]
-> Trwa wycofywanie centrum skryptów TechNet. Wszystkie elementy Runbook z centrum skryptów w galerii elementów Runbook zostały przeniesione do naszej [organizacji usługi GitHub](https://github.com/azureautomation).
+> Trwa wycofywanie centrum skryptów TechNet. Wszystkie elementy Runbook z centrum skryptów w galerii elementów Runbook zostały przeniesione do naszej [organizacji usługi GitHub](https://github.com/azureautomation) w usłudze UserVoice, aby uzyskać więcej informacji, zobacz [tutaj](https://techcommunity.microsoft.com/t5/azure-governance-and-management/azure-automation-runbooks-moving-to-github/ba-p/2039337).
 
 ## <a name="runbooks-in-powershell-gallery"></a>Elementy Runbook w Galeria programu PowerShell
 
