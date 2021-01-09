@@ -3,14 +3,14 @@ title: Usługa Azure Kubernetes Service (AKS) z umową SLA
 description: Dowiedz się więcej o opcjonalnej ofercie SLA dla usługi Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: conceptual
-ms.date: 06/24/2020
+ms.date: 01/08/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: d9d22b54ef2534cf0adb205175fdc3f1c57205fb
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 95728ca14b96adf7396ca13888107477d953b2a9
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607343"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033340"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Umowa SLA dla usługi Azure Kubernetes Service (AKS)
 
@@ -26,7 +26,7 @@ Klienci mogą nadal tworzyć nieograniczoną liczbę bezpłatnych klastrów z ce
 ## <a name="region-availability"></a>Dostępność w danym regionie
 
 * Umowa SLA na czas działania jest dostępna w regionach publicznych i Azure Government regionach, w których [AKS jest obsługiwany](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
-* Umowa SLA na czas działania jest dostępna dla [prywatnych klastrów AKS][private-clusters] we wszystkich regionach, w których jest obsługiwany AKS.
+* Umowa SLA na czas działania jest dostępna dla [prywatnych klastrów AKS][private-clusters] we wszystkich regionach publicznych, w których AKS jest obsługiwany.
 
 ## <a name="sla-terms-and-conditions"></a>Warunki i postanowienia umowy SLA
 

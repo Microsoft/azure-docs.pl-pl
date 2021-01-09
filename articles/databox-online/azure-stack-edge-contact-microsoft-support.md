@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 01/07/2021
 ms.author: alkohli
-ms.openlocfilehash: a457c2816d4075190a2174339f7e52a2ea41730a
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 5bbd02f9e15a4ee29e244b2a0307accd151ba487
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97696031"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033952"
 ---
 # <a name="open-a-support-ticket-for-azure-stack-edge-pro-and-azure-data-box-gateway"></a>Otwórz bilet pomocy technicznej dla usługi Azure Stack EDGE Pro i Azure Data Box Gateway
 
@@ -57,7 +57,7 @@ Wykonaj następujące kroki, aby utworzyć żądanie obsługi:
 
         ![Problem](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-2.png)
 
-4. Na karcie **Przegląd i tworzenie** zapoznaj się z informacjami dotyczącymi biletu pomocy technicznej. Wybierz przycisk **Utwórz**. 
+4. Na karcie **Przegląd i tworzenie** zapoznaj się z informacjami dotyczącymi biletu pomocy technicznej. Wybierz pozycję **Utwórz**. 
 
     ![Problem 2](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-3.png)
 
@@ -78,7 +78,7 @@ Te informacje dotyczą tylko Azure Stack urządzenia. Proces zgłaszania problem
     * Wysłano jednostkę wymiany pola (FRU) dla uszkodzonej części sprzętowej. Obecnie jedynymi obsługiwanymi FRUs są jednostki zasilacza i dyski półprzewodnikowe.
     * Tylko FRUs są zastępowane w następnym dniu roboczym. wszystko inne wymaga, aby wszystkie inne elementy wymagały pełnego zastąpienia systemu (FRS).
 
-3. W przypadku zgłoszenia biletu pomocy technicznej przed upływem 4:30 czasu lokalnego (od poniedziałku do piątku) pracownik w miejscu zostanie wysłany do lokalizacji następnego dnia roboczego w celu przeprowadzenia zamiany jednostki FRU. Pełne zastępowanie systemu trwa zwykle znacznie dłużej, ponieważ części są dostarczane z naszej fabryki i mogą być przedmiotem opóźnień transportowych i celnych.
+3. Jeśli okaże się, że Zamiana jednostki FRU jest wymagana przez 1 czas lokalny (od poniedziałku do piątku), technika Onsite jest wysyłana w następnym dniu roboczym do lokalizacji w celu przeprowadzenia zamiany jednostki FRU. Pełne zastępowanie systemu trwa zwykle znacznie dłużej, ponieważ części są dostarczane z naszej fabryki i mogą być przedmiotem opóźnień transportowych i celnych.
 
 ## <a name="manage-a-support-request"></a>Zarządzanie żądaniem obsługi
 

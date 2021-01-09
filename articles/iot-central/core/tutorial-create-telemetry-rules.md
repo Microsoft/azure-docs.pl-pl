@@ -3,16 +3,16 @@ title: Samouczek — Tworzenie reguł i zarządzanie nimi w aplikacji IoT Centra
 description: W tym samouczku przedstawiono sposób, w jaki reguły IoT Central platformy Azure umożliwiają monitorowanie urządzeń w czasie niemal rzeczywistym oraz automatyczne wywoływanie akcji, takich jak wysyłanie wiadomości e-mail, gdy reguła jest wyzwalana.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/16/2020
+ms.date: 01/08/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 6d49e3585460c95ca931f497a63cbc281aed1db1
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: a1991860e1599020c5a91c09dfb30a96ed442ff7
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94991017"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033850"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Samouczek: Tworzenie reguły i konfigurowanie powiadomień w aplikacji usługi Azure IoT Central
 
@@ -24,7 +24,7 @@ Urządzenia używają telemetrii do wysyłania danych liczbowych z urządzenia. 
 
 W tym samouczku utworzysz regułę do wysyłania wiadomości e-mail, gdy temperatura w symulowanym urządzeniu czujnika przekracza 70 &deg; F.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -38,6 +38,9 @@ Przed rozpoczęciem wykonaj czynności [Tworzenie aplikacji IoT Central platform
 ## <a name="create-a-rule"></a>Tworzenie reguły
 
 Aby utworzyć regułę telemetrii, szablon urządzenia musi zawierać co najmniej jedną wartość telemetrii. W tym samouczku jest używane urządzenie symulowanego **kontrolera czujnika** , które wysyła dane telemetryczne temperatury i wilgotności. Dodano ten szablon urządzenia i utworzono symulowane urządzenie na stronie [Dodawanie symulowanego urządzenia do aplikacji do IoT Central](./quick-create-simulated-device.md) przewodnika Szybki Start. Reguła monitoruje temperaturę zgłoszoną przez urządzenie i wysyła wiadomość e-mail, gdy znajdzie się ona powyżej 70 stopni.
+
+> [!NOTE]
+> Istnieje limit 50 reguł dla aplikacji.
 
 1. W lewym okienku wybierz pozycję **reguły**.
 

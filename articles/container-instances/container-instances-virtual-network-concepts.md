@@ -3,12 +3,12 @@ title: Scenariusze korzystania z sieci wirtualnej
 description: Scenariusze, zasoby i ograniczenia dotyczące wdrażania grup kontenerów w sieci wirtualnej platformy Azure.
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 2fb468a6a860bcc076043c30606922f43fbdb1ad
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 65d7fa46ebbb9b072b50731bff68b9b88809075d
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882436"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033833"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>Scenariusze i zasoby sieci wirtualnej
 
@@ -33,6 +33,7 @@ Grupy kontenerów wdrożone w usłudze Azure Virtual Network umożliwiają włą
 * **Azure Load Balancer** — umieszczenie Azure Load Balancer przed wystąpieniami kontenerów w grupie kontenerów sieciowych nie jest obsługiwane
 * **Globalne wirtualne sieci równorzędne** — globalna komunikacja równorzędna (łączenie sieci wirtualnych w regionach platformy Azure) nie jest obsługiwana
 * **Public IP lub etykieta DNS** — grupy kontenerów wdrożone w sieci wirtualnej nie obsługują obecnie udostępniania kontenerów bezpośrednio w Internecie za pomocą publicznego adresu IP lub w pełni kwalifikowanej nazwy domeny
+* **Virtual Network translator adresów sieciowych** — grupy kontenerów wdrożone w sieci wirtualnej nie są obecnie obsługiwane przy użyciu zasobu bramy translatora adresów sieciowych do wychodzącej łączności z Internetem.
 
 ## <a name="other-limitations"></a>Inne ograniczenia
 

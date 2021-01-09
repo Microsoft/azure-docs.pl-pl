@@ -1,31 +1,31 @@
 ---
-title: Funkcja platformy Azure jako procedura obsługi zdarzeń dla zdarzeń Azure Event Grid
-description: Opisuje, jak można używać usługi Azure Functions jako obsługi zdarzeń dla zdarzeń Event Grid.
+title: Używanie funkcji na platformie Azure jako programu obsługi zdarzeń dla zdarzeń Azure Event Grid
+description: Opisuje, w jaki sposób można używać funkcji utworzonych w programach i hostowanych przez Azure Functions jako programy obsługi zdarzeń dla zdarzeń Event Grid.
 ms.topic: conceptual
 ms.date: 09/18/2020
-ms.openlocfilehash: 9e04fd3e04dab7a50940c2a4a799a56d447fbb6e
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5a1ec575b58829a422e4d263ae0324e0343d5ad3
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145763"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034972"
 ---
-# <a name="azure-function-as-an-event-handler-for-event-grid-events"></a>Funkcja platformy Azure jako procedura obsługi zdarzeń dla zdarzeń Event Grid
+# <a name="use-a-function-as-an-event-handler-for-event-grid-events"></a>Używanie funkcji jako programu obsługi zdarzeń dla zdarzeń Event Grid
 
 Program obsługi zdarzeń jest miejscem, w którym zdarzenie jest wysyłane. Program obsługi wykonuje akcję, aby przetworzyć zdarzenie. Kilka usług platformy Azure jest automatycznie konfigurowanych do obsługi zdarzeń, a **Azure Functions** jest jednym z nich. 
 
 
-Aby użyć funkcji platformy Azure jako programu obsługi zdarzeń, należy wykonać jedną z następujących metod: 
+Aby użyć funkcji na platformie Azure jako procedury obsługi dla zdarzeń, wykonaj jedną z następujących metod: 
 
--   Użyj [wyzwalacza Event Grid](../azure-functions/functions-bindings-event-grid-trigger.md).  Określ **funkcję platformy Azure** jako **Typ punktu końcowego**. Następnie określ aplikację funkcji platformy Azure i funkcję, która będzie obsługiwać zdarzenia. 
--   Użyj [wyzwalacza http](../azure-functions/functions-bindings-http-webhook.md).  Określ **element Hook sieci Web** jako **Typ punktu końcowego**. Następnie określ adres URL funkcji platformy Azure, która będzie obsługiwać zdarzenia. 
+-   Użyj [wyzwalacza Event Grid](../azure-functions/functions-bindings-event-grid-trigger.md).  Określ **funkcję platformy Azure** jako **Typ punktu końcowego**. Następnie określ aplikację funkcji i funkcję, która będzie obsługiwać zdarzenia. 
+-   Użyj [wyzwalacza http](../azure-functions/functions-bindings-http-webhook.md).  Określ **element Hook sieci Web** jako **Typ punktu końcowego**. Następnie określ adres URL funkcji, która będzie obsługiwać zdarzenia. 
 
 Zalecamy używanie pierwszego podejścia (Event Grid wyzwalacza), ponieważ ma ono następujące zalety w porównaniu z drugim podejściem:
 -   Event Grid automatycznie weryfikuje wyzwalacze Event Grid. W przypadku ogólnych wyzwalaczy HTTP należy samodzielnie zaimplementować [odpowiedź na weryfikację](webhook-event-delivery.md) .
 -   Event Grid automatycznie dostosowuje Częstotliwość dostarczania zdarzeń do funkcji wyzwalanej przez zdarzenie Event Grid na podstawie postrzeganej szybkości, z jaką funkcja może przetwarzać zdarzenia. Ta funkcja dopasowania współczynnika powoduje, że nie są dostępne błędy dostarczania, które wynikają z niezdolności funkcji do przetwarzania zdarzeń, ponieważ szybkość przetwarzania zdarzeń funkcji może się różnić w miarę upływu czasu. Aby zwiększyć wydajność przy wysokiej przepływności, należy włączyć przetwarzanie wsadowe w ramach subskrypcji zdarzeń. Aby uzyskać więcej informacji, zobacz [Włączanie przetwarzania wsadowego](#enable-batching).
 
     > [!NOTE]
-    > Obecnie nie można używać wyzwalacza Event Grid dla aplikacji Azure Functions, gdy zdarzenie jest dostarczane w schemacie **CloudEvents** . Zamiast tego należy użyć wyzwalacza HTTP.
+    > Obecnie nie można używać wyzwalacza Event Grid dla aplikacji funkcji, gdy zdarzenie jest dostarczane w schemacie **CloudEvents** . Zamiast tego należy użyć wyzwalacza HTTP.
 
 ## <a name="tutorials"></a>Samouczki
 
@@ -69,7 +69,7 @@ W czasie tworzenia subskrypcji w interfejsie użytkownika na stronie **Tworzenie
 
 Te wartości dla istniejącej subskrypcji można zaktualizować na karcie **funkcje** na stronie **tematu Event Grid** . 
 
-:::image type="content" source="./media/custom-event-to-function/features-batch-settings.png" alt-text="Włącz przetwarzanie wsadowe w momencie tworzenia subskrypcji":::
+:::image type="content" source="./media/custom-event-to-function/features-batch-settings.png" alt-text="Włącz przetwarzanie wsadowe po utworzeniu":::
 
 ### <a name="azure-resource-manager-template"></a>Szablon usługi Azure Resource Manager
 W szablonie Azure Resource Manager można ustawić **maxEventsPerBatch** i **preferredBatchSizeInKilobytes** . Aby uzyskać więcej informacji, zobacz [Dokumentacja szablonu Microsoft. EventGrid eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions).

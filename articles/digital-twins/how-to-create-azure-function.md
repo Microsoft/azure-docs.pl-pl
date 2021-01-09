@@ -1,40 +1,40 @@
 ---
-title: Konfigurowanie funkcji platformy Azure do przetwarzania danych
+title: Konfigurowanie funkcji na platformie Azure na potrzeby przetwarzania danych
 titleSuffix: Azure Digital Twins
-description: Zobacz, jak utworzyć funkcję platformy Azure, która może uzyskiwać dostęp do programu Digital bliźniaczych reprezentacji i uruchamiać ją.
+description: Zobacz, jak utworzyć funkcję na platformie Azure, która może uzyskać dostęp i wyzwolenie przez Digital bliźniaczych reprezentacji.
 author: baanders
 ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5352a95b865851be937af7b9f19268afd23148db
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 7f491bbe61e8574a7275d9ef5c87d05fa61dc7c4
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280028"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98035312"
 ---
-# <a name="connect-azure-functions-apps-for-processing-data"></a>Łączenie Azure Functions aplikacji do przetwarzania danych
+# <a name="connect-function-apps-in-azure-for-processing-data"></a>Łączenie aplikacji funkcji na platformie Azure na potrzeby przetwarzania danych
 
-Aktualizacja bliźniaczych reprezentacji cyfrowych oparta na danych jest obsługiwana przy użyciu [**tras zdarzeń**](concepts-route-events.md) za pośrednictwem zasobów obliczeniowych, takich jak [Azure Functions](../azure-functions/functions-overview.md). Funkcja platformy Azure może służyć do aktualizowania wielocyfrowej dwuosiowej odpowiedzi na:
+Aktualizowanie cyfrowych bliźniaczych reprezentacji na podstawie danych jest obsługiwane przy użyciu [**tras zdarzeń**](concepts-route-events.md) za pośrednictwem zasobów obliczeniowych, takich jak funkcja, która jest wykonywana przy użyciu [Azure Functions](../azure-functions/functions-overview.md). Funkcje mogą służyć do aktualizowania wielocyfrowej dwuosiowej odpowiedzi na:
 * dane telemetryczne urządzenia pochodzące z IoT Hub
 * Zmiana właściwości lub inne dane pochodzące z innego cyfrowego sznurka w grafie bliźniaczym
 
-W tym artykule przedstawiono sposób tworzenia funkcji platformy Azure do użycia z usługą Azure Digital bliźniaczych reprezentacji. 
+W tym artykule opisano tworzenie funkcji platformy Azure do użycia z usługą Azure Digital bliźniaczych reprezentacji. 
 
 Poniżej przedstawiono przegląd kroków, które zawiera:
 
-1. Tworzenie aplikacji Azure Functions w programie Visual Studio
-2. Napisz funkcję platformy Azure z wyzwalaczem [Event Grid](../event-grid/overview.md)
+1. Tworzenie projektu usługi Azure Functions w programie Visual Studio
+2. Napisz funkcję z wyzwalaczem [Event Grid](../event-grid/overview.md)
 3. Dodawanie kodu uwierzytelniania do funkcji (aby można było uzyskać dostęp do usługi Azure Digital bliźniaczych reprezentacji)
 4. Publikowanie aplikacji funkcji na platformie Azure
-5. Konfigurowanie dostępu [zabezpieczeń](concepts-security.md) do aplikacji funkcji platformy Azure
+5. Konfigurowanie dostępu [zabezpieczeń](concepts-security.md) do aplikacji funkcji
 
 ## <a name="prerequisite-set-up-azure-digital-twins-instance"></a>Wymaganie wstępne: Konfigurowanie wystąpienia usługi Azure Digital bliźniaczych reprezentacji
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
-## <a name="create-an-azure-functions-app-in-visual-studio"></a>Tworzenie aplikacji Azure Functions w programie Visual Studio
+## <a name="create-a-function-app-in-visual-studio"></a>Tworzenie aplikacji funkcji w programie Visual Studio
 
 W programie Visual Studio 2019 wybierz pozycję _plik > nowy > projekt_ i wyszukaj szablon _Azure Functions_ , a następnie wybierz pozycję _dalej_.
 
@@ -46,15 +46,15 @@ Określ nazwę aplikacji funkcji i wybierz pozycję _Utwórz_.
 
 Wybierz typ Event Grid aplikacji funkcji *wyzwalacz* i wybierz pozycję _Utwórz_.
 
-:::image type="content" source="media/how-to-create-azure-function/eventgridtrigger-function.png" alt-text="Visual Studio: okno dialogowe wyzwalacza projektu funkcji platformy Azure":::
+:::image type="content" source="media/how-to-create-azure-function/eventgridtrigger-function.png" alt-text="Visual Studio: okno dialogowe wyzwalacza projektu Azure Functions":::
 
-Po utworzeniu aplikacji funkcji program Visual Studio będzie miał automatycznie wypełniony kod przykładowy w pliku **Function.cs** w folderze projektu. Ta krótka funkcja platformy Azure służy do rejestrowania zdarzeń.
+Po utworzeniu aplikacji funkcji program Visual Studio będzie miał automatycznie wypełniony kod przykładowy w pliku **Function.cs** w folderze projektu. Ta krótka funkcja jest używana do rejestrowania zdarzeń.
 
 :::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Visual Studio: okno projektu z przykładowym kodem":::
 
-## <a name="write-an-azure-function-with-an-event-grid-trigger"></a>Napisz funkcję platformy Azure z wyzwalaczem Event Grid
+## <a name="write-a-function-with-an-event-grid-trigger"></a>Napisz funkcję z wyzwalaczem Event Grid
 
-Możesz napisać funkcję platformy Azure, dodając zestaw SDK do aplikacji funkcji. Aplikacja funkcji współdziała z usługą Azure Digital bliźniaczych reprezentacji przy użyciu [usługi Azure Digital bliźniaczych reprezentacji SDK dla platformy .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). 
+Można napisać funkcję, dodając zestaw SDK do aplikacji funkcji. Aplikacja funkcji współdziała z usługą Azure Digital bliźniaczych reprezentacji przy użyciu [usługi Azure Digital bliźniaczych reprezentacji SDK dla platformy .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). 
 
 Aby można było korzystać z zestawu SDK, należy dołączyć następujące pakiety do projektu. Możesz zainstalować pakiety przy użyciu Menedżera pakietów NuGet programu Visual Studio lub dodać pakiety za pomocą `dotnet` narzędzia wiersza polecenia. Wybierz jedną z następujących metod: 
 
@@ -78,7 +78,7 @@ dotnet add package Azure.identity --version 1.2.2
 dotnet add package System.Net.Http
 dotnet add package Azure.Core.Pipeline
 ```
-Następnie w Eksplorator rozwiązań programu Visual Studio Otwórz plik _Function.cs_ , w którym znajduje się przykładowy kod, i Dodaj następujące instrukcje _using_ do funkcji platformy Azure. 
+Następnie w Eksplorator rozwiązań programu Visual Studio Otwórz plik _Function.cs_ , w którym znajduje się przykładowy kod, i Dodaj do funkcji następujące instrukcje _użycia_ . 
 
 ```csharp
 using Azure.DigitalTwins.Core;
@@ -86,9 +86,9 @@ using Azure.Identity;
 using System.Net.Http;
 using Azure.Core.Pipeline;
 ```
-## <a name="add-authentication-code-to-the-azure-function"></a>Dodawanie kodu uwierzytelniania do funkcji platformy Azure
+## <a name="add-authentication-code-to-the-function"></a>Dodawanie kodu uwierzytelniania do funkcji
 
-Teraz deklarujesz zmienne na poziomie klasy i dodajesz kod uwierzytelniania, który umożliwi funkcji dostęp do usługi Azure Digital bliźniaczych reprezentacji. Do funkcji platformy Azure zostanie dodany następujący plik {Twoja nazwa funkcji}. cs.
+Teraz deklarujesz zmienne na poziomie klasy i dodajesz kod uwierzytelniania, który umożliwi funkcji dostęp do usługi Azure Digital bliźniaczych reprezentacji. Do funkcji zostanie dodany następujący plik {Twoja nazwa funkcji}. cs.
 
 * Odczytaj adres URL usługi ADT jako zmienną środowiskową. Dobrym sposobem jest odczytanie adresu URL usługi ze zmiennej środowiskowej, a nie kodowanie twarde w funkcji.
 ```csharp     
@@ -98,7 +98,7 @@ private static readonly string adtInstanceUrl = Environment.GetEnvironmentVariab
 ```csharp
 private static readonly HttpClient httpClient = new HttpClient();
 ```
-* Możesz użyć poświadczeń tożsamości zarządzanej w usłudze Azure Function.
+* W Azure Functions można użyć poświadczeń tożsamości zarządzanej.
 ```csharp
 ManagedIdentityCredential cred = new ManagedIdentityCredential("https://digitaltwins.azure.net");
 ```
@@ -159,16 +159,16 @@ namespace adtIngestFunctionSample
 
 ## <a name="publish-the-function-app-to-azure"></a>Publikowanie aplikacji funkcji na platformie Azure
 
-Aby opublikować aplikację funkcji na platformie Azure, w Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt funkcji (a nie rozwiązanie), a następnie wybierz polecenie **Publikuj**.
+Aby opublikować projekt w aplikacji funkcji na platformie Azure, w obszarze Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt funkcji (a nie rozwiązanie), a następnie wybierz polecenie **Publikuj**.
 
 > [!IMPORTANT] 
-> Publikowanie funkcji platformy Azure wiąże się z dodatkowymi opłatami za subskrypcję, niezależnie od bliźniaczych reprezentacji cyfrowych platformy Azure.
+> Publikowanie w aplikacji funkcji na platformie Azure wiąże się z dodatkowymi opłatami za subskrypcję, niezależnie od bliźniaczych reprezentacji cyfrowych platformy Azure.
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function.png" alt-text="Visual Studio: publikowanie funkcji platformy Azure ":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function.png" alt-text="Visual Studio: publikowanie funkcji na platformie Azure":::
 
 Wybierz pozycję **Azure** jako element docelowy publikowania i wybierz pozycję **dalej**.
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-1.png" alt-text="Visual Studio: publikowanie okna dialogowego usługi Azure Functions, Wybieranie platformy Azure ":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-1.png" alt-text="Visual Studio: publikowanie Azure Functions okno dialogowe, Wybieranie platformy Azure ":::
 
 :::image type="content" source="media/how-to-create-azure-function/publish-azure-function-2.png" alt-text="Visual Studio: publikowanie funkcji okna dialogowego, wybierz pozycję Azure aplikacja funkcji (Windows) lub (Linux) na podstawie swojej maszyny":::
 
@@ -179,16 +179,16 @@ Wybierz pozycję **Azure** jako element docelowy publikowania i wybierz pozycję
 :::image type="content" source="media/how-to-create-azure-function/publish-azure-function-5.png" alt-text="Visual Studio: publikowanie funkcji okna dialogowego, wybierz aplikację funkcji z listy i Zakończ":::
 
 Na następującej stronie wprowadź żądaną nazwę nowej aplikacji funkcji, grupy zasobów i inne szczegóły.
-Aby aplikacja Functions mogła uzyskać dostęp do usługi Azure Digital bliźniaczych reprezentacji, musi mieć tożsamość zarządzaną przez system i mieć uprawnienia dostępu do wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
+Aby aplikacja funkcji mogła uzyskać dostęp do usługi Azure Digital bliźniaczych reprezentacji, musi mieć tożsamość zarządzaną przez system i mieć uprawnienia dostępu do wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
 
 Następnie można skonfigurować dostęp zabezpieczeń dla funkcji przy użyciu interfejsu wiersza polecenia lub Azure Portal. Wybierz jedną z następujących metod:
 
-## <a name="set-up-security-access-for-the-azure-function-app"></a>Konfigurowanie dostępu zabezpieczeń do aplikacji funkcji platformy Azure
-Dostęp zabezpieczeń do aplikacji funkcji platformy Azure można skonfigurować przy użyciu jednej z następujących opcji:
+## <a name="set-up-security-access-for-the-function-app"></a>Konfigurowanie dostępu zabezpieczeń do aplikacji funkcji
+Dostęp zabezpieczeń do aplikacji funkcji można skonfigurować przy użyciu jednej z następujących opcji:
 
-### <a name="option-1-set-up-security-access-for-the-azure-function-app-using-cli"></a>Opcja 1: Konfigurowanie dostępu zabezpieczeń dla aplikacji funkcji platformy Azure przy użyciu interfejsu wiersza polecenia
+### <a name="option-1-set-up-security-access-for-the-function-app-using-cli"></a>Opcja 1: Konfigurowanie dostępu zabezpieczeń dla aplikacji funkcji przy użyciu interfejsu wiersza polecenia
 
-Szkielet funkcji platformy Azure z wcześniejszych przykładów wymaga, aby token okaziciela został przesłany do niego, aby można było uwierzytelnić się za pomocą usługi Azure Digital bliźniaczych reprezentacji. Aby upewnić się, że ten token okaziciela jest zakończony, musisz skonfigurować [tożsamość usługi zarządzanej (msi)](../active-directory/managed-identities-azure-resources/overview.md) dla aplikacji funkcji. Należy to zrobić tylko raz dla każdej aplikacji funkcji.
+Funkcja szkieletu z wcześniejszych przykładów wymaga, aby token okaziciela został przesłany do niego, aby można było uwierzytelniać za pomocą usługi Azure Digital bliźniaczych reprezentacji. Aby upewnić się, że ten token okaziciela jest zakończony, musisz skonfigurować [tożsamość usługi zarządzanej (msi)](../active-directory/managed-identities-azure-resources/overview.md) dla aplikacji funkcji. Należy to zrobić tylko raz dla każdej aplikacji funkcji.
 
 Można utworzyć tożsamość zarządzaną przez system i przypisać tożsamość aplikacji funkcji do roli _**właściciela danych Digital bliźniaczych reprezentacji**_ platformy Azure dla swojego wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Spowoduje to nadanie uprawnienia aplikacji funkcji w wystąpieniu do wykonywania działań płaszczyzny danych. Następnie Udostępnij adres URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji dostępnego dla funkcji przez ustawienie zmiennej środowiskowej.
 
@@ -214,7 +214,7 @@ Na koniec możesz wprowadzić adres URL wystąpienia usługi Azure Digital bliź
 ```azurecli-interactive 
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-hostname>"
 ```
-### <a name="option-2-set-up-security-access-for-the-azure-function-app-using-azure-portal"></a>Opcja 2: Konfigurowanie dostępu zabezpieczeń dla aplikacji funkcji platformy Azure przy użyciu Azure Portal
+### <a name="option-2-set-up-security-access-for-the-function-app-using-azure-portal"></a>Opcja 2: Konfigurowanie dostępu zabezpieczeń dla aplikacji funkcji przy użyciu Azure Portal
 
 Tożsamość zarządzana przypisana przez system umożliwia zasobom platformy Azure uwierzytelnianie w usługach w chmurze (na przykład Azure Key Vault) bez zapisywania poświadczeń w kodzie. Po włączeniu wszystkich wymaganych uprawnień można udzielić za pośrednictwem kontroli dostępu opartej na rolach na platformie Azure. Cykl życia tego typu tożsamości zarządzanej jest powiązany z cyklem życia tego zasobu. Ponadto każdy zasób (na przykład maszyna wirtualna) może mieć tylko jedną tożsamość zarządzaną przypisaną przez system.
 
@@ -244,10 +244,10 @@ Wybierz przycisk _przypisania roli platformy Azure_ , który spowoduje otwarcie 
 
 Na stronie _Dodaj przypisanie roli (wersja zapoznawcza)_ , która zostanie otwarta, wybierz pozycję:
 
-* _Zakres_ : grupa zasobów
-* _Subskrypcja_ : wybierz subskrypcję platformy Azure
-* _Grupa zasobów_ : Wybierz grupę zasobów z listy rozwijanej
-* _Rola_ : Wybierz _właściciela danych Digital bliźniaczych reprezentacji platformy Azure_ z listy rozwijanej
+* _Zakres_: grupa zasobów
+* _Subskrypcja_: wybierz subskrypcję platformy Azure
+* _Grupa zasobów_: Wybierz grupę zasobów z listy rozwijanej
+* _Rola_: Wybierz _właściciela danych Digital bliźniaczych reprezentacji platformy Azure_ z listy rozwijanej
 
 Następnie Zapisz szczegóły, naciskając przycisk _Zapisz_ .
 
@@ -265,11 +265,11 @@ ADT_INSTANCE_URL można uzyskać, dołączając **_https://_** do nazwy hosta wy
 
 Teraz możesz utworzyć ustawienie aplikacji, wykonując poniższe kroki:
 
-* Wyszukaj funkcję platformy Azure przy użyciu nazwy funkcji na pasku wyszukiwania i wybierz funkcję z listy
+* Wyszukaj aplikację przy użyciu nazwy aplikacji funkcji na pasku wyszukiwania i wybierz aplikację funkcji z listy
 * Wybierz pozycję _Konfiguracja_ na pasku nawigacyjnym po lewej stronie, aby utworzyć nowe ustawienie aplikacji
 * Na karcie _Ustawienia aplikacji_ wybierz pozycję _+ nowe ustawienie aplikacji_
 
-:::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Azure Portal: Wyszukaj istniejącą funkcję platformy Azure":::
+:::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Azure Portal: wyszukiwanie istniejącej aplikacji funkcji":::
 
 :::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Azure Portal: Konfigurowanie ustawień aplikacji":::
 
@@ -295,10 +295,10 @@ Ustawienia aplikacji można wyświetlić, wybierając ikonę _powiadomienia_ . J
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule opisano kroki konfigurowania funkcji platformy Azure do użycia z usługą Azure Digital bliźniaczych reprezentacji. Następnie można subskrybować funkcję platformy Azure w celu Event Grid, aby nasłuchiwać w punkcie końcowym. Ten punkt końcowy może:
+W tym artykule opisano kroki konfigurowania aplikacji funkcji na platformie Azure do użycia z usługą Azure Digital bliźniaczych reprezentacji. Następnie można subskrybować funkcję do Event Grid, aby nasłuchiwać w punkcie końcowym. Ten punkt końcowy może:
 * Punkt końcowy Event Grid dołączony do usługi Azure Digital bliźniaczych reprezentacji do przetwarzania komunikatów pochodzących z samej usługi Azure Digital bliźniaczych reprezentacji (takich jak komunikaty o zmianach właściwości, komunikaty telemetryczne generowane przez [Digital bliźniaczych reprezentacji](concepts-twins-graph.md) w grafie bliźniaczym lub komunikaty o cyklu życia)
 * Tematy systemowe IoT używane przez IoT Hub do wysyłania danych telemetrycznych i innych urządzeń
 * Punkt końcowy Event Grid otrzymuje komunikaty z innych usług
 
-Następnie zapoznaj się z tematem jak kompilować swoją podstawową funkcję platformy Azure, aby uzyskać IoT Hub dane do usługi Azure Digital bliźniaczych reprezentacji:
+Następnie zapoznaj się z tematem jak skompilować swoją podstawową funkcję, aby uzyskać IoT Hub dane do usługi Azure Digital bliźniaczych reprezentacji:
 * [*Instrukcje: pozyskiwanie danych telemetrycznych z IoT Hub*](how-to-ingest-iot-hub-data.md)

@@ -5,14 +5,14 @@ author: SnehaGunda
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 10/28/2020
+ms.date: 01/06/2021
 ms.author: sngun
-ms.openlocfilehash: 18850fafd1f6cb084c9e5fdb9a24e9c4fd8bb4cc
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 8df8305a5b50567c2f355721212a7c0feebd81d4
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097570"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033748"
 ---
 # <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Monitorowanie danych Azure Cosmos DB przy użyciu ustawień diagnostycznych na platformie Azure
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -27,47 +27,53 @@ Metryki platformy i dzienniki aktywności są zbierane automatycznie. w związku
 
 1. W okienku **Ustawienia diagnostyczne** Wypełnij formularz następującymi szczegółami: 
 
-    * **Nazwa** : Wprowadź nazwę dzienników do utworzenia.
+    * **Nazwa**: Wprowadź nazwę dzienników do utworzenia.
 
-    * Dzienniki mogą być przechowywane na **koncie magazynu** , **przesyłane strumieniowo do centrum zdarzeń** lub **wysyłane do log Analytics**
+    * Dzienniki mogą być przechowywane na **koncie magazynu**, **przesyłane strumieniowo do centrum zdarzeń** lub **wysyłane do log Analytics**
 
 1. Podczas tworzenia ustawień diagnostycznych należy określić, którą kategorię dzienników należy zebrać. Kategorie dzienników obsługiwane przez Azure Cosmos DB są wymienione poniżej wraz z przykładowym dziennikiem zebranym przez nich:
 
- * **DataPlaneRequests** : Wybierz tę opcję, aby rejestrować żądania wewnętrznej bazy danych do wszystkich interfejsów API, takich jak SQL, Graph, MongoDB, Cassandra i interfejs API tabel, w Azure Cosmos DB. Właściwości klucza, które należy zwrócić uwagę: `Requestcharge` ,,,, `statusCode` `clientIPaddress` `partitionID` `resourceTokenPermissionId` , i `resourceTokenPermissionMode` .
+ * **DataPlaneRequests**: Wybierz tę opcję, aby rejestrować żądania wewnętrznej bazy danych do wszystkich interfejsów API, takich jak SQL, Graph, MongoDB, Cassandra i interfejs API tabel, w Azure Cosmos DB. Właściwości klucza, które należy zwrócić uwagę: `Requestcharge` ,,,, `statusCode` `clientIPaddress` `partitionID` `resourceTokenPermissionId` , i `resourceTokenPermissionMode` .
 
     ```json
     { "time": "2019-04-23T23:12:52.3814846Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "DataPlaneRequests", "operationName": "ReadFeed", "properties": {"activityId": "66a0c647-af38-4b8d-a92a-c48a805d6460","requestResourceType": "Database","requestResourceId": "","collectionRid": "","statusCode": "200","duration": "0","userAgent": "Microsoft.Azure.Documents.Common/2.2.0.0","clientIpAddress": "10.0.0.24","requestCharge": "1.000000","requestLength": "0","responseLength": "372", "resourceTokenPermissionId": "perm-prescriber-app","resourceTokenPermissionMode": "all", "resourceTokenUserRid": "","region": "East US","partitionId": "062abe3e-de63-4aa5-b9de-4a77119c59f8","keyType": "PrimaryReadOnlyMasterKey","databaseName": "","collectionName": ""}}
     ```
 
-* **MongoRequests** : Wybierz tę opcję, aby rejestrować żądania inicjowane przez użytkownika z frontonu, aby obsłużyć żądania do interfejsu API Azure Cosmos DB dla MongoDB. Ten typ dziennika nie jest dostępny dla innych kont interfejsu API. Właściwości klucza do uwagi: `Requestcharge` , `opCode` . Po włączeniu MongoRequests w dziennikach diagnostycznych należy wyłączyć DataPlaneRequests. Zostanie wyświetlony jeden dziennik dla każdego żądania wykonanego w interfejsie API.
+* **MongoRequests**: Wybierz tę opcję, aby rejestrować żądania inicjowane przez użytkownika z frontonu, aby obsłużyć żądania do interfejsu API Azure Cosmos DB dla MongoDB. Ten typ dziennika nie jest dostępny dla innych kont interfejsu API. Właściwości klucza do uwagi: `Requestcharge` , `opCode` . Po włączeniu MongoRequests w dziennikach diagnostycznych należy wyłączyć DataPlaneRequests. Zostanie wyświetlony jeden dziennik dla każdego żądania wykonanego w interfejsie API.
 
     ```json
     { "time": "2019-04-10T15:10:46.7820998Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "MongoRequests", "operationName": "ping", "properties": {"activityId": "823cae64-0000-0000-0000-000000000000","opCode": "MongoOpCode_OP_QUERY","errorCode": "0","duration": "0","requestCharge": "0.000000","databaseName": "admin","collectionName": "$cmd","retryCount": "0"}}
     ```
 
-* **CassandraRequests** : Wybierz tę opcję, aby rejestrować żądania inicjowane przez użytkownika z frontonu, aby obsłużyć żądania do interfejsu API Azure Cosmos DB dla Cassandra. Ten typ dziennika nie jest dostępny dla innych kont interfejsu API. Właściwości klucza, które należy zwrócić uwagę `operationName` , są, `requestCharge` , `piiCommandText` . Po włączeniu CassandraRequests w dziennikach diagnostycznych należy wyłączyć DataPlaneRequests. Zostanie wyświetlony jeden dziennik dla każdego żądania wykonanego w interfejsie API.
+* **CassandraRequests**: Wybierz tę opcję, aby rejestrować żądania inicjowane przez użytkownika z frontonu, aby obsłużyć żądania do interfejsu API Azure Cosmos DB dla Cassandra. Ten typ dziennika nie jest dostępny dla innych kont interfejsu API. Właściwości klucza, które należy zwrócić uwagę `operationName` , są, `requestCharge` , `piiCommandText` . Po włączeniu CassandraRequests w dziennikach diagnostycznych należy wyłączyć DataPlaneRequests. Zostanie wyświetlony jeden dziennik dla każdego żądania wykonanego w interfejsie API.
 
    ```json
    { "time": "2020-03-30T23:55:10.9579593Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "CassandraRequests", "operationName": "QuerySelect", "properties": {"activityId": "6b33771c-baec-408a-b305-3127c17465b6","opCode": "<empty>","errorCode": "-1","duration": "0.311900","requestCharge": "1.589237","databaseName": "system","collectionName": "local","retryCount": "<empty>","authorizationTokenType": "PrimaryMasterKey","address": "104.42.195.92","piiCommandText": "{"request":"SELECT key from system.local"}","userAgent": """"}}
    ```
 
-* **QueryRuntimeStatistics** : Wybierz tę opcję, aby zarejestrować tekst zapytania, który został wykonany. Ten typ dziennika jest dostępny tylko dla kont interfejsu API SQL.
+* **GremlinRequests**: Wybierz tę opcję, aby rejestrować żądania inicjowane przez użytkownika z frontonu, aby obsłużyć żądania do interfejsu API Azure Cosmos DB dla Gremlin. Ten typ dziennika nie jest dostępny dla innych kont interfejsu API. Właściwości klucza, które należy zwrócić uwagę `operationName` , to i `requestCharge` . Po włączeniu GremlinRequests w dziennikach diagnostycznych należy wyłączyć DataPlaneRequests. Zostanie wyświetlony jeden dziennik dla każdego żądania wykonanego w interfejsie API.
+
+  ```json
+  { "time": "2021-01-06T19:36:58.2554534Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "GremlinRequests", "operationName": "eval", "properties": {"activityId": "b16bd876-0e5c-4448-90d1-7f3134c6b5ff", "errorCode": "200", "duration": "9.6036", "requestCharge": "9.059999999999999", "databaseName": "GraphDemoDatabase", "collectionName": "GraphDemoContainer", "authorizationTokenType": "PrimaryMasterKey", "address": "98.225.2.189", "estimatedDelayFromRateLimitingInMilliseconds": "0", "retriedDueToRateLimiting": "False", "region": "Australia East", "requestLength": "266", "responseLength": "364", "userAgent": "<empty>"}}
+  ```
+
+* **QueryRuntimeStatistics**: Wybierz tę opcję, aby zarejestrować tekst zapytania, który został wykonany. Ten typ dziennika jest dostępny tylko dla kont interfejsu API SQL.
 
     ```json
     { "time": "2019-04-14T19:08:11.6353239Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "QueryRuntimeStatistics", "properties": {"activityId": "278b0661-7452-4df3-b992-8aa0864142cf","databasename": "Tasks","collectionname": "Items","partitionkeyrangeid": "0","querytext": "{"query":"SELECT *\nFROM c\nWHERE (c.p1__10 != true)","parameters":[]}"}}
     ```
 
-* **PartitionKeyStatistics** : Wybierz tę opcję, aby rejestrować statystyki kluczy partycji. Jest to obecnie reprezentowane z rozmiarem magazynu (KB) kluczy partycji. Zapoznaj się z sekcją [Rozwiązywanie problemów przy użyciu zapytań diagnostycznych platformy Azure](#diagnostic-queries) w tym artykule. Na przykład zapytania, które używają "PartitionKeyStatistics". Dziennik jest emitowany w oparciu o trzy pierwsze klucze partycji, które zajmują większość magazynu danych. Ten dziennik zawiera dane takie jak identyfikator subskrypcji, nazwa regionu, nazwa bazy danych, nazwa kolekcji, klucz partycji i rozmiar magazynu w KILOBAJTach.
+* **PartitionKeyStatistics**: Wybierz tę opcję, aby rejestrować statystyki kluczy partycji. Jest to obecnie reprezentowane z rozmiarem magazynu (KB) kluczy partycji. Zapoznaj się z sekcją [Rozwiązywanie problemów przy użyciu zapytań diagnostycznych platformy Azure](#diagnostic-queries) w tym artykule. Na przykład zapytania, które używają "PartitionKeyStatistics". Dziennik jest emitowany w oparciu o trzy pierwsze klucze partycji, które zajmują większość magazynu danych. Ten dziennik zawiera dane takie jak identyfikator subskrypcji, nazwa regionu, nazwa bazy danych, nazwa kolekcji, klucz partycji i rozmiar magazynu w KILOBAJTach.
 
     ```json
     { "time": "2019-10-11T02:33:24.2018744Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "PartitionKeyStatistics", "properties": {"subscriptionId": "<your_subscription_ID>","regionName": "West US 2","databaseName": "KustoQueryResults","collectionname": "CapacityMetrics","partitionkey": "["CapacityMetricsPartition.136"]","sizeKb": "2048270"}}
     ```
 
-* **PartitionKeyRUConsumption** : ten dziennik raportuje zagregowane użycie jednostek ru na sekundę z kluczy partycji. Obecnie Azure Cosmos DB raporty kluczy partycji tylko dla kont interfejsu API SQL i dla operacji odczytu/zapisu i procedury składowanej. inne interfejsy API i typy operacji nie są obsługiwane. W przypadku innych interfejsów API kolumna klucza partycji w tabeli dzienników diagnostycznych będzie pusta. Ten dziennik zawiera dane takie jak identyfikator subskrypcji, nazwa regionu, nazwa bazy danych, nazwa kolekcji, klucz partycji, typ operacji oraz opłata za żądanie. Zapoznaj się z sekcją [Rozwiązywanie problemów przy użyciu zapytań diagnostycznych platformy Azure](#diagnostic-queries) w tym artykule. Na przykład zapytania, które używają "PartitionKeyRUConsumption". 
+* **PartitionKeyRUConsumption**: ten dziennik raportuje zagregowane użycie jednostek ru na sekundę z kluczy partycji. Obecnie Azure Cosmos DB raporty kluczy partycji tylko dla kont interfejsu API SQL i dla operacji odczytu/zapisu i procedury składowanej. inne interfejsy API i typy operacji nie są obsługiwane. W przypadku innych interfejsów API kolumna klucza partycji w tabeli dzienników diagnostycznych będzie pusta. Ten dziennik zawiera dane takie jak identyfikator subskrypcji, nazwa regionu, nazwa bazy danych, nazwa kolekcji, klucz partycji, typ operacji oraz opłata za żądanie. Zapoznaj się z sekcją [Rozwiązywanie problemów przy użyciu zapytań diagnostycznych platformy Azure](#diagnostic-queries) w tym artykule. Na przykład zapytania, które używają "PartitionKeyRUConsumption". 
 
-* **ControlPlaneRequests** : ten dziennik zawiera szczegółowe informacje o operacjach płaszczyzny kontroli, takich jak tworzenie konta, Dodawanie lub usuwanie regionu, aktualizowanie ustawień replikacji konta itd. Ten typ dziennika jest dostępny dla wszystkich typów interfejsów API, które zawierają SQL (rdzeń), MongoDB, Gremlin, Cassandra, interfejs API tabel.
+* **ControlPlaneRequests**: ten dziennik zawiera szczegółowe informacje o operacjach płaszczyzny kontroli, takich jak tworzenie konta, Dodawanie lub usuwanie regionu, aktualizowanie ustawień replikacji konta itd. Ten typ dziennika jest dostępny dla wszystkich typów interfejsów API, które zawierają SQL (rdzeń), MongoDB, Gremlin, Cassandra, interfejs API tabel.
 
-* **Żądania** : zaznacz tę opcję, aby zbierać dane metryk z Azure Cosmos DB do miejsc docelowych w ustawieniu diagnostyki. Są to te same dane, które są zbierane automatycznie w ramach metryk platformy Azure. Zbieraj dane metryk z dziennikami zasobów, aby analizować jednocześnie oba rodzaje danych i wysyłać dane metryk poza Azure Monitor.
+* **Żądania**: zaznacz tę opcję, aby zbierać dane metryk z Azure Cosmos DB do miejsc docelowych w ustawieniu diagnostyki. Są to te same dane, które są zbierane automatycznie w ramach metryk platformy Azure. Zbieraj dane metryk z dziennikami zasobów, aby analizować jednocześnie oba rodzaje danych i wysyłać dane metryk poza Azure Monitor.
 
 Aby uzyskać szczegółowe informacje na temat sposobu tworzenia ustawień diagnostycznych przy użyciu Azure Portal, interfejsu wiersza polecenia lub programu PowerShell, zobacz [Tworzenie ustawień diagnostycznych w celu zbierania dzienników i metryk platformy w artykule platformy Azure](../azure-monitor/platform/diagnostic-settings.md) .
 
@@ -132,7 +138,7 @@ Aby uzyskać szczegółowe informacje na temat sposobu tworzenia ustawień diagn
    | summarize max(responseLength_s), max(requestLength_s), max(requestCharge_s), count = count() by OperationName, requestResourceType_s, userAgent_s, collectionRid_s, bin(TimeGenerated, 1h)
    ```
 
-1. Jak uzyskać wszystkie zapytania, które zużywają więcej niż 100 RU/s przyłączone do danych z **DataPlaneRequests** i **QueryRunTimeStatistics** .
+1. Jak uzyskać wszystkie zapytania, które zużywają więcej niż 100 RU/s przyłączone do danych z **DataPlaneRequests** i **QueryRunTimeStatistics**.
 
    ```Kusto
    AzureDiagnostics
