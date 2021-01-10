@@ -1,22 +1,22 @@
 ---
-title: Zarządzanie indeksowaniem w interfejsie API Azure Cosmos DB dla MongoDB
+title: Zarządzanie indeksowaniem w interfejsie API usługi Azure Cosmos DB dla MongoDB
 description: W tym artykule omówiono możliwości indeksowania Azure Cosmos DB przy użyciu interfejsu API Azure Cosmos DB dla MongoDB
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 11/06/2020
+ms.date: 01/08/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: e920af85c511387e66bcafcb6a140844d25f204c
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 34caca47746814046a894494ec43d9b5c977389a
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369294"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060092"
 ---
-# <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Zarządzanie indeksowaniem w interfejsie API Azure Cosmos DB dla MongoDB
+# <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Zarządzanie indeksowaniem w interfejsie API usługi Azure Cosmos DB dla MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Interfejs API Azure Cosmos DB dla MongoDB wykorzystuje podstawowe możliwości zarządzania indeksami Azure Cosmos DB. W tym artykule opisano sposób dodawania indeksów przy użyciu interfejsu API Azure Cosmos DB dla MongoDB. Można także zapoznać się z [omówieniem indeksowania w Azure Cosmos DB](index-overview.md) , które są odpowiednie dla wszystkich interfejsów API.
@@ -29,6 +29,16 @@ Aby zindeksować dodatkowe pola, zastosuj polecenia MongoDB służące do zarzą
 
 Aby zastosować sortowanie do zapytania, należy utworzyć indeks dla pól używanych w operacji sortowania.
 
+### <a name="editing-indexing-policy"></a>Edytowanie zasad indeksowania
+
+Zalecamy edytowanie zasad indeksowania w Eksplorator danych w Azure Portal.
+. Można dodać jednopolowowe i wieloznaczne indeksy z edytora zasad indeksowania w Eksplorator danych:
+
+:::image type="content" source="./media/mongodb-indexing/indexing-policy-editor.png" alt-text="Edytor zasad indeksowania":::
+
+> [!NOTE]
+> Nie można tworzyć indeksów złożonych przy użyciu edytora zasad indeksowania w Eksplorator danych.
+
 ## <a name="index-types"></a>Typy indeksów
 
 ### <a name="single-field"></a>Pojedyncze pole
@@ -36,6 +46,10 @@ Aby zastosować sortowanie do zapytania, należy utworzyć indeks dla pól używ
 Indeksy można utworzyć dla dowolnego pojedynczego pola. Kolejność sortowania w indeksie pojedynczego pola nie ma znaczenia. Następujące polecenie tworzy indeks w polu `name` :
 
 `db.coll.createIndex({name:1})`
+
+Można utworzyć ten sam indeks pojedynczego pola `name` w Azure Portal:
+
+:::image type="content" source="./media/mongodb-indexing/add-index.png" alt-text="Dodaj indeks nazw w edytorze zasad indeksowania":::
 
 Jedno zapytanie używa wielu indeksów pojedynczego pola, jeśli są dostępne. Można utworzyć maksymalnie 500 indeksów jednego pola na kontener.
 
@@ -135,6 +149,10 @@ Oto jak można utworzyć indeks wieloznaczny we wszystkich polach:
 
 `db.coll.createIndex( { "$**" : 1 } )`
 
+Można również utworzyć indeksy wieloznaczne przy użyciu Eksplorator danych w Azure Portal:
+
+:::image type="content" source="./media/mongodb-indexing/add-wildcard-index.png" alt-text="Dodawanie indeksu wieloznacznego w edytorze zasad indeksowania":::
+
 > [!NOTE]
 > Jeśli dopiero zaczynasz opracowywanie, **zdecydowanie** zalecamy wyłączenie z wieloznacznym indeksem dla wszystkich pól. Upraszcza to programowanie i ułatwia optymalizację zapytań.
 
@@ -144,7 +162,7 @@ Dokumenty z wieloma polami mogą zawierać opłaty za operacje zapisu i aktualiz
 
 Indeksy wieloznaczne nie obsługują żadnego z następujących typów indeksu lub właściwości:
 
-- Złożonego
+- Złożony
 - TTL
 - Unikatowe
 

@@ -1,18 +1,18 @@
 ---
 title: Zapytanie dotyczące wielu zasobów Eksplorator danych platformy Azure przy użyciu Azure Monitor
 description: Użyj Azure Monitor, aby wykonywać zapytania obejmujące wiele produktów między usługą Azure Eksplorator danych, obszarami roboczymi Log Analytics i klasycznymi aplikacjami Application Insights w Azure Monitor.
-author: orens
+author: osalzberg
 ms.author: bwren
 ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: cb586d15e762f88620fe0c91152af41b3f607d74
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 1a35b80ceec12b378a01555f42b7a0500b8f6229
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674433"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060456"
 ---
 # <a name="cross-resource-query-azure-data-explorer-by-using-azure-monitor"></a>Zapytanie dotyczące wielu zasobów Eksplorator danych platformy Azure przy użyciu Azure Monitor
 Azure Monitor obsługuje zapytania międzyusługowe między usługą Azure Eksplorator danych, [Application Insights](/azure/azure-monitor/app/app-insights-overview)i [log Analytics](/azure/azure-monitor/platform/data-platform-logs). Następnie można wykonać zapytanie dotyczące klastra usługi Azure Eksplorator danych przy użyciu narzędzi Log Analytics/Application Insights i odwołać się do niego w kwerendzie międzyusługowej. W tym artykule pokazano, jak utworzyć zapytanie międzyusługowe.
@@ -22,7 +22,7 @@ Na poniższym diagramie przedstawiono Azure Monitor przepływ między usługami:
 :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-monitor-data-explorer-flow.png" alt-text="Diagram przedstawiający przepływ zapytań między użytkownikiem, Azure Monitor, serwerem proxy i Eksplorator danych platformy Azure.":::
 
 >[!NOTE]
-> Azure Monitor zapytania międzyusługowego są w prywatnej wersji zapoznawczej. Allowlisting jest wymagany. Skontaktuj się z [zespołem usługi](mailto:ADXProxy@microsoft.com) , korzystając z jakichkolwiek pytań.
+> Azure Monitor zapytania międzyusługowego jest w publicznej wersji zapoznawczej. Skontaktuj się z [zespołem usługi](mailto:ADXProxy@microsoft.com) , korzystając z jakichkolwiek pytań.
 
 ## <a name="cross-query-your-log-analytics-or-application-insights-resources-and-azure-data-explorer"></a>Wykonaj zapytania krzyżowe dotyczące Log Analytics lub Application Insights zasobów i platformy Azure Eksplorator danych
 

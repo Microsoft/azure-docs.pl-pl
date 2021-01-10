@@ -3,12 +3,12 @@ title: Analiza filmów wideo na żywo na IoT Edge informacji o wersji — Azure
 description: Ten temat zawiera informacje o wersji analizy wideo na żywo na temat wydań IoT Edge, ulepszeń, poprawek błędów i znanych problemów.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 2800d41340e45867ea4126733cdb5968cf8b91c5
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 7761fee8f23b5be259f9a5c278f761fa4ce92fbf
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400849"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059980"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Analiza filmów wideo na żywo na IoT Edge informacji o wersji
 
@@ -33,7 +33,7 @@ Ta wersja jest publiczną wersją zapoznawczą w wersji zapoznawczej analizy wid
 * Dodano obsługę używania więcej niż jednego procesora rozszerzeń HTTP i procesora rozszerzenia gRPC na topologię grafu.
 * Dodano obsługę zarządzania miejscem na dysku dla węzłów ujścia.
 * `MediaGraphGrpcExtension` węzeł obsługuje teraz Właściwość [extensionConfiguration](grpc-extension-protocol.md) na potrzeby używania wielu modeli AI w ramach jednego serwera gRPC.
-* Dodano obsługę zbierania metryk modułu analizy wideo na żywo w [formacie Prometheus](https://prometheus.io/docs/practices/naming/) 
+* Dodano obsługę zbierania metryk modułu analizy wideo na żywo w [formacie Prometheus](https://prometheus.io/docs/practices/naming/). Dowiedz się więcej o tym [, jak zbierać metryki i wyświetlać dane w Azure monitor.](monitoring-logging.md#azure-monitor-collection-via-telegraf) 
 * Procesor filtru szybkości klatek jest **przestarzały**.  
     * Zarządzanie szybkością klatek jest teraz dostępne w ramach węzłów procesora rozszerzenia grafu.
 

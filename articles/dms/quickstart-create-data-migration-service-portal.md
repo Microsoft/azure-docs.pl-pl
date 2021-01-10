@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 07/21/2020
-ms.openlocfilehash: f0f352e2c803eb1f0638f2f517b97a931ebcc889
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ff9fc2baaf1563d4a02364db00344ffc0bc46a6a
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996937"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060269"
 ---
 # <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Szybki start: tworzenie wystąpienia usługi Azure Database Migration Service przy użyciu witryny Azure Portal
 
@@ -32,7 +32,7 @@ Otwórz przeglądarkę internetową, przejdź do witryny [Microsoft Azure Portal
 Widok domyślny to pulpit nawigacyjny usług.
 
 > [!NOTE]
-> Można utworzyć maksymalnie 10 wystąpień usługi DMS na subskrypcję. Jeśli potrzebujesz większej liczby wystąpień, Utwórz bilet pomocy technicznej.
+> Można utworzyć maksymalnie 10 wystąpień usługi DMS na subskrypcję na region. Jeśli potrzebujesz większej liczby wystąpień, Utwórz bilet pomocy technicznej.
 
 ## <a name="register-the-resource-provider"></a>Rejestrowanie dostawcy zasobów
 

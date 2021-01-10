@@ -3,12 +3,12 @@ title: Nagrywanie filmów wideo na podstawie zdarzeń do chmury i odtwarzanie z 
 description: W tym samouczku dowiesz się, jak za pomocą usługi Azure Live Video Analytics na Azure IoT Edge zarejestrować rejestrowanie wideo oparte na zdarzeniach w chmurze i odtworzyć je z poziomu chmury.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 8f3ecdf7e4260d700f31663852abbb39474cd474
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: cfb4648d991565470133d603194c07b797f89311
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401677"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060439"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Samouczek: Rejestrowanie wideo oparte na zdarzeniach w chmurze i odtwarzanie z chmury
 
@@ -53,6 +53,9 @@ Po zakończeniu tych kroków będziesz mieć odpowiednie zasoby platformy Azure 
 * Konto usługi Azure Storage
 * Konto Azure Media Services
 * Maszyna wirtualna z systemem Linux na platformie Azure, w której zainstalowano [środowisko uruchomieniowe IoT Edge](../../iot-edge/how-to-install-iot-edge.md)
+
+> [!TIP]
+> Jeśli wystąpią problemy z zasobami platformy Azure, które zostały utworzone, przejrzyj **[Przewodnik rozwiązywania problemów](troubleshoot-how-to.md#common-error-resolutions)** , aby rozwiązać niektóre często występujące problemy.
 
 ## <a name="concepts"></a>Pojęcia
 
@@ -230,7 +233,7 @@ Aby wyświetlić zdarzenia z modułu objectCounter i z poziomu modułu analizy f
      
         ```
         {
-          "@apiVersion": "1.0",
+          "@apiVersion": "2.0",
           "name": "Sample-Graph-1",
           "properties": {
             "topologyName": "EVRtoAssetsOnObjDetect",
@@ -277,7 +280,7 @@ W poniższych komunikatach właściwości aplikacji i zawartość treści są zd
 
 ### <a name="mediasessionestablished-event"></a>Zdarzenie MediaSessionEstablished 
 
-Po utworzeniu wystąpienia grafu multimedialnego węzeł źródłowy RTSP próbuje połączyć się z serwerem RTSP uruchomionym w kontenerze symulatora RTSP. Jeśli to się powiedzie, drukuje to zdarzenie. Typem zdarzenia jest Microsoft. Media. MediaGraph. Diagnostics. MediaSessionEstablished.
+Po utworzeniu wystąpienia grafu multimedialnego węzeł źródłowy RTSP próbuje połączyć się z serwerem RTSP uruchomionym w kontenerze symulatora RTSP. Jeśli to się powiedzie, drukuje to zdarzenie. Typem zdarzenia jest **Microsoft. Media. MediaGraph. Diagnostics. MediaSessionEstablished**.
 
 ```
 [IoTHubMonitor] [5:53:17 PM] Message received from [lva-sample-device/lvaEdge]:
@@ -325,7 +328,7 @@ Więcej z tych zdarzeń można zobaczyć w przypadku wykrycia innych wagonów w 
 
 ### <a name="recordingstarted-event"></a>Zdarzenie RecordingStarted
 
-Niemal natychmiast po wysłaniu zdarzenia przez licznik obiektów zobaczysz zdarzenie typu Microsoft. Media. Graph. Operations. RecordingStarted:
+Niemal natychmiast po wysłaniu zdarzenia przez licznik obiektów zobaczysz zdarzenie typu **Microsoft. Media. Graph. Operations. RecordingStarted**:
 
 ```
 [IoTHubMonitor] [5:53:46 PM] Message received from [lva-sample-device/lvaEdge]:
@@ -348,7 +351,7 @@ Sekcja subject w applicationProperties odwołuje się do węzła ujścia zasobó
 
 ### <a name="recordingavailable-event"></a>Zdarzenie RecordingAvailable
 
-Gdy węzeł ujścia zasobów przekazał wideo do elementu zawartości, emituje to zdarzenie typu Microsoft. Media. Graph. Operations. RecordingAvailable:
+Gdy węzeł ujścia zasobów przekazał wideo do elementu zawartości, emituje to zdarzenie typu **Microsoft. Media. Graph. Operations. RecordingAvailable**:
 
 ```
 [IoTHubMonitor] [5:54:15 PM] Message received from [lva-sample-device/lvaEdge]:
@@ -371,7 +374,7 @@ To zdarzenie oznacza, że na potrzeby odtwarzaczy lub klientów zapisało wystar
 
 ### <a name="recordingstopped-event"></a>Zdarzenie RecordingStopped
 
-Jeśli sprawdzisz ustawienia aktywacji (maximumActivationTime) dla węzła procesora usługi Signal Gate w [topologii](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json), zobaczysz, że brama jest skonfigurowana do zamykania po przejściu przez 30 sekund filmu wideo przez program. Około 30 sekund po zdarzeniu RecordingStarted powinno zostać wyświetlone zdarzenie typu Microsoft. Media. Graph. Operations. RecordingStopped. To zdarzenie oznacza, że węzeł ujścia zasobów zatrzymał nagrywanie wideo dla elementu zawartości.
+Jeśli sprawdzisz ustawienia aktywacji (maximumActivationTime) dla węzła procesora usługi Signal Gate w [topologii](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json), zobaczysz, że brama jest skonfigurowana do zamykania po przejściu przez 30 sekund filmu wideo przez program. Około 30 sekund po zdarzeniu RecordingStarted powinno zostać wyświetlone zdarzenie typu **Microsoft. Media. Graph. Operations. RecordingStopped**. To zdarzenie oznacza, że węzeł ujścia zasobów zatrzymał nagrywanie wideo dla elementu zawartości.
 
 ```
 [IoTHubMonitor] [5:54:15 PM] Message received from [lva-sample-device/lvaEdge]:

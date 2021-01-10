@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 5fa8377b3cdddb2818c04c5a75e347ff73dc07d8
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 40d2f957ce115b43a1dcc138b86e05ec9cc47384
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96509552"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060613"
 ---
 Ten samouczek wymaga następujących zasobów platformy Azure:
 
@@ -26,12 +26,15 @@ W tym przewodniku szybki start zalecamy używanie [skryptu konfiguracji zasobów
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
     
-    Jeśli skrypt zakończy się pomyślnie, wszystkie wymagane zasoby powinny zostać wyświetlone w ramach subskrypcji.
+    Po pomyślnym zakończeniu działania skryptu wszystkie wymagane zasoby powinny zostać wyświetlone w ramach subskrypcji.
 1. Po zakończeniu działania skryptu wybierz nawiasy klamrowe, aby uwidocznić strukturę folderów. Zobaczysz kilka plików w katalogu *~/CloudDrive/LVA-Sample* . Są one przydatne w tym przewodniku szybki start:
 
      * ***~/CloudDrive/LVA-Sample/Edge-Deployment/.env** _ — ten plik zawiera właściwości, których Visual Studio Code używa do wdrożenia modułów na urządzeniu brzegowym.
-     _ ***~/clouddrive/lva-sample/appsetting.json*** -Visual Studio Code używa tego pliku do uruchomienia przykładowego kodu.
+     _ ***~/clouddrive/lva-sample/appsetting.json** _ Visual Studio Code używa tego pliku do uruchomienia przykładowego kodu.
      
     Te pliki będą potrzebne podczas konfigurowania środowiska deweloperskiego w Visual Studio Code w następnej sekcji. Możesz chcieć skopiować je do pliku lokalnego.
     
     ![Ustawienia aplikacji](../../../media/quickstarts/clouddrive.png)
+
+> [!TIP]
+> Jeśli wystąpią problemy z zasobami platformy Azure, które zostaną utworzone, przejrzyj *[Przewodnik rozwiązywania problemów](../../../troubleshoot-how-to.md#common-error-resolutions)**, aby rozwiązać niektóre często występujące problemy.

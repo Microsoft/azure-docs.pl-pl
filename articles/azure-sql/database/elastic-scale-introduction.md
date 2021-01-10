@@ -9,12 +9,12 @@ ms.custom: sqldbrb=1
 author: stevestein
 ms.author: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 2eb7984097b4edf34ed2f0214e1453246e12916f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3f00b2c1a8a8264267aa8ae68d80890adeb642ea
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786755"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059149"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Scaling out with Azure SQL Database (Skalowanie w poziomie za pomocą usługi Azure SQL Database)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -23,7 +23,7 @@ Można łatwo skalować w poziomie bazy danych w Azure SQL Database przy użyciu
 
 * [Elastic Database Biblioteka kliencka](elastic-database-client-library.md): Biblioteka kliencka to funkcja, która umożliwia tworzenie i konserwowanie baz danych podzielonej na fragmenty.  Zobacz Rozpoczynanie [pracy z narzędziami Elastic Database](elastic-scale-get-started.md).
 * [Narzędzie Elastic Database Split-Merge](elastic-scale-overview-split-and-merge.md): przenosi dane między bazami danych podzielonej na fragmenty. To narzędzie jest przydatne do przeniesienia danych z wielodostępnej bazy danych do bazy danych z jedną dzierżawą (lub odwrotnie). Zobacz [samouczek narzędzi elastycznych Split-Merge Database](elastic-scale-configure-deploy-split-and-merge.md).
-* [Zadania Elastic Database](elastic-jobs-overview.md): Używanie zadań do zarządzania dużą liczbą baz danych w programie Azure SQL Database. Łatwe wykonywanie operacji administracyjnych, takich jak zmiany schematu, zarządzanie poświadczeniami, aktualizacje danych referencyjnych, zbieranie danych o wydajności lub zbieranie informacji telemetrycznych dzierżawy (klienta) za pomocą zadań.
+* [Zadania Elastic Database](elastic-jobs-overview.md) (wersja zapoznawcza): Używanie zadań do zarządzania dużą liczbą baz danych w programie Azure SQL Database. Łatwe wykonywanie operacji administracyjnych, takich jak zmiany schematu, zarządzanie poświadczeniami, aktualizacje danych referencyjnych, zbieranie danych o wydajności lub zbieranie informacji telemetrycznych dzierżawy (klienta) za pomocą zadań.
 * [Zapytanie Elastic Database](elastic-query-overview.md) (wersja zapoznawcza): umożliwia uruchomienie zapytania Transact-SQL obejmującego wiele baz danych. Dzięki temu można nawiązać połączenie z narzędziami do raportowania, takimi jak Excel, Power BI, Tableau itp.
 * [Transakcje elastyczne](elastic-transactions-overview.md): Ta funkcja umożliwia uruchamianie transakcji obejmujących kilka baz danych. Transakcje Elastic Database są dostępne dla aplikacji .NET korzystających z programu ADO .NET i integrują się z znanym środowiskiem programistycznym korzystającym z [klas System. Transaction](/dotnet/api/system.transactions).
 
@@ -33,7 +33,7 @@ Na tej ilustracji kolory bazy danych reprezentują schematy. Bazy danych o tym s
 
 1. Zestaw **baz danych SQL** jest hostowany na platformie Azure przy użyciu architektury fragmentowania.
 2. **Biblioteka klienta Elastic Database** służy do zarządzania zestawem fragmentu.
-3. Podzestaw baz danych jest umieszczany w **puli elastycznej** . (Zobacz [co to jest pula?](elastic-pool-overview.md)).
+3. Podzestaw baz danych jest umieszczany w **puli elastycznej**. (Zobacz [co to jest pula?](elastic-pool-overview.md)).
 4. **Zadanie Elastic Database** uruchamiane jest zaplanowane lub ad hoc skryptów T-SQL dla wszystkich baz danych.
 5. **Narzędzie Split-Merge** służy do przenoszenia danych z jednego fragmentuu do drugiego.
 6. **Zapytanie Elastic Database** umożliwia pisanie zapytania obejmującego wszystkie bazy danych w zestawie fragmentu.

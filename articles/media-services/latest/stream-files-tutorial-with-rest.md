@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/12/2020
 ms.author: inhenkel
-ms.openlocfilehash: 023c4d685804b2c6c201f44ab672139d56338cdb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c1798ca74493ba22d29cd9ce819d469c29cd5ec3
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979108"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059589"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Samouczek: Kodowanie pliku zdalnego na podstawie adresu URL i przesyłanie strumieniowe wideo — REST
 
@@ -170,10 +170,17 @@ Wyjściowy element [zawartości](/rest/api/media/assets) przechowuje wynik zadan
         {
         "properties": {
             "description": "My Asset",
-            "alternateId" : "some GUID"
+            "alternateId" : "some GUID",
+            "storageAccountName": "<replace from environment file>",
+            "container": "<supply any valid container name of your choosing>"
          }
         }
         ```
+
+> [!NOTE]
+> Pamiętaj, aby zamienić nazwy konta magazynu i kontenera na te z pliku środowiska lub podać własne.
+>
+> Po wykonaniu czynności opisanych w dalszej części tego artykułu upewnij się, że podano prawidłowe parametry w treści żądania.
 
 ### <a name="create-a-transform"></a>Tworzenie przekształcenia
 
@@ -355,8 +362,9 @@ W tej sekcji utworzymy adres URL przesyłania strumieniowego HLS. Adresy URL sk�
     W celu pobrania nazwy hosta można użyć następującej operacji GET:
     
     ```
-    https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount/streamingEndpoints/default?api-version={{api-version}}
+    https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/default?api-version={{api-version}}
     ```
+    i upewnij się, że `resourceGroupName` `accountName` Parametry i są zgodne z plikiem środowiska. 
     
 3. Ścieżka uzyskana w poprzedniej sekcji (tworzenie listy ścieżek).  
 

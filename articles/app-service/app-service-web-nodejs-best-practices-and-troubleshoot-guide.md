@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 370b84f451e22c20c798018951a7a801e0bba826
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 9763835142e66bbbce51cd5c863dff87f261c270
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763948"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060164"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Najlepsze rozwiązania i wskazówki dotyczące rozwiązywania problemów z aplikacjami węzłów w systemie Azure App Service Windows
 
@@ -245,9 +245,8 @@ Aplikacja zgłasza nieprzechwycone wyjątki — Sprawdź `d:\\home\\LogFiles\\Ap
 Typową przyczyną długotrwałych czasów uruchamiania aplikacji jest duża liczba plików w \_ modułach węzła. Aplikacja próbuje załadować większość z tych plików podczas uruchamiania. Domyślnie, ponieważ pliki są przechowywane w udziale sieciowym na Azure App Service, ładowanie wielu plików może zająć dużo czasu.
 Niektóre rozwiązania, które umożliwiają szybsze wykonywanie tego procesu:
 
-1. Upewnij się, że masz płaską strukturę zależności i nie ma zduplikowanych zależności przy użyciu npm3 do zainstalowania modułów.
-2. Spróbuj ponownie załadować \_ moduły węzła i nie ładować wszystkich modułów podczas uruchamiania aplikacji. Do modułów ładowania z opóźnieniem, wywołanie wymagane ("module") powinno zostać wykonane, gdy w rzeczywistości wymaga modułu w funkcji przed pierwszym wykonaniem kodu modułu.
-3. Azure App Service oferuje funkcję o nazwie lokalna pamięć podręczna. Ta funkcja kopiuje zawartość z udziału sieciowego na dysk lokalny na maszynie wirtualnej. Ponieważ pliki są lokalne, czas ładowania \_ modułów węzła jest znacznie szybszy.
+1. Spróbuj ponownie załadować \_ moduły węzła i nie ładować wszystkich modułów podczas uruchamiania aplikacji. Do modułów ładowania z opóźnieniem, wywołanie wymagane ("module") powinno zostać wykonane, gdy w rzeczywistości wymaga modułu w funkcji przed pierwszym wykonaniem kodu modułu.
+2. Azure App Service oferuje funkcję o nazwie lokalna pamięć podręczna. Ta funkcja kopiuje zawartość z udziału sieciowego na dysk lokalny na maszynie wirtualnej. Ponieważ pliki są lokalne, czas ładowania \_ modułów węzła jest znacznie szybszy.
 
 ## <a name="iisnode-http-status-and-substatus"></a>PROGRAMU IISNODE stanu HTTP i podstanu
 
@@ -269,7 +268,7 @@ Włącz FREB dla aplikacji, aby zobaczyć kod błędu Win32 (Upewnij się, że F
 
 NODE.exe ma wywołane ustawienie `NODE_PENDING_PIPE_INSTANCES` . Na Azure App Service wartość ta jest równa 5000. Oznacza to, że node.exe może akceptować 5000 żądań jednocześnie w nazwanym potoku. Ta wartość powinna być wystarczająca dla większości aplikacji węzłów działających na Azure App Service. 503,1003 na Azure App Service ze względu na wysoką wartość dla `NODE_PENDING_PIPE_INSTANCES`
 
-## <a name="more-resources"></a>Dodatkowe zasoby
+## <a name="more-resources"></a>Więcej zasobów
 
 Skorzystaj z poniższych linków, aby dowiedzieć się więcej o aplikacjach node.js w Azure App Service.
 

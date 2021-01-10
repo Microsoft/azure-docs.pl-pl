@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 015aadb791172f5033bf0198caad567c9bc03221
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0c4299bc41a656fd678c14d63ae1d4987dba327b
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95974667"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060643"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Informacje o metrykach dla chmury wiosennej platformy Azure
 
@@ -114,7 +114,7 @@ W poniższych tabelach przedstawiono dostępne metryki i szczegóły.
 >[!div class="mx-tdCol2BreakAll"]
 >| Nazwa | Nazwa metryki siłownika | Jednostka | Szczegóły |
 >|------|-----------------------------|------|---------|
->| Użycie procesora       | Użycie procesora CPU      | ) | Czas, przez jaki proces używał procesora CPU. |
+>| Użycie procesora       | Użycie procesora CPU      | Procent      | Procent użycia procesora CPU w stosunku do wszystkich zasobów procesora CPU systemu [0-100]. |
 >| Zestaw roboczy     | zestaw roboczy    | Megabajtach    | Ilość zestawu roboczego używanego przez proces. |
 >| Rozmiar sterty GC    | GC-sterta-rozmiar   | Megabajtach    | Łączny rozmiar sterty zgłoszony przez moduł wyrzucania elementów bezużytecznych. |
 >| Liczba generacji GC 0  | Gen-0-GC-Count | Liczba        | Liczba wyrzucania elementów bezużytecznych generacji 0 na sekundę. |

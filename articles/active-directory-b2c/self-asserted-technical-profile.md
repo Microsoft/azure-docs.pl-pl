@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 14195ad4638c724cf0c8dd46945a0da79ec0e4ec
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 08b08e3e799ff7b579889a62ecec70677a3cbce9
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509704"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059062"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj własny profil techniczny w Azure Active Directory B2C zasad niestandardowych
 
@@ -208,7 +208,7 @@ Możesz również wywołać profil techniczny interfejsu API REST z logiką bizn
 | Ustawianie. showCancelButton | Nie | Wyświetla przycisk Anuluj. Możliwe wartości: `true` (ustawienie domyślne) lub `false` |
 | Ustawianie. showContinueButton | Nie | Wyświetla przycisk Kontynuuj. Możliwe wartości: `true` (ustawienie domyślne) lub `false` |
 | Ustawianie. showSignupLink <sup>2</sup>| Nie | Wyświetla przycisk rejestracji. Możliwe wartości: `true` (ustawienie domyślne) lub `false` |
-| Ustawianie. forgotPasswordLinkLocation <sup>2</sup>| Nie| Wyświetla łącze zapomniane hasło. Możliwe wartości: `AfterInput` (domyślnie) łącze jest wyświetlane w dolnej części strony lub `None` usuwa łącze zapomniane hasło.|
+| Ustawianie. forgotPasswordLinkLocation <sup>2</sup>| Nie| Wyświetla łącze zapomniane hasło. Możliwe wartości: `AfterLabel` (domyślnie) powoduje wyświetlenie linku bezpośrednio po etykiecie lub po polu wejściowym hasła, gdy nie ma etykiety,  `AfterInput` powoduje wyświetlenie linku po polu wprowadzania hasła, `AfterButtons` wyświetli łącze w dolnej części formularza po przyciskach lub `None` usunie łącze zapomniane hasło.|
 | Ustawianie. enableRememberMe <sup>2</sup>| Nie| Wyświetla pole wyboru nie wylogowuj [mnie](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) . Możliwe wartości: `true` , lub `false` (wartość domyślna). |
 | Ustawianie. inputVerificationDelayTimeInMilliseconds <sup>3</sup>| Nie| Usprawnia środowisko użytkownika, czekając na zakończenie wpisywania przez użytkownika, a następnie sprawdza poprawność wartości. Wartość domyślna 2000 milisekund. |
 | IncludeClaimResolvingInClaimsHandling  | Nie | W przypadku oświadczeń wejściowych i wyjściowych określa, czy w profilu technicznym znajduje się [rozpoznawanie oświadczeń](claim-resolver-overview.md) . Możliwe wartości: `true` , lub `false` (wartość domyślna). Jeśli chcesz użyć programu rozpoznawania oświadczeń w profilu technicznym, ustaw dla tej opcji wartość `true` . |

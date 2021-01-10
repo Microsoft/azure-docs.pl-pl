@@ -4,12 +4,12 @@ description: Dowiedz się, jak za pomocą usługi Azure Custom Vision utworzyć 
 ms.topic: tutorial
 ms.date: 09/08/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 614c4e401579eda68d8030dc2d2a42b2c4736031
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: de788c337ce8030b73538565e4f374ffc7db55b8
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401699"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060523"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Samouczek: analizowanie wideo na żywo za pomocą analizy filmów wideo na żywo na IoT Edge i na platformie Azure Custom Vision
 
@@ -61,8 +61,11 @@ Przed rozpoczęciem Przeczytaj następujące artykuły:
 ::: zone-end
 ## <a name="review-the-sample-video"></a>Zapoznaj się z przykładowym wideo
 
+W tym samouczku do symulowania strumienia na żywo jest wykorzystywany plik wideo dotyczący [wywnioskowania samochodu](https://lvamedia.blob.core.windows.net/public/t2.mkv) . Film wideo można przeanalizować za pomocą aplikacji, takiej jak [VLC Media Player](https://www.videolan.org/vlc/). Wybierz **kombinację klawiszy CTRL + N**, a następnie wklej link do [filmu wideo dotyczącego wnioskowania samochodu](https://lvamedia.blob.core.windows.net/public/t2.mkv) , aby rozpocząć odtwarzanie. Gdy oglądasz film wideo, pamiętaj, że w filmie o 36-sekundowym znakiem wózka zabawki. Model niestandardowy został przeszkolony w celu wykrywania określonego wózka zabawki. 
 
-W tym samouczku do symulowania strumienia na żywo jest wykorzystywany plik wideo dotyczący [wywnioskowania samochodu](https://lvamedia.blob.core.windows.net/public/t2.mkv) . Film wideo można przeanalizować za pomocą aplikacji, takiej jak [VLC Media Player](https://www.videolan.org/vlc/). Wybierz **kombinację klawiszy CTRL + N**, a następnie wklej link do [filmu wideo dotyczącego wnioskowania samochodu](https://lvamedia.blob.core.windows.net/public/t2.mkv) , aby rozpocząć odtwarzanie. Gdy oglądasz film wideo, pamiętaj, że w filmie o 36-sekundowym znakiem wózka zabawki. Model niestandardowy został przeszkolony w celu wykrywania określonego wózka zabawki. W tym samouczku użyjesz usługi Analiza filmów wideo na żywo na IoT Edge, aby wykryć takie wózki i publikować powiązane zdarzenia wnioskowania do centrum IoT Edge.
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LPwK]
+
+W tym samouczku użyjesz usługi Analiza filmów wideo na żywo na IoT Edge, aby wykryć takie wózki i publikować powiązane zdarzenia wnioskowania do centrum IoT Edge.
 
 ## <a name="overview"></a>Omówienie
 
@@ -127,7 +130,6 @@ Po zakończeniu możesz wyeksportować model do kontenera Docker za pomocą przy
 
 ## <a name="examine-the-sample-files"></a>Sprawdzanie plików przykładowych
 
-
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [examine-sample-files](includes/custom-vision-tutorial/csharp/examine-sample-files.md)]
 ::: zone-end
@@ -140,7 +142,7 @@ Po zakończeniu możesz wyeksportować model do kontenera Docker za pomocą przy
 
 1. W Visual Studio Code przejdź do pozycji src/Cloud-to-Device-App/operations.json.
 
-1. W obszarze `GraphTopologySet` upewnij się, że spełnione są następujące kwestie:<br/>`"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/topology.json"`
+1. W obszarze `GraphTopologySet` upewnij się, że spełnione są następujące kwestie:<br/>`"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/2.0/topology.json"`
 1. W obszarze `GraphInstanceSet` upewnij się, że:
     1. `"topologyName" : "InferencingWithHttpExtension"`
     1. Dodaj następujący na górze tablicy Parameters: `{"name": "inferencingUrl","value": "http://cv:80/image"},`
@@ -261,7 +263,7 @@ W poniższych komunikatach moduł analizy wideo na żywo definiuje właściwośc
 
 ### <a name="mediasessionestablished-event"></a>Zdarzenie MediaSessionEstablished
 
-Po utworzeniu wystąpienia grafu nośnika węzeł źródłowy RTSP próbuje połączyć się z serwerem RTSP, który działa w kontenerze rtspsim-live555. Po pomyślnym nawiązaniu połączenia zostanie wydrukowane następujące zdarzenie. Typ zdarzenia to `Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished` .
+Po utworzeniu wystąpienia grafu nośnika węzeł źródłowy RTSP próbuje połączyć się z serwerem RTSP, który działa w kontenerze rtspsim-live555. Po pomyślnym nawiązaniu połączenia zostanie wydrukowane następujące zdarzenie. Typem zdarzenia jest **Microsoft. Media. MediaGraph. Diagnostics. MediaSessionEstablished**.
 
 ```
 {

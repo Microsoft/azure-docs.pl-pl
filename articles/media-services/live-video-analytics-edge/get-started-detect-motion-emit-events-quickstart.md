@@ -3,12 +3,12 @@ title: Wprowadzenie do analizy filmów wideo na żywo na IoT Edge platformy Azur
 description: Ten przewodnik Szybki Start przedstawia sposób rozpoczynania pracy z usługą analiza filmów wideo na żywo na IoT Edge. Dowiedz się, jak wykrywać ruch w strumieniu wideo na żywo.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 8ccf2665f19b66959ce259088d0b322aec7b59f4
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 276c2ceaa9e0bef254c70f91541a3a3db7c02d47
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028713"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060405"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Szybki Start: Rozpoczynanie pracy — Analiza filmów wideo na żywo na IoT Edge
 
@@ -21,7 +21,7 @@ Po wykonaniu kroków instalacji można uruchomić symulowany strumień wideo na 
 
 Możesz wyświetlić poniższy film wideo z szczegółowymi krokami dotyczącymi rozpoczynania pracy z usługą analiza filmów wideo na żywo na IoT Edge:
 
-<iframe src="https://www.microsoft.com/en-us/videoplayer/embed/RE4Hcax" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Hcax]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -55,9 +55,13 @@ W tym przewodniku szybki start zalecamy używanie [skryptu konfiguracji zasobów
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
     
-Jeśli skrypt zakończy się pomyślnie, wszystkie wymagane zasoby powinny zostać wyświetlone w ramach subskrypcji. W danych wyjściowych skryptu tabela zasobów zawiera nazwę Centrum IoT Hub. Poszukaj typu zasobu `Microsoft.Devices/IotHubs` i zanotuj nazwę. Ta nazwa będzie potrzebna w następnym kroku. 
+Po pomyślnym zakończeniu działania skryptu wszystkie wymagane zasoby powinny zostać wyświetlone w ramach subskrypcji. W danych wyjściowych skryptu tabela zasobów zawiera nazwę Centrum IoT Hub. Poszukaj typu zasobu **`Microsoft.Devices/IotHubs`** i zanotuj nazwę. Ta nazwa będzie potrzebna w następnym kroku.  
 
-Skrypt generuje również kilka plików konfiguracji w katalogu *~/CloudDrive/LVA-Sample/* . Te pliki będą potrzebne w dalszej części przewodnika Szybki Start.
+> [!NOTE]
+> Skrypt generuje również kilka plików konfiguracji w katalogu **_~/CloudDrive/LVA-Sample/_* _. Te pliki będą potrzebne w dalszej części przewodnika Szybki Start.
+
+> [!TIP]
+> Jeśli wystąpią problemy z zasobami platformy Azure, które zostaną utworzone, przejrzyj *[Przewodnik rozwiązywania problemów](troubleshoot-how-to.md#common-error-resolutions)**, aby rozwiązać niektóre często występujące problemy.
 
 ## <a name="deploy-modules-on-your-edge-device"></a>Wdrażanie modułów na urządzeniu brzegowym
 
@@ -417,8 +421,8 @@ Wywoływanie metody bezpośredniej przy `GraphInstanceSet` użyciu następujące
 Należy zauważyć, że ten ładunek:
 
 * Określa nazwę topologii ( `MotionDetection` ), dla której należy utworzyć wystąpienie.
-* Zawiera wartość parametru dla `rtspUrl` , która nie ma wartości domyślnej w ładunku topologii wykresu.
-
+* Zawiera wartość parametru dla `rtspUrl` , która nie ma wartości domyślnej w ładunku topologii wykresu. Ta wartość jest linkiem do poniższego przykładowego wideo:
+    > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4]
 W ciągu kilku sekund w oknie **danych wyjściowych** zostanie wyświetlona następująca odpowiedź:
 
 ```

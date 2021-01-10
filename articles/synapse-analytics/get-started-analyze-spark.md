@@ -1,6 +1,6 @@
 ---
 title: 'Szybki Start: Rozpoczynanie analizy przy użyciu platformy Spark'
-description: W tym samouczku dowiesz się, jak analizować dane za pomocą Apache Spark
+description: W ramach tego samouczka nauczysz się analizować dane przy użyciu Apache Spark.
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
@@ -10,46 +10,49 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: ee4dc945f63180fd06f13287b22949d0ac1e3873
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 2c526d25fed169f702a3786a17717de3cf4dc6af
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862024"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059028"
 ---
 # <a name="analyze-with-apache-spark"></a>Analizowanie za pomocą Apache Spark
 
-## <a name="analyze-nyc-taxi-data-in-blob-storage-using-spark"></a>Analizowanie danych z NYC taksówki w usłudze BLOB Storage przy użyciu platformy Spark
-
 W tym samouczku przedstawiono podstawowe kroki służące do ładowania i analizowania danych za pomocą Apache Spark dla usługi Azure Synapse.
 
-1. W centrum **danych** kliknij pozycję **Dodaj nowy zasób**(plus przycisk powyżej **połączone**)  >> **Przeglądaj Galerię**. 
-1. Znajdź **NYCe taksówki & Limousine z Komisją** i kliknij ją. 
-1. W dolnej części strony naciśnij pozycję **Kontynuuj** i po tym, aby **dodać zestaw danych**. 
-1. Teraz w centrum **danych** w obszarze **połączone** kliknij prawym przyciskiem myszy pozycję **Azure Blob Storage >> przykładowe zestawy danych >> nyc_tlc_yellow** i wybierz pozycję **Nowy Notes**
-1. Spowoduje to utworzenie nowego notesu o następującym kodzie:
-    ```
+## <a name="analyze-nyc-taxi-data-in-blob-storage-using-spark"></a>Analizowanie danych z NYC taksówki w usłudze BLOB Storage przy użyciu platformy Spark
+
+1. W centrum **danych** wybierz pozycję **Dodaj nowy zasób** (plus przycisk powyżej **połączone**) > **Przeglądaj Galerię**.
+1. Wybierz kolejno **NYC taksówke & Limousine Commission-żółtej z podróży**.
+1. W dolnej części strony wybierz pozycję **Kontynuuj**  >  **Dodawanie zestawu danych**.
+1. W obszarze **połączone** centrum **danych** kliknij prawym przyciskiem myszy pozycję **Azure Blob Storage**, a następnie wybierz pozycję **przykładowe zestawy danych**  >  **nyc_tlc_yellow**.
+1. Wybierz pozycję **Nowy Notes** , aby utworzyć nowy notes o następującym kodzie:
+
+    ```py
     from azureml.opendatasets import NycTlcYellow
 
     data = NycTlcYellow()
     data_df = data.to_spark_dataframe()
     display(data_df.limit(10))
     ```
-1. W notesie wybierz bezserwerową pulę platformy Spark w menu **Dołącz do**
-1. Wybierz pozycję **Uruchom** w komórce
-1. Jeśli chcesz tylko zobaczyć schemat ramki danych, uruchom komórkę o następującym kodzie:
-    ```
+
+1. W menu **Dołącz do** w notesie wybierz bezserwerową pulę platformy Spark.
+1. Wybierz pozycję **Uruchom** w komórce.
+1. Jeśli chcesz zobaczyć tylko schemat ramki danych, uruchom komórkę o następującym kodzie:
+
+    ```py
     data_df.printSchema()
     ```
 
 ## <a name="load-the-nyc-taxi-data-into-the-spark-nyctaxi-database"></a>Ładowanie danych z NYC taksówki do bazy danych Spark nyctaxi
 
-Dostępne są dane w tabeli w **SQLPOOL1**. Załaduj je do bazy danych Spark o nazwie **nyctaxi**.
+Dane są dostępne w tabeli w **SQLPOOL1**. Załaduj je do bazy danych Spark o nazwie **nyctaxi**.
 
 1. W programie Synapse Studio przejdź do centrum **opracowywania** .
 1. Wybierz pozycję **+**  >  **Notes**.
 1. W górnej części notesu ustaw wartość **Dołącz do** na **Spark1**.
-1. Wybierz pozycję **Dodaj kod** , aby dodać komórkę kodu notesu, a następnie wklej następujący tekst:
+1. Wybierz pozycję **Dodaj kod** , aby dodać komórkę kodu notesu, a następnie wprowadź następujący tekst:
 
     ```scala
     %%spark
@@ -58,7 +61,7 @@ Dostępne są dane w tabeli w **SQLPOOL1**. Załaduj je do bazy danych Spark o n
     df.write.mode("overwrite").saveAsTable("nyctaxi.trip")
     ```
 
-1. Przejdź do centrum **danych** , kliknij prawym przyciskiem myszy pozycję **bazy danych**, a następnie wybierz polecenie **Odśwież**. Powinny zostać wyświetlone następujące bazy danych:
+1. W centrum **danych** kliknij prawym przyciskiem myszy pozycję **bazy danych**, a następnie wybierz polecenie **Odśwież**. Powinny zostać wyświetlone następujące bazy danych:
 
     - **SQLPOOL1 (SQL)**
     - **nyctaxi (Spark)**
@@ -66,7 +69,7 @@ Dostępne są dane w tabeli w **SQLPOOL1**. Załaduj je do bazy danych Spark o n
 ## <a name="analyze-the-nyc-taxi-data-using-spark-and-notebooks"></a>Analizowanie danych z NYC taksówki przy użyciu platformy Spark i notesów
 
 1. Wróć do notesu.
-1. Utwórz nową komórkę kodu i wprowadź następujący tekst. Następnie uruchom komórkę, aby wyświetlić dane z NYC taksówki załadowane do bazy danych **nyctaxi** Spark.
+1. Utwórz nową komórkę kodu i wprowadź następujący tekst.
 
    ```py
    %%pyspark
@@ -74,7 +77,8 @@ Dostępne są dane w tabeli w **SQLPOOL1**. Załaduj je do bazy danych Spark o n
    display(df)
    ```
 
-1. Uruchom następujący kod, aby wykonać tę samą analizę, która była wcześniej z dedykowaną pulą SQL **SQLPOOL1**. Ten kod zapisuje wyniki analizy w tabeli o nazwie **nyctaxi. passengercountstats** i wizualizowa wyniki.
+1. Uruchom komórkę, aby wyświetlić dane z NYC taksówki, które zostały załadowane do bazy danych **nyctaxi** Spark.
+1. Uruchom następujący kod, aby wykonać tę samą analizę, która była wcześniej w dedykowanej puli SQL **SQLPOOL1**. Ten kod zapisuje i wyświetla wyniki analizy w tabeli o nazwie **nyctaxi. passengercountstats**.
 
    ```py
    %%pyspark
@@ -93,13 +97,9 @@ Dostępne są dane w tabeli w **SQLPOOL1**. Załaduj je do bazy danych Spark o n
 
 1. W obszarze wyniki komórki wybierz pozycję **Wykres** , aby wyświetlić wizualizację danych.
 
-
-
-
-
 ## <a name="load-data-from-a-spark-table-into-a-dedicated-sql-pool-table"></a>Ładowanie danych z tabeli Spark do dedykowanej tabeli puli SQL
 
-Wcześniej skopiowano dane z tabeli dedykowanej puli SQL **SQLPOOL1. dbo. Trip** do tabeli Spark **nyctaxi. Trip**. Następnie używając platformy Spark, agregujemy dane do tabeli Spark **nyctaxi. passengercountstats**. Teraz skopiujemy dane z **nyctaxi. passengercountstats** do dedykowanej tabeli puli SQL o nazwie **SQLPOOL1. dbo. passengercountstats**.
+Wcześniej skopiowano dane z dedykowanej tabeli puli SQL **SQLPOOL1. dbo. Trip** do tabeli Spark **nyctaxi. Trip**. Następnie agregujesz dane do tabeli Spark **nyctaxi. passengercountstats**. Teraz skopiujesz dane z **nyctaxi. passengercountstats** do dedykowanej tabeli puli SQL o nazwie **SQLPOOL1. dbo. passengercountstats**.
 
 Uruchom następującą komórkę w notesie. Kopiuje tabelę zagregowanych danych platformy Spark z powrotem do dedykowanej tabeli puli SQL.
 
@@ -113,5 +113,3 @@ df.write.sqlanalytics("SQLPOOL1.dbo.PassengerCountStats", Constants.INTERNAL )
 
 > [!div class="nextstepaction"]
 > [Analizowanie danych za pomocą puli SQL bezserwerowej](get-started-analyze-sql-on-demand.md)
-
-

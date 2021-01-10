@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: dd24c4f20fa3a56d25ef142947268b2d2b75474a
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 664264f2cd810f232b967f5af78ba3d522f0a41f
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029604"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060014"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Omówienie izolacji i prywatności sieci wirtualnej
 
@@ -152,7 +152,8 @@ Jeśli magazyn jest w sieci wirtualnej, należy najpierw wykonać dodatkowe czyn
 Aby włączyć pełną funkcjonalność programu Studio w ramach sieci wirtualnej, zobacz temat Korzystanie z programu [Azure Machine Learning Studio w środowisku wirtualnym](how-to-enable-studio-virtual-network.md#configure-data-access-in-the-studio). Program Studio obsługuje konta magazynu za pomocą punktów końcowych usługi lub prywatnych punktów końcowych.
 
 ### <a name="limitations"></a>Ograniczenia
-- [Oznakowanie danych](how-to-create-labeling-projects.md#use-ml-assisted-labeling) z pomocą techniczną ml nie obsługuje domyślnych kont magazynu zabezpieczonych za siecią wirtualną. Musisz użyć konta magazynu innego niż domyślne dla etykietowania danych z pomocą typu ML. Należy pamiętać, że konto magazynu inne niż domyślne można zabezpieczyć za siecią wirtualną. 
+
+Obsługa [etykiet danych z](how-to-create-labeling-projects.md#use-ml-assisted-data-labeling) pomocą techniczną ml nie obsługuje domyślnych kont magazynu zabezpieczonych za siecią wirtualną. Musisz użyć konta magazynu innego niż domyślne dla etykietowania danych z pomocą typu ML. Należy pamiętać, że konto magazynu inne niż domyślne można zabezpieczyć za siecią wirtualną. 
 
 ## <a name="configure-firewall-settings"></a>Konfigurowanie ustawień zapory
 

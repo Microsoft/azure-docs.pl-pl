@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 12/04/2020
-ms.openlocfilehash: 31cf89cb66dfbc404d65f8fc09b96c03e1be2f8f
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: d49f048df7a624dc490acf7cb4c8e5f33aa5f1c6
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401321"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060235"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Rozwiązywanie problemów z analizą filmów wideo na żywo na IoT Edge
 
@@ -65,6 +65,8 @@ Możesz użyć Azure Portal, aby uruchomić diagnostykę grafu mediów przy uży
     * 406 — urządzenie IoT Edge jest w trybie offline lub nie wysyła raportów o stanie.
     * 500 — Wystąpił błąd w czasie wykonywania IoT Edge.
 
+    > [!TIP]
+    > Jeśli napotykasz problemy z uruchamianiem modułów Azure IoT Edge w środowisku, użyj **[Azure IoT Edge standardowych kroków diagnostycznych](https://docs.microsoft.com/azure/iot-edge/troubleshoot?view=iotedge-2018-06&preserve-view=true)** jako przewodnika dotyczącego rozwiązywania problemów i diagnostyki.
 ### <a name="post-deployment-direct-method-error-code"></a>Po wdrożeniu: kod błędu metody bezpośredniej
 1. W przypadku uzyskania stanu `501 code` Sprawdź, czy nazwa metody bezpośredniej jest dokładna. Jeśli nazwa metody i ładunek żądania są dokładne, należy uzyskać wyniki wraz z kodem sukcesu = 200. 
 1. Jeśli ładunek żądania jest niedokładny, zostanie wyświetlony stan `400 code` i ładunek odpowiedzi wskazujący kod błędu i komunikat, który powinien pomóc w diagnozowaniu problemu z wywołaniem metody bezpośredniej.
@@ -93,6 +95,8 @@ Usługa Analiza filmów wideo na żywo jest wdrażana jako moduł IoT Edge na ur
 * [Nie można wysłać komunikatu do centrum brzegowego z błędem 404 przy użyciu usługi Live Video Analytics lub innego niestandardowego modułu IoT Edge](../../iot-edge/troubleshoot-common-errors.md#iot-edge-module-fails-to-send-a-message-to-edgehub-with-404-error).
 * [Moduł IoT Edge został pomyślnie wdrożony, a następnie znika z urządzenia](../../iot-edge/troubleshoot-common-errors.md#iot-edge-module-deploys-successfully-then-disappears-from-device).
 
+    > [!TIP]
+    > Jeśli napotykasz problemy z uruchamianiem modułów Azure IoT Edge w środowisku, użyj **[Azure IoT Edge standardowych kroków diagnostycznych](https://docs.microsoft.com/azure/iot-edge/troubleshoot?view=iotedge-2018-06&preserve-view=true)** jako przewodnika dotyczącego rozwiązywania problemów i diagnostyki.
 ### <a name="live-video-analytics-working-with-external-modules"></a>Analiza wideo na żywo pracująca z modułami zewnętrznymi
 
 Analiza wideo na żywo za pośrednictwem procesorów rozszerzeń grafu multimediów może rozszerzać wykres multimedialny, aby wysyłać i odbierać dane z innych modułów IoT Edge przy użyciu protokołów HTTP lub gRPC. Na [przykład](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/httpExtension)ten Graf multimedialny może wysyłać ramki wideo jako obrazy do modułu wnioskowania zewnętrznego, takiego jak Yolo v3 i odbierać wyniki analizy oparte na notacji JSON przy użyciu protokołu HTTP. W takiej topologii miejsce docelowe dla zdarzeń jest w większości Centrum IoT Hub. W sytuacjach, w których nie widzisz zdarzeń wnioskowania w centrum, sprawdź następujące kwestie:
@@ -208,7 +212,7 @@ Aby skonfigurować usługę Live Video Analytics na IoT Edge module do generowan
     > To polecenie wiąże foldery dzienników między urządzeniem brzegowym i kontenerem. Jeśli chcesz zebrać dzienniki w innej lokalizacji, użyj następującego polecenia, zastępując **$LOG _LOCATION_ON_EDGE_DEVICE** lokalizacją, której chcesz użyć: `/var/$LOG_LOCATION_ON_EDGE_DEVICE:/var/lib/azuremediaservices/logs`
 
 1. Wybierz pozycję **Aktualizuj**.
-1. Wybierz pozycję **Recenzja + Utwórz**. Komunikat o pomyślnym sprawdzeniu poprawności jest ogłaszany na zielonym banerze.
+1. Wybierz pozycję **Przejrzyj i utwórz**. Komunikat o pomyślnym sprawdzeniu poprawności jest ogłaszany na zielonym banerze.
 1. Wybierz pozycję **Utwórz**.
 1. Zaktualizuj **sznury identyfikacyjne modułu** , aby wskazywały na DebugLogsDirectory parametr, który wskazuje katalog, w którym zbierane są dzienniki:
 

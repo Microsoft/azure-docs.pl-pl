@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: 41c0bd23bbd2d69506a979c5a36ac40f73258f2c
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: ab03e0bdf7761e45a134ec90685955403fbc433b
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605517"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060388"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Samouczek: migrowanie programu MySQL do usługi Azure Database for MySQL w trybie online przy użyciu usługi DMS
 
@@ -100,7 +100,7 @@ Przy założeniu, że masz przykładową bazę danych programu MySQL **Employees
 mysqldump -h [servername] -u [username] -p[password] --databases [db name] --no-data > [schema file path]
 ```
 
-Przykład:
+Na przykład:
 
 ```
 mysqldump -h 10.10.123.123 -u root -p --databases employees --no-data > d:\employees.sql
@@ -112,7 +112,7 @@ Aby zaimportować schemat do docelowej usługi Azure Database for MySQL, uruchom
 mysql.exe -h [servername] -u [username] -p[password] [database]< [schema file path]
  ```
 
-Przykład:
+Na przykład:
 
 ```
 mysql.exe -h shausample.mysql.database.azure.com -u dms@shausample -p employees < d:\employees.sql
@@ -237,7 +237,7 @@ Po utworzeniu usługi znajdź ją w witrynie Azure Portal, otwórz ją, a nastę
 
     ![Mapowanie do docelowych baz danych](media/tutorial-mysql-to-azure-mysql-online/dms-map-target-details.png)
    > [!NOTE] 
-   > Chociaż w tym kroku możesz wybrać wiele baz danych, każde wystąpienie Azure Database Migration Service obsługuje maksymalnie cztery bazy danych na potrzeby równoczesnej migracji. Ponadto istnieje limit dwóch wystąpień Azure Database Migration Service na region w ramach subskrypcji. Na przykład jeśli masz 40 baz danych do migracji, można migrować tylko osiem z nich jednocześnie i tylko wtedy, gdy utworzono dwa wystąpienia Azure Database Migration Service.
+   > Chociaż w tym kroku możesz wybrać wiele baz danych, każde wystąpienie Azure Database Migration Service obsługuje maksymalnie 4 bazy danych na potrzeby równoczesnej migracji. Ponadto istnieje limit 10 wystąpień Azure Database Migration Service na subskrypcję na region. Na przykład jeśli masz 80 baz danych do migracji, można migrować 40 z nich do tego samego regionu współbieżnie, ale tylko wtedy, gdy utworzono 10 wystąpień Azure Database Migration Service.
 
 3. Wybierz pozycję **Zapisz**. Na ekranie **Podsumowanie migracji** w polu tekstowym **Nazwa działania** określ nazwę działania migracji, a następnie sprawdź podsumowanie, aby upewnić się, że szczegółowe informacje źródłowe i docelowe pasują do wcześniej podanych.
 

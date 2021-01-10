@@ -3,17 +3,17 @@ title: Azure Service Bus uwierzytelniania i autoryzacji | Microsoft Docs
 description: Uwierzytelniaj aplikacje w celu Service Bus z uwierzytelnianiem sygnatury dostępu współdzielonego (SAS).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: a71cef6aad973f3c39ef61a8dbab313ebfca44ef
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 7b287b209fbcd5bc2782505095aeae4390107803
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517284"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060218"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Uwierzytelnianie i autoryzacja w usłudze Service Bus
 Istnieją dwa sposoby uwierzytelniania i autoryzowania dostępu do zasobów Azure Service Bus: katalog aktywności platformy Azure (Azure AD) i sygnatury dostępu współdzielonego (SAS). Ten artykuł zawiera szczegółowe informacje dotyczące korzystania z tych dwóch typów mechanizmów zabezpieczeń. 
 
-## <a name="azure-active-directory"></a>Usługa Azure Active Directory
+## <a name="azure-active-directory"></a>Azure Active Directory
 Integracja z usługą Azure AD dla zasobów Service Bus zapewnia kontrolę dostępu opartą na rolach (Azure RBAC) na potrzeby precyzyjnej kontroli nad dostępem klientów do zasobów. Możesz użyć kontroli RBAC platformy Azure, aby przyznać uprawnienia podmiotowi zabezpieczeń, które może być użytkownikiem, grupą lub jednostką usługi aplikacji. Podmiot zabezpieczeń jest uwierzytelniany przez usługę Azure AD w celu zwrócenia tokenu OAuth 2,0. Token może służyć do autoryzowania żądania dostępu do zasobu Service Bus (Kolejka, temat itp.).
 
 Aby uzyskać więcej informacji na temat uwierzytelniania przy użyciu usługi Azure AD, zobacz następujące artykuły:
@@ -25,7 +25,7 @@ Aby uzyskać więcej informacji na temat uwierzytelniania przy użyciu usługi A
 > [Interfejs API REST Service Bus](/rest/api/servicebus/) obsługuje uwierzytelnianie OAuth za pomocą usługi Azure AD.
 
 > [!IMPORTANT]
-> Autoryzowanie użytkowników lub aplikacji przy użyciu tokenu OAuth 2,0 zwróconego przez usługę Azure AD zapewnia doskonałe zabezpieczenia i łatwość użycia w odniesieniu do sygnatur dostępu współdzielonego (SAS). W przypadku usługi Azure AD nie ma potrzeby przechowywania tokenów w kodzie i ryzyka potencjalnych luk w zabezpieczeniach. Zalecamy korzystanie z usługi Azure AD z aplikacjami Azure Service Bus, jeśli jest to możliwe. 
+> Autoryzowanie użytkowników lub aplikacji przy użyciu tokenu OAuth 2,0 zwróconego przez usługę Azure AD zapewnia doskonałe zabezpieczenia i łatwość użycia w odniesieniu do sygnatur dostępu współdzielonego (SAS). W przypadku usługi Azure AD nie ma potrzeby przechowywania tokenów w kodzie i ryzyka potencjalnych luk w zabezpieczeniach. Jeśli to możliwe, zalecamy korzystanie z usługi Azure AD z aplikacjami Azure Service Bus. 
 
 ## <a name="shared-access-signature"></a>Sygnatura dostępu współdzielonego
 [Uwierzytelnianie za pomocą sygnatury dostępu współdzielonego](service-bus-sas.md) umożliwia użytkownikom dostęp do Service Bus zasobów przy użyciu określonych praw. Uwierzytelnianie za pomocą sygnatury dostępu współdzielonego w Service Bus obejmuje konfigurację klucza kryptograficznego ze skojarzonymi prawami w ramach zasobu Service Bus. Klienci mogą następnie uzyskać dostęp do tego zasobu przez przedstawienie tokenu sygnatury dostępu współdzielonego, który składa się z identyfikatora URI zasobu, do którego jest uzyskiwany dostęp, i podpisanego kluczem.
@@ -37,7 +37,7 @@ Aby użyć sygnatury dostępu współdzielonego, można skonfigurować obiekt [S
 * *NazwaKlucza*: identyfikuje regułę.
 * *PrimaryKey*: klucz kryptograficzny używany do podpisywania/weryfikowania tokenów SAS.
 * *SecondaryKey*: klucz kryptograficzny używany do podpisywania/weryfikowania tokenów SAS.
-* *Prawa*: reprezentuje kolekcję praw **nasłuchiwania**, **wysyłania**lub **zarządzania** .
+* *Prawa*: reprezentuje kolekcję praw **nasłuchiwania**, **wysyłania** lub **zarządzania** .
 
 Reguły autoryzacji skonfigurowane na poziomie przestrzeni nazw mogą przyznawać dostęp do wszystkich jednostek w przestrzeni nazw klientom z tokenami podpisanymi przy użyciu odpowiedniego klucza. Można skonfigurować do 12 takich reguł autoryzacji na Service Bus przestrzeni nazw, kolejki lub tematu. Domyślnie [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) z wszelkimi prawami jest konfigurowana dla każdej przestrzeni nazw, gdy jest ona najpierw inicjowana.
 

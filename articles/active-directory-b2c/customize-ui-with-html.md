@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 520b2eff91faf2e333ab0a5df7bcc85e6a47c80a
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 4a789574b736eb22bd8d13fcf1a9facec5e241c9
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585194"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98058671"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Dostosowywanie interfejsu użytkownika w Azure Active Directory B2C
 
@@ -74,7 +74,7 @@ Korzystając z własnych plików HTML i CSS, aby dostosować interfejs użytkown
 ## <a name="guidelines-for-using-custom-page-content"></a>Wskazówki dotyczące korzystania z niestandardowej zawartości strony
 
 - Użyj bezwzględnego adresu URL, jeśli w pliku HTML są uwzględniane zasoby zewnętrzne, takie jak pliki multimedialne, CSS i JavaScript.
-- Korzystając z [wersji układu strony](page-layout.md) 1.2.0 i nowszych, można dodać `data-preload="true"` ATRYBUT do tagów HTML w celu kontrolowania kolejności ładowania dla CSS i JavaScript. W programie `data-preload=true` Strona jest zbudowana przed wyświetleniem użytkownika. Ten atrybut pomaga zapobiec "migotaniu" na stronie przez wstępne załadowanie pliku CSS bez wyświetlania kodu HTML, który nie ma stylu. Poniższy fragment kodu HTML pokazuje użycie `data-preload` znacznika.
+- Korzystając z [wersji układu strony](page-layout.md) 1.2.0 i nowszych, można dodać `data-preload="true"` ATRYBUT do tagów HTML w celu kontrolowania kolejności ładowania dla CSS i JavaScript. W programie `data-preload="true"` Strona jest zbudowana przed wyświetleniem użytkownika. Ten atrybut pomaga zapobiec "migotaniu" na stronie przez wstępne załadowanie pliku CSS bez wyświetlania kodu HTML, który nie ma stylu. Poniższy fragment kodu HTML pokazuje użycie `data-preload` znacznika.
   ```HTML
   <link href="https://path-to-your-file/sample.css" rel="stylesheet" type="text/css" data-preload="true"/>
   ```
@@ -374,7 +374,7 @@ Aby użyć przykładu:
 
 1. Sklonuj repozytorium na komputerze lokalnym. Wybierz folder szablonu `/ocean_blue` lub `/slate_gray` .
 1. Przekaż wszystkie pliki z folderu Template i `/assets` folder do magazynu obiektów BLOB zgodnie z opisem w poprzednich sekcjach.
-1. Następnie otwórz każdy `\*.html` plik w katalogu głównym `/ocean_blue` lub `/slate_gray` Zastąp wszystkie wystąpienia względnych adresów URL adresami URL plików CSS, obrazów i czcionek przekazanych w kroku 2. Przykład:
+1. Następnie otwórz każdy `\*.html` plik w katalogu głównym `/ocean_blue` lub `/slate_gray` Zastąp wszystkie wystąpienia względnych adresów URL adresami URL plików CSS, obrazów i czcionek przekazanych w kroku 2. Na przykład:
     ```html
     <link href="./css/assets.css" rel="stylesheet" type="text/css" />
     ```

@@ -3,12 +3,12 @@ title: Analizowanie wideo na żywo przy użyciu przetwarzanie obrazów na potrze
 description: W tym samouczku pokazano, jak korzystać z analizy filmów wideo na żywo wraz z przetwarzanie obrazów funkcją AI do analizy przestrzennej z poziomu usługi Azure Cognitive Services w celu przeanalizowania na żywo kanału informacyjnego wideo z aparatu (symulowane).
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 5cebedec11b91f5b0b94df25a860da3d517bb997
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 5b979bfeb6961b285cfeb2287888d8f157608d96
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400537"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060184"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Analizowanie wideo na żywo przy użyciu przetwarzanie obrazów na potrzeby analizy przestrzennej (wersja zapoznawcza)
 
@@ -166,7 +166,7 @@ Manifest wdrożenia definiuje, jakie moduły są wdrażane na urządzeniu brzego
 Wykonaj następujące kroki, aby wygenerować manifest z pliku szablonu, a następnie wdrożyć go na urządzeniu brzegowym.
 
 1. Otwórz program Visual Studio Code.
-1. Obok okienka AZURE IOT HUB wybierz ikonę Więcej akcji, aby ustawić parametry połączenia IoT Hub. Możesz skopiować ten ciąg z pliku SRC/Cloud-to-Device-App/appsettings.jsna plik.
+1. Obok okienka AZURE IOT HUB wybierz ikonę Więcej akcji, aby ustawić parametry połączenia IoT Hub. Można skopiować ciąg z `src/cloud-to-device-console-app/appsettings.json` pliku.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/spatial-analysis-tutorial/connection-string.png" alt-text="Analiza przestrzenna: parametry połączenia":::
@@ -222,13 +222,13 @@ Istnieje element program.cs, który wywoła metody bezpośrednie w elemencie src
 
 W operations.jsna:
 
-* Ustaw topologię taką jak ta (topologyFile for Local Topology, topologyUrl for online Topology):
+* Ustaw topologię w następujący sposób:
 
 ```json
 {
     "opName": "GraphTopologySet",
     "opParams": {
-        "topologyFile": "../edge/spatialAnalysisTopology.json"
+        "topologyUrl": "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/lva-spatial-analysis/2.0/topology.json"
     }
 },
 ```
@@ -261,17 +261,6 @@ W operations.jsna:
     }
 },
 ```
-* Zmień łącze do topologii grafu:
-
-`topologyUrl` : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/lva-spatial-analysis/topology.json"
-
-W obszarze **GraphInstanceSet** Zmień nazwę topologii wykresu, aby odpowiadała wartości w poprzednim łączu:
-
-`topologyName` : InferencingWithCVExtension
-
-W obszarze **GraphTopologyDelete** Edytuj nazwę:
-
-`name`: InferencingWithCVExtension
 
 >[!Note]
 Zapoznaj się z tematem korzystanie z programu MediaGraphRealTimeComputerVisionExtension w celu nawiązania połączenia z modułem analizy przestrzennej. Ustaw wartość $ {grpcUrl} na **TCP://spatialAnalysis: <PORT_NUMBER>**, np. TCP://spatialAnalysis:50051
@@ -281,40 +270,51 @@ Zapoznaj się z tematem korzystanie z programu MediaGraphRealTimeComputerVisionE
     "@type": "#Microsoft.Media.MediaGraphCognitiveServicesVisionExtension",
     "name": "computerVisionExtension",
     "endpoint": {
-    "@type": "#Microsoft.Media.MediaGraphUnsecuredEndpoint",
-    "url": "${grpcUrl}",
-    "credentials": {
-        "@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
-        "username": "${spatialanalysisusername}",
-        "password": "${spatialanalysispassword}"
-    }
+        "@type": "#Microsoft.Media.MediaGraphUnsecuredEndpoint",
+        "url": "${grpcUrl}",
+        "credentials": {
+            "@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
+            "username": "${spatialanalysisusername}",
+            "password": "${spatialanalysispassword}"
+        }
     },
     "image": {
-    "scale": {
-        "mode": "pad",
-        "width": "1408",
-        "height": "786"
+        "scale": {
+            "mode": "pad",
+            "width": "1408",
+            "height": "786"
+        },
+        "format": {
+            "@type": "#Microsoft.Media.MediaGraphImageFormatRaw",
+            "pixelFormat": "bgr24"
+        }
     },
-    "format": {
-        "@type": "#Microsoft.Media.MediaGraphImageFormatRaw",
-        "pixelFormat": "bgr24"
-    }
+    "samplingOptions": {
+        "skipSamplesWithoutAnnotation": "false",
+        "maximumSamplesPerSecond": "20"
     },
     "inputs": [
-    {
-        "nodeName": "frameRateFilter"
-    }
+        {
+            "nodeName": "rtspSource",
+            "outputSelectors": [
+                {
+                    "property": "mediaType",
+                    "operator": "is",
+                    "value": "video"
+                }
+            ]
+        }
     ]
 }
 ```
 
-Uruchom sesję debugowania i postępuj zgodnie z instrukcjami terminalu, ustawimy topologię, ustawisz wystąpienie grafu, Aktywuj wystąpienie grafu, a następnie usuń zasoby.
+Uruchom sesję debugowania i postępuj zgodnie z instrukcjami **terminalu** , ustawimy topologię, ustawisz wystąpienie grafu, Aktywuj wystąpienie grafu, a następnie usuń zasoby.
 
 ## <a name="interpret-results"></a>Interpretowanie wyników
 
 Po utworzeniu wystąpienia grafu multimediów należy zobaczyć zdarzenie "MediaSessionEstablished" w tym [przykładzie przykładowe zdarzenie MediaSessionEstablished](detect-motion-emit-events-quickstart.md#mediasessionestablished-event).
 
-Moduł analizy przestrzennej wyśle także zdarzenia usługi AI Insights do usługi Analiza filmów wideo na żywo, a następnie IoTHub je w danych wyjściowych. JEDNOSTKA jest obiektem wykrywania, a zdarzenie to zdarzenia spaceanalytics. Te dane wyjściowe zostaną przesłane do analizy wideo na żywo.
+Moduł analizy przestrzennej wyśle także zdarzenia usługi AI Insights do usługi Analiza filmów wideo na żywo, a następnie IoTHub je w **danych wyjściowych**. JEDNOSTKA jest obiektem wykrywania, a zdarzenie to zdarzenia spaceanalytics. Te dane wyjściowe zostaną przesłane do analizy wideo na żywo.
 
 Przykładowe dane wyjściowe dla personZoneEvent (z cognitiveservices. Vision. spatialanalysis-personcrossingpolygon. livevideoanalytics):
 

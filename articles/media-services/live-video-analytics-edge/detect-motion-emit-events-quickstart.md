@@ -4,12 +4,12 @@ description: W tym przewodniku szybki start pokazano, jak za pomocą funkcji ana
 ms.topic: quickstart
 ms.date: 08/10/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 4d8b91529eaf5a9ee93cff28153b28b26fb7e685
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 09a17712287c73fa165b4bec77682831a51edfa3
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89566918"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060576"
 ---
 # <a name="quickstart-detect-motion-and-emit-events"></a>Szybki Start: wykrywanie ruchu i emitowanie zdarzeń
 
@@ -34,6 +34,17 @@ Ten przewodnik Szybki Start przeprowadzi Cię przez kroki umożliwiające rozpoc
 ::: zone pivot="programming-language-python"
 [!INCLUDE [prerequisites](includes/detect-motion-emit-events-quickstart/python/prerequisites.md)]
 ::: zone-end
+
+## <a name="review-the-sample-video"></a>Zapoznaj się z przykładowym wideo
+
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [review-sample-video](includes/detect-motion-emit-events-quickstart/csharp/review-sample-video.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [review-sample-video](includes/detect-motion-emit-events-quickstart/python/review-sample-video.md)]
+::: zone-end
+
 
 ## <a name="set-up-azure-resources"></a>Konfigurowanie zasobów platformy Azure
 

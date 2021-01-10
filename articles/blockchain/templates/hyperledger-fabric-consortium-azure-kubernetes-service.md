@@ -1,15 +1,15 @@
 ---
 title: Wdróż konsorcjum sieci szkieletowej w usłudze Azure Kubernetes Service
 description: Jak wdrożyć i skonfigurować sieć konsorcjum sieci szkieletowej w usłudze Azure Kubernetes Service
-ms.date: 08/06/2020
+ms.date: 01/08/2021
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 081c7a10ee091f573e8f999c94588ef85c784f74
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ab5b9fadfbb0f1c9c1cdf25ee319c7775a593ed
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651566"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060320"
 ---
 # <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Wdróż konsorcjum sieci szkieletowej w usłudze Azure Kubernetes Service
 
@@ -72,7 +72,7 @@ Aby rozpocząć wdrażanie składników sieciowych w sieci szkieletowej, przejd�
 
     ![Zrzut ekranu, na którym jest wyświetlana karta podstawy.](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-basics.png)
 
-3. Wprowadź następujące wartości:
+3. Wprowadź następujące informacje:
     - **Subskrypcja**: wybierz nazwę subskrypcji, w której chcesz wdrożyć składniki sieci szkieletowej.
     - **Grupa zasobów**: Utwórz nową grupę zasobów lub wybierz istniejącą pustą grupę zasobów. Grupa zasobów będzie przechowywać wszystkie zasoby wdrożone w ramach szablonu.
     - **Region**: Wybierz region platformy Azure, w którym chcesz wdrożyć klaster usługi Azure Kubernetes dla składników sieci szkieletowej. Szablon jest dostępny we wszystkich regionach, w których AKS jest dostępny. Wybierz region, w którym subskrypcja nie ma limitu przydziału maszyny wirtualnej (VM).
@@ -81,9 +81,9 @@ Aby rozpocząć wdrażanie składników sieciowych w sieci szkieletowej, przejd�
 
     ![Zrzut ekranu przedstawiający kartę Ustawienia sieci szkieletowej.](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-settings.png)
 
-5. Wprowadź następujące wartości:
+5. Wprowadź następujące informacje:
     - **Nazwa organizacji**: Wprowadź nazwę organizacji sieci szkieletowej transakcji, która jest wymagana dla różnych operacji na płaszczyźnie danych. Nazwa organizacji musi być unikatowa dla każdego wdrożenia.
-    - **Składnik sieci szkieletowej**: wybierz pozycję **porządkowanie usług** lub **węzłów równorzędnych**w oparciu o składnik sieci łańcucha bloków, który chcesz skonfigurować.
+    - **Składnik sieci szkieletowej**: wybierz pozycję **porządkowanie usług** lub **węzłów równorzędnych** w oparciu o składnik sieci łańcucha bloków, który chcesz skonfigurować.
     - **Liczba węzłów**: poniższe dwa typy węzłów:
         - **Porządkowanie usługi**: Wybierz liczbę węzłów, aby zapewnić odporność na uszkodzenia sieci. Obsługiwana liczba węzłów zamówienia to 3, 5 i 7.
         - **Węzły równorzędne**: można wybrać od 1 do 10 węzłów na podstawie wymagań.
@@ -100,13 +100,13 @@ Aby rozpocząć wdrażanie składników sieciowych w sieci szkieletowej, przejd�
 
     ![Zrzut ekranu przedstawiający kartę Ustawienia klastra K S.](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-aks-cluster-settings-1.png)
 
-7. Wprowadź następujące wartości:
+7. Wprowadź następujące informacje:
     - **Nazwa klastra Kubernetes**: Zmień nazwę klastra AKS, jeśli to konieczne. To pole jest wstępnie wypełniane na podstawie podanego prefiksu zasobu.
     - **Wersja Kubernetes**: Wybierz wersję Kubernetes, która zostanie wdrożona w klastrze. W zależności od regionu wybranego na karcie **podstawowe** dostępne wersje mogą ulec zmianie.
     - **Prefiks DNS**: wprowadź prefiks nazwy systemu nazw domen (DNS) dla klastra AKS. Użyjesz usługi DNS do nawiązywania połączenia z interfejsem API Kubernetes podczas zarządzania kontenerami po utworzeniu klastra.
     - **Rozmiar węzła**: rozmiar węzła Kubernetes można wybrać z listy jednostek składowania maszyn wirtualnych (SKU) dostępnych na platformie Azure. W celu uzyskania optymalnej wydajności zalecamy użycie standardowego DS3 v2.
     - **Liczba węzłów**: wprowadź liczbę węzłów Kubernetes, które mają zostać wdrożone w klastrze. Zaleca się pozostawienie tej liczby węzłów równej lub większej niż liczba węzłów sieci szkieletowej w ramach księgi głównej określonych na karcie **Ustawienia sieci szkieletowej** .
-    - **Identyfikator klienta nazwy głównej usługi**: Wprowadź identyfikator klienta istniejącej jednostki usługi lub Utwórz nową. Nazwa główna usługi jest wymagana do uwierzytelniania AKS. Zapoznaj się z [instrukcjami tworzenia nazwy głównej usługi](/powershell/azure/create-azure-service-principal-azureps?view=azps-3.2.0#create-a-service-principal).
+    - **Identyfikator klienta nazwy głównej usługi**: Wprowadź identyfikator klienta istniejącej jednostki usługi lub Utwórz nową. Nazwa główna usługi jest wymagana do uwierzytelniania AKS. Zapoznaj się z [instrukcjami tworzenia nazwy głównej usługi](/powershell/azure/create-azure-service-principal-azureps#create-a-service-principal).
     - **Klucz tajny klienta jednostki usługi**: Wprowadź klucz tajny klienta w jednostce usługi podanej w identyfikatorze klienta dla jednostki usługi.
     - **Potwierdź klucz tajny klienta**: Potwierdź klucz tajny klienta dla jednostki usługi.
     - **Włącz monitorowanie kontenera**: Wybierz, aby włączyć monitorowanie AKS, które umożliwia wypychanie dzienników AKS do określonego obszaru roboczego log Analytics.
@@ -385,7 +385,7 @@ Uruchom następujące polecenie, aby wysłać zapytanie do chaincode:
 ```bash
 ./azhlf chaincode query -o $ORGNAME -p <endorsingPeers> -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs> 
 ```
-Zatwierdzanie elementów równorzędnych jest elementami równorzędnymi, gdzie chaincode jest zainstalowana i jest wywoływana do wykonania transakcji. Należy ustawić `<endorsingPeers>` , aby zawierała nazwy węzłów równorzędnych z bieżącej organizacji równorzędnej. Wyświetl listę elementów równorzędnych poświadczających dla danej kombinacji chaincode i kanału rozdzielonych spacjami. Przykład: `-p "peer1" "peer3"`.
+Zatwierdzanie elementów równorzędnych jest elementami równorzędnymi, gdzie chaincode jest zainstalowana i jest wywoływana do wykonania transakcji. Należy ustawić `<endorsingPeers>` , aby zawierała nazwy węzłów równorzędnych z bieżącej organizacji równorzędnej. Wyświetl listę elementów równorzędnych poświadczających dla danej kombinacji chaincode i kanału rozdzielonych spacjami. Na przykład: `-p "peer1" "peer3"`.
 
 Jeśli używasz *azhlfTool* do instalacji chaincode, Przekaż wszystkie nazwy węzłów równorzędnych jako wartość do argumentu zatwierdzania elementu równorzędnego. Chaincode jest zainstalowany w każdym węźle równorzędnym dla tej organizacji. 
 
@@ -393,23 +393,35 @@ Przekaż nazwę funkcji zapytania i listę argumentów rozdzielonych spacjami w 
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
-Uruchom następujące polecenia, aby znaleźć wersję wdrożenia szablonu.
+### <a name="find-deployed-version"></a>Znajdź wdrożoną wersję
 
-Ustaw zmienne środowiskowe zgodnie z grupą zasobów, w której szablon został wdrożony.
-
-```bash
-
-SWITCH_TO_AKS_CLUSTER() { az aks get-credentials --resource-group $1 --name $2 --subscription $3; }
-AKS_CLUSTER_SUBSCRIPTION=<AKSClusterSubscriptionID>
-AKS_CLUSTER_RESOURCE_GROUP=<AKSClusterResourceGroup>
-AKS_CLUSTER_NAME=<AKSClusterName>
-```
-Uruchom następujące polecenie, aby wydrukować wersję szablonu.
+Uruchom następujące polecenia, aby znaleźć wersję wdrożenia szablonu. Ustaw zmienne środowiskowe zgodnie z grupą zasobów, w której szablon został wdrożony.
 
 ```bash
 SWITCH_TO_AKS_CLUSTER $AKS_CLUSTER_RESOURCE_GROUP $AKS_CLUSTER_NAME $AKS_CLUSTER_SUBSCRIPTION
 kubectl describe pod fabric-tools -n tools | grep "Image:" | cut -d ":" -f 3
+```
 
+### <a name="patch-previous-version"></a>Poprawka poprzedniej wersji
+
+Jeśli masz problemy z uruchamianiem programu chaincode na wszystkich wdrożeniach wersji szablonu poniżej v 3.0.0, wykonaj poniższe kroki, aby zastosować poprawkę do węzłów równorzędnych.
+
+Pobierz skrypt wdrażania elementu równorzędnego.
+
+```bash
+curl https://raw.githubusercontent.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/master/scripts/patchPeerDeployment.sh -o patchPeerDeployment.sh; chmod 777 patchPeerDeployment.sh
+```
+
+Uruchom skrypt przy użyciu następującego polecenia zastępującego parametry dla elementu równorzędnego.
+
+```bash
+source patchPeerDeployment.sh <peerOrgSubscription> <peerOrgResourceGroup> <peerOrgAKSClusterName>
+```
+
+Zaczekaj, aż wszystkie węzły równorzędne zostaną pobrane. Można zawsze sprawdzić stan węzłów równorzędnych w innym wystąpieniu powłoki przy użyciu poniższego polecenia.
+
+```bash
+kubectl get pods -n hlf
 ```
 
 ## <a name="support-and-feedback"></a>Pomoc techniczna i opinie
