@@ -109,7 +109,7 @@
     - name: Omówienie cennika
       href: understanding-pricing.md
     - name: Często zadawane pytania
-      href: application-gateway-faq.md
+      href: application-gateway-faq.yml
 - name: Przewodniki z instrukcjami
   items:
     - name: Hostowanie pojedynczej witryny
