@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 01/07/2021
 ms.author: alexeyo
-ms.openlocfilehash: 539ea6f80604eabdbbe56a3280cf5ddb367c0439
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: f30b1f0f14bba54b8b4fcd7c5190f3c533f199a6
+ms.sourcegitcommit: 63caac7871df9d999ca5a5f1b8c036ae7014231c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97966787"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98061756"
 ---
 # <a name="speech-services-in-sovereign-clouds"></a>Usługi mowy w ramach suwerennych chmur
 
@@ -36,9 +36,10 @@ Dostępne tylko dla instytucji rządowych Stanów Zjednoczonych i ich partnerów
     - Niestandardowa Zamiana mowy (model akustyczny (AM) i model języka (LM)
       - [Speech Studio](https://speech.azure.us/)
   - Zamiana tekstu na mowę
+    - Standard Voice
+    - Neuronowych
   - Translator mowy
 - **Nieobsługiwane funkcje:**
-  - Neuronowych
   - Niestandardowy głos
 - **Obsługiwane języki:**
   - Zobacz listę obsługiwanych języków [tutaj](language-support.md)
@@ -105,20 +106,13 @@ Dostępne dla organizacji z obecnością biznesową w Chinach. Więcej informacj
     - Niestandardowa Zamiana mowy (model akustyczny (AM) i model języka (LM)
       - [Speech Studio](https://speech.azure.cn/)
   - Zamiana tekstu na mowę
+    - Standard Voice
+    - Neuronowych
   - Translator mowy
 - **Nieobsługiwane funkcje:**
-  - Neuronowych
   - Niestandardowy głos
 - **Obsługiwane języki:**
-  - Arabski (AR-*)
-  - Chiński (ZH-*)
-  - Angielski (EN-*)
-  - Francuski (fr-*)
-  - Niemiecki (de-*)
-  - Hindi (Hi-IN)
-  - Koreański (ko-KR)
-  - Rosyjski (ru-RU)
-  - Hiszpański (ES-*)
+  - Zobacz listę obsługiwanych języków [tutaj](language-support.md)
 
 ### <a name="endpoint-information"></a>Informacje o punkcie końcowym
 
