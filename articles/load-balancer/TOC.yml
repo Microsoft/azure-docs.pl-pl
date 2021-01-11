@@ -146,11 +146,15 @@
       items:
         - name: Rozwiązywanie problemów z usługą Azure Load Balancer
           href: load-balancer-troubleshoot.md
-        - name: Rozwiązywanie typowych błędów związanych z wdrażaniem
+        - name: Stan sondy kondycji
+          href: load-balancer-troubleshoot-health-probe-status.md
+        - name: Ruch w puli zaplecza (maszyna wirtualna)
+          href: load-balancer-troubleshoot-backend-traffic.md
+        - name: Typowe błędy związane z wdrażaniem
           href: load-balancer-common-deployment-errors.md
-        - name: Rozwiązywanie typowych problemów z połączeniem wychodzącym
+        - name: Typowe problemy z połączeniem wychodzącym
           href: troubleshoot-outbound-connection.md
-        - name: Rozwiązywanie problemów z kondycją zasobów i dostępnością dla ruchu przychodzącego
+        - name: Problemy z kondycją zasobów i dostępnością dla ruchu przychodzącego
           href: troubleshoot-rhc.md
 - name: Dokumentacja
   items:

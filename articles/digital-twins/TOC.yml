@@ -49,6 +49,8 @@
               href: how-to-set-up-instance-portal.md
             - name: Wersja interfejsu wiersza polecenia
               href: how-to-set-up-instance-cli.md
+            - name: Wersja programu PowerShell
+              href: how-to-set-up-instance-powershell.md
             - name: Wersja używająca skryptu
               href: how-to-set-up-instance-scripted.md
         - name: Pisanie kodu uwierzytelniania aplikacji
