@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 1e8c7805cf9804e8380f8638781f9634d2d3d081
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 63d56d8afc584a760f4b31c6021d4c764afd52b3
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011513"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064423"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Samouczek: wywoływanie interfejsu API Microsoft Graph z aplikacji platforma uniwersalna systemu Windows (platformy UWP)
 
@@ -50,7 +50,7 @@ W tym przewodniku zastosowano następujący pakiet NuGet:
 
 |Biblioteka|Opis|
 |---|---|
-|[Microsoft. Identity. Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Biblioteka uwierzytelniania firmy Microsoft|
+|[Microsoft. Identity. Client](https://www.nuget.org/packages/Microsoft.Identity.Client)| Biblioteka uwierzytelniania firmy Microsoft|
 |[Microsoft. Graph](https://www.nuget.org/packages/Microsoft.Graph)|Microsoft Graph Biblioteka kliencka|
 
 ## <a name="set-up-your-project"></a>konfigurowanie projektu
@@ -71,7 +71,7 @@ Ten przewodnik tworzy aplikację, która wyświetla przycisk, który wysyła zap
 
    ![Wersje minimalne i docelowe](./media/tutorial-v2-windows-uwp/select-uwp-target-minimum.png)
 
-### <a name="add-microsoft-authentication-library-to-your-project"></a>Dodawanie biblioteki uwierzytelniania firmy Microsoft do projektu
+### <a name="add-the-microsoft-authentication-library-to-your-project"></a>Dodawanie biblioteki uwierzytelniania firmy Microsoft do projektu
 
 1. W programie Visual Studio wybierz kolejno pozycje **Narzędzia** Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera pakietów**.
 1. Skopiuj i wklej następujące polecenia w oknie **konsola Menedżera pakietów** :
@@ -103,7 +103,7 @@ Program Visual Studio tworzy *MainPage. XAML* jako część szablonu projektu. O
 </Grid>
 ```
 
-### <a name="use-microsoft-authentication-library-to-get-a-token-for-the-microsoft-graph-api"></a>Korzystanie z biblioteki uwierzytelniania firmy Microsoft w celu uzyskania tokenu dla interfejsu API Microsoft Graph
+### <a name="use-the-microsoft-authentication-library-to-get-a-token-for-the-microsoft-graph-api"></a>Korzystanie z biblioteki uwierzytelniania firmy Microsoft w celu uzyskania tokenu dla interfejsu API Microsoft Graph
 
 W tej sekcji przedstawiono sposób korzystania z biblioteki uwierzytelniania firmy Microsoft w celu uzyskania tokenu dla interfejsu API Microsoft Graph. Wprowadź zmiany w pliku *MainPage.XAML.cs* .
 

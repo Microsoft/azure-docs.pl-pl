@@ -1,7 +1,7 @@
 ---
 title: Migrowanie do biblioteki uwierzytelniania firmy Microsoft (MSAL)
 titleSuffix: Microsoft identity platform
-description: Dowiedz się więcej o różnicach między biblioteką uwierzytelniania firmy Microsoft (MSAL) i biblioteką uwierzytelniania usługi Azure AD (ADAL) oraz jak przeprowadzić migrację do MSAL.
+description: Dowiedz się więcej o różnicach między biblioteką uwierzytelniania firmy Microsoft (MSAL) i biblioteką uwierzytelniania usługi Azure AD (ADAL) oraz jak przeprowadzić migrację do programu MSAL.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,14 +13,14 @@ ms.date: 08/07/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: ac9264ea8d6cc71d19d2c9bbd23b2123bdf1f924
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a1428f05d1a5f7563b2715a9142cf73dc5063a9
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88224360"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063658"
 ---
-# <a name="migrate-applications-to-microsoft-authentication-library-msal"></a>Migrowanie aplikacji do biblioteki uwierzytelniania firmy Microsoft (MSAL)
+# <a name="migrate-applications-to-the-microsoft-authentication-library-msal"></a>Migrowanie aplikacji do biblioteki uwierzytelniania firmy Microsoft (MSAL)
 
 Wielu deweloperów ma skompilowane i wdrożone aplikacje korzystające z biblioteki Azure Active Directory Authentication Library (ADAL). Zalecamy używanie biblioteki uwierzytelniania firmy Microsoft (MSAL) do uwierzytelniania i autoryzacji jednostek usługi Azure AD.
 

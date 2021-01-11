@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 99246ecee27f7ded693e2a797f8e98480e350983
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 0143b014328dfd5c164f0c3c62aeef7cabe1a17c
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854533"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065426"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure Wiosenna — często zadawane pytania
 
@@ -37,7 +37,7 @@ Bezpieczeństwo i ochrona prywatności należą do najważniejszych priorytetów
 
 ### <a name="in-which-regions-is-azure-spring-cloud-available"></a>W jakich regionach jest dostępna chmura Wiosenna platformy Azure?
 
-Wschodnie stany USA, Wschodnie stany USA 2, środkowe stany USA, Południowo-środkowe stany USA, Północno-środkowe stany USA, Region Zachodni USA, zachodnie stany USA 2, Europa Zachodnia, Europa Północna, Południowe Zjednoczone Królestwo, Azja Południowo-Wschodnia, Australia Wschodnia, Kanada Środkowa i Zjednoczone Emiraty Arabskie.
+Wschodnie stany USA, Wschodnie stany USA 2, środkowe stany USA, Południowo-środkowe stany USA, Północno-środkowe stany USA, Region Zachodni USA, zachodnie stany USA 2, Europa Zachodnia, Europa Północna, Południowe Zjednoczone Królestwo, Azja Południowo-Wschodnia, Australia Wschodnia, Kanada środkowa, Południowe Zjednoczone Emiraty Arabskie, Korea Środkowa i Azja Wschodnia. [Więcej informacji](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
 
 ### <a name="is-any-customer-data-stored-outside-of-the-specified-region"></a>Czy dane klienta są przechowywane poza określonym regionem?
 
@@ -183,7 +183,7 @@ Poprawki zabezpieczeń stosowane w chmurze Azure wiosennej są przeprowadzone do
 Krytyczne poprawki zabezpieczeń (ocena w >= 9) dotyczące usługi Azure wiosny są dostępne najszybciej, jak to możliwe.
 ::: zone-end
 
-## <a name="deployment"></a>Wdrożenie
+## <a name="deployment"></a>Wdrażanie
 
 ### <a name="does-azure-spring-cloud-support-blue-green-deployment"></a>Czy usługa Azure Wiosenna Cloud obsługuje wdrożenie Blue-Green?
 Tak. Aby uzyskać więcej informacji, zobacz [Konfigurowanie środowiska przejściowego](spring-cloud-howto-staging-environment.md).

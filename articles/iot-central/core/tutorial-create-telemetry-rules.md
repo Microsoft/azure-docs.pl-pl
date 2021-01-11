@@ -7,12 +7,12 @@ ms.date: 01/08/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a1991860e1599020c5a91c09dfb30a96ed442ff7
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 6be49ec3777b4bcaa033a60546e95711090662a4
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033850"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065290"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Samouczek: Tworzenie reguły i konfigurowanie powiadomień w aplikacji usługi Azure IoT Central
 
@@ -118,4 +118,4 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 Po zdefiniowaniu reguły opartej na progach zalecanym następnym krokiem jest zapoznanie się z tematem:
 
 > [!div class="nextstepaction"]
-> [Skonfiguruj ciągły eksport danych](./howto-export-data.md).
+> [Tworzenie elementów webhook w regułach](./howto-create-webhooks.md).

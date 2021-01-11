@@ -13,12 +13,13 @@ ms.date: 10/01/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: e9724bb2e5377f84904dc77c33375c39f3077dd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: deb923a52e5d6cd5384dbf94d2249572b25b1a61
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631413"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063845"
 ---
 # <a name="integrating-with-microsoft-identity-platform"></a>Integracja z platformą tożsamości firmy Microsoft
 

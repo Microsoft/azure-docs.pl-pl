@@ -10,12 +10,12 @@ ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 11/25/2020
-ms.openlocfilehash: 846c5519dced06ed16f5a0d12b0bb25443961f93
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: b917e3fc93c59de85c5236c18e31d7bbc9d891f0
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753913"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065477"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>Wyjątki i kody błędów dla projektanta
 
@@ -1532,3 +1532,8 @@ Aby uzyskać dalszą pomoc, zalecamy opublikowanie szczegółowego komunikatu za
 |Wyjątek biblioteki.|
 |Wyjątek biblioteki: {Exception}.|
 |Nieznany wyjątek biblioteki: {Exception}. {customer_support_guidance}.|
+
+
+## <a name="execute-python-script-module"></a>Wykonaj moduł skryptu języka Python
+
+Wyszukaj **w azureml_main** w **70_Driver_logs** **modułu uruchamiania skryptów języka Python** i można sprawdzić, w którym wierszu Wystąpił błąd. Na przykład "plik"/tmp/tmp01_ID/user_script. pr ", wiersz 17, w azureml_main" wskazuje, że wystąpił błąd w 17 wierszach skryptu języka Python.

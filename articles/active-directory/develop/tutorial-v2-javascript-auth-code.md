@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 79fe821e2da494ab8c9e4cb407e2c2b025f75568
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: b7d14ee321a1160420d106151276ae6aef513c5b
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169107"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064406"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Samouczek: Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph z aplikacji jednostronicowej JavaScript (SPA) przy użyciu przepływu kodu uwierzytelniania
 
@@ -45,7 +45,7 @@ Aplikacja, którą tworzysz w tym samouczku, umożliwia skryptom w języku JavaS
 
 W tym samouczku jest stosowana następująca Biblioteka:
 
-[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) Biblioteka Microsoft Authentication Library for JavaScript v 2.0 — pakiet przeglądarki
+[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) pakiet przeglądarki Microsoft Authentication Library for JavaScript v 2.0
 
 ## <a name="get-the-completed-code-sample"></a>Pobierz ukończony przykład kodu
 
@@ -360,7 +360,7 @@ graphMeEndpoint: "https://graph.microsoft.com/v1.0/me",
 graphMailEndpoint: "https://graph.microsoft.com/v1.0/me/messages"
 ```
 
-## <a name="use-microsoft-authentication-library-msal-to-sign-in-user"></a>Użyj biblioteki Microsoft Authentication Library (MSAL) do logowania użytkownika
+## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-user"></a>Logowanie użytkownika przy użyciu biblioteki Microsoft Authentication Library (MSAL)
 
 ### <a name="pop-up"></a>Wyskakujące okienko
 
@@ -558,7 +558,7 @@ SPA, który został utworzony w tym samouczku, wywołuje `acquireTokenSilent` i/
 
 #### <a name="get-a-user-token-interactively"></a>Interaktywne pobieranie tokenu użytkownika
 
-Po wstępnym logowaniu aplikacja nie powinna prosić użytkowników o ponowne uwierzytelnienie za każdym razem, gdy potrzebują dostępu do chronionego zasobu (czyli do żądania tokenu). Aby uniemożliwić takie żądania ponownego uwierzytelniania, wywołaj polecenie `acquireTokenSilent` . Istnieją jednak sytuacje, w których konieczne może być wymuszenie współpracy użytkowników z punktem końcowym platformy tożsamości firmy Microsoft. Przykład:
+Po wstępnym logowaniu aplikacja nie powinna prosić użytkowników o ponowne uwierzytelnienie za każdym razem, gdy potrzebują dostępu do chronionego zasobu (czyli do żądania tokenu). Aby uniemożliwić takie żądania ponownego uwierzytelniania, wywołaj polecenie `acquireTokenSilent` . Istnieją jednak sytuacje, w których konieczne może być wymuszenie współpracy użytkowników z punktem końcowym platformy tożsamości firmy Microsoft. Na przykład:
 
 - Użytkownicy muszą ponownie wprowadzić swoje poświadczenia, ponieważ hasło wygasło.
 - Aplikacja żąda dostępu do zasobu i potrzebujesz zgody użytkownika.

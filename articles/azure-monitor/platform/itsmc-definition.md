@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 2d7c732771749c0c0372c5433b76c3e30469e2b0
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: eacdf0cf80414c44aaccf6925e466b914c66da03
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968419"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065307"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Połącz platformę Azure z narzędziami narzędzia ITSM przy użyciu łącznik zarządzania usługami IT
 
@@ -43,7 +43,7 @@ Aby można było utworzyć połączenie, należy dodać ITSMC.
    >[!NOTE]
    >W ramach trwającego przejścia z Microsoft Operations Management Suite (OMS) do Azure Monitor, obszary robocze OMS są teraz określane jako *log Analytics obszary robocze*.
 
-5. Wybierz przycisk **OK**.
+5. Wybierz pozycję **OK**.
 
 Po wdrożeniu zasobu ITSMC w prawym górnym rogu okna pojawi się powiadomienie.
 
@@ -64,7 +64,7 @@ Po jego narzędzi Narzędzia ITSM wykonaj następujące kroki, aby utworzyć po�
 
 1. W obszarze **wszystkie zasoby** Znajdź pozycję **Servicedesk (*Nazwa obszaru roboczego*)**:
 
-   ![Zrzut ekranu pokazujący najnowsze zasoby w Azure Portal.](media/itsmc-overview/itsm-connections.png)
+   ![Zrzut ekranu pokazujący najnowsze zasoby w Azure Portal.](media/itsmc-definition/create-new-connection-from-resource.png)
 
 1. W obszarze **źródła danych obszaru roboczego** w okienku po lewej stronie wybierz pozycję **połączenia narzędzia ITSM**:
 
@@ -158,7 +158,7 @@ Aby utworzyć grupy akcji, należy wykonać czynności opisane w poniższej proc
         * W przypadku wybrania opcji **"Utwórz indywidualne elementy robocze dla każdego elementu konfiguracji"** w wyborze przycisków radiowych każdy element konfiguracji w każdym alercie zostanie utworzony nowy element roboczy. W systemie narzędzia ITSM może istnieć więcej niż jeden element roboczy na element konfiguracji. Ta wartość będzie taka sama jak zaznaczenie pola wyboru w sekcji incydentu/alertu.
     ![Zrzut ekranu przedstawiający okno zdarzenia narzędzia ITSM.](media/itsmc-overview/itsm-action-configuration-event.png)
 
-10. Wybierz przycisk **OK**.
+10. Wybierz pozycję **OK**.
 
 Gdy tworzysz lub edytujesz regułę alertu platformy Azure, Użyj grupy akcji, która ma akcję narzędzia ITSM. Po wyzwoleniu alertu element roboczy jest tworzony lub aktualizowany w narzędziu narzędzia ITSM.
 

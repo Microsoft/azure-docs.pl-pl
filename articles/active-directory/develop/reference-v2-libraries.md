@@ -12,12 +12,12 @@ ms.date: 07/25/2019
 ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: ebe36c6f4b8b010d2b53bf4153f1476183eb8a4a
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: a7792e989444c87ba80088f8a850cacb4aa0dc3c
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651264"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064576"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Biblioteki uwierzytelniania platformy tożsamości firmy Microsoft
 
@@ -77,10 +77,10 @@ W przypadku obsługiwanych systemów operacyjnych i języków, mapowanie jest na
 |-------------|------------|------------|------------|------------|------------|
 | ![JavaScript](media/sample-v2-code/logo_js.png)  |  MSAL.js | MSAL.js | MSAL.js | MSAL.js |  MSAL.js |
 | <img alt="C#" src="../../cognitive-services/speech-service/media/index/logo_csharp.svg" width="64px" height="64px" /> | ASP.NET, ASP.NET Core, MSAL.Net (.NET PD, rdzeń, platformy UWP)| ASP.NET Core, MSAL.Net (.NET Core) | ASP.NET Core, MSAL.Net (macOS)       | MSAL.Net (Xamarin. iOS) | MSAL.Net (Xamarin. Android)|
-| Swift <br> Obiektowy C |            |            | [Biblioteka MSAL dla systemów iOS i macOS](msal-overview.md) | [Biblioteka MSAL dla systemów iOS i macOS](msal-overview.md) |            |
+| Swift <br> Objective-C |            |            | [Biblioteka MSAL dla systemów iOS i macOS](msal-overview.md) | [Biblioteka MSAL dla systemów iOS i macOS](msal-overview.md) |            |
 | ![Java](media/sample-v2-code/logo_java.png) Java | msal4j | msal4j | msal4j | | MSAL Android |
 | ![Python](media/sample-v2-code/logo_python.png) Python | MSAL Python | MSAL Python | MSAL Python |
-| ![Node.Js](media/sample-v2-code/logo_nodejs.png) Node.JS | Paszport. Node | Paszport. Node | Paszport. Node |
+| ![Node.js](media/sample-v2-code/logo_nodejs.png) Node.js | Paszport. Node | Paszport. Node | Paszport. Node |
 
 Zobacz również [scenariusze według obsługiwanych platform i języków](authentication-flows-app-scenarios.md#scenarios-and-supported-platforms-and-languages)
 

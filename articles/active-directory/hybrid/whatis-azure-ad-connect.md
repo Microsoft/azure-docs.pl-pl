@@ -11,12 +11,12 @@ ms.date: 01/08/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74a6c816979732e21813a0f2024167c68ca1c5dc
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: d8e1af1848405441088796d2e3b42e7b52eedba8
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874104"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065120"
 ---
 # <a name="what-is-azure-ad-connect"></a>Co to jest program Azure AD Connect?
 
@@ -26,7 +26,7 @@ Azure AD Connect to narzędzie firmy Microsoft, które umożliwia spełnienie wy
 - [Uwierzytelnianie przekazywane](how-to-connect-pta.md) — metoda logowania, która pozwala użytkownikom używać tego samego hasła w infrastrukturze lokalnej i w chmurze, ale nie wymaga dodatkowej infrastruktury w środowisku federacyjnym.
 - [Integracja federacyjna](how-to-connect-fed-whatis.md) — usługi federacyjne to opcjonalny składnik programu Azure AD Connect, za pomocą którego można skonfigurować środowisko hybrydowe przy użyciu lokalnej infrastruktury usług AD FS. Składnik ten udostępnia również funkcje zarządzania usługami AD FS, takie jak odnawianie certyfikatów i dodatkowe wdrożenia serwera usług AD FS.
 - [Synchronizacja](how-to-connect-sync-whatis.md) — odpowiada za tworzenie użytkowników, grup i innych obiektów.  Odpowiada też za zapewnienie zgodności informacji o tożsamości lokalnych użytkowników i grup z informacjami w chmurze.  Synchronizacja dotyczy również skrótów haseł.
-- [Monitorowanie kondycji]() — Azure AD Connect Health może zapewnić niezawodne monitorowanie i zapewnić centralną lokalizację w Azure Portal, aby wyświetlić to działanie. 
+- [Monitorowanie kondycji](whatis-azure-ad-connect.md#what-is-azure-ad-connect-health) — Azure AD Connect Health może zapewnić niezawodne monitorowanie i zapewnić centralną lokalizację w Azure Portal, aby wyświetlić to działanie. 
 
 
 ![Co to jest program Azure AD Connect](./media/whatis-hybrid-identity/arch.png)

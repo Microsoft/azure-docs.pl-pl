@@ -1,7 +1,7 @@
 ---
 title: Użyj MSAL.js z Azure AD B2C
 titleSuffix: Microsoft identity platform
-description: Biblioteka Microsoft Authentication Library for JavaScript (MSAL.js) umożliwia aplikacjom współpracę z Azure AD B2C i uzyskiwanie tokenów w celu wywołania zabezpieczonych interfejsów API sieci Web. Te interfejsy API sieci Web mogą być Microsoft Graph, inne interfejsy API firmy Microsoft, interfejsy API sieci Web od innych, lub własny internetowy interfejs API.
+description: Biblioteka Microsoft Authentication Library for JavaScript (MSAL.js) umożliwia aplikacjom współpracę z Azure AD B2C i uzyskiwanie tokenów do wywoływania zabezpieczonych interfejsów API sieci Web. Te interfejsy API sieci Web mogą być Microsoft Graph, inne interfejsy API firmy Microsoft, interfejsy API sieci Web od innych, lub własny internetowy interfejs API.
 services: active-directory
 author: negoe
 manager: CelesteDG
@@ -13,14 +13,14 @@ ms.date: 06/05/2020
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev devx-track-js
-ms.openlocfilehash: ef1c0003978251dd2637915e56dc396e85f4438f
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 53294a30b38bed7ab7516443277cac24e4fef4c1
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107876"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063726"
 ---
-# <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>Użyj biblioteki uwierzytelniania firmy Microsoft dla języka JavaScript do pracy z Azure AD B2C
+# <a name="use-the-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>Użyj biblioteki uwierzytelniania firmy Microsoft dla języka JavaScript do pracy z Azure AD B2C
 
 [Biblioteka Microsoft Authentication Library for JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) umożliwia deweloperom języka JavaScript uwierzytelnianie użytkowników za pomocą tożsamości społecznościowych i lokalnych przy użyciu [Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure AD B2C).
 
@@ -215,6 +215,6 @@ Gdy użytkownik wybierze **zapomniane hasło**, aplikacja zgłosi błąd, który
 
 Dowiedz się więcej na temat tych Azure AD B2C pojęć:
 
-- [Przepływy użytkowników](../../active-directory-b2c/tutorial-create-user-flows.md)
+- [Przepływy użytkownika](../../active-directory-b2c/tutorial-create-user-flows.md)
 - [Zasady niestandardowe](../../active-directory-b2c/custom-policy-get-started.md)
 - [Dostosowywanie interfejsu użytkownika](../../active-directory-b2c/configure-user-input.md)

@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: d7cad0592c5c4c0487f582ce5405c275b94b7bd0
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 018b5396563ac3a4b92b371d396c38afa3d2962f
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444031"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064270"
 ---
 # <a name="call-a-web-api-from-a-mobile-app"></a>Wywoływanie interfejsu API sieci Web z aplikacji mobilnej
 
@@ -119,9 +119,9 @@ task.resume()
 
 Jeśli konieczne jest wywołanie tego samego interfejsu API kilka razy lub jeśli musisz wywołać wiele interfejsów API, weź pod uwagę następujące kwestie podczas kompilowania aplikacji:
 
-- Powiększanie **zgody** : platforma tożsamości firmy Microsoft umożliwia aplikacjom uzyskanie zgody użytkownika, gdy wymagane są uprawnienia, a nie wszystkie na początku. Za każdym razem, gdy aplikacja jest gotowa do wywołania interfejsu API, powinna zażądać tylko wymaganych zakresów.
+- Powiększanie **zgody**: platforma tożsamości firmy Microsoft umożliwia aplikacjom uzyskanie zgody użytkownika, gdy wymagane są uprawnienia, a nie wszystkie na początku. Za każdym razem, gdy aplikacja jest gotowa do wywołania interfejsu API, powinna zażądać tylko wymaganych zakresów.
 
-- **Dostęp warunkowy** : po wprowadzeniu kilku żądań interfejsu API w niektórych scenariuszach może być konieczne spełnienie dodatkowych wymagań dostępu warunkowego. Wymagania mogą wzrosnąć w ten sposób, jeśli pierwsze żądanie nie ma zasad dostępu warunkowego, a aplikacja próbuje uzyskać dostęp do nowego interfejsu API, który wymaga dostępu warunkowego. Aby obsłużyć ten problem, należy zwrócić uwagę na błędy żądań dyskretnych i przygotować się do przeprowadzenia interakcyjnego żądania.  Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące dostępu warunkowego](../azuread-dev/conditional-access-dev-guide.md).
+- **Dostęp warunkowy**: po wprowadzeniu kilku żądań interfejsu API w niektórych scenariuszach może być konieczne spełnienie dodatkowych wymagań dostępu warunkowego. Wymagania mogą wzrosnąć w ten sposób, jeśli pierwsze żądanie nie ma zasad dostępu warunkowego, a aplikacja próbuje uzyskać dostęp do nowego interfejsu API, który wymaga dostępu warunkowego. Aby obsłużyć ten problem, należy zwrócić uwagę na błędy żądań dyskretnych i przygotować się do przeprowadzenia interakcyjnego żądania.  Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące dostępu warunkowego](../azuread-dev/conditional-access-dev-guide.md).
 
 ## <a name="call-several-apis-by-using-incremental-consent-and-conditional-access"></a>Wywoływanie kilku interfejsów API przy użyciu funkcji przyrostowej zgody i dostępu warunkowego
 

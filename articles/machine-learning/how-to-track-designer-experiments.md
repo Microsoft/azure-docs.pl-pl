@@ -8,15 +8,15 @@ ms.author: keli19
 ms.reviewer: peterlu
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 11/25/2020
+ms.date: 01/11/2021
 ms.topic: conceptual
 ms.custom: designer
-ms.openlocfilehash: 29d83f4acddfce6294457f87519d62e35f52bf15
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: b940f5c9bd14bcec404827daaef666da802d969b
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97709422"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065256"
 ---
 # <a name="enable-logging-in-azure-machine-learning-designer-pipelines"></a>Włącz rejestrowanie w potokach projektanta Azure Machine Learning
 
@@ -27,7 +27,7 @@ Aby uzyskać więcej informacji na temat rejestrowania metryk przy użyciu środ
 
 ## <a name="enable-logging-with-execute-python-script"></a>Włączanie rejestrowania przy użyciu skryptu wykonaj skrypt języka Python
 
-Użyj modułu __skryptu języka Python__ , aby włączyć rejestrowanie w potokach projektanta. Chociaż można rejestrować dowolną wartość przy użyciu tego przepływu pracy, jest szczególnie przydatne do rejestrowania metryk z modułu __oceny modelu__ do śledzenia wydajności modelu w ramach przebiegów.
+Użyj modułu [skryptu języka Python](./algorithm-module-reference/execute-python-script.md) , aby włączyć rejestrowanie w potokach projektanta. Chociaż można rejestrować dowolną wartość przy użyciu tego przepływu pracy, jest szczególnie przydatne do rejestrowania metryk z modułu __oceny modelu__ do śledzenia wydajności modelu w ramach przebiegów.
 
 W poniższym przykładzie pokazano, jak zarejestrować średni kwadratowy błąd dwóch przeszkolonych modeli przy użyciu modelu oszacowania i wykonywania modułów skryptów języka Python.
 
@@ -53,7 +53,7 @@ W poniższym przykładzie pokazano, jak zarejestrować średni kwadratowy błąd
         
         # Log left output port result of Evaluate Model. This also works when evaluate only 1 model.
         parent_run.log(name='Mean_Absolute_Error (left port)', value=dataframe1['Mean_Absolute_Error'][0])
-        # Log right output port result of Evaluate Model.
+        # Log right output port result of Evaluate Model. The following line should be deleted if you only connect one Score Module to the` left port of Evaluate Model module.
         parent_run.log(name='Mean_Absolute_Error (right port)', value=dataframe1['Mean_Absolute_Error'][1])
 
         return dataframe1,
@@ -81,3 +81,4 @@ W tym artykule przedstawiono sposób korzystania z dzienników w projektancie. A
 
 * Informacje na temat rozwiązywania problemów z potokami projektanta można znaleźć w temacie [Debug & Rozwiązywanie problemów z potokami ml](how-to-debug-pipelines.md#azure-machine-learning-designer).
 * Dowiedz się, jak używać zestawu SDK języka Python do rejestrowania metryk w środowisku tworzenia zestawu SDK, zobacz [Włączanie rejestrowania w usłudze Azure ml szkoleń](how-to-track-experiments.md).
+* Dowiedz się, jak używać [skryptu Execute języka Python](./algorithm-module-reference/execute-python-script.md) w projektancie.

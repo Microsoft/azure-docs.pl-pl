@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: 9d2fba48762e11a92f6f3925c969b01aebbe3630
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: e18267d5a810826e41e05eb3dde3cd82a8eb9197
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347595"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065324"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Zapasowe dzienniki kondycji i diagnostyczne dla Application Gateway
 
@@ -222,7 +222,7 @@ Dziennik dostępu jest generowany tylko wtedy, gdy włączono go na każdym wyst
 |serverRouted| Serwer zaplecza, do którego Brama aplikacji kieruje żądanie.|
 |serverStatus| Kod stanu HTTP serwera wewnętrznej bazy danych.|
 |serverResponseLatency| Opóźnienie odpowiedzi z serwera wewnętrznej bazy danych.|
-|host| Adres podany w nagłówku hosta żądania. W przypadku zapisania tego pola zawiera zaktualizowaną nazwę hosta|
+|host| Adres podany w nagłówku hosta żądania. Jeśli ponownie Zapisano przy użyciu ponownego zapisu nagłówka, to pole zawiera zaktualizowaną nazwę hosta|
 |originalRequestUriWithArgs| To pole zawiera pierwotny adres URL żądania |
 |requestUri| To pole zawiera adres URL po operacji ponownego zapisu na Application Gateway |
 |originalHost| To pole zawiera oryginalną nazwę hosta żądania

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: c72538de8aba60ce7ed880561b55773c22737f97
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: e46b08e31725765d700bf41649d997d7b20e5f95
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498629"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065494"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Wyzwalacze i wykonywanie potoku w usłudze Azure Data Factory
 
@@ -241,7 +241,7 @@ Poniższa tabela zawiera ogólne omówienie głównych elementów schematu odnos
 | **endTime** | Data i godzina zakończenia wyzwalacza. Wyzwalacz nie jest wykonywany po określonej dacie i godzinie zakończenia. Wartość właściwości nie może odnosić się do przeszłości. <!-- This property is optional. --> |
 | **timeZone** | Strefa czasowa. Aby uzyskać listę obsługiwanych stref czasowych, zobacz [Tworzenie wyzwalacza uruchamiającego potok zgodnie z harmonogramem](how-to-create-schedule-trigger.md#time-zone-option). |
 | **wystąpieniu** | Obiekt cyklu określający reguły powtarzania wyzwalacza. Obiekt cyklu obsługuje elementy właściwości **frequency**, **interval**, **endTime**, **count** i **schedule**. Po zdefiniowaniu obiektu cyklu wymagany jest element właściwości **frequency**. Inne elementy obiektu cyklu są opcjonalne. |
-| **frequency** | Jednostka częstotliwości powtarzania wyzwalacza. Obsługiwane wartości to „minute” („minuta”), „hour” („godzina”), „day” („dzień”), „week” („tydzień”) i „month” („miesiąc”). |
+| **jaką** | Jednostka częstotliwości powtarzania wyzwalacza. Obsługiwane wartości to „minute” („minuta”), „hour” („godzina”), „day” („dzień”), „week” („tydzień”) i „month” („miesiąc”). |
 | **dat** | Dodatnia liczba całkowita, która określa odstęp czasu dla wartości **frequency**. Wartość **frequency** określa, jak często jest uruchamiany wyzwalacz. Jeśli na przykład właściwość **interval** ma wartość 3, a właściwość **frequency** ma wartość „week” („tydzień”), wyzwalacz jest powtarzany co trzy tygodnie. |
 | **rozkład** | Harmonogram cyklu wyzwalacza. Wyzwalacz z określoną wartością właściwości **frequency** zmienia swój cykl na podstawie harmonogramu cyklu. Właściwość **schedule** zawiera modyfikacje cyklu oparte na minutach, godzinach, dniach tygodnia, dniach miesiąca i numerze tygodnia. |
 
@@ -381,7 +381,7 @@ Poniższa tabela zawiera porównanie wyzwalacza okna wirowania i wyzwalacza harm
 | **Niezawodność** | 100-procentowa niezawodność. Uruchomienia potoków można zaplanować dla wszystkich okien od określonej daty rozpoczęcia bez przerw. | Mniej niezawodne. |
 | **Możliwość ponowienia próby** | Obsługiwane. Uruchomienia potoków zakończone niepowodzeniem mają domyślne zasady ponawiania próby ustawione na wartość 0 lub zasady określone przez użytkownika w definicji wyzwalacza. Automatycznie ponawia próbę, gdy uruchomienie potoku nie powiodło się z powodu ograniczeń współbieżności/serwera/ograniczania (czyli kodów stanu 400: błąd użytkownika, 429: zbyt wiele żądań i 500: wewnętrzny błąd serwera). | Nieobsługiwane. |
 | **Współbieżność** | Obsługiwane. Użytkownicy mogą jawnie ustawić limity współbieżności dla wyzwalacza. Umożliwia od 1 do 50 jednocześnie wyzwolonych uruchomień potoków. | Nieobsługiwane. |
-| **Zmienne systemu** | Wraz z @trigger (). scheduledTime i @trigger (). StartTime obsługuje także użycie zmiennych systemowych **WindowStart** i **WindowEnd** . Użytkownicy mogą uzyskiwać dostęp do zmiennych `triggerOutputs().windowStartTime` i `triggerOutputs().windowEndTime` jako zmiennych systemu wyzwalacza w definicji wyzwalacza. Wartości są używane odpowiednio jako czas rozpoczęcia okna i czas zakończenia okna. Na przykład w przypadku wyzwalacza okna wirowania uruchamianego co godzinę dla okna od godz. 1:00 do 2:00 definicją jest zmienna `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` i `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | Obsługiwane są tylko @trigger zmienne default (). scheduledTime i @trigger (). StartTime. |
+| **Zmienne systemu** | Wraz z @trigger (). scheduledTime i @trigger (). StartTime obsługuje także użycie zmiennych systemowych **WindowStart** i **WindowEnd** . Użytkownicy mogą uzyskiwać dostęp do zmiennych `trigger().outputs.windowStartTime` i `trigger().outputs.windowEndTime` jako zmiennych systemu wyzwalacza w definicji wyzwalacza. Wartości są używane odpowiednio jako czas rozpoczęcia okna i czas zakończenia okna. Na przykład w przypadku wyzwalacza okna wirowania uruchamianego co godzinę dla okna od godz. 1:00 do 2:00 definicją jest zmienna `trigger().outputs.windowStartTime = 2017-09-01T01:00:00Z` i `trigger().outputs.windowEndTime = 2017-09-01T02:00:00Z`. | Obsługiwane są tylko @trigger zmienne default (). scheduledTime i @trigger (). StartTime. |
 | **Relacja potoku do wyzwalacza** | Obsługuje relację „jeden do jednego”. Można wyzwolić tylko jeden potok. | Obsługuje relacje „wiele do wielu”. Wiele wyzwalaczy może uruchomić jeden potok. Jeden wyzwalacz może uruchamiać wiele potoków. |
 
 ## <a name="next-steps"></a>Następne kroki

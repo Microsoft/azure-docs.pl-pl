@@ -1,5 +1,5 @@
 ---
-title: Wskazówki dla deweloperów dotyczące dostępu warunkowego w usłudze Azure Active Directory
+title: Wskazówki dla deweloperów dotyczące Azure Active Directory dostępu warunkowego
 titleSuffix: Microsoft identity platform
 description: Wskazówki dla deweloperów i scenariusze dotyczące dostępu warunkowego usługi Azure AD i platformy tożsamości firmy Microsoft.
 services: active-directory
@@ -14,14 +14,14 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
-ms.openlocfilehash: b1bfefb3b72c151e7a61068b3c0ad9f3e2bc4a6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8935cb3208aadc2822af1f57067877f9cedcb931
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88120630"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064372"
 ---
-# <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Wskazówki dla deweloperów dotyczące dostępu warunkowego w usłudze Azure Active Directory
+# <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Wskazówki dla deweloperów dotyczące Azure Active Directory dostępu warunkowego
 
 Funkcja dostępu warunkowego w usłudze Azure Active Directory (Azure AD) oferuje jeden z kilku sposobów zabezpieczania aplikacji oraz ochrony usługi. Dostęp warunkowy umożliwia deweloperom i klientom korporacyjnym ochronę usług na wiele sposobów, takich jak:
 
@@ -43,7 +43,7 @@ Założono znajomość [pojedynczych](quickstart-register-app.md) i [wielodostę
 
 ### <a name="app-types-impacted"></a>Typy aplikacji, których dotyczy problem
 
-W większości typowych przypadków dostęp warunkowy nie zmienia zachowania aplikacji ani nie wymaga żadnych zmian od dewelopera.Tylko w niektórych przypadkach, gdy aplikacja pośrednio lub dyskretnie żąda tokenu dla usługi, aplikacja wymaga zmiany kodu w celu obsługi dostępu warunkowego "wyzwania".Może być tak proste, jak wykonywanie interakcyjnego żądania logowania.
+W większości typowych przypadków dostęp warunkowy nie zmienia zachowania aplikacji ani nie wymaga żadnych zmian od dewelopera. Tylko w niektórych przypadkach, gdy aplikacja pośrednio lub dyskretnie żąda tokenu dla usługi, aplikacja wymaga zmiany kodu w celu obsługi dostępu warunkowego "wyzwania". Może być tak proste, jak wykonywanie interakcyjnego żądania logowania.
 
 W szczególnych przypadkach następujące scenariusze wymagają, aby kod obsługiwał dostęp warunkowy "wyzwania":
 

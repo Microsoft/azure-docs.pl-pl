@@ -13,15 +13,15 @@ ms.date: 04/25/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 9c3292a31e5f750c16933acf94509e0ad226080a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ef29f6fe3403809d01fcea382474c514319b7c0
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81534316"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063760"
 ---
 # <a name="public-client-and-confidential-client-applications"></a>Klient publiczny i poufne aplikacje klienckie
-Biblioteka Microsoft Authentication Library (MSAL) definiuje dwóch typów klientów: klientów publicznych i poufnych klientów. Dwa typy klientów są rozróżniane przez ich możliwość bezpiecznego uwierzytelniania z serwerem autoryzacji i zachowania poufności poświadczeń klienta. W przeciwieństwie do biblioteki Azure AD Authentication Library (ADAL) jest używany *kontekst uwierzytelniania* (który jest połączeniem z usługą Azure AD).
+Biblioteka Microsoft Authentication Library (MSAL) definiuje dwa typy klientów: klientów publicznych i poufnych klientów. Dwa typy klientów są rozróżniane przez ich możliwość bezpiecznego uwierzytelniania z serwerem autoryzacji i zachowania poufności poświadczeń klienta. W przeciwieństwie do biblioteki Azure AD Authentication Library (ADAL) jest używany *kontekst uwierzytelniania* (który jest połączeniem z usługą Azure AD).
 
 - **Poufne aplikacje klienckie** to aplikacje działające na serwerach (aplikacje sieci Web, aplikacje interfejsu Web API, a nawet aplikacje usługi/demon). Są one uznawane za trudne do uzyskania dostępu i z tego powodu mogą utrzymać klucz tajny aplikacji. Poufne klienci mogą przechowywać wpisy tajne czasu konfiguracji. Każde wystąpienie klienta ma odrębną konfigurację (w tym identyfikator klienta i klucz tajny klienta). Te wartości są trudne dla użytkowników końcowych do wyodrębnienia. Aplikacja sieci Web to najbardziej typowy klient poufny. Identyfikator klienta jest udostępniany za pośrednictwem przeglądarki sieci Web, ale wpis tajny jest przesyłany tylko w kanale zaplecza i nigdy nie jest bezpośrednio narażony.
 
@@ -43,7 +43,7 @@ Poniżej przedstawiono niektóre podobieństwa i różnice między klientem publ
 - Oba typy aplikacji zarządzają kontami użytkowników i mogą uzyskać konto z pamięci podręcznej tokenów użytkowników, uzyskać konto z jego identyfikatora lub usunąć konto.
 - Publiczne aplikacje klienckie mają cztery metody uzyskiwania tokenu (cztery przepływy uwierzytelniania). Poufne aplikacje klienckie mają trzy metody uzyskiwania tokenu (i jeden ze sposobów obliczania adresu URL dostawcy tożsamości, który autoryzują punkt końcowy). Aby uzyskać więcej informacji, zobacz [Uzyskiwanie tokenów](msal-acquire-cache-tokens.md).
 
-Jeśli użyto biblioteki ADAL, możesz zauważyć, że w przeciwieństwie do kontekstu uwierzytelniania biblioteki ADAL w MSAL identyfikator klienta (nazywany również *identyfikatorem aplikacji* lub *identyfikatorem*aplikacji) jest przekazywany raz podczas konstruowania aplikacji. Nie trzeba go ponownie przekazywać, gdy aplikacja uzyska token. Dotyczy to zarówno publicznej, jak i poufnej aplikacji klienckiej. W przypadku konstruktorów poufnych aplikacji klienckich są również przesyłane poświadczenia klienta: klucz tajny, który udostępnia dostawcy tożsamości.
+Jeśli użyto biblioteki ADAL, możesz zauważyć, że w przeciwieństwie do kontekstu uwierzytelniania biblioteki ADAL w MSAL identyfikator klienta (nazywany również *identyfikatorem aplikacji* lub *identyfikatorem* aplikacji) jest przekazywany raz podczas konstruowania aplikacji. Nie trzeba go ponownie przekazywać, gdy aplikacja uzyska token. Dotyczy to zarówno publicznej, jak i poufnej aplikacji klienckiej. W przypadku konstruktorów poufnych aplikacji klienckich są również przesyłane poświadczenia klienta: klucz tajny, który udostępnia dostawcy tożsamości.
 
 ## <a name="next-steps"></a>Następne kroki
 Dowiedz się więcej:

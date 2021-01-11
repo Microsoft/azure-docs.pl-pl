@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 47c3c091e767cac63bb814469397ef1a0aeca3a4
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 011acdf98c8430bfb7ba1b02ec24a170f829e48f
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516493"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063794"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Najlepsze rozwiązania i zalecenia dotyczące platformy tożsamości firmy Microsoft
 
@@ -38,7 +38,7 @@ Użyj poniższej listy kontrolnej, aby upewnić się, że aplikacja jest efektyw
 
 ![pole wyboru](./media/active-directory-integration-checklist/checkbox-two.svg) Upewnij się, że informacje skojarzone z kontem używanym do rejestrowania aplikacji i zarządzania nimi są aktualne.
 
-## <a name="branding"></a>Marka
+## <a name="branding"></a>Znakowanie
 
 ![pole wyboru ](./media/active-directory-integration-checklist/checkbox-two.svg) jest zgodne ze [wskazówkami dotyczącymi oznakowania dla aplikacji](howto-add-branding-in-azure-ad-apps.md).
 

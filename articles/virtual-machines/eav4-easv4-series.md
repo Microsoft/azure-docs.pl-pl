@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 9b6ea9491575236a3ef84d660ead8022d13e01ef
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 80cacdcda39d3a7c443c1c94a797e69ba9a52bfd
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964132"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065460"
 ---
 # <a name="eav4-and-easv4-series"></a>Serie Eav4 i Easv4
 
@@ -32,15 +32,15 @@ Rozmiary serii Eav4 są oparte na procesorze 2.35 GHz AMD EPYC<sup>TM</sup> 7452
 
 | Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu tymczasowego: operacje we/wy na sek. / odczyt MB/s / zapis MB/s | Maksymalna liczba kart sieciowych | Oczekiwana przepustowość sieci (MB/s) |
 | -----|-----|-----|-----|-----|-----|-----|-----|
-| Standardowa \_ E2A \_ v4|2|16|50|4|3000 / 46 / 23|2 | 1000 |
-| Standardowa \_ E4A \_ v4|4|32|100|8|6000 / 93 / 46|2 | 2000 |
-| Standardowa \_ E8a \_ v4|8|64|200|16|12000 / 187 / 93|4 | 4000 |
-| Standardowa \_ E16a \_ v4|16|128|400|32|24000 / 375 / 187|8 | 8000 |
-| Standardowa \_ E20a \_ v4|20|160|500|32|30000/468/234|8 | 10 000 |
-| Standardowa \_ E32a \_ v4|32|256|800|32|48000 / 750 / 375|8 | 16000 |
-| Standardowa \_ E48a \_ v4|48|384|1200|32|96000/1000 (500)|8 | 24000 |
-| Standardowa \_ E64a \_ v4|64|512|1600|32|96000/1000 (500)|8 | 30000 |
-| Standardowa \_ E96a \_ v4|96|672|2400|32|96000/1000 (500)|8 | 30000 |
+| Standardowa \_ E2A \_ v4|2|16|50|4|3000 / 46 / 23|2 | 800 |
+| Standardowa \_ E4A \_ v4|4|32|100|8|6000 / 93 / 46|2 | 1600 |
+| Standardowa \_ E8a \_ v4|8|64|200|16|12000 / 187 / 93|4 | 3200 |
+| Standardowa \_ E16a \_ v4|16|128|400|32|24000 / 375 / 187|8 | 6400 |
+| Standardowa \_ E20a \_ v4|20|160|500|32|30000/468/234|8 | 8000 |
+| Standardowa \_ E32a \_ v4|32|256|800|32|48000 / 750 / 375|8 | 12800 |
+| Standardowa \_ E48a \_ v4|48|384|1200|32|96000/1000 (500)|8 | 19200 |
+| Standardowa \_ E64a \_ v4|64|512|1600|32|96000/1000 (500)|8 | 25600 |
+| Standardowa \_ E96a \_ v4|96|672|2400|32|96000/1000 (500)|8 | 32000 |
 
 ## <a name="easv4-series"></a>Seria Easv4
 
@@ -56,15 +56,15 @@ Rozmiary serii Easv4 są oparte na procesorze 2.35 GHz AMD EPYC<sup>TM</sup> 745
 
 | Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu buforowanego i tymczasowego: liczba operacji we/wy na sekundę / MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność niebuforowanych dysków: liczba operacji we/wy na sekundę / MB/s | Maksymalna liczba kart sieciowych | Oczekiwana przepustowość sieci (MB/s) |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|
-| Standard_E2as_v4|2|16|32|4|4000/32 (50)|3200/48|2 | 1000 |
-| Standard_E4as_v4|4|32|64|8|8000/64 (100)|6400/96|2 | 2000 |
-| Standard_E8as_v4|8|64|128|16|16000/128 (200)|12800/192|4 | 4000 |
-| Standard_E16as_v4|16|128|256|32|32000/255 (400)|25600/384|8 | 8000 |
-| Standard_E20as_v4|20|160|320|32|40000/320 (500)|32000/480|8 | 10 000 |
-| Standard_E32as_v4|32|256|512|32|64000/510 (800)|51200/768|8 | 16000 |
-| Standard_E48as_v4|48|384|768|32|96000/1020 (1200)|76800/1148|8 | 24000 |
-| Standard_E64as_v4|64|512|1024|32|128000/1020 (1600)|80000/1200|8 | 30000 |
-| Standard_E96as_v4 <sup>1</sup>|96|672|1344|32|192000/1020 (2400)|80000/1200|8 | 30000 |
+| Standard_E2as_v4|2|16|32|4|4000/32 (50)|3200/48|2 | 800 |
+| Standard_E4as_v4|4|32|64|8|8000/64 (100)|6400/96|2 | 1600 |
+| Standard_E8as_v4|8|64|128|16|16000/128 (200)|12800/192|4 | 3200 |
+| Standard_E16as_v4|16|128|256|32|32000/255 (400)|25600/384|8 | 6400 |
+| Standard_E20as_v4|20|160|320|32|40000/320 (500)|32000/480|8 | 8000 |
+| Standard_E32as_v4|32|256|512|32|64000/510 (800)|51200/768|8 | 12800 |
+| Standard_E48as_v4|48|384|768|32|96000/1020 (1200)|76800/1148|8 | 19200 |
+| Standard_E64as_v4|64|512|1024|32|128000/1020 (1600)|80000/1200|8 | 25600 |
+| Standard_E96as_v4 <sup>1</sup>|96|672|1344|32|192000/1020 (2400)|80000/1200|8 | 32000 |
 
 dostępne są <sup>1</sup> [ograniczone rozmiary rdzeni](./constrained-vcpu.md).
 

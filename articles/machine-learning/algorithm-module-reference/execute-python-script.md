@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
-ms.date: 12/02/2020
-ms.openlocfilehash: d1e4ffa525c5628d0b6c9a3ca67f3e069c44e823
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.date: 01/02/2021
+ms.openlocfilehash: 7b5bc77375d684340116a21b7f95cf576d99dad2
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679189"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065358"
 ---
 # <a name="execute-python-script-module"></a>Wykonaj moduł skryptu języka Python
 
@@ -60,7 +60,7 @@ if spec is None:
 > [!WARNING]
 > Moduł skryptu języka Python excute nie obsługuje instalowania pakietów, które są zależne od dodatkowych bibliotek natywnych za pomocą polecenia, takiego jak "apt-get", takie jak Java, moduł pyodbc i itp. Jest to spowodowane tym, że ten moduł jest wykonywany w prostym środowisku z wstępnie zainstalowanym językiem Python i z uprawnieniem innym niż administrator.  
 
-## <a name="access-to-registered-datasets"></a>Dostęp do zarejestrowanych zestawów danych
+## <a name="access-to-current-workspace-and-registered-datasets"></a>Dostęp do bieżącego obszaru roboczego i zarejestrowanych zestawów danych
 
 Aby uzyskać dostęp do [zarejestrowanych zestawów danych](../how-to-create-register-datasets.md) w obszarze roboczym, można odwołać się do następującego przykładowego kodu:
 
@@ -71,8 +71,10 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     print(f'Input pandas.DataFrame #1: {dataframe1}')
     from azureml.core import Run
     run = Run.get_context(allow_offline=True)
+    #access to current workspace
     ws = run.experiment.workspace
 
+    #access to registered dataset of current workspace
     from azureml.core import Dataset
     dataset = Dataset.get_by_name(ws, name='test-register-tabular-in-designer')
     dataframe1 = dataset.to_pandas_dataframe()
@@ -219,7 +221,9 @@ Moduł wykonywania skryptu języka Python zawiera przykładowy kod w języku Pyt
 
 6. Prześlij potok.
 
-    Wszystkie dane i kod są ładowane do maszyny wirtualnej i uruchamiane przy użyciu określonego środowiska języka Python.
+    Jeśli moduł został ukończony, sprawdź dane wyjściowe, jeśli jest to oczekiwane.
+
+    W przypadku niepowodzenia modułu należy wykonać pewne Rozwiązywanie problemów. Wybierz moduł, a następnie otwórz okno dane **wyjściowe + dzienniki** w okienku po prawej stronie. Otwórz **70_driver_log.txt** i wyszukaj **w azureml_main**, a następnie sprawdź, który wiersz spowodował błąd. Na przykład "plik"/tmp/tmp01_ID/user_script. pr ", wiersz 17, w azureml_main" wskazuje, że wystąpił błąd w 17 wierszach skryptu języka Python.
 
 ## <a name="results"></a>Wyniki
 

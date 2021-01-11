@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: 59924c1f876d08aa504f19c5d6c86dca32fbd1e2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 9c53ea5bad88eb79940274c409218045c06d7981
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173468"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064972"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Obsługa logowania jednokrotnego i zasad ochrony aplikacji w aplikacjach mobilnych, które tworzysz
 
@@ -36,7 +36,7 @@ Ponadto włączenie logowania jednokrotnego w aplikacji odblokowuje nowe mechani
 
 Zalecamy wykonanie poniższych czynności, aby umożliwić aplikacji korzystanie z funkcji logowania jednokrotnego.
 
-### <a name="use-microsoft-authentication-library-msal"></a>Użyj biblioteki uwierzytelniania firmy Microsoft (MSAL)
+### <a name="use-the-microsoft-authentication-library-msal"></a>Korzystanie z biblioteki uwierzytelniania firmy Microsoft (MSAL)
 
 Najlepszym wyborem do implementowania logowania jednokrotnego w aplikacji jest użycie [biblioteki uwierzytelniania firmy Microsoft (MSAL)](msal-overview.md). Za pomocą MSAL można dodać uwierzytelnianie do aplikacji z minimalnymi wywołaniami kodu i interfejsu API, uzyskać pełne funkcje [platformy tożsamości firmy Microsoft](./index.yml), a firma Microsoft może obsłużyć konserwację bezpiecznego rozwiązania do uwierzytelniania. Domyślnie MSAL dodaje obsługę logowania jednokrotnego dla aplikacji. Ponadto korzystanie z MSAL jest wymagane, jeśli planujesz również wdrożenie zasad ochrony aplikacji.
 

@@ -13,14 +13,14 @@ ms.date: 04/10/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 5d91514af9aea3dd7ea13b94681fbb27c53772fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6894d84f489d3719f1106ba4de79cb85fa45c5ed
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88120902"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064954"
 ---
-# <a name="differences-between-msal-js-and-adal-js"></a>Różnice między MSAL JS i ADAL JS
+# <a name="differences-between-msaljs-and-adaljs"></a>Różnice między MSAL.js i ADAL.js
 
 Zarówno Biblioteka uwierzytelniania firmy Microsoft dla języka JavaScript (MSAL.js), jak i Biblioteka Azure AD Authentication Library dla języka JavaScript (ADAL.js) służą do uwierzytelniania jednostek usługi Azure AD i żądania tokenów z usługi Azure AD. Do tej pory większość deweloperów pracowała z usługą Azure AD dla deweloperów (v 1.0) do uwierzytelniania tożsamości usługi Azure AD (konta służbowe), żądając tokenów przy użyciu biblioteki ADAL. Teraz za pomocą MSAL.js można uwierzytelnić szerszy zbiór tożsamości firmy Microsoft (tożsamości usługi Azure AD i kont Microsoft oraz Azure AD B2C kont społecznościowych i lokalnych) za pośrednictwem usługi Microsoft Identity platform (v 2.0).
 

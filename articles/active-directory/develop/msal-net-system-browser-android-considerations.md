@@ -13,12 +13,12 @@ ms.date: 10/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 8f755b42249a88a2d37117003d561f79aea6b170
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4230a194fb18587a209c100a39b0924e6170502d
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88165995"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063471"
 ---
 #  <a name="xamarin-android-system-browser-considerations-for-using-msalnet"></a>Zagadnienia dotyczące korzystania z usługi MSAL.NET w przeglądarce systemu Android dla platformy Xamarin
 
@@ -44,16 +44,16 @@ W poniższej tabeli wymieniono urządzenia i przeglądarki, które zostały prze
 
 | Urządzenie | Przeglądarka     |  Wynik  | 
 | ------------- |:-------------:|:-----:|
-| Huawei/jeden + | Chrome\* | Chodzenia|
-| Huawei/jeden + | Edge\* | Chodzenia|
-| Huawei/jeden + | Firefox\* | Chodzenia|
-| Huawei/jeden + | Brave\* | Chodzenia|
-| Jeden + | Ecosia\* | Chodzenia|
-| Jeden + | Kiwi\* | Chodzenia|
-| Huawei/jeden + | Opera | Chodzenia|
-| Huawei | OperaMini | Chodzenia|
-| Huawei/jeden + | Brak przeglądarki | Chodzenia|
-| Jeden + | Maxthon | Chodzenia|
+| Huawei/jeden + | Chrome\* | Zdane|
+| Huawei/jeden + | Microsoft Edge\* | Zdane|
+| Huawei/jeden + | Firefox\* | Zdane|
+| Huawei/jeden + | Brave\* | Zdane|
+| Jeden + | Ecosia\* | Zdane|
+| Jeden + | Kiwi\* | Zdane|
+| Huawei/jeden + | Opera | Zdane|
+| Huawei | OperaMini | Zdane|
+| Huawei/jeden + | Brak przeglądarki | Zdane|
+| Jeden + | Maxthon | Zdane|
 | Huawei/jeden + | DuckDuckGo | Użytkownik anulował uwierzytelnianie|
 | Huawei/jeden + | Przeglądarka UC | Użytkownik anulował uwierzytelnianie|
 | Jeden + | Tuńczyk | Użytkownik anulował uwierzytelnianie|

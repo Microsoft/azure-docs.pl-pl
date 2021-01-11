@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: 01e492072bd75af9f80656b71d2cc1c473d64263
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: cea4503c4e3b9dd58cc475aaec355a2bb2e0bd29
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803803"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065189"
 ---
 # <a name="troubleshooting-problems-in-itsm-connector"></a>Rozwiązywanie problemów w łączniku ITSM
 
@@ -23,13 +23,38 @@ NARZĘDZIA ITSM umożliwia wysyłanie alertów do zewnętrznego systemu biletów
 
 ## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Wizualizuj i analizuj dane zdarzenia i żądania zmiany
 
-W zależności od konfiguracji podczas konfigurowania połączenia ITSMC może synchronizować do 120 dni zdarzenia i dane żądania zmiany. Schemat rekordów dziennika dla tych danych znajduje się w [sekcji dodatkowe informacje](./itsmc-overview.md) w tym artykule.
+W zależności od konfiguracji podczas konfigurowania połączenia ITSMC może synchronizować do 120 dni zdarzenia i dane żądania zmiany. Schemat rekordów dziennika dla tych danych znajduje się w [sekcji dodatkowe informacje](./itsmc-synced-data.md) w tym artykule.
 
 Możesz wizualizować dane zdarzenia i żądania zmiany za pomocą pulpitu nawigacyjnego ITSMC:
 
 ![Zrzut ekranu przedstawiający pulpit nawigacyjny ITSMC.](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
 
 Pulpit nawigacyjny zawiera również informacje o stanie łącznika, którego można użyć jako punktu wyjścia do analizowania problemów z połączeniami.
+
+### <a name="error-investigation-using-the-dashboard"></a>Badanie błędów przy użyciu pulpitu nawigacyjnego
+
+Aby wyświetlić błędy na pulpicie nawigacyjnym, należy wykonać następujące czynności:
+
+1. W obszarze **wszystkie zasoby** Znajdź pozycję **Servicedesk (*Nazwa obszaru roboczego*)**:
+
+   ![Zrzut ekranu pokazujący najnowsze zasoby w Azure Portal.](media/itsmc-definition/create-new-connection-from-resource.png)
+
+2. W obszarze **źródła danych obszaru roboczego** w okienku po lewej stronie wybierz pozycję **połączenia narzędzia ITSM**:
+
+   ![Zrzut ekranu pokazujący element menu Narzędzia ITSM Connections.](media/itsmc-overview/add-new-itsm-connection.png)
+
+3. W obszarze **Podsumowanie** w polu po lewej stronie **Łącznik zarządzania usługami IT** wybierz pozycję **Wyświetl podsumowanie**:
+
+    ![Zrzut ekranu pokazujący podsumowanie widoku.](media/itsmc-resync-servicenow/dashboard-view-summary.png)
+
+4. W obszarze **Podsumowanie** w polu po lewej stronie **Łącznik zarządzania usługami IT** kliknij wykres:
+
+    ![Zrzut ekranu pokazujący kliknięcie wykresu.](media/itsmc-resync-servicenow/dashboard-graph-click.png)
+
+5. Za pomocą tego pulpitu nawigacyjnego będzie można sprawdzić stan i błędy w łączniku.
+    ![Zrzut ekranu przedstawiający stan łącznika.](media/itsmc-resync-servicenow/connector-dashboard.png)
+
+### <a name="service-map"></a>Mapa usługi
 
 Możesz również wizualizować zdarzenia zsynchronizowane z komputerami, których dotyczy problem, w Service Map.
 

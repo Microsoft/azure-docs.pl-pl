@@ -1,18 +1,18 @@
 ---
 title: Kwerenda między usługami Azure Monitor i Azure Eksplorator danych (wersja zapoznawcza)
 description: Wykonaj zapytania dotyczące danych Eksplorator danych platformy Azure za pomocą narzędzi Azure Log Analytics Tools na odwrót, aby dołączyć i analizować wszystkie dane w jednym miejscu.
-author: orens
+author: osalzberg
 ms.author: bwren
 ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: 0af9111223bb16f1c5843223e7fe1661ce99c623
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: 5aadd9d96f538f92e1b9e0100b2c1055ee0b0633
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96749250"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065273"
 ---
 # <a name="cross-service-query---azure-monitor-and-azure-data-explorer-preview"></a>Zapytanie dotyczące wielu usług — Azure Monitor i Azure Eksplorator danych (wersja zapoznawcza)
 Twórz zapytania krzyżowe między usługą [Azure Eksplorator danych](https://docs.microsoft.com/azure/data-explorer/), [Application Insights](/azure/azure-monitor/app/app-insights-overview)i [log Analytics](/azure/azure-monitor/platform/data-platform-logs).
