@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 12/09/2020
 ms.author: rolyon
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 7cf4020ad38224b25ea8bb7dc7f0fdea7dd6f3b1
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 5e4f3314ba580dddbd995855bc0f0512b7597107
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97034007"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98115744"
 ---
 # <a name="quickstart-check-access-for-a-user-to-azure-resources"></a>Szybki Start: sprawdzanie dostępu dla użytkownika do zasobów platformy Azure
 
@@ -37,7 +37,7 @@ Wykonaj następujące kroki, aby otworzyć zestaw zasobów platformy Azure, dla 
 
     Poniżej przedstawiono przykładową grupę zasobów.
 
-    ![Przegląd grupy zasobów](./media/check-access/rg-overview.png)
+    ![Przegląd grupy zasobów](./media/shared/rg-overview.png)
 
 ## <a name="step-2-check-access-for-a-user"></a>Krok 2. sprawdzenie dostępu dla użytkownika
 
@@ -47,7 +47,7 @@ Wykonaj następujące kroki, aby sprawdzić dostęp dla pojedynczego użytkownik
 
     Poniżej przedstawiono przykład strony kontroli dostępu (IAM) dla grupy zasobów.
 
-    ![Kontrola dostępu do grupy zasobów — sprawdzanie dostępu do karty](./media/check-access/rg-access-control.png)
+    ![Kontrola dostępu do grupy zasobów — sprawdzanie dostępu do karty](./media/shared/rg-access-control.png)
 
 1. Na karcie **sprawdzanie dostępu** na liście **Znajdź** wybierz użytkownika, grupę, nazwę główną usługi lub tożsamość zarządzaną, dla której chcesz sprawdzić dostęp.
 

@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71c0fa7a6e676e1b888bc13e0fa4cb42e93b2e71
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 412a987e0a93f7b69250450b8367a37bd3682925
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97802851"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98115705"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Co nowego w Azure Active Directory?
 
@@ -38,7 +38,7 @@ Usługa Azure AD otrzymuje ulepszenia na bieżąco. Aby zachować aktualność w
 Ta strona jest aktualizowana co miesiąc, dlatego należy ją regularnie odwiedzać. Jeśli szukasz elementów starszych niż sześć miesięcy, możesz je znaleźć w archiwum, aby poznać nowości [w Azure Active Directory](whats-new-archive.md).
 
 ---
-## <a name="december-2020"></a>Grudzień 2020 r.
+## <a name="december-2020"></a>Grudzień 2020 r.
 
 ### <a name="public-preview---azure-ad-b2c-phone-sign-up-and-sign-in-using-built-in-policy"></a>Publiczna wersja zapoznawcza — Azure AD B2C Rejestracja i logowanie za pomocą zasad wbudowanych
 
@@ -107,8 +107,6 @@ Teraz można zautomatyzować tworzenie, aktualizowanie i usuwanie kont użytkown
 Aby uzyskać więcej informacji o tym, jak lepiej zabezpieczyć organizację przy użyciu funkcji automatycznego inicjowania obsługi kont użytkowników, zobacz [Automatyzacja aprowizacji użytkowników w aplikacjach SaaS za pomocą usługi Azure AD](../app-provisioning/user-provisioning.md).
  
 ---
- 
-[1233182](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1233182&triage=true&fullScreen=false&_a=edit)
 
 ### <a name="new-federated-apps-available-in-azure-ad-application-gallery---december-2020"></a>Nowe aplikacje federacyjne dostępne w galerii aplikacji usługi Azure AD — grudzień 2020
 
@@ -123,6 +121,29 @@ W grudniu 2020 dodaliśmy następujące 18 nowych aplikacji w galerii aplikacji 
 W tym miejscu możesz również znaleźć dokumentację dotyczącą wszystkich aplikacji https://aka.ms/AppsTutorial
 
 Aby wyświetlić listę aplikacji w galerii aplikacji usługi Azure AD, zapoznaj się ze szczegółowymi informacjami w tym miejscu https://aka.ms/AzureADAppRequest
+
+---
+
+### <a name="navigate-to-teams-directly-from-my-access-portal"></a>Przejdź do zespołów bezpośrednio z portalu dostępu
+
+**Typ:** Zmieniono funkcję  
+**Kategoria usługi:** **Możliwości produktu** zarządzanie dostępem użytkowników: Zarządzanie prawami
+
+Teraz możesz uruchamiać zespoły bezpośrednio z portalu dostępu. Aby to zrobić, zaloguj się do [mojego dostępu](https://myaccess.microsoft.com/), przejdź do pozycji **dostęp do pakietów**, a następnie przejdź do karty **aktywne** , aby wyświetlić wszystkie pakiety dostępu, do których masz już dostęp. Po rozwinięciu pakietu dostępu i umieszczeniu wskaźnika na zespołach można uruchomić go, klikając przycisk **Otwórz** . 
+
+Aby dowiedzieć się więcej na temat korzystania z portalu dostępu, przejdź do strony [żądania dostępu do pakietu dostępu w usłudze Azure AD uprawnienia do zarządzania](../governance/entitlement-management-request-access.md#sign-in-to-the-my-access-portal).
+
+---
+
+### <a name="public-preview---second-level-manager-can-be-set-as-alternate-approver"></a>Publiczna wersja zapoznawcza — Menedżer drugiego poziomu można ustawić jako alternatywną osobę zatwierdzającą
+
+**Typ:** Zmieniono funkcję  
+**Kategoria usługi:** Zarządzanie dostępem użytkowników  
+**Możliwość produktu:** Zarządzanie prawami
+
+Dodatkowa opcja jest teraz dostępna w procesie zatwierdzania w usłudze zarządzania uprawnieniami. Jeśli wybierzesz pozycję Menedżer jako osoba zatwierdzająca dla pierwszej osoby zatwierdzającej, będzie dostępna dodatkowa opcja, Menedżer drugiego poziomu jako alternatywna osoba zatwierdzająca, dostępną do wyboru w polu alternatywna osoba zatwierdzająca. W przypadku wybrania tej opcji należy dodać osobę zatwierdzającą rezerwę do przesyłania żądania do programu w przypadku, gdy system nie może odnaleźć Menedżera drugiego poziomu.
+
+Aby uzyskać więcej informacji, przejdź do [pozycji Zmień ustawienia zatwierdzania dla pakietu dostępu w usłudze Azure AD uprawnienia zarządzania](../governance/entitlement-management-access-package-approval-policy.md#alternate-approvers).
 
 --- 
 
@@ -502,7 +523,7 @@ Dostęp warunkowy oparty na ryzyku i funkcje wykrywania ryzyka programu Identity
  
 W październiku 2020 dodaliśmy następujące 27 nowych aplikacji w galerii aplikacji z obsługą Federacji:
 
-[Sentry](../saas-apps/sentry-tutorial.md), [Bumblebee — produktywność superapp](https://app.yellowmessenger.com/user/login), [ABBYY FlexiCapture Cloud](../saas-apps/abbyy-flexicapture-cloud-tutorial.md), [EAComposer](../saas-apps/eacomposer-tutorial.md), [Genesys cloud Integration for Azure](https://apps.mypurecloud.com/msteams-integration/), [Portal technologii Zone](https://portail.zonetechnologie.com/signin), [Beautiful.AI](../saas-apps/beautiful.ai-tutorial.md), [Datawiza Access Broker](https://console.datawiza.com/), [ZOKRI](https://app.zokri.com/), [CheckProof](../saas-apps/checkproof-tutorial.md), [ecoChallenge.org](https://events.ecochallenge.org/users/login), [atSpoke](http://atspoke.com/login), [przypomnienie o terminie](https://app.appointmentreminder.co.nz/account/login), [chmura. rynek](https://cloud.market/), [TravelPerk](../saas-apps/travelperk-tutorial.md), [powitanie](https://app.greetly.com/), [OrgVitality SSO} (... /SaaS-Apps/orgvitality-SSO-tutorial.MD), [powietrze ładunków sieci Web](../saas-apps/web-cargo-air-tutorial.md), [Pętla Flow CRM](../saas-apps/loop-flow-crm-tutorial.md), [Starmind](../saas-apps/starmind-tutorial.md), [Workstem](https://hrm.workstem.com/login), [Retail zipline](../saas-apps/retail-zipline-tutorial.md), [Hoxhunt](../saas-apps/hoxhunt-tutorial.md), [MEVISIO](../saas-apps/mevisio-tutorial.md), [Samsara](../saas-apps/samsara-tutorial.md), [Nimbus](../saas-apps/nimbus-tutorial.md), [Pulse Secure Virtual Traffic Manager](../saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md)
+[Sentry](../saas-apps/sentry-tutorial.md), [Bumblebee — produktywność superapp](https://app.yellowmessenger.com/user/login), [ABBYY FlexiCapture Cloud](../saas-apps/abbyy-flexicapture-cloud-tutorial.md), [EAComposer](../saas-apps/eacomposer-tutorial.md), integracja z [chmurą w chmurze dla platformy Azure](https://apps.mypurecloud.com/msteams-integration/), [Portal technologii strefy](https://portail.zonetechnologie.com/signin), [Genesys](../saas-apps/beautiful.ai-tutorial.md), [Beautiful.AI Access Broker](https://console.datawiza.com/), [Datawiza](https://app.zokri.com/), [ZOKRI](../saas-apps/checkproof-tutorial.md), [CheckProof](https://events.ecochallenge.org/users/login), [ecoChallenge.org](http://atspoke.com/login), spotkanie z [terminem](https://app.appointmentreminder.co.nz/account/login), [chmura. rynek](https://cloud.market/), [atSpoke](../saas-apps/travelperk-tutorial.md) [](../saas-apps/nimbus-tutorial.md), TravelPerk, [](../saas-apps/loop-flow-crm-tutorial.md)logowanie [](https://hrm.workstem.com/login) [](https://app.greetly.com/) [](../saas-apps/samsara-tutorial.md) [jednokrotne](../saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md) [Traffic Manager,](../saas-apps/web-cargo-air-tutorial.md) [OrgVitality,](../saas-apps/retail-zipline-tutorial.md) [Starmind,](../saas-apps/hoxhunt-tutorial.md) [Workstem](../saas-apps/mevisio-tutorial.md) [, zipline,](../saas-apps/starmind-tutorial.md)Hoxhunt [](../saas-apps/orgvitality-sso-tutorial.md)
 
 W tym miejscu możesz również znaleźć dokumentację dotyczącą wszystkich aplikacji https://aka.ms/AppsTutorial
 

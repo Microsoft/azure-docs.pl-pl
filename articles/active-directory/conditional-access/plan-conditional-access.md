@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a43200985820779c56983f09b81a86989261c36f
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 13756be041f88883d84f9558308c7fe5c9be2d0e
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935006"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116011"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planowanie wdrażania dostępu warunkowego
 
@@ -223,14 +223,6 @@ Tworzenie zasad dla każdej aplikacji nie jest wydajne i prowadzi do trudnej adm
 Jeśli zasady zostały nieprawidłowo skonfigurowane, można zablokować organizacje z Azure Portal. Aby wyeliminować wpływ przypadkowego blokowania administratora, należy utworzyć co najmniej dwa [konta dostępu awaryjnego](../roles/security-emergency-access.md) w organizacji.
 
 * Utwórz konto użytkownika przeznaczone do administrowania zasadami i wykluczone ze wszystkich zasad.
-
-* Scenariusz końca szkła dla środowisk hybrydowych:
-
-  * Utwórz lokalną grupę zabezpieczeń i zsynchronizuj ją z usługą Azure AD. Grupa zabezpieczeń powinna zawierać dedykowane konto administracyjne zasad. 
-
-   * Wyklucz tę grupę zabezpieczeń formularza wszystkie zasady dostępu warunkowego.
-
-   * Po wystąpieniu awarii usługi należy dodać innych administratorów do grupy lokalnej zgodnie z potrzebami i wymusić synchronizację. Pozwala to animować ich wykluczenia do zasad dostępu warunkowego.
 
 ### <a name="set-up-report-only-mode"></a>Konfigurowanie trybu tylko do raportowania
 
@@ -493,4 +485,4 @@ Po zebraniu informacji zapoznaj się z następującymi zasobami:
 
 [Dowiedz się więcej na temat ochrony tożsamości](../identity-protection/overview-identity-protection.md)
 
-[Zarządzanie zasadami dostępu warunkowego za pomocą interfejsu API Microsoft Graph](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md)
+[Zarządzanie zasadami dostępu warunkowego za pomocą interfejsu API Microsoft Graph](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy)

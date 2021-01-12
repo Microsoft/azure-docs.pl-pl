@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: 50429696c4cbe10c4723f6d4bb9c9499d9b775c5
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 30ddee7c203ef1654972675f610256d1bfb1f21c
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450419"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116912"
 ---
 # <a name="tutorial-build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Samouczek: Tworzenie aplikacji usługi Machine Learning przy użyciu usług Apache Spark MLlib i Azure Synapse Analytics
 
@@ -240,14 +240,14 @@ plt.show()
 
 Po zakończeniu uruchamiania aplikacji Zamknij Notes, aby zwolnić zasoby, zamykając kartę lub wybierz pozycję **Zakończ sesję** w panelu stanu w dolnej części notesu.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Przegląd: Apache Spark w usłudze Azure Synapse Analytics](apache-spark-overview.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Dokumentacja platformy .NET dla Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Azure Synapse Analytics](../index.yml)
 - [Apache Spark Oficjalna dokumentacja](https://spark.apache.org/docs/2.4.5/)
 
 >[!NOTE]

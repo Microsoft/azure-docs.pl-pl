@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 12/03/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: 256fec97819cde0f6f62d59b34416c92e1edfd20
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 71a83a8d119e5fd8c18b7b21abe4a0a07ba9c67a
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109610"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116555"
 ---
 # <a name="synapse-access-control"></a>Synapse kontroli dostępu 
 
@@ -48,7 +48,7 @@ Aby *utworzyć* te zasoby, musisz być właścicielem lub współautorem platfor
 Synapse obsługuje dwa modele deweloperskie.
 
 - **Synapse na żywo**.  Opracowujesz i debugujesz kod w programie Synapse Studio, a następnie **publikujesz** go w celu zapisywania i wykonywania.  Usługa Synapse jest źródłem prawdy do edytowania i wykonywania kodu.  Nieopublikowana pracy zostanie utracona po zamknięciu programu Synapse Studio.  
-- **Programowanie z obsługą usługi git**. Opracowujesz i debugujesz kod w programie Synapse Studio i **zatwierdzasz** zmiany w roboczej gałęzi repozytorium git. Praca z co najmniej jednej gałęzi jest zintegrowana z gałęzią współpracy, w której **publikujesz** ją w usłudze.  Repozytorium git jest źródłem prawdy do edycji kodu, a usługa jest źródłem prawdy do wykonania. Przed zamknięciem programu Synapse Studio należy zatwierdzić zmiany w repozytorium Git lub opublikować je w usłudze. [Dowiedz się więcej](https://go.microsoft.com/fwlink/?linkid=2150100) o korzystaniu z Synapse Analytics z usługą git.
+- **Programowanie z obsługą usługi git**. Opracowujesz i debugujesz kod w programie Synapse Studio i **zatwierdzasz** zmiany w roboczej gałęzi repozytorium git. Praca z co najmniej jednej gałęzi jest zintegrowana z gałęzią współpracy, w której **publikujesz** ją w usłudze.  Repozytorium git jest źródłem prawdy do edycji kodu, a usługa jest źródłem prawdy do wykonania. Przed zamknięciem programu Synapse Studio należy zatwierdzić zmiany w repozytorium Git lub opublikować je w usłudze. [Dowiedz się więcej](../cicd/continuous-integration-deployment.md) o korzystaniu z Synapse Analytics z usługą git.
 
 W obu modelach programistycznych każdy użytkownik mający dostęp do programu Synapse Studio może tworzyć artefakty kodu.  Wymagane są jednak dodatkowe uprawnienia do publikowania artefaktów w usłudze, odczytywania opublikowanych artefaktów, zatwierdzania zmian w usłudze git, wykonywania kodu i uzyskiwania dostępu do połączonych danych chronionych przez poświadczenia.
 

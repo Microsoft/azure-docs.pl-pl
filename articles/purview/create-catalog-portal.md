@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 10/23/2020
-ms.openlocfilehash: fe83425230a157be245e3aa1ad088c32596ea5ed
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 6aeb4e29390b5b456d3aa820e4b3b8be762dbddd
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97693382"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98115790"
 ---
 # <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>Szybki Start: Tworzenie konta usługi Azure kontrolą w Azure Portal
 
@@ -29,7 +29,7 @@ W tym przewodniku szybki start utworzysz konto usługi Azure kontrolą.
 
 * Twoje konto musi mieć uprawnienia do tworzenia zasobów w ramach subskrypcji
 
-* Jeśli masz **Azure Policy** blokujące wszystkie aplikacje z tworzenia **konta magazynu** i **przestrzeni nazw EventHub**, musisz utworzyć wyjątek zasad przy użyciu tagu, który będzie można wprowadzić podczas procesu tworzenia konta kontrolą. Głównym powodem jest to, że dla każdego utworzonego konta kontrolą należy utworzyć zarządzaną grupę zasobów i w ramach tej grupy zasobów, konto magazynu i przestrzeń nazw EventHub.
+* Jeśli masz **Azure Policy** blokujące wszystkie aplikacje z tworzenia **konta magazynu** i **przestrzeni nazw EventHub**, musisz utworzyć wyjątek zasad przy użyciu tagu, który można wprowadzić podczas procesu tworzenia konta kontrolą. Głównym powodem jest to, że dla każdego utworzonego konta kontrolą należy utworzyć zarządzaną grupę zasobów i w ramach tej grupy zasobów, konto magazynu i przestrzeń nazw EventHub.
 
     > [!important]
     > Nie trzeba wykonywać tego kroku, jeśli nie masz Azure Policy lub istniejący Azure Policy nie blokuje tworzenia **konta magazynu** i **przestrzeni nazw EventHub**.

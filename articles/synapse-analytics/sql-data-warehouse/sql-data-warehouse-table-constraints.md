@@ -11,12 +11,12 @@ ms.date: 09/05/2019
 ms.author: emtehran
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: bdb27c5c9f5ec8a7be433ab6e421ecabf5c8c254
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 88b63ce30000340a70811e9f623e4273ccbb272a
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505583"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117286"
 ---
 # <a name="primary-key-foreign-key-and-unique-key-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Klucz podstawowy, klucz obcy i unikatowy klucz przy użyciu dedykowanej puli SQL w usłudze Azure Synapse Analytics
 
@@ -28,7 +28,7 @@ Dedykowana Pula SQL obsługuje następujące ograniczenia tabeli:
 - KLUCZ podstawowy jest obsługiwany tylko w przypadku, gdy są używane obiekty nieklastrowane i niewymuszone.    
 - Ograniczenie UNIQUE jest obsługiwane tylko przez niewymuszone użycie.
 
-W obszarze Składnia Sprawdź pozycję [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) i [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse). 
+W obszarze Składnia Sprawdź pozycję [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql) i [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse). 
 
 Ograniczenie klucza obcego nie jest obsługiwane w dedykowanej puli SQL.  
 

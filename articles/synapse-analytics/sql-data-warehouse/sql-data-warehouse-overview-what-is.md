@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 2f9ab6dacde0259905368d8a0cb788dde77bbfb2
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b8738b46359287ce1d4e410292cdce213ab80999
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96453609"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98115824"
 ---
 # <a name="what-is-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Co to jest dedykowana Pula SQL (wcześniej SQL DW) w usłudze Azure Synapse Analytics?
 
@@ -51,7 +51,7 @@ Wyniki analizy można odnieść do ogólnoświatowych baz danych raportowania lu
 
 - Poznaj [architekturę usługi Azure Synapse](massively-parallel-processing-mpp-architecture.md)
 - Szybkie [Tworzenie dedykowanej puli SQL](create-data-warehouse-portal.md)
-- [Ładowanie przykładowych danych](load-data-from-azure-blob-storage-using-polybase.md).
+- [Ładowanie przykładowych danych](./load-data-from-azure-blob-storage-using-copy.md).
 - Eksploruj [wideo](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 Lub zapoznaj się z innymi zasobami usługi Azure Synapse.
@@ -59,5 +59,5 @@ Lub zapoznaj się z innymi zasobami usługi Azure Synapse.
 - Wyszukaj [Blogi](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
 - Prześlij [żądania funkcji](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 - [Tworzenie biletu pomocy technicznej](sql-data-warehouse-get-started-create-support-ticket.md)
-- Wyszukiwanie [w witrynie Microsoft Q&stronie pytania](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html)
+- Wyszukiwanie [w witrynie Microsoft Q&stronie pytania](/answers/topics/azure-synapse-analytics.html)
 - [Forum wyszukiwania Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw)

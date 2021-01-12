@@ -7,15 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/30/2020
+ms.date: 01/11/2021
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.openlocfilehash: 7c58641f0039982f05be14d0f24ba89c62273d4b
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: f1753e7bc50fa9ff2c5512696a37dae7578f23b4
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964307"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117448"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-the-azure-portal"></a>Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal
 
@@ -25,160 +24,92 @@ Jeśli musisz przypisać role administratorów w Azure Active Directory, zobacz 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby dodać lub usunąć przypisania ról, musisz mieć:
-
-- `Microsoft.Authorization/roleAssignments/write` i `Microsoft.Authorization/roleAssignments/delete` uprawnienia, takie jak [administrator dostępu użytkowników](built-in-roles.md#user-access-administrator) lub [właściciel](built-in-roles.md#owner)
-
-## <a name="access-control-iam"></a>Kontrola dostępu (IAM)
-
-**Kontrola dostępu (IAM)** to strona, której zwykle używasz do przypisywania ról w celu udzielenia dostępu do zasobów platformy Azure. Jest on również znany jako Zarządzanie tożsamościami i dostępem i pojawia się w kilku lokalizacjach w Azure Portal. Poniżej przedstawiono przykład strony kontroli dostępu (IAM) dla subskrypcji.
-
-![Strona kontroli dostępu (IAM) dla subskrypcji](./media/role-assignments-portal/access-control-subscription.png)
-
-Aby była najbardziej efektywna ze stroną kontroli dostępu (IAM), należy wykonać następujące kroki, aby przypisać rolę.
-
-1. Określ, kto ma mieć dostęp. Rolę można przypisać do użytkownika, grupy, nazwy głównej usługi lub tożsamości zarządzanej.
-
-1. Znajdź odpowiednią rolę. Uprawnienia są pogrupowane w role. Możesz wybrać jedną z listy [wbudowanych ról platformy Azure](built-in-roles.md) lub użyć własnych ról niestandardowych.
-
-1. Zidentyfikuj wymagany zakres. Platforma Azure udostępnia cztery poziomy zakresu: [grupę zarządzania](../governance/management-groups/overview.md), subskrypcję, [grupę zasobów](../azure-resource-manager/management/overview.md#resource-groups)i zasób. Aby uzyskać więcej informacji na temat zakresu, zobacz [Opis zakresu](scope-overview.md).
-
-1. Wykonaj kroki opisane w jednej z poniższych sekcji, aby przypisać rolę.
+[!INCLUDE [Azure role assignment prerequisites](../../includes/role-based-access-control/prerequisites-role-assignments.md)]
 
 ## <a name="add-a-role-assignment"></a>Dodaj przypisanie roli
 
-W celu udzielenia dostępu do zasobu platformy Azure w usłudze Azure RBAC należy dodać przypisanie roli. Wykonaj następujące kroki, aby przypisać rolę.
+W celu udzielenia dostępu do zasobu platformy Azure w usłudze Azure RBAC należy dodać przypisanie roli. Wykonaj następujące kroki, aby przypisać rolę. Ogólne omówienie kroków można znaleźć w temacie [kroki umożliwiające dodanie przypisania roli](role-assignments-steps.md).
 
-1. W Azure Portal kliknij pozycję **wszystkie usługi** , a następnie wybierz zakres, do którego chcesz udzielić dostępu. Można na przykład wybrać **grupy zarządzania**, **subskrypcje**, **grupy zasobów** lub zasób.
+### <a name="step-1-identify-the-needed-scope"></a>Krok 1. identyfikowanie wymaganego zakresu
+
+[!INCLUDE [Scope for Azure RBAC introduction](../../includes/role-based-access-control/scope-intro.md)]
+
+[!INCLUDE [Scope for Azure RBAC least privilege](../../includes/role-based-access-control/scope-least.md)] Aby uzyskać więcej informacji na temat zakresu, zobacz [Opis zakresu](scope-overview.md).
+
+![Poziomy zakresu dla usługi Azure RBAC](../../includes/role-based-access-control/media/scope-levels.png)
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+
+1. W polu wyszukiwania u góry Wyszukaj zakres, do którego chcesz udzielić dostępu. Na przykład wyszukaj **grupy zarządzania**, **subskrypcje**, **grupy zasobów** lub określony zasób.
+
+    ![Azure Portal wyszukiwanie grupy zasobów](./media/shared/rg-portal-search.png)
 
 1. Kliknij konkretny zasób dla tego zakresu.
 
+    Poniżej przedstawiono przykładową grupę zasobów.
+
+    ![Przegląd grupy zasobów](./media/shared/rg-overview.png)
+
+### <a name="step-2-open-the-add-role-assignment-pane"></a>Krok 2. Otwieranie okienka Dodawanie przypisania roli
+
+**Kontrola dostępu (IAM)** to strona, której zwykle używasz do przypisywania ról w celu udzielenia dostępu do zasobów platformy Azure. Jest on również znany jako Zarządzanie tożsamościami i dostępem (IAM) i pojawia się w kilku lokalizacjach w Azure Portal.
+
 1. Kliknij pozycję **Kontrola dostępu (IAM)**.
+
+    Poniżej przedstawiono przykład strony kontroli dostępu (IAM) dla grupy zasobów.
+
+    ![Strona kontroli dostępu (IAM) dla grupy zasobów](./media/shared/rg-access-control.png)
 
 1. Kliknij kartę **przypisania roli** , aby wyświetlić przypisania ról w tym zakresie.
 
-    ![Kontrola dostępu (IAM) i przypisywanie ról — karta](./media/role-assignments-portal/role-assignments.png)
-
 1. Kliknij przycisk **Dodaj**  >  **Dodaj przypisanie roli**.
-
    Jeśli nie masz uprawnień do przypisywania ról, opcja Dodaj przypisanie roli będzie wyłączona.
 
    ![Menu Dodaj przypisanie roli](./media/shared/add-role-assignment-menu.png)
 
     Zostanie otwarte okienko Dodawanie przypisania roli.
 
-   ![Okienko Dodawanie przypisania roli](./media/role-assignments-portal/add-role-assignment.png)
+   ![Okienko Dodawanie przypisania roli](./media/shared/add-role-assignment.png)
 
-1. Z listy rozwijanej **Rola** wybierz rolę, taką jak **Współautor·maszyny·wirtualnej**.
+### <a name="step-3-select-the-appropriate-role"></a>Krok 3. Wybierz odpowiednią rolę
 
-1. Z listy **Wybierz** wybierz użytkownika, grupę, nazwę główną usługi lub tożsamość zarządzaną. Jeśli nie widzisz podmiotu zabezpieczeń na liście, możesz wpisać tekst w polu **Wybierz**, aby wyszukać w katalogu nazwy wyświetlane, adresy e-mail i identyfikatory obiektów.
+1. Na liście **rola** Wyszukaj lub przewiń, aby znaleźć rolę, którą chcesz przypisać.
 
-1. Kliknij przycisk **Zapisz**, aby przypisać rolę.
+    Aby ułatwić określenie odpowiedniej roli, możesz umieścić kursor na ikonie informacji, aby wyświetlić opis roli. Aby uzyskać dodatkowe informacje, możesz wyświetlić artykuł [role wbudowane platformy Azure](built-in-roles.md) .
+
+   ![Wybierz rolę w obszarze Dodaj przypisanie roli](./media/role-assignments-portal/add-role-assignment-role.png)
+
+1. Kliknij, aby wybrać rolę.
+
+### <a name="step-4-select-who-needs-access"></a>Krok 4. Wybieranie osób, które wymagają dostępu
+
+1. Z listy **Przypisz dostęp do** wybierz typ podmiotu zabezpieczeń, do którego ma zostać przypisany dostęp.
+
+    | Typ | Opis |
+    | --- | --- |
+    | **Użytkownik, Grupa lub nazwa główna usługi** | Jeśli chcesz przypisać rolę do użytkownika, grupy lub nazwy głównej usługi (aplikacji), wybierz ten typ. |
+    | **Tożsamość zarządzana przypisana przez użytkownika** | Jeśli chcesz przypisać rolę do [tożsamości zarządzanej przypisanej przez użytkownika](../active-directory/managed-identities-azure-resources/overview.md), wybierz ten typ. |
+    | *Tożsamość zarządzana przypisana przez system* | Jeśli chcesz przypisać rolę do [tożsamości zarządzanej przypisanej do systemu](../active-directory/managed-identities-azure-resources/overview.md), wybierz wystąpienie usługi platformy Azure, w którym znajduje się tożsamość zarządzana. |
+
+   ![Wybierz typ podmiotu zabezpieczeń w polu Dodaj przypisanie roli](./media/role-assignments-portal/add-role-assignment-type.png)
+
+1. W przypadku wybrania tożsamości zarządzanej przypisanej przez użytkownika lub tożsamości zarządzanej przypisanej do systemu wybierz **subskrypcję** , w której znajduje się tożsamość zarządzana.
+
+1. W sekcji **Wybierz** Wyszukaj podmiot zabezpieczeń, wprowadzając ciąg lub przewijając listę.
+
+   ![Wybierz użytkownika w obszarze Dodaj przypisanie roli](./media/role-assignments-portal/add-role-assignment-user.png)
+
+1. Po znalezieniu podmiotu zabezpieczeń kliknij go, aby go zaznaczyć.
+
+### <a name="step-5-assign-role"></a>Krok 5. Przypisywanie roli
+
+1. Aby przypisać rolę, kliknij przycisk **Zapisz**.
 
    Po kilku chwilach podmiot zabezpieczeń ma przypisaną rolę w wybranym zakresie.
 
-    ![Zapisano dodanie przypisania roli](./media/role-assignments-portal/add-role-assignment-save.png)
+1. Na karcie **przypisania ról** Sprawdź, czy na liście znajduje się przypisanie roli.
 
-## <a name="assign-a-user-as-an-administrator-of-a-subscription"></a>Przypisywanie użytkownika jako administratora subskrypcji
-
-Aby użytkownik był administratorem subskrypcji platformy Azure, przypisz im rolę [właściciela](built-in-roles.md#owner) w zakresie subskrypcji. Rola właściciela daje użytkownikowi pełny dostęp do wszystkich zasobów w ramach subskrypcji, w tym uprawnienia do udzielania dostępu innym osobom. Te kroki są takie same jak w przypadku innych przypisań ról.
-
-1. W witrynie Azure Portal kliknij pozycję **Wszystkie usługi**, a następnie wybierz pozycję **Subskrypcje**.
-
-1. Kliknij subskrypcję, do której chcesz udzielić dostępu.
-
-1. Kliknij pozycję **Kontrola dostępu (IAM)** .
-
-1. Kliknij kartę **przypisania ról** , aby wyświetlić przypisania ról dla tej subskrypcji.
-
-    ![Kontrola dostępu (IAM) i przypisywanie ról — karta](./media/role-assignments-portal/role-assignments.png)
-
-1. Kliknij przycisk **Dodaj**  >  **Dodaj przypisanie roli**.
-
-   Jeśli nie masz uprawnień do przypisywania ról, opcja Dodaj przypisanie roli będzie wyłączona.
-
-   ![Menu Dodawanie przypisania roli dla subskrypcji](./media/shared/add-role-assignment-menu.png)
-
-    Zostanie otwarte okienko Dodawanie przypisania roli.
-
-   ![Dodawanie okienka przypisania roli dla subskrypcji](./media/role-assignments-portal/add-role-assignment.png)
-
-1. Z listy rozwijanej **Rola** wybierz rolę **Właściciel**.
-
-1. Z listy **Wybierz** wybierz użytkownika. Jeśli nie widzisz użytkownika na liście, możesz wpisać tekst w polu **Wybierz**, aby wyszukać w katalogu nazwy wyświetlane i adresy e-mail.
-
-1. Kliknij przycisk **Zapisz**, aby przypisać rolę.
-
-   Po kilku chwilach użytkownikowi zostanie przypisana rola właściciela w zakresie subskrypcji.
-
-## <a name="add-a-role-assignment-for-a-managed-identity-preview"></a>Dodawanie przypisania roli dla tożsamości zarządzanej (wersja zapoznawcza)
-
-Można dodać przypisania ról dla tożsamości zarządzanej przy użyciu strony **kontroli dostępu (IAM)** zgodnie z opisem we wcześniejszej części tego artykułu. Korzystając ze strony kontrola dostępu (IAM), rozpoczynasz od zakresu, a następnie wybierasz zarządzaną tożsamość i rolę. W tej sekcji opisano alternatywny sposób dodawania przypisań ról do tożsamości zarządzanej. Korzystając z tych kroków, należy rozpocząć od tożsamości zarządzanej, a następnie wybrać zakres i rolę.
-
-> [!IMPORTANT]
-> Dodawanie przypisania roli dla tożsamości zarządzanej przy użyciu tych alternatywnych kroków jest obecnie w wersji zapoznawczej.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
-> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-### <a name="system-assigned-managed-identity"></a>Tożsamość zarządzana przypisana przez system
-
-Wykonaj następujące kroki, aby przypisać rolę do zarządzanej tożsamości przypisanej do systemu, rozpoczynając od tożsamości zarządzanej.
-
-1. W Azure Portal Otwórz przypisaną przez system tożsamość zarządzaną.
-
-1. W menu po lewej stronie kliknij pozycję **tożsamość**.
-
-    ![Tożsamość zarządzana przypisana przez system](./media/shared/identity-system-assigned.png)
-
-1. W obszarze **uprawnienia** kliknij pozycję **przypisania ról platformy Azure**.
-
-    Jeśli role są już przypisane do wybranej tożsamości zarządzanej przypisanej do systemu, zostanie wyświetlona lista przypisań ról. Ta lista zawiera wszystkie przypisania ról, do których masz uprawnienia do odczytu.
-
-    ![Przypisania ról dla tożsamości zarządzanej przypisanej do systemu](./media/shared/role-assignments-system-assigned.png)
-
-1. Aby zmienić subskrypcję, kliknij listę **subskrypcji** .
-
-1. Kliknij pozycję **Dodaj przypisanie roli (wersja zapoznawcza)**.
-
-1. Użyj list rozwijanych, aby wybrać zestaw zasobów, do których ma zastosowanie przypisanie roli, takie jak **subskrypcja**, **Grupa zasobów** lub zasób.
-
-    Jeśli nie masz uprawnień do zapisu przypisania roli dla wybranego zakresu, zostanie wyświetlony komunikat w wierszu. 
-
-1. Z listy rozwijanej **Rola** wybierz rolę, taką jak **Współautor·maszyny·wirtualnej**.
-
-   ![Dodawanie okienka przypisania roli dla tożsamości zarządzanej przypisanej do systemu](./media/role-assignments-portal/add-role-assignment-with-scope.png)
-
-1. Kliknij przycisk **Zapisz**, aby przypisać rolę.
-
-   Po kilku chwilach zarządzana tożsamość zostanie przypisana do roli w wybranym zakresie.
-
-### <a name="user-assigned-managed-identity"></a>Tożsamość zarządzana przypisana przez użytkownika
-
-Wykonaj następujące kroki, aby przypisać rolę do tożsamości zarządzanej przypisanej przez użytkownika, rozpoczynając od tożsamości zarządzanej.
-
-1. W Azure Portal Otwórz tożsamość zarządzaną przypisaną przez użytkownika.
-
-1. W menu po lewej stronie kliknij pozycję **przypisania ról platformy Azure**.
-
-    Jeśli role są już przypisane do wybranej tożsamości zarządzanej przypisanej przez użytkownika, zostanie wyświetlona lista przypisań ról. Ta lista zawiera wszystkie przypisania ról, do których masz uprawnienia do odczytu.
-
-    ![Przypisania ról dla tożsamości zarządzanej przypisanej przez użytkownika](./media/shared/role-assignments-user-assigned.png)
-
-1. Aby zmienić subskrypcję, kliknij listę **subskrypcji** .
-
-1. Kliknij pozycję **Dodaj przypisanie roli (wersja zapoznawcza)**.
-
-1. Użyj list rozwijanych, aby wybrać zestaw zasobów, do których ma zastosowanie przypisanie roli, takie jak **subskrypcja**, **Grupa zasobów** lub zasób.
-
-    Jeśli nie masz uprawnień do zapisu przypisania roli dla wybranego zakresu, zostanie wyświetlony komunikat w wierszu. 
-
-1. Z listy rozwijanej **Rola** wybierz rolę, taką jak **Współautor·maszyny·wirtualnej**.
-
-   ![Dodawanie okienka przypisanie roli dla tożsamości zarządzanej przypisanej przez użytkownika](./media/role-assignments-portal/add-role-assignment-with-scope.png)
-
-1. Kliknij przycisk **Zapisz**, aby przypisać rolę.
-
-   Po kilku chwilach zarządzana tożsamość zostanie przypisana do roli w wybranym zakresie.
+    ![Zapisano dodanie przypisania roli](./media/role-assignments-portal/rg-role-assignments.png)
 
 ## <a name="remove-a-role-assignment"></a>Usuwanie przypisania roli
 
@@ -186,11 +117,11 @@ W celu usunięcia dostępu z zasobów platformy Azure w usłudze Azure RBAC nale
 
 1. Otwórz **kontrolę dostępu (IAM)** w zakresie, na przykład grupy zarządzania, subskrypcji, grupy zasobów lub zasobu, w której chcesz usunąć dostęp.
 
-1. Kliknij kartę **Przypisania ról**, aby wyświetlić wszystkie przypisania ról dla tej subskrypcji.
+1. Kliknij kartę **przypisania roli** , aby wyświetlić wszystkie przypisania ról w tym zakresie.
 
 1. Na liście przypisań ról dodaj znacznik wyboru obok podmiotu zabezpieczeń z przypisaniem roli, które chcesz usunąć.
 
-   ![Przypisanie roli wybrane do usunięcia](./media/role-assignments-portal/remove-role-assignment-select.png)
+   ![Przypisanie roli wybrane do usunięcia](./media/role-assignments-portal/rg-role-assignments-select.png)
 
 1. Kliknij przycisk **Usuń**.
 
@@ -204,7 +135,6 @@ W celu usunięcia dostępu z zasobów platformy Azure w usłudze Azure RBAC nale
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wyświetlanie listy przypisań ról platformy Azure przy użyciu Azure Portal](role-assignments-list-portal.md)
-- [Samouczek: udzielanie użytkownikom dostępu do zasobów platformy Azure przy użyciu Azure Portal](quickstart-assign-role-user-portal.md)
+- [Przypisywanie użytkownika jako administratora subskrypcji platformy Azure](role-assignments-portal-subscription-admin.md)
+- [Dodawanie przypisania roli dla tożsamości zarządzanej](role-assignments-portal-managed-identity.md)
 - [Rozwiązywanie problemów z usługą Azure RBAC](troubleshooting.md)
-- [Organizowanie zasobów przy użyciu grup zarządzania platformy Azure](../governance/management-groups/overview.md)

@@ -11,12 +11,12 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ec62724b7aedbad4111a4882dd89f86d116b2a96
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2a8cfbe75925ddc49f6fa3205fafdd1c2203b472
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448058"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98115637"
 ---
 # <a name="design-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Projektowanie tabel przy użyciu dedykowanej puli SQL w usłudze Azure Synapse Analytics
 
@@ -71,7 +71,7 @@ Tabele tymczasowe wykorzystują magazyn lokalny do zapewnienia szybkiej wydajno�
 
 Zewnętrzna tabela wskazuje dane znajdujące się w obiekcie blob usługi Azure Storage lub Azure Data Lake Store. Gdy jest używany w połączeniu z instrukcją CREATE TABLE jako SELECT, wybranie z tabeli zewnętrznej importuje dane do dedykowanej puli SQL.
 
-W związku z tym tabele zewnętrzne są przydatne do ładowania danych. Aby zapoznać się z samouczkiem dotyczącym ładowania, zobacz [Korzystanie z bazy danych w celu ładowania dane z usługi Azure Blob Storage](load-data-from-azure-blob-storage-using-polybase.md).
+W związku z tym tabele zewnętrzne są przydatne do ładowania danych. Aby zapoznać się z samouczkiem dotyczącym ładowania, zobacz [Korzystanie z bazy danych w celu ładowania dane z usługi Azure Blob Storage](./load-data-from-azure-blob-storage-using-copy.md).
 
 ## <a name="data-types"></a>Typy danych
 

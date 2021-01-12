@@ -11,16 +11,16 @@ ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 83b5804888379316b855c36f803f646cec102d9e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 939a74a2bbedf6b00159f0c33a50eeb93595cda4
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024589"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116079"
 ---
 # <a name="quickstart-bulk-load-data-using-the-copy-statement"></a>Szybki Start: ładowanie danych przy użyciu instrukcji COPY
 
-W tym przewodniku szybki start załadujesz dane do dedykowanej puli SQL przy użyciu prostej i elastycznej [instrukcji Copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) do pozyskiwania danych o wysokiej przepływności. Instrukcja COPY jest zalecanym narzędziem do ładowania, ponieważ pozwala bezproblemowo i elastycznie ładować dane przez zapewnienie funkcjonalności:
+W tym przewodniku szybki start załadujesz dane do dedykowanej puli SQL przy użyciu prostej i elastycznej [instrukcji Copy](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) do pozyskiwania danych o wysokiej przepływności. Instrukcja COPY jest zalecanym narzędziem do ładowania, ponieważ pozwala bezproblemowo i elastycznie ładować dane przez zapewnienie funkcjonalności:
 
 - Zezwalaj niższym uprzywilejowanym użytkownikom na ładowanie bez konieczności stosowania ścisłych kontroli w magazynie danych
 - Wykorzystanie tylko jednej instrukcji języka T-SQL bez konieczności tworzenia dodatkowych obiektów bazy danych
@@ -138,5 +138,5 @@ GROUP BY r.[request_id]
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać najlepsze rozwiązania dotyczące ładowania danych, zobacz [najlepsze rozwiązania dotyczące ładowania danych](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data).
-- Aby uzyskać informacje na temat sposobu zarządzania zasobami na potrzeby ładowania danych, zobacz [izolacja obciążenia](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-tsql). 
+- Aby uzyskać najlepsze rozwiązania dotyczące ładowania danych, zobacz [najlepsze rozwiązania dotyczące ładowania danych](./guidance-for-loading-data.md).
+- Aby uzyskać informacje na temat sposobu zarządzania zasobami na potrzeby ładowania danych, zobacz [izolacja obciążenia](./quickstart-configure-workload-isolation-tsql.md).

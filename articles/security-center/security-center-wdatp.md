@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 9a8dba99435e1616b1c49d5209b30c3c523876db
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 34d8881eb072c4c723bf68b7c6ccfd24ab19cd3c
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071344"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116283"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Ochrona punktów końcowych za pomocą zintegrowanego rozwiązania EDR Security Center: Microsoft Defender for Endpoint
 
@@ -131,7 +131,7 @@ Usługa Defender dla punktów końcowych jest uwzględniana bez dodatkowych kosz
 ### <a name="if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender"></a>Jeśli mam już licencję usługi Microsoft Defender for Endpoint dla punktu końcowego, możesz uzyskać rabat za usługę Azure Defender?
 Jeśli masz już licencję na usługę Microsoft Defender for Endpoint, nie musisz uiszczać tej części licencji usługi Azure Defender.
 
-Aby potwierdzić rabat, skontaktuj się z zespołem pomocy technicznej Security Center i podaj odpowiedni identyfikator obszaru roboczego, region i informacje o licencji.
+Aby potwierdzić swój rabat, skontaktuj się z zespołem pomocy technicznej Security Center i podaj odpowiedni identyfikator obszaru roboczego, region i informacje o licencji dla każdej odpowiedniej licencji.
 
 ### <a name="how-do-i-switch-from-a-third-party-edr-tool"></a>Jak mogę przełączać się z narzędzia EDR innej firmy?
 Pełne instrukcje dotyczące przełączania z rozwiązania punktu końcowego innego niż Microsoft są dostępne w dokumentacji usługi Microsoft Defender dla punktów końcowych: [Omówienie migracji](/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).

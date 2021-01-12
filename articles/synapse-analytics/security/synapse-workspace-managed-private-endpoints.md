@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5258b1eab48f71d8d17f52849b5e57b467e7a2da
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7eff63b36eb09036b188ac756ec55a5b1bf63718
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460388"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116521"
 ---
 # <a name="synapse-managed-private-endpoints"></a>Zarządzane prywatne punkty końcowe Synapse
 
@@ -29,7 +29,7 @@ W przypadku korzystania z prywatnego linku ruch między Virtual Networkami i obs
 
 Prywatny punkt końcowy używa prywatnego adresu IP z Virtual Network w celu efektywnego przełączenia usługi do Virtual Network. Prywatne punkty końcowe są mapowane na określony zasób na platformie Azure, a nie całej usługi. Klienci mogą ograniczyć łączność z określonym zasobem zatwierdzonym przez organizację. 
 
-Dowiedz się więcej na temat [linków prywatnych i prywatnych punktów końcowych](https://docs.microsoft.com/azure/private-link/).
+Dowiedz się więcej na temat [linków prywatnych i prywatnych punktów końcowych](../../private-link/index.yml).
 
 >[!IMPORTANT]
 >Zarządzane prywatne punkty końcowe są obsługiwane tylko w obszarze roboczym usługi Azure Synapse z zarządzanym obszarem roboczym Virtual Network.

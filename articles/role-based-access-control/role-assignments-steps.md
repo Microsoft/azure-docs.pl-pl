@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
-ms.openlocfilehash: 565b84603a14452dd2ec49f8cf61da128503bc03
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: e746c7d09bb568d457ab1037b56c7c2973b29ad7
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964256"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117252"
 ---
 # <a name="steps-to-add-a-role-assignment"></a>Kroki umożliwiające dodanie przypisania roli
 
@@ -31,7 +31,7 @@ Najpierw należy określić, kto ma mieć dostęp. Rolę można przypisać do u�
 - Jednostka usługi — tożsamość zabezpieczeń używana przez aplikacje lub usługi w celu uzyskania dostępu do określonych zasobów platformy Azure. Można traktować ją jako odpowiednik *tożsamości użytkownika* (nazwy użytkownika i hasła lub certyfikatu) w przypadku aplikacji.
 - Tożsamość zarządzana — tożsamość w usłudze Azure Active Directory, która jest automatycznie zarządzana przez platformę Azure. [Tożsamości zarządzanych](../active-directory/managed-identities-azure-resources/overview.md) używa się zazwyczaj podczas tworzenia aplikacji w chmurze w celu zarządzania poświadczeniami do uwierzytelniania w usługach platformy Azure.
 
-## <a name="step-2-find-the-appropriate-role"></a>Krok 2. Znajdowanie odpowiedniej roli
+## <a name="step-2-select-the-appropriate-role"></a>Krok 2. Wybierz odpowiednią rolę
 
 Uprawnienia są pogrupowane w *definicji roli*. Zwykle jest nazywana *rolą*. Możesz wybrać jedną z kilku wbudowanych ról. Jeśli role wbudowane nie spełniają potrzeb Twojej organizacji, możesz tworzyć własne role niestandardowe.
 
@@ -62,7 +62,7 @@ Pozostałe role wbudowane umożliwiają zarządzanie określonymi zasobami platf
 
 ![Zakres w przypisaniu roli](./media/shared/rbac-scope.png)
 
-Po przypisaniu roli w zakresie nadrzędnym uprawnienia te są dziedziczone do zakresów podrzędnych. Przykład:
+Po przypisaniu roli w zakresie nadrzędnym uprawnienia te są dziedziczone do zakresów podrzędnych. Na przykład:
 
 - Jeśli przypiszesz rolę [czytelnik](built-in-roles.md#reader) do użytkownika w zakresie grupy zarządzania, ten użytkownik będzie mógł odczytywać wszystkie wszystkie subskrypcje w grupie zarządzania.
 - Jeśli przypiszesz rolę [czytelnik rozliczeń](built-in-roles.md#billing-reader) do grupy w zakresie subskrypcji, członkowie tej grupy mogą odczytywać dane dotyczące rozliczeń dla każdej grupy zasobów i zasobu w subskrypcji.

@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 09/13/2020
-ms.openlocfilehash: 242ff1d7c16ca952b19f44fb139f8fae7562524a
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 56b9a98eb72b375aacfeb7cb147997028d3d9ba7
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98048321"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116810"
 ---
 # <a name="train-machine-learning-models"></a>Uczenie modeli uczenia maszynowego
 Apache Spark w usłudze Azure Synapse Analytics umożliwia Uczenie maszynowe przy użyciu danych Big Data, zapewniając możliwość uzyskiwania cennych informacji z dużych ilości danych strukturalnych, niestrukturalnych i szybko przenoszonych. Istnieje kilka opcji szkolenia modeli uczenia maszynowego przy użyciu platformy Azure Spark w usłudze Azure Synapse Analytics: Apache Spark MLlib, Azure Machine Learning i różne inne biblioteki Open Source. 
@@ -53,7 +53,7 @@ W przypadku korzystania z zautomatyzowanej ML w ramach usługi Azure Synapse Ana
 > Aby dowiedzieć się więcej na temat tworzenia Azure Machine Learning zautomatyzowanego eksperymentu ML, wykonaj czynności opisane w tym [samouczku](./spark/../apache-spark-azure-machine-learning-tutorial.md).
 
 ## <a name="azure-cognitive-services"></a>Azure Cognitive Services
-[Usługa Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/what-are-cognitive-services) zapewnia możliwości uczenia maszynowego w celu rozwiązywania ogólnych problemów, takich jak analizowanie tekstu emocjonalnej tonacji lub analizowanie obrazów w celu rozpoznawania obiektów lub twarzy. Korzystanie z tych usług nie wymaga specjalnej wiedzy z zakresu uczenia maszynowego ani nauki o danych. Usługa poznawcze udostępnia część lub wszystkie składniki w rozwiązaniu do uczenia maszynowego: dane, algorytmy i model szkolony. Te usługi są przeznaczone do wymagania ogólnej wiedzy na temat danych bez potrzeby korzystania z uczenia maszynowego i analizy danych. Wstępnie przeszkolone Cognitive Services można wykorzystać automatycznie w usłudze Azure Synapse Analytics.
+[Usługa Azure Cognitive Services](../../cognitive-services/what-are-cognitive-services.md) zapewnia możliwości uczenia maszynowego w celu rozwiązywania ogólnych problemów, takich jak analizowanie tekstu emocjonalnej tonacji lub analizowanie obrazów w celu rozpoznawania obiektów lub twarzy. Korzystanie z tych usług nie wymaga specjalnej wiedzy z zakresu uczenia maszynowego ani nauki o danych. Usługa poznawcze udostępnia część lub wszystkie składniki w rozwiązaniu do uczenia maszynowego: dane, algorytmy i model szkolony. Te usługi są przeznaczone do wymagania ogólnej wiedzy na temat danych bez potrzeby korzystania z uczenia maszynowego i analizy danych. Wstępnie przeszkolone Cognitive Services można wykorzystać automatycznie w usłudze Azure Synapse Analytics.
 
 ## <a name="next-steps"></a>Następne kroki
 Ten artykuł zawiera omówienie różnych opcji uczenia modeli uczenia maszynowego w ramach pul Apache Spark w usłudze Azure Synapse Analytics. Więcej informacji na temat szkoleń modeli można znaleźć w poniższym samouczku:

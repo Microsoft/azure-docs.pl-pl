@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/26/2020
-ms.openlocfilehash: 5a666d265550de6e24d791db6daa954d50ddde38
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: cefbdce88d49598998e8f985821088778eee3ae8
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094186"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117660"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Zagadnienia dotyczące zabezpieczeń dotyczące przenoszenia danych w Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -32,9 +32,9 @@ W ramach rozwiązania fabryki danych jest tworzony co najmniej jeden [potok](con
 
 Mimo że Data Factory jest dostępna tylko w kilku regionach, Usługa przenoszenia danych jest [dostępna globalnie](concepts-integration-runtime.md#integration-runtime-location) w celu zapewnienia zgodności danych, wydajności i obniżenia kosztów ruchu wychodzącego w sieci. 
 
-Azure Data Factory, w tym Integration Runtime nie przechowuje żadnych danych z wyjątkiem poświadczeń połączonej usługi dla magazynów danych w chmurze, które są szyfrowane przy użyciu certyfikatów. Program Data Factory umożliwia tworzenie przepływów pracy opartych na danych w celu organizowania przenoszenia danych między [obsługiwanymi magazynami danych](copy-activity-overview.md#supported-data-stores-and-formats)oraz przetwarzania danych przy użyciu [usług obliczeniowych](compute-linked-services.md) w innych regionach lub w środowisku lokalnym. Możesz również monitorować przepływy pracy i zarządzać nimi za pomocą zestawów SDK i Azure Monitor.
+Azure Data Factory, w tym Azure Integration Runtime i samoobsługowe Integration Runtime nie przechowują żadnych danych tymczasowych, danych lub dzienników pamięci podręcznej z wyjątkiem poświadczeń połączonej usługi dla magazynów danych w chmurze, które są szyfrowane przy użyciu certyfikatów. Program Data Factory umożliwia tworzenie przepływów pracy opartych na danych w celu organizowania przenoszenia danych między [obsługiwanymi magazynami danych](copy-activity-overview.md#supported-data-stores-and-formats)oraz przetwarzania danych przy użyciu [usług obliczeniowych](compute-linked-services.md) w innych regionach lub w środowisku lokalnym. Możesz również monitorować przepływy pracy i zarządzać nimi za pomocą zestawów SDK i Azure Monitor.
 
-Data Factory został certyfikowany dla:
+Data Factory został certyfikowany dla: 
 
 | **[Wydawanie certyfikatów w witrynie CSA STAR](https://www.microsoft.com/trustcenter/compliance/csa-star-certification)** |
 | :----------------------------------------------------------- |

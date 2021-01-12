@@ -11,12 +11,12 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: e3daf89b80daf47049150b05ca392eede360bd3e
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: d778844fee8cad9359532ffa23e177bf7b13c4b8
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673420"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117694"
 ---
 # <a name="capacity-limits-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Limity pojemności dla dedykowanej puli SQL w usłudze Azure Synapse Analytics
 
@@ -43,7 +43,7 @@ Maksymalne wartości dozwolone dla różnych składników dedykowanej puli SQL w
 | Tabela |Tabele na bazę danych | 100 000 |
 | Tabela |Kolumny na tabelę |1024 kolumn |
 | Tabela |Bajtów na kolumnę |Zależne od [typu danych](sql-data-warehouse-tables-data-types.md)kolumny. Limit wynosi 8000 dla typów danych char, 4000 dla nvarchar lub 2 GB w przypadku MAKSYMALNYch typów danych. |
-| Tabela |Bajty na wiersz, zdefiniowany rozmiar |8060 bajtów<br/><br/>Liczba bajtów na wiersz jest obliczana w taki sam sposób, jak w przypadku SQL Server z kompresją strony. Podobnie jak SQL Server, magazyn przepełnienia wierszy jest obsługiwany, co umożliwia wypchnięcie **kolumn o zmiennej długości** poza wierszem. Gdy wiersze o zmiennej długości są wypychane poza wierszem, tylko 24-bajtowy katalog główny jest przechowywany w rekordzie głównym. Aby uzyskać więcej informacji, zobacz [dane przepełnienia wierszy przekraczające 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
+| Tabela |Bajty na wiersz, zdefiniowany rozmiar |8060 bajtów<br/><br/>Liczba bajtów na wiersz jest obliczana w taki sam sposób, jak w przypadku SQL Server z kompresją strony. Podobnie jak SQL Server, magazyn przepełnienia wierszy jest obsługiwany, co umożliwia wypchnięcie **kolumn o zmiennej długości** poza wierszem. Gdy wiersze o zmiennej długości są wypychane poza wierszem, tylko 24-bajtowy katalog główny jest przechowywany w rekordzie głównym. Aby uzyskać więcej informacji, zobacz [dane przepełnienia wierszy przekraczające 8 KB](/previous-versions/sql/sql-server-2008-r2/ms186981(v=sql.105)). |
 | Tabela |Partycje na tabelę |15 000<br/><br/>W celu zapewnienia wysokiej wydajności zalecamy zminimalizowanie liczby potrzebnych partycji przy zachowaniu wymagań firmy. Wraz ze wzrostem liczby partycji, obciążenie dla operacji języka definicji danych (DDL) i języka manipulowania danymi (DML) zwiększa się i powoduje wolniejszą wydajność. |
 | Tabela |Liczba znaków na wartość graniczną partycji. |4000 |
 | Indeks |Indeksy nieklastrowane na tabelę. |50<br/><br/>Dotyczy tylko tabel magazynu wierszy. |

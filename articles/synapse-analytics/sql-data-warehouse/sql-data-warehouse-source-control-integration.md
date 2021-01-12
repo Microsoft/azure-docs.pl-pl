@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 862fa839c56746042c072ae3100832fb2b78451a
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 56b417c65eae0df9b073cf72fe87ce0002fc2ba0
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296910"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98115841"
 ---
 # <a name="source-control-integration-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Integracja kontroli źródła dla dedykowanej puli SQL w usłudze Azure Synapse Analytics
 
@@ -51,7 +51,7 @@ W tym samouczku opisano sposób integrowania projektu bazy danych SQL Server Dat
 
    ![Klonowanie repozytorium](./media/sql-data-warehouse-source-control-integration/4-clone-repo.png "Klonowanie repozytorium")
 
-Aby uzyskać więcej informacji na temat łączenia projektów przy użyciu programu Visual Studio, zobacz [łączenie się z projektami w Team Explorer](https://docs.microsoft.com/visualstudio/ide/connect-team-project?view=vs-2019). Aby uzyskać wskazówki dotyczące klonowania repozytorium za pomocą programu Visual Studio, zapoznaj się z artykułem [klonowanie wyjścia z repozytorium git](https://docs.microsoft.com/azure/devops/repos/git/clone?view=azure-devops&tabs=visual-studio) . 
+Aby uzyskać więcej informacji na temat łączenia projektów przy użyciu programu Visual Studio, zobacz [łączenie się z projektami w Team Explorer](/visualstudio/ide/connect-team-project?view=vs-2019). Aby uzyskać wskazówki dotyczące klonowania repozytorium za pomocą programu Visual Studio, zapoznaj się z artykułem [klonowanie wyjścia z repozytorium git](/azure/devops/repos/git/clone?tabs=visual-studio&view=azure-devops) . 
 
 ## <a name="create-and-connect-your-project"></a>Tworzenie i łączenie projektu
 

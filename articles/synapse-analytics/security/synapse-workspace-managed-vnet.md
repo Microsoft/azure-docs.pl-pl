@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: b605c2c9f3c7468d0fe1f2cccd8c3602c556714b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 949b7e55569cc6fceacc37677ed06a28bb85d7c2
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501077"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116368"
 ---
 # <a name="azure-synapse-analytics-managed-virtual-network"></a>Virtual Network zarządzane przez usługę Azure Synapse Analytics
 
@@ -41,7 +41,7 @@ Dedykowana Pula SQL i bezserwerowa Pula SQL są funkcjami wielu dzierżawców i 
 
 ## <a name="create-an-azure-synapse-workspace-with-a-managed-workspace-virtual-network"></a>Tworzenie obszaru roboczego usługi Azure Synapse z zarządzanym obszarem roboczym Virtual Network
 
-Jeśli jeszcze tego nie zrobiono, zarejestruj dostawcę zasobów sieciowych. Rejestracja dostawcy zasobów umożliwia skonfigurowanie subskrypcji do pracy z dostawcą zasobów. Po [zarejestrowaniu](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)wybierz pozycję *Microsoft. Network* z listy dostawców zasobów.
+Jeśli jeszcze tego nie zrobiono, zarejestruj dostawcę zasobów sieciowych. Rejestracja dostawcy zasobów umożliwia skonfigurowanie subskrypcji do pracy z dostawcą zasobów. Po [zarejestrowaniu](../../azure-resource-manager/management/resource-providers-and-types.md)wybierz pozycję *Microsoft. Network* z listy dostawców zasobów.
 
 Aby utworzyć obszar roboczy usługi Azure Synapse z zarządzanym obszarem roboczym, z którym jest skojarzony Virtual Network, wybierz kartę **Sieć** w Azure Portal i zaznacz pole wyboru **Włącz zarządzane sieci wirtualne** .
 

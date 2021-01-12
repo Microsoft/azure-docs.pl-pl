@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: a3c44d667b6baaf16e109dfb88c22c16a1ea2ce1
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 1fc6c7086917f2bcd6e4991d2dac37ea24cbfa83
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94697207"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116386"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Jak indeksować obiekty blob w formacie JSON za pomocą indeksatora obiektów BLOB na platformie Azure Wyszukiwanie poznawcze
 
@@ -108,7 +108,7 @@ Za pomocą interfejsu API REST można indeksować obiekty blob w formacie JSON, 
 
 Możesz przejrzeć [przykład kodu REST](#rest-example) na końcu tej sekcji, który pokazuje, jak utworzyć wszystkie trzy obiekty. Ta sekcja zawiera również szczegółowe informacje na temat [trybów analizy JSON](#parsing-modes), [pojedynczych obiektów BLOB](#parsing-single-blobs), [tablic JSON](#parsing-arrays)i [tablic zagnieżdżonych](#nested-json-arrays).
 
-W przypadku indeksowania JSON opartego na kodzie Użyj programu [Poster lub Visual Studio Code](search-get-started-rest.md) i interfejsu API REST, aby utworzyć następujące obiekty:
+W przypadku indeksowania JSON opartego na kodzie Użyj programu [Poster](search-get-started-rest.md) lub [Visual Studio Code](search-get-started-vs-code.md) i interfejsu API REST, aby utworzyć następujące obiekty:
 
 + [indeks](/rest/api/searchservice/create-index)
 + [Źródło danych](/rest/api/searchservice/create-data-source)
@@ -289,7 +289,7 @@ Zestaw SDK platformy .NET ma pełną zgodność z interfejsem API REST. Zalecamy
 
 ## <a name="parsing-modes"></a>Tryby analizy
 
-Obiekty blob JSON mogą przyjmować wiele formularzy. Parametr **parsingMode** ParseMode indeksatora JSON określa sposób analizowania zawartości obiektu BLOB JSON i jej struktury w indeksie usługi Azure wyszukiwanie poznawcze:
+Obiekty blob JSON mogą przyjmować wiele formularzy. Parametr  ParseMode indeksatora JSON określa sposób analizowania zawartości obiektu BLOB JSON i jej struktury w indeksie usługi Azure wyszukiwanie poznawcze:
 
 | przeanalizowanie | Opis |
 |-------------|-------------|

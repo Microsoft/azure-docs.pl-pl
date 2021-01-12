@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: c4fe512ff6db24498148ffa724c3144a2f61823f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ceb242dcd05105b533e365e91afd9601cc550392
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451712"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116732"
 ---
 # <a name="use-transactions-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Używanie transakcji z dedykowaną pulą SQL w usłudze Azure Synapse Analytics
 
@@ -29,7 +29,7 @@ Zgodnie z oczekiwaniami dedykowana Pula SQL obsługuje transakcje w ramach obci�
 
 Dedykowana Pula SQL implementuje transakcje KWASowe. Poziom izolacji obsługi transakcyjnej jest domyślnie ODCZYTYWANy jako niezatwierdzony.  Można ją zmienić w celu odczytania ZATWIERDZONEj izolacji migawek przez READ_COMMITTED_SNAPSHOT włączenie opcji bazy danych dla bazy danych użytkownika w przypadku nawiązania połączenia z bazą danych Master.  
 
-Po włączeniu wszystkie transakcje w tej bazie danych są wykonywane w ramach przekroczenia izolacji ZATWIERDZONEj migawki i ustawienie Odczytaj niezatwierdzone na poziomie sesji nie zostanie uznane. Sprawdź [Opcje ALTER DATABASE SET (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest&preserve-view=true) , aby uzyskać szczegółowe informacje.
+Po włączeniu wszystkie transakcje w tej bazie danych są wykonywane w ramach przekroczenia izolacji ZATWIERDZONEj migawki i ustawienie Odczytaj niezatwierdzone na poziomie sesji nie zostanie uznane. Sprawdź [Opcje ALTER DATABASE SET (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?preserve-view=true&view=azure-sqldw-latest) , aby uzyskać szczegółowe informacje.
 
 ## <a name="transaction-size"></a>Rozmiar transakcji
 Ograniczenie pojedynczej transakcji modyfikacji danych jest ograniczone. Limit jest stosowany do dystrybucji. W związku z tym łączne alokacje można obliczyć przez pomnożenie limitu przez liczbę dystrybucji. 

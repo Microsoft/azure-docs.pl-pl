@@ -11,16 +11,16 @@ ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 4886cf6c24e7e96676b9ca5e74b431685cd5a8bb
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 4f881dcc0d26589c4029246019119fa0555dcd5d
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452863"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117779"
 ---
 # <a name="load-data-from-azure-data-lake-storage-into-dedicated-sql-pools-in-azure-synapse-analytics"></a>Ładowanie danych z Azure Data Lake Storage do dedykowanych pul SQL w usłudze Azure Synapse Analytics
 
-W tym przewodniku opisano sposób używania [instrukcji Copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) do ładowania danych z Azure Data Lake Storage. Aby zapoznać się z szybkimi przykładami dotyczącymi używania instrukcji COPY we wszystkich metodach uwierzytelniania, zapoznaj się z następującą dokumentacją: [bezpiecznie Ładuj dane przy użyciu dedykowanych pul SQL](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples).
+W tym przewodniku opisano sposób używania [instrukcji Copy](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) do ładowania danych z Azure Data Lake Storage. Aby zapoznać się z szybkimi przykładami dotyczącymi używania instrukcji COPY we wszystkich metodach uwierzytelniania, zapoznaj się z następującą dokumentacją: [bezpiecznie Ładuj dane przy użyciu dedykowanych pul SQL](./quickstart-bulk-load-copy-tsql-examples.md).
 
 > [!NOTE]  
 > Aby przekazać opinię lub zgłosić problemy dotyczące instrukcji COPY, Wyślij wiadomość e-mail na następującą listę dystrybucyjną: sqldwcopypreview@service.microsoft.com .
@@ -65,7 +65,7 @@ WITH
 
 ## <a name="create-the-copy-statement"></a>Tworzenie instrukcji COPY
 
-Połącz się z dedykowaną pulą SQL i uruchom instrukcję COPY. Aby zapoznać się z pełną listą przykładów, zapoznaj się z następującą dokumentacją: [bezpiecznie Ładuj dane przy użyciu dedykowanych pul SQL](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples).
+Połącz się z dedykowaną pulą SQL i uruchom instrukcję COPY. Aby zapoznać się z pełną listą przykładów, zapoznaj się z następującą dokumentacją: [bezpiecznie Ładuj dane przy użyciu dedykowanych pul SQL](./quickstart-bulk-load-copy-tsql-examples.md).
 
 ```sql
 -- B: Create and execute the COPY statement
@@ -133,6 +133,6 @@ Dane zostały pomyślnie załadowane do magazynu danych. Dobra robota!
 > [Dowiedz się, jak opracowywać tabele na potrzeby magazynowania danych](sql-data-warehouse-tables-overview.md)
 
 Aby uzyskać więcej przykładów i odwołań, zapoznaj się z następującą dokumentacją:
-- [Kopiuj dokumentację referencyjną instrukcji](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax)
-- [Kopiuj przykłady dla każdej metody uwierzytelniania](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples)
-- [Kopiuj Przewodnik Szybki Start dla pojedynczej tabeli](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql)
+- [Kopiuj dokumentację referencyjną instrukcji](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax)
+- [Kopiuj przykłady dla każdej metody uwierzytelniania](./quickstart-bulk-load-copy-tsql-examples.md)
+- [Kopiuj Przewodnik Szybki Start dla pojedynczej tabeli](./quickstart-bulk-load-copy-tsql.md)

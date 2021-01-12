@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 33eb5977ecb373a0dba87c26cacea247f541be8f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3778b6046c750bb131be1e51bf1afdc7b0df7184
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452740"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116793"
 ---
 # <a name="design-tables-using-synapse-sql-in-azure-synapse-analytics"></a>Projektowanie tabel przy użyciu języka SQL Synapse w usłudze Azure Synapse Analytics
 
@@ -102,7 +102,7 @@ Aby uzyskać więcej informacji, zobacz  [tabele tymczasowe](develop-tables-temp
 
 [Zewnętrzne tabele](develop-tables-external-tables.md) wskazują dane znajdujące się w obiekcie blob usługi Azure Storage lub Azure Data Lake Storage.
 
-Importuj dane z tabel zewnętrznych do dedykowanych pul SQL przy użyciu instrukcji [CREATE TABLE as SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) . Aby zapoznać się z samouczkiem dotyczącym ładowania, zobacz [Korzystanie z bazy danych w celu ładowania dane z usługi Azure Blob Storage](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Importuj dane z tabel zewnętrznych do dedykowanych pul SQL przy użyciu instrukcji [CREATE TABLE as SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) . Aby zapoznać się z samouczkiem dotyczącym ładowania, zobacz [Korzystanie z bazy danych w celu ładowania dane z usługi Azure Blob Storage](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
 
 W przypadku puli SQL bezserwerowej można użyć [CETAS](develop-tables-cetas.md) do zapisania wyniku zapytania w tabeli zewnętrznej w usłudze Azure Storage.
 

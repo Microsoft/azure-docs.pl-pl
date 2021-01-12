@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/15/2020
-ms.openlocfilehash: aa7c06c3bad59bad11fa288631042cca86109706
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 3d5663177bb087e936a49dd7289659b684d85860
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701137"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116198"
 ---
 # <a name="create-a-basic-search-index-in-azure-cognitive-search"></a>Tworzenie podstawowego indeksu wyszukiwania na platformie Azure Wyszukiwanie poznawcze
 
@@ -70,7 +70,7 @@ Dotarcie do ostatecznego projektu indeksu jest procesem iteracyjnym. Często zac
 Podczas opracowywania Planuj częste ponowne kompilacje. Ponieważ struktury fizyczne są tworzone w usłudze, [usuwanie i odtwarzanie indeksów](search-howto-reindex.md) jest niezbędne w przypadku większości modyfikacji istniejącej definicji pola. Możesz rozważyć pracę z podzbiorem danych, aby szybciej tworzyć kompilacje. 
 
 > [!Tip]
-> Kod, a nie podejście portalu, jest zalecany do pracy nad projektem indeksu i importem danych jednocześnie. Alternatywnie narzędzia takie jak [Poster i Visual Studio Code](search-get-started-rest.md) są przydatne do testowania koncepcji, gdy projekty programistyczne są nadal w fazie wczesnych faz. Możesz wprowadzić przyrostowe zmiany definicji indeksu w treści żądania, a następnie wysłać żądanie do usługi, aby ponownie utworzyć indeks przy użyciu zaktualizowanego schematu.
+> Kod, a nie podejście portalu, jest zalecany do pracy nad projektem indeksu i importem danych jednocześnie. Alternatywnie narzędzia, takie jak [Poster](search-get-started-rest.md) lub [Visual Studio Code](search-get-started-vs-code.md) , są przydatne do testowania koncepcji, gdy projekty programistyczne są nadal w fazie wczesnych faz. Możesz wprowadzić przyrostowe zmiany definicji indeksu w treści żądania, a następnie wysłać żądanie do usługi, aby ponownie utworzyć indeks przy użyciu zaktualizowanego schematu.
 
 ## <a name="index-schema"></a>Schemat indeksu
 

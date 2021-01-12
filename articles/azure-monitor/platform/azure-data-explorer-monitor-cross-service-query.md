@@ -7,19 +7,17 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: 5aadd9d96f538f92e1b9e0100b2c1055ee0b0633
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: e60f77495cdb822a0c50be936c2b0d3ac31348f3
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065273"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116713"
 ---
 # <a name="cross-service-query---azure-monitor-and-azure-data-explorer-preview"></a>Zapytanie dotyczące wielu usług — Azure Monitor i Azure Eksplorator danych (wersja zapoznawcza)
 Twórz zapytania krzyżowe między usługą [Azure Eksplorator danych](https://docs.microsoft.com/azure/data-explorer/), [Application Insights](/azure/azure-monitor/app/app-insights-overview)i [log Analytics](/azure/azure-monitor/platform/data-platform-logs).
 ## <a name="azure-monitor-and-azure-data-explorer-cross-service-querying"></a>Azure Monitor i obsługa zapytań międzyusługowych na platformie Azure Eksplorator danych
 Dzięki temu można [tworzyć zapytania krzyżowe między usługą azure Eksplorator danych i Azure monitor](https://docs.microsoft.com/azure/data-explorer/query-monitor-data) i [tworzyć zapytania obejmujące wiele usług między Azure monitor i Eksplorator danych platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/azure-monitor-data-explorer-proxy).
-
-:::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-data-explorer-monitor-flow.png" alt-text="Przepływ serwera proxy Eksploratora danych platformy Azure.":::
 
 Na przykład (wykonywanie zapytania dotyczącego usługi Azure Eksplorator danych from Log Analytics):
 ```kusto

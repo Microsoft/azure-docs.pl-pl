@@ -16,12 +16,12 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 846e1a83f3cba5f87210ae4f825b5fac4f1569c6
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: a18fc3e4851c2daf03c662cf40cef58cc7d9e77a
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648382"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117711"
 ---
 # <a name="add-or-remove-azure-role-assignments-for-external-guest-users-using-the-azure-portal"></a>Dodawanie lub usuwanie przypisań ról platformy Azure dla użytkowników zewnętrznych Gości przy użyciu Azure Portal
 
@@ -29,9 +29,7 @@ ms.locfileid: "94648382"
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby dodać lub usunąć przypisania ról, musisz mieć:
-
-- `Microsoft.Authorization/roleAssignments/write` i `Microsoft.Authorization/roleAssignments/delete` uprawnienia, takie jak [administrator dostępu użytkowników](built-in-roles.md#user-access-administrator) lub [właściciel](built-in-roles.md#owner)
+[!INCLUDE [Azure role assignment prerequisites](../../includes/role-based-access-control/prerequisites-role-assignments.md)]
 
 ## <a name="when-would-you-invite-guest-users"></a>Kiedy zapraszasz użytkowników-Gości?
 
@@ -77,7 +75,7 @@ W celu udzielenia dostępu w usłudze Azure RBAC należy przypisać rolę. Aby d
 
 1. Kliknij konkretny zasób.
 
-1. Kliknij pozycję **Kontrola dostępu (IAM)** .
+1. Kliknij pozycję **Kontrola dostępu (IAM)**.
 
     Na poniższym zrzucie ekranu przedstawiono przykład bloku Kontrola dostępu (zarządzanie dostępem i tożsamościami) dla grupy zasobów. Jeśli w tym miejscu wprowadzisz jakiekolwiek zmiany kontroli dostępu, zostaną one zastosowane tylko do grupy zasobów.
 
@@ -115,7 +113,7 @@ Jeśli użytkownik-Gość nie znajduje się jeszcze w Twoim katalogu, możesz za
 
 1. Kliknij konkretny zasób.
 
-1. Kliknij pozycję **Kontrola dostępu (IAM)** .
+1. Kliknij pozycję **Kontrola dostępu (IAM)**.
 
 1. Kliknij kartę **przypisania roli** , aby wyświetlić wszystkie przypisania ról w tym zakresie.
 

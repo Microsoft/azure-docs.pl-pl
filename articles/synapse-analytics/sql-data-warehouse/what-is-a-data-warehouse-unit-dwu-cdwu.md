@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 271922a4181f4be3ed6900b3f81cefaf5ed21191
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 5b33f10a0cb969d5fc0118eee0be371929f918a9
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060286"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117645"
 ---
 # <a name="data-warehouse-units-dwus-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Jednostki magazynu danych (jednostek dwu) dla dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics
 
@@ -76,7 +76,7 @@ Każdy serwer SQL (na przykład myserver.database.windows.net) ma przydział [je
 
 ## <a name="capacity-limits"></a>Limity pojemności
 
-Każdy serwer SQL (na przykład myserver.database.windows.net) ma przydział [jednostki transakcji bazy danych (DTU)](../../sql-database/sql-database-what-is-a-dtu.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) , który umożliwia określoną liczbę jednostek magazynu danych. Aby uzyskać więcej informacji, zobacz [limity wydajności zarządzania obciążeniami](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management).
+Każdy serwer SQL (na przykład myserver.database.windows.net) ma przydział [jednostki transakcji bazy danych (DTU)](../../azure-sql/database/service-tiers-dtu.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) , który umożliwia określoną liczbę jednostek magazynu danych. Aby uzyskać więcej informacji, zobacz [limity wydajności zarządzania obciążeniami](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management).
 
 ## <a name="how-many-data-warehouse-units-do-i-need"></a>Ile jest potrzebnych jednostek magazynu danych
 
