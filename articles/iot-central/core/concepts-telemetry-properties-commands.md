@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 87fb7f0eb4017a39aca081f73de543a67400d4b5
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 5a9f6fa79da59425e4972dddd21ffdea15af73e7
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97969065"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127910"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Ładunki telemetrii, właściwości i polecenia
 
@@ -187,6 +187,9 @@ Poniższy fragment kodu z modelu urządzenia pokazuje definicję `geopoint` typu
   "schema": "geopoint"
 }
 ```
+
+> [!NOTE]
+> Typ schematu **punktu geopunktowego** nie jest częścią [specyfikacji języka Digital bliźniaczych reprezentacji Definition Specification](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). IoT Central obecnie obsługuje typ **schematu i** typ semantyczny **lokalizacji** w celu zapewnienia zgodności z poprzednimi wersjami.
 
 Klient urządzenia powinien wysłać dane telemetryczne jako kod JSON, który wygląda podobnie do poniższego przykładu. IoT Central wyświetla wartość jako numer PIN na mapie:
 
@@ -575,6 +578,9 @@ Poniższy fragment kodu z modelu urządzenia pokazuje definicję `geopoint` typu
   "writable": false
 }
 ```
+
+> [!NOTE]
+> Typ schematu **punktu geopunktowego** nie jest częścią [specyfikacji języka Digital bliźniaczych reprezentacji Definition Specification](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). IoT Central obecnie obsługuje typ **schematu i** typ semantyczny **lokalizacji** w celu zapewnienia zgodności z poprzednimi wersjami.
 
 Klient urządzenia powinien wysłać ładunek JSON, który wygląda podobnie jak w poniższym przykładzie jako zgłoszonej właściwości w bliźniaczych urządzeniach:
 

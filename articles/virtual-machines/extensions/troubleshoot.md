@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
-ms.openlocfilehash: bca826cda8dfe47c341886faaf4a0d66f09d37d2
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b8b7a03d5176f5dbd8500b5ff9044c2f22ecbfc0
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966347"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127145"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Rozwiązywanie problemów z błędami rozszerzenia maszyny wirtualnej systemu Windows Azure
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
@@ -85,19 +85,23 @@ Ten certyfikat zostanie automatycznie wygenerowany ponownie przez ponowne urucho
 - Kliknij prawym przyciskiem myszy, a następnie wybierz pozycję "Zakończ zadanie". Proces zostanie automatycznie uruchomiony ponownie
 
 
-Możesz również wyzwolić nowe GoalState do maszyny wirtualnej, wykonując "pustą aktualizację":
+Możesz również wyzwolić nowe GoalState do maszyny wirtualnej, wykonując polecenie "ponownie Zastosuj maszynę wirtualną". [Ponowne zastosowanie](https://docs.microsoft.com/rest/api/compute/virtualmachines/reapply) maszyny wirtualnej jest interfejsem API wprowadzonym w 2020 w celu ponownego zastosowania stanu maszyny wirtualnej. Zalecamy to w czasie, gdy można tolerować krótki czas przestoju maszyny wirtualnej. Gdy ponowne zastosowanie nie powoduje ponownego uruchomienia maszyny wirtualnej, a większość przypadków, w których ponowne zastosowanie nie spowoduje ponownego uruchomienia maszyny wirtualnej, istnieje bardzo małe ryzyko, że niektóre inne oczekujące aktualizacje modelu maszyny wirtualnej zostaną zastosowane po ponownym zastosowaniu wyzwalają nowe Stany celu, a inne zmiany mogą wymagać ponownego uruchomienia. 
 
-Azure PowerShell:
+Azure Portal:
+
+W portalu wybierz maszynę wirtualną, a następnie w lewym okienku w obszarze **Pomoc techniczna i rozwiązywanie problemów** wybierz pozycję **ponowne wdrożenie + Zastosuj** ponownie, a następnie wybierz pozycję **ponownie Zastosuj**.
+
+
+Azure PowerShell *(zastąp nazwę RG i nazwę maszyny wirtualnej wartościami)*:
 
 ```azurepowershell
-$vm = Get-AzureRMVM -ResourceGroupName <RGName> -Name <VMName>  
-Update-AzureRmVM -ResourceGroupName <RGName> -VM $vm  
+Set-AzVM -ResourceGroupName <RG Name> -Name <VM Name> -Reapply
 ```
 
-Interfejs wiersza polecenia platformy Azure:
+Interfejs wiersza polecenia platformy Azure *(zastąp nazwę RG i nazwę maszyny wirtualnej wartościami)*:
 
 ```azurecli
-az vm update -g <rgname> -n <vmname>
+az vm reapply -g <RG Name> -n <VM Name>
 ```
 
-Jeśli "pusta aktualizacja" nie zadziałała, można dodać nowy pusty dysk danych do maszyny wirtualnej z usługi Azure portal zarządzania, a następnie usunąć go później po dodaniu certyfikatu.
+Jeśli "ponowne zastosowanie maszyny wirtualnej" nie zadziałało, możesz dodać nowy pusty dysk danych do maszyny wirtualnej z usługi Azure portal zarządzania, a następnie usunąć go później po dodaniu certyfikatu do powrotem.

@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/03/2020
+ms.date: 01/11/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 296679135063e2c7e1b7f0e3ffd193c8f18c3acf
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 5038bde01a6b183a25a47f3b4e206c1ce80e6b6d
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576268"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127842"
 ---
 # <a name="user-management-enhancements-preview-in-azure-active-directory"></a>Ulepszenia zarządzania użytkownikami (wersja zapoznawcza) w Azure Active Directory
 
@@ -60,6 +60,9 @@ Na stronie **Wszyscy użytkownicy** są wyświetlane następujące właściwośc
 - Nazwa: Nazwa wyświetlana użytkownika.
 - Główna nazwa użytkownika: główna nazwa użytkownika (UPN) użytkownika.
 - Typ użytkownika: członek, gość, brak.
+- Godzina utworzenia: Data i godzina utworzenia użytkownika.
+- Stanowisko: stanowisko użytkownika.
+- Dział: dział, w którym pracuje użytkownik.
 - Katalog synchronizowany: wskazuje, czy użytkownik jest synchronizowany z katalogu lokalnego.
 - Wystawca tożsamości: wystawcy tożsamości użyta do zalogowania się do konta użytkownika.
 - Identyfikator obiektu: identyfikator obiektu użytkownika.
@@ -76,7 +79,8 @@ Na stronie **Wszyscy użytkownicy** są wyświetlane następujące właściwośc
 Strona **usunięci użytkownicy** zawiera wszystkie kolumny, które są dostępne na stronie **Wszyscy użytkownicy** , oraz kilka dodatkowych kolumn:
 
 - Data usunięcia: Data pierwszego usunięcia użytkownika z organizacji (użytkownik jest dostępnych).
-- Data trwałego usunięcia: Data, kiedy proces trwałego usuwania użytkownika z organizacji rozpoczyna się automatycznie. 
+- Data trwałego usunięcia: Data, kiedy proces trwałego usuwania użytkownika z organizacji rozpoczyna się automatycznie.
+- Oryginalna główna nazwa użytkownika: oryginalną nazwę UPN użytkownika przed dodaniem jej identyfikatora obiektu jako prefiksu do usuniętej nazwy UPN.
 
 > [!NOTE]
 > Daty usunięcia są wyświetlane w uniwersalnym czasie koordynowanym (UTC).
@@ -105,6 +109,10 @@ Poniżej znajdują się właściwości z możliwością filtrowania na stronie *
 - Typ użytkownika: członek, gość, brak
 - Stan synchronizacji katalogu: tak, nie
 - Typ tworzenia: zaproszenie, zweryfikowane wiadomości E-mail, konto lokalne
+- Czas utworzenia: ostatnie 7, 14, 30, 90, 360 lub >360 dni temu
+- Stanowisko: wprowadź stanowisko
+- Dział: Wprowadź nazwę działu
+- Grupa: wyszukiwanie grupy
 - Stan zaproszenia — oczekiwanie na akceptację, zaakceptowane
 - Nazwa domeny: Wprowadź nazwę domeny
 - Nazwa firmy: Wprowadź nazwę firmy
@@ -117,6 +125,9 @@ Strona **usunięci użytkownicy** ma dodatkowe filtry, które nie znajdują się
 - Typ użytkownika: członek, gość, brak
 - Stan synchronizacji katalogu: tak, nie
 - Typ tworzenia: zaproszenie, zweryfikowane wiadomości E-mail, konto lokalne
+- Czas utworzenia: ostatnie 7, 14, 30, 90, 360 lub > 360 dni temu
+- Stanowisko: wprowadź stanowisko
+- Dział: Wprowadź nazwę działu
 - Stan zaproszenia: oczekiwanie na akceptację, zaakceptowane
 - Data usunięcia: ostatnie 7, 14 lub 30 dni
 - Nazwa domeny: Wprowadź nazwę domeny

@@ -10,18 +10,21 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 4516bbddd3fda593021288a440e1b354d4d7f1e3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: cc373a67ee0f4ed2e900e7b41cbcb96d31d67b34
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96340241"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98126890"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Jak utworzyć transkrypcje z etykietami ludzkimi
 
 Jeśli chcesz poprawić dokładność rozpoznawania, szczególnie problemy, które są spowodowane usunięciem lub nieprawidłowym zastępowaniem wyrazów, musisz użyć transkrypcji z etykietą z danymi audio. Co to są transkrypcje z oznaczeniem personalnym? To bardzo proste. są one słowami "Verbatim" w pliku audio.
 
-Do usprawnienia rozpoznawania jest wymagane duże przykładowe dane transkrypcji, dlatego zalecamy udostępnienie od 10 do 1 000 godzin danych transkrypcji. Na tej stronie zawarto Przegląd wytycznych dotyczących tworzenia transkrypcji o wysokiej jakości. Ten przewodnik jest podzielony na ustawienia regionalne, z sekcjami dla angielskiej wersji językowej USA, chińskiej (mandarynek) i niemieckiej.
+Do usprawnienia rozpoznawania jest wymagane duże przykładowe dane transkrypcji, dlatego sugerujemy dostarczenie danych transkrypcji od 10 do 20 godzin. Na tej stronie zawarto Przegląd wytycznych dotyczących tworzenia transkrypcji o wysokiej jakości. Ten przewodnik jest podzielony na ustawienia regionalne, z sekcjami dla angielskiej wersji językowej USA, chińskiej (mandarynek) i niemieckiej.
+
+> [!NOTE]
+> Nie wszystkie modele podstawowe obsługują Dostosowywanie przy użyciu plików audio. Jeśli model podstawowy nie obsługuje tego rozwiązania, szkolenie będzie używać tylko tekstu transkrypcji w taki sam sposób jak w przypadku użycia powiązanego tekstu.
 
 ## <a name="us-english-en-us"></a>Angielski (EN-US)
 

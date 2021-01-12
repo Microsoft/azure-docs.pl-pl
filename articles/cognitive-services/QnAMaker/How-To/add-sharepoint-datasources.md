@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: c231ac95841043e5576f064e683dd86d9695b108
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: d6e52da7fce39a259107fe60a21fb5ead7b18709
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353191"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127825"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Dodawanie bezpiecznego źródła danych programu SharePoint do bazy wiedzy
 
@@ -127,12 +127,16 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
 
 
+
+## <a name="add-sharepoint-data-source-with-apis"></a>Dodawanie źródła danych programu SharePoint z interfejsami API
+
+Istnieje obejście, aby dodać najnowszą zawartość programu SharePoint za pośrednictwem interfejsu API za pomocą usługi Azure Blob Storage, poniżej przedstawiono następujące czynności: 
+1.  Pobierz lokalnie pliki programu SharePoint. Użytkownik wywołujący interfejs API musi mieć dostęp do programu SharePoint. 
+1.  Przekaż je do usługi Azure Blob stoarge. Spowoduje to utworzenie bezpiecznego dostępu współdzielonego przy [użyciu tokenu SAS.](https://docs.microsoft.com/azure/storage/common/storage-sas-overview#how-a-shared-access-signature-works) 
+1. Przekaż adres URL obiektu BLOB wygenerowany przy użyciu tokenu SAS do interfejs API usługi QnA Maker. Aby zezwolić na wyodrębnianie odpowiedzi pytań z plików, należy dodać typ pliku sufiksu jako "&EXT = PDF" lub "&EXT = doc" na końcu adresu URL przed przekazaniem go do interfejs API usługi QnA Maker>  
+
+
 <!--
-
-## Add SharePoint data source with APIs
-
-You need to get the SharePoint file's URI before adding it to QnA Maker.
-
 ## Get SharePoint File URI
 
 Use the following steps to transform the SharePoint URL into a sharing token.

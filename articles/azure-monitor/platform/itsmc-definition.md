@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: a7e39bb8ed742007a13a222771b430372d50e889
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 717a1bc4361ba4a7366f4864c1fe44f93b6f4b5e
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071701"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127859"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Połącz platformę Azure z narzędziami narzędzia ITSM przy użyciu łącznik zarządzania usługami IT
 
@@ -153,7 +153,7 @@ Aby utworzyć grupy akcji, należy wykonać czynności opisane w poniższej proc
 
     * W przypadku wybrania opcji "element roboczy" "zdarzenie": ![ zrzut ekranu przedstawiający okno zdarzenia narzędzia ITSM.](media/itsmc-overview/itsm-action-configuration-event.png)
 
-        * W przypadku wybrania opcji **"Utwórz pojedyncze elementy robocze dla każdego wpisu dziennika (pole elementu konfiguracji nie jest wypełnione. Może spowodować powstanie dużej liczby elementów roboczych.) "** w obszarze przyciski radiowe zostanie utworzony element roboczy dla każdego wiersza w wynikach wyszukiwania zapytania o alert przeszukiwania dzienników. W ładunku elementu pracy Właściwość Description będzie zawierać wiersz z wyników wyszukiwania.
+        * W przypadku wybrania opcji **"Utwórz pojedyncze elementy robocze dla każdego wpisu dziennika (pole elementu konfiguracji nie jest wypełnione. Może spowodować powstanie dużej liczby elementów roboczych.) "** w obszarze przyciski radiowe zostanie utworzony element roboczy dla każdego wiersza w wynikach wyszukiwania zapytania o alert przeszukiwania dzienników. Właściwość Description w ładunku elementu pracy będzie zawierać wiersz z wyników wyszukiwania.
         * W przypadku wybrania opcji **"Utwórz indywidualne elementy robocze dla każdego elementu konfiguracji"** w wyborze przycisków radiowych każdy element konfiguracji w każdym alercie zostanie utworzony nowy element roboczy. W systemie narzędzia ITSM może istnieć więcej niż jeden element roboczy na element konfiguracji. Ta wartość będzie taka sama jak zaznaczenie pola wyboru w sekcji incydentu/alertu.
 
 10. Wybierz pozycję **OK**.

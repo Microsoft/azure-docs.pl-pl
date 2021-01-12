@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 7/14/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 22ee57592af838a236d75fa7f56a0c8e1ed89403
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: f776482c684004c8d661f69d8158ba9597c923b2
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98046545"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127040"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integracja usługi Azure Digital bliźniaczych reprezentacji z usługą Azure Time Series Insights
 
@@ -84,13 +84,13 @@ Samouczek Digital bliźniaczych reprezentacji na platformie Azure [*: łączenie
 
 Przed przejściem do programu Zanotuj *Event Hubs przestrzeń nazw* i *grupę zasobów*, ponieważ zostaną one użyte ponownie w celu utworzenia innego centrum zdarzeń w dalszej części tego artykułu.
 
-## <a name="create-an-azure-function"></a>Tworzenie funkcji platformy Azure 
+## <a name="create-a-function-in-azure"></a>Tworzenie funkcji na platformie Azure
 
-Następnie utworzysz funkcję wyzwalającą Event Hubs wewnątrz aplikacji funkcji. Możesz użyć aplikacji funkcji utworzonej w kompleksowym samouczku ([*Samouczek: łączenie kompleksowego rozwiązania*](./tutorial-end-to-end.md)) lub własnych. 
+Następnie użyjesz Azure Functions, aby utworzyć funkcję wyzwalaną Event Hubs wewnątrz aplikacji funkcji. Możesz użyć aplikacji funkcji utworzonej w kompleksowym samouczku ([*Samouczek: łączenie kompleksowego rozwiązania*](./tutorial-end-to-end.md)) lub własnych. 
 
 Ta funkcja spowoduje przekonwertowanie tych dwuosiowych zdarzeń aktualizacji z ich oryginalnego formularza jako dokumentów poprawek JSON do obiektów JSON, zawierających tylko zaktualizowane i dodane wartości z bliźniaczych reprezentacji.
 
-Aby uzyskać więcej informacji na temat używania Event Hubs z usługą Azure Functions, zobacz [*wyzwalacz usługi azure Event Hubs dla Azure Functions*](../azure-functions/functions-bindings-event-hubs-trigger.md).
+Aby uzyskać więcej informacji o korzystaniu z Event Hubs z Azure Functions, zobacz [*wyzwalacz usługi Azure Event Hubs dla Azure Functions*](../azure-functions/functions-bindings-event-hubs-trigger.md).
 
 W opublikowanej aplikacji funkcji Zastąp kod funkcji następującym kodem.
 

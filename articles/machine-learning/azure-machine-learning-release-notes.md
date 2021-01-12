@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: 0ecf47ecdc66c0005f0d793d91a67af102fb1c76
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 4ba06af98714004e4429fe802a206acdfa8fb148
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98107909"
+ms.locfileid: "98127621"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Informacje o wersji Azure Machine Learning
 
@@ -27,8 +27,6 @@ W tym artykule dowiesz się więcej na temat wydań Azure Machine Learning.  Aby
 + **Poprawki i ulepszenia błędów**
   + **Azure — interfejs wiersza polecenia**
     + framework_version dodana w OptimizationConfig. Będzie on używany, gdy model jest zarejestrowany w ramach platformy Framework.
-  + **azureml-automl-runtime**
-    + W ramach tej aktualizacji dodaliśmy Holt Winters wykładnicze na potrzeby prognozowania zestawu SDK AutoML. W przypadku szeregów czasowych najlepszym modelem jest wybierany przez [AICc (kryterium informacyjne skorygowane Akaike)](https://otexts.com/fpp3/selecting-predictors.html#selecting-predictors) i zwrócone.
   + **Uczenie maszynowe — contrib — Optymalizacja**
     + framework_version dodana w OptimizationConfig. Będzie on używany, gdy model jest zarejestrowany w ramach platformy Framework.
   + **azureml-pipeline-steps**

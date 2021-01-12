@@ -3,12 +3,12 @@ title: Często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS
 description: Znajdź odpowiedzi na niektóre często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 94cbaf417413b3e11071fb8c7237cbb3ac7b9a37
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 7fc348ae7b3edb79e75aa1acd08941fec447da6f
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780352"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127638"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS)
 
@@ -146,7 +146,7 @@ Przeniesienie klastra AKS między dzierżawcami nie jest obecnie obsługiwane.
 
 Przenoszenie klastrów między subskrypcjami nie jest obecnie obsługiwane.
 
-## <a name="can-i-move-my-aks-clusters-from-the-current-azure-subscription-to-another"></a>Czy mogę przenieść klastry AKS z bieżącej subskrypcji platformy Azure do innej? 
+## <a name="can-i-move-my-aks-clusters-from-the-current-azure-subscription-to-another"></a>Czy mogę przenieść klastry AKS z bieżącej subskrypcji platformy Azure do innej?
 
 Przeniesienie klastra AKS i skojarzonych z nim zasobów między subskrypcjami platformy Azure nie jest obsługiwane.
 
@@ -154,7 +154,7 @@ Przeniesienie klastra AKS i skojarzonych z nim zasobów między subskrypcjami pl
 
 Przeniesienie lub zmiana nazwy klastra AKS i skojarzonych z nim zasobów nie jest obsługiwane.
 
-## <a name="why-is-my-cluster-delete-taking-so-long"></a>Dlaczego mój klaster usuwanie trwa długo? 
+## <a name="why-is-my-cluster-delete-taking-so-long"></a>Dlaczego mój klaster usuwanie trwa długo?
 
 Większość klastrów jest usuwana na żądanie użytkownika; w niektórych przypadkach, zwłaszcza w przypadku, gdy klienci korzystają z własnej grupy zasobów lub że usuwanie zadań RG może zająć trochę czasu lub niepowodzeniem. Jeśli masz problem z usuwaniem, sprawdź podwójne sprawdzenie, czy nie masz blokad w RG, że wszystkie zasoby spoza RG są nieskojarzone z RG i tak dalej.
 
@@ -166,7 +166,7 @@ Możesz, ale AKS nie jest to zalecane. Uaktualnienia należy wykonać, gdy stan 
 
 Nie, Usuń/Usuń wszystkie węzły w stanie awarii lub w inny sposób usunięte z klastra przed uaktualnieniem.
 
-## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>Klaster został usunięty, ale zapoznaj się z błędem `[Errno 11001] getaddrinfo failed` 
+## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>Klaster został usunięty, ale zapoznaj się z błędem `[Errno 11001] getaddrinfo failed`
 
 Najczęściej jest to spowodowane tym, że użytkownicy, którzy mają co najmniej jedną sieciową grupę zabezpieczeń (sieciowych grup zabezpieczeń), są nadal używani i skojarzeni z klastrem.  Usuń je i spróbuj ponownie wykonać operację usuwania.
 
@@ -174,7 +174,7 @@ Najczęściej jest to spowodowane tym, że użytkownicy, którzy mają co najmni
 
 Potwierdź, że nazwa główna usługi nie wygasła.  Zobacz: [AKS nazwy głównej usługi](./kubernetes-service-principal.md) i [AKS zaktualizuj poświadczenia](./update-credentials.md).
 
-## <a name="my-cluster-was-working-but-suddenly-cant-provision-loadbalancers-mount-pvcs-etc"></a>Mój klaster działał, ale nagle nie może udostępnić LoadBalancers, zainstalować obwodów PVC itp.? 
+## <a name="my-cluster-was-working-but-suddenly-cant-provision-loadbalancers-mount-pvcs-etc"></a>Mój klaster działał, ale nagle nie może udostępnić LoadBalancers, zainstalować obwodów PVC itp.?
 
 Potwierdź, że nazwa główna usługi nie wygasła.  Zobacz: [AKS nazwy głównej usługi](./kubernetes-service-principal.md)  i [AKS zaktualizuj poświadczenia](./update-credentials.md).
 
@@ -254,6 +254,25 @@ Poniżej znajduje się Przykładowa konfiguracja trasy IP trybu przezroczystego,
 - Jednym z przypadków narożnych w trybie mostka jest to, że usługa Azure CNI nie może aktualizować niestandardowego serwera DNS listy użytkowników Dodaj do sieci wirtualnej lub karty sieciowej. Spowoduje to CNI pobrania tylko pierwszego wystąpienia listy serwerów DNS. Rozwiązano w trybie przezroczystym, ponieważ CNI nie zmienia żadnych właściwości eth0. Zobacz więcej [tutaj](https://github.com/Azure/azure-container-networking/issues/713).
 - Zapewnia lepszą obsługę ruchu UDP i środki zaradcze dla burzy powodzi protokołu UDP po przeniesieniu limitu czasu ARP. W trybie mostka, gdy program Bridge nie zna adresu MAC miejsca docelowego pod względem komunikacji między maszynami wirtualnymi w sieci VMNetwork, to powoduje burzę pakietu na wszystkich portach. Rozwiązano w trybie przezroczystym, ponieważ w ścieżce nie ma żadnych urządzeń L2. Zobacz więcej [tutaj](https://github.com/Azure/azure-container-networking/issues/704).
 - Tryb przezroczysty działa lepiej w przypadku komunikacji między firmową maszyną wirtualną w zakresie przepływności i opóźnień w porównaniu z trybem mostka.
+
+## <a name="how-to-avoid-permission-ownership-setting-slow-issues-when-the-volume-has-a-lot-of-files"></a>Jak uniknąć powolnych problemów z ustawieniem prawa własności, gdy wolumin zawiera wiele plików?
+
+Tradycyjnie, jeśli na komputerze jest uruchomiony program jako użytkownik niebędący użytkownikiem głównym (który należy), należy określić `fsGroup` wewnątrz kontekstu zabezpieczeń na poziomie, aby umożliwić odczytywanie i zapisywanie woluminu przez. To wymaganie jest omówione bardziej szczegółowo w [tym miejscu](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/).
+
+Jednak po zainstalowaniu jednego z efektów ubocznych, `fsGroup` za każdym razem, gdy wolumin jest zainstalowany, Kubernetes musi rekursywnie `chown()` i `chmod()` wszystkie pliki i katalogi w woluminie — z kilkoma wyjątkami opisanymi poniżej. Dzieje się tak nawet wtedy, gdy własność grupy woluminu jest już zgodna z żądanym `fsGroup` i może być dość kosztowna w przypadku większych woluminów z dużą ilością małych plików, co powoduje, że uruchomienie na początku zajmuje dużo czasu. W tym scenariuszu występuje znany problem przed 1.20 v i obejściem jest ustawienie głównego elementu run as:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: security-context-demo
+spec:
+  securityContext:
+    runAsUser: 0
+    fsGroup: 0
+```
+
+Problem został rozwiązany przez Kubernetes v 1.20, Przeczytaj [Kubernetes 1,20: szczegółową kontrolę nad zmianami uprawnień woluminu](https://kubernetes.io/blog/2020/12/14/kubernetes-release-1.20-fsgroupchangepolicy-fsgrouppolicy/) , aby uzyskać więcej szczegółów.
 
 
 <!-- LINKS - internal -->

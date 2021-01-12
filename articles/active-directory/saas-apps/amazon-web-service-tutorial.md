@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/08/2020
 ms.author: jeedes
-ms.openlocfilehash: 237ed71f058ae099f19924481eb4dbeb2e2aba05
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 3db6fd2e6df96590d7d405157cbb33900c7d8531
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589444"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127808"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą Amazon Web Services (AWS)
 
@@ -31,7 +31,7 @@ W tym samouczku dowiesz się, jak zintegrować usługę Amazon Web Services (AWS
 
 ![Diagram relacji usług Azure AD i AWS](./media/amazon-web-service-tutorial/tutorial_amazonwebservices_image.png)
 
-Można skonfigurować wiele identyfikatorów dla wielu wystąpień. Przykład:
+Można skonfigurować wiele identyfikatorów dla wielu wystąpień. Na przykład:
 
 * `https://signin.aws.amazon.com/saml#1`
 
@@ -149,7 +149,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -388,7 +388,11 @@ Możesz również użyć panelu dostępu programu Microsoft, aby przetestować a
 * Role muszą spełniać następujące wymagania, aby można było zaimportować je z AWS do usługi Azure AD:
 
   * Role muszą mieć dokładnie jeden dostawca SAML zdefiniowany w AWS
-  * Łączna długość ARN (nazwa zasobu Amazon) dla roli i ARN dla skojarzonego dostawcy SAML-Provider musi być krótsza niż 120 znaków
+  * Łączna długość ARN (nazwa zasobu Amazon) dla roli i ARN dla skojarzonego dostawcy SAML-Provider musi być krótsza niż 240 znaków.
+
+## <a name="change-log"></a>Dziennik zmian
+
+* 01/12/2020 — zwiększono limit długości roli od 119 znaków do 239 znaków. 
 
 ## <a name="next-steps"></a>Następne kroki
 

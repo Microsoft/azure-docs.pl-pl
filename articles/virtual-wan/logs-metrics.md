@@ -8,18 +8,24 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 53b8d74d6eb35347d6ac5b27d12fa5b5eaed2582
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 62979a2cbe2a5912476ca65327a06eef9c36c1cb
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566371"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127893"
 ---
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Dzienniki i metryki wirtualnych sieci WAN platformy Azure
 
-Wirtualne sieci WAN platformy Azure można monitorować przy użyciu Azure Monitor. Wirtualna sieć WAN jest usługą sieciową, która oferuje wiele funkcji sieci, zabezpieczeń i routingu w celu zapewnienia pojedynczego interfejsu operacyjnego. Bramy sieci VPN wirtualnej sieci WAN, bramy ExpressRoute i Zapora platformy Azure mają dostępne rejestrowanie i metryki za pośrednictwem Azure Monitor. Aby uzyskać informacje o zaporze platformy Azure, zobacz [dzienniki i metryki zapory platformy Azure](../firewall/logs-and-metrics.md).
+Wirtualne sieci WAN platformy Azure można monitorować przy użyciu Azure Monitor. Wirtualna sieć WAN jest usługą sieciową, która oferuje wiele funkcji sieci, zabezpieczeń i routingu w celu zapewnienia pojedynczego interfejsu operacyjnego. Bramy sieci VPN wirtualnej sieci WAN, bramy ExpressRoute i Zapora platformy Azure mają dostępne rejestrowanie i metryki za pośrednictwem Azure Monitor.
 
 W tym artykule omówiono metryki i diagnostykę, które są dostępne w portalu. Metryki są lekkie i obsługują scenariusze niemal w czasie rzeczywistym, dzięki czemu mogą być używane do tworzenia alertów i szybkiego wykrywania problemów.
+
+## <a name="monitoring-secured-hub-azure-firewall"></a>Monitorowanie bezpiecznego centrum (Zapora platformy Azure) 
+
+Bezpiecznym centrum można monitorować przy użyciu dzienników zapory platformy Azure. Ponadto dzienniki aktywności umożliwiają inspekcję operacji wykonywanych względem zasobów usługi Azure Firewall.
+
+Jeśli wybrano zabezpieczenie koncentratora wirtualnego za pomocą zapory platformy Azure, odpowiednie dzienniki i metryki są dostępne tutaj: [dzienniki i metryki zapory platformy Azure](../firewall/logs-and-metrics.md).
 
 ## <a name="metrics"></a>Metryki
 
@@ -95,11 +101,11 @@ Poniższe kroki ułatwiają znalezienie i wyświetlenie diagnostyki:
 
    :::image type="content" source="./media/logs-metrics/3.png" alt-text="Zrzut ekranu pokazujący sekcję &quot;przegląd&quot; z strzałką wskazującą przycisk &quot;Kopiuj&quot;.":::
 
-2. W sekcji monitorowanie przejdź do grupy zasobów. Wybierz pozycję **Ustawienia diagnostyczne** , a następnie wprowadź informacje o zasobach. To są informacje o zasobie skopiowane w kroku 2 z sekcji [Wyświetl metryki bramy](#metrics-steps) wcześniej w tym artykule.
+2. W sekcji monitorowanie przejdź do grupy zasobów. Wybierz pozycję **Ustawienia diagnostyczne**, a następnie wprowadź informacje o zasobach. To są informacje o zasobie skopiowane w kroku 2 z sekcji [Wyświetl metryki bramy](#metrics-steps) wcześniej w tym artykule.
 
    :::image type="content" source="./media/logs-metrics/4.png" alt-text="Zrzut ekranu pokazujący sekcję &quot;monitorowanie&quot; ze strzałką wskazującą listę rozwijaną &quot;zasób&quot;.":::
 
-3. Na stronie Wyniki wybierz pozycję **+ Dodaj ustawienie diagnostyczne** , a następnie wybierz opcję. Możesz zdecydować się na wysyłanie do Log Analytics, przesyłanie strumieniowe do centrum zdarzeń lub po prostu archiwizowanie na koncie magazynu.
+3. Na stronie Wyniki wybierz pozycję **+ Dodaj ustawienie diagnostyczne**, a następnie wybierz opcję. Możesz zdecydować się na wysyłanie do Log Analytics, przesyłanie strumieniowe do centrum zdarzeń lub po prostu archiwizowanie na koncie magazynu.
 
    :::image type="content" source="./media/logs-metrics/5.png" alt-text="Strona metryk":::
 
@@ -119,7 +125,7 @@ Dzienniki znajdują się w **obszarze roboczym usługi Azure log Analytics**. Za
 
 ## <a name="activity-logs"></a><a name="activity-logs"></a>Dzienniki aktywności
 
-Wpisy **dziennika aktywności** są zbierane domyślnie i mogą być wyświetlane w Azure Portal. Aby wyświetlić wszystkie operacje przesłane do subskrypcji platformy Azure, można użyć dzienników aktywności platformy Azure (znanych wcześniej jako *dzienników operacyjnych* i *dzienników inspekcji* ).
+Wpisy **dziennika aktywności** są zbierane domyślnie i mogą być wyświetlane w Azure Portal. Aby wyświetlić wszystkie operacje przesłane do subskrypcji platformy Azure, można użyć dzienników aktywności platformy Azure (znanych wcześniej jako *dzienników operacyjnych* i *dzienników inspekcji*).
 
 ## <a name="next-steps"></a>Następne kroki
 

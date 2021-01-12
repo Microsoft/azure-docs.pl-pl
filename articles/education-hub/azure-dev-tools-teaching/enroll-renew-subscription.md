@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 01/07/2021
-ms.openlocfilehash: 4ff91949c42b9a0e33999b7d0dc21fd24da7cdd9
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 0ceb9095f15009c150690b67271f4a654cd6110f
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120346"
+ms.locfileid: "98127757"
 ---
 # <a name="enroll-or-renew-an-azure-dev-tools-for-teaching-subscription"></a>Zarejestruj lub Odnów narzędzia deweloperskie platformy Azure dla usługi nauczania
 
@@ -34,7 +34,7 @@ W tym artykule opisano proces rejestracji w narzędziach deweloperskich platform
 1. Wypełnij **Informacje o instytucji**, jeśli są rejestrowane po raz pierwszy. W przypadku odnowienia te informacje będą wypełniane.
 
     :::image type="content" source="media/enroll-renew-subscription/application-institution-information.png" alt-text="Wprowadź informacje o instytucji." border="false":::
-        
+
 1. Wybierz **plan subskrypcji** i Potwierdź jego **administratora subskrypcji** . Domena poczty e-mail administratora subskrypcji umożliwi uczniom w tej samej domenie uzyskanie łatwego dostępu do pobierania korzyści z oprogramowania.
 
     :::image type="content" source="media/enroll-renew-subscription/application-select-subscription-plan.png" alt-text="Wybierz pozycję plan subskrypcji." border="false":::

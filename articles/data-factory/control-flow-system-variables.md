@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.openlocfilehash: 1780b4a64de349c1e272158fe6bfde9cab6f8369
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: fc6b2e4c944394d811abc19f70aeb34a0ae3c9a4
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486049"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127672"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Zmienne systemowe obsługiwane przez Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -28,29 +28,43 @@ Te zmienne systemowe mogą być przywoływane w dowolnym miejscu w kodzie JSON p
 
 | Nazwa zmiennej | Opis |
 | --- | --- |
-| @pipeline(). DataFactory |Nazwa fabryki danych, w której działa uruchomienie potoku |
+| @pipeline(). DataFactory |Nazwa fabryki danych, w której działa potok |
 | @pipeline(). Proces |Nazwa potoku |
-| @pipeline(). RunId | Identyfikator określonego uruchomienia potoku |
-| @pipeline(). TriggerType | Typ wyzwalacza, który wywołał potok (ręczny, Scheduler) |
-| @pipeline(). TriggerId| Identyfikator wyzwalacza, który wywołuje potok |
-| @pipeline(). TriggerName| Nazwa wyzwalacza, który wywołuje potok |
-| @pipeline(). TriggerTime| Czas, gdy wyzwalacz, który wywołał potok. Czas wyzwalacza jest rzeczywistym czasem uruchomienia, a nie zaplanowanym czasem. Na przykład, `13:20:08.0149599Z` jest zwracany zamiast `13:20:00.00Z` |
+| @pipeline(). RunId |Identyfikator określonego uruchomienia potoku |
+| @pipeline(). TriggerType |Typ wyzwalacza, który wywołał potok (na przykład `ScheduleTrigger` , `BlobEventsTrigger` ). Aby uzyskać listę obsługiwanych typów wyzwalaczy, zobacz temat [wykonywanie potoku i Wyzwalacze w Azure Data Factory](concepts-pipeline-execution-triggers.md). Typ wyzwalacza `Manual` wskazuje, że potok został wyzwolony ręcznie. |
+| @pipeline(). TriggerId|Identyfikator wyzwalacza, który wywołał potok |
+| @pipeline(). TriggerName|Nazwa wyzwalacza, który wywołał potok |
+| @pipeline(). TriggerTime|Godzina uruchomienia wyzwalacza, który wywołał potok. Jest to godzina, o której uruchamiany jest **wyzwalacz w** celu wywołania uruchomienia potoku i może się nieco różnić od zaplanowanego czasu wyzwalacza.  |
+
+>[!NOTE]
+>Zmienne systemowe daty/godziny powiązane z wyzwalaczem (w obu zakresach potoków i wyzwalaczy) zwracają daty UTC w formacie ISO 8601, na przykład `2017-06-01T22:20:00.4061448Z` .
 
 ## <a name="schedule-trigger-scope"></a>Zakres wyzwalania harmonogramu
-Te zmienne systemowe mogą być przywoływane w dowolnym miejscu w kodzie JSON wyzwalacza, jeśli wyzwalacz jest typu: "ScheduleTrigger".
+Te zmienne systemowe mogą być przywoływane w dowolnym miejscu w kodzie JSON wyzwalacza dla wyzwalaczy typu [ScheduleTrigger](concepts-pipeline-execution-triggers.md#schedule-trigger).
 
 | Nazwa zmiennej | Opis |
 | --- | --- |
-| @trigger().scheduledTime |Czas, w którym wyzwalacz został zaplanowany do wywołania uruchomienia potoku. Na przykład dla wyzwalacza, który jest uruchamiany co 5 minut, ta zmienna zwróci `2017-06-01T22:20:00Z` , `2017-06-01T22:25:00Z` `2017-06-01T22:30:00Z` odpowiednio.|
-| @trigger(). startTime |Czas, po którym **wyzwalacz jest** uruchamiany w celu wywołania uruchomienia potoku. Na przykład dla wyzwalacza, który jest uruchamiany co 5 minut, ta zmienna może zwrócić coś podobnego do tego `2017-06-01T22:20:00.4061448Z` , `2017-06-01T22:25:00.7958577Z` `2017-06-01T22:30:00.9935483Z` odpowiednio. (Uwaga: sygnatura czasowa jest domyślnie w formacie ISO 8601)|
+| @trigger().scheduledTime |Godzina, o której wyzwalacz został zaplanowany do wywołania uruchomienia potoku. |
+| @trigger(). startTime |Godzina, o której uruchamiany **jest wyzwalacz,** aby wywołać uruchomienie potoku. Może się nieco różnić od zaplanowanego czasu wyzwalacza. |
 
 ## <a name="tumbling-window-trigger-scope"></a>Zakres wyzwalacza okna wirowania
-Te zmienne systemowe mogą być przywoływane w dowolnym miejscu w kodzie JSON wyzwalacza, jeśli wyzwalacz jest typu: "TumblingWindowTrigger".
-(Uwaga: sygnatura czasowa jest domyślnie w formacie ISO 8601)
+Te zmienne systemowe mogą być przywoływane w dowolnym miejscu w kodzie JSON wyzwalacza dla wyzwalaczy typu [TumblingWindowTrigger](concepts-pipeline-execution-triggers.md#tumbling-window-trigger).
 
 | Nazwa zmiennej | Opis |
 | --- | --- |
-| @trigger(). Output. windowStartTime |Początek okna, gdy wyzwalacz został zaplanowany do wywołania uruchomienia potoku. Jeśli wyzwalacz okna wirowania ma częstotliwość "co godzinę", będzie to godzina na początku godziny.|
-| @trigger(). Output. windowEndTime |Koniec okna, gdy wyzwalacz został zaplanowany do wywołania uruchomienia potoku. Jeśli wyzwalacz okna wirowania ma częstotliwość "co godzinę", będzie to godzina po upływie godziny.|
+| @trigger(). Output. windowStartTime |Początek okna skojarzonego z uruchomieniem wyzwalacza. |
+| @trigger(). Output. windowEndTime |Koniec okna skojarzonego z uruchomionym wyzwalaczem. |
+| @trigger().scheduledTime |Godzina, o której wyzwalacz został zaplanowany do wywołania uruchomienia potoku. |
+| @trigger(). startTime |Godzina, o której uruchamiany **jest wyzwalacz,** aby wywołać uruchomienie potoku. Może się nieco różnić od zaplanowanego czasu wyzwalacza. |
+
+## <a name="event-based-trigger-scope"></a>Zakres wyzwalaczy oparty na zdarzeniach
+Te zmienne systemowe mogą być przywoływane w dowolnym miejscu w kodzie JSON wyzwalacza dla wyzwalaczy typu [BlobEventsTrigger](concepts-pipeline-execution-triggers.md#event-based-trigger).
+
+| Nazwa zmiennej | Opis |
+| --- | --- |
+| @triggerBody(). fileName  |Nazwa pliku, którego tworzenie lub usuwanie spowodowało uruchomienie wyzwalacza.   |
+| @triggerBody(). nazwa_folderu  |Ścieżka do folderu, który zawiera plik określony przez `@triggerBody().fileName` . Pierwszy segment ścieżki folderu to nazwa kontenera Blob Storage platformy Azure.  |
+| @trigger(). startTime |Godzina uruchomienia wyzwalacza w celu wywołania uruchomienia potoku. |
+
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać informacje o tym, jak te zmienne są używane w wyrażeniach, zobacz [Language Expression & Functions](control-flow-expression-language-functions.md).

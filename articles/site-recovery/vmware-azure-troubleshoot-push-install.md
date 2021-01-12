@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 04/03/2020
-ms.openlocfilehash: 8ee6449f357a578b30809bb03723ac1556e4f459
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62c8240a4d2e50aa3b584f322baf7d2ee217c6d3
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816190"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127876"
 ---
 # <a name="troubleshoot-mobility-service-push-installation"></a>Rozwiązywanie problemów z instalacją wypychaną usługi mobilności
 
@@ -106,7 +106,22 @@ Serwer konfiguracji/serwer przetwarzania skalowalnego w poziomie próbuje nawią
 
 Aby rozwiązać ten problem:
 
+* Upewnij się, że konto użytkownika ma dostęp administracyjny na komputerze źródłowym, przy użyciu konta lokalnego lub konta domeny. Jeśli nie korzystasz z konta domeny, musisz wyłączyć kontrolę dostępu użytkowników zdalnych na komputerze lokalnym.
+  * Aby ręcznie dodać klucz rejestru, który wyłącza kontrolę dostępu użytkowników zdalnych:
+    * `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System`
+    * Dodaj nową `DWORD` : `LocalAccountTokenFilterPolicy`
+    * Ustaw wartość na `1`
+  * Aby dodać klucz rejestru, w wierszu polecenia Uruchom następujące polecenie:
+
+    `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
+
 * Upewnij się, że można wysłać polecenie ping do maszyny źródłowej z serwera konfiguracji. Jeśli podczas włączania replikacji wybrano serwer przetwarzania skalowalny w poziomie, upewnij się, że można wysłać polecenie ping do maszyny źródłowej z serwera przetwarzania.
+
+* Upewnij się, że na maszynie wirtualnej jest włączona usługa udostępniania plików i drukarek. Sprawdź kroki opisane [tutaj](vmware-azure-troubleshoot-push-install.md#file-and-printer-sharing-services-check-errorid-95105--95106).
+
+* Upewnij się, że na maszynie wirtualnej jest włączona usługa WMI. Sprawdź kroki opisane [tutaj](vmware-azure-troubleshoot-push-install.md#windows-management-instrumentation-wmi-configuration-check-error-code-95103).
+
+* Upewnij się, że sieciowe foldery udostępnione na maszynie wirtualnej są dostępne z serwera przetwarzania. Sprawdź kroki opisane [tutaj](vmware-azure-troubleshoot-push-install.md#check-access-for-network-shared-folders-on-source-machine-errorid-9510595523).
 
 * W wierszu polecenia komputera źródłowego należy użyć usługi `Telnet` do pingowania serwera konfiguracji lub skalowalnego w poziomie serwera przetwarzania na porcie HTTPS 135, jak pokazano w poniższym poleceniu. To polecenie sprawdza, czy występują problemy z łącznością sieciową lub problemy z blokowaniem portów zapory.
 
@@ -165,7 +180,7 @@ W przypadku **systemu Windows 2008 R2 i wcześniejszych wersji**:
 
 * Aby włączyć udostępnianie plików zasady grupy:
   1. Przejdź do **menu Start**, wpisz `gpmc.msc` i Wyszukaj.
-  1. W okienku nawigacji otwórz następujące foldery: Konfiguracja użytkownika **zasady komputera lokalnego**  >  **User Configuration**  >  **Szablony administracyjne**  >  **składniki systemu Windows**  >  **udostępnianie sieci**.
+  1. W okienku nawigacji otwórz następujące foldery: Konfiguracja użytkownika **zasady komputera lokalnego**  >    >  **Szablony administracyjne**  >  **składniki systemu Windows**  >  **udostępnianie sieci**.
   1. W okienku szczegółów kliknij dwukrotnie pozycję **uniemożliwiaj użytkownikom udostępnianie plików w ramach ich profilu**.
 
      Aby wyłączyć ustawienie zasady grupy i umożliwić użytkownikowi udostępnianie plików, wybierz pozycję **wyłączone**.
@@ -224,7 +239,7 @@ Przed wersją 9,20 konfiguracja partycji głównej lub woluminu na wielu dyskach
 
 ### <a name="possible-cause"></a>Możliwa przyczyna
 
-Pliki konfiguracyjne Grand Unified inicjujący (GRUB) (_/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/Boot/grub2/grub.cfg_lub _/etc/default/grub_) mogą zawierać wartość parametrów **root** i **Resume** jako rzeczywiste nazwy urządzeń zamiast uniwersalnego unikatowego identyfikatora (UUID). Site Recovery zezwala na podejście UUID, ponieważ nazwy urządzeń mogą ulec zmianie po ponownym uruchomieniu maszyny wirtualnej. Na przykład maszyna wirtualna może nie przełączyć się w tryb online o tej samej nazwie w trybie failover, co spowoduje problemy.
+Pliki konfiguracyjne Grand Unified inicjujący (GRUB) (_/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/Boot/grub2/grub.cfg_ lub _/etc/default/grub_) mogą zawierać wartość parametrów **root** i **Resume** jako rzeczywiste nazwy urządzeń zamiast uniwersalnego unikatowego identyfikatora (UUID). Site Recovery zezwala na podejście UUID, ponieważ nazwy urządzeń mogą ulec zmianie po ponownym uruchomieniu maszyny wirtualnej. Na przykład maszyna wirtualna może nie przełączyć się w tryb online o tej samej nazwie w trybie failover, co spowoduje problemy.
 
 Na przykład:
 
@@ -254,7 +269,7 @@ Nazwy urządzeń należy zamienić na odpowiednie identyfikatory UUID.
    /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3"
    ```
 
-1. Teraz Zastąp nazwę urządzenia identyfikatorem UUID w formacie takim jak `root=UUID=\<UUID>` . Na przykład jeśli zamienimy nazwy urządzeń z identyfikatorem UUID dla certyfikatu głównego i wznowienia wymienionego w plikach _/Boot/grub2/grub.cfg_, _/Boot/grub2/grub.cfg_lub _/etc/default/grub_ , wówczas wiersze w plikach wyglądają jak w następującym wierszu:
+1. Teraz Zastąp nazwę urządzenia identyfikatorem UUID w formacie takim jak `root=UUID=\<UUID>` . Na przykład jeśli zamienimy nazwy urządzeń z identyfikatorem UUID dla certyfikatu głównego i wznowienia wymienionego w plikach _/Boot/grub2/grub.cfg_, _/Boot/grub2/grub.cfg_ lub _/etc/default/grub_ , wówczas wiersze w plikach wyglądają jak w następującym wierszu:
 
    `kernel /boot/vmlinuz-3.0.101-63-default root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4 resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b splash=silent crashkernel=256M-:128M showopts vga=0x314`
 

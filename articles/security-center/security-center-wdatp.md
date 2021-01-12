@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 34d8881eb072c4c723bf68b7c6ccfd24ab19cd3c
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 553151aebeadf4ad4764e747b1bf6dcd8c552721
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116283"
+ms.locfileid: "98126856"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Ochrona punktów końcowych za pomocą zintegrowanego rozwiązania EDR Security Center: Microsoft Defender for Endpoint
 
@@ -71,7 +71,7 @@ Dzięki integracji usługi Defender dla punktów końcowych z Security Center mo
 
 W przypadku używania Azure Security Center do monitorowania serwerów usługa Microsoft Defender dla dzierżawy punktu końcowego jest tworzona automatycznie. Dane zbierane przez usługę Defender for Endpoint są przechowywane w lokalizacji geograficznej dzierżawy, która została zidentyfikowana podczas aprowizacji. Dane klienta w formie pseudonimowej — mogą być również przechowywane w centralnych systemach magazynowania i przetwarzania w Stany Zjednoczone. 
 
-Po skonfigurowaniu lokalizacji nie można jej zmienić. Jeśli musisz przenieść dane do innej lokalizacji, skontaktuj się z firmą pomoc techniczna firmy Microsoft w celu zresetowania dzierżawy.
+Po skonfigurowaniu lokalizacji nie można jej zmienić. Jeśli masz własną licencję usługi Microsoft Defender for Endpoint i chcesz przenieść dane do innej lokalizacji, skontaktuj się z firmą pomoc techniczna firmy Microsoft w celu zresetowania dzierżawy.
 
 
 ## <a name="enabling-the-microsoft-defender-for-endpoint-integration"></a>Włączanie integracji usługi Microsoft Defender for Endpoint

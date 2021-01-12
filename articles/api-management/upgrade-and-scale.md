@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 466af29a3f073f73d4a0fc62d74709cd59f82425
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: bd36434bbfe435a53567c46728610627f99f987f
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183791"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127791"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Uaktualnianie i skalowanie wystąpienia usługi Azure API Management  
 
@@ -67,14 +67,14 @@ Możesz uaktualnić i obniżyć wersję do i z dowolnej warstwy. Uaktualnianie l
 2. Wybierz opcję **lokalizacje** z menu.
 3. Kliknij wiersz z lokalizacją, która ma zostać przeskalowana.
 4. Określ nową liczbę **jednostek** — Użyj suwaka lub wpisz liczbę.
-5. Kliknij pozycję **Zastosuj**.
+5. Kliknij przycisk **Zastosuj**.
 
 ## <a name="change-your-api-management-service-tier"></a>Zmień warstwę usługi API Management
 
 1. Przejdź do usługi API Management w [Azure Portal](https://portal.azure.com/).
 2. Kliknij **warstwę cenową** w menu.
 3. Wybierz żądaną warstwę usług z listy rozwijanej. Użyj suwaka, aby określić skalę usługi API Management po zmianie.
-4. Kliknij przycisk **Zapisz**.
+4. Kliknij pozycję **Zapisz**.
 
 ## <a name="downtime-during-scaling-up-and-down"></a>Przestoje podczas skalowania w górę i w dół
 W przypadku skalowania z lub do warstwy dewelopera wygaśnie Przestój. W przeciwnym razie nie ma przestojów. 
@@ -88,4 +88,5 @@ Jeśli wymagania dotyczące zabezpieczeń obejmują [izolację obliczeniową](..
 
 - [Jak wdrożyć wystąpienie usługi Azure API Management w wielu regionach świadczenia usługi Azure](api-management-howto-deploy-multi-region.md)
 - [Jak automatycznie skalować wystąpienie usługi Azure API Management](api-management-howto-autoscale.md)
-- [Optymalizowanie i oszczędzanie wydatków w chmurze](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- [Planowanie i zarządzanie kosztami API Management](plan-manage-costs.md)
+- [Limity API Management](../azure-resource-manager/management/azure-subscription-service-limits.md#api-management-limits)
