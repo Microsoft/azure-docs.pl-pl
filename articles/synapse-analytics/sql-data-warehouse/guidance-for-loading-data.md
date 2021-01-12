@@ -11,12 +11,12 @@ ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 60a995f78b9b696197d9bd45e04becb19e4129f0
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: c91310d9d1e67dd77098ee13a87190ee6d411607
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653065"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120108"
 ---
 # <a name="best-practices-for-loading-data-using-dedicated-sql-pools-in-azure-synapse-analytics"></a>Najlepsze rozwiązania dotyczące ładowania danych przy użyciu dedykowanych pul SQL w usłudze Azure Synapse Analytics
 
@@ -47,7 +47,7 @@ W tym przykładzie tworzony jest użytkownik ładujący sklasyfikowany do okreś
    CREATE LOGIN loader WITH PASSWORD = 'a123STRONGpassword!';
 ```
 
-Nawiąż połączenie z dedykowaną pulą SQL i Utwórz użytkownika. Poniższy kod założono, że masz połączenie z bazą danych o nazwie mySampleDataWarehouse. Przedstawiono w nim sposób tworzenia użytkownika o nazwie Loader i nadaje użytkownikowi uprawnienia do tworzenia tabel i ładowania przy użyciu [instrukcji Copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Następnie klasyfikuje użytkownika do grupy obciążeń dataloads z maksymalnymi zasobami. 
+Nawiąż połączenie z dedykowaną pulą SQL i Utwórz użytkownika. Poniższy kod założono, że masz połączenie z bazą danych o nazwie mySampleDataWarehouse. Przedstawiono w nim sposób tworzenia użytkownika o nazwie Loader i nadaje użytkownikowi uprawnienia do tworzenia tabel i ładowania przy użyciu [instrukcji Copy](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Następnie klasyfikuje użytkownika do grupy obciążeń dataloads z maksymalnymi zasobami. 
 
 ```sql
    -- Connect to the dedicated SQL pool
@@ -179,5 +179,5 @@ Nie są potrzebne żadne inne zmiany podstawowych zewnętrznych źródeł danych
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby dowiedzieć się więcej na temat instrukcji COPY lub MyBase podczas projektowania procesu wyodrębniania, ładowania i przekształcania (ELT), zobacz [Design ELT for Azure Synapse Analytics](design-elt-data-loading.md).
-- W przypadku samouczka ładowania [Użyj instrukcji Copy, aby załadować dane z usługi Azure Blob Storage do programu SQL Server Synapse](load-data-from-azure-blob-storage-using-polybase.md).
+- W przypadku samouczka ładowania [Użyj instrukcji Copy, aby załadować dane z usługi Azure Blob Storage do programu SQL Server Synapse](./load-data-from-azure-blob-storage-using-copy.md).
 - Aby dowiedzieć się, jak monitorować ładowanie danych, zobacz [Monitor your workload using DMVs](sql-data-warehouse-manage-monitor.md) (Monitorowanie obciążenia przy użyciu widoków DMV).

@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 8df7a2ecd2a6732a011267eb0efe00e8eaf2bef4
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 51b2e8cd968c4c14777d196d90686b13158aef42
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458744"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120312"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Apache Spark w podstawowych pojęciach dotyczących usługi Azure Synapse Analytics
 
@@ -80,7 +80,7 @@ W tym artykule opisano sposób żądania wzrostu przydziału rdzeń wirtualny ob
 - Wybierz pozycję "Azure Synapse Analytics" jako typ usługi.
 - W oknie Szczegóły przydziału wybierz pozycję Apache Spark (rdzeń wirtualny) na obszar roboczy
 
-[Zażądaj zwiększenia pojemności za pośrednictwem Azure Portal](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests#request-a-standard-quota-increase-from-help--support)
+[Zażądaj zwiększenia pojemności za pośrednictwem Azure Portal](../../azure-portal/supportability/per-vm-quota-requests.md#request-a-standard-quota-increase-from-help--support)
 
 ### <a name="spark-pool-level"></a>Poziom puli platformy Spark
 
@@ -95,5 +95,5 @@ Aby rozwiązać ten problem, należy zmniejszyć użycie zasobów puli przed prz
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Azure Synapse Analytics](../index.yml)
 - [Dokumentacja Apache Spark](https://spark.apache.org/docs/2.4.5/)

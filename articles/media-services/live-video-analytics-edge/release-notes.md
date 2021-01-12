@@ -3,12 +3,12 @@ title: Analiza filmów wideo na żywo na IoT Edge informacji o wersji — Azure
 description: Ten temat zawiera informacje o wersji analizy wideo na żywo na temat wydań IoT Edge, ulepszeń, poprawek błędów i znanych problemów.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 7761fee8f23b5be259f9a5c278f761fa4ce92fbf
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 7f8957d1ec93259cf6defe7980f19298f782ea5e
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059980"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121247"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Analiza filmów wideo na żywo na IoT Edge informacji o wersji
 
@@ -20,6 +20,23 @@ Ten artykuł zawiera informacje na temat:
 * Znane problemy
 * Poprawki błędów
 * Funkcje uznane za przestarzałe
+
+<hr width=100%>
+
+## <a name="january-12-2021"></a>12 stycznia 2021
+
+Ten tag wersji jest przeznaczony do odświeżania w styczniu 2021 dla modułu:
+
+```
+mcr.microsoft.com/media/live-video-analytics:2.0.1
+```
+
+> [!NOTE]
+> W ramach przewodników Szybki Start i samouczków manifesty wdrożenia używają znacznika 2 (Live-Video-Analytics: 2). Należy więc po prostu ponownie wdrożyć takie manifesty należy zaktualizować moduł na urządzeniu brzegowym > urządzenia.
+### <a name="bug-fixes"></a>Poprawki błędów 
+
+* Pola `ActivationSignalOffset` `MinimumActivationTime` i `MaximumActivationTime` w procesorach bramy sygnałów zostały nieprawidłowo ustawione jako wymagane właściwości. Są teraz właściwościami **opcjonalnymi** .
+* Naprawiono usterkę dotyczącą użycia, która powoduje awarię modułu IoT Edge analizy wideo na żywo w przypadku wdrożenia w określonych regionach.
 
 <hr width=100%>
 

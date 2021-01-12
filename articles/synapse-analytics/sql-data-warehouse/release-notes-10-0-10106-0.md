@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 0cad8fcdf58f4827f28b40550ae93e607e0c0858
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: b2d4f653f2bd86d30b2a0f7828a6e09c64c62e82
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369008"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121213"
 ---
 # <a name="dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-release-notes"></a>Dedykowana Pula SQL (dawniej SQL DW) w informacjach o wersji usługi Azure Synapse Analytics
 
@@ -44,22 +44,22 @@ W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstal
 
 | Ulepszenia usługi | Szczegóły |
 | --- | --- |
-|**Sp_rename procedury składowanej dla kolumn (wersja zapoznawcza)**|Zmiana nazwy kolumny bez [CTAs](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-ctas) stało się prostsze. Usługa Azure Synapse SQL ma teraz obsługę procedury składowanej systemu sp_rename (wersja zapoznawcza), aby zmienić nazwę kolumny niebędącej dystrybucją w tabeli użytkownika. Ta funkcja jest obecnie dostępna w wersji zapoznawczej i będzie obsługiwana w narzędziach na bieżąco. Aby uzyskać szczegółowe informacje, zobacz [sp_rename](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql?view=azure-sqldw-latest).|
-|**Dodatkowy parametr przewidywania T-SQL**|W tej nowej wersji do istniejącej instrukcji przewidywania języka T-SQL zostanie dodany wymagany dodatkowy parametr o nazwie "RUNTIME". Aby zaktualizować istniejące skrypty, zobacz przykłady w [przewidywaniach języka T-SQL](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest).|
+|**Sp_rename procedury składowanej dla kolumn (wersja zapoznawcza)**|Zmiana nazwy kolumny bez [CTAs](./sql-data-warehouse-develop-ctas.md) stało się prostsze. Usługa Azure Synapse SQL ma teraz obsługę procedury składowanej systemu sp_rename (wersja zapoznawcza), aby zmienić nazwę kolumny niebędącej dystrybucją w tabeli użytkownika. Ta funkcja jest obecnie dostępna w wersji zapoznawczej i będzie obsługiwana w narzędziach na bieżąco. Aby uzyskać szczegółowe informacje, zobacz [sp_rename](/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql?view=azure-sqldw-latest).|
+|**Dodatkowy parametr przewidywania T-SQL**|W tej nowej wersji do istniejącej instrukcji przewidywania języka T-SQL zostanie dodany wymagany dodatkowy parametr o nazwie "RUNTIME". Aby zaktualizować istniejące skrypty, zobacz przykłady w [przewidywaniach języka T-SQL](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest).|
 
 ## <a name="oct-2020"></a>2020 października
 
 | Ulepszenia usługi | Szczegóły |
 | --- | --- |
-|**Wbudowane funkcje Table-Valued języka T-SQL (wersja zapoznawcza)**|W tej wersji możesz teraz tworzyć wbudowane funkcje z wartościami przechowywanymi w tabeli przy użyciu języka Transact-SQL i badać ich wyniki w postaci tabeli. Ta funkcja jest obecnie dostępna w wersji zapoznawczej i będzie obsługiwana w narzędziach na bieżąco. Aby uzyskać więcej informacji, zobacz [Tworzenie funkcji (Azure Synapse Analytics)](https://docs.microsoft.com/sql/t-sql/statements/create-function-sql-data-warehouse?view=azure-sqldw-latest).|
-|**MERGE — polecenie (wersja zapoznawcza)**|Teraz można uruchamiać operacje wstawiania, aktualizowania lub usuwania w tabeli docelowej z wyników sprzężenia z tabelą źródłową. Na przykład można synchronizować dwie tabele przez wstawianie, aktualizowanie lub usuwanie wierszy w jednej tabeli na podstawie różnic znalezionych w drugiej tabeli.  Aby uzyskać szczegółowe informacje, sprawdź [scalanie](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) .|
+|**Wbudowane funkcje Table-Valued języka T-SQL (wersja zapoznawcza)**|W tej wersji możesz teraz tworzyć wbudowane funkcje z wartościami przechowywanymi w tabeli przy użyciu języka Transact-SQL i badać ich wyniki w postaci tabeli. Ta funkcja jest obecnie dostępna w wersji zapoznawczej i będzie obsługiwana w narzędziach na bieżąco. Aby uzyskać więcej informacji, zobacz [Tworzenie funkcji (Azure Synapse Analytics)](/sql/t-sql/statements/create-function-sql-data-warehouse?view=azure-sqldw-latest).|
+|**MERGE — polecenie (wersja zapoznawcza)**|Teraz można uruchamiać operacje wstawiania, aktualizowania lub usuwania w tabeli docelowej z wyników sprzężenia z tabelą źródłową. Na przykład można synchronizować dwie tabele przez wstawianie, aktualizowanie lub usuwanie wierszy w jednej tabeli na podstawie różnic znalezionych w drugiej tabeli.  Aby uzyskać szczegółowe informacje, sprawdź [scalanie](/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) .|
 
 ## <a name="aug-2020"></a>2020 sie
 
 | Ulepszenia usługi | Szczegóły |
 | --- | --- |
-|**Zarządzanie obciążeniem — środowisko portalu**|Użytkownicy mogą konfigurować ustawienia zarządzania obciążeniem i zarządzać nimi za pośrednictwem Azure Portal. Możliwa jest możliwość skonfigurowania [grup obciążeń](/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-portal) i [klasyfikatorów obciążeń](/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal) .|
-|**Ulepszony widok wykazu mapowań tabel**|Nowy widok wykazu [sys.pdw_permanent_table_mappings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql) mapuje **object_ids** trwałych tabel użytkowników na nazwy tabel fizycznych.|
+|**Zarządzanie obciążeniem — środowisko portalu**|Użytkownicy mogą konfigurować ustawienia zarządzania obciążeniem i zarządzać nimi za pośrednictwem Azure Portal. Możliwa jest możliwość skonfigurowania [grup obciążeń](./quickstart-configure-workload-isolation-portal.md) i [klasyfikatorów obciążeń](./quickstart-create-a-workload-classifier-portal.md) .|
+|**Ulepszony widok wykazu mapowań tabel**|Nowy widok wykazu [sys.pdw_permanent_table_mappings](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql) mapuje **object_ids** trwałych tabel użytkowników na nazwy tabel fizycznych.|
 
 ## <a name="july-2020"></a>Lipiec 2020 r.
 
@@ -68,22 +68,22 @@ W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstal
 |**Szyfrowanie na poziomie kolumny (publiczna wersja zapoznawcza)**|Chroń poufne informacje w usłudze Azure Synapse Analytics, stosując szyfrowanie symetryczne do kolumny danych przy użyciu języka Transact-SQL. Szyfrowanie na poziomie kolumny ma wbudowane funkcje, których można użyć do szyfrowania danych przy użyciu kluczy symetrycznych, które są dodatkowo chronione za pomocą certyfikatu, hasła, klucza symetrycznego lub klucza asymetrycznego. Aby uzyskać więcej informacji, zapoznaj się z artykułem [szyfrowanie kolumny danych](/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest).|
 |**Obsługa poziomu zgodności (GA)**|W tej wersji użytkownicy mogą teraz ustawiać poziom zgodności bazy danych w celu uzyskania zachowań języka Transact-SQL i przetwarzania zapytań dla określonej wersji aparatu SQL Synapse. Aby uzyskać więcej informacji, zobacz [sys.database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) i [ALTER DATABASE scoped Configuration](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
 |**Zabezpieczenia na poziomie wiersza**|Ta wersja zawiera ulepszenia operacji aktualizowania i usuwania w wierszach z wymuszeniem zabezpieczenia na poziomie wiersza. W tej wersji operacje aktualizowania i usuwania z funkcjami wewnętrznymi, takimi jak "is_rolemember", zakończą się pomyślnie, jeśli wewnętrznie nie odwołuje się do żadnej kolumny w tabeli docelowej DML. Przed tym ulepszeniem te operacje nie powiodły się z powodu ograniczenia w podstawowych operacjach DML.|
-|**DBCC SHRINKDATABASE (GA)**|Teraz można zmniejszyć rozmiar plików danych i dziennika w określonej bazie danych. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql?view=sql-server-ver15).|
+|**DBCC SHRINKDATABASE (GA)**|Teraz można zmniejszyć rozmiar plików danych i dziennika w określonej bazie danych. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql?view=sql-server-ver15).|
 
 ## <a name="may-2020"></a>Maj 2020 r.
 
 | Ulepszenia usługi | Szczegóły |
 | --- | --- |
-|**Izolacja obciążenia (GA)**|[Izolacja obciążeń](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-isolation) jest teraz ogólnie dostępna.  Za poorednictwem [grup obciążeń](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) można zarezerwować i zawierać zasoby.  Istnieje również możliwość skonfigurowania limitów czasu zapytania, aby anulować przemijające zapytania.|
-|**Obciążenie portal zarządzania Experience (wersja zapoznawcza)**| Użytkownicy mogą konfigurować ustawienia zarządzania obciążeniem i zarządzać nimi za pośrednictwem Azure Portal.  Możliwa jest możliwość skonfigurowania [grup obciążeń](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal) i [klasyfikatorów obciążeń](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal) .|
-|**Zmień grupę obciążeń**|Możliwość korzystania z polecenia [ALTER obciążenie grupy](https://docs.microsoft.com/sql/t-sql/statements/alter-workload-group-transact-sql?view=azure-sqldw-latest) jest teraz dostępna.  Użyj polecenia ALTER, aby zmienić konfigurację istniejącej [grupy obciążeń](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-isolation).|
-|**Wykrywanie schematu automatycznego dla plików Parquet za pomocą polecenia COPY (wersja zapoznawcza)**|[Polecenie copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) obsługuje teraz wykrywanie schematu automatycznego podczas ładowania plików Parquet. Polecenie automatycznie wykryje Schemat pliku Parquet i utworzy tabelę przed obciążeniem. Aby włączyć tę funkcję, skontaktuj się z następującą listą dystrybucyjną poczty e-mail: sqldwcopypreview@service.microsoft.com . |
-|**Załaduj złożone typy danych Parquet za pomocą polecenia COPY (wersja zapoznawcza)**|[Polecenie copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) obsługuje teraz ładowanie złożonych typów Parquet. Możesz ładować złożone typy, takie jak mapy i listy, do kolumn w postaci ciągów.  Aby włączyć tę funkcję, skontaktuj się z następującą listą dystrybucyjną poczty e-mail: sqldwcopypreview@service.microsoft.com . |
-|**Wykrywanie autokompresji plików Parquet za pomocą polecenia COPY**|[Polecenie copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) obsługuje teraz funkcję automatycznego wykrywania metody kompresji dla plików Parquet. Aby włączyć tę funkcję, skontaktuj się z następującą listą dystrybucyjną poczty e-mail: sqldwcopypreview@service.microsoft.com .|
-|**Dodatkowe zalecenia dotyczące ładowania**|[Zalecenia dotyczące ładowania](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations) są teraz dostępne dla Synapse SQL. Otrzymuj aktywne powiadomienia, gdy chcesz podzielić pliki na maksymalną przepływność, umieścić konto magazynu z dedykowaną pulą SQL (dawniej SQL DW) lub zwiększyć rozmiar wsadu podczas korzystania z narzędzi do ładowania, takich jak SQLBulkCopy API lub BCP|
-|**Kolumnowy aktualizowalnej dystrybucji T-SQL (GA)**|Użytkownicy mogą teraz aktualizować dane przechowywane w kolumnie dystrybucja. Zapoznaj [się ze wskazówkami dotyczącymi projektowania tabel rozproszonych w dedykowanej puli SQL (dawniej SQL DW)](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute) , aby uzyskać szczegółowe informacje.|
-|**Aktualizacja T-SQL/usuwanie z... Dołącz (GA)**|Teraz jest dostępna aktualizacja i usuwanie w oparciu o wyniki łączenia z inną tabelą. Aby uzyskać szczegółowe informacje, zobacz dokumentację dotyczącą [aktualizacji](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql?view=azure-sqldw-latest) i [usuwania](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql?view=azure-sqldw-latest) .|
-|**PRZEWIDYWANIA języka T-SQL (wersja zapoznawcza)**|Teraz można przewidzieć modele uczenia maszynowego w magazynie danych, unikając potrzeby dużych i złożonych ruchów danych. Funkcja przewidywania języka T-SQL opiera się na platformie Open model i pobiera dane oraz model uczenia maszynowego jako dane wejściowe do generowania prognoz. Aby uzyskać więcej informacji, zobacz [dokumentację](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest).|
+|**Izolacja obciążenia (GA)**|[Izolacja obciążeń](./sql-data-warehouse-workload-isolation.md) jest teraz ogólnie dostępna.  Za poorednictwem [grup obciążeń](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) można zarezerwować i zawierać zasoby.  Istnieje również możliwość skonfigurowania limitów czasu zapytania, aby anulować przemijające zapytania.|
+|**Obciążenie portal zarządzania Experience (wersja zapoznawcza)**| Użytkownicy mogą konfigurować ustawienia zarządzania obciążeniem i zarządzać nimi za pośrednictwem Azure Portal.  Możliwa jest możliwość skonfigurowania [grup obciążeń](./quickstart-create-a-workload-classifier-portal.md) i [klasyfikatorów obciążeń](./quickstart-create-a-workload-classifier-portal.md) .|
+|**Zmień grupę obciążeń**|Możliwość korzystania z polecenia [ALTER obciążenie grupy](/sql/t-sql/statements/alter-workload-group-transact-sql?view=azure-sqldw-latest) jest teraz dostępna.  Użyj polecenia ALTER, aby zmienić konfigurację istniejącej [grupy obciążeń](./sql-data-warehouse-workload-isolation.md).|
+|**Wykrywanie schematu automatycznego dla plików Parquet za pomocą polecenia COPY (wersja zapoznawcza)**|[Polecenie copy](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) obsługuje teraz wykrywanie schematu automatycznego podczas ładowania plików Parquet. Polecenie automatycznie wykryje Schemat pliku Parquet i utworzy tabelę przed obciążeniem. Aby włączyć tę funkcję, skontaktuj się z następującą listą dystrybucyjną poczty e-mail: sqldwcopypreview@service.microsoft.com . |
+|**Załaduj złożone typy danych Parquet za pomocą polecenia COPY (wersja zapoznawcza)**|[Polecenie copy](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) obsługuje teraz ładowanie złożonych typów Parquet. Możesz ładować złożone typy, takie jak mapy i listy, do kolumn w postaci ciągów.  Aby włączyć tę funkcję, skontaktuj się z następującą listą dystrybucyjną poczty e-mail: sqldwcopypreview@service.microsoft.com . |
+|**Wykrywanie autokompresji plików Parquet za pomocą polecenia COPY**|[Polecenie copy](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) obsługuje teraz funkcję automatycznego wykrywania metody kompresji dla plików Parquet. Aby włączyć tę funkcję, skontaktuj się z następującą listą dystrybucyjną poczty e-mail: sqldwcopypreview@service.microsoft.com .|
+|**Dodatkowe zalecenia dotyczące ładowania**|[Zalecenia dotyczące ładowania](./sql-data-warehouse-concept-recommendations.md) są teraz dostępne dla Synapse SQL. Otrzymuj aktywne powiadomienia, gdy chcesz podzielić pliki na maksymalną przepływność, umieścić konto magazynu z dedykowaną pulą SQL (dawniej SQL DW) lub zwiększyć rozmiar wsadu podczas korzystania z narzędzi do ładowania, takich jak SQLBulkCopy API lub BCP|
+|**Kolumnowy aktualizowalnej dystrybucji T-SQL (GA)**|Użytkownicy mogą teraz aktualizować dane przechowywane w kolumnie dystrybucja. Zapoznaj [się ze wskazówkami dotyczącymi projektowania tabel rozproszonych w dedykowanej puli SQL (dawniej SQL DW)](./sql-data-warehouse-tables-distribute.md) , aby uzyskać szczegółowe informacje.|
+|**Aktualizacja T-SQL/usuwanie z... Dołącz (GA)**|Teraz jest dostępna aktualizacja i usuwanie w oparciu o wyniki łączenia z inną tabelą. Aby uzyskać szczegółowe informacje, zobacz dokumentację dotyczącą [aktualizacji](/sql/t-sql/queries/update-transact-sql?view=azure-sqldw-latest) i [usuwania](/sql/t-sql/statements/delete-transact-sql?view=azure-sqldw-latest) .|
+|**PRZEWIDYWANIA języka T-SQL (wersja zapoznawcza)**|Teraz można przewidzieć modele uczenia maszynowego w magazynie danych, unikając potrzeby dużych i złożonych ruchów danych. Funkcja przewidywania języka T-SQL opiera się na platformie Open model i pobiera dane oraz model uczenia maszynowego jako dane wejściowe do generowania prognoz. Aby uzyskać więcej informacji, zobacz [dokumentację](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest).|
 
 ## <a name="april-2020"></a>Kwiecień 2020 r.
 
@@ -94,13 +94,13 @@ W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstal
 
 | Ulepszenia narzędzi                                         | Szczegóły                                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **[Visual Studio 16,6 Preview 5](https://docs.microsoft.com/visualstudio/releases/2019/release-notes-preview#--visual-studio-2019-version-166-preview-5-) — narzędzia danych SQL Server (SSDT)** | Ta wersja obejmuje następujące udoskonalenia programu SSDT: </br> </br> -Odnajdywanie i Klasyfikacja danych<br/> -COPY — instrukcja <br/> -Tabele z ograniczeniami unikatowymi<br/> -Tabele z uporządkowanym klastrowanym indeksem magazynu kolumn<br/> <br/>Ta wersja zawiera następujące poprawki dla SSDT: </br></br>  — W przypadku zmiany typu danych kolumny dystrybucji skrypt aktualizacji wygenerowany przez SSDT będzie wykonywał operację CTAS i zmienić nazwę zamiast porzucania i ponownego tworzenia tabeli. </br> |
+| **[Visual Studio 16,6 Preview 5](/visualstudio/releases/2019/release-notes-preview#--visual-studio-2019-version-166-preview-5-) — narzędzia danych SQL Server (SSDT)** | Ta wersja obejmuje następujące udoskonalenia programu SSDT: </br> </br> -Odnajdywanie i Klasyfikacja danych<br/> -COPY — instrukcja <br/> -Tabele z ograniczeniami unikatowymi<br/> -Tabele z uporządkowanym klastrowanym indeksem magazynu kolumn<br/> <br/>Ta wersja zawiera następujące poprawki dla SSDT: </br></br>  — W przypadku zmiany typu danych kolumny dystrybucji skrypt aktualizacji wygenerowany przez SSDT będzie wykonywał operację CTAS i zmienić nazwę zamiast porzucania i ponownego tworzenia tabeli. </br> |
 
 ## <a name="march-2020"></a>Marzec 2020 r.
 
 | Ulepszenia narzędzi                                         | Szczegóły                                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **[Visual Studio 16,6 Preview 2](https://docs.microsoft.com/visualstudio/releases/2019/release-notes-preview#whats-new-in-visual-studio-2019) — narzędzia danych SQL Server (SSDT)** | Ta wersja zawiera następujące ulepszenia i poprawki dotyczące programu SSDT: </br> </br> -Rozwiązano problem polegający na tym, że zmiana tabeli, do której odwołuje się widok z materiałami (MV) powoduje, że instrukcje ALTER View są generowane, co nie jest obsługiwane w przypadku systemu MVS<br/><br/> -Zaimplementowano zmianę w celu upewnienia się, że operacja porównywania schematu nie powiedzie się, gdy w bazie danych lub projekcie znajdują się Row-Level obiekty zabezpieczeń. Obiekty zabezpieczeń na poziomie wiersza nie są obecnie obsługiwane w przypadku SSDT.  <br/><br/> -Eksplorator obiektów SQL Server próg limitu czasu, aby uniknąć przekroczeń limitu czasu podczas wyświetlania dużej liczby obiektów w bazie danych<br/><br/> Zoptymalizowany pod kątem sposobu, w jaki Eksplorator obiektów SQL Server pobiera listę obiektów bazy danych, aby zmniejszyć niestabilność i zwiększyć wydajność podczas zapełniania Eksploratora obiektów |
+| **[Visual Studio 16,6 Preview 2](/visualstudio/releases/2019/release-notes-preview#whats-new-in-visual-studio-2019) — narzędzia danych SQL Server (SSDT)** | Ta wersja zawiera następujące ulepszenia i poprawki dotyczące programu SSDT: </br> </br> -Rozwiązano problem polegający na tym, że zmiana tabeli, do której odwołuje się widok z materiałami (MV) powoduje, że instrukcje ALTER View są generowane, co nie jest obsługiwane w przypadku systemu MVS<br/><br/> -Zaimplementowano zmianę w celu upewnienia się, że operacja porównywania schematu nie powiedzie się, gdy w bazie danych lub projekcie znajdują się Row-Level obiekty zabezpieczeń. Obiekty zabezpieczeń na poziomie wiersza nie są obecnie obsługiwane w przypadku SSDT.  <br/><br/> -Eksplorator obiektów SQL Server próg limitu czasu, aby uniknąć przekroczeń limitu czasu podczas wyświetlania dużej liczby obiektów w bazie danych<br/><br/> Zoptymalizowany pod kątem sposobu, w jaki Eksplorator obiektów SQL Server pobiera listę obiektów bazy danych, aby zmniejszyć niestabilność i zwiększyć wydajność podczas zapełniania Eksploratora obiektów |
 
 ## <a name="january-2020"></a>Styczeń 2020 r.
 
@@ -109,7 +109,7 @@ W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstal
 |**Metryki portal zarządzania obciążenia (wersja zapoznawcza)**|Dzięki wykorzystaniu [izolacji obciążeń](sql-data-warehouse-workload-isolation.md) w przypadku wersji zapoznawczej w tej ostatniej październiku użytkownicy mogą utworzyć własne [grupy obciążeń](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) w celu wydajnego zarządzania zasobami systemu i upewnić się, że umowy SLA biznesowe są spełnione.  W ramach ogólnych ulepszeń [zarządzania obciążeniami](sql-data-warehouse-workload-management.md) dla usługi Azure Synapse Analytics dostępne są nowe [metryki monitorowania zarządzania obciążeniami](sql-data-warehouse-workload-management-portal-monitor.md) .</br> </br> Monitorowanie obciążenia ma teraz więcej szczegółowych informacji o następujących metrykach: </br> — Procent zasobu zakończenia  </br> -Efektywny minimalny procent zasobów </br> — Aktywne zapytania grupy obciążenia </br> -Alokacja grupy obciążeń według maksymalnego procentu zasobów </br> -Alokacja grup obciążeń według procentu systemu </br> -Limity czasu zapytania grupy obciążeń </br> — Zakolejkowane zapytania grupy obciążenia </br></br> Te metryki służą do identyfikowania [wąskich gardeł grup obciążeń](sql-data-warehouse-workload-management-portal-monitor.md#workload-group-bottleneck) lub grup obciążeń, które są skonfigurowane z [izolacją niewykorzystywanego obciążenia](sql-data-warehouse-workload-management-portal-monitor.md#underutilized-workload-isolation).  Te metryki mogą być używane w Azure Portal, które umożliwiają dzielenie według grupy obciążeń.  Przefiltruj i przypnij ulubione wykresy do pulpitu nawigacyjnego, aby szybko uzyskać dostęp do szczegółowych informacji.|
 |**Metryki monitorowania portalu**| Następujące metryki zostały dodane do portalu w celu monitorowania ogólnej aktywności zapytania: </br> -Aktywne zapytania </br> — Kolejkowane zapytania </br> </br>Te metryki są opisane wraz z istniejącymi metrykami w [dokumentacji monitorowania użycia zasobów i działania zapytań](sql-data-warehouse-concept-resource-utilization-query-activity.md).|
 
-## <a name="october-2019"></a>Październik 2019 r.
+## <a name="october-2019"></a>Październik 2019 r.
 
 | Ulepszenia usługi | Szczegóły |
 | --- | --- |
@@ -123,7 +123,7 @@ W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstal
 |**Uporządkowany klastrowany indeks magazynu kolumn (GA)**|Magazynu kolumn to kluczowy czynnik służący do przechowywania i wydajnego wykonywania zapytań dotyczących dużych ilości danych. Uporządkowane klastrowane indeksy magazynu kolumn umożliwiają dalsze Optymalizowanie wykonywania zapytań przez włączenie wydajnej eliminacji segmentów.Aby uzyskać więcej informacji, zobacz [dostrajanie wydajności z uporządkowanym klastrowanym indeksem magazynu kolumn](performance-tuning-ordered-cci.md).|
 |**Buforowanie zestawu wyników (GA)**|Gdy buforowanie zestawu wyników jest włączone, wyniki zapytania są automatycznie zapisywane w pamięci podręcznej w bazie danych użytkownika do powtarzanego użycia. Dzięki temu kolejne wykonania zapytania będą uzyskiwać wyniki bezpośrednio z utrwalonej pamięci podręcznej, więc ponowne obliczenie nie jest konieczne. Buforowanie zestawu wyników zwiększa wydajność zapytań i zmniejsza użycie zasobów obliczeniowych. Ponadto zapytania korzystające z zbuforowanego zestawu wyników nie używają żadnych miejsc współbieżności, więc nie są wliczane do istniejących limitów współbieżności. W celu zapewnienia bezpieczeństwa użytkownicy mogą uzyskiwać dostęp do buforowanych wyników tylko wtedy, gdy mają one takie same uprawnienia dostępu do danych, jak użytkownicy tworzący buforowane wyniki. Aby uzyskać więcej informacji, zobacz [dostrajanie wydajności z buforowaniem zestawu wyników](performance-tuning-result-set-caching.md). Dotyczy wersji 10.0.10783.0 lub nowszej.|
 
-## <a name="september-2019"></a>Wrzesień 2019 r.
+## <a name="september-2019"></a>Wrzesień 2019
 
 | Ulepszenia usługi | Szczegóły |
 | --- | --- |
@@ -134,7 +134,7 @@ W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstal
 |**Wykonaj jako (Transact-SQL)**| [Wykonaj jako](/sql/t-sql/statements/execute-as-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) Obsługa języka T-SQL jest teraz dostępna, umożliwiając klientom Ustawianie kontekstu wykonywania sesji dla określonego użytkownika.|
 |**Dodatkowa obsługa języka T-SQL**|Obszar powierzchniowy języka T-SQL dla Synapse SQL został rozszerzony w celu uwzględnienia obsługi: </br> - [FORMAT (Transact-SQL)](/sql/t-sql/functions/format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)</br> - [TRY_PARSE (Transact-SQL)](/sql/t-sql/functions/try-parse-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)</br> - [TRY_CAST (Transact-SQL)](/sql/t-sql/functions/try-cast-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)</br> - [TRY_CONVERT (Transact-SQL)](/sql/t-sql/functions/try-convert-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)</br> - [sys.user_token (Transact-SQL)](/sql//relational-databases/system-catalog-views/sys-user-token-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)|
 
-## <a name="july-2019"></a>Lipiec 2019 r.
+## <a name="july-2019"></a>Lipiec 2019
 
 | Ulepszenia usługi | Szczegóły |
 | --- | --- |
@@ -154,7 +154,7 @@ W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstal
 |**Buforowanie zestawu wyników (wersja zapoznawcza)**|Buforowanie zestawu wyników umożliwia błyskawiczny czas odpowiedzi na zapytania przy skróceniu czasu uzyskiwania wglądu w dane analityków biznesowych i raportowania. Aby uzyskać więcej informacji, zobacz:</br> - [ALTER DATABASE (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)</br> - [Opcje ALTER DATABASE SET (Transact SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)</br> - [Ustaw BUFOROWANIE zestawu wyników (Transact-SQL)](/sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)</br> - [SET — instrukcja (Transact-SQL)](/sql/t-sql/statements/set-statements-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)</br> - [sys. databases (Transact-SQL)](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)|
 |**Uporządkowany klastrowany indeks magazynu kolumn (wersja zapoznawcza)**|Magazynu kolumn to kluczowy czynnik służący do przechowywania i wydajnego wykonywania zapytań dotyczących dużych ilości danych. Dla każdej tabeli dzieli dane przychodzące na grupy wierszy, a każda kolumna grupy wierszy tworzy segment na dysku.  Uporządkowane klastrowane indeksy magazynu kolumn umożliwiają dalsze Optymalizowanie wykonywania zapytań przez włączenie wydajnej eliminacji segmentów.Aby uzyskać więcej informacji, zobacz:</br> -  [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)</br> -  [Utwórz indeks magazynu kolumn (Transact-SQL)](/sql/t-sql/statements/create-columnstore-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
 
-## <a name="march-2019"></a>Marzec 2019 r.
+## <a name="march-2019"></a>Marzec 2019
 
 | Ulepszenia usługi | Szczegóły |
 | --- | --- |
@@ -172,7 +172,7 @@ W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstal
 | --- | --- |
 | | |
 
-## <a name="january-2019"></a>Styczeń 2019 r.
+## <a name="january-2019"></a>Styczeń 2019
 
 ### <a name="service-improvements"></a>Ulepszenia usługi
 
@@ -190,7 +190,7 @@ W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstal
 |brak | |
 | | |
 
-## <a name="december-2018"></a>Grudzień 2018 r.
+## <a name="december-2018"></a>Grudzień 2018
 
 ### <a name="service-improvements"></a>Ulepszenia usługi
 
@@ -202,7 +202,7 @@ W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstal
 |**Scalanie w tle magazynu kolumn**|Domyślnie dane SQL Azure są przechowywane w formacie kolumnowym z mikropartycjami o nazwie [RowGroups](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md). Czasami, ze względu na ograniczone ilości pamięci przy kompilacji indeksu lub czasie ładowania danych, RowGroups może być kompresowany z mniejszym niż optymalnym rozmiarem 1 000 000 wierszy. RowGroups mogą być również pofragmentowane ze względu na usunięcia. Mały lub pofragmentowany RowGroups powoduje zwiększenie zużycia pamięci, a także niewydajne wykonywanie zapytań. W tej wersji zadanie konserwacji w tle magazynu kolumn Scala małe skompresowane RowGroups w celu utworzenia większego RowGroups w celu lepszego wykorzystania pamięci i przyspieszenia wykonywania zapytań.
 | | |
 
-## <a name="october-2018"></a>Październik 2018 r.
+## <a name="october-2018"></a>Październik 2018
 
 ### <a name="service-improvements"></a>Ulepszenia usługi
 
@@ -226,7 +226,7 @@ W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstal
 ## <a name="more-information"></a>Więcej informacji
 
 - [Blog — analiza Synapse Azure](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
-- [Blogi zespołu doradczego klientów](https://docs.microsoft.com/archive/blogs/sqlcat/)
+- [Blogi zespołu doradczego klientów](/archive/blogs/sqlcat/)
 - [Historie sukcesu klientów](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
 - [Forum Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw)
 - [Twitter](https://twitter.com/hashtag/SQLDW)

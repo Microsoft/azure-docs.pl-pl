@@ -6,24 +6,24 @@ ms.author: rymend
 ms.topic: quickstart
 ms.service: azure-education
 ms.subservice: education-hub
-ms.date: 06/30/2020
-ms.openlocfilehash: edb0de9f235565d09c81ce4466de59698a321f56
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 01/07/2021
+ms.openlocfilehash: 4ff91949c42b9a0e33999b7d0dc21fd24da7cdd9
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87102129"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120346"
 ---
 # <a name="enroll-or-renew-an-azure-dev-tools-for-teaching-subscription"></a>Zarejestruj lub Odnów narzędzia deweloperskie platformy Azure dla usługi nauczania
 
 W tym artykule opisano proces rejestracji w narzędziach deweloperskich platformy Azure w celu nauczania i tworzenia subskrypcji.
 
-## <a name="purchase-a-new-subscription"></a>Kup nową subskrypcję
+## <a name="enroll-a-new-subscription"></a>Rejestracja nowej subskrypcji
 
 1. Przejdź do [strony internetowej Azure dev Tools for nauczania](https://azure.microsoft.com/education/institutions/).
 1. Wybierz przycisk **Utwórz konto** . 
 1. Wybierz pozycję **Zarejestruj lub Odnów** na banerze Azure dev Tools for nauczania.
-1. Wybierz typ kupowanej subskrypcji:
+1. Wybierz typ rejestracji subskrypcji:
     - Zastosuj do nowej subskrypcji
     - Kontynuuj uruchomioną aplikację
  
@@ -33,19 +33,15 @@ W tym artykule opisano proces rejestracji w narzędziach deweloperskich platform
 
 1. Wypełnij **Informacje o instytucji**, jeśli są rejestrowane po raz pierwszy. W przypadku odnowienia te informacje będą wypełniane.
 
-    :::image type="content" source="media/enroll-renew-subscription/application-institution-information.png" alt-text="Komunikat o błędzie logowania." border="false":::
-    
-1. Wypełnij **Informacje o rozliczeniach**. Jeśli Twoja instytucja jest częścią umowy licencjonowania zbiorowego, możesz wprowadzić numer umowy licencjonowania zbiorowego. Jeśli zarejestrujesz się w celu uzyskania nowej subskrypcji i płacisz inaczej niż karta kredytowa, może wystąpić opóźnienie uzyskiwania dostępu do subskrypcji w trakcie procesów płatności. Będziesz otrzymywać wiadomości e-mail z aktualizacją postępu płatności.
-
-    :::image type="content" source="media/enroll-renew-subscription/application-billing-information.png" alt-text="Komunikat o błędzie logowania." border="false":::
-    
+    :::image type="content" source="media/enroll-renew-subscription/application-institution-information.png" alt-text="Wprowadź informacje o instytucji." border="false":::
+        
 1. Wybierz **plan subskrypcji** i Potwierdź jego **administratora subskrypcji** . Domena poczty e-mail administratora subskrypcji umożliwi uczniom w tej samej domenie uzyskanie łatwego dostępu do pobierania korzyści z oprogramowania.
 
-    :::image type="content" source="media/enroll-renew-subscription/application-select-subscription-plan.png" alt-text="Komunikat o błędzie logowania." border="false":::
+    :::image type="content" source="media/enroll-renew-subscription/application-select-subscription-plan.png" alt-text="Wybierz pozycję plan subskrypcji." border="false":::
     
-1. Potwierdź wszystkie informacje o zakupie i kliknij pozycję **Umieść zamówienie**. Wiadomości e-mail z potwierdzeniem zostaną wysłane do skrzynki odbiorczej, z aktualizacją stanu płatności i wszystkimi możliwymi kolejnymi krokami.
+1. Potwierdź wszystkie informacje rejestracyjne i kliknij pozycję **Umieść zamówienie**. Wiadomości e-mail z potwierdzeniem będą wysyłane do Twojej skrzynki odbiorczej, z aktualizacją stanu rejestracji i wszystkimi możliwymi kolejnymi krokami.
 
-    :::image type="content" source="media/enroll-renew-subscription/application-confirm-place-order.png" alt-text="Komunikat o błędzie logowania." border="false":::
+    :::image type="content" source="media/enroll-renew-subscription/application-confirm-place-order.png" alt-text="Potwierdź zamówienie." border="false":::
 
 ## <a name="renew-an-existing-subscription"></a>Odnów istniejącą subskrypcję
 
@@ -65,7 +61,7 @@ Proces odnawiania można przeprowadzić tak wcześnie jak na 90 dni przed datą 
 
 1. Wybierz **plan subskrypcji** i Potwierdź jego **administratora subskrypcji** .
 
-1. Potwierdź wszystkie informacje o zakupie i kliknij pozycję **Umieść zamówienie**. Wiadomości e-mail z potwierdzeniem zostaną wysłane do skrzynki odbiorczej z aktualizacją stanu płatności i wszystkimi możliwymi kolejnymi krokami.
+1. Potwierdź wszystkie informacje rejestracyjne i kliknij pozycję **Umieść zamówienie**. Wiadomości e-mail z potwierdzeniem zostaną wysłane do skrzynki odbiorczej z aktualizacjami stanu rejestracji i wszystkimi możliwymi kolejnymi krokami.
 
 
 ## <a name="next-steps"></a>Następne kroki   

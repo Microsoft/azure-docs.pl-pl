@@ -9,14 +9,14 @@ ms.subservice: synapse-link
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0e4bcc13a2eaddbf394d8468b29eeff475119e2d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5316f74ee38f597592ae4582aef31837f0f05fda
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96459027"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119836"
 ---
-# <a name="connect-to-azure-synapse-link-for-azure-cosmos-db"></a>Połącz z linkiem usługi Azure Synapse dla Azure Cosmos DB
+# <a name="connect-to-azure-synapse-link-for-azure-cosmos-db"></a>Nawiązywanie połączenia z usługą Azure Synapse Link dla usługi Azure Cosmos DB
 
 W tym artykule opisano, jak uzyskać dostęp do bazy danych Azure Cosmos DB z usługi Azure Synapse Analytics Studio za pomocą usługi Azure Synapse link.
 
@@ -24,8 +24,8 @@ W tym artykule opisano, jak uzyskać dostęp do bazy danych Azure Cosmos DB z us
 
 Przed nawiązaniem połączenia z bazą danych Azure Cosmos DB z obszarem roboczym będziesz potrzebować:
 
-* Istniejąca baza danych Azure Cosmos DB lub Utwórz nowe konto, wykonując czynności opisane w [przewodniku szybki start: Zarządzanie kontem Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-database-account).
-* Istniejący obszar roboczy usługi Azure Synapse lub Utwórz nowy obszar roboczy, wykonując czynności opisane w [przewodniku szybki start: Tworzenie obszaru roboczego Synapse](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace).
+* Istniejąca baza danych Azure Cosmos DB lub Utwórz nowe konto, wykonując czynności opisane w [przewodniku szybki start: Zarządzanie kontem Azure Cosmos DB](../../cosmos-db/how-to-manage-database-account.md).
+* Istniejący obszar roboczy usługi Azure Synapse lub Utwórz nowy obszar roboczy, wykonując czynności opisane w [przewodniku szybki start: Tworzenie obszaru roboczego Synapse](../quickstart-create-workspace.md).
 
 > [!IMPORTANT]
 > Link Synapse platformy Azure dla Azure Cosmos DB jest obecnie obsługiwany w przypadku obszarów roboczych, dla których nie włączono zarządzanej sieci wirtualnej.
@@ -51,7 +51,7 @@ Korzystając z Eksplorator obiektów danych, możesz połączyć się bezpośred
 1. Użyj przyjaznej nazwy, aby nazwać połączoną usługę. Nazwa zostanie wyświetlona w Eksplorator obiektów danych i będzie używana przez środowisko uruchomieniowe usługi Azure Synapse do łączenia się z bazą danych i kontenerami.
 1. Wybierz **nazwę konta Azure Cosmos DB** i **nazwę bazy danych**.
 1. Obowiązkowe Jeśli region nie zostanie określony, operacje środowiska uruchomieniowego usługi Azure Synapse są kierowane do najbliższego regionu, w którym jest włączony magazyn analityczny. Można również ręcznie ustawić region, w którym użytkownicy mają uzyskiwać dostęp do magazynu analitycznego Azure Cosmos DB. Wybierz pozycję **dodatkowe właściwości połączenia**, a następnie wybierz pozycję **Nowy**. W obszarze **Nazwa właściwości** wprowadź **PreferredRegions**. Ustaw **wartość** na żądany region, na przykład **WestUS2**. (Nie ma spacji między wyrazami i cyfrą).
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 Bazy danych Azure Cosmos DB są wyświetlane na karcie **połączonej** w sekcji **Azure Cosmos DB** . Za pomocą Azure Cosmos DB można odróżnić kontener z obsługą HTAP z kontenera "tylko OLTP" przez następujące ikony:
 

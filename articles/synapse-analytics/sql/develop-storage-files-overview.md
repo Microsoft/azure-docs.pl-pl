@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 82a4ded3a64a8a8bbc62f99a8854eb6d2b5f0d0b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: f398f80e4e283f971e0d947d0dda131e12fe88a7
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446584"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120397"
 ---
 # <a name="access-external-storage-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Dostęp do magazynu zewnętrznego przy użyciu puli SQL bezserwerowej w usłudze Azure Synapse Analytics
 
@@ -116,7 +116,7 @@ CREATE EXTERNAL DATA SOURCE MyAzureInvoices
 
 Użytkownik z uprawnieniami do odczytu tabeli może uzyskać dostęp do zewnętrznych plików przy użyciu zewnętrznej tabeli utworzonej w oparciu o zestaw plików i folderów usługi Azure Storage.
 
-Użytkownik, który ma [uprawnienia do tworzenia tabeli zewnętrznej](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15#permissions&preserve-view=true) (na przykład CREATE TABLE i zmiany poświadczeń lub odwołania do bazy danych), może użyć następującego skryptu, aby utworzyć tabelę na podstawie źródła danych usługi Azure Storage:
+Użytkownik, który ma [uprawnienia do tworzenia tabeli zewnętrznej](/sql/t-sql/statements/create-external-table-transact-sql?preserve-view=true&view=sql-server-ver15#permissions) (na przykład CREATE TABLE i zmiany poświadczeń lub odwołania do bazy danych), może użyć następującego skryptu, aby utworzyć tabelę na podstawie źródła danych usługi Azure Storage:
 
 ```sql
 CREATE EXTERNAL TABLE [dbo].[DimProductexternal]

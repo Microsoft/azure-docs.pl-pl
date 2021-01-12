@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: omafnan
-ms.openlocfilehash: 8d4c1928ae1fac9b840245756c4bf5fe22a83f0f
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 4ed02901aa0d6948e9c6443e5bbcf4ebfbc872f7
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590515"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118697"
 ---
 # <a name="synapse-studio-sql-scripts-in-azure-synapse-analytics"></a>Skrypty SQL Synapse Studio w usłudze Azure Synapse Analytics 
 
@@ -88,4 +88,4 @@ Aby przenieść skrypt SQL do folderu, możesz wybrać skrypt SQL i wybrać pole
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat tworzenia skryptu SQL, zobacz [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics).
+Aby uzyskać więcej informacji na temat tworzenia skryptu SQL, zobacz [Azure Synapse Analytics](../index.yml).

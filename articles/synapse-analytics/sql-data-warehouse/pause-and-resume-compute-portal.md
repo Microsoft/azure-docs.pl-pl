@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 7d258243dae06461d21e9b5f0346e419f034eea9
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 567d5ae8b9d480003486362a7aa0ef69f9740d52
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109701"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120295"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-via-the-azure-portal"></a>Szybki Start: Wstrzymywanie i wznawianie obliczeń w dedykowanej puli SQL za pośrednictwem Azure Portal
 
@@ -98,5 +98,4 @@ Wykonaj następujące kroki, aby wyczyścić zasoby zgodnie z potrzebami.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz wstrzymane i wznowione obliczenia dla dedykowanej puli SQL. Przejdź do następnego artykułu, aby dowiedzieć się więcej o tym, jak [załadować dane do dedykowanej puli SQL](load-data-from-azure-blob-storage-using-polybase.md). Aby uzyskać dodatkowe informacje na temat zarządzania możliwościami obliczeniowymi, zobacz artykuł [Zarządzanie obliczeniami obliczeniowymi](sql-data-warehouse-manage-compute-overview.md) . 
-
+Teraz wstrzymane i wznowione obliczenia dla dedykowanej puli SQL. Przejdź do następnego artykułu, aby dowiedzieć się więcej o tym, jak [załadować dane do dedykowanej puli SQL](./load-data-from-azure-blob-storage-using-copy.md). Aby uzyskać dodatkowe informacje na temat zarządzania możliwościami obliczeniowymi, zobacz artykuł [Zarządzanie obliczeniami obliczeniowymi](sql-data-warehouse-manage-compute-overview.md) .

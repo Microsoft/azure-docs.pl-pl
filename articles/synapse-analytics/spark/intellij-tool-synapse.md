@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: 75cc23df41741a95e87ad64d168aea4fa4f45733
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 39f39b6f53944510b5f3692bb8b3fdd472004454
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451057"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121230"
 ---
 # <a name="tutorial-create-an-apache-spark-application-with-intellij-using-a-synapse-workspace"></a>Samouczek: Tworzenie aplikacji Apache Spark za pomocą IntelliJ przy użyciu obszaru roboczego Synapse
 
@@ -36,7 +36,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 - [INTELLIJ pomysł](https://www.jetbrains.com/idea/download/download-thanks.html?platform=windows&code=IIC).
 - Wtyczka zestawu Azure Toolkit 3.27.0-2019.2 — Instalacja z [repozytorium wtyczki IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-installation?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [JDK (wersja 1,8)](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-- Wtyczka Scala — Zainstaluj z [repozytorium wtyczki IntelliJ](/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#install-scala-plugin-for-intellij-idea).
+- Wtyczka Scala — Zainstaluj z [repozytorium wtyczki IntelliJ](../../hdinsight/spark/apache-spark-intellij-tool-plugin.md#install-scala-plugin-for-intellij-idea).
 - Następujące wymagania wstępne są przeznaczone tylko dla użytkowników systemu Windows:
 
   Podczas uruchamiania lokalnej aplikacji platformy Spark Scala na komputerze z systemem Windows może wystąpić wyjątek, zgodnie z opisem w platformie [Spark-2356](https://issues.apache.org/jira/browse/SPARK-2356). Wyjątek występuje z powodu braku WinUtils.exe w systemie Windows.
@@ -54,7 +54,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
     ![Okno dialogowe Nowy projekt IntelliJ pomysłów](./media/intellij-tool-synapse/create-synapse-application01.png)
 
-5. Wybierz opcję **Dalej**.
+5. Wybierz pozycję **Dalej**.
 6. W oknie **New Project** (Nowy projekt) podaj następujące informacje:
 
     | Właściwość | Opis |
@@ -70,7 +70,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 7. Wybierz pozycję **Zakończ**. Udostępnienie projektu może potrwać kilka minut.
 8. Projekt Spark automatycznie tworzy artefakt. Aby wyświetlić artefakt, wykonaj następujące czynności:
 
-   a. Na pasku menu Przejdź do **File**  >  **struktury projektu pliku..**..
+   a. Na pasku menu Przejdź do   >  **struktury projektu pliku..**..
 
    b. W oknie **Struktura projektu** wybierz pozycję **artefakty**.
 
@@ -178,7 +178,7 @@ Poniższe instrukcje umożliwiają skonfigurowanie lokalnego uruchomienia i loka
 
     ![IntelliJ uruchamianie konfiguracji debugowania — lokalny przebieg 2](./media/intellij-tool-synapse/local-run-synapse01.png)
 
-3. Po zakończeniu lokalnego uruchomienia, jeśli skrypt zawiera dane wyjściowe, można sprawdzić plik wyjściowy z **data**  >  **__ustawień domyślnych__** danych.
+3. Po zakończeniu lokalnego uruchomienia, jeśli skrypt zawiera dane wyjściowe, można sprawdzić plik wyjściowy z   >  **__ustawień domyślnych__** danych.
 
     ![Wynik lokalnego uruchomienia projektu IntelliJ 1](./media/intellij-tool-synapse/spark-local-run-result.png)
 

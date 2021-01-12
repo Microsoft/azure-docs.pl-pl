@@ -3,12 +3,12 @@ title: Metryki w Azure Monitor — Event Hubs platformy Azure | Microsoft Docs
 description: Ten artykuł zawiera informacje dotyczące monitorowania platformy Azure Event Hubs przy użyciu usługi Azure Monitoring
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 7ad570a41fd9dfff01e3a1da6b2d309a7a8464cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5b055c02783c40d844d1c6306bbb71cb23d602f2
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88931152"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118799"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Metryki usługi Azure Event Hubs na platformie Azure Monitor
 
@@ -46,58 +46,8 @@ Poniższe metryki zapewniają przegląd kondycji usługi.
 
 Wszystkie wartości metryk są wysyłane do Azure Monitor co minutę. Stopień szczegółowości czasu określa przedział czasu, w którym są prezentowane wartości metryk. Obsługiwany przedział czasu dla wszystkich metryk Event Hubs wynosi 1 minutę.
 
-## <a name="request-metrics"></a>Metryki żądań
-
-Zlicza żądania operacji na danych i zarządzania.
-
-| Nazwa metryki | Opis |
-| ------------------- | ----------------- |
-| Żądania przychodzące  | Liczba żądań wysyłanych do usługi Azure Event Hubs w określonym przedziale czasu. <br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName |
-| Żądania pomyślne    | Liczba pomyślnych żądań skierowanych do usługi Azure Event Hubs w określonym przedziale czasu. <br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName |
-| Błędy serwera  | Liczba żądań, które nie zostały przetworzone z powodu błędu w usłudze Azure Event Hubs w określonym przedziale czasu. <br/><br/>Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName |
-|Błędy użytkownika |Liczba żądań, które nie zostały przetworzone z powodu błędów użytkowników w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
-|Błędy przekroczenia limitu przydziału |Liczba żądań przekroczyła dostępny limit przydziału. Aby uzyskać więcej informacji na temat przydziałów Event Hubs, zobacz [ten artykuł](event-hubs-quotas.md) .<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
-
-## <a name="throughput-metrics"></a>Metryki przepływności
-
-| Nazwa metryki | Opis |
-| ------------------- | ----------------- |
-|Ograniczone żądania |liczba żądań, które zostały ograniczone, ponieważ przekroczono użycie jednostek przepływności.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
-
-## <a name="message-metrics"></a>Metryki komunikatów
-
-| Nazwa metryki | Opis |
-| ------------------- | ----------------- |
-|Komunikaty przychodzące |Liczba zdarzeń lub komunikatów wysłanych do Event Hubs w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
-|Komunikaty wychodzące |Liczba zdarzeń lub komunikatów pobranych z Event Hubs w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
-|Przychodzące bajty |Liczba bajtów wysłanych do usługi Azure Event Hubs w określonym przedziale czasu.<br/><br/> Jednostka: bajty <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
-|Bajty wychodzące |Liczba bajtów pobranych z usługi Event Hubs platformy Azure w określonym przedziale czasu.<br/><br/> Jednostka: bajty <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
-
-## <a name="connection-metrics"></a>Metryki połączeń
-
-| Nazwa metryki | Opis |
-| ------------------- | ----------------- |
-|Aktywne połączenia |Liczba aktywnych połączeń w przestrzeni nazw, jak również w jednostce.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
-|Otwarte połączenia |Liczba otwartych połączeń.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
-|Połączenia zamknięte |Liczba zamkniętych połączeń.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
-
-## <a name="event-hubs-capture-metrics"></a>Metryki przechwytywania Event Hubs
-
-Po włączeniu funkcji przechwytywania dla centrów zdarzeń można monitorować metryki przechwytywania Event Hubs. Poniższe metryki opisują możliwości monitorowania z włączoną funkcją przechwytywania.
-
-| Nazwa metryki | Opis |
-| ------------------- | ----------------- |
-|Lista prac przechwytywania |Liczba bajtów, które nie są jeszcze przechwytywane do wybranego miejsca docelowego.<br/><br/> Jednostka: bajty <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
-|Przechwycone komunikaty |Liczba komunikatów lub zdarzeń, które są przechwytywane do wybranego miejsca docelowego w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
-|Przechwycone bajty |Liczba bajtów przechwytywanych do wybranego miejsca docelowego w określonym przedziale czasu.<br/><br/> Jednostka: bajty <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
-
-## <a name="metrics-dimensions"></a>Wymiary metryk
-
-Usługa Azure Event Hubs obsługuje następujące wymiary dla metryk w Azure Monitor. Dodawanie wymiarów do metryk jest opcjonalne. Jeśli nie dodasz wymiarów, metryki są określane na poziomie przestrzeni nazw. 
-
-| Nazwa metryki | Opis |
-| ------------------- | ----------------- |
-|EntityName| Event Hubs obsługuje jednostki centrum zdarzeń w przestrzeni nazw.|
+## <a name="azure-event-hubs-metrics"></a>Metryki usługi Azure Event Hubs
+Listę metryk obsługiwanych przez usługę można znaleźć w temacie [Azure Event Hubs](../azure-monitor/platform/metrics-supported.md#microsofteventhubnamespaces)
 
 ## <a name="azure-monitor-integration-with-siem-tools"></a>Integracja Azure Monitor z narzędziami SIEM
 Kierowanie danych monitorowania (dzienników aktywności, dzienników diagnostycznych itp.) do centrum zdarzeń z Azure Monitor pozwala łatwo zintegrować z narzędziami do zarządzania informacjami i zdarzeniami zabezpieczeń (SIEM). Aby uzyskać więcej informacji, zobacz następujące artykuły/wpisy w blogu:

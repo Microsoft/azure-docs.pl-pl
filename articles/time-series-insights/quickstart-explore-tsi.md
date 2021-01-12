@@ -9,13 +9,13 @@ manager: diviso
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 10/02/2020
-ms.openlocfilehash: 3956f8d91793367f7200d2f349a8713aff3d2f59
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 01/11/2021
+ms.openlocfilehash: cb5bac06ab6eeaa00e72ba6068328a972b8ac37b
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016228"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119365"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-gen2-demo-environment"></a>Szybki Start: Eksplorowanie środowiska demonstracyjnego Azure Time Series Insights Gen2
 
@@ -38,24 +38,39 @@ Eksplorator Azure Time Series Insights Gen2 demonstruje dane historyczne i anali
 
 ## <a name="work-with-historical-data"></a>Pracuj z danymi historycznymi
 
-1. W firmie **contoso 1** zapoznaj się z tematem wiatr turbin **W7**.  
+1. Wybierz **hierarchię contoso Windfarm**.
+
+   [![Hierarchia contoso WindFarm](media/quickstart-explore/quick-start-contoso-1.png)](media/quickstart-explore/quick-start-contoso-1.png#lightbox)
+
+1. W firmie **contoso 1** zapoznaj się z tematem wiatr turbin **W7**.
+
+   [![W7 w firmie Contoso 1](media/quickstart-explore/quick-start-contoso-2.png)](media/quickstart-explore/quick-start-contoso-2.png#lightbox)
 
    1. Zmień zakres widoku na **1/1/17 20:00:00.00 do 3/10/17 20:00:00.00 (UTC)**.
+
+      [![Widok zakresu](media/quickstart-explore/range-setting-1.png)](media/quickstart-explore/range-setting-1.png#lightbox)
+
+      [![Ustawienie widoku zakresu](media/quickstart-explore/range-setting-2.png)](media/quickstart-explore/range-setting-2.png#lightbox)
+
+   1. Dostosuj widok zakresu przy użyciu powiększenia **(+)** i out **(-)** i przesuwania paska suwaka.
+
+      [![Dostosuj widok zakresu](media/quickstart-explore/view-range-setting.png)](media/quickstart-explore/view-range-setting.png#lightbox)
+
    1. Aby wybrać czujnik, wybierz pozycję **contoso roślina 1**  >  **W7**  >  **Generator system**  >  **GeneratorSpeed**. Następnie przejrzyj wyświetlane wartości.
 
-      [![W7 w firmie Contoso 1](media/v2-update-quickstart/quick-start-generator-speed.png)](media/v2-update-quickstart/quick-start-generator-speed.png#lightbox)
+      [![Szybkość generatora](media/quickstart-explore/quick-start-generator-speed-1.png)](media/quickstart-explore/quick-start-generator-speed-1.png#lightbox)
 
 1. Niedawno firma Contoso wykryła pożar w turbinie **W7**. Opinie różnią się w zależności od tego, co spowodowało pożar. W Azure Time Series Insights Gen2 jest wyświetlany czujnik alertów o zapłonie, który został aktywowany podczas pożaru.
 
    1. Zmień zakres widoku na **3/9/17 20:00:00.00 do 3/10/17 20:00:00.00 (UTC)**.
-   1. Wybierz pozycję FireAlert **systemu bezpieczeństwa**  >  **FireAlert**.
+   1. Wybierz pozycję FireAlert **systemu bezpieczeństwa**  >  .
 
       [![Firma Contoso znalazła ogień w programie wiatr turbin W7](media/v2-update-quickstart/quick-start-fire-alert.png)](media/v2-update-quickstart/quick-start-fire-alert.png#lightbox)
 
 1. Zapoznaj się z innymi zdarzeniami w czasie działania, aby zrozumieć, co się stało. Wykorzystanie ropy naftowej i aktywne ostrzeżenia, które zostały wprowadzone tuż przed pożarem.
 
-   1. Wybierz pozycję HydraulicOilPressure **System (gęstość**)  >  **HydraulicOilPressure**.
-   1. Wybierz pozycję ActiveWarning **System (gęstość**)  >  **ActiveWarning**.
+   1. Wybierz pozycję HydraulicOilPressure **System (gęstość**)  >  .
+   1. Wybierz pozycję ActiveWarning **System (gęstość**)  >  .
 
       [![Przeglądanie innych zdarzeń w tym samym czasie](media/v2-update-quickstart/quick-start-active-warning.png)](media/v2-update-quickstart/quick-start-active-warning.png#lightbox)
 

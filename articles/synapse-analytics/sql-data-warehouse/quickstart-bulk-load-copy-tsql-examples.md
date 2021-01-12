@@ -9,16 +9,16 @@ ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: de446209104c113b10346645f79b461239c3efab
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 25c692ea9a2dce4723472f6812ac46d82b2b318d
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96901282"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120992"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Bezpieczne ładowanie danych przy użyciu języka SQL Synapse
 
-W tym artykule omówiono i przedstawiono przykłady mechanizmów bezpiecznego uwierzytelniania [instrukcji Copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Instrukcja COPY to najbardziej elastyczny i bezpieczny sposób ładowania danych w języku SQL Synapse.
+W tym artykule omówiono i przedstawiono przykłady mechanizmów bezpiecznego uwierzytelniania [instrukcji Copy](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Instrukcja COPY to najbardziej elastyczny i bezpieczny sposób ładowania danych w języku SQL Synapse.
 ## <a name="supported-authentication-mechanisms"></a>Obsługiwane mechanizmy uwierzytelniania
 
 W poniższej macierzy opisano obsługiwane metody uwierzytelniania dla poszczególnych typów plików i kont magazynu. Dotyczy to źródłowej lokalizacji przechowywania i lokalizacji pliku błędów.
@@ -136,7 +136,7 @@ Uwierzytelnianie tożsamości zarządzanej jest wymagane, gdy konto magazynu jes
 
     ![Przyznawanie uprawnień usługi Azure RBAC do ładowania](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
-2. Skonfiguruj uwierzytelnianie usługi Azure AD, wykonując poniższą [dokumentację](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#create-an-azure-ad-administrator-for-azure-sql-server). 
+2. Skonfiguruj uwierzytelnianie usługi Azure AD, wykonując poniższą [dokumentację](../../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell). 
 
 3. Połącz się z pulą SQL przy użyciu Active Directory, gdzie można teraz uruchomić instrukcję COPY bez określania poświadczeń:
 
@@ -152,11 +152,11 @@ Uwierzytelnianie tożsamości zarządzanej jest wymagane, gdy konto magazynu jes
 ## <a name="e-service-principal-authentication"></a>E. Uwierzytelnianie jednostki usługi
 #### <a name="steps"></a>Kroki
 
-1. [Tworzenie aplikacji Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application)
-2. [Pobierz identyfikator aplikacji](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)
-3. [Pobierz klucz uwierzytelniania](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-a-new-application-secret)
-4. [Pobierz punkt końcowy tokenu OAuth 2,0 w wersji 1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications)
-5. [Przypisywanie uprawnień do odczytu, zapisu i wykonywania do aplikacji usługi Azure AD](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder) na koncie magazynu
+1. [Tworzenie aplikacji Azure Active Directory](../..//active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
+2. [Pobierz identyfikator aplikacji](../..//active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)
+3. [Pobierz klucz uwierzytelniania](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options)
+4. [Pobierz punkt końcowy tokenu OAuth 2,0 w wersji 1](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json#step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications)
+5. [Przypisywanie uprawnień do odczytu, zapisu i wykonywania do aplikacji usługi Azure AD](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder) na koncie magazynu
 6. Teraz można uruchomić instrukcję COPY:
 
     ```sql
@@ -176,5 +176,5 @@ Uwierzytelnianie tożsamości zarządzanej jest wymagane, gdy konto magazynu jes
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zapoznaj się ze szczegółowym opisem składni artykułu w artykule dotyczącym [kopiowania instrukcji](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax)
-- Zapoznaj się z artykułem [Przegląd ładowania danych](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/design-elt-data-loading#what-is-elt) w celu załadowania najlepszych rozwiązań
+- Zapoznaj się ze szczegółowym opisem składni artykułu w artykule dotyczącym [kopiowania instrukcji](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax)
+- Zapoznaj się z artykułem [Przegląd ładowania danych](./design-elt-data-loading.md#what-is-elt) w celu załadowania najlepszych rozwiązań

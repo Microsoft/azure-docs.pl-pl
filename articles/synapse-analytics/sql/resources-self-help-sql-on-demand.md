@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 12ff369cb931eb36014b7c9598b036afdc158750
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 4c3b5095da4e55dc8f881a610f80f1150422e739
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457194"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119921"
 ---
 # <a name="self-help-for-serverless-sql-pool"></a>Samoobsługowa pomoc dla puli SQL bezserwerowej
 
@@ -25,7 +25,7 @@ Ten artykuł zawiera informacje o sposobie rozwiązywania problemów z większo�
 Jeśli program Synapse Studio nie może nawiązać połączenia z pulą SQL bezserwerową, Zauważ, że bezserwerowa Pula SQL jest wyszarzona lub zawiera stan "offline". Zazwyczaj ten problem występuje, gdy wystąpi jedno z następujących przypadków:
 
 1) Twoja sieć uniemożliwia komunikację z zapleczem usługi Azure Synapse. W większości przypadków przyczyną jest zablokowany port 1443. Aby uzyskać bezserwerową pulę SQL do pracy, Odblokuj ten port. Inne problemy mogą uniemożliwić działanie puli SQL bezserwerowej. Aby uzyskać [więcej informacji, odwiedź pełny Przewodnik rozwiązywania problemów](../troubleshoot/troubleshoot-synapse-studio.md).
-2) Nie masz uprawnień do logowania się do bezserwerowej puli SQL. Aby udzielić Ci dostępu, administrator obszaru roboczego usługi Azure Synapse powinien dodać Cię do roli administratora obszaru roboczego lub administratora SQL. [Aby uzyskać więcej informacji, odwiedź pełny przewodnik dotyczący kontroli dostępu](access-control.md).
+2) Nie masz uprawnień do logowania się do bezserwerowej puli SQL. Aby udzielić Ci dostępu, administrator obszaru roboczego usługi Azure Synapse powinien dodać Cię do roli administratora obszaru roboczego lub administratora SQL. [Aby uzyskać więcej informacji, odwiedź pełny przewodnik dotyczący kontroli dostępu](../security/synapse-workspace-access-control-overview.md).
 
 ## <a name="query-fails-because-file-cannot-be-opened"></a>Zapytanie nie powiodło się, ponieważ nie można otworzyć pliku
 

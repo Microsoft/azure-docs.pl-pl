@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: pimorano
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 78a0982081b8e34461fb2910cc7ce21be622cb6a
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 4da99200079557ab9d1674635c0df26c9e62d488
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922771"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120278"
 ---
 # <a name="quickstart-create-and-query-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-using-the-azure-portal"></a>Szybki Start: Tworzenie i wykonywanie zapytań do dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics przy użyciu Azure Portal
 
@@ -153,7 +153,7 @@ Ta sekcja używa [SQL Server Management Studio](/sql/ssms/download-sql-server-ma
 
 ## <a name="run-some-queries"></a>Uruchamianie zapytań
 
-Nie zaleca się uruchamiania dużych zapytań podczas rejestrowania jako administrator serwera, ponieważ używa ona [ograniczonej klasy zasobów](resource-classes-for-workload-management.md). Zamiast tego należy skonfigurować [izolację obciążenia](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-tsql) , jak [pokazano w samouczkach](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/load-data-wideworldimportersdw#create-a-user-for-loading-data).
+Nie zaleca się uruchamiania dużych zapytań podczas rejestrowania jako administrator serwera, ponieważ używa ona [ograniczonej klasy zasobów](resource-classes-for-workload-management.md). Zamiast tego należy skonfigurować [izolację obciążenia](./quickstart-configure-workload-isolation-tsql.md) , jak [pokazano w samouczkach](./load-data-wideworldimportersdw.md#create-a-user-for-loading-data).
 
 Usługa Azure Synapse Analytics jako język zapytań używa języka T-SQL. Aby otworzyć okno zapytania i uruchomić kilka zapytań T-SQL, użyj następujących kroków:
 

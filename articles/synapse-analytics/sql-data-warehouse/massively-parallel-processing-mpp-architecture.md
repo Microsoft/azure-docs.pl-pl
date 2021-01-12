@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 45c7f89f773095a102429c07f7441223de3c2dec
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c537d3109f770c1ce77be6495bdacd24270dad5f
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448254"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119598"
 ---
 # <a name="dedicated-sql-pool-formerly-sql-dw-architecture-in-azure-synapse-analytics"></a>Architektura dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics
 
@@ -47,7 +47,7 @@ Z rozdzielonym magazynem i funkcją obliczeniową w przypadku korzystania z dedy
 
 ### <a name="azure-storage"></a>Azure Storage
 
-Dedykowana Pula SQL (dawniej SQL DW) korzysta z usługi Azure Storage, aby zapewnić bezpieczeństwo danych użytkownika.  Ponieważ dane są przechowywane i zarządzane przez usługę Azure Storage, istnieje oddzielna opłata za użycie magazynu. Dane są podzielonej na fragmenty do **dystrybucji** w celu zoptymalizowania wydajności systemu. Można wybrać, który wzorzec fragmentowania ma być używany do dystrybucji danych podczas definiowania tabeli. Te wzorce fragmentowania są obsługiwane:
+Dedykowana Pula SQL (dawniej SQL DW) korzysta z usługi Azure Storage, aby zapewnić bezpieczeństwo danych użytkownika.  Ponieważ dane są przechowywane i zarządzane przez usługę Azure Storage, istnieje oddzielna opłata za użycie magazynu. Dane są podzielonej na fragmenty do **dystrybucji** w celu zoptymalizowania wydajności systemu. Podczas definiowania tabeli możesz wybrać wzorzec dzielenia na fragmenty używany do dystrybucji danych. Te wzorce fragmentowania są obsługiwane:
 
 - Skrót
 - Działanie okrężne
@@ -107,13 +107,13 @@ Na poniższym diagramie przedstawiono zreplikowane tabele, które są buforowane
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy znasz już usługę Azure Synapse, Dowiedz się, jak szybko [utworzyć dedykowaną pulę SQL (dawniej SQL DW)](create-data-warehouse-portal.md) i [załadować przykładowe dane](load-data-from-azure-blob-storage-using-polybase.md). Jeśli dopiero zaczynasz korzystać z platformy Azure, [słownik platformy Azure](../../azure-glossary-cloud-terminology.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) może pomóc Ci zaznajomić się z nową terminologią. Lub zapoznaj się z innymi zasobami usługi Azure Synapse.  
+Teraz, gdy znasz już usługę Azure Synapse, Dowiedz się, jak szybko [utworzyć dedykowaną pulę SQL (dawniej SQL DW)](create-data-warehouse-portal.md) i [załadować przykładowe dane](./load-data-from-azure-blob-storage-using-copy.md). Jeśli dopiero zaczynasz korzystać z platformy Azure, [słownik platformy Azure](../../azure-glossary-cloud-terminology.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) może pomóc Ci zaznajomić się z nową terminologią. Lub zapoznaj się z innymi zasobami usługi Azure Synapse.  
 
 - [Historie sukcesu klientów](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
 - [Blogi](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
 - [Żądania funkcji](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 - [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 - [Tworzenie biletu pomocy technicznej](sql-data-warehouse-get-started-create-support-ticket.md)
-- [Strona pytania&pytań i odpowiedzi](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html)
+- [Strona pytania&pytań i odpowiedzi](/answers/topics/azure-synapse-analytics.html)
 - [Forum Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw)
 - [Twitter](https://twitter.com/hashtag/SQLDW)

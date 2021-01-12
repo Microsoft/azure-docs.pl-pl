@@ -10,12 +10,12 @@ author: kevinvngo
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: de45e338b0b863dc2364af399a6991f56658b0e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6042b5be48144ce6730a9bf4f342d7735a262643
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85212279"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118068"
 ---
 # <a name="request-quota-increases-and-get-support-for-azure-synapse-analytics"></a>Zwiększanie limitu przydziału żądań i uzyskiwanie pomocy technicznej dla usługi Azure Synapse Analytics
 
@@ -30,7 +30,7 @@ Wykonaj następujące kroki, aby utworzyć nowe żądanie pomocy technicznej na 
    ![Łącze Pomoc i obsługa techniczna](./media/sql-data-warehouse-get-started-create-support-ticket/help-plus-support.png)
 
 
-1. W oknie **Pomoc i obsługa techniczna**wybierz pozycję **nowe żądanie obsługi**.
+1. W oknie **Pomoc i obsługa techniczna** wybierz pozycję **nowe żądanie obsługi**.
 
     ![Utwórz nowe żądanie obsługi](./media/sql-data-warehouse-get-started-create-support-ticket/new-support-request.png)
 
@@ -42,12 +42,12 @@ Wykonaj następujące kroki, aby utworzyć nowe żądanie pomocy technicznej na 
 
    Jeśli masz plan pomocy technicznej Premier, możesz również zgłosić problemy z analizą usługi Azure Synapse w [portalu Microsoft Premier online](https://premier.microsoft.com/). Zobacz [plany pomocy technicznej platformy Azure](https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/) , aby dowiedzieć się więcej o różnych planach pomocy technicznej, takich jak zakres, czasy odpowiedzi, Cennik itp.  Często zadawane pytania dotyczące pomocy technicznej platformy Azure można znaleźć w artykule [FAQ pomocy technicznej dla platformy Azure](https://azure.microsoft.com/support/faq/).
 
-1. W **polu Typ problemu**wybierz odpowiedni typ problemu. Aby rozwiązać problemy z uszkodzeniem, wybierz pozycję **techniczne**. W przypadku żądań zwiększenia limitu przydziału wybierz pozycję **usługi i limity subskrypcji (przydziały)**.
+1. W **polu Typ problemu** wybierz odpowiedni typ problemu. Aby rozwiązać problemy z uszkodzeniem, wybierz pozycję **techniczne**. W przypadku żądań zwiększenia limitu przydziału wybierz pozycję **usługi i limity subskrypcji (przydziały)**.
 
    ![Wybierz typ problemu](./media/sql-data-warehouse-get-started-create-support-ticket/select-quota-issue-type.png)  
 
    > [!NOTE]
-   > W pozostałej części tego artykułu skupia na żądaniach zwiększenia przydziału. Możesz również wybrać tutaj **techniczną** , aby uzyskać pomoc techniczną dotyczącą rozwiązywania problemów. W przypadku wybrania opcji **techniczne**zostanie wyświetlony monit o podanie podsumowania, a następnie zidentyfikowanie typu problemu, wybierając **pozycję Wybierz typ problemu**. Możesz zobaczyć rozwiązania pomagające w rozwiązaniu problemu. Jeśli przedstawione rozwiązania nie rozwiązują problemu, wybierz pozycję **Dalej: szczegóły** i wypełnij formularz, aby przesłać bilet pomocy technicznej.
+   > W pozostałej części tego artykułu skupia na żądaniach zwiększenia przydziału. Możesz również wybrać tutaj **techniczną** , aby uzyskać pomoc techniczną dotyczącą rozwiązywania problemów. W przypadku wybrania opcji **techniczne** zostanie wyświetlony monit o podanie podsumowania, a następnie zidentyfikowanie typu problemu, wybierając **pozycję Wybierz typ problemu**. Możesz zobaczyć rozwiązania pomagające w rozwiązaniu problemu. Jeśli przedstawione rozwiązania nie rozwiązują problemu, wybierz pozycję **Dalej: szczegóły** i wypełnij formularz, aby przesłać bilet pomocy technicznej.
 
 1. W przypadku żądań zwiększenia limitu przydziału wybierz pozycję **Azure Synapse Analytics** dla **typu limitu przydziału**. Następnie wybierz pozycję **Dalej: rozwiązania >>**.
 
@@ -137,5 +137,4 @@ Po przesłaniu żądania pomocy technicznej zespół pomocy technicznej systemu 
 
 ## <a name="other-resources"></a>Inne zasoby
 
-Możesz również nawiązać połączenie z społecznością usługi Azure Synapse Analytics na [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse+or+azure-sql-data-warehouse) lub za pomocą [strony pytań&Microsoft pytań i odpowiedzi na usługę Azure Synapse Analytics](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html).
-
+Możesz również nawiązać połączenie z społecznością usługi Azure Synapse Analytics na [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse+or+azure-sql-data-warehouse) lub za pomocą [strony pytań&Microsoft pytań i odpowiedzi na usługę Azure Synapse Analytics](/answers/topics/azure-synapse-analytics.html).

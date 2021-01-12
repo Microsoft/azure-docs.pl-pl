@@ -11,12 +11,12 @@ ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse    , devx-track-azurepowershell
-ms.openlocfilehash: 0ce94b62d67048896cdf7355043ec2dde7f2df79
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 18fba46e4e8de14d9b3ec43455ba2abcc4218dc1
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96456580"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120193"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>Szybki Start: Tworzenie dedykowanej puli SQL (dawniej SQL DW) przy użyciu Azure PowerShell
 
@@ -151,4 +151,4 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## <a name="next-steps"></a>Następne kroki
 
-Utworzono dedykowaną pulę SQL (dawniej SQL DW), utworzono regułę zapory i połączono ją z dedykowaną pulą SQL. Aby dowiedzieć się więcej, przejdź do artykułu [ładowanie danych do dedykowanej puli SQL](load-data-from-azure-blob-storage-using-polybase.md) .
+Utworzono dedykowaną pulę SQL (dawniej SQL DW), utworzono regułę zapory i połączono ją z dedykowaną pulą SQL. Aby dowiedzieć się więcej, przejdź do artykułu [ładowanie danych do dedykowanej puli SQL](./load-data-from-azure-blob-storage-using-copy.md) .

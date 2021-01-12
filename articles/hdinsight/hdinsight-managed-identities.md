@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
-ms.openlocfilehash: 4d9a5900990ea41788ced5f25690619fbde68d33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87bc2338ecc48f1115a406c276ef221cb185a4c5
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854991"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118629"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Zarządzane tożsamości w usłudze Azure HDInsight
 
@@ -55,9 +55,10 @@ Jeśli utworzono już długotrwały klaster z wieloma różnymi tożsamościami 
  * W klastrach ESP, gdy zmieniany jest certyfikat usługi AAD-DS LDAPs, certyfikat LDAPs nie jest automatycznie aktualizowany, dlatego synchronizacja LDAP i skalowanie nie powiodą się.
  * Nie można rozpocząć dostępu do pliku MSI do ADLS Gen2.
  * Nie można obrócić kluczy szyfrowania w scenariuszu CMK.
+
 Następnie należy przypisać wymagane role i uprawnienia dla powyższych scenariuszy do wszystkich zarządzanych tożsamości używanych w klastrze. Na przykład, jeśli użyto różnych tożsamości zarządzanych dla ADLS Gen2 i klastrów ESP, obie z nich powinny mieć przypisane role "właściciel danych magazynu obiektów BLOB" i "Współautor usług domenowych w usłudze HDInsight", aby uniknąć wykonywania tych problemów.
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 ### <a name="what-happens-if-i-delete-the-managed-identity-after-the-cluster-creation"></a>Co się stanie, jeśli usuniesz tożsamość zarządzaną po utworzeniu klastra?
 

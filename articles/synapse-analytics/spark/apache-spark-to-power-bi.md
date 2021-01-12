@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 11/16/2020
-ms.openlocfilehash: 791cab369dcbf9cab8d1256377cfee4a433c21b9
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 53fb256d3a0fba1cc10cafb239ff7f7bb21ac4eb
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450898"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121077"
 ---
 # <a name="tutorial-create-a-power-bi-report-using-apache-spark-and-azure-synapse-analytics"></a>Samouczek: Tworzenie raportu Power BI przy użyciu Apache Spark i usługi Azure Synapse Analytics
 
@@ -22,7 +22,7 @@ Organizacje często muszą przetwarzać duże ilości danych przed przekazaniem 
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 - [Obszar roboczy usługi Azure Synapse Analytics](../quickstart-create-workspace.md) z kontem magazynu ADLS Gen2 skonfigurowanym jako magazyn domyślny. 
-- Power BI obszar roboczy i Power BI Desktop do wizualizacji danych. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie obszaru roboczego Power BI](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces) i [Instalowanie programu Power BI Desktop](https://powerbi.microsoft.com/downloads/)
+- Power BI obszar roboczy i Power BI Desktop do wizualizacji danych. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie obszaru roboczego Power BI](/power-bi/service-create-the-new-workspaces) i [Instalowanie programu Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - Połączona usługa do łączenia obszarów roboczych usługi Azure Synapse Analytics i Power BI. Aby uzyskać szczegółowe informacje, zobacz [łączenie z obszarem roboczym Power BI](../quickstart-power-bi.md)
 - Bezserwerowa Pula Apache Spark w obszarze roboczym analizy Synapse. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie puli Apache Spark bezserwerowej](../quickstart-create-apache-spark-pool-studio.md)
   
@@ -89,7 +89,7 @@ Aby wykonać zapytanie dotyczące Apache Spark tabeli przy użyciu puli SQL bezs
 Następnie będziemy łączyć pulę SQL bezserwerową z naszym obszarem roboczym Power BI. Po nawiązaniu połączenia z obszarem roboczym będziesz mieć możliwość tworzenia raportów Power BI zarówno bezpośrednio z usługi Azure Synapse Analytics, jak i z poziomu pulpitu Power BI.
 
 >[!Note]
-> Przed rozpoczęciem należy skonfigurować połączoną usługę w [obszarze roboczym Power BI](../quickstart-power-bi.md) i pobrać [pulpit Power BI](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces).  
+> Przed rozpoczęciem należy skonfigurować połączoną usługę w [obszarze roboczym Power BI](../quickstart-power-bi.md) i pobrać [pulpit Power BI](/power-bi/service-create-the-new-workspaces).  
 
 Aby połączyć pulę SQL bezserwerową z naszym obszarem roboczym Power BI:
 

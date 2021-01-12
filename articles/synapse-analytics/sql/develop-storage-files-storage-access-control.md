@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: edb1d419900147b586ba1ff257d4307b237be537
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
-ms.translationtype: HT
+ms.openlocfilehash: e693bd15e5255fda135a7a1dc416dd67f24f7f25
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746732"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120414"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Kontrolowanie dostępu do konta magazynu dla puli SQL bezserwerowej w usłudze Azure Synapse Analytics
 
@@ -63,7 +63,7 @@ Przed uzyskaniem dostępu do danych administrator usługi Azure Storage musi udz
 
 ### <a name="anonymous-access"></a>[Dostęp anonimowy](#tab/public-access)
 
-Możesz uzyskać dostęp do publicznie dostępnych plików umieszczonych na kontach usługi Azure Storage, które [zezwalają na dostęp anonimowy](/azure/storage/blobs/storage-manage-access-to-resources).
+Możesz uzyskać dostęp do publicznie dostępnych plików umieszczonych na kontach usługi Azure Storage, które [zezwalają na dostęp anonimowy](../../storage/blobs/anonymous-read-access-configure.md).
 
 ---
 
@@ -90,7 +90,7 @@ Można użyć następujących kombinacji typów autoryzacji i usługi Azure Stor
 \* Token sygnatury dostępu współdzielonego i tożsamość usługi Azure AD mogą być używane do uzyskiwania dostępu do magazynu, który nie jest chroniony za pomocą zapory.
 
 
-### <a name="querying-firewall-protected-storage"></a>Wykonywanie zapytania dotyczącego chronionego magazynu zapory
+### <a name="querying-firewall-protected-storage"></a>Wykonywanie zapytań względem magazynu chronionego przez zaporę
 
 Podczas uzyskiwania dostępu do magazynu chronionego za pomocą zapory można użyć **tożsamości użytkownika** lub **tożsamości zarządzanej**.
 
@@ -101,7 +101,7 @@ Aby uzyskać dostęp do magazynu chronionego za pomocą zapory za pośrednictwem
 
 Wykonaj następujące kroki, aby skonfigurować zaporę konta magazynu i dodać wyjątek dla obszaru roboczego Synapse.
 
-1. Otwórz program PowerShell lub [Zainstaluj program PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7.1&preserve-view=true )
+1. Otwórz program PowerShell lub [Zainstaluj program PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows?preserve-view=true&view=powershell-7.1)
 2. Zainstaluj zaktualizowany AZ. Moduł magazynu: 
     ```powershell
     Install-Module -Name Az.Storage -RequiredVersion 3.0.1-preview -AllowPrerelease
@@ -187,7 +187,7 @@ Nazwa poświadczeń na poziomie serwera musi być zgodna z pełną ścieżką do
 | Zewnętrzne źródło danych       | Prefiks | Ścieżka konta magazynu                                |
 | -------------------------- | ------ | --------------------------------------------------- |
 | Azure Blob Storage         | https  | <storage_account>. blob.core.windows.net             |
-| Usługa Azure Data Lake Storage 1. generacji | https  | <storage_account>. azuredatalakestore.net/webhdfs/v1 |
+| Azure Data Lake Storage Gen1 | https  | <storage_account>. azuredatalakestore.net/webhdfs/v1 |
 | Usługa Azure Data Lake Storage 2. generacji | https  | <storage_account>. dfs.core.windows.net              |
 
 Poświadczenia o zakresie serwera umożliwiają dostęp do usługi Azure Storage przy użyciu następujących typów uwierzytelniania:

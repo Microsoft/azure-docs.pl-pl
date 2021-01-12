@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: da4c5f7891b518f4e6393f3fb4e153d464f4f2a2
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 386e0051a64f73b18c1ff76ed33af5f9eebe8aa0
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955539"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121417"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnostyka usługi Load Balancer w warstwie Standardowa przy użyciu metryk, alertów i kondycji zasobów
 
@@ -39,15 +39,18 @@ Różne konfiguracje usługa Load Balancer w warstwie Standardowa zapewniają na
 | --- | --- | --- | --- |
 | Dostępność ścieżki danych | Publiczny i wewnętrzny moduł równoważenia obciążenia | Usługa Load Balancer w warstwie Standardowa stale wykonuje ścieżkę danych z regionu do frontonu modułu równoważenia obciążenia, aż do stosu SDN, który obsługuje maszynę wirtualną. Tak długo, jak wystąpienia w dobrej kondycji, pomiar jest zgodny z tą samą ścieżką, co ruch o zrównoważonym obciążeniu aplikacji. Ścieżka danych używana przez klientów również jest sprawdzana. Pomiar jest niewidoczny dla aplikacji i nie zakłóca innych operacji.| Średnia |
 | Stan sondy kondycji | Publiczny i wewnętrzny moduł równoważenia obciążenia | Usługa Load Balancer w warstwie Standardowa używa rozproszonej usługi badania kondycji, która monitoruje kondycję punktu końcowego aplikacji zgodnie z ustawieniami konfiguracji. Ta metryka zawiera zagregowany widok lub widok filtrowany dla każdego punktu końcowego wystąpienia w puli modułu równoważenia obciążenia. Możesz zobaczyć, jak moduł równoważenia obciążenia przegląda kondycję aplikacji, zgodnie z konfiguracją sondy kondycji. |  Średnia |
-| Pakiety SYN (synchronizacja) | Publiczny i wewnętrzny moduł równoważenia obciążenia | Usługa Load Balancer w warstwie Standardowa nie przerywa połączeń protokołu TCP (Transmission Control Protocol) ani nie wchodzi w interakcje z przepływami pakietów TCP lub UDP. Przepływy i ich uzgodnienia są zawsze realizowane między wystąpieniem źródłowym a wystąpieniem maszyny wirtualnej. Aby lepiej rozwiązać problemy ze scenariuszami protokołu TCP, można użyć liczników pakietów SYN w celu sprawdzenia, ile wykonano prób połączenia TCP. Metryka zgłasza liczbę odebranych pakietów TCP SYN.| Średnia |
-| Połączenia SNAT | Publiczny moduł równoważenia obciążenia |Usługa Load Balancer w warstwie Standardowa zgłasza liczbę zamaskowanych przepływów wychodzących do frontonu publicznego adresu IP. Porty źródłowego translatora adresów sieciowych (SNAT) to zasób ulegający wyczerpaniu. Ta metryka może wskazywać na to, jak bardzo aplikacja jest zależna od translatora SNAT dla przepływów przychodzących. Zgłaszane są liczniki dla zakończonych powodzeniem i zakończonych niepowodzeniem przepływów wychodzących SNAT. Mogą one służyć do rozwiązywania problemów i poznawania kondycji przepływów wychodzących.| Średnia |
+| Liczba synch (synchronizacja) | Publiczny i wewnętrzny moduł równoważenia obciążenia | Usługa Load Balancer w warstwie Standardowa nie przerywa połączeń protokołu TCP (Transmission Control Protocol) ani nie wchodzi w interakcje z przepływami pakietów TCP lub UDP. Przepływy i ich uzgodnienia są zawsze realizowane między wystąpieniem źródłowym a wystąpieniem maszyny wirtualnej. Aby lepiej rozwiązać problemy ze scenariuszami protokołu TCP, można użyć liczników pakietów SYN w celu sprawdzenia, ile wykonano prób połączenia TCP. Metryka zgłasza liczbę odebranych pakietów TCP SYN.| Sum |
+| Liczba połączeń z translatorem adresów sieciowych | Publiczny moduł równoważenia obciążenia |Usługa Load Balancer w warstwie Standardowa zgłasza liczbę zamaskowanych przepływów wychodzących do frontonu publicznego adresu IP. Porty źródłowego translatora adresów sieciowych (SNAT) to zasób ulegający wyczerpaniu. Ta metryka może wskazywać na to, jak bardzo aplikacja jest zależna od translatora SNAT dla przepływów przychodzących. Zgłaszane są liczniki dla zakończonych powodzeniem i zakończonych niepowodzeniem przepływów wychodzących SNAT. Mogą one służyć do rozwiązywania problemów i poznawania kondycji przepływów wychodzących.| Sum |
 | Przydzielono porty przydziałów adresów sieciowych | Publiczny moduł równoważenia obciążenia | usługa Load Balancer w warstwie Standardowa zgłasza liczbę portów przyznanych przez wystąpienie wewnętrznej bazy danych | Obliczon. |
 | Używane porty | Publiczny moduł równoważenia obciążenia | Usługa Load Balancer w warstwie Standardowa raportuje liczbę portów, które są używane dla wystąpienia zaplecza. | Średnia | 
-| Liczniki bajtów |  Publiczny i wewnętrzny moduł równoważenia obciążenia | Usługa Load Balancer w warstwie Standardowa zgłasza przetworzone dane na fronton. Można zauważyć, że bajty nie są równomiernie rozłożone między wystąpieniami zaplecza. Jest to oczekiwane, ponieważ algorytm Load Balancer platformy Azure jest oparty na przepływach | Średnia |
-| Liczniki pakietów |  Publiczny i wewnętrzny moduł równoważenia obciążenia | Usługa Load Balancer w warstwie Standardowa zgłasza przetworzone pakiety na fronton.| Średnia |
+| Liczba bajtów |  Publiczny i wewnętrzny moduł równoważenia obciążenia | Usługa Load Balancer w warstwie Standardowa zgłasza przetworzone dane na fronton. Można zauważyć, że bajty nie są równomiernie rozłożone między wystąpieniami zaplecza. Jest to oczekiwane, ponieważ algorytm Load Balancer platformy Azure jest oparty na przepływach | Sum |
+| Liczba pakietów |  Publiczny i wewnętrzny moduł równoważenia obciążenia | Usługa Load Balancer w warstwie Standardowa zgłasza przetworzone pakiety na fronton.| Sum |
 
   >[!NOTE]
-  >W przypadku korzystania z dystrybucji ruchu z wewnętrznego modułu równoważenia obciążenia za pośrednictwem pakietu urządzenie WUS lub syn, licznika bajtów i metryk licznika pakietów nie są dostępne i będą wyświetlane jako zero. 
+  >W przypadku korzystania z dystrybucji ruchu z wewnętrznego modułu równoważenia obciążenia za pośrednictwem pakietu urządzenie WUS lub syn, liczba bajtów i metryki liczby pakietów nie są dostępne i będą wyświetlane jako zero. 
+  
+  >[!NOTE]
+  >Agregacje Max i min nie są dostępne dla licznika SYN, liczby pakietów, liczby połączeń z przyłączaniem do adresów sieciowych i metryk liczby bajtów 
   
 ### <a name="view-your-load-balancer-metrics-in-the-azure-portal"></a>Wyświetl metryki modułu równoważenia obciążenia w Azure Portal
 

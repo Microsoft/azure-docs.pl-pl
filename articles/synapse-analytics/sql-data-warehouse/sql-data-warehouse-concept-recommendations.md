@@ -11,12 +11,12 @@ ms.date: 06/26/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 667629b7f613b11f40528b039c7525339b7a62d0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: bd32b9690f8a9aef92eb1f2fbcc4ec926a65584e
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462863"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121196"
 ---
 # <a name="azure-advisor-recommendations-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Zalecenia dotyczące Azure Advisor dedykowanej puli SQL w usłudze Azure Synapse Analytics
 
@@ -65,12 +65,12 @@ Obecnie w usłudze Advisor będą widoczne tylko cztery kandydujące zreplikowan
 
 
 ## <a name="adaptive-gen2-cache-utilization"></a>Adaptacyjne (Gen2) użycie pamięci podręcznej
-W przypadku dużego zestawu roboczego można obsłużyć procent trafień w pamięci podręcznej i duże użycie pamięci podręcznej. W tym scenariuszu należy skalować w górę, aby zwiększyć pojemność pamięci podręcznej i ponownie uruchamiać obciążenie. Aby uzyskać więcej informacji, zapoznaj się z poniższą [dokumentacją](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-how-to-monitor-cache). 
+W przypadku dużego zestawu roboczego można obsłużyć procent trafień w pamięci podręcznej i duże użycie pamięci podręcznej. W tym scenariuszu należy skalować w górę, aby zwiększyć pojemność pamięci podręcznej i ponownie uruchamiać obciążenie. Aby uzyskać więcej informacji, zapoznaj się z poniższą [dokumentacją](./sql-data-warehouse-how-to-monitor-cache.md). 
 
 ## <a name="tempdb-contention"></a>Rywalizacja o bazę danych tempdb
 
-Wydajność zapytań może wzniżyć, gdy istnieje duża rywalizacja o bazę danych tempdb.  Rywalizacja o bazę danych tempdb może odbywać się za pośrednictwem tabel tymczasowych zdefiniowanych przez użytkownika lub w przypadku dużej ilości ruchu. W tym scenariuszu można skalować więcej alokacji tempdb i [konfigurować klasy zasobów i zarządzanie obciążeniami](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management) w celu zapewnienia większej ilości pamięci dla zapytań. 
+Wydajność zapytań może wzniżyć, gdy istnieje duża rywalizacja o bazę danych tempdb.  Rywalizacja o bazę danych tempdb może odbywać się za pośrednictwem tabel tymczasowych zdefiniowanych przez użytkownika lub w przypadku dużej ilości ruchu. W tym scenariuszu można skalować więcej alokacji tempdb i [konfigurować klasy zasobów i zarządzanie obciążeniami](./sql-data-warehouse-workload-management.md) w celu zapewnienia większej ilości pamięci dla zapytań. 
 
 ## <a name="data-loading-misconfiguration"></a>Niekonfiguracja ładowania danych
 
-Należy zawsze ładować dane z konta magazynu w tym samym regionie co dedykowana Pula SQL, aby zminimalizować opóźnienia. Użyj [instrukcji Copy do pozyskiwania danych o wysokiej przepływności](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) i Podziel pliki przemieszczane na koncie magazynu, aby zmaksymalizować przepływność. Jeśli nie można użyć instrukcji COPY, można użyć interfejsu API SqlBulkCopy lub BCP o dużej wielkości partii, aby zapewnić lepszą przepływność. Aby uzyskać dodatkowe wskazówki dotyczące ładowania danych, zapoznaj się z poniższą [dokumentacją](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data). 
+Należy zawsze ładować dane z konta magazynu w tym samym regionie co dedykowana Pula SQL, aby zminimalizować opóźnienia. Użyj [instrukcji Copy do pozyskiwania danych o wysokiej przepływności](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) i Podziel pliki przemieszczane na koncie magazynu, aby zmaksymalizować przepływność. Jeśli nie można użyć instrukcji COPY, można użyć interfejsu API SqlBulkCopy lub BCP o dużej wielkości partii, aby zapewnić lepszą przepływność. Aby uzyskać dodatkowe wskazówki dotyczące ładowania danych, zapoznaj się z poniższą [dokumentacją](./guidance-for-loading-data.md).

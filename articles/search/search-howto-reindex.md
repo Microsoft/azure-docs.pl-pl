@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: ae8fd7f405beb20d516835ccb80b86e769fd0393
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 47e9b80bb25b7ff14695cc67682265fe338ff76f
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94697088"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119105"
 ---
 # <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Jak ponownie skompilować indeks na platformie Azure Wyszukiwanie poznawcze
 
@@ -91,7 +91,7 @@ Po załadowaniu indeksu, odwrócony indeks każdego pola jest wypełniany wszyst
 
 Możesz rozpocząć wykonywanie zapytań względem indeksu zaraz po załadowaniu pierwszego dokumentu. Jeśli znasz identyfikator dokumentu, [interfejs API REST dokumentu wyszukiwania](/rest/api/searchservice/lookup-document) zwraca określony dokument. W celu szerszego testowania należy zaczekać, aż indeks zostanie całkowicie załadowany, a następnie użyć zapytań w celu sprawdzenia kontekstu, który powinien być widoczny.
 
-Możesz użyć [Eksploratora wyszukiwania](search-explorer.md) lub narzędzia do testowania sieci Web, takiego jak [poster lub Visual Studio Code](search-get-started-rest.md) , aby sprawdzić dostępność zaktualizowanej zawartości.
+Możesz użyć [Eksploratora wyszukiwania](search-explorer.md) lub narzędzia do testowania sieci Web, takiego jak [poster](search-get-started-rest.md) lub [Visual Studio Code](search-get-started-vs-code.md) , aby sprawdzić dostępność zaktualizowanej zawartości.
 
 Jeśli dodano lub zmieniono nazwę pola, użyj [$SELECT](search-query-odata-select.md) , aby zwrócić to pole: `search=*&$select=document-id,my-new-field,some-old-field&$count=true`
 

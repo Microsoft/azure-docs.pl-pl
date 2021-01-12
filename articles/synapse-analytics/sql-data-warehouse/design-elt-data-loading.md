@@ -11,12 +11,12 @@ ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 64ba24eb0eab581310122908fc05d1d671ac1d40
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 1a988dba52b36b1d27407316200bfa6897de7cf5
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531577"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120159"
 ---
 # <a name="data-loading-strategies-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Strategie ładowania danych dedykowanej puli SQL w usłudze Azure Synapse Analytics
 
@@ -42,7 +42,7 @@ Podstawowe kroki implementacji ELT są następujące:
 5. Przekształć dane.
 6. Wstaw dane do tabel produkcyjnych.
 
-Aby zapoznać się z samouczkiem ładowania, zobacz [ładowanie danych z usługi Azure Blob Storage](load-data-from-azure-blob-storage-using-polybase.md).
+Aby zapoznać się z samouczkiem ładowania, zobacz [ładowanie danych z usługi Azure Blob Storage](./load-data-from-azure-blob-storage-using-copy.md).
 
 ## <a name="1-extract-the-source-data-into-text-files"></a>1. Wyodrębnij dane źródłowe do plików tekstowych
 
@@ -123,7 +123,7 @@ Podczas ładowania plików Parquet Użyj następującego mapowania typu danych S
 >- Następujący błąd może wystąpić, jeśli typy są niezgodne z Parquet i SQL lub jeśli istnieją nieobsługiwane typy danych Parquet: **"HdfsBridge:: recordReaderFillBuffer-nieoczekiwany błąd podczas wypełniania buforu czytnika rekordu: ClassCastException:..."**
 >- Ładowanie wartości spoza zakresu 0-127 do kolumny tinyint dla formatu pliku Parquet i ORC nie jest obsługiwane.
 
-Aby zapoznać się z przykładem tworzenia obiektów zewnętrznych, zobacz [Tworzenie tabel zewnętrznych](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-tables-external-tables?tabs=sql-pool).
+Aby zapoznać się z przykładem tworzenia obiektów zewnętrznych, zobacz [Tworzenie tabel zewnętrznych](../sql/develop-tables-external-tables.md?tabs=sql-pool).
 
 ### <a name="format-text-files"></a>Formatowanie plików tekstowych
 
@@ -142,11 +142,11 @@ Najlepszym rozwiązaniem jest załadowanie danych do tabeli przejściowej. Tabel
 
 Aby załadować dane, można użyć dowolnej z następujących opcji ładowania:
 
-- [Instrukcja Copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) jest zalecanym narzędziem ładowania, ponieważ pozwala bezproblemowo i elastycznie ładować dane. Instrukcja ma wiele dodatkowych możliwości ładowania, których baza nie zapewnia. 
-- [Baza Base with T-SQL](load-data-from-azure-blob-storage-using-polybase.md) wymaga zdefiniowania zewnętrznych obiektów danych.
+- [Instrukcja Copy](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) jest zalecanym narzędziem ładowania, ponieważ pozwala bezproblemowo i elastycznie ładować dane. Instrukcja ma wiele dodatkowych możliwości ładowania, których baza nie zapewnia. 
+- [Baza Base with T-SQL](./load-data-from-azure-blob-storage-using-copy.md) wymaga zdefiniowania zewnętrznych obiektów danych.
 - [Instrukcja "Base" i "Copy" z Azure Data Factory (ADF)](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) to inne narzędzie aranżacji.  Definiuje potok i planuje zadania.
 - [Baza](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) danych programu SSIS działa prawidłowo, gdy dane źródłowe są w SQL Server. Program SSIS definiuje mapowania tabeli źródłowej do docelowej, a także organizuje obciążenie. Jeśli masz już pakiety SSIS, możesz zmodyfikować pakiety, aby współpracowały z nowym miejscem docelowym magazynu danych.
-- [Baza danych z Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) przesyła dane z tabeli do ramki danych datakosteks i/lub zapisuje dane z ramki Databases do tabeli przy użyciu bazy danych.
+- [Baza danych z Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json) przesyła dane z tabeli do ramki danych datakosteks i/lub zapisuje dane z ramki Databases do tabeli przy użyciu bazy danych.
 
 ### <a name="other-loading-options"></a>Inne opcje ładowania
 

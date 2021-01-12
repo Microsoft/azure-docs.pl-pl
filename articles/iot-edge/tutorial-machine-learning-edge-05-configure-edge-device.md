@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, devx-track-azurecli
-ms.openlocfilehash: bc62590b9517b2c6d16fdf2637990b845248d2ec
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 74d77d8c81455116cec861bf6704c6cb96526561
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932357"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121094"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Samouczek: Konfigurowanie urządzenia IoT Edge
 
@@ -81,7 +81,7 @@ W tej sekcji tworzymy certyfikaty z podpisem własnym przy użyciu obrazu platfo
 
 ## <a name="upload-certificates-to-azure-key-vault"></a>Przekaż certyfikaty do Azure Key Vault
 
-Aby bezpiecznie przechowywać certyfikaty i udostępnić je z wielu urządzeń, przekażemy certyfikaty do Azure Key Vault. Jak widać na liście powyżej, istnieją dwa typy plików certyfikatów: PFX i PEM. Będziemy traktować plik PFX jako Key Vault certyfikaty do przekazania do Key Vault. Pliki PEM są zwykłym tekstem, a firma Microsoft traktuje je jako wpisy tajne Key Vault. Będziemy używać Key Vault skojarzonych z obszarem roboczym Azure Machine Learning utworzonym przez uruchomienie [Azure Notebooks](tutorial-machine-learning-edge-04-train-model.md#run-azure-notebooks).
+Aby bezpiecznie przechowywać certyfikaty i udostępnić je z wielu urządzeń, przekażemy certyfikaty do Azure Key Vault. Jak widać na liście powyżej, istnieją dwa typy plików certyfikatów: PFX i PEM. Będziemy traktować plik PFX jako Key Vault certyfikaty do przekazania do Key Vault. Pliki PEM są zwykłym tekstem, a firma Microsoft traktuje je jako wpisy tajne Key Vault. Będziemy używać Key Vault skojarzonych z obszarem roboczym Azure Machine Learning utworzonym za pomocą [notesów Jupyter](tutorial-machine-learning-edge-04-train-model.md#run-jupyter-notebooks).
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do obszaru roboczego Azure Machine Learning.
 

@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 53c68f44273b14658bd4d95ce7cf3cf847c077d0
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: f780d5404d99435a61c4e3f9e90b1acbd9539af9
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93025956"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118442"
 ---
 # <a name="monitor-workload---azure-portal"></a>Monitorowanie obciążenia — Azure Portal
 
@@ -24,7 +24,7 @@ W tym artykule opisano, jak używać Azure Portal do monitorowania obciążenia.
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Subskrypcja platformy Azure: Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
-- Pula SQL: będziemy zbierać dzienniki dla puli SQL. Jeśli nie masz zainicjowanej puli SQL, zapoznaj się z instrukcjami w temacie [Tworzenie puli SQL](load-data-from-azure-blob-storage-using-polybase.md).
+- Pula SQL: będziemy zbierać dzienniki dla puli SQL. Jeśli nie masz zainicjowanej puli SQL, zapoznaj się z instrukcjami w temacie [Tworzenie puli SQL](./load-data-from-azure-blob-storage-using-copy.md).
 
 ## <a name="create-a-log-analytics-workspace"></a>Tworzenie obszaru roboczego usługi Log Analytics
 
@@ -63,7 +63,7 @@ Przejdź do obszaru roboczego Log Analytics, gdzie można wykonać następujące
 - Tworzenie alertów dotyczących dzienników
 - Przypinanie wyników zapytania do pulpitu nawigacyjnego
 
-Aby uzyskać szczegółowe informacje na temat możliwości kwerend dzienników, zapoznaj się z poniższą [dokumentacją](../../azure-monitor/log-query/query-language.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Aby uzyskać szczegółowe informacje na temat możliwości kwerend dzienników, zapoznaj się z poniższą [dokumentacją](/azure/data-explorer/kusto/query/?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json).
 
 ![Log Analytics Edytor obszarów roboczych](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspace_editor.png)
 

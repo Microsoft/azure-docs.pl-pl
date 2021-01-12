@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: efa160eb422658aeeb2eea3ad3c1d305b4b9f8be
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 1217cf74ab36a8fe865e47009616b1ccb240df67
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462411"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119887"
 ---
 # <a name="sql-authentication"></a>Uwierzytelnianie SQL
 
@@ -111,7 +111,7 @@ Aby utworzyć bazę danych, użytkownik musi być użytkownikiem opartym na SQL 
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
-4. Dodaj nowego użytkownika do roli bazy danych **DBManager** w programie `master` przy użyciu procedury [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=azure-sqldw-latest) (Zwróć uwagę, że instrukcja [ALTER role](/sql/t-sql/statements/alter-role-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) nie jest obsługiwana w przypadku udostępniania SQL). Przykładowe instrukcje:
+4. Dodaj nowego użytkownika do roli bazy danych **DBManager** w programie `master` przy użyciu procedury [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=azure-sqldw-latest) (Zwróć uwagę, że instrukcja [ALTER role](/sql/t-sql/statements/alter-role-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) nie jest obsługiwana w przypadku udostępniania SQL). Przykładowe instrukcje:
 
    ```sql
    EXEC sp_addrolemember 'dbmanager', 'Mary'; 
@@ -133,7 +133,7 @@ Druga rola administracyjna to rola menedżera logowania. Członkowie tej roli mo
 
 ## <a name="non-administrator-users"></a>Użytkownicy niebędący administratorami
 
-Ogólnie rzecz biorąc, konta inne niż administracyjne nie potrzebują dostępu do bazy danych Master. Tworzenie użytkowników zawartej bazy danych na poziomie bazy danych przy użyciu instrukcji [CREATE USER (język Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx). 
+Ogólnie rzecz biorąc, konta inne niż administracyjne nie potrzebują dostępu do bazy danych Master. Tworzenie użytkowników zawartej bazy danych na poziomie bazy danych przy użyciu instrukcji [CREATE USER (język Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql). 
 
 Użytkownik może być użytkownikiem uwierzytelnienia zawartej bazy danych usługi Azure Active Directory (jeśli skonfigurowano środowisko dla uwierzytelniania usługi Azure AD), użytkownikiem uwierzytelnienia zawartej bazy danych programu SQL Server lub użytkownikiem uwierzytelniania programu SQL Server w oparciu o nazwę logowania uwierzytelniania programu SQL Server (utworzonym w poprzednim kroku).  
 
@@ -191,7 +191,7 @@ Role bazy danych mogą być rolami wbudowanymi, takimi jak **db_owner**, **db_dd
 
 Na przykład ustalona rola bazy danych **db_datareader** pozwala na odczyt każdej tabeli w bazie danych, co nie zawsze jest niezbędne. 
 
-Znacznie lepiej jest użyć instrukcji [Create role](https://msdn.microsoft.com/library/ms187936.aspx) , aby utworzyć własne zdefiniowane przez użytkownika role baz danych i starannie udzielić każdej roli najniższych uprawnień niezbędnych dla potrzeb firmy. Gdy użytkownik jest członkiem wielu ról, łączą one uprawnienia ich wszystkich.
+Znacznie lepiej jest użyć instrukcji [Create role](/sql/t-sql/statements/create-role-transact-sql) , aby utworzyć własne zdefiniowane przez użytkownika role baz danych i starannie udzielić każdej roli najniższych uprawnień niezbędnych dla potrzeb firmy. Gdy użytkownik jest członkiem wielu ról, łączą one uprawnienia ich wszystkich.
 
 ## <a name="permissions"></a>Uprawnienia
 
@@ -199,7 +199,7 @@ Istnieje ponad 100 uprawnień, których można indywidualnie udzielić lub odmó
 
 Ze względu na zagnieżdżoną naturę uprawnień oraz ich liczbę zaprojektowanie systemu zabezpieczającego bazę danych w prawidłowy sposób może wymagać starannej analizy. 
 
-Rozpocznij od listy uprawnień [Uprawnienia (aparat bazy danych)](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) i przejrzyj [obszerny wykaz](https://docs.microsoft.com/sql/relational-databases/security/media/database-engine-permissions.png) uprawnień.
+Rozpocznij od listy uprawnień [Uprawnienia (aparat bazy danych)](/sql/relational-databases/security/permissions-database-engine) i przejrzyj [obszerny wykaz](/sql/relational-databases/security/media/database-engine-permissions.png) uprawnień.
 
 ### <a name="considerations-and-restrictions"></a>Uwagi i ograniczenia
 
@@ -236,5 +236,4 @@ Podczas zarządzania nazwami logowania i użytkownikami w SQL Database należy w
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji, zobacz artykuł [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx) (Użytkownicy zawartej bazy danych — tworzenie przenośnej bazy danych).
- 
+Aby uzyskać więcej informacji, zobacz artykuł [Contained Database Users - Making Your Database Portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable) (Użytkownicy zawartej bazy danych — tworzenie przenośnej bazy danych).

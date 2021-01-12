@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: c69df88828a179cf1dce7bd35ac19c518b07903d
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 8db1825e7abfaaeca4650cbd03dd05eec4777c21
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96530718"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121281"
 ---
 # <a name="troubleshooting-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Rozwiązywanie problemów z dedykowaną pulą SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics
 
@@ -32,7 +32,7 @@ W tym artykule opisano typowe problemy związane z rozwiązywaniem problemów w 
 | Zablokowany przez zaporę                                          | Dedykowana Pula SQL (wcześniej SQL DW) jest chroniona przez zapory w celu zapewnienia, że tylko znane adresy IP mają dostęp do bazy danych. Zapory są domyślnie bezpieczne, co oznacza, że musisz jawnie włączyć i adres IP lub zakres adresów, aby można było nawiązać połączenie.  Aby skonfigurować zaporę w celu uzyskania dostępu, wykonaj kroki opisane w sekcji [Konfigurowanie dostępu do zapory serwera dla adresu IP klienta](create-data-warehouse-portal.md) w [instrukcje aprowizacji](create-data-warehouse-portal.md). |
 | Nie można nawiązać połączenia z narzędziem lub sterownikiem                           | Dedykowana Pula SQL (wcześniej SQL DW) zaleca użycie programu [SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [SSDT dla programu Visual Studio](sql-data-warehouse-install-visual-studio.md)lub [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) do wykonywania zapytań dotyczących danych. Aby uzyskać więcej informacji na temat sterowników i łączenia się z usługą Azure Synapse, zobacz [sterowniki dla platformy Azure Synapse](sql-data-warehouse-connection-strings.md) i Połącz się z artykułami [Synapse platformy Azure](sql-data-warehouse-connect-overview.md) . |
 
-## <a name="tools"></a>Narzędzia
+## <a name="tools"></a>narzędzia
 
 | Problem                                                        | Rozwiązanie                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
@@ -85,6 +85,6 @@ Aby uzyskać pomoc w znalezieniu rozwiązania problemu, poniżej przedstawiono i
 * [Żądania funkcji](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 * [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 * [Tworzenie biletu pomocy technicznej](sql-data-warehouse-get-started-create-support-ticket.md)
-* [Strona pytania&pytań i odpowiedzi](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html)
+* [Strona pytania&pytań i odpowiedzi](/answers/topics/azure-synapse-analytics.html)
 * [Forum Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw)
 * [Twitter](https://twitter.com/hashtag/SQLDW)

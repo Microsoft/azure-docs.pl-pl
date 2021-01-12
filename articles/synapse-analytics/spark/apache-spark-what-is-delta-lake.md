@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 6a38b61ee03aa4853526586ca60542bd3641b66f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd582c1175d6bff0aa18ee77dde8b7734b6acf25
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91249403"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121026"
 ---
 # <a name="what-is-delta-lake"></a>Co to jest usługa Delta Lake
 
@@ -24,7 +24,7 @@ Bieżąca wersja usługi Delta Lake dostępna w usłudze Azure Synapse ma obsłu
 
 ## <a name="key-features"></a>Najważniejsze funkcje
 
-| Cecha | Opis |
+| Cechy | Opis |
 | --- | --- |
 | **Transakcje KWASowe** | Jeziora dotyczące danych są zwykle wypełniane przez wiele procesów i potoków, a niektóre z nich zapisują dane jednocześnie przy użyciu operacji odczytu. Przed zmianą i dodaniem transakcji inżynierowie danych musieli przeprowadzić proces ręcznego błędu, aby zapewnić integralność danych. Zmiany w usłudze Data Lake zapewniają znane transakcje dotyczące KWAŚNych jezior. Zapewnia serializację, najwyższy poziom izolacji. Dowiedz się więcej na temat zmiany w usłudze Data [Lake: rozpakowywanie dziennika transakcji](https://databricks.com/blog/2019/08/21/diving-into-delta-lake-unpacking-the-transaction-log.html).|
 | **Skalowalność obsługi metadanych** | W przypadku danych Big Data nawet metadane mogą być "Big Data". Usługa Delta w usłudze Data Lake traktuje metadane podobnie jak dane, wykorzystując rozproszone możliwości przetwarzania w usłudze Spark do obsługi wszystkich metadanych. W związku z tym, w usłudze Delta Lake można obsłużyć tabele skalowania petabajtów z użyciem miliardów partycji i plików. |
@@ -44,4 +44,4 @@ Aby uzyskać więcej informacji, zobacz temat [różnicowa Lake Project](https:/
 ## <a name="next-steps"></a>Następne kroki
 
 - [Dokumentacja platformy .NET dla Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Azure Synapse Analytics](../index.yml)

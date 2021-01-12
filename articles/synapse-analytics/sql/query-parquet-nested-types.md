@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 91f612ba7f19deb739dbb6004e275ea044a5a3d3
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 45e1ae5b8a1084334b7596f62c272e16294c4c14
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462563"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118765"
 ---
 # <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Zapytania zagnieżdżonych typów w plikach Parquet i JSON przy użyciu bezserwerowej puli SQL w usłudze Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ Zagnieżdżone typy to złożone struktury, które reprezentują obiekty lub tab
 - Hierarchiczne [pliki JSON](query-json-files.md), które umożliwiają odczytywanie złożonego dokumentu JSON jako pojedynczej kolumny.
 - Kolekcje Azure Cosmos DB (obecnie w publicznej wersji zapoznawczej), gdzie każdy dokument może zawierać złożone właściwości zagnieżdżone.
 
-Pula SQL bezserwerowa umożliwia formatowanie wszystkich zagnieżdżonych typów jako obiektów JSON i tablic. Dzięki temu można [wyodrębnić lub zmodyfikować obiekty złożone przy użyciu funkcji JSON](https://docs.microsoft.com/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) lub [przeanalizować dane JSON przy użyciu funkcji OPENJSON](https://docs.microsoft.com/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server). 
+Pula SQL bezserwerowa umożliwia formatowanie wszystkich zagnieżdżonych typów jako obiektów JSON i tablic. Dzięki temu można [wyodrębnić lub zmodyfikować obiekty złożone przy użyciu funkcji JSON](/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) lub [przeanalizować dane JSON przy użyciu funkcji OPENJSON](/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server). 
 
 Oto przykład zapytania, które wyodrębnia wartość skalarną i wartości obiektów z pliku JSON [Open Research DataSet COVID-19](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) , który zawiera obiekty zagnieżdżone: 
 
@@ -121,7 +121,7 @@ Wynik jest przedstawiony w poniższej tabeli:
 | --- | --- | --- | --- |
 | Dodatkowe informacje o epidemioloach ekonomicznych... | Julien   | -Ilustracja S1: Phylogeny... | `{    "paper_id": "000b7d1517ceebb34e1e3e817695b6de03e2fa78",    "metadata": {        "title": "Supplementary Information An eco-epidemiological study of Morbilli-related paramyxovirus infection in Madagascar bats reveals host-switching as the dominant macro-evolutionary mechanism",        "authors": [            {                "first": "Julien"` |
 
-W przeciwieństwie do plików JSON, które w większości przypadków zwracają pojedynczą kolumnę zawierającą złożony obiekt JSON, pliki Parquet mogą mieć wiele kolumn złożonych. Właściwości zagnieżdżonych kolumn można odczytać przy użyciu `JSON_VALUE` funkcji dla każdej kolumny. `OPENROWSET` umożliwia bezpośrednie Określanie ścieżek zagnieżdżonych właściwości w `WITH` klauzuli. Można ustawić ścieżki jako nazwę kolumny lub dodać [wyrażenie ścieżki JSON](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server) po typie kolumny.
+W przeciwieństwie do plików JSON, które w większości przypadków zwracają pojedynczą kolumnę zawierającą złożony obiekt JSON, pliki Parquet mogą mieć wiele kolumn złożonych. Właściwości zagnieżdżonych kolumn można odczytać przy użyciu `JSON_VALUE` funkcji dla każdej kolumny. `OPENROWSET` umożliwia bezpośrednie Określanie ścieżek zagnieżdżonych właściwości w `WITH` klauzuli. Można ustawić ścieżki jako nazwę kolumny lub dodać [wyrażenie ścieżki JSON](/sql/relational-databases/json/json-path-expressions-sql-server) po typie kolumny.
 
 Następujące zapytanie odczytuje plik structExample. Parquet i pokazuje, jak przedstawić elementy na wykresie zagnieżdżonej kolumny. Istnieją dwa sposoby odwoływania się do zagnieżdżonej wartości:
 - Określając wyrażenie zagnieżdżonej ścieżki wartości po specyfikacji typu.

@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: a5e514602668c96d63562e45fb114cf9770a54a9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 1fd7649cac6b636873ca529fe9780429d86697c6
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321494"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120907"
 ---
 # <a name="development-best-practices-for-synapse-sql"></a>Najlepsze rozwiązania dotyczące programowania Synapse SQL
 
@@ -53,7 +53,7 @@ Oznacza to, że eliminujemy operacje przenoszenia danych.  Mniej kroków to szyb
 
 Zobacz poniższe linki, aby uzyskać dodatkowe informacje o tym, jak wybór kolumny dystrybucji może poprawić wydajność, a także określić sposób definiowania rozproszonej tabeli w klauzuli WITH instrukcji CREATE TABLES.
 
-Zobacz również [Omówienie tabeli](develop-tables-overview.md), [dystrybucji tabel](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [wybierania dystrybucji tabel](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/), [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)i [CREATE TABLE jako wybrane](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+Zobacz również [Omówienie tabeli](develop-tables-overview.md), [dystrybucji tabel](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [wybierania dystrybucji tabel](/archive/blogs/sqlcat/choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service), [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)i [CREATE TABLE jako wybrane](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ### <a name="do-not-over-partition"></a>Unikanie nadmiernego partycjonowania
 Gdy Partycjonowanie danych może być skuteczne do obsługi danych za pomocą przełączania partycji lub optymalizowania skanowania za pomocą eliminacji partycji, zbyt wiele partycji może spowalniać zapytania.  Często wysoce ziarnista strategia partycjonowania, która może być dobrze włączona SQL Server może nie współpracować z dedykowaną pulą SQL.  
@@ -147,7 +147,7 @@ Jeśli to możliwe, można przygotować pliki w celu uzyskania lepszej wydajnoś
 - Preferowane jest posiadanie plików o równym rozmiarze dla pojedynczej ścieżki OPENROWSET lub lokalizacji tabeli zewnętrznej.
 - Podziel dane przez przechowywanie partycji w różnych folderach lub nazwach plików — zaznacz [opcję Użyj funkcji filename i FilePath, aby określić docelowe partycje](#use-fileinfo-and-filepath-functions-to-target-specific-partitions).
 
-### <a name="use-fileinfo-and-filepath-functions-to-target-specific-partitions"></a>Używanie funkcji FileInfo i FilePath do określonych partycji
+### <a name="use-fileinfo-and-filepath-functions-to-target-specific-partitions"></a>Używanie funkcji fileinfo i filepath do wskazywania określonych partycji
 
 Dane często są zorganizowane w partycjach. Można nakazać bezserwerową pulę SQL, aby wykonywać zapytania dotyczące określonych folderów i plików. Spowoduje to zmniejszenie liczby plików i ilości danych, które zapytanie musi odczytać i przetworzyć. 
 
@@ -167,7 +167,6 @@ Ponieważ CETAS generuje pliki Parquet, statystyki zostaną automatycznie utworz
 
 ### <a name="next-steps"></a>Następne kroki
 
-Jeśli potrzebujesz informacji, które nie zostały podane w tym artykule, użyj funkcji **wyszukiwania dokumentu** w lewej części tej strony, aby przeszukać wszystkie dokumenty w puli SQL.  [Firma Microsoft&pytań i odpowiedzi na pytania dotyczące usługi Azure Synapse Analytics](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) to miejsce, w którym można zadawać pytania innym użytkownikom i grupom produktów usługi Azure Synapse Analytics. Firma Microsoft aktywnie monitoruje to forum, aby mieć pewność, że użytkownicy uzyskują odpowiedzi od innych użytkowników lub pracowników firmy Microsoft.  
+Jeśli potrzebujesz informacji, które nie zostały podane w tym artykule, użyj funkcji **wyszukiwania dokumentu** w lewej części tej strony, aby przeszukać wszystkie dokumenty w puli SQL.  [Firma Microsoft&pytań i odpowiedzi na pytania dotyczące usługi Azure Synapse Analytics](/answers/topics/azure-synapse-analytics.html) to miejsce, w którym można zadawać pytania innym użytkownikom i grupom produktów usługi Azure Synapse Analytics. Firma Microsoft aktywnie monitoruje to forum, aby mieć pewność, że użytkownicy uzyskują odpowiedzi od innych użytkowników lub pracowników firmy Microsoft.  
 
 Jeśli wolisz zadać pytania na Stack Overflow, oferujemy również [Forum usługi Azure Synapse Analytics Stack overflowe](https://stackoverflow.com/questions/tagged/azure-sqldw).
- 

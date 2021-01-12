@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 01/06/2021
 ms.author: juliako
-ms.openlocfilehash: 3552d55d995608dd0d471c84cd5e9f9988ebe2c0
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: b6e18e077b717da65ca8d70b9bda6a133dba1f5c
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028645"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120091"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Informacje o wersji Azure Media Services Video Indexer
 
@@ -44,7 +44,7 @@ Video Indexer obsługuje wykrywanie, grupowanie i rozpoznawanie znaków w animow
 
 ### <a name="planned-video-indexer-website-authenticatication-changes"></a>Planowane zmiany authenticatication witryny sieci Web Video Indexer
 
-Od 1 marca 2021, nie będzie już można zarejestrować się i zalogować się do witryny sieci Web [Video Indexer](https://www.videoindexer.ai/) za pomocą serwisu Facebook lub LinkedIn.
+Od 1 marca 2021, nie będzie już można zarejestrować się i zalogować się do [portalu deweloperów](video-indexer-use-apis.md) [witryny sieci Web Video Indexer](https://www.videoindexer.ai/) za pomocą serwisu Facebook lub LinkedIn.
 
 Będziesz w stanie zarejestrować się i zalogować się przy użyciu jednego z następujących dostawców: Azure AD, Microsoft i Google.
 

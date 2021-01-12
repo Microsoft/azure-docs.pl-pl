@@ -7,16 +7,16 @@ ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a517f7a796b6543c8d60f0d1ebdba16afa0bc4b7
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 36329987e510372ff286a10584a115ea259afc60
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751431"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119088"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Korzystanie z właściwości w rozwiązaniu IoT Central platformy Azure
 
-W tym artykule pokazano, jak używać właściwości urządzenia, które są zdefiniowane w szablonie urządzenia w aplikacji IoT Central platformy Azure.
+Ten przewodnik zawiera informacje na temat sposobu, w jaki deweloper urządzenia używa właściwości urządzenia, które są zdefiniowane w szablonie urządzenia w aplikacji IoT Central platformy Azure.
 
 Właściwości reprezentują wartości punktu w czasie. Na przykład urządzenie może użyć właściwości do raportowania temperatury docelowej, do której próbujesz uzyskać dostęp. Domyślnie właściwości urządzenia są tylko do odczytu w IoT Central. Właściwości z możliwością zapisu pozwalają synchronizować stan między urządzeniem i aplikacją IoT Central platformy Azure.
 
@@ -35,7 +35,7 @@ W poniższej tabeli przedstawiono ustawienia konfiguracji dla funkcji właściwo
 | Pole           | Opis                                                                                                                                                                                                                        |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Nazwa wyświetlana    | Nazwa wyświetlana wartości właściwości używanej na pulpitach nawigacyjnych i formularzach.                                                                                                                                                              |
-| Nazwa            | Nazwa właściwości. Usługa Azure IoT Central generuje wartość tego pola z nazwy wyświetlanej, ale w razie potrzeby można wybrać własną wartość. To pole musi zawierać znaki alfanumeryczne.                                                 |
+| Nazwa            | Nazwa właściwości. Usługa Azure IoT Central generuje wartość tego pola z nazwy wyświetlanej, ale w razie potrzeby można wybrać własną wartość. To pole musi zawierać znaki alfanumeryczne.  Kod urządzenia używa tej wartości **nazwy** .           |
 | Typ możliwości | Wartość.                                                                                                                                                                                                                          |
 | Typ semantyczny   | Typ semantyczny właściwości, taki jak temperatura, stan lub zdarzenie. Wybór typu semantycznego określa, które z poniższych pól są dostępne.                                                                       |
 | Schemat          | Typ danych właściwości, taki jak Double, String lub Vector. Dostępne opcje są określane przez typ semantyczny. Schemat nie jest dostępny dla typów semantyki zdarzenia i stanu.                                               |
@@ -160,7 +160,7 @@ hubClient.getTwin((err, twin) => {
 });
 ```
 
-W tym artykule użyto Node.js dla uproszczenia. Aby uzyskać pełne informacje na temat przykładów aplikacji urządzeń, zobacz następujące instrukcje: [Tworzenie i łączenie aplikacji klienckiej z samouczkiem aplikacji platformy Azure IoT Central](tutorial-connect-device.md) .
+W tym artykule użyto Node.js dla uproszczenia. Aby zapoznać się z innymi przykładami języka, zobacz samouczek [Tworzenie i łączenie aplikacji klienckiej z aplikacją platformy Azure IoT Central](tutorial-connect-device.md) .
 
 Poniższy widok aplikacji IoT Central platformy Azure przedstawia właściwości, które można wyświetlić. Widok automatycznie powoduje, że właściwość **model urządzenia** jest _właściwością urządzenia tylko do odczytu_.
 
@@ -212,7 +212,7 @@ Komunikat odpowiedzi powinien zawierać `ac` `av` pola i. Pole `ad` jest opcjona
 
 | Wartość | Etykieta | Opis |
 | ----- | ----- | ----------- |
-| `'ac': 200` | Zakończone | Operacja zmiany właściwości została pomyślnie ukończona. |
+| `'ac': 200` | Ukończone | Operacja zmiany właściwości została pomyślnie ukończona. |
 | `'ac': 202` lub `'ac': 201` | Oczekiwanie | Operacja zmiany właściwości jest w stanie oczekiwania lub w toku. |
 | `'ac': 4xx` | Błąd | Żądana zmiana właściwości nie jest prawidłowa lub wystąpił błąd. |
 | `'ac': 5xx` | Błąd | Urządzenie napotkało nieoczekiwany błąd podczas przetwarzania żądanej zmiany. |

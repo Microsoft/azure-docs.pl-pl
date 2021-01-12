@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 11/18/2020
 ms.author: procha
 ms.reviewer: jrasnick
-ms.openlocfilehash: 861b963922d64926266b42a23f85e9dc30fda7a3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a1031656eaa5125d07ae078773379270b26625e7
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95903988"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121383"
 ---
 # <a name="compatibility-issues-with-third-party-applications-and-azure-synapse-analytics"></a>Problemy ze zgodnością z aplikacjami innych firm i analizą usługi Azure Synapse
 
@@ -53,7 +53,7 @@ W poniższym przykładzie przedstawiono plik Tableau TDC, który przekazuje para
 ```
 Aby uzyskać więcej informacji o używaniu plików TDC, skontaktuj się z pomocą techniczną Tableau. 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
-* [Elementy języka T-SQL dla dedykowanej puli SQL w usłudze Azure Synapse Analytics.](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-* [W przypadku dedykowanej puli SQL w usłudze Azure Synapse Analytics obsługiwane są instrukcje języka T-SQL.](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements)
+* [Elementy języka T-SQL dla dedykowanej puli SQL w usłudze Azure Synapse Analytics.](./sql-data-warehouse-reference-tsql-language-elements.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
+* [W przypadku dedykowanej puli SQL w usłudze Azure Synapse Analytics obsługiwane są instrukcje języka T-SQL.](./sql-data-warehouse-reference-tsql-statements.md)

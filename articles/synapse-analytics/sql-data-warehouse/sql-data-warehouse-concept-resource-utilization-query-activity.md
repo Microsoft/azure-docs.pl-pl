@@ -11,12 +11,12 @@ ms.date: 04/09/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: f66efb9112a9342122f5b56ab11b862ce3c7c61b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 75c0058f2d4878016281656935cbd82f79b859fd
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314440"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120006"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Monitorowanie działania użycia zasobów i zapytań w usłudze Azure Synapse Analytics
 
@@ -24,18 +24,18 @@ Usługa Azure Synapse Analytics zapewnia rozbudowane środowisko monitorowania w
 
 ## <a name="resource-utilization"></a>Wykorzystanie zasobów
 
-Następujące metryki są dostępne w Azure Portal dla programu SQL Synapse. Te metryki są [naAzure Monitor](../../azure-monitor/platform/data-collection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#metrics).
+Następujące metryki są dostępne w Azure Portal dla programu SQL Synapse. Te metryki są [naAzure Monitor](../../azure-monitor/platform/data-platform.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json#metrics).
 
 | Nazwa metryki             | Opis                                                  | Typ agregacji |
 | ----------------------- | ------------------------------------------------------------ | ---------------- |
 | Procent użycia procesora CPU          | Użycie procesora CPU we wszystkich węzłach dla hurtowni danych      | Średnia, minimum, maksimum    |
 | Procent użycia operacji we/wy na danych      | Użycie we/wy we wszystkich węzłach dla hurtowni danych       | Średnia, minimum, maksimum    |
 | Procent pamięci       | Użycie pamięci (SQL Server) we wszystkich węzłach dla hurtowni danych | Średnia, minimum, maksimum   |
-| Aktywne zapytania          | Liczba aktywnych zapytań wykonywanych w systemie             | Suma              |
-| Zakolejkowane zapytania          | Liczba zapytań umieszczonych w kolejce oczekujących na rozpoczęcie wykonywania          | Suma              |
+| Aktywne zapytania          | Liczba aktywnych zapytań wykonywanych w systemie             | Sum              |
+| Zakolejkowane zapytania          | Liczba zapytań umieszczonych w kolejce oczekujących na rozpoczęcie wykonywania          | Sum              |
 | Udane połączenia  | Liczba pomyślnych połączeń (logowań) z bazą danych | Sum, Count       |
 | Połączenia zakończone niepowodzeniem      | Liczba nieudanych połączeń (logowań) z bazą danych | Sum, Count       |
-| Zablokowane przez zaporę     | Liczba logowań do magazynu danych, który został zablokowany     | Sum, Count       |
+| Zablokowany przez zaporę     | Liczba logowań do magazynu danych, który został zablokowany     | Sum, Count       |
 | Limit jednostek dwu               | Cel poziomu usługi hurtowni danych                | Średnia, minimum, maksimum    |
 | JEDNOSTEK dwu procent          | Maksimum między wartością procentową procesora CPU a wartością procentową operacji we/wy        | Średnia, minimum, maksimum    |
 | JEDNOSTEK dwu używane                | Limit jednostek dwu * jednostek dwu procent                                   | Średnia, minimum, maksimum    |
@@ -57,7 +57,7 @@ Aby wyświetlić listę widoków DMV, które mają zastosowanie do Synapse SQL, 
 
 ## <a name="metrics-and-diagnostics-logging"></a>Rejestrowanie metryk i informacji diagnostycznych 
 
-Wszystkie metryki i dzienniki można eksportować do Azure Monitor, w odniesieniu do składnika [dzienników Azure monitor](../../azure-monitor/log-query/log-query-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) , i można programowo uzyskać do nich dostęp za pomocą [zapytań dzienników](../../azure-monitor/log-query/get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Opóźnienie dziennika Synapse SQL to około 10-15 minut. Więcej informacji o czynnikach wpływających na opóźnienia można znaleźć w następującej dokumentacji.
+Wszystkie metryki i dzienniki można eksportować do Azure Monitor, w odniesieniu do składnika [dzienników Azure monitor](../../azure-monitor/log-query/log-query-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) , i można programowo uzyskać do nich dostęp za pomocą [zapytań dzienników](../../azure-monitor/log-query/log-analytics-tutorial.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json). Opóźnienie dziennika Synapse SQL to około 10-15 minut. Więcej informacji o czynnikach wpływających na opóźnienia można znaleźć w następującej dokumentacji.
 
 ## <a name="next-steps"></a>Następne kroki
 

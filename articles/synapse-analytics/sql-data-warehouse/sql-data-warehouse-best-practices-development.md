@@ -11,12 +11,12 @@ ms.date: 09/04/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f8db19b209ddefebd4a297f18fb9b178fcf40f21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8826dff6d347f78625272a5620a1f168b8804db
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89457910"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120040"
 ---
 # <a name="development-best-practices-for-synapse-sql-pool"></a>Najlepsze rozwiązania dotyczące programowania dla puli SQL Synapse
 
@@ -55,7 +55,7 @@ Na przykład w przypadku tabeli z zamówieniami, która jest rozłożona według
 
 Podczas ładowania dystrybuowanej tabeli należy upewnić się, że dane przychodzące nie są sortowane według klucza dystrybucji, ponieważ mogłoby to spowolnić ładowanie.  Poniższe artykuły zawierają szczegółowe informacje na temat zwiększania wydajności, wybierając kolumnę dystrybucji i sposób definiowania rozproszonej tabeli w klauzuli WITH instrukcji CREATE TABLES.
 
-Zobacz również [Omówienie tabeli](sql-data-warehouse-tables-overview.md), [dystrybucji tabel](sql-data-warehouse-tables-distribute.md), [wybierania dystrybucji tabel](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/), [CREATE TABLE](sql-data-warehouse-tables-overview.md)i [CREATE TABLE jako wybrane](sql-data-warehouse-develop-ctas.md)
+Zobacz również [Omówienie tabeli](sql-data-warehouse-tables-overview.md), [dystrybucji tabel](sql-data-warehouse-tables-distribute.md), [wybierania dystrybucji tabel](/archive/blogs/sqlcat/choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service), [CREATE TABLE](sql-data-warehouse-tables-overview.md)i [CREATE TABLE jako wybrane](sql-data-warehouse-develop-ctas.md)
 
 ## <a name="do-not-over-partition"></a>Unikanie nadmiernego partycjonowania
 
@@ -120,7 +120,7 @@ Zobacz również [indeksy tabel](sql-data-warehouse-tables-index.md), [Przewodni
 
 Jeśli nie możesz znaleźć tego, czego szukasz w tym artykule, spróbuj użyć opcji "Wyszukaj dokumenty" w lewej części tej strony, aby przeszukać wszystkie dokumenty usługi Azure Synapse.  
 
-[Firma Microsoft&pytań i odpowiedzi na pytania dotyczące usługi Azure Synapse](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) to miejsce, w którym można zadawać pytania innym użytkownikom i grupom produktów platformy Azure Synapse.  Firma Microsoft aktywnie monitoruje to forum, aby mieć pewność, że użytkownicy uzyskują odpowiedzi od innych użytkowników lub pracowników firmy Microsoft.  
+[Firma Microsoft&pytań i odpowiedzi na pytania dotyczące usługi Azure Synapse](/answers/topics/azure-synapse-analytics.html) to miejsce, w którym można zadawać pytania innym użytkownikom i grupom produktów platformy Azure Synapse.  Firma Microsoft aktywnie monitoruje to forum, aby mieć pewność, że użytkownicy uzyskują odpowiedzi od innych użytkowników lub pracowników firmy Microsoft.  
 
 Jeśli wolisz zadać pytania na Stack Overflow, oferujemy również [Forum usługi Azure Synapse Analytics Stack overflowe](https://stackoverflow.com/questions/tagged/azure-sqldw).
 

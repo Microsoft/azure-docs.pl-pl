@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2020
 ms.author: memildin
-ms.openlocfilehash: 99f47df86d89e9daf2bc8878b868b04b7038ffd5
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: ce95106c56e919fa0fcc7d7553a3f0cc0dc77f98
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071208"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121298"
 ---
 # <a name="pricing-of-azure-security-center"></a>Cennik Azure Security Center
 Usługa Azure Security Center zapewnia ujednolicone zarządzanie zabezpieczeniami i zaawansowaną ochronę przed zagrożeniami na potrzeby obciążeń uruchamianych na platformie Azure, lokalnie i w innych chmurach. Zapewnia widoczność i kontrolę nad obciążeniami w chmurze hybrydowej, aktywną obroną, która zmniejsza narażenie na zagrożenia oraz Inteligentne wykrywanie, które ułatwiają szybkie rozwijanie zagrożeń cybernetycznymi.
@@ -115,7 +115,7 @@ Alternatywą jest włączenie usługi Azure Defender dla serwerów na poziomie o
 ### <a name="if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender"></a>Jeśli mam już licencję usługi Microsoft Defender for Endpoint dla punktu końcowego, możesz uzyskać rabat za usługę Azure Defender?
 Jeśli masz już licencję na usługę Microsoft Defender for Endpoint, nie musisz uiszczać tej części licencji usługi Azure Defender.
 
-Aby potwierdzić rabat, skontaktuj się z zespołem pomocy technicznej Security Center i podaj odpowiedni identyfikator obszaru roboczego, region i informacje o licencji.
+Aby potwierdzić swój rabat, skontaktuj się z zespołem pomocy technicznej Security Center i podaj odpowiedni identyfikator obszaru roboczego, region i informacje o licencji dla każdej odpowiedniej licencji.
 
 ### <a name="my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers"></a>Moja subskrypcja ma włączoną usługę Azure Defender dla serwerów, czy płacisz za niedziałającymi serwerami? 
 Nie. Po włączeniu [usługi Azure Defender dla serwerów](defender-for-servers-introduction.md) w ramach subskrypcji będzie naliczana stawka godzinowa tylko dla uruchomionych serwerów. Nie zostanie naliczona opłata za żaden serwer, który jest wyłączony, w czasie jego wyłączenia. 
@@ -135,7 +135,7 @@ Tak. Jeśli skonfigurowano agenta Log Analytics, aby wysyłał dane do co najmni
 ### <a name="is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine"></a>Czy 500 w przypadku całego obszaru roboczego lub w odniesieniu do maszyny?
 W przypadku każdej maszyny połączonej z obszarem roboczym będzie można korzystać z 500-MB bezpłatnego pozyskiwania danych dziennie. W odniesieniu do typów danych zabezpieczeń bezpośrednio zbieranych przez Azure Security Center.
 
-Te dane są dzienną stawką średnią dla wszystkich węzłów. Nawet jeśli niektóre komputery wysyłają 100 MB, a inne wysyłają 800-MB, jeśli łączna liczba nie przekracza limitów **[liczba maszyn] x 500-MB** , opłata nie zostanie naliczona.
+Przyjmowana jest średnia dzienna ilość danych dla wszystkich węzłów. Nawet jeśli niektóre komputery wysyłają 100 MB, a inne wysyłają 800-MB, jeśli łączna liczba nie przekracza limitów **[liczba maszyn] x 500-MB** , opłata nie zostanie naliczona.
 
 ## <a name="next-steps"></a>Następne kroki
 W tym artykule wyjaśniono opcje cenowe Security Center. W przypadku pokrewnego materiału Zobacz:

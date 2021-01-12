@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 2c526d25fed169f702a3786a17717de3cf4dc6af
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 3b5f5d64498922e9fc35942ff4570d801aa6c516
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059028"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118884"
 ---
 # <a name="analyze-with-apache-spark"></a>Analizowanie za pomocą Apache Spark
 
@@ -61,6 +61,7 @@ Dane są dostępne w tabeli w **SQLPOOL1**. Załaduj je do bazy danych Spark o n
     df.write.mode("overwrite").saveAsTable("nyctaxi.trip")
     ```
 
+1. Wybierz pozycję **Uruchom** w komórce.
 1. W centrum **danych** kliknij prawym przyciskiem myszy pozycję **bazy danych**, a następnie wybierz polecenie **Odśwież**. Powinny zostać wyświetlone następujące bazy danych:
 
     - **SQLPOOL1 (SQL)**

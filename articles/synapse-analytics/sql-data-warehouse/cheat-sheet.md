@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: a75e1fb5b250be1004195d3a77301c73eac94b02
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: cc54ae66cda6bf8ecde07d1830448ec39a15cc29
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98043561"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120227"
 ---
 # <a name="cheat-sheet-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytic"></a>Arkusz Ściągawka dla dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics
 
@@ -46,7 +46,7 @@ Najpierw Załaduj dane do [Azure Data Lake Storage](../../data-factory/connector
 | Partycjonowanie | Brak |
 | Klasa zasobów | largerc lub xlargerc |
 
-Dowiedz się więcej o [migracji danych](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/), [ładowaniu danych](design-elt-data-loading.md) i [proces wyodrębniania, przekształcania i ładowania (ELT)](design-elt-data-loading.md).
+Dowiedz się więcej o [migracji danych](/archive/blogs/sqlcat/migrating-data-to-azure-sql-data-warehouse-in-practice), [ładowaniu danych](design-elt-data-loading.md) i [proces wyodrębniania, przekształcania i ładowania (ELT)](design-elt-data-loading.md).
 
 ## <a name="distributed-or-replicated-tables"></a>Tabele rozproszone lub replikowane
 
@@ -137,7 +137,7 @@ Teraz możesz używać automatycznego skalowania w dowolnym momencie dzięki fun
 
 Zalecamy rozważenie użycia bazy danych SQL Database i usługi Azure Analysis Services w architekturze gwiazdy. To rozwiązanie może spowodować rozdzielenie obciążenia między różnymi grupami użytkowników przy równoczesnym korzystaniu z zaawansowanych funkcji zabezpieczeń bazy danych SQL Database i usługi Azure Analysis Services. Jest to również sposób na zapewnienie użytkownikom nieograniczonej współbieżności.
 
-Dowiedz się więcej o [typowych architekturach korzystających z dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/).
+Dowiedz się więcej o [typowych architekturach korzystających z dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics](/archive/blogs/sqlcat/common-isv-application-patterns-using-azure-sql-data-warehouse).
 
 Wdróż aplikację w jednym kliknięciem szprych w bazach danych SQL z dedykowanej puli SQL (dawniej SQL DW):
 

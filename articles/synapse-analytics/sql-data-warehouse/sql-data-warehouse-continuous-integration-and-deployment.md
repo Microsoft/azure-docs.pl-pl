@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 9f2bbc39b9c9c4770775bf49a7775ab8980a1f3b
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: cb80f2d21246a75d41fc5753e72995d409d5c6b4
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589903"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119190"
 ---
 # <a name="continuous-integration-and-deployment-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Ciągła integracja i wdrażanie dedykowanej puli SQL w usłudze Azure Synapse Analytics
 
@@ -62,5 +62,5 @@ W tym momencie istnieje proste środowisko, w którym każde ewidencjonowanie g�
 
 - Eksplorowanie [dedykowanej puli SQL (dawniej SQL DW)](massively-parallel-processing-mpp-architecture.md)
 - Szybkie [Tworzenie dedykowanej puli SQL (dawniej SQL DW)](create-data-warehouse-portal.md)
-- [Ładowanie danych przykładowych](load-data-from-azure-blob-storage-using-polybase.md)
+- [Ładowanie danych przykładowych](./load-data-from-azure-blob-storage-using-copy.md)
 - Eksploruj [wideo](sql-data-warehouse-videos.md)

@@ -1,17 +1,17 @@
 ---
 title: Klucz zarządzany przez klienta usługi Azure Monitor
-description: Informacje i kroki konfigurowania Customer-Managed klucza do szyfrowania danych w obszarach roboczych Log Analytics za pomocą klucza Azure Key Vault.
+description: Informacje i kroki służące do konfigurowania klucza zarządzanego przez klienta w celu szyfrowania danych w obszarach roboczych Log Analytics przy użyciu klucza Azure Key Vault.
 ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: 66a3276863b05cb2fe0dd80a2195f7fd2af1443c
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 07562167131d1839bc0827c74fae09c683302c08
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071939"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118612"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Klucz zarządzany przez klienta usługi Azure Monitor 
 
@@ -25,27 +25,27 @@ Zalecamy przejrzenie [ograniczeń i ograniczeń](#limitationsandconstraints) pon
 
 Azure Monitor gwarantuje, że wszystkie dane i zapisane zapytania są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft (MMK). Azure Monitor udostępnia również opcję szyfrowania przy użyciu własnego klucza, który jest przechowywany w [Azure Key Vault](../../key-vault/general/overview.md), co umożliwia kontrolowanie dostępu do danych w dowolnym momencie. Azure Monitor korzystania z szyfrowania jest taka sama jak w sposobie działania [szyfrowania usługi Azure Storage](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption) .
 
-Klucz Customer-Managed jest dostarczany w [dedykowanych klastrach](../log-query/logs-dedicated-clusters.md) zapewniających wyższy poziom ochrony i kontrolę. Dane pozyskane do dedykowanych klastrów są szyfrowane dwa razy — raz na poziomie usługi przy użyciu kluczy zarządzanych przez firmę Microsoft lub kluczy zarządzanych przez klienta, a raz na poziomie infrastruktury przy użyciu dwóch różnych algorytmów szyfrowania i dwóch różnych kluczy. [Szyfrowanie podwójne](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) chroni przed scenariuszem, w którym można złamać jeden z algorytmów szyfrowania lub kluczy. W takim przypadku dodatkowa warstwa szyfrowania nadal chroni dane. Dedykowany klaster umożliwia również ochronę danych za pomocą kontrolki [skrytki](#customer-lockbox-preview) .
+Klucz zarządzany przez klienta jest dostarczany w [dedykowanych klastrach](../log-query/logs-dedicated-clusters.md) , zapewniając wyższy poziom ochrony i kontrolę. Dane pozyskane do dedykowanych klastrów są szyfrowane dwa razy — raz na poziomie usługi przy użyciu kluczy zarządzanych przez firmę Microsoft lub kluczy zarządzanych przez klienta, a raz na poziomie infrastruktury przy użyciu dwóch różnych algorytmów szyfrowania i dwóch różnych kluczy. [Szyfrowanie podwójne](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) chroni przed scenariuszem, w którym można złamać jeden z algorytmów szyfrowania lub kluczy. W takim przypadku dodatkowa warstwa szyfrowania nadal chroni dane. Dedykowany klaster umożliwia również ochronę danych za pomocą kontrolki [skrytki](#customer-lockbox-preview) .
 
-Dane pozyskane w ciągu ostatnich 14 dni również są przechowywane w pamięci podręcznej (dysk SSD) w celu wydajnej operacji aparatu zapytań. Te dane pozostają zaszyfrowane przy użyciu kluczy firmy Microsoft niezależnie od konfiguracji klucza zarządzanego przez klienta, ale kontrola nad danymi SSD jest zgodna z [odwołaniem klucza](#key-revocation). Pracujemy nad zaszyfrowaniem danych SSD z kluczem Customer-Managed w pierwszej połowie 2021.
+Dane pozyskane w ciągu ostatnich 14 dni również są przechowywane w pamięci podręcznej (dysk SSD) w celu wydajnej operacji aparatu zapytań. Te dane pozostają zaszyfrowane przy użyciu kluczy firmy Microsoft niezależnie od konfiguracji klucza zarządzanego przez klienta, ale kontrola nad danymi SSD jest zgodna z [odwołaniem klucza](#key-revocation). Pracujemy nad zaszyfrowaniem danych SSD z kluczem zarządzanym przez klienta w pierwszej połowie 2021.
 
 Log Analytics dedykowane klastry używają [modelu cenowego](../log-query/logs-dedicated-clusters.md#cluster-pricing-model) rezerwacji pojemności, rozpoczynając od 1000 GB/dzień.
 
 > [!IMPORTANT]
 > Ze względu na tymczasowe ograniczenia pojemności firma Microsoft wymaga wstępnego zarejestrowania się przed utworzeniem klastra. Użyj swoich kontaktów do firmy Microsoft lub Otwórz żądanie pomocy technicznej, aby zarejestrować identyfikatory subskrypcji.
 
-## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Jak działa klucz Customer-Managed w Azure Monitor
+## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Jak działa klucz zarządzany przez klienta w Azure Monitor
 
-Azure Monitor używa tożsamości zarządzanej w celu udzielenia dostępu do Azure Key Vault. Tożsamość klastra Log Analytics jest obsługiwana na poziomie klastra. Aby zezwolić na Customer-Managed ochronę klucza w wielu obszarach roboczych, nowy zasób *klastra* log Analytics pełni rolę pośredniego połączenia tożsamości między Key Vault i obszarami roboczymi log Analytics. Magazyn klastra używa zarządzanej tożsamości \' skojarzonej z zasobem *klastra* w celu uwierzytelnienia w Azure Key Vault za pośrednictwem Azure Active Directory. 
+Azure Monitor używa tożsamości zarządzanej w celu udzielenia dostępu do Azure Key Vault. Tożsamość klastra Log Analytics jest obsługiwana na poziomie klastra. Aby umożliwić ochronę klucza zarządzanego przez klienta w wielu obszarach roboczych, nowy zasób *klastra* log Analytics pełni rolę pośredniego połączenia tożsamości między Key Vault i obszarami roboczymi log Analytics. Magazyn klastra używa zarządzanej tożsamości \' skojarzonej z zasobem *klastra* w celu uwierzytelnienia w Azure Key Vault za pośrednictwem Azure Active Directory. 
 
 Po skonfigurowaniu klucza zarządzanego przez klienta nowe pozyskiwane dane do obszarów roboczych połączonych z dedykowanym klastrem są szyfrowane przy użyciu klucza. W każdej chwili można odłączyć obszary robocze z klastra. Nowe dane są następnie pobierane do magazynu Log Analytics i szyfrowane za pomocą klucza firmy Microsoft, podczas gdy można bezproblemowo badać nowe i stare dane.
 
 > [!IMPORTANT]
-> Funkcja klucza Customer-Managed jest regionalna. Azure Key Vault, klaster i połączone Log Analytics obszary robocze muszą znajdować się w tym samym regionie, ale mogą znajdować się w różnych subskrypcjach.
+> Możliwość zarządzania kluczem zarządzanym przez klienta jest regionalna. Azure Key Vault, klaster i połączone Log Analytics obszary robocze muszą znajdować się w tym samym regionie, ale mogą znajdować się w różnych subskrypcjach.
 
-![Przegląd klucza Customer-Managed](media/customer-managed-keys/cmk-overview.png)
+![Informacje o kluczu zarządzanym przez klienta](media/customer-managed-keys/cmk-overview.png)
 
-1. Key Vault
+1. Usługa Key Vault
 2. Log Analytics zasobu *klastra* mającego zarządzaną tożsamość z uprawnieniami do Key Vault — tożsamość jest propagowana do underlay dedykowanego log Analytics magazynu klastra
 3. Dedykowany klaster Log Analytics
 4. Obszary robocze połączone z zasobem *klastra* 
@@ -54,7 +54,7 @@ Po skonfigurowaniu klucza zarządzanego przez klienta nowe pozyskiwane dane do o
 
 Istnieją trzy typy kluczy, które wiążą się z szyfrowaniem danych magazynu:
 
-- Klucz szyfrowania klucza **KEK** (klucz Customer-Managed)
+- Klucz szyfrowania klucza **KEK** (klucz zarządzany przez klienta)
 - Klucz szyfrowania konta **AEK**
 -  Klucz szyfrowania danych
 
@@ -75,7 +75,7 @@ Mają zastosowanie następujące zasady:
 1. Aktualizowanie klastra z informacjami o identyfikatorze klucza
 1. Łączenie Log Analytics obszarów roboczych
 
-Customer-Managed konfiguracja klucza nie jest obsługiwana w Azure Portal obecnie Inicjowanie obsługi administracyjnej może odbywać się za pośrednictwem [programu PowerShell](/powershell/module/az.operationalinsights/), [interfejsu wiersza polecenia](/cli/azure/monitor/log-analytics) lub żądań [rest](/rest/api/loganalytics/) .
+Konfiguracja klucza zarządzanego przez klienta nie jest obsługiwana w Azure Portal obecnie Inicjowanie obsługi administracyjnej może odbywać się za pośrednictwem [programu PowerShell](/powershell/module/az.operationalinsights/), [interfejsu wiersza polecenia](/cli/azure/monitor/log-analytics) lub żądań [rest](/rest/api/loganalytics/) .
 
 ### <a name="asynchronous-operations-and-status-check"></a>Operacje asynchroniczne i sprawdzanie stanu
 
@@ -125,7 +125,8 @@ Te ustawienia można aktualizować w Key Vault za pomocą interfejsu wiersza pol
 
 ## <a name="create-cluster"></a>Tworzenie klastra
 
-> [! INFORMACJE] klastry obsługują dwa [zarządzane typy tożsamości](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). Tożsamość zarządzana przypisana przez system jest tworzona wraz z klastrem podczas wprowadzania `SystemAssigned` typu tożsamości. można jej użyć później do udzielenia dostępu do Key Vault. Jeśli chcesz utworzyć klaster, który jest skonfigurowany do zarządzania kluczem zarządzanym przez klienta, Utwórz klaster z tożsamością zarządzaną przypisaną przez użytkownika, która jest przyznana w Key Vault — zaktualizuj klaster z `UserAssigned` typem tożsamości, identyfikator zasobu tożsamości w `UserAssignedIdentities` i podaj szczegóły klucza w temacie `keyVaultProperties` .
+> [!NOTE]
+> Klastry obsługują dwa [zarządzane typy tożsamości](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types), przypisane przez system i przypisane przez użytkownika, które mogą być używane w oparciu o twój scenariusz. Tożsamość zarządzana przypisana przez system jest prostsza i tworzona automatycznie przy użyciu operacji tworzenia klastra podczas ustawiania tożsamości `type` jako `SystemAssigned` -— Ta tożsamość może być używana później w celu udzielenia dostępu do Key Vault. Jeśli konieczne jest utworzenie klastra z konfiguracją klucza zarządzanego przez klienta, należy wcześniej zdefiniować zdefiniowany klucz i tożsamość przypisaną przez użytkownika w Key Vault, a następnie utworzyć klaster z tożsamością `type` AS `UserAssigned` , `UserAssignedIdentities` z identyfikatorem zasobu tożsamości i szczegóły klucza w programie `keyVaultProperties` .
 
 > [!IMPORTANT]
 > Obecnie nie można zdefiniować klucza zarządzanego przez klienta przy użyciu tożsamości zarządzanej przypisanej przez użytkownika, jeśli Key Vault znajduje się w Private-Link (vNet). To ograniczenie nie jest stosowane do zarządzanej tożsamości przypisanej do systemu.
@@ -254,20 +255,20 @@ Magazyn klastra okresowo sonduje Key Vault, aby próbować odszyfrować klucz sz
 
 ## <a name="key-rotation"></a>Wymiana kluczy
 
-Rotacja kluczy Customer-Managed wymaga jawnej aktualizacji klastra z nową wersją klucza w Azure Key Vault. [Zaktualizuj klaster przy użyciu szczegółów identyfikatora klucza](#update-cluster-with-key-identifier-details). Jeśli nie zaktualizujesz nowej wersji klucza w klastrze, magazyn klastra Log Analytics będzie nadal korzystać z poprzedniego klucza do szyfrowania. W przypadku wyłączenia lub usunięcia starego klucza przed zaktualizowaniem nowego klucza w klastrze zostanie wyświetlony stan [odwołania klucza](#key-revocation) .
+Rotacja kluczy zarządzanych przez klienta wymaga jawnej aktualizacji klastra z nową wersją klucza w Azure Key Vault. [Zaktualizuj klaster przy użyciu szczegółów identyfikatora klucza](#update-cluster-with-key-identifier-details). Jeśli nie zaktualizujesz nowej wersji klucza w klastrze, magazyn klastra Log Analytics będzie nadal korzystać z poprzedniego klucza do szyfrowania. W przypadku wyłączenia lub usunięcia starego klucza przed zaktualizowaniem nowego klucza w klastrze zostanie wyświetlony stan [odwołania klucza](#key-revocation) .
 
 Wszystkie dane pozostają dostępne po operacji rotacji kluczy, ponieważ dane zawsze są szyfrowane przy użyciu klucza szyfrowania konta (AEK), podczas gdy AEK jest teraz szyfrowany przy użyciu nowej wersji klucza szyfrowania kluczy (KEK) w Key Vault.
 
-## <a name="customer-managed-key-for-queries"></a>Klucz Customer-Managed dla zapytań
+## <a name="customer-managed-key-for-queries"></a>Klucz zarządzany przez klienta dla zapytań
 
-Język zapytań używany w Log Analytics jest wyraźny i może zawierać poufne informacje w komentarzach, które można dodać do zapytań lub w składni zapytania. Niektóre organizacje wymagają, aby te informacje były chronione w ramach zasad kluczy Customer-Managed, a wymagane jest zapisanie zaszyfrowanej kwerendy przy użyciu klucza. Azure Monitor umożliwia przechowywanie *zapisywanych* i *zarejestrowań zapytań dotyczących alertów* w postaci zaszyfrowanej przy użyciu klucza na własnym koncie magazynu po nawiązaniu połączenia z obszarem roboczym. 
+Język zapytań używany w Log Analytics jest wyraźny i może zawierać poufne informacje w komentarzach, które można dodać do zapytań lub w składni zapytania. Niektóre organizacje wymagają, aby te informacje były chronione w ramach zasad kluczy zarządzanych przez klienta, a wymagane jest zapisanie zaszyfrowanej kwerendy przy użyciu klucza. Azure Monitor umożliwia przechowywanie *zapisywanych* i *zarejestrowań zapytań dotyczących alertów* w postaci zaszyfrowanej przy użyciu klucza na własnym koncie magazynu po nawiązaniu połączenia z obszarem roboczym. 
 
 > [!NOTE]
-> Zapytania Log Analytics można zapisywać w różnych magazynach w zależności od użytego scenariusza. Zapytania pozostają zaszyfrowane za pomocą usługi Microsoft Key (MMK) w następujących scenariuszach, niezależnie od konfiguracji klucza Customer-Managed: skoroszyty w Azure Monitor, pulpity nawigacyjne platformy Azure, aplikacja logiki Azure, Azure Notebooks i elementy Runbook automatyzacji.
+> Zapytania Log Analytics można zapisywać w różnych magazynach w zależności od użytego scenariusza. Zapytania pozostają zaszyfrowane za pomocą usługi Microsoft Key (MMK) w następujących scenariuszach niezależnie od konfiguracji klucza zarządzanego przez klienta: skoroszyty w Azure Monitor, pulpity nawigacyjne platformy Azure, aplikacja logiki platformy Azure, Azure Notebooks i elementy Runbook automatyzacji.
 
 Gdy przeniesiesz własny magazyn (BYOS) i połączysz go z obszarem roboczym, usługa przekaże *zapisane zapytania wyszukiwania* i *alerty dziennika* do konta magazynu. Oznacza to, że można kontrolować konto magazynu i [zasady szyfrowania w trybie REST](../../storage/common/customer-managed-keys-overview.md) przy użyciu tego samego klucza, który jest używany do szyfrowania danych w klastrze log Analytics lub innego klucza. Użytkownik będzie jednak odpowiedzialny za koszty związane z tym kontem magazynu. 
 
-**Zagadnienia przed ustawieniem Customer-Managed klucza dla zapytań**
+**Zagadnienia przed ustawieniem klucza zarządzanego przez klienta dla zapytań**
 * Musisz mieć uprawnienia do zapisu zarówno w obszarze roboczym, jak i koncie magazynu
 * Upewnij się, że utworzono konto magazynu w tym samym regionie, w którym znajduje się obszar roboczy Log Analytics.
 * *Zapisywanie wyszukiwań* w magazynie jest traktowane jako artefakty usługi i ich format może ulec zmianie
@@ -385,7 +386,7 @@ Klucz Customer-Managed jest udostępniany w dedykowanym klastrze i te operacje s
 
 ## <a name="limitations-and-constraints"></a>Ograniczenia i ograniczenia
 
-- Klucz Customer-Managed jest obsługiwany w dedykowanym klastrze Log Analytics i jest przeznaczony dla klientów wysyłających 1 TB dziennie lub dłużej.
+- Klucz zarządzany przez klienta jest obsługiwany w dedykowanym klastrze Log Analytics i jest przeznaczony dla klientów, którzy wysyłają 1 TB dziennie lub dłużej.
 
 - Maksymalna liczba klastrów na region i subskrypcja wynosi 2
 
@@ -395,7 +396,7 @@ Klucz Customer-Managed jest udostępniany w dedykowanym klastrze i te operacje s
 
 - Link obszaru roboczego do klastra należy przeprowadzić dopiero po sprawdzeniu, czy zakończono Inicjowanie obsługi klastra Log Analytics. Dane wysyłane do obszaru roboczego przed ukończeniem zostaną usunięte i nie będzie można ich odzyskać.
 
-- Customer-Managed szyfrowanie klucza ma zastosowanie do nowo wprowadzonych danych po upływie czasu konfiguracji. Dane, które zostały wprowadzone przed rozpoczęciem konfiguracji, pozostają zaszyfrowane za pomocą klucza firmy Microsoft. Możesz wykonywać zapytania dotyczące danych pozyskiwanych przed bezproblemową konfiguracją Customer-Managed i po niej.
+- Szyfrowanie klucza zarządzanego przez klienta ma zastosowanie do nowo wprowadzonych danych po upływie czasu konfiguracji. Dane, które zostały wprowadzone przed rozpoczęciem konfiguracji, pozostają zaszyfrowane za pomocą klucza firmy Microsoft. Można wykonywać zapytania dotyczące danych pozyskiwanych przed bezproblemową konfiguracją klucza zarządzanego przez klienta i po nim.
 
 - Azure Key Vault musi być skonfigurowany jako możliwy do odzyskania. Te właściwości nie są domyślnie włączone i należy je skonfigurować przy użyciu interfejsu wiersza polecenia lub programu PowerShell:<br>
   - [Usuwanie nietrwałe](../../key-vault/general/soft-delete-overview.md)
@@ -424,7 +425,7 @@ Klucz Customer-Managed jest udostępniany w dedykowanym klastrze i te operacje s
     
   - Błędy połączeń przejściowych — usługa Storage obsługuje błędy przejściowe (przekroczenia limitu czasu, błędy połączeń, problemy z usługą DNS), dzięki czemu klucze mogą pozostać w pamięci podręcznej przez krótki czas i jest to zbyt małe Blips w dostępności. Możliwości zapytań i pozyskiwania kontynuują działanie bez przeszkód.
     
-  - Lokacja na żywo — niedostępność przez około 30 minut spowoduje, że konto magazynu stanie się niedostępne. Funkcja zapytania jest niedostępna, a dane pozyskiwane są buforowane przez kilka godzin przy użyciu klawisza Microsoft, aby uniknąć utraty danych. Po przywróceniu dostępu do Key Vault jest on dostępny, a tymczasowe dane przechowywane w pamięci podręcznej są przechowywane w magazynie danych i szyfrowane za pomocą klucza Customer-Managed.
+  - Lokacja na żywo — niedostępność przez około 30 minut spowoduje, że konto magazynu stanie się niedostępne. Funkcja zapytania jest niedostępna, a dane pozyskiwane są buforowane przez kilka godzin przy użyciu klawisza Microsoft, aby uniknąć utraty danych. Po przywróceniu dostępu do Key Vault jest on dostępny, a tymczasowe dane przechowywane w pamięci podręcznej są przechowywane w magazynie danych i szyfrowane za pomocą klucza zarządzanego przez klienta.
 
   - Key Vault szybkość dostępu — częstotliwość, z jaką Azure Monitor dostęp do magazynu Key Vault dla operacji zawijania i rozwinięcia, wynosi od 6 do 60 sekund.
 

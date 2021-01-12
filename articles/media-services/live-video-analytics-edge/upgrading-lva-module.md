@@ -5,12 +5,12 @@ author: naiteeks
 ms.topic: how-to
 ms.author: naiteeks
 ms.date: 12/14/2020
-ms.openlocfilehash: 9621f0a933c6102309286505f2c551c5256c5506
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: aa8657550c6475afd9f893acf8985c50cec0f199
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901559"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119462"
 ---
 # <a name="upgrading-live-video-analytics-on-iot-edge-from-10-to-20"></a>Uaktualnianie analizy filmów wideo na żywo na IoT Edge od 1,0 do 2,0
 
@@ -19,9 +19,9 @@ W tym artykule omówiono różnice i różne zagadnienia, które należy wziąć
 ## <a name="change-list"></a>Zmień listę
 
 > [!div class="mx-tdCol4BreakAll"]
-> |Title (Tytuł)|Analiza wideo na żywo 1,0|Analiza wideo na żywo 2,0|Opis|
+> |Tytuł|Analiza wideo na żywo 1,0|Analiza wideo na żywo 2,0|Opis|
 > |-------------|----------|---------|---------|
-> |Obraz kontenera|mcr.microsoft.com/media/live-video-analytics:1.0.0|mcr.microsoft.com/media/live-video-analytics:2.0.0|Obrazy platformy Docker opublikowane przez firmę Microsoft na potrzeby analizy filmów wideo na żywo na Azure IoT Edge|
+> |Obraz kontenera|mcr.microsoft.com/media/live-video-analytics:1|mcr.microsoft.com/media/live-video-analytics:2|Obrazy platformy Docker opublikowane przez firmę Microsoft na potrzeby analizy filmów wideo na żywo na Azure IoT Edge|
 > |**MediaGraph węzły** |    |   |   |
 > |Źródła|:::image type="icon" source="./././media/upgrading-lva/check.png"::: Źródło RTSP </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: IoT Hub źródło komunikatu |:::image type="icon" source="./././media/upgrading-lva/check.png"::: Źródło RTSP </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: IoT Hub źródło komunikatu | MediaGraph węzły, które działają jako źródła pozyskiwania multimediów i komunikatów.|
 > |Procesory|:::image type="icon" source="./././media/upgrading-lva/check.png"::: Procesor wykrywania ruchu </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Procesor filtru szybkości klatek </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Procesor rozszerzeń http </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Procesor rozszerzenia GRPC </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Procesor bramy sygnałów |:::image type="icon" source="./././media/upgrading-lva/check.png"::: Procesor wykrywania ruchu </br>:::image type="icon" source="./././media/upgrading-lva/remove.png":::**Procesor filtru szybkości klatek**</br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Procesor rozszerzeń http </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Procesor rozszerzenia GRPC </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Procesor bramy sygnałów | MediaGraph węzły, które umożliwiają formatowanie nośnika przed wysłaniem do serwerów wnioskowania AI.|
@@ -60,7 +60,7 @@ Upewnij się, że w plikach topologii **`apiVersion`** jest ustawiona wartość 
 * W `MediaGraphHttpExtension` `MediaGraphGrpcExtension` przypadku procesorów i należy pamiętać o następujących zmianach:  
     * **Właściwości obrazu**
         * `MediaGraphImageFormatEncoded` nie jest już obsługiwane. 
-        * Zamiast tego należy **`MediaGraphImageFormatBmp`** użyć **`MediaGraphImageFormatJpeg`** lub **`MediaGraphImageFormatPng`** . Przykład:
+        * Zamiast tego należy **`MediaGraphImageFormatBmp`** użyć **`MediaGraphImageFormatJpeg`** lub **`MediaGraphImageFormatPng`** . Na przykład
         ```
         "image": {
                 "scale": 

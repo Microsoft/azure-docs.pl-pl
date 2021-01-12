@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.openlocfilehash: db36a77d93735b151ad893b7e25ba86f104e7b90
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 9bee391ddb0fa6c270c6d833fb7e81d5f4880497
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510468"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118646"
 ---
 # <a name="create-a-query-in-azure-cognitive-search"></a>Tworzenie zapytania w usłudze Azure Wyszukiwanie poznawcze
 
@@ -26,7 +26,7 @@ Do utworzenia zapytania potrzebne jest narzędzie lub interfejs API. Dowolna z p
 | Metodologia | Opis |
 |-------------|-------------|
 | Portal| [Eksplorator wyszukiwania (Portal)](search-explorer.md) jest interfejsem zapytań w Azure Portal, w którym są uruchamiane zapytania dotyczące indeksów w podstawowej usłudze wyszukiwania. Portal udostępnia interfejs API REST w tle do operacji [wyszukiwania dokumentów](/rest/api/searchservice/search-documents) , ale nie może wywoływać autouzupełniania, sugestii ani wyszukiwania dokumentów.<br/><br/> Można wybrać dowolny indeks i wersję interfejsu API REST, w tym Podgląd. Ciąg zapytania może używać prostej lub pełnej składni z obsługą wszystkich parametrów zapytania (Filter, SELECT, searchFields itd.). W portalu, gdy otworzysz indeks, możesz współpracować z Eksploratorem wyszukiwania obok definicji JSON indeksu na kartach obok siebie, aby łatwo uzyskać dostęp do atrybutów pól. Sprawdź, jakie pola są do przeszukiwania, do sortowania, do filtrowania i do czego podczas testowania zapytań. <br/>Zalecane do wczesnego badania, testowania i weryfikacji. [Dowiedz się więcej.](search-explorer.md) |
-| Narzędzia do testowania sieci Web| Program [Poster lub Visual Studio Code](search-get-started-rest.md) są silnymi wyborami w celu sformułowania żądania [przeszukiwania dokumentów](/rest/api/searchservice/search-documents) i innych żądań, w spoczynku. Interfejsy API REST obsługują wszystkie możliwe operacje programistyczne w usłudze Azure Wyszukiwanie poznawcze, a w przypadku korzystania z narzędzia, takiego jak Poster lub Visual Studio Code, można interaktywnie wysłać żądania, aby zrozumieć, jak działa funkcja przed inwestowania w kod. Narzędzie testowania sieci Web jest dobrym rozwiązaniem, jeśli nie masz uprawnień współautora lub administracyjne w Azure Portal. Tak długo, jak masz adres URL wyszukiwania i klucz interfejsu API zapytania, możesz użyć narzędzi do uruchamiania zapytań względem istniejącego indeksu. |
+| Narzędzia do testowania sieci Web| Program [Poster](search-get-started-rest.md) lub [Visual Studio Code](search-get-started-vs-code.md) są silnymi wyborami w celu sformułowania żądania [przeszukiwania dokumentów](/rest/api/searchservice/search-documents) i innych żądań, w spoczynku. Interfejsy API REST obsługują wszystkie możliwe operacje programistyczne w usłudze Azure Wyszukiwanie poznawcze, a w przypadku korzystania z narzędzia, takiego jak Poster lub Visual Studio Code, można interaktywnie wysłać żądania, aby zrozumieć, jak działa funkcja przed inwestowania w kod. Narzędzie testowania sieci Web jest dobrym rozwiązaniem, jeśli nie masz uprawnień współautora lub administracyjne w Azure Portal. Tak długo, jak masz adres URL wyszukiwania i klucz interfejsu API zapytania, możesz użyć narzędzi do uruchamiania zapytań względem istniejącego indeksu. |
 | Zestaw Azure SDK | Gdy wszystko jest gotowe do pisania kodu, można użyć bibliotek klienckich Azure.Search.Document w zestawach SDK platformy Azure dla platformy .NET, Python, JavaScript lub Java. Każdy zestaw SDK ma swój własny harmonogram wydania, ale można tworzyć indeksy zapytań we wszystkich z nich. <br/><br/>[SearchClient (.NET)](/dotnet/api/azure.search.documents.searchclient) może służyć do wykonywania zapytań względem indeksu wyszukiwania w języku C#.  [Dowiedz się więcej.](search-howto-dotnet-sdk.md)<br/><br/>[SearchClient (Python)](/dotnet/api/azure.search.documents.searchclient) może służyć do wykonywania zapytań względem indeksu wyszukiwania w języku Python. [Dowiedz się więcej.](search-get-started-python.md)<br/><br/>[SearchClient (JavaScript)](/dotnet/api/azure.search.documents.searchclient) może służyć do wykonywania zapytań względem indeksu wyszukiwania w języku JavaScript. [Dowiedz się więcej.](search-get-started-javascript.md) |
 
 ## <a name="set-up-a-search-client"></a>Konfigurowanie klienta wyszukiwania

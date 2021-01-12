@@ -11,18 +11,31 @@ author: nabhishek
 manager: anansub
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 8734247a913bdf6a44a9156f6f87705b618f7228
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 3f0cf3de4c2cffca6540fcd727872372103ac98f
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632893"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118255"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Utwórz udostępnione środowisko Integration Runtime w Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 W tym przewodniku pokazano, jak utworzyć udostępnione środowisko Integration Runtime w Azure Data Factory. Następnie możesz użyć udostępnionego środowiska Integration Runtime w innej fabryce danych.
+
+## <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Utwórz udostępnione środowisko Integration Runtime w Azure Data Factory
+
+Można ponownie użyć istniejącej infrastruktury środowiska Integration Runtime, która została już skonfigurowana w fabryce danych. To ponowne użycie pozwala utworzyć połączone środowisko Integration Runtime w innej fabryce danych, odwołując się do istniejącego udostępnionego własnego środowiska IR.
+
+Aby zapoznać się z wprowadzeniem i pokazem tej funkcji, Obejrzyj następujący 12-minutowy film wideo:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Hybrid-data-movement-across-multiple-Azure-Data-Factories/player]
+
+### <a name="terminology"></a>Terminologia
+
+- **Udostępnione środowisko IR**: oryginalne środowisko IR, które działa w ramach infrastruktury fizycznej.  
+- **Połączone środowisko IR**: IR, który odwołuje się do innego udostępnionego środowiska IR. Połączone środowisko IR jest logicznym portem IR i używa infrastruktury innego udostępnionego samodzielnego środowiska IR.
 
 ## <a name="create-a-shared-self-hosted-ir-using-azure-data-factory-ui"></a>Tworzenie udostępnionego samoobsługowego środowiska IR przy użyciu Azure Data Factory interfejsu użytkownika
 
@@ -55,9 +68,9 @@ Aby utworzyć udostępniony samoobsługowy środowisko IR przy użyciu Azure Pow
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- **Subskrypcja platformy Azure** . Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/). 
+- **Subskrypcja platformy Azure**. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/). 
 
-- Zainstalowanie programu **Azure PowerShell** . Postępuj zgodnie z instrukcjami w temacie [Install Azure PowerShell in Windows with PowerShellGet](/powershell/azure/install-az-ps). Program PowerShell służy do uruchamiania skryptu w celu utworzenia własnego środowiska Integration Runtime, które może być współużytkowane z innymi fabrykami danych. 
+- Zainstalowanie programu **Azure PowerShell**. Postępuj zgodnie z instrukcjami w temacie [Install Azure PowerShell in Windows with PowerShellGet](/powershell/azure/install-az-ps). Program PowerShell służy do uruchamiania skryptu w celu utworzenia własnego środowiska Integration Runtime, które może być współużytkowane z innymi fabrykami danych. 
 
 > [!NOTE]  
 > Aby zapoznać się z listą regionów świadczenia usługi Azure, w których Data Factory są obecnie dostępne, wybierz regiony, które interesują Cię z  [produktami dostępnymi według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
@@ -66,7 +79,7 @@ Aby utworzyć udostępniony samoobsługowy środowisko IR przy użyciu Azure Pow
 
 1. Uruchom środowisko Windows PowerShell Integrated Scripting Environment (ISE).
 
-1. Utwórz zmienne. Skopiuj i wklej poniższy skrypt. Zastąp zmienne, takie jak **subscriptionname** i **ResourceGroupName** , wartościami rzeczywistymi: 
+1. Utwórz zmienne. Skopiuj i wklej poniższy skrypt. Zastąp zmienne, takie jak **subscriptionname** i **ResourceGroupName**, wartościami rzeczywistymi: 
 
     ```powershell
     # If input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
@@ -213,6 +226,37 @@ Remove-AzDataFactoryV2IntegrationRuntime `
     -Links `
     -LinkedDataFactoryName $LinkedDataFactoryName
 ```
+
+### <a name="monitoring"></a>Monitorowanie
+
+#### <a name="shared-ir"></a>Udostępniony IR
+
+![Opcje znajdowania udostępnionego środowiska Integration Runtime](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
+
+![Monitorowanie udostępnionego środowiska Integration Runtime](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
+
+#### <a name="linked-ir"></a>Połączony IR
+
+![Opcje znajdowania połączonego środowiska Integration Runtime](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
+
+![Monitorowanie połączonego środowiska Integration Runtime](media/create-self-hosted-integration-runtime/Contoso-linked-ir-monitoring.png)
+
+
+### <a name="known-limitations-of-self-hosted-ir-sharing"></a>Znane ograniczenia dotyczące samodzielnego udostępniania środowiska IR
+
+* Fabryka danych, w której jest tworzone połączone środowisko IR, musi mieć [zarządzaną tożsamość](../active-directory/managed-identities-azure-resources/overview.md). Domyślnie fabryki danych utworzone w Azure Portal lub polecenia cmdlet programu PowerShell mają niejawnie utworzoną tożsamość zarządzaną. Jednak gdy Fabryka danych jest tworzona za pomocą szablonu Azure Resource Manager lub zestawu SDK, należy jawnie ustawić właściwość **Identity** . To ustawienie zapewnia, że Menedżer zasobów tworzy fabrykę danych, która zawiera zarządzaną tożsamość.
+
+* Zestaw Data Factory .NET SDK, który obsługuje tę funkcję, musi być w wersji 1.1.0 lub nowszej.
+
+* Aby udzielić uprawnień, potrzebna jest rola właściciela lub dziedziczona rola właściciela w fabryce danych, w której istnieje udostępniony środowisko IR.
+
+* Funkcja udostępniania działa tylko dla fabryk danych w ramach tej samej dzierżawy usługi Azure AD.
+
+* W przypadku [użytkowników Gości](../active-directory/governance/manage-guest-access-with-access-reviews.md)usługi Azure AD funkcja wyszukiwania w interfejsie użytkownika, która wyświetla listę wszystkich fabryk danych za pomocą słowa kluczowego wyszukiwania, nie działa. Jednak o ile użytkownik-Gość jest właścicielem fabryki danych, możesz udostępnić środowisko IR bez funkcji wyszukiwania. W przypadku zarządzanej tożsamości fabryki danych, która musi udostępniać środowisko IR, wprowadź tę tożsamość zarządzaną w polu **Przypisz uprawnienia** i wybierz pozycję **Dodaj** w interfejsie użytkownika Data Factory.
+
+  > [!NOTE]
+  > Ta funkcja jest dostępna tylko w Data Factory v2.
+
 
 ### <a name="next-steps"></a>Następne kroki
 

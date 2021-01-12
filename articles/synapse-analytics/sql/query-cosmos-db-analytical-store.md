@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 12/04/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 22103ad580fa474f44eaf42c696d19bbbd137c8e
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: a0458264b6ea0c741244531fc104a7637108b06e
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095104"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121349"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link-preview"></a>Wykonywanie zapytań dotyczących danych Azure Cosmos DB za pomocą puli SQL bezserwerowej w wersji zapoznawczej usługi Azure Synapse
 
@@ -222,7 +222,7 @@ FROM OPENROWSET(
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
 
-Nie należy używać `OPENROWSET` bez jawnie zdefiniowanego schematu, ponieważ może to mieć wpływ na wydajność. Upewnij się, że dla kolumn używane są najmniejsze możliwe rozmiary (na przykład VARCHAR (100) zamiast domyślnego VARCHAR (8000)). Należy użyć pewnego sortowania UTF-8 jako domyślnego sortowania bazy danych lub ustawić jako jawne sortowanie kolumn, aby uniknąć [problemu z konwersją UTF-8](/azure/synapse-analytics/troubleshoot/reading-utf8-text). Sortowanie `Latin1_General_100_BIN2_UTF8` zapewnia najlepszą wydajność podczas filtrowania danych przy użyciu niektórych kolumn ciągów.
+Nie należy używać `OPENROWSET` bez jawnie zdefiniowanego schematu, ponieważ może to mieć wpływ na wydajność. Upewnij się, że dla kolumn używane są najmniejsze możliwe rozmiary (na przykład VARCHAR (100) zamiast domyślnego VARCHAR (8000)). Należy użyć pewnego sortowania UTF-8 jako domyślnego sortowania bazy danych lub ustawić jako jawne sortowanie kolumn, aby uniknąć [problemu z konwersją UTF-8](../troubleshoot/reading-utf8-text.md). Sortowanie `Latin1_General_100_BIN2_UTF8` zapewnia najlepszą wydajność podczas filtrowania danych przy użyciu niektórych kolumn ciągów.
 
 ## <a name="query-nested-objects-and-arrays"></a>Wykonywanie zapytań względem zagnieżdżonych obiektów i tablic
 
@@ -268,8 +268,8 @@ Wynik tego zapytania może wyglądać jak w poniższej tabeli:
 Dowiedz się więcej [na temat analizowania złożonych typów danych w linku Synapse platformy Azure](../how-to-analyze-complex-schema.md) i [zagnieżdżonych strukturach w puli SQL bezserwerowej](query-parquet-nested-types.md).
 
 > [!IMPORTANT]
-> Jeśli zobaczysz nieoczekiwane znaki w tekście `MÃƒÂ©lade` , podobnie jak zamiast `Mélade` , sortowanie bazy danych nie jest ustawione na sortowanie [UTF-8](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support#utf8) .
-> [Zmień sortowanie bazy danych](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) na sortowanie UTF-8 przy użyciu instrukcji SQL, takiej jak `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8` .
+> Jeśli zobaczysz nieoczekiwane znaki w tekście `MÃƒÂ©lade` , podobnie jak zamiast `Mélade` , sortowanie bazy danych nie jest ustawione na sortowanie [UTF-8](/sql/relational-databases/collations/collation-and-unicode-support#utf8) .
+> [Zmień sortowanie bazy danych](/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) na sortowanie UTF-8 przy użyciu instrukcji SQL, takiej jak `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8` .
 
 ## <a name="flatten-nested-arrays"></a>Spłaszczanie tablic zagnieżdżonych
 
@@ -325,7 +325,7 @@ Dodatkowe informacje o epidemiach ekonomicznych... | `[{"first":"Nicolas","last"
 | Dodatkowe informacje o epidemiach ekonomicznych... |   `[{"first":"Olivier","last":"Flores","suffix":"","affiliation":{"laboratory":"UMR C53 CIRAD, …` | Olivier | Flores |`{"laboratory":"UMR C53 CIRAD, …` |     
 
 > [!IMPORTANT]
-> Jeśli zobaczysz nieoczekiwane znaki w tekście `MÃƒÂ©lade` , podobnie jak zamiast `Mélade` , sortowanie bazy danych nie jest ustawione na sortowanie [UTF-8](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support#utf8) . [Zmień sortowanie bazy danych](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) na sortowanie UTF-8 przy użyciu instrukcji SQL, takiej jak `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8` .
+> Jeśli zobaczysz nieoczekiwane znaki w tekście `MÃƒÂ©lade` , podobnie jak zamiast `Mélade` , sortowanie bazy danych nie jest ustawione na sortowanie [UTF-8](/sql/relational-databases/collations/collation-and-unicode-support#utf8) . [Zmień sortowanie bazy danych](/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) na sortowanie UTF-8 przy użyciu instrukcji SQL, takiej jak `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8` .
 
 ## <a name="azure-cosmos-db-to-sql-type-mappings"></a>Azure Cosmos DB z mapowaniami typów SQL
 
@@ -335,7 +335,7 @@ Konta Azure Cosmos DB interfejsu API języka SQL (rdzeń) obsługują typy wła�
 
 | Typ właściwości Azure Cosmos DB | Typ kolumny SQL |
 | --- | --- |
-| Wartość logiczna | bit |
+| Boolean (wartość logiczna) | bit |
 | Liczba całkowita | bigint |
 | Liczba dziesiętna | float |
 | Ciąg | varchar (sortowanie bazy danych UTF-8) |

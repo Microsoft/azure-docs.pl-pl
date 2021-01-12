@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 12/17/2020
-ms.openlocfilehash: 5d291ad745122d929c4b664e9da5e4649e463529
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: bdd7fd8e19bf2de6d0b3c6b2edd4515771fae237
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679114"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119025"
 ---
 # <a name="execute-r-script-module"></a>Wykonaj moduł skryptu języka R
 
@@ -49,10 +49,12 @@ azureml_main <- function(dataframe1, dataframe2){
 Aby zainstalować dodatkowe pakiety języka R, użyj `install.packages()` metody. Pakiety są zainstalowane dla każdego modułu wykonywania skryptu języka R. Nie są one współużytkowane przez inne moduły wykonywania skryptów języka R.
 
 > [!NOTE]
+> **Nie** zaleca się instalowania pakietu języka R z pakietu skryptu. Zaleca się zainstalowanie pakietów bezpośrednio w Edytorze skryptów.
 > Określ repozytorium CRAN podczas instalowania pakietów, takich jak `install.packages("zoo",repos = "http://cran.us.r-project.org")` .
 
 > [!WARNING]
 > Moduł skryptu języka R excute nie obsługuje instalowania pakietów wymagających kompilacji natywnej, takich jak `qdap` pakiet, który wymaga języka Java i `drc` pakietu, który wymaga języka C++. Jest to spowodowane tym, że ten moduł jest wykonywany w wstępnie zainstalowanym środowisku z uprawnieniami administratora.
+> Nie instaluj pakietów, które są wstępnie zbudowane dla systemu Windows, ponieważ moduły projektanta działają w Ubuntu. Aby sprawdzić, czy pakiet jest wstępnie zbudowany w systemie Windows, możesz przejść do [Cran](https://cran.r-project.org/) i przeszukać pakiet, pobrać jeden plik binarny zgodnie z systemem operacyjnym i sprawdzić **skompilowane:** część w pliku **opisu** . Oto przykład: :::image type="content" source="media/module/r-package-description.png" alt-text="Opis pakietu języka R" lightbox="media/module/r-package-page.png":::
 
 Ten przykład pokazuje, jak zainstalować system ZOO:
 ```R

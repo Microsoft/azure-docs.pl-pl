@@ -10,12 +10,12 @@ ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
 ms.custom: has-adal-ref
-ms.openlocfilehash: fb8aad52eeaef2366afe28aa71059b7f8f780501
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 511d5841652b1f7b6487a42341ec392cb86d2b3a
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843302"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120380"
 ---
 # <a name="use-multi-factor-aad-authentication-with-synapse-sql-ssms-support-for-mfa"></a>Korzystanie z uwierzytelniania wieloskładnikowego usługi AAD za pomocą Synapse SQL (Obsługa programu SSMS dla usługi MFA)
 
@@ -44,7 +44,7 @@ Metoda interaktywna obsługuje również usługę Azure AD Multi-Factor Authenti
 
 - `Active Directory - Universal with MFA`
 
-Usługa Azure AD MFA pomaga w zabezpieczeniu dostępu do danych i aplikacji, a jednocześnie spełnia wymagania użytkowników dotyczące prostego procesu logowania. Zapewnia silne uwierzytelnianie dzięki szerokiemu zakresowi opcji łatwej weryfikacji (połączenie telefoniczne, wiadomość tekstowa, kartach inteligentnych z numerem PIN lub powiadomieniem aplikacji mobilnej), co pozwala użytkownikom na wybranie preferowanej metody. Interaktywna usługa MFA z usługą Azure AD może spowodować wyskakujące okno dialogowe umożliwiające weryfikację.
+Usługa Azure AD MFA zabezpiecza dostęp do danych i aplikacji, a jednocześnie spełnia wymagania użytkowników dotyczące prostoty procesu logowania. Zapewnia silne uwierzytelnianie dzięki szerokiemu zakresowi opcji łatwej weryfikacji (połączenie telefoniczne, wiadomość tekstowa, kartach inteligentnych z numerem PIN lub powiadomieniem aplikacji mobilnej), co pozwala użytkownikom na wybranie preferowanej metody. Interaktywna usługa MFA z usługą Azure AD może spowodować wyskakujące okno dialogowe umożliwiające weryfikację.
 
 Opis Multi-Factor Authentication można znaleźć w temacie [Multi-Factor Authentication](../../active-directory/authentication//concept-mfa-howitworks.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
@@ -71,7 +71,7 @@ W przypadku korzystania z programu SSMS 18. x lub nowszego, nazwa domeny usługi
    ![MFA — dzierżawca — SSMS](./media/mfa-authentication/mfa-no-tenant-ssms.png)
 
 ### <a name="azure-ad-business-to-business-support"></a>Obsługa usługi Azure AD Business dla firm   
-Użytkownicy usługi Azure AD obsługiwani przez scenariusze B2B usługi Azure AD jako użytkownicy-Goście (Zobacz artykuł [co to jest współpraca w usłudze Azure B2B](../../active-directory/b2b/what-is-b2b.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) , która może łączyć się z usługą Synapse SQL tylko jako część elementów członkowskich grupy utworzonej w bieżącej usłudze Azure AD i zamapowana ręcznie przy użyciu instrukcji języka Transact-SQL `CREATE USER` w danej bazie danych. 
+Użytkownicy usługi Azure AD obsługiwani przez scenariusze B2B usługi Azure AD jako użytkownicy-Goście (Zobacz artykuł [co to jest współpraca w usłudze Azure B2B](../../active-directory/external-identities/what-is-b2b.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) , która może łączyć się z usługą Synapse SQL tylko jako część elementów członkowskich grupy utworzonej w bieżącej usłudze Azure AD i zamapowana ręcznie przy użyciu instrukcji języka Transact-SQL `CREATE USER` w danej bazie danych. 
 
 Na przykład jeśli `steve@gmail.com` zostanie zaproszony do usługi Azure AD `contosotest` (z domeną usługi Azure AD `contosotest.onmicrosoft.com` ), Grupa usługi Azure AD, taka jak `usergroup` musi zostać utworzona w usłudze Azure AD, która zawiera `steve@gmail.com` członka. Następnie należy utworzyć tę grupę dla konkretnej bazy danych (to jest baza danych) za pomocą administratora SQL usługi Azure AD lub roli DBO usługi Azure AD przez wykonanie instrukcji języka Transact-SQL `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` . 
 
@@ -92,5 +92,4 @@ Jako użytkownik-Gość `steve@gmail.com` należy zaznaczyć pole wyboru i doda�
 - Wersja Active Directory Authentication Library (ADAL) dla uwierzytelniania uniwersalnego została zaktualizowana do najnowszej ADAL.dll 3.13.9 dostępna wersja udostępniona. Zobacz [Active Directory Authentication Library 3.14.1](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).  
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji, zobacz artykuł [Connect to Synapse SQL with SQL Server Management Studio](get-started-ssms.md) . 
-
+Aby uzyskać więcej informacji, zobacz artykuł [Connect to Synapse SQL with SQL Server Management Studio](get-started-ssms.md) .

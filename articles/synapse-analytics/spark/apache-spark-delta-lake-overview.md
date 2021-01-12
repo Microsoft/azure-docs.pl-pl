@@ -11,12 +11,12 @@ ms.date: 07/28/2020
 ms.author: euang
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: 655daeb0149228d78d5288b0e5d0d705a5743d28
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d960b64d71861044aa1b0344ccbfdaf5e6328e6a
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89008645"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120329"
 ---
 # <a name="linux-foundation-delta-lake-overview"></a>Przegląd zmian w systemie Linux Foundation
 
@@ -34,7 +34,7 @@ Oto co należy zrobić:
 * Odczytywanie strumienia zmian z tabeli
 * Obsługa SQL
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 Upewnij się, że zmodyfikujesz poniższe czynności jako odpowiednie dla danego środowiska.
 
@@ -283,11 +283,11 @@ Wyniki w:
 
 |col_name                    |data_type                                                                                                    |komentarz|
 |----------------------------|-------------------------------------------------------------------------------------------------------------|-------|
-|identyfikator                          |bigint                                                                                                       |wartość null   |
+|identyfikator                          |bigint                                                                                                       |null   |
 |                            |                                                                                                             |       |
 |Szczegółowe informacje o tabeli  |                                                                                                             |       |
 |baza danych                    |default                                                                                                      |       |
-|tabela                       |manageddeltatable                                                                                            |       |
+|Tabela                       |manageddeltatable                                                                                            |       |
 |Właściciel                       |Użytkownik zaufany — usługa                                                                                         |       |
 |Czas utworzenia                |SAT kwi 25 00:35:34 UTC 2020                                                                                 |       |
 |Ostatni dostęp                 |Czwartek sty 01 00:00:00 UTC 1970                                                                                 |       |
@@ -330,11 +330,11 @@ Wyniki w:
 
 |col_name                    |data_type                                                             |komentarz|
 |----------------------------|----------------------------------------------------------------------|-------|
-|identyfikator                          |bigint                                                                |wartość null   |
+|identyfikator                          |bigint                                                                |null   |
 |                            |                                                                      |       |
 |Szczegółowe informacje o tabeli  |                                                                      |       |
 |baza danych                    |default                                                               |       |
-|tabela                       |externaldeltatable                                                    |       |
+|Tabela                       |externaldeltatable                                                    |       |
 |Właściciel                       |Użytkownik zaufany — usługa                                                  |       |
 |Czas utworzenia                |SAT kwi 25 00:35:38 UTC 2020                                          |       |
 |Ostatni dostęp                 |Czwartek sty 01 00:00:00 UTC 1970                                          |       |
@@ -564,13 +564,13 @@ deltaTable.history.show(false)
 
 Wyniki w:
 
-|Wersja|          sygnatura czasowa|userId|userName|operation|                                                operationParameters| zadanie|notebook|clusterId|readVersion|isolationLevel|isBlindAppend|
+|Wersja|          sygnatura czasowa|userId|userName|operation|                                                operationParameters| zadanie|notes|clusterId|readVersion|isolationLevel|isBlindAppend|
 |-------|-------------------|------|--------|---------|-------------------------------------------------------------------|----|--------|---------|-----------|--------------|-------------|
-|      4|2020-04-25 00:36:27|  wartość null|    wartość null|    POŁĄCZENIE|                       [predykat-> (oldData.`ID` = newData. `ID` )]|wartość null|    wartość null|     wartość null|          3|          wartość null|        fałsz|
-|      3|2020-04-25 00:36:08|  wartość null|    wartość null|   DELETE|[predykat-> ["(( `ID` % CAST (2 jako bigint)) = CAST (0 jako bigint))"]]|wartość null|    wartość null|     wartość null|          2|          wartość null|        fałsz|
-|      2|2020-04-25 00:35:51|  wartość null|    wartość null|   UPDATE| [predykat-> ((ID # 744L% CAST (2 jako bigint)) = CAST (0 jako bigint))]|wartość null|    wartość null|     wartość null|          1|          wartość null|        fałsz|
-|      1|2020-04-25 00:35:05|  wartość null|    wartość null|    PRAWEM|                             [Mode-> overwrite, partitionBy-> []]|wartość null|    wartość null|     wartość null|          0|          wartość null|        fałsz|
-|      0|2020-04-25 00:34:34|  wartość null|    wartość null|    PRAWEM|                         [Mode-> ErrorIfExists, partitionBy-> []]|wartość null|    wartość null|     wartość null|       wartość null|          wartość null|         true|
+|      4|2020-04-25 00:36:27|  null|    null|    POŁĄCZENIE|                       [predykat-> (oldData.`ID` = newData. `ID` )]|null|    null|     null|          3|          null|        fałsz|
+|      3|2020-04-25 00:36:08|  null|    null|   DELETE|[predykat-> ["(( `ID` % CAST (2 jako bigint)) = CAST (0 jako bigint))"]]|null|    null|     null|          2|          null|        fałsz|
+|      2|2020-04-25 00:35:51|  null|    null|   UPDATE| [predykat-> ((ID # 744L% CAST (2 jako bigint)) = CAST (0 jako bigint))]|null|    null|     null|          1|          null|        fałsz|
+|      1|2020-04-25 00:35:05|  null|    null|    PRAWEM|                             [Mode-> overwrite, partitionBy-> []]|null|    null|     null|          0|          null|        fałsz|
+|      0|2020-04-25 00:34:34|  null|    null|    PRAWEM|                         [Mode-> ErrorIfExists, partitionBy-> []]|null|    null|     null|       null|          null|         true|
 
 W tym miejscu można zobaczyć wszystkie modyfikacje wprowadzone w powyższych fragmentach kodu.
 
@@ -752,7 +752,7 @@ Wyniki w:
 |      3|2020-04-25 00:36:08|          DELETE|                  [predykat-> ["(( `id` % CAST (2 jako bigint)) = CAST (0 jako bigint))"]]|          2|
 |      2|2020-04-25 00:35:51|          UPDATE|                   [predykat-> ((ID # 744L% CAST (2 jako bigint)) = CAST (0 jako bigint))]|          1|
 |      1|2020-04-25 00:35:05|           PRAWEM|                                               [Mode-> overwrite, partitionBy-> []]|          0|
-|      0|2020-04-25 00:34:34|           PRAWEM|                                           [Mode-> ErrorIfExists, partitionBy-> []]|       wartość null|
+|      0|2020-04-25 00:34:34|           PRAWEM|                                           [Mode-> ErrorIfExists, partitionBy-> []]|       null|
 
 W tym miejscu porzucasz niektóre mniej interesujące kolumny, aby uprościć wyświetlanie widoku historii.
 
@@ -790,7 +790,7 @@ Wyniki w:
 |      3|2020-04-25 00:36:08|          DELETE|                  [predykat-> ["(( `id` % CAST (2 jako bigint)) = CAST (0 jako bigint))"]]|          2|
 |      2|2020-04-25 00:35:51|          UPDATE|                   [predykat-> ((ID # 744L% CAST (2 jako bigint)) = CAST (0 jako bigint))]|          1|
 |      1|2020-04-25 00:35:05|           PRAWEM|                                               [Mode-> overwrite, partitionBy-> []]|          0|
-|      0|2020-04-25 00:34:34|           PRAWEM|                                           [Mode-> ErrorIfExists, partitionBy-> []]|       wartość null|
+|      0|2020-04-25 00:34:34|           PRAWEM|                                           [Mode-> ErrorIfExists, partitionBy-> []]|       null|
 
 ::: zone-end
 
@@ -903,14 +903,14 @@ spark.sql(s"DESCRIBE HISTORY delta.`$deltaTablePath`").show()
 
 Wyniki w:
 
-|Wersja|          sygnatura czasowa|userId|userName|       operation| operationParameters| zadanie|notebook|clusterId|readVersion|isolationLevel|isBlindAppend|
+|Wersja|          sygnatura czasowa|userId|userName|       operation| operationParameters| zadanie|notes|clusterId|readVersion|isolationLevel|isBlindAppend|
 |-------|-------------------|------|--------|----------------|--------------------|----|--------|---------|-----------|--------------|-------------|
-|      5|2020-04-25 00:37:09|  wartość null|    wartość null|AKTUALIZACJA PRZESYŁANIA STRUMIENIOWEGO|[outputmode-> AP...|wartość null|    wartość null|     wartość null|          4|          wartość null|         true|
-|      4|2020-04-25 00:36:27|  wartość null|    wartość null|           POŁĄCZENIE|[predykat-> (OL...|wartość null|    wartość null|     wartość null|          3|          wartość null|        fałsz|
-|      3|2020-04-25 00:36:08|  wartość null|    wartość null|          DELETE|[predykat-> ["(...|wartość null|    wartość null|     wartość null|          2|          wartość null|        fałsz|
-|      2|2020-04-25 00:35:51|  wartość null|    wartość null|          UPDATE|[predykat-> ((i...|wartość null|    wartość null|     wartość null|          1|          wartość null|        fałsz|
-|      1|2020-04-25 00:35:05|  wartość null|    wartość null|           PRAWEM|[Mode-> Overwrit...|wartość null|    wartość null|     wartość null|          0|          wartość null|        fałsz|
-|      0|2020-04-25 00:34:34|  wartość null|    wartość null|           PRAWEM|[Mode-> ErrorIfE...|wartość null|    wartość null|     wartość null|       wartość null|          wartość null|         true|
+|      5|2020-04-25 00:37:09|  null|    null|AKTUALIZACJA PRZESYŁANIA STRUMIENIOWEGO|[outputmode-> AP...|null|    null|     null|          4|          null|         true|
+|      4|2020-04-25 00:36:27|  null|    null|           POŁĄCZENIE|[predykat-> (OL...|null|    null|     null|          3|          null|        fałsz|
+|      3|2020-04-25 00:36:08|  null|    null|          DELETE|[predykat-> ["(...|null|    null|     null|          2|          null|        fałsz|
+|      2|2020-04-25 00:35:51|  null|    null|          UPDATE|[predykat-> ((i...|null|    null|     null|          1|          null|        fałsz|
+|      1|2020-04-25 00:35:05|  null|    null|           PRAWEM|[Mode-> Overwrit...|null|    null|     null|          0|          null|        fałsz|
+|      0|2020-04-25 00:34:34|  null|    null|           PRAWEM|[Mode-> ErrorIfE...|null|    null|     null|       null|          null|         true|
 
 :::zone pivot = "programming-language-python"
 
@@ -997,4 +997,4 @@ Aby uzyskać więcej informacji, zobacz temat [różnicowa Lake Project](https:/
 ## <a name="next-steps"></a>Następne kroki
 
 * [Dokumentacja platformy .NET dla Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-* [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+* [Azure Synapse Analytics](../index.yml)
