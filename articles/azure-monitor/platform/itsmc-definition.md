@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: eacdf0cf80414c44aaccf6925e466b914c66da03
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: a7e39bb8ed742007a13a222771b430372d50e889
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065307"
+ms.locfileid: "98071701"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Połącz platformę Azure z narzędziami narzędzia ITSM przy użyciu łącznik zarządzania usługami IT
 
@@ -131,11 +131,11 @@ Aby utworzyć grupy akcji, należy wykonać czynności opisane w poniższej proc
 
     >[!NOTE]
     >
-    > * Ta sekcja ma zastosowanie tylko w przypadku alertów wyszukiwania w dzienniku.
-    > * Alerty metryk i alerty dziennika aktywności zawsze tworzą jeden element roboczy dla każdego alertu.
+    > * Ta sekcja ma zastosowanie tylko w przypadku alertów dotyczących przeszukiwania dzienników.
+    > * Dla wszystkich innych typów alertów zostanie utworzony jeden element roboczy dla każdego alertu.
 
-    * W przypadku wybrania opcji na liście rozwijanej element roboczy "zdarzenie" lub "Alert":
-        * W przypadku zaznaczenia pola wyboru **"Utwórz poszczególne elementy robocze dla każdego elementu konfiguracji"** każdy element konfiguracji w każdym alercie utworzy nowy element roboczy. W systemie narzędzia ITSM może istnieć więcej niż jeden element roboczy na element konfiguracji.
+    * W przypadku wybrania opcji "element roboczy" "zdarzenie" lub "Alert": ![ zrzut ekranu przedstawiający okno zdarzenia narzędzia ITSM.](media/itsmc-overview/itsm-action-configuration.png)
+        * W przypadku zaznaczenia pola wyboru **"Utwórz poszczególne elementy robocze dla każdego elementu konfiguracji"** każdy element konfiguracji w każdym alercie utworzy nowy element roboczy. W wyniku kilku alertów dla tych samych elementów konfiguracji, których dotyczy problem, istnieje więcej niż jeden element roboczy dla każdego elementu konfiguracji.
 
              Na przykład:
              1) Alert 1 z 3 elementami konfiguracji: A, B, C-utworzy 3 elementy robocze.
@@ -148,15 +148,13 @@ Aby utworzyć grupy akcji, należy wykonać czynności opisane w poniższej proc
 
         Na przykład:
          1) Alert 1 z 3 elementami konfiguracji: A, B, C-utworzy 1 element roboczy.
-         2) Alert 2 dla tej samej reguły alertu co faza 1 z 1 elementem konfiguracji: D-zostanie scalony z elementem roboczym w fazie 1.
+         2) Alert 2 dla tej samej reguły alertu jak w kroku a z 1 element konfiguracji: D-D zostanie dołączony do listy elementów konfiguracji, których dotyczy problem, w elemencie roboczym utworzonym w kroku a.
          3) Alert 3 dla innej reguły alertu z 1 elementem konfiguracji: E-utworzy 1 element roboczy.
 
-       ![Zrzut ekranu przedstawiający okno zdarzenia narzędzia ITSM.](media/itsmc-overview/itsm-action-configuration.png)
+    * W przypadku wybrania opcji "element roboczy" "zdarzenie": ![ zrzut ekranu przedstawiający okno zdarzenia narzędzia ITSM.](media/itsmc-overview/itsm-action-configuration-event.png)
 
-    * W przypadku wybrania opcji "zdarzenie" w menu rozwijanym elementu pracy:
         * W przypadku wybrania opcji **"Utwórz pojedyncze elementy robocze dla każdego wpisu dziennika (pole elementu konfiguracji nie jest wypełnione. Może spowodować powstanie dużej liczby elementów roboczych.) "** w obszarze przyciski radiowe zostanie utworzony element roboczy dla każdego wiersza w wynikach wyszukiwania zapytania o alert przeszukiwania dzienników. W ładunku elementu pracy Właściwość Description będzie zawierać wiersz z wyników wyszukiwania.
         * W przypadku wybrania opcji **"Utwórz indywidualne elementy robocze dla każdego elementu konfiguracji"** w wyborze przycisków radiowych każdy element konfiguracji w każdym alercie zostanie utworzony nowy element roboczy. W systemie narzędzia ITSM może istnieć więcej niż jeden element roboczy na element konfiguracji. Ta wartość będzie taka sama jak zaznaczenie pola wyboru w sekcji incydentu/alertu.
-    ![Zrzut ekranu przedstawiający okno zdarzenia narzędzia ITSM.](media/itsmc-overview/itsm-action-configuration-event.png)
 
 10. Wybierz pozycję **OK**.
 

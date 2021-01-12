@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 11/18/2020
-ms.openlocfilehash: 6037b372f73bcf3554120e305f4b3031b26e97d4
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.date: 01/10/2021
+ms.openlocfilehash: 66a3276863b05cb2fe0dd80a2195f7fd2af1443c
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831656"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071939"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Klucz zarządzany przez klienta usługi Azure Monitor 
 
@@ -36,7 +36,7 @@ Log Analytics dedykowane klastry używają [modelu cenowego](../log-query/logs-d
 
 ## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Jak działa klucz Customer-Managed w Azure Monitor
 
-Azure Monitor używa tożsamości zarządzanej przypisanej do systemu, aby udzielić dostępu do Azure Key Vault. Tożsamość klastra Log Analytics jest obsługiwana na poziomie klastra i zezwala na klucz Customer-Managed w wielu obszarach roboczych, nowy zasób *klastra* log Analytics pełni rolę pośredniego połączenia tożsamości między Key Vault i log Analyticsymi obszarami roboczymi. Magazyn klastra Log Analytics używa tożsamości zarządzanej \' skojarzonej z zasobem *klastra* do uwierzytelniania Azure Key Vault za pośrednictwem Azure Active Directory. 
+Azure Monitor używa tożsamości zarządzanej w celu udzielenia dostępu do Azure Key Vault. Tożsamość klastra Log Analytics jest obsługiwana na poziomie klastra. Aby zezwolić na Customer-Managed ochronę klucza w wielu obszarach roboczych, nowy zasób *klastra* log Analytics pełni rolę pośredniego połączenia tożsamości między Key Vault i obszarami roboczymi log Analytics. Magazyn klastra używa zarządzanej tożsamości \' skojarzonej z zasobem *klastra* w celu uwierzytelnienia w Azure Key Vault za pośrednictwem Azure Active Directory. 
 
 Po skonfigurowaniu klucza zarządzanego przez klienta nowe pozyskiwane dane do obszarów roboczych połączonych z dedykowanym klastrem są szyfrowane przy użyciu klucza. W każdej chwili można odłączyć obszary robocze z klastra. Nowe dane są następnie pobierane do magazynu Log Analytics i szyfrowane za pomocą klucza firmy Microsoft, podczas gdy można bezproblemowo badać nowe i stare dane.
 
@@ -45,7 +45,7 @@ Po skonfigurowaniu klucza zarządzanego przez klienta nowe pozyskiwane dane do o
 
 ![Przegląd klucza Customer-Managed](media/customer-managed-keys/cmk-overview.png)
 
-1. Usługa Key Vault
+1. Key Vault
 2. Log Analytics zasobu *klastra* mającego zarządzaną tożsamość z uprawnieniami do Key Vault — tożsamość jest propagowana do underlay dedykowanego log Analytics magazynu klastra
 3. Dedykowany klaster Log Analytics
 4. Obszary robocze połączone z zasobem *klastra* 
@@ -83,15 +83,15 @@ Niektóre kroki konfiguracji działają asynchronicznie, ponieważ nie mogą by�
 
 # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
-Nie dotyczy
+Brak
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Nie dotyczy
+Brak
 
 # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
-Nie dotyczy
+Brak
 
 # <a name="rest"></a>[REST](#tab/rest)
 
@@ -125,6 +125,11 @@ Te ustawienia można aktualizować w Key Vault za pomocą interfejsu wiersza pol
 
 ## <a name="create-cluster"></a>Tworzenie klastra
 
+> [! INFORMACJE] klastry obsługują dwa [zarządzane typy tożsamości](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). Tożsamość zarządzana przypisana przez system jest tworzona wraz z klastrem podczas wprowadzania `SystemAssigned` typu tożsamości. można jej użyć później do udzielenia dostępu do Key Vault. Jeśli chcesz utworzyć klaster, który jest skonfigurowany do zarządzania kluczem zarządzanym przez klienta, Utwórz klaster z tożsamością zarządzaną przypisaną przez użytkownika, która jest przyznana w Key Vault — zaktualizuj klaster z `UserAssigned` typem tożsamości, identyfikator zasobu tożsamości w `UserAssignedIdentities` i podaj szczegóły klucza w temacie `keyVaultProperties` .
+
+> [!IMPORTANT]
+> Obecnie nie można zdefiniować klucza zarządzanego przez klienta przy użyciu tożsamości zarządzanej przypisanej przez użytkownika, jeśli Key Vault znajduje się w Private-Link (vNet). To ograniczenie nie jest stosowane do zarządzanej tożsamości przypisanej do systemu.
+
 Postępuj zgodnie z procedurą przedstawioną w [artykule dedykowane klastry](../log-query/logs-dedicated-clusters.md#creating-a-cluster). 
 
 ## <a name="grant-key-vault-permissions"></a>Przyznawanie uprawnień Key Vault
@@ -132,7 +137,7 @@ Postępuj zgodnie z procedurą przedstawioną w [artykule dedykowane klastry](..
 Utwórz zasady dostępu w Key Vault, aby udzielać uprawnień do klastra. Te uprawnienia są używane przez magazyn underlay Azure Monitor. Otwórz Key Vault w Azure Portal, a następnie kliknij pozycję *"zasady dostępu"* i *"+ Dodaj zasady dostępu"* , aby utworzyć zasady z następującymi ustawieniami:
 
 - Uprawnienia klucza: wybierz opcję *"Pobierz"*, *"Zawijanie klucza"* i *"Cofnij Zawijanie klucza"*.
-- Wybierz podmiot zabezpieczeń: Wprowadź nazwę klastra lub Identyfikator podmiotu zabezpieczeń.
+- Wybierz podmiot zabezpieczeń: w zależności od typu tożsamości używanego w klastrze (tożsamość zarządzana przez system lub użytkownika) wprowadź nazwę klastra lub Identyfikator podmiotu zabezpieczeń klastra dla tożsamości zarządzanej przypisanej do systemu lub nazwę tożsamości zarządzanej przypisanej przez użytkownika.
 
 ![Przyznawanie uprawnień Key Vault](media/customer-managed-keys/grant-key-vault-permissions-8bit.png)
 
@@ -154,7 +159,7 @@ Operacja jest asynchroniczna i może chwilę potrwać.
 
 # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
-Nie dotyczy
+Brak
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -237,11 +242,15 @@ Postępuj zgodnie z procedurą przedstawioną w [artykule dedykowane klastry](..
 
 ## <a name="key-revocation"></a>Odwoływanie klucza
 
-Dostęp do danych można odwołać, wyłączając klucz lub usuwając zasady dostępu klastra w Key Vault. Magazyn klastra Log Analytics będzie zawsze respektują zmiany w uprawnieniach klucza w ciągu godziny lub wcześniej, a magazyn stanie się niedostępny. Wszelkie nowe dane pozyskiwane w obszarach roboczych połączonych z klastrem zostaną usunięte i nie będzie można ich odzyskać, dane są niedostępne i zapytania do tych obszarów roboczych zakończą się niepowodzeniem. Wcześniej pozyskiwane dane pozostają w magazynie, dopóki klaster i Twoje obszary robocze nie zostaną usunięte. Dane niedostępne podlegają zasadom przechowywania danych i zostaną usunięte po osiągnięciu okresu przechowywania. 
+Dostęp do danych można odwołać, wyłączając klucz lub usuwając zasady dostępu klastra w Key Vault. 
 
-Dane odebrane w ciągu ostatnich 14 dni również są przechowywane w pamięci podręcznej (dysk SSD) w celu wydajnej operacji aparatu zapytań. Spowoduje to usunięcie operacji odwoływania klucza i stanie się niedostępna.
+> [!IMPORTANT]
+> - Jeśli klaster jest ustawiony przy użyciu tożsamości zarządzanej przypisanej przez użytkownika, ustawienie `UserAssignedIdentities` with `None` zawiesza klaster i uniemożliwia dostęp do danych, ale nie można cofnąć odwołania i aktywować klastra bez otwierania żądania obsługi. To ograniczenie nie jest stosowane do zarządzanej tożsamości przypisanej do systemu.
+> - Zalecaną akcją odwoływania klucza jest wyłączenie klucza w Key Vault.
 
-Magazyn okresowo sonduje Key Vault, aby próbować odszyfrować klucz szyfrowania, a następnie uzyskać dostęp do pozyskiwania danych i wznowienia zapytania w ciągu 30 minut.
+Magazyn klastra zawsze będzie uwzględniał zmiany w uprawnieniach klucza w ciągu godziny lub wcześniej, a magazyn stanie się niedostępny. Wszelkie nowe dane pozyskiwane w obszarach roboczych połączonych z klastrem zostaną usunięte i nie będą odzyskiwalne. dane staną się niedostępne i zapytania w tych obszarach roboczych zakończą się niepowodzeniem. Wcześniej pozyskiwane dane pozostają w magazynie, dopóki klaster i Twoje obszary robocze nie zostaną usunięte. Dane niedostępne podlegają zasadom przechowywania danych i zostaną usunięte po osiągnięciu okresu przechowywania. Dane odebrane w ciągu ostatnich 14 dni również są przechowywane w pamięci podręcznej (dysk SSD) w celu wydajnej operacji aparatu zapytań. Spowoduje to usunięcie operacji odwoływania klucza i stanie się niedostępna.
+
+Magazyn klastra okresowo sonduje Key Vault, aby próbować odszyfrować klucz szyfrowania, a następnie uzyskać dostęp do pozyskiwania danych i wznowienia zapytania w ciągu 30 minut.
 
 ## <a name="key-rotation"></a>Wymiana kluczy
 
@@ -273,7 +282,7 @@ Połącz konto magazynu w celu *wysłania zapytania* do obszaru roboczego — *z
 
 # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
-Nie dotyczy
+Brak
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -317,7 +326,7 @@ Po zakończeniu konfiguracji wszystkie nowe *zapisane zapytania wyszukiwania* zo
 
 # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
-Nie dotyczy
+Brak
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -404,6 +413,37 @@ Klucz Customer-Managed jest udostępniany w dedykowanym klastrze i te operacje s
   - Jeśli utworzysz klaster i wystąpi błąd "<regionu-Name> nie obsługuje podwójnego szyfrowania dla klastrów" ", można nadal utworzyć klaster bez podwójnego szyfrowania. Dodaj `"properties": {"isDoubleEncryptionEnabled": false}` Właściwość w treści żądania Rest.
   - Ustawienia podwójnego szyfrowania nie można zmienić po utworzeniu klastra.
 
+  - Jeśli klaster jest ustawiony przy użyciu tożsamości zarządzanej przypisanej przez użytkownika, ustawienie `UserAssignedIdentities` with `None` zawiesza klaster i uniemożliwia dostęp do danych, ale nie można cofnąć odwołania i aktywować klastra bez otwierania żądania obsługi. To ograniczenie jest ' zostało zastosowane do zarządzanej tożsamości przypisanej do systemu.
+
+  - Obecnie nie można zdefiniować klucza zarządzanego przez klienta przy użyciu tożsamości zarządzanej przypisanej przez użytkownika, jeśli Key Vault znajduje się w Private-Link (vNet). To ograniczenie nie jest stosowane do zarządzanej tożsamości przypisanej do systemu.
+
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
+
+- Zachowanie z dostępnością Key Vault
+  - W normalnej operacji — pamięć podręczna magazynu AEK przez krótki okresy i powraca do Key Vault, aby okresowo wycofać.
+    
+  - Błędy połączeń przejściowych — usługa Storage obsługuje błędy przejściowe (przekroczenia limitu czasu, błędy połączeń, problemy z usługą DNS), dzięki czemu klucze mogą pozostać w pamięci podręcznej przez krótki czas i jest to zbyt małe Blips w dostępności. Możliwości zapytań i pozyskiwania kontynuują działanie bez przeszkód.
+    
+  - Lokacja na żywo — niedostępność przez około 30 minut spowoduje, że konto magazynu stanie się niedostępne. Funkcja zapytania jest niedostępna, a dane pozyskiwane są buforowane przez kilka godzin przy użyciu klawisza Microsoft, aby uniknąć utraty danych. Po przywróceniu dostępu do Key Vault jest on dostępny, a tymczasowe dane przechowywane w pamięci podręcznej są przechowywane w magazynie danych i szyfrowane za pomocą klucza Customer-Managed.
+
+  - Key Vault szybkość dostępu — częstotliwość, z jaką Azure Monitor dostęp do magazynu Key Vault dla operacji zawijania i rozwinięcia, wynosi od 6 do 60 sekund.
+
+- Jeśli utworzysz klaster i KeyVaultProperties od razu, operacja może się nie powieść, ponieważ nie można zdefiniować zasad dostępu do momentu przypisania tożsamości systemu do klastra.
+
+- W przypadku aktualizacji istniejącego klastra z KeyVaultProperties i braku zasad dostępu do klucza "Get" w Key Vault operacja zakończy się niepowodzeniem.
+
+- W przypadku wystąpienia błędu konfliktu podczas tworzenia klastra — może być to, że klaster został usunięty w ciągu ostatnich 14 dni i jest w okresie usuwania nietrwałego. Nazwa klastra pozostaje zarezerwowana w okresie usuwania nietrwałego i nie można utworzyć nowego klastra o takiej nazwie. Nazwa jest wydawana po okresie usuwania nietrwałego, gdy klaster zostanie trwale usunięty.
+
+- Jeśli aktualizujesz klaster, gdy operacja jest w toku, operacja zakończy się niepowodzeniem.
+
+- Jeśli klaster nie zostanie wdrożony, sprawdź, czy Azure Key Vault, klaster i połączone Log Analytics obszary robocze znajdują się w tym samym regionie. Mogą znajdować się w różnych subskrypcjach.
+
+- Jeśli zaktualizujesz wersję klucza w Key Vault i nie zaktualizujesz nowego identyfikatora klucza w klastrze, klaster Log Analytics będzie nadal korzystać z poprzedniego klucza, a Twoje dane staną się niedostępne. Zaktualizuj szczegóły nowego identyfikatora klucza w klastrze w celu wznowienia pozyskiwania danych i wykonywania zapytań dotyczących danych.
+
+- Niektóre operacje są długie i mogą chwilę potrwać — są to między innymi tworzenie klastra, Aktualizacja klucza klastra i usuwanie klastra. Stan operacji można sprawdzić na dwa sposoby:
+  1. w przypadku korzystania z usługi REST skopiuj wartość Azure-AsyncOperation adresu URL z odpowiedzi i postępuj zgodnie ze [sprawdzaniem stanu operacji asynchronicznych](#asynchronous-operations-and-status-check).
+  2. Wyślij żądanie GET do klastra lub obszaru roboczego i obserwuj odpowiedź. Na przykład niepołączony obszar roboczy nie będzie miał *clusterResourceId* w obszarze *funkcje*.
+
 - Komunikaty o błędach
   
   **Tworzenie klastra**
@@ -441,34 +481,6 @@ Klucz Customer-Managed jest udostępniany w dedykowanym klastrze i te operacje s
   **Odłącz obszar roboczy**
   -  404 — nie znaleziono obszaru roboczego. Wybrany obszar roboczy nie istnieje lub został usunięty.
   -  409--link do obszaru roboczego lub rozłączanie w procesie.
-
-## <a name="troubleshooting"></a>Rozwiązywanie problemów
-
-- Zachowanie z dostępnością Key Vault
-  - W normalnej operacji — pamięć podręczna magazynu AEK przez krótki okresy i powraca do Key Vault, aby okresowo wycofać.
-    
-  - Błędy połączeń przejściowych — usługa Storage obsługuje błędy przejściowe (przekroczenia limitu czasu, błędy połączeń, problemy z usługą DNS), dzięki czemu klucze mogą pozostać w pamięci podręcznej przez krótki czas i jest to zbyt małe Blips w dostępności. Możliwości zapytań i pozyskiwania kontynuują działanie bez przeszkód.
-    
-  - Lokacja na żywo — niedostępność przez około 30 minut spowoduje, że konto magazynu stanie się niedostępne. Funkcja zapytania jest niedostępna, a dane pozyskiwane są buforowane przez kilka godzin przy użyciu klawisza Microsoft, aby uniknąć utraty danych. Po przywróceniu dostępu do Key Vault jest on dostępny, a tymczasowe dane przechowywane w pamięci podręcznej są przechowywane w magazynie danych i szyfrowane za pomocą klucza Customer-Managed.
-
-  - Key Vault szybkość dostępu — częstotliwość, z jaką Azure Monitor dostęp do magazynu Key Vault dla operacji zawijania i rozwinięcia, wynosi od 6 do 60 sekund.
-
-- Jeśli utworzysz klaster i KeyVaultProperties od razu, operacja może się nie powieść, ponieważ nie można zdefiniować zasad dostępu do momentu przypisania tożsamości systemu do klastra.
-
-- W przypadku aktualizacji istniejącego klastra z KeyVaultProperties i braku zasad dostępu do klucza "Get" w Key Vault operacja zakończy się niepowodzeniem.
-
-- W przypadku wystąpienia błędu konfliktu podczas tworzenia klastra — może być to, że klaster został usunięty w ciągu ostatnich 14 dni i jest w okresie usuwania nietrwałego. Nazwa klastra pozostaje zarezerwowana w okresie usuwania nietrwałego i nie można utworzyć nowego klastra o takiej nazwie. Nazwa jest wydawana po okresie usuwania nietrwałego, gdy klaster zostanie trwale usunięty.
-
-- Jeśli aktualizujesz klaster, gdy operacja jest w toku, operacja zakończy się niepowodzeniem.
-
-- Jeśli klaster nie zostanie wdrożony, sprawdź, czy Azure Key Vault, klaster i połączone Log Analytics obszary robocze znajdują się w tym samym regionie. Mogą znajdować się w różnych subskrypcjach.
-
-- Jeśli zaktualizujesz wersję klucza w Key Vault i nie zaktualizujesz nowego identyfikatora klucza w klastrze, klaster Log Analytics będzie nadal korzystać z poprzedniego klucza, a Twoje dane staną się niedostępne. Zaktualizuj szczegóły nowego identyfikatora klucza w klastrze w celu wznowienia pozyskiwania danych i wykonywania zapytań dotyczących danych.
-
-- Niektóre operacje są długie i mogą chwilę potrwać — są to między innymi tworzenie klastra, Aktualizacja klucza klastra i usuwanie klastra. Stan operacji można sprawdzić na dwa sposoby:
-  1. w przypadku korzystania z usługi REST skopiuj wartość Azure-AsyncOperation adresu URL z odpowiedzi i postępuj zgodnie ze [sprawdzaniem stanu operacji asynchronicznych](#asynchronous-operations-and-status-check).
-  2. Wyślij żądanie GET do klastra lub obszaru roboczego i obserwuj odpowiedź. Na przykład niepołączony obszar roboczy nie będzie miał *clusterResourceId* w obszarze *funkcje*.
-
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej o [log Analytics rozliczania dedykowanego klastra](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)

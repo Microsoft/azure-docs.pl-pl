@@ -10,12 +10,12 @@ ms.author: laobri
 ms.date: 10/22/2020
 ms.topic: troubleshooting
 ms.custom: troubleshooting, devx-track-python, contperf-fy21q2
-ms.openlocfilehash: 9baf305ab72354c150cb06e594ed8909f2fa1dda
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: d55a9ff4dc2a639fca67d19d9323b9397aa0f409
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739318"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070375"
 ---
 # <a name="troubleshooting-machine-learning-pipelines"></a>Rozwiązywanie problemów z potokami uczenia maszynowego
 
@@ -33,6 +33,7 @@ Poniższa tabela zawiera typowe problemy podczas tworzenia potoku z potencjalnym
 | Potok nie wykorzystał się z kroków | Ponowne użycie kroku jest włączone domyślnie, ale upewnij się, że nie zostało wyłączone w kroku potoku. Jeśli ponowne użycie jest wyłączone, `allow_reuse` parametr w kroku zostanie ustawiony na `False` . |
 | Potok jest niepotrzebny. | Aby zapewnić, że kroki mają zostać uruchomione ponownie tylko wtedy, gdy ich dane podstawowe lub skrypty zmienią się, należy rozdzielić katalogi kodu źródłowego dla każdego kroku. Jeśli używasz tego samego katalogu źródłowego dla wielu kroków, może wystąpić niepotrzebne wykonanie ponownie. Użyj `source_directory` parametru w obiekcie krok potoku, aby wskazać odizolowany katalog dla tego kroku, i upewnij się, że nie używasz tej samej `source_directory` ścieżki dla wielu kroków. |
 | Krok spowalniają pracę nad epoką szkoleniową lub innym zachowaniem zapętlenia | Spróbuj przełączyć wszystkie zapisy plików, w tym rejestrowanie, z `as_mount()` do `as_upload()` . Tryb **instalacji** używa zdalnego zwirtualizowanego systemu plików i przekazuje cały plik przy każdym dołączeniu do niego. |
+| Rozpoczęcie wykonywania obliczeń trwa długo | Obrazy platformy Docker dla obiektów docelowych obliczeń są ładowane z Azure Container Registry (ACR). Domyślnie Azure Machine Learning tworzy ACR, który korzysta z warstwy usługi *podstawowa* . Zmiana ACR dla obszaru roboczego na warstwę Standardowa lub Premium może skrócić czas potrzebny do kompilowania i ładowania obrazów. Aby uzyskać więcej informacji, zobacz [Azure Container Registry warstwy usług](../container-registry/container-registry-skus.md). |
 
 ### <a name="authentication-errors"></a>Błędy uwierzytelniania
 

@@ -9,18 +9,18 @@ ms.date: 12/08/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: c2074402225c8134329e00003e4fbdfd95b5dba6
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 13d1ad0b1b5e32ea2ca86e7556dd910c542bcbe2
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938413"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070562"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage
 
 Usługa Azure Storage zapewnia warstwowy model zabezpieczeń. Ten model umożliwia zabezpieczenie i kontrolowanie poziomu dostępu do kont magazynu żądanych przez aplikację i przedsiębiorstwo na podstawie typu i podsieci używanych sieci. W przypadku skonfigurowania reguł sieci tylko aplikacje żądające danych za pośrednictwem określonego zestawu sieci mogą uzyskiwać dostęp do konta magazynu. Dostęp do konta magazynu można ograniczyć do żądań pochodzących z określonych adresów IP, zakresów adresów IP lub z listy podsieci w usłudze Azure Virtual Network (VNet).
 
-Konta magazynu mają publiczny punkt końcowy, który jest dostępny za pomocą Internetu. Możesz również utworzyć [prywatne punkty końcowe dla konta magazynu](storage-private-endpoints.md), które przypisuje prywatny adres IP z sieci wirtualnej do konta magazynu, i zabezpiecza cały ruch między siecią wirtualną a kontem magazynu za pośrednictwem prywatnego linku. Zapora usługi Azure Storage zapewnia dostęp do kontroli dostępu do publicznego punktu końcowego konta magazynu. Możesz również użyć zapory, aby zablokować dostęp za pośrednictwem publicznego punktu końcowego podczas korzystania z prywatnych punktów końcowych. Konfiguracja zapory magazynu umożliwia także wybranie zaufanych usług platformy Azure w celu bezpiecznego uzyskiwania dostępu do konta magazynu.
+Konta magazynu mają publiczny punkt końcowy, który jest dostępny za pomocą Internetu. Możesz również utworzyć [prywatne punkty końcowe dla konta magazynu](storage-private-endpoints.md), które przypisuje prywatny adres IP z sieci wirtualnej do konta magazynu, i zabezpiecza cały ruch między siecią wirtualną a kontem magazynu za pośrednictwem prywatnego linku. Zapora usługi Azure Storage zapewnia kontrolę dostępu dla publicznego punktu końcowego konta magazynu. Możesz również użyć zapory, aby zablokować dostęp za pośrednictwem publicznego punktu końcowego podczas korzystania z prywatnych punktów końcowych. Konfiguracja zapory magazynu umożliwia także wybranie zaufanych usług platformy Azure w celu bezpiecznego uzyskiwania dostępu do konta magazynu.
 
 Aplikacja, która uzyskuje dostęp do konta magazynu, gdy reguły sieciowe nadal obowiązują, wymagają odpowiedniej autoryzacji dla żądania. Autoryzacja jest obsługiwana przy użyciu poświadczeń usługi Azure Active Directory (Azure AD) dla obiektów blob i kolejek z prawidłowym kluczem dostępu do konta lub z tokenem SAS.
 
@@ -33,13 +33,13 @@ Aplikacja, która uzyskuje dostęp do konta magazynu, gdy reguły sieciowe nadal
 
 ## <a name="scenarios"></a>Scenariusze
 
-Aby zabezpieczyć konto magazynu, należy najpierw skonfigurować regułę, aby domyślnie odmówić dostępu do ruchu ze wszystkich sieci (w tym ruchu internetowego) w publicznym punkcie końcowym. Następnie należy skonfigurować reguły zezwalające na dostęp do ruchu pochodzącego z określonych sieci wirtualnych. Możesz również skonfigurować reguły, aby udzielić dostępu do ruchu z wybranych zakresów publicznych adresów IP w Internecie, włączając połączenia z określonych klientów internetowych lub lokalnych. Ta konfiguracja umożliwia tworzenie bezpiecznej granicy sieci dla aplikacji.
+Aby zabezpieczyć konto magazynu, należy najpierw skonfigurować regułę, aby domyślnie odmówić dostępu do ruchu ze wszystkich sieci (w tym ruchu internetowego) w publicznym punkcie końcowym. Następnie należy skonfigurować reguły zezwalające na dostęp do ruchu pochodzącego z określonych sieci wirtualnych. Możesz również skonfigurować reguły, aby udzielić dostępu do ruchu z wybranych zakresów publicznych adresów IP, co umożliwia nawiązywanie połączeń z określonych klientów internetowych lub lokalnych. Ta konfiguracja umożliwia tworzenie bezpiecznej granicy sieci dla aplikacji.
 
 Można łączyć reguły zapory zezwalające na dostęp z określonych sieci wirtualnych i z zakresów publicznych adresów IP na tym samym koncie magazynu. Reguły zapory magazynu mogą być stosowane do istniejących kont magazynu lub podczas tworzenia nowych kont magazynu.
 
 Reguły zapory magazynu dotyczą publicznego punktu końcowego konta magazynu. Nie są wymagane żadne reguły dostępu zapory, aby zezwalać na ruch dla prywatnych punktów końcowych konta magazynu. Proces zatwierdzania tworzenia prywatnego punktu końcowego przyznaje niejawny dostęp do ruchu z podsieci, która hostuje prywatny punkt końcowy.
 
-Reguły sieciowe są wymuszane dla wszystkich protokołów sieciowych w usłudze Azure Storage, w tym REST i SMB. Aby uzyskać dostęp do danych przy użyciu narzędzi, takich jak Azure Portal, Eksplorator usługi Storage i AZCopy, należy skonfigurować jawne reguły sieciowe.
+Reguły sieciowe są wymuszane dla wszystkich protokołów sieciowych usługi Azure Storage, w tym REST i SMB. Aby uzyskać dostęp do danych przy użyciu narzędzi, takich jak Azure Portal, Eksplorator usługi Storage i AZCopy, należy skonfigurować jawne reguły sieciowe.
 
 Po zastosowaniu reguł sieci są one wymuszane dla wszystkich żądań. Tokeny SAS, które udzielają dostępu do określonego adresu IP w celu ograniczenia dostępu do posiadacza tokenu, ale nie zapewniają nowego dostępu poza skonfigurowanymi regułami sieciowymi.
 

@@ -3,12 +3,12 @@ title: Informacje o trybie failover i powrotu po awarii w Azure Site Recovery
 description: Więcej informacji na temat trybu failover i niepowodzenia w Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/24/2019
-ms.openlocfilehash: 3617683200aa3ffba08061b70993613fd0cc7241
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b900655d6fdf1143d430ac842bfd84eb1dfdf34c
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369883"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070748"
 ---
 # <a name="about-on-premises-disaster-recovery-failoverfailback"></a>Informacje o lokalnym przejściu w tryb failover i powrotu po awarii
 
@@ -45,7 +45,7 @@ Aby nawiązać połączenie z maszynami wirtualnymi platformy Azure utworzonymi 
 
 **Tryb failover** | **Lokalizacja** | **Akcje**
 --- | --- | ---
-**Maszyna wirtualna platformy Azure (system Windows (** | Na maszynie lokalnej przed przejściem w tryb failover | **Dostęp za pośrednictwem Internetu**: Włącz protokół RDP. Upewnij się, że reguły TCP i UDP są dodawane do **publicznej**wersji, a protokół RDP jest dozwolony dla wszystkich profilów w aplikacjach **zapory systemu Windows**  >  **dozwolone aplikacje**.<br/><br/> **Dostęp za pośrednictwem sieci VPN typu lokacja-lokacja**: Włącz protokół RDP na maszynie. Sprawdź, czy protokół RDP jest dozwolony **Windows Firewall**w  ->  przypadku**aplikacji i funkcji dozwolonych**przez zaporę systemu Windows w przypadku sieci **i domen prywatnych** .<br/><br/>  Upewnij się, że zasady sieci SAN systemu operacyjnego są ustawione na **OnlineAll**. [Dowiedz się więcej](https://support.microsoft.com/kb/3031135).<br/><br/> Upewnij się, że nie ma żadnych oczekujących aktualizacji systemu Windows na maszynie wirtualnej podczas wyzwalania trybu failover. Windows Update może rozpocząć się po przełączeniu w tryb failover i nie będzie można zalogować się do maszyny wirtualnej, dopóki aktualizacje nie zostaną wykonane.
+**Maszyna wirtualna platformy Azure z systemem Windows** | Na maszynie lokalnej przed przejściem w tryb failover | **Dostęp za pośrednictwem Internetu**: Włącz protokół RDP. Upewnij się, że reguły TCP i UDP są dodawane do **publicznej** wersji, a protokół RDP jest dozwolony dla wszystkich profilów w aplikacjach **zapory systemu Windows**  >  **dozwolone aplikacje**.<br/><br/> **Dostęp za pośrednictwem sieci VPN typu lokacja-lokacja**: Włącz protokół RDP na maszynie. Sprawdź, czy protokół RDP jest dozwolony w  ->  przypadku **aplikacji i funkcji dozwolonych** przez zaporę systemu Windows w przypadku sieci **i domen prywatnych** .<br/><br/>  Upewnij się, że zasady sieci SAN systemu operacyjnego są ustawione na **OnlineAll**. [Dowiedz się więcej](https://support.microsoft.com/kb/3031135).<br/><br/> Upewnij się, że nie ma żadnych oczekujących aktualizacji systemu Windows na maszynie wirtualnej podczas wyzwalania trybu failover. Windows Update może rozpocząć się po przełączeniu w tryb failover i nie będzie można zalogować się do maszyny wirtualnej, dopóki aktualizacje nie zostaną wykonane.
 **Maszyna wirtualna platformy Azure z systemem Windows** | Na maszynie wirtualnej platformy Azure po przejściu w tryb failover |  [Dodaj publiczny adres IP](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr) dla maszyny wirtualnej.<br/><br/> Reguły sieciowej grupy zabezpieczeń na maszynie wirtualnej w trybie failover (i podsieci platformy Azure, z którą jest połączona) muszą zezwalać na połączenia przychodzące do portu RDP.<br/><br/> Sprawdź **diagnostykę rozruchu** , aby zweryfikować zrzut ekranu maszyny wirtualnej. Jeśli nie możesz się połączyć, sprawdź, czy maszyna wirtualna jest uruchomiona, i przejrzyj [wskazówki dotyczące rozwiązywania problemów](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 **Maszyna wirtualna platformy Azure z systemem Linux** | Na maszynie lokalnej przed przejściem w tryb failover | Upewnij się, że usługa Secure Shell na maszynie wirtualnej jest uruchamiana automatycznie przy rozruchu systemu.<br/><br/> Sprawdź, czy reguły zapory zezwalają na połączenie SSH.
 **Maszyna wirtualna platformy Azure z systemem Linux** | Na maszynie wirtualnej platformy Azure po przejściu w tryb failover | Reguły sieciowej grupy zabezpieczeń na maszynie wirtualnej w trybie failover (i podsieci platformy Azure, z którą jest połączona) muszą zezwalać na połączenia przychodzące do portu SSH.<br/><br/> [Dodaj publiczny adres IP](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr) dla maszyny wirtualnej.<br/><br/> Sprawdź **diagnostykę rozruchu** dla zrzutu ekranu maszyny wirtualnej.<br/><br/>
@@ -138,7 +138,7 @@ Aby ponownie chronić maszyny wirtualne funkcji Hyper-V z platformy Azure i przy
 - Planowane powrotu po awarii z platformy Azure do lokacji lokalnej.
 - Nie trzeba konfigurować określonych składników na potrzeby powrotu po awarii maszyny wirtualnej funkcji Hyper-V.
 - Podczas planowanej pracy w trybie failover można wybrać opcje synchronizacji danych przed powrotem po awarii:
-    - **Synchronizuj dane przed**przełączeniem w tryb failover: Ta opcja minimalizuje przestoje maszyn wirtualnych podczas synchronizowania maszyn bez wyłączania ich.
+    - **Synchronizuj dane przed** przełączeniem w tryb failover: Ta opcja minimalizuje przestoje maszyn wirtualnych podczas synchronizowania maszyn bez wyłączania ich.
         - Faza 1: tworzy migawkę maszyny wirtualnej platformy Azure i kopiuje ją do lokalnego hosta funkcji Hyper-V. Maszyna kontynuuje działanie na platformie Azure.
         - Faza 2: zamyka maszynę wirtualną platformy Azure, aby nie pojawiły się żadne nowe zmiany. Końcowy zestaw zmian różnicowych jest transferowany na serwer lokalny, a lokalna maszyna wirtualna jest uruchamiana.
     - **Synchronizuj dane tylko podczas pracy w trybie failover**: Ta opcja jest szybsza, ponieważ oczekuje się, że większość dysku uległa zmianie i w związku z tym nie wykonuje obliczeń sum kontrolnych. Pobiera dysk. Zalecamy użycie tej opcji, jeśli maszyna wirtualna była uruchomiona na platformie Azure przez pewien czas (co miesiąc lub więcej) lub jeśli lokalna maszyna wirtualna została usunięta.

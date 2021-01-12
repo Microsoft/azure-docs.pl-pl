@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: af5ed0296ce99a4450fffec6b047285307ed0ff2
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: d24565522a75427be04cacfdc20347056a515847
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97709303"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070766"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Przygotowywanie danych dla usługi Custom Speech
 
@@ -46,11 +46,11 @@ Ta tabela zawiera listę akceptowanych typów danych, gdy należy użyć poszcze
 
 | Typ danych | Używany do testowania | Zalecana ilość | Używany do szkolenia | Zalecana ilość |
 |-----------|-----------------|----------|-------------------|----------|
-| [Dźwięk](#audio-data-for-testing) | Tak<br>Używane na potrzeby inspekcji wizualnej | 5 plików audio | Nie | Nie dotyczy |
+| [Dźwięk](#audio-data-for-testing) | Tak<br>Używane na potrzeby inspekcji wizualnej | 5 plików audio | Nie | Brak |
 | [Zapisy audio + oznakowane przez człowieka](#audio--human-labeled-transcript-data-for-testingtraining) | Tak<br>Służy do obliczania dokładności | 0,5 – 5 godzin audio | Tak | 1-20 godz. audio |
 | [Powiązany tekst](#related-text-data-for-training) | Nie | Nie dotyczy | Tak | 1-200 MB powiązanego tekstu |
 
-Podczas uczenia nowego modelu Zacznij od [pokrewnego tekstu](#related-text-data-for-training). Te dane będą już ulepszać rozpoznawanie specjalnych terminów i fraz.
+Podczas uczenia nowego modelu Zacznij od [pokrewnego tekstu](#related-text-data-for-training). Te dane będą już ulepszać rozpoznawanie specjalnych terminów i fraz. Szkolenia z tekstem są znacznie szybsze niż szkolenia z użyciem dźwięku (minuty a dni).
 
 Pliki powinny być pogrupowane według typu w zestawie danych i przekazywane jako plik. zip. Każdy zestaw danych może zawierać tylko jeden typ danych.
 
@@ -138,7 +138,9 @@ Po zebraniu plików audio i odpowiednich transkrypcji należy je spakować jako 
 > [!div class="mx-imgBorder"]
 > ![Wybierz dźwięk z portalu mowy](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
 
-Zobacz [Konfigurowanie konta platformy Azure](custom-speech-overview.md#set-up-your-azure-account) , aby uzyskać listę zalecanych regionów dla subskrypcji usługi mowy. Skonfigurowanie subskrypcji mowy w jednym z tych regionów spowoduje skrócenie czasu potrzebnego do uczenia modelu.
+Zobacz [Konfigurowanie konta platformy Azure](custom-speech-overview.md#set-up-your-azure-account) , aby uzyskać listę zalecanych regionów dla subskrypcji usługi mowy. Skonfigurowanie subskrypcji mowy w jednym z tych regionów spowoduje skrócenie czasu potrzebnego do uczenia modelu. W tych regionach szkolenia mogą przetwarzać około 10 godzin pracy audio w porównaniu do 1 godziny dziennie w innych regionach. Jeśli nie można wykonać szkolenia modelu w ciągu tygodnia, model zostanie oznaczony jako niepowodzenie.
+
+Nie wszystkie modele podstawowe obsługują szkolenia z danymi audio. Jeśli model podstawowy nie obsługuje tego typu, usługa zignoruje dźwięk i po prostu nawiąże połączenie z tekstem transkrypcji. W takim przypadku szkolenie będzie takie samo jak szkolenie związane z tekstem.
 
 ## <a name="related-text-data-for-training"></a>Powiązane dane tekstowe do szkolenia
 
@@ -150,6 +152,8 @@ Nazwy produktów lub funkcje, które są unikatowe, powinny zawierać powiązane
 | Wymowy | Popraw wymowę nietypowych warunków, akronimów lub innych wyrazów z niezdefiniowanymi wymowiemi. |
 
 Zdania można podać jako pojedynczy plik tekstowy lub wiele plików tekstowych. Aby poprawić dokładność, użyj danych tekstowych, które są bliżej oczekiwanego wyrażenia długości. Wymowy należy dostarczyć jako pojedynczy plik tekstowy. Wszystkie elementy można spakować jako jeden plik zip i przekazać je do <a href="https://speech.microsoft.com/customspeech" target="_blank">portalu <span class="docon docon-navigate-external x-hidden-focus"></span> Custom Speech </a>.
+
+Szkolenie z pokrewnym tekstem zwykle kończy się w ciągu kilku minut.
 
 ### <a name="guidelines-to-create-a-sentences-file"></a>Wskazówki dotyczące tworzenia pliku zdań
 
@@ -193,7 +197,7 @@ Dostosowana wymowa jest dostępna w języku angielskim ( `en-US` ) i niemieckim 
 | Język | Regionalne | Znaki |
 |----------|--------|------------|
 | Angielski | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
-| niemiecki | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
+| Niemiecki | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 
 Skorzystaj z poniższej tabeli, aby upewnić się, że pokrewny plik danych dla wymowy jest poprawnie sformatowany. Pliki wymowy są małe i powinny mieć tylko kilka kilobajtów rozmiaru.
 

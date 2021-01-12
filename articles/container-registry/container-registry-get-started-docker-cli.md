@@ -3,13 +3,13 @@ title: Wypychanie & ściągania obrazu platformy Docker
 description: Wypychanie i ściąganie obrazów platformy Docker do prywatnego rejestru kontenerów na platformie Azure za pomocą interfejsu wiersza polecenia platformy Docker
 ms.topic: article
 ms.date: 01/23/2019
-ms.custom: seodec18, H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 067b5749332c2c41b86d22e7de60083d5f61a442
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.custom: seodec18, H1Hack27Feb2017
+ms.openlocfilehash: d04a5fcbc4d6294a216ddfc9a8e6ea1ef98825a3
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020062"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071633"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Wypchnij swój pierwszy obraz do prywatnego rejestru kontenerów platformy Docker za pomocą interfejsu wiersza polecenia platformy Docker
 
@@ -37,6 +37,8 @@ docker login myregistry.azurecr.io
 ```
 
 Oba polecenia są zwracane `Login Succeeded` po zakończeniu.
+> [!NOTE]
+>* Możesz chcieć użyć Visual Studio Code z funkcją platformy Docker, aby szybciej i bardziej wygodnie zalogować się.
 
 > [!TIP]
 > Zawsze określaj w pełni kwalifikowaną nazwę rejestru (wszystkie małe litery) podczas korzystania z programu `docker login` i podczas oznaczania obrazów do wypchnięcia do rejestru. W przykładach w tym artykule, w pełni kwalifikowana nazwa to *myregistry.azurecr.IO*.

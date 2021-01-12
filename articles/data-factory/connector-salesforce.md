@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/13/2020
-ms.openlocfilehash: a82606be62007816d545942161774e776c38a4e3
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 01/11/2021
+ms.openlocfilehash: 2c60e8c71c38e5a6e92939b655cef9fcc1e04f70
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637296"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98072085"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Skopiuj dane z i do usługi Salesforce przy użyciu Azure Data Factory
 
@@ -42,7 +42,7 @@ W ramach tego łącznika usługi Salesforce obsługiwane są następujące usłu
 - Wersje Developer, Professional, Enterprise i Unlimited usługi Salesforce.
 - Kopiowanie danych z i do środowiska produkcyjnego, piaskownicy i niestandardowej domeny usługi Salesforce.
 
-Łącznik usługi Salesforce jest oparty na interfejsie API REST/Bulk usługi Salesforce. Domyślnie łącznik używa [V45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) do kopiowania danych z usługi Salesforce i używa [V40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) do kopiowania danych do usługi Salesforce. Można również jawnie ustawić wersję interfejsu API używaną do odczytu/zapisu danych za pośrednictwem [ `apiVersion` Właściwości](#linked-service-properties) w połączonej usłudze.
+Łącznik usługi Salesforce jest oparty na interfejsie API REST/Bulk usługi Salesforce. Domyślnie podczas kopiowania danych z usługi Salesforce łącznik używa [V45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) i automatycznie wybiera interfejsy API REST i bulk na podstawie rozmiaru danych — gdy zestaw wyników jest duży, MASOWY interfejs API jest używany w celu zapewnienia lepszej wydajności. podczas zapisywania danych w usłudze Salesforce łącznik używa usługi [V40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) w ramach interfejsu API BULK. Można również jawnie ustawić wersję interfejsu API używaną do odczytu/zapisu danych za pośrednictwem [ `apiVersion` Właściwości](#linked-service-properties) w połączonej usłudze.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -57,7 +57,7 @@ Usługi Salesforce mają limity dla obu żądań interfejsu API i współbieżny
 
 W obu scenariuszach może być również wyświetlany komunikat o błędzie "REQUEST_LIMIT_EXCEEDED". Aby uzyskać więcej informacji, zobacz sekcję "limity żądań interfejsu API" w obszarze [limity deweloperów usługi Salesforce](https://developer.salesforce.com/docs/atlas.en-us.218.0.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_api.htm).
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -69,7 +69,7 @@ Dla połączonej usługi Salesforce są obsługiwane następujące właściwośc
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ |Właściwość Type musi być ustawiona na wartość **Salesforce** . |Tak |
+| typ |Właściwość Type musi być ustawiona na wartość **Salesforce**. |Tak |
 | environmentUrl | Określ adres URL wystąpienia usługi Salesforce. <br> -Wartość domyślna to `"https://login.salesforce.com"` . <br> -Aby skopiować dane z piaskownicy, określ `"https://test.salesforce.com"` . <br> -Aby skopiować dane z domeny niestandardowej, określ, na przykład, `"https://[domain].my.salesforce.com"` . |Nie |
 | nazwa użytkownika |Określ nazwę użytkownika dla konta użytkownika. |Tak |
 | hasło |Określ hasło dla konta użytkownika.<br/><br/>Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). |Tak |
@@ -144,11 +144,11 @@ Dla połączonej usługi Salesforce są obsługiwane następujące właściwośc
 
 Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania zestawów danych, zobacz artykuł [zestawy danych](concepts-datasets-linked-services.md) . Ta sekcja zawiera listę właściwości obsługiwanych przez zestaw danych usługi Salesforce.
 
-Aby skopiować dane z i do usługi Salesforce, ustaw właściwość Type zestawu danych na **salesforceobject** . Obsługiwane są następujące właściwości.
+Aby skopiować dane z i do usługi Salesforce, ustaw właściwość Type zestawu danych na **salesforceobject**. Obsługiwane są następujące właściwości.
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość Type musi być ustawiona na wartość **salesforceobject** .  | Tak |
+| typ | Właściwość Type musi być ustawiona na wartość **salesforceobject**.  | Tak |
 | objectApiName | Nazwa obiektu usług Salesforce, z którego mają zostać pobrane dane. | Nie dla źródła, tak dla ujścia |
 
 > [!IMPORTANT]
@@ -180,7 +180,7 @@ Aby skopiować dane z i do usługi Salesforce, ustaw właściwość Type zestawu
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość Type zestawu danych musi być ustawiona na wartość **relacyjną** . | Tak |
+| typ | Właściwość Type zestawu danych musi być ustawiona na wartość **relacyjną**. | Tak |
 | tableName | Nazwa tabeli w usłudze Salesforce. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
 ## <a name="copy-activity-properties"></a>Właściwości działania kopiowania
@@ -189,13 +189,13 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 ### <a name="salesforce-as-a-source-type"></a>Salesforce jako typ źródła
 
-Aby skopiować dane z usługi Salesforce, ustaw typ źródła w działaniu Copy na **SalesforceSource** . W sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości.
+Aby skopiować dane z usługi Salesforce, ustaw typ źródła w działaniu Copy na **SalesforceSource**. W sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości.
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość **SalesforceSource** . | Tak |
+| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość **SalesforceSource**. | Tak |
 | query |Użyj zapytania niestandardowego do odczytywania danych. Można użyć zapytania [SOQL (Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) lub zapytania SQL-92. Zobacz więcej porad w sekcji [porady dotyczące zapytań](#query-tips) . Jeśli nie określono zapytania, zostaną pobrane wszystkie dane obiektu usługi Salesforce określone w "objectApiName" w zestawie danych. | Nie (Jeśli określono wartość "objectApiName" w zestawie danych) |
-| readBehavior | Wskazuje, czy mają być zbadane istniejące rekordy, czy też mają być poszukiwane wszystkie rekordy, w tym usunięte. Jeśli nie zostanie określony, domyślnym zachowaniem jest pierwsze. <br>Dozwolone wartości: **zapytanie** (wartość domyślna), **queryAll** .  | Nie |
+| readBehavior | Wskazuje, czy mają być zbadane istniejące rekordy, czy też mają być poszukiwane wszystkie rekordy, w tym usunięte. Jeśli nie zostanie określony, domyślnym zachowaniem jest pierwsze. <br>Dozwolone wartości: **zapytanie** (wartość domyślna), **queryAll**.  | Nie |
 
 > [!IMPORTANT]
 > Część "__c" **nazwy interfejsu API** jest wymagana dla dowolnego obiektu niestandardowego.
@@ -239,15 +239,15 @@ Aby skopiować dane z usługi Salesforce, ustaw typ źródła w działaniu Copy 
 
 ### <a name="salesforce-as-a-sink-type"></a>Salesforce jako typ ujścia
 
-Aby skopiować dane do usługi Salesforce, ustaw typ ujścia w działaniu Copy na **SalesforceSink** . W sekcji **ujścia** działania kopiowania są obsługiwane następujące właściwości.
+Aby skopiować dane do usługi Salesforce, ustaw typ ujścia w działaniu Copy na **SalesforceSink**. W sekcji **ujścia** działania kopiowania są obsługiwane następujące właściwości.
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość Type ujścia działania Copy musi być ustawiona na wartość **SalesforceSink** . | Tak |
-| writeBehavior | Zachowanie zapisu dla operacji.<br/>Dozwolone wartości to **INSERT** i **upsert** . | Nie (wartość domyślna to Insert) |
+| typ | Właściwość Type ujścia działania Copy musi być ustawiona na wartość **SalesforceSink**. | Tak |
+| writeBehavior | Zachowanie zapisu dla operacji.<br/>Dozwolone wartości to **INSERT** i **upsert**. | Nie (wartość domyślna to Insert) |
 | externalIdFieldName | Nazwa pola identyfikatora zewnętrznego dla operacji upsert. Określone pole musi być zdefiniowane jako "pole identyfikatora zewnętrznego" w obiekcie usługi Salesforce. Nie może mieć wartości NULL w odpowiednich danych wejściowych. | Tak dla "upsert" |
 | writeBatchSize | Liczba wierszy danych zapisywana w usłudze Salesforce w każdej partii. | Nie (domyślnie 5 000) |
-| ignoreNullValues | Wskazuje, czy ignorować wartości NULL z danych wejściowych podczas operacji zapisu.<br/>Dozwolone wartości to **true** i **false** .<br>- **True** : pozostawienie danych w obiekcie docelowym nie zmienia się po wykonaniu operacji upsert lub Update. Wstaw zdefiniowaną wartość domyślną podczas wykonywania operacji wstawiania.<br/>- **Fałsz** : zaktualizuj dane w obiekcie docelowym do wartości null po wykonaniu operacji upsert lub Update. Wstaw wartość NULL po wykonaniu operacji wstawiania. | Nie (wartość domyślna to false) |
+| ignoreNullValues | Wskazuje, czy ignorować wartości NULL z danych wejściowych podczas operacji zapisu.<br/>Dozwolone wartości to **true** i **false**.<br>- **True**: pozostawienie danych w obiekcie docelowym nie zmienia się po wykonaniu operacji upsert lub Update. Wstaw zdefiniowaną wartość domyślną podczas wykonywania operacji wstawiania.<br/>- **Fałsz**: zaktualizuj dane w obiekcie docelowym do wartości null po wykonaniu operacji upsert lub Update. Wstaw wartość NULL po wykonaniu operacji wstawiania. | Nie (wartość domyślna to false) |
 
 **Przykład: ujścia usługi Salesforce w działaniu kopiowania**
 
@@ -302,7 +302,7 @@ Podczas kopiowania danych z usługi Salesforce można użyć zapytania SOQL lub 
 |:--- |:--- |:--- |
 | Wybór kolumny | Należy wyliczyć pola, które mają być skopiowane do zapytania, np. `SELECT field1, filed2 FROM objectname` | `SELECT *` jest obsługiwana oprócz zaznaczenia kolumny. |
 | Cudzysłowy | Nazwy zgłoszonych/obiektów nie mogą być ujęte w cudzysłów. | Nazwy pól/obiektów mogą być ujęte w cudzysłów, np. `SELECT "id" FROM "Account"` |
-| Format daty i godziny |  Zapoznaj się z informacjami [tutaj](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) i przykładami w następnej sekcji. | Zapoznaj się z informacjami [tutaj](/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) i przykładami w następnej sekcji. |
+| Format daty i godziny |  Zapoznaj się z informacjami [tutaj](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) i przykładami w następnej sekcji. | Zapoznaj się z informacjami [tutaj](/sql/odbc/reference/develop-app/date-time-and-timestamp-literals) i przykładami w następnej sekcji. |
 | Wartości logiczne | Reprezentowane jako `False` i `True` , np. `SELECT … WHERE IsDeleted=True` . | Reprezentowane jako 0 lub 1, np. `SELECT … WHERE IsDeleted=1` . |
 | Zmiana nazwy kolumny | Nieobsługiwane. | Obsługiwane, np.: `SELECT a AS b FROM …` . |
 | Relacja | Obsługiwane, np. `Account_vod__r.nvs_Country__c` . | Nieobsługiwane. |
@@ -311,8 +311,8 @@ Podczas kopiowania danych z usługi Salesforce można użyć zapytania SOQL lub 
 
 Po określeniu zapytania SOQL lub SQL należy zwrócić uwagę na różnice w formacie daty/godziny. Na przykład:
 
-* **Przykład SOQL** : `SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
-* **Przykład SQL** : `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
+* **Przykład SOQL**: `SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
+* **Przykład SQL**: `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
 
 ### <a name="error-of-malformed_query-truncated"></a>Błąd MALFORMED_QUERY: obcięty
 
@@ -327,7 +327,7 @@ Podczas kopiowania danych z usługi Salesforce następujące mapowania są używ
 | Numer Autokorekty |String |
 | Pole wyboru |Boolean |
 | Waluta |Liczba dziesiętna |
-| Date |DateTime |
+| Data |DateTime |
 | Data/godzina |DateTime |
 | E-mail |String |
 | ID (Identyfikator) |String |

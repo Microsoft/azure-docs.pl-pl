@@ -4,14 +4,14 @@ description: Zgłoś alert w skali przy użyciu jednej reguły alertu dla wielu 
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 01/11/2021
 ms.subservice: alerts
-ms.openlocfilehash: 66987a28acc8a2c9ae71d89ff5760fa508e32963
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 47a2fb9240f6826ed862f7a857264c09b79de9bc
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566507"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071089"
 ---
 # <a name="monitor-multiple-time-series-in-a-single-metric-alert-rule"></a>Monitoruj wiele szeregów czasowych w jednej regule alertu metryki
 
@@ -43,7 +43,7 @@ Przykład takiej reguły alertu (z tylko odpowiednimi właściwościami):
 
 
 Dla tej reguły alertu monitorowana jest pojedyncza seria czasowa metryk:
--   Procent użycia procesora, gdzie *Resource* = "myVM1" > 70%
+-   Procent użycia procesora, gdzie *Resource*= "myVM1" > 70%
 
 ![Reguła alertu dla pojedynczej serii czasu](media/alerts-metric-multiple-time-series-single-rule/simple-alert-rule.png)
 
@@ -65,8 +65,8 @@ Przykład takiej reguły alertu:
 -   Próg: *70*
 
 Dla tej reguły alertu dwie serie czasu metryk są monitorowane osobno:
--   Procent użycia procesora, gdzie *Resource* = "myVM1" > 70%
--   Procent użycia procesora, gdzie *Resource* = "myVM2" > 70%
+-   Procent użycia procesora, gdzie *Resource*= "myVM1" > 70%
+-   Procent użycia procesora, gdzie *Resource*= "myVM2" > 70%
 
 ![Reguła alertu o wiele zasobów](media/alerts-metric-multiple-time-series-single-rule/multi-resource-alert-rule.png)
  
@@ -74,9 +74,9 @@ W regule alertów o wielu zasobach warunek jest oceniany **osobno** dla każdego
 
 Załóżmy na przykład, że ustawimy powyżej regułę alertu do monitorowania dla procesora CPU powyżej 70%. W obliczonym okresie (czyli w ciągu ostatnich 5 minut)
 -   *Wartość procentowa* czasu procesora *myVM1* jest większa niż 70% 
--   *Wartość procentowa myVM2 procesora CPU* wynosi 50% *myVM2*
+-   *Wartość procentowa myVM2 procesora CPU* wynosi 50% 
 
-Reguła alertu jest wyzwalana w *myVM1* , ale nie *myVM2*. Te wyzwalane alerty są niezależne. Mogą być również rozwiązywane w różnym czasie w zależności od zachowań poszczególnych maszyn wirtualnych.
+Reguła alertu jest wyzwalana w *myVM1*, ale nie *myVM2*. Te wyzwalane alerty są niezależne. Mogą być również rozwiązywane w różnym czasie w zależności od zachowań poszczególnych maszyn wirtualnych.
 
 Aby uzyskać więcej informacji na temat reguł alertów dotyczących wielu zasobów i typów zasobów obsługiwanych w tej funkcji, zobacz [monitorowanie w skali przy użyciu alertów metryk w Azure monitor](alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor).
 
@@ -101,8 +101,8 @@ Na przykład:
 
 Dla tej reguły alertu monitorowane są dwie metryki czasowe:
 
-- Procent użycia procesora, gdzie *Resource* = "myVM1" > 70%
-- Sieć łącznie, gdzie *Resource* = "myVM1" > 20 MB
+- Procent użycia procesora, gdzie *Resource*= "myVM1" > 70%
+- Sieć łącznie, gdzie *Resource*= "myVM1" > 20 MB
 
 ![Reguła alertu wielowarunkowego](media/alerts-metric-multiple-time-series-single-rule/multi-condition-alert-rule.png)
  
@@ -114,7 +114,7 @@ Między warunkami jest używany operator "i". Reguła alertu wyzwala alert po sp
 
 ## <a name="multiple-dimensions-multi-dimension"></a>Wiele wymiarów (wiele wymiarów)
 
-Pojedyncza reguła alertu metryki może również monitorować wiele wartości wymiarów metryki. Wymiary metryki to pary nazwa-wartość, które zawierają dodatkowe dane do opisywania wartości metryki. Na przykład Metryka **transakcji** konta magazynu ma wymiar o nazwie **API Name** , opisujący nazwę interfejsu API wywoływanego przez poszczególne transakcje (na przykład GetBlob, DeleteBlob, PutPage). Użycie wymiarów jest opcjonalne, ale umożliwia filtrowanie metryk i tylko monitorowanie określonej serii czasu, zamiast monitorować metrykę jako zagregowaną wszystkie wartości wymiarowe. 
+Pojedyncza reguła alertu metryki może również monitorować wiele wartości wymiarów metryki. Wymiary metryki to pary nazwa-wartość, które zawierają dodatkowe dane do opisywania wartości metryki. Na przykład Metryka **transakcji** konta magazynu ma wymiar o nazwie **API Name**, opisujący nazwę interfejsu API wywoływanego przez poszczególne transakcje (na przykład GetBlob, DeleteBlob, PutPage). Użycie wymiarów jest opcjonalne, ale umożliwia filtrowanie metryk i tylko monitorowanie określonej serii czasu, zamiast monitorować metrykę jako zagregowaną wszystkie wartości wymiarowe. 
 
 Można na przykład wybrać opcję uruchamiania alertu, gdy liczba transakcji jest duża dla wszystkich nazw interfejsów API (czyli zagregowanych danych), lub później podzielić na alerty, gdy liczba transakcji jest wysoka dla określonych nazw interfejsów API. 
 
@@ -129,9 +129,9 @@ Przykładem reguły alertu monitorującej wiele wymiarów jest:
 
 Dla tej reguły alertu są monitorowane trzy szeregi czasowe metryk:
 
-- Transakcje, w których *zasób* = "myStorage1" i *nazwa interfejsu API* = "getblob" > 70
-- Transakcje, *w których myStorage1* ' i *API Name* = ' DeleteBlob ' > 70
-- Transakcje, *w których myStorage1* ' i *API Name* = ' PutPage ' > 70
+- Transakcje, w których *zasób*= "myStorage1" i *nazwa interfejsu API*= "getblob" > 70
+- Transakcje, *w których myStorage1*' i *API Name*= ' DeleteBlob ' > 70
+- Transakcje, *w których myStorage1*' i *API Name*= ' PutPage ' > 70
 
 ![Reguła alertu wielowymiarowego z wartościami z jednego wymiaru](media/alerts-metric-multiple-time-series-single-rule/multi-dimension-1.png)
 
@@ -149,12 +149,12 @@ Przykład tego typu reguły alertu:
 
 Dla tej reguły alertu sześć serii czasowych jest monitorowanych osobno:
 
-- Transakcje, w których *Resource* = "myStorage1" i *API Name* = "GetBlob" i *Authentication* = "SAS" > 70
-- Transakcje, w których *zasób* = "myStorage1" i *nazwa interfejsu API* = "GetBlob" i *Authentication* = "AccountKey" > 70
-- Transakcje, w których *Resource* = "myStorage1" i *API Name* = "DeleteBlob" i *Authentication* = "SAS" > 70
-- Transakcje, w których *Resource* = "myStorage1" i *API Name* = "DeleteBlob" i *Authentication* = "AccountKey" > 70
-- Transakcje, w których *Resource* = "myStorage1" i *API Name* = "PutPage" i *Authentication* = "SAS" > 70
-- Transakcje, w których *Resource* = "myStorage1" i *API Name* = "PutPage" i *Authentication* = "AccountKey" > 70
+- Transakcje, w których *Resource*= "myStorage1" i *API Name*= "GetBlob" i *Authentication*= "SAS" > 70
+- Transakcje, w których *zasób*= "myStorage1" i *nazwa interfejsu API*= "GetBlob" i *Authentication*= "AccountKey" > 70
+- Transakcje, w których *Resource*= "myStorage1" i *API Name*= "DeleteBlob" i *Authentication*= "SAS" > 70
+- Transakcje, w których *Resource*= "myStorage1" i *API Name*= "DeleteBlob" i *Authentication*= "AccountKey" > 70
+- Transakcje, w których *Resource*= "myStorage1" i *API Name*= "PutPage" i *Authentication*= "SAS" > 70
+- Transakcje, w których *Resource*= "myStorage1" i *API Name*= "PutPage" i *Authentication*= "AccountKey" > 70
 
 ![Reguła alertu wielowymiarowego z wartościami z wielu wymiarów](media/alerts-metric-multiple-time-series-single-rule/multi-dimension-2.png)
  
@@ -162,7 +162,7 @@ Dla tej reguły alertu sześć serii czasowych jest monitorowanych osobno:
 
 1.  **Wybierając wszystkie bieżące i przyszłe wymiary** — możesz monitorować wszystkie możliwe wartości wymiaru, w tym przyszłe wartości. Taka reguła alertów zostanie automatycznie przeskalowana w celu monitorowania wszystkich wartości wymiaru, bez konieczności modyfikowania reguły alertu przy każdym dodawaniu lub usunięciu wartości wymiaru.
 2.  **Wykluczanie wymiarów** — wybranie operatora "≠" (Wyklucz) dla wartości wymiaru jest równoznaczne z wybraniem wszystkich innych wartości tego wymiaru, w tym przyszłych wartości.
-3.  **Nowe i niestandardowe wymiary** — wartości wymiarów wyświetlane w Azure Portal są oparte na danych metryk zebranych w ciągu ostatnich trzech dni. Jeśli wartość wymiaru, którego szukasz, nie jest jeszcze emitowana, można dodać niestandardową wartość wymiaru.
+3.  **Nowe i niestandardowe wymiary** — wartości wymiarów wyświetlane w Azure Portal są oparte na danych metryk zebranych w ciągu ostatniego dnia. Jeśli wartość wymiaru, którego szukasz, nie jest jeszcze emitowana, można dodać niestandardową wartość wymiaru.
 4. **Pasujące wymiary z prefiksem** — można wybrać opcję monitorowania wszystkich wartości wymiarów, które zaczynają się od określonego wzorca, wybierając operator "zaczyna się od" i wprowadzając niestandardowy prefiks.
 
 ![Zaawansowane funkcje wielowymiarowe](media/alerts-metric-multiple-time-series-single-rule/advanced-features.png)

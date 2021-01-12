@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 971bac8a0b0951d4e07e139aea6c465a9159b8db
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 43a483f49a9e9004a4f487e82195198f2600a919
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96570964"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071157"
 ---
 # <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>Samouczek: uruchamianie "Hello World!" Skrypt języka Python (część 2 z 4)
 
@@ -36,9 +36,6 @@ W tym samouczku wykonasz następujące czynności:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Zakończenie [części 1](tutorial-1st-experiment-sdk-setup-local.md) , jeśli nie masz jeszcze obszaru roboczego Azure Machine Learning.
-- Wstępna wiedza dotycząca języka Python i przepływów pracy uczenia maszynowego.
-- Lokalne środowisko programistyczne, takie jak Visual Studio Code, Jupyter lub platformy PyCharm itd.
-- Python (wersja 3,5 do 3,7).
 
 ## <a name="create-and-run-a-python-script-locally"></a>Tworzenie i uruchamianie skryptu języka Python lokalnie
 
@@ -64,7 +61,7 @@ tutorial
 
 ### <a name="test-your-script-locally"></a><a name="test"></a>Lokalne testowanie skryptu
 
-Kod można uruchomić lokalnie, korzystając z ulubionego środowiska IDE lub terminalu. Uruchamianie kodu lokalnie ma zalety interaktywnego debugowania kodu.
+Kod można uruchomić lokalnie, korzystając z ulubionego środowiska IDE lub terminalu. Uruchamianie kodu lokalnie ma zalety interaktywnego debugowania kodu.  W oknie, które ma aktywowane środowisko *tutorial1* Conda, uruchom plik języka Python:
 
 ```bash
 cd <path/to/tutorial>
@@ -93,8 +90,6 @@ run = experiment.submit(config)
 aml_url = run.get_portal_url()
 print(aml_url)
 ```
-
-
 
 ### <a name="understand-the-code"></a>Zrozumienie kodu
 
@@ -148,13 +143,6 @@ Poniżej znajduje się opis sposobu działania skryptu kontroli:
 
 Uruchom skrypt kontrolny, który z kolei zostanie uruchomiony w `hello.py` klastrze obliczeniowym utworzonym w [samouczku Instalatora](tutorial-1st-experiment-sdk-setup-local.md).
 
-Pierwsze uruchomienie zajmie 5-10 minut. Dzieje się tak, ponieważ występują następujące sytuacje:
-
-* Obraz platformy Docker jest zbudowany w chmurze
-* Rozmiar klastra obliczeniowego jest zmieniany z 0 na 1 węzeł
-* Obraz platformy Docker zostanie pobrany do obliczenia. 
-
-Kolejne uruchomienia są znacznie szybsze (~ 15 sekund), ponieważ obraz platformy Docker jest buforowany w ramach obliczeń — można to przetestować przez ponowne przesłanie poniższego kodu po zakończeniu pierwszego uruchomienia.
 
 ```bash
 python 03-run-hello.py
@@ -168,9 +156,17 @@ python 03-run-hello.py
 
 ## <a name="monitor-your-code-in-the-cloud-by-using-the-studio"></a><a name="monitor"></a>Monitoruj kod w chmurze za pomocą programu Studio
 
-Dane wyjściowe będą zawierać linki do programu Studio, które wyglądają następująco: `https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>` .
+Dane wyjściowe skryptu będą zawierać link do programu Studio, który wygląda następująco: `https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>` .
 
-Postępuj zgodnie z linkiem i przejdź do karty dane **wyjściowe i dzienniki** . Zobaczysz `70_driver_log.txt` plik, który wygląda następująco:
+Postępuj zgodnie z linkiem.  W pierwszej kolejności zobaczysz stan **przygotowywania**.  Pierwsze uruchomienie zajmie 5-10 minut. Dzieje się tak, ponieważ występują następujące sytuacje:
+
+* Obraz platformy Docker jest zbudowany w chmurze
+* Rozmiar klastra obliczeniowego jest zmieniany z 0 na 1 węzeł
+* Obraz platformy Docker zostanie pobrany do obliczenia. 
+
+Kolejne uruchomienia są znacznie szybsze (~ 15 sekund), ponieważ obraz platformy Docker jest buforowany w ramach obliczeń. Można to przetestować przez ponowne przesłanie poniższego kodu po zakończeniu pierwszego uruchomienia.
+
+Po zakończeniu zadania przejdź do karty dane **wyjściowe i dzienniki** . Zobaczysz `70_driver_log.txt` plik, który wygląda następująco:
 
 ```txt
  1: [2020-08-04T22:15:44.407305] Entering context manager injector.

@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: e19c5064dd69538dfc025b0d244baf4fa74706b2
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 33e2bf641b75a5dd360498478f1ea70c7614fb38
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753539"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071378"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Rozwiązywanie problemów z replikacją w przypadku migracji maszyn wirtualnych VMware bez agentów
 
@@ -49,7 +49,7 @@ W tej sekcji opisano niektóre typowe błędy i sposoby ich rozwiązywania.
 
 **Błąd:** "Key Vault operacji nie powiodła się. Operacja: generowanie definicji sygnatury dostępu współdzielonego, Key Vault: nazwa magazynu kluczy, konto magazynu: nazwa konta magazynu nie powiodła się z powodu błędu: "
 
-![Usługa Key Vault](./media/troubleshoot-changed-block-tracking-replication/key-vault.png)
+![Key Vault](./media/troubleshoot-changed-block-tracking-replication/key-vault.png)
 
 Ten błąd zazwyczaj występuje, ponieważ zasady dostępu użytkownika dla Key Vault nie dają obecnie zalogowanemu użytkownikowi uprawnień niezbędnych do skonfigurowania kont magazynu, które mają być Key Vault zarządzane. Aby sprawdzić zasady dostępu użytkowników w magazynie kluczy, przejdź do strony Magazyn kluczy w portalu dla magazynu kluczy i wybierz pozycję Zasady dostępu 
 
@@ -297,6 +297,24 @@ Jest to znany problem dotyczący oprogramowania VMware, w którym rozmiar dysku 
 ### <a name="error-message-an-internal-error-occurred-memory-allocation-failed-out-of-memory"></a>Komunikat o błędzie: Wystąpił błąd wewnętrzny. [Alokacja pamięci nie powiodła się. Za mało pamięci.]
 
 Dzieje się tak, gdy bufor hosta NFC ma za mało pamięci. Aby rozwiązać ten problem, należy przenieść maszynę wirtualną (COMPUTE vMotion) na innego hosta, który ma bezpłatne zasoby.
+
+## <a name="replication-cycle-failed"></a>Cykl replikacji nie powiódł się
+
+**Identyfikator błędu:** 181008
+
+**Komunikat o błędzie:** Maszyna wirtualna: "VMName". Błąd: nie znaleziono disksnapshots dla replikacji migawki o identyfikatorze migawki: "SnapshotID".
+
+**Możliwe przyczyny:**
+
+Możliwe przyczyny są następujące:
+1. Ścieżka co najmniej jednego z dołączonych dysków została zmieniona ze względu na VMotion magazynu.
+2. Co najmniej jeden dołączony dysk nie jest już dołączony do maszyny wirtualnej.
+      
+**Zaleca**
+
+Dostępne są następujące zalecenia
+1. Przywróć dyski dołączone do oryginalnej ścieżki przy użyciu usługi Storage vMotion, a następnie wyłącz vMotion magazynu.
+2. Wyłącz VMotion magazynu, jeśli ta funkcja jest włączona, Zatrzymaj replikację na maszynie wirtualnej i ponownie Replikuj maszynę wirtualną. Jeśli problem będzie nadal występować, skontaktuj się z działem pomocy technicznej.
 
 ## <a name="next-steps"></a>Następne kroki
 

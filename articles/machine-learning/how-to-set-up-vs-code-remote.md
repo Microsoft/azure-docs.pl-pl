@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.author: jmartens
-author: j-martens
+ms.author: luquinta
+author: luisquintanilla
 ms.date: 11/16/2020
-ms.openlocfilehash: 0afbf32f80a3d19f6db457f398a213a634cfa3d4
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3f3794ed4748eda44e863ff4627dedc0a34691af
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447059"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070103"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Nawiązywanie połączenia z wystąpieniem obliczeniowym Azure Machine Learning w Visual Studio Code (wersja zapoznawcza)
 

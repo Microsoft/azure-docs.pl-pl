@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 408ba76c44d1161a4b91ccc037721796c7b94661
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 3ae300ca2746ab9e3478d3fe14fd6fc49c95a93d
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500754"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071735"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnostyka rozruchu platformy Azure
 
@@ -21,10 +21,14 @@ Diagnostyka rozruchu to funkcja debugowania dla maszyn wirtualnych platformy Azu
 ## <a name="boot-diagnostics-storage-account"></a>Konto magazynu diagnostyki rozruchu
 Podczas tworzenia maszyny wirtualnej w Azure Portal Diagnostyka rozruchu jest domyślnie włączona. Zalecanym działaniem diagnostyki rozruchu jest użycie zarządzanego konta magazynu, ponieważ zapewnia ono znaczną poprawę wydajności w czasie tworzenia maszyny wirtualnej platformy Azure. Jest to spowodowane tym, że używane jest konto magazynu zarządzanego przez platformę Azure, usuwając czas potrzebny do utworzenia nowego konta magazynu użytkownika w celu przechowywania danych diagnostycznych rozruchowych.
 
-Alternatywna Obsługa diagnostyki rozruchu polega na użyciu konta magazynu zarządzanego przez użytkownika. Użytkownik może utworzyć nowe konto magazynu lub użyć istniejącego. 
-
 > [!IMPORTANT]
 > Obiekty BLOB danych diagnostyki rozruchu (które składają się z dzienników i obrazów migawek) są przechowywane na zarządzanym koncie magazynu. Klienci będą obciążani wyłącznie GiBs używanymi przez obiekty blob, a nie na dysku o nieobsługiwanym rozmiarze. Liczniki migawek zostaną użyte do rozliczania zarządzanego konta magazynu. Ze względu na to, że konta zarządzane są tworzone przy użyciu standardowej usługi LRS lub standardowej ZRS, w celu uzyskania rozmiaru obiektów BLOB danych diagnostycznych klienci będą obciążani za $0,05/GB miesięcznie. Aby uzyskać więcej informacji na temat tych cen, zobacz [Cennik usługi Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/). Klienci będą widzieć tę opłatę powiązana z identyfikatorem URI zasobu maszyny wirtualnej. 
+
+Alternatywna Obsługa diagnostyki rozruchu polega na użyciu konta magazynu zarządzanego przez użytkownika. Użytkownik może utworzyć nowe konto magazynu lub użyć istniejącego.
+> [!NOTE]
+> Konta magazynu zarządzane przez użytkownika skojarzone z diagnostyką rozruchu wymagają konta magazynu i skojarzonych maszyn wirtualnych znajdujących się w tej samej subskrypcji. 
+
+
 
 ## <a name="boot-diagnostics-view"></a>Widok diagnostyki rozruchu
 W bloku maszyna wirtualna opcja Diagnostyka rozruchu znajduje się w sekcji *Pomoc techniczna i rozwiązywanie problemów* w Azure Portal. Wybranie opcji Diagnostyka rozruchu spowoduje wyświetlenie zrzutu ekranu i informacji o dzienniku seryjnym. Dziennik seryjny zawiera komunikaty jądra, a zrzut ekranu jest migawką bieżącego stanu maszyn wirtualnych. Na podstawie tego, czy na maszynie wirtualnej jest uruchomiony system Windows lub Linux, decyduje o tym, jak będzie wyglądać oczekiwany zrzut ekranu. W przypadku systemu Windows użytkownicy zobaczą tło pulpitu i system Linux zobaczy monit logowania.

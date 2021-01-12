@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: e845efa2c1df47c80fcc10e7fb758f05af9fbecc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a2f57fd6a369fba4a78799f768eb3fd2f3d27050
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002140"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071480"
 ---
 # <a name="azure-cosmos-db-trigger-for-azure-functions-2x-and-higher"></a>Wyzwalacz Azure Cosmos DB dla Azure Functions 2. x i wyższych
 
@@ -91,6 +91,27 @@ Oto kod skryptu w języku C#:
     }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+Ta funkcja jest wywoływana, gdy w określonej bazie danych i kolekcji są wstawiane lub aktualizowane aktualizacje.
+
+```java
+    @FunctionName("cosmosDBMonitor")
+    public void cosmosDbProcessor(
+        @CosmosDBTrigger(name = "items",
+            databaseName = "ToDoList",
+            collectionName = "Items",
+            leaseCollectionName = "leases",
+            createLeaseCollectionIfNotExists = true,
+            connectionStringSetting = "AzureCosmosDBConnection") String[] items,
+            final ExecutionContext context ) {
+                context.getLogger().info(items.length + "item(s) is/are changed.");
+            }
+```
+
+
+W [bibliotece środowiska uruchomieniowego funkcji Java](/java/api/overview/azure/functions/runtime)Użyj `@CosmosDBTrigger` adnotacji w parametrach, których wartość pochodzi z Cosmos DB.  Tej adnotacji można używać w przypadku natywnych typów Java, Pojo lub wartości null przy użyciu `Optional<T>` .
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 W poniższym przykładzie pokazano powiązanie wyzwalacza Cosmos DB w *function.js* pliku oraz [funkcja języka JavaScript](functions-reference-node.md) , która używa powiązania. Funkcja zapisuje komunikaty dziennika po dodaniu lub zmodyfikowaniu Cosmos DB rekordów.
@@ -118,6 +139,31 @@ Oto kod JavaScript:
 
       context.done();
     }
+```
+
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+Poniższy przykład pokazuje, jak uruchomić funkcję jako zmiany danych w Cosmos DB.
+
+```json
+{
+  "type": "cosmosDBTrigger",
+  "name": "Documents",
+  "direction": "in",
+  "leaseCollectionName": "leases",
+  "connectionStringSetting": "MyStorageConnectionAppSetting",
+  "databaseName": "Tasks",
+  "collectionName": "Items",
+  "createLeaseCollectionIfNotExists": true
+}
+```
+
+W pliku _run.ps1_ masz dostęp do dokumentu, który wyzwala funkcję za pośrednictwem `$Documents` parametru.
+
+```powershell
+param($Documents, $TriggerMetadata) 
+
+Write-Host "First document Id modified : $($Documents[0].id)" 
 ```
 
 # <a name="python"></a>[Python](#tab/python)
@@ -151,27 +197,6 @@ Oto kod języka Python:
             logging.info('First document Id modified: %s', documents[0]['id'])
 ```
 
-# <a name="java"></a>[Java](#tab/java)
-
-Ta funkcja jest wywoływana, gdy w określonej bazie danych i kolekcji są wstawiane lub aktualizowane aktualizacje.
-
-```java
-    @FunctionName("cosmosDBMonitor")
-    public void cosmosDbProcessor(
-        @CosmosDBTrigger(name = "items",
-            databaseName = "ToDoList",
-            collectionName = "Items",
-            leaseCollectionName = "leases",
-            createLeaseCollectionIfNotExists = true,
-            connectionStringSetting = "AzureCosmosDBConnection") String[] items,
-            final ExecutionContext context ) {
-                context.getLogger().info(items.length + "item(s) is/are changed.");
-            }
-```
-
-
-W [bibliotece środowiska uruchomieniowego funkcji Java](/java/api/overview/azure/functions/runtime)Użyj `@CosmosDBTrigger` adnotacji w parametrach, których wartość pochodzi z Cosmos DB.  Tej adnotacji można używać w przypadku natywnych typów Java, Pojo lub wartości null przy użyciu `Optional<T>` .
-
 ---
 
 ## <a name="attributes-and-annotations"></a>Atrybuty i adnotacje
@@ -198,17 +223,21 @@ Pełny przykład można znaleźć w temacie [Trigger](#example).
 
 Atrybuty nie są obsługiwane przez skrypt języka C#.
 
+# <a name="java"></a>[Java](#tab/java)
+
+W [bibliotece środowiska uruchomieniowego usługi Java Functions](/java/api/overview/azure/functions/runtime)Użyj `@CosmosDBInput` adnotacji w parametrach, które odczytują dane z Cosmos DB.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Atrybuty nie są obsługiwane przez język JavaScript.
 
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+Atrybuty nie są obsługiwane przez program PowerShell.
+
 # <a name="python"></a>[Python](#tab/python)
 
 Atrybuty nie są obsługiwane przez język Python.
-
-# <a name="java"></a>[Java](#tab/java)
-
-W [bibliotece środowiska uruchomieniowego usługi Java Functions](/java/api/overview/azure/functions/runtime)Użyj `@CosmosDBInput` adnotacji w parametrach, które odczytują dane z Cosmos DB.
 
 ---
 

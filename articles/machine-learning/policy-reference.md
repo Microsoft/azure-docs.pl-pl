@@ -2,17 +2,17 @@
 title: Wbudowane definicje zasad dla Azure Machine Learning
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Machine Learning. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
 ms.date: 01/08/2021
-author: j-martens
-ms.author: jmartens
+ms.author: larryfr
+author: BlackMist
 ms.topic: reference
 ms.service: machine-learning
 ms.custom: subject-policy-reference
-ms.openlocfilehash: adab1a84b552e8ccdb70205c4437ee6fe00402c3
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: f7f380492d7e261038aab0fba9e775f1eaa28aa9
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051058"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98072296"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-machine-learning"></a>Azure Policy wbudowane definicje zasad dla Azure Machine Learning
 

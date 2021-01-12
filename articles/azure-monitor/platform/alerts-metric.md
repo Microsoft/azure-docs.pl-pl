@@ -4,14 +4,14 @@ description: Dowiedz się, jak używać Azure Portal lub interfejsu wiersza pole
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 01/11/2021
 ms.subservice: alerts
-ms.openlocfilehash: 8b1015573e4c01f01d82c7c152b66db80bef0aee
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 0518d3a2e1b67b33b9cb6bceb9754df302710f70
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342165"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071038"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Tworzenie i wyświetlanie alertów metryk oraz zarządzanie nimi w usłudze Azure Monitor
 
@@ -41,23 +41,23 @@ Poniższa procedura opisuje sposób tworzenia reguły alertu dotyczącego metryk
 7. Zostanie wyświetlony wykres metryki dla ostatnich sześciu godzin. Za pomocą listy rozwijanej **Okres wykresu** wybierz opcję, aby wyświetlić dłuższą historię dla metryki.
 
 8. Jeśli Metryka ma wymiary, zostanie wyświetlona tabela wymiarów. Wybierz co najmniej jedną wartość na wymiar.
-    - Wyświetlone wartości wymiarów są oparte na danych metryk z ostatnich trzech dni.
-    - Jeśli wartość wymiaru, którego szukasz, nie jest wyświetlana, kliknij przycisk "+", aby dodać wartość niestandardową.
-    - Możesz także **wybrać \* *_ dla dowolnego wymiaru. _*Wybierz \* pozycję*_ umożliwia dynamiczne skalowanie zaznaczenia do wszystkich bieżących i przyszłych wartości wymiaru.
+    - Wyświetlane wartości wymiarów są oparte na danych metryki z ostatniego dnia.
+    - Jeśli wartość wymiaru, którego szukasz, nie jest wyświetlana, kliknij pozycję "Dodaj wartość niestandardową", aby dodać niestandardową wartość wymiaru.
+    - Możesz również **wybrać wszystkie bieżące i przyszłe wartości** dla dowolnego z wymiarów. Spowoduje to dynamiczne skalowanie zaznaczenia do wszystkich bieżących i przyszłych wartości wymiaru.
 
     Reguła alertu metryki będzie szacować warunek dla wszystkich wybranych kombinacji wartości. [Dowiedz się więcej o tym, jak działa alert dotyczący metryk wielowymiarowych](alerts-metric-overview.md).
 
-9. Wybierz wartość _*Threshold** typ, **operator**i **typ agregacji**. Spowoduje to określenie logiki, która będzie Szacowana przez regułę alertu metryki.
+9. Wybierz typ **progu** , **operator** i **typ agregacji**. Spowoduje to określenie logiki, która będzie Szacowana przez regułę alertu metryki.
     - Jeśli używasz progu **statycznego** , Kontynuuj definiowanie **wartości progowej**. Wykres metryk może pomóc w ustaleniu, co może być rozsądnym progiem.
     - Jeśli używasz progu **dynamicznego** , Kontynuuj definiowanie **czułości progowej**. Na wykresie metryki zostaną wyświetlone obliczone progi na podstawie ostatnich danych. [Dowiedz się więcej o opcjach typu i czułości wartości progów dynamicznych](alerts-dynamic-thresholds.md).
 
 10. Opcjonalnie można uściślić warunek przez dostosowanie **stopnia szczegółowości agregacji** i **częstotliwości obliczania**. 
 
-11. Kliknij pozycję **Gotowe**.
+11. Kliknij przycisk **Gotowe**.
 
 12. Opcjonalnie dodaj kolejne kryteria, jeśli chcesz monitorować złożoną regułę alertów. Obecnie użytkownicy mogą mieć reguły alertów z kryteriami progów dynamicznych jako pojedyncze kryterium.
 
-13. Wypełnij **szczegóły alertu** , takie jak nazwa, **Opis**i **ważność** **reguły alertu**.
+13. Wypełnij **szczegóły alertu** , takie jak nazwa, **Opis** i **ważność** **reguły alertu**.
 
 14. Dodaj grupę akcji do alertu, wybierając istniejącą grupę akcji lub tworząc nową grupę akcji.
 
@@ -74,7 +74,7 @@ Reguły alertów dotyczących metryk można wyświetlać i zarządzać nimi za p
 
 2. Kliknij pozycję **alerty** i **Zarządzaj regułami**
 
-3. W bloku **Zarządzanie regułami** można wyświetlić wszystkie reguły alertów w różnych subskrypcjach. Można dodatkowo filtrować reguły przy użyciu  **grupy zasobów**, **typu zasobu**i **zasobu**. Jeśli chcesz zobaczyć tylko alerty metryk, wybierz pozycję **Typ sygnału** jako metryki.
+3. W bloku **Zarządzanie regułami** można wyświetlić wszystkie reguły alertów w różnych subskrypcjach. Można dodatkowo filtrować reguły przy użyciu  **grupy zasobów**, **typu zasobu** i **zasobu**. Jeśli chcesz zobaczyć tylko alerty metryk, wybierz pozycję **Typ sygnału** jako metryki.
 
     > [!TIP]
     > W bloku **Zarządzanie regułami** możesz wybrać wiele reguł alertów i włączyć je/wyłączyć. Może to być przydatne w przypadku, gdy pewne zasoby docelowe muszą zostać umieszczone w trybie konserwacji

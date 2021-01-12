@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: a3427be85314f06b5408c4450e0415768122879f
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: a5764a9f230540d58edf71e8c00781e86589aa9a
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913009"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070171"
 ---
 # <a name="configure-and-submit-training-runs"></a>Konfigurowanie i przesyłanie przebiegów trenowania
 
@@ -216,6 +216,8 @@ Zobacz te notesy, aby zapoznać się z przykładami konfigurowania przebiegów w
     4. Zainstaluj przy użyciu polecenia `pip install 'PyJWT<2.0.0'`
     
     W przypadku przesyłania środowiska utworzonego przez użytkownika z uruchomionym programem należy rozważyć użycie najnowszej wersji rdzenia Azure w tym środowisku. Wersje >= 1.18.0 z platformy Azure-Core już PyJWT < 2.0.0. Jeśli potrzebujesz użyć wersji programu Azure Core < 1.18.0 w przesłanym środowisku, upewnij się, że określono PyJWT < 2.0.0 w zależnościach PIP.
+
+* **Rozpoczęcie wykonywania obliczeń trwa długo**: obrazy platformy Docker dla obiektów docelowych obliczeń są ładowane z Azure Container Registry (ACR). Domyślnie Azure Machine Learning tworzy ACR, który korzysta z warstwy usługi *podstawowa* . Zmiana ACR dla obszaru roboczego na warstwę Standardowa lub Premium może skrócić czas potrzebny do kompilowania i ładowania obrazów. Aby uzyskać więcej informacji, zobacz [Azure Container Registry warstwy usług](../container-registry/container-registry-skus.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

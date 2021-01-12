@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/18/2020
-ms.openlocfilehash: 68f536e06ec5a40083d96745f5b72e511e423f64
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.date: 01/11/2021
+ms.openlocfilehash: a411f4ce261ee6d203e274efe3cf23ca23203453
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695181"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070905"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-by-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w usłudze Azure Synapse Analytics przy użyciu Azure Data Factory
 
@@ -391,7 +391,7 @@ Aby skopiować dane do usługi Azure Synapse Analytics, ustaw typ ujścia w dzia
 | writeBatchTimeout | Czas oczekiwania na zakończenie operacji wstawiania partii przed przekroczeniem limitu czasu.<br/><br/>Dozwolona wartość to **TimeSpan**. Przykład: "00:30:00" (30 minut). | Nie.<br/>Zastosuj przy użyciu wstawiania zbiorczego.        |
 | preCopyScript     | Określ zapytanie SQL dla działania kopiowania, które ma zostać uruchomione przed zapisaniem danych w usłudze Azure Synapse Analytics w każdym przebiegu. Ta właściwość służy do czyszczenia wstępnie załadowanych danych. | Nie                                            |
 | tableOption | Określa, czy [tabela ujścia ma być automatycznie tworzona,](copy-activity-overview.md#auto-create-sink-tables) Jeśli nie istnieje na podstawie schematu źródłowego. Dozwolone wartości to: `none` (domyślnie), `autoCreate` . |Nie |
-| disableMetricsCollection | Data Factory zbiera metryki, takie jak Azure Synapse Analytics jednostek dwu na potrzeby optymalizacji wydajności kopiowania i zaleceń. W przypadku tego zachowania należy określić, `true` aby je wyłączyć. | Nie (domyślnie `false` ) |
+| disableMetricsCollection | Data Factory zbiera metryki, takie jak Azure Synapse Analytics jednostek dwu na potrzeby optymalizacji wydajności kopiowania i zaleceń, co wprowadza dodatkowy dostęp do bazy danych Master. W przypadku tego zachowania należy określić, `true` aby je wyłączyć. | Nie (domyślnie `false` ) |
 
 #### <a name="azure-synapse-analytics-sink-example"></a>Przykład ujścia usługi Azure Synapse Analytics
 
@@ -838,7 +838,7 @@ W przypadku kopiowania danych z programu lub do usługi Azure Synapse Analytics 
 | :------------------------------------ | :----------------------------- |
 | bigint                                | Int64                          |
 | binarny                                | Byte []                         |
-| bit                                   | Wartość logiczna                        |
+| bit                                   | Boolean                        |
 | char                                  | String, Char []                 |
 | date                                  | DateTime                       |
 | Datetime (data/godzina)                              | DateTime                       |
@@ -853,7 +853,7 @@ W przypadku kopiowania danych z programu lub do usługi Azure Synapse Analytics 
 | nchar                                 | String, Char []                 |
 | numeryczne                               | Liczba dziesiętna                        |
 | nvarchar                              | String, Char []                 |
-| liczba rzeczywista                                  | Pojedyncze                         |
+| liczba rzeczywista                                  | Pojedynczy                         |
 | rowversion                            | Byte []                         |
 | smalldatetime                         | DateTime                       |
 | smallint                              | Int16                          |

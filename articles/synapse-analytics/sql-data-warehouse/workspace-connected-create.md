@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/25/2020
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: a1fbc6eede6c82020b765185602c672c1162fdf8
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 769ca4cf0ecbdba5fd80d977eb69c8a4f58df55f
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548192"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071191"
 ---
 # <a name="enabling-synapse-workspace-features-for-a-dedicated-sql-pool-formerly-sql-dw"></a>Włączanie funkcji obszaru roboczego Synapse dla dedykowanej puli SQL (dawniej SQL DW)
 
@@ -57,6 +57,9 @@ Poniższe kroki należy wykonać w celu upewnienia się, że do istniejącej ded
 4. Wybierz jedną z dedykowanych wystąpień puli SQL (dawniej SQL DW) hostowanej na serwerze logicznym. Na stronie Przegląd wybierz pozycję **Uruchom program Synapse Studio** lub przejdź do pozycji [Zaloguj się do programu Synapse Studio](https://web.azuresynapse.net) i zaloguj się w obszarze roboczym.
 
 5. Otwórz **centrum danych** i rozwiń dedykowaną pulę SQL w Eksploratorze obiektów, aby upewnić się, że masz dostęp i można było wysyłać zapytania do magazynu danych.
+
+    > [!NOTE] 
+    > Połączony obszar roboczy można usunąć w dowolnym momencie. Usunięcie obszaru roboczego nie spowoduje usunięcia połączonej dedykowanej puli SQL (dawniej SQL DW). Funkcję obszaru roboczego można włączyć ponownie w dedykowanej puli SQL (wcześniej w programie SQL DW) po ukończeniu operacji usuwania.
 
 ## <a name="next-steps"></a>Następne kroki
 Wprowadzenie do [obszaru roboczego Synapse i Studio](../get-started.md).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: 95c3ad6f689893195e0e5c17c59ab31143cf238d
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 473353c3f61d1096beb11c521c08ac723d54b780
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346523"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071610"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Korzystanie z adaptacyjnych kontrolek aplikacji w celu ograniczenia podatności na ataki maszyn
 
@@ -157,11 +157,6 @@ Aby edytować reguły dla grupy komputerów:
     To okienko zawiera nazwę grupy (którą można modyfikować), typ systemu operacyjnego, lokalizację i inne istotne szczegóły.
 
     :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="Strona Ustawienia grupy dla adaptacyjnych kontrolek aplikacji" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
-
-    > [!IMPORTANT]
-    > Opcja **Wymuś** w ustawieniach trybu ochrony typu pliku jest wyszarzona we **wszystkich** scenariuszach. W tej chwili nie są dostępne żadne opcje wymuszania. 
-    >
-    > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="Tryb wymuszania ochrony plików jest trwale szary. Nie są dostępne żadne opcje wymuszania.":::
 
 1. Opcjonalnie możesz zmodyfikować nazwy grupy lub tryby ochrony typów plików.
 

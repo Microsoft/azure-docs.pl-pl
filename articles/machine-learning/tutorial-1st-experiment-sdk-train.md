@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: df511e79b73256833ec54c5906bb6acbc852bc46
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: d2c0003058c2271e46a352567a14e1b01dfabdbf
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739624"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071106"
 ---
 # <a name="tutorial-train-your-first-machine-learning-model-part-3-of-4"></a>Samouczek: uczenie swojego pierwszego modelu uczenia maszynowego (część 3 z 4)
 
@@ -41,9 +41,6 @@ W tym samouczku zostały wykonane następujące czynności:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Zakończenie [części 2](tutorial-1st-experiment-hello-world.md) serii.
-* Wstępna wiedza dotycząca języka Python i przepływów pracy uczenia maszynowego.
-* Lokalne środowisko programistyczne, takie jak Visual Studio Code, Jupyter lub platformy PyCharm itd.
-* Python (wersja 3,5 do 3,7).
 
 ## <a name="create-training-scripts"></a>Tworzenie skryptów szkoleniowych
 
@@ -77,9 +74,7 @@ tutorial
 > [!div class="nextstepaction"]
 > [Moje skrypty szkoleniowe zostały utworzone](?success=create-scripts#environment) [w ramach problemu](https://www.research.net/r/7CTJQQN?issue=create-scripts)
 
-## <a name="create-a-python-environment"></a><a name="environment"></a> Tworzenie środowiska języka Python
-
-W celach demonstracyjnych będziemy używać środowiska Conda. (Kroki dla środowiska wirtualnego PIP są prawie identyczne).
+## <a name="create-a-new-python-environment"></a><a name="environment"></a> Utwórz nowe środowisko języka Python
 
 Utwórz plik o nazwie `pytorch-env.yml` w `.azureml` ukrytym katalogu:
 
@@ -92,18 +87,19 @@ To środowisko ma wszystkie zależności wymagane przez model i skrypt szkolenio
 
 ## <a name="test-locally"></a><a name="test-local"></a> Testuj lokalnie
 
-Użyj poniższego kodu, aby przetestować uruchamianie skryptu lokalnie w tym środowisku:
+Użyj poniższego kodu, aby przetestować skrypt lokalnie w nowym środowisku.  
 
 ```bash
-conda env create -f .azureml/pytorch-env.yml    # create conda environment
-conda activate pytorch-env                      # activate conda environment
+conda deactivate                                # If you are still using the tutorial environment, exit it
+conda env create -f .azureml/pytorch-env.yml    # create the new Conda environment
+conda activate pytorch-env                      # activate new Conda environment
 python src/train.py                             # train model
 ```
 
 Po uruchomieniu tego skryptu zobaczysz dane pobrane do katalogu o nazwie `tutorial/data` .
 
 > [!div class="nextstepaction"]
-> [Został utworzony plik środowiska, w którym](?success=test-local#create-local) [Wystąpił problem](https://www.research.net/r/7CTJQQN?issue=test-local)
+> [Uruchomiono kod lokalnie,](?success=test-local#create-local) [Wystąpił problem](https://www.research.net/r/7CTJQQN?issue=test-local)
 
 ## <a name="create-the-control-script"></a><a name="create-local"></a> Utwórz skrypt kontrolny
 
@@ -163,11 +159,11 @@ if __name__ == "__main__":
 
 ## <a name="submit-the-run-to-azure-machine-learning"></a><a name="submit"></a> Prześlij przebieg do Azure Machine Learning
 
-W przypadku przełączenia lokalnych środowisk należy koniecznie przełączyć się z powrotem do środowiska, w którym zainstalowano zestaw SDK Azure Machine Learning dla języka Python.
-
-Następnie uruchom polecenie:
+Wróć do środowiska *samouczka* , w którym zainstalowano zestaw SDK Azure Machine Learning dla języka Python. Ponieważ kod szkoleniowy nie jest uruchomiony na komputerze, nie trzeba instalować PyTorch.  Ale potrzebujesz `azureml-sdk` , który znajduje się w środowisku *samouczków* .
 
 ```bash
+conda deactivate
+conda activate tutorial
 python 04-run-pytorch.py
 ```
 

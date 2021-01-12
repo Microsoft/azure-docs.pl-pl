@@ -7,18 +7,17 @@ author: vladvino
 manager: erikre
 editor: ''
 ms.service: api-management
-ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/10/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: e36f7c6085908630d5e7aa2593fe4d57202d6ee7
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: d0d5434de747b48464df1c07f8c7b6a7e785c858
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107655"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070970"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Używanie usługi Azure API Management z sieciami wirtualnymi
 Sieci wirtualne platformy Azure umożliwiają umieszczanie dowolnych zasobów platformy Azure w sieci nieobsługującej routingu internetowego, do której kontrolujesz dostęp. Te sieci mogą następnie być połączone z sieciami lokalnymi przy użyciu różnych technologii sieci VPN. Aby dowiedzieć się więcej na temat sieci wirtualnych platformy Azure, Zacznij od informacji tutaj: [Omówienie usługi azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -113,20 +112,20 @@ Poniżej znajduje się lista typowych problemów z błędami konfiguracji, któr
 
 | Porty źródłowe/docelowe | Kierunek          | Protokół transportowy |   [Tagi usług](../virtual-network/network-security-groups-overview.md#service-tags) <br> Źródło/miejsce docelowe   | Cel ( \* )                                                 | Typ Virtual Network |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
-| */[80], 443                  | Inbound            | TCP                | INTERNET/VIRTUAL_NETWORK            | Komunikacja z klientem do API Management                      | Zewnętrzna             |
-| */3443                     | Inbound            | TCP                | ApiManagement/VIRTUAL_NETWORK       | Punkt końcowy zarządzania dla Azure Portal i programu PowerShell         | Wewnętrzna & zewnętrzna  |
-| */443                  | Outbound           | TCP                | VIRTUAL_NETWORK/magazyn             | **Zależność od usługi Azure Storage**                             | Wewnętrzna & zewnętrzna  |
-| */443                  | Outbound           | TCP                | VIRTUAL_NETWORK/usługi azureactivedirectory | [Azure Active Directory](api-management-howto-aad.md) i zależność magazynu kluczy platformy Azure                  | Wewnętrzna & zewnętrzna  |
-| */1433                     | Outbound           | TCP                | VIRTUAL_NETWORK/SQL                 | **Dostęp do punktów końcowych usługi Azure SQL**                           | Wewnętrzna & zewnętrzna  |
-| */433                     | Outbound           | TCP                | VIRTUAL_NETWORK/AzureKeyVault                 | **Dostęp do magazynu kluczy platformy Azure**                           | Wewnętrzna & zewnętrzna  |
-| */5671, 5672, 443          | Outbound           | TCP                | VIRTUAL_NETWORK/EventHub            | Zależność dla [dziennika do zasad usługi Event Hub](api-management-howto-log-event-hubs.md) i agenta monitorowania | Wewnętrzna & zewnętrzna  |
-| */445                      | Outbound           | TCP                | VIRTUAL_NETWORK/magazyn             | Zależność od udziału plików platformy Azure dla usługi [git](api-management-configuration-repository-git.md)                      | Wewnętrzna & zewnętrzna  |
-| */443, 12000                     | Outbound           | TCP                | VIRTUAL_NETWORK/AzureCloud            | Rozszerzenie kondycji i monitorowania         | Wewnętrzna & zewnętrzna  |
-| */1886, 443                     | Outbound           | TCP                | VIRTUAL_NETWORK/AzureMonitor         | Publikowanie [dzienników diagnostycznych i metryk](api-management-howto-use-azure-monitor.md), [Resource Health](../service-health/resource-health-overview.md) i [Application Insights](api-management-howto-app-insights.md)                   | Wewnętrzna & zewnętrzna  |
-| */25, 587, 25028                       | Outbound           | TCP                | VIRTUAL_NETWORK/INTERNET            | Nawiązywanie połączenia z przekaźnikiem SMTP w celu wysyłania wiadomości e-mail                    | Wewnętrzna & zewnętrzna  |
+| */[80], 443                  | Przychodzący            | TCP                | INTERNET/VIRTUAL_NETWORK            | Komunikacja z klientem do API Management                      | Zewnętrzna             |
+| */3443                     | Przychodzący            | TCP                | ApiManagement/VIRTUAL_NETWORK       | Punkt końcowy zarządzania dla Azure Portal i programu PowerShell         | Wewnętrzna & zewnętrzna  |
+| */443                  | Wychodzący           | TCP                | VIRTUAL_NETWORK/magazyn             | **Zależność od usługi Azure Storage**                             | Wewnętrzna & zewnętrzna  |
+| */443                  | Wychodzący           | TCP                | VIRTUAL_NETWORK/usługi azureactivedirectory | [Azure Active Directory](api-management-howto-aad.md) i zależność magazynu kluczy platformy Azure                  | Wewnętrzna & zewnętrzna  |
+| */1433                     | Wychodzący           | TCP                | VIRTUAL_NETWORK/SQL                 | **Dostęp do punktów końcowych usługi Azure SQL**                           | Wewnętrzna & zewnętrzna  |
+| */433                     | Wychodzący           | TCP                | VIRTUAL_NETWORK/AzureKeyVault                 | **Dostęp do magazynu kluczy platformy Azure**                           | Wewnętrzna & zewnętrzna  |
+| */5671, 5672, 443          | Wychodzący           | TCP                | VIRTUAL_NETWORK/EventHub            | Zależność dla [dziennika do zasad usługi Event Hub](api-management-howto-log-event-hubs.md) i agenta monitorowania | Wewnętrzna & zewnętrzna  |
+| */445                      | Wychodzący           | TCP                | VIRTUAL_NETWORK/magazyn             | Zależność od udziału plików platformy Azure dla usługi [git](api-management-configuration-repository-git.md)                      | Wewnętrzna & zewnętrzna  |
+| */443, 12000                     | Wychodzący           | TCP                | VIRTUAL_NETWORK/AzureCloud            | Rozszerzenie kondycji i monitorowania         | Wewnętrzna & zewnętrzna  |
+| */1886, 443                     | Wychodzący           | TCP                | VIRTUAL_NETWORK/AzureMonitor         | Publikowanie [dzienników diagnostycznych i metryk](api-management-howto-use-azure-monitor.md), [Resource Health](../service-health/resource-health-overview.md) i [Application Insights](api-management-howto-app-insights.md)                   | Wewnętrzna & zewnętrzna  |
+| */25, 587, 25028                       | Wychodzący           | TCP                | VIRTUAL_NETWORK/INTERNET            | Nawiązywanie połączenia z przekaźnikiem SMTP w celu wysyłania wiadomości e-mail                    | Wewnętrzna & zewnętrzna  |
 | */6381 – 6383              | Przychodzące & wychodzące | TCP                | VIRTUAL_NETWORK/VIRTUAL_NETWORK     | Dostęp do usługi Redis dla zasad [pamięci podręcznej](api-management-caching-policies.md) między maszynami         | Wewnętrzna & zewnętrzna  |
 | */4290              | Przychodzące & wychodzące | UDP                | VIRTUAL_NETWORK/VIRTUAL_NETWORK     | Liczniki synchronizacji dla zasad [limitu szybkości](api-management-access-restriction-policies.md#LimitCallRateByKey) między maszynami         | Wewnętrzna & zewnętrzna  |
-| * / *                        | Inbound            | TCP                | AZURE_LOAD_BALANCER/VIRTUAL_NETWORK | Load Balancer infrastruktury platformy Azure                          | Wewnętrzna & zewnętrzna  |
+| * / *                        | Przychodzący            | TCP                | AZURE_LOAD_BALANCER/VIRTUAL_NETWORK | Load Balancer infrastruktury platformy Azure                          | Wewnętrzna & zewnętrzna  |
 
 >[!IMPORTANT]
 > Porty, dla których *przeznaczenie* jest **pogrubienie** , są wymagane do pomyślnego wdrożenia usługi API Management. Zablokowanie innych portów spowoduje jednak **obniżenie wydajności** i **monitorowanie uruchomionej usługi oraz zapewnienie zatwierdzonej umowy SLA**.
@@ -147,6 +146,9 @@ Poniżej znajduje się lista typowych problemów z błędami konfiguracji, któr
   > Zmiana klastrów powyżej przy użyciu strefy DNS **. nsatc.NET** do **. microsoftmetrics.com** jest przede wszystkim zmianą DNS. Adres IP klastra nie ulegnie zmianie.
 
 + **Regionalne znaczniki usług**: reguły sieciowej grupy zabezpieczeń umożliwiające łączność wychodzącą z tagami usługi Storage, SQL i Event Hubs mogą używać regionalnych wersji tych tagów odpowiadających regionowi zawierającemu wystąpienie API Management (na przykład Storage. Zachodnie dla wystąpienia API Management w regionie zachodnie stany USA). W przypadku wdrożeń obejmujących wiele regionów sieciowej grupy zabezpieczeń w każdym regionie powinien zezwalać na ruch do tagów usługi dla tego regionu i regionu podstawowego.
+
+    > [!IMPORTANT]
+    > Aby włączyć publikowanie [portalu dla deweloperów](api-management-howto-developer-portal.md) w przypadku wystąpienia API Management w sieci wirtualnej, upewnij się, że można również zezwolić na połączenia wychodzące z magazynem obiektów BLOB w regionie zachodnie stany USA. Na przykład użyj znacznika usługi **Storage. Zachodnie** w regule sieciowej grupy zabezpieczeń. Łączność z magazynem obiektów BLOB w regionie zachodnie stany USA jest obecnie wymagana do opublikowania portalu dla deweloperów dla dowolnego wystąpienia API Management.
 
 + **Przekaźnik SMTP**: wychodząca łączność sieciowa dla przekaźnika SMTP, która jest rozpoznawana pod kątem hosta `smtpi-co1.msn.com` , `smtpi-ch1.msn.com` , `smtpi-db3.msn.com` `smtpi-sin.msn.com` i `ies.global.microsoft.com`
 

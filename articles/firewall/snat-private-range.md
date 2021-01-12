@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 01/11/2021
 ms.author: victorh
-ms.openlocfilehash: c5613dda7adbbc47f989bc2a772777e716620b3c
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 0df91680dadbc4ac19299a4df48a585a11f044e8
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97348037"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98072245"
 ---
 # <a name="azure-firewall-snat-private-ip-address-ranges"></a>Zakresy prywatnych adresów IP zapory systemu Azure
 
@@ -25,6 +25,9 @@ Jeśli Twoja organizacja używa zakresu publicznego adresu IP dla sieci prywatny
 - Aby skonfigurować zaporę platformy Azure w taki sposób, aby **nigdy nie** były kierowane adresy IP, należy użyć wartości **0.0.0.0/0** jako zakresu prywatnych adresów IP. W przypadku tej konfiguracji zapora platformy Azure nigdy nie może kierować ruchu bezpośrednio do Internetu. 
 
 - Aby skonfigurować zaporę w taki sposób, aby **zawsze** używała adresów IP bez względu na adres docelowy, użyj wartości **255.255.255.255/32** jako zakresu prywatnego adresu.
+
+> [!IMPORTANT]
+> Określony zakres adresów prywatnych dotyczy tylko reguł sieci. Obecnie reguły aplikacji zawsze są poddanymi translatorem adresów sieciowych.
 
 > [!IMPORTANT]
 > Jeśli chcesz określić własne zakresy prywatnych adresów IP i zachować domyślne zakresy organizacji IANA RFC 1918, upewnij się, że Lista niestandardowa nadal zawiera zakres w dokumencie IANA RFC 1918. 

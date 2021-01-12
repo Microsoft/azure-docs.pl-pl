@@ -4,14 +4,14 @@ description: Typowe problemy związane z alertami metryk Azure Monitor i możliw
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 01/03/2021
+ms.date: 01/11/2021
 ms.subservice: alerts
-ms.openlocfilehash: 9a05fe509e032681a0bf5ed989595a25f66d33c6
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: e4e876b58c82605df0c005b225dcf2cdbcda1b34
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857345"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070735"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Rozwiązywanie problemów z alertami metryk usługi Azure Monitor 
 
@@ -91,9 +91,9 @@ Jeśli szukasz alertu dotyczącego określonej metryki, ale nie widzisz go podcz
 Jeśli chcesz otrzymywać alerty dotyczące [określonych wartości wymiarów metryki](./alerts-metric-overview.md#using-dimensions), ale nie można znaleźć tych wartości, zwróć uwagę na następujące kwestie:
 
 1. Wyświetlenie wartości wymiarów na liście **Wartości wymiarów** może potrwać kilka minut
-1. Wyświetlone wartości wymiarów są oparte na danych metryk zebranych w ciągu ostatnich trzech dni
-1. Jeśli wartość wymiaru nie jest jeszcze emitowana, kliknij znak "+", aby dodać wartość niestandardową
-1. Jeśli chcesz otrzymywać alerty dotyczące wszystkich możliwych wartości wymiaru (w tym przyszłych wartości), zaznacz pole wyboru "Select *"
+1. Wyświetlane wartości wymiarów są oparte na danych metryk zebranych w ciągu ostatniego dnia
+1. Jeśli wartość wymiaru nie jest jeszcze emitowana lub nie jest wyświetlana, można użyć opcji "Dodaj wartość niestandardową", aby dodać niestandardową wartość wymiaru
+1. Jeśli chcesz otrzymywać alerty dotyczące wszystkich możliwych wartości wymiaru (w tym przyszłych wartości), wybierz opcję "zaznacz wszystkie bieżące i przyszłe wartości"
 
 ## <a name="metric-alert-rules-still-defined-on-a-deleted-resource"></a>Reguły alertów metryki są nadal zdefiniowane dla usuniętego zasobu 
 

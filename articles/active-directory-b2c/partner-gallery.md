@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4592742b99d7c3e915c31ca5a202355d32e76d68
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 15b4b61fd250dfb7d68c563f9f42c7d288a0019c
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356127"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070868"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Azure Active Directory B2C partnerów niezależnych dostawców oprogramowania
 
@@ -54,10 +54,10 @@ Partnerzy firmy Microsoft z następującymi dostawcami oprogramowania dla uwierz
 | ![Zrzut ekranu przedstawiający logo firmy Nevis](./media/partner-gallery/nevis-logo.png) | Program [Nevis](./partner-nevis.md) umożliwia uwierzytelnianie bez haseł i zapewnia mobilny, w pełni oznakowany interfejs użytkownika końcowego w celu uzyskania silnego uwierzytelniania klienta i zapewnienia zgodności z wymaganiami transakcji PSD2. |
 | ![Zrzut ekranu przedstawiający logo trusona](./media/partner-gallery/trusona-logo.png) | Integracja usługi [Trusona](./partner-trusona.md) pomaga w bezpiecznym logowaniu i umożliwia korzystanie z uwierzytelniania bez hasła, usługi MFA i skanowania licencji cyfrowych. |
 | ![Zrzut ekranu przedstawiający logo Twilio.](./media/partner-gallery/twilio-logo.png) | [Twilio Sprawdź, czy aplikacja](./partner-twilio.md) udostępnia wiele rozwiązań umożliwiających korzystanie z usługi MFA za pośrednictwem hasła jednorazowego (OTP) usługi SMS, hasła jednorazowego (TOTP) i powiadomień wypychanych oraz zgodność z wymaganiami SCA dla PSD2. |
-| ![Zrzut ekranu przedstawiający logo typingDNA](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-twilio.md) umożliwia silne uwierzytelnianie klienta przez analizowanie wzorca wpisywania przez użytkownika. Pomaga firmom w włączaniu dyskretnej usługi MFA i spełnianiu wymagań SCA dla PSD2. |
+| ![Zrzut ekranu przedstawiający logo typingDNA](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-typingdna.md) umożliwia silne uwierzytelnianie klienta przez analizowanie wzorca wpisywania przez użytkownika. Pomaga firmom w włączaniu dyskretnej usługi MFA i spełnianiu wymagań SCA dla PSD2. |
 | ![Zrzut ekranu przedstawiający logo whoiam](./media/partner-gallery/whoiam-logo.png) | [WhoIAM](./partner-whoiam.md) to aplikacja typu "Mark Management System" (BRIMS), która umożliwia organizacjom Weryfikowanie bazy użytkowników przy użyciu głosu, wiadomości SMS i wiadomości e-mail. |
 
-## <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach 
+## <a name="role-based-access-control"></a>Kontrola dostępu na podstawie ról 
  
 Partnerzy firmy Microsoft z następującymi niezależnymi dostawcami oprogramowania do kontroli dostępu opartej na rolach.
 

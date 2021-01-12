@@ -3,12 +3,12 @@ title: Dowiedz się, jak przeprowadzić inspekcję zawartości maszyn wirtualnyc
 description: Dowiedz się, w jaki sposób Azure Policy używa klienta konfiguracji gościa do inspekcji ustawień wewnątrz maszyn wirtualnych.
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 58fe1c630de4abfb2fe04ddedb45b360cfebd423
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 5ec43516c60d2fe5d923a7b87cddbea0ad640453
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862332"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071837"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Opis konfiguracji gościa usługi Azure Policy
 
@@ -153,8 +153,6 @@ Rozszerzenie konfiguracji gościa zapisuje pliki dzienników w następujących l
 Windows: `C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
 
 Linux: `/var/lib/GuestConfig/gc_agent_logs/gc_agent.log`
-
-Gdzie `<version>` odwołuje się do bieżącego numeru wersji.
 
 ### <a name="collecting-logs-remotely"></a>Zdalne zbieranie dzienników
 

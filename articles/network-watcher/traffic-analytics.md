@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: damendo
 ms.reviewer: vinigam
 ms.custom: references_regions
-ms.openlocfilehash: 8b1eedc47d2a89b9552c22b3ae770f655f926945
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 6cd1965ab51e7a7bbcc65836383000f0773b9b82
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898780"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070945"
 ---
 # <a name="traffic-analytics"></a>Analiza ruchu
 
@@ -64,7 +64,7 @@ Analizy ruchu można użyć dla sieciowych grup zabezpieczeń w jednym z następ
       Australia Środkowa  
       Australia Wschodnia  
       Australia Południowo-Wschodnia  
-      Brazylia Południowa  
+      Brazil South  
       Kanada Środkowa  
       Kanada Wschodnia  
       Indie Środkowe  
@@ -118,7 +118,7 @@ Obszar roboczy Log Analytics musi istnieć w następujących regionach:
       Australia Środkowa  
       Australia Wschodnia  
       Australia Południowo-Wschodnia  
-      Brazylia Południowa  
+      Brazil South  
       Kanada Środkowa  
       Indie Środkowe  
       Central US  
@@ -131,7 +131,7 @@ Obszar roboczy Log Analytics musi istnieć w następujących regionach:
       Wschodnie stany USA 2 — EUAP  
       Francja Środkowa  
       Niemcy Środkowo-Zachodnie  
-      Japonia Wschodnia  
+      Japan East  
       Korea Środkowa  
       Północno-środkowe stany USA  
       Europa Północna  
@@ -269,7 +269,7 @@ Niektóre szczegółowe informacje, które można uzyskać po skonfigurowaniu An
 - Statystyka zablokowanego ruchu.
     - Dlaczego host blokuje znaczną ilość nieszkodliwego ruchu? To zachowanie wymaga dalszych badań i prawdopodobnie zoptymalizować konfigurację
 - Statystyka złośliwego dozwolonego/zablokowanego ruchu
-  - Dlaczego Host odbiera złośliwy ruch i dlaczego są dozwolone przepływy ze złośliwego źródła? To zachowanie wymaga dalszych badań i prawdopodobnie zoptymalizować konfigurację.
+  - Dlaczego Host odbiera złośliwy ruch i dlaczego są obsługiwane przepływy ze złośliwych źródeł? To zachowanie wymaga dalszych badań i prawdopodobnie zoptymalizować konfigurację.
 
     Wybierz pozycję **Zobacz wszystkie** w obszarze **host**, jak pokazano na poniższej ilustracji:
 

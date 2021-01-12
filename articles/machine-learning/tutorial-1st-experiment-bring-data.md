@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: tracking-python
-ms.openlocfilehash: de89f9d87b010dc3710e7d82f4d846de12303905
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: ab497dee35afdd60247d156d0f30bbf003ea1210
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739437"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98072160"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>Samouczek: korzystanie z własnych danych (część 4 z 4)
 
@@ -40,9 +40,6 @@ W tym samouczku zostały wykonane następujące czynności:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Zakończenie [części 3](tutorial-1st-experiment-sdk-train.md) serii.
-* Wstępna wiedza dotycząca języka Python i przepływów pracy uczenia maszynowego.
-* Lokalne środowisko programistyczne, takie jak Visual Studio Code, Jupyter lub platformy PyCharm itd.
-* Python (wersja 3,5 do 3,7).
 
 ## <a name="adjust-the-training-script"></a>Dostosuj skrypt szkoleniowy
 
@@ -130,7 +127,7 @@ Utwórz nowy skrypt kontrolki języka Python o nazwie `05-upload-data.py` w `tut
 >[!TIP] 
 > Gdy używasz Azure Machine Learning do przekazywania danych, możesz użyć [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/) do przekazywania plików ad hoc. Jeśli potrzebujesz narzędzia ETL, możesz użyć [Azure Data Factory](../data-factory/introduction.md) do pozyskiwania danych na platformie Azure.
 
-Uruchom plik Python, aby przekazać dane. (Przekazywanie powinno być szybkie, mniejsze niż 60 sekund).
+W oknie, które ma aktywowane środowisko *tutorial1* Conda, uruchom plik Python w celu przekazania danych. (Przekazywanie powinno być szybkie, mniejsze niż 60 sekund).
 
 ```bash
 python 05-upload-data.py

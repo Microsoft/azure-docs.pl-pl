@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 5df8b478c550522d4602398afd208c1e001c96a2
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: fae9a4b1b82a1fe23e8882b45880a6ba0081f580
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883303"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071134"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>Samouczek: wprowadzenie do Azure Machine Learning w środowisku programistycznym (część 1 z 4)
 
@@ -32,30 +32,47 @@ W części 1 tej serii samouczków będziesz:
 > * Skonfiguruj klaster obliczeniowy.
 
 > [!NOTE]
-> W tej serii samouczków omówiono Azure Machine Learning koncepcje dostosowane do zadań uczenia maszynowego *opartych na zadaniach* w języku Python, które są pracochłonne i/lub wymagają odtwarzalności. Jeśli jesteś bardziej interesujący przepływ pracy badawczej, zamiast tego możesz użyć [Jupyter lub RStudio na wystąpieniu obliczeniowym Azure Machine Learning](tutorial-1st-experiment-sdk-setup.md).
+> Ta seria samouczków koncentruje się na Azure Machine Learning koncepcji wymaganych do przesłania **zadań wsadowych** — jest to miejsce, w którym kod jest przesyłany do chmury w celu uruchomienia w tle bez żadnej interakcji z użytkownikiem. Jest to przydatne w przypadku gotowych skryptów lub kodu, który ma być wykonywany wielokrotnie, lub do zadań uczenia maszynowego intensywnie korzystających z obliczeń. Jeśli jesteś bardziej interesujący przepływ pracy badawczej, zamiast tego możesz użyć [Jupyter lub RStudio na wystąpieniu obliczeniowym Azure Machine Learning](tutorial-1st-experiment-sdk-setup.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz bezpłatne konto. Spróbuj [Azure Machine Learning](https://aka.ms/AMLFree).
-- Znajomość [pojęć związanych](concept-azure-machine-learning-architecture.md)z językiem Python i Machine Learning. Przykłady obejmują środowiska, szkolenia i ocenianie.
-- Lokalne środowisko programistyczne, takie jak Visual Studio Code, Jupyter lub platformy PyCharm itd.
-- Python (wersja 3,5 do 3,7).
-
+- [Anaconda](https://www.anaconda.com/download/) lub [Miniconda](https://www.anaconda.com/download/) , aby zarządzać środowiskami wirtualnymi języka Python i zainstalować pakiety.
 
 ## <a name="install-the-azure-machine-learning-sdk"></a>Instalowanie zestawu SDK Azure Machine Learning
 
-W tym samouczku użyjemy zestawu Azure Machine Learning SDK dla języka Python.
+W tym samouczku zostanie użyty zestaw Azure Machine Learning SDK dla języka Python. Aby uniknąć problemów z zależnościami w języku Python, utworzysz środowisko izolowane. Ta seria samouczków używa Conda do utworzenia tego środowiska. Jeśli wolisz używać innych rozwiązań, takich jak `venv` , `virtualenv` , lub platformy Docker, upewnij się, że używasz wersji Python >= 3,5 i < 3,9.
 
-Aby skonfigurować środowisko Python do użycia w tym samouczku, można użyć najważniejszych narzędzi (na przykład Conda i PIP). Zainstaluj w środowisku Python zestaw Azure Machine Learning SDK dla języka Python za pośrednictwem narzędzia PIP:
+Sprawdź, czy w systemie jest zainstalowany program Conda:
+    
+```bash
+conda --version
+```
+    
+Jeśli to polecenie zwróci `conda not found` błąd, [Pobierz i zainstaluj Miniconda](https://docs.conda.io/en/latest/miniconda.html). 
+
+Po zainstalowaniu programu Conda należy użyć terminalu lub okna monitu Anaconda w celu utworzenia nowego środowiska:
 
 ```bash
+conda create -n tutorial python=3.7
+```
+
+Następnie Zainstaluj zestaw SDK Azure Machine Learning w utworzonym środowisku Conda:
+
+```bash
+conda activate tutorial
 pip install azureml-sdk
 ```
+    
+> [!NOTE]
+> Ukończenie instalacji zestawu SDK Azure Machine Learning trwa około 5 minut.
+
 
 > [!div class="nextstepaction"]
 > Po [zainstalowaniu zestawu SDK](?success=install-sdk#dir) [Wystąpił problem](https://www.research.net/r/7C8Z3DN?issue=install-sdk)
 
 ## <a name="create-a-directory-structure-for-code"></a><a name="dir"></a>Tworzenie struktury katalogów dla kodu
+
 Zalecamy skonfigurowanie następującej prostej struktury katalogów dla tego samouczka:
 
 ```markdown
@@ -68,8 +85,9 @@ tutorial
 
 > [!TIP]
 > W oknie terminalu można utworzyć ukryty podkatalog. Azure.  Lub użyj następujących czynności:
+>
 > * W oknie Wyszukiwacz Mac Użyj **polecenia + Shift +.** Aby przełączać możliwość wyświetlania i tworzenia katalogów rozpoczynających się od kropki.  
-> * W systemie Windows 10 zapoznaj [się z tematem jak wyświetlać ukryte pliki i foldery](https://support.microsoft.com/en-us/windows/view-hidden-files-and-folders-in-windows-10-97fbc472-c603-9d90-91d0-1166d1d9f4b5). 
+> * W Eksploratorze plików systemu Windows 10 zapoznaj [się z tematem jak wyświetlać ukryte pliki i foldery](https://support.microsoft.com/en-us/windows/view-hidden-files-and-folders-in-windows-10-97fbc472-c603-9d90-91d0-1166d1d9f4b5). 
 > * W interfejsie graficznym systemu Linux Użyj **klawiszy CTRL + h** lub menu **Widok** , a następnie zaznacz pole, aby **wyświetlić ukryte pliki**.
 
 > [!div class="nextstepaction"]
@@ -104,7 +122,7 @@ ws = Workspace.create(name='<my_workspace_name>', # provide a name for your work
 ws.write_config(path='.azureml')
 ```
 
-Uruchom ten kod z `tutorial` katalogu:
+W oknie, które ma aktywowane środowisko *tutorial1* Conda, Uruchom ten kod z `tutorial` katalogu.
 
 ```bash
 cd <path/to/tutorial>
@@ -163,7 +181,7 @@ except ComputeTargetException:
 cpu_cluster.wait_for_completion(show_output=True)
 ```
 
-Uruchom plik języka Python:
+W oknie, które ma aktywowane środowisko *tutorial1* Conda, uruchom plik języka Python:
 
 ```bash
 python ./02-create-compute.py
@@ -185,6 +203,19 @@ tutorial
 
 > [!div class="nextstepaction"]
 > [Klaster obliczeniowy został utworzony](?success=create-compute-cluster#next-steps) [w ramach problemu](https://www.research.net/r/7C8Z3DN?issue=create-compute-cluster)
+
+## <a name="view-in-the-studio"></a>Wyświetl w Studio
+
+Zaloguj się do [Azure Machine Learning Studio](https://ml.azure.com) , aby wyświetlić utworzone obszary robocze i wystąpienia obliczeniowe.
+
+1. Wybierz **subskrypcję** , która została użyta do utworzenia obszaru roboczego.
+1. Wybierz utworzony **obszar roboczy Machine Learning** , *samouczek — WS*.
+1. Po załadowaniu obszaru roboczego po lewej stronie wybierz pozycję **Oblicz**.
+1. W górnej części Wybierz kartę **Klastry obliczeniowe** .
+
+:::image type="content" source="media/tutorial-1st-experiment-sdk-local/compute-instance-in-studio.png" alt-text="Zrzut ekranu: Wyświetl wystąpienie obliczeniowe w obszarze roboczym.":::
+
+Ten widok przedstawia klaster obliczeniowy z obsługą administracyjną wraz z liczbą węzłów bezczynnych, zajętymi węzłami i nieudostępnianymi węzłami.  Ponieważ klaster nie został jeszcze użyty, wszystkie węzły są obecnie niezainicjowane.
 
 ## <a name="next-steps"></a>Następne kroki
 

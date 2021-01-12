@@ -6,17 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 10/27/2020
 ms.custom: automl
-ms.openlocfilehash: 2d759a8ed58d5b323f9894a5127c222ce1f75c52
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: ee9267637c5e3250bfcd543ca46c39d513725819
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97345980"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98072228"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Co to jest automatyczne Uczenie maszynowe (AutoML)?
 
@@ -173,7 +172,7 @@ Należy wziąć pod uwagę te zalety i wady, gdy wybierzesz opcję używania lok
 
  Więcej funkcji jest dostępnych w przypadku korzystania ze zdalnych obliczeń, jak pokazano w poniższej tabeli. 
 
-| Cecha                                                    | Zdalne | Lokalne | 
+| Cechy                                                    | Zdalne | Lokalne | 
 |------------------------------------------------------------|--------|-------|
 | Przesyłanie strumieniowe danych (obsługa dużej ilości danych, do 100 GB)          | ✓      |       | 
 | DNN BERT tekstu cechowania i szkolenia             | ✓      |       |
@@ -224,7 +223,7 @@ Poniższe ustawienia umożliwiają skonfigurowanie zautomatyzowanego eksperyment
 |**Konfigurowanie horyzontu prognoz, Target spowolnienia & przedziału**|✓|✓
 |**Ustawianie kryteriów zakończenia** |✓|✓ 
 |**Ustaw współbieżne iteracje**| ✓|✓
-|**Upuszczanie kolumn**| ✓|✓
+|**Usuwanie kolumn**| ✓|✓
 |**Algorytmy blokowania**|✓|✓
 |**Krzyżowe sprawdzanie poprawności** |✓|✓
 |**Obsługuje szkolenia dotyczące klastrów Azure Databricks**| ✓|
