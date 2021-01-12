@@ -9,18 +9,18 @@ ms.subservice: overview
 ms.date: 10/28/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: c315dae7e5f02f112dfdfbec02e1ebaaa5e48a9f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e5b12632a60ad5580325fbcda294e1a600bb2b6b
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445775"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121706"
 ---
 # <a name="what-is-azure-synapse-analytics"></a>Co to jest usługa Azure Synapse Analytics?
 
 Analiza przedsiębiorstwa musi być wydajna na bardzo dużą skalę w przypadku dowolnego rodzaju danych, zarówno nieprzetworzony, rafinowany, jak i wysoce nadzorowany. Zwykle jest to konieczne, aby przedsiębiorstwa współpracowały z dużą ilością danych i technologiami magazynowania danych w złożonych potokach danych, które działają między danymi w magazynach relacyjnych i jeziorach danych. Te rodzaje rozwiązań są trudne do skompilowania, utrzymania i zabezpieczenia. Opóźnienia w zakresie złożoności zapewniające zapotrzebowanie na przedsiębiorstwa.
 
-**Azure Synapse** to zintegrowana usługa analityczna, która przyspiesza czas w celu wglądu w dane między magazynami danych i systemami danych Big Data. Usługa Azure Synapse umożliwia łączenie najlepszych technologii **SQL** używanych w magazynie danych w przedsiębiorstwie, technologii **Spark** używanych w przypadku danych Big Data oraz **potoków** do integracji danych i ETL/ELT. Program **Synapse Studio** zapewnia ujednolicone środowisko zarządzania, monitorowania, kodowania i zabezpieczeń. Synapse ma ścisłą integrację z innymi usługami platformy Azure, takimi jak **Power BI**, **CosmosDB** i **Azure**.
+**Azure Synapse** to zintegrowana usługa analityczna, która przyspiesza czas w celu wglądu w dane między magazynami danych i systemami danych Big Data. Usługa Azure Synapse umożliwia łączenie najlepszych technologii **SQL** używanych w magazynach danych w przedsiębiorstwie, technologii **Spark** używanych w przypadku danych Big Data, **potoków** do integracji danych i ETL/ELT oraz głębokiej integracji z innymi usługami platformy Azure, takimi jak **Power BI**, **CosmosDB** i **Azure**.
 
 ## <a name="key-features--benefits"></a>Najważniejsze funkcje & korzyści
 
@@ -28,7 +28,7 @@ Analiza przedsiębiorstwa musi być wydajna na bardzo dużą skalę w przypadku 
 
 * **Synapse SQL** to rozproszony system zapytań, który umożliwia przedsiębiorstwom wdrażanie scenariuszy magazynowania danych i wirtualizacji danych przy użyciu standardowych i znanych środowisk T-SQL. Rozszerza również możliwości programu SQL na potrzeby obsługi przesyłania strumieniowego i scenariuszy uczenia maszynowego.
 
-* Program Synapse SQL oferuje **bezserwerowe** i **dedykowane** modele zasobów, oferując opcje zużycia i rozliczeń w celu dopasowania do Twoich potrzeb. Aby zapewnić przewidywalną wydajność i koszt, Utwórz dedykowane pule SQL, aby zarezerwować moc obliczeniową dla danych przechowywanych w tabelach SQL. W przypadku obciążeń nieplanowanych lub na rozerwanie należy użyć punktu końcowego SQL Always dostępnego serwera.
+* Program Synapse SQL oferuje **bezserwerowe** i **dedykowane** modele zasobów, oferując opcje zużycia i rozliczeń w celu dopasowania do Twoich potrzeb. Aby zapewnić przewidywalność wydajności i kosztów, utwórz dedykowane pule SQL, umożliwiające zarezerwowanie mocy obliczeniowej dla danych przechowywanych w tabelach SQL. W przypadku obciążeń nieplanowanych lub na rozerwanie należy użyć punktu końcowego SQL Always dostępnego serwera.
 * Korzystanie z wbudowanych funkcji **przesyłania strumieniowego** w celu wywożenia danych ze źródeł danych w chmurze w tabelach SQL
 * Integrowanie AI z programem SQL przy użyciu modeli **uczenia maszynowego** do oceny danych za pomocą [funkcji przewidywania T-SQL](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)
 
@@ -80,6 +80,6 @@ Usługa Azure Synapse umożliwia przedsiębiorstwom zarządzanie zasobami analit
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Rozpoczynanie pracy z usługą Azure Synapse Analytics](get-started.md)
+* [Wprowadzenie do usługi Azure Synapse Analytics](get-started.md)
 * [Tworzenie obszaru roboczego](quickstart-create-workspace.md)
 * [Korzystanie z bezserwerowej puli SQL](quickstart-sql-on-demand.md)

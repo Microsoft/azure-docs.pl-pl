@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 09/13/2020
-ms.openlocfilehash: 73b18d15ad054f1c485d6f61cdefe54993148bc4
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: f11693b34048b11c02668e086561b9a6521a5213
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450544"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121529"
 ---
 # <a name="visualize-data"></a>Wizualizowanie danych
 Azure Synapse to zintegrowana usługa analityczna, która przyspiesza czas w celu wglądu w dane, między magazynami danych i systemami analizy danych Big Data. Wizualizacja danych to kluczowy składnik, który umożliwia uzyskanie wglądu w dane. Ułatwia to zrozumienie dużych i małych ilości danych. Ułatwia również wykrywanie wzorców, trendów i wartości odstających w grupach danych. 
@@ -34,7 +34,7 @@ Aby uzyskać dostęp do opcji wykresu:
    ![wbudowane wykresy](./media/apache-spark-development-using-notebooks/synapse-built-in-charts.png#lightbox)
 
 3. Teraz możesz dostosować wizualizację, określając następujące wartości:
-   | Konfigurowanie | Opis |
+   | Konfiguracja | Opis |
    |--|--| 
    | Typ wykresu | ```display```Funkcja obsługuje szeroką gamę typów wykresów, w tym wykresy słupkowe, kreślenia punktowe, wykresy liniowe i inne |
    | Klucz | Określ zakres wartości dla osi x|
@@ -227,7 +227,7 @@ Można odwiedzić [dokumentację](./spark/../apache-spark-version-support.md) ś
 ## <a name="connect-to-power-bi-using-apache-spark--sql-on-demand"></a>Nawiązywanie połączenia z usługą Power BI przy użyciu usługi Apache Spark & SQL na żądanie
 Usługa Azure Synapse Analytics integruje się z Power BI umożliwiających inżynierom danych Tworzenie rozwiązań analitycznych.
 
-Usługa Azure Synapse Analytics umożliwia korzystanie z różnych aparatów obliczeniowych obszarów roboczych w celu udostępniania baz danych i tabel między pulami platformy Spark i bezserwerową pulą SQL. Korzystając z [modelu metadanych udostępnionych](https://docs.microsoft.com/azure/synapse-analytics/metadata/overview), można wykonywać zapytania dotyczące tabel Apache Spark przy użyciu programu SQL na żądanie. Po wykonaniu tych czynności możesz połączyć punkt końcowy na żądanie SQL, aby Power BI łatwo wykonywać zapytania dotyczące zsynchronizowanych tabel platformy Spark.
+Usługa Azure Synapse Analytics umożliwia korzystanie z różnych aparatów obliczeniowych obszarów roboczych w celu udostępniania baz danych i tabel między pulami platformy Spark i bezserwerową pulą SQL. Korzystając z [modelu metadanych udostępnionych](../metadata/overview.md), można wykonywać zapytania dotyczące tabel Apache Spark przy użyciu programu SQL na żądanie. Po wykonaniu tych czynności możesz połączyć punkt końcowy na żądanie SQL, aby Power BI łatwo wykonywać zapytania dotyczące zsynchronizowanych tabel platformy Spark.
 
 
 ## <a name="next-steps"></a>Następne kroki
