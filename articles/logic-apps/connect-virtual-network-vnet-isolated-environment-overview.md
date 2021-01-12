@@ -3,19 +3,19 @@ title: Dostęp do sieci wirtualnych platformy Azure
 description: Omówienie sposobu, w jaki środowiska usług Integration Service (ISEs) ułatwiają aplikacjom logiki dostęp do sieci wirtualnych platformy Azure (sieci wirtualnych)
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 11/12/2020
-ms.openlocfilehash: 19c9ec39d85bfc56b118498aba62c3752d6d771c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/11/2021
+ms.openlocfilehash: 7bb9c8552f673587891fde12e25d4fb899726c22
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996325"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108572"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Dostęp do zasobów platformy Azure Virtual Network z Azure Logic Apps przy użyciu środowisk usługi integracji (ISEs)
 
-Czasami Aplikacje logiki muszą mieć dostęp do zabezpieczonych zasobów, takich jak maszyny wirtualne i inne systemy lub usługi, które znajdują się w [sieci wirtualnej platformy Azure](../virtual-network/virtual-networks-overview.md)lub są z nią połączone. Aby skonfigurować ten dostęp, można [utworzyć *środowisko usługi integracji* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). ISE to wystąpienie usługi Logic Apps, która używa dedykowanych zasobów i jest uruchamiane niezależnie od "globalnej" usługi Logic Apps z wieloma dzierżawcami.
+Czasami Aplikacje logiki muszą mieć dostęp do zabezpieczonych zasobów, takich jak maszyny wirtualne i inne systemy lub usługi, które znajdują się w [sieci wirtualnej platformy Azure](../virtual-network/virtual-networks-overview.md)lub są z nią połączone. Aby skonfigurować ten dostęp, można [utworzyć *środowisko usługi integracji* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). ISE to wystąpienie usługi Logic Apps, która używa dedykowanych zasobów i jest uruchamiane niezależnie od "globalnej" usługi Logic Apps z wieloma dzierżawcami. Dane w ISE pozostają w tym [samym regionie, w którym tworzysz i wdrażasz ten ISE](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 Na przykład niektóre sieci wirtualne platformy Azure używają prywatnych punktów końcowych, które można skonfigurować za pomocą [linku prywatnego platformy Azure](../private-link/private-link-overview.md), aby zapewnić dostęp do usług PaaS platformy Azure, takich jak Azure Storage, Azure Cosmos DB lub Azure SQL Database, usług partnerskich lub usług klienta hostowanych na platformie Azure. Jeśli aplikacje logiki wymagają dostępu do sieci wirtualnych, które używają prywatnych punktów końcowych, należy utworzyć, wdrożyć i uruchomić te aplikacje logiki w ramach ISE.
 
@@ -99,7 +99,7 @@ Po utworzeniu ISE można wybrać jednostkę SKU dla deweloperów lub jednostkę 
 
   Oferuje tańsze ISE, których można użyć do eksperymentowania, programowania i testowania, ale nie do testowania produkcji ani wydajności. Jednostka SKU dla deweloperów obejmuje wbudowane wyzwalacze i akcje, łączniki standardowe, łączniki przedsiębiorstwa oraz zintegrowane konto integracji z jedną [warstwą](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) dla ustalonej ceny miesięcznej. Jednak ta jednostka SKU nie obejmuje żadnej umowy dotyczącej poziomu usług (SLA), opcji skalowania pojemności lub nadmiarowości podczas odtwarzania, co oznacza, że mogą wystąpić opóźnienia lub przestoje.
 
-* **Tytułu**
+* **Premium**
 
   Oferuje ISE, którego można użyć do produkcji i obejmuje obsługę umów SLA, wbudowane wyzwalacze i akcje, łączniki standardowe, łączniki przedsiębiorstwa, pojedyncze konto integracji [warstwy standardowej](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) , opcje skalowania pojemności i nadmiarowości podczas odtwarzania przez ustaloną cenę miesięczną.
 

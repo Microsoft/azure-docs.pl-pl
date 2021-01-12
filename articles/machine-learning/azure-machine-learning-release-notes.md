@@ -9,16 +9,36 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: 1cc6c8cd49a2388ad66a276f4a1667b4c3ee3826
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 0ecf47ecdc66c0005f0d793d91a67af102fb1c76
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070324"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107909"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Informacje o wersji Azure Machine Learning
 
 W tym artykule dowiesz się więcej na temat wydań Azure Machine Learning.  Aby uzyskać pełną zawartość referencyjną SDK, odwiedź stronę referencyjną [**głównego zestawu sdk Azure Machine Learning dla języka Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) .
+
+
+ ## <a name="2021-01-11"></a>2021-01-11
+
+### <a name="azure-machine-learning-sdk-for-python-v1200"></a>Zestaw Azure Machine Learning SDK dla języka Python v 1.20.0
++ **Poprawki i ulepszenia błędów**
+  + **Azure — interfejs wiersza polecenia**
+    + framework_version dodana w OptimizationConfig. Będzie on używany, gdy model jest zarejestrowany w ramach platformy Framework.
+  + **azureml-automl-runtime**
+    + W ramach tej aktualizacji dodaliśmy Holt Winters wykładnicze na potrzeby prognozowania zestawu SDK AutoML. W przypadku szeregów czasowych najlepszym modelem jest wybierany przez [AICc (kryterium informacyjne skorygowane Akaike)](https://otexts.com/fpp3/selecting-predictors.html#selecting-predictors) i zwrócone.
+  + **Uczenie maszynowe — contrib — Optymalizacja**
+    + framework_version dodana w OptimizationConfig. Będzie on używany, gdy model jest zarejestrowany w ramach platformy Framework.
+  + **azureml-pipeline-steps**
+    + Wprowadzenie do CommandStep, które spowodują wykonanie polecenia. Polecenie może zawierać pliki wykonywalne, polecenia powłoki, skrypty itp.
+  + **azureml-core**
+    + Teraz Tworzenie obszaru roboczego obsługuje tożsamość przypisaną przez użytkownika. Dodawanie obsługi UAI z zestawu SDK/interfejsu wiersza polecenia
+    + Rozwiązano problem związany z usługą. reload () w celu pobrania zmian w score.py w lokalnym wdrożeniu.
+    + `run.get_details()` zawiera dodatkowe pole o nazwie "submittedBy", które wyświetla nazwę autora dla tego przebiegu.
+    + Edytowano dokumentację metody model. Register, aby wspomnieć, jak zarejestrować model z przebiegu bezpośrednio
+   
 
 ## <a name="2020-12-31"></a>2020-12-31
 ### <a name="azure-machine-learning-studio-notebooks-experience-december-update"></a>Środowisko Azure Machine Learning Studio notesy (Aktualizacja z grudnia)
@@ -31,6 +51,7 @@ W tym artykule dowiesz się więcej na temat wydań Azure Machine Learning.  Aby
   + Ulepszone czasy ładowania stron
   + Większa wydajność 
   + Ulepszona szybkość i niezawodność jądra
+
   
 ## <a name="2020-12-07"></a>2020-12-07
 

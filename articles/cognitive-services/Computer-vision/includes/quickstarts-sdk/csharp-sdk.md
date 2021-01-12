@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 645ae636adb1fcc3f3a79e6cbca618f4e341418f
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 1826edb31c442fb10b8053433ec01ee5abad0eb2
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98052966"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98109497"
 ---
 <a name="HOLTop"></a>
 
@@ -51,7 +51,7 @@ Po utworzeniu nowego projektu Zainstaluj bibliotekę kliencką, klikając prawym
 W oknie konsoli (na przykład cmd, PowerShell lub bash) Użyj `dotnet new` polecenia, aby utworzyć nową aplikację konsolową o nazwie `computer-vision-quickstart` . To polecenie tworzy prosty projekt C# "Hello world" z pojedynczym plikiem źródłowym: *program.cs*.
 
 ```console
-dotnet new console -n (product-name)-quickstart
+dotnet new console -n computer-vision-quickstart
 ```
 
 Zmień katalog na nowo utworzony folder aplikacji. Aplikację można skompilować przy użyciu:

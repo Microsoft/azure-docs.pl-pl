@@ -5,21 +5,18 @@ services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/12/2019
 ms.author: cynthn
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 456c42dc0b25e168744ce283cddbd63b877813ab
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ebff49db895468549a7abd420e7b74292b742eab
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747149"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108640"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Samouczek — dostosowywanie maszyny wirtualnej z systemem Linux na platformie Azure podczas pierwszego rozruchu za pomocą pakietu cloud-init
 
@@ -39,17 +36,7 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z
 
 Pakiet cloud-init działa również w różnych dystrybucjach. Przykładowo nie używa się poleceń **apt-get install** lub **yum install** do zainstalowania pakietu. Zamiast tego możesz zdefiniować listę pakietów do zainstalowania. Pakiet cloud-init automatycznie używa natywnego narzędzia do zarządzania pakietami dla wybranej dystrybucji.
 
-Wraz z partnerami pracujemy nad tym, aby pakiet cloud-init był uwzględniany i uruchamiany w obrazach, których dostarczają na platformie Azure. W poniższej tabeli przedstawiono bieżącą dostępność pakietu cloud-init w obrazach na platformie Azure:
-
-| Publisher | Oferta | Jednostka SKU | Wersja | Cloud-init gotowe |
-|:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |18,04 – LTS |latest |yes | 
-|Canonical |UbuntuServer |16.04-LTS |latest |yes | 
-|Canonical |UbuntuServer |14.04.5-LTS |latest |yes |
-|CoreOS |CoreOS |Stable |latest |yes |
-|OpenLogic 7,6 |CentOS |7-CI |latest |preview |
-|RedHat 7,6 |RHEL |7-RAW-CI |7.6.2019072418 |yes |
-|RedHat 7,7 |RHEL |7-RAW-CI |7.7.2019081601 |preview |
+Wraz z partnerami pracujemy nad tym, aby pakiet cloud-init był uwzględniany i uruchamiany w obrazach, których dostarczają na platformie Azure. Aby uzyskać szczegółowe informacje o obsłudze inicjowania w chmurze dla każdej dystrybucji, zobacz [Obsługa funkcji Cloud-init dla maszyn wirtualnych na platformie Azure](using-cloud-init.md).
 
 
 ## <a name="create-cloud-init-config-file"></a>Tworzenie pliku konfiguracji cloud-init
@@ -102,13 +89,13 @@ runcmd:
 Aby uzyskać więcej informacji o opcjach konfiguracji pakietu cloud-init, zobacz [przykłady konfiguracji pakietu cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/examples.html).
 
 ## <a name="create-virtual-machine"></a>Tworzenie maszyny wirtualnej
-Zanim będzie można utworzyć maszynę wirtualną, utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az-group-create). Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroupAutomate* w lokalizacji *eastus* :
+Zanim będzie można utworzyć maszynę wirtualną, utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az-group-create). Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroupAutomate* w lokalizacji *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroupAutomate --location eastus
 ```
 
-Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm#az-vm-create). Użyj parametru `--custom-data` do przekazania w pliku konfiguracji cloud-init. Podaj pełną ścieżkę do pliku konfiguracji *cloud-init.txt* , jeśli plik został zapisany poza aktualnym katalogiem roboczym. Poniższy przykład tworzy maszynę wirtualną o nazwie *myVM* :
+Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm#az-vm-create). Użyj parametru `--custom-data` do przekazania w pliku konfiguracji cloud-init. Podaj pełną ścieżkę do pliku konfiguracji *cloud-init.txt*, jeśli plik został zapisany poza aktualnym katalogiem roboczym. Poniższy przykład tworzy maszynę wirtualną o nazwie *myVM*:
 
 ```azurecli-interactive
 az vm create \
@@ -147,7 +134,7 @@ Poniższa procedura przedstawia:
 - Tworzenie maszyny wirtualnej i wstrzykiwanie certyfikatu
 
 ### <a name="create-an-azure-key-vault"></a>Tworzenie usługi Azure Key Vault
-Najpierw utwórz usługę Key Vault za pomocą polecenia [az keyvault create](/cli/azure/keyvault#az-keyvault-create) i włącz ją do użycia podczas wdrażania maszyny wirtualnej. Każda usługa Key Vault wymaga unikatowej nazwy, która powinna zawierać tylko małe litery. Zamień wartość *mykeyvault* w poniższym przykładzie na własną unikatową nazwę usługi Key Vault:
+Najpierw utwórz usługę Key Vault za pomocą polecenia [az keyvault create](/cli/azure/keyvault#az-keyvault-create) i włącz ją do użycia podczas wdrażania maszyny wirtualnej. Każda usługa Key Vault wymaga unikatowej nazwy, która powinna zawierać tylko małe litery. Zamień wartość `mykeyvault` w poniższym przykładzie na własną unikatową nazwę usługi Key Vault:
 
 ```azurecli-interactive
 keyvault_name=mykeyvault
@@ -181,7 +168,7 @@ vm_secret=$(az vm secret format --secret "$secret" --output json)
 
 
 ### <a name="create-cloud-init-config-to-secure-nginx"></a>Tworzenie konfiguracji cloud-init do zabezpieczenia serwera NGINX
-Podczas tworzenia maszyny wirtualnej certyfikaty i klucze są przechowywane w chronionym katalogu */var/lib/agentawaagent/* . Aby zautomatyzować dodawanie certyfikatu do maszyny wirtualnej i konfigurowanie serwera NGINX, możesz użyć zaktualizowanego pliku konfiguracji cloud-init z poprzedniego przykładu.
+Podczas tworzenia maszyny wirtualnej certyfikaty i klucze są przechowywane w chronionym katalogu */var/lib/agentawaagent/*. Aby zautomatyzować dodawanie certyfikatu do maszyny wirtualnej i konfigurowanie serwera NGINX, możesz użyć zaktualizowanego pliku konfiguracji cloud-init z poprzedniego przykładu.
 
 Utwórz plik o nazwie *cloud-init-secured.txt* i wklej następującą konfigurację. Jeśli używasz Cloud Shell, Utwórz plik konfiguracji Cloud-init w tym miejscu, a nie na komputerze lokalnym. Na przykład wpisz, `sensible-editor cloud-init-secured.txt` Aby utworzyć plik i wyświetlić listę dostępnych edytorów. Upewnij się, że skopiowano cały plik cloud-init chmury, a szczególnie pierwszy wiersz:
 

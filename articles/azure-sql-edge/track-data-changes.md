@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 86e84c60aec99246f58b5dc9d67584b23a3969f3
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: dddaad3e171c757b353deb81ffcb77cfbe706340
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394932"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108266"
 ---
 # <a name="track-data-changes-in-azure-sql-edge"></a>Śledzenie zmian danych w usłudze Azure SQL Edge
 
@@ -36,6 +36,9 @@ Aby administrować i monitorować tę funkcję, zobacz [administrowanie i monito
 
 Aby zrozumieć, jak wykonywać zapytania i współdziałać ze zmienionymi danymi, zobacz [Work with Change Data](/sql/relational-databases/track-changes/work-with-change-data-sql-server).
 
+> [!NOTE]
+> Funkcje przechwytywania zmian danych, które są zależne od środowiska CLR, nie są obsługiwane w usłudze Azure SQL Edge.
+
 ## <a name="change-tracking"></a>Śledzenie zmian
 
 Aby zapoznać się ze szczegółami dotyczącymi sposobu działania tej funkcji, zobacz [Informacje o śledzeniu zmian](/sql/relational-databases/track-changes/about-change-tracking-sql-server).
@@ -48,7 +51,7 @@ Aby zrozumieć, jak wykonywać zapytania i współdziałać ze zmienionymi danym
 
 ## <a name="temporal-tables"></a>Tabele danych czasowych
 
-Usługa Azure SQL Edge obsługuje również funkcję tabel danych czasowych programu SQL Server. Ta funkcja (znana także jako tabele danych czasowych *z systemową obsługą wersji* ) oferuje wbudowaną obsługę przekazywania informacji o danych przechowywanych w tabeli w dowolnym momencie. Ta funkcja nie zapewnia po prostu informacji o danych, które są poprawne w bieżącym momencie.
+Usługa Azure SQL Edge obsługuje również funkcję tabel danych czasowych programu SQL Server. Ta funkcja (znana także jako tabele danych czasowych *z systemową obsługą wersji*) oferuje wbudowaną obsługę przekazywania informacji o danych przechowywanych w tabeli w dowolnym momencie. Ta funkcja nie zapewnia po prostu informacji o danych, które są poprawne w bieżącym momencie.
 
 Tabela danych czasowych z systemową obsługą wersji jest typem tabeli użytkownika, która jest przeznaczona do przechowywania pełnej historii zmian danych i pozwala na łatwą analizę punktu w czasie. Ten typ tabeli danych czasowych jest określany jako tabela danych czasowych z systemową obsługą, ponieważ okres ważności każdego wiersza jest zarządzany przez system (to jest aparat bazy danych).
 

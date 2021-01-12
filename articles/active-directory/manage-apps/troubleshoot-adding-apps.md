@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/11/2018
 ms.author: kenwith
-ms.openlocfilehash: 714cbb06506cc3e0dffe74007712d9cbad072284
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: f873608d07785e6b99bd8e0fcdadf64a8899d490
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655072"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108419"
 ---
 # <a name="troubleshoot-common-problem-adding-or-removing-an-application-to-azure-active-directory"></a>Rozwiązywanie typowych problemów z dodawaniem lub usuwaniem aplikacji do Azure Active Directory
 Ten artykuł ułatwia zapoznanie się z typowymi problemami występującymi podczas dodawania lub usuwania aplikacji do Azure Active Directory.
@@ -43,7 +43,7 @@ Przycisk Usuń zostanie wyłączony w następujących scenariuszach:
 
 - W przypadku aplikacji firmy Microsoft nie będzie można usuwać ich z interfejsu użytkownika niezależnie od roli.
 
-- Dla obiektów serviceprincipal, które odpowiadają tożsamości zarządzanej. Nie można usunąć podmiotów usługi zarządzanych tożsamości w bloku aplikacje dla przedsiębiorstw. Musisz przejść do zasobu platformy Azure, aby nim zarządzać. Wyczyść więcej informacji o [tożsamości zarządzanej](../managed-identities-azure-resources/overview.md)
+- Dla obiektów serviceprincipal, które odpowiadają tożsamości zarządzanej. Nie można usunąć podmiotów usługi zarządzanych tożsamości w bloku aplikacje dla przedsiębiorstw. Musisz przejść do zasobu platformy Azure, aby nim zarządzać. Dowiedz się więcej o [tożsamości zarządzanej](../managed-identities-azure-resources/overview.md)
 
 ## <a name="how-to-see-the-details-of-a-portal-notification"></a>Jak wyświetlić szczegóły powiadomienia portalu
 Szczegóły dowolnego powiadomienia portalu można wyświetlić, wykonując poniższe kroki:

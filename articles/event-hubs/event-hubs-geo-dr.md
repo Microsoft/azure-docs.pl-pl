@@ -3,12 +3,12 @@ title: Replikacja geograficzna — odzyskiwanie po awarii — Event Hubs platfor
 description: Jak używać regionów geograficznych do przełączania awaryjnego i wykonywania odzyskiwania po awarii na platformie Azure Event Hubs
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: e10ac5847a38190c8feaae5e51f9b55bee4c4fbc
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 8824334e762237c3f18cb763d5b39fa55d6415a3
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861475"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108492"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs — odzyskiwanie geograficzne 
 
@@ -54,10 +54,10 @@ Obsługiwane są następujące kombinacje podstawowych i pomocniczych przestrzen
 
 | Podstawowa przestrzeń nazw | Pomocnicza przestrzeń nazw | Obsługiwane | 
 | ----------------- | -------------------- | ---------- |
-| Standard | Standard | Tak | 
-| Standard | Dedykowane | Tak | 
+| Standardowa | Standardowa | Tak | 
+| Standardowa | Dedykowane | Tak | 
 | Dedykowane | Dedykowane | Tak | 
-| Dedykowane | Standard | Nie | 
+| Dedykowane | Standardowa | Nie | 
 
 > [!NOTE]
 > Nie można sparować przestrzeni nazw, które znajdują się w tym samym dedykowanym klastrze. Można sparować przestrzenie nazw, które znajdują się w osobnych klastrach. 
@@ -70,7 +70,29 @@ Poniższa sekcja zawiera omówienie procesu pracy w trybie failover i wyjaśnia,
 
 ### <a name="setup"></a>Konfigurowanie
 
-Najpierw należy utworzyć lub użyć istniejącej głównej przestrzeni nazw oraz nowej pomocniczej przestrzeni nazw, a następnie sparować te dwa. Ta parowanie zapewnia alias, którego można użyć do nawiązania połączenia. Ponieważ używasz aliasu, nie musisz zmieniać parametrów połączenia. Do parowania trybu failover można dodawać tylko nowe przestrzenie nazw. Na koniec należy dodać monitorowanie w celu wykrycia, czy jest konieczne przełączenie w tryb failover. W większości przypadków usługa jest jedną częścią dużego ekosystemu, dzięki czemu automatyczne przełączanie w tryb failover jest mało prawdopodobne, ponieważ często należy wykonać synchronizację z pozostałym podsystemem lub infrastrukturą.
+Najpierw należy utworzyć lub użyć istniejącej głównej przestrzeni nazw oraz nowej pomocniczej przestrzeni nazw, a następnie sparować te dwa. Ta parowanie zapewnia alias, którego można użyć do nawiązania połączenia. Ponieważ używasz aliasu, nie musisz zmieniać parametrów połączenia. Do parowania trybu failover można dodawać tylko nowe przestrzenie nazw. 
+
+1. Utwórz podstawową przestrzeń nazw.
+1. Utwórz pomocniczą przestrzeń nazw. Ta czynność jest opcjonalna. Można utworzyć pomocniczą przestrzeń nazw podczas tworzenia parowania w następnym kroku. 
+1. W Azure Portal przejdź do podstawowej przestrzeni nazw.
+1. Wybierz opcję **odzyskiwanie geograficzne** z menu po lewej stronie, a następnie wybierz pozycję **Inicjuj parowanie** na pasku narzędzi. 
+
+    :::image type="content" source="./media/event-hubs-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Inicjuj Parowanie z podstawowej przestrzeni nazw":::    
+1. Na stronie **Inicjowanie parowania** wybierz istniejącą pomocniczą przestrzeń nazw lub utwórz ją, a następnie wybierz pozycję **Utwórz**. W poniższym przykładzie wybrano istniejącą pomocniczą przestrzeń nazw. 
+
+    :::image type="content" source="./media/event-hubs-geo-dr/initiate-pairing-page.png" alt-text="Wybierz pomocniczą przestrzeń nazw":::        
+1. Teraz w przypadku wybrania opcji **odzyskiwanie geograficzne** dla podstawowej przestrzeni nazw powinna zostać wyświetlona strona **aliasu Geo-Dr** , która wygląda jak na poniższej ilustracji:
+
+    :::image type="content" source="./media/event-hubs-geo-dr/geo-dr-alias-page.png" alt-text="Strona aliasu Geo-DR":::    
+1. Na tej stronie **przeglądu** można wykonać następujące czynności: 
+    1. Przerwij parowanie między podstawowymi i pomocniczymi przestrzeniami nazw. Wybierz pozycję **Przerwij parowanie** na pasku narzędzi. 
+    1. Ręczne przełączenie w tryb failover do pomocniczej przestrzeni nazw. Wybierz pozycję **tryb failover** na pasku narzędzi. 
+    
+        > [!WARNING]
+        > Przełączenie w tryb failover spowoduje uaktywnienie pomocniczej przestrzeni nazw i usunięcie podstawowej przestrzeni nazw z parowania odzyskiwania Geo-Disaster. Utwórz inną przestrzeń nazw, aby miała nową parę odzyskiwania po awarii geograficznej. 
+1. Na stronie **aliasu Geo-Dr** wybierz pozycję **zasady dostępu współdzielonego** , aby uzyskać dostęp do podstawowych parametrów połączenia dla aliasu. Użyj tych parametrów połączenia zamiast używać parametrów połączenia do bezpośredniej/pomocniczej przestrzeni nazw. 
+
+Na koniec należy dodać monitorowanie w celu wykrycia, czy jest konieczne przełączenie w tryb failover. W większości przypadków usługa jest jedną częścią dużego ekosystemu, dzięki czemu automatyczne przełączanie w tryb failover jest mało prawdopodobne, ponieważ często należy wykonać synchronizację z pozostałym podsystemem lub infrastrukturą.
 
 ### <a name="example"></a>Przykład
 

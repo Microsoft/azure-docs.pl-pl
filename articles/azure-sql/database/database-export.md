@@ -9,14 +9,14 @@ author: stevestein
 ms.custom: sqldbrb=2
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 07/16/2019
+ms.date: 01/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 7dc6cd580687544226b61a29ca9ccf2d1b8dff42
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f874803e0ae361255754477ca68184255f35b91f
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92671538"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107382"
 ---
 # <a name="export-to-a-bacpac-file---azure-sql-database-and-azure-sql-managed-instance"></a>Eksportowanie do Azure SQL Database pliku BACPAC i wystąpienia zarządzanego usługi Azure SQL
 
@@ -24,12 +24,13 @@ ms.locfileid: "92671538"
 
 W przypadku konieczności eksportowania bazy danych na potrzeby archiwizacji lub przechodzenia do innej platformy można wyeksportować schemat bazy danych i dane do pliku [BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#Anchor_4) . Plik BACPAC jest plikiem ZIP z rozszerzeniem BACPAC zawierającym metadane i dane z bazy danych. Plik BACPAC może być przechowywany w usłudze Azure Blob Storage lub w magazynie lokalnym w lokalizacji lokalnej, a później zaimportowany z powrotem do Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL lub wystąpienia SQL Server.
 
-## <a name="considerations"></a>Kwestie do rozważenia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 
 - Aby eksport był spójnie sprzeczny, należy upewnić się, że nie ma żadnych działań zapisu w trakcie eksportowania lub że eksportuje się z [sprzecznej z transakcyjną kopią](database-copy.md) bazy danych.
 - Jeśli eksportujesz do magazynu obiektów blob, maksymalny rozmiar pliku BACPAC wynosi 200 GB. Aby zarchiwizować większy plik BACPAC, należy wyeksportować do magazynu lokalnego.
 - Eksportowanie pliku BACPAC do usługi Azure Premium Storage przy użyciu metod omówionych w tym artykule nie jest obsługiwane.
 - Magazyn za zaporą nie jest obecnie obsługiwany.
+- Nazwa pliku magazynu lub wartość wejściowa dla StorageURI powinna być krótsza niż 128 znaków i nie może kończyć się znakiem "." i nie może zawierać znaków specjalnych, takich jak spacja lub "<, >, *,%, &,:, \, /,?". 
 - Jeśli operacja eksportu przekroczy 20 godzin, może zostać anulowana. Aby zwiększyć wydajność podczas eksportowania, możesz:
 
   - Tymczasowe zwiększenie rozmiaru obliczeń.
@@ -54,9 +55,9 @@ Eksportowanie BACPAC bazy danych z [wystąpienia zarządzanego Azure SQL](../man
 
     ![Eksport bazy danych](./media/database-export/database-export2.png)
 
-3. Kliknij pozycję **OK** .
+3. Kliknij przycisk **OK**.
 
-4. Aby monitorować postęp operacji eksportowania, Otwórz stronę dla serwera zawierającego wyeksportowaną bazę danych. W obszarze do **Ustawienia** , a następnie kliknij pozycję **Importuj/Eksportuj historię** .
+4. Aby monitorować postęp operacji eksportowania, Otwórz stronę dla serwera zawierającego wyeksportowaną bazę danych. W obszarze do **Ustawienia** , a następnie kliknij pozycję **Importuj/Eksportuj historię**.
 
    ![Eksportuj historię](./media/database-export/export-history.png)
 
@@ -89,7 +90,7 @@ $exportRequest = New-AzSqlDatabaseExport -ResourceGroupName $ResourceGroupName -
   -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
 ```
 
-Aby sprawdzić stan żądania eksportu, należy użyć polecenia cmdlet [Get-AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus) . Uruchomienie to natychmiast po żądaniu zwykle zwraca **stan: w toku** . Gdy widzisz **stan: powodzenie** eksportu zostało zakończone.
+Aby sprawdzić stan żądania eksportu, należy użyć polecenia cmdlet [Get-AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus) . Uruchomienie to natychmiast po żądaniu zwykle zwraca **stan: w toku**. Gdy widzisz **stan: powodzenie** eksportu zostało zakończone.
 
 ```powershell
 $exportStatus = Get-AzSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink

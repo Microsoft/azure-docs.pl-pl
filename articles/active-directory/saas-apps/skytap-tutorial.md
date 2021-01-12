@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/13/2020
 ms.author: jeedes
-ms.openlocfilehash: b2a6b902f1c6b7e06b1a72b183007fbb9fe05c3c
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 5577b0cb480b372b64a9cb25f52617edfca3f2e0
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515954"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108164"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-single-sign-on-for-skytap"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z logowaniem jednokrotnym dla Skytap
 
@@ -85,7 +85,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     b. W polu tekstowym **adres URL odpowiedzi** wpisz adres URL, który używa następującego wzorca: `https://sso.connect.pingidentity.com/sso/sp/ACS.saml2`
 
-1. Wybierz opcję **Ustaw dodatkowe adresy URL**i wykonaj następujące kroki, aby skonfigurować aplikację w trybie zainicjowania programu **SP** :
+1. Opcjonalnie możesz wybrać opcję **Ustaw dodatkowe adresy URL** i wykonać następujące czynności, aby skonfigurować aplikację w trybie zainicjowania programu **SP** :
 
     a. W polu tekstowym **adres URL logowania** wpisz adres URL, który używa następującego wzorca: `https://sso.connect.pingidentity.com/sso/sp/initsso?saasid=<saasid>&idpid=<idpid>`
 
@@ -135,7 +135,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ## <a name="configure-single-sign-on-for-skytap-sso"></a>Konfigurowanie logowania jednokrotnego na potrzeby logowania jednokrotnego w usłudze Skytap
 
-Aby skonfigurować Logowanie jednokrotne przy użyciu logowania jednokrotnego dla usługi Skytap, musisz wysłać pobrany **XML metadanych Federacji**oraz odpowiednie skopiowane adresy url z Azure Portal do rejestracji jednokrotnej [dla zespołu obsługi klienta Skytap](mailto:support@skytap.com). Ustawi on to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+Aby skonfigurować Logowanie jednokrotne przy użyciu logowania jednokrotnego dla usługi Skytap, musisz wysłać pobrany **XML metadanych Federacji** oraz odpowiednie skopiowane adresy url z Azure Portal do rejestracji jednokrotnej [dla zespołu obsługi klienta Skytap](mailto:support@skytap.com). Ustawi on to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
 
 ### <a name="create-single-sign-on-for-skytap-test-user"></a>Utwórz Logowanie jednokrotne dla użytkownika testowego Skytap
@@ -148,7 +148,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po wybraniu kafelka Logowanie jednokrotne do Skytap w panelu dostępu należy automatycznie zalogować się do logowania jednokrotnego dla Skytap, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Samouczki dotyczące integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
 

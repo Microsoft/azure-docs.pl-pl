@@ -12,19 +12,21 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 8b95c5a45992c895713e0be056856172b14b830d
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 52b52c4c19b22fb1afd76d1e8dfa4163326c0244
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740678"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108594"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Uczenie się z zestawami danych w Azure Machine Learning
 
 
-W tym artykule dowiesz się, jak korzystać z [Azure Machine Learning zestawów danych](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) w eksperymentach szkoleniowych.  Możesz użyć zestawów danych w lokalnym lub zdalnym miejscu docelowym, bez obaw o parametry połączenia lub ścieżki danych.
+W tym artykule dowiesz się, jak korzystać z [Azure Machine Learning zestawów danych](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) w celu uczenia modeli uczenia maszynowego.  Możesz użyć zestawów danych w lokalnym lub zdalnym miejscu docelowym, bez obaw o parametry połączenia lub ścieżki danych. 
 
 Zestawy danych Azure Machine Learning zapewniają bezproblemową integrację z funkcjami szkolenia Azure Machine Learning, takimi jak [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py), [predrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) i [Azure Machine Learning Pipelines](how-to-create-your-first-pipeline.md).
+
+Jeśli nie masz gotowości do udostępnienia danych do szkolenia modeli, ale chcesz załadować dane do notesu w celu eksplorowania danych, zobacz jak [eksplorować dane w zestawie](how-to-create-register-datasets.md#explore-data)danych. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -34,7 +36,7 @@ Aby tworzyć zestawy danych i uczenia się z nich, potrzebne są:
 
 * [Obszar roboczy Azure Machine Learning](how-to-manage-workspace.md).
 
-* [Zestaw Azure Machine Learning SDK dla języka Python jest zainstalowany](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0), który obejmuje pakiet usługi Azure DataSets.
+* [Zestaw Azure Machine Learning SDK dla języka Python jest zainstalowany](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0), który obejmuje `azureml-datasets` pakiet.
 
 > [!Note]
 > Niektóre klasy zestawu danych mają zależności w pakiecie [Azure preprodukcyjnym](/python/api/azureml-dataprep/?preserve-view=true&view=azure-ml-py) . W przypadku użytkowników systemu Linux te klasy są obsługiwane tylko w następujących dystrybucjach: Red Hat Enterprise Linux, Ubuntu, Fedora i CentOS.
@@ -65,7 +67,7 @@ Poniższy kod służy do konfigurowania argumentu skryptu `--input-data` , któr
 > [!Note]
 > Jeśli oryginalne źródło danych zawiera wartość NaN, puste ciągi lub puste wartości, w przypadku użycia `to_pandas_dataframe()` wartości te są zastępowane wartością *null* .
 
-Jeśli zachodzi potrzeba załadowania przygotowanego danych do nowego zestawu danych z Pandas Dataframe w pamięci, Zapisz dane w lokalnym pliku, takim jak Parquet, i Utwórz nowy zestaw danych z tego pliku. Zestawy danych można także tworzyć z plików lokalnych lub ścieżek w magazynach danych. Dowiedz się więcej [na temat tworzenia zestawów danych](how-to-create-register-datasets.md).
+Jeśli zachodzi potrzeba załadowania przygotowanego danych do nowego zestawu danych z Pandas Dataframe w pamięci, Zapisz dane w lokalnym pliku, takim jak Parquet, i Utwórz nowy zestaw danych z tego pliku. Dowiedz się więcej [na temat tworzenia zestawów danych](how-to-create-register-datasets.md).
 
 ```Python
 %%writefile $script_folder/train_titanic.py

@@ -7,12 +7,12 @@ ms.topic: include
 ms.author: trbye
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 885751bf4f11312453245a02209f77b62b8344a4
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: c14dfadfb7e8724c196b125e9b93c439fac249c3
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98052980"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98109549"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -75,8 +75,9 @@ Musisz skojarzyć obiekt `LanguageUnderstandingModel` z aparatem zamierzania i d
 Ten przykład używa `AddIntent()` funkcji, aby indywidualnie dodawać intencje. Jeśli chcesz dodać wszystkie intencje z modelu, użyj `AddAllIntents(model)` i przekaż model. 
 
 > [!NOTE]
-> Można utworzyć LanguageUnderstandingModel, przekazując adres URL punktu końcowego do metody FromEndpoint.
-> Zestaw Speech SDK obsługuje tylko punkty końcowe LUIS v 2.0, a punkty końcowe LUIS v 2.0 zawsze obserwują jeden z tych dwóch wzorców:
+> Zestaw Speech SDK obsługuje tylko punkty końcowe LUIS v 2.0.
+> Należy ręcznie zmodyfikować adres URL punktu końcowego programu v 3.0 znaleziony w przykładowym polu zapytania, aby użyć wzorca adresu URL w wersji 2.0.
+> Punkty końcowe LUIS v 2.0 zawsze obserwują jeden z następujących dwóch wzorców:
 > * `https://{AzureResourceName}.cognitiveservices.azure.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
 > * `https://{Region}.api.cognitive.microsoft.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
 

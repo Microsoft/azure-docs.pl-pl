@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 5e0007f3b0dad8a68e9d81cebbe9fe24b5a7db3c
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 0e1ce841f6da8f15bd977437bca6b835a7b0d745
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285649"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108742"
 ---
 # <a name="how-to-enable-key-vault-logging"></a>Jak włączyć rejestrowanie Key Vault
 
@@ -25,20 +25,10 @@ Po utworzeniu co najmniej jednego magazynu kluczy prawdopodobnie zechcesz monito
 Do ukończenia tego samouczka niezbędne są następujące elementy:
 
 * Istniejący magazyn kluczy, który był przez Ciebie używany.  
-* Interfejs wiersza polecenia platformy Azure lub Azure PowerShell.
+* [Azure Cloud Shell](https://shell.azure.com) — środowisko bash
 * Wystarczająca ilość miejsca w magazynie platformy Azure dla dzienników usługi Key Vault.
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, będziesz potrzebować interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Aby zalogować się do platformy Azure przy użyciu interfejsu wiersza polecenia, możesz wpisać:
-
-```azurecli-interactive
-az login
-```
-
-Jeśli zdecydujesz się zainstalować program PowerShell i używać go lokalnie, będzie potrzebny moduł Azure PowerShell w wersji 1.0.0 lub nowszej. Wpisz polecenie `$PSVersionTable.PSVersion`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Connect-AzAccount`, aby utworzyć połączenie z platformą Azure.
-
-```powershell-interactive
-Connect-AzAccount
-```
+Te polecenia przewodnika są formatowane dla [Cloud Shell](https://shell.azure.com) z bash jako środowiska.
 
 ## <a name="connect-to-your-key-vault-subscription"></a>Nawiązywanie połączenia z subskrypcją usługi Key Vault
 
@@ -64,7 +54,7 @@ Set-AzContext -SubscriptionId "<subscriptionID>"
 
 Mimo że możesz użyć istniejącego konta magazynu dla dzienników, utworzymy nowe konto magazynu przeznaczone do Key Vault dzienników. 
 
-Aby ułatwić zarządzanie, użyjemy również tej samej grupy zasobów, która zawiera Magazyn kluczy. W [interfejsie wiersza polecenia platformy Azure — szybki start](quick-create-cli.md) i [Azure PowerShell szybki start](quick-create-powershell.md), ta grupa zasobów ma nazwę moja **zasobów** , a lokalizacja to *Wschodnie*. Zastąp te wartości własnymi, stosownie do potrzeb. 
+Aby ułatwić zarządzanie, użyjemy również tej samej grupy zasobów, która zawiera Magazyn kluczy. W [interfejsie wiersza polecenia platformy Azure — szybki start](quick-create-cli.md) i [Azure PowerShell szybki start](quick-create-powershell.md), ta grupa zasobów ma nazwę moja **zasobów**, a lokalizacja to *Wschodnie*. Zastąp te wartości własnymi, stosownie do potrzeb. 
 
 Należy również podać nazwę konta magazynu. Nazwy kont magazynu muszą mieć unikatową długość od 3 do 24 znaków i używać tylko cyfr i małych liter.  Na koniec utworzymy konto magazynu dla jednostki SKU "Standard_LRS".
 
@@ -162,7 +152,7 @@ az storage blob list --account-name "<your-unique-storage-account-name>" --conta
 W Azure PowerShell Użyj listy [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob?view=azps-4.7.0) wszystkich obiektów BLOB w tym kontenerze, wpisz:
 
 ```powershell
-Get-AzStorageBlob -Container $container -Context $sa.Context
+Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context
 ```
 
 Jak widać na podstawie danych wyjściowych polecenia cmdlet platformy Azure lub Azure PowerShell, nazwy obiektów BLOB są w formacie `resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json` . Wartości daty i godziny używają czasu UTC.
@@ -178,29 +168,29 @@ az storage blob download --container-name "insights-logs-auditevent" --file <pat
 W Azure PowerShell Użyj polecenia cmdlet [gt-AzStorageBlobs](/powershell/module/az.storage/get-azstorageblob?view=azps-4.7.0) , aby uzyskać listę obiektów blob, a następnie wybierz potok do polecenia cmdlet [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent?view=azps-4.7.0) w celu pobrania dzienników do wybranej ścieżki.
 
 ```powershell-interactive
-$blobs = Get-AzStorageBlob -Container $container -Context $sa.Context | Get-AzStorageBlobContent -Destination "<path-to-file>"
+$blobs = Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context | Get-AzStorageBlobContent -Destination "<path-to-file>"
 ```
 
 Po uruchomieniu drugiego polecenia cmdlet w programie PowerShell, **/** ogranicznik w nazwach obiektów BLOB tworzy pełną strukturę folderów w folderze docelowym. Ta struktura będzie używana do pobierania i przechowywania obiektów BLOB jako plików.
 
-Aby selektywnie pobierać obiekty blob, użyj symboli wieloznacznych. Przykład:
+Aby selektywnie pobierać obiekty blob, użyj symboli wieloznacznych. Na przykład:
 
 * Jeśli masz wiele magazynów kluczy i chcesz pobrać dzienniki dla tylko jednego magazynu kluczy o nazwie CONTOSOKEYVAULT3:
 
   ```powershell
-  Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
+  Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
   ```
 
 * Jeśli masz wiele grup zasobów i chcesz pobrać dzienniki dla tylko jednej grupy zasobów, użyj parametru `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
 
   ```powershell
-  Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
+  Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
   ```
 
 * Jeśli chcesz pobrać wszystkie dzienniki przez miesiąc stycznia 2019, użyj `-Blob '*/year=2019/m=01/*'` :
 
   ```powershell
-  Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
+  Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context -Blob '*/year=2016/m=01/*'
   ```
 
 Teraz możesz rozpocząć wyszukiwanie informacji zawartych w dziennikach. Jednak przed przejściem do tego celu należy znać dwa więcej poleceń:

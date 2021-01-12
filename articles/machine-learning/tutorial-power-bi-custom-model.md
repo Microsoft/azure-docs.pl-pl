@@ -1,7 +1,7 @@
 ---
 title: 'Samouczek: Tworzenie modelu predykcyjnego za pomocą notesu (część 1 z 2)'
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak skompilować i wdrożyć model uczenia maszynowego przy użyciu kodu w Jupyter Notebook. Możesz użyć modelu do przewidywania wyników w programie Microsoft Power BI.
+description: Dowiedz się, jak skompilować i wdrożyć model uczenia maszynowego przy użyciu kodu w Jupyter Notebook. Utwórz także skrypt oceniania, który definiuje dane wejściowe i wyjściowe umożliwiające łatwą integrację z programem Microsoft Power BI.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: samkemp
 author: samuel100
 ms.reviewer: sdgilley
 ms.date: 12/11/2020
-ms.openlocfilehash: 1dfee56f90011d3c532767e136b383e4eb95c234
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 29b340448f3ce3e18a649065bdcd0b335bab8b73
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814775"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108249"
 ---
-# <a name="tutorial-power-bi-integration---create-the-predictive-model-by-using-a-jupyter-notebook-part-1-of-2"></a>Samouczek: integracja Power BI — Tworzenie modelu predykcyjnego za pomocą Jupyter Notebook (część 1 z 2)
+# <a name="tutorial-power-bi-integration---create-the-predictive-model-with-a-jupyter-notebook-part-1-of-2"></a>Samouczek: integracja Power BI — Tworzenie modelu predykcyjnego za pomocą Jupyter Notebook (część 1 z 2)
 
-W części 1 tego samouczka nauczysz się i wdrożyć model uczenia maszynowego przy użyciu kodu w Jupyter Notebook. W części 2 będziesz używać modelu do przewidywania wyników w programie Microsoft Power BI.
+W części 1 tego samouczka nauczysz się i wdrożyć model uczenia maszynowego przy użyciu kodu w Jupyter Notebook. Utworzysz również skrypt oceniania, aby zdefiniować schemat danych wejściowych i wyjściowych modelu do integracji w Power BI.  W części 2 będziesz używać modelu do przewidywania wyników w programie Microsoft Power BI.
 
 W tym samouczku zostały wykonane następujące czynności:
 
@@ -27,6 +27,7 @@ W tym samouczku zostały wykonane następujące czynności:
 > * Tworzenie notesu Jupyter
 > * Utwórz wystąpienie obliczeniowe Azure Machine Learning.
 > * Uczenie modelu regresji przy użyciu scikit — uczenie się.
+> * Napisz skrypt oceniający, który definiuje dane wejściowe i wyjściowe umożliwiające łatwą integrację z programem Microsoft Power BI.
 > * Wdróż model w punkcie końcowym oceniania w czasie rzeczywistym.
 
 Istnieją trzy sposoby tworzenia i wdrażania modelu, który będzie używany w Power BI.  W tym artykule opisano "opcja A: uczenie i wdrażanie modeli przy użyciu notesów".  Ta opcja jest interfejsem tworzenia kodu. Używa ona notesów Jupyter, które są hostowane w Azure Machine Learning Studio. 
@@ -157,7 +158,7 @@ Możesz również wyświetlić model w Azure Machine Learning Studio. W menu po 
 
 :::image type="content" source="media/tutorial-power-bi/model.png" alt-text="Zrzut ekranu przedstawiający sposób wyświetlania modelu.":::
 
-### <a name="define-the-scoring-script"></a>Zdefiniuj skrypt oceniania
+## <a name="define-the-scoring-script"></a>Zdefiniuj skrypt oceniania
 
 Podczas wdrażania modelu, który zostanie zintegrowany z Power BI, należy zdefiniować *skrypt oceniania* w języku Python i środowisko niestandardowe. Skrypt oceniania zawiera dwie funkcje:
 
@@ -165,7 +166,7 @@ Podczas wdrażania modelu, który zostanie zintegrowany z Power BI, należy zdef
 - `run(data)`Funkcja jest uruchamiana, gdy wywołanie do usługi zawiera dane wejściowe, które muszą zostać ocenione. 
 
 >[!NOTE]
-> W tym artykule opisano schemat danych wejściowych i wyjściowych w języku Python dekoratory. Ta konfiguracja jest ważna dla integracji Power BI.
+> Dekoratory języka Python w kodzie poniżej definiuje schemat danych wejściowych i wyjściowych, co jest ważne dla integracji w Power BI.
 
 Skopiuj poniższy kod i wklej go do nowej *komórki kodu* w notesie. Poniższy fragment kodu ma magiczną komórkę, która zapisuje kod w pliku o nazwie *Score.py*.
 

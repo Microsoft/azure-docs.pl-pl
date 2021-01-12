@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 01/07/2021
+ms.date: 01/11/2021
 ms.author: duau
-ms.openlocfilehash: 3e106bc313d6189b2fae8cf6a4dd7ce862294b8f
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: f780c8c2f932b612ee42e13906f72983b324eefd
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019282"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108538"
 ---
 # <a name="tutorial-create-and-modify-peering-for-an-expressroute-circuit-using-the-azure-portal"></a>Samouczek: Tworzenie i modyfikowanie komunikacji równorzędnej dla obwodu usługi ExpressRoute przy użyciu Azure Portal
 
@@ -136,7 +136,7 @@ Ta sekcja ułatwia tworzenie, pobieranie, aktualizowanie i usuwanie konfiguracji
 
 2. Skonfiguruj prywatną komunikację równorzędną Azure dla obwodu. Przed przejściem do następnego kroku upewnij się, że masz następujące elementy:
 
-   * Para/30 podsieci należących do użytkownika i zarejestrowana w RIR/IRR. Jedna podsieć zostanie użyta dla linku podstawowego, a druga zostanie użyta dla linku pomocniczego. Z każdej z tych podsieci zostanie przypisany pierwszy, przydatny adres IP do routera, ponieważ firma Microsoft używa drugiego adresu IP do użycia dla jego routera. Dla tej pary podsieci dostępne są trzy opcje:
+   * Para z/30 podsieciami należącymi do użytkownika. Jedna podsieć zostanie użyta dla linku podstawowego, a druga zostanie użyta dla linku pomocniczego. Z każdej z tych podsieci zostanie przypisany pierwszy, przydatny adres IP do routera, ponieważ firma Microsoft używa drugiego adresu IP do użycia dla jego routera.
    * Prawidłowy identyfikator sieci VLAN do ustanowienia tej komunikacji równorzędnej jest włączony. Upewnij się, że żadna inna komunikacja równorzędna w obwodzie nie używa tego samego identyfikatora VLAN. Zarówno linki podstawowe, jak i pomocnicze muszą używać tego samego identyfikatora sieci VLAN.
    * Numer AS do komunikacji równorzędnej. Możesz używać 2-bajtowych i 4-bajtowych numerów AS. Możesz użyć numeru prywatnego jako dla tej komunikacji równorzędnej z wyjątkiem liczby od 65515 do 65520 włącznie.
    * Trasy należy anonsować od lokalnego routera brzegowego do platformy Azure za pośrednictwem protokołu BGP podczas konfigurowania prywatnej komunikacji równorzędnej.

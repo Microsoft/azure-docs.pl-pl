@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: cd4b0b53cdc818cc942382021c1dff97b22f1243
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 60ae6eb3142f8898f760027d37881ded8261f571
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051619"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108096"
 ---
 # <a name="azure-storage-redundancy"></a>Nadmiarowość usługi Azure Storage
 
@@ -155,6 +155,7 @@ W poniższej tabeli opisano parametry klucza dla każdej opcji nadmiarowości:
 | Procent trwałości obiektów w danym roku | co najmniej 99,999999999% (11 9) | co najmniej 99,9999999999% (12 9) | co najmniej 99.99999999999999% (16 9) | co najmniej 99.99999999999999% (16 9) |
 | Dostępność żądań odczytu | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) dla GRS<br /><br />Co najmniej 99,99% (99,9% dla warstwy dostępu chłodnego) dla usługi RA-GRS | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) dla GZRS<br /><br />Co najmniej 99,99% (99,9% dla warstwy dostępu chłodnego) dla usługi RA-GZRS |
 | Dostępność żądań zapisu | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) |
+| Liczba kopii danych obsługiwanych w osobnych węzłach.                             | 3   | 3   | 6   | 6      |
 
 ### <a name="durability-and-availability-by-outage-scenario"></a>Scenariusz trwałości i dostępności według scenariusza przestojów
 

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: eca2009ee0470dec9c9ce60d8754f8f7a71619d3
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: d9dd07e3a35d83ff6bd9c7c493768d1197667c39
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740542"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108793"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>Diagnozowanie i rozwiązywanie problemów dotyczących środowiska Azure Time Series Insights Gen2
 
@@ -71,7 +71,7 @@ Dane mogą być wysyłane bez identyfikatora szeregów czasowych.
 - Ten problem może wystąpić, ponieważ Twoje środowisko jest ograniczone.
 
     > [!NOTE]
-    > W tej chwili Time Series Insights obsługuje maksymalny współczynnik pozyskiwania wynoszący 6 MB/s.
+    > W tej chwili Time Series Insights obsługuje maksymalną szybkość pozyskiwania wynoszącą 1 MB/s.
 
 ## <a name="problem-data-was-showing-but-now-ingestion-has-stopped"></a>Problem: dane były wyświetlane, ale teraz trwa ich pozyskiwanie
 

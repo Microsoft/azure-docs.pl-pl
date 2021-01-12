@@ -3,22 +3,75 @@ title: Używanie tożsamości zarządzanej z aplikacją
 description: Jak uzyskać dostęp do usług platformy Azure za pomocą zarządzanych tożsamości w usłudze Azure Service Fabric kodzie aplikacji.
 ms.topic: article
 ms.date: 10/09/2019
-ms.openlocfilehash: 07f960c01367ab42a434a8c2e1e276d9c5f7bd11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c89f7bd064e643b978253f2e083c449d904d2cad
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86253647"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108521"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Jak korzystać z zarządzanej tożsamości aplikacji Service Fabric w celu uzyskiwania dostępu do usług platformy Azure
 
 Aplikacje Service Fabric mogą korzystać z zarządzanych tożsamości w celu uzyskiwania dostępu do innych zasobów platformy Azure, które obsługują uwierzytelnianie oparte na Azure Active Directory. Aplikacja może uzyskać [token dostępu](../active-directory/develop/developer-glossary.md#access-token) reprezentujący jego tożsamość, która może być przypisana przez system lub przypisany przez użytkownika, i użyć go jako tokenu "okaziciela", aby uwierzytelnić się w innej usłudze — znanej także jako [chroniony serwer zasobów](../active-directory/develop/developer-glossary.md#resource-server). Token reprezentuje tożsamość przypisaną do aplikacji Service Fabric i zostanie wystawiony tylko dla zasobów platformy Azure (w tym aplikacji SF), które współużytkują tę tożsamość. Zapoznaj się z dokumentacją [zarządzaną tożsamości](../active-directory/managed-identities-azure-resources/overview.md) , aby uzyskać szczegółowy opis tożsamości zarządzanych, a także różnice między tożsamościami przypisanymi do systemu i przypisanymi przez użytkownika. W tym artykule odnosimy się do aplikacji Service Fabric z włączoną obsługą tożsamości zarządzanej jako [aplikacji klienckiej](../active-directory/develop/developer-glossary.md#client-application) .
+
+Zapoznaj się z przykładową aplikacją towarzyszącą, która ilustruje użycie przypisanych do systemu i przypisanych przez użytkownika [Service Fabric tożsamości zarządzanych](https://github.com/Azure-Samples/service-fabric-managed-identity) za pomocą Reliable Services i kontenerów.
 
 > [!IMPORTANT]
 > Zarządzana tożsamość reprezentuje skojarzenie między zasobem platformy Azure i jednostką usługi w odpowiedniej dzierżawie Azure AD skojarzonym z subskrypcją zawierającą zasób. W związku z tym w kontekście Service Fabric zarządzane tożsamości są obsługiwane tylko w przypadku aplikacji wdrożonych jako zasoby platformy Azure. 
 
 > [!IMPORTANT]
 > Przed użyciem zarządzanej tożsamości aplikacji Service Fabric, aplikacja kliencka musi mieć udzielony dostęp do chronionego zasobu. Zapoznaj się z listą [usług platformy Azure, które obsługują uwierzytelnianie usługi Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources) , aby sprawdzić pomoc techniczną, a następnie do dokumentacji odpowiedniej usługi, aby uzyskać dostęp do tożsamości do interesujących Cię zasobów. 
+ 
+
+## <a name="leverage-a-managed-identity-using-azureidentity"></a>Wykorzystanie tożsamości zarządzanej przy użyciu platformy Azure. Identity
+
+Zestaw SDK tożsamości platformy Azure obsługuje teraz Service Fabric. Przy użyciu platformy Azure. tożsamość ułatwia pisanie kodu, aby ułatwić korzystanie z Service Fabric tożsamości zarządzanych aplikacji, ponieważ obsługuje pobieranie tokenów, tokenów buforowania i uwierzytelnianie serwera. Podczas uzyskiwania dostępu do większości zasobów platformy Azure pojęcie tokenu jest ukryte.
+
+Obsługa Service Fabric jest dostępna w następujących wersjach dla następujących języków: 
+- [C# w wersji 1.3.0](https://www.nuget.org/packages/Azure.Identity). Zobacz [przykład w języku C#](https://github.com/Azure-Samples/service-fabric-managed-identity).
+- Środowisko [Python w wersji 1.5.0](https://pypi.org/project/azure-identity/). Zobacz przykład w języku [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/tests/managed-identity-live/service-fabric/service_fabric.md).
+- [Język Java w wersji 1.2.0](https://docs.microsoft.com/java/api/overview/azure/identity-readme?view=azure-java-stable).
+
+Przykład w języku C# dotyczący inicjowania poświadczeń i korzystania z poświadczeń w celu pobrania klucza tajnego z Azure Key Vault:
+
+```csharp
+using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
+
+namespace MyMIService
+{
+    internal sealed class MyMIService : StatelessService
+    {
+        protected override async Task RunAsync(CancellationToken cancellationToken)
+        {
+            try
+            {
+                // Load the service fabric application managed identity assigned to the service
+                ManagedIdentityCredential creds = new ManagedIdentityCredential();
+
+                // Create a client to keyvault using that identity
+                SecretClient client = new SecretClient(new Uri("https://mykv.vault.azure.net/"), creds);
+
+                // Fetch a secret
+                KeyVaultSecret secret = (await client.GetSecretAsync("mysecret", cancellationToken: cancellationToken)).Value;
+            }
+            catch (CredentialUnavailableException e)
+            {
+                // Handle errors with loading the Managed Identity
+            }
+            catch (RequestFailedException)
+            {
+                // Handle errors with fetching the secret
+            }
+            catch (Exception e)
+            {
+                // Handle generic errors
+            }
+        }
+    }
+}
+
+```
 
 ## <a name="acquiring-an-access-token-using-rest-api"></a>Uzyskiwanie tokenu dostępu przy użyciu interfejsu API REST
 W klastrach obsługujących tożsamość zarządzaną środowisko uruchomieniowe Service Fabric udostępnia punkt końcowy localhost, którego aplikacje mogą używać do uzyskiwania tokenów dostępu. Punkt końcowy jest dostępny w każdym węźle klastra i jest dostępny dla wszystkich jednostek w tym węźle. Autoryzowane obiekty wywołujące mogą uzyskać tokeny dostępu przez wywołanie tego punktu końcowego i przedprezentowanie kodu uwierzytelniania; kod jest generowany przez środowisko uruchomieniowe Service Fabric dla każdej odrębnej aktywacji pakietu kodu usługi i jest powiązany z okresem istnienia procesu obsługującego ten pakiet kodu usługi.
@@ -377,3 +430,4 @@ Zobacz [usługi platformy Azure, które obsługują uwierzytelnianie usługi Azu
 * [Wdrażanie aplikacji Service Fabric platformy Azure przy użyciu tożsamości zarządzanej przypisanej do systemu](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
 * [Wdrażanie aplikacji Service Fabric platformy Azure przy użyciu tożsamości zarządzanej przypisanej przez użytkownika](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 * [Przyznaj aplikacji Service Fabric platformy Azure dostęp do innych zasobów platformy Azure](./how-to-grant-access-other-resources.md)
+* [Eksplorowanie przykładowej aplikacji przy użyciu Service Fabric tożsamości zarządzanej](https://github.com/Azure-Samples/service-fabric-managed-identity)

@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 09/25/2020
+ms.date: 01/11/2021
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: f8959904482bda8dc26e4df626377027e1ab4bd1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3da4fd26b3f985e034ca60039c09412e8237e965
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005552"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98109431"
 ---
 Aby utworzyć konto magazynu ogólnego przeznaczenia w wersji 2 w witrynie Azure Portal, wykonaj następujące kroki:
 
@@ -26,10 +26,9 @@ Aby utworzyć konto magazynu ogólnego przeznaczenia w wersji 2 w witrynie Azure
 1. Wybierz warstwę wydajności. Warstwa domyślna to *standardowa*.
 1. Ustaw wartość pola **rodzaj konta** na *Magazyn v2 (ogólnego przeznaczenia w wersji 2)*.
 1. Określ sposób replikowania konta magazynu. Domyślna opcja replikacji to *Magazyn Geograficznie nadmiarowy do odczytu (RA-GRS)*. Aby uzyskać więcej informacji na temat dostępnych opcji replikacji, zobacz [nadmiarowość usługi Azure Storage](../articles/storage/common/storage-redundancy.md).
-1. Określ warstwę dostępu dla obiektów BLOB na koncie magazynu. Warstwa domyślna to *gorąca*. Aby uzyskać więcej informacji na temat warstw dostępu do obiektów blob, zobacz [warstwy dostępu gorąca, chłodna i archiwalna dla obiektów BLOB](../articles/storage/blobs/storage-blob-storage-tiers.md).
-1. Aby użyć Azure Data Lake Storage, wybierz kartę **Zaawansowane** , a następnie ustaw **hierarchiczną przestrzeń nazw** na wartość **włączone**. Aby uzyskać więcej informacji, zobacz [wprowadzenie Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-introduction.md)
+1. Dodatkowe opcje są dostępne na kartach **sieci**, **Ochrona danych**, **Zaawansowane** i **Tagi** . Aby użyć Azure Data Lake Storage, wybierz kartę **Zaawansowane** , a następnie ustaw **hierarchiczną przestrzeń nazw** na wartość **włączone**. Aby uzyskać więcej informacji, zobacz [wprowadzenie Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-introduction.md)
 1. Wybierz pozycję **Przejrzyj i utwórz**, aby przejrzeć ustawienia konta magazynu i utworzyć konto.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 Na poniższej ilustracji przedstawiono ustawienia na karcie **podstawowe** dla nowego konta magazynu:
 

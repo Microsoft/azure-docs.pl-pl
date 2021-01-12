@@ -11,12 +11,12 @@ author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
 ms.date: 11/18/2020
-ms.openlocfilehash: c6754e6f0e3f0d6208bd34c96c8bc473429c943c
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: e4917d03e3c0fb8109f9ad9bdcea9e7c1cdcd5df
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917906"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108062"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Zautomatyzowane kopie zapasowe — Azure SQL Database & wystąpienia zarządzane SQL
 
@@ -122,7 +122,7 @@ Użycie magazynu kopii zapasowej do maksymalnego rozmiaru danych dla bazy danych
 
 ## <a name="backup-retention"></a>Przechowywanie kopii zapasowej
 
-W przypadku wszystkich nowych, przywróconych i kopiowanych baz danych Azure SQL Database i wystąpienie zarządzane SQL Azure zachowują wystarczające kopie zapasowe, aby domyślnie zezwolić na kopie w ciągu ostatnich 7 dni. Z wyjątkiem baz danych ze skalowaniem można [zmienić okres przechowywania kopii zapasowej](#change-the-pitr-backup-retention-period) dla każdej aktywnej bazy danych w 1-35 dzień. Zgodnie z opisem w temacie [użycie magazynu kopii zapasowych](#backup-storage-consumption), kopie zapasowe przechowywane w celu włączenia kopie mogą być starsze niż okres przechowywania. Tylko w przypadku wystąpienia zarządzanego Azure SQL można ustawić szybkość przechowywania kopii zapasowych kopie po usunięciu bazy danych w zakresie 0-35 dni. 
+W przypadku wszystkich nowych, przywróconych i kopiowanych baz danych Azure SQL Database i wystąpienie zarządzane SQL Azure zachowują wystarczające kopie zapasowe, aby domyślnie zezwolić na kopie w ciągu ostatnich 7 dni. Z wyjątkiem baz danych w warstwach wieloskalowanych i podstawowych można [zmienić okres przechowywania kopii zapasowej](#change-the-pitr-backup-retention-period) dla każdej aktywnej bazy danych w 1-35 dzień. Zgodnie z opisem w temacie [użycie magazynu kopii zapasowych](#backup-storage-consumption), kopie zapasowe przechowywane w celu włączenia kopie mogą być starsze niż okres przechowywania. Tylko w przypadku wystąpienia zarządzanego Azure SQL można ustawić szybkość przechowywania kopii zapasowych kopie po usunięciu bazy danych w zakresie 0-35 dni. 
 
 W przypadku usunięcia bazy danych System przechowuje kopie zapasowe w taki sam sposób jak w przypadku bazy danych w trybie online z określonym okresem przechowywania. Nie można zmienić okresu przechowywania kopii zapasowej dla usuniętej bazy danych.
 

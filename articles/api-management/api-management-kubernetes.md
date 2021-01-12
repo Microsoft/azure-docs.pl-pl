@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/14/2019
 ms.author: apimpm
-ms.openlocfilehash: f8c6fce5b22d67dd1022fbaac763ea5df3b0930f
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 293a47bc3e8499d7eda4e64bb68bc95eb4c85ab0
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505379"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108402"
 ---
 # <a name="use-azure-api-management-with-microservices-deployed-in-azure-kubernetes-service"></a>Korzystanie z usługi Azure API Management z mikrousługami wdrożonymi w usłudze Azure Kubernetes Service
 
@@ -99,7 +99,7 @@ W niektórych przypadkach klienci z ograniczeniami obowiązującymi lub rygoryst
 
 Istnieją dwa tryby [wdrażania API Management w sieci wirtualnej](./api-management-using-with-vnet.md) — zewnętrzna i wewnętrzna. 
 
-Jeśli odbiorcy interfejsu API nie znajdują się w sieci wirtualnej klastra, należy użyć trybu zewnętrznego (rys. 4). W tym trybie Brama API Management jest wstrzykiwana do sieci wirtualnej klastra, ale jest dostępna z publicznej sieci Internet za pośrednictwem zewnętrznego modułu równoważenia obciążenia. Pozwala ona na całkowite ukrycie klastra, a jednocześnie umożliwia klientom zewnętrznym korzystanie z mikrousług. Ponadto można użyć funkcji sieciowych platformy Azure, takich jak sieciowe grupy zabezpieczeń (sieciowej grupy zabezpieczeń), aby ograniczyć ruch sieciowy.
+Jeśli odbiorcy interfejsu API nie znajdują się w sieci wirtualnej klastra, należy użyć trybu zewnętrznego (rys. 4). W tym trybie Brama API Management jest wstrzykiwana do sieci wirtualnej klastra, ale jest dostępna z publicznej sieci Internet za pośrednictwem zewnętrznego modułu równoważenia obciążenia. Dzięki temu klienci zewnętrzni mogą korzystać z mikrousług. Ponadto można użyć funkcji sieciowych platformy Azure, takich jak sieciowe grupy zabezpieczeń (sieciowej grupy zabezpieczeń), aby ograniczyć ruch sieciowy.
 
 ![Tryb zewnętrznej sieci wirtualnej](./media/api-management-aks/vnet-external.png)
 

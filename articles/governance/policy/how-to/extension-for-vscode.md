@@ -1,22 +1,22 @@
 ---
 title: Azure Policy rozszerzenie dla Visual Studio Code
 description: Dowiedz się, jak używać rozszerzenia Azure Policy Visual Studio Code do wyszukiwania aliasów Azure Resource Manager.
-ms.date: 10/20/2020
+ms.date: 01/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 8c7357d70323fa74ec77cf43bd11f149a2f99154
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 4c4ba0eeb0506179ff92ead0ee86f048600d157e
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906305"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107943"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Użyj rozszerzenia Azure Policy dla Visual Studio Code
 
-> Dotyczy rozszerzenia Azure Policy w wersji **0.1.0** i nowszej
+> Dotyczy rozszerzenia Azure Policy w wersji **0.1.1** i nowszej
 
 Dowiedz się, jak używać rozszerzenia Azure Policy Visual Studio Code do wyszukiwania [aliasów](../concepts/definition-structure.md#aliases), przeglądania zasobów i zasad, eksportowania obiektów i oceniania definicji zasad. Najpierw opisano sposób instalowania rozszerzenia Azure Policy w programie Visual Studio Code. Następnie przeprowadzimy procedurę wyszukiwania aliasów.
 
-Rozszerzenie Azure Policy dla Visual Studio Code można zainstalować na wszystkich platformach obsługiwanych przez Visual Studio Code. Ta obsługa obejmuje systemy Windows, Linux i macOS.
+Azure Policy rozszerzenia Visual Studio Code można zainstalować w systemie Windows.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -93,7 +93,7 @@ Rozszerzenie Azure Policy wyświetla listę zasobów w wybranych subskrypcjach w
 - **Grupy zasobów**
   - Wszystkie zasoby według grupy zasobów, w której się znajdują
 
-Domyślnie rozszerzenie filtruje część "dostawca zasobów" według istniejących zasobów i zasobów, które mają aliasy zasad. Zmień to zachowanie w **Settings**  >  **rozszerzeniu** ustawienia  >  **Azure Policy** , aby wyświetlić wszystkich dostawców zasobów bez filtrowania.
+Domyślnie rozszerzenie filtruje część "dostawca zasobów" według istniejących zasobów i zasobów, które mają aliasy zasad. Zmień to zachowanie w   >  **rozszerzeniu** ustawienia  >  **Azure Policy** , aby wyświetlić wszystkich dostawców zasobów bez filtrowania.
 
 Klienci, którzy mają setki lub tysiące zasobów w ramach jednej subskrypcji, mogą preferować możliwość wyszukiwania swoich zasobów. Rozszerzenie Azure Policy umożliwia wyszukanie określonego zasobu, wykonując następujące czynności:
 

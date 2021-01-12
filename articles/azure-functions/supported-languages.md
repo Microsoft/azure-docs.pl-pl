@@ -3,12 +3,12 @@ title: Obsługiwane języki w Azure Functions
 description: Dowiedz się, które języki są obsługiwane (wersja zapoznawcza) i które są dostępne w wersji zapoznawczej oraz jak można rozciągnąć programowanie funkcji do innych języków.
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: 91a6ea886c3828678771b24d69bb7987af1fb105
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da3100521faae61e9803aaa82dbf91045a7ecbc9
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83994905"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108555"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Obsługiwane języki w Azure Functions
 
@@ -27,9 +27,9 @@ Dostępne są [trzy wersje środowiska uruchomieniowego Azure Functions](functio
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
-## <a name="custom-handlers-preview"></a>Niestandardowe programy obsługi (wersja zapoznawcza) 
+## <a name="custom-handlers"></a>Niestandardowe programy obsługi
 
-Niestandardowe programy obsługi to lekkie serwery sieci Web, które odbierają zdarzenia z hosta Azure Functions. Każdy język, który obsługuje elementy podstawowe HTTP, może zaimplementować obsługę niestandardową. Oznacza to, że niestandardowe programy obsługi mogą służyć do tworzenia funkcji w językach, które nie są oficjalnie obsługiwane. Aby dowiedzieć się więcej, zobacz [Azure Functions obsługi niestandardowych (wersja zapoznawcza)](functions-custom-handlers.md).
+Niestandardowe programy obsługi to lekkie serwery sieci Web, które odbierają zdarzenia z hosta Azure Functions. Każdy język, który obsługuje elementy podstawowe HTTP, może zaimplementować obsługę niestandardową. Oznacza to, że niestandardowe programy obsługi mogą służyć do tworzenia funkcji w językach, które nie są oficjalnie obsługiwane. Aby dowiedzieć się więcej, zobacz [Azure Functions obsługi niestandardowe](functions-custom-handlers.md).
 
 ## <a name="language-extensibility"></a>Rozszerzalność języka
 

@@ -1,18 +1,18 @@
 ---
 title: Integrowanie usługi Azure Key Vault z usługą Kubernetes
 description: W tym samouczku uzyskujesz dostęp do wpisów tajnych z magazynu kluczy platformy Azure i pobierasz je za pomocą sterownika Kubernetes magazynu kontenerów (CSI), aby zainstalować do zasobników.
-author: ShaneBala-keyvault
-ms.author: sudbalas
+author: msmbaldwin
+ms.author: mbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: 2645842130b83fe7b4cfb33b9389b19a1306506d
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: 6952d239c9dc5c52c0057a6ee1a3b10b30ed9b00
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97756028"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108759"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Samouczek: Konfigurowanie i uruchamianie dostawcy Azure Key Vault dla sterownika CSI magazynu wpisów tajnych w systemie Kubernetes
 
@@ -21,15 +21,14 @@ ms.locfileid: "97756028"
 
 Korzystając z tego samouczka, możesz uzyskać dostęp do wpisów tajnych z magazynu kluczy platformy Azure i pobrać je z niego przy użyciu sterownika Kubernetes magazynu kontenerów (CSI).
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Utwórz nazwę główną usługi lub użyj zarządzanych tożsamości.
+> * Użyj zarządzanych tożsamości.
 > * Wdróż klaster usługi Azure Kubernetes Service (AKS) przy użyciu interfejsu wiersza polecenia platformy Azure.
 > * Zainstaluj Helm i sterownik CSI magazynu Secret.
 > * Utwórz magazyn kluczy platformy Azure i ustaw wpisy tajne.
 > * Utwórz własny obiekt SecretProviderClass.
-> * Przypisz nazwę główną usługi lub użyj zarządzanych tożsamości.
 > * Wdróż swój program przy użyciu zainstalowanych wpisów tajnych z magazynu kluczy.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -38,22 +37,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 * Przed rozpoczęciem pracy z tym samouczkiem zainstaluj [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
-## <a name="create-a-service-principal-or-use-managed-identities"></a>Tworzenie nazwy głównej usługi lub korzystanie z tożsamości zarządzanych
-
-Jeśli planujesz korzystanie z tożsamości zarządzanych, możesz przejść do następnej sekcji.
-
-Tworzenie jednostki usługi w celu kontrolowania zasobów, do których można uzyskać dostęp z magazynu kluczy platformy Azure. Dostęp do tej jednostki usługi jest ograniczony przez przypisane do niej role. Ta funkcja zapewnia kontrolę nad sposobem zarządzania kluczami tajnymi przez jednostkę usługi. W poniższym przykładzie nazwa nazwy głównej usługi to *contosoServicePrincipal*.
-
-```azurecli
-az ad sp create-for-rbac --name contosoServicePrincipal --skip-assignment
-```
-Ta operacja zwraca serię par klucz/wartość:
-
-![Zrzut ekranu przedstawiający identyfikator appId i hasło dla contosoServicePrincipal](../media/kubernetes-key-vault-1.png)
-
-Skopiuj poświadczenia **AppID** i **Password** do późniejszego użycia.
-
-## <a name="flow-for-using-managed-identity"></a>Przepływ do korzystania z tożsamości zarządzanej
+## <a name="use-managed-identities"></a>Używanie tożsamości zarządzanych
 
 Ten diagram ilustruje przepływ integracji AKS — Key Vault dla tożsamości zarządzanej:
 
@@ -66,7 +50,7 @@ Nie musisz używać Azure Cloud Shell. Wystarczy, że zostanie wyświetlony wier
 Wypełnij sekcje "Tworzenie grupy zasobów", "Tworzenie klastra AKS" i "łączenie się z klastrem" w temacie [wdrażanie klastra usługi Azure Kubernetes Service przy użyciu interfejsu wiersza polecenia platformy Azure](../../aks/kubernetes-walkthrough.md). 
 
 > [!NOTE] 
-> Jeśli planujesz użycie tożsamości pod zamiast nazwy głównej usługi, pamiętaj, aby włączyć ją podczas tworzenia klastra Kubernetes, jak pokazano w następującym poleceniu:
+> Jeśli planujesz użycie tożsamości pod, pamiętaj o jej włączeniu podczas tworzenia klastra Kubernetes, jak pokazano w następującym poleceniu:
 >
 > ```azurecli
 > az aks create -n contosoAKSCluster -g contosoResourceGroup --kubernetes-version 1.16.9 --node-count 1 --enable-managed-identity
@@ -121,7 +105,7 @@ Aby utworzyć własny niestandardowy obiekt SecretProviderClass z parametrami sp
 
 W przykładowym pliku SecretProviderClass YAML wprowadź brakujące parametry. Wymagane są następujące parametry:
 
-* **userAssignedIdentityID**: # [wymagane] Jeśli używasz nazwy głównej usługi, użyj identyfikatora klienta, aby określić, która zarządzana tożsamość użytkownika ma być używana. Jeśli używasz tożsamości przypisanej przez użytkownika jako tożsamości zarządzanej maszyny wirtualnej, określ identyfikator klienta tożsamości. Jeśli wartość jest pusta, domyślnie zostanie użyta tożsamość przypisana do systemu na maszynie wirtualnej 
+* **userAssignedIdentityID**: # [Required] Jeśli wartość jest pusta, domyślnie zostanie użyta tożsamość przypisana przez system na maszynie wirtualnej 
 * **servicenamename: nazwa magazynu kluczy**
 * **obiekty**: kontener dla całej zawartości tajnej, którą chcesz zainstalować
     * **ObjectName**: Nazwa tajnej zawartości
@@ -147,9 +131,8 @@ spec:
   parameters:
     usePodIdentity: "false"                   # [REQUIRED] Set to "true" if using managed identities
     useVMManagedIdentity: "false"             # [OPTIONAL] if not provided, will default to "false"
-    userAssignedIdentityID: "servicePrincipalClientID"       # [REQUIRED] If you're using a service principal, use the client id to specify which user-assigned managed identity to use. If you're using a user-assigned identity as the VM's managed identity, specify the identity's client id. If the value is empty, it defaults to use the system-assigned identity on the VM
-                                                             #     az ad sp show --id http://contosoServicePrincipal --query appId -o tsv
-                                                             #     the preceding command will return the client ID of your service principal
+    userAssignedIdentityID: "servicePrincipalClientID"       # [REQUIRED]  If you're using a user-assigned identity as the VM's managed identity, specify the identity's client id. If the value is empty, it defaults to use the system-assigned identity on the VM
+                                                         
     keyvaultName: "contosoKeyVault5"          # [REQUIRED] the name of the key vault
                                               #     az keyvault show --name contosoKeyVault5
                                               #     the preceding command will display the key vault metadata, which includes the subscription ID, resource group name, key vault 
@@ -174,58 +157,18 @@ Na poniższej ilustracji przedstawiono dane wyjściowe konsoli dla polecenia **A
 
 ![Zrzut ekranu przedstawiający dane wyjściowe konsoli dla polecenia "AZ datamagazyn show--Name contosoKeyVault5"](../media/kubernetes-key-vault-4.png)
 
-## <a name="assign-your-service-principal-or-use-managed-identities"></a>Przypisywanie nazwy głównej usługi lub korzystanie z tożsamości zarządzanych
+## <a name="assign-managed-identity"></a>Przypisywanie tożsamości zarządzanej
 
-### <a name="assign-a-service-principal"></a>Przypisywanie nazwy głównej usługi
-
-Jeśli używasz nazwy głównej usługi, Udziel uprawnień do uzyskiwania dostępu do magazynu kluczy i Pobierz wpisy tajne. Przypisz rolę *czytelnika* i przyznaj uprawnienia nazwy głównej usługi, aby *uzyskać* wpisy tajne z magazynu kluczy, wykonując następujące polecenie:
-
-1. Przypisz jednostkę usługi do istniejącego magazynu kluczy. **$AZURE _CLIENT_ID** parametr jest **identyfikatorem AppID** skopiowanym po utworzeniu nazwy głównej usługi.
-    ```azurecli
-    az role assignment create --role Reader --assignee $AZURE_CLIENT_ID --scope /subscriptions/$SUBID/resourcegroups/$KEYVAULT_RESOURCE_GROUP/providers/Microsoft.KeyVault/vaults/$KEYVAULT_NAME
-    ```
-
-    Dane wyjściowe polecenia są wyświetlane na poniższym obrazie: 
-
-    ![Zrzut ekranu przedstawiający wartość principalId](../media/kubernetes-key-vault-5.png)
-
-1. Przyznaj uprawnienia nazwy głównej usługi do uzyskiwania wpisów tajnych:
-    ```azurecli
-    az keyvault set-policy -n $KEYVAULT_NAME --secret-permissions get --spn $AZURE_CLIENT_ID
-    az keyvault set-policy -n $KEYVAULT_NAME --key-permissions get --spn $AZURE_CLIENT_ID
-    ```
-
-1. Nazwa główna usługi została skonfigurowana z uprawnieniami do odczytu wpisów tajnych z magazynu kluczy. **_CLIENT_SECRET $Azure** jest hasłem nazwy głównej usługi. Dodaj poświadczenia nazwy głównej usługi jako klucz tajny Kubernetes, który jest dostępny dla sterownika CSI magazynu wpisów tajnych:
-    ```azurecli
-    kubectl create secret generic secrets-store-creds --from-literal clientid=$AZURE_CLIENT_ID --from-literal clientsecret=$AZURE_CLIENT_SECRET
-    ```
-
-> [!NOTE] 
-> Jeśli wdrażasz Kubernetes pod i wystąpi błąd dotyczący nieprawidłowego identyfikatora tajnego klienta, być może masz starszy identyfikator tajny klienta, którego ważność wygasła lub zresetowana. Aby rozwiązać ten problem, Usuń wpis tajny *magazynu — poświadczenia* i Utwórz nowy przy użyciu bieżącego identyfikatora tajnego klienta. Aby usunąć wpisy *tajne — poświadczenia magazynu*, uruchom następujące polecenie:
->
-> ```azurecli
-> kubectl delete secrets secrets-store-creds
-> ```
-
-Jeśli nie pamiętasz identyfikatora tajnego klienta jednostki usługi, możesz go zresetować za pomocą następującego polecenia:
-
-```azurecli
-az ad sp credential reset --name contosoServicePrincipal --credential-description "APClientSecret" --query password -o tsv
-```
-
-### <a name="use-managed-identities"></a>Używanie tożsamości zarządzanych
-
-Jeśli używasz tożsamości zarządzanych, Przypisz określone role do utworzonego klastra AKS. 
+Przypisz określone role do utworzonego klastra AKS. 
 
 1. Aby utworzyć, wyświetlić lub odczytać tożsamość zarządzaną przypisaną przez użytkownika, do klastra AKS należy przypisać rolę [operatora tożsamości zarządzanej](../../role-based-access-control/built-in-roles.md#managed-identity-operator) . Upewnij się, że **$clientId** jest ClientId klastra Kubernetes. Zakres będzie objęty usługą subskrypcji platformy Azure, w odniesieniu do grupy zasobów węzła, która została utworzona podczas tworzenia klastra AKS. Ten zakres zapewni, że tylko zasoby w tej grupie mają wpływ role przypisane poniżej. 
 
     ```azurecli
     RESOURCE_GROUP=contosoResourceGroup
-    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$RESOURCE_GROUP
     
-    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
+    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/<SUBID>/resourcegroups/$RESOURCE_GROUP
     
-    az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
+    az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/<SUBID>/resourcegroups/$RESOURCE_GROUP
     ```
 
 1. Zainstaluj tożsamość usługi Azure Active Directory (Azure AD) w usłudze AKS.
@@ -242,7 +185,7 @@ Jeśli używasz tożsamości zarządzanych, Przypisz określone role do utworzon
 
 1. Przypisz rolę *czytelnika* do tożsamości usługi Azure AD utworzonej w poprzednim kroku dla magazynu kluczy, a następnie Udziel uprawnień tożsamości do uzyskiwania wpisów tajnych z magazynu kluczy. Użyj **clientId** i **principalId** z tożsamości usługi Azure AD.
     ```azurecli
-    az role assignment create --role "Reader" --assignee $principalId --scope /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/contosoResourceGroup/providers/Microsoft.KeyVault/vaults/contosoKeyVault5
+    az role assignment create --role "Reader" --assignee $principalId --scope /subscriptions/<SUBID>/resourceGroups/contosoResourceGroup/providers/Microsoft.KeyVault/vaults/contosoKeyVault5
 
     az keyvault set-policy -n contosoKeyVault5 --secret-permissions get --spn $clientId
     az keyvault set-policy -n contosoKeyVault5 --key-permissions get --spn $clientId
@@ -253,16 +196,6 @@ Jeśli używasz tożsamości zarządzanych, Przypisz określone role do utworzon
 Aby skonfigurować obiekt SecretProviderClass, uruchom następujące polecenie:
 ```azurecli
 kubectl apply -f secretProviderClass.yaml
-```
-
-### <a name="use-a-service-principal"></a>Korzystanie z nazwy głównej usługi
-
-Jeśli używasz nazwy głównej usługi, użyj następującego polecenia, aby wdrożyć swoje Kubernetesy z systemem SecretProviderClass i wpisami tajnymi magazynu, które zostały wcześniej skonfigurowane. Oto szablony wdrażania:
-* Dla systemu [Linux](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/nginx-pod-inline-volume-service-principal.yaml)
-* Dla [systemu Windows](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/windows-pod-secrets-store-inline-volume-secret-providerclass.yaml)
-
-```azurecli
-kubectl apply -f updateDeployment.yaml
 ```
 
 ### <a name="use-managed-identities"></a>Używanie tożsamości zarządzanych
@@ -318,8 +251,6 @@ spec:
         readOnly: true
         volumeAttributes:
           secretProviderClass: azure-kvname
-        nodePublishSecretRef:           # Only required when using service principal mode
-          name: secrets-store-creds     # Only required when using service principal mode
 ```
 
 Uruchom następujące polecenie, aby wdrożyć swój system:

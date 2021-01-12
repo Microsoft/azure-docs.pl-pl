@@ -3,21 +3,21 @@ title: 'Szybki Start: Dodawanie uwierzytelniania do aplikacji sieci Web w węźl
 titleSuffix: Microsoft identity platform
 description: W tym przewodniku szybki start dowiesz się, jak zaimplementować uwierzytelnianie za pomocą aplikacji internetowej Node.js i biblioteki uwierzytelniania firmy Microsoft (MSAL) dla Node.js.
 services: active-directory
-author: amikuma
-manager: saeeda
+author: mmacy
+manager: celested
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/22/2020
-ms.author: amikuma
+ms.author: marsma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
-ms.openlocfilehash: 09ffe9948d14d0529756abd44c989dd83602b270
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 7fc76259f30f96d95c63b7e9369ec5e9647d923e
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011768"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107450"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-node-web-app-using-the-auth-code-flow"></a>Szybki Start: Logowanie użytkowników i uzyskiwanie tokenu dostępu w aplikacji sieci Web Node przy użyciu przepływu kodu uwierzytelniania
 

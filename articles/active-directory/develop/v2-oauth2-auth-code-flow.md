@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/14/2020
+ms.date: 01/11/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6648cfb717ade4b842e8ff470a46bf744b630363
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 580ec0761c997a0ee7611f7104aa48650c8573e7
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88612320"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107416"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Przepływ kodu autoryzacji Microsoft Identity platform i OAuth 2,0
 
@@ -58,7 +58,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=code
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &response_mode=query
-&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read%20api%3A%2F%2F
 &state=12345
 &code_challenge=YTFjNjI1OWYzMzA3MTI4ZDY2Njg5M2RkNmVjNDE5YmEyZGRhOGYyM2IzNjdmZWFhMTQ1ODg3NDcxY2Nl
 &code_challenge_method=S256
@@ -72,10 +72,10 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 |--------------|-------------|--------------|
 | `tenant`    | wymagane    | `{tenant}`Wartość w ścieżce żądania może służyć do kontrolowania, kto może zalogować się do aplikacji. Dozwolone wartości to `common` , `organizations` , `consumers` i identyfikator dzierżawy. Aby uzyskać więcej informacji, zobacz temat [podstawowe informacje o protokole](active-directory-v2-protocols.md#endpoints).  |
 | `client_id`   | wymagane    | **Identyfikator aplikacji (klienta)** , który [Azure Portal — rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) środowisko przypisane do aplikacji.  |
-| `response_type` | wymagane    | Musi zawierać `code` do przepływu kodu autoryzacji.       |
+| `response_type` | wymagane    | Musi zawierać `code` do przepływu kodu autoryzacji. Może również zawierać `id_token` lub `token` , jeśli jest używany [przepływ hybrydowy](#request-an-id-token-as-well-hybrid-flow). |
 | `redirect_uri`  | wymagane | Redirect_uri aplikacji, w której odpowiedzi uwierzytelniania mogą być wysyłane i odbierane przez aplikację. Musi dokładnie pasować do jednego z redirect_uris zarejestrowanego w portalu, z wyjątkiem tego, że musi on być zakodowany w adresie URL. W przypadku natywnych aplikacji mobilnych & należy użyć wartości domyślnej `https://login.microsoftonline.com/common/oauth2/nativeclient` .   |
 | `scope`  | wymagane    | Rozdzielana spacjami lista [zakresów](v2-permissions-and-consent.md) , do których użytkownik ma wyrazić zgodę.  W przypadku `/authorize` gałęzi żądania może to obejmować wiele zasobów, co pozwala aplikacji na uzyskanie zgody na wiele interfejsów API sieci Web, które mają być wywoływane. |
-| `response_mode`   | zalecane | Określa metodę, która ma zostać użyta do wysłania zwróconego tokenu z powrotem do aplikacji. Może być jedną z następujących czynności:<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query` udostępnia kod jako parametr ciągu zapytania w identyfikatorze URI przekierowania. Jeśli żądasz tokenu identyfikatora przy użyciu niejawnego przepływu, nie możesz użyć `query` określonego w [specyfikacji OpenID Connect](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Jeśli żądasz tylko kodu, możesz użyć `query` , `fragment` , lub `form_post` . `form_post` wykonuje wpis zawierający kod dla identyfikatora URI przekierowania. Aby uzyskać więcej informacji, zobacz [OpenID Connect Connect Protocol](../azuread-dev/v1-protocols-openid-connect-code.md).  |
+| `response_mode`   | zalecane | Określa metodę, która ma zostać użyta do wysłania zwróconego tokenu z powrotem do aplikacji. Może być jedną z następujących czynności:<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query` udostępnia kod jako parametr ciągu zapytania w identyfikatorze URI przekierowania. Jeśli żądasz tokenu identyfikatora przy użyciu niejawnego przepływu, nie możesz użyć `query` określonego w [specyfikacji OpenID Connect](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Jeśli żądasz tylko kodu, możesz użyć `query` , `fragment` , lub `form_post` . `form_post` wykonuje wpis zawierający kod dla identyfikatora URI przekierowania. |
 | `state`                 | zalecane | Wartość uwzględniona w żądaniu, która również zostanie zwrócona w odpowiedzi tokenu. Może to być ciąg dowolnej zawartości. Losowo wygenerowana unikatowa wartość jest zwykle używana w celu [zapobiegania atakom na fałszerstwo żądań między witrynami](https://tools.ietf.org/html/rfc6749#section-10.12). Ta wartość może również kodować informacje o stanie użytkownika w aplikacji przed wystąpieniem żądania uwierzytelniania, takie jak strona lub widok. |
 | `prompt`  | optional    | Wskazuje typ interakcji użytkownika, która jest wymagana. Jedyne prawidłowe wartości w tym momencie to `login` , `none` , i `consent` .<br/><br/>- `prompt=login` wymusić użytkownikowi wprowadzanie poświadczeń na to żądanie, negację logowania jednokrotnego.<br/>- `prompt=none` jest przeciwieństwem do siebie, upewnia się, że użytkownik nie jest wyświetlany z żadnym interaktywnym monitem. Jeśli żądanie nie może zostać zakończone dyskretnie przy użyciu logowania jednokrotnego, punkt końcowy platformy tożsamości firmy Microsoft zwróci `interaction_required` błąd.<br/>- `prompt=consent` spowoduje wyzwolenie okna dialogowego zgody na uwierzytelnianie OAuth po zalogowaniu się użytkownika, z prośbą o udzielenie uprawnień do aplikacji.<br/>- `prompt=select_account` spowoduje przerwanie logowania jednokrotnego, dzięki czemu można wyświetlić listę wszystkich kont w sesji lub dowolnego zapamiętane konto albo opcję, aby całkowicie użyć innego konta.<br/> |
 | `login_hint`  | optional    | Może służyć do wstępnego wypełniania pola Nazwa użytkownika/adres e-mail strony logowania dla użytkownika, jeśli znana jest jego nazwa użytkownika przed czasem. Często aplikacje będą używać tego parametru podczas ponownego uwierzytelniania, ponieważ już wyodrębnili nazwę użytkownika z poprzedniego logowania przy użyciu tego `preferred_username` żądania.   |
@@ -103,7 +103,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 | `code` | Authorization_code żądana przez aplikację. Aplikacja może użyć kodu autoryzacji, aby zażądać tokenu dostępu dla zasobu docelowego. Authorization_codes są krótkotrwałe, zazwyczaj wygasają po około 10 minutach. |
 | `state` | Jeśli w żądaniu zostanie uwzględniony parametr stanu, ta sama wartość powinna pojawić się w odpowiedzi. Aplikacja powinna sprawdzić, czy wartości stanu w żądaniu i odpowiedzi są identyczne. |
 
-Możesz również otrzymać token dostępu i token identyfikatora, Jeśli zażądasz certyfikatu i ma on niejawny przydział włączony w rejestracji aplikacji.  Jest to czasami określane jako "przepływ hybrydowy" i jest używane przez platformy, takie jak ASP.NET.
+Możesz również odebrać token identyfikatora, Jeśli zażądasz certyfikatu i ma on niejawny przydział włączony w rejestracji aplikacji.  Jest to czasami określane jako ["przepływ hybrydowy"](#request-an-id-token-as-well-hybrid-flow)i jest używane przez platformy, takie jak ASP.NET.
 
 #### <a name="error-response"></a>Odpowiedź na błąd
 
@@ -129,12 +129,59 @@ W poniższej tabeli opisano różne kody błędów, które mogą być zwracane w
 | `invalid_request` | Błąd protokołu, taki jak brak wymaganego parametru. | Napraw i ponownie prześlij żądanie. Jest to błąd programistyczny zwykle przechwycony podczas wstępnego testowania. |
 | `unauthorized_client` | Aplikacja kliencka nie może zażądać kodu autoryzacji. | Ten błąd występuje zazwyczaj, gdy aplikacja kliencka nie jest zarejestrowana w usłudze Azure AD lub nie została dodana do dzierżawy usługi Azure AD użytkownika. Aplikacja może monitować użytkownika z instrukcją dotyczącą instalowania aplikacji i dodawania jej do usługi Azure AD. |
 | `access_denied`  | Niedozwolona zgoda właściciela zasobu  | Aplikacja kliencka może powiadomić użytkownika, że nie może wykonać tej czynności, chyba że użytkownik wyraził zgodę. |
-| `unsupported_response_type` | Serwer autoryzacji nie obsługuje typu odpowiedzi w żądaniu. | Napraw i ponownie prześlij żądanie. Jest to błąd programistyczny zwykle przechwycony podczas wstępnego testowania.  |
+| `unsupported_response_type` | Serwer autoryzacji nie obsługuje typu odpowiedzi w żądaniu. | Napraw i ponownie prześlij żądanie. Jest to błąd programistyczny zwykle przechwycony podczas wstępnego testowania. Gdy występuje w [przepływie hybrydowym](#request-an-id-token-as-well-hybrid-flow), sygnalizuje, że należy włączyć ustawienie niejawnego przyznania tokenu identyfikatora dla rejestracji aplikacji klienta. |
 | `server_error`  | Serwer napotkał nieoczekiwany błąd.| Ponów żądanie. Te błędy mogą wynikać z warunków tymczasowych. Aplikacja kliencka może wyjaśnić użytkownikowi, że odpowiedź jest opóźniona z błędem tymczasowym. |
 | `temporarily_unavailable`   | Serwer jest tymczasowo zbyt zajęty, aby obsłużyć żądanie. | Ponów żądanie. Aplikacja kliencka może wyjaśnić użytkownikowi, że jego odpowiedź jest opóźniona ze względu na tymczasowy warunek. |
 | `invalid_resource`  | Zasób docelowy jest nieprawidłowy, ponieważ nie istnieje, usługa Azure AD nie może go odnaleźć lub nie jest poprawnie skonfigurowana. | Ten błąd wskazuje, że zasób (jeśli istnieje) nie został skonfigurowany w dzierżawie. Aplikacja może monitować użytkownika z instrukcją dotyczącą instalowania aplikacji i dodawania jej do usługi Azure AD. |
 | `login_required` | Zbyt wiele lub nie znaleziono użytkowników | Klient zażądał uwierzytelniania dyskretnego ( `prompt=none` ), ale nie można odnaleźć pojedynczego użytkownika. Może to oznaczać, że wielu użytkowników jest aktywnych w sesji lub nie ma żadnych użytkowników. Uwzględnia to wybraną dzierżawę (na przykład jeśli istnieją dwa aktywne konta usługi Azure AD i jeden konto Microsoft i `consumers` zostanie wybrana opcja uwierzytelnianie dyskretne zostanie wykonane). |
 | `interaction_required` | Żądanie wymaga interakcji z użytkownikiem. | Wymagany jest dodatkowy krok uwierzytelniania lub zgoda. Ponów żądanie bez `prompt=none` . |
+
+### <a name="request-an-id-token-as-well-hybrid-flow"></a>Zażądaj tokenu identyfikatora również (przepływ hybrydowy)
+
+Aby dowiedzieć się, kto jest użytkownikiem przed zrealizowaniem kodu autoryzacji, często aplikacje mogą również zażądać tokenu identyfikatora, gdy zażądają kodu autoryzacji. Jest to nazywane *przepływem hybrydowym* , ponieważ miesza niejawne przyznanie za pomocą przepływu kodu autoryzacji. Przepływ hybrydowy jest często używany w aplikacjach sieci Web, które chcą renderować stronę dla użytkownika bez blokowania w przypadku wypełniania kodu, szczególnie [ASP.NET](quickstart-v2-aspnet-core-webapp.md). Zarówno aplikacje jednostronicowe, jak i tradycyjne aplikacje sieci Web korzystają z mniejszego opóźnienia w tym modelu.
+
+Przepływ hybrydowy jest taki sam jak przepływ kodu autoryzacji opisany wcześniej, ale z trzema dodatkami, z których wszystkie są wymagane do żądania tokenu identyfikatora: nowe zakresy, nowe response_type i nowy `nonce` parametr zapytania.
+
+```
+// Line breaks for legibility only
+
+https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+&response_type=code%20id_token
+&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
+&response_mode=fragment
+&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
+&state=12345
+&nonce=abcde
+&code_challenge=YTFjNjI1OWYzMzA3MTI4ZDY2Njg5M2RkNmVjNDE5YmEyZGRhOGYyM2IzNjdmZWFhMTQ1ODg3NDcxY2Nl
+&code_challenge_method=S256
+```
+
+| Zaktualizowany parametr | Wymagane/opcjonalne | Opis |
+|---------------|-------------|--------------|
+|`response_type`| Wymagane | Dodanie `id_token` wskazuje serwerowi, że aplikacja będzie tokenem identyfikatora w odpowiedzi z `/authorize` punktu końcowego.  |
+|`scope`| Wymagane | W przypadku tokenów identyfikatora należy zaktualizować, aby uwzględnić zakresy tokenów identyfikatorów — `openid` i opcjonalnie `profile` i `email` . |
+|`nonce`| Wymagane|     Wartość uwzględniona w żądaniu wygenerowanym przez aplikację, która zostanie uwzględniona w uzyskanym id_token jako jako żądanie. Następnie aplikacja może zweryfikować tę wartość, aby zmniejszyć ataki metodą powtórzeń tokenu. Wartość jest zazwyczaj losowo losowym, unikatowym ciągiem, który może służyć do identyfikowania pochodzenia żądania. |
+|`response_mode`| Zalecane | Określa metodę, która ma zostać użyta do wysłania zwróconego tokenu z powrotem do aplikacji. Wartością domyślną jest `query` tylko kod autoryzacji, ale `fragment` Jeśli żądanie zawiera id_token `response_type` .|
+
+Korzystanie z programu `fragment` jako trybu odpowiedzi może powodować problemy z aplikacjami sieci Web, które odczytują kod z przekierowania, ponieważ przeglądarki nie przekazują fragmentu do serwera sieci Web.  W takich sytuacjach aplikacje są zalecane do korzystania z `form_post` trybu odpowiedzi, aby upewnić się, że wszystkie dane są wysyłane do serwera. 
+
+#### <a name="successful-response"></a>Pomyślna odpowiedź
+
+Pomyślna odpowiedź przy użyciu `response_mode=fragment` wygląda następująco:
+
+```HTTP
+GET https://login.microsoftonline.com/common/oauth2/nativeclient#
+code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
+&id_token=eYj...
+&state=12345
+```
+
+| Parametr | Opis  |
+|-----------|--------------|
+| `code` | Kod autoryzacji żądany przez aplikację. Aplikacja może użyć kodu autoryzacji, aby zażądać tokenu dostępu dla zasobu docelowego. Kody autoryzacji są krótkie, zazwyczaj wygasają po około 10 minutach. |
+| `id_token` | Token identyfikatora dla użytkownika wystawiony za pośrednictwem *niejawnego przydzielenia*. Zawiera specjalne żądanie `c_hash` , które jest skrótem w tym `code` samym żądaniu. |
+| `state` | Jeśli w żądaniu zostanie uwzględniony parametr stanu, ta sama wartość powinna pojawić się w odpowiedzi. Aplikacja powinna sprawdzić, czy wartości stanu w żądaniu i odpowiedzi są identyczne. |
 
 ## <a name="request-an-access-token"></a>Żądanie tokenu dostępu
 
@@ -167,7 +214,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `scope`      | optional   | Rozdzielana spacjami lista zakresów. Wszystkie zakresy muszą pochodzić z pojedynczego zasobu, wraz z zakresami OIDC ( `profile` , `openid` , `email` ). Aby uzyskać bardziej szczegółowy opis zakresów, zapoznaj się z [uprawnieniami, zgodą i zakresami](v2-permissions-and-consent.md). Jest to rozszerzenie firmy Microsoft do przepływu kodu autoryzacji, które umożliwia aplikacjom deklarowanie zasobu, dla którego chcą token w trakcie realizacji tokenu.|
 | `code`          | wymagane  | Authorization_code, które zostały nabyte w pierwszym etapie przepływu. |
 | `redirect_uri`  | wymagane  | Ta sama redirect_uri wartość, która została użyta w celu uzyskania authorization_code. |
-| `client_secret` | wymagane w przypadku poufnych aplikacji sieci Web | Wpis tajny aplikacji utworzony w portalu rejestracji aplikacji dla aplikacji. Nie należy używać wpisu tajnego aplikacji w aplikacji natywnej lub aplikacji jednostronicowej, ponieważ client_secrets nie może być niezawodnie przechowywana na urządzeniach ani na stronach sieci Web. Jest to wymagane w przypadku aplikacji sieci Web i interfejsów API sieci Web, które umożliwiają bezpieczne przechowywanie client_secret po stronie serwera.  Wpis tajny klienta musi być zakodowany przy użyciu adresu URL przed wysłaniem. Aby uzyskać więcej informacji na temat kodowania identyfikatorów URI, zobacz [Opis składni ogólnej identyfikatora URI](https://tools.ietf.org/html/rfc3986#page-12). |
+| `client_secret` | wymagane w przypadku poufnych aplikacji sieci Web | Wpis tajny aplikacji utworzony w portalu rejestracji aplikacji dla aplikacji. Nie należy używać wpisu tajnego aplikacji w aplikacji natywnej lub aplikacji jednostronicowej, ponieważ client_secrets nie może być niezawodnie przechowywana na urządzeniach ani na stronach sieci Web. Jest to wymagane w przypadku aplikacji sieci Web i interfejsów API sieci Web, które umożliwiają bezpieczne przechowywanie client_secret po stronie serwera.  Podobnie jak wszystkie parametry omówione w tym miejscu, klucz tajny klienta musi być zakodowany przy użyciu adresu URL przed wysłaniem, a krok zwykle wykonywany przez zestaw SDK. Aby uzyskać więcej informacji na temat kodowania identyfikatorów URI, zobacz [Opis składni ogólnej identyfikatora URI](https://tools.ietf.org/html/rfc3986#page-12). |
 | `code_verifier` | zalecane  | Ten sam code_verifier, który został użyty w celu uzyskania authorization_code. Wymagane, jeśli w żądaniu udzielenia uprawnienia do kodu autoryzacji użyto PKCE. Aby uzyskać więcej informacji, zobacz [dokument RFC PKCE](https://tools.ietf.org/html/rfc7636). |
 
 ### <a name="successful-response"></a>Pomyślna odpowiedź

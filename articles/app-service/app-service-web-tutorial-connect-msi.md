@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli
-ms.openlocfilehash: 1f6757a9f78e3c400d92fd65a0795ceae7570c99
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: f043f7ed63353dcb9cf9fd26690da97b902f32a6
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347578"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108623"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Samouczek: zabezpieczanie połączenia usługi Azure SQL Database z usługi App Service za pomocą tożsamości zarządzanej
 
@@ -229,6 +229,9 @@ Wpisz polecenie `EXIT`, aby powrócić do wiersza polecenia usługi Cloud Shell.
 > [!NOTE]
 > Usługi zaplecza tożsamości zarządzanych obsługują również [pamięć podręczną tokenów](overview-managed-identity.md#obtain-tokens-for-azure-resources) , która aktualizuje token dla zasobu docelowego tylko po jego wygaśnięciu. Jeśli wystąpi błąd podczas konfigurowania uprawnień SQL Database i spróbujesz zmodyfikować uprawnienia *po* próbie uzyskania tokenu w aplikacji, nie otrzymasz nowego tokenu ze zaktualizowanymi uprawnieniami do momentu wygaśnięcia tokenu w pamięci podręcznej.
 
+> [!NOTE]
+> Usługi AAD nie są obsługiwane w przypadku Premium SQL Server i obejmuje to MSIs. 
+
 ### <a name="modify-connection-string"></a>Modyfikowanie parametrów połączenia
 
 Należy pamiętać, że te same zmiany wprowadzone w *Web.config* lub *appsettings.jsw* działaniu z tożsamością zarządzaną, więc jedynym zadaniem do wykonania jest usunięcie istniejących parametrów połączenia w App Service, które program Visual Studio utworzył wdrożenie aplikacji po raz pierwszy. Użyj poniższego polecenia, ale Zastąp *\<app-name>* wartość nazwą aplikacji.
@@ -251,7 +254,7 @@ Na stronie publikowania kliknij przycisk **Publikuj**.
 
 ```bash
 git commit -am "configure managed identity"
-git push azure master
+git push azure main
 ```
 
 Gdy nowa strona internetowa wyświetla listę zadań do wykonania, aplikacja nawiązuje połączenie z bazą danych za pomocą tożsamości zarządzanej.

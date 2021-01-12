@@ -14,14 +14,14 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6da053bb04e5ee3f2b2b307c382f2695663669e5
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 568584b849b2c5977d4bbb6216697dce3c498cfd
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020659"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107926"
 ---
-# <a name="administrator-role-permissions-in-azure-active-directory"></a>Uprawnienia ról administratorów w usłudze Azure Active Directory
+# <a name="administrator-role-permissions-in-azure-active-directory"></a>Uprawnienia roli administratora w usłudze Azure Active Directory
 
 Za pomocą Azure Active Directory (Azure AD) można wyznaczyć ograniczonych administratorów do zarządzania zadaniami tożsamości w rolach z niższymi uprawnieniami. Administratorzy mogą być przypisani do takich celów, jak dodawanie lub zmiana użytkowników, przypisywanie ról administracyjnych, resetowanie haseł użytkowników, zarządzanie licencjami użytkowników i zarządzanie nazwami domen. [Domyślne uprawnienia użytkownika](../fundamentals/users-default-permissions.md) można zmienić tylko w ustawieniach użytkownika w usłudze Azure AD.
 
@@ -770,6 +770,7 @@ Może zarządzać wszystkimi aspektami usługi Azure AD i usługami firmy Micros
 | Microsoft. Directory/directoryRoles/allProperties/allTasks | Tworzenie i usuwanie directoryRoles oraz odczytywanie i aktualizowanie wszystkich właściwości w Azure Active Directory. |
 | Microsoft. Directory/directoryRoleTemplates/allProperties/allTasks | Tworzenie i usuwanie directoryRoleTemplates oraz odczytywanie i aktualizowanie wszystkich właściwości w Azure Active Directory. |
 | Microsoft. Directory/domen/allProperties/allTasks | Tworzenie i usuwanie domen oraz odczytywanie i aktualizowanie wszystkich właściwości w Azure Active Directory. |
+| Microsoft. Directory/entitlementManagement/allProperties/allTasks | Tworzenie i usuwanie zasobów oraz odczytywanie i aktualizowanie wszystkich właściwości w usłudze Azure AD uprawnienia zarządzania. |
 | Microsoft. Directory/Groups/allProperties/allTasks | Tworzenie i usuwanie grup oraz odczytywanie i aktualizowanie wszystkich właściwości w Azure Active Directory. |
 | Microsoft. Directory/groupsAssignableToRoles/allProperties/Update | Aktualizacja grup z właściwością isAssignableToRole ustawioną na wartość true w Azure Active Directory. |
 | Microsoft. Directory/groupsAssignableToRoles/Create | Utwórz grupy z właściwością isAssignableToRole ustawioną na wartość true w Azure Active Directory. |
@@ -831,6 +832,7 @@ Może odczytywać i zarządzać konfiguracją zgodności i raportami w usłudze 
 | --- | --- |
 | Microsoft. Azure. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Azure Service Health. |
 | Microsoft. Azure. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej systemu Azure i zarządzaj nimi dla usług na poziomie katalogu. |
+| Microsoft. Directory/entitlementManagement/allProperties/odczyt | Odczytaj wszystkie właściwości w temacie Zarządzanie prawami usługi Azure AD. |
 | Microsoft. Office 365. zgodnośćmanager/allEntities/allTasks | Zarządzanie wszystkimi aspektami programu Office 365 — Menedżer zgodności |
 | Microsoft. Office 365. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Service Health Microsoft 365. |
 | Microsoft. Office 365. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej pakietu Office 365 i zarządzaj nimi. |
@@ -1133,6 +1135,7 @@ Może odczytywać wszystko, co Administrator globalny może, ale nie edytować n
 | Microsoft. Directory/directoryRoles/eligibleMembers/odczyt    | Odczytaj Właściwość directoryRoles. eligibleMembers w Azure Active Directory. |
 | Microsoft. Directory/directoryRoles/Members/odczyt    | Przeczytaj Właściwość directoryRoles. Members w Azure Active Directory. |
 | Microsoft. Directory/domen/podstawowa/odczytana    | Zapoznaj się z podstawowymi właściwościami domen w Azure Active Directory. |
+| Microsoft. Directory/entitlementManagement/allProperties/odczyt | Odczytaj wszystkie właściwości w temacie Zarządzanie prawami usługi Azure AD. |
 | Microsoft. Directory/Groups/appRoleAssignments/Read    | Odczytaj właściwości groups. appRoleAssignments w Azure Active Directory. |
 | Microsoft. Directory/Groups/Basic/Read    | Zapoznaj się z podstawowymi właściwościami grup w Azure Active Directory. |
 | Microsoft. Directory/Groups/hiddenMembers/Read    | Odczytaj właściwości groups. hiddenMembers w Azure Active Directory. |
@@ -1231,7 +1234,7 @@ Można resetować hasła dla administratorów nie będących administratorami i 
 
 ### <a name="hybrid-identity-administrator-permissions"></a>Uprawnienia administratora tożsamości hybrydowej
 
-Włączanie, wdrażanie, konfigurowanie, monitorowanie i rozwiązywanie problemów z usługami do aprowizacji i uwierzytelniania w chmurze. 
+Może zarządzać usługą AD w usłudze Azure AD — Inicjowanie obsługi administracyjnej i ustawienia federacyjne. 
 
 | **Akcje** | **Opis** |
 | --- | --- |
@@ -1249,8 +1252,10 @@ Włączanie, wdrażanie, konfigurowanie, monitorowanie i rozwiązywanie problem�
 | Microsoft. Directory/applicationTemplates/wystąpienie | Tworzenie wystąpienia aplikacji galerii z szablonów aplikacji. |
 | Microsoft. Directory/auditLogs/allProperties/odczyt | Odczytaj wszystkie właściwości (w tym właściwości uprzywilejowane) w witrynie auditLogs w Azure Active Directory. |
 | Microsoft. Directory/cloudProvisioning/allProperties/allTasks | Odczytaj i skonfiguruj wszystkie właściwości usługi Azure AD Cloud Provisioning. |
-| Microsoft. Directory/procedurze/allProperties/allTasks | Zarządzanie wszystkimi aspektami Active Directory usług federacyjnych (AD FS) lub dostawcy Federacji innej firmy w usłudze Azure AD. |
+| Microsoft. Directory/domen/allProperties/odczyt | Odczytaj wszystkie właściwości domen. |
+| Microsoft. katalog/domeny/Federacja/aktualizacja | Zaktualizuj Właściwość Federacji domen. |
 | Microsoft. Directory/Organization/dirSync/Update | Zaktualizuj Właściwość Organization. dirSync w Azure Active Directory. |
+| Microsoft. Directory/provisioningLogs/allProperties/odczyt | Odczytaj wszystkie właściwości dzienników aprowizacji. |
 | Microsoft. Directory/serviceprincipals/odbiorcy/aktualizacja | Aktualizacja właściwości serviceprincipals. odbiorca w Azure Active Directory. |
 | Microsoft. Directory/serviceprincipals/Authentication/Update | Aktualizacja właściwości serviceprincipals. Authentication w Azure Active Directory. |
 | Microsoft. Directory/serviceprincipals/Basic/Update | Zaktualizuj podstawowe właściwości obiektów serviceprincipals w Azure Active Directory. |
@@ -1708,9 +1713,10 @@ Może odczytywać informacje o zabezpieczeniach i raporty oraz zarządzać konfi
 | --- | --- |
 | Microsoft. Azure. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Azure Service Health. |
 | Microsoft. Azure. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej systemu Azure i zarządzaj nimi dla usług na poziomie katalogu. |
-| Microsoft. Directory/bitlockerKeys/Key/Read | Odczytywanie obiektów i właściwości klucza funkcji BitLocker w Azure Active Directory. |
 | Microsoft. Directory/Applications/policies/Update | Zaktualizuj Właściwość Applications. policies w Azure Active Directory. |
 | Microsoft. Directory/auditLogs/allProperties/odczyt | Odczytaj wszystkie właściwości (w tym właściwości uprzywilejowane) w witrynie auditLogs w Azure Active Directory. |
+| Microsoft. Directory/bitlockerKeys/Key/Read | Odczytywanie obiektów i właściwości klucza funkcji BitLocker w Azure Active Directory. |
+| Microsoft. Directory/entitlementManagement/allProperties/odczyt | Odczytaj wszystkie właściwości w temacie Zarządzanie prawami usługi Azure AD. |
 | Microsoft. Directory/identityProtection/allProperties/odczyt | Odczytuj wszystkie zasoby w Microsoft. AAD. identityProtection. |
 | Microsoft. Directory/identityProtection/allProperties/Update | Zaktualizuj wszystkie zasoby w usłudze Microsoft. AAD. identityProtection. |
 | Microsoft. katalog/zasady/podstawowa/aktualizacja | Zaktualizuj podstawowe właściwości zasad w Azure Active Directory. |
@@ -1761,6 +1767,7 @@ Może odczytywać informacje o zabezpieczeniach i raporty w usłudze Azure AD i 
 | --- | --- |
 | Microsoft. Directory/auditLogs/allProperties/odczyt | Odczytaj wszystkie właściwości (w tym właściwości uprzywilejowane) w witrynie auditLogs w Azure Active Directory. |
 | Microsoft. Directory/bitlockerKeys/Key/Read | Odczytywanie obiektów i właściwości klucza funkcji BitLocker w Azure Active Directory. |
+| Microsoft. Directory/entitlementManagement/allProperties/odczyt | Odczytaj wszystkie właściwości w temacie Zarządzanie prawami usługi Azure AD. |
 | Microsoft. Directory/policies/conditionalAccess/Basic/Read | Odczytaj Właściwość zasad. conditionalAccess w Azure Active Directory. |
 | Microsoft. Directory/signInReports/allProperties/odczyt | Odczytaj wszystkie właściwości (w tym właściwości uprzywilejowane) w witrynie signInReports w Azure Active Directory. |
 | Microsoft. AAD. identityProtection/allEntities/odczyt | Odczytuj wszystkie zasoby w Microsoft. AAD. identityProtection. |
@@ -1926,6 +1933,7 @@ Może zarządzać wszystkimi aspektami użytkowników i grup, w tym resetowania 
 | Microsoft. Directory/Contacts/Basic/Update | Aktualizowanie podstawowych właściwości kontaktów w Azure Active Directory. |
 | Microsoft. Directory/Contacts/Create | Utwórz kontakty w Azure Active Directory. |
 | Microsoft. Directory/kontakty/usuwanie | Usuń kontakty w Azure Active Directory. |
+| Microsoft. Directory/entitlementManagement/allProperties/allTasks | Tworzenie i usuwanie zasobów oraz odczytywanie i aktualizowanie wszystkich właściwości w usłudze Azure AD uprawnienia zarządzania. |
 | Microsoft. Directory/Groups/appRoleAssignments/Update | Zaktualizuj Właściwość groups. appRoleAssignments w Azure Active Directory. |
 | Microsoft. Directory/Groups/Basic/Update | Zaktualizuj podstawowe właściwości dla grup w Azure Active Directory. |
 | Microsoft. Directory/Groups/Create | Utwórz grupy w Azure Active Directory. |

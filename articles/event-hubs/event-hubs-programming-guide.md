@@ -4,12 +4,12 @@ description: Ten artykuł zawiera informacje dotyczące sposobu pisania kodu dla
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 17bec931f79a6dbb3d98270ab0ff6e2d1d4c6541
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f95abe3668bb400d84e354c3bca9eac289c5795
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89013915"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108691"
 ---
 # <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>Przewodnik programowania .NET dla platformy Azure Event Hubs (starszy pakiet Microsoft. Azure. EventHubs)
 W tym artykule omówiono niektóre typowe scenariusze tworzenia kodu przy użyciu usługi Azure Event Hubs. Przyjęto założenie, że wstępnie znasz i rozumiesz usługę Event Hubs. Omówienie koncepcji usługi Event Hubs można znaleźć w temacie [Przegląd usługi Event Hubs](./event-hubs-about.md).
@@ -24,7 +24,7 @@ Zdarzenia są wysyłane do centrum zdarzeń przy użyciu protokołu HTTP POST lu
 
 W przypadku używania zarządzanych interfejsów API platformy .NET głównymi konstrukcjami na potrzeby publikowania danych w usłudze Event Hubs są klasy [EventHubClient][] i [EventData][]. [EventHubClient][] udostępnia kanał komunikacji AMQP, przez który zdarzenia są wysyłane do centrum zdarzeń. Klasa [EVENTDATA][] reprezentuje zdarzenie i jest używana do publikowania komunikatów w centrum zdarzeń. Ta klasa obejmuje treść, niektóre metadane (właściwości) i informacje nagłówka (SystemProperties) dotyczące zdarzenia. Inne właściwości są dodawane do obiektu [EVENTDATA][] , gdy przechodzi on przez centrum zdarzeń.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 Klasy .NET obsługujące Event Hubs są dostępne w pakiecie NuGet [Microsoft. Azure. EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) . Program można zainstalować za pomocą Eksploratora rozwiązań programu Visual Studio lub [konsoli Menedżera pakietów](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) w programie Visual Studio. Aby to zrobić, należy wydać następujące polecenie w oknie [konsoli menedżera pakietów](https://docs.nuget.org/docs/start-here/using-the-package-manager-console):
 
 ```shell
@@ -144,7 +144,6 @@ Oprócz zaawansowanych funkcji w czasie wykonywania hosta procesora zdarzeń us�
 > [!NOTE]
 > Obecnie tylko interfejs API REST obsługuje tę funkcję ([odwołanie wydawcy](/rest/api/eventhub/revoke-publisher)).
 
-Aby uzyskać więcej informacji o odwołaniu wydawcy i sposobie wysyłania zdarzeń do usługi Event Hubs jako wydawca, zobacz przykład [Event Hubs Large Scale Secure Publishing](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab) (Bezpieczne publikowanie na dużą skalę w usłudze Event Hubs).
 
 ## <a name="next-steps"></a>Następne kroki
 

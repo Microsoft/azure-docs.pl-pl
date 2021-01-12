@@ -3,12 +3,12 @@ title: Często zadawane pytania
 description: Zawiera odpowiedzi na niektóre często zadawane pytania dotyczące rozwiązań VMware platformy Azure.
 ms.topic: conceptual
 ms.date: 1/4/2020
-ms.openlocfilehash: d0228739a6ee4eac20d2fa04e47cf86b6fddb84e
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 1420fba40492e1a5f45f4ad5e58da2caa29ae7e7
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881229"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107960"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Często zadawane pytania dotyczące rozwiązań VMware platformy Azure
 
@@ -29,6 +29,10 @@ Usługa jest ciągle dodawana do nowych regionów. Aby uzyskać więcej informac
 #### <a name="can-workloads-running-in-an-azure-vmware-solution-instance-consume-or-integrate-with-azure-services"></a>Czy obciążenia działające w ramach wystąpienia rozwiązania VMware platformy Azure zużywają lub integrują się z usługami platformy Azure?
 
 Wszystkie usługi platformy Azure będą dostępne dla klientów rozwiązań VMware platformy Azure. Ograniczenia dotyczące wydajności i dostępności dla określonych usług muszą być rozdzielone na zasadzie wielkości liter.
+
+#### <a name="what-guest-operating-systems-are-compatible-with-azure-vmware-solution"></a>Jakie systemy operacyjne gościa są zgodne z rozwiązaniem VMware platformy Azure?
+
+Informacje o zgodności systemu operacyjnego gościa z programem vSphere można znaleźć w [przewodniku zgodności programu VMware](https://www.vmware.com/resources/compatibility/search.php?deviceCategory=software&details=1&releases=485&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc&testConfig=16).  Aby zidentyfikować wersję usługi vSphere działającą w ramach rozwiązania Azure VMware, zobacz [wersje oprogramowania VMware](concepts-private-clouds-clusters.md#vmware-software-versions).
 
 #### <a name="do-i-use-the-same-tools-that-i-use-now-to-manage-private-cloud-resources"></a>Czy mogę użyć tych samych narzędzi, których teraz używam do zarządzania zasobami w chmurze prywatnej?
 

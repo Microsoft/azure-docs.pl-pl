@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfd7b5ac981fcb87d0fc929d944205dec9432b74
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: d482f21955b76e6b90523afe3b4933378c91d36e
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575826"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107365"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Jak zarządzać lokalną grupą administratorów na urządzeniach dołączonych do usługi Azure AD
 
@@ -32,8 +32,7 @@ Po połączeniu urządzenia z systemem Windows z usługą Azure AD przy użyciu 
 - Rola administratora urządzenia usługi Azure AD 
 - Użytkownik wykonujący dołączanie do usługi Azure AD   
 
-Dodając role usługi Azure AD do lokalnej grupy administratorów, można zaktualizować użytkowników, którzy mogą zarządzać urządzeniem w dowolnym momencie w usłudze Azure AD bez konieczności modyfikowania urządzeń. Obecnie nie można przypisywać grup do roli administratora.
-Usługa Azure AD dodaje rolę administratora urządzenia usługi Azure AD do lokalnej grupy administratorów, aby obsługiwała zasadę najniższych uprawnień (PoLP). Oprócz administratorów globalnych można także umożliwić użytkownikom z przypisaną *tylko* rolą administratora urządzenia zarządzanie urządzeniem. 
+Dodając role usługi Azure AD do lokalnej grupy administratorów, można zaktualizować użytkowników, którzy mogą zarządzać urządzeniem w dowolnym momencie w usłudze Azure AD bez konieczności modyfikowania urządzeń. Usługa Azure AD dodaje rolę administratora urządzenia usługi Azure AD do lokalnej grupy administratorów, aby obsługiwała zasadę najniższych uprawnień (PoLP). Oprócz administratorów globalnych można także umożliwić użytkownikom z przypisaną *tylko* rolą administratora urządzenia zarządzanie urządzeniem. 
 
 ## <a name="manage-the-global-administrators-role"></a>Zarządzanie rolą administratorów globalnych
 

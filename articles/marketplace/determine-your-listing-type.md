@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 11/16/2020
-ms.openlocfilehash: aaf0374bcafdb91f316b7133de1c2d019b12b285
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.date: 12/18/2020
+ms.openlocfilehash: 091af70383eb3cab32a0453d7f7542d8a4395d0b
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302865"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107399"
 ---
 # <a name="introduction-to-listing-options"></a>Wprowadzenie do opcji wyświetlania
 
@@ -26,21 +26,23 @@ Podczas tworzenia typu oferty należy wybrać jedną lub więcej opcji dotycząc
 
 Ta tabela zawiera listę opcji dostępnych dla każdego typu oferty.
 
-| Typ oferty | Bezpłatna wersja próbna | Wersja testowa | Skontaktuj się z nami | Pobierz teraz (obsługa Transact) |
+| Typ oferty | Bezpłatna wersja próbna | Wersja testowa | Skontaktuj się z nami | Pobierz teraz `*` |
 | ------------ | ------------- | ------------- | ------------- | ------------- |
 | Aplikacja platformy Azure (aplikacja zarządzana) |   | &#10004; |   | &#10004; |
-| Aplikacja platformy Azure (szablon rozwiązania) |  |  |  |  |
+| Aplikacja platformy Azure (szablon rozwiązania) |  |  |  | &#10004; |
 | Usługa doradcza |  |  | &#10004; |  |
-| Kontener platformy Azure |  |  |  |  |
-| Dynamics 365 Business Central | &#10004; | &#10004; | &#10004; |  |
-| Dynamics 365 Customer Engagement & PowerApps | &#10004; | &#10004; | &#10004; |  |
-| Dynamics 365 dla operacji | &#10004; | &#10004; | &#10004; |  |
-| Moduł IoT Edge |  |  |  |  |
-| Usługa zarządzana |  |  |  |  |
-| Aplikacja usługi Power BI |  |  |  |  |
+| Kontener platformy Azure |  |  |  | &#10004; |
+| Dynamics 365 Business Central | &#10004; | &#10004; | &#10004; | &#10004; |
+| Dynamics 365 Customer Engagement & PowerApps | &#10004; | &#10004; | &#10004; | &#10004; |
+| Dynamics 365 dla operacji | &#10004; | &#10004; | &#10004; | &#10004; |
+| Moduł IoT Edge |  |  |  | &#10004; |
+| Usługa zarządzana |  |  |  | &#10004; |
+| Aplikacja usługi Power BI |  |  |  | &#10004; |
 | Maszyna wirtualna platformy Azure | &#10004; | &#10004; |  | &#10004; |
 | Oprogramowanie jako usługa | &#10004; | &#10004; | &#10004; | &#10004; |
 ||||||
+
+`*` Opcja Pobierz ją teraz zawiera pozycję Pobierz teraz (bezpłatnie), wprowadź własną licencję (BYOL), subskrypcję i Cennik oparty na użyciu. Aby uzyskać szczegółowe informacje, zobacz [Pobierz teraz](#get-it-now).
 
 ### <a name="free-trial"></a>Bezpłatna wersja próbna
 

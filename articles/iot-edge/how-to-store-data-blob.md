@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e1031df9f305015048de7f708123a51875776e1b
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: 2ee4e313366bafdd2f6e3bd0e104abd9f11b7776
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760592"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108674"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Store data at the edge with Azure Blob Storage on IoT Edge (Przechowywanie danych na urządzeniu brzegowym dzięki usłudze Azure Blob Storage w usłudze IoT Edge)
 
@@ -195,7 +195,7 @@ W poniższych przykładach szybkiego startu są używane Języki, które są ró
 
 ## <a name="connect-to-your-local-storage-with-azure-storage-explorer"></a>Nawiązywanie połączenia z magazynem lokalnym za pomocą Eksplorator usługi Azure Storage
 
-Za pomocą [Eksplorator usługi Azure Storage](https://github.com/microsoft/AzureStorageExplorer/releases/tag/v1.14.2) można nawiązać połączenie z kontem magazynu lokalnego.
+Za pomocą [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/) można nawiązać połączenie z kontem magazynu lokalnego.
 
 1. Pobieranie i instalowanie Eksploratora usługi Azure Storage
 
@@ -290,7 +290,7 @@ Ich
 
 Ten Blob Storage platformy Azure na IoT Edge module zapewnia teraz integrację z Event Grid na IoT Edge. Aby uzyskać szczegółowe informacje na temat integracji, zapoznaj się z [samouczkiem dotyczącym wdrażania modułów, publikowania zdarzeń i weryfikowania dostarczania zdarzeń](../event-grid/edge/react-blob-storage-events-locally.md).
 
-## <a name="release-notes"></a>Uwagi do wersji
+## <a name="release-notes"></a>Informacje o wersji
 
 Poniżej znajdują się [Informacje o wersji usługi Docker Hub](https://hub.docker.com/_/microsoft-azure-blob-storage) dla tego modułu
 

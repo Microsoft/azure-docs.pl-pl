@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: 77fab9c4a52a1d54f548dfbcb35e351195d13bd9
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: bbd7091eb2139801956d77ec8b3ca821c935ac64
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98053011"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98109540"
 ---
 ## <a name="start-with-some-boilerplate-code"></a>Zacznij od pewnego kodu standardowego
 
@@ -189,8 +189,9 @@ Wstaw ten kod poniżej `IntentRecognizer` . Upewnij się, że zastąpisz `"YourL
 ```
 
 > [!NOTE]
-> Można utworzyć LanguageUnderstandingModel, przekazując adres URL punktu końcowego do metody FromEndpoint.
-> Zestaw Speech SDK obsługuje tylko punkty końcowe LUIS v 2.0, a punkty końcowe LUIS v 2.0 zawsze obserwują jeden z tych dwóch wzorców:
+> Zestaw Speech SDK obsługuje tylko punkty końcowe LUIS v 2.0.
+> Należy ręcznie zmodyfikować adres URL punktu końcowego programu v 3.0 znaleziony w przykładowym polu zapytania, aby użyć wzorca adresu URL w wersji 2.0.
+> Punkty końcowe LUIS v 2.0 zawsze obserwują jeden z następujących dwóch wzorców:
 > * `https://{AzureResourceName}.cognitiveservices.azure.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
 > * `https://{Region}.api.cognitive.microsoft.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
 
