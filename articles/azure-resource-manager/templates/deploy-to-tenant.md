@@ -2,13 +2,13 @@
 title: Wdrażanie zasobów w dzierżawie
 description: Opisuje sposób wdrażania zasobów w zakresie dzierżawy w szablonie Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 11/24/2020
-ms.openlocfilehash: 5733c5d6eb6cbd86207589244c22badc17fe7073
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.date: 01/13/2021
+ms.openlocfilehash: a397678488921744f076d93235304c8d217d961f
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95807632"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178963"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>Wdrożenia dzierżawców przy użyciu szablonów ARM
 
@@ -145,7 +145,8 @@ Podczas wdrażania w dzierżawie można wdrożyć zasoby w programie:
 * grupy zarządzania w ramach dzierżawy
 * opłaty
 * grupy zasobów
-* [zasoby rozszerzeń](scope-extension-resources.md) można stosować do zasobów
+
+[Zasób rozszerzenia](scope-extension-resources.md) może być objęty zakresem docelowym, który jest inny niż cel wdrożenia.
 
 Użytkownik wdrażający szablon musi mieć dostęp do określonego zakresu.
 

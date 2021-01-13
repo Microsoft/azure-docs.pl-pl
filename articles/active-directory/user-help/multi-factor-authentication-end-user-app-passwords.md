@@ -13,16 +13,16 @@ ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: c9d8bb85aac87503ca641f6633668a6dc582882f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07303a0b0b3007ade9adb90af7397855a5014cc0
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056085"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179426"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Zarządzanie hasłami aplikacji w celu weryfikacji dwuetapowej
 
->[!Important]
+> [!Important]
 >Administrator może nie zezwalać na korzystanie z haseł aplikacji. Jeśli nie widzisz **haseł aplikacji** jako opcji, nie są one dostępne w Twojej organizacji.
 
 W przypadku korzystania z haseł aplikacji ważne jest, aby pamiętać:
@@ -66,7 +66,7 @@ Hasła aplikacji można tworzyć i usuwać ze strony **dodatkowej weryfikacji za
 
 4. Na stronie **hasła aplikacji** upewnij się, że Twoja aplikacja jest wyświetlana na liście.
 
-     ![Strona haseł aplikacji z nową aplikacją wyświetlaną na liście](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-with-new-password.png)  
+    ![Strona haseł aplikacji z nową aplikacją wyświetlaną na liście](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-with-new-password.png)  
 
 5. Otwórz aplikację, dla której zostało utworzone hasło aplikacji (na przykład Outlook 2010), a następnie wklej hasło aplikacji po wyświetleniu monitu. Należy to zrobić tylko raz dla każdej aplikacji.
 
@@ -74,7 +74,7 @@ Hasła aplikacji można tworzyć i usuwać ze strony **dodatkowej weryfikacji za
 
 1. Na stronie **hasła aplikacji** wybierz pozycję **Usuń** obok hasła aplikacji, które chcesz usunąć.
 
-   ![Usuwanie hasła aplikacji](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-delete.png)
+   ![Zrzut ekranu pokazujący Usuwanie hasła aplikacji na stronie hasła aplikacji](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-delete.png)
 
 2. Wybierz pozycję **tak** , aby potwierdzić, że chcesz usunąć hasło, a następnie wybierz pozycję **Zamknij**.
 
@@ -86,35 +86,35 @@ Jeśli korzystasz z weryfikacji dwuetapowej przy użyciu konta służbowego i ap
 
 ### <a name="to-create-app-passwords-using-the-office-365-portal"></a>Aby utworzyć hasła aplikacji przy użyciu portalu pakietu Office 365
 
-1. Zaloguj się do swojego konta służbowego, przejdź do [strony Moje konto](https://portal.office.com), wybierz pozycję **zabezpieczenia & prywatność**, a następnie rozwiń węzeł **dodatkowa Weryfikacja zabezpieczeń**.
+1. Zaloguj się do swojego konta służbowego, przejdź na [stronę Moje konto](https://myaccount.microsoft.com)i wybierz pozycję **informacje zabezpieczające**.
 
-    ![Portal pakietu Office przedstawiający rozwinięty obszar dodatkowej weryfikacji zabezpieczeń](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-o365-my-account-page.png)
+    ![Portal pakietu Office przedstawiający kartę Informacje zabezpieczające](media/multi-factor-authentication-end-user-app-passwords/mfa-security-info.png)
 
-2. Zaznacz wyświetlany tekst, **Utwórz i Zarządzaj hasłami aplikacji** , aby otworzyć stronę **hasła aplikacji** .
+2. Wybierz pozycję **Dodaj metodę**, wybierz pozycję **hasło aplikacji** z listy rozwijanej, a następnie kliknij przycisk **Dodaj**.
 
-    ![Strona hasła aplikacji z wyróżnioną kartą hasła aplikacji](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page.png)
+    ![Strona z informacjami o zabezpieczeniach z listą Dodaj metodę drowpdown](media/multi-factor-authentication-end-user-app-passwords/mfa-add-method.png)
 
-3. Wybierz pozycję **Utwórz**, wpisz nazwę aplikacji, która wymaga hasła aplikacji, a następnie wybierz przycisk **dalej**.
+3. Wprowadź nazwę hasła aplikacji, a następnie wybierz przycisk **dalej**.
 
-    ![Strona tworzenie haseł aplikacji z nazwą aplikacji, która wymaga hasła](media/multi-factor-authentication-end-user-app-passwords/mfa-create-app-password-page.png)
+    ![Strona tworzenie haseł aplikacji z nazwą hasła aplikacji](media/multi-factor-authentication-end-user-app-passwords/mfa-enter-app-password-name.png)
 
-4. Skopiuj hasło ze strony **hasło aplikacji** , a następnie wybierz pozycję **Zamknij**.
+4. Skopiuj hasło ze strony **hasło aplikacji** , a następnie wybierz pozycję **gotowe**.
 
-    ![Strona hasła aplikacji z hasłem dla określonej aplikacji](media/multi-factor-authentication-end-user-app-passwords/mfa-your-app-password-page.png)
+    ![Strona hasła aplikacji z nowo utworzonym hasłem aplikacji](media/multi-factor-authentication-end-user-app-passwords/mfa-copy-app-password.png)
 
-5. Na stronie **hasła aplikacji** upewnij się, że Twoja aplikacja jest wyświetlana na liście.
+5. Na stronie **informacje zabezpieczające** upewnij się, że hasło aplikacji jest wymienione na liście.
 
-     ![Strona haseł aplikacji z nową aplikacją wyświetlaną na liście](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-with-new-password.png)  
+    ![Strona z informacjami o zabezpieczeniach z nowym hasłem aplikacji pokazanym na liście](media/multi-factor-authentication-end-user-app-passwords/mfa-verify-app-password.png)  
 
-6. Otwórz aplikację, dla której zostało utworzone hasło aplikacji (na przykład Outlook 2010), a następnie wklej hasło aplikacji po wyświetleniu monitu. Należy to zrobić tylko raz dla każdej aplikacji.
+6. Otwórz aplikację, dla której zostało utworzone hasło aplikacji (na przykład Outlook 2016), a następnie wklej hasło aplikacji po wyświetleniu monitu. Należy to zrobić tylko raz dla każdej aplikacji.
 
-### <a name="to-delete-app-passwords-using-the-app-passwords-page"></a>Aby usunąć hasła aplikacji przy użyciu strony haseł aplikacji
+### <a name="to-delete-app-passwords-using-the-security-info-page"></a>Aby usunąć hasła aplikacji przy użyciu strony informacje zabezpieczające
 
-1. Na stronie **hasła aplikacji** wybierz pozycję **Usuń** obok hasła aplikacji, które chcesz usunąć.
+1. Na stronie **informacje zabezpieczające** wybierz pozycję **Usuń** obok hasła aplikacji, które chcesz usunąć.
 
-   ![Usuwanie hasła aplikacji](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-delete.png)
+   ![Zrzut ekranu pokazujący Usuwanie hasła aplikacji na stronie z informacjami o zabezpieczeniach](media/multi-factor-authentication-end-user-app-passwords/mfa-delete-app-password.png)
 
-2. W polu potwierdzenia wybierz pozycję **tak** , a następnie wybierz pozycję **Zamknij**.
+2. W polu potwierdzenia wybierz pozycję **OK** .
 
     Pomyślnie usunięto hasło aplikacji.
 

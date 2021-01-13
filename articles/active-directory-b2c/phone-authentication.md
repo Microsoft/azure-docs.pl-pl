@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9d4fa80f669493e4dc47a9ad0f9bfe9390d4ab24
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8d41f8959d0a1ec0d6e48cf2fa4711a8ef8d8ae5
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953580"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178946"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Skonfiguruj konto i zaloguj się przy użyciu zasad niestandardowych w Azure AD B2C
 
@@ -39,7 +39,7 @@ Przy rejestrowaniu i logowaniu użytkownik może zarejestrować się w aplikacji
 >
 > *&lt;Wstawianie: link do zasad zachowania poufności informacji&gt;*<br/>*&lt;Wstawianie: link do warunków użytkowania usługi&gt;*
 
-Aby dodać własne informacje o zgodzie, Dostosuj Poniższy przykład i Uwzględnij go w LocalizedResources dla ContentDefinition używanego przez samodzielną stronę z kontrolką wyświetlania (Phone-Email-Base.xml pliku na zarejestrowaniu telefonu & "Start"):
+Aby dodać własne informacje o zgodzie, Dostosuj Poniższy przykład i Uwzględnij go w LocalizedResources dla ContentDefinition używanego przez samodzielną stronę z kontrolką wyświetlania ( *Phone_Email_Base.xml* pliku w ramach [rejestracji na telefonie i w pakiecie początkowym logowania][starter-pack-phone]):
 
 ```xml
 <LocalizedResources Id="phoneSignUp.en">        
@@ -144,7 +144,7 @@ Możesz znaleźć użytkownika według numeru telefonu (nazwy logowania), korzys
 GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+{phone number}' and c/issuer eq '{tenant name}.onmicrosoft.com')
 ```
 
-Przykład:
+Na przykład:
 
 ```http
 GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+450334567890' and c/issuer eq 'contosob2c.onmicrosoft.com')

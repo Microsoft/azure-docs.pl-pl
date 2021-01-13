@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2021
 ms.author: memildin
-ms.openlocfilehash: 0656000a1d6449306e8afe538f846c55c79a31a2
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 071f1974e09d2754fe20f3ac2cc90929c4a2eb98
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915290"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98180221"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Ważne zmiany w Azure Security Center
 
@@ -31,8 +31,23 @@ Jeśli szukasz najnowszych informacji o wersji, znajdziesz je w temacie [co nowe
 
 ## <a name="planned-changes"></a>Planowane zmiany
 
+- [Ulepszenia zalecenia klasyfikacji danych SQL](#enhancements-to-sql-data-classification-recommendation)
 - [Zasoby "nie dotyczy", które mają być zgłaszane jako "zgodne" w ocenach Azure Policy](#not-applicable-resources-to-be-reported-as-compliant-in-azure-policy-assessments)
 - [35 zaleceń dotyczących wersji zapoznawczej dodano w celu zwiększenia zakresu testów zabezpieczeń platformy Azure](#35-preview-recommendations-being-added-to-increase-coverage-of-azure-security-benchmark)
+
+
+
+### <a name="enhancements-to-sql-data-classification-recommendation"></a>Ulepszenia zalecenia klasyfikacji danych SQL
+
+**Szacowana data zmiany:** Q2 2021
+
+Aktualna wersja zaleceń **poufnych danych w bazach danych SQL powinna być sklasyfikowana** w obszarze **Zastosuj klasyfikację danych** , która zostanie wycofana i zastąpiona nową wersją, która jest lepiej wyrównana z strategią klasyfikacji danych firmy Microsoft. W efekcie:
+
+- Zalecenie nie będzie już miało wpływu na swój Bezpieczny wynik
+- Kontrola zabezpieczeń ("Zastosuj klasyfikację danych") nie będzie już miała wpływu na swój Bezpieczny wynik
+- Identyfikator zalecenia również zostanie zmieniony (obecnie b0df6f56-862d-4730-8597-38c0fd4ebd59)
+
+
 
 ### <a name="not-applicable-resources-to-be-reported-as-compliant-in-azure-policy-assessments"></a>Zasoby "nie dotyczy", które mają być zgłaszane jako "zgodne" w ocenach Azure Policy
 

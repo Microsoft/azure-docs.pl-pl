@@ -1,19 +1,19 @@
 ---
 title: Integracja z usługą Azure Maps
 titleSuffix: Azure Digital Twins
-description: Zobacz jak utworzyć funkcję platformy Azure, która może korzystać z grafu bliźniaczyego i powiadomień usługi Azure Digital bliźniaczych reprezentacji do aktualizowania Azure Mapsj mapy pomieszczeń.
+description: Zapoznaj się z tematem jak używać Azure Functions, aby utworzyć funkcję, która może korzystać z grafu sznurów i powiadomień Digital bliźniaczych reprezentacji na platformie Azure w celu zaktualizowania Azure Maps mapy pomieszczeń.
 author: alexkarcher-msft
 ms.author: alkarche
 ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 7b2039f8b1aebef65112067e4fd9184777192015
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: e582415d9a83dc506b77d506f3e0803002129a07
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051585"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98180051"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Użyj usługi Azure Digital bliźniaczych reprezentacji, aby zaktualizować mapę pomieszczeń Azure Maps
 
@@ -22,7 +22,7 @@ W tym artykule przedstawiono kroki wymagane do korzystania z danych Digital bli�
 Ta procedura obejmuje następujące zagadnienia:
 
 1. Konfigurowanie wystąpienia usługi Azure Digital bliźniaczych reprezentacji do wysyłania do funkcji w [Azure Functions](../azure-functions/functions-overview.md).
-2. Tworzenie funkcji platformy Azure w celu zaktualizowania Azure Maps funkcji map stateset.
+2. Tworzenie funkcji w celu zaktualizowania Azure Maps funkcji map stateset.
 3. Jak przechowywać identyfikator map i identyfikator stateset funkcji w grafie Digital bliźniaczych reprezentacji Azure.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
@@ -41,7 +41,7 @@ Na poniższym obrazie pokazano, gdzie elementy integracji usługi Maps w tym sam
 
 ## <a name="create-a-function-to-update-a-map-when-twins-update"></a>Utwórz funkcję, aby zaktualizować mapę podczas aktualizacji bliźniaczych reprezentacji
 
-Najpierw utworzysz trasę w usłudze Azure Digital bliźniaczych reprezentacji, aby przekazywać wszystkie pojedyncze zdarzenia aktualizacji do tematu usługi Event Grid. Następnie użyjesz funkcji platformy Azure, aby odczytać te komunikaty aktualizacji i zaktualizować funkcję stateset w Azure Maps. 
+Najpierw utworzysz trasę w usłudze Azure Digital bliźniaczych reprezentacji, aby przekazywać wszystkie pojedyncze zdarzenia aktualizacji do tematu usługi Event Grid. Następnie użyjesz funkcji, aby odczytać te komunikaty aktualizacji i zaktualizować funkcję stateset w Azure Maps. 
 
 ## <a name="create-a-route-and-filter-to-twin-update-notifications"></a>Tworzenie trasy i filtrowanie w celu otrzymywania powiadomień o aktualizacjach bliźniaczych
 
@@ -70,7 +70,7 @@ Ten wzorzec odczytuje ze źródła salonu bezpośrednio, a nie urządzenia IoT, 
     az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
     ```
 
-## <a name="create-an-azure-function-to-update-maps"></a>Utwórz funkcję platformy Azure, aby zaktualizować mapy
+## <a name="create-a-function-to-update-maps"></a>Utwórz funkcję do aktualizowania map
 
 Zamierzasz utworzyć funkcję wyzwalającą Event Grid w aplikacji funkcji z kompleksowego samouczka ([*Samouczek: łączenie kompleksowego rozwiązania*](./tutorial-end-to-end.md)). Ta funkcja spowoduje rozpakowanie tych powiadomień i wysłanie aktualizacji do Azure Maps funkcji stateset w celu zaktualizowania temperatury jednego pokoju. 
 

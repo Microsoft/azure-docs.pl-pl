@@ -12,12 +12,12 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: 14b6d6ecc6523199102fd3ef9370fe901c4ff51d
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: d3edadd4878dbd6e06648f7fb67a0c3e111665d1
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355702"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178130"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Uprawnienia i zgoda w punkcie końcowym platformy tożsamości firmy Microsoft
 
@@ -166,10 +166,11 @@ Aplikacje mogą zauważyć, które uprawnienia wymagają (zarówno delegowane, j
 
 #### <a name="to-configure-the-list-of-statically-requested-permissions-for-an-application"></a>Aby skonfigurować listę uprawnień w sposób statyczny dla aplikacji
 
-1. Przejdź do swojej aplikacji w środowisku [Azure Portal — rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) lub [Utwórz aplikację](quickstart-register-app.md) , jeśli nie została jeszcze wybrana.
-2. Znajdź sekcję **uprawnienia interfejsu API** i w obszarze uprawnienia interfejsu API kliknij pozycję Dodaj uprawnienie.
-3. Wybierz pozycję **Microsoft Graph** z listy dostępnych interfejsów API, a następnie Dodaj uprawnienia wymagane przez aplikację.
-3. **Zapisz** rejestrację aplikacji.
+1. Przejdź do swojej aplikacji w środowisku szybkiego startu <a href="https://go.microsoft.com/fwlink/?linkid=2083908" target="_blank">Azure Portal rejestracje aplikacji <span class="docon docon-navigate-external x-hidden-focus"></span> </a> .
+1. Wybierz aplikację lub [Utwórz aplikację](quickstart-register-app.md) , jeśli jeszcze tego nie zrobiono.
+1. Na stronie **Przegląd** aplikacji w obszarze **Zarządzanie** wybierz pozycję **uprawnienia interfejsu API**  >  **Dodaj uprawnienie**.
+1. Wybierz pozycję **Microsoft Graph** z listy dostępnych interfejsów API, a następnie Dodaj uprawnienia wymagane przez aplikację.
+1. Wybierz pozycję **Dodaj uprawnienia**.
 
 ### <a name="recommended-sign-the-user-into-your-app"></a>Zalecane: Podpisz użytkownika w aplikacji
 

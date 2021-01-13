@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 01/13/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 47a2aae39be93361e1e0e581efb56cc678b444cd
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: ff2408e35d76a6ea0d5221e04c7a41ed6cde7ac9
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96549093"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178980"
 ---
 # <a name="object-replication-for-block-blobs"></a>Replikacja obiektów dla blokowych obiektów BLOB
 
@@ -89,6 +89,16 @@ Podczas tworzenia reguły replikacji domyślnie kopiowane są tylko nowe blokowe
 Można również określić jeden lub więcej filtrów jako część reguły replikacji, aby odfiltrować blokowe obiekty blob według prefiksu. Po określeniu prefiksu tylko obiekty blob pasujące do tego prefiksu w kontenerze źródłowym zostaną skopiowane do kontenera docelowego.
 
 Oba kontenery źródłowe i docelowe muszą istnieć przed określeniem ich w regule. Po utworzeniu zasad replikacji kontener docelowy jest tylko do odczytu. Wszystkie próby zapisu w kontenerze docelowym kończą się niepowodzeniem z kodem błędu 409 (konflikt). Można jednak wywołać operację [ustawiania warstwy obiektów BLOB](/rest/api/storageservices/set-blob-tier) na obiekcie BLOB w kontenerze docelowym, aby przenieść ją do warstwy archiwum. Aby uzyskać więcej informacji o warstwie archiwum, zobacz [Azure Blob Storage: warstwy dostępu gorąca, chłodna i archiwalna](storage-blob-storage-tiers.md#archive-access-tier).
+
+## <a name="replication-status"></a>Stan replikacji
+
+Stan replikacji obiektu BLOB można sprawdzić na koncie źródłowym. Aby uzyskać więcej informacji, zobacz [Sprawdzanie stanu replikacji obiektu BLOB](object-replication-configure.md#check-the-replication-status-of-a-blob).
+
+Jeśli stan replikacji obiektu BLOB na koncie źródłowym wskazuje błąd, zbadaj następujące możliwe przyczyny:
+
+- Upewnij się, że na koncie docelowym są skonfigurowane zasady replikacji obiektów.
+- Sprawdź, czy kontener docelowy nadal istnieje.
+- Jeśli źródłowy obiekt BLOB został zaszyfrowany za pomocą klucza dostarczonego przez klienta w ramach operacji zapisu, replikacja obiektów zakończy się niepowodzeniem. Więcej informacji o kluczach dostarczonych przez klienta znajduje się [w temacie zapewnianie klucza szyfrowania w żądaniu usługi BLOB Storage](encryption-customer-provided-keys.md).
 
 ## <a name="billing"></a>Rozliczenia
 

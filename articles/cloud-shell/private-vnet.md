@@ -14,16 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: damaerte
-ms.openlocfilehash: 722d935c242a51ddfc01377676f026b71a8951b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a820fb4ec5d6c2053b1104b68dbda0ae70f624c0
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89468542"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179201"
 ---
 # <a name="deploy-cloud-shell-into-an-azure-virtual-network"></a>Wdrażanie Cloud Shell w sieci wirtualnej platformy Azure
-> [!NOTE]
-> Ta funkcja jest w publicznej wersji zapoznawczej.
 
 Zwykła sesja Cloud Shell jest uruchamiana w kontenerze w sieci firmy Microsoft, niezależnie od zasobów. Oznacza to, że polecenia uruchamiane wewnątrz kontenera nie mogą uzyskać dostępu do zasobów, do których można uzyskać dostęp tylko z określonej sieci wirtualnej. Nie można na przykład użyć protokołu SSH do nawiązania połączenia z Cloud Shell z maszyną wirtualną, która ma tylko prywatny adres IP, lub używać polecenia kubectl do nawiązywania połączenia z klastrem Kubernetes, który zablokował dostęp. 
 
@@ -64,7 +62,7 @@ Podobnie jak w przypadku standardowej Cloud Shell konto magazynu jest wymagane p
 ## <a name="virtual-network-deployment-limitations"></a>Ograniczenia wdrożenia sieci wirtualnej
 * Ze względu na dodatkowe zasoby sieci, uruchamianie Cloud Shell w sieci wirtualnej jest zwykle wolniejsze niż standardowa sesja Cloud Shella.
 
-* W wersji zapoznawczej dla Cloud Shell w sieci wirtualnej obsługiwane są mniej regionów. Jest to obecnie ograniczone do: Zachodnie i WestCentralUS.
+* Obecnie obsługiwane są wszystkie Cloud Shell regiony poza Indie Środkowe. 
 
 * [Azure Relay](../azure-relay/relay-what-is-it.md) nie jest bezpłatną usługą, zobacz [Cennik](https://azure.microsoft.com/pricing/details/service-bus/). W scenariuszu Cloud Shell jedno połączenie hybrydowe jest używane dla każdego administratora podczas korzystania z Cloud Shell. Połączenie zostanie automatycznie zamknięte po zakończeniu sesji Cloud Shell.
 

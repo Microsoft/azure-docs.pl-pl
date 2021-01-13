@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 3ee9e165ce9c24968b072d19367e0285f5438259
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 5ce5f5cea5d689720455dd8d60f6fff4692a9d3d
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938804"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179303"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Często zadawane pytania dotyczące sieci wirtualnych platformy Azure
 
@@ -44,7 +44,7 @@ Tak. Możesz użyć sieci wirtualnej bez łączenia jej z Twoim lokalem. Można 
 ### <a name="can-i-perform-wan-optimization-between-vnets-or-a-vnet-and-my-on-premises-data-center"></a>Czy mogę przeprowadzić optymalizację sieci WAN między sieci wirtualnychą a siecią wirtualną i lokalnym centrum danych?
 Tak. [Wirtualne urządzenie sieciowe optymalizacji sieci WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/?term=wan%20optimization) można wdrożyć od kilku dostawców za pośrednictwem portalu Azure Marketplace.
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 ### <a name="what-tools-do-i-use-to-create-a-vnet"></a>Jakie narzędzia są używane do tworzenia sieci wirtualnej?
 Aby utworzyć lub skonfigurować sieć wirtualną, można użyć następujących narzędzi:
@@ -214,7 +214,7 @@ Zasoby wdrożone za pomocą niektórych usług PaaS platformy Azure (takich jak 
 ### <a name="can-i-move-my-services-in-and-out-of-vnets"></a>Czy mogę przenieść usługi do i z sieci wirtualnych?
 Nie. Nie można przenieść usług do i z sieci wirtualnych. Aby przenieść zasób do innej sieci wirtualnej, należy usunąć i ponownie wdrożyć zasób.
 
-## <a name="security"></a>Bezpieczeństwo
+## <a name="security"></a>Zabezpieczenia
 
 ### <a name="what-is-the-security-model-for-vnets"></a>Jaki jest model zabezpieczeń sieci wirtualnych?
 Sieci wirtualnych są odizolowane od siebie nawzajem i inne usługi hostowane w infrastrukturze platformy Azure. Sieć wirtualna jest granicą zaufania.
@@ -262,7 +262,7 @@ Poniższe zasoby mogą korzystać z podstawowych modułów równoważenia obcią
 - Usługa domena usługi Active Directory (dodaje)
 - Logic Apps
 - HDInsight
--   Azure Batch
+-   Usługa Azure Batch
 - Środowisko usługi App Service
 
 Możesz połączyć się z tymi zasobami za pośrednictwem ExpressRoute lub sieci VNet-to-VNet za pośrednictwem bram sieci wirtualnej.
@@ -392,6 +392,9 @@ Po włączeniu punktów końcowych usługi sieci wirtualnej źródłowe adresy I
 
 ### <a name="does-the-service-endpoint-route-always-take-precedence"></a>Czy ma zawsze pierwszeństwo trasy punktu końcowego usługi?
 Punkty końcowe usługi dodają trasę systemową, która ma pierwszeństwo przed trasami BGP i zapewnia optymalny Routing ruchu punktu końcowego usługi. Punkty końcowe usługi zawsze pobierają ruch bezpośrednio z sieci wirtualnej do usługi w sieci szkieletowej Microsoft Azure. Aby uzyskać więcej informacji o tym, jak platforma Azure wybiera trasę, zobacz [routing ruchu w sieci wirtualnej platformy Azure](virtual-networks-udr-overview.md).
+
+### <a name="do-service-endpoints-work-with-icmp"></a>Czy punkty końcowe usługi działają przy użyciu protokołu ICMP?
+Nie, ruch protokołu ICMP pochodzący z podsieci z włączonymi punktami końcowymi usługi nie spowoduje przełączenia ścieżki tunelu usługi do żądanego punktu końcowego. Punkty końcowe usługi obsługują tylko ruch TCP. Oznacza to, że jeśli chcesz przetestować opóźnienie lub łączność z punktem końcowym za pośrednictwem punktów końcowych usługi, narzędzia takie jak ping i tracert nie będą przedstawiać prawdziwej ścieżki, która zajmie się zasobami w podsieci.
  
 ### <a name="how-does-nsg-on-a-subnet-work-with-service-endpoints"></a>Jak sieciowej grupy zabezpieczeń w podsieci działa z punktami końcowymi usługi?
 Aby dotrzeć do usługi platformy Azure, sieciowych grup zabezpieczeń musi zezwalać na łączność wychodzącą. Jeśli sieciowych grup zabezpieczeń są otwarte dla całego ruchu wychodzącego z Internetu, należy obejść ruch punktu końcowego usługi. Można także ograniczyć ruch wychodzący do adresów IP usługi tylko przy użyciu tagów usługi.  

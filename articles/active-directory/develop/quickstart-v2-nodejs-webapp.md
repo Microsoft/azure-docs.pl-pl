@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: c9aa73767fcb9d57ada11f5830fec00b10eee812
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: bd750a05f34a18a1260226fb979a82cc620dfbfb
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98017344"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178283"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Szybki Start: Dodawanie logowania za pomocą usługi OpenID Connect nawiązywanie połączenia z aplikacją sieci Web Node.js
 
@@ -42,7 +42,7 @@ W tym przewodniku szybki start pobrano i uruchomimy przykład kodu, który pokaz
 1. Wybierz pozycję **zarejestruj** , aby utworzyć aplikację.
 1. Na stronie **Przegląd** aplikacji Znajdź wartość **Identyfikator aplikacji (klienta)** i Zapisz ją jako nowszą. Ta wartość będzie potrzebna do późniejszego skonfigurowania aplikacji w tym projekcie.
 1. W obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie**.
-1. Wybierz pozycję **Dodaj platformę**  >  **sieci Web** 
+1. Wybierz pozycję **Dodaj platformę**  >  **sieci Web**. 
 1. W sekcji **identyfikatory URI przekierowania** wprowadź wartość `http://localhost:3000/auth/openid/return` .
 1. Wprowadź **adres URL wylogowywania** `https://localhost:3000` .
 1. W sekcji niejawne udzielenie Sprawdź **tokeny identyfikatora** , ponieważ ten przykład wymaga, aby [przepływ niejawnego przydzielenia](./v2-oauth2-implicit-grant-flow.md) był włączony do logowania użytkownika.

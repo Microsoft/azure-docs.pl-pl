@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/24/2020
 ms.author: memildin
-ms.openlocfilehash: f5d6d6255b48192a5943159599531fac18ebeb26
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: f3d1918eafe8d61d9c5a7db3f29b83b5412914c0
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796996"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179563"
 ---
 # <a name="feature-coverage-for-machines"></a>Pokrycie funkcji dla maszyn
 
@@ -127,12 +127,12 @@ Aby uzyskać informacje o tym, kiedy są generowane zalecenia dla każdej z tych
 |[Spis zasobów](asset-inventory.md)|✔|✔|
 |[Usługa Azure Defender dla usługi App Service](defender-for-app-service-introduction.md)|-|-|
 |[Usługa Azure Defender dla usługi Storage](defender-for-storage-introduction.md)|✔|-|
-|[Azure Defender for SQL](defender-for-sql-introduction.md)|✔|✔ (2)|
+|[Usługa Azure Defender dla bazy danych SQL](defender-for-sql-introduction.md)|✔|✔ (2)|
 |[Usługa Azure Defender dla usługi Key Vault](defender-for-key-vault-introduction.md)|-|-|
 |[Usługa Azure Defender dla usługi Resource Manager](defender-for-resource-manager-introduction.md)|-|-|
 |[Usługa Azure Defender dla usługi DNS](defender-for-dns-introduction.md)|-|-|
 |[Usługa Azure Defender dla platformy Kubernetes](defender-for-kubernetes-introduction.md)|✔|✔|
-|[Usługa Azure Defender dla rejestrów kontenerów](defender-for-container-registries-introduction.md)|✔ (2)|-|
+|[Usługa Azure Defender dla rejestrów kontenerów](defender-for-container-registries-introduction.md)|✔ (2)|✔ (2)|
 |||
 
 (1) wymaga *usługi Azure Defender dla serwerów**

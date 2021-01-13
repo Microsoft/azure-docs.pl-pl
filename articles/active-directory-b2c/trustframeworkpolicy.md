@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 01/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 354c6f9710b7cbd70e0631bc973b2482ea8d8bb3
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: a87b4c6b845006a9f9f3cf82815277c67c09bef0
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97386888"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178844"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -46,7 +46,7 @@ Element **TrustFrameworkPolicy** zawiera następujące atrybuty:
 | PolicyId | Tak | Unikatowy identyfikator zasad. Ten identyfikator musi być poprzedzony *B2C_1A_* |
 | PublicPolicyUri | Tak | Identyfikator URI dla zasad, który jest kombinacją identyfikatora dzierżawy i identyfikatora zasad. |
 | DeploymentMode | Nie | Możliwe wartości: `Production` , lub `Development` . Wartość domyślna to `Production`. Ta właściwość służy do debugowania zasad. Aby uzyskać więcej informacji, zobacz [zbieranie dzienników](troubleshoot-with-application-insights.md). |
-| UserJourneyRecorderEndpoint | Nie | Punkt końcowy, który jest używany, gdy **DeploymentMode** ma ustawioną wartość `Development` . Wartość musi być `urn:journeyrecorder:applicationinsights` . Aby uzyskać więcej informacji, zobacz [zbieranie dzienników](troubleshoot-with-application-insights.md). |
+| UserJourneyRecorderEndpoint | Nie | Punkt końcowy, który jest używany do rejestrowania. Wartość musi być ustawiona na `urn:journeyrecorder:applicationinsights` Jeśli atrybut istnieje. Aby uzyskać więcej informacji, zobacz [zbieranie dzienników](troubleshoot-with-application-insights.md). |
 
 
 Poniższy przykład pokazuje, jak określić element **TrustFrameworkPolicy** :

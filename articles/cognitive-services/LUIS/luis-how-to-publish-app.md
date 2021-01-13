@@ -3,18 +3,20 @@ title: Publikowanie aplikacji — LUIS
 titleSuffix: Azure Cognitive Services
 description: Po zakończeniu kompilowania i testowania aktywnej aplikacji LUIS Udostępnij ją aplikacji klienckiej, publikując ją w punkcie końcowym.
 services: cognitive-services
+author: aahill
 manager: nitinme
+ms.author: aahi
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/17/2020
-ms.openlocfilehash: b72f1fd64cca0fa77ebc486670a512c5228e1146
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/12/2021
+ms.openlocfilehash: 8db0f5fa39c7f489db0e30e98ee2684c74eee7e8
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541479"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98180034"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publikowanie aktywnej, przeszkolonej aplikacji do tymczasowego lub produkcyjnego punktu końcowego
 
@@ -55,7 +57,7 @@ Na przykład dla aplikacji utworzonej w usłudze [www.Luis.AI](https://www.luis.
 Po wybraniu miejsca Skonfiguruj ustawienia publikowania dla:
 
 * Analiza tonacji
-* [Korekcja pisowni](luis-tutorial-bing-spellcheck.md) — tylko punkt końcowy przewidywania w wersji 2
+* [Poprawianie pisowni](luis-tutorial-bing-spellcheck.md)
 * Napełnianiu mowy
 
 Po opublikowaniu te ustawienia są dostępne do przeglądu na stronie **ustawień publikowania** sekcji **Zarządzanie** . Można zmienić ustawienia za pomocą każdej publikacji. Jeśli anulujesz publikowanie, wszelkie zmiany wprowadzone podczas publikowania również zostaną anulowane.
@@ -80,7 +82,32 @@ Aby uzyskać więcej informacji na temat odpowiedzi punktu końcowego JSON z ana
 
 ## <a name="spelling-correction"></a>Poprawianie pisowni
 
-[!INCLUDE [Not supported in V3 API prediction endpoint](./includes/v2-support-only.md)]
+Interfejs API przewidywania v3 obsługuje teraz interfejs API sprawdzania pisowni usługi Bing. Możesz dodać sprawdzanie pisowni do swojej aplikacji, dołączając klucz do zasobu wyszukiwania Bing w nagłówku swoich żądań. Możesz użyć istniejącego zasobu Bing, jeśli jest już własny, lub [utworzyć nowy](https://portal.azure.com/#create/Microsoft.BingSearch) , aby użyć tej funkcji. 
+
+|Klucz nagłówka|Wartość nagłówka|
+|--|--|
+|`mkt-bing-spell-check-key`|Klucze Znalezione w bloku **klucze i punkt końcowy** zasobu|
+
+Przykład danych wyjściowych przewidywania dla błędnego zapytania:
+
+```json
+{
+  "query": "bouk me a fliht to kayro",
+  "prediction": {
+    "alteredQuery": "book me a flight to cairo",
+    "topIntent": "book a flight",
+    "intents": {
+      "book a flight": {
+        "score": 0.9480589
+      }
+      "None": {
+        "score": 0.0332136229
+      }
+    },
+    "entities": {}
+  }
+}
+```
 
 Poprawki pisowni są wprowadzane przed przewidywaniem LUIS użytkownika wypowiedź. W odpowiedzi można zobaczyć zmiany w oryginalnym wypowiedź, w tym pisownię.
 

@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.date: 01/12/2021
+ms.date: 01/13/2021
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 55c4fa00cfd20a83e65a3d57c6020991734f9d9f
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: e3cfede444b65ee6990afd006d3b174d65f9cfad
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132481"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179167"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Zalecenia dotyczące zabezpieczeń usługi BLOB Storage
 
@@ -35,7 +35,7 @@ Azure Security Center okresowo analizuje stan zabezpieczeń zasobów platformy A
 | Włącz usuwanie nietrwałe dla kontenerów | Usuwanie nietrwałe dla kontenerów umożliwia odzyskanie kontenera po jego usunięciu. Aby uzyskać więcej informacji na temat usuwania nietrwałego dla kontenerów, zobacz [usuwanie nietrwałe dla kontenerów (wersja zapoznawcza)](./soft-delete-container-overview.md). | - |
 | Zablokuj konto magazynu, aby zapobiec przypadkowemu usunięciu konta | Można zablokować zasoby Azure Resource Manager, takie jak subskrypcja, Grupa zasobów lub konto magazynu, aby zapobiec przypadkowemu usunięciu lub zmodyfikowaniu przez innych użytkowników w organizacji. Zablokowanie konta magazynu nie uniemożliwia usunięcia danych z tego konta. Uniemożliwia jedynie usunięcie samego konta. Aby uzyskać więcej informacji, zobacz [Zablokuj zasoby, aby zapobiec nieoczekiwanym zmianom](../../azure-resource-manager/management/lock-resources.md).
 | Przechowywanie danych o krytycznym znaczeniu dla firmy w niezmiennych obiektach Blob | Skonfiguruj blokady prawne i zasady przechowywania oparte na czasie w celu przechowywania danych obiektów BLOB w ROBAKu (Napisz raz, Odczytaj wiele). Obiekty blob przechowywane immutably można odczytać, ale nie można ich modyfikować ani usuwać na czas trwania interwału przechowywania. Aby uzyskać więcej informacji, zobacz temat [przechowywanie danych obiektów BLOB o krytycznym znaczeniu dla firmy z niezmiennym magazynem](storage-blob-immutable-storage.md). | - |
-| Wymagaj bezpiecznego transferu (HTTPS) do konta magazynu | ??? | - |
+| Wymagaj bezpiecznego transferu (HTTPS) do konta magazynu | Gdy wymagasz bezpiecznego transferu dla konta magazynu, wszystkie żądania kierowane do konta magazynu muszą być nawiązywane za pośrednictwem protokołu HTTPS. Wszystkie żądania wysyłane za pośrednictwem protokołu HTTP są odrzucane. Firma Microsoft zaleca, aby zawsze wymagać bezpiecznego transferu dla wszystkich kont magazynu. Aby uzyskać więcej informacji, zobacz [wymaganie bezpiecznego transferu w celu zapewnienia bezpiecznych połączeń](../common/storage-require-secure-transfer.md). | - |
 | Ogranicz tokeny sygnatury dostępu współdzielonego (SAS) tylko do połączeń HTTPS | Wymaganie protokołu HTTPS, gdy klient używa tokenu sygnatury dostępu współdzielonego, aby uzyskać dostęp do danych obiektów blob, pomaga zminimalizować ryzyko podsłuchiwania. Aby uzyskać więcej informacji, zobacz [udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)](../common/storage-sas-overview.md). | - |
 
 ## <a name="identity-and-access-management"></a>Zarządzanie tożsamościami i dostępem

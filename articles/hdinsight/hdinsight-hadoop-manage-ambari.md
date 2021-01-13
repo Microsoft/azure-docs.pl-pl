@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/16/2020
-ms.openlocfilehash: f21b72cd519c1615d8273bf316a8d0ccad039672
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.date: 01/12/2021
+ms.openlocfilehash: 8195cffed077a77c0ad66fda1126e2f3ea53d5f0
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546164"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179150"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Zarządzanie klastrami HDInsight przy użyciu internetowego interfejsu użytkownika systemu Apache Ambari
 
@@ -58,7 +58,7 @@ Gdy zostanie otwarta strona, zanotuj pasek u góry. Ten pasek zawiera następuj�
 |Usługi|Informacje i ustawienia konfiguracji usług w klastrze.|
 |Hosts|Ustawienia informacji i konfiguracji dla węzłów w klastrze.|
 |Alerty|Dziennik informacji, ostrzeżeń i alertów krytycznych.|
-|Administracja|Stos/usługi oprogramowania zainstalowane w klastrze, informacje o koncie usługi i zabezpieczenia protokołu Kerberos.|
+|Administrator|Stos/usługi oprogramowania zainstalowane w klastrze, informacje o koncie usługi i zabezpieczenia protokołu Kerberos.|
 |Przycisk administratora|Ambari Management, ustawienia użytkownika i wyloguj się.|
 
 ## <a name="monitoring"></a>Monitorowanie
@@ -78,11 +78,11 @@ Alerty są zorganizowane w kilka domyślnych grup, które mogą być wyświetlan
 
 ![Podsumowanie strony alertów Apache Ambari](./media/hdinsight-hadoop-manage-ambari/hdinsight-alerts-page.png)
 
-Grupami można zarządzać za pomocą menu **Akcje** i wybierając pozycję **Zarządzaj grupami alertów** .
+Grupami można zarządzać za pomocą menu **Akcje** i wybierając pozycję **Zarządzaj grupami alertów**.
 
 ![Zarządzanie grupami alertów w usłudze Apache Ambari](./media/hdinsight-hadoop-manage-ambari/ambari-manage-alerts.png)
 
-Możesz zarządzać metodami alertów i tworzyć powiadomienia o alertach z menu **Akcje** , wybierając pozycję __Zarządzaj powiadomieniami__ . Wyświetlane są wszystkie bieżące powiadomienia. W tym miejscu Utwórz powiadomienia. Powiadomienia mogą być wysyłane za pośrednictwem **poczty e-mail** lub **SNMP** , gdy wystąpią określone kombinacje alertów/ważności. Na przykład możesz wysłać wiadomość e-mail, gdy dowolne z alertów w grupie **domyślnej przędzy** ma wartość **krytyczne** .
+Możesz zarządzać metodami alertów i tworzyć powiadomienia o alertach z menu **Akcje** , wybierając pozycję __Zarządzaj powiadomieniami__. Wyświetlane są wszystkie bieżące powiadomienia. W tym miejscu Utwórz powiadomienia. Powiadomienia mogą być wysyłane za pośrednictwem **poczty e-mail** lub **SNMP** , gdy wystąpią określone kombinacje alertów/ważności. Na przykład możesz wysłać wiadomość e-mail, gdy dowolne z alertów w grupie **domyślnej przędzy** ma wartość **krytyczne**.
 
 ![Powiadomienie o utworzeniu alertu dotyczącego oprogramowania Apache Ambari](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
 
@@ -92,7 +92,7 @@ Aby zapoznać się z samouczkiem powiadomienia o alercie przy użyciu bezpłatne
 
 ### <a name="cluster"></a>Klaster
 
-Karta **metryki** pulpitu nawigacyjnego zawiera serię elementów widget, które ułatwiają szybkie monitorowanie stanu klastra. Kilka widżetów, takich jak **użycie procesora CPU** , udostępnia dodatkowe informacje po kliknięciu.
+Karta **metryki** pulpitu nawigacyjnego zawiera serię elementów widget, które ułatwiają szybkie monitorowanie stanu klastra. Kilka widżetów, takich jak **użycie procesora CPU**, udostępnia dodatkowe informacje po kliknięciu.
 
 ![Pulpit nawigacyjny Apache Ambari z metrykami](./media/hdinsight-hadoop-manage-ambari/hdi-metrics-dashboard.png)
 
@@ -100,7 +100,7 @@ Na karcie **map cieplnych** są wyświetlane metryki jako kolorowe map cieplnych
 
 ![Pulpit nawigacyjny Apache Ambari z map cieplnych](./media/hdinsight-hadoop-manage-ambari/hdi-heatmap-dashboard.png)
 
-Aby uzyskać więcej informacji na temat węzłów w klastrze, wybierz pozycję **hosty** . Następnie wybierz konkretny wybrany węzeł.
+Aby uzyskać więcej informacji na temat węzłów w klastrze, wybierz pozycję **hosty**. Następnie wybierz konkretny wybrany węzeł.
 
 ![Szczegóły podsumowania hosta Apache Ambari](./media/hdinsight-hadoop-manage-ambari/ambari-host-details1.png)
 
@@ -139,7 +139,7 @@ Wybranie dowolnego z tych linków spowoduje otwarcie nowej karty w przeglądarce
 Obsługa użytkowników, grup i uprawnień jest obsługiwana. Aby uzyskać administrację lokalną, zobacz [Autoryzowanie użytkowników na potrzeby widoków Apache Ambari](./hdinsight-authorize-users-to-ambari.md). W przypadku klastrów przyłączonych do domeny Zobacz [Zarządzanie przyłączonymi do domeny klastrami usługi HDInsight](./domain-joined/hdinsight-security-overview.md).
 
 > [!WARNING]  
-> Nie należy zmieniać hasła licznika Ambari (hdinsightwatchdog) w klastrze usługi HDInsight opartym na systemie Linux. Zmiana hasła zrywa możliwość korzystania z akcji skryptu lub wykonywania operacji skalowania w klastrze.
+> Nie usuwaj ani nie zmieniaj hasła Ambari (hdinsightwatchdog) w klastrze usługi HDInsight opartego na systemie Linux. Zmiana hasła zrywa możliwość korzystania z akcji skryptu lub wykonywania operacji skalowania w klastrze.
 
 ### <a name="hosts"></a>Hosts
 
@@ -200,7 +200,7 @@ Aby skonfigurować usługę, wykonaj następujące czynności:
 
     ![Konfiguracja usługi Apache Ambari](./media/hdinsight-hadoop-manage-ambari/ambari-service-configs.png)
 
-3. Użyj wyświetlanych pól, aby zmodyfikować konfigurację, a następnie wybierz pozycję **Zapisz** . Lub wybierz poprzednią konfigurację, a następnie wybierz pozycję **Ustaw jako bieżącą** , aby przywrócić poprzednie ustawienia.
+3. Użyj wyświetlanych pól, aby zmodyfikować konfigurację, a następnie wybierz pozycję **Zapisz**. Lub wybierz poprzednią konfigurację, a następnie wybierz pozycję **Ustaw jako bieżącą** , aby przywrócić poprzednie ustawienia.
 
 ## <a name="ambari-views"></a>Widoki Ambari
 
@@ -214,7 +214,7 @@ Widoki Ambari umożliwiają deweloperom podłączenie elementów interfejsu uży
 
 Następujące operacje Ambari nie są obsługiwane w usłudze HDInsight:
 
-* __Przeniesienie usługi modułu zbierającego metryki__ . Podczas wyświetlania informacji dotyczących usługi modułu zbierającego metryk, jedną z akcji dostępnych w menu Akcje usługi jest __przeniesienie modułu zbierającego metryki__ . Ta akcja nie jest obsługiwana w usłudze HDInsight.
+* __Przeniesienie usługi modułu zbierającego metryki__. Podczas wyświetlania informacji dotyczących usługi modułu zbierającego metryk, jedną z akcji dostępnych w menu Akcje usługi jest __przeniesienie modułu zbierającego metryki__. Ta akcja nie jest obsługiwana w usłudze HDInsight.
 
 ## <a name="next-steps"></a>Następne kroki
 

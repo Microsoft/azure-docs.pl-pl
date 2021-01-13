@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 3eec935d0a25f9510cd9a2f6e00b7ac22756e697
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a5a44b9d27901fcd00f8813096de6bbae5f2310d
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88796803"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179949"
 ---
 # <a name="quickstart-deploy-unity-sample-to-hololens"></a>Szybki start: Wdrażanie przykładu środowiska Unity na urządzeniu HoloLens
 
@@ -48,7 +48,7 @@ Upewnij się, że Twoje poświadczenia są poprawnie zapisane w scenie i możesz
 1. W przypadku projektu „Quickstart” przejdź do pozycji *Właściwości > Debugowanie*
     1. Upewnij się, że jest aktywna konfiguracja *Wydanie*
     1. Dla ustawienia *Debuger do uruchomienia* wybierz wartość **Maszyna zdalna**
-    1. Zmień ustawienie *Nazwa maszyny* na **adres IP urządzenia HoleLens**
+    1. Zmień *nazwę komputera* na **adres IP urządzenia HoloLens**
 
 ## <a name="launch-the-sample-project"></a>Uruchamianie przykładowego projektu
 

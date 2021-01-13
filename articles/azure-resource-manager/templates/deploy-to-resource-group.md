@@ -2,13 +2,13 @@
 title: Wdrażanie zasobów w grupach zasobów
 description: Opisuje sposób wdrażania zasobów w szablonie Azure Resource Manager. Pokazuje, jak należy określić więcej niż jedną grupę zasobów.
 ms.topic: conceptual
-ms.date: 11/24/2020
-ms.openlocfilehash: 9d0bec51fa55ee377eb647a11fb554ec3b81e9eb
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.date: 01/13/2021
+ms.openlocfilehash: 8fe503cc95d71772c07427438b17e2ff0d4620a7
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95807723"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178895"
 ---
 # <a name="resource-group-deployments-with-arm-templates"></a>Wdrożenia grup zasobów przy użyciu szablonów ARM
 
@@ -85,7 +85,8 @@ Podczas wdrażania w grupie zasobów można wdrożyć zasoby w:
 * inne grupy zasobów w ramach tej samej subskrypcji lub innych subskrypcji
 * dowolna subskrypcja dzierżawy
 * Dzierżawca dla grupy zasobów
-* [zasoby rozszerzeń](scope-extension-resources.md) można stosować do zasobów
+
+[Zasób rozszerzenia](scope-extension-resources.md) może być objęty zakresem docelowym, który jest inny niż cel wdrożenia.
 
 Użytkownik wdrażający szablon musi mieć dostęp do określonego zakresu.
 

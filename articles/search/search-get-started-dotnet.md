@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/20/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 448f2b3e42e98d78652a005f5d1c11f55acdebb3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: f0d912d5b14932c43d109f8f955d5f16381cf773
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021188"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98180102"
 ---
 # <a name="quickstart-create-a-search-index-using-the-azuresearchdocuments-client-library"></a>Szybki Start: Tworzenie indeksu wyszukiwania przy użyciu biblioteki klienta Azure.Search.Documents
 
@@ -396,9 +396,9 @@ Klasa [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1)
 
         response = srchclient.Search<Hotel>("*", options);
         WriteDocuments(response);
-        ```
+    ```
 
-1. In the second query, search on a term, add a filter that selects documents where Rating is greater than 4, and then sort by Rating in descending order. Filter is a boolean expression that is evaluated over [IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) fields in an index. Filter queries either include or exclude values. As such, there is no relevance score associated with a filter query. 
+1. W drugim zapytaniu wyszukaj termin, Dodaj filtr, który wybiera dokumenty, gdzie Rating jest większy niż 4, a następnie Sortuj według klasyfikacji w kolejności malejącej. Filtr jest wyrażeniem logicznym, które jest oceniane dla pól [IsFiltered](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) w indeksie. Kwerendy filtru obejmują wartości dołączania lub wykluczania. W związku z tym nie istnieje wynik istotny związany z kwerendą filtru. 
 
     ```csharp
     Console.WriteLine("Query #2: Search on 'hotels', filter on 'Rating gt 4', sort by Rating in descending order...\n");

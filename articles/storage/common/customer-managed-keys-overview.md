@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 8eaadc031039b22e209db1023c65da39e1e096b1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9afce964652d2bedbe105a8a750a93d2f37eef85
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483287"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179035"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Klucze zarządzane przez klienta dla szyfrowania usługi Azure Storage
 
@@ -78,7 +78,7 @@ Podczas konfigurowania szyfrowania przy użyciu kluczy zarządzanych przez klien
 
     Po określeniu określonej wersji klucza należy ręcznie zaktualizować konto magazynu, aby używało nowego identyfikatora URI wersji klucza podczas tworzenia nowej wersji. Aby dowiedzieć się, jak zaktualizować konto magazynu tak, aby używało nowej wersji klucza, zobacz [Konfigurowanie szyfrowania z kluczami zarządzanymi przez klienta w Azure Key Vault](customer-managed-keys-configure-key-vault.md) lub [Konfigurowanie szyfrowania przy użyciu kluczy zarządzanych przez klienta przechowywanych w Azure Key Vault zarządzanym module HSM (wersja zapoznawcza)](customer-managed-keys-configure-key-vault-hsm.md).
 
-Aktualizacja wersji klucza dla klucza zarządzanego przez klienta nie wyzwala ponownego szyfrowania danych na koncie magazynu. Od użytkownika nie są wymagane żadne dalsze działania.
+Po zaktualizowaniu wersji klucza ochrona głównego klucza szyfrowania jest zmieniana, ale dane na koncie usługi Azure Storage nie są szyfrowane. Od użytkownika nie są wymagane żadne dalsze działania.
 
 > [!NOTE]
 > Aby obrócić klucz, Utwórz nową wersję klucza w magazynie kluczy lub zarządzanym module HSM zgodnie z zasadami zgodności. Możesz obrócić klucz ręcznie lub utworzyć funkcję, aby obrócić ją zgodnie z harmonogramem.

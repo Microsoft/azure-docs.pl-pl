@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 1809194ce551fc828389cc31f5c7d6f28a2cddd6
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1cbd4c92ec4c124cfd384f45a4cd6f47fdc60be6
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972377"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98180170"
 ---
 # <a name="dcsv2-series"></a>Seria DCsv2
 
@@ -25,7 +25,7 @@ Przykładowe przypadki użycia obejmują: poufne udostępnianie danych wieloczę
 [Buforowanie Premium Storage](premium-storage-performance.md): obsługiwane<br>
 [Migracja na żywo](maintenance-and-updates.md): nieobsługiwane<br>
 [Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): nieobsługiwane<br>
-[Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1 i 2<br>
+[Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 2<br>
 
 * Z wyjątkiem Standard_DC8_v2
 

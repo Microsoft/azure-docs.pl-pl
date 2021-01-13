@@ -7,12 +7,12 @@ ms.reviewer: deli, logicappspm
 ms.topic: article
 ms.date: 12/07/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 1736a1d22ccfb0f00061534d1c733ab72da4c7b0
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 3f88fa38d62778bc3c4c1e29571d1d0ae4eeb5ff
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922501"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179609"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Dodawanie i uruchamianie fragmentów kodu przy użyciu kodu śródwierszowego w Azure Logic Apps
 
@@ -31,7 +31,7 @@ Gdy chcesz uruchomić fragment kodu wewnątrz aplikacji logiki, możesz dodać w
   > [!NOTE]
   > `require()`Funkcja nie jest obsługiwana przez wewnętrzną akcję kodu do uruchamiania języka JavaScript.
 
-Ta akcja uruchamia fragment kodu i zwraca dane wyjściowe z tego fragmentu jako token o nazwie `Result` . Możesz użyć tego tokenu z kolejnymi akcjami w przepływie pracy aplikacji logiki. W przypadku innych scenariuszy, w których chcesz utworzyć funkcję dla kodu, wypróbuj [zamiast niej tworzenie i wywoływanie funkcji platformy Azure](../logic-apps/logic-apps-azure-functions.md) w aplikacji logiki.
+Ta akcja uruchamia fragment kodu i zwraca dane wyjściowe z tego fragmentu jako token o nazwie `Result` . Możesz użyć tego tokenu z kolejnymi akcjami w przepływie pracy aplikacji logiki. W przypadku innych scenariuszy, w których chcesz utworzyć funkcję dla kodu, należy spróbować utworzyć [i wywołać funkcję za pomocą Azure Functions zamiast tego](../logic-apps/logic-apps-azure-functions.md) w aplikacji logiki.
 
 W tym artykule Przykładowa aplikacja logiki jest wyzwalana po nadejściu nowej wiadomości e-mail w ramach konta służbowego. Fragment kodu wyodrębnia i zwraca adresy e-mail, które są wyświetlane w treści wiadomości e-mail.
 

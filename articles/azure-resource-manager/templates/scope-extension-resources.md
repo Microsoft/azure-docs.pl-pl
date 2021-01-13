@@ -2,21 +2,24 @@
 title: Zakres dla typów zasobów rozszerzenia
 description: Opisuje sposób użycia właściwości Scope podczas wdrażania typów zasobów rozszerzenia.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: bd468d31454c38bd314269243702d7df4f279a5e
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 01/13/2021
+ms.openlocfilehash: 75c2c8b8409cc9f8e7a8e71965589ece6660607a
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681585"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179983"
 ---
 # <a name="setting-scope-for-extension-resources-in-arm-templates"></a>Ustawianie zakresu dla zasobów rozszerzenia w szablonach ARM
 
-Zasób rozszerzenia jest zasobem, który modyfikuje inny zasób. Na przykład możesz przypisać rolę do zasobu, aby ograniczyć dostęp. Przypisanie roli jest typem zasobu rozszerzenia.
+Zasób rozszerzenia jest zasobem, który modyfikuje inny zasób. Na przykład można przypisać rolę do zasobu. Przypisanie roli jest typem zasobu rozszerzenia.
 
 Aby uzyskać pełną listę typów zasobów rozszerzeń, zobacz [typy zasobów, które rozszerzają możliwości innych zasobów](../management/extension-resource-types.md).
 
 W tym artykule pokazano, jak ustawić zakres dla typu zasobu rozszerzenia w przypadku wdrożenia z szablonem Azure Resource Manager (szablon ARM). Opisuje właściwość Scope, która jest dostępna dla zasobów rozszerzeń w przypadku zastosowania do zasobu.
+
+> [!NOTE]
+> Właściwość Scope jest dostępna tylko dla typów zasobów rozszerzenia. Aby określić inny zakres dla typu zasobu, który nie jest typem rozszerzenia, należy zastosować wdrożenie zagnieżdżone lub połączone. Aby uzyskać więcej informacji, zobacz [wdrożenia grup zasobów](deploy-to-resource-group.md), [wdrożenia subskrypcji](deploy-to-subscription.md), [wdrożenia grup zarządzania](deploy-to-management-group.md)i [wdrożenia dzierżawców](deploy-to-tenant.md).
 
 ## <a name="apply-at-deployment-scope"></a>Zastosuj w zakresie wdrożenia
 
@@ -36,7 +39,7 @@ az deployment group create \
   --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/scope/locktargetscope.json"
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
  New-AzResourceGroupDeployment `
@@ -61,7 +64,7 @@ az deployment sub create \
   --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/scope/roletargetscope.json"
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 New-AzSubscriptionDeployment `

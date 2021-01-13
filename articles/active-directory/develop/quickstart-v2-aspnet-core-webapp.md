@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 34af3a7b6c3dd9420c07b6b29ff114b8139fea39
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 293a8d8b8add37f78e5a900b093ec89e95851aec
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011972"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178640"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Szybki Start: Dodawanie logowania z firmą Microsoft do aplikacji internetowej ASP.NET Core
 
@@ -38,7 +38,7 @@ Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opcja 1. Zarejestrowanie i automatyczne skonfigurowanie aplikacji, a następnie pobranie przykładowego kodu
 >
-> 1. Przejdź do [Rejestracje aplikacji Azure Portal](https://aka.ms/aspnetcore2-1-aad-quickstart-v2).
+> 1. Przejdź do środowiska szybkiego startu w <a href="https://aka.ms/aspnetcore2-1-aad-quickstart-v2/" target="_blank">Azure Portal rejestracje aplikacji <span class="docon docon-navigate-external x-hidden-focus"></span> </a> .
 > 1. Wprowadź nazwę aplikacji i wybierz pozycję **Zarejestruj**.
 > 1. Postępuj zgodnie z instrukcjami, aby jednym kliknięciem pobrać i automatycznie skonfigurować nową aplikację.
 >
@@ -52,11 +52,11 @@ Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 > 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
 > 1. W obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**  >  **Nowa rejestracja**.
 > 1. Wprowadź **nazwę** aplikacji, na przykład `AspNetCore-Quickstart` . Użytkownicy Twojej aplikacji mogą zobaczyć tę nazwę i można ją później zmienić.
-> 1. Wprowadź **Identyfikator URI przekierowania**`https://localhost:44321/`
+> 1. Wprowadź **Identyfikator URI przekierowania** `https://localhost:44321/` .
 > 1. Wybierz pozycję **Zarejestruj**.
 > 1. W obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie**.
-> 1. W obszarze **identyfikatory URI przekierowania** wybierz pozycję **Dodaj identyfikator URI**, a następnie wprowadź `https://localhost:44321/signin-oidc`
-> 1. Wprowadź **adres URL wylogowywania**`https://localhost:44321/signout-oidc`
+> 1. W obszarze **identyfikatory URI przekierowania** wybierz pozycję **Dodaj identyfikator URI**, a następnie wprowadź `https://localhost:44321/signin-oidc` .
+> 1. Wprowadź **adres URL wylogowywania** `https://localhost:44321/signout-oidc` .
 > 1. W obszarze **Niejawne przyznanie** wybierz pozycję **Tokeny identyfikatorów**.
 > 1. Wybierz pozycję **Zapisz**.
 

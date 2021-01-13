@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f5a5242cb9448b3d11e0921b2272cf00bef8f6c1
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 5f6ac11fc5c7bbe7a8f81e6ea89e2c582ebcf264
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722270"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178742"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Instrukcje: ograniczanie aplikacji usługi Azure AD do zestawu użytkowników w dzierżawie usługi Azure AD
 
@@ -34,8 +34,8 @@ Administratorzy dzierżawy i deweloperzy mogą ograniczyć aplikację do określ
 
 Opcja ograniczenia aplikacji do określonego zestawu użytkowników lub grup zabezpieczeń w dzierżawie współpracuje z następującymi typami aplikacji:
 
-- Aplikacje skonfigurowane do federacyjnego logowania jednokrotnego przy użyciu uwierzytelniania opartego na protokole SAML
-- Aplikacje serwera proxy aplikacji korzystające z uwierzytelniania wstępnego usługi Azure AD
+- Aplikacje skonfigurowane do federacyjnego logowania jednokrotnego przy użyciu uwierzytelniania opartego na protokole SAML.
+- Aplikacje serwera proxy aplikacji korzystające z uwierzytelniania wstępnego usługi Azure AD.
 - Aplikacje utworzone bezpośrednio na platformie aplikacji usługi Azure AD, która korzysta z uwierzytelniania OAuth 2.0/OpenID Connect, gdy użytkownik lub administrator wyraził zgodę na tę aplikację.
 
      > [!NOTE]
@@ -47,50 +47,40 @@ Istnieją dwa sposoby tworzenia aplikacji z włączonym przypisaniem użytkownik
 
 ### <a name="enterprise-applications-requires-the-global-administrator-role"></a>Aplikacje dla przedsiębiorstw (wymaga roli administratora globalnego)
 
-1. Przejdź do [**Azure Portal**](https://portal.azure.com/) i zaloguj się jako **administrator globalny**.
-1. Na górnym pasku wybierz konto zalogowane. 
-1. W obszarze **katalog** wybierz dzierżawę usługi Azure AD, w której aplikacja zostanie zarejestrowana.
-1. W obszarze nawigacji po lewej stronie wybierz pozycję **Azure Active Directory**. Jeśli Azure Active Directory nie jest dostępny w okienku nawigacji, wykonaj następujące kroki:
-
-    1. Wybierz pozycję **wszystkie usługi** u góry głównego menu nawigacji po lewej stronie.
-    1. Wpisz **Azure Active Directory** w polu wyszukiwania filtru, a następnie wybierz element **Azure Active Directory** z wyniku.
-
-1. W okienku **Azure Active Directory** wybierz pozycję **aplikacje dla przedsiębiorstw** z menu nawigacji po lewej stronie **Azure Active Directory** .
-1. Wybierz pozycję **Wszystkie aplikacje**, aby wyświetlić listę wszystkich aplikacji.
-
-     Jeśli nie widzisz aplikacji, która ma być wyświetlana w tym miejscu, Użyj różnych filtrów w górnej części listy **wszystkie aplikacje** , aby ograniczyć listę, lub przewiń w dół listy, aby zlokalizować aplikację.
-
-1. Wybierz aplikację, do której chcesz przypisać użytkownika lub grupę zabezpieczeń.
-1. Na stronie **Przegląd** aplikacji wybierz pozycję **Właściwości** z menu nawigacji po lewej stronie aplikacji.
+1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> Azure Portal</a> jako **administrator globalny**.
+1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę, w którym chcesz zarejestrować aplikację.
+1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
+1. W obszarze **Zarządzaj** wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**.
+1. Wybierz aplikację, do której chcesz przypisać użytkownika lub grupę zabezpieczeń. 
+    Użyj filtrów w górnej części okna, aby wyszukać określoną aplikację.
+1. Na stronie **Przegląd** aplikacji w obszarze **Zarządzanie** wybierz pozycję **Właściwości**.
 1. Znajdź **wymagane przypisanie użytkownika?** i ustaw wartość **tak**. Jeśli ta opcja jest ustawiona na **tak**, użytkownicy w dzierżawie muszą najpierw zostać przypisani do tej aplikacji lub nie będą mogli zalogować się do tej aplikacji.
-1. Wybierz pozycję **Zapisz** , aby zapisać tę zmianę konfiguracji.
+1. Wybierz pozycję **Zapisz**.
 
-### <a name="app-registration"></a>Rejestrowanie aplikacji
+### <a name="app-registration"></a>Rejestracja aplikacji
 
-1. Przejdź do [**Azure Portal**](https://portal.azure.com/).
-1. Na górnym pasku wybierz konto zalogowane. 
-1. W obszarze **katalog** wybierz dzierżawę usługi Azure AD, w której aplikacja zostanie zarejestrowana.
-1. W obszarze nawigacji po lewej stronie wybierz pozycję **Azure Active Directory**.
-1. W okienku **Azure Active Directory** wybierz pozycję **rejestracje aplikacji** w menu nawigacji po lewej stronie **Azure Active Directory** .
-1. Utwórz lub wybierz aplikację, którą chcesz zarządzać. Musisz być **właścicielem** tej rejestracji aplikacji.
-1. Na stronie **Przegląd** aplikacji postępuj zgodnie z **aplikacją zarządzaną w katalogu lokalnym** w obszarze podstawy w górnej części strony. Spowoduje to przejście do _aplikacji zarządzanej dla przedsiębiorstw_ na potrzeby rejestracji aplikacji.
-1. W bloku nawigacji po lewej stronie wybierz pozycję **Właściwości**.
+1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę, w którym chcesz zarejestrować aplikację.
+1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
+1. W obszarze **Zarządzanie** wybierz pozycję **Rejestracje aplikacji**.
+1. Utwórz lub wybierz aplikację, którą chcesz zarządzać. Musisz być **właścicielem** tej aplikacji.
+1. Na stronie **Przegląd** aplikacji wybierz pozycję **zarządzana aplikacja w katalogu lokalnym** w sekcji **podstawowe** informacje.
+1. W obszarze **Zarządzaj** wybierz pozycję **Właściwości**.
 1. Znajdź **wymagane przypisanie użytkownika?** i ustaw wartość **tak**. Jeśli ta opcja jest ustawiona na **tak**, użytkownicy w dzierżawie muszą najpierw zostać przypisani do tej aplikacji lub nie będą mogli zalogować się do tej aplikacji.
-1. Wybierz pozycję **Zapisz** , aby zapisać tę zmianę konfiguracji.
+1. Wybierz pozycję **Zapisz**.
 
 ## <a name="assign-users-and-groups-to-the-app"></a>Przypisywanie użytkowników i grup do aplikacji
 
 Po skonfigurowaniu aplikacji do włączania przypisywania użytkowników można przypisywać użytkowników i grupy do aplikacji.
 
-1. Wybierz okienko **Użytkownicy i grupy** w menu nawigacji po lewej stronie aplikacji przedsiębiorstwa.
-1. W górnej części listy **Użytkownicy i grupy** wybierz przycisk **Dodaj użytkownika** , aby otworzyć okienko **Dodaj przypisanie** .
-1. Wybierz selektor **użytkowników** w okienku **Dodaj przypisanie** . 
+1. W obszarze **Zarządzaj** wybierz pozycję **Użytkownicy i grupy**  >  **Dodaj użytkownika/grupę** .
+1. Wybierz selektora **użytkowników** . 
 
      Zostanie wyświetlona lista użytkowników i grup zabezpieczeń wraz z polem tekstowym umożliwiającym wyszukiwanie i lokalizowanie określonego użytkownika lub grupy. Ten ekran umożliwia wybranie wielu użytkowników i grup w jednym przejściu.
 
-1. Po wybraniu opcji użytkownicy i grupy naciśnij przycisk **Wybierz** na dole, aby przejść do następnej części.
+1. Po wybraniu pozycji Użytkownicy i grupy wybierz pozycję **Wybierz**.
 1. Obowiązkowe Jeśli zdefiniowano role aplikacji w aplikacji, można użyć opcji **Wybierz rolę** , aby przypisać wybranych użytkowników i grupy do jednej z ról aplikacji. 
-1. Naciśnij przycisk **Assign (Przypisz** ) u dołu, aby zakończyć przydziały użytkowników i grup do aplikacji. 
+1. Wybierz pozycję **Przypisz** , aby zakończyć przydziały użytkowników i grup do aplikacji. 
 1. Upewnij się, że dodani Użytkownicy i grupy znajdują się na liście zaktualizowanych **użytkowników i grup** .
 
 ## <a name="more-information"></a>Więcej informacji
