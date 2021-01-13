@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 1/5/2021
-ms.openlocfilehash: 90f8b74168f1b02647f14645aa4dc7a3dff8c2ba
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 4858f650aca1b704ac79482e0158fd83fc0264b8
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937672"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165245"
 ---
 # <a name="useful-diagnostic-queries"></a>Przydatne zapytania diagnostyczne
 
@@ -278,6 +278,31 @@ Przykładowe dane wyjściowe:
 │ 10.0.0.20 │ 0.89           │
 └───────────┴────────────────┘
 ```
+
+## <a name="cache-hit-rate"></a>Współczynnik trafień pamięci podręcznej
+
+Większość aplikacji zwykle uzyskuje dostęp do niewielkiej części łącznej ilości danych jednocześnie. PostgreSQL przechowuje często używane dane w pamięci, aby uniknąć powolnych operacji odczytu z dysku. Dane statystyczne można wyświetlić w widoku [pg_statio_user_tables](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STATIO-ALL-TABLES-VIEW) .
+
+Ważnym pomiarem jest to, jaki procent danych pochodzi z pamięci podręcznej pamięci, a dysk w obciążeniu:
+
+``` postgresql
+SELECT
+  sum(heap_blks_read) AS heap_read,
+  sum(heap_blks_hit)  AS heap_hit,
+  sum(heap_blks_hit) / (sum(heap_blks_hit) + sum(heap_blks_read)) AS ratio
+FROM
+  pg_statio_user_tables;
+```
+
+Przykładowe dane wyjściowe:
+
+```
+ heap_read | heap_hit |         ratio
+-----------+----------+------------------------
+         1 |      132 | 0.99248120300751879699
+```
+
+Jeśli znajdziesz swój współczynnik znacząco niższy niż 99%, warto rozważyć zwiększenie ilości pamięci podręcznej dostępnej dla bazy danych.
 
 ## <a name="next-steps"></a>Następne kroki
 

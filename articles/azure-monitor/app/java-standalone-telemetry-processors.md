@@ -6,12 +6,12 @@ ms.date: 10/29/2020
 author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
-ms.openlocfilehash: ba4e6b8b5e9db494ab4c0c372c2086087a2d58cb
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 39897e490e4653fbaad7a64ecc0b33f161d1264b
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133178"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165794"
 ---
 # <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>Procesory telemetrii (wersja zapoznawcza) — Azure Monitor Application Insights dla środowiska Java
 
@@ -23,58 +23,48 @@ Agent Java 3,0 dla Application Insights ma teraz możliwości przetwarzania dany
 Poniżej przedstawiono niektóre przypadki użycia procesorów telemetrycznych:
  * Maskowanie danych poufnych
  * Warunkowe dodawanie wymiarów niestandardowych
- * Aktualizowanie nazwy telemetrii używanej do agregacji i wyświetlania
- * Upuść lub Filtruj atrybuty zakresu w celu kontrolowania kosztu pozyskiwania
+ * Zaktualizuj nazwę używaną do agregacji i wyświetlania w Azure Portal
+ * Porzuć atrybuty zakresu, aby kontrolować koszt pozyskiwania
 
 ## <a name="terminology"></a>Terminologia
 
-Zanim przejdziemy do procesorów telemetrii, ważne jest, aby zrozumieć, co to są ślady i zakres.
+Zanim przejdziemy do procesorów telemetrii, ważne jest, aby zrozumieć, do czego odnosi się okres.
 
-### <a name="traces"></a>Ślady
+Zakres jest ogólnym terminem dla którejkolwiek z tych trzech rzeczy:
 
-Ślady śledzą postęp pojedynczego żądania o nazwie a `trace` , ponieważ jest ono obsługiwane przez usługi tworzące aplikację. Żądanie może być inicjowane przez użytkownika lub aplikację. Każda jednostka pracy w a `trace` jest nazywana `span` `trace` drzewem zakresów. `trace`Składa się z jednego zakresu głównego i dowolnej liczby zakresów podrzędnych.
+* Żądanie przychodzące
+* Zależność wychodząca (np. zdalne wywołanie do innej usługi)
+* Zależność w procesie (np. prace wykonywane przez podskładniki usługi)
 
-### <a name="span"></a>Span
+Na potrzeby procesorów telemetrii ważne składniki zakresu są następujące:
 
-Zakresy są obiektami, które reprezentują zadania wykonywane przez poszczególne usługi lub składniki, których dotyczy żądanie w miarę ich przepływów przez system. A `span` zawiera a `span context` , czyli zestaw unikatowych globalnie identyfikatorów, które reprezentują unikatowe żądanie, które każdy zakres jest częścią. 
+* Nazwa
+* Atrybuty
 
-Zakresy hermetyzowane:
+Nazwa zakresu jest głównym ekranem używanym do żądań i zależności w Azure Portal.
 
-* Nazwa zakresu
-* Niezmienne `SpanContext` , które jednoznacznie identyfikują zakres
-* Zakres nadrzędny w postaci `Span` , `SpanContext` , lub null
-* Polecenie `SpanKind`
-* Sygnatura czasowa rozpoczęcia
-* Sygnatura czasowa zakończenia
-* [`Attributes`](#attributes)
-* Lista zdarzeń z sygnaturami czasowymi
-* Klasa `Status`.
+Atrybuty span reprezentują standardowe i niestandardowe właściwości danego żądania lub zależności.
 
-Ogólnie rzecz biorąc, cykl życia zakresu jest podobny do następującego:
+## <a name="telemetry-processor-types"></a>Typy procesorów telemetrii
 
-* Usługa odebrała żądanie. Kontekst zakresu jest wyodrębniany z nagłówków żądań, jeśli istnieje.
-* Nowy zakres jest tworzony jako element podrzędny wyodrębnionego kontekstu zakresu; Jeśli nie istnieje, zostanie utworzony nowy zakres główny.
-* Usługa obsługuje żądanie. Dodatkowe atrybuty i zdarzenia są dodawane do zakresu, który jest przydatny do poznania kontekstu żądania, takiego jak nazwa hosta maszyny obsługującej żądanie lub identyfikatory klientów.
-* Nowe zakresy mogą być tworzone w celu reprezentowania pracy wykonywanej przez składniki podrzędne usługi.
-* Gdy usługa wykonuje zdalne wywołanie innej usługi, kontekst bieżącego zakresu jest serializowany i przekazywany do następnej usługi przez wstrzyknięcie kontekstu zakresu do nagłówka lub koperty wiadomości.
-* Pracę wykonywaną przez usługę zakończyła się pomyślnie lub nie. Stan zakresu jest odpowiednio ustawiony, a zakres jest oznaczony jako zakończony.
+Obecnie istnieją dwa typy procesorów telemetrii.
 
-### <a name="attributes"></a>Atrybuty
+#### <a name="attribute-processor"></a>Procesor atrybutów
 
-`Attributes` jest listą wartości zerowych lub więcej par klucz-wartość, które są hermetyzowane w `span` . Atrybut musi mieć następujące właściwości:
+Procesor atrybutu umożliwia wstawianie, aktualizowanie, usuwanie i mieszanie atrybutów.
+Może również wyodrębnić (za pośrednictwem wyrażenia regularnego) jeden lub więcej nowych atrybutów z istniejącego atrybutu.
 
-Klucz atrybutu, który musi być ciągiem innym niż null i niepustym.
-Wartość atrybutu, która jest:
-* Typ pierwotny: ciąg, wartość logiczna, liczba zmiennoprzecinkowa podwójnej precyzji (IEEE 754-1985) lub podpisanej 64 bitowej liczby całkowitej.
-* Tablica wartości typu pierwotnego. Tablica musi być jednorodna, tj. nie może zawierać wartości różnych typów. W przypadku protokołów, które nie obsługują natywnie wartości tablicy, te wartości powinny być reprezentowane jako ciągi JSON.
+#### <a name="span-processor"></a>Procesor obejmujący
 
-## <a name="supported-processors"></a>Obsługiwane procesory:
- * Procesor atrybutów
- * Procesor obejmujący
+Procesor zakresu ma możliwość zaktualizowania nazwy telemetrii.
+Może również wyodrębnić (za pośrednictwem wyrażenia regularnego) jeden lub więcej nowych atrybutów z nazwy zakresu.
 
-## <a name="to-get-started"></a>Aby rozpocząć
+> [!NOTE]
+> Należy zauważyć, że aktualnie procesory telemetryczne przetwarzają tylko atrybuty typu String i nie przetwarzają atrybutów typu Boolean ani Number.
 
-Utwórz plik konfiguracji o nazwie `applicationinsights.json` i umieść go w tym samym katalogu, co `applicationinsights-agent-***.jar` , przy użyciu poniższego szablonu.
+## <a name="getting-started"></a>Wprowadzenie
+
+Utwórz plik konfiguracji o nazwie `applicationinsights.json` i umieść go w tym samym katalogu, co `applicationinsights-agent-*.jar` , przy użyciu poniższego szablonu.
 
 ```json
 {
@@ -98,9 +88,14 @@ Utwórz plik konfiguracji o nazwie `applicationinsights.json` i umieść go w ty
 }
 ```
 
-## <a name="includeexclude-spans"></a>Zakresy dołączania/wykluczania
+## <a name="includeexclude-criteria"></a>Kryteria dołączania/wykluczania
 
-Procesor atrybutu i procesor obejmują opcję dostarczania zestawu właściwości zakresu do dopasowania, aby określić, czy zakres ma być uwzględniany, czy wykluczony z procesora telemetrii. Aby skonfigurować tę opcję, w obszarze `include` i/lub `exclude` co najmniej jeden `matchType` musi być `spanNames` `attributes` wymagany. Konfiguracja dołączania/wykluczania jest obsługiwana w celu uzyskania więcej niż jednego określonego warunku. Aby nastąpiło dopasowanie, wszystkie określone warunki muszą mieć wartość true. 
+Zarówno procesory atrybutów, jak i procesory zakresów obsługują opcjonalne `include` i `exclude` kryteria.
+Procesor zostanie zastosowany tylko do tych zakresów, które pasują do jego `include` kryteriów (jeśli zostały podane) _i_ nie są zgodne z `exclude` kryteriami (jeśli zostały podane).
+
+Aby skonfigurować tę opcję, w obszarze `include` i/lub `exclude` co najmniej jeden `matchType` musi być `spanNames` `attributes` wymagany.
+Konfiguracja dołączania/wykluczania jest obsługiwana w celu uzyskania więcej niż jednego określonego warunku.
+Aby nastąpiło dopasowanie, wszystkie określone warunki muszą mieć wartość true. 
 
 **Pole wymagane**: 
 * `matchType` kontroluje sposób `spanNames` interpretowania elementów w i `attributes` tablicach. Możliwe wartości to `regexp` lub `strict`. 
@@ -150,7 +145,7 @@ Procesor atrybutu i procesor obejmują opcję dostarczania zestawu właściwośc
 ```
 Aby uzyskać więcej informacji, zapoznaj się z dokumentacją dotyczącą [procesora telemetrii](./java-standalone-telemetry-processors-examples.md) .
 
-## <a name="attribute-processor"></a>Procesor atrybutów 
+## <a name="attribute-processor"></a>Procesor atrybutów
 
 Procesor atrybutów modyfikuje atrybuty zakresu. Opcjonalnie obsługuje możliwość dołączania/wykluczania zakresów. Wykonuje listę akcji, które są wykonywane w kolejności określonej w pliku konfiguracji. Obsługiwane są następujące akcje:
 
@@ -167,7 +162,7 @@ Wstawia nowy atrybut w zakresach, w których klucz jeszcze nie istnieje.
         "key": "attribute1",
         "value": "value1",
         "action": "insert"
-      },
+      }
     ]
   }
 ]
@@ -190,7 +185,7 @@ Aktualizuje atrybut w zakresach, w którym znajduje się klucz
         "key": "attribute1",
         "value": "newValue",
         "action": "update"
-      },
+      }
     ]
   }
 ]
@@ -213,7 +208,7 @@ Usuwa atrybut z zakresu
       {
         "key": "attribute1",
         "action": "delete"
-      },
+      }
     ]
   }
 ]
@@ -234,7 +229,7 @@ Skróty (SHA1) istniejące wartości atrybutów
       {
         "key": "attribute1",
         "action": "hash"
-      },
+      }
     ]
   }
 ]
@@ -259,7 +254,7 @@ Wyodrębnianie wartości przy użyciu reguły wyrażenia regularnego z klucza we
         "key": "attribute1",
         "pattern": "<regular pattern with named matchers>",
         "action": "extract"
-      },
+      }
     ]
   }
 ]
@@ -271,7 +266,7 @@ W przypadku `extract` akcji wymagane są następujące elementy
 
 Aby uzyskać więcej informacji, zapoznaj się z dokumentacją dotyczącą [procesora telemetrii](./java-standalone-telemetry-processors-examples.md) .
 
-## <a name="span-processors"></a>Zakresy procesorów
+## <a name="span-processor"></a>Procesor obejmujący
 
 Procesor span modyfikuje nazwę lub atrybuty zakresu na podstawie nazwy zakresu. Opcjonalnie obsługuje możliwość dołączania/wykluczania zakresów.
 

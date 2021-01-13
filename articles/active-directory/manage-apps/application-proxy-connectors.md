@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8086bd2a193ac52e76bf8da245063163ab2ea2f9
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: a2d4cec57eb6ac23c191e504c305c2c6d11268ac
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591059"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165006"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Omówienie łączników serwer proxy aplikacji usługi Azure AD platformy Azure
 
@@ -25,7 +25,7 @@ ms.locfileid: "97591059"
 
 ## <a name="what-is-an-application-proxy-connector"></a>Co to jest łącznik serwera proxy aplikacji?
 
-Łączniki to lekkie agenci, którzy są w środowisku lokalnym i ułatwiają połączenie wychodzące z usługą serwera proxy aplikacji. Łączniki muszą być zainstalowane na serwerze z systemem Windows, który ma dostęp do aplikacji zaplecza. Łączniki można organizować w grupy łączników, a każda grupa obsługuje ruch do określonych aplikacji.
+Łączniki to lekkie agenci, którzy są w środowisku lokalnym i ułatwiają połączenie wychodzące z usługą serwera proxy aplikacji. Łączniki muszą być zainstalowane na serwerze z systemem Windows, który ma dostęp do aplikacji zaplecza. Łączniki można organizować w grupy łączników, a każda grupa obsługuje ruch do określonych aplikacji. Aby uzyskać więcej informacji na temat serwera proxy aplikacji i diagramowyej reprezentacji architektury serwera proxy aplikacji, zobacz [Korzystanie z usługi Azure serwer proxy aplikacji usługi Azure AD do publikowania aplikacji lokalnych dla użytkowników zdalnych](what-is-application-proxy.md#application-proxy-connectors)
 
 ## <a name="requirements-and-deployment"></a>Wymagania i wdrażanie
 

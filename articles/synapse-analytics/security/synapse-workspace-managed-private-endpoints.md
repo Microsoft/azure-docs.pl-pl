@@ -5,15 +5,15 @@ author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: security
-ms.date: 10/16/2020
+ms.date: 01/12/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7eff63b36eb09036b188ac756ec55a5b1bf63718
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 2d2b65261e09d056ec76b25d6fcb6627bc54770b
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116521"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165726"
 ---
 # <a name="synapse-managed-private-endpoints"></a>Zarządzane prywatne punkty końcowe Synapse
 
@@ -21,13 +21,9 @@ W tym artykule opisano zarządzane prywatne punkty końcowe w usłudze Azure Syn
 
 ## <a name="managed-private-endpoints"></a>Zarządzane prywatne punkty końcowe
 
-Zarządzane prywatne punkty końcowe są prywatnymi punktami końcowymi utworzonymi w zarządzanym obszarze roboczym Microsoft Azure Virtual Network ustanawiania prywatnego linku do zasobów platformy Azure. Usługa Azure Synapse zarządza tymi prywatnymi punktami końcowymi w Twoim imieniu.
+Zarządzane prywatne punkty końcowe są prywatnymi punktami końcowymi utworzonymi w zarządzanym Virtual Network skojarzonym z obszarem roboczym usługi Azure Synapse. Zarządzane prywatne punkty końcowe nawiązują prywatny link do zasobów platformy Azure. Usługa Azure Synapse zarządza tymi prywatnymi punktami końcowymi w Twoim imieniu. Możesz tworzyć zarządzane prywatne punkty końcowe z poziomu obszaru roboczego usługi Azure Synapse, aby uzyskiwać dostęp do usług platformy Azure (takich jak Azure Storage lub Azure Cosmos DB) oraz hostowanych usług klientów i partnerów platformy Azure.
 
-Usługa Azure Synapse obsługuje linki prywatne. Link prywatny umożliwia dostęp do usług platformy Azure (np. usługi Azure Storage i Azure Cosmos DB) oraz hostowanych usług klienta i partnerskich platformy Azure na platformie Azure Virtual Network.
-
-W przypadku korzystania z prywatnego linku ruch między Virtual Networkami i obszarem roboczym odbywa się całkowicie za pośrednictwem sieci szkieletowej firmy Microsoft. Prywatne łącze chroniące przed ryzykiem eksfiltracji danych. Aby utworzyć prywatny link do zasobu, można utworzyć prywatny punkt końcowy.
-
-Prywatny punkt końcowy używa prywatnego adresu IP z Virtual Network w celu efektywnego przełączenia usługi do Virtual Network. Prywatne punkty końcowe są mapowane na określony zasób na platformie Azure, a nie całej usługi. Klienci mogą ograniczyć łączność z określonym zasobem zatwierdzonym przez organizację. 
+Gdy zarządzasz prywatnymi punktami końcowymi, ruch między obszarem roboczym usługi Azure Synapse i innymi zasobami platformy Azure przechodzą całkowicie za pośrednictwem sieci szkieletowej firmy Microsoft. Zarządzane prywatne punkty końcowe chronią przed eksfiltracji danych. Zarządzany prywatny punkt końcowy używa prywatnego adresu IP z zarządzanego Virtual Network, aby efektywnie przenieść usługę platformy Azure do obszaru roboczego usługi Azure Synapse, która komunikuje się z Virtual Network. Zarządzane prywatne punkty końcowe są mapowane na określony zasób na platformie Azure, a nie całej usługi. Klienci mogą ograniczyć łączność z określonym zasobem zatwierdzonym przez organizację. 
 
 Dowiedz się więcej na temat [linków prywatnych i prywatnych punktów końcowych](../../private-link/index.yml).
 
@@ -35,13 +31,10 @@ Dowiedz się więcej na temat [linków prywatnych i prywatnych punktów końcowy
 >Zarządzane prywatne punkty końcowe są obsługiwane tylko w obszarze roboczym usługi Azure Synapse z zarządzanym obszarem roboczym Virtual Network.
 
 >[!NOTE]
->Cały ruch wychodzący z zarządzanego obszaru roboczego Virtual Network poza zarządzanymi prywatnymi punktami końcowymi zostanie zablokowany w przyszłości. Zaleca się utworzenie zarządzanych prywatnych punktów końcowych w celu nawiązania połączenia ze wszystkimi źródłami danych platformy Azure spoza obszaru roboczego. 
+>Podczas tworzenia obszaru roboczego usługi Azure Synapse można skojarzyć z nim zarządzaną Virtual Network. Jeśli zdecydujesz się na zarządzanie zarządzaną Virtual Network skojarzoną z Twoim obszarem roboczym, możesz również ograniczyć ruch wychodzący z obszaru roboczego tylko do zatwierdzonych celów. Należy utworzyć zarządzane prywatne punkty końcowe dla tych obiektów docelowych. 
 
-Połączenie prywatnego punktu końcowego jest tworzone w stanie "oczekiwanie" podczas tworzenia zarządzanego prywatnego punktu końcowego w usłudze Azure Synapse. Przepływ pracy zatwierdzania jest uruchamiany. Właściciel zasobu link prywatny jest odpowiedzialny za zaakceptowanie lub odrzucenie połączenia.
 
-Jeśli właściciel zatwierdzi połączenie, zostanie nawiązane łącze prywatne. Jeśli jednak właściciel nie zaakceptuje połączenia, połączenie prywatne nie zostanie nawiązane. W obu przypadkach zarządzany prywatny punkt końcowy zostanie zaktualizowany przy użyciu stanu połączenia.
-
-Tylko zarządzany prywatny punkt końcowy w zatwierdzonym stanie może wysyłać ruch do podanego zasobu linku prywatnego.
+Połączenie prywatnego punktu końcowego jest tworzone w stanie "oczekiwanie" podczas tworzenia zarządzanego prywatnego punktu końcowego w usłudze Azure Synapse. Przepływ pracy zatwierdzania jest uruchamiany. Właściciel zasobu link prywatny jest odpowiedzialny za zaakceptowanie lub odrzucenie połączenia. Jeśli właściciel zatwierdzi połączenie, zostanie nawiązane łącze prywatne. Jeśli jednak właściciel nie zaakceptuje połączenia, połączenie prywatne nie zostanie nawiązane. W obu przypadkach zarządzany prywatny punkt końcowy zostanie zaktualizowany przy użyciu stanu połączenia. Tylko zarządzany prywatny punkt końcowy w zatwierdzonym stanie może służyć do wysyłania ruchu do prywatnego zasobu linku połączonego z zarządzanym prywatnym punktem końcowym.
 
 ## <a name="managed-private-endpoints-for-dedicated-sql-pool-and-serverless-sql-pool"></a>Zarządzane prywatne punkty końcowe dla dedykowanej puli SQL i bezserwerowego
 

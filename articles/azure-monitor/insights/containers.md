@@ -3,15 +3,15 @@ title: Rozwiązanie do monitorowania kontenerów w Azure Monitor | Microsoft Doc
 description: Rozwiązanie do monitorowania kontenerów w Azure Monitor ułatwia wyświetlanie hostów platformy Docker i kontenerów systemu Windows oraz zarządzanie nimi w jednej lokalizacji.
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 07/06/2020
-ms.openlocfilehash: a02ea022bedd92e9deaa0730cc1be051a9d20c88
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 483113fc508800eb126ee39f146c1fa34e5dba5e
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145688"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165709"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Rozwiązanie do monitorowania kontenerów w Azure Monitor
 
@@ -45,7 +45,7 @@ Przed rozpoczęciem zapoznaj się z poniższymi szczegółami, aby upewnić się
 
 W poniższej tabeli przedstawiono wsparcie w zakresie organizowania i monitorowania systemu operacyjnego platformy Docker, a następnie obsługę spisu kontenerów, wydajności i dzienników przy użyciu Azure Monitor.   
 
-|Aranżacja platformy Docker | ACS | Linux | Windows | Kontener<br>Stan zapasów | Obraz<br>Stan zapasów | Węzeł<br>Stan zapasów | Kontener<br>Wydajność | Kontener<br>Zdarzenie | Zdarzenie<br>Log | Kontener<br>Log |
+|Aranżacja platformy Docker | ACS | Linux | Windows | Kontener<br>Stan zapasów | Obraz<br>Stan zapasów | Węzeł<br>Stan zapasów | Kontener<br>Wydajność | Kontener<br>Wydarzenie | Wydarzenie<br>Dziennik | Kontener<br>Dziennik |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
@@ -116,7 +116,7 @@ Zapoznaj się z artykułem [aparat platformy Docker w systemie Windows](/virtual
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Instalowanie i Konfigurowanie hostów kontenera systemu Linux
 
-Po zainstalowaniu platformy Docker Użyj następujących ustawień dla hosta kontenera, aby skonfigurować agenta do użycia z platformą Docker. Najpierw potrzebujesz identyfikatora i klucza obszaru roboczego Log Analytics, który można znaleźć w Azure Portal. W obszarze roboczym kliknij pozycję **Szybki Start**  >  **komputery** , aby wyświetlić **Identyfikator obszaru roboczego** i **klucz podstawowy** .  Skopiuj i wklej obie wartości do ulubionego edytora.
+Po zainstalowaniu platformy Docker Użyj następujących ustawień dla hosta kontenera, aby skonfigurować agenta do użycia z platformą Docker. Najpierw potrzebujesz identyfikatora i klucza obszaru roboczego Log Analytics, który można znaleźć w Azure Portal. W obszarze roboczym kliknij pozycję **Szybki Start**  >  **komputery** , aby wyświetlić **Identyfikator obszaru roboczego** i **klucz podstawowy**.  Skopiuj i wklej obie wartości do ulubionego edytora.
 
 **Dla wszystkich hostów kontenera systemu Linux z wyjątkiem CoreOS:**
 
@@ -513,11 +513,11 @@ Aby włączyć monitorowanie kontenera systemu Windows i funkcji Hyper-V, zainst
 
 Można monitorować kontenery systemu Windows działające na Service Fabric. Jednak tylko [maszyny wirtualne działające na platformie Azure](../learn/quick-collect-azurevm.md) i [komputerach z systemem Windows w środowisku lokalnym](../platform/agent-windows.md) są obecnie obsługiwane dla Service Fabric.
 
-Możesz sprawdzić, czy rozwiązanie do monitorowania kontenerów zostało prawidłowo ustawione dla systemu Windows. Aby sprawdzić, czy pakiet administracyjny został pobrany prawidłowo, poszukaj *ContainerManagement.xxx* . Pliki powinny znajdować się w folderze C:\Program Files\Microsoft monitoring Agent\Agent\Health Service State\Management Pack.
+Możesz sprawdzić, czy rozwiązanie do monitorowania kontenerów zostało prawidłowo ustawione dla systemu Windows. Aby sprawdzić, czy pakiet administracyjny został pobrany prawidłowo, poszukaj *ContainerManagement.xxx*. Pliki powinny znajdować się w folderze C:\Program Files\Microsoft monitoring Agent\Agent\Health Service State\Management Pack.
 
 ## <a name="solution-components"></a>Składniki rozwiązania
 
-W Azure Portal przejdź do *Galeria rozwiązań* i Dodaj **rozwiązanie do monitorowania kontenerów** . Jeśli używasz agentów systemu Windows, po dodaniu tego rozwiązania jest instalowany następujący pakiet administracyjny na każdym komputerze z agentem. W pakiecie administracyjnym nie jest wymagana żadna konfiguracja ani konserwacja.
+W Azure Portal przejdź do *Galeria rozwiązań* i Dodaj **rozwiązanie do monitorowania kontenerów**. Jeśli używasz agentów systemu Windows, po dodaniu tego rozwiązania jest instalowany następujący pakiet administracyjny na każdym komputerze z agentem. W pakiecie administracyjnym nie jest wymagana żadna konfiguracja ani konserwacja.
 
 - *ContainerManagement.xxx* zainstalowany w folderze C:\Program Files\Microsoft monitoring Agent\Agent\Health Service State\Management Pack
 

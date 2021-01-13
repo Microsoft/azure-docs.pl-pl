@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 12/14/2020
-ms.openlocfilehash: 9ee7440b10bc348d3ba87a4779208791a7b0e9ac
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: b5a30846a6e2aaf85ded2e55641aa5fba9507a29
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97512032"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165777"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Azure SQL Database i warstwy usługi wystąpienia zarządzanego Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -41,24 +41,24 @@ W poniższej tabeli opisano kluczowe różnice między warstwami usług dla najn
 |:---:|:---:|:---:|:---:|:---:|
 | **Optymalne zastosowanie** | |  Oferuje zorientowane na budżety Opcje obliczeniowe i magazynowe. | Większość obciążeń firmowych. Skalowanie automatyczne rozmiaru magazynu o rozmiarze do 100 TB, płynne skalowanie w pionie i w poziomie, szybkie przywracanie bazy danych. | Aplikacje OLTP o wysokim współczynniku transakcji i niskim opóźnieniu we/wy. Oferuje największą odporność na błędy i szybkie przełączanie w tryb failover przy użyciu wielu replik synchronicznie zaktualizowanych.|
 |  **Dostępne w typie zasobu:** ||Wystąpienie zarządzane SQL Database/SQL | Pojedyncze Azure SQL Database | Wystąpienie zarządzane SQL Database/SQL |
-| **Rozmiar obliczeń**| SQL Database | od 1 do 80 rdzeni wirtualnych | od 1 do 80 rdzeni wirtualnych | od 1 do 80 rdzeni wirtualnych |
-| | Wystąpienie zarządzane SQL | 4, 8, 16, 24, 32, 40, 64, 80 rdzeni wirtualnych | Nie dotyczy | 4, 8, 16, 24, 32, 40, 64, 80 rdzeni wirtualnych |
+| **Rozmiar obliczeń**| Baza danych SQL | od 1 do 80 rdzeni wirtualnych | od 1 do 80 rdzeni wirtualnych | od 1 do 80 rdzeni wirtualnych |
+| | SQL Managed Instance | 4, 8, 16, 24, 32, 40, 64, 80 rdzeni wirtualnych | Brak | 4, 8, 16, 24, 32, 40, 64, 80 rdzeni wirtualnych |
 | | Pule wystąpień zarządzanych przez program SQL | 2, 4, 8, 16, 24, 32, 40, 64, 80 rdzeni wirtualnych | NIE DOTYCZY | NIE DOTYCZY |
-| **Typ magazynu** | Wszystko | Magazyn zdalny w warstwie Premium (na wystąpienie) | Niepołączony magazyn z lokalną pamięcią podręczną dysków SSD (na wystąpienie) | Lokalny magazyn SSD o wysokiej szybkości (na wystąpienie) |
-| **Rozmiar bazy danych** | SQL Database | 5 GB – 4 TB | Do 100 TB | 5 GB – 4 TB |
-| | Wystąpienie zarządzane SQL  | 32 GB – 8 TB | Nie dotyczy | 32 GB – 4 TB |
-| **Rozmiar magazynu** | SQL Database | 5 GB – 4 TB | Do 100 TB | 5 GB – 4 TB |
-| | Wystąpienie zarządzane SQL  | 32 GB – 8 TB | Nie dotyczy | 32 GB – 4 TB |
-| **Rozmiar bazy danych TempDB** | SQL Database | [32 GB na rdzeń wirtualny](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) | [32 GB na rdzeń wirtualny](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5) | [32 GB na rdzeń wirtualny](resource-limits-vcore-single-databases.md#business-critical---provisioned-compute---gen4) |
-| | Wystąpienie zarządzane SQL  | [24 GB na rdzeń wirtualny](../managed-instance/resource-limits.md#service-tier-characteristics) | Nie dotyczy | Do 4 TB — [ograniczone przez rozmiar magazynu](../managed-instance/resource-limits.md#service-tier-characteristics) |
-| **Przepływność zapisu dziennika** | SQL Database | [1,875 MB/s na rdzeń wirtualny (maksymalnie 30 MB/s)](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) | 100 MB/s | [6 MB/s na rdzeń wirtualny (maksymalnie 96 MB/s)](resource-limits-vcore-single-databases.md#business-critical---provisioned-compute---gen4) |
-| | Wystąpienie zarządzane SQL | [3 MB/s na rdzeń wirtualny (maksymalnie 22 MB/s)](../managed-instance/resource-limits.md#service-tier-characteristics) | Nie dotyczy | [4 MB/s na rdzeń wirtualny (maksymalnie 48 MB/s)](../managed-instance/resource-limits.md#service-tier-characteristics) |
-|**Dostępność**|Wszystko| 99,99% |  [99,95% z jedną repliką pomocniczą, 99,99% z więcej replik](service-tier-hyperscale-frequently-asked-questions-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99,99% <br/> [99,995% ze strefą nadmiarową pojedynczą bazą danych](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
-|**Tworzenie kopii zapasowych**|Wszystko|RA-GRS, 7-35 dni (domyślnie 7 dni). Maksymalne przechowywanie warstwy Podstawowa wynosi 7 dni. | RA-GRS, 7 dni, stałe odzyskiwanie do czasu w czasie (kopie) | RA-GRS, 7-35 dni (domyślnie 7 dni) |
+| **Typ magazynu** | Wszystkie | Magazyn zdalny w warstwie Premium (na wystąpienie) | Niepołączony magazyn z lokalną pamięcią podręczną dysków SSD (na wystąpienie) | Lokalny magazyn SSD o wysokiej szybkości (na wystąpienie) |
+| **Rozmiar bazy danych** | Baza danych SQL | 5 GB – 4 TB | Do 100 TB | 5 GB – 4 TB |
+| | SQL Managed Instance  | 32 GB – 8 TB | Brak | 32 GB – 4 TB |
+| **Rozmiar magazynu** | Baza danych SQL | 5 GB – 4 TB | Do 100 TB | 5 GB – 4 TB |
+| | SQL Managed Instance  | 32 GB – 8 TB | Brak | 32 GB – 4 TB |
+| **Rozmiar bazy danych TempDB** | Baza danych SQL | [32 GB na rdzeń wirtualny](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) | [32 GB na rdzeń wirtualny](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5) | [32 GB na rdzeń wirtualny](resource-limits-vcore-single-databases.md#business-critical---provisioned-compute---gen4) |
+| | SQL Managed Instance  | [24 GB na rdzeń wirtualny](../managed-instance/resource-limits.md#service-tier-characteristics) | Brak | Do 4 TB — [ograniczone przez rozmiar magazynu](../managed-instance/resource-limits.md#service-tier-characteristics) |
+| **Przepływność zapisu dziennika** | Baza danych SQL | [1,875 MB/s na rdzeń wirtualny (maksymalnie 30 MB/s)](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) | 100 MB/s | [6 MB/s na rdzeń wirtualny (maksymalnie 96 MB/s)](resource-limits-vcore-single-databases.md#business-critical---provisioned-compute---gen4) |
+| | SQL Managed Instance | [3 MB/s na rdzeń wirtualny (maksymalnie 22 MB/s)](../managed-instance/resource-limits.md#service-tier-characteristics) | Brak | [4 MB/s na rdzeń wirtualny (maksymalnie 48 MB/s)](../managed-instance/resource-limits.md#service-tier-characteristics) |
+|**Dostępność**|Wszystkie| 99,99% |  [99,95% z jedną repliką pomocniczą, 99,99% z więcej replik](service-tier-hyperscale-frequently-asked-questions-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99,99% <br/> [99,995% ze strefą nadmiarową pojedynczą bazą danych](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
+|**Tworzenie kopii zapasowych**|Wszystkie|RA-GRS, 7-35 dni (domyślnie 7 dni). Maksymalne przechowywanie warstwy Podstawowa wynosi 7 dni. | RA-GRS, 7 dni, stałe odzyskiwanie do czasu w czasie (kopie) | RA-GRS, 7-35 dni (domyślnie 7 dni) |
 |**Przetwarzanie OLTP w pamięci** | | NIE DOTYCZY | NIE DOTYCZY | Dostępne |
 |**Repliki tylko do odczytu**| | 0 wbudowane <br> 0-4 przy użyciu [replikacji geograficznej](active-geo-replication-overview.md) | 0-4 wbudowane | 1 wbudowana, uwzględniona w cenie <br> 0-4 przy użyciu [replikacji geograficznej](active-geo-replication-overview.md) |
-|**Cennik/rozliczenia** | SQL Database | [rdzeń wirtualny, zarezerwowany magazyn i magazyn kopii zapasowych](https://azure.microsoft.com/pricing/details/sql-database/single/) są rozliczone. <br/>Liczba operacji we/wy nie jest naliczana. | [rdzeń wirtualny dla każdej repliki i używanej pamięci masowej](https://azure.microsoft.com/pricing/details/sql-database/single/) . <br/>Liczba operacji we/wy nie została jeszcze obciążona. | [rdzeń wirtualny, zarezerwowany magazyn i magazyn kopii zapasowych](https://azure.microsoft.com/pricing/details/sql-database/single/) są rozliczone. <br/>Liczba operacji we/wy nie jest naliczana. |
-|| Wystąpienie zarządzane SQL | [rdzeń wirtualny, zarezerwowany magazyn i magazyn kopii zapasowych](https://azure.microsoft.com/pricing/details/sql-database/managed/) są naliczone. <br/>Liczba operacji we/wy nie jest naliczana| Nie dotyczy | [rdzeń wirtualny, zarezerwowany magazyn i magazyn kopii zapasowych](https://azure.microsoft.com/pricing/details/sql-database/managed/) są naliczone. <br/>Liczba operacji we/wy nie jest naliczana.| 
+|**Cennik/rozliczenia** | Baza danych SQL | [rdzeń wirtualny, zarezerwowany magazyn i magazyn kopii zapasowych](https://azure.microsoft.com/pricing/details/sql-database/single/) są rozliczone. <br/>Liczba operacji we/wy nie jest naliczana. | [rdzeń wirtualny dla każdej repliki i używanej pamięci masowej](https://azure.microsoft.com/pricing/details/sql-database/single/) . <br/>Liczba operacji we/wy nie została jeszcze obciążona. | [rdzeń wirtualny, zarezerwowany magazyn i magazyn kopii zapasowych](https://azure.microsoft.com/pricing/details/sql-database/single/) są rozliczone. <br/>Liczba operacji we/wy nie jest naliczana. |
+|| SQL Managed Instance | [rdzeń wirtualny, zarezerwowany magazyn i magazyn kopii zapasowych](https://azure.microsoft.com/pricing/details/sql-database/managed/) są naliczone. <br/>Liczba operacji we/wy nie jest naliczana| Brak | [rdzeń wirtualny, zarezerwowany magazyn i magazyn kopii zapasowych](https://azure.microsoft.com/pricing/details/sql-database/managed/) są naliczone. <br/>Liczba operacji we/wy nie jest naliczana.| 
 |**Modele rabatów**| | [Wystąpienia zarezerwowane](reserved-capacity-overview.md)<br/>[Korzyść użycia hybrydowego platformy Azure](../azure-hybrid-benefit.md) (niedostępne w subskrypcjach tworzenia i testowania)<br/>Subskrypcje dla [przedsiębiorstw](https://azure.microsoft.com/offers/ms-azr-0148p/) i [płatność zgodnie z rzeczywistym](https://azure.microsoft.com/offers/ms-azr-0023p/) użyciem — tworzenie i testowanie| [Korzyść użycia hybrydowego platformy Azure](../azure-hybrid-benefit.md) (niedostępne w subskrypcjach tworzenia i testowania)<br/>Subskrypcje dla [przedsiębiorstw](https://azure.microsoft.com/offers/ms-azr-0148p/) i [płatność zgodnie z rzeczywistym](https://azure.microsoft.com/offers/ms-azr-0023p/) użyciem — tworzenie i testowanie| [Wystąpienia zarezerwowane](reserved-capacity-overview.md)<br/>[Korzyść użycia hybrydowego platformy Azure](../azure-hybrid-benefit.md) (niedostępne w subskrypcjach tworzenia i testowania)<br/>Subskrypcje dla [przedsiębiorstw](https://azure.microsoft.com/offers/ms-azr-0148p/) i [płatność zgodnie z rzeczywistym](https://azure.microsoft.com/offers/ms-azr-0023p/) użyciem — tworzenie i testowanie|
 
 Aby uzyskać więcej informacji, Zobacz szczegółowe różnice między warstwami usług w [Azure SQL Database (rdzeń wirtualny)](resource-limits-vcore-single-databases.md), [Single Azure SQL Database (dtu)](resource-limits-dtu-single-databases.md), [Azure SQL Database w puli (DTU)](resource-limits-dtu-single-databases.md)i stron [wystąpienia zarządzanego Azure SQL](../managed-instance/resource-limits.md) .
@@ -78,6 +78,7 @@ Poniższe czynniki wpływają na ilość miejsca do magazynowania używanego dla
   - W przypadku magazynu w warstwach usługi krytycznej w wersji Premium lub biznesowej Zwiększ lub Zmniejsz rozmiar w 250 GB.
 - W warstwie usług ogólnego przeznaczenia program `tempdb` używa dołączonego dysku SSD, a koszt magazynu jest uwzględniany w cenie rdzeń wirtualny.
 - W warstwie usługi krytycznej dla firm `tempdb` udostępnia dołączony dysk SSD z plikami MDF i ldf, a `tempdb` koszt magazynu jest uwzględniany w cenie rdzeń wirtualny.
+- W warstwie usług DTU Premium `tempdb` udział przyłączonego dysku SSD z plikami MDF i ldf.
 - Rozmiar magazynu dla wystąpienia zarządzanego SQL musi być określony w wielokrotnościach 32 GB.
 
 

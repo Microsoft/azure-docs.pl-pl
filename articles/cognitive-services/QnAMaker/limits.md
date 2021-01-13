@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: b3dca3617e2fb7ccdff870041374e9158498c9d1
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: 1e57ae537c271e61f0b2d37f5320cb177b04802b
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97708944"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98164876"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limity i granice bazy wiedzy QnA Maker
 
@@ -99,6 +99,7 @@ Reprezentują one limity dla każdej akcji tworzenia bazy wiedzy; oznacza to, ż
 * Zalecana maksymalna liczba pytań alternatywnych na odpowiedź: 300
 * Maksymalna liczba adresów URL: 10
 * Maksymalna liczba plików: 10
+* Maksymalna liczba bazami dozwolonych na wywołanie: 1000
 
 ## <a name="update-knowledge-base-call-limits"></a>Aktualizuj limity wywołań bazy wiedzy
 Reprezentują one limity dla każdej akcji aktualizacji; oznacza to, że kliknięcie przycisku *Zapisz i pouczenie* lub wywołanie interfejsu API UpdateKnowledgeBase.
@@ -106,6 +107,7 @@ Reprezentują one limity dla każdej akcji aktualizacji; oznacza to, że klikni�
 * Zalecana maksymalna liczba dodanych lub usuniętych pytań alternatywnych: 300
 * Maksymalna liczba dodanych lub usuniętych pól metadanych: 10
 * Maksymalna liczba adresów URL, które można odświeżyć: 5
+* Maksymalna liczba bazami dozwolonych na wywołanie: 1000
 
 ## <a name="next-steps"></a>Następne kroki
 

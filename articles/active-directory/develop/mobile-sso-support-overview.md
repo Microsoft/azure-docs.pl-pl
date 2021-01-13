@@ -11,16 +11,18 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: 9c53ea5bad88eb79940274c409218045c06d7981
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 4f0588667df6acb11a43e8c3469c67f65ed3cdd9
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064972"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165182"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Obsługa logowania jednokrotnego i zasad ochrony aplikacji w aplikacjach mobilnych, które tworzysz
 
 Logowanie jednokrotne to kluczowa oferta platformy tożsamości firmy Microsoft i Azure Active Directory, która zapewnia łatwe i bezpieczne Logowanie użytkowników aplikacji. Ponadto zasady ochrony aplikacji (aplikacje) umożliwiają obsługę najważniejszych zasad zabezpieczeń, które zachowują bezpieczeństwo danych użytkownika. Razem te funkcje umożliwiają bezpieczne Logowanie użytkowników i zarządzanie danymi aplikacji.
+
+> [!VIDEO https://www.youtube.com/embed/JpeMeTjQJ04]
 
 W tym artykule wyjaśniono, dlaczego Logowanie jednokrotne i aplikacja jest ważne i zawiera ogólne wskazówki dotyczące kompilowania aplikacji mobilnych, które obsługują te funkcje. Dotyczy to zarówno aplikacji dla telefonu, jak i tabletu. Jeśli jesteś administratorem IT, który chce wdrożyć Logowanie jednokrotne w ramach dzierżawy Azure Active Directory w organizacji, zapoznaj się z naszymi [wskazówkami dotyczącymi planowania wdrożenia logowania](../manage-apps/plan-sso-deployment.md) jednokrotnego
 

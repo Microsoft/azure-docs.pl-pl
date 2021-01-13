@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 7/1/2020
-ms.openlocfilehash: 8dc70eaeb9e2c2f5d4cdfef37619e4b04217782e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 1/12/2021
+ms.openlocfilehash: 48537483501165d4a978afdbd05560613170d187
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85964519"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165615"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-configuration-options"></a>Opcje konfiguracji Azure Database for PostgreSQL — Citus)
 
@@ -118,6 +118,10 @@ Magazyn w ramach koordynatora i węzłów procesu roboczego można skalować w g
 ### <a name="storage-size"></a>Rozmiar magazynu
 
 Do 2 TiB magazynu jest obsługiwana na węzłach koordynator i proces roboczy. Zapoznaj się z dostępnymi opcjami magazynu [i obliczeniami](#compute-and-storage) IOPS dla rozmiaru węzła i klastra.
+
+### <a name="database-creation"></a>Tworzenie bazy danych
+
+Azure Portal zawiera poświadczenia, aby połączyć się z dokładnie jedną bazą danych (Citus) grupą serwerów, `citus` bazę danych programu. Tworzenie innej bazy danych jest obecnie niedozwolone, a polecenie Utwórz bazę danych zakończy się niepowodzeniem z powodu błędu.
 
 ## <a name="pricing"></a>Cennik
 Najbardziej aktualne informacje o cenach można znaleźć na [stronie cennika](https://azure.microsoft.com/pricing/details/postgresql/)usługi.

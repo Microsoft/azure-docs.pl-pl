@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Connectivity Architecture (Architektura łączności usługi Azure SQL Database)
+title: Architektura łączności Azure SQL Database
 description: W tym dokumencie opisano architekturę Azure SQL Database łączności dla połączeń z bazą danych z platformy Azure lub spoza platformy Azure.
 services: sql-database
 ms.service: sql-database
@@ -12,20 +12,20 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 06/26/2020
-ms.openlocfilehash: d0242ceec62db6548d91e5e58c21981a4f0246a0
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 74dd3a6b19d241fdf05e6438226227147ba4afbd
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672500"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165947"
 ---
-# <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Azure SQL Database i architektura łączności usługi Azure Synapse Analytics
+# <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Architektura łączności usług Azure SQL Database i Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 W tym artykule opisano architekturę różnych składników, które kierują ruch sieciowy do serwera w Azure SQL Database lub Azure Synapse Analytics. Opisano w nim również różne zasady połączeń i wpływ na klientów nawiązujących połączenie z platformy Azure i klientów nawiązujących połączenie spoza platformy Azure.
 
 > [!IMPORTANT]
-> Ten artykuł *nie* dotyczy **wystąpienia zarządzanego usługi Azure SQL** . Zapoznaj się z [architekturą łączności dla wystąpienia zarządzanego](../managed-instance/connectivity-architecture-overview.md).
+> Ten artykuł *nie* dotyczy **wystąpienia zarządzanego usługi Azure SQL**. Zapoznaj się z [architekturą łączności dla wystąpienia zarządzanego](../managed-instance/connectivity-architecture-overview.md).
 
 ## <a name="connectivity-architecture"></a>Architektura łączności
 
@@ -76,31 +76,32 @@ Szczegóły dotyczące sposobu migrowania ruchu do nowych bram w określonych re
 
 | Nazwa regionu          | Adresy IP bramy |
 | --- | --- |
-| Australia Środkowa    | 20.36.105.0 |
-| Australia Central2   | 20.36.113.0 |
+| Australia Środkowa    | 20.36.105.0, 20.36.104.6, 20.36.104.7 |
+| Australia Środkowa 2   | 20.36.113.0, 20.36.112.6 |
 | Australia Wschodnia       | 13.75.149.87, 40.79.161.1, 13.70.112.9 |
 | Australia Południowo-Wschodnia | 191.239.192.109, 13.73.109.251, 13.77.48.10 |
-| Brazil South         | 104.41.11.5, 191.233.200.14 |
+| Brazil South         | 104.41.11.5, 191.233.200.14, 191.234.144.16, 191.234.152.3 |
 | Kanada Środkowa       | 40.85.224.249, 52.246.152.0, 20.38.144.1 |
-| Kanada Wschodnia          | 40.86.226.166, 52.242.30.154 |
-| Środkowe stany USA           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 |
+| Kanada Wschodnia          | 40.86.226.166, 52.242.30.154, 40.69.105.9 , 40.69.105.10 |
+| Central US           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 |
 | Chiny Wschodnie           | 139.219.130.35     |
 | Chiny Wschodnie 2         | 40.73.82.1         |
 | Chiny Północne          | 139.219.15.17      |
 | Chiny Północne 2        | 40.73.50.0         |
-| Azja Wschodnia            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
+| Azja Wschodnia            | 191.234.2.139, 52.175.33.150, 13.75.32.4, 13.75.32.14 |
 | East US              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
 | Wschodnie stany USA 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107, 104.208.150.3 |
-| Francja Środkowa       | 40.79.137.0, 40.79.129.1 |
+| Francja Środkowa       | 40.79.137.0, 40.79.129.1, 40.79.137.8, 40.79.145.12 |
+| Francja Południowa         | 40.79.177.10 ,40.79.177.12 |
 | Niemcy Środkowe      | 51.4.144.100       |
 | Niemcy Północne wschód   | 51.5.144.179       |
 | Niemcy Środkowo-Zachodnie | 51.116.240.0, 51.116.248.0, 51.116.152.0 |
-| Indie Środkowe        | 104.211.96.159     |
+| Indie Środkowe        | 104.211.96.159, 104.211.86.30 , 104.211.86.31 |
 | Indie Południowe          | 104.211.224.146    |
-| Indie Zachodnie           | 104.211.160.80     |
+| Indie Zachodnie           | 104.211.160.80, 104.211.144.4 |
 | Japan East           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 |
 | Japonia Zachodnia           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 |
-| Korea Środkowa        | 52.231.32.42       |
+| Korea Środkowa        | 52.231.32.42, 52.231.17.22 ,52.231.17.23 |
 | Korea Południowa          | 52.231.200.86      |
 | Północno-środkowe stany USA     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
 | Europa Północna         | 40.113.93.91, 191.235.193.75, 52.138.224.1, 13.74.104.113 |

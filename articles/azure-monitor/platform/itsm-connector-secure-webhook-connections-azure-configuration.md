@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/03/2021
-ms.openlocfilehash: 5eb58c48acc7974a4379cf1993a73228c99f5e6d
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: 03a16bfbcb3a8d46a6cb4faa03aa6b6e96cf3db3
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857578"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165964"
 ---
 # <a name="configure-azure-to-connect-itsm-tools-using-secure-export"></a>Konfigurowanie platformy Azure do łączenia narzędzi Narzędzia ITSM przy użyciu funkcji bezpiecznego eksportowania
 
@@ -39,9 +39,9 @@ Wykonaj następujące kroki, aby zarejestrować aplikację w usłudze Azure AD:
 
 ## <a name="define-service-principal"></a>Definiowanie nazwy głównej usługi
 
-Usługa grupy akcji będzie potrzebować uprawnień do uzyskiwania tokenów uwierzytelniania z aplikacji usługi AAD, aby można było uwierzytelnić się w usłudze już teraz. Aby udzielić tych uprawnień, należy utworzyć nazwę główną usługi dla usługi grupy akcji w dzierżawie.
-W tym celu można użyć tych [poleceń programu PowerShell](./action-groups.md#secure-webhook-powershell-script) . (Wymaga uprawnień administratora dzierżawy).
-Opcjonalnie można zdefiniować rolę aplikacji w manifeście utworzonej aplikacji, co może umożliwić dalsze ograniczanie dostępu w taki sposób, aby tylko niektóre aplikacje z daną rolą mogły wysyłać komunikaty. Ta rola musi być następnie przypisana do jednostki usługi grupy akcji. \
+Usługa grupy akcji jest aplikacją pierwszej firmy, dlatego ma uprawnienie do uzyskiwania tokenów uwierzytelniania z aplikacji usługi AAD w celu uwierzytelniania za pomocą tej platformy.
+Opcjonalnie można zdefiniować rolę aplikacji w manifeście utworzonej aplikacji, co może umożliwić dalsze ograniczanie dostępu w taki sposób, aby tylko niektóre aplikacje z daną rolą mogły wysyłać komunikaty. Ta rola musi być następnie przypisana do jednostki usługi grupy akcji (wymaga uprawnień administratora dzierżawy).
+
 Ten krok można wykonać za pomocą tych samych [poleceń programu PowerShell](./action-groups.md#secure-webhook-powershell-script).
 
 ## <a name="create-a-secure-webhook-action-group"></a>Utwórz grupę akcji bezpiecznego elementu webhook

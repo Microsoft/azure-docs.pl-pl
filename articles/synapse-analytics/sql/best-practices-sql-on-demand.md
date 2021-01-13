@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: b8b93471b6d7f2555cfd71e524718ed0ea1ee191
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 93ac8cd3e462c244840a5ed569d685a9d67fa6c2
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457899"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165879"
 ---
 # <a name="best-practices-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Najlepsze rozwiązania dotyczące puli SQL bezserwerowej w usłudze Azure Synapse Analytics
 
@@ -25,9 +25,9 @@ W tym artykule znajdziesz zbiór najlepszych rozwiązań dotyczących używania 
 
 Pula SQL bezserwerowa umożliwia wykonywanie zapytań dotyczących plików na kontach usługi Azure Storage. Nie ma ona lokalnego magazynu ani możliwości pozyskiwania. Dlatego wszystkie pliki docelowe zapytań są spoza puli SQL bezserwerowej. Wszystkie elementy związane z odczytem plików z magazynu mogą mieć wpływ na wydajność zapytań.
 
-## <a name="colocate-your-azure-storage-account-and-serverless-sql-pool"></a>Umieść konto usługi Azure Storage i bezserwerową pulę SQL
+## <a name="colocate-your-storage-and-serverless-sql-pool"></a>Lokalizowanie puli SQL w magazynie i bezserwerowym
 
-Aby zminimalizować opóźnienie, należy odszukać konto usługi Azure Storage oraz punkt końcowy puli SQL bezserwerowej. Konta magazynu i punkty końcowe inicjowane podczas tworzenia obszaru roboczego znajdują się w tym samym regionie.
+Aby zminimalizować opóźnienie, należy odszukać konto usługi Azure Storage lub CosmosDB magazyn analityczny oraz punkt końcowy puli SQL bezserwerowej. Konta magazynu i punkty końcowe inicjowane podczas tworzenia obszaru roboczego znajdują się w tym samym regionie.
 
 Aby uzyskać optymalną wydajność, Jeśli uzyskujesz dostęp do innych kont magazynu z pulą SQL bezserwerowa, upewnij się, że znajdują się one w tym samym regionie. Jeśli nie znajdują się w tym samym regionie, nastąpi zwiększone opóźnienie transferu sieciowego danych między regionem zdalnym a regionem punktu końcowego.
 
@@ -44,9 +44,9 @@ Po wykryciu ograniczenia przepustowości Pula SQL bezserwerowa ma wbudowaną obs
 
 Jeśli to możliwe, można przygotować pliki w celu uzyskania lepszej wydajności:
 
-- Konwertuj pliki CSV i JSON na Parquet. Parquet jest formatem kolumnowym. Ponieważ jest skompresowany, jego rozmiary plików są mniejsze niż pliki CSV lub JSON zawierające te same dane. Bezserwerowa Pula SQL potrzebuje mniej czasu i mniejszą liczbę żądań magazynu, aby ją odczytać.
+- Przekonwertuj duże pliki CSV i JSON na Parquet. Parquet jest formatem kolumnowym. Ponieważ jest skompresowany, jego rozmiary plików są mniejsze niż pliki CSV lub JSON zawierające te same dane. Pula SQL bezserwerowa może pominąć kolumny i wiersze, które nie są potrzebne w zapytaniu, jeśli odczytujesz pliki Parquet. Bezserwerowa Pula SQL potrzebuje mniej czasu i mniejszą liczbę żądań magazynu, aby ją odczytać.
 - Jeśli zapytanie odwołuje się do pojedynczego dużego pliku, można je podzielić na kilka mniejszych plików.
-- Spróbuj zachować rozmiar pliku CSV poniżej 10 GB.
+- Spróbuj zachować rozmiar pliku CSV z zakresu od 100 MB do 10 GB.
 - Lepiej jest mieć pliki o równym rozmiarze dla jednej ścieżki OPENROWSET lub lokalizacji tabeli zewnętrznej.
 - Podziel dane przez przechowywanie partycji w różnych folderach lub nazwach plików. Aby dowiedzieć [się więcej na temat, zobacz use filename i FilePath Functions](#use-filename-and-filepath-functions-to-target-specific-partitions).
 

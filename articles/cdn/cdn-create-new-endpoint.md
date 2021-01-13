@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: af90166b688dee104e7bda18a88a2fe7c98f657b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7a3c4bc2a0445a2821e212986b495993695652a6
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82996235"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165930"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Szybki start: tworzenie profilu i punktu końcowego usługi Azure CDN
 
@@ -53,7 +53,7 @@ Utworzony profil usługi CDN jest używany do tworzenia punktu końcowego.
 
     | Ustawienie | Wartość |
     | ------- | ----- |
-    | **Nazwa** | Wprowadź nazwę sieci *CDN-Endpoint-123* dla nazwy hosta punktu końcowego. Ta nazwa musi być globalnie unikatowa na platformie Azure; Jeśli jest już używana, wprowadź inną nazwę. Ta nazwa jest używana do uzyskiwania dostępu do buforowanych zasobów w domenie _ &lt; Endpoint name &gt; _. azureedge.NET.|
+    | **Nazwa** | Wprowadź nazwę sieci *CDN-Endpoint-123* dla nazwy hosta punktu końcowego. Ta nazwa musi być globalnie unikatowa na platformie Azure; Jeśli jest już używana, wprowadź inną nazwę. Ta nazwa jest używana do uzyskiwania dostępu do buforowanych zasobów w domenie _&lt; Endpoint name &gt;_. azureedge.NET.|
     | **Typ źródła** | Wybierz pozycję **Magazyn**. | 
     | **Nazwa hosta źródła** | Wybierz nazwę hosta konta usługi Azure Storage, którego używasz, z listy rozwijanej, na przykład *cdnstorageacct123.blob.Core.Windows.NET*. |
     | **Ścieżka do źródła** | Pozostaw to pole puste. |
@@ -68,7 +68,7 @@ Utworzony profil usługi CDN jest używany do tworzenia punktu końcowego.
     
    ![Punkt końcowy usługi CDN](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
     
-   Czas przeznaczony na propagację punktu końcowego zależy od warstwy cenowej wybranej podczas tworzenia profilu. **Standardowa Akamai** jest zwykle zakończona w ciągu jednej minuty, **standardowej firmie Microsoft** w 10 minutach oraz **standardowej Verizon** i **Premium Verizon** w maksymalnie 90 minutach.
+   Czas przeznaczony na propagację punktu końcowego zależy od warstwy cenowej wybranej podczas tworzenia profilu. **Standardowa Akamai** jest zwykle zakończona w ciągu jednej minuty, **standardowej firmie Microsoft** w 10 minutach oraz **standardowej Verizon** i **Premium Verizon** w maksymalnie 30 minutach.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

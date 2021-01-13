@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 8694c403b14234a70b0a67f9f4defb7817ba3ae3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9999b2fa116a2336f8e50fb166e5d870ae4b5a5f
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005388"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165063"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Wprowadzenie — przewodnik dla deweloperów platformy Azure
 
@@ -68,7 +68,7 @@ Istniejące aplikacje można migrować do App Service za pomocą [Narzędzia mig
 >
 > **Wypróbuj teraz**: App Service umożliwia obsługę krótkoterminowej aplikacji do wypróbowania platformy bez konieczności rejestrowania się w celu uzyskania konta platformy Azure. Wypróbuj platformę i [Utwórz aplikację Azure App Service](https://tryappservice.azure.com/).
 
-#### <a name="azure-virtual-machines"></a>Maszyny wirtualne platformy Azure
+#### <a name="azure-virtual-machines"></a>Azure Virtual Machines
 
 Jako dostawca infrastruktury jako usługi (IaaS), platforma Azure umożliwia wdrażanie aplikacji lub Migrowanie jej na maszyny wirtualne z systemem Windows lub Linux. Wraz z usługą Azure Virtual Network platforma Azure Virtual Machines obsługuje wdrażanie maszyn wirtualnych z systemem Windows lub Linux na platformie Azure. W przypadku maszyn wirtualnych masz całkowitą kontrolę nad konfiguracją maszyny. W przypadku korzystania z maszyn wirtualnych użytkownik jest odpowiedzialny za wszystkie instalacje oprogramowania serwera, konfigurację, konserwację i poprawki systemu operacyjnego.
 
@@ -105,6 +105,21 @@ Service Fabric obsługuje WebAPI z otwartym interfejsem sieci Web dla platformy 
 > **Kiedy używać:** Service Fabric jest dobrym wyborem podczas tworzenia aplikacji lub zapisywania istniejącej aplikacji w celu użycia architektury mikrousług. Należy używać Service Fabric, gdy potrzebna jest większa kontrola nad podstawową infrastrukturą lub bezpośredni dostęp do niej.
 >
 > **Wprowadzenie:** [Tworzenie pierwszej aplikacji usługi Azure Service Fabric](../../service-fabric/service-fabric-tutorial-create-dotnet-app.md).
+
+#### <a name="azure-spring-cloud"></a>Azure Spring Cloud
+
+Chmura sprężynowa platformy Azure to platforma mikrousług bezserwerowych, która umożliwia tworzenie, wdrażanie, skalowanie i monitorowanie aplikacji w chmurze. Korzystaj z chmury wiosennej, aby uzyskać nowoczesne wzorce mikrousług umożliwiające wiosnę aplikacji rozruchowych, eliminując kod standardowy do szybkiego tworzenia niezawodnych aplikacji Java.
+
+- Korzystaj z zarządzanych wersji usług w chmurze z odnajdywaniem i konfiguracją oraz upewnij się, że te składniki krytyczne działają w optymalnych warunkach.
+- Skup się na tworzeniu logiki biznesowej i zajmiemy się środowiskiem uruchomieniowym usługi, korzystając z poprawek zabezpieczeń, standardów zgodności i wysokiej dostępności.
+- Zarządzanie cyklem życia aplikacji (np.: wdrażanie, uruchamianie, zatrzymywanie, skalowanie) w górnej części usługi Azure Kubernetes Service.
+- Łatwo Powiąż połączenia między aplikacjami i usługami platformy Azure, takimi jak Azure Database for MySQL i pamięć podręczną platformy Azure dla Redis.
+- Monitoruj i rozwiązywaj mikrousługi i aplikacje za pomocą ujednoliconych narzędzi do monitorowania klasy korporacyjnej, które oferują szczegółowe informacje o zależnościach aplikacji i telemetrii operacyjnej.
+
+> **Kiedy używać:** Jako w pełni zarządzana chmura sieci platformy Azure jest dobrym rozwiązaniem w przypadku zminimalizowania kosztów operacyjnych z mikrousług opartych na chmurze z rozruchem/wiosną na platformie Azure. 
+>
+> **Wprowadzenie:** [wdrażanie pierwszej aplikacji w chmurze Azure wiosną](../../spring-cloud/spring-cloud-quickstart.md).
+
 
 ### <a name="enhance-your-applications-with-azure-services"></a>Ulepszanie aplikacji dzięki usługom platformy Azure
 

@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 7fadbecc2c00a739afb2f94dd1d049805915cfa5
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 0542d7e0ea204d1e9279e89c9f36b9bc6c6c88fa
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427112"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165862"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database migrację ruchu do nowszych bram
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,6 +27,25 @@ Klienci będą powiadamiani za pośrednictwem poczty e-mail i w Azure Portal ró
 ## <a name="status-updates"></a>Aktualizacje stanu
 
 # <a name="in-progress"></a>[W toku](#tab/in-progress-ip)
+## <a name="january-2021"></a>Styczeń 2021 r.
+Nowe bramy SQL są dodawane do następujących regionów:
+
+- Australia Środkowa: 20.36.104.6, 20.36.104.7 
+- Australia Środkowa 2:20.36.112.6 
+- Brazylia Południowa: 191.234.144.16, 191.234.152.3 
+- Kanada Wschodnia: 40.69.105.9, 40.69.105.10
+- Indie Środkowe: 104.211.86.30, 104.211.86.31 
+- Azja Wschodnia: 13.75.32.14 
+- Francja Środkowa: 40.79.137.8, 40.79.145.12 
+- Francja Południowa: 40.79.177.10, 40.79.177.12
+- Korea Środkowa: 52.231.17.22, 52.231.17.23
+- Indie Zachodnie: 104.211.144.4
+
+Te bramy SQL zaczynają akceptować ruch klienta na dzień 31 stycznia 2021
+
+# <a name="completed"></a>[Ukończone](#tab/completed-ip)
+Następujące migracje bramy zostały ukończone: 
+
 ### <a name="october-2020"></a>Październik 2020 r.
 
 Nowe bramy SQL są dodawane do następujących regionów:
@@ -70,9 +89,6 @@ Nowe bramy SQL są dodawane do następujących regionów. Te bramy SQL zaczynaj�
 Istniejące bramy SQL będą uruchamiać akceptowanie ruchu w następujących regionach. Te bramy SQL zaczynają akceptować ruch klienta **1 września 2020** :
 - Japonia Wschodnia: 40.79.184.8, 40.79.192.5
 
-# <a name="completed"></a>[Ukończone](#tab/completed-ip)
-
-Następujące migracje bramy zostały ukończone: 
 
 ### <a name="august-2020"></a>Sierpień 2020 r.
 
@@ -84,7 +100,7 @@ Nowe bramy SQL są dodawane do następujących regionów:
 
 Te bramy SQL zaczynają akceptować ruch klienta w dniu 10 sierpnia 2020. 
 
-### <a name="october-2019"></a>Październik 2019 r.
+### <a name="october-2019"></a>Październik 2019 r.
 - Brazil South
 - Zachodnie stany USA
 - West Europe

@@ -7,12 +7,12 @@ ms.service: cache
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 01/08/2021
-ms.openlocfilehash: 577bcc70633fd2a9f47dd0c95d98b729a1326647
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: de7bdc22b4bfdf9ef5865b1b601b32672eb868d1
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98146507"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165131"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-go"></a>Szybki Start: korzystanie z usługi Azure cache for Redis za pomocą języka go
 
@@ -62,7 +62,9 @@ if err != nil {
 
 W przypadku pomyślnego nawiązania połączenia usługi [obsługi http](https://golang.org/pkg/net/http/#HandleFunc) są skonfigurowane do obsługi `POST` i `GET` działania, a serwer HTTP jest uruchamiany. 
 
+> [!NOTE] 
 > [Biblioteka MUX Gorilla](https://github.com/gorilla/mux) jest używana na potrzeby routingu (chociaż nie jest to absolutnie konieczne, a firma Microsoft może odejść od użycia standardowej biblioteki dla tej przykładowej aplikacji).
+>
 
 ```go
 uh := userHandler{client: client}

@@ -1,6 +1,6 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: cdn
 author: SyntaxC4
 ms.service: azure-cdn
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/30/2020
 ms.author: cfowler
 ms.custom: include file
-ms.openlocfilehash: d73a8d743a948cbd94a3af81fe2e77c45c0eeb67
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c6352ee9d29e4e45aa4be449046a0715fee06047
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82996301"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165913"
 ---
 ## <a name="create-a-new-cdn-profile"></a>Tworzenie nowego profilu CDN
 
@@ -35,7 +35,7 @@ Profil usługi CDN jest kontenerem dla punktów końcowych usługi CDN i określ
     | **Subskrypcja** | Z listy rozwijanej wybierz subskrypcję platformy Azure. |
     | **Grupa zasobów** | Wybierz pozycję **Utwórz nową** i wprowadź *CDNQuickstart-RG* dla nazwy grupy zasobów lub wybierz opcję **Użyj istniejącej** , a następnie wybierz pozycję *CDNQuickstart-RG* , jeśli istnieje już Grupa. | 
     | **Lokalizacja grupy zasobów** | Wybierz z listy rozwijanej lokalizację znajdującą się obok siebie. |
-    | **Warstwa cenowa** | Wybierz **standardową opcję Akamai** z listy rozwijanej. (Czas wdrożenia dla warstwy Akamai jest około jednej minuty. Warstwa firmy Microsoft zajmie około 10 minut, a warstwy Verizon zajmują około 90 minut.) |
+    | **Warstwa cenowa** | Wybierz **standardową opcję Akamai** z listy rozwijanej. (Czas wdrożenia dla warstwy Akamai jest około jednej minuty. Warstwa firmy Microsoft zajmie około 10 minut, a warstwy Verizon zajmują około 30 minut. |
     | **Utwórz teraz nowy punkt końcowy CDN** | Pozostaw niezaznaczone. |  
    
     ![Nowy profil usługi CDN](./media/cdn-create-profile/cdn-new-profile.png)

@@ -12,21 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 3eb456dad2836bed55c45e7be9e898fdf72ac4d2
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 59e266274d6b65182ad63513ecf9bf3b5ab95490
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98017939"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98164842"
 ---
 # <a name="migrate-to-connection-monitor-from-network-performance-monitor"></a>Migrowanie do monitora połączeń z Network Performance Monitor
 
 Testy z programu Network Performance Monitor (NPM) można migrować do nowego, ulepszonego monitora połączeń jednym kliknięciem i bez przestojów. Aby dowiedzieć się więcej o korzyściach, zobacz [monitor połączeń](./connection-monitor-overview.md).
 
-
->[!NOTE]
-> Tylko testy z monitora łączności usług można migrować do monitora połączeń.
->
 
 ## <a name="key-points-to-note"></a>Najważniejsze punkty do uwagi
 
@@ -52,7 +48,7 @@ Aby przeprowadzić migrację testów z Network Performance Monitor do monitora p
 
     :::image type="content" source="./media/connection-monitor-2-preview/migrate-npm-to-cm-preview.png" alt-text="Migruj testy z Network Performance Monitor do monitora połączeń" lightbox="./media/connection-monitor-2-preview/migrate-npm-to-cm-preview.png":::
     
-1. Z listy rozwijanej wybierz swoją subskrypcję i obszar roboczy, a następnie wybierz funkcję NPM, którą chcesz zmigrować. Obecnie można migrować testy tylko z monitora łączności usług.  
+1. Z listy rozwijanej wybierz swoją subskrypcję i obszar roboczy, a następnie wybierz funkcję NPM, którą chcesz zmigrować. 
 1. Wybierz pozycję **Importuj** , aby zmigrować testy.
 
 Po rozpoczęciu migracji następujące zmiany zostały wykonane: 
@@ -74,5 +70,5 @@ Po migracji upewnij się, że:
 ## <a name="next-steps"></a>Następne kroki
 
 Aby dowiedzieć się więcej na temat monitora połączeń, zobacz:
-* [Migrowanie z monitora połączeń do monitora połączeń](./migrate-to-connection-monitor-from-connection-monitor-classic.md)
+* [Migrowanie z monitora połączeń (klasycznego) do monitora połączeń](./migrate-to-connection-monitor-from-connection-monitor-classic.md)
 * [Utwórz monitor połączeń przy użyciu Azure Portal](./connection-monitor-create-using-portal.md)

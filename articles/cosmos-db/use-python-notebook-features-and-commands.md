@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: 381aa88326440aba91e02393cfe2bdb1e2c38097
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b89fcf32ed033f359b4db601e36cc69bb899944d
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340417"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165828"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Korzystanie z wbudowanych poleceń i funkcji notesu w Azure Cosmos DB notesach Python (wersja zapoznawcza)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -44,7 +44,7 @@ Możesz użyć ``%%sql`` polecenia Magic, aby uruchomić [zapytanie SQL](sql-que
 - Zamień ``{database_id}`` i ``{container_id}`` na nazwę bazy danych i kontenera na koncie Cosmos. Jeśli ``--database`` argumenty i ``--container`` nie zostaną podane, zapytanie zostanie wykonane w [domyślnej bazie danych i kontenerze](#set-default-database-for-queries).
 - Można uruchomić dowolne zapytanie SQL, które jest prawidłowe w Azure Cosmos DB. Tekst zapytania musi znajdować się w nowym wierszu.
 
-Przykład: 
+Na przykład: 
 ```python
 %%sql --database RetailDemo --container WebsiteData
 SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c
@@ -63,7 +63,7 @@ Wyniki zapytania można wyprowadzać ``%%sql`` w [Pandas Dataframe](https://pand
 - Zamień ``{outputDataFrameVar}`` na nazwę zmiennej Dataframe, która będzie zawierać wyniki.
 - Można uruchomić dowolne zapytanie SQL, które jest prawidłowe w Azure Cosmos DB. Tekst zapytania musi znajdować się w nowym wierszu. 
 
-Przykład:
+Na przykład:
 
 ```python
 %%sql --database RetailDemo --container WebsiteData --output df_cosmos
@@ -110,7 +110,7 @@ Możesz użyć ``%%upload`` polecenia Magic, aby przekazać dane z pliku JSON do
 - Zastąp wartości ``{database_id}`` i ``{container_id}`` nazwą bazy danych i kontenera na koncie usługi Azure Cosmos. Jeśli ``--database`` argumenty i ``--container`` nie zostaną podane, zapytanie zostanie wykonane w [domyślnej bazie danych i kontenerze](#set-default-database-for-queries).
 - Zamień ``{url_location_of_file}`` na lokalizację pliku JSON. Plik musi być tablicą prawidłowych obiektów JSON i powinien być dostępny za pośrednictwem publicznego Internetu.
 
-Przykład:
+Na przykład:
 
 ```python
 %%upload --database databaseName --container containerName --url 
@@ -123,6 +123,8 @@ Total time taken : 00:00:38.1228087 hours
 Total RUs consumed : 25022.58
 ```
 Statystyki wyjściowe umożliwiają obliczenie obowiązujących jednostek RU/s używanych do przekazywania elementów. Na przykład jeśli 25 000 jednostek ru zostały zużyte ponad 38 sekund, obowiązująca wartość RU/s to 25 000 jednostek ru/38 s = 658 RU/s.
+
+Pliki (takie jak pliki CSV lub JSON) można zapisać do lokalnego obszaru roboczego notesu. Zalecamy dodanie komórki do notesu w celu zapisania plików. Te pliki można wyświetlić ze zintegrowanego terminalu w środowisku Notatnika. Aby wyświetlić zapisane pliki, można użyć polecenia "ls". Jednak te pliki zostaną usunięte po zresetowaniu obszaru roboczego. Dlatego najlepiej używać magazynu trwałego, takiego jak GitHub lub konta magazynu, zamiast lokalnego obszaru roboczego.
 
 ## <a name="run-another-notebook-in-current-notebook"></a>Uruchom inny Notes w bieżącym notesie 
 Możesz użyć ``%%run`` polecenia Magic, aby uruchomić inny Notes w obszarze roboczym z bieżącego notesu. Użyj składni:
@@ -149,7 +151,7 @@ Wersja 4 [Azure Cosmos DB zestawu SDK języka Python dla interfejsu API SQL](htt
 
 Użyj wbudowanego ``cosmos_client`` wystąpienia do uruchomienia dowolnej operacji zestawu SDK. 
 
-Przykład:
+Na przykład:
 
 ```python
 ## Import modules as needed

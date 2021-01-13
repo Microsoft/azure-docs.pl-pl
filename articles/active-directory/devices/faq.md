@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd438a09b929274808984322981f6d21da0bf68f
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 73946eea846b06b28d0a0f017ea1317c8cc7326d
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860953"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165148"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory często zadawane pytania dotyczące zarządzania urządzeniami
 
@@ -142,6 +142,12 @@ Odp **.:** oczekiwanie wskazuje, że urządzenie nie jest zarejestrowane. Ten st
 >* Jeśli urządzenie zostanie usunięte z zakresu synchronizacji w Azure AD Connect i dodane z powrotem.
 >
 >W obu przypadkach należy ponownie zarejestrować urządzenie ręcznie na każdym z tych urządzeń. Aby sprawdzić, czy urządzenie zostało wcześniej zarejestrowane, możesz [rozwiązać problemy z urządzeniami za pomocą polecenia dsregcmd](troubleshoot-device-dsregcmd.md).
+
+---
+
+### <a name="q-i-cannot-add-more-than-3-azure-ad-user-accounts-under-the-same-user-session-on-a-windows-10-device-why"></a>P: nie mogę dodać więcej niż 3 kont użytkowników usługi Azure AD w ramach tej samej sesji użytkownika na urządzeniu z systemem Windows 10. Dlaczego?
+
+Odp **.: usługa** Azure AD dodaliśmy obsługę wielu kont usługi Azure AD w systemie Windows 10 1803 Release. Jednak system Windows 10 ogranicza liczbę kont usługi Azure AD na urządzeniu do 3, aby ograniczyć rozmiar żądań tokenów i włączyć niezawodne Logowanie jednokrotne. Po dodaniu 3 kont użytkownicy zobaczą błąd w przypadku kolejnych kont. Dodatkowe informacje o problemie na ekranie błędu zawierają następujący komunikat wskazujący przyczynę — "Dodawanie konta jest zablokowane, ponieważ osiągnięto limit AccOUT". 
 
 ---
 ## <a name="azure-ad-join-faq"></a>Usługa Azure AD Join — często zadawane pytania
@@ -291,7 +297,7 @@ Odp **.:** Jeśli hasło zostanie zmienione poza siecią firmową (na przykład 
 
 **Z** 
 - W przypadku zarejestrowanych urządzeń z systemem Windows 10 w usłudze Azure AD przejdź do pozycji **Ustawienia**  >  **konta**  >  **dostęp do zasobów służbowych**. Wybierz swoje konto i wybierz pozycję **Rozłącz**. Rejestracja urządzenia dotyczy profilu użytkownika w systemie Windows 10.
-- W przypadku systemów iOS i Android można użyć Microsoft Authenticator **Settings**  >  **rejestracji urządzeń** ustawień aplikacji i wybrać pozycję **Wyrejestruj urządzenie**.
+- W przypadku systemów iOS i Android można użyć Microsoft Authenticator   >  **rejestracji urządzeń** ustawień aplikacji i wybrać pozycję **Wyrejestruj urządzenie**.
 - W przypadku macOS można użyć aplikacji Portal firmy Microsoft Intune, aby wyrejestrować urządzenie z zarządzania i usunąć wszelkie rejestracje. 
 
 ---

@@ -3,12 +3,12 @@ title: Wprowadzenie do Azure Lab Services
 description: W tym artykule opisano, jak rozpocząć pracę z Azure Lab Services.
 ms.topic: article
 ms.date: 11/18/2020
-ms.openlocfilehash: 44afe13fb6f555b12dfce939ce8e88e3af8dc7ef
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: d260ace7d7819c3ca2db96d6c4984bf834e170da
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602669"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165046"
 ---
 # <a name="get-started-with-lab-services"></a>Wprowadzenie do usług laboratoryjnych 
 
@@ -46,7 +46,7 @@ Najważniejszym znaczeniem do zapamiętania, gdy zarządzanie maszynami wirtualn
 
 ## <a name="lab-dashboards"></a>Pulpity nawigacyjne laboratorium
 
-### <a name="overview"></a>Omówienie
+### <a name="overview"></a>Przegląd
 
 Pulpity nawigacyjne dla laboratoriów w Azure Lab Services zawierają migawkę różnych aspektów konkretnego laboratorium, w tym informacje o maszynie wirtualnej, liczbę przypisanych i nieprzypisanych maszyn wirtualnych, liczbę zarejestrowanych i niezarejestrowanego użytkownika oraz informacje o harmonogramach laboratorium. 
 
@@ -109,56 +109,7 @@ Nauczyciele mogą łączyć się z maszyną wirtualną ucznia, o ile jest ona w�
 
 ## <a name="manage-users-in-a-lab"></a>Zarządzanie użytkownikami w laboratorium
 
-Nauczyciele mogą dodawać użytkowników uczniów do laboratorium i monitorować ich limity godzinowe. 
-
-### <a name="add-users-by-email-address"></a>Dodaj użytkowników według adresu e-mail
-
-1. W [witrynie sieci Web usługi Azure Lab Services](https://labs.azure.com/) kliknij pozycję **Użytkownicy** po lewej stronie okna.
-1. W górnej części okna kliknij pozycję **Dodaj użytkowników** i wybierz pozycję **Dodaj przy użyciu adresu e-mail**. 
-1. W okienku **Dodaj użytkowników** , które pojawia się po prawej stronie, wprowadź adresy e-mail uczniów w oddzielnych wierszach lub w pojedynczym wierszu oddzielone średnikami.
-1. Kliknij przycisk **Zapisz**.
-1. Lista użytkowników zostanie teraz zaktualizowana o wiadomości e-mail, status, zaproszenie i godziny przydziału.
-
-    Po zarejestrowaniu uczniów dla laboratorium, ich nazwy zostaną zaktualizowane przy użyciu imion i nazwisk z Azure Active Directory.
-
-    > [!NOTE]
-    > Opcja Włącz opcję Ogranicz dostęp jest włączona dla użytkowników. Oznacza to, że tylko użytkownicy z listą mogą zarejestrować się w laboratorium przy użyciu wysyłanego linku rejestracji.
-
-### <a name="add-users-using-a-spreadsheet"></a>Dodawanie użytkowników przy użyciu arkusza kalkulacyjnego 
-
-Możesz również dodać użytkowników, przekazując plik CSV zawierający ich adresy e-mail.
-
-1. W programie Microsoft Excel Utwórz plik CSV, który zawiera listę adresów e-mail uczniów w jednej kolumnie.
-1. W [witrynie sieci web Azure Lab Services](https://labs.azure.com/)w górnej części strony **Użytkownicy** kliknij przycisk **Dodaj użytkowników** .
-1. Wybierz pozycję **Przekaż wolumin CSV**.
-1. Wybierz plik CSV zawierający adresy e-mail uczniów, a następnie kliknij przycisk **Otwórz**.
-
-    :::image type="content" source="./media/get-started-manage-labs/add-users-spreadsheet.png" alt-text="Dodawanie użytkowników przy użyciu arkusza kalkulacyjnego":::
-1. Wiadomości e-mail będą teraz wyświetlane w oknie po prawej stronie. Kliknij przycisk **Zapisz**.
-
-    :::image type="content" source="./media/get-started-manage-labs/register-users.png" alt-text="Rejestrowanie użytkowników":::
-
-### <a name="register-users"></a>Rejestrowanie użytkowników
-
-Po dodaniu użytkowników do laboratorium konieczne będzie zarejestrowanie się w celu uzyskania dostępu do maszyn wirtualnych. Można to zrobić przez Zapraszanie użytkowników z portalu, co spowoduje wysłanie wiadomości e-mail zawierającej link rejestracji dla laboratorium. Lub przez skopiowanie i wklejenie linku rejestracji do wiadomości e-mail lub innej formy komunikacji z uczniami.
-
-1. Na stronie **Użytkownicy** wybierz studenta lub wielu uczniów z listy.
-
-    W wierszu wybranego ucznia wybierz ikonę koperty na liście lub kliknij pozycję **Zaproś** w górnej części ekranu.
-
-    :::image type="content" source="./media/get-started-manage-labs/send-invitation.png" alt-text="Wysyłanie zaproszenia":::
-    
-    W oknie **wysyłanie zaproszenia** pocztą e-mail wprowadź opcjonalny komunikat (na przykład nazwę użytkownika i hasło) do uczniów, a następnie kliknij przycisk **Wyślij**. 
-    
-    :::image type="content" source="./media/get-started-manage-labs/send-invitation-mail.png" alt-text="Wyślij zaproszenie pocztą e-mail":::
-
-    Alternatywnie, z tej samej strony **Użytkownicy** , można kliknąć przycisk **rejestracja** w górnej części ekranu. 
-
-    :::image type="content" source="./media/get-started-manage-labs/registration-link.png" alt-text="Link do rejestracji użytkownika":::
-    
-    Skopiuj link rejestracji z pola tekstowego i wklej go do poczty e-mail lub preferowanego narzędzia do bezpiecznej obsługi komunikatów.  
-    
-    :::image type="content" source="./media/get-started-manage-labs/user-registration.png" alt-text="Wyślij rejestrację użytkownika":::
+Nauczyciele mogą dodawać użytkowników uczniów do laboratorium i monitorować ich limity godzinowe. Aby uzyskać szczegółowe informacje na temat dodawania użytkowników przy użyciu adresu e-mail lub listy arkusza kalkulacyjnego oraz rejestrowania użytkowników, zobacz [Dodawanie użytkowników laboratorium i zarządzanie nimi](how-to-configure-student-usage.md).
 
 Po zaproszeniu użytkowników lub udostępnieniu linku będzie można monitorować użytkowników, którzy zostali pomyślnie zarejestrowani na stronie **Użytkownicy** w kolumnie **stan** . 
 
