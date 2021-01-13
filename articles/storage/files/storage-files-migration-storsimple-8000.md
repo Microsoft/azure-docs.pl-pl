@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 1e45c39a8f562ca6264ab631dfadc84315b58030
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 08ed07adbfe0fc4b22d8a3d0afcfc9ab1312dba4
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97723982"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134351"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 i 8600 migracji do Azure File Sync
 
@@ -215,7 +215,7 @@ Po utworzeniu kont magazynu przejdź do sekcji **udział plików** konta magazyn
 
 ### <a name="storsimple-data-manager"></a>StorSimple Data Manager
 
-Zasób platformy Azure, w którym będą przechowywane zadania migracji, jest nazywany **StorSimple Data Manager**. Wybierz pozycję **nowy zasób** i wyszukaj go. Następnie wybierz przycisk **Utwórz**.
+Zasób platformy Azure, w którym będą przechowywane zadania migracji, jest nazywany **StorSimple Data Manager**. Wybierz pozycję **nowy zasób** i wyszukaj go. Następnie wybierz pozycję **Utwórz**.
 
 Ten tymczasowy zasób jest używany na potrzeby aranżacji. Anulowanie aprowizacji jest możliwe po zakończeniu migracji. Należy ją wdrożyć w tej samej subskrypcji, grupie zasobów i regionie co konto magazynu StorSimple.
 
@@ -441,6 +441,9 @@ W tym momencie istnieją różnice między lokalnym wystąpieniem systemu Window
 1. Niektóre pliki mogły zostać pozostawione w tle przez zadanie przekształcania danych z powodu nieprawidłowych znaków. Jeśli tak, skopiuj je do wystąpienia systemu Windows Server z włączoną obsługą Azure File Sync. Później można je dostosować w taki sposób, aby były synchronizowane. Jeśli nie używasz Azure File Sync dla określonego udziału, lepiej jest zmienić nazwy plików z nieprawidłowymi znakami na woluminie StorSimple. Następnie uruchom RoboCopy bezpośrednio w udziale plików platformy Azure.
 
 > [!WARNING]
+> W systemie Windows Server 2019 obecnie występuje problem, który spowoduje, że pliki warstwowe Azure File Sync na serwerze docelowym zostaną ponownie skopiowane ze źródła i przeładowane na platformę Azure przy użyciu funkcji/MIR Robocopy. Konieczne jest użycie Robocopy na serwerze z systemem Windows innym niż 2019. Preferowanym wyborem jest system Windows Server 2016. Ta uwaga zostanie zaktualizowana, jeśli problem zostanie rozwiązany przez Windows Update.
+
+> [!WARNING]
 > *Nie* można uruchomić Robocopy, zanim serwer ma przestrzeń nazw dla udziału plików platformy Azure, który został pobrany w pełni. Aby uzyskać więcej informacji, zobacz [Określanie, kiedy obszar nazw został w pełni pobrany na serwer](#determine-when-your-namespace-has-fully-synced-to-your-server).
 
  Chcesz skopiować tylko te pliki, które zostały zmienione po ostatnim uruchomieniu zadania migracji, i pliki, które nie zostały przeniesione przez te zadania przed. Możesz rozwiązać ten problem, aby dlaczego nie przechodzą później na serwerze po zakończeniu migracji. Aby uzyskać więcej informacji, zobacz [Azure File Sync Rozwiązywanie problemów](storage-sync-files-troubleshoot.md#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
@@ -448,7 +451,7 @@ W tym momencie istnieją różnice między lokalnym wystąpieniem systemu Window
 RoboCopy ma kilka parametrów. W poniższym przykładzie przedstawiono gotowe polecenie i listę przyczyn wyboru tych parametrów.
 
 ```console
-Robocopy /MT:16 /UNILOG:<file name> /TEE /NP /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
+Robocopy /MT:16 /UNILOG:<file name> /TEE /NP /B /MIR /IT /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
 Tle
@@ -499,6 +502,14 @@ Tle
    :::column-end:::
    :::column span="1":::
       Zezwala RoboCopy na uwzględnienie różnic między źródłem (urządzeniem StorSimple) a celem (katalogiem systemu Windows Server).
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /IT
+   :::column-end:::
+   :::column span="1":::
+      Zapewnia, że wierność są zachowywane w niektórych scenariuszach dublowania.</br>Przykład: między dwoma Robocopy uruchamia plik w ramach zmiany listy ACL i aktualizacji atrybutów, na przykład jest również oznaczony jako *ukryty*. Bez/IT zmiana listy ACL może zostać pominięta przez Robocopy i w rezultacie nie została przeniesiona do lokalizacji docelowej.
    :::column-end:::
 :::row-end:::
 :::row:::

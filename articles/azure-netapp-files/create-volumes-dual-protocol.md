@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 01/05/2020
+ms.date: 01/12/2020
 ms.author: b-juche
-ms.openlocfilehash: d296f80d85bb5081c466b27e6a8624e8b3f2c924
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: c914ab007f482e4d2b560b1cb461e27d4f4442ec
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915003"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133161"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Tworzenie woluminu Dual-Protocol (NFSv3 i SMB) dla Azure NetApp Files
 
@@ -39,7 +39,6 @@ Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików 
 * Utwórz strefę wyszukiwania wstecznego na serwerze DNS, a następnie Dodaj rekord wskaźnika (PTR) maszyny hosta usługi AD do tej strefy wyszukiwania wstecznego. W przeciwnym razie tworzenie dwuprotokołowego woluminu nie powiedzie się.
 * Upewnij się, że klient sieciowego systemu plików jest aktualny i ma najnowsze aktualizacje systemu operacyjnego.
 * Upewnij się, że serwer LDAP Active Directory (AD) jest uruchomiony w usłudze AD. Można to zrobić przez zainstalowanie i skonfigurowanie roli [usługi LDS Active Directory (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) na maszynie usługi AD.
-* Upewnij się, że utworzono urząd certyfikacji dla usługi AD przy użyciu roli [usług certyfikatów Active Directory (AD CS)](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) do generowania i eksportowania certyfikatu głównego urzędu certyfikacji z podpisem własnym.   
 * Woluminy podwójnego protokołu nie obsługują obecnie Azure Active Directory Domain Services (AADDS).  
 * Wersja systemu plików NFS używana przez dwuprotokołowy wolumin to NFSv3. W związku z tym obowiązują następujące zagadnienia:
     * Protokół Dual nie obsługuje rozszerzonych atrybutów list ACL systemu Windows `set/get` z klientów NFS.
@@ -105,9 +104,6 @@ Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików 
 3. Kliknij pozycję **Protokół**, a następnie wykonaj następujące czynności:  
     * Wybierz pozycję **Dual-Protocol (NFSv3 i SMB)** jako typ protokołu dla woluminu.   
 
-    * Z listy rozwijanej wybierz połączenie **Active Directory** .  
-    Używany Active Directory musi mieć certyfikat głównego urzędu certyfikacji serwera. 
-
     * Określ **ścieżkę woluminu** dla woluminu.   
     Ta ścieżka woluminu jest nazwą udostępnionego woluminu. Nazwa musi zaczynać się od litery i musi być unikatowa w ramach każdej subskrypcji i każdego regionu.  
 
@@ -122,32 +118,6 @@ Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików 
     Utworzony wolumin zostanie wyświetlony na stronie woluminy. 
  
     Wolumin dziedziczy atrybuty Subskrypcja, Grupa zasobów i Lokalizacja z puli pojemności. Stan wdrożenia woluminu możesz monitorować na karcie Powiadomienia.
-
-## <a name="upload-active-directory-certificate-authority-public-root-certificate"></a>Przekaż Active Directory publiczny certyfikat główny urzędu certyfikacji  
-
-1.  Aby zainstalować i skonfigurować urząd certyfikacji, należy postępować zgodnie z instrukcjami [instalacji](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) . 
-
-2.  Postępuj zgodnie [z wyświetlaniem certyfikatów z przystawką programu MMC](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) , aby użyć przystawki programu MMC i narzędzia Menedżer certyfikatów.  
-    Użyj przystawki Menedżer certyfikatów, aby zlokalizować certyfikat główny lub wystawiający dla urządzenia lokalnego. Polecenia przystawki Zarządzanie certyfikatami należy uruchamiać z jednego z następujących ustawień:  
-    * Klient oparty na systemie Windows, który przyłączył się do domeny i ma zainstalowany certyfikat główny 
-    * Inny komputer w domenie zawierający certyfikat główny  
-
-3. Wyeksportuj certyfikat głównego urzędu certyfikacji.  
-    Certyfikaty głównego urzędu certyfikacji można eksportować z katalogu osobistych lub zaufanych głównych urzędów certyfikacji, jak pokazano w następujących przykładach:   
-    ![zrzut ekranu pokazujący osobiste certyfikaty](../media/azure-netapp-files/personal-certificates.png)   
-    ![zrzut ekranu przedstawiający Zaufane główne urzędy certyfikacji](../media/azure-netapp-files/trusted-root-certification-authorities.png)    
-
-    Upewnij się, że certyfikat został wyeksportowany w formacie X. 509 z kodowaniem Base-64 (. CER): 
-
-    ![Kreator eksportu certyfikatów](../media/azure-netapp-files/certificate-export-wizard.png)
-
-4. Przejdź do konta NetApp dla dwuprotokołowego woluminu, kliknij przycisk **Active Directory połączenia** i przekaż certyfikat głównego urzędu certyfikacji przy użyciu okna **Active Directory sprzężenia** :  
-
-    ![Certyfikat głównego urzędu certyfikacji serwera](../media/azure-netapp-files/server-root-ca-certificate.png)
-
-    Upewnij się, że nazwa urzędu certyfikacji może zostać rozpoznana przez system DNS. Ta nazwa to pole "wystawione przez" lub "wystawca" certyfikatu:  
-
-    ![Informacje o certyfikacie](../media/azure-netapp-files/certificate-information.png)
 
 ## <a name="manage-ldap-posix-attributes"></a>Zarządzanie atrybutami LDAP POSIX
 

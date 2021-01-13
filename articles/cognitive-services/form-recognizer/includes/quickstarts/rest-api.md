@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
-ms.openlocfilehash: a677623c030ff26567f14a4526f6d07bc6631a37
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 31e1a0d912c6623f57d4ea256968102604ce42ff
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97853703"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132342"
 ---
 > [!NOTE]
 > W tym przewodniku zastosowano zwinięcie, aby wykonać wywołania interfejsu API REST. Istnieje również [przykładowy kod w usłudze GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/FormRecognizer/rest) , który ilustruje sposób wywoływania interfejsów API REST w języku Python.
@@ -32,7 +32,7 @@ ms.locfileid: "97853703"
 * Adres URL obrazu faktury. Możesz użyć [przykładowego dokumentu](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/forms/Invoice_1.pdf) dla tego przewodnika Szybki Start.
 
 
-## <a name="recognize-form-content"></a>Rozpoznaj zawartość formularza
+## <a name="analyze-layout"></a>Analizowanie układu
 
 Aparat rozpoznawania formularzy służy do rozpoznawania i wyodrębniania tabel, wierszy i słów w dokumentach, bez konieczności uczenia modelu. Przed uruchomieniem polecenia wprowadź następujące zmiany:
 
@@ -319,7 +319,7 @@ Zapoznaj się z poniższym obrazem faktury i odpowiednimi danymi wyjściowymi JS
 
 ---
 
-## <a name="recognize-receipts"></a>Rozpoznawaj potwierdzenia
+## <a name="analyze-receipts"></a>Analizuj potwierdzenia
 
 Aby rozpocząć analizowanie potwierdzenia, Wywołaj interfejs API **[analizy paragonów](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeReceiptAsync)** przy użyciu poniższego polecenia. Przed uruchomieniem polecenia wprowadź następujące zmiany:
 
@@ -699,7 +699,7 @@ Zapoznaj się z poniższym obrazem paragonu i odpowiednimi danymi wyjściowymi J
 }
 ```
 
-## <a name="recognize-business-cards"></a>Rozpoznawanie wizytówek
+## <a name="analyze-business-cards"></a>Analizowanie kart służbowych
 
 # <a name="v20"></a>[Wersja 2.0](#tab/v2-0)  
 
@@ -861,7 +861,7 @@ Skrypt będzie drukował odpowiedzi do konsoli do momentu zakończenia operacji 
 
 ---
 
-## <a name="recognize-invoices"></a>Rozpoznaj faktury
+## <a name="analyze-invoices"></a>Analizuj faktury
 
 # <a name="version-20"></a>[Wersja 2,0](#tab/v2-0)
 

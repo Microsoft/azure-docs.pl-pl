@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 1593c47b7a6cf3b861f3e1af148b7a5fbfae9a19
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 55c4fa00cfd20a83e65a3d57c6020991734f9d9f
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127383"
+ms.locfileid: "98132481"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Zalecenia dotyczące zabezpieczeń usługi BLOB Storage
 
@@ -31,8 +31,8 @@ Azure Security Center okresowo analizuje stan zabezpieczeń zasobów platformy A
 |-|----|--|
 | Korzystanie z modelu wdrażania Azure Resource Manager | Utwórz nowe konta magazynu przy użyciu modelu wdrażania Azure Resource Manager, aby uzyskać ważne ulepszenia zabezpieczeń, w tym najwyższą kontrolę dostępu opartą na rolach (Azure RBAC) oraz inspekcję i uwierzytelnianie oparte na Menedżer zasobówach, dostęp do zarządzanych tożsamości, dostęp do Azure Key Vault dla wpisów tajnych, a także uwierzytelniania i autoryzacji na podstawie usługi Azure AD w celu uzyskania dostępu do danych i zasobów usługi Azure Storage. Jeśli to możliwe, Przeprowadź migrację istniejących kont magazynu, które używają klasycznego modelu wdrażania, aby użyć Azure Resource Manager. Aby uzyskać więcej informacji na temat Azure Resource Manager, zobacz [Azure Resource Manager omówienie](../../azure-resource-manager/management/overview.md). | - |
 | Włącz usługę Azure Defender dla wszystkich kont magazynu | Usługa Azure Defender dla usługi Azure Storage oferuje dodatkową warstwę analizy zabezpieczeń, która wykrywa nietypowe i potencjalnie szkodliwe próby dostępu do kont magazynu lub korzystania z nich. Alerty zabezpieczeń są wyzwalane w Azure Security Center, gdy wystąpią anomalie działania i są również wysyłane pocztą e-mail do administratorów subskrypcji, ze szczegółowymi informacjami o podejrzanych działaniach i zaleceniach dotyczących sposobu badania i korygowania zagrożeń. Aby uzyskać więcej informacji, zobacz [Konfigurowanie usługi Azure Defender dla usługi Azure Storage](../common/azure-defender-storage-configure.md). | [Tak](../../security-center/security-center-sql-service-recommendations.md) |
-| Włącz usuwanie nietrwałe dla obiektów BLOB | Funkcja usuwania nietrwałego umożliwia odzyskanie danych obiektów BLOB po ich usunięciu. Aby uzyskać więcej informacji na temat usuwania nietrwałego, zobacz [usuwanie nietrwałe dla obiektów BLOB usługi Azure Storage](./soft-delete-blob-overview.md). | - |
-| Włącz usuwanie nietrwałe dla kontenerów | ???. | - |
+| Włącz usuwanie nietrwałe dla obiektów BLOB | Nietrwałe usuwanie obiektów BLOB umożliwia odzyskanie danych obiektów BLOB po ich usunięciu. Aby uzyskać więcej informacji na temat usuwania nietrwałego dla obiektów blob, zobacz [usuwanie nietrwałe dla obiektów BLOB usługi Azure Storage](./soft-delete-blob-overview.md). | - |
+| Włącz usuwanie nietrwałe dla kontenerów | Usuwanie nietrwałe dla kontenerów umożliwia odzyskanie kontenera po jego usunięciu. Aby uzyskać więcej informacji na temat usuwania nietrwałego dla kontenerów, zobacz [usuwanie nietrwałe dla kontenerów (wersja zapoznawcza)](./soft-delete-container-overview.md). | - |
 | Zablokuj konto magazynu, aby zapobiec przypadkowemu usunięciu konta | Można zablokować zasoby Azure Resource Manager, takie jak subskrypcja, Grupa zasobów lub konto magazynu, aby zapobiec przypadkowemu usunięciu lub zmodyfikowaniu przez innych użytkowników w organizacji. Zablokowanie konta magazynu nie uniemożliwia usunięcia danych z tego konta. Uniemożliwia jedynie usunięcie samego konta. Aby uzyskać więcej informacji, zobacz [Zablokuj zasoby, aby zapobiec nieoczekiwanym zmianom](../../azure-resource-manager/management/lock-resources.md).
 | Przechowywanie danych o krytycznym znaczeniu dla firmy w niezmiennych obiektach Blob | Skonfiguruj blokady prawne i zasady przechowywania oparte na czasie w celu przechowywania danych obiektów BLOB w ROBAKu (Napisz raz, Odczytaj wiele). Obiekty blob przechowywane immutably można odczytać, ale nie można ich modyfikować ani usuwać na czas trwania interwału przechowywania. Aby uzyskać więcej informacji, zobacz temat [przechowywanie danych obiektów BLOB o krytycznym znaczeniu dla firmy z niezmiennym magazynem](storage-blob-immutable-storage.md). | - |
 | Wymagaj bezpiecznego transferu (HTTPS) do konta magazynu | ??? | - |

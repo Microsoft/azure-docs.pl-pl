@@ -4,12 +4,12 @@ description: Ten artykuł zawiera informacje dotyczące sposobu pisania kodu dla
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4f95abe3668bb400d84e354c3bca9eac289c5795
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 46bd0c3c1488d6dd7afbae5e88e0b83f56654bb8
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108691"
+ms.locfileid: "98131240"
 ---
 # <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>Przewodnik programowania .NET dla platformy Azure Event Hubs (starszy pakiet Microsoft. Azure. EventHubs)
 W tym artykule omówiono niektóre typowe scenariusze tworzenia kodu przy użyciu usługi Azure Event Hubs. Przyjęto założenie, że wstępnie znasz i rozumiesz usługę Event Hubs. Omówienie koncepcji usługi Event Hubs można znaleźć w temacie [Przegląd usługi Event Hubs](./event-hubs-about.md).
@@ -24,7 +24,7 @@ Zdarzenia są wysyłane do centrum zdarzeń przy użyciu protokołu HTTP POST lu
 
 W przypadku używania zarządzanych interfejsów API platformy .NET głównymi konstrukcjami na potrzeby publikowania danych w usłudze Event Hubs są klasy [EventHubClient][] i [EventData][]. [EventHubClient][] udostępnia kanał komunikacji AMQP, przez który zdarzenia są wysyłane do centrum zdarzeń. Klasa [EVENTDATA][] reprezentuje zdarzenie i jest używana do publikowania komunikatów w centrum zdarzeń. Ta klasa obejmuje treść, niektóre metadane (właściwości) i informacje nagłówka (SystemProperties) dotyczące zdarzenia. Inne właściwości są dodawane do obiektu [EVENTDATA][] , gdy przechodzi on przez centrum zdarzeń.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 Klasy .NET obsługujące Event Hubs są dostępne w pakiecie NuGet [Microsoft. Azure. EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) . Program można zainstalować za pomocą Eksploratora rozwiązań programu Visual Studio lub [konsoli Menedżera pakietów](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) w programie Visual Studio. Aby to zrobić, należy wydać następujące polecenie w oknie [konsoli menedżera pakietów](https://docs.nuget.org/docs/start-here/using-the-package-manager-console):
 
 ```shell
@@ -77,7 +77,7 @@ Podczas wysyłania danych zdarzenia można określić wartość, która jest pod
 
 ### <a name="availability-considerations"></a>Zagadnienia dotyczące dostępności
 
-Użycie klucza partycji jest opcjonalne i należy uważnie rozważyć, czy należy go używać. Jeśli nie określisz klucza partycji podczas publikowania zdarzenia, używane jest przypisanie działania okrężnego. W wielu przypadkach użycie klucza partycji jest dobrym rozwiązaniem, jeśli kolejność zdarzeń jest ważna. W przypadku korzystania z klucza partycji te partycje wymagają dostępności w jednym węźle, a przerwy mogą wystąpić w czasie; na przykład po ponownym uruchomieniu i zaprawieniu węzłów obliczeniowych. W związku z tym, jeśli ustawisz identyfikator partycji i ta partycja będzie niedostępna z jakiegoś powodu, próba uzyskania dostępu do danych w tej partycji zakończy się niepowodzeniem. Jeśli wysoka dostępność jest najważniejsza, nie określaj klucza partycji; w takim przypadku zdarzenia są wysyłane do partycji przy użyciu opisanego wcześniej modelu działania okrężnego. W tym scenariuszu wprowadzasz jawny wybór między dostępnością (bez identyfikatora partycji) i spójnością (Przypinanie zdarzeń do identyfikatora partycji).
+Użycie klucza partycji jest opcjonalne i należy uważnie rozważyć, czy należy go używać. Jeśli nie określisz klucza partycji podczas publikowania zdarzenia, Event Hubs zrównoważy obciążenie między partycjami. W wielu przypadkach użycie klucza partycji jest dobrym rozwiązaniem, jeśli kolejność zdarzeń jest ważna. W przypadku korzystania z klucza partycji te partycje wymagają dostępności w jednym węźle, a przerwy mogą wystąpić w czasie; na przykład po ponownym uruchomieniu i zaprawieniu węzłów obliczeniowych. W związku z tym, jeśli ustawisz identyfikator partycji i ta partycja będzie niedostępna z jakiegoś powodu, próba uzyskania dostępu do danych w tej partycji zakończy się niepowodzeniem. Jeśli wysoka dostępność jest najważniejsza, nie określaj klucza partycji. W takim przypadku zdarzenia są wysyłane do partycji przy użyciu wewnętrznego algorytmu równoważenia obciążenia. W tym scenariuszu wprowadzasz jawny wybór między dostępnością (bez identyfikatora partycji) i spójnością (Przypinanie zdarzeń do identyfikatora partycji).
 
 Inne zagadnienie obsługują opóźnienia w przetwarzaniu zdarzeń. W niektórych przypadkach lepszym rozwiązaniem może być porzucenie danych i ponawianie próby przeprowadzenia przetwarzania, co może potencjalnie spowodować opóźnienia przetwarzania podrzędnego. Na przykład w przypadku grafu giełdowego lepszym rozwiązaniem jest zaczekanie na pełne dane, ale w przypadku rozmowy na żywo lub w scenariuszu korzystającym z technologii VOIP dane są szybko dostępne nawet wtedy, gdy nie są kompletne.
 

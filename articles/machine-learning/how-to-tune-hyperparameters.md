@@ -1,7 +1,7 @@
 ---
-title: Dostrajanie parametrów dla modelu
+title: Parametr strojenia modelu
 titleSuffix: Azure Machine Learning
-description: Efektywnie Dostrajaj parametry dla modeli uczenie głębokie i uczenia maszynowego przy użyciu Azure Machine Learning.
+description: Zautomatyzowanie dostrajania parametrów dla modeli uczenia głębokiego i uczenia maszynowego przy użyciu Azure Machine Learning.
 ms.author: swatig
 author: swatig007
 ms.reviewer: sgilley
@@ -11,14 +11,14 @@ ms.subservice: core
 ms.date: 03/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: a1a0b89dee5a6d57e6f317c5f6c8b61ffeda3c33
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: e9f9f73a8e0dbc851efdba07bf1e103f58ae9e75
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029077"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133865"
 ---
-# <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Dostrajanie parametrów dla modelu za pomocą Azure Machine Learning
+# <a name="hyperparameter-tuning-a-model-with-azure-machine-learning"></a>Parametr strojenia modelu z Azure Machine Learning
 
 
 Automatyzuj wydajne dostrajanie parametrów przy użyciu [pakietu](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py)Azure Machine Learning. Dowiedz się, jak wykonać kroki wymagane do dostrajania parametrów z [zestawem SDK Azure Machine Learning](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py):
@@ -31,11 +31,11 @@ Automatyzuj wydajne dostrajanie parametrów przy użyciu [pakietu](/python/api/a
 1. Wizualizuj przebiegi szkoleniowe
 1. Wybierz najlepszą konfigurację dla modelu
 
-## <a name="what-are-hyperparameters"></a>Co to są parametry?
+## <a name="what-is-hyperparameter-tuning"></a>Co to jest Dostrajanie parametru?
 
 Parametry **są dostosowywanymi parametrami** , które umożliwiają kontrolę nad procesem szkolenia modeli. Na przykład w przypadku sieci neuronowych należy określić liczbę ukrytych warstw oraz liczbę węzłów w każdej warstwie. Wydajność modelu zależy od zbyt wielu parametrów.
 
- **Dostrajanie parametrów** to proces znajdowania konfiguracji parametrów, które są wynikiem najlepszej wydajności. Proces jest zwykle kosztowny i ręczny.
+ **Dostrajanie parametrów**, nazywane również **optymalizacją parametrów**, to proces znajdowania konfiguracji parametrów, które zapewniają najlepszą wydajność. Proces jest zwykle kosztowny i ręczny.
 
 Azure Machine Learning pozwala zautomatyzować dostrajanie parametrów i uruchamiać eksperymenty równolegle w celu wydajnej optymalizacji parametrów.
 
@@ -46,7 +46,7 @@ Dostrajanie parametrów przez Eksplorowanie zakresu wartości zdefiniowanych dla
 
 Parametry "parameter" mogą być dyskretne lub ciągłe i mają rozkład wartości opisany przez [wyrażenie parametru](/python/api/azureml-train-core/azureml.train.hyperdrive.parameter_expressions?preserve-view=true&view=azure-ml-py).
 
-### <a name="discrete-hyperparameters"></a>Dyskretne parametry 
+### <a name="discrete-hyperparameters"></a>Dyskretne parametry
 
 Dyskretne podparametry są określone jako `choice` wartości dyskretne. `choice` może to być:
 
@@ -296,7 +296,7 @@ max_concurrent_runs=4
 
 Ten kod umożliwia skonfigurowanie eksperymentu strojenia parametrów w celu użycia maksymalnie 20 łącznych uruchomień z czterema konfiguracjami jednocześnie.
 
-## <a name="configure-experiment"></a>Konfigurowanie eksperymentu
+## <a name="configure-hyperparameter-tuning-experiment"></a>Konfigurowanie eksperymentu strojenia parametrów
 
 Aby [skonfigurować eksperyment strojenia parametrów](/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig?preserve-view=true&view=azure-ml-py) , podaj następujące elementy:
 * Zdefiniowany obszar wyszukiwania parametru
@@ -323,7 +323,7 @@ hd_config = HyperDriveConfig(run_config=src,
                              max_concurrent_runs=4)
 ```
 
-## <a name="submit-experiment"></a>Prześlij eksperyment
+## <a name="submit-hyperparameter-tuning-experiment"></a>Prześlij eksperyment strojenia parametru
 
 Po zdefiniowaniu konfiguracji strojenia parametru [Prześlij eksperyment](/python/api/azureml-core/azureml.core.experiment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truesubmit-config--tags-none----kwargs-):
 
@@ -333,7 +333,7 @@ experiment = Experiment(workspace, experiment_name)
 hyperdrive_run = experiment.submit(hd_config)
 ```
 
-## <a name="warm-start-your-hyperparameter-tuning-experiment-optional"></a>Rozpoczęcie eksperymentu strojenia parametrów (opcjonalnie)
+## <a name="warm-start-hyperparameter-tuning-optional"></a>Dostrajanie parametru uruchomienia ciepłego (opcjonalnie)
 
 Znalezienie najlepszych wartości parametrów dla modelu może być procesem iteracyjnym. Możesz ponownie użyć wiedzy z pięciu poprzednich przebiegów, aby przyspieszyć dostrajanie parametrów.
 
@@ -380,7 +380,7 @@ hd_config = HyperDriveConfig(run_config=src,
                              max_concurrent_runs=4)
 ```
 
-## <a name="visualize-experiment"></a>Wizualizacja eksperymentu
+## <a name="visualize-hyperparameter-tuning-runs"></a>Wizualizacja przebiegów strojenia parametrów
 
 Za pomocą [widżetu Notes](/python/api/azureml-widgets/azureml.widgets.rundetails?preserve-view=true&view=azure-ml-py) można wizualizować postępy przebiegów szkoleniowych. Poniższy fragment kodu wizualizuje wszystkie przebiegi strojenia parametrów w jednym miejscu w notesie Jupyter:
 
@@ -391,15 +391,15 @@ RunDetails(hyperdrive_run).show()
 
 Ten kod przedstawia tabelę zawierającą szczegóły dotyczące szkoleń dla każdej konfiguracji parametrów.
 
-![Tabela strojenia parametru](./media/how-to-tune-hyperparameters/HyperparameterTuningTable.png)
+![Tabela strojenia parametru](./media/how-to-tune-hyperparameters/hyperparameter-tuning-table.png)
 
 Możesz również wizualizować wydajność poszczególnych przebiegów w miarę postępów szkoleniowych. 
 
-![Wykres strojenia parametru](./media/how-to-tune-hyperparameters/HyperparameterTuningPlot.png)
+![Wykres strojenia parametru](./media/how-to-tune-hyperparameters/hyperparameter-tuning-plot.png)
 
 Można wizualnie zidentyfikować korelację między wydajnością i wartościami poszczególnych parametrów przy użyciu równoległych wykresów współrzędnych. 
 
-[![Współrzędne równoległe strojenia parametrów](./media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
+[![Współrzędne równoległe strojenia parametrów](./media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
 
 Możesz również wizualizować wszystkie przebiegi strojenia parametrów w portalu internetowym platformy Azure. Aby uzyskać więcej informacji na temat sposobu wyświetlania eksperymentu w portalu, zobacz [jak śledzić eksperymenty](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal).
 
@@ -420,6 +420,7 @@ print('\n batch size:',parameter_values[7])
 ```
 
 ## <a name="sample-notebook"></a>Przykładowy Notes
+
 Zapoznaj się z notesem uczenia-*-* w tym folderze:
 * [Jak używać — platforma Azure/ml — platformy](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks)
 

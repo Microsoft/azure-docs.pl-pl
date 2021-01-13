@@ -3,21 +3,21 @@ title: Konfigurowanie dzienników diagnostycznych — centrum zdarzeń Azure | M
 description: Informacje na temat konfigurowania dzienników aktywności i dzienników diagnostycznych dla centrów zdarzeń na platformie Azure.
 ms.topic: article
 ms.date: 10/27/2020
-ms.openlocfilehash: a7230746dc4225b04b0507c872416368aa14442b
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 015814b9a56ec963f5209f971f096ac6c173d7e1
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912603"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131988"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Konfigurowanie dzienników diagnostycznych na potrzeby centrum zdarzeń platformy Azure
 
 Możesz wyświetlić dwa typy dzienników dla Event Hubs platformy Azure:
 
-* **[Dzienniki aktywności](../azure-monitor/platform/platform-logs-overview.md)** : te dzienniki zawierają informacje o operacjach wykonywanych w ramach zadania. Dzienniki są zawsze włączone. Wpisy dziennika aktywności można wyświetlić, wybierając pozycję **Dziennik aktywności** w lewym okienku dla przestrzeni nazw centrum zdarzeń w Azure Portal. Na przykład: "Utwórz lub zaktualizuj przestrzeń nazw", "Utwórz lub zaktualizuj centrum zdarzeń".
+* **[Dzienniki aktywności](../azure-monitor/platform/platform-logs-overview.md)**: te dzienniki zawierają informacje o operacjach wykonywanych w ramach zadania. Dzienniki są zawsze włączone. Wpisy dziennika aktywności można wyświetlić, wybierając pozycję **Dziennik aktywności** w lewym okienku dla przestrzeni nazw centrum zdarzeń w Azure Portal. Na przykład: "Utwórz lub zaktualizuj przestrzeń nazw", "Utwórz lub zaktualizuj centrum zdarzeń".
 
     ![Dziennik aktywności dla Event Hubs przestrzeni nazw](./media/event-hubs-diagnostic-logs/activity-log.png)
-* **[Dzienniki diagnostyczne](../azure-monitor/platform/platform-logs-overview.md)** : dzienniki diagnostyczne zawierają bogatsze informacje o operacjach i akcjach, które są wykonywane w odniesieniu do przestrzeni nazw za pomocą interfejsu API, lub za pośrednictwem klientów zarządzania w zestawie SDK języka. 
+* **[Dzienniki diagnostyczne](../azure-monitor/platform/platform-logs-overview.md)**: dzienniki diagnostyczne zawierają bogatsze informacje o operacjach i akcjach, które są wykonywane w odniesieniu do przestrzeni nazw za pomocą interfejsu API, lub za pośrednictwem klientów zarządzania w zestawie SDK języka. 
     
     W poniższej sekcji przedstawiono sposób włączania dzienników diagnostycznych dla przestrzeni nazw Event Hubs.
 
@@ -25,7 +25,7 @@ Możesz wyświetlić dwa typy dzienników dla Event Hubs platformy Azure:
 Dzienniki diagnostyczne są domyślnie wyłączone. Aby włączyć dzienniki diagnostyczne, wykonaj następujące kroki:
 
 1.  W [Azure Portal](https://portal.azure.com)przejdź do przestrzeni nazw Event Hubs. 
-2. Wybierz pozycję **Ustawienia diagnostyki** w obszarze **monitorowanie** w lewym okienku, a następnie wybierz pozycję **+ Dodaj ustawienie diagnostyczne** . 
+2. Wybierz pozycję **Ustawienia diagnostyki** w obszarze **monitorowanie** w lewym okienku, a następnie wybierz pozycję **+ Dodaj ustawienie diagnostyczne**. 
 
     ![Strona ustawień diagnostycznych — Dodawanie ustawień diagnostycznych](./media/event-hubs-diagnostic-logs/diagnostic-settings-page.png)
 4. W sekcji **szczegóły kategorii** wybierz **typy dzienników diagnostycznych** , które chcesz włączyć. Szczegółowe informacje o tych kategoriach znajdziesz w dalszej części tego artykułu. 
@@ -100,12 +100,12 @@ Ciągi JSON dziennika operacyjnego zawierają elementy wymienione w poniższej t
 Nazwa | Opis
 ------- | -------
 `ActivityId` | Wewnętrzny identyfikator używany do śledzenia |
-`EventName` | Nazwa operacji |
+`EventName` | nazwa operacji. Aby uzyskać listę wartości dla tego elementu, zobacz [nazwy zdarzeń](#event-names) |
 `resourceId` | Identyfikator zasobu Azure Resource Manager |
 `SubscriptionId` | Identyfikator subskrypcji |
 `EventTimeString` | Czas operacji |
-`EventProperties` | Właściwości operacji |
-`Status` | Stan operacji |
+`EventProperties` |Właściwości dla operacji. Ten element zawiera więcej informacji o zdarzeniu, jak pokazano w poniższym przykładzie. |
+`Status` | Stan operacji. Wartość może być **zakończona sukcesem** lub **niepowodzeniem**.  |
 `Caller` | Obiekt wywołujący operacji (Azure Portal lub klient zarządzania) |
 `Category` | OperationalLogs |
 
@@ -125,6 +125,13 @@ Example:
    "category": "OperationalLogs"
 }
 ```
+
+### <a name="event-names"></a>Nazwy zdarzeń
+Nazwa zdarzenia jest wypełniana jako typ operacji + typ zasobu z następujących wyliczeń. Na przykład, `Create Queue` , `Retrieve Event Hu` lub `Delete Rule` . 
+
+| Typ operacji | Typ zasobu | 
+| -------------- | ------------- | 
+| <ul><li>Utwórz</li><li>Aktualizacja</li><li>Usuń</li><li>Odczytać</li><li>Nieznane</li></ul> | <ul><li>Przestrzeń nazw</li><li>Kolejka</li><li>Temat</li><li>Subskrypcja</li><li>EventHub</li><li>EventHubSubscription</li><li>NotificationHub</li><li>NotificationHubTier</li><li>SharedAccessPolicy</li><li>UsageCredit</li><li>NamespacePnsCredentials</li>Reguła</li>Odbiorca</li> |
 
 ## <a name="autoscale-logs-schema"></a>Schemat dzienników automatycznego skalowania
 Plik JSON dziennika skalowania automatycznego zawiera elementy wymienione w poniższej tabeli:
@@ -200,7 +207,7 @@ Plik JSON zdarzenia połączenia sieci wirtualnej (VNet) Event Hubs zawiera elem
 | `Count` | Liczba wystąpień danej akcji |
 | `ResourceId` | Azure Resource Manager identyfikator zasobu. |
 
-Dzienniki sieci wirtualnej są generowane tylko wtedy, gdy przestrzeń nazw zezwala na dostęp z **wybranych sieci** lub z **określonych adresów IP** (reguł filtrów IP). Jeśli nie chcesz ograniczać dostępu do przestrzeni nazw przy użyciu tych funkcji, a mimo to chcesz pobrać dzienniki sieci wirtualnej do śledzenia adresów IP klientów łączących się z przestrzenią nazw Event Hubs, możesz użyć następującego obejścia. Włącz filtrowanie adresów IP i Dodaj łączny zakres adresów IPv4 (1.0.0.0/1-255.0.0.0/1). Event Hubs nie obsługuje zakresów adresów IPv6. 
+Dzienniki sieci wirtualnej są generowane tylko wtedy, gdy przestrzeń nazw zezwala na dostęp z **wybranych sieci** lub z **określonych adresów IP** (reguł filtrów IP). Jeśli nie chcesz ograniczyć dostępu do przestrzeni nazw przy użyciu tych funkcji, a mimo to chcesz pobrać dzienniki sieci wirtualnej do śledzenia adresów IP klientów łączących się z przestrzenią nazw Event Hubs, możesz użyć następującego obejścia. Włącz filtrowanie adresów IP i Dodaj łączny zakres adresów IPv4 (1.0.0.0/1-255.0.0.0/1). Event Hubs nie obsługuje zakresów adresów IPv6. 
 
 ### <a name="example"></a>Przykład
 

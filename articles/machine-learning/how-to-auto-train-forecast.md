@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 47cc67b408ff7fa50a244fffa8d41e640df0ecf3
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 2b24b6480e4331f3a9470dcbb49e7ad221809187
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796435"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132086"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Autouczenie modelu prognozowania szeregów czasowych
 
@@ -221,9 +221,12 @@ Obsługiwane dostosowania `forecasting` zadań obejmują:
 |--|--|
 |**Aktualizacja celu kolumny**|Przesłoń automatyczne wykrywanie typu funkcji dla określonej kolumny.|
 |**Aktualizacja parametru Transformer** |Zaktualizuj parametry dla określonej funkcji przekształcania. Obecnie obsługuje *program* obsługujący program (fill_value i mediana).|
-|**Upuszczanie kolumn** |Określa kolumny do porzucenia z featurized.|
+|**Usuwanie kolumn** |Określa kolumny do porzucenia z featurized.|
 
 Aby dostosować featurizations z zestawem SDK, określ `"featurization": FeaturizationConfig` w `AutoMLConfig` obiekcie. Dowiedz się więcej na temat [niestandardowych featurizations](how-to-configure-auto-features.md#customize-featurization).
+
+>[!NOTE]
+> Funkcja **kolumn upuszczania** jest przestarzała w przypadku zestawu SDK w wersji 1,19. Upuszczaj kolumny z zestawu danych w ramach czyszczenia danych przed ich użyciem w trakcie zautomatyzowanego eksperymentu ML. 
 
 ```python
 featurization_config = FeaturizationConfig()

@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 45654d55ac07bc9056a41cacba6f8f5890c56580
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: 6520c1e326dc95584030d3187fdaaaa7e06c498a
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97808644"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132298"
 ---
 > [!IMPORTANT]
 > * Kod w tym artykule używa metod synchronicznych i niezabezpieczonych magazynów poświadczeń z przyczyn uproszczenia. Zapoznaj się z dokumentacją referencyjną poniżej. 
@@ -102,8 +102,8 @@ Za pomocą aparatu rozpoznawania formularzy można utworzyć dwa różne typy kl
 Te fragmenty kodu przedstawiają sposób wykonywania następujących zadań z użyciem biblioteki klienta aparatu rozpoznawania w formacie JavaScript:
 
 * [Uwierzytelnianie klienta](#authenticate-the-client)
-* [Rozpoznaj zawartość formularza](#recognize-form-content)
-* [Rozpoznawaj potwierdzenia](#recognize-receipts)
+* [Analizowanie układu](#analyze-layout)
+* [Analizuj potwierdzenia](#analyze-receipts)
 * [Trenowanie modelu niestandardowego](#train-a-custom-model)
 * [Analizowanie formularzy przy użyciu modelu niestandardowego](#analyze-forms-with-a-custom-model)
 * [Zarządzanie modelami niestandardowymi](#manage-your-custom-models)
@@ -126,7 +126,7 @@ Należy również dodać odwołania do adresów URL dla danych szkoleniowych i t
 * Skorzystaj z obrazów przykładowych z i paragonów zawartych w poniższych przykładach (dostępnych również w witrynie [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/test-assets)) lub wykonaj powyższe kroki, aby uzyskać adres URL sygnatury dostępu współdzielonego pojedynczego dokumentu w usłudze BLOB Storage. 
 
 
-## <a name="recognize-form-content"></a>Rozpoznaj zawartość formularza
+## <a name="analyze-layout"></a>Analizowanie układu
 
 Aparat rozpoznawania formularzy służy do rozpoznawania tabel, wierszy i słów w dokumentach, bez konieczności uczenia modelu. Aby rozpoznać zawartość pliku w danym identyfikatorze URI, użyj `beginRecognizeContentFromUrl` metody.
 
@@ -152,7 +152,7 @@ cell [1,3] has text $56,651.49
 cell [1,5] has text PT
 ```
 
-## <a name="recognize-receipts"></a>Rozpoznawaj potwierdzenia
+## <a name="analyze-receipts"></a>Analizuj potwierdzenia
 
 W tej sekcji przedstawiono sposób rozpoznawania i wyodrębniania typowych pól z paragonów w Stanach Zjednoczonych przy użyciu wstępnie przeszkolonego modelu paragonów.
 

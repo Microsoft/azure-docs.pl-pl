@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: d064eb0b748c361b76139b1a21d25cec8996e818
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 6db0c82c034aab97deee1be4aa8bdc54368521bc
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734780"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131529"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Zarządzanie zmiennymi w Azure Automation
 
@@ -26,7 +26,7 @@ Zmienne automatyzacji są przydatne w następujących scenariuszach:
 
 Azure Automation utrzymuje zmienne i udostępnia je nawet wtedy, gdy konfiguracja elementu Runbook lub konfiguracji DSC zakończy się niepowodzeniem. Takie zachowanie umożliwia jednemu elementowi Runbook lub konfiguracji DSC ustawienie wartości, która jest używana przez inny element Runbook, lub przez ten sam plik Runbook lub konfiguracji DSC przy następnym uruchomieniu.
 
-Azure Automation przechowuje każdą zaszyfrowaną zmienną bezpiecznie. Podczas tworzenia zmiennej można określić jej szyfrowanie i magazyn, Azure Automation jako bezpieczny zasób. Po utworzeniu zmiennej nie można zmienić jej stanu szyfrowania bez ponownego tworzenia zmiennej. Jeśli istnieją zmienne konta usługi Automation przechowujące dane poufne, które nie są jeszcze zaszyfrowane, należy je usunąć i utworzyć je ponownie jako zaszyfrowane zmienne. Zalecenie Azure Security Center polega na zaszyfrowaniu wszystkich zmiennych Azure Automation zgodnie z opisem w temacie [zmienne konta usługi Automation powinny być szyfrowane](../../security-center/recommendations-reference.md#recs-computeapp). Jeśli masz niezaszyfrowane zmienne, które mają być wykluczone z tego zalecenia dotyczącego zabezpieczeń, zobacz temat [zwalnianie zasobu z rekomendacji i zabezpieczeń oceny](../../security-center/exempt-resource.md) , aby utworzyć regułę wykluczania.
+Azure Automation przechowuje każdą zaszyfrowaną zmienną bezpiecznie. Podczas tworzenia zmiennej można określić jej szyfrowanie i magazyn, Azure Automation jako bezpieczny zasób. Po utworzeniu zmiennej nie można zmienić jej stanu szyfrowania bez ponownego tworzenia zmiennej. Jeśli istnieją zmienne konta usługi Automation przechowujące dane poufne, które nie są jeszcze zaszyfrowane, należy je usunąć i utworzyć je ponownie jako zaszyfrowane zmienne. Zalecenie Azure Security Center polega na zaszyfrowaniu wszystkich zmiennych Azure Automation zgodnie z opisem w temacie [zmienne konta usługi Automation powinny być szyfrowane](../../security-center/recommendations-reference.md#recs-compute). Jeśli masz niezaszyfrowane zmienne, które mają być wykluczone z tego zalecenia dotyczącego zabezpieczeń, zobacz temat [zwalnianie zasobu z rekomendacji i zabezpieczeń oceny](../../security-center/exempt-resource.md) , aby utworzyć regułę wykluczania.
 
 >[!NOTE]
 >Zabezpieczanie zasobów w Azure Automation obejmuje poświadczenia, certyfikaty, połączenia i zmienne zaszyfrowane. Te zasoby są szyfrowane i przechowywane w Azure Automation przy użyciu unikatowego klucza wygenerowanego dla każdego konta usługi Automation. Azure Automation przechowuje klucz w Key Vault zarządzanych przez system. Przed zapisaniem bezpiecznego elementu zawartości Usługa Automation ładuje klucz z Key Vault a następnie używa go do zaszyfrowania elementu zawartości.
@@ -38,8 +38,8 @@ Podczas tworzenia zmiennej przy użyciu Azure Portal należy określić typ dany
 * Ciąg
 * Liczba całkowita
 * DateTime
-* Wartość logiczna
-* Null
+* Boolean (wartość logiczna)
+* Zero
 
 Zmienna nie jest ograniczona do określonego typu danych. Należy ustawić zmienną przy użyciu programu Windows PowerShell, jeśli chcesz określić wartość innego typu. Jeśli wskażesz `Not defined` , wartość zmiennej jest ustawiona na wartość null. Należy ustawić wartość przy użyciu polecenia cmdlet [Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable) lub wewnętrznego `Set-AutomationVariable` polecenia cmdlet.
 

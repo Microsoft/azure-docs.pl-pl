@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 11/23/2020
+ms.date: 01/12/2021
 ms.author: victorh
-ms.openlocfilehash: 84ecea7764ddf48d68c983eaa5bccbac5f332d9b
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 63e2aac4c12ecc5d832cb037fda91bd2c6ad0bf1
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95489698"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132447"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Co to jest usługa Azure Firewall Manager?
 
@@ -86,7 +86,6 @@ Menedżer zapory platformy Azure ma następujące znane problemy:
 |Rozgałęzienie do ruchu rozgałęzienia z włączonym filtrowaniem ruchu prywatnego|Rozgałęzienie ruchu rozgałęzienia nie jest obsługiwane, gdy jest włączone filtrowanie ruchu prywatnego. |Badanie.<br><br>Nie zabezpieczaj ruchu prywatnego, jeśli rozgałęzienie połączenia z gałęzią ma krytyczne znaczenie.|
 |Wszystkie zabezpieczone centra wirtualne współużytkujące tę samą wirtualną sieć WAN muszą znajdować się w tej samej grupie zasobów.|To zachowanie jest wyrównane z koncentratorami wirtualnych sieci WAN już dziś.|Utwórz wiele wirtualnych sieci WAN, aby umożliwić tworzenie zabezpieczonych koncentratorów wirtualnych w różnych grupach zasobów.|
 |Dodanie zbiorczego adresu IP nie powiodło się|W przypadku dodawania wielu publicznych adresów IP Zapora bezpiecznego centrum przechodzi w stan niepowodzenia.|Dodaj mniejsze wartości zwiększające publiczny adres IP. Na przykład Dodaj 10 naraz.|
-|Reguły aplikacji nie działają w bezpiecznym centrum z skonfigurowanym niestandardowym systemem DNS (wersja zapoznawcza).|Niestandardowy system DNS (wersja zapoznawcza) nie działa w ramach bezpiecznych wdrożeń centrum i wdrożeń sieci wirtualnych centrum, w których włączono tunelowanie wymuszone.|Rozwiązywanie problemu.|
 |Standard DDoS Protection nie jest obsługiwany z bezpiecznymi centrami wirtualnymi|Standard DDoS Protection nie jest zintegrowany z vWANs.|Badanie|
 |Dzienniki aktywności nie są w pełni obsługiwane|Zasady zapory nie obsługują obecnie dzienników aktywności.|Badanie|
 |Konfigurowanie zakresów prywatnych adresów IP współdziałania|[Ustawienia prywatnych zakresów adresów IP](../firewall/snat-private-range.md) są ignorowane, jeśli skonfigurowano zasady zapory platformy Azure. Używane jest domyślne zachowanie zapory platformy Azure, w którym nie są stosowane reguły sieciowe dotyczące protokołu IPSec, gdy docelowy adres IP należy do prywatnego zakresu adresów IP na [organizację IANA RFC 1918](https://tools.ietf.org/html/rfc1918).|Badanie|

@@ -6,14 +6,14 @@ ms.subservice: sizes
 author: vikancha-MSFT
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 02/03/2020
-ms.author: jushiman
-ms.openlocfilehash: 0b7d200ef39a6b4da6af33a0a9b9314635c3db33
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.date: 01/12/2020
+ms.author: vikancha
+ms.openlocfilehash: 67780c725466707f347e9009a77099786cc64939
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586435"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133297"
 ---
 # <a name="nvv4-series"></a>Seria NVv4 
 
@@ -26,7 +26,7 @@ Maszyny wirtualne z serii NVv4 są obsługiwane przez procesory [AMD Radeon Inst
 [Buforowanie Premium Storage](premium-storage-performance.md): obsługiwane<br>
 [Migracja na żywo](maintenance-and-updates.md): nieobsługiwane<br>
 [Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): nieobsługiwane<br>
-[Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1<br>
+[Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1 i 2<br>
 Przyspieszone sieci: obsługiwane<br>
 <br>
 

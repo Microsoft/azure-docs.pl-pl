@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 01/05/2021
 ms.author: duau
-ms.openlocfilehash: 0dc60f1785ee0d59307cb0d5b62405af62121518
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 21ec11110c28c3818bc5f834d21e0603e8ee0be3
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98027625"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132379"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partnerzy i lokalizacje komunikacji równorzędnej usługi ExpressRoute
 
@@ -98,6 +98,7 @@ W poniższej tabeli przedstawiono lokalizacje połączeń i dostawców usług dl
 | **Dubai2** | [du datamena](http://datamena.com/solutions/data-centre) | 3 | Północne Zjednoczone Emiraty Arabskie | n/d | DE-CIX, du datamena, Equinix, Megaport, pomarańczowy, Orixcom |
 | **Dublin** | [Equinix DB3](https://www.equinix.com/locations/europe-colocation/ireland-colocation/dublin-data-centers/db3/) | 1 | Europa Północna | 10G, 100G | CenturyLink Cloud Connect, Colt, EIR, Equinix, GEANT, euNetworks, Interxion, Megaport |
 | **We** | [Interxion FRA11](https://www.interxion.com/Locations/frankfurt/) | 1 | Niemcy Środkowo-Zachodnie | 10G, 100G | W&T teleobligacji, CenturyLink Cloud Connect, Colt, DE-CIX, Equinix, euNetworks, GEANT, międzychmurowy, Interxion, Megaport, pomarańczowy, Telia |
+| **Frankfurt2** | [Equinix FR7](https://www.equinix.com/locations/europe-colocation/germany-colocation/frankfurt-data-centers/fr7/) | 1 | Niemcy Środkowo-Zachodnie | 10G, 100G | |
 | **Genewie** | [Equinix GV2](https://www.equinix.com/locations/europe-colocation/switzerland-colocation/geneva-data-centers/gv2/) | 1 | Szwajcaria Zachodnia | 10G, 100G | Equinix, Megaport |
 | **SRA Hongkong** | [Equinix HK1](https://www.equinix.com/locations/asia-colocation/hong-kong-colocation/hong-kong-data-center/hk1/) | 2 | Azja Wschodnia | ° | Sieci aryaka networkse, telekomunikacyjne brytyjskie, CenturyLink Cloud Connect, dyrektor Telecom, Chiny Telecom, Equinix, międzychmurowe, Megaport, NTT Communications, pomarańcze, PCCW Global Limited, Tata Communications, Telia, Verizon |
 | **Kong2 Hongkong** | [I](https://www.iadvantage.net/index.php/locations/mega-i) | 2 | Azja Wschodnia | ° | Chiny Mobile International, Chiny Telecom, globalne, PCCW Globally Limited, SingTel |

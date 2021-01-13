@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 12/01/2020
 tags: azure-synapse
-ms.openlocfilehash: c3f1209c2c903399617bd60258cc152a6ce90b80
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ece76f0017a72484f5c4e66b2ab8c7e71d32f1a7
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462110"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132056"
 ---
 # <a name="data-discovery--classification"></a>Odnajdywanie i klasyfikacja danych
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -28,7 +28,7 @@ Klasyfikacja & odnajdywania danych jest wbudowana w Azure SQL Database, wystąpi
 Najważniejsze dane mogą obejmować działalność, finanse, opiekę lub dane osobowe. Odnajdywanie i Klasyfikowanie tych danych może odgrywać rolę przestawną w podejściu do ochrony informacji w organizacji. Może to stanowić infrastrukturę dla następujących działań:
 
 - Pomoc w spełnianiu standardów dotyczących prywatności danych i wymagań dotyczących zgodności z przepisami.
-- Różne scenariusze zabezpieczeń, takie jak monitorowanie (inspekcja) i alerty dotyczące nietypowego dostępu do poufnych danych.
+- Różne scenariusze zabezpieczeń, takie jak monitorowanie (inspekcja), dostęp do poufnych danych.
 - Kontrolowanie dostępu do i ograniczanie bezpieczeństwa baz danych zawierających wysoce poufne dane.
 
 > [!NOTE]

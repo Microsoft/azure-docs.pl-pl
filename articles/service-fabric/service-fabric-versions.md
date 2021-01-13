@@ -3,12 +3,12 @@ title: Obsługiwane wersje klastra w usłudze Azure Service Fabric
 description: Dowiedz się więcej o wersjach klastra w usłudze Azure Service Fabric, łącznie z linkiem do najnowszych wydań z blogu zespołu Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: 5770aa072666f89a574da9d1f2584ab33b612330
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: abf9900e9749a1b21d927e0315076b38848bea10
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862180"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132651"
 ---
 # <a name="supported-service-fabric-versions"></a>Obsługiwane Service Fabric wersje
 
@@ -25,25 +25,57 @@ Zapoznaj się z następującymi dokumentami, aby uzyskać szczegółowe informac
 ## <a name="unsupported-versions"></a>Nieobsługiwane wersje
 
 ### <a name="upgrade-alert-for-versions-between-57-and-below-6363"></a>Zgłoś alert dla wersji z zakresu od 5,7 do 6.3.63. *
+Aby zwiększyć bezpieczeństwo i dostępność, infrastruktura platformy Azure wprowadzi zmianę, która może mieć wpływ na Service Fabric klientów. **Wszystkie klastry Service Fabric w nieobsługiwanych wersjach od 5,7 do 6,3.** Rozadresowanie zmiany wymaga aktualizacji środowiska uruchomieniowego Service Fabric, która jest już dostępna dla wszystkich obsługiwanych Service Fabric wersji we wszystkich regionach.
 
-***Wszystkie klastry Service Fabric, które znajdują się w nieobsługiwanych wersjach od 5,7 do 6.3.63.* będzie miało wpływ na zmiany w zabezpieczeniach, które będą wdrażane na platformie Azure od 7 stycznia 2021 * * *.
- 
- Aby uniknąć poważnych przerw w działaniu usługi (w tym klastrów, które nie są odbierane), należy uaktualnić klastry najszybciej, jak to możliwe, do jednej z poniższych obsługiwanych wersji środowiska uruchomieniowego Service Fabric, która obejmuje poprawkę problemu z zabezpieczeniami. Dodaliśmy do klientów, których dotyczy problem, aby uzyskać wskazówki. Jeśli masz plan pomocy technicznej i potrzebujesz pomocy technicznej, skontaktuj się z nami za pośrednictwem [kanałów pomocy technicznej systemu Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) , otwierając żądanie pomocy technicznej i podając ten kontekst w pomocy technicznej. 
- 
-  #### <a name="supported-service-fabric-runtime-versions-including-the-fix-for-the-security-breaking-change"></a>Obsługiwane Service Fabric wersje środowiska uruchomieniowego, w tym poprawka dla zmiany krytycznego naruszenia zabezpieczeń 
-   Uaktualnij klastry Service Fabric, które działają w starszych nieobsługiwanych wersjach, na które wpływa zmiana w zakresie zabezpieczeń na jedną z poniżej obsługiwanej wersji.
+Zalecamy i zalecamy podejmowanie działań w celu przeprowadzenia uaktualnienia do najnowszych obsługiwanych wersji do **19 stycznia 2021,** aby uniknąć przerw w świadczeniu usługi, jeśli masz plan pomocy technicznej i potrzebujesz pomoc techniczną, skontaktuj się z nami za pośrednictwem kanałów pomocy technicznej systemu Azure, otwierając żądanie pomocy technicznej dla usługi Azure Service Fabric i wspominając o tym kontekście w ramach biletu pomocy technicznej.
 
+#### <a name="impact-if-not-upgraded-to-supported-versions"></a>Wpływ, jeśli nie zostanie uaktualniony do obsługiwanych wersji
+
+**Klastry usługi Azure Service Fabric uruchamiane w nieobsługiwanych wersjach z 5,7 do 6.3.63. \* Program nie będzie mógł działać i będzie niedostępny** , jeśli nie uaktualniono do jednej z poniższych obsługiwanych wersji do 19 stycznia 2021.
+
+#### <a name="required-action"></a>Wymagana akcja
+Uaktualnij do Service Fabric obsługiwanych wersji wymienionych poniżej, aby zapobiec przestojom lub utracie funkcjonalności związanej z tą zmianą. Upewnij się, że w klastrach działają co najmniej te wersje, aby zapobiec problemom w danym środowisku.
+
+  ###### <a name="supported-service-fabric-runtime-versions"></a>Obsługiwane Service Fabric wersje środowiska uruchomieniowego
+   Jeśli nie znajdujesz się na poniższej liście obsługiwanych wersji Service Fabric, przeprowadź uaktualnienie do jednej z tych wersji, które zawierają już niezbędne zmiany, aby zapobiec przestojom w klastrze.  
+  
   | System operacyjny | Bieżące środowisko uruchomieniowe Service Fabric w klastrze | Wydanie w wersji CU/patch  | 
   | --- | --- |--- | 
   | Windows | 7,0. * | 7.0.478.9590 |
   | Windows | 7,1. * | 7.1.503.9590 |
   | Windows | 7,2. * | 7.2.445.9590 |
   | Ubuntu 16 | 7,0. * | 7.0.472.1  |
-  | Ubuntu 16 | 7,1. * | 7.1.455.1  |
-  | Ubuntu 1804 | 7,1. * | 7.1.455.1804 |
-  | Ubuntu 16 | 7,2. * | 7.2.447.1 |
-  | Ubuntu 1804 | 7,2. * | 7.2.447.1804 |
+  | Linux Ubuntu 16,04 | 7,1. * | 7.1.455.1  |
+  | Linux Ubuntu 18,04 | 7,1. * | 7.1.455.1804 |
+  | Linux Ubuntu 16,04 | 7,2. * | 7.2.447.1 |
+  | Linux Ubuntu 18,04 | 7,2. * | 7.2.447.1804 |
  
+### <a name="upgrade-alert-for-versions-greater-than-63"></a>Zgłoś alert dla wersji większych niż 6,3 
+Aby zwiększyć bezpieczeństwo i dostępność, infrastruktura platformy Azure wprowadzi zmianę, która może mieć wpływ na Service Fabric klientów. **Wszystkie klastry Service Fabric, które korzystają z [funkcji Otwórz sieć dla kontenerów](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode), działają w nieobsługiwanych wersjach większych niż 6,3 i niższych niż 7,0, ale mają wpływ na niezgodne wersje obsługiwane przez 7,0**. Rozadresowanie zmiany wymaga aktualizacji środowiska uruchomieniowego Service Fabric, która jest już dostępna dla wszystkich obsługiwanych Service Fabric wersji we wszystkich regionach.
+
+ #### <a name="impact-if-not-upgraded-to-supported-versions"></a>Wpływ, jeśli nie zostanie uaktualniony do obsługiwanych wersji
+  Klastry usługi Azure Service Fabric **używające funkcji [Otwórz funkcję sieci dla](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) kontenerów dla kontenerów i działają w wersjach większych niż 6,3** , które nie obejmują zmian, spowodują utratę funkcjonalności lub przerw w działaniu usługi, jeśli nie zostaną uaktualnione do jednej z poniższych obsługiwanych wersji do **19 stycznia 2021**.
+ 
+  - **W przypadku klastrów z uruchomioną wersją Service Fabric większą niż 6,3 nie korzystających z funkcji sieci**, klaster pozostanie Nieuruchomiony, jednak funkcja otwartej sieci dla klastrów kontenerów przestanie działać, co może spowodować zakłócenia usługi dla obciążeń.
+
+ - **W przypadku klastrów z uruchomioną wersją Service Fabric większą niż 6,3 i używania [funkcji Otwórz sieć dla kontenerów](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode)** klaster pozostanie Nieuruchomiony, ale przestanie działać, co może spowodować przerwanie działania usługi dla obciążeń.
+  
+#### <a name="required-action"></a>Wymagana akcja
+Uaktualnij do Service Fabric obsługiwanych wersji wymienionych poniżej, aby zapobiec przestojom lub utracie funkcjonalności związanej z tą zmianą. Upewnij się, że w klastrach działają co najmniej te wersje, aby zapobiec problemom w danym środowisku. 
+ 
+ ###### <a name="supported-service-fabric-runtime-versions"></a>Obsługiwane Service Fabric wersje środowiska uruchomieniowego
+ Jeśli nie znajdujesz się na poniższej liście obsługiwanych wersji Service Fabric, przeprowadź uaktualnienie do jednej z tych wersji, które zawierają już niezbędne zmiany, aby zapobiec utracie funkcjonalności.  
+ 
+  | System operacyjny | Bieżące środowisko uruchomieniowe Service Fabric w klastrze | Wydanie w wersji CU/patch  | 
+  | --- | --- |--- | 
+  | Windows | 7,0. * | 7.0.478.9590 |
+  | Windows | 7,1. * | 7.1.503.9590 |
+  | Windows | 7,2. * | 7.2.445.9590 |
+  | Linux Ubuntu 16,04 | 7,0. * | 7.0.472.1  |
+  | Linux Ubuntu 16,04 | 7,1. * | 7.1.455.1  |
+  | Linux Ubuntu 18,04 | 7,1. * | 7.1.455.1804 |
+  | Linux Ubuntu 16,04 | 7,2. * | 7.2.447.1 |
+  | Linux Ubuntu 18,04 | 7,2. * | 7.2.447.1804 |
 
 ## <a name="supported-versions"></a>Obsługiwane wersje
 W poniższej tabeli wymieniono wersje Service Fabric i ich daty końcowe pomocy technicznej.
@@ -87,11 +119,11 @@ W poniższej tabeli wymieniono systemy operacyjne obsługiwane przez obsługiwan
 | --- | --- |
 | Windows Server 2012 z dodatkiem R2 | Wszystkie wersje |
 | Windows Server 2016 | Wszystkie wersje |
-| System Windows Server 1709 | 6,0 |
+| System Windows Server 1709 | 6.0 |
 | System Windows Server 1803 | 6.4 |
 | System Windows Server 1809 | 6.4.654.9590 |
 | Windows Server 2019 | 6.4.654.9590 |
-| Linux Ubuntu 16,04 | 6,0 |
+| Linux Ubuntu 16,04 | 6.0 |
 | Linux Ubuntu 18,04 | 7.1 |
 
 ## <a name="supported-version-names"></a>Obsługiwane nazwy wersji

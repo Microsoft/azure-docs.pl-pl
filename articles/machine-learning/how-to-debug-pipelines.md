@@ -10,12 +10,12 @@ ms.author: laobri
 ms.date: 10/22/2020
 ms.topic: troubleshooting
 ms.custom: troubleshooting, devx-track-python, contperf-fy21q2
-ms.openlocfilehash: d55a9ff4dc2a639fca67d19d9323b9397aa0f409
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 0f27688e31f772cc8d784371aa570d55c41f5695
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070375"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131818"
 ---
 # <a name="troubleshooting-machine-learning-pipelines"></a>Rozwiązywanie problemów z potokami uczenia maszynowego
 
@@ -48,6 +48,112 @@ W przypadku wykonywania operacji zarządzania na obiekcie docelowym obliczeń z 
 ```
 
 Na przykład, jeśli spróbujesz utworzyć lub dołączyć obiekt docelowy obliczeń z potoku, który został przesłany do wykonania zdalnego, zostanie wyświetlony komunikat o błędzie.
+## <a name="troubleshooting-parallelrunstep"></a>Rozwiązywanie problemów z `ParallelRunStep` 
+
+Skrypt dla a `ParallelRunStep` *musi zawierać* dwie funkcje:
+- `init()`: Ta funkcja jest używana do dowolnych kosztownych lub wspólnych przygotowań do późniejszego wnioskowania. Na przykład użyj go do załadowania modelu do obiektu globalnego. Ta funkcja zostanie wywołana tylko raz na początku procesu.
+-  `run(mini_batch)`: Funkcja zostanie uruchomiona dla każdego `mini_batch` wystąpienia.
+    -  `mini_batch`: `ParallelRunStep` spowoduje wywołanie metody Run i przekazanie listy lub Pandas `DataFrame` jako argumentu do metody. Każdy wpis w mini_batch będzie ścieżką pliku, jeśli dane wejściowe to, `FileDataset` lub Pandas, `DataFrame` Jeśli dane wejściowe to `TabularDataset` .
+    -  `response`: Metoda Run () powinna zwracać element Pandas `DataFrame` lub tablicę. W przypadku append_row output_action te zwrócone elementy są dołączane do wspólnego pliku wyjściowego. W przypadku summary_only zawartość elementów jest ignorowana. Dla wszystkich akcji wyjściowych każdy zwrócony element wyjściowy wskazuje jeden udany przebieg elementu wejściowego w danych wejściowych. Upewnij się, że wystarczająca ilość danych jest uwzględniona w wyniku uruchomienia, aby zamapować dane wejściowe w celu uruchomienia wyniku. Dane wyjściowe uruchamiania będą zapisywane w pliku wyjściowym i nie będą gwarantowane w kolejności, dlatego należy użyć pewnego klucza w danych wyjściowych, aby zamapować go na dane wejściowe.
+
+```python
+%%writefile digit_identification.py
+# Snippets from a sample script.
+# Refer to the accompanying digit_identification.py
+# (https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines/parallel-run)
+# for the implementation script.
+
+import os
+import numpy as np
+import tensorflow as tf
+from PIL import Image
+from azureml.core import Model
+
+
+def init():
+    global g_tf_sess
+
+    # Pull down the model from the workspace
+    model_path = Model.get_model_path("mnist")
+
+    # Construct a graph to execute
+    tf.reset_default_graph()
+    saver = tf.train.import_meta_graph(os.path.join(model_path, 'mnist-tf.model.meta'))
+    g_tf_sess = tf.Session()
+    saver.restore(g_tf_sess, os.path.join(model_path, 'mnist-tf.model'))
+
+
+def run(mini_batch):
+    print(f'run method start: {__file__}, run({mini_batch})')
+    resultList = []
+    in_tensor = g_tf_sess.graph.get_tensor_by_name("network/X:0")
+    output = g_tf_sess.graph.get_tensor_by_name("network/output/MatMul:0")
+
+    for image in mini_batch:
+        # Prepare each image
+        data = Image.open(image)
+        np_im = np.array(data).reshape((1, 784))
+        # Perform inference
+        inference_result = output.eval(feed_dict={in_tensor: np_im}, session=g_tf_sess)
+        # Find the best probability, and add it to the result list
+        best_result = np.argmax(inference_result)
+        resultList.append("{}: {}".format(os.path.basename(image), best_result))
+
+    return resultList
+```
+
+Jeśli masz inny plik lub folder w tym samym katalogu, co skrypt wnioskowania, możesz odwoływać się do niego, wyszukując bieżący katalog roboczy.
+
+```python
+script_dir = os.path.realpath(os.path.join(__file__, '..',))
+file_path = os.path.join(script_dir, "<file_name>")
+```
+
+### <a name="parameters-for-parallelrunconfig"></a>Parametry dla ParallelRunConfig
+
+`ParallelRunConfig` jest to główna konfiguracja `ParallelRunStep` wystąpienia w potoku Azure Machine Learning. Służy do zawijania skryptu i konfigurowania niezbędnych parametrów, w tym wszystkich następujących wpisów:
+- `entry_script`: Skrypt użytkownika jako ścieżka do pliku lokalnego, która będzie uruchamiana równolegle na wielu węzłach. Jeśli `source_directory` jest obecny, należy użyć ścieżki względnej. W przeciwnym razie użyj dowolnej ścieżki dostępnej na komputerze.
+- `mini_batch_size`: Rozmiar mini-Batch przeszedł do pojedynczego `run()` wywołania. (opcjonalnie; wartość domyślna to `10` pliki dla `FileDataset` i `1MB` dla `TabularDataset` .)
+    - Dla `FileDataset` , jest to liczba plików o minimalnej wartości `1` . Można połączyć wiele plików w jedną minimalną partię.
+    - W przypadku `TabularDataset` , jest to rozmiar danych. Przykładowe wartości to `1024` , `1024KB` , `10MB` , i `1GB` . Zalecana wartość to `1MB` . Mini-Batch z `TabularDataset` nigdy nie będzie przekraczać granic plików. Jeśli na przykład pliki CSV mają różne rozmiary, najmniejszy plik to 100 KB, a największy to 10 MB. Jeśli ustawisz `mini_batch_size = 1MB` , pliki o rozmiarze mniejszym niż 1 MB będą traktowane jako jedna mini-Batch. Pliki o rozmiarze większym niż 1 MB zostaną podzielone na wiele kart Mini-Part.
+- `error_threshold`: Liczba błędów rekordu `TabularDataset` i błędów plików dla `FileDataset` , które powinny zostać zignorowane podczas przetwarzania. Jeśli liczba błędów dla całego danych wejściowych spadnie powyżej tej wartości, zadanie zostanie przerwane. Próg błędu dotyczy całego danych wejściowych, a nie dla pojedynczego elementu mini-Batch wysyłanego do `run()` metody. Zakresem jest `[-1, int.max]` . `-1`Część wskazuje, że wszystkie błędy zostaną zignorowane podczas przetwarzania.
+- `output_action`: Jedna z następujących wartości wskazuje, w jaki sposób dane wyjściowe będą zorganizowane:
+    - `summary_only`: Skrypt użytkownika będzie przechowywał dane wyjściowe. `ParallelRunStep` będzie używać danych wyjściowych tylko dla obliczeń progu błędu.
+    - `append_row`: W przypadku wszystkich danych wejściowych w folderze wyjściowym zostanie utworzony tylko jeden plik, aby dołączyć wszystkie dane wyjściowe rozdzielone wierszami.
+- `append_row_file_name`: Aby dostosować nazwę pliku wyjściowego dla append_row output_action (opcjonalnie wartość domyślna to `parallel_run_step.txt` ).
+- `source_directory`: Ścieżki do folderów zawierających wszystkie pliki do wykonania na obiekcie docelowym obliczeń (opcjonalnie).
+- `compute_target`: `AmlCompute` Obsługiwane są tylko.
+- `node_count`: Liczba węzłów obliczeniowych, które mają być używane do uruchamiania skryptu użytkownika.
+- `process_count_per_node`: Liczba procesów na węzeł. Najlepszym rozwiązaniem jest ustawienie liczby procesorów GPU lub CPU jednego węzła (opcjonalnie; wartość domyślna to `1` ).
+- `environment`: Definicja środowiska języka Python. Można skonfigurować go tak, aby korzystał z istniejącego środowiska Python lub skonfigurować środowisko tymczasowe. Definicja jest również odpowiedzialna za ustawianie wymaganych zależności aplikacji (opcjonalnie).
+- `logging_level`: Poziom szczegółowości dziennika. Wartości zwiększające poziom szczegółowości to: `WARNING` , `INFO` , i `DEBUG` . (opcjonalnie; wartość domyślna to `INFO` )
+- `run_invocation_timeout`: `run()` Limit czasu wywołania metody (w sekundach). (opcjonalnie; wartość domyślna to `60` )
+- `run_max_try`: Maksymalna liczba prób `run()` dla typu mini-Batch. A `run()` nie powiodło się, jeśli wystąpił wyjątek lub nie jest zwracany, gdy `run_invocation_timeout` zostanie osiągnięty błąd (opcjonalnie; wartość domyślna to `3` ). 
+
+Można określić,,,, `mini_batch_size` `node_count` i tak `process_count_per_node` `logging_level` `run_invocation_timeout` `run_max_try` `PipelineParameter` , aby po ponownym przesłaniu uruchomienia potoku można dostosować wartości parametrów. W tym przykładzie użyto `PipelineParameter` dla i, `mini_batch_size` `Process_count_per_node` a następnie zmienisz te wartości w przypadku ponownego przesłania przebiegu później. 
+
+### <a name="parameters-for-creating-the-parallelrunstep"></a>Parametry tworzenia ParallelRunStep
+
+Utwórz ParallelRunStep za pomocą skryptu, konfiguracji środowiska i parametrów. Określ miejsce docelowe obliczeń, które zostało już dołączone do obszaru roboczego jako element docelowy wykonywania skryptu wnioskowania. Użyj `ParallelRunStep` do utworzenia kroku potoku wnioskowania partii, który przyjmuje wszystkie następujące parametry:
+- `name`: Nazwa kroku z następującymi ograniczeniami nazewnictwa: Unique, 3-32 znaków i wyrażenie regularne ^ \[ a-z \] ([-a-Z0-9] * [a-Z0-9])? $.
+- `parallel_run_config`: `ParallelRunConfig` Obiekt, zgodnie z definicją wcześniejszą.
+- `inputs`: Co najmniej jeden zestaw danych z jednym Azure Machine Learning typem, który ma być podzielony na partycje na potrzeby przetwarzania równoległego.
+- `side_inputs`: Co najmniej jeden z danych referencyjnych lub zestawów DataSet używany jako dane wejściowe bez konieczności partycjonowania.
+- `output`: `OutputFileDatasetConfig` Obiekt, który odpowiada katalogowi wyjściowemu.
+- `arguments`: Lista argumentów przenoszona do skryptu użytkownika. Użyj unknown_args, aby pobrać je w skrypcie wprowadzania (opcjonalnie).
+- `allow_reuse`: Czy krok ma ponownie używać poprzednich wyników w przypadku uruchamiania z tymi samymi ustawieniami/danymi wejściowymi. Jeśli ten parametr ma wartość `False` , nowy przebieg będzie zawsze generowany dla tego kroku podczas wykonywania potoku. (opcjonalnie; wartość domyślna to `True` ).
+
+```python
+from azureml.pipeline.steps import ParallelRunStep
+
+parallelrun_step = ParallelRunStep(
+    name="predict-digits-mnist",
+    parallel_run_config=parallel_run_config,
+    inputs=[input_mnist_ds_consumption],
+    output=output_dir,
+    allow_reuse=True
+)
+```
 
 ## <a name="debugging-techniques"></a>Techniki debugowania
 
@@ -138,7 +244,7 @@ Po przesłaniu uruchomienia potoku i pozostawania na stronie Tworzenie można zn
 1. W prawym okienku modułu przejdź do karty dane  **wyjściowe i dzienniki** .
 1. Rozwiń okienko po prawej stronie i wybierz **70_driver_log.txt** , aby wyświetlić plik w przeglądarce. Możesz również pobrać dzienniki lokalnie.
 
-    ![Rozwinięte okienko danych wyjściowych w projektancie](./media/how-to-debug-pipelines/designer-logs.png)
+    ![Rozwinięte okienko danych wyjściowych w projektancie](./media/how-to-debug-pipelines/designer-logs.png)? View = Azure-ml-PR&zachować-View = true)? View = Azure-ml-PR&Preserve-View = true)
 
 ### <a name="get-logs-from-pipeline-runs"></a>Pobierz dzienniki z przebiegów potoku
 
@@ -163,8 +269,6 @@ Aby uzyskać więcej informacji na temat korzystania z biblioteki OpenCensus Pyt
 W niektórych przypadkach może być konieczne interaktywne Debugowanie kodu w języku Python używanego w potoku. Korzystając z Visual Studio Code (VS Code) i debugpy, można dołączać do kodu w trakcie jego działania w środowisku szkoleniowym. Aby uzyskać więcej informacji, zobacz [interaktywny debugowanie w przewodniku vs Code](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-machine-learning-pipelines).
 
 ## <a name="next-steps"></a>Następne kroki
-
-* [Debugowanie i rozwiązywanie problemów z elementem ParallelRunStep](how-to-debug-parallel-run-step.md)
 
 * Aby uzyskać pełny samouczek przy użyciu `ParallelRunStep` , zobacz [Samouczek: Tworzenie potoku Azure Machine Learning na potrzeby oceniania partii](tutorial-pipeline-batch-scoring-classification.md).
 

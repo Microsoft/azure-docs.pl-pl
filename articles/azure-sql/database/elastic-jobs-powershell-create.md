@@ -11,12 +11,12 @@ author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 ms.date: 10/21/2020
-ms.openlocfilehash: 27cd35eba7320022ea9b137a7b8bb079a1226751
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1fc5653f08f8fc7916257dfdba570f451c0afa75
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427300"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131937"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell-preview"></a>Tworzenie agenta elastycznego zadania przy użyciu programu PowerShell (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -123,19 +123,11 @@ $db2 = New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $targ
 $db2
 ```
 
-## <a name="use-elastic-jobs"></a>Korzystanie z zadań elastycznych
-
-Aby korzystać z zadań elastycznych, zarejestruj funkcję w subskrypcji platformy Azure, uruchamiając następujące polecenie. Uruchom to polecenie raz dla subskrypcji, w ramach której zamierzasz udostępnić Agent zadań elastycznych. Subskrypcje, które zawierają tylko bazy danych, które są obiektami docelowymi, nie muszą być rejestrowane.
-
-```powershell
-Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Microsoft.Sql
-```
-
 ### <a name="create-the-elastic-job-agent"></a>Tworzenie agenta zadań elastycznych
 
 Agent zadań elastycznych jest zasobem platformy Azure służącym do tworzenia i uruchamiania zadań oraz do zarządzania nimi. Agent wykonuje zadania na podstawie harmonogramu lub jako zadania jednorazowe.
 
-Polecenie cmdlet **New-AzSqlElasticJobAgent** wymaga, aby baza danych w Azure SQL Database już istnieje, więc parametry *resourceGroupName*, *servername*i *DatabaseName* muszą wskazywać istniejące zasoby.
+Polecenie cmdlet **New-AzSqlElasticJobAgent** wymaga, aby baza danych w Azure SQL Database już istnieje, więc parametry *resourceGroupName*, *servername* i *DatabaseName* muszą wskazywać istniejące zasoby.
 
 ```powershell
 Write-Output "Creating job agent..."
@@ -205,7 +197,7 @@ $jobCred = $jobAgent | New-AzSqlElasticJobCredential -Name "jobuser" -Credential
 
 [Grupa docelowa](job-automation-overview.md#target-group) definiuje zestaw zawierający co najmniej jedną bazę danych, względem której będzie wykonywane zadanie.
 
-Poniższy fragment kodu tworzy dwie grupy docelowe: Grupa *serwerów*i *serverGroupExcludingDb2*. *obiekt klasy* jest przeznaczony dla wszystkich baz danych, które istnieją na serwerze w czasie wykonywania, i *serverGroupExcludingDb2* są przeznaczone dla wszystkich baz danych na serwerze, z wyjątkiem *targetDb2*:
+Poniższy fragment kodu tworzy dwie grupy docelowe: Grupa *serwerów* i *serverGroupExcludingDb2*. *obiekt klasy* jest przeznaczony dla wszystkich baz danych, które istnieją na serwerze w czasie wykonywania, i *serverGroupExcludingDb2* są przeznaczone dla wszystkich baz danych na serwerze, z wyjątkiem *targetDb2*:
 
 ```powershell
 Write-Output "Creating test target groups..."
@@ -277,12 +269,12 @@ W poniższej tabeli wymieniono możliwe Stany wykonania zadania:
 
 |Stan|Opis|
 |:---|:---|
-|**Utworzone** | Wykonywanie zadania zostało właśnie utworzone i nie jest jeszcze w toku.|
+|**Utworzono** | Wykonywanie zadania zostało właśnie utworzone i nie jest jeszcze w toku.|
 |**Toku** | Wykonywanie zadania jest obecnie w toku.|
 |**WaitingForRetry** | Wykonanie zadania nie mogło wykonać akcji i oczekuje na ponowienie próby.|
-|**Powiodło się** | Wykonywanie zadania zakończyło się pomyślnie.|
+|**Powodzenie** | Wykonywanie zadania zakończyło się pomyślnie.|
 |**SucceededWithSkipped** | Wykonywanie zadania zakończyło się pomyślnie, ale niektóre z jego elementów podrzędnych zostały pominięte.|
-|**Awarii** | Wykonanie zadania nie powiodło się i wystąpiła ponowna próba.|
+|**Niepowodzenie** | Wykonanie zadania nie powiodło się i wystąpiła ponowna próba.|
 |**TimedOut** | Przekroczono limit czasu wykonywania zadania.|
 |**Anulowane** | Wykonywanie zadania zostało anulowane.|
 |**Pominięto** | Wykonywanie zadania zostało pominięte, ponieważ inne wykonanie tego samego kroku zadania zostało już uruchomione na tym samym elemencie docelowym.|

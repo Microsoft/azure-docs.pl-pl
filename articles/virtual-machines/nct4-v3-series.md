@@ -6,14 +6,14 @@ ms.subservice: sizes
 author: vikancha-MSFT
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 01/05/2021
+ms.date: 01/12/2021
 ms.author: vikancha
-ms.openlocfilehash: 6463e54fb7f0a2cc03ffa043c00048c1131899ce
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 41ab057bdbf31667e45a73b2c5ded4993e716a66
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913434"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131563"
 ---
 # <a name="ncast4_v3-series"></a>Seria NCasT4_v3 
 
@@ -26,7 +26,7 @@ Maszyny wirtualne z serii NCasT4_v3 są obsługiwane przez procesory [NVIDIA Tes
 [Buforowanie Premium Storage](premium-storage-performance.md): obsługiwane<br>
 [Migracja na żywo](maintenance-and-updates.md): nieobsługiwane<br>
 [Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): nieobsługiwane<br>
-[Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1<br>
+[Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1 i 2<br>
 Przyspieszone sieci: obsługiwane<br>
 NVIDIA NVLink Interconnect: nieobsługiwane<br>
 <br>

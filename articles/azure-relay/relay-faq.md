@@ -3,12 +3,12 @@ title: Azure Relay często zadawane pytania | Microsoft Docs
 description: Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytania dotyczące usługi Azure Relay.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 9d967d926c6ab59e027fe4d4cf98e8418a8ff9bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77d3122942289654c0f651f9f648307123b23546
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89299290"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131852"
 ---
 # <a name="azure-relay-faqs"></a>Azure Relay często zadawane pytania
 
@@ -50,7 +50,6 @@ Poniżej przedstawiono trzy przykładowe scenariusze rozliczania dla Połączeni
     *   W ciągu miesiąca wysyłasz 6 GB danych między połączeniem B.
     *   Łączna opłata wynosi $10,50. To jest $5 dla połączenia A + $5 dla połączenia B + $0,50 (dla szóstego gigabajta w połączeniu B).
 
-Należy pamiętać, że ceny używane w przykładach są stosowane tylko w okresie Połączenia hybrydowe w wersji zapoznawczej. Ceny mogą ulec zmianie po ogólnej dostępności Połączenia hybrydowe.
 
 ### <a name="how-are-hours-calculated-for-relay"></a>Jak są obliczane godziny dla przekaźnika?
 
@@ -97,7 +96,7 @@ Aby przenieść przestrzeń nazw z jednej subskrypcji platformy Azure do innej s
 
 Aby użyć Azure Portal do migracji przestrzeni nazw Azure Relay z jednej subskrypcji do innej subskrypcji, zobacz [przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal). 
 
-#### <a name="powershell"></a>Program PowerShell
+#### <a name="powershell"></a>PowerShell
 
 Aby przenieść przestrzeń nazw z jednej subskrypcji platformy Azure do innej subskrypcji za pomocą programu PowerShell, użyj następującej sekwencji poleceń. Aby można było wykonać tę operację, przestrzeń nazw musi być już aktywna, a użytkownik uruchamiający polecenia programu PowerShell musi być użytkownikiem administratora zarówno w ramach subskrypcji źródłowej, jak i docelowej.
 

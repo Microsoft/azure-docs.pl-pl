@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 01/22/2020
-ms.openlocfilehash: 0eb9afc179f1dd2559f0db7b212f6b3a1da15824
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/12/2021
+ms.openlocfilehash: 2478148f946ddc88e571b76396544b028455ec75
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998757"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132110"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>Tworzenie klastra kończy się niepowodzeniem z InvalidNetworkConfigurationErrorCode w usłudze Azure HDInsight
 
@@ -147,6 +147,13 @@ hostname -f
 nslookup <headnode_fqdn> (e.g.nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net)
 dig @168.63.129.16 <headnode_fqdn> (e.g. dig @168.63.129.16 hn0-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net)
 ```
+### <a name="cause"></a>Przyczyna
+
+Inną przyczyną tego `InvalidNetworkConfigurationErrorCode` kodu błędu może być użycie przestarzałego parametru `EnableVmProtection` w programie PowerShell lub elemencie Runbook platformy Azure.
+
+### <a name="resolution"></a>Rozwiązanie
+
+Użyj prawidłowych parametrów dla programu `Get-AzVirtualNetwork` zgodnie z opisem w programie [AZ PowerShell SDK](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-5.3.0&viewFallbackFrom=azps-4.2.0)
 
 ---
 

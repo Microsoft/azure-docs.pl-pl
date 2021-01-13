@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 11/23/2020
+ms.date: 01/12/2021
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: 7c41474143fbb7782ccf7b5c89b0b34802e5ef0a
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: c492ec930cea000e45f7b6f09cc5e9c7a6a0db22
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98119700"
+ms.locfileid: "98134504"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Samouczek: ładowanie danych do puli SQL usługi Azure Synapse Analytics
 
@@ -37,7 +37,10 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpł
 
 Zanim rozpoczniesz ten samouczek, pobierz i zainstaluj najnowszą wersję programu [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
 
-W tym samouczku założono, że utworzono już dedykowaną pulę SQL z poziomu poniższego [samouczka](./create-data-warehouse-portal.md#connect-to-the-server-as-server-admin).
+W tym samouczku założono, że utworzono już dedykowaną pulę SQL z poziomu poniższego [samouczka](./create-data-warehouse-portal.md#connect-to-the-server-as-server-admin). 
+
+> [!NOTE]
+> Zaleca się użycie co najmniej DW1000c dla tego samouczka. 
 
 ## <a name="create-a-user-for-loading-data"></a>Tworzenie użytkownika do ładowania danych
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: b36f52fd97a9f7ff294f14ec394ff9a9f607b5b0
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 3c0dd2b4e7e48eeb76d82c26eb52b89b61e9f668
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187157"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134113"
 ---
 # <a name="monitor-identity-and-access"></a>Monitorowanie tożsamość i dostępu
 
@@ -44,7 +44,7 @@ Przykłady zaleceń, które mogą pojawić się w tych dwóch kontrolkach na str
 - Przestarzałe konta należy usunąć z subskrypcji (konta przestarzałe to konta, które nie są już potrzebne, i zablokowany do logowania się przez Azure Active Directory)
 
 > [!TIP]
-> Aby uzyskać więcej informacji na temat tych zaleceń i innych osób, które mogą się pojawić w tych kontrolkach, zobacz [zalecenia dotyczące tożsamości i dostępu](recommendations-reference.md#recs-identity).
+> Aby uzyskać więcej informacji na temat tych zaleceń i innych osób, które mogą się pojawić w tych kontrolkach, zobacz [zalecenia dotyczące tożsamości i dostępu](recommendations-reference.md#recs-identityandaccess).
 
 ### <a name="limitations"></a>Ograniczenia
 

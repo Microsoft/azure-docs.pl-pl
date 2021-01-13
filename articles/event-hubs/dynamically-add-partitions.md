@@ -3,12 +3,12 @@ title: Dynamiczne dodawanie partycji do centrum zdarzeń w usłudze Azure Event 
 description: W tym artykule opisano sposób dynamicznego dodawania partycji do centrum zdarzeń w usłudze Azure Event Hubs.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 4a729147eaa11497c66f82a9764dfee9492786b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ebe4491338c24a331812041f4d3e6d37b934117
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87002543"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132175"
 ---
 # <a name="dynamically-add-partitions-to-an-event-hub-apache-kafka-topic-in-azure-event-hubs"></a>Dynamiczne dodawanie partycji do centrum zdarzeń (Apache Kafka tematu) na platformie Azure Event Hubs
 Usługa Event Hubs udostępnia funkcję transmisji strumieniowej komunikatów za pośrednictwem partycjonowanego wzorca odbiorców, w ramach którego każdy odbiorca odczytuje tylko konkretny podzbiór (partycję) strumienia komunikatów. Ten wzorzec umożliwia skalowanie w poziomie przetwarzania zdarzeń oraz udostępnia inne funkcje dotyczące strumienia, które są niedostępne w przypadku kolejek i tematów. Partycja to uporządkowana sekwencja zdarzeń przechowywana w centrum zdarzeń. Po nadejściu nowszych zdarzeń są one dodawane na końcu tej sekwencji. Aby uzyskać więcej informacji o partycjach ogólnie, zobacz [partycje](event-hubs-scalability.md#partitions)
@@ -25,7 +25,7 @@ Można określić liczbę partycji w momencie tworzenia centrum zdarzeń. W niek
 ## <a name="update-the-partition-count"></a>Aktualizowanie liczby partycji
 W tej sekcji pokazano, jak zaktualizować liczbę partycji centrum zdarzeń na różne sposoby (program PowerShell, interfejs wiersza polecenia itd.).
 
-### <a name="powershell"></a>Program PowerShell
+### <a name="powershell"></a>PowerShell
 Użyj polecenia programu PowerShell [Set-AzureRmEventHub](/powershell/module/azurerm.eventhub/Set-AzureRmEventHub?view=azurermps-6.13.0) , aby zaktualizować partycje w centrum zdarzeń. 
 
 ```azurepowershell-interactive
@@ -71,7 +71,7 @@ Event Hubs oferuje trzy opcje nadawcy:
 
 - **Nadawca partycji** — w tym scenariuszu klienci wysyłają zdarzenia bezpośrednio do partycji. Chociaż partycje są identyfikowane, a zdarzenia mogą być wysyłane bezpośrednio do nich, nie zalecamy tego wzorca. Dodawanie partycji nie ma wpływu na ten scenariusz. Zalecamy ponowne uruchomienie aplikacji, aby mogły wykrywać nowo dodane partycje. 
 - Identyfikator **nadawcy klucza partycji** — w tym scenariuszu klienci wysyłają zdarzenia z kluczem, aby wszystkie zdarzenia należące do tego klucza kończyły się w tej samej partycji. W takim przypadku usługa skrótuje klucz i trasy do odpowiedniej partycji. Aktualizacja liczby partycji może powodować problemy z nieoczekiwaną kolejnością ze względu na zmianę skrótu. Tak więc, jeśli planujesz porządkowanie, upewnij się, że aplikacja zużywa wszystkie zdarzenia z istniejących partycji przed zwiększeniem liczby partycji.
-- Nadawca działający w trybie okrężnym **(domyślnie)** — w tym scenariuszu Usługa Event Hubs Round Robins zdarzenia w partycjach. Usługa Event Hubs ma świadomość zmian liczby partycji i będzie wysyłać do nowych partycji w ciągu kilku sekund od zmiany liczby partycji.
+- Nadawca działający w trybie okrężnym **(domyślnie)** — w tym scenariuszu Usługa Event Hubs Round Robins zdarzenia w partycjach, a także używa algorytmu równoważenia obciążenia. Usługa Event Hubs ma świadomość zmian liczby partycji i będzie wysyłać do nowych partycji w ciągu kilku sekund od zmiany liczby partycji.
 
 ### <a name="receiverconsumer-clients"></a>Klienci odbiorcy/odbiorcy
 Event Hubs zapewnia bezpośrednich odbiorników i łatwą bibliotekę użytkowników nazywaną [hostem procesora zdarzeń (starym zestawem SDK)](event-hubs-event-processor-host.md)  lub [procesorem zdarzeń (nowy zestaw SDK)](event-processor-balance-partition-load.md).
@@ -99,7 +99,7 @@ Gdy członek grupy odbiorców wykonuje odświeżanie metadanych i pobiera nowo u
     > [!IMPORTANT]
     > Podczas gdy istniejące dane zachowują kolejność, skrót partycji zostanie przerwany w przypadku komunikatów, które są szyfrowane po zmianie liczby partycji ze względu na dodanie partycji.
 - Dodawanie partycji do istniejącego tematu lub wystąpienia centrum zdarzeń jest zalecane w następujących przypadkach:
-    - W przypadku używania metody okrężnej (domyślnej) do wysyłania zdarzeń
+    - W przypadku użycia domyślnej metody wysyłania zdarzeń
      - Kafka domyślne strategie partycjonowania, przykład — strategia przypisywania do programu Sticky Notes
 
 

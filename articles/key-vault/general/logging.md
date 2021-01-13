@@ -10,21 +10,21 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 12/18/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d900659f3ca8a8688c1b1d3a66cd888f37521fc6
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 5fcb3226eebf39ab18fb3bb24f0521a0523748d4
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883388"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134181"
 ---
 # <a name="azure-key-vault-logging"></a>Funkcja rejestrowania usługi Azure Key Vault
 
 Po utworzeniu co najmniej jednego magazynu kluczy prawdopodobnie zechcesz monitorować sposób i czas uzyskiwania dostępu do Twoich magazynów kluczy oraz przez kogo. Można to zrobić przez włączenie rejestrowania dla Azure Key Vault, które zapisuje informacje na koncie usługi Azure Storage, które podano. Aby uzyskać wskazówki krok po kroku dotyczące konfigurowania tego ustawienia, zobacz [jak włączyć rejestrowanie Key Vault](howto-logging.md).
 
-Możesz uzyskać dostęp do informacji o rejestrowaniu 10 minut (maksymalnie) po operacji magazynu kluczy. W większości przypadków czas będzie krótszy.  To Ty zarządzasz dziennikami na swoim koncie magazynu:
+Możesz uzyskać dostęp do informacji o rejestrowaniu 10 minut (maksymalnie) po operacji magazynu kluczy. W większości przypadków czas będzie krótszy.  Zarządzanie dziennikami na Twoim koncie magazynu zależy od Ciebie:
 
 * Użyj standardowych metod kontroli dostępu platformy Azure na koncie magazynu, aby zabezpieczyć dzienniki przez ograniczenie, kto może uzyskiwać do nich dostęp.
-* Usuń dzienniki, których nie chcesz już przechowywać na koncie magazynu.
+* Usuń dzienniki, których już nie chcesz przechowywać na koncie magazynu.
 
 Aby uzyskać przegląd informacji na temat Key Vault, zobacz [co to jest Azure Key Vault?](overview.md). Informacje o tym, gdzie Key Vault są dostępne, można znaleźć na [stronie z cennikiem](https://azure.microsoft.com/pricing/details/key-vault/). Aby uzyskać informacje na temat korzystania z [Azure Monitor Key Vault](../../azure-monitor/insights/key-vault-insights-overview.md).
 
@@ -182,6 +182,7 @@ W poniższej tabeli wymieniono wartości **OperationName** i odpowiednie polecen
 | **CertificatePendingDelete** |Usuń oczekujący certyfikat |
 | **CertificateNearExpiryEventGridNotification** |Opublikowano wydarzenie bliskie wygaśnięcia certyfikatu |
 | **CertificateExpiredEventGridNotification** |Opublikowano zdarzenie wygasłe certyfikatu |
+
 ---
 
 ## <a name="use-azure-monitor-logs"></a>Korzystanie z dzienników usługi Azure Monitor

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 200753c6458698d515b02252933e4fdf6d88df55
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 460380d9435528dcd8cbb3f877c8034fdc34f50c
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019095"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134152"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>Często zadawane pytania dotyczące korzystania z Azure Database Migration Service
 
@@ -109,7 +109,7 @@ Podczas typowej migracji prostej bazy danych:
 ## <a name="troubleshooting-and-optimization"></a>Rozwiązywanie problemów i optymalizacja
 
 **Pytania. Konfiguruję projekt migracji w usłudze DMS i mam problemy z nawiązywaniem połączenia z moją źródłową bazą danych. Co mam zrobić?**
-Jeśli występują problemy z połączeniem ze źródłowym systemem bazy danych podczas pracy z migracją, należy utworzyć maszynę wirtualną w sieci wirtualnej, dla której skonfigurowano wystąpienie DMS. Na maszynie wirtualnej powinno być możliwe uruchomienie testu połączenia, takiego jak użycie pliku UDL do przetestowania połączenia w celu SQL Server lub pobrania Robo 3T w celu przetestowania połączeń MongoDB. Jeśli test połączenia zakończy się pomyślnie, nie trzeba mieć problemu z połączeniem ze źródłową bazą danych. Jeśli test połączenia nie powiedzie się, skontaktuj się z administratorem sieci.
+Jeśli występują problemy z połączeniem ze źródłowym systemem bazy danych podczas pracy z migracją, należy utworzyć maszynę wirtualną w tej samej podsieci sieci wirtualnej, dla której skonfigurowano wystąpienie DMS. Na maszynie wirtualnej powinno być możliwe uruchomienie testu połączenia, takiego jak użycie pliku UDL do przetestowania połączenia w celu SQL Server lub pobrania Robo 3T w celu przetestowania połączeń MongoDB. Jeśli test połączenia zakończy się pomyślnie, nie trzeba mieć problemu z połączeniem ze źródłową bazą danych. Jeśli test połączenia nie powiedzie się, skontaktuj się z administratorem sieci.
 
 **Pytania. Dlaczego moje Azure Database Migration Service są niedostępne lub zatrzymane?**
 Jeśli użytkownik jawnie zatrzyma Azure Database Migration Service (DMS) lub jeśli usługa jest nieaktywna przez okres 24 godzin, usługa będzie w stanie zatrzymania lub jest wstrzymana. W każdym przypadku usługa będzie niedostępna i stan zatrzymany.  Aby wznowić migracje aktywne, należy ponownie uruchomić usługę.

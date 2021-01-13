@@ -3,15 +3,15 @@ title: Procesory telemetrii (wersja zapoznawcza) — Azure Monitor Application I
 description: Jak skonfigurować procesory telemetrii w Azure Monitor Application Insights dla języka Java
 ms.topic: conceptual
 ms.date: 10/29/2020
-author: MS-jgol
+author: kryalama
 ms.custom: devx-track-java
-ms.author: jgol
-ms.openlocfilehash: 7fd53c77b64e028ffad25c8fa7a9eefd95439513
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.author: kryalama
+ms.openlocfilehash: ba4e6b8b5e9db494ab4c0c372c2086087a2d58cb
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387160"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133178"
 ---
 # <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>Procesory telemetrii (wersja zapoznawcza) — Azure Monitor Application Insights dla środowiska Java
 
@@ -20,12 +20,55 @@ ms.locfileid: "97387160"
 
 Agent Java 3,0 dla Application Insights ma teraz możliwości przetwarzania danych telemetrycznych przed wyeksportowaniem danych.
 
-### <a name="some-use-cases"></a>Niektóre przypadki użycia:
+Poniżej przedstawiono niektóre przypadki użycia procesorów telemetrycznych:
  * Maskowanie danych poufnych
  * Warunkowe dodawanie wymiarów niestandardowych
  * Aktualizowanie nazwy telemetrii używanej do agregacji i wyświetlania
+ * Upuść lub Filtruj atrybuty zakresu w celu kontrolowania kosztu pozyskiwania
 
-### <a name="supported-processors"></a>Obsługiwane procesory:
+## <a name="terminology"></a>Terminologia
+
+Zanim przejdziemy do procesorów telemetrii, ważne jest, aby zrozumieć, co to są ślady i zakres.
+
+### <a name="traces"></a>Ślady
+
+Ślady śledzą postęp pojedynczego żądania o nazwie a `trace` , ponieważ jest ono obsługiwane przez usługi tworzące aplikację. Żądanie może być inicjowane przez użytkownika lub aplikację. Każda jednostka pracy w a `trace` jest nazywana `span` `trace` drzewem zakresów. `trace`Składa się z jednego zakresu głównego i dowolnej liczby zakresów podrzędnych.
+
+### <a name="span"></a>Span
+
+Zakresy są obiektami, które reprezentują zadania wykonywane przez poszczególne usługi lub składniki, których dotyczy żądanie w miarę ich przepływów przez system. A `span` zawiera a `span context` , czyli zestaw unikatowych globalnie identyfikatorów, które reprezentują unikatowe żądanie, które każdy zakres jest częścią. 
+
+Zakresy hermetyzowane:
+
+* Nazwa zakresu
+* Niezmienne `SpanContext` , które jednoznacznie identyfikują zakres
+* Zakres nadrzędny w postaci `Span` , `SpanContext` , lub null
+* Polecenie `SpanKind`
+* Sygnatura czasowa rozpoczęcia
+* Sygnatura czasowa zakończenia
+* [`Attributes`](#attributes)
+* Lista zdarzeń z sygnaturami czasowymi
+* Klasa `Status`.
+
+Ogólnie rzecz biorąc, cykl życia zakresu jest podobny do następującego:
+
+* Usługa odebrała żądanie. Kontekst zakresu jest wyodrębniany z nagłówków żądań, jeśli istnieje.
+* Nowy zakres jest tworzony jako element podrzędny wyodrębnionego kontekstu zakresu; Jeśli nie istnieje, zostanie utworzony nowy zakres główny.
+* Usługa obsługuje żądanie. Dodatkowe atrybuty i zdarzenia są dodawane do zakresu, który jest przydatny do poznania kontekstu żądania, takiego jak nazwa hosta maszyny obsługującej żądanie lub identyfikatory klientów.
+* Nowe zakresy mogą być tworzone w celu reprezentowania pracy wykonywanej przez składniki podrzędne usługi.
+* Gdy usługa wykonuje zdalne wywołanie innej usługi, kontekst bieżącego zakresu jest serializowany i przekazywany do następnej usługi przez wstrzyknięcie kontekstu zakresu do nagłówka lub koperty wiadomości.
+* Pracę wykonywaną przez usługę zakończyła się pomyślnie lub nie. Stan zakresu jest odpowiednio ustawiony, a zakres jest oznaczony jako zakończony.
+
+### <a name="attributes"></a>Atrybuty
+
+`Attributes` jest listą wartości zerowych lub więcej par klucz-wartość, które są hermetyzowane w `span` . Atrybut musi mieć następujące właściwości:
+
+Klucz atrybutu, który musi być ciągiem innym niż null i niepustym.
+Wartość atrybutu, która jest:
+* Typ pierwotny: ciąg, wartość logiczna, liczba zmiennoprzecinkowa podwójnej precyzji (IEEE 754-1985) lub podpisanej 64 bitowej liczby całkowitej.
+* Tablica wartości typu pierwotnego. Tablica musi być jednorodna, tj. nie może zawierać wartości różnych typów. W przypadku protokołów, które nie obsługują natywnie wartości tablicy, te wartości powinny być reprezentowane jako ciągi JSON.
+
+## <a name="supported-processors"></a>Obsługiwane procesory:
  * Procesor atrybutów
  * Procesor obejmujący
 
@@ -57,7 +100,7 @@ Utwórz plik konfiguracji o nazwie `applicationinsights.json` i umieść go w ty
 
 ## <a name="includeexclude-spans"></a>Zakresy dołączania/wykluczania
 
-Procesor atrybutu i procesor obejmują opcję dostarczania zestawu właściwości zakresu do dopasowania, aby określić, czy zakres ma być dołączany czy wykluczony z procesora. Aby skonfigurować tę opcję, w obszarze `include` i/lub `exclude` co najmniej jeden `matchType` musi być `spanNames` `attributes` wymagany. Konfiguracja dołączania/wykluczania jest obsługiwana w celu uzyskania więcej niż jednego określonego warunku. Aby nastąpiło dopasowanie, wszystkie określone warunki muszą mieć wartość true. 
+Procesor atrybutu i procesor obejmują opcję dostarczania zestawu właściwości zakresu do dopasowania, aby określić, czy zakres ma być uwzględniany, czy wykluczony z procesora telemetrii. Aby skonfigurować tę opcję, w obszarze `include` i/lub `exclude` co najmniej jeden `matchType` musi być `spanNames` `attributes` wymagany. Konfiguracja dołączania/wykluczania jest obsługiwana w celu uzyskania więcej niż jednego określonego warunku. Aby nastąpiło dopasowanie, wszystkie określone warunki muszą mieć wartość true. 
 
 **Pole wymagane**: 
 * `matchType` kontroluje sposób `spanNames` interpretowania elementów w i `attributes` tablicach. Możliwe wartości to `regexp` lub `strict`. 
@@ -69,183 +112,164 @@ Procesor atrybutu i procesor obejmują opcję dostarczania zestawu właściwośc
 > [!NOTE]
 > Jeśli obie `include` i `exclude` są określone, `include` właściwości są sprawdzane przed `exclude` właściwościami.
 
-#### <a name="sample-usage"></a>Przykładowe zastosowanie
-
-Poniżej pokazano, jak określić zestaw właściwości zakresu, aby wskazać, które zakresy obejmują ten procesor. `include`Właściwości mówią, które powinny być uwzględnione, a właściwości w `exclude` dalszej odfiltrować zakresy, które nie powinny być przetwarzane.
+#### <a name="sample-usage"></a>Przykładowe użycie
 
 ```json
-{
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
-  "preview": {
-    "processors": [
+
+"processors": [
+  {
+    "type": "attribute",
+    "include": {
+      "matchType": "strict",
+      "spanNames": [
+        "spanA",
+        "spanB"
+      ]
+    },
+    "exclude": {
+      "matchType": "strict",
+      "attributes": [
+        {
+          "key": "redact_trace",
+          "value": "false"
+        }
+      ]
+    },
+    "actions": [
       {
-        "type": "attribute",
-        "include": {
-          "matchType": "strict",
-          "spanNames": [
-            "svcA",
-            "svcB"
-          ]
-        },
-        "exclude": {
-          "matchType": "strict",
-          "attributes": [
-            {
-              "key": "redact_trace",
-              "value": "false"
-            }
-          ]
-        },
-        "actions": [
-          {
-            "key": "credit_card",
-            "action": "delete"
-          },
-          {
-            "key": "duplicate_key",
-            "action": "delete"
-          }
-        ]
+        "key": "credit_card",
+        "action": "delete"
+      },
+      {
+        "key": "duplicate_key",
+        "action": "delete"
       }
     ]
   }
-}
+]
 ```
-
-W powyższej konfiguracji są stosowane następujące zakresy zgodne z właściwościami i akcjami procesora:
-
-* Nazwa Span1: "svcB" atrybutów: {env: production, test_request: 123, credit_card: 1234, redact_trace: "false"}
-
-* Nazwa Span2: "svcA" atrybutów: {env: przemieszczanie, test_request: false, redact_trace: true}
-
-Poniższe zakresy nie pasują do właściwości include i nie są stosowane:
-
-* Nazwa Span3: "svcB" atrybuty: {env: Product, test_request: true, credit_card: 1234, redact_trace: false}
-
-* Nazwa Span4: "svcC" atrybutów: {env: dev, test_request: false}
+Aby uzyskać więcej informacji, zapoznaj się z dokumentacją dotyczącą [procesora telemetrii](./java-standalone-telemetry-processors-examples.md) .
 
 ## <a name="attribute-processor"></a>Procesor atrybutów 
 
-Procesor atrybutów modyfikuje atrybuty zakresu. Opcjonalnie obsługuje możliwość dołączania/wykluczania zakresów.
-Wykonuje listę akcji, które są wykonywane w kolejności określonej w pliku konfiguracji. Obsługiwane są następujące akcje:
+Procesor atrybutów modyfikuje atrybuty zakresu. Opcjonalnie obsługuje możliwość dołączania/wykluczania zakresów. Wykonuje listę akcji, które są wykonywane w kolejności określonej w pliku konfiguracji. Obsługiwane są następujące akcje:
 
-* `insert` : Wstawia nowy atrybut w zakresach, w których klucz jeszcze nie istnieje
-* `update` : Aktualizuje atrybut w zakresie, w którym znajduje się klucz
-* `delete` : Usuwa atrybut z zakresu
-* `hash`   : Hashs (SHA1) istniejąca wartość atrybutu
+### `insert`
 
-Dla akcji `insert` i `update`
-* `key` jest wymagana
-* jedno `value` lub `fromAttribute` jest wymagane
-* Ciąg `action` jest wymagany.
-
-Dla `delete` akcji,
-* `key` jest wymagana
-* `action`: `delete` jest wymagana.
-
-Dla `hash` akcji,
-* `key` jest wymagana
-* `action` : `hash` jest wymagana.
-
-Listę akcji można utworzyć w celu utworzenia rozbudowanych scenariuszy, takich jak atrybut wypełniania wstecz, kopiowanie wartości do nowego klucza, redagowanie informacji poufnych.
-
-#### <a name="sample-usage"></a>Przykładowe zastosowanie
-
-Poniższy przykład ilustruje Wstawianie kluczy/wartości do zakresów:
+Wstawia nowy atrybut w zakresach, w których klucz jeszcze nie istnieje.   
 
 ```json
-{
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
-  "preview": {
-    "processors": [
+"processors": [
+  {
+    "type": "attribute",
+    "actions": [
       {
-        "type": "attribute",
-        "actions": [
-          {
-            "key": "attribute1",
-            "value": "value1",
-            "action": "insert"
-          },
-          {
-            "key": "key1",
-            "fromAttribute": "anotherkey",
-            "action": "insert"
-          }
-        ]
-      }
+        "key": "attribute1",
+        "value": "value1",
+        "action": "insert"
+      },
     ]
   }
-}
+]
 ```
+W przypadku `insert` akcji wymagane są następujące elementy
+  * `key`
+  * jeden z `value` lub `fromAttribute`
+  * `action`:`insert`
 
-Poniższy przykład demonstruje Konfigurowanie procesora do aktualizowania tylko istniejących kluczy w atrybucie:
+### `update`
+
+Aktualizuje atrybut w zakresach, w którym znajduje się klucz
 
 ```json
-{
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
-  "preview": {
-    "processors": [
+"processors": [
+  {
+    "type": "attribute",
+    "actions": [
       {
-        "type": "attribute",
-        "actions": [
-          {
-            "key": "piiattribute",
-            "value": "redacted",
-            "action": "update"
-          },
-          {
-            "key": "credit_card",
-            "action": "delete"
-          },
-          {
-            "key": "user.email",
-            "action": "hash"
-          }
-        ]
-      }
+        "key": "attribute1",
+        "value": "newValue",
+        "action": "update"
+      },
     ]
   }
-}
+]
 ```
+W przypadku `update` akcji wymagane są następujące elementy
+  * `key`
+  * jeden z `value` lub `fromAttribute`
+  * `action`:`update`
 
-W poniższym przykładzie pokazano, jak przetwarzać zakresy, które mają nazwę zakresu, która pasuje do wzorców RegExp.
-Ten procesor spowoduje usunięcie atrybutu "token" i spowoduje mieszanie atrybutu "Password" w zakresach, gdzie nazwa zakresu pasuje do "auth \* ". i gdzie nazwa zakresu nie jest zgodna z nazwą "login \* ".
+
+### `delete` 
+
+Usuwa atrybut z zakresu
 
 ```json
-{
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
-  "preview": {
-    "processors": [
+"processors": [
+  {
+    "type": "attribute",
+    "actions": [
       {
-        "type": "attribute",
-        "include": {
-          "matchType": "regexp",
-          "spanNames": [
-            "auth.*"
-          ]
-        },
-        "exclude": {
-          "matchType": "regexp",
-          "spanNames": [
-            "login.*"
-          ]
-        },
-        "actions": [
-          {
-            "key": "password",
-            "value": "obfuscated",
-            "action": "update"
-          },
-          {
-            "key": "token",
-            "action": "delete"
-          }
-        ]
-      }
+        "key": "attribute1",
+        "action": "delete"
+      },
     ]
   }
-}
+]
 ```
+W przypadku `delete` akcji wymagane są następujące elementy
+  * `key`
+  * `action`: `delete`
+
+### `hash`
+
+Skróty (SHA1) istniejące wartości atrybutów
+
+```json
+"processors": [
+  {
+    "type": "attribute",
+    "actions": [
+      {
+        "key": "attribute1",
+        "action": "hash"
+      },
+    ]
+  }
+]
+```
+W przypadku `hash` akcji wymagane są następujące elementy
+* `key`
+* `action` : `hash`
+
+### `extract`
+
+> [!NOTE]
+> Ta funkcja jest tylko w 3.0.1 i nowszych
+
+Wyodrębnianie wartości przy użyciu reguły wyrażenia regularnego z klucza wejściowego do kluczy docelowych określonych w regule. Jeśli klucz docelowy już istnieje, zostanie zastąpiony. Zachowuje się podobnie do ustawienia [procesor span](#extract-attributes-from-span-name) `toAttributes` z istniejącym atrybutem jako źródło.
+
+```json
+"processors": [
+  {
+    "type": "attribute",
+    "actions": [
+      {
+        "key": "attribute1",
+        "pattern": "<regular pattern with named matchers>",
+        "action": "extract"
+      },
+    ]
+  }
+]
+```
+W przypadku `extract` akcji wymagane są następujące elementy
+* `key`
+* `pattern`
+* `action` : `extract`
+
+Aby uzyskać więcej informacji, zapoznaj się z dokumentacją dotyczącą [procesora telemetrii](./java-standalone-telemetry-processors-examples.md) .
 
 ## <a name="span-processors"></a>Zakresy procesorów
 
@@ -263,28 +287,19 @@ Można opcjonalnie skonfigurować następujące ustawienie:
 > [!NOTE]
 > Jeśli zmiana nazwy jest zależna od atrybutów, które są modyfikowane przez procesor atrybutów, upewnij się, że procesor zakresu jest określony po procesor atrybutów w specyfikacji potoku.
 
-#### <a name="sample-usage"></a>Przykładowe zastosowanie
-
-W poniższym przykładzie określono wartości atrybutu "DB. svc", "Operation" i "ID" w postaci nowej nazwy zakresu, w tej kolejności, oddzielonej przez wartość "::".
 ```json
-{
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
-  "preview": {
-    "processors": [
-      {
-        "type": "span",
-        "name": {
-          "fromAttributes": [
-            "db.svc",
-            "operation",
-            "id"
-          ],
-          "separator": "::"
-        }
-      }
-    ]
+"processors": [
+  {
+    "type": "span",
+    "name": {
+      "fromAttributes": [
+        "attributeKey1",
+        "attributeKey2",
+      ],
+      "separator": "::"
+    }
   }
-}
+] 
 ```
 
 ### <a name="extract-attributes-from-span-name"></a>Wyodrębnij atrybuty z nazwy zakresu
@@ -295,60 +310,45 @@ Wymagane są następujące ustawienia:
 
 `rules` : Lista reguł służących do wyodrębniania wartości atrybutów z nazwy zakresu. Wartości w nazwie zakresu są zamieniane na nazwy wyodrębnionych atrybutów. Każda reguła na liście jest ciągiem wzorca wyrażenia regularnego. Nazwa zakresu jest sprawdzana pod kątem wyrażenia regularnego. Jeśli wyrażenie regularne jest zgodne, wszystkie nazwane Podwyrażenie wyrażenia regularnego są wyodrębniane jako atrybuty i dodawane do zakresu. Każda nazwa podwyrażenia to nazwa atrybutu i Podwyrażenie dopasowane do części staną się wartością atrybutu. Dopasowana część w nazwie zakresu jest zastępowana przez wyodrębnioną nazwę atrybutu. Jeśli atrybuty już istnieją w zasięgu, zostaną nadpisywane. Ten proces jest powtarzany dla wszystkich reguł w kolejności, w jakiej zostały określone. Każda kolejna reguła działa w odniesieniu do nazwy zakresu, która jest danymi wyjściowymi po przetworzeniu poprzedniej reguły.
 
-#### <a name="sample-usage"></a>Przykładowe zastosowanie
-
-Załóżmy, że nazwa zakresu wejściowego to/API/V1/Document/12345678/Update. Zastosowanie następujących wyników w nazwie zakresu wyjściowego/api/v1/document/{documentId}/update spowoduje dodanie nowego atrybutu "element DocumentID" = "12345678" do zakresu.
 ```json
-{
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
-  "preview": {
-    "processors": [
-      {
-        "type": "span",
-        "name": {
-          "toAttributes": {
-            "rules": [
-              "^/api/v1/document/(?<documentId>.*)/update$"
-            ]
-          }
-        }
+
+"processors": [
+  {
+    "type": "span",
+    "name": {
+      "toAttributes": {
+        "rules": [
+          "rule1",
+          "rule2",
+          "rule3"
+        ]
       }
-    ]
+    }
   }
-}
+]
+
 ```
 
-Poniższy ilustruje zmianę nazwy zakresu na "{operation_website}" i dodanie atrybutu {Key: operation_website, Value: oldSpanName}, gdy zakres ma następujące właściwości:
-- Nazwa zakresu zawiera znak "/" w dowolnym miejscu w ciągu.
-- Nazwa zakresu nie jest "nie odgradzania/Change".
-```json
-{
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
-  "preview": {
-    "processors": [
-      {
-        "type": "span",
-        "include": {
-          "matchType": "regexp",
-          "spanNames": [
-            "^(.*?)/(.*?)$"
-          ]
-        },
-        "exclude": {
-          "matchType": "strict",
-          "spanNames": [
-            "donot/change"
-          ]
-        },
-        "name": {
-          "toAttributes": {
-            "rules": [
-              "(?<operation_website>.*?)$"
-            ]
-          }
-        }
-      }
-    ]
-  }
-}
-```
+## <a name="list-of-attributes"></a>Lista atrybutów
+
+Poniżej wymieniono niektóre typowe atrybuty span, które mogą być używane w procesorach telemetrycznych.
+
+### <a name="http-spans"></a>Zakresy HTTP
+
+| Atrybut  | Typ | Opis | 
+|---|---|---|
+| `http.method` | ciąg | Metoda żądania HTTP.|
+| `http.url` | ciąg | Pełny adres URL żądania HTTP w formularzu `scheme://host[:port]/path?query[#fragment]` . Zwykle fragment nie jest przesyłany za pośrednictwem protokołu HTTP, ale jeśli jest znany, należy go uwzględnić.|
+| `http.status_code` | liczba | [Kod stanu odpowiedzi HTTP](https://tools.ietf.org/html/rfc7231#section-6).|
+| `http.flavor` | ciąg | Rodzaj używanego protokołu HTTP |
+| `http.user_agent` | ciąg | Wartość nagłówka [użytkownika http-agenta](https://tools.ietf.org/html/rfc7231#section-5.5.3) wysyłanego przez klienta. |
+
+### <a name="jdbc-spans"></a>Zakresy JDBC
+
+| Atrybut  | Typ | Opis  |
+|---|---|---|
+| `db.system` | ciąg | Identyfikator używanego produktu zarządzania bazami danych (DBMS). |
+| `db.connection_string` | ciąg | Parametry połączenia używane do nawiązania połączenia z bazą danych. Zaleca się usunięcie osadzonych poświadczeń.|
+| `db.user` | ciąg | Nazwa użytkownika służąca do uzyskiwania dostępu do bazy danych. |
+| `db.name` | ciąg | Ten atrybut służy do raportowania nazwy bazy danych, do której uzyskuje się dostęp. Dla poleceń, które przełączają bazę danych, należy ustawić dla docelowej bazy danych (nawet jeśli polecenie nie powiedzie się).|
+| `db.statement` | ciąg | Wykonanie instrukcji bazy danych.|

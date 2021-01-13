@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 8c51450fb6ce5c381784e6aaf9b1a66c3c4ff153
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 771cf97a5c938fb987c66555c92c23f42b302a10
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188551"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134232"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funkcje bazy danych Apache Cassandra obsługiwane przez interfejs API Cassandra usługi Azure Cosmos DB 
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -84,10 +84,11 @@ Interfejs API Cassandra usługi Azure Cosmos DB obsługuje następujące funkcje
 | Klucza | Tak |
 | czas wygaśnięcia | Tak |
 | writetime | Tak |
-| rzutowanie | Nie |
+| Rzutowanie * * | Tak |
 
-> [!NOTE]
-> \* Interfejs API Cassandra obsługuje token jako projekcję/selektor i zezwala tylko na token (PK) po lewej stronie klauzuli WHERE. Na przykład `WHERE token(pk) > 1024` jest obsługiwany, ale `WHERE token(pk) > token(100)` **nie** jest obsługiwany.
+> [!NOTE] 
+> \* Interfejs API Cassandra obsługuje token jako projekcję/selektor i zezwala tylko na token (PK) po lewej stronie klauzuli WHERE. Na przykład `WHERE token(pk) > 1024` jest obsługiwany, ale `WHERE token(pk) > token(100)` **nie** jest obsługiwany.  
+> \*\*`cast()`Funkcja nie jest zagnieżdżona w interfejs API Cassandra. Na przykład `SELECT cast(count as double) FROM myTable` jest obsługiwany, ale `SELECT avg(cast(count as double)) FROM myTable` **nie** jest obsługiwany.
 
 
 
@@ -184,6 +185,30 @@ Usługa Azure Cosmos DB obsługuje następujące polecenia bazy danych na kontac
 | OBCIĄĆ | Nie |
 | USE | Tak |
 
+## <a name="cql-shell-commands"></a>Polecenia powłoki CQL
+
+Usługa Azure Cosmos DB obsługuje następujące polecenia bazy danych na kontach interfejsu API Cassandra.
+
+|Polecenie  |Obsługiwane |
+|---------|---------|
+| PRZECHWYTYWANIA | Tak |
+| Wyczyść | Tak |
+| ZACHOWANIA | Brak |
+| KOPIOWANE | Nie |
+| WALUT | Tak |
+| cqlshExpand | Nie |
+| Opuść | Tak |
+| IDENTYFIKATORÓW | Nie dotyczy (funkcja CQL `USER` jest nieobsługiwana, dlatego `LOGIN` jest nadmiarowa) |
+| STRONICOWANIA | Tak |
+| SPÓJNOŚĆ SZEREGOWA * | Brak |
+| WSKAZUJĄ | Tak |
+| ŹRÓDŁO | Tak |
+| POCHODZENIA | Nie dotyczy (interfejs API Cassandra jest obsługiwane przez Azure Cosmos DB — używanie [rejestrowania diagnostycznego](cosmosdb-monitor-resource-logs.md) w celu rozwiązywania problemów) |
+
+> [!NOTE] 
+> \* Spójność działa inaczej w Azure Cosmos DB, zobacz [tutaj](cassandra-consistency.md) , aby uzyskać więcej informacji.  
+
+
 ## <a name="json-support"></a>Obsługa JSON
 |Polecenie  |Obsługiwane |
 |---------|---------|
@@ -197,7 +222,7 @@ Usługa Azure Cosmos DB obsługuje następujące polecenia bazy danych na kontac
 
 Interfejs API Cassandra usługi Azure Cosmos DB nie ma żadnych ograniczeń dotyczących rozmiaru danych przechowywanych w tabeli. Można przechowywać setki terabajtów lub petabajtów danych przy zapewnieniu uznania limitów klucza partycji. Podobnie każdy odpowiednik jednostki lub wiersza nie ma żadnych limitów liczby kolumn. Jednak łączny rozmiar jednostki nie powinien przekraczać 2 MB. Dane na klucz partycji nie mogą przekroczyć 20 GB, tak jak w przypadku wszystkich innych interfejsów API.
 
-## <a name="tools"></a>Narzędzia 
+## <a name="tools"></a>narzędzia 
 
 Interfejs API Cassandra usługi Azure Cosmos DB to platforma usług zarządzanych. Nie wymaga żadnego narzutu związanego z zarządzaniem ani narzędzi, takich jak moduł odzyskiwania pamięci, wirtualna maszyna Java (JVM) i narzędzie nodetool do zarządzania klastrem. Obsługuje narzędzia, takie jak cqlsh, korzystające ze zgodności binarnej z językiem CQL w wersji 4. 
 

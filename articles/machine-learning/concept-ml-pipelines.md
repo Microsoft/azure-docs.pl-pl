@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 08/17/2020
+ms.date: 01/11/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: c29ee87ab177357f4289134bb39353c764a0d75b
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: ee3d7d1cf285573db894d64549cf79babb517d95
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535303"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131291"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Co to są Azure Machine Learning potoki?
 
@@ -24,7 +24,7 @@ W tym artykule dowiesz się, jak potoki Azure Machine Learning ułatwiają tworz
 + Zapewni
 + Szybkość
 + Powtarzalność
-+ Wiele możliwości wyboru
++ Elastyczność
 + Przechowywanie wersji i śledzenie
 + Modułowość 
 + Kontrola jakości
@@ -39,9 +39,9 @@ Chmura systemu Azure udostępnia kilka innych potoków, z których każdy ma inn
 
 | Scenariusz | Podstawowa osoba | Oferta platformy Azure | Oferta OSS | Rura kanoniczna | Zalety | 
 | -------- | --------------- | -------------- | ------------ | -------------- | --------- | 
-| Aranżacja modelu (Uczenie maszynowe) | Mistrz danych | Potoki Azure Machine Learning | Potoki Kubeflow | Model > danych | Dystrybucja, buforowanie, kod — pierwsze, ponowne użycie | 
+| Aranżacja modelu (Uczenie maszynowe) | Analityk danych | Potoki Azure Machine Learning | Potoki Kubeflow | Model > danych | Dystrybucja, buforowanie, kod — pierwsze, ponowne użycie | 
 | Aranżacja danych (przygotowanie danych) | Inżynier danych | [Potoki usługi Azure Data Factory](../data-factory/concepts-pipelines-activities.md) | Przepływ dla oprogramowania Apache | Dane > danych | Przemieszczenie silnie wpisane, działania zorientowane na dane |
-| Aranżacja aplikacji kodu & (CI/CD) | Deweloper aplikacji/Ops | [Potoki usługi Azure DevOps](https://azure.microsoft.com/services/devops/pipelines/) | Jenkins | Code + Model — > App/Service | Większość otwartych i elastycznych obsługi działań, kolejek zatwierdzania, faz z kontroli | 
+| Aranżacja aplikacji kodu & (CI/CD) | Deweloper aplikacji/Ops | [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) | Jenkins | Code + Model — > App/Service | Większość otwartych i elastycznych obsługi działań, kolejek zatwierdzania, faz z kontroli | 
 
 ## <a name="what-can-azure-ml-pipelines-do"></a>Do czego służą potoki Azure ML?
 
@@ -107,15 +107,18 @@ experiment = Experiment(ws, 'MyExperiment')
 input_data = Dataset.File.from_files(
     DataPath(datastore, '20newsgroups/20news.pkl'))
 
-output_data = PipelineData("output_data", datastore=blob_store)
-
+dataprep_step = PythonScriptStep(
+    name="prep_data",
+    script_name="dataprep.py",
+    compute_target=cluster,
+    arguments=[input_dataset.as_named_input('raw_data').as_mount(), dataprep_output]
+    )
+output_data = OutputFileDatasetConfig()
 input_named = input_data.as_named_input('input')
 
 steps = [ PythonScriptStep(
     script_name="train.py",
     arguments=["--input", input_named.as_download(), "--output", output_data],
-    inputs=[input_data],
-    outputs=[output_data],
     compute_target=compute_target,
     source_directory="myfolder"
 ) ]
@@ -126,7 +129,9 @@ pipeline_run = experiment.submit(pipeline)
 pipeline_run.wait_for_completion()
 ```
 
-Fragment kodu rozpoczyna się od typowego Azure Machine Learning obiektów, a `Workspace` , a `Datastore` , [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py)i `Experiment` . Następnie kod tworzy obiekty do zatrzymania `input_data` i `output_data` . Tablica `steps` zawiera pojedynczy element, `PythonScriptStep` który będzie używać obiektów danych i jest uruchamiany na `compute_target` . Następnie kod tworzy wystąpienie `Pipeline` samego obiektu, przekazując w obszarze roboczym i w tablicy kroków. Wywołanie `experiment.submit(pipeline)` rozpoczynające uruchomienie potoku usługi Azure ml. Wywołanie bloków do `wait_for_completion()` momentu zakończenia potoku. 
+Fragment kodu rozpoczyna się od typowego Azure Machine Learning obiektów, a `Workspace` , a `Datastore` , [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py)i `Experiment` . Następnie kod tworzy obiekty do zatrzymania `input_data` i `output_data` . `input_data`Jest wystąpieniem elementu [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py&preserve-view=true) i `output_data` jest wystąpieniem elementu [OutputFileDatasetConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true). W przypadku `OutputFileDatasetConfig` domyślnego zachowania należy skopiować dane wyjściowe do magazynu danych `workspaceblobstore` pod ścieżką `/dataset/{run-id}/{output-name}` , gdzie `run-id` jest identyfikatorem uruchomienia i `output-name` jest wartością wygenerowaną automatycznie, jeśli nie została określona przez dewelopera.
+
+Tablica `steps` zawiera pojedynczy element, `PythonScriptStep` który będzie używać obiektów danych i jest uruchamiany na `compute_target` . Następnie kod tworzy wystąpienie `Pipeline` samego obiektu, przekazując w obszarze roboczym i w tablicy kroków. Wywołanie `experiment.submit(pipeline)` rozpoczynające uruchomienie potoku usługi Azure ml. Wywołanie bloków do `wait_for_completion()` momentu zakończenia potoku. 
 
 Aby dowiedzieć się więcej na temat łączenia potoku z danymi, zobacz artykuł [Data Access (dostęp do danych) w Azure Machine Learning](concept-data.md) i [przeniesienie danych do i między etapami potoku (Python)](how-to-move-data-in-out-of-pipelines.md). 
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 62b4629d258f8779dc53b4b8e00684d3b793291d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ab4ae6980af9556f973ece93634b614d01c615e9
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183757"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132668"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Podstawa zabezpieczeń platformy Azure dla API Management
 
@@ -38,7 +38,7 @@ Ruch przychodzący i wychodzący do podsieci, w której wdrożono API Management
 
 * [Korzystanie z usługi Azure API Management z wewnętrzną siecią wirtualną](./api-management-using-with-internal-vnet.md)
 
-* [Integrowanie API Management w wewnętrznej sieci wirtualnej z Application Gateway](./api-management-howto-integrate-internal-vnet-appgateway.md)
+* [Integrowanie usługi API Management w wewnętrznej sieci wirtualnej z usługą Application Gateway](./api-management-howto-integrate-internal-vnet-appgateway.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -189,7 +189,7 @@ Przestroga: podczas konfigurowania sieciowej grupy zabezpieczeń w podsieci API 
 
 Możesz również użyć planów platformy Azure, aby uprościć wdrożenia platformy Azure na dużą skalę przez pakowanie kluczowych artefaktów środowiska, takich jak szablony Azure Resource Manager, kontrola dostępu oparta na rolach (RBAC) na platformie Azure i zasady w ramach jednej definicji planu. Możesz łatwo zastosować plan do nowych subskrypcji, środowisk i dostrajania kontroli i zarządzania przy użyciu wersji.
 
-* [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+* [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
 * [Jak utworzyć Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
@@ -381,7 +381,7 @@ Postępuj zgodnie z zaleceniami Azure Security Center, aby zarządzać i konserw
 
 * [Jak uzyskać definicję roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/az.resources/get-azroledefinition)
 
-* [Informacje o zaleceniach dotyczących tożsamości i dostępu Azure Security Center](../security-center/recommendations-reference.md#recs-identity)
+* [Informacje o zaleceniach dotyczących tożsamości i dostępu Azure Security Center](../security-center/recommendations-reference.md#recs-identityandaccess)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -434,7 +434,7 @@ Alternatywnie proces logowania/tworzenia konta może być dodatkowo dostosowywan
 
 **Wskazówki**: Włączanie Azure Active Directory (AD) Multi-Factor Authentication (MFA) i postępuj zgodnie z zaleceniami dotyczącymi zarządzania tożsamościami i dostępem Azure Security Center.
 
-* [Jak włączyć uwierzytelnianie wieloskładnikowe na platformie Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+* [Jak włączyć usługę MFA na platformie Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 * [Jak monitorować tożsamość i dostęp w Azure Security Center](../security-center/security-center-identity-access.md)
 
@@ -448,7 +448,7 @@ Alternatywnie proces logowania/tworzenia konta może być dodatkowo dostosowywan
 
 * [Dowiedz się więcej o stacjach roboczych uprzywilejowanego dostępu](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-* [Jak włączyć uwierzytelnianie wieloskładnikowe na platformie Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+* [Jak włączyć usługę MFA na platformie Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -624,7 +624,7 @@ Firma Microsoft zarządza podstawową infrastrukturą dla systemu Azure API Mana
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
-**Odpowiedzialność**: Udostępnione
+**Odpowiedzialność**: Współużytkowane
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4,5: Użyj aktywnego narzędzia do odnajdywania, aby identyfikować poufne dane
 
@@ -798,7 +798,7 @@ Ponadto Użyj zasad platformy Azure, aby wprowadzić ograniczenia dotyczące typ
 
 Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasobów w ramach subskrypcji. Upewnij się, że wszystkie zasoby platformy Azure obecne w środowisku są zatwierdzone.
 
-* [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+* [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
 * [Jak tworzyć zapytania za pomocą usługi Azure Graph](../governance/resource-graph/first-query-portal.md)
 
@@ -836,7 +836,7 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasob�
 - Niedozwolone typy zasobów
 - Dozwolone typy zasobów
 
-* [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+* [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
 * [Jak odmówić określonego typu zasobu za pomocą Azure Policy](../governance/policy/samples/index.md)
 
@@ -890,7 +890,7 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasob�
 
 * [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias)
 
-* [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+* [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -908,7 +908,7 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasob�
 
 **Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla usług API Management platformy Azure z Azure Policy. Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. ApiManagement", aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji wystąpień usługi Azure API Management. Użyj zasad platformy Azure [Odmów] i [Wdróż, jeśli nie istnieje], aby wymusić bezpieczne ustawienia dla zasobów platformy Azure.
 
-* [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+* [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
 * [Zrozumienie efektów Azure Policy](../governance/policy/concepts/effects.md)
 
@@ -922,7 +922,7 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasob�
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: Udostępnione
+**Odpowiedzialność**: Współużytkowane
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7,5: bezpiecznie przechowuj konfigurację zasobów platformy Azure
 
@@ -948,7 +948,7 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasob�
 
 **Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla usług API Management platformy Azure z Azure Policy. Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. ApiManagement", aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji wystąpień usługi Azure API Management. Użyj zasad platformy Azure [Odmów] i [Wdróż, jeśli nie istnieje], aby wymusić bezpieczne ustawienia dla zasobów platformy Azure.
 
-* [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+* [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
 * [Zrozumienie efektów Azure Policy](../governance/policy/concepts/effects.md)
 
@@ -970,7 +970,7 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasob�
 
 Ponadto należy definiować i implementować standardowe konfiguracje zabezpieczeń dla usług API Management platformy Azure z Azure Policy. Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. ApiManagement", aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji wystąpień usługi Azure API Management. Użyj zasad platformy Azure [Odmów] i [Wdróż, jeśli nie istnieje], aby wymusić bezpieczne ustawienia dla zasobów platformy Azure.
 
-* [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+* [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
 * [Zrozumienie efektów Azure Policy](../governance/policy/concepts/effects.md)
 
@@ -1010,7 +1010,7 @@ Ponadto należy definiować i implementować standardowe konfiguracje zabezpiecz
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7,13: eliminowanie nieprzewidzianego narażenia na poświadczenia
 
-**Wskazówki**: Implementuj skaner poświadczeń, aby identyfikować poświadczenia w kodzie. Skaner poświadczeń zachęca również do przemieszczania odnalezionych poświadczeń do bardziej bezpiecznych lokalizacji, takich jak Azure Key Vault.
+**Wskazówki**: Implementuj skaner poświadczeń, aby identyfikować poświadczenia w kodzie. Skaner poświadczeń ułatwia również przenoszenie odnalezionych poświadczeń do bezpieczniejszych lokalizacji, takich jak usługa Azure Key Vault.
 
 * [Jak skonfigurować skaner poświadczeń](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
@@ -1122,7 +1122,7 @@ Włącz Soft-Delete w Key Vault, aby chronić klucze przed przypadkowym lub zło
 
 ### <a name="101-create-an-incident-response-guide"></a>10,1: Tworzenie przewodnika odpowiedzi na zdarzenia
 
-**Wskazówki**: Tworzenie przewodnika odpowiedzi na zdarzenia dla organizacji. Upewnij się, że istnieją zarejestrowane plany reakcji na zdarzenia, które definiują wszystkie role pracowników, a także etapy obsługi zdarzeń/zarządzania z wykrywania do oceny po zdarzeniu.
+**Wskazówka**: Utwórz przewodnik odpowiedzi na zdarzenia dla swojej organizacji. Upewnij się, że istnieją zarejestrowane plany reakcji na zdarzenia, które definiują wszystkie role pracowników, a także etapy obsługi zdarzeń/zarządzania od wykrywania do oceny po zdarzeniu.
 
 * [Wskazówki dotyczące tworzenia własnego procesu reagowania na zdarzenia zabezpieczeń](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -1150,7 +1150,7 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład Produkcja, inne niż prod) przy
 
 ### <a name="103-test-security-response-procedures"></a>10,3: procedury odpowiedzi na zabezpieczenia testowe
 
-**Wskazówki**: przeprowadzanie ćwiczeń w celu przetestowania możliwości reagowania na zdarzenia systemów w regularnych erzeach w celu ochrony zasobów platformy Azure. Zidentyfikuj słabe punkty i przerwy i popraw plan zgodnie z wymaganiami.
+**Wskazówki**: przeprowadzanie ćwiczeń w celu przetestowania możliwości reagowania na zdarzenia systemów w regularnych erzeach w celu ochrony zasobów platformy Azure. Zidentyfikuj słabe punkty i przerwy oraz popraw plan zgodnie z wymaganiami.
 
 * [Przewodnik po publikacji NIST, który umożliwia testowanie, uczenie i wykonywanie programów dla planów i możliwości IT](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 
@@ -1202,7 +1202,7 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład Produkcja, inne niż prod) przy
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: Udostępnione
+**Odpowiedzialność**: Współużytkowane
 
 ## <a name="next-steps"></a>Następne kroki
 

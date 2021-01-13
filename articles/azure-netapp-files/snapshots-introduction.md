@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/11/2021
+ms.date: 01/12/2021
 ms.author: b-juche
-ms.openlocfilehash: 4d21f7c4e74a87e409a73b22fc6b316e97e24a4e
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: beadd250ec4472b894f0f474b1057ad44cf474ed
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98122364"
+ms.locfileid: "98133518"
 ---
 # <a name="how-azure-netapp-files-snapshots-work"></a>Jak działają migawki Azure NetApp Files
 
@@ -37,11 +37,11 @@ Poniższe diagramy ilustrują pojęcia:
 
 ![Diagramy pokazujące kluczowe koncepcje migawek](../media/azure-netapp-files/snapshot-concepts.png)
 
-Na wykresach powyżej migawka jest wykonywana na rysunku 1a. Na rysunku 1b zmienione dane są zapisywane w *nowym bloku* , a wskaźnik jest aktualizowany. Jednak wskaźnik migawki nadal wskazuje *wcześniej zapisany blok*, dając na żywo i historyczny widok danych. Inna migawka jest wykonywana na rysunku 1c. Teraz masz dostęp do trzech generacji danych (dane dynamiczne, migawki 2 i migawka 1, w kolejności od wieku), bez wprowadzania miejsca na woluminie, którego wymagają trzy pełne kopie. 
+W diagramach jest wykonywana migawka na rysunku 1a. Na rysunku 1b zmienione dane są zapisywane w *nowym bloku* , a wskaźnik jest aktualizowany. Jednak wskaźnik migawki nadal wskazuje *wcześniej zapisany blok*, dając na żywo i historyczny widok danych. Inna migawka jest wykonywana na rysunku 1c. Teraz masz dostęp do trzech generacji danych (dane dynamiczne, migawki 2 i migawka 1, w kolejności od wieku), bez wprowadzania miejsca na woluminie, którego wymagają trzy pełne kopie. 
 
 Migawka pobiera tylko kopię metadanych woluminu (*tabela inode*). Tworzenie nie trwa zaledwie kilka sekund, niezależnie od rozmiaru woluminu, użytej pojemności lub poziomu aktywności na woluminie. Wykonanie migawki woluminu 100-TiB ma taki sam czas (obok zera), co powoduje utworzenie migawki woluminu 100-GiB. Po utworzeniu migawki zmiany plików danych są odzwierciedlane w aktywnej wersji plików, jak zwykle.
 
-W tym czasie bloki danych, które są wskazywane na podstawie migawki, pozostają stabilne i niezmienne. Ze względu na "Przekierowanie przy zapisie" Azure NetApp Files migawek, migawka nie wiąże się z obciążeniem ani sama nie zużywa żadnego miejsca. Można przechowywać do 255 migawek na wolumin w czasie, z których wszystkie są dostępne jako tylko do odczytu i w trybie online, zużywając jako niewielką pojemność jako liczbę zmienionych bloków między poszczególnymi migawkami. Zmodyfikowane bloki są przechowywane w aktywnym woluminie. Bloki wskazywane przez migawki są przechowywane (jako tylko do odczytu) w woluminie do przechowywania, aby można je było przeznaczyć tylko wtedy, gdy wszystkie migawki (wskaźniki) zostały wyczyszczone. W związku z tym wykorzystanie woluminu zwiększy się z upływem czasu, przez nowe bloki danych lub (zmodyfikowane) bloki danych przechowywane w migawce.
+W tym czasie bloki danych, które są wskazywane na podstawie migawki, pozostają stabilne i niezmienne. Ze względu na "Przekierowanie przy zapisie" Azure NetApp Files woluminów woluminy nie wiążą się z obciążeniem ani nie zużywają żadnego miejsca. Można przechowywać do 255 migawek na wolumin w czasie, z których wszystkie są dostępne jako tylko do odczytu i w trybie online, zużywając jako niewielką pojemność jako liczbę zmienionych bloków między poszczególnymi migawkami. Zmodyfikowane bloki są przechowywane w aktywnym woluminie. Bloki wskazywane przez migawki są przechowywane (jako tylko do odczytu) w woluminie do przechowywania, aby można je było przeznaczyć tylko wtedy, gdy wszystkie wskaźniki (w aktywnym woluminie i migawek) zostały wyczyszczone. W związku z tym wykorzystanie woluminu zwiększy się z upływem czasu, przez nowe bloki danych lub (zmodyfikowane) bloki danych przechowywane w migawce.
 
  Na poniższym diagramie przedstawiono migawki woluminu i zajęte miejsce w czasie: 
 
@@ -56,7 +56,7 @@ Ponieważ migawka woluminu rejestruje tylko zmiany bloków od najnowszej migawki
     Tworzenie, replikowanie, przywracanie lub klonowanie migawek trwa zaledwie kilka sekund, niezależnie od rozmiaru woluminu i poziomu działań. Migawkę woluminu można utworzyć [na żądanie](azure-netapp-files-manage-snapshots.md#create-an-on-demand-snapshot-for-a-volume). Można również użyć [zasad migawek](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies) , aby określić, kiedy Azure NetApp Files ma automatycznie tworzyć migawkę i ile migawek ma zachować dla woluminu.  Spójność aplikacji można osiągnąć przez organizowanie migawek z warstwą aplikacji, na przykład za pomocą [Narzędzia AzAcSnap](azacsnap-introduction.md) na potrzeby SAP HANA.
 
 Migawki nie mają wpływu na **wydajność * wydajności** _.   
-    Ze względu na "Przekierowanie przy zapisie", przechowywanie lub zachowywanie migawek Azure NetApp Files nie ma wpływu na wydajność, nawet z dużym obciążeniem danych. Usuwanie migawki również ma niewielki wpływ na wydajność w wielu przypadkach. 
+    Ze względu na "Przekierowanie przy zapisie", przechowywanie lub zachowywanie migawek Azure NetApp Files nie ma wpływu na wydajność, nawet z dużym obciążeniem danych. Usuwanie migawki również ma niewielki wpływ na wydajność w większości przypadków. 
 
 Migawki zawierają ***skalowalność** _, ponieważ mogą być tworzone często i można zachować wiele.   
     Woluminy Azure NetApp Files obsługują do 255 migawek. Możliwość przechowywania dużej liczby niewielkich wpływów, często tworzonych migawek, zwiększa prawdopodobieństwo pomyślnego przywrócenia odpowiedniej wersji danych.
@@ -66,7 +66,7 @@ Wysoka wydajność, skalowalność i stabilność technologii migawek Azure NetA
 
 ## <a name="ways-to-create-snapshots"></a>Sposoby tworzenia migawek   
 
-Migawki Azure NetApp Files są uniwersalne w użyciu. W związku z tym dostępne są wiele metod tworzenia i konserwowania migawek:
+Do tworzenia i konserwowania migawek można używać kilku metod:
 
 _ Ręcznie (na żądanie), przy użyciu:   
     * [Azure Portal](azure-netapp-files-manage-snapshots.md#create-an-on-demand-snapshot-for-a-volume), [interfejs API REST](/rest/api/netapp/snapshots), [Azure CLI](/cli/azure/netappfiles/snapshot)lub narzędzia [PowerShell](/powershell/module/az.netappfiles/new-aznetappfilessnapshot)
@@ -78,7 +78,7 @@ _ Ręcznie (na żądanie), przy użyciu:
 
 ## <a name="how-volumes-and-snapshots-are-replicated-cross-region-for-dr"></a>Jak woluminy i migawki są replikowane w wielu regionach na potrzeby odzyskiwania po awarii  
 
-Azure NetApp Files obsługuje [replikację między regionami](cross-region-replication-introduction.md) na potrzeby odzyskiwania po awarii (Dr). Azure NetApp Files replikacji między regionami używa technologii SnapMirror. Tylko zmienione bloki są wysyłane przez sieć w skompresowanym, wydajnym formacie. Po zainicjowaniu replikacji między różnymi regionami między woluminami cała zawartość woluminu (czyli bloków przechowywanych danych) jest transferowana tylko raz. Ta operacja jest nazywana *transferem bazowym*. Po przeniesieniu początkowym transferowane są tylko zmienione bloki (przechwycone w migawce). Tworzona jest asynchroniczna replika 1:1 woluminu źródłowego (łącznie ze wszystkimi migawkami).  To zachowanie jest zgodne z mechanizmem replikacji pełnej i przyrostowej. Ta technologia własnościowa minimalizuje ilość danych wymaganych do replikacji w regionach, co pozwala zaoszczędzić koszty transferu danych. Skraca również czas replikacji. Istnieje możliwość osiągnięcia mniejszego celu punktu odzyskiwania (RPO), ponieważ więcej migawek można tworzyć i przenosić częściej przy użyciu ograniczonych transferów danych.
+Azure NetApp Files obsługuje [replikację między regionami](cross-region-replication-introduction.md) na potrzeby odzyskiwania po awarii (Dr). Azure NetApp Files replikacji między regionami używa technologii SnapMirror. Tylko zmienione bloki są wysyłane przez sieć w skompresowanym, wydajnym formacie. Po zainicjowaniu replikacji między różnymi regionami między woluminami cała zawartość woluminu (czyli bloków przechowywanych danych) jest transferowana tylko raz. Ta operacja jest nazywana *transferem bazowym*. Po przeniesieniu początkowym transferowane są tylko zmienione bloki (przechwycone w migawce). Wynikiem jest asynchroniczna replika 1:1 woluminu źródłowego, w tym wszystkie migawki. To zachowanie jest zgodne z mechanizmem replikacji pełnej i przyrostowej. Ta technologia minimalizuje ilość danych wymaganych do replikacji w regionach, co pozwala zaoszczędzić koszty transferu danych. Skraca również czas replikacji. Istnieje możliwość osiągnięcia mniejszego celu punktu odzyskiwania (RPO), ponieważ więcej migawek można tworzyć i przenosić częściej przy użyciu ograniczonych transferów danych. Ponadto nie ma potrzeby stosowania mechanizmów replikacji opartych na hoście, co pozwala uniknąć ponoszenia opłat za maszyny wirtualne i licencje na oprogramowanie.
 
 Na poniższym diagramie przedstawiono ruch migawek w scenariuszach replikacji między regionami: 
 
@@ -90,7 +90,7 @@ Technologia Azure NetApp Files migawka znacznie zwiększa częstotliwość i nie
 
 ### <a name="restoring-files-or-directories-from-snapshots"></a>Przywracanie plików lub katalogów z migawek 
 
-Jeśli [widoczność ścieżki migawek](azure-netapp-files-manage-snapshots.md#edit-the-hide-snapshot-path-option) nie jest ukryta, użytkownicy mogą uzyskiwać dostęp bezpośrednio do migawek w celu odzyskiwania po przypadkowym usunięciu, uszkodzeniu lub modyfikacji danych. Zabezpieczenia plików i katalogów są zachowywane w migawce, a migawki są tylko do odczytu według konstrukcji. W związku z tym przywracanie jest bezpieczne i proste. 
+Jeśli [widoczność ścieżki migawek](azure-netapp-files-manage-snapshots.md#edit-the-hide-snapshot-path-option) nie jest ustawiona na `hidden` , użytkownicy mogą uzyskiwać dostęp bezpośrednio do migawek w celu odzyskiwania po przypadkowym usunięciu, uszkodzeniu lub modyfikacji danych. Zabezpieczenia plików i katalogów są zachowywane w migawce, a migawki są tylko do odczytu według konstrukcji. W związku z tym przywracanie jest bezpieczne i proste. 
 
 Na poniższym diagramie przedstawiono dostęp do pliku lub katalogu do migawki: 
 
@@ -124,7 +124,7 @@ Zobacz [przywracanie migawki do nowego woluminu](azure-netapp-files-manage-snaps
 
 ### <a name="restoring-reverting-a-snapshot-in-place"></a>Przywracanie (Przywracanie) migawki w miejscu
 
-W niektórych przypadkach, ponieważ nowy wolumin będzie zużywał pojemność magazynu, utworzenie nowego woluminu na podstawie migawki może być niepotrzebne lub nie jest wymagane. W celu szybkiego odzyskania sprawności przed uszkodzeniem danych (na przykład uszkodzenie bazy danych lub atakami z wykorzystaniem oprogramowania wymuszającego okup) może być bardziej odpowiednie przywrócenie migawki w samym woluminie. Tę operację można wykonać przy użyciu funkcji przywracania migawek Azure NetApp Files. Ta funkcja umożliwia szybkie przywrócenie woluminu do stanu, w którym został wykonany określony migawkę. W większości przypadków przywrócenie woluminu jest znacznie szybsze niż przywrócenie pojedynczych plików z migawki do aktywnego systemu plików, szczególnie w przypadku dużych woluminów TiB. 
+W niektórych przypadkach, ponieważ nowy wolumin będzie zużywał pojemność magazynu, utworzenie nowego woluminu na podstawie migawki może być niepotrzebne lub nie jest wymagane. Aby szybko odzyskać dane po uszkodzeniu danych (na przykład o uszkodzeniu bazy danych lub atakach z wykorzystaniem oprogramowania wymuszającego okup), może być bardziej odpowiednie do przywrócenia migawki w samym woluminie. Tę operację można wykonać przy użyciu funkcji przywracania migawek Azure NetApp Files. Ta funkcja umożliwia szybkie przywrócenie woluminu do stanu, w którym został wykonany określony migawkę. W większości przypadków przywrócenie woluminu jest znacznie szybsze niż przywrócenie pojedynczych plików z migawki do aktywnego systemu plików, szczególnie w przypadku dużych woluminów TiB. 
 
 Przywrócenie migawki woluminu jest niemal chwilowe i trwa zaledwie kilka sekund, nawet w przypadku największych woluminów. Metadane woluminu aktywnego (*tabela inode*) są zastępowane metadanymi migawek od momentu utworzenia migawki, a tym samym wycofywanie woluminu do tego określonego punktu w czasie. Nie trzeba kopiować bloków danych, aby przywracanie zaczęło obowiązywać. W związku z tym większa ilość miejsca jest wydajna niż przywracanie migawki do nowego woluminu. 
 
@@ -142,11 +142,11 @@ Zobacz [przywracanie woluminu przy użyciu migawki przywracanie](azure-netapp-fi
 Migawki wykorzystują pojemność magazynu. W związku z tym nie są one zazwyczaj przechowywane przez czas nieokreślony. W celu zapewnienia ochrony, przechowywania i odzyskiwania danych wiele migawek (tworzonych w różnych punktach w czasie) jest zwykle w trybie online, w zależności od wymagań dotyczących punktu odzyskiwania, RTO i umowy SLA dotyczącej przechowywania. Jednak starsze migawki często nie muszą być przechowywane w usłudze magazynu i może być konieczne ich usunięcie w celu zwolnienia miejsca. Każda migawka może zostać usunięta (niekoniecznie w kolejności tworzenia) przez administratora w dowolnym momencie. 
 
 > [!IMPORTANT]
-> Operacji usuwania migawki nie można cofnąć. 
+> Operacji usuwania migawki nie można cofnąć. Kopie zapasowe woluminów w trybie offline należy zachować na potrzeby ochrony danych i ich przechowywania. 
 
 Po usunięciu migawki wszystkie wskaźniki z tej migawki do istniejących bloków danych zostaną usunięte. Gdy blok danych nie ma więcej wskaźników wskazujących na niego (przez aktywny wolumin lub inne migawki w woluminie), blok danych jest zwracany do wolnego miejsca na woluminie do użytku w przyszłości. W związku z tym usunięcie migawek zwykle zwalnia więcej pojemności woluminu niż usuwanie danych z aktywnego woluminu, ponieważ bloki danych często są przechwytywane w wcześniej utworzonych migawkach. 
 
-Na poniższym diagramie przedstawiono efekt użycia magazynu przez usunięcie migawki dla woluminu:  
+Na poniższym diagramie przedstawiono wpływ usunięcia z woluminu Snapshot 3 z magazynu na dysk:  
 
 ![Diagram przedstawiający efekt użycia magazynu przez usunięcie migawki](../media/azure-netapp-files/snapshot-delete-storage-consumption.png)
 

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 4b44a8375bc13709959e2401f9d772fdeab00f52
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: 9befe33f70341f218c3339a13dcc1d31dc452d34
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97808610"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132320"
 ---
 > [!IMPORTANT]
 > Kod w tym artykule używa metod synchronicznych i niezabezpieczonych magazynów poświadczeń z przyczyn uproszczenia.
@@ -113,8 +113,8 @@ Za pomocą aparatu rozpoznawania formularzy można utworzyć dwa różne typy kl
 `FormRecognizerClient` zawiera operacje dla:
 
  - Rozpoznawanie pól formularzy i zawartości przy użyciu modeli niestandardowych przeszkolonych w celu rozpoznawania formularzy niestandardowych.  Te wartości są zwracane w kolekcji `RecognizedForm` obiektów. Zobacz przykład [Analizowanie formularzy niestandardowych](#analyze-forms-with-a-custom-model).
- - Rozpoznawanie zawartości formularza, w tym tabel, wierszy i słów, bez konieczności uczenia modelu.  Zawartość formularza jest zwracana w kolekcji `FormPage` obiektów. Zobacz przykład [Rozpoznaj zawartość formularza](#recognize-form-content).
- - Rozpoznawanie typowych pól z paragonów w Stanach Zjednoczonych przy użyciu wstępnie przeszkolonego modelu paragonów w usłudze aparat rozpoznawania formularzy. Te pola i meta dane są zwracane w kolekcji `RecognizedForm` obiektów. Zobacz przykład [rozpoznawania przyjęć](#recognize-receipts).
+ - Rozpoznawanie zawartości formularza, w tym tabel, wierszy i słów, bez konieczności uczenia modelu.  Zawartość formularza jest zwracana w kolekcji `FormPage` obiektów. Zobacz przykład [Analizowanie układu](#analyze-layout).
+ - Rozpoznawanie typowych pól z paragonów w Stanach Zjednoczonych przy użyciu wstępnie przeszkolonego modelu paragonów w usłudze aparat rozpoznawania formularzy. Te pola i meta dane są zwracane w kolekcji `RecognizedForm` obiektów. Zobacz przykład [Analizowanie potwierdzeń](#analyze-receipts).
 
 ### <a name="formtrainingclient"></a>FormTrainingClient
 
@@ -137,8 +137,8 @@ Te fragmenty kodu przedstawiają sposób wykonywania następujących zadań za p
 #### <a name="version-20"></a>[Wersja 2,0](#tab/ga)
 
 * [Uwierzytelnianie klienta](#authenticate-the-client)
-* [Rozpoznaj zawartość formularza](#recognize-form-content)
-* [Rozpoznawaj potwierdzenia](#recognize-receipts)
+* [Analizowanie układu](#analyze-layout)
+* [Analizuj potwierdzenia](#analyze-receipts)
 * [Trenowanie modelu niestandardowego](#train-a-custom-model)
 * [Analizowanie formularzy przy użyciu modelu niestandardowego](#analyze-forms-with-a-custom-model)
 * [Zarządzanie modelami niestandardowymi](#manage-your-custom-models)
@@ -146,10 +146,10 @@ Te fragmenty kodu przedstawiają sposób wykonywania następujących zadań za p
 #### <a name="version-21-preview"></a>[Wersja 2,1 Preview](#tab/preview)
 
 * [Uwierzytelnianie klienta](#authenticate-the-client)
-* [Rozpoznaj zawartość formularza](#recognize-form-content)
-* [Rozpoznawaj potwierdzenia](#recognize-receipts)
-* [Rozpoznawanie wizytówek](#recognize-business-cards)
-* [Rozpoznaj faktury](#recognize-invoices)
+* [Analizowanie układu](#analyze-layout)
+* [Analizuj potwierdzenia](#analyze-receipts)
+* [Analizowanie kart służbowych](#analyze-business-cards)
+* [Analizuj faktury](#analyze-invoices)
 * [Trenowanie modelu niestandardowego](#train-a-custom-model)
 * [Analizowanie formularzy przy użyciu modelu niestandardowego](#analyze-forms-with-a-custom-model)
 * [Zarządzanie modelami niestandardowymi](#manage-your-custom-models)
@@ -189,7 +189,7 @@ Należy również dodać odwołania do adresów URL dla danych szkoleniowych i t
 ---
 
 
-## <a name="recognize-form-content"></a>Rozpoznaj zawartość formularza
+## <a name="analyze-layout"></a>Analizowanie układu
 
 Aparat rozpoznawania formularzy służy do rozpoznawania tabel, wierszy i słów w dokumentach, bez konieczności uczenia modelu. Zwracana wartość jest kolekcją obiektów **FormPage** : jeden dla każdej strony w przesłanym dokumencie. 
 
@@ -239,7 +239,7 @@ Table 0 has 2 rows and 6 columns.
     Cell (1, 5) contains text: 'PT'.
 ```
 
-## <a name="recognize-receipts"></a>Rozpoznawaj potwierdzenia
+## <a name="analyze-receipts"></a>Analizuj potwierdzenia
 
 W tej sekcji przedstawiono sposób rozpoznawania i wyodrębniania typowych pól z paragonów w Stanach Zjednoczonych przy użyciu wstępnie przeszkolonego modelu paragonów.
 
@@ -298,7 +298,7 @@ Item:
 Total: '1203.39', with confidence '0.774'
 ```
 
-## <a name="recognize-business-cards"></a>Rozpoznawanie wizytówek
+## <a name="analyze-business-cards"></a>Analizowanie kart służbowych
 
 #### <a name="version-20"></a>[Wersja 2,0](#tab/ga)
 
@@ -323,7 +323,7 @@ Zwracana wartość jest kolekcją `RecognizedForm` obiektów: jeden dla każdej 
 
 ---
 
-## <a name="recognize-invoices"></a>Rozpoznaj faktury
+## <a name="analyze-invoices"></a>Analizuj faktury
 
 #### <a name="version-20"></a>[Wersja 2,0](#tab/ga)
 

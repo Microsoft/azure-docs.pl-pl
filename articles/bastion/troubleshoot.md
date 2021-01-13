@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: troubleshooting
 ms.date: 10/16/2019
 ms.author: charwen
-ms.openlocfilehash: d4f5d4b7fed8f14f048794616ee272342d1e8343
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 23b7a66afcc91cf1cf4a5dd9f720aad24ad40071
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915559"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133994"
 ---
 # <a name="troubleshoot-azure-bastion"></a>Rozwiązywanie problemów z usługą Azure Bastion
 
@@ -22,11 +22,7 @@ W tym artykule opisano sposób rozwiązywania problemów z usługą Azure bastio
 
 **P:** Podczas próby utworzenia sieciowej grupy zabezpieczeń w podsieci Azure bastionu otrzymuję następujący błąd: *"sieciowa Grupa zabezpieczeń nie <NSG name> ma niezbędnych reguł dla usługi Azure bastionu Subnet AzureBastionSubnet"*.
 
-Odp **.:** Jeśli utworzysz i zastosujesz sieciowej grupy zabezpieczeń do *AzureBastionSubnet*, upewnij się, że dodano następujące reguły w sieciowej grupy zabezpieczeń. Jeśli nie dodasz tych reguł, tworzenie sieciowej grupy zabezpieczeń/aktualizacja zakończy się niepowodzeniem.
-
-1. Łączność między płaszczyznami kontrolnymi — ruch przychodzący na 443 z bramy
-2. Rejestrowanie diagnostyczne i inne — ruch wychodzący w dniu 443 do AzureCloud (Tagi regionalne w tym tagu usługi nie są jeszcze obsługiwane).
-3. Docelowa maszyna wirtualna — ruch wychodzący dla 3389 i 22 do VirtualNetwork
+Odp **.:** Jeśli utworzysz i zastosujesz sieciowej grupy zabezpieczeń do *AzureBastionSubnet*, upewnij się, że dodano wymagane reguły do sieciowej grupy zabezpieczeń. Aby uzyskać listę wymaganych reguł, zobacz [Praca z sieciowej grupy zabezpieczeń Access i Azure bastionu](./bastion-nsg.md). Jeśli nie dodasz tych reguł, tworzenie sieciowej grupy zabezpieczeń/aktualizacja zakończy się niepowodzeniem.
 
 Przykład reguł sieciowej grupy zabezpieczeń jest dostępny dla celów referencyjnych w [szablonie szybkiego startu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion-nsg).
 Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące sieciowej grupy zabezpieczeń dla usługi Azure bastionu](bastion-nsg.md).

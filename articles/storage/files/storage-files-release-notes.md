@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 739e59ea8e5737abbc6f0f0799129be5f59fb9b0
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 3bf3ecefb17f4c9fda6405da7fb2bdc2650f5324
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674501"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131478"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Informacje o wersji agenta usługi Azure File Sync
 Usługa Azure File Sync umożliwia scentralizowanie udziałów plików Twojej organizacji w usłudze Azure Files bez rezygnacji z elastyczności, wydajności i zgodności lokalnego serwera plików. Instalacje systemów Windows Server są przekształcane w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Możesz mieć dowolną potrzebną Ci liczbę pamięci podręcznych na całym świecie.
@@ -38,12 +38,12 @@ Następujące wersje agenta Azure File Sync wygasły i nie są już obsługiwane
 
 | Rozwoju | Numer wersji agenta | Data wydania | Stan |
 |----|----------------------|--------------|------------------|
-| Wersja wersji 7 | 7.0.0.0 - 7.2.0.0 | Nie dotyczy | Nieobsługiwane — wersje agenta wygasły 1 września 2020 |
-| Wydanie w wersji 6 | 6.0.0.0 - 6.3.0.0 | Nie dotyczy | Nieobsługiwane — wersje agenta wygasły 21 kwietnia 2020 |
-| Wersja V5 | 5.0.2.0 - 5.2.0.0 | Nie dotyczy | Nieobsługiwane — wersje agenta wygasły 18 marca, 2020 |
-| Wersja v4 | 4.0.1.0 - 4.3.0.0 | Nie dotyczy | Nieobsługiwane — wersje agenta wygasły 6 listopada, 2019 |
-| Wersja V3 | 3.1.0.0 - 3.4.0.0 | Nie dotyczy | Nieobsługiwane — wersje agenta wygasły 19 sierpnia 2019 |
-| Agenci wstępnie GA | 1.1.0.0 — 3.0.13.0 | Nie dotyczy | Nieobsługiwane — wersje agenta wygasły 1 października 2018 |
+| Wersja wersji 7 | 7.0.0.0 - 7.2.0.0 | Brak | Nieobsługiwane — wersje agenta wygasły 1 września 2020 |
+| Wydanie w wersji 6 | 6.0.0.0 - 6.3.0.0 | Brak | Nieobsługiwane — wersje agenta wygasły 21 kwietnia 2020 |
+| Wersja V5 | 5.0.2.0 - 5.2.0.0 | Brak | Nieobsługiwane — wersje agenta wygasły 18 marca, 2020 |
+| Wersja v4 | 4.0.1.0 - 4.3.0.0 | Brak | Nieobsługiwane — wersje agenta wygasły 6 listopada, 2019 |
+| Wersja V3 | 3.1.0.0 - 3.4.0.0 | Brak | Nieobsługiwane — wersje agenta wygasły 19 sierpnia 2019 |
+| Agenci wstępnie GA | 1.1.0.0 — 3.0.13.0 | Brak | Nieobsługiwane — wersje agenta wygasły 1 października 2018 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Zasady aktualizacji agenta usługi Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
@@ -236,14 +236,14 @@ Poniższe informacje o wersji dotyczą wersji 9.0.0.0 agenta Azure File Sync (wy
 ### <a name="improvements-and-issues-that-are-fixed"></a>Ulepszenia i problemy, które zostały naprawione
 
 - Obsługa przywracania samoobsługowego
-    - Użytkownicy mogą teraz przywracać pliki przy użyciu poprzedniej wersji funkcji. Przed wydaniem V9 funkcja poprzedniej wersji nie była obsługiwana na woluminach, na których włączono obsługę warstw w chmurze. Ta funkcja musi być włączona osobno dla każdego woluminu, na którym istnieje punkt końcowy z włączoną obsługą warstw w chmurze. Aby dowiedzieć się więcej, zobacz  
+    - Użytkownicy mogą teraz również przywracać pliki warstwowe (wraz z plikami dysku) przy użyciu poprzedniej wersji, z migawek VSS utworzonych po włączeniu funkcji przywracania samoobsługowego na woluminie. W systemach starszych niż wersja V9 funkcja poprzedniej wersji nie była obsługiwana dla plików warstwowych. Ta funkcja musi być włączona osobno dla każdego woluminu, na którym istnieje punkt końcowy z włączoną obsługą warstw w chmurze. Aby dowiedzieć się więcej, zobacz  
 [Samoobsługowe Przywracanie za poorednictwem wcześniejszych wersji i usługi VSS (usługa kopiowania woluminów w tle)](./storage-sync-files-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service). 
  
 - Obsługa większych rozmiarów udziałów plików 
     - Azure File Sync obsługuje teraz do 64TiB i 100 000 000 plików w pojedynczej, synchronizowanej przestrzeni nazw.  
  
 - Obsługa deduplikacji danych na serwerze 2019 
-    - Funkcja deduplikacji danych jest teraz obsługiwana w przypadku obsługi warstw w chmurze w systemie Windows Server 2019. Aby zapewnić obsługę deduplikacji danych na woluminach z obsługą warstw w chmurze, należy zainstalować usługę Windows Update [KB4520062](https://support.microsoft.com/help/4520062) . 
+    - Funkcja deduplikacji danych jest teraz obsługiwana (niezależnie od tego, czy obsługa warstw w chmurze jest włączona, czy wyłączona w co najmniej jednym punkcie końcowym serwera na woluminie) w systemach Windows Server 2016 i Windows Server 2019. Aby zapewnić obsługę deduplikacji danych na woluminach z obsługą warstw w chmurze na serwerze 2019, należy zainstalować usługę Windows Update [KB4520062](https://support.microsoft.com/help/4520062) . 
  
 - Ulepszony minimalny rozmiar pliku na warstwę 
     - Minimalny rozmiar pliku do warstwy jest teraz oparty na rozmiarze klastra systemu plików (podwójny rozmiar klastra systemu plików). Na przykład Domyślnie rozmiar klastra systemu plików NTFS to 4 KB, a minimalny rozmiar pliku do warstwy to rozmiarze 8 KB. 

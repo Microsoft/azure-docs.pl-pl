@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f39380e253d3fa9e86bfea3a8c436862738ff8e3
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 213b973bfc93cb2237473b6bc4c7f1e138457409
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359935"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131903"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Zawsze włączona Grupa dostępności na SQL Server na maszynach wirtualnych platformy Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -62,7 +62,7 @@ Aby rozpocząć, zobacz [Konfigurowanie modułu równoważenia obciążenia](ava
 
 ### <a name="dnn-listener"></a>Odbiornik nazwy sieci rozproszonej
 
-SQL Server 2019 CU8 wprowadza obsługę odbiornika nazwy sieci rozproszonej (DNN). Odbiornik DNN zastępuje tradycyjną funkcję odbiornika grupy dostępności, negację modułu równoważenia obciążenia platformy Azure, aby kierować ruchem w sieci platformy Azure. 
+SQL Server 2019 CU8 wprowadza obsługę odbiornika nazwy sieci rozproszonej (DNN). Odbiornik DNN zastępuje tradycyjnego odbiornika grupy dostępności, negacji konieczności Azure Load Balancer kierowania ruchu sieciowego w sieci platformy Azure. 
 
 Odbiornik DNN jest zalecanym rozwiązaniem łączności HADR Cluster na platformie Azure, ponieważ upraszcza wdrażanie, zmniejsza konserwację i koszty oraz zmniejsza czas pracy w trybie failover w przypadku awarii. 
 
@@ -71,7 +71,7 @@ Użyj odbiornika DNN, aby zastąpić istniejący odbiornik VNN lub użyć go w p
 Aby rozpocząć, zobacz [Konfigurowanie odbiornika DNN](availability-group-distributed-network-name-dnn-listener-configure.md).
 
 
-## <a name="deployment"></a>Wdrożenie 
+## <a name="deployment"></a>Wdrażanie 
 
 Istnieje wiele opcji wdrażania grupy dostępności do SQL Server na maszynach wirtualnych platformy Azure, a w przypadku większej automatyzacji niż inne. 
 
@@ -80,7 +80,7 @@ Poniższa tabela zawiera porównanie dostępnych opcji:
 | | Azure Portal | Interfejs wiersza polecenia platformy Azure/PowerShell | Szablony szybkiego startu | Ręcznie |
 |---------|---------|---------|---------|---------|
 |**Wersja programu SQL Server** |2016 + |2016 +|2016 +|2012 +|
-|**Wydanie programu SQL Server** |Enterprise |Enterprise |Enterprise |Enterprise, standard|
+|**Wydanie programu SQL Server** |Przedsiębiorstwa |Przedsiębiorstwa |Przedsiębiorstwa |Enterprise, standard|
 |**Wersja systemu Windows Server**| 2016 + | 2016 + | 2016 + | Wszystko|
 |**Tworzy dla Ciebie klaster**|Tak|Tak | Tak |Nie|
 |**Tworzy grupę dostępności dla Ciebie** |Tak |Nie|Nie|Nie|

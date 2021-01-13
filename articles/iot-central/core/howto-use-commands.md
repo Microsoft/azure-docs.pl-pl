@@ -7,12 +7,12 @@ ms.date: 01/07/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: dd05a4880bdf077f63dc58575828e6180e415260
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 52872175eb799785674c331ad4d687ff8ef427a4
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98122354"
+ms.locfileid: "98134283"
 ---
 # <a name="how-to-use-commands-in-an-azure-iot-central-solution"></a>Jak używać poleceń w rozwiązaniu IoT Central platformy Azure
 
@@ -219,10 +219,8 @@ Poniższy zrzut ekranu przedstawia IoT Central interfejs użytkownika po odebran
 
 W tej sekcji pokazano, jak urządzenie obsługuje polecenie w trybie offline. Jeśli urządzenie jest w trybie online, może obsłużyć polecenie w trybie offline zaraz po odebraniu. Jeśli urządzenie jest w trybie offline, obsługuje polecenie offline po kolejnym nawiązaniu połączenia z IoT Central. Urządzenia nie mogą wysyłać wartości zwracanej w odpowiedzi na polecenie w trybie offline.
 
-Poniższy fragment kodu przedstawia sposób, w jaki urządzenie może zaimplementować polecenie w trybie offline:
-
 > [!NOTE]
-> W tym artykule użyto Node.js dla uproszczenia. Aby zapoznać się z innymi przykładami języka, zobacz samouczek [Tworzenie i łączenie aplikacji klienckiej z aplikacją platformy Azure IoT Central](tutorial-connect-device.md) .
+> W tym artykule użyto Node.js dla uproszczenia.
 
 Poniższy zrzut ekranu przedstawia polecenie offline o nazwie **GenerateDiagnostics**. Parametr request jest obiektem z właściwością DateTime o nazwie **StartTime** i właściwością wyliczenia Integer o nazwie **Bank**:
 

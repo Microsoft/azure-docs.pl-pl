@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: dfea6d531dfb87a5344c5d8e53570b6e1ae8e598
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 599bb93e747acf504a4ebf43aaea771ed5064886
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98049324"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131393"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Zrozumienie modeli bliźniaczych w usłudze Azure Digital bliźniaczych reprezentacji
 
@@ -140,7 +140,7 @@ Podczas projektowania modeli w celu odzwierciedlenia jednostek w środowisku prz
 
 Korzystanie z modeli opartych na standardach branżowych lub użycie standardowej reprezentacji Ontology, takiej jak RDF lub OWL, zapewnia rozbudowany punkt początkowy podczas projektowania modeli bliźniaczych reprezentacji cyfrowych platformy Azure. Korzystanie z modeli branżowych ułatwia również standaryzację i udostępnianie informacji.
 
-Aby można było korzystać z usługi Azure Digital bliźniaczych reprezentacji, model musi być przedstawiony w formacie JSON-LD-based [**Digital bliźniaczych reprezentacji Definition Language (DTDL)**](concepts-models.md). W związku z tym w tym artykule opisano sposób reprezentowania modeli branżowych w programie DTDL, które integrują istniejące koncepcje branżowe z semantyką DTDL, tak aby usługa Azure Digital bliźniaczych reprezentacji mogła z nich korzystać. Model DTDL służy następnie jako źródło prawdy dla modelu w usłudze Azure Digital bliźniaczych reprezentacji.
+Aby można było korzystać z usługi Azure Digital bliźniaczych reprezentacji, model musi być przedstawiony w formacie JSON-LD-based [**Digital bliźniaczych reprezentacji Definition Language (DTDL)**](concepts-models.md). W związku z tym, aby użyć modelu branżowego, należy najpierw przekonwertować go na DTDL, aby można było z niego korzystać w usłudze Azure Digital bliźniaczych reprezentacji. Model DTDL służy następnie jako źródło prawdy dla modelu w usłudze Azure Digital bliźniaczych reprezentacji.
 
 Istnieją dwie główne ścieżki do integrowania modeli standardowych branżowych z DTDL, w zależności od sytuacji:
 * Jeśli nie masz jeszcze możliwości tworzenia modeli, możesz je zaprojektować wokół **istniejących starterów DTDL ontologie** , które zawierają język charakterystyczny dla Twojej branży.

@@ -10,39 +10,43 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: ed57c496443c9d1541bfa9933e7718213da116d7
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 1fd4279cd35e54e2e04f88973c4a825218a75142
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845608"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131133"
 ---
-# <a name="business-card-concepts"></a>Pojęcia dotyczące wizytówek
+# <a name="form-recognizer-prebuilt-business-cards-model"></a>Model wbudowanych kart roboczych aparatu rozpoznawania formularzy 
 
-Aparat rozpoznawania formularzy platformy Azure umożliwia analizowanie i wyodrębnianie informacji kontaktowych z kart służbowych przy użyciu jednego z wbudowanych modeli. Interfejs API wizytówki łączy zaawansowane funkcje optycznego rozpoznawania znaków (OCR) z naszą kartą biznesową, aby wyodrębnić informacje o kluczu z kart służbowych w języku angielskim. Wyodrębnia on osobiste informacje kontaktowe, nazwę firmy, stanowisko i nie tylko. Prebudowany interfejs API kart służbowych jest publicznie dostępny w postaci aparatu rozpoznawania w wersji zapoznawczej. 
+Aparat rozpoznawania formularzy platformy Azure umożliwia analizowanie i wyodrębnianie informacji kontaktowych z kart służbowych przy użyciu wbudowanego modelu kart służbowych. Łączy ona zaawansowane funkcje optycznego rozpoznawania znaków (OCR) z naszymi kartami biznesowymi, aby wyodrębnić informacje o kluczu z kart służbowych w języku angielskim. Wyodrębnia on osobiste informacje kontaktowe, nazwę firmy, stanowisko i nie tylko. Prebudowany interfejs API kart służbowych jest publicznie dostępny w postaci aparatu rozpoznawania w wersji zapoznawczej. 
 
-## <a name="what-does-the-business-card-api-do"></a>Do czego służy interfejs API wizytówek?
+## <a name="what-does-the-business-card-service-do"></a>Co robi usługa wizytówek?
 
-Interfejs API karty biznesowej wyodrębnia pola kluczy z kart służbowych i zwraca je w zorganizowanej odpowiedzi JSON.
+Prebudowany interfejs API kart służbowych wyodrębnia pola kluczy z kart służbowych i zwraca je w zorganizowanej odpowiedzi JSON.
 
-![Obraz przedstawiający elementy contoso z FOTT + dane wyjściowe JSON](./media/business-card-english.jpg)
+![Obraz przedstawiający elementy contoso z FOTT + dane wyjściowe JSON](./media/business-card-example.jpg)
+
+
 
 ### <a name="fields-extracted"></a>Wyodrębnione pola:
 
-* Nazwy kontaktów 
-  * Imiona
-  * Nazwiska
-* Nazwy firm 
-* Działy 
-* Tytuły zadań 
-* Wiadomości e-mail 
-* Witryny internetowe 
-* Adresy 
-* Numery telefonów 
-  * Telefony komórkowe 
-  * Faksów 
-  * Telefony służbowe 
-  * Inne telefony 
+|Nazwa| Typ | Opis | Tekst | 
+|:-----|:----|:----|:----|
+| Contacters | Tablica obiektów | Nazwa kontaktu wyodrębniona z karty biznesowej | [{"FirstName": "Jan", "LastName": "Nowak"}] |
+| FirstName (Imię) | ciąg | Imię i nazwisko osoby kontaktowej | Zawierają | 
+| LastName (Nazwisko) | ciąg | Nazwisko osoby kontaktowej (rodzina) |   Kowalski | 
+| CompanyNames | tablica ciągów | Nazwa firmy wyodrębniona z karty biznesowej | ["Contoso"] | 
+| Działy | tablica ciągów | Dział lub organizacja kontaktu | ["R&D"] | 
+| JobTitles | tablica ciągów | Lista tytułów zadań kontaktu | ["Inżynieria oprogramowania"] | 
+| Wiadomości e-mail | tablica ciągów | Kontaktowy adres e-mail wyodrębniony z karty biznesowej | ["johndoe@contoso.com"] | 
+| Witryny internetowe | tablica ciągów | Witryna internetowa wyodrębniona z karty biznesowej | ["https://www.contoso.com"] | 
+| Adresy | tablica ciągów | Adres wyodrębniony z karty biznesowej | ["123 główna ulica, Redmond, WA 98052"] | 
+| MobilePhones | Tablica numerów telefonów | Numer telefonu komórkowego wyodrębniony z karty biznesowej | ["+ 19876543210"] |
+| Faksów | Tablica numerów telefonów | Numer telefonu faksu wyodrębniony z karty biznesowej | ["+ 19876543211"] |
+| WorkPhones | Tablica numerów telefonów | Numer telefonu służbowego wyodrębniony z karty biznesowej | ["+ 19876543231"] |
+| OtherPhones    | Tablica numerów telefonów | Inny numer telefonu wyodrębniony z karty biznesowej | ["+ 19876543233"] |
+
 
 Interfejs API wizytówek może również zwrócić cały rozpoznany tekst z karty biznesowej. To dane wyjściowe OCR są zawarte w odpowiedzi JSON.  
 

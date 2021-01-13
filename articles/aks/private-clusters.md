@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć prywatny klaster usługi Azure Kubernet
 services: container-service
 ms.topic: article
 ms.date: 7/17/2020
-ms.openlocfilehash: 696ba785abb317a29de38160440dc06487ff5bca
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 87966a9bd2f83916998a724fc6c1c26a91609665
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673889"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133399"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Tworzenie prywatnego klastra usługi Azure Kubernetes Service
 
@@ -68,17 +68,21 @@ Gdzie `--enable-private-cluster` jest obowiązkową flagą dla klastra prywatneg
 
 ### <a name="configure-private-dns-zone"></a>Konfigurowanie strefy Prywatna strefa DNS
 
-Wartość domyślna to "system", jeśli argument--Private-DNS-Zone zostanie pominięty. AKS utworzy strefę Prywatna strefa DNS w grupie zasobów węzła. Przekazywanie parametru "none" oznacza, że AKS nie utworzy strefy Prywatna strefa DNS.  Polega to na przeniesieniu własnego serwera DNS i konfiguracji rozpoznawania nazw DNS dla prywatnej nazwy FQDN.  Jeśli nie skonfigurujesz rozpoznawania nazw DNS, usługa DNS jest rozpoznawana tylko w węzłach agenta i spowoduje problemy z klastrem po wdrożeniu.
+Aby skonfigurować strefę Prywatna strefa DNS, można użyć następujących parametrów.
+
+1. Wartość domyślna to "system". W przypadku pominięcia argumentu--Private-DNS-strefy AKS utworzy strefę Prywatna strefa DNS w grupie zasobów węzła.
+2. "Brak" oznacza, że AKS nie utworzy strefy Prywatna strefa DNS.  Wymaga to przeniesienia własnego serwera DNS i skonfigurowania rozpoznawania nazw DNS dla prywatnej nazwy FQDN.  Jeśli nie skonfigurujesz rozpoznawania nazw DNS, usługa DNS jest rozpoznawana tylko w węzłach agenta i spowoduje problemy z klastrem po wdrożeniu.
+3. "Nazwa niestandardowej prywatnej strefy DNS" powinna być w tym formacie dla chmury globalnej platformy Azure: `privatelink.<region>.azmk8s.io` . Tożsamość przypisanego użytkownika lub nazwa główna usługi muszą mieć przyznany co najmniej `private dns zone contributor` rolę do niestandardowej prywatnej strefy DNS.
 
 ## <a name="no-private-dns-zone-prerequisites"></a>Brak wymagań wstępnych dotyczących strefy Prywatna strefa DNS
-Brak PrivateDNSZone
-* Interfejs wiersza polecenia platformy Azure w wersji 0.4.67 lub nowszej
+
+* Interfejs wiersza polecenia platformy Azure w wersji 0.4.71 lub nowszej
 * Interfejs API w wersji 2020-11-01 lub nowszej
 
 ## <a name="create-a-private-aks-cluster-with-private-dns-zone"></a>Tworzenie prywatnego klastra AKS z strefą Prywatna strefa DNS
 
 ```azurecli-interactive
-az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --private-dns-zone [none|system]
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --private-dns-zone [none|system|custom private dns zone]
 ```
 ## <a name="options-for-connecting-to-the-private-cluster"></a>Opcje łączenia się z klastrem prywatnym
 

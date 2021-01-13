@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 8c9beaca0fb3ee7881559ffcc955f171bc2ddd7b
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 7eb8010853ba370f4502b6bc155c6a098e64965b
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886451"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133450"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Wersje i śledzenie zestawów danych w eksperymentach
 
@@ -166,9 +166,7 @@ Poniżej przedstawiono scenariusze, w których dane są śledzone jako **wejści
 Poniżej przedstawiono scenariusze, w których dane są śledzone jako **wyjściowy zestaw danych**.  
 
 * Przekaż `OutputFileDatasetConfig` obiekt za pomocą `outputs` albo `arguments` parametru podczas przesyłania eksperymentu. `OutputFileDatasetConfig` obiekty mogą być również używane do utrwalania danych między etapami potoku. Zobacz [przenoszenie danych między etapami potoku.](how-to-move-data-in-out-of-pipelines.md)
-    > [!TIP]
-    > [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) jest publiczną klasą zapoznawczą zawierającą funkcje [eksperymentalnej](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#&preserve-view=truestable-vs-experimental) wersji zapoznawczej, które mogą ulec zmianie w dowolnym momencie.
-
+  
 * Zarejestruj zestaw danych w skrypcie. W tym scenariuszu nazwa przypisana do zestawu danych, gdy zarejestrowano go w obszarze roboczym, jest nazwą wyświetlaną. W poniższym przykładzie `training_ds` jest nazwą, która ma być wyświetlana.
 
     ```Python

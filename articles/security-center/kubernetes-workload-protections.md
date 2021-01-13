@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: 08bcb74fd50be0eeb7a73c0743db2c4f3a57be32
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: dfa562be4561e8aaec66d4bff51aadeba77cf35f
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030853"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131342"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Ochrona obciążeń Kubernetes
 
@@ -27,7 +27,7 @@ Security Center oferuje więcej funkcji zabezpieczeń kontenerów po włączeniu
 - Otrzymuj alerty wykrywania zagrożeń w czasie rzeczywistym dla klastrów K8s [Azure Defender dla Kubernetes](defender-for-kubernetes-introduction.md)
 
 > [!TIP]
-> Aby zapoznać się z listą *wszystkich* zaleceń dotyczących zabezpieczeń, które mogą występować w przypadku klastrów Kubernetes i węzłów, zobacz sekcję dotyczącą [kontenera](recommendations-reference.md#recs-containers) w tabeli referencyjnej rekomendacji.
+> Aby zapoznać się z listą *wszystkich* zaleceń dotyczących zabezpieczeń, które mogą pojawić się w przypadku klastrów Kubernetes i węzłów, zobacz [sekcję obliczenia](recommendations-reference.md#recs-compute) w tabeli referencyjnej rekomendacji.
 
 
 
@@ -251,6 +251,6 @@ W tym artykule przedstawiono sposób konfigurowania ochrony obciążeń Kubernet
 
 Inne powiązane materiały można znaleźć na następujących stronach: 
 
-- [Security Center zalecenia dotyczące kontenerów](recommendations-reference.md#recs-containers)
+- [Security Center zalecenia dotyczące obliczeń](recommendations-reference.md#recs-compute)
 - [Alerty dla poziomu klastra AKS](alerts-reference.md#alerts-akscluster)
 - [Alerty na poziomie hosta kontenera](alerts-reference.md#alerts-containerhost)

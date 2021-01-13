@@ -7,16 +7,16 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: 6e3dbb968d0dff8d8227518fe53d257bfc1fae4b
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: f62ca85bd4e027595103b738c23c9997a05cc85c
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607970"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132821"
 ---
 # <a name="quickstart-use-github-actions-to-connect-to-azure-mysql"></a>Szybki Start: korzystanie z akcji GitHub do łączenia się z usługą Azure MySQL
 
-**Dotyczy**: :::image type="icon" source="./media/applies-to/yes.png" border="false"::: Azure Database for PostgreSQL-jeden serwer :::image type="icon" source="./media/applies-to/yes.png" border="false"::: Azure Database for PostgreSQL — elastyczny serwer
+**Dotyczy**: :::image type="icon" source="./media/applies-to/yes.png" border="false"::: Azure Database for MySQL-jeden serwer :::image type="icon" source="./media/applies-to/yes.png" border="false"::: Azure Database for MySQL — elastyczny serwer
 
 Rozpocznij pracę z [akcjami usługi GitHub](https://docs.github.com/en/free-pro-team@latest/actions) za pomocą przepływu pracy, aby wdrożyć aktualizacje bazy danych do [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/).
 
@@ -89,7 +89,7 @@ Parametry połączenia będą używane jako wpis tajny usługi GitHub.
 
 1. Wklej wszystkie dane wyjściowe JSON z polecenia platformy Azure w polu wartość klucza tajnego. Podaj klucz tajny jako nazwę `AZURE_CREDENTIALS` .
 
-    Podczas późniejszej konfiguracji pliku przepływu pracy należy użyć wpisu tajnego dla danych wejściowych `creds` akcji logowania platformy Azure. Przykład:
+    Podczas późniejszej konfiguracji pliku przepływu pracy należy użyć wpisu tajnego dla danych wejściowych `creds` akcji logowania platformy Azure. Na przykład:
 
     ```yaml
     - uses: azure/login@v1
@@ -192,7 +192,7 @@ Parametry połączenia będą używane jako wpis tajny usługi GitHub.
  
     :::image type="content" source="media/quickstart-mysql-github-actions/github-actions-run-mysql.png" alt-text="Dziennik uruchamiania akcji usługi GitHub":::
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy baza danych i repozytorium usługi Azure MySQL nie są już potrzebne, Oczyść wdrożone zasoby, usuwając grupę zasobów i repozytorium GitHub. 
 

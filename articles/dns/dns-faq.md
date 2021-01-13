@@ -5,20 +5,20 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: article
-ms.date: 6/15/2019
+ms.date: 01/11/2021
 ms.author: rohink
-ms.openlocfilehash: 2f7e4eadc25028db4668db8d245803c7ddba8688
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: c468b1216670ce7e6b5d252a7f7fee807199d20c
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968251"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131495"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS często zadawane pytania
 
 ## <a name="about-azure-dns"></a>Informacje o Azure DNS
 
-### <a name="what-is-azure-dns"></a>Co to jest system DNS platformy Azure?
+### <a name="what-is-azure-dns"></a>Co to jest Azure DNS?
 
 System nazw domen (DNS) tłumaczy lub rozpoznaje nazwę witryny sieci Web lub usługi na adres IP. Usługa Azure DNS jest usługą hostingu dla domen DNS. Zapewnia rozpoznawanie nazw przy użyciu infrastruktury Microsoft Azure. Dzięki hostowaniu swoich domen na platformie Azure możesz zarządzać rekordami DNS z zastosowaniem tych samych poświadczeń, interfejsów API, narzędzi i rozliczeń co w przypadku innych usług platformy Azure.
 
@@ -194,6 +194,10 @@ Tak. Serwery nazw Azure DNS są podwójnym stosem. Podwójny stos oznacza, że m
 Międzynarodowe nazwy domen (IDN) kodują każdą nazwę DNS przy użyciu [formacie Punycode](https://en.wikipedia.org/wiki/Punycode). Zapytania DNS są tworzone przy użyciu tych nazw zakodowanych formacie Punycode.
 
 Aby skonfigurować IDN w Azure DNS, przekonwertuj nazwę strefy lub nazwę zestawu rekordów na formacie Punycode. Azure DNS nie obsługuje obecnie wbudowanej konwersji na lub z formacie Punycode.
+
+### <a name="does-azure-dns-private-zones-store-any-customer-content"></a>Czy Azure DNS strefy prywatne przechowują zawartość klienta?
+
+Nie, Azure DNS strefy prywatne nie przechowują żadnej zawartości klienta.
 
 ## <a name="next-steps"></a>Następne kroki
 

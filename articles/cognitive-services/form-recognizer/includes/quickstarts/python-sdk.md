@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 9762ca79f73b3333045d1c11376ab315aac2d55e
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: fb9d74da6030c430cce4a2a3c4c5e4299183ca15
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97808661"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132309"
 ---
 > [!IMPORTANT]
 > * Kod w tym artykule używa metod synchronicznych i niezabezpieczonych magazynów poświadczeń z przyczyn uproszczenia. Zapoznaj się z dokumentacją referencyjną poniżej. 
@@ -100,8 +100,8 @@ Te fragmenty kodu przedstawiają sposób wykonywania następujących zadań za p
 #### <a name="version-20"></a>[Wersja 2,0](#tab/ga)
 
 * [Uwierzytelnianie klienta](#authenticate-the-client)
-* [Rozpoznaj zawartość formularza](#recognize-form-content)
-* [Rozpoznawaj potwierdzenia](#recognize-receipts)
+* [Analizowanie układu](#analyze-layout)
+* [Analizuj potwierdzenia](#analyze-receipts)
 * [Trenowanie modelu niestandardowego](#train-a-custom-model)
 * [Analizowanie formularzy przy użyciu modelu niestandardowego](#analyze-forms-with-a-custom-model)
 * [Zarządzanie modelami niestandardowymi](#manage-your-custom-models)
@@ -109,10 +109,10 @@ Te fragmenty kodu przedstawiają sposób wykonywania następujących zadań za p
 #### <a name="version-21-preview"></a>[Wersja 2,1 Preview](#tab/preview)
 
 * [Uwierzytelnianie klienta](#authenticate-the-client)
-* [Rozpoznaj zawartość formularza](#recognize-form-content)
-* [Rozpoznawaj potwierdzenia](#recognize-receipts)
-* [Rozpoznawanie wizytówek](#recognize-business-cards)
-* [Rozpoznaj faktury](#recognize-invoices)
+* [Analizowanie układu](#analyze-layout)
+* [Analizuj potwierdzenia](#analyze-receipts)
+* [Analizowanie kart służbowych](#analyze-business-cards)
+* [Analizuj faktury](#analyze-invoices)
 * [Trenowanie modelu niestandardowego](#train-a-custom-model)
 * [Analizowanie formularzy przy użyciu modelu niestandardowego](#analyze-forms-with-a-custom-model)
 * [Zarządzanie modelami niestandardowymi](#manage-your-custom-models)
@@ -137,7 +137,7 @@ Musisz dodać odwołania do adresów URL dla danych szkoleniowych i testowych.
 > [!NOTE]
 > Fragmenty kodu w tym przewodniku korzystają z formularzy zdalnych, do których uzyskuje dostęp za pomocą adresów URL. Jeśli zamiast tego chcesz przetworzyć lokalne dokumenty formularzy, zapoznaj się z odpowiednimi metodami w [dokumentacji referencyjnej](/python/api/azure-ai-formrecognizer) i [przykładami](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
 
-## <a name="recognize-form-content"></a>Rozpoznaj zawartość formularza
+## <a name="analyze-layout"></a>Analizowanie układu
 
 Aparat rozpoznawania formularzy służy do rozpoznawania tabel, wierszy i słów w dokumentach, bez konieczności uczenia modelu.
 
@@ -171,7 +171,7 @@ Confidence score: 1.0
 
 ```
 
-## <a name="recognize-receipts"></a>Rozpoznawaj potwierdzenia
+## <a name="analyze-receipts"></a>Analizuj potwierdzenia
 
 W tej sekcji przedstawiono sposób rozpoznawania i wyodrębniania typowych pól z paragonów w Stanach Zjednoczonych przy użyciu wstępnie przeszkolonego modelu paragonów. Aby rozpoznać potwierdzenia z adresu URL, należy użyć `begin_recognize_receipts_from_url` metody. 
 
@@ -203,7 +203,7 @@ Total: 1203.39 has confidence 0.774
 ```
 
 
-## <a name="recognize-business-cards"></a>Rozpoznawanie wizytówek
+## <a name="analyze-business-cards"></a>Analizowanie kart służbowych
 
 #### <a name="version-20"></a>[Wersja 2,0](#tab/ga)
 
@@ -221,7 +221,7 @@ W tej sekcji przedstawiono sposób rozpoznawania i wyodrębniania typowych pól 
 
 ---
 
-## <a name="recognize-invoices"></a>Rozpoznaj faktury
+## <a name="analyze-invoices"></a>Analizuj faktury
 
 #### <a name="version-20"></a>[Wersja 2,0](#tab/ga)
 

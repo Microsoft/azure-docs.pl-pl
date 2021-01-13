@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 82f6c5989149b50a1ef5e6c6fb5350d474476436
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 43eae43d11a48ee6c395e4a86b8e8c1353843991
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845472"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131456"
 ---
-# <a name="receipt-concepts"></a>Pojęcia dotyczące rachunków
+# <a name="form-recognizer-prebuilt-receipt-model"></a>Model odbioru prekompilowanego aparatu rozpoznawania formularzy
 
-Aparat rozpoznawania formularzy platformy Azure może analizować potwierdzenia przy użyciu jednego ze wstępnie skompilowanych modeli. Interfejs API paragonu wyodrębnia najważniejsze informacje z przyjęć sprzedaży w języku angielskim, takie jak nazwa handlowa, Data transakcji, Suma transakcji, elementy wiersza itd. 
+Aparat rozpoznawania formularzy platformy Azure umożliwia analizowanie i wyodrębnianie informacji z przyjęć sprzedaży przy użyciu wbudowanego modelu paragonów. Łączy nasze zaawansowane funkcje [rozpoznawania znaków optycznych (OCR)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) z opcją odbioru, która umożliwia zrozumienie modeli uczenia głębokiego w celu wyodrębnienia najważniejszych informacji z przyjęć w języku angielskim. Interfejs API paragonu wyodrębnia najważniejsze informacje z przyjęć sprzedaży w języku angielskim, takie jak nazwa handlowa, Data transakcji, Suma transakcji, elementy wiersza itd. 
 
 ## <a name="understanding-receipts"></a>Informacje o potwierdzeniach 
 
@@ -27,32 +27,39 @@ Wiele firm i osób nadal polegają na ręcznym wyodrębnieniu danych z ich przyj
 
 Automatyczne wyodrębnianie danych z tych przyjęć może być skomplikowane. Paragony mogą być crumplede i trudne do odczytania, wydrukowanych lub odręcznych, a obrazy smartphone mogą mieć niską jakość. Ponadto szablony i pola paragonów mogą się różnić w zależności od rynku, regionu i handlowca. Te wyzwania w przypadku wyodrębniania danych i wykrywania pól sprawiają, że podczas przetwarzania przez funkcję odbioru występuje unikatowy problem.  
 
-Korzystając z funkcji optycznego rozpoznawania znaków (OCR) i naszego prekompilowanego modelu paragonów, interfejs API paragonów włącza te scenariusze przetwarzania paragonów i wyodrębnia dane z przyjęć, takich jak nazwa handlowa, Porada, suma, elementy wiersza itd. Za pomocą tego interfejsu API nie ma potrzeby uczenia modelu, który właśnie wyśle potwierdzenie do interfejsu API analizy paragonów, a dane są wyodrębniane.
+Korzystając z funkcji optycznego rozpoznawania znaków (OCR) i naszego prekompilowanego modelu paragonów, interfejs API paragonów włącza te scenariusze przetwarzania paragonów i wyodrębnia dane z przyjęć, takich jak nazwa handlowa, Porada, suma, elementy wiersza itd. Za pomocą tego interfejsu API nie ma potrzeby uczenia modelu, wystarczy wysłać obraz paragonu do interfejsu API przesyłania i dane są wyodrębniane.
 
-![Przykładowe potwierdzenie](./media/contoso-receipt-small.png)
+![Przykładowe potwierdzenie](./media/receipts-example.jpg)
 
-## <a name="what-does-the-receipt-api-do"></a>Do czego służy interfejs API paragonów? 
 
-Interfejs API prekompilowanego paragonu wyodrębnia zawartość przyjęć sprzedaży &mdash; typu paragonu, który często uzyskuje się w restauracjach, detalicznych lub w sklepie spożywczym.
+## <a name="what-does-the-receipt-service-do"></a>Co robi usługa Paragon? 
+
+Wstępnie utworzona usługa paragonów wyodrębnia zawartość otrzymanych danych sprzedaży, czyli &mdash; Typ paragonu, który często uzyskuje się w restauracjach, detalicznych lub w sklepie spożywczym.
 
 ### <a name="fields-extracted"></a>Wyodrębnione pola
 
-* Nazwa handlowa 
-* Adres handlowca 
-* Numer telefonu handlowca 
-* Data transakcji 
-* Czas transakcji 
-* Suma częściowa 
-* Podatek 
-* Łącznie 
-* Porada 
-* Wyodrębnianie elementu wiersza (na przykład ilość elementów, Cena elementu, nazwa elementu)
+|Nazwa| Typ | Opis | Tekst | Wartość (standardowe dane wyjściowe) |
+|:-----|:----|:----|:----| :----|
+| Paragon | ciąg | Typ paragonu sprzedaży | Podzielonych |  |
+| Sprzedawcy | ciąg | Nazwa sprzedawcy, który wystawił potwierdzenie | Contoso |  |
+| MerchantPhoneNumber | phoneNumber | Numer telefonu handlowego na liście | 987-654-3210 | + 19876543210 |
+| MerchantAddress | ciąg | Na liście adres handlowca | 123, główny St Redmond WA 98052 |  |
+| TransactionDate | date | Data wystawienia potwierdzenia | 06, 2019 | 2019-06-26  |
+| TransactionTime | time | Godzina wystawienia potwierdzenia | 4:49 PM | 16:49:00  |
+| Łącznie | liczba | Całkowita suma przychodów | $14,34 | 14,34 |
+| Suma częściowa | liczba | Suma częściowa przychodu, często przed opodatkowaniem, jest stosowana | $12,34 | 12.34 |
+| Podatek | liczba | Podatek od odbioru, często podatek od sprzedaży lub odpowiednik | 2,00 USD | 2,00 |
+| Porada | liczba | Porada dołączona przez kupującego | $1,00 | 1,00 |
+| Elementy | Tablica obiektów | Wyodrębnione elementy wiersza, z nazwami, ilością, ceną jednostkową i łączną ceną wyekstrahowaną | |
+| Nazwa | ciąg | Nazwa elementu | Surface Pro 6 | |
+| Ilość | liczba | Ilość każdego elementu | 1 | |
+| Cena | liczba | Indywidualna cena każdej jednostki elementu | $999,00 | 999,00 |
+| Cena łączna | liczba | Łączna cena elementu wiersza | $999,00 | 999,00 |
 
 ### <a name="additional-features"></a>Dodatkowe funkcje
 
 Interfejs API paragonu zwraca również następujące informacje:
 
-* Typ paragonu (na przykład element, karta kredytowa itd.)
 * Poziom ufności pól (każde pole zwraca skojarzoną wartość zaufania)
 * Tekst nieprzetworzony OCR (wyodrębniany tekst wyjściowy tekstu dla całego potwierdzenia)
 * Pole ograniczenia dla każdej wartości, wiersza i słowa

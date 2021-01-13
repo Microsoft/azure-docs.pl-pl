@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 94db8ce46fc240a6c48c0919b6d2c2cd148522ac
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6e3333ac780cfca02a6ce4f28d2b0e312016f713
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976054"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131512"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Przekazywanie uogólnionego dysku VHD i używanie go do tworzenia nowych maszyn wirtualnych na platformie Azure
 
@@ -38,13 +38,15 @@ Upewnij się, że role serwera uruchomione na komputerze są obsługiwane przez 
 > 
 
 1. Zaloguj się do maszyny wirtualnej z systemem Windows.
-2. Otwórz okno wiersza polecenia jako administrator. Zmień katalog na%windir%\System32\Sysprep, a następnie uruchom polecenie `sysprep.exe` .
-3. W oknie dialogowym **Narzędzie przygotowywania systemu** wybierz opcję **Wprowadź system out-of-Box Experience (OOBE)** i upewnij się, że pole wyboru **generalize** jest włączone.
-4. W obszarze **Opcje zamykania**wybierz pozycję **Zamknij**.
-5. Wybierz przycisk **OK**.
+1. Otwórz okno wiersza polecenia jako administrator. 
+1. Usuń katalog Panther (C:\Windows\Panther).
+1. Zmień katalog na%windir%\System32\Sysprep, a następnie uruchom polecenie `sysprep.exe` .
+1. W oknie dialogowym **Narzędzie przygotowywania systemu** wybierz opcję **Wprowadź system out-of-Box Experience (OOBE)** i upewnij się, że pole wyboru **generalize** jest włączone.
+1. W obszarze **Opcje zamykania** wybierz pozycję **Zamknij**.
+1. Wybierz pozycję **OK**.
    
     ![Uruchom program Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
-6. Po zakończeniu działania narzędzia Sysprep zamyka ono maszynę wirtualną. Nie uruchamiaj ponownie maszyny wirtualnej.
+1. Po zakończeniu działania narzędzia Sysprep zamyka ono maszynę wirtualną. Nie uruchamiaj ponownie maszyny wirtualnej.
 
 
 ## <a name="upload-the-vhd"></a>Przekazywanie wirtualnego dysku twardego 
@@ -93,7 +95,7 @@ $image = New-AzImage `
 
 ## <a name="create-the-vm"></a>Tworzenie maszyny wirtualnej
 
-Teraz, gdy masz już obraz, możesz za jego pomocą utworzyć jedną lub więcej nowych maszyn wirtualnych. Ten przykład tworzy maszynę wirtualną o nazwie *myVM* z *obrazu*w liście *zasobów*.
+Teraz, gdy masz już obraz, możesz za jego pomocą utworzyć jedną lub więcej nowych maszyn wirtualnych. Ten przykład tworzy maszynę wirtualną o nazwie *myVM* z *obrazu* w liście *zasobów*.
 
 
 ```powershell

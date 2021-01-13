@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/05/2020
-ms.openlocfilehash: cfb83c4ec9972fda3813d414583bc73edeef3229
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.date: 01/12/2021
+ms.openlocfilehash: ff83e559919a836208faae4eae4a5f992534b6cb
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285975"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134164"
 ---
 # <a name="apache-ambari-usage-in-azure-hdinsight"></a>Użycie oprogramowania Apache Ambari w usłudze Azure HDInsight
 
@@ -65,6 +65,15 @@ W przypadku każdego klastra z liczbą węzłów procesu roboczego większą ni�
 Nigdy nie uruchamiaj ręcznie/Zatrzymaj usługi Ambari-Server lub Ambari-Agent, chyba że próbujesz ponownie uruchomić usługę, aby obejść problem. Aby wymusić przejście w tryb failover, można ponownie uruchomić aktywny węzła głównego.
 
 Nigdy nie należy ręcznie modyfikować żadnych plików konfiguracji w żadnym węźle klastra, pozwól, aby interfejs użytkownika Ambari wykonał to zadanie.
+
+## <a name="property-values-in-esp-clusters"></a>Wartości właściwości w klastrach ESP
+
+W przypadku klastrów pakiet Enterprise Security w usłudze HDInsight 4,0 użyj potoków `|` zamiast przecinków jako ograniczników zmiennych. Przykład przedstawiono poniżej:
+
+```
+Property Key: hive.security.authorization.sqlstd.confwhitelist.append
+Property Value: environment|env|dl_data_dt
+```
 
 ## <a name="next-steps"></a>Następne kroki
 

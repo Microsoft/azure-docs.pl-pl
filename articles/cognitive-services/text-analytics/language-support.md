@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: aahi
-ms.openlocfilehash: 180de56e3c158802460d2ff995041e8572d4dcd7
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: a0cd968c90a27d6f1ae79d08fb2bd027169233db
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97844965"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133790"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Obsługa języków interfejs API analizy tekstu v3 
 
@@ -30,12 +30,12 @@ ms.locfileid: "97844965"
 | Angielski               |     `en`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Fiński               |     `fi`      |     ✓      |            |                            |                    |
 | Francuski                |     `fr`      |     ✓      |     ✓      |         2019-10-01         |                    |
-| niemiecki                |     `de`      |     ✓      |     ✓      |         2019-10-01         |                    |
+| Niemiecki                |     `de`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Grecki                 |     `el`      |     ✓      |            |                            |                    |
 | Hindi                 |     `hi`      |            |      ✓     |          2020-04-01        |                    |
 | Włoski               |     `it`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | japoński              |     `ja`      |     ✓      |     ✓      |         2019-10-01         |                    |
-| koreański                |     `ko`      |            |     ✓      |         2019-10-01         |                    |
+| Koreański                |     `ko`      |            |     ✓      |         2019-10-01         |                    |
 | Norweski (bokmål)   |     `no`      |     ✓      |     ✓      |         2020-07-01         |                    |
 | Polski                |     `pl`      |     ✓      |            |                            |                    |
 | Portugalski (Brazylia)   |    `pt-BR`    |            |     ✓      |         2020-04-01         |                    |
@@ -69,12 +69,12 @@ ms.locfileid: "97844965"
 | Angielski                |     `en`      |     ✓      |     ✓      |           2019-10-01            |                    |
 | Fiński               |     `fi`      |     ✓      |            |                                 |                    |
 | Francuski                 |     `fr`      |     ✓      |            |                                 |                    |
-| niemiecki                 |     `de`      |     ✓      |            |                                 |                    |
+| Niemiecki                 |     `de`      |     ✓      |            |                                 |                    |
 | Hebrajski                |     `he`      |     ✓      |            |                                 |                    |
 | Węgierski             |     `hu`      |     ✓      |            |                                 |                    |
 | Włoski               |     `it`      |     ✓      |            |                                 |                    |
 | japoński              |     `ja`      |     ✓      |            |                                 |                    |
-| koreański                |     `ko`      |     ✓      |            |                                 |                    |
+| Koreański                |     `ko`      |     ✓      |            |                                 |                    |
 | Norweski (bokmål)   |     `no`      |     ✓      |            |                                 | `nb` również zaakceptowane |
 | Polski                |     `pl`      |     ✓      |            |                                 |                    |
 | Portugalski (Brazylia)   |    `pt-BR`    |     ✓      |            |                                 |                    |
@@ -86,19 +86,17 @@ ms.locfileid: "97844965"
 
 #### <a name="key-phrase-extraction"></a>[Wyodrębnianie kluczowych fraz](#tab/key-phrase-extraction)
 
-> [!NOTE]
-> Wersje modeli wyodrębnianie kluczowych fraz wcześniejszych niż 2020-07-01 mają limit znaków równy 64. Ten limit nie występuje w nowszych wersjach modeli.
-
 | Język              | Kod języka | Obsługa wersji 2 | Obsługa wersji 3 | Dostępne począwszy od wersji modelu v3: |       Uwagi        |
 |:----------------------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:------------------:|
+| Duński                |     `da`      |     ✓      |      ✓     |                2019-10-01                 |                    |
 | Niderlandzki                 |     `nl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Angielski               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Fiński               |     `fi`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Francuski                |     `fr`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| niemiecki                |     `de`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Niemiecki                |     `de`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Włoski               |     `it`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | japoński              |     `ja`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| koreański                |     `ko`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Koreański                |     `ko`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Norweski (bokmål)   |     `no`      |     ✓      |     ✓      |                2019-10-01                 | `nb` również zaakceptowane |
 | Polski                |     `pl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Portugalski (Brazylia)   |    `pt-BR`    |     ✓      |     ✓      |                2019-10-01                 |                    |
@@ -151,7 +149,7 @@ Jeśli masz zawartość wyrażoną w rzadziej używanym języku, możesz spróbo
 | Francuski | `fr` | ✓ |  |
 | Galicyjski | `gl` | ✓ |  |
 | Gruziński | `ka` | ✓ |  |
-| niemiecki | `de` | ✓ |  |
+| Niemiecki | `de` | ✓ |  |
 | Grecki | `el` | ✓ |  |
 | Gudżarati | `gu` | ✓ |  |
 | Kreolski, Kreolski haitański | `ht` | ✓ |  |
@@ -167,7 +165,7 @@ Jeśli masz zawartość wyrażoną w rzadziej używanym języku, możesz spróbo
 | japoński | `ja` | ✓ |  |
 | Kannada | `kn` | ✓ |  |
 | Kazachski | `kk` | ✓ | 2020-09-01 |
-| koreański | `ko` | ✓ |  |
+| Koreański | `ko` | ✓ |  |
 | Kurdyjski | `ku` | ✓ |  |
 | - | `lo` | ✓ |  |
 | Wielka | `la` | ✓ |  |

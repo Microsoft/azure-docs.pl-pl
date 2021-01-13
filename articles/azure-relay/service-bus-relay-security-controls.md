@@ -3,12 +3,12 @@ title: Kontrolki zabezpieczeń dla Azure Relay
 description: W tym artykule przedstawiono listę kontrolną wbudowanych mechanizmów zabezpieczeń do oceniania Azure Relay.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 64abee031bb20e2bdb10bf1cc3cd77e135713550
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d55026bfb6e3d6fe955a540b7596a85707398d6
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85316625"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133348"
 ---
 # <a name="security-controls-for-azure-relay"></a>Kontrolki zabezpieczeń dla Azure Relay
 
@@ -20,7 +20,7 @@ W tym artykule opisano kontrolki zabezpieczeń wbudowane w Azure Relay.
 
 | Kontrola zabezpieczeń | Tak/Nie | Uwagi | Dokumentacja |
 |---|---|--|--|
-| Obsługa punktów końcowych usługi| Nie |  |   |
+| Obsługa prywatnego punktu końcowego| Nie |  |   |
 | Izolacja sieci i obsługa zapór| Nie |  |   |
 | Obsługa tunelowania wymuszonego| Brak | Przekaźnik jest tunelem TLS  |   |
 

@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 05/04/2020
-ms.openlocfilehash: 2d6d18cc73c02d3139074555fdd22a40c797ce40
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.date: 01/12/2021
+ms.openlocfilehash: 429f0b2ffe486279a1c429fc7a153e6528642f54
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825141"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131665"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planowanie sieci wirtualnej dla usługi Azure HDInsight
 
@@ -51,7 +51,8 @@ Poniżej przedstawiono pytania, na które należy odpowiedzieć podczas planowan
 Wykonaj kroki opisane w tej sekcji, aby dowiedzieć się, jak dodać nową usługę HDInsight do istniejącej Virtual Network platformy Azure.
 
 > [!NOTE]  
-> Nie można dodać istniejącego klastra usługi HDInsight do sieci wirtualnej.
+> - Nie można dodać istniejącego klastra usługi HDInsight do sieci wirtualnej.
+> - Sieć wirtualna i tworzony klaster muszą znajdować się w tej samej subskrypcji.
 
 1. Czy korzystasz z klasycznego modelu wdrażania lub Menedżer zasobów dla sieci wirtualnej?
 
@@ -69,7 +70,7 @@ Wykonaj kroki opisane w tej sekcji, aby dowiedzieć się, jak dodać nową usłu
 
     Aby znaleźć istniejącą konfigurację zabezpieczeń, użyj następujących Azure PowerShell lub poleceń interfejsu wiersza polecenia platformy Azure:
 
-    * Sieciowe grupy zabezpieczeń
+    * Grupy zabezpieczeń sieci
 
         Zamień `RESOURCEGROUP` na nazwę grupy zasobów zawierającej sieć wirtualną, a następnie wprowadź polecenie:
 

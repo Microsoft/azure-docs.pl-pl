@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/07/2020
 ms.author: memildin
-ms.openlocfilehash: 7325ba1a8a90fec90182f9780c1fb18d29d3c0f1
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 835950cc68ca22ea3958d614d669d7a105fefe62
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955267"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132923"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -110,7 +110,7 @@ Dowiedz się więcej o zabezpieczeniach kontenerów Security Center w następuj�
 - [Instrukcje dotyczące skanowania rejestrów i ograniczania funkcjonalności hostów platformy Docker](container-security.md)
 - [Alerty zabezpieczeń z funkcji ochrony przed zagrożeniami dla klastrów usługi Azure Kubernetes](alerts-reference.md#alerts-akscluster)
 - [Alerty zabezpieczeń z funkcji ochrony przed zagrożeniami dla hostów usługi Azure Kubernetes](alerts-reference.md#alerts-containerhost)
-- [Zalecenia dotyczące zabezpieczeń dla kontenerów](recommendations-reference.md#recs-containers)
+- [Zalecenia dotyczące zabezpieczeń dla kontenerów](recommendations-reference.md#recs-compute)
 
 
 
@@ -195,7 +195,7 @@ Te nowe zalecenia pojawią się w tych samych czterech kontrolach zabezpieczeń,
 
 Zalecenia obejmują również funkcję szybkiej naprawy, która ułatwia przyspieszenie procesu wdrożenia. 
 
-Dowiedz się więcej na temat tych dwóch nowych zaleceń w tabeli [zaleceń dotyczących obliczeń i aplikacji](recommendations-reference.md#recs-computeapp) .
+Dowiedz się więcej na temat tych dwóch nowych zaleceń w tabeli [zaleceń dotyczących obliczeń i aplikacji](recommendations-reference.md#recs-compute) .
 
 Dowiedz się więcej o tym, jak Azure Security Center używa agenta w [ramach agentów log Analytics?](faq-data-collection-agents.md#what-is-the-log-analytics-agent)
 
@@ -232,7 +232,7 @@ Kontrola zabezpieczeń "implementacja najlepszych rozwiązań w zakresie zabezpi
 
 Istniejące zalecenie, dostępne **z Internetu maszyny wirtualne powinny być chronione za pomocą sieciowych grup zabezpieczeń**, nie rozróżniać się między maszynami wirtualnymi internetowymi i niepołączonymi z Internetem. Dla obu tych celów zostało wygenerowane zalecenie o wysokiej ważności, jeśli maszyna wirtualna nie została przypisana do sieciowej grupy zabezpieczeń. To nowe zalecenie oddziela maszyny niepołączone z Internetem, aby zmniejszyć liczbę fałszywych ostrzeżeń i uniknąć niepotrzebnych alertów o wysokiej ważności.
 
-Dowiedz się więcej z tabeli [zalecenia dotyczące sieci](recommendations-reference.md#recs-network) .
+Dowiedz się więcej z tabeli [zalecenia dotyczące sieci](recommendations-reference.md#recs-networking) .
 
 
 
@@ -432,7 +432,7 @@ Przykłady zaleceń dotyczących tożsamości i dostępu to:
 
 Jeśli masz subskrypcje w bezpłatnej warstwie cenowej, będzie to miało wpływ na ich bezpieczeństwo, ponieważ nigdy nie oceniono ich pod kątem bezpieczeństwa tożsamości i dostępu.
 
-Dowiedz się więcej o [zaleceniach dotyczących tożsamości i dostępu](recommendations-reference.md#recs-identity).
+Dowiedz się więcej o [zaleceniach dotyczących tożsamości i dostępu](recommendations-reference.md#recs-identityandaccess).
 
 Dowiedz się więcej o [monitorowaniu tożsamości i dostępu](security-center-identity-access.md).
 
@@ -671,7 +671,7 @@ Centrum administracyjne systemu Windows to portal zarządzania dla serwerów z s
 Dzięki temu nowemu doświadczeniu użytkownicy będą mogli dołączyć serwer WAC do Azure Security Center i włączyć wyświetlanie alertów zabezpieczeń i zaleceń bezpośrednio w środowisku centrum administracyjnego systemu Windows.
 
 
-## <a name="september-2019"></a>Wrzesień 2019 r.
+## <a name="september-2019"></a>Wrzesień 2019
 
 Aktualizacje we wrześniu obejmują:
 
@@ -692,7 +692,7 @@ Azure Security Center zalecenia dotyczące rozwiązywania luk w zabezpieczeniach
 Aby wyświetlić włączone zasady zabezpieczeń, w Security Center otworzyć stronę zasady zabezpieczeń.
 
 
-## <a name="august-2019"></a>Sierpień 2019 r.
+## <a name="august-2019"></a>Sierpień 2019 r.
 
 Aktualizacje w sierpniu obejmują:
 
@@ -731,13 +731,13 @@ Security Center teraz obsługuje scenariusze zarządzania między dzierżawcami 
 [Dowiedz się więcej na temat środowisk zarządzania między dzierżawcami](security-center-cross-tenant-management.md).
 
 
-## <a name="july-2019"></a>Lipiec 2019 r.
+## <a name="july-2019"></a>Lipiec 2019
 
 ### <a name="updates-to-network-recommendations"></a>Aktualizacje zaleceń dotyczących sieci
 
 Azure Security Center (ASC) uruchomił nowe zalecenia dotyczące sieci i udoskonalono niektóre z nich. Teraz użycie Security Center zapewnia jeszcze większą ochronę sieci dla zasobów. 
 
-[Dowiedz się więcej na temat zaleceń dotyczących sieci](recommendations-reference.md#recs-network).
+[Dowiedz się więcej na temat zaleceń dotyczących sieci](recommendations-reference.md#recs-networking).
 
 
 ## <a name="june-2019"></a>Czerwiec 2019 r.

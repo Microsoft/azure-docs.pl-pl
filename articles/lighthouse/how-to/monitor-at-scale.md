@@ -1,14 +1,14 @@
 ---
 title: Monitorowanie delegowanych zasobów na dużą skalę
 description: Dowiedz się, jak efektywnie korzystać z dzienników Azure Monitor w sposób skalowalny dla dzierżaw klientów, którymi zarządzasz.
-ms.date: 12/14/2020
+ms.date: 01/07/2021
 ms.topic: how-to
-ms.openlocfilehash: 6c1cbde696ccf9131797a05db33553b8505216a4
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 797a6159d310f85c35c7eb550f05ff152526b3e8
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509278"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131155"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Monitorowanie delegowanych zasobów na dużą skalę
 
@@ -24,6 +24,9 @@ W tym temacie przedstawiono sposób korzystania z [dzienników Azure monitor](..
 Aby zbierać dane, musisz utworzyć Log Analytics obszary robocze. Te obszary robocze Log Analytics są unikatowymi środowiskami dla danych zbieranych przez Azure Monitor. Każdy obszar roboczy ma własne repozytorium danych i konfigurację, a źródła danych i rozwiązania są skonfigurowane do przechowywania danych w określonym obszarze roboczym.
 
 Zalecamy tworzenie tych obszarów roboczych bezpośrednio w dzierżawach klientów. W ten sposób ich dane pozostają w swoich dzierżawcach, a nie eksportowane do użytkownika. Umożliwia to również Scentralizowane monitorowanie wszelkich zasobów i usług obsługiwanych przez Log Analytics, co zapewnia większą elastyczność w zakresie typów monitorowanych danych.
+
+> [!TIP]
+> Wszystkie konta usługi Automation używane do uzyskiwania dostępu do danych z obszaru roboczego Log Analytics muszą zostać utworzone w tej samej dzierżawie, w której znajduje się obszar roboczy.
 
 Obszar roboczy Log Analytics można utworzyć przy użyciu [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md), przy użyciu [interfejsu wiersza polecenia platformy Azure](../../azure-monitor/learn/quick-create-workspace-cli.md)lub przy użyciu [Azure PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md).
 

@@ -12,12 +12,12 @@ ms.date: 09/29/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: Rozpoznawanie obrazu, aplikacja rozpoznawania obrazu, niestandardowa wizja
-ms.openlocfilehash: b57720b9d8fb05a605b9eace279b70b060c18450
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d644c323cb60e5ef9a89670cd9b828e3e9676299
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91596880"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131699"
 ---
 # <a name="quickstart-build-a-classifier-with-the-custom-vision-website"></a>Szybki Start: Tworzenie klasyfikatora przy użyciu witryny sieci Web Custom Vision
 
@@ -49,11 +49,11 @@ W przeglądarce internetowej przejdź do [strony sieci web Custom Vision](https:
    > [!NOTE]
    > Jeśli grupa zasobów nie jest dostępna, upewnij się, że zalogowano się do [customvision.AI](https://customvision.ai) przy użyciu tego samego konta, które zostało użyte do zalogowania się do [Azure Portal](https://portal.azure.com/). Upewnij się również, że wybrano ten sam katalog w witrynie sieci Web Custom Vision, co katalog w Azure Portal, w którym znajdują się zasoby Custom Vision. W obu lokacjach możesz wybrać katalog z menu rozwijanego konto w prawym górnym rogu ekranu. 
 
-1. Wybierz pozycję __Klasyfikacja__ w obszarze __typy projektów__. Następnie w obszarze __typy klasyfikacji__wybierz pozycję **wieloetykietowe** lub **wieloklasowe**, w zależności od przypadku użycia. Klasyfikacja wieloetykietowa stosuje dowolną liczbę tagów do obrazu (zero lub więcej), podczas gdy klasyfikacja wieloklasowa sortuje obrazy w pojedynczej kategorii (Każdy przesłany przez Ciebie obraz zostanie posortowany do najbardziej dopasowanego tagu). Jeśli chcesz, możesz później zmienić typ klasyfikacji.
+1. Wybierz pozycję __Klasyfikacja__ w obszarze __typy projektów__. Następnie w obszarze __typy klasyfikacji__ wybierz pozycję **wieloetykietowe** lub **wieloklasowe**, w zależności od przypadku użycia. Klasyfikacja wieloetykietowa stosuje dowolną liczbę tagów do obrazu (zero lub więcej), podczas gdy klasyfikacja wieloklasowa sortuje obrazy w pojedynczej kategorii (Każdy przesłany przez Ciebie obraz zostanie posortowany do najbardziej dopasowanego tagu). Jeśli chcesz, możesz później zmienić typ klasyfikacji.
 
 1. Następnie wybierz jedną z dostępnych domen. Każda domena optymalizuje klasyfikatora dla określonych typów obrazów, zgodnie z opisem w poniższej tabeli. Jeśli chcesz, będziesz mieć możliwość późniejszej zmiany domeny.
 
-    |Obszar|Przeznaczenie|
+    |Domena|Przeznaczenie|
     |---|---|
     |__Ogólny__| Optymalizacja pod kątem szerokiego zakresu zadań klasyfikacji obrazów. Jeśli żadna z pozostałych domen nie jest odpowiednia lub nie masz pewności, którą domenę wybrać, wybierz domenę generyczną. |
     |__Żywności__|Optymalizacja pod kątem zdjęć naczyń w postaci widocznej w menu restauracji. Jeśli chcesz sklasyfikować fotografie poszczególnych owoców lub warzyw, użyj domeny żywności.|

@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: ad880b7c23c687530a79ca1123474e94c923e150
-ms.sourcegitcommit: b849ecdc8aa97337299b0f09970b7810c59cd044
+ms.openlocfilehash: 79a428c322b65bfbb982be7a7e0c8b9fab7eed18
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96310395"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132736"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Wprowadzenie do usługi Azure Defender dla rejestrów kontenerów
 
@@ -28,7 +28,7 @@ Security Center identyfikuje oparte na Azure Resource Manager rejestry ACR w ram
 
 **Usługa Azure Defender dla rejestrów kontenerów** zawiera skaner luk w zabezpieczeniach służący do skanowania obrazów w rejestrach Azure Container Registry opartych na Azure Resource managerach i zapewniają lepszy wgląd w luki w zabezpieczeniach obrazów. Zintegrowany skaner jest obsługiwany przez Qualys, wiodące w branży skanowania dostawcy.
 
-Po znalezieniu problemów — według Qualys lub Security Center — otrzymasz powiadomienie na pulpicie nawigacyjnym Security Center. W przypadku każdej luki w zabezpieczeniach Security Center zawiera zalecenia z możliwością wykonania akcji, a także klasyfikację ważności oraz wskazówki dotyczące sposobu korygowania problemu. Aby uzyskać szczegółowe informacje na temat zaleceń dotyczących Security Center kontenerów, zobacz [listę referencyjną zaleceń](recommendations-reference.md#recs-containers).
+Po znalezieniu problemów — według Qualys lub Security Center — otrzymasz powiadomienie na pulpicie nawigacyjnym Security Center. W przypadku każdej luki w zabezpieczeniach Security Center zawiera zalecenia z możliwością wykonania akcji, a także klasyfikację ważności oraz wskazówki dotyczące sposobu korygowania problemu. Aby uzyskać szczegółowe informacje na temat zaleceń dotyczących Security Center kontenerów, zobacz [listę referencyjną zaleceń](recommendations-reference.md#recs-compute).
 
 Security Center filtrów i klasyfikuje wyniki ze skanera. Gdy obraz jest w dobrej kondycji, Security Center oznacza go jako taki. Security Center generuje zalecenia dotyczące zabezpieczeń tylko dla obrazów, które mają problemy, które mają zostać rozwiązane. Security Center zawiera szczegółowe informacje o każdej raportowanej luce w zabezpieczeniach i klasyfikacji ważności. Ponadto zawiera wskazówki dotyczące sposobu korygowania konkretnych luk w zabezpieczeniach w każdym obrazie.
 

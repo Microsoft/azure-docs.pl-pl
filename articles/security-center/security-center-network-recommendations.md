@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
-ms.openlocfilehash: 28d0d7b14c18a1d98be1872b1555930b2e1650c3
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 366a9a63e4577a9b8470faec68f8d4a25114dd48
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342454"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133705"
 ---
 # <a name="protect-your-network-resources"></a>Ochrona zasobów sieciowych
 Azure Security Center stale analizuje stan zabezpieczeń zasobów platformy Azure pod kątem najlepszych rozwiązań z zakresu zabezpieczeń sieci. Gdy Security Center identyfikuje potencjalne luki w zabezpieczeniach, tworzy zalecenia, które przeprowadzą Cię przez proces konfigurowania wymaganych kontrolek do zabezpieczania i zabezpieczania zasobów.
 
-Aby zapoznać się z pełną listą zaleceń dotyczących sieci, zobacz [zalecenia dotyczące sieci](recommendations-reference.md#recs-network).
+Aby zapoznać się z pełną listą zaleceń dotyczących sieci, zobacz [zalecenia dotyczące sieci](recommendations-reference.md#recs-networking).
 
 Ten artykuł dotyczy zaleceń, które dotyczą zasobów platformy Azure z punktu widzenia zabezpieczeń sieci. Centrum zaleceń dotyczących sieci wokół zapór nowej generacji, sieciowych grup zabezpieczeń, dostępu JIT do maszyny wirtualnej, nadmiernie ograniczających reguły ruchu przychodzącego i nie tylko. Aby zapoznać się z listą zaleceń dotyczących sieci i akcji korygowania, zobacz [Zarządzanie zaleceniami dotyczącymi zabezpieczeń w Azure Security Center](security-center-recommendations.md).
 
@@ -48,7 +48,7 @@ Aby otworzyć mapę sieci:
 
 1. W menu Security Center Otwórz pulpit nawigacyjny usługi Azure Defender i wybierz pozycję **mapa sieci**.
 
-    :::image type="content" source="./media/security-center-network-recommendations/opening-network-map.png" alt-text="Typy zasobów sieciowych dla spisu zasobów" lightbox="./media/security-center-network-recommendations/opening-network-map.png":::
+    :::image type="content" source="./media/security-center-network-recommendations/opening-network-map.png" alt-text="Otwieranie mapy sieci z poziomu pulpitu nawigacyjnego usługi Azure Defender" lightbox="./media/security-center-network-recommendations/opening-network-map.png":::
 
 1. Wybierz menu **warstwy** wybierz **topologię**.
  

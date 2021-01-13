@@ -9,12 +9,12 @@ ms.subservice: keys
 ms.topic: conceptual
 ms.date: 10/22/2020
 ms.author: ambapat
-ms.openlocfilehash: b483ffc480f9ad750f8d9901d6bec382db2378c2
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 675c4f04ece322000ae0ebb44d6291c455db9397
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368923"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133280"
 ---
 # <a name="key-types-algorithms-and-operations"></a>Typy kluczy, algorytmy i operacje
 
@@ -26,7 +26,7 @@ W poniższej tabeli przedstawiono podsumowanie typów kluczy i obsługiwane algo
 | --- | --- | --- |
 |WE-P256, P256K-P384, EC-521|Nie dotyczy|ES256<br>ES256K<br>ES384<br>ES512|
 |RSA 2K, 3K, 4K| RSA1_5<br>RSA — OAEP<br>RSA-OAEP-256|PS256<br>PS384<br>PS512<br>RS256<br>RS384<br>RS512<br>RSNULL| 
-|AES 128-bit, 256-bitowy| AES — KW<br>AES — GCM<br>AES — CBC| Nie dotyczy| 
+|AES 128-bit, 256-bitowy <br/>(Tylko zarządzany moduł HSM)| AES — KW<br>AES — GCM<br>AES — CBC| Nie dotyczy| 
 |||
 
 ##  <a name="ec-algorithms"></a>Algorytmy we
@@ -65,7 +65,7 @@ W poniższej tabeli przedstawiono podsumowanie typów kluczy i obsługiwane algo
 -   **RS512** -RSASSA-PKCS-v1_5 przy użyciu algorytmu SHA-512. Wartość skrótu podana w aplikacji musi być obliczona przy użyciu algorytmu SHA-512 i musi mieć długość 64 bajtów.  
 -   **RSNULL** — zobacz [RFC2437](https://tools.ietf.org/html/rfc2437), wyspecjalizowany przypadek użycia, aby włączyć określone scenariusze protokołu TLS.  
 
-##  <a name="symmetric-key-algorithms"></a>Algorytmy klucza symetrycznego
+##  <a name="symmetric-key-algorithms-managed-hsm-only"></a>Algorytmy klucza symetrycznego (tylko zarządzany moduł HSM)
 - Szyfrowanie kluczy AES **-kW** -AES ([RFC3394](https://tools.ietf.org/html/rfc3394)).
 - Szyfrowanie **AES-GCM** -AES w trybie licznika Galois ([NIST SP PS 800-38D](https://csrc.nist.gov/publications/sp800))
 - Szyfrowanie **AES-CBC** -AES w trybie łańcucha szyfrowego ([NIST SP 800-38a](https://csrc.nist.gov/publications/sp800))
