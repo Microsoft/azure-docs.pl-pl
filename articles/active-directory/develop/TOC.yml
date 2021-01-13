@@ -644,34 +644,6 @@
       href: identity-videos.md
     - name: Blog dla deweloperów platformy tożsamości firmy Microsoft
       href: 'https://developer.microsoft.com/en-us/identity/blogs/'
-    - name: Artykuły pomocy na temat witryny Azure Portal
-      items:
-        - name: Domyślne okresy ważności tokenu dla aplikacji niestandardowej
-          href: registration-config-change-token-lifetime-how-to.md
-        - name: Odnajdowanie punktów końcowych
-          href: registration-config-how-to.md
-        - name: Wybieranie uprawnień dla danego interfejsu API
-          href: perms-for-given-api.md
-        - name: Protokoły uwierzytelniania
-          href: active-directory-authentication-protocols.md
-        - name: Różnice między uprawnieniami delegowanymi a uprawnieniami aplikacji
-          href: delegated-and-app-perms.md
-        - name: Jak działa zgoda dla aplikacji
-          href: consent-framework-links.md
-        - name: Znajdowanie właściwego interfejsu API na potrzeby aplikacji niestandardowej
-          href: api-find-an-api-how-to.md
-        - name: Dokumentacja rejestracji aplikacji
-          href: active-directory-v2-registration-portal.md
-        - name: Pola rejestracji aplikacji niestandardowej w witrynie Azure Portal
-          href: registration-config-specific-application-property-how-to.md
-        - name: Konfigurowanie nowej aplikacji wielodostępnej
-          href: setup-multi-tenant-app.md
-        - name: Dodawanie aplikacji wielodostępnej do galerii aplikacji w usłudze Azure AD
-          href: registration-config-multi-tenant-application-add-to-gallery-how-to.md
-        - name: Integracja z usługą Azure Active Directory
-          href: active-directory-how-to-integrate.md
-        - name: Konfigurowanie logowania jednokrotnego dla aplikacji
-          href: registration-config-sso-how-to.md
     - name: Blog dotyczący usługi Azure AD
       href: 'https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory'
     - name: Harmonogram działania dla platformy Azure

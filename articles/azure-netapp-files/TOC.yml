@@ -37,6 +37,8 @@
       href: azure-netapp-files-cost-model.md
     - name: Wytyczne dotyczące planowania sieci usługi Azure NetApp Files
       href: azure-netapp-files-network-topologies.md
+    - name: Jak działają migawki usługi Azure NetApp Files
+      href: snapshots-introduction.md
     - name: Ręczna pula pojemności usługi QoS
       href: manual-qos-capacity-pool-introduction.md
     - name: Replikacja między regionami

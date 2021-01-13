@@ -85,8 +85,14 @@
       items:
         - name: Konfigurowanie szablonu urządzenia
           href: howto-set-up-template.md
+        - name: Jak przenieść urządzenia do Internetu rzeczy
+          href: how-to-move-device-to-iot.md
         - name: Jak używać właściwości
           href: howto-use-properties.md
+        - name: Jak używać poleceń
+          href: howto-use-commands.md
+        - name: Jak używać danych lokalizacji
+          href: howto-use-location-data.md
         - name: Przygotowywanie i łączenie zestawu Azure Sphere DevKit
           href: howto-connect-sphere.md
         - name: Przygotowywanie i łączenie urządzenia RuuviTag

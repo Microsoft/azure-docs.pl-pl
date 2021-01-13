@@ -226,8 +226,6 @@
               href: platform/service-providers.md
             - name: Dedykowane klastry
               href: log-query/logs-dedicated-clusters.md
-            - name: Dzienniki rozwiązywania problemów
-              href: platform/azure-monitor-troubleshooting-logs.md
         - name: Log Analytics
           items:
             - name: Omówienie
@@ -701,7 +699,11 @@
                     - name: Opcje konfiguracji
                       href: app/java-standalone-config.md
                     - name: Procesory telemetrii
-                      href: app/java-standalone-telemetry-processors.md
+                      items:
+                        - name: Omówienie
+                          href: app/java-standalone-telemetry-processors.md
+                        - name: Przykłady
+                          href: app/java-standalone-telemetry-processors-examples.md
                     - name: Konfiguracja argumentów JVM
                       href: app/java-standalone-arguments.md
                     - name: Uaktualnianie z wersji 2.x zestawu SDK
@@ -1217,6 +1219,10 @@
               href: platform/workbooks-move-region.md
             - name: Przenoszenie szablonów skoroszytów do innego regionu
               href: platform/workbook-templates-move-region.md
+        - name: Linki
+          items:
+            - name: Akcje linków
+              href: platform/workbooks-link-actions.md
         - name: Konwertowanie widoków na skoroszyty
           items:
             - name: Omówienie konwersji

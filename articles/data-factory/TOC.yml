@@ -629,15 +629,19 @@
         - name: Środowisko uruchomieniowe integracji Azure
           href: create-azure-integration-runtime.md
         - name: Infrastruktura Integration Runtime (Self-hosted)
-          href: create-self-hosted-integration-runtime.md
+          items:
+            - name: Tworzenie i konfigurowanie własnego środowiska Integration Runtime
+              href: create-self-hosted-integration-runtime.md
+            - name: Powiadomienia dotyczące automatycznej aktualizacji i wygasania własnego środowiska Integration Runtime
+              href: self-hosted-integration-runtime-auto-update.md
+            - name: Udostępnione środowisko Integration Runtime (Self-hosted)
+              href: create-shared-self-hosted-integration-runtime-powershell.md
+            - name: Skrypty automatyzacji własnego środowiska Integration Runtime
+              href: self-hosted-integration-runtime-automation-scripts.md
+            - name: Uruchamianie własnego środowiska Integration Runtime w kontenerze systemu Windows
+              href: how-to-run-self-hosted-integration-runtime-in-windows-container.md
         - name: Azure SSIS Integration Runtime
           href: create-azure-ssis-integration-runtime.md
-        - name: Udostępnione środowisko Integration Runtime (Self-hosted)
-          href: create-shared-self-hosted-integration-runtime-powershell.md
-        - name: Skrypty automatyzacji własnego środowiska Integration Runtime
-          href: self-hosted-integration-runtime-automation-scripts.md
-        - name: Uruchamianie własnego środowiska Integration Runtime w kontenerze systemu Windows
-          href: how-to-run-self-hosted-integration-runtime-in-windows-container.md
     - name: Uruchamianie pakietów SSIS na platformie Azure
       items:
         - name: Uruchamianie pakietów SSIS na platformie Azure z narzędzi SSDT

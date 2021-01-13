@@ -29,6 +29,8 @@
           href: cache-nodejs-get-started.md
         - name: Aplikacja w języku Python
           href: cache-python-get-started.md
+        - name: Aplikacja w języku Go
+          href: cache-go-get-started.md
 - name: Samouczki
   items:
     - name: ASP.NET

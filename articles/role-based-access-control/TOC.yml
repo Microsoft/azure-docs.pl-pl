@@ -60,9 +60,15 @@
         - name: Kroki umożliwiające dodanie przypisania roli
           href: role-assignments-steps.md
         - name: Portal
-          href: role-assignments-portal.md
-        - name: Portal — użytkownicy-goście
-          href: role-assignments-external-users.md
+          items:
+            - name: Dodawanie lub usuwanie przypisań ról
+              href: role-assignments-portal.md
+            - name: Administrator subskrypcji
+              href: role-assignments-portal-subscription-admin.md
+            - name: Tożsamość zarządzana
+              href: role-assignments-portal-managed-identity.md
+            - name: Zewnętrzni użytkownicy-goście
+              href: role-assignments-external-users.md
         - name: PowerShell
           href: role-assignments-powershell.md
         - name: Interfejs wiersza polecenia platformy Azure

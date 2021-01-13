@@ -38,6 +38,9 @@
     - name: Tworzenie udostępnionego zapytania — interfejs wiersza polecenia platformy Azure
       displayName: 'extension, docker, queries'
       href: ./shared-query-azure-cli.md
+    - name: Tworzenie udostępnionego zapytania — program Azure PowerShell
+      displayName: 'powershell, queries, Az.ResourceGraph'
+      href: ./shared-query-azure-powershell.md
     - name: Wdrażanie udostępnionego zapytania — szablon usługi ARM
       displayName: 'resource manager, queries'
       href: ./shared-query-template.md
