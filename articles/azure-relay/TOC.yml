@@ -67,7 +67,7 @@
       items:
         - name: Konfigurowanie zapory IP (wersja zapoznawcza)
           href: ip-firewall-virtual-networks.md
-        - name: Konfigurowanie prywatnych punktów końcowych (wersja zapoznawcza)
+        - name: Konfigurowanie prywatnych punktów końcowych
           href: private-link-service.md
     - name: Zarządzanie i monitorowanie
       items:
