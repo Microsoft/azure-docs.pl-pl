@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 10/02/2020
 ms.author: aahi
-ms.openlocfilehash: 308b2a9cb00f44f0e330d4fef5592d8855ee3394
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 00c1c8ddab9214bf7698c21b05c24afa36ec20d9
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553171"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98147657"
 ---
 ## <a name="text-analytics-for-health-categories-entities-and-attributes"></a>Analiza tekstu kategorii kondycji, jednostek i atrybutów
 
@@ -23,15 +23,15 @@ ms.locfileid: "94553171"
 
 | Kategoria  | Opis  |
 |---------|---------|
-| ANATOMY | pojęcia, które przechwytują informacje o systemach treści i anatomicznych, witrynach, lokalizacjach lub regionach. |
- | DANE demograficzne | pojęcia, które przechwytują informacje o płci i wieku. |
- | BADAWCZ | pojęcia, które przechwytują informacje o procedurach i testach diagnostycznych. |
- | GENOMICS | pojęcia, które przechwytują informacje o genów i odmianach. |
- | ZDROWOTNE | pojęcia, które przechwytują informacje o zdarzeniach administracyjnych, środowiskach opieki i zawódu opieki zdrowotnej. |
- | WARUNEK MEDYCZNY | pojęcia, które przechwytują informacje o diagnozowaniu, objawach lub znakach. |
- | LEKI | pojęcia, które przechwytują informacje dotyczące leczenia, w tym nazwy leczenia, klasy, dozowanie i drogi administracyjne. |
- | PRACODAWC | pojęcia, które przechwytują informacje o istotnych aspektach społecznościowych, takich jak związek rodziny. |
- | POSTĘPOWANIE | pojęcia, które przechwytują informacje o procedurach terapeutycznych. |
+| [ANATOMY](#anatomy) | pojęcia, które przechwytują informacje o systemach treści i anatomicznych, witrynach, lokalizacjach lub regionach. |
+ | [DANE demograficzne](#demographics) | pojęcia, które przechwytują informacje o płci i wieku. |
+ | [BADAWCZ](#examinations) | pojęcia, które przechwytują informacje o procedurach i testach diagnostycznych. |
+ | [GENOMICS](#genomics) | pojęcia, które przechwytują informacje o genów i odmianach. |
+ | [ZDROWOTNE](#healthcare) | pojęcia, które przechwytują informacje o zdarzeniach administracyjnych, środowiskach opieki i zawódu opieki zdrowotnej. |
+ | [WARUNEK MEDYCZNY](#medical-condition) | pojęcia, które przechwytują informacje o diagnozowaniu, objawach lub znakach. |
+ | [LEKI](#medication) | pojęcia, które przechwytują informacje dotyczące leczenia, w tym nazwy leczenia, klasy, dozowanie i drogi administracyjne. |
+ | [PRACODAWC](#social) | pojęcia, które przechwytują informacje o istotnych aspektach społecznościowych, takich jak związek rodziny. |
+ | [POSTĘPOWANIE](#treatment) | pojęcia, które przechwytują informacje o procedurach terapeutycznych. |
   
 Każda kategoria może obejmować dwie grupy koncepcji:
 
@@ -98,11 +98,11 @@ Wyrażenia **RELATIONAL_OPERATOR** , które wyrażają relację między jednostk
 
 :::image type="content" source="../../media/ta-for-health/exam-direction-attribute.png" alt-text="Przykład atrybutu kierunku z jednostką nazwa badania.":::
 
-**MEASUREMENT_UNIT** — jednostka badania. Na przykład w *hemoglobin > 9,5 g/dl* , termin *g/dl* jest jednostką dla testu *hemoglobin* .
+**MEASUREMENT_UNIT** — jednostka badania. Na przykład w *hemoglobin > 9,5 g/dl*, termin *g/dl* jest jednostką dla testu *hemoglobin* .
 
 :::image type="content" source="../../media/ta-for-health/exam-unit-attribute.png" alt-text="Przykład atrybutu jednostki miary z jednostką nazwa badania.":::
 
-**MEASUREMENT_VALUE** — wartość badania. Na przykład w *hemoglobin > 9,5 g/dl* , termin *9,5* jest wartością dla testu *hemoglobin* .
+**MEASUREMENT_VALUE** — wartość badania. Na przykład w *hemoglobin > 9,5 g/dl*, termin *9,5* jest wartością dla testu *hemoglobin* .
 
 :::image type="content" source="../../media/ta-for-health/exam-value-attribute.png" alt-text="Przykład atrybutu wartości pomiaru z jednostką nazwa badania.":::
 
@@ -198,7 +198,7 @@ Wyrażenia **RELATIONAL_OPERATOR** , które wyrażają relację między jednostk
 
 :::image type="content" source="../../media/ta-for-health/medical-condition-frequency-attribute-2.png" alt-text="Innym przykładem atrybutu kierunku z objawem lub podpisz jednostką.":::
 
-**MEASUREMENT_UNIT** — jednostka, która charakteryzuje się warunkiem lekarskim. Na przykład w *1,5 x2x1 cm Tumor* , termin *cm* jest jednostką miary dla *Tumor*. 
+**MEASUREMENT_UNIT** — jednostka, która charakteryzuje się warunkiem lekarskim. Na przykład w *1,5 x2x1 cm Tumor*, termin *cm* jest jednostką miary dla *Tumor*. 
 
 :::image type="content" source="../../media/ta-for-health/medical-condition-measure-unit-attribute.png" alt-text="Przykład atrybutu jednostki pomiaru z jednostką warunków leczenia.":::
 
@@ -267,7 +267,15 @@ Wyrażenia **RELATIONAL_OPERATOR** , które wyrażają relację między leków a
 +   **FREQUENCY_OF_MEDICATION**
 +   **ROUTE_OF_MEDICATION**
 +   **TIME_OF_MEDICATION**
-  
+
+## <a name="social"></a>Funkcje społecznościowe
+
+### <a name="entities"></a>Jednostki
+
+**FAMILY_RELATION** — wzmianki dotyczące rodziny tematu. Na przykład, ojciec, element równorzędny, elementy nadrzędne.
+
+:::image type="content" source="../../media/ta-for-health/family-relation.png" alt-text="Zrzut ekranu przedstawia inny przykład atrybutu czasu obróbki.":::
+
 ## <a name="treatment"></a>Postępowanie
 
 ### <a name="entities"></a>Jednostki
@@ -294,17 +302,8 @@ Wyrażenia **RELATIONAL_OPERATOR** , które wyrażają zależność między trak
 
 :::image type="content" source="../../media/ta-for-health/treatment-time.png" alt-text="Zrzut ekranu przedstawia przykład atrybutu czasu obróbki.":::
 
-
 ### <a name="supported-relations"></a>Obsługiwane relacje
 
 + **DIRECTION_OF_TREATMENT**
 +   **TIME_OF_TREATMENT**
 +   **FREQUENCY_OF_TREATMENT**
-
-## <a name="social"></a>Funkcje społecznościowe
-
-### <a name="entities"></a>Jednostki
-
-**FAMILY_RELATION** — wzmianki dotyczące rodziny tematu. Na przykład, ojciec, element równorzędny, elementy nadrzędne.
-
-:::image type="content" source="../../media/ta-for-health/family-relation.png" alt-text="Zrzut ekranu przedstawia inny przykład atrybutu czasu obróbki.":::

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: 054d18337e50a367cf1f6f004f4e1d1652c7751e
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: f2170aad9bc0218d39244d08f5cc838235f8fee9
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97954412"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134368"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurowanie eksperymentów zautomatyzowanego uczenia maszynowego w języku Python
 
@@ -157,7 +157,6 @@ Oto niektóre przykłady:
     time_series_settings = {
         'time_column_name': time_column_name,
         'time_series_id_column_names': time_series_id_column_names,
-        'drop_column_names': ['logQuantity'],
         'forecast_horizon': n_test_periods
     }
     
@@ -305,7 +304,7 @@ automl_classifier = AutoMLConfig(
 
 Istnieje kilka opcji, które można zdefiniować w AutoMLConfig, aby zakończyć eksperyment.
 
-|Kryteria| description
+|Kryteria| description (opis)
 |----|----
 Brak &nbsp; kryteriów | Jeśli nie określisz żadnych parametrów zakończenia, eksperyment kontynuuje działanie, dopóki nie zostanie wprowadzony kolejny postęp w głównej metryce.
 Po upływie &nbsp; &nbsp; dłuższego &nbsp; &nbsp; czasu| Użyj `experiment_timeout_minutes` Ustawienia w ustawieniach, aby określić czas, w ciągu którego eksperyment powinien nadal działać. <br><br> Aby zapobiec błędom przekroczenia limitu czasu eksperymentu, istnieje co najmniej 15 minut lub 60 minut, jeśli rozmiar wiersza według kolumny przekracza 10 000 000.

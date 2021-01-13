@@ -9,12 +9,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–377467–A/B– Quickstarts/Python App–12.11
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-python-1
-ms.openlocfilehash: 058d64d8b34a47101517273ebd17a09d9ca51197
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: f60534f7d319bfe0b9e8e7bd4447770bcd6d45e3
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936196"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134436"
 ---
 # <a name="quickstart-create-a-python-app-using-azure-app-service-on-linux"></a>Szybki Start: Tworzenie aplikacji w języku Python przy użyciu Azure App Service w systemie Linux
 
@@ -158,13 +158,13 @@ Masz problemy? [Daj nam znać](https://aka.ms/FlaskCLIQuickstartHelp).
 Wdróż kod w folderze lokalnym (*Python-docs-Hello-World*) przy użyciu `az webapp up` polecenia:
 
 ```azurecli
-az webapp up --sku F1 --name <app-name>
+az webapp up --sku B1 --name <app-name>
 ```
 
 - Jeśli `az` polecenie nie zostanie rozpoznane, upewnij się, że masz zainstalowany interfejs wiersza polecenia platformy Azure zgodnie z opisem w artykule [Konfigurowanie początkowego środowiska](#set-up-your-initial-environment).
 - Jeśli `webapp` polecenie nie zostanie rozpoznane, ponieważ wersja interfejsu wiersza polecenia platformy Azure to 2.0.80 lub nowszego. Jeśli nie, [Zainstaluj najnowszą wersję](/cli/azure/install-azure-cli).
 - Zamień na `<app_name>` nazwę, która jest unikatowa na całym systemie Azure (*prawidłowe znaki to `a-z` , `0-9` i `-`*). Dobrym wzorcem jest użycie kombinacji nazwy firmy i identyfikatora aplikacji.
-- `--sku F1`Argument tworzy aplikację sieci Web w warstwie cenowej bezpłatna. Pomiń ten argument, aby użyć szybszej warstwy Premium, która wiąże się z godziną.
+- `--sku B1`Argument tworzy aplikację sieci Web w warstwie cenowej Basic, która wiąże się z niewielkim kosztem godzinowym. Pomiń ten argument, aby użyć szybszej warstwy Premium.
 - Opcjonalnie możesz dołączyć argument, `--location <location-name>` gdzie `<location_name>` jest dostępny region platformy Azure. Możesz pobrać listę dozwolonych regionów dla Twojego konta platformy Azure, uruchamiając [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) polecenie.
 - Jeśli widzisz błąd, "nie można automatycznie wykryć stosu środowiska uruchomieniowego aplikacji", upewnij się, że uruchomiono polecenie w folderze *Python-docs-Hello-World* (*) lub w folderze *Python-docs-Hello-Django* (Django), który zawiera plik *requirements.txt* . (Zobacz [Rozwiązywanie problemów z wykrywaniem automatyczne przy użyciu AZ webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md) (GitHub).)
 
@@ -268,7 +268,7 @@ Masz problemy? Najpierw zapoznaj się z [przewodnikiem rozwiązywania problemów
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-W poprzednich krokach utworzono zasoby platformy Azure w grupie zasobów. Grupa zasobów ma nazwę "appsvc_rg_Linux_CentralUS" w zależności od lokalizacji. Jeśli używasz jednostki SKU App Service innej niż bezpłatna warstwa F1, te zasoby ponoszą bieżące koszty (zobacz [App Service Cennik](https://azure.microsoft.com/pricing/details/app-service/linux/)).
+W poprzednich krokach utworzono zasoby platformy Azure w grupie zasobów. Grupa zasobów ma nazwę "appsvc_rg_Linux_CentralUS" w zależności od lokalizacji. Jeśli aplikacja sieci Web jest uruchomiona, zostaną naliczone pewne bieżące koszty (zobacz [cennik App Service](https://azure.microsoft.com/pricing/details/app-service/linux/)).
 
 Jeśli nie chcesz potrzebować tych zasobów w przyszłości, Usuń grupę zasobów, uruchamiając następujące polecenie:
 

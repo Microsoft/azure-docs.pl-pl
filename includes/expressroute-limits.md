@@ -5,15 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: include
-ms.date: 07/25/2019
+ms.date: 01/12/2021
 ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: 54306b8bd8718a0a69f5b04ceaab15dff46d21a8
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: 6f8ed3381f056238bdbb24fe52c5f859afef7d03
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97978769"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98147440"
 ---
 | Zasób | Limit |
 | --- | --- |
@@ -21,7 +21,7 @@ ms.locfileid: "97978769"
 | Obwody usługi ExpressRoute na region na subskrypcję z Azure Resource Manager |10 |
 | Maksymalna liczba tras anonsowanych do prywatnej komunikacji równorzędnej Azure przy użyciu standardu ExpressRoute |4000 |
 | Maksymalna liczba tras anonsowanych do prywatnej komunikacji równorzędnej Azure przy użyciu dodatku ExpressRoute Premium |10 000 |
-| Maksymalna liczba tras anonsowanych z prywatnej komunikacji równorzędnej Azure z przestrzeni adresowej sieci wirtualnej dla połączenia ExpressRoute |1000 |
+| Maksymalna liczba tras anonsowanych z prywatnej komunikacji równorzędnej Azure z przestrzeni adresowej sieci wirtualnej dla połączenia ExpressRoute |200 |
 | Maksymalna liczba tras anonsowanych do komunikacji równorzędnej firmy Microsoft przy użyciu standardu ExpressRoute |200 |
 | Maksymalna liczba tras anonsowanych w komunikacji równorzędnej firmy Microsoft z dodatkiem ExpressRoute Premium |200 |
 | Maksymalna liczba obwodów usługi ExpressRoute połączonych z tą samą siecią wirtualną w tej samej lokalizacji komunikacji równorzędnej |4 |

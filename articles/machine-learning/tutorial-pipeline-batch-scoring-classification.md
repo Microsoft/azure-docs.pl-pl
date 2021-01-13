@@ -11,16 +11,14 @@ ms.author: laobri
 ms.reviewer: laobri
 ms.date: 10/13/2020
 ms.custom: contperf-fy20q4, devx-track-python
-ms.openlocfilehash: b0b415cce37e464abcba9fab5ad4c1196b1b2e1b
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 916064742e69b7d355a0c7e541d4f2270e8854f4
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033480"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134453"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Samouczek: Tworzenie potoku Azure Machine Learning na potrzeby oceniania partii
-
-
 
 W tym zaawansowanym samouczku dowiesz się, jak utworzyć [potok Azure Machine Learning](concept-ml-pipelines.md) , aby uruchomić zadanie oceniania partii. Potoki uczenia maszynowego optymalizują przepływ pracy z szybkością, przenośnością i wielokrotnym użyciem, dzięki czemu możesz skupić się na uczeniu maszynowym zamiast infrastruktury i automatyzacji. Po skompilowaniu i opublikowaniu potoku należy skonfigurować punkt końcowy REST, za pomocą którego można wyzwolić potok z dowolnej biblioteki HTTP na dowolnej platformie. 
 
@@ -79,26 +77,24 @@ def_data_store = ws.get_default_datastore()
 
 ## <a name="create-dataset-objects"></a>Tworzenie obiektów DataSet
 
-Podczas kompilowania potoków `Dataset` obiekty są używane do odczytywania danych z magazynów elementów obszaru roboczego, a `PipelineData` obiekty są używane do przesyłania danych pośrednich między etapami potoku.
+Podczas kompilowania potoków `Dataset` obiekty są używane do odczytywania danych z magazynów elementów obszaru roboczego, a `OutputFileDatasetConfig` obiekty są używane do przesyłania danych pośrednich między etapami potoku.
 
 > [!Important]
 > Przykład wsadowego oceniania w tym samouczku używa tylko jednego kroku potoku. W przypadku użycia, które mają wiele kroków, typowy przepływ obejmuje następujące kroki:
 >
-> 1. Używaj `Dataset` obiektów jako danych *wejściowych* do pobierania danych pierwotnych, wykonywania niektórych transformacji, a następnie *wyprowadzania* `PipelineData` obiektu.
+> 1. Użyj `Dataset` obiektów jako *danych wejściowych* , aby pobrać dane pierwotne, wykonać transformację, a następnie *dane wyjściowe* z `OutputFileDatasetConfig` obiektem.
 >
-> 2. Użyj `PipelineData` *obiektu wyjściowego* w poprzednim kroku jako *obiektu wejściowego*. Powtórz tę czynność dla kolejnych kroków.
+> 2. Użyj `OutputFileDatasetConfig` *obiektu wyjściowego* w poprzednim kroku jako *obiektu wejściowego*. Powtórz tę czynność dla kolejnych kroków.
 
-W tym scenariuszu utworzysz `Dataset` obiekty odpowiadające katalogom magazynu danych zarówno dla obrazów wejściowych, jak i etykiet klasyfikacji (wartości y-test). Tworzony jest również `PipelineData` obiekt dla danych wyjściowych oceniania partii.
+W tym scenariuszu utworzysz `Dataset` obiekty odpowiadające katalogom magazynu danych zarówno dla obrazów wejściowych, jak i etykiet klasyfikacji (wartości y-test). Tworzony jest również `OutputFileDatasetConfig` obiekt dla danych wyjściowych oceniania partii.
 
 ```python
 from azureml.core.dataset import Dataset
-from azureml.pipeline.core import PipelineData
+from azureml.data import OutputFileDatasetConfig
 
 input_images = Dataset.File.from_files((batchscore_blob, "batchscoring/images/"))
 label_ds = Dataset.File.from_files((batchscore_blob, "batchscoring/labels/"))
-output_dir = PipelineData(name="scores", 
-                          datastore=def_data_store, 
-                          output_path_on_compute="batchscoring/results")
+output_dir = OutputFileDatasetConfig(name="scores")
 ```
 
 Zarejestruj zestawy danych w obszarze roboczym, jeśli chcesz użyć go później. Ta czynność jest opcjonalna.

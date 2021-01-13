@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/07/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: e2a950037aed2a8ded4d4e55920721285cbfc05c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83f0ce27172879a37de9488499e46de30b8e112c
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82204529"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98147411"
 ---
 Podczas pracy z niestandardowymi zasadami protokołu IPsec należy pamiętać o następujących wymaganiach:
 
@@ -34,3 +34,4 @@ Podczas pracy z niestandardowymi zasadami protokołu IPsec należy pamiętać o 
 | Szyfrowanie IPsec | GCMAES256, GCMAES128, AES256, AES128, brak |
 | Integralność IPsec | GCMAES256, GCMAES128, SHA256 |
 | Grupa PFS | ECP384, ECP256, PFS24, PFS14, brak |
+| Okres istnienia skojarzeń zabezpieczeń |całkowitą min. 300/domyślnie 27000 s |
