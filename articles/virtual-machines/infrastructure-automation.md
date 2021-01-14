@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 07/17/2020
 ms.author: cynthn
-ms.openlocfilehash: dfa0efaa49fbca0b927bfd32511348f3ded7e6c7
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 96c68850cfd8b03f7d1457eb0f1ca9ce5880c926
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302805"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98198003"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Korzystanie z narzędzi do automatyzacji infrastruktury z maszynami wirtualnymi na platformie Azure
 
@@ -88,7 +88,7 @@ Skrypty można pobrać z usługi Azure Storage lub z dowolnej lokalizacji public
 Instrukcje:
 
 - [Utwórz maszynę wirtualną z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure i Użyj niestandardowego rozszerzenia skryptu](./scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fcli%2fazure%2ftoc.json).
-- [Utwórz maszynę wirtualną z systemem Windows przy użyciu Azure PowerShell i Użyj niestandardowego rozszerzenia skryptu](./scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md?toc=%2fpowershell%2fmodule%2ftoc.json).
+- [Utwórz maszynę wirtualną z systemem Windows przy użyciu Azure PowerShell i Użyj niestandardowego rozszerzenia skryptu](./scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md).
 
 
 ## <a name="packer"></a>Usługi Packer
@@ -109,7 +109,7 @@ Instrukcje:
 - [Utwórz infrastrukturę platformy Azure z usługą Terraform](/azure/developer/terraform/create-linux-virtual-machine-with-infrastructure).
 
 
-## <a name="azure-automation"></a>Azure Automation
+## <a name="azure-automation"></a>Usługa Azure Automation
 [Azure Automation](https://azure.microsoft.com/services/automation/) używa elementów Runbook do przetwarzania zestawu zadań dla docelowych maszyn wirtualnych. Azure Automation jest używany do zarządzania istniejącymi maszynami wirtualnymi, a nie do tworzenia infrastruktury. Azure Automation można uruchamiać na maszynach wirtualnych z systemem Linux i Windows, a także na maszynach wirtualnych lub fizycznych z hybrydowym procesem roboczym elementu Runbook. Elementy Runbook mogą być przechowywane w repozytorium kontroli źródła, takim jak GitHub. Te elementy Runbook można następnie uruchomić ręcznie lub zgodnie ze zdefiniowanym harmonogramem.
 
 Azure Automation udostępnia również usługę konfiguracji żądanego stanu (DSC), która umożliwia tworzenie definicji, w jaki sposób należy skonfigurować dany zestaw maszyn wirtualnych. Usługa DSC gwarantuje, że wymagana konfiguracja zostanie zastosowana, a maszyna wirtualna pozostaje spójna. Azure Automation DSC działa na komputerach z systemem Windows i Linux.

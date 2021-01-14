@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e0cf0f30d1110a58ff8087fd348c4916c34e4603
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 0f0c771b11dfc029f18681e7a4c11b8ee271252c
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351814"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197697"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Podstawa zabezpieczeń platformy Azure dla Container Instances
 
@@ -385,7 +385,7 @@ Jeśli używasz usługi Azure Container Registry z usługą Azure Container Inst
 
 **Wskazówki**: Użyj dostępem uprzywilejowanym (uprzywilejowanych stacji roboczych dostępu) za pomocą usługi MFA skonfigurowanej do logowania się i konfigurowania zasobów platformy Azure.
 
-* [Dowiedz się więcej o stacjach roboczych uprzywilejowanego dostępu](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Dowiedz się więcej o stacjach roboczych uprzywilejowanego dostępu](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [Jak włączyć usługę MFA na platformie Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 

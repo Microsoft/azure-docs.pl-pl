@@ -3,12 +3,12 @@ title: Omówienie funkcji — Azure Event Hubs | Microsoft Docs
 description: Ten artykuł zawiera szczegółowe informacje o funkcjach i terminologii Event Hubs platformy Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 0730a5fa3abbc6b27cb96431125564a2475a90d1
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 60dc964d1b827eec75ee4f65a5776710e57fd6eb
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955653"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195793"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funkcje i terminologia w usłudze Azure Event Hubs
 
@@ -104,7 +104,7 @@ W poniższych przykładach przedstawiono Konwencję identyfikatora URI grupy odb
 
 Na poniższym rysunku przedstawiono architekturę przetwarzania strumienia usługi Event Hubs:
 
-![Architektura Event Hubs](./media/event-hubs-features/event_hubs_architecture.png)
+![Architektura Event Hubs](./media/event-hubs-about/event_hubs_architecture.svg)
 
 ### <a name="stream-offsets"></a>Przesunięcia strumienia
 

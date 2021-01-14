@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: df2b58e0067932edd9dfa21ee1a6fbb2a5c1fdf7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 941be52f25b08589134f693b9c0fe17a8a87ff28
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87289766"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196405"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Tworzenie maszyny wirtualnej z systemem Linux na podstawie dysku niestandardowego przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -38,12 +38,12 @@ Dostępne są dwie opcje tworzenia dysku niestandardowego:
 Aby wykonać następujące kroki, potrzebne są:
 
 - Maszyna wirtualna z systemem Linux, która została przygotowana do użycia na platformie Azure. Sekcja [przygotowanie maszyny wirtualnej](#prepare-the-vm) w tym artykule zawiera informacje dotyczące sposobu znalezienia dystrybucji informacji dotyczących instalacji agenta systemu Linux (waagent), który jest wymagany do nawiązania połączenia z maszyną wirtualną przy użyciu protokołu SSH.
-- Plik VHD z istniejącej [dystrybucji systemu Linux zaświadczonej przez platformę Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (lub Wyświetl [informacje dotyczące dystrybucji niepotwierdzonych](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) na dysku wirtualnym w formacie VHD. Istnieje wiele narzędzi do utworzenia maszyny wirtualnej i wirtualnego dysku twardego:
+- Plik VHD z istniejącej [dystrybucji systemu Linux zaświadczonej przez platformę Azure](endorsed-distros.md) (lub Wyświetl [informacje dotyczące dystrybucji niepotwierdzonych](create-upload-generic.md)) na dysku wirtualnym w formacie VHD. Istnieje wiele narzędzi do utworzenia maszyny wirtualnej i wirtualnego dysku twardego:
   - Zainstaluj i skonfiguruj [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) lub [KVM](https://www.linux-kvm.org/page/RunningKVM), pamiętając o użyciu dysku VHD jako formatu obrazu. W razie konieczności można [przekonwertować obraz](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) za pomocą `qemu-img convert` .
   - Można również użyć funkcji Hyper-V [w systemie Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) lub [Windows Server 2012/2012 R2](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 
 > [!NOTE]
-> Nowszy format VHDX nie jest obsługiwany na platformie Azure. Podczas tworzenia maszyny wirtualnej Określ plik VHD jako format. W razie potrzeby można skonwertować dyski VHDX na dysk VHD przy użyciu narzędzia [QEMU-IMG Convert](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) lub polecenia cmdlet [convert-VHD](/powershell/module/hyper-v/convert-vhd?view=win10-ps) PowerShell. Platforma Azure nie obsługuje przekazywania dynamicznych dysków VHD, dlatego przed przekazaniem konieczne będzie przekonwertowanie takich dysków na statyczne wirtualne dyski twarde. Możesz użyć narzędzi, takich jak [Narzędzia wirtualnego dysku twardego platformy Azure](https://github.com/Microsoft/azure-vhd-utils-for-go) , aby przekonwertować dyski dynamiczne podczas procesu przekazywania ich do platformy Azure.
+> Nowszy format VHDX nie jest obsługiwany na platformie Azure. Podczas tworzenia maszyny wirtualnej Określ plik VHD jako format. W razie potrzeby można skonwertować dyski VHDX na dysk VHD przy użyciu narzędzia [QEMU-IMG Convert](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) lub polecenia cmdlet [convert-VHD](/powershell/module/hyper-v/convert-vhd) PowerShell. Platforma Azure nie obsługuje przekazywania dynamicznych dysków VHD, dlatego przed przekazaniem konieczne będzie przekonwertowanie takich dysków na statyczne wirtualne dyski twarde. Możesz użyć narzędzi, takich jak [Narzędzia wirtualnego dysku twardego platformy Azure](https://github.com/Microsoft/azure-vhd-utils-for-go) , aby przekonwertować dyski dynamiczne podczas procesu przekazywania ich do platformy Azure.
 > 
 > 
 
@@ -56,20 +56,20 @@ W poniższych przykładach Zastąp przykładowe nazwy parametrów własnymi wart
 
 ## <a name="prepare-the-vm"></a>Przygotowywanie maszyny wirtualnej
 
-Platforma Azure obsługuje różne dystrybucje systemu Linux (zobacz [rozpowszechniane dystrybucje](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). W poniższych artykułach opisano, jak przygotować różne dystrybucje systemu Linux, które są obsługiwane na platformie Azure:
+Platforma Azure obsługuje różne dystrybucje systemu Linux (zobacz [rozpowszechniane dystrybucje](endorsed-distros.md)). W poniższych artykułach opisano, jak przygotować różne dystrybucje systemu Linux, które są obsługiwane na platformie Azure:
 
-* [dystrybucje oparte na systemie CentOS](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Debian Linux](debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Oracle Linux](oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [SLES i openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Inne: dystrybucje niezatwierdzone](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [dystrybucje oparte na systemie CentOS](create-upload-centos.md)
+* [Debian Linux](debian-create-upload-vhd.md)
+* [Oracle Linux](oracle-create-upload-vhd.md)
+* [Red Hat Enterprise Linux](redhat-create-upload-vhd.md)
+* [SLES i openSUSE](suse-create-upload-vhd.md)
+* [Ubuntu](create-upload-ubuntu.md)
+* [Inne: dystrybucje niezatwierdzone](create-upload-generic.md)
 
 Zapoznaj się również z [informacjami o instalacji systemu Linux](create-upload-generic.md#general-linux-installation-notes) , aby uzyskać bardziej ogólne porady dotyczące przygotowywania obrazów z systemem Linux dla platformy Azure.
 
 > [!NOTE]
-> [Umowa SLA platformy Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) ma zastosowanie do maszyn wirtualnych z systemem Linux tylko wtedy, gdy jedna z wydawanych dystrybucji jest używana wraz ze szczegółami konfiguracji określonymi w sekcji "obsługiwane wersje" w [systemie Linux na Azure-Endorsed dystrybucji](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [Umowa SLA platformy Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) ma zastosowanie do maszyn wirtualnych z systemem Linux tylko wtedy, gdy jedna z wydawanych dystrybucji jest używana wraz ze szczegółami konfiguracji określonymi w sekcji "obsługiwane wersje" w [systemie Linux na Azure-Endorsed dystrybucji](endorsed-distros.md).
 > 
 > 
 
@@ -133,4 +133,4 @@ az vm create \
 Powinno być możliwe nawiązanie połączenia SSH z maszyną wirtualną z poświadczeniami ze źródłowej maszyny wirtualnej. 
 
 ## <a name="next-steps"></a>Następne kroki
-Po przygotowaniu i przekazaniu niestandardowego dysku wirtualnego możesz przeczytać więcej na temat [używania Menedżer zasobów i szablonów](../../azure-resource-manager/management/overview.md). Możesz również [dodać dysk z danymi](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) do nowych maszyn wirtualnych. Jeśli masz aplikacje uruchomione na maszynach wirtualnych, do których musisz uzyskać dostęp, pamiętaj, aby [otworzyć porty i punkty końcowe](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Po przygotowaniu i przekazaniu niestandardowego dysku wirtualnego możesz przeczytać więcej na temat [używania Menedżer zasobów i szablonów](../../azure-resource-manager/management/overview.md). Możesz również [dodać dysk z danymi](add-disk.md) do nowych maszyn wirtualnych. Jeśli masz aplikacje uruchomione na maszynach wirtualnych, do których musisz uzyskać dostęp, pamiętaj, aby [otworzyć porty i punkty końcowe](nsg-quickstart.md).

@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: a3016900b6265bfd56ad1a5a71f70efc01181af5
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 43447454b82b74c10b1d53c41c7883b0b9bef242
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499258"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196507"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Zadanie DevOps usługi Azure Image Builder
 
@@ -55,7 +55,7 @@ Istnieją dwa zadania usługi Azure VM Image Builder (AIB) DevOps:
 
 ## <a name="add-task-to-release-pipeline"></a>Dodaj zadanie do potoku wydania
 
-Wybieranie **Release Pipeline** opcji  >  **Przeprowadź edycję** potoku wydania
+Wybieranie opcji  >  **Przeprowadź edycję** potoku wydania
 
 Na agencie użytkownika wybierz opcję, *+* Aby dodać, a następnie wyszukaj **konstruktora obrazu**. Wybierz pozycję **Dodaj**.
 
@@ -154,7 +154,7 @@ W poniższym przykładzie wyjaśniono, jak to działa:
     & 'c:\buildArtifacts\webapp\webconfig.ps1'
     ```
 
-* Komputery z systemem Linux — w systemie Linux artefakty kompilacji są umieszczane w `/tmp` katalogu. Jednak w wielu systemach OSs systemu Linux po ponownym uruchomieniu zostanie usunięta zawartość katalogu/tmp. Jeśli chcesz, aby artefakty istniały w obrazie, należy utworzyć inny katalog i skopiować je.  Przykład:
+* Komputery z systemem Linux — w systemie Linux artefakty kompilacji są umieszczane w `/tmp` katalogu. Jednak w wielu systemach OSs systemu Linux po ponownym uruchomieniu zostanie usunięta zawartość katalogu/tmp. Jeśli chcesz, aby artefakty istniały w obrazie, należy utworzyć inny katalog i skopiować je.  Na przykład:
 
     ```bash
     sudo mkdir /lib/buildArtifacts
@@ -176,7 +176,7 @@ W poniższym przykładzie wyjaśniono, jak to działa:
 > Konstruktor obrazów nie usuwa automatycznie artefaktów kompilacji, dlatego zdecydowanie zaleca się, aby zawsze mieć kod do usuwania artefaktów kompilacji.
 > 
 
-* Windows-Image Builder służy do wdrażania plików w `c:\buildArtifacts` katalogu. Katalog jest utrwalany należy usunąć katalog. Można go usunąć w skrypcie wykonywanym przez użytkownika. Przykład:
+* Windows-Image Builder służy do wdrażania plików w `c:\buildArtifacts` katalogu. Katalog jest utrwalany należy usunąć katalog. Można go usunąć w skrypcie wykonywanym przez użytkownika. Na przykład:
 
     ```PowerShell
     # Clean up buildArtifacts directory
@@ -186,7 +186,7 @@ W poniższym przykładzie wyjaśniono, jak to działa:
     Remove-Item -Path "C:\buildArtifacts" -Force 
     ```
     
-* Linux — artefakty kompilacji są umieszczane w `/tmp` katalogu. Jednak w wielu systemach OSs systemu Linux po ponownym uruchomieniu `/tmp` zawartość katalogu zostanie usunięta. Zalecane jest, aby usunąć zawartość z kodu, a nie polegać na systemie operacyjnym, aby usunąć zawartość. Przykład:
+* Linux — artefakty kompilacji są umieszczane w `/tmp` katalogu. Jednak w wielu systemach OSs systemu Linux po ponownym uruchomieniu `/tmp` zawartość katalogu zostanie usunięta. Zalecane jest, aby usunąć zawartość z kodu, a nie polegać na systemie operacyjnym, aby usunąć zawartość. Na przykład:
 
     ```bash
     sudo rm -R "/tmp/AppsAndImageBuilderLinux"
@@ -194,7 +194,7 @@ W poniższym przykładzie wyjaśniono, jak to działa:
     
 #### <a name="total-length-of-image-build"></a>Łączna długość kompilacji obrazu
 
-Nie można jeszcze zmienić długości łącznej w zadaniu potoku DevOps. Używa domyślnie 240 minut. Jeśli chcesz zwiększyć [buildTimeoutInMinutes](./image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#properties-buildtimeoutinminutes), możesz użyć polecenia AZ CLI w potoku wydania. Skonfiguruj zadanie, aby skopiować szablon i przesłać go. Aby zapoznać się z przykładem, zobacz to [rozwiązanie](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder)lub użyj polecenia AZ PowerShell.
+Nie można jeszcze zmienić długości łącznej w zadaniu potoku DevOps. Używa domyślnie 240 minut. Jeśli chcesz zwiększyć [buildTimeoutInMinutes](./image-builder-json.md#properties-buildtimeoutinminutes), możesz użyć polecenia AZ CLI w potoku wydania. Skonfiguruj zadanie, aby skopiować szablon i przesłać go. Aby zapoznać się z przykładem, zobacz to [rozwiązanie](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder)lub użyj polecenia AZ PowerShell.
 
 
 #### <a name="storage-account"></a>Konto magazynu
@@ -312,7 +312,7 @@ Nie. Zostanie użyta unikatowa nazwa szablonu, a następnie usunięta.
 
 Jeśli wystąpi błąd kompilacji, zadanie DevOps nie usuwa tymczasowej grupy zasobów. Możesz uzyskać dostęp do tymczasowej grupy zasobów zawierającej dziennik dostosowania kompilacji.
 
-Zostanie wyświetlony komunikat o błędzie w dzienniku DevOps zadania konstruktora obrazów maszyn wirtualnych i zapoznaj się z lokalizacją dostosowywać. log. Przykład:
+Zostanie wyświetlony komunikat o błędzie w dzienniku DevOps zadania konstruktora obrazów maszyn wirtualnych i zapoznaj się z lokalizacją dostosowywać. log. Na przykład:
 
 :::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="Przykładowy błąd zadania DevOps, który zawiera błąd.":::
 

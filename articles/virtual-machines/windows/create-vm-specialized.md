@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: cddc7f4f453f22b0cb36b1d3a1e9c2fba2dcabaf
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 577b8527d95a6410deca8002cddfaae31be1fc97
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455094"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197493"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Tworzenie maszyny wirtualnej z systemem Windows na podstawie wyspecjalizowanego dysku za pomocą programu PowerShell
 
@@ -54,7 +54,7 @@ Wirtualny dysk twardy można przekazać z wyspecjalizowanej maszyny wirtualnej u
 ### <a name="prepare-the-vm"></a>Przygotowywanie maszyny wirtualnej
 Aby utworzyć nową maszynę wirtualną, użyj wirtualnego dysku twardego. 
   
-  * [Przygotuj wirtualny dysk twardy systemu Windows do przekazania na platformę Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Nie należy** UOGÓLNIAĆ maszyny wirtualnej przy użyciu programu Sysprep.
+  * [Przygotuj wirtualny dysk twardy systemu Windows do przekazania na platformę Azure](prepare-for-upload-vhd-image.md). **Nie należy** UOGÓLNIAĆ maszyny wirtualnej przy użyciu programu Sysprep.
   * Usuń wszystkie narzędzia i agenci wirtualizacji gościa, które są zainstalowane na maszynie wirtualnej (na przykład narzędzia VMware).
   * Upewnij się, że maszyna wirtualna jest skonfigurowana do pobierania adresu IP i ustawień DNS z protokołu DHCP. Dzięki temu serwer uzyskuje adres IP w ramach sieci wirtualnej podczas uruchamiania. 
 
@@ -193,7 +193,7 @@ $nsg = New-AzNetworkSecurityGroup `
     
 ```
 
-Aby uzyskać więcej informacji na temat punktów końcowych i reguł sieciowej grupy zabezpieczeń, zobacz [otwieranie portów do maszyny wirtualnej na platformie Azure przy użyciu programu PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Aby uzyskać więcej informacji na temat punktów końcowych i reguł sieciowej grupy zabezpieczeń, zobacz [otwieranie portów do maszyny wirtualnej na platformie Azure przy użyciu programu PowerShell](nsg-quickstart-powershell.md).
 
 ### <a name="create-a-public-ip-address-and-nic"></a>Tworzenie publicznego adresu IP i karty sieciowej
 Aby umożliwić komunikację z maszyną wirtualną w sieci wirtualnej, potrzebny jest [publiczny adres IP](../../virtual-network/public-ip-addresses.md) i interfejs sieciowy.

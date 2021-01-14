@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/03/2020
-ms.openlocfilehash: c824e0abea7320a20441e51caa2a05d534ff61b3
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 003a71f962652b1a1436f5d9875835534090a77a
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092690"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196592"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Automatyczne etykietowanie danych w usłudze Azure kontrolą
 
@@ -33,8 +33,9 @@ W kontrolą klasyfikacje są podobne do tagów podmiotu i służą do oznaczania
 Kontrolą używa tych samych klasyfikacji, znanych również jako typy informacji poufnych, jako Microsoft 365.  Etykiety dotyczące czułości MCI są tworzone w centrum zabezpieczeń i zgodności Microsoft 365 (SCC). Dzięki temu można zwiększyć istniejące etykiety czułości dla zasobów usługi Azure kontrolą.
 
 > [!NOTE]
-> Klasyfikacje są dopasowywane bezpośrednio (numer ubezpieczenia społecznego ma klasyfikację numeru ubezpieczenia **społecznego**), natomiast etykiety czułości są stosowane w przypadku, gdy co najmniej jedna Klasyfikacja i scenariusze są jednocześnie dostępne. 
-> 
+> Klasyfikacje są dopasowywane bezpośrednio, takie jak numer ubezpieczenia społecznego, który ma klasyfikację **numeru ubezpieczenia społecznego**. 
+>
+> Natomiast etykiety czułości są stosowane w przypadku, gdy co najmniej jedna Klasyfikacja i warunki są dostępne razem. W tym kontekście [warunki](/microsoft-365/compliance/apply-sensitivity-label-automatically) odnoszą się do wszystkich parametrów, które można zdefiniować dla danych bez struktury, takich jak **bliskość do innej klasyfikacji** i **% pewnością**. 
 
 Etykiety czułości w usłudze Azure kontrolą mogą służyć do automatycznego stosowania etykiet do plików i kolumn baz danych.
 
@@ -92,16 +93,11 @@ Dzięki rozszerzeniu etykiet czułości MCI przy użyciu usługi Azure kontrolą
 >
 > Z tego powodu etykiety i niestandardowe typy informacji poufnych nie są domyślnie udostępniane do usługi Azure kontrolą i wymagają zgody użytkownika na korzystanie z nich w usłudze Azure kontrolą.
 
-> [!IMPORTANT]
-> Dzięki temu firma Microsoft może udostępniać nazwę etykiety i informacje o niestandardowym typie informacji *poufnych na platformie* Azure kontrolą i Azure Security Center (ASC). Firma Microsoft używa informacji o etykiecie z platformy Azure kontrolą do wzbogacania zaleceń i alertów w usłudze ASC. 
->
-> Wyrażanie zgody w Microsoft 365 Centrum zgodności ma zastosowanie do udostępniania tych danych w obu usługach. Obecnie nie ma możliwości udostępniania informacji o etykietach tylko za pomocą usługi Azure kontrolą.
-
 **Aby zwiększyć czułość etykiet do kontrolą:**
 
 W Microsoft 365 przejdź do strony **Information Protection** . W oknie dialogowym **Rozwiń etykietowanie do elementów zawartości w usłudze Azure kontrolą** wybierz przycisk **Włącz** , a następnie wybierz pozycję **tak** w wyświetlone okno dialogowe potwierdzenia.
 
-Przykład:
+Na przykład:
 
 :::image type="content" source="media/create-sensitivity-label/extend-sensitivity-labels-to-purview-small.png" alt-text="SELECT * * Włącz * *, aby zwiększyć etykiety czułości do kontrolą" lightbox="media/create-sensitivity-label/extend-sensitivity-labels-to-purview.png":::
  
@@ -159,7 +155,7 @@ Zdefiniuj reguły autoetykietowania dla plików w Kreatorze podczas tworzenia lu
 
 Na stronie **automatyczne etykietowanie aplikacji pakietu Office** Włącz **automatyczne etykietowanie aplikacji pakietu Office,** a następnie zdefiniuj warunki, w których etykieta ma być automatycznie stosowana do danych.
 
-Przykład:
+Na przykład:
 
 :::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-files-small.png" alt-text="Zdefiniuj reguły autoetykietowania dla plików w centrum zabezpieczeń i zgodności Microsoft 365" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-files.png":::
  
@@ -175,7 +171,7 @@ W obszarze **zasoby usługi Azure kontrolą (wersja zapoznawcza)** :
 
 1. Wybierz pozycję **Sprawdź typy informacji poufnych** , aby wybrać typy informacji poufnych, które chcesz zastosować do etykiety.
 
-Przykład:
+Na przykład:
         
 :::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-db-columns-small.png" alt-text="Definiowanie reguł autoetykietowania dla kolumn SQL w centrum zabezpieczeń i zgodności Microsoft 365" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-db-columns.png":::
 
@@ -185,7 +181,7 @@ Skanuj dane w usłudze Azure kontrolą, aby automatycznie zastosować utworzone 
 
 Aby uzyskać więcej informacji na temat sposobu konfigurowania skanowania dla różnych zasobów w usłudze Azure kontrolą, zobacz:
 
-|Źródło  |Dokumentacja  |
+|Element źródłowy  |Odwołanie  |
 |---------|---------|
 |**Azure Blob Storage**     |[Rejestrowanie i skanowanie Blob Storage platformy Azure](register-scan-azure-blob-storage-source.md)         |
 |**Azure Data Lake Storage**     |[Rejestruj i Skanuj Azure Data Lake Storage Gen1](register-scan-adls-gen1.md) </br>[Rejestruj i Skanuj Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)         |
@@ -198,11 +194,11 @@ Po zdefiniowaniu reguł autoetykietowania dla etykiet w Microsoft 365 i przeskan
 
 **Aby wyświetlić etykiety zastosowane do zasobów w katalogu usługi Azure kontrolą:**
 
-W katalogu usługi Azure kontrolą Użyj opcji filtrowania **etykiet** , aby wyświetlić tylko pliki z określonymi etykietami. Przykład: 
+W katalogu usługi Azure kontrolą Użyj opcji filtrowania **etykiet** , aby wyświetlić tylko pliki z określonymi etykietami. Na przykład: 
 
 :::image type="content" source="media/create-sensitivity-label/filter-search-results-small.png" alt-text="Wyszukaj zasoby według etykiety" lightbox="media/create-sensitivity-label/filter-search-results.png":::
 
-Przykład:
+Na przykład:
 
 :::image type="content" source="media/create-sensitivity-label/view-labeled-files-blob-storage-small.png" alt-text="Wyświetlanie etykiety czułości pliku na Blob Storage platformy Azure" lightbox="media/create-sensitivity-label/view-labeled-files-blob-storage.png":::
 

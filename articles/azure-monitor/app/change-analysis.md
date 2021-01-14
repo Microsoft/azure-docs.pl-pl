@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 0cdb82bbf38244bc91ed54ffb7d7d734cefe9dd2
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 728fd8f4705d24f719b6dd47ba88d89fb399fd5a
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183323"
+ms.locfileid: "98195878"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Korzystanie z analizy zmian aplikacji (wersja zapoznawcza) w Azure Monitor
 
@@ -21,7 +21,7 @@ W oparciu o możliwości [grafu zasobów platformy Azure](../../governance/resou
 > [!IMPORTANT]
 > Analiza zmian jest obecnie w wersji zapoznawczej. Ta wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług. Ta wersja nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą nie być obsługiwane lub mogą mieć ograniczone możliwości. Aby uzyskać więcej informacji, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
 
-## <a name="overview"></a>Przegląd
+## <a name="overview"></a>Omówienie
 
 Analiza zmian wykrywa różne typy zmian z warstwy infrastruktury we wszystkich sposobach wdrażania aplikacji. Jest to dostawca zasobów platformy Azure na poziomie subskrypcji, który sprawdza zmiany zasobów w subskrypcji. Analiza zmian udostępnia dane dla różnych narzędzi diagnostycznych, które pomagają użytkownikom zrozumieć, jakie zmiany mogą powodować problemy.
 
@@ -206,8 +206,10 @@ Jest to ogólny komunikat o błędzie przedstawiony przez usługę analizy zmian
 Jest to ogólny komunikat o błędzie nieautoryzowany, co oznacza, że bieżący użytkownik nie ma wystarczających uprawnień do wyświetlenia zmiany. Aby wyświetlić zmiany infrastruktury zwrócone przez usługę Azure Resource Graph i Azure Resource Manager, wymagany jest co najmniej dostęp z czytnika. W przypadku zmian w pliku gościa aplikacji internetowej i zmian konfiguracji wymagana jest co najmniej rola współautor.
 
 ### <a name="failed-to-register-microsoftchangeanalysis-resource-provider"></a>Nie można zarejestrować dostawcy zasobów Microsoft. ChangeAnalysis
+Ten komunikat oznacza, że coś nie powiodło się natychmiast, gdy interfejs użytkownika wysłał żądanie zarejestrowania dostawcy zasobów i nie jest powiązany z uprawnieniami. Prawdopodobnie może to być tymczasowy problem z połączeniem z Internetem. Spróbuj odświeżyć stronę i sprawdzić połączenie internetowe. Jeśli błąd będzie się powtarzać, skontaktuj się z changeanalysishelp@microsoft.com
  
-**Nie masz wystarczających uprawnień do zarejestrowania dostawcy zasobów Microsoft. ChangeAnalysis. Skontaktuj się z administratorem subskrypcji platformy Azure.** Ten komunikat o błędzie oznacza, że rola w bieżącej subskrypcji nie ma skojarzonej z nią zakresu **Microsoft. Support/Register/Action** . Taka sytuacja może wystąpić, jeśli nie jesteś właścicielem subskrypcji i masz uprawnienia dostępu współdzielonego przez współpracownika. oznacza to, że można wyświetlić dostęp do grupy zasobów. Aby rozwiązać ten problem, możesz skontaktować się z właścicielem subskrypcji w celu zarejestrowania dostawcy zasobów **Microsoft. ChangeAnalysis** . Można to zrobić w Azure Portal za poorednictwem **subskrypcji | Dostawcy zasobów** oraz wyszukiwanie ```Microsoft.ChangeAnalysis``` i rejestrowanie w interfejsie użytkownika, a także za pomocą Azure PowerShell lub interfejsu wiersza polecenia platformy Azure.
+### <a name="you-dont-have-enough-permissions-to-register-microsoftchangeanalysis-resource-provider-contact-your-azure-subscription-administrator"></a>Nie masz wystarczających uprawnień do zarejestrowania dostawcy zasobów Microsoft. ChangeAnalysis. Skontaktuj się z administratorem subskrypcji platformy Azure.
+Ten komunikat o błędzie oznacza, że rola w bieżącej subskrypcji nie ma skojarzonej z nią zakresu **Microsoft. Support/Register/Action** . Taka sytuacja może wystąpić, jeśli nie jesteś właścicielem subskrypcji i masz uprawnienia dostępu współdzielonego przez współpracownika. oznacza to, że można wyświetlić dostęp do grupy zasobów. Aby rozwiązać ten problem, możesz skontaktować się z właścicielem subskrypcji w celu zarejestrowania dostawcy zasobów **Microsoft. ChangeAnalysis** . Można to zrobić w Azure Portal za poorednictwem **subskrypcji | Dostawcy zasobów** oraz wyszukiwanie ```Microsoft.ChangeAnalysis``` i rejestrowanie w interfejsie użytkownika, a także za pomocą Azure PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
 Rejestrowanie dostawcy zasobów przy użyciu programu PowerShell: 
 

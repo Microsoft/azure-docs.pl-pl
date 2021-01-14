@@ -2,13 +2,13 @@
 title: Co to jest usługa Azure Event Hubs? — usługa pozyskiwania danych big data | Microsoft Docs
 description: Informacje na temat usługi Azure Event Hubs, usługi strumieniowego przesyłania danych big data, umożliwiającej pozyskiwanie milionów zdarzeń na sekundę.
 ms.topic: overview
-ms.date: 06/23/2020
-ms.openlocfilehash: b0124f023eab6638c986beb2305b1c4c375b47ee
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.date: 01/13/2021
+ms.openlocfilehash: 36eeb38d9ed1696c9524ae9b346065756ce49c46
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97954349"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195770"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Usługa Azure Event Hubs — platforma przesyłania strumieniowego danych big data i usługa pozyskiwania zdarzeń
 Usługa Azure Event Hubs to platforma przesyłania strumieniowego danych big data i usługa pozyskiwania zdarzeń. Może odbierać i przetwarzać miliony zdarzeń na sekundę. Dane wysłane do centrum zdarzeń mogą zostać przekształcone i zmagazynowane przy użyciu dowolnego dostawcy analityki czasu rzeczywistego lub adapterów przetwarzania wsadowego/magazynowania.
@@ -66,7 +66,7 @@ Usługa Event Hubs zawiera następujące [kluczowe składniki](event-hubs-featur
 
 Na poniższym rysunku przedstawiono architekturę przetwarzania strumienia usługi Event Hubs:
 
-![Event Hubs](./media/event-hubs-about/event_hubs_architecture.png)
+![Event Hubs](./media/event-hubs-about/event_hubs_architecture.svg)
 
 ## <a name="event-hubs-on-azure-stack-hub"></a>Usługa Event Hubs w infrastrukturze Azure Stack Hub
 Event Hubs w centrum Azure Stack pozwala zrealizować scenariusze chmury hybrydowej. Obsługiwane są rozwiązania przesyłania strumieniowego i oparte na zdarzeniach, zarówno w przypadku przetwarzania lokalnego, jak i w chmurze platformy Azure. Bez względu na to, czy scenariusz jest hybrydowy (połączony), czy odłączony, rozwiązanie może obsługiwać przetwarzanie zdarzeń/strumieni w dużej skali. Twój scenariusz jest związany tylko z rozmiarem klastra Event Hubs, który można udostępnić zgodnie z potrzebami. 

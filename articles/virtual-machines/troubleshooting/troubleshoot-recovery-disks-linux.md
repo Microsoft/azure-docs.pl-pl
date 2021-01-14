@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
-ms.openlocfilehash: bc796b4d9708c18f4d0612e6f3ebde9b2485d2f7
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 70855f7956e42d815e0b8135ccfe6e374853d8aa
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093144"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197527"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Rozwiązywanie problemów z maszyną wirtualną z systemem Linux przez dołączenie dysku systemu operacyjnego do maszyny wirtualnej odzyskiwania przy użyciu interfejsu wiersza polecenia Azure
 Jeśli maszyna wirtualna z systemem Linux napotyka błąd rozruchu lub dysku, może być konieczne wykonanie kroków rozwiązywania problemów na wirtualnym dysku twardym. Typowym przykładem może być nieprawidłowy wpis w programie `/etc/fstab` , który uniemożliwia pomyślne uruchomienie maszyny wirtualnej. W tym artykule szczegółowo opisano sposób łączenia wirtualnego dysku twardego z inną maszyną wirtualną z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure w celu usunięcia błędów, a następnie ponownego utworzenia oryginalnej maszyny wirtualnej. 
@@ -36,7 +36,7 @@ Proces rozwiązywania problemów jest następujący:
 
 Aby wykonać te kroki rozwiązywania problemów, należy zainstalować najnowszy [interfejs wiersza polecenia platformy Azure](/cli/azure/install-az-cli2) i zalogować się do konta platformy Azure przy użyciu polecenia [AZ login](/cli/azure/reference-index).
 
-Za pomocą poleceń naprawy maszyny wirtualnej można zautomatyzować kroki 1, 2, 3, 4, 6 i 7. Aby uzyskać więcej dokumentacji i instrukcji, zobacz temat [Naprawa maszyny wirtualnej z systemem Linux przy użyciu poleceń naprawy maszyny wirtualnej platformy Azure](repair-linux-vm-using-azure-virtual-machine-repair-commands.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Za pomocą poleceń naprawy maszyny wirtualnej można zautomatyzować kroki 1, 2, 3, 4, 6 i 7. Aby uzyskać więcej dokumentacji i instrukcji, zobacz temat [Naprawa maszyny wirtualnej z systemem Linux przy użyciu poleceń naprawy maszyny wirtualnej platformy Azure](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
 
 > [!Important]
 > Skrypty w tym artykule mają zastosowanie tylko do maszyn wirtualnych, które korzystają z [dysku zarządzanego](../managed-disks-overview.md). 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 53324709e2d3dd11160ee0b7837d86d9e9594571
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 77fccf8b2480232debb88136394013941af796c8
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763931"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197272"
 ---
 # <a name="azure-security-baseline-for-azure-front-door"></a>Podstawowa baza zabezpieczeń Azure dla drzwi platformy Azure
 
@@ -86,7 +86,7 @@ Zapewnienie ograniczonego dostępu do systemów zarządzania, tożsamości i zab
 
 Używaj wysoce bezpiecznych stacji roboczych użytkowników z usługą Azure bastionu na potrzeby zadań administracyjnych. Wybierz Azure Active Directory (Azure AD), Microsoft Defender Advanced Threat Protection (ATP) i Microsoft Intune do wdrażania bezpiecznych i zarządzanych stacji roboczych użytkowników na potrzeby zadań administracyjnych. Zabezpieczone stacje robocze muszą być zarządzane centralnie, aby wymusić bezpieczną konfigurację, w tym silne uwierzytelnianie, oprogramowanie i sprzętowe linie bazowe, ograniczony dostęp logiczny i sieciowy.
 
-- [Informacje na temat stacji roboczych uprzywilejowanego dostępu](../active-directory/devices/concept-azure-managed-workstation.md) 
+- [Informacje na temat stacji roboczych uprzywilejowanego dostępu](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) 
 
 - [Wdrażanie stacji roboczej z dostępem uprzywilejowanym](../active-directory/devices/howto-azure-managed-workstation.md)
 

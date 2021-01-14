@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 09/09/2016
 ms.author: daberry
-ms.openlocfilehash: f48963a4d18e80cb67bfbbdc532d34f89b8b5d8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d94f7389ce96c2e3bda35413cbcc7b1e8a992683
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87028451"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197544"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Rozwiązywanie problemów z wdrażaniem Menedżer zasobów przy tworzeniu nowej maszyny wirtualnej z systemem Linux na platformie Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -46,9 +46,9 @@ Aby rozpocząć rozwiązywanie problemów, Zbierz dzienniki aktywności w celu z
 
 **Błędy przekazywania:**
 
-**N<sup>1</sup>:** Jeśli system operacyjny jest uogólniony w systemie Linux i został przekazany jako wyspecjalizowany, zostanie wyświetlony błąd limitu czasu aprowizacji, ponieważ maszyna wirtualna jest zablokowana na etapie aprowizacji.
+**N <sup>1</sup>:** Jeśli system operacyjny jest uogólniony w systemie Linux i został przekazany jako wyspecjalizowany, zostanie wyświetlony błąd limitu czasu aprowizacji, ponieważ maszyna wirtualna jest zablokowana na etapie aprowizacji.
 
-**N<sup>2</sup>:** Jeśli system operacyjny jest wyspecjalizowany dla systemu Linux i został przekazany jako uogólniony, zostanie wyświetlony błąd inicjowania obsługi, ponieważ nowa maszyna wirtualna jest uruchomiona z oryginalną nazwą komputera, nazwą użytkownika i hasłem.
+**N <sup>2</sup>:** Jeśli system operacyjny jest wyspecjalizowany dla systemu Linux i został przekazany jako uogólniony, zostanie wyświetlony błąd inicjowania obsługi, ponieważ nowa maszyna wirtualna jest uruchomiona z oryginalną nazwą komputera, nazwą użytkownika i hasłem.
 
 **Rozwiązanie:**
 
@@ -56,13 +56,13 @@ Aby rozwiązać oba te błędy, należy przekazać oryginalny wirtualny dysk twa
 
 **Błędy przechwytywania:**
 
-**N<sup>3</sup>:** Jeśli system operacyjny jest uogólniony w systemie Linux i jest przechwytywany jako wyspecjalizowany, zostanie wyświetlony błąd limitu czasu inicjowania obsługi, ponieważ oryginalna maszyna wirtualna nie będzie mogła być używana, ponieważ jest oznaczona jako uogólniona.
+**N <sup>3</sup>:** Jeśli system operacyjny jest uogólniony w systemie Linux i jest przechwytywany jako wyspecjalizowany, zostanie wyświetlony błąd limitu czasu inicjowania obsługi, ponieważ oryginalna maszyna wirtualna nie będzie mogła być używana, ponieważ jest oznaczona jako uogólniona.
 
-**N<sup>4</sup>:** Jeśli system operacyjny jest w systemie Linux wyspecjalizowany i jest przechwytywany jako uogólniony, zostanie wyświetlony błąd inicjowania obsługi, ponieważ nowa maszyna wirtualna jest uruchomiona z oryginalną nazwą komputera, nazwą użytkownika i hasłem. Ponadto oryginalna maszyna wirtualna nie jest używana, ponieważ jest oznaczona jako wyspecjalizowana.
+**N <sup>4</sup>:** Jeśli system operacyjny jest w systemie Linux wyspecjalizowany i jest przechwytywany jako uogólniony, zostanie wyświetlony błąd inicjowania obsługi, ponieważ nowa maszyna wirtualna jest uruchomiona z oryginalną nazwą komputera, nazwą użytkownika i hasłem. Ponadto oryginalna maszyna wirtualna nie jest używana, ponieważ jest oznaczona jako wyspecjalizowana.
 
 **Rozwiązanie:**
 
-Aby rozwiązać oba te błędy, Usuń bieżący obraz z portalu i [Przechwyć go ponownie z bieżącego dysku VHD](../linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) z tym samym ustawieniem dla systemu operacyjnego (uogólniony/wyspecjalizowany).
+Aby rozwiązać oba te błędy, Usuń bieżący obraz z portalu i [Przechwyć go ponownie z bieżącego dysku VHD](../linux/capture-image.md) z tym samym ustawieniem dla systemu operacyjnego (uogólniony/wyspecjalizowany).
 
 ## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>Problem: obraz niestandardowy/Galeria/witryna Marketplace; Niepowodzenie alokacji
 Ten błąd występuje w sytuacji, gdy nowe żądanie maszyny wirtualnej jest przypięte do klastra, który nie obsługuje żądanego rozmiaru maszyny wirtualnej lub nie ma dostępnego wolnego miejsca, aby pomieścić żądanie.
@@ -74,7 +74,7 @@ Ten błąd występuje w sytuacji, gdy nowe żądanie maszyny wirtualnej jest prz
 * Spróbuj ponownie wykonać żądanie, używając mniejszego rozmiaru maszyny wirtualnej.
 * Jeśli nie można zmienić rozmiaru żądanej maszyny wirtualnej:
   * Zatrzymaj wszystkie maszyny wirtualne w zestawie dostępności.
-    Kliknij pozycję **grupy zasobów**  >  *zasoby grupy zasobów*  >  **Resources**  >  *Twój zestaw dostępności*  >  **Virtual Machines**  >  *zatrzymać maszynę wirtualną*  >  **Stop**.
+    Kliknij pozycję **grupy zasobów**  >  *zasoby grupy zasobów*  >    >  *Twój zestaw dostępności*  >  **Virtual Machines**  >  *zatrzymać maszynę wirtualną*  >  .
   * Po zatrzymaniu wszystkich maszyn wirtualnych Utwórz nową maszynę wirtualną w żądanym rozmiarze.
   * Najpierw uruchom nową maszynę wirtualną, a następnie wybierz każdą z zatrzymanych maszyn wirtualnych, a następnie kliknij przycisk **Uruchom**.
 

@@ -4,12 +4,12 @@ description: Dowiedz się, jak zintegrować Azure NetApp Files z usługą Azure 
 services: container-service
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: bc65c3dfad4c27c1650054c6836fbbbf07a7dbf2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 19727d3c3322b05f340463d94a2bc3884e5d9d93
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126257"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196014"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Integracja Azure NetApp Files z usługą Azure Kubernetes Service
 
@@ -28,14 +28,14 @@ Konieczne jest również zainstalowanie i skonfigurowanie interfejsu wiersza pol
 W przypadku korzystania z Azure NetApp Files są stosowane następujące ograniczenia:
 
 * Azure NetApp Files jest dostępna tylko [w wybranych regionach świadczenia usługi Azure][anf-regions].
-* Przed użyciem Azure NetApp Files należy uzyskać dostęp do usługi Azure NetApp Files. Aby uzyskać dostęp do programu, można użyć [formularza Azure NetApp Files waitlist][anf-waitlist]. Nie możesz uzyskać dostępu do usługi Azure NetApp Files, dopóki nie otrzymasz oficjalnej wiadomości e-mail z zespołu Azure NetApp Files.
+* Przed użyciem Azure NetApp Files należy uzyskać dostęp do usługi Azure NetApp Files. Aby uzyskać dostęp do programu, można użyć [formularza Azure NetApp Files waitlist][anf-waitlist] lub przejść do https://azure.microsoft.com/services/netapp/#getting-started . Nie możesz uzyskać dostępu do usługi Azure NetApp Files, dopóki nie otrzymasz oficjalnej wiadomości e-mail z zespołu Azure NetApp Files.
 * Po początkowym wdrożeniu klastra AKS obsługiwane jest tylko statyczne Inicjowanie obsługi Azure NetApp Files.
 * Aby użyć dynamicznej obsługi administracyjnej z Azure NetApp Files, zainstaluj i skonfiguruj program [NetApp Trident](https://netapp-trident.readthedocs.io/) w wersji 19,07 lub nowszej.
 
 ## <a name="configure-azure-netapp-files"></a>Konfigurowanie Azure NetApp Files
 
 > [!IMPORTANT]
-> Przed zarejestrowaniem dostawcy zasobów  *Microsoft. NetApp* należy wykonać [formularz Azure NetApp Files waitlist][anf-waitlist] w ramach subskrypcji. Nie można zarejestrować zasobu do momentu otrzymania oficjalnej wiadomości e-mail z potwierdzeniem z zespołu Azure NetApp Files.
+> Przed zarejestrowaniem dostawcy zasobów  *Microsoft. NetApp* należy wypełnić [formularz Azure NetApp Files waitlist][anf-waitlist] i przejść do https://azure.microsoft.com/services/netapp/#getting-started subskrypcji. Nie można zarejestrować zasobu do momentu otrzymania oficjalnej wiadomości e-mail z potwierdzeniem z zespołu Azure NetApp Files.
 
 Zarejestruj dostawcę zasobów *Microsoft. NetApp* :
 
@@ -46,7 +46,7 @@ az provider register --namespace Microsoft.NetApp --wait
 > [!NOTE]
 > Ukończenie tej operacji może zająć trochę czasu.
 
-Podczas tworzenia konta usługi Azure NetApp do użytku z usługą AKS należy utworzyć konto w grupie zasobów **węzła** . Najpierw Pobierz nazwę grupy zasobów za pomocą polecenia [AZ AKS show][az-aks-show] i Dodaj `--query nodeResourceGroup` parametr zapytania. Poniższy przykład pobiera grupę zasobów węzła dla klastra AKS o nazwie *myAKSCluster* w grupie *zasobów nazwa zasobu* :
+Podczas tworzenia konta usługi Azure NetApp do użytku z usługą AKS należy utworzyć konto w grupie zasobów **węzła** . Najpierw Pobierz nazwę grupy zasobów za pomocą polecenia [AZ AKS show][az-aks-show] i Dodaj `--query nodeResourceGroup` parametr zapytania. Poniższy przykład pobiera grupę zasobów węzła dla klastra AKS o nazwie *myAKSCluster* w grupie *zasobów nazwa zasobu*:
 
 ```azurecli-interactive
 az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -145,7 +145,7 @@ az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $ANF_
 }
 ```
 
-Utwórz element `pv-nfs.yaml` definiujący PersistentVolume. Zamień na `path` *creationToken* i `server` z *adresem IP* z poprzedniego polecenia. Przykład:
+Utwórz element `pv-nfs.yaml` definiujący PersistentVolume. Zamień na `path` *creationToken* i `server` z *adresem IP* z poprzedniego polecenia. Na przykład:
 
 ```yaml
 ---
@@ -158,6 +158,8 @@ spec:
     storage: 100Gi
   accessModes:
     - ReadWriteMany
+  mountOptions:
+    - vers=3
   nfs:
     server: 10.0.0.4
     path: /myfilepath2
@@ -177,7 +179,7 @@ kubectl describe pv pv-nfs
 
 ## <a name="create-the-persistentvolumeclaim"></a>Tworzenie PersistentVolumeClaim
 
-Utwórz element `pvc-nfs.yaml` definiujący PersistentVolume. Przykład:
+Utwórz element `pvc-nfs.yaml` definiujący PersistentVolume. Na przykład:
 
 ```yaml
 apiVersion: v1
@@ -207,7 +209,7 @@ kubectl describe pvc pvc-nfs
 
 ## <a name="mount-with-a-pod"></a>Zainstaluj przy użyciu pod
 
-Utwórz element `nginx-nfs.yaml` a, który używa PersistentVolumeClaim. Przykład:
+Utwórz element `nginx-nfs.yaml` a, który używa PersistentVolumeClaim. Na przykład:
 
 ```yaml
 kind: Pod

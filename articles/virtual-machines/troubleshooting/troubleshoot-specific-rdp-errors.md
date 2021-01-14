@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f3e4c411223a3e8fc0602602cd941a00f7a19cca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 808443cb805b2dee2426198f9cd4f7ba502d8999
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87028247"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197510"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Rozwiązywanie problemów z określonymi komunikatami o błędach protokołu RDP dla maszyny wirtualnej z systemem Windows na platformie Azure
 W przypadku korzystania z Pulpit zdalny połączenia z maszyną wirtualną z systemem Windows na platformie Azure może zostać wyświetlony konkretny komunikat o błędzie. W tym artykule opisano niektóre typowe komunikaty o błędach, a także kroki rozwiązywania problemów. Jeśli masz problemy z nawiązywaniem połączenia z maszyną wirtualną przy użyciu protokołu RDP, ale nie napotkasz określonego komunikatu o błędzie, zobacz [Przewodnik rozwiązywania problemów dla Pulpit zdalny](troubleshoot-rdp-connection.md).
@@ -88,7 +88,7 @@ Przyczyna: docelowa maszyna wirtualna nie może zweryfikować nazwy konta i has�
 
 Komputer z systemem Windows może sprawdzać poprawność poświadczeń konta lokalnego lub konta domeny.
 
-* W przypadku kont lokalnych użyj składni *ComputerName* \\ *nazwy użytkownika* ComputerName (przykład: SQL1\Admin4798).
+* W przypadku kont lokalnych użyj składni  \\ *nazwy użytkownika* ComputerName (przykład: SQL1\Admin4798).
 * W przypadku kont domeny użyj składni *nazwa_domeny* \\ *nazwy użytkownika* (przykład: CONTOSO\peterodman).
 
 Jeśli Twoja maszyna wirtualna została podwyższona do kontrolera domeny w nowym lesie Active Directory, konto administratora lokalnego, które zostało zalogowane, jest konwertowane na równoważne konto z tym samym hasłem w nowym lesie i domenie. Konto lokalne jest następnie usuwane.
@@ -109,7 +109,7 @@ Każdy komputer z systemem Windows ma grupę lokalną użytkownicy Pulpit zdalny
 Upewnij się, że konto używane do nawiązania połączenia ma Pulpit zdalny prawa do logowania. Aby obejść ten element, należy użyć konta domeny lub administratora lokalnego do nawiązania połączenia przez Pulpit zdalny. Aby dodać żądane konto do grupy lokalnej Użytkownicy Pulpit zdalny, użyj przystawki programu Microsoft Management Console (**Narzędzia systemowe > Użytkownicy i grupy lokalne > grup > pulpit zdalny użytkowników**).
 
 ## <a name="next-steps"></a>Następne kroki
-Jeśli żaden z tych błędów nie wystąpił i masz nieznany problem z połączeniem przy użyciu protokołu RDP, zobacz [Przewodnik rozwiązywania problemów dla Pulpit zdalny](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Jeśli żaden z tych błędów nie wystąpił i masz nieznany problem z połączeniem przy użyciu protokołu RDP, zobacz [Przewodnik rozwiązywania problemów dla Pulpit zdalny](troubleshoot-rdp-connection.md).
 
 * Aby uzyskać informacje na temat rozwiązywania problemów z dostępem do aplikacji uruchomionych na maszynie wirtualnej, zobacz [Rozwiązywanie problemów z dostępem do aplikacji uruchomionej na maszynie wirtualnej platformy Azure](./troubleshoot-app-connection.md?toc=/azure/virtual-machines/linux/toc.json).
 * Jeśli masz problemy z używaniem Secure Shell (SSH) do łączenia się z maszyną wirtualną z systemem Linux na platformie Azure, zobacz [Rozwiązywanie problemów z połączeniami SSH z maszyną wirtualną z systemem Linux na platformie Azure](./troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json).

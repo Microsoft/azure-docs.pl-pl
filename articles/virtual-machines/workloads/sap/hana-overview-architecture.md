@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 01/04/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c06988bf9c3558f5ef82862bdbcd821dc42ca28a
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 5ec3500c124d3e4f8cb1b46445c28c6a64c93526
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97880991"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195453"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>Co to jest oprogramowanie SAP HANA na platformie Azure — duże wystąpienia?
 
@@ -52,11 +52,11 @@ Ten dokument jest jednym z kilku dokumentów, które obejmują SAP HANA na platf
 
 Różne dokumenty dotyczące dużych wystąpień programu HANA obejmują następujące obszary:
 
-- [Omówienie i architektura SAP HANA (duże wystąpienia) na platformie Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Infrastruktura i łączność SAP HANA (duże wystąpienia) na platformie Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Instalowanie i Konfigurowanie SAP HANA (duże wystąpienia) na platformie Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [SAP HANA (duże wystąpienia) wysoka dostępność i odzyskiwanie po awarii na platformie Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [SAP HANA (duże wystąpienia) Rozwiązywanie problemów i monitorowanie na platformie Azure](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Omówienie i architektura SAP HANA (duże wystąpienia) na platformie Azure](hana-overview-architecture.md)
+- [Infrastruktura i łączność SAP HANA (duże wystąpienia) na platformie Azure](hana-overview-infrastructure-connectivity.md)
+- [Instalowanie i Konfigurowanie SAP HANA (duże wystąpienia) na platformie Azure](hana-installation.md)
+- [SAP HANA (duże wystąpienia) wysoka dostępność i odzyskiwanie po awarii na platformie Azure](hana-overview-high-availability-disaster-recovery.md)
+- [SAP HANA (duże wystąpienia) Rozwiązywanie problemów i monitorowanie na platformie Azure](troubleshooting-monitoring.md)
 - [Wysoka dostępność skonfigurowana w SUSE przy użyciu STONITH](./ha-setup-with-stonith.md)
 - [Kopia zapasowa i przywracanie systemu operacyjnego dla jednostek SKU typu II poprawki 3](./os-backup-type-ii-skus.md)
 - [Zaoszczędź na dużych wystąpieniach platformy SAP HANA dzięki rezerwacji platformy Azure](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md)

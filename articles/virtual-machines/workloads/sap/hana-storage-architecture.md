@@ -14,18 +14,18 @@ ms.workload: infrastructure
 ms.date: 06/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9254b3d19bd840b62d2f5f7023eba9a91e605d1e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2729369347de92153e9e8b84e008e5e22e732081
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967520"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197442"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Architektura magazynu SAP HANA (duże wystąpienia)
 
 Układ magazynu dla SAP HANA na platformie Azure (duże wystąpienia) jest konfigurowany przez SAP HANA w klasycznym modelu wdrażania na podstawie zalecanych wytycznych SAP. Wytyczne zostały udokumentowane w dokumencie [SAP HANA wymagania dotyczące magazynu](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) .
 
-Duże wystąpienie HANA klasy typu I zawiera cztery razy wolumin pamięci jako wolumin magazynu. W przypadku klasy typu II jednostek dużego wystąpienia HANA magazyn nie jest czterokrotnie większy. Jednostki są dostarczane z woluminem przeznaczonym do przechowywania kopii zapasowych dziennika transakcji platformy HANA. Aby uzyskać więcej informacji, zobacz [Instalowanie i konfigurowanie SAP HANA (duże wystąpienia) na platformie Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Duże wystąpienie HANA klasy typu I zawiera cztery razy wolumin pamięci jako wolumin magazynu. W przypadku klasy typu II jednostek dużego wystąpienia HANA magazyn nie jest czterokrotnie większy. Jednostki są dostarczane z woluminem przeznaczonym do przechowywania kopii zapasowych dziennika transakcji platformy HANA. Aby uzyskać więcej informacji, zobacz [Instalowanie i konfigurowanie SAP HANA (duże wystąpienia) na platformie Azure](hana-installation.md).
 
 Zapoznaj się z poniższą tabelą dotyczącą alokacji magazynu. W tabeli wymieniono nieznacznie pojemności dla różnych woluminów z różnymi jednostkami dużych wystąpień usługi HANA.
 
@@ -94,7 +94,7 @@ Te rozmiary są ilością ilościową, która może się nieco różnić w zale�
 
 Być może potrzebujesz więcej miejsca w magazynie. Magazyn można dodać, kupując dodatkowy magazyn w jednostkach 1 TB. Ten dodatkowy magazyn można dodać jako dodatkowy wolumin. Można go również użyć do rozszerania jednego lub kilku istniejących woluminów. Nie można zmniejszyć wielkości woluminów wdrożonych pierwotnie i w sposób opisany w poprzednich tabelach. Nie można również zmieniać nazw woluminów ani nazw instalacji. Opisane wcześniej woluminy magazynu są dołączane do jednostek dużego wystąpienia HANA jako woluminy NFS4.
 
-Możesz użyć migawek magazynu na potrzeby tworzenia kopii zapasowych i przywracania oraz odzyskiwania po awarii. Aby uzyskać więcej informacji, zobacz [SAP HANA (duże wystąpienia) wysoka dostępność i odzyskiwanie po awarii na platformie Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Możesz użyć migawek magazynu na potrzeby tworzenia kopii zapasowych i przywracania oraz odzyskiwania po awarii. Aby uzyskać więcej informacji, zobacz [SAP HANA (duże wystąpienia) wysoka dostępność i odzyskiwanie po awarii na platformie Azure](hana-overview-high-availability-disaster-recovery.md).
 
 Zapoznaj się z artykułem [Supported obsługiwane scenariusze](hana-supported-scenario.md) dotyczące szczegółowych informacji o układzie magazynu dla Twojego scenariusza.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 860bc9440547a4c62336ccc573859ec56b3400b5
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: c3e2245ae47504e058921c532ed40a220e95423d
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533863"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197578"
 ---
 # <a name="azure-security-baseline-for-site-recovery"></a>Podstawa zabezpieczeń platformy Azure dla Site Recovery
 
@@ -222,7 +222,7 @@ Utwórz proces śledzenia tożsamości i kontroli dostępu dla kont administracy
 
 **Wskazówki**: używanie bezpiecznej, zarządzanej przez platformę Azure stacji roboczej (znanej także jako stacja robocza dostępu uprzywilejowanego (dostępem uprzywilejowanym)) z uwierzytelnianiem wieloskładnikowym platformy Azure na potrzeby zadań administracyjnych i wykonywania uprzywilejowanych akcji na Site Recovery zasobach.
 
-- [Stacje robocze z dostępem uprzywilejowanym](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Stacje robocze z dostępem uprzywilejowanym](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Planowanie wdrożenia usługi Azure AD Multi-Factor Authentication opartej na chmurze](../active-directory/authentication/howto-mfa-getstarted.md)
 

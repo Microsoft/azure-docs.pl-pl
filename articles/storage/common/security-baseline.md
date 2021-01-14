@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 29e72f8358591614489be2731d16e89428ef388b
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: f6825fee4cfb78ab54d782cd4d942bb994bedae9
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301359"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195725"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Podstawa zabezpieczeń Azure dla usługi Azure Storage
 
@@ -68,7 +68,7 @@ Należy pamiętać, że jeśli masz prywatne punkty końcowe dołączone do kont
 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1,4: odmowa komunikacji ze znanymi złośliwymi adresami IP
 
-**Wskazówki**: Włącz zaawansowaną ochronę przed zagrożeniami dla konta usługi Azure Storage. Zaawansowana ochrona przed zagrożeniami dla usługi Azure Storage stanowi dodatkową warstwę analizy zabezpieczeń, która wykrywa nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do kont magazynu lub korzystania z nich. Azure Security Center zintegrowane alerty są oparte na działaniach, dla których komunikacja sieciowa była skojarzona z adresem IP, który został pomyślnie rozwiązany, niezależnie od tego, czy adres IP jest znanym ryzykownym adresem IP (na przykład znanym cryptominer) czy adresem IP, który nie został wcześniej rozpoznany jako ryzykowny. Alerty zabezpieczeń są wyzwalane, gdy wystąpią anomalie działania. 
+**Wskazówki**: Włącz zaawansowaną ochronę przed zagrożeniami dla konta usługi Azure Storage. Zaawansowana ochrona przed zagrożeniami dla usługi Azure Storage stanowi dodatkową warstwę analizy zabezpieczeń, która wykrywa nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do kont magazynu lub korzystania z nich. Azure Security Center zintegrowane alerty są oparte na działaniach, dla których komunikacja sieciowa była skojarzona z adresem IP, który został pomyślnie rozwiązany, niezależnie od tego, czy adres IP jest znanym ryzykownym adresem IP (na przykład znanym cryptominer) czy adresem IP, który nie został wcześniej rozpoznany jako ryzykowny. Alerty zabezpieczeń są wyzwalane, gdy wystąpią anomalie w aktywności. 
 
 - [Jak włączyć zaawansowaną ochronę przed zagrożeniami](./azure-defender-storage-configure.md?tabs=azure-portal)
 
@@ -90,7 +90,7 @@ Należy pamiętać, że jeśli masz prywatne punkty końcowe dołączone do kont
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems"></a>1,6: Wdróż systemy zapobiegania wykrywaniu dostępu do sieci/intruzów
 
-**Wskazówki**: Zaawansowana ochrona przed zagrożeniami dla usługi Azure Storage stanowi dodatkową warstwę analizy zabezpieczeń, która wykrywa nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do kont magazynu lub korzystania z nich. Alerty zabezpieczeń są wyzwalane, gdy wystąpią anomalie działania. Te alerty zabezpieczeń są zintegrowane z usługą Azure Security Center i są również wysyłane pocztą e-mail do administratorów subskrypcji, ze szczegółowymi informacjami o podejrzanych działaniach i zaleceniami dotyczącymi sposobu badania i korygowania zagrożeń. 
+**Wskazówki**: Zaawansowana ochrona przed zagrożeniami dla usługi Azure Storage stanowi dodatkową warstwę analizy zabezpieczeń, która wykrywa nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do kont magazynu lub korzystania z nich. Alerty zabezpieczeń są wyzwalane, gdy wystąpią anomalie w aktywności. Te alerty zabezpieczeń są zintegrowane z usługą Azure Security Center, a także są wysyłane pocztą e-mail do administratorów subskrypcji, ze szczegółowymi informacjami o podejrzanych działaniach i zaleceniami dotyczącymi sposobu badania i korygowania zagrożeń. 
 
 - [Konfigurowanie zaawansowanej ochrony przed zagrożeniami dla usługi Azure Storage](./azure-defender-storage-configure.md)
 
@@ -220,7 +220,7 @@ Możesz również używać wbudowanych definicji zasad związanych z kontem maga
 
 **Wskazówki**: Aby przejrzeć dzienniki usługi Azure Storage, istnieją typowe opcje, takie jak zapytania za pomocą oferty log Analytics, a także unikatową opcję bezpośredniego wyświetlania plików dziennika. W usłudze Azure Storage dzienniki są przechowywane w obiektach Blob, do których należy uzyskać dostęp bezpośrednio w lokalizacji `http://accountname.blob.core.windows.net/$logs` (folder rejestrowania jest domyślnie ukryty, więc musisz przejść bezpośrednio. Nie będzie on wyświetlany w poleceniach list) 
 
-Ponadto Włącz zaawansowaną ochronę przed zagrożeniami dla konta usługi Azure Storage. Zaawansowana ochrona przed zagrożeniami dla usługi Azure Storage stanowi dodatkową warstwę analizy zabezpieczeń, która wykrywa nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do kont magazynu lub korzystania z nich. Alerty zabezpieczeń są wyzwalane, gdy wystąpią anomalie działania. Te alerty zabezpieczeń są zintegrowane z usługą Azure Security Center i są również wysyłane pocztą e-mail do administratorów subskrypcji, ze szczegółowymi informacjami o podejrzanych działaniach i zaleceniami dotyczącymi sposobu badania i korygowania zagrożeń. 
+Ponadto Włącz zaawansowaną ochronę przed zagrożeniami dla konta usługi Azure Storage. Zaawansowana ochrona przed zagrożeniami dla usługi Azure Storage stanowi dodatkową warstwę analizy zabezpieczeń, która wykrywa nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do kont magazynu lub korzystania z nich. Alerty zabezpieczeń są wyzwalane, gdy wystąpią anomalie w aktywności. Te alerty zabezpieczeń są zintegrowane z usługą Azure Security Center, a także są wysyłane pocztą e-mail do administratorów subskrypcji, ze szczegółowymi informacjami o podejrzanych działaniach i zaleceniami dotyczącymi sposobu badania i korygowania zagrożeń. 
 
 - [Rejestruj i Przejrzyj dane](./storage-analytics-logging.md#how-logs-are-stored)
 
@@ -346,7 +346,7 @@ Możesz również włączyć dostęp w trybie just-in-Time/tylko do odczytu, kor
 
 **Wskazówki**: Użyj dostępem uprzywilejowanym (uprzywilejowanych stacji roboczych dostępu) z uwierzytelnianiem MFA skonfigurowanym do logowania się i konfigurowania zasobów konta magazynu. 
 
-- [Dowiedz się więcej o stacjach roboczych uprzywilejowanego dostępu](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Dowiedz się więcej o stacjach roboczych uprzywilejowanego dostępu](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Jak włączyć usługę MFA na platformie Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -1017,7 +1017,7 @@ Uwaga: Jeśli chcesz skopiować dane do i z usługi Azure Table Storage, zainsta
 
 - [Soft delete for Azure Storage blobs](../blobs/soft-delete-blob-overview.md?tabs=azure-portal) (Usuwanie nietrwałe dla obiektów blob usługi Azure Storage)
 
-- [Przechowywanie kluczowych dla działalności danych obiektów blob z niezmiennym magazynem](../blobs/storage-blob-immutable-storage.md)
+- [Przechowywanie danych obiektów blob kluczowych dla działalności za pomocą magazynu niezmiennego](../blobs/storage-blob-immutable-storage.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 

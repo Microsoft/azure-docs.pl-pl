@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e561a0e05cf1a0870d85369867caba6c4d6bf12
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: a8166a77b4e3090619aa4c7fdc3fe4d94af6cddc
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97932422"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196371"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Co nowego w Azure Active Directory?
 
@@ -1166,7 +1166,7 @@ Aby uzyskać więcej informacji o tym, jak lepiej zabezpieczyć organizację prz
  
 W styczniu 2020 dodaliśmy do galerii aplikacji 33 te nowe aplikacje z obsługą Federacji: 
 
-[JOSA](../saas-apps/josa-tutorial.md), [szybka granica w chmurze](../saas-apps/fastly-edge-cloud-tutorial.md), [Terraform Enterprise](../saas-apps/terraform-enterprise-tutorial.md), [Spintr SSO](../saas-apps/spintr-sso-tutorial.md), [Abibot Netlogistik](https://azuremarketplace.microsoft.com/marketplace/apps/aad.abibotnetlogistik), [SkyKick](https://login.skykick.com/login?state=g6Fo2SBTd3M5Q0xBT0JMd3luS2JUTGlYN3pYTE1remJQZnR1c6N0aWTZIDhCSkwzYVQxX2ZMZjNUaWxNUHhCSXg2OHJzbllTcmYto2NpZNkgM0h6czk3ZlF6aFNJV1VNVWQzMmpHeFFDbDRIMkx5VEc&client=3Hzs97fQzhSIWUMUd32jGxQCl4H2LyTG&protocol=oauth2&audience=https://papi.skykick.com&response_type=code&redirect_uri=https://portal.skykick.com/callback&scope=openid%20profile%20offline_access), [odstrzelone](../saas-apps/upshotly-tutorial.md), [LeaveBot](https://appsource.microsoft.com/en-us/product/office/WA200001175), [datacamp](../saas-apps/datacamp-tutorial.md), [TripActions](../saas-apps/tripactions-tutorial.md), [SmartWork](https://www.intumit.com/english/SmartWork.html) [](../saas-apps/ezrentout-tutorial.md), [dotcom-monitor](../saas-apps/dotcom-monitor-tutorial.md), [SSOGEN — Brama rejestracji jednokrotnej usługi Azure AD dla Oracle E-Business Suite — EBS, PeopleSoft i JDE](../saas-apps/ssogen-tutorial.md), [Hostowana usługa MyCirqa SSO](../saas-apps/hosted-mycirqa-sso-tutorial.md), [yuhu Property Management Platform](../saas-apps/yuhu-property-management-platform-tutorial.md), [LumApps](https://sites.lumapps.com/login), Enterprise-and- [Work](../saas-apps/upwork-enterprise-tutorial.md), [Talentsoft](../saas-apps/talentsoft-tutorial.md), [SmartDB for Microsoft Teams](http://teams.smartdb.jp/login/), [PressPage](../saas-apps/presspage-tutorial.md), [ContractSafe SAML2 SSO](../saas-apps/contractsafe-saml2-sso-tutorial.md), [Maxients Manager](../saas-apps/maxient-conduct-manager-software-tutorial.md), [helpshift,](../saas-apps/helpshift-tutorial.md) [PortalTalk 365](https://www.portaltalk.com/) [,](../saas-apps/taskize-connect-tutorial.md) [Przegląd](https://portal.coreview.com/), [squelch Cloud](https://laxmi.squelch.io/login) [, PingFlow,](https://app-staging.pingview.io/) [PrinterLogic](../saas-apps/assetsonar-tutorial.md), [](https://app.sandwai.com/) [SaaS, Taskize](../saas-apps/printerlogic-saas-tutorial.md) [](https://akari.io/akari-virtual-assistant/)
+[JOSA](../saas-apps/josa-tutorial.md), [szybka granica w chmurze](../saas-apps/fastly-edge-cloud-tutorial.md), [Terraform Enterprise](../saas-apps/terraform-enterprise-tutorial.md), [Spintr SSO](../saas-apps/spintr-sso-tutorial.md), [Abibot Netlogistik](https://azuremarketplace.microsoft.com/marketplace/apps/aad.abibotnetlogistik), [SkyKick](https://login.skykick.com/login?state=g6Fo2SBTd3M5Q0xBT0JMd3luS2JUTGlYN3pYTE1remJQZnR1c6N0aWTZIDhCSkwzYVQxX2ZMZjNUaWxNUHhCSXg2OHJzbllTcmYto2NpZNkgM0h6czk3ZlF6aFNJV1VNVWQzMmpHeFFDbDRIMkx5VEc&client=3Hzs97fQzhSIWUMUd32jGxQCl4H2LyTG&protocol=oauth2&audience=https://papi.skykick.com&response_type=code&redirect_uri=https://portal.skykick.com/callback&scope=openid%20profile%20offline_access), [odstrzelone](../saas-apps/upshotly-tutorial.md), [LeaveBot](https://appsource.microsoft.com/en-us/product/office/WA200001175), [datacamp](../saas-apps/datacamp-tutorial.md), [TripActions](../saas-apps/tripactions-tutorial.md), [SmartWork](https://www.intumit.com/teams-smartwork/) [](../saas-apps/ezrentout-tutorial.md), [dotcom-monitor](../saas-apps/dotcom-monitor-tutorial.md), [SSOGEN — Brama rejestracji jednokrotnej usługi Azure AD dla Oracle E-Business Suite — EBS, PeopleSoft i JDE](../saas-apps/ssogen-tutorial.md), [Hostowana usługa MyCirqa SSO](../saas-apps/hosted-mycirqa-sso-tutorial.md), [yuhu Property Management Platform](../saas-apps/yuhu-property-management-platform-tutorial.md), [LumApps](https://sites.lumapps.com/login), Enterprise-and- [Work](../saas-apps/upwork-enterprise-tutorial.md), [Talentsoft](../saas-apps/talentsoft-tutorial.md), [SmartDB for Microsoft Teams](http://teams.smartdb.jp/login/), [PressPage](../saas-apps/presspage-tutorial.md), [ContractSafe SAML2 SSO](../saas-apps/contractsafe-saml2-sso-tutorial.md), [Maxients Manager](../saas-apps/maxient-conduct-manager-software-tutorial.md), [helpshift,](../saas-apps/helpshift-tutorial.md) [PortalTalk 365](https://www.portaltalk.com/) [,](../saas-apps/taskize-connect-tutorial.md) [Przegląd](https://portal.coreview.com/), [squelch Cloud](https://laxmi.squelch.io/login) [, PingFlow,](https://app-staging.pingview.io/) [PrinterLogic](../saas-apps/assetsonar-tutorial.md), [](https://app.sandwai.com/) [SaaS, Taskize](../saas-apps/printerlogic-saas-tutorial.md) [](https://akari.io/akari-virtual-assistant/)
 
 Aby uzyskać więcej informacji na temat aplikacji, zobacz [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Aby uzyskać więcej informacji na temat tworzenia listy aplikacji w galerii aplikacji usługi Azure AD, zobacz [Wyświetlanie listy aplikacji w galerii aplikacji Azure Active Directory](../develop/v2-howto-app-gallery-listing.md).
 
@@ -2855,8 +2855,8 @@ Następujące pola są zmieniane w schemacie inspekcji:
 |----------|------------|----------|----------|
 |Kategoria|To jest pole **nazwa usługi** . Jest teraz polem **kategorie inspekcji** . **Nazwa usługi** została zmieniona na pole **loggedByService** .|<ul><li>Aprowizacja kont</li><li>Katalog podstawowy</li><li>Samoobsługowe resetowanie hasła</li></ul>|<ul><li>Zarządzanie użytkownikami</li><li>Zarządzanie grupami</li><li>Zarządzanie aplikacjami</li></ul>|
 |targetResources|Obejmuje **TargetResourceType** na najwyższego poziomu.|&nbsp;|<ul><li>Zasady</li><li>Aplikacja</li><li>Użytkownik</li><li>Grupa</li></ul>|
-|loggedByService|Zawiera nazwę usługi, która wygenerowała dziennik inspekcji.|Null|<ul><li>Aprowizacja kont</li><li>Katalog podstawowy</li><li>Samoobsługowe resetowanie haseł</li></ul>|
-|Wynik|Zawiera wyniki dzienników inspekcji. Wcześniej było to wyliczone, ale teraz pokazywane są rzeczywiste wartości.|<ul><li>0</li><li>1</li></ul>|<ul><li>Success</li><li>Niepowodzenie</li></ul>|
+|loggedByService|Zawiera nazwę usługi, która wygenerowała dziennik inspekcji.|Zero|<ul><li>Aprowizacja kont</li><li>Katalog podstawowy</li><li>Samoobsługowe resetowanie haseł</li></ul>|
+|Wynik|Zawiera wyniki dzienników inspekcji. Wcześniej było to wyliczone, ale teraz pokazywane są rzeczywiste wartości.|<ul><li>0</li><li>1</li></ul>|<ul><li>Powodzenie</li><li>Niepowodzenie</li></ul>|
 
 #### <a name="changed-fields-in-the-sign-in-schema"></a>Zmieniono pola w schemacie logowania
 Następujące pola są zmieniane w schemacie logowania:
@@ -2864,8 +2864,8 @@ Następujące pola są zmieniane w schemacie logowania:
 |Nazwa pola|Co zostało zmienione|Stare wartości|Nowe wartości|
 |----------|------------|----------|----------|
 |appliedConditionalAccessPolicies|To było pole **conditionalaccessPolicies** . To teraz pole **appliedConditionalAccessPolicies** .|Bez zmian|Bez zmian|
-|conditionalAccessStatus|Zapewnia wynik stanu zasad dostępu warunkowego podczas logowania. Wcześniej było to wyliczone, ale teraz pokazywane są rzeczywiste wartości.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Success</li><li>Niepowodzenie</li><li>Nie zastosowano</li><li>Disabled</li></ul>|
-|appliedConditionalAccessPolicies: wynik|Zapewnia wynik poszczególnych stanów zasad dostępu warunkowego podczas logowania. Wcześniej było to wyliczone, ale teraz pokazywane są rzeczywiste wartości.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Success</li><li>Niepowodzenie</li><li>Nie zastosowano</li><li>Disabled</li></ul>|
+|conditionalAccessStatus|Zapewnia wynik stanu zasad dostępu warunkowego podczas logowania. Wcześniej było to wyliczone, ale teraz pokazywane są rzeczywiste wartości.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Powodzenie</li><li>Niepowodzenie</li><li>Nie zastosowano</li><li>Disabled</li></ul>|
+|appliedConditionalAccessPolicies: wynik|Zapewnia wynik poszczególnych stanów zasad dostępu warunkowego podczas logowania. Wcześniej było to wyliczone, ale teraz pokazywane są rzeczywiste wartości.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Powodzenie</li><li>Niepowodzenie</li><li>Nie zastosowano</li><li>Disabled</li></ul>|
 
 Aby uzyskać więcej informacji na temat schematu, zobacz [interpretowanie schematu dzienników inspekcji usługi Azure AD w Azure monitor (wersja zapoznawcza)](../reports-monitoring/reference-azure-monitor-audit-log-schema.md)
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6c2a15ac8d0863539ca878a048940b19794e920d
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 2773a76ed1166a26ebc12b97550876eaa66bad14
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842911"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197323"
 ---
 # <a name="azure-security-baseline-for-azure-data-box"></a>Podstawa zabezpieczeń platformy Azure dla Azure Data Box
 
@@ -30,7 +30,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 **Wskazówki**: nie dotyczy; Azure Data Box nie może być skojarzona z siecią wirtualną. Możesz kontrolować ruch z urządzenie Data Box do magazynu hostowanego na platformie Azure za pośrednictwem Azure Portal. W przypadku korzystania z urządzenie Data Box dane są przesyłane za pośrednictwem sieci szkieletowej platformy Azure.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -38,7 +38,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 **Wskazówki**: nie dotyczy; Azure Data Box nie może być skojarzona z siecią wirtualną. Możesz kontrolować ruch z urządzenie Data Box do magazynu hostowanego na platformie Azure za pośrednictwem Azure Portal. W przypadku korzystania z urządzenie Data Box dane są przesyłane za pośrednictwem sieci szkieletowej platformy Azure.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -46,7 +46,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 **Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone dla aplikacji sieci Web działających na Azure App Service lub zasobach obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -54,7 +54,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 **Wskazówki**: nie dotyczy; Azure Data Box nie może być skojarzona z siecią wirtualną. Możesz kontrolować ruch z urządzenie Data Box do magazynu hostowanego na platformie Azure za pośrednictwem Azure Portal. W przypadku korzystania z urządzenie Data Box dane są przesyłane za pośrednictwem sieci szkieletowej platformy Azure.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -62,7 +62,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 **Wskazówki**: nie dotyczy; Azure Data Box nie może być skojarzona z siecią wirtualną. Możesz kontrolować ruch z urządzenie Data Box do magazynu hostowanego na platformie Azure za pośrednictwem Azure Portal. W przypadku korzystania z urządzenie Data Box dane są przesyłane za pośrednictwem sieci szkieletowej platformy Azure.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -74,7 +74,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 * [Informacje o porcie dla Azure Data Box](./data-box-system-requirements.md#port-requirements)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: Microsoft
 
@@ -82,7 +82,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 **Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone dla aplikacji sieci Web działających na Azure App Service lub zasobach obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -90,7 +90,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 **Wskazówki**: nie dotyczy; Azure Data Box nie może być skojarzona z siecią wirtualną.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -98,7 +98,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 **Wskazówki**: nie dotyczy; Azure Data Box nie może być skojarzona z siecią wirtualną.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -106,7 +106,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 **Wskazówki**: nie dotyczy; Azure Data Box nie może być skojarzona z siecią wirtualną.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -114,7 +114,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 **Wskazówki**: nie dotyczy; Azure Data Box nie może być skojarzona z siecią wirtualną.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -126,9 +126,9 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 **Wskazówki**: Firma Microsoft utrzymuje źródło czasu używane dla zasobów platformy Azure, na przykład sygnatury czasowe w dziennikach. Czas Azure Data Box może nadryfować, jeśli nie jest podłączony do sieci, która może uzyskać dostęp do serwera NTP w lokacji klienta.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="22-configure-central-security-log-management"></a>2,2: Skonfiguruj centralne zarządzanie dziennikami zabezpieczeń
 
@@ -136,9 +136,9 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 * [Zrozumienie śledzenia i rejestrowania zdarzeń dla Azure Data Box](./data-box-logs.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2,3: Włączanie rejestrowania inspekcji dla zasobów platformy Azure
 
@@ -146,15 +146,15 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 * [Zrozumienie śledzenia i rejestrowania zdarzeń dla Azure Data Box](./data-box-logs.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2,4: Zbierz dzienniki zabezpieczeń z systemów operacyjnych
 
 **Wskazówki**: to zalecenie jest przeznaczone do zasobów obliczeniowych. Urządzenie Data Box zawiera dzienniki inspekcji i pakiet pomocy technicznej zawierające dzienniki zabezpieczeń.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: Microsoft
 
@@ -162,7 +162,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 **Wskazówki**: nie dotyczy
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -172,9 +172,9 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 * [Zrozumienie śledzenia i rejestrowania zdarzeń dla Azure Data Box](./data-box-logs.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="27-enable-alerts-for-anomalous-activities"></a>2,7: Włączanie alertów dla nietypowych działań
 
@@ -182,15 +182,15 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 * [Zrozumienie śledzenia i rejestrowania zdarzeń dla Azure Data Box](./data-box-logs.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="28-centralize-anti-malware-logging"></a>2,8: scentralizowanie rejestrowania chroniącego przed złośliwym oprogramowaniem
 
 **Wskazówki**: nie dotyczy; Azure Data Box nie przetwarza ani nie tworzy dzienników związanych z oprogramowaniem chroniącym przed złośliwym kodem.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -198,7 +198,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 **Wskazówki**: nie dotyczy; Azure Data Box nie przetwarza ani nie tworzy dzienników związanych z usługą DNS.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -206,7 +206,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 **Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -226,15 +226,15 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 **Monitorowanie Azure Security Center**: nie
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3,2: Zmień domyślne hasła, jeśli ma to zastosowanie
 
 **Wskazówki**: usługa Azure AD nie ma koncepcji domyślnych haseł. Inne zasoby platformy Azure wymagające hasła wymuszają utworzenie hasła przy użyciu wymagań dotyczących złożoności i minimalnej długości hasła, które różnią się w zależności od usługi. Użytkownik jest odpowiedzialny za aplikacje innych firm i usługi Marketplace, które mogą korzystać z domyślnych haseł.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3,3: Użyj dedykowanych kont administracyjnych
 
@@ -249,15 +249,15 @@ Ponadto, aby ułatwić śledzenie dedykowanych kont administracyjnych, można u�
 
 * [Jak używać Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Monitorowanie Azure Security Center**: tak
+**Monitorowanie usługi Azure Security Center**: Yes
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3,4: Korzystaj z logowania jednokrotnego (SSO) z usługą Azure Active Directory
 
 **Wskazówki**: nie dotyczy; dostęp do urządzenie Data Box zamówienia odbywa się za pomocą Azure Portal i zarezerwowanych dla kont z rolą dzierżawy właściciela lub współautora.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -273,13 +273,13 @@ Ponadto, aby ułatwić śledzenie dedykowanych kont administracyjnych, można u�
 
 **Wskazówki**: Użyj stacji roboczej dostępu uprzywilejowanego (dostępem uprzywilejowanym) z włączoną usługą Azure AD Multi-Factor Authentication (MFA), aby zalogować się do i skonfigurować zamówienia Azure Data Box.
 
-* [Stacje robocze z dostępem uprzywilejowanym](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Stacje robocze z dostępem uprzywilejowanym](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [Planowanie wdrożenia usługi Azure AD Multi-Factor Authentication opartej na chmurze](../active-directory/authentication/howto-mfa-getstarted.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3,7: Rejestruj i Ostrzegaj o podejrzanych działaniach z kont administracyjnych
 
@@ -291,9 +291,9 @@ Ponadto za pomocą funkcji wykrywania ryzyka usługi Azure AD można wyświetla�
 
 * [Omówienie wykrywania ryzyka usługi Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
-**Monitorowanie Azure Security Center**: tak
+**Monitorowanie usługi Azure Security Center**: Yes
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3,8: zarządzanie zasobami platformy Azure tylko z zatwierdzonych lokalizacji
 
@@ -301,9 +301,9 @@ Ponadto za pomocą funkcji wykrywania ryzyka usługi Azure AD można wyświetla�
 
 * [Jak skonfigurować nazwane lokalizacje na platformie Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="39-use-azure-active-directory"></a>3,9: Użyj Azure Active Directory
 
@@ -311,9 +311,9 @@ Ponadto za pomocą funkcji wykrywania ryzyka usługi Azure AD można wyświetla�
 
 * [Jak utworzyć i skonfigurować wystąpienie usługi Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3,10: regularnie Przeglądaj i Uzgodnij dostęp użytkowników
 
@@ -325,9 +325,9 @@ W przypadku urządzenia urządzenie Data Box nie jest to obsługiwane w czasie r
 
 * [Jak korzystać z przeglądów dostępu do tożsamości platformy Azure](../active-directory/governance/access-reviews-overview.md)
 
-**Monitorowanie Azure Security Center**: tak
+**Monitorowanie usługi Azure Security Center**: Yes
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3,11: Monitor próbuje uzyskać dostęp do zdezaktywowanych poświadczeń
 
@@ -343,9 +343,9 @@ Dzienniki usługi Azure Data Box nie są zapisywane do Log Analytics obszaru rob
 
 * [Jak przejść do tablicy wskaźnikowej platformy Azure](../sentinel/quickstart-onboard.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3,12: odchylenia zachowania podczas logowania do konta
 
@@ -357,9 +357,9 @@ Dzienniki usługi Azure Data Box nie są zapisywane do Log Analytics obszaru rob
 
 * [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
-**Monitorowanie Azure Security Center**: obecnie niedostępna
+**Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3,13: Zapewnij firmie Microsoft dostęp do odpowiednich danych klienta w scenariuszach pomocy technicznej
 
@@ -367,9 +367,9 @@ Dzienniki usługi Azure Data Box nie są zapisywane do Log Analytics obszaru rob
 
 * [Lista usług obsługiwanych przez Skrytka klienta](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
-**Monitorowanie Azure Security Center**: obecnie niedostępna
+**Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ## <a name="data-protection"></a>Ochrona danych
 
@@ -379,7 +379,7 @@ Dzienniki usługi Azure Data Box nie są zapisywane do Log Analytics obszaru rob
 
 **Wskazówki**: nie dotyczy Azure Data Box.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -391,7 +391,7 @@ Podczas przekazywania danych na platformę Azure, urządzenie urządzenie Data B
 
 * [Jak rozpocząć pracę z usługą Azure Data Box](./data-box-quickstart-portal.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: Microsoft
 
@@ -399,11 +399,11 @@ Podczas przekazywania danych na platformę Azure, urządzenie urządzenie Data B
 
 **Wskazówki**: Firma Microsoft zarządza podstawową infrastrukturą dla Azure Data Box i ma zaimplementowane ścisłe kontrole, aby zapobiec utracie lub narażeniu danych klientów. Gdy urządzenie Data Box jest w witrynie klienta, należy postępować zgodnie z najlepszymi rozwiązaniami w celu zapewnienia ochrony danych poufnych.
 
-* [Zrozumienie ochrony danych klientów na platformie Azure](../security/fundamentals/protection-customer-data.md)
+* [Informacje na temat ochrony danych klientów na platformie Azure](../security/fundamentals/protection-customer-data.md)
 
-**Monitorowanie Azure Security Center**: obecnie niedostępna
+**Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
-**Odpowiedzialność**: udostępnione
+**Odpowiedzialność**: Współużytkowane
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4,4: Szyfruj wszystkie poufne informacje podczas przesyłania
 
@@ -413,17 +413,17 @@ Podczas przekazywania danych na platformę Azure, urządzenie urządzenie Data B
 
 * [Omówienie zabezpieczeń urządzenie Data Box](./data-box-security.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: udostępnione
+**Odpowiedzialność**: Współużytkowane
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4,5: Użyj aktywnego narzędzia do odnajdywania, aby identyfikować poufne dane
 
 **Wskazówki**: obecnie niedostępne; funkcje identyfikacji, klasyfikacji i zapobiegania utracie danych nie są jeszcze dostępne dla Azure Data Box. Firma Microsoft zarządza podstawową infrastrukturą dla Azure Data Box i ma zaimplementowane ścisłe kontrole, aby zapobiec utracie lub narażeniu danych klientów.
 
-* [Zrozumienie ochrony danych klientów na platformie Azure](../security/fundamentals/protection-customer-data.md)
+* [Informacje na temat ochrony danych klientów na platformie Azure](../security/fundamentals/protection-customer-data.md)
 
-**Monitorowanie Azure Security Center**: obecnie niedostępna
+**Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -435,9 +435,9 @@ Podczas przekazywania danych na platformę Azure, urządzenie urządzenie Data B
 
 * [Informacje o konfigurowaniu kontroli dostępu](./data-box-logs.md#set-up-access-control-on-the-order)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4,7: Wymuś kontrolę dostępu przy użyciu ochrony przed utratą danych opartą na hoście
 
@@ -445,7 +445,7 @@ Podczas przekazywania danych na platformę Azure, urządzenie urządzenie Data B
 
 * [Ochrona danych klienta platformy Azure](../security/fundamentals/protection-customer-data.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -459,9 +459,9 @@ Azure Data Box implementuje szyfrowanie AES 256-bitowe dla danych — w czasie s
 
 * [Użyj kluczy zarządzanych przez klienta w Azure Key Vault Azure Data Box](./data-box-customer-managed-encryption-key-portal.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: udostępnione
+**Odpowiedzialność**: Współużytkowane
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4,9: Rejestruj i Ostrzegaj o zmianach krytycznych zasobów platformy Azure
 
@@ -469,9 +469,9 @@ Azure Data Box implementuje szyfrowanie AES 256-bitowe dla danych — w czasie s
 
 * [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/platform/alerts-activity-log.md)
 
-**Monitorowanie Azure Security Center**: tak
+**Monitorowanie usługi Azure Security Center**: Yes
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ## <a name="vulnerability-management"></a>Zarządzanie lukami w zabezpieczeniach
 
@@ -481,7 +481,7 @@ Azure Data Box implementuje szyfrowanie AES 256-bitowe dla danych — w czasie s
 
 **Wskazówki**: Firma Microsoft przeprowadza zarządzanie lukami w systemach podstawowych, które obsługują Azure Data Box.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: Microsoft
 
@@ -489,7 +489,7 @@ Azure Data Box implementuje szyfrowanie AES 256-bitowe dla danych — w czasie s
 
 **Wskazówki**: po wysłaniu urządzenie Data Box jest on instalowany z najnowszymi aktualizacjami. Nie wykonujemy aktualizacji pól.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: Microsoft
 
@@ -497,7 +497,7 @@ Azure Data Box implementuje szyfrowanie AES 256-bitowe dla danych — w czasie s
 
 **Wskazówki**: po wysłaniu urządzenie Data Box jest on instalowany z najnowszymi aktualizacjami. Nie wykonujemy aktualizacji pól.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: Microsoft
 
@@ -505,7 +505,7 @@ Azure Data Box implementuje szyfrowanie AES 256-bitowe dla danych — w czasie s
 
 **Wskazówki**: Firma Microsoft przeprowadza zarządzanie lukami w systemach podstawowych, które obsługują Azure Data Box.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: Microsoft
 
@@ -513,7 +513,7 @@ Azure Data Box implementuje szyfrowanie AES 256-bitowe dla danych — w czasie s
 
 **Wskazówki**: Firma Microsoft przeprowadza zarządzanie lukami w systemach podstawowych, które obsługują Azure Data Box.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: Microsoft
 
@@ -525,7 +525,7 @@ Azure Data Box implementuje szyfrowanie AES 256-bitowe dla danych — w czasie s
 
 **Wskazówki**: nie dotyczy, nie ma urządzenie Data Box zasobów do odnalezienia.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -533,7 +533,7 @@ Azure Data Box implementuje szyfrowanie AES 256-bitowe dla danych — w czasie s
 
 **Wskazówki**: nie dotyczy, nie ma metadanych zasobów dla urządzenie Data Box.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -541,7 +541,7 @@ Azure Data Box implementuje szyfrowanie AES 256-bitowe dla danych — w czasie s
 
 **Wskazówki**: nie dotyczy, usługa urządzenie Data Box zapewnia, że nie są używane żadne nieautoryzowane zasoby platformy Azure.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: Microsoft
 
@@ -549,7 +549,7 @@ Azure Data Box implementuje szyfrowanie AES 256-bitowe dla danych — w czasie s
 
 **Wskazówki**: nie dotyczy; Brak na poziomie usługi urządzenie Data Box.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -557,7 +557,7 @@ Azure Data Box implementuje szyfrowanie AES 256-bitowe dla danych — w czasie s
 
 **Wskazówki**: nie dotyczy, na poziomie usługi urządzenie Data Box.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -565,7 +565,7 @@ Azure Data Box implementuje szyfrowanie AES 256-bitowe dla danych — w czasie s
 
 **Wskazówki**: nie dotyczy, na poziomie usługi urządzenie Data Box.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -573,7 +573,7 @@ Azure Data Box implementuje szyfrowanie AES 256-bitowe dla danych — w czasie s
 
 **Wskazówki**: nie dotyczy, na poziomie usługi urządzenie Data Box.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -581,7 +581,7 @@ Azure Data Box implementuje szyfrowanie AES 256-bitowe dla danych — w czasie s
 
 **Wskazówki**: nie dotyczy, na poziomie usługi urządzenie Data Box.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -589,7 +589,7 @@ Azure Data Box implementuje szyfrowanie AES 256-bitowe dla danych — w czasie s
 
 **Wskazówki**: nie dotyczy, usługi urządzenie Data Box korzystają tylko z zatwierdzonych usług platformy Azure.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -597,7 +597,7 @@ Azure Data Box implementuje szyfrowanie AES 256-bitowe dla danych — w czasie s
 
 **Wskazówki**: nie dotyczy; Usługi urządzenie Data Box korzystają tylko z zatwierdzonych tytułów oprogramowania.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -607,15 +607,15 @@ Azure Data Box implementuje szyfrowanie AES 256-bitowe dla danych — w czasie s
 
 * [Jak skonfigurować dostęp warunkowy w celu blokowania dostępu do Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6,12: Ogranicz możliwość wykonywania skryptów w zasobach obliczeniowych przez użytkowników
 
 **Wskazówki**: nie dotyczy; Usługa urządzenie Data Box nie obsługuje wykonywania skryptów.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -623,7 +623,7 @@ Azure Data Box implementuje szyfrowanie AES 256-bitowe dla danych — w czasie s
 
 **Wskazówki**: nie dotyczy; Usługa urządzenie Data Box nie ma aplikacji sieci Web uruchomionych w usłudze Azure App Service.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -635,7 +635,7 @@ Azure Data Box implementuje szyfrowanie AES 256-bitowe dla danych — w czasie s
 
 **Wskazówki**: Azure Data Box zawiera wstępnie skonfigurowane ustawienia zabezpieczeń najlepszych rozwiązań.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: Microsoft
 
@@ -643,7 +643,7 @@ Azure Data Box implementuje szyfrowanie AES 256-bitowe dla danych — w czasie s
 
 **Wskazówki**: Azure Data Box zawiera wstępnie skonfigurowane ustawienia zabezpieczeń najlepszych rozwiązań.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: Microsoft
 
@@ -651,7 +651,7 @@ Azure Data Box implementuje szyfrowanie AES 256-bitowe dla danych — w czasie s
 
 **Wskazówki**: Azure Data Box zawiera wstępnie skonfigurowane ustawienia zabezpieczeń najlepszych rozwiązań dla zasobów i nie można ich zmienić.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: Microsoft
 
@@ -659,7 +659,7 @@ Azure Data Box implementuje szyfrowanie AES 256-bitowe dla danych — w czasie s
 
 **Wskazówki**: Azure Data Box zawiera wstępnie skonfigurowane ustawienia zabezpieczeń najlepszych rozwiązań dla zasobów i nie można ich zmienić.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -667,7 +667,7 @@ Azure Data Box implementuje szyfrowanie AES 256-bitowe dla danych — w czasie s
 
 **Wskazówki**: wszystkie konfiguracje urządzenie Data Box są bezpiecznie przechowywane.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: Microsoft
 
@@ -675,7 +675,7 @@ Azure Data Box implementuje szyfrowanie AES 256-bitowe dla danych — w czasie s
 
 **Wskazówki**: wszystkie urządzenie Data Box obrazy systemu operacyjnego są bezpiecznie przechowywane.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: Microsoft
 
@@ -683,7 +683,7 @@ Azure Data Box implementuje szyfrowanie AES 256-bitowe dla danych — w czasie s
 
 **Wskazówki**: nie dotyczy, nie można zmienić konfiguracji Azure Data Box.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -691,7 +691,7 @@ Azure Data Box implementuje szyfrowanie AES 256-bitowe dla danych — w czasie s
 
 **Wskazówki**: nie dotyczy, nie można zmienić konfiguracji Azure Data Box.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -699,7 +699,7 @@ Azure Data Box implementuje szyfrowanie AES 256-bitowe dla danych — w czasie s
 
 **Wskazówki**: nie dotyczy, nie można zmienić konfiguracji Azure Data Box.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -707,7 +707,7 @@ Azure Data Box implementuje szyfrowanie AES 256-bitowe dla danych — w czasie s
 
 **Wskazówki**: nie dotyczy, nie można zmienić konfiguracji Azure Data Box.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -717,9 +717,9 @@ Azure Data Box implementuje szyfrowanie AES 256-bitowe dla danych — w czasie s
 
 * [Jak używać kluczy zarządzanych przez klienta w Azure Key Vault dla Azure Data Box](./data-box-customer-managed-encryption-key-portal.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: udostępnione
+**Odpowiedzialność**: Współużytkowane
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7,12: bezpieczne i automatyczne zarządzanie tożsamościami
 
@@ -727,19 +727,19 @@ Azure Data Box implementuje szyfrowanie AES 256-bitowe dla danych — w czasie s
 
 * [Usługi platformy Azure, które obsługują tożsamości zarządzane](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7,13: eliminowanie nieprzewidzianego narażenia na poświadczenia
 
-**Wskazówki**: Firma Microsoft uruchamia skaner poświadczeń na urządzenie Data Box kodzie. Ponadto firma Microsoft bezpiecznie chroni poświadczenia. Implementuj skaner poświadczeń, aby identyfikować poświadczenia w kodzie. Skaner poświadczeń zachęca również do przemieszczania odnalezionych poświadczeń do bardziej bezpiecznych lokalizacji, takich jak Azure Key Vault.
+**Wskazówki**: Firma Microsoft uruchamia skaner poświadczeń na urządzenie Data Box kodzie. Ponadto firma Microsoft bezpiecznie chroni poświadczenia. Implementuj skaner poświadczeń, aby identyfikować poświadczenia w kodzie. Skaner poświadczeń ułatwia również przenoszenie odnalezionych poświadczeń do bezpieczniejszych lokalizacji, takich jak usługa Azure Key Vault.
 
 * [Jak skonfigurować skaner poświadczeń](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 **Monitorowanie Azure Security Center**: brak
 
-**Odpowiedzialność**: udostępnione
+**Odpowiedzialność**: Współużytkowane
 
 ## <a name="malware-defense"></a>Ochrona przed złośliwym oprogramowaniem
 
@@ -749,7 +749,7 @@ Azure Data Box implementuje szyfrowanie AES 256-bitowe dla danych — w czasie s
 
 **Wskazówki**: nie dotyczy; te wytyczne są przeznaczone dla zasobów obliczeniowych. Oprogramowanie chroniące przed złośliwym oprogramowaniem firmy Microsoft jest włączone na podstawowym hoście, który obsługuje usługi platformy Azure (na przykład Azure App Service), ale nie jest uruchamiane w treści klienta.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -759,15 +759,15 @@ Azure Data Box implementuje szyfrowanie AES 256-bitowe dla danych — w czasie s
 
 Ponosisz odpowiedzialność za wstępne skanowanie zawartości przekazywanej do zasobów platformy Azure, które nie są obliczeniowe. Firma Microsoft nie może uzyskać dostępu do danych klienta i w związku z tym nie może przeprowadzić skanowania zawartości klienta przez oprogramowanie chroniące przed złośliwym kodem.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="83-ensure-anti-malware-software-and-signatures-are-updated"></a>8,3: Upewnij się, że oprogramowanie chroniące przed złośliwym oprogramowaniem i podpisy zostały zaktualizowane
 
 **Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych. Oprogramowanie chroniące przed złośliwym oprogramowaniem firmy Microsoft jest włączone na podstawowym hoście obsługującym usługi platformy Azure, ale nie jest uruchamiane w treści klienta.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -779,7 +779,7 @@ Ponosisz odpowiedzialność za wstępne skanowanie zawartości przekazywanej do 
 
 **Wskazówki**: nie dotyczy, usługa urządzenie Data Box nie wymaga wykonywania kopii zapasowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -787,25 +787,25 @@ Ponosisz odpowiedzialność za wstępne skanowanie zawartości przekazywanej do 
 
 **Wskazówki**: należy utworzyć kopię zapasową danych i klucza zarządzanego przez klienta. Urządzenie Data Box nie wykonuje żadnych kopii zapasowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9,3: Weryfikuj wszystkie kopie zapasowe, w tym klucze zarządzane przez klienta
 
 **Wskazówki**: należy upewnić się, że wszystkie dane są na koncie usługi Azure Storage przed usunięciem go z lokalizacji lokalnej.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: zapewnianie ochrony kopii zapasowych i kluczy zarządzanych przez klienta
 
 **Wskazówki**: Upewnij się, że wszystkie kopie zapasowe lub klucze zarządzane przez klienta są chronione zgodnie z najlepszymi rozwiązaniami.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ## <a name="incident-response"></a>Reagowanie na zdarzenia
 
@@ -813,7 +813,7 @@ Ponosisz odpowiedzialność za wstępne skanowanie zawartości przekazywanej do 
 
 ### <a name="101-create-an-incident-response-guide"></a>10,1: Tworzenie przewodnika odpowiedzi na zdarzenia
 
-**Wskazówki**: Tworzenie przewodnika odpowiedzi na zdarzenia dla organizacji. Upewnij się, że istnieją zarejestrowane plany reakcji na zdarzenia, które definiują wszystkie role pracowników, a także etapy obsługi zdarzeń/zarządzania z wykrywania do oceny po zdarzeniu.
+**Wskazówka**: Utwórz przewodnik odpowiedzi na zdarzenia dla swojej organizacji. Upewnij się, że istnieją zarejestrowane plany reakcji na zdarzenia, które definiują wszystkie role pracowników, a także etapy obsługi zdarzeń/zarządzania od wykrywania do oceny po zdarzeniu.
 
 * [Wskazówki dotyczące tworzenia własnego procesu reagowania na zdarzenia zabezpieczeń](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -821,33 +821,33 @@ Ponosisz odpowiedzialność za wstępne skanowanie zawartości przekazywanej do 
 
 * [Skorzystaj z przewodnika obsługi zdarzeń związanych z bezpieczeństwem programu NIST, aby pomóc w tworzeniu własnego planu reagowania na zdarzenia](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10,2: Tworzenie oceny incydentu i procedury priorytetyzacji
 
 **Wskazówki**: Security Center przypisuje ważność do każdego alertu, aby pomóc w ustaleniu, które alerty należy najpierw zbadać. Ważność jest oparta na tym, jak dobrze Security Center znajduje się w wyszukiwaniu lub analitycznym używanym do wystawiania alertu, a także poziom pewności, że istniało złośliwy wpływ na działanie, które prowadziło do alertu.
 
-Dodatkowo jasno Oznacz subskrypcje (na przykład Produkcja, inne niż prod) przy użyciu tagów i Utwórz system nazewnictwa, aby jasno identyfikować i klasyfikować zasoby platformy Azure, szczególnie te, które przetwarzają dane poufne. Odpowiedzialność za korygowanie alertów zależy od zagrożenia dla zasobów platformy Azure i środowiska, w którym wystąpiło zdarzenie.
+Dodatkowo jasno Oznacz subskrypcje (na przykład Produkcja, inne niż prod) przy użyciu tagów i Utwórz system nazewnictwa, aby jasno identyfikować i klasyfikować zasoby platformy Azure, szczególnie te, które przetwarzają dane poufne. Odpowiedzialność za korygowanie alertów w oparciu o krytyczne znaczenie zasobów platformy Azure i środowisko, w którym wystąpiło zdarzenie, leży po stronie użytkownika.
 
 * [Alerty zabezpieczeń w Centrum zabezpieczeń Azure](../security-center/security-center-alerts-overview.md)
 
 * [Organizowanie zasobów platformy Azure przy użyciu tagów](../azure-resource-manager/management/tag-resources.md)
 
-**Monitorowanie Azure Security Center**: tak
+**Monitorowanie usługi Azure Security Center**: Yes
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="103-test-security-response-procedures"></a>10,3: procedury odpowiedzi na zabezpieczenia testowe
 
-**Wskazówki**: przeprowadzanie ćwiczeń w celu przetestowania możliwości reagowania na zdarzenia systemów w regularnych erzeach w celu ochrony zasobów platformy Azure. Zidentyfikuj słabe punkty i przerwy i popraw plan zgodnie z wymaganiami.
+**Wskazówki**: przeprowadzanie ćwiczeń w celu przetestowania możliwości reagowania na zdarzenia systemów w regularnych erzeach w celu ochrony zasobów platformy Azure. Zidentyfikuj słabe punkty i przerwy oraz popraw plan zgodnie z wymaganiami.
 
 * [Przewodnik po publikacji NIST, który umożliwia testowanie, uczenie i wykonywanie programów dla planów i możliwości IT](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10,4: Podaj szczegóły kontaktu dotyczącego zabezpieczeń i Skonfiguruj powiadomienia dotyczące alertów dotyczących zdarzeń związanych z zabezpieczeniami
 
@@ -855,9 +855,9 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład Produkcja, inne niż prod) przy
 
 * [Jak ustawić kontakt z zabezpieczeniami Azure Security Center](../security-center/security-center-provide-security-contact-details.md)
 
-**Monitorowanie Azure Security Center**: tak
+**Monitorowanie usługi Azure Security Center**: Yes
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10,5: Uwzględnij alerty zabezpieczeń w systemie odpowiedzi na zdarzenia
 
@@ -865,11 +865,11 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład Produkcja, inne niż prod) przy
 
 * [Jak skonfigurować eksport ciągły](../security-center/continuous-export.md)
 
-* [Jak przesłać strumieniowo alerty do usługi Azure wskaźnikowego](../sentinel/connect-azure-security-center.md)
+* [Jak przesłać strumieniowo alerty do usługi Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10,6: Automatyzowanie odpowiedzi na alerty zabezpieczeń
 
@@ -877,9 +877,9 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład Produkcja, inne niż prod) przy
 
 * [Jak skonfigurować automatyzację przepływu pracy i Logic Apps](../security-center/workflow-automation.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Testy penetracyjne i ćwiczenia typu „red team”
 
@@ -889,13 +889,13 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład Produkcja, inne niż prod) przy
 
 **Wskazówki**: Firma Microsoft przeprowadza testowanie penetracji i skanowanie luk w zabezpieczeniach na urządzenie Data Box urządzeniach. Możesz wykonywać własne testy penetracji i skanować luki w zabezpieczeniach. Jeśli zdecydujesz się to zrobić, postępuj zgodnie z zasadami firmy Microsoft dotyczącymi zaangażowania, aby upewnić się, że testy penetracji nie naruszają zasad firmy Microsoft. Korzystaj z strategii firmy Microsoft i wykonywania testów na żywo z obsługą tworzenia zespołu, usług i aplikacji w chmurze, które są zarządzane przez firmę Microsoft.
 
-* [Reguły testowania penetracji zaangażowania](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+* [Reguły testów penetracyjnych zaangażowania](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-* [Microsoft Cloud Tworzenie zespołu Red.](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+* [Testy typu „red team” w chmurze firmy Microsoft](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: udostępnione
+**Odpowiedzialność**: Współużytkowane
 
 ## <a name="next-steps"></a>Następne kroki
 

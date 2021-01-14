@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 0143b014328dfd5c164f0c3c62aeef7cabe1a17c
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 307afc8f1caafac1a511f0f9895cc73dd9b47eb4
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065426"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196048"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure Wiosenna — często zadawane pytania
 
@@ -37,7 +37,7 @@ Bezpieczeństwo i ochrona prywatności należą do najważniejszych priorytetów
 
 ### <a name="in-which-regions-is-azure-spring-cloud-available"></a>W jakich regionach jest dostępna chmura Wiosenna platformy Azure?
 
-Wschodnie stany USA, Wschodnie stany USA 2, środkowe stany USA, Południowo-środkowe stany USA, Północno-środkowe stany USA, Region Zachodni USA, zachodnie stany USA 2, Europa Zachodnia, Europa Północna, Południowe Zjednoczone Królestwo, Azja Południowo-Wschodnia, Australia Wschodnia, Kanada środkowa, Południowe Zjednoczone Emiraty Arabskie, Korea Środkowa i Azja Wschodnia. [Więcej informacji](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
+Wschodnie stany USA, Wschodnie stany USA 2, środkowe stany USA, Południowo-środkowe stany USA, Północno-środkowe stany USA, Region Zachodni USA, zachodnie stany USA 2, Europa Zachodnia, Europa Północna, Południowe Zjednoczone Królestwo, Azja Południowo-Wschodnia, Australia Wschodnia, Kanada środkowa, Ameryka Północna, Indie Środkowe, Korea środkowa, Azja Wschodnia i Chiny Wschodnie 2 (Mooncake). [Więcej informacji](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
 
 ### <a name="is-any-customer-data-stored-outside-of-the-specified-region"></a>Czy dane klienta są przechowywane poza określonym regionem?
 

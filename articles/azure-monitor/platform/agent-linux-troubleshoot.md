@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 2b811b1ace646cc4e0a93b937fbb90cfbf7aec0f
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 26fb70592a75910ae21d327e53569eda12dfea97
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704898"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197374"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Jak rozwiązywać problemy z agentem usługi Log Analytics dla systemu Linux 
 
@@ -96,6 +96,7 @@ Zaobserwowano, że czysta ponowna instalacja agenta naprawi większość problem
 | 5 | Pakiet powłoki należy wykonać jako element główny lub wystąpił błąd 403 podczas dołączania. Uruchom polecenie za pomocą polecenia `sudo` . |
 | 6 | Nieprawidłowa Architektura pakietu lub wystąpił błąd 200 podczas dołączania; pakiety omsagent-*x64.sh można zainstalować tylko w systemach 64-bitowych, a pakiety omsagent-* x86.sh można zainstalować tylko w systemach 32-bitowych. Pobierz prawidłowy pakiet dla swojej architektury z [najnowszej wersji](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
 | 17 | Instalacja pakietu OMS nie powiodła się. Poszukaj danych wyjściowych polecenia dla błędu głównego. |
+| 18 | Instalacja pakietu OMSConfig nie powiodła się. Poszukaj danych wyjściowych polecenia dla błędu głównego. |
 | 19 | Instalacja pakietu OMI nie powiodła się. Poszukaj danych wyjściowych polecenia dla błędu głównego. |
 | 20 | Instalacja pakietu SCX nie powiodła się. Poszukaj danych wyjściowych polecenia dla błędu głównego. |
 | 21 | Instalacja zestawów Providers nie powiodła się. Poszukaj danych wyjściowych polecenia dla błędu głównego. |

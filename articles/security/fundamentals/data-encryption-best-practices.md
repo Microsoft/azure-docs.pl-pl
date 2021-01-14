@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: c88a2cf33cf1149a17af4a82dcf2858822f0c6d4
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 3808da24c1baf6dd6e3332d4bd26fd176b761c65
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696153"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196082"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Najlepsze rozwiązania z zakresu zabezpieczeń i szyfrowania danych platformy Azure
 W tym artykule opisano najlepsze rozwiązania dotyczące zabezpieczeń i szyfrowania danych.
@@ -74,7 +74,7 @@ Korzystając z usługi Azure RBAC, można kontrolować, do czego użytkownicy ma
 Ze względu na to, że zdecydowane ataki są ukierunkowane na użytkownika końcowego, punkt końcowy jest jednym z głównych punktów ataku. Osoba atakująca, która narusza punkt końcowy, może użyć poświadczeń użytkownika w celu uzyskania dostępu do danych organizacji. Większość ataków na punkt końcowy korzysta z faktu, że użytkownicy są administratorami na swoich lokalnych stacjach roboczych.
 
 **Najlepsze rozwiązanie**: Użyj bezpiecznej stacji roboczej zarządzania do ochrony poufnych kont, zadań i danych.   
-**Szczegóły**: aby zmniejszyć obszar narażony na ataki, użyj [stacji roboczej z dostępem uprzywilejowanym](/windows-server/identity/securing-privileged-access/privileged-access-workstations) . Te bezpieczne zarządzanie stacjami roboczymi może pomóc w ograniczeniu niektórych ataków i upewnieniu się, że dane są bezpieczniejsze.
+**Szczegóły**: aby zmniejszyć obszar narażony na ataki, użyj [stacji roboczej z dostępem uprzywilejowanym](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) . Te bezpieczne zarządzanie stacjami roboczymi może pomóc w ograniczeniu niektórych ataków i upewnieniu się, że dane są bezpieczniejsze.
 
 **Najlepsze rozwiązanie**: Upewnij się, że program Endpoint Protection.   
 **Szczegóły**: wymuszanie zasad zabezpieczeń na wszystkich urządzeniach, które są używane do korzystania z danych, niezależnie od lokalizacji danych (w chmurze lub lokalnie).

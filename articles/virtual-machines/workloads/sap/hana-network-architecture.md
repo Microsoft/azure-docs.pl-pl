@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b18e1cd20a4b0a886258fd56003cd273d92381fa
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: c1403c514f5a278fd406769f1d5271cc95a5c1df
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093982"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195742"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Architektura sieci SAP HANA (duże wystąpienia)
 
@@ -47,9 +47,9 @@ Jeśli SAP HANA na platformie Azure (duże wystąpienia) zostaną wdrożone w wi
 
 ## <a name="additional-virtual-network-information"></a>Dodatkowe informacje o sieci wirtualnej
 
-Aby połączyć sieć wirtualną z usługą ExpressRoute, należy utworzyć bramę usługi Azure ExpressRoute. Aby uzyskać więcej informacji, zobacz [Informacje o bramach ExpressRoute dla ExpressRoute](../../../expressroute/expressroute-about-virtual-network-gateways.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+Aby połączyć sieć wirtualną z usługą ExpressRoute, należy utworzyć bramę usługi Azure ExpressRoute. Aby uzyskać więcej informacji, zobacz [Informacje o bramach ExpressRoute dla ExpressRoute](../../../expressroute/expressroute-about-virtual-network-gateways.md). 
 
-Brama Azure ExpressRoute jest używana z usługą ExpressRoute do infrastruktury poza platformą Azure lub z sygnaturą dużego wystąpienia platformy Azure. Bramę Azure ExpressRoute można podłączyć do maksymalnie czterech obwodów usługi ExpressRoute, o ile te połączenia pochodzą z różnych routerów granicznych firmy Microsoft. Aby uzyskać więcej informacji, zobacz [SAP HANA (duże wystąpienia) infrastruktura i łączność na platformie Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+Brama Azure ExpressRoute jest używana z usługą ExpressRoute do infrastruktury poza platformą Azure lub z sygnaturą dużego wystąpienia platformy Azure. Bramę Azure ExpressRoute można podłączyć do maksymalnie czterech obwodów usługi ExpressRoute, o ile te połączenia pochodzą z różnych routerów granicznych firmy Microsoft. Aby uzyskać więcej informacji, zobacz [SAP HANA (duże wystąpienia) infrastruktura i łączność na platformie Azure](hana-overview-infrastructure-connectivity.md). 
 
 > [!NOTE] 
 > Maksymalna przepływność, którą można osiągnąć za pomocą bramy ExpressRoute, to 10 GB/s przy użyciu połączenia ExpressRoute. Kopiowanie plików między MASZYNą wirtualną znajdującą się w sieci wirtualnej a systemem lokalnym (jako pojedynczy strumień kopii) nie osiąga pełnej przepływności różnych jednostek SKU bramy. Aby wykorzystać pełną przepustowość bramy ExpressRoute, Użyj wielu strumieni. Lub należy skopiować różne pliki do strumieni równoległych pojedynczego pliku.
@@ -60,7 +60,7 @@ W przypadku dużego wystąpienia usługi HANA architektura sieci można podzieli
 
 - Sieć lokalna i ExpressRoute połączenie z platformą Azure. Ta część jest domeną klienta i jest połączona z platformą Azure za pomocą usługi ExpressRoute. Ten obwód ExpressRoute jest w pełni płacony przez Ciebie jako klient. Przepustowość powinna być wystarczająco duża, aby obsługiwać ruch sieciowy między zasobami lokalnymi i regionem świadczenia usługi Azure, z którym nawiązujesz połączenie. Zobacz dolny prawy na poniższej ilustracji.
 - Usługi sieciowe platformy Azure, jak wspomniano wcześniej, z sieciami wirtualnymi, które wymagają dodania bram ExpressRoute. Ta część to obszar, w którym należy znaleźć odpowiednie projekty dotyczące wymagań aplikacji, zabezpieczeń i wymagań dotyczących zgodności. Bez względu na to, czy jest używane duże wystąpienie platformy HANA, należy wziąć pod uwagę liczbę sieci wirtualnych i jednostek SKU bramy platformy Azure do wyboru. Zobacz górne prawo na rysunku.
-- Łączność z dużym wystąpieniem HANA za pośrednictwem technologii ExpressRoute na platformie Azure. Ta część jest wdrażana i obsługiwana przez firmę Microsoft. Wszystko, co musisz zrobić, udostępnia niektóre zakresy adresów IP po wdrożeniu zasobów w dużym wystąpieniu HANA Połącz obwód ExpressRoute z sieciami wirtualnymi. Aby uzyskać więcej informacji, zobacz [SAP HANA (duże wystąpienia) infrastruktura i łączność na platformie Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Klient nie ma dodatkowej opłaty za połączenie między jednostkami sieci szkieletowej a usługą Azure Data Center oraz wystąpieniem dużej instancji HANA.
+- Łączność z dużym wystąpieniem HANA za pośrednictwem technologii ExpressRoute na platformie Azure. Ta część jest wdrażana i obsługiwana przez firmę Microsoft. Wszystko, co musisz zrobić, udostępnia niektóre zakresy adresów IP po wdrożeniu zasobów w dużym wystąpieniu HANA Połącz obwód ExpressRoute z sieciami wirtualnymi. Aby uzyskać więcej informacji, zobacz [SAP HANA (duże wystąpienia) infrastruktura i łączność na platformie Azure](hana-overview-infrastructure-connectivity.md). Klient nie ma dodatkowej opłaty za połączenie między jednostkami sieci szkieletowej a usługą Azure Data Center oraz wystąpieniem dużej instancji HANA.
 - Obsługa sieci w sygnaturze dużej instancji HANA, która jest w większości przejrzysta.
 
 ![Sieć wirtualna połączona z SAP HANA na platformie Azure (duże wystąpienia) i lokalna](./media/hana-overview-architecture/image1-architecture.png)
@@ -98,7 +98,7 @@ Aby uzyskać więcej informacji na temat konfigurowania szybkiej ścieżki usłu
 
 ## <a name="single-sap-system"></a>Pojedynczy system SAP
 
-Wcześniej pokazana infrastruktura lokalna jest połączona przez ExpressRoute na platformę Azure. Obwód ExpressRoute nawiązuje połączenie z routerem brzegowym Microsoft Enterprise (MSEE). Aby uzyskać więcej informacji, zobacz [Omówienie techniczne ExpressRoute](../../../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Po ustanowieniu trasy nawiązuje połączenie ze szkieletem platformy Azure.
+Wcześniej pokazana infrastruktura lokalna jest połączona przez ExpressRoute na platformę Azure. Obwód ExpressRoute nawiązuje połączenie z routerem brzegowym Microsoft Enterprise (MSEE). Aby uzyskać więcej informacji, zobacz [Omówienie techniczne ExpressRoute](../../../expressroute/expressroute-introduction.md). Po ustanowieniu trasy nawiązuje połączenie ze szkieletem platformy Azure.
 
 > [!NOTE] 
 > Aby uruchomić oprogramowanie SAP Landscapes na platformie Azure, Połącz się z routerem brzegowym przedsiębiorstwa znajdującym się najbliżej regionu świadczenia usługi Azure w poziomie. Sygnatury dużych wystąpień HANA są połączone za pośrednictwem dedykowanych urządzeń routera brzegowego przedsiębiorstwa, aby zminimalizować opóźnienie sieci między maszynami wirtualnymi w sygnaturach dużych wystąpień usługi Azure IaaS i HANA.
@@ -136,7 +136,7 @@ Wdrożenie domyślne, trzy zagadnienia dotyczące routingu sieciowego są ważne
 
 * Jeśli masz duże jednostki wystąpienia HANA wdrożone w dwóch różnych regionach świadczenia usługi Azure na potrzeby odzyskiwania po awarii, te same przejściowe ograniczenia routingu są stosowane w przeszłości. Innymi słowy adresy IP jednostki dużego wystąpienia HANA w jednym regionie (na przykład zachodnie stany USA) nie były kierowane do jednostki dużego wystąpienia HANA wdrożonej w innym regionie (na przykład Wschodnie stany USA). To ograniczenie było niezależne od używania komunikacji równorzędnej sieci platformy Azure między regionami lub łączących się między sobą obwodów ExpressRoute, które łączą jednostki usługi HANA z sieciami wirtualnymi. Aby uzyskać reprezentację graficzną, zobacz rysunek w sekcji "Korzystanie z jednostek usługi HANA Large Instances" w wielu regionach. To ograniczenie, które zostało dołączone do wdrożonej architektury, nie zabroniona do natychmiastowego korzystania z replikacji systemu HANA jako funkcji odzyskiwania po awarii. Najnowsze zmiany można znaleźć w sekcji "Korzystanie z jednostek usługi HANA Large Instances" w wielu regionach. 
 
-* Jednostki SAP HANA na platformie Azure (duże wystąpienia) mają przypisany adres IP z zakresu adresów puli IP serwera, który został przesłany podczas żądania wdrożenia dużego wystąpienia platformy HANA. Aby uzyskać więcej informacji, zobacz [SAP HANA (duże wystąpienia) infrastruktura i łączność na platformie Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Ten adres IP jest dostępny za pomocą subskrypcji i obwodu platformy Azure, który łączy sieci wirtualne platformy Azure z dużymi wystąpieniami HANA. Adres IP przypisany z tego zakresu adresów puli adresów IP jest bezpośrednio przypisany do jednostki sprzętowej. *Nie* jest już przypisane za pośrednictwem translatora adresów sieciowych, tak jak w przypadku pierwszego wdrożenia tego rozwiązania. 
+* Jednostki SAP HANA na platformie Azure (duże wystąpienia) mają przypisany adres IP z zakresu adresów puli IP serwera, który został przesłany podczas żądania wdrożenia dużego wystąpienia platformy HANA. Aby uzyskać więcej informacji, zobacz [SAP HANA (duże wystąpienia) infrastruktura i łączność na platformie Azure](hana-overview-infrastructure-connectivity.md). Ten adres IP jest dostępny za pomocą subskrypcji i obwodu platformy Azure, który łączy sieci wirtualne platformy Azure z dużymi wystąpieniami HANA. Adres IP przypisany z tego zakresu adresów puli adresów IP jest bezpośrednio przypisany do jednostki sprzętowej. *Nie* jest już przypisane za pośrednictwem translatora adresów sieciowych, tak jak w przypadku pierwszego wdrożenia tego rozwiązania. 
 
 ### <a name="direct-routing-to-hana-large-instances"></a>Bezpośrednie kierowanie do dużych wystąpień platformy HANA
 

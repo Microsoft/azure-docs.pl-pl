@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 30da040a977f8052f227f19e975915cbbe915102
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 4b737c570f7f4b56f387b60fad180ddd89b84ebe
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532571"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196031"
 ---
 # <a name="azure-security-baseline-for-azure-advisor"></a>Podstawa zabezpieczeń platformy Azure dla Azure Advisor
 
@@ -157,7 +157,7 @@ Używaj wysoce bezpiecznych stacji roboczych użytkowników i/lub Azure bastionu
 
 Centralne zarządzanie zabezpieczonymi stacjami roboczymi, aby wymusić bezpieczną konfigurację, w tym silne uwierzytelnianie, oprogramowanie i sprzętowe linie bazowe, ograniczony dostęp logiczny i sieciowy.
 
-- [Informacje na temat stacji roboczych uprzywilejowanego dostępu](../active-directory/devices/concept-azure-managed-workstation.md) 
+- [Informacje na temat stacji roboczych uprzywilejowanego dostępu](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) 
  
 - [Wdrażanie stacji roboczej z dostępem uprzywilejowanym](../active-directory/devices/howto-azure-managed-workstation.md)
 

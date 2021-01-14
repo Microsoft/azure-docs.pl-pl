@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e7be42b2a6e9f2cdc1aa0258f218fea9fd963093
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: c27ef1af3e439b22f00f9247b5270118bbe9ca89
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532039"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197714"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Podstawowa baza zabezpieczeń Azure dla usługi Batch
 
@@ -312,7 +312,7 @@ Ponadto możesz użyć zaleceń dotyczących zarządzania tożsamościami i dost
 
 **Wskazówki**: Użyj dostępem uprzywilejowanym (uprzywilejowanych stacji roboczych dostępu) z uwierzytelnianiem wieloskładnikowym skonfigurowanym do logowania się i konfigurowania zasobów Azure Batch.
 
-- [Dowiedz się więcej o stacjach roboczych uprzywilejowanego dostępu](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Dowiedz się więcej o stacjach roboczych uprzywilejowanego dostępu](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Jak włączyć uwierzytelnianie wieloskładnikowe na platformie Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
