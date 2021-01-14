@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 038d19270fbdb672d397eb2bd56bd27e17ea7af9
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: f407f9ee2ea0ca73b29e4fde9d542c005f78a929
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929093"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200451"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Najlepsze rozwiązania dotyczące konfiguracji aplikacji platformy Azure
 
@@ -89,6 +89,10 @@ Konfiguracja aplikacji oferuje opcję zbiorczego [importowania](./howto-import-e
 ## <a name="multi-region-deployment-in-app-configuration"></a>Wdrożenie w ramach wieloregionu w konfiguracji aplikacji
 
 Konfiguracja aplikacji to usługa regionalna. W przypadku aplikacji z różnymi konfiguracjami na region przechowywanie tych konfiguracji w jednym wystąpieniu może stworzyć single point of failure. Wdrożenie jednego wystąpienia konfiguracji aplikacji na region w wielu regionach może być lepszym rozwiązaniem. Może być pomocna w przypadku regionalnego odzyskiwania po awarii, wydajności i silosu zabezpieczeń. Konfiguracja według regionów poprawia również opóźnienia i używa przydzielonych przydziałów ograniczania przepustowości, ponieważ ograniczanie przepustowości odbywa się na każdym wystąpieniu. Aby zastosować rozwiązanie do rozwiązywania problemów z odzyskiwaniem po awarii, można użyć [wielu magazynów konfiguracji](./concept-disaster-recovery.md). 
+
+## <a name="client-applications-in-app-configuration"></a>Aplikacje klienckie w konfiguracji aplikacji 
+
+Nadmierne żądania konfiguracji aplikacji mogą powodować naliczanie opłat lub za użycie nadwyżkowe. Aplikacje wykorzystują buforowanie i inteligentne odświeżanie obecnie dostępne w celu zoptymalizowania liczby wysyłanych żądań. Ten proces może być dublowany w aplikacjach klienckich o dużym nasileniu, unikając bezpośrednich połączeń z magazynem konfiguracji. Zamiast tego aplikacje klienckie nawiązują połączenie z usługą niestandardową, a ta usługa komunikuje się z magazynem konfiguracji. To rozwiązanie proxy może zapewnić, że aplikacje klienckie nie zbliżają się do limitu ograniczania w magazynie konfiguracji. Aby uzyskać więcej informacji na temat ograniczania przepustowości, zobacz [często zadawane pytania](https://docs.microsoft.com/azure/azure-app-configuration/faq#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration).  
 
 ## <a name="next-steps"></a>Następne kroki
 

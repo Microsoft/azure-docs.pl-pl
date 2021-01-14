@@ -7,12 +7,12 @@ ms.author: sumuth
 ms.topic: tutorial
 ms.date: 11/25/2020
 ms.custom: mvc
-ms.openlocfilehash: a02cb30b0f00f732fa0c4ac9319a652ef5cb6fc1
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: b82bb9b7684d1119b6b62216b52210845d8f4c67
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657060"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "98199635"
 ---
 # <a name="tutorial-deploy-wordpress-app-on-aks-with-azure-database-for-mysql---flexible-server"></a>Samouczek: wdrażanie aplikacji WordPress w systemie AKS z serwerem elastycznym Azure Database for MySQL
 
@@ -63,7 +63,7 @@ Następujące przykładowe dane wyjściowe przedstawiają pomyślnie utworzoną 
 Utwórz klaster AKS za pomocą polecenia [az aks create](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-create). W poniższym przykładzie pokazano tworzenie klastra o nazwie *myAKSCluster* z jednym węzłem. Wykonanie tej czynności potrwa kilka minut.
 
 ```azurecli-interactive
-az aks create --resource-group wordpress-project --name wordpresscluster--node-count 1 --generate-ssh-keys
+az aks create --resource-group wordpress-project --name myAKSCluster --node-count 1 --generate-ssh-keys
 ```
 
 Po kilku minutach polecenie zostanie wykonane i zwróci informacje o klastrze w formacie JSON.
@@ -82,7 +82,7 @@ az aks install-cli
 Aby skonfigurować narzędzie `kubectl` w celu nawiązania połączenia z klastrem Kubernetes, użyj polecenia [az aks get-credentials](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-get-credentials). To polecenie powoduje pobranie poświadczeń i zastosowanie ich w konfiguracji interfejsu wiersza polecenia Kubernetes.
 
 ```azurecli-interactive
-az aks get-credentials --resource-group wordpress-project --name wordpresscluster
+az aks get-credentials --resource-group wordpress-project --name myAKSCluster
 ```
 
 > [!NOTE]

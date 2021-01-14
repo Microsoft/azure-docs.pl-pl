@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d8893daaf73a15cdc0baf8eeb339e794f6f1da64
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: f0ae4ac4cf50eb6e54d41ff25e1cc671e76819ee
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913451"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200808"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Podstawa zabezpieczeń platformy Azure dla Linux Virtual Machines
 
@@ -398,7 +398,7 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 **Wskazówki**: Użyj dostępem uprzywilejowanym (uprzywilejowanych stacji roboczych dostępu) za pomocą usługi MFA skonfigurowanej do logowania się i konfigurowania zasobów platformy Azure.
 
-* [Dowiedz się więcej o stacjach roboczych uprzywilejowanego dostępu](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Dowiedz się więcej o stacjach roboczych uprzywilejowanego dostępu](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [Jak włączyć usługę MFA na platformie Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -602,7 +602,7 @@ Firma Microsoft korzysta z protokołu Transport Layer Security (TLS) w celu ochr
 
 * [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../../azure-monitor/platform/alerts-activity-log.md)
 
-* [Rejestrowanie analityki magazynu platformy Azure](../../storage/common/storage-analytics-logging.md)
+* [Rejestrowanie usługi Azure Storage Analytics](../../storage/common/storage-analytics-logging.md)
 
 **Monitorowanie Azure Security Center**: niedostępne
 

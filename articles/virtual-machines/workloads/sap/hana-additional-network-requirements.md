@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 44e9712466734c0e42fd2bea05c5110cbff6924b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 308d30118349e020d3b407243f106d9ad8368118
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964800"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98198989"
 ---
 # <a name="additional-network-requirements-for-large-instances"></a>Dodatkowe wymagania dotyczące sieci dla dużych wystąpień
 
@@ -31,7 +31,7 @@ Użyj Azure Portal, PowerShell lub interfejsu wiersza polecenia platformy Azure 
 
 Dodaj nowy zakres adresów IP jako nowy zakres do przestrzeni adresowej sieci wirtualnej, zamiast generować nowy zagregowany zakres. Prześlij tę zmianę do firmy Microsoft. Umożliwia to nawiązanie połączenia z tym nowym zakresem adresów IP z jednostkami dużej instancji HANA w kliencie. Możesz otworzyć żądanie pomocy technicznej platformy Azure, aby pobrać nową przestrzeń adresową sieci wirtualnej. Po otrzymaniu potwierdzenia wykonaj następne kroki.
 
-Aby utworzyć dodatkową podsieć z Azure Portal, zobacz [Tworzenie sieci wirtualnej przy użyciu Azure Portal](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network). Aby utworzyć jedną z poziomu programu PowerShell, zobacz [Tworzenie sieci wirtualnej przy użyciu programu PowerShell](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network).
+Aby utworzyć dodatkową podsieć z Azure Portal, zobacz [Tworzenie sieci wirtualnej przy użyciu Azure Portal](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network). Aby utworzyć jedną z poziomu programu PowerShell, zobacz [Tworzenie sieci wirtualnej przy użyciu programu PowerShell](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network).
 
 ## <a name="add-virtual-networks"></a>Dodaj sieci wirtualne
 
@@ -51,11 +51,11 @@ Po utworzeniu nowego obwodu i zakończeniu SAP HANA w konfiguracji zarządzania 
 
 Aby usunąć podsieć sieci wirtualnej, można użyć Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure. Jeśli zakres adresów IP sieci wirtualnej platformy Azure lub przestrzeń adresowa była zagregowanym zakresem, nie ma żadnych monitów dla Ciebie z firmą Microsoft. (Pamiętaj jednak, że sieć wirtualna nadal propaguje przestrzeń adresową trasy BGP obejmującą usuniętą podsieć). Można zdefiniować zakres adresów sieci wirtualnej platformy Azure lub przestrzeń adresową jako wiele zakresów adresów IP, z których jedna została przypisana do usuniętej podsieci. Pamiętaj, aby usunąć ten obszar z przestrzeni adresowej sieci wirtualnej. Następnie poinformuj SAP HANA w usłudze Microsoft Service Management, aby usunąć ją z zakresów, które SAP HANA na platformie Azure (duże wystąpienia) mogą komunikować się z usługą.
 
-Aby uzyskać więcej informacji, zobacz [usuwanie podsieci](../../../virtual-network/virtual-network-manage-subnet.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-subnet).
+Aby uzyskać więcej informacji, zobacz [usuwanie podsieci](../../../virtual-network/virtual-network-manage-subnet.md#delete-a-subnet).
 
 ## <a name="delete-a-virtual-network"></a>Usuwanie sieci wirtualnej
 
-Aby uzyskać więcej informacji, zobacz [usuwanie sieci wirtualnej](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-virtual-network).
+Aby uzyskać więcej informacji, zobacz [usuwanie sieci wirtualnej](../../../virtual-network/manage-virtual-network.md#delete-a-virtual-network).
 
 SAP HANA w usłudze Microsoft Service Management usuwa istniejące autoryzacje na SAP HANA na platformie Azure (duże wystąpienia) obwodu ExpressRoute. Usuwa również zakres adresów IP sieci wirtualnej platformy Azure lub przestrzeń adresową na potrzeby komunikacji z dużymi wystąpieniami HANA.
 

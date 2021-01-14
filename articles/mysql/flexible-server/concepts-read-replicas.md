@@ -5,13 +5,13 @@ author: ambhatna
 ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/26/2020
-ms.openlocfilehash: 3fe63deb8115c0043023301c6d0dc3731e97743f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 01/14/2021
+ms.openlocfilehash: ccae7b3f201e55af0e9e6b4ca9e7fd4ffb9c4897
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492629"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200978"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql---flexible-server"></a>Odczytywanie replik na serwerze elastycznym Azure Database for MySQL
 
@@ -24,14 +24,14 @@ Po stronie aplikacje aplikacja jest zazwyczaj opracowywana w języku Java lub ph
 
 Funkcja Read Replica umożliwia replikowanie danych z Azure Database for MySQL serwera elastycznego na serwer tylko do odczytu. Można replikować z serwera źródłowego do maksymalnie **10** replik. Repliki są aktualizowane asynchronicznie przy użyciu natywnej technologii replikacji aparatu programu MySQL opartej na pozycji w pliku dziennika binarnego (binlog). Aby dowiedzieć się więcej na temat replikacji binlog, zobacz [Omówienie replikacji MySQL binlog](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
-Repliki to nowe serwery, którymi można zarządzać podobnie jak w przypadku źródeł Azure Database for MySQL elastycznych serwerów. Opłaty za każdą replikę odczytu są naliczane na podstawie zainicjowanej obliczeń w rdzeni wirtualnych i magazynu w GB/miesiąc. Aby uzyskać więcej informacji, zobacz [Cennik](./concepts-compute-storage.md#pricing).
+Repliki to nowe serwery, którymi można zarządzać podobnie jak w przypadku źródeł Azure Database for MySQL elastycznych serwerów. Opłaty za każdą replikę odczytu są naliczane na podstawie zainicjowanej obliczeń w rdzeni wirtualnych i magazynu w GB/miesiąc. Aby uzyskać więcej informacji, zobacz [cennik](./concepts-compute-storage.md#pricing).
 
 Aby dowiedzieć się więcej na temat funkcji i problemów związanych z replikacją MySQL, zobacz [dokumentację dotyczącą replikacji MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
 > [!NOTE]
 > Komunikacja bezpłatna bez opłat
 >
-> Firma Microsoft obsługuje różnorodne i dołączane środowiska. Ten artykuł zawiera odwołania do programu Word _podrzędny_. Przewodnik po [stylu firmy Microsoft dla komunikacji bezpłatnej](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) jest rozpoznawany jako wykluczony wyraz. Słowo jest używane w tym artykule w celu zapewnienia spójności, ponieważ jest to obecnie słowo, które jest wyświetlane w oprogramowaniu. W przypadku zaktualizowania oprogramowania w celu usunięcia wyrazu ten artykuł zostanie zaktualizowany w celu wyrównania.
+> Firma Microsoft obsługuje różnorodne i dołączane środowiska. Ten artykuł zawiera odwołania do _wzorców_ słów _kluczowych i podrzędnych_. W [przewodniku w stylu firmy Microsoft dla komunikacji bez rozdzielania](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) nie są rozpoznawane takie same słowa. Słowa są używane w tym artykule w celu zapewnienia spójności, ponieważ są to obecnie słowa pojawiające się w oprogramowaniu. W przypadku zaktualizowania oprogramowania w celu usunięcia słów ten artykuł zostanie zaktualizowany w celu wyrównania.
 >
 
 ## <a name="common-use-cases-for-read-replica"></a>Typowe przypadki użycia dla repliki odczytu
@@ -40,7 +40,7 @@ Funkcja odczytu repliki pomaga zwiększyć wydajność i skalowalność obciąż
 
 Typowe scenariusze są następujące:
 
-* Skalowanie do odczytu i obciążenia pochodzące z aplikacji przy użyciu uproszczonego serwera proxy połączenia, takiego jak [ProxySQL](https://aka.ms/ProxySQLLoadBalanceReplica) lub wzorca opartego na mikrousługach w celu skalowania zapytań odczytu pochodzących z aplikacji w celu odczytu replik
+* Skalowanie zadań do odczytu z aplikacji przy użyciu uproszczonego serwera proxy połączenia, takiego jak [ProxySQL](https://aka.ms/ProxySQLLoadBalanceReplica) lub wzorca opartego na mikrousługach, do skalowania zapytań odczytu pochodzących z aplikacji do odczytu replik
 * Obciążenia analizy biznesowej lub analitycznej mogą używać replik odczytu jako źródła danych do raportowania
 * W przypadku scenariusza IoT lub produkcyjnego, w którym informacje telemetryczne są pozyskiwane w aparacie bazy danych MySQL, podczas gdy wiele replik odczytu jest używanych do raportowania danych
 
@@ -93,23 +93,23 @@ Dowiedz się, jak [zatrzymać replikację do repliki](how-to-read-replicas-porta
 
 ## <a name="failover"></a>Tryb failover
 
-Nie istnieje automatyczna praca awaryjna między serwerami źródłowym i repliki. 
+Nie istnieje automatyczna praca awaryjna między serwerami źródłowym i repliki.
 
 Odczyt replik jest przeznaczony do skalowania intensywnych obciążeń odczytu i nie jest przeznaczony do zaspokajania potrzeb wysokiej dostępności serwera. Nie istnieje automatyczna praca awaryjna między serwerami źródłowym i repliki. Zatrzymywanie replikacji w odniesieniu do repliki odczytu w celu przełączenia jej w tryb online w trybie odczytu jest sposobem, w jaki wykonywane jest ręczne przejście do trybu failover.
 
-Ponieważ replikacja jest asynchroniczna, między źródłem a repliką występuje opóźnienie. Na czas opóźnienia może wpływać wiele czynników, takich jak zmniejszanie obciążenia uruchomionego na serwerze źródłowym i opóźnienia między centrami danych. W większości przypadków opóźnienia repliki wynoszą od kilku sekund do kilku minut. Rzeczywiste opóźnienie replikacji można śledzić przy użyciu *opóźnienia repliki* metryk, które jest dostępne dla każdej repliki. Ta Metryka przedstawia czas od ostatniego odtworzonej transakcji. Zalecamy, aby określić, co to jest średnie opóźnienie, obserwując opóźnienie repliki w danym okresie czasu. Można ustawić alert w przypadku zwłoki repliki, aby w przypadku, gdy znajdzie się poza oczekiwanym zakresem, można wykonać akcję.
+Ponieważ replikacja jest asynchroniczna, między źródłem a repliką występuje opóźnienie. Na okres zwłoki może wpływać wiele czynników, takich jak zmniejszanie obciążenia uruchomionego na serwerze źródłowym i opóźnienia między centrami danych. W większości przypadków opóźnienia repliki wynoszą od kilku sekund do kilku minut. Rzeczywiste opóźnienie replikacji można śledzić przy użyciu *opóźnienia repliki* metryk, które jest dostępne dla każdej repliki. Ta Metryka przedstawia czas od ostatniego odtworzonej transakcji. Zalecamy, aby określić, co to jest średnie opóźnienie, obserwując opóźnienie repliki w danym okresie czasu. Można ustawić alert w przypadku zwłoki repliki, aby w przypadku, gdy znajdzie się poza oczekiwanym zakresem, można wykonać akcję.
 
 > [!Tip]
 > W przypadku przejścia w tryb failover do repliki zwłoka w momencie odłączenia repliki od źródła będzie wskazywać, ile danych jest utraconych.
 
-Po podjęciu decyzji o przejściu do trybu failover w replice 
+Po podjęciu decyzji o przejściu do trybu failover w replice:
 
 1. Zatrzymaj replikację do repliki<br/>
    Ten krok jest niezbędny, aby serwer repliki mógł akceptować operacje zapisu. W ramach tego procesu serwer repliki zostanie odłączone od źródła. Po zainicjowaniu zatrzymania replikacji proces zaplecza zwykle trwa około 2 minuty. Zapoznaj się z sekcją [Zatrzymaj replikację](#stop-replication) tego artykułu, aby poznać konsekwencje tej akcji.
-    
+
 2. Wskazywanie aplikacji na (dawniej) replikę<br/>
    Każdy serwer ma unikatowe parametry połączenia. Zaktualizuj swoją aplikację, tak aby wskazywała na (dawniej) replikę, a nie źródłową.
-    
+
 Po pomyślnym przetworzeniu odczytów i zapisów aplikacja została ukończona w trybie failover. Czas przestoju, w jakim zależą od aplikacji, będzie zależny od tego, kiedy wykryjesz problem, i wykonaj kroki 1 i 2 powyżej.
 
 ## <a name="considerations-and-limitations"></a>Istotne zagadnienia i ograniczenia
@@ -130,5 +130,5 @@ Po pomyślnym przetworzeniu odczytów i zapisów aplikacja została ukończona w
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się [, jak tworzyć repliki odczytu i zarządzać nimi przy użyciu Azure Portal](how-to-read-replicas-portal.md)
-- Dowiedz się, jak [tworzyć repliki odczytu i zarządzać nimi za pomocą interfejsu wiersza polecenia platformy Azure](how-to-read-replicas-cli.md)
+* Dowiedz się [, jak tworzyć repliki odczytu i zarządzać nimi przy użyciu Azure Portal](how-to-read-replicas-portal.md)
+* Dowiedz się, jak [tworzyć repliki odczytu i zarządzać nimi za pomocą interfejsu wiersza polecenia platformy Azure](how-to-read-replicas-cli.md)

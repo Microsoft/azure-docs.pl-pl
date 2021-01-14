@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/16/2017
 ms.author: cynthn
-ms.openlocfilehash: 38f231e63ad4974a23a1201aad4d290685860b50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d68ac7aa9927e62011c58b17139d7232ce4a10c
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87292159"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200757"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Tworzenie kart interfejsu sieci wirtualnej i używanie wewnętrznego serwera DNS do rozpoznawania nazw maszyn wirtualnych na platformie Azure
 
@@ -22,7 +22,7 @@ W tym artykule opisano sposób ustawiania statycznych wewnętrznych nazw DNS dla
 Wymagania są następujące:
 
 * [konto platformy Azure](https://azure.microsoft.com/pricing/free-trial/)
-* [Pliki kluczy publicznych i prywatnych SSH](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Pliki kluczy publicznych i prywatnych SSH](mac-create-ssh-keys.md)
 
 ## <a name="quick-commands"></a>Szybkie polecenia
 Aby szybko wykonać zadanie, w poniższej sekcji znajdują się szczegółowe informacje dotyczące wymaganych poleceń. Bardziej szczegółowe informacje i kontekst dla każdego kroku można znaleźć w pozostałej części dokumentu, [Zaczynając od tego miejsca](#detailed-walkthrough). Aby wykonać te kroki, należy zainstalować najnowszy [interfejs wiersza polecenia platformy Azure](/cli/azure/install-az-cli2) i zalogować się na konto platformy Azure za pomocą polecenia [AZ login](/cli/azure/reference-index).
@@ -71,7 +71,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-the-virtual-network"></a>Tworzenie sieci wirtualnej
 
-Następnym krokiem jest skompilowanie sieci wirtualnej w celu uruchomienia maszyn wirtualnych. Sieć wirtualna zawiera jedną podsieć dla tego przewodnika. Aby uzyskać więcej informacji na temat sieci wirtualnych platformy Azure, zobacz [Tworzenie sieci wirtualnej](../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network). 
+Następnym krokiem jest skompilowanie sieci wirtualnej w celu uruchomienia maszyn wirtualnych. Sieć wirtualna zawiera jedną podsieć dla tego przewodnika. Aby uzyskać więcej informacji na temat sieci wirtualnych platformy Azure, zobacz [Tworzenie sieci wirtualnej](../../virtual-network/manage-virtual-network.md#create-a-virtual-network). 
 
 Utwórz sieć wirtualną za pomocą [AZ Network VNET Create](/cli/azure/network/vnet). Poniższy przykład tworzy sieć wirtualną o nazwie `myVnet` i podsieci o nazwie `mySubnet` :
 
@@ -85,7 +85,7 @@ az network vnet create \
 ```
 
 ## <a name="create-the-network-security-group"></a>Utwórz sieciową grupę zabezpieczeń
-Sieciowe grupy zabezpieczeń platformy Azure są równoważne zaporze w warstwie sieciowej. Aby uzyskać więcej informacji na temat sieciowych grup zabezpieczeń, zobacz [jak utworzyć sieciowych grup zabezpieczeń w interfejsie wiersza polecenia platformy Azure](../../virtual-network/tutorial-filter-network-traffic-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+Sieciowe grupy zabezpieczeń platformy Azure są równoważne zaporze w warstwie sieciowej. Aby uzyskać więcej informacji na temat sieciowych grup zabezpieczeń, zobacz [jak utworzyć sieciowych grup zabezpieczeń w interfejsie wiersza polecenia platformy Azure](../../virtual-network/tutorial-filter-network-traffic-cli.md). 
 
 Utwórz sieciową grupę zabezpieczeń za pomocą [AZ Network sieciowej grupy zabezpieczeń Create](/cli/azure/network/nsg). Poniższy przykład tworzy sieciową grupę zabezpieczeń o nazwie `myNetworkSecurityGroup` :
 
@@ -157,5 +157,5 @@ az vm create \
 Korzystając z flag interfejsu wiersza polecenia do wywoływania istniejących zasobów, firma Microsoft instruuje platformę Azure, aby wdrożyć maszynę wirtualną wewnątrz istniejącej sieci. Aby ponownie wykonać iterację, po wdrożeniu sieci wirtualnej i podsieci można je pozostawić jako zasoby statyczne lub stałe w regionie świadczenia usługi Azure.  
 
 ## <a name="next-steps"></a>Następne kroki
-* [Tworzenie własnego środowiska niestandardowego dla maszyny wirtualnej z systemem Linux przy użyciu poleceń interfejsu wiersza polecenia platformy Azure](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Tworzenie maszyny wirtualnej z systemem Linux na platformie Azure przy użyciu szablonów](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Tworzenie własnego środowiska niestandardowego dla maszyny wirtualnej z systemem Linux przy użyciu poleceń interfejsu wiersza polecenia platformy Azure](create-cli-complete.md)
+* [Tworzenie maszyny wirtualnej z systemem Linux na platformie Azure przy użyciu szablonów](create-ssh-secured-vm-from-template.md)

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 32cbfbcc8feeff66101ab5e2c95f476a4a4215e9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 55f7c68df1e339f0f9eda809bbb0acbb2e9131b5
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973907"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200893"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migrowanie z Amazon Web Services (AWS) i innych platform do Managed Disks na platformie Azure
 
@@ -26,7 +26,7 @@ Można przekazać uogólnione i wyspecjalizowane dyski VHD.
 - **Wyspecjalizowany wirtualny dysk twardy** — obsługuje konta użytkowników, aplikacje i inne dane stanu z oryginalnej maszyny wirtualnej. 
 
 > [!IMPORTANT]
-> Przed przekazaniem dowolnego wirtualnego dysku twardego na platformę Azure należy wykonać następujące czynności [Przygotuj plik VHD lub VHDX systemu Windows w celu przekazania go do platformy Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> Przed przekazaniem dowolnego wirtualnego dysku twardego na platformę Azure należy wykonać następujące czynności [Przygotuj plik VHD lub VHDX systemu Windows w celu przekazania go do platformy Azure](prepare-for-upload-vhd-image.md)
 >
 >
 
@@ -64,20 +64,20 @@ Zapoznaj się z charakterystyką wydajności maszyn wirtualnych, które działaj
 
 Istnieje siedem typów dysków zarządzanych w warstwie Premium, które mogą być używane z maszyną wirtualną, a każda z nich ma określone limity IOPs i przepływności. Należy wziąć pod uwagę te limity podczas wybierania typu dysku Premium dla maszyny wirtualnej na podstawie potrzeb aplikacji w zakresie pojemności, wydajności, skalowalności i szczytowych obciążeń.
 
-| Typ dysków w warstwie Premium  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
+| Typ dysków w warstwie Premium  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Rozmiar dysku           | 32 GB| 64 GB| 128 GB| 256 GB|512 GB | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
-| Liczba operacji wejścia/wyjścia na sekundę na dysk       | 120   | 240   | 500   | 1100  |2300              | 5000              | 7500              | 7500              | 
-| Przepływność na dysk | 25 MB na sekundę  | 50 MB na sekundę  | 100 MB na sekundę | 125 MB na sekundę |150 MB na sekundę | 200 MB na sekundę | 250 MB na sekundę | 250 MB na sekundę |
+| Rozmiar dysku           | 32 GB| 64 GB| 128 GB| 256 GB|512 GB | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| Liczba operacji wejścia/wyjścia na sekundę na dysk       | 120   | 240   | 500   | 1100  |2300              | 5000              | 7500              | 7500              | 
+| Przepływność na dysk | 25 MB na sekundę  | 50 MB na sekundę  | 100 MB na sekundę | 125 MB na sekundę |150 MB na sekundę | 200 MB na sekundę | 250 MB na sekundę | 250 MB na sekundę |
 
 **Standardowa Managed Disks**
 
 Istnieje siedem typów dysków zarządzanych w warstwie Standardowa, które mogą być używane z maszyną wirtualną. Każdy z nich ma różną pojemność, ale ma te same limity IOPS i przepływności. Wybierz typ dysków zarządzanych w warstwie Standardowa na podstawie potrzeb związanych z pojemnością aplikacji.
 
-| Typ dysku standardowego  | S4               | S6               | S10              | S15              | S20              | S30              | S40              | S50              | 
+| Typ dysku standardowego  | S4               | S6               | S10              | S15              | S20              | S30              | S40              | S50              | 
 |---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------| 
-| Rozmiar dysku           | 30 GB            | 64 GB            | 128 GB           | 256 GB           |512 GB           | 1024 GB (1 TB)   | 2048 GB (2 TB)    | 4095 GB (4 TB)   | 
-| Liczba operacji wejścia/wyjścia na sekundę na dysk       | 500              | 500              | 500              | 500              |500              | 500              | 500             | 500              | 
+| Rozmiar dysku           | 30 GB            | 64 GB            | 128 GB           | 256 GB           |512 GB           | 1024 GB (1 TB)   | 2048 GB (2 TB)    | 4095 GB (4 TB)   | 
+| Liczba operacji wejścia/wyjścia na sekundę na dysk       | 500              | 500              | 500              | 500              |500              | 500              | 500             | 500              | 
 | Przepływność na dysk | 60 MB na sekundę | 60 MB na sekundę | 60 MB na sekundę | 60 MB na sekundę |60 MB na sekundę | 60 MB na sekundę | 60 MB na sekundę | 60 MB na sekundę | 
 
 ### <a name="disk-caching-policy"></a>Zasady buforowania dysku 
@@ -93,4 +93,4 @@ Zapoznaj się z [cennikiem Managed disks](https://azure.microsoft.com/pricing/de
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Przed przekazaniem dowolnego wirtualnego dysku twardego na platformę Azure należy wykonać następujące czynności [Przygotuj plik VHD lub VHDX systemu Windows w celu przekazania go do platformy Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- Przed przekazaniem dowolnego wirtualnego dysku twardego na platformę Azure należy wykonać następujące czynności [Przygotuj plik VHD lub VHDX systemu Windows w celu przekazania go do platformy Azure](prepare-for-upload-vhd-image.md)

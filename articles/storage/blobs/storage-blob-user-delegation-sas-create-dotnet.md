@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 01/13/2021
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 8667fc3c5224b1f75a9beeb95b6e1261c768c14d
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 512b949fceda850e968a6f97b3788ae3a602f56d
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347918"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98199261"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net"></a>Tworzenie sygnatury dostępu współdzielonego użytkownika dla kontenera lub obiektu BLOB przy użyciu platformy .NET
 
@@ -96,6 +96,16 @@ Poniższy przykład kodu pokazuje, jak wygenerować sygnaturę dostępu współd
 Poniższy przykład sprawdza, czy w poprzednim przykładzie utworzono sygnaturę dostępu współdzielonego delegowania użytkownika z symulowanej aplikacji klienckiej. Jeśli sygnatura dostępu współdzielonego jest prawidłowa, aplikacja kliencka może odczytać zawartość obiektu BLOB. Jeśli sygnatura dostępu współdzielonego jest nieprawidłowa, na przykład jeśli wygasła, usługa Azure Storage zwraca kod błędu 403 (dostęp zabroniony).
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_ListBlobsWithSasAsync":::
+
+## <a name="get-a-user-delegation-sas-for-a-directory"></a>Uzyskaj sygnaturę dostępu współdzielonego użytkownika dla katalogu
+
+Poniższy przykład kodu pokazuje, jak generować sygnaturę dostępu współdzielonego delegowania użytkowników dla katalogu po włączeniu hierarchicznej przestrzeni nazw:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetUserDelegationSasDirectory":::
+
+Poniższy przykład sprawdza, czy w poprzednim przykładzie utworzono sygnaturę dostępu współdzielonego delegowania użytkownika z symulowanej aplikacji klienckiej. Jeśli sygnatura dostępu współdzielonego jest prawidłowa, aplikacja kliencka może wyświetlić listę ścieżek plików dla tego katalogu. Jeśli sygnatura dostępu współdzielonego jest nieprawidłowa, na przykład jeśli wygasła, usługa Azure Storage zwraca kod błędu 403 (dostęp zabroniony).
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_ListFilePathsWithDirectorySasAsync":::
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 

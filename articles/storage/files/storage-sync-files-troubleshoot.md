@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 1/13/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: b84256188cf5df3ddf389f763e669a2b2ca00852
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: e2f0d62ae6882229cee3ee32e3b362f2b6593da7
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183340"
+ms.locfileid: "98199239"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Rozwiązywanie problemów z usługą Azure File Sync
 Użyj Azure File Sync, aby scentralizować udziały plików w organizacji w Azure Files, utrzymując elastyczność, wydajność i zgodność lokalnego serwera plików. Funkcja Azure File Sync przekształca system Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Na całym świecie możesz mieć dowolną liczbę pamięci podręcznych.
@@ -52,9 +52,11 @@ Aby rozwiązać ten problem, zainstaluj program [KB2919355](https://support.micr
 <a id="server-registration-missing-subscriptions"></a>**Rejestracja serwera nie zawiera wszystkich subskrypcji platformy Azure**  
 Podczas rejestrowania serwera przy użyciu ServerRegistration.exe nie ma subskrypcji, po kliknięciu listy rozwijanej subskrypcja platformy Azure.
 
-Ten problem występuje, ponieważ ServerRegistration.exe nie obsługuje obecnie środowisk wielodostępnych. Ten problem zostanie rozwiązany w przyszłej aktualizacji agenta Azure File Sync.
+Ten problem występuje, ponieważ ServerRegistration.exe będzie pobierać tylko subskrypcje z pierwszych 5 dzierżaw usługi Azure AD. 
 
-Aby obejść ten problem, należy użyć następujących poleceń programu PowerShell do zarejestrowania serwera:
+Aby zwiększyć limit dzierżawy rejestracji serwera na serwerze, utwórz wartość DWORD o nazwie ServerRegistrationTenantLimit w obszarze HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync o wartości większej niż 5.
+
+Ten problem można także obejść, używając następujących poleceń programu PowerShell do zarejestrowania serwera:
 
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
@@ -1318,7 +1320,7 @@ W przypadku agenta w wersji V10 i starszych:
 6. Plik. zip zawierający pliki dzienników i plików śledzenia jest zapisywany w katalogu wyjściowym, który został określony.
 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 - [Monitorowanie usługi Azure File Sync](storage-sync-files-monitoring.md)
 - [Azure Files często zadawane pytania](storage-files-faq.md)
 - [Rozwiązywanie problemów z usługą Azure Files w systemie Windows](storage-troubleshoot-windows-file-connection-problems.md)

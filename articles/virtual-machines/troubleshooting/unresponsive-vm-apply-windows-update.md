@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 76c3f729a8520c7bff7b49a1d2200d7950f8a9f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55dcd65e901a5ce8665ef8d3a2a29d7943581df9
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87074301"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200723"
 ---
 # <a name="vm-is-unresponsive-with-c01a001d-error-when-applying-windows-update"></a>Maszyna wirtualna nie odpowiada z błędem "C01A001D" podczas stosowania Windows Update
 
@@ -56,7 +56,7 @@ Nie można utworzyć pliku podstawowego w systemie plików. System operacyjny ni
 
 Jeśli dysk nie jest jeszcze 1 TB, należy zmienić jego rozmiar. Po 1 TB dysku należy przeprowadzić Oczyszczanie dysku i defragmentację dysku.
 
-1. Sprawdź, czy dysk jest pełny. Jeśli dysk jest poniżej 1 TB, [rozwiń go maksymalnie 1 TB przy użyciu programu PowerShell](../windows/expand-os-disk.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json).
+1. Sprawdź, czy dysk jest pełny. Jeśli dysk jest poniżej 1 TB, [rozwiń go maksymalnie 1 TB przy użyciu programu PowerShell](../windows/expand-os-disk.md).
 2. Po 1 TB dysku należy przeprowadzić Oczyszczanie dysku.
     - [Odłącz dysk danych od uszkodzonej maszyny wirtualnej](../windows/detach-disk.md).
     - [Dołącz dysk danych do działającej maszyny wirtualnej](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).

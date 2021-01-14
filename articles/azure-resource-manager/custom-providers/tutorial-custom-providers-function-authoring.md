@@ -3,14 +3,14 @@ title: Tworzenie punktu końcowego usługi RESTful
 description: W tym samouczku pokazano, jak utworzyć punkt końcowy RESTful dla dostawców niestandardowych. Szczegóły dotyczące obsługi żądań i odpowiedzi dla obsługiwanych metod HTTP RESTful.
 author: jjbfour
 ms.topic: tutorial
-ms.date: 06/19/2019
+ms.date: 01/13/2021
 ms.author: jobreen
-ms.openlocfilehash: d7f6c51211ce0572797ade659b9316003502da1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54d0df287865d5d92403bf68227a2d4c5faa8bb4
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75650023"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200213"
 ---
 # <a name="author-a-restful-endpoint-for-custom-providers"></a>Tworzenie punktu końcowego RESTful dla dostawców niestandardowych
 
@@ -43,7 +43,7 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 
 Na podstawie nagłówka przykładu `x-ms-customproviders-requestpath` można utworzyć parametry *PartitionKey* i *rowKey* dla magazynu, jak pokazano w poniższej tabeli:
 
-Parametr | Szablon | Opis
+Parametr | Template | Opis
 ---|---|---
 *partitionKey* | `{subscriptionId}:{resourceGroupName}:{resourceProviderName}` | Parametr *partitionKey* określa sposób partycjonowania danych. Zwykle dane są partycjonowane przez niestandardowe wystąpienie dostawcy.
 *rowKey* | `{myResourceType}:{myResourceName}` | Parametr *rowKey* określa indywidualny identyfikator dla danych. Zazwyczaj identyfikator jest nazwą zasobu.
@@ -132,7 +132,7 @@ public static async Task<HttpResponseMessage> CreateCustomResource(HttpRequestMe
 }
 ```
 
-Metoda **CreateCustomResource** aktualizuje przychodzące żądanie w celu uwzględnienia **identyfikatora**, **nazwy**i **typu**pól specyficznych dla platformy Azure. Te pola to właściwości najwyższego poziomu używane przez usługi na platformie Azure. Umożliwiają one współdziałanie dostawcy niestandardowego z innymi usługami, takimi jak Azure Policy, szablony Azure Resource Manager i dziennik aktywności platformy Azure.
+Metoda **CreateCustomResource** aktualizuje przychodzące żądanie w celu uwzględnienia **identyfikatora**, **nazwy** i **typu** pól specyficznych dla platformy Azure. Te pola to właściwości najwyższego poziomu używane przez usługi na platformie Azure. Umożliwiają one współdziałanie dostawcy niestandardowego z innymi usługami, takimi jak Azure Policy, szablony Azure Resource Manager i dziennik aktywności platformy Azure.
 
 Właściwość | Przykład | Opis
 ---|---|---
@@ -347,7 +347,7 @@ Po dodaniu metod i klas należy zaktualizować metody **using** dla aplikacji fu
 ```csharp
 #r "Newtonsoft.Json"
 #r "Microsoft.WindowsAzure.Storage"
-#r "../bin/Microsoft.Azure.Management.ResourceManager.Fluent.dll"
+#r "../bin/Microsoft.Azure.Management.ResourceManager.Fluent"
 
 using System;
 using System.Net;

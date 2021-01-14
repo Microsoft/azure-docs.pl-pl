@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: 751fa9f9fe2ba17a982b71a6332be302804f0dcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d06dc03a016f057a9a3407a82a114f8df6757599
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89047296"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200689"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Tworzenie obrazu zarządzanego uogólnionej maszyny wirtualnej na platformie Azure
 
@@ -33,7 +33,7 @@ Upewnij się, że role serwera uruchomione na komputerze są obsługiwane przez 
 >
 >Program Sysprep wymaga całkowicie odszyfrowania dysków. Jeśli na maszynie wirtualnej włączono szyfrowanie, przed uruchomieniem programu Sysprep należy wyłączyć szyfrowanie.
 >
-> Jeśli planujesz uruchomienie programu Sysprep przed przekazaniem wirtualnego dysku twardego (VHD) do platformy Azure po raz pierwszy, upewnij się, że [maszyna wirtualna została przygotowana](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
+> Jeśli planujesz uruchomienie programu Sysprep przed przekazaniem wirtualnego dysku twardego (VHD) do platformy Azure po raz pierwszy, upewnij się, że [maszyna wirtualna została przygotowana](prepare-for-upload-vhd-image.md).  
 > 
 > 
 
@@ -47,9 +47,9 @@ Aby uogólnić maszynę wirtualną z systemem Windows, wykonaj następujące kro
    
 4. W oknie dialogowym **Narzędzie przygotowywania systemu** wybierz opcję **Wprowadź system out-of-Box Experience (OOBE)** i zaznacz pole wyboru **generalize** .
    
-5. W obszarze **Opcje zamykania**wybierz pozycję **Zamknij**.
+5. W obszarze **Opcje zamykania** wybierz pozycję **Zamknij**.
    
-6. Kliknij przycisk **OK**.
+6. Wybierz przycisk **OK**.
    
     ![Uruchom program Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 
@@ -77,9 +77,9 @@ Aby uogólnić maszynę wirtualną z systemem Windows, wykonaj następujące kro
 
    Zostanie wyświetlona strona **Tworzenie obrazu** .
 
-4. W polu **Nazwa**Zaakceptuj wstępnie wypełnioną nazwę lub wprowadź nazwę, której chcesz użyć dla obrazu.
+4. W polu **Nazwa** Zaakceptuj wstępnie wypełnioną nazwę lub wprowadź nazwę, której chcesz użyć dla obrazu.
 
-5. W obszarze **Grupa zasobów**wybierz pozycję **Utwórz nową** i wprowadź nazwę lub wybierz grupę zasobów do użycia z listy rozwijanej.
+5. W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową** i wprowadź nazwę lub wybierz grupę zasobów do użycia z listy rozwijanej.
 
 6. Jeśli chcesz usunąć źródłową maszynę wirtualną po utworzeniu obrazu, zaznacz opcję **automatycznie Usuń tę maszynę wirtualną po utworzeniu obrazu**.
 
@@ -250,4 +250,4 @@ Aby utworzyć obraz zarządzany na podstawie maszyny wirtualnej, która nie korz
 
     
 ## <a name="next-steps"></a>Następne kroki
-- [Utwórz maszynę wirtualną na podstawie zarządzanego obrazu](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).    
+- [Utwórz maszynę wirtualną na podstawie zarządzanego obrazu](create-vm-generalized-managed.md). 

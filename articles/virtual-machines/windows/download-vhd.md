@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/13/2019
 ms.author: cynthn
-ms.openlocfilehash: 5c57ac0fb0ab377f00770e3c9c03a413dcb345bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e6f7b461d205478d6a3fe3eecbbb933d0533ec9
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87291039"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200519"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Pobieranie wirtualnego dysku twardego systemu Windows z platformy Azure
 
@@ -27,7 +27,7 @@ Jeśli chcesz użyć wirtualnego dysku twardego jako [obrazu](tutorial-custom-im
 Aby użyć wirtualnego dysku twardego jako obrazu do tworzenia innych maszyn wirtualnych, Uogólnij maszynę wirtualną.
 
 1. Jeśli jeszcze tego nie zrobiono, zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-2. [Nawiąż połączenie z maszyną wirtualną](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+2. [Nawiąż połączenie z maszyną wirtualną](connect-logon.md). 
 3. Na maszynie wirtualnej Otwórz okno wiersza polecenia jako administrator.
 4. Zmień katalog na *%windir%\System32\Sysprep* i uruchom sysprep.exe.
 5. W oknie dialogowym Narzędzie przygotowywania systemu wybierz opcję **Wprowadź system out-of-Box Experience (OOBE)** i upewnij się, że opcja **generalize** jest zaznaczona.
@@ -65,6 +65,6 @@ Aby pobrać plik VHD, należy wygenerować adres URL [sygnatury dostępu współ
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się, jak [przekazać plik VHD na platformę Azure](upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
-- [Utwórz dyski zarządzane na podstawie dysków niezarządzanych na koncie magazynu](attach-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-- [Zarządzanie dyskami platformy Azure za pomocą programu PowerShell](tutorial-manage-data-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Dowiedz się, jak [przekazać plik VHD na platformę Azure](upload-generalized-managed.md). 
+- [Utwórz dyski zarządzane na podstawie dysków niezarządzanych na koncie magazynu](attach-disk-ps.md).
+- [Zarządzanie dyskami platformy Azure za pomocą programu PowerShell](tutorial-manage-data-disk.md).

@@ -1,18 +1,18 @@
 ---
-title: Etykieta czułości raportowanie danych na platformie Azure Blob Storage
-description: W tym przewodniku opisano sposób wyświetlania i używania etykiet czułości kontrolą na danych w usłudze Azure Blob Storage.
+title: Etykieta czułości raportowanie danych na platformie Azure kontrolą za pomocą usługi kontrolą Insights
+description: W tym przewodniku opisano sposób wyświetlania i używania funkcji raportowania etykiet czułości kontrolą na danych.
 author: batamig
 ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: e6a92282d2bcd316a771742048dacd9a7181de4f
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: dffecb48a8faa869cb3df450cc220e86195bbc87
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746186"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98199380"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Informacje o czułości dotyczące danych w usłudze Azure kontrolą
 
@@ -27,6 +27,11 @@ W tym przewodniku krok po kroku dowiesz się, jak:
 > - Wyświetlanie informacji o czułości etykiet dotyczących danych
 > - Przechodzenie do szczegółów w celu uzyskania większej dokładności etykietowania danych
 
+> [!NOTE]
+> Etykiety czułości znalezione na [Power BIch elementów zawartości](register-scan-power-bi-tenant.md) , które są skanowane przez kontrolą, nie są obecnie wyświetlane w raporcie o czułości z etykietami. 
+>
+> Aby wyświetlić etykiety czułości dla Power BI elementów zawartości, Wyświetl element zawartości w [Data Catalog kontrolą](how-to-search-catalog.md).
+> 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed rozpoczęciem pracy z usługą kontrolą Insights upewnij się, że zostały wykonane następujące czynności:
@@ -37,6 +42,8 @@ Przed rozpoczęciem pracy z usługą kontrolą Insights upewnij się, że zosta�
 
 - Skonfiguruj i Ukończ skanowanie danych testowych w każdym źródle danych
 
+- Zalogowano się do kontrolą przy użyciu konta z [czytnikiem danych lub rolą Curator danych](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
+
 Aby uzyskać więcej informacji, zobacz [Zarządzanie źródłami danych w usłudze Azure kontrolą (wersja zapoznawcza)](manage-data-sources.md) i [automatyczne etykietowanie danych na platformie Azure kontrolą](create-sensitivity-label.md).
 
 ## <a name="use-purview-sensitivity-labeling-insights"></a>Korzystanie z Kontroląi z etykietami
@@ -45,9 +52,11 @@ W kontrolą klasyfikacje są podobne do tagów podmiotu i służą do oznaczania
 
 Etykiety czułości umożliwiają przeznaczenie, jak poufne są pewne dane w organizacji. Na przykład określona nazwa projektu może być wysoce poufna w organizacji, podczas gdy ten sam termin nie jest poufny dla innych organizacji. 
 
-Klasyfikacje są dopasowywane bezpośrednio (numer ubezpieczenia społecznego ma klasyfikację numeru ubezpieczenia **społecznego**), natomiast etykiety czułości są stosowane w przypadku, gdy co najmniej jedna Klasyfikacja i scenariusze są jednocześnie dostępne. 
+Klasyfikacje są dopasowywane bezpośrednio, takie jak numer ubezpieczenia społecznego, który ma klasyfikację **numeru ubezpieczenia społecznego**. 
 
-Kontrolą używa tych samych klasyfikacji, znanych również jako typy informacji poufnych, jako Microsoft 365. Dzięki temu można zwiększyć istniejące etykiety czułości dla zasobów usługi Azure kontrolą.
+Natomiast etykiety czułości są stosowane w przypadku, gdy co najmniej jedna Klasyfikacja i warunki są dostępne razem. W tym kontekście [warunki](/microsoft-365/compliance/apply-sensitivity-label-automatically) odnoszą się do wszystkich parametrów, które można zdefiniować dla danych bez struktury, takich jak **bliskość do innej klasyfikacji** i **% pewnością**. 
+
+Kontrolą używa tych samych klasyfikacji, znanych również jako [typy informacji poufnych](/microsoft-365/compliance/sensitive-information-type-entity-definitions), jako Microsoft 365. Dzięki temu można zwiększyć istniejące etykiety czułości dla zasobów usługi Azure kontrolą.
 
 > [!NOTE]
 > Po przeskanowaniu typów źródłowych nadaj **literom** informacje o kilku godzinach, aby odzwierciedlić nowe zasoby.

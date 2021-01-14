@@ -7,28 +7,28 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 84cb9860f247610621bff130aff155abf222f3c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f55b5d9093e2e8e78d3841c332d67f26e5106d38
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91274898"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200825"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Często zadawane pytania dotyczące Linux Virtual Machines
-W tym artykule opisano niektóre często zadawane pytania dotyczące maszyn wirtualnych z systemem Linux utworzonych na platformie Azure przy użyciu modelu wdrażania Menedżer zasobów. Aby uzyskać informacje na temat wersji systemu Windows w tym temacie, zobacz [często zadawane pytania dotyczące Windows Virtual Machines](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+W tym artykule opisano niektóre często zadawane pytania dotyczące maszyn wirtualnych z systemem Linux utworzonych na platformie Azure przy użyciu modelu wdrażania Menedżer zasobów. Aby uzyskać informacje na temat wersji systemu Windows w tym temacie, zobacz [często zadawane pytania dotyczące Windows Virtual Machines](../windows/faq.md)
 
 ## <a name="what-can-i-run-on-an-azure-vm"></a>Co mogę uruchomić na maszynie wirtualnej platformy Azure?
-Wszyscy subskrybenci mogą uruchomić oprogramowanie serwerowe na maszynie wirtualnej platformy Azure. Aby uzyskać więcej informacji, zobacz [Linux na Azure-Endorsed dystrybucji](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Wszyscy subskrybenci mogą uruchomić oprogramowanie serwerowe na maszynie wirtualnej platformy Azure. Aby uzyskać więcej informacji, zobacz [Linux na Azure-Endorsed dystrybucji](endorsed-distros.md)
 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Ile pamięci masowej mogę użyć w maszynie wirtualnej?
-Każdy dysk z danymi może mieć do 32 767 GiB. Liczba dysków danych, których możesz użyć, zależy od rozmiaru maszyny wirtualnej. Aby uzyskać szczegółowe informacje, zobacz [Sizes for virtual machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Rozmiary maszyn wirtualnych).
+Każdy dysk z danymi może mieć do 32 767 GiB. Liczba dysków danych, których możesz użyć, zależy od rozmiaru maszyny wirtualnej. Aby uzyskać szczegółowe informacje, zobacz [Sizes for virtual machines](../sizes.md) (Rozmiary maszyn wirtualnych).
 
 Usługa Azure Managed Disks to zalecane oferty magazynu dyskowego do użycia z usługą Azure Virtual Machines na potrzeby trwałego magazynowania danych. Do każdej maszyny wirtualnej można użyć wielu Managed Disks. Managed Disks oferuje dwa typy opcji trwałego magazynu: Managed Disks Premium i standardowa. Aby uzyskać informacje o cenach, zobacz [Cennik usługi Managed disks](https://azure.microsoft.com/pricing/details/managed-disks).
 
 Konta usługi Azure Storage mogą również udostępniać magazyn dla dysku systemu operacyjnego i dysków z danymi. Każdy dysk jest plikiem VHD przechowywanym jako stronicowy obiekt blob. Aby uzyskać szczegółowe informacje o cenach, zobacz [Szczegóły cennika magazynu](https://azure.microsoft.com/pricing/details/storage/).
 
 ## <a name="how-can-i-access-my-virtual-machine"></a>Jak mogę uzyskać dostęp do mojej maszyny wirtualnej?
-Nawiąż połączenie zdalne, aby zalogować się do maszyny wirtualnej przy użyciu Secure Shell (SSH). Zapoznaj się z instrukcjami dotyczącymi sposobu nawiązywania połączenia [z systemem Windows](ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) lub [z systemów Linux i Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Domyślnie protokół SSH umożliwia maksymalnie 10 równoczesnych połączeń. Możesz zwiększyć tę liczbę, edytując plik konfiguracji.
+Nawiąż połączenie zdalne, aby zalogować się do maszyny wirtualnej przy użyciu Secure Shell (SSH). Zapoznaj się z instrukcjami dotyczącymi sposobu nawiązywania połączenia [z systemem Windows](ssh-from-windows.md) lub [z systemów Linux i Mac](mac-create-ssh-keys.md). Domyślnie protokół SSH umożliwia maksymalnie 10 równoczesnych połączeń. Możesz zwiększyć tę liczbę, edytując plik konfiguracji.
 
 Jeśli masz problemy, sprawdź [Rozwiązywanie problemów z połączeniami Secure Shell (SSH)](../troubleshooting/troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json).
 
@@ -36,7 +36,7 @@ Jeśli masz problemy, sprawdź [Rozwiązywanie problemów z połączeniami Secur
 Nie używaj dysku tymczasowego (/dev/sdb1) do przechowywania danych. Tylko w przypadku magazynu tymczasowego. Ryzyko utraty danych, których nie można odzyskać.
 
 ## <a name="can-i-copy-or-clone-an-existing-azure-vm"></a>Czy mogę skopiować lub sklonować istniejącą maszynę wirtualną platformy Azure?
-Tak. Aby uzyskać instrukcje, zobacz [jak utworzyć kopię maszyny wirtualnej z systemem Linux w modelu wdrażania Menedżer zasobów](copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Tak. Aby uzyskać instrukcje, zobacz [jak utworzyć kopię maszyny wirtualnej z systemem Linux w modelu wdrażania Menedżer zasobów](copy-vm.md).
 
 ## <a name="why-am-i-not-seeing-canada-central-and-canada-east-regions-through-azure-resource-manager"></a>Dlaczego nie widzę regionów Kanady środkowe i Kanada Wschodnia za poorednictwem Azure Resource Manager?
 Dwa nowe regiony Kanady środkowe i Kanada Wschodnia nie są automatycznie rejestrowane na potrzeby tworzenia maszyn wirtualnych dla istniejących subskrypcji platformy Azure. Ta rejestracja jest wykonywana automatycznie, gdy maszyna wirtualna jest wdrażana za pośrednictwem Azure Portal w innym regionie przy użyciu Azure Resource Manager. Po wdrożeniu maszyny wirtualnej w innym regionie świadczenia usługi Azure nowe regiony powinny być dostępne dla kolejnych maszyn wirtualnych.

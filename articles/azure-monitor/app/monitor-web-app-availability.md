@@ -4,12 +4,12 @@ description: Konfigurowanie testów sieci Web w usłudze Application Insights. O
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 82b433407906c09d38a46c842334153525fb3c17
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 1b51c70dcebbfad5417a8478f4a956fb5d0608b1
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007929"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98198666"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Monitorowanie dostępności dowolnej witryny sieci Web
 
@@ -26,6 +26,9 @@ Istnieją trzy typy testów dostępności:
 * [Testy dostępności niestandardowej ścieżki](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): Jeśli zdecydujesz się utworzyć niestandardową aplikację do uruchamiania testów dostępności, `TrackAvailability()` Metoda może zostać użyta do wysłania wyników do Application Insights.
 
 **Można utworzyć maksymalnie 100 testów dostępności dla zasobu Application Insights.**
+
+> [!IMPORTANT]
+> Zarówno [test ping adresu URL](#create-a-url-ping-test) , jak i [wieloetapowy test sieci Web](availability-multistep.md) polegają na publicznej infrastrukturze internetowego DNS, aby rozpoznać nazwy domen przetestowanych punktów końcowych. Oznacza to, że jeśli używasz Prywatna strefa DNS, musisz upewnić się, że wszystkie nazwy domeny testu są również rozpoznawalne przez publiczne serwery nazw domen lub, gdy nie jest to możliwe, można użyć zamiast nich [testów dostępności niestandardowej ścieżki](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet) .
 
 ## <a name="create-an-application-insights-resource"></a>Tworzenie zasobu usługi Application Insights
 
@@ -69,7 +72,7 @@ Aby utworzyć pierwsze żądanie dostępności, Otwórz okienko dostępność i 
 |Ustawienie| Wyjaśnienie
 |----|----|----|
 |**Niemal w czasie rzeczywistym (wersja zapoznawcza)** | Zalecamy korzystanie z alertów niemal w czasie rzeczywistym. Konfigurowanie tego typu alertu odbywa się po utworzeniu testu dostępności.  |
-|**Klasyczny** | Nie zalecamy już używania klasycznych alertów dla nowych testów dostępności.|
+|**Motyw** | Nie zalecamy już używania klasycznych alertów dla nowych testów dostępności.|
 |**Próg lokalizacji alertu**|Zalecamy co najmniej 3/5 lokalizacji. Optymalna relacja między progiem lokalizacji alertu a liczbą lokalizacji testowych to liczba lokalizacji testu w **lokalizacji alertów**  =  **-2 z co najmniej pięcioma lokalizacjami testów.**|
 
 ### <a name="location-population-tags"></a>Tagi populacji lokalizacji

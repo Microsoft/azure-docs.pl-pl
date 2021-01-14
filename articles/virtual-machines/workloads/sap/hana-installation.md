@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a1430b32c0e74be7a0e50fa4c5c183018b2b55e0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 81d44dae0fed45d4a4df76973c7e233fd71baff1
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006306"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98198972"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Jak zainstalować i skonfigurować SAP HANA (duże wystąpienia) na platformie Azure
 
@@ -30,7 +30,7 @@ Ponosisz odpowiedzialność za instalację SAP HANA. Po nawiązaniu połączenia
 > [!Note]
 > W ramach zasad SAP instalacja SAP HANA musi być wykonywana przez osobę, która przekazała certyfikowany egzamin związany z technologią SAP, SAP HANA egzaminem certyfikacji instalacji lub który jest integratorem systemu z certyfikatem SAP (SI).
 
-Planując instalację platformy HANA 2,0, zobacz [uwagi dotyczące pomocy technicznej SAP #2235581-SAP HANA: obsługiwane systemy operacyjne](https://launchpad.support.sap.com/#/notes/2235581/E) , aby upewnić się, że system operacyjny jest obsługiwany przez zainstalowaną wersję SAP HANA. Obsługiwane systemy operacyjne dla platformy HANA 2,0 są bardziej restrykcyjne niż obsługiwane systemy operacyjne dla platformy HANA 1,0. Musisz również sprawdzić, czy wersja systemu operacyjnego, której szukasz, jest wymieniona jako obsługiwana dla określonej jednostki. [list](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) Kliknij jednostkę, aby uzyskać wszystkie szczegóły z listą obsługiwanych systemów operacyjnych tej jednostki. 
+Planując instalację platformy HANA 2,0, zobacz [uwagi dotyczące pomocy technicznej SAP #2235581-SAP HANA: obsługiwane systemy operacyjne](https://launchpad.support.sap.com/#/notes/2235581/E) , aby upewnić się, że system operacyjny jest obsługiwany przez zainstalowaną wersję SAP HANA. Obsługiwane systemy operacyjne dla platformy HANA 2,0 są bardziej restrykcyjne niż obsługiwane systemy operacyjne dla platformy HANA 1,0. Musisz również sprawdzić, czy wersja systemu operacyjnego, której szukasz, jest wymieniona jako obsługiwana dla określonej jednostki. [](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) Kliknij jednostkę, aby uzyskać wszystkie szczegóły z listą obsługiwanych systemów operacyjnych tej jednostki. 
 
 Przed rozpoczęciem instalacji platformy HANA Sprawdź poprawność następujących danych:
 - [Jednostki:/s](#validate-the-hana-large-instance-units)
@@ -129,7 +129,7 @@ W związku z tym należy skonfigurować oddzielny serwer czasu, który może by�
 Przyjęto założenie, że wykonano zalecenia dotyczące projektowania sieci wirtualnych platformy Azure oraz łączenia tych sieci wirtualnych z dużymi wystąpieniami HANA, zgodnie z opisem w następujących dokumentach:
 
 - [Omówienie i architektura SAP HANA (duże wystąpienie) na platformie Azure](./hana-overview-architecture.md)
-- [Infrastruktura i łączność SAP HANA (duże wystąpienia) na platformie Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Infrastruktura i łączność SAP HANA (duże wystąpienia) na platformie Azure](hana-overview-infrastructure-connectivity.md)
 
 Istnieją pewne szczegóły dotyczące sieci pojedynczych jednostek. Każda jednostka dużej instancji HANA ma dwa lub trzy adresy IP, które są przypisane do dwóch lub trzech portów kart sieciowych. Trzy adresy IP są używane w konfiguracjach skalowalnych w poziomie platformy HANA oraz w scenariuszu replikacji systemu HANA. Jeden z adresów IP przypisanych do karty sieciowej jednostki znajduje się poza pulą adresów IP serwera, która jest opisana w [SAP HANA (duże wystąpienia) omówienie i architektura na platformie Azure](./hana-overview-architecture.md).
 
@@ -139,7 +139,7 @@ Aby uzyskać więcej informacji na temat informacji o architekturze sieci Ethern
 
 Układ magazynu dla SAP HANA na platformie Azure (duże wystąpienia) jest konfigurowany przez SAP HANA na platformie Azure `service management` za pomocą zalecanych wytycznych dotyczących protokołu SAP. Te wytyczne zostały udokumentowane w dokumencie [SAP HANA wymagania dotyczące magazynu](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) . 
 
-Ilościowe rozmiary różnych woluminów z różnymi jednostkami SKU dużych wystąpień usługi HANA są udokumentowane w [SAP HANA (duże wystąpienia) przegląd i architektura na platformie Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Ilościowe rozmiary różnych woluminów z różnymi jednostkami SKU dużych wystąpień usługi HANA są udokumentowane w [SAP HANA (duże wystąpienia) przegląd i architektura na platformie Azure](hana-overview-architecture.md).
 
 Konwencje nazewnictwa woluminów magazynu są wymienione w poniższej tabeli:
 
@@ -161,7 +161,7 @@ W przypadku środowisk skalowalnych w poziomie, danych, dzienników i woluminów
 
 Podczas przeglądania jednostki dużego wystąpienia HANA należy zastanowić się, że jednostki są dostarczane z Generous woluminem dla platformy HANA/danych i że istnieje wolumin HANA/log/kopia zapasowa. Przyczyną użycia platformy HANA/danych jest to, że migawki magazynu, z których oferujemy klient, korzystają z tego samego woluminu dysku. Im więcej migawek magazynu jest wykonywanych przez migawki na przypisanych woluminach magazynu. 
 
-Wolumin HANA/log/backup nie powinien być woluminem dla kopii zapasowych bazy danych. Ma rozmiar, który ma być używany jako wolumin kopii zapasowej dziennika transakcji platformy HANA. Aby uzyskać więcej informacji, zobacz [SAP HANA (duże wystąpienia) wysoka dostępność i odzyskiwanie po awarii na platformie Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+Wolumin HANA/log/backup nie powinien być woluminem dla kopii zapasowych bazy danych. Ma rozmiar, który ma być używany jako wolumin kopii zapasowej dziennika transakcji platformy HANA. Aby uzyskać więcej informacji, zobacz [SAP HANA (duże wystąpienia) wysoka dostępność i odzyskiwanie po awarii na platformie Azure](hana-overview-high-availability-disaster-recovery.md). 
 
 Oprócz dostarczonego magazynu można zakupić dodatkową pojemność magazynu w przyrostach 1 TB. Ten dodatkowy magazyn można dodać jako nowe woluminy do dużego wystąpienia platformy HANA.
 

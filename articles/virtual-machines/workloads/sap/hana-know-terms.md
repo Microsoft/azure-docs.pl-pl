@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7777888bd27325e9094032458922969494a9a64e
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: c1e4e223e7932f7fc8699c04a94b079b7f16e3d5
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984961"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98198904"
 ---
 # <a name="know-the-terms"></a>Poznawanie warunków
 
@@ -36,7 +36,7 @@ Kilka typowych definicji jest szeroko używanych w przewodniku wdrażania archit
 - **SAP HANA na platformie Azure (duże wystąpienia):** Oficjalna nazwa oferty na platformie Azure służąca do uruchamiania wystąpień platformy HANA w systemie SAP HANA sprzętu z certyfikatem TDI, który jest wdrażany w sygnaturach dużych wystąpień w różnych regionach świadczenia usługi Azure. *Duże wystąpienie usługi Hana* jest krótkie dla *SAP HANA na platformie Azure (duże wystąpienia)* i jest szeroko używane w tym przewodniku wdrażania technicznego.
 - **Wiele** lokalizacji: zawiera opis scenariusza, w którym maszyny wirtualne są wdrażane w ramach subskrypcji platformy Azure, która ma łączność między lokalnymi centrami danych i platformą Azure ExpressRoute. W typowej dokumentacji platformy Azure te rodzaje wdrożeń są również opisane jako scenariusze obejmujące wiele lokalizacji. Przyczyną połączenia jest rozszerzonie domen lokalnych, lokalnych Azure Active Directory/OpenLDAP i lokalnych nazw DNS na platformę Azure. Lokalne poziomy są rozszerzane do zasobów platformy Azure w ramach subskrypcji platformy Azure. Dzięki temu rozszerzeniu maszyny wirtualne mogą być częścią domeny lokalnej. 
 
-   Użytkownicy domeny lokalnej mogą uzyskać dostęp do serwerów i uruchamiać usługi na tych maszynach wirtualnych (na przykład w usługach DBMS). Możliwa jest komunikacja i rozpoznawanie nazw między maszynami wirtualnymi wdrożonymi lokalnie i maszynami wirtualnymi wdrożonymi na platformie Azure. Ten scenariusz jest typowym sposobem, w jaki są wdrażane większość zasobów SAP. Aby uzyskać więcej informacji, zobacz temat [Azure VPN Gateway](../../../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) i [Tworzenie sieci wirtualnej z połączeniem lokacja-lokacja przy użyciu Azure Portal](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+   Użytkownicy domeny lokalnej mogą uzyskać dostęp do serwerów i uruchamiać usługi na tych maszynach wirtualnych (na przykład w usługach DBMS). Możliwa jest komunikacja i rozpoznawanie nazw między maszynami wirtualnymi wdrożonymi lokalnie i maszynami wirtualnymi wdrożonymi na platformie Azure. Ten scenariusz jest typowym sposobem, w jaki są wdrażane większość zasobów SAP. Aby uzyskać więcej informacji, zobacz temat [Azure VPN Gateway](../../../vpn-gateway/vpn-gateway-about-vpngateways.md) i [Tworzenie sieci wirtualnej z połączeniem lokacja-lokacja przy użyciu Azure Portal](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 - **Dzierżawca**: klient wdrożony w sygnaturze dużego wystąpienia Hana zostanie odizolowany do *dzierżawy.* Dzierżawa jest odizolowana od sieci, magazynu i warstwy obliczeniowej od innych dzierżawców. Jednostki magazynowe i obliczeniowe przypisane do różnych dzierżawców nie są ze sobą widoczne ani nie komunikują się ze sobą na poziomie sygnatury dużego wystąpienia HANA. Klient może wybrać wdrożenie w różnych dzierżawach. Nawet nie ma żadnej komunikacji między dzierżawcami na poziomie sygnatury dużego wystąpienia HANA.
 - **Kategoria SKU**: w przypadku dużego wystąpienia Hana oferowane są następujące dwie kategorie jednostek SKU:
     - **Typ I Klasa**: S72, S72m, s96, S144, S144m, S192, S192m, S192xm, S224 i S224m
@@ -47,7 +47,7 @@ Kilka typowych definicji jest szeroko używanych w przewodniku wdrażania archit
     - "Wersja 4" (Rev. 4): to nowy projekt, który może zapewnić bliższą bliskość hostom maszyn wirtualnych platformy Azure, oraz to, co zmniejsza opóźnienie sieci między maszynami wirtualnymi platformy Azure i jednostkami dużej instancji HANA 
     - "Poprawka 4,2" (rev 4,2): w przypadku istniejących poprawek 4 kontrolery domen zasoby są oznaczone do infrastruktury BareMetal.  Klienci mogą uzyskać dostęp do swoich zasobów jako wystąpienia BareMetal z Azure Portal. 
 
-W przypadku wdrażania obciążeń SAP w chmurze dostępne są różne dodatkowe zasoby. Jeśli planujesz wykonać wdrożenie SAP HANA na platformie Azure, musisz mieć doświadczenie i wiedzieć o zasadach platformy Azure IaaS oraz o wdrażaniu obciążeń SAP na platformie Azure IaaS. Przed kontynuowaniem zobacz [Korzystanie z rozwiązań SAP na maszynach wirtualnych platformy Azure](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) , aby uzyskać więcej informacji. 
+W przypadku wdrażania obciążeń SAP w chmurze dostępne są różne dodatkowe zasoby. Jeśli planujesz wykonać wdrożenie SAP HANA na platformie Azure, musisz mieć doświadczenie i wiedzieć o zasadach platformy Azure IaaS oraz o wdrażaniu obciążeń SAP na platformie Azure IaaS. Przed kontynuowaniem zobacz [Korzystanie z rozwiązań SAP na maszynach wirtualnych platformy Azure](get-started.md) , aby uzyskać więcej informacji. 
 
 **Następne kroki**
 - Odwołaj się do [certyfikacji](hana-certification.md) .

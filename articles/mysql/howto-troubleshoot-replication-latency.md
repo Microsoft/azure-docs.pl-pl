@@ -6,33 +6,36 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 10/25/2020
-ms.openlocfilehash: 30ac28ef996c42e99ebece27ec156777f0d033d2
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.date: 01/13/2021
+ms.openlocfilehash: 34210d08ad5328f200f5b92c13bfcf85cfead3ec
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587880"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98199482"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Rozwiązywanie problemów z opóźnieniami replikacji w usłudze Azure Database for MySQL
 
 [!INCLUDE[applies-to-single-flexible-server](./includes/applies-to-single-flexible-server.md)]
 
-Funkcja [Read Replica](concepts-read-replicas.md) umożliwia replikowanie danych z serwera Azure Database for MySQL do serwera repliki tylko do odczytu. Obciążenia można skalować w poziomie przez kierowanie zapytań odczytu i raportowania z aplikacji na serwery repliki. Ta konfiguracja zmniejsza nacisk na serwer źródłowy. Zwiększa również ogólną wydajność i opóźnienie aplikacji w miarę skalowania. 
+Funkcja [Read Replica](concepts-read-replicas.md) umożliwia replikowanie danych z serwera Azure Database for MySQL do serwera repliki tylko do odczytu. Obciążenia można skalować w poziomie przez kierowanie zapytań odczytu i raportowania z aplikacji na serwery repliki. Ta konfiguracja zmniejsza nacisk na serwer źródłowy. Zwiększa również ogólną wydajność i opóźnienie aplikacji w miarę skalowania.
 
-Repliki są aktualizowane asynchronicznie przy użyciu natywnej lokalizacji pliku dziennika binarnego (binlog) aparatu programu MySQL. Aby uzyskać więcej informacji, zobacz [Konfiguracja replikacji oparta na pozycjach plików MySQL binlog](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html). 
+Repliki są aktualizowane asynchronicznie przy użyciu natywnej lokalizacji pliku dziennika binarnego (binlog) aparatu programu MySQL. Aby uzyskać więcej informacji, zobacz [Konfiguracja replikacji oparta na pozycjach plików MySQL binlog](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
-Opóźnienie replikacji w odniesieniu do pomocniczych replik odczytu zależy od kilku czynników. Czynniki te obejmują, ale nie są ograniczone do: 
+Opóźnienie replikacji w odniesieniu do pomocniczych replik odczytu zależy od kilku czynników. Czynniki te obejmują, ale nie są ograniczone do:
 
 - Opóźnienie sieci.
 - Wolumin transakcji na serwerze źródłowym.
 - Warstwa obliczeniowa serwera źródłowego i serwera repliki pomocniczej.
-- Zapytania uruchomione na serwerze źródłowym i pomocniczym. 
+- Zapytania uruchomione na serwerze źródłowym i pomocniczym.
 
 W tym artykule dowiesz się, jak rozwiązywać problemy z opóźnieniem replikacji w Azure Database for MySQL. Poznasz również typowe przyczyny zwiększonego opóźnienia replikacji na serwerach repliki.
 
 > [!NOTE]
-> Ten artykuł zawiera odwołania do warunku podrzędnego, termin, który nie jest już wykorzystywany przez firmę Microsoft. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
+> Komunikacja bezpłatna bez opłat
+>
+> Firma Microsoft obsługuje różnorodne i dołączane środowiska. Ten artykuł zawiera odwołania do _wzorców_ słów _kluczowych i podrzędnych_. W [przewodniku w stylu firmy Microsoft dla komunikacji bez rozdzielania](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) nie są rozpoznawane takie same słowa. Słowa są używane w tym artykule w celu zapewnienia spójności, ponieważ są to obecnie słowa pojawiające się w oprogramowaniu. W przypadku zaktualizowania oprogramowania w celu usunięcia słów ten artykuł zostanie zaktualizowany w celu wyrównania.
+>
 
 ## <a name="replication-concepts"></a>Pojęcia związane z replikacją
 
@@ -47,7 +50,7 @@ Azure Database for MySQL zapewnia metrykę opóźnienia replikacji w sekundach w
 
 Aby zrozumieć przyczynę zwiększonego opóźnienia replikacji, Połącz się z serwerem repliki przy użyciu programu [MySQL Workbench](connect-workbench.md) lub [Azure Cloud Shell](https://shell.azure.com). Następnie uruchom następujące polecenie.
 
->[!NOTE] 
+>[!NOTE]
 > W kodzie Zastąp przykładowe wartości Nazwa serwera repliki i nazwę użytkownika administratora. Nazwa użytkownika administratora wymaga `@\<servername>` Azure Database for MySQL.
 
 ```azurecli-interactive
@@ -92,7 +95,6 @@ Oto typowe dane wyjściowe:
 >[!div class="mx-imgBorder"]
 > :::image type="content" source="./media/howto-troubleshoot-replication-latency/show-status.png" alt-text="Monitorowanie opóźnienia replikacji":::
 
-
 Dane wyjściowe zawierają wiele informacji. Zwykle należy skoncentrować się na wierszach, które opisano w poniższej tabeli.
 
 |Metryka|Opis|
@@ -122,7 +124,7 @@ W poniższych sekcjach opisano scenariusze, w których często trwa opóźnienie
 
 ### <a name="network-latency-or-high-cpu-consumption-on-the-source-server"></a>Opóźnienie sieci lub wysokie użycie procesora CPU na serwerze źródłowym
 
-Jeśli zobaczysz następujące wartości, opóźnienie replikacji prawdopodobnie jest spowodowane przez duże opóźnienie sieci lub wysokie użycie procesora na serwerze źródłowym. 
+Jeśli zobaczysz następujące wartości, opóźnienie replikacji prawdopodobnie jest spowodowane przez duże opóźnienie sieci lub wysokie użycie procesora na serwerze źródłowym.
 
 ```
 Slave_IO_State: Waiting for master to send event
@@ -132,7 +134,7 @@ Relay_Master_Log_File: the file sequence is smaller than Master_Log_File, e.g. m
 
 W takim przypadku wątek we/wy działa i oczekuje na serwerze źródłowym. Serwer źródłowy został już zapisany w binarnym pliku dziennika o numerze 20. Replika otrzymała tylko do pliku o numerze 10. Podstawowym czynnikiem opóźnienia replikacji w tym scenariuszu jest szybkość sieci lub wysokie użycie procesora na serwerze źródłowym.  
 
-Na platformie Azure opóźnienie sieci w regionie może być zwykle mierzone w milisekundach. W różnych regionach, zakresy opóźnień z milisekund do sekund. 
+Na platformie Azure opóźnienie sieci w regionie może być zwykle mierzone w milisekundach. W różnych regionach, zakresy opóźnień z milisekund do sekund.
 
 W większości przypadków opóźnienie połączenia między wątkami we/wy a serwerem źródłowym jest spowodowane wysokim wykorzystaniem procesora CPU na serwerze źródłowym. Wątki we/wy są przetwarzane powoli. Ten problem można wykryć przy użyciu Azure Monitor, aby sprawdzić użycie procesora i liczbę jednoczesnych połączeń na serwerze źródłowym.
 
@@ -148,18 +150,17 @@ Master_Log_File: the binary file sequence is larger then Relay_Master_Log_File, 
 Relay_Master_Log_File: the file sequence is smaller then Master_Log_File, e.g. mysql-bin.00010
 ```
 
-Dane wyjściowe pokazują, że replika może pobrać dziennik binarny za serwerem źródłowym. Ale wątek we/wy repliki wskazuje, że miejsce w dzienniku przekaźnika jest już zapełnione. 
+Dane wyjściowe pokazują, że replika może pobrać dziennik binarny za serwerem źródłowym. Ale wątek we/wy repliki wskazuje, że miejsce w dzienniku przekaźnika jest już zapełnione.
 
-Szybkość sieci nie powoduje opóźnienia. Replika próbuje wychwycić. Ale zaktualizowany rozmiar dziennika binarnego przekracza górny limit miejsca w dzienniku przekaźnika. 
+Szybkość sieci nie powoduje opóźnienia. Replika próbuje wychwycić. Ale zaktualizowany rozmiar dziennika binarnego przekracza górny limit miejsca w dzienniku przekaźnika.
 
 Aby rozwiązać ten problem, Włącz [Dziennik wolnych zapytań](concepts-server-logs.md) na serwerze źródłowym. Używaj dzienników wolnych zapytań, aby identyfikować długotrwałe transakcje na serwerze źródłowym. Następnie dostosuj zidentyfikowane zapytania, aby zmniejszyć opóźnienie na serwerze. 
 
 Opóźnienie replikacji tego sortowania jest zwykle spowodowane obciążeniem danych na serwerze źródłowym. Gdy serwery źródłowe mają cotygodniowe lub comiesięczne ładunki danych, opóźnienie replikacji jest niemożliwe. Serwery repliki ostatecznie przechwytuje po zakończeniu ładowania danych na serwerze źródłowym.
 
-
 ### <a name="slowness-on-the-replica-server"></a>Spowolnienie na serwerze repliki
 
-Jeśli zaobserwujesz poniższe wartości, problem może znajdować się na serwerze repliki. 
+Jeśli zaobserwujesz poniższe wartości, problem może znajdować się na serwerze repliki.
 
 ```
 Slave_IO_State: Waiting for master to send event
@@ -172,7 +173,7 @@ Exec_Master_Log_Pos: The position of slave reads from master binary log file is 
 Seconds_Behind_Master: There is latency and the value here is greater than 0
 ```
 
-W tym scenariuszu dane wyjściowe pokazują, że zarówno wątek we/wy, jak i wątek SQL działają prawidłowo. Replika odczytuje ten sam plik dziennika binarnego, który zapisuje na serwerze źródłowym. Jednak niektóre opóźnienia na serwerze repliki odzwierciedlają tę samą transakcję z serwera źródłowego. 
+W tym scenariuszu dane wyjściowe pokazują, że zarówno wątek we/wy, jak i wątek SQL działają prawidłowo. Replika odczytuje ten sam plik dziennika binarnego, który zapisuje na serwerze źródłowym. Jednak niektóre opóźnienia na serwerze repliki odzwierciedlają tę samą transakcję z serwera źródłowego.
 
 W poniższych sekcjach opisano typowe przyczyny tego rodzaju opóźnienia.
 
@@ -180,13 +181,13 @@ W poniższych sekcjach opisano typowe przyczyny tego rodzaju opóźnienia.
 
 Azure Database for MySQL używa replikacji opartej na wierszach. Serwer źródłowy zapisuje zdarzenia w dzienniku binarnym, rejestrując zmiany w poszczególnych wierszach tabeli. Następnie wątek SQL replikuje te zmiany do odpowiednich wierszy tabeli na serwerze repliki. Gdy tabela nie ma klucza podstawowego lub klucza unikatowego, wątek SQL skanuje wszystkie wiersze w tabeli docelowej, aby zastosować zmiany. To skanowanie może spowodować opóźnienie replikacji.
 
-W programie MySQL klucz podstawowy jest skojarzonym indeksem, który zapewnia szybką wydajność zapytań, ponieważ nie może zawierać wartości NULL. W przypadku korzystania z aparatu magazynu InnoDB dane tabeli są fizycznie zorganizowane w celu wykonywania szybkich wyszukiwań i sortowania na podstawie klucza podstawowego. 
+W programie MySQL klucz podstawowy jest skojarzonym indeksem, który zapewnia szybką wydajność zapytań, ponieważ nie może zawierać wartości NULL. W przypadku korzystania z aparatu magazynu InnoDB dane tabeli są fizycznie zorganizowane w celu wykonywania szybkich wyszukiwań i sortowania na podstawie klucza podstawowego.
 
 Przed utworzeniem serwera repliki zalecamy dodanie klucza podstawowego do tabel na serwerze źródłowym. Dodaj klucze podstawowe na serwerze źródłowym, a następnie utwórz ponownie repliki odczytu, aby ułatwić skrócenie opóźnienia replikacji.
 
 Użyj następującego zapytania, aby dowiedzieć się, które tabele nie mają klucza podstawowego na serwerze źródłowym:
 
-```sql 
+```sql
 select tab.table_schema as database_name, tab.table_name 
 from information_schema.tables tab left join 
 information_schema.table_constraints tco 
@@ -202,19 +203,19 @@ order by tab.table_schema, tab.table_name;
 
 #### <a name="long-running-queries-on-the-replica-server"></a>Długotrwałe zapytania na serwerze repliki
 
-Obciążenie na serwerze repliki może spowodować opóźnienie wątku SQL za wątkiem we/wy. Długotrwałe zapytania na serwerze repliki są jednym z typowych przyczyn opóźnienia replikacji. Aby rozwiązać ten problem, Włącz [Dziennik wolnych zapytań](concepts-server-logs.md) na serwerze repliki. 
+Obciążenie na serwerze repliki może spowodować opóźnienie wątku SQL za wątkiem we/wy. Długotrwałe zapytania na serwerze repliki są jednym z typowych przyczyn opóźnienia replikacji. Aby rozwiązać ten problem, Włącz [Dziennik wolnych zapytań](concepts-server-logs.md) na serwerze repliki.
 
 Wolne zapytania mogą zwiększyć zużycie zasobów lub spowolnić serwer, aby replika nie mogła przechwycić na serwer źródłowy. W tym scenariuszu Dostosuj powolne zapytania. Szybsze zapytania uniemożliwiają zatorem wątku SQL i znacząco skracają opóźnienia replikacji.
 
-
 #### <a name="ddl-queries-on-the-source-server"></a>Zapytania DDL na serwerze źródłowym
+
 Na serwerze źródłowym polecenie języka definicji danych (DDL) [`ALTER TABLE`](https://dev.mysql.com/doc/refman/5.7/en/alter-table.html) może zająć dużo czasu. Gdy polecenie DDL jest uruchomione, na serwerze źródłowym mogą działać równolegle tysiące innych zapytań. 
 
 Podczas replikowania DDL, aby zapewnić spójność bazy danych, aparat MySQL uruchamia kod DDL w pojedynczym wątku replikacji. Podczas tego zadania wszystkie inne zreplikowane zapytania są blokowane i muszą czekać, aż operacja DDL zostanie ukończona na serwerze repliki. Nawet operacje w trybie online DDL powodują to opóźnienie. Operacje DDL zwiększają opóźnienia replikacji.
 
-Jeśli na serwerze źródłowym włączono [Dziennik wolnych zapytań](concepts-server-logs.md) , można wykryć ten problem opóźnienia, sprawdzając polecenie języka DDL uruchomione na serwerze źródłowym. Za pomocą indeksu porzucania, zmiany nazwy i tworzenia można użyć algorytmu InPlace dla instrukcji ALTER TABLE. Być może trzeba będzie skopiować dane tabeli i ponownie skompilować tabelę. 
+Jeśli na serwerze źródłowym włączono [Dziennik wolnych zapytań](concepts-server-logs.md) , można wykryć ten problem opóźnienia, sprawdzając polecenie języka DDL uruchomione na serwerze źródłowym. Za pomocą indeksu porzucania, zmiany nazwy i tworzenia można użyć algorytmu InPlace dla instrukcji ALTER TABLE. Być może trzeba będzie skopiować dane tabeli i ponownie skompilować tabelę.
 
-Zwykle współbieżne DML jest obsługiwane dla algorytmu UMIESZCZAnia. Jednak podczas przygotowywania i uruchamiania operacji można krótko wykonać blokadę na wyłączność metadanych w tabeli. Tak więc dla instrukcji CREATE INDEX można użyć algorytmu klauzul i zablokować wpływ na metodę kopiowania tabeli oraz poziom współbieżności do odczytu i zapisu. Nadal można zapobiegać operacjom DML przez dodanie indeksu PEŁNOTEKSTOWEGO lub indeksu PRZESTRZENnego. 
+Zwykle współbieżne DML jest obsługiwane dla algorytmu UMIESZCZAnia. Jednak podczas przygotowywania i uruchamiania operacji można krótko wykonać blokadę na wyłączność metadanych w tabeli. Tak więc dla instrukcji CREATE INDEX można użyć algorytmu klauzul i zablokować wpływ na metodę kopiowania tabeli oraz poziom współbieżności do odczytu i zapisu. Nadal można zapobiegać operacjom DML przez dodanie indeksu PEŁNOTEKSTOWEGO lub indeksu PRZESTRZENnego.
 
 Poniższy przykład tworzy indeks przy użyciu ALGORYTMów i blokad.
 
@@ -226,24 +227,25 @@ Niestety, w przypadku instrukcji języka DDL wymagającej blokady nie można uni
 
 #### <a name="downgraded-replica-server"></a>Obniżony serwer repliki
 
-W Azure Database for MySQL Odczytaj repliki używają tej samej konfiguracji serwera co serwer źródłowy. Konfigurację serwera repliki można zmienić po jego utworzeniu. 
+W Azure Database for MySQL Odczytaj repliki używają tej samej konfiguracji serwera co serwer źródłowy. Konfigurację serwera repliki można zmienić po jego utworzeniu.
 
-W przypadku obniżenia poziomu serwera repliki obciążenie może zużywać więcej zasobów, co z kolei może prowadzić do opóźnień replikacji. Aby wykryć ten problem, użyj Azure Monitor, aby sprawdzić użycie procesora CPU i pamięci przez serwer repliki. 
+W przypadku obniżenia poziomu serwera repliki obciążenie może zużywać więcej zasobów, co z kolei może prowadzić do opóźnień replikacji. Aby wykryć ten problem, użyj Azure Monitor, aby sprawdzić użycie procesora CPU i pamięci przez serwer repliki.
 
 W tym scenariuszu zaleca się pozostawienie konfiguracji serwera repliki na wartości równe lub większe niż wartości serwera źródłowego. Ta konfiguracja umożliwia przeprowadzenie replikacji z serwerem źródłowym.
 
 #### <a name="improving-replication-latency-by-tuning-the-source-server-parameters"></a>Zwiększanie opóźnień replikacji przez dostrajanie parametrów serwera źródłowego
 
-W Azure Database for MySQL Domyślnie replikacja jest zoptymalizowana pod kątem uruchamiania równoległych wątków w replikach. W przypadku obciążeń o wysokim poziomie współbieżności na serwerze źródłowym może dojść do poprawienia opóźnienia replikacji przez skonfigurowanie parametru binlog_group_commit_sync_delay na serwerze źródłowym. 
+W Azure Database for MySQL Domyślnie replikacja jest zoptymalizowana pod kątem uruchamiania równoległych wątków w replikach. W przypadku obciążeń o wysokim poziomie współbieżności na serwerze źródłowym może dojść do poprawienia opóźnienia replikacji przez skonfigurowanie parametru binlog_group_commit_sync_delay na serwerze źródłowym.
 
-Parametr binlog_group_commit_sync_delay kontroluje, ile mikrosekund zatwierdzania dzienników binarnych czeka przed synchronizacją binarnego pliku dziennika. Zaletą tego parametru jest to, że zamiast natychmiastowego zastosowania każdej zatwierdzonej transakcji serwer źródłowy wysyła aktualizacje dzienników binarnych zbiorczo. To opóźnienie zmniejsza liczbę operacji we/wy na replice i pomaga zwiększyć wydajność. 
+Parametr binlog_group_commit_sync_delay kontroluje, ile mikrosekund zatwierdzania dzienników binarnych czeka przed synchronizacją binarnego pliku dziennika. Zaletą tego parametru jest to, że zamiast natychmiastowego zastosowania każdej zatwierdzonej transakcji serwer źródłowy wysyła aktualizacje dzienników binarnych zbiorczo. To opóźnienie zmniejsza liczbę operacji we/wy na replice i pomaga zwiększyć wydajność.
 
-Przydatne może być ustawienie parametru binlog_group_commit_sync_delay na 1000 lub tak. Następnie Monitoruj opóźnienie replikacji. Należy ostrożnie ustawiać ten parametr i używać go tylko w przypadku obciążeń o dużej współbieżności. 
+Przydatne może być ustawienie parametru binlog_group_commit_sync_delay na 1000 lub tak. Następnie Monitoruj opóźnienie replikacji. Należy ostrożnie ustawiać ten parametr i używać go tylko w przypadku obciążeń o dużej współbieżności.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > W przypadku serwera repliki zaleca się, aby parametr binlog_group_commit_sync_delay był równy 0. Jest to zalecane, ponieważ w przeciwieństwie do serwera źródłowego serwer repliki nie będzie miał dużej współbieżności i zwiększenie wartości binlog_group_commit_sync_delay na serwerze repliki może przypadkowo spowodować opóźnienia replikacji.
 
-W przypadku obciążeń o niskiej współbieżności, które obejmują wiele pojedynczych transakcji, ustawienie binlog_group_commit_sync_delay może zwiększyć opóźnienia. Opóźnienie może wzrosnąć, ponieważ wątek we/wy czeka na aktualizacje zbiorcze dzienników binarnych, nawet jeśli zatwierdzono tylko kilka transakcji. 
+W przypadku obciążeń o niskiej współbieżności, które obejmują wiele pojedynczych transakcji, ustawienie binlog_group_commit_sync_delay może zwiększyć opóźnienia. Opóźnienie może wzrosnąć, ponieważ wątek we/wy czeka na aktualizacje zbiorcze dzienników binarnych, nawet jeśli zatwierdzono tylko kilka transakcji.
 
 ## <a name="next-steps"></a>Następne kroki
+
 Zapoznaj się z [omówieniem replikacji MySQL binlog](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).

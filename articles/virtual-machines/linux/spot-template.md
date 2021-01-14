@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 0a56cfe8e282b7fb7e618dcadda5beff7c4e3f43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0cf6fc1b37064ef6193f35334711dcc5b8d01088
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825382"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200791"
 ---
 # <a name="deploy-spot-vms-using-a-resource-manager-template"></a>Wdrażanie maszyn wirtualnych przy użyciu szablonu Menedżer zasobów
 
@@ -194,4 +194,4 @@ Możesz również utworzyć maszynę wirtualną na miejscu przy użyciu [Azure P
 
 Zapoznaj się z bieżącymi informacjami o cenach przy użyciu [interfejsu API cen detalicznych platformy Azure](/rest/api/cost-management/retail-prices/azure-retail-prices) , aby uzyskać informacje o cenach dodatkowych. Elementy `meterName` i `skuName` będą zawierać `Spot` .
 
-Jeśli wystąpi błąd, zobacz [kody błędów](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Jeśli wystąpi błąd, zobacz [kody błędów](../error-codes-spot.md).
