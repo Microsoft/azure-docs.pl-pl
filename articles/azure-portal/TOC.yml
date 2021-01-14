@@ -70,8 +70,6 @@
       items:
         - name: Odzyskiwanie usuniętego pulpitu nawigacyjnego
           href: recover-shared-deleted-dashboard.md
-        - name: Rozwiązywanie problemów z subskrypcją dotyczących regionu lub jednostki SKU
-          href: supportability/sku-series-unavailable.md
         - name: Przechwytywanie danych śledzenia przeglądarki na potrzeby rozwiązywania problemów
           href: capture-browser-trace.md
 - name: Dokumentacja
