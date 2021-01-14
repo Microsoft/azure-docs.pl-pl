@@ -8,18 +8,29 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 12/15/2020
+ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: 98b8cca95b8815b32fb5de6567adcf4f150551eb
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 33987be39258adc74cf4f88dbb0544f7026f6086
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561974"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183357"
 ---
 # <a name="whats-new-in-computer-vision"></a>Co nowego w przetwarzanie obrazów
 
 Dowiedz się, co nowego w usłudze. Te elementy mogą być informacjami o wersji, klipami wideo, wpisami w blogu i innymi rodzajami informacji. Oznacz Tę stronę zakładką, aby zachować aktualność za pomocą usługi.
+
+## <a name="january-2021"></a>Styczeń 2021 r.
+
+### <a name="spatial-analysis-container-update"></a>Aktualizacja kontenera analizy przestrzennej
+
+Nowa wersja [kontenera analizy przestrzennej](spatial-analysis-container.md) została wydana z nowym zestawem funkcji. Ten kontener platformy Docker pozwala analizować wideo strumieniowe w czasie rzeczywistym, aby zrozumieć relacje przestrzenne między osobami i ich przenoszeniem przez środowiska fizyczne. 
+
+* Można teraz skonfigurować [operacje analizy przestrzennej](spatial-analysis-operations.md) , aby wykrywać, czy osoba jest w tej samej ochronie, na przykład jako maskę. 
+    * Klasyfikator masek można włączyć dla `personcount` `personcrossingline` operacji i, `personcrossingpolygon` konfigurując `ENABLE_FACE_MASK_CLASSIFIER` parametr.
+    * Atrybuty `face_mask` i `face_noMask` zostaną zwrócone jako metadane z wynikiem dopasowania dla każdej osoby wykrytej w strumieniu wideo
+
 
 ## <a name="october-2020"></a>Październik 2020 r.
 

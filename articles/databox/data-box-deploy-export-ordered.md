@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: e822a2be200f701d65ab2080804d252f99589680
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: ac86dfba02b54730773a1d243981e85d563517e7
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680793"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183834"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box"></a>Samouczek: Tworzenie kolejności eksportu dla Azure Data Box
 
@@ -58,7 +58,7 @@ Wykonaj poniższe czynności w witrynie Azure Portal, aby zamówić urządzenie.
 
    ![Tworzenie zasobu](media/data-box-deploy-export-ordered/azure-data-box-export-order-create-resource.png)
 
-3. Wybierz pozycję **Utwórz**.
+3. Wybierz przycisk **Utwórz**.
 
    ![Tworzenie zasobu Azure Data Box](media/data-box-deploy-export-ordered/azure-data-box-export-order-create-data-box-resource.png)
 
@@ -181,7 +181,7 @@ Wykonaj poniższe czynności w witrynie Azure Portal, aby zamówić urządzenie.
 
     Tożsamość zarządzana przypisana przez użytkownika to autonomiczny zasób platformy Azure, który może służyć do zarządzania wieloma zasobami. Aby uzyskać więcej informacji, zobacz [zarządzane typy tożsamości](/azure/active-directory/managed-identities-azure-resources/overview).  
 
-    Jeśli musisz utworzyć nową tożsamość zarządzaną, postępuj zgodnie ze wskazówkami zawartymi w temacie [Create, list, DELETE lub Assign a role do zarządzanej tożsamości przypisanej przez użytkownika przy użyciu Azure Portal](../../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
+    Jeśli musisz utworzyć nową tożsamość zarządzaną, postępuj zgodnie ze wskazówkami w temacie [Tworzenie, wyświetlanie, usuwanie lub przypisywanie roli do tożsamości zarządzanej przypisanej przez użytkownika przy użyciu Azure Portal](../../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
     
     ![Wybierz tożsamość użytkownika](./media/data-box-deploy-export-ordered/customer-managed-key-10.png)
 
@@ -242,7 +242,7 @@ W przypadku wybrania opcji **Użyj pliku XML** można określić określone kont
 
    ![Wybierz opcję Eksportuj, nowe ustawienia kontenera](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-container-settings.png)
 
-4. Wybierz pozycję **Utwórz**.
+4. Wybierz przycisk **Utwórz**.
 
    ![Wybierz opcję Eksportuj, Utwórz nowy kontener.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-create-container.png)
 

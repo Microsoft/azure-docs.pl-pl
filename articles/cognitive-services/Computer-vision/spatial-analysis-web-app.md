@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/06/2020
+ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 9b9390b498f28fc8f9029f1c11805b970aaca73d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: de011fb0f827ea90efe33e237bbf1c5100dc76a7
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014564"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183476"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>Instrukcje: wdrażanie aplikacji sieci Web zliczanie osób
 
@@ -63,12 +63,12 @@ az iot hub device-identity create --hub-name "<IoT Hub Name>" --device-id "<Edge
 
 ### <a name="deploy-the-container-on-azure-iot-edge-on-the-host-computer"></a>Wdróż kontener na Azure IoT Edge na komputerze hosta
 
-Wdróż kontener analizy przestrzennej jako moduł IoT na komputerze hosta przy użyciu interfejsu wiersza polecenia platformy Azure. Proces wdrażania wymaga pliku manifestu wdrożenia, który zawiera opis wymaganych kontenerów, zmiennych i konfiguracji dla danego wdrożenia. Można znaleźć przykładowy [Azure Stack krawędź określonego manifestu wdrożenia](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) , a także [nieAzure Stacky manifest wdrożenia określony](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) w witrynie GitHub, który obejmuje podstawową konfigurację wdrożenia dla kontenera *analizy przestrzennej* . 
+Wdróż kontener analizy przestrzennej jako moduł IoT na komputerze hosta przy użyciu interfejsu wiersza polecenia platformy Azure. Proces wdrażania wymaga pliku manifestu wdrożenia, który zawiera opis wymaganych kontenerów, zmiennych i konfiguracji dla danego wdrożenia. Można znaleźć przykładowy [Azure Stack krawędź określonego manifestu wdrożenia](https://go.microsoft.com/fwlink/?linkid=2142179), [nieAzure Stackego, manifestu wdrożenia](https://go.microsoft.com/fwlink/?linkid=2152189), a także [maszynę wirtualną platformy Azure z określonym przez procesor GPU manifestem wdrożenia](https://go.microsoft.com/fwlink/?linkid=2152189) w witrynie GitHub, która obejmuje podstawową konfigurację wdrożenia dla kontenera *analizy przestrzennej* . 
 
 Możesz również użyć rozszerzeń usługi Azure IoT, aby Visual Studio Code do wykonywania operacji w usłudze IoT Hub. Przejdź do pozycji [wdróż Azure IoT Edge modułów z Visual Studio Code](../../iot-edge/how-to-deploy-modules-vscode.md) , aby dowiedzieć się więcej.
 
 > [!NOTE] 
-> Kontenery diagnostyki *telegraf* i *analizy przestrzennej* są opcjonalne. Możesz zdecydować się na ich usunięcie z *DeploymentManifest.js* pliku. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [telemetrii i rozwiązywania problemów](./spatial-analysis-logging.md) . Dwie przykładowe *DeploymentManifest.jsw* plikach w usłudze GitHub można znaleźć dla [Azure Stack urządzeń brzegowych](https://go.microsoft.com/fwlink/?linkid=2142179) lub innej [maszyny stacjonarnej](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)
+> Kontenery diagnostyki *telegraf* i *analizy przestrzennej* są opcjonalne. Możesz zdecydować się na ich usunięcie z *DeploymentManifest.js* pliku. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [telemetrii i rozwiązywania problemów](./spatial-analysis-logging.md) . Możesz znaleźć trzy przykładowe *DeploymentManifest.jsw* plikach w serwisie GitHub, [na Azure Stack urządzenia brzegowe](https://go.microsoft.com/fwlink/?linkid=2142179), [MASZYNę stacjonarną](https://go.microsoft.com/fwlink/?linkid=2152189)lub [maszynę wirtualną platformy Azure z procesorem GPU](https://go.microsoft.com/fwlink/?linkid=2152189)
 
 ### <a name="set-environment-variables"></a>Ustawianie zmiennych środowiskowych
 
@@ -185,7 +185,7 @@ Poczekaj na zakończenie instalacji i przejdź do zasobu w Azure Portal. Przejd�
 * `EventHubConsumerGroup` — Nazwa ciągu grupy odbiorców z usługi Azure IoT Hub, można utworzyć nową grupę odbiorców w IoT Hub lub użyć grupy domyślnej. 
 * `IotHubConnectionString` — Parametry połączenia z IoT Hubem platformy Azure, które można pobrać z sekcji klucze zasobów usługi Azure IoT Hub ![ skonfigurować parametry](./media/spatial-analysis/solution-app-config-page.png)
 
-Po dodaniu tych 2 ustawień kliknij przycisk **Zapisz**. Następnie w menu nawigacji po lewej stronie kliknij pozycję **uwierzytelnianie/autoryzacja** i zaktualizuj ją na żądanym poziomie uwierzytelniania. Zalecamy korzystanie z usługi Azure Active Directory (Azure AD) Express. 
+Po dodaniu tych 2 ustawień kliknij przycisk **Zapisz**. Następnie w menu nawigacji po lewej stronie kliknij pozycję **uwierzytelnianie/autoryzacja** i zaktualizuj ją na żądanym poziomie uwierzytelniania. Zalecamy Azure Active Directory (Azure AD) Express. 
 
 ### <a name="test-the-app"></a>Testowanie aplikacji
 

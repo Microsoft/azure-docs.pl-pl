@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/12/2020
 ms.author: jeedes
-ms.openlocfilehash: a4bfe2b87f3f2242189a78d9a31a89d82720fd37
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 31392c1fa3d14d6f1e01a8b302575e9b592e42cd
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862075"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183153"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-with-maverics-identity-orchestrator-saml-connector"></a>Samouczek: integracja logowania jednokrotnego usługi Azure AD za pomocą łącznika SAML Maverics Identity Orchestrator
 
@@ -163,31 +163,31 @@ Magazyn kluczy platformy Azure można skonfigurować przy użyciu Azure Portal l
 1. [Zarejestruj aplikację w usłudze Azure AD](../develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
 1. [Autoryzuj aplikację do korzystania z klucza tajnego](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
 
-**Korzystanie z interfejsu wiersza polecenia platformy Azure**
+**Używanie interfejsu wiersza polecenia platformy Azure**
 
 1. Otwórz [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli), a następnie wprowadź następujące polecenie:
 
-    ```shell
+    ```azurecli
     az login
     ```
 
 1. Utwórz nowy magazyn kluczy, uruchamiając następujące polecenie:
-    ```shell
+    ```azurecli
     az keyvault create --name "[VAULT_NAME]" --resource-group "[RESOURCE_GROUP]" --location "[REGION]"
     ```
 
 1. Aby dodać wpisy tajne do magazynu kluczy, należy uruchomić następujące polecenie:
-    ```shell
+    ```azurecli
     az keyvault secret set --vault-name "[VAULT_NAME]" --name "[SECRET_NAME]" --value "[SECRET_VALUE]"
     ```
 
 1. Aby zarejestrować aplikację w usłudze Azure AD, należy uruchomić następujące polecenie:
-    ```shell
+    ```azurecli
     az ad sp create-for-rbac -n "MavericsKeyVault" --skip-assignment > azure-credentials.json
     ```
 
 1. Autoryzuj aplikację do korzystania z wpisu tajnego, uruchamiając następujące polecenie:
-    ```shell
+    ```azurecli
     az keyvault set-policy --name "[VAULT_NAME]" --spn [APPID] --secret-permissions list get
     #APPID can be found in the azure-credentials.json
     generated in the previous step
@@ -239,7 +239,7 @@ Program Maverics Identity Orchestrator Azure AD Connector obsługuje OpenID Conn
 
 1. Wygeneruj klucz podpisywania tokenu sieci Web (JWT) JSON, który jest używany do ochrony informacji o sesji programu Orchestrator Identity Maverics, za pomocą [Narzędzia OpenSSL](https://www.openssl.org/source/):
 
-    ```shell 
+    ```console 
     openssl rand 64 | base64
     ```
 1. Skopiuj odpowiedź do `jwtSigningKey` Właściwości konfiguracji: `jwtSigningKey: TBHPvTtu6NUqU84H3Q45grcv9WDJLHgTioqRhB8QGiVzghKlu1mHgP1QHVTAZZjzLlTBmQwgsSoWxGHRcT4Bcw==` .

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: duau
-ms.openlocfilehash: 7bb5559f21289a40b6c75a3481680ab5b2c1c269
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a39120b1305022739aaef3407aa6c2621a97e842
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89392888"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184157"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Zarządzanie profilem usługi Azure Traffic Manager
 
@@ -30,14 +30,14 @@ Profil usługi Traffic Manager można utworzyć za pomocą witryny Azure Portal.
 ### <a name="to-create-a-traffic-manager-profile"></a>Tworzenie profilu usługi Traffic Manager
 
 1. Z poziomu przeglądarki zaloguj się do witryny [Azure Portal](https://portal.azure.com). Jeśli jeszcze nie masz konta, możesz skorzystać z [bezpłatnej miesięcznej wersji próbnej](https://azure.microsoft.com/free/). 
-2. Kliknij kolejno pozycje **Utwórz zasób**  >  **Sieć**  >  **Traffic Manager**  >  **Utwórz**profil.
+2. Kliknij kolejno pozycje **Utwórz zasób**  >  **Sieć**  >  **Traffic Manager**  >  **Utwórz** profil.
 4. W obszarze **Tworzenie profilu usługi Traffic Manager** podaj następujące informacje:
     1. W polu **Nazwa** podaj nazwę profilu. Ta nazwa musi być unikatowa w obrębie strefy trafficmanager.net. Na jej podstawie zostanie utworzona nazwa DNS `<name>`, trafficmanager.net służąca do uzyskiwania dostępu do profilu usługi Traffic Manager.
     2. W obszarze **Metoda routingu** wybierz metodę routingu **Priorytet**.
     3. W obszarze **Subskrypcja** wybierz subskrypcję, w ramach której ma zostać utworzony ten profil.
     4. W obszarze **Grupy zasobów** utwórz nową grupę zasobów, w której zostanie umieszczony ten profil.
     5. W obszarze **Lokalizacja grupy zasobów** wybierz lokalizację grupy zasobów. To ustawienie dotyczy lokalizacji grupy zasobów i nie ma wpływu na profil usługi Traffic Manager, który będzie wdrażany globalnie.
-    6. Kliknij przycisk **Utwórz**.
+    6. Kliknij pozycję **Utwórz**.
     7. Po zakończeniu globalnego wdrażania profilu usługi Traffic Manager zostanie on wyświetlony w odpowiedniej grupie zasobów jako jeden z zasobów.
 
 ## <a name="disable-enable-or-delete-a-profile"></a>Wyłączanie, włączanie lub usuwanie profilu
@@ -70,7 +70,7 @@ Istniejący profil można wyłączyć, aby w usłudze Traffic Manager żądania 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dodawanie punktu końcowego](traffic-manager-endpoints.md)
+* [Dodawanie punktu końcowego](./traffic-manager-manage-endpoints.md)
 * [Konfigurowanie metody routingu opartego na priorytecie](traffic-manager-configure-priority-routing-method.md)
 * [Konfigurowanie metody routingu geograficznego](traffic-manager-configure-geographic-routing-method.md) 
 * [Konfigurowanie metody routingu ważonego](traffic-manager-configure-weighted-routing-method.md)

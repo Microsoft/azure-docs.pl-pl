@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: duau
-ms.openlocfilehash: 83dc432a1f88b443d500bf9a977abfed69211156
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b76eab5771d724e4f0ec56b7d5acd5cf5f91edc0
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003858"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183459"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Rozwiązywanie problemów ze stanem obniżonej wydajności usługi Azure Traffic Manager
 
-W tym artykule opisano sposób rozwiązywania problemów z profilem usługi Azure Traffic Manager, w którym jest wyświetlany stan obniżonej sprawności. Pierwszym krokiem w rozwiązywaniu problemów z nieobniżonym stanem Traffic Manager na platformie Azure jest włączenie rejestrowania.  Aby uzyskać więcej informacji, zapoznaj się z tematem [Włączanie dzienników zasobów](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs) . W tym scenariuszu należy zastanowić się, że skonfigurowano profil Traffic Manager wskazujący niektóre usługi hostowane w usłudze cloudapp.net. Jeśli kondycja Traffic Manager zostanie wyświetlony stan **obniżonej wydajności** , może to spowodować **spadek** stanu co najmniej jednego punktu końcowego:
+W tym artykule opisano sposób rozwiązywania problemów z profilem usługi Azure Traffic Manager, w którym jest wyświetlany stan obniżonej sprawności. Pierwszym krokiem w rozwiązywaniu problemów z nieobniżonym stanem Traffic Manager na platformie Azure jest włączenie rejestrowania.  Aby uzyskać więcej informacji, zapoznaj się z tematem [Włączanie dzienników zasobów](./traffic-manager-diagnostic-logs.md) . W tym scenariuszu należy zastanowić się, że skonfigurowano profil Traffic Manager wskazujący niektóre usługi hostowane w usłudze cloudapp.net. Jeśli kondycja Traffic Manager zostanie wyświetlony stan **obniżonej wydajności** , może to spowodować **spadek** stanu co najmniej jednego punktu końcowego:
 
 ![stan nieprawidłowego punktu końcowego](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
 
@@ -31,8 +31,8 @@ Jeśli kondycja Traffic Manager wyświetla stan **nieaktywny** , wówczas oba pu
 
 ## <a name="understanding-traffic-manager-probes"></a>Zrozumienie Traffic Manager sond
 
-* Traffic Manager traktuje punkt końcowy jako w trybie ONLINE tylko wtedy, gdy sonda odbiera odpowiedź HTTP 200 z powrotem ze ścieżki sondy. Jeśli aplikacja zwróci jakikolwiek inny kod odpowiedzi HTTP, należy dodać ten kod odpowiedzi do [zakresów kodów oczekiwanego stanu](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) Traffic Manager profilu.
-* Odpowiedź przekierowania 30x jest traktowana jako błąd, chyba że określono jako prawidłowy kod odpowiedzi w zakresie [kodów stanu oczekiwanego](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) w ramach twojego profilu Traffic Manager. Traffic Manager nie sonduje elementu docelowego przekierowania.
+* Traffic Manager traktuje punkt końcowy jako w trybie ONLINE tylko wtedy, gdy sonda odbiera odpowiedź HTTP 200 z powrotem ze ścieżki sondy. Jeśli aplikacja zwróci jakikolwiek inny kod odpowiedzi HTTP, należy dodać ten kod odpowiedzi do [zakresów kodów oczekiwanego stanu](./traffic-manager-monitoring.md#configure-endpoint-monitoring) Traffic Manager profilu.
+* Odpowiedź przekierowania 30x jest traktowana jako błąd, chyba że określono jako prawidłowy kod odpowiedzi w zakresie [kodów stanu oczekiwanego](./traffic-manager-monitoring.md#configure-endpoint-monitoring) w ramach twojego profilu Traffic Manager. Traffic Manager nie sonduje elementu docelowego przekierowania.
 * W przypadku sond HTTPs Błędy certyfikatów są ignorowane.
 * Rzeczywista zawartość ścieżki sondy nie ma znaczenia, o ile jest zwracana 200. Badanie adresu URL do pewnej zawartości statycznej, takiej jak "/favicon.ico", jest typową techniką. Zawartość dynamiczna, podobnie jak strony ASP, może nie zawsze zwracać 200 nawet wtedy, gdy aplikacja jest w dobrej kondycji.
 * Najlepszym rozwiązaniem jest ustawienie dla ścieżki sondy elementu, który ma wystarczającą logikę, aby określić, że lokacja jest w górę lub w dół. W poprzednim przykładzie, przez ustawienie ścieżki na "/favicon.ico", tylko testuje, że w3wp.exe odpowiada. To sondowanie może nie wskazywać, że aplikacja sieci Web jest w dobrej kondycji. Lepszym rozwiązaniem jest ustawienie ścieżki do elementu, takiego jak "/Probe.aspx", który ma logikę do określenia kondycji lokacji. Można na przykład użyć liczników wydajności do użycia procesora CPU lub zmierzyć liczbę żądań zakończonych niepowodzeniem. Możesz też próbować uzyskać dostęp do zasobów bazy danych lub stanu sesji, aby upewnić się, że aplikacja sieci Web działa.
@@ -87,12 +87,12 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 [Co to jest Traffic Manager](traffic-manager-overview.md)
 
-[Usługi w chmurze](https://go.microsoft.com/fwlink/?LinkId=314074)
+[Usługi w chmurze](/previous-versions/azure/jj155995(v=azure.100))
 
 [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/web/)
 
-[Operacje w usłudze Traffic Manager (dokumentacja interfejsu API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
+[Operacje w usłudze Traffic Manager (dokumentacja interfejsu API REST)](/previous-versions/azure/reference/hh758255(v=azure.100))
 
 [Polecenia cmdlet usługi Azure Traffic Manager][1]
 
-[1]: https://docs.microsoft.com/powershell/module/az.trafficmanager
+[1]: /powershell/module/az.trafficmanager

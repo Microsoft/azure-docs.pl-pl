@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: duau
-ms.openlocfilehash: 3cf493beab6dfe1767ae35ea36732dc364e29736
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0eb49f3c2acc31cba7b245995cf3bcb579113e4c
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401660"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183817"
 ---
 # <a name="traffic-manager-routing-methods"></a>Metody routingu w usłudze Traffic Manager
 
@@ -28,7 +28,7 @@ W Traffic Manager są dostępne następujące metody routingu ruchu:
 * **[Wydajność](#performance):** wybierz **wydajność** , gdy masz punkty końcowe w różnych lokalizacjach geograficznych, i chcesz, aby użytkownicy końcowi korzystali z punktu końcowego "najbliższy" w warunkach najmniejszego opóźnienia sieci.
 * **[Geograficzna](#geographic):** wybierz opcję **geograficzne** , aby użytkownicy przekierowywani do określonych punktów końcowych (Azure, External lub Nested) na podstawie lokalizacji geograficznej, z której pochodzą zapytanie DNS. Pozwala to Traffic Manager klientom na umożliwienie scenariuszy, w których wiadomo region geograficzny użytkownika i kierowanie ich na podstawie tego, co jest ważne. Przykładami mogą być wymagania dotyczące suwerenności danych, lokalizacji zawartości & środowiska użytkownika i mierzenia ruchu z różnych regionów.
 * **Z [wieloma wartościami](#multivalue):** **Wybierz opcję** wielu dla profilów Traffic Manager, które mogą mieć tylko adresy IPv4/IPv6 jako punkty końcowe. Po odebraniu zapytania dla tego profilu są zwracane wszystkie zdrowe punkty końcowe.
-* **[Podsieć](#subnet):** wybierz metodę routingu ruch **podsieci** w celu mapowania zestawów zakresów adresów IP użytkowników końcowych na konkretny punkt końcowy w ramach profilu Traffic Manager. Po odebraniu żądania punkt końcowy zostanie przypisany do źródłowego adresu IP tego żądania. 
+* **[Podsieć](#subnet):** wybierz metodę routingu ruch **podsieci** w celu mapowania zestawów zakresów adresów IP użytkowników końcowych na konkretny punkt końcowy w ramach profilu Traffic Manager. Po odebraniu żądania punkt końcowy zostanie przypisany do źródłowego adresu IP tego żądania. 
 
 
 Wszystkie profile Traffic Manager obejmują monitorowanie kondycji punktów końcowych i automatyczne przełączanie do trybu failover punktu końcowego. Aby uzyskać więcej informacji, zobacz [Traffic Manager monitorowania punktów końcowych](traffic-manager-monitoring.md). Pojedynczy profil Traffic Manager może używać tylko jednej metody routingu ruchu. W dowolnym momencie możesz wybrać inną metodę routingu ruchu dla profilu. Zmiany są stosowane w ciągu jednej minuty i nie są naliczane żadne przestoje. Metody routingu ruchu można łączyć za pomocą zagnieżdżonych profilów Traffic Manager. Zagnieżdżanie umożliwia zaawansowane i elastyczne konfiguracje routingu ruchu, które spełniają potrzeby większych, złożonych aplikacji. Aby uzyskać więcej informacji, zobacz [profile Traffic Manager zagnieżdżonych](traffic-manager-nested-profiles.md).
@@ -125,36 +125,36 @@ Zgodnie z opisem w temacie [jak działa Traffic Manager](traffic-manager-how-it-
 
 ### <a name="faqs"></a>Często zadawane pytania
 
-* [Jakie są przypadki użycia, w których funkcja routingu geograficznego jest przydatna?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-geographic-routing-is-useful)
+* [Jakie są przypadki użycia, w których funkcja routingu geograficznego jest przydatna?](./traffic-manager-faqs.md#what-are-some-use-cases-where-geographic-routing-is-useful)
 
-* [Jak mogę zdecydować, czy należy użyć metody routingu wydajności czy metody routingu geograficznego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-decide-if-i-should-use-performance-routing-method-or-geographic-routing-method)
+* [Jak mogę zdecydować, czy należy użyć metody routingu wydajności czy metody routingu geograficznego?](./traffic-manager-faqs.md#how-do-i-decide-if-i-should-use-performance-routing-method-or-geographic-routing-method)
 
-* [Jakie regiony są obsługiwane przez Traffic Manager na potrzeby routingu geograficznego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing)
+* [Jakie regiony są obsługiwane przez Traffic Manager na potrzeby routingu geograficznego?](./traffic-manager-faqs.md#what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing)
 
-* [Jak Usługa Traffic Manager określa, skąd użytkownik wykonuje zapytania?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-determine-where-a-user-is-querying-from)
+* [Jak Usługa Traffic Manager określa, skąd użytkownik wykonuje zapytania?](./traffic-manager-faqs.md#how-does-traffic-manager-determine-where-a-user-is-querying-from)
 
-* [Czy jest gwarantowane, że Traffic Manager może prawidłowo określić dokładną lokalizację geograficzną użytkownika w każdym przypadku?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-it-guaranteed-that-traffic-manager-can-correctly-determine-the-exact-geographic-location-of-the-user-in-every-case)
+* [Czy jest gwarantowane, że Traffic Manager może prawidłowo określić dokładną lokalizację geograficzną użytkownika w każdym przypadku?](./traffic-manager-faqs.md#is-it-guaranteed-that-traffic-manager-can-correctly-determine-the-exact-geographic-location-of-the-user-in-every-case)
 
-* [Czy punkt końcowy musi być fizycznie zlokalizowany w tym samym regionie, w którym jest skonfigurowany do routingu geograficznego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-an-endpoint-need-to-be-physically-located-in-the-same-region-as-the-one-it-is-configured-with-for-geographic-routing)
+* [Czy punkt końcowy musi być fizycznie zlokalizowany w tym samym regionie, w którym jest skonfigurowany do routingu geograficznego?](./traffic-manager-faqs.md#does-an-endpoint-need-to-be-physically-located-in-the-same-region-as-the-one-it-is-configured-with-for-geographic-routing)
 
-* [Czy można przypisywać regiony geograficzne do punktów końcowych w profilu, który nie jest skonfigurowany do routingu geograficznego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing)
+* [Czy można przypisywać regiony geograficzne do punktów końcowych w profilu, który nie jest skonfigurowany do routingu geograficznego?](./traffic-manager-faqs.md#can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing)
 
-* [Dlaczego otrzymuję błąd podczas próby zmiany metody routingu istniejącego profilu na geograficzny?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-am-i-getting-an-error-when-i-try-to-change-the-routing-method-of-an-existing-profile-to-geographic)
+* [Dlaczego otrzymuję błąd podczas próby zmiany metody routingu istniejącego profilu na geograficzny?](./traffic-manager-faqs.md#why-am-i-getting-an-error-when-i-try-to-change-the-routing-method-of-an-existing-profile-to-geographic)
 
-* [Dlaczego zdecydowanie zaleca się, aby klienci utworzyli profile zagnieżdżone zamiast punktów końcowych w ramach profilu z włączonym routingiem geograficznym?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled)
+* [Dlaczego zdecydowanie zaleca się, aby klienci utworzyli profile zagnieżdżone zamiast punktów końcowych w ramach profilu z włączonym routingiem geograficznym?](./traffic-manager-faqs.md#why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled)
 
-* [Czy istnieją jakieś ograniczenia dotyczące wersji interfejsu API, która obsługuje ten typ routingu?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type)
+* [Czy istnieją jakieś ograniczenia dotyczące wersji interfejsu API, która obsługuje ten typ routingu?](./traffic-manager-faqs.md#are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type)
 
 ## <a name="multivalue-traffic-routing-method"></a><a name = "multivalue"></a>Wielowartościowy ruch-Metoda routingu
 Metoda **routingu ruchu wielowartościowego** umożliwia uzyskanie wielu prawidłowych punktów końcowych w pojedynczej odpowiedzi na zapytanie DNS. Dzięki temu obiekt wywołujący może wykonać ponowną próbę po stronie klienta z innymi punktami końcowymi w przypadku, gdy zwrócony punkt końcowy nie odpowiada. Ten wzorzec pozwala zwiększyć dostępność usługi i ograniczyć opóźnienie związane z uzyskiwaniem punktu końcowego w dobrej kondycji przez nowe zapytanie DNS. Metoda routingu z wieloma wartościami działa tylko wtedy, gdy wszystkie punkty końcowe typu "External" i są określone jako adresy IPv4 lub IPv6. Po odebraniu zapytania dla tego profilu są zwracane wszystkie prawidłowe punkty końcowe i podlegają konfigurowalnej maksymalnej liczbie zwracanych wartości.
 
 ### <a name="faqs"></a>Często zadawane pytania
 
-* [Jakie są przypadki użycia, w których Routing z wieloma wartościami jest przydatny?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-multivalue-routing-is-useful)
+* [Jakie są przypadki użycia, w których Routing z wieloma wartościami jest przydatny?](./traffic-manager-faqs.md#what-are-some-use-cases-where-multivalue-routing-is-useful)
 
-* [Ile punktów końcowych jest zwracanych w przypadku użycia routingu wielowartościowego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-endpoints-are-returned-when-multivalue-routing-is-used)
+* [Ile punktów końcowych jest zwracanych w przypadku użycia routingu wielowartościowego?](./traffic-manager-faqs.md#how-many-endpoints-are-returned-when-multivalue-routing-is-used)
 
-* [Czy w przypadku użycia routingu wielowartościowego otrzymasz ten sam zestaw punktów końcowych?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used)
+* [Czy w przypadku użycia routingu wielowartościowego otrzymasz ten sam zestaw punktów końcowych?](./traffic-manager-faqs.md#will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used)
 
 ## <a name="subnet-traffic-routing-method"></a><a name = "subnet"></a>Ruch podsieci — Metoda routingu
 Metoda routingu ruchu **podsieci** umożliwia mapowanie zestawu zakresów adresów IP użytkowników końcowych na określone punkty końcowe w profilu. Po tym, jeśli Traffic Manager odbiera zapytanie DNS dla tego profilu, sprawdzi źródłowy adres IP tego żądania (w większości przypadków będzie to wychodzący adres IP programu rozpoznawania nazw DNS używany przez obiekt wywołujący), ustal, który punkt końcowy jest zamapowany i zwróci ten punkt końcowy w odpowiedzi na zapytanie. 
@@ -166,21 +166,17 @@ Routing podsieci może służyć do dostarczania innego środowiska dla użytkow
 
 ### <a name="faqs"></a>Często zadawane pytania
 
-* [Jakie są przypadki użycia, w których Routing podsieci jest przydatny?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-subnet-routing-is-useful)
+* [Jakie są przypadki użycia, w których Routing podsieci jest przydatny?](./traffic-manager-faqs.md#what-are-some-use-cases-where-subnet-routing-is-useful)
 
-* [Jak Traffic Manager znać adres IP użytkownika końcowego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-know-the-ip-address-of-the-end-user)
+* [Jak Traffic Manager znać adres IP użytkownika końcowego?](./traffic-manager-faqs.md#how-does-traffic-manager-know-the-ip-address-of-the-end-user)
 
-* [Jak można określić adresy IP w przypadku używania routingu podsieci?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-ip-addresses-when-using-subnet-routing)
+* [Jak można określić adresy IP w przypadku używania routingu podsieci?](./traffic-manager-faqs.md#how-can-i-specify-ip-addresses-when-using-subnet-routing)
 
-* [Jak określić rezerwowy punkt końcowy w przypadku używania routingu podsieci?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing)
+* [Jak określić rezerwowy punkt końcowy w przypadku używania routingu podsieci?](./traffic-manager-faqs.md#how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing)
 
-* [Co się stanie, jeśli punkt końcowy jest wyłączony w profilu typu routingu podsieci?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile)
+* [Co się stanie, jeśli punkt końcowy jest wyłączony w profilu typu routingu podsieci?](./traffic-manager-faqs.md#what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile)
 
 
 ## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się, jak opracowywać aplikacje o wysokiej dostępności przy użyciu funkcji [monitorowania punktów końcowych Traffic Manager](traffic-manager-monitoring.md)
-
-
-
-

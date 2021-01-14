@@ -6,19 +6,20 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: navits09
 ms.author: navits
-ms.date: 09/18/2020
-ms.openlocfilehash: b042d1e1f38b2a4a84522d58ad482d4262f69a4a
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.date: 01/14/2020
+ms.openlocfilehash: 8979a94ee63ef50c0a3abacd5ab3515226200131
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488897"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183442"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Wsparcie dla komercyjnego programu w witrynie Marketplace w centrum partnerskim
 
 Firma Microsoft zapewnia pomoc techniczną dla wielu różnych produktów i usług. Znalezienie odpowiedniego zespołu pomocy technicznej jest ważne, aby zapewnić odpowiednią i terminową odpowiedź. Należy wziąć pod uwagę następujące scenariusze, które powinny pomóc w kierowaniu zapytania do odpowiedniego zespołu:
 
 - Jeśli jesteś wydawcą i masz pytania od klienta, poproś klienta o zażądanie pomocy technicznej za pomocą linków pomocy technicznej w [Azure Portal](https://portal.azure.com/).
+- Jeśli jesteś wydawcą i wykryjesz problem z zabezpieczeniami aplikacji działającej na platformie Azure, zobacz [jak rejestrować bilet pomocy technicznej dotyczącej zdarzeń zabezpieczeń](/azure/security/fundamentals/event-support-ticket). Wydawcy muszą zgłaszać podejrzane zdarzenia zabezpieczeń, w tym zdarzenia dotyczące zabezpieczeń i luki w zabezpieczeniach oprogramowania i usług portalu Azure Marketplace, z najwcześniejszą możliwością.
 - Jeśli jesteś wydawcą i masz pytanie dotyczące Twojej aplikacji lub usługi, zapoznaj się z następującymi opcjami pomocy technicznej.
 
 ## <a name="support-options-for-publishers"></a>Opcje pomocy technicznej dla wydawców
@@ -62,12 +63,12 @@ Dostępne są następujące opcje:
 
 - Aby wybrać inny temat, wybierz inny link tematu w obszarze **wybrany problem**.
 - Przejrzyj opis tego problemu, jeśli jest dostępny.  Jest to tekst wyświetlany powyżej **zalecanych kroków**.
-- Przejrzyj **zalecane kroki** , jeśli są dostępne.
-- Przejrzyj **zalecane dokumenty** , jeśli są dostępne.
+- Przejrzyj **zalecane kroki**, jeśli są dostępne.
+- Przejrzyj **zalecane dokumenty**, jeśli są dostępne.
 
 ![Zalecane rozwiązania](./media/support/recommended-solutions.png)
 
-Jeśli nie możesz znaleźć odpowiedzi w **zalecanych rozwiązaniach** , wybierz pozycję **Podaj szczegóły problemu**. Wypełnij wszystkie wymagane pola, aby przyspieszyć proces rozwiązywania problemów, a następnie wybierz pozycję **Prześlij**.
+Jeśli nie możesz znaleźć odpowiedzi w **zalecanych rozwiązaniach**, wybierz pozycję **Podaj szczegóły problemu**. Wypełnij wszystkie wymagane pola, aby przyspieszyć proces rozwiązywania problemów, a następnie wybierz pozycję **Prześlij**.
 
 >[!Note]
 >Jeśli użytkownik nie zalogował się w centrum partnerskim, a temat wymaga uwierzytelniania, przed kontynuowaniem będzie wymagane zalogowanie się.  W przypadku publicznych tematów uwierzytelnianie nie jest wymagane.
@@ -85,7 +86,7 @@ Aby pomóc pracownikom w rozwiązywaniu problemów, rozważ dołączenie pliku f
 
 ### <a name="microsoft-edge-and-google-chrome"></a>Przeglądarka Microsoft Edge i Google Chrome
 
-Aby wygenerować plik HAR przy użyciu **przeglądarki Microsoft Edge** lub **Google Chrome** :
+Aby wygenerować plik HAR przy użyciu **przeglądarki Microsoft Edge** lub **Google Chrome**:
 
 1. Przejdź do strony sieci Web, na której występuje problem.
 2. W prawym górnym rogu okna wybierz ikonę wielokropka, a następnie **więcej narzędzi**  >  **deweloperskich**. Możesz nacisnąć klawisz F12 jako skrót.
@@ -100,16 +101,16 @@ Aby wygenerować plik HAR przy użyciu **przeglądarki Microsoft Edge** lub **Go
 
 6. Odtwórz problem, który chcesz rozwiązać.
 7. Po ponownym utworzeniu problemu wybierz pozycję **Zatrzymaj rejestrowanie dziennika sieci**.
-8. Wybierz pozycję **Export Har** , oznaczona ikoną z strzałką w dół i Zapisz plik.
+8. Wybierz pozycję **Export Har**, oznaczona ikoną z strzałką w dół i Zapisz plik.
 
     ![Jak wyeksportować plik HAR w przeglądarce Microsoft Edge lub Google Chrome](media/support/chromium-network-export-har.png)
 
 ### <a name="mozilla-firefox"></a>Mozilla Firefox
 
-Aby wygenerować plik HAR przy użyciu **przeglądarki Mozilla Firefox** :
+Aby wygenerować plik HAR przy użyciu **przeglądarki Mozilla Firefox**:
 
 1. Przejdź do strony sieci Web, na której występuje problem.
-1. W prawym górnym rogu okna wybierz ikonę wielokropka, a następnie narzędzia do przełączania **deweloperów sieci Web**  >  **Toggle Tools**. Możesz nacisnąć klawisz F12 jako skrót.
+1. W prawym górnym rogu okna wybierz ikonę wielokropka, a następnie narzędzia do przełączania **deweloperów sieci Web**  >  . Możesz nacisnąć klawisz F12 jako skrót.
 1. Wybierz kartę **Sieć** , a następnie wybierz pozycję **Wyczyść** , aby usunąć istniejące dzienniki.
 
     ![Jak usunąć istniejące dzienniki w Mozilla Firefox](media/support/firefox-clear-session.png)
@@ -121,11 +122,11 @@ Aby wygenerować plik HAR przy użyciu **przeglądarki Mozilla Firefox** :
 
 ### <a name="apple-safari"></a>Apple Safari
 
-Aby wygenerować plik HAR przy użyciu **przeglądarki Safari** :
+Aby wygenerować plik HAR przy użyciu **przeglądarki Safari**:
 
-1. Włącz narzędzia deweloperskie w przeglądarce Safari: **Safari** wybierz pozycję  >  **Preferencje** Safari. Przejdź do karty **Zaawansowane** , a następnie wybierz pozycję **Pokaż menu rozwijania na pasku menu**.
+1. Włącz narzędzia deweloperskie w przeglądarce Safari: wybierz pozycję  >  **Preferencje** Safari. Przejdź do karty **Zaawansowane** , a następnie wybierz pozycję **Pokaż menu rozwijania na pasku menu**.
 1. Przejdź do strony sieci Web, na której występuje problem.
-1. Wybierz pozycję **programowanie** , a następnie wybierz pozycję **Pokaż inspektora sieci Web**.
+1. Wybierz pozycję **programowanie**, a następnie wybierz pozycję **Pokaż inspektora sieci Web**.
 1. Wybierz kartę **Sieć** , a następnie wybierz pozycję **Wyczyść elementy sieciowe** , aby usunąć istniejące dzienniki.
 
     ![Jak usunąć istniejące dzienniki w przeglądarce Safari](media/support/safari-clear-session.png)

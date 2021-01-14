@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: duau
-ms.openlocfilehash: 78a1681c743f65081b30657f4fd747ff8aaef5f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31048a0abd939c81b64e87b4a146ae3b6934803f
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89392837"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183913"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Monitorowanie punktu końcowego usługi Traffic Manager
 
@@ -79,7 +79,7 @@ Stan monitora punktu końcowego jest wartością wygenerowaną przez Traffic Man
 Aby uzyskać szczegółowe informacje o sposobie obliczania stanu monitora punktu końcowego dla zagnieżdżonych punktów końcowych, zobacz [profile Traffic Manager zagnieżdżonych](traffic-manager-nested-profiles.md).
 
 >[!NOTE]
-> Stan monitorowania zatrzymanego punktu końcowego może wystąpić na App Service, jeśli aplikacja sieci Web nie działa w warstwie Standardowa lub wyższej. Aby uzyskać więcej informacji, zobacz [Traffic Manager integrację z App Service](/azure/app-service/web-sites-traffic-manager).
+> Stan monitorowania zatrzymanego punktu końcowego może wystąpić na App Service, jeśli aplikacja sieci Web nie działa w warstwie Standardowa lub wyższej. Aby uzyskać więcej informacji, zobacz [Traffic Manager integrację z App Service](../app-service/web-sites-traffic-manager.md).
 
 ### <a name="profile-monitor-status"></a>Stan monitora profilu
 
@@ -137,7 +137,7 @@ Gdy punkt końcowy ma stan obniżonej wydajności, nie jest już zwracany w odpo
 * **Wydajność**. Zwracany jest punkt końcowy znajdujący się najbliżej użytkownika końcowego. Jeśli ten punkt końcowy jest niedostępny, Traffic Manager przenosi ruch do punktów końcowych w następnym najbliższym regionie świadczenia usługi Azure. Można skonfigurować alternatywne plany trybu failover dla ruchu sieciowego — Routing przy użyciu [zagnieżdżonych profilów Traffic Manager](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
 * **Geograficzny**. Zwracany jest punkt końcowy mapowany do lokalizacji geograficznej na podstawie adresu IP żądania zapytania. Jeśli ten punkt końcowy jest niedostępny, nie zostanie wybrany inny punkt końcowy do przejścia w tryb failover do, ponieważ lokalizacja geograficzna może zostać zmapowana tylko do jednego punktu końcowego w profilu (szczegółowe informacje znajdują się w [sekcji często zadawane pytania](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). Najlepszym rozwiązaniem w przypadku korzystania z routingu geograficznego jest użycie przez klientów zagnieżdżonych profilów Traffic Manager z więcej niż jednym punktem końcowym jako punktami końcowymi profilu.
 * Z **wieloma wartościami** Zwrócono wiele punktów końcowych mapowanych na adresy IPv4/IPv6. Po odebraniu zapytania dla tego profilu odpowiednie punkty końcowe są zwracane na podstawie **maksymalnej liczby rekordów w** podanej wartości odpowiedzi. Domyślna liczba odpowiedzi to dwa punkty końcowe.
-* **Podsieć** Zwracany jest punkt końcowy mapowany na zestaw zakresów adresów IP. Gdy żądanie jest odbierane z tego adresu IP, zwracany jest punkt końcowy, który jest mapowany dla tego adresu IP. 
+* **Podsieć** Zwracany jest punkt końcowy mapowany na zestaw zakresów adresów IP. Gdy żądanie jest odbierane z tego adresu IP, zwracany jest punkt końcowy, który jest mapowany dla tego adresu IP. 
 
 Aby uzyskać więcej informacji, zobacz [Traffic Manager metod routingu ruchu sieciowego](traffic-manager-routing-methods.md).
 
@@ -155,43 +155,43 @@ Aby uzyskać więcej informacji na temat rozwiązywania problemów z błędami s
 
 ## <a name="faqs"></a>Często zadawane pytania
 
-* [Czy Traffic Manager jest odporny na awarie regionu platformy Azure?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-traffic-manager-resilient-to-azure-region-failures)
+* [Czy Traffic Manager jest odporny na awarie regionu platformy Azure?](./traffic-manager-faqs.md#is-traffic-manager-resilient-to-azure-region-failures)
 
-* [Jak wybór lokalizacji grupy zasobów ma wpływ na Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-the-choice-of-resource-group-location-affect-traffic-manager)
+* [Jak wybór lokalizacji grupy zasobów ma wpływ na Traffic Manager?](./traffic-manager-faqs.md#how-does-the-choice-of-resource-group-location-affect-traffic-manager)
 
-* [Jak mogę określić aktualną kondycję każdego punktu końcowego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-determine-the-current-health-of-each-endpoint)
+* [Jak mogę określić aktualną kondycję każdego punktu końcowego?](./traffic-manager-faqs.md#how-do-i-determine-the-current-health-of-each-endpoint)
 
-* [Czy mogę monitorować punkty końcowe HTTPS?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-monitor-https-endpoints)
+* [Czy mogę monitorować punkty końcowe HTTPS?](./traffic-manager-faqs.md#can-i-monitor-https-endpoints)
 
-* [Czy podczas dodawania punktu końcowego używam adresu IP lub nazwy DNS?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint)
+* [Czy podczas dodawania punktu końcowego używam adresu IP lub nazwy DNS?](./traffic-manager-faqs.md#do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint)
 
-* [Jakiego typu adresy IP można używać podczas dodawania punktu końcowego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-types-of-ip-addresses-can-i-use-when-adding-an-endpoint)
+* [Jakiego typu adresy IP można używać podczas dodawania punktu końcowego?](./traffic-manager-faqs.md#what-types-of-ip-addresses-can-i-use-when-adding-an-endpoint)
 
-* [Czy można używać różnych typów adresowania punktów końcowych w ramach jednego profilu?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-different-endpoint-addressing-types-within-a-single-profile)
+* [Czy można używać różnych typów adresowania punktów końcowych w ramach jednego profilu?](./traffic-manager-faqs.md#can-i-use-different-endpoint-addressing-types-within-a-single-profile)
 
-* [Co się stanie, gdy typ rekordu zapytania przychodzącego różni się od typu rekordu skojarzonego z typem adresowania punktów końcowych?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-happens-when-an-incoming-querys-record-type-is-different-from-the-record-type-associated-with-the-addressing-type-of-the-endpoints)
+* [Co się stanie, gdy typ rekordu zapytania przychodzącego różni się od typu rekordu skojarzonego z typem adresowania punktów końcowych?](./traffic-manager-faqs.md#what-happens-when-an-incoming-querys-record-type-is-different-from-the-record-type-associated-with-the-addressing-type-of-the-endpoints)
 
-* [Czy mogę użyć profilu z adresami końcowymi IPv4/IPv6 w profilu zagnieżdżonym?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-a-profile-with-ipv4--ipv6-addressed-endpoints-in-a-nested-profile)
+* [Czy mogę użyć profilu z adresami końcowymi IPv4/IPv6 w profilu zagnieżdżonym?](./traffic-manager-faqs.md#can-i-use-a-profile-with-ipv4--ipv6-addressed-endpoints-in-a-nested-profile)
 
-* [Punkt końcowy aplikacji sieci Web został zatrzymany w profilu Traffic Manager, ale nie odbieram żadnego ruchu nawet po ponownym uruchomieniu. Jak można to naprawić?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this)
+* [Punkt końcowy aplikacji sieci Web został zatrzymany w profilu Traffic Manager, ale nie odbieram żadnego ruchu nawet po ponownym uruchomieniu. Jak można to naprawić?](./traffic-manager-faqs.md#i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this)
 
-* [Czy mogę używać Traffic Manager, nawet jeśli moja aplikacja nie obsługuje protokołu HTTP lub HTTPS?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https)
+* [Czy mogę używać Traffic Manager, nawet jeśli moja aplikacja nie obsługuje protokołu HTTP lub HTTPS?](./traffic-manager-faqs.md#can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https)
 
-* [Jakie konkretne odpowiedzi są wymagane z punktu końcowego w przypadku korzystania z funkcji monitorowania protokołu TCP?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-specific-responses-are-required-from-the-endpoint-when-using-tcp-monitoring)
+* [Jakie konkretne odpowiedzi są wymagane z punktu końcowego w przypadku korzystania z funkcji monitorowania protokołu TCP?](./traffic-manager-faqs.md#what-specific-responses-are-required-from-the-endpoint-when-using-tcp-monitoring)
 
-* [Jak szybko Traffic Manager przenieść moich użytkowników poza punkt końcowy w złej kondycji?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-fast-does-traffic-manager-move-my-users-away-from-an-unhealthy-endpoint)
+* [Jak szybko Traffic Manager przenieść moich użytkowników poza punkt końcowy w złej kondycji?](./traffic-manager-faqs.md#how-fast-does-traffic-manager-move-my-users-away-from-an-unhealthy-endpoint)
 
-* [Jak można określić różne ustawienia monitorowania dla różnych punktów końcowych w profilu?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-different-monitoring-settings-for-different-endpoints-in-a-profile)
+* [Jak można określić różne ustawienia monitorowania dla różnych punktów końcowych w profilu?](./traffic-manager-faqs.md#how-can-i-specify-different-monitoring-settings-for-different-endpoints-in-a-profile)
 
-* [Jak mogę przypisać nagłówki HTTP do punktów końcowych Traffic Managerych kontroli kondycji?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-assign-http-headers-to-the-traffic-manager-health-checks-to-my-endpoints)
+* [Jak mogę przypisać nagłówki HTTP do punktów końcowych Traffic Managerych kontroli kondycji?](./traffic-manager-faqs.md#how-can-i-assign-http-headers-to-the-traffic-manager-health-checks-to-my-endpoints)
 
-* [Z jakiego nagłówka hosta korzystają Sprawdzanie kondycji punktów końcowych?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-host-header-do-endpoint-health-checks-use)
+* [Z jakiego nagłówka hosta korzystają Sprawdzanie kondycji punktów końcowych?](./traffic-manager-faqs.md#what-host-header-do-endpoint-health-checks-use)
 
-* [Jakie są adresy IP, z których pochodzą kontrole kondycji?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-the-ip-addresses-from-which-the-health-checks-originate)
+* [Jakie są adresy IP, z których pochodzą kontrole kondycji?](./traffic-manager-faqs.md#what-are-the-ip-addresses-from-which-the-health-checks-originate)
 
-* [Ile testów kondycji w punkcie końcowym można oczekiwać od Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-health-checks-to-my-endpoint-can-i-expect-from-traffic-manager)
+* [Ile testów kondycji w punkcie końcowym można oczekiwać od Traffic Manager?](./traffic-manager-faqs.md#how-many-health-checks-to-my-endpoint-can-i-expect-from-traffic-manager)
 
-* [Jak mogę otrzymywać powiadomienia, jeśli jeden z punktów końcowych ulegnie awarii?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-get-notified-if-one-of-my-endpoints-goes-down)
+* [Jak mogę otrzymywać powiadomienia, jeśli jeden z punktów końcowych ulegnie awarii?](./traffic-manager-faqs.md#how-can-i-get-notified-if-one-of-my-endpoints-goes-down)
 
 ## <a name="next-steps"></a>Następne kroki
 

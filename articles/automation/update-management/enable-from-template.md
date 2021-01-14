@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 09/18/2020
-ms.openlocfilehash: 88dd82ee7e004a3613d6d9892b0e853406f4caf4
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: e2ebdd3d0f4a4461521ee5f412d5b4c4f872b8a0
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97696149"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183238"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>Włączanie rozwiązania Update Management przy użyciu szablonu usługi Azure Resource Manager
 
@@ -315,7 +315,7 @@ Jeśli dopiero zaczynasz Azure Automation i Azure Monitor, ważne jest zapoznani
 
     **Interfejs wiersza polecenia platformy Azure**
 
-    ```cli
+    ```azurecli
     az deployment group create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deployUMSolutiontemplate.json
     ```
 

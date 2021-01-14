@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 50e199d2d56016086bb409f8690e9828f1d19984
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 0cdb82bbf38244bc91ed54ffb7d7d734cefe9dd2
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881513"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183323"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Korzystanie z analizy zmian aplikacji (wersja zapoznawcza) w Azure Monitor
 
@@ -21,7 +21,7 @@ W oparciu o możliwości [grafu zasobów platformy Azure](../../governance/resou
 > [!IMPORTANT]
 > Analiza zmian jest obecnie w wersji zapoznawczej. Ta wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług. Ta wersja nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą nie być obsługiwane lub mogą mieć ograniczone możliwości. Aby uzyskać więcej informacji, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Analiza zmian wykrywa różne typy zmian z warstwy infrastruktury we wszystkich sposobach wdrażania aplikacji. Jest to dostawca zasobów platformy Azure na poziomie subskrypcji, który sprawdza zmiany zasobów w subskrypcji. Analiza zmian udostępnia dane dla różnych narzędzi diagnostycznych, które pomagają użytkownikom zrozumieć, jakie zmiany mogą powodować problemy.
 
@@ -51,7 +51,7 @@ Analiza zmian przechwytuje stan wdrożenia i konfiguracji aplikacji co 4 godziny
 
 Zmiany zależności zasobów mogą również powodować problemy w aplikacji sieci Web. Na przykład jeśli aplikacja sieci Web wywołuje w pamięci podręcznej Redis, jednostka SKU pamięci podręcznej Redis może mieć wpływ na wydajność aplikacji sieci Web. Aby wykryć zmiany w zależnościach, Analiza zmian sprawdza rekord DNS aplikacji sieci Web. W ten sposób identyfikuje zmiany we wszystkich składnikach aplikacji, które mogą powodować problemy.
 Obecnie obsługiwane są następujące zależności:
-- Aplikacje internetowe
+- Web Apps
 - Azure Storage
 - Azure SQL
 
@@ -194,6 +194,27 @@ Jeśli po raz pierwszy przeglądasz historię zmian po jej zintegrowaniu z anali
 ### <a name="azure-lighthouse-subscription-is-not-supported"></a>Subskrypcja usługi Azure Lighthouse nie jest obsługiwana
 
 - Nie **można wykonać zapytania dotyczącego dostawcy zasobów Microsoft. ChangeAnalysis** z komunikatem *, że subskrypcja usługi Azure Lighthouse nie jest obsługiwana, zmiany są dostępne tylko w dzierżawie głównej subskrypcji*. Obecnie istnieje ograniczenie dotyczące rejestracji dostawcy zasobów analizy zmian za pomocą subskrypcji usługi Azure Lighthouse dla użytkowników, którzy nie znajdują się w dzierżawie głównej. Oczekujemy, że to ograniczenie zostanie rozkierowane w najbliższej przyszłości. Jeśli jest to problem z blokowaniem, istnieje obejście polegające na utworzeniu jednostki usługi i jawnie przypisaniu roli w celu zezwolenia na dostęp.  Skontaktuj się z nami changeanalysishelp@microsoft.com , aby dowiedzieć się więcej.
+
+### <a name="an-error-occurred-while-getting-changes-please-refresh-this-page-or-come-back-later-to-view-changes"></a>Wystąpił błąd podczas pobierania zmian. Odśwież Tę stronę lub wróć później, aby wyświetlić zmiany
+
+Jest to ogólny komunikat o błędzie przedstawiony przez usługę analizy zmian aplikacji, gdy nie można załadować zmian. Oto kilka znanych przyczyn:
+- Błąd połączenia z Internetem z urządzenia klienckiego
+- Zmiana usługi analizy jest tymczasowo niedostępna po kilku minutach zwykle rozwiązuje ten problem. Jeśli błąd będzie się powtarzać, skontaktuj się z changeanalysishelp@micorosoft.com
+
+### <a name="you-dont-have-enough-permissions-to-view-some-changes-contact-your-azure-subscription-administrator"></a>Nie masz wystarczających uprawnień do wyświetlania niektórych zmian. Skontaktuj się z administratorem subskrypcji platformy Azure
+
+Jest to ogólny komunikat o błędzie nieautoryzowany, co oznacza, że bieżący użytkownik nie ma wystarczających uprawnień do wyświetlenia zmiany. Aby wyświetlić zmiany infrastruktury zwrócone przez usługę Azure Resource Graph i Azure Resource Manager, wymagany jest co najmniej dostęp z czytnika. W przypadku zmian w pliku gościa aplikacji internetowej i zmian konfiguracji wymagana jest co najmniej rola współautor.
+
+### <a name="failed-to-register-microsoftchangeanalysis-resource-provider"></a>Nie można zarejestrować dostawcy zasobów Microsoft. ChangeAnalysis
+ 
+**Nie masz wystarczających uprawnień do zarejestrowania dostawcy zasobów Microsoft. ChangeAnalysis. Skontaktuj się z administratorem subskrypcji platformy Azure.** Ten komunikat o błędzie oznacza, że rola w bieżącej subskrypcji nie ma skojarzonej z nią zakresu **Microsoft. Support/Register/Action** . Taka sytuacja może wystąpić, jeśli nie jesteś właścicielem subskrypcji i masz uprawnienia dostępu współdzielonego przez współpracownika. oznacza to, że można wyświetlić dostęp do grupy zasobów. Aby rozwiązać ten problem, możesz skontaktować się z właścicielem subskrypcji w celu zarejestrowania dostawcy zasobów **Microsoft. ChangeAnalysis** . Można to zrobić w Azure Portal za poorednictwem **subskrypcji | Dostawcy zasobów** oraz wyszukiwanie ```Microsoft.ChangeAnalysis``` i rejestrowanie w interfejsie użytkownika, a także za pomocą Azure PowerShell lub interfejsu wiersza polecenia platformy Azure.
+
+Rejestrowanie dostawcy zasobów przy użyciu programu PowerShell: 
+
+```PowerShell
+# Register resource provider
+Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
+```
 
 ## <a name="next-steps"></a>Następne kroki
 

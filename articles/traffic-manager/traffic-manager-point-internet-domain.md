@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: duau
-ms.openlocfilehash: 93a8076f12b8f006d600cbd32ce39169f4b47c67
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e0e2acfb0ec0068dcd08ae660e397f65e039a665
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014333"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183748"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>Ustawianie firmowej domeny internetowej tak, aby wskazywała domenę usługi Azure Traffic Manager
 
@@ -33,5 +33,5 @@ Wszystkie żądania ruchu do *www \. contoso.com* są kierowane do *contoso.traf
 ## <a name="next-steps"></a>Następne kroki
 
 * [Metody routingu w usłudze Traffic Manager](traffic-manager-routing-methods.md)
-* [Traffic Manager — wyłączanie, Włączanie lub usuwanie profilu](disable-enable-or-delete-a-profile.md)
-* [Traffic Manager — wyłączanie lub włączanie punktu końcowego](disable-or-enable-an-endpoint.md)
+* [Traffic Manager — wyłączanie, Włączanie lub usuwanie profilu](./traffic-manager-manage-profiles.md)
+* [Traffic Manager — wyłączanie lub włączanie punktu końcowego](./traffic-manager-manage-endpoints.md)
