@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 07/12/2017
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: f56118750fc980c249c88b796728f4ecb2641a88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83c054a9e2dd829dbfb34a3873f06332e504b832
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86510960"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201199"
 ---
 # <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>Przenoszenie plików do i z maszyny wirtualnej z systemem Linux przy użyciu usługi SCP
 
 W tym artykule przedstawiono sposób przenoszenia plików z stacji roboczej do maszyny wirtualnej platformy Azure z systemem Linux lub z maszyny wirtualnej platformy Azure z systemem Linux do stacji roboczej przy użyciu funkcji bezpiecznego kopiowania (SCP). Szybkie i bezpieczne przeniesienie plików między stacją roboczą a maszyną wirtualną z systemem Linux ma kluczowe znaczenie dla zarządzania infrastrukturą platformy Azure. 
 
-W tym artykule potrzebna jest maszyna wirtualna z systemem Linux wdrożona na platformie Azure przy użyciu [plików publicznego i prywatnego klucza SSH](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Wymagany jest również klient punktu SCP dla komputera lokalnego. Jest on oparty na usłudze SSH i uwzględniony w domyślnej powłoce bash większości komputerów z systemem Linux i Mac oraz niektórych powłok systemu Windows.
+W tym artykule potrzebna jest maszyna wirtualna z systemem Linux wdrożona na platformie Azure przy użyciu [plików publicznego i prywatnego klucza SSH](mac-create-ssh-keys.md). Wymagany jest również klient punktu SCP dla komputera lokalnego. Jest on oparty na usłudze SSH i uwzględniony w domyślnej powłoce bash większości komputerów z systemem Linux i Mac oraz niektórych powłok systemu Windows.
 
 ## <a name="quick-commands"></a>Szybkie polecenia
 
@@ -43,7 +43,7 @@ Przykładowo przenosimy plik konfiguracji platformy Azure do maszyny wirtualnej 
 
 Punkt połączenia usługi używa protokołu SSH dla warstwy transportowej. Protokół SSH obsługuje uwierzytelnianie na hoście docelowym i przenosi plik w szyfrowanym tunelu udostępnianym domyślnie przy użyciu protokołu SSH. W przypadku uwierzytelniania SSH można używać nazw użytkowników i haseł. Jednak najlepszym rozwiązaniem w zakresie zabezpieczeń jest uwierzytelnianie klucza publicznego i prywatnego protokołu SSH. Po uwierzytelnieniu połączenia przez protokół SSH usługa SCP rozpocznie kopiowanie pliku. Za pomocą prawidłowo skonfigurowanych `~/.ssh/config` i prywatnych kluczy SSH, połączenie punktu połączenia usługi może być nawiązywane przy użyciu nazwy serwera (lub adresu IP). Jeśli masz tylko jeden klucz SSH, punkt połączenia usługi szuka go w `~/.ssh/` katalogu i domyślnie użyje go w celu zalogowania się do maszyny wirtualnej.
 
-Aby uzyskać więcej informacji na temat konfigurowania `~/.ssh/config` kluczy publicznych i prywatnych SSH, zobacz [Tworzenie kluczy SSH](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Aby uzyskać więcej informacji na temat konfigurowania `~/.ssh/config` kluczy publicznych i prywatnych SSH, zobacz [Tworzenie kluczy SSH](mac-create-ssh-keys.md).
 
 ## <a name="scp-a-file-to-a-linux-vm"></a>SCP pliku do maszyny wirtualnej z systemem Linux
 

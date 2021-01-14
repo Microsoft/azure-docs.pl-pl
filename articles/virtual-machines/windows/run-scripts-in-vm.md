@@ -8,12 +8,12 @@ ms.author: robreed
 ms.date: 05/02/2018
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: c2999d5bd6d780d5815f22d18e6e8cdd580987af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23abc86e26686d9a23ed94d0311a44ffe3012657
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87020172"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201777"
 ---
 # <a name="run-scripts-in-your-windows-vm"></a>Uruchamianie skryptów na maszynie wirtualnej z systemem Windows
 
@@ -34,7 +34,7 @@ Aby zautomatyzować zadania lub rozwiązać problemy, może być konieczne uruch
 Funkcja [Run command](run-command.md) umożliwia zarządzanie maszynami wirtualnymi i aplikacjami oraz Rozwiązywanie problemów przy użyciu skryptów i jest dostępna nawet wtedy, gdy komputer jest nieosiągalny, na przykład jeśli Zapora gościa nie ma otwartego portu RDP lub SSH.
 
 * Uruchamianie skryptów w usłudze Azure Virtual Machines.
-* Mogą być uruchamiane przy użyciu [Azure Portal](run-command.md), [interfejsu API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [wiersza polecenia platformy Azure](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke)lub [programu PowerShell](/powershell/module/az.compute/invoke-azvmruncommand) .
+* Mogą być uruchamiane przy użyciu [Azure Portal](run-command.md), [interfejsu API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [wiersza polecenia platformy Azure](/cli/azure/vm/run-command#az-vm-run-command-invoke)lub [programu PowerShell](/powershell/module/az.compute/invoke-azvmruncommand) .
 * Szybkie uruchamianie skryptu i wyświetlanie danych wyjściowych i powtarzanie w razie konieczności w Azure Portal.
 * Skrypt można wpisać bezpośrednio lub można uruchomić jeden z wbudowanych skryptów.
 * Uruchom skrypt programu PowerShell na maszynach z systemem Windows i skrypcie bash na maszynach z systemem Linux.

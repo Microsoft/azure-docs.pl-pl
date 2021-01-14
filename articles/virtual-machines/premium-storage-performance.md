@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: acdddcd95883d13393838a47281fb888ac2f9274
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 26ef07269c9451c2e9d05d42e2247fbfcdae4844
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500397"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201964"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: projektowanie pod kątem wysokiej wydajności
 
@@ -222,7 +222,7 @@ Jeśli jednak ta sama aplikacja jest hostowana na Premium Storage, potrzebny bę
 
 W poniższej tabeli zestawiono podział kosztów tego scenariusza dla standardów i Premium Storage.
 
-| &nbsp; | **Standardowa** | **Tytułu** |
+| &nbsp; | **Standardowa** | **Premium** |
 | --- | --- | --- |
 | **Koszt maszyny wirtualnej miesięcznie** |$1 570,58 (standardowa \_ D14) |$1 003,66 (standardowa \_ DS13) |
 | **Koszt dysków miesięcznie** |$1 638,40 (32 x 1 TB dysków) |$544,34 (4 x P30 dysków) |
@@ -230,7 +230,7 @@ W poniższej tabeli zestawiono podział kosztów tego scenariusza dla standardó
 
 *Dystrybucje systemu Linux*  
 
-Dzięki platformie Azure Premium Storage uzyskasz ten sam poziom wydajności dla maszyn wirtualnych z systemami Windows i Linux. Obsługujemy wiele rodzajów systemu Linux dystrybucje. pełną listę można zobaczyć [tutaj](linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Należy pamiętać, że różne dystrybucje są lepiej dopasowane do różnych typów obciążeń. Zobaczysz różne poziomy wydajności w zależności od dystrybucji, w którym działa obciążenie. Przetestuj dystrybucje systemu Linux przy użyciu aplikacji i wybierz ten, który działa najlepiej.
+Dzięki platformie Azure Premium Storage uzyskasz ten sam poziom wydajności dla maszyn wirtualnych z systemami Windows i Linux. Obsługujemy wiele rodzajów systemu Linux dystrybucje. pełną listę można zobaczyć [tutaj](linux/endorsed-distros.md). Należy pamiętać, że różne dystrybucje są lepiej dopasowane do różnych typów obciążeń. Zobaczysz różne poziomy wydajności w zależności od dystrybucji, w którym działa obciążenie. Przetestuj dystrybucje systemu Linux przy użyciu aplikacji i wybierz ten, który działa najlepiej.
 
 Podczas uruchamiania systemu Linux z Premium Storage Sprawdź najnowsze aktualizacje dotyczące wymaganych sterowników, aby zapewnić wysoką wydajność.
 

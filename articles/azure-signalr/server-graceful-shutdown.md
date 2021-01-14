@@ -6,12 +6,12 @@ ms.author: tefa
 ms.date: 11/12/2020
 ms.service: signalr
 ms.topic: conceptual
-ms.openlocfilehash: 06aa91ff414e5575f7b1a743d2cc17765437ef72
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: d9dd7ce9cf321628598a7bb866c5d1b1a6fb0e1e
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97797570"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201675"
 ---
 # <a name="server-graceful-shutdown"></a>Bezpieczne zamykanie serwera
 Usługa sygnalizująca Microsoft Azure zapewnia dwa tryby bezpiecznego zamykania serwera. 
@@ -43,7 +43,7 @@ Ogólnie rzecz biorąc, będzie można wykonać cztery etapy procesu bezpieczneg
 
     Może być konieczne zaprojektowanie metody, na przykład emisja komunikatu zamykającego do wszystkich klientów, a następnie umożliwienie klientom podjęcia decyzji o tym, kiedy zamknąć/ponownie nawiązać połączenie.
 
-    Przeczytaj [ChatSample](https://github.com/Azure/azure-signalr/tree/dev/samples/ChatSample/ChatSample) na potrzeby przykładowego użycia, które emitują komunikat "Exit", aby wyzwolić zamknięcie klienta w elemencie Hook zamknięcia.
+    Przeczytaj [ChatSample](https://github.com/Azure/azure-signalr/tree/dev/samples/ChatSample) na potrzeby przykładowego użycia, które emitują komunikat "Exit", aby wyzwolić zamknięcie klienta w elemencie Hook zamknięcia.
 
     **Tryb ustawiony na MigrateClients**
 

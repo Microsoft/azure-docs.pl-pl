@@ -7,18 +7,18 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.date: 03/04/2020
 ms.author: shants
-ms.openlocfilehash: 4cff7eb4a69005f2e74747b6e58447f100c69b60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91a6adecc9cf0db56fa4c433f388b05aa1bdef6a
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86501606"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202916"
 ---
 # <a name="move-a-maintenance-control-configuration-to-another-region"></a>Przenoszenie konfiguracji kontroli konserwacji do innego regionu
 
 Postępuj zgodnie z tym artykułem, aby przenieść konfigurację kontroli konserwacji do innego regionu platformy Azure. Możesz chcieć przenieść konfigurację z kilku powodów. Na przykład w celu skorzystania z nowego regionu, wdrożenia funkcji lub usług dostępnych w określonym regionie, spełnienia wymagań wewnętrznych zasad i zarządzania lub w reakcji na planowanie pojemności.
 
-Kontrola konserwacji z dostosowanymi konfiguracjami konserwacji pozwala kontrolować sposób stosowania aktualizacji platformy do maszyn wirtualnych z [systemem Windows](./maintenance-control-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json) i [Linux](./maintenance-control-cli.md?toc=%2Fazure%2Fvirtual-machines%2Flinux%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Flinux%2Fbreadcrumb%2Ftoc.json&view=azure-java-stable) oraz do hostów dedykowanych platformy Azure. Istnieje kilka scenariuszy związanych z przechodzeniem kontroli konserwacji między regionami:
+[Kontrola konserwacji](maintenance-control.md)z dostosowanymi konfiguracjami konserwacji pozwala kontrolować sposób stosowania aktualizacji platformy do maszyn wirtualnych oraz do hostów dedykowanych platformy Azure. Istnieje kilka scenariuszy związanych z przechodzeniem kontroli konserwacji między regionami:
 
 - Aby przenieść konfigurację kontroli konserwacji, ale nie zasobów skojarzonych z konfiguracją, postępuj zgodnie z instrukcjami w tym artykule.
 - Aby przenieść zasoby skojarzone z konfiguracją konserwacji, ale nie sama konfiguracja, wykonaj [te instrukcje](move-region-maintenance-configuration-resources.md).
@@ -38,7 +38,7 @@ Przed rozpoczęciem przechodzenia do konfiguracji kontroli konserwacji:
 
 ## <a name="prepare-and-move"></a>Przygotowywanie i przenoszenie 
 
-1. Pobierz wszystkie konfiguracje konserwacji w ramach każdej subskrypcji. Uruchom interfejs wiersza polecenia [AZ Maintenance Configuration list](/cli/azure/ext/maintenance/maintenance/configuration?view=azure-cli-latest#ext-maintenance-az-maintenance-configuration-list) , aby to zrobić, ZASTĘPUJĄC $subId identyfikatorem subskrypcji.
+1. Pobierz wszystkie konfiguracje konserwacji w ramach każdej subskrypcji. Uruchom interfejs wiersza polecenia [AZ Maintenance Configuration list](/cli/azure/ext/maintenance/maintenance/configuration#ext-maintenance-az-maintenance-configuration-list) , aby to zrobić, ZASTĘPUJĄC $subId identyfikatorem subskrypcji.
 
     ```
     az maintenance configuration list --subscription $subId --query "[*].{Name:name, Location:location, ResGroup:resourceGroup}" --output table

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/8/2020
-ms.openlocfilehash: bea618b34809544308caba46a0ffbdecee91d69f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 199810f835924ccbb51948169244622a19c5e8ed
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541814"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201437"
 ---
 # <a name="connect-to-azure-database-for-mysql-with-redirection"></a>Nawiązywanie połączenia z usługą Azure Database for MySQL z użyciem przekierowywania
 
@@ -21,6 +21,9 @@ W tym temacie opisano sposób łączenia aplikacji Azure Database for MySQL serw
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Utwórz serwer Azure Database for MySQL przy użyciu aparatu w wersji 5,6, 5,7 lub 8,0. 
 
 Aby uzyskać szczegółowe informacje, zobacz jak utworzyć serwer Azure Database for MySQL przy użyciu [Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md) lub [interfejsu wiersza polecenia platformy Azure](quickstart-create-mysql-server-database-using-azure-cli.md).
+
+> [!IMPORTANT]
+> Przekierowanie nie jest obecnie obsługiwane z [linkiem prywatnym dla Azure Database for MySQL](concepts-data-access-security-private-link.md).
 
 ## <a name="enable-redirection"></a>Włącz przekierowanie
 

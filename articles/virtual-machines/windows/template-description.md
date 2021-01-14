@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 228814db76ea14fa8b74c0c5d634e5afd6d54ac6
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 2726ba3b337dc785de58b06fb5e8372058f71879
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483049"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202100"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Maszyny wirtualne w szablonie usługi Azure Resource Manager
 
@@ -282,7 +282,7 @@ Podczas definiowania zasobu maszyny wirtualnej są używane różne elementy pro
 
 ## <a name="disks-and-images"></a>Dyski i obrazy
    
-Na platformie Azure pliki VHD mogą reprezentować [dyski lub obrazy](../managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Gdy system operacyjny w pliku VHD jest wyspecjalizowany dla konkretnej maszyny wirtualnej, jest określany jako dysk. Gdy system operacyjny w pliku VHD zostanie uogólniony do użycia w celu utworzenia wielu maszyn wirtualnych, jest on nazywany obrazem.   
+Na platformie Azure pliki VHD mogą reprezentować [dyski lub obrazy](../managed-disks-overview.md). Gdy system operacyjny w pliku VHD jest wyspecjalizowany dla konkretnej maszyny wirtualnej, jest określany jako dysk. Gdy system operacyjny w pliku VHD zostanie uogólniony do użycia w celu utworzenia wielu maszyn wirtualnych, jest on nazywany obrazem.   
     
 ### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>Tworzenie nowych maszyn wirtualnych i nowych dysków na podstawie obrazu platformy
 
@@ -453,5 +453,5 @@ Nie jest to problem, aby użyć tego samego szablonu do tworzenia zasobów lub a
 
 - Utwórz własny szablon przy użyciu [szablonów Azure Resource Manager tworzenia](../../azure-resource-manager/templates/template-syntax.md).
 - Wdróż utworzony szablon przy użyciu polecenia [Utwórz maszynę wirtualną z systemem Windows przy użyciu szablonu Menedżer zasobów](ps-template.md).
-- Dowiedz się, jak zarządzać maszynami wirtualnymi utworzonymi przez Ciebie, przeglądając informacje [o tworzeniu maszyn wirtualnych z systemem Windows i zarządzanie nimi za pomocą modułu Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Dowiedz się, jak zarządzać maszynami wirtualnymi utworzonymi przez Ciebie, przeglądając informacje [o tworzeniu maszyn wirtualnych z systemem Windows i zarządzanie nimi za pomocą modułu Azure PowerShell](tutorial-manage-vm.md).
 - Aby poznać składnię JSON i właściwości typów zasobów w szablonach, zobacz [Azure Resource Manager dokumentacja szablonu](/azure/templates/).

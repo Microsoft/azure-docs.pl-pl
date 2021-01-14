@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: mimckitt
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 181f226a4d7aa37ffd8c667db4736a96450e2be5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a91e21994dda126e14c100bcf1d2a69c36b13e1e
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955960"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202168"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Używanie monitorowania i diagnostyki z MASZYNami wirtualnymi z systemem Windows i szablonami Azure Resource Manager
 Rozszerzenie Diagnostyka Azure zapewnia możliwości monitorowania i diagnostyki na maszynie wirtualnej platformy Azure opartej na systemie Windows. Te możliwości można włączyć na maszynie wirtualnej, dołączając rozszerzenie jako część szablonu Azure Resource Manager. Zobacz [Tworzenie szablonów Azure Resource Manager z rozszerzeniami maszyn wirtualnych](../windows/template-description.md#extensions) , aby uzyskać więcej informacji na temat dołączania dowolnego rozszerzenia w ramach szablonu maszyny wirtualnej. W tym artykule opisano sposób dodawania rozszerzenia Diagnostyka Azure do szablonu maszyny wirtualnej z systemem Windows.  
@@ -63,7 +63,7 @@ W przypadku prostej maszyny wirtualnej opartej na Menedżer zasobów Dodaj konfi
 ]
 ```
 
-Inną wspólną Konwencją jest dodanie konfiguracji rozszerzenia w węźle zasobów głównych szablonu zamiast definiowania go w węźle zasoby maszyny wirtualnej. W tym podejściu należy jawnie określić hierarchiczną relację między rozszerzeniem i maszyną wirtualną z wartościami *nazw* i *typów* . Przykład: 
+Inną wspólną Konwencją jest dodanie konfiguracji rozszerzenia w węźle zasobów głównych szablonu zamiast definiowania go w węźle zasoby maszyny wirtualnej. W tym podejściu należy jawnie określić hierarchiczną relację między rozszerzeniem i maszyną wirtualną z wartościami *nazw* i *typów* . Na przykład: 
 
 ```json
 "name": "[concat(variables('vmName'),'Microsoft.Insights.VMDiagnosticsSettings')]",
@@ -179,5 +179,5 @@ Każda tabela WADMetrics zawiera następujące kolumny:
 
 ## <a name="next-steps"></a>Następne kroki
 * Aby zapoznać się z kompletnym przykładowym szablonem maszyny wirtualnej z systemem Windows z rozszerzeniem Diagnostics, zobacz [201-VM-monitoring-Diagnostics-Extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
-* Wdrażanie szablonu Azure Resource Manager przy użyciu [Azure PowerShell](../windows/ps-template.md) lub [wiersza polecenia platformy Azure](../linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* Wdrażanie szablonu Azure Resource Manager przy użyciu [Azure PowerShell](../windows/ps-template.md) lub [wiersza polecenia platformy Azure](../linux/create-ssh-secured-vm-from-template.md)
 * Dowiedz się więcej na temat [tworzenia szablonów Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md)

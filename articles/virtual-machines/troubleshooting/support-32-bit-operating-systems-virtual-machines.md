@@ -13,16 +13,20 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: 91e5ca10e97e8fc1646367ac6d575d6813f3a291
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b801bac28b131ff43c47024649bfe0986f768c7
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87079863"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202899"
 ---
 # <a name="support-for-32-bit-operating-systems-in-azure-virtual-machines"></a>Obsługa 32-bitowych systemów operacyjnych na maszynach wirtualnych platformy Azure
 
 Microsoft Azure teraz umożliwia użytkownikom korzystanie z 32-bitowych systemów operacyjnych Windows na platformie Azure. Obsługiwane są tylko wyspecjalizowane dyski VHD, a uogólnione obrazy nie będą działały na platformie Azure. Ponieważ niektóre z tych systemów operacyjnych osiągnęły już swoją umowę dotyczącą korzystania z usługi Life, firma Microsoft może nie oferować dodatkowej pomocy technicznej. Pomoc techniczna nie jest również oferowana dla systemów operacyjnych opartych na systemie Linux lub Berkeley Software Distribution (BSD), które działają na Microsoft Azure maszynę wirtualną.
+
+> [!NOTE]
+> Platforma Azure ma ograniczenie przestrzeni adresów pamięci narzucone na maszynach wirtualnych z 32-bitowymi systemami operacyjnymi, w przypadku których dostępna jest tylko 1 GB pamięci dla maszyny wirtualnej, a pozostała część pamięci dla maszyny wirtualnej będzie wyświetlana jako zarezerwowana w ramach maszyny wirtualnej gościa. Jest to znany problem i obecnie nie mamy EZT, aby rozwiązać problem. Zalecamy przechodzenie do 64-bitowych wersji systemu operacyjnego.
+> 
 
 ## <a name="more-information"></a>Więcej informacji
 

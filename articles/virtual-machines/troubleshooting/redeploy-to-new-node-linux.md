@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 6b6abaf10f74b29685309ed5a24a5e6b9f261014
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d553fb6b2061f987e3e098ae47ebca9cd3f60984
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87074445"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203409"
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Ponowne wdrażanie maszyny wirtualnej z systemem Linux w nowym węźle platformy Azure
 Jeśli napotykasz problemy z rozwiązywaniem problemów z protokołem SSH lub dostępem aplikacji do maszyny wirtualnej z systemem Linux na platformie Azure, możesz ponownie wdrożyć maszynę wirtualną. Po ponownym wdrożeniu maszyny wirtualnej jest ona przenoszona do nowego węzła w ramach infrastruktury platformy Azure, a następnie ponownie ją włącza. Wszystkie opcje konfiguracji i skojarzone zasoby są zachowywane. W tym artykule pokazano, jak ponownie wdrożyć maszynę wirtualną przy użyciu interfejsu wiersza polecenia platformy Azure lub Azure Portal.
@@ -27,7 +27,7 @@ Jeśli napotykasz problemy z rozwiązywaniem problemów z protokołem SSH lub do
 > Po ponownym wdrożeniu maszyny wirtualnej dysk tymczasowy zostanie utracony, a dynamiczne adresy IP skojarzone z interfejsem sieci wirtualnej zostaną zaktualizowane. 
 
 
-## <a name="use-the-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
+## <a name="use-the-azure-cli"></a>Używanie interfejsu wiersza polecenia platformy Azure
 Zainstaluj najnowszy [interfejs wiersza polecenia platformy Azure](/cli/azure/install-az-cli2) i zaloguj się na konto platformy Azure za pomocą polecenia [AZ login](/cli/azure/reference-index).
 
 Wdróż ponownie maszynę wirtualną za pomocą narzędzia [AZ VM redeploy](/cli/azure/vm). Poniższy przykład ponownie wdraża maszynę wirtualną o nazwie *myVM* w grupie zasobów o nazwie Moja *zasobów*:
@@ -52,4 +52,4 @@ azure vm redeploy --resource-group myResourceGroup --vm-name myVM
 [!INCLUDE [virtual-machines-common-redeploy-to-new-node](../../../includes/virtual-machines-common-redeploy-to-new-node.md)]
 
 ## <a name="next-steps"></a>Następne kroki
-Jeśli masz problemy z nawiązywaniem połączenia z maszyną wirtualną, możesz znaleźć konkretną pomoc dotyczącą [rozwiązywania problemów z połączeniami SSH](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) lub [szczegółowymi krokami rozwiązywania problemów SSH](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Jeśli nie możesz uzyskać dostępu do aplikacji uruchomionej na maszynie wirtualnej, możesz również odczytać [problemy związane z rozwiązywaniem problemów z aplikacjami](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Jeśli masz problemy z nawiązywaniem połączenia z maszyną wirtualną, możesz znaleźć konkretną pomoc dotyczącą [rozwiązywania problemów z połączeniami SSH](troubleshoot-ssh-connection.md) lub [szczegółowymi krokami rozwiązywania problemów SSH](detailed-troubleshoot-ssh-connection.md). Jeśli nie możesz uzyskać dostępu do aplikacji uruchomionej na maszynie wirtualnej, możesz również odczytać [problemy związane z rozwiązywaniem problemów z aplikacjami](troubleshoot-app-connection.md).

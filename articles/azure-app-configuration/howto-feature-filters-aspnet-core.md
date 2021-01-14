@@ -8,12 +8,12 @@ author: AlexandraKemperMS
 ms.author: alkemper
 ms.topic: conceptual
 ms.date: 3/9/2020
-ms.openlocfilehash: 9a6ae1581b3958495010b032980b0de2e267088b
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 13857580d434736fbf0b12f52d39537ca864a497
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931881"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203142"
 ---
 # <a name="use-feature-filters-to-enable-conditional-feature-flags"></a>Używanie filtrów funkcji do włączania flag funkcji warunkowej
 
@@ -56,19 +56,19 @@ Te ustawienia można skonfigurować dla flag funkcji zdefiniowanych w obszarze K
     > [!div class="mx-imgBorder"]
     > ![Edytuj flagę funkcji beta](./media/edit-beta-feature-flag.png)
 
-1. Na ekranie **Edycja** wybierz **przycisk radiowy** , jeśli nie został jeszcze wybrany. Następnie kliknij przycisk **Dodaj filtr** . (Etykieta **przycisku radiowego zmieni się na odczyt** **warunkowy**).
+1. Na ekranie **Edycja** wybierz przycisk **Włącz flagę funkcji** , jeśli nie został jeszcze wybrany. Następnie kliknij przycisk **Użyj filtru funkcji** i wybierz pozycję **niestandardowy**. 
 
 1. W polu **klucz** wprowadź *wartość Microsoft. PERCENTAGE*.
 
     > [!div class="mx-imgBorder"]
     > ![Dodaj filtr funkcji](./media/feature-flag-add-filter.png)
 
-1. Kliknij menu kontekstowe obok klucza filtru funkcji. Kliknij przycisk **Edytuj parametry**.
+1. Kliknij menu kontekstowe obok klucza filtru funkcji. Kliknij przycisk **Edytuj parametry filtru**.
 
     > [!div class="mx-imgBorder"]
-    > ![Edytuj parametry filtru funkcji](./media/feature-flag-edit-filter-parameters.png)
+    > ![Edytuj parametry filtru funkcji](./media/feature-flags-edit-filter-parameters.png)
 
-1. Umieść kursor pod nagłówkiem **Nazwa** , aby pola tekstowe pojawiały się w siatce. Wprowadź **nazwę** *i* **wartość** 50. **Wartość** pola wskazuje procent żądań, dla których ma zostać włączony filtr funkcji.
+1. Wprowadź **nazwę** *i* **wartość** 50. **Wartość** pola wskazuje procent żądań, dla których ma zostać włączony filtr funkcji.
 
     > [!div class="mx-imgBorder"]
     > ![Ustaw parametry filtru funkcji](./media/feature-flag-set-filter-parameters.png)

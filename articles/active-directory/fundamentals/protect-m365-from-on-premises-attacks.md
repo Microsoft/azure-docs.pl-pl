@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71d64552520db28b3fe38cc354a30ee5470ee091
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 97893dece068dfdde85159f734095401288231d2
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060738"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201352"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>Ochrona Microsoft 365 z wykorzystaniem lokalnych ataków
 
@@ -131,7 +131,7 @@ Inicjowanie obsługi odnosi się do tworzenia kont użytkowników i grup w aplik
 
    *  Ogranicz dostęp gościa do grup przeglądania i innych właściwości w katalogu. Użyj zewnętrznych ustawień współpracy, aby ograniczyć możliwość odczytywania grup, których nie są członkami. 
 
-    *   Blokuj dostęp do Azure Portal. Można dokonać rzadkich niepotrzebnych wyjątków.  Utwórz zasady dostępu warunkowego, które obejmują wszystkich Gości i użytkowników zewnętrznych, a następnie [Zaimplementuj zasady w celu zablokowania dostępu](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management.md). 
+    *   Blokuj dostęp do Azure Portal. Można dokonać rzadkich niepotrzebnych wyjątków.  Utwórz zasady dostępu warunkowego, które obejmują wszystkich Gości i użytkowników zewnętrznych, a następnie [Zaimplementuj zasady w celu zablokowania dostępu](/azure/role-based-access-control/conditional-access-azure-management). 
 
 * **Odłączone lasy:** Korzystanie z [aprowizacji w chmurze usługi Azure AD](../cloud-provisioning/what-is-cloud-provisioning.md). Pozwala to na łączenie się z odłączonymi lasami, eliminując konieczność ustanowienia łączności między lasami lub relacji zaufania, co może rozszerzyć wpływ naruszenia lokalnego. * 
  

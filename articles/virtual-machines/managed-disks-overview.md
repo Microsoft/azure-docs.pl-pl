@@ -8,12 +8,12 @@ ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 31fe62aabfff77342726158c3b72b61afb518682
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: e549a79930cf599b89cd549691e23f3587e8a85c
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031525"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202712"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Wprowadzenie do dysków zarządzanych na platformie Azure
 
@@ -96,7 +96,7 @@ Ten dysk ma maksymalną pojemność wynoszącą 4 095 GiB.
 
 ### <a name="temporary-disk"></a>Dysk tymczasowy
 
-Większość maszyn wirtualnych zawiera dysk tymczasowy, który nie jest dyskiem zarządzanym. Dysk tymczasowy zapewnia krótkoterminowy magazyn dla aplikacji i procesów, który jest przeznaczony tylko do przechowywania danych, takich jak pliki stron lub plików wymiany. Dane na dysku tymczasowym mogą zostać utracone podczas [zdarzenia konserwacji](./manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) lub po ponownym [wdrożeniu maszyny wirtualnej](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Po pomyślnym przeprowadzeniu standardowego ponownego uruchomienia maszyny wirtualnej dane na dysku tymczasowym będą utrwalane. Aby uzyskać więcej informacji o maszynach wirtualnych bez dysków tymczasowych, zobacz [rozmiary maszyn wirtualnych platformy Azure, na których nie ma lokalnego dysku tymczasowego](azure-vms-no-temp-disk.md).
+Większość maszyn wirtualnych zawiera dysk tymczasowy, który nie jest dyskiem zarządzanym. Dysk tymczasowy zapewnia krótkoterminowy magazyn dla aplikacji i procesów, który jest przeznaczony tylko do przechowywania danych, takich jak pliki stron lub plików wymiany. Dane na dysku tymczasowym mogą zostać utracone podczas [zdarzenia konserwacji](./manage-availability.md#understand-vm-reboots---maintenance-vs-downtime) lub po ponownym [wdrożeniu maszyny wirtualnej](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Po pomyślnym przeprowadzeniu standardowego ponownego uruchomienia maszyny wirtualnej dane na dysku tymczasowym będą utrwalane. Aby uzyskać więcej informacji o maszynach wirtualnych bez dysków tymczasowych, zobacz [rozmiary maszyn wirtualnych platformy Azure, na których nie ma lokalnego dysku tymczasowego](azure-vms-no-temp-disk.md).
 
 Na maszynach wirtualnych z systemem Linux na platformie Azure dysk tymczasowy jest zazwyczaj/dev/sdb i na maszynach wirtualnych systemu Windows dysk tymczasowy jest D: domyślnie. Dysk tymczasowy nie jest szyfrowany przez szyfrowanie po stronie serwera, chyba że zostanie włączone szyfrowanie na hoście.
 

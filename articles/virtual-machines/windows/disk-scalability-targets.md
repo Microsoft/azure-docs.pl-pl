@@ -7,18 +7,18 @@ ms.date: 11/15/2017
 ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: bf56f1fac1f12f9e4994221d672410715393ae9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6fe5d41d0bebd222180f9bc4c9cb34450845788e
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88815142"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202865"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-windows"></a>Elementy docelowe skalowalności i wydajności dla dysków maszyn wirtualnych w systemie Windows
 
 [!INCLUDE [azure-storage-limits-vm-disks](../../../includes/azure-storage-limits-vm-disks.md)]
 
-Dodatkowe szczegóły można znaleźć w temacie [rozmiary maszyn wirtualnych z systemem Windows](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) .
+Dodatkowe szczegóły można znaleźć w temacie [rozmiary maszyn wirtualnych z systemem Windows](../sizes.md) .
 
 ## <a name="managed-virtual-machine-disks"></a>Zarządzane dyski maszyny wirtualnej
 

@@ -4,14 +4,14 @@ description: Konfigurowanie BYOS (przenoszenie własnego magazynu) dla & profile
 ms.topic: conceptual
 author: renatosalas
 ms.author: regutier
-ms.date: 04/14/2020
+ms.date: 01/14/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: 719f0cfa0a1f80568acf3231ce3ffab441e5f6b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f82432c1dd8c66e8ce845831ff35d534a34e3e04
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87117380"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202542"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Skonfiguruj własny magazyn (BYOS) dla Application Insights Profiler i Snapshot Debugger
 
@@ -53,11 +53,11 @@ Kroki:
 1. Wyszukaj & wybierz aplikację "usługa diagnostyczna zaufany dostęp do magazynu" 
 1. Zapisz zmiany
 
-_ ![ Rysunek 1,0](media/profiler-bring-your-own-storage/figure-10.png)_ 
+_![ Rysunek 1,0](media/profiler-bring-your-own-storage/figure-10.png)_ 
  _rysunek 1,0_ 
 
 Po dodaniu roli zostanie ona wyświetlona w sekcji "przydziały ról", jak pokazano na poniższym rysunku 1,1. 
-_ ![ Rysunek 1,1](media/profiler-bring-your-own-storage/figure-11.png)_ 
+_![ Rysunek 1,1](media/profiler-bring-your-own-storage/figure-11.png)_ 
  _rysunek 1,1_ 
 
 Jeśli używasz również linku prywatnego, musisz mieć jedną dodatkową konfigurację, aby zezwolić na połączenie z naszą zaufaną usługą firmy Microsoft z Virtual Network. Zapoznaj się z [dokumentacją zabezpieczeń sieci magazynu](../../storage/common/storage-network-security.md#trusted-microsoft-services).
@@ -91,7 +91,7 @@ Aby skonfigurować BYOS do diagnostyki na poziomie kodu (Profiler/debuger), dost
 
     Znaczne
     ```powershell
-    $appInsights = Get-AzApplicationInsights -ResourceGroupName "{resource_group_name}" -Name "{storage_account_name}"
+    $appInsights = Get-AzApplicationInsights -ResourceGroupName "{resource_group_name}" -Name "{application_insights_name}"
     Remove-AzApplicationInsightsLinkedStorageAccount -ResourceId $appInsights.Id
     ```
 
@@ -226,7 +226,7 @@ Aby skonfigurować BYOS do diagnostyki na poziomie kodu (Profiler/debuger), dost
     DeploymentDebugLogLevel :
     ```
 
-1. Włącz diagnostykę na poziomie kodu (Profiler/debuger) na podstawie obciążeń związanych z Azure Portal. (App Service > Application Insights) _ ![ Rysunek 2,0](media/profiler-bring-your-own-storage/figure-20.png)_ 
+1. Włącz diagnostykę na poziomie kodu (Profiler/debuger) na podstawie obciążeń związanych z Azure Portal. (App Service > Application Insights) _![ Rysunek 2,0](media/profiler-bring-your-own-storage/figure-20.png)_ 
  _rysunek 2,0_
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów

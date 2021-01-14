@@ -3,17 +3,17 @@ title: Konfiguracja klastra w usłudze Azure Kubernetes Services (AKS)
 description: Dowiedz się, jak skonfigurować klaster w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 09/21/2020
+ms.date: 01/13/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: ab9e2a5483f0699ad7bfca991539025adff34b11
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: eacca50e00dfe8625d86362c444544e2fd5d5511
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97606916"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201114"
 ---
-# <a name="configure-an-aks-cluster"></a>Konfigurowanie klastra AKS
+# <a name="configure-an-aks-cluster"></a>Konfigurowanie klastra usługi AKS
 
 W ramach tworzenia klastra AKS może być konieczne dostosowanie konfiguracji klastra zgodnie z potrzebami. W tym artykule przedstawiono kilka opcji dostosowywania klastra AKS.
 
@@ -21,10 +21,52 @@ W ramach tworzenia klastra AKS może być konieczne dostosowanie konfiguracji kl
 
 AKS teraz obsługuje Ubuntu 18,04 jako system operacyjny węzła (OS) w ogólnej dostępności dla klastrów w wersjach Kubernetes wyższych niż 1.18.8. W przypadku wersji poniżej 1.18. x AKS Ubuntu 16,04 jest nadal domyślnym obrazem podstawowym. Z Kubernetes v 1.18. x i z lewej, domyślną bazą jest AKS Ubuntu 18,04.
 
-> [!IMPORTANT]
-> Pule węzłów utworzone w Kubernetes v 1.18 lub większe domyślne dla `AKS Ubuntu 18.04` obrazu węzła. Pule węzłów w obsługiwanej wersji Kubernetes mniejszej niż 1,18 `AKS Ubuntu 16.04` są odbierane jako obraz węzła, ale zostaną zaktualizowane do `AKS Ubuntu 18.04` chwili, gdy wersja Kubernetes puli węzłów zostanie zaktualizowana do wersji v 1.18 lub nowszej.
-> 
-> Zdecydowanie zaleca się przetestowanie obciążeń w puli węzłów AKS Ubuntu 18,04 przed użyciem klastrów w witrynie 1,18 lub nowszej. Przeczytaj, jak [przetestować pule węzłów Ubuntu 18,04](#use-aks-ubuntu-1804-existing-clusters-preview).
+### <a name="use-aks-ubuntu-1804-generally-available-on-new-clusters"></a>Korzystanie z AKS Ubuntu 18,04 ogólnie dostępnych w nowych klastrach
+
+Klastry utworzone w Kubernetes v 1.18 lub większe domyślne dla `AKS Ubuntu 18.04` obrazu węzła. Pule węzłów w obsługiwanej wersji Kubernetes mniejszej niż 1,18 nadal będą wyświetlane `AKS Ubuntu 16.04` jako obraz węzła, ale zostaną zaktualizowane do `AKS Ubuntu 18.04` wersji, gdy klaster lub Pula węzłów Kubernetes wersja została zaktualizowana do programu v 1.18 lub nowszego.
+
+Zdecydowanie zaleca się przetestowanie obciążeń w puli węzłów AKS Ubuntu 18,04 przed użyciem klastrów w witrynie 1,18 lub nowszej. Przeczytaj, jak [przetestować pule węzłów Ubuntu 18,04](#test-aks-ubuntu-1804-generally-available-on-existing-clusters).
+
+Aby utworzyć klaster przy użyciu `AKS Ubuntu 18.04` obrazu węzła, po prostu Utwórz klaster z systemem Kubernetes v 1.18 lub nowszym, jak pokazano poniżej
+
+```azurecli
+az aks create --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
+```
+
+### <a name="use-aks-ubuntu-1804-generally-available-on-existing-clusters"></a>Korzystanie z AKS Ubuntu 18,04 ogólnie dostępnych w istniejących klastrach
+
+Klastry utworzone w Kubernetes v 1.18 lub większe domyślne dla `AKS Ubuntu 18.04` obrazu węzła. Pule węzłów w obsługiwanej wersji Kubernetes mniejszej niż 1,18 nadal będą wyświetlane `AKS Ubuntu 16.04` jako obraz węzła, ale zostaną zaktualizowane do `AKS Ubuntu 18.04` wersji, gdy klaster lub Pula węzłów Kubernetes wersja została zaktualizowana do programu v 1.18 lub nowszego.
+
+Zdecydowanie zaleca się przetestowanie obciążeń w puli węzłów AKS Ubuntu 18,04 przed użyciem klastrów w witrynie 1,18 lub nowszej. Przeczytaj, jak [przetestować pule węzłów Ubuntu 18,04](#test-aks-ubuntu-1804-generally-available-on-existing-clusters).
+
+Jeśli klastry lub pule węzłów są gotowe do `AKS Ubuntu 18.04` obrazu węzła, można po prostu uaktualnić je do wersji 1.18 lub nowszej w następujący sposób.
+
+```azurecli
+az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
+```
+
+Jeśli chcesz tylko uaktualnić tylko jedną pulę węzłów:
+
+```azurecli
+az aks nodepool upgrade -name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
+```
+
+### <a name="test-aks-ubuntu-1804-generally-available-on-existing-clusters"></a>Test AKS Ubuntu 18,04 ogólnie dostępny w istniejących klastrach
+
+Pule węzłów utworzone w Kubernetes v 1.18 lub większe domyślne dla `AKS Ubuntu 18.04` obrazu węzła. Pule węzłów w obsługiwanej wersji Kubernetes mniejszej niż 1,18 nadal będą wyświetlane `AKS Ubuntu 16.04` jako obraz węzła, ale zostaną zaktualizowane do `AKS Ubuntu 18.04` wersji, gdy zostanie zaktualizowana wersja Kubernetes puli węzłów na wartość v 1.18 lub nowsza.
+
+Zdecydowanie zaleca się przetestowanie obciążeń w pulach węzłów AKS Ubuntu 18,04 przed uaktualnieniem pul węzłów produkcyjnych.
+
+Aby utworzyć pulę węzłów przy użyciu `AKS Ubuntu 18.04` obrazu węzła, wystarczy utworzyć pulę węzłów z systemem Kubernetes v 1.18 lub nowszym. Płaszczyzna kontroli klastra musi mieć co najmniej 1.18 w wersji v lub nowszej, ale inne pule węzłów mogą pozostawać w starszych wersjach Kubernetes.
+Poniżej należy najpierw uaktualnić płaszczyznę kontroli, a następnie utworzyć nową pulę węzłów za pomocą 1.18 v, która otrzyma nową wersję systemu operacyjnego obrazu węzła.
+
+```azurecli
+az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14 --control-plane-only
+
+az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
+```
+
+### <a name="use-aks-ubuntu-1804-on-new-clusters-preview"></a>Korzystanie z AKS Ubuntu 18,04 w nowych klastrach (wersja zapoznawcza)
 
 W poniższej sekcji wyjaśniono, jak używać i testować AKS Ubuntu 18,04 w klastrach, które nie używają jeszcze wersji Kubernetes 1.18. x lub nowszej, lub zostały utworzone przed udostępnieniem tej funkcji.
 
@@ -57,8 +99,6 @@ Gdy stan jest wyświetlany jako zarejestrowane, Odśwież rejestrację `Microsof
 ```azurecli
 az provider register --namespace Microsoft.ContainerService
 ```
-
-### <a name="use-aks-ubuntu-1804-on-new-clusters-preview"></a>Korzystanie z AKS Ubuntu 18,04 w nowych klastrach (wersja zapoznawcza)
 
 Skonfiguruj klaster tak, aby używał Ubuntu 18,04 podczas tworzenia klastra. Użyj `--aks-custom-headers` flagi, aby ustawić Ubuntu 18,04 jako domyślny system operacyjny.
 

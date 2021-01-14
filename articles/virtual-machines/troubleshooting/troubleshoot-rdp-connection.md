@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: akjosh
-ms.openlocfilehash: ba6dda86475456b6797d27e11727d70261be2e1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66e4ea622f546981d1f0651b20368590e59056d3
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439997"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201624"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Rozwiązywanie problemów z połączeniami Pulpit zdalny z maszyną wirtualną platformy Azure
 Połączenie RDP (Remote Desktop Protocol) z maszyną wirtualną platformy Azure bazującą na systemie Windows może ulec awarii z wielu powodów, uniemożliwiając uzyskanie dostępu do maszyny wirtualnej. Ten problem może być związany z usługą pulpitu zdalnego na maszynie wirtualnej, połączeniem sieciowym lub klientem pulpitu zdalnego na komputerze hosta. Ten artykuł przeprowadzi Cię przez niektóre z najbardziej popularnych metod rozwiązywania problemów z połączeniem RDP. 
@@ -101,7 +101,7 @@ Po każdym kroku rozwiązywania problemów spróbuj ponownie nawiązać połącz
 
 10. Upewnij się, że Zapora lokalna lub Zapora na komputerze zezwala na ruch wychodzący TCP 3389 do platformy Azure.
 
-Jeśli nadal występują problemy z protokołem RDP, możesz [otworzyć żądanie pomocy technicznej](https://azure.microsoft.com/support/options/) lub zapoznać się z [bardziej szczegółowymi pojęciami dotyczącymi rozwiązywania problemów z](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)protokołem RDP.
+Jeśli nadal występują problemy z protokołem RDP, możesz [otworzyć żądanie pomocy technicznej](https://azure.microsoft.com/support/options/) lub zapoznać się z [bardziej szczegółowymi pojęciami dotyczącymi rozwiązywania problemów z](detailed-troubleshoot-rdp.md)protokołem RDP.
 
 ## <a name="troubleshoot-using-azure-powershell"></a>Rozwiązywanie problemów przy użyciu programu Azure PowerShell
 Jeśli jeszcze tego nie zrobiono, [Zainstaluj i skonfiguruj najnowszą Azure PowerShell](/powershell/azure/).
@@ -154,7 +154,7 @@ Po każdym kroku rozwiązywania problemów spróbuj ponownie nawiązać połącz
     Direction                : Inbound
     ```
    
-    Jeśli nie masz reguły, która zezwala na ruch RDP, [Utwórz regułę sieciowej grupy zabezpieczeń](../windows/nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Zezwalaj na port TCP 3389.
+    Jeśli nie masz reguły, która zezwala na ruch RDP, [Utwórz regułę sieciowej grupy zabezpieczeń](../windows/nsg-quickstart-powershell.md). Zezwalaj na port TCP 3389.
 3. **Zresetuj poświadczenia użytkownika**. Ten krok rozwiązywania problemów resetuje hasło do konta administratora lokalnego określonego w przypadku braku pewności lub zapomniane poświadczenia.
    
     Najpierw określ nazwę użytkownika i nowe hasło, przypisując poświadczenia do `$cred` zmiennej w następujący sposób:
@@ -190,7 +190,7 @@ Po każdym kroku rozwiązywania problemów spróbuj ponownie nawiązać połącz
 
 7. Upewnij się, że Zapora lokalna lub Zapora na komputerze zezwala na ruch wychodzący TCP 3389 do platformy Azure.
 
-Jeśli nadal występują problemy z protokołem RDP, możesz [otworzyć żądanie pomocy technicznej](https://azure.microsoft.com/support/options/) lub zapoznać się z [bardziej szczegółowymi pojęciami dotyczącymi rozwiązywania problemów z](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)protokołem RDP.
+Jeśli nadal występują problemy z protokołem RDP, możesz [otworzyć żądanie pomocy technicznej](https://azure.microsoft.com/support/options/) lub zapoznać się z [bardziej szczegółowymi pojęciami dotyczącymi rozwiązywania problemów z](detailed-troubleshoot-rdp.md)protokołem RDP.
 
 ## <a name="troubleshoot-vms-created-using-the-classic-deployment-model"></a>Rozwiązywanie problemów z maszynami wirtualnymi utworzonymi przy użyciu klasycznego modelu wdrażania
 
@@ -234,7 +234,7 @@ Po każdym kroku rozwiązywania problemów spróbuj ponownie nawiązać połącz
 
 7. Upewnij się, że Zapora lokalna lub Zapora na komputerze zezwala na ruch wychodzący TCP 3389 do platformy Azure.
 
-Jeśli nadal występują problemy z protokołem RDP, możesz [otworzyć żądanie pomocy technicznej](https://azure.microsoft.com/support/options/) lub zapoznać się z [bardziej szczegółowymi pojęciami dotyczącymi rozwiązywania problemów z](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)protokołem RDP.
+Jeśli nadal występują problemy z protokołem RDP, możesz [otworzyć żądanie pomocy technicznej](https://azure.microsoft.com/support/options/) lub zapoznać się z [bardziej szczegółowymi pojęciami dotyczącymi rozwiązywania problemów z](detailed-troubleshoot-rdp.md)protokołem RDP.
 
 ## <a name="troubleshoot-specific-rdp-errors"></a>Rozwiązywanie problemów dotyczących konkretnych błędów protokołu RDP
 Podczas próby nawiązania połączenia z maszyną wirtualną za pośrednictwem protokołu RDP może wystąpić określony komunikat o błędzie. Poniżej przedstawiono najczęstsze komunikaty o błędach:
@@ -245,7 +245,7 @@ Podczas próby nawiązania połączenia z maszyną wirtualną za pośrednictwem 
 * [Błąd zabezpieczeń systemu Windows: Twoje poświadczenia nie działają](troubleshoot-specific-rdp-errors.md#wincred).
 * [Ten komputer nie może nawiązać połączenia z komputerem zdalnym](troubleshoot-specific-rdp-errors.md#rdpconnect).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
-Jeśli żaden z tych błędów nie wystąpi i nadal nie można nawiązać połączenia z maszyną wirtualną za pośrednictwem Pulpit zdalny, przeczytaj szczegółowy [Przewodnik rozwiązywania problemów dotyczących pulpit zdalny](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+## <a name="additional-resources"></a>Dodatkowe zasoby
+Jeśli żaden z tych błędów nie wystąpi i nadal nie można nawiązać połączenia z maszyną wirtualną za pośrednictwem Pulpit zdalny, przeczytaj szczegółowy [Przewodnik rozwiązywania problemów dotyczących pulpit zdalny](detailed-troubleshoot-rdp.md).
 * Aby uzyskać informacje na temat rozwiązywania problemów z dostępem do aplikacji uruchomionych na maszynie wirtualnej, zobacz [Rozwiązywanie problemów z dostępem do aplikacji uruchomionej na maszynie wirtualnej platformy Azure](./troubleshoot-app-connection.md?toc=/azure/virtual-machines/linux/toc.json).
 * Jeśli masz problemy z używaniem Secure Shell (SSH) do łączenia się z maszyną wirtualną z systemem Linux na platformie Azure, zobacz [Rozwiązywanie problemów z połączeniami SSH z maszyną wirtualną z systemem Linux na platformie Azure](./troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json).

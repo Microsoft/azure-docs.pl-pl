@@ -1,19 +1,19 @@
 ---
-title: Korzystanie z kont magazynu zarządzanych przez klienta w programie Azure Monitor Log Analytics
+title: Korzystanie z kont magazynu zarządzanych przez klienta w usłudze Azure Monitor Log Analytics
 description: Korzystanie z własnego konta magazynu na potrzeby scenariuszy Log Analytics
 ms.subservice: logs
 ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: bb5c6439f2e0b919e422c7a72f98468f0efc01f1
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 706392d95e371fe303bb9f2c18f59e4a224d83c0
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901318"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201063"
 ---
-# <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Korzystanie z kont magazynu zarządzanych przez klienta w programie Azure Monitor Log Analytics
+# <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Korzystanie z kont magazynu zarządzanych przez klienta w usłudze Azure Monitor Log Analytics
 
 Log Analytics opiera się na usłudze Azure Storage w różnych scenariuszach. To użycie jest zazwyczaj zarządzane automatycznie. Jednak niektóre przypadki wymagają podania konta magazynu i zarządzania nim, nazywanego również kontem magazynu zarządzanym przez klienta. W tym dokumencie opisano sposób korzystania z magazynu zarządzanego przez klienta dla dzienników funkcji wad/LAD, prywatnego linku i szyfrowania klucza zarządzanego przez klienta (CMK). 
 
@@ -23,7 +23,7 @@ Log Analytics opiera się na usłudze Azure Storage w różnych scenariuszach. T
 ## <a name="ingesting-azure-diagnostics-extension-logs-wadlad"></a>Pozyskiwanie dzienników rozszerzeń Diagnostyka Azure (funkcji wad/LAD)
 Agentów rozszerzeń Diagnostyka Azure (nazywanych również funkcji wad i LAD dla agentów systemu Windows i Linux) zbierają różne Dzienniki systemu operacyjnego i przechowują je na koncie magazynu zarządzanym przez klienta. Następnie można pozyskiwać te dzienniki w Log Analytics, aby je przejrzeć i przeanalizować.
 ### <a name="how-to-collect-azure-diagnostics-extension-logs-from-your-storage-account"></a>Jak zbierać dzienniki rozszerzeń Diagnostyka Azure z konta magazynu
-Połącz konto magazynu z obszarem roboczym Log Analytics jako źródło danych magazynu przy użyciu [Azure Portal](./diagnostics-extension-logs.md#collect-logs-from-azure-storage) lub przez wywołanie [interfejsu API usługi Storage Insights](/rest/api/loganalytics/connectedsources/storage%20insights/createorupdate).
+Połącz konto magazynu z obszarem roboczym Log Analytics jako źródło danych magazynu przy użyciu [Azure Portal](./diagnostics-extension-logs.md#collect-logs-from-azure-storage) lub przez wywołanie [interfejsu API usługi Storage Insights](/rest/api/loganalytics/storage%20insights/createorupdate).
 
 Obsługiwane typy danych:
 * Dziennik systemu

@@ -7,16 +7,16 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: 62d80426dec6f5d63d8fa5d67d64d6aafb881110
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca9f9ad0fb724884e865469ba118af4c7e6cea2f
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320017"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202848"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>Wersja zapoznawcza: Tworzenie maszyny wirtualnej z systemem Windows przy użyciu usługi Azure Image Builder
 
-W tym artykule przedstawiono sposób tworzenia niestandardowego obrazu systemu Windows przy użyciu narzędzia Azure VM Image Builder. W przykładzie w tym artykule opisano sposób dostosowywania obrazu przy użyciu [konfiguratorów](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#properties-customize) :
+W tym artykule przedstawiono sposób tworzenia niestandardowego obrazu systemu Windows przy użyciu narzędzia Azure VM Image Builder. W przykładzie w tym artykule opisano sposób dostosowywania obrazu przy użyciu [konfiguratorów](../linux/image-builder-json.md#properties-customize) :
 - PowerShell (ScriptUri) — pobiera i uruchamia [skrypt programu PowerShell](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testPsScript.ps1).
 - Ponowne uruchomienie systemu Windows — ponowne uruchomienie maszyny wirtualnej.
 - PowerShell (wbudowane) — Uruchom określone polecenie. W tym przykładzie tworzy katalog na maszynie wirtualnej przy użyciu `mkdir c:\\buildActions` .
@@ -271,4 +271,4 @@ az group delete -n $imageResourceGroup
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o składnikach pliku JSON używanego w tym artykule, zobacz [Dokumentacja szablonu konstruktora obrazów](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Aby dowiedzieć się więcej o składnikach pliku JSON używanego w tym artykule, zobacz [Dokumentacja szablonu konstruktora obrazów](../linux/image-builder-json.md).

@@ -1,18 +1,18 @@
 ---
-title: Raportowanie rozszerzeń plików na danych przy użyciu usługi kontrolą Insights
-description: W tym przewodniku opisano sposób wyświetlania i używania kontrolą Insights File Extension na danych.
+title: Raportowanie rozszerzeń plików na danych w usłudze Azure kontrolą za pomocą usługi kontrolą Insights
+description: W tym przewodniku opisano sposób wyświetlania i używania funkcji raportowania rozszerzeń plików kontrolą na danych.
 author: batamig
 ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: 222106f5838a1eb237987afaa93924f1efe4a1f4
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 246a9dcfa35498d99fd403f10e5c17d7707efe84
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746288"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202627"
 ---
 # <a name="file-extension-insights-about-your-data-from-azure-purview"></a>Informacje o rozszerzeniu plików dotyczące danych z usługi Azure kontrolą 
 
@@ -33,6 +33,9 @@ Przed rozpoczęciem pracy z usługą kontrolą Insights upewnij się, że zosta�
 - Skonfiguruj zasoby platformy Azure i wypełnianie odpowiednich kont danymi testowymi
 
 - Skonfiguruj i Ukończ skanowanie danych testowych w każdym źródle danych
+
+- Zalogowano się do kontrolą przy użyciu konta z [czytnikiem danych lub rolą Curator danych](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
+
 
 Aby uzyskać więcej informacji, zobacz [Zarządzanie źródłami danych w usłudze Azure kontrolą (wersja zapoznawcza)](manage-data-sources.md).
 
@@ -87,7 +90,7 @@ Użyj filtrów powyżej siatki, aby odfiltrować wyświetlane dane:
 |**Filtruj według słowa kluczowego**     |    Wprowadź tekst w polu **Filtruj według słowa kluczowego**  , aby wyświetlić Filtrowanie typów plików według nazwy. Na przykład, aby wyświetlić tylko pliki PDF, wprowadź `PDF` .     |
 |**Godzina**        | Wybierz, aby przefiltrować według określonego przedziału czasu dla momentu utworzenia danych. <br>**Wartość domyślna:** 30 dni  |
 |**Rozszerzenie pliku**     |Wybierz, aby odfiltrować siatkę według jednego lub większej liczby typów plików.        |
-|**Źródeł**    |Wybierz, aby odfiltrować siatkę według określonych źródeł danych. |
+|**Źródła**    |Wybierz, aby odfiltrować siatkę według określonych źródeł danych. |
 |**Skanowanie zawartości**     |Wybierz opcję **obsługiwane** lub **nieobsługiwane**, aby wyświetlić tylko typy plików, które można przeskanować w poszukiwaniu poufnych danych lub dane, których nie można przeskanować, takie jak pliki **CERT** lub **jpg** . |
 | | |
 

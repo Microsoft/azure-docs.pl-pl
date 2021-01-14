@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - contperf-fy21q1
 - device-developer
-ms.openlocfilehash: 9e5e96d97494f4ba9aa28e84b046cd057fe8eba7
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 236acc2ded3fcb651295e0342ab4e1e88174be46
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033412"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202967"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definiowanie nowego typu urządzenia IoT w aplikacji usługi Azure IoT Central
 
@@ -42,8 +42,16 @@ W aplikacji IoT Central szablon urządzenia używa modelu urządzenia do opisywa
 
 - Zaprojektuj szablon urządzenia w IoT Central, a następnie [Zaimplementuj jego model urządzenia w kodzie urządzenia](concepts-telemetry-properties-commands.md).
 - Zaimportuj szablon urządzenia z [wykazu urządzeń z certyfikatem platformy Azure dla IoT](https://aka.ms/iotdevcat). Dostosuj szablon urządzenia do wymagań w IoT Central.
+> [!NOTE]
+> IoT Central wymaga pełnego modelu ze wszystkimi interfejsami, do których istnieją odwołania w tym samym pliku, podczas importowania modelu z repozytorium modelu należy użyć słowa kluczowego "Expanded" w celu uzyskania pełnej wersji.
+Na przykład. https://devicemodels.azure.com/dtmi/com/example/thermostat-1.expanded.json
+
 - Tworzenie modelu urządzenia przy użyciu [języka Digital bliźniaczych reprezentacji Definition Language (DTDL) — wersja 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Program Visual Studio Code ma rozszerzenie, które obsługuje tworzenie modeli DTDL. Aby dowiedzieć się więcej, zobacz [Instalowanie i używanie narzędzi autorskich DTDL](../../iot-pnp/howto-use-dtdl-authoring-tools.md). Następnie opublikuj model w repozytorium modelu publicznego. Aby dowiedzieć się więcej, zobacz [repozytorium modeli urządzeń](../../iot-pnp/concepts-model-repository.md). Zaimplementuj swój kod urządzenia z modelu, a następnie połącz rzeczywiste urządzenie z aplikacją IoT Central. IoT Central odnajduje i importuje model urządzenia z repozytorium publicznego, a następnie generuje szablon urządzenia. Następnie można dodać wszystkie właściwości, dostosowania i pulpity nawigacyjne, których aplikacja IoT Central musi być szablonem urządzenia.
 - Tworzenie modelu urządzenia przy użyciu DTDL. Zaimplementuj swój kod urządzenia z modelu. Ręcznie zaimportuj model urządzenia do aplikacji IoT Central, a następnie Dodaj wszystkie właściwości, dostosowania i pulpity nawigacyjne, których potrzebuje aplikacja IoT Central.
+
+> [!TIP]
+> IoT Central wymaga pełnego modelu ze wszystkimi interfejsami, do których istnieją odwołania w tym samym pliku. Podczas importowania modelu z repozytorium modelu należy użyć słowa kluczowego *rozszerzonego* , aby uzyskać pełną wersję.
+> Przykładowy adres URL to [https://devicemodels.azure.com/dtmi/com/example/thermostat-1.expanded.json](https://devicemodels.azure.com/dtmi/com/example/thermostat-1.expanded.json).
 
 Możesz również dodać szablony urządzeń do aplikacji IoT Central przy użyciu [interfejsu API REST lub interfejs](/learn/modules/manage-iot-central-apps-with-rest-api/) [wiersza polecenia](howto-manage-iot-central-from-cli.md).
 

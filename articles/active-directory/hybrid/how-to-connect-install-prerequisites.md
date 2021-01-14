@@ -16,12 +16,12 @@ ms.date: 11/05/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: edace0298514d1fc3cfd3afcff73fa0d29e18f0c
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 73376994e01ed89891726a8f6e1b727f89dab2fb
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96858777"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201726"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Wymagania wstępne dotyczące programu Azure AD Connect
 W tym artykule opisano wymagania wstępne i wymagania sprzętowe dotyczące programu Azure Active Directory (Azure AD) Connect.
@@ -83,7 +83,7 @@ Zaleca się, aby zabezpieczyć serwer Azure AD Connect, aby zmniejszyć obszar a
 - Postępuj zgodnie ze wskazówkami podanymi w temacie [Zabezpieczanie uprzywilejowanego dostępu](/windows-server/identity/securing-privileged-access/securing-privileged-access). 
 - Odmów używania uwierzytelniania NTLM z serwerem AADConnect. Oto kilka sposobów, aby to zrobić: [ograniczenia uwierzytelniania NTLM na serwerze AADConnect](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-outgoing-ntlm-traffic-to-remote-servers) i [ograniczania uwierzytelniania NTLM w domenie](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain)
 - Upewnij się, że każdy komputer ma unikatowe hasło administratora lokalnego. Aby uzyskać więcej informacji, zobacz [rozwiązanie hasła administratora lokalnego (](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) zależnie od) umożliwia skonfigurowanie unikatowych losowych haseł na każdej stacji roboczej i przechowywanie ich w Active Directory chronionych przez listę kontroli dostępu. Tylko uprawnieni autoryzowani użytkownicy mogą odczytywać lub żądać resetowania haseł konta administratora lokalnego. Możesz uzyskać dostęp do programu na stacjach roboczych i serwerach z [Centrum pobierania Microsoft](https://www.microsoft.com/download/details.aspx?id=46899). Dodatkowe wskazówki dotyczące działania środowiska z innymi i stacjami roboczymi dostępu uprzywilejowanego (dostępem uprzywilejowanym) można znaleźć w temacie [standardy operacyjne na podstawie zasad czystego źródła](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle). 
-- Zaimplementuj dedykowane [stacje robocze dostępu uprzywilejowanego](/windows-server/identity/securing-privileged-access/privileged-access-workstations) dla wszystkich pracowników z dostępem uprzywilejowanym do systemów informatycznych w organizacji. 
+- Zaimplementuj dedykowane [stacje robocze dostępu uprzywilejowanego](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) dla wszystkich pracowników z dostępem uprzywilejowanym do systemów informatycznych w organizacji. 
 - Postępuj zgodnie z tymi [dodatkowymi wskazówkami](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) , aby zmniejszyć obszar ataków na środowisko Active Directory.
 
 

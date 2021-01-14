@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: d7af95b9fe2f6d31faa239985f8e8165fd968372
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: bd312f64bd04f4aff6623aa2b911d5e4bffe9f9a
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978598"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201930"
 ---
 # <a name="save-costs-with-azure-dedicated-host-reservations"></a>Oszczędność kosztów dzięki dedykowanym zastrzeżeń hosta na platformie Azure
 
@@ -22,9 +22,9 @@ Po zatwierdzeniu do zarezerwowanego wystąpienia dedykowanych hostów platformy 
 ## <a name="determine-the-right-dedicated-host-sku-before-you-buy"></a>Przed zakupem Określ odpowiednią dedykowaną jednostkę SKU hosta
 
 
-Przed zakupieniem rezerwacji należy określić dedykowanego hosta, którego potrzebujesz. Jednostka SKU jest definiowana dla dedykowanego hosta reprezentującego serię maszyn wirtualnych i typ. 
+Przed zakupieniem rezerwacji należy określić dedykowanego hosta, którego potrzebujesz. Jednostka SKU jest definiowana dla dedykowanego hosta reprezentującego serię maszyn wirtualnych i typ. 
 
-Zacznij od przechodzenia przez obsługiwane rozmiary [maszyny wirtualnej z systemem Windows](./sizes.md) lub [Linux](./sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) , aby zidentyfikować serię maszyn wirtualnych.
+Zacznij od przechodzenia przez obsługiwane rozmiary [maszyny wirtualnej z systemem Windows](./sizes.md) lub [Linux](./sizes.md) , aby zidentyfikować serię maszyn wirtualnych.
 
 Następnie sprawdź, czy jest on obsługiwany na dedykowanych hostach platformy Azure. Na stronie [cennika dedykowanych hostów platformy Azure](https://aka.ms/ADHPricing) znajduje się kompletna lista jednostek SKU dedykowanych hostów, ich informacji o procesorach i różnych opcji cenowych (w tym wystąpień zarezerwowanych).
 
@@ -38,56 +38,56 @@ Wystąpienia zarezerwowane są dostępne dla większości dedykowanych rozmiaró
 
 Rabaty rezerwacji nie mają zastosowania w przypadku następujących czynności:
 
-- **Chmury**   -Rezerwacje nie są dostępne do zakupu w regionach Niemcy i Chiny.
+- **Chmury** — rezerwacje nie są dostępne do zakupu w regionach Niemcy i Chiny.
 
-- **Niewystarczające limity przydziału**   -Rezerwacja, która jest objęta zakresem jednej subskrypcji, musi mieć przydziały vCPU dostępne w subskrypcji dla nowego wystąpienia zarezerwowanego. Jeśli na przykład subskrypcja docelowa ma limit przydziału równy 10 procesorów wirtualnych vCPU dla serii DSv3, nie można zakupić dedykowanych hostów zastrzeżeń obsługujących tę serię. Sprawdzanie przydziału dla rezerwacji obejmuje maszyny wirtualne i hosty dedykowane już wdrożone w subskrypcji. Aby rozwiązać ten problem, można [utworzyć żądanie zwiększenia limitu przydziału](../azure-portal/supportability/resource-manager-core-quotas-request.md)   .
+- **Niewystarczające limity przydziału** — rezerwacja w zakresie jednej subskrypcji musi mieć przydziały vCPU dostępne w subskrypcji dla nowego wystąpienia zarezerwowanego. Jeśli na przykład subskrypcja docelowa ma limit przydziału równy 10 procesorów wirtualnych vCPU dla serii DSv3, nie można zakupić dedykowanych hostów zastrzeżeń obsługujących tę serię. Sprawdzanie przydziału dla rezerwacji obejmuje maszyny wirtualne i hosty dedykowane już wdrożone w subskrypcji. Aby rozwiązać ten problem, można [utworzyć żądanie zwiększenia limitu przydziału](../azure-portal/supportability/resource-manager-core-quotas-request.md) .
 
-- **Ograniczenia pojemności**   W rzadkich przypadkach platforma Azure ogranicza zakup nowych rezerwacji dla podzbioru dedykowanych jednostek SKU hosta z powodu niskiej wydajności w regionie.
+- **Ograniczenia pojemności** — w rzadkich przypadkach platforma Azure ogranicza zakup nowych rezerwacji dla podzbioru dedykowanych jednostek SKU hosta z powodu niskiej wydajności w regionie.
 
 ## <a name="buy-a-reservation"></a>Kupowanie rezerwacji
 
-Można zakupić zarezerwowane wystąpienie dedykowanego wystąpienia hosta platformy Azure w [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D).
+Można zakupić zarezerwowane wystąpienie dedykowanego wystąpienia hosta platformy Azure w [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D).
 
-Płatność za rezerwację z [góry lub miesięczna płatność](../cost-management-billing/reservations/prepare-buy-reservation.md). Te wymagania dotyczą kupowania zastrzeżonego dedykowanego wystąpienia hosta:
+Płatność za rezerwację jest wnoszona [z góry lub w ratach miesięcznych](../cost-management-billing/reservations/prepare-buy-reservation.md). Te wymagania dotyczą kupowania zastrzeżonego dedykowanego wystąpienia hosta:
 
 - Musisz mieć rolę właściciela dla co najmniej jednej subskrypcji EA lub subskrypcji z stawką płatność zgodnie z rzeczywistym użyciem.
 
-- W przypadku subskrypcji z umową EA należy włączyć opcję **Dodaj wystąpienia zarezerwowane**   w [portalu EA](https://ea.azure.com/). Jeśli to ustawienie jest wyłączone, wymagane są uprawnienia administratora EA dla subskrypcji.
+- W przypadku subskrypcji z umową EA należy włączyć opcję **Dodaj wystąpienia zarezerwowane** w [portalu EA](https://ea.azure.com/). Jeśli to ustawienie jest wyłączone, wymagane są uprawnienia administratora EA dla subskrypcji.
 
 - W przypadku programu Cloud Solution Provider (CSP) tylko agenci administracyjni lub agenci sprzedaży mogą kupować rezerwacje.
 
 Aby kupić wystąpienie:
 
-1. Zaloguj się do witryny  [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-2. Wybierz pozycję **wszystkie**   \>  **rezerwacje**usług.
+2. Wybierz pozycję **Wszystkie usługi** \> **Rezerwacje**.
 
-3. Wybierz pozycję **Dodaj**,   Aby zakupić nową rezerwację, a następnie kliknij pozycję **dedykowane hosty**.
+3. Wybierz pozycję **Dodaj** , aby zakupić nową rezerwację, a następnie kliknij pozycję **dedykowane hosty**.
 
 4. Podaj wartości w wymaganych polach. Uruchomione wystąpienia dedykowanych hostów, które pasują do wybranych atrybutów, kwalifikują się do uzyskania rabatu rezerwacji. Rzeczywista liczba dedykowanych wystąpień hosta, które pobiera rabat, zależy od wybranego zakresu i ilości.
 
-Jeśli masz umowę EA, możesz użyć **opcji Dodaj więcej**,   Aby szybko dodać kolejne wystąpienia. Opcja jest niedostępna dla innych typów subskrypcji.
+Jeśli masz umowę EA, możesz użyć **opcji Dodaj więcej** , aby szybko dodać kolejne wystąpienia. Opcja jest niedostępna dla innych typów subskrypcji.
 
 | **Pole**           | **Opis**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Subskrypcja        | Subskrypcja używana do płacenia za rezerwację. Kosztami rezerwacji jest obciążana forma płatności za subskrypcję. Typ subskrypcji musi być umową Enterprise Agreement (Numer oferty: MS-AZR-0017P lub MS-AZR-0148P) lub umowa klienta firmy Microsoft lub indywidualna subskrypcja z stawką płatność zgodnie z rzeczywistym użyciem (numery ofert: MS-AZR-0003P lub MS-AZR-0023P). Opłaty są odliczane od salda zobowiązania pieniężnego (jeśli jest dostępne) lub naliczane jako nadwyżka. W przypadku subskrypcji z płatnością zgodnie z rzeczywistym użyciem opłaty są naliczane za kartę kredytową lub formę płatności faktury dla subskrypcji. |
 | Zakres               | Zakres rezerwacji może obejmować jedną subskrypcję lub wiele subskrypcji (zakres udostępniony). W przypadku wybrania opcji:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Region              | Region świadczenia usługi Azure objęty rezerwacją.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Region (Region)              | Region świadczenia usługi Azure objęty rezerwacją.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Dedykowany rozmiar hosta | Rozmiar dedykowanych wystąpień hosta.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Okres                | Jeden rok lub trzy lata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| Liczba            | Liczba wystąpień zakupionych w ramach rezerwacji. Ilość to liczba uruchomionych dedykowanych wystąpień hosta, które mogą uzyskać rabat rozliczeń.                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Termin                | Jeden rok lub trzy lata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Ilość            | Liczba wystąpień zakupionych w ramach rezerwacji. Ilość to liczba uruchomionych dedykowanych wystąpień hosta, które mogą uzyskać rabat rozliczeń.                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
-- Zakres pojedynczej **grupy zasobów**   — Stosuje rabat rezerwacji do zasobów pasujących tylko w wybranej grupie zasobów.
+- **Zakres pojedynczej grupy zasobów** — rabat na rezerwację jest stosowany do odpowiednich zasobów tylko w wybranej grupie zasobów.
 
-- Zakres pojedynczej **subskrypcji**   — Stosuje rabat rezerwacji do pasujących zasobów w wybranej subskrypcji.
+- **Zakres pojedynczej subskrypcji** — rabat na rezerwację jest stosowany do odpowiednich zasobów w wybranej subskrypcji.
 
-- **Zakres udostępniony**   — Stosuje rabat rezerwacji do pasujących zasobów w uprawnionych subskrypcjach, które znajdują się w kontekście rozliczeń. W przypadku klientów z umowami EA kontekst rozliczania to rejestracja. W przypadku indywidualnych subskrypcji ze stawkami płatności zgodnie z rzeczywistym użyciem kontekst rozliczeń stanowią wszystkie kwalifikujące się subskrypcje utworzone przez administratora konta.
+- **Zakres udostępniony** — rabat na rezerwację jest stosowany do odpowiednich zasobów w kwalifikujących się subskrypcjach w ramach kontekstu rozliczeń. W przypadku klientów z umowami EA kontekst rozliczania to rejestracja. W przypadku indywidualnych subskrypcji ze stawkami płatności zgodnie z rzeczywistym użyciem kontekst rozliczeń stanowią wszystkie kwalifikujące się subskrypcje utworzone przez administratora konta.
 
 ## <a name="usage-data-and-reservation-utilization"></a>Dane użycia i użycie rezerwacji
 
 Dane użycia mają wynikową cenę równą zero za użycie, którego dotyczy rabat rezerwacji. Można sprawdzić, które wystąpienie maszyny wirtualnej otrzymało rabat rezerwacji dla każdej rezerwacji.
 
-Aby uzyskać więcej informacji na temat sposobu wyświetlania rabatów rezerwacji w danych użycia, zobacz [Opis użycia usługi Azure Reservation na potrzeby rejestracji w przedsiębiorstwie](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md),   Jeśli jesteś klientem z umową EA. Jeśli masz pojedynczą subskrypcję, zobacz [Opis użycia usługi Azure Reservation dla subskrypcji z opcją płatność zgodnie z rzeczywistym użyciem](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
+Aby uzyskać więcej informacji na temat sposobu wyświetlania rabatów rezerwacji w danych użycia, zobacz [Opis użycia usługi Azure Reservation na potrzeby rejestracji w przedsiębiorstwie](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) , jeśli jesteś klientem z umową EA. Jeśli masz pojedynczą subskrypcję, zobacz [Opis użycia usługi Azure Reservation dla subskrypcji z opcją płatność zgodnie z rzeczywistym użyciem](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
 
 ## <a name="change-a-reservation-after-purchase"></a>Zmiana rezerwacji po zakupie
 
@@ -107,23 +107,23 @@ Po zakupie nie można wprowadzać następujących typów zmian bezpośrednio:
 
 - SKU
 
-- Liczba
+- Ilość
 
 - Czas trwania
 
-Istnieje jednak możliwość *wymiany*   rezerwacji, jeśli chcesz wprowadzić zmiany.
+Istnieje jednak możliwość *wymiany* rezerwacji, jeśli chcesz wprowadzić zmiany.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Anulowanie, wymiana lub zwrot rezerwacji
 
-Rezerwacje można anulować, wymieniać lub zwracać, jednak obowiązują przy tym pewne ograniczenia. Aby uzyskać więcej informacji, zobacz samoobsługowe [weksle i zwroty dla Azure Reservations](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
+Rezerwacje można anulować, wymieniać lub zwracać, jednak obowiązują przy tym pewne ograniczenia. Aby uzyskać więcej informacji, zobacz temat [Self-service exchanges and refunds for Azure Reservations](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md) (Samoobsługowe wymiany i zwroty kosztów dla rezerwacji platformy Azure).
 
 ## <a name="need-help-contact-us"></a>Potrzebujesz pomocy? Skontaktuj się z nami.
 
-Jeśli masz pytania lub potrzebujesz pomocy,  [utwórz wniosek o pomoc techniczną](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Jeśli masz pytania lub potrzebujesz pomocy, [utwórz wniosek o pomoc techniczną](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się, jak zarządzać rezerwacją, zobacz [zarządzanie Azure Reservations](../cost-management-billing/reservations/manage-reserved-vm-instance.md).
+Aby dowiedzieć się, jak zarządzać wystąpieniem zarezerwowanym, zobacz temat [Manage Azure Reservations](../cost-management-billing/reservations/manage-reserved-vm-instance.md) (Zarządzanie wystąpieniami zarezerwowanymi na platformie Azure).
 
 Aby dowiedzieć się więcej na temat rezerwacji platformy Azure, zobacz następujące artykuły:
 

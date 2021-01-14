@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 26905b746efb0bfcc877e0fa8fad797672bb6447
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d0973682a62b17a21557727a8d5eb8fcb7ec7ef1
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483220"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203375"
 ---
 # <a name="windows-virtual-machines-in-azure"></a>Maszyny wirtualne z systemem Windows na platformie Azure
 
@@ -50,7 +50,7 @@ W poniższej tabeli przedstawiono wybrane metody uzyskania dostępu do listy dos
 | Azure Portal |Wybór lokalizacji z listy podczas tworzenia maszyny wirtualnej. |
 | Azure PowerShell |Użyj polecenia [Get-AzLocation](/powershell/module/az.resources/get-azlocation). |
 | Interfejs API REST |Użycie operacji [wyświetlania listy lokalizacji](/rest/api/resources/subscriptions). |
-| Interfejs wiersza polecenia platformy Azure |Użyj operacji [az account list-locations](/cli/azure/account?view=azure-cli-latest). |
+| Interfejs wiersza polecenia platformy Azure |Użyj operacji [az account list-locations](/cli/azure/account). |
 
 ### <a name="singapore-data-residency"></a>Zamieszkać dane Singapur
 
@@ -61,7 +61,7 @@ Platforma Azure oferuje najlepszą w branży umowę dotyczącą poziomu usług g
 
 
 ## <a name="vm-size"></a>Rozmiar maszyny wirtualnej
-[Rozmiar](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) maszyny wirtualnej zależy od obciążenia, które ma zostać uruchomione. Wybrany rozmiar ma więc wpływ na takie czynniki jak moc procesora, pamięć i przestrzeń dyskowa. W ramach platformy Azure dostępna jest szeroka gama rozmiarów umożliwiających wykorzystanie produktu do wielu różnych zastosowań.
+[Rozmiar](../sizes.md) maszyny wirtualnej zależy od obciążenia, które ma zostać uruchomione. Wybrany rozmiar ma więc wpływ na takie czynniki jak moc procesora, pamięć i przestrzeń dyskowa. W ramach platformy Azure dostępna jest szeroka gama rozmiarów umożliwiających wykorzystanie produktu do wielu różnych zastosowań.
 
 Na platformie Azure jest naliczana [Cena godzinowa](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) w oparciu o rozmiar i system operacyjny maszyny wirtualnej. W przypadku rozpoczętych godzin opłaty są pobierane tylko za faktycznie wykorzystane minuty. Magazyn jest wyceniany oddzielnie; związane z nim opłaty są także pobierane osobno.
 
@@ -69,7 +69,7 @@ Na platformie Azure jest naliczana [Cena godzinowa](https://azure.microsoft.com/
 Subskrypcje mają domyślne [limity przydziałów](../../azure-resource-manager/management/azure-subscription-service-limits.md), które mogą mieć wpływ na wdrożenie wielu maszyn wirtualnych w projekcie. Aktualny limit dla każdej subskrypcji wynosi 20 maszyn wirtualnych na region. Limity można zwiększyć, [wypełniając odpowiednio bilet pomocy technicznej](../../azure-portal/supportability/resource-manager-core-quotas-request.md)
 
 ### <a name="operating-system-disks-and-images"></a>Dyski i obrazy z systemem operacyjnym
-Maszyny wirtualne używają [wirtualnych dysków twardych (VHD)](../managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) do przechowywania systemu operacyjnego i danych. Wirtualne dyski twarde są również używane do obsługi obrazów, spośród których można wybierać, chcąc zainstalować system operacyjny. 
+Maszyny wirtualne używają [wirtualnych dysków twardych (VHD)](../managed-disks-overview.md) do przechowywania systemu operacyjnego i danych. Wirtualne dyski twarde są również używane do obsługi obrazów, spośród których można wybierać, chcąc zainstalować system operacyjny. 
 
 Na platformie Azure jest dostępnych wiele [obrazów z portalu Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images%3Bwindows&page=1), których można używać z różnymi wersjami i typami systemów operacyjnych Windows Server. Obrazy z Marketplace są oznaczone nazwą wydawcy i oferty, jednostką SKU i wersją (zwykle najnowszą). Obsługiwane są tylko 64-bitowe systemy operacyjne. Aby uzyskać więcej informacji dotyczących obsługiwanych systemów operacyjnych gościa, ról oraz funkcji, zobacz temat [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) (Obsługa oprogramowania serwera Microsoft maszyn wirtualnych Microsoft Azure).
 
@@ -80,7 +80,7 @@ W poniższej tabeli pokazano, jak można znaleźć informacje o obrazie.
 | Azure Portal |Wartości są podawane automatycznie po wybraniu obrazu, który ma zostać użyty. |
 | Azure PowerShell |[Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) -Location *lokalizacja*<BR>[Get-AzVMImageOffer](/powershell/module/az.compute/get-azvmimageoffer) -Location *lokalizacja* -Publisher *nazwaWydawcy*<BR>[Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku) -Location *lokalizacja* -Publisher *nazwaWydawcy* -Offer *nazwaOferty* |
 | Interfejsy API REST |[Wyświetl listę wydawców obrazów](/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Wyświetl listę ofert obrazów](/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Wyświetl listę jednostek SKU obrazów](/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
-| Interfejs wiersza polecenia platformy Azure |[az vm image list-publishers](/cli/azure/vm/image?view=azure-cli-latest) --location *lokalizacja*<BR>[AZ VM Image list-offers](/cli/azure/vm/image?view=azure-cli-latest) *-Lokalizacja lokalizacji--* Publisher *PublisherName*<BR>[az vm image list-skus](/cli/azure/vm?view=azure-cli-latest) --location *lokalizacja* --publisher *nazwa_wydawcy* --offer *nazwa_oferty*|
+| Interfejs wiersza polecenia platformy Azure |[az vm image list-publishers](/cli/azure/vm/image) --location *lokalizacja*<BR>[AZ VM Image list-offers](/cli/azure/vm/image) *-Lokalizacja lokalizacji--* Publisher *PublisherName*<BR>[az vm image list-skus](/cli/azure/vm) --location *lokalizacja* --publisher *nazwa_wydawcy* --offer *nazwa_oferty*|
 
 Istnieje możliwość [przesłania i użycia własnego obrazu](upload-generalized-managed.md) — nazwa wydawcy, oferta i jednostka SKU nie są wtedy używane.
 
@@ -103,7 +103,7 @@ Zasoby wymienione w tej tabeli są używane przez maszynę wirtualną i muszą i
 | [Sieć wirtualna](../../virtual-network/virtual-networks-overview.md) |Tak |Maszyna wirtualna musi należeć do sieci wirtualnej. |
 | [Publiczny adres IP](../../virtual-network/public-ip-addresses.md) |Nie |Maszyna wirtualna może mieć przypisany publiczny adres IP umożliwiający uzyskiwanie do niej dostępu zdalnego. |
 | [Interfejs sieciowy](../../virtual-network/virtual-network-network-interface.md) |Tak |Maszyna wirtualna wymaga interfejsu sieciowego do komunikacji w sieci. |
-| [Dyski danych](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Nie |Maszyna wirtualna może zawierać dyski danych zwiększające jej pojemność. |
+| [Dyski danych](attach-managed-disk-portal.md) |Nie |Maszyna wirtualna może zawierać dyski danych zwiększające jej pojemność. |
 
 
 ## <a name="data-residency"></a>Rezydencja danych

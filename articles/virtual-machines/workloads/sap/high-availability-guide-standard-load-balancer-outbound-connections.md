@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: radeltch
-ms.openlocfilehash: 9c9979699b5bcb3636adc0f9b58331568ea9cad1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 525c705db81dc0f152c8dbc55de5ebac841e5d57
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486306"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201743"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Publiczna łączność z punktem końcowym dla Virtual Machines przy użyciu usługi Azure usługa Load Balancer w warstwie Standardowa w scenariuszach wysokiej dostępności SAP
 
@@ -100,7 +100,7 @@ Konfiguracja będzie wyglądać następująco:
 2. Utwórz **MyBackendPoolOfPublicILB** puli zaplecza i Dodaj maszyny wirtualne.  
    1. Wybierz sieć wirtualną  
    1. Wybierz Maszyny wirtualne i ich adresy IP, a następnie dodaj je do puli zaplecza  
-3. [Utwórz reguły ruchu wychodzącego](../../../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard%3ftabs%3doption-1-create-load-balancer-standard#create-outbound-rule-configuration). Obecnie nie można tworzyć reguł wychodzących na podstawie Azure Portal. Reguły ruchu wychodzącego można tworzyć przy użyciu [interfejsu wiersza polecenia platformy Azure](../../../cloud-shell/overview.md?view=azure-cli-latest).  
+3. [Utwórz reguły ruchu wychodzącego](../../../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard%3ftabs%3doption-1-create-load-balancer-standard#create-outbound-rule-configuration). Obecnie nie można tworzyć reguł wychodzących na podstawie Azure Portal. Reguły ruchu wychodzącego można tworzyć przy użyciu [interfejsu wiersza polecenia platformy Azure](../../../cloud-shell/overview.md).  
 
    ```azurecli
     az network lb outbound-rule create --address-pool MyBackendPoolOfPublicILB --frontend-ip-configs MyPublicILBFrondEndIP --idle-timeout 30 --lb-name MyPublicILB --name MyOutBoundRules  --outbound-ports 10000 --enable-tcp-reset true --protocol All --resource-group MyResourceGroup

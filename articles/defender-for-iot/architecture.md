@@ -11,20 +11,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/02/2020
+ms.date: 1/13/2021
 ms.author: shhazam
-ms.openlocfilehash: 3b5a586b5db4fb15a32090e601bac5610ece1427
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: f3239434a7ba737bc9323bc4f383afd794800db1
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832578"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201483"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Architektura usługi Azure Defender for IoT
 
-W tym artykule opisano architekturę systemu funkcjonalnego rozwiązania Defender for IoT.
+W tym artykule opisano architekturę systemu funkcjonalnego rozwiązania Defender for IoT. Usługa Azure Defender for IoT oferuje dwa zestawy funkcji, które odpowiadają wymaganiom środowiska, rozwiązanie bez agenta dla organizacji i rozwiązanie oparte na agentach dla konstruktorów urządzeń.
 
-## <a name="defender-for-iot-components"></a>Usługa Defender dla składników IoT
+## <a name="agentless-solution-for-organizations"></a>Rozwiązanie bez agenta dla organizacji
+### <a name="defender-for-iot-components"></a>Usługa Defender dla składników IoT
 
 Usługa Defender for IoT nawiązuje połączenie zarówno z chmurą platformy Azure, jak i ze składnikami lokalnymi. Rozwiązanie jest przeznaczone do skalowalności w dużych i geograficznie rozproszonych środowiskach z wieloma lokalizacjami zdalnymi. To rozwiązanie umożliwia rozproszoną architekturę wielowarstwową według kraju, regionu, jednostki biznesowej lub strefy. 
 
@@ -79,12 +80,12 @@ Zarządzanie usługą Azure Defender dla IoT w środowiskach hybrydowych odbywa 
 - Lokalna Konsola zarządzania
 - Witryna Azure Portal
 
-#### <a name="sensor-console"></a>Konsola czujnika
+### <a name="sensor-console"></a>Konsola czujnika
 Wykrywanie czujników są wyświetlane w konsoli czujników, gdzie można je przeglądać, badać i analizować w mapie sieci, spisie zasobów i w szerokim zakresie raportów, na przykład raporty oceny ryzyka, zapytania wyszukiwania danych i wektory ataków. Konsoli programu można także używać do wyświetlania i obsługi zagrożeń wykrytych przez aparaty czujników, przekazywania informacji do systemów partnerskich, zarządzania użytkownikami i innych.
 
 :::image type="content" source="./media/architecture/sensor-console-v2.png" alt-text="Usługa Defender for IoT — konsola czujnika":::
 
-#### <a name="on-premises-management-console"></a>Lokalna Konsola zarządzania
+### <a name="on-premises-management-console"></a>Lokalna Konsola zarządzania
 Lokalna Konsola zarządzania umożliwia operatorom usługi Security Operations Center (SOC) Zarządzanie alertami zagregowanymi z wielu czujników na jednym pulpicie nawigacyjnym i zapewnia ogólny wgląd w kondycję nieobsługiwanych sieci.
 
 Ta architektura zapewnia kompleksowy, ujednolicony widok sieci na poziomie SOC, zoptymalizowaną obsługę alertów oraz kontrolę nad zabezpieczeniami sieci operacyjnej, dzięki czemu podejmowanie decyzji i zarządzania ryzykiem pozostaje nieskazitelnych.
@@ -103,20 +104,23 @@ Konsolę zarządzania można wdrożyć w celu skonfigurowania wysokiej dostępno
 
    :::image type="content" source="media/updates/alerts-and-site-management-v2.png" alt-text="Zarządzaj wszystkimi alertami i informacjami.":::
 
-#### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 Portal Defender for IoT na platformie Azure umożliwia:
 
 - Kup urządzenia rozwiązania
+
 - Instalowanie i aktualizowanie oprogramowania
 - Dołączanie czujników do platformy Azure
 - Aktualizowanie pakietów analizy zagrożeń
 
-## <a name="embedded-security-agent-built-in-mode"></a>Osadzony Agent zabezpieczeń: tryb wbudowany
+## <a name="agent-based-solution-for-device-builders"></a>Rozwiązanie oparte na agencie dla konstruktorów urządzeń
+
+### <a name="embedded-security-agent-built-in-mode"></a>Osadzony Agent zabezpieczeń: tryb wbudowany
 
 W trybie **wbudowanym** usługa Defender for IoT jest włączona po wybraniu opcji Włącz opcję **zabezpieczenia** w centrum IoT. Zapewnianie monitorowania w czasie rzeczywistym, zaleceń i alertów, wbudowany tryb oferuje jednoetapową widoczność urządzenia i niedopasowane zabezpieczenia. Tryb kompilacji nie wymaga instalacji agenta na żadnym urządzeniu i używa zaawansowanej analizy na zarejestrowanych działaniach w celu przeanalizowania i ochrony urządzenia Field i centrum IoT Hub.
 
-## <a name="embedded-security-agent-enhanced-mode"></a>Osadzony Agent zabezpieczeń: Tryb rozszerzony
+### <a name="embedded-security-agent-enhanced-mode"></a>Osadzony Agent zabezpieczeń: Tryb rozszerzony
 
 W trybie **rozszerzonym** po włączeniu opcji **zabezpieczeń** w centrum IoT Hub i zainstalowaniu agenta usługi Defender dla usługi IoT na urządzeniach Agenci zbierają, agregują i analizują surowe zdarzenia zabezpieczeń z urządzeń. Surowe zdarzenia zabezpieczeń mogą obejmować połączenia IP, tworzenie procesów, logowania użytkowników i inne informacje związane z zabezpieczeniami. Usługa Defender dla agentów urządzeń IoT obsługuje również agregację zdarzeń, co pozwala uniknąć dużej przepływności sieci. Agenci są w wysokim stopniu dostosowywany, co pozwala na korzystanie z nich do określonych zadań, takich jak wysyłanie tylko ważnych informacji z najszybszą umową SLA lub agregowanie szczegółowych informacji o zabezpieczeniach i kontekstu w dużych segmentach, co pozwala uniknąć wyższych kosztów usługi.
 
@@ -130,7 +134,9 @@ Za pomocą potoku analizy usługa Defender for IoT łączy wszystkie strumienie 
 
 Zalecenia i alerty usługi Defender for IoT (dane wyjściowe potoku analiz) są zapisywane w obszarze roboczym Log Analytics każdego klienta. Uwzględnianie nieprzetworzonych zdarzeń w obszarze roboczym, a także alertów i zaleceń pozwala na głębokie badanie szczegółowe oraz zapytania wykorzystujące dokładne szczegóły wykrytych podejrzanych działań.
 
-## <a name="see-also"></a>Zobacz także
+:::image type="content" source="media/architecture/micro-agent-architecture.png" alt-text="Architektura Micro Agent.":::
+
+## <a name="see-also"></a>Zobacz też
 
 [Defender — często zadawane pytania dotyczące usługi IoT](resources-frequently-asked-questions.md)
 

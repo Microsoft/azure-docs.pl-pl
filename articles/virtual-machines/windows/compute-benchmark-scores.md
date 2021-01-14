@@ -9,15 +9,15 @@ ms.workload: infrastructure-services
 ms.date: 04/29/2020
 ms.author: cynthn
 ms.reviewer: davberg
-ms.openlocfilehash: ccaf44f733958bff461e954c78196f7376a59771
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b354f6f121e6a055e7db07a587936f3eaff94c33
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836211"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201573"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Oblicz wyniki testów porównawczych dla maszyn wirtualnych z systemem Windows
-Poniższe wyniki testu porównawczego SPECInt pokazują wydajność obliczeń dla wybranych maszyn wirtualnych platformy Azure z systemem Windows Server. Wyniki testów porównawczych obliczeń są również dostępne dla [maszyn wirtualnych z systemem Linux](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Poniższe wyniki testu porównawczego SPECInt pokazują wydajność obliczeń dla wybranych maszyn wirtualnych platformy Azure z systemem Windows Server. Wyniki testów porównawczych obliczeń są również dostępne dla [maszyn wirtualnych z systemem Linux](../linux/compute-benchmark-scores.md).
 
 
 ## <a name="av2---general-compute"></a>Av2 — ogólne obliczenia
@@ -65,9 +65,9 @@ Poniższe wyniki testu porównawczego SPECInt pokazują wydajność obliczeń dl
 | Standard_B4ms | 4 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 43 | 28,3 | 0,7 | 
 | Standard_B8ms | 8 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 3 | 42,0 | 0.0 | 
 | Standard_B8ms | 8 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 25 | 41,4 | 0,9 | 
-| Standard_B12ms | 12 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v3 lub v4 | 19 | 58,9 | 2.3 |
-| Standard_B16ms | 16 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v3 lub v4 | 18 | 75,4 | 2.1 |
-| Standard_B20ms | 20 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v3 lub v4| 2 | 90,6 | 1.3 |
+| Standard_B12ms | 12 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v3 lub v4 | 19 | 58,9 | 2.3 |
+| Standard_B16ms | 16 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v3 lub v4 | 18 | 75,4 | 2.1 |
+| Standard_B20ms | 20 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v3 lub v4| 2 | 90,6 | 1.3 |
 
 
 >[!NOTE]
@@ -84,19 +84,19 @@ Poniższe wyniki testu porównawczego SPECInt pokazują wydajność obliczeń dl
 | Standardowa_D2s_v3 | 2 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 10 | 40,8 | 2.3 | 
 | Standardowa_D2s_v3 | 2 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 52 | 43,3 | 2.1 | 
 | Standardowa_D4s_v3 | 4 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 21 | 77,9 | 2,6 | 
-| Standardowa_D4s_v3 | 4 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 29 | 82,3 | 2,5 | 
+| Standardowa_D4s_v3 | 4 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 29 | 82,3 | 2.5 | 
 | Standardowa_D8s_v3 | 8 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 7 | 148,3 | 1,9 | 
 | Standardowa_D8s_v3 | 8 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 28 | 155,4 | 5,6 | 
 | Standardowa_D16s_v3 | 16 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 3 | 275,7 | 5,1 | 
 | Standardowa_D16s_v3 | 16 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 38 | 298,2 | 4.4 | 
 | Standard_D32s_v3 | 32 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 24 | 545,8 | 10.5 | 
 | Standard_D32s_v3 | 32 | 2 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 9 | 535,6 | 12,6 | 
-| Standard_D32 — 8s_v3 | 8 |  | Procesor Intel (R) Xeon (R) E5-2673 v3 lub v4 | 6 | 166,0 | 8.8 |
-| Standard_D32 — 16s_v3 | 16 |  | Procesor Intel (R) Xeon (R) E5-2673 v3 lub v4 | 4 | 300,8 | 6.4 |
-| Standard_D48s_v3 | 48 | 2 | Procesor Intel (R) Xeon (R) E5-2673 v3 lub v4 | 1 | 838,0 | 0.0 |
+| Standard_D32 — 8s_v3 | 8 |  | Procesor Intel (R) Xeon (R) E5-2673 v3 lub v4 | 6 | 166,0 | 8.8 |
+| Standard_D32 — 16s_v3 | 16 |  | Procesor Intel (R) Xeon (R) E5-2673 v3 lub v4 | 4 | 300,8 | 6.4 |
+| Standard_D48s_v3 | 48 | 2 | Procesor Intel (R) Xeon (R) E5-2673 v3 lub v4 | 1 | 838,0 | 0.0 |
 | Standard_D64s_v3 | 64 | 2 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 35 | 1070,6 | 2,4 | 
-| Standard_D64 — 16s_v3 | 16 |  | Procesor Intel (R) Xeon (R) E5-2673 v3 lub v4 | 4 | 340,0 | 21,4 |
-| Standard_D64 — 32s_v3 | 32 |  | Procesor Intel (R) Xeon (R) E5-2673 v3 lub v4 | 3 | 592,3 | 1.5 |
+| Standard_D64 — 16s_v3 | 16 |  | Procesor Intel (R) Xeon (R) E5-2673 v3 lub v4 | 4 | 340,0 | 21,4 |
+| Standard_D64 — 32s_v3 | 32 |  | Procesor Intel (R) Xeon (R) E5-2673 v3 lub v4 | 3 | 592,3 | 1.5 |
 
 ## <a name="dv3---general-compute"></a>Dv3 — ogólne obliczenia
 
@@ -114,7 +114,7 @@ Poniższe wyniki testu porównawczego SPECInt pokazują wydajność obliczeń dl
 | Standardowa_D16_v3 | 16 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 32 | 300,7 | 8.8 | 
 | Standard_D32_v3 | 32 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 24 | 549,3 | 11,1 | 
 | Standard_D32_v3 | 32 | 2 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 7 | 538,6 | 9,4 | 
-| Standard_D48_v3 | 48 |  |  Procesor Intel (R) Xeon (R) E5-2673 v3 lub v4 | 3 | 839,7 | 14,4 |
+| Standard_D48_v3 | 48 |  |  Procesor Intel (R) Xeon (R) E5-2673 v3 lub v4 | 3 | 839,7 | 14,4 |
 | Standard_D64_v3 | 64 | 2 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 32 | 1070,6 | 12,4 | 
 
 ## <a name="dsv2---storage-optimized"></a>DSv2 — zoptymalizowane pod kątem magazynu
@@ -122,9 +122,9 @@ Poniższe wyniki testu porównawczego SPECInt pokazują wydajność obliczeń dl
 | Rozmiar | Procesory wirtualne | Węzły NUMA | Procesor CPU | Uruchamianie | Średnia stawka podstawowa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standardowa_DS1_v2 | 1 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 12 | 33,0 | 1,1 | 
-| Standardowa_DS1_v2 | 1 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 37 | 33,8 | 2,5 | 
+| Standardowa_DS1_v2 | 1 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 37 | 33,8 | 2.5 | 
 | Standard_DS2_v2 | 2 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 33 | 63,9 | 1,7 | 
-| Standard_DS2_v2 | 2 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 32 | 66,6 | 4,8 | 
+| Standard_DS2_v2 | 2 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 32 | 66,6 | 4.8 | 
 | Standardowa_DS3_v2 | 4 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 15 | 125,5 | 3.2 | 
 | Standardowa_DS3_v2 | 4 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 47 | 130,1 | 4.3 | 
 | Standardowa_DS4_v2 | 8 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 23 | 235,7 | 6.6 | 
@@ -150,7 +150,7 @@ Poniższe wyniki testu porównawczego SPECInt pokazują wydajność obliczeń dl
 | Standardowa_DS14_v2 | 16 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 22 | 469,5 | 6,9 | 
 | Standardowa_DS14_v2 | 16 | 2 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 16 | 456,6 | 7.3 | 
 | Standard_DS14 — 4_v2 | 4 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 28 | 132,8 | 6.6 | 
-| Standard_DS14 — 4_v2 | 4 | 2 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 16 | 125,1 | 4,8 | 
+| Standard_DS14 — 4_v2 | 4 | 2 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 16 | 125,1 | 4.8 | 
 | Standard_DS14 — 8_v2 | 8 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 27 | 251,3 | 2,4 | 
 | Standard_DS14 — 8_v2 | 8 | 2 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 14 | 247,4 | 10,2 | 
 | Standard_DS15_v2 | 20 | 2 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 45 | 546,1 | 10.5 | 
@@ -160,13 +160,13 @@ Poniższe wyniki testu porównawczego SPECInt pokazują wydajność obliczeń dl
 | Rozmiar | Procesory wirtualne | Węzły NUMA | Procesor CPU | Uruchamianie | Średnia stawka podstawowa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standardowa_D1_v2 | 1 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 30 | 33,5 | 1,7 | 
-| Standardowa_D1_v2 | 1 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 31 | 34,7 | 2,5 | 
+| Standardowa_D1_v2 | 1 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 31 | 34,7 | 2.5 | 
 | Standardowa_D2_v2 | 2 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 18 | 66,0 | 1.8 | 
 | Standardowa_D2_v2 | 2 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 31 | 69,9 | 5,0 | 
-| Standardowa_D3_v2 | 4 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 27 | 127,7 | 3,0 | 
+| Standardowa_D3_v2 | 4 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 27 | 127,7 | 3.0 | 
 | Standardowa_D3_v2 | 4 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 27 | 133,4 | 9,1 | 
 | Standardowa_D4_v2 | 8 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 15 | 238,7 | 4.4 | 
-| Standardowa_D4_v2 | 8 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 36 | 248,9 | 4,8 | 
+| Standardowa_D4_v2 | 8 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 36 | 248,9 | 4.8 | 
 | Standardowa_D5_v2 | 16 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 9 | 413,9 | 14,1 | 
 | Standardowa_D5_v2 | 16 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 27 | 470,2 | 8.1 | 
 | Standardowa_D5_v2 | 16 | 2 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 5 | 466,0 | 0.0 | 
@@ -188,7 +188,7 @@ Poniższe wyniki testu porównawczego SPECInt pokazują wydajność obliczeń dl
 | Standardowa_E4s_v3 | 4 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 28 | 81,4 | 3.3 | 
 | Standardowa_E8s_v3 | 8 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 29 | 156,3 | 5,1 | 
 | Standard_E8 — 2s_v3 | 2 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 57 | 41,8 | 2,6 | 
-| Standard_E8 — 4s_v3 | 4 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 45 | 82,9 | 3,0 | 
+| Standard_E8 — 4s_v3 | 4 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 45 | 82,9 | 3.0 | 
 | Standardowa_E16s_v3 | 16 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 31 | 295,7 | 4.5 | 
 | Standard_E16 — 4s_v3 | 4 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 45 | 82,7 | 3,8 | 
 | Standard_E16 — 8s_v3 | 8 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 39 | 158,3 | 4.5 | 
@@ -308,7 +308,7 @@ Poniższe wyniki testu porównawczego SPECInt pokazują wydajność obliczeń dl
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standardowa_L4s | 4 | 1 | Procesor Intel (R) Xeon (R) E5-2698B v3 @ 2,00 GHz | 29 | 122,7 | 6.6 | 
 | Standardowa_L8s | 8 | 1 | Procesor Intel (R) Xeon (R) E5-2698B v3 @ 2,00 GHz | 30 | 223,3 | 7,5 | 
-| Standardowa_L16s | 16 | 1 | Procesor Intel (R) Xeon (R) E5-2698B v3 @ 2,00 GHz | 31 | 397,3 | 2,5 | 
+| Standardowa_L16s | 16 | 1 | Procesor Intel (R) Xeon (R) E5-2698B v3 @ 2,00 GHz | 31 | 397,3 | 2.5 | 
 | Standardowa_L32s | 32 | 2 | Procesor Intel (R) Xeon (R) E5-2698B v3 @ 2,00 GHz | 31 | 766,1 | 3,5 | 
 
 ## <a name="m---memory-optimized"></a>M — zoptymalizowane pod kątem pamięci
@@ -317,7 +317,7 @@ Poniższe wyniki testu porównawczego SPECInt pokazują wydajność obliczeń dl
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_M8 — 2 MS | 2 | 1 | Procesor Intel (R) Xeon (R) E7-8890 v3 @ 2.50 GHz | 15 | 42,1 | 2.1 | 
 | Standard_M8 — 4 MS | 4 | 1 | Procesor Intel (R) Xeon (R) E7-8890 v3 @ 2.50 GHz | 13 | 81,6 | 2.9 | 
-| Standard_M16 — 4 MS | 4 | 1 | Procesor Intel (R) Xeon (R) E7-8890 v3 @ 2.50 GHz | 14 | 82,5 | 2,5 | 
+| Standard_M16 — 4 MS | 4 | 1 | Procesor Intel (R) Xeon (R) E7-8890 v3 @ 2.50 GHz | 14 | 82,5 | 2.5 | 
 | Standard_M16 — 8ms | 8 | 1 | Procesor Intel (R) Xeon (R) E7-8890 v3 @ 2.50 GHz | 20 | 157,2 | 6.0 | 
 | Standard_M32 — 8ms | 8 | 1 | Procesor Intel (R) Xeon (R) E7-8890 v3 @ 2.50 GHz | 18 | 162,5 | 2.1 | 
 | Standard_M32 — 16ms | 16 | 1 | Procesor Intel (R) Xeon (R) E7-8890 v3 @ 2.50 GHz | 12 | 306,5 | 0,5 | 
@@ -328,13 +328,13 @@ Poniższe wyniki testu porównawczego SPECInt pokazują wydajność obliczeń dl
 | Standardowa_M64ms | 64 | 2 | Procesor Intel (R) Xeon (R) E7-8890 v3 @ 2.50 GHz | 12 | 1012,9 | 12,5 | 
 | Standard_M64s | 64 | 2 | Procesor Intel (R) Xeon (R) E7-8890 v3 @ 2.50 GHz | 12 | 1012,5 | 4.5 | 
 | Standard_M128 | 128 | 4 | Procesor Intel (R) Xeon (R) E7-8890 v3 @ 2.50 GHz | 11 | 1777,3 | 15,6 | 
-| Standard_M128 — 32ms | 32 | 4 | Procesor Intel (R) Xeon (R) E7-8890 v3 @ 2.50 GHz | 13 | 620,5 | 2,5 | 
+| Standard_M128 — 32ms | 32 | 4 | Procesor Intel (R) Xeon (R) E7-8890 v3 @ 2.50 GHz | 13 | 620,5 | 2.5 | 
 | Standard_M128 — 64ms | 64 | 4 | Procesor Intel (R) Xeon (R) E7-8890 v3 @ 2.50 GHz | 12 | 1140,8 | 2.9 | 
 | Standard_M128m | 128 | 4 | Procesor Intel (R) Xeon (R) E7-8890 v3 @ 2.50 GHz | 12 | 1778,3 | 10,3 | 
 | Standard_M128ms | 128 | 4 | Procesor Intel (R) Xeon (R) E7-8890 v3 @ 2.50 GHz | 15 | 1780,7 | 18,3 | 
 | Standard_M128s | 128 | 4 | Procesor Intel (R) Xeon (R) E7-8890 v3 @ 2.50 GHz | 12 | 1775,8 | 11,6 | 
 | Standard_M16ms | 16 | 1 | Procesor Intel (R) Xeon (R) E7-8890 v3 @ 2.50 GHz | 20 | 293,1 | 11,8 | 
-| Standard_M32ls | 32 | 1 | Procesor Intel (R) Xeon (R) E7-8890 v3 @ 2.50 GHz | 13 | 535,2 | 4,8 | 
+| Standard_M32ls | 32 | 1 | Procesor Intel (R) Xeon (R) E7-8890 v3 @ 2.50 GHz | 13 | 535,2 | 4.8 | 
 | Standard_M32ms | 32 | 1 | Procesor Intel (R) Xeon (R) E7-8890 v3 @ 2.50 GHz | 11 | 534,1 | 4,6 | 
 | Standard_M32ms | 32 | 2 | Procesor Intel (R) Xeon (R) E7-8890 v3 @ 2.50 GHz | 1 | 589,0 | 0.0 | 
 | Standard_M32ts | 32 | 1 | Procesor Intel (R) Xeon (R) E7-8890 v3 @ 2.50 GHz | 12 | 538,6 | 3.2 | 
@@ -389,4 +389,4 @@ Poniższe wyniki testu porównawczego SPECInt pokazują wydajność obliczeń dl
 Numery systemu Windows zostały obliczone przez uruchomienie [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) w systemie Windows Server. SPECint został uruchomiony przy użyciu opcji stawki bazowej (SPECint_rate2006) z jedną kopią na vCPU. SPECint składa się z 12 oddzielnych testów, każdy przebiega trzy razy, pobierając wartość mediany z każdego testu i ważoną ich w celu utworzenia złożonego wyniku. Te testy zostały następnie uruchomione na wielu maszynach wirtualnych, aby zapewnić średnią liczbę wyświetlanych wyników.
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby uzyskać informacje na temat pojemności magazynu, szczegółów dysku i dodatkowych zagadnień związanych z wybieraniem rozmiarów maszyn wirtualnych, zobacz [rozmiary maszyny wirtualnej](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Aby uzyskać informacje na temat pojemności magazynu, szczegółów dysku i dodatkowych zagadnień związanych z wybieraniem rozmiarów maszyn wirtualnych, zobacz [rozmiary maszyny wirtualnej](../sizes.md).

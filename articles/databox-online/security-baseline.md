@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 14e19732423da3842b2f2748a46219691fe222b9
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 0de08c166aba7609210892a32836bee9b07d5394
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803157"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203052"
 ---
 # <a name="azure-security-baseline-for-azure-stack-edge"></a>Linia bazowa zabezpieczeń Azure dla Azure Stack Edge
 
@@ -234,7 +234,7 @@ Dodatkowe informacje są dostępne w przywoływanym łączu.
 
 Zabezpieczone stacje robocze mogą być zarządzane centralnie, aby wymusić bezpieczną konfigurację, w tym silne uwierzytelnianie, oprogramowanie i sprzętowe punkty odniesienia, ograniczony dostęp logiczny i sieciowy.
 
-- [Informacje na temat stacji roboczych uprzywilejowanego dostępu](/azure/active-directory/devices/concept-azure-managed-workstation) 
+- [Informacje na temat stacji roboczych uprzywilejowanego dostępu](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) 
 
 - [Wdrażanie stacji roboczej z dostępem uprzywilejowanym](/azure/active-directory/devices/howto-azure-managed-workstation)
 

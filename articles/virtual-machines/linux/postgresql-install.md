@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: fdde7613627c9fec0694f3985f78cf10e52f59c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4052a9c8614a17c3b5cdd871ad78be8cc3258c5a
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397100"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202593"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Instalowanie i Konfigurowanie PostgreSQL na platformie Azure
 PostgreSQL to zaawansowana baza danych open source podobna do Oracle i DB2. Obejmuje ona funkcje gotowe dla przedsiębiorstwa, takie jak Pełna zgodność ze standardami KWASowymi, niezawodne przetwarzanie transakcyjne i wielostronicowa kontrola współbieżności. Obsługuje ona również standardy, takie jak ANSI SQL i SQL/MED (w tym obce otoki danych dla systemów Oracle, MySQL, MongoDB i wielu innych). Jest wysoce rozszerzalny z obsługą ponad 12 języków proceduralnych, indeksów ĄTEK i dzienników, obsługi danych przestrzennych i wielu funkcji podobnej do NoSQL dla aplikacji opartych na kluczach JSON lub wartościowych.
@@ -24,13 +24,13 @@ Ten artykuł zawiera informacje na temat instalowania i konfigurowania PostgreSQ
 
 ## <a name="install-postgresql"></a>Zainstaluj PostgreSQL
 > [!NOTE]
-> Aby ukończyć ten samouczek, musisz mieć już maszynę wirtualną platformy Azure z systemem Linux. Aby utworzyć i skonfigurować maszynę wirtualną z systemem Linux przed kontynuowaniem, zobacz [Samouczek dotyczący maszyny wirtualnej z systemem Linux](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Aby ukończyć ten samouczek, musisz mieć już maszynę wirtualną platformy Azure z systemem Linux. Aby utworzyć i skonfigurować maszynę wirtualną z systemem Linux przed kontynuowaniem, zobacz [Samouczek dotyczący maszyny wirtualnej z systemem Linux](quick-create-cli.md).
 > 
 > 
 
 W takim przypadku należy użyć portu 1999 jako portu PostgreSQL.  
 
-Nawiąż połączenie z maszyną wirtualną z systemem Linux utworzoną za pomocą wykorzystanych funkcji. Jeśli korzystasz z maszyny wirtualnej z systemem Linux na platformie Azure po raz pierwszy, zobacz [jak używać protokołu SSH z systemem Linux na platformie Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) , aby dowiedzieć się, jak korzystać z funkcji tworzenia połączenia z maszyną wirtualną z systemem Linux.
+Nawiąż połączenie z maszyną wirtualną z systemem Linux utworzoną za pomocą wykorzystanych funkcji. Jeśli korzystasz z maszyny wirtualnej z systemem Linux na platformie Azure po raz pierwszy, zobacz [jak używać protokołu SSH z systemem Linux na platformie Azure](mac-create-ssh-keys.md) , aby dowiedzieć się, jak korzystać z funkcji tworzenia połączenia z maszyną wirtualną z systemem Linux.
 
 1. Uruchom następujące polecenie, aby przełączyć się do katalogu głównego (administratora):
 
@@ -280,7 +280,7 @@ Użyj następującego polecenia, aby wyświetlić tabelę:
 select * from potluck;
 ```
 
-Dane wyjściowe wyglądają następująco:
+Dane wyjściowe są następujące:
 
 ![Zrzut ekranu pokazujący dane wyjściowe polecenia służącego do wyświetlania tabeli.](./media/postgresql-install/no7.png)
 
@@ -291,7 +291,7 @@ Użyj następującego polecenia, aby usunąć dane w tabeli:
 delete from potluck where name=’John’;
 ```
 
-Spowoduje to usunięcie wszystkich informacji w wierszu "Jan". Dane wyjściowe wyglądają następująco:
+Spowoduje to usunięcie wszystkich informacji w wierszu "Jan". Dane wyjściowe są następujące:
 
 ![image (obraz)](./media/postgresql-install/no8.png)
 

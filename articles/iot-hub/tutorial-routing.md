@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 892dad3963e9da3560acc2c782c3d14db246ea78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13130a7ea473b260ddc4f0ebca2ef5b496b34c66
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500593"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203006"
 ---
 # <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>Samouczek: korzystanie z interfejsu wiersza polecenia platformy Azure i Azure Portal konfigurowania routingu komunikatów IoT Hub
 
@@ -140,13 +140,13 @@ Teraz należy skonfigurować routing dla konta magazynu. Przejdź do okienka Kie
 
 2. Wybierz Centrum IoT Hub na liście zasobów. W tym samouczku jest używane centrum **ContosoTestHub**.
 
-3. Wybierz pozycję **Routing komunikatów**. W okienku **routing wiadomości** wybierz pozycję +**Dodaj**. W okienku **Dodawanie trasy** wybierz pozycję +**Dodaj** obok pola punkt końcowy, aby wyświetlić obsługiwane punkty końcowe, jak pokazano na poniższej ilustracji:
+3. Wybierz pozycję **Routing komunikatów**. W okienku **routing wiadomości** wybierz pozycję +**Dodaj**. W okienku **Dodawanie trasy** wybierz pozycję +**Dodaj punkt końcowy** obok pola punkt końcowy, aby wyświetlić obsługiwane punkty końcowe, jak pokazano na poniższej ilustracji:
 
-   ![Rozpocznij dodawanie punktu końcowego dla trasy](./media/tutorial-routing/message-routing-add-a-route-w-storage-ep.png)
+   ![Rozpocznij dodawanie punktu końcowego dla trasy](./media/tutorial-routing/message-routing-add-a-route-with-storage-endpoint-ver2.png)
 
-4. Wybierz pozycję **Blob storage**. Zostanie wyświetlone okienko **Dodawanie punktu końcowego magazynu** .
+4. Wybierz pozycję **Magazyn**. Zostanie wyświetlone okienko **Dodawanie punktu końcowego magazynu** .
 
-   ![Dodawanie punktu końcowego](./media/tutorial-routing/message-routing-add-storage-ep.png)
+   ![Dodawanie punktu końcowego](./media/tutorial-routing/message-routing-add-storage-endpoint-ver2.png)
 
 5. Wprowadź nazwę punktu końcowego. Ten samouczek używa **ContosoStorageEndpoint**.
 

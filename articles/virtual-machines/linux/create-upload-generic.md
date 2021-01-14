@@ -6,23 +6,23 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: guybo
-ms.openlocfilehash: ef4175d24cfd02bb5cb6470b6334fea190b5bec2
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9888cde8bca9fb0646dbdc8bb601b0887908ad1d
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500601"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203239"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informacje dotyczące dystrybucji niepotwierdzonych
 
-Umowa SLA platformy Azure ma zastosowanie do maszyn wirtualnych z systemem operacyjnym Linux tylko wtedy, gdy jest używana jedna z [poświadczonej dystrybucji](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) . W przypadku tych potwierdzonych dystrybucji wstępnie skonfigurowane obrazy systemu Linux są dostępne w portalu Azure Marketplace.
+Umowa SLA platformy Azure ma zastosowanie do maszyn wirtualnych z systemem operacyjnym Linux tylko wtedy, gdy jest używana jedna z [poświadczonej dystrybucji](endorsed-distros.md) . W przypadku tych potwierdzonych dystrybucji wstępnie skonfigurowane obrazy systemu Linux są dostępne w portalu Azure Marketplace.
 
-* [System Linux w przypadku dystrybucji z zatwierdzeniem na platformie Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [System Linux w przypadku dystrybucji z zatwierdzeniem na platformie Azure](endorsed-distros.md)
 * [Obsługa obrazów systemu Linux w Microsoft Azure](https://support.microsoft.com/kb/2941892)
 
 Wszystkie dystrybucje działające na platformie Azure mają kilka wymagań wstępnych. Ten artykuł nie może być wyczerpujący, ponieważ każda dystrybucja różni się. Nawet jeśli spełniasz wszystkie poniższe kryteria, może być konieczne znaczne dostosowanie systemu Linux pod kątem prawidłowego działania.
 
-Zalecamy rozpoczęcie od jednego z systemów Linux w ramach wykorzystanych [dystrybucji na platformie Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). W poniższych artykułach pokazano, jak przygotować różne, zatwierdzone dystrybucje systemu Linux, które są obsługiwane na platformie Azure:
+Zalecamy rozpoczęcie od jednego z systemów Linux w ramach wykorzystanych [dystrybucji na platformie Azure](endorsed-distros.md). W poniższych artykułach pokazano, jak przygotować różne, zatwierdzone dystrybucje systemu Linux, które są obsługiwane na platformie Azure:
 
 - [dystrybucje oparte na systemie CentOS](create-upload-centos.md)
 - [Debian Linux](debian-create-upload-vhd.md)
@@ -38,7 +38,7 @@ Ten artykuł koncentruje się na ogólnych wskazówkach dotyczących uruchamiani
 * Format wirtualnego dysku twardego funkcji Hyper-V (VHDX) nie jest obsługiwany na platformie Azure, tylko *stałego dysku VHD*.  Dysk można przekonwertować na format VHD przy użyciu Menedżera funkcji Hyper-V lub polecenia cmdlet [convert-VHD](/powershell/module/hyper-v/convert-vhd) . Jeśli używasz VirtualBox, wybierz opcję **stały rozmiar** , a nie wartość domyślną (przydzieloną dynamicznie) podczas tworzenia dysku.
 * Platforma Azure obsługuje Gen1 (BIOS Boot) & Gen2 (UEFI boot) maszyn wirtualnych.
 * Maksymalny dozwolony rozmiar dysku VHD to 1 023 GB.
-* W przypadku instalowania systemu Linux zaleca się używanie partycji standardowych zamiast Menedżera woluminów logicznych (LVM), który jest wartością domyślną dla wielu instalacji. Użycie partycji standardowych spowoduje uniknięcie konfliktów nazw LVM z sklonowanymi maszynami wirtualnymi, szczególnie jeśli dysk systemu operacyjnego jest kiedykolwiek podłączony do innej identycznej maszyny wirtualnej w celu rozwiązywania problemów. Na dyskach danych można używać [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) lub [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
+* W przypadku instalowania systemu Linux zaleca się używanie partycji standardowych zamiast Menedżera woluminów logicznych (LVM), który jest wartością domyślną dla wielu instalacji. Użycie partycji standardowych spowoduje uniknięcie konfliktów nazw LVM z sklonowanymi maszynami wirtualnymi, szczególnie jeśli dysk systemu operacyjnego jest kiedykolwiek podłączony do innej identycznej maszyny wirtualnej w celu rozwiązywania problemów. Na dyskach danych można używać [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) lub [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) .
 * Konieczna jest obsługa jądra do instalowania systemów plików UDF. Podczas pierwszego rozruchu na platformie Azure konfiguracja aprowizacji jest przesyłana do maszyny wirtualnej z systemem Linux przy użyciu nośnika sformatowanego w formacie UDF, który jest dołączony do gościa. Aby można było odczytać konfigurację i zainicjować obsługę administracyjną maszyny wirtualnej, Agent systemu Azure Linux musi zainstalować system plików UDF.
 * Wersje jądra systemu Linux starsze niż 2.6.37 nie obsługują architektury NUMA w funkcji Hyper-V o większych rozmiarach maszyn wirtualnych. Ten problem ma głównie wpływ na starsze dystrybucje przy użyciu wbudowanego jądra Red Hat 2.6.32 i został ustalony w Red Hat Enterprise Linux (RHEL) 6,6 (jądro-2.6.32-504). Systemy z uruchomionymi niestandardowymi jądrami starszymi niż 2.6.37 lub jądrem opartym na RHEL starszym niż 2.6.32-504 muszą ustawić parametr rozruchu w `numa=off` wierszu polecenia jądra w grub. conf. Aby uzyskać więcej informacji, zobacz [Red Hat KB 436883](https://access.redhat.com/solutions/436883).
 * Nie należy konfigurować partycji wymiany na dysku systemu operacyjnego. Agenta systemu Linux można skonfigurować tak, aby utworzył plik wymiany na tymczasowym dysku zasobów, zgodnie z opisem w poniższych krokach.
@@ -67,7 +67,7 @@ Obrazy VHD na platformie Azure muszą mieć rozmiar wirtualny wyrównany do 1 MB
 
 * Dysk VHD http: \/ / \<mystorageaccount> . blob.Core.Windows.NET/VHDs/MyLinuxVM.VHD ma nieobsługiwany rozmiar wirtualny wynoszący 21475270656 bajtów. Rozmiar musi być liczbą całkowitą (w MB).
 
-W takim przypadku należy zmienić rozmiar maszyny wirtualnej przy użyciu konsoli Menedżera funkcji Hyper-V lub polecenia cmdlet programu PowerShell [Zmień rozmiar dysku VHD](/powershell/module/hyper-v/resize-vhd?view=win10-ps) .  Jeśli nie Pracujesz w środowisku systemu Windows, zalecamy użycie `qemu-img` programu do konwersji (w razie potrzeby) i zmiany rozmiaru dysku VHD.
+W takim przypadku należy zmienić rozmiar maszyny wirtualnej przy użyciu konsoli Menedżera funkcji Hyper-V lub polecenia cmdlet programu PowerShell [Zmień rozmiar dysku VHD](/powershell/module/hyper-v/resize-vhd) .  Jeśli nie Pracujesz w środowisku systemu Windows, zalecamy użycie `qemu-img` programu do konwersji (w razie potrzeby) i zmiany rozmiaru dysku VHD.
 
 > [!NOTE]
 > [W wersjach QEMU-IMG występuje znany błąd](https://bugs.launchpad.net/qemu/+bug/1490611) >= 2.2.1, który powoduje niewłaściwie sformatowany dysk VHD. Problem został rozwiązany w QEMU 2,6. Zalecamy użycie `qemu-img` 2.2.0 lub niższych lub 2,6 lub wyższych.
@@ -114,7 +114,7 @@ W takim przypadku należy zmienić rozmiar maszyny wirtualnej przy użyciu konso
 
 ## <a name="linux-kernel-requirements"></a>Wymagania jądra systemu Linux
 
-Sterowniki systemu Linux Integration Services (LIS) dla funkcji Hyper-V i platformy Azure są bezpośrednio przeznaczone do nadrzędnego jądra systemu Linux. Wiele dystrybucji, które obejmują ostatnią wersję jądra systemu Linux (np. 3. x), ma już dostępne te sterowniki lub w inny sposób udostępniają w sposób nieaktualne wersje tych sterowników z ich jądrem.  Te sterowniki są stale aktualizowane w jądrze nadrzędnym z nowymi poprawkami i funkcjami, dlatego w przypadku, gdy jest to możliwe, zalecamy uruchomienie [rozpowszechnianej dystrybucji](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) zawierającej te poprawki i aktualizacje.
+Sterowniki systemu Linux Integration Services (LIS) dla funkcji Hyper-V i platformy Azure są bezpośrednio przeznaczone do nadrzędnego jądra systemu Linux. Wiele dystrybucji, które obejmują ostatnią wersję jądra systemu Linux (np. 3. x), ma już dostępne te sterowniki lub w inny sposób udostępniają w sposób nieaktualne wersje tych sterowników z ich jądrem.  Te sterowniki są stale aktualizowane w jądrze nadrzędnym z nowymi poprawkami i funkcjami, dlatego w przypadku, gdy jest to możliwe, zalecamy uruchomienie [rozpowszechnianej dystrybucji](endorsed-distros.md) zawierającej te poprawki i aktualizacje.
 
 Jeśli używasz wariantu Red Hat Enterprise Linux wersje 6,0 do 6,3, należy zainstalować [najnowsze sterowniki lis dla funkcji Hyper-V](https://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). Począwszy od RHEL 6.4 + (i pochodnych) Sterowniki LIS są już dołączone do jądra i dlatego nie są potrzeby żadne dodatkowe pakiety instalacyjne.
 

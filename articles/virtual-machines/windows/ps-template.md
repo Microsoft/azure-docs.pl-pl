@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ddd8166dd29d2210fecdd72d5be446df47a6c5df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c327f5ffbf7c0fbfadf443e80cc1f7540855f59e
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89072302"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201828"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Tworzenie maszyny wirtualnej z systemem Windows na podstawie szablonu usługi Resource Manager
 
@@ -71,7 +71,7 @@ Ostatnie polecenie programu PowerShell z poprzedniego skryptu pokazuje nazwę ma
 ## <a name="next-steps"></a>Następne kroki
 
 - Jeśli wystąpiły problemy ze wdrożeniem, można zapoznać się z tematem [Rozwiązywanie typowych błędów wdrażania platformy Azure przy użyciu Azure Resource Manager](../../azure-resource-manager/templates/common-deployment-errors.md).
-- Dowiedz się, jak utworzyć maszynę wirtualną i zarządzać nią w temacie [Tworzenie maszyn wirtualnych z systemem Windows i zarządzanie nimi za pomocą modułu Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Dowiedz się, jak utworzyć maszynę wirtualną i zarządzać nią w temacie [Tworzenie maszyn wirtualnych z systemem Windows i zarządzanie nimi za pomocą modułu Azure PowerShell](tutorial-manage-vm.md).
 
 Aby dowiedzieć się więcej na temat tworzenia szablonów, Wyświetl składnię i właściwości JSON dla wdrożonych typów zasobów:
 

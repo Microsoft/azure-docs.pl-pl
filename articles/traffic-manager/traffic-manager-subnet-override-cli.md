@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: traffic-manager
 ms.date: 09/18/2019
 ms.author: duau
-ms.openlocfilehash: 984cdfb3e60717f7632ea1fdcd05a4681dd6a1fd
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 7a448afb85a35674921ce74a25eaf2a97430dc61
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517941"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201420"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-cli"></a>Traffic Manager przesłonięcia podsieci przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -39,7 +39,7 @@ Aby utworzyć przesłonięcie podsieci Traffic Manager, możesz użyć interfejs
 - Ten artykuł wymaga wersji 2.0.28 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
 ## <a name="update-the-traffic-manager-endpoint-with-subnet-override"></a>Zaktualizuj punkt końcowy Traffic Manager przy użyciu przesłonięcia podsieci.
-Użyj interfejsu wiersza polecenia platformy Azure, aby zaktualizować punkt końcowy za pomocą poleceń [AZ Network Traffic-Manager Endpoint Update](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update).
+Użyj interfejsu wiersza polecenia platformy Azure, aby zaktualizować punkt końcowy za pomocą poleceń [AZ Network Traffic-Manager Endpoint Update](/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update).
 
 ```azurecli-interactive
 ### Add a range of IPs ###
@@ -59,7 +59,7 @@ az network traffic-manager endpoint update \
     --type AzureEndpoints
 ```
 
-Zakresy adresów IP można usunąć, uruchamiając polecenie [AZ Network Traffic-Manager Endpoint Update](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update) with **--Remove** .
+Zakresy adresów IP można usunąć, uruchamiając polecenie [AZ Network Traffic-Manager Endpoint Update](/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update) with **--Remove** .
 
 ```azurecli-interactive
 az network traffic-manager endpoint update \
@@ -74,4 +74,4 @@ az network traffic-manager endpoint update \
 
 Dowiedz się więcej o [metodach routingu ruchu](traffic-manager-routing-methods.md)Traffic Manager.
 
-Informacje o [metodzie routingu ruchu podsieci](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#subnet-traffic-routing-method)
+Informacje o [metodzie routingu ruchu podsieci](./traffic-manager-routing-methods.md#subnet-traffic-routing-method)

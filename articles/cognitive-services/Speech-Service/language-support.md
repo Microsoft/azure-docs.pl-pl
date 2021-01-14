@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 123302490e738e72106780006c77ef76fdc032cc
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: be0f082e7c27db1a696e17b32f11e676f4068810
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184632"
+ms.locfileid: "98201046"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Obsługa języka i głosu dla usługi mowy
 
@@ -36,7 +36,7 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Język                 | Ustawienia regionalne (BCP-47) | Dostosowania  | [Automatyczne wykrywanie języka?](how-to-automatic-language-detection.md) |
+| Język                 | Ustawienia regionalne (BCP-47) | Dostosowania  | [Wykrywanie języka](how-to-automatic-language-detection.md) |
 |------------------------------------|--------|---------------------------------------------------|-------------------------------|
 | Arabski (Bahrajn), nowoczesny Standard  | `ar-BH` | Model językowy                                   | Tak                           | 
 | Arabski (Egipt)                     | `ar-EG` | Model językowy                                   | Tak                          |
@@ -440,7 +440,7 @@ Interfejs API **tłumaczenia mowy** obsługuje różne języki dla tłumaczenia 
 | Kiswahili               | `sw`          |
 | Klingon                 | `tlh-Latn`    |
 | Klingon (plqaD)         | `tlh-Piqd`    |
-| koreański                  | `ko`          |
+| Koreański                  | `ko`          |
 | Łotewski                 | `lv`          |
 | Litewski              | `lt`          |
 | Madagaskaru                | `mg`          |
