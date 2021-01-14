@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: duau
-ms.openlocfilehash: 997e2e97161e6db7cdca04c1b79f5149a2e4c409
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bd3588c207fe8828744a665539830d81805bd7b3
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003535"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184275"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Traffic Manager metryki i alerty
 
@@ -58,10 +58,10 @@ Ta Metryka może być pokazywana jako wartość zagregowana reprezentująca stan
 
 *Ilustracja 4. widok podzielony metryk stanu punktu końcowego*
 
-Te metryki można wykorzystać za pomocą portalu [usługi Azure monitor](../azure-monitor/platform/metrics-supported.md), [interfejsu API REST](https://docs.microsoft.com/rest/api/monitor/), [wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/monitor)i [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights), a także za pomocą sekcji metryki środowiska w portalu Traffic Manager.
+Te metryki można wykorzystać za pomocą portalu [usługi Azure monitor](../azure-monitor/platform/metrics-supported.md), [interfejsu API REST](/rest/api/monitor/), [wiersza polecenia platformy Azure](/cli/azure/monitor)i [Azure PowerShell](/powershell/module/az.applicationinsights), a także za pomocą sekcji metryki środowiska w portalu Traffic Manager.
 
 ## <a name="alerts-on-traffic-manager-metrics"></a>Alerty dotyczące metryk Traffic Manager
-Oprócz przetwarzania i wyświetlania metryk z Traffic Manager, Azure Monitor umożliwia klientom Konfigurowanie i odbieranie alertów skojarzonych z tymi metrykami. Możesz wybrać warunki, które muszą zostać spełnione w tych metrykach, aby alert wystąpił, jak często te warunki muszą być monitorowane i jak powinny być wysyłane do Ciebie alerty. Aby uzyskać więcej informacji, zobacz [Azure monitor dokumentacja alertów](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
+Oprócz przetwarzania i wyświetlania metryk z Traffic Manager, Azure Monitor umożliwia klientom Konfigurowanie i odbieranie alertów skojarzonych z tymi metrykami. Możesz wybrać warunki, które muszą zostać spełnione w tych metrykach, aby alert wystąpił, jak często te warunki muszą być monitorowane i jak powinny być wysyłane do Ciebie alerty. Aby uzyskać więcej informacji, zobacz [Azure monitor dokumentacja alertów](../azure-monitor/platform/alerts-metric.md).
 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się więcej na temat [usługi Azure monitor](../azure-monitor/platform/metrics-supported.md)

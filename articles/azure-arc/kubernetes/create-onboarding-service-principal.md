@@ -8,16 +8,16 @@ author: mlearned
 ms.author: mlearned
 description: 'Tworzenie jednostki usługi do dołączania z funkcją Azure Arc '
 keywords: Kubernetes, łuk, Azure, kontenery
-ms.openlocfilehash: 02689dba32c8cc91e4a4a4de4dee98bc990b4dd6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8eb38dbc04d964c0ab4869e801099ee9420d6ac2
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87050074"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184700"
 ---
 # <a name="create-an-azure-arc-enabled-onboarding-service-principal-preview"></a>Tworzenie głównej nazwy usługi z funkcją Azure Arc — wersja zapoznawcza
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Możliwe jest użycie jednostek usługi z przypisaniem roli z ograniczonymi uprawnieniami do dołączania klastrów Kubernetes do usługi Azure Arc. Jest to przydatne w przypadku potoków ciągłej integracji i ciągłego wdrażania (CI/CD), takich jak Azure Pipelines i akcje GitHub.
 
@@ -82,7 +82,7 @@ az role assignment create \
 
 Odwołuje się do nowo utworzonej jednostki usługi:
 
-```console
+```azurecli
 az login --service-principal -u mySpnClientId -p mySpnClientSecret --tenant myTenantID
 az connectedk8s connect -n myConnectedClusterName -g myResoureGroupName
 ```

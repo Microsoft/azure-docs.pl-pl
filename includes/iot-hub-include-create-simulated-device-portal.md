@@ -1,6 +1,6 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/26/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 8d8f8021925ac9c9e427dd6571ecaa1a30c85497
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91b6f1ed06fbf1f5575650f96f4622b3df9ca083
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67183853"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98187330"
 ---
 <!-- This is the instructions for creating a simulated device you can use for testing routing.-->
 
@@ -25,7 +25,7 @@ W kolejnym kroku utwórz tożsamość urządzenia i zapisz jego klucz do późni
 
 3. Na liście zasobów wybierz Centrum IoT. W tym samouczku jest używane centrum **ContosoTestHub**. Wybierz pozycję **Urządzenia IoT** w okienku centrum.
 
-4. Wybierz pozycję **+ Dodaj**. W okienku Dodawanie urządzenia wypełnij pole identyfikatora urządzenia. W tym samouczku jest używany identyfikator **Contoso-Test-Device**. Pozostaw klucze puste i zaznacz pole **Automatycznie generuj klucze**. Upewnij się, że pozycja **Połącz urządzenie z centrum IoT Hub** została włączona. Wybierz pozycję **Zapisz**.
+4. Wybierz pozycję **+ Nowe**. W okienku Dodawanie urządzenia wypełnij pole identyfikatora urządzenia. W tym samouczku jest używany identyfikator **Contoso-Test-Device**. Pozostaw klucze puste i zaznacz pole **Automatycznie generuj klucze**. Upewnij się, że pozycja **Połącz urządzenie z centrum IoT Hub** została włączona. Wybierz pozycję **Zapisz**.
 
    ![Ekran Dodaj urządzenie](./media/iot-hub-include-create-simulated-device-portal/add-device.png)
 

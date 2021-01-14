@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/02/2020
 ms.author: mnayak
-ms.openlocfilehash: 656f8a0e0530a20807fc8fddd4cd96d1d955c8ac
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: fa83c51469636eb269aa5dc3192ff7e65b53ce89
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97912703"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186145"
 ---
 # <a name="what-is-routing-preference-preview"></a>Co to jest preferencja routingu (wersja zapoznawcza)?
 
@@ -65,8 +65,8 @@ Publiczny adres IP z wyborem preferencji routingu "Microsoft Global Network" mo�
 W przypadku usługi Storage podstawowe punkty końcowe zawsze używają **sieci globalnej firmy Microsoft**. Pomocnicze punkty końcowe można włączyć w **Internecie** jako wybór dla routingu ruchu. Obsługiwane usługi magazynu:
 
 * Obiekty blob
-* Pliki
-* Internet
+* Files
+* Sieć Web
 * Azure DataLake
 
 ## <a name="pricing"></a>Cennik
@@ -74,7 +74,7 @@ Różnica między cenami w obu opcjach jest uwzględniana w cenach transferu dan
 
 ## <a name="limitations"></a>Ograniczenia
 
-* Preferencja routingu jest zgodna tylko z standardową jednostką SKU publicznego adresu IP. Podstawowa jednostka SKU publicznego adresu IP nie jest obsługiwana.
+* Preferencja routingu jest zgodna tylko z strefowo nadmiarową standardowa jednostka SKU publicznego adresu IP. Podstawowa jednostka SKU publicznego adresu IP nie jest obsługiwana.
 * Preferencje routingu obsługują obecnie tylko publiczne adresy IP IPv4. Publiczne adresy IP protokołu IPv6 nie są obsługiwane.
 * Maszyny wirtualne z wieloma kartami sieciowymi mogą mieć tylko jeden typ preferencji routingu.
 

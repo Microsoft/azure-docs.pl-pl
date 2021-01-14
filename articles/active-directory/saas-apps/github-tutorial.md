@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/07/2020
+ms.date: 12/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 67a17aaa647d9aa6943b37d54fc0e3308ad8955f
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 68de75f25c70db9e2f5fcdb524e6b55fb6939e9a
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558542"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186293"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-a-github-enterprise-cloud-organization"></a>Samouczek Azure Active Directory: integracja z logowaniem jednokrotnym (SSO) w usłudze GitHub Enterprise Cloud w chmurze
 
@@ -24,8 +24,6 @@ W tym samouczku dowiesz się, jak zintegrować **organizację** chmury przedsię
 
 * Kontrola w usłudze Azure AD, która ma dostęp do organizacji w chmurze w witrynie GitHub.
 * Zarządzanie dostępem do organizacji w chmurze w witrynie GitHub w jednej centralnej lokalizacji — Azure Portal.
-
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -41,39 +39,39 @@ W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azu
 * Aplikacja GitHub obsługuje logowanie jednokrotne inicjowane przez **dostawcę usługi (SP)**
 
 * GitHub obsługuje [ **Automatyczne** Inicjowanie obsługi użytkowników (zaproszenia do organizacji)](github-provisioning-tutorial.md)
-* Po skonfigurowaniu usługi GitHub można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
+
 
 ## <a name="adding-github-from-the-gallery"></a>Dodawanie aplikacji GitHub z galerii
 
 Aby skonfigurować integrację aplikacji GitHub z usługą Azure AD, należy dodać z galerii usługę GitHub do listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
 1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
 1. W sekcji **Dodaj z galerii** wpisz **GitHub** w polu wyszukiwania.
 1. Wybierz pozycję **GitHub Enterprise Cloud — organizacja** w panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-github"></a>Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD dla usługi GitHub
+## <a name="configure-and-test-azure-ad-sso-for-github"></a>Konfigurowanie i testowanie rejestracji jednokrotnej usługi Azure AD w witrynie GitHub
 
 Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD z usługą GitHub przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w serwisie GitHub.
 
-Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi GitHub, wykonaj następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi GitHub, wykonaj następujące czynności:
 
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
-    * **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
-    * **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
+    1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
+    1. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
 1. **[Skonfiguruj Logowanie jednokrotne](#configure-github-sso)** w usłudze GitHub, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
-    * **[Utwórz użytkownika testowego usługi GitHub](#create-github-test-user)** , aby dysponować odpowiednikiem B. Simon w usłudze GitHub, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
+    1. **[Utwórz użytkownika testowego usługi GitHub](#create-github-test-user)** , aby dysponować odpowiednikiem B. Simon w usłudze GitHub, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
 1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji usługi **GitHub** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
+1. W Azure Portal na stronie integracja aplikacji usługi **GitHub** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -101,11 +99,6 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
-    a. Adres URL logowania
-
-    b. Identyfikator usługi Azure AD
-
-    c. Adres URL wylogowywania
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -126,20 +119,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Na liście aplikacji wybierz pozycję **GitHub**.
 1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
-
-   ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
-
 1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
-
-    ![Link Dodaj użytkownika](common/add-assign-user.png)
-
 1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
 
     ![rola użytkownika](./media/github-tutorial/user-role.png)
-
-    > [!NOTE]
-    > **Wybierz opcję roli** zostanie wyłączona, a rola domyślna to użytkownik wybranego użytkownika.
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
@@ -147,11 +131,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się w witrynie organizacji usługi GitHub jako administrator.
 
-2. Przejdź do karty **Settings** (Ustawienia) i kliknij pozycję **Security** (Zabezpieczenia)
+2. Przejdź do **ustawień** , a następnie kliknij pozycję **zabezpieczenia**.
 
     ![Zrzut ekranu przedstawiający menu "Ustawienia organizacji" serwisu GitHub z wybranym ustawieniem "zabezpieczenia".](./media/github-tutorial/security.png)
 
-3. Zaznacz pole **Enable SAML authentication** (Włącz uwierzytelnianie SAML), aby aktywować pola konfiguracji logowania jednokrotnego. wykonaj następujące czynności:
+3. Zaznacz pole wyboru **Włącz uwierzytelnianie SAML** , aby odsłonić pola konfiguracji logowania jednokrotnego, wykonaj następujące czynności:
 
     ![Zrzut ekranu pokazujący sekcję "S A M L Logowanie jednokrotne" z wyróżnionymi polami tekstowymi "Enable S A M L".](./media/github-tutorial/saml-sso.png)
 
@@ -215,18 +199,14 @@ Celem tej sekcji jest utworzenie użytkownika o nazwie Britta Simon w aplikacji 
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji. 
 
-Po kliknięciu kafelka GitHub na panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji GitHub, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie do adresu URL logowania do usługi GitHub, w którym można zainicjować przepływ logowania. 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+* Przejdź bezpośrednio do adresu URL logowania do usługi GitHub i zainicjuj tam przepływ logowania.
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
+* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka usługi GitHub w obszarze Moje aplikacje zostanie on przekierowany do adresu URL logowania do usługi GitHub. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Następne kroki
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
-
-- [Wypróbuj usługę GitHub z usługą Azure AD](https://aad.portal.azure.com/)
-
-- [Co to jest kontrola sesji w Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+Po skonfigurowaniu usługi GitHub można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)

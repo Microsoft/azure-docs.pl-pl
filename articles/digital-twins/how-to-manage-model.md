@@ -7,12 +7,13 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a8b2fdf99b33df3322748b7e073cc4ab18957c84
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 00e6802f37ec60467edbea98038dd23fcba1239a
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045244"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185499"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Zarządzanie modelami Digital bliźniaczych reprezentacji na platformie Azure
 
@@ -52,9 +53,6 @@ Korzystając z tej metody, można wykonać Definiowanie modeli dla danych szpita
 ## <a name="upload-models"></a>Przekazywanie modeli
 
 Po utworzeniu modeli można je przekazać do wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
-
-> [!TIP]
-> Zaleca się zweryfikowanie modeli w trybie offline przed przekazaniem ich do wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Możesz użyć [biblioteki analizatora po stronie klienta DTDL](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) i [przykładowego modułu sprawdzania poprawności DTDL](/samples/azure-samples/dtdl-validator/dtdl-validator) opisanej w temacie [*How to: Parse and Validate models*](how-to-parse-models.md) , aby sprawdzić modele przed przekazaniem ich do usługi.
 
 Gdy wszystko jest gotowe do przekazania modelu, można użyć następującego fragmentu kodu:
 

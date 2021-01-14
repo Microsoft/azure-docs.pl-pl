@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 12/10/2020
 ms.author: rolyon
-ms.openlocfilehash: 92b27690ab1f2ca8d98eb2231c5a27bc508613f8
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 81224b5e16f3bca5da641bbb2e9c82dd59000e79
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095427"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185890"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Przenoszenie subskrypcji platformy Azure do innego katalogu usługi Azure AD
 
@@ -26,7 +26,7 @@ W tym artykule opisano podstawowe czynności, które można wykonać w celu prze
 > [!NOTE]
 > W przypadku subskrypcji dostawcy rozwiązań w chmurze platformy Azure zmiana katalogu usługi Azure AD dla subskrypcji nie jest obsługiwana.
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Przenoszenie subskrypcji platformy Azure do innego katalogu usługi Azure AD to złożony proces, który musi być starannie planowany i wykonywany. Wiele usług platformy Azure wymaga, aby podmioty zabezpieczeń (tożsamości) działały normalnie lub nawet zarządzać innymi zasobami platformy Azure. Ten artykuł próbuje uwzględnić większość usług platformy Azure, które są zależne od podmiotów zabezpieczeń, ale nie są wyczerpujące.
 
@@ -73,7 +73,7 @@ Kilka zasobów platformy Azure ma zależność od subskrypcji lub katalogu. W za
 | Role niestandardowe | Tak | Tak | [Wyświetlanie ról niestandardowych](#save-custom-roles) | Wszystkie role niestandardowe są trwale usuwane. Należy ponownie utworzyć role niestandardowe i dowolnych przypisań ról. |
 | Zarządzane tożsamości przypisane do systemu | Tak | Tak | [Wyświetl listę tożsamości zarządzanych](#list-role-assignments-for-managed-identities) | Należy wyłączyć i ponownie włączyć zarządzane tożsamości. Należy ponownie utworzyć przypisania ról. |
 | Tożsamości zarządzane przypisane przez użytkownika | Tak | Tak | [Wyświetl listę tożsamości zarządzanych](#list-role-assignments-for-managed-identities) | Należy usunąć, utworzyć ponownie i dołączyć zarządzane tożsamości do odpowiedniego zasobu. Należy ponownie utworzyć przypisania ról. |
-| W usłudze Azure Key Vault | Tak | Tak | [Wyświetlanie listy zasad dostępu Key Vault](#list-key-vaults) | Musisz zaktualizować identyfikator dzierżawy skojarzony z magazynami kluczy. Należy usunąć i dodać nowe zasady dostępu. |
+| Azure Key Vault | Tak | Tak | [Wyświetlanie listy zasad dostępu Key Vault](#list-key-vaults) | Musisz zaktualizować identyfikator dzierżawy skojarzony z magazynami kluczy. Należy usunąć i dodać nowe zasady dostępu. |
 | Bazy danych SQL Azure z włączoną integracją uwierzytelniania usługi Azure AD | Tak | Nie | [Sprawdzanie baz danych Azure SQL Database przy użyciu uwierzytelniania usługi Azure AD](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
 | Usługa Azure Storage i Azure Data Lake Storage Gen2 | Tak | Tak |  | Należy ponownie utworzyć wszystkie listy ACL. |
 | Azure Data Lake Storage Gen1 | Tak | Tak |  | Należy ponownie utworzyć wszystkie listy ACL. |

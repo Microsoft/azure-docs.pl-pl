@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 04/26/2018
 ms.author: duau
-ms.openlocfilehash: 86151efdc6d2b17c9eef722f2dc3c6306d5aa1b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: abac2e5b1fcba65db92edd2bcc2f390ec0114f59
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400232"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185350"
 ---
 # <a name="route-traffic-for-high-availability-of-applications-using-azure-cli"></a>Kierowanie ruchu w celu zapewnienia wysokiej dostępności aplikacji przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -49,14 +49,14 @@ W tym skrypcie użyto następujących poleceń do utworzenia grupy zasobów, apl
 
 | Polecenie | Uwagi |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan) | Tworzy plan usługi App Service. Jest to podobne do farmy serwerów dla Twojej aplikacji sieci Web platformy Azure. |
-| [AZ webapp Web Create](https://docs.microsoft.com/cli/azure/webapp#az-webapp-create) | Tworzy aplikację internetową platformy Azure w ramach planu App Service. |
-| [AZ Network Traffic-Manager profile Create](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile) | Tworzy profil usługi Azure Traffic Manager. |
-| [AZ Network Traffic-Manager Endpoint Create](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint) | Dodaje punkt końcowy do profilu usługi Azure Traffic Manager. |
+| [az group create](/cli/azure/group) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
+| [az appservice plan create](/cli/azure/appservice/plan) | Tworzy plan usługi App Service. Jest to podobne do farmy serwerów dla Twojej aplikacji sieci Web platformy Azure. |
+| [AZ webapp Web Create](/cli/azure/webapp#az-webapp-create) | Tworzy aplikację internetową platformy Azure w ramach planu App Service. |
+| [AZ Network Traffic-Manager profile Create](/cli/azure/network/traffic-manager/profile) | Tworzy profil usługi Azure Traffic Manager. |
+| [AZ Network Traffic-Manager Endpoint Create](/cli/azure/network/traffic-manager/endpoint) | Dodaje punkt końcowy do profilu usługi Azure Traffic Manager. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure).
+Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure).
 
 Dodatkowe przykłady skryptów interfejsu wiersza polecenia App Service można znaleźć w [dokumentacji dotyczącej sieci platformy Azure](../cli-samples.md).

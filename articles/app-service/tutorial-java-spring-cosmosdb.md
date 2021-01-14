@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 7e63f770763d1960148dfdfa184d0b4e2b76754c
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 2c4fbefc1bb801ab4a9387054ac91e5fca14ec18
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427096"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185601"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>Samouczek: Tworzenie aplikacji sieci Web do rozruchu ze sprężyną Java za pomocą Azure App Service w systemie Linux i Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Ten samouczek przeprowadzi Cię przez proces tworzenia, konfigurowania, wdrażan
 
 ![Aplikacja ze sprężyną rozruchową przechowująca dane w Azure Cosmos DB](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie bazy danych Cosmos DB
@@ -34,7 +34,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Interfejs wiersza polecenia platformy Azure](/cli/azure/overview) zainstalowany na własnym komputerze. 
-* [Git](https://git-scm.com/)
+* [Narzędzia](https://git-scm.com/)
 * [Java JDK](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 * [Maven](https://maven.apache.org)
 
@@ -55,23 +55,23 @@ yes | cp -rf .prep/* .
 
 Wykonaj następujące kroki, aby utworzyć bazę danych Azure Cosmos DB w ramach swojej subskrypcji. Aplikacja listy TODO będzie nawiązywać połączenie z tą bazą danych i przechowywać jej dane podczas pracy, utrwalając stan aplikacji niezależnie od tego, gdzie ją uruchomisz.
 
-1. Zaloguj się w interfejsie wiersza polecenia platformy Azure i opcjonalnie ustaw subskrypcję, jeśli masz więcej niż jedną połączoną z poświadczeniami logowania.
+1. Zaloguj się do interfejsu wiersza polecenia platformy Azure i opcjonalnie Ustaw subskrypcję, jeśli masz więcej niż jeden połączony z poświadczeniami logowania.
 
-    ```bash
+    ```azurecli
     az login
     az account set -s <your-subscription-id>
     ```   
 
 2. Utwórz grupę zasobów platformy Azure i zanotuj jej nazwę.
 
-    ```bash
+    ```azurecli
     az group create -n <your-azure-group-name> \
         -l <your-resource-group-region>
     ```
 
 3. Utwórz bazę danych Azure Cosmos DB przy użyciu rodzaju `GlobalDocumentDB`. Nazwa bazy danych Cosmos DB musi zawierać tylko małe litery. Zanotuj pole `documentEndpoint` w odpowiedzi na polecenie.
 
-    ```bash
+    ```azurecli
     az cosmosdb create --kind GlobalDocumentDB \
         -g <your-azure-group-name> \
         -n <your-azure-COSMOS-DB-name-in-lower-case-letters>
@@ -79,7 +79,7 @@ Wykonaj następujące kroki, aby utworzyć bazę danych Azure Cosmos DB w ramach
 
 4. Pobierz klucz bazy danych Azure Cosmos DB, aby nawiązać połączenie z aplikacją. Zachowaj `primaryMasterKey` , w `documentEndpoint` pobliżu, gdy będziesz ich potrzebować w następnym kroku.
 
-    ```bash
+    ```azurecli
     az cosmosdb list-keys -g <your-azure-group-name> -n <your-azure-COSMOSDB-name>
     ```
 
@@ -146,7 +146,7 @@ mvn package spring-boot:run
 
 Dane wyjściowe powinny wyglądać podobnie do poniższych.
 
-```bash
+```output
 bash-3.2$ mvn package spring-boot:run
 [INFO] Scanning for projects...
 [INFO] 
@@ -291,7 +291,7 @@ Powinna zostać wyświetlona aplikacja działająca ze zdalnym adresem URL na pa
 
 Skaluj aplikację w poziomie, dodając inny proces roboczy:
 
-```bash
+```azurecli
 az appservice plan update --number-of-workers 2 \
    --name ${WEBAPP_PLAN_NAME} \
    --resource-group <your-azure-group-name>
@@ -301,7 +301,7 @@ az appservice plan update --number-of-workers 2 \
 
 Jeśli nie potrzebujesz tych zasobów w innym samouczku (zobacz [Następne kroki](#next)), możesz je usunąć, uruchamiając następujące polecenie w usłudze Cloud Shell: 
   
-```bash
+```azurecli
 az group delete --name <your-azure-group-name>
 ```
 

@@ -5,18 +5,18 @@ author: macolso
 ms.author: macolso
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: e4760463a4d71e4c097b082aa6b93d8b339f94ca
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 5de1188ee018e796f918d7559c0e2c24c77834f4
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516974"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186196"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Często zadawane pytania dotyczące Azure Container Instances
 
 W tym artykule opisano często zadawane pytania dotyczące Azure Container Instances.
 
-## <a name="deployment"></a>Wdrożenie
+## <a name="deployment"></a>Wdrażanie
 
 ### <a name="how-large-can-my-container-image-be"></a>Jak duży może być mój obraz kontenera?
 
@@ -54,6 +54,10 @@ Zobacz bardziej [szczegółowe wskazówki](container-instances-troubleshooting.m
 ### <a name="what-net-or-net-core-image-layer-should-i-use-in-my-container"></a>Jakiej warstwy obrazu platformy .NET lub platformy .NET Core należy używać w moim kontenerze? 
 
 Użyj najmniejszego obrazu, który spełnia Twoje wymagania. W przypadku systemu Linux można użyć obrazu .NET Core *środowiska uruchomieniowego* , który jest obsługiwany od wersji programu .net Core 2,1. W przypadku systemu Windows, jeśli używasz pełnego .NET Framework, musisz użyć obrazu systemu Windows Server Core (obrazu tylko do środowiska uruchomieniowego, takiego jak  *4.7.2-windowsservercore-ltsc2016*). Obrazy tylko w środowisku uruchomieniowym są mniejsze, ale nie obsługują obciążeń, które wymagają zestawu .NET SDK.
+
+### <a name="what-types-of-container-registries-are-compatible-with-aci"></a>Jakie typy rejestrów kontenerów są zgodne z ACI?
+
+ACI obsługuje ściągania obrazów z ACR i innych rejestrów kontenerów innych firm, takich jak DockerHub. ACI obsługuje również ściągania obrazów z lokalnych rejestrów, pod warunkiem, że są one zgodne ze standardem OCR i mają punkt końcowy, który jest publicznie uwidoczniony w Internecie.
 
 ## <a name="availability-and-quotas"></a>Dostępność i limity przydziału
 

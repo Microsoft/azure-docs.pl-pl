@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/04/2020
+ms.date: 01/13/2021
 ms.author: jeedes
-ms.openlocfilehash: bd62855aef59439ed476a13770f79ce6d3cf68f8
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d4f8e71a0afbb1b00313d5e100ba8b3fd2b4e2ce
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180799"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185754"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-marketo"></a>Samouczek: integracja Azure Active Directory z usługą Marketo
 
@@ -40,6 +40,9 @@ W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azu
 
 * Program Market obsługuje zainicjowane przez **dostawcy tożsamości** Logowanie jednokrotne
 
+> [!NOTE]
+> Identyfikator tej aplikacji to stała wartość ciągu, dlatego można skonfigurować tylko jedno wystąpienie w jednej dzierżawie.
+
 ## <a name="adding-marketo-from-the-gallery"></a>Dodawanie programu Marketo z galerii
 
 Aby skonfigurować integrację programu Marketo z usługą Azure AD, musisz dodać program Marketo z galerii do listy zarządzanych aplikacji SaaS.
@@ -51,7 +54,7 @@ Aby skonfigurować integrację programu Marketo z usługą Azure AD, musisz doda
 1. W sekcji **Dodaj z galerii** wpisz **Marketo** w polu wyszukiwania.
 1. Wybierz pozycję **Marketo** z panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-## <a name="configure-and-test-azure-ad-sso"></a>Konfigurowanie i testowanie rejestracji jednokrotnej usługi Azure AD
+## <a name="configure-and-test-azure-ad-sso-for-marketo"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla programu Marketo
 
 Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą programu Marketo w oparciu o użytkownika testowego o nazwie **Britta Simon**.
 Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w programie Marketo.
@@ -59,10 +62,10 @@ Aby logowanie jednokrotne działało, należy ustanowić relację linku między 
 Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą programu Marketo, wykonaj następujące czynności:
 
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
-    * **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** , aby przetestować Logowanie jednokrotne usługi Azure AD za pomocą Britta Simon.
-    * **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
+    1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** , aby przetestować Logowanie jednokrotne usługi Azure AD za pomocą Britta Simon.
+    1. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 2. **[Skonfiguruj Logowanie jednokrotne w usłudze Marketo](#configure-marketo-sso)** , aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
-    * **[Utwórz użytkownika testowego programu Marketo](#create-marketo-test-user)** , aby uzyskać odpowiednik usługi Britta Simon w usłudze Marketo, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
+    1. **[Utwórz użytkownika testowego programu Marketo](#create-marketo-test-user)** , aby uzyskać odpowiednik usługi Britta Simon w usłudze Marketo, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
 3. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
@@ -71,20 +74,20 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W Azure Portal na stronie integracja aplikacji programu **Marketo** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
 1. W sekcji **Podstawowa konfiguracja języka SAML** wprowadź wartości dla następujących pól:
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://saml.marketo.com/sp`
+    a. W polu tekstowym **Identyfikator** wpisz adres URL: `https://saml.marketo.com/sp`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://login.marketo.com/saml/assertion/\<munchkinid\>`
 
     c. W polu tekstowym **Stan przekaźnika** wpisz adres URL, korzystając z następującego wzorca: `https://<munchkinid>.marketo.com/`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora, adresu URL odpowiedzi i stanu przekazywania. Skontaktuj się z [zespołem obsługi klienta programu Marketo](https://investors.marketo.com/contactus.cfm) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe. Zaktualizuj te wartości z rzeczywistym adresem URL odpowiedzi i stanem przekazywania. Skontaktuj się z [zespołem obsługi klienta programu Marketo](https://investors.marketo.com/contactus.cfm) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -104,7 +107,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -120,7 +123,17 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ## <a name="configure-marketo-sso"></a>Konfigurowanie logowania jednokrotnego programu Marketo
 
-1. Aby uzyskać Munchkin identyfikator aplikacji, zaloguj się do usługi Markete przy użyciu poświadczeń administratora i wykonaj następujące czynności:
+1. Aby zautomatyzować konfigurację w ramach programu Marketo, należy zainstalować **Moje aplikacje bezpieczne logowanie do przeglądarki** , klikając pozycję **Zainstaluj rozszerzenie**.
+
+    ![Rozszerzenie moje aplikacje](common/install-myappssecure-extension.png)
+
+2. Po dodaniu rozszerzenia do przeglądarki kliknij pozycję **Skonfiguruj program Marketo** kieruje do aplikacji Marketo. Z tego miejsca podaj poświadczenia administratora, aby zalogować się do programu Marketo. Rozszerzenie przeglądarki automatycznie skonfiguruje aplikację i automatyzuje kroki 3-6.
+
+    ![Konfiguracja konfiguracji](common/setup-sso.png)
+
+3. Jeśli chcesz ręcznie skonfigurować program Marketo w innym oknie przeglądarki sieci Web, zaloguj się do witryny firmy Marketa jako administrator.
+
+1. Aby uzyskać Munchkin identyfikator aplikacji, wykonaj następujące czynności:
    
     a. Zaloguj się do aplikacji Marketo przy użyciu poświadczeń administratora.
    
@@ -233,13 +246,13 @@ W tej sekcji utworzysz użytkownika o nazwie Britta Simon w programie Marketo. w
 
 8. Użytkownik otrzymuje powiadomienie e-mail i kliknie łącze i zmieni hasło w celu aktywowania konta. 
 
-### <a name="test-sso"></a>Testuj Logowanie jednokrotne 
+### <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji.
 
-1. Kliknij pozycję Testuj tę aplikację w Azure Portal i należy automatycznie zalogować się do programu Marketo, dla którego skonfigurowano Logowanie jednokrotne
+* Kliknij pozycję Testuj tę aplikację w Azure Portal i należy automatycznie zalogować się do programu Marketo, dla którego skonfigurowano Logowanie jednokrotne
 
-1. Możesz użyć panelu programu Microsoft Access. Po kliknięciu kafelka usługi Marketo w panelu dostępu należy automatycznie zalogować się do programu Marketo, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
+* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka usługi Marketo w obszarze Moje aplikacje należy automatycznie zalogować się do programu Marketo, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="next-steps"></a>Następne kroki
 

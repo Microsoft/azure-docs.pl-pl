@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: duau
-ms.openlocfilehash: 25c0b18da1690557f11e36dd11dda693ddddb838
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f24a4a0d982ff78ca4d6726e950825ed2c784e67
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401320"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184547"
 ---
 # <a name="enable-resource-logging-in-azure-traffic-manager"></a>Włącz rejestrowanie zasobów na platformie Azure Traffic Manager
 
@@ -39,14 +39,14 @@ Można uruchomić następujące polecenia w [Azure Cloud Shell](https://shell.az
 
 2. **Włącz rejestrowanie zasobów dla profilu Traffic Manager:**
 
-    Włącz rejestrowanie zasobów dla profilu Traffic Manager przy użyciu identyfikatora uzyskanego w poprzednim kroku przy użyciu polecenia [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest). Następujące polecenie przechowuje pełne dzienniki dla profilu Traffic Manager na określonym koncie usługi Azure Storage. 
+    Włącz rejestrowanie zasobów dla profilu Traffic Manager przy użyciu identyfikatora uzyskanego w poprzednim kroku przy użyciu polecenia [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest). Następujące polecenie przechowuje pełne dzienniki dla profilu Traffic Manager na określonym koncie usługi Azure Storage. 
 
       ```azurepowershell-interactive
     Set-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
       ``` 
 3. **Sprawdź ustawienia diagnostyczne:**
 
-      Sprawdź ustawienia diagnostyczne profilu Traffic Manager przy użyciu polecenia [Get-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/get-azdiagnosticsetting?view=latest). Następujące polecenie wyświetla kategorie, które są rejestrowane dla zasobu.
+      Sprawdź ustawienia diagnostyczne profilu Traffic Manager przy użyciu polecenia [Get-AzDiagnosticSetting](/powershell/module/az.monitor/get-azdiagnosticsetting?view=latest). Następujące polecenie wyświetla kategorie, które są rejestrowane dla zasobu.
 
      ```azurepowershell-interactive
      Get-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>
@@ -57,14 +57,14 @@ Można uruchomić następujące polecenia w [Azure Cloud Shell](https://shell.az
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 1. Przejdź do konta usługi Azure Storage w portalu.
 2. Na stronie **Przegląd** konta usługi Azure Storage w obszarze **usługi** wybierz pozycję **obiekty blob**.
-3. W przypadku **kontenerów**wybierz pozycję **Insights-Logs-probehealthstatusevents**i przejdź do PT1H.jsw pliku i kliknij pozycję **Pobierz** , aby pobrać i zapisać kopię tego pliku dziennika.
+3. W przypadku **kontenerów** wybierz pozycję **Insights-Logs-probehealthstatusevents** i przejdź do PT1H.jsw pliku i kliknij pozycję **Pobierz** , aby pobrać i zapisać kopię tego pliku dziennika.
 
     ![Uzyskiwanie dostępu do plików dziennika profilu Traffic Manager z magazynu obiektów BLOB](./media/traffic-manager-logs/traffic-manager-logs.png)
 
 
 ## <a name="traffic-manager-log-schema"></a>Traffic Manager schematu dziennika
 
-Wszystkie dzienniki zasobów dostępne za pomocą Azure Monitor współdzielą wspólny schemat najwyższego poziomu, z elastycznością dla każdej usługi do emitowania unikatowych właściwości dla własnych zdarzeń. Aby uzyskać schemat dzienników zasobów najwyższego poziomu, zobacz [obsługiwane usługi, schematy i kategorie dla dzienników zasobów platformy Azure](../azure-monitor/platform/tutorial-dashboards.md).
+Wszystkie dzienniki zasobów dostępne za pomocą Azure Monitor współdzielą wspólny schemat najwyższego poziomu, z elastycznością dla każdej usługi do emitowania unikatowych właściwości dla własnych zdarzeń. Aby uzyskać schemat dzienników zasobów najwyższego poziomu, zobacz [obsługiwane usługi, schematy i kategorie dla dzienników zasobów platformy Azure](../azure-monitor/platform/resource-logs-schema.md).
 
 W poniższej tabeli przedstawiono schemat dzienników specyficzny dla zasobu profilu usługi Azure Traffic Manager.
 
@@ -77,4 +77,3 @@ W poniższej tabeli przedstawiono schemat dzienników specyficzny dla zasobu pro
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się więcej o [monitorowaniu Traffic Manager](traffic-manager-monitoring.md)
-

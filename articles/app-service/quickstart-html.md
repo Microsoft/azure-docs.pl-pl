@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
-ms.openlocfilehash: ec3929219a6297bd4a3d8d3e0eff93d2ed847ba0
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 9b85f04ca507b5d40c091b52507d0fad2cd3e798
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835224"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185720"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Tworzenie statycznej aplikacji internetowej w języku HTML na platformie Azure
 
@@ -62,7 +62,7 @@ Polecenie `az webapp up` wykonuje następujące akcje:
 
 Wykonanie tego polecenia może potrwać kilka minut. Podczas wykonywania polecenie wyświetli informacje podobne do następującego przykładu:
 
-<pre>
+```output
 {
   "app_url": "https://&lt;app_name&gt;.azurewebsites.net",
   "location": "westeurope",
@@ -74,7 +74,7 @@ Wykonanie tego polecenia może potrwać kilka minut. Podczas wykonywania polecen
   "src_path": "/home/&lt;username&gt;/quickstart/html-docs-hello-world ",
   &lt; JSON data removed for brevity. &gt;
 }
-</pre>
+```
 
 Zanotuj wartość parametru `resourceGroup`. Będziesz jej potrzebować w sekcji [Oczyszczanie zasobów](#clean-up-resources).
 

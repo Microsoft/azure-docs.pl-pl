@@ -1,26 +1,26 @@
 ---
-title: Jak i gdzie wdrażać modele
+title: Jak wdrożyć modele uczenia maszynowego
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak i gdzie wdrażać modele Azure Machine Learning, w tym Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge i FPGA.
+description: Dowiedz się, jak i gdzie wdrażać modele uczenia maszynowego. Wdróż do Azure Container Instances, usługi Azure Kubernetes, Azure IoT Edge i FPGA.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: gopalv
 author: gvashishtha
 ms.reviewer: larryfr
-ms.date: 12/11/2020
+ms.date: 01/13/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: 195f1c527185fbd55450b6151f26525074db75f7
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: e9c691485eb0ec1a0b3c0564f9a8f9a5d2aa255d
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070426"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185805"
 ---
-# <a name="deploy-models-with-azure-machine-learning"></a>Wdrażanie modeli za pomocą usługi Azure Machine Learning
+# <a name="deploy-machine-learning-models-to-azure"></a>Wdrażanie modeli uczenia maszynowego na platformie Azure
 
-Dowiedz się, jak wdrożyć model uczenia maszynowego jako usługę sieci Web w chmurze platformy Azure lub Azure IoT Edge urządzeń.
+Dowiedz się, jak wdrożyć model uczenia maszynowego lub uczenia głębokiego w ramach usługi sieci Web w chmurze platformy Azure. Możesz również wdrożyć na Azure IoT Edge urządzeń.
 
 Przepływ pracy wygląda podobnie niezależnie od tego, gdzie wdrażasz model:
 
@@ -31,7 +31,7 @@ Przepływ pracy wygląda podobnie niezależnie od tego, gdzie wdrażasz model:
 1. Wdrożenie modelu na docelowym obiekcie obliczeniowym.
 1. Przetestuj utworzoną usługę sieci Web.
 
-Aby uzyskać więcej informacji na temat pojęć związanych z przepływem pracy wdrożenia, zobacz artykuł [Zarządzanie, wdrażanie i monitorowanie modeli przy użyciu Azure Machine Learning](concept-model-management-and-deployment.md).
+Aby uzyskać więcej informacji na temat pojęć związanych z przepływem pracy wdrożenia uczenia maszynowego, zobacz artykuł [Zarządzanie, wdrażanie i monitorowanie modeli przy użyciu Azure Machine Learning](concept-model-management-and-deployment.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -197,7 +197,7 @@ Minimalną konfigurację wnioskowania można napisać jako:
 }
 ```
 
-Oznacza to, że wdrożenie będzie używać pliku `score.py` w `./working_dir` katalogu do przetwarzania żądań przychodzących.
+Oznacza to, że wdrożenie uczenia maszynowego będzie używać pliku `score.py` w `./working_dir` katalogu do przetwarzania żądań przychodzących.
 
 Zapoznaj się z [tym artykułem](./reference-azure-machine-learning-cli.md#inference-configuration-schema) , aby uzyskać bardziej szczegółowe omówienie konfiguracji wnioskowania. 
 
@@ -269,7 +269,7 @@ from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservic
 
 ---
 
-## <a name="deploy-your-model"></a>Wdrażanie modelu
+## <a name="deploy-your-machine-learning-model"></a>Wdróż model uczenia maszynowego
 
 Teraz można przystąpić do wdrażania modelu. 
 

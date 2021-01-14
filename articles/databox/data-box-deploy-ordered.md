@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 11/19/2020
 ms.author: alkohli
-ms.openlocfilehash: db97a34a79ac45525177a79a59a17426003aeab0
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: aad6a3ef754b5ba2c65a9b93fbdfcfdc26348487
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302621"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186162"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Samouczek: Zamawianie urządzenia Azure Data Box
 
@@ -57,7 +57,7 @@ Przed rozpoczęciem upewnij się, że:
 
 * Zainstaluj [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) w wersji 2.0.67 lub nowszej. Alternatywnie możesz zainstalować plik [MSI](https://aka.ms/installazurecliwindows).
 
-**Zaloguj się do platformy Azure**
+**Logowanie do platformy Azure**
 
 Otwórz okno polecenia programu Windows PowerShell i zaloguj się do platformy Azure za pomocą polecenia [AZ login](/cli/azure/reference-index#az-login) :
 
@@ -182,7 +182,7 @@ Version              Name                                Repository           De
 0.1.1                Az.DataBox                          PSGallery            Microsoft Azure PowerShell - DataBox ser…
 ```
 
-#### <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
+#### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Otwórz okno polecenia programu Windows PowerShell i zaloguj się do platformy Azure za pomocą polecenia [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) :
 
@@ -217,7 +217,7 @@ Aby zamówić urządzenie, wykonaj następujące czynności w Azure Portal.
 
    ![Zrzut ekranu przedstawiający nową sekcję z Azure Data Box w polu wyszukiwania](media/data-box-deploy-ordered/select-data-box-import-02.png)
 
-3. Wybierz pozycję **Utwórz**.
+3. Wybierz przycisk **Utwórz**.
 
    ![Zrzut ekranu przedstawiający sekcję Azure Data Box z opcją tworzenia wywołana](media/data-box-deploy-ordered/select-data-box-import-03.png)
 
@@ -336,7 +336,7 @@ Aby zamówić urządzenie, wykonaj następujące czynności w Azure Portal.
 
     Tożsamość zarządzana przypisana przez użytkownika to autonomiczny zasób platformy Azure, który może służyć do zarządzania wieloma zasobami. Aby uzyskać więcej informacji, zobacz [zarządzane typy tożsamości](/azure/active-directory/managed-identities-azure-resources/overview).  
 
-    Jeśli musisz utworzyć nową tożsamość zarządzaną, postępuj zgodnie ze wskazówkami zawartymi w temacie [Create, list, DELETE lub Assign a role do zarządzanej tożsamości przypisanej przez użytkownika przy użyciu Azure Portal](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
+    Jeśli musisz utworzyć nową tożsamość zarządzaną, postępuj zgodnie ze wskazówkami w temacie [Tworzenie, wyświetlanie, usuwanie lub przypisywanie roli do tożsamości zarządzanej przypisanej przez użytkownika przy użyciu Azure Portal](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
     
     ![Wybierz tożsamość użytkownika](./media/data-box-deploy-ordered/customer-managed-key-10.png)
 
@@ -774,7 +774,7 @@ Aby anulować kolejność Azure Data Box, uruchom polecenie [AZ DATAbox Job Canc
    |Grupa zasobów [wymagane]| Nazwa grupy zasobów skojarzonej z kolejnością, która ma zostać usunięta. Grupa zasobów to kontener logiczny zasobów, które mogą być zarządzane lub wdrażane razem. | myresourcegroup|
    |Nazwa [wymagane]| Nazwa zamówienia do usunięcia. | "mydataboxorder"|
    |Przyczyna [wymagane]| Przyczyna anulowania zamówienia. | "Wprowadzono błędne informacje i są one niezbędne w celu anulowania zamówienia". |
-   |yes| Nie Monituj o potwierdzenie. | --tak (-y)| --tak-y |
+   |tak| Nie Monituj o potwierdzenie. | --tak (-y)| --tak-y |
    |debugowanie| Dołącz informacje debugowania do pełnego rejestrowania | --Debug |
    |Pomoc| Wyświetl informacje pomocy dla tego polecenia. | --Help-h |
    |tylko-show-Errors| Pokaż tylko błędy, pomijając ostrzeżenia. | --Only-show-Errors |
@@ -811,7 +811,7 @@ Jeśli Azure Data Box zamówienie zostało anulowane, możesz uruchomić polecen
    |Grupa zasobów [wymagane]| Nazwa grupy zasobów skojarzonej z kolejnością, która ma zostać usunięta. Grupa zasobów to kontener logiczny zasobów, które mogą być zarządzane lub wdrażane razem. | myresourcegroup|
    |Nazwa [wymagane]| Nazwa zamówienia do usunięcia. | "mydataboxorder"|
    |subskrypcja| Nazwa lub identyfikator (GUID) subskrypcji platformy Azure. | "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" |
-   |yes| Nie Monituj o potwierdzenie. | --tak (-y)| --tak-y |
+   |tak| Nie Monituj o potwierdzenie. | --tak (-y)| --tak-y |
    |debugowanie| Dołącz informacje debugowania do pełnego rejestrowania | --Debug |
    |Pomoc| Wyświetl informacje pomocy dla tego polecenia. | --Help-h |
    |tylko-show-Errors| Pokaż tylko błędy, pomijając ostrzeżenia. | --Only-show-Errors |

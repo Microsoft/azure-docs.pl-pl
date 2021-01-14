@@ -1,7 +1,7 @@
 ---
-title: Konfigurowanie wielu operacji sprawdzania poprawności i danych w zautomatyzowanym doświadczeniu uczenia maszynowego
+title: Podział danych i wzajemne sprawdzanie poprawności w ramach automatycznej uczenia maszynowego
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak skonfigurować podziały międzyprocesowe i zestawy danych dla zautomatyzowanych eksperymentów usługi Machine Learning
+description: Dowiedz się, jak skonfigurować podziały zestawu danych i wzajemne sprawdzanie poprawności dla zautomatyzowanych eksperymentów usługi Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,20 +11,20 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 06/16/2020
-ms.openlocfilehash: c29c8ab31507c0ec904a7534e50ef6523e1aab96
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 2e26bfa484d573c0158e518b31087fb10bdcdfb9
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360109"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185686"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Konfigurowanie podziałów danych i krzyżowego sprawdzania poprawności w ramach zautomatyzowanego uczenia maszynowego
 
-Ten artykuł zawiera informacje o różnych opcjach związanych z konfigurowaniem danych dotyczących szkoleń/weryfikacji oraz przeprowadzania krzyżowego sprawdzania poprawności dla zautomatyzowanych uczenia maszynowego, AutoML, eksperymentów.
+Ten artykuł zawiera informacje o różnych opcjach związanych z konfigurowaniem danych dotyczących szkoleń/weryfikacji oraz przeprowadzania krzyżowego sprawdzania poprawności dla zautomatyzowanej uczenia maszynowego, zautomatyzowanej sieci, eksperymentów.
 
-W Azure Machine Learning, gdy używasz AutoML do kompilowania wielu modeli ML, każdy przebieg podrzędny musi sprawdzić poprawność modelu, obliczając metryki jakości dla tego modelu, takie jak dokładność lub waga AUC. Te metryki są obliczane przez porównanie prognoz wykonanych z poszczególnymi modelami z rzeczywistymi etykietami z ostatnich obserwacji w danych sprawdzania poprawności. 
+W Azure Machine Learning, gdy używasz zautomatyzowanej ML do kompilowania wielu modeli ML, każdy przebieg podrzędny musi sprawdzać pokrewny model, obliczając metryki jakości dla tego modelu, na przykład dokładność lub AUC ważone. Te metryki są obliczane przez porównanie prognoz wykonanych z poszczególnymi modelami z rzeczywistymi etykietami z ostatnich obserwacji w danych sprawdzania poprawności. 
 
-Eksperymenty AutoML automatycznie sprawdzają poprawność modelu. W poniższych sekcjach opisano, jak można modyfikować ustawienia walidacji za pomocą [zestawu SDK języka Python Azure Machine Learning](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py). 
+Automatyczne eksperymenty w MILILITRach wykonują walidację modelu automatycznie. W poniższych sekcjach opisano, jak można modyfikować ustawienia walidacji za pomocą [zestawu SDK języka Python Azure Machine Learning](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py). 
 
 Aby zapoznać się z niską ilością kodu lub bez kodu, zobacz [Tworzenie zautomatyzowanych eksperymentów uczenia maszynowego w programie Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md). 
 
@@ -39,13 +39,13 @@ W tym artykule należy
 
 * Znajomość konfigurowania zautomatyzowanego eksperymentu uczenia maszynowego przy użyciu zestawu SDK Azure Machine Learning. Postępuj zgodnie z [samouczkiem](tutorial-auto-train-models.md) lub zapoznaj się z artykułami [, aby zobaczyć](how-to-configure-auto-train.md) podstawowe wzorce projektu eksperymentu w usłudze Machine Learning.
 
-* Zrozumienie danych związanych z walidacją i pouczeniem/sprawdzaniem poprawności dzieli się na koncepcje ML. Ogólne wyjaśnienie,
+* Zrozumienie danych związanych z pouczeniem/sprawdzaniem poprawności polega na rozdzieleniu i weryfikacji krzyżowej w formie koncepcji uczenia maszynowego. Ogólne wyjaśnienie,
 
     * [Informacje o szkoleniach, walidacji i zestawach testów w Machine Learning](https://towardsdatascience.com/train-validation-and-test-sets-72cb40cba9e7)
 
-    * [Zrozumienie krzyżowego sprawdzania poprawności](https://towardsdatascience.com/understanding-cross-validation-419dbd47e9bd)
+    * [Opis krzyżowego sprawdzania poprawności w usłudze Machine Learning](https://towardsdatascience.com/understanding-cross-validation-419dbd47e9bd)
 
-## <a name="default--data-splits-and-cross-validation"></a>Domyślne podziały danych i wzajemne sprawdzanie poprawności
+## <a name="default-data-splits-and-cross-validation"></a>Domyślne podziały danych i wzajemne sprawdzanie poprawności
 
 Użyj obiektu [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py) , aby zdefiniować ustawienia eksperymentu i szkolenia. W poniższym fragmencie kodu należy zauważyć, że są zdefiniowane tylko wymagane parametry, które są parametrami dla `n_cross_validation` lub `validation_ data` **nie** są uwzględniane.
 
@@ -67,7 +67,7 @@ Jeśli nie określisz jawnie `validation_data` `n_cross_validation` parametru lu
 |&nbsp;Rozmiar danych szkoleniowych &nbsp;| Technika walidacji |
 |---|-----|
 |**Więcej &nbsp; niż &nbsp; 20 000 &nbsp; wierszy**| Zastosowano podział danych szkolenia/walidacji. Wartość domyślna to przejęcie 10% początkowego zestawu danych szkoleniowych jako zestawu walidacji. Z kolei ten zestaw walidacji jest używany do obliczania metryk.
-|**Mniejsze &nbsp; niż &nbsp; 20 000 &nbsp; wierszy**| Stosowana jest metoda weryfikacji krzyżowej. Domyślna liczba zagięć zależy od liczby wierszy. <br> **Jeśli zestaw danych jest mniejszy niż 1 000 wierszy** , używane są 10 zagięć. <br> **Jeśli wiersze są z zakresu od 1 000 do 20 000** , używane są trzy składowe.
+|**Mniejsze &nbsp; niż &nbsp; 20 000 &nbsp; wierszy**| Stosowana jest metoda weryfikacji krzyżowej. Domyślna liczba zagięć zależy od liczby wierszy. <br> **Jeśli zestaw danych jest mniejszy niż 1 000 wierszy**, używane są 10 zagięć. <br> **Jeśli wiersze są z zakresu od 1 000 do 20 000**, używane są trzy składowe.
 
 ## <a name="provide-validation-data"></a>Podaj dane weryfikacji
 
@@ -117,7 +117,7 @@ Aby wykonać weryfikację krzyżową, Dołącz `n_cross_validations` parametr i 
 
 W poniższym kodzie zdefiniowane są pięć założenia na potrzeby krzyżowego sprawdzania poprawności. W związku z tym pięć różnych szkoleń, każde szkolenie korzystające z 4/5 danych i każde sprawdzanie poprawności przy użyciu 1/5 danych z innym wstrzymanianym zgięciem.
 
-W związku z tym metryki są obliczane ze średnią 5 metryk walidacji.
+W związku z tym metryki są obliczane z uwzględnieniem średniej z pięciu metryk walidacji.
 
 ```python
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"

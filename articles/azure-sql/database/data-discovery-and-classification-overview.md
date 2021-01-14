@@ -13,17 +13,17 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 12/01/2020
 tags: azure-synapse
-ms.openlocfilehash: ece76f0017a72484f5c4e66b2ab8c7e71d32f1a7
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 41ad711de81f075727e4c177c318054677cb0ece
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132056"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185363"
 ---
 # <a name="data-discovery--classification"></a>Odnajdywanie i klasyfikacja danych
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Klasyfikacja & odnajdywania danych jest wbudowana w Azure SQL Database, wystąpienie zarządzane Azure SQL i usługa Azure Synapse Analytics. Zapewnia zaawansowane możliwości w zakresie odnajdywania, klasyfikowania, etykietowania i raportowania danych poufnych w bazach danych.
+Klasyfikacja & odnajdywania danych jest wbudowana w Azure SQL Database, wystąpienie zarządzane Azure SQL i usługa Azure Synapse Analytics. Zapewnia podstawowe możliwości odnajdywania, klasyfikowania, etykietowania i raportowania poufnych danych w bazach danych.
 
 Najważniejsze dane mogą obejmować działalność, finanse, opiekę lub dane osobowe. Odnajdywanie i Klasyfikowanie tych danych może odgrywać rolę przestawną w podejściu do ochrony informacji w organizacji. Może to stanowić infrastrukturę dla następujących działań:
 
@@ -36,11 +36,11 @@ Najważniejsze dane mogą obejmować działalność, finanse, opiekę lub dane o
 
 ## <a name="what-is-data-discovery--classification"></a><a id="what-is-dc"></a>Co to jest funkcja odnajdywania danych & Klasyfikacja?
 
-Funkcja odnajdywania danych & Klasyfikacja zawiera zestaw zaawansowanych usług i nowych możliwości platformy Azure. Jest to nowy model ochrony informacji, który SQL Database, wystąpienia zarządzane SQL i Azure Synapse, na potrzeby ochrony danych, a nie tylko bazy danych. Model zawiera:
+Funkcja odnajdywania danych & Klasyfikacja zawiera zestaw podstawowych usług i nowych możliwości platformy Azure. Jest to nowy model ochrony informacji, który SQL Database, wystąpienia zarządzane SQL i Azure Synapse, na potrzeby ochrony danych, a nie tylko bazy danych. Model zawiera:
 
 - **Odnajdywanie i zalecenia:** Aparat klasyfikacji skanuje bazę danych i identyfikuje kolumny zawierające potencjalnie wrażliwe dane. Dzięki temu można łatwo przejrzeć i zastosować zalecaną klasyfikację za pośrednictwem Azure Portal.
 
-- **Etykietowanie:** Etykiety klasyfikacji czułości można stosować trwale do kolumn przy użyciu nowych atrybutów metadanych, które zostały dodane do aparatu bazy danych SQL Server. Te metadane mogą następnie służyć do zaawansowanego, opartego na czułości scenariuszy inspekcji i ochrony.
+- **Etykietowanie:** Etykiety klasyfikacji czułości można stosować trwale do kolumn przy użyciu nowych atrybutów metadanych, które zostały dodane do aparatu bazy danych SQL Server. Te metadane mogą być następnie używane w scenariuszach inspekcji i ochrony opartej na czułości.
 
 - **Czułość zestawu wyników zapytania:** Czułość zestawu wyników zapytania jest obliczana w czasie rzeczywistym na potrzeby inspekcji.
 
@@ -79,7 +79,7 @@ Po zdefiniowaniu zasad w całej organizacji można kontynuować klasyfikowanie p
 
 1. Przejdź do obszaru **odnajdywanie danych & Klasyfikacja** pod nagłówkiem **zabezpieczenia** w okienku Azure SQL Database. Karta przegląd zawiera podsumowanie bieżącego stanu klasyfikacji bazy danych. Podsumowanie zawiera szczegółową listę wszystkich sklasyfikowanych kolumn, które można również filtrować w celu wyświetlania tylko określonych części schematu, typów informacji i etykiet. Jeśli nie zostały jeszcze sklasyfikowane żadne kolumny, [Przejdź do kroku 4](#step-4).
 
-    ![Omówienie](./media/data-discovery-and-classification-overview/data-discovery-and-classification.png)
+    ![Przegląd](./media/data-discovery-and-classification-overview/data-discovery-and-classification.png)
 
 1. Aby pobrać raport w formacie programu Excel, wybierz opcję **Eksportuj** w górnym menu okienka.
 

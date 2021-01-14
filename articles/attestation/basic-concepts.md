@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8ae5bcf103bbb2d2b952fa647ba591e49002f2ff
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 51c22346ee89150194fb1dc83752e2ba2a2e0cf0
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921620"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185448"
 ---
 # <a name="basic-concepts"></a>Koncepcje podstawowe
 
@@ -38,11 +38,16 @@ Zaświadczanie platformy Azure zapewnia domyślnego dostawcę w każdym regionie
 
 | Region (Region) | Zaświadczanie identyfikatora URI | 
 |--|--|
+| East US | `https://sharedeus.eus.attest.azure.net` | 
+| Zachodnie stany USA | `https://sharedwus.wus.attest.azure.net` | 
 | Południowe Zjednoczone Królestwo | `https://shareduks.uks.attest.azure.net` | 
+| Zachodnie Zjednoczone Królestwo| `https://sharedukw.ukw.attest.azure.net  ` | 
+| Kanada Wschodnia | `https://sharedcae.cae.attest.azure.net` | 
+| Kanada Środkowa | `https://sharedcac.cac.attest.azure.net` | 
+| Europa Północna | `https://sharedneu.neu.attest.azure.net` | 
+| West Europe| `https://sharedweu.weu.attest.azure.net` | 
 | Wschodnie stany USA 2 | `https://sharedeus2.eus2.attest.azure.net` | 
 | Central US | `https://sharedcus.cus.attest.azure.net` | 
-| East US| `https://sharedeus.eus.attest.azure.net` | 
-| Kanada Środkowa | `https://sharedcac.cac.attest.azure.net` | 
 
 ## <a name="attestation-request"></a>Żądanie zaświadczania
 

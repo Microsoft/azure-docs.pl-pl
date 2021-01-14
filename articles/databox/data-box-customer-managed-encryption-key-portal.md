@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/19/2020
 ms.author: alkohli
 ms.subservice: pod
-ms.openlocfilehash: f75907dc1fa079cebb3b80874090c658fd7b8174
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 80a6824edb92d8337481f592cbbf5eb23255b383
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302826"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185533"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-azure-data-box"></a>Użyj kluczy zarządzanych przez klienta w Azure Key Vault Azure Data Box
 

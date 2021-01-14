@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f625b7dd68d4b5a5e1af68aeb53dac453ff8cbfd
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 5e45c51735e0b7ab4b263d3f3047b5848c82439d
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400832"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185771"
 ---
 # <a name="create-powershell-scripts-for-msix-app-attach-preview"></a>Tworzenie skryptów programu PowerShell na potrzeby dołączania aplikacji MSIX (wersja zapoznawcza)
 
@@ -39,6 +39,17 @@ Jeśli aplikacja używa certyfikatu, który nie jest zaufany lub został podpisa
 6. Wybierz pozycję **Umieść wszystkie certyfikaty w następującym magazynie**, a następnie wybierz pozycję **Przeglądaj**.
 7. Po wyświetleniu okna Wybieranie magazynu certyfikatów wybierz pozycję **zaufane osoby**, a następnie wybierz przycisk **OK**.
 8. Wybierz pozycję **dalej** i **Zakończ**.
+
+## <a name="enable-microsoft-hyper-v"></a>Włącz Microsoft Hyper-V
+
+Należy włączyć Microsoft Hyper-V, ponieważ `Mount-VHD` polecenie jest wymagane do przemieszczenia i `Dismount-VHD` jest wymagane do deprzygotowywania.
+
+```powershell
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+```
+
+>[!NOTE]
+>Ta zmiana będzie wymagała ponownego uruchomienia maszyny wirtualnej.
 
 ## <a name="prepare-powershell-scripts-for-msix-app-attach"></a>Przygotuj skrypty programu PowerShell do dołączenia do aplikacji MSIX
 

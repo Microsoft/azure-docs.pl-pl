@@ -3,14 +3,14 @@ title: Omówienie Update Management Azure Automation
 description: Ten artykuł zawiera omówienie funkcji Update Management, która implementuje aktualizacje dla maszyn z systemami Windows i Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 12/09/2020
+ms.date: 01/13/2021
 ms.topic: conceptual
-ms.openlocfilehash: 4b557c9772e76b6b61cdf01799ee30ba6bc11807
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: d66d4d32c788317d8b0781f9f24120fbce2f6f8f
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928430"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185618"
 ---
 # <a name="update-management-overview"></a>Omówienie rozwiązania Update Management
 
@@ -65,16 +65,16 @@ Posiadanie maszyny zarejestrowanej dla Update Management w więcej niż jednym L
 
 ## <a name="clients"></a>Klienci
 
-### <a name="supported-client-types"></a>Obsługiwane typy klientów
+### <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
 
-W poniższej tabeli wymieniono systemy operacyjne obsługiwane w przypadku ocen aktualizacji i poprawek. Stosowanie poprawek wymaga hybrydowego procesu roboczego elementu Runbook, który jest instalowany automatycznie po włączeniu maszyny wirtualnej lub serwera do zarządzania przez Update Management. Aby uzyskać informacje o wymaganiach dotyczących systemu hybrydowego procesu roboczego elementu Runbook, zobacz [wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Windows](../automation-windows-hrw-install.md) i [wdrażanie hybrydowego procesu roboczego elementu Runbook programu Linux](../automation-linux-hrw-install.md).
+W poniższej tabeli wymieniono systemy operacyjne obsługiwane w przypadku ocen aktualizacji i poprawek. Poprawka wymaga systemu hybrydowego procesu roboczego elementu Runbook, który jest instalowany automatycznie po włączeniu maszyny wirtualnej lub serwera do zarządzania przez Update Management. Aby uzyskać informacje o wymaganiach dotyczących systemu hybrydowego procesu roboczego elementu Runbook, zobacz [wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Windows](../automation-windows-hrw-install.md) i [wdrażanie hybrydowego procesu roboczego elementu Runbook programu Linux](../automation-linux-hrw-install.md).
 
 > [!NOTE]
 > Ocena aktualizacji maszyn z systemem Linux jest obsługiwana tylko w niektórych regionach, jak wymieniono w [tabeli mapowania](../how-to/region-mappings.md#supported-mappings)obszaru roboczego konta usługi Automation i log Analytics.
 
 |System operacyjny  |Uwagi  |
 |---------|---------|
-|Windows Server 2019 (Datacenter/Datacenter/standard)<br><br>Windows Server 2016 (Datacenter/Datacenter/standard)<br><br>Windows Server 2012 R2 (Datacenter/standard)<br><br>Windows Server 2012 ||
+|Windows Server 2019 (Datacenter/Datacenter/standard)<br>Windows Server 2016 (Datacenter/Datacenter/standard)<br>Windows Server 2012 R2 (Datacenter/standard)<br>Windows Server 2012 |
 |Windows Server 2008 R2 (wersja RTM i SP1 standard)| Update Management obsługuje oceny i poprawki dla tego systemu operacyjnego. [Hybrydowy proces roboczy elementu Runbook](../automation-windows-hrw-install.md) jest obsługiwany w przypadku systemu Windows Server 2008 R2. |
 |CentOS 6 i 7 (x64)      | Agenci systemu Linux wymagają dostępu do repozytorium aktualizacji. Stosowanie poprawek opartych na klasyfikacji wymaga `yum` zwrócenia danych zabezpieczeń, które nie są dostępne w wersjach RTM CentOS. Aby uzyskać więcej informacji na temat stosowania poprawek opartych na klasyfikacji na CentOS, zobacz [Aktualizacja klasyfikacji w systemie Linux](view-update-assessments.md#linux).          |
 |Red Hat Enterprise 6 i 7 (x64)     | Agenci systemu Linux wymagają dostępu do repozytorium aktualizacji.        |
@@ -84,9 +84,9 @@ W poniższej tabeli wymieniono systemy operacyjne obsługiwane w przypadku ocen 
 > [!NOTE]
 > Zestawy skalowania maszyn wirtualnych platformy Azure mogą być zarządzane za pomocą Update Management. Update Management działa na samych wystąpieniach, a nie na obrazie podstawowym. Należy zaplanować aktualizacje w sposób przyrostowy, aby nie wszystkie wystąpienia maszyn wirtualnych były aktualizowane jednocześnie. Węzły dla zestawów skalowania maszyn wirtualnych można dodać, wykonując czynności opisane w sekcji [Dodawanie maszyny spoza platformy Azure do Change Tracking i spisu](../automation-tutorial-installed-software.md#add-a-non-azure-machine-to-change-tracking-and-inventory).
 
-### <a name="unsupported-client-types"></a>Nieobsługiwane typy klientów
+### <a name="unsupported-operating-systems"></a>Nieobsługiwane systemy operacyjne
 
-W poniższej tabeli wymieniono nieobsługiwane systemy operacyjne:
+W poniższej tabeli wymieniono systemy operacyjne, które nie są obsługiwane przez program Update Management:
 
 |System operacyjny  |Uwagi  |
 |---------|---------|
@@ -94,15 +94,20 @@ W poniższej tabeli wymieniono nieobsługiwane systemy operacyjne:
 |Windows Server Nano Server 2016     | Nieobsługiwane.       |
 |Węzły usługi Azure Kubernetes | Nieobsługiwane. Użyj procesu poprawek opisanego w temacie [stosowanie aktualizacji zabezpieczeń i jądra do węzłów systemu Linux w usłudze Azure Kubernetes Service (AKS)](../../aks/node-updates-kured.md)|
 
-### <a name="client-requirements"></a>Wymagania dotyczące klientów
+### <a name="system-requirements"></a>Wymagania systemowe
 
-Poniższe informacje opisują wymagania klienta specyficzne dla systemu operacyjnego. Aby uzyskać dodatkowe wskazówki, zobacz [Planowanie sieci](#ports). Aby zrozumieć wymagania klienta dotyczące protokołu TLS 1,2, zobacz [Wymuszanie protokołu tls 1,2 dla Azure Automation](../automation-managing-data.md#tls-12-enforcement-for-azure-automation).
+Poniższe informacje opisują wymagania specyficzne dla systemu operacyjnego. Aby uzyskać dodatkowe wskazówki, zobacz [Planowanie sieci](#ports). Aby poznać wymagania dotyczące protokołu TLS 1,2, zobacz [Wymuszanie protokołu tls 1,2 dla Azure Automation](../automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
 #### <a name="windows"></a>Windows
 
+Wymagania dotyczące oprogramowania:
+
+- Wymagany jest .NET Framework 4,6 lub nowszy. ([Pobierz .NET Framework](/dotnet/framework/install/guide-for-developers).
+- Wymagany jest program Windows PowerShell 5,1 ([Pobierz program Windows Management Framework 5,1](https://www.microsoft.com/download/details.aspx?id=54616)).
+
 Agenci systemu Windows muszą być skonfigurowani do komunikowania się z serwerem WSUS lub muszą mieć dostęp do Microsoft Update. W przypadku maszyn hybrydowych zaleca się zainstalowanie agenta Log Analytics dla systemu Windows, najpierw łącząc maszynę z [włączonymi serwerami usługi Azure Arc](../../azure-arc/servers/overview.md), a następnie używając Azure Policy do przypisywania [agenta wdrożenia log Analytics do zasad wbudowanych dla maszyn usługi Windows Azure](../../governance/policy/samples/built-in-policies.md#monitoring) . Alternatywnie, jeśli planujesz monitorowanie maszyn przy użyciu Azure Monitor dla maszyn wirtualnych, zamiast tego użyj inicjatywy [Enable Azure monitor dla maszyn wirtualnych](../../governance/policy/samples/built-in-initiatives.md#monitoring) .
 
-Możesz użyć Update Management z usługą Microsoft Endpoint Configuration Manager. Aby dowiedzieć się więcej na temat scenariuszy integracji, zobacz [integrowanie Update Management z Configuration Manager punktu końcowego systemu Windows](mecmintegration.md). [Agent log Analytics dla systemu Windows](../../azure-monitor/platform/agent-windows.md) jest wymagany dla serwerów z systemem Windows zarządzanych przez lokacje w środowisku Configuration Manager. 
+Możesz użyć Update Management z usługą Microsoft Endpoint Configuration Manager. Aby dowiedzieć się więcej na temat scenariuszy integracji, zobacz [integrowanie Update Management z Configuration Manager punktu końcowego systemu Windows](mecmintegration.md). [Agent log Analytics dla systemu Windows](../../azure-monitor/platform/agent-windows.md) jest wymagany dla serwerów z systemem Windows zarządzanych przez lokacje w środowisku Configuration Manager.
 
 Domyślnie maszyny wirtualne z systemem Windows wdrożone w witrynie Azure Marketplace są ustawione tak, aby otrzymywać aktualizacje automatyczne z usługi Windows Update. Takie zachowanie nie zmienia się po dodaniu maszyn wirtualnych z systemem Windows do obszaru roboczego. Jeśli aktualizacje nie są aktywnie zarządzane przy użyciu Update Management, mają zastosowanie domyślne zachowanie (aby automatycznie zastosować aktualizacje).
 
@@ -111,7 +116,11 @@ Domyślnie maszyny wirtualne z systemem Windows wdrożone w witrynie Azure Marke
 
 #### <a name="linux"></a>Linux
 
-W przypadku systemu Linux maszyna wymaga dostępu do repozytorium aktualizacji — prywatne lub publiczne. Do współdziałania z Update Managementami wymagany jest protokół TLS 1,1 lub TLS 1,2. Update Management nie obsługuje agenta Log Analytics dla systemu Linux, który został skonfigurowany do raportowania do więcej niż jednego obszaru roboczego Log Analytics. Na komputerze musi być zainstalowany język Python 2. x.
+Wymagania dotyczące oprogramowania:
+
+- Komputer wymaga dostępu do repozytorium aktualizacji, prywatnego lub publicznego.
+- Do współdziałania z Update Managementami wymagany jest protokół TLS 1,1 lub TLS 1,2.
+- Zainstalowano Język Python 2. x.
 
 > [!NOTE]
 > Ocena aktualizacji maszyn z systemem Linux jest obsługiwana tylko w określonych regionach. Zobacz [tabelę mapowania](../how-to/region-mappings.md#supported-mappings)obszaru roboczego konta usługi Automation i log Analytics.
@@ -130,11 +139,11 @@ Update Management używa zasobów opisanych w tej sekcji. Te zasoby są automaty
 
 ### <a name="hybrid-runbook-worker-groups"></a>Grupy hybrydowych procesów roboczych elementu Runbook
 
-Po włączeniu Update Management każda maszyna z systemem Windows, która jest bezpośrednio połączona z obszarem roboczym Log Analytics, zostanie automatycznie skonfigurowana jako hybrydowy proces roboczy elementu Runbook w celu obsługi elementów Runbook, które obsługują Update Management.
+Po włączeniu Update Management wszystkie maszyny z systemem Windows, które są bezpośrednio połączone z obszarem roboczym Log Analytics, zostaną automatycznie skonfigurowane jako hybrydowy proces roboczy elementu Runbook systemu do obsługi elementów Runbook obsługujących Update Management.
 
 Każda maszyna z systemem Windows zarządzana przez Update Management jest wymieniona w okienku grupy hybrydowych procesów roboczych jako Grupa hybrydowych procesów roboczych systemu dla konta usługi Automation. Grupy używają `Hostname FQDN_GUID` konwencji nazewnictwa. Nie można kierować tymi grupami do elementów Runbook na Twoim koncie. Jeśli spróbujesz, próba zakończy się niepowodzeniem. Te grupy są przeznaczone do obsługi tylko Update Management. Aby dowiedzieć się więcej na temat wyświetlania listy maszyn systemu Windows skonfigurowanych jako hybrydowy proces roboczy elementu Runbook, zobacz temat [Wyświetlanie hybrydowych procesów roboczych elementów Runbook](../automation-hybrid-runbook-worker.md#view-system-hybrid-runbook-workers).
 
-Możesz dodać maszynę z systemem Windows do grupy hybrydowych procesów roboczych elementu Runbook na koncie usługi Automation w celu obsługi elementów Runbook usługi Automation, jeśli używasz tego samego konta dla Update Management i członkostwa w grupie hybrydowych procesów roboczych elementu Runbook. Ta funkcja została dodana w wersji 7.2.12024.0 hybrydowego procesu roboczego elementu Runbook.
+Możesz dodać maszynę z systemem Windows do grupy hybrydowych procesów roboczych elementu Runbook użytkownika na koncie usługi Automation w celu obsługi elementów Runbook usługi Automation, jeśli używasz tego samego konta dla Update Management i członkostwa w grupie hybrydowych procesów roboczych elementu Runbook. Ta funkcja została dodana w wersji 7.2.12024.0 hybrydowego procesu roboczego elementu Runbook.
 
 ### <a name="management-packs"></a>Pakiety administracyjne
 
@@ -222,7 +231,7 @@ W następnej tabeli zdefiniowano obsługiwane klasyfikacje aktualizacji systemu 
 >* Wersja platformy Azure dla administracji USA
 >* 21Vianet w Chinach
 >
-> nie ma klasyfikacji aktualizacji systemu Linux i są one zgłaszane w kategorii **inne aktualizacje** . Update Management używa danych opublikowanych przez obsługiwane dystrybucje, w tym w oddzielnym pliku. [OVAL](https://oval.mitre.org/) Ponieważ dostęp do Internetu jest ograniczony z tych chmur narodowych, Update Management nie może uzyskać dostępu do tych plików i korzystać z nich.
+> nie ma klasyfikacji aktualizacji systemu Linux i są one zgłaszane w kategorii **inne aktualizacje** . Update Management używa danych opublikowanych przez obsługiwane dystrybucje, w tym w oddzielnym pliku. [](https://oval.mitre.org/) Ponieważ dostęp do Internetu jest ograniczony z tych chmur narodowych, Update Management nie może uzyskać dostępu do tych plików i korzystać z nich.
 
 W systemie Linux Update Management może rozróżnić aktualizacje krytyczne i aktualizacje zabezpieczeń w chmurze w obszarze **zabezpieczenia** klasyfikacji i **inne**, a także wyświetlać dane oceny z powodu wzbogacania danych w chmurze. W przypadku stosowania poprawek Update Management opiera się na danych klasyfikacji dostępnych na komputerze. W przeciwieństwie do innych dystrybucji, CentOS nie ma informacji dostępnych w wersji RTM. Jeśli masz maszyny CentOS skonfigurowane do zwracania danych zabezpieczeń dla poniższego polecenia, Update Management może zostać poprawione na podstawie klasyfikacji.
 

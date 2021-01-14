@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 04/26/2018
 ms.author: duau
-ms.openlocfilehash: a8547a681d3b2b1cfb01750c4898b45f10d18d57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 114041a6ad0b311a1e01a692b9e6c36b0a8fb900
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400219"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185380"
 ---
 # <a name="route-traffic-for-high-availability-of-applications-using-azure-powershell"></a>Kierowanie ruchu w celu zapewnienia wysokiej dostępności aplikacji przy użyciu Azure PowerShell
 
@@ -60,6 +60,6 @@ W tym skrypcie użyto następujących poleceń do utworzenia grupy zasobów, apl
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat programu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+Aby uzyskać więcej informacji na temat programu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](/powershell/azure/).
 
 Dodatkowe przykłady skryptów programu PowerShell dla sieci można znaleźć w [dokumentacji i omówieniu sieci platformy Azure](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).

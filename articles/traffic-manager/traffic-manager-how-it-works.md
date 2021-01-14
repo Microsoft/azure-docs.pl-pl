@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: duau
-ms.openlocfilehash: 471895f1a615770521584a627e6bca850b87d0ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1e1bd107e8b3b9209f99d1abfc4d7e391c3c4a6
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462636"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184343"
 ---
 # <a name="how-traffic-manager-works"></a>Jak działa Traffic Manager
 
@@ -30,7 +30,7 @@ Traffic Manager zapewnia dwie kluczowe korzyści:
 
 Klient, który próbuje nawiązać połączenie z usługą, musi najpierw przekształcić nazwę DNS usługi na adres IP. Następnie klient łączy się z tym adresem IP, aby uzyskać dostęp do usługi.
 
-**Najważniejszym punktem, aby zrozumieć, jest to, że Traffic Manager działa na poziomie systemu DNS.**  Traffic Manager używa systemu DNS do kierowania klientów do określonych punktów końcowych usługi na podstawie reguł metody routingu ruchu. Klienci łączą się **bezpośrednio**z wybranym punktem końcowym. Traffic Manager nie jest serwerem proxy ani bramą. Traffic Manager nie widzi ruchu przechodzącego między klientem a usługą.
+**Najważniejszym punktem, aby zrozumieć, jest to, że Traffic Manager działa na poziomie systemu DNS.**  Traffic Manager używa systemu DNS do kierowania klientów do określonych punktów końcowych usługi na podstawie reguł metody routingu ruchu. Klienci łączą się **bezpośrednio** z wybranym punktem końcowym. Traffic Manager nie jest serwerem proxy ani bramą. Traffic Manager nie widzi ruchu przechodzącego między klientem a usługą.
 
 ## <a name="traffic-manager-example"></a>Przykład Traffic Manager
 
@@ -71,27 +71,27 @@ Rekursywna usługa DNS buforuje odpowiedzi DNS, które odbiera. Program rozpozna
 
 ## <a name="faqs"></a>Często zadawane pytania
 
-* [Jakiego adresu IP używa Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-ip-address-does-traffic-manager-use)
+* [Jakiego adresu IP używa Traffic Manager?](./traffic-manager-faqs.md#what-ip-address-does-traffic-manager-use)
 
-* [Jakiego rodzaju ruch może być kierowany przy użyciu Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-types-of-traffic-can-be-routed-using-traffic-manager)
+* [Jakiego rodzaju ruch może być kierowany przy użyciu Traffic Manager?](./traffic-manager-faqs.md#what-types-of-traffic-can-be-routed-using-traffic-manager)
 
-* [Czy Traffic Manager obsługuje sesje "Sticky"?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-sticky-sessions)
+* [Czy Traffic Manager obsługuje sesje "Sticky"?](./traffic-manager-faqs.md#does-traffic-manager-support-sticky-sessions)
 
-* [Dlaczego podczas korzystania z Traffic Manager pojawia się błąd HTTP?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-am-i-seeing-an-http-error-when-using-traffic-manager)
+* [Dlaczego podczas korzystania z Traffic Manager pojawia się błąd HTTP?](./traffic-manager-faqs.md#why-am-i-seeing-an-http-error-when-using-traffic-manager)
 
-* [Jaki jest wpływ na wydajność korzystania z Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-the-performance-impact-of-using-traffic-manager)
+* [Jaki jest wpływ na wydajność korzystania z Traffic Manager?](./traffic-manager-faqs.md#what-is-the-performance-impact-of-using-traffic-manager)
 
-* [Jakich protokołów aplikacji można używać z Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-application-protocols-can-i-use-with-traffic-manager)
+* [Jakich protokołów aplikacji można używać z Traffic Manager?](./traffic-manager-faqs.md#what-application-protocols-can-i-use-with-traffic-manager)
 
-* [Czy można użyć Traffic Manager z "owies" nazwą domeny?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-a-naked-domain-name)
+* [Czy można użyć Traffic Manager z "owies" nazwą domeny?](./traffic-manager-faqs.md#can-i-use-traffic-manager-with-a-naked-domain-name)
 
-* [Czy Traffic Manager uwzględnić adres podsieci klienta podczas obsługi zapytań DNS?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries)
+* [Czy Traffic Manager uwzględnić adres podsieci klienta podczas obsługi zapytań DNS?](./traffic-manager-faqs.md#does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries)
 
-* [Co to jest czas wygaśnięcia systemu DNS i jak ma to wpływ na moich użytkowników?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-dns-ttl-and-how-does-it-impact-my-users)
+* [Co to jest czas wygaśnięcia systemu DNS i jak ma to wpływ na moich użytkowników?](./traffic-manager-faqs.md#what-is-dns-ttl-and-how-does-it-impact-my-users)
 
-* [Jak wysoka lub niska można ustawić czas wygaśnięcia dla Traffic Manager odpowiedzi?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-high-or-low-can-i-set-the-ttl-for-traffic-manager-responses)
+* [Jak wysoka lub niska można ustawić czas wygaśnięcia dla Traffic Manager odpowiedzi?](./traffic-manager-faqs.md#how-high-or-low-can-i-set-the-ttl-for-traffic-manager-responses)
 
-* [Jak zrozumieć ilość zapytań przesyłanych do mojego profilu?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-understand-the-volume-of-queries-coming-to-my-profile)
+* [Jak zrozumieć ilość zapytań przesyłanych do mojego profilu?](./traffic-manager-faqs.md#how-can-i-understand-the-volume-of-queries-coming-to-my-profile)
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -102,4 +102,3 @@ Dowiedz się więcej o [metodach routingu ruchu](traffic-manager-routing-methods
 <!--Image references-->
 [1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png
 [2]: ./media/traffic-manager-how-traffic-manager-works/flow.png
-

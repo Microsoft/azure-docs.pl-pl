@@ -2,17 +2,17 @@
 title: Informacje o strefie Edge platformy Azure w wersji zapoznawczej
 description: 'Dowiedz się więcej o ofercie przetwarzania brzegowego firmy Microsoft: strefa brzegowa platformy Azure.'
 services: vnf-manager
-author: ganesr
+author: cherylmc
 ms.service: vnf-manager
 ms.topic: article
-ms.date: 07/07/2020
-ms.author: ganesr
-ms.openlocfilehash: 68aa3342ab09be73a82f4f896ffdff99d15a5350
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/13/2021
+ms.author: cherylmc
+ms.openlocfilehash: 04555303d5128db6c183d27a0c5fcb69063fdc28
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329581"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185414"
 ---
 # <a name="about-azure-edge-zone-preview"></a>Informacje o strefie Edge platformy Azure w wersji zapoznawczej
 
@@ -38,7 +38,7 @@ Istnieją trzy typy stref brzegowych platformy Azure:
 
 ![Strefy usługi Azure Edge Zone](./media/edge-zones-overview/edge-zones.png "Strefy usługi Azure Edge Zone")
 
-Strefy na platformie Azure są małymi rozszerzeniami systemu Azure umieszczonymi w centrach ludności, które są daleko od regionów świadczenia usługi Azure. Strefy usługi Azure Edge obsługują maszyny wirtualne, kontenery i wybrany zestaw usług platformy Azure, dzięki którym można uruchamiać aplikacje korzystające z opóźnienia i intensywność przepływności w pobliżu użytkowników końcowych. Strefy usługi Azure Edge są częścią sieci globalnej firmy Microsoft. Zapewniają bezpieczną, niezawodną łączność o wysokiej przepustowości między aplikacjami, które działają w strefie brzegowej blisko użytkownika. Oferują one pełen zestaw usług platformy Azure działających w regionach platformy Azure. Strefy usługi Azure Edge są własnością firmy Microsoft i są przez nią obsługiwane. Aby zarządzać usługami i wdrażać je w strefach brzegowych, można użyć tego samego zestawu narzędzi platformy Azure i tego samego portalu.
+Strefy na platformie Azure są małymi rozszerzeniami systemu Azure umieszczonymi w centrach ludności, które są daleko od regionów świadczenia usługi Azure. Strefy usługi Azure Edge obsługują maszyny wirtualne, kontenery i wybrany zestaw usług platformy Azure, dzięki którym można uruchamiać aplikacje korzystające z opóźnienia i intensywność przepływności w pobliżu użytkowników końcowych. Strefy usługi Azure Edge są częścią sieci globalnej firmy Microsoft. Zapewniają bezpieczną, niezawodną łączność o wysokiej przepustowości między aplikacjami, które działają w strefie brzegowej blisko użytkownika. Strefy usługi Azure Edge są własnością firmy Microsoft i są przez nią obsługiwane. Aby zarządzać usługami i wdrażać je w strefach brzegowych, można użyć tego samego zestawu narzędzi platformy Azure i tego samego portalu.
 
 Typowe przypadki użycia obejmują:
 
@@ -61,7 +61,7 @@ Aby uzyskać więcej informacji [, skontaktuj się z zespołem strefy brzegowej]
 
 Strefy usługi Azure Edge z przewoźnikiem to małe, rozbudowane rozszerzenia platformy Azure, które są umieszczane w centrach danych na urządzeniach przenośnych operatorów. Strefa brzegowa platformy Azure z infrastrukturą operatora ma jeden przeskok z sieci 5G operatora komórkowego. To rozmieszczenie oferuje czas oczekiwania krótszy niż 10 milisekund na aplikacje z urządzeń przenośnych.
 
-Strefy usługi Azure Edge z przewoźnikiem są wdrażane w centrach danych operatorów mobilnych i połączone z siecią globalną firmy Microsoft. Zapewniają bezpieczną, niezawodną łączność o wysokiej przepustowości między aplikacjami, które działają blisko użytkownika. Oferują one pełen zestaw usług platformy Azure działających w regionach platformy Azure. Deweloperzy mogą używać tego samego zestawu znanych narzędzi do kompilowania i wdrażania usług w strefach brzegowych.
+Strefy usługi Azure Edge z przewoźnikiem są wdrażane w centrach danych operatorów mobilnych i połączone z siecią globalną firmy Microsoft. Zapewniają bezpieczną, niezawodną łączność o wysokiej przepustowości między aplikacjami, które działają blisko użytkownika. Deweloperzy mogą używać tego samego zestawu znanych narzędzi do kompilowania i wdrażania usług w strefach brzegowych.
 
 Typowe przypadki użycia obejmują:
 

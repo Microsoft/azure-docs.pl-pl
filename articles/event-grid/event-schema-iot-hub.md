@@ -2,13 +2,13 @@
 title: IoT Hub platformy Azure jako źródło Event Grid
 description: Ten artykuł zawiera właściwości i schemat zdarzeń usługi Azure IoT Hub. Wyświetla listę dostępnych typów zdarzeń, zdarzenie przykładowe i właściwości zdarzenia.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 02ecf8d4df55aa6b4319e40892778f85f94e29a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/13/2021
+ms.openlocfilehash: 7e1c480bd2a662a2ee3418b35dc9c3b50d412a60
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86113653"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185839"
 ---
 # <a name="azure-iot-hub-as-an-event-grid-source"></a>IoT Hub platformy Azure jako źródło Event Grid
 Ten artykuł zawiera właściwości i schemat zdarzeń usługi Azure IoT Hub. Aby zapoznać się z wprowadzeniem do schematów zdarzeń, zobacz [Azure Event Grid schemacie zdarzeń](event-schema.md). 
@@ -26,8 +26,6 @@ Usługa Azure IoT Hub emituje następujące typy zdarzeń:
 | Microsoft.Devices.DeviceConnected | Opublikowano, gdy urządzenie jest połączone z usługą IoT Hub. |
 | Microsoft.Devices.DeviceDisconnected | Opublikowano po odłączeniu urządzenia od centrum IoT Hub. | 
 | Microsoft.Devices.DeviceTelemetry | Opublikowano, gdy komunikat telemetrii zostanie wysłany do centrum IoT Hub. |
-
-Wszystkie zdarzenia urządzeń z wyjątkiem zdarzeń telemetrii urządzenia są ogólnie dostępne we wszystkich regionach obsługiwanych przez Event Grid. Wydarzenie telemetryczne urządzenia jest w publicznej wersji zapoznawczej i jest dostępne we wszystkich regionach z wyjątkiem Wschodnie stany USA, zachodnie stany USA, Europa Zachodnia, [Azure Government](../azure-government/documentation-government-welcome.md), [Chiny z Chin](/azure/china/china-welcome)i [Azure (Niemcy](https://azure.microsoft.com/global-infrastructure/germany/)).
 
 ### <a name="example-event"></a>Przykładowe zdarzenie
 
@@ -140,7 +138,7 @@ Schemat dla zdarzeń DeviceCreated i DeviceDeleted ma tę samą strukturę. To p
 
 Wszystkie zdarzenia zawierają te same dane najwyższego poziomu: 
 
-| Właściwość | Type | Opis |
+| Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
 | identyfikator | ciąg | Unikatowy identyfikator zdarzenia. |
 | temat | ciąg | Pełna ścieżka zasobu do źródła zdarzeń. To pole nie umożliwia zapisu. Ta wartość jest podawana przez usługę Event Grid. |
@@ -153,7 +151,7 @@ Wszystkie zdarzenia zawierają te same dane najwyższego poziomu:
 
 Dla wszystkich zdarzeń IoT Hub obiekt danych zawiera następujące właściwości:
 
-| Właściwość | Type | Opis |
+| Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
 | hubName | ciąg | Nazwa IoT Hub, w którym urządzenie zostało utworzone lub usunięte. |
 | deviceId | ciąg | Unikatowy identyfikator urządzenia. Ten ciąg z rozróżnianiem wielkości liter może mieć długość do 128 znaków i obsługuje znaki alfanumeryczne ASCII 7-bitowe oraz następujące znaki specjalne: `- : . + % _ # * ? ! ( ) , = @ ; $ '` . |
@@ -162,7 +160,7 @@ Zawartość obiektu danych różni się w zależności od wydawcy zdarzeń.
 
 W przypadku **urządzeń podłączonych** i **odłączonych** IoT Hub zdarzeń obiekt danych zawiera następujące właściwości:
 
-| Właściwość | Type | Opis |
+| Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
 | moduleId | ciąg | Unikatowy identyfikator modułu. To pole jest wyprowadzane tylko dla urządzeń modułowych. Ten ciąg z rozróżnianiem wielkości liter może mieć długość do 128 znaków i obsługuje znaki alfanumeryczne ASCII 7-bitowe oraz następujące znaki specjalne: `- : . + % _ # * ? ! ( ) , = @ ; $ '` . |
 | deviceConnectionStateEventInfo | object | Informacje o zdarzeniu stanu połączenia urządzenia
@@ -170,7 +168,7 @@ W przypadku **urządzeń podłączonych** i **odłączonych** IoT Hub zdarzeń o
 
 W przypadku IoT Hub zdarzeń **telemetrii urządzenia** obiekt danych zawiera komunikat z urządzenia do chmury w [formacie komunikatu usługi IoT Hub](../iot-hub/iot-hub-devguide-messages-construct.md) i ma następujące właściwości:
 
-| Właściwość | Type | Opis |
+| Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
 | body | ciąg | Zawartość komunikatu z urządzenia. |
 | properties | ciąg | Właściwości aplikacji są ciągami zdefiniowanymi przez użytkownika, które można dodać do wiadomości. Te pola są opcjonalne. |
@@ -178,7 +176,7 @@ W przypadku IoT Hub zdarzeń **telemetrii urządzenia** obiekt danych zawiera ko
 
 W przypadku urządzeń, które zostały **utworzone** i zostały **usunięte** IoT Hub zdarzenia, obiekt danych zawiera następujące właściwości:
 
-| Właściwość | Type | Opis |
+| Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
 | splot | object | Informacje o bliźniaczych urządzeniach, które są reprezentacją metadanych urządzeń aplikacji w chmurze. | 
 | Identyfikator | ciąg | Unikatowy identyfikator sznurka urządzenia. | 

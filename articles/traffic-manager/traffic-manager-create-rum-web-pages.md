@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: duau
 ms.custom: ''
-ms.openlocfilehash: 8606e89a40e9cfd2c0f55df2c65532928c0d11f8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2bb104fd9cfc3c4ffddb82e4cf442e94c4650550
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95972593"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184562"
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Jak wysyłać Pomiary rzeczywistego użytkownika do usługi Azure Traffic Manager przy użyciu stron sieci Web
 
@@ -68,5 +68,4 @@ Po uzyskaniu klucza RUM następnym krokiem jest osadzenie skopiowanego kodu Java
 - Dowiedz się więcej o [pomiary rzeczywistego użytkownika](traffic-manager-rum-overview.md)
 - Dowiedz się, [jak działa Traffic Manager](traffic-manager-overview.md)
 - Dowiedz się więcej o [metodach routingu ruchu](traffic-manager-routing-methods.md) obsługiwanych przez Traffic Manager
-- Dowiedz się, jak [utworzyć profil Traffic Manager](traffic-manager-create-profile.md)
-
+- Dowiedz się, jak [utworzyć profil Traffic Manager](./quickstart-create-traffic-manager-profile.md)

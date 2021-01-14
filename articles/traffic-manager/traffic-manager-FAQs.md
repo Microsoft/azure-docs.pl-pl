@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: duau
-ms.openlocfilehash: 86758c355566fb67ebd8a606068e2044e0b8bd64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17ccfeb709c530a868a75ecd87052618aaea4846
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400181"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184581"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager często zadawane pytania
 
@@ -96,7 +96,7 @@ Kluczową różnicą między tymi dwiema popularnymi metodami routingu jest to, 
 
 ### <a name="what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing"></a>Jakie regiony są obsługiwane przez Traffic Manager na potrzeby routingu geograficznego?
 
-Hierarchia krajów/regionów używana przez Traffic Manager można znaleźć [tutaj](traffic-manager-geographic-regions.md). Gdy ta strona jest aktualna wraz ze zmianami, można również programowo pobrać te same informacje przy użyciu [interfejsu API REST usługi Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/). 
+Hierarchia krajów/regionów używana przez Traffic Manager można znaleźć [tutaj](traffic-manager-geographic-regions.md). Gdy ta strona jest aktualna wraz ze zmianami, można również programowo pobrać te same informacje przy użyciu [interfejsu API REST usługi Azure Traffic Manager](/rest/api/trafficmanager/). 
 
 ### <a name="how-does-traffic-manager-determine-where-a-user-is-querying-from"></a>Jak Usługa Traffic Manager określa, skąd użytkownik wykonuje zapytania?
 
@@ -116,11 +116,11 @@ Nie, Lokalizacja punktu końcowego nie nakłada żadnych ograniczeń dotyczącyc
 
 ### <a name="can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing"></a>Czy można przypisywać regiony geograficzne do punktów końcowych w profilu, który nie jest skonfigurowany do routingu geograficznego?
 
-Tak, jeśli metoda routingu profilu nie jest geograficzna, można użyć [interfejsu API REST platformy Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/) do przypisywania regionów geograficznych do punktów końcowych w tym profilu. W przypadku profilów typu routingu geograficznego ta konfiguracja jest ignorowana. Jeśli zmienisz taki profil na typ routingu geograficznego w późniejszym czasie, Traffic Manager mogą używać tych mapowań.
+Tak, jeśli metoda routingu profilu nie jest geograficzna, można użyć [interfejsu API REST platformy Azure Traffic Manager](/rest/api/trafficmanager/) do przypisywania regionów geograficznych do punktów końcowych w tym profilu. W przypadku profilów typu routingu geograficznego ta konfiguracja jest ignorowana. Jeśli zmienisz taki profil na typ routingu geograficznego w późniejszym czasie, Traffic Manager mogą używać tych mapowań.
 
 ### <a name="why-am-i-getting-an-error-when-i-try-to-change-the-routing-method-of-an-existing-profile-to-geographic"></a>Dlaczego otrzymuję błąd podczas próby zmiany metody routingu istniejącego profilu na geograficzny?
 
-Wszystkie punkty końcowe w profilu z routingiem geograficznym muszą mieć zamapowane co najmniej jeden region. Aby przekonwertować istniejący profil na typ routingu geograficznego, najpierw musisz skojarzyć regiony geograficzne ze wszystkimi punktami końcowymi przy użyciu [interfejsu API REST platformy Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/) przed zmianą typu routingu na geograficzny. Jeśli używasz portalu, najpierw usuń punkty końcowe, Zmień metodę routingu profilu na geograficzną, a następnie Dodaj punkty końcowe wraz z ich mapowaniem regionu geograficznego.
+Wszystkie punkty końcowe w profilu z routingiem geograficznym muszą mieć zamapowane co najmniej jeden region. Aby przekonwertować istniejący profil na typ routingu geograficznego, najpierw musisz skojarzyć regiony geograficzne ze wszystkimi punktami końcowymi przy użyciu [interfejsu API REST platformy Azure Traffic Manager](/rest/api/trafficmanager/) przed zmianą typu routingu na geograficzny. Jeśli używasz portalu, najpierw usuń punkty końcowe, Zmień metodę routingu profilu na geograficzną, a następnie Dodaj punkty końcowe wraz z ich mapowaniem regionu geograficznego.
 
 ### <a name="why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled"></a>Dlaczego zdecydowanie zaleca się, aby klienci utworzyli profile zagnieżdżone zamiast punktów końcowych w ramach profilu z włączonym routingiem geograficznym?
 
@@ -306,7 +306,7 @@ Cennik Widok ruchu jest określany na podstawie liczby punktów danych użytych 
 
 Korzystanie z punktów końcowych z wielu subskrypcji nie jest możliwe za pomocą usługi Azure Web Apps. Usługa Azure Web Apps wymaga, aby dowolna nazwa domeny niestandardowej użyta z Web Apps była używana tylko w ramach jednej subskrypcji. Nie można używać Web Apps z wielu subskrypcji o tej samej nazwie domeny.
 
-W przypadku innych typów punktów końcowych można użyć Traffic Manager z punktami końcowymi z więcej niż jednej subskrypcji. W Menedżer zasobów punkty końcowe z dowolnych subskrypcji można dodać do Traffic Manager, o ile osoba konfigurująca profil Traffic Manager ma dostęp do odczytu do punktu końcowego. Uprawnienia te można przyznawać przy użyciu [kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). Punkty końcowe z innych subskrypcji można dodawać przy użyciu [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create).
+W przypadku innych typów punktów końcowych można użyć Traffic Manager z punktami końcowymi z więcej niż jednej subskrypcji. W Menedżer zasobów punkty końcowe z dowolnych subskrypcji można dodać do Traffic Manager, o ile osoba konfigurująca profil Traffic Manager ma dostęp do odczytu do punktu końcowego. Uprawnienia te można przyznawać przy użyciu [kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). Punkty końcowe z innych subskrypcji można dodawać przy użyciu [Azure PowerShell](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) lub [interfejsu wiersza polecenia platformy Azure](/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create).
 
 ### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>Czy można użyć Traffic Manager z gniazdami "przemieszczania" usługi w chmurze?
 
@@ -345,9 +345,9 @@ Azure Resource Manager wymaga, aby wszystkie grupy zasobów określiły lokaliza
 
 ### <a name="how-do-i-determine-the-current-health-of-each-endpoint"></a>Jak mogę określić aktualną kondycję każdego punktu końcowego?
 
-Bieżący stan monitorowania każdego punktu końcowego, oprócz ogólnego profilu, jest wyświetlany w Azure Portal. Te informacje są również dostępne za pośrednictwem [interfejsu API REST](https://msdn.microsoft.com/library/azure/mt163667.aspx)monitora ruchu, [poleceń cmdlet programu PowerShell](https://docs.microsoft.com/powershell/module/az.trafficmanager)i [międzyplatformowego interfejsu wiersza polecenia platformy Azure](../cli-install-nodejs.md).
+Bieżący stan monitorowania każdego punktu końcowego, oprócz ogólnego profilu, jest wyświetlany w Azure Portal. Te informacje są również dostępne za pośrednictwem [interfejsu API REST](/rest/api/trafficmanager/)monitora ruchu, [poleceń cmdlet programu PowerShell](/powershell/module/az.trafficmanager)i [międzyplatformowego interfejsu wiersza polecenia platformy Azure](/cli/azure/install-classic-cli).
 
-Możesz również użyć Azure Monitor do śledzenia kondycji punktów końcowych i wyświetlania wizualnej reprezentacji. Aby uzyskać więcej informacji na temat korzystania z Azure Monitor, zobacz [dokumentację dotyczącą monitorowania platformy Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
+Możesz również użyć Azure Monitor do śledzenia kondycji punktów końcowych i wyświetlania wizualnej reprezentacji. Aby uzyskać więcej informacji na temat korzystania z Azure Monitor, zobacz [dokumentację dotyczącą monitorowania platformy Azure](../azure-monitor/platform/data-platform.md).
 
 ### <a name="can-i-monitor-https-endpoints"></a>Czy mogę monitorować punkty końcowe HTTPS?
 
@@ -458,7 +458,7 @@ Liczba Traffic Manager kontroli kondycji docierających do punktu końcowego zal
 
 ### <a name="how-can-i-get-notified-if-one-of-my-endpoints-goes-down"></a>Jak mogę otrzymywać powiadomienia, jeśli jeden z punktów końcowych ulegnie awarii?
 
-Jedną z metryk dostarczonych przez Traffic Manager jest stan kondycji punktów końcowych w profilu. Można to zobaczyć jako zagregowane wszystkie punkty końcowe w profilu (na przykład 75% punktów końcowych jest w dobrej kondycji) lub, na poziomie na punkt końcowy. Metryki Traffic Manager są udostępniane za pomocą Azure Monitor i można korzystać z [funkcji alertów](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) , aby otrzymywać powiadomienia o zmianie stanu kondycji punktu końcowego. Aby uzyskać więcej informacji, zobacz [Traffic Manager metryki i alerty](traffic-manager-metrics-alerts.md).  
+Jedną z metryk dostarczonych przez Traffic Manager jest stan kondycji punktów końcowych w profilu. Można to zobaczyć jako zagregowane wszystkie punkty końcowe w profilu (na przykład 75% punktów końcowych jest w dobrej kondycji) lub, na poziomie na punkt końcowy. Metryki Traffic Manager są udostępniane za pomocą Azure Monitor i można korzystać z [funkcji alertów](../azure-monitor/platform/alerts-metric.md) , aby otrzymywać powiadomienia o zmianie stanu kondycji punktu końcowego. Aby uzyskać więcej informacji, zobacz [Traffic Manager metryki i alerty](traffic-manager-metrics-alerts.md).  
 
 ## <a name="traffic-manager-nested-profiles"></a>Traffic Manager zagnieżdżonych profilów
 
@@ -502,7 +502,7 @@ W poniższej tabeli opisano zachowanie Traffic Manager Sprawdzanie kondycji dla 
 | Wyłączona. Profil podrzędny został wyłączony. |Zatrzymano |Stan nadrzędnego punktu końcowego jest zatrzymany, nie jest wyłączony. Stan wyłączony jest zarezerwowany dla wskazywania, że punkt końcowy został wyłączony w profilu nadrzędnym. |
 | Pogorszenie. Co najmniej jeden punkt końcowy profilu podrzędnego jest w stanie obniżonej wydajności. |Online: liczba punktów końcowych w trybie online w profilu podrzędnym jest równa co najmniej wartości MinChildEndpoints.<BR>CheckingEndpoint: liczba punktów końcowych w trybie online i CheckingEndpoint w profilu podrzędnym jest równa co najmniej wartości MinChildEndpoints.<BR>Obniżona wydajność: w przeciwnym razie. |Ruch jest kierowany do punktu końcowego stanu CheckingEndpoint. Jeśli wartość MinChildEndpoints jest zbyt wysoka, punkt końcowy ma zawsze obniżony poziom. |
 | Online. Co najmniej jeden punkt końcowy profilu podrzędnego jest stanem online. Brak punktu końcowego w stanie obniżonej wydajności. |Zobacz powyżej. | |
-| CheckingEndpoints. Co najmniej jeden punkt końcowy profilu podrzędnego to "CheckingEndpoint". Żadne punkty końcowe nie są w trybie online ani nie zostały obniżone. |Tak samo jak powyżej. | |
+| CheckingEndpoints. Co najmniej jeden punkt końcowy profilu podrzędnego to "CheckingEndpoint". Żadne punkty końcowe nie są w trybie online ani nie zostały obniżone. |Jak wyżej. | |
 | Nieaktywne. Wszystkie punkty końcowe profilu podrzędnego są wyłączone lub zatrzymane albo ten profil nie ma punktów końcowych. |Zatrzymano | |
 
 ## <a name="next-steps"></a>Następne kroki:

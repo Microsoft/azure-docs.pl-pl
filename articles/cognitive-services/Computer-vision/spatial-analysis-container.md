@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/06/2020
+ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: f41e513ee0f2755c446a9cb95465c1f636fe5a7a
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: bb40586a93a40c2aaa3f0f884a0e747f168c324b
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97606270"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186087"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Instalowanie i uruchamianie kontenera analizy przestrzennej (wersja zapoznawcza)
 
@@ -24,7 +24,7 @@ Kontener analizy przestrzennej umożliwia analizowanie wideo przesyłania strumi
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
-* Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" Utwórz zasób przetwarzanie obrazów "  target="_blank"> utwórz zasób przetwarzanie obrazów <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
+* Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" Utwórz zasób przetwarzanie obrazów "  target="_blank"> utwórz zasób przetwarzanie obrazów <span class="docon docon-navigate-external x-hidden-focus"></span> </a> dla standardowej warstwy S1 w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
     * Potrzebny będzie klucz i punkt końcowy z zasobu tworzonego w celu uruchomienia kontenera analizy przestrzennej. Będziesz używać klucza i punktu końcowego później.
 
 
@@ -61,6 +61,9 @@ W tym artykule zostaną pobrane i zainstalowane następujące pakiety oprogramow
 * [Docker ce](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-engine---community-1) i [NVIDIA — Docker2](https://github.com/NVIDIA/nvidia-docker) 
 * [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) środowiska uruchomieniowego.
 
+#### <a name="azure-vm-with-gpu"></a>[Maszyna wirtualna platformy Azure z procesorem GPU](#tab/virtual-machine)
+W naszym przykładzie będziemy używać [maszyny wirtualnej z serii NC](https://docs.microsoft.com/azure/virtual-machines/nc-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) , która ma jeden procesor GPU K80.
+
 ---
 
 | Wymaganie | Opis |
@@ -85,7 +88,7 @@ Nie będzie można uruchomić kontenera, jeśli subskrypcja platformy Azure nie 
 
 ## <a name="set-up-the-host-computer"></a>Konfigurowanie komputera hosta
 
-Zalecane jest używanie Azure Stack urządzenia brzegowego dla komputera hosta. Kliknij pozycję **komputer stacjonarny** , jeśli konfigurujesz inne urządzenie.
+Zalecane jest używanie Azure Stack urządzenia brzegowego dla komputera hosta. Kliknij pozycję **komputer stacjonarny** , jeśli konfigurujesz inne urządzenie lub **maszynę wirtualną** , jeśli korzystasz z maszyny wirtualnej.
 
 #### <a name="azure-stack-edge-device"></a>[Urządzenie brzegowe Azure Stack](#tab/azure-stack-edge)
 
@@ -107,11 +110,11 @@ Analiza przestrzenna korzysta z funkcji obliczeniowych Azure Stack Edge, aby uru
 
 W [Azure Portal](https://portal.azure.com/)przejdź do zasobu Azure Stack Edge. Na stronie **Przegląd** lub na liście nawigacji kliknij przycisk **wprowadzenie** do obliczeń krawędzi. Na kafelku  **konfigurowania obliczeń brzegowych**   kliknij przycisk **Konfiguruj**. 
 
-![Link](media/spatial-analysis/configure-edge-compute-tile.png)
+![Łącze](media/spatial-analysis/configure-edge-compute-tile.png)
 
 Na stronie **Konfigurowanie obliczeń krawędzi**   Wybierz istniejący IoT Hub lub wybierz opcję utworzenia nowego. Domyślnie warstwa cenowa standardowa (S1) jest używana do tworzenia zasobów IoT Hub. Aby użyć zasobu warstwy Bezpłatna IoT Hub, utwórz go, a następnie wybierz. Zasób IoT Hub używa tej samej subskrypcji i grupy zasobów, która jest używana przez zasób Azure Stack Edge 
 
-Kliknij przycisk **Utwórz**. Tworzenie zasobów IoT Hub może potrwać kilka minut. Po utworzeniu zasobu IoT Hub zostanie zaktualizowany kafelek **Konfiguruj zmiany krawędzi** , aby pokazać nową konfigurację. Aby upewnić się, że skonfigurowano rolę obliczeniową brzegową, wybierz pozycję **Wyświetl konfigurację** na kafelku **Konfiguruj obliczenia**   .
+Kliknij pozycję **Utwórz**. Tworzenie zasobów IoT Hub może potrwać kilka minut. Po utworzeniu zasobu IoT Hub zostanie zaktualizowany kafelek **Konfiguruj zmiany krawędzi** , aby pokazać nową konfigurację. Aby upewnić się, że skonfigurowano rolę obliczeniową brzegową, wybierz pozycję **Wyświetl konfigurację** na kafelku **Konfiguruj obliczenia**   .
 
 Po skonfigurowaniu roli funkcji obliczeniowej Edge na urządzeniu Edge tworzone są dwa urządzenia: urządzenie IoT i urządzenie IoT Edge. Oba urządzenia można wyświetlić w zasobie usługi IoT Hub. Środowisko uruchomieniowe Azure IoT Edge będzie już uruchomione na urządzeniu IoT Edge.
 
@@ -252,13 +255,13 @@ Utwórz wystąpienie usługi Azure IoT Hub przy użyciu interfejsu wiersza polec
 
 ```bash
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-az login
-az account set --subscription <name or ID of Azure Subscription>
-az group create --name "test-resource-group" --location "WestUS"
+sudo az login
+sudo az account set --subscription <name or ID of Azure Subscription>
+sudo az group create --name "test-resource-group" --location "WestUS"
 
-az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-resource-group"
+sudo az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-resource-group"
 
-az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
+sudo az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
 ```
 
 Jeśli komputer hosta nie jest Azure Stack urządzeniem brzegowym, należy zainstalować program [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) Version 1.0.9. Wykonaj następujące kroki, aby pobrać poprawną wersję:
@@ -297,7 +300,7 @@ Następnie zarejestruj komputer hosta jako urządzenie IoT Edge w wystąpieniu I
 Musisz podłączyć urządzenie IoT Edge do IoT Hub platformy Azure. Należy skopiować parametry połączenia z utworzonego wcześniej urządzenia IoT Edge. Alternatywnie możesz uruchomić poniższe polecenie w interfejsie wiersza polecenia platformy Azure.
 
 ```bash
-az iot hub device-identity show-connection-string --device-id my-edge-device --hub-name test-iot-hub-123
+sudo az iot hub device-identity show-connection-string --device-id my-edge-device --hub-name test-iot-hub-123
 ```
 
 Na komputerze hosta otwartym  `/etc/iotedge/config.yaml` do edycji. Zamień na `ADD DEVICE CONNECTION STRING HERE` Parametry połączenia. Zapisz i zamknij plik. Uruchom to polecenie, aby ponownie uruchomić usługę IoT Edge na komputerze-hoście.
@@ -306,15 +309,100 @@ Na komputerze hosta otwartym  `/etc/iotedge/config.yaml` do edycji. Zamień na `
 sudo systemctl restart iotedge
 ```
 
-Wdróż kontener analizy przestrzennej jako moduł IoT na komputerze-hoście, z poziomu [Azure Portal](../../iot-edge/how-to-deploy-modules-portal.md) lub [interfejsu wiersza polecenia platformy Azure](../../iot-edge/how-to-deploy-modules-cli.md). Jeśli używasz portalu, ustaw identyfikator URI obrazu na lokalizację Azure Container Registry. 
+Wdróż kontener analizy przestrzennej jako moduł IoT na komputerze-hoście, z poziomu [Azure Portal](../../iot-edge/how-to-deploy-modules-portal.md) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows). Jeśli używasz portalu, ustaw identyfikator URI obrazu na lokalizację Azure Container Registry. 
 
 Wykonaj poniższe kroki, aby wdrożyć kontener przy użyciu interfejsu wiersza polecenia platformy Azure.
+
+#### <a name="azure-vm-with-gpu"></a>[Maszyna wirtualna platformy Azure z procesorem GPU](#tab/virtual-machine)
+
+Maszyna wirtualna platformy Azure z procesorem GPU może być również używana do uruchamiania analizy przestrzennej. W poniższym przykładzie zostanie użyta maszyna wirtualna z [serii NC](https://docs.microsoft.com/azure/virtual-machines/nc-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) , która ma jeden procesor GPU K80.
+
+#### <a name="create-the-vm"></a>Tworzenie maszyny wirtualnej
+
+Otwórz kreatora [tworzenia maszyny wirtualnej](https://ms.portal.azure.com/#create/Microsoft.VirtualMachine) w Azure Portal.
+
+Nadaj nazwę maszynie wirtualnej i wybierz region, który ma być (USA) zachodnie stany USA 2. Upewnij się, że ustawiono wartość `Availability Options` "Brak wymaganej nadmiarowości infrastruktury". Zapoznaj się z poniższym rysunkiem, aby uzyskać pełną konfigurację i następny krok w celu ułatwienia lokalizowania prawidłowego rozmiaru maszyny wirtualnej. 
+
+:::image type="content" source="media/spatial-analysis/virtual-machine-instance-details.png" alt-text="Szczegóły konfiguracji maszyny wirtualnej." lightbox="media/spatial-analysis/virtual-machine-instance-details.png":::
+
+Aby zlokalizować rozmiar maszyny wirtualnej, wybierz pozycję "Zobacz wszystkie rozmiary", a następnie Wyświetl listę "rozmiary maszyn wirtualnych bez usługi Premium", jak pokazano poniżej.
+
+:::image type="content" source="media/spatial-analysis/virtual-machine-sizes.png" alt-text="Rozmiary maszyn wirtualnych." lightbox="media/spatial-analysis/virtual-machine-sizes.png":::
+
+Następnie wybierz opcję **NC6** lub **NC6_Promo**.
+
+:::image type="content" source="media/spatial-analysis/promotional-selection.png" alt-text="wybór promocyjny" lightbox="media/spatial-analysis/promotional-selection.png":::
+
+Następnie utwórz maszynę wirtualną. Po utworzeniu przejdź do zasobu maszyny wirtualnej w Azure Portal i wybierz polecenie `Extensions` z okienka po lewej stronie. Zostanie wyświetlone okno rozszerzenia ze wszystkimi dostępnymi rozszerzeniami. Wybierz pozycję `NVIDIA GPU Driver Extension` Utwórz, a następnie Zakończ pracę kreatora.
+
+Po pomyślnym zastosowaniu rozszerzenia przejdź do strony głównej maszyny wirtualnej w Azure Portal i kliknij przycisk `Connect` . Do maszyny wirtualnej można uzyskać dostęp za pośrednictwem protokołu SSH lub RDP. Protokół RDP będzie przydatny do wyświetlania okna wizualizatora (wyjaśnionego później). Skonfiguruj dostęp do protokołu RDP, wykonując następujące [kroki](https://docs.microsoft.com/azure/virtual-machines/linux/use-remote-desktop) i otwierając połączenie pulpitu zdalnego z maszyną wirtualną.
+
+### <a name="verify-graphics-drivers-are-installed"></a>Sprawdź, czy sterowniki grafiki są zainstalowane
+
+Uruchom następujące polecenie, aby sprawdzić, czy sterowniki grafiki zostały pomyślnie zainstalowane. 
+
+```bash
+nvidia-smi
+```
+
+Powinny zostać wyświetlone następujące dane wyjściowe.
+
+![Wyjście sterownika NVIDIA](media/spatial-analysis/nvidia-driver-output.png)
+
+### <a name="install-docker-ce-and-nvidia-docker2-on-the-vm"></a>Zainstaluj platformę Docker CE i NVIDIA-docker2 na maszynie wirtualnej
+
+Uruchom następujące polecenia po raz, aby zainstalować platformę Docker CE i NVIDIA-docker2 na maszynie wirtualnej.
+
+Zainstaluj program Docker CE na komputerze-hoście.
+
+```bash
+sudo apt-get update
+```
+```bash
+sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+```
+```bash
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+```
+```bash
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+```
+```bash
+sudo apt-get update
+```
+```bash
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+```
+
+
+Zainstaluj pakiet oprogramowania *NVIDIA-Docker-2* .
+
+```bash
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+```
+```bash
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+```
+```bash
+curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+```
+```bash
+sudo apt-get update
+```
+```bash
+sudo apt-get install -y docker-ce nvidia-docker2
+```
+```bash
+sudo systemctl restart docker
+```
+
+Teraz, po skonfigurowaniu i skonfigurowaniu maszyny wirtualnej, wykonaj poniższe kroki, aby wdrożyć kontener analizy przestrzennej. 
 
 ---
 
 ### <a name="iot-deployment-manifest"></a>Manifest wdrożenia IoT
 
-Aby usprawnić wdrażanie kontenerów na wielu komputerach hostów, można utworzyć plik manifestu wdrożenia w celu określenia opcji tworzenia kontenera i zmiennych środowiskowych. Przykład manifestu wdrażania [dla Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) i  [innych komputerów stacjonarnych](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) w serwisie GitHub.
+Aby usprawnić wdrażanie kontenerów na wielu komputerach hostów, można utworzyć plik manifestu wdrożenia w celu określenia opcji tworzenia kontenera i zmiennych środowiskowych. Przykład manifestu wdrażania [dla Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), [innych maszyn stacjonarnych](https://go.microsoft.com/fwlink/?linkid=2152270)i [maszyn wirtualnych platformy Azure z procesorem GPU](https://go.microsoft.com/fwlink/?linkid=2152189) w serwisie GitHub.
 
 W poniższej tabeli przedstawiono różne zmienne środowiskowe używane przez moduł IoT Edge. Można je również ustawić w manifeście wdrożenia połączonym powyżej, używając `env` atrybutu w `spatialanalysis` :
 
@@ -326,21 +414,24 @@ W poniższej tabeli przedstawiono różne zmienne środowiskowe używane przez m
 | ARCHON_NODES_LOG_LEVEL | Informacje Pełne | Poziom rejestrowania, wybierz jedną z dwóch wartości|
 | OMP_WAIT_POLICY | CHODZĄC | Nie Modyfikuj|
 | QT_X11_NO_MITSHM | 1 | Nie Modyfikuj|
-| API_KEY | Klucz interfejsu API| Zbierz tę wartość z Azure Portal z zasobu przetwarzanie obrazów. Można je znaleźć w sekcji **klucz i punkt końcowy** zasobu. |
-| BILLING_ENDPOINT | Identyfikator URI punktu końcowego| Zbierz tę wartość z Azure Portal z zasobu przetwarzanie obrazów. Można je znaleźć w sekcji **klucz i punkt końcowy** zasobu.|
+| APIKEY | Klucz interfejsu API| Zbierz tę wartość z Azure Portal z zasobu przetwarzanie obrazów. Można je znaleźć w sekcji **klucz i punkt końcowy** zasobu. |
+| ROZLICZENIA | Identyfikator URI punktu końcowego| Zbierz tę wartość z Azure Portal z zasobu przetwarzanie obrazów. Można je znaleźć w sekcji **klucz i punkt końcowy** zasobu.|
 | UMOWY | odebrać | Ta wartość musi być ustawiona na *Zaakceptuj* , aby można było uruchomić kontener |
 | WYŚWIETLANY | : 1 | Ta wartość musi być taka sama jak w danych wyjściowych `echo $DISPLAY` na komputerze-hoście. Urządzenia brzegowe Azure Stack nie są wyświetlane. To ustawienie nie ma zastosowania|
-
+| ARCHON_GRAPH_READY_TIMEOUT | 600 | Dodaj tę zmienną środowiskową, jeśli procesor GPU **nie** jest w technologii T4 ani NVIDIA 2080 TI|
+| ORT_TENSORRT_ENGINE_CACHE_ENABLE | 0 | Dodaj tę zmienną środowiskową, jeśli procesor GPU **nie** jest w technologii T4 ani NVIDIA 2080 TI|
+| KEY_ENV | Klucz szyfrowania środowiska ASE | Dodaj tę zmienną środowiskową, jeśli Video_URL jest ciągiem nieprzesłoniętym |
+| IV_ENV | Wektor inicjalizacji | Dodaj tę zmienną środowiskową, jeśli Video_URL jest ciągiem nieprzesłoniętym|
 
 > [!IMPORTANT]
 > `Eula` `Billing` `ApiKey` Aby można było uruchomić kontener, należy określić opcje, i. w przeciwnym razie kontener nie zostanie uruchomiony.  Aby uzyskać więcej informacji, zobacz [rozliczenia](#billing).
 
-Po zaktualizowaniu manifestu wdrażania dla [Azure Stack urządzenia brzegowe](https://go.microsoft.com/fwlink/?linkid=2142179) lub [maszyny stacjonarnej](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) z własnymi ustawieniami i wyborem operacji można użyć poniższego polecenia [interfejsu wiersza poleceń platformy Azure](../../iot-edge/how-to-deploy-modules-cli.md) , aby wdrożyć kontener na komputerze hosta jako moduł IoT Edge.
+Po zaktualizowaniu manifestu wdrożenia dla [Azure Stack urządzeń brzegowych](https://go.microsoft.com/fwlink/?linkid=2142179), [maszyny STACJONARNEJ](https://go.microsoft.com/fwlink/?linkid=2152270) lub [maszyny wirtualnej platformy Azure z procesorem GPU](https://go.microsoft.com/fwlink/?linkid=2152189) z własnymi ustawieniami i wyborem operacji, można użyć poniższego polecenia [platformy Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows) , aby wdrożyć kontener na komputerze hosta jako moduł IoT Edge.
 
 ```azurecli
-az login
-az extension add --name azure-iot
-az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json --subscription "<subscriptionId>"
+sudo az login
+sudo az extension add --name azure-iot
+sudo az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json --subscription "<subscriptionId>"
 ```
 
 |Parametr  |Opis  |
@@ -366,7 +457,7 @@ Musisz użyć [operacji analizy przestrzennej](spatial-analysis-operations.md) ,
 
 ## <a name="redeploy-or-delete-the-deployment"></a>Ponowne wdrażanie lub usuwanie wdrożenia
 
-Jeśli trzeba zaktualizować wdrożenie, należy upewnić się, że poprzednie wdrożenia zostały pomyślnie wdrożone lub należy usunąć IoT Edge wdrożenia urządzeń, które nie zostały ukończone. W przeciwnym razie te wdrożenia będą kontynuowane, pozostawiając system w nieprawidłowym stanie. Możesz użyć Azure Portal lub [interfejsu wiersza polecenia platformy Azure](/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment).
+Jeśli trzeba zaktualizować wdrożenie, należy upewnić się, że poprzednie wdrożenia zostały pomyślnie wdrożone lub należy usunąć IoT Edge wdrożenia urządzeń, które nie zostały ukończone. W przeciwnym razie te wdrożenia będą kontynuowane, pozostawiając system w nieprawidłowym stanie. Możesz użyć Azure Portal lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows).
 
 ## <a name="use-the-output-generated-by-the-container"></a>Użyj danych wyjściowych wygenerowanych przez kontener
 
@@ -385,25 +476,25 @@ Przejdź do sekcji **kontenera** , a następnie utwórz nowy kontener lub Użyj 
 
 Kliknij pozycję **Generuj token SAS i adres URL** , a następnie skopiuj adres URL sygnatury dostępu współdzielonego obiektu BLOB. Zastąp ciąg rozpoczynający `https` się od `http` i Przetestuj adres URL w przeglądarce, która obsługuje odtwarzanie wideo.
 
-Zastąp `VIDEO_URL` w manifeście wdrożenia dla [Azure Stack urządzenia brzegowego](https://go.microsoft.com/fwlink/?linkid=2142179) lub innej [maszyny stacjonarnej](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) z utworzonym adresem URL dla wszystkich wykresów. Ustaw wartość `VIDEO_IS_LIVE` na `false` i Wdróż ponownie kontener analizy przestrzennej z zaktualizowanym manifestem. Zobacz przykład poniżej.
+Zastąp `VIDEO_URL` w manifeście wdrożenia [Azure Stack urządzenia brzegowego](https://go.microsoft.com/fwlink/?linkid=2142179), [maszyny stacjonarnej](https://go.microsoft.com/fwlink/?linkid=2152270)lub [maszyny wirtualnej platformy Azure z procesorem GPU](https://go.microsoft.com/fwlink/?linkid=2152189) z utworzonym adresem URL dla wszystkich wykresów. Ustaw wartość `VIDEO_IS_LIVE` na `false` i Wdróż ponownie kontener analizy przestrzennej z zaktualizowanym manifestem. Zobacz przykład poniżej.
 
 Moduł analizy przestrzennej zacznie zużywać plik wideo i ciągle powtarzać się.
 
 
 ```json
 "zonecrossing": {
-  "operationId" : "cognitiveservices.vision.spatialanalysis-personcrossingpolygon",
-  "version": 1,
-  "enabled": true,
-  "parameters": {
-      "VIDEO_URL": "Replace http url here",
-      "VIDEO_SOURCE_ID": "personcountgraph",
-      "VIDEO_IS_LIVE": false,
-        "VIDEO_DECODE_GPU_INDEX": 0,
-      "DETECTOR_NODE_CONFIG": "{ \"gpu_index\": 0 }",
-      "SPACEANALYTICS_CONFIG": "{\"zones\":[{\"name\":\"queue\",\"polygon\":[[0.3,0.3],[0.3,0.9],[0.6,0.9],[0.6,0.3],[0.3,0.3]], \"threshold\":35.0}]}"
+    "operationId" : "cognitiveservices.vision.spatialanalysis-personcrossingpolygon",
+    "version": 1,
+    "enabled": true,
+    "parameters": {
+        "VIDEO_URL": "Replace http url here",
+        "VIDEO_SOURCE_ID": "personcountgraph",
+        "VIDEO_IS_LIVE": false,
+      "VIDEO_DECODE_GPU_INDEX": 0,
+        "DETECTOR_NODE_CONFIG": "{ \"gpu_index\": 0, \"do_calibration\": true }",
+        "SPACEANALYTICS_CONFIG": "{\"zones\":[{\"name\":\"queue\",\"polygon\":[[0.3,0.3],[0.3,0.9],[0.6,0.9],[0.6,0.3],[0.3,0.3]], \"events\": [{\"type\": \"zonecrossing\", \"config\": {\"threshold\": 16.0, \"focus\": \"footprint\"}}]}]}"
     }
-  },
+   },
 
 ```
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: dd1b6d216f6225a13d86aa2435b5b1c807547ec3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: dda3ece27fd2c687647e0aa289bd1596a87b274f
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014581"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186026"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetrię i rozwiązywanie problemów
 
@@ -68,7 +68,7 @@ az iot hub list
 az ad sp create-for-rbac --role="Monitoring Metrics Publisher" --name "<principal name>" --scopes="<resource ID of IoT Hub>"
 ```
 
-W manifeście wdrożenia dla [Azure Stack urządzenia brzegowego](https://go.microsoft.com/fwlink/?linkid=2142179) lub innej [maszyny stacjonarnej](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)poszukaj modułu *telegraf* i Zastąp poniższe wartości informacjami o jednostce usługi z poprzedniego kroku i Wdróż ponownie.
+W manifeście wdrożenia dla [Azure Stack urządzenia brzegowego](https://go.microsoft.com/fwlink/?linkid=2142179), [maszyny STACJONARNEJ](https://go.microsoft.com/fwlink/?linkid=2152270)lub [maszyny wirtualnej platformy Azure z procesorem GPU](https://go.microsoft.com/fwlink/?linkid=2152189)poszukaj modułu *telegraf* i zastąp następujące wartości informacjami o jednostce usługi w poprzednim kroku i Wdróż ponownie.
 
 ```json
 
@@ -121,7 +121,7 @@ Po wdrożeniu modułu telegraf do raportowanych metryk można uzyskać dostęp z
 
 ##  <a name="troubleshooting-an-iot-edge-device"></a>Rozwiązywanie problemów z urządzeniem IoT Edge
 
-Za pomocą `iotedge` narzędzia wiersza polecenia można sprawdzić stan i dzienniki uruchomionych modułów. Przykład:
+Za pomocą `iotedge` narzędzia wiersza polecenia można sprawdzić stan i dzienniki uruchomionych modułów. Na przykład:
 * `iotedge list`: Raportuje listę uruchomionych modułów. 
   Możesz również sprawdzić pod kątem błędów `iotedge logs edgeAgent` . Jeśli `iotedge` jest zablokowany, możesz spróbować ponownie uruchomić go za pomocą `iotedge restart edgeAgent`
 * `iotedge logs <module-name>`
@@ -129,7 +129,7 @@ Za pomocą `iotedge` narzędzia wiersza polecenia można sprawdzić stan i dzien
 
 ## <a name="collect-log-files-with-the-diagnostics-container"></a>Zbierz pliki dzienników przy użyciu kontenera diagnostyki
 
-Analiza przestrzenna generuje Dzienniki debugowania platformy Docker, których można użyć do diagnozowania problemów dotyczących środowiska uruchomieniowego lub dołączania do biletów pomocy technicznej. Moduł diagnostyki analizy przestrzennej jest dostępny w Container Registry firmy Microsoft do pobrania. W pliku wdrożenia manifestu [Azure Stack urządzenia brzegowego](https://go.microsoft.com/fwlink/?linkid=2142179) lub innej [maszyny stacjonarnej](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)poszukaj modułu *diagnostycznego* .
+Analiza przestrzenna generuje Dzienniki debugowania platformy Docker, których można użyć do diagnozowania problemów dotyczących środowiska uruchomieniowego lub dołączania do biletów pomocy technicznej. Moduł diagnostyki analizy przestrzennej jest dostępny w Container Registry firmy Microsoft do pobrania. W pliku wdrożenia manifestu dla [Azure Stack urządzenia brzegowego](https://go.microsoft.com/fwlink/?linkid=2142179), [maszyny STACJONARNEJ](https://go.microsoft.com/fwlink/?linkid=2152270)lub [maszyny wirtualnej platformy Azure z procesorem GPU](https://go.microsoft.com/fwlink/?linkid=2152189) Wyszukaj moduł *diagnostyki* .
 
 W sekcji "ENV" Dodaj następującą konfigurację:
 
@@ -188,13 +188,13 @@ Można to również ustawić za pomocą dokumentu wieloosiowego modułu IoT Edge
 > `diagnostics`Moduł nie ma wpływu na zawartość rejestrowania, ale jest pomocny tylko w gromadzeniu, filtrowaniu i przekazywaniu istniejących dzienników.
 > Aby można było korzystać z tego modułu, musisz mieć interfejs API platformy Docker w wersji 1,40 lub nowszej.
 
-Przykładowy plik manifestu wdrożenia dla [urządzenia brzegowego Azure Stack](https://go.microsoft.com/fwlink/?linkid=2142179) lub innej [maszyny stacjonarnej](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)  zawiera moduł o nazwie `diagnostics` , który zbiera i przekazuje dzienniki. Ten moduł jest domyślnie wyłączony i powinien być włączany za pomocą konfiguracji modułu IoT Edge, gdy trzeba uzyskać dostęp do dzienników. 
+Przykładowy plik manifestu wdrożenia dla [urządzenia brzegowego Azure Stack](https://go.microsoft.com/fwlink/?linkid=2142179), [maszyny STACJONARNEJ](https://go.microsoft.com/fwlink/?linkid=2152270)lub [maszyny wirtualnej platformy Azure z procesorem GPU](https://go.microsoft.com/fwlink/?linkid=2152189) zawiera moduł o nazwie `diagnostics` , który zbiera i przekazuje dzienniki. Ten moduł jest domyślnie wyłączony i powinien być włączany za pomocą konfiguracji modułu IoT Edge, gdy trzeba uzyskać dostęp do dzienników. 
 
 `diagnostics`Kolekcja jest na żądanie i kontrolowana za pomocą metody IoT Edge Direct i może wysyłać dzienniki do BLOB Storage platformy Azure.
 
 ### <a name="configure-diagnostics-upload-targets"></a>Skonfiguruj cele przekazywania diagnostyki
 
-W portalu IoT Edge wybierz urządzenie, a następnie moduł **diagnostyki** . W przykładowym pliku manifestu wdrażania dla [Azure Stack urządzenia brzegowego](https://go.microsoft.com/fwlink/?linkid=2142179) lub innych [komputerów stacjonarnych](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)poszukaj sekcji **zmienne środowiskowe** dla celów diagnostycznych o nazwie `env` i Dodaj następujące informacje:
+W portalu IoT Edge wybierz urządzenie, a następnie moduł **diagnostyki** . W przykładowym pliku manifestu wdrażania dla [Azure Stack urządzenia brzegowego](https://go.microsoft.com/fwlink/?linkid=2142179), [maszyn stacjonarnych](https://go.microsoft.com/fwlink/?linkid=2152270)lub [maszyny wirtualnej platformy Azure z procesorem GPU](https://go.microsoft.com/fwlink/?linkid=2152189) Znajdź sekcje **zmienne środowiskowe** dla celów diagnostycznych o nazwie `env` i Dodaj następujące informacje:
 
 **Konfigurowanie przekazywania do usługi Azure Blob Storage**
 

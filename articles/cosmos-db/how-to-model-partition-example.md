@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: c3cdc0a9fb9fa236fae37a52194f446278a42f72
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: d2f35ae7a6110acb2ca89bdaeb487eddabf84923
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616250"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185822"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Jak modelować i partycjonować dane w usłudze Azure Cosmos DB przy użyciu przykładu wziętego z życia
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -60,7 +60,7 @@ Poniżej znajduje się lista żądań, które będą musiały uwidocznić nasze 
 
 Na tym etapie nie podaliśmy szczegółowych informacji o tym, co obejmuje każdy podmiot (użytkownik, wpis itp.). Ten krok zazwyczaj należy do pierwszej z nich, aby zostać zaprojektowany podczas projektowania względem relacyjnego magazynu, ponieważ musimy ustalić, w jaki sposób te jednostki zostaną przetłumaczone w postaci tabel, kolumn, kluczy obcych itp. Jest to znacznie mniejsze zagadnienie związane z bazą danych dokumentów, która nie wymusza żadnego schematu przy zapisie.
 
-Głównym powodem, dlaczego ważne jest zidentyfikowanie wzorców dostępu od początku, jest to spowodowane tym, że ta lista żądań ma być naszym zestawem testów. Za każdym razem, gdy przejdziemy do iteracji nad modelem danych, wyślemy poszczególne żądania i sprawdza jego wydajność i skalowalność.
+Głównym powodem, dlaczego ważne jest zidentyfikowanie wzorców dostępu od początku, jest to spowodowane tym, że ta lista żądań ma być naszym zestawem testów. Za każdym razem, gdy przejdziemy do iteracji nad modelem danych, wyślemy poszczególne żądania i sprawdza jego wydajność i skalowalność. Obliczamy jednostki żądań używane w każdym modelu i optymalizuje je. Wszystkie te modele używają domyślnych zasad indeksowania i można je zastąpić przez indeksowanie specyficznych właściwości, co może dodatkowo poprawić użycie i opóźnienie RU.
 
 ## <a name="v1-a-first-version"></a>V1: Pierwsza wersja
 
@@ -149,7 +149,7 @@ Pobieranie użytkownika odbywa się przez odczytanie odpowiedniego elementu z `u
 
 ### <a name="c2-createedit-a-post"></a>C2 Utwórz/Edytuj wpis
 
-Podobnie jak w przypadku **[C1]** , chcemy zapisywać do `posts` kontenera.
+Podobnie jak w przypadku **[C1]**, chcemy zapisywać do `posts` kontenera.
 
 :::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Pisanie pojedynczego elementu w kontenerze ogłoszeń" border="false":::
 
@@ -208,7 +208,7 @@ Mimo że zapytanie główne wykonuje filtrowanie według klucza partycji kontene
 
 ### <a name="c4-like-a-post"></a>C4 Jak wpis
 
-Podobnie jak w przypadku **[C3]** , tworzymy odpowiadający element w `posts` kontenerze.
+Podobnie jak w przypadku **[C3]**, tworzymy odpowiadający element w `posts` kontenerze.
 
 :::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Pisanie pojedynczego elementu w kontenerze ogłoszeń" border="false":::
 
@@ -218,7 +218,7 @@ Podobnie jak w przypadku **[C3]** , tworzymy odpowiadający element w `posts` ko
 
 ### <a name="q5-list-a-posts-likes"></a>[Q5] Wyświetlanie polubień wpisu
 
-Podobnie jak w przypadku **[4 kwartale]** , będziemy wysyłać zapytania dotyczące polubień dla tego wpisu, a następnie agregować ich nazwy użytkowników.
+Podobnie jak w przypadku **[4 kwartale]**, będziemy wysyłać zapytania dotyczące polubień dla tego wpisu, a następnie agregować ich nazwy użytkowników.
 
 :::image type="content" source="./media/how-to-model-partition-example/V1-Q5.png" alt-text="Pobieranie wszystkich polubień dla wpisu i agregowania ich dodatkowych danych" border="false":::
 
@@ -295,7 +295,7 @@ Modyfikujemy również komentarz i podobne elementy, aby dodać nazwę użytkown
 
 To, co chcemy osiągnąć, to przy każdym dodawaniu komentarza lub podobnej wartości `commentCount` `likeCount` . Gdy `posts` kontener jest partycjonowany przez `postId` , nowy element (komentarz lub podobny) i odpowiadający mu wpis znajduje się w tej samej partycji logicznej. W związku z tym można użyć [procedury składowanej](stored-procedures-triggers-udfs.md) do wykonania tej operacji.
 
-Teraz podczas tworzenia komentarza ( **[C3]** ) zamiast tylko dodawania nowego elementu w `posts` kontenerze wywoływana została następująca procedura składowana w tym kontenerze:
+Teraz podczas tworzenia komentarza (**[C3]**) zamiast tylko dodawania nowego elementu w `posts` kontenerze wywoływana została następująca procedura składowana w tym kontenerze:
 
 ```javascript
 function createComment(postId, comment) {

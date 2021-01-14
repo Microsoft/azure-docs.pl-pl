@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 2418a8813e7b9de603b7e7cdc11fc756d73ac2a4
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 2a1455c5956297a19d640146879f93b61d035139
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350759"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185907"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Listy kontroli dostępu (ACL) w Azure Data Lake Storage Gen2
 
@@ -60,7 +60,7 @@ Listy ACL dostępu i domyślne listy ACL mają tę samą strukturę.
 
 ## <a name="levels-of-permission"></a>Poziomy uprawnień
 
-Uprawnienia do obiektu kontenera są **odczytywane**, **zapisywane** i **wykonywane** oraz mogą być używane dla plików i katalogów, jak pokazano w poniższej tabeli:
+Uprawnienia do katalogów i plików w kontenerze są **odczytywane**, **zapisywane** i **wykonywane** oraz mogą być używane dla plików i katalogów, jak pokazano w poniższej tabeli:
 
 |            |    Plik     |   Katalog |
 |------------|-------------|----------|
@@ -69,7 +69,7 @@ Uprawnienia do obiektu kontenera są **odczytywane**, **zapisywane** i **wykonyw
 | **Wykonanie (X)** | Nie oznacza wszystkiego w kontekście Data Lake Storage Gen2 | Wymagane do przechodzenia między elementami podrzędnymi katalogu |
 
 > [!NOTE]
-> Jeśli udzielasz uprawnień przy użyciu tylko list ACL (bez kontroli dostępu Azure), a następnie chcesz udzielić podmiotu zabezpieczeń uprawnienia do odczytu lub zapisu do pliku, musisz udzielić podmiotu zabezpieczeń uprawnień do **wykonania** dla kontenera oraz do każdego folderu w hierarchii folderów, które prowadzą do pliku.
+> W przypadku przyznawania uprawnień przy użyciu tylko list ACL (bez funkcji RBAC platformy Azure), a następnie udzielenia podmiotu zabezpieczeń dostępu do odczytu lub zapisu do pliku, należy przyznać uprawnienia do **wykonywania** podmiotu zabezpieczeń do folderu głównego kontenera oraz do każdego folderu w hierarchii folderów, które prowadzą do pliku.
 
 ### <a name="short-forms-for-permissions"></a>Krótkie formy uprawnień
 
@@ -200,7 +200,7 @@ Jak pokazano w algorytmie kontroli dostępu, maska ogranicza dostęp dla użytko
 
 W przypadku nowego kontenera Data Lake Storage Gen2 maska listy ACL dostępu katalogu głównego ("/") domyślnie **750** dla katalogów i **640** dla plików. W poniższej tabeli przedstawiono notację symboliczną tych poziomów uprawnień.
 
-|Jednostka|Katalogi|Pliki|
+|Jednostka|Katalogi|Files|
 |--|--|--|
 |Użytkownik będący właścicielem|`rwx`|`r-w`|
 |Grupa będąca właścicielem|`r-x`|`r--`|
@@ -344,6 +344,6 @@ Interfejs API REST usługi Azure Storage zawiera operację o nazwie [list ACL ko
 * [Listy ACL modelu POSIX w systemie Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [Listy ACL korzystające z list kontroli dostępu w systemie Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Model kontroli dostępu w Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md)

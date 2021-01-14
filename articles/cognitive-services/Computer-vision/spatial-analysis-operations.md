@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 9d1b6e20bf2decfe051e79e073736f71181260fa
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 63184a623c6f0a8c53e09e6af92c05e45c5e0794
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014547"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185986"
 ---
 # <a name="spatial-analysis-operations"></a>Operacje analizy przestrzennej
 
@@ -25,9 +25,9 @@ Kontener analizy przestrzennej implementuje następujące operacje:
 
 | Identyfikator operacji| Opis|
 |---------|---------|
-| cognitiveservices. Vision. spatialanalysis-personcount | Zlicza osoby znajdujące się w określonej strefie w polu widoku aparatu. <br> Emituje początkowe zdarzenie _personCountEvent_ , a następnie _personCountEvent_ zdarzenia w przypadku zmiany liczby.  |
+| cognitiveservices. Vision. spatialanalysis-personcount | Zlicza osoby znajdujące się w określonej strefie w polu widoku aparatu. Strefa musi być w pełni objęta pojedynczym aparatem, aby program PersonCount rejestrował dokładną sumę. <br> Emituje początkowe zdarzenie _personCountEvent_ , a następnie _personCountEvent_ zdarzenia w przypadku zmiany liczby.  |
 | cognitiveservices. Vision. spatialanalysis-personcrossingline | Śledzi, gdy osoba przecina wydzielony wiersz w polu widoku aparatu. <br>Emituje zdarzenie _personLineEvent_ , gdy osoba przecina wiersz i udostępnia informacje kierunkowe. 
-| cognitiveservices. Vision. spatialanalysis-personcrossingpolygon | Śledzi, gdy osoba przecina wydzielony wiersz w polu widoku aparatu. <br> Emituje zdarzenie _personLineEvent_ , gdy osoba przecina strefę i udostępnia informacje kierunkowe. |
+| cognitiveservices. Vision. spatialanalysis-personcrossingpolygon | Emituje zdarzenie _personZoneEnterExitEvent_ , gdy osoba wejdzie lub opuszcza strefę i udostępnia informacje kierunkowe z numerowaną stroną strefy, która została przekreślona. Emituje _personZoneDwellTimeEvent_ , gdy osoba opuszcza strefę i udostępnia informacje kierunkowe, a także liczbę milisekund spędzonych przez osobę w strefie. |
 | cognitiveservices. Vision. spatialanalysis-persondistance | Śledzi, gdy ludzie naruszają regułę odległości. <br> Emituje _personDistanceEvent_ okresowo przy użyciu lokalizacji każdego naruszenia odległości. |
 
 Wszystkie powyższe operacje są również dostępne w `.debug` wersji, która ma możliwość wizualizacji ramek wideo w miarę ich przetwarzania. `xhost +`Aby umożliwić wizualizację ramek wideo i zdarzeń, należy uruchomić program na komputerze hosta.
@@ -36,7 +36,7 @@ Wszystkie powyższe operacje są również dostępne w `.debug` wersji, która m
 |---------|---------|
 | cognitiveservices. Vision. spatialanalysis-personcount. Debug | Zlicza osoby znajdujące się w określonej strefie w polu widoku aparatu. <br> Emituje początkowe zdarzenie _personCountEvent_ , a następnie _personCountEvent_ zdarzenia w przypadku zmiany liczby.  |
 | cognitiveservices. Vision. spatialanalysis-personcrossingline. Debug | Śledzi, gdy osoba przecina wydzielony wiersz w polu widoku aparatu. <br>Emituje zdarzenie _personLineEvent_ , gdy osoba przecina wiersz i udostępnia informacje kierunkowe. 
-| cognitiveservices. Vision. spatialanalysis-personcrossingpolygon. Debug | Śledzi, gdy osoba przecina wydzielony wiersz w polu widoku aparatu. <br> Emituje zdarzenie _personLineEvent_ , gdy osoba przecina strefę i udostępnia informacje kierunkowe. |
+| cognitiveservices. Vision. spatialanalysis-personcrossingpolygon. Debug | Emituje zdarzenie _personZoneEnterExitEvent_ , gdy osoba wejdzie lub opuszcza strefę i udostępnia informacje kierunkowe z numerowaną stroną strefy, która została przekreślona. Emituje _personZoneDwellTimeEvent_ , gdy osoba opuszcza strefę i udostępnia informacje kierunkowe, a także liczbę milisekund spędzonych przez osobę w strefie. |
 | cognitiveservices. Vision. spatialanalysis-persondistance. Debug | Śledzi, gdy ludzie naruszają regułę odległości. <br> Emituje _personDistanceEvent_ okresowo przy użyciu lokalizacji każdego naruszenia odległości. |
 
 Analiza przestrzenna może być również uruchamiana z użyciem [analizy wideo na żywo](../../media-services/live-video-analytics-edge/spatial-analysis-tutorial.md) jako ich modułu wideo AI. 
@@ -47,13 +47,13 @@ Analiza przestrzenna może być również uruchamiana z użyciem [analizy wideo 
 |---------|---------|
 | cognitiveservices. Vision. spatialanalysis-personcount. livevideoanalytics | Zlicza osoby znajdujące się w określonej strefie w polu widoku aparatu. <br> Emituje początkowe zdarzenie _personCountEvent_ , a następnie _personCountEvent_ zdarzenia w przypadku zmiany liczby.  |
 | cognitiveservices. Vision. spatialanalysis-personcrossingline. livevideoanalytics | Śledzi, gdy osoba przecina wydzielony wiersz w polu widoku aparatu. <br>Emituje zdarzenie _personLineEvent_ , gdy osoba przecina wiersz i udostępnia informacje kierunkowe. 
-| cognitiveservices. Vision. spatialanalysis-personcrossingpolygon. livevideoanalytics | Śledzi, gdy osoba przecina wydzielony wiersz w polu widoku aparatu. <br> Emituje zdarzenie _personLineEvent_ , gdy osoba przecina strefę i udostępnia informacje kierunkowe. |
+| cognitiveservices. Vision. spatialanalysis-personcrossingpolygon. livevideoanalytics | Emituje zdarzenie _personZoneEnterExitEvent_ , gdy osoba wejdzie lub opuszcza strefę i udostępnia informacje kierunkowe z numerowaną stroną strefy, która została przekreślona. Emituje _personZoneDwellTimeEvent_ , gdy osoba opuszcza strefę i udostępnia informacje kierunkowe, a także liczbę milisekund spędzonych przez osobę w strefie.  |
 | cognitiveservices. Vision. spatialanalysis-persondistance. livevideoanalytics | Śledzi, gdy ludzie naruszają regułę odległości. <br> Emituje _personDistanceEvent_ okresowo przy użyciu lokalizacji każdego naruszenia odległości. |
 
 Operacje analizy wideo na żywo są również dostępne w `.debug` wersji (np. cognitiveservices. Vision. spatialanalysis-personcount. livevideoanalytics. Debug), która oferuje możliwość wizualizacji ramek wideo w miarę ich przetwarzania. `xhost +`Aby włączyć wizualizację klatek i zdarzeń wideo, należy uruchomić program na komputerze hosta
 
 > [!IMPORTANT]
-> Modele AI wykrywają i lokalizują obecność człowieka w filmach wideo i danych wyjściowych przy użyciu obwiedni wokół ciała ludzkiego. Modele AI nie próbują wykrywać twarzy ani odkrywać tożsamości ani demograficznych osób.
+> Modele AI wykrywają i lokalizują obecność człowieka w filmach wideo i danych wyjściowych przy użyciu obwiedni wokół ciała ludzkiego. Modele AI nie próbują odnaleźć tożsamości ani demograficznych osób.
 
 Są to parametry wymagane przez każdą z tych operacji analizy przestrzennej.
 
@@ -61,12 +61,14 @@ Są to parametry wymagane przez każdą z tych operacji analizy przestrzennej.
 |---------|---------|
 | Identyfikator operacji | Identyfikator operacji z tabeli powyżej.|
 | enabled | Wartość logiczna: true lub false|
-| VIDEO_URL| Adres URL protokołu RTSP dla urządzenia aparatu fotograficznego (przykład: `rtsp://username:password@url` ). Analiza przestrzenna obsługuje strumień w formacie H. 264 przy użyciu protokołu RTSP, http lub MP4 |
+| VIDEO_URL| Adres URL protokołu RTSP dla urządzenia aparatu fotograficznego (przykład: `rtsp://username:password@url` ). Analiza przestrzenna obsługuje strumień w formacie H. 264 przy użyciu protokołu RTSP, http lub MP4. Video_URL można podać jako zasłoniętą wartość ciągu Base64 przy użyciu szyfrowania AES, a jeśli adres URL filmu wideo zostanie zasłonięty `KEY_ENV` i `IV_ENV` musi być podany jako zmienne środowiskowe. Przykładowe narzędzie do generowania kluczy i szyfrowania można znaleźć [tutaj](https://docs.microsoft.com/dotnet/api/system.security.cryptography.aesmanaged?view=net-5.0&preserve-view=true). |
 | VIDEO_SOURCE_ID | Przyjazna nazwa urządzenia aparatu lub strumienia wideo. Zostanie on zwrócony z danymi wyjściowymi zdarzenia JSON.|
 | VIDEO_IS_LIVE| Wartość true w przypadku urządzeń z kamerą; wartość false dla zarejestrowanych filmów wideo.|
 | VIDEO_DECODE_GPU_INDEX| Procesor GPU do zdekodowania ramki wideo. Domyślnie jest to 0. Powinna być taka sama jak `gpu_index` w przypadku innych konfiguracji węzła, takich jak `VICA_NODE_CONFIG` , `DETECTOR_NODE_CONFIG` .|
+| INPUT_VIDEO_WIDTH | Szerokość ramki wejściowego wideo/strumienia (np. 1920). Pole opcjonalne i jeśli podana ramka zostanie przeskalowana do tego wymiaru, ale nadal zachowa współczynnik proporcji.|
 | DETECTOR_NODE_CONFIG | KOD JSON wskazujący procesor GPU, na którym ma być uruchamiany węzeł czujnika. Powinien mieć następujący format: `"{ \"gpu_index\": 0 }",`|
 | SPACEANALYTICS_CONFIG | Konfiguracja JSON dla strefy i linii, jak pokazano poniżej.|
+| ENABLE_FACE_MASK_CLASSIFIER | `True` Aby umożliwić wykrywanie osób w strumieniu wideo, należy je `False` wyłączyć. Domyślnie to ustawienie jest wyłączone. Wykrywanie maski czołowej wymaga, aby wejściowy parametr szerokości wideo miał 1920 `"INPUT_VIDEO_WIDTH": 1920` . Atrybut maska czołowa nie zostanie zwrócony, jeśli wykryte osoby nie będą znajdować się w aparacie lub są zbyt daleko od niego. Aby uzyskać więcej informacji, zapoznaj się z przewodnikiem [umieszczania w aparacie](spatial-analysis-camera-placement.md) |
 
 ### <a name="zone-configuration-for-cognitiveservicesvisionspatialanalysis-personcount"></a>Konfiguracja strefy dla cognitiveservices. Vision. spatialanalysis-personcount
 
@@ -75,14 +77,14 @@ Są to parametry wymagane przez każdą z tych operacji analizy przestrzennej.
 ```json
 {
 "zones":[{
-    "name": "lobbycamera"
+    "name": "lobbycamera",
     "polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
-    "threshold": 50.00,
     "events":[{
         "type": "count",
         "config":{
             "trigger": "event",
-            "output_frequency": 1
+            "threshold": 16.00,
+            "focus": "footprint"
       }
     }]
 }
@@ -97,6 +99,7 @@ Są to parametry wymagane przez każdą z tych operacji analizy przestrzennej.
 | `type` | ciąg| Dla **cognitiveservices. Vision. spatialanalysis-personcount** powinno to być `count` .|
 | `trigger` | ciąg| Typ wyzwalacza do wysyłania zdarzenia. Obsługiwane wartości są używane `event` do wysyłania zdarzeń, gdy liczba zmienia się lub `interval` okresowo wysyła zdarzenia niezależnie od tego, czy liczba uległa zmianie, czy nie.
 | `interval` | ciąg| Czas w sekundach, przez który liczba osób zostanie zagregowana, zanim zdarzenie zostanie wyzwolone. Operacja będzie kontynuować analizowanie sceny z stałą szybkością i zwraca najbardziej typową liczbę w tym interwale. Interwał agregacji ma zastosowanie do obu `event` i `interval` .|
+| `focus` | ciąg| Lokalizacja punktu w polu ograniczenia osoby służąca do obliczania zdarzeń. Wartość fokusu może być `footprint` (powierzchnia osoby), `bottom_center` (Dolna część pola granica osoby) `center` (środek obwiedni osoby).|
 
 ### <a name="line-configuration-for-cognitiveservicesvisionspatialanalysis-personcrossingline"></a>Konfiguracja linii dla cognitiveservices. Vision. spatialanalysis-personcrossingline
 
@@ -104,20 +107,31 @@ Jest to przykład danych wejściowych JSON dla parametru SPACEANALYTICS_CONFIG, 
 
 ```json
 {
-"lines":[{
-    "name": "doorcamera" 
-    "line": {
-        "start": {"x": 0, "y": 0.5},
-        "end": {"x": 1, "y": 0.5}
-            },
-    "threshold": 50.00,
-    "events":[{
-        "type": "linecrossing",
-        "config":{
-            "trigger": "event"
-            }
-        }]
-    }]
+   "lines": [
+       {
+           "name": "doorcamera",
+           "line": {
+               "start": {
+                   "x": 0,
+                   "y": 0.5
+               },
+               "end": {
+                   "x": 1,
+                   "y": 0.5
+               }
+           },
+           "events": [
+               {
+                   "type": "linecrossing",
+                   "config": {
+                       "trigger": "event",
+                       "threshold": 16.00,
+                       "focus": "footprint"
+                   }
+               }
+           ]
+       }
+   ]
 }
 ```
 
@@ -131,6 +145,7 @@ Jest to przykład danych wejściowych JSON dla parametru SPACEANALYTICS_CONFIG, 
 | `threshold` | float| Zdarzenia są egressed, gdy poziom zaufania modeli AI jest większy lub równy tej wartości. |
 | `type` | ciąg| Dla **cognitiveservices. Vision. spatialanalysis-personcrossingline** powinno to być `linecrossing` .|
 |`trigger`|ciąg|Typ wyzwalacza do wysyłania zdarzenia.<br>Obsługiwane wartości: "Event": Fire, gdy ktoś przecina linię.|
+| `focus` | ciąg| Lokalizacja punktu w polu ograniczenia osoby służąca do obliczania zdarzeń. Wartość fokusu może być `footprint` (powierzchnia osoby), `bottom_center` (Dolna część pola granica osoby) `center` (środek obwiedni osoby).|
 
 ### <a name="zone-configuration-for-cognitiveservicesvisionspatialanalysis-personcrossingpolygon"></a>Konfiguracja strefy dla cognitiveservices. Vision. spatialanalysis-personcrossingpolygon
 
@@ -138,17 +153,31 @@ Jest to przykład danych wejściowych JSON dla parametru SPACEANALYTICS_CONFIG, 
 
  ```json
 {
-"zones":[{
-    "name": "queuecamera"
-    "polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
-    "threshold": 50.00,
-    "events":[{
-        "type": "zone_crossing",
-        "config":{
-            "trigger": "event"
-            }
-        }]
-    }]
+"zones":[
+   {
+       "name": "queuecamera",
+       "polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
+       "events":[{
+           "type": "zonecrossing",
+           "config":{
+               "trigger": "event",
+               "threshold": 48.00,
+               "focus": "footprint"
+               }
+           }]
+   },
+   {
+       "name": "queuecamera1",
+       "polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
+       "events":[{
+           "type": "zonedwelltime",
+           "config":{
+               "trigger": "event",
+               "threshold": 16.00,
+               "focus": "footprint"
+               }
+           }]
+   }]
 }
 ```
 
@@ -158,8 +187,9 @@ Jest to przykład danych wejściowych JSON dla parametru SPACEANALYTICS_CONFIG, 
 | `name` | ciąg| Przyjazna nazwa dla tej strefy.|
 | `polygon` | list| Każda para wartości reprezentuje symbol x, y dla wierzchołków wielokąta. Wielokąt reprezentuje obszary, w których są śledzone lub zliczane ludzie. Wartości zmiennoprzecinkowe reprezentują pozycję wierzchołka względem górnego, lewego rogu. Aby obliczyć bezwzględne wartości x, y, należy pomnożyć te wartości z rozmiarem ramki. 
 | `threshold` | float| Zdarzenia są egressed, gdy poziom zaufania modeli AI jest większy lub równy tej wartości. |
-| `type` | ciąg| Dla **cognitiveservices. Vision. spatialanalysis-personcrossingpolygon** powinno to być `enter` lub `exit` .|
+| `type` | ciąg| Dla **cognitiveservices. Vision. spatialanalysis-personcrossingpolygon** powinno to być `zonecrossing` lub `zonedwelltime` .|
 | `trigger`|ciąg|Typ wyzwalacza do wysyłania zdarzenia<br>Obsługiwane wartości: "Event": Fire, gdy ktoś wprowadzi lub wyjdzie z strefy.|
+| `focus` | ciąg| Lokalizacja punktu w polu ograniczenia osoby służąca do obliczania zdarzeń. Wartość fokusu może być `footprint` (powierzchnia osoby), `bottom_center` (Dolna część pola granica osoby) `center` (środek obwiedni osoby).|
 
 ### <a name="zone-configuration-for-cognitiveservicesvisionspatialanalysis-persondistance"></a>Konfiguracja strefy dla cognitiveservices. Vision. spatialanalysis-persondistance
 
@@ -168,19 +198,20 @@ Jest to przykład danych wejściowych JSON dla parametru SPACEANALYTICS_CONFIG, 
 ```json
 {
 "zones":[{
-    "name": "lobbycamera",
-    "polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
-    "threshold": 35.00,
-    "events":[{
-        "type": "persondistance",
-        "config":{
-            "trigger": "event",
-            "output_frequency":1,
-            "minimum_distance_threshold":6.0,
-            "maximum_distance_threshold":35.0
+   "name": "lobbycamera",
+   "polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
+   "events":[{
+    "type": "persondistance",
+    "config":{
+        "trigger": "event",
+        "output_frequency":1,
+        "minimum_distance_threshold":6.0,
+        "maximum_distance_threshold":35.0,
+           "threshold": 16.00,
+           "focus": "footprint"
             }
-        }]
     }]
+   }]
 }
 ```
 
@@ -196,6 +227,7 @@ Jest to przykład danych wejściowych JSON dla parametru SPACEANALYTICS_CONFIG, 
 | `output_frequency` | int | Częstotliwość, z jaką zdarzenia są egressed. Gdy `output_frequency` = x, każde zdarzenie X to egressed, np. `output_frequency` = 2 oznacza każde inne zdarzenie w danych wyjściowych. Output_frequency ma zastosowanie do obu `event` i `interval` .|
 | `minimum_distance_threshold` | float| Odległość, która spowoduje wyzwolenie zdarzenia "TooClose", gdy ludzie są mniej niż odległość od siebie.|
 | `maximum_distance_threshold` | float| Odległość, która spowoduje wyzwolenie zdarzenia "TooFar", gdy ludzie są większe niż odległość od siebie.|
+| `focus` | ciąg| Lokalizacja punktu w polu ograniczenia osoby służąca do obliczania zdarzeń. Wartość fokusu może być `footprint` (powierzchnia osoby), `bottom_center` (Dolna część pola granica osoby) `center` (środek obwiedni osoby).|
 
 Jest to przykład danych wejściowych JSON dla parametru DETECTOR_NODE_CONFIG, który służy do konfigurowania strefy **cognitiveservices. Vision. spatialanalysis-persondistance** .
 
@@ -210,8 +242,17 @@ Jest to przykład danych wejściowych JSON dla parametru DETECTOR_NODE_CONFIG, k
 |---------|---------|---------|
 | `gpu_index` | ciąg| Indeks procesora GPU, na którym zostanie uruchomiona ta operacja.|
 | `do_calibration` | ciąg | Wskazuje, że kalibracja jest włączona. `do_calibration` Aby funkcja **cognitiveservices. Vision. spatialanalysis-persondistance** działała prawidłowo, musi mieć wartość true.|
+| `enable_recalibration` | bool | Wskazuje, czy automatyczna Rekalibracja jest włączona. Wartość domyślna to `true`.|
+| `calibration_quality_check_frequency_seconds` | int | Minimalna liczba sekund między wszystkimi sprawdzeniami jakości, aby określić, czy wymagana jest ponowna kalibracja. Wartość domyślna to `86400` (24 godziny). Używane tylko wtedy, gdy `enable_recalibration=True` .|
+| `calibration_quality_check_sampling_num` | int | Liczba losowo wybranych przechowywanych próbek danych do użycia na potrzeby pomiaru błędów kontroli jakości. Wartość domyślna to `80`. Używane tylko wtedy, gdy `enable_recalibration=True` .|
+| `calibration_quality_check_sampling_times` | int | Liczba pomiarów błędów wykonywanych w różnych zestawach losowo wybranych próbek danych na sprawdzenie jakości. Wartość domyślna to `5`. Używane tylko wtedy, gdy `enable_recalibration=True` .|
+| `calibration_quality_check_sample_collect_frequency_seconds` | int | Minimalna liczba sekund między zbieraniem nowych próbek danych w celu odkalibracji i sprawdzenia jakości. Wartość domyślna to `300` (5 minut). Używane tylko wtedy, gdy `enable_recalibration=True` .|
+| `calibration_quality_check_one_round_sample_collect_num` | int | Minimalna liczba nowych próbek danych do zebrania na kilka próbek kolekcji. Wartość domyślna to `10`. Używane tylko wtedy, gdy `enable_recalibration=True` .|
+| `calibration_quality_check_queue_max_size` | int | Maksymalna liczba próbek danych do przechowywania podczas kalibracji modelu aparatu fotograficznego. Wartość domyślna to `1000`. Używane tylko wtedy, gdy `enable_recalibration=True` .|
+| `recalibration_score` | int | Maksymalny próg jakości, aby rozpocząć rekalibrację. Wartość domyślna to `75`. Używane tylko wtedy, gdy `enable_recalibration=True` . Jakość kalibracji jest obliczana w oparciu o relację odwrotną z błędem reprojektowania obiektu docelowego obrazu. W przypadku wykrytych elementów docelowych w ramkach obrazu 2D elementy docelowe są rzutowane na przestrzeń 3D i ponownie rzutowane z powrotem do ramki obrazu 2D przy użyciu istniejących parametrów kalibracji aparatu. Błąd reprojektowy jest mierzony przez średnią odległość między wykrytymi obiektami docelowymi a reprojektowanymi obiektami docelowymi.|
+| `enable_breakpad`| bool | Wskazuje, czy chcesz włączyć BreakPad, który jest używany do generowania zrzutu awaryjnego na potrzeby debugowania. Jest on `false` domyślnie. Jeśli ustawisz ją na `true` , należy również dodać `"CapAdd": ["SYS_PTRACE"]` w `HostConfig` części kontenera `createOptions` . Domyślnie zrzut awaryjny jest przekazywany do aplikacji [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) AppCenter, jeśli chcesz, aby Zrzuty awaryjne były przekazywane do własnej aplikacji AppCenter, można zastąpić zmienną środowiskową `RTPT_APPCENTER_APP_SECRET` kluczem tajnym aplikacji.
 
-Zobacz wskazówki dotyczące [umieszczania w aparacie](spatial-analysis-camera-placement.md)  , aby poznać konfiguracje stref i linii.
+Zobacz wskazówki dotyczące [umieszczania w aparacie](spatial-analysis-camera-placement.md) , aby poznać konfiguracje stref i linii.
 
 ## <a name="spatial-analysis-operation-output"></a>Dane wyjściowe operacji analizy przestrzennej
 
@@ -245,7 +286,7 @@ Przykładowy kod JSON dla zdarzenia danych wyjściowych przez tę operację.
         "height": 342,
         "frameId": "1400",
         "cameraCalibrationInfo": {
-            "status": "Complete",
+            "status": "Calibrated",
             "cameraHeight": 10.306597709655762,
             "focalLength": 385.3199462890625,
             "tiltupAngle": 1.0969393253326416
@@ -274,7 +315,11 @@ Przykładowy kod JSON dla zdarzenia danych wyjściowych przez tę operację.
                 "x": 0.0,
                 "y": 0.0
             },
-            "metadataType": ""
+            "metadata": {
+            "attributes": {
+                "face_Mask": 0.99
+            }
+        }
         },
         {
             "type": "person",
@@ -297,8 +342,12 @@ Przykładowy kod JSON dla zdarzenia danych wyjściowych przez tę operację.
                 "x": 0.0,
                 "y": 0.0
             },
-            "metadataType": ""
-        }
+            "metadata":{
+            "attributes": {
+                "face_noMask": 0.99
+            }
+            }
+    }
     ],
     "schemaVersion": "1.0"
 }
@@ -311,8 +360,6 @@ Przykładowy kod JSON dla zdarzenia danych wyjściowych przez tę operację.
 | `detectionsId` | array| Tablica o rozmiarze 1 unikatowego identyfikatora wykrywania osoby, która wyzwoliła to zdarzenie|
 | `properties` |  — kolekcja| Kolekcja wartości|
 | `trackinId` | ciąg| Wykryto unikatowy identyfikator osoby|
-| `status` | ciąg| "Enter" lub "Exit"|
-| `side` | int| Liczba krawędzi wielokąta, który przekroczy osoba|
 | `zone` | ciąg | Pole "name" wielokąta reprezentujące przekreśloną strefę|
 | `trigger` | ciąg| Typ wyzwalacza to "Event" lub "Interval" w zależności od wartości `trigger` w SPACEANALYTICS_CONFIG|
 
@@ -324,16 +371,18 @@ Przykładowy kod JSON dla zdarzenia danych wyjściowych przez tę operację.
 | `type` | ciąg| Typ regionu|
 | `points` |  — kolekcja| Górny lewy i prawy dolny punkt, gdy typ regionu to prostokąt |
 | `confidence` | float| Zaufanie algorytmu|
+| `face_Mask` | float | Wartość pewności atrybutu z zakresem (0-1) wskazuje, że wykryta osoba jest przypisana do maski |
+| `face_noMask` | float | Wartość pewności atrybutu z zakresem (0-1) wskazuje, że wykryta osoba **nie jest zgodna** z maską czołową |
 
 | Nazwa pola SourceInfo | Typ| Opis|
 |---------|---------|---------|
 | `id` | ciąg| Identyfikator aparatu|
-| `timestamp` | data| Data UTC, kiedy ładunek JSON został emitowany|
+| `timestamp` | date| Data UTC, kiedy ładunek JSON został emitowany|
 | `width` | int | Szerokość ramki wideo|
 | `height` | int | Wysokość ramki wideo|
 | `frameId` | int | Identyfikator ramki|
 | `cameraCallibrationInfo` |  — kolekcja | Kolekcja wartości|
-| `status` | ciąg | Wskazuje, czy Kalibracja aparatu do płaszczyzny uziemienia jest "kompletna"|
+| `status` | ciąg | Stan kalibracji w formacie `state[;progress description]` . Stan może mieć wartość `Calibrating` `Recalibrating` (Jeśli włączono funkcję rekalibracji) lub `Calibrated` . Część opis postępu jest prawidłowa tylko wtedy, gdy jest w `Calibrating` i `Recalibrating` stanie, która jest używana do wyświetlania postępu bieżącego procesu kalibracji.|
 | `cameraHeight` | float | Wysokość kamery nad ziemią w stóp. Ta funkcja jest wywnioskowana z autokalibracji. |
 | `focalLength` | float | Długość Ogniskowa aparatu (w pikselach). Ta funkcja jest wywnioskowana z autokalibracji. |
 | `tiltUpAngle` | float | Kąt pochylenia aparatu w pionie. Ta funkcja jest wywnioskowana z autokalibracji.|
@@ -341,7 +390,7 @@ Przykładowy kod JSON dla zdarzenia danych wyjściowych przez tę operację.
 | Nazwa pola SourceInfo | Typ| Opis|
 |---------|---------|---------|
 | `id` | ciąg| Identyfikator aparatu|
-| `timestamp` | data| Data UTC, kiedy ładunek JSON został emitowany|
+| `timestamp` | date| Data UTC, kiedy ładunek JSON został emitowany|
 | `width` | int | Szerokość ramki wideo|
 | `height` | int | Wysokość ramki wideo|
 | `frameId` | int | Identyfikator ramki|
@@ -393,7 +442,11 @@ Przykładowy kod JSON dla wykrywania danych wyjściowych przez tę operację.
                 ]
             },
             "confidence": 0.9005028605461121,
-            "metadataType": ""
+            "metadata": {
+            "attributes": {
+                "face_Mask": 0.99
+            }
+        }
         }
     ],
     "schemaVersion": "1.0"
@@ -417,36 +470,96 @@ Przykładowy kod JSON dla wykrywania danych wyjściowych przez tę operację.
 | `type` | ciąg| Typ regionu|
 | `points` |  — kolekcja| Górny lewy i prawy dolny punkt, gdy typ regionu to prostokąt |
 | `confidence` | float| Zaufanie algorytmu|
+| `face_Mask` | float | Wartość pewności atrybutu z zakresem (0-1) wskazuje, że wykryta osoba jest przypisana do maski |
+| `face_noMask` | float | Wartość pewności atrybutu z zakresem (0-1) wskazuje, że wykryta osoba **nie jest zgodna** z maską czołową |
 
 | Nazwa pola SourceInfo | Typ| Opis|
 |---------|---------|---------|
 | `id` | ciąg| Identyfikator aparatu|
-| `timestamp` | data| Data UTC, kiedy ładunek JSON został emitowany|
+| `timestamp` | date| Data UTC, kiedy ładunek JSON został emitowany|
 | `width` | int | Szerokość ramki wideo|
 | `height` | int | Wysokość ramki wideo|
 | `frameId` | int | Identyfikator ramki|
 
 
 > [!IMPORTANT]
-> Model AI wykrywa osobę niezależnie od tego, czy osoba jest dołączona do aparatu, czy nie. Model AI nie uruchamia wykrywania ani rozpoznawania lub nie emituje żadnych informacji biometrycznych. 
+> Model AI wykrywa osobę niezależnie od tego, czy osoba jest dołączona do aparatu, czy nie. Model AI nie uruchamia rozpoznawania frontu i nie emituje żadnych informacji biometrycznych. 
 
 ### <a name="json-format-for-cognitiveservicesvisionspatialanalysis-personcrossingpolygon-ai-insights"></a>Format JSON dla cognitiveservices. Vision. spatialanalysis-personcrossingpolygon AI Insights
 
-Przykładowy kod JSON dla wykrywania danych wyjściowych przez tę operację.
+Przykładowy kod JSON dla wykrywania danych wyjściowych przez tę operację z `zonecrossing` typem SPACEANALYTICS_CONFIG.
 
 ```json
 {
     "events": [
         {
             "id": "f095d6fe8cfb4ffaa8c934882fb257a5",
-            "type": "personZoneEvent",
+            "type": "personZoneEnterExitEvent",
             "detectionIds": [
                 "afcc2e2a32a6480288e24381f9c5d00e"
             ],
             "properties": {
                 "trackingId": "afcc2e2a32a6480288e24381f9c5d00e",
                 "status": "Enter",
-                "side": ""
+                "side": "1"
+            },
+            "zone": "queuecamera"
+        }
+    ],
+    "sourceInfo": {
+        "id": "camera_id",
+        "timestamp": "2020-08-24T06:15:09.680Z",
+        "width": 608,
+        "height": 342,
+        "frameId": "428",
+        "imagePath": ""
+    },
+    "detections": [
+        {
+            "type": "person",
+            "id": "afcc2e2a32a6480288e24381f9c5d00e",
+            "region": {
+                "type": "RECTANGLE",
+                "points": [
+                    {
+                        "x": 0.8135572734631991,
+                        "y": 0.6653949670624315
+                    },
+                    {
+                        "x": 0.9937645761590255,
+                        "y": 0.9925406829655519
+                    }
+                ]
+            },
+            "confidence": 0.6267998814582825,
+        "metadata": {
+        "attributes": {
+        "face_Mask": 0.99
+        }
+        }
+           
+        }
+    ],
+    "schemaVersion": "1.0"
+}
+```
+
+Przykładowy kod JSON dla wykrywania danych wyjściowych przez tę operację z `zonedwelltime` typem SPACEANALYTICS_CONFIG.
+
+```json
+{
+    "events": [
+        {
+            "id": "f095d6fe8cfb4ffaa8c934882fb257a5",
+            "type": "personZoneDwellTimeEvent",
+            "detectionIds": [
+                "afcc2e2a32a6480288e24381f9c5d00e"
+            ],
+            "properties": {
+                "trackingId": "afcc2e2a32a6480288e24381f9c5d00e",
+                "status": "Exit",
+                "side": "1",
+        "durationMs": 7132.0
             },
             "zone": "queuecamera"
         }
@@ -487,11 +600,13 @@ Przykładowy kod JSON dla wykrywania danych wyjściowych przez tę operację.
 | Nazwa pola zdarzenia | Typ| Opis|
 |---------|---------|---------|
 | `id` | ciąg| Identyfikator zdarzenia|
-| `type` | ciąg| Typ zdarzenia|
+| `type` | ciąg| Typ zdarzenia. Wartość może być równa _personZoneDwellTimeEvent_ lub _personZoneEnterExitEvent_|
 | `detectionsId` | array| Tablica o rozmiarze 1 unikatowego identyfikatora wykrywania osoby, która wyzwoliła to zdarzenie|
 | `properties` |  — kolekcja| Kolekcja wartości|
 | `trackinId` | ciąg| Wykryto unikatowy identyfikator osoby|
 | `status` | ciąg| Kierunek skrzyżowania wielokąta, "Enter" lub "Exit"|
+| `side` | int| Liczba boków wielokąta, który przekroczyła osobę. Każda Strona jest numerowaną krawędzią między dwoma wierzchołkami wielokąta, który reprezentuje strefę. Krawędź między pierwszymi dwoma wierzchołkami wielokąta reprezentującymi pierwszą stronę|
+| `durationMs` | int | Liczba milisekund, która przedstawia czas spędzony w strefie. To pole jest dostępne, gdy typem zdarzenia jest _personZoneDwellTimeEvent_|
 | `zone` | ciąg | Pole "name" wielokąta reprezentujące przekreśloną strefę|
 
 | Nazwa pola wykrywania | Typ| Opis|
@@ -502,6 +617,8 @@ Przykładowy kod JSON dla wykrywania danych wyjściowych przez tę operację.
 | `type` | ciąg| Typ regionu|
 | `points` |  — kolekcja| Górny lewy i prawy dolny punkt, gdy typ regionu to prostokąt |
 | `confidence` | float| Zaufanie algorytmu|
+| `face_Mask` | float | Wartość pewności atrybutu z zakresem (0-1) wskazuje, że wykryta osoba jest przypisana do maski |
+| `face_noMask` | float | Wartość pewności atrybutu z zakresem (0-1) wskazuje, że wykryta osoba **nie jest zgodna** z maską czołową |
 
 ### <a name="json-format-for-cognitiveservicesvisionspatialanalysis-persondistance-ai-insights"></a>Format JSON dla cognitiveservices. Vision. spatialanalysis-persondistance AI Insights
 
@@ -536,7 +653,7 @@ Przykładowy kod JSON dla wykrywania danych wyjściowych przez tę operację.
         "height": 342,
         "frameId": "1199",
         "cameraCalibrationInfo": {
-            "status": "Complete",
+            "status": "Calibrated",
             "cameraHeight": 12.9940824508667,
             "focalLength": 401.2800598144531,
             "tiltupAngle": 1.057669997215271
@@ -618,17 +735,24 @@ Przykładowy kod JSON dla wykrywania danych wyjściowych przez tę operację.
 | `type` | ciąg| Typ regionu|
 | `points` |  — kolekcja| Górny lewy i prawy dolny punkt, gdy typ regionu to prostokąt |
 | `confidence` | float| Zaufanie algorytmu|
-| `centerGroundPoint` | 2 wartości zmiennoprzecinkowe| `x`, `y` wartości ze współrzędnymi odwołującej się osoby na ziemi w stawce. `x` jest to odległość od aparatu prostopadle do płaszczyzny obrazu aparatu, która jest rzutowana na ziemię w stawce. `y` jest to odległość od aparatu do warstwy obrazu, która jest rzutowana na ziemię w stawce.|
+| `centerGroundPoint` | 2 wartości zmiennoprzecinkowe| `x`, `y` wartości ze współrzędnymi odwołującej się osoby na ziemi w stawce. `x` i `y` są współrzędne płaszczyzny podłogi, przy założeniu, że podłoga jest pozioma. Lokalizacją aparatu jest lokalizacja pochodzenia. |
+
+Podczas obliczania `centerGroundPoint` , `x` to odległość od aparatu do osoby wzdłuż linii prostopadłej do płaszczyzny obrazu aparatu. `y` to odległość od aparatu do osoby wzdłuż linii równoległej do płaszczyzny obrazu aparatu. 
+
+![Przykładowy punkt środkowy](./media/spatial-analysis/x-y-chart.png) 
+
+W tym przykładzie `centerGroundPoint` jest `{x: 4, y: 5}` . Oznacza to, że osoba 4 metrów oddala od kamery i 5 metrów po prawej stronie, patrząc na górne pomieszczenie.
+
 
 | Nazwa pola SourceInfo | Typ| Opis|
 |---------|---------|---------|
 | `id` | ciąg| Identyfikator aparatu|
-| `timestamp` | data| Data UTC, kiedy ładunek JSON został emitowany|
+| `timestamp` | date| Data UTC, kiedy ładunek JSON został emitowany|
 | `width` | int | Szerokość ramki wideo|
 | `height` | int | Wysokość ramki wideo|
 | `frameId` | int | Identyfikator ramki|
 | `cameraCallibrationInfo` |  — kolekcja | Kolekcja wartości|
-| `status` | ciąg | Wskazuje, czy Kalibracja aparatu do płaszczyzny uziemienia jest "kompletna"|
+| `status` | ciąg | Stan kalibracji w formacie `state[;progress description]` . Stan może mieć wartość `Calibrating` `Recalibrating` (Jeśli włączono funkcję rekalibracji) lub `Calibrated` . Część opis postępu jest prawidłowa tylko wtedy, gdy jest w `Calibrating` i `Recalibrating` stanie, która jest używana do wyświetlania postępu bieżącego procesu kalibracji.|
 | `cameraHeight` | float | Wysokość kamery nad ziemią w stóp. Ta funkcja jest wywnioskowana z autokalibracji. |
 | `focalLength` | float | Długość Ogniskowa aparatu (w pikselach). Ta funkcja jest wywnioskowana z autokalibracji. |
 | `tiltUpAngle` | float | Kąt pochylenia aparatu w pionie. Ta funkcja jest wywnioskowana z autokalibracji.|
@@ -644,84 +768,190 @@ Możesz chcieć zintegrować wykrywanie przestrzenne lub zdarzenia w aplikacji. 
 
 ## <a name="deploying-spatial-analysis-operations-at-scale-multiple-cameras"></a>Wdrażanie operacji analizy przestrzennej na dużą skalę (wiele kamer)
 
-Aby uzyskać najlepszą wydajność i wykorzystanie procesorów GPU, można wdrożyć wszystkie operacje analizy przestrzennej dla wielu kamer przy użyciu wystąpień grafu. Poniżej znajduje się przykład służący do uruchamiania `cognitiveservices.vision.spatialanalysis-personcount` operacji w pięciu aparatach.
+Aby uzyskać najlepszą wydajność i wykorzystanie procesorów GPU, można wdrożyć wszystkie operacje analizy przestrzennej dla wielu kamer przy użyciu wystąpień grafu. Poniżej znajduje się przykład służący do uruchamiania `cognitiveservices.vision.spatialanalysis-personcrossingline` operacji w piętnastu aparatach fotograficznych.
 
 ```json
- "properties.desired": {
+  "properties.desired": {
       "globalSettings": {
           "PlatformTelemetryEnabled": false,
           "CustomerTelemetryEnabled": true
       },
       "graphs": {
-          "personcount": {
-              "operationId": "cognitiveservices.vision.spatialanalysis-personcount",
-              "version": 1,
-              "enabled": true,
-              "sharedNodes": {
-                  "shared_detector1": {
-                      "node": "PersonCountGraph.detector",
-                      "parameters": {
-                          "DETECTOR_NODE_CONFIG": "{ \"gpu_index\": 0, \"batch_size\": 5}",
-                      }
-                  }
-              },
-              "parameters": {
-                  "VIDEO_DECODE_GPU_INDEX": 0,
-                  "VIDEO_IS_LIVE": true
-              },
-              "instances": {
-                  "1": {
-                      "sharedNodeMap": {
-                          "PersonCountGraph/detector": "shared_detector1"
-                      },
-                      "parameters": {
-                          "VIDEO_URL": "<Replace RTSP URL for camera 1>",
-                          "VIDEO_SOURCE_ID": "camera 1",
-                          "SPACEANALYTICS_CONFIG": "{\"zones\":[{\"name\":\"zone5\",\"polygon\":[[0,0],[1,0],[0,1],[1,1],[0,0]],\"threshold\":50.0, \"events\":[{\"type\":\"count\", \"output_frequency\": 1}]}]}"
-                      }
-                  },
-                  "2": {
-                      "sharedNodeMap": {
-                          "PersonCountGraph/detector": "shared_detector1"
-                      },
-                      "parameters": {
-                          "VIDEO_URL": "<Replace RTSP URL for camera 2>",
-                          "VIDEO_SOURCE_ID": "camera 2",
-                          "SPACEANALYTICS_CONFIG": "<Replace the zone config value, same format as above>"
-                      }
-                  },
-                  "3": {
-                      "sharedNodeMap": {
-                          "PersonCountGraph/detector": "shared_detector1"
-                      },
-                      "parameters": {
-                          "VIDEO_URL": "<Replace RTSP URL for camera 3>",
-                          "VIDEO_SOURCE_ID": "camera 3",
-                          "SPACEANALYTICS_CONFIG": "<Replace the zone config value, same format as above>"
-                      }
-                  },
-                  "4": {
-                      "sharedNodeMap": {
-                          "PersonCountGraph/detector": "shared_detector1"
-                      },
-                      "parameters": {
-                          "VIDEO_URL": "<Replace RTSP URL for camera 4>",
-                          "VIDEO_SOURCE_ID": "camera 4",
-                          "SPACEANALYTICS_CONFIG": "<Replace the zone config value, same format as above>"
-                      }
-                  },
-                  "5": {
-                      "sharedNodeMap": {
-                          "PersonCountGraph/detector": "shared_detector1"
-                      },
-                      "parameters": {
-                          "VIDEO_URL": "<Replace RTSP URL for camera 5>",
-                          "VIDEO_SOURCE_ID": "camera 5",
-                          "SPACEANALYTICS_CONFIG": "<Replace the zone config value, same format as above>"
-                      }
-                  }
-              }
+        "personzonelinecrossing": {
+        "operationId": "cognitiveservices.vision.spatialanalysis-personcrossingline",
+        "version": 1,
+        "enabled": true,
+        "sharedNodes": {
+            "shared_detector0": {
+                "node": "PersonCrossingLineGraph.detector",
+                "parameters": {
+                    "DETECTOR_NODE_CONFIG": "{ \"gpu_index\": 0, \"batch_size\": 7, \"do_calibration\": true}",
+                }
+            },
+            "shared_detector1": {
+                "node": "PersonCrossingLineGraph.detector",
+                "parameters": {
+                    "DETECTOR_NODE_CONFIG": "{ \"gpu_index\": 0, \"batch_size\": 8, \"do_calibration\": true}",
+                }
+            }
+        },
+        "parameters": {
+            "VIDEO_DECODE_GPU_INDEX": 0,
+            "VIDEO_IS_LIVE": true
+        },
+        "instances": {
+            "1": {
+                "sharedNodeMap": {
+                    "PersonCrossingLineGraph/detector": "shared_detector0",
+                },
+                "parameters": {
+                    "VIDEO_URL": "<Replace RTSP URL for camera 1>",
+                    "VIDEO_SOURCE_ID": "camera 1",
+                    "SPACEANALYTICS_CONFIG": "{\"zones\":[{\"name\":\"queue\",\"polygon\":[[0,0],[1,0],[0,1],[1,1],[0,0]]}]}"
+                }
+            },
+            "2": {
+                "sharedNodeMap": {
+                    "PersonCrossingLineGraph/detector": "shared_detector0",
+                },
+                "parameters": {
+                    "VIDEO_URL": "<Replace RTSP URL for camera 2>",
+                    "VIDEO_SOURCE_ID": "camera 2",
+                    "SPACEANALYTICS_CONFIG": "<Replace the zone config value, same format as above>"
+                }
+            },
+            "3": {
+                "sharedNodeMap": {
+                    "PersonCrossingLineGraph/detector": "shared_detector0",
+                },
+                "parameters": {
+                    "VIDEO_URL": "<Replace RTSP URL for camera 3>",
+                    "VIDEO_SOURCE_ID": "camera 3",
+                    "SPACEANALYTICS_CONFIG": "<Replace the zone config value, same format as above>"
+                }
+            },
+            "4": {
+                "sharedNodeMap": {
+                    "PersonCrossingLineGraph/detector": "shared_detector0",
+                },
+                "parameters": {
+                    "VIDEO_URL": "<Replace RTSP URL for camera 4>",
+                    "VIDEO_SOURCE_ID": "camera 4",
+                    "SPACEANALYTICS_CONFIG": "<Replace the zone config value, same format as above>"
+                }
+            },
+            "5": {
+                "sharedNodeMap": {
+                    "PersonCrossingLineGraph/detector": "shared_detector0",
+                },
+                "parameters": {
+                    "VIDEO_URL": "<Replace RTSP URL for camera 5>",
+                    "VIDEO_SOURCE_ID": "camera 5",
+                    "SPACEANALYTICS_CONFIG": "<Replace the zone config value, same format as above>"
+                }
+            },
+            "6": {
+                "sharedNodeMap": {
+                    "PersonCrossingLineGraph/detector": "shared_detector0",
+                },
+                "parameters": {
+                    "VIDEO_URL": "<Replace RTSP URL for camera 6>",
+                    "VIDEO_SOURCE_ID": "camera 6",
+                    "SPACEANALYTICS_CONFIG": "<Replace the zone config value, same format as above>"
+                }
+            },
+            "7": {
+                "sharedNodeMap": {
+                    "PersonCrossingLineGraph/detector": "shared_detector0",
+                },
+                "parameters": {
+                    "VIDEO_URL": "<Replace RTSP URL for camera 7>",
+                    "VIDEO_SOURCE_ID": "camera 7",
+                    "SPACEANALYTICS_CONFIG": "<Replace the zone config value, same format as above>"
+                }
+            },
+            "8": {
+                "sharedNodeMap": {
+                    "PersonCrossingLineGraph/detector": "shared_detector1",
+                },
+                "parameters": {
+                    "VIDEO_URL": "<Replace RTSP URL for camera 8>",
+                    "VIDEO_SOURCE_ID": "camera 8",
+                    "SPACEANALYTICS_CONFIG": "<Replace the zone config value, same format as above>"
+                }
+            },
+            "9": {
+                "sharedNodeMap": {
+                    "PersonCrossingLineGraph/detector": "shared_detector1",
+                },
+                "parameters": {
+                    "VIDEO_URL": "<Replace RTSP URL for camera 9>",
+                    "VIDEO_SOURCE_ID": "camera 9",
+                    "SPACEANALYTICS_CONFIG": "<Replace the zone config value, same format as above>"
+                }
+            },
+            "10": {
+                "sharedNodeMap": {
+                    "PersonCrossingLineGraph/detector": "shared_detector1",
+                },
+                "parameters": {
+                    "VIDEO_URL": "<Replace RTSP URL for camera 10>",
+                    "VIDEO_SOURCE_ID": "camera 10",
+                    "SPACEANALYTICS_CONFIG": "<Replace the zone config value, same format as above>"
+                }
+            },
+            "11": {
+                "sharedNodeMap": {
+                    "PersonCrossingLineGraph/detector": "shared_detector1",
+                },
+                "parameters": {
+                    "VIDEO_URL": "<Replace RTSP URL for camera 11>",
+                    "VIDEO_SOURCE_ID": "camera 11",
+                    "SPACEANALYTICS_CONFIG": "<Replace the zone config value, same format as above>"
+                }
+            },
+            "12": {
+                "sharedNodeMap": {
+                    "PersonCrossingLineGraph/detector": "shared_detector1",
+                },
+                "parameters": {
+                    "VIDEO_URL": "<Replace RTSP URL for camera 12>",
+                    "VIDEO_SOURCE_ID": "camera 12",
+                    "SPACEANALYTICS_CONFIG": "<Replace the zone config value, same format as above>"
+                }
+            },
+            "13": {
+                "sharedNodeMap": {
+                    "PersonCrossingLineGraph/detector": "shared_detector1",
+                },
+                "parameters": {
+                    "VIDEO_URL": "<Replace RTSP URL for camera 13>",
+                    "VIDEO_SOURCE_ID": "camera 13",
+                    "SPACEANALYTICS_CONFIG": "<Replace the zone config value, same format as above>"
+                }
+            },
+            "14": {
+                "sharedNodeMap": {
+                    "PersonCrossingLineGraph/detector": "shared_detector1",
+                },
+                "parameters": {
+                    "VIDEO_URL": "<Replace RTSP URL for camera 14>",
+                    "VIDEO_SOURCE_ID": "camera 14",
+                    "SPACEANALYTICS_CONFIG": "<Replace the zone config value, same format as above>"
+                }
+            },
+            "15": {
+                "sharedNodeMap": {
+                    "PersonCrossingLineGraph/detector": "shared_detector1",
+                },
+                "parameters": {
+                    "VIDEO_URL": "<Replace RTSP URL for camera 15>",
+                    "VIDEO_SOURCE_ID": "camera 15",
+                    "SPACEANALYTICS_CONFIG": "<Replace the zone config value, same format as above>"
+                }
+            }
           }
+        },
       }
   }
   ```

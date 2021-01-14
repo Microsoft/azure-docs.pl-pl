@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: duau
-ms.openlocfilehash: 692c63849bc9e92ded43db3bf22ce14384f2b68d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e55c2115edef684f38aa53172596beffd101ef59
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401286"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184394"
 ---
 # <a name="traffic-manager-endpoints"></a>Punkty końcowe usługi Traffic Manager
 
@@ -92,15 +92,15 @@ Jeśli wszystkie punkty końcowe w profilu są wyłączone lub sam profil jest w
 
 ## <a name="faqs"></a>Często zadawane pytania
 
-* [Czy można używać Traffic Manager z punktami końcowymi z wielu subskrypcji?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions)
+* [Czy można używać Traffic Manager z punktami końcowymi z wielu subskrypcji?](./traffic-manager-faqs.md#can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions)
 
-* [Czy można użyć Traffic Manager z gniazdami "przemieszczania" usługi w chmurze?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-cloud-service-staging-slots)
+* [Czy można użyć Traffic Manager z gniazdami "przemieszczania" usługi w chmurze?](./traffic-manager-faqs.md#can-i-use-traffic-manager-with-cloud-service-staging-slots)
 
-* [Czy Traffic Manager obsługuje punkty końcowe protokołu IPv6?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-ipv6-endpoints)
+* [Czy Traffic Manager obsługuje punkty końcowe protokołu IPv6?](./traffic-manager-faqs.md#does-traffic-manager-support-ipv6-endpoints)
 
-* [Czy można użyć Traffic Manager z więcej niż jedną aplikacją sieci Web w tym samym regionie?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region)
+* [Czy można użyć Traffic Manager z więcej niż jedną aplikacją sieci Web w tym samym regionie?](./traffic-manager-faqs.md#can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region)
 
-* [Jak mogę przenieść punkty końcowe platformy Azure profilu Traffic Manager do innej grupy zasobów?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group-or-subscription)
+* [Jak mogę przenieść punkty końcowe platformy Azure profilu Traffic Manager do innej grupy zasobów?](./traffic-manager-faqs.md#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group-or-subscription)
 
 ## <a name="next-steps"></a>Następne kroki
 

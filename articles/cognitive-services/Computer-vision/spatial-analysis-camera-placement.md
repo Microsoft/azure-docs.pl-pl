@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 8e951e6cb18596b19f49bf42179297f656e3fa5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 849afe54125588cb7664ee221e4f229e83be8f96
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91304302"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185482"
 ---
 # <a name="camera-placement-guide"></a>Przewodnik umieszczania w aparacie
 
@@ -52,7 +52,7 @@ Na poniższej ilustracji przedstawiono widok podniesienia uprawnień dla osób i
 
 ## <a name="camera-height"></a>Wysokość kamery
 
-Ogólnie rzecz biorąc, aparaty fotograficzne należy zainstalować 12-14 metrów od podstaw. Planując Instalowanie aparatu w tym zakresie, weź pod uwagę przeszkody (na przykład odłożenie, światła wiszące, podpisywanie i wyświetlenia), które mogą mieć wpływ na widok aparatu, a następnie dostosuj wysokość w razie potrzeby.
+Ogólnie rzecz biorąc, aparaty fotograficzne należy zainstalować 12-14 metrów od podstaw. Aby wykrywać maskę powierzchni, zalecamy zainstalowanie kamer o 8-12 metrów od podstaw. Planując Instalowanie aparatu w tym zakresie, weź pod uwagę przeszkody (na przykład odłożenie, światła wiszące, podpisywanie i wyświetlenia), które mogą mieć wpływ na widok aparatu, a następnie dostosuj wysokość w razie potrzeby.
 
 ## <a name="camera-to-focal-point-distance"></a>Odległość między kamerą a punktem ogniskowym
 
@@ -68,7 +68,7 @@ Z powyższych, wygląda to następująco:
 
 ![Jak należy mierzyć odległość między oddziałami między punktami](./media/spatial-analysis/camera-focal-point-above.png)
 
-Skorzystaj z poniższej tabeli, aby określić odległość aparatu od punktu odniesienia na podstawie określonych wysokości instalacji. Te odległości umożliwiają optymalne umieszczanie. Należy zauważyć, że tabela zawiera wskazówki poniżej 12 "-14" zalecenia, ponieważ niektóre ograniczenia mogą ograniczać wysokość.
+Skorzystaj z poniższej tabeli, aby określić odległość aparatu od punktu odniesienia na podstawie określonych wysokości instalacji. Te odległości umożliwiają optymalne umieszczanie. Należy zauważyć, że tabela zawiera wskazówki poniżej 12 "-14" zalecenia, ponieważ niektóre ograniczenia mogą ograniczać wysokość. W przypadku wykrywania masek czołowych zalecana odległość między aparatem a punktem odniesienia (min/max) to 4 "-10" dla wysokości kamery od 8 do 12.
 
 | Wysokość kamery | Odległość między kamerą a punktem ogniskowym (min/max) |  
 | ------------- | ---------------------------------------- |  
@@ -91,7 +91,7 @@ W tej sekcji opisano akceptowalne zakresy instalowania kąta aparatu. Te zakresy
 
 ### <a name="line-configuration"></a>Konfiguracja linii
 
-W poniższej tabeli przedstawiono zalecenia dotyczące kamer skonfigurowanych dla operacji **cognitiveservices. Vision. spatialanalysis-personcrossingline** . 
+W poniższej tabeli przedstawiono zalecenia dotyczące kamer skonfigurowanych dla operacji **cognitiveservices. Vision. spatialanalysis-personcrossingline** . Aby można było wykryć maskę czołową, program +/-30 stopni jest optymalnym kątem montażu aparatu w zakresie od 8 do 12.
 
 | Wysokość kamery | Odległość między kamerą a punktem ogniskowym | Optymalny kąt montażu w aparacie (min/max) |  
 | ------------- | ------------------------------ | ------------------------------------------ |  
@@ -127,7 +127,7 @@ Poniższa ilustracja zawiera symulacje dla lewego i prawego widoku kamery obszar
 
 #### <a name="queues"></a>Kolejki
 
-Do monitorowania kolejek można używać umiejętności **cognitiveservices. Vision. spatialanalysis-personcount**, **cognitiveservices. Vision. spatialanalysis-persondistance**i **cognitiveservices. Vision. spatialanalysis-personcrossingpolygon** . W celu uzyskania optymalnej jakości danych w kolejce w celu zminimalizowania zamknięcia osób w kolejce i upewnienia się, że lokalizacja kolejki jest spójna z upływem czasu.
+Do monitorowania kolejek można używać umiejętności **cognitiveservices. Vision. spatialanalysis-personcount**, **cognitiveservices. Vision. spatialanalysis-persondistance** i **cognitiveservices. Vision. spatialanalysis-personcrossingpolygon** . W celu uzyskania optymalnej jakości danych w kolejce w celu zminimalizowania zamknięcia osób w kolejce i upewnienia się, że lokalizacja kolejki jest spójna z upływem czasu.
 
 ![Wycofywanie kolejki pasów](./media/spatial-analysis/retractable-belt-queue.png)
 
