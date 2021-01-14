@@ -63,19 +63,8 @@
         - name: Używanie usługi Azure Lab Services w usłudze Teams
           items:
             - name: Omówienie
+              displayName: labs within Teams
               href: lab-services-within-teams-overview.md
-            - name: Tworzenie laboratorium z poziomu usługi Teams
-              href: how-to-get-started-create-lab-within-teams.md
-            - name: Zarządzanie listami użytkowników
-              href: how-to-manage-user-lists-within-teams.md
-            - name: Zarządzanie pulą maszyn wirtualnych
-              href: how-to-manage-vm-pool-within-teams.md
-            - name: Usuwanie laboratoriów
-              href: how-to-delete-lab-within-teams.md
-            - name: Harmonogramy i ustawienia
-              href: how-to-create-schedules-within-teams.md
-            - name: Uzyskiwanie dostępu do maszyny wirtualnej (widok ucznia)
-              href: how-to-access-vm-for-students-within-teams.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Podręcznik administratora
@@ -164,6 +153,20 @@
           href: how-to-set-virtual-machine-passwords-student.md
         - name: Wyświetlanie informacji o pomocy technicznej (uczeń)
           href: lab-user-support-information.md
+    - name: Korzystanie z laboratoriów w aplikacji Teams
+      items:
+        - name: Tworzenie laboratorium z poziomu usługi Teams
+          href: how-to-get-started-create-lab-within-teams.md
+        - name: Zarządzanie listami użytkowników
+          href: how-to-manage-user-lists-within-teams.md
+        - name: Zarządzanie pulą maszyn wirtualnych
+          href: how-to-manage-vm-pool-within-teams.md
+        - name: Usuwanie laboratoriów
+          href: how-to-delete-lab-within-teams.md
+        - name: Harmonogramy i ustawienia
+          href: how-to-create-schedules-within-teams.md
+        - name: Uzyskiwanie dostępu do maszyny wirtualnej (widok ucznia)
+          href: how-to-access-vm-for-students-within-teams.md
 - name: Dokumentacja
   items:
     - name: Interfejs API REST
