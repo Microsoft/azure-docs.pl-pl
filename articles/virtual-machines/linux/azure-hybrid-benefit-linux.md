@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: ba7081c877f3c3adae6e678280592c9445a95d1b
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: 990c396c859477c83e0ef421659a299920ee0c35
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858811"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209138"
 ---
 # <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Jak Korzyść użycia hybrydowego platformy Azure ma zastosowanie w przypadku maszyn wirtualnych z systemem Linux
 
@@ -39,7 +39,7 @@ Korzyść użycia hybrydowego platformy Azure jest dostępny dla wszystkich obra
 
 Wystąpienia zarezerwowane, dedykowane wystąpienia hosta platformy Azure i korzyści z używania hybrydowej bazy danych SQL nie kwalifikują się do Korzyść użycia hybrydowego platformy Azure, jeśli masz już korzyść z maszynami wirtualnymi z systemem Linux.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 ### <a name="red-hat-customers"></a>Klienci firmy Red Hat
 
@@ -47,6 +47,9 @@ Korzyść użycia hybrydowego platformy Azure dla RHEL jest dostępny dla klient
 
 - Masz aktywne lub nieużywane subskrypcje RHEL, które kwalifikują się do użycia na platformie Azure
 - Włączono co najmniej jedną z tych subskrypcji do użycia na platformie Azure przy użyciu programu [Red Hat Cloud Access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access)
+
+> [!IMPORTANT]
+> Upewnij się, że w programie [dostępu do chmury](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) włączono poprawną subskrypcję.
 
 Aby zacząć korzystać z zalet firmy Red Hat:
 

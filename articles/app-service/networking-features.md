@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 5d950598e4a0af86ac37b53722e80eb4ef0a71a4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 53c0d37d4a25c2f2092a9e52bcae8ea494046bb0
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183060"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210022"
 ---
 # <a name="app-service-networking-features"></a>App Service funkcje sieciowe
 
@@ -110,7 +110,7 @@ Ta funkcja umożliwia utworzenie listy reguł zezwalania i odmowy, które są oc
 
 Funkcja ograniczeń dostępu opartych na protokole IP umożliwia ograniczenie adresów IP, które mogą być używane do uzyskiwania dostępu do aplikacji. Obsługiwane są zarówno adresy IPv4, jak i IPv6. Niektóre przypadki użycia tej funkcji:
 * Ogranicz dostęp do aplikacji z zestawu dobrze zdefiniowanych adresów. 
-* Ogranicz dostęp do ruchu przychodzącego za pomocą usługi równoważenia obciążenia, takich jak drzwi platformy Azure. Jeśli chcesz zablokować ruch przychodzący do platformy Azure, utwórz reguły zezwalające na ruch z 147.243.0.0/16 i 2a01:111:2050::/44. 
+* Ogranicz dostęp do ruchu przychodzącego przez zewnętrzną usługę równoważenia obciążenia lub inne urządzenia sieciowe ze znanymi adresami IP ruchu wychodzącego. 
 
 Aby dowiedzieć się, jak włączyć tę funkcję, zobacz [Konfigurowanie ograniczeń dostępu][iprestrictions].
 
@@ -126,7 +126,20 @@ Niektóre przypadki użycia tej funkcji:
 ![Diagram przedstawiający korzystanie z punktów końcowych usługi z Application Gateway.](media/networking-features/service-endpoints-appgw.png)
 
 Aby dowiedzieć się więcej na temat konfigurowania punktów końcowych usługi przy użyciu aplikacji, zobacz [Azure App Service ograniczenia dostępu][serviceendpoints].
+#### <a name="access-restriction-rules-based-on-service-tags-preview"></a>Reguły ograniczeń dostępu oparte na tagach usług (wersja zapoznawcza)
+[Tagi usług platformy Azure][servicetags] są dobrze zdefiniowanymi zestawami adresów IP dla usług platformy Azure. Znaczniki usługi grupują zakresy adresów IP używane w różnych usługach platformy Azure i często są również w zasięgu w określonych regionach. Dzięki temu można filtrować ruch *przychodzący* z określonych usług platformy Azure. 
 
+Aby zapoznać się z pełną listą tagów i więcej informacji, odwiedź Link Service Tag powyżej. Aby dowiedzieć się, jak włączyć tę funkcję, zobacz [Konfigurowanie ograniczeń dostępu][iprestrictions].
+#### <a name="http-header-filtering-for-access-restriction-rules-preview"></a>Filtrowanie nagłówków HTTP na potrzeby reguł ograniczeń dostępu (wersja zapoznawcza)
+Dla każdej reguły ograniczeń dostępu można dodać dodatkowe filtrowanie nagłówka HTTP. Pozwala to na dalsze sprawdzenie przychodzącego żądania i filtru na podstawie określonych wartości nagłówka HTTP. Każdy nagłówek może zawierać maksymalnie 8 wartości dla każdej reguły. Następująca lista nagłówków HTTP jest obecnie obsługiwana: 
+* X-Forwarded-For
+* X-Forward-Host
+* X-Azure-FDID
+* X-FD-HealthProbe
+
+Niektóre przypadki użycia dotyczące filtrowania nagłówków HTTP są następujące:
+* Ograniczanie dostępu do ruchu z serwerów proxy przekazujących nazwę hosta
+* Ograniczanie dostępu do określonego wystąpienia usługi Azure front-drzwi przy użyciu reguły znacznika usługi i ograniczenia nagłówka X-FDID
 ### <a name="private-endpoint"></a>Prywatny punkt końcowy
 
 Prywatny punkt końcowy to interfejs sieciowy, który łączy Cię prywatnie i bezpiecznie z Twoją aplikacją internetową za pomocą prywatnego linku platformy Azure. Prywatny punkt końcowy używa prywatnego adresu IP z sieci wirtualnej, efektywnie łącząc aplikację sieci Web z siecią wirtualną. Ta funkcja jest tylko dla przepływów *przychodzących* do aplikacji sieci Web.
@@ -299,3 +312,4 @@ W przypadku skanowania App Service znajdziesz kilka portów, które są dostępn
 [networkinfo]: ./environment/network-info.md
 [appgwserviceendpoints]: ./networking/app-gateway-with-service-endpoints.md
 [privateendpoints]: ./networking/private-endpoint.md
+[servicetags]: ../virtual-network/service-tags-overview.md

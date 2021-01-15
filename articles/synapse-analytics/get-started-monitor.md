@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: monitoring
 ms.topic: tutorial
-ms.date: 10/15/2020
-ms.openlocfilehash: c2260cc0d2c6b889b44c738576e33abceebe23f1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 12/31/2020
+ms.openlocfilehash: 8c0cdcad9a7803e0d8063362ca62887990045c86
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444403"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209818"
 ---
 # <a name="monitor-your-synapse-workspace"></a>Monitorowanie obszaru roboczego Synapse
 
@@ -25,7 +25,7 @@ W tym samouczku dowiesz się, jak monitorować działania w obszarze roboczym Sy
 
 Otwórz Synapse Studio i przejdź do centrum **monitora** . W tym miejscu można zobaczyć historię wszystkich działań wykonywanych w obszarze roboczym, które są teraz aktywne. 
 
-* W obszarze **integracja** można monitorować potoki, wyzwalacze i środowiska Integration Runtime
+* W obszarze **integracja** można monitorować potoki, wyzwalacze i środowiska Integration Runtime.
 * W obszarze **działania** można monitorować działania platformy Spark i SQL. 
 
 ## <a name="integration"></a>Integracja
@@ -36,15 +36,15 @@ Otwórz Synapse Studio i przejdź do centrum **monitora** . W tym miejscu można
 
 ## <a name="apache-spark-activities"></a>Działania Apache Spark
 
-1. Przejdź do **działań związanych z integracją > > aplikacji Apache Spark**. Teraz można zobaczyć wszystkie aplikacje Spark uruchomione lub uruchomione w obszarze roboczym.
+1. Przejdź do **działań > Apache Spark aplikacji**. Teraz można zobaczyć wszystkie aplikacje Spark uruchomione lub uruchomione w obszarze roboczym.
 1. Znajdź aplikację, która nie jest już uruchomiona, a następnie kliknij jej **nazwę aplikacji**. Teraz można zobaczyć szczegóły aplikacji platformy Spark.
 1. Jeśli znasz Apache Spark, możesz znaleźć standardowy interfejs użytkownika serwera historii Apache Spark, klikając pozycję **serwer historii Spark**.
 
 ## <a name="sql-activities"></a>Działania SQL
 
-1. Przejdź do pozycji **integracja > działania > SQL żądania**.
+1. Przejdź do **działań > żądania SQL**.
 1. W tym widoku można zobaczyć żądania SQL.
-1. Wybierz **pulę** do monitorowania. Teraz można zobaczyć wszystkie żądania SQL uruchomione lub uruchomione w obszarze roboczym w tej puli.
+1. Wybierz **pulę** do monitorowania z poziomu filtru **puli** . Teraz można zobaczyć wszystkie żądania SQL uruchomione lub uruchomione w obszarze roboczym w tej puli.
 1. Znajdź określone żądanie SQL i umieść wskaźnik myszy na tym elemencie. Po umieszczeniu wskaźnika myszy zostanie wyświetlona ikona skryptu SQL.
 1. Kliknij ikonę skryptu SQL, aby wyświetlić pełny tekst żądania SQL.
 

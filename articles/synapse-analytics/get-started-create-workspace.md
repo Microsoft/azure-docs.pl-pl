@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 11/21/2020
-ms.openlocfilehash: c9b7d796612981f0e8194be84b0ed141721f644d
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.date: 12/31/2020
+ms.openlocfilehash: 3a2636ec73d20f3011d8413c794e68ef41b1829c
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862381"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209189"
 ---
 # <a name="creating-a-synapse-workspace"></a>Tworzenie obszaru roboczego Synapse
 
@@ -30,11 +30,12 @@ Aby wykonać kroki tego samouczka, musisz mieć dostęp do grupy zasobów, do kt
 1. Otwórz [Azure Portal](https://portal.azure.com)i w górnej części Szukaj **Synapse**.
 1. W wynikach wyszukiwania w obszarze **usługi** wybierz pozycję **Azure Synapse Analytics**.
 1. Wybierz pozycję **Dodaj** , aby utworzyć obszar roboczy.
-1. W obszarze **podstawowe** wpisz swoją preferowaną **subskrypcję**, **grupę zasobów**, **region**, a następnie wybierz nazwę obszaru roboczego. W tym samouczku użyjemy **obszaru roboczego**.
-1. Przejdź do **opcji wybierz Data Lake Storage Gen 2**. 
-1. Kliknij pozycję **Utwórz nową** i nadaj jej nazwę **contosolake**.
-1. Kliknij pozycję **system plików** i nadaj jej nazwę **Użytkownicy**. Spowoduje to utworzenie kontenera o nazwie **Użytkownicy**
+1. Na karcie **podstawy** w obszarze Szczegóły projektu wprowadź swoją preferowaną **subskrypcję**, **grupę zasobów**, **region**, a następnie wybierz nazwę obszaru roboczego. W tym samouczku użyjemy **obszaru roboczego**.
+1. **Wybierz pozycję Data Lake Storage Gen 2**, a następnie kliknij przycisk **z subskrypcji**.
+1. Według **nazwy konta**, kliknij przycisk **Utwórz nowe** i Nazwij nowe konto magazynu **contosolake** lub podobną, ponieważ ta nazwa musi być unikatowa.
+1. Według **nazwy systemu plików**, kliknij przycisk **Utwórz nowe** i nadaj nazwę **użytkownikom** IT. Spowoduje to utworzenie kontenera magazynu o nazwie **Użytkownicy**
 1. Obszar roboczy będzie używał tego konta magazynu jako konta magazynu "podstawowe" do tabel platformy Spark i dzienników aplikacji platformy Spark.
+1. Zaznacz pole wyboru "Przypisz samodzielnie rolę współautor danych obiektów blob magazynu" na koncie Data Lake Storage Gen2. 
 1. Wybierz pozycję **Przeglądanie + tworzenie** > **Utwórz**. Obszar roboczy jest gotowy w ciągu kilku minut.
 
 > [!NOTE]
@@ -45,8 +46,14 @@ Aby wykonać kroki tego samouczka, musisz mieć dostęp do grupy zasobów, do kt
 
 Po utworzeniu obszaru roboczego usługi Azure Synapse dostępne są dwa sposoby otwierania programu Synapse Studio:
 
-* Otwórz obszar roboczy Synapse w [Azure Portal](https://portal.azure.com). W górnej części sekcji **Przegląd** wybierz pozycję Otwórz program **Synapse Studio**.
+* Otwórz obszar roboczy Synapse w [Azure Portal](https://portal.azure.com)w sekcji **Omówienie** obszaru roboczego Synapse wybierz pozycję **Otwórz** w polu Otwórz Synapse Studio.
 * Przejdź do `https://web.azuresynapse.net` obszaru roboczego i zaloguj się do niego.
+
+
+## <a name="the-built-in-serverless-sql-pool"></a>Wbudowana Pula SQL bezserwerowa
+
+Każdy obszar roboczy zawiera wstępnie zbudowaną pulę SQL bezserwerową o nazwie **wbudowane**. Nie można usunąć tej puli. Pule SQL bezserwerowe umożliwiają korzystanie z języka SQL bez konieczności rezerwowania pojemności z dedykowanymi pulami SQL. W przeciwieństwie do dedykowanych pul SQL, rozliczanie dla bezserwerowej puli SQL jest oparte na ilości danych przeskanowanych w celu uruchomienia zapytania, a nie liczby pojemności przydzielonej do puli.
+
 
 ## <a name="create-a-dedicated-sql-pool"></a>Tworzenie dedykowanej puli SQL
 
@@ -61,6 +68,7 @@ Dedykowana Pula SQL zużywa zasoby do rozliczenia, o ile jest ona aktywna. Pulę
 > [!NOTE] 
 > Podczas tworzenia nowej dedykowanej puli SQL (dawniej SQL DW) w obszarze roboczym zostanie otwarta strona dedykowana obsługa administracyjna puli SQL. Inicjowanie obsługi administracyjnej odbywa się na logicznym serwerze SQL Server.
 
+
 ## <a name="create-a-serverless-apache-spark-pool"></a>Utwórz bezserwerową pulę Apache Spark
 
 1. W programie Synapse Studio w okienku po lewej stronie wybierz pozycję **Zarządzaj**  >  **pulami Apache Spark**.
@@ -72,9 +80,6 @@ Dedykowana Pula SQL zużywa zasoby do rozliczenia, o ile jest ona aktywna. Pulę
 
 Pula platformy Spark informuje platformę Azure Synapse, ile zasobów platformy Spark ma używać. Płacisz tylko za wykorzystane zasoby. Gdy aktywne zaprzestanie korzystania z puli, zasoby są automatycznie przekroczenia limitu czasu i są odtwarzane.
 
-## <a name="the-built-in-serverless-sql-pool"></a>Wbudowana Pula SQL bezserwerowa
-
-Każdy obszar roboczy zawiera wstępnie zbudowaną pulę SQL bezserwerową o nazwie **wbudowane**. Nie można usunąć tej puli. Pule SQL bezserwerowe umożliwiają korzystanie z języka SQL bez konieczności rezerwowania pojemności z dedykowanymi pulami SQL. W przeciwieństwie do dedykowanych pul SQL, rozliczanie dla bezserwerowej puli SQL jest oparte na ilości danych przeskanowanych w celu uruchomienia zapytania, a nie liczby pojemności przydzielonej do puli.
 
 ## <a name="next-steps"></a>Następne kroki
 

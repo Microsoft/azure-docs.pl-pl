@@ -13,12 +13,12 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: b29d8007ba7c6fb41209ad4f792069667416616b
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: d855e124c84dee8554073d05fa04fe078b92ddaa
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011547"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208893"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifest aplikacji usługi Azure Active Directory
 
@@ -105,7 +105,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| allowPublicClient | Wartość logiczna |
+| allowPublicClient | Boolean (wartość logiczna) |
 
 Określa typ aplikacji rezerwowej. Usługa Azure AD domyślnie wnioskuje typ aplikacji z replyUrlsWithType. Istnieją pewne scenariusze, w których usługa Azure AD nie może określić typu aplikacji klienta. Na przykład, taki scenariusz to [ROPC](https://tools.ietf.org/html/rfc6749#section-4.3) , gdzie żądanie HTTP odbywa się bez przekierowania adresu URL. W takich przypadkach usługa Azure AD interpretuje typ aplikacji na podstawie wartości tej właściwości. Jeśli ta wartość jest równa true, typ aplikacji rezerwowej jest ustawiany jako klient publiczny, taki jak zainstalowana aplikacja uruchomiona na urządzeniu przenośnym. Wartość domyślna to false, co oznacza, że rezerwowy typ aplikacji to poufny klient, taki jak aplikacja sieci Web.
 
@@ -114,17 +114,6 @@ Przykład:
 ```json
     "allowPublicClient": false,
 ```
-
-### <a name="availabletoothertenants-attribute"></a>availableToOtherTenants — atrybut
-
-| Klucz | Typ wartości |
-| :--- | :--- |
-| availableToOtherTenants | Wartość logiczna |
-
-Ustaw wartość PRAWDA, jeśli aplikacja jest udostępniana innym dzierżawcom; w przeciwnym razie false.
-
-> [!NOTE]
-> Ten atrybut jest dostępny tylko w środowisku **rejestracje aplikacji (starsza wersja)** . Zastąpione przez `signInAudience` środowisko [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) .
 
 ### <a name="appid-attribute"></a>atrybut appId
 
@@ -165,17 +154,6 @@ Przykład:
     ],
 ```
 
-### <a name="displayname-attribute"></a>displayName — atrybut
-
-| Klucz | Typ wartości |
-| :--- | :--- |
-| displayName | Ciąg |
-
-Nazwa wyświetlana aplikacji.
-
-> [!NOTE]
-> Ten atrybut jest dostępny tylko w środowisku **rejestracje aplikacji (starsza wersja)** . Zastąpione przez `name` środowisko [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) .
-
 ### <a name="errorurl-attribute"></a>errorUrl — atrybut
 
 | Klucz | Typ wartości |
@@ -203,33 +181,6 @@ Przykład:
     "groupMembershipClaims": "SecurityGroup",
 ```
 
-### <a name="homepage-attribute"></a>atrybut strony głównej
-
-| Klucz | Typ wartości |
-| :--- | :--- |
-| głównej |Ciąg |
-
-Adres URL strony głównej aplikacji.
-
-> [!NOTE]
-> Ten atrybut jest dostępny tylko w środowisku **rejestracje aplikacji (starsza wersja)** . Zastąpione przez `signInUrl` środowisko [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) .
-
-### <a name="objectid-attribute"></a>objectId — atrybut
-
-| Klucz | Typ wartości |
-| :--- | :--- |
-|objectId | Ciąg |
-
-Unikatowy identyfikator aplikacji w katalogu.
-
-Ta wartość jest dostępna tylko w środowisku **rejestracje aplikacji (starsza wersja)** . Zastąpione przez `id` środowisko [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) .
-
-Przykład:
-
-```json
-    "objectId": "f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd",
-```
-
 ### <a name="optionalclaims-attribute"></a>optionalClaims — atrybut
 
 | Klucz | Typ wartości |
@@ -245,7 +196,6 @@ Przykład:
 ```json
     "optionalClaims": null,
 ```
-
 
 
 ### <a name="identifieruris-attribute"></a>identifierUris — atrybut
@@ -365,7 +315,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| oauth2AllowImplicitFlow | Wartość logiczna |
+| oauth2AllowImplicitFlow | Boolean (wartość logiczna) |
 
 Określa, czy ta aplikacja sieci Web może żądać niejawnych tokenów dostępu protokołu OAuth 2.0. Wartością domyślną jest false. Ta flaga jest używana w przypadku aplikacji opartych na przeglądarce, takich jak aplikacje jednostronicowe języka JavaScript. Aby dowiedzieć się więcej, wprowadź `OAuth 2.0 implicit grant flow` w spisie treści i zobacz tematy dotyczące przepływu niejawnego.
 
@@ -379,7 +329,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| oauth2AllowIdTokenImplicitFlow | Wartość logiczna |
+| oauth2AllowIdTokenImplicitFlow | Boolean (wartość logiczna) |
 
 Określa, czy ta aplikacja sieci Web może żądać niejawnych tokenów identyfikatora przepływu OAuth 2.0. Wartością domyślną jest false. Ta flaga jest używana w przypadku aplikacji opartych na przeglądarce, takich jak aplikacje jednostronicowe języka JavaScript.
 
@@ -418,7 +368,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| oauth2RequiredPostResponse | Wartość logiczna |
+| oauth2RequiredPostResponse | Boolean (wartość logiczna) |
 
 Określa, czy w ramach żądania tokenu OAuth 2,0 usługa Azure AD będzie zezwalać na żądania POST, w przeciwieństwie do żądań GET. Wartość domyślna to false, co oznacza, że dozwolone są tylko żądania GET.
 
@@ -489,16 +439,6 @@ Przykład:
     ],
 ```
 
-### <a name="publicclient-attribute"></a>publicClient — atrybut
-
-| Klucz | Typ wartości |
-| :--- | :--- |
-| publicClient | Wartość logiczna|
-
-Określa, czy ta aplikacja jest klientem publicznym (na przykład zainstalowaną aplikacją uruchomioną na urządzeniu przenośnym).
-
-Ta właściwość jest dostępna tylko w środowisku **rejestracje aplikacji (starsza wersja)** . Zastąpione przez `allowPublicClient` środowisko [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) .
-
 ### <a name="publisherdomain-attribute"></a>publisherDomain — atrybut
 
 | Klucz | Typ wartości |
@@ -511,17 +451,7 @@ Przykład:
 
 ```json
     "publisherDomain": "https://www.contoso.com",
-````
-
-### <a name="replyurls-attribute"></a>replyUrls — atrybut
-
-| Klucz | Typ wartości |
-| :--- | :--- |
-| replyUrls | Tablica ciągów |
-
-Ta właściwość wielowartościowa zawiera listę zarejestrowanych wartości redirect_uri, które usługa Azure AD będzie akceptować jako miejsca docelowe podczas zwracania tokenów.
-
-Ta właściwość jest dostępna tylko w środowisku **rejestracje aplikacji (starsza wersja)** . Zastąpione przez `replyUrlsWithType` środowisko [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) .
+```
 
 ### <a name="replyurlswithtype-attribute"></a>replyUrlsWithType — atrybut
 

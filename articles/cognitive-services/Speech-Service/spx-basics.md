@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 1b92d1b5853d6b794ebdcf0e2052b8f15081d608
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 57f23f1fc0441ac50487cb3008c0b0f84f4b4e78
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507578"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209580"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Poznaj podstawowe informacje o interfejsie wiersza polecenia mowy
 
@@ -173,11 +173,13 @@ W systemie Windows można odtworzyć plik audio, wprowadzając polecenie `start 
 
 Najprostszym sposobem uruchomienia funkcji zamiany tekstu na mowę jest utworzenie nowego `.tsv` pliku z wartościami rozdzielanymi znakami tabulacji `--foreach` . Weź pod uwagę następujący plik `text_synthesis.tsv` :
 
-```output
+<!-- The following example contains tabs. Don't accidentally convert these into spaces. -->
+
+```input
 audio.output    text
-C:\batch_wav_output\wav_1.wav    Sample text to synthesize.
-C:\batch_wav_output\wav_2.wav    Using the Speech CLI to run batch-synthesis.
-C:\batch_wav_output\wav_3.wav    Some more text to test capabilities.
+C:\batch_wav_output\wav_1.wav   Sample text to synthesize.
+C:\batch_wav_output\wav_2.wav   Using the Speech CLI to run batch-synthesis.
+C:\batch_wav_output\wav_3.wav   Some more text to test capabilities.
 ```
 
  Następnie należy uruchomić polecenie, aby wskazać `text_synthesis.tsv` , wykonać syntezę dla każdego `text` pola i napisać wynik do odpowiedniej `audio.output` ścieżki jako `.wav` plik. 
@@ -194,11 +196,13 @@ To polecenie jest odpowiednikiem uruchomienia `spx synthesize --text Sample text
 
 Jednak jeśli masz `.tsv` plik podobny do poniższego przykładu, z nagłówkami kolumn, które **nie pasują** do argumentów wiersza polecenia:
 
-```output
+<!-- The following example contains tabs. Don't accidentally convert these into spaces. -->
+
+```input
 wav_path    str_text
-C:\batch_wav_output\wav_1.wav    Sample text to synthesize.
-C:\batch_wav_output\wav_2.wav    Using the Speech CLI to run batch-synthesis.
-C:\batch_wav_output\wav_3.wav    Some more text to test capabilities.
+C:\batch_wav_output\wav_1.wav   Sample text to synthesize.
+C:\batch_wav_output\wav_2.wav   Using the Speech CLI to run batch-synthesis.
+C:\batch_wav_output\wav_3.wav   Some more text to test capabilities.
 ```
 
 Można zastąpić te nazwy pól prawidłowymi argumentami, używając następującej składni w `--foreach` wywołaniu. Jest to takie samo wywołanie jak powyżej.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: cea4503c4e3b9dd58cc475aaec355a2bb2e0bd29
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 9a6e46c0b52c22df0682034deaebd58bbfeb34a7
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065189"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210065"
 ---
 # <a name="troubleshooting-problems-in-itsm-connector"></a>Rozwiązywanie problemów w łączniku ITSM
 
@@ -53,6 +53,25 @@ Aby wyświetlić błędy na pulpicie nawigacyjnym, należy wykonać następując
 
 5. Za pomocą tego pulpitu nawigacyjnego będzie można sprawdzić stan i błędy w łączniku.
     ![Zrzut ekranu przedstawiający stan łącznika.](media/itsmc-resync-servicenow/connector-dashboard.png)
+
+### <a name="dashboard-elements"></a>Elementy pulpitu nawigacyjnego
+
+Pulpit nawigacyjny zawiera informacje o alertach, które zostały wysłane do narzędzia Narzędzia ITSM przy użyciu tego łącznika.
+Pulpit nawigacyjny jest podzielony na 4 części:
+
+1. Utworzono element roboczy: wykres i tabela poniżej zawierają liczbę elementów roboczych według typu. Po kliknięciu grafu lub w tabeli można zobaczyć więcej szczegółów na temat elementów roboczych.
+    ![Zrzut ekranu pokazujący utworzony element roboczy.](media/itsmc-resync-servicenow/itsm-dashboard-workitems.png)
+2. Komputery, których to dotyczy: tabele zawierają szczegółowe informacje o elementach konfiguracji, które utworzyły elementy konfiguracji.
+    Klikając wiersze w tabelach, można uzyskać więcej szczegółów na temat elementów konfiguracji.
+    Tabela zawiera ograniczoną liczbę wierszy, jeśli chcesz wyświetlić całą listę, a następnie kliknij pozycję "Zobacz wszystko".
+    ![Zrzut ekranu przedstawiający komputery, na których ma wpływ.](media/itsmc-resync-servicenow/itsm-dashboard-impacted-comp.png)
+3. Stan łącznika: wykres i tabela poniżej zawierają komunikaty o stanie łącznika. Klikając wykres w wierszach w tabeli, możesz uzyskać więcej szczegółów na temat komunikatów o stanie łącznika.
+    Tabela zawiera ograniczoną liczbę wierszy, jeśli chcesz wyświetlić całą listę, a następnie kliknij pozycję "Zobacz wszystko".
+    ![Zrzut ekranu przedstawiający stan łącznika.](media/itsmc-resync-servicenow/itsm-dashboard-connector-status.png)
+4. Reguły alertów: tabele zawierają informacje o liczbie wykrytych reguł alertów.
+    Klikając wiersze w tabelach, można uzyskać więcej szczegółów na temat wykrytych reguł.
+    Tabela zawiera ograniczoną liczbę wierszy, jeśli chcesz wyświetlić całą listę, a następnie kliknij pozycję "Zobacz wszystko".
+    ![Zrzut ekranu pokazujący reguły alertów.](media/itsmc-resync-servicenow/itsm-dashboard-alert-rules.png)
 
 ### <a name="service-map"></a>Mapa usługi
 

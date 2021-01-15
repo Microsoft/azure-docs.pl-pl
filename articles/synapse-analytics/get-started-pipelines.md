@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: pipeline
 ms.topic: tutorial
-ms.date: 10/27/2020
-ms.openlocfilehash: af01d5b5e424dd5ea229115f7aa3570d0b7cd511
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.date: 12/31/2020
+ms.openlocfilehash: ade8a6b400967bc13fe3593f83f00ecc49ef06a2
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744919"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209801"
 ---
 # <a name="integrate-with-pipelines"></a>Integracja z potokami
 
@@ -26,14 +26,19 @@ W tym samouczku dowiesz się, jak zintegrować potoki i działania przy użyciu 
 W usłudze Azure Synapse można zintegrować wiele różnych zadań.
 
 1. W programie Synapse Studio przejdź do centrum **integracji** .
-1. Wybierz pozycję **+**  >  **potok** , aby utworzyć nowy potok.
-1. Przejdź do centrum **opracowywania** i wybierz jeden z utworzonych wcześniej notesów.
-1. Przeciągnij ten Notes do potoku ( **Uwaga** : Dodaj moduł importowania modułów w notesie zgodnie z opisem w [dokumencie](https://docs.microsoft.com/azure/synapse-analytics/spark/synapse-spark-sql-pool-import-export#transfer-data-to-or-from-a-sql-pool-attached-with-the-workspace), który jest wymagany podczas uruchamiania z potoku)
-1. W potoku wybierz pozycję **Dodaj wyzwalacz**  >  **Nowy/Edytuj** .
+1. Wybierz pozycję **+**  >  **potok** , aby utworzyć nowy potok. Kliknij nowy obiekt potoku, aby otworzyć projektanta potoku.
+1. W obszarze **działania** rozwiń folder **Synapse** i przeciągnij obiekt **notesu** do projektanta.
+1. Wybierz kartę **Ustawienia** właściwości działania notesu. Użyj listy rozwijanej, aby wybrać dowolny Notes z bieżącego obszaru roboczego Synapse. 
+1. W potoku wybierz pozycję **Dodaj wyzwalacz**  >  **Nowy/Edytuj**.
 1. W obszarze **Wybierz wyzwalacz** wybierz pozycję **Nowy** i ustaw **cykl** na wartość "co 1 godzinę".
-1. Wybierz przycisk **OK** . 
-1. Wybierz pozycję **Opublikuj wszystkie** .
-1. Aby potok był uruchamiany natychmiast, bez czekania na następną godzinę, wybierz pozycję **Dodaj wyzwalacz wyzwalacza**  >  **teraz** .
+1. Wybierz przycisk **OK**. 
+1. Wybierz pozycję **Opublikuj wszystkie**. 
+
+
+## <a name="monitor-pipeline"></a>Monitorowanie potoku
+
+1. Po opublikowaniu potoku, aby uruchomić potok natychmiast, bez czekania na następną godzinę, wybierz pozycję **Dodaj wyzwalacz wyzwalacza**  >  **teraz**.
+1. W programie Synapse Studio przejdź do centrum **monitora** i wybierz pozycję **uruchomienia potoków** , aby monitorować postęp wykonywania potoku.
 
 
 

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/2/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 5e33a7adc7b529df8c7c821cbfdcb0ad5709803b
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 2bd994f14863715274e137bce2dd6873eeec1135
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97842087"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208764"
 ---
 # <a name="defender-for-iot-installation"></a>Instalacja usługi Defender for IoT
 
@@ -230,9 +230,9 @@ W tym artykule opisano sposób konfigurowania systemu BIOS przy użyciu pliku ko
 
 4. Poświadczenia urządzenia są następujące:
 
-   - Nazwa użytkownika: **cyberx**
+   - Nazwa użytkownika: **XXX**
 
-   - Hasło: **xhxvhttju, @4338**
+   - Hasło: **XXX**
 
      Operacja importowania profilu serwera została zainicjowana.
 
@@ -274,7 +274,7 @@ Aby ręcznie skonfigurować:
 
    - Jeśli urządzenie nie jest urządzeniem usługi Defender for IoT, Otwórz przeglądarkę i przejdź do adresu IP, który został wcześniej skonfigurowany. Zaloguj się przy użyciu domyślnych uprawnień administratora firmy Dell. Użyj **elementu root** dla nazwy użytkownika i **Calvin** dla hasła.
 
-   - Jeśli urządzenie jest urządzeniem usługi Defender for IoT, zaloguj się przy użyciu **cyberx** dla nazwy użytkownika i **@4338 xhxvhttju** dla hasła.
+   - Jeśli urządzenie jest urządzeniem usługi Defender for IoT, zaloguj się przy użyciu **XXX** dla nazwy użytkownika i **XXX** dla hasła.
 
 2. Po uzyskaniu dostępu do systemu BIOS przejdź do pozycji **Ustawienia urządzenia**.
 
@@ -294,7 +294,7 @@ Aby ręcznie skonfigurować:
 
 10. Zaznacz pole wyboru **Potwierdź** i wybierz pozycję **tak**.
 
-11. Wybierz pozycję **OK**.
+11. Wybierz przycisk **OK**.
 
 12. Wróć do ekranu głównego i wybierz **system BIOS**.
 
@@ -1051,7 +1051,7 @@ Aby skonfigurować port SPAN:
 
 10. Dla **karty sieciowej 2** wybierz Sieć **span** .
 
-11. Wybierz pozycję **OK**.
+11. Wybierz przycisk **OK**.
 
 12. Połącz się z czujnikiem i sprawdź, czy dublowanie działa.
 

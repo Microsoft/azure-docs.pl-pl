@@ -2,24 +2,24 @@
 title: Samouczek przedstawiający kolejność Azure Data Box | Microsoft Docs
 description: W tym samouczku dowiesz się, jak Azure Data Box, rozwiązanie hybrydowe, które umożliwia importowanie danych lokalnych na platformę Azure oraz kolejność Azure Data Box.
 services: databox
-author: alkohli
+author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/19/2020
+ms.date: 01/13/2021
 ms.author: alkohli
-ms.openlocfilehash: aad6a3ef754b5ba2c65a9b93fbdfcfdc26348487
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: fd165795be85c26cdfcaee3c4fd01427274a7316
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/14/2021
-ms.locfileid: "98186162"
+ms.locfileid: "98210345"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Samouczek: Zamawianie urządzenia Azure Data Box
 
-Azure Data Box to hybrydowe rozwiązanie, które umożliwia importowanie danych lokalnych na platformę Azure szybko, łatwo i bez problemów. Dane są przesyłane do urządzenia magazynującego dostarczonego przez firmę Microsoft o pojemności 80 TB, a następnie do ponownego wysłania urządzenia. Te dane są następnie przekazywane na platformę Azure.
+Azure Data Box to hybrydowe rozwiązanie, które umożliwia importowanie danych lokalnych na platformę Azure szybko, łatwo i bez problemów. Dane są transferowane do urządzenia magazynującego o pojemności 80 TB (możliwego do użycia), a następnie do ponownego wysłania urządzenia. Te dane są następnie przekazywane na platformę Azure.
 
-W tym samouczku opisano sposób zamawiania usługi Azure Data Box. Ten samouczek zawiera informacje dotyczące:
+W tym samouczku opisano sposób zamawiania usługi Azure Data Box. Ten samouczek zawiera informacje dotyczące:  
 
 > [!div class="checklist"]
 >
@@ -217,7 +217,7 @@ Aby zamówić urządzenie, wykonaj następujące czynności w Azure Portal.
 
    ![Zrzut ekranu przedstawiający nową sekcję z Azure Data Box w polu wyszukiwania](media/data-box-deploy-ordered/select-data-box-import-02.png)
 
-3. Wybierz przycisk **Utwórz**.
+3. Wybierz pozycję **Utwórz**.
 
    ![Zrzut ekranu przedstawiający sekcję Azure Data Box z opcją tworzenia wywołana](media/data-box-deploy-ordered/select-data-box-import-03.png)
 
@@ -245,7 +245,7 @@ Aby zamówić urządzenie, wykonaj następujące czynności w Azure Portal.
     |Grupa zasobów    | Wybrana wcześniej Grupa zasobów. |
     |Nazwa zamówienia importu | Podaj przyjazną nazwę, aby śledzić zamówienie. <br> Nazwa może zawierać od 3 do 24 znaków, które mogą być literami, cyframi i łącznikami. <br> Nazwa musi zaczynać i kończyć się literą lub cyfrą.    |
 
-    ![Kreator urządzenie Data Box zaimportowania, podstawowy ekran z poprawnymi informacjami](media/data-box-deploy-ordered/select-data-box-import-06.png)<!--Generic subscription. Cut note. Box command.-->
+    ![Kreator urządzenie Data Box zaimportowania, podstawowy ekran z poprawnymi informacjami](media/data-box-deploy-ordered/select-data-box-import-06.png)
 
 7. Na ekranie **miejsce docelowe danych** wybierz **miejsce docelowe danych** — konta magazynu lub dyski zarządzane.
 
@@ -253,7 +253,11 @@ Aby zamówić urządzenie, wykonaj następujące czynności w Azure Portal.
 
     ![Urządzenie Data Box Kreatora importu kolejności, ekranu docelowego danych, z wybranymi kontami magazynu](media/data-box-deploy-ordered/select-data-box-import-07.png)
 
-    W oparciu o wybrany region platformy Azure wybierz z listy filtrowanej istniejących kont magazynu co najmniej jedno z nich. Urządzenie Data Box można połączyć z maksymalnie 10 kontami magazynu. Można również utworzyć nowe **konto ogólnego przeznaczenia w wersji 1**, **konto ogólnego przeznaczenia w wersji 2** lub **konto usługi Blob Storage**.
+    Na podstawie określonego regionu świadczenia usługi Azure wybierz co najmniej jedno konto magazynu z filtrowanej listy istniejących kont magazynu. Urządzenie Data Box można połączyć z maksymalnie 10 kontami magazynu. Można również utworzyć nowe **konto ogólnego przeznaczenia w wersji 1**, **konto ogólnego przeznaczenia w wersji 2** lub **konto usługi Blob Storage**.
+
+   > [!NOTE]
+   > - W przypadku wybrania kont usługi Azure Premium FileStorage przydział przyznanego udziału konta magazynu zostanie zwiększony do rozmiaru danych kopiowanych do udziałów plików. Po zwiększeniu limitu przydziału nie zostanie on ponownie dostosowany, na przykład, jeśli z jakiegoś powodu urządzenie Data Box nie może skopiować danych.
+   > - Ten limit przydziału jest używany do rozliczania. Gdy dane zostaną przekazane do centrum danych, należy dostosować limit przydziału, aby spełniał Twoje potrzeby. Aby uzyskać więcej informacji, zobacz [Omówienie rozliczeń](../../articles/storage/files/understanding-billing.md).
 
     Konta magazynu z sieciami wirtualnymi są obsługiwane. Aby umożliwić usłudze Data Box współpracę z zabezpieczonymi kontami magazynu, włącz usługi zaufane w ustawieniach zapory sieciowej dla konta magazynu. Aby uzyskać więcej informacji, zobacz jak [dodać Azure Data Box jako zaufaną usługę](../storage/common/storage-network-security.md#exceptions).
 
@@ -419,7 +423,7 @@ Wykonaj następujące kroki, korzystając z interfejsu wiersza polecenia platfor
    |sku| Określone urządzenie urządzenie Data Box, które ma być uporządkowane. Prawidłowe wartości to: "DataBox", "DataBoxDisk" i "DataBoxHeavy".| "DataBox" |
    |Lista adresów e-mail| Adresy e-mail skojarzone z kolejnością.| "gusp@contoso.com" |
    |Ulica — Address1| Ulica, do której zostanie wysłane zamówienie. | "15700 NE 39th St" |
-   |Ulica — Address2| Informacje o adresie pomocniczym, takie jak numer apartamentu lub numer budynku. | "BLD 123" |
+   |Ulica — Address2| Informacje o adresie pomocniczym, takie jak numer apartamentu lub numer budynku. | "Budowanie 123" |
    |city| Miasto, do którego zostanie wysłane urządzenie. | Redmond |
    |Województwo lub Województwo| Stan, w którym urządzenie zostanie wysłane.| WA |
    |country| Kraj, w którym urządzenie zostanie wysłane. | "Stany Zjednoczone" |
@@ -538,7 +542,7 @@ Aby zamówić urządzenie, wykonaj następujące Azure PowerShell czynności:
     |DataBoxType [wymagane]| Określone urządzenie urządzenie Data Box, które ma być uporządkowane. Prawidłowe wartości to: "DataBox", "DataBoxDisk" i "DataBoxHeavy".| "DataBox" |
     |EmailId [wymagane]| Adresy e-mail skojarzone z kolejnością.| "gusp@contoso.com" |
     |StreetAddress1 [wymagane]| Ulica, do której zostanie wysłane zamówienie. | "15700 NE 39th St" |
-    |StreetAddress2| Informacje o adresie pomocniczym, takie jak numer apartamentu lub numer budynku. | "BLD 123" |
+    |StreetAddress2| Informacje o adresie pomocniczym, takie jak numer apartamentu lub numer budynku. | "Budowanie 123" |
     |StreetAddress3| Informacje o adresie trzeciego adresu. | |
     |Miasto [wymagane]| Miasto, do którego zostanie wysłane urządzenie. | Redmond |
     |StateOrProvinceCode [wymagane]| Stan, w którym urządzenie zostanie wysłane.| WA |
@@ -601,7 +605,7 @@ Firma Microsoft następnie przygotowuje i wysyła urządzenie za pośrednictwem 
 
 ### <a name="track-a-single-order"></a>Śledzenie pojedynczej kolejności
 
-Aby uzyskać informacje o śledzeniu jednej istniejącej kolejności Azure Data Box, uruchom polecenie [AZ DATAbox Job show](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show&preserve-view=true). Polecenie wyświetla informacje na temat zamówienia, takie jak, ale nie ograniczone do: nazwa, Grupa zasobów, informacje o śledzeniu, Identyfikator subskrypcji, informacje kontaktowe, typ wysyłki i jednostka SKU urządzenia.
+Aby uzyskać informacje o śledzeniu jednej istniejącej kolejności Azure Data Box, uruchom polecenie [`az databox job show`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show&preserve-view=true) . Polecenie wyświetla informacje na temat zamówienia, takie jak, ale nie ograniczone do: nazwa, Grupa zasobów, informacje o śledzeniu, Identyfikator subskrypcji, informacje kontaktowe, typ wysyłki i jednostka SKU urządzenia.
 
    ```azurecli
    az databox job show --resource-group <resource-group> --name <order-name>
@@ -642,7 +646,7 @@ Aby uzyskać informacje o śledzeniu jednej istniejącej kolejności Azure Data 
 
 ### <a name="list-all-orders"></a>Wyświetl listę wszystkich zamówień
 
-Jeśli masz uporządkowaną wiele urządzeń, możesz uruchomić polecenie [AZ DATAbox Job list](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list&preserve-view=true) , aby wyświetlić wszystkie zamówienia Azure Data Box. Polecenie wyświetla listę wszystkich zamówień należących do określonej grupy zasobów. Są również wyświetlane w danych wyjściowych: Nazwa zamówienia, stan wysyłki, region platformy Azure, typ dostawy, stan zamówienia. Anulowane zamówienia są również zawarte na liście.
+Jeśli masz uporządkowaną wiele urządzeń, możesz uruchomić polecenie, [`az databox job list`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list&preserve-view=true) Aby wyświetlić wszystkie Azure Data Box zamówienia. Polecenie wyświetla listę wszystkich zamówień należących do określonej grupy zasobów. Są również wyświetlane w danych wyjściowych: Nazwa zamówienia, stan wysyłki, region platformy Azure, typ dostawy, stan zamówienia. Anulowane zamówienia są również zawarte na liście.
 Polecenie wyświetla również sygnatury czasowe poszczególnych zamówień.
 
 ```azurecli
@@ -718,7 +722,7 @@ Aby uzyskać informacje o śledzeniu jednej istniejącej kolejności Azure Data 
 
 ### <a name="list-all-orders"></a>Wyświetl listę wszystkich zamówień
 
-Jeśli masz uporządkowaną wiele urządzeń, możesz uruchomić polecenie [Get-AzDataBoxJob](/powershell/module/az.databox/Get-AzDataBoxJob) , aby wyświetlić wszystkie zamówienia Azure Data Box. Polecenie wyświetla listę wszystkich zamówień należących do określonej grupy zasobów. Są również wyświetlane w danych wyjściowych: Nazwa zamówienia, stan wysyłki, region platformy Azure, typ dostawy, stan zamówienia. Anulowane zamówienia są również zawarte na liście.
+Jeśli masz uporządkowaną wiele urządzeń, możesz uruchomić polecenie, [`Get-AzDataBoxJob`](/powershell/module/az.databox/Get-AzDataBoxJob) Aby wyświetlić wszystkie Azure Data Box zamówienia. Polecenie wyświetla listę wszystkich zamówień należących do określonej grupy zasobów. Są również wyświetlane w danych wyjściowych: Nazwa zamówienia, stan wysyłki, region platformy Azure, typ dostawy, stan zamówienia. Anulowane zamówienia są również zawarte na liście.
 Polecenie wyświetla również sygnatury czasowe poszczególnych zamówień.
 
 ```azurepowershell
@@ -761,7 +765,7 @@ Aby usunąć anulowaną kolejność, przejdź do **omówienia** i wybierz pozycj
 
 ### <a name="cancel-an-order"></a>Anulowanie zamówienia
 
-Aby anulować kolejność Azure Data Box, uruchom polecenie [AZ DATAbox Job Cancel](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel&preserve-view=true). Musisz określić przyczynę anulowania zamówienia.
+Aby anulować kolejność Azure Data Box, uruchom polecenie [`az databox job cancel`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel&preserve-view=true) . Musisz określić przyczynę anulowania zamówienia.
 
    ```azurecli
    az databox job cancel --resource-group <resource-group> --name <order-name> --reason <cancel-description>
@@ -798,7 +802,7 @@ Aby anulować kolejność Azure Data Box, uruchom polecenie [AZ DATAbox Job Canc
 
 ### <a name="delete-an-order"></a>Usuwanie zamówienia
 
-Jeśli Azure Data Box zamówienie zostało anulowane, możesz uruchomić polecenie [AZ DATAbox Job Delete](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete&preserve-view=true) , aby usunąć zamówienie.
+Jeśli Azure Data Box zamówienie zostało anulowane, możesz uruchomić polecenie, [`az databox job delete`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete&preserve-view=true) Aby usunąć zamówienie.
 
    ```azurecli
    az databox job delete --name [-n] <order-name> --resource-group <resource-group> [--yes] [--verbose]
@@ -871,7 +875,7 @@ PS C:\WINDOWS\system32>
 
 ### <a name="delete-an-order"></a>Usuwanie zamówienia
 
-Jeśli Azure Data Box zamówienie zostało anulowane, możesz uruchomić polecenie [Remove-AzDataBoxJob](/powershell/module/az.databox/remove-azdataboxjob) , aby usunąć zamówienie.
+Jeśli Azure Data Box zamówienie zostało anulowane, możesz uruchomić polecenie, [`Remove-AzDataBoxJob`](/powershell/module/az.databox/remove-azdataboxjob) Aby usunąć zamówienie.
 
 ```azurepowershell
 Remove-AzDataBoxJob -Name <String> -ResourceGroup <String>

@@ -1,14 +1,14 @@
 ---
 title: Dowiedz się, jak przeprowadzić inspekcję zawartości maszyn wirtualnych
 description: Dowiedz się, w jaki sposób Azure Policy używa klienta konfiguracji gościa do inspekcji ustawień wewnątrz maszyn wirtualnych.
-ms.date: 10/14/2020
+ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5ec43516c60d2fe5d923a7b87cddbea0ad640453
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: c141169545379f1ac0dd18a97e85652f97b90e6f
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071837"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210124"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Opis konfiguracji gościa usługi Azure Policy
 
@@ -101,11 +101,11 @@ W przypadku serwerów połączonych z łukiem w prywatnych centrach danych Zezwa
 
 ## <a name="managed-identity-requirements"></a>Wymagania dotyczące tożsamości zarządzanej
 
-Definicje zasad w ramach inicjatywy [wdrażanie wymagań wstępnych dotyczących włączania zasad konfiguracji gościa na maszynach wirtualnych](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8) umożliwiają zarządzanie tożsamościami zarządzanymi przez system, jeśli taka nie istnieje. W ramach inicjatywy, która zarządza tworzeniem tożsamości, istnieją dwa definicje zasad. Warunki IF w definicjach zasad zapewniają poprawne zachowanie na podstawie bieżącego stanu zasobu maszyny na platformie Azure.
+Definicje zasad w ramach inicjatywy _wdrażanie wymagań wstępnych dotyczących włączania zasad konfiguracji gościa na maszynach wirtualnych_ umożliwiają zarządzanie tożsamościami zarządzanymi przez system, jeśli taka nie istnieje. W ramach inicjatywy, która zarządza tworzeniem tożsamości, istnieją dwa definicje zasad. Warunki IF w definicjach zasad zapewniają poprawne zachowanie na podstawie bieżącego stanu zasobu maszyny na platformie Azure.
 
-Jeśli na komputerze nie ma obecnie żadnych tożsamości zarządzanych, obowiązujące zasady będą: [ \[ wersja zapoznawcza \] : Dodawanie tożsamości zarządzanej przypisanej przez system do włączania przypisań konfiguracji gościa na maszynach wirtualnych bez tożsamości](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
+Jeśli na komputerze nie ma obecnie żadnych tożsamości zarządzanych, obowiązujące zasady będą: [Dodawanie tożsamości zarządzanej przypisanej do systemu w celu włączenia przypisań konfiguracji gościa na maszynach wirtualnych bez tożsamości](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
 
-Jeśli komputer ma obecnie tożsamość systemową przypisaną przez użytkownika, obowiązujące zasady będą: [ \[ wersja zapoznawcza \] : Dodawanie tożsamości zarządzanej przypisanej przez system do włączenia przypisań konfiguracji gościa na maszynach wirtualnych z tożsamością przypisaną przez użytkownika](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6)
+Jeśli komputer ma obecnie tożsamość systemową przypisaną przez użytkownika, obowiązujące zasady będą: [Dodawanie tożsamości zarządzanej przypisanej przez system do włączania przypisań konfiguracji gościa na maszynach wirtualnych z tożsamością przypisaną przez użytkownika](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6)
 
 ## <a name="guest-configuration-definition-requirements"></a>Wymagania definicji konfiguracji gościa
 
@@ -120,7 +120,7 @@ Azure Policy używa właściwości **complianceStatus** dostawcy zasobów konfig
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Inspekcja ustawień systemu operacyjnego po liniach bazowych branżowych
 
-Jedna z inicjatyw w Azure Policy umożliwia przeprowadzenie inspekcji ustawień systemu operacyjnego po "linii bazowej". Definicja, _\[ wersja zapoznawcza \] : Inspekcja maszyn wirtualnych z systemem Windows, które nie są zgodne z ustawieniami linii bazowej zabezpieczeń platformy Azure,_ obejmuje zestaw reguł opartych na zasady grupy Active Directory.
+Jedna z inicjatyw w Azure Policy przeprowadza inspekcję ustawień systemu operacyjnego po "linii bazowej". Definicja, _\[ wersja zapoznawcza \] : maszyny z systemem Windows powinny spełniać wymagania dotyczące podstawy zabezpieczeń platformy Azure_ , obejmują zestaw reguł oparty na zasady grupy Active Directory.
 
 Większość ustawień jest dostępnych jako parametry. Parametry umożliwiają dostosowanie elementów podlegających inspekcji.
 Dopasuj zasady do swoich wymagań lub zamapuj zasady na informacje innych firm, takie jak standardy branżowe.

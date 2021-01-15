@@ -12,12 +12,12 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: d3edadd4878dbd6e06648f7fb67a0c3e111665d1
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: da432ee3877af4de931ee6d55860b647090d8e3d
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178130"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208781"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Uprawnienia i zgoda w punkcie końcowym platformy tożsamości firmy Microsoft
 
@@ -31,8 +31,7 @@ Platforma tożsamości firmy Microsoft implementuje protokół autoryzacji [OAut
 * Interfejs API poczty Microsoft 365: `https://outlook.office.com`
 * Azure Key Vault: `https://vault.azure.net`
 
-> [!NOTE]
-> Zdecydowanie zalecamy używanie Microsoft Graph zamiast interfejsu API poczty Microsoft 365, itp.
+Zdecydowanie zalecamy używanie Microsoft Graph zamiast interfejsu API poczty Microsoft 365, itp.
 
 Ta sama wartość dotyczy wszystkich zasobów innych firm, które zostały zintegrowane z platformą tożsamości firmy Microsoft. Dowolny z tych zasobów może również definiować zestaw uprawnień, które mogą służyć do dzielenia funkcjonalności tego zasobu na mniejsze fragmenty. Na przykład [Microsoft Graph](https://graph.microsoft.com) ma zdefiniowane uprawnienia do wykonywania następujących zadań, między innymi:
 
@@ -115,8 +114,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 
 Po wprowadzeniu poświadczeń przez użytkownika punkt końcowy platformy tożsamości firmy Microsoft wyszukuje pasujący rekord *zgody użytkownika*. Jeśli użytkownik nie wyraził zgody na jakiekolwiek z żądanych uprawnień w przeszłości, ani nie ma dostępu administratora do tych uprawnień w imieniu całej organizacji, punkt końcowy platformy tożsamości firmy Microsoft prosi użytkownika o przyznanie żądanych uprawnień.
 
-> [!NOTE]
->W tej chwili `offline_access` uprawnienia ("zapewnianie dostępu do danych, do których masz dostęp, do") i `user.read` ("Logowanie przy użyciu profilu") są automatycznie dołączane do początkowej zgody na aplikację.  Te uprawnienia są zwykle wymagane w celu uzyskania odpowiedniej funkcjonalności aplikacji — umożliwia aplikacjom `offline_access` dostęp do tokenów odświeżania, krytycznych dla aplikacji natywnych i sieci Web, a jednocześnie `user.read` zapewnia dostęp do tego `sub` żądania, dzięki czemu klient lub aplikacja może prawidłowo identyfikować użytkownika w czasie i uzyskać dostęp do informacji o użytkowniku podstawowe.
+W tej chwili `offline_access` uprawnienia ("zapewnianie dostępu do danych, do których masz dostęp, do") i `user.read` ("Logowanie przy użyciu profilu") są automatycznie dołączane do początkowej zgody na aplikację.  Te uprawnienia są zwykle wymagane w celu uzyskania odpowiedniej funkcjonalności aplikacji — umożliwia aplikacjom `offline_access` dostęp do tokenów odświeżania, krytycznych dla aplikacji natywnych i sieci Web, a jednocześnie `user.read` zapewnia dostęp do tego `sub` żądania, dzięki czemu klient lub aplikacja może prawidłowo identyfikować użytkownika w czasie i uzyskać dostęp do informacji o użytkowniku podstawowe.
 
 ![Przykładowy zrzut ekranu pokazujący zgodę na konto służbowe](./media/v2-permissions-and-consent/work_account_consent.png)
 
@@ -148,8 +146,7 @@ Jeśli aplikacja żąda uprawnień aplikacji, a administrator przyznaje te upraw
 
 ## <a name="using-the-admin-consent-endpoint"></a>Korzystanie z punktu końcowego zgody administratora
 
-> [!NOTE]
-> Należy pamiętać, że po udzieleniu zgody administratora przy użyciu punktu końcowego zgody administratora zakończono udzielanie zgody administratora, a użytkownicy nie muszą wykonywać żadnych dalszych dodatkowych akcji. Po udzieleniu zgody administratora użytkownicy mogą uzyskać token dostępu za pośrednictwem typowego przepływu uwierzytelniania, a uzyskany token dostępu będzie miał odpowiednie uprawnienia.
+Po udzieleniu zgody administratora przy użyciu punktu końcowego zgody administratora zakończono udzielanie zgody administratora, a użytkownicy nie muszą wykonywać żadnych dalszych dodatkowych akcji. Po udzieleniu zgody administratora użytkownicy mogą uzyskać token dostępu za pośrednictwem typowego przepływu uwierzytelniania, a uzyskany token dostępu będzie miał odpowiednie uprawnienia.
 
 Gdy administrator firmy korzysta z aplikacji i jest kierowany do punktu końcowego autoryzacji, platforma tożsamości firmy Microsoft wykryje rolę użytkownika i poprosi o zgodę w imieniu całej dzierżawy dla żądanych uprawnień. Istnieje jednak również dedykowany punkt końcowy zgody administratora, którego można użyć, jeśli chcesz proaktywnie zażądać uprawnień administratora w imieniu całej dzierżawy. Korzystanie z tego punktu końcowego jest również niezbędne do żądania uprawnień aplikacji (których nie można żądać przy użyciu punktu końcowego autoryzacji).
 
@@ -263,8 +260,7 @@ Można użyć zakresu, `/.default` Aby ułatwić migrację aplikacji z punktu ko
 
 Zakres/.default może być używany w dowolnym przepływie protokołu OAuth 2,0, ale jest niezbędny w przebiegu przepływu i [poświadczeń klienta](v2-oauth2-client-creds-grant-flow.md), a także do żądania uprawnień aplikacji przy użyciu punktu końcowego zgody [administratora w wersji](v2-oauth2-on-behalf-of-flow.md) 2.
 
-> [!NOTE]
-> Klienci nie mogą łączyć statycznych ( `/.default` ) i dynamicznej zgody w pojedynczym żądaniu. W związku z tym, `scope=https://graph.microsoft.com/.default+mail.read` spowoduje to błąd ze względu na kombinację typów zakresów.
+Klienci nie mogą łączyć statycznych ( `/.default` ) i dynamicznej zgody w pojedynczym żądaniu. W związku z tym, `scope=https://graph.microsoft.com/.default+mail.read` spowoduje to błąd ze względu na kombinację typów zakresów.
 
 ### <a name="default-and-consent"></a>/.default i wyrażanie zgody
 

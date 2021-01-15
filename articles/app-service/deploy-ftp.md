@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: ce8c32b1afdf4178e3ffdc09e9c9176436fa771b
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: cfec5ec5f14afc8c4eba5c21c5904687c9b187cc
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605080"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209257"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Wdrażanie aplikacji do Azure App Service przy użyciu protokołu FTP/S
 
@@ -96,7 +96,7 @@ Aby wdrożyć FTP przy użyciu [Azure PowerShell](/cli/azure), zobacz [przekazyw
     - [Nie mogę przeprowadzić FTP i opublikować mojego kodu. Jak mogę rozwiązać ten problem?](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
     - [Jak połączyć się z FTP w Azure App Service za pośrednictwem trybu pasywnego?](#how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode)
   - [Następne kroki](#next-steps)
-  - [Dodatkowe zasoby](#more-resources)
+  - [Więcej zasobów](#more-resources)
 
 ### <a name="how-can-i-troubleshoot-ftp-deployment"></a>Jak rozwiązywać problemy z wdrażaniem FTP?
 
@@ -111,7 +111,7 @@ Aby określić problem dotyczący wdrożenia lub środowiska uruchomieniowego, z
 ### <a name="im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue"></a>I'm not able to FTP and publish my code. Jak mogę rozwiązać ten problem?
 Sprawdź, czy wprowadzono poprawną nazwę hosta i [poświadczenia](#open-ftp-dashboard). Sprawdź również, czy następujące porty FTP na maszynie nie są blokowane przez zaporę:
 
-- Port połączenia sterowania FTP: 21
+- Port połączenia sterowania FTP: 21, 990
 - Port połączenia danych FTP: 989, 10001-10300
  
 ### <a name="how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode"></a>Jak połączyć się z FTP w Azure App Service za pośrednictwem trybu pasywnego?
@@ -121,6 +121,6 @@ Azure App Service obsługuje łączenie za pośrednictwem trybu aktywnego i pasy
 
 W przypadku bardziej zaawansowanych scenariuszy wdrażania spróbuj [wdrożyć platformę Azure za pomocą narzędzia Git](deploy-local-git.md). Wdrożenie oparte na usłudze Git na platformie Azure umożliwia kontrolę wersji, przywracanie pakietów, MSBuild i nie tylko.
 
-## <a name="more-resources"></a>Dodatkowe zasoby
+## <a name="more-resources"></a>Więcej zasobów
 
 * [Poświadczenia wdrażania Azure App Service](deploy-configure-credentials.md)

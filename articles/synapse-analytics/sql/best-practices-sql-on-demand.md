@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 93ac8cd3e462c244840a5ed569d685a9d67fa6c2
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: c752bc6ae49f009056067545fde292dc29027d5d
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165879"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208135"
 ---
 # <a name="best-practices-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Najlepsze rozwiązania dotyczące puli SQL bezserwerowej w usłudze Azure Synapse Analytics
 
@@ -129,7 +129,7 @@ Analizatora zoptymalizowanych pod kątem wydajności można użyć podczas wykon
 
 ## <a name="manually-create-statistics-for-csv-files"></a>Ręczne tworzenie statystyk dla plików CSV
 
-Pula SQL bezserwerowa opiera się na statystyce do generowania optymalnych planów wykonywania zapytań. W razie potrzeby dane statystyczne zostaną automatycznie utworzone dla kolumn w plikach Parquet. W tej chwili statystyki nie są tworzone automatycznie dla kolumn w plikach CSV i należy tworzyć statystyki ręcznie w przypadku kolumn używanych w zapytaniach, szczególnie w odniesieniu do tych, które są używane w różnych, sprzężeniach, gdzie, klauzuli ORDER BY i GROUP BY. Sprawdź [Statystyka w puli SQL bezserwerowej] (opracowywanie tabel-Statistics. MD # Statistics-in-Server-SQL-Pool, aby uzyskać szczegółowe informacje.
+Pula SQL bezserwerowa opiera się na statystyce do generowania optymalnych planów wykonywania zapytań. W razie potrzeby dane statystyczne zostaną automatycznie utworzone dla kolumn w plikach Parquet. W tej chwili statystyki nie są tworzone automatycznie dla kolumn w plikach CSV i należy tworzyć statystyki ręcznie w przypadku kolumn używanych w zapytaniach, szczególnie w odniesieniu do tych, które są używane w różnych, sprzężeniach, gdzie, klauzuli ORDER BY i GROUP BY. Aby uzyskać szczegółowe informacje, sprawdź [statystyki w puli SQL bezserwerowej](develop-tables-statistics.md#statistics-in-serverless-sql-pool) .
 
 ## <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Korzystanie z CETAS w celu zwiększenia wydajności zapytań i sprzężeń
 

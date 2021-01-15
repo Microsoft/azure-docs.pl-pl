@@ -3,16 +3,16 @@ title: Diagnozowanie wyjątków czasu wykonywania za pomocą usługi Azure Appli
 description: Samouczek omawiający znajdowanie i diagnozowanie wyjątków czasu wykonywania w aplikacji za pomocą usługi Azure Application Insights.
 ms.subservice: application-insights
 ms.topic: tutorial
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: 057b211179c6932d4214e6118e3fa97b95145ba0
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 98ccaef716ae2390dcbcfbc7c4a1916359115f93
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926635"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210158"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Znajdowanie i diagnozowanie wyjątków czasu wykonywania za pomocą usługi Azure Application Insights
 
@@ -46,8 +46,8 @@ Zaloguj się do Azure Portal pod adresem [https://portal.azure.com](https://port
 ## <a name="analyze-failures"></a>Analizowanie błędów
 Usługa Application Insights zbiera wszelkie błędy z Twojej aplikacji i pozwala wyświetlać ich częstotliwość dla różnych operacji, aby pomóc w skoncentrowaniu wysiłków na tych z nich, które niosą za sobą największe skutki.  Następnie można przechodzić do szczegółów tych błędów, aby odkryć ich główną przyczynę.   
 
-1. Wybierz pozycję **Application Insights** , a następnie swoją subskrypcję.  
-2. Aby otworzyć panel **Błędy** , wybierz pozycję **Błędy** z menu **Zbadaj** albo kliknij wykres **Żądania zakończone niepowodzeniem** .
+1. Wybierz pozycję **Application Insights**, a następnie swoją subskrypcję.  
+2. Aby otworzyć panel **Błędy**, wybierz pozycję **Błędy** z menu **Zbadaj** albo kliknij wykres **Żądania zakończone niepowodzeniem**.
 
     ![Żądania zakończone niepowodzeniem](media/tutorial-runtime-exceptions/failed-requests.png)
 
@@ -74,7 +74,7 @@ Usługa Application Insights zbiera wszelkie błędy z Twojej aplikacji i pozwal
 ## <a name="identify-failing-code"></a>Identyfikowanie błędnego kodu
 Rozszerzenie Snapshot Debugger zbiera migawki najczęściej występujących wyjątków w Twojej aplikacji, aby pomóc Ci w diagnozowaniu głównej przyczyny problemu w środowisku produkcyjnym.  Migawki debugowania można wyświetlić w portalu, aby zobaczyć stos wywołań i sprawdzić zmienne w każdej ramce tego stosu. Później istnieje możliwość debugowania kodu źródłowego przez pobranie migawki i otwarcie jej w programie Visual Studio 2019 Enterprise.
 
-1. We właściwościach wyjątku kliknij pozycję **Otwórz migawkę debugowania** .
+1. We właściwościach wyjątku kliknij pozycję **Otwórz migawkę debugowania**.
 2. Zostanie otwarty panel **Migawka debugowania** ze stosem wywołań dla żądania.  Kliknij dowolną metodę, aby wyświetlić wartości wszystkich zmiennych lokalnych w momencie żądania.  Zaczynając od pierwszej metody w tym przykładzie, widać zmienne lokalne bez wartości.
 
     ![Migawka debugowania](media/tutorial-runtime-exceptions/debug-snapshot-01.png)
@@ -83,7 +83,7 @@ Rozszerzenie Snapshot Debugger zbiera migawki najczęściej występujących wyj�
 
     ![Zrzut ekranu pokazujący błąd w kodzie, który należy poprawić.    ](media/tutorial-runtime-exceptions/debug-snapshot-02.png)
 
-4. Następnie można pobrać tę migawkę do programu Visual Studio, w którym można znaleźć faktyczny kod do poprawienia. Aby to zrobić, kliknij pozycję **Pobierz migawkę** .
+4. Następnie można pobrać tę migawkę do programu Visual Studio, w którym można znaleźć faktyczny kod do poprawienia. Aby to zrobić, kliknij pozycję **Pobierz migawkę**.
 5. Migawka zostanie załadowana do programu Visual Studio.
 6. Teraz możesz uruchomić sesję debugowania w programie Visual Studio Enterprise, która szybko zidentyfikuje wiersz kodu będący przyczyną wyjątku.
 
@@ -97,13 +97,13 @@ Wszystkie dane zbierane przez usługę Application Insights są przechowywane w 
 
     ![Kod](media/tutorial-runtime-exceptions/codelens.png)
 
-1. Kliknij pozycję **Analiza wpływu** , aby otworzyć okno Application Insights — analiza.  Jest ono wypełnione kilkoma zapytaniami udostępniającymi szczegóły żądań zakończonych niepowodzeniem, takie jak użytkownicy, przeglądarki i regiony dotknięte niepowodzeniem.<br><br>![Zrzut ekranu przedstawia okno Application Insights, które zawiera kilka zapytań.](media/tutorial-runtime-exceptions/analytics.png)<br>
+1. Kliknij pozycję **Analiza wpływu**, aby otworzyć okno Application Insights — analiza.  Jest ono wypełnione kilkoma zapytaniami udostępniającymi szczegóły żądań zakończonych niepowodzeniem, takie jak użytkownicy, przeglądarki i regiony dotknięte niepowodzeniem.<br><br>![Zrzut ekranu przedstawia okno Application Insights, które zawiera kilka zapytań.](media/tutorial-runtime-exceptions/analytics.png)<br>
 
 ## <a name="add-work-item"></a>Dodawanie elementu roboczego
 Jeśli usługa Application Insights zostanie połączona z systemem śledzenia, takim jak Azure DevOps lub GitHub, element roboczy można utworzyć bezpośrednio z usługi Application Insights.
 
 1. Wróć do panelu **Właściwości wyjątku** w usłudze Application Insights.
-2. Kliknij pozycję **Nowy element roboczy** .
+2. Kliknij pozycję **Nowy element roboczy**.
 3. Zostanie otwarty panel **Nowy element roboczy** z już wypełnionymi informacjami na temat wyjątku.  Przed jego zapisaniem możesz dodać dowolne informacje dodatkowe.
 
     ![Nowy element roboczy](media/tutorial-runtime-exceptions/new-work-item.png)

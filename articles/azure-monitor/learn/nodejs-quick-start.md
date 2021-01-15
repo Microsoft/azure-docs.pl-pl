@@ -3,16 +3,16 @@ title: 'Szybki Start: monitorowanie Node.js przy użyciu Azure Monitor Applicati
 description: Zawiera instrukcje umożliwiające szybkie skonfigurowanie Node.js aplikacji sieci Web na potrzeby monitorowania za pomocą Azure Monitor Application Insights
 ms.subservice: application-insights
 ms.topic: quickstart
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 07/12/2019
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: 550097272f90a2f7fa06af7f06810fd3fa0ed94f
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: e5fc7c71c1ced4542f00fe862699442c6b43bc69
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173881"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210362"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>Szybki Start: Rozpoczynanie monitorowania Node.js aplikacji sieci Web za pomocą platformy Azure Application Insights
 
@@ -50,7 +50,7 @@ Application Insights może zbierać dane telemetryczne z dowolnej aplikacji poł
 
 ## <a name="configure-appinsights-sdk"></a>Konfigurowanie zestawu SDK AppInsights
 
-1. Wybierz pozycję **Przegląd** i skopiuj **klucz Instrumentacji**aplikacji.
+1. Wybierz pozycję **Przegląd** i skopiuj **klucz Instrumentacji** aplikacji.
 
    ![Wyświetlanie klucza Instrumentacji Application Insights](./media/nodejs-quick-start/azure-app-insights-instrumentation-key.png)
 

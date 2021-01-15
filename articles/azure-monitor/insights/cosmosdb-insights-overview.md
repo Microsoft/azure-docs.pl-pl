@@ -1,16 +1,16 @@
 ---
 title: Monitoruj Azure Cosmos DB przy użyciu Azure Monitor dla Cosmos DB | Microsoft Docs
 description: W tym artykule opisano Azure Monitor funkcji Cosmos DB, która zapewnia Cosmos DB właściciele z szybką wiedzą na temat problemów z wydajnością i wykorzystaniem ich kont CosmosDB.
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 5e40f91945f83af7880f272f1578370f2ee1ec42
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 878ae21cfbe55565c4a20064d937d1447f96ce7a
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97608497"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209903"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Eksploruj Azure Monitor dla Azure Cosmos DB
 

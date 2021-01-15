@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
-ms.openlocfilehash: 805ab0e78f0679ce483af3a73203b41132be2a59
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: df2d74701e21c3773d96564f1b06d80ddb9fce9d
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022959"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209223"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Tworzenie grup woluminów i zarządzanie nimi za pomocą StorSimple Snapshot Manager
 ## <a name="overview"></a>Omówienie
@@ -107,7 +107,7 @@ Aby edytować grupę woluminów, należy wykonać czynności opisane w poniższe
 #### <a name="to-edit-a-volume-group"></a>Aby edytować grupę woluminów
 1. Kliknij ikonę pulpitu, aby rozpocząć StorSimple Snapshot Manager.
 2. W okienku **zakres** rozwiń węzeł **grupy woluminów** , kliknij prawym przyciskiem myszy nazwę grupy woluminów, a następnie kliknij polecenie **Edytuj**.
-3. Zostanie wyświetlone okno dialogowe * * Tworzenie grupy woluminów * *. Można zmienić **nazwy**, **aplikacje** i wpisy **woluminów** .
+3. Zostanie wyświetlone okno dialogowe **Tworzenie grupy woluminów** . Można zmienić **nazwy**, **aplikacje** i wpisy **woluminów** .
 4. Kliknij przycisk **OK**, aby zapisać zmiany.
 
 ## <a name="delete-a-volume-group"></a>Usuń grupę woluminów

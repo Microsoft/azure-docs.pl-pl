@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: c0ceae8727681c045c3bbf3e6626937633b38997
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: ba06a0f9d520f445965329203aecd6c576666737
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013536"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209733"
 ---
 # <a name="using-an-app-service-environment"></a>Korzystanie z App Service Environment
 
@@ -51,7 +51,7 @@ Aby utworzyć aplikację w środowisku ASE:
     > Aplikacje Linux i aplikacje systemu Windows nie mogą znajdować się w tym samym planie App Service, ale mogą być w tej samej App Service Environment.
     >
 
-1. Wybierz pozycję * * Dalej: monitorowanie * * Jeśli chcesz włączyć usługi App Insights w aplikacji, możesz to zrobić w tym miejscu podczas tworzenia przepływu. 
+1. Wybierz pozycję **Dalej: monitorowanie**  Jeśli chcesz włączyć usługi App Insights w aplikacji, możesz to zrobić w tym miejscu podczas tworzenia przepływu. 
 
 1.  Wybierz **Następny: Tagi** Dodaj Tagi, które chcesz umieścić w aplikacji  
 
@@ -108,7 +108,7 @@ W środowisku ASE punkty końcowe publikowania są dostępne tylko za pomocą ad
 
 Bez dodatkowych zmian internetowe systemy CI, takie jak GitHub i Azure DevOps, nie współpracują z ILB ASE, ponieważ punkt końcowy publikowania nie jest dostępny dla Internetu. Możesz włączyć publikowanie w środowisku ILB ASE z poziomu usługi Azure DevOps, instalując własny Agent wydania w sieci wirtualnej, która zawiera ILB ASE. 
 
-## <a name="storage"></a>Magazyn
+## <a name="storage"></a>Storage
 
 Środowisko ASE ma 1 TB magazynu dla wszystkich aplikacji w środowisku ASE. Plan App Service w odizolowanej cenie SKU ma limit wynoszący 250 GB. W środowisku ASE 250 GB miejsca do magazynowania jest dodawane App Service planowanie do limitu 1 TB. Możesz mieć więcej App Service planów niż tylko cztery, ale nie Dodaliśmy więcej miejsca poza limit 1 TB.
 
@@ -116,7 +116,7 @@ Bez dodatkowych zmian internetowe systemy CI, takie jak GitHub i Azure DevOps, n
 
 Możesz zintegrować środowisko ASE z Azure Monitor, aby wysyłać dzienniki dotyczące środowiska ASE do usługi Azure Storage, Azure Event Hubs lub Log Analytics. Te elementy są rejestrowane Dzisiaj:
 
-| Istniał | Komunikat |
+| Istniał | Wiadomość |
 |---------|----------|
 | Środowisko ASE jest w złej kondycji | Określony środowisko ASE jest w złej kondycji ze względu na nieprawidłową konfigurację sieci wirtualnej. Środowisko ASE zostanie zawieszone w przypadku kontynuowania stanu złej kondycji. Upewnij się, że zostały wykonane następujące wytyczne: https://docs.microsoft.com/azure/app-service/environment/network-info . |
 | Za mało miejsca w podsieci ASE | Określone środowisko ASE znajduje się w podsieci, która jest w prawie nieprawidłowym miejscu. Istnieją {0} adresy. Po wyczerpaniu tych adresów środowisko ASE nie będzie w stanie skalować.  |

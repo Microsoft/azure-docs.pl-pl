@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: justinha
-ms.openlocfilehash: 0231689acef3345fb2b0f25170522d59552171ba
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: faa46178262777454d4d67d23bbd0bb013974ab5
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618335"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208492"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services"></a>Samouczek: Tworzenie zaufania lasu wychodzącego do domeny lokalnej w Azure Active Directory Domain Services
 
@@ -73,8 +73,8 @@ Przed skonfigurowaniem zaufania lasu w usłudze Azure AD DS upewnij się, że si
 
 Aby prawidłowo rozpoznać domenę zarządzaną w środowisku lokalnym, może być konieczne dodanie usług przesyłania dalej do istniejących serwerów DNS. Jeśli nie skonfigurowano środowiska lokalnego do komunikowania się z domeną zarządzaną, wykonaj następujące czynności z poziomu stacji roboczej zarządzania dla lokalnej domeny AD DS:
 
-1. Wybierz pozycję **Uruchom | Narzędzia administracyjne | System DNS**
-1. Kliknij prawym przyciskiem myszy opcję serwer DNS, na przykład *myAD01*, a następnie wybierz polecenie **Właściwości** .
+1. Wybierz pozycję **Uruchom**  >  **Narzędzia administracyjne**  >  **DNS**.
+1. Kliknij prawym przyciskiem myszy opcję serwer DNS, na przykład *myAD01*, a następnie wybierz polecenie **Właściwości**.
 1. Wybierz opcję **usługi przesyłania dalej**, a następnie pozycję **Edytuj** , aby dodać dodatkowe usługi przesyłania dalej.
 1. Dodaj adresy IP domeny zarządzanej, takie jak *10.0.2.4* i *10.0.2.5*.
 
@@ -84,15 +84,15 @@ Lokalna domena AD DS musi mieć przychodzące zaufanie lasu dla domeny zarządza
 
 Aby skonfigurować zaufanie przychodzące w domenie AD DS lokalnego, wykonaj następujące kroki na stacji roboczej zarządzania dla lokalnej domeny AD DS:
 
-1. Wybierz pozycję **Uruchom | Narzędzia administracyjne | Active Directory domen i relacji zaufania**
-1. Kliknij prawym przyciskiem myszy pozycję domena, na przykład *OnPrem.contoso.com*, a następnie wybierz pozycję **Właściwości** .
-1. Wybierz kartę **relacje zaufania** , a następnie pozycję **nowe zaufanie**
-1. Wprowadź nazwę nazwy domeny usługi Azure AD DS, na przykład *aaddscontoso.com*, a następnie wybierz pozycję **dalej** .
+1. Wybierz pozycję **Uruchom | Narzędzia administracyjne | Active Directory domen i relacji zaufania**.
+1. Kliknij prawym przyciskiem myszy pozycję domena, na przykład *OnPrem.contoso.com*, a następnie wybierz pozycję **Właściwości**.
+1. Wybierz kartę **relacje zaufania** , a następnie pozycję **nowe zaufanie**.
+1. Wprowadź nazwę nazwy domeny usługi Azure AD DS, na przykład *aaddscontoso.com*, a następnie wybierz przycisk **dalej**.
 1. Wybierz opcję utworzenia **zaufania lasu**, aby utworzyć **jeden ze sposobów: zaufanie przychodzące** .
 1. Wybierz, aby utworzyć relację zaufania **tylko dla tej domeny**. W następnym kroku utworzysz relację zaufania w Azure Portal dla domeny zarządzanej.
 1. Wybierz opcję użycia **uwierzytelniania w całym lesie**, a następnie wprowadź i Potwierdź hasło zaufania. To samo hasło jest również wprowadzane w Azure Portal w następnej sekcji.
 1. Przejdź do kolejnych kilku okien z opcjami domyślnymi, a następnie wybierz opcję **nie, nie potwierdzaj zaufania wychodzącego**.
-1. Wybierz **zakończenie**
+1. Wybierz pozycję **Zakończ**.
 
 ## <a name="create-outbound-forest-trust-in-azure-ad-ds"></a>Tworzenie zaufania dla lasu wychodzącego na platformie Azure AD DS
 
@@ -100,16 +100,16 @@ W przypadku lokalnej domeny AD DS skonfigurowanej w celu rozpoznania domeny zarz
 
 Aby utworzyć zaufanie wychodzące dla domeny zarządzanej w Azure Portal, wykonaj następujące czynności:
 
-1. W Azure Portal Wyszukaj i wybierz pozycję **Azure AD Domain Services**, a następnie wybierz domenę zarządzaną, taką jak *aaddscontoso.com*
+1. W Azure Portal Wyszukaj i wybierz pozycję **Azure AD Domain Services**, a następnie wybierz domenę zarządzaną, taką jak *aaddscontoso.com*.
 1. Z menu po lewej stronie domeny zarządzanej wybierz pozycję **relacje zaufania**, a następnie wybierz pozycję **+ Dodaj** zaufanie.
 
    > [!NOTE]
    > Jeśli nie widzisz opcji menu **relacje zaufania** , sprawdź w obszarze **Właściwości** *typu lasu*. Tylko lasy *zasobów* mogą tworzyć relacje zaufania. Jeśli typ lasu to *User*, nie można utworzyć relacji zaufania. Obecnie nie ma możliwości zmiany typu lasu domeny zarządzanej. Musisz usunąć i utworzyć ponownie domenę zarządzaną jako Las zasobów.
 
-1. Wprowadź nazwę wyświetlaną, która identyfikuje zaufanie, a następnie nazwę DNS lokalnego lasu zaufanego, na przykład *OnPrem.contoso.com*
+1. Wprowadź nazwę wyświetlaną, która identyfikuje zaufanie, a następnie nazwę DNS lokalnego lasu zaufanego, na przykład *OnPrem.contoso.com*.
 1. Podaj to samo hasło zaufania, które było używane podczas konfigurowania zaufania lasu przychodzącego dla lokalnej domeny AD DS w poprzedniej sekcji.
-1. Podaj co najmniej dwa serwery DNS dla lokalnej domeny AD DS, takie jak *10.1.1.4* i *klienta 10.1.1.5*
-1. Gdy wszystko będzie gotowe, **Zapisz** zaufanie lasu wychodzącego
+1. Podaj co najmniej dwa serwery DNS dla lokalnej domeny AD DS, takie jak *10.1.1.4* i *klienta 10.1.1.5*.
+1. Gdy wszystko będzie gotowe, **Zapisz** wychodzące zaufanie lasu.
 
     ![Utwórz zaufanie do lasu wychodzącego w Azure Portal](./media/tutorial-create-forest-trust/portal-create-outbound-trust.png)
 
@@ -181,7 +181,7 @@ Korzystając z maszyny wirtualnej systemu Windows Server dołączonej do lasu za
 1. W oknie dialogowym *uprawnienia dla CrossForestShare* wybierz pozycję **Dodaj**.
 1. Wpisz *FileServerAccess* w polu **Wprowadź nazwy obiektów do wybrania**, a następnie wybierz przycisk **OK**.
 1. Wybierz pozycję *FileServerAccess* z listy **nazwy grup lub użytkowników** . Na liście **uprawnienia dla FileServerAccess** wybierz opcję *Zezwalaj* na uprawnienia **Modyfikacja** i **zapis** , a następnie wybierz przycisk **OK**.
-1. Wybierz kartę **udostępnianie** , a następnie wybierz pozycję **Udostępnianie zaawansowane...**
+1. Wybierz kartę **udostępnianie** , a następnie wybierz pozycję **Udostępnianie zaawansowane...**.
 1. Wybierz opcję **Udostępnij ten folder**, a następnie wprowadź nazwę zapamiętania udziału plików w polu **Nazwa udziału** , np. *CrossForestShare*.
 1. Wybierz pozycję **Uprawnienia**. Na liście **uprawnienia dla wszystkich użytkowników** wybierz opcję **Zezwalaj** na uprawnienie **zmiana** .
 1. Wybierz przycisk **OK** dwa razy, a następnie **Zamknij**.

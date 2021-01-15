@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9ee18edd563d94a85dedf48b7a4d6df394c09707
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b93addfe659847187dffe61f12f5a2bfac9dca21
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461386"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209631"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tabele udostępnione metadanych usługi Azure Synapse Analytics
 
@@ -32,7 +32,7 @@ Ponieważ tabele są synchronizowane z bezserwerową pulą SQL, to opóźnienie 
 
 Użyj platformy Spark do zarządzania utworzonymi bazami danych platformy Spark. Można na przykład usunąć ją za pośrednictwem bezserwerowego zadania puli Apache Spark i utworzyć w nim tabele z platformy Spark.
 
-W przypadku tworzenia obiektów w takiej bazie danych z puli SQL bez serwera lub próby porzucenia bazy danych operacja zakończy się pomyślnie, ale oryginalna baza danych platformy Spark nie zostanie zmieniona.
+W przypadku tworzenia obiektów w takiej bazie danych z puli SQL bezserwerowej lub próby porzucenia bazy danych operacja zakończy się niepowodzeniem. Nie można zmienić oryginalnej bazy danych Spark za pomocą puli SQL bezserwerowej.
 
 ## <a name="expose-a-spark-table-in-sql"></a>Uwidacznianie tabeli Spark w programie SQL
 

@@ -2,15 +2,15 @@
 title: Azure Monitor dla usługi Azure cache for Redis | Microsoft Docs
 description: W tym artykule opisano Azure Monitor funkcji Azure Redis Cache, która zapewnia właścicielom pamięci podręcznej szybkie zrozumienie problemów z wydajnością i wykorzystaniem.
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 09/10/2020
-ms.openlocfilehash: e7b8a8e131cf7e0aae051f42043abf0640c927e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35f575410caa7a8a8ffbda35bdfa876418db8945
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90887014"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210379"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis"></a>Eksploruj Azure Monitor dla usługi Azure cache for Redis
 
@@ -46,7 +46,7 @@ Aby wyświetlić użycie i wydajność kont magazynu we wszystkich subskrypcjach
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-1. Wyszukaj pozycję **monitor**i wybierz pozycję **Monitoruj**.
+1. Wyszukaj pozycję **monitor** i wybierz pozycję **Monitoruj**.
 
     ![Pole wyszukiwania z słowem "Monitor" oraz wynikiem wyszukiwania usług, który pokazuje "Monitor" z symbolem prędkościomierza](./media/cosmosdb-insights-overview/search-monitor.png)
 
@@ -54,7 +54,7 @@ Aby wyświetlić użycie i wydajność kont magazynu we wszystkich subskrypcjach
 
 ### <a name="overview"></a>Omówienie
 
-W obszarze **Przegląd**w tabeli jest wyświetlana interaktywna pamięć podręczna platformy Azure dla metryk Redis. Wyniki można filtrować na podstawie opcji wybranych z następujących list rozwijanych:
+W obszarze **Przegląd** w tabeli jest wyświetlana interaktywna pamięć podręczna platformy Azure dla metryk Redis. Wyniki można filtrować na podstawie opcji wybranych z następujących list rozwijanych:
 
 - **Subskrypcje**: na liście są wyświetlane tylko subskrypcje, które mają pamięć podręczną platformy Azure dla zasobu Redis.  
 

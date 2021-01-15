@@ -4,15 +4,15 @@ description: W tym przewodniku opisano powszechnie używane metody horyzontu.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/7/2020
+ms.date: 1/5/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 6d2e3fccd6a61fe129050faa29cb7bb77674ccfe
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: 39770fe7aa7b11cae03304fda8901e81e0f1877a
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97976916"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208419"
 ---
 # <a name="horizon-api"></a>Interfejs API horyzontu 
 
@@ -20,17 +20,19 @@ W tym przewodniku opisano powszechnie używane metody horyzontu.
 
 ### <a name="getting-more-information"></a>Więcej informacji
 
-Aby uzyskać więcej informacji na temat pracy z horyzontem i platformą CyberX, zapoznaj się z następującymi informacjami:
+Aby uzyskać więcej informacji na temat pracy z horyzontem i usługą Defender for IoT, zobacz następujące informacje:
 
-- W przypadku zestawu SDK open Development Environment (Node) można skontaktować się z przedstawicielem usługi CyberX.
+- W przypadku zestawu SDK open Development Environment (Node) można skontaktować się z usługą Defender for IoT.
 - Aby uzyskać pomoc techniczną i rozwiązywanie problemów, skontaktuj się z firmą <support@cyberx-labs.com> .
-- Aby uzyskać dostęp do podręcznika użytkownika programu Cyberx z poziomu konsoli programu CyberX, wybierz pozycję, :::image type="icon" source="media/references-horizon-api/profile-icon.png"::: a następnie wybierz pozycję **Pobierz podręcznik użytkownika**.
+
+- Aby uzyskać dostęp do podręcznika użytkownika usługi Defender for IoT z poziomu konsoli usługi Defender dla IoT, wybierz pozycję, :::image type="icon" source="media/references-horizon-api/profile.png"::: a następnie wybierz pozycję **Pobierz podręcznik użytkownika**.
+
 
 ## `horizon::protocol::BaseParser`
 
 Abstrakcyjne dla wszystkich wtyczek. Obejmuje to dwie metody:
 
-- Do przetwarzania filtrów wtyczki zdefiniowanych powyżej. W ten sposób horyzont wie, jak komunikować się z parserem
+- Do przetwarzania filtrów wtyczki zdefiniowanych powyżej. W ten sposób horyzont wie, jak komunikować się z parserem.
 - Do przetwarzania rzeczywistych danych.
 
 ## `std::shared_ptr<horizon::protocol::BaseParser> create_parser()`
@@ -39,7 +41,7 @@ Pierwsza funkcja wywoływana dla wtyczki tworzy wystąpienie analizatora dla zak
 
 ### <a name="parameters"></a>Parametry 
 
-Brak
+Brak.
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -69,12 +71,12 @@ Wtyczka powinna być bezpieczna wątkowo, ponieważ ta funkcja może zostać wyw
 
 ### <a name="parameters"></a>Parametry
 
-- Jednostka kontroli zestawu SDK odpowiedzialna za przechowywanie danych i tworzenie obiektów związanych z zestawem SDK, takich jak ILayer, pola itd.
+- Jednostka kontroli zestawu SDK odpowiedzialna za przechowywanie danych i tworzenie obiektów związanych z zestawem SDK, takich jak ILayer i pola.
 - Pomocnik do odczytywania danych z nieprzetworzonego pakietu. Jest już ustawiona z kolejnością bajtów zdefiniowaną w config.jsna.
 
 ### <a name="return-value"></a>Wartość zwracana 
 
-Wynik przetwarzania. Może to być sukces/źle sformułowany/Sanity.
+Wynik przetwarzania. Może to być *pomyślne*, *źle sformułowane* lub *Sanity*.
 
 ## `horizon::protocol::SanityFailureResult: public horizon::protocol::ParserResult`
 
@@ -90,7 +92,7 @@ Konstruktor
 
 ## `horizon::protocol::MalformedResult: public horizon::protocol::ParserResult`
 
-Nieprawidłowo sformułowany wynik, wskazuje, że pakiet został już rozpoznany jako nasz protokół, ale niektóre sprawdzanie poprawności poszło źle (zarezerwowane bity są włączone, brak niektórych pól itp.)
+Nieprawidłowo sformułowany wynik, wskazuje, że pakiet został już rozpoznany jako protokół, ale niektóre sprawdzanie poprawności poszło źle (zarezerwowane bity są włączone lub brakuje niektórych pól).
 
 ## `horizon::protocol::MalformedResult::MalformedResult(uint64_t)`
 
@@ -102,7 +104,7 @@ Konstruktor
 
 ## `horizon::protocol::SuccessResult: public horizon::protocol::ParserResult`
 
-Powiadamia horyzonty o pomyślnym przetworzeniu. Po pomyślnym zakończeniu pakiet został zaakceptowany; dane należą do nas, a wszystkie dane zostały wyodrębnione.
+Powiadamia horyzonty o pomyślnym przetworzeniu. Po pomyślnym zakończeniu pakiet został zaakceptowany, dane należą do nas, a wszystkie dane zostały wyodrębnione.
 
 ## `horizon::protocol::SuccessResult()`
 
@@ -110,24 +112,24 @@ Konstruktor. Utworzono podstawowy wynik. Oznacza to, że nie wiemy kierunek ani 
 
 ## `horizon::protocol::SuccessResult(horizon::protocol::ParserResultDirection)`
 
-Konstruktor
+Konstruktor.
 
 ### <a name="parameters"></a>Parametry 
 
-- Kierunek pakietu, jeśli został zidentyfikowany. Możliwe wartości to żądanie, odpowiedź
+- Kierunek pakietu, jeśli został zidentyfikowany. Możliwe wartości to *żądanie* lub *odpowiedź*.
 
 ## `horizon::protocol::SuccessResult(horizon::protocol::ParserResultDirection, const std::vector<uint64_t> &)`
 
-Konstruktor
+Konstruktor.
 
 ### <a name="parameters"></a>Parametry
 
-- Kierunek pakietu, jeśli został zidentyfikowany, może to być żądanie, odpowiedź
+- Kierunek pakietu, jeśli został zidentyfikowany, może to być *żądanie*, *odpowiedź*.
 - Ostrzeżeni. Te zdarzenia nie zakończyły się niepowodzeniem, ale zakres zostanie powiadomiony.
 
 ## `horizon::protocol::SuccessResult(const std::vector<uint64_t> &)`
 
-Konstruktor
+Konstruktor.
 
 ### <a name="parameters"></a>Parametry 
 
@@ -135,11 +137,11 @@ Konstruktor
 
 ## `HorizonID HORIZON_FIELD(const std::string_view &)`
 
-Konwertuje odwołanie oparte na ciągach na nazwę pola (np. function_code) na HorizonID
+Konwertuje odwołanie oparte na ciągach na nazwę pola (na przykład function_code) na HorizonID.
 
 ### <a name="parameters"></a>Parametry 
 
-- Ciąg do przekonwertowania
+- Ciąg do przekonwertowania.
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -155,11 +157,11 @@ Odwołanie do utworzonej warstwy, dzięki czemu można dodać do niej dane.
 
 ## `horizon::protocol::management::IFieldManagement &horizon::protocol::management::IProcessingUtils::getFieldsManager()`
 
-Pobiera obiekt zarządzania polami, który jest odpowiedzialny za tworzenie pól w różnych obiektach, np. na ILayer
+Pobiera obiekt zarządzania polami, który jest odpowiedzialny za tworzenie pól w różnych obiektach, na przykład w ILayer.
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Odwołanie do Menedżera
+Odwołanie do Menedżera.
 
 ## `void horizon::protocol::management::IFieldManagement::create(horizon::protocol::ILayer &, HorizonID, uint64_t)`
 
@@ -167,9 +169,9 @@ Tworzy nowe pole liczbowe o 64 bitach na warstwie z żądanym IDENTYFIKATORem.
 
 ### <a name="parameters"></a>Parametry 
 
-- Utworzona wcześniej warstwa
-- HorizonID utworzony przez makro HORIZON_FIELD
-- Nieprzetworzona wartość, która ma być przechowywana
+- Utworzona wcześniej warstwa.
+- HorizonID utworzony przez makro **HORIZON_FIELD** .
+- Wartość pierwotna, która ma zostać zapisana.
 
 ## `void horizon::protocol::management::IFieldManagement::create(horizon::protocol::ILayer &, HorizonID, std::string)`
 
@@ -177,19 +179,19 @@ Tworzy nowe pole ciągu dla warstwy z żądanym IDENTYFIKATORem. Pamięć zostan
 
 ### <a name="parameters"></a>Parametry  
 
-- Utworzona wcześniej warstwa
-- HorizonID utworzony przez makro HORIZON_FIELD
-- Nieprzetworzona wartość, która ma być przechowywana
+- Utworzona wcześniej warstwa.
+- HorizonID utworzony przez makro **HORIZON_FIELD** .
+- Wartość pierwotna, która ma zostać zapisana.
 
 ## `void horizon::protocol::management::IFieldManagement::create(horizon::protocol::ILayer &, HorizonID, std::vector<char> &)`
 
-Tworzy nowe pole wartość pierwotna (tablica bajtów) w warstwie, z żądanym IDENTYFIKATORem. Pamięć zostanie przeniesiona, dlatego należy zachować ostrożność, ale nie będzie można użyć tej wartości ponownie
+Tworzy nowe pole wartość pierwotna (tablica bajtów) w warstwie, z żądanym IDENTYFIKATORem. Pamięć zostanie przeniesiona, więc należy zachować ostrożność, ale nie będzie można użyć tej wartości ponownie.
 
 ### <a name="parameters"></a>Parametry
 
-- Utworzona wcześniej warstwa
-- HorizonID utworzony przez makro HORIZON_FIELD
-- Nieprzetworzona wartość, która ma być przechowywana
+- Utworzona wcześniej warstwa.
+- HorizonID utworzony przez makro **HORIZON_FIELD** .
+- Wartość pierwotna, która ma zostać zapisana.
 
 ## `horizon::protocol::IFieldValueArray &horizon::protocol::management::IFieldManagement::create(horizon::protocol::ILayer &, HorizonID, horizon::protocol::FieldValueType)`
 
@@ -197,40 +199,40 @@ Tworzy pole wartości tablicy (Array) w warstwie określonego typu z żądanym I
 
 ### <a name="parameters"></a>Parametry
 
-- Utworzona wcześniej warstwa
-- HorizonID utworzony przez makro HORIZON_FIELD
-- Typ wartości, które będą przechowywane wewnątrz tablicy
+- Utworzona wcześniej warstwa.
+- HorizonID utworzony przez makro **HORIZON_FIELD** .
+- Typ wartości, które będą przechowywane wewnątrz tablicy.
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Odwołanie do tablicy, do której należy dołączyć wartości
+Odwołanie do tablicy, do której należy dołączyć wartości.
 
 ## `void horizon::protocol::management::IFieldManagement::create(horizon::protocol::IFieldValueArray &, uint64_t)`
 
-Dołącza nową wartość całkowitą do utworzonej wcześniej tablicy
+Dołącza nową wartość całkowitą do utworzonej wcześniej tablicy.
 
 ### <a name="parameters"></a>Parametry
 
-- Utworzona wcześniej tablica
-- Wartość pierwotna, która ma być przechowywana w tablicy
+- Utworzona wcześniej tablica.
+- Wartość pierwotna, która ma być przechowywana w tablicy.
 
 ## `void horizon::protocol::management::IFieldManagement::create(horizon::protocol::IFieldValueArray &, std::string)`
 
-Dołącza nową wartość ciągu do utworzonej wcześniej tablicy. Pamięć zostanie przeniesiona, dlatego należy zachować ostrożność, ale nie będzie można użyć tej wartości ponownie
+Dołącza nową wartość ciągu do utworzonej wcześniej tablicy. Pamięć zostanie przeniesiona, więc należy zachować ostrożność, ale nie będzie można użyć tej wartości ponownie.
 
 ### <a name="parameters"></a>Parametry
 
-- Utworzona wcześniej tablica
-- Wartość pierwotna, która ma być przechowywana w tablicy
+- Utworzona wcześniej tablica.
+- Wartość pierwotna, która ma być przechowywana w tablicy.
 
 ## `void horizon::protocol::management::IFieldManagement::create(horizon::protocol::IFieldValueArray &, std::vector<char> &)`
 
-Dołącza nową wartość pierwotną do utworzonej wcześniej tablicy. Pamięć zostanie przeniesiona, dlatego należy zachować ostrożność, ale nie będzie można użyć tej wartości ponownie
+Dołącza nową wartość pierwotną do utworzonej wcześniej tablicy. Pamięć zostanie przeniesiona, więc należy zachować ostrożność, ale nie będzie można użyć tej wartości ponownie.
 
 ### <a name="parameters"></a>Parametry
 
-- Utworzona wcześniej tablica
-- Wartość pierwotna, która ma być przechowywana w tablicy
+- Utworzona wcześniej tablica.
+- Wartość pierwotna, która ma być przechowywana w tablicy.
 
 ## `bool horizon::general::IDataBuffer::validateRemainingSize(size_t)`
 
@@ -238,15 +240,15 @@ Sprawdza, czy bufor zawiera co najmniej X b.
 
 ### <a name="parameters"></a>Parametry
 
-Liczba bajtów powinna istnieć 
+Liczba bajtów, które powinny istnieć.
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Ma wartość true, jeśli bufor zawiera co najmniej X bajtów. W przeciwnym razie wartość false.
+Ma wartość true, jeśli bufor zawiera co najmniej X bajtów. W przeciwnym razie jest to `False` .
 
 ## `uint8_t horizon::general::IDataBuffer::readUInt8()`
 
-Odczytuje wartość Uint8 (1 bajty) z buforu, zgodnie z kolejnością bajtów.
+Odczytuje wartość Uint8 (1 bajt) z buforu, zgodnie z kolejnością bajtów.
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -282,12 +284,12 @@ Odczytuje do wstępnie przydzielonej pamięci o określonym rozmiarze, w rzeczyw
 
 ### <a name="parameters"></a>Parametry 
 
-- Region pamięci, do którego mają zostać skopiowane dane
-- Rozmiar obszaru pamięci, ten parametr definiuje także liczbę bajtów, które zostaną skopiowane
+- Region pamięci, do którego mają zostać skopiowane dane.
+- Rozmiar obszaru pamięci, ten parametr definiuje także liczbę bajtów, które zostaną skopiowane.
 
 ## `std::string_view horizon::general::IDataBuffer::readString(size_t)`
 
-Odczytuje do ciągu z buforu
+Odczytuje do ciągu z bufora.
 
 ### <a name="parameters"></a>Parametry 
 

@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: 1b801bac28b131ff43c47024649bfe0986f768c7
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 81b7efdd6bca0471719c11d130be95405f4d54e1
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202899"
+ms.locfileid: "98210192"
 ---
 # <a name="support-for-32-bit-operating-systems-in-azure-virtual-machines"></a>Obsługa 32-bitowych systemów operacyjnych na maszynach wirtualnych platformy Azure
 
 Microsoft Azure teraz umożliwia użytkownikom korzystanie z 32-bitowych systemów operacyjnych Windows na platformie Azure. Obsługiwane są tylko wyspecjalizowane dyski VHD, a uogólnione obrazy nie będą działały na platformie Azure. Ponieważ niektóre z tych systemów operacyjnych osiągnęły już swoją umowę dotyczącą korzystania z usługi Life, firma Microsoft może nie oferować dodatkowej pomocy technicznej. Pomoc techniczna nie jest również oferowana dla systemów operacyjnych opartych na systemie Linux lub Berkeley Software Distribution (BSD), które działają na Microsoft Azure maszynę wirtualną.
 
 > [!NOTE]
-> Platforma Azure ma ograniczenie przestrzeni adresów pamięci narzucone na maszynach wirtualnych z 32-bitowymi systemami operacyjnymi, w przypadku których dostępna jest tylko 1 GB pamięci dla maszyny wirtualnej, a pozostała część pamięci dla maszyny wirtualnej będzie wyświetlana jako zarezerwowana w ramach maszyny wirtualnej gościa. Jest to znany problem i obecnie nie mamy EZT, aby rozwiązać problem. Zalecamy przechodzenie do 64-bitowych wersji systemu operacyjnego.
+> Platforma Azure ma ograniczenie przestrzeni adresów pamięci narzucone na maszynach wirtualnych z 32-bitowymi systemami operacyjnymi, w których można udostępnić maszynę wirtualną tylko 1 GB pamięci (*szczególnie w jednostkach SKU klienta, takich jak Win7 lub Win10*), a pozostała część pamięci dla maszyny wirtualnej będzie wyświetlana jako zarezerwowana w ramach maszyny wirtualnej gościa. Jest to znany problem i obecnie nie mamy EZT, aby rozwiązać problem. Zalecamy przechodzenie do 64-bitowych wersji systemu operacyjnego.
 > 
 
 ## <a name="more-information"></a>Więcej informacji

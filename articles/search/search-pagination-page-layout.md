@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/09/2020
-ms.openlocfilehash: 182ec758a8764a959b39296163e63e800cf5108c
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: a7171d656ec9f839aea4ae73763ec6ebd20c2bb3
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008489"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209835"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Jak korzystać z wyników wyszukiwania w usłudze Azure Wyszukiwanie poznawcze
 
@@ -103,7 +103,7 @@ Wyniki wyszukiwania dają ogólny sens istotności, odzwierciedlając siłę dop
 
 ### <a name="how-to-get-consistent-ordering"></a>Jak uzyskać spójną kolejność
 
-Jeśli jest wymagana zgodność aplikacji, w polu można jawnie zdefiniować **`$orderby`** wyrażenie [] (Query-OData-Filter-OrderBy-Syntax.MD). Tylko pola, które są indeksowane jako **`sortable`** mogą służyć do porządkowania wyników. Pola, które są często używane w **`$orderby`** polach klasyfikacji, daty i lokalizacji w przypadku określenia wartości **`orderby`** parametru, aby uwzględnić nazwy pól i wywołania [**`geo.distance()` funkcji**](query-odata-filter-orderby-syntax.md) dla wartości geoprzestrzennych.
+Jeśli spójne porządkowanie jest wymaganiem aplikacji, można jawnie zdefiniować [ **`$orderby`** wyrażenie](query-odata-filter-orderby-syntax.md) dla pola. Tylko pola, które są indeksowane jako **`sortable`** mogą służyć do porządkowania wyników. Pola, które są często używane w **`$orderby`** polach klasyfikacji, daty i lokalizacji w przypadku określenia wartości **`orderby`** parametru, aby uwzględnić nazwy pól i wywołania [**`geo.distance()` funkcji**](query-odata-filter-orderby-syntax.md) dla wartości geoprzestrzennych.
 
 Inne podejście, które promuje spójność, używa [niestandardowego profilu oceniania](index-add-scoring-profiles.md). Profile oceniania zapewniają większą kontrolę nad klasyfikacją elementów w wynikach wyszukiwania, dzięki czemu można poprawić dopasowania znalezione w określonych polach. Dodatkowa logika oceniania może pomóc w zastępowaniu drobnych różnic między replikami, ponieważ wyniki wyszukiwania dla każdego dokumentu są od siebie oddzielone. Zalecamy stosowanie [algorytmu klasyfikacji](index-ranking-similarity.md) dla tego podejścia.
 

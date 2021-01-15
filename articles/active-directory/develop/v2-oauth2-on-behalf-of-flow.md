@@ -13,12 +13,12 @@ ms.date: 08/7/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 018d67b3e4e730cd46eb524a8927b3a6d68d74e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c8167142876dfac0ae0aeff51e85b66c65c607b
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88958664"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208852"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Platforma tożsamości firmy Microsoft i protokół OAuth 2,0 w imieniu użytkownika
 
@@ -27,8 +27,8 @@ Przepływ uwierzytelniania OAuth 2,0 w imieniu (OBO) obsługuje przypadek użyci
 
 W tym artykule opisano, jak programować bezpośrednio w odniesieniu do protokołu w aplikacji.  Jeśli to możliwe, zalecamy korzystanie z obsługiwanych bibliotek uwierzytelniania firmy Microsoft (MSAL) zamiast [uzyskiwać tokeny i wywoływać zabezpieczone interfejsy API sieci Web](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Zapoznaj się również z [przykładowymi aplikacjami korzystającymi z MSAL](sample-v2-code.md).
 
-> [!NOTE]
-> Od maja 2018 niektóre pochodne niejawnego przepływu `id_token` nie mogą być używane dla przepływu OBO. Aplikacje jednostronicowe (aplikacji jednostronicowych) powinny przekazać token **dostępu** do klienta poufnego w warstwie środkowej, aby w zamian wykonać przepływy OBO. Aby uzyskać więcej informacji o tym, którzy klienci mogą wykonywać wywołania OBO, zobacz [ograniczenia](#client-limitations).
+
+Od maja 2018 niektóre pochodne niejawnego przepływu `id_token` nie mogą być używane dla przepływu OBO. Aplikacje jednostronicowe (aplikacji jednostronicowych) powinny przekazać token **dostępu** do klienta poufnego w warstwie środkowej, aby w zamian wykonać przepływy OBO. Aby uzyskać więcej informacji o tym, którzy klienci mogą wykonywać wywołania OBO, zobacz [ograniczenia](#client-limitations).
 
 ## <a name="protocol-diagram"></a>Diagram protokołu
 
@@ -44,8 +44,7 @@ Kroki, które należy wykonać, stanowią "OBO Flow" i objaśniono na poniższym
 1. Token B jest ustawiany przez interfejs API A w nagłówku autoryzacji żądania do interfejsu API B.
 1. Dane z zabezpieczonego zasobu są zwracane przez interfejs API B do interfejsu API A, a następnie do klienta.
 
-> [!NOTE]
-> W tym scenariuszu Usługa warstwy środkowej nie ma interakcji z użytkownikiem, aby uzyskać zgodę użytkownika na dostęp do podrzędnego interfejsu API. W związku z tym, opcja udzielenia dostępu do podrzędnego interfejsu API jest przedstawiona jako część kroku wyrażania zgody podczas uwierzytelniania. Aby dowiedzieć się, jak skonfigurować to ustawienie dla aplikacji, zobacz temat [Uzyskiwanie zgody na aplikację warstwy środkowej](#gaining-consent-for-the-middle-tier-application).
+W tym scenariuszu Usługa warstwy środkowej nie ma interakcji z użytkownikiem, aby uzyskać zgodę użytkownika na dostęp do podrzędnego interfejsu API. W związku z tym, opcja udzielenia dostępu do podrzędnego interfejsu API jest przedstawiona jako część kroku wyrażania zgody podczas uwierzytelniania. Aby dowiedzieć się, jak skonfigurować to ustawienie dla aplikacji, zobacz temat [Uzyskiwanie zgody na aplikację warstwy środkowej](#gaining-consent-for-the-middle-tier-application).
 
 ## <a name="middle-tier-access-token-request"></a>Żądanie tokenu dostępu warstwy środkowej
 
@@ -152,10 +151,9 @@ Poniższy przykład przedstawia Pomyślne odpowiedzi na żądanie tokenu dostęp
 }
 ```
 
-> [!NOTE]
-> Powyższy token dostępu jest tokenem w formacie v 1.0 dla Microsoft Graph. Jest to spowodowane tym, że format tokenu jest oparty na **zasobach** , do których uzyskuje się dostęp i które nie są powiązane z punktami końcowymi używanymi do żądania. Microsoft Graph jest skonfigurowany do akceptowania tokenów v 1.0, więc platforma tożsamości firmy Microsoft generuje tokeny dostępu w wersji 1.0, gdy klient żąda tokenów dla Microsoft Graph. Inne aplikacje mogą wskazywać, że chcą mieć tokeny w formacie v 2.0, tokeny w formacie v 1.0, a nawet zastrzeżone lub zaszyfrowane formaty tokenów.  Punkty końcowe v 1.0 i v 2.0 mogą emitować dowolny format tokenu — w ten sposób zasób zawsze uzyskuje odpowiedni format tokenu niezależnie od tego, czy token został żądany przez klienta. 
->
-> Tylko aplikacje powinny przeglądać tokeny dostępu. Klienci **nie muszą** ich sprawdzać. Sprawdzanie tokenów dostępu dla innych aplikacji w kodzie spowoduje nieoczekiwane przerwanie działania aplikacji, gdy aplikacja zmieni format ich tokenów lub zacznie je szyfrować. 
+Powyższy token dostępu jest tokenem w formacie v 1.0 dla Microsoft Graph. Jest to spowodowane tym, że format tokenu jest oparty na **zasobach** , do których uzyskuje się dostęp i które nie są powiązane z punktami końcowymi używanymi do żądania. Microsoft Graph jest skonfigurowany do akceptowania tokenów v 1.0, więc platforma tożsamości firmy Microsoft generuje tokeny dostępu w wersji 1.0, gdy klient żąda tokenów dla Microsoft Graph. Inne aplikacje mogą wskazywać, że chcą mieć tokeny w formacie v 2.0, tokeny w formacie v 1.0, a nawet zastrzeżone lub zaszyfrowane formaty tokenów.  Punkty końcowe v 1.0 i v 2.0 mogą emitować dowolny format tokenu — w ten sposób zasób zawsze uzyskuje odpowiedni format tokenu niezależnie od tego, czy token został żądany przez klienta. 
+
+Tylko aplikacje powinny przeglądać tokeny dostępu. Klienci **nie muszą** ich sprawdzać. Sprawdzanie tokenów dostępu dla innych aplikacji w kodzie spowoduje nieoczekiwane przerwanie działania aplikacji, gdy aplikacja zmieni format ich tokenów lub zacznie je szyfrować. 
 
 ### <a name="error-response-example"></a>Przykład odpowiedzi na błąd
 
@@ -189,8 +187,7 @@ Authorization: Bearer eyJ0eXAiO ... 0X2tnSQLEANnSPHY0gKcgw
 
 Niektóre usługi sieci Web oparte na protokole OAuth muszą uzyskiwać dostęp do innych interfejsów API usługi sieci Web, które akceptują potwierdzenia SAML w nieinteraktywnych przepływach. Azure Active Directory może zapewnić potwierdzenie SAML w odpowiedzi na w imieniu przepływu, który używa usługi sieci Web opartej na protokole SAML jako zasobu docelowego.
 
->[!NOTE]
->Jest to niestandardowe rozszerzenie dla przepływu OAuth 2,0 w imieniu użytkownika, które umożliwia aplikacji opartej na OAuth2 dostęp do punktów końcowych interfejsu API usługi sieci Web, które używają tokenów SAML.
+Jest to niestandardowe rozszerzenie dla przepływu OAuth 2,0 w imieniu użytkownika, które umożliwia aplikacji opartej na OAuth2 dostęp do punktów końcowych interfejsu API usługi sieci Web, które używają tokenów SAML.
 
 > [!TIP]
 > Po wywołaniu usługi sieci Web chronionej przy użyciu protokołu SAML z aplikacji sieci Web frontonu można po prostu wywołać interfejs API i zainicjować normalny przepływ uwierzytelniania interaktywnego za pomocą istniejącej sesji użytkownika. Należy używać przepływu OBO tylko wtedy, gdy wywołanie usługi Service to Service wymaga tokenu języka SAML do zapewnienia kontekstu użytkownika.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/13/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3c0b466a7db688ed3e24441f652f6a1ef1a88ee1
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 5a09a2083c1258a3120f8696aa39a0252dbfcf2d
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98180085"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209698"
 ---
 # <a name="azure-storage-redundancy"></a>Nadmiarowość usługi Azure Storage
 
@@ -97,11 +97,19 @@ Magazyn geograficznie nadmiarowy (GRS) kopiuje dane synchronicznie trzy razy w r
 
 Operacja zapisu jest najpierw zatwierdzana do lokalizacji podstawowej i replikowana przy użyciu LRS. Aktualizacja jest następnie replikowana asynchronicznie do regionu pomocniczego. Gdy dane są zapisywane w lokalizacji dodatkowej, są również replikowane w tej lokalizacji przy użyciu LRS.
 
+Na poniższym diagramie pokazano, jak dane są replikowane przy użyciu GRS lub RA-GRS:
+
+:::image type="content" source="media/storage-redundancy/geo-redundant-storage.png" alt-text="Diagram przedstawiający sposób replikowania danych za pomocą GRS lub RA-GRS":::
+
 ### <a name="geo-zone-redundant-storage"></a>Magazyn geograficznie i strefowo nadmiarowy
 
 Magazyn strefy Geograficznie nadmiarowy (GZRS) łączy wysoką dostępność zapewnianą przez nadmiarowość w strefach dostępności z ochroną od regionalnych awarii zapewnianą przez replikację geograficzną. Dane na koncie magazynu GZRS są kopiowane w trzech [strefach dostępności platformy Azure](../../availability-zones/az-overview.md) w regionie podstawowym, a także replikowane do pomocniczego regionu geograficznego na potrzeby ochrony przed awariami regionalnymi. Firma Microsoft zaleca używanie GZRS dla aplikacji wymagających maksymalnej spójności, trwałości i dostępności, doskonałej wydajności i odporności na odzyskiwanie po awarii.
 
 Za pomocą konta magazynu GZRS można nadal odczytywać i zapisywać dane, jeśli strefa dostępności stanie się niedostępna lub nie można jej odzyskać. Ponadto dane są również trwałe w przypadku kompletnej awarii regionalnej lub awarii, w której region podstawowy nie jest możliwy do odzyskania. GZRS zaprojektowano w celu udostępnienia co najmniej 99.99999999999999% (16 9) trwałości obiektów w danym roku.
+
+Na poniższym diagramie pokazano, jak dane są replikowane przy użyciu GZRS lub RA-GZRS:
+
+:::image type="content" source="media/storage-redundancy/geo-zone-redundant-storage.png" alt-text="Diagram przedstawiający sposób replikowania danych za pomocą GZRS lub RA-GZRS":::
 
 Tylko konta magazynu ogólnego przeznaczenia w wersji 2 obsługują GZRS i RA-GZRS. Aby uzyskać więcej informacji dotyczących typów kont magazynu, zobacz temat [Przegląd konta usługi Azure Storage](storage-account-overview.md). GZRS i RA-GZRS obsługują blokowe obiekty blob, stronicowe obiekty blob (z wyjątkiem dysków VHD), pliki, tabele i kolejki.
 
@@ -189,7 +197,7 @@ Aby uzyskać informacje o cenach dla każdej opcji nadmiarowości, zobacz [Cenni
 
 Usługa Azure Storage regularnie weryfikuje integralność danych przechowywanych przy użyciu cyklicznych testów nadmiarowości (CRCs). Jeśli wykryto uszkodzenie danych, zostanie ono naprawione przy użyciu nadmiarowych danych. Usługa Azure Storage oblicza również sumy kontrolne dla całego ruchu sieciowego w celu wykrycia uszkodzenia pakietów danych podczas przechowywania lub pobierania danych.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Sprawdź Właściwość godzina ostatniej synchronizacji dla konta magazynu](last-sync-time-get.md)
 - [Zmiana opcji nadmiarowości dla konta magazynu](redundancy-migration.md)

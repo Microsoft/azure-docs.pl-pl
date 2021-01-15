@@ -13,12 +13,12 @@ ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1282c27378e6a088a600a3ab3105f3f548984d03
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 7bdb36566d7c501dc5ca5604f8c6963258aa951c
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063148"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208543"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-application"></a>Samouczek: Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph z aplikacji systemu Android
 
@@ -57,8 +57,7 @@ Ten przykład używa biblioteki uwierzytelniania firmy Microsoft dla systemu And
 
 Usługa MSAL automatycznie odnawia tokeny, dostarcza Logowanie jednokrotne między innymi aplikacjami na urządzeniu i zarządza kontami.
 
-> [!NOTE]
-> W tym samouczku przedstawiono uproszczone Przykłady pracy z programem MSAL for Android. Dla uproszczenia używa tylko trybu jednego konta. Aby zapoznać się z bardziej złożonymi scenariuszami, zobacz ukończony [przykładowy kod roboczy](https://github.com/Azure-Samples/ms-identity-android-java/) w witrynie GitHub.
+W tym samouczku przedstawiono uproszczone Przykłady pracy z programem MSAL for Android. Dla uproszczenia używa tylko trybu jednego konta. Aby zapoznać się z bardziej złożonymi scenariuszami, zobacz ukończony [przykładowy kod roboczy](https://github.com/Azure-Samples/ms-identity-android-java/) w witrynie GitHub.
 
 ## <a name="create-a-project"></a>Tworzenie projektu
 Jeśli nie masz jeszcze aplikacji systemu Android, wykonaj następujące kroki, aby skonfigurować nowy projekt.
@@ -85,8 +84,8 @@ Jeśli nie masz jeszcze aplikacji systemu Android, wykonaj następujące kroki, 
 1. Wprowadź nazwę pakietu projektu. Jeśli pobrano kod, ta wartość jest `com.azuresamples.msalandroidapp` .
 1. W sekcji **skrót podpisu** na stronie **Konfigurowanie aplikacji systemu Android** wybierz pozycję **generowanie skrótu sygnatury deweloperskiej.** i skopiuj polecenie Narzędzia klawiaturowego, które ma być używane dla danej platformy.
 
-   > [!Note]
-   > KeyTool.exe jest instalowany jako część zestawu Java Development Kit (JDK). Należy również zainstalować narzędzie OpenSSL, aby wykonać polecenie Narzędzia. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją systemu Android dotyczącą generowania klucza](https://developer.android.com/studio/publish/app-signing#generate-key) .
+
+     KeyTool.exe jest instalowany jako część zestawu Java Development Kit (JDK). Należy również zainstalować narzędzie OpenSSL, aby wykonać polecenie Narzędzia. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją systemu Android dotyczącą generowania klucza](https://developer.android.com/studio/publish/app-signing#generate-key) .
 
 1. Wprowadź **skrót podpisu** wygenerowany przez narzędzie.
 1. Wybierz pozycję **Konfiguruj** i Zapisz **konfigurację MSAL** , która jest wyświetlana na stronie **konfiguracji systemu Android** , aby można ją było wprowadzić podczas późniejszej konfiguracji aplikacji.  
@@ -122,8 +121,7 @@ Jeśli nie masz jeszcze aplikacji systemu Android, wykonaj następujące kroki, 
     }
    ```
 
-   >[!NOTE]
-   >W tym samouczku przedstawiono tylko sposób konfigurowania aplikacji w trybie jednego konta. Zapoznaj się z dokumentacją, aby uzyskać więcej informacji na temat [trybu pojedynczego i wielu kont](./single-multi-account.md) oraz [konfigurowania aplikacji](./msal-configuration.md)
+     W tym samouczku przedstawiono tylko sposób konfigurowania aplikacji w trybie jednego konta. Zapoznaj się z dokumentacją, aby uzyskać więcej informacji na temat [trybu pojedynczego i wielu kont](./single-multi-account.md) oraz [konfigurowania aplikacji](./msal-configuration.md)
 
 4. W oknie  >  **src**  >    >  **AndroidManifest.xml** aplikacji głównej Dodaj `BrowserTabActivity` poniższe działanie do treści aplikacji. Ten wpis umożliwia firmie Microsoft wywoływanie z powrotem do aplikacji po zakończeniu uwierzytelniania:
 
@@ -144,8 +142,11 @@ Jeśli nie masz jeszcze aplikacji systemu Android, wykonaj następujące kroki, 
 
     Zastąp nazwę pakietu zarejestrowanego w Azure Portal dla tej `android:host=` wartości.
     Zastąp skrót klucza zarejestrowany w Azure Portal `android:path=` wartości. Wartość skrótu podpisu **nie** powinna być zakodowana w adresie URL. Upewnij się, że `/` na początku skrótu podpisu występuje wiodąca wartość.
-    >[!NOTE]
-    >"Nazwa pakietu" zostanie zastąpiona wartością, która `android:host` powinna wyglądać podobnie do: "com. azuresamples. msalandroidapp", "skrót podpisu" spowoduje zamienienie `android:path` wartości w następujący sposób: "/1WIqXSqBj7w + h11ZifsnqwgyKrY =" będzie można znaleźć te wartości w bloku uwierzytelniania rejestracji aplikacji. Zwróć uwagę, że identyfikator URI przekierowania będzie wyglądać podobnie do: "msauth://com.azuresamples.msalandroidapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D". Gdy skrót sygnatury jest zakodowany na końcu tej wartości, wartość skrótu podpisu **nie** powinna być zakodowana w adresie URL `android:path` .
+    
+    "Nazwa pakietu" zostanie zastąpiona wartością, która `android:host` powinna wyglądać podobnie do: "com. azuresamples. msalandroidapp".
+    "Skrót podpisu" spowoduje zamienienie wartości w taki sposób, `android:path` aby wyglądał wyglądać podobnie do: "/1wIqXSqBj7w + h11ZifsnqwgyKrY =".
+    
+    Można będzie również znaleźć te wartości w bloku uwierzytelnianie rejestracji aplikacji. Zwróć uwagę, że identyfikator URI przekierowania będzie wyglądać podobnie do: "msauth://com.azuresamples.msalandroidapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D". Gdy skrót sygnatury jest zakodowany na końcu tej wartości, wartość skrótu podpisu **nie** powinna być zakodowana w adresie URL `android:path` .
 
 ## <a name="use-msal"></a>Użyj MSAL
 

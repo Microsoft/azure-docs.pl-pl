@@ -8,12 +8,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/02/2020
-ms.openlocfilehash: 6bc9f69440be772910ea8200b5ccf7d5a5122ae6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9894da7486ec3c0dfb92c94c7c7f4db2247ebeb7
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907796"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210209"
 ---
 # <a name="train-vowpal-wabbit-model"></a>Trenowanie modelu Vowpal Wabbit
 W tym artykule opisano sposób używania modułu **uczenie Vowpal Wabbit** w programie Azure Machine Learning Designer do tworzenia modelu uczenia maszynowego przy użyciu Vowpal Wabbit.  
@@ -22,7 +22,7 @@ Aby użyć Vowpal Wabbit do uczenia maszynowego, sformatuj dane wejściowe zgodn
 
 Po uruchomieniu potoku wystąpienie Vowpal Wabbit jest załadowane do eksperymentu czasu wykonywania, wraz z określonymi danymi. Po zakończeniu szkolenia model jest serializowany z powrotem do obszaru roboczego. Możesz użyć modelu natychmiast do oceny danych. 
 
-Aby stopniowo przeszkolić istniejący model dla nowych danych, podłącz zapisany model do **wstępnie przeszkolonego portu wejściowego modelu Vowpal Wabbit** , **a**następnie Dodaj nowe dane do innego portu wejściowego.  
+Aby stopniowo przeszkolić istniejący model dla nowych danych, podłącz zapisany model do **wstępnie przeszkolonego portu wejściowego modelu Vowpal Wabbit** , **a** następnie Dodaj nowe dane do innego portu wejściowego.  
 
 ## <a name="what-is-vowpal-wabbit"></a>Co to jest Vowpal Wabbit?  
 
@@ -86,8 +86,8 @@ Vowpal Wabbit obsługuje szkolenia przyrostowe przez dodanie nowych danych do is
 1. Dodaj moduł **szkolenia Vowpal Wabbit model** do potoku.  
 2. Połącz wcześniej szkolony model z wstępnie szkolonym portem wejściowym **modelu Vowpal Wabbit** modułu.
 3. Połącz nowe dane szkoleniowe z portem wejściowym **danych szkoleniowych** modułu.
-4. W okienku parametry **modelu uczenie Vowpal Wabbit**Określ format nowych danych szkoleniowych, a także nazwę pliku danych szkoleniowych, jeśli wejściowy zestaw danych jest katalogiem.
-5. Wybierz plik modelu, do którego można odczytać dane wyjściowe * * i **wyjściowe opcje pliku skrótu** , jeśli odpowiednie pliki muszą zostać zapisane w rekordach uruchomieniowych.
+4. W okienku parametry **modelu uczenie Vowpal Wabbit** Określ format nowych danych szkoleniowych, a także nazwę pliku danych szkoleniowych, jeśli wejściowy zestaw danych jest katalogiem.
+5. Wybierz **plik modelu danych wyjściowych do odczytu** i **wyjściowe opcje pliku skrótu odwrócone** , jeśli odpowiednie pliki mają być zapisane w rekordach uruchomieniowych.
 
 6. Prześlij potok.  
 7. Wybierz moduł i wybierz kolejno pozycje **zarejestruj zestaw danych** na karcie dane **wyjściowe + dzienniki** w okienku po prawej stronie, aby zachować zaktualizowany model w obszarze roboczym Azure Machine Learning.  Jeśli nie określisz nowej nazwy, zaktualizowany model zastąpi istniejący zapisany model.
