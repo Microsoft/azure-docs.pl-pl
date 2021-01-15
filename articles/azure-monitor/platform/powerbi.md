@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2019
-ms.openlocfilehash: 53277f64c3d1b03572732157756da1fececbcd43
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 69f00416f180f83c761be5ed444e80903e9fcbb6
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184573"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234447"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Importuj Azure Monitor dane dziennika do Power BI
 
@@ -27,6 +27,9 @@ Aby zaimportować dane z [obszaru roboczego log Analytics](manage-access.md) w A
 
 ## <a name="export-query"></a>Eksportowanie zapytania
 Zacznij od utworzenia [zapytania dziennika](../log-query/log-query-overview.md) , które zwraca dane, które mają zostać wypełnione Power BI zestawu danych.  Następnie należy wyeksportować to zapytanie do [języka Power Query (M)](/powerquery-m/power-query-m-language-specification) , który może być używany przez Power BI Desktop.
+
+> [!WARNING]
+> Należy zachować ostrożność, aby [zoptymalizować zapytanie](../log-query/query-optimization.md) , tak aby nie było zbyt długie, lub może przekroczyć limit czasu. Zanotuj wartość **TimeSpan** w wyeksportowanym zapytaniu, która określa przedział czasu, w którym dane będą pobierane przez zapytanie. Użyj najmniejszego przedziału czasu wymaganego do ograniczenia ilości danych zwracanych przez zapytanie.
 
 1. [Utwórz zapytanie dziennika w log Analytics](../log-query/log-analytics-tutorial.md) , aby wyodrębnić dane dla zestawu danych.
 2. Wybierz pozycję **Eksportuj**  >  **Power BI zapytanie (M)**.  Spowoduje to wyeksportowanie zapytania do pliku tekstowego o nazwie **PowerBIQuery.txt**. 

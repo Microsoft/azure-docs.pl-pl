@@ -3,14 +3,14 @@ title: Renderowanie aplikacji
 description: Możliwe jest korzystanie z aplikacji do renderowania z Azure Batch. Jednak obrazy maszyn wirtualnych portalu Azure Marketplace są dostępne ze wstępnie zainstalowanymi aplikacjami.
 ms.date: 09/19/2019
 ms.topic: how-to
-ms.openlocfilehash: f876671c6ac16137c2c1cf8d40bd70860c06975b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4eefa287575d68acccb2697e1d262c7e48dab62
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85960490"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234413"
 ---
-# <a name="pre-installed-applications-on-rendering-vm-images"></a>Wstępnie zainstalowane aplikacje do renderowania obrazów maszyn wirtualnych
+# <a name="pre-installed-applications-on-batch-rendering-vm-images"></a>Wstępnie zainstalowane aplikacje do renderowania wsadowego obrazów maszyn wirtualnych
 
 Możliwe jest korzystanie z aplikacji do renderowania z Azure Batch. Jednak obrazy maszyn wirtualnych portalu Azure Marketplace są dostępne ze wstępnie zainstalowanymi aplikacjami.
 
@@ -87,4 +87,4 @@ Poniższa lista ma zastosowanie do systemu Windows Server 2016, w wersji 1.3.7 i
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby można było użyć renderowania obrazów maszyn wirtualnych, muszą one być określone w konfiguracji puli podczas tworzenia puli; Zapoznaj się z [możliwościami renderowania puli usługi Batch](./batch-rendering-functionality.md#batch-pools).
+Aby można było użyć renderowania obrazów maszyn wirtualnych, muszą one być określone w konfiguracji puli podczas tworzenia puli; Zapoznaj się z [możliwościami renderowania puli usługi Batch](./batch-rendering-functionality.md).

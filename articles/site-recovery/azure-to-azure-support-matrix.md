@@ -4,12 +4,12 @@ description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych pla
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: 9670178a9c9d772d8966413371f998aa1f0cf5f3
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: e2cbea433d56d4c1290a5d1cdc54b56e81b4cd73
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968307"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234328"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Macierz obsługi odzyskiwania po awarii maszyny wirtualnej platformy Azure między regionami platformy Azure
 
@@ -233,6 +233,7 @@ Dysk SSD w warstwie Standardowa | Obsługiwane |
 Nadmiarowość | Obsługiwane są LRS i GRS.<br/><br/> ZRS nie jest obsługiwana.
 Chłodna i gorąca pamięć masowa | Nieobsługiwane | Dyski maszyn wirtualnych nie są obsługiwane w chłodnym i gorącym magazynie
 Miejsca do magazynowania | Obsługiwane |
+Interfejs magazynu interfejsu NVMe | Nieobsługiwane
 Szyfrowanie w spoczynku (SSE) | Obsługiwane | Funkcja SSE jest domyślnym ustawieniem na kontach magazynu.
 Szyfrowanie w spoczynku (CMK) | Obsługiwane | Obsługiwane są zarówno oprogramowanie, jak i klucze HSM dla dysków zarządzanych
 Podwójne szyfrowanie w spoczynku | Obsługiwane | Dowiedz się więcej na temat obsługiwanych regionów dla [systemów Windows](../virtual-machines/disk-encryption.md) i [Linux](../virtual-machines/disk-encryption.md)
