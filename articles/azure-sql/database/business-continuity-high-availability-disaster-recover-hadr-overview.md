@@ -13,12 +13,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: eedc3dc1422d4eb6dcce80766077e8056f8509cf
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 7bd991bd709bb4be69325afe967d7e5600a9e1a4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678038"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222568"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Omówienie zagadnień dotyczących ciągłości działalności biznesowej zapewnianej przez usługę Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -48,7 +48,7 @@ Wystąpienia zarządzane SQL Database i SQL oferują również kilka funkcji ci�
 
 - [Tabele danych czasowych](../temporal-tables.md) umożliwiają przywrócenie wersji wiersza z dowolnego punktu w czasie.
 - [Wbudowane automatyczne kopie zapasowe](automated-backups-overview.md) i [przywracanie do punktu w czasie](recovery-using-backups.md#point-in-time-restore) umożliwiają przywrócenie kompletnej bazy danych do pewnego momentu w skonfigurowanym okresie przechowywania do 35 dni.
-- [Usuniętą bazę danych można przywrócić](recovery-using-backups.md#deleted-database-restore) do punktu, w którym został usunięty, jeśli **serwer nie został usunięty** .
+- [Usuniętą bazę danych można przywrócić](recovery-using-backups.md#deleted-database-restore) do punktu, w którym został usunięty, jeśli **serwer nie został usunięty**.
 - [Długoterminowe przechowywanie kopii zapasowych](long-term-retention-overview.md) umożliwia przechowywanie kopii zapasowych do 10 lat. Jest to w ograniczonej publicznej wersji zapoznawczej wystąpienia zarządzanego SQL
 - [Aktywna replikacja geograficzna](active-geo-replication-overview.md) pozwala na tworzenie replik z możliwością odczytu i ręczne przełączenie w tryb failover do dowolnej repliki w przypadku awarii centrum danych lub uaktualnienia aplikacji.
 - [Automatyczna Grupa trybu failover](auto-failover-group-overview.md#terminology-and-capabilities) umożliwia aplikacji automatyczne odzyskiwanie w przypadku awarii centrum danych.

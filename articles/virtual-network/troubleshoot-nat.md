@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/20/2020
 ms.author: allensu
-ms.openlocfilehash: 690543ebc91e346e77509fbf993493f6978374ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70410e58acb30c7694e6fe4a6dcaff57bee98607
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836109"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223435"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Rozwiązywanie problemów z łącznością NAT na platformie Azure Virtual Network
 
@@ -68,10 +68,10 @@ _**Rozwiązanie:**_ Korzystanie z odpowiednich wzorców i najlepszych rozwiąza�
 Układ wydechowy można także wzmocnić z innymi antywzorcem w aplikacji źródłowej. Zapoznaj się z tymi dodatkowymi wzorcami i najlepszymi rozwiązaniami, aby zwiększyć skalowalność i niezawodność usługi.
 
 - Zbadaj wpływ zmniejszenia [limitu czasu bezczynności protokołu TCP](nat-gateway-resource.md#timers) na niższe wartości, łącznie z domyślnym limitem czasu bezczynności wynoszącym 4 minuty, aby zwolnić wcześniej spis portów.
-- Należy rozważyć [asynchroniczne wzorce sondowania](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply) dla długotrwałych operacji w celu zwolnienia zasobów połączenia dla innych operacji.
+- Należy rozważyć [asynchroniczne wzorce sondowania](/azure/architecture/patterns/async-request-reply) dla długotrwałych operacji w celu zwolnienia zasobów połączenia dla innych operacji.
 - Przepływy długotrwałe (na przykład ponowne użycie połączeń TCP) powinny korzystać z utrzymywania aktywności protokołu TCP lub warstwy aplikacji, aby uniknąć przekroczenia limitu czasu w systemach pośrednich. Zwiększenie limitu czasu bezczynności jest ostatnim etapem i może nie rozpoznać głównej przyczyny. Długi limit czasu może powodować błędy niskiej szybkości, gdy limit czasu wygasa i wprowadza opóźnienie i niepotrzebne błędy.
-- [Wzorce ponowień](https://docs.microsoft.com/azure/architecture/patterns/retry) należy stosować, aby uniknąć agresywnych ponownych prób/serii podczas przejściowej awarii lub odzyskiwania po awarii.
-Tworzenie nowego połączenia TCP dla każdej operacji HTTP (nazywanej również "połączeniami niepodzielnymi") jest antywzorcem.  Połączenia niepodzielne uniemożliwią aplikacji również skalowanie zasobów.  Zawsze potoku wiele operacji w ramach tego samego połączenia.  Twoja aplikacja będzie korzystać z szybkości transakcji i kosztów zasobów.  Gdy aplikacja korzysta z szyfrowania warstwy transportowej (na przykład TLS), istnieje znaczący koszt związany z przetwarzaniem nowych połączeń.  Zapoznaj się ze [wzorcami projektowymi chmury platformy Azure](https://docs.microsoft.com/azure/architecture/patterns/) , aby uzyskać dodatkowe wzorce najlepszych rozwiązań.
+- [Wzorce ponowień](/azure/architecture/patterns/retry) należy stosować, aby uniknąć agresywnych ponownych prób/serii podczas przejściowej awarii lub odzyskiwania po awarii.
+Tworzenie nowego połączenia TCP dla każdej operacji HTTP (nazywanej również "połączeniami niepodzielnymi") jest antywzorcem.  Połączenia niepodzielne uniemożliwią aplikacji również skalowanie zasobów.  Zawsze potoku wiele operacji w ramach tego samego połączenia.  Twoja aplikacja będzie korzystać z szybkości transakcji i kosztów zasobów.  Gdy aplikacja korzysta z szyfrowania warstwy transportowej (na przykład TLS), istnieje znaczący koszt związany z przetwarzaniem nowych połączeń.  Zapoznaj się ze [wzorcami projektowymi chmury platformy Azure](/azure/architecture/patterns/) , aby uzyskać dodatkowe wzorce najlepszych rozwiązań.
 
 #### <a name="additional-possible-mitigations"></a>Dodatkowe możliwe środki zaradcze
 
@@ -96,7 +96,7 @@ W poniższej tabeli można użyć punktu wyjścia, dla którego narzędzia do ur
 | System operacyjny | Ogólny test połączenia TCP | Test warstwy aplikacji TCP | UDP |
 |---|---|---|---|
 | Linux | NC (ogólny test połączenia) | zwinięcie (test warstwy aplikacji TCP) | specyficzne dla aplikacji |
-| Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | Wywołanie programu PowerShell [— żądanie WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) | specyficzne dla aplikacji |
+| Windows | [PsPing](/sysinternals/downloads/psping) | Wywołanie programu PowerShell [— żądanie WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) | specyficzne dla aplikacji |
 
 ### <a name="connectivity-failures"></a>Błędy łączności
 
@@ -113,7 +113,7 @@ Użyj narzędzi, takich jak następujące, aby sprawdzić poprawność łączno�
 | System operacyjny | Ogólny test połączenia TCP | Test warstwy aplikacji TCP | UDP |
 |---|---|---|---|
 | Linux | NC (ogólny test połączenia) | zwinięcie (test warstwy aplikacji TCP) | specyficzne dla aplikacji |
-| Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | Wywołanie programu PowerShell [— żądanie WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) | specyficzne dla aplikacji |
+| Windows | [PsPing](/sysinternals/downloads/psping) | Wywołanie programu PowerShell [— żądanie WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) | specyficzne dla aplikacji |
 
 #### <a name="configuration"></a>Konfiguracja
 
@@ -202,4 +202,3 @@ Jeśli nadal występują problemy, otwórz sprawę pomocy technicznej, aby uzysk
 * Informacje o [zasobie bramy translatora adresów sieciowych](nat-gateway-resource.md)
 * Informacje o [metrykach i alertach dotyczących zasobów bramy translatora adresów sieciowych](nat-metrics.md).
 * [Powiedz nam, co należy utworzyć obok Virtual Network translatora adresów sieciowych w usłudze UserVoice](https://aka.ms/natuservoice).
-

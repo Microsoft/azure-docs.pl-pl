@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc, devx-track-csharp
 manager: philmea
-ms.openlocfilehash: f6c8272f736e2f83b4d33f3d61ce83356aa40e5d
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: c79367ca8cf9e4a4884c829c675d794b2e734737
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126760"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220270"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Rozszerzanie usługi Azure IoT Central o niestandardowe reguły przy użyciu usług Stream Analytics, Azure Functions i SendGrid
 
@@ -46,7 +46,7 @@ Utwórz aplikację IoT Central w witrynie programu [Azure IoT Central Applicatio
 | Adres URL | Zaakceptuj domyślny lub wybierz własny unikatowy prefiks adresu URL |
 | Katalog | Dzierżawa Azure Active Directory |
 | Subskrypcja platformy Azure | Twoja subskrypcja platformy Azure |
-| Region | Najbliższy region |
+| Region (Region) | Najbliższy region |
 
 Przykłady i zrzuty ekranu w tym artykule używają regionu **Stany Zjednoczone** . Wybierz lokalizację blisko siebie i upewnij się, że wszystkie zasoby zostały utworzone w tym samym regionie.
 
@@ -63,7 +63,7 @@ Użyj [Azure Portal, aby utworzyć przestrzeń nazw Event Hubs](https://portal.a
 | Ustawienie | Wartość |
 | ------- | ----- |
 | Nazwa    | Wybierz nazwę przestrzeni nazw |
-| Warstwa cenowa | Podstawowy |
+| Warstwa cenowa | Podstawowe |
 | Subskrypcja | Twoja subskrypcja |
 | Grupa zasobów | DetectStoppedDevices |
 | Lokalizacja | Wschodnie stany USA |
@@ -119,7 +119,7 @@ Po utworzeniu wszystkich wymaganych zasobów Grupa zasobów **DetectStoppedDevic
 Można skonfigurować aplikację IoT Central, aby ciągle eksportować dane telemetryczne do centrum zdarzeń. W tej sekcji utworzysz centrum zdarzeń, aby odbierać dane telemetryczne z aplikacji IoT Central. Centrum zdarzeń dostarcza dane telemetryczne do zadania Stream Analytics do przetworzenia.
 
 1. W Azure Portal przejdź do przestrzeni nazw Event Hubs i wybierz pozycję **+ centrum zdarzeń**.
-1. Nazwij **centralexport**centrum zdarzeń, a następnie wybierz pozycję **Utwórz**.
+1. Nazwij **centralexport** centrum zdarzeń, a następnie wybierz pozycję **Utwórz**.
 
 Przestrzeń nazw Event Hubs wygląda następująco:
 
@@ -157,7 +157,7 @@ Aby wysyłać wiadomości e-mail za pomocą usługi SendGrid, należy skonfiguro
 1. Wybierz pozycję **integracja**, wybierz wyjściowy **protokół http ($Return)**, a następnie wybierz pozycję **Usuń**.
 1. Wybierz pozycję **+ nowe dane wyjściowe**, a następnie wybierz pozycję **SendGrid**, a następnie wybierz **pozycję Wybierz**. Wybierz pozycję **Zainstaluj** , aby zainstalować rozszerzenie SendGrid.
 1. Po zakończeniu instalacji wybierz opcję **Użyj zwracanej wartości funkcji**. Dodaj prawidłowy **adres** do odbierania powiadomień e-mail.  Dodaj prawidłowy **adres od** do użycia jako nadawca wiadomości e-mail.
-1. Wybierz pozycję **Nowy** obok **Ustawienia aplikacji klucz interfejsu API SendGrid**. Wprowadź **SendGridAPIKey** jako klucz i klucz interfejsu API SendGrid zanotowany wcześniej jako wartość. Następnie wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Nowy** obok **Ustawienia aplikacji klucz interfejsu API SendGrid**. Wprowadź **SendGridAPIKey** jako klucz i klucz interfejsu API SendGrid zanotowany wcześniej jako wartość. Następnie wybierz pozycję **Utwórz**.
 1. Wybierz pozycję **Zapisz** , aby zapisać powiązania SendGrid dla funkcji.
 
 Ustawienia integracji są podobne do poniższego zrzutu ekranu:
@@ -249,7 +249,7 @@ To rozwiązanie używa zapytania Stream Analytics w celu wykrycia, kiedy urządz
     | Przestrzeń nazw centrum zdarzeń | Przestrzeń nazw centrum zdarzeń |
     | Nazwa centrum zdarzeń | Użyj istniejącego — **centralexport** |
 
-1. W obszarze **topologia zadania**wybierz pozycję dane **wyjściowe**, wybierz pozycję **+ Dodaj**, a następnie wybierz pozycję **Funkcja platformy Azure**.
+1. W obszarze **topologia zadania** wybierz pozycję dane **wyjściowe**, wybierz pozycję **+ Dodaj**, a następnie wybierz pozycję **Funkcja platformy Azure**.
 1. Skorzystaj z informacji podanych w poniższej tabeli, aby skonfigurować dane wyjściowe, a następnie wybierz pozycję **Zapisz**:
 
     | Ustawienie | Wartość |
@@ -259,7 +259,7 @@ To rozwiązanie używa zapytania Stream Analytics w celu wykrycia, kiedy urządz
     | Aplikacja funkcji | Aplikacja funkcji |
     | Funkcja  | HttpTrigger1 |
 
-1. W obszarze **topologia zadania**wybierz pozycję **zapytanie** i Zastąp istniejące zapytanie następującym SQL:
+1. W obszarze **topologia zadania** wybierz pozycję **zapytanie** i Zastąp istniejące zapytanie następującym SQL:
 
     ```sql
     with
@@ -301,7 +301,7 @@ To rozwiązanie używa zapytania Stream Analytics w celu wykrycia, kiedy urządz
     ```
 
 1. Wybierz pozycję **Zapisz**.
-1. Aby uruchomić zadanie Stream Analytics, wybierz pozycję **Przegląd**, a **Start**następnie pozycję Rozpocznij **, a następnie**pozycję **Rozpocznij**:
+1. Aby uruchomić zadanie Stream Analytics, wybierz pozycję **Przegląd**, a następnie pozycję Rozpocznij **, a następnie** pozycję **Rozpocznij**:
 
     ![Stream Analytics](media/howto-create-custom-rules/stream-analytics.png)
 
@@ -319,7 +319,7 @@ W witrynie sieci Web programu [Azure IoT Central Application Manager](https://ak
     | Przestrzeń nazw usługi Event Hubs | Nazwa przestrzeni nazw Event Hubs |
     | Centrum zdarzeń | centralexport |
     | Miary | Włączone |
-    | Urządzenia | Wyłączone |
+    | Devices | Wyłączone |
     | Szablony urządzeń | Wyłączone |
 
 ![Ciągła konfiguracja eksportu danych](media/howto-create-custom-rules/cde-configuration.png)

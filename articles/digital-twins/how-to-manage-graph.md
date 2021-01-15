@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: dd5197f99f7187e21eb466bfa213f68a7638e24d
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 54001cde76bd89305eb77544c6e6858defda6096
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045346"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222551"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Zarządzanie grafem cyfrowego bliźniaczych reprezentacji przy użyciu relacji
 
@@ -34,7 +34,7 @@ Możesz również wprowadzać zmiany w grafie przy użyciu przykładu Eksplorato
 
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
-## <a name="create-relationships"></a>Utwórz relacje
+## <a name="create-relationships"></a>Tworzenie relacji
 
 Relacje opisują sposób, w jaki różne bliźniaczych reprezentacji cyfrowe są połączone ze sobą, które stanowią podstawę grafu sznurka.
 
@@ -157,7 +157,7 @@ Oto dane wyjściowe konsoli powyższego programu:
 > [!TIP]
 > Wykres bliźniaczy jest koncepcją tworzenia relacji między bliźniaczych reprezentacji. Jeśli chcesz wyświetlić wizualną reprezentację grafu bliźniaczyego, zobacz sekcję [*wizualizacje*](how-to-manage-graph.md#visualization) w tym artykule. 
 
-### <a name="create-a-twin-graph-from-a-csv-file"></a>Tworzenie wykresu dwuosiowego na podstawie pliku CSV
+## <a name="create-graph-from-a-csv-file"></a>Utwórz wykres z pliku CSV
 
 W praktyce przypadki użycia hierarchie bliźniaczych są często tworzone na podstawie danych przechowywanych w innej bazie danych lub w arkuszu kalkulacyjnym lub pliku CSV. W tej sekcji przedstawiono sposób odczytywania danych z pliku CSV i tworzenia wykresu dwuosiowego.
 

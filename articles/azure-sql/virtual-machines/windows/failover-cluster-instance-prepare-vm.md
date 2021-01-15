@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 52d6bc97245423a4add392ab05634d21bcf83a0d
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 1b8d88167dac6b2d0b1ba2afc90c443fd80b9e46
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358014"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223163"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Przygotowywanie maszyn wirtualnych do FCI (SQL Server na maszynach wirtualnych platformy Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -68,7 +68,7 @@ W klastrze trybu failover gościa maszyny wirtualnej platformy Azure zalecamy ko
 Umieść obie maszyny wirtualne:
 
 - W tej samej grupie zasobów platformy Azure, w której znajduje się zestaw dostępności, jeśli używasz zestawów dostępności.
-- W tej samej sieci wirtualnej co kontroler domeny.
+- W tej samej sieci wirtualnej co kontroler domeny lub w sieci wirtualnej, która ma odpowiednią łączność z kontrolerem domeny.
 - W podsieci, która ma wystarczającą przestrzeń adresową IP dla maszyn wirtualnych i wszystkich FCIs, które mogą być używane w klastrze.
 - W obszarze zestaw dostępności platformy Azure lub strefa dostępności.
 

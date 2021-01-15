@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 09/09/2020
-ms.openlocfilehash: 52b9a67ee8c11011ea04f7414a3d978f5860c0ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 698e65c4b982c5d639ffc666b394765fd04bd202
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708071"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222466"
 ---
 # <a name="commercial-marketplace-policies-and-terms"></a>Zasady i warunki komercyjnej platformy handlowej
 
@@ -27,9 +27,8 @@ Oferty na komercyjnej platformie Marketplace muszą być zgodne z naszymi zasada
 
 - [Zasady certyfikacji komercyjnej platformy handlowej](/legal/marketplace/certification-policies?context=/azure/marketplace/context/context)
 - [Zasady przeglądu Microsoft AppSource i portalu Azure Marketplace](/legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context)
-- [Azure Marketplace — zasady udziału](/legal/marketplace/participation-policy?context=/azure/marketplace/context/context)
 - [Warunki witryny Azure Marketplace](/legal/marketplace/terms?context=/azure/marketplace/context/context)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Co to jest komercyjne oprogramowanie Microsoft Marketplace?](overview.md)
+- [Co to jest komercyjna platforma handlowa firmy Microsoft?](overview.md)

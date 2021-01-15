@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: deb1f74902fe28d53a5180e4f341547f339a83ac
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: d0a082149d85736000b5bb6a91e2fc7132205a88
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741988"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220290"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planowanie i wdrażanie lokalnej Azure Active Directory ochrony hasłem
 
@@ -99,7 +99,7 @@ Obowiązują następujące podstawowe wymagania:
 
 Następujące wymagania dotyczą agenta DC ochrony hasłem usługi Azure AD:
 
-* Na wszystkich maszynach, na których zostanie zainstalowane oprogramowanie agenta DC ochrony hasłem usługi Azure AD, musi działać system Windows Server 2012 lub nowszy.
+* Na wszystkich maszynach, na których zostanie zainstalowane oprogramowanie agenta DC ochrony hasłem usługi Azure AD, musi działać system Windows Server 2012 lub nowszy, w tym wersje systemu Windows Server Core.
     * Domena lub las Active Directory nie musi być na poziomie funkcjonalności domeny systemu Windows Server 2012 lub poziomu funkcjonalności lasu (FFL). Jak wspomniano w [zasadach projektowania](concept-password-ban-bad-on-premises.md#design-principles), nie ma minimalnych DFL lub FFL wymaganych do uruchomienia agenta lub oprogramowania serwera proxy.
 * Na wszystkich maszynach z uruchomionym agentem usługi Azure AD Password Protection musi być zainstalowany program .NET 4,5.
 * Wszystkie domeny Active Directory z uruchomioną usługą agenta DC ochrony hasłem usługi Azure AD muszą używać replikacji rozproszony system plików (DFSR) do replikacji folderu SYSVOL.
@@ -116,7 +116,7 @@ Następujące wymagania dotyczą agenta DC ochrony hasłem usługi Azure AD:
 
 Poniższe wymagania dotyczą usługi proxy ochrony hasłem w usłudze Azure AD:
 
-* Na wszystkich maszynach, na których zostanie zainstalowana usługa serwera proxy ochrony haseł usługi Azure AD, musi działać system Windows Server 2012 R2 lub nowszy.
+* Na wszystkich maszynach, na których zostanie zainstalowana usługa serwera proxy ochrony haseł usługi Azure AD, musi działać system Windows Server 2012 R2 lub nowszy, w tym wersje systemu Windows Server Core.
 
     > [!NOTE]
     > Wdrożenie usługi serwera proxy ochrony hasłem w usłudze Azure AD jest wymaganym warunkiem wdrożenia ochrony hasłem usługi Azure AD, mimo że kontroler domeny może mieć bezpośrednią łączność z Internetem.

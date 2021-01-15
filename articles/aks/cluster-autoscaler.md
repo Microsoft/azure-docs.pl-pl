@@ -4,12 +4,12 @@ description: Dowiedz się, jak za pomocą automatycznego skalowania klastra auto
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: e644a931152c83a5232c8233d519f7807ab708af
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5f0754638be1aa29672b6a59218a6c9d695261a5
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542645"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223146"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Automatyczne skalowanie klastra w celu spełnienia wymagań aplikacji w usłudze Azure Kubernetes Service (AKS)
 
@@ -97,7 +97,7 @@ Zaktualizowanie klastra i skonfigurowanie ustawień automatycznego skalowania kl
 > [!IMPORTANT]
 > Jeśli masz wiele pul węzłów w klastrze AKS, przejdź do [sekcji Automatyczne skalowanie z wieloma pulami agentów](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled). Klastry z wieloma pulami agentów wymagają użycia `az aks nodepool` zestawu poleceń, aby zmienić właściwości specyficzne dla puli węzłów zamiast `az aks` .
 
-W poprzednim kroku, aby utworzyć klaster AKS lub zaktualizować istniejącą pulę węzłów, minimalna liczba węzłów w ramach automatycznego skalowania klastra została ustawiona na *1* , a maksymalna liczba węzłów została ustawiona na wartość *3* . Gdy aplikacja wymaga zmiany, może być konieczne dostosowanie liczby węzłów automatycznego skalowania klastra.
+W poprzednim kroku, aby utworzyć klaster AKS lub zaktualizować istniejącą pulę węzłów, minimalna liczba węzłów w ramach automatycznego skalowania klastra została ustawiona na *1*, a maksymalna liczba węzłów została ustawiona na wartość *3*. Gdy aplikacja wymaga zmiany, może być konieczne dostosowanie liczby węzłów automatycznego skalowania klastra.
 
 Aby zmienić liczbę węzłów, użyj polecenia [AZ AKS Update][az-aks-update] .
 
@@ -130,14 +130,15 @@ Możesz również skonfigurować bardziej szczegółowe szczegóły automatyczne
 | skalowanie w dół — niepotrzebny czas         | Jak długo węzeł powinien być niepotrzebny, zanim będzie można go przystąpić do skalowania w dół                  | 10 minut    |
 | skalowanie w dół-czas nieczytelny          | Jak długo węzeł nieczytelny powinien być niepotrzebny, zanim będzie uprawniony do skalowania w dół         | 20 minut    |
 | skalowanie w dół — próg użycia | Poziom użycia węzła zdefiniowany jako suma żądanych zasobów podzielona przez pojemność, poniżej którego węzeł może być brany pod uwagę dla skalowania w dół | 0,5 |
-| maks-bezpiecznie-zakończenie-s     | Maksymalna liczba sekund, przez jaką automatyczne skalowanie klastra czeka na zakończenie podczas próby skalowania w dół węzła. | 600 sekund   |
+| maks-bezpiecznie-zakończenie-s     | Maksymalna liczba sekund, przez jaką automatyczne skalowanie klastra czeka na zakończenie podczas próby skalowania w dół węzła | 600 sekund   |
 | równowaga — podobne-grupy węzłów      | Wykrywa podobne pule węzłów i równoważy liczbę węzłów między nimi                 | fałsz         |
-| rozdzielacz                         | Typ [ekspandera](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) puli węzłów, który ma być używany na potrzeby skalowania w górę. Możliwe wartości: `most-pods` , `random` , `least-waste` | losowo | 
+| rozdzielacz                         | Typ [ekspandera](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) puli węzłów, który ma być używany na potrzeby skalowania w górę. Możliwe wartości: `most-pods` , `random` , `least-waste` , `priority` | losowo | 
 | Pomiń węzły z magazynem lokalnym    | Jeśli prawdziwe automatyczne skalowanie klastra nigdy nie spowoduje usunięcia węzłów z magazynem lokalnym, na przykład EmptyDir lub HostPath | true |
 | Skip-nodes-with-system-Binding      | Jeśli prawdziwe automatyczne skalowanie klastra nigdy nie spowoduje usunięcia węzłów z systemami polecenia (z wyjątkiem elementu daemonset lub dublowanych zasobników) | true | 
-| Max-Empty-Bulk-Delete            | Maksymalna liczba pustych węzłów, które można usunąć w tym samym czasie.                      | 10 węzłów      |
-| nowe — pod kątem skalowania w górę           | W przypadku scenariuszy, takich jak skalowanie serii/partii, gdzie nie chcesz, aby Urząd certyfikacji działał przed zaplanowaniem usługi Kubernetes w harmonogramie, możesz poinformować urząd certyfikacji, aby ignorował niezaplanowanych zasobników przed upływem pewnego wieku.                                                                                                                | 10 sekund    |
-| maks — suma-nieczytelność — procent     | Maksymalna wartość procentowa nieczytelnych węzłów w klastrze. Po przekroczeniu tego procentu urząd certyfikacji zatrzymuje operacje | 45% | 
+| Max-Empty-Bulk-Delete            | Maksymalna liczba pustych węzłów, które można usunąć w tym samym czasie                       | 10 węzłów      |
+| nowe — pod kątem skalowania w górę           | W przypadku scenariuszy, takich jak skalowanie serii/partii, gdzie nie chcesz, aby Urząd certyfikacji działał przed zaplanowaniem usługi Kubernetes w harmonogramie, możesz poinformować urząd certyfikacji o konieczności ignorowania nieplanowanych planów przed upływem pewnego wieku.                                                                                                                | 0 sekund    |
+| maks — suma-nieczytelność — procent     | Maksymalna wartość procentowa nieczytelnych węzłów w klastrze. Po przekroczeniu tego procentu urząd certyfikacji zatrzymuje operacje | 45% |
+| Maksymalna liczba węzłów — czas udostępniania          | Maksymalny czas oczekiwania autoskalowania dla węzła, który ma zostać zainicjowany                           | 15 minut    |   
 | OK — całkowita liczba odczytów           | Liczba dozwolonych nieczytelnych węzłów, niezależnie od Max-Total-PERCENTAGE            | 3 węzły       |
 
 > [!IMPORTANT]
@@ -249,7 +250,7 @@ Aby dowiedzieć się więcej na temat tego, co jest rejestrowane w ramach automa
 
 Automatyczne skalowanie klastra może być używane razem z włączonymi [wieloma pulami węzłów][aks-multiple-node-pools] . Postępuj zgodnie z tym dokumentem, aby dowiedzieć się, jak włączyć wiele pul węzłów i dodać dodatkowe pule węzłów do istniejącego klastra. W przypadku korzystania z obu funkcji jednocześnie należy włączyć automatyczne skalowanie klastra dla każdej puli poszczególnych węzłów w klastrze i przekazywać unikatowe reguły automatycznego skalowania do każdego z nich.
 
-W poniższym poleceniu założono, że wykonano [instrukcje wstępne](#create-an-aks-cluster-and-enable-the-cluster-autoscaler) we wcześniejszej części tego dokumentu, a użytkownik chce zaktualizować maksymalną liczbę węzłów z zakresu od *3* do *5* . Użyj polecenia [AZ AKS nodepool Update][az-aks-nodepool-update] , aby zaktualizować ustawienia istniejącej puli węzłów.
+W poniższym poleceniu założono, że wykonano [instrukcje wstępne](#create-an-aks-cluster-and-enable-the-cluster-autoscaler) we wcześniejszej części tego dokumentu, a użytkownik chce zaktualizować maksymalną liczbę węzłów z zakresu od *3* do *5*. Użyj polecenia [AZ AKS nodepool Update][az-aks-nodepool-update] , aby zaktualizować ustawienia istniejącej puli węzłów.
 
 ```azurecli-interactive
 az aks nodepool update \

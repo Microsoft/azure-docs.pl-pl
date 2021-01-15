@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/29/2020
 ms.author: allensu
-ms.openlocfilehash: 53dd6d2dda762b3cbf53f4aaec6cd3692a9656e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d98107075c215c0a00bc2035325a6ad8bf5bfc5
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87432577"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222432"
 ---
 # <a name="public-ip-address-prefix"></a>Prefiks publicznego adresu IP
 
 Prefiks publicznego adresu IP jest zarezerwowanym zakresem adresów IP na platformie Azure. Platforma Azure zapewnia ciągły zakres adresów dla Twojej subskrypcji w zależności od tego, ile określisz. 
 
-Jeśli nie znasz adresów publicznych, zobacz [publiczne adresy IP.](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
+Jeśli nie znasz adresów publicznych, zobacz [publiczne adresy IP.](./public-ip-addresses.md#public-ip-addresses)
 
 Publiczne adresy IP są przypisywane z puli adresów w każdym regionie świadczenia usługi Azure. Listę zakresów używanych przez platformę Azure można [pobrać](https://www.microsoft.com/download/details.aspx?id=56519) dla każdego regionu. Na przykład 40.121.0.0/16 jest jednym z ponad 100 zakresów platformy Azure używanych w regionie Wschodnie stany USA. Zakres obejmuje użyteczne adresy 40.121.0.1-40.121.255.254.
 
@@ -68,9 +68,9 @@ Można skojarzyć następujące zasoby ze statycznym publicznym adresem IP z pre
 ## <a name="constraints"></a>Ograniczenia
 
 - Nie można określić adresów IP dla prefiksu. Platforma Azure udostępnia adresy IP dla prefiksu na podstawie określonego rozmiaru.
-- Można domyślnie utworzyć prefiks do 16 adresów IP lub/28. Przejrzyj [limity dotyczące sieci](https://docs.microsoft.com/azure/azure-portal/supportability/networking-quota-requests) , aby uzyskać więcej informacji, Zwiększ liczbę żądań i [limity platformy Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) .
+- Można domyślnie utworzyć prefiks do 16 adresów IP lub/28. Przejrzyj [limity dotyczące sieci](../azure-portal/supportability/networking-quota-requests.md) , aby uzyskać więcej informacji, Zwiększ liczbę żądań i [limity platformy Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) .
 - Nie można zmienić zakresu, po utworzeniu prefiksu.
-- Z zakresu prefiksu można przypisać tylko statyczne publiczne adresy IP utworzone przy użyciu standardowej jednostki SKU. Aby dowiedzieć się więcej o jednostkach SKU publicznych adresów IP, zobacz [publiczny adres IP](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
+- Z zakresu prefiksu można przypisać tylko statyczne publiczne adresy IP utworzone przy użyciu standardowej jednostki SKU. Aby dowiedzieć się więcej o jednostkach SKU publicznych adresów IP, zobacz [publiczny adres IP](./public-ip-addresses.md#public-ip-addresses).
 - Adresy z zakresu można przypisywać tylko do zasobów Azure Resource Manager. Nie można przypisywać adresów do zasobów w klasycznym modelu wdrażania.
 - Wszystkie publiczne adresy IP utworzone na podstawie prefiksu muszą istnieć w tym samym regionie i subskrypcji platformy Azure co prefiks. Adresy muszą być przypisane do zasobów w tym samym regionie i w ramach subskrypcji.
 - Nie można usunąć prefiksu, jeśli wszystkie znajdujące się w nim adresy są przypisane do zasobów publicznych adresów IP skojarzonych z zasobem. Usuń skojarzenie wszystkich zasobów publicznego adresu IP, które mają najpierw przypisane adresy IP od prefiksu.

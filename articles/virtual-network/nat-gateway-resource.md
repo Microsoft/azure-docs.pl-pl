@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: allensu
-ms.openlocfilehash: 62c1b323899f03a043904f4b10d5fe3bb551e0f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4ef8e6207d53a192b19f8343a60093e82368fa6
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441758"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223384"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Projektowanie sieci wirtualnych z użyciem zasobów bramy translatora adresów sieciowych
 
@@ -60,7 +60,7 @@ Na poniższym diagramie przedstawiono zapisywalne odwołania między różnymi z
 
 Translacja adresów sieciowych jest zalecana w przypadku większości obciążeń, chyba że jest to zależne od [puli Load Balancer łączności wychodzącej](../load-balancer/load-balancer-outbound-connections.md).  
 
-Można migrować ze standardowych scenariuszy równoważenia obciążenia, w tym [reguł wychodzących](../load-balancer/load-balancer-outbound-rules-overview.md), do bramy translatora adresów sieciowych. Aby przeprowadzić migrację, Przenieś publiczny adres IP i zasoby prefiksu publicznego adresu IP z frontonów modułu równoważenia obciążenia do bramy translatora adresów sieciowych. Nowe adresy IP dla bramy translatora adresów sieciowych nie są wymagane. Standardowe zasoby publicznego adresu IP i zasób prefiksu publicznego adresu IP mogą być ponownie używane, o ile łączna wartość nie przekracza 16 adresów IP. Zaplanuj migrację z przerwaniem działania usługi na uwadze podczas przejścia.  Możesz zminimalizować przerwy, automatyzując proces. Najpierw Przetestuj migrację w środowisku przejściowym.  W trakcie przejścia nie ma to wpływu na przepływy pochodzące przychodzące.
+Można migrować ze standardowych scenariuszy równoważenia obciążenia, w tym [reguł wychodzących](../load-balancer/load-balancer-outbound-connections.md#outboundrules), do bramy translatora adresów sieciowych. Aby przeprowadzić migrację, Przenieś publiczny adres IP i zasoby prefiksu publicznego adresu IP z frontonów modułu równoważenia obciążenia do bramy translatora adresów sieciowych. Nowe adresy IP dla bramy translatora adresów sieciowych nie są wymagane. Standardowe zasoby publicznego adresu IP i zasób prefiksu publicznego adresu IP mogą być ponownie używane, o ile łączna wartość nie przekracza 16 adresów IP. Zaplanuj migrację z przerwaniem działania usługi na uwadze podczas przejścia.  Możesz zminimalizować przerwy, automatyzując proces. Najpierw Przetestuj migrację w środowisku przejściowym.  W trakcie przejścia nie ma to wpływu na przepływy pochodzące przychodzące.
 
 
 Poniższy przykład jest fragmentem kodu z szablonu Azure Resource Manager.  Ten szablon wdraża kilka zasobów, w tym bramy translatora adresów sieciowych.  W tym przykładzie szablon zawiera następujące parametry:
@@ -135,8 +135,8 @@ Internetowy scenariusz tylko dla ruchu wychodzącego udostępniony przez bramę 
 
 | Kierunek | Zasób |
 |:---:|:---:|
-| Inbound | Maszyna wirtualna z publicznym adresem IP na poziomie wystąpienia |
-| Outbound | Brama translatora adresów sieciowych |
+| Przychodzący | Maszyna wirtualna z publicznym adresem IP na poziomie wystąpienia |
+| Wychodzący | Brama translatora adresów sieciowych |
 
 Maszyna wirtualna będzie używać bramy translatora adresów sieciowych dla ruchu wychodzącego.  Nie ma to żadnego oddziaływania na przychodzące.
 
@@ -150,8 +150,8 @@ Maszyna wirtualna będzie używać bramy translatora adresów sieciowych dla ruc
 
 | Kierunek | Zasób |
 |:---:|:---:|
-| Inbound | Load Balancer publiczny |
-| Outbound | Brama translatora adresów sieciowych |
+| Przychodzący | Load Balancer publiczny |
+| Wychodzący | Brama translatora adresów sieciowych |
 
 Każda konfiguracja wychodząca z reguły równoważenia obciążenia lub reguł wychodzących jest zastępowana przez bramę translatora adresów sieciowych.  Nie ma to żadnego oddziaływania na przychodzące.
 
@@ -165,8 +165,8 @@ Każda konfiguracja wychodząca z reguły równoważenia obciążenia lub reguł
 
 | Kierunek | Zasób |
 |:---:|:---:|
-| Inbound | Maszyna wirtualna z publicznym adresem IP na poziomie wystąpienia i publicznym Load Balancer |
-| Outbound | Brama translatora adresów sieciowych |
+| Przychodzący | Maszyna wirtualna z publicznym adresem IP na poziomie wystąpienia i publicznym Load Balancer |
+| Wychodzący | Brama translatora adresów sieciowych |
 
 Każda konfiguracja wychodząca z reguły równoważenia obciążenia lub reguł wychodzących jest zastępowana przez bramę translatora adresów sieciowych.  Maszyna wirtualna będzie również używać bramy translatora adresów sieciowych dla ruchu wychodzącego.  Nie ma to żadnego oddziaływania na przychodzące.
 
@@ -230,7 +230,7 @@ Gdy scenariusz będzie działał, jego model kondycji i tryb błędu nie są zde
 
 Każdy zasób bramy NAT może zapewnić do 50 GB/s przepustowości. Wdrożenia można podzielić na wiele podsieci i przypisać do skalowania każdą podsieć lub grupę podsieci.
 
-Każda Brama NAT może obsługiwać 64 000 przepływy dla protokołów TCP i UDP odpowiednio dla przypisanego wychodzącego adresu IP.  Zapoznaj się z poniższą sekcją dotyczącą translacji adresów sieciowych (NAT), aby uzyskać szczegółowe informacje, a także artykuł dotyczący [rozwiązywania problemów](https://docs.microsoft.com/azure/virtual-network/troubleshoot-nat) z konkretną wskazówką
+Każda Brama NAT może obsługiwać 64 000 przepływy dla protokołów TCP i UDP odpowiednio dla przypisanego wychodzącego adresu IP.  Zapoznaj się z poniższą sekcją dotyczącą translacji adresów sieciowych (NAT), aby uzyskać szczegółowe informacje, a także artykuł dotyczący [rozwiązywania problemów](./troubleshoot-nat.md) z konkretną wskazówką
 
 ## <a name="source-network-address-translation"></a>Translacja adresów sieci źródłowej
 
@@ -264,7 +264,7 @@ Bramy translatora adresów sieciowych odpowiednio Uzgodnij ponownie używać por
 |:---:|:---:|:---:|
 | 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
 
-Brama NAT prawdopodobnie przetłumaczy przepływ 4 na port, który może być używany również dla innych miejsc docelowych.  Zobacz [skalowanie](https://docs.microsoft.com/azure/virtual-network/nat-gateway-resource#scaling) w celu uzyskania dodatkowej dyskusji na temat prawidłowej zmiany wielkości APROWIZACJI adresów IP.
+Brama NAT prawdopodobnie przetłumaczy przepływ 4 na port, który może być używany również dla innych miejsc docelowych.  Zobacz [skalowanie](#scaling) w celu uzyskania dodatkowej dyskusji na temat prawidłowej zmiany wielkości APROWIZACJI adresów IP.
 
 | Przepływ | Krotka źródłowa | Spójna kolekcja Source SNAT'ed | Kolekcja docelowa | 
 |:---:|:---:|:---:|:---:|
@@ -307,7 +307,7 @@ Zasoby bramy translatora adresów sieciowych odpowiednio Uzgodnij ponownie Użyj
 
 Porty przyłączone do różnych miejsc docelowych najprawdopodobniej będą ponownie używane, gdy jest to możliwe. I jako podejścia do wyczerpania portów w ramach adresów sieciowych, przepływy mogą się nie powieść.  
 
-Zobacz [podstawowe informacje o Przytranslatorze adresów sieciowych](https://docs.microsoft.com/azure/virtual-network/nat-gateway-resource#source-network-address-translation) .
+Zobacz [podstawowe informacje o Przytranslatorze adresów sieciowych](#source-network-address-translation) .
 
 
 ### <a name="protocols"></a>Protokoły
@@ -359,10 +359,10 @@ Chcemy wiedzieć, jak możemy ulepszyć usługę. Brak możliwości? Zapoznaj si
   - [Portal](./quickstart-create-nat-gateway-portal.md)
   - [Szablon](./quickstart-create-nat-gateway-template.md)
 * Informacje o interfejsie API zasobów bramy translatora adresów sieciowych
-  - [Interfejs API REST](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
-  - [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/network/nat/gateway)
-  - [Program PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway)
+  - [Interfejs API REST](/rest/api/virtualnetwork/natgateways)
+  - [Interfejs wiersza polecenia platformy Azure](/cli/azure/network/nat/gateway)
+  - [Program PowerShell](/powershell/module/az.network/new-aznatgateway)
 * Dowiedz się więcej o [strefach dostępności](../availability-zones/az-overview.md).
-* Dowiedz się więcej na temat usługi [równoważenia obciążenia w warstwie Standardowa](../load-balancer/load-balancer-standard-overview.md).
+* Dowiedz się więcej na temat usługi [równoważenia obciążenia w warstwie Standardowa](../load-balancer/load-balancer-overview.md).
 * Dowiedz się więcej na temat [stref dostępności i standardowego modułu równoważenia obciążenia](../load-balancer/load-balancer-standard-availability-zones.md).
 * [Powiedz nam, co należy utworzyć obok Virtual Network translatora adresów sieciowych w usłudze UserVoice](https://aka.ms/natuservoice).

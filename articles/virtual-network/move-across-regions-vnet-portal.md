@@ -6,18 +6,18 @@ ms.service: virtual-network
 ms.topic: how-to
 ms.date: 08/26/2019
 ms.author: allensu
-ms.openlocfilehash: ed3da649ba65484a79b42ba5bb45431839e123d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a80c731e4245b1a295364e5b8c87f90290f7f74
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84711446"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223312"
 ---
 # <a name="move-an-azure-virtual-network-to-another-region-by-using-the-azure-portal"></a>Przenoszenie sieci wirtualnej platformy Azure do innego regionu przy użyciu Azure Portal
 
 Istnieją różne scenariusze dotyczące przechodzenia istniejącej sieci wirtualnej platformy Azure z jednego regionu do innego. Na przykład możesz chcieć utworzyć sieć wirtualną o tej samej konfiguracji do testowania i dostępności jako istniejącą sieć wirtualną. Możesz też chcieć przenieść produkcyjną sieć wirtualną do innego regionu w ramach planowania odzyskiwania po awarii.
 
-Możesz użyć szablonu Azure Resource Manager, aby zakończyć przenoszenie sieci wirtualnej do innego regionu. W tym celu należy wyeksportować sieć wirtualną do szablonu, modyfikując parametry w celu dopasowania do regionu docelowego, a następnie wdrożyć szablon w nowym regionie. Aby uzyskać więcej informacji na temat szablonów Menedżer zasobów, zobacz [Szybki Start: Tworzenie i wdrażanie szablonów Azure Resource Manager przy użyciu Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+Możesz użyć szablonu Azure Resource Manager, aby zakończyć przenoszenie sieci wirtualnej do innego regionu. W tym celu należy wyeksportować sieć wirtualną do szablonu, modyfikując parametry w celu dopasowania do regionu docelowego, a następnie wdrożyć szablon w nowym regionie. Aby uzyskać więcej informacji na temat szablonów Menedżer zasobów, zobacz [Szybki Start: Tworzenie i wdrażanie szablonów Azure Resource Manager przy użyciu Azure Portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -32,7 +32,7 @@ Możesz użyć szablonu Azure Resource Manager, aby zakończyć przenoszenie sie
 
 - Sprawdź, czy subskrypcja platformy Azure umożliwia tworzenie sieci wirtualnych w regionie docelowym. Aby włączyć wymagany limit przydziału, skontaktuj się z pomocą techniczną.
 
-- Upewnij się, że Twoja subskrypcja ma wystarczającą ilość zasobów, aby obsłużyć Dodawanie sieci wirtualnych dla tego procesu. Aby uzyskać więcej informacji, zobacz [Azure subscription and service limits, quotas, and constraints (Limity, przydziały i ograniczenia usług i subskrypcji platformy Azure)](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+- Upewnij się, że Twoja subskrypcja ma wystarczającą ilość zasobów, aby obsłużyć Dodawanie sieci wirtualnych dla tego procesu. Aby uzyskać więcej informacji, zobacz [Azure subscription and service limits, quotas, and constraints (Limity, przydziały i ograniczenia usług i subskrypcji platformy Azure)](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
 
 ## <a name="prepare-for-the-move"></a>Przygotuj do przeniesienia
@@ -85,11 +85,11 @@ Aby wyeksportować sieć wirtualną i wdrożyć docelową sieć wirtualną przy 
 
     ```
 
-1. Aby uzyskać kody lokalizacji regionu, zobacz [lokalizacje platformy Azure](https://azure.microsoft.com/global-infrastructure/locations/). Kod regionu to nazwa regionu, bez spacji (na przykład **środkowe stany USA**  =  **centralus**).
+1. Aby uzyskać kody lokalizacji regionu, zobacz [lokalizacje platformy Azure](https://azure.microsoft.com/global-infrastructure/locations/). Kod regionu to nazwa regionu, bez spacji (na przykład **środkowe stany USA**  =  ).
 
 1. Obowiązkowe Możesz również zmienić inne parametry w szablonie, w zależności od wymagań:
 
-    * **Przestrzeń adresowa**: przed zapisaniem pliku można zmienić przestrzeń adresową sieci wirtualnej, modyfikując **resources**  >  sekcję**addressSpace** zasobów i zmieniając właściwość **addressPrefixes** :
+    * **Przestrzeń adresowa**: przed zapisaniem pliku można zmienić przestrzeń adresową sieci wirtualnej, modyfikując   >  sekcję **addressSpace** zasobów i zmieniając właściwość **addressPrefixes** :
 
         ```json
                 "resources": [
@@ -178,15 +178,15 @@ Aby wyeksportować sieć wirtualną i wdrożyć docelową sieć wirtualną przy 
 
 1. W edytorze online wybierz pozycję **Zapisz**.
 
-1. Aby wybrać subskrypcję, w której zostanie wdrożona docelowa sieć **Basics**wirtualna, wybierz pozycję  >  **subskrypcja**podstawy.
+1. Aby wybrać subskrypcję, w której zostanie wdrożona docelowa sieć wirtualna, wybierz pozycję  >  **subskrypcja** podstawy.
 
 1. Aby wybrać grupę zasobów, w której zostanie wdrożona docelowa sieć wirtualna, wybierz pozycję **podstawowe**  >  **grupy zasobów**. 
 
     Jeśli musisz utworzyć nową grupę zasobów dla docelowej sieci wirtualnej, wybierz pozycję **Utwórz nową**. Upewnij się, że nazwa nie jest taka sama jak nazwa źródłowej grupy zasobów w istniejącej sieci wirtualnej.
 
-1. Sprawdź, **Basics**czy  >  **Lokalizacja** podstawy jest ustawiona na lokalizację docelową, w której ma zostać wdrożona Sieć wirtualna.
+1. Sprawdź, czy  >  **Lokalizacja** podstawy jest ustawiona na lokalizację docelową, w której ma zostać wdrożona Sieć wirtualna.
 
-1. W obszarze **Ustawienia**Sprawdź, czy nazwa jest zgodna z nazwą wprowadzoną wcześniej w edytorze parametrów.
+1. W obszarze **Ustawienia** Sprawdź, czy nazwa jest zgodna z nazwą wprowadzoną wcześniej w edytorze parametrów.
 
 1. Zaznacz pole wyboru **warunki i postanowienia** .
 
@@ -209,5 +209,5 @@ Aby zatwierdzić zmiany i zakończyć przenoszenie sieci wirtualnej, należy usu
 W tym samouczku przeniesiono sieć wirtualną platformy Azure z jednego regionu do innego przy użyciu Azure Portal a następnie oczyszczono niepotrzebne zasoby źródłowe. Aby dowiedzieć się więcej o przenoszeniu zasobów między regionami i odzyskiwaniem po awarii na platformie Azure, zobacz:
 
 
-- [Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Przenoszenie maszyn wirtualnych platformy Azure do innego regionu](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Przenoszenie maszyn wirtualnych platformy Azure do innego regionu](../site-recovery/azure-to-azure-tutorial-migrate.md)

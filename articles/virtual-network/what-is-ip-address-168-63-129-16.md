@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/15/2019
 ms.author: genli
-ms.openlocfilehash: 03c1badf984fb150631c157f3fdc07856b60e965
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1e304bc30a48c92fdff576723dae6af1e26ef3da
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088901"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222585"
 ---
 # <a name="what-is-ip-address-1686312916"></a>Co to jest adres IP 168.63.129.16?
 
@@ -37,7 +37,7 @@ Adres IP 168.63.129.16 to wirtualny publiczny adres IP, który służy do ułatw
 
 ## <a name="scope-of-ip-address-1686312916"></a>Zakres adresów IP 168.63.129.16
 
-Publiczny adres IP 168.63.129.16 jest używany we wszystkich regionach i wszystkich chmurach narodowych. Ten specjalny publiczny adres IP należy do firmy Microsoft i nie zmieni się. Zalecamy Zezwalanie na ten adres IP w ramach zasad zapory lokalnych (w maszynie wirtualnej) (kierunek wychodzący). Komunikacja między tym specjalnym adresem IP a zasobami jest bezpieczna, ponieważ tylko wewnętrzna platforma platformy Azure może uzyskać komunikat z tego adresu IP. Jeśli ten adres jest zablokowany, może wystąpić nieoczekiwane zachowanie w różnych scenariuszach. 168.63.129.16 jest [wirtualnym adresem IP węzła hosta](../virtual-network/security-overview.md#azure-platform-considerations) i nie podlega trasom zdefiniowanym przez użytkownika.
+Publiczny adres IP 168.63.129.16 jest używany we wszystkich regionach i wszystkich chmurach narodowych. Ten specjalny publiczny adres IP należy do firmy Microsoft i nie zmieni się. Zalecamy Zezwalanie na ten adres IP w ramach zasad zapory lokalnych (w maszynie wirtualnej) (kierunek wychodzący). Komunikacja między tym specjalnym adresem IP a zasobami jest bezpieczna, ponieważ tylko wewnętrzna platforma platformy Azure może uzyskać komunikat z tego adresu IP. Jeśli ten adres jest zablokowany, może wystąpić nieoczekiwane zachowanie w różnych scenariuszach. 168.63.129.16 jest [wirtualnym adresem IP węzła hosta](./network-security-groups-overview.md#azure-platform-considerations) i nie podlega trasom zdefiniowanym przez użytkownika.
 
 - Agent maszyny wirtualnej wymaga komunikacji wychodzącej za pośrednictwem portów 80/TCP i 32526/TCP z WireServer (168.63.129.16). Powinny być one otwarte w lokalnej zaporze na maszynie wirtualnej. Komunikacja na tych portach z 168.63.129.16 nie podlega skonfigurowanym grupom zabezpieczeń sieci.
 
@@ -49,5 +49,5 @@ Publiczny adres IP 168.63.129.16 jest używany we wszystkich regionach i wszystk
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Grupy zabezpieczeń](security-overview.md)
+- [Grupy zabezpieczeń](./network-security-groups-overview.md)
 - [Tworzenie, zmienianie i usuwanie sieciowej grupy zabezpieczeń](manage-network-security-group.md)

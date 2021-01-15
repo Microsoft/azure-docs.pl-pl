@@ -1,48 +1,81 @@
 ---
-title: Tworzenie aplikacji funkcji przy użyciu witryny Azure Portal
-description: Utwórz nową aplikację funkcji na platformie Azure z poziomu portalu.
+title: Tworzenie pierwszej funkcji w witrynie Azure Portal
+description: Dowiedz się, jak utworzyć pierwszą funkcję platformy Azure do wykonywania bezserwerowego przy użyciu witryny Azure Portal.
 ms.topic: how-to
-ms.date: 08/29/2019
-ms.custom: mvc
-ms.openlocfilehash: 8d19a269903de309bf219c2546fa70c3abe7be10
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.date: 03/26/2020
+ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
+ms.openlocfilehash: bebef4e8964576b968af8f8aebd06030ca0d0227
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093593"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222721"
 ---
-# <a name="create-a-function-app-from-the-azure-portal"></a>Tworzenie aplikacji funkcji przy użyciu witryny Azure Portal
+# <a name="create-your-first-function-in-the-azure-portal"></a>Tworzenie pierwszej funkcji w witrynie Azure Portal
 
-W tym temacie pokazano, jak za pomocą Azure Functions utworzyć aplikację funkcji w Azure Portal. Aplikacja funkcji to kontener hostujący wykonywanie poszczególnych funkcji. 
+Azure Functions umożliwia uruchamianie kodu w środowisku bezserwerowym bez konieczności uprzedniego tworzenia maszyny wirtualnej lub publikowania aplikacji sieci Web. W tym artykule dowiesz się, jak za pomocą Azure Functions utworzyć funkcję wyzwalacza HTTP "Hello World" w Azure Portal.
+
+Zalecamy [Tworzenie lokalnych funkcji](functions-develop-local.md) i publikowanie ich w aplikacji funkcji na platformie Azure.  
+Użyj jednego z poniższych linków, aby rozpocząć pracę z wybranym lokalnym środowiskiem programistycznym i językiem:
+
+| Visual Studio Code | Terminal/wiersz polecenia | Visual Studio |
+| --- | --- | --- |
+|  &bull;&nbsp;[Wprowadzenie do języka C #](./create-first-function-vs-code-csharp.md)<br/>&bull;&nbsp;[Wprowadzenie do języka Java](./create-first-function-vs-code-java.md)<br/>&bull;&nbsp;[Wprowadzenie do języka JavaScript](./create-first-function-vs-code-node.md)<br/>&bull;&nbsp;[Wprowadzenie do programu PowerShell](./create-first-function-vs-code-powershell.md)<br/>&bull;&nbsp;[Wprowadzenie do języka Python](./create-first-function-vs-code-python.md) |&bull;&nbsp;[Wprowadzenie do języka C #](./create-first-function-cli-csharp.md)<br/>&bull;&nbsp;[Wprowadzenie do języka Java](./create-first-function-cli-java.md)<br/>&bull;&nbsp;[Wprowadzenie do języka JavaScript](./create-first-function-cli-node.md)<br/>&bull;&nbsp;[Wprowadzenie do programu PowerShell](./create-first-function-cli-powershell.md)<br/>&bull;&nbsp;[Wprowadzenie do języka Python](./create-first-function-cli-python.md) | [Wprowadzenie do języka C #](functions-create-your-first-function-visual-studio.md) |
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+
+Zaloguj się w [witrynie Azure Portal](https://portal.azure.com) przy użyciu danych konta Azure.
 
 ## <a name="create-a-function-app"></a>Tworzenie aplikacji funkcji
 
-[!INCLUDE [functions-create-function-app-portal](../../includes/functions-create-function-app-portal.md)]
+Do obsługi wykonywania funkcji potrzebna jest aplikacja funkcji. Aplikacja funkcji umożliwia grupowanie funkcji jako jednostki logicznej, co ułatwia zarządzanie, wdrażanie, skalowanie i udostępnianie zasobów.
 
-Po utworzeniu aplikacji funkcji możesz utworzyć indywidualne funkcje w jednym lub kilku różnych językach. Możesz tworzyć funkcje [za pomocą portalu](functions-create-first-azure-function.md#create-function), [ciągłego wdrażania](functions-continuous-deployment.md) lub [przekazywania przy użyciu protokołu FTP](https://github.com/projectkudu/kudu/wiki/Accessing-files-via-ftp).
+[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-## <a name="service-plans"></a>Plany usługi
+Następnie Utwórz funkcję w nowej aplikacji funkcji.
 
-Azure Functions ma trzy różne plany usługi: plan zużycia, plan Premium i dedykowany plan (App Service). Musisz wybrać swój plan usługi, gdy aplikacja funkcji zostanie utworzona i nie można jej później zmienić. Aby uzyskać więcej informacji, zobacz [Wybieranie planu hostingu usługi Azure Functions](functions-scale.md).
+## <a name="create-an-http-trigger-function"></a><a name="create-function"></a>Tworzenie funkcji wyzwalacza HTTP
 
-Jeśli planujesz uruchamianie funkcji JavaScript w ramach dedykowanego planu (App Service), należy wybrać plan z mniejszą liczbą rdzeni. Aby uzyskać więcej informacji, zobacz [Dokumentacja języka JavaScript dla usługi Functions](functions-reference-node.md#choose-single-vcpu-app-service-plans).
+1. W menu po lewej stronie okna **funkcje** wybierz pozycję **funkcje**, a następnie wybierz pozycję **Dodaj** z górnego menu. 
+ 
+1. W oknie **Nowa funkcja** wybierz pozycję **wyzwalacz http**.
 
-<a name="storage-account-requirements"></a>
+    ![Wybierz funkcję wyzwalacza HTTP](./media/functions-create-first-azure-function/function-app-select-http-trigger.png)
 
-## <a name="storage-account-requirements"></a>Wymagania konta magazynu
+1. W oknie **Nowa funkcja** Zaakceptuj nazwę domyślną **nowej funkcji** lub wprowadź nową nazwę. 
 
-Podczas tworzenia aplikacji funkcji należy utworzyć konto usługi Azure Storage ogólnego przeznaczenia lub połączyć się z nim, które obsługuje magazyn obiektów blob, kolejek i tabel. Wewnętrznie usługa Functions używa usługi Storage na potrzeby operacji takich jak zarządzanie wyzwalaczami i rejestrowanie wykonań funkcji. Niektóre konta magazynu nie obsługują kolejek i tabel, na przykład konta magazynu tylko dla obiektów blob, konta usługi Azure Premium Storage i konta magazynu ogólnego przeznaczenia z replikacją ZRS. 
+1. Z listy rozwijanej **poziom autoryzacji** wybierz pozycję **anonimowe** , a następnie wybierz pozycję **Utwórz funkcję**.
 
-Konta nieobsługiwanego typu są odfiltrowane podczas tworzenia aplikacji funkcji w Azure Portal. Portal umożliwia również korzystanie z istniejącego konta magazynu tylko wtedy, gdy to konto znajduje się w tym samym regionie co tworzona aplikacja funkcji. Jeśli z jakiegoś powodu chcesz naruszać najlepsze rozwiązanie w zakresie wydajności związane z korzystaniem z konta magazynu używanego przez aplikację funkcji w tym samym regionie, musisz utworzyć aplikację funkcji poza portalem. 
+    Platforma Azure tworzy funkcję wyzwalacza HTTP. Możesz teraz uruchomić nową funkcję, wysyłając żądanie HTTP.
 
->[!NOTE]
->Podczas korzystania z planu hostingu Zużycie kod funkcji i pliki konfiguracji powiązania są przechowywane w usłudze Azure File Storage na głównym koncie magazynu. Po usunięciu głównego konta magazynu ta zawartość zostanie usunięta i nie będzie można jej odzyskać. 
+## <a name="test-the-function"></a>Testowanie funkcji
 
-Aby dowiedzieć się więcej na temat typów kont magazynu, zobacz [Wprowadzenie do usług Azure Storage](../storage/common/storage-introduction.md#core-storage-services). 
+1. W nowej funkcji wyzwalacza HTTP wybierz pozycję **Kod + test** z menu po lewej stronie, a następnie wybierz pozycję **Pobierz adres URL funkcji** z górnego menu.
+
+    ![Wybierz adres URL funkcji Get](./media/functions-create-first-azure-function/function-app-select-get-function-url.png)
+
+1. W oknie dialogowym **pobieranie adresu URL funkcji** wybierz opcję **domyślne** z listy rozwijanej, a następnie wybierz ikonę **Kopiuj do schowka** . 
+
+    ![Kopiowanie adresu URL funkcji z witryny Azure Portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
+
+1. Wklej adres URL funkcji do paska adresu przeglądarki. Dodaj wartość ciągu zapytania `?name=<your_name>` na końcu tego adresu URL i naciśnij klawisz ENTER, aby uruchomić żądanie. 
+
+    Poniższy przykład przedstawia odpowiedź w przeglądarce:
+
+    ![Odpowiedź funkcji wyświetlona w przeglądarce.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
+
+    Jeśli adres URL żądania zawiera [klucz dostępu](functions-bindings-http-webhook-trigger.md#authorization-keys) ( `?code=...` ), oznacza to, że podczas tworzenia funkcji jest wybierana **Funkcja** , a nie **anonimowy** poziom dostępu. W takim przypadku należy zamiast tego dołączyć `&name=<your_name>` .
+
+1. Gdy funkcja działa, informacje o śledzeniu są zapisywane w dziennikach. Aby wyświetlić dane wyjściowe śledzenia, Wróć do strony **Code + test** w portalu i rozwiń strzałkę **dzienniki** w dolnej części strony.
+
+   ![Podgląd dziennika usługi Functions w witrynie Azure Portal.](./media/functions-create-first-azure-function/function-view-logs.png)
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+[!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
-Mimo że Azure Portal ułatwia tworzenie i wypróbowanie funkcji, zalecamy [programowanie lokalne](functions-develop-local.md). Po utworzeniu aplikacji funkcji w portalu nadal trzeba dodać funkcję. 
-
-> [!div class="nextstepaction"]
-> [Dodaj funkcję wyzwalaną przez protokół HTTP](functions-create-first-azure-function.md#create-function)
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]

@@ -10,13 +10,13 @@ ms.topic: troubleshooting
 author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
-ms.date: 06/12/2020
-ms.openlocfilehash: c42db1445c939069f334d04ea26d54cdb843c336
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 1/14/2021
+ms.openlocfilehash: 3b57172daeffd1766da456e56cb5e445427a4858
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488837"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220392"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Rozwiązywanie problemów z wydajnością Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL w programie Intelligent Insights
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -128,7 +128,9 @@ Dziennik diagnostyczny generuje szczegóły, których można użyć jako podstaw
 
 Najprostszym i najbezpieczniejszym sposobem na ograniczenie problemu jest utrzymywanie transakcji krótko i zmniejszenie rozmiaru blokady najbardziej kosztownych zapytań. Duża partia operacji można podzielić na mniejsze operacje. Dobrym rozwiązaniem jest zredukowanie poziomu blokady zapytań, co sprawia, że zapytanie jest możliwie wydajne. Zmniejsz duże skanowania, ponieważ zwiększają one szanse zakleszczenii i niekorzystnie wpływają na ogólną wydajność bazy danych. Dla zidentyfikowanych zapytań, które powodują blokowanie, można utworzyć nowe indeksy lub dodać kolumny do istniejącego indeksu, aby uniknąć skanowania tabeli.
 
-Aby uzyskać więcej sugestii, zobacz [jak rozwiązać problemy z blokowaniem, które są spowodowane eskalacją blokady w SQL Server](https://support.microsoft.com/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in).
+Aby uzyskać więcej sugestii, zobacz:
+- [Zrozumienie i rozwiązywanie problemów z blokowaniem usługi Azure SQL](understand-resolve-blocking.md)
+- [Jak rozwiązać problemy z blokowaniem, które są spowodowane eskalacją blokady w SQL Server](https://support.microsoft.com/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in)
 
 ## <a name="increased-maxdop"></a>Zwiększono MAXDOP
 

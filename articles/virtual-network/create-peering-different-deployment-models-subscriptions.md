@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2020
 ms.author: kumud
 ms.reviewer: anavin
-ms.openlocfilehash: 88e576231e0231a105cd9ec303f63307b5eaff89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29a64931ac92eacf8948ae067118b6b25198c85d
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87051629"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223469"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Tworzenie komunikacji równorzędnej sieci wirtualnej — różne modele wdrażania i subskrypcje
 
@@ -57,7 +57,7 @@ W tym samouczku są stosowane różne konta dla każdej subskrypcji. Jeśli uży
 6. W wyświetlonym bloku **myVnetA-Access Control (IAM)** kliknij pozycję **+ Dodaj przypisanie roli**.
 7. W wyświetlonym bloku **Dodaj przypisanie roli** wybierz opcję **współautor sieci** w polu **rola** .
 8. W polu **Wybierz** wybierz pozycję UserB lub wpisz adres e-mail UserB, aby go wyszukać. Lista wyświetlanych użytkowników pochodzi z tego samego Azure Active Directory dzierżawy, co sieć wirtualna, dla której konfigurujesz komunikację równorzędną. Kliknij pozycję UserB, gdy pojawi się na liście.
-9. Kliknij przycisk **Zapisz**.
+9. Kliknij pozycję **Zapisz**.
 10. Wyloguj się z portalu jako UserA, a następnie zaloguj się jako UserB.
 11. Kliknij pozycję **+ Nowy**, wpisz *sieć wirtualną* w polu **Wyszukaj w witrynie Marketplace** , a następnie w wynikach wyszukiwania kliknij pozycję **Sieć wirtualna** .
 12. W wyświetlonym bloku **Virtual Network** wybierz pozycję **klasyczny** w polu **Wybierz model wdrażania** , a następnie kliknij przycisk **Utwórz**.
@@ -186,7 +186,7 @@ W tym samouczku są stosowane różne konta dla każdej subskrypcji. Jeśli uży
 1. Zainstaluj najnowszą wersję środowiska PowerShell [platformy Azure](https://www.powershellgallery.com/packages/Azure) i [AZ](https://www.powershellgallery.com/packages/Az) modules. Jeśli jesteś nowym użytkownikiem programu Azure PowerShell, zobacz temat [Azure PowerShell overview (Omówienie programu Azure PowerShell)](/powershell/azure/?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Rozpocznij sesję programu PowerShell.
 3. W programie PowerShell Zaloguj się do subskrypcji UserB jako UserB, wprowadzając `Add-AzureAccount` polecenie. Konto, za pomocą którego logujesz się, musi mieć uprawnienia niezbędne do utworzenia komunikacji równorzędnej sieci wirtualnej. Listę uprawnień można znaleźć w temacie [uprawnienia komunikacji równorzędnej sieci wirtualnych](virtual-network-manage-peering.md#permissions).
-4. Aby utworzyć sieć wirtualną (klasyczną) przy użyciu programu PowerShell, należy utworzyć nową lub zmodyfikować istniejący plik konfiguracji sieci. Dowiedz się [, jak eksportować, aktualizować i importować pliki konfiguracji sieci](virtual-networks-using-network-configuration-file.md). Plik powinien zawierać następujący element **VirtualNetworkSite** dla sieci wirtualnej używanej w tym samouczku:
+4. Aby utworzyć sieć wirtualną (klasyczną) przy użyciu programu PowerShell, należy utworzyć nową lub zmodyfikować istniejący plik konfiguracji sieci. Dowiedz się [, jak eksportować, aktualizować i importować pliki konfiguracji sieci](/previous-versions/azure/virtual-network/virtual-networks-using-network-configuration-file). Plik powinien zawierać następujący element **VirtualNetworkSite** dla sieci wirtualnej używanej w tym samouczku:
 
     ```xml
     <VirtualNetworkSite name="myVnetB" Location="East US">
@@ -297,7 +297,7 @@ Po zakończeniu tego samouczka możesz chcieć usunąć zasoby utworzone w samou
    azure network vnet delete --vnet myVnetB --quiet
    ```
 
-### <a name="powershell"></a><a name="delete-powershell"></a>Program PowerShell
+### <a name="powershell"></a><a name="delete-powershell"></a>PowerShell
 
 1. W wierszu polecenia programu PowerShell wprowadź następujące polecenie, aby usunąć sieć wirtualną (Menedżer zasobów):
 
@@ -305,7 +305,7 @@ Po zakończeniu tego samouczka możesz chcieć usunąć zasoby utworzone w samou
    Remove-AzResourceGroup -Name myResourceGroupA -Force
    ```
 
-2. Aby usunąć sieć wirtualną (klasyczną) przy użyciu programu PowerShell, należy zmodyfikować istniejący plik konfiguracji sieci. Dowiedz się [, jak eksportować, aktualizować i importować pliki konfiguracji sieci](virtual-networks-using-network-configuration-file.md). Usuń następujący element VirtualNetworkSite dla sieci wirtualnej używanej w tym samouczku:
+2. Aby usunąć sieć wirtualną (klasyczną) przy użyciu programu PowerShell, należy zmodyfikować istniejący plik konfiguracji sieci. Dowiedz się [, jak eksportować, aktualizować i importować pliki konfiguracji sieci](/previous-versions/azure/virtual-network/virtual-networks-using-network-configuration-file). Usuń następujący element VirtualNetworkSite dla sieci wirtualnej używanej w tym samouczku:
 
    ```xml
    <VirtualNetworkSite name="myVnetB" Location="East US">

@@ -1,8 +1,6 @@
 ---
-title: Samoobsługowe powiadomienia automatycznej aktualizacji i wygasania środowiska Integration Runtime
+title: Powiadomienia dotyczące automatycznej aktualizacji i wygasania własnego środowiska Integration Runtime
 description: Informacje na temat samodzielnej aktualizacji i powiadomień o wygaśnięciu środowiska Integration Runtime
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
@@ -11,14 +9,14 @@ ms.author: lle
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 12/25/2020
-ms.openlocfilehash: 6a6c897d92d469fd6247dd51f2bacb91032ac123
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 8c51839e760dcca32bfc0d150c5e4d10767d95a4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98122434"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222687"
 ---
-# <a name="self-hosted-integration-runtime-auto-update-and-expire-notification"></a>Samoobsługowe powiadomienia automatycznej aktualizacji i wygasania środowiska Integration Runtime
+# <a name="self-hosted-integration-runtime-auto-update-and-expire-notification"></a>Powiadomienia dotyczące automatycznej aktualizacji i wygasania własnego środowiska Integration Runtime
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -33,7 +31,7 @@ Najbardziej wygodnym sposobem jest włączenie automatycznej aktualizacji podcza
 
 Możesz sprawdzić ostatnią datę i godzinę aktualizacji w kliencie środowiska Integration Runtime.
 
-![Włącz funkcję autoaktualizowania](media/create-self-hosted-integration-runtime/shir-auto-update-2.png)
+![Zrzut ekranu przedstawiający sprawdzanie czasu aktualizacji](media/create-self-hosted-integration-runtime/shir-auto-update-2.png)
 
 > [!NOTE]
 > Aby zapewnić stabilność środowiska Integration Runtime (własne środowisko), mimo że firma Microsoft udostępnia dwie wersje, firma Microsoft będzie automatycznie aktualizować ją co miesiąc. Czasami zobaczysz, że aktualizowana na bieżąco wersja jest wcześniejszą wersją rzeczywistej najnowszej wersji. Jeśli chcesz uzyskać najnowszą wersję, możesz przejść do [Centrum pobierania](https://www.microsoft.com/download/details.aspx?id=39717).

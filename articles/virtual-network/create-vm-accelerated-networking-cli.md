@@ -16,20 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: bccbfed96dd6cd87bdfe986baf4b52817a160ac0
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 5b91d6e58f4ae93bbf020f202991f878e7773114
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95533365"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222959"
 ---
-# <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Tworzenie maszyny wirtualnej z systemem Linux za pomocą przyspieszonej sieci przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Tworzenie maszyny wirtualnej z systemem Linux z przyspieszoną siecią przy użyciu interfejsu wiersza polecenia platformy Azure
 
 W tym samouczku dowiesz się, jak utworzyć maszynę wirtualną z systemem Linux przy użyciu przyspieszonej sieci. Aby utworzyć maszynę wirtualną z systemem Windows przy użyciu przyspieszonej sieci, zobacz [Tworzenie maszyny wirtualnej z systemem Windows przy użyciu przyspieszonej sieci](create-vm-accelerated-networking-powershell.md). Przyspieszona sieć umożliwia wirtualizację we/wy z jednym elementem głównym (SR-IOV) do maszyny wirtualnej, co znacznie zwiększa wydajność sieci. Ta ścieżka o wysokiej wydajności pomija hosta ze ścieżki datapath, skracając czas opóźnienia, wahania i użycie procesora CPU w celu użycia z najbardziej wymagającymi obciążeniami sieci na obsługiwanych typach maszyn wirtualnych. Na poniższej ilustracji przedstawiono komunikację między dwiema maszynami wirtualnymi za pomocą i bez przyspieszonej sieci:
 
 ![Porównanie](./media/create-vm-accelerated-networking/accelerated-networking.png)
 
-Bez przyspieszonej sieci cały ruch sieciowy z i do maszyny wirtualnej musi przechodzić przez hosta i przełącznik wirtualny. Przełącznik wirtualny zapewnia wszystkie wymuszanie zasad, takie jak sieciowe grupy zabezpieczeń, listy kontroli dostępu, izolacja i inne zwirtualizowane w sieci usługi do ruchu sieciowego. Aby dowiedzieć się więcej na temat przełączników wirtualnych, przeczytaj artykuł dotyczący [wirtualizacji sieci funkcji Hyper-V i wirtualnego przełącznika](https://technet.microsoft.com/library/jj945275.aspx) .
+Bez przyspieszonej sieci cały ruch sieciowy z i do maszyny wirtualnej musi przechodzić przez hosta i przełącznik wirtualny. Przełącznik wirtualny zapewnia wszystkie wymuszanie zasad, takie jak sieciowe grupy zabezpieczeń, listy kontroli dostępu, izolacja i inne zwirtualizowane w sieci usługi do ruchu sieciowego. Aby dowiedzieć się więcej na temat przełączników wirtualnych, przeczytaj artykuł dotyczący [wirtualizacji sieci funkcji Hyper-V i wirtualnego przełącznika](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134230(v=ws.11)) .
 
 Dzięki przyspieszonej sieci ruch sieciowy dociera do interfejsu sieciowego maszyny wirtualnej, a następnie jest kierowany do maszyny wirtualnej. Wszystkie zasady sieciowe stosowane przez przełącznik wirtualny są teraz odciążanie i stosowane do sprzętu. Zastosowanie zasad sprzętowych pozwala karcie sieciowej przekazywać ruch sieciowy bezpośrednio do maszyny wirtualnej, pomijając hosta i przełącznik wirtualny przy zachowaniu wszystkich zasad, które zostały zastosowane na hoście.
 
@@ -60,7 +60,7 @@ Przyspieszona sieć jest obsługiwana w większości ogólnego przeznaczenia i o
 
 W wystąpieniach, które obsługują wielowątkowość, przyspieszona sieć jest obsługiwana w wystąpieniach maszyn wirtualnych z 4 lub więcej procesorów wirtualnych vCPU. Obsługiwane są następujące serie: D/Dsv3, D/Dsv4, DD/Ddv4, da/Dasv4, E/Esv3, E/Esv4, Ed/Edsv4, EA/Easv4, Fsv2, Lsv2, MS/MMS i MS/Mmsv2.
 
-Aby uzyskać więcej informacji o wystąpieniach maszyn wirtualnych, zobacz [rozmiary maszyn wirtualnych z systemem Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Aby uzyskać więcej informacji o wystąpieniach maszyn wirtualnych, zobacz [rozmiary maszyn wirtualnych z systemem Linux](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### <a name="custom-images"></a>Obrazy niestandardowe
 Jeśli używasz obrazu niestandardowego, a obraz obsługuje przyspieszone sieci, upewnij się, że wymagane sterowniki współpracują z kartami interfejsu sieciowego Mellanox ConnectX-3 i ConnectX-4 LX na platformie Azure.
@@ -173,7 +173,7 @@ az vm create \
     --nics myNic
 ```
 
-Aby uzyskać listę wszystkich rozmiarów maszyn wirtualnych i ich charakterystyk, zobacz [rozmiary maszyn wirtualnych z systemem Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Aby uzyskać listę wszystkich rozmiarów maszyn wirtualnych i ich charakterystyk, zobacz [rozmiary maszyn wirtualnych z systemem Linux](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Po utworzeniu maszyny wirtualnej zwraca dane wyjściowe podobne do następujących przykładowych danych wyjściowych. Zanotuj wartość adresu **publicIpAddress**. Ten adres jest używany w celu uzyskania dostępu do maszyny wirtualnej w kolejnych krokach.
 
@@ -310,5 +310,4 @@ Nie można zmienić rozmiaru maszyny wirtualnej z włączoną obsługą przyspie
 
 * Zatrzymaj/Cofnij przydział maszyny wirtualnej lub jeśli znajduje się w zestawie dostępności/VMSS, Zatrzymaj/Cofnij przydział wszystkich maszyn wirtualnych w zestawie/VMSS.
 * Przyspieszone sieci muszą być wyłączone na karcie sieciowej maszyny wirtualnej lub w zestawie dostępności/VMSS wszystkie maszyny wirtualne w zestawie/VMSS.
-* Po wyłączeniu przyspieszonej sieci można przenieść zestaw VM/Availability/VMSS do nowego rozmiaru, który nie obsługuje przyspieszonej sieci i ponownego uruchomienia.  
-
+* Po wyłączeniu przyspieszonej sieci można przenieść zestaw VM/Availability/VMSS do nowego rozmiaru, który nie obsługuje przyspieszonej sieci i ponownego uruchomienia.

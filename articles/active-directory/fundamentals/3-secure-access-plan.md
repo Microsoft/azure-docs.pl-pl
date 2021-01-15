@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd04d24e0e46b053381858be037a009b1987f8e9
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 40738f8fcb14c48ccfe3bc7869e5176c4ab63165
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97932524"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222334"
 ---
 # <a name="3-create-a-security-plan-for-external-access"></a>3. Utwórz plan zabezpieczeń dla dostępu zewnętrznego 
 
@@ -134,7 +134,7 @@ Mimo że zasady zostaną odpowiednio dostosowane do Twoich potrzeb, należy rozw
 
 * **Grupy Microsoft 365**. Ustaw [zasady wygasania grupy](https://docs.microsoft.com/microsoft-365/solutions/microsoft-365-groups-expiration-policy?view=o365-worldwide) dla grup Microsoft 365, do których są zapraszani użytkownicy zewnętrzni. 
 
-* **Inne opcje**. Jeśli użytkownicy zewnętrzni mają dostęp poza pakietami dostępu do zarządzania prawami lub grupami Microsoft 365, skonfiguruj proces biznesowy, aby sprawdzić, kiedy konta powinny być nieaktywne lub usunięte. Przykład:
+* **Inne opcje**. Jeśli użytkownicy zewnętrzni mają dostęp poza pakietami dostępu do zarządzania prawami lub grupami Microsoft 365, skonfiguruj proces biznesowy, aby sprawdzić, kiedy konta powinny być nieaktywne lub usunięte. Na przykład:
 
    * Usuń możliwość logowania dla dowolnego konta, które nie jest zalogowane do 90 dni.
 

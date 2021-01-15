@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e28714e2557027a3f8f5504f7052973a77720b6
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: f83e5584f8f9c6823e1259cb5e6034d8b13ae3a6
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97744260"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222381"
 ---
 # <a name="securing-external-access-with-groups"></a>Zabezpieczanie dostępu zewnętrznego z grupami 
 
@@ -102,7 +102,7 @@ Zarówno grupy zabezpieczeń usługi Azure AD, jak i grupy Microsoft 365 można 
 
 |Zagadnienia do rozważenia | Grupy zabezpieczeń usługi Azure AD (ręczne i dynamiczne)| Grupy Microsoft 365 |
 | - | - | - |
-| Co może zawierać Grupa?| Użytkownicy<br>Grupy<br>Jednostki usługi<br>Urządzenia| Tylko użytkownicy |
+| Co może zawierać Grupa?| Użytkownicy<br>Grupy<br>Jednostki usługi<br>Devices| Tylko użytkownicy |
 | Gdzie jest utworzona grupa?| Portal usługi Azure AD<br>Portal M365 (jeśli jest włączona poczta)<br>PowerShell<br>Microsoft Graph<br>Portal użytkowników końcowych| Portal M365<br>Portal usługi Azure AD<br>PowerShell<br>Microsoft Graph<br>W aplikacjach Microsoft 365 |
 | Kto jest domyślnie tworzony?| Administratorzy <br>Użytkownicy końcowi| Administratorzy<br>Użytkownicy końcowi |
 | Kto może być domyślnie dodany?| Użytkownicy wewnętrzni (członkowie)| Członkowie dzierżawy i Goście z dowolnej organizacji |

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: kumud
-ms.openlocfilehash: 79062ae45f04b290f6e4120906b98590ce95dbe1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 654c883498e724d10104133f99ef1664f72fe09d
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87833270"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223486"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions-and-azure-active-directory-tenants"></a>Tworzenie komunikacji równorzędnej sieci wirtualnej — Menedżer zasobów, różne subskrypcje i dzierżawy Azure Active Directory
 
@@ -31,14 +31,14 @@ Procedurę tworzenia komunikacji równorzędnej sieci wirtualnej różnią się 
 |[Jedna sieć — Resource Manager, druga — model klasyczny](create-peering-different-deployment-models.md) |Ta sama|
 |[Jedna sieć — Resource Manager, druga — model klasyczny](create-peering-different-deployment-models-subscriptions.md) |Różne|
 
-Nie można utworzyć komunikacji równorzędnej sieci wirtualnej między dwiema sieciami wirtualnymi wdrożonymi przy użyciu klasycznego modelu wdrażania. Aby połączyć sieci wirtualne, które zostały utworzone przy użyciu klasycznego modelu wdrażania, można użyć [VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) platformy Azure do połączenia sieci wirtualnych.
+Nie można utworzyć komunikacji równorzędnej sieci wirtualnej między dwiema sieciami wirtualnymi wdrożonymi przy użyciu klasycznego modelu wdrażania. Aby połączyć sieci wirtualne, które zostały utworzone przy użyciu klasycznego modelu wdrażania, można użyć [VPN Gateway](../vpn-gateway/tutorial-site-to-site-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) platformy Azure do połączenia sieci wirtualnych.
 
 Ten samouczek umożliwia równorzędne sieci wirtualne w tym samym regionie. Można także równorzędne sieci wirtualne w różnych [obsługiwanych regionach](virtual-network-manage-peering.md#cross-region). Zaleca się zapoznanie się z [wymaganiami i ograniczeniami komunikacji równorzędnej](virtual-network-manage-peering.md#requirements-and-constraints) przed równorzędnymi sieciami wirtualnymi.
 
 Za pomocą [Azure Portal](#portal), [interfejsu wiersza polecenia](#cli) platformy Azure, [programu Azure PowerShell](#powershell)lub [szablonu Azure Resource Manager](#template) do tworzenia komunikacji równorzędnej sieci wirtualnej. Wybierz dowolne z poprzednich linków narzędzi, aby przejść bezpośrednio do procedury tworzenia komunikacji równorzędnej sieci wirtualnej przy użyciu wybranego przez siebie narzędzia.
 
 Jeśli sieci wirtualne znajdują się w różnych subskrypcjach, a subskrypcje są skojarzone z różnymi dzierżawcami Azure Active Directory, przed kontynuowaniem wykonaj następujące czynności:
-1. Dodaj użytkownika z każdej Active Directory dzierżawy jako [gość](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) w przypadku przeciwległej dzierżawy Azure Active Directoryowej.
+1. Dodaj użytkownika z każdej Active Directory dzierżawy jako [gość](../active-directory/external-identities/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) w przypadku przeciwległej dzierżawy Azure Active Directoryowej.
 1. Każdy użytkownik musi zaakceptować zaproszenie użytkownika-gościa od przeciwległej dzierżawy usługi Azure Active Directory.
 
 ## <a name="create-peering---azure-portal"></a><a name="portal"></a>Tworzenie komunikacji równorzędnej — Azure Portal
@@ -59,7 +59,7 @@ Poniższe kroki używają różnych kont dla każdej subskrypcji. Jeśli używas
 5. Wybierz pozycję **Kontrola dostępu (IAM)** z pionowej listy opcji po lewej stronie.
 6. W obszarze **myVnetA — kontrola dostępu (IAM)** wybierz pozycję **+ Dodaj przypisanie roli**.
 7. Wybierz opcję **współautor sieci** w polu **rola** .
-8. W polu **Wybierz** wybierz pozycję *UserB*lub wpisz adres e-mail UserB, aby go wyszukać.
+8. W polu **Wybierz** wybierz pozycję *UserB* lub wpisz adres e-mail UserB, aby go wyszukać.
 9. Wybierz pozycję **Zapisz**.
 10. W obszarze **myVnetA — kontrola dostępu (IAM)** wybierz pozycję **Właściwości** z pionowej listy opcji po lewej stronie. Skopiuj **Identyfikator zasobu**, który jest używany w późniejszym kroku. Identyfikator zasobu jest podobny do następującego przykładu: `/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA` .
 11. Wyloguj się z portalu jako UserA, a następnie zaloguj się jako UserB.
@@ -74,13 +74,13 @@ Poniższe kroki używają różnych kont dla każdej subskrypcji. Jeśli używas
     - **Lokalizacja**: *Wschodnie stany USA*
 
 13. W polu **Wyszukaj zasoby** w górnej części portalu wpisz *myVnetB*. Wybierz pozycję **myVnetB** , gdy zostanie ona wyświetlona w wynikach wyszukiwania.
-14. W obszarze **myVnetB**wybierz pozycję **Właściwości** z pionowej listy opcji po lewej stronie. Skopiuj **Identyfikator zasobu**, który jest używany w późniejszym kroku. Identyfikator zasobu jest podobny do następującego przykładu: `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB` .
+14. W obszarze **myVnetB** wybierz pozycję **Właściwości** z pionowej listy opcji po lewej stronie. Skopiuj **Identyfikator zasobu**, który jest używany w późniejszym kroku. Identyfikator zasobu jest podobny do następującego przykładu: `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB` .
 15. Wybierz pozycję **Kontrola dostępu (IAM)** w obszarze **myVnetB**, a następnie wykonaj kroki 5-10 dla myVnetB, wprowadzając **usera** w kroku 8.
 16. Wyloguj się z portalu jako UserB i zaloguj się jako UserA.
 17. W polu **Wyszukaj zasoby** w górnej części portalu wpisz *myVnetA*. Wybierz pozycję **myVnetA** , gdy zostanie ona wyświetlona w wynikach wyszukiwania.
 18. Wybierz pozycję **myVnetA**.
-19. W obszarze **Ustawienia**wybierz pozycję **Komunikacja równorzędna**.
-20. W obszarze **myVnetA — Komunikacja równorzędna**wybierz pozycję **+ Dodaj** .
+19. W obszarze **Ustawienia** wybierz pozycję **Komunikacja równorzędna**.
+20. W obszarze **myVnetA — Komunikacja równorzędna** wybierz pozycję **+ Dodaj** .
 21. W obszarze **Dodaj komunikację równorzędną**, wprowadź lub wybierz poniższe opcje, a następnie wybierz przycisk **OK**:
      - **Nazwa**: *myVnetAToMyVnetB*
      - **Model wdrażania sieci wirtualnej**: wybierz pozycję **Menedżer zasobów**.
@@ -305,13 +305,13 @@ Po zakończeniu tego samouczka możesz chcieć usunąć zasoby utworzone w samou
    ```
 
 2. Wyloguj się z platformy Azure jako UserA i zaloguj się jako UserB.
-3. Wykonaj następujące polecenie:
+3. Uruchom następujące polecenie:
 
    ```azurecli-interactive
    az group delete --name myResourceGroupB --yes
    ```
 
-### <a name="powershell"></a><a name="delete-powershell"></a>Program PowerShell
+### <a name="powershell"></a><a name="delete-powershell"></a>PowerShell
 
 1. Zaloguj się do platformy Azure jako UserA i wykonaj następujące polecenie:
 
@@ -320,7 +320,7 @@ Po zakończeniu tego samouczka możesz chcieć usunąć zasoby utworzone w samou
    ```
 
 2. Wyloguj się z platformy Azure jako UserA i zaloguj się jako UserB.
-3. Wykonaj następujące polecenie:
+3. Uruchom następujące polecenie:
 
    ```powershell
    Remove-AzResourceGroup -Name myResourceGroupB -force

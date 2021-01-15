@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 08/05/2020
-ms.openlocfilehash: 459cb1f7ea6c756b8cf6eba70af5ebabe76cc8b0
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.custom: responsible-ml
+ms.openlocfilehash: 29e29e73aa1094a2941592655af78a24d95c53b5
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335762"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223095"
 ---
 # <a name="mitigate-fairness-in-machine-learning-models-preview"></a>Eliminowanie sprawiedliwych modeli uczenia maszynowego (wersja zapoznawcza)
 
@@ -51,7 +52,7 @@ Wspólnie te składniki umożliwiają analitykom danych i liderom biznesowym naw
 
 ## <a name="assess-fairness-in-machine-learning-models"></a>Oceniaj sprawiedliwe modele uczenia maszynowego
 
-W pakiecie Fairlearn Open Source godziwa wartość jest koncepcyjna, chociaż podejście znane jako **sprawiedliwe grupy** , z pytaniem, które grupy osób narażonych są zagrożone? Odpowiednie grupy, znane także jako podpopulacji, są definiowane za pomocą **poufnych funkcji** lub atrybutów poufnych. Funkcje poufne są przesyłane do szacowania w pakiecie Fairlearn typu open source jako wektor lub macierz o nazwie  `sensitive_features` . W tym przypadku należy zasugerować, że projektant systemu powinien być poufny dla tych funkcji podczas oceniania sprawiedliwości grupy. 
+W pakiecie Fairlearn Open Source godziwa wartość jest koncepcyjna, chociaż podejście znane jako **sprawiedliwe grupy**, z pytaniem, które grupy osób narażonych są zagrożone? Odpowiednie grupy, znane także jako podpopulacji, są definiowane za pomocą **poufnych funkcji** lub atrybutów poufnych. Funkcje poufne są przesyłane do szacowania w pakiecie Fairlearn typu open source jako wektor lub macierz o nazwie  `sensitive_features` . W tym przypadku należy zasugerować, że projektant systemu powinien być poufny dla tych funkcji podczas oceniania sprawiedliwości grupy. 
 
 Należy się zastanowić, czy te funkcje zawierają kwestie dotyczące prywatności wynikające z danych prywatnych. Ale słowo "poufne" nie oznacza, że te funkcje nie powinny być używane do prognozowania.
 

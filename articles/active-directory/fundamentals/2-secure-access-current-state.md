@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff656887081681a804285e9a96352feef15fc675
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 7557985b23991f1a53d45f6f2d2283500c0d73f3
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97744222"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222415"
 ---
 # <a name="discover-the-current-state-of-external-collaboration-in-your-organization"></a>Odkryj bieżący stan współpracy zewnętrznej w organizacji 
 
@@ -46,9 +46,9 @@ Organizacje zewnętrzne mogą być określane przez nazwy domen adresów e-mail 
 
 ### <a name="use-allow-or-deny-lists"></a>Użyj list dozwolonych lub zablokowanych
 
-Innym sposobem na odnalezienie obecnie współpracy z programem lub zawieszeniem współpracy jest sprawdzenie, czy dodaliśmy wszystkie organizacje do [listy dozwolonych i](../external-identities/allow-deny-list.md)zablokowanych.
+Zastanów się, czy organizacja chce zezwolić na współpracę tylko z określonymi organizacjami. Alternatywnie należy rozważyć, czy organizacja chce blokować współpracę z określonymi organizacjami.  Na poziomie dzierżawy istnieje [Lista dozwolonych lub zablokowanych](../external-identities/allow-deny-list.md), która może służyć do kontrolowania ogólnych zaproszeń B2B i wykupu niezależnie od źródła (np. zespołów, SharePoint i Azure Portal).
+W przypadku korzystania z funkcji zarządzania prawami można także przekazywać pakiety dostępu do podzbioru partnerów przy użyciu określonych ustawień połączonych organizacji, jak pokazano poniżej.
 
-Rozważ, jeśli Twoja organizacja chce zezwolić na współpracę tylko z określonymi organizacjami. Należy również rozważyć, czy organizacja chce blokować współpracę z określonymi organizacjami. Te ustawienia mogą być stosowane do ogólnej realizacji B2B lub tylko do określonego pakietu dostępu.
 
 ![Zrzut ekranu listy Zezwalaj na odmowę podczas tworzenia nowego pakietu dostępu.](media/secure-external-access/2-new-access-package.png)
 

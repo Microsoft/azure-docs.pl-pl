@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/25/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 36e5bb33b7d555c3b457b63f94d9032ff390e6cb
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: b7c683edd15ab05e9efc239ffe07759078754607
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342318"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222653"
 ---
 # <a name="azure-kubernetes-network-policies-overview"></a>Omówienie zasad sieciowych platformy Azure Kubernetes
 
@@ -38,7 +38,7 @@ W przypadku implementowania zabezpieczeń klastra należy użyć grup zabezpiecz
 Usługi Azure NPM można użyć w następujący sposób, aby zapewnić mikrosegmenty dla zasobników.
 
 ### <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
-NPM jest dostępna natywnie w AKS i można ją włączyć w momencie tworzenia klastra. Dowiedz się więcej na temat [zabezpieczania ruchu między różnymi sieciami przy użyciu zasad sieciowych w usłudze Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/use-network-policies).
+NPM jest dostępna natywnie w AKS i można ją włączyć w momencie tworzenia klastra. Dowiedz się więcej na temat [zabezpieczania ruchu między różnymi sieciami przy użyciu zasad sieciowych w usłudze Azure Kubernetes Service (AKS)](../aks/use-network-policies.md).
 
 ### <a name="aks-engine"></a>AKS — silnik
 AKS-Engine to narzędzie, które generuje szablon Azure Resource Manager na potrzeby wdrożenia klastra Kubernetes na platformie Azure. Konfiguracja klastra jest określona w pliku JSON, który jest przekazywany do narzędzia podczas generowania szablonu. Aby uzyskać więcej informacji na temat wszystkich obsługiwanych ustawień klastra, zobacz Microsoft Azure Container Service Engine — Cluster Definition (Usługa Microsoft Azure Container Service Engine — definicja klastra).
@@ -130,7 +130,7 @@ Istnieje również Metryka "exec_time_count" i "exec_time_sum" dla każdej metry
 Metryki mogą być odłączane za pomocą Azure Monitor dla kontenerów lub za pomocą Prometheus.
 
 ### <a name="setup-for-azure-monitor"></a>Instalator dla Azure Monitor
-Pierwszym krokiem jest włączenie Azure Monitor dla kontenerów dla klastra Kubernetes. Kroki można znaleźć w temacie [Azure monitor for Containers — Omówienie](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview). Po włączeniu Azure Monitor dla kontenerów Skonfiguruj [Azure monitor dla kontenerów ConfigMap](https://aka.ms/container-azm-ms-agentconfig) , aby umożliwić integrację npm i zbieranie metryk Prometheus npm. Usługa Azure monitor dla kontenerów ConfigMap zawiera ```integrations``` sekcję z ustawieniami umożliwiającą zbieranie metryk npm. Te ustawienia są domyślnie wyłączone w ConfigMap. Włączenie ustawienia podstawowe ```collect_basic_metrics = true``` spowoduje zebranie podstawowych metryk npm. Włączenie ustawienia zaawansowanego ```collect_advanced_metrics = true``` spowoduje zebranie zaawansowanych metryk oprócz metryk podstawowych. 
+Pierwszym krokiem jest włączenie Azure Monitor dla kontenerów dla klastra Kubernetes. Kroki można znaleźć w temacie [Azure monitor for Containers — Omówienie](../azure-monitor/insights/container-insights-overview.md). Po włączeniu Azure Monitor dla kontenerów Skonfiguruj [Azure monitor dla kontenerów ConfigMap](https://aka.ms/container-azm-ms-agentconfig) , aby umożliwić integrację npm i zbieranie metryk Prometheus npm. Usługa Azure monitor dla kontenerów ConfigMap zawiera ```integrations``` sekcję z ustawieniami umożliwiającą zbieranie metryk npm. Te ustawienia są domyślnie wyłączone w ConfigMap. Włączenie ustawienia podstawowe ```collect_basic_metrics = true``` spowoduje zebranie podstawowych metryk npm. Włączenie ustawienia zaawansowanego ```collect_advanced_metrics = true``` spowoduje zebranie zaawansowanych metryk oprócz metryk podstawowych. 
 
 Po edycji ConfigMap Zapisz ją lokalnie i Zastosuj ConfigMap do klastra w następujący sposób.
 
@@ -143,7 +143,7 @@ integrations: |-
 ```
 Metryki zaawansowane są opcjonalne, a włączenie tych funkcji spowoduje automatyczne włączenie kolekcji metryk podstawowych. Zaawansowane metryki obecnie obejmują tylko `npm_ipset_counts`
 
-Dowiedz się więcej [na temat ustawień kolekcji kontenerów dla usługi Azure monitor na mapie konfiguracji](https://aka.ms/azmon-containers-agent-collection-settings-doc)
+Dowiedz się więcej [na temat ustawień kolekcji kontenerów dla usługi Azure monitor na mapie konfiguracji](../azure-monitor/insights/container-insights-agent-config.md)
 
 ### <a name="visualization-options-for-azure-monitor"></a>Opcje wizualizacji dla Azure Monitor
 Po włączeniu zbierania metryk NPM można wyświetlić metryki w Azure Portal przy użyciu usługi Container Insights lub Grafana.
@@ -154,7 +154,7 @@ Otwórz witrynę Azure Portal. Po uzyskaniu wglądu w dane klastra przejdź do "
 Oprócz wyświetlania skoroszytu (obrazy poniżej) można również bezpośrednio wysyłać zapytania o metryki Prometheus w sekcji "Logs". Na przykład to zapytanie zwróci wszystkie zbierane metryki.
 | gdzie TimeGenerated > temu (5h) | gdzie nazwa zawiera "npm_"
 
-Możesz również badać Log Analytics bezpośrednio dla metryk. Dowiedz się więcej na temat [wprowadzenie z Zapytaniami log Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-log-search) 
+Możesz również badać Log Analytics bezpośrednio dla metryk. Dowiedz się więcej na temat [wprowadzenie z Zapytaniami log Analytics](../azure-monitor/insights/container-insights-log-search.md) 
 
 #### <a name="viewing-in-grafana-dashboard"></a>Wyświetlanie na pulpicie nawigacyjnym Grafana
 Skonfiguruj serwer Grafana i Skonfiguruj źródło danych Log Analytics zgodnie z opisem w [tym miejscu](https://grafana.com/grafana/plugins/grafana-azure-monitor-datasource). Następnie zaimportuj [pulpit nawigacyjny Grafana z zapleczem log Analytics](https://grafana.com/grafana/dashboards/10956) do programu Grafana Labs.
@@ -266,4 +266,3 @@ Poniżej przedstawiono przykładowy pulpit nawigacyjny dla metryk NPM w usłudze
 -  Dowiedz się więcej na temat [sieci kontenerów](container-networking-overview.md).
 - [Wdróż wtyczkę](deploy-container-networking.md) dla klastrów Kubernetes lub kontenerów platformy Docker.
 
-    

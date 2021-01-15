@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 57b2955f8cec059cd20d353eba31dc39ad992d50
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 3f9dd35959980eef4e1bec550bf7e9f583cf30d2
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97506268"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98225521"
 ---
 Użycie integracji regionalnej sieci wirtualnej umożliwia aplikacji dostęp do:
 
@@ -48,7 +48,6 @@ Istnieją pewne ograniczenia dotyczące używania integracji sieci wirtualnej z 
 * Ta funkcja wymaga nieużywanej podsieci, która jest/28 lub większa w sieci wirtualnej Azure Resource Manager.
 * Aplikacja i Sieć wirtualna muszą znajdować się w tym samym regionie.
 * Nie można usunąć sieci wirtualnej przy użyciu zintegrowanej aplikacji. Usuń integrację przed usunięciem sieci wirtualnej.
-* Integrację z usługą sieci wirtualnych można zintegrować tylko w ramach tej samej subskrypcji, w której znajduje się aplikacja.
 * Możesz mieć tylko jedną regionalną integrację sieci wirtualnej na App Service plan. Wiele aplikacji w tym samym planie App Service może korzystać z tej samej sieci wirtualnej.
 * Nie możesz zmienić subskrypcji aplikacji ani planu, gdy istnieje aplikacja, która korzysta z integracji regionalnej sieci wirtualnej.
 * Twoja aplikacja nie może rozpoznać adresów w Azure DNS Private Zones bez zmian konfiguracji

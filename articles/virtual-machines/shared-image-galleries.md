@@ -9,16 +9,16 @@ ms.workload: infrastructure
 ms.date: 10/14/2020
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 4156308fa58ea1f02e6e3f2c5174839dc1cd381c
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 2731a7f263db223c258ddfc434bc84f59632d1f5
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96841528"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223367"
 ---
 # <a name="shared-image-galleries-overview"></a>Udostępnione Galerie obrazów — Omówienie
 
-Udostępniona Galeria obrazów to usługa, która ułatwia tworzenie struktury i organizacji na całym obrazie. Udostępnione Galerie obrazów zapewniają następujące:
+Shared Image Gallery to usługa, która ułatwia tworzenie struktury i organizacji obrazów. Udostępnione Galerie obrazów zapewniają następujące:
 
 - Replikacja globalna obrazów.
 - Przechowywanie wersji i grupowanie obrazów w celu łatwiejszego zarządzania.
@@ -144,7 +144,7 @@ Regiony, w których jest replikowana wersja udostępnionego obrazu, mogą zosta�
 
 ![Ilustracja przedstawiająca sposób replikowania obrazów](./media/shared-image-galleries/replication.png)
 
-## <a name="access"></a>Dostęp
+## <a name="access"></a>Access
 
 Jako Galeria obrazów udostępnionych, definicja obrazu i wersja obrazu są wszystkie zasoby, które można udostępniać przy użyciu wbudowanych kontrolek kontroli RBAC platformy Azure. Za pomocą RBAC można udostępniać te zasoby innym użytkownikom, podmiotom usługi i grupom. Możesz nawet udostępnić dostęp osobom spoza dzierżawy, w ramach której zostały utworzone. Gdy użytkownik ma dostęp do udostępnionej wersji obrazu, może wdrożyć maszynę wirtualną lub zestaw skalowania maszyn wirtualnych.  Oto macierz udostępniania, która pomaga zrozumieć, do czego użytkownik uzyskuje dostęp:
 
@@ -316,6 +316,11 @@ W przypadku wdrożeń maszyny wirtualnej i zestawu skalowania maszyn wirtualnych
 ### <a name="can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-shared-image-gallery-images"></a>Czy mogę zaktualizować zestaw skalowania maszyn wirtualnych utworzony przy użyciu obrazu zarządzanego, aby używać obrazów z galerii obrazów udostępnionych?
 
 Tak, możesz zaktualizować odwołanie do obrazu zestawu skalowania z obrazu zarządzanego do obrazu udostępnionej galerii obrazów, o ile typ systemu operacyjnego, generacja funkcji Hyper-V i układ dysku danych dopasowuje się między obrazami.
+
+## <a name="troubleshoot-shared-image-gallery-issues"></a>Rozwiązywanie problemów z galerią obrazów udostępnionych
+Jeśli masz problemy z wykonywaniem operacji na zasobach udostępnionych galerii obrazów, zapoznaj się z listą typowych błędów w [przewodniku rozwiązywania problemów](troubleshooting-shared-images.md).
+
+Ponadto możesz ogłosić pytanie i oznaczyć je za pomocą `azure-virtual-machines-images` [elementu Q&a](/answers/topics/azure-virtual-machines-images.html).
 
 ## <a name="next-steps"></a>Następne kroki
 

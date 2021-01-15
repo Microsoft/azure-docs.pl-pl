@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 11/25/2020
+ms.date: 01/14/2020
 ms.author: jlian
-ms.openlocfilehash: f4438aebcb81d665a19a595ac7ade4fea27fc43f
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: e569cbe9030b2ac5a42bd99233b4fefc925a5662
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621012"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220318"
 ---
 # <a name="transport-layer-security-tls-support-in-iot-hub"></a>Obsługa Transport Layer Security (TLS) w programie IoT Hub
 
@@ -46,9 +46,16 @@ Aby zwiększyć bezpieczeństwo, należy skonfigurować centra IoT w *taki spos�
 * South Central US
 * Zachodnie stany USA 2
 * US Gov Arizona
-* US Gov Wirginia
+* US Gov Wirginia (obsługa protokołu TLS 1.0/1.1 nie jest dostępna w tym regionie — należy włączyć Wymuszanie protokołu TLS 1,2 lub utworzenie centrum IoT nie powiodło się)
 
-W tym celu należy udostępnić nowe IoT Hub w którymkolwiek z obsługiwanych regionów i ustawić `minTlsVersion` Właściwość na wartość `1.2` w specyfikacji zasobów usługi IoT Hub szablonu Azure Resource Manager:
+Aby włączyć Wymuszanie protokołu TLS 1,2, postępuj zgodnie z instrukcjami w temacie [Tworzenie Centrum IoT Hub w Azure Portal](/.iot-hub-create-through-portal.md), z wyjątkiem
+
+- Wybierz **region** z jednej z powyższej listy.
+- W obszarze **Management-> Advanced-> Transport Layer Security (TLS) — > minimalna wersja protokołu TLS**, wybierz **1,2**. To ustawienie pojawia się tylko w przypadku usługi IoT Hub utworzonej w obsługiwanym regionie.
+
+    :::image type="content" source="media/iot-hub-tls-12-enforcement.png" alt-text="Zrzut ekranu przedstawiający sposób włączania protokołu TLS 1,2 podczas tworzenia Centrum IoT":::
+
+Aby użyć szablonu ARM do tworzenia, Zainicjuj obsługę nowego IoT Hub w dowolnym z obsługiwanych regionów i ustaw `minTlsVersion` Właściwość na wartość `1.2` w specyfikacji zasobu:
 
 ```json
 {
@@ -112,11 +119,11 @@ Poniższe linki służą do konfigurowania protokołu TLS 1,2 i dozwolonych szyf
 
 | Język | Wersje obsługujące protokół TLS 1,2 | Dokumentacja |
 |----------|------------------------------------|---------------|
-| C        | Tag 2019-12-11 lub nowszy            | [Link](https://aka.ms/Tls_C_SDK_IoT) |
-| Python   | Wersja 2.0.0 lub nowsza             | [Link](https://aka.ms/Tls_Python_SDK_IoT) |
-| C#       | Wersja 1.21.4 lub nowsza            | [Link](https://aka.ms/Tls_CSharp_SDK_IoT) |
-| Java     | Wersja 1.19.0 lub nowsza            | [Link](https://aka.ms/Tls_Java_SDK_IoT) |
-| NodeJS   | Wersja 1.12.2 lub nowsza            | [Link](https://aka.ms/Tls_Node_SDK_IoT) |
+| C        | Tag 2019-12-11 lub nowszy            | [Łącze](https://aka.ms/Tls_C_SDK_IoT) |
+| Python   | Wersja 2.0.0 lub nowsza             | [Łącze](https://aka.ms/Tls_Python_SDK_IoT) |
+| C#       | Wersja 1.21.4 lub nowsza            | [Łącze](https://aka.ms/Tls_CSharp_SDK_IoT) |
+| Java     | Wersja 1.19.0 lub nowsza            | [Łącze](https://aka.ms/Tls_Java_SDK_IoT) |
+| NodeJS   | Wersja 1.12.2 lub nowsza            | [Łącze](https://aka.ms/Tls_Node_SDK_IoT) |
 
 Urządzenia IoT Edge można skonfigurować do korzystania z protokołu TLS 1,2 podczas komunikowania się z IoT Hub. W tym celu Skorzystaj ze [strony dokumentacji IoT Edge](https://github.com/Azure/iotedge/blob/master/edge-modules/edgehub-proxy/README.md).
 

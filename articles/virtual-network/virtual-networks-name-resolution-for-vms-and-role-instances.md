@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 3/2/2020
 ms.author: rohink
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 340ca07ba605359f71c1dbf23ca38abd75d84416
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: bbaf2fb99f1268a752fab4322078b0566a054d30
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937053"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222857"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Rozpoznawanie nazw dla zasobów w sieciach wirtualnych platformy Azure
 
@@ -57,7 +57,7 @@ Rozpoznawanie nazw udostępniane przez platformę Azure zapewnia tylko podstawow
 Podobnie jak w przypadku nazw publicznych DNS, platforma Azure udostępnia wewnętrzne rozpoznawanie nazw dla maszyn wirtualnych i wystąpień ról znajdujących się w tej samej sieci wirtualnej lub w ramach usługi w chmurze. Maszyny wirtualne i wystąpienia w usłudze w chmurze współużytkują ten sam sufiks DNS, więc wystarczy sama nazwa hosta. Jednak w przypadku sieci wirtualnych wdrożonych przy użyciu klasycznego modelu wdrażania różne usługi w chmurze mają różne sufiksy DNS. W takiej sytuacji do rozpoznawania nazw między różnymi usługami w chmurze potrzebna jest nazwa FQDN. W przypadku sieci wirtualnych wdrożonych przy użyciu Azure Resource Manager model wdrażania sufiks DNS jest spójny dla wszystkich maszyn wirtualnych w ramach sieci wirtualnej, więc nazwa FQDN nie jest wymagana. Nazwy DNS można przypisywać zarówno do maszyn wirtualnych, jak i interfejsów sieciowych. Chociaż rozpoznawanie nazw udostępniane przez platformę Azure nie wymaga żadnej konfiguracji, nie jest to odpowiedni wybór dla wszystkich scenariuszy wdrażania, zgodnie z opisem w poprzedniej tabeli.
 
 > [!NOTE]
-> W przypadku korzystania z ról Sieć Web i proces roboczy usług Cloud Services można także uzyskać dostęp do wewnętrznych adresów IP wystąpień ról przy użyciu interfejsu API REST usługi Azure Service Management. Aby uzyskać więcej informacji, zobacz [Dokumentacja interfejsu API REST zarządzania usługami](https://msdn.microsoft.com/library/azure/ee460799.aspx). Adres jest oparty na nazwie roli i numerze wystąpienia. 
+> W przypadku korzystania z ról Sieć Web i proces roboczy usług Cloud Services można także uzyskać dostęp do wewnętrznych adresów IP wystąpień ról przy użyciu interfejsu API REST usługi Azure Service Management. Aby uzyskać więcej informacji, zobacz [Dokumentacja interfejsu API REST zarządzania usługami](/previous-versions/azure/ee460799(v=azure.100)). Adres jest oparty na nazwie roli i numerze wystąpienia. 
 >
 
 ### <a name="features"></a>Funkcje
@@ -88,7 +88,7 @@ Odwrotny serwer DNS jest obsługiwany we wszystkich sieciach wirtualnych opartyc
 * Wyszukiwanie do przodu w nazwach FQDN formularza \[ VMName \] . Internal.cloudapp.NET zostanie rozpoznane jako adres IP przypisany do maszyny wirtualnej.
 * Jeśli sieć wirtualna jest połączona z [Azure DNS strefami prywatnymi](../dns/private-dns-overview.md) jako sieć wirtualną rejestracji, zapytania ODWROTNe DNS zwrócą dwa rekordy. Jeden rekord będzie miał postać \[ VMName \] . [ privatednszonename], a drugi będzie miał postać \[ VMName \] . Internal.cloudapp.NET
 * Odwrotne wyszukiwanie DNS jest ograniczone do danej sieci wirtualnej, nawet jeśli jest połączona z innymi sieciami wirtualnymi. Odwrotne zapytania DNS (kwerendy PTR) dla adresów IP maszyn wirtualnych znajdujących się w równorzędnych sieciach wirtualnych będą zwracały NXDOMAIN.
-* Jeśli chcesz wyłączyć odwrotną funkcję DNS w sieci wirtualnej, możesz to zrobić, tworząc strefę wyszukiwania wstecznego przy użyciu [stref prywatnych Azure DNS](../dns/private-dns-overview.md) i Połącz tę strefę z siecią wirtualną. Na przykład jeśli przestrzeń adresów IP sieci wirtualnej to 10.20.0.0/16, można utworzyć pustą prywatną strefę DNS 20.10.in-addr. arpa i połączyć ją z siecią wirtualną. Podczas łączenia strefy z siecią wirtualną należy wyłączyć rejestrację autorejestrowania na łączu. Ta strefa zastąpi domyślne strefy wyszukiwania wstecznego dla sieci wirtualnej i ponieważ ta strefa jest pusta, uzyskasz NXDOMAIN dla zapytań wstecz DNS. Zapoznaj się z naszym [przewodnikiem Szybki Start](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal) , aby uzyskać szczegółowe informacje na temat sposobu tworzenia prywatnej strefy DNS i łączenia jej z siecią wirtualną.
+* Jeśli chcesz wyłączyć odwrotną funkcję DNS w sieci wirtualnej, możesz to zrobić, tworząc strefę wyszukiwania wstecznego przy użyciu [stref prywatnych Azure DNS](../dns/private-dns-overview.md) i Połącz tę strefę z siecią wirtualną. Na przykład jeśli przestrzeń adresów IP sieci wirtualnej to 10.20.0.0/16, można utworzyć pustą prywatną strefę DNS 20.10.in-addr. arpa i połączyć ją z siecią wirtualną. Podczas łączenia strefy z siecią wirtualną należy wyłączyć rejestrację autorejestrowania na łączu. Ta strefa zastąpi domyślne strefy wyszukiwania wstecznego dla sieci wirtualnej i ponieważ ta strefa jest pusta, uzyskasz NXDOMAIN dla zapytań wstecz DNS. Zapoznaj się z naszym [przewodnikiem Szybki Start](../dns/private-dns-getstarted-portal.md) , aby uzyskać szczegółowe informacje na temat sposobu tworzenia prywatnej strefy DNS i łączenia jej z siecią wirtualną.
 
 > [!NOTE]
 > Jeśli chcesz, aby odwrotne wyszukiwanie DNS było podzielone między sieciami wirtualnymi, możesz utworzyć strefę wyszukiwania wstecznego (w-addr. arpa) [Azure DNS strefy prywatne](../dns/private-dns-overview.md) i połączyć ją z wieloma sieciami wirtualnymi. Konieczne będzie jednak ręczne Zarządzanie rekordami odwrotnego systemu DNS dla maszyn wirtualnych.
@@ -164,7 +164,7 @@ Serwery DNS w sieci wirtualnej mogą przekazywać zapytania DNS do rozpoznawania
 Przesyłanie dalej DNS umożliwia również rozpoznawanie nazw DNS między sieciami wirtualnymi i pozwala komputerom lokalnym rozpoznać nazwy hostów podane przez platformę Azure. Aby można było rozpoznać nazwę hosta maszyny wirtualnej, maszyna wirtualna serwera DNS musi znajdować się w tej samej sieci wirtualnej i być skonfigurowana do przekazywania zapytań o nazwy hosta do platformy Azure. Ponieważ sufiks DNS różni się w każdej sieci wirtualnej, można użyć reguł przekazywania warunkowego do wysyłania zapytań DNS do odpowiedniej sieci wirtualnej w celu rozwiązania tego problemu. Na poniższej ilustracji przedstawiono dwie sieci wirtualne i sieć lokalna wykonująca rozpoznawanie nazw DNS między sieciami wirtualnymi za pomocą tej metody. Przykład usługi przesyłania dalej DNS jest dostępny w [galerii szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/documentation/templates/301-dns-forwarder/) i w serwisie [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder).
 
 > [!NOTE]
-> Wystąpienie roli może przeprowadzać rozpoznawanie nazw maszyn wirtualnych w ramach tej samej sieci wirtualnej. Robi to za pomocą nazwy FQDN, która składa się z nazw hosta maszyny wirtualnej i sufiksu DNS **Internal.cloudapp.NET** . Jednak w takim przypadku rozpoznawanie nazw powiedzie się tylko wtedy, gdy wystąpienie roli ma zdefiniowaną nazwę maszyny wirtualnej w [schemacie roli (plik cscfg)](https://msdn.microsoft.com/library/azure/jj156212.aspx).
+> Wystąpienie roli może przeprowadzać rozpoznawanie nazw maszyn wirtualnych w ramach tej samej sieci wirtualnej. Robi to za pomocą nazwy FQDN, która składa się z nazw hosta maszyny wirtualnej i sufiksu DNS **Internal.cloudapp.NET** . Jednak w takim przypadku rozpoznawanie nazw powiedzie się tylko wtedy, gdy wystąpienie roli ma zdefiniowaną nazwę maszyny wirtualnej w [schemacie roli (plik cscfg)](/previous-versions/azure/reference/jj156212(v=azure.100)).
 > `<Role name="<role-name>" vmName="<vm-name>">`
 >
 > Wystąpienia roli, które wymagają rozpoznawania nazw maszyn wirtualnych w innej sieci wirtualnej (nazwa FQDN przy użyciu sufiksu **Internal.cloudapp.NET** ), należy wykonać przy użyciu metody opisanej w tej sekcji (przekazujące niestandardowe serwery DNS między dwiema sieciami wirtualnymi).
@@ -176,8 +176,8 @@ W przypadku korzystania z rozpoznawania nazw udostępnianej przez platformę Azu
 
 W razie potrzeby można określić wewnętrzny sufiks DNS przy użyciu programu PowerShell lub interfejsu API:
 
-* W przypadku sieci wirtualnych w Azure Resource Manager modele wdrażania sufiks jest dostępny za pośrednictwem interfejsu [API REST interfejsu sieciowego](https://docs.microsoft.com/rest/api/virtualnetwork/networkinterfaces), polecenia cmdlet programu PowerShell [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) i polecenia [AZ Network nic show](/cli/azure/network/nic#az-network-nic-show) Azure CLI.
-* W klasycznych modelach wdrażania sufiks jest dostępny za pośrednictwem wywołania [interfejsu API pobierania](https://msdn.microsoft.com/library/azure/ee460804.aspx) lub polecenia cmdlet [Get-AzureVM-Debug](/powershell/module/servicemanagement/azure.service/get-azurevm) .
+* W przypadku sieci wirtualnych w Azure Resource Manager modele wdrażania sufiks jest dostępny za pośrednictwem interfejsu [API REST interfejsu sieciowego](/rest/api/virtualnetwork/networkinterfaces), polecenia cmdlet programu PowerShell [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) i polecenia [AZ Network nic show](/cli/azure/network/nic#az-network-nic-show) Azure CLI.
+* W klasycznych modelach wdrażania sufiks jest dostępny za pośrednictwem wywołania [interfejsu API pobierania](/previous-versions/azure/reference/ee460804(v=azure.100)) lub polecenia cmdlet [Get-AzureVM-Debug](/powershell/module/servicemanagement/azure.service/get-azurevm) .
 
 Jeśli przekazywanie zapytań do platformy Azure nie odpowiada Twoim potrzebom, należy podać własne rozwiązanie DNS. Rozwiązanie DNS musi:
 
@@ -215,7 +215,7 @@ W przypadku korzystania z modelu wdrażania Azure Resource Manager można okreś
 > [!NOTE]
 > Jeśli wybierzesz niestandardowy serwer DNS dla sieci wirtualnej, musisz określić co najmniej jeden adres IP serwera DNS. w przeciwnym razie Sieć wirtualna zignoruje konfigurację i użyje usługi DNS udostępnionej przez platformę Azure.
 
-W przypadku korzystania z klasycznego modelu wdrażania można określić serwery DNS dla sieci wirtualnej w Azure Portal lub w [pliku konfiguracji sieci](https://msdn.microsoft.com/library/azure/jj157100). W przypadku usług Cloud Services serwery DNS można określić za pomocą [pliku konfiguracji usługi](https://msdn.microsoft.com/library/azure/ee758710) lub programu PowerShell z poleceniem [New-AzureVM](/powershell/module/servicemanagement/azure.service/new-azurevm).
+W przypadku korzystania z klasycznego modelu wdrażania można określić serwery DNS dla sieci wirtualnej w Azure Portal lub w [pliku konfiguracji sieci](/previous-versions/azure/reference/jj157100(v=azure.100)). W przypadku usług Cloud Services serwery DNS można określić za pomocą [pliku konfiguracji usługi](/previous-versions/azure/reference/ee758710(v=azure.100)) lub programu PowerShell z poleceniem [New-AzureVM](/powershell/module/servicemanagement/azure.service/new-azurevm).
 
 > [!NOTE]
 > W przypadku zmiany ustawień DNS dla sieci wirtualnej lub maszyny wirtualnej, która została już wdrożona, aby nowe ustawienia DNS zaczęły obowiązywać, należy przeprowadzić odnowienie dzierżawy DHCP na wszystkich maszynach wirtualnych, których dotyczy ta sieć wirtualna. W przypadku maszyn wirtualnych z systemem operacyjnym Windows można to zrobić, wpisując je `ipconfig /renew` bezpośrednio na maszynie wirtualnej. Kroki różnią się w zależności od systemu operacyjnego. Zapoznaj się z odpowiednią dokumentacją dla danego typu systemu operacyjnego.
@@ -229,6 +229,6 @@ Azure Resource Manager model wdrażania:
 
 Klasyczny model wdrażania:
 
-* [Schemat konfiguracji usługi platformy Azure](https://msdn.microsoft.com/library/azure/ee758710)
-* [Schemat konfiguracji Virtual Network](https://msdn.microsoft.com/library/azure/jj157100)
-* [Konfigurowanie Virtual Network przy użyciu pliku konfiguracji sieci](virtual-networks-using-network-configuration-file.md)
+* [Schemat konfiguracji usługi platformy Azure](/previous-versions/azure/reference/ee758710(v=azure.100))
+* [Schemat konfiguracji Virtual Network](/previous-versions/azure/reference/jj157100(v=azure.100))
+* [Konfigurowanie Virtual Network przy użyciu pliku konfiguracji sieci](/previous-versions/azure/virtual-network/virtual-networks-using-network-configuration-file)
