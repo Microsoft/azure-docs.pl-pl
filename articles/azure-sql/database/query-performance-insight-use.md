@@ -10,13 +10,13 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
-ms.date: 03/10/2020
-ms.openlocfilehash: a016781e5b05c8f43c043bf1f3368a58064e43ad
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 1/14/2021
+ms.openlocfilehash: db24f280f66e567572821297cfc9bb9b1e19743b
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501264"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222347"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Szczegółowe informacje o wydajności zapytań Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -55,7 +55,7 @@ Szczegółowe informacje o wydajności zapytań jest łatwe w użyciu:
 
 3. Na pierwszej karcie Przejrzyj listę najważniejszych zapytań zużywających zasoby.
 4. Wybierz pojedyncze zapytanie, aby wyświetlić jego szczegóły.
-5. Otwórz zalecenia dotyczące wydajności **inteligentnej wydajności**  >  **Performance recommendations** i sprawdź, czy są dostępne jakieś zalecenia dotyczące wydajności. Aby uzyskać więcej informacji na temat wbudowanych zaleceń dotyczących wydajności, zobacz [Azure SQL Database Advisor](database-advisor-implement-performance-recommendations.md).
+5. Otwórz zalecenia dotyczące wydajności **inteligentnej wydajności**  >   i sprawdź, czy są dostępne jakieś zalecenia dotyczące wydajności. Aby uzyskać więcej informacji na temat wbudowanych zaleceń dotyczących wydajności, zobacz [Azure SQL Database Advisor](database-advisor-implement-performance-recommendations.md).
 6. Użyj suwaków lub powiększ ikony, aby zmienić obserwowany interwał.
 
    ![Pulpit nawigacyjny wydajności](./media/query-performance-insight-use/performance.png)
@@ -155,7 +155,7 @@ Aby wyświetlić szczegóły zapytania:
 
 Dwie metryki w Szczegółowe informacje o wydajności zapytań mogą pomóc znaleźć potencjalne wąskie gardła: czas trwania i liczbę wykonań.
 
-Długotrwałe zapytania mają największy potencjał do blokowania zasobów, blokowania innych użytkowników i ograniczania skalowalności. Są one również najlepszymi kandydatami do optymalizacji.
+Długotrwałe zapytania mają największy potencjał do blokowania zasobów, blokowania innych użytkowników i ograniczania skalowalności. Są one również najlepszymi kandydatami do optymalizacji. Aby uzyskać więcej informacji, zobacz [Omówienie i rozwiązywanie problemów z blokowaniem usługi Azure SQL](understand-resolve-blocking.md).
 
 Aby zidentyfikować długotrwałe zapytania:
 
@@ -177,7 +177,7 @@ Aby zidentyfikować długotrwałe zapytania:
    >
    > Aby zrozumieć użycie jednostek DTU bazy danych z większą szczegółowością (do 1 minuty), rozważ utworzenie wykresu niestandardowego w Azure Portal:
    >
-   > 1. Wybierz **Azure SQL Database** pozycję  >  **monitorowanie** Azure SQL Database.
+   > 1. Wybierz pozycję  >  **monitorowanie** Azure SQL Database.
    > 2. Wybierz pozycję **Metryki**.
    > 3. Wybierz pozycję **+ Dodaj wykres**.
    > 4. Na wykresie wybierz wartość procentową jednostek DTU.

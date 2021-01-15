@@ -3,12 +3,12 @@ title: Szczegóły struktury definicji zasad
 description: Opisuje, w jaki sposób definicje zasad są używane do ustanawiania Konwencji dla zasobów platformy Azure w organizacji.
 ms.date: 10/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 52adaf9522e4690c4c44a72ed47592f5b1d6471e
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 6e04551a2ef2f890844693fec71d2d3232a456f2
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883252"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220817"
 ---
 # <a name="azure-policy-definition-structure"></a>Struktura definicji zasad platformy Azure
 
@@ -22,7 +22,7 @@ Schemat _Klasa policyrule_ definicji zasad znajduje się tutaj: [https://schema.
 Aby utworzyć definicję zasad, należy użyć formatu JSON. Definicja zasad zawiera elementy dla:
 
 - Nazwa wyświetlana
-- description
+- description (opis)
 - tryb
 - metadane
 - parameters
@@ -261,7 +261,7 @@ Operatory logiczne można zagnieżdżać. W poniższym przykładzie przedstawion
 
 ### <a name="conditions"></a>Warunki
 
-Warunek oblicza, czy **pole** lub metoda dostępu do **wartości** spełniają określone kryteria. Obsługiwane są następujące warunki:
+Warunek oblicza, czy wartość spełnia określone kryteria. Obsługiwane są następujące warunki:
 
 - `"equals": "stringValue"`
 - `"notEquals": "stringValue"`
@@ -291,12 +291,9 @@ Wartość nie może mieć więcej niż jednego symbolu wieloznacznego `*` .
 
 W przypadku używania warunków **Match** i **notMatch** , podaj, `#` Aby dopasować cyfrę do `?` litery, `.` Aby dopasować dowolny znak, i dowolny inny znak, aby dopasować go do rzeczywistego znaku. Chociaż **dopasowuje** i **notMatch** uwzględnia wielkość liter, wszystkie inne warunki, które szacują _stringValue_ , nie uwzględniają wielkości liter. Alternatywy bez uwzględniania wielkości liter są dostępne w **matchInsensitively** i **notMatchInsensitively**.
 
-W wartości pola tablicy **\[ \* \] aliasu** każdy element w tablicy jest obliczany indywidualnie przy użyciu koniunkcji logicznej **i** między elementami. Aby uzyskać więcej informacji, zobacz [odwoływanie się do właściwości zasobów tablicy](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
-
 ### <a name="fields"></a>Pola
 
-Warunki są tworzone za pomocą pól. Pole jest zgodne z właściwościami w ładunku żądania zasobu i opisuje stan zasobu.
-
+Warunki, które sprawdzają, czy wartości właściwości w ładunku żądania zasobu spełniają określone kryteria, można utworzyć przy użyciu wyrażenia **pola** .
 Obsługiwane są następujące pola:
 
 - `name`
@@ -305,6 +302,7 @@ Obsługiwane są następujące pola:
 - `kind`
 - `type`
 - `location`
+  - Pola lokalizacji są znormalizowane w celu obsługi różnych formatów. Na przykład `East US 2` jest traktowane jako równe `eastus2` .
   - Użyj **globalnych** dla zasobów, które są lokalizacją niezależny od.
 - `id`
   - Zwraca identyfikator zasobu, który jest oceniany.
@@ -324,6 +322,10 @@ Obsługiwane są następujące pola:
 
 > [!NOTE]
 > `tags.<tagName>`, `tags[tagName]` i `tags[tag.with.dots]` są nadal akceptowalnymi sposobami deklarowania pola Tagi. Jednak preferowane wyrażenia są wymienione powyżej.
+
+> [!NOTE]
+> W wyrażeniach **pola** odnoszących się do **\[ \* \] aliasu** każdy element w tablicy jest obliczany pojedynczo przy użyciu koniunkcji logicznej **i** między elementami.
+> Aby uzyskać więcej informacji, zobacz [odwoływanie się do właściwości zasobów tablicy](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
 
 #### <a name="use-tags-with-parameters"></a>Używanie tagów z parametrami
 
@@ -355,7 +357,7 @@ W poniższym przykładzie `concat` jest używany do tworzenia wyszukiwania pól 
 
 ### <a name="value"></a>Wartość
 
-Warunki mogą być również tworzone przy użyciu **wartości**. **wartość** sprawdza warunki względem [parametrów](#parameters), [obsługiwanych funkcji szablonów](#policy-functions)lub literałów. **wartość** jest sparowana z dowolnym obsługiwanym [warunkiem](#conditions).
+Warunki, które sprawdzają, czy wartość spełnia określone kryteria, można utworzyć przy użyciu wyrażenia **wartości** . Wartości mogą być literałami, wartościami [parametrów](#parameters)lub zwracanymi wartościami wszystkich [obsługiwanych funkcji szablonu](#policy-functions).
 
 > [!WARNING]
 > Jeśli wynik _funkcji szablonu_ jest błąd, Ocena zasad kończy się niepowodzeniem. Niepowodzenie oceny to niejawne **odmowa**. Aby uzyskać więcej informacji, zobacz [unikanie niepowodzeń związanych z szablonami](#avoiding-template-failures). Użyj [wymuszania](./assignment-structure.md#enforcement-mode) elementu **DoNotEnforce** , aby zapobiec wpływowi oceny zakończonej niepowodzeniem na nowe lub zaktualizowane zasoby podczas testowania i sprawdzania poprawności nowej definicji zasad.
@@ -440,9 +442,11 @@ Po zmodyfikowaniu reguły zasad `if()` Sprawdź długość **nazwy** przed prób
 
 ### <a name="count"></a>Liczba
 
-Warunki określające, ile elementów członkowskich tablicy w ładunku zasobów spełnia wyrażenie warunku, można utworzyć za pomocą wyrażenia **Count** . Typowe scenariusze sprawdzają, czy "co najmniej jeden z", "dokładnie jeden z", "All" lub "none" elementów członkowskich tablicy spełnia warunek. **licznik** oblicza każdy element członkowski tablicy [ \[ \* \] aliasów](#understanding-the--alias) dla wyrażenia warunku i sumuje _prawdziwe_ wyniki, które są następnie porównywane z operatorem wyrażenia. Wyrażenia **Count** mogą być dodawane maksymalnie trzy razy do pojedynczej definicji **Klasa policyrule** .
+Warunki, które ponoszą liczbę elementów członkowskich tablicy spełniających określone kryteria, można utworzyć przy użyciu wyrażenia **Count** . Typowe scenariusze sprawdzają, czy "co najmniej jeden z", "dokładnie jeden z", "All" lub "none" elementów członkowskich tablicy spełnia warunek. **Count** oblicza każdy element członkowski tablicy dla wyrażenia warunku i sumuje _prawdziwe_ wyniki, które są porównywane z operatorem wyrażenia.
 
-Struktura wyrażenia **Count** jest:
+#### <a name="field-count"></a>Liczba pól
+
+Zlicz liczbę elementów członkowskich tablicy w ładunku żądania spełniających wyrażenie warunku. Struktura wyrażeń **zliczania pól** to:
 
 ```json
 {
@@ -456,16 +460,62 @@ Struktura wyrażenia **Count** jest:
 }
 ```
 
-Następujące właściwości są używane z funkcją **Count**:
+Następujące właściwości są używane z **liczbą pól**:
 
-- **Count. pole** (wymagane): zawiera ścieżkę do tablicy i musi być aliasem tablicy. Jeśli brakuje tablicy, wyrażenie jest oceniane na _wartość false_ bez uwzględniania wyrażenia warunku.
-- **Count. WHERE** (opcjonalnie): wyrażenie warunku do pojedynczej ocenia każdego elementu członkowskiego tablicy [ \[ \* \] aliasów](#understanding-the--alias) w **polu Count.** Jeśli ta właściwość nie jest określona, wszystkie elementy członkowskie tablicy ze ścieżką "pole" są oceniane na _wartość true_. Dowolny [warunek](../concepts/definition-structure.md#conditions) może być używany wewnątrz tej właściwości.
+- **Count. pole** (wymagane): zawiera ścieżkę do tablicy i musi być aliasem tablicy.
+- **Count. WHERE** (opcjonalnie): wyrażenie warunku, które ma zostać obliczone indywidualnie dla każdego elementu członkowskiego tablicy [ \[ \* \] aliasów](#understanding-the--alias) `count.field` . Jeśli ta właściwość nie jest określona, wszystkie elementy członkowskie tablicy ze ścieżką "pole" są oceniane na _wartość true_. Dowolny [warunek](../concepts/definition-structure.md#conditions) może być używany wewnątrz tej właściwości.
   [Operatory logiczne](#logical-operators) mogą być używane wewnątrz tej właściwości, aby utworzyć złożone wymagania dotyczące oceny.
 - **\<condition\>** (wymagane): wartość jest porównywana z liczbą elementów, które osiągnęły liczbę **.** wyrażenie warunku WHERE. Należy użyć [warunku](../concepts/definition-structure.md#conditions) liczbowego.
 
-Aby uzyskać szczegółowe informacje na temat sposobu pracy z właściwościami tablicy w Azure Policy, w tym szczegółowe wyjaśnienie sposobu oceniania wyrażenia Count, zobacz [odwoływanie się do właściwości zasobów tablicy](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
+Wyrażenia **Count pól** mogą wyliczyć tę samą tablicę pól do trzech razy w jednej definicji **Klasa policyrule** .
 
-#### <a name="count-examples"></a>Liczba przykładów
+Aby uzyskać szczegółowe informacje na temat sposobu pracy z właściwościami tablicy w Azure Policy, w tym szczegółowe wyjaśnienie sposobu oceniania wyrażenia **liczby pól** , zobacz [odwoływanie się do właściwości zasobów tablicy](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
+
+#### <a name="value-count"></a>Liczba wartości
+Zlicz liczbę elementów członkowskich tablicy spełniających warunek. Tablica może być tablicą literałową lub [odwołaniem do parametru array](#using-a-parameter-value). Struktura wyrażeń **zliczania wartości** :
+
+```json
+{
+    "count": {
+        "value": "<literal array | array parameter reference>",
+        "name": "<index name>",
+        "where": {
+            /* condition expression */
+        }
+    },
+    "<condition>": "<compare the count of true condition expression array members to this value>"
+}
+```
+
+Następujące właściwości są używane z **licznikiem wartości**:
+
+- **Count. Value** (wymagane): tablica do obliczenia.
+- **Count.Name** (wymagane): Nazwa indeksu składająca się z liter i cyfr w języku angielskim. Definiuje nazwę wartości elementu członkowskiego tablicy ocenianego w bieżącej iteracji. Nazwa jest używana do odwoływania się do bieżącej wartości w `count.where` warunku. Opcjonalne, gdy wyrażenie **Count** nie znajduje się w elemencie podrzędnym innego wyrażenia **Count** . Gdy nie zostanie podany, nazwa indeksu jest niejawnie ustawiana na `"default"` .
+- **Count. WHERE** (opcjonalnie): wyrażenie warunku, które ma zostać obliczone indywidualnie dla każdego elementu członkowskiego tablicy `count.value` . Jeśli ta właściwość nie jest określona, wszystkie elementy członkowskie tablicy są oceniane na _wartość true_. Dowolny [warunek](../concepts/definition-structure.md#conditions) może być używany wewnątrz tej właściwości. [Operatory logiczne](#logical-operators) mogą być używane wewnątrz tej właściwości, aby utworzyć złożone wymagania dotyczące oceny. Wartość aktualnie wyliczeniowego elementu członkowskiego tablicy można uzyskać dostęp, wywołując [bieżącą](#the-current-function) funkcję.
+- **\<condition\>** (wymagane): wartość jest porównywana z liczbą elementów, które spełniają `count.where` wyrażenie warunku. Należy użyć [warunku](../concepts/definition-structure.md#conditions) liczbowego.
+
+Są wymuszane następujące limity:
+- Do 10 wyrażeń **liczenia wartości** można użyć w jednej definicji **Klasa policyrule** .
+- Każde wyrażenie **Count wartości** może wykonywać do 100 iteracji. Ta liczba obejmuje liczbę iteracji wykonywanych przez dowolne wyrażenia **liczby wartości** nadrzędnych.
+
+#### <a name="the-current-function"></a>Bieżąca funkcja
+
+`current()`Funkcja jest dostępna tylko w ramach `count.where` warunku. Zwraca wartość elementu członkowskiego tablicy, który jest aktualnie wyliczany przez ocenę wyrażenia **liczby** .
+
+**Użycie liczby wartości**
+
+- `current(<index name defined in count.name>)`. Na przykład: `current('arrayMember')`.
+- `current()`. Dozwolone tylko wtedy, gdy wyrażenie **Count wartości** nie jest elementem podrzędnym innego wyrażenia **Count** . Zwraca taką samą wartość jak powyżej.
+
+Jeśli wartość zwrócona przez wywołanie jest obiektem, obsługiwane są metody dostępu do właściwości. Na przykład: `current('objectArrayMember').property`.
+
+**Użycie liczb pól**
+
+- `current(<the array alias defined in count.field>)`. Na przykład `current('Microsoft.Test/resource/enumeratedArray[*]')`.
+- `current()`. Dozwolone tylko wtedy, gdy wyrażenie **Count pola** nie jest elementem podrzędnym innego wyrażenia **Count** . Zwraca taką samą wartość jak powyżej.
+- `current(<alias of a property of the array member>)`. Na przykład `current('Microsoft.Test/resource/enumeratedArray[*].property')`.
+
+#### <a name="field-count-examples"></a>Przykłady liczby pól
 
 Przykład 1: sprawdzenie, czy tablica jest pusta
 
@@ -550,18 +600,162 @@ Przykład 5: Sprawdź, czy co najmniej jeden element członkowski tablicy jest z
 }
 ```
 
-Przykład 6: Użyj `field()` funkcji w `where` warunkach, aby uzyskać dostęp do wartości literału aktualnie ocenianego elementu członkowskiego tablicy. Ten stan sprawdza, czy nie ma żadnych reguł zabezpieczeń z parzystą wartością _priorytetu_ .
+Przykład 6: Użyj `current()` funkcji w `where` warunkach, aby uzyskać dostęp do wartości aktualnie wyliczanej elementu członkowskiego tablicy w funkcji szablonu. Ten stan sprawdza, czy sieć wirtualna zawiera prefiks adresu, który nie znajduje się w zakresie routingu 10.0.0.0/24.
 
 ```json
 {
     "count": {
-        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "field": "Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]",
         "where": {
-          "value": "[mod(first(field('Microsoft.Network/networkSecurityGroups/securityRules[*].priority')), 2)]",
-          "equals": 0
+          "value": "[ipRangeContains('10.0.0.0/24', current('Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]'))]",
+          "equals": false
         }
     },
     "greater": 0
+}
+```
+
+Przykład 7: Użyj `field()` funkcji w `where` warunkach, aby uzyskać dostęp do wartości aktualnie wyliczonej składowej tablicy. Ten stan sprawdza, czy sieć wirtualna zawiera prefiks adresu, który nie znajduje się w zakresie routingu 10.0.0.0/24.
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]",
+        "where": {
+          "value": "[ipRangeContains('10.0.0.0/24', first(field(('Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]')))]",
+          "equals": false
+        }
+    },
+    "greater": 0
+}
+```
+
+#### <a name="value-count-examples"></a>Przykłady liczby wartości
+
+Przykład 1: Sprawdź, czy nazwa zasobu pasuje do żadnego z podanego wzorca nazwy.
+
+```json
+{
+    "count": {
+        "value": [ "prefix1_*", "prefix2_*" ],
+        "name": "pattern",
+        "where": {
+            "field": "name",
+            "like": "[current('pattern')]"
+        }
+    },
+    "greater": 0
+}
+```
+
+Przykład 2: Sprawdź, czy nazwa zasobu pasuje do żadnego z podanego wzorca nazwy. `current()`Funkcja nie określa nazwy indeksu. Wynik jest taki sam jak w poprzednim przykładzie.
+
+```json
+{
+    "count": {
+        "value": [ "prefix1_*", "prefix2_*" ],
+        "where": {
+            "field": "name",
+            "like": "[current()]"
+        }
+    },
+    "greater": 0
+}
+```
+
+Przykład 3: Sprawdź, czy nazwa zasobu pasuje do któregokolwiek z określonych wzorców nazw dostarczonych przez parametr array.
+
+```json
+{
+    "count": {
+        "value": "[parameters('namePatterns')]",
+        "name": "pattern",
+        "where": {
+            "field": "name",
+            "like": "[current('pattern')]"
+        }
+    },
+    "greater": 0
+}
+```
+
+Przykład 4: Sprawdź, czy którykolwiek z prefiksów adresów sieci wirtualnej nie znajduje się na liście zatwierdzonych prefiksów.
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]",
+        "where": {
+            "count": {
+                "value": "[parameters('approvedPrefixes')]",
+                "name": "approvedPrefix",
+                "where": {
+                    "value": "[ipRangeContains(current('approvedPrefix'), current('Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]'))]",
+                    "equals": true
+                },
+            },
+            "equals": 0
+        }
+    },
+    "greater": 0
+}
+```
+
+Przykład 5: Sprawdź, czy wszystkie zastrzeżone reguły sieciowej grupy zabezpieczeń są zdefiniowane w sieciowej grupy zabezpieczeń. Właściwości zarezerwowanych reguł sieciowej grupy zabezpieczeń są zdefiniowane w parametrze Array zawierającym obiekty.
+
+Wartość parametru:
+
+```json
+[
+    {
+        "priority": 101,
+        "access": "deny",
+        "direction": "inbound",
+        "destinationPortRange": 22
+    },
+    {
+        "priority": 102,
+        "access": "deny",
+        "direction": "inbound",
+        "destinationPortRange": 3389
+    }
+]
+```
+
+Zasad
+```json
+{
+    "count": {
+        "value": "[parameters('reservedNsgRules')]",
+        "name": "reservedNsgRule",
+        "where": {
+            "count": {
+                "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+                "where": {
+                    "allOf": [
+                        {
+                            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].priority",
+                            "equals": "[current('reservedNsgRule').priority]"
+                        },
+                        {
+                            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].access",
+                            "equals": "[current('reservedNsgRule').access]"
+                        },
+                        {
+                            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].direction",
+                            "equals": "[current('reservedNsgRule').direction]"
+                        },
+                        {
+                            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].destinationPortRange",
+                            "equals": "[current('reservedNsgRule').destinationPortRange]"
+                        }
+                    ]
+                }
+            },
+            "equals": 1
+        }
+    },
+    "equals": "[length(parameters('reservedNsgRules'))]"
 }
 ```
 
@@ -627,7 +821,6 @@ Następujące funkcje są dostępne tylko w regułach zasad:
   }
   ```
 
-
 - `ipRangeContains(range, targetRange)`
     - **zakres**: [Required] ciąg-ciąg określający zakres adresów IP.
     - **targetRange**: [Required] ciąg ciągu określający zakres adresów IP.
@@ -639,6 +832,8 @@ Następujące funkcje są dostępne tylko w regułach zasad:
     - Zakres CIDR (przykłady: `10.0.0.0/24` , `2001:0DB8::/110` )
     - Zakres zdefiniowany przez początkowy i końcowy adres IP (przykłady: `192.168.0.1-192.168.0.9` , `2001:0DB8::-2001:0DB8::3:FFFF` )
 
+- `current(indexName)`
+    - Funkcja specjalna, która może być używana tylko w [wyrażeniach Count](#count).
 
 #### <a name="policy-function-example"></a>Przykład funkcji zasad
 

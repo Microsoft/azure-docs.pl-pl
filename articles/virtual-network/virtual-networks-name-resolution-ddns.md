@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: subsarma
-ms.openlocfilehash: 9f5b535a341956e5675ba96ba9570bd3f2ff3443
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad91eb94aedcdd0e4e715162e3ae064a1d2fb1ea
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84710953"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220426"
 ---
 # <a name="use-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Używanie dynamicznej usługi DNS do rejestrowania nazw hostów na własnym serwerze DNS
 
@@ -28,7 +28,7 @@ ms.locfileid: "84710953"
 Gdy niestandardowe serwery DNS są hostowane jako maszyny wirtualne platformy Azure, można przesłać zapytania hosta dla tej samej sieci wirtualnej na platformę Azure w celu rozpoznania nazw hostów. Jeśli nie chcesz używać tej opcji, możesz zarejestrować nazwy hostów maszyn wirtualnych na serwerze DNS przy użyciu dynamicznego systemu DNS (DDNS). Platforma Azure nie ma poświadczeń do bezpośredniego tworzenia rekordów na serwerach DNS, więc często potrzebne są alternatywne rozwiązania. Niektóre typowe scenariusze z alternatywą są następujące:
 
 ## <a name="windows-clients"></a>Klienci z systemem Windows
-Klienci z systemem Windows przyłączeni do domeny próbują wykonać niezabezpieczone aktualizacje DDNS podczas rozruchu lub w przypadku zmiany ich adresów IP. Nazwa DNS jest nazwą hosta i sufiksem podstawowej domeny DNS. Platforma Azure pozostawia sufiks podstawowej domeny DNS pustej, ale można ustawić sufiks w maszynie wirtualnej za pomocą [interfejsu użytkownika](https://technet.microsoft.com/library/cc794784.aspx) lub [programu PowerShell](/powershell/module/dnsclient/set-dnsclient).
+Klienci z systemem Windows przyłączeni do domeny próbują wykonać niezabezpieczone aktualizacje DDNS podczas rozruchu lub w przypadku zmiany ich adresów IP. Nazwa DNS jest nazwą hosta i sufiksem podstawowej domeny DNS. Platforma Azure pozostawia sufiks podstawowej domeny DNS pustej, ale można ustawić sufiks w maszynie wirtualnej za pomocą [interfejsu użytkownika](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794784(v=ws.10)) lub [programu PowerShell](/powershell/module/dnsclient/set-dnsclient).
 
 Przyłączone do domeny klienci systemu Windows rejestrują adresy IP przy użyciu kontrolera domeny za pomocą protokołu Secure DDNS. Proces przyłączania do domeny ustawia sufiks podstawowej domeny DNS na kliencie i tworzy i utrzymuje relację zaufania.
 

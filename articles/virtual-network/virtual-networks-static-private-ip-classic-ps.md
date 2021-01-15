@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 669b8427f13efcc55a69bc7c970b6658a6719cd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e798f81102017b4d34c4b1b219a9f23035b0359
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86134725"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222840"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-powershell"></a>Konfigurowanie prywatnych adresów IP dla maszyny wirtualnej (klasycznej) przy użyciu programu PowerShell
 
@@ -35,7 +35,7 @@ W tym artykule opisano klasyczny model wdrażania. Można także [zarządzać st
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-Przykładowe polecenia programu PowerShell poniżej oczekują, że zostało już utworzone proste środowisko. Jeśli chcesz uruchomić polecenia w taki sposób, aby były wyświetlane w tym dokumencie, najpierw Skompiluj środowisko testowe opisane w temacie [Tworzenie sieci wirtualnej](virtual-networks-create-vnet-classic-netcfg-ps.md).
+Przykładowe polecenia programu PowerShell poniżej oczekują, że zostało już utworzone proste środowisko. Jeśli chcesz uruchomić polecenia w taki sposób, aby były wyświetlane w tym dokumencie, najpierw Skompiluj środowisko testowe opisane w temacie [Tworzenie sieci wirtualnej](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-netcfg-ps).
 
 ## <a name="how-to-verify-if-a-specific-ip-address-is-available"></a>Jak sprawdzić, czy określony adres IP jest dostępny
 Aby sprawdzić, czy adres IP *192.168.1.101* jest dostępny w sieci wirtualnej o nazwie *TestVNet*, uruchom następujące polecenie programu PowerShell i sprawdź wartość parametru *IsAvailable*:
@@ -55,7 +55,7 @@ OperationStatus      : Succeeded
 ```
 
 ## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>Jak określić statyczny prywatny adres IP podczas tworzenia maszyny wirtualnej
-Poniższy skrypt programu PowerShell tworzy nową usługę w chmurze o nazwie *TestService*, a następnie pobiera obraz z platformy Azure, tworzy maszynę wirtualną o nazwie *DNS01* w nowej usłudze w chmurze przy użyciu pobranego obrazu, ustawia maszynę wirtualną jako podsieć o nazwie *fronton*i ustawia *192.168.1.7* jako statyczny prywatny adres IP dla maszyny wirtualnej:
+Poniższy skrypt programu PowerShell tworzy nową usługę w chmurze o nazwie *TestService*, a następnie pobiera obraz z platformy Azure, tworzy maszynę wirtualną o nazwie *DNS01* w nowej usłudze w chmurze przy użyciu pobranego obrazu, ustawia maszynę wirtualną jako podsieć o nazwie *fronton* i ustawia *192.168.1.7* jako statyczny prywatny adres IP dla maszyny wirtualnej:
 
 ```azurepowershell
 New-AzureService -ServiceName TestService -Location "Central US"
@@ -154,7 +154,6 @@ Update-AzureVM       77d8cae2-87e6-0ead-9738-7c7dae9810cb Succeeded
 Zaleca się, aby nie przypisywać statycznie prywatnego adresu IP przypisanego do maszyny wirtualnej platformy Azure w ramach systemu operacyjnego maszyny wirtualnej, o ile nie jest to konieczne. Jeśli ręcznie ustawisz prywatny adres IP w ramach systemu operacyjnego, upewnij się, że jest to ten sam adres, co prywatny adres IP przypisany do maszyny wirtualnej platformy Azure, lub możesz utracić łączność z maszyną wirtualną. Nigdy nie należy ręcznie przypisywać publicznego adresu IP przypisanego do maszyny wirtualnej platformy Azure w ramach systemu operacyjnego maszyny wirtualnej.
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej na temat [zarezerwowanych publicznych adresów IP](virtual-networks-reserved-public-ip.md) .
-* Dowiedz się więcej o publicznych adresach [IP na poziomie wystąpienia (ILPIP)](virtual-networks-instance-level-public-ip.md) .
-* Zapoznaj się z [interfejsami API REST zastrzeżony adres IP](https://msdn.microsoft.com/library/azure/dn722420.aspx).
-
+* Dowiedz się więcej na temat [zarezerwowanych publicznych adresów IP](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) .
+* Dowiedz się więcej o publicznych adresach [IP na poziomie wystąpienia (ILPIP)](/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip) .
+* Zapoznaj się z [interfejsami API REST zastrzeżony adres IP](/previous-versions/azure/reference/dn722420(v=azure.100)).

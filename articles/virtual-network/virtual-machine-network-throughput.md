@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
-ms.openlocfilehash: f0bad935c7c3d44f57dd171f714f31856bc2089c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b11bdf9b82352c15b7f7236168494f32fe4a4f9f
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361317"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221514"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Przepustowość sieci maszyny wirtualnej
 
@@ -32,11 +32,11 @@ Ruch przychodzący nie jest naliczany ani ograniczony bezpośrednio. Istnieją j
 
 Przyspieszona sieć to funkcja przeznaczona do poprawy wydajności sieci, w tym opóźnienia, przepływności i użycia procesora CPU. Przyspieszona sieć może zwiększyć przepływność maszyny wirtualnej, więc może to zrobić tylko do przydzieloną przepustowość maszyny wirtualnej. Aby dowiedzieć się więcej o przyspieszonej sieci, zobacz przyspieszone sieci dla maszyn wirtualnych z [systemem Windows](create-vm-accelerated-networking-powershell.md) lub [Linux](create-vm-accelerated-networking-cli.md) .
  
-Usługi Azure Virtual Machines muszą mieć jeden, ale może mieć kilka podłączonych do nich interfejsów sieciowych. Przepustowość przypisana do maszyny wirtualnej to suma całego ruchu wychodzącego między wszystkimi interfejsami sieciowymi podłączonymi do maszyny wirtualnej. Innymi słowy, przydzieloną przepustowość dotyczy każdej maszyny wirtualnej, niezależnie od liczby interfejsów sieciowych dołączonych do maszyny wirtualnej. Aby dowiedzieć się, ile interfejsów sieciowych obsługuje różne rozmiary maszyn wirtualnych platformy Azure, zobacz rozmiary maszyn wirtualnych z [systemami Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) i [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) . 
+Usługi Azure Virtual Machines muszą mieć jeden, ale może mieć kilka podłączonych do nich interfejsów sieciowych. Przepustowość przypisana do maszyny wirtualnej to suma całego ruchu wychodzącego między wszystkimi interfejsami sieciowymi podłączonymi do maszyny wirtualnej. Innymi słowy, przydzieloną przepustowość dotyczy każdej maszyny wirtualnej, niezależnie od liczby interfejsów sieciowych dołączonych do maszyny wirtualnej. Aby dowiedzieć się, ile interfejsów sieciowych obsługuje różne rozmiary maszyn wirtualnych platformy Azure, zobacz rozmiary maszyn wirtualnych z [systemami Windows](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) i [Linux](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) . 
 
 ## <a name="expected-network-throughput"></a>Oczekiwana przepływność sieci
 
-Oczekiwana przepływność wychodząca i liczba interfejsów sieciowych obsługiwanych przez poszczególne rozmiary maszyn wirtualnych są szczegółowo opisane w obszarze rozmiary maszyn wirtualnych w [systemie Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) i [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) . Wybierz typ, taki jak ogólnego przeznaczenia, a następnie wybierz serię rozmiarów na stronie wyników, na przykład Dv2. Każda seria zawiera tabelę z specyfikacjami sieci w ostatniej kolumnie zatytułowaną, **Maksymalna liczba kart sieciowych/oczekiwana wydajność sieci (MB/s)**. 
+Oczekiwana przepływność wychodząca i liczba interfejsów sieciowych obsługiwanych przez poszczególne rozmiary maszyn wirtualnych są szczegółowo opisane w obszarze rozmiary maszyn wirtualnych w [systemie Windows](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) i [Linux](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) . Wybierz typ, taki jak ogólnego przeznaczenia, a następnie wybierz serię rozmiarów na stronie wyników, na przykład Dv2. Każda seria zawiera tabelę z specyfikacjami sieci w ostatniej kolumnie zatytułowaną, **Maksymalna liczba kart sieciowych/oczekiwana wydajność sieci (MB/s)**. 
 
 Limit przepływności ma zastosowanie do maszyny wirtualnej. Następujące czynniki nie mają wpływ na przepływność:
 - **Liczba interfejsów sieciowych**: limit przepustowości jest kumulowany dla całego ruchu wychodzącego z maszyny wirtualnej.

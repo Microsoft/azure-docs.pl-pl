@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 5ce5f5cea5d689720455dd8d60f6fff4692a9d3d
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 2cf28565818f6de4d52b57040a80c21d0e03a76c
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179303"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218523"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Często zadawane pytania dotyczące sieci wirtualnych platformy Azure
 
@@ -36,7 +36,7 @@ Użyj sieci wirtualnych, aby:
 * Włącz scenariusze chmury hybrydowej. Sieci wirtualnych zapewniają elastyczność umożliwiającą obsługę szeregu scenariuszy chmury hybrydowej. Aplikacje oparte na chmurze można bezpiecznie połączyć z dowolnym typem systemu lokalnego, takim jak Komputery mainframe i systemy UNIX.
 
 ### <a name="how-do-i-get-started"></a>Jak rozpocząć?
-Przejdź do [dokumentacji sieci wirtualnej](https://docs.microsoft.com/azure/virtual-network/) , aby rozpocząć pracę. Ta zawartość zawiera przegląd i informacje dotyczące wdrażania dla wszystkich funkcji sieci wirtualnej.
+Przejdź do [dokumentacji sieci wirtualnej](./index.yml) , aby rozpocząć pracę. Ta zawartość zawiera przegląd i informacje dotyczące wdrażania dla wszystkich funkcji sieci wirtualnej.
 
 ### <a name="can-i-use-vnets-without-cross-premises-connectivity"></a>Czy mogę używać sieci wirtualnych bez połączenia między różnymi lokalizacjami?
 Tak. Możesz użyć sieci wirtualnej bez łączenia jej z Twoim lokalem. Można na przykład uruchomić system Microsoft Windows Server Active Directory kontrolery domeny i farmy programu SharePoint wyłącznie w sieci wirtualnej platformy Azure.
@@ -52,7 +52,7 @@ Aby utworzyć lub skonfigurować sieć wirtualną, można użyć następujących
 * Azure Portal
 * PowerShell
 * Interfejs wiersza polecenia platformy Azure
-* Plik konfiguracji sieci (netcfg-tylko klasyczny sieci wirtualnych). Zapoznaj się z artykułem [Konfigurowanie sieci wirtualnej przy użyciu pliku konfiguracji sieciowej](virtual-networks-using-network-configuration-file.md) .
+* Plik konfiguracji sieci (netcfg-tylko klasyczny sieci wirtualnych). Zapoznaj się z artykułem [Konfigurowanie sieci wirtualnej przy użyciu pliku konfiguracji sieciowej](/previous-versions/azure/virtual-network/virtual-networks-using-network-configuration-file) .
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>Jakie zakresy adresów mogę użyć w mojej sieci wirtualnych?
 Zalecamy używanie zakresów adresów wyliczonych w [dokumencie RFC 1918](https://tools.ietf.org/html/rfc1918), które zostały odłożone przez grupę IETF dla prywatnych przestrzeni adresowych bez obsługi routingu:
@@ -162,7 +162,7 @@ Tak. Wszystkie interfejsy sieciowe dołączone do maszyny wirtualnej wdrożonej 
   - **Menedżer zasobów**: prywatny adres IP przypisany za pomocą metody dynamicznej lub statycznej pozostaje przypisany do maszyny wirtualnej (Menedżer zasobów) do momentu usunięcia zasobu. Różnica polega na tym, że wybierasz adres, który ma zostać przypisany przy użyciu statycznej, a platforma Azure wybiera przy użyciu opcji dynamiczny. 
   - **Klasyczny**: prywatny adres IP przypisany za pomocą metody dynamicznej może ulec zmianie, gdy maszyna wirtualna (klasyczna) zostanie uruchomiona ponownie po przejściu w stan zatrzymania (cofnięto przydział). Jeśli chcesz mieć pewność, że prywatny adres IP zasobu wdrożonego za pomocą klasycznego modelu wdrażania nigdy nie ulegnie zmianie, przypisz prywatny adres IP za pomocą metody statycznej.
 
-* **Publiczny:** Opcjonalnie przypisane do kart sieciowych dołączonych do maszyn wirtualnych wdrożonych za pomocą modelu wdrażania Azure Resource Manager. Adres można przypisać za pomocą metody alokacji statycznej lub dynamicznej. Wszystkie maszyny wirtualne i wystąpienia ról Cloud Services wdrożone za pośrednictwem klasycznego modelu wdrażania istnieją w ramach usługi w chmurze, która ma przypisany *dynamiczny*, publiczny wirtualny adres IP (VIP). Publiczny *statyczny* adres IP o nazwie [adres zastrzeżony adres IP](virtual-networks-reserved-public-ip.md)można opcjonalnie przypisać do adresu VIP. Publiczne adresy IP można przypisywać do poszczególnych maszyn wirtualnych lub Cloud Services wystąpień ról wdrożonych za pomocą klasycznego modelu wdrażania. Te adresy są nazywane [publicznym adresem IP na poziomie wystąpienia (ILPIP](virtual-networks-instance-level-public-ip.md) ) i mogą być przypisywane dynamicznie.
+* **Publiczny:** Opcjonalnie przypisane do kart sieciowych dołączonych do maszyn wirtualnych wdrożonych za pomocą modelu wdrażania Azure Resource Manager. Adres można przypisać za pomocą metody alokacji statycznej lub dynamicznej. Wszystkie maszyny wirtualne i wystąpienia ról Cloud Services wdrożone za pośrednictwem klasycznego modelu wdrażania istnieją w ramach usługi w chmurze, która ma przypisany *dynamiczny*, publiczny wirtualny adres IP (VIP). Publiczny *statyczny* adres IP o nazwie [adres zastrzeżony adres IP](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip)można opcjonalnie przypisać do adresu VIP. Publiczne adresy IP można przypisywać do poszczególnych maszyn wirtualnych lub Cloud Services wystąpień ról wdrożonych za pomocą klasycznego modelu wdrażania. Te adresy są nazywane [publicznym adresem IP na poziomie wystąpienia (ILPIP](/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip) ) i mogą być przypisywane dynamicznie.
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>Czy można zarezerwować prywatny adres IP dla maszyny wirtualnej, która zostanie utworzona w późniejszym czasie?
 Nie. Nie można zarezerwować prywatnego adresu IP. Jeśli prywatny adres IP jest dostępny, jest on przypisywany do maszyny wirtualnej lub wystąpienia roli przez serwer DHCP. Maszyna wirtualna może być taka sama jak ta, do której ma przypisany prywatny adres IP. Można jednak zmienić prywatny adres IP już utworzonej maszyny wirtualnej na dowolny dostępny prywatny adres IP.
@@ -177,7 +177,7 @@ Tak, ale nie jest to zalecane, o ile nie jest to konieczne, na przykład podczas
 Nic. Adresy IP (Public VIP, Public i Private) pozostają przypisane do miejsca wdrożenia usługi w chmurze lub maszyny wirtualnej.
 
 ### <a name="can-i-move-vms-from-one-subnet-to-another-subnet-in-a-vnet-without-redeploying"></a>Czy mogę przenieść maszyny wirtualne z jednej podsieci do innej podsieci w sieci wirtualnej bez ponownego wdrażania?
-Tak. Więcej informacji można znaleźć w artykule [jak przenieść wystąpienie maszyny wirtualnej lub roli do innego artykułu podsieci](virtual-networks-move-vm-role-to-subnet.md) .
+Tak. Więcej informacji można znaleźć w artykule [jak przenieść wystąpienie maszyny wirtualnej lub roli do innego artykułu podsieci](/previous-versions/azure/virtual-network/virtual-networks-move-vm-role-to-subnet) .
 
 ### <a name="can-i-configure-a-static-mac-address-for-my-vm"></a>Czy mogę skonfigurować statyczny adres MAC dla mojej maszyny wirtualnej?
 Nie. Adres MAC nie może być skonfigurowany statycznie.
@@ -220,7 +220,7 @@ Nie. Nie można przenieść usług do i z sieci wirtualnych. Aby przenieść zas
 Sieci wirtualnych są odizolowane od siebie nawzajem i inne usługi hostowane w infrastrukturze platformy Azure. Sieć wirtualna jest granicą zaufania.
 
 ### <a name="can-i-restrict-inbound-or-outbound-traffic-flow-to-vnet-connected-resources"></a>Czy mogę ograniczyć przepływ ruchu przychodzącego lub wychodzącego do zasobów podłączonych do sieci wirtualnej?
-Tak. [Sieciowe grupy zabezpieczeń](security-overview.md) można stosować do poszczególnych podsieci w sieci wirtualnej, kart sieciowych podłączonych do sieci wirtualnej lub obu.
+Tak. [Sieciowe grupy zabezpieczeń](./network-security-groups-overview.md) można stosować do poszczególnych podsieci w sieci wirtualnej, kart sieciowych podłączonych do sieci wirtualnej lub obu.
 
 ### <a name="can-i-implement-a-firewall-between-vnet-connected-resources"></a>Czy mogę zaimplementować zaporę między zasobami połączonymi z siecią wirtualną?
 Tak. [Urządzenie wirtualne sieci zapory](https://azure.microsoft.com/marketplace/?term=firewall) można wdrożyć z kilku dostawców za pośrednictwem portalu Azure Marketplace.
@@ -234,13 +234,13 @@ Nie. Sieci wirtualne nie przechowują żadnych danych klienta.
 ## <a name="apis-schemas-and-tools"></a>Interfejsy API, schematy i narzędzia
 
 ### <a name="can-i-manage-vnets-from-code"></a>Czy mogę zarządzać sieci wirtualnych z kodu?
-Tak. Interfejsów API REST można używać dla sieci wirtualnych w ramach [Azure Resource Manager](/rest/api/virtual-network) i [klasycznych](https://go.microsoft.com/fwlink/?LinkId=296833) modeli wdrażania.
+Tak. Interfejsów API REST można używać dla sieci wirtualnych w ramach [Azure Resource Manager](/rest/api/virtual-network) i [klasycznych](/previous-versions/azure/ee460799(v=azure.100)) modeli wdrażania.
 
 ### <a name="is-there-tooling-support-for-vnets"></a>Czy istnieją narzędzia obsługujące sieci wirtualnych?
 Tak. Dowiedz się więcej o korzystaniu z programu:
-- Azure Portal wdrażania sieci wirtualnych za pomocą [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) i [klasycznych](virtual-networks-create-vnet-classic-pportal.md) modeli wdrażania.
+- Azure Portal wdrażania sieci wirtualnych za pomocą [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) i [klasycznych](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal) modeli wdrażania.
 - Program PowerShell do zarządzania usługą sieci wirtualnych wdrożoną za pomocą [Menedżer zasobów](/powershell/module/az.network) i [klasycznych](/powershell/module/servicemanagement/azure.service/?view=azuresmps-3.7.0) modeli wdrażania.
-- Interfejs wiersza polecenia (CLI) platformy Azure do wdrażania sieci wirtualnych wdrożonych w ramach [Menedżer zasobów](/cli/azure/network/vnet) i [klasycznych](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-resources) modeli wdrażania oraz zarządzania nimi.  
+- Interfejs wiersza polecenia (CLI) platformy Azure do wdrażania sieci wirtualnych wdrożonych w ramach [Menedżer zasobów](/cli/azure/network/vnet) i [klasycznych](/previous-versions/azure/virtual-machines/azure-cli-arm-commands?toc=%2fazure%2fvirtual-network%2ftoc.json#network-resources) modeli wdrażania oraz zarządzania nimi.  
 
 ## <a name="vnet-peering"></a>Komunikacja równorzędna sieci wirtualnych
 
@@ -289,7 +289,7 @@ Nie. Opcję "Użyj bramy zdalnej" można włączyć tylko dla jednej komunikacji
 Nie jest naliczana opłata za utworzenie połączenia komunikacji równorzędnej sieci wirtualnej. Opłaty za transfer danych między połączeniami równorzędnymi są naliczone. [Zobacz tutaj](https://azure.microsoft.com/pricing/details/virtual-network/).
 
 ### <a name="is-vnet-peering-traffic-encrypted"></a>Czy ruch komunikacji równorzędnej sieci wirtualnej jest szyfrowany?
-Gdy ruch platformy Azure jest przenoszony między centrami danych (poza granicami fizycznymi niekontrolowanymi przez firmę Microsoft lub w imieniu firmy Microsoft), [szyfrowanie warstwy linku MACsec](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit) jest używane na źródłowym sprzęcie sieciowym.  Ma to zastosowanie do ruchu komunikacji równorzędnej sieci wirtualnej.
+Gdy ruch platformy Azure jest przenoszony między centrami danych (poza granicami fizycznymi niekontrolowanymi przez firmę Microsoft lub w imieniu firmy Microsoft), [szyfrowanie warstwy linku MACsec](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) jest używane na źródłowym sprzęcie sieciowym.  Ma to zastosowanie do ruchu komunikacji równorzędnej sieci wirtualnej.
 
 ### <a name="why-is-my-peering-connection-in-a-disconnected-state"></a>Dlaczego moje połączenie komunikacji równorzędnej jest w stanie *odłączonym* ?
 Połączenia komunikacji równorzędnej sieci wirtualnych przechodzą w stan *rozłączenia* , gdy zostanie usunięte łącze komunikacji równorzędnej sieci wirtualnej. Należy usunąć oba linki, aby ponownie ustanowić pomyślne połączenie komunikacji równorzędnej.
@@ -319,7 +319,7 @@ Tak. Tego samego zasobu sieci wirtualnej można użyć do agregowania dublowaneg
 
 ### <a name="are-there-any-performance-considerations-on-production-traffic-if-i-enable-a-virtual-network-tap-configuration-on-a-network-interface"></a>Czy w przypadku włączenia konfiguracji sieci wirtualnej w interfejsie sieciowym są brane pod uwagę wydajność w ruchu produkcyjnym?
 
-Wybór sieci wirtualnej jest w wersji zapoznawczej. W trakcie okresu zapoznawczego nie ma umowy dotyczącej poziomu usług. Tej możliwości nie należy używać w przypadku obciążeń produkcyjnych. Gdy interfejs sieciowy maszyny wirtualnej jest włączony z konfiguracją TAP, te same zasoby na hoście platformy Azure przydzieleni do maszyny wirtualnej w celu wysłania ruchu produkcyjnego są używane do wykonywania funkcji dublowania i wysyłania dublowanych pakietów. Wybierz prawidłowy rozmiar maszyny wirtualnej z systemem [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) lub [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) , aby upewnić się, że dla maszyny wirtualnej są dostępne wystarczające zasoby, które będą wysyłać ruch produkcyjny i wolumin dublowany.
+Wybór sieci wirtualnej jest w wersji zapoznawczej. W trakcie okresu zapoznawczego nie ma umowy dotyczącej poziomu usług. Tej możliwości nie należy używać w przypadku obciążeń produkcyjnych. Gdy interfejs sieciowy maszyny wirtualnej jest włączony z konfiguracją TAP, te same zasoby na hoście platformy Azure przydzieleni do maszyny wirtualnej w celu wysłania ruchu produkcyjnego są używane do wykonywania funkcji dublowania i wysyłania dublowanych pakietów. Wybierz prawidłowy rozmiar maszyny wirtualnej z systemem [Linux](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) lub [Windows](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) , aby upewnić się, że dla maszyny wirtualnej są dostępne wystarczające zasoby, które będą wysyłać ruch produkcyjny i wolumin dublowany.
 
 ### <a name="is-accelerated-networking-for-linux-or-windows-supported-with-virtual-network-tap"></a>Czy jest to przyspieszone sieci dla systemu [Linux](create-vm-accelerated-networking-cli.md) lub [Windows](create-vm-accelerated-networking-powershell.md) obsługiwane z naciskiem sieci wirtualnej?
 
@@ -370,7 +370,7 @@ Domyślnie nie można uzyskać dostępu do zasobów usługi platformy Azure zabe
 Aby zabezpieczyć usługi platformy Azure w wielu podsieciach w sieci wirtualnej lub w wielu sieciach wirtualnych, Włącz punkty końcowe usługi w sieci w każdej podsieci niezależnie, a następnie Zabezpiecz zasoby usługi platformy Azure we wszystkich podsieciach przez skonfigurowanie odpowiednich list ACL sieci wirtualnej na stronie usługi platformy Azure.
  
 ### <a name="how-can-i-filter-outbound-traffic-from-a-virtual-network-to-azure-services-and-still-use-service-endpoints"></a>Jak można filtrować ruch wychodzący z sieci wirtualnej do usług platformy Azure i nadal korzystać z punktów końcowych usługi?
-jeśli chcesz sprawdzić lub filtrować ruch kierowany do usługi platformy Azure z sieci wirtualnej, możesz wdrożyć urządzenie sieci wirtualnej w ramach tej sieci wirtualnej. Następnie można zastosować punkty końcowe usługi do podsieci, w której wdrożono wirtualne urządzenie sieciowe i zabezpieczyć zasoby usługi platformy Azure tylko do tej podsieci za pomocą list ACL sieci wirtualnej. Ten scenariusz może być również przydatny, jeśli chcesz ograniczyć dostęp do usługi platformy Azure z sieci wirtualnej tylko do określonych zasobów platformy Azure przy użyciu filtrowania wirtualnego urządzenia sieciowego. Aby uzyskać więcej informacji, zobacz [ruch wychodzący z sieciowych urządzeń wirtualnych](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha).
+jeśli chcesz sprawdzić lub filtrować ruch kierowany do usługi platformy Azure z sieci wirtualnej, możesz wdrożyć urządzenie sieci wirtualnej w ramach tej sieci wirtualnej. Następnie można zastosować punkty końcowe usługi do podsieci, w której wdrożono wirtualne urządzenie sieciowe i zabezpieczyć zasoby usługi platformy Azure tylko do tej podsieci za pomocą list ACL sieci wirtualnej. Ten scenariusz może być również przydatny, jeśli chcesz ograniczyć dostęp do usługi platformy Azure z sieci wirtualnej tylko do określonych zasobów platformy Azure przy użyciu filtrowania wirtualnego urządzenia sieciowego. Aby uzyskać więcej informacji, zobacz [ruch wychodzący z sieciowych urządzeń wirtualnych](/azure/architecture/reference-architectures/dmz/nva-ha).
 
 ### <a name="what-happens-when-you-access-an-azure-service-account-that-has-a-virtual-network-access-control-list-acl-enabled-from-outside-the-vnet"></a>Co się stanie w przypadku uzyskania dostępu do konta usługi platformy Azure z włączoną listą kontroli dostępu do sieci wirtualnej z poziomu poza siecią wirtualną?
 Zwracany jest błąd HTTP 403 lub HTTP 404.
@@ -400,7 +400,7 @@ Nie, ruch protokołu ICMP pochodzący z podsieci z włączonymi punktami końcow
 Aby dotrzeć do usługi platformy Azure, sieciowych grup zabezpieczeń musi zezwalać na łączność wychodzącą. Jeśli sieciowych grup zabezpieczeń są otwarte dla całego ruchu wychodzącego z Internetu, należy obejść ruch punktu końcowego usługi. Można także ograniczyć ruch wychodzący do adresów IP usługi tylko przy użyciu tagów usługi.  
  
 ### <a name="what-permissions-do-i-need-to-set-up-service-endpoints"></a>Jakie uprawnienia muszę skonfigurować punkty końcowe usługi?
-Punkty końcowe usługi można skonfigurować w sieci wirtualnej niezależnie od użytkownika z dostępem do zapisu do sieci wirtualnej. Aby zabezpieczyć zasoby usługi platformy Azure w sieci wirtualnej, użytkownik musi mieć uprawnienia **Microsoft. Network/virtualNetworks/Subnets/joinViaServiceEndpoint/Action** dla dodawanych podsieci. To uprawnienie jest domyślnie dołączone do wbudowanej roli administratora usługi i można je zmodyfikować, tworząc role niestandardowe. Dowiedz się więcej na temat wbudowanych ról i przypisywaniu określonych uprawnień do [ról niestandardowych](https://docs.microsoft.com/azure/role-based-access-control/custom-roles?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Punkty końcowe usługi można skonfigurować w sieci wirtualnej niezależnie od użytkownika z dostępem do zapisu do sieci wirtualnej. Aby zabezpieczyć zasoby usługi platformy Azure w sieci wirtualnej, użytkownik musi mieć uprawnienia **Microsoft. Network/virtualNetworks/Subnets/joinViaServiceEndpoint/Action** dla dodawanych podsieci. To uprawnienie jest domyślnie dołączone do wbudowanej roli administratora usługi i można je zmodyfikować, tworząc role niestandardowe. Dowiedz się więcej na temat wbudowanych ról i przypisywaniu określonych uprawnień do [ról niestandardowych](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 
 ### <a name="can-i-filter-virtual-network-traffic-to-azure-services-allowing-only-specific-azure-service-resources-over-vnet-service-endpoints"></a>Czy można filtrować ruch w sieci wirtualnej do usług platformy Azure, zezwalając na tylko określone zasoby usługi platformy Azure, za pośrednictwem punktów końcowych usługi sieci wirtualnej? 
@@ -409,7 +409,7 @@ Zasady punktu końcowego usługi sieci wirtualnej umożliwiają filtrowanie ruch
 
 ### <a name="does-azure-active-directory-azure-ad-support-vnet-service-endpoints"></a>Czy Azure Active Directory (Azure AD) obsługuje punkty końcowe usługi sieci wirtualnej?
 
-Azure Active Directory (Azure AD) nie obsługuje natywnych punktów końcowych usługi. Pełną listę usług platformy Azure obsługujących punkty końcowe usługi sieci wirtualnej można zobaczyć [tutaj](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). Należy zauważyć, że tag "Microsoft. usługi azureactivedirectory" wymieniony w obszarze punkty końcowe usługi obsługiwanej przez usługi jest używany do obsługi punktów końcowych usługi ADLS Gen 1. W przypadku usługi ADLS Gen 1 Integracja sieci wirtualnej dla Azure Data Lake Storage Gen1 wykorzystuje zabezpieczenia punktu końcowego usługi sieci wirtualnej między siecią wirtualną i Azure Active Directory (Azure AD) w celu wygenerowania dodatkowych oświadczeń zabezpieczeń w tokenie dostępu. Te oświadczenia są następnie używane do uwierzytelniania sieci wirtualnej na koncie usługi Data Lake Storage Gen1 i uzyskania dostępu. Dowiedz się więcej o integracji z siecią [wirtualną Azure Data Lake Store generacji 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+Azure Active Directory (Azure AD) nie obsługuje natywnych punktów końcowych usługi. Pełną listę usług platformy Azure obsługujących punkty końcowe usługi sieci wirtualnej można zobaczyć [tutaj](./virtual-network-service-endpoints-overview.md). Należy zauważyć, że tag "Microsoft. usługi azureactivedirectory" wymieniony w obszarze punkty końcowe usługi obsługiwanej przez usługi jest używany do obsługi punktów końcowych usługi ADLS Gen 1. W przypadku usługi ADLS Gen 1 Integracja sieci wirtualnej dla Azure Data Lake Storage Gen1 wykorzystuje zabezpieczenia punktu końcowego usługi sieci wirtualnej między siecią wirtualną i Azure Active Directory (Azure AD) w celu wygenerowania dodatkowych oświadczeń zabezpieczeń w tokenie dostępu. Te oświadczenia są następnie używane do uwierzytelniania sieci wirtualnej na koncie usługi Data Lake Storage Gen1 i uzyskania dostępu. Dowiedz się więcej o integracji z siecią [wirtualną Azure Data Lake Store generacji 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ### <a name="are-there-any-limits-on-how-many-vnet-service-endpoints-i-can-set-up-from-my-vnet"></a>Czy istnieją jakieś ograniczenia dotyczące liczby punktów końcowych usługi sieci wirtualnej, które mogę skonfigurować przy użyciu mojej VNet?
 Nie ma limitu całkowitej liczby punktów końcowych usługi wirtualnej w sieci wirtualnej. W przypadku zasobu usługi platformy Azure (takiego jak konto usługi Azure Storage) usługi mogą wymuszać limity liczby podsieci używanych do zabezpieczania zasobu. W poniższej tabeli przedstawiono niektóre przykładowe limity: 
@@ -428,10 +428,6 @@ Nie ma limitu całkowitej liczby punktów końcowych usługi wirtualnej w sieci 
 >[!NOTE]
 > Limity są uzależnione od zmiany uznania usługi platformy Azure. Szczegóły dotyczące usług można znaleźć w odpowiedniej dokumentacji usługi. 
 
-
-
-
-  
 
 
 

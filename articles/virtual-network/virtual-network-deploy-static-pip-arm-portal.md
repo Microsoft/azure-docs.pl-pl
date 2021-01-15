@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/12/2020
 ms.author: allensu
-ms.openlocfilehash: 1ae0b869b24c4e05c88b936eceb1b9b1db3a9405
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: d416af3d3a8eb8ab8057f13cc0d9a133adcb849a
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506315"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221160"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-portal"></a>Tworzenie maszyny wirtualnej ze statycznym publicznym adresem IP przy użyciu Azure Portal
 
@@ -53,7 +53,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
     | Hasło | Wprowadź hasło |
     | Potwierdź hasło | Ponownie wprowadź hasło |
 
-3. Wybierz kartę **Sieć** lub wybierz pozycję **Dalej: Dyski** , a następnie pozycję **Dalej: Sieć**.
+3. Wybierz kartę **Sieć** lub wybierz pozycję **Dalej: Dyski**, a następnie pozycję **Dalej: Sieć**.
   
 4. Na karcie Sieć wybierz lub wprowadź:
 
@@ -62,13 +62,13 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
     | **Interfejs sieciowy** |  |
     | Sieć wirtualna | Zaakceptuj domyślną nazwę sieciową. |
     | Podsieć | Zaakceptuj domyślną konfigurację podsieci. |
-    | Publiczny adres IP | Wybierz pozycję **Utwórz nowy**. </br> W obszarze **Utwórz publiczny adres IP** w polu Nazwa wprowadź **myPublicIP**. </br> W obszarze **jednostka SKU** wybierz pozycję **standardowa**. </br> **Przypisanie** , wybierz pozycję **statyczny**. </br> Wybierz przycisk **OK**.  |
+    | Publiczny adres IP | Wybierz pozycję **Utwórz nowy**. </br> W obszarze **Utwórz publiczny adres IP** w polu Nazwa wprowadź **myPublicIP**. </br> W obszarze **jednostka SKU** wybierz pozycję **standardowa**. </br> **Przypisanie**, wybierz pozycję **statyczny**. </br> Wybierz przycisk **OK**.  |
     | Grupa zabezpieczeń sieci karty sieciowej | Wybierz pozycję **podstawowa**|
     | Publiczne porty wejściowe | Wybierz pozycję **Zezwalaj na wybrane porty**. |
     | Wybierz porty wejściowe | Wybierz **protokół RDP (3389)** |
 
     > [!WARNING]
-    > Wybrano Portal 3389, aby włączyć dostęp zdalny do maszyny wirtualnej z systemem Windows Server z Internetu. Nie zaleca się otwierania portu 3389 w Internecie w celu zarządzania obciążeniami produkcyjnymi. </br> Aby zapewnić bezpieczny dostęp do usługi Azure Virtual Machines, zobacz **[co to jest usługa Azure bastionu?](/azure/bastion/bastion-overview)**
+    > Wybrano Portal 3389, aby włączyć dostęp zdalny do maszyny wirtualnej z systemem Windows Server z Internetu. Nie zaleca się otwierania portu 3389 w Internecie w celu zarządzania obciążeniami produkcyjnymi. </br> Aby zapewnić bezpieczny dostęp do usługi Azure Virtual Machines, zobacz **[co to jest usługa Azure bastionu?](../bastion/bastion-overview.md)**
    
 5. Wybierz pozycję **Przejrzyj i utwórz**. 
   
@@ -95,7 +95,7 @@ Jednostka SKU publicznego adresu IP maszyny wirtualnej musi być zgodna z jednos
 
 Możesz pobrać listę zakresów (prefiksów) dla następujących chmur platformy Azure: [Publiczna](https://www.microsoft.com/download/details.aspx?id=56519), [Instytucje rządowe USA](https://www.microsoft.com/download/details.aspx?id=57063), [Chiny](https://www.microsoft.com/download/details.aspx?id=57062) i [Niemcy](https://www.microsoft.com/download/details.aspx?id=57064).
 
-- Dowiedz się więcej na temat [statycznych publicznych adresów IP](virtual-network-ip-addresses-overview-arm.md#allocation-method).
-- Dowiedz się więcej o [publicznych adresach IP](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) na platformie Azure.
+- Dowiedz się więcej na temat [statycznych publicznych adresów IP](./public-ip-addresses.md#allocation-method).
+- Dowiedz się więcej o [publicznych adresach IP](./public-ip-addresses.md#public-ip-addresses) na platformie Azure.
 - Dowiedz się więcej na temat wszystkich [ustawień publicznego adresu IP](virtual-network-public-ip-address.md#create-a-public-ip-address).
-- Dowiedz się więcej o prywatnych adresach [IP](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) i przypisywaniu [statycznego prywatnego adresu IP](virtual-network-network-interface-addresses.md#add-ip-addresses) do maszyny wirtualnej platformy Azure.
+- Dowiedz się więcej o prywatnych adresach [IP](./private-ip-addresses.md) i przypisywaniu [statycznego prywatnego adresu IP](virtual-network-network-interface-addresses.md#add-ip-addresses) do maszyny wirtualnej platformy Azure.

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2020
 ms.author: kumud
-ms.openlocfilehash: d279516c1c9c08512c850a0f70eb84c0c1f63166
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 0a9945a58aa6ec49ad58f3a0a0d03ea75e30f6d8
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97111350"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223622"
 ---
 # <a name="azure-virtual-network-concepts-and-best-practices"></a>Koncepcje i najlepsze rozwiązania dotyczące platformy Azure Virtual Network
 
@@ -25,7 +25,7 @@ W tym artykule opisano kluczowe koncepcje i najlepsze rozwiązania dotyczące us
 ## <a name="vnet-concepts"></a>Pojęcia sieci wirtualnej
 
 - **Przestrzeń adresowa:** Podczas tworzenia sieci wirtualnej należy określić niestandardową prywatną przestrzeń adresową IP przy użyciu adresów Public i Private (RFC 1918). Platforma Azure przypisze zasobom w sieci wirtualnej prywatny adres IP z przydzielonej przestrzeni adresowej. Na przykład jeśli maszyna wirtualna jest wdrażana w sieci wirtualnej z przestrzenią adresową 10.0.0.0/16, do maszyny wirtualnej zostanie przypisany prywatny adres IP, taki jak 10.0.0.4.
-- **Podsieci:** Podsieci umożliwiają segmentację sieci wirtualnej w co najmniej jedną podsiecią i przydzielenie części przestrzeni adresowej sieci wirtualnej do każdej podsieci. Następnie można wdrożyć zasoby platformy Azure w określonej podsieci. Podobnie jak w przypadku tradycyjnego sieci, podsieci umożliwiają segmentację przestrzeni adresowej sieci wirtualnej na segmenty, które są odpowiednie dla sieci wewnętrznej w organizacji. Zwiększa to również efektywność alokacji adresów. Zasoby w podsieciach można zabezpieczyć za pomocą sieciowych grup zabezpieczeń. Aby uzyskać więcej informacji, zobacz [sieciowe grupy zabezpieczeń](security-overview.md).
+- **Podsieci:** Podsieci umożliwiają segmentację sieci wirtualnej w co najmniej jedną podsiecią i przydzielenie części przestrzeni adresowej sieci wirtualnej do każdej podsieci. Następnie można wdrożyć zasoby platformy Azure w określonej podsieci. Podobnie jak w przypadku tradycyjnego sieci, podsieci umożliwiają segmentację przestrzeni adresowej sieci wirtualnej na segmenty, które są odpowiednie dla sieci wewnętrznej w organizacji. Zwiększa to również efektywność alokacji adresów. Zasoby w podsieciach można zabezpieczyć za pomocą sieciowych grup zabezpieczeń. Aby uzyskać więcej informacji, zobacz [sieciowe grupy zabezpieczeń](./network-security-groups-overview.md).
 - **Regiony**: Sieć wirtualna jest objęta zakresem pojedynczego regionu/lokalizacji; Jednak wiele sieci wirtualnych z różnych regionów można połączyć ze sobą za pomocą komunikacji równorzędnej Virtual Network.
 - **Subskrypcja:** Sieć wirtualna jest objęta zakresem subskrypcji. W każdej [subskrypcji](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) platformy Azure oraz w każdym [regionie](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region) świadczenia usługi Azure możesz zaimplementować wiele sieci wirtualnych.
 

@@ -9,16 +9,16 @@ ms.reviewer: jrasnick, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: e219531a88787f19197a2e8c2a80040497c6dc1e
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: f3b0c5f1487951d05bc83973e5b4b9f3634a694b
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901423"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222262"
 ---
 # <a name="tutorial-train-a-machine-learning-model-without-code"></a>Samouczek: uczenie modelu uczenia maszynowego bez kodu
 
-Możesz wzbogacić dane w tabelach platformy Spark przy użyciu nowych modeli uczenia maszynowego, które są pouczenie przy użyciu funkcji [automatycznego uczenia maszynowego](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml). W usłudze Azure Synapse Analytics można wybrać tabelę platformy Spark w obszarze roboczym do użycia jako zestaw danych szkoleniowych do tworzenia modeli uczenia maszynowego i można to zrobić w środowisku bez kodu.
+Możesz wzbogacić dane w tabelach platformy Spark przy użyciu nowych modeli uczenia maszynowego, które są pouczenie przy użyciu funkcji [automatycznego uczenia maszynowego](../../machine-learning/concept-automated-ml.md). W usłudze Azure Synapse Analytics można wybrać tabelę platformy Spark w obszarze roboczym do użycia jako zestaw danych szkoleniowych do tworzenia modeli uczenia maszynowego i można to zrobić w środowisku bez kodu.
 
 W tym samouczku dowiesz się, jak uczenie modeli uczenia maszynowego przy użyciu bezpłatnego środowiska usługi Azure Synapse Analytics Studio. Funkcja automatycznego uczenia maszynowego jest używana w Azure Machine Learning, zamiast ręcznego kodowania środowiska. Typ pociągu modelu zależy od problemu, który próbujesz rozwiązać.
 

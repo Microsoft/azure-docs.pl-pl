@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: cf76a3d09da83693791873feb9e6ab03c432e47f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: eef65db05ab94b5b8de5ff82c2c51dba0730f170
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96468374"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222177"
 ---
 # <a name="tutorial-pre-requisites-for-using-cognitive-services-in-azure-synapse"></a>Samouczek: wymagania wstępne dotyczące używania Cognitive Services na platformie Azure Synapse
 
@@ -38,7 +38,7 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-cognitive-services-resource"></a>Tworzenie zasobu Cognitive Services
 
-[Platforma Azure Cognitive Services](https://go.microsoft.com/fwlink/?linkid=2147492) obejmuje wiele różnych typów usług. Poniżej przedstawiono przykłady, które są używane w samouczkach Synapse.
+[Platforma Azure Cognitive Services](../../cognitive-services/index.yml) obejmuje wiele różnych typów usług. Poniżej przedstawiono przykłady, które są używane w samouczkach Synapse.
 
 ### <a name="create-an-anomaly-detector-resource"></a>Tworzenie zasobu wykrywania anomalii
 Utwórz [detektor anomalii](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) w Azure Portal.
@@ -53,7 +53,7 @@ Utwórz zasób [Analiza tekstu](https://ms.portal.azure.com/#create/Microsoft.Co
 ## <a name="create-key-vault-and-configure-secrets-and-access"></a>Tworzenie Key Vault i Konfigurowanie wpisów tajnych i dostępu
 
 1. Utwórz [Key Vault](https://ms.portal.azure.com/#create/Microsoft.KeyVault) w Azure Portal.
-2. Przejdź do **zasad dostępu Key Vault->** i Udziel uprawnień do pliku [MSI obszaru roboczego usługi Azure Synapse](https://docs.microsoft.com/azure/synapse-analytics/security/synapse-workspace-managed-identity) , aby odczytywać wpisy tajne z Azure Key Vault.
+2. Przejdź do **zasad dostępu Key Vault->** i Udziel uprawnień do pliku [MSI obszaru roboczego usługi Azure Synapse](../security/synapse-workspace-managed-identity.md) , aby odczytywać wpisy tajne z Azure Key Vault.
 
 >Upewnij się, że zmiany zasad zostały zapisane. Ten krok można łatwo pominąć.
 

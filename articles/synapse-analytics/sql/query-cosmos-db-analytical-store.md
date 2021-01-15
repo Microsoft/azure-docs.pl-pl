@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 12/04/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: a0458264b6ea0c741244531fc104a7637108b06e
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 4681039f60154b95eeb7e40196ca33055a192c74
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121349"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222109"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link-preview"></a>Wykonywanie zapytań dotyczących danych Azure Cosmos DB za pomocą puli SQL bezserwerowej w wersji zapoznawczej usługi Azure Synapse
 
@@ -205,6 +205,8 @@ Wynik tego zapytania może wyglądać jak w poniższej tabeli:
 Aby uzyskać więcej informacji na temat typów SQL, które powinny być używane dla wartości Azure Cosmos DB, zobacz [reguły dotyczące mapowań typów SQL](#azure-cosmos-db-to-sql-type-mappings) na końcu artykułu.
 
 ## <a name="create-view"></a>Utwórz widok
+
+Tworzenie widoków w bazach danych Master lub default nie jest zalecane ani obsługiwane. W związku z tym musisz utworzyć bazę danych użytkownika dla widoków.
 
 Po zidentyfikowaniu schematu możesz przygotować widok na podstawie danych Azure Cosmos DB. Klucz konta Azure Cosmos DB należy umieścić w osobnym poświadczeniu i odwołać się do tego poświadczenia z `OPENROWSET` funkcji. Nie przechowuj klucza konta w definicji widoku.
 

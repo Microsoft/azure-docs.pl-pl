@@ -9,16 +9,16 @@ ms.reviewer: jrasnick, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 1b407cbee5218149f794ab125ac058e32b422558
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6a4833cf0d73939e01fd3e3e7263c6cba3c0a28a
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96468614"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222194"
 ---
 # <a name="tutorial-sentiment-analysis-with-cognitive-services-preview"></a>Samouczek: Analiza tonacji z Cognitive Services (wersja zapoznawcza)
 
-W tym samouczku dowiesz się, jak łatwo wzbogacać dane w usłudze Azure Synapse za pomocą [Cognitive Services](https://go.microsoft.com/fwlink/?linkid=2147492). Będziemy używać funkcji [Analiza tekstu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) , aby przeprowadzić analizę tonacji. Użytkownik w usłudze Azure Synapse może po prostu wybrać tabelę zawierającą kolumnę tekstową do wzbogacania z mową. Mową mogą być pozytywne, ujemne, mieszane lub neutralne i prawdopodobieństwo zostanie zwrócone.
+W tym samouczku dowiesz się, jak łatwo wzbogacać dane w usłudze Azure Synapse za pomocą [Cognitive Services](../../cognitive-services/index.yml). Będziemy używać funkcji [Analiza tekstu](../../cognitive-services/text-analytics/index.yml) , aby przeprowadzić analizę tonacji. Użytkownik w usłudze Azure Synapse może po prostu wybrać tabelę zawierającą kolumnę tekstową do wzbogacania z mową. Mową mogą być pozytywne, ujemne, mieszane lub neutralne i prawdopodobieństwo zostanie zwrócone.
 
 W tym samouczku opisano następujące czynności:
 
@@ -98,7 +98,7 @@ Właśnie otwarty Notes korzysta z [biblioteki mmlspark](https://github.com/Azur
 
 Podane Azure Key Vault szczegóły umożliwiają bezpieczne odwoływanie się do wpisów tajnych z tego środowiska bez ujawniania ich.
 
-Teraz możesz **uruchamiać wszystkie** komórki, aby wzbogacić dane za pomocą mową. Mową będzie zwracany jako dodatni/ujemny/neutralny/mieszany, a także prawdopodobieństwa na tonacji. Dowiedz się więcej o [analizie Cognitive Services tonacji](https://go.microsoft.com/fwlink/?linkid=2147792).
+Teraz możesz **uruchamiać wszystkie** komórki, aby wzbogacić dane za pomocą mową. Mową będzie zwracany jako dodatni/ujemny/neutralny/mieszany, a także prawdopodobieństwa na tonacji. Dowiedz się więcej o [analizie Cognitive Services tonacji](../../cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md).
 
 ![Uruchom analiza tonacji](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00h.png)
 

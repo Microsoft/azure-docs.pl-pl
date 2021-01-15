@@ -10,13 +10,13 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
-ms.date: 09/15/2020
-ms.openlocfilehash: 9dfe70cf6c91a0c12604f91e583a9a4eb9b4e088
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 1/14/2021
+ms.openlocfilehash: e21a5a5be03ffa4ada362247c488ee7d12bd50f7
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308832"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222228"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Limity zasobów dla Azure SQL Database i serwerów analiz usługi Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -61,7 +61,7 @@ W przypadku wystąpienia dużej mocy obliczeniowej opcje ograniczenia obejmują:
 - Zwiększenie rozmiaru obliczeniowego bazy danych lub puli elastycznej w celu zapewnienia bazy danych większej ilości zasobów obliczeniowych. Zobacz [skalowanie zasobów pojedynczych baz danych](single-database-scale.md) i [skalowanie zasobów puli elastycznej](elastic-pool-scale.md).
 - Optymalizowanie zapytań w celu zmniejszenia użycia zasobów procesora CPU przez poszczególne zapytania. Aby uzyskać więcej informacji, zobacz [Podpowiedzi i dostrajanie zapytań](performance-guidance.md#query-tuning-and-hinting).
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 
 Gdy używane miejsce na bazę danych osiągnie limit rozmiaru, wstawia i aktualizuje bazę danych, która zwiększa niepowodzenie rozmiaru danych, a klienci odbierają [komunikat o błędzie](troubleshoot-common-errors-issues.md). Instrukcje SELECT i DELETE kontynuują się pomyślnie.
 
@@ -80,7 +80,7 @@ W przypadku wystąpienia wysokiego poziomu sesji lub procesu wyłączania, opcje
 - Zwiększenie warstwy usług lub rozmiaru obliczeniowego bazy danych lub puli elastycznej. Zobacz [skalowanie zasobów pojedynczych baz danych](single-database-scale.md) i [skalowanie zasobów puli elastycznej](elastic-pool-scale.md).
 - Optymalizowanie zapytań w celu ograniczenia wykorzystania zasobów dla każdego zapytania, jeśli przyczyną zwiększonego wykorzystania procesów roboczych jest rywalizacja o zasoby obliczeniowe. Aby uzyskać więcej informacji, zobacz [Podpowiedzi i dostrajanie zapytań](performance-guidance.md#query-tuning-and-hinting).
 - Zmniejszenie ustawienia [MAXDOP](/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option#Guidelines) (maksymalny stopień równoległości).
-- Optymalizacja obciążenia zapytania, aby zmniejszyć liczbę wystąpień i czas trwania blokowania zapytań.
+- Optymalizacja obciążenia zapytania, aby zmniejszyć liczbę wystąpień i czas trwania blokowania zapytań. Aby uzyskać więcej informacji, zobacz [Omówienie i rozwiązywanie problemów z blokowaniem usługi Azure SQL](understand-resolve-blocking.md).
 
 ### <a name="memory"></a>Pamięć
 

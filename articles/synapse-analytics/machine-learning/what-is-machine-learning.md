@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 906d3d28aabf8f6ecd6e04c38b4519937fa95c2b
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 68b113de63cfefde805c1c46e9303829c4eb33a7
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092163"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222143"
 ---
 # <a name="machine-learning-capabilities-in-azure-synapse-analytics"></a>Możliwości Machine Learning w usłudze Azure Synapse Analytics
 
@@ -40,7 +40,7 @@ Większość projektów uczenia maszynowego obejmuje dobrze ustanowione kroki, a
 
 #### <a name="data-source-and-pipelines"></a>Źródło danych i potoki
 
-Dzięki [Azure Data Factory](/azure/data-factory/introduction)wbudowanej w sposób natywny części usługi Azure Synapse istnieje zaawansowany zestaw narzędzi do pozyskiwania danych i potoków aranżacji danych. Dzięki temu można łatwo tworzyć potoki danych w celu uzyskiwania dostępu do danych i przekształcania ich w format, który można wykorzystać do uczenia maszynowego. [Dowiedz się więcej na temat potoków danych](/azure/data-factory/concepts-pipelines-activities?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) w programie Synapse. 
+Dzięki [Azure Data Factory](../../data-factory/introduction.md)wbudowanej w sposób natywny części usługi Azure Synapse istnieje zaawansowany zestaw narzędzi do pozyskiwania danych i potoków aranżacji danych. Dzięki temu można łatwo tworzyć potoki danych w celu uzyskiwania dostępu do danych i przekształcania ich w format, który można wykorzystać do uczenia maszynowego. [Dowiedz się więcej na temat potoków danych](../../data-factory/concepts-pipelines-activities.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) w programie Synapse. 
 
 #### <a name="data-preparation-and-explorationvisualization"></a>Przygotowywanie i Eksploracja i Wizualizacja danych
 
@@ -64,13 +64,13 @@ Oprócz MLlib, popularne biblioteki, takie jak [Scikit](https://scikit-learn.org
 
 #### <a name="train-models-with-azure-machine-learning-automated-ml"></a>Uczenie modeli przy użyciu Azure Machine Learning zautomatyzowanej ML
 
-Innym sposobem uczenia modeli uczenia maszynowego, które nie wymagają dużej znajomości uczenia maszynowego, jest użycie zautomatyzowanej ML. [Automatyczna ml](/azure/machine-learning/concept-automated-ml) to funkcja, która automatycznie pociąga za zestaw modeli uczenia maszynowego i umożliwia użytkownikowi wybranie najlepszego modelu na podstawie określonych metryk. Dzięki bezproblemowej integracji z Azure Machine Learningami z notesów platformy Azure Synapse użytkownicy mogą łatwo korzystać z zautomatyzowanej ML w Synapse przy użyciu uwierzytelniania Azure Active Directory przekazywania.  Oznacza to, że wystarczy wskazać obszar roboczy Azure Machine Learning i nie musisz wprowadzać żadnych poświadczeń. Poniżej znajduje się [samouczek zautomatyzowanych](../spark/apache-spark-azure-machine-learning-tutorial.md) tablic, który opisuje sposób uczenia modeli przy użyciu Azure Machine Learning zautomatyzowanej ml w pulach Synapse Spark.
+Innym sposobem uczenia modeli uczenia maszynowego, które nie wymagają dużej znajomości uczenia maszynowego, jest użycie zautomatyzowanej ML. [Automatyczna ml](../../machine-learning/concept-automated-ml.md) to funkcja, która automatycznie pociąga za zestaw modeli uczenia maszynowego i umożliwia użytkownikowi wybranie najlepszego modelu na podstawie określonych metryk. Dzięki bezproblemowej integracji z Azure Machine Learningami z notesów platformy Azure Synapse użytkownicy mogą łatwo korzystać z zautomatyzowanej ML w Synapse przy użyciu uwierzytelniania Azure Active Directory przekazywania.  Oznacza to, że wystarczy wskazać obszar roboczy Azure Machine Learning i nie musisz wprowadzać żadnych poświadczeń. Poniżej znajduje się [samouczek zautomatyzowanych](../spark/apache-spark-azure-machine-learning-tutorial.md) tablic, który opisuje sposób uczenia modeli przy użyciu Azure Machine Learning zautomatyzowanej ml w pulach Synapse Spark.
 
 ### <a name="model-deployment-and-scoring"></a>Wdrażanie i ocenianie modelu
 
 Do oceniania partii można łatwo używać modeli, które zostały przeszkolone na platformie Azure Synapse lub poza platformą Azure Synapse. Obecnie w programie Synapse istnieją dwa sposoby uruchamiania oceniania wsadowego.
 
-* Możesz użyć [funkcji przewidywania TSQL](../sql-data-warehouse/sql-data-warehouse-predict.md) w Synapse pule SQL, aby uruchamiać przewidywania, w których znajdują się dane. Ta zaawansowana i skalowalna funkcja umożliwia Wzbogacanie danych bez konieczności przechodzenia do magazynu danych. Wprowadzono nowe [środowisko modelu uczenia maszynowego w programie Synapse Studio](https://aka.ms/synapse-ml-ui) , w którym można WDROŻYĆ model ONNX z rejestru modelu Azure Machine Learning w Synapse pule SQL na potrzeby oceniania wsadowego przy użyciu funkcji przewidywania.
+* Możesz użyć [funkcji przewidywania TSQL](../sql-data-warehouse/sql-data-warehouse-predict.md) w Synapse pule SQL, aby uruchamiać przewidywania, w których znajdują się dane. Ta zaawansowana i skalowalna funkcja umożliwia Wzbogacanie danych bez konieczności przechodzenia do magazynu danych. Wprowadzono nowe [środowisko modelu uczenia maszynowego w programie Synapse Studio](./tutorial-sql-pool-model-scoring-wizard.md) , w którym można WDROŻYĆ model ONNX z rejestru modelu Azure Machine Learning w Synapse pule SQL na potrzeby oceniania wsadowego przy użyciu funkcji przewidywania.
 
 * Innym rozwiązaniem wsadowym modeli uczenia maszynowego w usłudze Azure Synapse jest wykorzystanie pul Apache Spark dla usługi Azure Synapse. W zależności od bibliotek używanych do uczenia modeli możesz użyć środowiska kodu do uruchomienia oceniania partii.
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: kumud
-ms.openlocfilehash: a25d6d0d1990682287b5962a7bd93a0c525db133
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: a29454f09268406511730c63dcc3bc3063b909c6
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882368"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218658"
 ---
 # <a name="integrate-azure-services-with-virtual-networks-for-network-isolation"></a>Integrowanie usług platformy Azure z sieciami wirtualnymi na potrzeby izolacji sieci
 
@@ -66,7 +66,7 @@ Aby uzyskać więcej informacji, zobacz [punkty końcowe usługi sieci wirtualne
 
 ## <a name="service-tags"></a>Tagi usługi
 
-Tag usługi reprezentuje grupę prefiksów adresów IP z danej usługi platformy Azure. Korzystając z tagów usługi, można zdefiniować kontrolę dostępu do sieci w [grupach zabezpieczeń sieci](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) lub w [zaporze platformy Azure](https://docs.microsoft.com/azure/firewall/service-tags). Określając nazwę tagu usługi (na przykład AzureEventGrid) w odpowiednim polu źródłowym lub docelowym reguły, można zezwolić na ruch dla odpowiedniej usługi lub go odrzucić.
+Tag usługi reprezentuje grupę prefiksów adresów IP z danej usługi platformy Azure. Korzystając z tagów usługi, można zdefiniować kontrolę dostępu do sieci w [grupach zabezpieczeń sieci](./network-security-groups-overview.md#security-rules) lub w [zaporze platformy Azure](../firewall/service-tags.md). Określając nazwę tagu usługi (na przykład AzureEventGrid) w odpowiednim polu źródłowym lub docelowym reguły, można zezwolić na ruch dla odpowiedniej usługi lub go odrzucić.
 
 ![Zezwalaj lub Odmawiaj ruchu przy użyciu tagów usługi](./media/network-isolation/service-tags.png)
 
@@ -78,4 +78,4 @@ Aby uzyskać więcej informacji na temat tagów usługi i usług platformy Azure
 
 - Dowiedz się [, jak zintegrować aplikację z siecią platformy Azure](../app-service/web-sites-integrate-with-vnet.md).
 - Dowiedz się, jak [ograniczyć dostęp do zasobów przy użyciu tagów usługi](tutorial-restrict-network-access-to-resources.md).
-- Dowiedz się, jak [połączyć się prywatnie z kontem usługi Azure Cosmos przy użyciu prywatnego linku platformy Azure](../private-link/create-private-endpoint-cosmosdb-portal.md).
+- Dowiedz się, jak [połączyć się prywatnie z kontem usługi Azure Cosmos przy użyciu prywatnego linku platformy Azure](../private-link/tutorial-private-endpoint-cosmosdb-portal.md).

@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 12/15/2020
+ms.date: 01/14/2020
 ms.custom: contperf-fy21q1,contperfq1
-ms.openlocfilehash: 17c5cc265b4199d745325bf2c9d9fbca24cc6506
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 61305e4f9ba45cb7c13a96bee9d1aab81108bb4d
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617123"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220698"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Uczenie głębokie a uczenie maszynowe w Azure Machine Learning
 
@@ -57,7 +57,7 @@ Poniższa tabela zawiera porównanie dwóch technik w bardziej szczegółowy spo
 |  **Czas wykonywania** | Trwa znacznie nieco więcej czasu na wyuczenie, w zakresie od kilku sekund do kilku godzin. | Szkolenie zwykle trwa długo, ponieważ algorytm uczenia głębokiego obejmuje wiele warstw. |
 |  **Dane wyjściowe** | Dane wyjściowe są zwykle wartościami liczbowymi, takimi jak wynik lub Klasyfikacja. | Dane wyjściowe mogą mieć wiele formatów, takich jak tekst, wynik lub dźwięk. |
 
-## <a name="transfer-learning"></a>Uczenie z użyciem transferu
+## <a name="what-is-transfer-learning"></a>Co to jest nauka transferu
 
 Uczenie modeli uczenia głębokiego często wymaga dużej ilości danych szkoleniowych, wysokiej klasy zasobów obliczeniowych (GPU, TPU) i dłuższego czasu uczenia się. W sytuacjach, gdy nie masz żadnego z tych dostępnych dla Ciebie, możesz podwyższyć poziomu procesu szkolenia przy użyciu techniki znanej jako *nauka transferu.*
 
@@ -65,7 +65,7 @@ Nauka transferu to technika, która stosuje wiedzę uzyskaną w wyniku rozwiązy
 
 Ze względu na strukturę sieci neuronowych pierwszy zestaw warstw zwykle zawiera funkcje niższego poziomu, natomiast końcowy zestaw warstw zawiera funkcję wyższego poziomu, która jest bliższa danej domenie. Zmianę zastosowania ostateczne warstwy do użycia w nowej domenie lub problemie, można znacznie skrócić ilość czasu, dane i zasoby obliczeniowe potrzebne do uczenia nowego modelu. Na przykład jeśli masz już model, który rozpoznaje samochody, możesz go przeszukiwać za pomocą uczenia przeniesienia, aby również rozpoznawać samochody, Motocykle i inne rodzaje pojazdów.
 
-Dowiedz się, jak zastosować uczenie transferu na potrzeby klasyfikacji obrazów przy użyciu platformy typu "open source" w Azure Machine Learning: [klasyfikowanie obrazów przy użyciu modelu Pytorch](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri).
+Dowiedz się, jak zastosować uczenie transferu na potrzeby klasyfikacji obrazów przy użyciu platformy typu "open source" w Azure Machine Learning: [uczenie modelu uczenia głębokiego PyTorch za pomocą uczenia się transferu](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri).
 
 ## <a name="deep-learning-use-cases"></a>Przypadki użycia głębokiego uczenia
 

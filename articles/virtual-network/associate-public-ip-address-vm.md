@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: allensu
-ms.openlocfilehash: 9b5fc9e4118d98905138b7f205f61d85a96b60b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76f92b5da2331748fbbbfc68f1e456fd50dd71ee
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88035471"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223027"
 ---
 # <a name="associate-a-public-ip-address-to-a-virtual-machine"></a>Skojarz publiczny adres IP z maszyną wirtualną
 
@@ -30,7 +30,7 @@ Aby skojarzyć publiczny adres IP z maszyną wirtualną, możesz użyć [Azure P
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Przejdź do lub Wyszukaj maszynę wirtualną, do której chcesz dodać publiczny adres IP, a następnie wybierz ją.
-3. W obszarze **Ustawienia**wybierz pozycję **Sieć**, a następnie wybierz interfejs sieciowy, do którego chcesz dodać publiczny adres IP, jak pokazano na poniższej ilustracji:
+3. W obszarze **Ustawienia** wybierz pozycję **Sieć**, a następnie wybierz interfejs sieciowy, do którego chcesz dodać publiczny adres IP, jak pokazano na poniższej ilustracji:
 
    ![Wybierz interfejs sieciowy](./media/associate-public-ip-address-vm/select-nic.png)
 
@@ -115,7 +115,7 @@ Zainstaluj [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azur
 
 4. [Zezwalaj na ruch sieciowy do maszyny wirtualnej](#allow-network-traffic-to-the-vm) z regułami zabezpieczeń w sieciowej grupie zabezpieczeń.
 
-## <a name="powershell"></a>Program PowerShell
+## <a name="powershell"></a>PowerShell
 
 Zainstaluj program [PowerShell](/powershell/azure/install-az-ps)lub użyj Azure Cloud Shell. Usługa Azure Cloud Shell jest bezpłatną powłoką, którą można uruchamiać bezpośrednio w witrynie Azure Portal. Program PowerShell jest wstępnie zainstalowany i skonfigurowany do użycia z Twoim kontem. Wybierz przycisk **Wypróbuj** w kolejnych poleceniach programu PowerShell. Wybranie przycisku **Wypróbuj** wywołuje Cloud Shell, aby można było zalogować się do konta platformy Azure za pomocą usługi.
 
@@ -214,4 +214,4 @@ Aby można było połączyć się z publicznym adresem IP z Internetu, należy s
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zezwalaj na przychodzący ruch internetowy do maszyny wirtualnej przy użyciu sieciowej grupy zabezpieczeń. Aby dowiedzieć się, jak utworzyć sieciową grupę zabezpieczeń, zobacz [Work with Network Security Groups](manage-network-security-group.md#work-with-network-security-groups). Aby dowiedzieć się więcej na temat sieciowych grup zabezpieczeń, zobacz [grupy zabezpieczeń](security-overview.md).
+Zezwalaj na przychodzący ruch internetowy do maszyny wirtualnej przy użyciu sieciowej grupy zabezpieczeń. Aby dowiedzieć się, jak utworzyć sieciową grupę zabezpieczeń, zobacz [Work with Network Security Groups](manage-network-security-group.md#work-with-network-security-groups). Aby dowiedzieć się więcej na temat sieciowych grup zabezpieczeń, zobacz [grupy zabezpieczeń](./network-security-groups-overview.md).

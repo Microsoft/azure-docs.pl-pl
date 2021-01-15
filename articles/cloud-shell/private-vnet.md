@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: damaerte
-ms.openlocfilehash: a820fb4ec5d6c2053b1104b68dbda0ae70f624c0
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 58f6c7a3b5d68d2825cead545ba1b683d1faf1af
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179201"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222806"
 ---
 # <a name="deploy-cloud-shell-into-an-azure-virtual-network"></a>Wdrażanie Cloud Shell w sieci wirtualnej platformy Azure
 
@@ -87,9 +87,6 @@ Jeśli **RegistrationState** jest `Registered` , nie jest wymagana żadna akcja.
 Jeśli masz już pożądaną sieć wirtualną, z którą chcesz nawiązać połączenie, Pomiń tę sekcję.
 
 W Azure Portal lub przy użyciu interfejsu wiersza polecenia platformy Azure, Azure PowerShell itp. Utwórz grupę zasobów i sieć wirtualną w nowej grupie zasobów, **Grupa zasobów i Sieć wirtualna muszą znajdować się w tym samym regionie**.
-
-> [!NOTE]
-> W publicznej wersji zapoznawczej Grupa zasobów i Sieć wirtualna muszą znajdować się w WestCentralUS lub zachodnich.
 
 ### <a name="arm-templates"></a>Szablony usługi ARM
 Użyj [szablonu szybkiego startu platformy Azure](https://aka.ms/cloudshell/docs/vnet/template) do tworzenia zasobów Cloud Shell w sieci wirtualnej i [szablonu szybkiego startu platformy Azure](https://aka.ms/cloudshell/docs/vnet/template/storage) w celu utworzenia niezbędnego magazynu. Zanotuj nazwy zasobów, a przede wszystkim nazwę udziału plików.

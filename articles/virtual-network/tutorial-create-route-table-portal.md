@@ -13,12 +13,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: d630a41f9b83a852605ffad2a85ad6dd14bbac73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e047f46e110e1f7b1d544545c80bd1097ae65167
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86079653"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221922"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Samouczek: kierowanie ruchem sieciowym za pomocą tabeli tras z użyciem witryny Azure Portal
 
@@ -46,16 +46,16 @@ Wirtualne urządzenia sieciowe (urządzeń WUS) są maszynami wirtualnymi, któr
 
     ![System Windows Server 2016 Datacenter, Tworzenie maszyny wirtualnej, Azure Portal](./media/tutorial-create-route-table-portal/vm-ws2016-datacenter.png)
 
-1. Na stronie **Tworzenie maszyny wirtualnej** w obszarze **podstawowe**wprowadź lub wybierz następujące informacje:
+1. Na stronie **Tworzenie maszyny wirtualnej** w obszarze **podstawowe** wprowadź lub wybierz następujące informacje:
 
     | Sekcja | Ustawienie | Akcja |
     | ------- | ------- | ----- |
     | **Szczegóły projektu** | Subskrypcja | Wybierz subskrypcję. |
     | | Grupa zasobów | Wybierz pozycję **Utwórz nową**, wprowadź nazwę *myResourceGroup*, a następnie wybierz przycisk **OK**. |
     | **Szczegóły wystąpienia** | Nazwa maszyny wirtualnej | Wpisz *myVmNva*. |
-    | | Region | Wybierz pozycję **(US) Wschodnie stany USA**. |
+    | | Region (Region) | Wybierz pozycję **(US) Wschodnie stany USA**. |
     | | Opcje dostępności | Wybierz opcję **Brak wymaganej nadmiarowości infrastruktury**. |
-    | | Obraz | Wybierz pozycję **Windows Server 2016 Datacenter**. |
+    | | Image (Obraz) | Wybierz pozycję **Windows Server 2016 Datacenter**. |
     | | Rozmiar | Zachowaj domyślny **Standard DS1 v2**. |
     | **Konto administratora** | Nazwa użytkownika | Wprowadź wybraną nazwę użytkownika. |
     | | Hasło | Wprowadź hasło, które musi mieć długość co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm). |
@@ -67,17 +67,17 @@ Wirtualne urządzenia sieciowe (urządzeń WUS) są maszynami wirtualnymi, któr
 
     Następnie wybierz pozycję **Dalej: dyski >**.
 
-1. W obszarze **dyski**wybierz ustawienia odpowiednie dla Twoich potrzeb, a następnie wybierz kolejno pozycje **dalej: sieć >**.
+1. W obszarze **dyski** wybierz ustawienia odpowiednie dla Twoich potrzeb, a następnie wybierz kolejno pozycje **dalej: sieć >**.
 
 1. W obszarze **Sieć**:
 
-    1. W obszarze **Sieć wirtualna**wybierz pozycję **Utwórz nową**.
+    1. W obszarze **Sieć wirtualna** wybierz pozycję **Utwórz nową**.
     
-    1. W oknie dialogowym **Tworzenie sieci wirtualnej** w polu **Nazwa**wprowadź *myVirtualNetwork*.
+    1. W oknie dialogowym **Tworzenie sieci wirtualnej** w polu **Nazwa** wprowadź *myVirtualNetwork*.
 
-    1. W **obszarze przestrzeń adresowa**Zastąp istniejący zakres adresów adresem *10.0.0.0/16*.
+    1. W **obszarze przestrzeń adresowa** Zastąp istniejący zakres adresów adresem *10.0.0.0/16*.
 
-    1. W obszarze **podsieci**wybierz ikonę **Usuń** , aby usunąć istniejącą podsieć, a następnie wprowadź następujące kombinacje **nazw podsieci** i **zakresu adresów**. Po wprowadzeniu prawidłowej nazwy i zakresu zostanie wyświetlony nowy pusty wiersz poniżej.
+    1. W obszarze **podsieci** wybierz ikonę **Usuń** , aby usunąć istniejącą podsieć, a następnie wprowadź następujące kombinacje **nazw podsieci** i **zakresu adresów**. Po wprowadzeniu prawidłowej nazwy i zakresu zostanie wyświetlony nowy pusty wiersz poniżej.
 
         | Nazwa podsieci | Zakres adresów |
         | ----------- | ------------- |
@@ -87,15 +87,15 @@ Wirtualne urządzenia sieciowe (urządzeń WUS) są maszynami wirtualnymi, któr
 
     1. Wybierz **przycisk OK** , aby zamknąć okno dialogowe.
 
-    1. W obszarze **podsieć**wybierz pozycję **DMZ (10.0.2.0/24)**.
+    1. W obszarze **podsieć** wybierz pozycję **DMZ (10.0.2.0/24)**.
 
-    1. W obszarze **publiczny adres IP**wybierz pozycję **Brak**, ponieważ ta maszyna wirtualna nie będzie łączyć się za pośrednictwem Internetu.
+    1. W obszarze **publiczny adres IP** wybierz pozycję **Brak**, ponieważ ta maszyna wirtualna nie będzie łączyć się za pośrednictwem Internetu.
 
-    1. Wybierz pozycję **Dalej: >zarządzania **.
+    1. Wybierz pozycję **Dalej: >zarządzania**.
 
 1. W obszarze **Zarządzanie**:
 
-    1. W obszarze **konto magazynu diagnostyki**wybierz pozycję **Utwórz nowy**.
+    1. W obszarze **konto magazynu diagnostyki** wybierz pozycję **Utwórz nowy**.
     
     1. W oknie dialogowym **Tworzenie konta magazynu** wprowadź lub wybierz następujące informacje:
 
@@ -108,7 +108,7 @@ Wirtualne urządzenia sieciowe (urządzeń WUS) są maszynami wirtualnymi, któr
     
     1. Wybierz **przycisk OK** , aby zamknąć okno dialogowe.
 
-    1. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przekierowanie do strony **Recenzja + tworzenie** , a platforma Azure zweryfikuje konfigurację.
+    1. Wybierz pozycję **Przejrzyj i utwórz**. Nastąpi przekierowanie do strony **Recenzja + tworzenie** , a platforma Azure zweryfikuje konfigurację.
 
 1. Po wyświetleniu komunikatu **Sprawdzanie poprawności zakończone powodzeniem** kliknij przycisk **Utwórz**.
 
@@ -132,11 +132,11 @@ Wirtualne urządzenia sieciowe (urządzeń WUS) są maszynami wirtualnymi, któr
     | Subskrypcja | Twoja subskrypcja |
     | Grupa zasobów | **myResourceGroup** |
     | Lokalizacja | **(USA) Wschodnie stany USA** |
-    | Propagacja trasy bramy sieci wirtualnej | **Włączone** |
+    | Propagacja trasy bramy sieci wirtualnej | **Włączono** |
 
     ![Tworzenie tabeli tras, Azure Portal](./media/tutorial-create-route-table-portal/create-route-table.png)
 
-5. Wybierz przycisk **Utwórz**.
+5. Wybierz pozycję **Utwórz**.
 
 ## <a name="create-a-route"></a>Tworzenie trasy
 
@@ -169,7 +169,7 @@ Wirtualne urządzenia sieciowe (urządzeń WUS) są maszynami wirtualnymi, któr
 
 1. Na liście podsieć sieci wirtualnej wybierz pozycję **publiczny**.
 
-1. W **tabeli tras**Wybierz utworzoną tabelę tras (**myRouteTablePublic**), a następnie wybierz pozycję **Zapisz** , aby skojarzyć tabelę tras z podsiecią *publiczną* .
+1. W **tabeli tras** Wybierz utworzoną tabelę tras (**myRouteTablePublic**), a następnie wybierz pozycję **Zapisz** , aby skojarzyć tabelę tras z podsiecią *publiczną* .
 
     ![Skojarz tabelę tras, listę podsieci, sieć wirtualną, Azure Portal](./media/tutorial-create-route-table-portal/associate-route-table.png)
 
@@ -209,7 +209,7 @@ Przed wybraniem pozycji **Utwórz** , aby utworzyć publiczną lub PRYWATNą mas
 | | Nazwa maszyny wirtualnej | *myVmPublic* |
 | | Publiczne porty wejściowe | **Zezwalaj na wybrane porty** |
 | | Wybierz porty wejściowe | **RDP** |
-| Networking | Sieć wirtualna | **myVirtualNetwork** |
+| Sieć | Sieć wirtualna | **myVirtualNetwork** |
 | | Podsieć | **Public (10.0.0.0/24)** |
 | | Publiczny adres IP | Wartość domyślna |
 | Zarządzanie | Konto magazynu diagnostyki | **mynvastorageaccount** |
@@ -222,7 +222,7 @@ Przed wybraniem pozycji **Utwórz** , aby utworzyć publiczną lub PRYWATNą mas
 | | Nazwa maszyny wirtualnej | *myVmPrivate* |
 | | Publiczne porty wejściowe | **Zezwalaj na wybrane porty** |
 | | Wybierz porty wejściowe | **RDP** |
-| Networking | Sieć wirtualna | **myVirtualNetwork** |
+| Sieć | Sieć wirtualna | **myVirtualNetwork** |
 | | Podsieć | **Prywatny (10.0.1.0/24)** |
 | | Publiczny adres IP | Wartość domyślna |
 | Zarządzanie | Konto magazynu diagnostyki | **mynvastorageaccount** |
@@ -284,7 +284,7 @@ W kolejnym kroku przetestujesz routing przy użyciu narzędzia śledzenia trasy.
     ```cmd
     mstsc /v:myVmPublic
     ```
-1. Na pulpicie zdalnym *myVmPublic*Otwórz program PowerShell.
+1. Na pulpicie zdalnym *myVmPublic* Otwórz program PowerShell.
 
 1. Włącz protokół ICMP za pomocą Zapory systemu Windows przez wprowadzenie tego polecenia:
 
@@ -345,7 +345,7 @@ Jeśli grupa zasobów nie jest już wymagana, Usuń grupę *zasobów* i wszystki
 
 1. Przejdź do [Azure Portal](https://portal.azure.com) , aby zarządzać grupą zasobów. Wyszukaj i wybierz pozycję **grupy zasobów**.
 
-1. Wybierz nazwę grupy**zasobów (zasobu**).
+1. Wybierz nazwę grupy **zasobów (zasobu**).
 
 1. Wybierz pozycję **Usuń grupę zasobów**.
 
@@ -361,4 +361,4 @@ Chociaż możesz wdrożyć wiele zasobów platformy Azure w ramach sieci wirtual
 > [Ograniczanie dostępu sieciowego do zasobów PaaS](tutorial-restrict-network-access-to-resources.md)
 
 > [!NOTE] 
-> Opłaty za usługi platformy Azure. Azure Cost Management ułatwia ustawianie budżetów i Konfigurowanie alertów w celu utrzymywania wydatków pod kontrolą. Analizowanie i optymalizowanie kosztów platformy Azure oraz zarządzanie nimi za pomocą Cost Management. Aby dowiedzieć się więcej, zobacz [Przewodnik Szybki Start dotyczący analizowania kosztów](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+> Opłaty za usługi platformy Azure. Azure Cost Management ułatwia ustawianie budżetów i Konfigurowanie alertów w celu utrzymywania wydatków pod kontrolą. Analizowanie i optymalizowanie kosztów platformy Azure oraz zarządzanie nimi za pomocą Cost Management. Aby dowiedzieć się więcej, zobacz [Przewodnik Szybki Start dotyczący analizowania kosztów](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

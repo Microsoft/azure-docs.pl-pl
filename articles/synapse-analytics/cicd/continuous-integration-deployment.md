@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: d38c57a8c8504e1e03406f7cd8a0b61725cb0511
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 7a665bf05167a6bdf20c7325c66a5d0e439aa7f1
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008093"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223690"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Ciągła integracja i dostarczanie dla obszaru roboczego usługi Azure Synapse
 
@@ -21,7 +21,7 @@ ms.locfileid: "97008093"
 
 Ciągła integracja (CI) to proces automatyzacji kompilowania i testowania kodu za każdym razem, gdy członek zespołu zatwierdza zmiany w kontroli wersji. Ciągłe wdrażanie (CD) to proces kompilowania, testowania, konfigurowania i wdrażania wielu środowisk testowych lub przejściowych w środowisku produkcyjnym.
 
-W przypadku usługi Azure Synapse Workspace, ciągłej integracji i dostarczania (CI/CD) przenosi wszystkie jednostki z jednego środowiska (Programowanie, testowanie, produkcja) do innego. Aby podwyższyć poziom obszaru roboczego do innego obszaru roboczego, istnieją dwie części: Użyj [szablonów Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) do tworzenia lub aktualizowania zasobów obszaru roboczego (pul i obszarów roboczych); Migrowanie artefaktów (skrypty SQL, Notes, definicja zadań platformy Spark, potoki, zestawy danych, przepływy, dane itp.) dzięki narzędziom CI/CD Synapse na platformie Azure DevOps. 
+W przypadku usługi Azure Synapse Workspace, ciągłej integracji i dostarczania (CI/CD) przenosi wszystkie jednostki z jednego środowiska (Programowanie, testowanie, produkcja) do innego. Aby podwyższyć poziom obszaru roboczego do innego obszaru roboczego, istnieją dwie części: Użyj [szablonów Azure Resource Manager](../../azure-resource-manager/templates/overview.md) do tworzenia lub aktualizowania zasobów obszaru roboczego (pul i obszarów roboczych); Migrowanie artefaktów (skrypty SQL, Notes, definicja zadań platformy Spark, potoki, zestawy danych, przepływy, dane itp.) dzięki narzędziom CI/CD Synapse na platformie Azure DevOps. 
 
 W tym artykule zawarto informacje na temat korzystania z potoku wersji platformy Azure w celu zautomatyzowania wdrożenia obszaru roboczego Synapse w wielu środowiskach.
 
@@ -46,7 +46,7 @@ W tym artykule zawarto informacje na temat korzystania z potoku wersji platformy
 
 1.  W polu **Nazwa etapu** wprowadź nazwę środowiska.
 
-1.  Wybierz pozycję **Dodaj artefakt**, a następnie wybierz repozytorium git skonfigurowane przy użyciu programu Development Synapse Studio. Wybierz repozytorium git, które zostało użyte do zarządzania szablonami ARM pul i obszaru roboczego. Jeśli używasz usługi GitHub jako źródła, musisz utworzyć połączenie z usługą dla konta w usłudze GitHub i pobrać repozytoria. Aby uzyskać więcej informacji na temat [połączenia z usługą](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints) 
+1.  Wybierz pozycję **Dodaj artefakt**, a następnie wybierz repozytorium git skonfigurowane przy użyciu programu Development Synapse Studio. Wybierz repozytorium git, które zostało użyte do zarządzania szablonami ARM pul i obszaru roboczego. Jeśli używasz usługi GitHub jako źródła, musisz utworzyć połączenie z usługą dla konta w usłudze GitHub i pobrać repozytoria. Aby uzyskać więcej informacji na temat [połączenia z usługą](/azure/devops/pipelines/library/service-endpoints) 
 
     ![Dodaj gałąź publikowania](media/release-creation-github.png)
 
@@ -87,7 +87,7 @@ Dodaj zadanie wdrażania Azure Resource Manager, aby tworzyć lub aktualizować 
     ![Udziel uprawnienia](media/release-creation-grant-permission.png)
 
  > [!WARNING]
-> W trybie ukończenia wdrożenia zasoby istniejące w grupie zasobów, ale nie są określone w nowym szablonie Menedżer zasobów, zostaną **usunięte**. Aby uzyskać więcej informacji, zobacz [tryby wdrażania Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes)
+> W trybie ukończenia wdrożenia zasoby istniejące w grupie zasobów, ale nie są określone w nowym szablonie Menedżer zasobów, zostaną **usunięte**. Aby uzyskać więcej informacji, zobacz [tryby wdrażania Azure Resource Manager](../../azure-resource-manager/templates/deployment-modes.md)
 
 ## <a name="set-up-a-stage-task-for-artifacts-deployment"></a>Konfigurowanie zadania etapowego dla wdrożenia artefaktów 
 
@@ -122,7 +122,7 @@ Użyj rozszerzenia [wdrożenia obszaru roboczego Synapse](https://marketplace.vi
 
 ## <a name="create-release-for-deployment"></a>Utwórz wydanie do wdrożenia 
 
-Po zapisaniu wszystkich zmian możesz wybrać pozycję **Utwórz wydanie** , aby ręcznie utworzyć wydanie. Aby zautomatyzować tworzenie wydań, zobacz [Azure DevOps Release Triggers](https://docs.microsoft.com/azure/devops/pipelines/release/triggers)
+Po zapisaniu wszystkich zmian możesz wybrać pozycję **Utwórz wydanie** , aby ręcznie utworzyć wydanie. Aby zautomatyzować tworzenie wydań, zobacz [Azure DevOps Release Triggers](/azure/devops/pipelines/release/triggers)
 
    ![Wybierz pozycję Utwórz wydanie](media/release-creation-manually.png)
 
@@ -133,6 +133,4 @@ Jeśli korzystasz z integracji narzędzia Git z obszarem roboczym usługi Synaps
 -   **Integracja** z usługą git. Skonfiguruj tylko obszar roboczy programu Development Synapse z integracją narzędzia Git. Zmiany dotyczące testów i produkcyjnych obszarów roboczych są wdrażane za pośrednictwem ciągłej integracji/ciągłego wdrażania, a nie potrzebna jest integracja z usługą git.
 -   **Przygotuj pule przed migracją artefaktów**. Jeśli masz skrypt SQL lub Notes dołączony do pul w obszarze roboczym programowanie, oczekiwana jest taka sama nazwa pul w różnych środowiskach. 
 -   **Infrastruktura jako kod (IaC)**. Zarządzanie infrastrukturą (sieciami, maszynami wirtualnymi, modułami równoważenia obciążenia i topologią połączenia) w modelu opisowym przy użyciu tej samej wersji, której zespół DevOps używa w przypadku kodu źródłowego. 
--   **Inne osoby**. Zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi artefaktów ADF](/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd)
-
-
+-   **Inne osoby**. Zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi artefaktów ADF](../../data-factory/continuous-integration-deployment.md#best-practices-for-cicd)

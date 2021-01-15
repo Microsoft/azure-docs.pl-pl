@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/11/2020
 ms.author: allensu
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0ec054d55432ad2680314b4ff91a067d37b629d4
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: e99ee28460c1639a7f0b9dd989bbe5a287a9158c
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734333"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221845"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-cli-and-test-the-nat-service"></a>Samouczek: Tworzenie bramy NAT przy użyciu interfejsu wiersza polecenia platformy Azure i testowanie usługi translatora adresów sieciowych
 
@@ -34,7 +34,7 @@ W tym samouczku utworzysz bramę translatora adresów sieciowych, aby zapewnić 
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz grupę zasobów za pomocą polecenia [az group create](https://docs.microsoft.com/cli/azure/group). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi.
+Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi.
 
 Poniższy przykład tworzy grupę zasobów o nazwie **myResourceGroupNAT** w lokalizacji **eastus2** :
 
@@ -49,7 +49,7 @@ Poniższy przykład tworzy grupę zasobów o nazwie **myResourceGroupNAT** w lok
 
 ### <a name="create-a-public-ip-address"></a>Tworzenie publicznego adresu IP
 
-Aby uzyskać dostęp do publicznej sieci Internet, wymagany jest co najmniej jeden publiczny adres IP dla bramy translatora adresów sieciowych. Użyj [AZ Network Public-IP Create](https://docs.microsoft.com/cli/azure/network/public-ip) , aby utworzyć zasób publicznego adresu IP o nazwie **myPublicIPsource** w **myResourceGroupNAT**.
+Aby uzyskać dostęp do publicznej sieci Internet, wymagany jest co najmniej jeden publiczny adres IP dla bramy translatora adresów sieciowych. Użyj [AZ Network Public-IP Create](/cli/azure/network/public-ip) , aby utworzyć zasób publicznego adresu IP o nazwie **myPublicIPsource** w **myResourceGroupNAT**.
 
 ```azurecli-interactive
   az network public-ip create \
@@ -77,7 +77,7 @@ W tej sekcji szczegółowo opisano, jak utworzyć i skonfigurować następujące
   - Publiczna Pula adresów IP i publiczny prefiks IP do użycia dla przepływów wychodzących przetłumaczonych przez zasób bramy translatora adresów sieciowych.
   - Zmień limit czasu bezczynności z wartości domyślnej wynoszącej 4 minuty na 10 minut.
 
-Utwórz globalną bramę usługi Azure NAT za pomocą [AZ Network translator Gateway Create](https://docs.microsoft.com/cli/azure/network/nat?view=azure-cli-latest) o nazwie **myNATgateway**. Polecenie używa publicznego adresu IP **myPublicIP** i publicznego prefiksu IP **myPublicIPprefix**. Polecenie zmienia również limit czasu bezczynności na 10 minut.
+Utwórz globalną bramę usługi Azure NAT za pomocą [AZ Network translator Gateway Create](/cli/azure/network/nat?view=azure-cli-latest) o nazwie **myNATgateway**. Polecenie używa publicznego adresu IP **myPublicIP** i publicznego prefiksu IP **myPublicIPprefix**. Polecenie zmienia również limit czasu bezczynności na 10 minut.
 
 ```azurecli-interactive
   az network nat gateway create \
@@ -99,7 +99,7 @@ Przeprowadzimy Cię przez proces instalacji pełnego środowiska testowego. Nale
 
 Przed wdrożeniem maszyny wirtualnej i przetestowanie bramy translatora adresów sieciowych musimy utworzyć sieć wirtualną.
 
-Utwórz sieć wirtualną o nazwie **myVnetsource** z podsiecią o nazwie **mySubnetsource** w **myResourceGroupNAT** za pomocą polecenia [AZ Network Microsoft Azure Virtual Network Create](https://docs.microsoft.com/cli/azure/network/vnet).  Przestrzeń adresów IP dla sieci wirtualnej to **192.168.0.0/16**. Podsieć w sieci wirtualnej to **192.168.0.0/24**.
+Utwórz sieć wirtualną o nazwie **myVnetsource** z podsiecią o nazwie **mySubnetsource** w **myResourceGroupNAT** za pomocą polecenia [AZ Network Microsoft Azure Virtual Network Create](/cli/azure/network/vnet).  Przestrzeń adresów IP dla sieci wirtualnej to **192.168.0.0/16**. Podsieć w sieci wirtualnej to **192.168.0.0/24**.
 
 ```azurecli-interactive
   az network vnet create \
@@ -113,7 +113,7 @@ Utwórz sieć wirtualną o nazwie **myVnetsource** z podsiecią o nazwie **mySub
 
 ### <a name="configure-nat-service-for-source-subnet"></a>Konfigurowanie usługi translatora adresów sieciowych dla podsieci źródłowej
 
-Skonfiguruj **mySubnetsource** źródłową podsieci w sieci wirtualnej **myVnetsource** , aby użyć określonego zasobu bramy translatora adresów sieciowych **myNATgateway** za pomocą elementu [AZ Network Microsoft Azure Virtual Network Subnet Update](https://docs.microsoft.com/cli/azure/network/vnet/subnet). To polecenie spowoduje Aktywowanie usługi translatora adresów sieciowych w określonej podsieci.
+Skonfiguruj **mySubnetsource** źródłową podsieci w sieci wirtualnej **myVnetsource** , aby użyć określonego zasobu bramy translatora adresów sieciowych **myNATgateway** za pomocą elementu [AZ Network Microsoft Azure Virtual Network Subnet Update](/cli/azure/network/vnet/subnet). To polecenie spowoduje Aktywowanie usługi translatora adresów sieciowych w określonej podsieci.
 
 ```azurecli-interactive
     az network vnet subnet update \
@@ -132,7 +132,7 @@ Możesz również utworzyć tę maszynę wirtualną bez publicznego adresu IP i 
 
 ### <a name="create-public-ip-for-source-vm"></a>Utwórz publiczny adres IP dla źródłowej maszyny wirtualnej
 
-Tworzymy publiczny adres IP, który będzie używany do uzyskiwania dostępu do źródłowej maszyny wirtualnej. Użyj [AZ Network Public-IP Create](https://docs.microsoft.com/cli/azure/network/public-ip) , aby utworzyć zasób publicznego adresu IP o nazwie **myPublicIPsourceVM** w **myResourceGroupNAT**.
+Tworzymy publiczny adres IP, który będzie używany do uzyskiwania dostępu do źródłowej maszyny wirtualnej. Użyj [AZ Network Public-IP Create](/cli/azure/network/public-ip) , aby utworzyć zasób publicznego adresu IP o nazwie **myPublicIPsourceVM** w **myResourceGroupNAT**.
 
 ```azurecli-interactive
   az network public-ip create \
@@ -144,7 +144,7 @@ Tworzymy publiczny adres IP, który będzie używany do uzyskiwania dostępu do 
 
 ### <a name="create-an-nsg-for-source-vm"></a>Tworzenie sieciowej grupy zabezpieczeń dla źródłowej maszyny wirtualnej
 
-Ze względu na to, że standardowe publiczne adresy IP są "zabezpieczone domyślnie", musimy utworzyć sieciowej grupy zabezpieczeń, aby zezwolić na dostęp przychodzący do protokołu SSH.  Usługa translatora adresów sieciowych platformy Azure ma świadomość kierunku przepływu. Ten sieciowej grupy zabezpieczeń nie będzie używany do wychodzącego, gdy Brama translatora adresów sieciowych zostanie skonfigurowana w tej samej podsieci. Użyj [AZ Network sieciowej grupy zabezpieczeń Create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create) , aby utworzyć zasób sieciowej grupy zabezpieczeń o nazwie **myNSGsource** w **myResourceGroupNAT**.
+Ze względu na to, że standardowe publiczne adresy IP są "zabezpieczone domyślnie", musimy utworzyć sieciowej grupy zabezpieczeń, aby zezwolić na dostęp przychodzący do protokołu SSH.  Usługa translatora adresów sieciowych platformy Azure ma świadomość kierunku przepływu. Ten sieciowej grupy zabezpieczeń nie będzie używany do wychodzącego, gdy Brama translatora adresów sieciowych zostanie skonfigurowana w tej samej podsieci. Użyj [AZ Network sieciowej grupy zabezpieczeń Create](/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create) , aby utworzyć zasób sieciowej grupy zabezpieczeń o nazwie **myNSGsource** w **myResourceGroupNAT**.
 
 ```azurecli-interactive
   az network nsg create \
@@ -155,7 +155,7 @@ Ze względu na to, że standardowe publiczne adresy IP są "zabezpieczone domyś
 
 ### <a name="expose-ssh-endpoint-on-source-vm"></a>Uwidacznianie punktu końcowego SSH na źródłowej maszynie wirtualnej
 
-Utworzymy regułę w sieciowej grupy zabezpieczeń na potrzeby dostępu SSH do źródłowej maszyny wirtualnej. Użyj [AZ Network sieciowej grupy zabezpieczeń Rule Create](https://docs.microsoft.com/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) , aby utworzyć regułę sieciowej grupy zabezpieczeń o nazwie **SSH**. Ta reguła zostanie utworzona w sieciowej grupy zabezpieczeń o nazwie **myNSGsource** w grupie zasobów **myResourceGroupNAT**.
+Utworzymy regułę w sieciowej grupy zabezpieczeń na potrzeby dostępu SSH do źródłowej maszyny wirtualnej. Użyj [AZ Network sieciowej grupy zabezpieczeń Rule Create](/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) , aby utworzyć regułę sieciowej grupy zabezpieczeń o nazwie **SSH**. Ta reguła zostanie utworzona w sieciowej grupy zabezpieczeń o nazwie **myNSGsource** w grupie zasobów **myResourceGroupNAT**.
 
 ```azurecli-interactive
   az network nsg rule create \
@@ -211,7 +211,7 @@ Teraz utworzysz miejsce docelowe dla ruchu wychodzącego przetłumaczonego przez
 
  Musimy utworzyć sieć wirtualną, w której będzie docelowa maszyna wirtualna.  Te polecenia są takie same jak dla źródłowej maszyny wirtualnej z małymi zmianami w celu udostępnienia docelowego punktu końcowego.
 
-Utwórz sieć wirtualną o nazwie **myVnetdestination** z podsiecią o nazwie **mySubnetdestination** w **myResourceGroupNAT** za pomocą polecenia [AZ Network Microsoft Azure Virtual Network Create](https://docs.microsoft.com/cli/azure/network/vnet).  Przestrzeń adresów IP dla sieci wirtualnej to **192.168.0.0/16**. Podsieć w sieci wirtualnej to **192.168.0.0/24**.
+Utwórz sieć wirtualną o nazwie **myVnetdestination** z podsiecią o nazwie **mySubnetdestination** w **myResourceGroupNAT** za pomocą polecenia [AZ Network Microsoft Azure Virtual Network Create](/cli/azure/network/vnet).  Przestrzeń adresów IP dla sieci wirtualnej to **192.168.0.0/16**. Podsieć w sieci wirtualnej to **192.168.0.0/24**.
 
 ```azurecli-interactive
   az network vnet create \
@@ -225,7 +225,7 @@ Utwórz sieć wirtualną o nazwie **myVnetdestination** z podsiecią o nazwie **
 
 ### <a name="create-public-ip-for-destination-vm"></a>Utwórz publiczny adres IP dla docelowej maszyny wirtualnej
 
-Tworzymy publiczny adres IP, który będzie używany do uzyskiwania dostępu do źródłowej maszyny wirtualnej. Użyj [AZ Network Public-IP Create](https://docs.microsoft.com/cli/azure/network/public-ip) , aby utworzyć zasób publicznego adresu IP o nazwie **myPublicIPdestinationVM** w **myResourceGroupNAT**. 
+Tworzymy publiczny adres IP, który będzie używany do uzyskiwania dostępu do źródłowej maszyny wirtualnej. Użyj [AZ Network Public-IP Create](/cli/azure/network/public-ip) , aby utworzyć zasób publicznego adresu IP o nazwie **myPublicIPdestinationVM** w **myResourceGroupNAT**. 
 
 ```azurecli-interactive
   az network public-ip create \
@@ -237,7 +237,7 @@ Tworzymy publiczny adres IP, który będzie używany do uzyskiwania dostępu do 
 
 ### <a name="create-an-nsg-for-destination-vm"></a>Utwórz sieciowej grupy zabezpieczeń dla docelowej maszyny wirtualnej
 
-Standardowe publiczne adresy IP są "zabezpieczone domyślnie", musisz utworzyć sieciowej grupy zabezpieczeń, aby zezwolić na dostęp przychodzący do protokołu SSH. Usługa Azure NAT jest ukierunkowana na kierunek przepływu. Ten sieciowej grupy zabezpieczeń nie będzie używany do wychodzącego, gdy Brama translatora adresów sieciowych zostanie skonfigurowana w tej samej podsieci. Użyj [AZ Network sieciowej grupy zabezpieczeń Create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create) , aby utworzyć zasób sieciowej grupy zabezpieczeń o nazwie **myNSGdestination** w **myResourceGroupNAT**.
+Standardowe publiczne adresy IP są "zabezpieczone domyślnie", musisz utworzyć sieciowej grupy zabezpieczeń, aby zezwolić na dostęp przychodzący do protokołu SSH. Usługa Azure NAT jest ukierunkowana na kierunek przepływu. Ten sieciowej grupy zabezpieczeń nie będzie używany do wychodzącego, gdy Brama translatora adresów sieciowych zostanie skonfigurowana w tej samej podsieci. Użyj [AZ Network sieciowej grupy zabezpieczeń Create](/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create) , aby utworzyć zasób sieciowej grupy zabezpieczeń o nazwie **myNSGdestination** w **myResourceGroupNAT**.
 
 ```azurecli-interactive
     az network nsg create \
@@ -248,7 +248,7 @@ Standardowe publiczne adresy IP są "zabezpieczone domyślnie", musisz utworzyć
 
 ### <a name="expose-ssh-endpoint-on-destination-vm"></a>Uwidacznianie punktu końcowego SSH na docelowej maszynie wirtualnej
 
-Utworzymy regułę w sieciowej grupy zabezpieczeń na potrzeby dostępu SSH do docelowej maszyny wirtualnej. Użyj [AZ Network sieciowej grupy zabezpieczeń Rule Create](https://docs.microsoft.com/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) , aby utworzyć regułę sieciowej grupy zabezpieczeń o nazwie **SSH**. Ta reguła zostanie utworzona w sieciowej grupy zabezpieczeń o nazwie **myNSGdestination** w grupie zasobów **myResourceGroupNAT**.
+Utworzymy regułę w sieciowej grupy zabezpieczeń na potrzeby dostępu SSH do docelowej maszyny wirtualnej. Użyj [AZ Network sieciowej grupy zabezpieczeń Rule Create](/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) , aby utworzyć regułę sieciowej grupy zabezpieczeń o nazwie **SSH**. Ta reguła zostanie utworzona w sieciowej grupy zabezpieczeń o nazwie **myNSGdestination** w grupie zasobów **myResourceGroupNAT**.
 
 ```azurecli-interactive
     az network nsg rule create \
@@ -266,7 +266,7 @@ Utworzymy regułę w sieciowej grupy zabezpieczeń na potrzeby dostępu SSH do d
 
 ### <a name="expose-http-endpoint-on-destination-vm"></a>Uwidacznianie punktu końcowego HTTP na docelowej maszynie wirtualnej
 
-Utworzymy regułę w sieciowej grupy zabezpieczeń na potrzeby dostępu HTTP do docelowej maszyny wirtualnej. Użyj [AZ Network sieciowej grupy zabezpieczeń Rule Create](https://docs.microsoft.com/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) , aby utworzyć regułę sieciowej grupy zabezpieczeń o nazwie **http** w sieciowej grupy zabezpieczeń o nazwie **myNSGdestination** in **myResourceGroupNAT**.
+Utworzymy regułę w sieciowej grupy zabezpieczeń na potrzeby dostępu HTTP do docelowej maszyny wirtualnej. Użyj [AZ Network sieciowej grupy zabezpieczeń Rule Create](/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) , aby utworzyć regułę sieciowej grupy zabezpieczeń o nazwie **http** w sieciowej grupy zabezpieczeń o nazwie **myNSGdestination** in **myResourceGroupNAT**.
 
 ```azurecli-interactive
     az network nsg rule create \
@@ -434,4 +434,3 @@ Przejrzyj metryki w Azure Monitor, aby zobaczyć, jak działa usługa translator
 - Przewodnik Szybki Start dotyczący wdrażania [zasobu bramy NAT przy użyciu Azure Portal](./quickstart-create-nat-gateway-portal.md).
 
 > [!div class="nextstepaction"]
-

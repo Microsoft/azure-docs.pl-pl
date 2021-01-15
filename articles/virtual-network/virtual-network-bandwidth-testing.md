@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/06/2020
 ms.author: steveesp
-ms.openlocfilehash: 0b009b7c44084e76194c1447fefdb2ff59f8086a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a2f6750a4d0a48c6971f60241976fb55410b65c
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812288"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221446"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Testowanie przepustowości/przepływności (NTTTCP)
 
@@ -26,7 +26,7 @@ Podczas testowania wydajności przepływności sieci na platformie Azure najlepi
 Skopiuj narzędzie do dwóch maszyn wirtualnych platformy Azure o takim samym rozmiarze. Jedna maszyna wirtualna działa jako NADAWCa i inna jako odbiornik.
 
 #### <a name="deploying-vms-for-testing"></a>Wdrażanie maszyn wirtualnych do testowania
-Na potrzeby tego testu dwie maszyny wirtualne powinny znajdować się w tej samej [grupie położenia sąsiedztwa](../virtual-machines/windows/co-location.md) lub w tym samym zestawie dostępności, aby można było używać wewnętrznych adresów IP i wykluczać usługi równoważenia obciążenia z testu. Możliwe jest przetestowanie przy użyciu adresu VIP, ale tego rodzaju testowanie wykracza poza zakres tego dokumentu.
+Na potrzeby tego testu dwie maszyny wirtualne powinny znajdować się w tej samej [grupie położenia sąsiedztwa](../virtual-machines/co-location.md) lub w tym samym zestawie dostępności, aby można było używać wewnętrznych adresów IP i wykluczać usługi równoważenia obciążenia z testu. Możliwe jest przetestowanie przy użyciu adresu VIP, ale tego rodzaju testowanie wykracza poza zakres tego dokumentu.
 
 Zanotuj adres IP odbiorcy. Wywołajmy ten adres IP "a. b. c. r"
 
@@ -65,7 +65,7 @@ Zezwalaj na NTttcp za pomocą zapory systemu Windows w następujący sposób:
 
 netsh advfirewall firewall add Rule program = \<PATH\> \\ntttcp.exe Name = "NTttcp" Protocol = any dir = in Action = Allow Enable = Yes profil = any
 
-Na przykład, jeśli skopiowano ntttcp.exe do folderu "c: \\ Tools", będzie to polecenie: 
+Na przykład, jeśli skopiowano ntttcp.exe do folderu "c: \\ Tools", będzie to polecenie: 
 
 netsh advfirewall firewall add Rule program = c: \\ tools \\ntttcp.exe Name = "NTttcp" Protocol = any dir = in Action = Allow Enable = Yes profil = any
 
@@ -82,7 +82,7 @@ NTttcp-r – m 8, \* , 10.0.0.4-t 300
 
 Uruchom NTTTCP na NADAWCy (**Uruchom z polecenia cmd**, a nie z programu PowerShell):
 
-NTttcp-s – m 8, \* , 10.0.0.4-t 300 
+NTttcp-s – m 8, \* , 10.0.0.4-t 300 
 
 Poczekaj na wyniki.
 
@@ -95,19 +95,19 @@ Na maszynach wirtualnych z systemem Linux (NADAWCy i odbiornik) Uruchom następu
 
 CentOS — Zainstaluj usługę git:
 ``` bash
-  yum install gcc -y  
-  yum install git -y
+  yum install gcc -y  
+  yum install git -y
 ```
 Ubuntu — Zainstaluj usługę git:
 ``` bash
- apt-get -y install build-essential  
- apt-get -y install git
+ apt-get -y install build-essential  
+ apt-get -y install git
 ```
 Utwórz i zainstaluj na obu:
 ``` bash
- git clone https://github.com/Microsoft/ntttcp-for-linux
- cd ntttcp-for-linux/src
- make && make install
+ git clone https://github.com/Microsoft/ntttcp-for-linux
+ cd ntttcp-for-linux/src
+ make && make install
 ```
 
 Podobnie jak w przypadku systemu Windows Załóżmy, że adres IP odbiorcy Linux to 10.0.0.4
@@ -123,7 +123,7 @@ Na stronie NADAWCa Uruchom polecenie:
 ``` bash
 ntttcp -s10.0.0.4 -t 300
 ```
- 
+ 
 Długość testu jest równa 60 sekund, jeśli nie podano parametru czasu
 
 ## <a name="testing-between-vms-running-windows-and-linux"></a>Testowanie między maszynami wirtualnymi z systemem Windows i LINUX:

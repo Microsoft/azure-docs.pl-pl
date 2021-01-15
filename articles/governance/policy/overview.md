@@ -1,14 +1,14 @@
 ---
 title: Omówienie zasad platformy Azure
 description: Azure Policy to usługa platformy Azure, która umożliwia tworzenie i przypisywanie definicji zasad oraz zarządzanie nimi w środowisku platformy Azure.
-ms.date: 10/05/2020
+ms.date: 01/14/2021
 ms.topic: overview
-ms.openlocfilehash: 96fd29b5e3d24bc3e678461a95005e004a8a3a80
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: df430586af2e701ec2881f6ea760095fd2ca79d0
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803956"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220732"
 ---
 # <a name="what-is-azure-policy"></a>Co to jest usługa Azure Policy?
 
@@ -83,7 +83,7 @@ Jeśli żadna z wbudowanych ról nie ma wymaganych uprawnień, należy utworzyć
 
 ### <a name="resources-covered-by-azure-policy"></a>Zasoby objęte Azure Policy
 
-Azure Policy szacuje wszystkie zasoby na platformie Azure i w zasobach z włączonym łukiem. W przypadku niektórych dostawców zasobów, takich jak [Konfiguracja gościa](./concepts/guest-configuration.md), [usługa Azure Kubernetes](../../aks/intro-kubernetes.md)i [Azure Key Vault](../../key-vault/general/overview.md), istnieje dokładniejsza integracja z zarządzaniem ustawieniami i obiektami. Aby dowiedzieć się więcej, zobacz [tryby dostawcy zasobów](./concepts/definition-structure.md).
+Azure Policy szacuje wszystkie zasoby platformy Azure na poziomie subskrypcji lub niższym, w tym zasoby z obsługą Arc. W przypadku niektórych dostawców zasobów, takich jak [Konfiguracja gościa](./concepts/guest-configuration.md), [usługa Azure Kubernetes](../../aks/intro-kubernetes.md)i [Azure Key Vault](../../key-vault/general/overview.md), istnieje dokładniejsza integracja z zarządzaniem ustawieniami i obiektami. Aby dowiedzieć się więcej, zobacz [tryby dostawcy zasobów](./concepts/definition-structure.md).
 
 ### <a name="recommendations-for-managing-policies"></a>Zalecenia dotyczące zarządzania zasadami
 

@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 65985e05be1061bb69eb160cf5be559cb271d5cd
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 89a437504394797b8cbed5325210186248082c33
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202933"
+ms.locfileid: "98218234"
 ---
 # <a name="azure-security-baseline-for-azure-synapse-analytics"></a>Podstawowa baza zabezpieczeń Azure dla usługi Azure Synapse Analytics
 
 Podstawowa baza danych zabezpieczeń Azure dla usługi Azure Synapse Analytics zawiera zalecenia, które pomogą ulepszyć zabezpieczenia stan wdrożenia.
 
-Punkt odniesienia dla tej usługi jest rysowany w [wersji 1,0 usługi Azure Security test](https://docs.microsoft.com/azure/security/benchmarks/overview), która zawiera zalecenia dotyczące sposobu zabezpieczania rozwiązań w chmurze na platformie Azure z naszymi najlepszymi wskazówkami.
+Punkt odniesienia dla tej usługi jest rysowany w [wersji 1,0 usługi Azure Security test](../security/benchmarks/overview.md), która zawiera zalecenia dotyczące sposobu zabezpieczania rozwiązań w chmurze na platformie Azure z naszymi najlepszymi wskazówkami.
 
-Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure — omówienie](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure — omówienie](../security/benchmarks/security-baselines-overview.md).
 
 ## <a name="network-security"></a>Bezpieczeństwo sieci
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: zabezpieczenia sieci](/azure/security/benchmarks/security-control-network-security).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: zabezpieczenia sieci](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: Ochrona zasobów platformy Azure w ramach sieci wirtualnych
 
@@ -33,13 +33,13 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 Alternatywnie, w przypadku nawiązywania połączenia z pulą SQL Synapse, należy zawęzić zakres połączeń wychodzących do bazy danych SQL przy użyciu sieciowej grupy zabezpieczeń. Wyłącz cały ruch usługi platformy Azure do bazy danych SQL za pośrednictwem publicznego punktu końcowego przez ustawienie opcji Zezwalaj na wyłączanie usług platformy Azure. Upewnij się, że żadne publiczne adresy IP nie są dozwolone w regułach zapory.
 
-* [Opis linku prywatnego platformy Azure](https://docs.microsoft.com/azure/private-link/private-link-overview)
+* [Opis linku prywatnego platformy Azure](../private-link/private-link-overview.md)
 
-* [Opis prywatnego linku dla usługi Azure Synapse SQL](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)
+* [Opis prywatnego linku dla usługi Azure Synapse SQL](../azure-sql/database/private-endpoint-overview.md)
 
-* [Jak utworzyć Virtual Network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [Jak utworzyć Virtual Network](../virtual-network/quick-create-portal.md)
 
-* [Jak utworzyć sieciowej grupy zabezpieczeń z konfiguracją zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+* [Jak utworzyć sieciowej grupy zabezpieczeń z konfiguracją zabezpieczeń](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -51,13 +51,13 @@ Alternatywnie, w przypadku nawiązywania połączenia z pulą SQL Synapse, nale�
 
 Możesz również wysłać dzienniki przepływu sieciowej grupy zabezpieczeń do obszaru roboczego Log Analytics i użyć Analiza ruchu, aby uzyskać wgląd w przepływ ruchu w chmurze platformy Azure. Niektóre zalety Analiza ruchu to możliwość wizualizacji aktywności sieciowej i identyfikowania aktywnych punktów, identyfikowania zagrożeń bezpieczeństwa, zrozumienia wzorców przepływu ruchu i wyznaczania konfiguracji sieci.
 
-* [Jak włączyć dzienniki przepływu sieciowej grupy zabezpieczeń](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+* [Jak włączyć dzienniki przepływu sieciowej grupy zabezpieczeń](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-* [Informacje o zabezpieczeniach sieci zapewnianych przez Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+* [Informacje o zabezpieczeniach sieci zapewnianych przez Azure Security Center](../security-center/security-center-network-recommendations.md)
 
-* [Jak włączyć i używać Analiza ruchu](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+* [Jak włączyć i używać Analiza ruchu](../network-watcher/traffic-analytics.md)
 
-* [Informacje o zabezpieczeniach sieci zapewnianych przez Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+* [Informacje o zabezpieczeniach sieci zapewnianych przez Azure Security Center](../security-center/security-center-network-recommendations.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -77,15 +77,15 @@ Możesz również wysłać dzienniki przepływu sieciowej grupy zabezpieczeń do
 
 Włącz Standard DDoS Protection w sieciach wirtualnych skojarzonych z usługą Azure Synapse SQL w celu ochrony przed rozproszonymi atakami typu "odmowa usługi". Użyj Azure Security Center zintegrowanej analizy zagrożeń, aby odmówić komunikacji ze znanymi złośliwymi lub nieużywanymi adresami IP.
 
-* [Opis usługi Azure Synapse SQL w usłudze ATP](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview)
+* [Opis usługi Azure Synapse SQL w usłudze ATP](../azure-sql/database/threat-detection-overview.md)
 
-* [Jak włączyć zaawansowane zabezpieczenia danych dla Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
+* [Jak włączyć zaawansowane zabezpieczenia danych dla Azure SQL Database](../azure-sql/database/azure-defender-for-sql.md)
 
-* [Omówienie usługi AD](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
+* [Omówienie usługi AD](../azure-sql/database/azure-defender-for-sql.md)
 
-* [Jak skonfigurować ochronę DDoS](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
+* [Jak skonfigurować ochronę DDoS](../ddos-protection/manage-ddos-protection.md)
 
-* [Opis Azure Security Center zintegrowanej analizy zagrożeń](https://docs.microsoft.com/azure/security-center/security-center-alerts-data-services)
+* [Opis Azure Security Center zintegrowanej analizy zagrożeń](../security-center/azure-defender.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -95,9 +95,9 @@ Włącz Standard DDoS Protection w sieciach wirtualnych skojarzonych z usługą 
 
 **Wskazówki**: w przypadku nawiązywania połączenia z dedykowaną pulą SQL i włączeniu dzienników przepływu sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń) należy wysłać dzienniki do konta usługi Azure Storage na potrzeby inspekcji ruchu. Dzienniki przepływów można również wysłać do obszaru roboczego Log Analytics lub przesłać strumieniowo do Event Hubs. Jeśli jest to wymagane do badania nietypowego działania, Włącz funkcję przechwytywania pakietów Network Watcher.
 
-* [Jak włączyć dzienniki przepływu sieciowej grupy zabezpieczeń](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+* [Jak włączyć dzienniki przepływu sieciowej grupy zabezpieczeń](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-* [Jak włączyć Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)
+* [Jak włączyć Network Watcher](../network-watcher/network-watcher-create.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -107,7 +107,7 @@ Włącz Standard DDoS Protection w sieciach wirtualnych skojarzonych z usługą 
 
 **Wskazówki**: używanie zaawansowanej ochrony przed zagrożeniami (ATP) dla usługi Azure Synapse SQL. ATP wykrywa nietypowe działania wskazujące nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do baz danych lub ich wykorzystania i może wyzwolić różne alerty, takie jak "potencjalna iniekcja SQL" i "dostęp z nietypowej lokalizacji". ATP jest częścią oferty Advanced Data Security (ADS) i jest dostępna i zarządzana za pośrednictwem centralnego portalu SQL ADS. ATP integruje także alerty z Azure Security Center.
 
-* [Opis usługi Azure Synapse SQL w usłudze ATP](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview)
+* [Opis usługi Azure Synapse SQL w usłudze ATP](../azure-sql/database/threat-detection-overview.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -127,9 +127,9 @@ Włącz Standard DDoS Protection w sieciach wirtualnych skojarzonych z usługą 
 
 W przypadku korzystania z punktu końcowego usługi dla dedykowanej puli SQL wymagane są wychodzące do publicznych adresów IP w usłudze Azure SQL Database: należy otworzyć grupy zabezpieczeń sieci (sieciowych grup zabezpieczeń) w Azure SQL Database celu umożliwienia łączności z adresami IP. Można to zrobić za pomocą tagów usługi sieciowej grupy zabezpieczeń dla Azure SQL Database.
 
-* [Opis tagów usługi z punktami końcowymi usługi dla Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview#limitations)
+* [Opis tagów usługi z punktami końcowymi usługi dla Azure SQL Database](../azure-sql/database/vnet-service-endpoint-rule-overview.md#limitations)
 
-* [Zrozumienie i używanie tagów usługi](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+* [Zrozumienie i używanie tagów usługi](../virtual-network/service-tags-overview.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -141,9 +141,9 @@ W przypadku korzystania z punktu końcowego usługi dla dedykowanej puli SQL wym
 
 Korzystając z planów platformy Azure, można uprościć wdrożenia platformy Azure na dużą skalę przez pakowanie kluczowych artefaktów środowiska, takich jak szablony zarządzania zasobami platformy Azure, kontrola dostępu oparta na rolach (RBAC) i zasady, w ramach jednej definicji planu. Łatwo stosuj plan do nowych subskrypcji i środowisk, a następnie dostosuj kontrolę i zarządzanie przy użyciu wersji.
 
-* [Jak skonfigurować usługę Azure Policy i zarządzać nią](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
-* [Jak utworzyć Azure Blueprint](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+* [Jak utworzyć Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -157,7 +157,7 @@ Użyj dowolnych wbudowanych definicji Azure Policy związanych ze znakiem, takic
 
 Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure, aby wyszukiwać lub wykonywać akcje na zasobach na podstawie ich tagów.
 
-* [Tworzenie i używanie tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -167,9 +167,9 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 **Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji zasobów sieciowych i wykrywania zmian zasobów sieciowych związanych z dedykowaną pulą SQL. Tworzenie alertów w ramach Azure Monitor, które będą wyzwalane po wprowadzeniu zmian w krytycznych zasobach sieciowych.
 
-* [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+* [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-* [Jak utworzyć alerty w Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Jak utworzyć alerty w Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -177,13 +177,13 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 ## <a name="logging-and-monitoring"></a>Rejestrowanie i monitorowanie
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: rejestrowanie i monitorowanie](/azure/security/benchmarks/security-control-logging-monitoring).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: rejestrowanie i monitorowanie](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2,1: Użyj źródeł synchronizacji zatwierdzonego czasu
 
 **Wskazówki**: Firma Microsoft przechowuje źródła czasu dla zasobów platformy Azure. Możesz zaktualizować synchronizację czasu dla wdrożeń obliczeniowych.
 
-* [Jak skonfigurować synchronizację czasu dla zasobów obliczeniowych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/time-sync)
+* [Jak skonfigurować synchronizację czasu dla zasobów obliczeniowych platformy Azure](../virtual-machines/windows/time-sync.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -199,9 +199,9 @@ Po włączeniu inspekcji można zapisać je w dzienniku inspekcji na koncie usł
 
 Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej lub SIEM innych firm.
 
-* [Jak skonfigurować inspekcję zasobów usługi Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/auditing-overview#server-vs-database-level)
+* [Jak skonfigurować inspekcję zasobów usługi Azure SQL](../azure-sql/database/auditing-overview.md#server-vs-database-level)
 
-* [Jak dołączyć wskaźnik na platformie Azure](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -213,11 +213,11 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 Inspekcję można włączyć zarówno na poziomie bazy danych, jak i na serwerze, a następnie można ją włączyć tylko na poziomie serwera, chyba że wymagane jest skonfigurowanie osobnego ujścia danych lub przechowywanie dla określonej bazy danych.
 
-* [Jak włączyć inspekcję dla Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-auditing)
+* [Jak włączyć inspekcję dla Azure SQL Database](../azure-sql/database/auditing-overview.md)
 
-* [Jak włączyć inspekcję serwera](https://docs.microsoft.com/azure/azure-sql/database/auditing-overview#setup-auditing)
+* [Jak włączyć inspekcję serwera](../azure-sql/database/auditing-overview.md#setup-auditing)
 
-* [Różnice w zasadach inspekcji na poziomie serwera i na poziomie bazy danych](https://docs.microsoft.com/azure/sql-database/sql-database-auditing#server-vs-database-level)
+* [Różnice w zasadach inspekcji na poziomie serwera i na poziomie bazy danych](../azure-sql/database/auditing-overview.md#server-vs-database-level)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -235,11 +235,11 @@ Inspekcję można włączyć zarówno na poziomie bazy danych, jak i na serwerze
 
 **Wskazówki**: podczas przechowywania dzienników związanych z dedykowaną pulą SQL na koncie magazynu, w obszarze roboczym log Analytics lub w centrach zdarzeń Ustaw okres przechowywania dziennika zgodnie z regulacjami zgodności w organizacji.
 
-* [Zarządzanie cyklem życia magazynu usługi Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal)
+* [Zarządzanie cyklem życia magazynu usługi Azure Blob Storage](../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal)
 
-* [Jak ustawić parametry przechowywania dzienników w obszarze roboczym Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+* [Jak ustawić parametry przechowywania dzienników w obszarze roboczym Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-* [Przechwytywanie zdarzeń przesyłania strumieniowego w Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)
+* [Przechwytywanie zdarzeń przesyłania strumieniowego w Event Hubs](../event-hubs/event-hubs-capture-overview.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -251,13 +251,13 @@ Inspekcję można włączyć zarówno na poziomie bazy danych, jak i na serwerze
 
 Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej lub SIEM innych firm.
 
-* [Poznaj zaawansowaną ochronę przed zagrożeniami i alerty dla Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview)
+* [Poznaj zaawansowaną ochronę przed zagrożeniami i alerty dla Azure SQL Database](../azure-sql/database/threat-detection-overview.md)
 
-* [Jak włączyć zaawansowane zabezpieczenia danych dla Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
+* [Jak włączyć zaawansowane zabezpieczenia danych dla Azure SQL Database](../azure-sql/database/azure-defender-for-sql.md)
 
-* [Jak skonfigurować alerty niestandardowe dla Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-insights-alerts-portal?view=azps-1.4.0&preserve-view=true)
+* [Jak skonfigurować alerty niestandardowe dla Azure SQL Database](../azure-sql/database/alerts-insights-configure-portal.md?preserve-view=true&view=azps-1.4.0)
 
-* [Jak dołączyć wskaźnik na platformie Azure](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -269,13 +269,13 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej.
 
-* [Poznaj zaawansowaną ochronę przed zagrożeniami i alerty dla Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview)
+* [Poznaj zaawansowaną ochronę przed zagrożeniami i alerty dla Azure SQL Database](../azure-sql/database/threat-detection-overview.md)
 
-* [Jak włączyć zaawansowane zabezpieczenia danych dla Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
+* [Jak włączyć zaawansowane zabezpieczenia danych dla Azure SQL Database](../azure-sql/database/azure-defender-for-sql.md)
 
-* [Jak zarządzać alertami w Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
+* [Jak zarządzać alertami w Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-* [Jak dołączyć wskaźnik na platformie Azure](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -307,7 +307,7 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 ## <a name="identity-and-access-control"></a>Tożsamość i kontrola dostępu
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: tożsamość i kontrola dostępu](/azure/security/benchmarks/security-control-identity-access-control).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: tożsamość i kontrola dostępu](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: obsługa spisu kont administracyjnych
 
@@ -317,19 +317,19 @@ Podczas pierwszego wdrażania usługi Azure SQL należy określić nazwę logowa
 
 W przypadku operacji zarządzania Użyj wbudowanych ról platformy Azure, które muszą być jawnie przypisane. Za pomocą modułu Azure AD PowerShell można wykonywać zapytania ad hoc w celu odnajdywania kont należących do grup administracyjnych.
 
-* [Uwierzytelnianie dla SQL Database](https://docs.microsoft.com/azure/azure-sql/database/security-overview#authentication)
+* [Uwierzytelnianie dla SQL Database](../azure-sql/database/security-overview.md#authentication)
 
-* [Tworzenie kont dla użytkowników niebędących administratorami](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#create-accounts-for-non-administrator-users)
+* [Tworzenie kont dla użytkowników niebędących administratorami](../azure-sql/database/logins-create-manage.md#create-accounts-for-non-administrator-users)
 
-* [Użyj konta Azure Active Directory na potrzeby uwierzytelniania](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#create-additional-logins-and-users-having-administrative-permissions)
+* [Użyj konta Azure Active Directory na potrzeby uwierzytelniania](../azure-sql/database/logins-create-manage.md#create-additional-logins-and-users-having-administrative-permissions)
 
-* [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&preserve-view=true)
+* [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?preserve-view=true&view=azureadps-2.0)
 
-* [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&preserve-view=true)
+* [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
-* [Jak zarządzać istniejącymi nazwami logowania i kontami administratora w usłudze Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database)
+* [Jak zarządzać istniejącymi nazwami logowania i kontami administratora w usłudze Azure SQL](../azure-sql/database/logins-create-manage.md#existing-logins-and-user-accounts-after-creating-a-new-database)
 
-* [Role wbudowane platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
+* [Role wbudowane platformy Azure](../role-based-access-control/built-in-roles.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -339,9 +339,9 @@ W przypadku operacji zarządzania Użyj wbudowanych ról platformy Azure, które
 
 **Wskazówki**: Azure Active Directory nie ma koncepcji domyślnych haseł. W przypadku aprowizacji dedykowanej puli SQL zaleca się integrację uwierzytelniania z Azure Active Directory. Przy użyciu tej metody uwierzytelniania użytkownik przesyła nazwę konta użytkownika i żąda, aby usługa korzystała z informacji poświadczenie przechowywanych w Azure Active Directory (Azure AD).
 
-* [Jak skonfigurować uwierzytelnianie Azure Active Directory i zarządzać nim przy użyciu usługi Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#active-directory-password-authentication)
+* [Jak skonfigurować uwierzytelnianie Azure Active Directory i zarządzać nim przy użyciu usługi Azure SQL](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#active-directory-password-authentication)
 
-* [Informacje o uwierzytelnianiu w usłudze Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database)
+* [Informacje o uwierzytelnianiu w usłudze Azure SQL](../azure-sql/database/logins-create-manage.md#existing-logins-and-user-accounts-after-creating-a-new-database)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -353,9 +353,9 @@ W przypadku operacji zarządzania Użyj wbudowanych ról platformy Azure, które
 
 Aby zidentyfikować konta administratorów dla bazy danych, Otwórz Azure Portal i przejdź do karty właściwości serwera lub wystąpienia zarządzanego.
 
-* [Informacje o tożsamości i dostępie Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Informacje o tożsamości i dostępie Azure Security Center](../security-center/security-center-identity-access.md)
 
-* [Jak zarządzać istniejącymi nazwami logowania i kontami administratora w usłudze Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database)
+* [Jak zarządzać istniejącymi nazwami logowania i kontami administratora w usłudze Azure SQL](../azure-sql/database/logins-create-manage.md#existing-logins-and-user-accounts-after-creating-a-new-database)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -365,11 +365,11 @@ Aby zidentyfikować konta administratorów dla bazy danych, Otwórz Azure Portal
 
 **Wskazówki**: Użyj rejestracji aplikacji platformy Azure (nazwy głównej usługi), aby pobrać token, który może służyć do współpracy z magazynem danych na płaszczyźnie kontroli (Azure Portal) za pośrednictwem wywołań interfejsu API.
 
-* [Jak wywołać interfejsy API REST platformy Azure](https://docs.microsoft.com/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
+* [Jak wywołać interfejsy API REST platformy Azure](/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
 
-* [Jak zarejestrować aplikację kliencką (nazwę główną usługi) w usłudze Azure AD](https://docs.microsoft.com/rest/api/azure/#register-your-client-application-with-azure-ad)
+* [Jak zarejestrować aplikację kliencką (nazwę główną usługi) w usłudze Azure AD](/rest/api/azure/#register-your-client-application-with-azure-ad)
 
-* [Informacje o interfejsie API REST usługi Azure Synapse SQL](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api)
+* [Informacje o interfejsie API REST usługi Azure Synapse SQL](./sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -379,11 +379,11 @@ Aby zidentyfikować konta administratorów dla bazy danych, Otwórz Azure Portal
 
 **Wskazówki**: Włączanie Azure Active Directory (AD) Multi-Factor Authentication (MFA) i postępuj zgodnie z zaleceniami dotyczącymi zarządzania tożsamościami i dostępem Azure Security Center.
 
-* [Jak włączyć usługę MFA na platformie Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Jak włączyć usługę MFA na platformie Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-* [Jak monitorować tożsamość i dostęp w Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Jak monitorować tożsamość i dostęp w Azure Security Center](../security-center/security-center-identity-access.md)
 
-* [Opis uwierzytelniania MFA w usłudze Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/authentication-mfa-ssms-overview)
+* [Opis uwierzytelniania MFA w usłudze Azure SQL](../azure-sql/database/authentication-mfa-ssms-overview.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -395,7 +395,7 @@ Aby zidentyfikować konta administratorów dla bazy danych, Otwórz Azure Portal
 
 * [Dowiedz się więcej o stacjach roboczych uprzywilejowanego dostępu](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-* [Jak włączyć usługę MFA na platformie Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Jak włączyć usługę MFA na platformie Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -409,15 +409,15 @@ Użyj zaawansowanej ochrony przed zagrożeniami dla Azure SQL Database w połąc
 
 Inspekcja SQL Server umożliwia tworzenie inspekcji serwera, które mogą zawierać specyfikacje inspekcji serwera dla zdarzeń na poziomie serwera i specyfikacje inspekcji bazy danych dla zdarzeń na poziomie bazy danych. Zdarzenia inspekcji można zapisywać w dziennikach zdarzeń lub w celu inspekcji plików.
 
-* [Identyfikowanie użytkowników usługi Azure AD oflagowanych na skutek ryzykownego działania](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk)
+* [Identyfikowanie użytkowników usługi Azure AD oflagowanych na skutek ryzykownego działania](../active-directory/identity-protection/overview-identity-protection.md)
 
-* [Jak monitorować działania związane z tożsamościami i dostępem użytkowników w Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Jak monitorować działania związane z tożsamościami i dostępem użytkowników w Azure Security Center](../security-center/security-center-identity-access.md)
 
-* [Przejrzyj zaawansowaną ochronę przed zagrożeniami i potencjalne alerty](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview#advanced-threat-protection-alerts)
+* [Przejrzyj zaawansowaną ochronę przed zagrożeniami i potencjalne alerty](../azure-sql/database/threat-detection-overview.md#alerts)
 
-* [Informacje o identyfikatorach logowania i kontach użytkowników w usłudze Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage)
+* [Informacje o identyfikatorach logowania i kontach użytkowników w usłudze Azure SQL](../azure-sql/database/logins-create-manage.md)
 
-* [Omówienie inspekcji SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine?view=sql-server-ver15&preserve-view=true)
+* [Omówienie inspekcji SQL Server](/sql/relational-databases/security/auditing/sql-server-audit-database-engine?preserve-view=true&view=sql-server-ver15)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -427,7 +427,7 @@ Inspekcja SQL Server umożliwia tworzenie inspekcji serwera, które mogą zawier
 
 **Wskazówki**: Użyj dostępu warunkowego o nazwie Locations, aby zezwolić portalowi i dostępowi do usługi Azure Resource Management tylko z określonych logicznych grup zakresów adresów IP lub krajów/regionów.
 
-* [Jak skonfigurować nazwane lokalizacje na platformie Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+* [Jak skonfigurować nazwane lokalizacje na platformie Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -437,9 +437,9 @@ Inspekcja SQL Server umożliwia tworzenie inspekcji serwera, które mogą zawier
 
 **Wskazówki**: utwórz administratora Azure Active Directory (AD) dla serwera Azure SQL Database w dedykowanej puli SQL.
 
-* [Jak skonfigurować uwierzytelnianie usługi Azure AD i zarządzać nim przy użyciu usługi Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)
+* [Jak skonfigurować uwierzytelnianie usługi Azure AD i zarządzać nim przy użyciu usługi Azure SQL](../azure-sql/database/authentication-aad-configure.md)
 
-* [Jak utworzyć i skonfigurować wystąpienie usługi Azure AD](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance)
+* [Jak utworzyć i skonfigurować wystąpienie usługi Azure AD](../active-directory-domain-services/tutorial-create-instance.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -451,9 +451,9 @@ Inspekcja SQL Server umożliwia tworzenie inspekcji serwera, które mogą zawier
 
 W przypadku korzystania z uwierzytelniania SQL należy utworzyć użytkowników zawartej bazy danych w bazie danych programu. Upewnij się, że co najmniej jeden użytkownik bazy danych jest umieszczony w niestandardowej roli bazy danych z określonymi uprawnieniami, które są odpowiednie dla tej grupy użytkowników.
 
-* [Jak korzystać z przeglądów dostępu](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+* [Jak korzystać z przeglądów dostępu](../active-directory/governance/access-reviews-overview.md)
 
-* [Informacje o identyfikatorach logowania i kontach użytkowników w usłudze Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage)
+* [Informacje o identyfikatorach logowania i kontach użytkowników w usłudze Azure SQL](../azure-sql/database/logins-create-manage.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -465,13 +465,13 @@ W przypadku korzystania z uwierzytelniania SQL należy utworzyć użytkowników 
 
 W przypadku korzystania z uwierzytelniania SQL należy utworzyć użytkowników zawartej bazy danych w bazie danych programu. Upewnij się, że co najmniej jeden użytkownik bazy danych jest umieszczony w niestandardowej roli bazy danych z określonymi uprawnieniami, które są odpowiednie dla tej grupy użytkowników.
 
-* [Jak korzystać z przeglądów dostępu](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+* [Jak korzystać z przeglądów dostępu](../active-directory/governance/access-reviews-overview.md)
 
-* [Jak skonfigurować uwierzytelnianie usługi Azure AD i zarządzać nim za pomocą Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)
+* [Jak skonfigurować uwierzytelnianie usługi Azure AD i zarządzać nim za pomocą Azure SQL Database](../azure-sql/database/authentication-aad-configure.md)
 
-* [Jak zintegrować dzienniki aktywności platformy Azure z usługą Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+* [Jak zintegrować dzienniki aktywności platformy Azure z usługą Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [Informacje o identyfikatorach logowania i kontach użytkowników w usłudze Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage)
+* [Informacje o identyfikatorach logowania i kontach użytkowników w usłudze Azure SQL](../azure-sql/database/logins-create-manage.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -483,13 +483,13 @@ W przypadku korzystania z uwierzytelniania SQL należy utworzyć użytkowników 
 
 W przypadku korzystania z uwierzytelniania SQL należy utworzyć użytkowników zawartej bazy danych w bazie danych programu. Upewnij się, że co najmniej jeden użytkownik bazy danych jest umieszczony w niestandardowej roli bazy danych z określonymi uprawnieniami, które są odpowiednie dla tej grupy użytkowników.
 
-* [Jak wyświetlić informacje o ryzyku usługi Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+* [Jak wyświetlić informacje o ryzyku usługi Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
-* [Jak skonfigurować i włączyć zasady dotyczące ryzyka związanego z ochroną tożsamości](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+* [Jak skonfigurować i włączyć zasady dotyczące ryzyka związanego z ochroną tożsamości](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-* [Jak przejść do tablicy wskaźnikowej platformy Azure](https://docs.microsoft.com/azure/sentinel/connect-data-sources)
+* [Jak przejść do tablicy wskaźnikowej platformy Azure](../sentinel/connect-data-sources.md)
 
-* [Informacje o identyfikatorach logowania i kontach użytkowników w usłudze Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage)
+* [Informacje o identyfikatorach logowania i kontach użytkowników w usłudze Azure SQL](../azure-sql/database/logins-create-manage.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -499,7 +499,7 @@ W przypadku korzystania z uwierzytelniania SQL należy utworzyć użytkowników 
 
 **Wskazówki**: w scenariuszach pomocy technicznej, w których firma Microsoft musi uzyskać dostęp do danych związanych z Azure SQL Database w dedykowanej puli SQL, usługa Azure skrytka klienta udostępnia interfejs umożliwiający przeglądanie i zatwierdzanie lub odrzucanie żądań dostępu do danych.
 
-* [Opis Skrytka klienta](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
+* [Opis Skrytka klienta](../security/fundamentals/customer-lockbox-overview.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -507,7 +507,7 @@ W przypadku korzystania z uwierzytelniania SQL należy utworzyć użytkowników 
 
 ## <a name="data-protection"></a>Ochrona danych
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Ochrona danych](/azure/security/benchmarks/security-control-data-protection).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Ochrona danych](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4,1: przechowywanie spisu poufnych informacji
 
@@ -515,9 +515,9 @@ W przypadku korzystania z uwierzytelniania SQL należy utworzyć użytkowników 
 
 Klasyfikacja odnajdywania danych &amp; jest wbudowana w usługę Azure Synapse SQL. Zapewnia zaawansowane możliwości w zakresie odnajdywania, klasyfikowania, etykietowania i raportowania danych poufnych w bazach danych.
 
-* [Tworzenie i używanie tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
-* [Zrozumienie klasyfikacji odnajdywania danych &amp;](https://docs.microsoft.com/azure/azure-sql/database/data-discovery-and-classification-overview)
+* [Zrozumienie klasyfikacji odnajdywania danych &amp;](../azure-sql/database/data-discovery-and-classification-overview.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -527,13 +527,13 @@ Klasyfikacja odnajdywania danych &amp; jest wbudowana w usługę Azure Synapse S
 
 **Wskazówki**: implementowanie oddzielnych subskrypcji i/lub grup zarządzania na potrzeby tworzenia, testowania i produkcji. Zasoby powinny być oddzielone przez sieć wirtualną/podsieć, odpowiednio otagowane i zabezpieczone w ramach sieciowej grupy zabezpieczeń lub zapory platformy Azure. Zasoby przechowujące lub przetwarzające dane poufne powinny być izolowane. Użyj linku prywatnego; Wdróż SQL Server platformy Azure w sieci wirtualnej i łącz się bezpiecznie przy użyciu linku prywatnego.
 
-* [Jak utworzyć dodatkowe subskrypcje platformy Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [Jak utworzyć dodatkowe subskrypcje platformy Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Jak utworzyć Grupy zarządzania](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [Jak utworzyć Grupy zarządzania](../governance/management-groups/create-management-group-portal.md)
 
-* [Tworzenie i używanie tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
-* [Jak skonfigurować link prywatny dla Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview#how-to-set-up-private-link-for-azure-sql-database)
+* [Jak skonfigurować link prywatny dla Azure SQL Database](../azure-sql/database/private-endpoint-overview.md#how-to-set-up-private-link-for-azure-sql-database)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -547,11 +547,11 @@ Ponadto Zaawansowana ochrona przed zagrożeniami dla Azure SQL Database, wystąp
 
 W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Microsoft traktuje całą zawartość klienta jako poufną i nadaje im dużą długość, aby chronić przed utratą i narażeniem danych przez klienta. Aby zapewnić bezpieczeństwo danych klienta na platformie Azure, firma Microsoft wdrożyła i utrzymuje pakiet niezawodnych kontroli i możliwości ochrony danych.
 
-* [Jak skonfigurować link prywatny i sieciowych grup zabezpieczeń, aby zapobiec eksfiltracji danych w wystąpieniach Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)
+* [Jak skonfigurować link prywatny i sieciowych grup zabezpieczeń, aby zapobiec eksfiltracji danych w wystąpieniach Azure SQL Database](../azure-sql/database/private-endpoint-overview.md)
 
-* [Zapoznaj się z zaawansowaną ochroną przed zagrożeniami Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/database/threat-detection-overview)
+* [Zapoznaj się z zaawansowaną ochroną przed zagrożeniami Azure SQL Database](../azure-sql/database/threat-detection-overview.md)
 
-* [Informacje na temat ochrony danych klientów na platformie Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Informacje na temat ochrony danych klientów na platformie Azure](../security/fundamentals/protection-customer-data.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -561,7 +561,7 @@ W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Micr
 
 **Wskazówki**: Azure SQL Database zabezpiecza dane przez szyfrowanie danych w ruchu z Transport Layer Security. SQL Server wymusza szyfrowanie (SSL/TLS) przez cały czas dla wszystkich połączeń. Gwarantuje to, że wszystkie dane są szyfrowane "podczas przesyłania" między klientem i serwerem niezależnie od ustawienia szyfrowania lub TrustServerCertificate w parametrach połączenia.
 
-* [Informacje o szyfrowaniu usługi Azure SQL w tranzycie](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview#information-protection-and-encryption)
+* [Informacje o szyfrowaniu usługi Azure SQL w tranzycie](../azure-sql/database/security-overview.md#information-protection-and-encryption)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -575,9 +575,9 @@ Klasyfikacja odnajdywania danych &amp; jest częścią zaawansowanej oferty zabe
 
 Ponadto można skonfigurować zasady dynamicznego maskowania danych (DDM) w Azure Portal. Aparat zaleceń DDM oflagowuje niektóre pola z bazy danych jako potencjalnie poufne pola, które mogą być dobrymi kandydatami do maskowania.
 
-* [Jak używać funkcji odnajdywania i klasyfikowania danych dla platformy Azure SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-classification)
+* [Jak używać funkcji odnajdywania i klasyfikowania danych dla platformy Azure SQL Server](../azure-sql/database/data-discovery-and-classification-overview.md)
 
-* [Opis dynamicznego maskowania danych dla usługi Azure Synapse SQL](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started)
+* [Opis dynamicznego maskowania danych dla usługi Azure Synapse SQL](../azure-sql/database/dynamic-data-masking-overview.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -589,11 +589,11 @@ Ponadto można skonfigurować zasady dynamicznego maskowania danych (DDM) w Azur
 
 Autoryzacja jest kontrolowana za pomocą członkostw roli bazy danych konta użytkownika i uprawnień na poziomie obiektów. Zalecanym najlepszym rozwiązaniem jest przyznanie użytkownikom minimalnych niezbędnych uprawnień.
 
-* [Jak zintegrować usługę Azure SQL Server z usługą Azure Active Directory na potrzeby uwierzytelniania](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication)
+* [Jak zintegrować usługę Azure SQL Server z usługą Azure Active Directory na potrzeby uwierzytelniania](../azure-sql/database/authentication-aad-overview.md)
 
-* [Jak kontrolować dostęp w usłudze Azure SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-control-access)
+* [Jak kontrolować dostęp w usłudze Azure SQL Server](../azure-sql/database/logins-create-manage.md)
 
-* [Informacje o autoryzacji i uwierzytelnianiu w usłudze Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage)
+* [Informacje o autoryzacji i uwierzytelnianiu w usłudze Azure SQL](../azure-sql/database/logins-create-manage.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -603,7 +603,7 @@ Autoryzacja jest kontrolowana za pomocą członkostw roli bazy danych konta uży
 
 **Wskazówki**: nie dotyczy; Firma Microsoft zarządza podstawową infrastrukturą dla usługi Azure Synapse SQL i ma zaimplementowane ścisłe kontrole, aby zapobiec utracie lub narażeniu danych klientów.
 
-* [Informacje na temat ochrony danych klientów na platformie Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Informacje na temat ochrony danych klientów na platformie Azure](../security/fundamentals/protection-customer-data.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -613,11 +613,11 @@ Autoryzacja jest kontrolowana za pomocą członkostw roli bazy danych konta uży
 
 **Wskazówki**: przezroczyste szyfrowanie danych (TDE) pomaga chronić usługę Azure Synapse SQL przed zagrożeniem złośliwego działania w trybie offline przez szyfrowanie danych przechowywanych w spoczynku. Ta technologia w czasie rzeczywistym szyfruje i odszyfrowuje magazynowaną bazę danych, skojarzone kopie zapasowe i pliki dzienników transakcji bez konieczności dokonywania jakichkolwiek zmian w aplikacji. Na platformie Azure domyślne ustawienie dla TDE polega na tym, że klucz szyfrowania danych jest chroniony przez wbudowany certyfikat serwera. Alternatywnie można korzystać z TDE zarządzanych przez klienta, nazywanego również Bring Your Own Key (BYOK) dla TDE. W tym scenariuszu funkcja ochrony TDE, która szyfruje plik szyfrowania danych, jest kluczem asymetrycznym zarządzanym przez klienta, który jest przechowywany w Azure Key Vault należącym do klienta i zarządzanym (zewnętrznym systemie zarządzania kluczami opartymi na chmurze platformy Azure) i nigdy nie opuszcza magazynu kluczy.
 
-* [Informacje o przezroczystym szyfrowaniu danych zarządzanym przez usługę](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-tde-overview?tabs=azure-portal)
+* [Informacje o przezroczystym szyfrowaniu danych zarządzanym przez usługę](../azure-sql/database/transparent-data-encryption-tde-overview.md?tabs=azure-portal)
 
-* [Informacje o przezroczystym szyfrowaniu danych zarządzanych przez klienta](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-tde-overview?tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key)
+* [Informacje o przezroczystym szyfrowaniu danych zarządzanych przez klienta](../azure-sql/database/transparent-data-encryption-tde-overview.md?tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key)
 
-* [Jak włączyć TDE przy użyciu własnego klucza](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-configure)
+* [Jak włączyć TDE przy użyciu własnego klucza](../azure-sql/database/transparent-data-encryption-byok-configure.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -629,9 +629,9 @@ Autoryzacja jest kontrolowana za pomocą członkostw roli bazy danych konta uży
 
 Ponadto można skonfigurować alerty dla baz danych w puli usługi SQL Synapse przy użyciu Azure Portal. Alerty mogą wysyłać wiadomość e-mail lub wywoływać element webhook, gdy pewna Metryka (na przykład rozmiar bazy danych lub użycie procesora) osiągnie wartość progową.
 
-* [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/platform/alerts-activity-log.md)
 
-* [Tworzenie alertów dotyczących usługi Azure SQL Synapse](https://docs.microsoft.com/azure/azure-sql/database/alerts-insights-configure-portal)
+* [Tworzenie alertów dotyczących usługi Azure SQL Synapse](../azure-sql/database/alerts-insights-configure-portal.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -639,17 +639,17 @@ Ponadto można skonfigurować alerty dla baz danych w puli usługi SQL Synapse p
 
 ## <a name="vulnerability-management"></a>Zarządzanie lukami w zabezpieczeniach
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Zarządzanie lukami w zabezpieczeniach](/azure/security/benchmarks/security-control-vulnerability-management).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Zarządzanie lukami w zabezpieczeniach](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5,1: uruchamianie narzędzi do skanowania automatycznych luk w zabezpieczeniach
 
 **Wskazówki**: Włącz zaawansowane zabezpieczenia danych i postępuj zgodnie z zaleceniami Azure Security Center na temat przeprowadzania ocen luk w zabezpieczeniach w bazach danych Azure SQL Database.
 
-* [Jak uruchomić oceny luk w zabezpieczeniach w bazach danych Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
+* [Jak uruchomić oceny luk w zabezpieczeniach w bazach danych Azure SQL](../azure-sql/database/sql-vulnerability-assessment.md)
 
-* [Jak włączyć zaawansowane zabezpieczenia danych](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
+* [Jak włączyć zaawansowane zabezpieczenia danych](../azure-sql/database/azure-defender-for-sql.md)
 
-* [Jak zaimplementować zalecenia dotyczące oceny luk w zabezpieczeniach Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations)
+* [Jak zaimplementować zalecenia dotyczące oceny luk w zabezpieczeniach Azure Security Center](../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -675,7 +675,7 @@ Ponadto można skonfigurować alerty dla baz danych w puli usługi SQL Synapse p
 
 **Wskazówki**: Ocena luk w zabezpieczeniach to usługa skanowania wbudowana w usługę Azure Synapse SQL. Usługa korzysta z bazy wiedzy o regułach, które flagą luki w zabezpieczeniach. Wyróżniają one odchylenia od najlepszych rozwiązań, takich jak niezmienione konfiguracje, nadmierne uprawnienia i niechronione dane poufne. Dostęp do oceny luk w zabezpieczeniach można uzyskać i zarządzać nimi za pośrednictwem centralnego portalu SQL Advanced Data Security (AD).
 
-* [Zarządzanie i eksportowanie skanów oceny luk w zabezpieczeniach w portalu SQL ADS](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
+* [Zarządzanie i eksportowanie skanów oceny luk w zabezpieczeniach w portalu SQL ADS](../azure-sql/database/sql-vulnerability-assessment.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -687,9 +687,9 @@ Ponadto można skonfigurować alerty dla baz danych w puli usługi SQL Synapse p
 
 Klasyfikacja odnajdywania danych &amp; jest wbudowana w usługę Azure Synapse SQL. Zapewnia zaawansowane możliwości w zakresie odnajdywania, klasyfikowania, etykietowania i raportowania danych poufnych w bazach danych.
 
-* [Informacje na temat Azure Security Center zabezpieczeń](https://docs.microsoft.com/azure/security-center/security-center-secure-score)
+* [Informacje na temat Azure Security Center zabezpieczeń](../security-center/secure-score-security-controls.md)
 
-* [Zrozumienie klasyfikacji odnajdywania danych &amp;](https://docs.microsoft.com/azure/azure-sql/database/data-discovery-and-classification-overview)
+* [Zrozumienie klasyfikacji odnajdywania danych &amp;](../azure-sql/database/data-discovery-and-classification-overview.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -697,7 +697,7 @@ Klasyfikacja odnajdywania danych &amp; jest wbudowana w usługę Azure Synapse S
 
 ## <a name="inventory-and-asset-management"></a>Zarządzanie magazynem i zasobami
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Spis i zarządzanie zasobami](/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Spis i zarządzanie zasobami](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6,1: Użyj rozwiązania automatycznego odnajdywania zasobów
 
@@ -705,11 +705,11 @@ Klasyfikacja odnajdywania danych &amp; jest wbudowana w usługę Azure Synapse S
 
 Mimo że klasyczne zasoby platformy Azure mogą zostać odnalezione za pośrednictwem usługi Azure Resource Graph, zdecydowanie zaleca się tworzenie i używanie Azure Resource Manager zasobów do przodu.
 
-* [Jak tworzyć zapytania przy użyciu grafu zasobów platformy Azure](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Jak tworzyć zapytania przy użyciu grafu zasobów platformy Azure](../governance/resource-graph/first-query-portal.md)
 
-* [Jak wyświetlić subskrypcje platformy Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0&preserve-view=true)
+* [Jak wyświetlić subskrypcje platformy Azure](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-3.0.0)
 
-* [Opis kontroli RBAC platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Opis kontroli RBAC platformy Azure](../role-based-access-control/overview.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -719,7 +719,7 @@ Mimo że klasyczne zasoby platformy Azure mogą zostać odnalezione za pośredni
 
 **Wskazówki**: stosowanie tagów do zasobów platformy Azure, dzięki czemu metadane są logicznie zorganizowane w taksonomię.
 
-* [Tworzenie i używanie tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -729,11 +729,11 @@ Mimo że klasyczne zasoby platformy Azure mogą zostać odnalezione za pośredni
 
 **Wskazówki**: używanie tagowania, grup zarządzania i oddzielnych subskrypcji, gdzie to konieczne, do organizowania i śledzenia zasobów. Regularnie Uzgadniaj spis i zapewnij, że nieautoryzowane zasoby są usuwane z subskrypcji w odpowiednim czasie.
 
-* [Jak utworzyć dodatkowe subskrypcje platformy Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [Jak utworzyć dodatkowe subskrypcje platformy Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Jak utworzyć Grupy zarządzania](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [Jak utworzyć Grupy zarządzania](../governance/management-groups/create-management-group-portal.md)
 
-* [Tworzenie i używanie tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -755,9 +755,9 @@ Mimo że klasyczne zasoby platformy Azure mogą zostać odnalezione za pośredni
 
 Użyj grafu zasobów platformy Azure, aby wykonywać zapytania/odnajdywać zasoby w ramach subskrypcji. Upewnij się, że wszystkie zasoby platformy Azure obecne w środowisku są zatwierdzone.
 
-* [Jak skonfigurować usługę Azure Policy i zarządzać nią](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
-* [Jak tworzyć zapytania przy użyciu grafu zasobów platformy Azure](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Jak tworzyć zapytania przy użyciu grafu zasobów platformy Azure](../governance/resource-graph/first-query-portal.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -795,9 +795,9 @@ Użyj grafu zasobów platformy Azure, aby wykonywać zapytania/odnajdywać zasob
 
 Użyj grafu zasobów platformy Azure, aby wykonywać zapytania/odnajdywać zasoby w ramach subskrypcji. Upewnij się, że wszystkie zasoby platformy Azure obecne w środowisku są zatwierdzone.
 
-* [Jak skonfigurować usługę Azure Policy i zarządzać nią](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
-* [Jak odmówić określonego typu zasobu za pomocą Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+* [Jak odmówić określonego typu zasobu za pomocą Azure Policy](../governance/policy/samples/index.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -815,7 +815,7 @@ Użyj grafu zasobów platformy Azure, aby wykonywać zapytania/odnajdywać zasob
 
 **Wskazówki**: Użyj dostępu warunkowego platformy Azure, aby ograniczyć możliwość korzystania przez użytkowników z Azure Resource Manager przez skonfigurowanie "blokowania dostępu" dla aplikacji "Microsoft Azure Management".
 
-* [Jak skonfigurować dostęp warunkowy w celu blokowania dostępu do Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+* [Jak skonfigurować dostęp warunkowy w celu blokowania dostępu do Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -833,9 +833,9 @@ Użyj grafu zasobów platformy Azure, aby wykonywać zapytania/odnajdywać zasob
 
 **Wskazówki**: wszystkie zasoby związane z dedykowaną pulą SQL, które są wymagane dla operacji firmowych, ale mogą powodować większe ryzyko dla organizacji, powinny być izolowane w ramach własnej maszyny wirtualnej i/lub sieci wirtualnej i dostatecznie zabezpieczone za pomocą zapory platformy Azure lub sieciowej grupy zabezpieczeń.
 
-* [Jak utworzyć sieć wirtualną](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [Jak utworzyć sieć wirtualną](../virtual-network/quick-create-portal.md)
 
-* [Jak utworzyć sieciowej grupy zabezpieczeń z konfiguracją zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+* [Jak utworzyć sieciowej grupy zabezpieczeń z konfiguracją zabezpieczeń](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -843,7 +843,7 @@ Użyj grafu zasobów platformy Azure, aby wykonywać zapytania/odnajdywać zasob
 
 ## <a name="secure-configuration"></a>Bezpieczna konfiguracja
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: bezpieczna konfiguracja](/azure/security/benchmarks/security-control-secure-configuration).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: bezpieczna konfiguracja](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: Ustanów bezpieczne konfiguracje dla wszystkich zasobów platformy Azure
 
@@ -851,9 +851,9 @@ Użyj grafu zasobów platformy Azure, aby wykonywać zapytania/odnajdywać zasob
 - Wdrażanie wykrywania zagrożeń na serwerach SQL
 - SQL Server powinien używać punktu końcowego usługi sieci wirtualnej
 
-* [Jak wyświetlić dostępne aliasy Azure Policy](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0&preserve-view=true)
+* [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-3.3.0)
 
-* [Jak skonfigurować usługę Azure Policy i zarządzać nią](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -871,9 +871,9 @@ Użyj grafu zasobów platformy Azure, aby wykonywać zapytania/odnajdywać zasob
 
 **Wskazówki**: Użyj Azure Policy [Odmów] i [Wdróż, jeśli nie istnieje], aby wymusić bezpieczne ustawienia dla zasobów platformy Azure.
 
-* [Jak skonfigurować usługę Azure Policy i zarządzać nią](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
-* [Zrozumienie efektów Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+* [Zrozumienie efektów Azure Policy](../governance/policy/concepts/effects.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -891,9 +891,9 @@ Użyj grafu zasobów platformy Azure, aby wykonywać zapytania/odnajdywać zasob
 
 **Wskazówki**: Jeśli używasz niestandardowych definicji Azure Policy, Użyj usługi Azure DevOps lub Azure Repos, aby bezpiecznie przechowywać kod i zarządzać nim.
 
-* [Jak przechowywać kod w usłudze Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
+* [Jak przechowywać kod w usłudze Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-* [Dokumentacja Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops&preserve-view=true)
+* [Dokumentacja Azure Repos](/azure/devops/repos/index?preserve-view=true&view=azure-devops)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -927,7 +927,7 @@ Użyj grafu zasobów platformy Azure, aby wykonywać zapytania/odnajdywać zasob
 
 **Wskazówki**: wykorzystanie Azure Security Center do wykonywania skanowania bazowego dla wszystkich zasobów związanych z dedykowaną pulą SQL.
 
-* [Jak skorygować zalecenia w Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
+* [Jak skorygować zalecenia w Azure Security Center](../security-center/security-center-remediate-recommendations.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -945,9 +945,9 @@ Użyj grafu zasobów platformy Azure, aby wykonywać zapytania/odnajdywać zasob
 
 **Wskazówki**: transparent Data Encryption (TDE) z kluczami zarządzanymi przez klienta w programie Azure Key Vault umożliwiają szyfrowanie klucza szyfrowania bazy danych, który został wygenerowany automatycznie, przy użyciu klucza asymetrycznego zarządzanego przez klienta o nazwie funkcja ochrony TDE. Jest to również ogólnie określane jako Bring Your Own Key (BYOK) obsługa Transparent Data Encryption. W scenariuszu BYOK funkcja ochrony TDE jest przechowywana w Azure Key Vault należącym do klienta i zarządzana. Ponadto upewnij się, że w Azure Key Vault jest włączona funkcja usuwania nietrwałego.
 
-* [Jak włączyć TDE z kluczem zarządzanym przez klienta z Azure Key Vault](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-configure?tabs=azure-powershell)
+* [Jak włączyć TDE z kluczem zarządzanym przez klienta z Azure Key Vault](../azure-sql/database/transparent-data-encryption-byok-configure.md?tabs=azure-powershell)
 
-* [Jak włączyć usuwanie nietrwałe w Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell)
+* [Jak włączyć usuwanie nietrwałe w Azure Key Vault](../key-vault/general/key-vault-recovery.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -957,9 +957,9 @@ Użyj grafu zasobów platformy Azure, aby wykonywać zapytania/odnajdywać zasob
 
 **Wskazówki**: Użyj tożsamości zarządzanych, aby zapewnić usługom platformy Azure automatyczną tożsamość zarządzaną w usłudze Azure Active Directory (AD). Tożsamości zarządzane umożliwiają uwierzytelnianie w dowolnej usłudze, która obsługuje uwierzytelnianie usługi Azure AD, w tym Azure Key Vault, bez żadnych poświadczeń w kodzie.
 
-* [Samouczek: używanie przypisanej przez system tożsamości zarządzanej maszyny wirtualnej systemu Windows w celu uzyskania dostępu do usługi Azure SQL](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql)
+* [Samouczek: używanie przypisanej przez system tożsamości zarządzanej maszyny wirtualnej systemu Windows w celu uzyskania dostępu do usługi Azure SQL](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql.md)
 
-* [Jak skonfigurować tożsamości zarządzane](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+* [Jak skonfigurować tożsamości zarządzane](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -977,7 +977,7 @@ Użyj grafu zasobów platformy Azure, aby wykonywać zapytania/odnajdywać zasob
 
 ## <a name="malware-defense"></a>Ochrona przed złośliwym oprogramowaniem
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Obrona złośliwego oprogramowania](/azure/security/benchmarks/security-control-malware-defense).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Obrona złośliwego oprogramowania](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8,1: Użyj centralnie zarządzanego oprogramowania chroniącego przed złośliwym oprogramowaniem
 
@@ -993,7 +993,7 @@ Użyj grafu zasobów platformy Azure, aby wykonywać zapytania/odnajdywać zasob
 
 Wstępnie Skanuj zawartość przekazywaną do zasobów platformy Azure, które nie są obliczeniowe, takich jak App Service, Data Lake Storage, Blob Storage, SQL Server platformy Azure itd. Firma Microsoft nie może uzyskać dostępu do danych w tych wystąpieniach.
 
-* [Informacje na temat ochrony przed złośliwym oprogramowaniem firmy Microsoft Cloud Services i Virtual Machines](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+* [Informacje na temat ochrony przed złośliwym oprogramowaniem firmy Microsoft Cloud Services i Virtual Machines](../security/fundamentals/antimalware.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -1009,13 +1009,13 @@ Wstępnie Skanuj zawartość przekazywaną do zasobów platformy Azure, które n
 
 ## <a name="data-recovery"></a>Odzyskiwanie danych
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: odzyskiwanie danych](/azure/security/benchmarks/security-control-data-recovery).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: odzyskiwanie danych](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9,1: zapewnianie regularnych zautomatyzowanych kopii zapasowych
 
 **Wskazówki**: migawki dedykowanej puli SQL są automatycznie podejmowane przez cały dzień tworzenia punktów przywracania dostępnych przez siedem dni. Nie można zmienić tego okresu przechowywania. Dedykowana Pula SQL obsługuje osiem godzin cel punktu odzyskiwania (RPO). Magazyn danych można przywrócić w regionie podstawowym z jednej z migawek wykonanych w ciągu ostatnich siedmiu dni. Należy zauważyć, że w razie potrzeby można także ręcznie wyzwolić migawki.
 
-* [Tworzenie kopii zapasowych i przywracanie w dedykowanej puli SQL](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [Tworzenie kopii zapasowych i przywracanie w dedykowanej puli SQL](./sql-data-warehouse/backup-and-restore.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -1027,9 +1027,9 @@ Wstępnie Skanuj zawartość przekazywaną do zasobów platformy Azure, które n
 
 Jeśli używasz klucza zarządzanego przez klienta do szyfrowania klucza szyfrowania bazy danych, upewnij się, że utworzono kopię zapasową klucza.
 
-* [Tworzenie kopii zapasowych i przywracanie w dedykowanej puli SQL](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [Tworzenie kopii zapasowych i przywracanie w dedykowanej puli SQL](./sql-data-warehouse/backup-and-restore.md)
 
-* [Jak utworzyć kopię zapasową kluczy Azure Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0&preserve-view=true)
+* [Jak utworzyć kopię zapasową kluczy Azure Key Vault](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?preserve-view=true&view=azurermps-6.13.0)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -1039,11 +1039,11 @@ Jeśli używasz klucza zarządzanego przez klienta do szyfrowania klucza szyfrow
 
 **Wskazówki**: okresowo Przetestuj punkty przywracania, aby upewnić się, że migawki są prawidłowe. Aby przywrócić istniejącą dedykowaną pulę SQL z punktu przywracania, można użyć Azure Portal lub programu PowerShell. Testowanie przywracania kopii zapasowych kluczy zarządzanych przez klienta.
 
-* [Jak przywrócić klucze Azure Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0&preserve-view=true)
+* [Jak przywrócić klucze Azure Key Vault](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?preserve-view=true&view=azurermps-6.13.0)
 
-* [Tworzenie kopii zapasowych i przywracanie w dedykowanej puli SQL](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [Tworzenie kopii zapasowych i przywracanie w dedykowanej puli SQL](./sql-data-warehouse/backup-and-restore.md)
 
-* [Jak przywrócić istniejącą dedykowaną pulę SQL](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-restore-active-paused-dw)
+* [Jak przywrócić istniejącą dedykowaną pulę SQL](./sql-data-warehouse/sql-data-warehouse-restore-active-paused-dw.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -1055,11 +1055,11 @@ Jeśli używasz klucza zarządzanego przez klienta do szyfrowania klucza szyfrow
 
 Domyślnie dane na koncie magazynu są szyfrowane za pomocą kluczy zarządzanych przez firmę Microsoft. Możesz polegać na kluczach zarządzanych przez firmę Microsoft na potrzeby szyfrowania danych. Możesz też zarządzać szyfrowaniem przy użyciu własnych kluczy. Jeśli zarządzasz własnymi kluczami przy użyciu Key Vault, upewnij się, że jest włączona funkcja usuwania nietrwałego.
 
-* [Zarządzanie długoterminowym przechowywaniem kopii zapasowych Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-long-term-backup-retention-configure)
+* [Zarządzanie długoterminowym przechowywaniem kopii zapasowych Azure SQL Database](../azure-sql/database/long-term-backup-retention-configure.md)
 
-* [Szyfrowanie w usłudze Azure Storage dla danych magazynowanych](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
+* [Szyfrowanie w usłudze Azure Storage dla danych magazynowanych](../storage/common/storage-service-encryption.md)
 
-* [Jak włączyć usuwanie nietrwałe w Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+* [Jak włączyć usuwanie nietrwałe w Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Monitorowanie Azure Security Center**: brak
 
@@ -1067,13 +1067,13 @@ Domyślnie dane na koncie magazynu są szyfrowane za pomocą kluczy zarządzanyc
 
 ## <a name="incident-response"></a>Reagowanie na zdarzenia
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: odpowiedź na zdarzenia](/azure/security/benchmarks/security-control-incident-response).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: odpowiedź na zdarzenia](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10,1: Tworzenie przewodnika odpowiedzi na zdarzenia
 
 **Wskazówki**: Upewnij się, że istnieją plany odpowiedzi na zdarzenia, które definiują role pracowników, a także fazy obsługi zdarzeń/zarządzania.
 
-* [Jak skonfigurować automatyzację przepływu pracy w programie Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+* [Jak skonfigurować automatyzację przepływu pracy w programie Azure Security Center](../security-center/security-center-planning-and-operations-guide.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -1083,7 +1083,7 @@ Domyślnie dane na koncie magazynu są szyfrowane za pomocą kluczy zarządzanyc
 
 **Wskazówki**: Security Center przypisuje ważność do alertów, ułatwiając określanie priorytetów kolejności, w której uczestniczy każdy alert, dzięki czemu w przypadku naruszenia zabezpieczeń zasobów można od razu uzyskać dostęp. Ważność jest oparta na tym, jak dobrze Security Center znajduje się w wyszukiwaniu lub analitycznym używanym do wystawiania alertu, a także poziom pewności, że istniało złośliwy wpływ na działanie, które prowadziło do alertu.
 
-* [Alerty zabezpieczeń w Centrum zabezpieczeń Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
+* [Alerty zabezpieczeń w Centrum zabezpieczeń Azure](../security-center/security-center-alerts-overview.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -1103,7 +1103,7 @@ Domyślnie dane na koncie magazynu są szyfrowane za pomocą kluczy zarządzanyc
 
 **Wskazówki**: informacje kontaktowe dotyczące zdarzenia zabezpieczeń będą używane przez firmę Microsoft do skontaktowania się z Tobą, jeśli firma Microsoft Security Response Center (MSRC) wykryje, że dostęp do danych zostały nadane przez nielegalną lub nieautoryzowaną stronę.
 
-* [Jak ustawić kontakt z zabezpieczeniami Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+* [Jak ustawić kontakt z zabezpieczeniami Azure Security Center](../security-center/security-center-provide-security-contact-details.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -1113,9 +1113,9 @@ Domyślnie dane na koncie magazynu są szyfrowane za pomocą kluczy zarządzanyc
 
 **Wskazówki**: eksportowanie alertów i zaleceń dotyczących Azure Security Center przy użyciu funkcji eksportu ciągłego. Eksport ciągły umożliwia wyeksportowanie alertów i zaleceń ręcznie lub w stały sposób ciągły. Możesz użyć łącznika danych Azure Security Center do przesyłania strumieniowego alertów do kontrolki wskaźnikowej.
 
-* [Jak skonfigurować eksport ciągły](https://docs.microsoft.com/azure/security-center/continuous-export)
+* [Jak skonfigurować eksport ciągły](../security-center/continuous-export.md)
 
-* [Jak przesłać strumieniowo alerty do usługi Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+* [Jak przesłać strumieniowo alerty do usługi Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -1125,7 +1125,7 @@ Domyślnie dane na koncie magazynu są szyfrowane za pomocą kluczy zarządzanyc
 
 **Wskazówki**: Użyj funkcji automatyzacji przepływu pracy w programie Azure Security Center, aby automatycznie wyzwalać odpowiedzi za pośrednictwem "Logic Apps" na temat alertów zabezpieczeń i zaleceń.
 
-* [Jak skonfigurować automatyzację przepływu pracy i Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
+* [Jak skonfigurować automatyzację przepływu pracy i Logic Apps](../security-center/workflow-automation.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -1133,7 +1133,7 @@ Domyślnie dane na koncie magazynu są szyfrowane za pomocą kluczy zarządzanyc
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Testy penetracyjne i ćwiczenia typu „red team”
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: testy penetracji i czerwone ćwiczenia zespołu](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: testy penetracji i czerwone ćwiczenia zespołu](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: Przeprowadź regularne testowanie penetracji zasobów platformy Azure i zadbaj o skorygowanie wszystkich krytycznych ustaleń dotyczących zabezpieczeń
 
@@ -1147,5 +1147,5 @@ Domyślnie dane na koncie magazynu są szyfrowane za pomocą kluczy zarządzanyc
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz [test porównawczy zabezpieczeń platformy Azure](/azure/security/benchmarks/overview)
-- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](/azure/security/benchmarks/security-baselines-overview)
+- Zobacz [test porównawczy zabezpieczeń platformy Azure](../security/benchmarks/overview.md)
+- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](../security/benchmarks/security-baselines-overview.md)
