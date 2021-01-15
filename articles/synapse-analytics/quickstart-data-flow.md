@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/03/2020
-ms.openlocfilehash: 207679ad5b508b687c9cad372d144839fcaa501d
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: cb0fd5464f7025d71dd384c56233aefa6a6cd364
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94743851"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218726"
 ---
 # <a name="quickstart-transform-data-using-mapping-data-flows"></a>Szybki Start: Przekształcanie danych przy użyciu mapowania przepływów danych
 
@@ -68,7 +68,7 @@ Potok zawiera przepływ logiczny dla wykonywania zestawu działań. W tej sekcji
 
 Po utworzeniu przepływu danych zostanie on automatycznie wysłany do kanwy przepływu danych. W tym kroku utworzysz przepływ danych, który przyjmuje MoviesDB.csv w magazynie ADLS i agreguje średnią ocenę Comedies od 1910 do 2000. Następnie zapiszesz ten plik z powrotem do magazynu ADLS.
 
-1. Przesuń suwak **debugowania przepływu danych** powyżej kanwy przepływu danych. Tryb debugowania umożliwia interaktywne Testowanie logiki transformacji na aktywnym klastrze Spark. Klastry przepływu danych zajmują 5-7 minut na rozgrzanie i zaleca się włączenie najpierw debugowania, jeśli planują one opracowywanie przepływu danych. Aby uzyskać więcej informacji, zobacz [tryb debugowania](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-debug-mode?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+1. Przesuń suwak **debugowania przepływu danych** powyżej kanwy przepływu danych. Tryb debugowania umożliwia interaktywne Testowanie logiki transformacji na aktywnym klastrze Spark. Klastry przepływu danych zajmują 5-7 minut na rozgrzanie i zaleca się włączenie najpierw debugowania, jeśli planują one opracowywanie przepływu danych. Aby uzyskać więcej informacji, zobacz [tryb debugowania](../data-factory/concepts-data-flow-debug-mode.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
 
     ![Przesuń na slajdy debugowanie](media/quickstart-data-flow/debug-on.png)
 
@@ -104,7 +104,7 @@ Po utworzeniu przepływu danych zostanie on automatycznie wysłany do kanwy prze
 
 1. Nazwij transformację filtru **FilterYears**. Kliknij pole wyrażenia obok pola **Filtr** , aby otworzyć Konstruktora wyrażeń. W tym miejscu określisz warunek filtrowania.
 
-1. Konstruktor wyrażeń przepływu danych umożliwia interaktywną kompilację wyrażeń do użycia w różnych przekształceniach. Wyrażenia mogą zawierać wbudowane funkcje, kolumny ze schematu wejściowego i parametry zdefiniowane przez użytkownika. Aby uzyskać więcej informacji na temat sposobu kompilowania wyrażeń, zobacz [Data Flow Expression Builder](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+1. Konstruktor wyrażeń przepływu danych umożliwia interaktywną kompilację wyrażeń do użycia w różnych przekształceniach. Wyrażenia mogą zawierać wbudowane funkcje, kolumny ze schematu wejściowego i parametry zdefiniowane przez użytkownika. Aby uzyskać więcej informacji na temat sposobu kompilowania wyrażeń, zobacz [Data Flow Expression Builder](../data-factory/concepts-data-flow-expression-builder.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
 
     W tym przewodniku szybki start chcesz odfiltrować filmy z gatunku komedia, które zostały dostarczone między latami 1910 i 2000. Jako rok jest obecnie ciągiem, należy przekonwertować go na liczbę całkowitą przy użyciu ```toInteger()``` funkcji. Użyj opcji "większe niż lub równe" (>=) i mniejszej niż lub równej operatorowi (<=) do porównania z wartościami w postaci literału Year 1910 i 200-. Sumuj te wyrażenia razem z operatorem i (&&). Wyrażenie jest dostępne jako:
 
@@ -190,6 +190,6 @@ Jeśli wykonano ten przewodnik Szybki Start, należy napisać 83 wierszy i 2 kol
 Przejdź do następujących artykułów, aby dowiedzieć się więcej o obsłudze usługi Azure Synapse Analytics:
 
 > [!div class="nextstepaction"]
-> [Potok i działania](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 
->  [Mapowanie przepływu danych — omówienie](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 
->  [Język wyrażeń przepływu danych](https://docs.microsoft.com/azure/data-factory/data-flow-expression-functions?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+> [Potok i działania](../data-factory/concepts-pipelines-activities.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) 
+>  [Mapowanie przepływu danych — omówienie](../data-factory/concepts-data-flow-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) 
+>  [Język wyrażeń przepływu danych](../data-factory/data-flow-expression-functions.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)

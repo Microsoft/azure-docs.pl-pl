@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: allensu
-ms.openlocfilehash: 265ed0f4cb58a321bde78714f36123bf197d42f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fd0cfe644ad78059e25d5386cd1a01f56ad9fba
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84711004"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216992"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Dodawanie, zmienianie i usuwanie adresów IP dla interfejsów sieciowych platformy Azure
 
@@ -48,14 +48,14 @@ Możesz dodać dowolną liczbę [prywatnych](#private) i [publicznych](#public) 
 
 1. W polu zawierającym *zasoby wyszukiwania* tekstu w górnej części Azure Portal wpisz *interfejsy sieciowe*. Gdy **interfejsy sieciowe** pojawiają się w wynikach wyszukiwania, wybierz je.
 2. Wybierz interfejs sieciowy, dla którego chcesz dodać adres IPv4 z listy.
-3. W obszarze **Ustawienia**wybierz pozycję **konfiguracje adresów IP**.
-4. W obszarze **konfiguracje adresów IP**wybierz pozycję **+ Dodaj**.
+3. W obszarze **Ustawienia** wybierz pozycję **konfiguracje adresów IP**.
+4. W obszarze **konfiguracje adresów IP** wybierz pozycję **+ Dodaj**.
 5. Określ następujące opcje, a następnie wybierz przycisk **OK**:
 
    |Ustawienie|Wymagane?|Szczegóły|
    |---|---|---|
    |Nazwa|Tak|Musi być unikatowa dla interfejsu sieciowego|
-   |Type|Tak|Ponieważ dodawana jest konfiguracja protokołu IP do istniejącego interfejsu sieciowego, a każdy interfejs sieciowy musi mieć [podstawową](#primary) konfigurację adresu IP, jedyną opcją jest **pomocnicza**.|
+   |Typ|Tak|Ponieważ dodawana jest konfiguracja protokołu IP do istniejącego interfejsu sieciowego, a każdy interfejs sieciowy musi mieć [podstawową](#primary) konfigurację adresu IP, jedyną opcją jest **pomocnicza**.|
    |Metoda przypisania prywatnego adresu IP|Tak|[**Dynamiczny**](#dynamic): platforma Azure przypisuje następny dostępny adres dla zakresu adresów podsieci, w którym jest wdrożony interfejs sieciowy. [**Statyczny**](#static): przypiszesz nieużywany adres dla zakresu adresów podsieci, w którym jest wdrożony interfejs sieciowy.|
    |Publiczny adres IP|Nie|**Wyłączone:** Z konfiguracją IP nie jest obecnie skojarzony żaden zasób publicznego adresu IP. **Włączone:** Wybierz istniejący publiczny adres IP IPv4 lub Utwórz nowy. Aby dowiedzieć się, jak utworzyć publiczny adres IP, zapoznaj się z artykułem [publiczne adresy IP](virtual-network-public-ip-address.md#create-a-public-ip-address) .|
 6. Ręcznie Dodaj pomocnicze prywatne adresy IP do systemu operacyjnego maszyny wirtualnej, wykonując instrukcje podane w artykule [przypisywanie wielu adresów IP do systemów operacyjnych maszyn wirtualnych](virtual-network-multiple-ip-addresses-portal.md#os-config) . Zapoznaj się z [prywatnymi](#private) adresami IP, aby uzyskać specjalne uwagi przed ręcznym dodaniem adresów IP do systemu operacyjnego maszyny wirtualnej. Nie należy dodawać żadnych publicznych adresów IP do systemu operacyjnego maszyny wirtualnej.
@@ -73,7 +73,7 @@ Może być konieczna zmiana metody przypisania adresu IPv4, zmiana statycznego a
 
 1. W polu zawierającym *zasoby wyszukiwania* tekstu w górnej części Azure Portal wpisz *interfejsy sieciowe*. Gdy **interfejsy sieciowe** pojawiają się w wynikach wyszukiwania, wybierz je.
 2. Wybierz z listy interfejs sieciowy, dla którego chcesz wyświetlić lub zmienić ustawienia adresu IP.
-3. W obszarze **Ustawienia**wybierz pozycję **konfiguracje adresów IP**.
+3. W obszarze **Ustawienia** wybierz pozycję **konfiguracje adresów IP**.
 4. Wybierz konfigurację adresu IP, którą chcesz zmodyfikować z listy.
 5. Zmień ustawienia zgodnie z potrzebami, korzystając z informacji o ustawieniach w kroku 5 w temacie [Dodawanie konfiguracji protokołu IP](#add-ip-addresses).
 6. Wybierz pozycję **Zapisz**.
@@ -94,7 +94,7 @@ Można usunąć [prywatne](#private) i [publiczne](#public) adresy IP z interfej
 
 1. W polu zawierającym *zasoby wyszukiwania* tekstu w górnej części Azure Portal wpisz *interfejsy sieciowe*. Gdy **interfejsy sieciowe** pojawiają się w wynikach wyszukiwania, wybierz je.
 2. Wybierz interfejs sieciowy, dla którego chcesz usunąć adresy IP z listy.
-3. W obszarze **Ustawienia**wybierz pozycję **konfiguracje adresów IP**.
+3. W obszarze **Ustawienia** wybierz pozycję **konfiguracje adresów IP**.
 4. Wybierz prawym przyciskiem myszy konfigurację [pomocniczego](#secondary) adresu IP (nie można usunąć konfiguracji [podstawowej](#primary) ), którą chcesz usunąć, wybierz pozycję **Usuń**, a następnie wybierz pozycję **tak**, aby potwierdzić usunięcie. Jeśli z konfiguracją skojarzono zasób publicznego adresu IP, zasób jest usuwany z konfiguracji adresu IP, ale zasób nie zostanie usunięty.
 
 **Polecenia**
@@ -130,7 +130,7 @@ Oprócz podstawowej konfiguracji adresu IP, interfejs sieciowy może mieć przyp
 
 Do [konfiguracji protokołu IP](#ip-configurations)można przypisać następujące typy adresów IP:
 
-### <a name="private"></a>Private
+### <a name="private"></a>Prywatny
 
 Prywatne adresy [IPv4](#ipv4) lub IPv6 umożliwiają maszynie wirtualnej komunikowanie się z innymi zasobami w sieci wirtualnej lub innych połączonych sieciach. 
 
@@ -151,7 +151,7 @@ Zgodnie z powyższymi krokami prywatny adres IP przypisany do interfejsu sieciow
 
 Poza umożliwieniem, aby maszyna wirtualna mogła komunikować się z innymi zasobami w ramach tych samych lub połączonych sieci wirtualnych, prywatny adres IP również umożliwia maszynie wirtualnej komunikację wychodzącą z Internetem. Połączenia wychodzące to adresy sieci źródłowej tłumaczone przez platformę Azure na nieprzewidywalny publiczny adres IP. Aby dowiedzieć się więcej na temat wychodzącej łączności z Internetem na platformie Azure, przeczytaj artykuł dotyczący [wychodzącego połączenia z Internetem](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Nie można przekazać komunikacji przychodzącej do prywatnego adresu IP maszyny wirtualnej z Internetu. Jeśli połączenia wychodzące wymagają przewidywalnego publicznego adresu IP, skojarz zasób publicznego adresu IP z interfejsem sieciowym.
 
-### <a name="public"></a>Public
+### <a name="public"></a>Publiczne
 
 Publiczne adresy IP przypisane za pośrednictwem zasobu publicznego adresu IP umożliwiają komunikację przychodzącą z maszyną wirtualną z Internetu. Połączenia wychodzące z Internetem używają przewidywalnego adresu IP. Aby uzyskać szczegółowe informacje, zobacz [Opis połączeń wychodzących na platformie Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) . Do konfiguracji adresu IP można przypisać publiczny adres IP, ale nie jest to wymagane. Jeśli publiczny adres IP nie zostanie przypisany do maszyny wirtualnej przez skojarzenie zasobu publicznego adresu IP, maszyna wirtualna może nadal komunikować się z Internetem. W tym przypadku prywatny adres IP jest adresem sieci źródłowej przetłumaczonym przez platformę Azure do nieprzewidywalnego publicznego adresu IP. Aby dowiedzieć się więcej na temat zasobów publicznego adresu IP, zobacz [zasób publicznego adresu IP](virtual-network-public-ip-address.md).
 
@@ -200,7 +200,7 @@ Nie można przypisać publicznego adresu IPv6 do konfiguracji podstawowej lub po
 Publiczny adres IP jest tworzony przy użyciu podstawowej lub standardowej jednostki SKU. Aby uzyskać więcej informacji na temat różnic między jednostkami SKU, zobacz [Zarządzanie publicznymi adresami IP](virtual-network-public-ip-address.md).
 
 > [!NOTE]
-> Po przypisaniu standardowego publicznego adresu IP jednostki SKU do interfejsu sieciowego maszyny wirtualnej musisz jawnie zezwolić na ruch do miejsca przeznaczenia przy użyciu [sieciowej grupy zabezpieczeń](security-overview.md#network-security-groups). Próba komunikacji z zasobem będzie kończyć się niepowodzeniem do momentu utworzenia i skojarzenia sieciowej grupy zabezpieczeń, a następnie jawnego zezwolenia na żądany ruch.
+> Po przypisaniu standardowego publicznego adresu IP jednostki SKU do interfejsu sieciowego maszyny wirtualnej musisz jawnie zezwolić na ruch do miejsca przeznaczenia przy użyciu [sieciowej grupy zabezpieczeń](./network-security-groups-overview.md#network-security-groups). Próba komunikacji z zasobem będzie kończyć się niepowodzeniem do momentu utworzenia i skojarzenia sieciowej grupy zabezpieczeń, a następnie jawnego zezwolenia na żądany ruch.
 
 ## <a name="next-steps"></a>Następne kroki
 Aby utworzyć maszynę wirtualną z różnymi konfiguracjami protokołu IP, zapoznaj się z następującymi artykułami:

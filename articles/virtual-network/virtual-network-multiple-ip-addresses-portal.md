@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: allensu
-ms.openlocfilehash: 135504ad4956836614bfc0f2cb107e610de17c0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0dab64aac8bc5fa68a53fad6cd8e6f6bb4bac03
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87543490"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217145"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Przypisywanie wielu adresów IP do maszyn wirtualnych przy użyciu Azure Portal
 
 > [!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 > 
-> W tym artykule wyjaśniono, jak utworzyć maszynę wirtualną za pomocą modelu wdrażania Azure Resource Manager przy użyciu Azure Portal. Nie można przypisać wielu adresów IP do zasobów utworzonych za pomocą klasycznego modelu wdrażania. Aby dowiedzieć się więcej na temat modeli wdrażania platformy Azure, zapoznaj się z artykułem [Omówienie modeli wdrażania](../resource-manager-deployment-model.md) .
+> W tym artykule wyjaśniono, jak utworzyć maszynę wirtualną za pomocą modelu wdrażania Azure Resource Manager przy użyciu Azure Portal. Nie można przypisać wielu adresów IP do zasobów utworzonych za pomocą klasycznego modelu wdrażania. Aby dowiedzieć się więcej na temat modeli wdrażania platformy Azure, zapoznaj się z artykułem [Omówienie modeli wdrażania](../azure-resource-manager/management/deployment-models.md) .
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
@@ -76,7 +76,7 @@ Publiczny adres IP jest jednym ustawieniem dla zasobu publicznego adresu IP. Je�
 
 1. W razie potrzeby przejdź do Azure Portal https://portal.azure.com i zaloguj się w nim.
 3. W portalu kliknij pozycję **Utwórz zasób**  >  **Sieć**  >  **publiczny adres IP**.
-4. W wyświetlonym okienku **Utwórz publiczny adres IP** wprowadź **nazwę**, wybierz typ **przypisania adresu IP** , **subskrypcję**, **grupę zasobów**i **lokalizację**, a następnie kliknij przycisk **Utwórz**, jak pokazano na poniższej ilustracji:
+4. W wyświetlonym okienku **Utwórz publiczny adres IP** wprowadź **nazwę**, wybierz typ **przypisania adresu IP** , **subskrypcję**, **grupę zasobów** i **lokalizację**, a następnie kliknij przycisk **Utwórz**, jak pokazano na poniższej ilustracji:
 
     ![Utwórz zasób publicznego adresu IP](./media/virtual-network-multiple-ip-addresses-portal/figure5.png)
 

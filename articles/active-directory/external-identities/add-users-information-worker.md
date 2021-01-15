@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 352d5218f91fa55134a7515b6aeee49857847468
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 345cbe2efb644fe2b84d4a6021ff962337e29285
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173213"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219916"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Jak użytkownicy w organizacji mogą zapraszać użytkowników-Gości do aplikacji
 
@@ -28,8 +28,8 @@ Po dodaniu użytkownika-gościa do katalogu w usłudze Azure AD właściciel apl
  - Skonfiguruj aplikację do samoobsługi i Przypisz grupę do aplikacji
 
 > [!NOTE]
-> W tym artykule opisano sposób konfigurowania samoobsługowego zarządzania dla galerii i aplikacji opartych na protokole SAML, które zostały dodane do dzierżawy usługi Azure AD. Możesz również skonfigurować samoobsługowe [grupy Microsoft 365](../enterprise-users/groups-self-service-management.md) , aby użytkownicy mogli zarządzać dostępem do własnych Microsoft 365 grup. Aby uzyskać więcej możliwości udostępniania plików pakietu Office i aplikacji użytkownikom-Gościom, zobacz [dostęp gościa w grupach Microsoft 365](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) i [udostępnianie plików lub folderów programu SharePoint](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c).
-
+> * W tym artykule opisano sposób konfigurowania samoobsługowego zarządzania dla galerii i aplikacji opartych na protokole SAML, które zostały dodane do dzierżawy usługi Azure AD. Możesz również skonfigurować samoobsługowe [grupy Microsoft 365](../enterprise-users/groups-self-service-management.md) , aby użytkownicy mogli zarządzać dostępem do własnych Microsoft 365 grup. Aby uzyskać więcej możliwości udostępniania plików pakietu Office i aplikacji użytkownikom-Gościom, zobacz [dostęp gościa w grupach Microsoft 365](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) i [udostępnianie plików lub folderów programu SharePoint](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c).
+> * Użytkownicy mogą zapraszać Gości tylko wtedy, gdy mają rolę **zapraszania gościa** .
 ## <a name="invite-a-guest-user-to-an-app-from-the-access-panel"></a>Zapraszanie użytkownika-gościa do aplikacji z poziomu panelu dostępu
 
 Po skonfigurowaniu aplikacji do samoobsługi właściciele aplikacji mogą korzystać z własnego panelu dostępu, aby zapraszać użytkownika-gościa do aplikacji, którą chcą udostępnić. Użytkownik-Gość nie musi być koniecznie dodawany do usługi Azure AD z wyprzedzeniem. 

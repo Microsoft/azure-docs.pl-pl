@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 8dd49125dc54403328fe53ae1aa0112ab2005501
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: d625cb8e0d0fa0f2fff55fbd41818057b7e9cb89
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201131"
+ms.locfileid: "98217655"
 ---
 # <a name="azure-security-baseline-for-azure-public-ip"></a>Podstawa zabezpieczeń Azure dla publicznego adresu IP platformy Azure
 
@@ -30,7 +30,7 @@ Aby dowiedzieć się, jak publiczny adres IP platformy Azure całkowicie jest ma
 
 Azure PowerShell lub interfejs wiersza polecenia platformy Azure może służyć do wyszukiwania lub wykonywania akcji dotyczących zasobów na podstawie ich tagów. 
 
-- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags) 
+- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md) 
 
 - [Jak utworzyć Virtual Network platformy Azure](quick-create-portal.md) 
 
@@ -64,7 +64,7 @@ Zamiast tego można włączać i dołączać dane do produktów wskaźnikowych p
 
 **Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji i wykrywania zmian dla wystąpień publicznych adresów IP. Poza płaszczyzną kontroli (na przykład Azure Portal), publiczny adres IP nie generuje dzienników inspekcji. Publiczny adres IP zawiera narzędzia do monitorowania, diagnozowania, wyświetlania metryk i włączania lub wyłączania dzienników dla zasobów w sieci wirtualnej platformy Azure.
 
-- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -88,7 +88,7 @@ Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji i wykr
 
 Publiczny adres IP nie generuje dzienników związanych z ruchem sieciowym innym niż na płaszczyźnie kontroli (na przykład Azure Portal).
 
-- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -114,9 +114,9 @@ Publiczny adres IP nie generuje dzienników związanych z ruchem sieciowym innym
 
 W spisie lub zapytania wstępnie zdefiniowane role wbudowane platformy Azure istnieją dla określonych zasobów za pomocą narzędzi, takich jak interfejs wiersza polecenia platformy Azure, Azure PowerShell lub Azure Portal.
 
-- [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -128,7 +128,7 @@ W spisie lub zapytania wstępnie zdefiniowane role wbudowane platformy Azure ist
 
 Włączono dostęp just in Time przy użyciu Azure Active Directory (Azure AD) Privileged Identity Management (PIM) i Azure Resource Manager. 
 
-- [Dowiedz się więcej o Privileged Identity Management](/azure/active-directory/privileged-identity-management)
+- [Dowiedz się więcej o Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -164,9 +164,9 @@ Włączono dostęp just in Time przy użyciu Azure Active Directory (Azure AD) P
 
 Zapoznaj się z wykrywaniem ryzyka usługi Azure AD i akcjami dotyczącymi alertów i raportów na temat ryzykownego zachowania użytkowników.
 
-- [Jak wdrożyć Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [Jak wdrożyć Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Omówienie wykrywania ryzyka usługi Azure AD](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Omówienie wykrywania ryzyka usługi Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -198,7 +198,7 @@ Zapoznaj się z wykrywaniem ryzyka usługi Azure AD i akcjami dotyczącymi alert
 
 Za pomocą przeglądów dostępu do tożsamości platformy Azure można efektywnie zarządzać członkostwem w grupach, dostępem do aplikacji dla przedsiębiorstw i przypisaniami ról. Dostęp użytkowników może być regularnie przeglądany, aby upewnić się, że użytkownicy mają zatwierdzony i ciągły dostęp.
 
-- [Informacje o raportowaniu usługi Azure AD](/azure/active-directory/reports-monitoring/)
+- [Informacje o raportowaniu usługi Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Jak korzystać z przeglądów dostępu do tożsamości platformy Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -211,7 +211,7 @@ Za pomocą przeglądów dostępu do tożsamości platformy Azure można efektywn
 **Wskazówki**: Zaimplementuj integrację z dowolnym narzędziem Siem/monitoring w oparciu o dostęp do źródeł danych logowania, inspekcji i zdarzeń związanych z logowaniem w usłudze Azure Active Directory (Azure AD).
 Usprawnij ten proces, tworząc ustawienia diagnostyczne dla kont użytkowników usługi Azure AD i wysyłając dzienniki inspekcji i dzienniki logowania do obszaru roboczego Log Analytics. Skonfiguruj żądane alerty w obszarze roboczym Log Analytics. 
 
-- [Jak zintegrować dzienniki aktywności platformy Azure z Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Jak zintegrować dzienniki aktywności platformy Azure z Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -220,7 +220,7 @@ Usprawnij ten proces, tworząc ustawienia diagnostyczne dla kont użytkowników 
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3,12: odchylenia zachowania podczas logowania do konta
 
 **Wskazówki**: Użyj funkcji ochrony tożsamości Azure Active Directory (Azure AD), aby skonfigurować automatyczne odpowiedzi na wykryte podejrzane działania związane z tożsamościami użytkowników. Pozyskiwanie danych na platformie Azure wskaźnikowej w celu dalszej analizy zgodnie z wymaganiami biznesowymi.
-- [Jak wyświetlić ryzykowne logowania w usłudze Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins) 
+- [Jak wyświetlić ryzykowne logowania w usłudze Azure AD](../active-directory/identity-protection/overview-identity-protection.md) 
 
 - [Jak skonfigurować i włączyć zasady dotyczące ryzyka związanego z ochroną tożsamości](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md) 
 
@@ -242,7 +242,7 @@ Mimo że klasyczne zasoby platformy Azure mogą zostać odnalezione za pośredni
 
 - [Jak tworzyć zapytania przy użyciu grafu zasobów platformy Azure](../governance/resource-graph/first-query-portal.md)
 
-- [Jak wyświetlić subskrypcje platformy Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Jak wyświetlić subskrypcje platformy Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [Opis kontroli RBAC platformy Azure](../role-based-access-control/overview.md)
 
@@ -254,7 +254,7 @@ Mimo że klasyczne zasoby platformy Azure mogą zostać odnalezione za pośredni
 
 **Wskazówki**: stosowanie tagów do zasobów platformy Azure, dzięki czemu metadane są logicznie zorganizowane w taksonomię.
 
-- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -269,11 +269,11 @@ Ponadto należy używać Azure Policy do umieszczania ograniczeń dotyczących t
 - Niedozwolone typy zasobów
 - Dozwolone typy zasobów
 
-- [Jak utworzyć dodatkowe subskrypcje platformy Azure](/azure/billing/billing-create-subscription)
+- [Jak utworzyć dodatkowe subskrypcje platformy Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Tworzenie grup zarządzania](/azure/governance/management-groups/create)
+- [Tworzenie grup zarządzania](../governance/management-groups/create-management-group-portal.md)
 
-- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -302,7 +302,7 @@ Usługa Azure Resource Graph umożliwia wykonywanie zapytań dotyczących zasob�
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
-- [Jak odmówić określonego typu zasobu za pomocą Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Jak odmówić określonego typu zasobu za pomocą Azure Policy](../governance/policy/samples/index.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -350,9 +350,9 @@ Usługa Azure Resource Graph umożliwia wykonywanie zapytań dotyczących zasob�
 
 **Wskazówki**: Jeśli używasz niestandardowych definicji Azure Policy, Użyj usługi Azure DevOps lub Azure Repos, aby bezpiecznie przechowywać kod i zarządzać nim.
 
-- [Jak przechowywać kod w usłudze Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Jak przechowywać kod w usłudze Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Dokumentacja Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Dokumentacja Azure Repos](/azure/devops/repos/index?view=azure-devops)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -408,7 +408,7 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład produkcyjny, nieprodukcyjny) i 
 
 - [Alerty zabezpieczeń w Centrum zabezpieczeń Azure](../security-center/security-center-alerts-overview.md) 
 
-- [Organizowanie zasobów platformy Azure przy użyciu tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [Organizowanie zasobów platformy Azure przy użyciu tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -474,5 +474,5 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład produkcyjny, nieprodukcyjny) i 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz [test porównawczy zabezpieczeń platformy Azure](/azure/security/benchmarks/overview)
-- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](/azure/security/benchmarks/security-baselines-overview)
+- Zobacz [test porównawczy zabezpieczeń platformy Azure](../security/benchmarks/overview.md)
+- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](../security/benchmarks/security-baselines-overview.md)

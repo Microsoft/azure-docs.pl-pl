@@ -8,21 +8,21 @@ ms.subservice: core
 ms.author: minxia
 author: mx-iao
 ms.reviewer: peterlu
-ms.date: 12/10/2020
+ms.date: 01/14/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: e3bf77406df302c4ba83cb7a8f1a30fba9f6339e
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 962054943a68aa61ac681de97eeebc10fe3f2b0a
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97795941"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216635"
 ---
 # <a name="train-pytorch-models-at-scale-with-azure-machine-learning"></a>Uczenie modeli PyTorch na dużą skalę za pomocą Azure Machine Learning
 
 W tym artykule dowiesz się, jak uruchamiać skrypty szkoleniowe [PyTorch](https://pytorch.org/) na skalę przedsiębiorstwa przy użyciu Azure Machine Learning.
 
-Przykładowe skrypty w tym artykule służą do klasyfikowania obrazów kurczaka i Turcja w celu utworzenia sieci DNN (głębokie uczenie neuronowych Network) na podstawie [samouczka](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html)dotyczącego uczenia przenoszonego przez PyTorch. Nauka transferu to technika, która stosuje wiedzę uzyskaną w wyniku rozwiązywania jednego problemu do innego, ale związanego z nim problemu. Powoduje to skróty procesu szkolenia przez wymaganie mniejszej ilości danych, czasu i zasobów obliczeniowych niż w przypadku szkolenia od zera.
+Przykładowe skrypty w tym artykule służą do klasyfikowania obrazów kurczaka i Turcja w celu utworzenia sieci DNN (głębokie uczenie neuronowych Network) na podstawie [samouczka](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html)dotyczącego uczenia przenoszonego przez PyTorch. Nauka transferu to technika, która stosuje wiedzę uzyskaną w wyniku rozwiązywania jednego problemu do innego, ale związanego z nim problemu. Powoduje to skróty procesu szkolenia przez wymaganie mniejszej ilości danych, czasu i zasobów obliczeniowych niż w przypadku szkolenia od zera. Zobacz artykuł [głębokie uczenie i uczenie maszynowe](./concept-deep-learning-vs-machine-learning.md#what-is-transfer-learning) , aby dowiedzieć się więcej o uczeniu przenoszenia.
 
 Bez względu na to, czy szkolenia mają być szkoleniowe ze względu na uczenie głębokie, czy do chmury, możesz użyć Azure Machine Learning, aby skalować zadania szkoleniowe typu "open source" przy użyciu elastycznych zasobów obliczeniowych w chmurze. Możesz tworzyć, wdrażać, instalować i monitorować modele klasy produkcyjnej za pomocą Azure Machine Learning. 
 

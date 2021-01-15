@@ -6,17 +6,17 @@ ms.topic: how-to
 ms.date: 11/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 101b3a05591a7815ba28756bb5b07e855b64e769
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 85026092e513ecc9ec3c23e292a416297774a2e4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505550"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217842"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Korzystanie z programu Microsoft Teams na pulpicie wirtualnym systemu Windows
 
 >[!IMPORTANT]
->Optymalizacja multimediów dla zespołów jest obsługiwana w środowiskach Microsoft 365 administracji publicznej. Optymalizacja multimediów dla zespołów nie jest obsługiwana w przypadku GCC-High i DoD.
+>Optymalizacja multimediów dla zespołów jest obsługiwana w środowiskach Microsoft 365 administracji publicznej i GCC-High. Optymalizacja multimediów dla zespołów nie jest obsługiwana w przypadku GCC-High i DoD.
 
 >[!NOTE]
 >Optymalizacja multimediów dla programu Microsoft Teams jest dostępna tylko dla klienta klasycznego systemu Windows na komputerach z systemem Windows 10. Optymalizacje multimediów wymagają klienta klasycznego systemu Windows w wersji 1.2.1026.0 lub nowszej.
@@ -120,11 +120,11 @@ Po zainstalowaniu usługi WebSocket i aplikacji Team Desktop wykonaj następują
 
 3. Wybierz **wersję**.
 
-      W przypadku załadowania optymalizacji multimediów transparent będzie przedstawiał **WVD nośnik zoptymalizowany**. Jeśli transparent pokazuje, że **multimedia WVD nie są połączone** , zamknij aplikację Teams i spróbuj ponownie.
+      W przypadku załadowania optymalizacji multimediów transparent będzie przedstawiał **WVD nośnik zoptymalizowany**. Jeśli transparent pokazuje, że **multimedia WVD nie są połączone**, zamknij aplikację Teams i spróbuj ponownie.
 
 4. Wybierz obraz profilu użytkownika, a następnie wybierz pozycję **Ustawienia**.
 
-      W przypadku załadowania optymalizacji multimediów urządzenia audio i aparaty dostępne lokalnie zostaną wyliczone w menu urządzenie. Jeśli menu pokazuje **zdalny dźwięk** , zamknij aplikację Teams i spróbuj ponownie. Jeśli urządzenia nadal nie są wyświetlane w menu, sprawdź ustawienia prywatności na komputerze lokalnym. Upewnij się, że w obszarze **Ustawienia**  >  uprawnienia do aplikacji **ochrony prywatności**  >  **App permissions** ustawienie **Zezwalaj aplikacjom na dostęp do mikrofonu** jest **włączone**. Rozłącz się z sesją zdalną, a następnie ponownie połącz i sprawdź urządzenia audio i wideo. Aby dołączyć wywołania i spotkania z wideo, należy również udzielić aplikacji dostępu do aparatu.
+      W przypadku załadowania optymalizacji multimediów urządzenia audio i aparaty dostępne lokalnie zostaną wyliczone w menu urządzenie. Jeśli menu pokazuje **zdalny dźwięk**, zamknij aplikację Teams i spróbuj ponownie. Jeśli urządzenia nadal nie są wyświetlane w menu, sprawdź ustawienia prywatności na komputerze lokalnym. Upewnij się, że w obszarze **Ustawienia**  >  uprawnienia do aplikacji **ochrony prywatności**  >   ustawienie **Zezwalaj aplikacjom na dostęp do mikrofonu** jest **włączone**. Rozłącz się z sesją zdalną, a następnie ponownie połącz i sprawdź urządzenia audio i wideo. Aby dołączyć wywołania i spotkania z wideo, należy również udzielić aplikacji dostępu do aparatu.
 
       Jeśli Optymalizacja nie zostanie załadowana, Odinstaluj, a następnie ponownie zainstaluj zespoły i sprawdź ponownie.
 
@@ -140,7 +140,7 @@ Korzystanie z zespołów w środowisku zwirtualizowanym różni się od używani
 
 ### <a name="calls-and-meetings"></a>Wywołania i spotkania
 
-- Klient Team Desktop w środowiskach klasycznych systemu Windows nie obsługuje zdarzeń na żywo. Na razie zalecamy dołączenie wydarzeń na żywo z [klienta sieci Web zespołów](https://teams.microsoft.com) w sesji zdalnej.
+- Program Teams Client Desktop w środowiskach klasycznych systemu Windows nie obsługuje tworzenia zdarzeń na żywo, ale możesz dołączyć do wydarzeń na żywo. Na razie zalecamy utworzenie zdarzeń na żywo z poziomu [klienta sieci Web zespołów](https://teams.microsoft.com) w sesji zdalnej.
 - Wywołania lub spotkania nie obsługują obecnie udostępniania aplikacji. Sesje pulpitu obsługują udostępnianie pulpitu.
 - Nadaj formantowi kontrolę i Przejmij kontrolę nie są obecnie obsługiwane.
 - Zespoły w systemie Windows Virtual Desktop obsługują tylko jedno przychodzące dane wejściowe wideo w danym momencie. Oznacza to, że za każdym razem, gdy ktoś podejmie próbę udostępnienia ekranu, pojawi się jego ekran zamiast ekranu lidera spotkania.

@@ -11,12 +11,12 @@ ms.author: lle
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 12/25/2020
-ms.openlocfilehash: 76d53458154a7e66589c16f955373975bb04b25b
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: fd56ef74a7641a01eae2354f149f45e84ff56833
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121638"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217451"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Tworzenie i konfigurowanie własnego środowiska Integration Runtime
 
@@ -157,21 +157,21 @@ Poniżej znajdują się szczegółowe informacje o akcjach i argumentach aplikac
 
 |TRANSAKCJI|args|Opis|
 |------|----|-----------|
-|-rn,<br/>-RegisterNewNode|"`<AuthenticationKey>`" ["`<NodeName>`"]|Zarejestruj własny węzeł Integration Runtime z określonym kluczem uwierzytelniania i nazwą węzła.|
-|ocen<br/>-EnableRemoteAccess|"`<port>`" ["`<thumbprint>`"]|Włącz dostęp zdalny w bieżącym węźle, aby skonfigurować klaster o wysokiej dostępności. Lub Włącz ustawienia poświadczeń bezpośrednio dla samoobsługowego środowiska IR bez przechodzenia przez Azure Data Factory. Można to zrobić za pomocą polecenia cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** z komputera zdalnego w tej samej sieci.|
-|-erac,<br/>-EnableRemoteAccessInContainer|"`<port>`" ["`<thumbprint>`"]|Włącz dostęp zdalny do bieżącego węzła, gdy węzeł jest uruchomiony w kontenerze.|
-|agenta DRA<br/>-DisableRemoteAccess||Wyłącz dostęp zdalny do bieżącego węzła. Dostęp zdalny jest wymagany w przypadku konfiguracji wielowęzłowej. Polecenie cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** programu PowerShell nadal działa nawet wtedy, gdy dostęp zdalny jest wyłączony. To zachowanie jest prawdziwe, o ile polecenie cmdlet jest wykonywane na tym samym komputerze co węzeł samodzielnego środowiska IR.|
-|k<br/>-Klucz|"`<AuthenticationKey>`"|Zastąp lub zaktualizuj poprzedni klucz uwierzytelniania. Należy zachować ostrożność w przypadku tej akcji. Poprzedni udostępniony przez siebie węzeł IR może przejść do trybu offline, jeśli klucz jest nowym środowiskiem Integration Runtime.|
-|-gbf,<br/>-GenerateBackupFile|"`<filePath>`" "`<password>`"|Generuj plik kopii zapasowej dla bieżącego węzła. Plik kopii zapasowej zawiera klucze węzła i poświadczenia magazynu danych.|
-|IBF<br/>-ImportBackupFile|"`<filePath>`" "`<password>`"|Przywróć węzeł z pliku kopii zapasowej.|
-|®<br/>-Restart||Uruchom ponownie funkcję samodzielnego hosta Integration Runtime.|
-|wolumin<br/>-Uruchom||Uruchom samohostowaną usługę hosta Integration Runtime.|
-|&<br/>-Stop||Zatrzymaj samohostowaną usługę hosta Integration Runtime.|
-|usług<br/>-StartUpgradeService||Uruchom samohostowaną usługę uaktualniania środowiska Integration Runtime.|
-|-tus,<br/>-StopUpgradeService||Zatrzymaj usługę uaktualniania środowiska Integration Runtime (Auto-Hosted).|
-|-tonau,<br/>-TurnOnAutoUpdate||Włącz samoobsługową automatyczną aktualizację środowiska Integration Runtime.|
-|-toffau,<br/>-TurnOffAutoUpdate||Wyłącz samoobsługową automatyczną aktualizację środowiska Integration Runtime.|
-|SSA<br/>-SwitchServiceAccount|"`<domain\user>`" ["`<password>`"]|Ustaw DIAHostService do uruchamiania jako nowe konto. Użyj pustego hasła "" dla kont systemowych i kont wirtualnych.|
+|`-rn`,<br/>`-RegisterNewNode`|"`<AuthenticationKey>`" ["`<NodeName>`"]|Zarejestruj własny węzeł Integration Runtime z określonym kluczem uwierzytelniania i nazwą węzła.|
+|`-era`,<br/>`-EnableRemoteAccess`|"`<port>`" ["`<thumbprint>`"]|Włącz dostęp zdalny w bieżącym węźle, aby skonfigurować klaster o wysokiej dostępności. Lub Włącz ustawienia poświadczeń bezpośrednio dla samoobsługowego środowiska IR bez przechodzenia przez Azure Data Factory. Można to zrobić za pomocą polecenia cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** z komputera zdalnego w tej samej sieci.|
+|`-erac`,<br/>`-EnableRemoteAccessInContainer`|"`<port>`" ["`<thumbprint>`"]|Włącz dostęp zdalny do bieżącego węzła, gdy węzeł jest uruchomiony w kontenerze.|
+|`-dra`,<br/>`-DisableRemoteAccess`||Wyłącz dostęp zdalny do bieżącego węzła. Dostęp zdalny jest wymagany w przypadku konfiguracji wielowęzłowej. Polecenie cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** programu PowerShell nadal działa nawet wtedy, gdy dostęp zdalny jest wyłączony. To zachowanie jest prawdziwe, o ile polecenie cmdlet jest wykonywane na tym samym komputerze co węzeł samodzielnego środowiska IR.|
+|`-k`,<br/>`-Key`|"`<AuthenticationKey>`"|Zastąp lub zaktualizuj poprzedni klucz uwierzytelniania. Należy zachować ostrożność w przypadku tej akcji. Poprzedni udostępniony przez siebie węzeł IR może przejść do trybu offline, jeśli klucz jest nowym środowiskiem Integration Runtime.|
+|`-gbf`,<br/>`-GenerateBackupFile`|"`<filePath>`" "`<password>`"|Generuj plik kopii zapasowej dla bieżącego węzła. Plik kopii zapasowej zawiera klucze węzła i poświadczenia magazynu danych.|
+|`-ibf`,<br/>`-ImportBackupFile`|"`<filePath>`" "`<password>`"|Przywróć węzeł z pliku kopii zapasowej.|
+|`-r`,<br/>`-Restart`||Uruchom ponownie funkcję samodzielnego hosta Integration Runtime.|
+|`-s`,<br/>`-Start`||Uruchom samohostowaną usługę hosta Integration Runtime.|
+|`-t`,<br/>`-Stop`||Zatrzymaj samohostowaną usługę hosta Integration Runtime.|
+|`-sus`,<br/>`-StartUpgradeService`||Uruchom samohostowaną usługę uaktualniania środowiska Integration Runtime.|
+|`-tus`,<br/>`-StopUpgradeService`||Zatrzymaj usługę uaktualniania środowiska Integration Runtime (Auto-Hosted).|
+|`-tonau`,<br/>`-TurnOnAutoUpdate`||Włącz samoobsługową automatyczną aktualizację środowiska Integration Runtime.|
+|`-toffau`,<br/>`-TurnOffAutoUpdate`||Wyłącz samoobsługową automatyczną aktualizację środowiska Integration Runtime.|
+|`-ssa`,<br/>`-SwitchServiceAccount`|"`<domain\user>`" ["`<password>`"]|Ustaw DIAHostService do uruchamiania jako nowe konto. Użyj pustego hasła "" dla kont systemowych i kont wirtualnych.|
 
 
 ## <a name="install-and-register-a-self-hosted-ir-from-microsoft-download-center"></a>Instalowanie i rejestrowanie samodzielnego środowiska IR z centrum pobierania firmy Microsoft
@@ -205,9 +205,9 @@ Domyślne konto usługi dla środowiska Integration Runtime (samodzielne środow
 
 Upewnij się, że konto ma uprawnienia do logowania się jako usługa. W przeciwnym razie nie można uruchomić środowiska Integration Runtime w sposób samodzielny. Możesz sprawdzić uprawnienia w **zasadach zabezpieczeń lokalnych — > ustawienia zabezpieczeń — > zasad lokalnych — > przypisania praw użytkownika — > Logowanie jako usługa**
 
-![Uprawnienia konta usługi](media/create-self-hosted-integration-runtime/shir-service-account-permission.png)
+![Zrzut ekranu zasad zabezpieczeń lokalnych — przypisanie praw użytkownika](media/create-self-hosted-integration-runtime/shir-service-account-permission.png)
 
-![Uprawnienia konta usługi](media/create-self-hosted-integration-runtime/shir-service-account-permission-2.png)
+![Zrzut ekranu przedstawiający Logowanie jako usługa przypisanie praw użytkownika](media/create-self-hosted-integration-runtime/shir-service-account-permission-2.png)
 
 
 ## <a name="notification-area-icons-and-notifications"></a>Ikony i powiadomienia obszaru powiadomień

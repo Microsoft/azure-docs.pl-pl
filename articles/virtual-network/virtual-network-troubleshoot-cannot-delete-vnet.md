@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 27372207df66b4198bd9c785ecc099fa88cbe548
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: b974af343907c98ebd7a318bc60a0e553a07a233
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335698"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219355"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Rozwiązywanie problemów: nie można usunąć sieci wirtualnej na platformie Azure
 
@@ -64,7 +64,7 @@ Jeśli istnieje Brama aplikacji, należy ją usunąć przed usunięciem sieci wi
 ### <a name="check-whether-azure-container-instances-still-exist-in-the-virtual-network"></a>Sprawdź, czy usługa Azure Container Instances wciąż istnieje w sieci wirtualnej
 
 1. W Azure Portal przejdź do strony **Przegląd** grupy zasobów.
-1. W nagłówku listy zasobów grupy zasobów wybierz pozycję **Pokaż ukryte typy**. Typ profilu sieciowego jest domyślnie ukryty w Azure Portal.
+1. W nagłówku listy zasobów grupy zasobów, wybierz pozycję **Pokaż ukryte typy**. Typ profilu sieciowego jest domyślnie ukryty w Azure Portal.
 1. Wybierz profil sieciowy powiązany z grupami kontenerów.
 1. Wybierz pozycję **Usuń**.
 
@@ -72,7 +72,7 @@ Jeśli istnieje Brama aplikacji, należy ją usunąć przed usunięciem sieci wi
 
 1. Usuń ponownie podsieć lub sieć wirtualną.
 
-Jeśli te kroki nie rozwiążą problemu, Użyj tych [poleceń interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/container-instances/container-instances-vnet#clean-up-resources) , aby wyczyścić zasoby. 
+Jeśli te kroki nie rozwiążą problemu, Użyj tych [poleceń interfejsu wiersza polecenia platformy Azure](../container-instances/container-instances-vnet.md#clean-up-resources) , aby wyczyścić zasoby. 
 
 ### <a name="check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network"></a>Sprawdź, czy w sieci wirtualnej jest włączona usługa Azure Active Directory Domain
 

@@ -5,12 +5,12 @@ ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47, devx-track-azurecli
-ms.openlocfilehash: 2526fd60d6e07ecf43864945f2b05858b41ca567
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 70aecc2613fbe21d34e36f9487d7ba383e140bc8
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98035210"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217366"
 ---
 # <a name="manage-your-function-app"></a>Zarządzanie aplikacją funkcji 
 
@@ -19,11 +19,6 @@ W Azure Functions aplikacja funkcji udostępnia kontekst wykonywania dla poszcze
 Poszczególne funkcje w aplikacji funkcji są wdrażane razem i są skalowane jednocześnie. Wszystkie funkcje w tym samym zakresie zasobów funkcji, na wystąpienie, jako aplikacja funkcji skaluje się. 
 
 Parametry połączenia, zmienne środowiskowe i inne ustawienia aplikacji są definiowane osobno dla każdej aplikacji funkcji. Wszelkie dane, które muszą być współużytkowane przez aplikacje funkcji, powinny być przechowywane zewnętrznie w utrwalonym magazynie.
-
-W tym artykule opisano sposób konfigurowania aplikacji funkcji i zarządzania nimi. 
-
-> [!TIP]  
-> Wiele opcji konfiguracji można także zarządzać za pomocą [interfejsu wiersza polecenia platformy Azure]. 
 
 ## <a name="get-started-in-the-azure-portal"></a>Rozpoczęcie pracy w witrynie Azure portal
 
@@ -37,15 +32,17 @@ Możesz przejść do wszystkiego, czego potrzebujesz do zarządzania aplikacją 
 
 ## <a name="work-with-application-settings"></a><a name="settings"></a>Pracuj z ustawieniami aplikacji
 
-Karta **Ustawienia aplikacji** obsługuje ustawienia, które są używane przez aplikację funkcji. Te ustawienia są przechowywane w postaci zaszyfrowanej i należy wybrać opcję **Pokaż wartości** , aby wyświetlić wartości w portalu. Dostęp do ustawień aplikacji można również uzyskać przy użyciu interfejsu wiersza polecenia platformy Azure.
+Ustawieniami aplikacji można zarządzać z poziomu [Azure Portal](functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) i przy użyciu [interfejsu wiersza polecenia platformy Azure](functions-how-to-use-azure-function-app-settings.md?tabs=azurecli#settings) i [Azure PowerShell](functions-how-to-use-azure-function-app-settings.md?tabs=powershell#settings). Można również zarządzać ustawieniami aplikacji z poziomu [Visual Studio Code](functions-develop-vs-code.md#application-settings-in-azure) i programu [Visual Studio](functions-develop-vs.md#function-app-settings). 
 
-### <a name="portal"></a>Portal
+Te ustawienia są przechowywane w postaci zaszyfrowanej. Aby dowiedzieć się więcej, zobacz [Ustawienia aplikacji zabezpieczenia](security-concepts.md#application-settings).
 
-Aby dodać ustawienie w portalu, wybierz pozycję **nowe ustawienie aplikacji** i Dodaj nową parę klucz-wartość.
+# <a name="portal"></a>[Portal](#tab/portal)
+
+Karta **Ustawienia aplikacji** obsługuje ustawienia, które są używane przez aplikację funkcji. Musisz wybrać **Pokaż wartości** , aby wyświetlić wartości w portalu. Aby dodać ustawienie w portalu, wybierz pozycję **nowe ustawienie aplikacji** i Dodaj nową parę klucz-wartość.
 
 ![Ustawienia aplikacji funkcji w Azure Portal.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azurecli)
 
 [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-list)Polecenie zwraca istniejące ustawienia aplikacji, jak w poniższym przykładzie:
 
@@ -62,6 +59,22 @@ az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
 --resource-group <RESOURCE_GROUP_NAME> \
 --settings CUSTOM_FUNCTION_APP_SETTING=12345
 ```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
+
+[`Get-AzFunctionAppSetting`](/powershell/module/az.functions/get-azfunctionappsetting)Polecenie cmdlet zwraca istniejące ustawienia aplikacji, jak w poniższym przykładzie: 
+
+```azurepowershell-interactive
+Get-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME>
+```
+
+[`Update-AzFunctionAppSetting`](/powershell/module/az.functions/update-azfunctionappsetting)Polecenie dodaje lub aktualizuje ustawienie aplikacji. Poniższy przykład tworzy ustawienie z kluczem o nazwie `CUSTOM_FUNCTION_APP_SETTING` i wartości `12345` :
+
+```azurepowershell-interactive
+Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME> -AppSetting @{"CUSTOM_FUNCTION_APP_SETTING" = "12345"}
+```
+
+---
 
 ### <a name="use-application-settings"></a>Użyj ustawień aplikacji
 
@@ -186,7 +199,7 @@ az functionapp cors add --name <FUNCTION_APP_NAME> \
 
 Użyj [`az functionapp cors show`](/cli/azure/functionapp/cors#az-functionapp-cors-show) polecenia, aby wyświetlić listę bieżących dozwolonych źródeł.
 
-### <a name="authentication"></a><a name="auth"></a>Uwierzytelnianie
+### <a name="authentication"></a><a name="auth"></a>Authentication
 
 ![Konfigurowanie uwierzytelniania dla aplikacji funkcji](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 

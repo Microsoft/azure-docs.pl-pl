@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: a5d84b936679cdd5ebd5bec4938d6db7fcb641e7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 800cbf9b7a7fa415452f29b253347188c8917c52
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455496"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219457"
 ---
 # <a name="quickstart-create-a-new-azure-machine-learning-linked-service-in-synapse"></a>Szybki Start: Tworzenie nowej Azure Machine Learning połączonej usługi w programie Synapse
 
@@ -22,7 +22,7 @@ W tym przewodniku szybki start połączysz obszar roboczy usługi Azure Synapse 
 
 Na przykład to połączenie z obszarem roboczym Azure Machine Learning umożliwia korzystanie z następujących funkcji:
 
-- Uruchom potoki Azure Machine Learning jako krok w potokach Synapse. Aby dowiedzieć się więcej, zobacz [wykonywanie potoków Azure Machine Learning](/azure/data-factory/transform-data-machine-learning-service).
+- Uruchom potoki Azure Machine Learning jako krok w potokach Synapse. Aby dowiedzieć się więcej, zobacz [wykonywanie potoków Azure Machine Learning](../../data-factory/transform-data-machine-learning-service.md).
 
 - Wzbogacaj dane przy użyciu prognoz przez umieszczenie modelu uczenia maszynowego z rejestru modelu Azure Machine Learning model i Ocena modelu w Synapse pule SQL. Aby uzyskać więcej informacji, zobacz [Samouczek: Kreator oceniania modelu uczenia maszynowego dla pul Synapse SQL](tutorial-sql-pool-model-scoring-wizard.md).
 
@@ -30,7 +30,7 @@ Na przykład to połączenie z obszarem roboczym Azure Machine Learning umożliw
 
 - Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/).
 - [Obszar roboczy Synapse Analytics](../get-started-create-workspace.md) z kontem magazynu ADLS Gen2 skonfigurowanym jako magazyn domyślny. Musisz być **współautorem danych obiektów blob magazynu** dla systemu plików ADLS Gen2, z którym pracujesz.
-- [Obszar roboczy usługi Azure Machine Learning](/azure/machine-learning/how-to-manage-workspace).
+- [Obszar roboczy usługi Azure Machine Learning](../../machine-learning/how-to-manage-workspace.md).
 - Musisz mieć uprawnienia (lub zażądać od kogoś, kto ma uprawnienia), aby utworzyć jednostkę usługi i klucz tajny, których można użyć do utworzenia połączonej usługi. Należy pamiętać, że ta jednostka usługi musi mieć przypisaną rolę współautor w Obszar roboczy usługi Azure Machine Learning.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
@@ -42,15 +42,15 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 Ten krok spowoduje utworzenie nowej nazwy głównej usługi. Jeśli chcesz użyć istniejącej nazwy głównej usługi, możesz pominąć ten krok.
 1. Otwórz witrynę Azure Portal. 
 
-1. Przejdź do **Azure Active Directory**  ->  **rejestracje aplikacji** Azure Active Directory.
+1. Przejdź do   ->  **rejestracje aplikacji** Azure Active Directory.
 
 1. Kliknij pozycję **Nowa rejestracja**. Następnie postępuj zgodnie z instrukcjami wyświetlanymi w interfejsie użytkownika, aby zarejestrować nową aplikację.
 
-1. Po zarejestrowaniu aplikacji. Wygeneruj klucz tajny dla aplikacji. Przejdź do **Your application**  ->  **certyfikatu aplikacji & wpis tajny**. Kliknij pozycję **Dodaj klucz tajny klienta** , aby wygenerować klucz tajny. Tajne zabezpieczenie jest bezpieczne i będzie używane później.
+1. Po zarejestrowaniu aplikacji. Wygeneruj klucz tajny dla aplikacji. Przejdź do   ->  **certyfikatu aplikacji & wpis tajny**. Kliknij pozycję **Dodaj klucz tajny klienta** , aby wygenerować klucz tajny. Tajne zabezpieczenie jest bezpieczne i będzie używane później.
 
    ![Generuj klucz tajny](media/quickstart-integrate-azure-machine-learning/quickstart-integrate-azure-machine-learning-createsp-00a.png)
 
-1. Utwórz nazwę główną usługi dla aplikacji. Przejdź do **omówienia swojej aplikacji**  ->  **Overview** , a następnie kliknij pozycję **Utwórz nazwę główną usługi**. W niektórych przypadkach ta nazwa główna usługi jest tworzona automatycznie.
+1. Utwórz nazwę główną usługi dla aplikacji. Przejdź do **omówienia swojej aplikacji**  ->   , a następnie kliknij pozycję **Utwórz nazwę główną usługi**. W niektórych przypadkach ta nazwa główna usługi jest tworzona automatycznie.
 
    ![Tworzenie jednostki usługi](media/quickstart-integrate-azure-machine-learning/quickstart-integrate-azure-machine-learning-createsp-00b.png)
 

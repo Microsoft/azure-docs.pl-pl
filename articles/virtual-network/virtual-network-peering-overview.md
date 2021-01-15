@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
-ms.openlocfilehash: 61617777efa8241c93b2b5ffe42fc1d914b6ebcf
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: feea2d54edd8a93e6e0effbef03389ef895d5ffb
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004980"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216754"
 ---
 # <a name="virtual-network-peering"></a>Komunikacja równorzędna sieci wirtualnych
 
@@ -48,7 +48,7 @@ Opóźnienie sieciowe między maszynami wirtualnymi w równorzędnych sieciach w
 Ruch między maszynami wirtualnymi w równorzędnych sieciach wirtualnych odbywa się bezpośrednio za pomocą infrastruktury sieci szkieletowej firmy Microsoft, a nie przy użyciu bramy lub publicznego Internetu.
 
 Aby zablokować dostęp do innych sieci wirtualnych lub podsieci, można zastosować sieciowe grupy zabezpieczeń w jednej sieci wirtualnej.
-Podczas konfigurowania komunikacji równorzędnej sieci wirtualnej należy otworzyć lub zamknąć reguły sieciowej grupy zabezpieczeń między sieciami wirtualnymi. W przypadku otwarcia pełnej łączności między równorzędnymi sieciami wirtualnymi można zastosować sieciowe grupy zabezpieczeń, aby zablokować lub odmówić określonego dostępu. Pełna łączność jest opcją domyślną. Aby dowiedzieć się więcej na temat sieciowych grup zabezpieczeń, zobacz [grupy zabezpieczeń](security-overview.md).
+Podczas konfigurowania komunikacji równorzędnej sieci wirtualnej należy otworzyć lub zamknąć reguły sieciowej grupy zabezpieczeń między sieciami wirtualnymi. W przypadku otwarcia pełnej łączności między równorzędnymi sieciami wirtualnymi można zastosować sieciowe grupy zabezpieczeń, aby zablokować lub odmówić określonego dostępu. Pełna łączność jest opcją domyślną. Aby dowiedzieć się więcej na temat sieciowych grup zabezpieczeń, zobacz [grupy zabezpieczeń](./network-security-groups-overview.md).
 
 ## <a name="service-chaining"></a>Tworzenie łańcuchów usług
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/22/2020
 ms.author: kumud
-ms.openlocfilehash: 99905e58cbcd9d0a5c5397aee125675a70e799fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6cf082aa33d2063982d85cf0c2fdd68d61072217
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89657962"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216943"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Create, change, or delete a network interface (Tworzenie, zmienianie i usuwanie interfejsów sieciowych)
 
@@ -26,7 +26,7 @@ Dowiedz się, jak tworzyć, zmieniać ustawienia i usuwać interfejs sieciowy. I
 
 Jeśli musisz dodać, zmienić lub usunąć adresy IP dla interfejsu sieciowego, zobacz [Zarządzanie adresami IP](virtual-network-network-interface-addresses.md). Jeśli musisz dodać interfejsy sieciowe do lub usunąć interfejsy sieciowe z maszyn wirtualnych, zobacz [Dodawanie lub usuwanie interfejsów sieciowych](virtual-network-network-interface-vm.md).
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -53,7 +53,7 @@ Podczas tworzenia maszyny wirtualnej przy użyciu Azure Portal Portal tworzy int
     |Sieć wirtualna|Tak|Wybierz sieć wirtualną dla interfejsu sieciowego. Interfejs sieciowy można przypisać tylko do sieci wirtualnej, która istnieje w tej samej subskrypcji i lokalizacji co interfejs sieciowy. Po utworzeniu interfejsu sieciowego nie można zmienić sieci wirtualnej, do której jest przypisana. Maszyna wirtualna, do której należy dodać interfejs sieciowy, również istnieje w tej samej lokalizacji i subskrypcji co interfejs sieciowy.|
     |Podsieć|Tak|Wybierz podsieć w wybranej sieci wirtualnej. Można zmienić podsieć, do której przypisany jest interfejs sieciowy po jego utworzeniu.|
     |Przypisanie prywatnego adresu IP|Tak| W tym ustawieniu wybiera się metodę przypisywania adresu IPv4. Wybierz jedną z następujących metod przypisywania: **dynamiczne:** w przypadku wybrania tej opcji platforma Azure automatycznie przypisze następny dostępny adres z przestrzeni adresowej wybranej podsieci. **Statyczny:** W przypadku wybrania tej opcji należy ręcznie przypisać dostępny adres IP z przestrzeni adresowej wybranej podsieci. Adresy statyczne i dynamiczne nie zmieniają się, dopóki ich nie zmienisz lub interfejs sieciowy nie zostanie usunięty. Można zmienić metodę przypisywania po utworzeniu interfejsu sieciowego. Serwer DHCP platformy Azure przypisuje ten adres do interfejsu sieciowego w ramach systemu operacyjnego maszyny wirtualnej.|
-    |Sieciowa grupa zabezpieczeń|Nie| Pozostaw wartość **Brak**, wybierz istniejącą [sieciową grupę zabezpieczeń](security-overview.md)lub [Utwórz sieciową grupę zabezpieczeń](tutorial-filter-network-traffic.md). Sieciowe grupy zabezpieczeń umożliwiają filtrowanie ruchu sieciowego do i z interfejsu sieciowego. Do interfejsu sieciowego można zastosować zero lub jedną grupę zabezpieczeń sieci. Do podsieci, do której jest przypisany interfejs sieciowy, można również zastosować zero lub jedną grupę zabezpieczeń sieci. Po zastosowaniu sieciowej grupy zabezpieczeń do interfejsu sieciowego i podsieci, do której jest przypisany interfejs sieciowy, czasami wystąpią nieoczekiwane wyniki. Aby rozwiązać problemy dotyczące sieciowych grup zabezpieczeń stosowanych do interfejsów sieciowych i podsieci, zobacz [Rozwiązywanie problemów z sieciowymi grupami zabezpieczeń](diagnose-network-traffic-filter-problem.md).|
+    |Sieciowa grupa zabezpieczeń|Nie| Pozostaw wartość **Brak**, wybierz istniejącą [sieciową grupę zabezpieczeń](./network-security-groups-overview.md)lub [Utwórz sieciową grupę zabezpieczeń](tutorial-filter-network-traffic.md). Sieciowe grupy zabezpieczeń umożliwiają filtrowanie ruchu sieciowego do i z interfejsu sieciowego. Do interfejsu sieciowego można zastosować zero lub jedną grupę zabezpieczeń sieci. Do podsieci, do której jest przypisany interfejs sieciowy, można również zastosować zero lub jedną grupę zabezpieczeń sieci. Po zastosowaniu sieciowej grupy zabezpieczeń do interfejsu sieciowego i podsieci, do której jest przypisany interfejs sieciowy, czasami wystąpią nieoczekiwane wyniki. Aby rozwiązać problemy dotyczące sieciowych grup zabezpieczeń stosowanych do interfejsów sieciowych i podsieci, zobacz [Rozwiązywanie problemów z sieciowymi grupami zabezpieczeń](diagnose-network-traffic-filter-problem.md).|
     |Subskrypcja|Tak|Wybierz jedną z [subskrypcji](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)platformy Azure. Do maszyny wirtualnej, do której jest dołączany interfejs sieciowy, i sieci wirtualnej, z którą jest nawiązane połączenie, musi znajdować się w tej samej subskrypcji.|
     |Prywatny adres IP (IPv6)|Nie| Jeśli zaznaczysz to pole wyboru, adres IPv6 zostanie przypisany do interfejsu sieciowego, a nie do adresu IPv4 przypisanego do interfejsu sieciowego. Zobacz sekcję dotyczącą protokołu IPv6 w tym artykule, aby uzyskać ważne informacje dotyczące korzystania z protokołu IPv6 z interfejsami sieciowymi. Nie można wybrać metody przypisania dla adresu IPv6. Jeśli zdecydujesz się przypisać adres IPv6, zostanie on przypisany przy użyciu metody dynamicznej.
     |Nazwa IPv6 (pojawia się tylko wtedy, gdy jest zaznaczone pole wyboru **prywatny adres IP (IPv6)** ) |Tak, jeśli jest zaznaczone pole wyboru **prywatny adres IP (IPv6)** .| Ta nazwa jest przypisana do pomocniczej konfiguracji adresu IP dla interfejsu sieciowego. Aby dowiedzieć się więcej na temat konfiguracji protokołu IP, zobacz [Wyświetlanie ustawień interfejsu sieciowego](#view-network-interface-settings).|
@@ -72,7 +72,7 @@ Portal nie udostępnia opcji przypisywania interfejsu sieciowego do grup zabezpi
 |Narzędzie|Polecenie|
 |---|---|
 |Interfejs wiersza polecenia|[az network nic create](/cli/azure/network/nic)|
-|Program PowerShell|[New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)|
+|PowerShell|[New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)|
 
 ## <a name="view-network-interface-settings"></a>Wyświetl ustawienia interfejsu sieciowego
 
@@ -88,7 +88,7 @@ Można wyświetlać i zmieniać większość ustawień interfejsu sieciowego po 
    - **Serwery DNS:** Można określić, który serwer DNS ma być przypisany przez serwery DHCP platformy Azure. Interfejs sieciowy może dziedziczyć ustawienia z sieci wirtualnej, do której jest przypisany interfejs sieciowy, lub mieć niestandardowe ustawienie, które zastępuje ustawienie sieci wirtualnej, do której jest przypisane. Aby zmodyfikować wyświetlane elementy, zobacz [Zmienianie serwerów DNS](#change-dns-servers).
    - **Sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń):** Wskazuje, który sieciowej grupy zabezpieczeń jest skojarzony z interfejsem sieciowym (jeśli istnieje). SIECIOWEJ grupy zabezpieczeń zawiera reguły ruchu przychodzącego i wychodzącego do filtrowania ruchu sieciowego dla interfejsu sieciowego. Jeśli sieciowej grupy zabezpieczeń jest skojarzona z interfejsem sieciowym, zostanie wyświetlona nazwa skojarzonego sieciowej grupy zabezpieczeń. Aby zmodyfikować wyświetlane elementy, zobacz [kojarzenie lub usuwanie skojarzenia sieciowej grupy zabezpieczeń](#associate-or-dissociate-a-network-security-group).
    - **Właściwości:** Wyświetla ustawienia klucza dotyczące interfejsu sieciowego, w tym jego adres MAC (puste, jeśli interfejs sieciowy nie jest dołączony do maszyny wirtualnej) i subskrypcję, w której istnieje.
-   - **Obowiązujące reguły zabezpieczeń:**  Reguły zabezpieczeń są wyświetlane, jeśli interfejs sieciowy jest dołączony do uruchomionej maszyny wirtualnej, a sieciowej grupy zabezpieczeń jest skojarzony z interfejsem sieciowym, podsiecią, do której jest przypisana, lub obie. Aby dowiedzieć się więcej na temat informacji, zobacz temat [Wyświetlanie obowiązujących reguł zabezpieczeń](#view-effective-security-rules). Aby dowiedzieć się więcej na temat sieciowych grup zabezpieczeń, zobacz [Network Security Groups](security-overview.md).
+   - **Obowiązujące reguły zabezpieczeń:**  Reguły zabezpieczeń są wyświetlane, jeśli interfejs sieciowy jest dołączony do uruchomionej maszyny wirtualnej, a sieciowej grupy zabezpieczeń jest skojarzony z interfejsem sieciowym, podsiecią, do której jest przypisana, lub obie. Aby dowiedzieć się więcej na temat informacji, zobacz temat [Wyświetlanie obowiązujących reguł zabezpieczeń](#view-effective-security-rules). Aby dowiedzieć się więcej na temat sieciowych grup zabezpieczeń, zobacz [Network Security Groups](./network-security-groups-overview.md).
    - **Efektywne trasy:** Trasy są wyświetlane, jeśli interfejs sieciowy jest podłączony do uruchomionej maszyny wirtualnej. Trasy są kombinacją domyślnych tras platformy Azure, wszelkich tras zdefiniowanych przez użytkownika i wszelkich tras BGP, które mogą istnieć dla podsieci, do której jest przypisany interfejs sieciowy. Aby dowiedzieć się więcej na temat tego, co jest wyświetlane, zobacz [Wyświetlanie efektywnych tras](#view-effective-routes). Aby dowiedzieć się więcej na temat domyślnych tras platformy Azure i tras zdefiniowanych przez użytkownika, zobacz [Omówienie routingu](virtual-networks-udr-overview.md).
 Typowe ustawienia Azure Resource Manager: Aby dowiedzieć się więcej o typowych ustawieniach Azure Resource Manager, zobacz [Dziennik aktywności](../azure-monitor/platform/platform-logs-overview.md), [Kontrola dostępu (IAM)](../role-based-access-control/overview.md), [Tagi](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [blokady](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)i [skrypt automatyzacji](../azure-resource-manager/templates/export-template-portal.md).
 
@@ -99,7 +99,7 @@ Jeśli adres IPv6 jest przypisany do interfejsu sieciowego, dane wyjściowe prog
 |Narzędzie|Polecenie|
 |---|---|
 |Interfejs wiersza polecenia|[AZ Network nic list](/cli/azure/network/nic) , aby wyświetlić interfejsy sieciowe w subskrypcji; [AZ Network nic show](/cli/azure/network/nic) do wyświetlania ustawień interfejsu sieciowego|
-|Program PowerShell|[Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) , aby wyświetlić interfejsy sieciowe w ramach subskrypcji lub ustawienia widoku dla interfejsu sieciowego|
+|PowerShell|[Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) , aby wyświetlić interfejsy sieciowe w ramach subskrypcji lub ustawienia widoku dla interfejsu sieciowego|
 
 ## <a name="change-dns-servers"></a>Zmień serwery DNS
 
@@ -107,7 +107,7 @@ Serwer DNS jest przypisywany przez serwer DHCP platformy Azure do interfejsu sie
 
 1. W polu zawierającym *zasoby wyszukiwania* tekstu w górnej części Azure Portal wpisz *interfejsy sieciowe*. Gdy **interfejsy sieciowe** pojawiają się w wynikach wyszukiwania, wybierz je.
 2. Wybierz interfejs sieciowy, dla którego chcesz zmienić serwer DNS z listy.
-3. W obszarze **Ustawienia**wybierz pozycję **serwery DNS** .
+3. W obszarze **Ustawienia** wybierz pozycję **serwery DNS** .
 4. Wybierz jedną z opcji:
    - **Dziedzicz z sieci wirtualnej**: Wybierz tę opcję, aby odziedziczyć ustawienie serwera DNS zdefiniowane dla sieci wirtualnej, do której jest przypisany interfejs sieciowy. Na poziomie sieci wirtualnej jest zdefiniowany niestandardowy serwer DNS lub serwer DNS dostarczony przez platformę Azure. Serwer DNS dostarczony przez platformę Azure może rozpoznać nazwy hostów dla zasobów przypisanych do tej samej sieci wirtualnej. Nazwa FQDN musi być używana do rozwiązywania zasobów przypisanych do różnych sieci wirtualnych.
    - **Niestandardowo**: można skonfigurować własny serwer DNS do rozpoznawania nazw w wielu sieciach wirtualnych. Wprowadź adres IP serwera, który ma być używany jako serwer DNS. Określony adres serwera DNS jest przypisywany tylko do tego interfejsu sieciowego i zastępuje wszystkie ustawienia DNS sieci wirtualnej, do której przypisany jest interfejs sieciowy.
@@ -120,7 +120,7 @@ Serwer DNS jest przypisywany przez serwer DHCP platformy Azure do interfejsu sie
 |Narzędzie|Polecenie|
 |---|---|
 |Interfejs wiersza polecenia|[AZ Network nic Update](/cli/azure/network/nic)|
-|Program PowerShell|[Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface)|
+|PowerShell|[Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface)|
 
 ## <a name="enable-or-disable-ip-forwarding"></a>Włączanie lub wyłączanie przekazywania adresów IP
 
@@ -141,7 +141,7 @@ Ustawienie musi być włączone dla każdego interfejsu sieciowego, który jest 
 |Narzędzie|Polecenie|
 |---|---|
 |Interfejs wiersza polecenia|[AZ Network nic Update](/cli/azure/network/nic)|
-|Program PowerShell|[Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface)|
+|PowerShell|[Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface)|
 
 ## <a name="change-subnet-assignment"></a>Zmień przypisanie podsieci
 
@@ -149,7 +149,7 @@ Można zmienić podsieć, ale nie sieć wirtualną, do której przypisany jest i
 
 1. W polu zawierającym *zasoby wyszukiwania* tekstu w górnej części Azure Portal wpisz *interfejsy sieciowe*. Gdy **interfejsy sieciowe** pojawiają się w wynikach wyszukiwania, wybierz je.
 2. Wybierz interfejs sieciowy, dla którego chcesz zmienić przypisanie podsieci.
-3. W obszarze **Ustawienia**wybierz pozycję **konfiguracje adresów IP** . Jeśli obok żadnych prywatnych adresów IP dla dowolnych konfiguracji protokołu IP ma **(statyczny)** , należy zmienić metodę przypisywania adresów IP na dynamiczną, wykonując poniższe kroki. Wszystkie prywatne adresy IP muszą być przypisane przy użyciu metody dynamicznego przypisywania, aby zmienić przypisanie podsieci dla interfejsu sieciowego. Jeśli adresy są przypisywane przy użyciu metody dynamicznej, przejdź do kroku 5. Jeśli dowolnych adresów IPv4 zostanie przypisanych za pomocą metody przypisania statycznej, wykonaj następujące kroki, aby zmienić metodę przypisywania na dynamiczną:
+3. W obszarze **Ustawienia** wybierz pozycję **konfiguracje adresów IP** . Jeśli obok żadnych prywatnych adresów IP dla dowolnych konfiguracji protokołu IP ma **(statyczny)** , należy zmienić metodę przypisywania adresów IP na dynamiczną, wykonując poniższe kroki. Wszystkie prywatne adresy IP muszą być przypisane przy użyciu metody dynamicznego przypisywania, aby zmienić przypisanie podsieci dla interfejsu sieciowego. Jeśli adresy są przypisywane przy użyciu metody dynamicznej, przejdź do kroku 5. Jeśli dowolnych adresów IPv4 zostanie przypisanych za pomocą metody przypisania statycznej, wykonaj następujące kroki, aby zmienić metodę przypisywania na dynamiczną:
    - Wybierz konfigurację adresu IP, dla której chcesz zmienić metodę przypisywania adresów IPv4 z listy konfiguracji protokołu IP.
    - Wybierz pozycję **dynamiczne** dla metody **przypisywania** prywatnych adresów IP. Nie można przypisać adresu IPv6 za pomocą metody przypisania statycznego.
    - Wybierz pozycję **Zapisz**.
@@ -161,28 +161,28 @@ Można zmienić podsieć, ale nie sieć wirtualną, do której przypisany jest i
 |Narzędzie|Polecenie|
 |---|---|
 |Interfejs wiersza polecenia|[AZ Network nic IP-config Update](/cli/azure/network/nic/ip-config)|
-|Program PowerShell|[Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig)|
+|PowerShell|[Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig)|
 
 ## <a name="add-to-or-remove-from-application-security-groups"></a>Dodaj do lub Usuń z grup zabezpieczeń aplikacji
 
-Możesz dodać interfejs sieciowy do lub usunąć interfejs sieciowy z grupy zabezpieczeń aplikacji przy użyciu portalu, jeśli interfejs sieciowy jest podłączony do maszyny wirtualnej. Możesz użyć programu PowerShell lub interfejsu wiersza polecenia platformy Azure, aby dodać interfejs sieciowy do lub usunąć interfejs sieciowy z grupy zabezpieczeń aplikacji, niezależnie od tego, czy interfejs sieciowy jest dołączony do maszyny wirtualnej, czy nie. Dowiedz się więcej o [grupach zabezpieczeń aplikacji](security-overview.md#application-security-groups) oraz o sposobie [tworzenia grupy zabezpieczeń aplikacji](manage-network-security-group.md).
+Możesz dodać interfejs sieciowy do lub usunąć interfejs sieciowy z grupy zabezpieczeń aplikacji przy użyciu portalu, jeśli interfejs sieciowy jest podłączony do maszyny wirtualnej. Możesz użyć programu PowerShell lub interfejsu wiersza polecenia platformy Azure, aby dodać interfejs sieciowy do lub usunąć interfejs sieciowy z grupy zabezpieczeń aplikacji, niezależnie od tego, czy interfejs sieciowy jest dołączony do maszyny wirtualnej, czy nie. Dowiedz się więcej o [grupach zabezpieczeń aplikacji](./network-security-groups-overview.md#application-security-groups) oraz o sposobie [tworzenia grupy zabezpieczeń aplikacji](manage-network-security-group.md).
 
 1. W polu *Wyszukaj zasoby, usługi i dokumenty* w górnej części portalu zacznij pisać nazwę maszyny wirtualnej, która ma interfejs sieciowy, do którego chcesz dodać lub usunąć z grupy zabezpieczeń aplikacji. Gdy nazwa maszyny wirtualnej zostanie wyświetlona w wynikach wyszukiwania, wybierz ją.
-2. W obszarze **USTAWIENIA** wybierz pozycję **Sieć**.  Wybierz pozycję **grupy zabezpieczeń aplikacji** , a następnie **Skonfiguruj grupy zabezpieczeń**aplikacji wybierz grupy zabezpieczeń aplikacji, do których chcesz dodać interfejs sieciowy, lub usuń zaznaczenie grup zabezpieczeń aplikacji, z których chcesz usunąć interfejs sieciowy, a następnie wybierz pozycję **Zapisz**. Tylko interfejsy sieciowe, które znajdują się w tej samej sieci wirtualnej, można dodać do tej samej grupy zabezpieczeń aplikacji. Grupa zabezpieczeń aplikacji musi znajdować się w tej samej lokalizacji co interfejs sieciowy.
+2. W obszarze **USTAWIENIA** wybierz pozycję **Sieć**.  Wybierz pozycję **grupy zabezpieczeń aplikacji** , a następnie **Skonfiguruj grupy zabezpieczeń** aplikacji wybierz grupy zabezpieczeń aplikacji, do których chcesz dodać interfejs sieciowy, lub usuń zaznaczenie grup zabezpieczeń aplikacji, z których chcesz usunąć interfejs sieciowy, a następnie wybierz pozycję **Zapisz**. Tylko interfejsy sieciowe, które znajdują się w tej samej sieci wirtualnej, można dodać do tej samej grupy zabezpieczeń aplikacji. Grupa zabezpieczeń aplikacji musi znajdować się w tej samej lokalizacji co interfejs sieciowy.
 
 **Polecenia**
 
 |Narzędzie|Polecenie|
 |---|---|
 |Interfejs wiersza polecenia|[AZ Network nic Update](/cli/azure/network/nic)|
-|Program PowerShell|[Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface)|
+|PowerShell|[Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface)|
 
 ## <a name="associate-or-dissociate-a-network-security-group"></a>Kojarzenie lub usuwanie skojarzenia sieciowej grupy zabezpieczeń
 
 1. W polu wyszukiwania w górnej części portalu wprowadź *interfejsy sieciowe* w polu wyszukiwania. Gdy **interfejsy sieciowe** pojawiają się w wynikach wyszukiwania, wybierz je.
 2. Wybierz interfejs sieciowy z listy, do której chcesz skojarzyć sieciową grupę zabezpieczeń, lub usuń skojarzenie sieciowej grupy zabezpieczeń z.
-3. W obszarze **Ustawienia**wybierz pozycję **sieciowa Grupa zabezpieczeń** .
-4. Kliknij pozycję **Edytuj**.
+3. W obszarze **Ustawienia** wybierz pozycję **sieciowa Grupa zabezpieczeń** .
+4. Wybierz pozycję **Edit** (Edytuj).
 5. Wybierz pozycję **sieciowa Grupa zabezpieczeń** , a następnie wybierz grupę zabezpieczeń sieci, która ma zostać skojarzona z interfejsem sieciowym, lub wybierz opcję **Brak**, aby usunąć skojarzenie sieciowej grupy zabezpieczeń.
 6. Wybierz pozycję **Zapisz**.
 
@@ -207,7 +207,7 @@ Po usunięciu interfejsu sieciowego zostaną wydane wszystkie przypisane adresy 
 |Narzędzie|Polecenie|
 |---|---|
 |Interfejs wiersza polecenia|[AZ Network nic Delete](/cli/azure/network/nic)|
-|Program PowerShell|[Remove-AzNetworkInterface](/powershell/module/az.network/remove-aznetworkinterface)|
+|PowerShell|[Remove-AzNetworkInterface](/powershell/module/az.network/remove-aznetworkinterface)|
 
 ## <a name="resolve-connectivity-issues"></a>Rozwiązywanie problemów z łącznością
 
@@ -215,13 +215,13 @@ Jeśli nie można nawiązać połączenia z maszyną wirtualną lub z niej, regu
 
 ### <a name="view-effective-security-rules"></a>Wyświetlanie obowiązujących reguł zabezpieczeń
 
-Obowiązujące reguły zabezpieczeń dla każdego interfejsu sieciowego dołączonego do maszyny wirtualnej są kombinacją reguł utworzonych w sieciowej grupie zabezpieczeń i [domyślnych reguł zabezpieczeń](security-overview.md#default-security-rules). Zrozumienie obowiązujących reguł zabezpieczeń dla interfejsu sieciowego może pomóc w ustaleniu, dlaczego nie można komunikować się z maszyną wirtualną ani z niej. Można wyświetlić obowiązujące reguły dla dowolnego interfejsu sieciowego dołączonego do uruchomionej maszyny wirtualnej.
+Obowiązujące reguły zabezpieczeń dla każdego interfejsu sieciowego dołączonego do maszyny wirtualnej są kombinacją reguł utworzonych w sieciowej grupie zabezpieczeń i [domyślnych reguł zabezpieczeń](./network-security-groups-overview.md#default-security-rules). Zrozumienie obowiązujących reguł zabezpieczeń dla interfejsu sieciowego może pomóc w ustaleniu, dlaczego nie można komunikować się z maszyną wirtualną ani z niej. Można wyświetlić obowiązujące reguły dla dowolnego interfejsu sieciowego dołączonego do uruchomionej maszyny wirtualnej.
 
 1. W polu wyszukiwania w górnej części portalu wprowadź nazwę maszyny wirtualnej, dla której chcesz wyświetlić obowiązujące reguły zabezpieczeń. Jeśli nie znasz nazwy maszyny wirtualnej, wprowadź *maszyny wirtualne* w polu wyszukiwania. Gdy **maszyny wirtualne** pojawiają się w wynikach wyszukiwania, wybierz je, a następnie wybierz maszynę wirtualną z listy.
-2. W obszarze **Ustawienia**wybierz pozycję **Sieć** .
+2. W obszarze **Ustawienia** wybierz pozycję **Sieć** .
 3. Wybierz nazwę interfejsu sieciowego.
 4. Wybierz pozycję **efektywne reguły zabezpieczeń** w obszarze **Pomoc techniczna i rozwiązywanie problemów**.
-5. Przejrzyj listę obowiązujących reguł zabezpieczeń, aby ustalić, czy istnieją poprawne reguły dla wymaganej komunikacji przychodzącej i wychodzącej. Dowiedz się więcej na temat tego, co widzisz na liście w temacie [Network Security Group — Omówienie](security-overview.md).
+5. Przejrzyj listę obowiązujących reguł zabezpieczeń, aby ustalić, czy istnieją poprawne reguły dla wymaganej komunikacji przychodzącej i wychodzącej. Dowiedz się więcej na temat tego, co widzisz na liście w temacie [Network Security Group — Omówienie](./network-security-groups-overview.md).
 
 Funkcja weryfikacji przepływu IP w usłudze Azure Network Watcher może również pomóc w ustaleniu, czy reguły zabezpieczeń uniemożliwiają komunikację między maszyną wirtualną a punktem końcowym. Aby dowiedzieć się więcej, zobacz [Weryfikowanie przepływu adresów IP](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -235,7 +235,7 @@ Funkcja weryfikacji przepływu IP w usłudze Azure Network Watcher może równie
 Efektywne trasy interfejsów sieciowych dołączonych do maszyny wirtualnej to kombinacja domyślnych tras, wszelkich utworzonych tras oraz wszelkich tras propagowanych z sieci lokalnych za pośrednictwem protokołu BGP za pośrednictwem bramy sieci wirtualnej platformy Azure. Zrozumienie obowiązujących tras dla interfejsu sieciowego może pomóc w ustaleniu, dlaczego nie można komunikować się z maszyną wirtualną lub z niej. Efektywne trasy można wyświetlić dla dowolnego interfejsu sieciowego dołączonego do uruchomionej maszyny wirtualnej.
 
 1. W polu wyszukiwania w górnej części portalu wprowadź nazwę maszyny wirtualnej, dla której chcesz wyświetlić obowiązujące reguły zabezpieczeń. Jeśli nie znasz nazwy maszyny wirtualnej, wprowadź *maszyny wirtualne* w polu wyszukiwania. Gdy **maszyny wirtualne** pojawiają się w wynikach wyszukiwania, wybierz je, a następnie wybierz maszynę wirtualną z listy.
-2. W obszarze **Ustawienia**wybierz pozycję **Sieć** .
+2. W obszarze **Ustawienia** wybierz pozycję **Sieć** .
 3. Wybierz nazwę interfejsu sieciowego.
 4. Wybierz pozycję **efektywne trasy** w obszarze **Pomoc techniczna i rozwiązywanie problemów**.
 5. Przejrzyj listę efektywnych tras, aby ustalić, czy istnieją poprawne trasy dla wymaganej komunikacji przychodzącej i wychodzącej. Dowiedz się więcej o tym, co widzisz na liście w temacie [Omówienie routingu](virtual-networks-udr-overview.md).
@@ -273,4 +273,4 @@ Aby wykonać zadania w interfejsach sieciowych, Twoje konto musi być przypisane
 - Tworzenie pojedynczej maszyny wirtualnej karty sieciowej z wieloma adresami IPv4 przy użyciu [interfejsu wiersza polecenia platformy Azure](virtual-network-multiple-ip-addresses-cli.md) lub [programu PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
 - Utwórz pojedynczą maszynę wirtualną kart sieciowych z prywatnym adresem IPv6 (za Azure Load Balancer) przy użyciu [interfejsu wiersza polecenia platformy Azure](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [programu PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)lub [szablonu Azure Resource Manager](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Tworzenie interfejsu sieciowego przy użyciu [programu PowerShell](powershell-samples.md) lub przykładowego skryptu [interfejsu wiersza polecenia platformy Azure](cli-samples.md) lub użycie [szablonu Menedżer zasobów](template-samples.md) platformy Azure
-- Tworzenie i przypisywanie [definicji Azure Policy](policy-samples.md) dla sieci wirtualnych
+- Tworzenie i przypisywanie [definicji Azure Policy](./policy-reference.md) dla sieci wirtualnych

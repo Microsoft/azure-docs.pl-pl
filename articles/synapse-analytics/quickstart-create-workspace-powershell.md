@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: alehall
 ms.reviewer: jrasnick
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 005e3a3b717d4b1b8e5eb02b77a1d228908f8707
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 0537d2353d6b372ed19127101c488b872bbc5224
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92210633"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218862"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-powershell"></a>Szybki Start: Tworzenie obszaru roboczego usługi Azure Synapse za pomocą Azure PowerShell
 
@@ -30,9 +30,9 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 - [Konto magazynu Azure Data Lake Storage Gen2](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
     > [!IMPORTANT]
-    > Obszar roboczy usługi Azure Synapse musi mieć możliwość odczytu i zapisu na wybranym koncie ADLS Gen2. W przypadku dowolnego konta magazynu, które można połączyć jako konto magazynu podstawowego, należy włączyć **hierarchiczną przestrzeń nazw** podczas tworzenia konta magazynu, zgodnie z opisem w temacie [Tworzenie konta magazynu](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-powershell#create-a-storage-account).
+    > Obszar roboczy usługi Azure Synapse musi mieć możliwość odczytu i zapisu na wybranym koncie ADLS Gen2. W przypadku dowolnego konta magazynu, które można połączyć jako konto magazynu podstawowego, należy włączyć **hierarchiczną przestrzeń nazw** podczas tworzenia konta magazynu, zgodnie z opisem w temacie [Tworzenie konta magazynu](../storage/common/storage-account-create.md?tabs=azure-powershell#create-a-storage-account).
 
-Jeśli zdecydujesz się używać Cloud Shell, zobacz [omówienie Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) , aby uzyskać więcej informacji.
+Jeśli zdecydujesz się używać Cloud Shell, zobacz [omówienie Azure Cloud Shell](../cloud-shell/overview.md) , aby uzyskać więcej informacji.
 
 ### <a name="install-the-azure-powershell-module-locally"></a>Instalowanie modułu Azure PowerShell lokalnie
 
@@ -43,7 +43,7 @@ Aby uzyskać więcej informacji na temat uwierzytelniania przy użyciu Azure Pow
 ### <a name="install-the-azure-synapse-powershell-module"></a>Instalowanie modułu Azure Synapse PowerShell
 
 > [!IMPORTANT]
-> Mimo że moduł **AZ. Synapse** PowerShell jest w wersji zapoznawczej, należy go zainstalować oddzielnie przy użyciu `Install-Module` polecenia cmdlet. Po ogólnym udostępnieniu tego modułu programu PowerShell będzie on częścią przyszłych wydań modułu AZ PowerShell i dostępne domyślnie z poziomu Azure Cloud Shell.
+> Mimo że moduł **AZ. Synapse** PowerShell jest w wersji zapoznawczej, należy go zainstalować oddzielnie przy użyciu `Install-Module` polecenia cmdlet. Gdy ten moduł programu PowerShell stanie się ogólnie dostępny, będzie częścią przyszłych wydań modułu Az programu PowerShell i będzie domyślnie dostępny z poziomu usługi Azure Cloud Shell.
 
 ```azurepowershell-interactive
 Install-Module -Name Az.Synapse
@@ -59,7 +59,7 @@ Install-Module -Name Az.Synapse
    | StorageAccountResourceGroup | Nazwa istniejącej grupy zasobów konta magazynu ADLS Gen2.                                             |
    | FileShareName               | Nazwa istniejącego systemu plików magazynu.                                                                  |
    | SynapseResourceGroup        | Wybierz nową nazwę grupy zasobów usługi Azure Synapse.                                                    |
-   | Region                      | Wybierz jeden z [regionów świadczenia usługi Azure](https://azure.microsoft.com/global-infrastructure/geographies/#overview). |
+   | Region (Region)                      | Wybierz jeden z [regionów świadczenia usługi Azure](https://azure.microsoft.com/global-infrastructure/geographies/#overview). |
    | SynapseWorkspaceName        | Wybierz unikatową nazwę dla nowego obszaru roboczego usługi Azure Synapse.                                                  |
    | Sqluser                     | Wybierz wartość nowej nazwy użytkownika.                                                                          |
    | SqlPassword                 | Wybierz bezpieczne hasło.                                                                                   |

@@ -3,17 +3,17 @@ title: Zabezpieczenia sieci dla Azure Relay
 description: W tym artykule opisano sposób używania reguł zapory IP i prywatnych punktów końcowych z Azure Relay.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 608224f42fac8cd2d8ff06ab84989b1f675d418c
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 735a0b7dc303ad63cb301151e3e14e4488c856b1
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134470"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217247"
 ---
 # <a name="network-security-for-azure-relay"></a>Zabezpieczenia sieci dla Azure Relay 
 W tym artykule opisano sposób korzystania z następujących funkcji zabezpieczeń w Azure Relay: 
 
-- Reguły zapory IP (wersja zapoznawcza)
+- Reguły zapory adresów IP
 - Prywatne punkty końcowe 
 
 > [!NOTE]
@@ -28,9 +28,6 @@ Ta funkcja jest przydatna w scenariuszach, w których Azure Relay powinny być d
 Reguły zapory adresów IP są stosowane na poziomie przestrzeni nazw przekaźnika. W związku z tym reguły są stosowane do wszystkich połączeń z klientów przy użyciu dowolnego obsługiwanego protokołu. Wszystkie próby połączenia z adresu IP, które nie pasują do dozwolonej reguły adresów IP w przestrzeni nazw przekaźnika, są odrzucane jako nieautoryzowane. Odpowiedź nie zawiera wzmianki o regule adresów IP. Reguły filtrowania adresów IP są stosowane w podanej kolejności, a pierwsza reguła zgodna z adresem IP określa akcję Akceptuj lub Odrzuć.
 
 Aby uzyskać więcej informacji, zobacz [jak skonfigurować zaporę IP dla przestrzeni nazw przekaźnika](ip-firewall-virtual-networks.md)
-
-> [!NOTE]
-> Ta funkcja jest obecnie dostępna w **wersji zapoznawczej**. 
 
 ## <a name="private-endpoints"></a>Prywatne punkty końcowe
 

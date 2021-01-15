@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: f26b54a18ff137575cac208d70e4693c0b9914a8
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: c88371eb450d5b0e2e8b821cdec0e87190e291f8
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572290"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218199"
 ---
 # <a name="how-to-manage-synapse-rbac-role-assignments-in-synapse-studio"></a>Jak zarządzać przypisaniami ról RBAC Synapse w programie Synapse Studio
 
@@ -65,7 +65,7 @@ Aby przypisać rolę w zakresie bardziej szczegółowym, wybierz pozycję **elem
 
 ![Dodaj przypisanie roli elementu roboczego — wybierz typ elementu](./media/how-to-manage-synapse-rbac-role-assignments/access-control-add-workspace-item-assignment-select-item-type.png) 
 
-Wybierz konkretny **element** , który ma być używany jako zakres, a następnie wybierz **rolę** , która ma zostać przypisana z listy rozwijanej.  Lista rozwijana zawiera tylko te role, które są prawidłowe dla wybranego typu elementu. [Dowiedz się więcej](https://go.microsoft.com/fwlink/?linkid=2148306).  
+Wybierz konkretny **element** , który ma być używany jako zakres, a następnie wybierz **rolę** , która ma zostać przypisana z listy rozwijanej.  Lista rozwijana zawiera tylko te role, które są prawidłowe dla wybranego typu elementu. [Dowiedz się więcej](./synapse-workspace-synapse-rbac.md).  
 
 ![Dodaj przypisanie roli elementu roboczego — wybierz rolę](./media/how-to-manage-synapse-rbac-role-assignments/access-control-add-workspace-item-assignment-select-role.png) 
  
@@ -81,4 +81,4 @@ Należy pamiętać, że zmiany w przypisaniach ról będą obowiązywać od 2-5 
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Informacje o rolach Synapse RBAC wymaganych do wykonywania typowych zadań](./synapse-workspace-understand-what-role-you-need.md) 
+[Informacje o rolach Synapse RBAC wymaganych do wykonywania typowych zadań](./synapse-workspace-understand-what-role-you-need.md)

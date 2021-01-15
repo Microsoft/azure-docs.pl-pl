@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: eb94b67b026ed108f31f6cd802010577665ec0d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ece3e639e0ef3516696e2a0bad7deeb833433a6
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87286091"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219202"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Rozwiązywanie problemów z łącznością między maszynami wirtualnymi platformy Azure
 
@@ -49,7 +49,7 @@ Wykonaj następujące kroki, aby rozwiązać problem. Po ukończeniu każdego kr
 
 ### <a name="step-1-check-whether-nic-is-misconfigured"></a>Krok 1. sprawdzenie, czy karta sieciowa jest nieprawidłowo skonfigurowana
 
-Wykonaj kroki opisane w temacie [jak zresetować interfejs sieciowy dla maszyny wirtualnej platformy Azure z systemem Windows](../virtual-machines/windows/reset-network-interface.md). 
+Wykonaj kroki opisane w temacie [jak zresetować interfejs sieciowy dla maszyny wirtualnej platformy Azure z systemem Windows](../virtual-machines/troubleshooting/reset-network-interface.md). 
 
 Jeśli problem występuje po zmodyfikowaniu interfejsu sieciowego (NIC), wykonaj następujące kroki:
 
@@ -62,8 +62,8 @@ Aby uzyskać więcej informacji, zobacz [Dodawanie interfejsów sieciowych do lu
 
 **Maszyna wirtualna z jedną kartą sieciową** 
 
-- [Ponowne wdrażanie maszyny wirtualnej z systemem Windows](../virtual-machines/windows/redeploy-to-new-node.md)
-- [Ponowne wdrażanie maszyny wirtualnej z systemem Linux](../virtual-machines/linux/redeploy-to-new-node.md)
+- [Ponowne wdrażanie maszyny wirtualnej z systemem Windows](../virtual-machines/troubleshooting/redeploy-to-new-node-windows.md)
+- [Ponowne wdrażanie maszyny wirtualnej z systemem Linux](../virtual-machines/troubleshooting/redeploy-to-new-node-linux.md)
 
 ### <a name="step-2-check-whether-network-traffic-is-blocked-by-nsg-or-udr"></a>Krok 2. Sprawdzanie, czy ruch sieciowy jest blokowany przez sieciowej grupy zabezpieczeń czy UDR
 
@@ -103,7 +103,7 @@ Lista kontroli dostępu (ACL) zapewnia możliwość selektywnego zezwalania na r
 
 ### <a name="step-7-check-whether-the-endpoint-is-created-for-the-classic-vm"></a>Krok 7. Sprawdzanie, czy punkt końcowy został utworzony dla klasycznej maszyny wirtualnej
 
-Wszystkie maszyny wirtualne utworzone na platformie Azure przy użyciu klasycznego modelu wdrażania mogą automatycznie komunikować się za pośrednictwem kanału sieci prywatnej z innymi maszynami wirtualnymi w tej samej usłudze w chmurze lub sieci wirtualnej. Jednak komputery w innych sieciach wirtualnych wymagają punktów końcowych, aby skierować ruch sieciowy przychodzący do maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [jak skonfigurować punkty końcowe](../virtual-machines/windows/classic/setup-endpoints.md).
+Wszystkie maszyny wirtualne utworzone na platformie Azure przy użyciu klasycznego modelu wdrażania mogą automatycznie komunikować się za pośrednictwem kanału sieci prywatnej z innymi maszynami wirtualnymi w tej samej usłudze w chmurze lub sieci wirtualnej. Jednak komputery w innych sieciach wirtualnych wymagają punktów końcowych, aby skierować ruch sieciowy przychodzący do maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [jak skonfigurować punkty końcowe](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints).
 
 ### <a name="step-8-try-to-connect-to-a-vm-network-share"></a>Krok 8. próba nawiązania połączenia z udziałem sieciowym maszyny wirtualnej
 

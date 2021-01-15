@@ -8,18 +8,18 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: edd1549ddabef0ae1ba37150ad75a371ac6e6d85
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 55d1b7171201c962278d7c526528b36848c19449
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94365520"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217893"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Funkcje to informacje o akcjach i kontekście
 
 Usługa personalizowania działa przez uczenie się, co aplikacja powinna pokazać użytkownikom w danym kontekście.
 
-Personalizacja używa **funkcji** , które są informacjami o **bieżącym kontekście** , aby wybrać najlepszą **akcję**. Funkcje reprezentują wszystkie informacje, które mogą pomóc spersonalizować, aby osiągnąć wyższy poziom korzyści. Funkcje mogą być bardzo ogólne lub specyficzne dla elementu. 
+Personalizacja używa **funkcji**, które są informacjami o **bieżącym kontekście** , aby wybrać najlepszą **akcję**. Funkcje reprezentują wszystkie informacje, które mogą pomóc spersonalizować, aby osiągnąć wyższy poziom korzyści. Funkcje mogą być bardzo ogólne lub specyficzne dla elementu. 
 
 Na przykład może być dostępna **Funkcja** :
 
@@ -37,12 +37,12 @@ Personalizacja nie określa, nie ogranicza ani nie naprawia funkcji, które moż
 
 ## <a name="supported-feature-types"></a>Obsługiwane typy funkcji
 
-Personalizacja obsługuje funkcje typu String, numeric i Boolean.
+Personalizacja obsługuje funkcje typu String, numeric i Boolean. Bardzo prawdopodobnie aplikacja będzie używać funkcji ciągów z kilkoma wyjątkami.
 
 ### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>Jak wybór typu funkcji ma wpływ na Machine Learning w programie Personalizacja
 
-* **Ciągi** : dla typów ciągów każda kombinacja klucza i wartości tworzy nowe wagi w modelu uczenia maszynowego. 
-* Wartość **liczbowa** : należy używać wartości liczbowych, gdy liczba powinna proporcjonalnie wpłynąć na wynik personalizacji. Jest to bardzo zależne. W uproszczonym przykładzie, np. w przypadku personalizowania środowiska sprzedaży detalicznej, NumberOfPetsOwned może być funkcją, która jest wartością numeryczną, ponieważ osoby mające 2 lub 3 zwierzęta domowe mają wpływ na wynik personalizacji dwa razy lub trzy razy dziennie tak samo, jak w przypadku 1 PET. Funkcje, które są oparte na jednostkach liczbowych, ale których znaczenie nie jest liniowe, takie jak wiek, temperatura lub wysokość osoby — są najlepiej kodowane jako ciągi, a jakość funkcji można zazwyczaj zwiększyć przy użyciu zakresów. Na przykład wiek może być zakodowany jako "wiek": "0-5", "wiek": "6-10" itd.
+* **Ciągi**: dla typów ciągów, każda kombinacja klucza i wartości jest traktowana jako funkcja One-Hot (np. gatunek: "ScienceFiction" i gatunek: "Dokumentacja" utworzy dwie nowe funkcje wejściowe dla modelu uczenia maszynowego.
+* Wartość **liczbowa**: należy używać wartości liczbowych, gdy liczba jest wartością, która powinna mieć proporcjonalnie wpływ na wynik personalizacji. Jest to bardzo zależne. W uproszczonym przykładzie, np. w przypadku personalizowania środowiska sprzedaży detalicznej, NumberOfPetsOwned może być funkcją, która jest wartością numeryczną, ponieważ osoby mające 2 lub 3 zwierzęta domowe mają wpływ na wynik personalizacji dwa razy lub trzy razy dziennie tak samo, jak w przypadku 1 PET. Funkcje, które są oparte na jednostkach liczbowych, ale gdzie znaczenie nie jest liniowe, takie jak wiek, temperatura lub wysokość osoby — są najlepiej kodowane jako ciągi. Na przykład DayOfMonth będzie ciągiem z "1", "2"... "31". Jeśli masz wiele kategorii, jakość funkcji można zazwyczaj ulepszyć za pomocą zakresów. Na przykład wiek może być zakodowany jako "wiek": "0-5", "wiek": "6-10" itd.
 * Wartości **logiczne** wysyłane z wartością "false" działają tak, jakby nie zostały wysłane.
 
 Nieobecne funkcje powinny być pominięte w żądaniu. Należy unikać wysyłania funkcji o wartości null, ponieważ zostaną one przetworzone jako istniejące i mają wartość "null" podczas uczenia modelu.
@@ -54,7 +54,7 @@ Personalizacja wykonuje funkcje zorganizowane w przestrzenie nazw. W aplikacji n
 Poniżej przedstawiono przykłady przestrzeni nazw funkcji używanych przez aplikacje:
 
 * User_Profile_from_CRM
-* Czas
+* Godzina
 * Mobile_Device_Info
 * http_user_agent
 * VideoResolution
@@ -80,12 +80,14 @@ Obiekty JSON mogą zawierać zagnieżdżone obiekty JSON oraz proste właściwo�
         { 
             "user": {
                 "profileType":"AnonymousUser",
-                "latlong": [47.6, -122.1]
+                "latlong": ["47.6", "-122.1"]
             }
         },
         {
-            "state": {
-                "timeOfDay": "noon",
+            "environment": {
+                "dayOfMonth": "28",
+                "monthOfYear": "8",
+                "timeOfDay": "13:00",
                 "weather": "sunny"
             }
         },
@@ -93,6 +95,13 @@ Obiekty JSON mogą zawierać zagnieżdżone obiekty JSON oraz proste właściwo�
             "device": {
                 "mobile":true,
                 "Windows":true
+            }
+        },
+        {
+            "userActivity" : {
+                "itemsInCart": 3,
+                "cartValue": 250,
+                "appliedCoupon": true
             }
         }
     ]
@@ -112,6 +121,8 @@ Ciąg używany do nazywania przestrzeni nazw musi spełniać pewne ograniczenia:
 Dobry zestaw funkcji ułatwia personalizację, aby dowiedzieć się, jak prognozować akcję, która zwiększy najwyższy poziom. 
 
 Rozważ wysłanie funkcji do interfejsu API rangi narzędzia personalizacji, który przestrzega następujących zaleceń:
+
+* Używaj kategorii i typów ciągów dla funkcji, które nie są wielkością. 
 
 * Dostępna jest wystarczająca liczba funkcji do personalizacji dysków. Im bardziej precyzyjnie skierowana jest zawartość, tym więcej funkcji są potrzebne.
 

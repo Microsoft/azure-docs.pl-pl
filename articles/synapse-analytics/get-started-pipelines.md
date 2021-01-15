@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: pipeline
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: ade8a6b400967bc13fe3593f83f00ecc49ef06a2
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 2ea7c3c440fcf95e4512464333efe8461788bceb
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209801"
+ms.locfileid: "98219406"
 ---
 # <a name="integrate-with-pipelines"></a>Integracja z potokami
 
@@ -46,4 +46,3 @@ W usłudze Azure Synapse można zintegrować wiele różnych zadań.
 
 > [!div class="nextstepaction"]
 > [Wizualizacja danych przy użyciu usługi Power BI](get-started-visualize-power-bi.md)
-                                 

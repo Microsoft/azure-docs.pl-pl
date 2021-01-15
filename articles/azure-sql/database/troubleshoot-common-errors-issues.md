@@ -9,13 +9,13 @@ ms.custom: seo-lt-2019, OKR 11/2019, sqldbrb=1
 author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: sstein,vanto
-ms.date: 01/14/2020
-ms.openlocfilehash: bcf11ef9b64a02383aad5175c19c5db58c3c39cf
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 01/14/2021
+ms.openlocfilehash: 7c797c7e002f40a28e4be674c125c6ea5d60a13f
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791345"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219066"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Rozwiązywanie problemów z łącznością i innych błędów przy użyciu Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -24,7 +24,7 @@ Komunikaty o błędach są wyświetlane, gdy połączenie z Azure SQL Database l
 
 ## <a name="transient-fault-error-messages-40197-40613-and-others"></a>Komunikaty o błędach przejściowych (40197, 40613 i inne)
 
-Infrastruktura platformy Azure ma możliwość dynamicznego ponownego konfigurowania serwerów w przypadku wystąpienia dużych obciążeń w usłudze SQL Database.  Takie zachowanie dynamiczne może spowodować utratę połączenia z bazą danych lub wystąpieniem programu klienckiego. Ten rodzaj warunku błędu nazywa się *błędem przejściowym* . Zdarzenia ponownej konfiguracji bazy danych występują ze względu na planowane zdarzenie (na przykład uaktualnienie oprogramowania) lub niezaplanowane zdarzenie (na przykład awaria procesu lub Równoważenie obciążenia). Większość zdarzeń ponownej konfiguracji jest zwykle krótkoterminowa i powinna być wykonana w mniej niż 60 sekund. Jednak te zdarzenia mogą czasami trwać dłużej, na przykład wtedy, gdy duża transakcja powoduje długotrwałe odzyskiwanie. W poniższej tabeli wymieniono różne błędy przejściowe, które aplikacje mogą odbierać podczas nawiązywania połączenia z usługą SQL Database
+Infrastruktura platformy Azure ma możliwość dynamicznego ponownego konfigurowania serwerów w przypadku wystąpienia dużych obciążeń w usłudze SQL Database.  Takie zachowanie dynamiczne może spowodować utratę połączenia z bazą danych lub wystąpieniem programu klienckiego. Ten rodzaj warunku błędu nazywa się *błędem przejściowym*. Zdarzenia ponownej konfiguracji bazy danych występują ze względu na planowane zdarzenie (na przykład uaktualnienie oprogramowania) lub niezaplanowane zdarzenie (na przykład awaria procesu lub Równoważenie obciążenia). Większość zdarzeń ponownej konfiguracji jest zwykle krótkoterminowa i powinna być wykonana w mniej niż 60 sekund. Jednak te zdarzenia mogą czasami trwać dłużej, na przykład wtedy, gdy duża transakcja powoduje długotrwałe odzyskiwanie. W poniższej tabeli wymieniono różne błędy przejściowe, które aplikacje mogą odbierać podczas nawiązywania połączenia z usługą SQL Database
 
 ### <a name="list-of-transient-fault-error-codes"></a>Lista kodów błędów przejściowych
 
@@ -119,19 +119,19 @@ Zazwyczaj administrator usługi może wykonać następujące kroki, aby dodać p
 4. Jeśli nazwa użytkownika logowania SQL nie istnieje, utwórz ją, wykonując następujące czynności:
 
    1. W programie SSMS kliknij dwukrotnie pozycję **zabezpieczenia** , aby ją rozwinąć.
-   2. Kliknij prawym przyciskiem myszy pozycję **logowania** , a następnie wybierz pozycję **Nowa nazwa logowania** .
+   2. Kliknij prawym przyciskiem myszy pozycję **logowania**, a następnie wybierz pozycję **Nowa nazwa logowania**.
    3. W wygenerowanym skrypcie z symbolami zastępczymi Edytuj i uruchom następujące zapytanie SQL:
 
    ```sql
    CREATE LOGIN <SQL_login_name, sysname, login_name>
-   WITH PASSWORD = ‘<password, sysname, Change_Password>’
+   WITH PASSWORD = '<password, sysname, Change_Password>'
    GO
    ```
 
-5. Kliknij dwukrotnie pozycję **baza danych** .
+5. Kliknij dwukrotnie pozycję **baza danych**.
 6. Wybierz bazę danych, do której chcesz przyznać uprawnienia użytkownika.
-7. Kliknij dwukrotnie pozycję **zabezpieczenia** .
-8. Kliknij prawym przyciskiem myszy pozycję **Użytkownicy** , a następnie wybierz polecenie **nowy użytkownik** .
+7. Kliknij dwukrotnie pozycję **zabezpieczenia**.
+8. Kliknij prawym przyciskiem myszy pozycję **Użytkownicy**, a następnie wybierz polecenie **nowy użytkownik**.
 9. W wygenerowanym skrypcie z symbolami zastępczymi Edytuj i uruchom następujące zapytanie SQL:
 
    ```sql
@@ -141,7 +141,7 @@ Zazwyczaj administrator usługi może wykonać następujące kroki, aby dodać p
    GO
    -- Add user to the database owner role
 
-   EXEC sp_addrolemember N’db_owner’, N’<user_name, sysname, user_name>’
+   EXEC sp_addrolemember N'db_owner', N'<user_name, sysname, user_name>'
    GO
    ```
 
@@ -183,22 +183,20 @@ Aby obejść ten problem, wypróbuj jedną z następujących metod:
 - Sprawdź, czy są wykonywane długotrwałe zapytania.
 
   > [!NOTE]
-  > Jest to minimalistyczny podejście, które może nie rozwiązać problemu.
+  > Jest to minimalistyczny podejście, które może nie rozwiązać problemu. Aby uzyskać szczegółowe informacje dotyczące rozwiązywania problemów z blokowaniem zapytań, zobacz [Omówienie i rozwiązywanie problemów z blokowaniem usługi Azure SQL](understand-resolve-blocking.md).
 
 1. Uruchom następujące zapytanie SQL, aby sprawdzić widok [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) , aby wyświetlić wszystkie żądania blokowania:
 
    ```sql
-   SELECT * FROM dm_exec_requests
+   SELECT * FROM sys.dm_exec_requests;
    ```
 
 2. Określ **bufor wejściowy** dla bloku głównego.
 3. Dostrajanie zapytania bloku nagłówkowego.
 
-   Aby uzyskać szczegółową procedurę rozwiązywania problemów, zobacz [czy moje zapytanie działa prawidłowo w chmurze?](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
+   Aby uzyskać szczegółową procedurę rozwiązywania problemów, zobacz [czy moje zapytanie działa prawidłowo w chmurze?](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud). 
 
 Jeśli baza danych konsekwentnie osiągnie swój limit, niezależnie od blokowania i długotrwałych zapytań, rozważ uaktualnienie [do wersji o](https://azure.microsoft.com/pricing/details/sql-database/)większej liczbie zasobów.
-
-Aby uzyskać więcej informacji na temat dynamicznych widoków zarządzania, zobacz [dynamiczne zarządzanie dynamicznymi widokami](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
 
 Aby uzyskać więcej informacji na temat limitów baz danych, zobacz  [SQL Database limitów zasobów dla serwerów](./resource-limits-logical-server.md).
 
@@ -234,7 +232,7 @@ Poniższe kroki mogą pomóc w obejść problemu lub zapewnieniu dodatkowych opc
    FROM sys.objects o
    JOIN sys.dm_db_partition_stats p on p.object_id = o.object_id
    GROUP BY o.name
-   ORDER BY [Table Size (MB)] DESC
+   ORDER BY [Table Size (MB)] DESC;
    ```
 
 2. Jeśli bieżący rozmiar nie przekracza maksymalnego rozmiaru obsługiwanego przez daną wersję, można użyć polecenia ALTER DATABASE, aby zwiększyć ustawienie rozmiaru.
@@ -253,7 +251,7 @@ Jeśli ten błąd wystąpi wielokrotnie, spróbuj rozwiązać problem, wykonują
 1. Sprawdź widok sys.dm_exec_requests, aby wyświetlić otwarte sesje o dużej wartości dla kolumny total_elapsed_time. Wykonaj to sprawdzenie, uruchamiając następujący skrypt SQL:
 
    ```sql
-   SELECT * FROM dm_exec_requests
+   SELECT * FROM sys.dm_exec_requests;
    ```
 
 2. Określ bufor wejściowy dla długotrwałego zapytania.
@@ -315,7 +313,7 @@ Następujące błędy są związane z tworzeniem i używaniem pul elastycznych:
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |Osiągnięto limit magazynowania elastycznej puli. Użycie magazynu dla puli elastycznej nie może przekroczyć (% d) MB. Podjęto próbę zapisu danych w bazie danych, gdy osiągnięto limit magazynowania puli elastycznej. Aby uzyskać informacje na temat limitów zasobów, zobacz: <br/>&bull;&nbsp; [Limity dla pul elastycznych](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limity dla pul elastycznych rdzeń wirtualny](resource-limits-vcore-elastic-pools.md). <br/> |Rozważ zwiększenie DTU i/lub dodanie magazynu do puli elastycznej, jeśli jest to możliwe, aby zwiększyć jej limit magazynowania, zmniejszyć ilość miejsca używanego przez pojedyncze bazy danych w puli elastycznej lub usunąć bazy danych z puli elastycznej. Aby uzyskać skalowanie puli elastycznej, zobacz [skalowanie zasobów w puli elastycznej](elastic-pool-scale.md).|
 | 10929 | 16 |Minimalna gwarancja% s wynosi% d, maksymalny limit wynosi% d, a bieżące użycie bazy danych to% d. Jednak serwer jest obecnie zbyt zajęty, aby obsługiwać żądania większe niż% d dla tej bazy danych. Aby uzyskać informacje na temat limitów zasobów, zobacz: <br/>&bull;&nbsp; [Limity dla pul elastycznych](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limity dla pul elastycznych rdzeń wirtualny](resource-limits-vcore-elastic-pools.md). <br/> W przeciwnym razie spróbuj ponownie później. Wartość DTU/rdzeń wirtualny min na bazę danych; Maksymalna liczba jednostek DTU/rdzeń wirtualny na bazę danych. Całkowita liczba współbieżnych procesów roboczych (żądań) dla wszystkich baz danych w puli elastycznej podjęła próbę przekroczenia limitu puli. |Rozważ zwiększenie DTU lub rdzeni wirtualnych puli elastycznej, jeśli jest to możliwe, aby zwiększyć jej limit procesów roboczych lub usunąć bazy danych z puli elastycznej. |
-| 40844 | 16 |Baza danych "% ls" na serwerze "% ls" jest bazą danych wersji "% ls" w puli elastycznej i nie może mieć relacji ciągłego kopiowania.  |Nie dotyczy |
+| 40844 | 16 |Baza danych "% ls" na serwerze "% ls" jest bazą danych wersji "% ls" w puli elastycznej i nie może mieć relacji ciągłego kopiowania.  |Brak |
 | 40857 | 16 |Nie znaleziono puli elastycznej dla serwera: "% ls", Nazwa puli elastycznej: "% ls". Określona Pula elastyczna nie istnieje na określonym serwerze. | Podaj prawidłową nazwę puli elastycznej. |
 | 40858 | 16 |Pula elastyczna "% ls" już istnieje na serwerze: "% ls". Określona Pula elastyczna już istnieje na określonym serwerze. | Podaj nazwę nowej puli elastycznej. |
 | 40859 | 16 |Pula elastyczna nie obsługuje warstwy usług "% ls". Określona warstwa usług nie jest obsługiwana w przypadku aprowizacji elastycznej puli. |Wprowadź poprawną wersję lub pozostaw pustą warstwę usługi, aby użyć domyślnej warstwy usług. |
@@ -340,8 +338,8 @@ Ten problem występuje, ponieważ konto nie ma uprawnień dostępu do bazy danyc
 
 Aby rozwiązać ten problem, wykonaj poniższe czynności:
 
-1. Na ekranie logowania programu SSMS wybierz pozycję **Opcje** , a następnie wybierz pozycję **Właściwości połączenia** .
-2. W polu **Połącz z bazą danych** Wprowadź domyślną nazwę bazy danych użytkownika jako domyślną bazę danych logowania, a następnie wybierz pozycję **Połącz** .
+1. Na ekranie logowania programu SSMS wybierz pozycję **Opcje**, a następnie wybierz pozycję **Właściwości połączenia**.
+2. W polu **Połącz z bazą danych** Wprowadź domyślną nazwę bazy danych użytkownika jako domyślną bazę danych logowania, a następnie wybierz pozycję **Połącz**.
 
    ![Connection properties (Właściwości połączenia)](./media/troubleshoot-common-errors-issues/cannot-open-database-master.png)
 
@@ -390,5 +388,5 @@ Aby uzyskać więcej informacji na temat włączania rejestrowania, zobacz [Wł�
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Architektura łączności Azure SQL Database](./connectivity-architecture.md)
+- [Architektura łączności usługi Azure SQL Database](./connectivity-architecture.md)
 - [Azure SQL Database i kontrola dostępu do sieci w usłudze Azure Synapse Analytics](./network-access-controls-overview.md)

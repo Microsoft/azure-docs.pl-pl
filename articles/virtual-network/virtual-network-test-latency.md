@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: steveesp
-ms.openlocfilehash: 77ea14097538f722569acb5a0371674776aac8e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8f167a7947c42ce837ec83b336ae636f593f2e4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84687807"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219262"
 ---
 # <a name="test-vm-network-latency"></a>Testowanie opóźnienia sieci maszyn wirtualnych
 
@@ -55,7 +55,7 @@ Za pomocą tych narzędzi można zagwarantować, że tylko czasy dostarczania pr
 Podczas tworzenia konfiguracji maszyny wirtualnej należy wziąć pod uwagę następujące zalecenia:
 - Użyj najnowszej wersji systemu Windows lub Linux.
 - Włącz przyspieszoną sieć w celu uzyskania najlepszych wyników.
-- Wdróż maszyny wirtualne przy użyciu [grupy umieszczania usługi Azure zbliżeniowe](https://docs.microsoft.com/azure/virtual-machines/linux/co-location).
+- Wdróż maszyny wirtualne przy użyciu [grupy umieszczania usługi Azure zbliżeniowe](../virtual-machines/co-location.md).
 - Większe maszyny wirtualne zwykle działają lepiej niż w przypadku mniejszych maszyn wirtualnych.
 
 ### <a name="tips-for-analysis"></a>Wskazówki dotyczące analizy
@@ -77,7 +77,7 @@ Rozważ umieszczenie latte.exe w osobnym folderze, na przykład *c:\Tools*.
 
 ### <a name="allow-latteexe-through-windows-defender-firewall"></a>Zezwalaj na latte.exe za poorednictwem zapory Windows Defender
 
-Na *odbiorniku*Utwórz regułę zezwalania w zaporze Windows Defender, aby zezwolić na odbieranie latte.exe ruchu. Najłatwiej jest zezwolić na cały program latte.exe według nazwy, a nie zezwalać na ruch przychodzący określonych portów TCP.
+Na *odbiorniku* Utwórz regułę zezwalania w zaporze Windows Defender, aby zezwolić na odbieranie latte.exe ruchu. Najłatwiej jest zezwolić na cały program latte.exe według nazwy, a nie zezwalać na ruch przychodzący określonych portów TCP.
 
 Zezwól na latte.exe za pomocą zapory Windows Defender, uruchamiając następujące polecenie:
 
@@ -91,7 +91,7 @@ Na przykład, jeśli skopiowano latte.exe do folderu *c:\Tools* , będzie to pol
 
 ### <a name="run-latency-tests"></a>Testy opóźnienia uruchamiania
 
-* Na *odbiorniku*Uruchom latte.exe (Uruchom go z okna cmd, a nie z programu PowerShell):
+* Na *odbiorniku* Uruchom latte.exe (Uruchom go z okna cmd, a nie z programu PowerShell):
 
     ```cmd
     latte -a <Receiver IP address>:<port> -i <iterations>
@@ -105,13 +105,13 @@ Na przykład, jeśli skopiowano latte.exe do folderu *c:\Tools* , będzie to pol
 
     `latte -a 10.0.0.4:5005 -i 65100`
 
-* Na stronie *nadawca*Uruchom latte.exe (Uruchom ją z okna cmd, a nie z programu PowerShell):
+* Na stronie *nadawca* Uruchom latte.exe (Uruchom ją z okna cmd, a nie z programu PowerShell):
 
     ```cmd
     latte -c -a <Receiver IP address>:<port> -i <iterations>
     ```
 
-    Wyniki polecenia są takie same jak w odniesieniu do odbiornika, z tą różnicą, &nbsp; *-c* że jest to *Klient*lub *nadawca*:
+    Wyniki polecenia są takie same jak w odniesieniu do odbiornika, z tą różnicą, &nbsp;  że jest to *Klient* lub *nadawca*:
 
     `latte -c -a 10.0.0.4:5005 -i 65100`
 
@@ -123,7 +123,7 @@ Aby przetestować maszyny wirtualne z systemem Linux, użyj [SockPerf](https://g
 
 ### <a name="install-sockperf-on-the-vms"></a>Instalowanie SockPerf na maszynach wirtualnych
 
-Na maszynach wirtualnych systemu Linux, *nadawcy* i *odbiorniku*Uruchom następujące polecenia, aby przygotować SockPerf na maszynach wirtualnych. Polecenia są dostępne dla głównych dystrybucje.
+Na maszynach wirtualnych systemu Linux, *nadawcy* i *odbiorniku* Uruchom następujące polecenia, aby przygotować SockPerf na maszynach wirtualnych. Polecenia są dostępne dla głównych dystrybucje.
 
 #### <a name="for-red-hat-enterprise-linux-rhelcentos"></a>Dla Red Hat Enterprise Linux (RHEL)/CentOS
 
@@ -200,7 +200,7 @@ Ten SockPerf przykład używa rozmiaru komunikatu 350-bajtowego, który jest typ
 
 
 ## <a name="next-steps"></a>Następne kroki
-* Zwiększ opóźnienie przy użyciu [grupy rozmieszczenia usługi Azure zbliżeniowe](https://docs.microsoft.com/azure/virtual-machines/linux/co-location).
+* Zwiększ opóźnienie przy użyciu [grupy rozmieszczenia usługi Azure zbliżeniowe](../virtual-machines/co-location.md).
 * Dowiedz się, jak [zoptymalizować sieci dla maszyn wirtualnych](../virtual-network/virtual-network-optimize-network-bandwidth.md) w danym scenariuszu.
 * Przeczytaj o tym [, jak przepustowość jest przypisana do maszyn wirtualnych](../virtual-network/virtual-machine-network-throughput.md).
 * Aby uzyskać więcej informacji, zobacz [często zadawane pytania dotyczące usługi Azure Virtual Network](../virtual-network/virtual-networks-faq.md).

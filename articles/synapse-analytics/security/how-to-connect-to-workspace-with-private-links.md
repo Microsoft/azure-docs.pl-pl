@@ -8,20 +8,20 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 699a7321646167b0a9fb20a77a40999ec33b14f0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9782cce4165487b612c0295dc893d120ed043225
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461329"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218267"
 ---
 # <a name="connect-to-your-azure-synapse-workspace-using-private-links"></a>Nawiązywanie połączenia z obszarem roboczym usługi Azure Synapse za pomocą łączy prywatnych
 
-W tym artykule przedstawiono sposób tworzenia prywatnego punktu końcowego w obszarze roboczym usługi Azure Synapse. Aby dowiedzieć się więcej [, zobacz prywatne linki i prywatne punkty końcowe](https://docs.microsoft.com/azure/private-link/) .
+W tym artykule przedstawiono sposób tworzenia prywatnego punktu końcowego w obszarze roboczym usługi Azure Synapse. Aby dowiedzieć się więcej [, zobacz prywatne linki i prywatne punkty końcowe](../../private-link/index.yml) .
 
 ## <a name="step-1-register-network-resource-provider"></a>Krok 1. rejestrowanie dostawcy zasobów sieciowych
 
-Jeśli jeszcze tego nie zrobiono, zarejestruj dostawcę zasobów sieciowych. Rejestracja dostawcy zasobów umożliwia skonfigurowanie subskrypcji do pracy z dostawcą zasobów. Po [zarejestrowaniu](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)wybierz pozycję *Microsoft. Network* z listy dostawców zasobów. Jeśli dostawca zasobów sieciowych jest już zarejestrowany, przejdź do kroku 2.
+Jeśli jeszcze tego nie zrobiono, zarejestruj dostawcę zasobów sieciowych. Rejestracja dostawcy zasobów umożliwia skonfigurowanie subskrypcji do pracy z dostawcą zasobów. Po [zarejestrowaniu](../../azure-resource-manager/management/resource-providers-and-types.md)wybierz pozycję *Microsoft. Network* z listy dostawców zasobów. Jeśli dostawca zasobów sieciowych jest już zarejestrowany, przejdź do kroku 2.
 
 ## <a name="step-2-open-your-azure-synapse-workspace-in-azure-portal"></a>Krok 2. Otwieranie obszaru roboczego usługi Azure Synapse w Azure Portal
 

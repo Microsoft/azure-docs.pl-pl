@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: c9e9ea2e59537a1c0c8e372a766fba3aa9a1b9a0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bc0ac1a6e882f4197828bf79c7989c16b2eb16f7
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88122184"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217672"
 ---
 # <a name="quickstart-create-a-virtual-network---resource-manager-template"></a>Szybki Start: Tworzenie szablonu Menedżer zasobów sieci wirtualnej
 
@@ -36,8 +36,8 @@ Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego
 :::code language="json" source="~/quickstart-templates/101-vnet-two-subnets/azuredeploy.json" range="001-96" highlight="56-92":::
 
 Następujące zasoby platformy Azure zostały zdefiniowane w szablonie:
-- [**Microsoft. Network/virtualNetworks**](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks): tworzenie sieci wirtualnej platformy Azure.
--  [**Microsoft. Network/virtualNetworks/podsieci**](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks/subnets) — Utwórz podsieć.
+- [**Microsoft. Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks): tworzenie sieci wirtualnej platformy Azure.
+-  [**Microsoft. Network/virtualNetworks/podsieci**](/azure/templates/microsoft.network/virtualnetworks/subnets) — Utwórz podsieć.
 
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
@@ -56,7 +56,7 @@ Wdróż szablon Menedżer zasobów na platformie Azure:
 
 Eksploruj zasoby, które zostały utworzone za pomocą sieci wirtualnej.
 
-Aby dowiedzieć się więcej o składni i właściwościach JSON dla sieci wirtualnej w szablonie, zobacz [Microsoft. Network/virtualNetworks](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+Aby dowiedzieć się więcej o składni i właściwościach JSON dla sieci wirtualnej w szablonie, zobacz [Microsoft. Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks).
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

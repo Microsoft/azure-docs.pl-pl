@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/25/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2e96cbf0c1464e27b0a384e8a813118056103b91
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 41403a59be0395a6d9874c7369bfe59c22f5ac17
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296689"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218369"
 ---
 # <a name="connect-to-workspace-resources-from-a-restricted-network"></a>Łączenie z zasobami obszaru roboczego z sieci z ograniczeniami
 
@@ -40,7 +40,7 @@ Poniższy zrzut ekranu przedstawia szczegółowe informacje dotyczące Azure Res
 
 Podczas tworzenia innych trzech reguł Zastąp wartość **docelową tag usługi** wartościami **AzureFrontDoor. frontonu**, **usługi azureactivedirectory** lub **AzureMonitor** z listy.
 
-Aby uzyskać więcej informacji, zobacz [Omówienie tagów usług](/azure/virtual-network/service-tags-overview).
+Aby uzyskać więcej informacji, zobacz [Omówienie tagów usług](../../virtual-network/service-tags-overview.md).
 
 ## <a name="step-2-create-private-link-hubs"></a>Krok 2. Tworzenie centrów linków prywatnych
 

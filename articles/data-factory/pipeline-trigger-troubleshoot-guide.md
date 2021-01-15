@@ -7,46 +7,40 @@ ms.date: 12/15/2020
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: 0e67a316b012eda61607c84edfd8e10d6aa3318d
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 0ceee3c65e8c4df5d843bb441fb6426a0f4eb696
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589172"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220256"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Rozwiązywanie problemów z aranżacją i wyzwalaczami potoku w Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Uruchomienie potoku w bieżącej wersji usługi Azure Data Factory definiuje wystąpienie wykonania potoku. Na przykład masz potok, który jest wykonywany o 8:00 AM, 9:00 AM i 10:00 AM. W takim przypadku istnieją trzy osobne uruchomienia potoku lub przebiegów potoku. Każde uruchomienie potoku ma unikatowy identyfikator uruchomienia potoku. Identyfikator uruchomienia jest identyfikatorem GUID (unikatowym identyfikatorem globalnym), który definiuje określony przebieg potoku.
+Uruchomienie potoku w bieżącej wersji usługi Azure Data Factory definiuje wystąpienie wykonania potoku. Załóżmy na przykład, że masz potok, który działa o godzinie 8:00, 9:00 AM i 10:00 AM. W takim przypadku istnieją trzy oddzielne uruchomienia potoku. Każde uruchomienie potoku ma unikatowy identyfikator uruchomienia potoku. Identyfikator uruchomienia jest unikatowym identyfikatorem globalnym (GUID), który definiuje określony przebieg potoku.
 
-Uruchomienia potoku są tworzone zazwyczaj przez przekazanie argumentów do parametrów, które definiujesz w potoku. Potok możesz wykonywać ręcznie albo za pomocą wyzwalacza. Aby uzyskać szczegółowe informacje [, zobacz wykonywanie potoku i Wyzwalacze w Azure Data Factory](concepts-pipeline-execution-triggers.md) .
+Uruchomienia potoku są tworzone zazwyczaj przez przekazanie argumentów do parametrów, które definiujesz w potoku. Potok można uruchomić ręcznie lub przy użyciu wyzwalacza. Aby uzyskać szczegółowe informacje [, zobacz wykonywanie potoku i Wyzwalacze w Azure Data Factory](concepts-pipeline-execution-triggers.md) .
 
 ## <a name="common-issues-causes-and-solutions"></a>Typowe problemy, przyczyny i rozwiązania
 
-### <a name="pipeline-with-azure-function-throws-error-with-private-end-point-connectivity"></a>Potok z funkcją platformy Azure zgłasza błąd z prywatnym połączeniem punktu końcowego
+### <a name="an-azure-functions-app-pipeline-throws-an-error-with-private-endpoint-connectivity"></a>Potok aplikacji Azure Functions zgłasza błąd z łącznością z prywatnym punktem końcowym
  
-#### <a name="issue"></a>Problem
-W przypadku pewnego kontekstu masz Data Factory i aplikacja funkcji na platformie Azure uruchomione w prywatnym punkcie końcowym. Podjęto próbę uzyskania potoku, który współdziała z aplikacja funkcjiem platformy Azure. Wypróbowano trzy różne metody, ale jeden z nich zwraca błąd `Bad Request` , pozostałe dwie metody zwracają `103 Error Forbidden` .
+Masz Data Factory i aplikację funkcji platformy Azure uruchomioną w prywatnym punkcie końcowym. Próbujesz uruchomić potok, który współdziała z aplikacją funkcji. Wypróbowano trzy różne metody, ale jeden zwraca błąd "złe żądanie", a pozostałe dwie metody zwracają "103 błąd zabroniony".
 
-#### <a name="cause"></a>Przyczyna 
-Data Factory obecnie nie obsługuje łącznika prywatnego punktu końcowego dla usługi Azure aplikacja funkcji. Powinna to być powód, dla którego usługa Azure aplikacja funkcji odrzuca wywołania, ponieważ byłyby skonfigurowane do zezwalania tylko na połączenia z prywatnego linku.
+**Przyczyna**: obecnie Data Factory nie obsługuje prywatnego łącznika punktu końcowego dla aplikacji funkcji. Azure Functions odrzuca wywołania, ponieważ jest ono skonfigurowane do zezwalania tylko na połączenia z prywatnego linku.
 
-#### <a name="resolution"></a>Rozwiązanie
-Można utworzyć prywatny punkt końcowy typu **PrivateLinkService** i udostępnić system DNS aplikacji funkcji, a połączenie powinno działać.
+**Rozwiązanie**: Tworzenie punktu końcowego **PrivateLinkService** i udostępnianie systemu DNS aplikacji funkcji.
 
-### <a name="pipeline-run-is-killed-but-the-monitor-still-shows-progress-status"></a>Uruchomienie potoku zostało przerwane, ale monitor nadal pokazuje stan postępu
+### <a name="a-pipeline-run-is-canceled-but-the-monitor-still-shows-progress-status"></a>Uruchomienie potoku zostało anulowane, ale monitor nadal pokazuje stan postępu
 
-#### <a name="issue"></a>Problem
-Często w przypadku kasowania uruchomienia potoku monitorowanie potoku nadal pokazuje stan postępu. Dzieje się tak z powodu problemu z pamięcią podręczną w przeglądarce i nie masz odpowiednich filtrów do monitorowania.
+Po anulowaniu uruchomienia potoku monitorowanie potoku często nadal pokazuje stan postępu. Dzieje się tak z powodu problemu z pamięcią podręczną przeglądarki. Mogą również nie mieć prawidłowych filtrów monitorowania.
 
-#### <a name="resolution"></a>Rozwiązanie
-Odśwież przeglądarkę i zastosuj odpowiednie filtry do monitorowania.
+**Rozwiązanie**: Odśwież przeglądarkę i Zastosuj poprawne filtry monitorowania.
  
-### <a name="copy-pipeline-failure--found-more-columns-than-expected-column-count-delimitedtextmorecolumnsthandefined"></a>Błąd potoku kopiowania — znaleziono więcej kolumn niż liczba oczekiwanych kolumn (DelimitedTextMoreColumnsThanDefined)
-
-#### <a name="issue"></a>Problem  
-Jeśli pliki w określonym folderze kopiowanym zawierają pliki o różnych schematach, takich jak zmienna liczba kolumn, różne ograniczniki, Ustawienia znaków cudzysłowu lub problemy z danymi, potok Data Factory zostanie uruchomiony w ramach tego błędu:
+### <a name="you-see-a-delimitedtextmorecolumnsthandefined-error-when-copying-a-pipeline"></a>Podczas kopiowania potoku pojawia się błąd "DelimitedTextMoreColumnsThanDefined"
+ 
+Jeśli kopiowany folder zawiera pliki z różnymi schematami, takimi jak zmienna liczba kolumn, różne ograniczniki, Ustawienia znaków cudzysłowu lub niektóre problemy z danymi, potok Data Factory może zgłosić ten błąd:
 
 `
 Operation on target Copy_sks  failed: Failure happened on 'Sink' side.
@@ -56,51 +50,41 @@ Message=Error found when processing 'Csv/Tsv Format Text' source '0_2020_11_09_1
 Source=Microsoft.DataTransfer.Common,'
 `
 
-#### <a name="resolution"></a>Rozwiązanie
-Podczas tworzenia działania Kopiowanie danych wybierz opcję "kopia binarna". W ten sposób w przypadku kopiowania zbiorczego lub migrowania danych z jednego Data Lake do innego, przy użyciu opcji **Binary** , Data Factory nie będzie otwierać plików w celu odczytywania schematu, ale po prostu Traktuj każdy plik jako binarny i skopiuj je do innej lokalizacji.
+**Rozwiązanie**: wybierz opcję **kopiowania binarnego** podczas tworzenia działania kopiowania. W ten sposób, w przypadku kopiowania zbiorczego lub migrowania danych z jednej usługi Data Lake do innej, Data Factory nie będzie można otworzyć plików, aby odczytać schemat. Zamiast tego Data Factory będzie traktować każdy plik jako binarny i skopiować go do innej lokalizacji.
 
-### <a name="pipeline-run-fails-when-capacity-limit-of-integration-runtime-is-reached"></a>Uruchomienie potoku kończy się niepowodzeniem, gdy zostanie osiągnięty limit pojemności środowiska Integration Runtime
+### <a name="a-pipeline-run-fails-when-you-reach-the-capacity-limit-of-the-integration-runtime"></a>Uruchomienie potoku kończy się niepowodzeniem po osiągnięciu limitu pojemności środowiska Integration Runtime
 
-#### <a name="issue"></a>Problem
 Komunikat o błędzie:
 
 `
 Type=Microsoft.DataTransfer.Execution.Core.ExecutionException,Message=There are substantial concurrent MappingDataflow executions which is causing failures due to throttling under Integration Runtime 'AutoResolveIntegrationRuntime'.
 `
 
-Ten błąd wskazuje na ograniczenie środowiska Integration Runtime, które jest obecnie 50. Aby uzyskać szczegółowe informacje, zobacz [limity](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#version-2) .
+**Przyczyna**: osiągnięto limit pojemności środowiska Integration Runtime. Może być uruchomiona duża ilość przepływu danych przy użyciu tego samego środowiska Integration Runtime w tym samym czasie. Aby uzyskać szczegółowe informacje [, zobacz limity subskrypcji i usług platformy Azure, limity przydziału i ograniczenia](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#version-2) .
 
-Jeśli wykonujesz dużą ilość przepływu danych przy użyciu tego samego środowiska Integration Runtime w tym samym czasie, może to spowodować wystąpienie błędu.
+**Rozwiązanie**:
+ 
+- Uruchamianie potoków o różnych porach wyzwalacza.
+- Utwórz nowe środowisko Integration Runtime i Podziel potoki na wiele środowisk Integration Runtime.
 
-#### <a name="resolution"></a>Rozwiązanie 
-- Oddziel te potoki dla różnych czasów wyzwalacza do wykonania.
-- Utwórz nowe środowisko Integration Runtime i Podziel te potoki na wiele środowisk Integration Runtime.
+### <a name="you-have-activity-level-errors-and-failures-in-pipelines"></a>Występują błędy i błędy na poziomie aktywności w potokach
 
-### <a name="how-to-monitor-pipeline-failures-on-regular-interval"></a>Jak monitorować błędy potoków w regularnych odstępach czasu
+Azure Data Factory aranżacji umożliwia logikę warunkową i umożliwia użytkownikom korzystanie z różnych ścieżek na podstawie wyniku poprzedniej aktywności. Umożliwia ona cztery ścieżki warunkowe: **po powodzeniu** (domyślny przebieg), **po awarii**, **po zakończeniu** i **po pominięciu**. 
 
-#### <a name="issue"></a>Problem
-Często istnieje potrzeba monitorowania Data Factory potoków w odstępach czasu, powiedzmy 5 minut. Można wykonywać zapytania i filtrować uruchomienia potoku z fabryki danych przy użyciu punktu końcowego. 
+Azure Data Factory oblicza wynik wszystkich działań na poziomie liścia. Wyniki potoku są pomyślne tylko wtedy, gdy wszystkie opuszczenia zostały zakończone pomyślnie. Jeśli działanie liścia zostało pominięte, ocenimy jego działanie nadrzędne. 
 
-#### <a name="recommendation"></a>Zalecenie
-1. Skonfiguruj aplikację logiki platformy Azure, aby wykonywać zapytania dotyczące wszystkich zakończonych niepowodzeniem potoków co 5 minut.
-2. Następnie można zgłosić incydenty do naszego systemu biletów na [QueryByFactory](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory).
+**Rozwiązanie**
 
-#### <a name="reference"></a>Dokumentacja
-- [Powiadomienia zewnętrzne wysyłane z Data Factory](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/)
+1. Zaimplementuj kontrole na poziomie działania, wykonując następujące czynności [, jak obsługiwać awarie i błędy potoków](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
+1. Użyj Azure Logic Apps, aby monitorować potoki w regularnych odstępach czasu [, wykonując zapytania według fabryki](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory).
 
-### <a name="how-to-handle-activity-level-errors-and-failures-in-pipelines"></a>Jak obsłużyć błędy i błędy na poziomie działania w potokach
+## <a name="monitor-pipeline-failures-in-regular-intervals"></a>Monitoruj błędy potoku w regularnych odstępach czasu
 
-#### <a name="issue"></a>Problem
-Azure Data Factory aranżacji umożliwia logikę warunkową i umożliwia użytkownikowi korzystanie z różnych ścieżek w oparciu o wyniki poprzedniej aktywności. Zezwala na cztery ścieżki warunkowe: "po powodzeniu (domyślne przejście)", "po niepowodzeniu", "po ukończeniu" i "przy pominięciu". Dozwolone są różne ścieżki.
+Może być konieczne monitorowanie niezakończonych potoków Data Factory w interwałach, powiedzmy 5 minut. Można wykonywać zapytania i filtrować uruchomienia potoku z fabryki danych przy użyciu punktu końcowego. 
 
-Azure Data Factory definiuje powodzenie przebiegu potoku i Niepowodzenie w następujący sposób:
+Skonfiguruj aplikację logiki platformy Azure, aby wykonywać zapytania dotyczące wszystkich zakończonych niepowodzeniem potoków co 5 minut, zgodnie z opisem w temacie [zapytanie według fabryki](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory). Następnie możesz zgłosić zdarzenia do naszego systemu biletów.
 
-- Oceń wyniki wszystkich działań na poziomie liścia. Jeśli działanie liścia zostało pominięte, ocenimy jego działanie nadrzędne.
-- Wynik potoku jest zakończony pomyślnie, jeśli tylko w przypadku pomyślnego zakończenia.
-
-#### <a name="recommendation"></a>Zalecenie
-- Zaimplementuj operacje sprawdzania poziomu działania po [dojściu do niepowodzeń i błędów potoku](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
-- Za pomocą aplikacji logiki platformy Azure można monitorować potoki w regularnych odstępach czasu [, wykonując zapytania przez fabrykę]( https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory)danych.
+Aby uzyskać więcej informacji, przejdź do [strony wysyłanie powiadomień z Data Factory, część 2](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/).
 
 ## <a name="next-steps"></a>Następne kroki
 

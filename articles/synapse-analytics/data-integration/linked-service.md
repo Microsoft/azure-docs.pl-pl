@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: fb3c7dd7b3d7e8e42e230eedcd0d1b43af104327
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: af6afa2b0285fe741241183ed99712a132953a30
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452520"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220120"
 ---
 # <a name="secure-a-linked-service-with-private-links"></a>Zabezpieczanie połączonej usługi za pomocą linków prywatnych
 
@@ -23,7 +23,7 @@ W tym artykule dowiesz się, jak zabezpieczyć połączoną usługę w Synapse z
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * **Subskrypcja platformy Azure**: Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/) .
-* **Konto usługi Azure Storage**: używasz Azure Data Lake Gen 2 jako magazynu danych *źródłowych* . Jeśli nie masz konta magazynu, zobacz [Tworzenie konta usługi Azure Storage](../../storage/blobs/data-lake-storage-quickstart-create-account.md) , aby uzyskać instrukcje. Upewnij się, że konto magazynu ma filtrowanie adresów IP programu Synapse Studio, aby uzyskać do niego dostęp, i czy zezwolisz tylko **wybranym sieci** na dostęp do konta magazynu. Ustawienia w obszarze **zapory i sieci wirtualne** bloku powinny wyglądać jak na poniższej ilustracji.
+* **Konto usługi Azure Storage**: używasz Azure Data Lake Gen 2 jako magazynu danych *źródłowych* . Jeśli nie masz konta magazynu, zobacz [Tworzenie konta usługi Azure Storage](../../storage/common/storage-account-create.md) , aby uzyskać instrukcje. Upewnij się, że konto magazynu ma filtrowanie adresów IP programu Synapse Studio, aby uzyskać do niego dostęp, i czy zezwolisz tylko **wybranym sieci** na dostęp do konta magazynu. Ustawienia w obszarze **zapory i sieci wirtualne** bloku powinny wyglądać jak na poniższej ilustracji.
 
 ![Zabezpieczone konto magazynu](./media/secure-storage-account.png)
 

@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: 38332492ba9f20ea7c6682d8341ddf6b5f1f11dd
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 683da659dcfa07c0a105382f4cc93d1f4dfb21b5
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209426"
+ms.locfileid: "98219541"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Analizowanie danych za pomocą dedykowanych pul SQL
 
@@ -24,7 +24,7 @@ Usługa Azure Synapse Analytics umożliwia analizowanie danych za pomocą dedyko
 ## <a name="load-the-nyc-taxi-data-into-sqlpool1"></a>Załaduj dane z NYC taksówki do SQLPOOL1
 
 1. W programie Synapse Studio przejdź do centrum **opracowywania** , kliknij **+** przycisk, aby dodać nowy zasób, a następnie utwórz nowy skrypt SQL.
-1. Wybierz pulę "SQLPOOL1" (Pula utworzona w [kroku 1](https://docs.microsoft.com/azure/synapse-analytics/get-started-create-workspace#create-a-sql-pool) tego samouczka) na liście rozwijanej "Połącz z" powyżej skryptu.
+1. Wybierz pulę "SQLPOOL1" (Pula utworzona w [kroku 1](./get-started-create-workspace.md) tego samouczka) na liście rozwijanej "Połącz z" powyżej skryptu.
 1. Wprowadź następujący kod:
     ```
     CREATE TABLE [dbo].[Trip]
@@ -103,4 +103,3 @@ Usługa Azure Synapse Analytics umożliwia analizowanie danych za pomocą dedyko
 
 > [!div class="nextstepaction"]
 > [Analizowanie przy użyciu platformy Spark](get-started-analyze-spark.md)
-

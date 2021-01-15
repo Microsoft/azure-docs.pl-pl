@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 0405db2b68abefbfdc424def9e35e363e45043cd
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 5861e79054bed0d9d75258dfa9cb39b198f0f93d
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98180136"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216448"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indeksatory w usłudze Azure Cognitive Search
 
 *Indeksator* na platformie Azure wyszukiwanie poznawcze to przeszukiwarka, która wyodrębnia dane z możliwością wyszukiwania i metadane z zewnętrznego źródła danych platformy Azure i wypełnia indeks wyszukiwania przy użyciu mapowań pola do pola między danymi źródłowymi a indeksem. Takie podejście jest czasami nazywane "modelem ściągania", ponieważ usługa ściąga dane w programie bez konieczności pisania kodu, który dodaje dane do indeksu.
 
-Indeksatory są oparte tylko na platformie Azure, z poszczególnymi indeksatorami dla usług Azure SQL, Azure Cosmos DB, Table Storage platformy Azure i Blob Storage. Podczas konfigurowania indeksatora należy określić źródło danych, a także indeks (miejsce docelowe). Niektóre źródła danych, takie jak indeksatory magazynu obiektów blob, mają dodatkowe właściwości specyficzne dla tego typu zawartości.
+Indeksatory są oparte tylko na platformie Azure, z poszczególnymi indeksatorami dla usług [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Azure Cosmos DB](search-howto-index-cosmosdb.md), [Table Storage platformy Azure](search-howto-indexing-azure-tables.md) i [BLOB Storage](search-howto-indexing-azure-blob-storage.md). Podczas konfigurowania indeksatora należy określić źródło danych, a także indeks (miejsce docelowe). Kilka źródeł, takich jak BLOB Storage, ma dodatkowe właściwości konfiguracji specyficzne dla tego typu zawartości.
 
 Indeksatory można uruchamiać na żądanie lub według cyklicznego harmonogramu odświeżania danych uruchamianego co pięć minut. Częstsze aktualizacje wymagają modelu wypychania, który jednocześnie aktualizuje dane zarówno w usłudze Azure Wyszukiwanie poznawcze, jak i w zewnętrznym źródle danych.
 
@@ -31,8 +31,8 @@ Można użyć indeksatora jako jedynego środka do pozyskiwania danych lub uży�
 | Scenariusz |Strategia |
 |----------|---------|
 | Pojedyncze Źródło | Ten wzorzec jest najprostszy: jedno źródło danych jest jedynym dostawcą zawartości dla indeksu wyszukiwania. Ze źródła można zidentyfikować jedno pole zawierające unikatowe wartości, które będzie stanowić klucz dokumentu w indeksie wyszukiwania. Unikatowa wartość zostanie użyta jako identyfikator. Wszystkie inne pola źródłowe są mapowane niejawnie lub jawnie do odpowiednich pól w indeksie. </br></br>Ważnym wnioskiem jest to, że wartość klucza dokumentu pochodzi z danych źródłowych. Usługa wyszukiwania nie generuje wartości kluczy. W kolejnych uruchomieniach dokumenty przychodzące z nowymi kluczami są dodawane, podczas gdy dokumenty przychodzące z istniejącymi kluczami są scalone lub zastępowane, w zależności od tego, czy pola indeksu mają wartość null czy wypełniono. |
-| Wiele źródeł| Indeks może akceptować zawartość z wielu źródeł, gdzie każda z nich uruchamia nową zawartość z innego źródła. </br></br>Jeden z wyników może być indeksem, który uzyskuje dokumenty po uruchomieniu każdego indeksatora, z całymi dokumentami utworzonymi w całości z każdego źródła. Wyzwanie dla tego scenariusza polega na projektowaniu schematu indeksu, który działa dla wszystkich danych przychodzących, i klucz dokumentu, który jest jednolity w indeksie wyszukiwania. Na przykład, jeśli wartości, które jednoznacznie identyfikują dokument, są metadata_storage_path w kontenerze obiektów blob i klucz podstawowy w tabeli SQL, można przystąpić do tego, że jedno lub oba źródła muszą zostać zmienione w celu zapewnienia wartości kluczy w typowym formacie, niezależnie od źródła zawartości. W tym scenariuszu należy zastanowić się, aby przetworzyć pewien poziom przetwarzania wstępnego, aby homogenizować dane, aby można było je ściągnąć do jednego indeksu.</br></br>Alternatywny wynik może wyszukiwać dokumenty, które są częściowo wypełniane podczas pierwszego uruchomienia, a następnie uzupełniane przez kolejne uruchomienia w celu wprowadzenia wartości z innych źródeł. Wyzwaniem tego wzorca jest upewnienie się, że każdy przebieg indeksowania ma cel tego samego dokumentu. Scalanie pól w istniejącym dokumencie wymaga dopasowania klucza dokumentu. Aby zapoznać się z prezentacją tego scenariusza, zobacz [Samouczek: indeks z wielu źródeł danych](tutorial-multiple-data-sources.md). |
-| Przekształcanie zawartości | Wyszukiwanie poznawcze obsługuje opcjonalne zachowania [wzbogacania AI](cognitive-search-concept-intro.md) , które dodają analizę obrazu i przetwarzanie języka naturalnego w celu utworzenia nowej, przeszukiwanej zawartości i struktury. Wzbogacanie AI jest zdefiniowane przez [zestawu umiejętności](cognitive-search-working-with-skillsets.md), dołączone do indeksatora. Aby przeprowadzić wzbogacanie AI, indeksator nadal potrzebuje indeksu i źródła danych, ale w tym scenariuszu program dodaje zestawu umiejętności do wykonywania indeksatora. |
+| Wiele źródeł| Indeks może akceptować zawartość z wielu źródeł, gdzie każda z nich uruchamia nową zawartość z innego źródła. </br></br>Jeden z wyników może być indeksem, który uzyskuje dokumenty po uruchomieniu każdego indeksatora, z całymi dokumentami utworzonymi w całości z każdego źródła. Przykładowo dokumenty 1-100 pochodzą z magazynu obiektów blob, dokumenty 101-200 pochodzą z usługi Azure SQL i tak dalej. Wyzwanie dla tego scenariusza polega na projektowaniu schematu indeksu, który działa dla wszystkich danych przychodzących, oraz struktury klucza dokumentu, która jest jednolita w indeksie wyszukiwania. Natywnie wartości, które jednoznacznie identyfikują dokument, są metadata_storage_path w kontenerze obiektów blob i klucz podstawowy w tabeli SQL. Można wyobrazić, że jedno lub oba źródła należy zmienić w celu zapewnienia wartości kluczy w typowym formacie, niezależnie od źródła zawartości. W tym scenariuszu należy zastanowić się, aby przetworzyć pewien poziom przetwarzania wstępnego, aby homogenizować dane, aby można było je ściągnąć do jednego indeksu.</br></br>Alternatywny wynik może wyszukiwać dokumenty, które są częściowo wypełniane podczas pierwszego uruchomienia, a następnie uzupełniane przez kolejne uruchomienia w celu wprowadzenia wartości z innych źródeł. Na przykład pola 1-10 pochodzą z magazynu obiektów blob, 11-20 z usługi Azure SQL i tak dalej. Wyzwaniem tego wzorca jest upewnienie się, że każdy przebieg indeksowania ma cel tego samego dokumentu. Scalanie pól w istniejącym dokumencie wymaga dopasowania klucza dokumentu. Aby zapoznać się z prezentacją tego scenariusza, zobacz [Samouczek: indeks z wielu źródeł danych](tutorial-multiple-data-sources.md). |
+| Przekształcanie zawartości | Wyszukiwanie poznawcze obsługuje opcjonalne zachowania [wzbogacania AI](cognitive-search-concept-intro.md) , które dodają analizę obrazu i przetwarzanie języka naturalnego w celu utworzenia nowej, przeszukiwanej zawartości i struktury. Wzbogacanie AI jest oparte na indeksatorze przez dołączoną [zestawu umiejętności](cognitive-search-working-with-skillsets.md). Aby przeprowadzić wzbogacanie AI, indeksator nadal potrzebuje indeksu i źródła danych, ale w tym scenariuszu program dodaje zestawu umiejętności do wykonywania indeksatora. |
 
 ## <a name="approaches-for-creating-and-managing-indexers"></a>Podejścia do tworzenia indeksatorów i zarządzania nimi
 
@@ -61,7 +61,7 @@ Indeksatory przeszukują magazyny danych na platformie Azure.
 + [Azure Table Storage](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 + [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-+ [SQL Managed Instance](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
++ [Wystąpienie zarządzane SQL](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 + [Program SQL Server na maszynach wirtualnych platformy Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 
 ## <a name="stages-of-indexing"></a>Etapy indeksowania
@@ -92,9 +92,9 @@ Wykonywanie zestawu umiejętności jest opcjonalnym krokiem, który wywołuje wb
 
 ### <a name="stage-4-output-field-mappings"></a>Etap 4: mapowania pól wyjściowych
 
-Dane wyjściowe zestawu umiejętności to w rzeczywistości drzewo informacji o nazwie wzbogacony dokument. Mapowania pól wyjściowych umożliwiają wybranie, które części tego drzewa mają być mapowane na pola w indeksie. Dowiedz się, jak [definiować mapowania pól wyjściowych](cognitive-search-output-field-mapping.md).
+Jeśli dołączysz zestawu umiejętności, najprawdopodobniej będzie trzeba uwzględnić mapowania pól wyjściowych. Dane wyjściowe zestawu umiejętności to w rzeczywistości drzewo informacji o nazwie wzbogacony dokument. Mapowania pól wyjściowych umożliwiają wybranie, które części tego drzewa mają być mapowane na pola w indeksie. Dowiedz się, jak [definiować mapowania pól wyjściowych](cognitive-search-output-field-mapping.md).
 
-Podobnie jak mapowania pól, które kojarzą wartości Verbatim z pól źródłowych do docelowych, mapowania pól wyjściowych wskazują indeksator, w jaki sposób należy skojarzyć przekształcone wartości z polami docelowymi w indeksie. W przeciwieństwie do mapowań pól, które są uważane za opcjonalne, zawsze trzeba zdefiniować mapowanie pola danych wyjściowych dla dowolnej przekształconej zawartości, która musi znajdować się w indeksie.
+Mapowania pól kojarzą wartości Verbatim ze źródła danych z polami docelowymi, natomiast mapowania pól wyjściowych wskazują indeksator, w jaki sposób należy skojarzyć przekształcone wartości w dodanym wzbogaconym dokumencie do pól docelowych w indeksie. W przeciwieństwie do mapowań pól, które są uważane za opcjonalne, zawsze trzeba zdefiniować mapowanie pola danych wyjściowych dla dowolnej przekształconej zawartości, która musi znajdować się w indeksie.
 
 Na następnym obrazie przedstawiono reprezentację etapów [debugowania](cognitive-search-debug-session.md) z przykładowym indeksatorem: łamanie dokumentów, mapowania pól, wykonywanie zestawu umiejętności oraz mapowania pól danych wyjściowych.
 

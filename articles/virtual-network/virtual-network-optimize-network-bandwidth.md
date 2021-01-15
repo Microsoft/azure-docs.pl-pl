@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/06/2020
 ms.author: steveesp
-ms.openlocfilehash: a9db2bcc0b44dfb6146517de8a139f34cd8584af
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: bb9235f4d1190bf7f71ddc007f09c9666c353234
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654459"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216805"
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Optymalizowanie przepływności sieci dla maszyn wirtualnych platformy Azure
 
@@ -152,7 +152,7 @@ sudo ./install.sh #or upgrade.sh if prior LIS was previously installed
 Dowiedz się więcej o usługach integracji systemu Linux w wersji 4,2 dla funkcji Hyper-V, wyświetlając [stronę pobierania](https://www.microsoft.com/download/details.aspx?id=55106).
 
 ## <a name="next-steps"></a>Następne kroki
-* Wdrażanie maszyn wirtualnych blisko siebie w przypadku małych opóźnień z [grupą umieszczania w sąsiedztwie](../virtual-machines/windows/co-location.md)
+* Wdrażanie maszyn wirtualnych blisko siebie w przypadku małych opóźnień z [grupą umieszczania w sąsiedztwie](../virtual-machines/co-location.md)
 * Zapoznaj się z zoptymalizowanym wynikiem [testowania przepustowości/przepływności maszyny wirtualnej platformy Azure](virtual-network-bandwidth-testing.md) dla Twojego scenariusza.
 * Przeczytaj o sposobie [przydzielenia przepustowości do maszyn wirtualnych](virtual-machine-network-throughput.md)
 * Dowiedz się więcej na temat [usługi Azure Virtual Network często zadawanych pytań](virtual-networks-faq.md)

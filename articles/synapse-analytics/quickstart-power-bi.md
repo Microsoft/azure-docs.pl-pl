@@ -9,12 +9,12 @@ ms.subservice: business-intelligence
 ms.date: 10/27/2020
 ms.author: jocaplan
 ms.reviewer: jrasnick
-ms.openlocfilehash: 996233e2526b8b69c13abd4340ead4c5e2175916
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9c63e5e24495f373f288d2789780a6c671a7cc24
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450675"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218403"
 ---
 # <a name="quickstart-linking-a-power-bi-workspace-to-a-synapse-workspace"></a>Szybki Start: łączenie obszaru roboczego Power BI z obszarem roboczym Synapse
 
@@ -25,7 +25,7 @@ Jeśli nie masz subskrypcji platformy Azure, [przed rozpoczęciem utwórz bezpł
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - [Tworzenie obszaru roboczego usługi Azure Synapse i skojarzonego konta magazynu](quickstart-create-workspace.md)
-- [Obszar roboczy Power BI Professional lub Premium](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces)
+- [Obszar roboczy Power BI Professional lub Premium](/power-bi/service-create-the-new-workspaces)
 
 ## <a name="link-power-bi-workspace-to-your-synapse-workspace"></a>Łączenie obszaru roboczego Power BI z obszarem roboczym Synapse
 

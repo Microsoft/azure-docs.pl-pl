@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
-ms.openlocfilehash: a080c3953c48227301052a0bb151c8cba96e515a
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 9ce1e320a93a834a938ce95f3931d885d2214faa
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94737391"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216873"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-the-azure-cli"></a>Zarządzanie eksfiltracjiami danych na kontach usługi Azure Storage za pomocą zasad punktu końcowego usług sieci wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -114,7 +114,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-Każda sieciowa Grupa zabezpieczeń zawiera kilka [domyślnych reguł zabezpieczeń](security-overview.md#default-security-rules). Reguła, która następuje, zastępuje domyślną regułę zabezpieczeń, która zezwala na dostęp wychodzący do wszystkich publicznych adresów IP. `destination-address-prefix "Internet"`Opcja powoduje odmowę dostępu wychodzącego do wszystkich publicznych adresów IP. Poprzednia reguła zastępuje tę regułę z powodu wyższego priorytetu, co umożliwia dostęp do publicznych adresów IP usługi Azure Storage.
+Każda sieciowa Grupa zabezpieczeń zawiera kilka [domyślnych reguł zabezpieczeń](./network-security-groups-overview.md#default-security-rules). Reguła, która następuje, zastępuje domyślną regułę zabezpieczeń, która zezwala na dostęp wychodzący do wszystkich publicznych adresów IP. `destination-address-prefix "Internet"`Opcja powoduje odmowę dostępu wychodzącego do wszystkich publicznych adresów IP. Poprzednia reguła zastępuje tę regułę z powodu wyższego priorytetu, co umożliwia dostęp do publicznych adresów IP usługi Azure Storage.
 
 ```azurecli-interactive
 az network nsg rule create \

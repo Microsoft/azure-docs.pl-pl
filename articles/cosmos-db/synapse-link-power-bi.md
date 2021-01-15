@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: acomet
-ms.openlocfilehash: be2657d9606f260fcea06d2535be87fc6976577c
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 8a3142199502b912f20ebe05c625aa40be9fab11
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915678"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218675"
 ---
 # <a name="use-power-bi-and-serverless-synapse-sql-pool-preview-to-analyze-azure-cosmos-db-data-with-synapse-link"></a>Użyj Power BI i bezserwerowej puli SQL Synapse (wersja zapoznawcza) w celu przeanalizowania Azure Cosmos DB danych za pomocą linku Synapse 
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -41,7 +41,7 @@ Przed rozpoczęciem upewnij się, że zostały utworzone następujące zasoby:
 
 ## <a name="create-a-database-and-views"></a>Tworzenie bazy danych i widoków
 
-W obszarze roboczym Synapse przejdź do karty **programowanie** , wybierz **+** ikonę, a następnie wybierz pozycję **skrypt SQL**.
+Tworzenie widoków w bazach danych Master lub default nie jest zalecane ani obsługiwane. Aby rozpocząć ten krok, należy utworzyć bazę danych. W obszarze roboczym Synapse przejdź do karty **programowanie** , wybierz **+** ikonę, a następnie wybierz pozycję **skrypt SQL**.
 
 :::image type="content" source="./media/synapse-link-power-bi/add-sql-script.png" alt-text="Dodawanie skryptu SQL do obszaru roboczego analizy Synapse":::
 

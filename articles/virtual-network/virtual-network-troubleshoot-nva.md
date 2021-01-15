@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 3a8982b5626e3c19dbd49a3d2e20542d44b1a1da
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 18f2128b6869b4047cc6f35e1638aca81233a014
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368591"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219287"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Problemy z sieciowym urządzeniem wirtualnym na platformie Azure
 
@@ -107,7 +107,7 @@ Korzystanie z programu PowerShell
    netstat -an
     ```
 
-    Dla systemu Linux:
+    W przypadku systemu Linux:
 
     ```console
    netstat -an | grep -i listen
@@ -127,7 +127,7 @@ Jeśli w sieci maszyny wirtualnej używane są skoki lub przedstawiono okresy wy
 ## <a name="advanced-network-administrator-troubleshooting"></a>Zaawansowane rozwiązywanie problemów z administratorem sieci
 
 ### <a name="capture-network-trace"></a>Przechwyć śledzenie sieci
-Przechwyć jednoczesne śledzenie sieci na źródłowej maszynie wirtualnej, urządzenie WUS i docelowej maszynie wirtualnej podczas uruchamiania **[PsPing](https://docs.microsoft.com/sysinternals/downloads/psping)** lub **Nmap**, a następnie Zatrzymaj śledzenie.
+Przechwyć jednoczesne śledzenie sieci na źródłowej maszynie wirtualnej, urządzenie WUS i docelowej maszynie wirtualnej podczas uruchamiania **[PsPing](/sysinternals/downloads/psping)** lub **Nmap**, a następnie Zatrzymaj śledzenie.
 
 1. Aby przechwycić jednoczesne śledzenie sieci, uruchom następujące polecenie:
 
@@ -135,7 +135,7 @@ Przechwyć jednoczesne śledzenie sieci na źródłowej maszynie wirtualnej, urz
 
    polecenie netsh Trace Rozpocznij przechwytywanie = Yes TraceFile = c:\ server_IP. etl scenariusz = NetConnection
 
-   **W przypadku systemu Linux**
+   **Dla systemu Linux**
 
    sudo tcpdump-S0-i eth0-X-w vmtrace. Cap
 

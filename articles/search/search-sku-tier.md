@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 062bd41b0803cbb08f74fbcbcebb89bbddeb0d45
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 4c58968cb6a38a10433915ec8fa00336ccad301e
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559807"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216414"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Wybierz warstwę cenową dla usługi Azure Wyszukiwanie poznawcze
 
@@ -88,15 +88,13 @@ W przypadku szacowania kosztów rozwiązania wyszukiwania należy pamiętać, ż
 
 ### <a name="bandwidth-charges"></a>Opłaty za przepustowość
 
-Korzystanie z [indeksatorów](search-indexer-overview.md) może mieć wpływ na rozliczenia, jeśli źródło danych platformy Azure znajduje się w innym regionie niż usługa Azure wyszukiwanie poznawcze. W tym scenariuszu jest to koszt przeniesienia danych wychodzących ze źródła danych platformy Azure do usługi Azure Wyszukiwanie poznawcze. 
+Korzystanie z [indeksatorów](search-indexer-overview.md) może mieć wpływ na rozliczenia, jeśli źródło danych platformy Azure znajduje się w innym regionie niż usługa Azure wyszukiwanie poznawcze. W tym scenariuszu kosztem przeniesienia danych wychodzących ze źródła danych platformy Azure do usługi Azure Wyszukiwanie poznawcze mogą być koszty. Aby uzyskać szczegółowe informacje, zapoznaj się ze stronami cennika platformy danych platformy Azure.
 
 Opłaty za wychodzące dane można wyeliminować całkowicie, jeśli utworzysz usługę Azure Wyszukiwanie poznawcze w tym samym regionie, w którym zawarto dane. Poniżej przedstawiono niektóre informacje na [stronie cennika dotyczące przepustowości](https://azure.microsoft.com/pricing/details/bandwidth/):
 
-+ Firma Microsoft nie nalicza opłat za żadne dane przychodzące do żadnej usługi na platformie Azure.
-+ Nie ma opłaty za dane wychodzące z usługi Azure Wyszukiwanie poznawcze. Jeśli na przykład usługa wyszukiwania znajduje się w regionie zachodnie stany USA, a aplikacja internetowa platformy Azure jest w Wschodnie stany USA, firma Microsoft nie nalicza opłat za ładunki odpowiedzi dotyczące zapytań, które pochodzą z regionu zachodnie stany USA.
-+ W przypadku rozwiązań z obsługą kilku usług nie jest naliczana opłata za dane przecinające sieć, gdy wszystkie usługi znajdują się w tym samym regionie.
++ Dane przychodzące: Firma Microsoft nie nalicza opłat za żadne dane przychodzące do żadnej usługi na platformie Azure. 
 
-Opłaty są naliczane za dane wychodzące, jeśli usługi znajdują się w różnych regionach. Opłaty te nie są faktycznie częścią rachunku na korzystanie z platformy Azure Wyszukiwanie poznawcze. Są one wymienione w tym miejscu, ponieważ w przypadku korzystania z danych lub indeksatorów wzbogaconych przez program AI do ściągania danych z różnych regionów widoczne są koszty związane z ogólnym rozliczeniami.
++ Dane wychodzące: dane wychodzące odnoszą się do wyników zapytania. Wyszukiwanie poznawcze nie nalicza opłat za dane wychodzące, ale opłaty wychodzące z platformy Azure są możliwe, jeśli usługi znajdują się w różnych regionach. Opłaty te nie są faktycznie częścią rachunku na korzystanie z platformy Azure Wyszukiwanie poznawcze. Są one wymienione tutaj, ponieważ w przypadku wysyłania wyników do innych regionów lub aplikacji niezwiązanych z platformą Azure można zobaczyć te koszty w ramach ogólnego rachunku.
 
 ### <a name="ai-enrichment-with-cognitive-services"></a>Wzbogacanie AI z Cognitive Services
 

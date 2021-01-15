@@ -11,18 +11,18 @@ ms.topic: how-to
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
-ms.date: 04/19/2020
-ms.openlocfilehash: 480e9f9031481621ac9d568a7bd97b942f47b947
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 1/14/2021
+ms.openlocfilehash: b87d0a2446eb2b65c20ae0bef408320686cb5165
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493646"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219134"
 ---
 # <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Monitorowanie wydajności usługi Microsoft Azure SQL Database i Azure SQL Managed Instance przy użyciu dynamicznych widoków zarządzania
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Microsoft Azure SQL Database i wystąpienie zarządzane usługi Azure SQL umożliwiają podzbiór dynamicznych widoków zarządzania do diagnozowania problemów z wydajnością, które mogą być spowodowane przez zablokowane lub długotrwałe zapytania, wąskie gardła zasobów, słabe plany zapytań i tak dalej. Ten temat zawiera informacje dotyczące wykrywania typowych problemów z wydajnością przy użyciu dynamicznych widoków zarządzania.
+Microsoft Azure SQL Database i wystąpienie zarządzane usługi Azure SQL umożliwiają podzbiór dynamicznych widoków zarządzania do diagnozowania problemów z wydajnością, które mogą być spowodowane przez zablokowane lub długotrwałe zapytania, wąskie gardła zasobów, słabe plany zapytań i tak dalej. Ten artykuł zawiera informacje dotyczące wykrywania typowych problemów z wydajnością przy użyciu dynamicznych widoków zarządzania.
 
 Microsoft Azure SQL Database i wystąpienie zarządzane usługi Azure SQL częściowo obsługują trzy kategorie dynamicznych widoków zarządzania:
 
@@ -254,12 +254,12 @@ GO
 
 W przypadku identyfikowania problemów dotyczących wydajności operacji we/wy najważniejsze typy oczekiwania skojarzone z `tempdb` problemami to `PAGELATCH_*` (nie `PAGEIOLATCH_*` ). Jednak `PAGELATCH_*` oczekiwania nie zawsze oznaczają `tempdb` rywalizację.  To oczekiwanie może również oznaczać występowanie rywalizacji o stronę danych obiektu użytkownika z powodu współbieżnych żądań przeznaczonych dla tej samej strony danych. Aby dodatkowo potwierdzić `tempdb` rywalizację, użyj [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) , aby potwierdzić, że wait_resource wartość zaczyna się od, `2:x:y` gdzie 2 jest `tempdb` identyfikatorem bazy danych, `x` jest identyfikatorem pliku i jest identyfikatorem `y` strony.  
 
-W przypadku rywalizacji o bazę danych tempdb wspólna metoda polega na zmniejszeniu lub ponownym zapisaniu kodu aplikacji, na którym bazuje `tempdb` .  Typowe `tempdb` obszary użycia obejmują:
+W przypadku rywalizacji o bazę danych tempdb wspólna metoda polega na zmniejszeniu lub zapisaniu kodu aplikacji, na którym bazuje `tempdb` .  Typowe `tempdb` obszary użycia obejmują:
 
 - Tabele tymczasowe
 - Zmienne tabeli
 - Parametry z wartościami przechowywanymi w tabeli
-- Użycie magazynu wersji (powiązane w szczególności z długotrwałymi transakcjami)
+- Użycie magazynu wersji (skojarzone z długotrwałymi transakcjami)
 - Zapytania z planami, które używają sortowania, sprzężeń skrótów i buforów
 
 ### <a name="top-queries-that-use-table-variables-and-temporary-tables"></a>Najpopularniejsze zapytania, które używają zmiennych tabeli i tabel tymczasowych
@@ -563,14 +563,14 @@ SELECT resource_name, AVG(avg_cpu_percent) AS Average_Compute_Utilization
 FROM sys.server_resource_stats
 WHERE start_time BETWEEN @s AND @e  
 GROUP BY resource_name  
-HAVING AVG(avg_cpu_percent) >= 80
+HAVING AVG(avg_cpu_percent) >= 80;
 ```
 
 ### <a name="sysresource_stats"></a>sys.resource_stats
 
 Widok [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) w bazie danych **Master** zawiera dodatkowe informacje, które mogą ułatwić monitorowanie wydajności bazy danych w określonej warstwie usług i rozmiarze obliczeniowym. Dane są zbierane co 5 minut i są przechowywane przez około 14 dni. Ten widok jest przydatny do długoterminowej analizy historycznej, w jaki sposób baza danych używa zasobów.
 
-Na poniższym wykresie przedstawiono użycie zasobów procesora CPU dla bazy danych w warstwie Premium z wielkością obliczeniową P2 dla każdej godziny w tygodniu. Ten wykres zaczyna się w poniedziałek, pokazuje 5 dni roboczych, a następnie pokazuje weekend, gdy jest znacznie mniejszy w aplikacji.
+Na poniższym wykresie przedstawiono użycie zasobów procesora CPU dla bazy danych w warstwie Premium z wielkością obliczeniową P2 dla każdej godziny w tygodniu. Ten wykres zaczyna się w poniedziałek, pokazuje pięć dni roboczych, a następnie pokazuje weekend, gdy jest znacznie mniejszy w aplikacji.
 
 ![Użycie zasobów bazy danych](./media/monitoring-with-dmvs/sql_db_resource_utilization.png)
 
@@ -589,7 +589,7 @@ Ten przykład pokazuje, jak są udostępniane dane w tym widoku:
 SELECT TOP 10 *
 FROM sys.resource_stats
 WHERE database_name = 'resource1'
-ORDER BY start_time DESC
+ORDER BY start_time DESC;
 ```
 
 ![Widok wykazu sys.resource_stats](./media/monitoring-with-dmvs/sys_resource_stats.png)
@@ -699,7 +699,7 @@ Aby wyświetlić liczbę bieżących aktywnych sesji, Uruchom to zapytanie Trans
 
 ```sql
 SELECT COUNT(*) AS [Sessions]
-FROM sys.dm_exec_connections
+FROM sys.dm_exec_connections;
 ```
 
 W przypadku analizowania obciążenia SQL Server należy zmodyfikować zapytanie, aby skoncentrować się na określonej bazie danych. To zapytanie pomaga określić możliwe potrzeby sesji dla bazy danych, Jeśli rozważasz przechodzenie na platformę Azure.
@@ -709,7 +709,7 @@ SELECT COUNT(*) AS [Sessions]
 FROM sys.dm_exec_connections C
 INNER JOIN sys.dm_exec_sessions S ON (S.session_id = C.session_id)
 INNER JOIN sys.databases D ON (D.database_id = S.database_id)
-WHERE D.name = 'MyDatabase'
+WHERE D.name = 'MyDatabase';
 ```
 
 Ponownie te zapytania zwracają liczbę punktów w czasie. Jeśli zbierasz wiele przykładów z upływem czasu, będziesz mieć najlepszą wiedzę na temat użycia sesji.
@@ -743,7 +743,7 @@ ORDER BY 2 DESC;
 
 ### <a name="monitoring-blocked-queries"></a>Monitorowanie zablokowanych zapytań
 
-Wykonywanie wolnych lub długotrwałych zapytań może współtworzyć nadmierne zużycie zasobów i być konsekwencją zablokowanych zapytań. Przyczyną blokowania może być słaba konstrukcja aplikacji, złe plany zapytań, brak przydatnych indeksów i tak dalej. Możesz użyć widoku sys.dm_tran_locks, aby uzyskać informacje o bieżącym działaniu blokowania w bazie danych. Na przykład kod, zobacz [sys.dm_tran_locks (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql).
+Wykonywanie wolnych lub długotrwałych zapytań może współtworzyć nadmierne zużycie zasobów i być konsekwencją zablokowanych zapytań. Przyczyną blokowania może być słaba konstrukcja aplikacji, złe plany zapytań, brak przydatnych indeksów i tak dalej. Możesz użyć widoku sys.dm_tran_locks, aby uzyskać informacje o bieżącym działaniu blokowania w bazie danych. Na przykład kod, zobacz [sys.dm_tran_locks (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql). Aby uzyskać więcej informacji na temat rozwiązywania problemów z blokowaniem, zobacz [Omówienie i rozwiązywanie problemów z blokowaniem usługi Azure SQL](understand-resolve-blocking.md).
 
 ### <a name="monitoring-query-plans"></a>Monitorowanie planów zapytań
 

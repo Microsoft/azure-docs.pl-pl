@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: f7253be2844f40ca52df2f9b3bc9cbba552fea2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b45bd2e2b9ad971891cbcb944286f40b4f66883
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85480137"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216975"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Dodawanie interfejsów sieciowych do maszyn wirtualnych lub ich usuwanie
 
@@ -61,11 +61,11 @@ Aby dodać interfejs sieciowy do maszyny wirtualnej:
 
 1. Przejdź do [Azure Portal](https://portal.azure.com) , aby znaleźć istniejącą maszynę wirtualną. Wyszukaj i wybierz pozycję **maszyny wirtualne**.
 
-2. Wybierz nazwę maszyny wirtualnej. Maszyna wirtualna musi obsługiwać liczbę interfejsów sieciowych, które chcesz dodać. Aby dowiedzieć się, ile interfejsów sieciowych obsługuje każdy rozmiar maszyny wirtualnej, zobacz rozmiary na platformie Azure dla [maszyn wirtualnych systemu Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) lub [maszyn wirtualnych z systemem Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+2. Wybierz nazwę maszyny wirtualnej. Maszyna wirtualna musi obsługiwać liczbę interfejsów sieciowych, które chcesz dodać. Aby dowiedzieć się, ile interfejsów sieciowych obsługuje każdy rozmiar maszyny wirtualnej, zobacz rozmiary na platformie Azure dla [maszyn wirtualnych systemu Linux](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) lub [maszyn wirtualnych z systemem Windows](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 3. Na pasku poleceń maszyny wirtualnej wybierz pozycję **Zatrzymaj**, a następnie kliknij przycisk **OK** w oknie dialogowym potwierdzenia. Następnie poczekaj, aż **stan** maszyny wirtualnej zmieni się na **zatrzymano (cofnięto przydział)**.
 
-4. Na pasku menu maszyny wirtualnej wybierz pozycję **Sieć**  >  **Dołącz interfejs sieciowy**. Następnie w polu **Dołącz istniejący interfejs sieciowy**wybierz interfejs sieciowy, który chcesz dołączyć, a następnie wybierz **przycisk OK**.
+4. Na pasku menu maszyny wirtualnej wybierz pozycję **Sieć**  >  **Dołącz interfejs sieciowy**. Następnie w polu **Dołącz istniejący interfejs sieciowy** wybierz interfejs sieciowy, który chcesz dołączyć, a następnie wybierz **przycisk OK**.
 
     >[!NOTE]
     >Wybrany interfejs sieciowy nie może mieć włączonej przyspieszonej sieci, nie może mieć przypisanego adresu IPv6 i musi znajdować się w tej samej sieci wirtualnej, w której interfejs sieciowy jest obecnie dołączony do maszyny wirtualnej.
@@ -133,7 +133,7 @@ Aby dowiedzieć się więcej o ustawieniach interfejsu sieciowego i sposobach ic
 
 - Do maszyny wirtualnej musi być dołączony co najmniej jeden interfejs sieciowy.
 
-- Maszyna wirtualna może mieć tylko tyle interfejsów sieciowych dołączonych do niej, ponieważ rozmiar maszyny wirtualnej obsługuje. Aby dowiedzieć się więcej o liczbie interfejsów sieciowych obsługiwanych przez poszczególne rozmiary maszyn wirtualnych, zobacz rozmiary [maszyn wirtualnych](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) na platformie Azure lub [maszyn wirtualnych z systemem Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Wszystkie rozmiary obsługują co najmniej dwa interfejsy sieciowe.
+- Maszyna wirtualna może mieć tylko tyle interfejsów sieciowych dołączonych do niej, ponieważ rozmiar maszyny wirtualnej obsługuje. Aby dowiedzieć się więcej o liczbie interfejsów sieciowych obsługiwanych przez poszczególne rozmiary maszyn wirtualnych, zobacz rozmiary [maszyn wirtualnych](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) na platformie Azure lub [maszyn wirtualnych z systemem Windows](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Wszystkie rozmiary obsługują co najmniej dwa interfejsy sieciowe.
 
 - Interfejsy sieciowe dodawane do maszyny wirtualnej nie mogą być obecnie dołączone do innej maszyny wirtualnej. Aby dowiedzieć się więcej na temat tworzenia interfejsów sieciowych, zobacz [Tworzenie interfejsu sieciowego](virtual-network-network-interface.md#create-a-network-interface).
 
@@ -143,7 +143,7 @@ Aby dowiedzieć się więcej o ustawieniach interfejsu sieciowego i sposobach ic
 
 - Można kontrolować, do którego interfejsu sieciowego wysyłany jest ruch wychodzący. Jednak maszyna wirtualna domyślnie wysyła cały ruch wychodzący do adresu IP przypisanego do podstawowej konfiguracji adresu IP podstawowego interfejsu sieciowego.
 
-- W przeszłości wszystkie maszyny wirtualne w tym samym zestawie dostępności musiały mieć jeden lub wiele interfejsów sieciowych. Maszyny wirtualne z dowolną liczbą interfejsów sieciowych mogą teraz istnieć w tym samym zestawie dostępności, do liczby obsługiwanej przez rozmiar maszyny wirtualnej. Możesz dodać maszynę wirtualną do zestawu dostępności, gdy zostanie on utworzony. Aby dowiedzieć się więcej o zestawach dostępności, zobacz [Zarządzanie dostępnością maszyn wirtualnych na platformie Azure](../virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
+- W przeszłości wszystkie maszyny wirtualne w tym samym zestawie dostępności musiały mieć jeden lub wiele interfejsów sieciowych. Maszyny wirtualne z dowolną liczbą interfejsów sieciowych mogą teraz istnieć w tym samym zestawie dostępności, do liczby obsługiwanej przez rozmiar maszyny wirtualnej. Możesz dodać maszynę wirtualną do zestawu dostępności, gdy zostanie on utworzony. Aby dowiedzieć się więcej o zestawach dostępności, zobacz [Zarządzanie dostępnością maszyn wirtualnych na platformie Azure](../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
 
 - Interfejsy sieciowe można podłączyć do różnych podsieci w sieci wirtualnej. Jednak wszystkie interfejsy sieciowe muszą być połączone z tą samą siecią wirtualną.
 

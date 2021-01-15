@@ -11,12 +11,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/05/2020
 ms.author: kumud
-ms.openlocfilehash: dfeb9c6bc3dbe33881fc51ccb08a776b827dfe9c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: cc3ba3a0519400368e0cbfec7abe2d9bd1731b34
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86082441"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217638"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Szybki start: tworzenie sieci wirtualnej przy użyciu witryny Azure Portal
 
@@ -43,13 +43,13 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
     | Nazwa | Wpisz *myVirtualNetwork*. |
     | Lokalizacja | Wybierz pozycję **Wschodnie stany USA**.|
 
-1. Wybierz pozycję **Dalej: adresy IP**, a dla **przestrzeni adresów IPv4**wprowadź *10.1.0.0/16*.
+1. Wybierz pozycję **Dalej: adresy IP**, a dla **przestrzeni adresów IPv4** wprowadź *10.1.0.0/16*.
 
 1. Wybierz pozycję **Dodaj podsieć**, a następnie wprowadź *MyVirtualSubnet* dla **nazwy podsieci** i *10.1.0.0/24* dla **zakresu adresów podsieci**.
 
 1. Wybierz pozycję **Dodaj**, a następnie wybierz pozycję **Przegląd + Utwórz**. Pozostaw resztę jako domyślną i wybierz pozycję **Utwórz**.
 
-1. W obszarze **Utwórz sieć wirtualną**wybierz pozycję **Utwórz**.
+1. W obszarze **Utwórz sieć wirtualną** wybierz pozycję **Utwórz**.
 
 ## <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
 
@@ -59,7 +59,7 @@ W sieci wirtualnej utwórz dwie maszyny wirtualne:
 
 1. W menu witryny Azure Portal wybierz pozycję **Utwórz zasób**.
 
-1. W portalu Azure Marketplace wybierz pozycję **COMPUTE**  >  **Windows Server 2019 Datacenter**. Wybierz przycisk **Utwórz**.
+1. W portalu Azure Marketplace wybierz pozycję **COMPUTE**  >  **Windows Server 2019 Datacenter**. Wybierz pozycję **Utwórz**.
 
 1. W obszarze **Tworzenie maszyny wirtualnej — ustawienia podstawowe** wprowadź lub wybierz następujące informacje:
 
@@ -70,7 +70,7 @@ W sieci wirtualnej utwórz dwie maszyny wirtualne:
     | Grupa zasobów | Wybierz pozycję **myResourceGroup**. Ta grupa zasobów została utworzona w poprzedniej sekcji. |
     | **Szczegóły wystąpienia** |  |
     | Nazwa maszyny wirtualnej | Wprowadź nazwę *myVm1*. |
-    | Region | Wybierz pozycję **Wschodnie stany USA**. |
+    | Region (Region) | Wybierz pozycję **Wschodnie stany USA**. |
     | Opcje dostępności | Domyślnie **nie jest wymagana żadna nadmiarowość infrastruktury**. |
     | Image (Obraz) | Domyślnie dla **systemu Windows Server 2019 Datacenter**. |
     | Rozmiar | Domyślnie **standardowa DS1 v2**. |
@@ -86,7 +86,7 @@ W sieci wirtualnej utwórz dwie maszyny wirtualne:
 
 1. Wybierz pozycję **Dalej: dyski**.
 
-1. W obszarze **Utwórz maszynę wirtualną**Zachowaj ustawienia domyślne i wybierz pozycję **Dalej: sieć**.
+1. W obszarze **Utwórz maszynę wirtualną** Zachowaj ustawienia domyślne i wybierz pozycję **Dalej: sieć**.
 
 1. W obszarze **Tworzenie maszyny wirtualnej — sieć** wybierz następujące informacje:
 
@@ -121,13 +121,13 @@ W sieci wirtualnej utwórz dwie maszyny wirtualne:
 Powtórz procedurę opisaną w poprzedniej sekcji, aby utworzyć inną maszynę wirtualną.
 
 > [!IMPORTANT]
-> W polu **Nazwa maszyny wirtualnej**wprowadź *myVm2*.
+> W polu **Nazwa maszyny wirtualnej** wprowadź *myVm2*.
 >
-> W przypadku **konta magazynu diagnostyki**upewnij się, że wybrano opcję **myvmstorageaccount**, a nie utwórz ją.
+> W przypadku **konta magazynu diagnostyki** upewnij się, że wybrano opcję **myvmstorageaccount**, a nie utwórz ją.
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Nawiązywanie połączenia z maszyną wirtualną z Internetu
 
-Po utworzeniu *myVm1*Połącz się z Internetem.
+Po utworzeniu *myVm1* Połącz się z Internetem.
 
 1. W Azure Portal Wyszukaj i wybierz pozycję *myVm1*.
 
@@ -225,4 +225,4 @@ Aby dowiedzieć się więcej na temat ustawień sieci wirtualnej, zobacz [Tworze
 Domyślnie platforma Azure umożliwia bezpieczną komunikację między maszynami wirtualnymi. Na platformie Azure dozwolone są tylko przychodzące połączenia pulpitu zdalnego z maszynami wirtualnymi z systemem Windows z Internetu. Aby dowiedzieć się więcej o typach komunikacji sieciowej maszyny wirtualnej, zobacz [Filtrowanie ruchu sieciowego](tutorial-filter-network-traffic.md).
 
 > [!NOTE] 
-> Opłaty za usługi platformy Azure. Azure Cost Management ułatwia ustawianie budżetów i Konfigurowanie alertów w celu utrzymywania wydatków pod kontrolą. Analizowanie i optymalizowanie kosztów platformy Azure oraz zarządzanie nimi za pomocą Cost Management. Aby dowiedzieć się więcej, zobacz [Przewodnik Szybki Start dotyczący analizowania kosztów](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+> Opłaty za usługi platformy Azure. Azure Cost Management ułatwia ustawianie budżetów i Konfigurowanie alertów w celu utrzymywania wydatków pod kontrolą. Analizowanie i optymalizowanie kosztów platformy Azure oraz zarządzanie nimi za pomocą Cost Management. Aby dowiedzieć się więcej, zobacz [Przewodnik Szybki Start dotyczący analizowania kosztów](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

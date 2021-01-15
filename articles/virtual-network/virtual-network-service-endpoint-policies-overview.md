@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2020
 ms.author: rdhillon
-ms.openlocfilehash: 13535a82f8aca741a1e25755e5a2d971ce45514e
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 9766379807e6d2708fd6935dd2ffbd7660f9988f
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739301"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216652"
 ---
 # <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Zasady punktu końcowego usługi dla sieci wirtualnej dla usługi Azure Storage
 
@@ -32,7 +32,7 @@ Zasady punktu końcowego usługi dla sieci wirtualnej zapewniają następujące 
 
 - __Ulepszone zabezpieczenia ruchu Virtual Network w usłudze Azure Storage__
 
-  [Tagi usług platformy Azure dla sieciowych grup zabezpieczeń](https://aka.ms/servicetags) umożliwiają ograniczenie ruchu wychodzącego z sieci wirtualnej do określonych regionów usługi Azure Storage. Umożliwia to jednak ruch do dowolnego konta w wybranym regionie usługi Azure Storage.
+  [Tagi usług platformy Azure dla sieciowych grup zabezpieczeń](./network-security-groups-overview.md) umożliwiają ograniczenie ruchu wychodzącego z sieci wirtualnej do określonych regionów usługi Azure Storage. Umożliwia to jednak ruch do dowolnego konta w wybranym regionie usługi Azure Storage.
   
   Zasady punktu końcowego umożliwiają określenie kont usługi Azure Storage, które są dozwolone dostępu wychodzącego do sieci wirtualnej, i ogranicza dostęp do wszystkich innych kont magazynu. Zapewnia to znacznie bardziej szczegółową kontrolę zabezpieczeń w zakresie ochrony danych eksfiltracji z sieci wirtualnej.
 

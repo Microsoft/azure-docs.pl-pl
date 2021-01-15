@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: e75bab664bdd0d6a4ac898905226c9956f62b4ff
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ffa9e7b5685f9a200f6a403045687626f67f66f4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450513"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218301"
 ---
 # <a name="quickstart-use-serverless-sql-pool"></a>Szybki Start: korzystanie z puli SQL bezserwerowej
 
@@ -26,7 +26,7 @@ Ten przewodnik Szybki Start przedstawia wykonywanie zapytań: CSV, Apache Parque
 
 Wybierz klienta SQL na potrzeby wykonywania zapytań:
 
-- [Azure Synapse Studio](quickstart-synapse-studio.md) to narzędzie sieci Web, za pomocą którego można przeglądać pliki w magazynie i tworzyć zapytania SQL.
+- [Azure Synapse Studio](./get-started-create-workspace.md) to narzędzie sieci Web, za pomocą którego można przeglądać pliki w magazynie i tworzyć zapytania SQL.
 - [Azure Data Studio](sql/get-started-azure-data-studio.md) to narzędzie klienckie, które umożliwia uruchamianie zapytań SQL i notesów w bazie danych na żądanie.
 - [SQL Server Management Studio](sql/get-started-ssms.md) to narzędzie klienta, które umożliwia uruchamianie zapytań SQL w bazie danych na żądanie.
 

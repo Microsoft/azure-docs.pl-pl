@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f09d2050617cbda539eee9fcda1ecfb204a015a
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: bc8ec364380fc5cb9f6e33a29cd8dac96ea1fb69
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059283"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219831"
 ---
 # <a name="securing-external-collaboration-in-azure-active-directory-and-microsoft-365"></a>Zabezpieczanie współpracy zewnętrznej w Azure Active Directory i Microsoft 365
 
