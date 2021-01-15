@@ -179,6 +179,8 @@
               href: database/performance-guidance.md
             - name: Korzystanie z widoków DMV do monitorowania wydajności
               href: database/monitoring-with-dmvs.md
+            - name: Omówienie blokowania i sposobu jego rozwiązywania
+              href: database/understand-resolve-blocking.md
             - name: Rejestrowanie telemetrii diagnostyki
               href: database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md
             - name: Przetwarzanie OLTP w pamięci

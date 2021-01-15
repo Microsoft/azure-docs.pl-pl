@@ -31,6 +31,8 @@
           href: cache-python-get-started.md
         - name: Aplikacja w języku Go
           href: cache-go-get-started.md
+        - name: Aplikacja Rust
+          href: cache-rust-get-started.md
 - name: Samouczki
   items:
     - name: ASP.NET

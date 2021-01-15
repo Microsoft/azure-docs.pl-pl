@@ -12,6 +12,9 @@
       href: manage-ddos-protection-powershell.md
     - name: Tworzenie planu ochrony za pomocą usługi DDoS — interfejs wiersza polecenia
       href: manage-ddos-protection-cli.md
+    - name: Tworzenie planu ochrony przed atakami DDoS— szablon usługi ARM
+      displayName: Resource Manager
+      href: manage-ddos-protection-template.md
 - name: Samouczki
   items:
     - name: Wyświetlanie i konfigurowanie telemetrii ochrony przed atakami DDoS
