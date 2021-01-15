@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: kumud
-ms.openlocfilehash: f49a340a004a4aef37bcae9e3ae1c2b02ae030b9
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: d02f85647d947c2f28527ba6f0397c2a98e73840
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913097"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234192"
 ---
 # <a name="azure-networking-services-overview"></a>Omówienie usług sieciowych platformy Azure
 
@@ -33,10 +33,10 @@ W tej sekcji opisano usługi, które zapewniają łączność między zasobami p
 ### <a name="virtual-network"></a><a name="vnet"></a>Sieć wirtualna
 
 Usługa Azure Virtual Network (VNet) to podstawowy blok konstrukcyjny dla sieci prywatnej na platformie Azure. Możesz użyć sieci wirtualnych, aby:
-- **Komunikacja między zasobami platformy Azure** : możesz wdrażać maszyny wirtualne oraz kilka innych typów zasobów platformy Azure w sieci wirtualnej, na przykład w środowiskach Azure App Service, usłudze Azure Kubernetes Service (AKS) i platformie Azure Virtual Machine Scale Sets. Aby wyświetlić kompletną listę zasobów platformy Azure, które można wdrożyć w sieci wirtualnej, zobacz [Integracja sieci wirtualnej z usługą](../virtual-network/virtual-network-for-azure-services.md).
+- **Komunikacja między zasobami platformy Azure**: możesz wdrażać maszyny wirtualne oraz kilka innych typów zasobów platformy Azure w sieci wirtualnej, na przykład w środowiskach Azure App Service, usłudze Azure Kubernetes Service (AKS) i platformie Azure Virtual Machine Scale Sets. Aby wyświetlić kompletną listę zasobów platformy Azure, które można wdrożyć w sieci wirtualnej, zobacz [Integracja sieci wirtualnej z usługą](../virtual-network/virtual-network-for-azure-services.md).
 - **Komunikacja między** sobą: można połączyć sieci wirtualne ze sobą, włączając zasoby w dowolnej sieci wirtualnej, aby komunikować się ze sobą za pomocą komunikacji równorzędnej sieci wirtualnych. Łączone sieci wirtualne mogą znajdować się w tym samym regionie lub w różnych regionach świadczenia usługi Azure. Aby uzyskać więcej informacji, zobacz [wirtualne sieci równorzędne](../virtual-network/virtual-network-peering-overview.md).
-- **Komunikacja z Internetem** : Domyślnie wszystkie zasoby w sieci wirtualnej mogą komunikować się z Internetem. Z zasobem w ruchu przychodzącym możesz komunikować się przez przypisanie publicznego adresu IP lub publicznego modułu równoważenia obciążenia. Możesz również użyć [publicznych adresów IP](../virtual-network/virtual-network-public-ip-address.md) lub [Load Balancer](../load-balancer/load-balancer-overview.md) publicznych do zarządzania połączeniami wychodzącymi.
-- **Komunikacja z sieciami lokalnymi** : można połączyć lokalne komputery i sieci z siecią wirtualną przy użyciu [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) lub [ExpressRoute](../expressroute/expressroute-introduction.md).
+- **Komunikacja z Internetem**: Domyślnie wszystkie zasoby w sieci wirtualnej mogą komunikować się z Internetem. Z zasobem w ruchu przychodzącym możesz komunikować się przez przypisanie publicznego adresu IP lub publicznego modułu równoważenia obciążenia. Możesz również użyć [publicznych adresów IP](../virtual-network/virtual-network-public-ip-address.md) lub [Load Balancer](../load-balancer/load-balancer-overview.md) publicznych do zarządzania połączeniami wychodzącymi.
+- **Komunikacja z sieciami lokalnymi**: można połączyć lokalne komputery i sieci z siecią wirtualną przy użyciu [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) lub [ExpressRoute](../expressroute/expressroute-introduction.md).
 
 Aby uzyskać więcej informacji, zobacz [co to jest platforma Azure Virtual Network?](../virtual-network/virtual-networks-overview.md).
 
@@ -58,7 +58,7 @@ Wirtualna sieć WAN platformy Azure to usługa sieciowa, która zapewnia zoptyma
 
 :::image type="content" source="./media/networking-overview/virtualwan1.png" alt-text="Diagram usługi Virtual WAN":::
 
-### <a name="azure-dns"></a><a name="dns"></a>System DNS platformy Azure
+### <a name="azure-dns"></a><a name="dns"></a>Azure DNS
 Azure DNS to usługa hostingu dla domen DNS, która umożliwia rozpoznawanie nazw przy użyciu infrastruktury platformy Microsoft Azure. Dzięki hostowaniu swoich domen na platformie Azure możesz zarządzać rekordami DNS z zastosowaniem tych samych poświadczeń, interfejsów API, narzędzi i rozliczeń co w przypadku innych usług platformy Azure. Aby uzyskać więcej informacji, zobacz [co to jest Azure DNS?](../dns/dns-overview.md).
 
 ### <a name="azure-bastion"></a><a name="bastion"></a>Azure Bastion
@@ -89,7 +89,7 @@ Orbita platformy Azure to w pełni zarządzana stacja naziemna oparta na chmurze
 W tej sekcji opisano usługi sieciowe na platformie Azure, które ułatwiają ochronę zasobów sieciowych — ochrona aplikacji przy użyciu dowolnej lub kombinacji tych usług sieciowych w ramach platformy Azure-DDoS Protection, prywatnego linku, zapory, zapory aplikacji sieci Web, sieciowych grup zabezpieczeń i punktów końcowych usługi Virtual Network.
 
 ### <a name="ddos-protection"></a><a name="ddosprotection"></a>DDoS Protection 
-[Azure DDoS Protection](../virtual-network/manage-ddos-protection.md) zapewnia środki zaradcze względem najbardziej zaawansowanych zagrożeń DDoS. Usługa zapewnia ulepszone możliwości ograniczania DDoS dla aplikacji i zasobów wdrożonych w sieciach wirtualnych. Ponadto klienci korzystający z usługi Azure DDoS Protection mają dostęp do DDoSej szybkiej odpowiedzi, aby skontaktować się z ekspertami DDoS podczas aktywnego ataku.
+[Azure DDoS Protection](../ddos-protection/manage-ddos-protection.md) zapewnia środki zaradcze względem najbardziej zaawansowanych zagrożeń DDoS. Usługa zapewnia ulepszone możliwości ograniczania DDoS dla aplikacji i zasobów wdrożonych w sieciach wirtualnych. Ponadto klienci korzystający z usługi Azure DDoS Protection mają dostęp do DDoSej szybkiej odpowiedzi, aby skontaktować się z ekspertami DDoS podczas aktywnego ataku.
 
 :::image type="content" source="./media/networking-overview/ddos-protection.png" alt-text="DDoS Protection":::
 
@@ -106,14 +106,14 @@ Aby uzyskać więcej informacji na temat zapory platformy Azure, zobacz [dokumen
 
 :::image type="content" source="./media/networking-overview/firewall-threat.png" alt-text="Omówienie zapory":::
 
-### <a name="web-application-firewall"></a><a name="waf"></a>Zapora aplikacji internetowej
+### <a name="web-application-firewall"></a><a name="waf"></a>Web Application Firewall
 [Zapora aplikacji sieci Web](../web-application-firewall/overview.md) (WAF) platformy Azure zapewnia ochronę aplikacji sieci Web przed typowymi atakami sieci Web i lukami w zabezpieczeniach, takimi jak iniekcja SQL i wykonywanie skryptów między lokacjami. Usługa Azure WAF zapewnia ochronę poza Box od OWASP 10 najważniejszych luk w zabezpieczeniach za pośrednictwem reguł zarządzanych. Dodatkowo klienci mogą również konfigurować reguły niestandardowe, które są regułami zarządzanymi przez klienta, aby zapewnić dodatkową ochronę na podstawie źródłowego zakresu adresów IP, a także atrybuty żądania, takie jak nagłówki, pliki cookie, pola danych formularza lub parametry ciągu zapytania.
 
-Klienci mogą wybrać wdrożenie [usługi Azure WAF z Application Gateway](../application-gateway/waf-overview.md) , która zapewnia ochronę regionalną jednostek w publicznej i prywatnej przestrzeni adresowej. Klienci mogą również wybrać wdrożenie [usługi Azure WAF z przednimi drzwiami](../frontdoor/waf-overview.md) , które zapewniają ochronę w granicach sieci z publicznymi punktami końcowymi.
+Klienci mogą wybrać wdrożenie [usługi Azure WAF z Application Gateway](../web-application-firewall/ag/ag-overview.md) , która zapewnia ochronę regionalną jednostek w publicznej i prywatnej przestrzeni adresowej. Klienci mogą również wybrać wdrożenie [usługi Azure WAF z przednimi drzwiami](../web-application-firewall/afds/afds-overview.md) , które zapewniają ochronę w granicach sieci z publicznymi punktami końcowymi.
 
 :::image type="content" source="./media/networking-overview/waf-overview.png" alt-text="Web Application Firewall":::
 
-### <a name="network-security-groups"></a><a name="nsg"></a>Sieciowe grupy zabezpieczeń
+### <a name="network-security-groups"></a><a name="nsg"></a>Grupy zabezpieczeń sieci
 Ruch sieciowy przychodzący do zasobów platformy Azure i wychodzący z nich w sieci wirtualnej platformy Azure można filtrować za pomocą grupy zabezpieczeń sieci. Aby uzyskać więcej informacji, zobacz [sieciowe grupy zabezpieczeń](../virtual-network/network-security-groups-overview.md).
 
 ### <a name="service-endpoints"></a><a name="serviceendpoints"></a>Punkty końcowe usługi
@@ -145,7 +145,7 @@ Na poniższym diagramie przedstawiono routing oparty na priorytetach punktów ko
 
 Aby uzyskać więcej informacji na temat Traffic Manager, zobacz [co to jest usługa Azure Traffic Manager?](../traffic-manager/traffic-manager-overview.md)
 
-### <a name="load-balancer"></a><a name="loadbalancer"></a>Moduł równoważenia obciążenia
+### <a name="load-balancer"></a><a name="loadbalancer"></a>Load Balancer
 Azure Load Balancer w przypadku wszystkich protokołów UDP i TCP zapewnia wysoką wydajność i niskie opóźnienie warstwy 4. Służy do zarządzania połączeniami przychodzącymi i wychodzącymi. Można skonfigurować publiczne i wewnętrzne punkty końcowe ze zrównoważonym obciążeniem. Można zdefiniować reguły mapowania połączeń przychodzących do miejsc docelowych puli zaplecza przy użyciu opcji badania kondycji protokołów TCP i HTTP w celu zarządzania dostępnością usługi. Aby dowiedzieć się więcej na temat Load Balancer, przeczytaj artykuł [omówienie Load Balancer](../load-balancer/load-balancer-overview.md) .
 
 Na poniższej ilustracji przedstawiono wielowarstwową aplikację internetową, która wykorzystuje zarówno zewnętrzne, jak i wewnętrzne moduły równoważenia obciążenia:
@@ -166,7 +166,7 @@ W tej sekcji opisano usługi sieciowe na platformie Azure, które ułatwiają mo
 Azure Network Watcher to usługa, która udostępnia narzędzia umożliwiające monitorowanie, diagnozowanie, wyświetlanie metryk i włączanie lub wyłączanie dzienników zasobów w sieci wirtualnej platformy Azure. Aby uzyskać więcej informacji, zobacz [co to jest Network Watcher?](../network-watcher/network-watcher-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 
 ### <a name="azure-monitor-for-networks-preview"></a>Azure Monitor w wersji zapoznawczej sieci
-Azure Monitor dla sieci zapewnia kompleksowy wgląd w kondycję i metryki dla wszystkich wdrożonych zasobów sieciowych, bez konieczności konfigurowania. Zapewnia również dostęp do funkcji monitorowania sieci, takich jak [monitor połączeń](../network-watcher/connection-monitor-preview.md), [Rejestrowanie przepływów dla sieciowych grup zabezpieczeń](../network-watcher/network-watcher-nsg-flow-logging-overview.md)i [Analiza ruchu](../network-watcher/traffic-analytics.md). Aby uzyskać więcej informacji, zobacz [Azure monitor dla sieci w wersji zapoznawczej](../azure-monitor/insights/network-insights-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
+Azure Monitor dla sieci zapewnia kompleksowy wgląd w kondycję i metryki dla wszystkich wdrożonych zasobów sieciowych, bez konieczności konfigurowania. Zapewnia również dostęp do funkcji monitorowania sieci, takich jak [monitor połączeń](../network-watcher/connection-monitor-overview.md), [Rejestrowanie przepływów dla sieciowych grup zabezpieczeń](../network-watcher/network-watcher-nsg-flow-logging-overview.md)i [Analiza ruchu](../network-watcher/traffic-analytics.md). Aby uzyskać więcej informacji, zobacz [Azure monitor dla sieci w wersji zapoznawczej](../azure-monitor/insights/network-insights-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 
 ### <a name="expressroute-monitor"></a><a name="expressroutemonitor"></a>Monitor ExpressRoute
 Aby dowiedzieć się więcej na temat wyświetlania metryk obwodu ExpressRoute, dzienników zasobów i alertów, zobacz [ExpressRoute monitoring, Metrics and Alerts](../expressroute/expressroute-monitoring-metrics-alerts.md?toc=%2fazure%2fnetworking%2ftoc.json).
@@ -185,4 +185,4 @@ Aby uzyskać więcej informacji, zobacz [co to jest Virtual Network TAP](../virt
 
 - Utwórz pierwszą sieć wirtualną i Połącz z nim kilka maszyn wirtualnych, wykonując kroki opisane w artykule [Tworzenie pierwszej sieci wirtualnej](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json) .
 - Połącz komputer z siecią wirtualną, wykonując kroki opisane w [artykule Konfigurowanie połączenia punkt-lokacja](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json).
-- Równoważenie obciążenia ruchu internetowego do serwerów publicznych przez wykonanie kroków opisanych w artykule [Tworzenie modułu równoważenia obciążenia](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json) dostępnego z Internetu.
+- Równoważenie obciążenia ruchu internetowego do serwerów publicznych przez wykonanie kroków opisanych w artykule [Tworzenie modułu równoważenia obciążenia](../load-balancer/quickstart-load-balancer-standard-public-portal.md?toc=%2fazure%2fnetworking%2ftoc.json) dostępnego z Internetu.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
-ms.openlocfilehash: 6eab1803bf5adab42be87b5f8567682c6d75947e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8cb1a490ac8edf2630253b45d99c3394bbe721b8
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74483535"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234158"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Odzyskiwanie po awarii przy użyciu usług Azure DNS i Traffic Manager
 
@@ -45,7 +45,7 @@ Większość klientów korporacyjnych wybiera architekturę wieloregionową w ce
     
     *Rysunek: aktywne/pasywne z konfiguracją odzyskiwania po awarii w stanie rezerwowym*
     
-Aby dowiedzieć się więcej o trybie failover i wysokiej dostępności, zobacz [odzyskiwanie po awarii dla aplikacji platformy Azure](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
+Aby dowiedzieć się więcej o trybie failover i wysokiej dostępności, zobacz [odzyskiwanie po awarii dla aplikacji platformy Azure](/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
 
 ## <a name="planning-your-disaster-recovery-architecture"></a>Planowanie architektury odzyskiwania po awarii
@@ -54,7 +54,7 @@ Istnieją dwa aspekty techniczne dotyczące konfigurowania architektury odzyskiw
 -  Używanie mechanizmu wdrażania do replikowania wystąpień, danych i konfiguracji między środowiskami podstawowymi i w stanie gotowości. Ten typ odzyskiwania po awarii można przeprowadzić natywnie za pośrednictwem usługi Azure Site-Recovery za pośrednictwem Microsoft Azure urządzeń/usług partnerskich, takich jak Veritas lub NetApp. 
 - Tworzenie rozwiązania do przekierowywania ruchu sieciowego/sieci Web z lokacji głównej do lokacji w stanie wstrzymania. Ten typ odzyskiwania po awarii można osiągnąć za pośrednictwem Azure DNS, Azure Traffic Manager (DNS) lub globalnych modułów równoważenia obciążenia innych firm.
 
-Ten artykuł jest ograniczony do podejścia za pośrednictwem przekierowywania ruchu sieciowego i sieci Web. Aby uzyskać instrukcje dotyczące konfigurowania Azure Site Recovery, zobacz [dokumentację usługi Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/).
+Ten artykuł jest ograniczony do podejścia za pośrednictwem przekierowywania ruchu sieciowego i sieci Web. Aby uzyskać instrukcje dotyczące konfigurowania Azure Site Recovery, zobacz [dokumentację usługi Azure Site Recovery](../site-recovery/index.yml).
 System DNS to jeden z najbardziej wydajnych mechanizmów służących do przekierowywania ruchu sieciowego, ponieważ usługa DNS jest często globalna i zewnętrzna w centrum danych i jest izolowana ze względu na awarie poziomu strefy regionalnej lub dostępności. Jeden z nich może korzystać z mechanizmu trybu failover opartego na systemie DNS i na platformie Azure, jednak dwie usługi DNS mogą wykonywać takie same w niektórych Azure DNS (autorytatywny serwer DNS) i platformie Azure Traffic Manager (usługa inteligentnego routingu opartego na systemie DNS). 
 
 Ważne jest zrozumienie kilku koncepcji w systemie DNS, które są szeroko wykorzystywane do omówienia rozwiązań dostępnych w tym artykule:
@@ -170,12 +170,3 @@ W trakcie awarii podstawowy punkt końcowy zostaje przesondowany, a stan zmieni 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się więcej o [usłudze Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md).
 - Dowiedz się więcej o [Azure DNS](../dns/dns-overview.md).
-
-
-
-
-
-
-
-
-

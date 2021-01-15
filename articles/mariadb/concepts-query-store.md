@@ -5,13 +5,13 @@ author: savjani
 ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: bca995f8b2cea33266e032b543abb18ee7140f3f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 01/15/2021
+ms.openlocfilehash: 164285b1fea3dce18161066e643aa165e47cc496
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541185"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233990"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Monitorowanie wydajności Azure Database for MariaDB przy użyciu magazynu zapytań
 
@@ -21,7 +21,7 @@ Funkcja magazynu zapytań w usłudze Azure Database for MariaDB umożliwia śled
 
 ## <a name="common-scenarios-for-using-query-store"></a>Typowe scenariusze korzystania z magazynu zapytań
 
-Magazyn zapytań może być używany w wielu scenariuszach, w tym następujących:
+Magazynu zapytań można używać w wielu scenariuszach, takich jak następujące:
 
 - Wykrywanie zapytań uległa pogorszeniu
 - Określanie liczby przypadków wykonania zapytania w danym przedziale czasu
@@ -34,14 +34,14 @@ Magazyn zapytań jest funkcją wyboru, dlatego nie jest domyślnie aktywna na se
 ### <a name="enable-query-store-using-the-azure-portal"></a>Włącz magazyn zapytań przy użyciu Azure Portal
 
 1. Zaloguj się do Azure Portal i wybierz swój serwer Azure Database for MariaDB.
-1. Wybierz opcję **parametry serwera** w sekcji **Ustawienia** w menu.
-1. Wyszukaj parametr query_store_capture_mode.
-1. Ustaw wartość wszystkie i **Zapisz**.
+2. Wybierz opcję **parametry serwera** w sekcji **Ustawienia** w menu.
+3. Wyszukaj parametr query_store_capture_mode.
+4. Ustaw wartość wszystkie i **Zapisz**.
 
 Aby włączyć statystykę oczekiwania w magazynie zapytań:
 
 1. Wyszukaj parametr query_store_wait_sampling_capture_mode.
-1. Ustaw wartość wszystkie i **Zapisz**.
+2. Ustaw wartość wszystkie i **Zapisz**.
 
 Zaczekaj do 20 minut, aż pierwsza partia danych ma pozostać w bazie danych MySQL.
 
@@ -108,7 +108,7 @@ Użyj [Azure Portal](howto-server-parameters.md) , aby uzyskać lub ustawić inn
 
 ## <a name="views-and-functions"></a>Widoki i funkcje
 
-Wyświetlanie magazynu zapytań i zarządzanie nim przy użyciu następujących widoków i funkcji. Każda osoba w [roli publicznej Wybieranie uprawnienia](howto-create-users.md#create-additional-admin-users) może używać tych widoków do wyświetlania danych w magazynie zapytań. Te widoki są dostępne tylko w bazie danych **MySQL** .
+Wyświetlanie magazynu zapytań i zarządzanie nim przy użyciu następujących widoków i funkcji. Każda osoba w [roli publicznej Wybieranie uprawnienia](howto-create-users.md#create-more-admin-users) może używać tych widoków do wyświetlania danych w magazynie zapytań. Te widoki są dostępne tylko w bazie danych **MySQL** .
 
 Zapytania są znormalizowane przez przejrzenie ich struktury po usunięciu literałów i stałych. Jeśli dwa zapytania są identyczne z wyjątkiem wartości literału, będą miały ten sam skrót.
 

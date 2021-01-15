@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 12/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: ce90ab160696e2c38d917a391eecb0d51a31282f
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 655a146ccde9c75629d0a991a6a3aafa91f40764
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740593"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233971"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Włącz przegląd Azure Monitor dla maszyn wirtualnych
 
@@ -52,6 +52,9 @@ Azure Monitor dla maszyn wirtualnych jest dostępna dla serwerów z obsługą us
 
 Azure Monitor dla maszyn wirtualnych obsługuje każdy system operacyjny, który obsługuje agenta Log Analytics i agenta zależności. Pełną listę można znaleźć w temacie [Omówienie agentów Azure monitor ](../platform/agents-overview.md#supported-operating-systems) .
 
+> [!IMPORTANT]
+> Funkcja kondycji gościa Azure Monitor dla maszyn wirtualnych ma ograniczoną obsługę systemu operacyjnego, gdy jest w publicznej wersji zapoznawczej. Aby uzyskać szczegółową listę, zobacz [włączanie Azure monitor dla maszyn wirtualnych kondycji gościa (wersja zapoznawcza)](vminsights-health-enable.md) .
+
 Zapoznaj się z poniższą listą zagadnień związanych z obsługą agenta zależnego obsługiwanego przez system Linux Azure Monitor dla maszyn wirtualnych:
 
 - Obsługiwane są tylko wersje domyślne i wersje SMP jądra systemu Linux.
@@ -63,7 +66,7 @@ Zapoznaj się z poniższą listą zagadnień związanych z obsługą agenta zale
 ## <a name="log-analytics-workspace"></a>Obszar roboczy usługi Log Analytics
 Azure Monitor dla maszyn wirtualnych wymaga Log Analytics obszaru roboczego. Aby uzyskać szczegółowe informacje i wymagania tego obszaru roboczego, zobacz [konfigurowanie log Analytics obszaru Azure monitor dla maszyn wirtualnych roboczego](vminsights-configure-workspace.md) .
 ## <a name="agents"></a>Agenci
-Azure Monitor dla maszyn wirtualnych wymaga zainstalowania dwóch agentów na każdej maszynie wirtualnej lub w zestawie skalowania maszyn wirtualnych do monitorowania. Zainstalowanie tych agentów i połączenie ich z obszarem roboczym jest jedynym wymaganiem do dołączenia zasobu.
+Azure Monitor dla maszyn wirtualnych wymaga zainstalowania dwóch agentów na każdej maszynie wirtualnej lub w zestawie skalowania maszyn wirtualnych do monitorowania. Aby dołączyć zasób, zainstaluj tych agentów i połącz je z obszarem roboczym.  Zapoznaj się z [wymaganiami sieciowymi](../platform/log-analytics-agent.md#network-requirements) dotyczącymi wymagań sieci dla tych agentów.
 
 - [Agent log Analytics](../platform/log-analytics-agent.md). Zbiera dane zdarzeń i wydajności z maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych i dostarcza go do obszaru roboczego Log Analytics. Metody wdrażania dla agenta Log Analytics w zasobach platformy Azure używają rozszerzenia maszyny wirtualnej dla [systemów Windows](../../virtual-machines/extensions/oms-windows.md) i [Linux](../../virtual-machines/extensions/oms-linux.md).
 - Agent zależności. Zbiera odnalezione dane dotyczące procesów uruchomionych na maszynie wirtualnej i zewnętrznych zależności procesów, które są używane przez [funkcję map w Azure monitor dla maszyn wirtualnych](vminsights-maps.md). Agent zależności korzysta z agenta Log Analytics, aby dostarczyć dane do Azure Monitor. Metody wdrażania dla agenta zależności w zasobach platformy Azure używają rozszerzenia maszyny wirtualnej dla [systemów Windows](../../virtual-machines/extensions/agent-dependency-windows.md) i [Linux](../../virtual-machines/extensions/agent-dependency-linux.md).

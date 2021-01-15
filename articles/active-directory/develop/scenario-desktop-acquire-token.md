@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: d5f5e1098b688fc307bae5ea3538c818cb529b0a
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: e15dce586dc4dd43cf56fd1cbb08b84ebcda1787
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97962401"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232305"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplikacja klasyczna, która wywołuje interfejsy API sieci Web: uzyskiwanie tokenu
 
@@ -242,7 +242,7 @@ MSAL zapewnia implementacje interfejsu użytkownika sieci Web dla większości p
 - Chcesz testować aplikację i korzystać z zautomatyzowanej przeglądarki, która może być używana z selenem.
 - Przeglądarka i aplikacja z systemem MSAL są w oddzielnych procesach.
 
-##### <a name="at-a-glance"></a>Na pierwszy rzut oka
+##### <a name="at-a-glance"></a>W skrócie
 
 Aby to osiągnąć, nadajesz MSAL `start Url` , który musi być wyświetlany w przeglądarce, aby użytkownik końcowy mógł wprowadzać elementy, takie jak ich nazwy użytkownika.
 Po zakończeniu uwierzytelniania aplikacja musi przekazać z powrotem do MSAL `end Url` , który zawiera kod dostarczony przez usługę Azure AD.
@@ -420,8 +420,8 @@ Aby zalogować użytkownika domeny w domenie lub na komputerze przyłączonym do
 - Zintegrowane uwierzytelnianie systemu Windows jest możliwe do użycia tylko w przypadku *federacyjnych* i użytkowników, czyli użytkowników utworzonych w Active Directory i objętych usługą Azure AD. Nie można używać tego przepływu uwierzytelniania przez użytkowników utworzonych bezpośrednio w usłudze Azure AD bez Active Directory kopii zapasowych, znanych jako użytkownicy *zarządzani* . To ograniczenie nie ma wpływu na przepływ nazwy użytkownika i hasła.
 - IWA jest przeznaczony dla aplikacji pisanych na platformach .NET Framework, .NET Core i platforma uniwersalna systemu Windows (platformy UWP).
 - IWA nie pomija [uwierzytelniania wieloskładnikowego (MFA)](../authentication/concept-mfa-howitworks.md). W przypadku skonfigurowania usługi MFA IWA może zakończyć się niepowodzeniem, jeśli wymagane jest wyzwanie usługi MFA, ponieważ usługa MFA wymaga interakcji z użytkownikiem.
-  > [!NOTE]
-  > Jest to jedna z nich. IWA nie jest interaktywny, ale uwierzytelnianie wieloskładnikowe wymaga interakcji z użytkownikiem. Nie kontrolujesz, kiedy dostawca tożsamości żąda wykonania uwierzytelniania MFA, Administrator dzierżawy. Z naszych zagadnień uwierzytelnianie wieloskładnikowe jest wymagane, gdy użytkownik loguje się z innego kraju/regionu, gdy nie jest połączony za pośrednictwem sieci VPN z siecią firmową, a czasami nawet w przypadku połączenia za pośrednictwem sieci VPN. Nie oczekiwano deterministycznego zestawu reguł. Usługa Azure AD używa systemu AI do ciągłego uczenia się, czy uwierzytelnianie wieloskładnikowe jest wymagane. Powróć do monitu użytkownika, takiego jak uwierzytelnianie interaktywne lub przepływ kodu urządzenia, jeśli IWA nie powiedzie się.
+  
+    IWA nie jest interaktywny, ale uwierzytelnianie wieloskładnikowe wymaga interakcji z użytkownikiem. Nie kontrolujesz, kiedy dostawca tożsamości żąda wykonania uwierzytelniania MFA, Administrator dzierżawy. Z naszych zagadnień uwierzytelnianie wieloskładnikowe jest wymagane, gdy użytkownik loguje się z innego kraju/regionu, gdy nie jest połączony za pośrednictwem sieci VPN z siecią firmową, a czasami nawet w przypadku połączenia za pośrednictwem sieci VPN. Nie oczekiwano deterministycznego zestawu reguł. Usługa Azure AD używa systemu AI do ciągłego uczenia się, czy uwierzytelnianie wieloskładnikowe jest wymagane. Powróć do monitu użytkownika, takiego jak uwierzytelnianie interaktywne lub przepływ kodu urządzenia, jeśli IWA nie powiedzie się.
 
 - Przesłany urząd `PublicClientApplicationBuilder` musi być:
   - Dzierżawca formularza `https://login.microsoftonline.com/{tenant}/` , gdzie `tenant` jest identyfikator GUID reprezentujący identyfikator dzierżawy lub domenę skojarzoną z dzierżawcą.
@@ -602,14 +602,13 @@ Możesz również uzyskać token, podając nazwę użytkownika i hasło. Ten prz
 
 ### <a name="this-flow-isnt-recommended"></a>Ten przepływ nie jest zalecany
 
-Ten przepływ *nie jest zalecany* , ponieważ aplikacja nie poprosiła użytkownika o podanie hasła nie jest bezpieczna. Aby uzyskać więcej informacji, zobacz [co to jest rozwiązanie w przypadku rosnącego problemu z hasłami?](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). Preferowany przepływ do uzyskiwania tokenu w trybie dyskretnym na komputerach przyłączonych do domeny systemu Windows jest [zintegrowanym uwierzytelnianiem systemu Windows](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication). Można również użyć [przepływu kodu urządzenia](https://aka.ms/msal-net-device-code-flow).
+Przepływ nazwy użytkownika i hasła *nie jest zalecany* , ponieważ użytkownik nie ma do niego bezpiecznego hasła. Aby uzyskać więcej informacji, zobacz [co to jest rozwiązanie w przypadku rosnącego problemu z hasłami?](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/) Preferowany przepływ do uzyskiwania tokenu w trybie dyskretnym na komputerach przyłączonych do domeny systemu Windows jest [zintegrowanym uwierzytelnianiem systemu Windows](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication). Można również użyć [przepływu kodu urządzenia](https://aka.ms/msal-net-device-code-flow).
 
-> [!NOTE]
-> Korzystanie z nazwy użytkownika i hasła jest przydatne w niektórych przypadkach, takich jak scenariusze DevOps. Jeśli jednak chcesz używać nazwy użytkownika i hasła w scenariuszach interaktywnych, w których udostępniasz własny interfejs użytkownika, pomyśl o tym, jak przejść z niego. Przy użyciu nazwy użytkownika i hasła podajesz wiele rzeczy:
->
-> - Rdzeń założenia nowoczesnej tożsamości. Hasło można pobrać i odtworzyć, ponieważ można przechwycić wspólny klucz tajny. Jest on niezgodny z hasłem.
-> - Użytkownicy, którzy muszą wykonywać uwierzytelnianie wieloskładnikowe, nie mogą się zalogować, ponieważ nie ma żadnej interakcji.
-> - Użytkownicy nie mogą wykonywać rejestracji jednokrotnej (SSO).
+Korzystanie z nazwy użytkownika i hasła jest przydatne w niektórych przypadkach, takich jak scenariusze DevOps. Jeśli jednak chcesz używać nazwy użytkownika i hasła w scenariuszach interaktywnych, w których udostępniasz własny interfejs użytkownika, pomyśl o tym, jak przejść z niego. Przy użyciu nazwy użytkownika i hasła podajesz wiele rzeczy:
+
+- Rdzeń założenia nowoczesnej tożsamości. Hasło można pobrać i odtworzyć, ponieważ można przechwycić wspólny klucz tajny. Jest on niezgodny z hasłem.
+- Użytkownicy, którzy muszą wykonywać uwierzytelnianie wieloskładnikowe, nie mogą się zalogować, ponieważ nie ma żadnej interakcji.
+- Użytkownicy nie mogą wykonywać rejestracji jednokrotnej (SSO).
 
 ### <a name="constraints"></a>Ograniczenia
 

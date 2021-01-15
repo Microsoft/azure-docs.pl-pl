@@ -13,12 +13,12 @@ ms.date: 10/27/2020
 ms.author: hirsin
 ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: ceb5acbee2e572b1859a5577b58dd586fc924b3b
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 4a798443560f62673ef8fcf0bce970a66071d011
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653286"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232390"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Tokeny dostępu platformy tożsamości firmy Microsoft
 
@@ -292,10 +292,7 @@ Logowanie *nieoparte na hasłach* to takie, w przypadku których użytkownik nie
 - Połączenia głosowe
 - Kod PIN
 
-> [!NOTE]
-> Podstawowe tokeny odświeżania (PRT) w systemie Windows 10 są segregowane na podstawie poświadczeń. Na przykład funkcja Windows Hello i hasło mają odpowiednie PRTs, odizolowane od siebie nawzajem. Gdy użytkownik loguje się przy użyciu poświadczeń powitania (kod PIN lub biometria), a następnie zmienia hasło, zostanie odwołane PRT oparte na hasłach. Ponowne zalogowanie się przy użyciu hasła unieważnia stary PRT i żąda nowej.
->
-> Tokeny odświeżania nie są unieważnione lub odwoływane, gdy są używane do pobierania nowego tokenu dostępu i odświeżania tokenu.  Aplikacja powinna jednak odrzucić starą, gdy tylko zostanie użyta, i zamienić ją na nową, ponieważ nowy token ma nowy czas wygaśnięcia.
+Sprawdź [podstawowe tokeny odświeżania](../devices/concept-primary-refresh-token.md) , aby uzyskać więcej informacji na temat podstawowych tokenów odświeżania.
 
 ## <a name="next-steps"></a>Następne kroki
 

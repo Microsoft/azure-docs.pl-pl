@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: jlian
-ms.openlocfilehash: e569cbe9030b2ac5a42bd99233b4fefc925a5662
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: d36a7917693aef9063ade473759f2f451d3a677f
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220318"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234022"
 ---
 # <a name="transport-layer-security-tls-support-in-iot-hub"></a>Obsługa Transport Layer Security (TLS) w programie IoT Hub
 
@@ -48,7 +48,7 @@ Aby zwiększyć bezpieczeństwo, należy skonfigurować centra IoT w *taki spos�
 * US Gov Arizona
 * US Gov Wirginia (obsługa protokołu TLS 1.0/1.1 nie jest dostępna w tym regionie — należy włączyć Wymuszanie protokołu TLS 1,2 lub utworzenie centrum IoT nie powiodło się)
 
-Aby włączyć Wymuszanie protokołu TLS 1,2, postępuj zgodnie z instrukcjami w temacie [Tworzenie Centrum IoT Hub w Azure Portal](/.iot-hub-create-through-portal.md), z wyjątkiem
+Aby włączyć Wymuszanie protokołu TLS 1,2, postępuj zgodnie z instrukcjami w temacie [Tworzenie Centrum IoT Hub w Azure Portal](iot-hub-create-through-portal.md), z wyjątkiem
 
 - Wybierz **region** z jednej z powyższej listy.
 - W obszarze **Management-> Advanced-> Transport Layer Security (TLS) — > minimalna wersja protokołu TLS**, wybierz **1,2**. To ustawienie pojawia się tylko w przypadku usługi IoT Hub utworzonej w obsługiwanym regionie.

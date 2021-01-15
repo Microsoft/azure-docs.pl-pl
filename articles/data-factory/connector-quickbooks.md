@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/03/2020
-ms.openlocfilehash: e9c1651244eecb036ca18ad5dadfe23f48b2bce6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/15/2021
+ms.openlocfilehash: ecdb0e55aa7127a373e63612908ed58109c1f8e2
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87529266"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233172"
 ---
 # <a name="copy-data-from-quickbooks-online-using-azure-data-factory-preview"></a>Kopiowanie danych z usługi QuickBooks online przy użyciu Azure Data Factory (wersja zapoznawcza)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -52,15 +52,15 @@ Dla połączonej usługi programu QuickBooks są obsługiwane następujące wła
 |:--- |:--- |:--- |
 | typ | Właściwość Type musi być ustawiona na wartość: **Quickbooks** | Tak |
 | connectionProperties | Grupa właściwości, która definiuje sposób nawiązywania połączenia z programem QuickBooks. | Tak |
-| ***W obszarze `connectionProperties` :*** | | |
+| **_W obszarze `connectionProperties` :_* _ | | |
 | endpoint | Punkt końcowy serwera usługi QuickBooks online. (to jest, quickbooks.api.intuit.com)  | Tak |
 | companyId | Identyfikator firmy w firmie QuickBooks do autoryzacji. Aby uzyskać informacje na temat sposobu wyszukiwania identyfikatora firmy, zobacz [Jak mogę Find My ID firmy](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551). | Tak |
-| consumerKey | Klucz klienta uwierzytelniania OAuth 2,0. | Tak |
-| consumerSecret | Wpis tajny klienta na potrzeby uwierzytelniania OAuth 2,0. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
+| consumerKey | Identyfikator klienta aplikacji usługi QuickBooks online na potrzeby uwierzytelniania OAuth 2,0. Więcej informacji znajdziesz [tutaj](https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0#obtain-oauth2-credentials-for-your-app). | Tak |
+| consumerSecret | Wpis tajny klienta aplikacji usługi QuickBooks online dla uwierzytelniania OAuth 2,0. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
 | refreshToken | Token odświeżania OAuth 2,0 skojarzony z aplikacją QuickBooks. Więcej informacji znajdziesz [tutaj](https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0#obtain-oauth2-credentials-for-your-app). Token odświeżania notatki zostanie wygasły po 180 dniach. Klient musi regularnie aktualizować token odświeżania. <br/>Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md).| Tak |
 | useEncryptedEndpoints | Określa, czy punkty końcowe źródła danych są szyfrowane przy użyciu protokołu HTTPS. Wartością domyślną jest true.  | Nie |
 
-**Przykład:**
+_ *Przykład:**
 
 ```json
 {
@@ -126,7 +126,7 @@ Aby skopiować dane z usługi QuickBooks online, ustaw typ źródła w działani
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **QuickBooksSource** | Tak |
-| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Przykład: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
+| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
 **Przykład:**
 

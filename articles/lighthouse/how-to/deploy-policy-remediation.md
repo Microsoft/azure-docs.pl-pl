@@ -1,14 +1,14 @@
 ---
 title: Wdrażanie zasad, które można skorygować
 description: Aby wdrożyć zasady korzystające z zadania korygowania za pośrednictwem usługi Azure Lighthouse, należy utworzyć tożsamość zarządzaną w dzierżawie klienta.
-ms.date: 12/17/2020
+ms.date: 01/14/2021
 ms.topic: how-to
-ms.openlocfilehash: eb473fe2f589cf719e3944c887d46e75e9e7fdbf
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 01070133241117596bdf2b8e1e7c3fa101fc656c
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97670495"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233886"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Wdróż zasady, które można skorygować w ramach delegowanej subskrypcji
 
@@ -19,9 +19,9 @@ Usługa [Azure Lighthouse](../overview.md) umożliwia dostawcom usług tworzenie
 
 ## <a name="create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant"></a>Tworzenie użytkownika, który może przypisywać role do tożsamości zarządzanej w dzierżawie klienta
 
-Po dołączeniu klienta do usługi Azure Lighthouse należy użyć [szablonu Azure Resource Manager](onboard-customer.md#create-an-azure-resource-manager-template) wraz z plikiem parametrów, który definiuje użytkowników, grupy użytkowników i jednostki usługi w dzierżawie zarządzającej, które będą mogły uzyskiwać dostęp do delegowanych zasobów w dzierżawie klienta. W pliku parametrów każdy z tych użytkowników (**principalId**) ma przypisaną [wbudowaną rolę](../../role-based-access-control/built-in-roles.md) (**zduplikowanych**), która definiuje poziom dostępu.
+Po dołączeniu klienta do usługi Azure Lighthouse należy użyć [szablonu Azure Resource Manager](onboard-customer.md#create-an-azure-resource-manager-template) wraz z plikiem parametrów w celu zdefiniowania autoryzacji, które przyznają dostęp do delegowanych zasobów w dzierżawie klienta. Każda autoryzacja określa **principalId** , który odnosi się do użytkownika, grupy lub nazwy głównej usługi Azure AD w dzierżawie zarządzającej, oraz **zduplikowanych** , który odpowiada [roli wbudowanej platformy Azure](../../role-based-access-control/built-in-roles.md) , która zostanie przyznana.
 
-Aby umożliwić usłudze **principalId** utworzenie tożsamości zarządzanej w dzierżawie klienta, należy ustawić jej **zduplikowanych** na **administratora dostępu użytkowników**. Chociaż ta rola nie jest ogólnie obsługiwana, może być używana w tym konkretnym scenariuszu, co umożliwia użytkownikom z uprawnieniami do przypisywania do tożsamości zarządzanych co najmniej jednej konkretnej wbudowanej roli. Role te są zdefiniowane we właściwości **delegatedRoleDefinitionIds** . W tym miejscu możesz dołączyć dowolną wbudowaną rolę z wyjątkiem administratora dostępu użytkownika lub właściciela.
+Aby umożliwić usłudze **principalId** utworzenie tożsamości zarządzanej w dzierżawie klienta, należy ustawić jej **zduplikowanych** na **administratora dostępu użytkowników**. Chociaż ta rola nie jest ogólnie obsługiwana, może być używana w tym konkretnym scenariuszu, co umożliwia kontom użytkowników z tym uprawnieniem przypisanie do tożsamości zarządzanych co najmniej jednej konkretnej wbudowanej roli. Role te są zdefiniowane we właściwości **delegatedRoleDefinitionIds** i mogą obejmować dowolną [obsługiwaną rolę wbudowaną platformy Azure](../concepts/tenants-users-roles.md#role-support-for-azure-lighthouse) z wyjątkiem administratora dostępu użytkownika lub właściciela.
 
 Po dołączeniu klienta **principalId** utworzony w ramach tej autoryzacji będzie mógł przypisywać te wbudowane role do zarządzanych tożsamości w dzierżawie klienta. Nie będą jednak mieć żadnych innych uprawnień zwykle skojarzonych z rolą administratora dostępu użytkownika.
 

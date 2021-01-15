@@ -3,12 +3,12 @@ title: Obsługiwane wersje klastra w usłudze Azure Service Fabric
 description: Dowiedz się więcej o wersjach klastra w usłudze Azure Service Fabric, łącznie z linkiem do najnowszych wydań z blogu zespołu Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: abf9900e9749a1b21d927e0315076b38848bea10
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: c2ea2b53649cf148a19df46835c8936345aa20e5
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132651"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234345"
 ---
 # <a name="supported-service-fabric-versions"></a>Obsługiwane Service Fabric wersje
 
@@ -37,18 +37,18 @@ Zalecamy i zalecamy podejmowanie działań w celu przeprowadzenia uaktualnienia 
 Uaktualnij do Service Fabric obsługiwanych wersji wymienionych poniżej, aby zapobiec przestojom lub utracie funkcjonalności związanej z tą zmianą. Upewnij się, że w klastrach działają co najmniej te wersje, aby zapobiec problemom w danym środowisku.
 
   ###### <a name="supported-service-fabric-runtime-versions"></a>Obsługiwane Service Fabric wersje środowiska uruchomieniowego
-   Jeśli nie znajdujesz się na poniższej liście obsługiwanych wersji Service Fabric, przeprowadź uaktualnienie do jednej z tych wersji, które zawierają już niezbędne zmiany, aby zapobiec przestojom w klastrze.  
+   Jeśli nie znajdujesz się na poniższej liście obsługiwanych wersji Service Fabric, przeprowadź uaktualnienie do jednej z tych wersji, które zawierają już niezbędne zmiany, aby zapobiec przestojom w klastrze. **Uwaga:** Wszystkie wersje wydań 7,2 obejmują niezbędne zmiany.
   
   | System operacyjny | Bieżące środowisko uruchomieniowe Service Fabric w klastrze | Wydanie w wersji CU/patch  | 
   | --- | --- |--- | 
   | Windows | 7,0. * | 7.0.478.9590 |
   | Windows | 7,1. * | 7.1.503.9590 |
-  | Windows | 7,2. * | 7.2.445.9590 |
+  | Windows | 7,2. * | 7,2. * |
   | Ubuntu 16 | 7,0. * | 7.0.472.1  |
   | Linux Ubuntu 16,04 | 7,1. * | 7.1.455.1  |
   | Linux Ubuntu 18,04 | 7,1. * | 7.1.455.1804 |
-  | Linux Ubuntu 16,04 | 7,2. * | 7.2.447.1 |
-  | Linux Ubuntu 18,04 | 7,2. * | 7.2.447.1804 |
+  | Linux Ubuntu 16,04 | 7,2. * | 7,2. * |
+  | Linux Ubuntu 18,04 | 7,2. * | 7,2. * |
  
 ### <a name="upgrade-alert-for-versions-greater-than-63"></a>Zgłoś alert dla wersji większych niż 6,3 
 Aby zwiększyć bezpieczeństwo i dostępność, infrastruktura platformy Azure wprowadzi zmianę, która może mieć wpływ na Service Fabric klientów. **Wszystkie klastry Service Fabric, które korzystają z [funkcji Otwórz sieć dla kontenerów](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode), działają w nieobsługiwanych wersjach większych niż 6,3 i niższych niż 7,0, ale mają wpływ na niezgodne wersje obsługiwane przez 7,0**. Rozadresowanie zmiany wymaga aktualizacji środowiska uruchomieniowego Service Fabric, która jest już dostępna dla wszystkich obsługiwanych Service Fabric wersji we wszystkich regionach.
@@ -58,24 +58,24 @@ Aby zwiększyć bezpieczeństwo i dostępność, infrastruktura platformy Azure 
  
   - **W przypadku klastrów z uruchomioną wersją Service Fabric większą niż 6,3 nie korzystających z funkcji sieci**, klaster pozostanie Nieuruchomiony, jednak funkcja otwartej sieci dla klastrów kontenerów przestanie działać, co może spowodować zakłócenia usługi dla obciążeń.
 
- - **W przypadku klastrów z uruchomioną wersją Service Fabric większą niż 6,3 i używania [funkcji Otwórz sieć dla kontenerów](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode)** klaster pozostanie Nieuruchomiony, ale przestanie działać, co może spowodować przerwanie działania usługi dla obciążeń.
+ - **W przypadku klastrów z uruchomioną wersją Service Fabric większą niż 6,3 i używania [funkcji Otwórz sieć dla kontenerów](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode)** klaster może stać się niedostępny i przestanie działać, co może spowodować przerwanie działania usługi dla obciążeń.
   
 #### <a name="required-action"></a>Wymagana akcja
 Uaktualnij do Service Fabric obsługiwanych wersji wymienionych poniżej, aby zapobiec przestojom lub utracie funkcjonalności związanej z tą zmianą. Upewnij się, że w klastrach działają co najmniej te wersje, aby zapobiec problemom w danym środowisku. 
  
  ###### <a name="supported-service-fabric-runtime-versions"></a>Obsługiwane Service Fabric wersje środowiska uruchomieniowego
- Jeśli nie znajdujesz się na poniższej liście obsługiwanych wersji Service Fabric, przeprowadź uaktualnienie do jednej z tych wersji, które zawierają już niezbędne zmiany, aby zapobiec utracie funkcjonalności.  
+ Jeśli nie znajdujesz się na poniższej liście obsługiwanych wersji Service Fabric, przeprowadź uaktualnienie do jednej z tych wersji, które zawierają już niezbędne zmiany, aby zapobiec utracie funkcjonalności.  **Uwaga:** Wszystkie wersje wydań 7,2 obejmują niezbędne zmiany.
  
   | System operacyjny | Bieżące środowisko uruchomieniowe Service Fabric w klastrze | Wydanie w wersji CU/patch  | 
   | --- | --- |--- | 
   | Windows | 7,0. * | 7.0.478.9590 |
   | Windows | 7,1. * | 7.1.503.9590 |
-  | Windows | 7,2. * | 7.2.445.9590 |
+  | Windows | 7,2. * | 7,2. * |
   | Linux Ubuntu 16,04 | 7,0. * | 7.0.472.1  |
   | Linux Ubuntu 16,04 | 7,1. * | 7.1.455.1  |
   | Linux Ubuntu 18,04 | 7,1. * | 7.1.455.1804 |
-  | Linux Ubuntu 16,04 | 7,2. * | 7.2.447.1 |
-  | Linux Ubuntu 18,04 | 7,2. * | 7.2.447.1804 |
+  | Linux Ubuntu 16,04 | 7,2. * | 7,2. * |
+  | Linux Ubuntu 18,04 | 7,2. * | 7,2. * |
 
 ## <a name="supported-versions"></a>Obsługiwane wersje
 W poniższej tabeli wymieniono wersje Service Fabric i ich daty końcowe pomocy technicznej.

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
-ms.openlocfilehash: b11bdf9b82352c15b7f7236168494f32fe4a4f9f
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 280b3cbef8307691b0d50c4a26f6dca18b7fb65b
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98221514"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233869"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Przepustowość sieci maszyny wirtualnej
 
@@ -52,15 +52,13 @@ Transfer danych między punktami końcowymi wymaga utworzenia kilku przepływów
 
 ![Liczba przepływów dla konwersacji TCP za pośrednictwem urządzenia przekazującego](media/virtual-machine-network-throughput/flow-count-through-network-virtual-appliance.png)
 
-## <a name="flow-limits-and-recommendations"></a>Limity przepływu i zalecenia
+## <a name="flow-limits-and-active-connections-recommendations"></a>Zalecenia dotyczące limitów przepływu i aktywnych połączeń
 
-Obecnie stos sieci platformy Azure obsługuje 250 000 łączne przepływy sieciowe z dobrą wydajnością dla maszyn wirtualnych z ponad 8 rdzeniami procesora i łącznym przepływem, dzięki czemu maszyny wirtualne mają mniej niż 8 rdzeni procesora. Dzięki temu ograniczenie wydajności sieci jest bezpieczne dla dodatkowych przepływów, aż do ostatecznego limitu całkowitej liczby przepływów 500 000, 250 000 ruchu przychodzącego i 250 000 wychodzącego, po którym są porzucane dodatkowe przepływy.
+Obecnie stos sieci platformy Azure obsługuje łączną liczbę przepływów (500 000 przychodzących i 500 000 wychodzących) dla maszyny wirtualnej. Całkowita liczba aktywnych połączeń, które mogą być obsługiwane przez maszynę wirtualną w różnych scenariuszach, jest następująca.
+- Maszyny wirtualne należące do sieci wirtualnej mogą obsługiwać 500 000 **_Active Connections_* _ dla wszystkich rozmiarów maszyn wirtualnych z _*_aktywnymi przepływami 500 000 w każdym kierunku_*_.  
+- Maszyny wirtualne z wirtualnymi urządzeniami sieciowymi (urządzeń WUS), takie jak Brama, serwer proxy, Zapora mogą obsługiwać _*_aktywne połączenia_*_ usługi 250 000 z 500 000em *_aktywnych przepływów w każdym kierunku_** ze względu na przekazywanie i dodatkowy nowy przepływ podczas tworzenia nowego połączenia do następnego skoku, jak pokazano na powyższym diagramie. 
 
-| Poziom wydajności | Maszyny wirtualne z <8 rdzeni procesora CPU | Maszyny wirtualne z 8 rdzeniami procesora CPU |
-| ----------------- | --------------------- | --------------------- |
-|<b>Dobra wydajność</b>|Przepływy 100 000 |Przepływy 250 000|
-|<b>Wydajność obniżona</b>|Powyżej przepływy 100 000|Powyżej przepływy 250 000|
-|<b>Limit przepływu</b>|Przepływy 500 000|Przepływy 500 000|
+Po osiągnięciu tego limitu dodatkowe połączenia są usuwane. Stawki za połączenia i zwolnienia mogą również wpływać na wydajność sieci, ponieważ ustanowienie połączenia i zakończenie współużytkują procesor z procedurami przetwarzania pakietów. Firma Microsoft zaleca, aby przeprowadzić testy porównawcze względem oczekiwanych wzorców ruchu i odpowiednio skalować obciążenia w celu dopasowania do potrzeb związanych z wydajnością.
 
 Metryki są dostępne w [Azure monitor](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) , aby śledzić liczbę przepływów sieciowych i szybkość tworzenia przepływu na maszynach wirtualnych lub wystąpieniach VMSS.
 

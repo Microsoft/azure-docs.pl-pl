@@ -4,14 +4,14 @@ description: Przewodnik referencyjny dotyczący funkcji w wyrażeniach dla Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
-ms.topic: conceptual
-ms.date: 09/04/2020
-ms.openlocfilehash: 222f6ebacb6139ca26a6f1cdd0f896270c9b2fc2
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.topic: reference
+ms.date: 01/13/2021
+ms.openlocfilehash: fe40cbe84e8e3341b03c6c8e11701fe3db6bc3d0
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034299"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234226"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Przewodnik referencyjny dotyczący używania funkcji w wyrażeniach dla Azure Logic Apps i automatyzacji
 
@@ -103,7 +103,7 @@ Do pracy z kolekcjami, ogólnie tablicami, ciągami i czasami słownikami można
 
 | Funkcja kolekcji | Zadanie |
 | ------------------- | ---- |
-| [zawiera](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Sprawdź, czy kolekcja zawiera określony element. |
+| [wyświetlana](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Sprawdź, czy kolekcja zawiera określony element. |
 | [puste](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Sprawdź, czy kolekcja jest pusta. |
 | [pierwszego](../logic-apps/workflow-definition-language-functions-reference.md#first) | Zwróć pierwszy element z kolekcji. |
 | [część wspólną](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Zwróć kolekcję, która ma *tylko* wspólne elementy w określonej kolekcji. |
@@ -166,7 +166,7 @@ Aby zmienić typ lub format wartości, można użyć tych funkcji konwersji. Na 
 | [liczba zmiennoprzecinkowa](../logic-apps/workflow-definition-language-functions-reference.md#float) | Zwróć liczbę zmiennoprzecinkową dla wartości wejściowej. |
 | [int](../logic-apps/workflow-definition-language-functions-reference.md#int) | Zwróć wersję całkowitą dla ciągu. |
 | [kodu](../logic-apps/workflow-definition-language-functions-reference.md#json) | Zwróć wartość typu JavaScript Object Notation (JSON) lub obiekt dla ciągu lub XML. |
-| [ciąg](../logic-apps/workflow-definition-language-functions-reference.md#string) | Zwraca wersję ciągu dla wartości wejściowej. |
+| [parametry](../logic-apps/workflow-definition-language-functions-reference.md#string) | Zwraca wersję ciągu dla wartości wejściowej. |
 | [uriComponent](../logic-apps/workflow-definition-language-functions-reference.md#uriComponent) | Zwróć wersję z kodowaniem URI dla wartości wejściowej przez zastępowanie znaków w adresie URL bez znaku ucieczki. |
 | [uriComponentToBinary](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToBinary) | Zwróć wersję binarną dla ciągu zakodowanego za pomocą identyfikatora URI. |
 | [uriComponentToString](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToString) | Zwraca wersję ciągu dla ciągu zakodowanego przy użyciu identyfikatora URI. |
@@ -213,7 +213,7 @@ Aby uzyskać pełne informacje o każdej z tych funkcji, zobacz [alfabetyczną l
 | ------------- | ---- |
 | [add](../logic-apps/workflow-definition-language-functions-reference.md#add) | Zwróć wynik dodawania dwóch liczb. |
 | [div](../logic-apps/workflow-definition-language-functions-reference.md#div) | Zwróć wynik dzielenia dwóch liczb. |
-| [max](../logic-apps/workflow-definition-language-functions-reference.md#max) | Zwraca najwyższą wartość z zestawu liczb lub tablicy. |
+| [Maksymalny](../logic-apps/workflow-definition-language-functions-reference.md#max) | Zwraca najwyższą wartość z zestawu liczb lub tablicy. |
 | [min](../logic-apps/workflow-definition-language-functions-reference.md#min) | Zwróć najniższą wartość z zestawu liczb lub tablicy. |
 | [Funkcja](../logic-apps/workflow-definition-language-functions-reference.md#mod) | Zwróć resztę z dzielenia dwóch liczb. |
 | [mul](../logic-apps/workflow-definition-language-functions-reference.md#mul) | Zwróć produkt z mnożenia dwóch liczb. |
@@ -2532,11 +2532,17 @@ Ten przykład tworzy zmienną licznika i zwiększa tę zmienną o jeden podczas 
 
 ### <a name="json"></a>json
 
-Zwróć wartość typu JavaScript Object Notation (JSON) lub obiekt dla ciągu lub XML.
+Zwróć wartość typu JavaScript Object Notation (JSON), obiekt lub tablicę obiektów dla ciągu lub XML.
 
 ```
 json('<value>')
+json(xml('value'))
 ```
+
+> [!IMPORTANT]
+> Bez schematu XML, który definiuje strukturę danych wyjściowych, funkcja może zwrócić wyniki, gdzie struktura znacznie różni się od oczekiwanego formatu, w zależności od danych wejściowych.
+>  
+> Takie zachowanie sprawia, że ta funkcja nie jest odpowiednia dla scenariuszy, w których dane wyjściowe muszą być zgodne z dobrze zdefiniowanym kontraktem, na przykład w krytycznych systemach lub rozwiązaniach firmy.
 
 | Parametr | Wymagane | Typ | Opis |
 | --------- | -------- | ---- | ----------- |
@@ -2545,7 +2551,7 @@ json('<value>')
 
 | Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*Wynik JSON*> | Natywny typ lub obiekt JSON | Wartość lub obiekt natywnego typu JSON dla określonego ciągu lub XML. Jeśli ciąg ma wartość null, funkcja zwraca pusty obiekt. |
+| <*Wynik JSON*> | Natywny typ, obiekt lub tablica JSON | Wartość typu natywnego JSON, obiekt lub tablica obiektów z ciągu wejściowego lub XML. <p><p>— W przypadku przekazania pliku XML, który ma pojedynczy element podrzędny w elemencie głównym, funkcja zwraca pojedynczy obiekt JSON dla tego elementu podrzędnego. <p> — W przypadku przekazania pliku XML, który ma wiele elementów podrzędnych w elemencie głównym, funkcja zwraca tablicę zawierającą obiekty JSON dla tych elementów podrzędnych. <p>-Jeśli ciąg ma wartość null, funkcja zwraca pusty obiekt. |
 ||||
 
 *Przykład 1*
@@ -2560,7 +2566,7 @@ I zwraca ten wynik: `[1, 2, 3]`
 
 *Przykład 2*
 
-Ten przykład konwertuje ten ciąg na format JSON:
+Ten przykład konwertuje ten ciąg na kod JSON:
 
 ```
 json('{"fullName": "Sophia Owen"}')
@@ -2568,7 +2574,7 @@ json('{"fullName": "Sophia Owen"}')
 
 I zwraca ten wynik:
 
-```
+```json
 {
   "fullName": "Sophia Owen"
 }
@@ -2576,23 +2582,53 @@ I zwraca ten wynik:
 
 *Przykład 3*
 
-Ten przykład konwertuje ten kod XML na format JSON:
+W tym przykładzie używane `json()` są `xml()` funkcje i do konwertowania kodu XML, który ma pojedynczy element podrzędny w elemencie głównym do obiektu JSON o nazwie `person` dla tego elementu podrzędnego:
 
-```
-json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> </root>'))
-```
+`json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> </root>'))`
 
 I zwraca ten wynik:
 
 ```json
 {
-   "?xml": { "@version": "1.0" },
+   "?xml": { 
+      "@version": "1.0" 
+   },
    "root": {
-      "person": [ {
+      "person": {
          "@id": "1",
          "name": "Sophia Owen",
          "occupation": "Engineer"
-      } ]
+      }
+   }
+}
+```
+
+*Przykład 4*
+
+W tym przykładzie używane `json()` są `xml()` funkcje i do konwertowania kodu XML, który ma wiele elementów podrzędnych w elemencie głównym, do tablicy o nazwie zawierającej `person` obiekty JSON dla tych elementów podrzędnych:
+
+`json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> <person id='2'> <name>John Doe</name> <occupation>Engineer</occupation> </person> </root>'))`
+
+I zwraca ten wynik:
+
+```json
+{
+   "?xml": {
+      "@version": "1.0"
+   },
+   "root": {
+      "person": [
+         {
+            "@id": "1",
+            "name": "Sophia Owen",
+            "occupation": "Engineer"
+         },
+         {
+            "@id": "2",
+            "name": "John Doe",
+            "occupation": "Engineer"
+         }
+      ]
    }
 }
 ```

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: errobin
-ms.openlocfilehash: 63b91194c9ffb10fd8f4c5f1341eaf74bc81f5e1
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 88c287c4aa87b4df41bfe6bbc1992262b21d07aa
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94694885"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232764"
 ---
 # <a name="using-insights-to-monitor-and-configure-your-azure-load-balancer"></a>Korzystanie z usługi Insights do monitorowania i konfigurowania Azure Load Balancer
 
@@ -68,7 +68,7 @@ Karta przepływność danych umożliwia sprawdzenie przepływności ruchu przych
 ### <a name="flow-distribution"></a>Dystrybucja przepływu
 Karta dystrybucja przepływu ułatwia wizualizowanie i zarządzanie liczbą przepływów, które są wysyłane i wytwarzające wystąpienia zaplecza. Pokazuje współczynnik tworzenia przepływu oraz liczbę przepływów dla ruchu przychodzącego i wychodzącego, a także ruch sieciowy dla każdej maszyny wirtualnej i wystąpienia zestawu skalowania maszyn wirtualnych. 
 
-Te widoki mogą dać opinię na temat tego, czy Load Balancer konfiguracja lub wzorce ruchu prowadzą do niezrównoważonego ruchu. Na przykład jeśli skonfigurowano koligację sesji i jeden klient ma nieproporcjonalną liczbę żądań. Poinformuje również o tym, czy zbliża się [Limit przepływu na maszynę wirtualną](../virtual-network/virtual-machine-network-throughput.md#flow-limits-and-recommendations) dla rozmiaru maszyny.
+Te widoki mogą dać opinię na temat tego, czy Load Balancer konfiguracja lub wzorce ruchu prowadzą do niezrównoważonego ruchu. Na przykład jeśli skonfigurowano koligację sesji i jeden klient ma nieproporcjonalną liczbę żądań. Poinformuje również o tym, czy zbliża się [Limit przepływu na maszynę wirtualną](../virtual-network/virtual-machine-network-throughput.md#flow-limits-and-active-connections-recommendations) dla rozmiaru maszyny.
 
 ### <a name="connection-monitors"></a>Monitory połączeń
 Na karcie monitory połączeń zostanie wyświetlone opóźnienie rundy na mapie globalnej dla wszystkich skonfigurowanych [monitorów połączeń](../network-watcher/connection-monitor.md)  . Te wizualizacje zawierają przydatne informacje dotyczące usług o rygorystycznych wymaganiach w zakresie opóźnień. Aby spełnić wymagania, może być konieczne dodanie dodatkowych wdrożeń regionalnych lub przejście do modelu [międzyregionalnego równoważenia obciążenia](./cross-region-overview.md)

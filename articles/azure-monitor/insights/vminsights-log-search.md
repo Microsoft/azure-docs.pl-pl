@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 118bdcb6929abfc162ff05e91f1621f087b6c50c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ae0bc6ea35d5c6e3ebe0cd7f232e5c8b1e637d9d
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186732"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234056"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Jak wykonywać zapytania dotyczące dzienników z Azure Monitor dla maszyn wirtualnych
 
@@ -92,7 +92,7 @@ Oto kilka istotnych kwestii, które należy wziąć pod uwagę:
 
 #### <a name="naming-and-classification"></a>Nazewnictwo i Klasyfikacja
 
-Dla wygody adres IP zdalnego końca połączenia jest zawarty we właściwości RemoteIp. W przypadku połączeń przychodzących RemoteIp jest taka sama jak SourceIp, natomiast w przypadku połączeń wychodzących jest taka sama jak DestinationIp. Właściwość RemoteDnsCanonicalNames reprezentuje nazwy kanoniczne DNS zgłoszone przez komputer dla RemoteIp. Właściwości RemoteDnsQuestions i RemoteClassification są zastrzeżone do użytku w przyszłości. 
+Dla wygody adres IP zdalnego końca połączenia jest zawarty we właściwości RemoteIp. W przypadku połączeń przychodzących RemoteIp jest taka sama jak SourceIp, natomiast w przypadku połączeń wychodzących jest taka sama jak DestinationIp. Właściwość RemoteDnsCanonicalNames reprezentuje nazwy kanoniczne DNS zgłoszone przez komputer dla RemoteIp. Właściwość RemoteDnsQuestions reprezentuje pytania DNS zgłoszone przez komputer dla RemoteIp. Właściwość RemoveClassification jest zarezerwowana do użytku w przyszłości. 
 
 #### <a name="geolocation"></a>Geolokalizacja
 

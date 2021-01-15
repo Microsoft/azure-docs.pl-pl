@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: deb05083ca45c24a58cabf9e923b706575ef093b
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 484dd8313710332660bb20d55f3dac2aa21bbc61
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562144"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232526"
 ---
 # <a name="integrate-your-existing-network-policy-server-nps-infrastructure-with-azure-ad-multi-factor-authentication"></a>Integrowanie istniejącej infrastruktury serwera zasad sieciowych (NPS) z usługą Azure AD Multi-Factor Authentication
 
@@ -116,6 +116,8 @@ Ponadto do ukończenia [instalacji karty przy użyciu dostarczonego skryptu prog
 * *https: \/ /login.microsoftonline.com*
 * *https: \/ /provisioningapi.microsoftonline.com*
 * *https: \/ /aadcdn.msauth.NET*
+* *https: \/ /www.powershellgallery.com*
+* *https: \/ /aadcdn.msftauthimages.NET*
 
 ## <a name="prepare-your-environment"></a>Przygotowywanie środowiska
 
@@ -307,7 +309,7 @@ Skonfiguruj klientów usługi RADIUS, którzy mają wymagać uwierzytelniania wi
 
 Jeśli masz użytkowników, którzy nie zostali zarejestrowani na potrzeby uwierzytelniania wieloskładnikowego, możesz określić, co się dzieje podczas próby uwierzytelnienia. Aby kontrolować to zachowanie, użyj ustawienia *REQUIRE_USER_MATCH* w ścieżce rejestru *HKLM\Software\Microsoft\AzureMFA*. To ustawienie ma jedną opcję konfiguracji:
 
-| Klucz | Wartość | Domyślny |
+| Klucz | Wartość | Domyślne |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | PRAWDA/FAŁSZ | Nie ustawiono (odpowiednik wartości TRUE) |
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: 2eb3564153734ff70b7df69da568966e29747863
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: c70de186468eb3efacc82c1d5c8802612475fd4d
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202440"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232798"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Wdrożenie Virtual Machines platformy Azure dla oprogramowania SAP NetWeaver
 
@@ -426,7 +426,7 @@ Najprostszym sposobem tworzenia nowej maszyny wirtualnej przy użyciu obrazu z w
 1.  Wybierz pozycję **obliczenia**, a następnie wybierz typ systemu operacyjnego, który chcesz wdrożyć. Na przykład: Windows Server 2012 R2, SUSE Linux Enterprise Server 12 (SLES 12), Red Hat Enterprise Linux 7,2 (RHEL 7,2) lub Oracle Linux 7,2. W widoku listy domyślnej nie są wyświetlane wszystkie obsługiwane systemy operacyjne. Aby uzyskać pełną listę, wybierz pozycję **Zobacz wszystko** . Aby uzyskać więcej informacji o obsługiwanych systemach operacyjnych na potrzeby wdrażania oprogramowania SAP, zobacz temat SAP Note [1928533].
 1.  Na następnej stronie Przejrzyj warunki i postanowienia.
 1.  W polu **Wybierz model wdrażania** wybierz pozycję **Menedżer zasobów**.
-1.  Wybierz pozycję **Utwórz**.
+1.  Wybierz przycisk **Utwórz**.
 
 Kreator przeprowadzi Cię przez proces konfigurowania wymaganych parametrów w celu utworzenia maszyny wirtualnej, a także wszystkich wymaganych zasobów, takich jak interfejsy sieciowe i konta magazynu. Niektóre z tych parametrów są następujące:
 
@@ -912,8 +912,8 @@ Aby uzyskać więcej informacji o trasach zdefiniowanych przez użytkownika, zob
 ### <a name="configure-the-azure-extension-for-sap"></a><a name="d98edcd3-f2a1-49f7-b26a-07448ceb60ca"></a>Skonfiguruj rozszerzenie platformy Azure dla oprogramowania SAP
 
 > [!NOTE]
-> Ogólne zestawienie pomocy technicznej: zawsze otwieraj zdarzenie przy użyciu SAP na składniku BC-OP-NT-AZR dla systemu Windows lub BC-OP-LNX-AZR, jeśli potrzebujesz wsparcia dla rozszerzenia platformy Azure dla oprogramowania SAP.
-> Inżynierowie pomocy technicznej firmy Microsoft pracują w systemie pomocy technicznej SAP, aby pomóc naszym klientom.
+> Ogólna Instrukcja pomocy technicznej:  
+> Obsługa rozszerzenia platformy Azure dla oprogramowania SAP jest dostępna za pomocą kanałów pomocy technicznej SAP. Jeśli potrzebujesz pomocy przy rozszerzeniu platformy Azure dla oprogramowania SAP, Otwórz przypadek pomocy technicznej z [obsługą SAP](https://support.sap.com/). 
 
 Po przygotowaniu maszyny wirtualnej zgodnie z opisem w [scenariuszach wdrażania maszyn wirtualnych dla oprogramowania SAP na platformie Azure][deployment-guide-3], Agent maszyny wirtualnej platformy Azure jest zainstalowany na tej maszynie. Następnym krokiem jest wdrożenie rozszerzenia platformy Azure dla oprogramowania SAP, które jest dostępne w repozytorium rozszerzeń platformy Azure w globalnych centrach danych platformy Azure. Aby uzyskać więcej informacji, zobacz temat [Azure Virtual Machines Planning and implementation for SAP NetWeaver][planning-guide-9.1].
 
@@ -1510,7 +1510,7 @@ Wykonaj kroki opisane w rozdziale [Konfigurowanie rozszerzenia platformy Azure d
 
 Jeśli błędy nie znikną, [skontaktuj się z pomocą techniczną][deployment-guide-contact-support].
 
-#### <a name="contact-support"></a><a name="3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2"></a>Kontakt z pomocą techniczną
+#### <a name="contact-support"></a><a name="3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2"></a>Skontaktuj się z pomocą techniczną
 
 Nieoczekiwany błąd lub nie ma znanego rozwiązania. Zbierz plik AzureEnhancedMonitoring_service. log znajdujący się w folderze C:\Packages\Plugins\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler \\ \<version\> \Drop (Windows) lub/var/log/Azure/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux (Linux) i skontaktuj się z pomocą TECHNICZNą SAP w celu uzyskania dalszej pomocy.
 

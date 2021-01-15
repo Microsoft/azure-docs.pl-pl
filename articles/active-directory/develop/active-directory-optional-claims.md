@@ -12,12 +12,12 @@ ms.date: 1/06/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 1debeab6e420d9021ebba1cecb2d551cf21c9fe2
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 6b5c328503a28c6eb92c2c20ca54d4d3d80c9a15
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028475"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232475"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Instrukcje: dostarczanie opcjonalnych oświadczeń do aplikacji
 
@@ -45,7 +45,7 @@ Chociaż opcjonalne oświadczenia są obsługiwane zarówno w tokenach w formaci
 Zestaw opcjonalnych oświadczeń dostępnych domyślnie dla aplikacji do użycia znajduje się poniżej. Aby dodać niestandardowe oświadczenia opcjonalne dla aplikacji, zobacz [rozszerzenia katalogów](#configuring-directory-extension-optional-claims)poniżej. W przypadku dodawania oświadczeń do **tokenu dostępu** oświadczenia są stosowane do tokenów dostępu żądanych *dla* aplikacji (internetowego interfejsu API), a nie oświadczeń wymaganych *przez* aplikację. Niezależnie od tego, w jaki sposób klient uzyskuje dostęp do interfejsu API, odpowiednie dane są obecne w tokenie dostępu używanym do uwierzytelniania w interfejsie API.
 
 > [!NOTE]
-> Większość tych oświadczeń można uwzględnić w JWTs dla tokenów v 1.0 i v 2.0, ale nie tokenów SAML, z wyjątkiem sytuacji, w których zaznaczono w kolumnie Typ tokenu. Konta konsumentów obsługują podzbiór tych oświadczeń, które są oznaczone w kolumnie Typ użytkownika.  Wiele z wymienionych oświadczeń nie dotyczy użytkowników indywidualnych (nie mają dzierżawy, więc `tenant_ctry` nie ma żadnej wartości).
+>Większość tych oświadczeń można uwzględnić w JWTs dla tokenów v 1.0 i v 2.0, ale nie tokenów SAML, z wyjątkiem sytuacji, w których zaznaczono w kolumnie Typ tokenu. Konta konsumentów obsługują podzbiór tych oświadczeń, które są oznaczone w kolumnie Typ użytkownika.  Wiele z wymienionych oświadczeń nie dotyczy użytkowników indywidualnych (nie mają dzierżawy, więc `tenant_ctry` nie ma żadnej wartości).
 
 **Tabela 2: zestaw opcjonalnych zestawów zgłoszeń 1.0 i v 2.0**
 
@@ -148,13 +148,13 @@ Opcjonalne oświadczenia dla aplikacji można skonfigurować za pomocą interfej
 [![Konfigurowanie opcjonalnych oświadczeń w interfejsie użytkownika](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
 
 1. W obszarze **Zarządzaj** wybierz pozycję **Konfiguracja tokenu**.
+   - Blok **Konfiguracja tokenu** opcji interfejsu użytkownika jest niedostępny dla aplikacji zarejestrowanych w dzierżawie Azure AD B2C, które można skonfigurować, modyfikując manifest aplikacji. Aby uzyskać więcej informacji  [, zobacz Dodawanie oświadczeń i dostosowywanie danych wejściowych użytkownika przy użyciu zasad niestandardowych w Azure Active Directory B2C](../../active-directory-b2c/configure-user-input.md)  
+
 1. Wybierz pozycję **Dodaj opcjonalne** pole.
 1. Wybierz typ tokenu, który chcesz skonfigurować.
 1. Wybierz opcjonalne oświadczenia do dodania.
 1. Wybierz pozycję **Dodaj**.
 
-> [!NOTE]
-> Blok **Konfiguracja tokenu** opcji interfejsu użytkownika nie jest dostępny dla aplikacji zarejestrowanych w dzierżawie Azure AD B2C. W przypadku aplikacji zarejestrowanych w dzierżawie B2C opcjonalne oświadczenia można skonfigurować przez modyfikację manifestu aplikacji. Aby uzyskać więcej informacji [, zobacz Dodawanie oświadczeń i dostosowywanie danych wejściowych użytkownika przy użyciu zasad niestandardowych w Azure Active Directory B2C](../../active-directory-b2c/configure-user-input.md) 
 
 **Konfigurowanie opcjonalnych oświadczeń za pomocą manifestu aplikacji:**
 
@@ -227,8 +227,7 @@ Oprócz standardowego opcjonalnego zestawu oświadczeń można także skonfiguro
 
 Rozszerzenia schematu i otwarte nie są obsługiwane przez oświadczenia opcjonalne, tylko rozszerzenia katalogu stylów AAD-Graph. Ta funkcja jest przydatna do dołączania dodatkowych informacji o użytkownikach, które mogą być używane przez aplikację — na przykład dodatkowego identyfikatora lub ważnej opcji konfiguracji ustawionej przez użytkownika. Przykład znajduje się na końcu tej strony.
 
-> [!NOTE]
-> Rozszerzenia schematu katalogu są funkcją tylko usługi Azure AD. Jeśli manifest aplikacji żąda rozszerzenia niestandardowego, a użytkownik MSA zaloguje się do aplikacji, te rozszerzenia nie zostaną zwrócone.
+Rozszerzenia schematu katalogu są funkcją tylko usługi Azure AD. Jeśli manifest aplikacji żąda rozszerzenia niestandardowego, a użytkownik MSA zaloguje się do aplikacji, te rozszerzenia nie zostaną zwrócone.
 
 ### <a name="directory-extension-formatting"></a>Formatowanie rozszerzenia katalogu
 
@@ -290,8 +289,7 @@ W tej sekcji omówiono opcje konfiguracji w obszarze opcjonalne oświadczenia do
    - accessToken dla tokenu dostępu OAuth
    - Saml2Token dla tokenów SAML.
 
-   > [!NOTE]
-   > Typ Saml2Token ma zastosowanie do tokenów w formacie SAML 1.1 i SAML 2.0.
+   Typ Saml2Token ma zastosowanie do tokenów w formacie SAML 1.1 i SAML 2.0.
 
    Dla każdego odpowiedniego typu tokenu zmodyfikuj je, aby użyć sekcji OptionalClaims w manifeście. Schemat OptionalClaims jest następujący:
 
@@ -315,8 +313,7 @@ W tej sekcji omówiono opcje konfiguracji w obszarze opcjonalne oświadczenia do
 
    Niektóre aplikacje wymagają informacji o grupie dla użytkownika w ramach roszczeń ról.  Aby zmienić typ zgłoszenia z żądania grupy do roszczeń roli, Dodaj "emit_as_roles" do dodatkowych właściwości.  Wartości grupy będą emitowane w ramach roszczeń ról.
 
-   > [!NOTE]
-   > Jeśli zostanie użyta wartość "emit_as_roles", wszystkie role aplikacji skonfigurowane do przypisywania użytkownika nie będą wyświetlane w ramach tego żądania.
+   Jeśli zostanie użyta wartość "emit_as_roles", wszystkie role aplikacji skonfigurowane do przypisywania użytkownika nie będą wyświetlane w ramach tego żądania.
 
 **Przykłady:**
 

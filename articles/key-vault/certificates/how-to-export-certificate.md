@@ -10,16 +10,16 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: 0925b51ed960b8007d2df86115ea7e5cf627fe7e
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: b3c917c9652954783fcddd92b9a7370c358ab3cc
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97826122"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233648"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>Eksportuj certyfikaty z Azure Key Vault
 
-Dowiedz się, jak eksportować certyfikaty z Azure Key Vault. Certyfikaty można eksportować za pomocą interfejsu wiersza polecenia platformy Azure, Azure PowerShell lub Azure Portal. Możesz również użyć Azure Portal do eksportowania certyfikatów Azure App Service.
+Dowiedz się, jak eksportować certyfikaty z Azure Key Vault. Certyfikaty można eksportować za pomocą interfejsu wiersza polecenia platformy Azure, Azure PowerShell lub Azure Portal. 
 
 ## <a name="about-azure-key-vault-certificates"></a>Informacje o certyfikatach usługi Azure Key Vault
 
@@ -114,7 +114,7 @@ Aby pobrać certyfikat, wybierz opcję **Pobierz w formacie CER** lub **Pobierz 
 
 **Eksportowanie Azure App Service certyfikatów**
 
-Azure App Service certyfikaty są wygodnym sposobem zakupu certyfikatów SSL. Możesz przypisać je do aplikacji platformy Azure z poziomu portalu. Możesz również wyeksportować te certyfikaty z portalu jako pliki PFX do użycia w innym miejscu. Po ich zaimportowaniu certyfikaty App Service znajdują się w obszarze wpisy **tajne**.
+Azure App Service certyfikaty są wygodnym sposobem zakupu certyfikatów SSL. Możesz przypisać je do aplikacji platformy Azure z poziomu portalu. Po ich zaimportowaniu certyfikaty App Service znajdują się w obszarze wpisy **tajne**.
 
 Aby uzyskać więcej informacji, zobacz procedurę [eksportowania Azure App Service certyfikatów](https://social.technet.microsoft.com/wiki/contents/articles/37431.exporting-azure-app-service-certificates.aspx).
 

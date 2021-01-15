@@ -4,12 +4,12 @@ description: Dowiedz się, jak rozwiązywać problemy z agentem Java dla Azure M
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 54bf2440dff20fc757f37e3f31a53c57ebd59120
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 2876abd3749c9e56cef462e41b8268135f82cd12
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133195"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232220"
 ---
 # <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>Przewodnik rozwiązywania problemów: Azure Monitor Application Insights dla języka Java
 
@@ -17,7 +17,7 @@ W tym artykule omówiono niektóre typowe problemy, które można napotkać podc
 
 ## <a name="check-the-self-diagnostic-log-file"></a>Sprawdź plik dziennika samoobsługowego
 
-Domyślnie agent Java 3,0 dla Application Insights tworzy plik dziennika o nazwie `applicationinsights.log` w tym samym katalogu, w którym znajduje się `applicationinsights-agent-3.0.0.jar` plik.
+Domyślnie agent Java 3,0 dla Application Insights tworzy plik dziennika o nazwie `applicationinsights.log` w tym samym katalogu, w którym znajduje się `applicationinsights-agent-3.0.1.jar` plik.
 
 Ten plik dziennika jest pierwszym miejscem do sprawdzenia, czy występują wskazówki dotyczące wszelkich problemów, które mogą wystąpić.
 

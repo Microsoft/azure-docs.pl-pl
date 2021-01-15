@@ -1,14 +1,14 @@
 ---
 title: Dołączanie klienta do usługi Azure Lighthouse
 description: Dowiedz się, jak dołączyć klienta do usługi Azure Lighthouse, umożliwiając dostęp do zasobów i zarządzanie nimi za pośrednictwem własnej dzierżawy przy użyciu funkcji zarządzania zasobami delegowanymi przez platformę Azure.
-ms.date: 12/15/2020
+ms.date: 01/14/2021
 ms.topic: how-to
-ms.openlocfilehash: 023b44a77cb38a14df8aa6a885ff137c02942061
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 1a7c8fc85819b2c34b5c64dc83cb908b7bee3c41
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516125"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232679"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Dołączanie klienta do usługi Azure Lighthouse
 
@@ -62,14 +62,17 @@ az account show
 
 ## <a name="define-roles-and-permissions"></a>Definiowanie ról i uprawnień
 
-Jako dostawca usług możesz chcieć wykonać wiele zadań dla pojedynczego klienta, wymagając innego dostępu dla różnych zakresów. Możesz zdefiniować tyle autoryzacji, ile potrzebujesz, aby przypisać do użytkowników w dzierżawie odpowiednie [wbudowane role platformy Azure](../../role-based-access-control/built-in-roles.md) .
+Jako dostawca usług możesz chcieć wykonać wiele zadań dla pojedynczego klienta, wymagając innego dostępu dla różnych zakresów. Możesz zdefiniować tyle autoryzacji, ile potrzebujesz, aby przypisać odpowiednie [role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md). Każda autoryzacja zawiera **principalId** , który odwołuje się do użytkownika, grupy lub nazwy głównej usługi usługi Azure AD w dzierżawie zarządzającej.
 
-Aby ułatwić zarządzanie, zalecamy korzystanie z grup użytkowników usługi Azure AD dla każdej roli. Zapewnia to elastyczność dodawania lub usuwania poszczególnych użytkowników do grupy mającej dostęp, dzięki czemu nie trzeba powtarzać procesu dołączania w celu wprowadzenia zmian przez użytkownika. Role można przypisywać do jednostki usługi, co może być przydatne w scenariuszach automatyzacji.
+> [!NOTE]
+> O ile nie określono jawnie, odwołania do "użytkownika" w dokumentacji usługi Azure Lighthouse mogą być stosowane do użytkownika, grupy lub nazwy głównej usługi Azure AD w autoryzacji.
+
+Aby ułatwić zarządzanie, zalecamy używanie grup użytkowników usługi Azure AD dla każdej roli, jeśli to możliwe, a nie do poszczególnych użytkowników. Zapewnia to elastyczność dodawania lub usuwania poszczególnych użytkowników do grupy mającej dostęp, dzięki czemu nie trzeba powtarzać procesu dołączania w celu wprowadzenia zmian przez użytkownika. Można także przypisać role do nazwy głównej usługi, która może być przydatna w scenariuszach automatyzacji.
 
 > [!IMPORTANT]
 > Aby można było dodać uprawnienia dla grupy usługi Azure AD, **Typ grupy** musi być ustawiony na **zabezpieczenia**. Ta opcja jest wybierana podczas tworzenia grupy. Aby uzyskać więcej informacji, zobacz [Tworzenie podstawowej grupy i dodawanie członków w usłudze Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-Podczas definiowania autoryzacji należy przestrzegać zasad najniższych uprawnień, aby użytkownicy mieli tylko uprawnienia do wykonywania swoich zadań. Aby uzyskać wskazówki i informacje o obsługiwanych rolach, zobacz [dzierżawy, użytkowników i role w scenariuszach usługi Azure Lighthouse](../concepts/tenants-users-roles.md).
+Podczas definiowania autoryzacji należy przestrzegać zasad najniższych uprawnień, aby użytkownicy mieli tylko uprawnienia do wykonywania swoich zadań. Aby uzyskać informacje o obsługiwanych rolach i najlepszych rozwiązaniach, zobacz [dzierżawy, użytkownicy i role w scenariuszach usługi Azure Lighthouse](../concepts/tenants-users-roles.md).
 
 Aby zdefiniować autoryzacje, musisz znać wartości identyfikatora dla każdego użytkownika, grupy użytkowników lub nazwy głównej usługi w dzierżawie dostawcy usług, do której chcesz udzielić dostępu. Wymagany jest również identyfikator definicji roli dla każdej wbudowanej roli, która ma zostać przypisana. Jeśli ich nie masz, możesz je pobrać, uruchamiając poniższe polecenia z poziomu dzierżawy dostawcy usług.
 
@@ -195,7 +198,7 @@ Poniższy przykład przedstawia zmodyfikowaną **delegatedResourceManagement.par
 }
 ```
 
-Ostatnia autoryzacja w powyższym przykładzie dodaje **principalId** z rolą administratora dostępu użytkownika (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). Podczas przypisywania tej roli należy uwzględnić Właściwość **delegatedRoleDefinitionIds** i jedną lub więcej ról wbudowanych. Użytkownik utworzony w ramach tej autoryzacji będzie mógł przypisać te wbudowane role do [zarządzanych tożsamości](../../active-directory/managed-identities-azure-resources/overview.md) w dzierżawie klienta, co jest wymagane w celu [wdrożenia zasad, które można skorygować](deploy-policy-remediation.md).  Użytkownik może również tworzyć zdarzenia pomocy technicznej.  Dla tego użytkownika nie są stosowane żadne inne uprawnienia zwykle skojarzone z rolą administratora dostępu użytkownika.
+Ostatnia autoryzacja w powyższym przykładzie dodaje **principalId** z rolą administratora dostępu użytkownika (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). Podczas przypisywania tej roli należy uwzględnić Właściwość **delegatedRoleDefinitionIds** i jedną lub więcej obsługiwanych ról wbudowanych platformy Azure. Użytkownik utworzony w ramach tej autoryzacji będzie mógł przypisywać te role do [zarządzanych tożsamości](../../active-directory/managed-identities-azure-resources/overview.md) w dzierżawie klienta, co jest wymagane w celu [wdrożenia zasad, które można skorygować](deploy-policy-remediation.md).  Użytkownik może również tworzyć zdarzenia pomocy technicznej. Do tego **principalId** nie mają zastosowania żadne inne uprawnienia, które są zwykle skojarzone z rolą administratora dostępu użytkownika.
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Wdrażanie szablonów Azure Resource Manager
 
@@ -278,7 +281,7 @@ W dzierżawie klienta:
 3. Upewnij się, że można zobaczyć subskrypcje o nazwie oferty podanej w szablonie Menedżer zasobów.
 
 > [!NOTE]
-> Po zakończeniu wdrożenia może upłynąć kilka minut, zanim aktualizacje zostaną odzwierciedlone w Azure Portal.
+> Po zakończeniu wdrożenia może upłynąć do 15 minut, zanim aktualizacje zostaną odzwierciedlone w Azure Portal. Jeśli zaktualizujesz token Azure Resource Manager, możesz zobaczyć aktualizacje wcześniej, odświeżając przeglądarkę, logując się i wylogowania lub żądając nowego tokenu.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -312,6 +315,7 @@ Jeśli nie możesz pomyślnie dołączyć klienta lub jeśli użytkownicy mają 
 - Dostawca zasobów **Microsoft. ManagedServices** musi być zarejestrowany dla delegowanej subskrypcji. Powinno to nastąpić automatycznie podczas wdrażania, ale jeśli nie, można [zarejestrować je ręcznie](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 - Autoryzacje nie mogą zawierać żadnych użytkowników z wbudowaną rolą [właściciela](../../role-based-access-control/built-in-roles.md#owner) ani żadnych wbudowanych ról z [akcjami dataactions](../../role-based-access-control/role-definitions.md#dataactions).
 - Grupy muszą być tworzone z [**typem grupy**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md#group-types) ustawionym na **zabezpieczenia** , a nie **Microsoft 365**.
+- Przed włączeniem dostępu dla [zagnieżdżonych grup](../..//active-directory/fundamentals/active-directory-groups-membership-azure-portal.md)może istnieć dodatkowe opóźnienie.
 - Użytkownicy, którzy muszą wyświetlać zasoby w Azure Portal muszą mieć rolę [czytelnik](../../role-based-access-control/built-in-roles.md#reader) (lub inną wbudowaną rolę, która obejmuje dostęp do czytnika).
 
 ## <a name="next-steps"></a>Następne kroki

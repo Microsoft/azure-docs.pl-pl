@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: cc0d908f479fe5bdf14abb2ace0e6c046fd6d7d5
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 45280ec41a9fd9423e4184b2e1ce593720ab6488
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011953"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232356"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Szybki Start: rejestrowanie aplikacji na platformie tożsamości firmy Microsoft
 
@@ -97,7 +97,7 @@ Istnieją pewne ograniczenia dotyczące formatu identyfikatorów URI przekierowa
 
 ## <a name="add-credentials"></a>Dodawanie poświadczeń
 
-Poświadczenia są używane przez poufne aplikacje klienckie, które uzyskują dostęp do internetowego interfejsu API. Przykładami poufnych klientów są aplikacje sieci Web, inne interfejsy API sieci Web lub aplikacje typu Service-and-daemon. Poświadczenia umożliwiają aplikacji uwierzytelnianie jako same, co nie wymaga interakcji z użytkownikiem w czasie wykonywania.
+Poświadczenia są używane przez [poufne aplikacje klienckie](msal-client-applications.md) , które uzyskują dostęp do internetowego interfejsu API. Przykładami poufnych klientów są [aplikacje sieci Web](scenario-web-app-call-api-overview.md), inne [interfejsy API sieci Web](scenario-protected-web-api-overview.md)lub [aplikacje typu Service-and-DAEMON](scenario-daemon-overview.md). Poświadczenia umożliwiają aplikacji uwierzytelnianie jako same, co nie wymaga interakcji z użytkownikiem w czasie wykonywania. 
 
 Do rejestracji poufnej aplikacji klienckiej można dodać zarówno certyfikaty, jak i klucze tajne klienta (ciąg) jako poświadczenia.
 
@@ -105,7 +105,7 @@ Do rejestracji poufnej aplikacji klienckiej można dodać zarówno certyfikaty, 
 
 ### <a name="add-a-certificate"></a>Dodawanie certyfikatu
 
-Czasami nazywa się *kluczem publicznym*, certyfikat jest zalecanym typem poświadczeń, ponieważ zapewnia wyższy poziom pewności niż klucz tajny klienta.
+Czasami nazywa się *kluczem publicznym*, certyfikat jest zalecanym typem poświadczeń, ponieważ zapewnia wyższy poziom pewności niż klucz tajny klienta. Aby uzyskać więcej informacji na temat używania certyfikatu jako metody uwierzytelniania w aplikacji, zobacz [Microsoft Identity platform application Authentication Certificates](active-directory-certificate-credentials.md)
 
 1. Wybierz aplikację w **rejestracje aplikacji** w Azure Portal.
 1. Wybierz pozycję **Certificates &** Secret  >  **upload Certificate**.
@@ -114,7 +114,7 @@ Czasami nazywa się *kluczem publicznym*, certyfikat jest zalecanym typem poświ
 
 ### <a name="add-a-client-secret"></a>Dodawanie klucza tajnego klienta
 
-Klucz tajny klienta, znany również jako *hasło aplikacji*, to wartość ciągu, która może być używana przez aplikację zamiast certyfikatu do samodzielnej tożsamości. Jest to łatwiejsze w użyciu dwa typy poświadczeń, które są często używane podczas opracowywania, ale są uznawane za mniej bezpieczne niż certyfikat. Certyfikaty należy używać w aplikacjach działających w środowisku produkcyjnym.
+Klucz tajny klienta, znany również jako *hasło aplikacji*, to wartość ciągu, która może być używana przez aplikację zamiast certyfikatu do samodzielnej tożsamości. Jest to łatwiejsze w użyciu dwa typy poświadczeń, które są często używane podczas opracowywania, ale są uznawane za mniej bezpieczne niż certyfikat. Certyfikaty należy używać w aplikacjach działających w środowisku produkcyjnym. Aby uzyskać więcej informacji na temat zaleceń dotyczących zabezpieczeń aplikacji, zobacz [najlepsze rozwiązania i zalecenia dotyczące platformy tożsamości firmy Microsoft](identity-platform-integration-checklist.md#security)
 
 1. Wybierz aplikację w **rejestracje aplikacji** w Azure Portal.
 1. Wybierz pozycję **Certyfikaty & klucz** tajny  >   **nowy klucz tajny klienta**.
@@ -122,6 +122,8 @@ Klucz tajny klienta, znany również jako *hasło aplikacji*, to wartość ciąg
 1. Wybierz czas trwania.
 1. Wybierz pozycję **Dodaj**.
 1. **Zapisz wartość wpisu tajnego** do użycia w kodzie aplikacji klienta — *nigdy nie jest ona wyświetlana ponownie* po opuszczeniu tej strony.
+
+**Uwaga:** Identyfikator wygenerowany wraz z wartością wpisu tajnego jest IDENTYFIKATORem wpisu tajnego, który jest inny niż identyfikator aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 

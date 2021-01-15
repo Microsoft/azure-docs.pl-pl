@@ -1,14 +1,14 @@
 ---
 title: Dzierżawy, użytkownicy i role w scenariuszach usługi Azure Lighthouse
 description: Zapoznaj się z pojęciami Azure Active Directory dzierżawców, użytkowników i ról, a także, jak mogą one być używane w scenariuszach usługi Azure Lighthouse.
-ms.date: 10/29/2020
+ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 411b9bae19166e1875011360aa011c05d590b237
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d78828cc739030f8e456c64885d77ddf59dd13fb
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023946"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233920"
 ---
 # <a name="tenants-users-and-roles-in-azure-lighthouse-scenarios"></a>Dzierżawy, użytkownicy i role w scenariuszach usługi Azure Lighthouse
 
@@ -18,7 +18,10 @@ Przed dołączeniem klientów do [usługi Azure Lighthouse](../overview.md)nale�
 
 Aby można było zrealizować to logiczne projekcje, należy *dołączyć* subskrypcję (lub co najmniej jedną grupę zasobów w ramach subskrypcji) w dzierżawie klienta do usługi Azure Lighthouse. Ten proces dołączania można przeprowadzić [za pomocą szablonów Azure Resource Manager](../how-to/onboard-customer.md) lub przez [opublikowanie publicznej lub prywatnej oferty w witrynie Azure Marketplace](../how-to/publish-managed-services-offers.md).
 
-Niezależnie od wybranej metody dołączania należy zdefiniować *autoryzacje*. Każda autoryzacja określa konto użytkownika w dzierżawie zarządzającej, które będzie miało dostęp do zasobów delegowanych, i wbudowaną rolę, która ustawia uprawnienia dla każdego z tych użytkowników dla tych zasobów.
+Niezależnie od wybranej metody dołączania należy zdefiniować *autoryzacje*. Każda autoryzacja określa **principalId** , który będzie miał dostęp do delegowanych zasobów i wbudowaną rolę, która ustawia uprawnienia, które każdy z tych użytkowników będzie miał dla tych zasobów. Ta **principalId** definiuje użytkownika, grupę lub nazwę główną usługi Azure AD w dzierżawie zarządzającej.
+
+> [!NOTE]
+> O ile nie określono jawnie, odwołania do "użytkownika" w dokumentacji usługi Azure Lighthouse mogą być stosowane do użytkownika, grupy lub nazwy głównej usługi Azure AD w autoryzacji.
 
 ## <a name="best-practices-for-defining-users-and-roles"></a>Najlepsze rozwiązania dotyczące definiowania użytkowników i ról
 

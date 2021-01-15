@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: f0699ed065da4c63bc88945d75a866abcfbb9053
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: f4981036ca92f6efe2d3e23ea1f507a3a1f3c70a
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121366"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234260"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Samouczek: Konfigurowanie i uruchamianie dostawcy Azure Key Vault dla sterownika CSI magazynu wpisów tajnych w systemie Kubernetes
 
@@ -22,7 +22,7 @@ ms.locfileid: "98121366"
 
 Korzystając z tego samouczka, możesz uzyskać dostęp do wpisów tajnych z magazynu kluczy platformy Azure i pobrać je z niego przy użyciu sterownika Kubernetes magazynu kontenerów (CSI).
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Użyj zarządzanych tożsamości.
@@ -37,6 +37,8 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 * Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * Przed rozpoczęciem pracy z tym samouczkiem zainstaluj [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+
+W tym samouczku przyjęto założenie, że usługa Azure Kubernetes runnig w węzłach systemu Linux.
 
 ## <a name="use-managed-identities"></a>Używanie tożsamości zarządzanych
 
@@ -77,6 +79,8 @@ Wypełnij sekcje "Tworzenie grupy zasobów", "Tworzenie klastra AKS" i "łączen
     ![Zrzut ekranu przedstawiający interfejs wiersza polecenia platformy Azure z wartościami principalId i clientId wyróżnionych ](../media/kubernetes-key-vault-2.png) ![ zrzutu ekranu interfejsu wiersza polecenia platformy Azure z wyróżnionymi wartościami subskrypcji i nodeResourceGroup](../media/kubernetes-key-vault-3.png)
     
 ## <a name="install-helm-and-the-secrets-store-csi-driver"></a>Zainstaluj Helm i sterownik CSI magazynu Secret
+> [!NOTE]
+> Poniższa instalacja działa tylko na AKS w systemie Linux. Aby uzyskać więcej informacji na temat instalacji sterownika CSI magazynu kluczy tajnych, zobacz [Azure Key Vault Provider for Secret przechowuj sterownik CSI](https://github.com/Azure/secrets-store-csi-driver-provider-azure) 
 
 Aby zainstalować sterownik CSI magazynu kluczy tajnych, należy najpierw zainstalować [Helm](https://helm.sh/docs/intro/install/).
 

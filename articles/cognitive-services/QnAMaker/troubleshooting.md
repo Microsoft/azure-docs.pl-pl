@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: troubleshooting
 ms.date: 11/09/2020
-ms.openlocfilehash: e8b1d985fcb2852df52382e005ec0f0266e23d9d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: aea205bee41aed232b8453417dca521d2dfc83ab
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345648"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233784"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Rozwiązywanie problemów dotyczących QnA Maker
 
@@ -323,6 +323,29 @@ Jeśli masz zawartość z wielu języków, pamiętaj o utworzeniu oddzielnej us�
 
 1. Uruchom usługę App Service.
 1. Uzyskaj dostęp do bazy wiedzy, aby sprawdzić, czy teraz działa.
+
+</details>
+<details>
+<summary><b>Dlaczego moje Application Insights nie działają?</b></summary>
+
+**Odpowiedź**: Sprawdź krzyżowo i zaktualizuj poniższe kroki, aby rozwiązać ten problem:
+
+1. W obszarze App Service-> ustawienia > sekcja konfiguracji — > ustawienia aplikacji-> nazwa "UserAppInsightsKey" jest prawidłowo skonfigurowana i ustawiana na odpowiednie karty Przegląd usługi Application Insights ("klucz Instrumentacji"). 
+
+1. W sekcji App Service > > "Application Insights" — > upewnij się, że usługi App Insights są włączone i połączone z odpowiednim zasobem usługi Application Insights.
+
+</details>
+
+<details>
+<summary><b>My Application Insights jest włączona, ale dlaczego nie działa prawidłowo?</b></summary>
+
+**Odpowiedź**: wykonaj poniższe czynności: 
+
+1.  Skopiuj wartość "" APPINSIGHTS_INSTRUMENTATIONKEY "name" na nazwę "UserAppInsightsKey", zastępując ją, jeśli istnieje już obecna wartość. 
+
+1.  Jeśli klucz "UserAppInsightsKey" nie istnieje w ustawieniach aplikacji, Dodaj nowy klucz o tej nazwie i skopiuj wartość.
+
+1.  Zapisz go. spowoduje to automatyczne ponowne uruchomienie usługi App Service. Powinno to rozwiązać problem. 
 
 </details>
 

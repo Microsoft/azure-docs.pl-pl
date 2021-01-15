@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
-ms.openlocfilehash: cffa5677c5531f3887639c049998523d7d07586a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c53eb65f31e32d3edebcbf31d48d166f5464a92
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79455566"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233359"
 ---
 # <a name="check-resource-usage-against-limits"></a>Porównywanie użycia zasobów z limitami
 
@@ -29,10 +29,10 @@ W tym artykule dowiesz się, jak wyświetlić liczbę wszystkich typów zasobów
 2. W lewym górnym rogu Azure Portal wybierz pozycję **wszystkie usługi**.
 3. Wprowadź *subskrypcje* w polu **Filtr** . Gdy pozycja **Subskrypcje** pojawi się w wynikach wyszukiwania, wybierz ją.
 4. Wybierz nazwę subskrypcji, dla której chcesz wyświetlić informacje o użyciu.
-5. W obszarze **Ustawienia**wybierz pozycję **użycie + przydział**.
+5. W obszarze **Ustawienia** wybierz pozycję **użycie + przydział**.
 6. Można wybrać jedną z następujących opcji:
    - **Typy zasobów**: możesz wybrać opcję Wszystkie typy zasobów lub wybrać konkretne typy zasobów, które chcesz wyświetlić.
-   - **Dostawcy**: wybierz pozycję Wszyscy dostawcy zasobów lub wybierz pozycję **obliczenia**, **Sieć**lub **Magazyn**.
+   - **Dostawcy**: wybierz pozycję Wszyscy dostawcy zasobów lub wybierz pozycję **obliczenia**, **Sieć** lub **Magazyn**.
    - **Lokalizacje**: możesz wybrać wszystkie lokalizacje platformy Azure lub wybrać określone lokalizacje.
    - Można wybrać wyświetlanie wszystkich zasobów lub tylko zasobów, w których wdrożono co najmniej jeden z nich.
 
@@ -48,7 +48,7 @@ W tym artykule dowiesz się, jak wyświetlić liczbę wszystkich typów zasobów
 
 Można uruchomić następujące polecenia w [Azure Cloud Shell](https://shell.azure.com/powershell)lub przez uruchomienie programu PowerShell z komputera. Azure Cloud Shell to bezpłatna interaktywna powłoka. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. W przypadku uruchomienia programu PowerShell z komputera potrzebny jest moduł Azure PowerShell w wersji 1.0.0 lub nowszej. Uruchom `Get-Module -ListAvailable Az` polecenie na komputerze, aby znaleźć zainstalowaną wersję. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie, `Login-AzAccount` Aby zalogować się do platformy Azure.
 
-Wyświetlanie użycia względem limitów przy użyciu metody [Get-AzNetworkUsage](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkusage). Poniższy przykład pobiera użycie dla zasobów, w których w lokalizacji Wschodnie stany USA wdrożono co najmniej jeden zasób:
+Wyświetlanie użycia względem limitów przy użyciu metody [Get-AzNetworkUsage](/powershell/module/az.network/get-aznetworkusage). Poniższy przykład pobiera użycie dla zasobów, w których w lokalizacji Wschodnie stany USA wdrożono co najmniej jeden zasób:
 
 ```azurepowershell-interactive
 Get-AzNetworkUsage `

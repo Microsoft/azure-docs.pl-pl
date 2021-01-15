@@ -10,17 +10,17 @@ author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: sstein,vanto
 ms.date: 01/14/2021
-ms.openlocfilehash: 7c797c7e002f40a28e4be674c125c6ea5d60a13f
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: ec61f2c67576d6e144d8d4bb7e8ecaaa157db0a9
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219066"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233376"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Rozwiązywanie problemów z łącznością i innych błędów przy użyciu Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Komunikaty o błędach są wyświetlane, gdy połączenie z Azure SQL Database lub wystąpienie zarządzane Azure SQL nie powiedzie się. Te problemy z połączeniem mogą być spowodowane ponowną konfiguracją, ustawieniami zapory, przekroczeniem limitu czasu połączenia, niepoprawnymi informacjami logowania lub niepowodzeniem zastosowania najlepszych praktyk i projektowania podczas procesu [projektowania aplikacji](develop-overview.md) . Ponadto jeśli Osiągnięto maksymalny Azure SQL Database limit zasobów wystąpień zarządzanych przez program SQL Server, nie będzie można nawiązać połączenia.
+Komunikaty o błędach są wyświetlane, gdy połączenie z Azure SQL Database lub wystąpienie zarządzane Azure SQL nie powiedzie się. Te problemy z połączeniem mogą być spowodowane ponowną konfiguracją, ustawieniami zapory, przekroczeniem limitu czasu połączenia, niepoprawnymi informacjami logowania lub niepowodzeniem zastosowania najlepszych rozwiązań i projektowania w procesie [projektowania aplikacji](develop-overview.md) . Ponadto jeśli Osiągnięto maksymalny Azure SQL Database limit zasobów wystąpień zarządzanych przez program SQL Server, nie będzie można nawiązać połączenia.
 
 ## <a name="transient-fault-error-messages-40197-40613-and-others"></a>Komunikaty o błędach przejściowych (40197, 40613 i inne)
 
@@ -42,7 +42,7 @@ Infrastruktura platformy Azure ma możliwość dynamicznego ponownego konfigurow
 ### <a name="steps-to-resolve-transient-connectivity-issues"></a>Kroki rozwiązywania przejściowych problemów z łącznością
 
 1. Sprawdź [pulpit nawigacyjny usługi Microsoft Azure](https://azure.microsoft.com/status) pod kątem znanych przestojów, które wystąpiły w czasie, w którym błędy zostały zgłoszone przez aplikację.
-2. Aplikacje łączące się z usługą w chmurze, takie jak Azure SQL Database, powinny oczekiwać okresowych zdarzeń ponownej konfiguracji i wdrożyć logikę ponawiania w celu obsługi tych błędów zamiast obsłużyć te błędy jako błędy aplikacji dla użytkowników.
+2. Aplikacje, które łączą się z usługą w chmurze, taką jak Azure SQL Database, powinny oczekiwać okresowych zdarzeń ponownej konfiguracji i wdrożyć logikę ponawiania w celu obsługi tych błędów zamiast obsłużyć błędy aplikacji dla użytkowników.
 3. Jako że baza danych zbliża się do limitów zasobów, może wydawać się przejściowy problem z łącznością. Zobacz [limity zasobów](resource-limits-logical-server.md#what-happens-when-database-resource-limits-are-reached).
 4. Jeśli problemy z łącznością będą kontynuowane lub jeśli czas, przez który aplikacja napotyka błąd, przekracza 60 sekund lub Jeśli zobaczysz wiele wystąpień błędu w danym dniu, Utwórz żądanie pomocy technicznej platformy Azure, wybierając pozycję **Uzyskaj pomoc** techniczną w witrynie [pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options) .
 
@@ -104,49 +104,46 @@ Aby rozwiązać ten problem, skontaktuj się z administratorem usługi w celu po
 Zazwyczaj administrator usługi może wykonać następujące kroki, aby dodać poświadczenia logowania:
 
 1. Zaloguj się do serwera przy użyciu programu SQL Server Management Studio (SSMS).
-2. Uruchom następujące zapytanie SQL, aby sprawdzić, czy nazwa logowania jest wyłączona:
+2. Uruchom następujące zapytanie SQL w bazie danych Master, aby sprawdzić, czy nazwa logowania jest wyłączona:
 
    ```sql
-   SELECT name, is_disabled FROM sys.sql_logins
+   SELECT name, is_disabled FROM sys.sql_logins;
    ```
 
 3. Jeśli odpowiadająca nazwa jest wyłączona, włącz ją przy użyciu następującej instrukcji:
 
    ```sql
-   Alter login <User name> enable
+   ALTER LOGIN <User name> ENABLE;
    ```
 
-4. Jeśli nazwa użytkownika logowania SQL nie istnieje, utwórz ją, wykonując następujące czynności:
-
-   1. W programie SSMS kliknij dwukrotnie pozycję **zabezpieczenia** , aby ją rozwinąć.
-   2. Kliknij prawym przyciskiem myszy pozycję **logowania**, a następnie wybierz pozycję **Nowa nazwa logowania**.
-   3. W wygenerowanym skrypcie z symbolami zastępczymi Edytuj i uruchom następujące zapytanie SQL:
+4. Jeśli nazwa użytkownika logowania SQL nie istnieje, Edytuj i uruchom następujące zapytanie SQL, aby utworzyć nową nazwę logowania SQL:
 
    ```sql
    CREATE LOGIN <SQL_login_name, sysname, login_name>
-   WITH PASSWORD = '<password, sysname, Change_Password>'
+   WITH PASSWORD = '<password, sysname, Change_Password>';
    GO
    ```
 
-5. Kliknij dwukrotnie pozycję **baza danych**.
+5. W programie SSMS Eksplorator obiektów rozwiń pozycję **bazy danych**.
 6. Wybierz bazę danych, do której chcesz przyznać uprawnienia użytkownika.
-7. Kliknij dwukrotnie pozycję **zabezpieczenia**.
-8. Kliknij prawym przyciskiem myszy pozycję **Użytkownicy**, a następnie wybierz polecenie **nowy użytkownik**.
-9. W wygenerowanym skrypcie z symbolami zastępczymi Edytuj i uruchom następujące zapytanie SQL:
+7. Kliknij prawym przyciskiem myszy pozycję **zabezpieczenia**, a następnie wybierz polecenie **Nowy** **użytkownik**.
+8. W wygenerowanym skrypcie z symbolami zastępczymi Edytuj i uruchom następujące zapytanie SQL:
 
    ```sql
    CREATE USER <user_name, sysname, user_name>
    FOR LOGIN <login_name, sysname, login_name>
-   WITH DEFAULT_SCHEMA = <default_schema, sysname, dbo>
+   WITH DEFAULT_SCHEMA = <default_schema, sysname, dbo>;
    GO
-   -- Add user to the database owner role
 
-   EXEC sp_addrolemember N'db_owner', N'<user_name, sysname, user_name>'
+   -- Add user to the database owner role
+   EXEC sp_addrolemember N'db_owner', N'<user_name, sysname, user_name>';
    GO
    ```
 
+   Można również użyć `sp_addrolemember` do mapowania określonych użytkowników do określonych ról bazy danych.
+
    > [!NOTE]
-   > Można również użyć `sp_addrolemember` do mapowania określonych użytkowników do określonych ról bazy danych.
+   > W Azure SQL Database należy rozważyć nowszą składnię [polecenia ALTER role](/sql/t-sql/statements/alter-role-transact-sql) służącą do zarządzania członkostwem w roli bazy danych.  
 
 Aby uzyskać więcej informacji, zobacz [Zarządzanie bazami danych i nazwami logowania w Azure SQL Database](./logins-create-manage.md).
 
@@ -183,7 +180,7 @@ Aby obejść ten problem, wypróbuj jedną z następujących metod:
 - Sprawdź, czy są wykonywane długotrwałe zapytania.
 
   > [!NOTE]
-  > Jest to minimalistyczny podejście, które może nie rozwiązać problemu. Aby uzyskać szczegółowe informacje dotyczące rozwiązywania problemów z blokowaniem zapytań, zobacz [Omówienie i rozwiązywanie problemów z blokowaniem usługi Azure SQL](understand-resolve-blocking.md).
+  > Jest to minimalistyczny podejście, które może nie rozwiązać problemu. Aby uzyskać bardziej szczegółowe informacje na temat rozwiązywania długotrwałych lub blokowanych zapytań, zobacz [Opis i rozwiązywanie problemów z blokowaniem Azure SQL Database](understand-resolve-blocking.md).
 
 1. Uruchom następujące zapytanie SQL, aby sprawdzić widok [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) , aby wyświetlić wszystkie żądania blokowania:
 
@@ -191,10 +188,13 @@ Aby obejść ten problem, wypróbuj jedną z następujących metod:
    SELECT * FROM sys.dm_exec_requests;
    ```
 
-2. Określ **bufor wejściowy** dla bloku głównego.
-3. Dostrajanie zapytania bloku nagłówkowego.
+1. Określ **bufor wejściowy** dla bloku głównego przy użyciu funkcji dynamicznej zarządzania [sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql) i session_id zapytania, na przykład:
 
-   Aby uzyskać szczegółową procedurę rozwiązywania problemów, zobacz [czy moje zapytanie działa prawidłowo w chmurze?](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud). 
+   ```sql 
+   SELECT * FROM sys.dm_exec_input_buffer (100,0);
+   ```
+
+1. Dostrajanie zapytania bloku nagłówkowego.
 
 Jeśli baza danych konsekwentnie osiągnie swój limit, niezależnie od blokowania i długotrwałych zapytań, rozważ uaktualnienie [do wersji o](https://azure.microsoft.com/pricing/details/sql-database/)większej liczbie zasobów.
 
@@ -254,12 +254,18 @@ Jeśli ten błąd wystąpi wielokrotnie, spróbuj rozwiązać problem, wykonują
    SELECT * FROM sys.dm_exec_requests;
    ```
 
-2. Określ bufor wejściowy dla długotrwałego zapytania.
+2. Określ **bufor wejściowy** dla bloku głównego przy użyciu funkcji dynamicznej zarządzania [sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql) i session_id zapytania, na przykład:
+
+   ```sql 
+   SELECT * FROM sys.dm_exec_input_buffer (100,0);
+   ```
+
 3. Dostosuj zapytanie.
 
-Należy również rozważyć przetwarzanie wsadowe zapytań. Aby uzyskać informacje na temat tworzenia pakietów wsadowych, zobacz [jak używać usługi Batch w celu ulepszania SQL Database aplikacji](../performance-improve-use-batching.md).
+    > [!Note]
+    > Aby uzyskać więcej informacji na temat rozwiązywania problemów z blokowaniem w Azure SQL Database, zobacz [Omówienie i rozwiązywanie problemów z blokowaniem Azure SQL Database](understand-resolve-blocking.md).
 
-Aby uzyskać szczegółową procedurę rozwiązywania problemów, zobacz [czy moje zapytanie działa prawidłowo w chmurze?](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
+Należy również rozważyć przetwarzanie wsadowe zapytań. Aby uzyskać informacje na temat tworzenia pakietów wsadowych, zobacz [jak używać usługi Batch w celu ulepszania SQL Database aplikacji](../performance-improve-use-batching.md).
 
 ### <a name="error-40551-the-session-has-been-terminated-because-of-excessive-tempdb-usage"></a>Błąd 40551: sesja została przerwana z powodu nadmiernego użycia bazy danych TEMPDB
 
@@ -311,14 +317,14 @@ Następujące błędy są związane z tworzeniem i używaniem pul elastycznych:
 
 | Kod błędu | Ważność | Opis | Akcja naprawcza |
 |:--- |:--- |:--- |:--- |
-| 1132 | 17 |Osiągnięto limit magazynowania elastycznej puli. Użycie magazynu dla puli elastycznej nie może przekroczyć (% d) MB. Podjęto próbę zapisu danych w bazie danych, gdy osiągnięto limit magazynowania puli elastycznej. Aby uzyskać informacje na temat limitów zasobów, zobacz: <br/>&bull;&nbsp; [Limity dla pul elastycznych](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limity dla pul elastycznych rdzeń wirtualny](resource-limits-vcore-elastic-pools.md). <br/> |Rozważ zwiększenie DTU i/lub dodanie magazynu do puli elastycznej, jeśli jest to możliwe, aby zwiększyć jej limit magazynowania, zmniejszyć ilość miejsca używanego przez pojedyncze bazy danych w puli elastycznej lub usunąć bazy danych z puli elastycznej. Aby uzyskać skalowanie puli elastycznej, zobacz [skalowanie zasobów w puli elastycznej](elastic-pool-scale.md).|
+| 1132 | 17 |Osiągnięto limit magazynowania elastycznej puli. Użycie magazynu dla puli elastycznej nie może przekroczyć (% d) MB. Podjęto próbę zapisu danych w bazie danych, gdy osiągnięto limit magazynowania puli elastycznej. Aby uzyskać informacje na temat limitów zasobów, zobacz: <br/>&bull;&nbsp; [Limity dla pul elastycznych](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limity dla pul elastycznych rdzeń wirtualny](resource-limits-vcore-elastic-pools.md). <br/> |Rozważ zwiększenie DTU i/lub dodanie magazynu do puli elastycznej, jeśli jest to możliwe, aby zwiększyć jej limit magazynowania, zmniejszyć ilość miejsca używanego przez pojedyncze bazy danych w puli elastycznej lub usunąć bazy danych z puli elastycznej. Aby uzyskać skalowanie puli elastycznej, zobacz [skalowanie zasobów w puli elastycznej](elastic-pool-scale.md). Aby uzyskać więcej informacji na temat usuwania nieużywanych miejsc z baz danych, zobacz [Zarządzanie miejscem plików dla baz danych w Azure SQL Database](file-space-manage.md).|
 | 10929 | 16 |Minimalna gwarancja% s wynosi% d, maksymalny limit wynosi% d, a bieżące użycie bazy danych to% d. Jednak serwer jest obecnie zbyt zajęty, aby obsługiwać żądania większe niż% d dla tej bazy danych. Aby uzyskać informacje na temat limitów zasobów, zobacz: <br/>&bull;&nbsp; [Limity dla pul elastycznych](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limity dla pul elastycznych rdzeń wirtualny](resource-limits-vcore-elastic-pools.md). <br/> W przeciwnym razie spróbuj ponownie później. Wartość DTU/rdzeń wirtualny min na bazę danych; Maksymalna liczba jednostek DTU/rdzeń wirtualny na bazę danych. Całkowita liczba współbieżnych procesów roboczych (żądań) dla wszystkich baz danych w puli elastycznej podjęła próbę przekroczenia limitu puli. |Rozważ zwiększenie DTU lub rdzeni wirtualnych puli elastycznej, jeśli jest to możliwe, aby zwiększyć jej limit procesów roboczych lub usunąć bazy danych z puli elastycznej. |
-| 40844 | 16 |Baza danych "% ls" na serwerze "% ls" jest bazą danych wersji "% ls" w puli elastycznej i nie może mieć relacji ciągłego kopiowania.  |Brak |
+| 40844 | 16 |Baza danych "% ls" na serwerze "% ls" jest bazą danych wersji "% ls" w puli elastycznej i nie może mieć relacji ciągłego kopiowania.  |Nie dotyczy |
 | 40857 | 16 |Nie znaleziono puli elastycznej dla serwera: "% ls", Nazwa puli elastycznej: "% ls". Określona Pula elastyczna nie istnieje na określonym serwerze. | Podaj prawidłową nazwę puli elastycznej. |
 | 40858 | 16 |Pula elastyczna "% ls" już istnieje na serwerze: "% ls". Określona Pula elastyczna już istnieje na określonym serwerze. | Podaj nazwę nowej puli elastycznej. |
 | 40859 | 16 |Pula elastyczna nie obsługuje warstwy usług "% ls". Określona warstwa usług nie jest obsługiwana w przypadku aprowizacji elastycznej puli. |Wprowadź poprawną wersję lub pozostaw pustą warstwę usługi, aby użyć domyślnej warstwy usług. |
 | 40860 | 16 |Kombinacja elastycznej puli "% ls" i celu usługi "% ls" jest nieprawidłowa. Pulę elastyczną i warstwę usług można określić razem tylko wtedy, gdy typ zasobu jest określony jako "ElasticPool". |Określ poprawną kombinację elastycznej puli i warstwy usług. |
-| 40861 | 16 |Wersja bazy danych "%. *element ls ' nie może być inny niż warstwa usług puli elastycznej, która jest "%.* ls '. Wersja bazy danych różni się od warstwy usług puli elastycznej. |Nie określaj wersji bazy danych, która różni się od warstwy usług puli elastycznej.  Należy pamiętać, że nie trzeba określać wersji bazy danych. |
+| 40861 | 16 |Wersja bazy danych "%. *element ls ' nie może być inny niż warstwa usług puli elastycznej, która jest "%.* ls '. Wersja bazy danych różni się od warstwy usług puli elastycznej. |Nie określaj wersji bazy danych, która jest różna od warstwy usług puli elastycznej.  Należy pamiętać, że nie trzeba określać wersji bazy danych. |
 | 40862 | 16 |Jeśli określono cel usługi puli elastycznej, należy określić nazwę puli elastycznej. Cel usługi elastycznej puli nie identyfikuje jednoznacznie puli elastycznej. |Określ nazwę puli elastycznej, jeśli jest używany cel usługi puli elastycznej. |
 | 40864 | 16 |DTU dla puli elastycznej musi wynosić co najmniej (% d) DTU dla warstwy usług "%. * ls". Podjęto próbę ustawienia DTU dla elastycznej puli poniżej limitu minimalnego. |Spróbuj ustawić co najmniej minimalny limit DTU dla puli elastycznej. |
 | 40865 | 16 |DTU dla puli elastycznej nie może przekroczyć (% d) DTU dla warstwy usług "%. * ls". Podjęto próbę ustawienia DTU dla elastycznej puli powyżej maksymalnego limitu. |Ponowienie próby ustawienia DTU dla puli elastycznej nie przekracza maksymalnego limitu. |

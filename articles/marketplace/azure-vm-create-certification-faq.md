@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: bc1ae4bc2cf64c3e2f996709c086eb23cb8b8385
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 61bd23c74fd7960317dff17175b355b473cd6dc7
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602601"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233835"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Rozwiązywanie problemów z certyfikatem maszyny wirtualnej
 
@@ -35,7 +35,7 @@ Aby rozwiązać ten problem, pobierz obraz z witryny Azure Marketplace i wprowad
 - [Obrazy systemu Windows](azure-vm-create-using-approved-base.md)
 
 > [!Note]
-> Jeśli używasz podstawowego obrazu systemu Linux, który nie został pobrany z portalu Azure Marketplace, możesz przesunąć pierwszą partycję o 2048 KB. Pozwala to na niesformatowane miejsce na dodanie nowych informacji dotyczących rozliczeń i umożliwia korzystanie z platformy Azure z publikowaniem maszyny wirtualnej w portalu Azure Marketplace.  
+> Jeśli używasz podstawowego obrazu systemu Linux, który nie został pobrany z portalu Azure Marketplace, upewnij się, że pierwsze sektory 2048 (każdy sektor ma 512 bajtów) na wirtualnym dysku twardym są puste, aby platforma Azure kontynuowała Publikowanie maszyny wirtualnej w witrynie Azure Marketplace.  
 
 ## <a name="vm-extension-failure"></a>Niepowodzenie rozszerzenia maszyny wirtualnej
 
@@ -68,7 +68,7 @@ Przed przesłaniem oferty upewnij się, że masz rygorystyczne podejście do ini
 
 Problemy z aprowizacjim mogą obejmować następujące scenariusze awarii:
 
-|Scenariusz|Błąd|Przyczyna|Rozwiązanie|
+|Scenariusz|Error|Przyczyna|Rozwiązanie|
 |---|---|---|---|
 |1|Nieprawidłowy wirtualny dysk twardy (VHD)|Jeśli określona wartość pliku cookie w stopce dysku VHD jest niepoprawna, wirtualny dysk twardy będzie uznawany za nieprawidłowy.|Utwórz ponownie obraz i prześlij żądanie.|
 |2|Nieprawidłowy typ obiektu BLOB|Inicjowanie obsługi maszyny wirtualnej nie powiodło się, ponieważ użyty blok jest typem obiektu BLOB, a nie typem strony.|Utwórz ponownie obraz i prześlij żądanie.|
@@ -157,7 +157,7 @@ Poniższa tabela zawiera listę przypadków testowych systemu Linux, które będ
 
 W poniższej tabeli przedstawiono typowe błędy, które mogą pojawić się podczas wykonywania przypadków testowych:
 
-| Scenariusz | Przypadek testowy | Błąd | Rozwiązanie |
+| Scenariusz | Przypadek testowy | Error | Rozwiązanie |
 | --- | --- | --- | --- |
 | 1 | Przypadek testowy wersji agenta systemu Linux | Minimalna wersja agenta systemu Linux to 2.2.41 lub nowsza. To wymaganie jest obowiązkowe od 1 maja 2020. | Zaktualizuj wersję agenta systemu Linux. Powinna być 2,241 lub nowsza. Aby uzyskać więcej informacji, odwiedź [stronę aktualizacji agenta systemu Linux](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support). |
 | 2 | Przypadek testowy historii bash | Błąd występuje, jeśli rozmiar historii bash w przesłanym obrazie przekracza 1 kilobajt (KB). Rozmiar jest ograniczony do 1 KB, aby upewnić się, że plik historii bash nie zawiera żadnych potencjalnie poufnych informacji. | Rozwiąż problem, instalując dysk VHD na innej działającej maszynie wirtualnej i wprowadź zmiany, aby zmniejszyć rozmiar do 1 KB lub mniej. Na przykład Usuń `.bash` pliki historii. |
@@ -319,7 +319,7 @@ Aby przesłać żądanie z wyłączonym obrazem SSH dla procesu certyfikacji:
     
 Zapoznaj się z poniższą tabelą dotyczącą problemów występujących podczas pobierania obrazu maszyny wirtualnej przy użyciu adresu URL sygnatury dostępu współdzielonego (SAS).
 
-|Scenariusz|Błąd|Przyczyna|Rozwiązanie|
+|Scenariusz|Error|Przyczyna|Rozwiązanie|
 |---|---|---|---|
 |1|Nie znaleziono obiektu BLOB|Wirtualny dysk twardy może zostać usunięty lub przeniesiony z określonej lokalizacji.|| 
 |2|Obiekt BLOB w użyciu|Wirtualny dysk twardy jest używany przez inny proces wewnętrzny.|Wirtualny dysk twardy powinien znajdować się w stanie używanym podczas pobierania go przy użyciu adresu URL sygnatury dostępu współdzielonego.|
@@ -328,14 +328,14 @@ Zapoznaj się z poniższą tabelą dotyczącą problemów występujących podcza
 |6|Nagłówek warunkowy HTTP|Adres URL sygnatury dostępu współdzielonego jest nieprawidłowy.|Uzyskaj prawidłowy adres URL sygnatury dostępu współdzielonego.|
 |7|Nieprawidłowa nazwa wirtualnego dysku twardego|Sprawdź, czy `%` `"` w nazwie wirtualnego dysku twardego istnieją jakiekolwiek znaki specjalne, takie jak znak procentu czy znak cudzysłowu.|Zmień nazwę pliku VHD, usuwając znaki specjalne.|
 
-## <a name="first-mb-2048-kb-partition-linux-only"></a>Partycja pierwszej pamięci (2048 KB) (tylko system Linux)
+## <a name="first-1mb-2048-sectors-each-sector-of-512-bytes-partition-linux-only"></a>Pierwsze 1 MB (2048 sektorów, każdy sektor z 512 bajtów) partycja (tylko system Linux)
 
-Podczas przesyłania wirtualnego dysku twardego upewnij się, że pierwsze 2048 KB dysku VHD jest puste. W przeciwnym razie Twoje żądanie zakończy się niepowodzeniem.
+Podczas przesyłania wirtualnego dysku twardego upewnij się, że pierwsze 2048 sektorów (1 MB) wirtualnego dysku twardego jest puste. W przeciwnym razie Twoje żądanie zakończy się niepowodzeniem. Należy pamiętać, że będzie to dotyczyć dysku rozruchowego/systemu operacyjnego, a nie innych dysków z danymi.
 
 >[!NOTE]
->W przypadku niektórych obrazów specjalnych, takich jak te, które zostały utworzone na podstawie obrazów podstawowych systemu Windows Azure z portalu Azure Marketplace, sprawdzimy znacznik rozliczania i zignorujesz partycję MB, jeśli tag rozliczania jest obecny i jest zgodny z naszymi wewnętrznymi dostępnymi wartościami.
+>W przypadku niektórych obrazów specjalnych, takich jak te, które zostały utworzone na podstawie obrazów podstawowych systemu Windows Azure z witryny Azure Marketplace lub upewnij się, że pierwsze 1 MB (2048 sektorów) wirtualnego dysku twardego jest puste. 
 
-### <a name="create-a-first-mb-2048-kb-partition-on-an-empty-vhd"></a>Tworzenie pierwszej partycji (2048 KB) na pustym dysku VHD
+### <a name="create-a-first-1mb-2048-sectors-each-sector-of-512-bytes-partition-on-an-empty-vhd"></a>Utwórz pierwsze 1 MB (2048 sektorów, każdy sektor z 512 bajtów) partycji na pustym dysku VHD
 
 Te kroki dotyczą tylko systemu Linux.
 
@@ -386,7 +386,7 @@ Te kroki dotyczą tylko systemu Linux.
    1. Wprowadź 2048 jako _pierwszy wartość sektora_ . _Ostatni sektor_ można pozostawić jako wartość domyślną.
 
       >[!IMPORTANT]
-      >Wszystkie istniejące dane zostaną wymazane do 2048 KB. Tworzenie kopii zapasowej wirtualnego dysku twardego przed utworzeniem nowej partycji.
+      >Wszystkie istniejące dane zostaną wymazane do 2048 sektorów (każdy sektor 512 bajtów). Tworzenie kopii zapasowej wirtualnego dysku twardego przed utworzeniem nowej partycji.
 
       ![Pokazuje zrzut ekranu wiersza polecenia klienta pokazujący polecenia i dane wyjściowe dla wymazanych danych.](./media/create-vm/vm-certification-issues-solutions-22.png)
 
@@ -400,7 +400,7 @@ Te kroki dotyczą tylko systemu Linux.
 
 1. Odłącz wirtualny dysk twardy od maszyny wirtualnej i Usuń maszynę wirtualną.
 
-### <a name="create-a-first-mb-2048-kb-partition-by-moving-existing-data-on-vhd"></a>Tworzenie pierwszej partycji MB (2048 KB) przez przeniesienie istniejących danych z dysku VHD
+### <a name="create-a-first-mb-2048-sectors-each-sector-of-512-bytes-partition-by-moving-existing-data-on-vhd"></a>Utwórz pierwsze MB (2048 sektorów, każdy sektor z 512 bajtów), przenosząc istniejące dane na dysku VHD
 
 Te kroki dotyczą tylko systemu Linux.
 
@@ -480,7 +480,7 @@ Jeśli wszystkie obrazy pobierane z witryny Azure Marketplace będą używane po
 
 W przypadku rozwiązań błędów, które są związane z dyskiem danych, należy użyć poniższej tabeli:
 
-|Błąd|Przyczyna|Rozwiązanie|
+|Error|Przyczyna|Rozwiązanie|
 |---|---|---|
 |`DataDisk- InvalidUrl:`|Ten błąd może wystąpić z powodu nieprawidłowego numeru jednostki logicznej (LUN) podczas przesyłania oferty.|Sprawdź, czy sekwencja numerów LUN dla dysku danych znajduje się w centrum partnerskim.|
 |`DataDisk- NotFound:`|Ten błąd może wystąpić, ponieważ dysk danych nie znajduje się w określonym adresie URL sygnatury dostępu współdzielonego.|Sprawdź, czy dysk danych znajduje się w określonym adresie URL sygnatury dostępu współdzielonego.|
@@ -571,7 +571,7 @@ Aby zapewnić stały obraz maszyny wirtualnej w celu zastąpienia obrazu maszyny
 Aby wykonać te kroki, przygotuj zasoby techniczne dla obrazu maszyny wirtualnej, który chcesz dodać. Aby uzyskać więcej informacji, zobacz temat [Tworzenie maszyny wirtualnej przy użyciu zatwierdzonej bazy](azure-vm-create-using-approved-base.md)lub [Tworzenie maszyny wirtualnej przy użyciu własnego obrazu](azure-vm-create-using-own-image.md) oraz [generowanie identyfikatora URI sygnatury dostępu współdzielonego dla obrazu maszyny wirtualnej](azure-vm-get-sas-uri.md).
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
-1. W okienku po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
+1. W okienku po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  .
 1. W kolumnie **alias oferty** wybierz ofertę.
 1. Na karcie **Przegląd planu** w kolumnie **Nazwa** wybierz odpowiedni plan.
 1. Na karcie **konfiguracja techniczna** w obszarze **obrazy maszyn wirtualnych** wybierz pozycję **+ Dodaj obraz maszyny wirtualnej**.
@@ -587,7 +587,7 @@ Następnie Usuń obraz maszyny wirtualnej z luką w zabezpieczeniach.
 #### <a name="remove-the-vm-image-with-the-security-vulnerability-or-exploit"></a>Usuwanie obrazu maszyny wirtualnej z wykorzystaniem luk w zabezpieczeniach lub wykorzystania
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
-2. W okienku po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
+2. W okienku po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  .
 3. W kolumnie **alias oferty** wybierz ofertę.
 4. Na karcie **Przegląd planu** w kolumnie **Nazwa** wybierz odpowiedni plan.
 5. Na karcie **konfiguracja techniczna** w obszarze **obrazy maszyn wirtualnych** obok obrazu maszyny wirtualnej, który chcesz usunąć, wybierz pozycję **Usuń obraz maszyny wirtualnej**.
@@ -600,7 +600,7 @@ Następnie ponownie Opublikuj ofertę.
 
 1. Wybierz pozycję **Przejrzyj i Opublikuj**.
 2. Jeśli musisz podać informacje dotyczące zespołu certyfikacji, Dodaj go do pola **uwagi dotyczące certyfikacji** .
-3. Wybierz pozycję **Opublikuj**.
+3. Kliknij pozycję **Opublikuj**.
 
 Aby zakończyć proces publikowania, zobacz [Przegląd i publikowanie ofert](review-publish-offer.md).
 

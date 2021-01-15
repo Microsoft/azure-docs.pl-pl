@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 1/13/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: e2f0d62ae6882229cee3ee32e3b362f2b6593da7
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: a262c2b4351c96217001ba42e8c745f7d71c7d45
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98199239"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233903"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Rozwiązywanie problemów z usługą Azure File Sync
 Użyj Azure File Sync, aby scentralizować udziały plików w organizacji w Azure Files, utrzymując elastyczność, wydajność i zgodność lokalnego serwera plików. Funkcja Azure File Sync przekształca system Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Na całym świecie możesz mieć dowolną liczbę pamięci podręcznych.
@@ -205,7 +205,7 @@ Na serwerze, który jest wyświetlany jako "pojawia się w trybie offline" w por
     - Jeśli serwer znajduje się za zaporą, sprawdź, czy ruch wychodzący na port 443 jest dozwolony. Jeśli Zapora ogranicza ruch do określonych domen, upewnij się, że domeny wymienione w [dokumentacji](./storage-sync-files-firewall-and-proxy.md#firewall) zapory są dostępne.
     - Jeśli serwer znajduje się za serwerem proxy, skonfiguruj ustawienia serwera proxy dotyczące całego komputera lub aplikacji, wykonując czynności opisane w [dokumentacji](./storage-sync-files-firewall-and-proxy.md#proxy)serwera proxy.
     - Użyj polecenia cmdlet Test-StorageSyncNetworkConnectivity, aby sprawdzić łączność sieciową z punktami końcowymi usługi. Aby dowiedzieć się więcej, zobacz [test łączności sieciowej z punktami końcowymi usługi](./storage-sync-files-firewall-and-proxy.md#test-network-connectivity-to-service-endpoints).
-    - Aby dodać mechanizmy szyfrowania na serwerze, użyj zasad grupy lub poleceń cmdlet protokołu TLS:
+    - Jeśli na serwerze jest skonfigurowane zamówienie szyfrowania TLS, można użyć zasad grupy lub poleceń cmdlet protokołu TLS w celu dodania mechanizmów szyfrowania:
         - Aby użyć zasad grupy, zobacz [Konfigurowanie kolejności szyfrowania TLS przy użyciu zasady grupy](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-group-policy).
         - Aby użyć poleceń cmdlet protokołu TLS, zobacz [Konfigurowanie kolejności szyfrowania TLS przy użyciu poleceń cmdlet programu PowerShell protokołu TLS](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets).
     
@@ -1320,7 +1320,7 @@ W przypadku agenta w wersji V10 i starszych:
 6. Plik. zip zawierający pliki dzienników i plików śledzenia jest zapisywany w katalogu wyjściowym, który został określony.
 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 - [Monitorowanie usługi Azure File Sync](storage-sync-files-monitoring.md)
 - [Azure Files często zadawane pytania](storage-files-faq.md)
 - [Rozwiązywanie problemów z usługą Azure Files w systemie Windows](storage-troubleshoot-windows-file-connection-problems.md)

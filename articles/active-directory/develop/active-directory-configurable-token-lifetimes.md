@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 0b3c2f74edff661326e97da7b06860914468c43b
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: ec925ce165c1de98fe920381e1b51e3388c1e4ad
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059351"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232407"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Konfigurowalne okresy istnienia tokenów na platformie tożsamości firmy Microsoft (wersja zapoznawcza)
 
@@ -101,8 +101,7 @@ Poufne klienci są aplikacjami, które mogą bezpiecznie przechowywać hasło kl
 
 Klienci publiczni nie mogą bezpiecznie przechowywać hasła klienta (poufne). Na przykład aplikacja dla systemu iOS/Android nie może zasłaniać wpisu tajnego z właściciela zasobu, więc jest traktowana jako klient publiczny. Można ustawić zasady dla zasobów, aby zapobiec tokenom odświeżania od klientów publicznych starszych niż określony okres od uzyskania nowej pary tokenów dostępu/odświeżenia. W tym celu należy użyć [Właściwości maks. czas nieaktywności tokenu odświeżania](#refresh-token-max-inactive-time) ( `MaxInactiveTime` ). Można również użyć zasad, aby ustawić okres, po którym tokeny odświeżania nie są już akceptowane. W tym celu należy użyć właściwości maksymalnego wieku [tokenu odświeżania](#single-factor-session-token-max-age) lub [tokenu sesji wieloskładnikowej](#multi-factor-refresh-token-max-age) . Można dostosować okres istnienia tokenu odświeżania, aby określić, kiedy i jak często użytkownik musi ponownie wprowadzić poświadczenia, zamiast być w sposób dyskretny uwierzytelniany w przypadku korzystania z publicznej aplikacji klienckiej.
 
-> [!NOTE]
-> Właściwość Max Age to długość czasu, przez który można użyć pojedynczego tokenu. 
+Właściwość Max Age to długość czasu, przez który można użyć pojedynczego tokenu. 
 
 ### <a name="single-sign-on-session-tokens"></a>Tokeny sesji logowania jednokrotnego
 Gdy użytkownik uwierzytelnia się za pomocą platformy tożsamości firmy Microsoft, sesja logowania jednokrotnego (SSO) jest ustanawiana z użyciem przeglądarki użytkownika i platformy tożsamości firmy Microsoft. Token logowania jednokrotnego w formie pliku cookie reprezentuje tę sesję. Token sesji logowania jednokrotnego nie jest powiązany z określonym zasobem/aplikacją kliencką. Tokeny sesji SSO można odwołać, a ich ważność jest sprawdzana za każdym razem, gdy są używane.

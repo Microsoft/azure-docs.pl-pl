@@ -4,12 +4,12 @@ description: Wstaw kilka wierszy kodu z urządzenia lub aplikacji klasycznej, st
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: ae64888669fb9a3c053802ee4f7ad7db6316265d
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: d553c192d62baedb93c7f8270c56526fbf8edb62
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780505"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233750"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Interfejs API usługi Application Insights dla niestandardowych zdarzeń i metryk
 
@@ -146,7 +146,9 @@ telemetry.trackEvent({name: "WinGame"});
 
 ### <a name="custom-events-in-analytics"></a>Zdarzenia niestandardowe w analizie
 
-Dane telemetryczne są dostępne w `customEvents` tabeli w [Application Insights Analytics](../log-query/log-query-overview.md). Każdy wiersz reprezentuje wywołanie `trackEvent(..)` w aplikacji.
+Dane telemetryczne są dostępne w `customEvents` tabeli na [karcie Dzienniki Application Insights](../log-query/log-query-overview.md) lub [środowisko użycia](usage-overview.md). Zdarzenia mogą pochodzić z `trackEvent(..)` lub [kliknąć wtyczki autokolekcji analizy](javascript-click-analytics-plugin.md).
+
+ 
 
 Jeśli [próbkowanie](./sampling.md) jest w operacji, właściwość itemCount pokazuje wartość większą niż 1. Na przykład itemCount = = 10 oznacza, że z 10 wywołań do poleceń trackEvent () proces próbkowania przekazał tylko jeden z nich. Aby uzyskać poprawną liczbę zdarzeń niestandardowych, należy w związku z tym użyć kodu, takiego jak `customEvents | summarize sum(itemCount)` .
 
@@ -1122,4 +1124,3 @@ Aby określić, jak długo są przechowywane dane, zobacz [przechowywanie i pryw
 
 * [Wyszukaj zdarzenia i dzienniki](./diagnostic-search.md)
 * [Rozwiązywanie problemów](../faq.md)
-

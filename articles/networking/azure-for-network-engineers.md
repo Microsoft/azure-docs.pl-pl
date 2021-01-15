@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 06/25/2020
 ms.author: osamaz
-ms.openlocfilehash: e13dc868512dba15c5b335c1774aaa540eef8157
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 9a22e58e4407897fb9418cae0ba9f32408cda8e1
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861406"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234209"
 ---
 # <a name="azure-for-network-engineers"></a>Platforma Azure dla inżynierów sieci
 Jako konwencjonalny inżynier sieci korzystasz z zasobów fizycznych, takich jak routery, przełączniki, kable i zapory, aby utworzyć infrastrukturę. W warstwie logicznej skonfigurowano wirtualną sieć LAN (VLAN), łączenie protokołu drzewa (STP), protokoły routingu (RIP, OSPF, BGP). Zarządzasz siecią przy użyciu narzędzi do zarządzania i interfejsu wiersza polecenia. Sieci w chmurze różnią się, gdzie punkty końcowe sieci są logiczne, a korzystanie z protokołów routingu jest minimalne. Do konfigurowania zasobów i zarządzania nimi na platformie Azure można używać interfejsów API Azure Resource Manager, interfejsu wiersza polecenia platformy Azure i programu PowerShell. W chmurze rozpocznie się podróż do sieci, opisując podstawowe dzierżawy sieci platformy Azure. 
@@ -88,7 +88,6 @@ Dowiedz się więcej na temat [routingu sieci wirtualnej][vnet-routing].
 Dowiedz się więcej o [sieciowych grupach zabezpieczeń][network-security].
 
 <!--Link References-->
-[VNet]: https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-portal
-[vnet-routing]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview
-[network-security]: https://docs.microsoft.com/azure/virtual-network/security-overview
-
+[VNet]: ../virtual-network/tutorial-connect-virtual-networks-portal.md
+[vnet-routing]: ../virtual-network/virtual-networks-udr-overview.md
+[network-security]: ../virtual-network/network-security-groups-overview.md

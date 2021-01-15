@@ -5,13 +5,13 @@ author: savjani
 ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
-ms.date: 9/29/2020
-ms.openlocfilehash: 3ed0fea4846b969c2af80aa525f7da64e7700bb5
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.date: 01/15/2021
+ms.openlocfilehash: fb7d9f78ac5498affa10521e17cff4348eecb5eb
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587931"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231948"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Konfigurowanie replikacja typu data-in w Azure Database for MariaDB
 
@@ -24,6 +24,11 @@ Przed wykonaniem kroków opisanych w tym artykule Przejrzyj [ograniczenia i wyma
 > [!NOTE]
 > Jeśli serwer źródłowy jest w wersji 10,2 lub nowszej, zalecamy skonfigurowanie replikacja typu data-in przy użyciu [globalnego identyfikatora transakcji](https://mariadb.com/kb/en/library/gtid/).
 
+> [!NOTE]
+> Komunikacja bezpłatna bez opłat
+>
+> Firma Microsoft obsługuje różnorodne i dołączane środowiska. Ten artykuł zawiera odwołania do _wzorców_ słów _kluczowych i podrzędnych_. W [przewodniku w stylu firmy Microsoft dla komunikacji bez rozdzielania](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) nie są rozpoznawane takie same słowa. Słowa są używane w tym artykule w celu zapewnienia spójności, ponieważ są to obecnie słowa pojawiające się w oprogramowaniu. W przypadku zaktualizowania oprogramowania w celu usunięcia słów ten artykuł zostanie zaktualizowany w celu wyrównania.
+>
 
 ## <a name="create-a-mariadb-server-to-use-as-a-replica"></a>Utwórz serwer MariaDB, który ma być używany jako replika
 
@@ -35,18 +40,12 @@ Przed wykonaniem kroków opisanych w tym artykule Przejrzyj [ograniczenia i wyma
    > Należy utworzyć serwer Azure Database for MariaDB w warstwach cenowych Ogólnego przeznaczenia lub zoptymalizowanych pod kątem pamięci.
 
 2. Utwórz identyczne konta użytkowników i odpowiednie uprawnienia.
-    
+
     Konta użytkowników nie są replikowane z serwera źródłowego do serwera repliki. Aby zapewnić użytkownikom dostęp do serwera repliki, należy ręcznie utworzyć wszystkie konta i odpowiednie uprawnienia na nowo utworzonym serwerze Azure Database for MariaDB.
 
 3. Dodaj adres IP serwera źródłowego do reguł zapory repliki. 
 
    Zaktualizuj reguły zapory za pomocą [witryny Azure Portal](howto-manage-firewall-portal.md) lub [interfejsu wiersza polecenia platformy Azure](howto-manage-firewall-cli.md).
-
-> [!NOTE]
-> Komunikacja bezpłatna bez opłat
->
-> Firma Microsoft obsługuje różnorodne i dołączane środowiska. Ten artykuł zawiera odwołania do programu Word _podrzędny_. Przewodnik po [stylu firmy Microsoft dla komunikacji bezpłatnej](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) jest rozpoznawany jako wykluczony wyraz. Słowo jest używane w tym artykule w celu zapewnienia spójności, ponieważ jest to obecnie słowo, które jest wyświetlane w oprogramowaniu. W przypadku zaktualizowania oprogramowania w celu usunięcia wyrazu ten artykuł zostanie zaktualizowany w celu wyrównania.
->
 
 ## <a name="configure-the-source-server"></a>Skonfiguruj serwer źródłowy
 
@@ -55,31 +54,38 @@ Poniższe kroki przygotowują i skonfigurują serwer MariaDB hostowany lokalnie,
 1. Przed kontynuowaniem Przejrzyj [wymagania dotyczące serwera podstawowego](concepts-data-in-replication.md#requirements) . 
 
 2. Upewnij się, że serwer źródłowy zezwala na ruch przychodzący i wychodzący na porcie 3306 oraz że serwer źródłowy ma **publiczny adres IP**, usługa DNS jest publicznie dostępna lub ma w pełni kwalifikowaną nazwę domeny (FQDN). 
-   
+
    Przetestuj łączność z serwerem źródłowym, próbując nawiązać połączenie za pomocą narzędzia, takiego jak wiersz polecenia MySQL hostowany na innym komputerze lub z [Azure Cloud Shell](../cloud-shell/overview.md) dostępnego w Azure Portal.
 
-   Jeśli Twoja organizacja ma rygorystyczne zasady zabezpieczeń i nie zezwoli na wszystkie adresy IP na serwerze źródłowym, aby umożliwić komunikację z platformą Azure z serwerem źródłowym, możesz użyć poniższego polecenia, aby określić adres IP serwera Azure Database for MariaDB.
-    
-   1. Zaloguj się do Azure Database for MariaDB przy użyciu narzędzia, takiego jak MySQL Command-line.
+   Jeśli organizacja ma ścisłe zasady zabezpieczeń i nie zezwoli na dostęp do wszystkich adresów IP na serwerze źródłowym w celu włączenia komunikacji z platformy Azure do serwera źródłowego, możesz użyć poniższego polecenia, aby określić adres IP serwera Azure Database for MariaDB.
+
+   1. Zaloguj się do Azure Database for MariaDB za pomocą narzędzia, takiego jak wiersz polecenia MySQL.
    2. Wykonaj poniższe zapytanie.
+
       ```bash
       mysql> SELECT @@global.redirect_server_host;
       ```
+
       Poniżej przedstawiono przykładowe dane wyjściowe:
-      ```bash 
+
+      ```bash
       +-----------------------------------------------------------+
       | @@global.redirect_server_host                             |
       +-----------------------------------------------------------+
       | e299ae56f000.tr1830.westus1-a.worker.database.windows.net |
        +-----------------------------------------------------------+
       ```
+
    3. Wyjdź z wiersza polecenia MySQL.
    4. Wykonaj poniższe czynności w narzędziu ping, aby uzyskać adres IP.
+
       ```bash
       ping <output of step 2b>
-      ``` 
-      Przykład: 
-      ```bash      
+      ```
+
+      Na przykład:
+
+      ```bash
       C:\Users\testuser> ping e299ae56f000.tr1830.westus1-a.worker.database.windows.net
       Pinging tr1830.westus1-a.worker.database.windows.net (**11.11.111.111**) 56(84) bytes of data.
       ```
@@ -89,8 +95,8 @@ Poniższe kroki przygotowują i skonfigurują serwer MariaDB hostowany lokalnie,
    > [!NOTE]
    > Ten adres IP może ulec zmianie z powodu operacji konserwacji/wdrażania. Ta metoda łączności jest tylko dla klientów, którzy nie mogą udzielić zezwolenia na wszystkie adresy IP na porcie 3306.
 
-2. Włącz rejestrowanie plików binarnych.
-    
+3. Włącz rejestrowanie plików binarnych.
+
     Aby sprawdzić, czy na wzorcu jest włączone rejestrowanie plików binarnych, wprowadź następujące polecenie:
 
    ```sql
@@ -101,7 +107,7 @@ Poniższe kroki przygotowują i skonfigurują serwer MariaDB hostowany lokalnie,
 
    Jeśli `log_bin` zwraca wartość `OFF` , edytuj plik **My. cnf** , aby `log_bin=ON` włączyć rejestrowanie binarne. Aby zmiana zaczęła obowiązywać, należy ponownie uruchomić serwer.
 
-3. Skonfiguruj ustawienia serwera źródłowego.
+4. Skonfiguruj ustawienia serwera źródłowego.
 
     Replikacja typu data-in wymaga, `lower_case_table_names` Aby parametr był spójny między serwerami źródłowym i repliki. `lower_case_table_names`Parametr jest domyślnie ustawiony na wartość `1` Azure Database for MariaDB.
 
@@ -109,14 +115,14 @@ Poniższe kroki przygotowują i skonfigurują serwer MariaDB hostowany lokalnie,
    SET GLOBAL lower_case_table_names = 1;
    ```
 
-4. Utwórz nową rolę replikacji i Skonfiguruj uprawnienia.
+5. Utwórz nową rolę replikacji i Skonfiguruj uprawnienia.
 
    Utwórz konto użytkownika na serwerze źródłowym, który jest skonfigurowany z uprawnieniami replikacji. Konto można utworzyć przy użyciu poleceń SQL lub MySQL Workbench. Jeśli planujesz replikację przy użyciu protokołu SSL, musisz go określić podczas tworzenia konta użytkownika.
-   
+
    Aby dowiedzieć się, jak dodać konta użytkowników na serwerze źródłowym, zapoznaj się z [dokumentacją MariaDB](https://mariadb.com/kb/en/library/create-user/).
 
    Przy użyciu następujących poleceń Nowa rola replikacji może uzyskać dostęp do źródła z dowolnego komputera, a nie tylko z komputera, który hostuje źródło. W przypadku tego dostępu określ **syncuser \@ "%"** w poleceniu, aby utworzyć użytkownika.
-   
+
    Aby dowiedzieć się więcej na temat dokumentacji MariaDB, zobacz [Określanie nazw kont](https://mariadb.com/kb/en/library/create-user/#account-names).
 
    **Polecenie SQL**
@@ -133,7 +139,7 @@ Poniższe kroki przygotowują i skonfigurują serwer MariaDB hostowany lokalnie,
    - Replikacja bez protokołu SSL
 
        Jeśli protokół SSL nie jest wymagany dla wszystkich połączeń, wprowadź następujące polecenie, aby utworzyć użytkownika:
-    
+
        ```sql
        CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
        GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%';
@@ -142,19 +148,18 @@ Poniższe kroki przygotowują i skonfigurują serwer MariaDB hostowany lokalnie,
    **MySQL Workbench**
 
    Aby utworzyć rolę replikacji w programie MySQL Workbench, w okienku **Zarządzanie** wybierz pozycję **Użytkownicy i uprawnienia**. Następnie wybierz pozycję **Dodaj konto**.
- 
+
    ![Użytkownicy i uprawnienia](./media/howto-data-in-replication/users_privileges.png)
 
    Wprowadź nazwę użytkownika w polu **Nazwa logowania** .
 
    ![Użytkownik synchronizacji](./media/howto-data-in-replication/syncuser.png)
- 
+
    Wybierz panel **role administracyjne** , a następnie na liście **uprawnień globalnych** wybierz pozycję **replikacja podrzędna**. Wybierz pozycję **Zastosuj** , aby utworzyć rolę replikacji.
 
    ![Replikacja podrzędna](./media/howto-data-in-replication/replicationslave.png)
 
-
-5. Ustaw serwer źródłowy do trybu tylko do odczytu.
+6. Ustaw serwer źródłowy do trybu tylko do odczytu.
 
    Przed zazrzutem bazy danych serwer musi być umieszczony w trybie tylko do odczytu. W trybie tylko do odczytu źródło nie może przetwarzać żadnych transakcji zapisu. Aby uniknąć wpływu na działalność biznesową, Zaplanuj okno tylko do odczytu w czasie poza szczytem.
 
@@ -163,27 +168,27 @@ Poniższe kroki przygotowują i skonfigurują serwer MariaDB hostowany lokalnie,
    SET GLOBAL read_only = ON;
    ```
 
-6. Pobierz bieżącą nazwę pliku dziennika binarnego i przesunięcia.
+7. Pobierz bieżącą nazwę pliku dziennika binarnego i przesunięcia.
 
    Aby określić bieżącą nazwę pliku dziennika binarnego i przesunięcia, uruchom polecenie [`show master status`](https://mariadb.com/kb/en/library/show-master-status/) .
-    
+
    ```sql
    show master status;
    ```
+
    Wyniki powinny wyglądać podobnie do poniższej tabeli:
-   
+
    ![Wyniki stanu głównego](./media/howto-data-in-replication/masterstatus.png)
 
    Zanotuj nazwę pliku binarnego, ponieważ zostanie ona użyta w dalszych krokach.
-   
-7. Pobierz pozycję GTID (opcjonalnie wymagana do replikacji z GTID).
+
+8. Pobierz pozycję GTID (opcjonalnie wymagana do replikacji z GTID).
 
    Uruchom funkcję [`BINLOG_GTID_POS`](https://mariadb.com/kb/en/library/binlog_gtid_pos/) w celu uzyskania pozycji GTID dla odpowiedniej nazwy pliku binlog i przesunięcia.
   
     ```sql
     select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);
     ```
- 
 
 ## <a name="dump-and-restore-the-source-server"></a>Zrzuć i przywróć serwer źródłowy
 
@@ -219,9 +224,9 @@ Poniższe kroki przygotowują i skonfigurują serwer MariaDB hostowany lokalnie,
    ```sql
    CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
    ```
-   
+
    lub
-   
+
    ```sql
    CALL mysql.az_replication_change_master_with_gtid('<master_host>', '<master_user>', '<master_password>', 3306, '<master_gtid_pos>', '<master_ssl_ca>');
    ```
@@ -233,8 +238,8 @@ Poniższe kroki przygotowują i skonfigurują serwer MariaDB hostowany lokalnie,
    - master_log_pos: uruchamianie binarnej lokalizacji dziennika `show master status`
    - master_gtid_pos: GTID położenie z uruchamiania `select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);`
    - master_ssl_ca: kontekst certyfikatu urzędu certyfikacji. Jeśli nie używasz protokołu SSL, Przekaż pusty ciąg. *
-    
-    
+
+
     * Zalecamy przekazywanie w master_ssl_ca parametr jako zmienna. Więcej informacji można znaleźć w poniższych przykładach.
 
    **Przykłady**
@@ -250,10 +255,11 @@ Poniższe kroki przygotowują i skonfigurują serwer MariaDB hostowany lokalnie,
        ```
 
        Replikacja przy użyciu protokołu SSL jest skonfigurowana między serwerem źródłowym hostowanym w domenie companya.com i serwerem repliki hostowanym w Azure Database for MariaDB. Ta procedura składowana jest uruchamiana w replice.
-    
+
        ```sql
        CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mariadb-bin.000016', 475, @cert);
        ```
+
    - Replikacja bez protokołu SSL
 
        Replikacja bez protokołu SSL jest skonfigurowana między serwerem źródłowym hostowanym w domenie companya.com i serwerem repliki hostowanym w Azure Database for MariaDB. Ta procedura składowana jest uruchamiana w replice.
@@ -273,7 +279,7 @@ Poniższe kroki przygotowują i skonfigurują serwer MariaDB hostowany lokalnie,
 3. Sprawdź stan replikacji.
 
    Wywołaj [`show slave status`](https://mariadb.com/kb/en/library/show-slave-status/) polecenie na serwerze repliki, aby wyświetlić stan replikacji.
-    
+
    ```sql
    show slave status;
    ```
@@ -281,11 +287,11 @@ Poniższe kroki przygotowują i skonfigurują serwer MariaDB hostowany lokalnie,
    Jeśli `Slave_IO_Running` i `Slave_SQL_Running` są w stanie `yes` , a wartość `Seconds_Behind_Master` to `0` , działa replikacja. `Seconds_Behind_Master` wskazuje, jak późna jest replika. Jeśli ta wartość nie jest `0` , replika przetwarza aktualizacje.
 
 4. Zaktualizuj odpowiednie zmienne serwera, aby zapewnić bezpieczeństwo replikacji danych (wymagane tylko w przypadku replikacji bez GTID).
-    
+
     Ze względu na ograniczenie replikacji natywnej w MariaDB należy ustawić  [`sync_master_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) i [`sync_relay_log_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) zmienne w replikacji bez scenariusza GTID.
 
     Sprawdź, czy serwer repliki `sync_master_info` i `sync_relay_log_info` zmienne, aby upewnić się, że replikacja danych jest stabilna, i Ustaw zmienne na `1` .
-    
+
 ## <a name="other-stored-procedures"></a>Inne procedury składowane
 
 ### <a name="stop-replication"></a>Zatrzymywanie replikacji
@@ -307,10 +313,11 @@ CALL mysql.az_replication_remove_master;
 ### <a name="skip-the-replication-error"></a>Pomiń błąd replikacji
 
 Aby pominąć błąd replikacji i zezwolić na replikację, należy użyć następującej procedury składowanej:
-    
+
 ```sql
 CALL mysql.az_replication_skip_counter;
 ```
 
 ## <a name="next-steps"></a>Następne kroki
+
 Dowiedz się więcej na temat [replikacja typu data-in](concepts-data-in-replication.md) Azure Database for MariaDB.

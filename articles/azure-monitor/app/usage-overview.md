@@ -3,12 +3,12 @@ title: Analiza użycia za pomocą usługi Azure Application Insights | Dokumenta
 description: Zapoznaj się z użytkownikami i Dowiedz się, co robią z Twoją aplikacją.
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 4f4954451bfa195b07c580ffa451b8cb333eb32c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 633d35ec16f5eb9de664421c38cd4c824dc240cf
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532107"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233852"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Analiza użycia za pomocą usługi Application Insights
 
@@ -65,7 +65,7 @@ Szczegółowe informacje o interesujących wzorcach z prawej strony zestawu dany
 
 ## <a name="retention---how-many-users-come-back"></a>Przechowywanie — ilu użytkowników wraca?
 
-Przechowywanie ułatwia zrozumienie, jak często użytkownicy zwracają się do korzystania z aplikacji, w oparciu o kohorty użytkowników, którzy wykonali pewne działania biznesowe w określonym przedziale czasu. 
+Przechowywanie ułatwia zrozumienie, jak często użytkownicy zwracają się do korzystania z aplikacji, w oparciu o kohorty użytkowników, którzy wykonali pewne działania biznesowe w określonym przedziale czasu. 
 
 - Informacje o konkretnych funkcjach, które powodują, że użytkownicy mogą wrócić więcej niż inne 
 - Formy poformowania w oparciu o prawdziwe dane użytkownika 
@@ -79,7 +79,9 @@ Kontrolki przechowywania na górze umożliwiają zdefiniowanie określonych zdar
 
 ## <a name="custom-business-events"></a>Niestandardowe zdarzenia biznesowe
 
-Aby jasno zrozumieć, co użytkownicy robią z aplikacją, warto wstawić wiersze kodu do rejestrowania zdarzeń niestandardowych. Zdarzenia te mogą śledzić wszystkie szczegółowe czynności użytkownika, takie jak kliknięcie określonych przycisków, do bardziej znaczących wydarzeń, takich jak zakup lub przegranie gry. 
+Aby jasno zrozumieć, co użytkownicy robią z aplikacją, warto wstawić wiersze kodu do rejestrowania zdarzeń niestandardowych. Zdarzenia te mogą śledzić wszystkie szczegółowe czynności użytkownika, takie jak kliknięcie określonych przycisków, do bardziej znaczących wydarzeń, takich jak zakup lub przegranie gry.
+
+Możesz również użyć [wtyczki Autocollection analizy](javascript-click-analytics-plugin.md) do zbierania zdarzeń niestandardowych.
 
 Chociaż w niektórych przypadkach wyświetlenia stron mogą reprezentować przydatne zdarzenia, nie jest to ogólnie prawdziwe. Użytkownik może otworzyć stronę produktu bez kupowania produktu. 
 

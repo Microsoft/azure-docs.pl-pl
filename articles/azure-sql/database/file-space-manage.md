@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, sstein
-ms.date: 03/12/2019
-ms.openlocfilehash: 3a46e47d6e12d52113bf63342c84a58ca98743d0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 12/22/2020
+ms.openlocfilehash: 08cab806d6ad8b75821a92994dde0fa07db8b960
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789611"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233597"
 ---
 # <a name="manage-file-space-for-databases-in-azure-sql-database"></a>Zarządzanie miejscem plików dla baz danych w Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -84,7 +84,7 @@ Zmodyfikuj następujące zapytanie, aby zwrócić ilość użytego miejsca na da
 SELECT TOP 1 storage_in_megabytes AS DatabaseDataSpaceUsedInMB
 FROM sys.resource_stats
 WHERE database_name = 'db1'
-ORDER BY end_time DESC
+ORDER BY end_time DESC;
 ```
 
 ### <a name="database-data-space-allocated-and-unused-allocated-space"></a>Przestrzeń danych bazy danych przyalokowana i niewykorzystane miejsce
@@ -98,7 +98,7 @@ SELECT SUM(size/128.0) AS DatabaseDataSpaceAllocatedInMB,
 SUM(size/128.0 - CAST(FILEPROPERTY(name, 'SpaceUsed') AS int)/128.0) AS DatabaseDataSpaceAllocatedUnusedInMB
 FROM sys.database_files
 GROUP BY type_desc
-HAVING type_desc = 'ROWS'
+HAVING type_desc = 'ROWS';
 ```
 
 ### <a name="database-data-max-size"></a>Maksymalny rozmiar danych bazy danych
@@ -108,7 +108,7 @@ Zmodyfikuj następujące zapytanie, aby przywrócić maksymalny rozmiar danych b
 ```sql
 -- Connect to database
 -- Database data max size in bytes
-SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
+SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes;
 ```
 
 ## <a name="understanding-types-of-storage-space-for-an-elastic-pool"></a>Informacje o typach miejsca do magazynowania dla puli elastycznej
@@ -121,6 +121,9 @@ Zrozumienie następujących ilości miejsca do magazynowania jest istotne dla za
 |**Przydzielono miejsce na danych**|Suma przestrzeni danych przydzielonej przez wszystkie bazy danych w puli elastycznej.||
 |**Miejsce na dane przydzieloną, ale nieużywane**|Różnica między ilością przydzielonego miejsca na dane i miejscem na dane używanym przez wszystkie bazy danych w puli elastycznej.|Ta ilość reprezentuje maksymalną ilość miejsca przydzielonego dla puli elastycznej, którą można odzyskiwać, zmniejszając pliki danych bazy danych.|
 |**Maksymalny rozmiar danych**|Maksymalna ilość miejsca na dane, która może być używana przez pulę elastyczną dla wszystkich swoich baz danych.|Przestrzeń przydzieloną dla puli elastycznej nie powinna przekraczać maksymalnego rozmiaru puli elastycznej.  Jeśli wystąpi ten warunek, przydzielone miejsce, które nie jest używane, może być odzyskiwane przez zmniejszenie plików danych bazy danych.|
+
+> [!NOTE]
+> Komunikat o błędzie "Pula elastyczna osiągnęła swój limit magazynowania" oznacza, że obiekty bazy danych zostały przydzielone wystarczająco dużo miejsca, aby spełniały limit magazynu elastycznej puli, ale w alokacji przestrzeni danych może występować nieużywane miejsce. Należy rozważyć zwiększenie limitu magazynu puli elastycznej lub jako krótkoterminowe rozwiązanie, zwalniając miejsce na dane przy użyciu sekcji [**odzyskiwanie nieużywanych przyznanych obszarów**](#reclaim-unused-allocated-space) poniżej. Należy również pamiętać o potencjalnym negatywnym wpływie zmniejszania plików bazy danych, zobacz sekcję ponowne [**Kompilowanie indeksów**](#rebuild-indexes) poniżej.
 
 ## <a name="query-an-elastic-pool-for-storage-space-information"></a>Zbadaj pulę elastyczną w celu uzyskania informacji o miejscu do magazynowania
 
@@ -136,7 +139,7 @@ Zmodyfikuj następujące zapytanie, aby zwrócić ilość zajętego miejsca na d
 SELECT TOP 1 avg_storage_percent / 100.0 * elastic_pool_storage_limit_mb AS ElasticPoolDataSpaceUsedInMB
 FROM sys.elastic_pool_resource_stats
 WHERE elastic_pool_name = 'ep1'
-ORDER BY end_time DESC
+ORDER BY end_time DESC;
 ```
 
 ### <a name="elastic-pool-data-space-allocated-and-unused-allocated-space"></a>Miejsce na danych w puli elastycznej przydzielono i niewykorzystane miejsce
@@ -187,7 +190,7 @@ Poniższy zrzut ekranu przedstawia przykład danych wyjściowych skryptu:
 
 ### <a name="elastic-pool-data-max-size"></a>Maksymalny rozmiar danych puli elastycznej
 
-Zmodyfikuj następujące zapytanie T-SQL, aby przywrócić maksymalny rozmiar danych puli elastycznej.  Jednostki wyniku zapytania są w MB.
+Zmodyfikuj następujące zapytanie T-SQL, aby zwrócić ostatnio zapisany rozmiar danych puli elastycznej.  Jednostki wyniku zapytania są w MB.
 
 ```sql
 -- Connect to master
@@ -195,13 +198,13 @@ Zmodyfikuj następujące zapytanie T-SQL, aby przywrócić maksymalny rozmiar da
 SELECT TOP 1 elastic_pool_storage_limit_mb AS ElasticPoolMaxSizeInMB
 FROM sys.elastic_pool_resource_stats
 WHERE elastic_pool_name = 'ep1'
-ORDER BY end_time DESC
+ORDER BY end_time DESC;
 ```
 
 ## <a name="reclaim-unused-allocated-space"></a>Odzyskaj nieużywane przydzieloną przestrzeń
 
 > [!NOTE]
-> To polecenie może mieć wpływ na wydajność bazy danych, gdy jest uruchomiona, a jeśli to możliwe, powinno być uruchamiane w okresach o niskim poziomie użycia.
+> Polecenia zmniejszania wpływają na wydajność bazy danych podczas uruchamiania, a jeśli to możliwe, powinny być uruchamiane w okresach o niskim poziomie użycia.
 
 ### <a name="dbcc-shrink"></a>Polecenie DBCC Zmniejsz
 
@@ -209,24 +212,28 @@ Po zidentyfikowaniu baz danych do odzyskiwania niewykorzystanego miejsca przydzi
 
 ```sql
 -- Shrink database data space allocated.
-DBCC SHRINKDATABASE (N'db1')
+DBCC SHRINKDATABASE (N'db1');
 ```
 
-To polecenie może mieć wpływ na wydajność bazy danych, gdy jest uruchomiona, a jeśli to możliwe, powinno być uruchamiane w okresach o niskim poziomie użycia.  
+Polecenia zmniejszania wpływają na wydajność bazy danych podczas uruchamiania, a jeśli to możliwe, powinny być uruchamiane w okresach o niskim poziomie użycia.  
 
-Aby uzyskać więcej informacji na temat tego polecenia, zobacz [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
+Należy również pamiętać o potencjalnym negatywnym wpływie zmniejszania plików bazy danych, zobacz sekcję ponowne [**Kompilowanie indeksów**](#rebuild-indexes) poniżej.
+
+Aby uzyskać więcej informacji na temat tego polecenia, zobacz [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql.md).
 
 ### <a name="auto-shrink"></a>Autozmniejszanie
 
 Alternatywnie można włączyć funkcję autozmniejszania dla bazy danych.  Funkcja autozmniejszania zmniejsza złożoność zarządzania plikami i mniej wpływa na wydajność bazy danych niż `SHRINKDATABASE` lub `SHRINKFILE` .  Funkcja autozmniejszania może być szczególnie przydatna do zarządzania elastycznymi pulami z wieloma bazami danych.  Jednak funkcja autozmniejszania może być mniej skuteczna podczas odzyskiwania przestrzeni plików niż `SHRINKDATABASE` i `SHRINKFILE` .
+Domyślnie funkcja autozmniejszania jest wyłączona zgodnie z zaleceniami dla większości baz danych. Aby uzyskać więcej informacji, zobacz [zagadnienia dotyczące AUTO_SHRINK](/troubleshoot/sql/admin/considerations-autogrow-autoshrink#considerations-for-auto_shrink).
+
 Aby włączyć funkcję autozmniejszania, zmodyfikuj nazwę bazy danych w poniższym poleceniu.
 
 ```sql
 -- Enable auto-shrink for the database.
-ALTER DATABASE [db1] SET AUTO_SHRINK ON
+ALTER DATABASE [db1] SET AUTO_SHRINK ON;
 ```
 
-Aby uzyskać więcej informacji na temat tego polecenia, zobacz Opcje [zestawu baz danych](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) .
+Aby uzyskać więcej informacji na temat tego polecenia, zobacz Opcje [zestawu baz danych](/sql/t-sql/statements/alter-database-transact-sql-set-options) .
 
 ### <a name="rebuild-indexes"></a>Ponowne kompilowanie indeksów
 

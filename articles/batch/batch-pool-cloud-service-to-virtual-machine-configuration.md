@@ -3,12 +3,12 @@ title: Migruj konfigurację puli partii z Cloud Services do Virtual Machines
 description: Dowiedz się, jak zaktualizować konfigurację puli do najnowszej i zalecanej konfiguracji
 ms.topic: how-to
 ms.date: 1/6/2021
-ms.openlocfilehash: b6f4184f7c4f133f74cb3157638b1621dad25fda
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: d987a185efb6593fd541dd14fa74b6c4d3ca41be
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97969031"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234311"
 ---
 # <a name="migrate-batch-pool-configuration-from-cloud-services-to-virtual-machines"></a>Migruj konfigurację puli partii z Cloud Services do Virtual Machines
 
@@ -22,7 +22,7 @@ W tym artykule opisano sposób migracji do programu "virtualMachineConfiguration
 
 Istniejących aktywnych pul nie można zaktualizować z "cloudServiceConfiguration" do "virtualMachineConfiguration", należy utworzyć nowe pule. Tworzenie pul przy użyciu "virtualMachineConfiguration" jest obsługiwane przez wszystkie interfejsy API usługi Batch, narzędzia wiersza polecenia, Azure Portal i Batch Explorer interfejs użytkownika.
 
-Samouczki dotyczące [platformy .NET](tutorial-parallel-dotnet.md) i języka [Python](tutorial-parallel-python.md) zawierają przykłady tworzenia puli przy użyciu elementu "virtualMachineConfiguration".
+**Samouczki dotyczące [platformy .NET](tutorial-parallel-dotnet.md) i języka [Python](tutorial-parallel-python.md) zawierają przykłady tworzenia puli przy użyciu elementu "virtualMachineConfiguration".**
 
 ## <a name="pool-configuration-differences"></a>Różnice konfiguracji puli
 

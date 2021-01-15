@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 24e52f517f46de06fef8aa52e889185826c20d44
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: abf4e4621a7e42829032923a67d21c5322f432ec
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498399"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232730"
 ---
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>Często zadawane pytania dotyczące migracji z modelu klasycznego do modelu opartego na usłudze Azure Resource Manager
 
@@ -82,11 +82,11 @@ Podczas migracji zasoby są przekształcane z klasycznych na zasoby usługi Reso
 
 Po przeniesieniu maszyny wirtualnej z klasycznej do Menedżer zasobów trybu kopie zapasowe wykonane przed migracją nie zostaną zmigrowane do nowo zmigrowanej Menedżer zasobów maszyny wirtualnej. Jeśli jednak chcesz zachować kopie zapasowe klasycznych maszyn wirtualnych, wykonaj następujące kroki przed migracją. 
 
-1. W magazynie Recovery Services przejdź do karty **elementy chronione** i wybierz maszynę wirtualną. 
-2. Kliknij pozycję Zatrzymaj ochronę. Pozostaw opcję *Usuń powiązane dane kopii zapasowych***niezaznaczoną**.
+1. W magazynie Recovery Services przejdź do bloku **elementy kopii zapasowej** i wybierz maszynę wirtualną. 
+2. Kliknij przycisk Zatrzymaj kopię zapasową. W menu rozwijanym wybierz pozycję "Zachowaj dane kopii zapasowej".
 
 > [!NOTE]
-> Podczas zachowywania danych będzie naliczana opłata za wystąpienie kopii zapasowej. Kopie zapasowe będą oczyszczane zgodnie z zakresem przechowywania. Jednakże Ostatnia kopia zapasowa jest zawsze zachowywana do momentu, gdy jawnie usuniesz dane kopii zapasowej. Zalecane jest sprawdzenie zakresu przechowywania maszyny wirtualnej i wyzwolenie "Usuń dane kopii zapasowej" z chronionego elementu w magazynie po przekroczeniu zakresu przechowywania. 
+> Ta opcja spowoduje zatrzymanie wszystkich przyszłych zadań tworzenia kopii zapasowej na podstawie ochrony maszyny wirtualnej. Jednak usługa Azure Backup będzie zachować kopie zapasowe punktów odzyskiwania.  Musisz zanieść opłaty za przechowywanie punktów odzyskiwania w magazynie (zobacz [Azure Backup cennika](https://azure.microsoft.com/pricing/details/backup/) , aby uzyskać szczegółowe informacje). W razie potrzeby będzie można przywrócić maszynę wirtualną. Jeśli zdecydujesz się na wznowienie ochrony maszyny wirtualnej, możesz użyć opcji *Wznów tworzenie kopii zapasowej* .
 >
 >
 

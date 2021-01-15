@@ -3,14 +3,14 @@ title: Możliwości renderowania
 description: Standardowe możliwości Azure Batch są używane do uruchamiania renderowania obciążeń i aplikacji. Partia zadań zawiera określone funkcje do obsługi obciążeń renderowania.
 author: mscurrell
 ms.author: markscu
-ms.date: 08/02/2018
+ms.date: 01/14/2021
 ms.topic: how-to
-ms.openlocfilehash: 77a6ec54495b394c597f6d6b4ddb5f5fe3285550
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: d9d196897800467fd02397bb774af0bbb9ebabf0
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107474"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234277"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Możliwości renderowania Azure Batch
 
@@ -18,7 +18,15 @@ Standardowe możliwości Azure Batch są używane do uruchamiania obciążeń i 
 
 Aby zapoznać się z omówieniem pojęć związanych z przetwarzaniem wsadowym, w tym pulami, zadaniami i zadaniami, zobacz [ten artykuł](./batch-service-workflow-features.md).
 
-## <a name="batch-pools"></a>Pule wsadowe
+## <a name="batch-pools-using-custom-vm-images-and-standard-application-licensing"></a>Pule usługi Batch używające niestandardowych obrazów maszyn wirtualnych i standardowej licencji aplikacji
+
+Podobnie jak w przypadku innych obciążeń i typów aplikacji, można utworzyć niestandardowy obraz maszyny wirtualnej z wymaganymi aplikacjami do renderowania i wtyczkami. Niestandardowy obraz maszyny wirtualnej jest umieszczany w [galerii obrazów udostępnionych](../virtual-machines/shared-image-galleries.md) i [może służyć do tworzenia pul wsadowych](batch-sig-images.md).
+
+Ciągi wiersza polecenia zadania muszą odwoływać się do aplikacji i ścieżek używanych podczas tworzenia niestandardowego obrazu maszyny wirtualnej.
+
+Większość aplikacji renderowania będzie wymagać licencji uzyskanych z serwera licencji. W przypadku istniejącego lokalnego serwera licencji, zarówno puli, jak i serwera licencji, muszą znajdować się w tej samej [sieci wirtualnej](../virtual-network/virtual-networks-overview.md). Istnieje również możliwość uruchomienia serwera licencji na maszynie wirtualnej platformy Azure z pulą usługi Batch i MASZYNą wirtualną serwera licencji znajdującą się w tej samej sieci wirtualnej.
+
+## <a name="batch-pools-using-rendering-vm-images"></a>Pule usługi Batch używające renderowania obrazów maszyn wirtualnych
 
 ### <a name="rendering-application-installation"></a>Renderowanie instalacji aplikacji
 
@@ -71,13 +79,13 @@ Wiersz polecenia Arnold 2017|kick.exe|ARNOLD_2017_EXEC|
 |Wiersz polecenia Arnold 2018|kick.exe|ARNOLD_2018_EXEC|
 |Programem Blender|blender.exe|BLENDER_2018_EXEC|
 
-### <a name="azure-vm-families"></a>Rodziny maszyn wirtualnych platformy Azure
+## <a name="azure-vm-families"></a>Rodziny maszyn wirtualnych platformy Azure
 
 Podobnie jak w przypadku innych obciążeń, renderowanie wymagań systemowych aplikacji jest różne i wymagania dotyczące wydajności różnią się w zależności od zadań i projektów.  Na platformie Azure dostępne są duże różne rodziny maszyn wirtualnych, w zależności od wymagań — najniższy koszt, Najlepsza cena/wydajność, Najlepsza wydajność i tak dalej.
 Niektóre aplikacje do renderowania, takie jak Arnold, są oparte na procesorach CPU; inne, takie jak cykle V-Ray i Blender, mogą korzystać z procesorów CPU i/lub GPU.
 Aby uzyskać opis dostępnych rodzin maszyn wirtualnych i rozmiarów maszyn wirtualnych, [Zobacz typy i rozmiary maszyn wirtualnych](../virtual-machines/sizes.md).
 
-### <a name="low-priority-vms"></a>Maszyny wirtualne o niskim priorytecie
+## <a name="low-priority-vms"></a>Maszyny wirtualne o niskim priorytecie
 
 Podobnie jak w przypadku innych obciążeń, maszyny wirtualne o niskim priorytecie mogą być wykorzystywane w pulach usługi Batch do renderowania.  Maszyny wirtualne o niskim priorytecie działają tak samo jak regularne dedykowane maszyny wirtualne, ale wykorzystują nadwyżkową pojemność platformy Azure i są dostępne dla dużego rabatu.  Użycie maszyn wirtualnych o niskim priorytecie polega na tym, że te maszyny wirtualne mogą nie być dostępne do przydzielenia lub mogą zostać przeniesione w dowolnym momencie, w zależności od dostępnej pojemności. Z tego powodu maszyny wirtualne o niskim priorytecie nie są odpowiednie dla wszystkich zadań renderowania. Na przykład, jeśli obrazy potrwają wiele godzin w celu renderowania, prawdopodobnie wyrenderowanie tych obrazów zostało przerwane i uruchomione ze względu na to, że maszyny wirtualne są zaakceptowane.
 
