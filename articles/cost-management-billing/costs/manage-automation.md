@@ -3,17 +3,17 @@ title: Zarządzanie kosztami platformy Azure przy użyciu automatyzacji
 description: W tym artykule wyjaśniono, jak zarządzać kosztami platformy Azure za pomocą automatyzacji.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/19/2020
+ms.date: 01/06/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: 47d9c2838c5c806214e3be2f9ba7ce335bc0af67
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 02215bace693ac5ac36f9fc29758215d45b23eb1
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94956096"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051789"
 ---
 # <a name="manage-costs-with-automation"></a>Zarządzanie kosztami przy użyciu automatyzacji
 
@@ -56,6 +56,22 @@ Zalecamy, aby do interfejsu API szczegółów użycia kierować _nie więcej ni�
 **Ukierunkowanie na zakresy najwyższego poziomu bez filtrowania**
 
 Użyj interfejsu API, aby uzyskać wszystkie potrzebne dane w zakresie o najwyższym dostępnym poziomie. Przed wykonaniem jakiejkolwiek operacji filtrowania, grupowania lub agregowania albo analizy zagregowanych danych zaczekaj, aż wszystkie potrzebne dane zostaną pozyskane. Interfejs API jest zoptymalizowany pod kątem dostarczania dużej ilości niezagregowanych i nieprzetworzonych danych kosztów. Aby dowiedzieć się więcej o zakresach dostępnych w usłudze Cost Management, zobacz [Opis zakresów i praca z nimi](./understand-work-scopes.md). Po pobraniu potrzebnych danych dla zakresu użyj programu Excel do dalszej analizy danych za pomocą filtrów i tabel przestawnych.
+
+### <a name="notes-about-pricing"></a>Uwagi dotyczące cennika
+
+Aby uzgodnić użycie i opłaty z arkuszem cen lub fakturą, należy zwrócić uwagę na poniższe informacje.
+
+Działanie cen dla arkusza cen — ceny podane w arkuszu cen to ceny otrzymane z platformy Azure. Są one skalowane do określonej jednostki miary. Niestety, jednostka miary nie zawsze jest zgodna z jednostką miary, w której generowane są rzeczywiste użycie zasobów i opłaty.
+
+Działanie cen dla szczegółów użycia — w przypadku plików użycia pokazywane są skalowane informacje, które mogą nie być dokładnie zgodne z arkuszem cen. W szczególności:
+
+- Cena jednostkowa — cena jest skalowana w celu dopasowania do jednostki miary, w której opłaty są faktycznie generowane przez zasoby platformy Azure. W przypadku wystąpienia skalowania cena nie będzie odpowiadała cenie widocznej w arkuszu cen.
+- Jednostka miary — reprezentuje jednostkę miary, w której opłaty są faktycznie generowane przez zasoby platformy Azure.
+- Efektywna cena/stawka za zasoby — cena reprezentuje rzeczywistą stawkę za jednostkę, po uwzględnieniu rabatów. Jest to cena, która powinna być używana z ilością przy obliczeniach iloczynu cena * ilość w celu uzgodnienia opłat. Cena uwzględnia następujące scenariusze i przeskalowane ceny jednostkowe, które również znajdują się w plikach. W związku z tym może się różnić od skalowanej ceny jednostkowej.
+  - Cennik warstwowy — na przykład: 10 USD za pierwsze 100 jednostek, 8 USD za następnych 100 jednostek.
+  - Uwzględniona ilość — na przykład: Pierwszych 100 jednostek jest bezpłatnych, a następne kosztują 10 USD za jednostkę.
+  - Rezerwacje
+  - Zaokrąglenie, które występuje podczas obliczania — zaokrąglanie uwzględnia wykorzystanie ilości, ceny warstwowe/uwzględnione oraz skalowane ceny jednostkowe.
 
 ## <a name="example-usage-details-api-requests"></a>Przykładowe żądania do interfejsu API dotyczące szczegółów użycia
 
@@ -325,7 +341,7 @@ Budżety można skonfigurować tak, aby uruchamiały zautomatyzowane akcje, uży
 
 ## <a name="data-latency-and-rate-limits"></a>Opóźnienie danych i limity szybkości
 
-Zalecamy wywoływanie interfejsów API nie częściej niż raz dziennie. Dane usługi Cost Management są odświeżane co cztery godziny, gdy nowe dane użycia są odbierane od dostawców zasobów platformy Azure. Częstsze wywołania nie dadzą dostępu do żadnych dodatkowych danych. Zamiast tego wzrośnie obciążenie. Aby dowiedzieć się więcej o tym, jak często zmieniają się dane i jak są obsługiwane opóźnienia danych, zobacz [Omówienie danych usługi Cost Management](understand-cost-mgt-data.md).
+Zalecamy wywoływanie interfejsów API nie częściej niż raz dziennie. Dane usługi Cost Management są odświeżane co cztery godziny, gdy nowe dane użycia są odbierane od dostawców zasobów platformy Azure. Wywoływanie częściej nie zapewnia większej ilości danych. Zamiast tego tworzy większe obciążenie. Aby dowiedzieć się więcej o tym, jak często zmieniają się dane i jak są obsługiwane opóźnienia danych, zobacz [Omówienie danych usługi Cost Management](understand-cost-mgt-data.md).
 
 ### <a name="error-code-429---call-count-has-exceeded-rate-limits"></a>Kod błędu 429 — Liczba wywołań przekroczyła limity szybkości
 

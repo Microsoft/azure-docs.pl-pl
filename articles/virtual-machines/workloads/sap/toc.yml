@@ -72,8 +72,6 @@
       items:
         - name: Sterowania oprogramowaniem Azure HANA — duże wystąpienia za pośrednictwem witryny Azure Portal
           href: hana-li-portal.md
-        - name: Zarządzanie wystąpieniami BareMetal za pomocą witryny Azure Portal
-          href: baremetal-infrastructure-portal.md
         - name: Konfiguracja wysokiej dostępności za pomocą metody STONITH
           href: ha-setup-with-stonith.md
         - name: Kopia zapasowa systemu operacyjnego dla jednostek SKU typu II
@@ -87,7 +85,7 @@
         - name: Migracja z funkcji HANA — duże wystąpienia na maszynę wirtualną platformy Azure
           href: hana-large-instance-virtual-machine-migration.md
         - name: Kupowanie rezerwacji oprogramowania SAP HANA — duże wystąpienia
-          href: ../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+          href: ../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md
 - name: Oprogramowanie SAP HANA na maszynach wirtualnych platformy Azure
   items:
     - name: Instalacja oprogramowania SAP HANA na maszynach wirtualnych platformy Azure
@@ -256,37 +254,37 @@
 - name: Integrowanie usługi Azure AD z aplikacjami SAP
   items:
     - name: Aprowizacja użytkowników z produktu SAP SuccessFactors w usłudze Active Directory
-      href: ../../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+      href: ../../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md
     - name: Aprowizacja użytkowników z produktu SAP SuccessFactors w usłudze Azure AD
-      href: ../../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+      href: ../../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md
     - name: Zapisywanie zwrotne użytkowników z usługi Azure AD do produktu SAP SuccessFactors
-      href: ../../../active-directory/saas-apps/sap-successfactors-writeback-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+      href: ../../../active-directory/saas-apps/sap-successfactors-writeback-tutorial.md
     - name: Aprowizacja użytkowników w usłudze SAP Cloud Platform Identity Authentication
-      href: ../../../active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+      href: ../../../active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md
     - name: Konfigurowanie logowania jednokrotnego przy użyciu usługi SAP Cloud Platform Identity Authentication
-      href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+      href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md
     - name: Konfigurowanie logowania jednokrotnego przy użyciu produktu SAP SuccessFactors
-      href: ../../../active-directory/saas-apps/successfactors-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+      href: ../../../active-directory/saas-apps/successfactors-tutorial.md
     - name: Konfigurowanie logowania jednokrotnego przy użyciu rozwiązania SAP Analytics Cloud
-      href: ../../../active-directory/saas-apps/sapboc-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+      href: ../../../active-directory/saas-apps/sapboc-tutorial.md
     - name: Konfigurowanie logowania jednokrotnego przy użyciu rozwiązania SAP Fiori
-      href: ../../../active-directory/saas-apps/sap-fiori-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+      href: ../../../active-directory/saas-apps/sap-fiori-tutorial.md
     - name: Konfigurowanie logowania jednokrotnego przy użyciu rozwiązania SAP Qualtrics
-      href: ../../../active-directory/saas-apps/qualtrics-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+      href: ../../../active-directory/saas-apps/qualtrics-tutorial.md
     - name: Konfigurowanie logowania jednokrotnego przy użyciu rozwiązania SAP Ariba
-      href: ../../../active-directory/saas-apps/ariba-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+      href: ../../../active-directory/saas-apps/ariba-tutorial.md
     - name: Konfigurowanie logowania jednokrotnego przy użyciu rozwiązania SAP Concur Travel and Expense
-      href: ../../../active-directory/saas-apps/concur-travel-and-expense-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+      href: ../../../active-directory/saas-apps/concur-travel-and-expense-tutorial.md
     - name: Konfigurowanie logowania jednokrotnego przy użyciu platformy SAP Cloud Platform
-      href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+      href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-tutorial.md
     - name: Konfigurowanie logowania jednokrotnego przy użyciu platformy SAP NetWeaver
-      href: ../../../active-directory/saas-apps/sap-netweaver-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+      href: ../../../active-directory/saas-apps/sap-netweaver-tutorial.md
     - name: Konfigurowanie logowania jednokrotnego przy użyciu oprogramowania SAP Business ByDesign
-      href: ../../../active-directory/saas-apps/sapbusinessbydesign-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+      href: ../../../active-directory/saas-apps/sapbusinessbydesign-tutorial.md
     - name: Konfigurowanie logowania jednokrotnego przy użyciu platformy SAP HANA
-      href: ../../../active-directory/saas-apps/saphana-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+      href: ../../../active-directory/saas-apps/saphana-tutorial.md
     - name: Konfigurowanie logowania jednokrotnego przy użyciu platformy SAP Cloud for Customer
-      href: ../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+      href: ../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md
     - name: Konfigurowanie logowania jednokrotnego przy użyciu programu SAP Fiori Launchpad
       href: 'https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad'
 - name: Integracja usług platformy Azure z oprogramowaniem SAP

@@ -182,7 +182,7 @@
             - name: Opłacanie maszyn wirtualnych z góry
               href: ../prepay-reserved-vm-instances.md
             - name: Opłacanie dedykowanych hostów z góry
-              href: ../prepay-dedicated-hosts-reserved-instances.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+              href: ../prepay-dedicated-hosts-reserved-instances.md
             - name: Co to są rezerwacje platformy Azure?
               href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md?toc=/azure/virtual-machines/windows/toc.json
             - name: Elastyczność rozmiaru wystąpienia maszyny wirtualnej
@@ -226,7 +226,7 @@
         - name: Szyfrowanie
           href: ../disk-encryption.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Rezerwacje usługi Disk Storage
-          href: ../../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+          href: ../../cost-management-billing/reservations/understand-disk-reservations.md
         - name: Wydajność maszyny wirtualnej i dysku
           href: disk-performance-windows.md
         - name: Projektowanie pod kątem wysokiej wydajności
@@ -290,14 +290,14 @@
         - name: Wdrażanie maszyn wirtualnych typu spot
           items:
             - name: Portal
-              href: ../spot-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+              href: ../spot-portal.md
             - name: PowerShell
               href: spot-powershell.md
             - name: Szablon ARM
               displayName: Azure Resource Manager
-              href: ../linux/spot-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+              href: ../linux/spot-template.md
             - name: Kody błędów
-              href: ../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+              href: ../error-codes-spot.md
         - name: Korzystanie z języka C#
           href: ../../azure-resource-manager/templates/deploy-rest.md
         - name: Korzystanie z wyspecjalizowanego dysku
@@ -478,7 +478,7 @@
             - name: Tworzenie hosta usługi Bastion
               items:
                 - name: Portal
-                  href: ../../bastion/tutorial-create-host-portal.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+                  href: ../../bastion/tutorial-create-host-portal.md
                 - name: PowerShell
                   href: ../../bastion/bastion-create-host-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
                 - name: Interfejs wiersza polecenia
@@ -654,7 +654,7 @@
                     - name: Historia wersji
                       href: ../../azure-monitor/platform/diagnostics-extension-versions.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
                     - name: Format dzienników zasobów JSON Lines
-                      href: ../../azure-monitor/platform/resource-logs-blob-format.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+                      href: ../../azure-monitor/platform/resource-logs-blob-format.md
                     - name: Rozwiązywanie problemów
                       href: ../../azure-monitor/platform/diagnostics-extension-troubleshooting.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Agent usługi Log Analytics
@@ -712,13 +712,13 @@
                 - name: Omówienie włączania monitorowania
                   href: ../../azure-monitor/insights/vminsights-enable-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
                 - name: Włączanie obsługi pojedynczej maszyny wirtualnej platformy Azure
-                  href: ../../azure-monitor/insights/vminsights-enable-portal.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+                  href: ../../azure-monitor/insights/vminsights-enable-portal.md
                 - name: Włączanie obsługi usługi Azure Policy
-                  href: ../../azure-monitor/insights/vminsights-enable-policy.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+                  href: ../../azure-monitor/insights/vminsights-enable-policy.md
                 - name: Włączanie obsługi programu Azure PowerShell
-                  href: ../../azure-monitor/insights/vminsights-enable-powershell.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+                  href: ../../azure-monitor/insights/vminsights-enable-powershell.md
                 - name: Włączanie obsługi środowiska hybrydowego
-                  href: ../../azure-monitor/insights/vminsights-enable-hybrid.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+                  href: ../../azure-monitor/insights/vminsights-enable-hybrid.md
             - name: Mapowanie zależności
               href: ../../azure-monitor/insights/vminsights-maps.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Monitorowanie wydajności
@@ -867,7 +867,7 @@
           href: ../../virtual-network/quick-create-portal.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
         - name: Otwieranie portów dla maszyny wirtualnej
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: nsg-quickstart-portal.md
             - name: Azure PowerShell
               href: nsg-quickstart-powershell.md

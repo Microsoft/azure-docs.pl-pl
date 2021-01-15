@@ -6,14 +6,14 @@ ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 01/11/2021
 ms.author: banders
-ms.openlocfilehash: 7bec455b804d1f4b13ab7e13677092077214a121
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: f0645115246995c9605563626d99bbf6a76784e1
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965854"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133574"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>Rozpoczynanie pracy ze zaktualizowanym kontem rozliczeniowym platformy Azure
 
@@ -40,7 +40,7 @@ Profil rozliczeniowy służy do zarządzania fakturami i formami płatności. Dl
 
 Po zaktualizowaniu konta dla każdej subskrypcji zostanie automatycznie utworzony profil rozliczeniowy. Opłaty za subskrypcję są naliczane w odpowiednim profilu rozliczeniowym i wyświetlane na fakturze dotyczącej tego profilu.
 
-Role w profilach rozliczeniowych mają uprawnienia do wyświetlania faktur i metod płatności oraz zarządzania nimi. Te role należy przypisywać do użytkowników płacących faktury, takich jak członkowie zespołu księgowego w organizacji. Aby uzyskać więcej informacji, zobacz sekcję [Zadania i role profilu rozliczeniowego](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks). 
+Role w profilach rozliczeniowych mają uprawnienia do wyświetlania faktur i metod płatności oraz zarządzania nimi. Te role należy przypisywać do użytkowników płacących faktury, takich jak członkowie zespołu księgowego w organizacji. Aby uzyskać więcej informacji, zobacz sekcję [Zadania i role profilu rozliczeniowego](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 Po zaktualizowaniu konta w każdej subskrypcji, w której nadano innym osobom uprawnienia do [wyświetlania faktur](download-azure-invoice.md#allow-others-to-download-the-your-subscription-invoice), użytkownikom, którzy mają rolę platformy Azure właściciela, współautora, czytelnika lub czytelnika rozliczeń, jest przypisywana rola czytelnika w odpowiednim profilu rozliczeniowym.
 
@@ -80,13 +80,13 @@ Nowe środowisko obejmuje następujące funkcje zarządzania kosztami i rozlicze
 
 #### <a name="account-and-subscription-management"></a>Zarządzanie kontami i subskrypcjami
 
-**Przypisywanie wielu administratorów do wykonywania operacji rozliczeniowych** — przypisz uprawnienia do rozliczeń do wielu użytkowników, którzy będą zarządzać rozliczeniami konta. Uzyskaj elastyczność, przypisując innym osobom uprawnienia do odczytu, zapisu lub oba te uprawnienia.
+**Przypisywanie wielu administratorów do wykonywania operacji rozliczeniowych** — przypisz uprawnienia do rozliczeń do wielu użytkowników, którzy będą zarządzać rozliczeniami konta. Uzyskaj elastyczność, przyznając innym osobom uprawnienia do odczytu, zapisu lub oba.
 
-**Tworzenie dodatkowych subskrypcji bezpośrednio w witrynie Azure Portal** — twórz wszystkie subskrypcje jednym kliknięciem w witrynie Azure Portal.
+**Tworzenie kolejnych subskrypcji bezpośrednio w witrynie Azure Portal** — twórz wszystkie subskrypcje, dokonując jednego wyboru w witrynie Azure Portal.
 
 #### <a name="api-support"></a>Obsługa interfejsu API
 
-**Wykonywanie operacji rozliczeniowych i związanych z zarządzaniem kosztami za pomocą interfejsów API, zestawów SDK i programu PowerShell** — Użyj funkcji zarządzania kosztami, rozliczeń i interfejsów API zużycia, aby ściągnąć dane dotyczące rozliczeń i kosztów do preferowanych narzędzi do analizy danych.
+**Wykonywanie operacji rozliczeniowych i związanych z zarządzaniem kosztami za pomocą interfejsów API, zestawów SDK i programu PowerShell** — użyj funkcji zarządzania kosztami, rozliczeń i interfejsów API zużycia, aby ściągnąć dane dotyczące rozliczeń i kosztów do preferowanych narzędzi do analizy danych.
 
 **Wykonywanie wszystkich operacji subskrypcji za pomocą interfejsów API, zestawów SDK i programu PowerShell** — używaj interfejsów API subskrypcji platformy Azure, aby automatyzować zarządzanie subskrypcjami platformy Azure, w tym tworzenie, zmienianie nazw i anulowanie subskrypcji.
 
@@ -104,8 +104,59 @@ Jeśli korzystasz z usługi Cost Management lub interfejsów API rozliczeń do w
 
 |Interfejs API | Zmiany  |
 |---------|---------|
-|[Billing Accounts — List](/rest/api/billing/2019-10-01-preview/billingaccounts/list) | W interfejsie API Billing Accounts — List stare konto rozliczeniowe ma parametr agreementType o wartości **MicrosoftOnlineServiceProgram**, a nowe konto rozliczeniowe będzie miało parametr agreementType o wartości **MicrosoftCustomerAgreement**. Jeśli korzystasz z zależności od parametru agreementType, zaktualizuj je. |
+|[Billing Accounts — List](/rest/api/billing/2019-10-01-preview/billingaccounts/list) | W interfejsie API Billing Accounts — List stare konto rozliczeniowe ma parametr agreementType o wartości **MicrosoftOnlineServiceProgram**, a nowe konto rozliczeniowe będzie miało parametr agreementType o wartości **MicrosoftCustomerAgreement**. Jeśli korzystasz z zależności od parametru agreementType, zaktualizuj ją. |
 |[Invoices — List By Billing Subscription](/rest/api/billing/2019-10-01-preview/invoices/listbybillingsubscription)     | Ten interfejs API zwróci tylko faktury, które zostały wygenerowane przed zaktualizowaniem konta. Aby zwrócić faktury wygenerowane w nowym koncie rozliczeniowym, należy użyć interfejsu API [Invoices — List By Billing Account](/rest/api/billing/2019-10-01-preview/invoices/listbybillingaccount). |
+
+## <a name="cost-management-updates-after-account-update"></a>Aktualizacje usługi Cost Management po aktualizacji konta
+
+Zaktualizowane konto rozliczeniowe platformy Azure dla Umowy z Klientem Microsoft daje dostęp do nowych i rozbudowanych funkcji Cost Management w witrynie Azure Portal, które nie były dostępne w ramach konta z płatnością zgodnie z rzeczywistym użyciem.
+
+### <a name="new-capabilities"></a>Nowe możliwości
+
+Poniższe nowe możliwości są dostępne na koncie rozliczeniowym platformy Azure.
+
+#### <a name="new-billing-scopes"></a>Nowe zakresy rozliczeniowe
+
+W ramach zaktualizowanego konta masz nowe zakresy w funkcji Cost Management + Billing. Oprócz tego, ze pomagają one z hierarchiczną organizacją i fakturowaniem, stanowią też sposób wyświetlania połączonych opłat z wielu subskrypcji bazowych. Aby uzyskać więcej informacji na temat zakresów rozliczeniowych, zobacz [Zakresy Umowy z Klientem Microsoft](../costs/understand-work-scopes.md#microsoft-customer-agreement-scopes).
+
+Możesz również uzyskać dostęp do interfejsów API usługi Cost Management, aby uzyskać połączone widoki kosztów w wyższych zakresach. Wszystkie interfejsy API usługi Cost Management korzystające z zakresu subskrypcji są nadal dostępne z niewielkimi zmianami w schemacie. Aby uzyskać więcej informacji na temat interfejsów API, zobacz [Interfejsy API usługi Azure Cost Management](/rest/api/cost-management/) i [Interfejsy API użycia platformy Azure](/rest/api/consumption/).
+
+#### <a name="cost-allocation"></a>Alokacja kosztów
+
+Dzięki zaktualizowanemu kontu można używać funkcji alokacji kosztów do dystrybucji kosztów z usług udostępnionych w organizacji. Aby uzyskać więcej informacji na temat alokowania kosztów, zobacz [Tworzenie reguł alokacji kosztów platformy Azure i zarządzanie nimi](../costs/allocate-costs.md).
+
+#### <a name="power-bi"></a>Power BI
+
+Łącznik usługi Azure Cost Management dla programu Power BI Desktop ułatwia tworzenie niestandardowych wizualizacji i raportów dotyczących użycia oraz wydatków na platformie Azure. Dostęp do danych dotyczących kosztów i użycia można uzyskać po nawiązaniu połączenia ze zaktualizowanym kontem. Aby uzyskać więcej informacji na temat łącznika usługi Azure Cost Management dla programu Power BI Desktop, zobacz [Tworzenie wizualizacji i raportów za pomocą łącznika usługi Azure Cost Management w programie Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management).
+
+### <a name="updated-capabilities"></a>Zaktualizowane funkcje
+
+Następujące zaktualizowane funkcje są dostępne na koncie rozliczeniowym platformy Azure.
+
+#### <a name="cost-analysis"></a>Analiza kosztów
+
+Możesz nadal wyświetlać i śledzić miesięczne koszty użycia, a do tego teraz możesz wyświetlać rezerwacje i koszty zakupów w portalu Marketplace w analizie kosztów.
+
+Na zaktualizowanym koncie otrzymujesz jedną fakturę ze wszystkimi opłatami za platformę Azure. Teraz masz też uproszczony widok pojedynczego miesięcznego kalendarza zastępujący wcześniejszy widok okresów rozliczeniowych.
+
+Na przykład jeśli okres rozliczeniowy był od 24 listopada do 23 grudnia dla starego konta, po uaktualnieniu okres będzie od 1 listopada do 30 listopada, od 1 grudnia do 31 grudnia i tak dalej.
+
+:::image type="content" source="./media/mosp-new-customer-experience/billing-periods.png" alt-text="Obraz przedstawiający porównanie starych i nowych okresów rozliczeniowych " lightbox="./media/mosp-new-customer-experience/billing-periods.png" :::
+
+#### <a name="budgets"></a>Budżety
+
+Możesz teraz tworzyć budżety dla konta rozliczeniowego, co pozwala na śledzenie kosztów w ramach subskrypcji. Dzięki budżetom możesz również mieć koszty zakupu pod kontrolą. Aby uzyskać więcej informacji na temat budżetów, zobacz [Tworzenie budżetów platformy Azure i zarządzanie nimi](../costs/tutorial-acm-create-budgets.md).
+
+#### <a name="exports"></a>Eksporty
+
+Nowe konto rozliczeniowe zapewnia ulepszone funkcje eksportu. Możesz na przykład utworzyć eksporty dla rzeczywistych kosztów obejmujących zakupy lub amortyzowane koszty (rozproszenie kosztów zakupu rezerwacji w okresie zakupu). Możesz również utworzyć eksport dla konta rozliczeniowego, aby uzyskać dane dotyczące użycia i opłat dla wszystkich subskrypcji na koncie rozliczeniowym. Aby uzyskać więcej informacji na temat eksportów, zobacz [Tworzenie eksportowanych danych i zarządzanie nimi](../costs/tutorial-export-acm-data.md).
+
+> [!NOTE]
+> Eksporty utworzone przed aktualizacją konta przy użyciu typu **Miesięczny eksport kosztów z ostatniego miesiąca** będą eksportować dane dla ostatniego miesiąca kalendarzowego, a nie ostatniego okresu rozliczeniowego.
+
+Na przykład w przypadku okresu rozliczeniowego od 23 grudnia do 22 stycznia wyeksportowany plik CSV będzie zawierał dane dotyczące kosztów i użycia dla tego okresu. Po aktualizacji eksport będzie zawierać dane dotyczące miesiąca kalendarzowego. Na przykład od 1 stycznia do 31 stycznia i tak dalej.
+
+:::image type="content" source="./media/mosp-new-customer-experience/export-amortized-costs.png" alt-text="Obraz przedstawiający porównanie starych i nowych szczegółów eksportu" lightbox="./media/mosp-new-customer-experience/export-amortized-costs.png" :::
 
 ## <a name="additional-information"></a>Dodatkowe informacje
 

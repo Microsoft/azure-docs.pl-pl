@@ -3,12 +3,12 @@ title: Tworzenie zasad dla właściwości tablicy zasobów
 description: Dowiedz się, jak korzystać z parametrów tablicy i wyrażeń języka tablicowego, oszacować alias [*] i dołączać elementy z regułami definicji Azure Policy.
 ms.date: 10/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 60044d4a599c14088ea923a6a14cb46543646995
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 650b2ec6bc1bbd12cd10abb1917ef5ea2d6029e9
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920461"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220749"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Tworzenie zasad dla właściwości tablicy zasobów platformy Azure
 
@@ -16,10 +16,8 @@ Właściwości Azure Resource Manager są zwykle określane jako ciągi i warto�
 
 - Typ [parametru definicji](../concepts/definition-structure.md#parameters)w celu zapewnienia wielu opcji
 - Część [reguły zasad](../concepts/definition-structure.md#policy-rule) z zastosowaniem warunków **w** lub **notIn**
-- Część reguły zasad, która oblicza [ \[ \* \] alias](../concepts/definition-structure.md#understanding-the--alias) do oszacowania:
-  - Scenariusze takie jak **none**, **any** lub **All**
-  - Złożone scenariusze z **liczbą**
-- W [efekcie dołączania](../concepts/effects.md#append) , aby zastąpić lub dodać do istniejącej tablicy
+- Część reguły zasad, która zlicza, ile elementów członkowskich tablicy spełnia warunek
+- W efektach [dołączania](../concepts/effects.md#append) i [modyfikowania](../concepts/effects.md#modify) do aktualizowania istniejącej tablicy
 
 W tym artykule opisano każde użycie programu według Azure Policy i przedstawiono kilka przykładów definicji.
 
@@ -99,48 +97,121 @@ Aby użyć tego ciągu z każdym zestawem SDK, użyj następujących poleceń:
 - Azure PowerShell: polecenie cmdlet [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) z parametrem **PolicyParameter**
 - Interfejs API REST: w operacji _Put_ [Create](/rest/api/resources/policyassignments/create) jako część treści żądania jako wartość właściwości **Properties. Parameters**
 
-## <a name="array-conditions"></a>Warunki tablicy
+## <a name="using-arrays-in-conditions"></a>Używanie tablic w warunkach
 
-[Warunki](../concepts/definition-structure.md#conditions) reguły zasad, które _array_ 
- mogą być używane z **typem** tablicy parametru, są ograniczone do `in` i `notIn` . Skorzystaj z następującej definicji zasad z warunkiem `equals` jako przykładu:
+### <a name="in-and-notin"></a>`In` i `notIn`
+
+`in`Warunki i `notIn` działają tylko z wartościami tablicy. Sprawdzają istnienie wartości w tablicy. Tablica może być literalną tablicą JSON lub odwołaniem do parametru tablicy. Na przykład:
 
 ```json
 {
-  "policyRule": {
-    "if": {
-      "not": {
-        "field": "location",
-        "equals": "[parameters('allowedLocations')]"
-      }
-    },
-    "then": {
-      "effect": "audit"
-    }
-  },
-  "parameters": {
-    "allowedLocations": {
-      "type": "Array",
-      "metadata": {
-        "description": "The list of allowed locations for resources.",
-        "displayName": "Allowed locations",
-        "strongType": "location"
-      }
-    }
-  }
+      "field": "tags.environment",
+      "in": [ "dev", "test" ]
 }
 ```
 
-Próba utworzenia tej definicji zasad za pomocą Azure Portal prowadzi do błędu, takiego jak ten komunikat o błędzie:
+```json
+{
+      "field": "location",
+      "notIn": "[parameters('allowedLocations')]"
+}
+```
 
-- "Zasad" {GUID} "nie można sparametryzowane z powodu błędów walidacji. Sprawdź, czy parametry zasad są prawidłowo zdefiniowane. Wynik oceny wyjątku wewnętrznego "[Parameters (" allowedLocations ")]" jest typem "Array", oczekiwano typu "String". "."
+### <a name="value-count"></a>Liczba wartości
 
-Oczekiwanym **typem** warunku `equals` jest _ciąg_. Ponieważ **allowedLocations** jest zdefiniowany jako **type** _Tablica_ typów, aparat zasad szacuje wyrażenie języka i zgłosi błąd. W przypadku `in` `notIn` warunku i aparat zasad oczekuje _tablicy_ **typów** w wyrażeniu języka. Aby rozwiązać ten komunikat o błędzie, Zmień `equals` wartość na `in` lub `notIn` .
+Wyrażenie [liczby wartości](../concepts/definition-structure.md#value-count) oblicza liczbę elementów członkowskich tablicy spełniających warunek. Zapewnia sposób wielokrotnego oszacowania tego samego warunku przy użyciu różnych wartości dla każdej iteracji. Na przykład, poniższy warunek sprawdza, czy nazwa zasobu pasuje do żadnego wzorca z tablicy wzorców:
+
+```json
+{
+    "count": {
+        "value": [ "test*", "dev*", "prod*" ],
+        "name": "pattern",
+        "where": {
+            "field": "name",
+            "like": "[current('pattern')]"
+        }
+    },
+    "greater": 0
+}
+```
+
+Aby oszacować wyrażenie, Azure Policy ocenia `where` warunek 3 razy dla każdego elementu członkowskiego `[ "test*", "dev*", "prod*" ]` , licząc, ile razy była Szacowana `true` . Dla każdej iteracji wartość bieżącego elementu członkowskiego tablicy jest sparowana z `pattern` nazwą indeksu zdefiniowaną przez `count.name` . Ta wartość może być następnie przywoływana wewnątrz `where` warunku przez wywołanie specjalnej funkcji szablonu: `current('pattern')` .
+
+| Iteracja | `current('pattern')` wartość zwrócona |
+|:---|:---|
+| 1 | `"test*"` |
+| 2 | `"dev*"` |
+| 3 | `"prod*"` |
+
+Warunek ma wartość true tylko wtedy, gdy wynikowa liczba jest większa niż 0.
+
+Aby warunek był bardziej ogólny, użyj odwołania do parametru zamiast tablicy literałowej:
+
+ ```json
+{
+    "count": {
+        "value": "[parameters('patterns')]",
+        "name": "pattern",
+        "where": {
+            "field": "name",
+            "like": "[current('pattern')]"
+        }
+    },
+    "greater": 0
+}
+```
+
+Gdy wyrażenie **Count wartości** nie znajduje się w żadnym innym wyrażeniu **Count** , `count.name` jest opcjonalne, a `current()` Funkcja może być używana bez żadnych argumentów:
+
+```json
+{
+    "count": {
+        "value": "[parameters('patterns')]",
+        "where": {
+            "field": "name",
+            "like": "[current()]"
+        }
+    },
+    "greater": 0
+}
+```
+
+**Licznik wartości** obsługuje również tablice obiektów złożonych, co pozwala na bardziej złożone warunki. Na przykład poniższy warunek definiuje żądaną wartość tagu dla każdego wzorca nazwy i sprawdza, czy nazwa zasobu pasuje do wzorca, ale nie ma wymaganej wartości tagu:
+
+```json
+{
+    "count": {
+        "value": [
+            { "pattern": "test*", "envTag": "dev" },
+            { "pattern": "dev*", "envTag": "dev" },
+            { "pattern": "prod*", "envTag": "prod" },
+        ],
+        "name": "namePatternRequiredTag",
+        "where": {
+            "allOf": [
+                {
+                    "field": "name",
+                    "like": "[current('namePatternRequiredTag').pattern]"
+                },
+                {
+                    "field": "tags.env",
+                    "notEquals": "[current('namePatternRequiredTag').envTag]"
+                }
+            ]
+        }
+    },
+    "greater": 0
+}
+```
+
+Aby poznać przydatne przykłady, zobacz [przykłady liczby wartości](../concepts/definition-structure.md#value-count-examples).
 
 ## <a name="referencing-array-resource-properties"></a>Odwoływanie się do właściwości zasobów tablicy
 
 Wiele przypadków użycia wymaga pracy z właściwościami tablicy w oszacowanym zasobie. Niektóre scenariusze wymagają odwołującego się do całej tablicy (na przykład sprawdzając jej długość). Inne wymagają zastosowania warunku do każdego indywidualnego elementu członkowskiego tablicy (na przykład upewnij się, że cała reguła zapory blokuje dostęp z Internetu). Zrozumienie różnych sposobów, Azure Policy mogą odwoływać się do właściwości zasobów oraz jak te odwołania zadziałały, gdy odwołują się do właściwości tablicy, jest kluczem do pisania warunków, które obejmują te scenariusze.
 
 ### <a name="referencing-resource-properties"></a>Odwoływanie się do właściwości zasobów
+
 Do właściwości zasobów można odwoływać się Azure Policy przy użyciu [aliasów](../concepts/definition-structure.md#aliases) istnieją dwa sposoby odwoływania się do wartości właściwości zasobu w ramach Azure Policy:
 
 - Użyj warunku [pola](../concepts/definition-structure.md#fields) , aby sprawdzić, czy **wszystkie** wybrane właściwości zasobów spełniają warunek. Przykład:
@@ -172,7 +243,7 @@ Właściwości zasobów tablicy są zwykle reprezentowane przez dwa różne typy
 
 #### <a name="referencing-the-array"></a>Odwoływanie się do tablicy
 
-Pierwszy alias reprezentuje pojedynczą wartość, wartość `stringArray` właściwości z zawartości żądania. Ponieważ wartość tej właściwości jest tablicą, nie jest ona bardzo przydatna w warunkach zasad. Przykład:
+Pierwszy alias reprezentuje pojedynczą wartość, wartość `stringArray` właściwości z zawartości żądania. Ponieważ wartość tej właściwości jest tablicą, nie jest ona bardzo przydatna w warunkach zasad. Na przykład:
 
 ```json
 {
@@ -219,9 +290,9 @@ Jeśli tablica zawiera obiekty, `[*]` alias może służyć do wybrania wartośc
 }
 ```
 
-Ten warunek ma wartość true, jeśli wartości wszystkich `property` właściwości w `objectArray` są równe `"value"` .
+Ten warunek ma wartość true, jeśli wartości wszystkich `property` właściwości w `objectArray` są równe `"value"` . Aby uzyskać więcej przykładów, zobacz [dodatkowe \[ \* \] przykłady aliasów](#appendix--additional--alias-examples).
 
-Gdy funkcja jest używana `field()` do odwoływania aliasu tablicy, zwrócona wartość jest tablicą wszystkich wybranych wartości. Takie zachowanie oznacza, że typowy przypadek użycia `field()` funkcji, możliwość stosowania funkcji szablonu do wartości właściwości zasobów, jest bardzo ograniczony. Jedynymi funkcjami szablonu, które mogą być używane w tym przypadku, są te, które akceptują argumenty tablicy. Na przykład można uzyskać długość tablicy z `[length(field('Microsoft.Test/resourceType/objectArray[*].property'))]` . Jednak bardziej złożone scenariusze, takie jak stosowanie funkcji szablonu do każdego elementu członkowskiego tablicy i porównywanie ich z pożądaną wartością, są możliwe tylko przy użyciu `count` wyrażenia. Aby uzyskać więcej informacji, zobacz [Count Expression](#count-expressions).
+Gdy funkcja jest używana `field()` do odwoływania aliasu tablicy, zwrócona wartość jest tablicą wszystkich wybranych wartości. Takie zachowanie oznacza, że typowy przypadek użycia `field()` funkcji, możliwość stosowania funkcji szablonu do wartości właściwości zasobów, jest bardzo ograniczony. Jedynymi funkcjami szablonu, które mogą być używane w tym przypadku, są te, które akceptują argumenty tablicy. Na przykład można uzyskać długość tablicy z `[length(field('Microsoft.Test/resourceType/objectArray[*].property'))]` . Jednak bardziej złożone scenariusze, takie jak stosowanie funkcji szablonu do każdego elementu członkowskiego tablicy i porównywanie ich z pożądaną wartością, są możliwe tylko przy użyciu `count` wyrażenia. Aby uzyskać więcej informacji, zobacz [wyrażenie liczby pól](#field-count-expressions).
 
 Aby podsumować dane, zobacz następującą przykładową zawartość zasobów i wybrane wartości zwracane przez różne aliasy:
 
@@ -275,9 +346,9 @@ W przypadku korzystania z `field()` funkcji na przykładowej zawartości zasobó
 | `[field('Microsoft.Test/resourceType/objectArray[*].nestedArray')]` | `[[ 1, 2 ], [ 3, 4 ]]` |
 | `[field('Microsoft.Test/resourceType/objectArray[*].nestedArray[*]')]` | `[1, 2, 3, 4]` |
 
-## <a name="count-expressions"></a>Wyrażenia Count
+### <a name="field-count-expressions"></a>Wyrażenia liczb pól
 
-[Liczba wyrażeń](../concepts/definition-structure.md#count) liczbowych, ile elementów członkowskich tablicy spełnia warunek, i porównaj liczbę z wartością docelową. `Count` jest bardziej intuicyjny i wszechstronny do oceny tablic w porównaniu z `field` warunkami. Składnia jest następująca:
+Wyrażenia [liczb pól](../concepts/definition-structure.md#field-count) obliczają liczbę elementów członkowskich tablicy spełniających warunek i porównując liczbę z wartością docelową. `Count` jest bardziej intuicyjny i wszechstronny do oceny tablic w porównaniu z `field` warunkami. Składnia jest następująca:
 
 ```json
 {
@@ -289,7 +360,7 @@ W przypadku korzystania z `field()` funkcji na przykładowej zawartości zasobó
 }
 ```
 
-Gdy jest używany bez warunku "Where", `count` po prostu zwraca długość tablicy. W przypadku przykładowej zawartości zasobów z poprzedniej sekcji następujące `count` wyrażenie jest oceniane, `true` ponieważ `stringArray` ma trzy elementy członkowskie:
+Gdy jest używany bez `where` warunku, `count` po prostu zwraca długość tablicy. W przypadku przykładowej zawartości zasobów z poprzedniej sekcji następujące `count` wyrażenie jest oceniane, `true` ponieważ `stringArray` ma trzy elementy członkowskie:
 
 ```json
 {
@@ -314,6 +385,7 @@ To zachowanie działa również w przypadku tablic zagnieżdżonych. Na przykła
 Moc `count` jest w `where` stanie. Gdy jest określony, Azure Policy wylicza elementy członkowskie tablicy i ocenia każde względem warunku, licząc liczbę ocenionych elementów członkowskich tablicy `true` . W odniesieniu do każdej iteracji `where` oceny warunku Azure Policy wybiera jeden element członkowski tablicy ***i** _ i ocenia zawartość zasobu `where` pod warunkiem _*, jeśli **_i_*_ jest jedynym członkiem array_ *. Posiadanie tylko jednego elementu członkowskiego tablicy dostępnej w każdej iteracji umożliwia stosowanie złożonych warunków na poszczególnych elementach członkowskich tablicy.
 
 Przykład:
+
 ```json
 {
   "count": {
@@ -326,7 +398,7 @@ Przykład:
   "equals": 1
 }
 ```
-Aby oszacować `count` wyrażenie, Azure Policy ocenia `where` warunek 3 razy dla każdego elementu członkowskiego `stringArray` , licząc, ile razy była Szacowana `true` . Gdy `where` warunek odwołuje się do `Microsoft.Test/resourceType/stringArray[*]` elementów członkowskich tablicy, zamiast zaznaczania wszystkich elementów członkowskich `stringArray` , w każdym momencie wybierany jest tylko pojedynczy element członkowski tablicy:
+Aby oszacować `count` wyrażenie, Azure Policy ocenia `where` warunek 3 razy dla każdego elementu członkowskiego `stringArray` , licząc, ile razy była Szacowana `true` . Gdy `where` warunek odwołuje się do `Microsoft.Test/resourceType/stringArray[*]` elementów członkowskich tablicy, a nie do zaznaczania wszystkich elementów członkowskich `stringArray` , w każdym momencie wybierany jest tylko pojedynczy element członkowski tablicy:
 
 | Iteracja | Wybrane `Microsoft.Test/resourceType/stringArray[*]` wartości | `where` Wynik oceny |
 |:---|:---|:---|
@@ -337,6 +409,7 @@ Aby oszacować `count` wyrażenie, Azure Policy ocenia `where` warunek 3 razy dl
 Z tego względu zwrócimy `count` `1` .
 
 Oto bardziej złożone wyrażenie:
+
 ```json
 {
   "count": {
@@ -366,6 +439,7 @@ Oto bardziej złożone wyrażenie:
 I w ten sposób `count` zwraca wartość `1` .
 
 Fakt, że `where` wyrażenie jest oceniane względem **całej** zawartości żądania (ze zmianami tylko dla elementu członkowskiego tablicy, który jest aktualnie wyliczany) oznacza, że `where` warunek może odwoływać się również do pól poza tablicą:
+
 ```json
 {
   "count": {
@@ -384,6 +458,7 @@ Fakt, że `where` wyrażenie jest oceniane względem **całej** zawartości żą
 | 2 | `tags.env` => `"prod"` | `true` |
 
 Zagnieżdżone wyrażenia Count są również dozwolone:
+
 ```json
 {
   "count": {
@@ -417,9 +492,33 @@ Zagnieżdżone wyrażenia Count są również dozwolone:
 | 2 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value2`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | 1 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3` |
 | 2 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value2`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | 2 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `4` |
 
-### <a name="the-field-function-inside-where-conditions"></a>`field()`Funkcja w `where` warunkach
+#### <a name="accessing-current-array-member-with-template-functions"></a>Uzyskiwanie dostępu do bieżącego elementu członkowskiego tablicy przy użyciu funkcji szablonu
 
-`field()`Zachowanie funkcji w przypadku, gdy wewnątrz `where` warunku jest oparty na następujących pojęciach:
+Korzystając z funkcji szablonu, należy użyć `current()` funkcji, aby uzyskać dostęp do wartości bieżącego elementu członkowskiego tablicy lub wartości dowolnej z jej właściwości. Aby uzyskać dostęp do wartości bieżącego elementu członkowskiego tablicy, należy przekazać alias zdefiniowany w `count.field` lub dowolny alias podrzędny jako argument do `current()` funkcji. Na przykład:
+
+```json
+{
+  "count": {
+    "field": "Microsoft.Test/resourceType/objectArray[*]",
+    "where": {
+        "value": "[current('Microsoft.Test/resourceType/objectArray[*].property')]",
+        "like": "value*"
+    }
+  },
+  "equals": 2
+}
+
+```
+
+| Iteracja | `current()` wartość zwrócona | `where` Wynik oceny |
+|:---|:---|:---|
+| 1 | Wartość `property` pierwszego elementu członkowskiego `objectArray[*]` : `value1` | `true` |
+| 2 | Wartość `property` pierwszego elementu członkowskiego `objectArray[*]` : `value2` | `true` |
+
+#### <a name="the-field-function-inside-where-conditions"></a>Funkcja pola wewnątrz warunków WHERE
+
+`field()`Funkcja może być również używana do uzyskiwania dostępu do wartości bieżącego elementu członkowskiego tablicy, tak długo, jak wyrażenie **Count** nie znajduje się w **warunku istnienia** ( `field()` Funkcja zawsze odwołuje się do zasobu ocenianego w warunku **if** ).
+Zachowanie `field()` podczas odwoływania się do obliczanej tablicy jest oparte na następujących pojęciach:
 1. Aliasy tablic są rozwiązywane do kolekcji wartości wybranych ze wszystkich elementów członkowskich tablicy.
 1. `field()` funkcje odwołujące się do aliasów tablic zwracają tablicę z wybranymi wartościami.
 1. Odwołanie do liczonego aliasu tablicy wewnątrz `where` warunku zwraca kolekcję z pojedynczą wartością wybraną z elementu członkowskiego tablicy, który jest obliczany w bieżącej iteracji.
@@ -465,7 +564,7 @@ W związku z tym, gdy istnieje potrzeba uzyskania dostępu do wartości aliasu t
 | 2 | `Microsoft.Test/resourceType/stringArray[*]` => `"b"` </br>  `[first(field('Microsoft.Test/resourceType/stringArray[*]'))]` => `"b"` | `true` |
 | 3 | `Microsoft.Test/resourceType/stringArray[*]` => `"c"` </br>  `[first(field('Microsoft.Test/resourceType/stringArray[*]'))]` => `"c"` | `true` |
 
-Aby zapoznać się z przydatnymi przykładami, zobacz [Count przykłady](../concepts/definition-structure.md#count-examples).
+Aby zapoznać się z przydatnymi przykładami, zobacz [przykłady liczby pól](../concepts/definition-structure.md#field-count-examples).
 
 ## <a name="modifying-arrays"></a>Modyfikowanie tablic
 
@@ -487,6 +586,59 @@ Aby zapoznać się z przydatnymi przykładami, zobacz [Count przykłady](../conc
 | `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `modify` z `addOrReplace` operacją | Azure Policy dołącza lub zastępuje istniejącą `action` Właściwość każdego elementu członkowskiego tablicy. |
 
 Aby uzyskać więcej informacji, zobacz [przykłady dołączania](../concepts/effects.md#append-examples).
+
+## <a name="appendix--additional--alias-examples"></a>Dodatek — dodatkowe przykłady dotyczące aliasu [*]
+
+Zaleca się użycie [wyrażeń zliczania pól](#field-count-expressions) , aby sprawdzić, czy element "All of" lub "any" elementów członkowskich tablicy w treści żądania spełnia warunek. Jednak w przypadku niektórych prostych warunków można osiągnąć ten sam wynik przy użyciu metody dostępu do pola z aliasem tablicy (zgodnie z opisem w odniesieniu do [kolekcji elementów członkowskich tablicy](#referencing-the-array-members-collection)). Może to być przydatne w regułach zasad, które przekraczają limit dozwolonych wyrażeń **Count** . Oto przykłady typowych przypadków użycia:
+
+Przykładowa reguła zasad dla poniższej tabeli scenariusza:
+
+```json
+"policyRule": {
+    "if": {
+        "allOf": [
+            {
+                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
+                "exists": "true"
+            },
+            <-- Condition (see table below) -->
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effectType')]"
+    }
+}
+```
+
+Tablica **ipRules** jest następująca dla poniższej tabeli scenariusza:
+
+```json
+"ipRules": [
+    {
+        "value": "127.0.0.1",
+        "action": "Allow"
+    },
+    {
+        "value": "192.168.1.1",
+        "action": "Allow"
+    }
+]
+```
+
+Dla każdego poniższego przykładu warunku Zastąp ciąg wyrażeniem `<field>` `"field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value"` .
+
+Poniższe wyniki są wynikiem kombinacji warunku i przykładową regułę zasad i tablicę istniejących wartości powyżej:
+
+|Warunek |Wynik | Scenariusz |Objaśnienie |
+|-|-|-|-|
+|`{<field>,"notEquals":"127.0.0.1"}` |Nothing |Brak dopasowania |Jeden element tablicy ma wartość false (127.0.0.1! = 127.0.0.1) i jeden jako true (127.0.0.1! = 192.168.1.1), więc warunek **notEquals** ma _wartość false_ , a efekt nie jest wyzwalany. |
+|`{<field>,"notEquals":"10.0.4.1"}` |Efekt zasad |Brak dopasowania |Oba elementy tablicy są oceniane jako prawdziwe (10.0.4.1! = 127.0.0.1 i 10.0.4.1! = 192.168.1.1), więc warunek **notEquals** ma _wartość true_ i zostanie wyzwolony efekt. |
+|`"not":{<field>,"notEquals":"127.0.0.1" }` |Efekt zasad |Co najmniej jedno dopasowanie |Jeden element tablicy ma wartość false (127.0.0.1! = 127.0.0.1) i jeden jako true (127.0.0.1! = 192.168.1.1), więc warunek **notEquals** ma _wartość false_. Operator logiczny ma wartość true (**nie** _false_), więc efekt zostanie wyzwolony. |
+|`"not":{<field>,"notEquals":"10.0.4.1"}` |Nothing |Co najmniej jedno dopasowanie |Oba elementy tablicy są oceniane jako prawdziwe (10.0.4.1! = 127.0.0.1 i 10.0.4.1! = 192.168.1.1), więc warunek **notEquals** ma _wartość true_. Operator logiczny ma wartość false (**nie** _true_), więc efekt nie zostanie wyzwolony. |
+|`"not":{<field>,"Equals":"127.0.0.1"}` |Efekt zasad |Nie wszystkie dopasowania |Jeden element tablicy ma wartość true (127.0.0.1 = = 127.0.0.1) i jeden jako wartość false (127.0.0.1 = = 192.168.1.1), więc warunek **równości** ma _wartość false_. Operator logiczny ma wartość true (**nie** _false_), więc efekt zostanie wyzwolony. |
+|`"not":{<field>,"Equals":"10.0.4.1"}` |Efekt zasad |Nie wszystkie dopasowania |Oba elementy tablicy są oceniane jako false (10.0.4.1 = = 127.0.0.1 i 10.0.4.1 = = 192.168.1.1), więc warunek **Equals** ma _wartość false_. Operator logiczny ma wartość true (**nie** _false_), więc efekt zostanie wyzwolony. |
+|`{<field>,"Equals":"127.0.0.1"}` |Nothing |Wszystkie dopasowania |Jeden element tablicy ma wartość true (127.0.0.1 = = 127.0.0.1) i jeden jako wartość false (127.0.0.1 = = 192.168.1.1), więc warunek **równości** ma _wartość false_ , a efekt nie jest wyzwalany. |
+|`{<field>,"Equals":"10.0.4.1"}` |Nothing |Wszystkie dopasowania |Oba elementy tablicy są oceniane jako false (10.0.4.1 = = 127.0.0.1 i 10.0.4.1 = = 192.168.1.1), więc warunek **równości** ma _wartość false_ , a efekt nie jest wyzwalany. |
 
 ## <a name="next-steps"></a>Następne kroki
 

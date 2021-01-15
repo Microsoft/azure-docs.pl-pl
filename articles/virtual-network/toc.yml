@@ -124,7 +124,7 @@
         - name: Zasady sieciowe platformy Kubernetes
           href: kubernetes-network-policies.md
         - name: Ochrona przed atakami DDOS
-          href: 'https://docs.microsoft.com/azure/ddos-protection/ddos-protection-overview'
+          href: ../ddos-protection/ddos-protection-overview.md
         - name: Virtual Network TAP
           href: virtual-network-tap-overview.md
         - name: Kontrole zabezpieczeń usługi Azure Policy
@@ -137,7 +137,7 @@
         - name: Delegowanie podsieci
           href: subnet-delegation-overview.md
     - name: Wdrożenie klasyczne
-      href: 'https://docs.microsoft.com/previous-versions/azure/virtual-network/virtual-network-ip-addresses-overview-classic'
+      href: /previous-versions/azure/virtual-network/virtual-network-ip-addresses-overview-classic
 - name: Przewodniki z instrukcjami
   items:
     - name: Planowanie i konfigurowanie
@@ -165,7 +165,7 @@
             - name: Interfejs wiersza polecenia platformy Azure
               href: tutorial-create-route-table-cli.md
             - name: Ansible
-              href: /azure/ansible/ansible-create-configure-route-table
+              href: /azure/developer/ansible/route-table-configure
             - name: Zarządzanie tabelami tras
               href: manage-route-table.md
         - name: Zarządzanie kartami interfejsów sieciowych
@@ -199,11 +199,11 @@
             - name: Z sieci wirtualnej (Menedżer zasobów) do sieci wirtualnej (klasycznej)
               href: ../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json
             - name: Z sieci wirtualnej do sieci lokalnej (VPN)
-              href: ../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+              href: ../vpn-gateway/tutorial-site-to-site-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json
             - name: Z sieci wirtualnej do sieci lokalnej (ExpressRoute)
               href: ../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json
             - name: Wysoko dostępna hybrydowa architektura sieci
-              href: ../guidance/guidance-hybrid-network-expressroute-vpn-failover.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+              href: /azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover?toc=%2fazure%2fvirtual-network%2ftoc.json
         - name: Konfigurowanie punktu dostępu terminalu sieci wirtualnej
           href: tutorial-tap-virtual-network-cli.md
         - name: Wdrażanie sieci kontenerów
@@ -311,9 +311,9 @@
                 - name: Interfejs wiersza polecenia platformy Azure
                   href: virtual-network-service-endpoint-policies-cli.md
         - name: Zarządzanie ochroną przed atakami DDoS
-          href: 'https://docs.microsoft.com/azure/ddos-protection/manage-ddos-protection'
+          href: ../ddos-protection/manage-ddos-protection.md
         - name: Dołączanie partnerów do usługi DDoS Protection w warstwie Standardowa
-          href: 'https://docs.microsoft.com/azure/ddos-protection/ddos-protection-partner-onboarding'
+          href: ../ddos-protection/ddos-protection-partner-onboarding.md
         - name: Zarządzanie sieciowymi grupami zabezpieczeń
           href: manage-network-security-group.md
         - name: Scenariusze zabezpieczeń
@@ -321,7 +321,7 @@
             - name: Zabezpieczanie sieci przy użyciu urządzeń wirtualnych
               href: virtual-network-scenario-udr-gw-nva.md
             - name: Strefa DMZ między platformą Azure i Internetem
-              href: ../guidance/guidance-iaas-ra-secure-vnet-dmz.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+              href: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json
     - name: Sieć maszyn wirtualnych
       items:
         - name: Tworzenie maszyny wirtualnej — statyczny publiczny adres IP
@@ -435,7 +435,7 @@
         - name: Rozwiązywanie problemów z łącznością z maszyną wirtualną platformy Azure
           href: troubleshoot-vm-connectivity.md
     - name: Wdrożenie klasyczne
-      href: 'https://docs.microsoft.com/previous-versions/azure/virtual-network/create-virtual-network-classic'
+      href: /previous-versions/azure/virtual-network/create-virtual-network-classic
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure
@@ -447,7 +447,7 @@
     - name: Java
       href: /java/api/
     - name: Node.js
-      href: 'https://docs.microsoft.com/javascript/azure#azure-sdk'
+      href: /javascript/azure#azure-sdk
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
     - name: REST
@@ -468,7 +468,7 @@
     - name: Blog na temat sieci
       href: 'https://azure.microsoft.com/blog/topics/networking'
     - name: Pytania i odpowiedzi Microsoft — strona pytania dotyczącego sieci
-      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-network.html'
+      href: /answers/topics/azure-virtual-network.html
     - name: Opinie dotyczące sieci
       href: 'https://feedback.azure.com/forums/217313-networking?category_id=77469'
     - name: Cennik

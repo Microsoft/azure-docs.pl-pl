@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 11/15/2018
 ms.author: kumud
 ms.reviewer: anavin
-ms.openlocfilehash: 148d57da549e8364620c8417cbd61d975cea1498
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ff9fcbb693f7e606c07985f9bce9acd60c5591a
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87046095"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222976"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Tworzenie komunikacji równorzędnej sieci wirtualnej — różne modele wdrażania, ta sama subskrypcja
 
@@ -35,7 +35,7 @@ Procedurę tworzenia komunikacji równorzędnej sieci wirtualnej różnią się 
 |[Resource Manager — w obu przypadkach](create-peering-different-subscriptions.md) |Różne|
 |[Jedna sieć — Resource Manager, druga — model klasyczny](create-peering-different-deployment-models-subscriptions.md) |Różne|
 
-Nie można utworzyć komunikacji równorzędnej sieci wirtualnej między dwiema sieciami wirtualnymi wdrożonymi przy użyciu klasycznego modelu wdrażania. Aby połączyć sieci wirtualne, które zostały utworzone przy użyciu klasycznego modelu wdrażania, można użyć [VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) platformy Azure do połączenia sieci wirtualnych.
+Nie można utworzyć komunikacji równorzędnej sieci wirtualnej między dwiema sieciami wirtualnymi wdrożonymi przy użyciu klasycznego modelu wdrażania. Aby połączyć sieci wirtualne, które zostały utworzone przy użyciu klasycznego modelu wdrażania, można użyć [VPN Gateway](../vpn-gateway/tutorial-site-to-site-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) platformy Azure do połączenia sieci wirtualnych.
 
 Ten samouczek umożliwia równorzędne sieci wirtualne w tym samym regionie. Można także równorzędne sieci wirtualne w różnych [obsługiwanych regionach](virtual-network-manage-peering.md#cross-region). Zaleca się zapoznanie się z [wymaganiami i ograniczeniami komunikacji równorzędnej](virtual-network-manage-peering.md#requirements-and-constraints) przed równorzędnymi sieciami wirtualnymi.
 
@@ -148,7 +148,7 @@ Wykonaj następujące kroki, korzystając z klasycznego interfejsu wiersza polec
 1. Zainstaluj najnowszą wersję środowiska PowerShell [platformy Azure](https://www.powershellgallery.com/packages/Azure) i [AZ](https://www.powershellgallery.com/packages/Az/) modules. Jeśli jesteś nowym użytkownikiem programu Azure PowerShell, zobacz temat [Azure PowerShell overview (Omówienie programu Azure PowerShell)](/powershell/azure/?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Rozpocznij sesję programu PowerShell.
 3. W programie PowerShell Zaloguj się do platformy Azure, wprowadzając `Add-AzureAccount` polecenie. Konto, za pomocą którego logujesz się, musi mieć uprawnienia niezbędne do utworzenia komunikacji równorzędnej sieci wirtualnej. Listę uprawnień można znaleźć w temacie [uprawnienia komunikacji równorzędnej sieci wirtualnych](virtual-network-manage-peering.md#requirements-and-constraints).
-4. Aby utworzyć sieć wirtualną (klasyczną) przy użyciu programu PowerShell, należy utworzyć nową lub zmodyfikować istniejący plik konfiguracji sieci. Dowiedz się [, jak eksportować, aktualizować i importować pliki konfiguracji sieci](virtual-networks-using-network-configuration-file.md). Plik powinien zawierać następujący element **VirtualNetworkSite** dla sieci wirtualnej używanej w tym samouczku:
+4. Aby utworzyć sieć wirtualną (klasyczną) przy użyciu programu PowerShell, należy utworzyć nową lub zmodyfikować istniejący plik konfiguracji sieci. Dowiedz się [, jak eksportować, aktualizować i importować pliki konfiguracji sieci](/previous-versions/azure/virtual-network/virtual-networks-using-network-configuration-file). Plik powinien zawierać następujący element **VirtualNetworkSite** dla sieci wirtualnej używanej w tym samouczku:
 
     ```xml
     <VirtualNetworkSite name="myVnet2" Location="East US">
@@ -240,7 +240,7 @@ Po zakończeniu tego samouczka możesz chcieć usunąć zasoby utworzone w samou
     Remove-AzResourceGroup -Name myResourceGroup -Force
     ```
 
-2. Aby usunąć sieć wirtualną (klasyczną) przy użyciu programu PowerShell, należy zmodyfikować istniejący plik konfiguracji sieci. Dowiedz się [, jak eksportować, aktualizować i importować pliki konfiguracji sieci](virtual-networks-using-network-configuration-file.md). Usuń następujący element VirtualNetworkSite dla sieci wirtualnej używanej w tym samouczku:
+2. Aby usunąć sieć wirtualną (klasyczną) przy użyciu programu PowerShell, należy zmodyfikować istniejący plik konfiguracji sieci. Dowiedz się [, jak eksportować, aktualizować i importować pliki konfiguracji sieci](/previous-versions/azure/virtual-network/virtual-networks-using-network-configuration-file). Usuń następujący element VirtualNetworkSite dla sieci wirtualnej używanej w tym samouczku:
 
     ```xml
     <VirtualNetworkSite name="myVnet2" Location="East US">

@@ -65,7 +65,7 @@
               href: relay-hybrid-connections-node-ws-api-overview.md
     - name: Bezpieczeństwo
       items:
-        - name: Konfigurowanie zapory IP (wersja zapoznawcza)
+        - name: Konfigurowanie zapory IP
           href: ip-firewall-virtual-networks.md
         - name: Konfigurowanie prywatnych punktów końcowych
           href: private-link-service.md

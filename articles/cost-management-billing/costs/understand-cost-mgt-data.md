@@ -3,18 +3,18 @@ title: Omówienie danych usługi Azure Cost Management
 description: Ten artykuł pomaga lepiej zrozumieć dane zawarte w usłudze Azure Cost Management oraz częstotliwość ich przetwarzania, zbierania, pokazywania i zamykania.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/26/2020
+ms.date: 01/06/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 97ae2ba26818bbc306da71af814d9b4f95858b6a
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: e6096c259ec1870a711a515bf02d5d00b4f75345
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032579"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964154"
 ---
 # <a name="understand-cost-management-data"></a>Omówienie danych usługi Cost Management
 
@@ -114,11 +114,11 @@ Usługa Azure Cost Management odbiera tagi w ramach każdego rekordu użycia prz
 - Niektóre wdrożone zasoby mogą nie obsługiwać tagów lub mogą nie mieć tagów w danych użycia.
 - Tagi zasobów są uwzględniane w danych użycia tylko wtedy, gdy tag jest zastosowany — tagi nie są stosowane do danych historycznych.
 - Tagi zasobów stają się dostępne w usłudze Cost Management wyłącznie po odświeżeniu danych.
-- Tagi zasobów są dostępne w usłudze Cost Management tylko wtedy, gdy zasób jest aktywny/uruchomiony i tworzy rekordy użycia (np. nie wtedy, gdy cofnięto przydział maszyny wirtualnej).
+- Tagi zasobów są dostępne w usłudze Cost Management tylko wtedy, gdy zasób jest aktywny/uruchomiony i tworzy rekordy użycia. Na przykład po cofnięciu przydziału maszyny wirtualnej.
 - Zarządzanie tagami wymaga dostępu do każdego zasobu na poziomie współautora.
 - Zarządzanie zasadami tagów wymaga dostępu na poziomie właściciela lub współautora zasad do grupy zarządzania, subskrypcji lub grupy zasobów.
     
-Jeśli nie widzisz konkretnego tagu w usłudze Cost Management, weź pod uwagę następujące kwestie:
+Jeśli nie widzisz konkretnego tagu w usłudze Cost Management, weź pod uwagę następujące pytania:
 
 - Czy tag został zastosowany bezpośrednio do zasobu?
 - Czy tag został zastosowany ponad 24 godziny temu?
@@ -139,8 +139,7 @@ Oto kilka porad dotyczących pracy z tagami:
 
 - Z wyprzedzeniem zaplanuj i zdefiniuj strategię tagowania, która pozwala na podział kosztów według organizacji, aplikacji, środowiska itp.
 - Za pomocą usługi Azure Policy skopiuj tagi grupy zasobów do poszczególnych zasobów i wymuś strategię tagowania.
-- Użyj interfejsu API tagów w połączeniu z elementem Query lub UsageDetails, aby uzyskać wszystkie koszty na podstawie bieżących tagów.
-
+- Użyj interfejsu API tagów z elementem Query lub UsageDetails, aby uzyskać wszystkie koszty na podstawie bieżących tagów.
 
 ## <a name="cost-and-usage-data-updates-and-retention"></a>Aktualizacje oraz przechowywanie danych dotyczących kosztów i użycia
 
@@ -151,13 +150,14 @@ Dane dotyczące kosztów i użycia zwykle są dostępne w witrynie Azure Portal 
 - Szacowane opłaty za bieżący okres rozliczeniowy mogą ulec zmianie w miarę wzrostu użycia.
 - Każda aktualizacja jest zbiorcza i obejmuje wszystkie elementy wierszy i informacje z poprzedniej aktualizacji.
 - Platforma Azure finalizuje lub _zamyka_ bieżący okres rozliczeniowy w ciągu maksymalnie 72 godzin (trzech dni kalendarzowych) po zakończeniu okresu rozliczeniowego.
+- W okresie otwartego miesiąca (niefakturowanego) dane zarządzania kosztami powinny być uznawane jedynie za szacowane. W niektórych przypadkach opłaty mogą trafiać do systemu w sposób utajony po rzeczywistym wystąpieniu użycia.
 
 W poniższych przykładach pokazano, jak okresy rozliczeniowe mogą zostać zakończone:
 
 * Subskrypcje z umową Enterprise Agreement (EA) — jeśli miesiąc rozliczeniowy kończy się 31 marca, szacowane opłaty są aktualizowane nawet przez jeszcze 72 godziny. W tym przykładzie jest to północ (UTC) 4 kwietnia.
 * Subskrypcje z płatnością zgodnie z rzeczywistym użyciem — jeśli miesiąc rozliczeniowy kończy się 15 maja, szacowane opłaty mogą być aktualizowane przez jeszcze 72 godziny. W tym przykładzie jest to północ (UTC) 19 maja.
 
-Gdy dane dotyczące kosztów i użycia staną się dostępne w obszarze Zarządzanie kosztami i rozliczenia, będą przechowywane przez co najmniej 7 lat.
+Gdy dane dotyczące kosztów i użycia staną się dostępne w obszarze Zarządzanie kosztami i rozliczenia, będą przechowywane przez co najmniej siedem lat.
 
 ### <a name="rerated-data"></a>Dane ponownego przeliczania
 
@@ -184,6 +184,6 @@ Dane historyczne dla ofert opartych na środkach i płatnych z góry mogą nie b
 - MSDN (MS-AZR-0062P)
 - Visual Studio (MS-AZR-0029P, MS-AZR-0059P, MS-AZR-0060P, MS-AZR-0063P, MS-AZR-0064P)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="next-steps"></a>Następne kroki
 
 - Jeśli pierwszy przewodnik Szybki start dla usługi Cost Management nie został jeszcze przez Ciebie ukończony, przeczytaj go w temacie [Rozpoczęcie analizowania kosztów](./quick-acm-cost-analysis.md).
