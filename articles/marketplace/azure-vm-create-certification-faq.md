@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 61bd23c74fd7960317dff17175b355b473cd6dc7
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 921c05b76640935a1bd9e65d556933c23093e5b2
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233835"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251441"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Rozwiązywanie problemów z certyfikatem maszyny wirtualnej
 
@@ -23,19 +23,6 @@ W tym artykule opisano typowe komunikaty o błędach podczas publikowania obraz�
 > [!NOTE]
 > Jeśli masz pytania dotyczące tego artykułu lub sugestie dotyczące ulepszeń, skontaktuj się z [pomocą techniczną Centrum partnerskiego](https://aka.ms/marketplacepublishersupport).
 
-## <a name="approved-base-image"></a>Zatwierdzony obraz podstawowy
-
-Gdy wyślesz żądanie ponownego opublikowania obrazu przy użyciu aktualizacji, przypadek testowy weryfikacji liczby częściowej może zakończyć się niepowodzeniem. Jeśli to się nie powiedzie, obraz nie zostanie zatwierdzony.
-
-Ten błąd występuje, gdy używany jest podstawowy obraz, który należy do innego wydawcy i został zaktualizowany. W tej sytuacji nie będzie można opublikować Twojego obrazu.
-
-Aby rozwiązać ten problem, pobierz obraz z witryny Azure Marketplace i wprowadź w nim zmiany. Aby uzyskać więcej informacji, zobacz następujące artykuły:
-
-- [Obrazy systemu Linux](../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
-- [Obrazy systemu Windows](azure-vm-create-using-approved-base.md)
-
-> [!Note]
-> Jeśli używasz podstawowego obrazu systemu Linux, który nie został pobrany z portalu Azure Marketplace, upewnij się, że pierwsze sektory 2048 (każdy sektor ma 512 bajtów) na wirtualnym dysku twardym są puste, aby platforma Azure kontynuowała Publikowanie maszyny wirtualnej w witrynie Azure Marketplace.  
 
 ## <a name="vm-extension-failure"></a>Niepowodzenie rozszerzenia maszyny wirtualnej
 
@@ -170,7 +157,7 @@ W poniższej tabeli przedstawiono typowe błędy, które mogą pojawić się pod
 W poniższej tabeli przedstawiono przypadki testowe systemu Windows, które będą uruchamiane przez zestaw narzędzi, wraz z opisem weryfikacji testu:
 
 |Scenariusz |Przypadki testowe|Opis|
-|---|---|---|---|
+|---|---|---|
 |1|Architektura systemu operacyjnego|Platforma Azure obsługuje tylko 64-bitowe systemy operacyjne.|
 |2|Zależność konta użytkownika|Wykonanie aplikacji nie powinno być zależne od konta administratora.|
 |3|Klaster trybu failover|Funkcja klaster trybu failover systemu Windows Server nie jest jeszcze obsługiwana. Aplikacja nie powinna być zależna od tej funkcji.|
@@ -250,7 +237,7 @@ Jeśli obraz nie jest zainstalowany z jedną z następujących wersji jądra, za
 |Rodzina systemów operacyjnych|Wersja|Jądro|
 |---|---|---|
 |Ubuntu|14,04 LTS|4.4.0 — 151| 
-||14,04 LTS|4.15.0-1049-*-Azure|
+||14,04 LTS|4.15.0-1049- \* -Azure|
 ||16,04 LTS|4.15.0 — 1049|
 ||18,04 LTS|4.18.0 — 1023|
 ||18,04 LTS|5.0.0-1025|
@@ -283,9 +270,9 @@ Jeśli obraz nie jest zainstalowany z jedną z następujących wersji jądra, za
 |Oracle|6,10|UEK2 2.6.39-400.312.2<br>UEK3 3.8.13-118.35.2<br>RHCK 2.6.32-754.15.3 
 ||7.0 — 7.5|UEK3 3.8.13-118.35.2<br>UEK4 4.1.12-124.28.3<br>RHCK następuje po RHEL powyżej|
 ||7,6|RHCK 3.10.0-957.21.3<br>UEK5 4.14.35-1902.2.0|
-|CoreOS stabilny 2079.6.0|4.19.43*|
-||2135.3.1 beta|4.19.50*|
-||2163.2.1 Alpha|4.19.50*|
+|CoreOS stabilny 2079.6.0|4.19.43\*|
+||2135.3.1 beta|4.19.50\*|
+||2163.2.1 Alpha|4.19.50\*|
 |Debian|Jessie (zabezpieczenia)|3.16.68-2|
 ||Jessie|4.9.168-1 + deb9u3|
 ||Rozciągnij (zabezpieczenia)|4.9.168-1 + deb9u3|
@@ -328,14 +315,11 @@ Zapoznaj się z poniższą tabelą dotyczącą problemów występujących podcza
 |6|Nagłówek warunkowy HTTP|Adres URL sygnatury dostępu współdzielonego jest nieprawidłowy.|Uzyskaj prawidłowy adres URL sygnatury dostępu współdzielonego.|
 |7|Nieprawidłowa nazwa wirtualnego dysku twardego|Sprawdź, czy `%` `"` w nazwie wirtualnego dysku twardego istnieją jakiekolwiek znaki specjalne, takie jak znak procentu czy znak cudzysłowu.|Zmień nazwę pliku VHD, usuwając znaki specjalne.|
 
-## <a name="first-1mb-2048-sectors-each-sector-of-512-bytes-partition-linux-only"></a>Pierwsze 1 MB (2048 sektorów, każdy sektor z 512 bajtów) partycja (tylko system Linux)
+## <a name="first-1-mb-partition-2048-sectors-each-sector-of-512-bytes"></a>Pierwsza partycja 1-MB (2 048 sektorów, każdy sektor o 512 bajtów)
 
-Podczas przesyłania wirtualnego dysku twardego upewnij się, że pierwsze 2048 sektorów (1 MB) wirtualnego dysku twardego jest puste. W przeciwnym razie Twoje żądanie zakończy się niepowodzeniem. Należy pamiętać, że będzie to dotyczyć dysku rozruchowego/systemu operacyjnego, a nie innych dysków z danymi.
+Jeśli tworzysz [własny obraz](azure-vm-create-using-own-image.md), upewnij się, że pierwsze 2 048 sektorów (1 MB) dysku systemu operacyjnego jest puste. W przeciwnym razie publikowanie zakończy się niepowodzeniem. To wymaganie dotyczy tylko dysku systemu operacyjnego (nie do dysków danych). Jeśli tworzysz obraz [z zatwierdzonego podstawowego](azure-vm-create-using-approved-base.md), możesz pominąć to wymaganie. 
 
->[!NOTE]
->W przypadku niektórych obrazów specjalnych, takich jak te, które zostały utworzone na podstawie obrazów podstawowych systemu Windows Azure z witryny Azure Marketplace lub upewnij się, że pierwsze 1 MB (2048 sektorów) wirtualnego dysku twardego jest puste. 
-
-### <a name="create-a-first-1mb-2048-sectors-each-sector-of-512-bytes-partition-on-an-empty-vhd"></a>Utwórz pierwsze 1 MB (2048 sektorów, każdy sektor z 512 bajtów) partycji na pustym dysku VHD
+### <a name="create-a-1-mb-partition-2048-sectors-each-sector-of-512-bytes-on-an-empty-vhd-linux-only-steps"></a>Utwórz partycję z 1 MB (2 048 sektorów, każdy sektor 512 bajtów) na pustym dysku VHD (kroki tylko dla systemu Linux)
 
 Te kroki dotyczą tylko systemu Linux.
 
@@ -400,7 +384,7 @@ Te kroki dotyczą tylko systemu Linux.
 
 1. Odłącz wirtualny dysk twardy od maszyny wirtualnej i Usuń maszynę wirtualną.
 
-### <a name="create-a-first-mb-2048-sectors-each-sector-of-512-bytes-partition-by-moving-existing-data-on-vhd"></a>Utwórz pierwsze MB (2048 sektorów, każdy sektor z 512 bajtów), przenosząc istniejące dane na dysku VHD
+### <a name="create-a-first-1-mb-partition-2048-sectors-each-sector-of-512-bytes-by-moving-existing-data-on-vhd"></a>Tworzenie pierwszej partycji o rozmiarze 1 MB (2 048 sektorów, każdy sektor o 512 bajtów) przez przeniesienie istniejących danych z dysku VHD
 
 Te kroki dotyczą tylko systemu Linux.
 

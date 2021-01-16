@@ -3,15 +3,15 @@ title: Zabezpieczanie dostępu i danych
 description: Bezpieczny dostęp do wejść, danych wyjściowych, wyzwalaczy opartych na żądaniach, historii uruchamiania, zadań zarządzania i dostępu do innych zasobów w Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: rarayudu, logicappspm
+ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
-ms.date: 01/09/2020
-ms.openlocfilehash: 5ad01e31cb9af18fa018d99424b25dee338981d7
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.date: 01/15/2021
+ms.openlocfilehash: c889498d6341875682055e9d67b8d2b958bac70a
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034513"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251067"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Zabezpieczanie dostępu i danych w Azure Logic Apps
 
@@ -911,6 +911,10 @@ Punkty końcowe HTTP i HTTPS obsługują różne rodzaje uwierzytelniania. W prz
 > Aby chronić poufne informacje obsługiwane przez aplikację logiki, należy użyć zabezpieczonych parametrów i zakodować dane zgodnie z potrzebami.
 > Aby uzyskać więcej informacji o używaniu i zabezpieczaniu parametrów, zobacz [dostęp do danych wejściowych parametrów](#secure-action-parameters).
 
+<a name="authentication-types-supported-triggers-actions"></a>
+
+#### <a name="authentication-types-for-triggers-and-actions-that-support-authentication"></a>Typy uwierzytelniania dla wyzwalaczy i akcji, które obsługują uwierzytelnianie
+
 W tej tabeli przedstawiono typy uwierzytelniania, które są dostępne dla wyzwalaczy i akcji, w których można wybrać typ uwierzytelniania:
 
 | Typ uwierzytelniania | Obsługiwane wyzwalacze i akcje |
@@ -919,12 +923,12 @@ W tej tabeli przedstawiono typy uwierzytelniania, które są dostępne dla wyzwa
 | [Certyfikat klienta](#client-certificate-authentication) | Azure API Management, Azure App Services, HTTP, HTTP + Swagger, element webhook protokołu HTTP |
 | [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, element webhook protokołu HTTP |
 | [Nieprzetworzone](#raw-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, element webhook protokołu HTTP |
-| [Tożsamość zarządzana](#managed-identity-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, webhook protokołu HTTP |
+| [Tożsamość zarządzana](#managed-identity-authentication) | **Wbudowane wyzwalacze i akcje** <p><p>Azure API Management, Azure App Services, Azure Functions, HTTP, webhook protokołu HTTP <p><p>**Łączniki zarządzane** <p><p>Azure AD Identity Protection, Azure Automation, wystąpienie kontenera platformy Azure, Eksplorator danych platformy Azure, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure IoT Central v3, Azure Key Vault, Log Analytics platformy Azure, dzienniki Azure Monitor, Azure Resource Manager, wskaźnik platformy Azure, protokół HTTP z usługą Azure AD <p><p>**Uwaga**: obsługa łączników zarządzanych jest obecnie w wersji zapoznawczej. |
 |||
 
 <a name="basic-authentication"></a>
 
-### <a name="basic-authentication"></a>Uwierzytelnianie podstawowe
+#### <a name="basic-authentication"></a>Uwierzytelnianie podstawowe
 
 Jeśli opcja [podstawowa](../active-directory-b2c/secure-rest-api.md) jest dostępna, określ następujące wartości właściwości:
 
@@ -955,7 +959,7 @@ W przypadku używania [zabezpieczonych parametrów](#secure-action-parameters) d
 
 <a name="client-certificate-authentication"></a>
 
-### <a name="client-certificate-authentication"></a>Uwierzytelnianie certyfikatu klienta
+#### <a name="client-certificate-authentication"></a>Uwierzytelnianie certyfikatu klienta
 
 Jeśli opcja [certyfikat klienta](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) jest dostępna, określ następujące wartości właściwości:
 
@@ -994,7 +998,7 @@ Aby uzyskać więcej informacji na temat zabezpieczania usług przy użyciu uwie
 
 <a name="azure-active-directory-oauth-authentication"></a>
 
-### <a name="azure-active-directory-open-authentication"></a>Azure Active Directory Otwórz uwierzytelnianie
+#### <a name="azure-active-directory-open-authentication"></a>Azure Active Directory Otwórz uwierzytelnianie
 
 Wyzwalacze żądań umożliwiają uwierzytelnianie wywołań przychodzących po [skonfigurowaniu zasad autoryzacji usługi Azure AD](#enable-oauth) dla aplikacji logiki przy użyciu [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml). Dla wszystkich innych wyzwalaczy i akcji, które zapewniają **Active Directory** typ uwierzytelniania OAuth do wybrania, określ następujące wartości właściwości:
 
@@ -1034,7 +1038,7 @@ W przypadku używania [zabezpieczonych parametrów](#secure-action-parameters) d
 
 <a name="raw-authentication"></a>
 
-### <a name="raw-authentication"></a>Uwierzytelnianie surowe
+#### <a name="raw-authentication"></a>Uwierzytelnianie surowe
 
 Jeśli opcja **RAW** jest dostępna, można użyć tego typu uwierzytelniania w przypadku korzystania ze [schematów uwierzytelniania](https://iana.org/assignments/http-authschemes/http-authschemes.xhtml) , które nie są zgodne z [protokołem OAuth 2,0](https://oauth.net/2/). Ten typ polega na ręcznym utworzeniu wartości nagłówka autoryzacji wysyłanej przy użyciu żądania wychodzącego i określeniu tej wartości nagłówka w wyzwalaczu lub akcji.
 
@@ -1077,15 +1081,17 @@ W przypadku używania [zabezpieczonych parametrów](#secure-action-parameters) d
 
 <a name="managed-identity-authentication"></a>
 
-### <a name="managed-identity-authentication"></a>Uwierzytelnianie tożsamości zarządzanej
+#### <a name="managed-identity-authentication"></a>Uwierzytelnianie tożsamości zarządzanej
 
-Jeśli opcja [zarządzanej tożsamości](../active-directory/managed-identities-azure-resources/overview.md) jest dostępna dla [określonego wyzwalacza lub akcji](#add-authentication-outbound), aplikacja logiki może użyć tożsamości przypisanej do systemu lub *pojedynczej* ręcznie utworzonej tożsamości przypisanej przez użytkownika do uwierzytelniania dostępu do innych zasobów chronionych przez Azure Active Directory (Azure AD) bez konieczności logowania. Platforma Azure zarządza tą tożsamością i pomaga zabezpieczyć Twoje poświadczenia, ponieważ nie trzeba podawać ani obrócić wpisów tajnych. Dowiedz się więcej [na temat usług platformy Azure, które obsługują tożsamości zarządzane na potrzeby uwierzytelniania w usłudze Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+Gdy dla [wyzwalacza lub akcji obsługującej uwierzytelnianie tożsamości zarządzanej](#add-authentication-outbound)jest dostępna opcja [tożsamość zarządzana](../active-directory/managed-identities-azure-resources/overview.md) , aplikacja logiki może użyć tożsamości przypisanej do systemu lub *pojedynczej* ręcznie utworzonej tożsamości przypisanej przez użytkownika do uwierzytelniania dostępu do zasobów platformy azure, które są chronione przez Azure Active Directory (Azure AD), a nie poświadczenia, wpisy tajne lub tokeny usługi Azure AD. Platforma Azure zarządza tą tożsamością i pomaga zabezpieczyć Twoje poświadczenia, ponieważ nie masz uprawnień do zarządzania wpisami tajnymi ani bezpośredniego używania tokenów usługi Azure AD. Dowiedz się więcej [na temat usług platformy Azure, które obsługują tożsamości zarządzane na potrzeby uwierzytelniania w usłudze Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 1. Aby aplikacja logiki mogła korzystać z tożsamości zarządzanej, wykonaj kroki opisane w temacie [uwierzytelnianie dostępu do zasobów platformy Azure przy użyciu tożsamości zarządzanych w Azure Logic Apps](../logic-apps/create-managed-service-identity.md). Te kroki umożliwiają włączenie zarządzanej tożsamości w aplikacji logiki oraz skonfigurowanie dostępu tej tożsamości do docelowego zasobu platformy Azure.
 
 1. Zanim funkcja platformy Azure będzie mogła korzystać z tożsamości zarządzanej, należy najpierw [włączyć uwierzytelnianie dla usługi Azure Functions](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-functions).
 
-1. W wyzwalaczu lub akcji, w której ma być używana tożsamość zarządzana, określ następujące wartości właściwości:
+1. W wyzwalaczu lub akcji, która obsługuje używanie tożsamości zarządzanej, podaj następujące informacje:
+
+   **Wbudowane wyzwalacze i akcje**
 
    | Właściwość (Projektant) | Właściwość (JSON) | Wymagane | Wartość | Opis |
    |---------------------|-----------------|----------|-------|-------------|
@@ -1094,7 +1100,7 @@ Jeśli opcja [zarządzanej tożsamości](../active-directory/managed-identities-
    | **Grupy odbiorców** | `audience` | Tak | <*docelowy — identyfikator zasobu*> | Identyfikator zasobu dla zasobu docelowego, do którego chcesz uzyskać dostęp. <p>Załóżmy na przykład, że `https://storage.azure.com/` [tokeny dostępu](../active-directory/develop/access-tokens.md) są prawidłowe dla wszystkich kont magazynu. Można jednak określić adres URL usługi głównej, `https://fabrikamstorageaccount.blob.core.windows.net` na przykład dla określonego konta magazynu. <p>**Uwaga**: Właściwość **odbiorców** może być ukryta w niektórych wyzwalaczach lub akcjach. Aby ta właściwość była widoczna, w wyzwalaczu lub akcji Otwórz listę **Dodaj nowy parametr** , a następnie wybierz pozycję **odbiorcy**. <p><p>**Ważne**: Upewnij się, że identyfikator zasobu docelowego *dokładnie pasuje* do wartości oczekiwanej przez usługę Azure AD, w tym wszystkich wymaganych końcowych ukośników. W związku z tym `https://storage.azure.com/` Identyfikator zasobu dla wszystkich kont usługi Azure Blob Storage wymaga końcowego ukośnika. Jednak identyfikator zasobu dla określonego konta magazynu nie wymaga końcowej kreski ułamkowej. Aby znaleźć te identyfikatory zasobów, zobacz [usługi platformy Azure, które obsługują usługę Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
    |||||
 
-   W przypadku używania [zabezpieczonych parametrów](#secure-action-parameters) do obsługi i zabezpieczania poufnych informacji, na przykład w [szablonie Azure Resource Manager do automatyzowania wdrożenia](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), można użyć wyrażeń, aby uzyskać dostęp do tych wartości parametrów w czasie wykonywania. Ta przykładowa definicja akcji HTTP Określa uwierzytelnianie `type` jako `ManagedServiceIdentity` i używa [funkcji Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) w celu uzyskania wartości parametrów:
+   W przypadku używania [zabezpieczonych parametrów](#secure-action-parameters) do obsługi i zabezpieczania poufnych informacji, na przykład w [szablonie Azure Resource Manager do automatyzowania wdrożenia](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), można użyć wyrażeń, aby uzyskać dostęp do tych wartości parametrów w czasie wykonywania. Na przykład ta definicja akcji HTTP Określa uwierzytelnianie `type` jako `ManagedServiceIdentity` i używa [funkcji Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) w celu uzyskania wartości parametrów:
 
    ```json
    "HTTP": {
@@ -1111,6 +1117,15 @@ Jeśli opcja [zarządzanej tożsamości](../active-directory/managed-identities-
       "runAfter": {}
    }
    ```
+
+   **Wyzwalacze i akcje łącznika zarządzanego**
+
+   | Właściwość (Projektant) | Wymagane | Wartość | Opis |
+   |---------------------|----------|-------|-------------|
+   | **Nazwa połączenia** | Tak | <*Nazwa połączenia*> ||
+   | **Tożsamość zarządzana** | Tak | **Tożsamość zarządzana przypisana przez system** <br>lub <br> <*przypisane przez użytkownika — nazwa zarządzana tożsamością*> | Typ uwierzytelniania do użycia |
+   |||||
+
 
 <a name="block-connections"></a>
 

@@ -3,12 +3,12 @@ title: Kubernetes monitorowanie za pomocą Azure Monitor dla kontenerów | Micro
 description: W tym artykule opisano sposób wyświetlania i analizowania wydajności klastra Kubernetes za pomocą Azure Monitor dla kontenerów.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: a1f661089b3a6357abb3eed584401e6a8ae2e2fb
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 68d0ac03ae0f6029e0f984e296a89048536f4eb7
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905710"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251288"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorowanie wydajności klastra Kubernetes za pomocą Azure Monitor dla kontenerów
 
@@ -88,12 +88,12 @@ Z listy klastrów możesz przejść do szczegółów na stronie **klaster** , wy
 
 ## <a name="view-performance-directly-from-a-cluster"></a>Wyświetlanie wydajności bezpośrednio z klastra
 
-Dostęp do Azure monitor dla kontenerów jest dostępny bezpośrednio w klastrze AKS przez wybranie klastra usługi **Insights**  >  **Cluster** w okienku po lewej stronie lub po wybraniu klastra z widoku wiele klastrów. Informacje o klastrze są zorganizowane w czterech perspektyw:
+Dostęp do Azure monitor dla kontenerów jest dostępny bezpośrednio w klastrze AKS przez wybranie klastra usługi **Insights**  >   w okienku po lewej stronie lub po wybraniu klastra z widoku wiele klastrów. Informacje o klastrze są zorganizowane w czterech perspektyw:
 
 - Klaster
 - Węzły
 - Kontrolery
-- Kontenery
+- Containers
 
 >[!NOTE]
 >Środowisko opisane w dalszej części tego artykułu dotyczy również wyświetlania stanu wydajności i kondycji klastrów Kubernetes hostowanych w Azure Stack lub innym środowisku w przypadku wybrania z widoku wiele klastrów.
@@ -130,12 +130,12 @@ W Eksploratorze metryk można wyświetlić zagregowane metryki dotyczące węzł
 | Szczegółowe informacje. kontenery/zasobniki | |
 | | PodCount | Liczba pod z Kubernetes.|
 
-Można [podzielić](../platform/metrics-charts.md#apply-splitting-to-a-chart) metrykę, aby wyświetlić ją w wymiarze, i wizualizować, jak różne segmenty są porównywane ze sobą. Dla węzła można podzielić wykres na wymiar *hosta* . Z poziomu usługi można podzielić ją na segmenty według następujących wymiarów:
+Można [podzielić](../platform/metrics-charts.md#apply-splitting) metrykę, aby wyświetlić ją w wymiarze, i wizualizować, jak różne segmenty są porównywane ze sobą. Dla węzła można podzielić wykres na wymiar *hosta* . Z poziomu usługi można podzielić ją na segmenty według następujących wymiarów:
 
 * Kontroler
 * Kubernetes przestrzeń nazw
 * Węzeł
-* Etap
+* Faza
 
 ## <a name="analyze-nodes-controllers-and-container-health"></a>Analizowanie węzłów, kontrolerów i kondycji kontenera
 
@@ -195,7 +195,7 @@ Informacje przedstawione podczas wyświetlania karty **węzły** są opisane w p
 | Stan | Widok Kubernetes stanu węzła. |
 | Minimum &nbsp; %, średnia &nbsp; %, 50 &nbsp; %, 90 &nbsp; %, używany 95. &nbsp; %, maksimum&nbsp;%  | Średni procent węzła w oparciu o percentyl w wybranym czasie. |
 | Minimum, AVG, pięćdziesiąt, 90, używany 95., Max | Średnia wartość rzeczywista węzłów oparta na percentylu podczas wybranego czasu trwania. Średnia wartość jest mierzona na podstawie limitu procesora CPU/pamięci ustawionego dla węzła. W przypadku zasobników i kontenerów jest to średnia wartość raportowana przez hosta. |
-| Kontenery | Liczba kontenerów. |
+| Containers | Liczba kontenerów. |
 | Czas pracy | Przedstawia czas od momentu uruchomienia lub ponownego uruchomienia węzła. |
 | Kontroler | Tylko dla kontenerów i zasobników. Pokazuje, który kontroler znajduje się w. Nie wszystkie zasobniki znajdują się w kontrolerze, dlatego niektóre mogą wyświetlać **N/a**. |
 | Minimum trendu &nbsp; %, średnia &nbsp; %, 50 &nbsp; %, 90 &nbsp; %, używany 95. &nbsp; %, maksimum&nbsp;% | Trend wykresu słupkowego reprezentuje procentową metrykę percentylości kontrolera. |
@@ -238,7 +238,7 @@ Informacje wyświetlane podczas przeglądania kontrolerów są opisane w poniżs
 | Stan | Stan zbiorczy kontenerów po zakończeniu działania z stanem takim jak *OK*, *przerwany*, *Niepowodzenie*, *zatrzymano* lub *wstrzymano*. Jeśli kontener jest uruchomiony, ale stan nie był prawidłowo wyświetlany lub nie został pobrany przez agenta i nie odpowiedział przez dłużej niż 30 minut, stan jest *nieznany*. Dodatkowe szczegóły ikony stanu znajdują się w poniższej tabeli.|
 | Minimum &nbsp; %, średnia &nbsp; %, 50 &nbsp; %, 90 &nbsp; %, używany 95. &nbsp; %, maksimum&nbsp;%| Średnia Zbiorcza średniej wartości procentowej każdej jednostki dla wybranej metryki i percentylu. |
 | Minimum, AVG, pięćdziesiąt, 90, używany 95., Max  | Rzutowanie średniej millicore procesora CPU lub wydajności pamięci kontenera dla wybranego percentylu. Średnia wartość jest mierzona na podstawie limitu procesora CPU/pamięci ustawionego dla elementu. |
-| Kontenery | Łączna liczba kontenerów dla kontrolera lub pod. |
+| Containers | Łączna liczba kontenerów dla kontrolera lub pod. |
 | Uruchamiania | Zestawienie liczby ponownych uruchomień z kontenerów. |
 | Czas pracy | Przedstawia czas od momentu rozpoczęcia kontenera. |
 | Węzeł | Tylko dla kontenerów i zasobników. Pokazuje, który kontroler znajduje się w. |

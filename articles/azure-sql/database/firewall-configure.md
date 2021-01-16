@@ -12,17 +12,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 06/17/2020
-ms.openlocfilehash: ce528e268e0ed1e34f53e32196bceef5ad8a2fcb
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9fe0c79a2f65b27b35aa5029d0a53de62ef08078
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452498"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251679"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Azure SQL Database i reguły zapory adresów IP dla usługi Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Podczas tworzenia nowego serwera w programie Azure SQL Database lub Azure Synapse *Analytics o nazwie* MySQLServer.Database.Windows.NET, na przykład Zapora na poziomie serwera blokuje dostęp do publicznego punktu końcowego dla serwera (dostępną w usłudze *mysqlserver.database.windows.net*). Dla uproszczenia *SQL Database* jest używany do odwoływania się do SQL Database i usługi Azure Synapse Analytics.
+Podczas tworzenia nowego serwera w programie Azure SQL Database lub Azure Synapse *Analytics o nazwie* MySQLServer.Database.Windows.NET, na przykład Zapora na poziomie serwera blokuje dostęp do publicznego punktu końcowego dla serwera (dostępną w usłudze ). Dla uproszczenia *SQL Database* jest używany do odwoływania się do SQL Database i usługi Azure Synapse Analytics.
 
 > [!IMPORTANT]
 > Ten artykuł *nie* dotyczy *wystąpienia zarządzanego usługi Azure SQL*. Aby uzyskać informacje o konfiguracji sieci, zobacz [łączenie aplikacji z wystąpieniem zarządzanym usługi Azure SQL](../managed-instance/connect-application-instance.md).
@@ -270,7 +270,7 @@ Gdy dostęp do Azure SQL Database nie zadziała w oczekiwany sposób, należy wz
 ## <a name="next-steps"></a>Następne kroki
 
 - Upewnij się, że środowisko sieci firmowej zezwala na komunikację przychodzącą z zakresów adresów IP obliczeń (w tym zakresów SQL) używanych przez centra danych platformy Azure. Być może trzeba będzie dodać te adresy IP do listy dozwolonych. Zobacz [zakresy adresów IP centrum danych Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).  
-- Przewodnik Szybki Start dotyczący tworzenia reguły zapory adresów IP na poziomie serwera znajduje się [w temacie Tworzenie pojedynczej bazy danych w Azure SQL Database](single-database-create-quickstart.md).
+- Zapoznaj się z naszym przewodnikiem Szybki Start dotyczącym [tworzenia pojedynczej bazy danych w Azure SQL Database](single-database-create-quickstart.md).
 - Aby uzyskać pomoc dotyczącą łączenia się z bazą danych w Azure SQL Database z aplikacji typu open source lub innych firm, zobacz [przykłady kodu dla klientów z przewodnikiem Szybki Start, aby Azure SQL Database](connect-query-content-reference-guide.md#libraries).
 - Aby uzyskać informacje o dodatkowych portach, które mogą być potrzebne, zobacz sekcję "SQL Database: zewnątrz i wewnątrz" [portów powyżej 1433 for ADO.NET 4,5 i SQL Database](adonet-v12-develop-direct-route-ports.md)
 - Aby zapoznać się z omówieniem zabezpieczeń Azure SQL Database, zobacz [Zabezpieczanie bazy danych](security-overview.md).

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
-ms.openlocfilehash: adec2a85373d33d08fe9aa16895d03229e40f475
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 886db905008af94b66a902cc551e4d55b36572a8
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825815"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250132"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Wyzwalacz Azure Event Grid dla Azure Functions
 
@@ -603,7 +603,7 @@ Wyzwól zdarzenie, które będzie generować ruch HTTP do punktu końcowego apli
 
 ### <a name="manually-post-the-request"></a>Ręcznie Opublikuj żądanie
 
-Uruchom lokalnie funkcję Event Grid.
+Uruchom lokalnie funkcję Event Grid. `Content-Type`Nagłówki i `aeg-event-type` są wymagane do ręcznego ustawiania, a wszystkie inne wartości można pozostawić jako domyślne.
 
 Użyj narzędzia takiego jak [Ogłoś](https://www.getpostman.com/) lub [zwinięcie](https://curl.haxx.se/docs/httpscripting.html) , aby utworzyć żądanie HTTP Post:
 

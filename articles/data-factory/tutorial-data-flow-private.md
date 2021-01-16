@@ -7,13 +7,13 @@ ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/19/2019
-ms.openlocfilehash: 9a4b57f3813adfeee53891f733dd4d303dbbef8d
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 01/15/2021
+ms.openlocfilehash: a5c93244862d72f9c8ea2928c41e699302b1752b
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497133"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249446"
 ---
 # <a name="transform-data-securely-by-using-mapping-data-flow"></a>Bezpieczne Przekształcanie danych przy użyciu funkcji mapowania przepływu danych
 
@@ -34,6 +34,7 @@ W tym samouczku wykonasz następujące czynności:
 > * Monitoruj działanie przepływu danych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
+
 * **Subskrypcja platformy Azure**. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/) .
 * **Konto usługi Azure Storage**. Używasz Data Lake Storage jako magazynu danych *źródłowych* i *ujścia* . Jeśli nie masz konta magazynu, utwórz je, wykonując czynności przedstawione w artykule [Tworzenie konta magazynu platformy Azure](../storage/common/storage-account-create.md?tabs=azure-portal). *Upewnij się, że konto magazynu zezwala na dostęp tylko z wybranych sieci.* 
 
@@ -59,17 +60,19 @@ W tym kroku utworzysz fabrykę danych i otworzysz interfejs użytkownika Data Fa
 1. W obszarze **Wersja** wybierz pozycję **V2**.
 1. W obszarze **Lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (np. usługi Azure Storage i Azure SQL Database) i obliczenia (na przykład usługa Azure HDInsight) używane przez fabrykę danych mogą znajdować się w innych regionach.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 1. Po zakończeniu tworzenia zobaczysz powiadomienie w centrum powiadomień. Wybierz pozycję **Przejdź do zasobu** , aby przejść do strony **Data Factory** .
 1. Wybierz pozycję **Tworzenie i monitorowanie**, aby uruchomić interfejs użytkownika usługi Data Factory na osobnej karcie.
 
 ## <a name="create-an-azure-ir-in-data-factory-managed-virtual-network"></a>Utwórz Azure IR w Data Factory zarządzanym Virtual Network
+
 W tym kroku utworzysz Azure IR i włączysz Data Factory zarządzanym Virtual Network.
 
 1. W portalu Data Factory przejdź do pozycji **Zarządzaj**, a następnie wybierz pozycję **Nowy** , aby utworzyć nowy Azure IR.
 
    ![Zrzut ekranu przedstawiający tworzenie nowego Azure IR.](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
-1. Wybierz opcję **Azure** IR.
+1. Na stronie **Konfiguracja środowiska Integration Runtime** Wybierz środowisko Integration Runtime, które ma zostać utworzone na podstawie wymaganych możliwości. W tym samouczku wybierz pozycję **Azure, samodzielny host,** a następnie kliknij przycisk **Kontynuuj**. 
+1. Wybierz pozycję **Azure** , a następnie kliknij pozycję **Kontynuuj** , aby utworzyć środowisko Azure Integration Runtime.
 
    ![Zrzut ekranu przedstawiający nowy Azure IR.](./media/tutorial-copy-data-portal-private/azure-ir.png)
 
@@ -77,7 +80,7 @@ W tym kroku utworzysz Azure IR i włączysz Data Factory zarządzanym Virtual Ne
 
    ![Zrzut ekranu pokazujący Włączanie nowego Azure IR.](./media/tutorial-copy-data-portal-private/enable-managed-vnet.png)
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ## <a name="create-a-pipeline-with-a-data-flow-activity"></a>Tworzenie potoku za pomocą działania przepływu danych
 
@@ -155,7 +158,7 @@ Jeśli nie używasz hiperlinku podczas testowania poprzedniego połączenia, pos
 
 1. Wybierz kafelek **Azure Data Lake Storage Gen2** z listy, a następnie wybierz pozycję **Kontynuuj**.
 1. Wprowadź nazwę utworzonego konta magazynu.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 1. Po kilku sekundach powinna zostać wyświetlona, że utworzone łącze prywatne wymaga zatwierdzenia.
 1. Wybierz utworzony prywatny punkt końcowy. Można wyświetlić hiperłącze, które umożliwi zatwierdzenie prywatnego punktu końcowego na poziomie konta magazynu.
 

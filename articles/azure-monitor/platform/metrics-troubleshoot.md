@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 7c3af0865282475ded0172d18aecad1dfb61721b
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 5219553fe300d607212af1ef6cedf72ce6506762
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814265"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250336"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Rozwiązywanie problemów z wykresami metryk
 
@@ -48,7 +48,7 @@ Niektóre zasoby nie emitują stale swoich metryk. Na przykład platforma Azure 
 
 ### <a name="all-metric-values-were-outside-of-the-locked-y-axis-range"></a>Wszystkie wartości metryk były poza zablokowanym zakresem osi y
 
-[Blokując granice osi y wykresu](metrics-charts.md#lock-boundaries-of-chart-y-axis), możesz przypadkowo sprawić, że w obszarze wyświetlania wykresu nie będzie pokazywana linia wykresu. Na przykład jeśli oś y jest ograniczona do zakresu od 0 do 50%, a metryka ma stałą wartość 100%, linia wykresu jest zawsze renderowana poza widocznym obszarem, przez co wykres jest wyświetlany jako pusty.
+[Blokując granice osi y wykresu](metrics-charts.md#locking-the-range-of-the-y-axis), możesz przypadkowo sprawić, że w obszarze wyświetlania wykresu nie będzie pokazywana linia wykresu. Na przykład jeśli oś y jest ograniczona do zakresu od 0 do 50%, a metryka ma stałą wartość 100%, linia wykresu jest zawsze renderowana poza widocznym obszarem, przez co wykres jest wyświetlany jako pusty.
 
 **Rozwiązanie:** Sprawdź, czy granice osi y wykresu nie są zablokowane poza zakresem wartości metryk. Jeżeli granice osi y są zablokowane, warto tymczasowo je zresetować, aby upewnić się, że wartości metryki nie znajdują się poza zakresem wykresu. Blokowanie zakresu osi y nie jest zalecane w przypadku używania automatycznego poziomu szczegółowości dla wykresów z agregacją **suma**, **wartość minimalna** i **wartość maksymalna**, ponieważ ich wartości będą zmieniały się wraz z poziomem szczegółowości poprzez zmianę rozmiaru okna przeglądarki lub zmianę rozdzielczości ekranu. Przełączenie poziomu szczegółowości może spowodować pozostawienie pustego obszaru wyświetlania wykresu.
 

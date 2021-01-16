@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 710de93a24037031784ca8d37a8ae0be76bff9e6
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 2bf56379a32bf8035ea2d0d3fe797776ec6ba40d
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614597"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250404"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Wprowadzenie do Eksploratora metryk platformy Azure
 
@@ -38,7 +38,7 @@ Aby utworzyć wykres metryki, z poziomu zasobu, grupy zasobów, subskrypcji lub 
 
     > ![Wybierz metrykę](./media/metrics-getting-started/metrics-dropdown.png)
 
-4. Opcjonalnie można [zmienić agregację metryki](metrics-charts.md#changing-aggregation). Na przykład możesz chcieć, aby wykres pokazywał minimalną, maksymalną lub średnią wartość metryki.
+4. Opcjonalnie można [zmienić agregację metryki](metrics-charts.md#aggregation). Na przykład możesz chcieć, aby wykres pokazywał minimalną, maksymalną lub średnią wartość metryki.
 
 > [!TIP]
 > Użyj przycisku **Dodaj metrykę** i powtórz te kroki, jeśli chcesz zobaczyć wiele metryk wykreślonych na tym samym wykresie. W przypadku wielu wykresów w jednym widoku wybierz przycisk **Dodaj wykres** u góry.
@@ -57,7 +57,7 @@ Domyślnie wykres pokazuje ostatnie 24 godziny danych metryk. Aby zmienić zakre
 
 ## <a name="apply-dimension-filters-and-splitting"></a>Zastosuj filtry i podziały wymiarów
 
-[Filtrowanie](metrics-charts.md#apply-filters-to-charts) i [dzielenie](metrics-charts.md#apply-splitting-to-a-chart) to zaawansowane narzędzia diagnostyczne dla metryk, które mają wymiary. Te funkcje pokazują, jak różne segmenty metryk ("wartości wymiaru") wpływają na ogólną wartość metryki i umożliwiają identyfikowanie możliwych wartości odstających.
+[Filtrowanie](metrics-charts.md#filters) i [dzielenie](metrics-charts.md#apply-splitting) to zaawansowane narzędzia diagnostyczne dla metryk, które mają wymiary. Te funkcje pokazują, jak różne segmenty metryk ("wartości wymiaru") wpływają na ogólną wartość metryki i umożliwiają identyfikowanie możliwych wartości odstających.
 
 - **Filtrowanie** umożliwia wybranie wartości wymiarów uwzględnionych na wykresie. Na przykład możesz chcieć pokazać pomyślne żądania podczas grafowania metryki *czas odpowiedzi serwera* . Należy zastosować filtr dla *sukcesu wymiaru żądania* . 
 

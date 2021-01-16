@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: f729c00d3b78631a32013ec9453302584cecbd16
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 82161a8f66dd717a9dc448a743b818a9ab9938db
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97962435"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250982"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Wdróż klaster Service Fabric platformy Azure w Strefy dostępności
 Strefy dostępności na platformie Azure to oferta wysokiej dostępności, która chroni Twoje aplikacje i dane przed awariami centrów danych. Strefa dostępności jest unikatową lokalizacją fizyczną z niezależną mocą, chłodzeniem i siecią w regionie świadczenia usługi Azure.
@@ -345,7 +345,7 @@ Aby włączyć strefy na zestawie skalowania maszyn wirtualnych, należy uwzglę
 
 * Pierwsza wartość to właściwość **Zones** , która określa strefy dostępności obecną w zestawie skalowania maszyn wirtualnych.
 * Druga wartość to właściwość "singlePlacementGroup", która musi mieć wartość true. **Zestaw skalowania, który został przełączony w 3 AZs, może skalować do 300 maszyn wirtualnych nawet przy użyciu "singlePlacementGroup = true".**
-* Trzecia wartość to "zoneBalance" i jest opcjonalna, co zapewnia ścisłe równoważenie strefy, jeśli ma wartość true. Przeczytaj o [zoneBalancing](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing).
+* Trzecia wartość to "zoneBalance", która zapewnia ścisłe równoważenie strefy, jeśli ma wartość true. Zalecamy ustawienie tej opcji na true, aby uniknąć niezrównoważonej dystrybucji maszyn wirtualnych w różnych strefach. Przeczytaj o [zoneBalancing](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing).
 * Zastąpień FaultDomain i UpgradeDomain nie są wymagane do skonfigurowania.
 
 ```json
@@ -357,7 +357,7 @@ Aby włączyć strefy na zestawie skalowania maszyn wirtualnych, należy uwzglę
     "zones": ["1", "2", "3"],
     "properties": {
         "singlePlacementGroup": "true",
-        "zoneBalance": false
+        "zoneBalance": true
     }
 }
 ```

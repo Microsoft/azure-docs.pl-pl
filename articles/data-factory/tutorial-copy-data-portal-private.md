@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 05/15/2020
+ms.date: 01/15/2021
 ms.author: jingwang
-ms.openlocfilehash: 4f5d691ef99ac4647d2031d6588d0b3922edd8cf
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: dfd2ed47c3fd963d7e119d235719771b25bdaf34
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505992"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249520"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>Bezpieczne kopiowanie danych z usługi Azure Blob Storage do bazy danych SQL za pomocą prywatnych punktów końcowych
 
@@ -45,7 +45,7 @@ Teraz możesz przygotować magazyn obiektów blob i bazę danych SQL na potrzeby
 
 #### <a name="create-a-source-blob"></a>Tworzenie źródłowego obiektu Blob
 
-1. Otwórz Notatnik. Skopiuj poniższy tekst i zapisz go na dysku jako plik **emp.txt** :
+1. Otwórz Notatnik. Skopiuj poniższy tekst i zapisz go na dysku jako plik **emp.txt**:
 
     ```
     FirstName,LastName
@@ -86,8 +86,8 @@ W tym kroku utworzysz fabrykę danych i uruchomisz interfejs użytkownika usług
 
 1. W obszarze **Grupa zasobów** wykonaj jedną z następujących czynności:
 
-    - Wybierz pozycję **Użyj istniejącej** , a następnie wybierz istniejącą grupę zasobów z listy rozwijanej.
-    - Wybierz pozycję **Utwórz nową** , a następnie wprowadź nazwę grupy zasobów. 
+    - Wybierz pozycję **Użyj istniejącej**, a następnie wybierz istniejącą grupę zasobów z listy rozwijanej.
+    - Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę grupy zasobów. 
      
     Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources (Używanie grup zasobów do zarządzania zasobami platformy Azure)](../azure-resource-manager/management/overview.md). 
 
@@ -99,7 +99,7 @@ W tym kroku utworzysz fabrykę danych i uruchomisz interfejs użytkownika usług
 
 1. Po zakończeniu tworzenia zobaczysz powiadomienie w centrum powiadomień. Wybierz pozycję **Przejdź do zasobu** , aby przejść do strony **Data Factory** .
 
-1. Wybierz pozycję **Tworzenie i monitorowanie** , aby uruchomić interfejs użytkownika usługi Data Factory na osobnej karcie.
+1. Wybierz pozycję **Tworzenie i monitorowanie**, aby uruchomić interfejs użytkownika usługi Data Factory na osobnej karcie.
 
 ## <a name="create-an-azure-integration-runtime-in-data-factory-managed-virtual-network"></a>Tworzenie środowiska Azure Integration Runtime w programie Data Factory Managed Virtual Network
 W tym kroku utworzysz środowisko Azure Integration Runtime i włączysz Data Factory zarządzanym Virtual Network.
@@ -107,7 +107,8 @@ W tym kroku utworzysz środowisko Azure Integration Runtime i włączysz Data Fa
 1. W portalu Data Factory przejdź do pozycji **Zarządzaj** i wybierz pozycję **Nowy** , aby utworzyć nowe środowisko Azure Integration Runtime.
 
    ![Zrzut ekranu przedstawiający tworzenie nowego środowiska Azure Integration Runtime.](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
-1. Wybierz utworzenie środowiska **Azure** Integration Runtime.
+1. Na stronie **Konfiguracja środowiska Integration Runtime** Wybierz środowisko Integration Runtime, które ma zostać utworzone na podstawie wymaganych możliwości. W tym samouczku wybierz pozycję **Azure, samodzielny host,** a następnie kliknij przycisk **Kontynuuj**. 
+1. Wybierz pozycję **Azure** , a następnie kliknij pozycję **Kontynuuj** , aby utworzyć środowisko Azure Integration Runtime.
 
    ![Zrzut ekranu pokazujący nowe środowisko Azure Integration Runtime.](./media/tutorial-copy-data-portal-private/azure-ir.png)
 1. W obszarze **Konfiguracja sieci wirtualnej (wersja zapoznawcza)** wybierz pozycję **Włącz**.
@@ -136,7 +137,7 @@ W tym samouczku Zacznij od utworzenia potoku. Następnie utworzysz usługi poł�
 ### <a name="configure-a-source"></a>Konfigurowanie źródła
 
 >[!TIP]
->W tym samouczku użyto **klucza konta** jako typu uwierzytelniania dla źródłowego magazynu danych. W razie konieczności można także wybrać inne obsługiwane metody uwierzytelniania, takie jak **Identyfikator URI SAS** , nazwa **główna usługi** i **tożsamość zarządzana** . Aby uzyskać więcej informacji, zobacz odpowiednie sekcje w temacie [kopiowanie i Przekształcanie danych w usłudze Azure Blob Storage za pomocą Azure Data Factory](./connector-azure-blob-storage.md#linked-service-properties).
+>W tym samouczku użyto **klucza konta** jako typu uwierzytelniania dla źródłowego magazynu danych. W razie konieczności można także wybrać inne obsługiwane metody uwierzytelniania, takie jak **Identyfikator URI SAS**, nazwa **główna usługi** i **tożsamość zarządzana** . Aby uzyskać więcej informacji, zobacz odpowiednie sekcje w temacie [kopiowanie i Przekształcanie danych w usłudze Azure Blob Storage za pomocą Azure Data Factory](./connector-azure-blob-storage.md#linked-service-properties).
 >
 >Aby bezpiecznie przechowywać wpisy tajne dla magazynów danych, zalecamy również korzystanie z Azure Key Vault. Aby uzyskać więcej informacji i ilustracje, zobacz temat [przechowywanie poświadczeń w Azure Key Vault](./store-credentials-in-key-vault.md).
 
@@ -144,13 +145,13 @@ W tym samouczku Zacznij od utworzenia potoku. Następnie utworzysz usługi poł�
 
 1. Przejdź do karty **Źródło** . Wybierz pozycję **+ Nowy** , aby utworzyć źródłowy zestaw danych.
 
-1. W oknie dialogowym **Nowy zestaw danych** wybierz pozycję **Azure Blob Storage** , a następnie wybierz pozycję **Kontynuuj**. Dane źródłowe znajdują się w magazynie obiektów blob, musisz więc wybrać usługę **Azure Blob Storage** dla źródłowego zestawu danych.
+1. W oknie dialogowym **Nowy zestaw danych** wybierz pozycję **Azure Blob Storage**, a następnie wybierz pozycję **Kontynuuj**. Dane źródłowe znajdują się w magazynie obiektów blob, musisz więc wybrać usługę **Azure Blob Storage** dla źródłowego zestawu danych.
 
 1. W oknie dialogowym **Wybieranie formatu** wybierz typ formatu danych, a następnie wybierz pozycję **Kontynuuj**.
 
 1. W oknie dialogowym **Ustawianie właściwości** wpisz **SourceBlobDataset** w polu **Nazwa**. Zaznacz pole wyboru dla **pierwszego wiersza jako nagłówek**. W polu tekstowym **połączona usługa** wybierz pozycję **+ Nowy**.
 
-1. W oknie dialogowym **Nowa połączona usługa (Azure Blob Storage)** wprowadź **AzureStorageLinkedService** jako **nazwę** , a następnie wybierz konto magazynu z listy **nazwa konta magazynu** . 
+1. W oknie dialogowym **Nowa połączona usługa (Azure Blob Storage)** wprowadź **AzureStorageLinkedService** jako **nazwę**, a następnie wybierz konto magazynu z listy **nazwa konta magazynu** . 
 
 1. Upewnij się, że włączono funkcję **interaktywnego tworzenia**. Włączenie może potrwać około jednej minuty.
 
@@ -220,9 +221,9 @@ Jeśli nie wybrano hiperlinku podczas przetestowania połączenia, postępuj zgo
 >Aby bezpiecznie przechowywać wpisy tajne dla magazynów danych, zalecamy również korzystanie z Azure Key Vault. Aby uzyskać więcej informacji i ilustracje, zobacz temat [przechowywanie poświadczeń w Azure Key Vault](./store-credentials-in-key-vault.md).
 
 #### <a name="create-a-sink-dataset-and-linked-service"></a>Tworzenie zestawu danych ujścia i połączonej usługi
-1. Przejdź do karty **Ujście** , a następnie wybierz pozycję **+ Nowy** , aby utworzyć zestaw danych będący ujściem.
+1. Przejdź do karty **Ujście**, a następnie wybierz pozycję **+ Nowy**, aby utworzyć zestaw danych będący ujściem.
 
-1. W oknie dialogowym **Nowy zestaw danych** wprowadź **SQL** w polu wyszukiwania, aby odfiltrować łączniki. Wybierz pozycję **Azure SQL Database** , a następnie wybierz pozycję **Kontynuuj**. W tym samouczku skopiujesz dane do bazy danych SQL.
+1. W oknie dialogowym **Nowy zestaw danych** wprowadź **SQL** w polu wyszukiwania, aby odfiltrować łączniki. Wybierz pozycję **Azure SQL Database**, a następnie wybierz pozycję **Kontynuuj**. W tym samouczku skopiujesz dane do bazy danych SQL.
 
 1. W oknie dialogowym **Ustawianie właściwości** wpisz **OutputSqlDataset** w polu **Nazwa**. Z listy rozwijanej **połączona usługa** wybierz pozycję **+ Nowy**. Zestaw danych musi być skojarzony z połączoną usługą. Połączona usługa ma parametry połączenia, których usługa Data Factory używa do nawiązywania połączenia z usługą SQL Database w środowisku uruchomieniowym. Zestaw danych określa kontener, folder i plik (opcjonalnie), do którego dane są kopiowane.
 
@@ -241,7 +242,7 @@ Jeśli nie wybrano hiperlinku podczas przetestowania połączenia, postępuj zgo
 
 1. Automatycznie przechodzi do okna dialogowego **Ustawianie właściwości** . W obszarze **Tabela** wybierz pozycję **[dbo].[emp]**. Następnie wybierz przycisk **OK**.
 
-1. Przejdź do karty z potokiem i w **zestawie danych ujścia** , upewnij się, że wybrano opcję **OutputSqlDataset** .
+1. Przejdź do karty z potokiem i w **zestawie danych ujścia**, upewnij się, że wybrano opcję **OutputSqlDataset** .
 
     ![Zrzut ekranu pokazujący kartę potoku.](./media/tutorial-copy-data-portal-private/pipeline-tab-2.png)
 

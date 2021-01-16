@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: c48a7f4b5b1512ec5bcd289e4fb8bd7884ca7394
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 52f7b328b013fd520787fca420a45ffdc5e9d9b1
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922561"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250812"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Obsługa protokołu sieciowego systemu plików (NFS) 3,0 w usłudze Azure Blob Storage (wersja zapoznawcza)
 
@@ -102,6 +102,8 @@ Następujące funkcje systemu plików NFS 3,0 nie są jeszcze obsługiwane w Azu
 - Wyświetlanie listy instalacji (na przykład przy użyciu polecenia `showmount -a` )
 
 - Lista eksportów (na przykład: przy użyciu polecenia `showmount -e` )
+
+- Link twardy
 
 - Eksportowanie kontenera jako tylko do odczytu
 

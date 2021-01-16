@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/18/2020
-ms.openlocfilehash: b62621a77f383b5c6413e7c187e7ba3d60beabad
-ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
+ms.openlocfilehash: 5e608d38ff70d51b569088629a6d80cb08e74ed4
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97732091"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251628"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Synonimy w usłudze Azure Wyszukiwanie poznawcze
 
@@ -21,9 +21,9 @@ Przy użyciu map synonimów można kojarzyć równoważne warunki, rozszerzając
 
 ## <a name="create-synonyms"></a>Utwórz synonimy
 
-Mapa synonimu to element zawartości, który może być tworzony raz i używany przez wiele indeksów. [Warstwa usług](search-limits-quotas-capacity.md#synonym-limits) określa, jak wiele różnych map synonimów można utworzyć, z przedziału od 3 do warstwy Bezpłatna i podstawowa, do 20 dla warstw Standard. 
+Mapa synonimu to element zawartości, który może być tworzony raz i używany przez wiele indeksów. [Warstwa usług](search-limits-quotas-capacity.md#synonym-limits) określa, jak wiele różnych map synonimów można utworzyć, z przedziału od trzech synonimów dla warstwy Bezpłatna i podstawowa, do 20 dla warstw standardowych. 
 
-Możesz tworzyć wiele synonimów map dla różnych języków, takich jak wersje angielskie i francuskie, lub leksykony, jeśli zawartość zawiera terminologię techniczną lub zasłoniętą. Chociaż można utworzyć wiele map synonimów, obecnie pole może korzystać tylko z jednego z nich.
+Możesz tworzyć wiele synonimów map dla różnych języków, takich jak wersje angielskie i francuskie, lub leksykony, jeśli zawartość zawiera terminologię techniczną lub zasłoniętą. Chociaż można utworzyć wiele map synonimów w usłudze wyszukiwania, pole może korzystać tylko z jednego z nich.
 
 Mapa synonimu składa się z nazwy, formatu i reguł, które działają jako pozycje mapy synonimów. Jedynym obsługiwanym formatem jest `solr` , a `solr` Format określa konstruowanie reguły.
 
@@ -50,7 +50,7 @@ Reguły mapowania są zgodne ze specyfikacją filtra synonimu typu "open source"
 
 Każda reguła musi być rozdzielone znakiem nowego wiersza ( `\n` ). Można zdefiniować maksymalnie 5 000 reguł na potrzeby mapowania synonimów w ramach bezpłatnej usługi i reguł 20 000 na mapę w innych warstwach. Każda reguła może mieć do 20 rozszerzeń (lub elementów w regule). Aby uzyskać więcej informacji, zobacz [limity synonimów](search-limits-quotas-capacity.md#synonym-limits).
 
-Analizatory zapytań będą w małych przypadkach małymi lub mieszanymi terminami, ale jeśli chcesz zachować znaki specjalne w ciągu, takie jak przecinek lub kreska, Dodaj odpowiednie znaki ucieczki podczas tworzenia mapy synonimów. 
+Analizatory zapytań będą w małych przypadkach małymi lub mieszanymi terminami, ale jeśli chcesz zachować znaki specjalne w ciągu, takie jak przecinek lub kreska, Dodaj odpowiednie znaki ucieczki podczas tworzenia mapy synonimów.
 
 ### <a name="equivalency-rules"></a>Reguły równoważności
 
@@ -85,7 +85,7 @@ W jawnym przypadku zapytanie dla `Washington` `Wash.` lub `WA` zostanie napisan�
 
 ### <a name="escaping-special-characters"></a>Znaki specjalne ucieczki
 
-Jeśli konieczne jest zdefiniowanie synonimów zawierających przecinki lub inne znaki specjalne, można wyjść z nich przy użyciu ukośnika odwrotnego, takiego jak w poniższym przykładzie:
+Synonimy są analizowane podczas przetwarzania zapytania. Jeśli konieczne jest zdefiniowanie synonimów zawierających przecinki lub inne znaki specjalne, można wyjść z nich przy użyciu ukośnika odwrotnego, takiego jak w poniższym przykładzie:
 
 ```json
 {
@@ -143,11 +143,15 @@ POST /indexes?api-version=2020-06-30
 
 Dodanie synonimów nie powoduje nakładania nowych wymagań dotyczących konstruowania zapytań. Zapytania warunkowe i zwrotne można wydać podobnie jak przed dodaniem synonimów. Jedyną różnicą jest to, że jeśli w mapie synonimów istnieje termin zapytania, aparat zapytań poszerzy lub ponownie napisze termin lub frazę, w zależności od reguły.
 
-## <a name="how-synonyms-interact-with-other-features"></a>Sposób współdziałania synonimów z innymi funkcjami
+## <a name="how-synonyms-are-used-during-query-execution"></a>Jak synonimy są używane podczas wykonywania zapytania
 
-Funkcja synonimy ponownie zapisuje oryginalne zapytanie przy użyciu synonimów z operatorem OR. Z tego powodu wyróżnianie trafień i profile oceniania traktują pierwotny termin i synonimy jako równoważne.
+Synonimy są techniką rozszerzania zapytania, która uzupełnia zawartość indeksu o równoważne terminy, ale tylko dla pól, które mają przypisanie synonimu. Jeśli zapytanie o zakresie pola *wyklucza* pole z włączonym synonimem, nie będą widoczne dopasowania z mapy synonimów.
 
-Synonimy mają zastosowanie tylko do zapytań wyszukiwania i nie są obsługiwane dla filtrów, zestawów reguł, autouzupełniania lub sugestii. Autouzupełnianie i sugestie są oparte tylko na oryginalnym okresie; w odpowiedzi nie pojawiają się dopasowania synonimów.
+W przypadku pól z włączonymi synonimami synonimy podlegają tej samej analizie tekstu co pole skojarzone. Na przykład, jeśli pole jest analizowane przy użyciu standardowego analizatora Lucene, warunki synonimu będą również podlegać standardowemu analizatorowi luce w czasie zapytania. Jeśli chcesz zachować interpunkcję, na przykład kropki lub łączniki, w okresie synonimu Zastosuj Analizator obsługujący zawartość w polu.
+
+Wewnętrznie funkcja synonimy ponownie zapisuje oryginalne zapytanie przy użyciu synonimów z operatorem OR. Z tego powodu wyróżnianie trafień i profile oceniania traktują pierwotny termin i synonimy jako równoważne.
+
+Synonimy mają zastosowanie tylko do bezpłatnych zapytań tekstowych i nie są obsługiwane w przypadku filtrów, zestawów reguł, autouzupełniania lub sugestii. Autouzupełnianie i sugestie są oparte tylko na oryginalnym okresie; w odpowiedzi nie pojawiają się dopasowania synonimów.
 
 Rozszerzenia synonimów nie mają zastosowania do terminów wyszukiwania w postaci symboli wieloznacznych; wyrażenia prefix, rozmyte i wyrażeń regularnych nie są rozwinięte.
 

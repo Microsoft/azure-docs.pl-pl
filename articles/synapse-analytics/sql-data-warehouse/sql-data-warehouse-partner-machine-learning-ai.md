@@ -11,12 +11,12 @@ ms.date: 06/22/2020
 ms.author: procha
 ms.reviewer: charlesf
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4d45343c071a6a01981f8de87ee0efea409241b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80b01eb78d6dfb0d1629eb73bf86c76e3dc4e32f
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85368162"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249157"
 ---
 # <a name="azure-synapse-analytics-machine-learning-and-ai-partners"></a>Usługa Azure Synapse Analytics Machine Learning i partnerzy AI
 
@@ -26,6 +26,7 @@ W tym artykule przedstawiono partnerów firmy Microsoft z uczeniem maszynowym or
 | Partner | Opis | Link do witryny sieci Web/produktu |
 | ------- | ----------- | -------------------- |
 | ![Dataiku](./media/sql-data-warehouse-partner-machine-learning-and-ai/dataiku-logo.png) |**Dataiku**<br>Dataiku jest scentralizowaną platformą danych, która przenosi firmy na dane z analizy na dużą skalę do wersji Enterprise AI, zapewniając możliwość analizy samoobsługowej, zapewniając także operacjonalizacji modeli uczenia maszynowego w środowisku produkcyjnym. |[Strona produktu](https://www.dataiku.com/partners/microsoft/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/dataiku.dataiku-data-science-studio)<br> |
+| ![MATLAB](./media/sql-data-warehouse-partner-machine-learning-and-ai/mathworks-logo.png) |**MATLAB**<br>Program MATLAB® to platforma programistyczna przeznaczona dla inżynierów i naukowców. Łączy środowisko pulpitu dopasowane do iteracyjnej analizy i procesów projektowania z językiem programowania, który umożliwia bezpośrednie wyrażenie matematyczne i tablicowe. Miliony na całym świecie wykorzystują program MATLAB dla wielu aplikacji, w tym Uczenie maszynowe, uczenie głębokie, przetwarzanie sygnałów i obrazów, systemy kontroli i finanse. |[Strona produktu](https://www.mathworks.com/products/database.html)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/mathworks-inc.matlab-byol?tab=Overview)<br> |
 | ![Qubole](./media/sql-data-warehouse-partner-data-integration/qubole_logo.png) |**Qubole**<br>Usługa Qubole zapewnia natywną platformę w chmurze, która umożliwia użytkownikom wykonywanie obciążeń ETL, analiza i AI. Obsługuje różne rodzaje aparatów typu "open source" — Apache Spark, TensorFlow, Presto, Flow, Hadoop, Hive i innych. Zapewnia łatwy w użyciu narzędzia dla użytkowników końcowych do przetwarzania danych z narzędzi zapytań SQL, do notesów i pulpitów nawigacyjnych, które wykorzystują zaawansowane aparaty Open Source.|[Strona produktu](https://www.qubole.com/company/partners/partners-microsoft-azure/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qubole-inc.qubole-data-service?tab=Overview) 
 
 ## <a name="next-steps"></a>Następne kroki

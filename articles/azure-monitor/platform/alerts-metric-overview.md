@@ -4,12 +4,12 @@ description: Zapoznaj się z informacjami o tym, co możesz zrobić z alertami m
 ms.date: 01/13/2021
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: d8e0621f88455a68ad0ee1b236f6b423c9d54b52
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: ab80496784b5d86d270830546cec73aadbcc50a6
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179898"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251237"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Omówienie działania alertów metryk w usłudze Azure Monitor
 
@@ -26,7 +26,7 @@ Załóżmy, że utworzono prostą regułę alertu metryki statycznej progu:
 - Zasób docelowy (zasób platformy Azure, który chcesz monitorować): myVM
 - Metryka: procentowy procesor CPU
 - Typ warunku: statyczny
-- Agregacja czasu (statystyka, która jest uruchamiana za pośrednictwem wartości metryk nieprzetworzonych. [Agregacje obsługiwanego czasu](metrics-charts.md#changing-aggregation) to min, Max, średnia, suma, liczba): Średnia
+- Agregacja czasu (statystyka, która jest uruchamiana za pośrednictwem wartości metryk nieprzetworzonych. [Agregacje obsługiwanego czasu](metrics-charts.md#aggregation) to min, Max, średnia, suma, liczba): Średnia
 - Okres (wyszukanie okna, nad którym są sprawdzane wartości metryk): w ciągu ostatnich 5 minut
 - Częstotliwość (częstotliwość, z jaką alert dotyczący metryki sprawdza, czy warunki są spełnione): 1 min
 - Operator: większe niż
@@ -43,7 +43,7 @@ Załóżmy, że utworzono prostą regułę alertu metryki dynamicznej wartości 
 - Zasób docelowy (zasób platformy Azure, który chcesz monitorować): myVM
 - Metryka: procentowy procesor CPU
 - Typ warunku: dynamiczny
-- Agregacja czasu (statystyka, która jest uruchamiana za pośrednictwem wartości metryk nieprzetworzonych. [Agregacje obsługiwanego czasu](metrics-charts.md#changing-aggregation) to min, Max, średnia, suma, liczba): Średnia
+- Agregacja czasu (statystyka, która jest uruchamiana za pośrednictwem wartości metryk nieprzetworzonych. [Agregacje obsługiwanego czasu](metrics-charts.md#aggregation) to min, Max, średnia, suma, liczba): Średnia
 - Okres (wyszukanie okna, nad którym są sprawdzane wartości metryk): w ciągu ostatnich 5 minut
 - Częstotliwość (częstotliwość, z jaką alert dotyczący metryki sprawdza, czy warunki są spełnione): 1 min
 - Operator: większe niż
@@ -180,7 +180,7 @@ Pełną listę obsługiwanych typów zasobów można znaleźć w tym [artykule](
 ## <a name="next-steps"></a>Następne kroki
 
 - [Dowiedz się, jak tworzyć i wyświetlać alerty metryk na platformie Azure oraz zarządzać nimi](alerts-metric.md)
-- [Dowiedz się, jak tworzyć alerty w usłudze Azure Montior Eksplorator metryk](./metrics-charts.md#create-alert-rules)
+- [Dowiedz się, jak tworzyć alerty w usłudze Azure Montior Eksplorator metryk](./metrics-charts.md#alert-rules)
 - [Dowiedz się, jak wdrażać alerty metryk przy użyciu szablonów Azure Resource Manager](./alerts-metric-create-templates.md)
 - [Dowiedz się więcej na temat grup akcji](action-groups.md)
 - [Dowiedz się więcej o typie warunku progi dynamiczne](alerts-dynamic-thresholds.md)

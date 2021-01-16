@@ -3,14 +3,14 @@ title: Samouczek dotyczący usługi Kubernetes na platformie Azure — aktualizo
 description: Z tego samouczka dotyczącego usługi Azure Kubernetes Service (AKS) dowiesz się, jak zaktualizować istniejące wdrożenie aplikacji do usługi AKS przy użyciu nowej wersji kodu aplikacji.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/30/2020
-ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: c8401a81a36d86b871df9fc428c393007b97c400
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.date: 01/12/2021
+ms.custom: mvc
+ms.openlocfilehash: b969e3ec1c670c0a12129289c8ff7eb81df51ff9
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833915"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250659"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Samouczek: aktualizowanie aplikacji w usłudze Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ W tym samouczku (część szósta z siedmiu) aktualizowana jest przykładowa apl
 > * Wypychanie obrazu kontenera do usługi Azure Container Registry
 > * Wdrażanie zaktualizowanego obrazu kontenera
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W poprzednich samouczkach aplikacja była spakowana do obrazu kontenera. Ten obraz został przekazany do usługi Azure Container Registry i utworzono klaster usługi AKS. Aplikacja została następnie wdrożona w klastrze usługi AKS.
 
@@ -64,7 +64,7 @@ docker-compose up --build -d
 
 Aby sprawdzić, czy w zaktualizowanym obrazie kontenera wyświetlane są wprowadzone zmiany, otwórz stronę `http://localhost:8080` w lokalnej przeglądarce internetowej.
 
-:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated.png" alt-text="Zrzut ekranu przedstawiający przykład zaktualizowanej aplikacji do głosowania platformy Azure, otwartej przy użyciu lokalnej przeglądarki sieci Web i hosta lokalnego.":::
+:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated.png" alt-text="Zrzut ekranu przedstawiający przykład zaktualizowanego obrazu kontenera aplikacji do głosowania platformy Azure uruchomionego lokalnie w lokalnej przeglądarce internetowej":::
 
 Zaktualizowane wartości w pliku *config_file.cfg* są wyświetlane w uruchomionej aplikacji.
 
@@ -143,9 +143,9 @@ Aby wyświetlić zaktualizowaną aplikację, najpierw uzyskaj zewnętrzny adres 
 kubectl get service azure-vote-front
 ```
 
-Następnie otwórz adres IP usługi w lokalnej przeglądarce internetowej:
+Teraz otwórz przeglądarkę sieci Web pod adresem IP usługi:
 
-:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated-external.png" alt-text="Zrzut ekranu przedstawiający przykład zaktualizowanej aplikacji do głosowania platformy Azure otwartej w lokalnej przeglądarce sieci Web.":::
+:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated-external.png" alt-text="Zrzut ekranu przedstawiający przykład zaktualizowanej aplikacji do głosowania na platformie Azure działającej w klastrze AKS otwartym w lokalnej przeglądarce sieci Web.":::
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -3,14 +3,14 @@ title: Samouczek dotyczący rozwiązania Kubernetes na platformie Azure — skal
 description: W tym samouczku dotyczącym usługi Azure Kubernetes Service (AKS) dowiesz się, jak skalować węzły i zasobniki w rozwiązaniu Kubernetes oraz implementować automatyczne skalowanie zasobników w poziomie.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/12/2021
 ms.custom: mvc
-ms.openlocfilehash: 7f16ba3ffe6b6f96f17df540eb67e9cec0bfea8c
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: dfebb6561e83c51063515ec655153aaaa7a09c0c
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825687"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251373"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Samouczek: Skalowanie aplikacji w usłudze Azure Kubernetes Service (AKS)
 
@@ -21,9 +21,9 @@ Jeśli wykonujesz kolejno zadania z samouczków, masz już działający klaster 
 > * Ręczne skalowanie zasobników rozwiązania Kubernetes, w ramach których działa Twoja aplikacja
 > * Konfigurowanie automatycznie skalowanych zasobników, w ramach których działa fronton aplikacji
 
-W dodatkowych samouczkach aplikacja Azure Vote jest aktualizowana do nowej wersji.
+W kolejnych samouczkach aplikacja do głosowania platformy Azure zostanie zaktualizowana do nowej wersji.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W poprzednich samouczkach aplikacja była spakowana do obrazu kontenera. Ten obraz został przekazany do usługi Azure Container Registry i utworzono klaster usługi AKS. Aplikacja została następnie wdrożona w klastrze usługi AKS. Jeśli nie wykonano tych kroków, a chcesz kontynuować pracę, zacznij od części [Samouczek 1 — tworzenie obrazów kontenera][aks-tutorial-prepare-app].
 
@@ -39,7 +39,7 @@ kubectl get pods
 
 Poniższe przykładowe dane wyjściowe zawierają jeden zasobnik frontonu i jeden zasobnik zaplecza:
 
-```
+```output
 NAME                               READY     STATUS    RESTARTS   AGE
 azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
@@ -51,7 +51,7 @@ Aby ręcznie zmienić liczbę zasobników w ramach wdrożenia aplikacji *azure-v
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Ponownie uruchom polecenie [kubectl get][kubectl-get], aby sprawdzić, czy rozwiązanie AKS tworzy dodatkowe zasobniki. Po upływie około minuty dodatkowe zasobniki będą dostępne w Twoim klastrze:
+Uruchom ponownie [polecenia kubectl Pobierz zasobniki][kubectl-get] , aby sprawdzić, czy AKS pomyślnie tworzy dodatkowe zasobniki. Po minucie, w klastrze są dostępne:
 
 ```console
 kubectl get pods
@@ -131,7 +131,7 @@ spec:
 
 Służy `kubectl apply` do zastosowania automatycznego skalowania zdefiniowanego w `azure-vote-hpa.yaml` pliku manifestu.
 
-```
+```console
 kubectl apply -f azure-vote-hpa.yaml
 ```
 
@@ -158,7 +158,7 @@ az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
 
 Po pomyślnym skalowaniu klastra dane wyjściowe będą podobne do poniższego przykładu:
 
-```
+```output
 "agentPoolProfiles": [
   {
     "count": 3,

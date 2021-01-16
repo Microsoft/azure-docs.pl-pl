@@ -10,13 +10,13 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 10/15/2020
-ms.openlocfilehash: 4ffe663c1a1651891af5f6e65ee231cbe3e8d650
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.date: 01/15/2021
+ms.openlocfilehash: db3b168826223e4eb958f7700e65623a115e5779
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882311"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251475"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limity zasobów dla pojedynczych baz danych podczas używania modelu zakupu opartego na rdzeniach wirtualnych
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -231,6 +231,37 @@ Możesz ustawić warstwę usług, rozmiar obliczeń (cel usługi) i ilość miej
 
 **Uwaga 2**: opóźnienie to 1-2 ms dla danych na lokalnym dysku SSD repliki obliczeniowej, który przechowuje w pamięci podręcznej większość używanych stron danych. Wyższe opóźnienie dla danych pobieranych z serwerów stronicowania.
 
+## <a name="hyperscale---provisioned-compute---dc-series"></a>Skalowanie wstępne — Seria DC
+
+|Rozmiar obliczeń (cel usługi)|HS_DC_2|HS_DC_4|HS_DC_6|HS_DC_8|
+|:--- | --: |--: |--: |--: |---: | 
+|Generowanie obliczeń|Seria DC|Seria DC|Seria DC|Seria DC|
+|Rdzeni wirtualnych|2|4|6|8|
+|Pamięć (GB)|9|18|27|36|
+|[RBPEX](service-tier-hyperscale.md#compute) Zmienia|3. pamięć|3. pamięć|3. pamięć|3. pamięć|
+|Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|
+|Magazyn OLTP w pamięci (GB)|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
+|Maksymalny rozmiar danych (TB)|100 |100 |100 |100 |
+|Maksymalny rozmiar dziennika (TB)|Nieograniczona liczba |Nieograniczona liczba |Nieograniczona liczba |Nieograniczona liczba |
+|Maksymalny rozmiar danych TempDB (GB)|64|128|192|256|
+|Typ magazynu| [Uwaga 1](#notes) |[Uwaga 1](#notes)|[Uwaga 1](#notes) |[Uwaga 1](#notes) |
+|Maksymalna liczba operacji we/wy lokalnego dysku SSD *|8000 |16000 |24000 |32000 |
+|Maksymalny współczynnik rejestrowania (MB/s)|100 |100 |100 |100 |
+|Opóźnienie we/wy (przybliżone)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|
+|Maksymalna liczba współbieżnych procesów roboczych (żądań)|160|320|480|640|
+|Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|
+|Repliki pomocnicze|0-4|0-4|0-4|0-4|
+|Wiele-AZ|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
+|Skalowanie w górę odczytu|Tak|Tak|Tak|Tak|
+|Przechowywanie kopii zapasowej magazynu|7 dni|7 dni|7 dni|7 dni|
+|||
+
+### <a name="notes"></a>Uwagi
+
+**Uwaga 1**: funkcja do skalowania jest architekturą wielowarstwową z oddzielnymi składnikami obliczeniowymi i magazynowanymi: [skalowanie warstwy usług](service-tier-hyperscale.md#distributed-functions-architecture)
+
+**Uwaga 2**: opóźnienie to 1-2 ms dla danych na lokalnym dysku SSD repliki obliczeniowej, który przechowuje w pamięci podręcznej większość używanych stron danych. Wyższe opóźnienie dla danych pobieranych z serwerów stronicowania.
+
 ## <a name="general-purpose---provisioned-compute---gen4"></a>Obliczenia alokowane ogólnie do zastosowania — obliczenia
 
 > [!IMPORTANT]
@@ -389,6 +420,32 @@ Możesz ustawić warstwę usług, rozmiar obliczeń (cel usługi) i ilość miej
 |Wiele-AZ|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
 |Skalowanie w górę odczytu|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
 |Uwzględniony magazyn kopii zapasowych|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|
+
+\* Maksymalna wartość dla wielkości we/wy z zakresu od 8 KB do 64 KB. Rzeczywiste operacje we/wy są zależne od obciążenia. Aby uzyskać szczegółowe informacje, zobacz [Zarządzanie we/wy danych](resource-limits-logical-server.md#resource-governance).
+
+## <a name="general-purpose---provisioned-compute---dc-series"></a>Przeznaczenie ogólne — obsługa administracyjna — Seria DC
+
+|Rozmiar obliczeń (cel usługi)|GP_DC_2|GP_DC_4|GP_DC_6|GP_DC_8| 
+|:---| ---:|---:|---:|---:|
+|Generowanie obliczeń|Seria DC|Seria DC|Seria DC|Seria DC|
+|Rdzeni wirtualnych|2|4|6|8|
+|Pamięć (GB)|9|18|27|36|
+|Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|
+|Magazyn OLTP w pamięci (GB)|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
+|Maksymalny rozmiar danych (GB)|1024|1536|3072|3072|
+|Maksymalny rozmiar dziennika (GB)|307|461|922|922|
+|Maksymalny rozmiar danych TempDB (GB)|64|128|192|256|
+|Typ magazynu|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|
+|Opóźnienie we/wy (przybliżone)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|
+|Maksymalna liczba operacji we/wy danych *|640|1280|1920|2560|
+|Maksymalny współczynnik rejestrowania (MB/s)|9|18|27|36|
+|Maksymalna liczba współbieżnych procesów roboczych (żądań)|160|320|480|640|
+|Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|
+|Liczba replik|1|1|1|1|
+|Wiele-AZ|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
+|Skalowanie w górę odczytu|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
+|Uwzględniony magazyn kopii zapasowych|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|
+
 
 \* Maksymalna wartość dla wielkości we/wy z zakresu od 8 KB do 64 KB. Rzeczywiste operacje we/wy są zależne od obciążenia. Aby uzyskać szczegółowe informacje, zobacz [Zarządzanie we/wy danych](resource-limits-logical-server.md#resource-governance).
 
@@ -563,6 +620,31 @@ Możesz ustawić warstwę usług, rozmiar obliczeń (cel usługi) i ilość miej
 > [!IMPORTANT]
 > W pewnych okolicznościach może być konieczne zmniejszenie bazy danych w celu Odbierz nieużywanej przestrzeni. Aby uzyskać więcej informacji, zobacz [Zarządzanie obszarem plików w Azure SQL Database](file-space-manage.md).
 
+## <a name="business-critical---provisioned-compute---dc-series"></a>Krytyczne dla działalności biznesowe — seria z obsługą administracyjną
+
+|Rozmiar obliczeń (cel usługi)|BC_DC_2|BC_DC_4|BC_DC_6|BC_DC_8|
+|:--- | --: |--: |--: |--: |
+|Generowanie obliczeń|Seria DC|Seria DC|Seria DC|Seria DC|
+|Rdzeni wirtualnych|2|4|6|8|
+|Pamięć (GB)|9|18|27|36|
+|Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|
+|Magazyn OLTP w pamięci (GB)|1,7|3.7|5.9|8.2|
+|Maksymalny rozmiar danych (GB)|768|768|768|768|
+|Maksymalny rozmiar dziennika (GB)|230|230|230|230|
+|Maksymalny rozmiar danych TempDB (GB)|64|128|192|256|
+|Typ magazynu|Lokalny dysk SSD|Lokalny dysk SSD|Lokalny dysk SSD|Lokalny dysk SSD|
+|Opóźnienie we/wy (przybliżone)|1-2 ms (zapis)<br>1-2 ms (odczyt)|1-2 ms (zapis)<br>1-2 ms (odczyt)|1-2 ms (zapis)<br>1-2 ms (odczyt)|1-2 ms (zapis)<br>1-2 ms (odczyt)|
+|Maksymalna liczba operacji we/wy danych *|14000|28000|42000|56000|
+|Maksymalny współczynnik rejestrowania (MB/s)|24|48|72|96|
+|Maksymalna liczba współbieżnych procesów roboczych (żądań)|200|400|600|800|
+|Maksymalna liczba współbieżnych logowań|200|400|600|800|
+|Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|
+|Liczba replik|4|4|4|4|
+|Wiele-AZ|Nie|Nie|Nie|Nie|
+|Skalowanie w górę odczytu|Nie|Nie|Nie|Nie|
+|Uwzględniony magazyn kopii zapasowych|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|
+
+\* Maksymalna wartość dla wielkości we/wy z zakresu od 8 KB do 64 KB. Rzeczywiste operacje we/wy są zależne od obciążenia. Aby uzyskać szczegółowe informacje, zobacz [Zarządzanie we/wy danych](resource-limits-logical-server.md#resource-governance).
 
 
 ## <a name="next-steps"></a>Następne kroki

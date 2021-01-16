@@ -2,26 +2,21 @@
 title: 'Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą Adobe Identity Management | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i usługą Adobe Identity Management.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 9db7f01d-7f15-492f-a839-55963790a12e
+manager: CelesteDG
+ms.reviewer: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/26/2019
+ms.date: 01/15/2021
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96a49df85f02083571e84ec884b37fb43b0d4001
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 18c626a11724b585bf699f8be470b439177991ae
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97622225"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250910"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adobe-identity-management"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą Adobe Identity Management
 
@@ -30,8 +25,6 @@ W tym samouczku dowiesz się, jak zintegrować usługę Adobe Identity Managemen
 * Kontrolka w usłudze Azure AD, która ma dostęp do usługi Adobe Identity Management.
 * Zezwól użytkownikom na automatyczne logowanie do usługi Adobe Identity Management przy użyciu swoich kont w usłudze Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
-
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -50,18 +43,18 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 
 Aby skonfigurować integrację usługi Adobe Identity Management w usłudze Azure AD, musisz dodać do niej aplikację Adobe Identity Management z galerii do listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
 1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
 1. W sekcji **Dodaj z galerii** wpisz **Adobe Identity Management** w polu wyszukiwania.
 1. Wybierz pozycję **Adobe Identity Management** z panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-adobe-identity-management"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD na potrzeby rozwiązania Adobe Identity Management
+## <a name="configure-and-test-azure-ad-sso-for-adobe-identity-management"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla programu Adobe Identity Management
 
 Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą rozwiązania Adobe Identity Management przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w programie Adobe Identity Management.
 
-Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD przy użyciu programu Adobe Identity Management, wykonaj następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD przy użyciu programu Adobe Identity Management, wykonaj następujące czynności:
 
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
     1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
@@ -74,15 +67,15 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD przy u
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Adobe Identity Management** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
+1. W Azure Portal na stronie integracja aplikacji **Adobe Identity Management** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
 1. W sekcji **Podstawowa konfiguracja języka SAML** wprowadź wartości dla następujących pól:
 
-    a. W polu tekstowym **Adres URL logowania** wpisz adres URL: `https://adobe.com`
+    a. W polu tekstowym **Adres URL logowania** wpisz następujący adres URL: `https://adobe.com`
 
     b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, używając następującego wzorca: `https://federatedid-na1.services.adobe.com/federated/saml/metadata/alias/<CUSTOM_ID>`
 
@@ -107,7 +100,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -116,38 +109,63 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Na liście Aplikacje wybierz pozycję **Adobe Identity Management**.
 1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
-
-   ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
-
 1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
-
-    ![Link Dodaj użytkownika](common/add-assign-user.png)
-
 1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
 ## <a name="configure-adobe-identity-management-sso"></a>Konfigurowanie logowania jednokrotnego dla programu Adobe Identity Management
 
-Aby skonfigurować Logowanie jednokrotne na stronie usługi **Adobe Identity Management** , należy wysłać pobrany **kod XML metadanych Federacji** i odpowiednie skopiowane adresy URL z Azure Portal do [zespołu pomocy technicznej programu Adobe Identity Management](mailto:identity@adobe.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+1. Aby zautomatyzować konfigurację w programie Adobe Identity Management, należy zainstalować **Moje aplikacje bezpieczne logowanie do przeglądarki** , klikając pozycję **Zainstaluj rozszerzenie**.
+
+    ![Rozszerzenie moje aplikacje](common/install-myappssecure-extension.png)
+
+2. Po dodaniu rozszerzenia do przeglądarki, kliknij pozycję **Konfigurowanie Adobe Identity Management** przekieruje Cię do aplikacji Zarządzanie tożsamościami firmy Adobe. Z tego miejsca podaj poświadczenia administratora, aby zalogować się do usługi Adobe Identity Management. Rozszerzenie przeglądarki automatycznie skonfiguruje aplikację i automatyzuje kroki 3-8.
+
+    ![Konfiguracja konfiguracji](common/setup-sso.png)
+
+3. Jeśli chcesz ręcznie skonfigurować program Adobe Identity Management, w innym oknie przeglądarki sieci Web Zaloguj się do lokacji firmy Adobe Identity Management jako administrator.
+
+4. Przejdź do karty **Ustawienia** , a następnie kliknij pozycję **Utwórz katalog**.
+
+    ![Ustawienia programu Adobe Identity Management](./media/adobe-identity-management-tutorial/settings.png)
+
+5. Nadaj nazwę katalogowi w polu tekstowym i wybierz pozycję **Identyfikator federacyjny**, a następnie kliknij przycisk **dalej**.
+
+    ![Tworzenie katalogu przez program Adobe Identity Management](./media/adobe-identity-management-tutorial/create-directory.png)
+
+6. Wybierz **innych dostawców SAML** i kliknij przycisk **dalej**.
+ 
+    ![Dostawcy SAML firmy Adobe Identity Management](./media/adobe-identity-management-tutorial/saml-providers.png)
+
+7. Kliknij pozycję **Wybierz** , aby przekazać plik **XML metadanych** pobrany z Azure Portal.
+
+    ![Konfiguracja SAML programu Adobe Identity Management](./media/adobe-identity-management-tutorial/saml-configuration.png)
+
+8. Kliknij przycisk **gotowe**.
 
 ### <a name="create-adobe-identity-management-test-user"></a>Utwórz użytkownika testowego zarządzania tożsamościami firmy Adobe
 
-W tej sekcji utworzysz użytkownika o nazwie B. Simon w programie Adobe Identity Management. Pracuj z [zespołem pomocy technicznej programu Adobe Identity Management](mailto:identity@adobe.com) , aby dodać użytkowników z platformy zarządzania tożsamościami firmy Adobe. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+1. Przejdź do karty **Użytkownicy** i kliknij pozycję **Dodaj użytkownika**.
 
-## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
+    ![Dodawanie użytkownika do programu Adobe Identity Management](./media/adobe-identity-management-tutorial/add-user.png)
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
+2. W polu tekstowym **wprowadź adres e-mail użytkownika** Podaj **adres e-mail**.
 
-Po kliknięciu kafelka Zarządzanie tożsamościami firmy Adobe w panelu dostępu należy automatycznie zalogować się do usługi Adobe Identity Management, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+    ![Zapisywanie użytkownika przez program Adobe Identity Management](./media/adobe-identity-management-tutorial/save-user.png)
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+3. Kliknij pozycję **Zapisz**.
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji.
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie do adresu URL logowania do programu Adobe Identity Management, w którym można zainicjować przepływ logowania.
 
-- [Wypróbuj usługę Adobe Identity Management w usłudze Azure AD](https://aad.portal.azure.com/)
+* Przejdź bezpośrednio do adresu URL logowania do usługi Adobe Identity Management, a następnie zainicjuj w nim przepływ logowania.
 
+* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka rozwiązania Adobe Identity Management w obszarze Moje aplikacje zostanie przekierowany do adresu URL logowania do programu Adobe Identity Management. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+## <a name="next-steps"></a>Następne kroki
+
+Po skonfigurowaniu programu Adobe Identity Management można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

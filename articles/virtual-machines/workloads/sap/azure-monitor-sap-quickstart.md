@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 08/17/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: c3b3848e4e4f7b0445f882265dbe66bb10b48833
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0bb0a7833e9ee3b499ae013b665ecf137c667005
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968591"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250999"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-with-azure-portal"></a>Wdrażanie Azure Monitor dla rozwiązań SAP z Azure Portal
 
@@ -59,7 +59,7 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com
 
 6. Wprowadź nazwę użytkownika bazy danych, której chcesz użyć. Upewnij się, że użytkownik bazy danych ma przypisane role **monitorowania** i **odczytu katalogu** . 
 
-7. Po zakończeniu wybierz pozycję **Dodaj dostawcę**. W razie potrzeby Kontynuuj dodawanie dodatkowych dostawców lub wybierz pozycję **Przegląd + Utwórz** , aby zakończyć wdrażanie.
+7. Po zakończeniu wybierz pozycję **Dodaj dostawcę**. W razie potrzeby Kontynuuj dodawanie kolejnych dostawców lub wybierz pozycję **Przegląd + Utwórz** , aby zakończyć wdrażanie.
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="Obraz opcji konfiguracji podczas dodawania informacji o dostawcy." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-4.png":::
 
@@ -74,14 +74,26 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com
  
 3. Wprowadź identyfikator systemowy (SID), nazwę hosta i nazwa klastra.
 
-4. Po zakończeniu wybierz pozycję **Dodaj dostawcę**. W razie potrzeby Kontynuuj dodawanie dodatkowych dostawców lub wybierz pozycję **Przegląd + Utwórz** , aby zakończyć wdrażanie.
+4. Po zakończeniu wybierz pozycję **Dodaj dostawcę**. W razie potrzeby Kontynuuj dodawanie kolejnych dostawców lub wybierz pozycję **Przegląd + Utwórz** , aby zakończyć wdrażanie.
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-5.png" alt-text="Obraz przedstawia opcje dotyczące dostawcy Pacemaker klastra HA." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-5.png":::
 
 
+### <a name="os-linux-provider"></a>Dostawca systemu operacyjnego (Linux) 
+
+1. Wybierz system operacyjny (Linux) z listy rozwijanej 
+
+> [!IMPORTANT]
+> Aby skonfigurować dostawcę systemu operacyjnego (Linux), upewnij się, że Node_Exporter jest zainstalowany w każdym wystąpieniu BareMetal. Aby uzyskać więcej informacji, zobacz [Node_Exporter](https://github.com/prometheus/node_exporter)
+
+2. Wprowadź nazwę, która będzie identyfikatorem wystąpienia BareMetal.
+3. Wprowadź punkt końcowy eksportu węzłów w postaci http://IP:9100/metrics .
+4. Po zakończeniu wybierz pozycję **Dodaj dostawcę**. W razie potrzeby Kontynuuj dodawanie kolejnych dostawców lub wybierz pozycję **Przegląd + Utwórz**,   Aby zakończyć wdrażanie. 
+
+
 ### <a name="microsoft-sql-server-provider"></a>Dostawca Microsoft SQL Server
 
-1. Przed dodaniem dostawcy Microsoft SQL Server należy uruchomić następujący skrypt w SQL Server Management Studio, aby utworzyć użytkownika z odpowiednimi uprawnieniami wymaganymi do skonfigurowania dostawcy.
+1. Przed dodaniem dostawcy Microsoft SQL Server należy uruchomić następujący skrypt w SQL Server Management Studio, aby utworzyć użytkownika z odpowiednimi uprawnieniami potrzebnymi do skonfigurowania dostawcy.
 
    ```sql
    USE [<Database to monitor>]
@@ -112,7 +124,7 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com
 
 3. Wypełnij pola przy użyciu informacji skojarzonych z Microsoft SQL Server. 
 
-4. Po zakończeniu wybierz pozycję **Dodaj dostawcę**. W razie potrzeby Kontynuuj dodawanie dodatkowych dostawców lub wybierz pozycję **Przegląd + Utwórz** , aby zakończyć wdrażanie.
+4. Po zakończeniu wybierz pozycję **Dodaj dostawcę**. W razie potrzeby Kontynuuj dodawanie kolejnych dostawców lub wybierz pozycję **Przegląd + Utwórz** , aby zakończyć wdrażanie.
 
      :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-6.png" alt-text="Obraz przedstawia informacje związane z dodawaniem dostawcy Microsoft SQL Server." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-6.png":::
 

@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
-ms.date: 09/30/2020
-ms.openlocfilehash: b4473ea304176615c35205494f342922869b71ea
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 01/15/2021
+ms.openlocfilehash: 6589f451d4db8f2ed77ce70a2bdfa9d76927c1e2
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793147"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251220"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Rdzeń wirtualny model — Omówienie — Azure SQL Database i wystąpienie zarządzane Azure SQL 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -34,8 +34,8 @@ Opcje warstwy usług w modelu rdzeń wirtualny obejmują Ogólnego przeznaczenia
 |-|**Ogólnego przeznaczenia**|**Krytyczne dla działania firmy**|**Hiperskala**|
 |---|---|---|---|
 |Optymalne zastosowanie|Większość obciążeń firmowych. Oferuje zorientowane na budżet, zrównoważone i skalowalne opcje zasobów obliczeniowych i magazynowych. |Oferuje aplikacjom biznesowym największą odporność na błędy przy użyciu kilku izolowanych replik i zapewnia największą wydajność operacji we/wy na replikę bazy danych.|Większość obciążeń firmowych z wysoce skalowalnym magazynem i wymaganiami dotyczącymi skali odczytu.  Zapewnia wyższą odporność na błędy, umożliwiając konfigurację wielu izolowanych replik baz danych. |
-|Magazyn|Używa magazynu zdalnego.<br/>**SQL Database Obliczanie zainicjowane** :<br/>5 GB – 4 TB<br/>**Obliczenia bezserwerowe** :<br/>5 GB — 3 TB<br/>**Wystąpienie zarządzane SQL** : 32 GB – 8 TB |Używa lokalnego magazynu SSD.<br/>**SQL Database Obliczanie zainicjowane** :<br/>5 GB – 4 TB<br/>**Wystąpienie zarządzane SQL** :<br/>32 GB — 4 TB |Elastyczna automatyczne zwiększanie magazynu zgodnie z wymaganiami. Obsługuje do 100 TB pamięci masowej. Używa lokalnego magazynu SSD dla lokalnej pamięci podręcznej puli buforów i lokalnego magazynu danych. Używa magazynu zdalnego platformy Azure jako końcowego długoterminowego magazynu danych. |
-|Operacje we/wy i przepływność (przybliżona)|**SQL Database** : Zobacz limity zasobów dla [pojedynczych baz danych](resource-limits-vcore-single-databases.md) i [pul elastycznych](resource-limits-vcore-elastic-pools.md).<br/>**Wystąpienie zarządzane SQL** : zobacz [Omówienie limitów zasobów wystąpienia zarządzanego usługi Azure SQL](../managed-instance/resource-limits.md#service-tier-characteristics).|Zobacz limity zasobów dla [pojedynczych baz danych](resource-limits-vcore-single-databases.md) i [pul elastycznych](resource-limits-vcore-elastic-pools.md).|Skalowanie jest architekturą wielowarstwową z buforowaniem na wielu poziomach. Efektywne operacje we/wy i przepływność będą zależeć od obciążenia.|
+|Magazyn|Używa magazynu zdalnego.<br/>**SQL Database Obliczanie zainicjowane**:<br/>5 GB – 4 TB<br/>**Obliczenia bezserwerowe**:<br/>5 GB — 3 TB<br/>**Wystąpienie zarządzane SQL**: 32 GB – 8 TB |Używa lokalnego magazynu SSD.<br/>**SQL Database Obliczanie zainicjowane**:<br/>5 GB – 4 TB<br/>**Wystąpienie zarządzane SQL**:<br/>32 GB — 4 TB |Elastyczna automatyczne zwiększanie magazynu zgodnie z wymaganiami. Obsługuje do 100 TB pamięci masowej. Używa lokalnego magazynu SSD dla lokalnej pamięci podręcznej puli buforów i lokalnego magazynu danych. Używa magazynu zdalnego platformy Azure jako końcowego długoterminowego magazynu danych. |
+|Operacje we/wy i przepływność (przybliżona)|**SQL Database**: Zobacz limity zasobów dla [pojedynczych baz danych](resource-limits-vcore-single-databases.md) i [pul elastycznych](resource-limits-vcore-elastic-pools.md).<br/>**Wystąpienie zarządzane SQL**: zobacz [Omówienie limitów zasobów wystąpienia zarządzanego usługi Azure SQL](../managed-instance/resource-limits.md#service-tier-characteristics).|Zobacz limity zasobów dla [pojedynczych baz danych](resource-limits-vcore-single-databases.md) i [pul elastycznych](resource-limits-vcore-elastic-pools.md).|Skalowanie jest architekturą wielowarstwową z buforowaniem na wielu poziomach. Efektywne operacje we/wy i przepływność będą zależeć od obciążenia.|
 |Dostępność|1 replika, brak replik w skali odczytu|3 repliki, 1 [replika w skali odczytu](read-scale-out.md),<br/>Strefa — nadmiarowa wysoka dostępność (HA)|1 replika odczytu i zapisu oraz 0-4 [replik w skali odczytu](read-scale-out.md)|
 |Tworzenie kopii zapasowych|[Magazyn Geograficznie nadmiarowy do odczytu (RA-GRS)](../../storage/common/geo-redundant-design.md), 7-35 dni (domyślnie 7 dni)|[RA-GRS](../..//storage/common/geo-redundant-design.md), 7-35 dni (domyślnie 7 dni)|Tworzenie kopii zapasowych opartych na migawce w magazynie zdalnym platformy Azure. Przywraca używanie tych migawek do szybkiego odzyskiwania. Kopie zapasowe są natychmiast i nie wpływają na wydajność obliczeń we/wy. Przywracanie odbywa się szybko i nie jest operacją o rozmiarze danych (w minutach, a nie w godzinach lub dniach).|
 |W pamięci|Nieobsługiwane|Obsługiwane|Nieobsługiwane|
@@ -69,7 +69,7 @@ Wstępnie zainicjowana warstwa obliczeniowa zapewnia określoną ilość zasobó
 
 ## <a name="hardware-generations"></a>Generacja sprzętu
 
-Opcje generowania sprzętu w modelu rdzeń wirtualny obejmują generacji 4/5, serii M i Fsv2. Generowanie sprzętu zwykle definiuje limity obliczeń i pamięci oraz inne właściwości, które wpływają na wydajność obciążenia.
+Opcje generowania sprzętu w modelu rdzeń wirtualny obejmują generacji 4/5, serii M i serii Fsv2 oraz kontrolerów domen. Generowanie sprzętu zwykle definiuje limity obliczeń i pamięci oraz inne właściwości, które wpływają na wydajność obciążenia.
 
 ### <a name="gen4gen5"></a>Obliczenia/5 rdzeń
 
@@ -84,7 +84,6 @@ W przypadku regionów, w których jest dostępny obliczenia/5 rdzeń, zobacz [do
 - Fsv2 zapewnia mniejszą ilość pamięci i tempdb na rdzeń wirtualny niż inny sprzęt, dlatego obciążenia te mogą chcieć uwzględnić 5 rdzeń lub M serii.  
 
 Seria Fsv2 jest obsługiwana tylko w warstwie Ogólnego przeznaczenia. W przypadku regionów, w których jest dostępna seria Fsv2, zobacz [dostępność z serii Fsv2](#fsv2-series-1).
-
 
 ### <a name="m-series"></a>Seria M
 
@@ -101,6 +100,22 @@ Aby uzyskać dostęp do serii M, subskrypcja musi być płatnym typem oferty, w 
 To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).
 -->
 
+### <a name="dc-series"></a>Seria DC
+
+> [!NOTE]
+> Seria DC jest obecnie dostępna w **publicznej wersji zapoznawczej**.
+
+- Sprzęt z serii DC używa procesorów firmy Intel z technologią SGX (Software Guard Extensions).
+- Seria DC jest wymagana dla [Always Encrypted z bezpiecznym enclaves](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves), co nie jest obsługiwane w przypadku innych konfiguracji sprzętowych.
+- Seria DC została zaprojektowana pod kątem obciążeń, które przetwarzają dane poufne i zapewniają poufne możliwości przetwarzania zapytań udostępniane przez Always Encrypted z bezpiecznym enclaves.
+- Sprzęt z serii DC zapewnia zrównoważone zasoby obliczeniowe i pamięci.
+
+Seria DC jest obsługiwana tylko w przypadku obliczeń zainicjowanych (bezserwerowe nie jest obsługiwane) i nie obsługuje nadmiarowości strefy. W przypadku regionów, w których jest dostępna Seria DC, zobacz [dostępność z serii DC](#dc-series-1).
+
+#### <a name="azure-offer-types-supported-by-dc-series"></a>Typy ofert platformy Azure obsługiwane przez serie kontrolerów domen
+
+Aby uzyskać dostęp do serii DC, subskrypcja musi być płatnym typem oferty, w tym płatności zgodnie z rzeczywistym użyciem lub Umowa Enterprise (EA).  Aby uzyskać pełną listę typów ofert platformy Azure obsługiwanych przez serię kontrolerów domen, zobacz [bieżące oferty bez limitów wydatków](https://azure.microsoft.com/support/legal/offer-details).
+
 ### <a name="compute-and-memory-specifications"></a>Specyfikacje obliczeniowe i pamięci
 
 
@@ -110,6 +125,7 @@ To enable M-series hardware for a subscription and region, a support request mus
 |5 rdzeń     |**Zainicjowane obliczenie**<br>-Intel® E5-2673 v4 (Broadwell) 2,3-GHz, Intel® SP-8160 (Skylake) \* i intel® 8272CL (Kaskada Lake) 2,5 GHz \*<br>— Inicjowanie obsługi administracyjnej do 80 rdzeni wirtualnych (1 rdzeń wirtualny = 1 Hyper-Thread)<br><br>**Bezserwerowe usługi obliczeniowe**<br>-Intel® E5-2673 v4 (Broadwell) 2,3-GHz i Intel® SP-8160 (Skylake) * procesory<br>-Automatyczne skalowanie do 40 rdzeni wirtualnych (1 rdzeń wirtualny = 1 Hyper-Thread)|**Zainicjowane obliczenie**<br>-5,1 GB na rdzeń wirtualny<br>— Zapewnij do 408 GB<br><br>**Bezserwerowe usługi obliczeniowe**<br>-Automatyczne skalowanie do 24 GB na rdzeń wirtualny<br>— Automatyczne skalowanie do maksymalnie 120 GB|
 |Seria Fsv2     |-Procesory Intel® 8168 (Skylake)<br>— Dzięki stałej szybkości taktu Turbo o częstotliwości 3,4 GHz i maksymalnej pojedynczej podstawowej prędkości zegarka Turbo o godz. 3,7 GHz.<br>— Inicjowanie obsługi administracyjnej do 72 rdzeni wirtualnych (1 rdzeń wirtualny = 1 Hyper-Thread)|-1,9 GB na rdzeń wirtualny<br>— Zapewnij do 136 GB|
 |Seria M     |-Procesory Intel® E7-8890 v3 2,5 GHz i Intel® 8280M 2,7 GHz (Kaskada Lake)<br>— Inicjowanie obsługi administracyjnej do 128 rdzeni wirtualnych (1 rdzeń wirtualny = 1 Hyper-Thread)|-29 GB na rdzeń wirtualny<br>— Zapewnij do 3,7 TB|
+|Seria DC     | — Procesory Intel XEON E-2288G<br>-Wbudowane rozszerzenie ochrony oprogramowania firmy Intel (Intel SGX))<br>— Zapewnij do 8 rdzeni wirtualnych (1 rdzeń wirtualny = 1 rdzeń fizyczny) | 4,5 GB na rdzeń wirtualny |
 
 \* W [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) dynamicznym widoku zarządzania generowanie sprzętu dla baz danych przy użyciu procesorów Intel® SP-8160 (Skylake) pojawia się jako Gen6, podczas gdy generowanie sprzętu dla baz danych przy użyciu technologii Intel® 8272CL (Kaskada Lake) pojawia się jako Gen7. Limity zasobów dla wszystkich baz danych 5 rdzeń są takie same, niezależnie od typu procesora (Broadwell, Skylake lub Kaskada Lake).
 
@@ -138,7 +154,7 @@ W przypadku bazy danych na stronie Przegląd wybierz łącze **warstwa cenowa** 
 
   ![Zmień sprzęt](./media/service-tiers-vcore/change-hardware.png)
 
-W przypadku puli na stronie Przegląd wybierz pozycję **Konfiguruj** .
+W przypadku puli na stronie Przegląd wybierz pozycję **Konfiguruj**.
 
 Postępuj zgodnie z instrukcjami, aby zmienić konfigurację, i wybierz Generowanie sprzętu zgodnie z opisem w poprzednich krokach.
 
@@ -160,7 +176,7 @@ Na stronie wystąpienie zarządzane SQL Wybierz pozycję **warstwa cenowa** link
 
 Na stronie warstwa cenowa będzie można zmienić generowanie sprzętu zgodnie z opisem w poprzednich krokach.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Użyj poniższego skryptu programu PowerShell:
 
@@ -225,6 +241,15 @@ On the **Details** page, provide the following:
 
 Approved support requests are typically fulfilled within 5 business days.
 -->
+
+#### <a name="dc-series"></a>Seria DC
+
+> [!NOTE]
+> Seria DC jest obecnie dostępna w **publicznej wersji zapoznawczej**.
+
+Seria DC jest dostępna w następujących regionach: Kanada środkowa, Kanada Wschodnia, Wschodnie stany USA, Europa Północna, Południowe Zjednoczone Królestwo, Europa Zachodnia, zachodnie stany USA.
+
+Jeśli potrzebujesz szeregów kontrolerów domeny w aktualnie nieobsługiwanym regionie, [Prześlij bilet pomocy technicznej](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) zgodnie z instrukcjami w temacie [przydział żądania zwiększa się dla Azure SQL Database i wystąpienia zarządzanego SQL](quota-increase-request.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

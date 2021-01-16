@@ -3,14 +3,14 @@ title: Samouczek dotyczący usługi Kubernetes na platformie Azure — wdrażani
 description: W tym samouczku dotyczącym usługi Azure Kubernetes Service (AKS) wdrożysz aplikację z wieloma kontenerami w klastrze przy użyciu obrazu niestandardowego przechowywanego w usłudze Azure Container Registry.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/12/2021
 ms.custom: mvc
-ms.openlocfilehash: 8114aa0b6c2483d543376727a44d14041ed02b37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0de097a545a831e39a671fe4cf5eadcd336ce24
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576493"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250183"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Samouczek: uruchamianie aplikacji w usłudze Azure Kubernetes Service (AKS)
 
@@ -21,11 +21,11 @@ Usługa Kubernetes zapewnia rozproszoną platformę dla konteneryzowanych aplika
 > * Uruchamianie aplikacji w usłudze Kubernetes
 > * Testowanie aplikacji
 
-W dodatkowych samouczkach ta aplikacja jest skalowana w poziomie i aktualizowana.
+W kolejnych samouczkach ta aplikacja jest skalowana i aktualizowana.
 
 W tym przewodniku Szybki start założono, że masz podstawową wiedzę na temat pojęć związanych z rozwiązaniem Kubernetes. Aby uzyskać więcej informacji, zobacz [Podstawowe pojęcia dotyczące usługi Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W poprzednich samouczkach aplikacja została spakowana w postaci obrazu kontenera, obraz został przekazany do usługi Azure Container Registry i utworzono klaster usługi Kubernetes.
 
@@ -49,7 +49,7 @@ Przykładowy plik manifestu z repozytorium git sklonowany w pierwszym samouczku 
 vi azure-vote-all-in-one-redis.yaml
 ```
 
-Zastąp wartość *microsoft* nazwą serwera logowania usługi ACR. Nazwa obrazu znajduje się w wierszu 51 pliku manifestu. W poniższym przykładzie przedstawiono domyślną nazwę obrazu:
+Zastąp wartość *microsoft* nazwą serwera logowania usługi ACR. Nazwa obrazu znajduje się w wierszu 60 pliku manifestu. W poniższym przykładzie przedstawiono domyślną nazwę obrazu:
 
 ```yaml
 containers:
@@ -77,7 +77,7 @@ kubectl apply -f azure-vote-all-in-one-redis.yaml
 
 Następujące przykładowe dane wyjściowe przedstawiają pomyślnie utworzone zasoby w klastrze usługi AKS:
 
-```
+```console
 $ kubectl apply -f azure-vote-all-in-one-redis.yaml
 
 deployment "azure-vote-back" created
@@ -98,19 +98,19 @@ kubectl get service azure-vote-front --watch
 
 Początkowo *zewnętrzny adres IP* dla usługi *Azure-poświęconej głosowaniu* jest pokazywany jako *oczekujący*:
 
-```
+```output
 azure-vote-front   LoadBalancer   10.0.34.242   <pending>     80:30676/TCP   5s
 ```
 
 Gdy dla adresu *EXTERNAL-IP* wartość *oczekujący* zmieni się na rzeczywisty publiczny adres IP, naciśnij klawisze `CTRL-C`, aby zatrzymać proces śledzenia narzędzia `kubectl`. Następujące przykładowe dane wyjściowe przedstawiają prawidłowy publiczny adres IP przypisany do usługi:
 
-```
+```output
 azure-vote-front   LoadBalancer   10.0.34.242   52.179.23.131   80:30676/TCP   67s
 ```
 
 Aby wyświetlić działającą aplikację, otwórz zewnętrzny adres IP usługi w przeglądarce internetowej:
 
-![Obraz przedstawiający klaster Kubernetes na platformie Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
+:::image type="content" source="./media/container-service-kubernetes-tutorials/azure-vote.png" alt-text="Zrzut ekranu przedstawiający obraz kontenera aplikacja do głosowania platformy Azure działająca w klastrze AKS otwartym w lokalnej przeglądarce internetowej" lightbox="./media/container-service-kubernetes-tutorials/azure-vote.png":::
 
 Jeśli aplikacja nie została załadowana, może być to spowodowane problemem z autoryzacją rejestru obrazów. Aby wyświetlić stan kontenerów, użyj polecenia `kubectl get pods`. Jeśli nie można ściągnąć obrazów kontenerów, zobacz [uwierzytelnianie za pomocą Azure Container Registry z usługi Azure Kubernetes](cluster-container-registry-integration.md).
 

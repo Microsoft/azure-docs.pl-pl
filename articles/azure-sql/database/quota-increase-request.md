@@ -9,17 +9,17 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: sstein
 ms.date: 06/04/2020
-ms.openlocfilehash: 44a37a912c5c7a882d21631b8ce2da2c7ba9c05e
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 27719663acfbdbcd7293defc4b746153359adb61
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97967705"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251860"
 ---
 # <a name="request-quota-increases-for-azure-sql-database-and-sql-managed-instance"></a>Wzrost przydziału żądań dla Azure SQL Database i wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-W tym artykule wyjaśniono, jak zażądać zwiększenia przydziału dla Azure SQL Database i wystąpienia zarządzanego Azure SQL. Wyjaśniono także, jak włączyć dostęp do subskrypcji do regionu.
+W tym artykule wyjaśniono, jak zażądać zwiększenia przydziału dla Azure SQL Database i wystąpienia zarządzanego Azure SQL. Wyjaśniono także, jak włączyć dostęp do subskrypcji do regionu oraz jak zażądać włączenia określonego sprzętu w regionie.
 
 ## <a name="create-a-new-support-request"></a><a id="newquota"></a> Utwórz nowe żądanie obsługi
 
@@ -62,8 +62,7 @@ W poniższych sekcjach opisano opcje zwiększania limitu przydziału dla **SQL D
 
 - Jednostki transakcji bazy danych (DTU) na serwer
 - Serwery na subskrypcję
-- Dostęp do regionu serii M
-- Dostęp regionu
+- Dostęp do regionu dla subskrypcji lub określonego sprzętu
 
 ### <a name="database-transaction-units-dtus-per-server"></a>Jednostki transakcji bazy danych (DTU) na serwer
 
@@ -109,30 +108,15 @@ Jeśli Twoja subskrypcja wymaga dostępu w określonym regionie, wybierz opcję 
 
    ![Dostęp do regionu żądania](./media/quota-increase-request/quota-request.png)
 
-<!--
-### <a id="mseries"></a> Enable M-series access to a region
+### <a name="request-enabling-specific-hardware-in-a-region"></a>Żądanie włączenia określonego sprzętu w regionie
 
-To enable M-series hardware for a subscription and region, a support request must be opened.
+Jeśli [generacja sprzętowa](service-tiers-vcore.md#hardware-generations) , której chcesz użyć, nie jest dostępna w Twoim regionie (zobacz [dostępność sprzętu](service-tiers-vcore.md#hardware-availability)), możesz ją zażądać, wykonując poniższe kroki.
 
-1. Select the **M-series region access** quota type.
+1. Wybierz inny typ przydziału **żądania przydziału** .
 
-1. In the **Select a location** list, select the Azure region to use. The quota is per subscription in each region.
+1. W polu **Opis** należy podać żądanie, włącznie z nazwą generowania sprzętu i nazwą regionu, w którym jest ona potrzebna.
 
-
-   ![Request M-series region access](./media/quota-increase-request/quota-m-series.png)
--->
-
-## <a name="sql-managed-instance-quota-type"></a><a id="sqlmiquota"></a> Typ przydziału wystąpienia zarządzanego SQL
-
-W przypadku typu limitu przydziału **wystąpienia zarządzanego SQL** wykonaj następujące czynności:
-
-1. Na liście **region** wybierz region platformy Azure, który ma być celem.
-
-1. Wprowadź nowe limity, które są żądane dla **podsieci** i **rdzeń wirtualny**.
-
-   ![Szczegóły przydziału wystąpienia zarządzanego SQL](./media/quota-increase-request/quota-details-managed-instance.png)
-
-Aby uzyskać więcej informacji, zobacz [Omówienie limitów zasobów wystąpienia zarządzanego usługi Azure SQL](../managed-instance/resource-limits.md).
+   ![Żądaj sprzętu w nowym regionie](./media/quota-increase-request/hardware-in-new-region.png)
 
 ## <a name="submit-your-request"></a>Prześlij żądanie
 

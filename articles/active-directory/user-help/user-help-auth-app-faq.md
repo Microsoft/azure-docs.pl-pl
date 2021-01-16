@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 12/09/2020
+ms.date: 01/15/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: a1307aa19c66e3f6fcb71f677e6c67551d2a01f9
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: f799ed5c18537b862a4971075ae9107b7a722fdd
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928328"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251509"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Często zadawane pytania dotyczące aplikacji Microsoft Authenticator
 
@@ -33,13 +33,17 @@ Aplikacja Microsoft Authenticator została zastąpiona aplikacją Azure Authenti
 
 Odp **.:** zarejestrowanie urządzenia zapewnia dostęp urządzenia do usług organizacji i nie zezwala na dostęp organizacji do Twojego urządzenia.
 
-## <a name="too-many-app-permissions"></a>Zbyt wiele uprawnień aplikacji
+### <a name="too-many-app-permissions"></a>Zbyt wiele uprawnień aplikacji
 
 **P**: Dlaczego aplikacja żąda tylu uprawnień?
 
-Odp **.:** Oto pełna lista uprawnień, które mogą zostać poproszeni i jak są używane przez aplikację. Określone uprawnienia są zależne od typu telefonu.
+Odp **.:** Oto pełna lista uprawnień, które mogą zostać poproszeni i jak są używane przez aplikację. Określone uprawnienia są zależne od typu telefonu. Czasami organizacja chce znać swoją **lokalizację** przed umożliwieniem użytkownikowi dostępu do określonych zasobów. Aplikacja będzie żądać tego uprawnienia tylko wtedy, gdy organizacja ma zasady wymagające lokalizacji.
 
-- **Lokalizacja**. Czasami organizacja chce znać swoją lokalizację przed umożliwieniem użytkownikowi dostępu do określonych zasobów. Aplikacja będzie żądać tego uprawnienia tylko wtedy, gdy organizacja ma zasady wymagające lokalizacji. 
+### <a name="error-adding-account"></a>Błąd podczas dodawania konta
+
+**P**: podczas próby dodania mojego konta otrzymuję komunikat o błędzie z informacją o tym, że konto, które próbujesz dodać, jest w tej chwili nieprawidłowe. Skontaktuj się z administratorem, aby rozwiązać ten problem (unikatowość poprawności). " Co mam zrobić?
+
+Odp **.: skontaktuj** się z administratorem i poinformuj ich, że nie można dodać konta do uwierzytelnienia z powodu problemu z weryfikacją unikatowości. Musisz podać nazwę użytkownika logowania, aby administrator mógł wyszukać w organizacji.
 
 ### <a name="legacy-apns-support-deprecated"></a>Starsza obsługa usługi APNs jest przestarzała
 

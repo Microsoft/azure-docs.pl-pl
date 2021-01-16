@@ -4,12 +4,12 @@ description: Śledzenie problemów z funkcją automatycznego skalowania platform
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.subservice: autoscale
-ms.openlocfilehash: a29b5d11a6ea06af9d5b6a8b5120c6f0caa6601e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c4589acd17e76d1341d5aceada67e565c8f8c37
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979052"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251271"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Rozwiązywanie problemów z funkcją automatycznego skalowania platformy Azure
  
@@ -51,20 +51,20 @@ Przejrzyjmy metryki z usługi skalowania automatycznego.
 
 ![Przykład procesora CPU zestawu skalowania maszyn wirtualnych (%)](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-2.png)
 
-***Rysunek 1a-procentową metrykę procesora dla zestawu skalowania maszyn wirtualnych i zaobserwowana Metryka wartości metryki dla ustawienia skalowania automatycznego***
+**_Rysunek 1a-procentową metrykę procesora dla zestawu skalowania maszyn wirtualnych i zaobserwowana Metryka wartości metryki dla ustawienia automatycznego skalowania_*
 
 ![Próg metryki i zaobserwowana pojemność](media/autoscale-troubleshoot/autoscale-metric-threshold-capacity-ex-full.png)
 
-***Rysunek 1B — próg metryki i zaobserwowana pojemność***
+_*_Rysunek 1B — próg metryki i zaobserwowana pojemność_*_
 
-Na rysunku 1b **próg metryki** (jasnoniebieski wiersz) dla reguły skalowania w poziomie wynosi 70.  **Obserwowana pojemność** (ciemny niebieski wiersz) pokazuje liczbę aktywnych wystąpień, która jest obecnie 3. 
+Na rysunku 1b *próg metryki** (jasny niebieski wiersz) dla reguły skalowania w poziomie wynosi 70.  **Obserwowana pojemność** (ciemny niebieski wiersz) pokazuje liczbę aktywnych wystąpień, która jest obecnie 3. 
 
 > [!NOTE]
 > Aby wyświetlić próg skalowania w poziomie i regułę skalowania w poziomie (Zmniejsz), należy przefiltrować **próg metryki** przez regułę wyzwalacza skalowania w poziomie (zwiększenie). 
 
 ## <a name="example-2---advanced-autoscaling-for-a-virtual-machine-scale-set"></a>Przykład 2 — zaawansowane Skalowanie automatyczne dla zestawu skalowania maszyn wirtualnych
 
-Istnieje ustawienie automatycznego skalowania, które umożliwia skalowanie w poziomie zasobów zestawu skalowania maszyn wirtualnych w oparciu o własne **przepływy wychodzące**metryk. Zauważ, że zaznaczono opcję **Podziel metrykę według liczby wystąpień** dla progu metryki. 
+Istnieje ustawienie automatycznego skalowania, które umożliwia skalowanie w poziomie zasobów zestawu skalowania maszyn wirtualnych w oparciu o własne **przepływy wychodzące** metryk. Zauważ, że zaznaczono opcję **Podziel metrykę według liczby wystąpień** dla progu metryki. 
 
 Reguła akcji skalowania to: 
 
@@ -76,18 +76,18 @@ W takim przypadku wartość metryki obsługiwanego przez aparat automatycznego s
 
 ![Przykład wskaźników automatycznego skalowania dla zestawu skalowania maszyn wirtualnych](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-2.png)
 
-***Rysunek 2. przykład wskaźników automatycznego skalowania dla zestawu skalowania maszyn wirtualnych***
+**_Rysunek 2 — przykład wskaźników automatycznego skalowania dla zestawu skalowania maszyn wirtualnych_*
 
 Na rysunku 2 widoczne są dwa wykresy metryczne. 
 
-Wykres na górze pokazuje rzeczywistą wartość metryki **przepływy wychodzące** . Rzeczywista wartość to 6. 
+Wykres na górze pokazuje rzeczywistą wartość wartości _ *przepływy wychodzące** metryki. Rzeczywista wartość to 6. 
 
 Wykres u dołu pokazuje kilka wartości. 
  - **Obserwowana wartość metryki** (jasne niebieskie) to 3, ponieważ istnieją 2 aktywne wystąpienia, a 6 podzielone przez 2 to 3. 
  - **Obserwowana pojemność** (purpurowa) pokazuje liczbę wystąpień widzianą przez aparat skalowania automatycznego. 
  - **Próg metryki** (jasnozielony) jest ustawiony na wartość 10. 
 
-Jeśli istnieje wiele reguł akcji skalowania, można użyć dzielenia lub opcji **Dodaj filtr** na wykresie Eksploratora metryk, aby sprawdzić metrykę według określonego źródła lub zasady. Aby uzyskać więcej informacji na temat dzielenia wykresu metryki, zobacz [Zaawansowane funkcje wykresów metryk — dzielenie](metrics-charts.md#apply-splitting-to-a-chart)
+Jeśli istnieje wiele reguł akcji skalowania, można użyć dzielenia lub opcji **Dodaj filtr** na wykresie Eksploratora metryk, aby sprawdzić metrykę według określonego źródła lub zasady. Aby uzyskać więcej informacji na temat dzielenia wykresu metryki, zobacz [Zaawansowane funkcje wykresów metryk — dzielenie](metrics-charts.md#apply-splitting)
 
 ## <a name="example-3---understanding-autoscale-events"></a>Przykład 3 — Omówienie zdarzeń skalowania automatycznego
 

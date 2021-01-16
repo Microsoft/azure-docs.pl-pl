@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: a2a385b2be4e1005a7aabd76261b3190ecd2a506
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: af8d0300b533d9f25cddf225f4ffbe78ca6bf2cb
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684223"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249639"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Autoryzacja na platformie Kubernetes przy użyciu kontroli dostępu opartej na rolach platformy Azure (wersja zapoznawcza)
 
@@ -115,7 +115,7 @@ AKS udostępnia następujące cztery wbudowane role:
 
 | Rola                                | Opis  |
 |-------------------------------------|--------------|
-| Przeglądarka RBAC usługi Azure Kubernetes Service  | Zezwala na dostęp tylko do odczytu do wyświetlania większości obiektów w przestrzeni nazw. Nie zezwala na wyświetlanie ról ani powiązań ról. Ta rola nie zezwala na przeglądanie `Secrets` , ponieważ odczytywanie zawartości wpisów tajnych umożliwia dostęp do poświadczeń usługi ServiceAccount w przestrzeni nazw, co umożliwia dostęp do interfejsu API jako dowolne ServiceAccount w przestrzeni nazw (w formie eskalacji uprawnień).  |
+| Czytnik RBAC usługi Azure Kubernetes Service  | Zezwala na dostęp tylko do odczytu do wyświetlania większości obiektów w przestrzeni nazw. Nie zezwala na wyświetlanie ról ani powiązań ról. Ta rola nie zezwala na przeglądanie `Secrets` , ponieważ odczytywanie zawartości wpisów tajnych umożliwia dostęp do poświadczeń usługi ServiceAccount w przestrzeni nazw, co umożliwia dostęp do interfejsu API jako dowolne ServiceAccount w przestrzeni nazw (w formie eskalacji uprawnień).  |
 | Składnik zapisywania RBAC usługi Azure Kubernetes Service | Zezwala na dostęp do odczytu/zapisu do większości obiektów w przestrzeni nazw. Ta rola nie zezwala na przeglądanie ani modyfikowanie ról ani powiązań ról. Jednak ta rola pozwala uzyskać dostęp do `Secrets` i uruchamiać zasobniki jako dowolne ServiceAccount w przestrzeni nazw, dzięki czemu można je wykorzystać do uzyskania poziomów dostępu interfejsu API dowolnego konta ServiceAccount w przestrzeni nazw. |
 | Administrator RBAC usługi Azure Kubernetes Service  | Zezwala na dostęp administratora, który ma być przyznany w przestrzeni nazw. Zezwala na dostęp do odczytu/zapisu do większości zasobów w przestrzeni nazw (lub zakresie klastra), w tym możliwość tworzenia ról i powiązań ról w przestrzeni nazw. Ta rola nie zezwala na dostęp do zapisu do przydziału zasobów ani do samego obszaru nazw. |
 | Administrator klastra RBAC usługi Azure Kubernetes Service  | Zezwala na dostęp administratora do wykonywania dowolnych akcji względem dowolnego zasobu. Zapewnia pełną kontrolę nad każdym zasobem w klastrze i we wszystkich przestrzeniach nazw. |

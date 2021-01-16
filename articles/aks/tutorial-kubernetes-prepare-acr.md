@@ -3,14 +3,14 @@ title: Samouczek dotyczący usługi Kubernetes na platformie Azure — tworzenie
 description: W tym samouczku dotyczącym usługi Azure Kubernetes Service (AKS) utworzysz wystąpienie usługi Azure Container Registry i przekażesz przykładowy obraz kontenera aplikacji.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/12/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: b0f78c3969f3d02c19824fdb6d1e3b786dceb43c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: d1dce1c59c4bf40eaead89e4a8a088e9a8ea4f76
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747074"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250625"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Samouczek: wdrażanie usługi Azure Container Registry i korzystanie z niej
 
@@ -22,9 +22,9 @@ Usługa Azure Container Registry (ACR) to prywatny rejestr obrazów kontenera. P
 > * Przekazywanie obrazu do usługi ACR
 > * Wyświetlanie obrazów w rejestrze
 
-W dodatkowych samouczkach to wystąpienie usługi ACR zostanie zintegrowane z klastrem Kubernetes w usłudze AKS, a aplikacja zostanie wdrożona na podstawie obrazu.
+W kolejnych samouczkach to wystąpienie ACR jest zintegrowane z klastrem Kubernetes w AKS, a aplikacja jest wdrażana z obrazu.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W [poprzednim samouczku ][aks-tutorial-prepare-app] utworzono obraz kontenera na potrzeby prostej aplikacji do głosowania platformy Azure. Jeśli obraz aplikacji do głosowania platformy Azure nie został utworzony, wróć do artykułu [Samouczek 1 — Tworzenie obrazów kontenerów][aks-tutorial-prepare-app].
 
@@ -34,7 +34,7 @@ Ten samouczek wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.5
 
 Aby utworzyć rejestr Azure Container Registry, należy najpierw mieć grupę zasobów. Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi.
 
-Utwórz grupę zasobów za pomocą polecenia [az group create][az-group-create]. W poniższym przykładzie grupa zasobów o nazwie *myResourceGroup* zostanie utworzona w regionie *eastus* :
+Utwórz grupę zasobów za pomocą polecenia [az group create][az-group-create]. W poniższym przykładzie grupa zasobów o nazwie *myResourceGroup* zostanie utworzona w regionie *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -60,12 +60,12 @@ Polecenie zwraca komunikat o *pomyślnym zalogowaniu* po zakończeniu.
 
 Aby wyświetlić listę bieżących obrazów lokalnych, użyj polecenia [docker images][docker-images]:
 
-```azurecli
+```console
 $ docker images
 ```
-Powyższe dane wyjściowe polecenia pokazują listę bieżących obrazów lokalnych:
+Dane wyjściowe powyższego polecenia pokazują listę bieżących obrazów lokalnych:
 
-```
+```output
 REPOSITORY                                     TAG                 IMAGE ID            CREATED             SIZE
 mcr.microsoft.com/azuredocs/azure-vote-front   v1                  84b41c268ad9        7 minutes ago       944MB
 mcr.microsoft.com/oss/bitnami/redis            6.0.8               3a54a920bb6c        2 days ago          103MB
@@ -122,7 +122,7 @@ az acr repository list --name <acrName> --output table
 
 Poniższe przykładowe dane wyjściowe wyświetlają obraz *azure-vote-front* jako dostępny w rejestrze:
 
-```
+```output
 Result
 ----------------
 azure-vote-front
@@ -136,7 +136,7 @@ az acr repository show-tags --name <acrName> --repository azure-vote-front --out
 
 Poniższe przykładowe dane wyjściowe przedstawiają obraz *v1* otagowany w poprzednim kroku:
 
-```
+```output
 Result
 --------
 v1

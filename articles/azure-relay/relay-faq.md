@@ -3,12 +3,12 @@ title: Azure Relay często zadawane pytania | Microsoft Docs
 description: Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytania dotyczące usługi Azure Relay.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 77d3122942289654c0f651f9f648307123b23546
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 83cbc4b02bb8b63878abd046ed2314728546e87a
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131852"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250059"
 ---
 # <a name="azure-relay-faqs"></a>Azure Relay często zadawane pytania
 
@@ -70,7 +70,7 @@ Przekaźniki otwierane przy użyciu powiązania WCF **netTCPRelay** traktują ko
 ## <a name="quotas"></a>Przydziały
 | Nazwa przydziału | Zakres |  Uwagi | Wartość |
 | --- | --- | --- | --- |
-| Współbieżne detektory w przekaźniku |Jednostka |Kolejne żądania dla dodatkowych połączeń są odrzucane i występuje wyjątek przez wywoływany kod. |25 |
+| Współbieżne detektory w przekaźniku |Jednostka (połączenie hybrydowe lub przekaźnik WCF) |Kolejne żądania dla dodatkowych połączeń są odrzucane i występuje wyjątek przez wywoływany kod. |25 |
 | Współbieżne połączenia przekaźnikowe na wszystkie punkty końcowe przekaźnika w przestrzeni nazw usługi |Przestrzeń nazw |- |5000 |
 | Punkty końcowe przekaźnika na przestrzeń nazw usługi |Przestrzeń nazw |- |10 000 |
 | Rozmiar komunikatu dla przekaźników [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) i [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) |Przestrzeń nazw |Komunikaty przychodzące, które przekraczają te przydziały, są odrzucane i występuje wyjątek przez wywoływany kod. |64 KB |

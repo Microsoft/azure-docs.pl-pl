@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: feda969a5818402f4a5f2dadc80c70c324ad7492
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: eafa2187308c0324b85596ce25e8310fd8506a97
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559968"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249606"
 ---
 # <a name="tutorial-scan-data-with-azure-purview-preview"></a>Samouczek: skanowanie danych za pomocą usługi Azure kontrolą (wersja zapoznawcza)
 
@@ -189,6 +189,8 @@ Tożsamość zarządzana o tej samej nazwie, co konto usługi Azure kontrolą, j
 1. Powtórz poprzednie kroki dla Azure Data Lake Storage Gen2.
 
 ### <a name="scan-your-data-sources"></a>Skanuj źródła danych
+
+1. Przejdź do zasobu usługi Azure kontrolą w [Azure Portal](https://portal.azure.com) i wybierz pozycję *Otwórz kontrolą Studio*. Nastąpi automatyczne przekierowanie do strony głównej programu kontrolą Studio.
 
 1. Wybierz pozycję **źródła** na stronie sieci Web wykazu, a następnie wybierz pozycję **zarejestruj**. Następnie wybierz pozycję **Azure Blob Storage** i **Kontynuuj**.
 

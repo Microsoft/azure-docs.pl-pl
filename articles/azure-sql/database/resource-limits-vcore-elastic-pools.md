@@ -10,13 +10,13 @@ ms.topic: reference
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 10/15/2020
-ms.openlocfilehash: e706f64a7caab6873a3eec86505eaee11374ae2c
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.date: 01/15/2021
+ms.openlocfilehash: 2daa07315be85e1fcd543480cd30a57c118d8547
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882314"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251492"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Limity zasobów dla pul elastycznych przy użyciu modelu zakupu rdzeń wirtualny
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -235,6 +235,39 @@ Za pomocą [Azure Portal](elastic-pool-manage.md#azure-portal), [programu PowerS
 
 <sup>3</sup> w przypadku maksymalnych współbieżnych procesów roboczych (żądań) dla każdej pojedynczej bazy danych zobacz [limity zasobów pojedynczej bazy danych](resource-limits-vcore-single-databases.md). Na przykład, jeśli Pula elastyczna korzysta z 5 rdzeń, a maksymalna rdzeń wirtualny na bazę danych jest ustawiona na 2, wartość maksymalna liczba współbieżnych procesów roboczych to 200.  Jeśli wartość maksymalna rdzeń wirtualny na bazę danych jest równa 0,5, Maksymalna liczba współbieżnych procesów roboczych wynosi 50, ponieważ na 5 rdzeń istnieje maksymalnie 100 współbieżnych procesów roboczych na rdzeń wirtualny. W przypadku innych maksymalnych ustawień rdzeń wirtualny dla bazy danych, które mają mniej niż 1 rdzeń wirtualny lub mniej, Maksymalna liczba współbieżnych procesów roboczych jest w podobnym stopniu skalowana.
 
+
+## <a name="general-purpose---provisioned-compute---dc-series"></a>Przeznaczenie ogólne — obsługa administracyjna — Seria DC
+
+|Rozmiar obliczeń (cel usługi)|GP_DC_2|GP_DC_4|GP_DC_6|GP_DC_8|
+|:--- | --: |--: |--: |--: |
+|Generowanie obliczeń|DC|DC|DC|DC|
+|Rdzeni wirtualnych|2|4|6|8|
+|Pamięć (GB)|9|18|27|36|
+|Maksymalna liczba baz danych na pulę <sup>1</sup>|100|400|400|400|
+|Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|
+|Magazyn OLTP w pamięci (GB)|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
+|Maksymalny rozmiar danych (GB)|756|1536|2048|2048|
+|Maksymalny rozmiar dziennika (GB)|227|461|614|614|
+|Maksymalny rozmiar danych TempDB (GB)|64|128|192|256|
+|Typ magazynu|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|
+|Opóźnienie we/wy (przybliżone)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|
+|Maksymalna liczba operacji we/wy danych na pulę <sup>2</sup>|800|1600|2400|3200|
+|Maksymalna szybkość rejestrowania na pulę (MB/s)|9,4|18,8|28,1|32,8|
+|Maksymalna liczba współbieżnych procesów roboczych na pulę (żądania) <sup>3</sup>|168|336|504|672|
+|Maksymalna liczba współbieżnych logowań na pulę (żądania) <sup>3</sup>|168|336|504|672|
+|Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|
+|Minimalna/Maksymalna liczba opcji rdzeń wirtualny puli elastycznej na bazę danych|2|2... 4|2... 6|2... 8|
+|Liczba replik|1|1|1|1|
+|Wiele-AZ|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
+|Skalowanie w górę odczytu|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
+|Uwzględniony magazyn kopii zapasowych|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|
+
+<sup>1</sup> zobacz [Zarządzanie zasobami w gęstych pulach elastycznych](elastic-pool-resource-management.md) , aby uzyskać dodatkowe uwagi.
+
+<sup>2</sup> maksymalna wartość dla wielkości we/wy z zakresu od 8 kb do 64 KB. Rzeczywiste operacje we/wy są zależne od obciążenia. Aby uzyskać szczegółowe informacje, zobacz [Zarządzanie we/wy danych](resource-limits-logical-server.md#resource-governance).
+
+<sup>3</sup> w przypadku maksymalnych współbieżnych procesów roboczych (żądań) dla każdej pojedynczej bazy danych zobacz [limity zasobów pojedynczej bazy danych](resource-limits-vcore-single-databases.md). Na przykład, jeśli Pula elastyczna korzysta z 5 rdzeń, a maksymalna rdzeń wirtualny na bazę danych jest ustawiona na 2, wartość maksymalna liczba współbieżnych procesów roboczych to 200.  Jeśli wartość maksymalna rdzeń wirtualny na bazę danych jest równa 0,5, Maksymalna liczba współbieżnych procesów roboczych wynosi 50, ponieważ na 5 rdzeń istnieje maksymalnie 100 współbieżnych procesów roboczych na rdzeń wirtualny. W przypadku innych maksymalnych ustawień rdzeń wirtualny dla bazy danych, które mają mniej niż 1 rdzeń wirtualny lub mniej, Maksymalna liczba współbieżnych procesów roboczych jest w podobnym stopniu skalowana.
+
 ## <a name="business-critical---provisioned-compute---gen4"></a>Obliczenia o krytycznym znaczeniu dla firmy — obliczenia
 
 > [!IMPORTANT]
@@ -406,8 +439,6 @@ Za pomocą [Azure Portal](elastic-pool-manage.md#azure-portal), [programu PowerS
 
 Jeśli wszystkie rdzeni wirtualnych puli elastycznej są zajęte, każda baza danych w puli otrzymuje taką samą ilość zasobów obliczeniowych, aby przetwarzać zapytania. Azure SQL Database zapewnia sprawiedliwe udostępnianie zasobów między bazami danych przez zapewnienie równości wycinków czasu obliczeniowego. Sprawiedliwa współużytkowanie zasobów puli elastycznej jest uzupełnieniem dowolnej ilości zasobów, w przeciwnym razie zagwarantowane dla każdej bazy danych, gdy wartość rdzeń wirtualny min na bazę danych jest ustawiona na inną niż zero.
 
-
-
 ### <a name="m-series-compute-generation-part-2"></a>Generowanie obliczeń serii M (część 2)
 
 |Rozmiar obliczeń (cel usługi)|BC_M_20|BC_M_24|BC_M_32|BC_M_64|BC_M_128|
@@ -441,6 +472,37 @@ Jeśli wszystkie rdzeni wirtualnych puli elastycznej są zajęte, każda baza da
 
 Jeśli wszystkie rdzeni wirtualnych puli elastycznej są zajęte, każda baza danych w puli otrzymuje taką samą ilość zasobów obliczeniowych, aby przetwarzać zapytania. Azure SQL Database zapewnia sprawiedliwe udostępnianie zasobów między bazami danych przez zapewnienie równości wycinków czasu obliczeniowego. Sprawiedliwa współużytkowanie zasobów puli elastycznej jest uzupełnieniem dowolnej ilości zasobów, w przeciwnym razie zagwarantowane dla każdej bazy danych, gdy wartość rdzeń wirtualny min na bazę danych jest ustawiona na inną niż zero.
 
+## <a name="business-critical---provisioned-compute---dc-series"></a>Krytyczne dla działalności biznesowe — seria z obsługą administracyjną
+
+|Rozmiar obliczeń (cel usługi)|BC_DC_2|BC_DC_4|BC_DC_6|BC_DC_8|
+|:--- | --: |--: |--: |--: |
+|Generowanie obliczeń|DC|DC|DC|DC|
+|Rdzeni wirtualnych|2|4|6|8|
+|Pamięć (GB)|9|18|27|36|
+|Maksymalna liczba baz danych na pulę <sup>1</sup>|50|100|100|100|
+|Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|
+|Magazyn OLTP w pamięci (GB)|1,7|3.7|5.9|8.2|
+|Maksymalny rozmiar danych (GB)|768|768|768|768|
+|Maksymalny rozmiar dziennika (GB)|230|230|230|230|
+|Maksymalny rozmiar danych TempDB (GB)|64|128|192|256|
+|Typ magazynu|Lokalny dysk SSD|Lokalny dysk SSD|Lokalny dysk SSD|Lokalny dysk SSD|
+|Opóźnienie we/wy (przybliżone)|1-2 ms (zapis)<br>1-2 ms (odczyt)|1-2 ms (zapis)<br>1-2 ms (odczyt)|1-2 ms (zapis)<br>1-2 ms (odczyt)|1-2 ms (zapis)<br>1-2 ms (odczyt)|
+|Maksymalna liczba operacji we/wy danych na pulę <sup>2</sup>|15750|31500|47250|56000|
+|Maksymalna szybkość rejestrowania na pulę (MB/s)|20|60|90|120|
+|Maksymalna liczba współbieżnych procesów roboczych na pulę (żądania) <sup>3</sup>|168|336|504|672|
+|Maksymalna liczba współbieżnych logowań na pulę (żądania) <sup>3</sup>|168|336|504|672|
+|Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|
+|Minimalna/Maksymalna liczba opcji rdzeń wirtualny puli elastycznej na bazę danych|2|2... 4|2... 6|2... 8|
+|Liczba replik|4|4|4|4|
+|Wiele-AZ|Nie|Nie|Nie|Nie|
+|Skalowanie w górę odczytu|Tak|Tak|Tak|Tak|
+|Uwzględniony magazyn kopii zapasowych|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|
+
+<sup>1</sup> zobacz [Zarządzanie zasobami w gęstych pulach elastycznych](elastic-pool-resource-management.md) , aby uzyskać dodatkowe uwagi.
+
+<sup>2</sup> maksymalna wartość dla wielkości we/wy z zakresu od 8 kb do 64 KB. Rzeczywiste operacje we/wy są zależne od obciążenia. Aby uzyskać szczegółowe informacje, zobacz [Zarządzanie we/wy danych](resource-limits-logical-server.md#resource-governance).
+
+<sup>3</sup> w przypadku maksymalnych współbieżnych procesów roboczych (żądań) dla każdej pojedynczej bazy danych zobacz [limity zasobów pojedynczej bazy danych](resource-limits-vcore-single-databases.md). Na przykład, jeśli Pula elastyczna korzysta z 5 rdzeń, a maksymalna rdzeń wirtualny na bazę danych jest ustawiona na 2, wartość maksymalna liczba współbieżnych procesów roboczych to 200.  Jeśli wartość maksymalna rdzeń wirtualny na bazę danych jest równa 0,5, Maksymalna liczba współbieżnych procesów roboczych wynosi 50, ponieważ na 5 rdzeń istnieje maksymalnie 100 współbieżnych procesów roboczych na rdzeń wirtualny. W przypadku innych maksymalnych ustawień rdzeń wirtualny dla bazy danych, które mają mniej niż 1 rdzeń wirtualny lub mniej, Maksymalna liczba współbieżnych procesów roboczych jest w podobnym stopniu skalowana.
 
 ## <a name="database-properties-for-pooled-databases"></a>Właściwości bazy danych w puli
 

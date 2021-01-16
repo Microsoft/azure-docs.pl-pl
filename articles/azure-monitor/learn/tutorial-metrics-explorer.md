@@ -6,12 +6,12 @@ ms.author: bwren
 ms.subservice: metrics
 ms.topic: tutorial
 ms.date: 03/09/2020
-ms.openlocfilehash: 5dcb86ff4af2a68ecf0bb361e6da4f788ea32b62
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 121de67ddb251e7431873c76e379eb223ceacd0d
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881297"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250676"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>Samouczek: Tworzenie wykresu metryk w Azure Monitor
 Eksplorator metryk jest funkcją Azure Monitor w Azure Portal, która umożliwia tworzenie wykresów z wartości metryk, wizualnie skorelowanych trendów oraz badanie skoków i wartości w metrykach. Użyj Eksploratora metryk, aby zbadać kondycję i wykorzystanie zasobów platformy Azure lub wykresy z metryk niestandardowych. 
@@ -70,20 +70,20 @@ Użyj **pędzla czasu** , aby zbadać interesujący obszar wykresu, taki jak sko
 ## <a name="apply-dimension-filters-and-splitting"></a>Zastosuj filtry i podziały wymiarów
 Zapoznaj się z następującymi odwołaniami do zaawansowanych funkcji, które umożliwiają wykonywanie dodatkowej analizy metryk i Identyfikowanie potencjalnych wartości odstających danych.
 
-- [Filtrowanie](../platform/metrics-charts.md#apply-filters-to-charts) umożliwia wybranie wartości wymiarów uwzględnionych na wykresie. Na przykład może być konieczne wyświetlenie tylko pomyślnych żądań podczas wykresów metryki *czas odpowiedzi serwera* . 
+- [Filtrowanie](../platform/metrics-charts.md#filters) umożliwia wybranie wartości wymiarów uwzględnionych na wykresie. Na przykład może być konieczne wyświetlenie tylko pomyślnych żądań podczas wykresów metryki *czas odpowiedzi serwera* . 
 
-- [Podział](../platform/metrics-charts.md#apply-splitting-to-a-chart) kontroluje, czy wykres wyświetla osobne wiersze dla każdej wartości wymiaru, czy agreguje wartości w jednym wierszu. Na przykład, możesz chcieć zobaczyć jeden wiersz dla średniego czasu odpowiedzi dla wszystkich wystąpień serwera lub można potrzebować oddzielnych wierszy dla każdego serwera. 
+- [Podział](../platform/metrics-charts.md#apply-splitting) kontroluje, czy wykres wyświetla osobne wiersze dla każdej wartości wymiaru, czy agreguje wartości w jednym wierszu. Na przykład, możesz chcieć zobaczyć jeden wiersz dla średniego czasu odpowiedzi dla wszystkich wystąpień serwera lub można potrzebować oddzielnych wierszy dla każdego serwera. 
 
 Zobacz [przykłady wykresów](../platform/metric-chart-samples.md) z zastosowanym filtrowaniem i podziałem.
 
 ## <a name="advanced-chart-settings"></a>Zaawansowane ustawienia wykresu
 
-Można dostosować styl wykresu, tytuł i zmodyfikować zaawansowane ustawienia wykresu. Po zakończeniu dostosowywania przypnij go do pulpitu nawigacyjnego, aby zapisać swoją służbę. Alerty metryk można również konfigurować. Zobacz [Zaawansowane funkcje usługi Azure Eksplorator metryk](../platform/metrics-charts.md#lock-boundaries-of-chart-y-axis) , aby dowiedzieć się więcej o tych i innych zaawansowanych funkcjach Azure monitor Eksploratorze metryk.
+Można dostosować styl wykresu, tytuł i zmodyfikować zaawansowane ustawienia wykresu. Po zakończeniu dostosowywania przypnij go do pulpitu nawigacyjnego, aby zapisać swoją służbę. Alerty metryk można również konfigurować. Zobacz [Zaawansowane funkcje usługi Azure Eksplorator metryk](../platform/metrics-charts.md#locking the-range-of-the-y-axis) , aby dowiedzieć się więcej o tych i innych zaawansowanych funkcjach Azure monitor Eksploratorze metryk.
 
 
 ## <a name="next-steps"></a>Następne kroki
 Teraz, gdy wiesz już, jak korzystać z metryk w Azure Monitor, Dowiedz się, jak wysyłać aktywne alerty przy użyciu metryk.
 
 > [!div class="nextstepaction"]
-> [Tworzenie i wyświetlanie alertów metryk oraz zarządzanie nimi w usłudze Azure Monitor](../platform/metrics-charts.md#create-alert-rules)
+> [Tworzenie i wyświetlanie alertów metryk oraz zarządzanie nimi w usłudze Azure Monitor](../platform/metrics-charts.md#alert-rules)
 

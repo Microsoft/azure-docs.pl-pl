@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/14/2020
-ms.openlocfilehash: 1b3804029a4174698ed1e4e4f8d75fbed4fba981
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 3f55e2a7d62d2f32173d382dc9be0d6eb4f83fae
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102816"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249758"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Szybki start: Tworzenie usługi Azure Cognitive Search w portalu
 
@@ -30,7 +30,7 @@ Preferujesz program PowerShell? Użyj [szablonu usługi](https://azure.microsoft
 Następujące właściwości usługi są rozwiązane w okresie istnienia usługi — zmiana któregokolwiek z nich wymaga nowej usługi. Ze względu na to, że są stałe, należy wziąć pod uwagę skutki użycia podczas wypełniania każdej właściwości:
 
 * Nazwa usługi jest częścią punktu końcowego adresu URL ([Przejrzyj wskazówki](#name-the-service) dotyczące przydatnych nazw usług).
-* Warstwa usługi [ma wpływ na rozliczenia](search-sku-tier.md) i ustawia limit w górę dla pojemności. Niektóre funkcje nie są dostępne w warstwie Bezpłatna.
+* [Warstwa usługi](search-sku-tier.md) ma wpływ na rozliczenia i ustawia limit w górę dla pojemności. Niektóre funkcje nie są dostępne w warstwie Bezpłatna.
 * Region usługi może ustalić dostępność niektórych scenariuszy. Jeśli potrzebujesz [wysokich funkcji zabezpieczeń](search-security-overview.md) lub [wzbogacania AI](cognitive-search-concept-intro.md), musisz umieścić wyszukiwanie poznawcze platformy Azure w tym samym regionie co inne usługi lub w regionach, które udostępniają daną funkcję. 
 
 ## <a name="subscribe-free-or-paid"></a>Subskrypcja (bezpłatna lub płatna)
@@ -59,11 +59,11 @@ Grupa zasobów to kontener, który zawiera powiązane zasoby dla rozwiązania pl
 
 Jeśli zasoby nie są łączone w pojedynczą grupę, a istniejące grupy zasobów są wypełniane zasobami używanymi w niepowiązanych rozwiązaniach, Utwórz nową grupę zasobów tylko dla zasobu usługi Azure Wyszukiwanie poznawcze. 
 
-:::image type="content" source="media/search-create-service-portal/new-resource-group.png" alt-text="Tworzenie zasobu w portalu" border="false":::
+:::image type="content" source="media/search-create-service-portal/new-resource-group.png" alt-text="Tworzenie nowej grupy zasobów" border="false":::
 
 W miarę upływu czasu można śledzić bieżące i przewidywane koszty, a także wyświetlać opłaty dla poszczególnych zasobów. Poniższy zrzut ekranu przedstawia rodzaj informacji o kosztach, które można zobaczyć w przypadku łączenia wielu zasobów w jedną grupę.
 
-:::image type="content" source="media/search-create-service-portal/resource-group-cost-management.png" alt-text="Tworzenie zasobu w portalu" border="false":::
+:::image type="content" source="media/search-create-service-portal/resource-group-cost-management.png" alt-text="Zarządzanie kosztami na poziomie grupy zasobów" border="false":::
 
 > [!TIP]
 > Grupy zasobów upraszczają czyszczenie, ponieważ usunięcie grupy powoduje usunięcie wszystkich znajdujących się w niej usług. Umieszczenie w tej samej grupie zasobów wszystkich projektów będących prototypami korzystającymi z wielu usług ułatwia proces czyszczenia po zakończeniu projektu.
@@ -114,11 +114,11 @@ Pamiętaj, że po utworzeniu usługi nie można zmienić warstwy cenowej. Jeśli
 
 Po podaniu niezbędnych danych wejściowych przejdź dalej i Utwórz usługę. 
 
-:::image type="content" source="media/search-create-service-portal/new-service3.png" alt-text="Tworzenie zasobu w portalu" border="false":::
+:::image type="content" source="media/search-create-service-portal/new-service3.png" alt-text="Przeglądanie i tworzenie usługi" border="false":::
 
 Twoja usługa zostanie wdrożona w ciągu kilku minut. Możesz monitorować postęp za pomocą powiadomień platformy Azure. Rozważ możliwość przypięcia usługi do pulpitu nawigacyjnego w celu ułatwienia dostępu w przyszłości.
 
-:::image type="content" source="media/search-create-service-portal/monitor-notifications.png" alt-text="Tworzenie zasobu w portalu" border="false":::
+:::image type="content" source="media/search-create-service-portal/monitor-notifications.png" alt-text="Monitorowanie i Przypinanie usługi" border="false":::
 
 ## <a name="get-a-key-and-url-endpoint"></a>Pobieranie klucza i punktu końcowego adresu URL
 
@@ -128,7 +128,7 @@ Jeśli nie korzystasz z portalu, dostęp programistyczny do nowej usługi wymaga
 
 2. Na stronie **klucze** Skopiuj jeden z kluczy administratora (są one równoważne). Klucze interfejsu API administratora są wymagane do tworzenia, aktualizowania i usuwania obiektów w usłudze. Z kolei klucze zapytań zapewniają dostęp do odczytu do zawartości indeksu.
 
-   :::image type="content" source="media/search-create-service-portal/get-url-key.png" alt-text="Tworzenie zasobu w portalu" border="false":::
+   :::image type="content" source="media/search-create-service-portal/get-url-key.png" alt-text="Strona przeglądu usługi z punktem końcowym adresu URL" border="false":::
 
 Klucz i punkt końcowy nie są wymagane do zadań wykonywanych w portalu. Portal jest już połączony z zasobem usługi Azure Wyszukiwanie poznawcze z uprawnieniami administratora. Przewodnik po samouczku można rozpocząć od [przewodnika Szybki Start: Tworzenie indeksu wyszukiwanie poznawcze platformy Azure w portalu](search-get-started-portal.md).
 
@@ -136,9 +136,9 @@ Klucz i punkt końcowy nie są wymagane do zadań wykonywanych w portalu. Portal
 
 Po aprowizacji usługi można ją skalować stosownie do potrzeb. W przypadku wybrania warstwy Standardowa usługi Azure Wyszukiwanie poznawcze można skalować usługę w dwóch wymiarach: Replicas i partitions. Wybór warstwy podstawowej oznaczałby, że można dodawać wyłącznie repliki. W razie aprowizacji bezpłatnej usługi skalowanie nie jest dostępne.
 
-***Partycje*** umożliwiają usłudze przechowywanie i przeszukiwanie większej liczby dokumentów.
+**_Partycje_* _ pozwalają usłudze na przechowywanie i wyszukiwanie więcej dokumentów.
 
-***Repliki*** umożliwiają usłudze obsługę większego obciążenia zapytaniami wyszukiwania.
+_*_Repliki_*_ umożliwiają usłudze obsługę wyższego obciążenia zapytań wyszukiwania.
 
 Dodawanie zasobów wiąże się z dodaniem opłat do rachunku miesięcznego. [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/) pomaga w określeniu, jaki wpływ na rozliczenia będzie miało dodanie zasobów. Pamiętaj, że możesz też dostosowywać zasoby do obciążenia. Możesz na przykład zwiększyć ilość zasobów na czas początkowego tworzenia pełnego indeksu, a następnie zmniejszyć ją do poziomu dostosowanego do potrzeb indeksowania przyrostowego.
 
@@ -146,10 +146,10 @@ Dodawanie zasobów wiąże się z dodaniem opłat do rachunku miesięcznego. [Ka
 > Usługa musi mieć [2 repliki w ramach umowy SLA tylko do odczytu oraz 3 repliki w ramach umowy SLA do odczytu/zapisu](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 1. Przejdź do strony usługi wyszukiwania w witrynie Azure Portal.
-2. W okienku nawigacji po lewej stronie wybierz pozycję **Ustawienia**  >  **Skala**.
+2. W okienku nawigacji po lewej stronie wybierz pozycję _ *Ustawienia** > **skalowanie**.
 3. Użyj suwaka, aby dodać zasoby wybranego typu.
 
-:::image type="content" source="media/search-create-service-portal/settings-scale.png" alt-text="Tworzenie zasobu w portalu" border="false":::
+:::image type="content" source="media/search-create-service-portal/settings-scale.png" alt-text="Dodawanie pojemności przy użyciu replik i partycji" border="false":::
 
 > [!Note]
 > Magazyn na partycję i szybkość zwiększają się o wyższe warstwy. Aby uzyskać więcej informacji, zobacz [pojemność i limity](search-limits-quotas-capacity.md).

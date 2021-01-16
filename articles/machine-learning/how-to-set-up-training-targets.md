@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: ec4917aa378f746eb2caac6a7b4ce99d1c44db90
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 55e618a7e4e0d21f6d4afab270e257c26fa15634
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127655"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251118"
 ---
 # <a name="configure-and-submit-training-runs"></a>Konfigurowanie i przesyłanie przebiegów trenowania
 
@@ -75,6 +75,9 @@ experiment = Experiment(workspace=ws, name=experiment_name)
 Wybierz miejsce docelowe obliczeń, w którym będzie uruchamiany skrypt szkoleniowy. Jeśli w ScriptRunConfig nie określono elementu docelowego obliczeń, lub jeśli `compute_target='local'` platforma Azure ml wykona skrypt lokalnie. 
 
 W przykładowym kodzie w tym artykule przyjęto założenie, że obiekt docelowy obliczeń został już utworzony `my_compute_target` z sekcji "wymagania wstępne".
+
+>[!Note]
+>Azure Databricks nie jest obsługiwane jako element docelowy obliczeń dla szkolenia modeli. Azure Databricks służy do przygotowywania i wdrażania danych. 
 
 ## <a name="create-an-environment"></a>Tworzenie środowiska
 [Środowiska](concept-environments.md) Azure Machine Learning są hermetyzacją środowiska, w którym odbywa się szkolenie uczenia maszynowego. Określają one pakiety języka Python, obraz platformy Docker, zmienne środowiskowe i ustawienia oprogramowania wokół skryptów szkoleń i oceniania. Określają one również środowiska uruchomieniowe (Python, Spark lub Docker).
