@@ -5,26 +5,18 @@ ms.author: mikben
 ms.date: 10/10/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: c72083f205fae77de366125e666cee479fd46805
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: dbba87be839d7f172d42827698a8e485c2edddd8
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97691970"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256385"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Działająca [aplikacja wywołująca usługi komunikacyjne](../getting-started-with-calling.md).
 - [Wdrożenie zespołów](/deployoffice/teams-install).
 
-## <a name="enable-teams-interoperability"></a>Włącz współdziałanie zespołów
-
-Funkcja współdziałania zespołów jest obecnie w prywatnej wersji zapoznawczej. Aby włączyć tę funkcję dla zasobu usług komunikacyjnych, Wyślij wiadomość e-mail [acsfeedback@microsoft.com](mailto:acsfeedback@microsoft.com) na adres:
-
-1. Identyfikator subskrypcji subskrypcji platformy Azure, która zawiera zasób usług komunikacyjnych.
-2. Identyfikator dzierżawy zespołu. Najprostszym sposobem uzyskania takiego dostępu jest [uzyskanie i udostępnienie linku do zespołu](https://support.microsoft.com/office/create-a-link-or-a-code-for-joining-a-team-11b0de3b-9288-4cb4-bc49-795e7028296f).
-
-Aby korzystać z tej funkcji, użytkownik musi być członkiem organizacji będącej właścicielem.
 
 ## <a name="add-the-teams-ui-controls"></a>Dodawanie formantów interfejsu użytkownika zespołów
 

@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.subservice: metrics
-ms.openlocfilehash: 79728e53c1d53a8a4463fc0bd1ddee5db89fc013
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 1d83ef07714e0ce69f01aa240cc3058195c7b1af
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234806"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251985"
 ---
 # <a name="azure-monitor-metrics-metrics-aggregation-and-display-explained"></a>Azure Monitor agregowania metryk metryk i wyświetlenia
 
@@ -125,7 +125,7 @@ Użycie funkcji filtrowania pozwala wyczyścić wykres, aby zobaczyć, co napraw
 
 :::image type="content" source="media/metrics-aggregation-explained/split-filter-total-disk write-bytes-all-VMs.png" alt-text="Zrzut ekranu przedstawiający Bajty zapisu dysku dla wszystkich maszyn wirtualnych w hotelach contoso grupy zasobów podzielone i filtrowane według nazwy maszyny wirtualnej" border="true" lightbox="media/metrics-aggregation-explained/split-filter-total-disk write-bytes-all-VMs.png":::
 
-Aby uzyskać więcej informacji na temat sposobu wyświetlania danych z podziałem wymiarów na wykresie Eksploratora metryk, zobacz [Zaawansowane funkcje Eksploratora metryk — filtry i dzielenie](metrics-charts.md#apply-filters-to-charts).
+Aby uzyskać więcej informacji na temat sposobu wyświetlania danych z podziałem wymiarów na wykresie Eksploratora metryk, zobacz [Zaawansowane funkcje Eksploratora metryk — filtry i dzielenie](metrics-charts.md#filters).
 
 ### <a name="null-and-zero-values"></a>Wartości NULL i zero
 

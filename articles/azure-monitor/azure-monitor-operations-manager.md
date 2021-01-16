@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2021
-ms.openlocfilehash: 85172e2430a3e65edb0c5ec119c920e2c7d20217
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 877251ba7e0c1f3c33cab37e20d609479b69520c
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234857"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251832"
 ---
 # <a name="azure-monitor-for-existing-operations-manager-customers"></a>Azure Monitor istniejących Operations Manager klientów
 Ten artykuł zawiera wskazówki dla klientów, którzy obecnie używają [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/welcome) i planowania przejścia do [Azure monitor](overview.md) podczas migrowania aplikacji firmowych i innych zasobów na platformę Azure. Przyjęto założenie, że ostatecznym celem jest pełne przejście do chmury, zastępowanie możliwie jak największej Operations Manager funkcji w Azure Monitor, bez naruszania wymagań firmy i operacyjnych IT. 
@@ -63,7 +63,7 @@ Włączasz Application Insights dla każdej aplikacji biznesowej. Identyfikuje r
 W celu uzyskania wiedzy Azure Monitor, należy zacząć tworzyć reguły alertów, które mogą zastąpić niektóre funkcje pakietu administracyjnego i rozpocząć rozwijanie procesów firmy w celu korzystania z nowej platformy monitorowania. Pozwala to rozpocząć usuwanie maszyn i pakietów administracyjnych z Operations Manager grupy zarządzania. Nadal używasz pakietów administracyjnych dla krytycznego oprogramowania serwera i infrastruktury lokalnej, ale nadal Obserwuj nowe funkcje w Azure Monitor, które umożliwią wycofanie dodatkowych funkcji.
 
 ## <a name="monitor-azure-services"></a>Monitorowanie usług platformy Azure
-Usługi platformy Azure rzeczywiście wymagają, aby Azure Monitor zbierać dane telemetryczne i w momencie tworzenia subskrypcji platformy Azure została włączona. [Dziennik aktywności](platform/activity-log.md) jest automatycznie zbierany dla subskrypcji, a [metryki platformy](platform/data-platform-metrics.md) są automatycznie zbierane z dowolnych utworzonych zasobów platformy Azure. Możesz od razu zacząć korzystać z [Eksploratora metryk](platform/metrics-getting-started.md), który jest podobny do widoków wydajności w konsoli operacje, ale zapewnia interaktywną analizę i [Zaawansowane agregacje](platform/metrics-charts.md) danych. [Utwórz alert metryki](platform/alerts-metric.md) , aby otrzymywać powiadomienia, gdy wartość przekracza próg lub [Dodaj wykres do pulpitu nawigacyjnego platformy Azure](platform/metrics-charts.md#pin-charts-to-dashboards) w celu zapewnienia widoczności.
+Usługi platformy Azure rzeczywiście wymagają, aby Azure Monitor zbierać dane telemetryczne i w momencie tworzenia subskrypcji platformy Azure została włączona. [Dziennik aktywności](platform/activity-log.md) jest automatycznie zbierany dla subskrypcji, a [metryki platformy](platform/data-platform-metrics.md) są automatycznie zbierane z dowolnych utworzonych zasobów platformy Azure. Możesz od razu zacząć korzystać z [Eksploratora metryk](platform/metrics-getting-started.md), który jest podobny do widoków wydajności w konsoli operacje, ale zapewnia interaktywną analizę i [Zaawansowane agregacje](platform/metrics-charts.md) danych. [Utwórz alert metryki](platform/alerts-metric.md) , aby otrzymywać powiadomienia, gdy wartość przekracza próg lub [Dodaj wykres do pulpitu nawigacyjnego platformy Azure](platform/metrics-charts.md#pinning-to-dashboards) w celu zapewnienia widoczności.
 
 [![Eksplorator metryk](media/azure-monitor-operations-manager/metrics-explorer.png)](media/azure-monitor-operations-manager/metrics-explorer.png#lightbox)
 

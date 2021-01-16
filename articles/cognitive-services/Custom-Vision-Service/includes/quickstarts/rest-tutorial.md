@@ -4,12 +4,12 @@ ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 12/09/2020
 ms.topic: include
-ms.openlocfilehash: a53b316f6d942f070ef925b369bcea8476fbfffd
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 8890a0132e5f510a0af2862c483206fd025a68d8
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97853717"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98256567"
 ---
 Rozpocznij pracę z interfejsem API REST Custom Vision. Wykonaj następujące kroki, aby wywołać interfejs API i utworzyć model klasyfikacji obrazów. Utworzysz projekt, dodasz Tagi, nauczysz projekt, a następnie użyjesz w adresie URL punktu końcowego przewidywania projektu do programistycznego testowania. Użyj tego przykładu jako szablonu do tworzenia własnej aplikacji rozpoznawania obrazu.
 
@@ -102,6 +102,9 @@ Otrzymasz odpowiedź JSON podobną do poniższej. Zapisz `"id"` wartość każde
 ## <a name="upload-and-tag-images"></a>Przekazywanie i Tagi obrazów
 
 Następnie pobierz przykładowe obrazy dla tego projektu. Zapisz zawartość [folderu Sample images](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ImageClassification/Images) na urządzeniu lokalnym.
+
+> [!NOTE]
+> Skarbnica, projekt garażu firmy Microsoft, umożliwia zbieranie i kupowanie zestawów obrazów do celów szkoleniowych. Po zebraniu obrazów można je pobrać, a następnie zaimportować do projektu Custom Vision w zwykły sposób. Odwiedź [stronę skarbnica](https://www.microsoft.com/en-us/ai/trove?activetab=pivot1:primaryr3) , aby dowiedzieć się więcej.
 
 Użyj następującego polecenia, aby przekazać obrazy i zastosować Tagi; jeden raz dla obrazów "Hemlock" i oddzielnie dla obrazów "Japońska wiśni". Więcej opcji można znaleźć w temacie [Tworzenie obrazów z](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb5) interfejsu API danych.
 
