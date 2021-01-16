@@ -230,7 +230,7 @@
         - name: Dokumentacja usługi Azure Security Center
           href: ../security-center/
         - name: Dokumentacja zabezpieczeń platformy Azure
-          href: 'https://docs.microsoft.com/azure/security/'
+          href: ../security/index.yml
         - name: Moduł zabezpieczeń usługi Azure RTOS w witrynie Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/azure-rtos+azure-iot-security-module'
         - name: 'Blog dotyczący zabezpieczeń IoT, ochrony prywatności i zgodności na platformie Azure'
