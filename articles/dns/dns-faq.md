@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 01/11/2021
 ms.author: rohink
-ms.openlocfilehash: c468b1216670ce7e6b5d252a7f7fee807199d20c
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: cb14cb95ec1362782a634b0e62cfa2f8237a5852
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131495"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246386"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS często zadawane pytania
 
@@ -194,10 +194,6 @@ Tak. Serwery nazw Azure DNS są podwójnym stosem. Podwójny stos oznacza, że m
 Międzynarodowe nazwy domen (IDN) kodują każdą nazwę DNS przy użyciu [formacie Punycode](https://en.wikipedia.org/wiki/Punycode). Zapytania DNS są tworzone przy użyciu tych nazw zakodowanych formacie Punycode.
 
 Aby skonfigurować IDN w Azure DNS, przekonwertuj nazwę strefy lub nazwę zestawu rekordów na formacie Punycode. Azure DNS nie obsługuje obecnie wbudowanej konwersji na lub z formacie Punycode.
-
-### <a name="does-azure-dns-private-zones-store-any-customer-content"></a>Czy Azure DNS strefy prywatne przechowują zawartość klienta?
-
-Nie, Azure DNS strefy prywatne nie przechowują żadnej zawartości klienta.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -17,12 +17,12 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 08399c1b2d930abfdd5832cb102a789844931d61
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 22bfef17f68b2e83e4f7462d8e9af6fb8aacc284
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027700"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246744"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Co to są przeglądy dostępu w usłudze Azure AD?
 
@@ -103,7 +103,7 @@ Poniżej przedstawiono kilka przykładowych scenariuszy licencjonowania, które 
 | Administrator tworzy przegląd dostępu grupy B z 500 użytkowników i 3 grup właścicieli, a także przypisuje trzech właścicieli grup jako recenzentów. | 3 licencje dla każdego właściciela grupy jako recenzentów | 3 |
 | Administrator tworzy przegląd dostępu grupy B z 500 użytkowników. Sprawia, że jest to samodzielna przegląd. | 500 licencji dla każdego użytkownika jako samoprzeglądający | 500 |
 | Administrator tworzy przegląd dostępu grupy C z 50 użytkowników-członków i 25 użytkowników-Gości. Sprawia, że jest to samodzielna przegląd. | 50 licencji dla każdego użytkownika jako samoprzeglądający. * | 50 |
-| Administrator tworzy przegląd dostępu grupy D z 6 użytkownikami-członkami i 108 użytkowników-Gości. Sprawia, że jest to samodzielna przegląd. | 6 licencji dla każdego użytkownika jako samoprzeglądający. Użytkownicy-Goście są rozliczani miesięcznie (MAU). Żadne dodatkowe licencje nie są wymagane. *  | - |
+| Administrator tworzy przegląd dostępu grupy D z 6 użytkownikami-członkami i 108 użytkowników-Gości. Sprawia, że jest to samodzielna przegląd. | 6 licencji dla każdego użytkownika jako samoprzeglądający. Użytkownicy-Goście są rozliczani miesięcznie (MAU). Żadne dodatkowe licencje nie są wymagane. *  | 6 |
 
 \* Cennik zewnętrzny usługi Azure AD (użytkownik-Gość) bazuje na comiesięcznych aktywnych użytkownikach (MAU), czyli liczbie unikatowych użytkowników z aktywnością uwierzytelniania w ciągu miesiąca kalendarzowego. Ten model zastępuje model rozliczeń dotyczący współczynnika 1:5, który zezwala maksymalnie pięciu użytkownikom-Gościom na każdą licencję Azure AD — wersja Premium w dzierżawie. Gdy dzierżawa jest połączona z subskrypcją i używasz funkcji tożsamości zewnętrznych do współpracy z użytkownikami-Gośćmi, będzie ona automatycznie rozliczana przy użyciu modelu rozliczania opartego na MAU. Aby uzyskać więcej informacji, zobacz model rozliczeń dla tożsamości zewnętrznych usługi Azure AD.
 

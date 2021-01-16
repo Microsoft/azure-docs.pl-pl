@@ -4,15 +4,15 @@ description: Informacje o urządzeniach sprzętowych i wirtualnych certyfikowany
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/21/2020
+ms.date: 01/13/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: b22f880eee1b691b6b50b8151a64a2d501b891b3
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 25685d7e933c9d171e1547be2f5899c08443321a
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97842557"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246574"
 ---
 # <a name="identify-required-appliances"></a>Identyfikowanie wymaganych urządzeń
 
@@ -40,7 +40,7 @@ Ta sekcja zawiera omówienie dostępnych modeli czujnika fizycznego. Można kupi
 
 | Typ wdrożenia | Firmowe | Przedsiębiorstwa | SMB |
 |--|--|--|--|
-| Image (Obraz) | :::image type="content" source="media/how-to-prepare-your-network/corporate-hpe-proliant-dl360-v2.png" alt-text="Model na poziomie firmy."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="Model na poziomie przedsiębiorstwa."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="Model na poziomie SMB."::: |
+| Obraz | :::image type="content" source="media/how-to-prepare-your-network/corporate-hpe-proliant-dl360-v2.png" alt-text="Model na poziomie firmy."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="Model na poziomie przedsiębiorstwa."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="Model na poziomie SMB."::: |
 | Model | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 |
 | Monitorowanie portów | Do 15 RJ45 lub 8 OPT | Do 8 RJ45 lub 6 OPT | 4 RJ45 |
 | Maksymalna przepustowość [1](#anchortext) | 3 GB na sekundę | 1 GB na sekundę | 200 MB na sekundę |
@@ -50,7 +50,7 @@ Informacje o wymaganiach dostawcy można znaleźć w temacie [specyfikacje urzą
 
 Informacje o wstępnie skonfigurowanych czujników: Firma Microsoft połączyła się ze strzałką w celu zapewnienia wstępnie skonfigurowanych czujników. Aby zakupić wstępnie skonfigurowany czujnik, skontaktuj się ze strzałką pod następującym adresem: <hardware.sales@arrow.com>
 
-Informacje o sposobie przenoszenia własnego urządzenia: Przejrzyj obsługiwane modele opisane tutaj. Po uzyskaniu urządzenia przejdź do usługi **Defender for IoT**  >  **Network Sensors**  >  **instalacji** ISO, aby pobrać oprogramowanie.
+Informacje o sposobie umieszczania własnego urządzenia: Zapoznaj się z opisanymi tutaj modelami. Po uzyskaniu urządzenia przejdź do usługi **Defender for IoT**  >  **Network Sensors**  >  **instalacji** ISO, aby pobrać oprogramowanie.
 
 :::image type="content" source="media/how-to-prepare-your-network/azure-defender-for-iot-sensor-download-software-screen.png" alt-text="Czujniki sieci ISO.":::
 
@@ -109,7 +109,7 @@ W tej sekcji opisano specyfikacje sprzętu dla następujących urządzeń:
 
 ### <a name="appliance-bom"></a>BOM urządzenia
 
-| NC | Opis | Liczba |
+| NC | Opis | Ilość |
 |--|--|--|
 | P19766-B21 | HPE DL360 Gen10 8SFF NC dyrektor ds Server | 1 |
 | P19766-B21 | Europa — lokalizacja wielojęzyczna | 1 |
@@ -145,7 +145,7 @@ W tej sekcji opisano specyfikacje sprzętu dla następujących urządzeń:
 
 ### <a name="appliance-bom"></a>BOM urządzenia
 
-| NC | Opis: wysoki koniec | Liczba |
+| NC | Opis: wysoki koniec | Ilość |
 |--|--|--|
 | P06963-B21 | HPE DL20 Gen10 4SFF dyrektor ds Server | 1 |
 | P06963-B21 | HPE DL20 Gen10 4SFF dyrektor ds Server | 1 |
@@ -180,7 +180,7 @@ W tej sekcji opisano specyfikacje sprzętu dla następujących urządzeń:
 
 ### <a name="appliance-bom"></a>BOM urządzenia
 
-| NC | Opis | Liczba |
+| NC | Opis | Ilość |
 |--|--|--|
 | P06961-B21 | HPE DL20 Gen10 NHP 2LFF dyrektor ds Server | 1 |
 | P06961-B21 | HPE DL20 Gen10 NHP 2LFF dyrektor ds Server | 1 |
@@ -222,7 +222,7 @@ Ta sekcja zawiera szczegółowe informacje o dodatkowych urządzeniach certyfiko
 
 | Typ wdrożenia | Przedsiębiorstwa |
 |--|--|
-| Image (Obraz) | :::image type="content" source="media/how-to-prepare-your-network/deployment-type-enterprise-for-azure-defender-for-iot-v2.png" alt-text="Typ wdrożenia przedsiębiorstwa."::: |
+| Obraz | :::image type="content" source="media/how-to-prepare-your-network/deployment-type-enterprise-for-azure-defender-for-iot-v2.png" alt-text="Typ wdrożenia przedsiębiorstwa."::: |
 | Model | Dell PowerEdge R340 XL |
 | Monitorowanie portów | Do dziewięciu RJ45 lub sześciu OPT |
 | Maksymalna przepustowość [1](#anchortext2)| 1G MB/s |
@@ -254,28 +254,6 @@ Po zakupie urządzenia przejdź do usługi **Defender for IoT**  >  **Network Se
 ## <a name="dell-r340-bom"></a>R340 BOM firmy Dell
 
 :::image type="content" source="media/how-to-prepare-your-network/enterprise-deployment-for-azure-defender-for-iot-dell-r340-bom.png" alt-text="R340 BOM firmy Dell.":::
-
-## <a name="smb-deployment-neousys-nuvo-5006lp"></a>Wdrożenie SMB: Neousys NUVO-5006LP
-
-| Składnik | Specyfikacje techniczne |
-|--|--|
-| Budownictwo | Projekt aluminium, fanless i pył |
-| Wymiary | 240 mm (W) x 225 mm (D) x 77 mm (H) |
-| Waga | 3,1 kg (w tym procesor CPU, pamięć i dysk twardy) |
-| Procesor CPU | Intel Core i5-6500TE (pamięć podręczna 6 min, do 3,30 GHz) S1151 |
-| Mikroukładu | Centrum kontrolera platformy Intel Q170 |
-| Pamięć | 8 GB DDR4 2133 MHz SODIMM |
-| Magazyn | dysk SSD o pojemności 128 GB 3ME3 Wide mSATA |
-| Kontroler sieci | porty Gigabit Ethernet 6X z technologią Intel I219 |
-| Dostęp do urządzenia | 4 USBs: dwa Frontony, dwa tylne, jedno wewnętrzne |
-| Zasilacz | 120/240VAC-20VDC/6A |
-| Pokazują | Zestaw montażowy, Szyna DIN |
-| Temperatura operacyjna | \-25 °C ~ 70 °C |
-| Temperatura magazynu | \-40 °C ~ 85 °C |
-| Wilgotność | 10% ~ 90%, bez kondensacji |
-| Wibracj | Działa, 5 Grms, 5-500 Hz, 3 osie <br>(z/SSD w zależności od IEC60068-2-64) |
-| Trwa | Działające, 50 Grms, pół-sinus 11-ms (z/SSD, zgodnie z IEC60068-2-27) |
-| ELEKTROMAGNETYCZNEJ | CE/FCC, Klasa A, zgodnie z EN 55022, EN 55024 i EN 55032 |
 
 ## <a name="next-steps"></a>Następne kroki
 

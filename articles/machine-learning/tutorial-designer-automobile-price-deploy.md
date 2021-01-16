@@ -8,14 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 11/25/2020
+ms.date: 01/15/2021
 ms.custom: designer
-ms.openlocfilehash: 14be695f2f58b9738af11a3d2ca3f06592a1cc6e
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 6bba5ad17cbb6f1ed72d06b37c6d6af9ebd26495
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575962"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246472"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Samouczek: Wdrażanie modelu uczenia maszynowego za pomocą narzędzia Projektant
 
@@ -97,11 +97,30 @@ Po zakończeniu aprowizacji usługi AKS Wróć do potoku inferencing w czasie rz
 
 1. Wybierz utworzony klaster AKS.
 
-1. Wybierz pozycję **Wdróż**.
-    
     :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Zrzut ekranu przedstawiający sposób konfigurowania nowego punktu końcowego w czasie rzeczywistym":::
 
+    Możesz również zmienić ustawienia **Zaawansowane** dla punktu końcowego w czasie rzeczywistym.
+    
+    |Ustawienie zaawansowane|Opis|
+    |---|---|
+    |Włącz diagnostykę Application Insights i zbieranie danych| Czy włączyć usługę Azure Application Ingishts, aby zbierać dane ze wdrożonych punktów końcowych. </br> Domyślnie: FAŁSZ |
+    |Limit czasu oceniania| Limit czasu (w milisekundach) wymuszania dla wywołań oceniania do usługi sieci Web.</br>Domyślnie: 60000|
+    |Skalowanie automatyczne włączone|   Określa, czy włączyć skalowanie automatyczne dla usługi sieci Web.</br>Domyślnie: prawda|
+    |Minimalna liczba replik| Minimalna liczba kontenerów, które mają być używane podczas automatycznego skalowania tej usługi sieci Web.</br>Domyślnie: 1|
+    |Maksymalna liczba replik| Maksymalna liczba kontenerów, które mają być używane podczas automatycznego skalowania tej usługi sieci Web.</br> Domyślnie: 10|
+    |Wykorzystanie docelowe|Użycie docelowe (w procentach z 100), które ma być podejmowane przez Autoskalowanie dla tej usługi sieci Web.</br> Domyślnie: 70|
+    |Okres odświeżania|Jak często (w sekundach) funkcja automatycznego skalowania próbuje skalować tę usługę sieci Web.</br> Domyślnie: 1|
+    |Pojemność rezerwowa procesora CPU|Liczba rdzeni procesora CPU do przydzielenia dla tej usługi sieci Web.</br> Domyślnie: 0,1|
+    |Pojemność rezerwowa pamięci|Ilość pamięci (w GB) do przydzielenia dla tej usługi sieci Web.</br> Domyślnie: 0,5|
+        
+
+1. Wybierz pozycję **Wdróż**. 
+
     Powiadomienie o powodzeniu powyżej kanwy pojawia się po zakończeniu wdrażania. Może to potrwać kilka minut.
+
+> [!TIP]
+> Możesz również wdrożyć w usłudze **Azure Container instance** (ACI), jeśli wybierzesz pozycję **Azure Container instance** dla **typu obliczenia** w polu ustawienie punktu końcowego w czasie rzeczywistym.
+> Usługa Azure Container instance służy do testowania i programowania. Użyj ACI dla obciążeń opartych na PROCESORAch o niskiej skali, które wymagają mniej niż 48 GB pamięci RAM.
 
 ## <a name="view-the-real-time-endpoint"></a>Wyświetlanie punktu końcowego w czasie rzeczywistym
 

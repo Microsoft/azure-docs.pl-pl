@@ -8,12 +8,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/27/2020
-ms.openlocfilehash: b038834df3889a8b4b7f4a749568635e99f8408e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 8b63dfb015c7337e36dac3812e92ddc53914206d
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188755"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247169"
 ---
 # <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>Jak przejrzeć i opublikować ofertę w portalu komercyjnym
 
@@ -46,7 +46,7 @@ Jeśli którakolwiek ze stron ma stan inny niż **ukończono**, należy rozwiąz
 
 Po zakończeniu wszystkich stron i wprowadzeniu odpowiednich uwag dotyczących testowania wybierz pozycję **Publikuj** , aby rozpocząć proces weryfikacji i publikowania. Fazy i ogólna sekwencja mogą się różnić w zależności od typu publikowanej oferty. W poniższej tabeli przedstawiono jeden możliwy do opublikowania przepływ. Poszczególne fazy zostały omówione bardziej szczegółowo w poniższych sekcjach.
 
-| Etap | Co się dzieje |
+| Faza | Co się dzieje |
 | ------------ | ------------- | ------------- |
 | [Automatyczne sprawdzanie poprawności](#automated-validation-phase) | Przetwarzamy zestaw zautomatyzowanych walidacji. |
 | [Certyfikacja](#certification-phase) | Przeprowadzamy ręczne walidacje. |
@@ -150,7 +150,7 @@ Poniższy zrzut ekranu przedstawia stronę **omówienia oferty** dla oferty SaaS
 ### <a name="previewing-and-approving-your-offer"></a>Wyświetlanie podglądu i zatwierdzanie oferty
 
 > [!IMPORTANT]
-> Aby sprawdzić, czy jest to kompleksowa usługa zakupów i konfiguracji, Kup ofertę, gdy jest ona dostępna w wersji zapoznawczej. Najpierw Powiadom firmę Microsoft za pomocą [biletu pomocy technicznej](https://aka.ms/marketplacesupport) , aby upewnić się, że nie przetwarzamy opłaty.
+> Aby sprawdzić, czy jest to kompleksowa usługa zakupów i konfiguracji, Kup ofertę, gdy jest ona dostępna w wersji zapoznawczej. Najpierw Powiadom firmę Microsoft za pomocą [biletu pomocy technicznej](https://aka.ms/marketplacesupport) , aby upewnić się, że nie przetwarzamy opłaty. Jeśli oferta jest wyświetlona na liście kontakt ze mną, sprawdź, czy potencjalny klient został utworzony zgodnie z oczekiwaniami, dostarczając szczegóły osoby kontaktowej w wersji zapoznawczej.
 
 Na stronie **Przegląd oferty** zobaczysz linki do wersji zapoznawczej w obszarze przycisk **Przejdź na żywo** . Będzie dostępny link do wersji zapoznawczej AppSource, wersji zapoznawczej platformy Azure Marketplace lub w zależności od opcji wybranych podczas tworzenia oferty. W przypadku wybrania opcji sprzedaży oferty przez firmę Microsoft każda osoba, która została dodana do odbiorców w wersji zapoznawczej, może przetestować nabycie i wdrożenie oferty, aby upewnić się, że spełnia Twoje wymagania na tym etapie.
 
@@ -191,7 +191,7 @@ Na stronie **historia** w centrum partnerskim są wyświetlane zdarzenia publiko
 Aby wyświetlić historię oferty:
 
 1.    Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
-2.    W menu nawigacji po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
+2.    W menu nawigacji po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  .
 3.    Wybierz ofertę.
 4.    Wybierz kartę **historia** w menu nawigacji po lewej stronie. Na stronie znajdują się szczegółowe informacje dotyczące następujących zdarzeń, które mają zastosowanie do oferty:
 
@@ -225,8 +225,8 @@ Możesz użyć filtrów, aby zawęzić pełną historię oferty do określonych 
 Istnieją cztery filtry:
 * Zdarzenia
 * Użytkownicy
-* Data
-* Pages
+* Date
+* Strony
 
 Po wybraniu filtru **strony** można wybrać dowolne ze stron Centrum partnerskiego, które mają zastosowanie do danego typu oferty. Po zastosowaniu filtr **strony** pokazuje całą **przesłaną ofertę, aby wyświetlić podgląd** zdarzeń ze zmianami wybranej strony.
 

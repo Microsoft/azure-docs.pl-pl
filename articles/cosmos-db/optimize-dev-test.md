@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: b0e2cc3f23a8c39e51523e6f6fd974ebf46f7322
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3ddae808fbb2e3dcfe20909c8b3d0c5a20bb04bd
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097451"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247526"
 ---
 # <a name="optimize-development-and-testing-cost-in-azure-cosmos-db"></a>Optymalizacja kosztów tworzenia i testowania w usłudze Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -37,7 +37,7 @@ Usługa [Azure Cosmos DB bezpłatnie](https://azure.microsoft.com/try/cosmosdb/)
 
 ## <a name="azure-free-account"></a>Bezpłatne konto platformy Azure
 
-Azure Cosmos DB jest uwzględniona na [koncie bezpłatnej platformy Azure](https://azure.microsoft.com/free), które oferuje bezpłatnie środki na korzystanie z platformy Azure i za pewien czas. W odniesieniu do Azure Cosmos DB to bezpłatne konto oferuje 5 GB pamięci masowej i 400 jednostek ru przepływności dla całego roku. Dzięki temu każdy deweloper może łatwo przetestować funkcje Azure Cosmos DB lub zintegrować ją z innymi usługami platformy Azure bez ponoszenia kosztów. Bezpłatne konto platformy Azure pozwala uzyskać środki na korzystanie z $200 USD za pierwsze 30 dni. Opłata nie zostanie naliczona, nawet jeśli zaczniesz korzystać z usług, dopóki nie zdecydujesz się na uaktualnienie. Aby rozpocząć, odwiedź stronę [bezpłatnego konta platformy Azure](https://azure.microsoft.com/free) .
+Azure Cosmos DB jest uwzględniona na [koncie bezpłatnej platformy Azure](https://azure.microsoft.com/free), które oferuje bezpłatnie środki na korzystanie z platformy Azure i za pewien czas. W odniesieniu do Azure Cosmos DB to bezpłatne konto oferuje 25 GB miejsca do magazynowania i 400 jednostek ru przepływności w całym roku. Dzięki temu każdy deweloper może łatwo przetestować funkcje Azure Cosmos DB lub zintegrować ją z innymi usługami platformy Azure bez ponoszenia kosztów. Bezpłatne konto platformy Azure pozwala uzyskać środki na korzystanie z $200 USD za pierwsze 30 dni. Opłata nie zostanie naliczona, nawet jeśli zaczniesz korzystać z usług, dopóki nie zdecydujesz się na uaktualnienie. Aby rozpocząć, odwiedź stronę [bezpłatnego konta platformy Azure](https://azure.microsoft.com/free) .
 
 ## <a name="azure-cosmos-db-serverless"></a>Azure Cosmos DB bezserwerowe
 

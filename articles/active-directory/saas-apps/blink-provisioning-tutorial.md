@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: 5f49d2c918164fa529b12313e000aff5f8893a65
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: d691807f673dcd6c8147c9ff18a95c6ce0c88ae6
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201857"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247441"
 ---
 # <a name="tutorial-configure-blink-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie migotania w celu automatycznego aprowizacji użytkowników
 
@@ -50,7 +50,7 @@ Przed skonfigurowaniem i włączeniem automatycznej aprowizacji użytkowników n
 
 ## <a name="setup-blink-for-provisioning"></a>Instalator migocze pod kątem aprowizacji
 
-1. Zaloguj się do pomocy [technicznej](https://support.joinblink.com) w  support@joinblink.com celu zażądania tokenu Standard scim. .
+1. Zaloguj się do pomocy [technicznej](https://support.joinblink.com) w  support@joinblink.com celu zażądania tokenu Standard scim.
 
 2.  Skopiuj **token uwierzytelniania Standard scim**. Ta wartość zostanie wprowadzona w polu token tajny na karcie aprowizacji aplikacji w Azure Portal.
 
@@ -117,7 +117,23 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 9. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługą Azure AD, aby migać w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowywania do kont użytkowników w programie Blink dla operacji aktualizacji. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
-    ![Miganie atrybutów użytkownika](media/blink-provisioning-tutorial/new-user-attributes.png)
+   |Atrybut|Typ|Obsługiwane na potrzeby filtrowania|
+   |---|---|---|
+   |userName|Ciąg|&check;|
+   |aktywne|Wartość logiczna|
+   |title|Ciąg|
+   |emails[type eq "work"].value|Ciąg|
+   |name.givenName|Ciąg|
+   |name.familyName|Ciąg|
+   |phoneNumbers[type eq "work"].value|Ciąg|
+   |phoneNumbers[type eq "mobile"].value|Ciąg|
+   |externalId|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Tematy pomocy|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: blink: 2.0: użytkownik: Firma|Ciąg|
+   urn: IETF: params: Standard scim: schematy: rozszerzenie: blink: 2.0: User: Description|Ciąg|
+   urn: IETF: params: Standard scim: schematy: rozszerzenie: blink: 2.0: użytkownik: Lokalizacja|Ciąg|
 
 10. Aby skonfigurować filtry zakresu, skorzystaj z instrukcji przedstawionych w [samouczku dotyczącym filtrów zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -137,15 +153,23 @@ Ta operacja uruchamia początkową synchronizację wszystkich użytkowników zde
 
 Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
+## <a name="step-6-monitor-your-deployment"></a>Krok 6. Monitorowanie wdrożenia
+Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, aby monitorować wdrożenie:
+
+* Użyj [dzienników aprowizacji](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs), aby określić, których użytkowników udało się lub nie udało aprowizować
+* Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user), aby zapoznać się ze stanem cyklu aprowizacji i czasem pozostałym do jego zakończenia
+* Jeśli konfiguracja aprowizacji jest w złej kondycji, aplikacja przejdzie w stan kwarantanny. Więcej informacji o stanach kwarantanny znajdziesz [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
+
+
 ## <a name="change-log"></a>Dziennik zmian
 
-* 01/14/2021 — dodano niestandardową **firmę** atrybutu rozszerzenia, **Opis** i **lokalizację** .
+* 01/14/2021 — dodano niestandardowe atrybuty rozszerzenia **firmy**, **opisu** i **lokalizacji** .
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące działań aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)
+* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące działań aprowizacji](../manage-apps/check-status-user-account-provisioning.md)

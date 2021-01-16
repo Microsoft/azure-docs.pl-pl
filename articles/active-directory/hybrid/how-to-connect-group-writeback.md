@@ -11,12 +11,12 @@ ms.date: 06/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2e24246c749978cd2bbb5b3d0821eea6d7dfb4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c506c87ad5901754175f18e6b50bc6ed46a3c19
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89660873"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246914"
 ---
 # <a name="azure-ad-connect-group-writeback"></a>Zapisywanie zwrotne grup Azure AD Connect
 
@@ -37,7 +37,7 @@ Aby włączyć funkcję zapisywania zwrotnego grup, wykonaj następujące czynno
 3. Na stronie **Połącz z usługą Azure AD** wprowadź swoje poświadczenia. Kliknij przycisk **Dalej**.
 4. Na stronie **funkcje opcjonalne** upewnij się, że opcje, które zostały wcześniej skonfigurowane, są nadal zaznaczone.
 5. Wybierz pozycję **zapisywanie zwrotne grup** , a następnie kliknij przycisk **dalej**.
-6. Na **stronie zapisywanie zwrotne**wybierz Active Directory jednostkę organizacyjną (OU) do przechowywania obiektów synchronizowanych z Microsoft 365 do organizacji lokalnej, a następnie kliknij przycisk **dalej**.
+6. Na **stronie zapisywanie zwrotne** wybierz Active Directory jednostkę organizacyjną (OU) do przechowywania obiektów synchronizowanych z Microsoft 365 do organizacji lokalnej, a następnie kliknij przycisk **dalej**.
 7. Na stronie **gotowy** do skonfigurowania kliknij pozycję **Konfiguruj**.
 8. Po zakończeniu pracy kreatora kliknij przycisk **Zakończ** na stronie Konfiguracja ukończona.
 9. Otwórz program Windows PowerShell jako administrator na serwerze Azure Active Directory Connect i uruchom następujące polecenia.
@@ -45,7 +45,13 @@ Aby włączyć funkcję zapisywania zwrotnego grup, wykonaj następujące czynno
 ```Powershell
 $AzureADConnectSWritebackAccountDN =  <MSOL_ account DN>
 Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\AdSyncConfig.psm1"
+
+# To grant the <MSOL_account> permission to all domains in the forest:
 Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN $AzureADConnectSWritebackAccountDN
+
+# To grant the <MSOL_account> permission to specific OU (eg. the OU chosen to writeback Office 365 Groups to):
+$GroupWritebackOU = <DN of OU where groups are to be written back to>
+Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN $AzureADConnectSWritebackAccountDN -ADObjectDN $GroupWritebackOU
 ```
 
 Aby uzyskać dodatkowe informacje na temat konfigurowania grup Microsoft 365, zobacz [Konfigurowanie grup Microsoft 365 przy użyciu hybrydowego programu Exchange](/exchange/hybrid-deployment/set-up-microsoft-365-groups#enable-group-writeback-in-azure-ad-connect).

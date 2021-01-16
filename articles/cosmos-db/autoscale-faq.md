@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/11/2020
-ms.openlocfilehash: a740ad62dacc9a29cab1cc144f1789e125ec2e89
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 31b96f03a8519b068eaa816443be0a0f374a4a8c
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368583"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247033"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Często zadawane pytania dotyczące przepływności dotyczącej automatycznego skalowania w Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -48,7 +48,7 @@ Tak. W przypadku zakupu zarezerwowanej pojemności dla kont z pojedynczymi regio
 Zarezerwowana pojemność regionu wielokrotnego zapisu działa w taki sam sposób, jak w przypadku przepływności z obsługą skalowania automatycznego i standardowego (ręcznie). Zobacz [Azure Cosmos DB zarezerwowana pojemność](cosmos-db-reserved-capacity.md)
 
 ### <a name="does-autoscale-work-with-free-tier"></a>Czy automatyczne skalowanie jest wykonywane w ramach warstwy Bezpłatna?
-Tak. W warstwie Bezpłatna można używać funkcji automatycznego skalowania w kontenerze. Obsługa udostępnionych baz danych przepływności automatycznego skalowania przy użyciu niestandardowych maksymalnych wartości RU/s nie jest jeszcze dostępna. Zobacz, jak [rozliczanie w warstwie Bezpłatna działa z automatycznym skalowaniem](understand-your-bill.md#billing-examples-with-free-tier-accounts).
+Tak. W warstwie Bezpłatna można używać funkcji automatycznego skalowania w kontenerze. Obsługa udostępnionych baz danych przepływności automatycznego skalowania przy użyciu niestandardowych maksymalnych wartości RU/s nie jest jeszcze dostępna. Zobacz, jak [rozliczanie w warstwie Bezpłatna działa z automatycznym skalowaniem](understand-your-bill.md#azure-free-tier).
 
 ### <a name="is-autoscale-supported-for-all-apis"></a>Czy automatyczne skalowanie jest obsługiwane dla wszystkich interfejsów API?
 Tak, automatyczne skalowanie jest obsługiwane dla wszystkich interfejsów API: Core (SQL), Gremlin, Table, Cassandra i API for MongoDB.

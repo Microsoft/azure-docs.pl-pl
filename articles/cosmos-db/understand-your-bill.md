@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.reviewer: sngun
-ms.openlocfilehash: b51be165d3d05ae753c7e0e5536a157fbbacf1ab
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: b0d27cb2f941db374a144cbd5c026444730e24e8
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938634"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247509"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Informacje o rachunku za korzystanie z usługi Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -215,8 +215,12 @@ Na poniższej ilustracji przedstawiono wizualnie zmiany całkowitej alokowanej p
 | | |Opłaty za przepływność za 2 dodatkowe regiony: Wschodnie stany USA, Europa Północna (wszystkie regiony są zapisywalne)  |`(1 + 1) * (70 K RU/sec /100 * $0.016) * 20 hours = $448`  |$224  |
 || |**Łączny koszt miesięczny**  | |**$38 688**   |
 
-## <a name="billing-examples-with-free-tier-accounts"></a>Przykłady rozliczeń z kontami w warstwie Bezpłatna
+## <a name="billing-examples-with-azure-cosmos-db-free-tier-accounts"></a><a id="azure-free-tier"></a>Przykłady rozliczeń z Azure Cosmos DB kontami w warstwie Bezpłatna
+
 Dzięki Azure Cosmos DB warstwy Bezpłatna uzyskasz bezpłatnie 400 RU/s i 5 GB miejsca na koncie, które są stosowane na poziomie konta. Każdy RU/s i magazyn przekraczający 400 RU/s i 5 GB będą rozliczane według zwykłych stawek cenowych na stronie z cennikiem. Na rachunku nie będzie widoczna opłata ani linia za bezpłatny 400 jednostek ru/s i 5 GB, tylko te jednostki, które są objęte bezpłatną warstwą. 400 RU/s ma zastosowanie do dowolnego typu danych przepływności, automatycznego skalowania i zapisu w wieloregionach.  
+
+> [!NOTE]
+> Azure Cosmos DB bezpłatna jest różna od bezpłatnego konta platformy Azure. Bezpłatne konto platformy Azure oferuje środki na korzystanie z platformy Azure bezpłatnie, przez ograniczony czas. W przypadku korzystania z Azure Cosmos DB w ramach tego bezpłatnego konta uzyskasz 25 GB miejsca do magazynowania i 400 RU/s zainicjowanej przepływności przez 12 miesięcy.
 
 ### <a name="billing-example---container-or-database-with-provisioned-throughput"></a>Przykład rozliczeń — kontener lub baza danych z zainicjowaną przepływność
 - Załóżmy, że utworzymy bazę danych lub kontener na koncie warstwy Bezpłatna z 400 RU/s i 5 GB miejsca w magazynie.

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: overview
 ms.date: 05/06/2019
 ms.custom: mvc
-ms.openlocfilehash: 75f4602be15ef2487272ed5790d92c4c884c551f
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 4115ab2140cd3bf67135e494e16fb8121c040ff6
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681554"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246200"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
@@ -58,17 +58,17 @@ Usługa Azure Kubernetes Service oferuje wiele wersji platformy Kubernetes. Po u
 
 Aby dowiedzieć się więcej na temat wersji cyklu życia, zobacz [Obsługiwane wersje platformy Kubernetes w usłudze AKS][aks-supported versions]. Aby uzyskać instrukcje dotyczące sposobu uaktualniania, zobacz [Uaktualnianie klastra usługi Azure Kubernetes Service (AKS)][aks-upgrade].
 
-### <a name="gpu-enabled-nodes"></a>Węzły obsługujące procesory GPU
+### <a name="gpu-enabled-nodes"></a>Węzły obsługujące procesor GPU
 
-Usługa AKS obsługuje tworzenie pul węzłów z obsługą procesorów GPU. Obecnie platforma Azure udostępnia maszyny wirtualne obsługujące jeden lub wielu procesorów GPU. Maszyny wirtualne obsługujące procesory GPU są zaprojektowane do przetwarzania obciążeń z dużą ilością obliczeń, dużą ilością grafiki i wizualizacji.
+AKS obsługuje tworzenie pul węzłów z obsługą procesora GPU. Platforma Azure udostępnia obecnie jedną lub wiele maszyn wirtualnych z obsługą procesora GPU. Maszyny wirtualne z obsługą procesora GPU są przeznaczone do obciążeń intensywnie korzystających z operacji obliczeniowych, intensywnie wykorzystujących grafikę i wizualizacje.
 
 Aby uzyskać więcej informacji, zobacz [Korzystanie z procesorów GPU w usłudze AKS][aks-gpu].
 
 ### <a name="confidential-computing-nodes-public-preview"></a>Węzły do przetwarzania poufnego (publiczna wersja zapoznawcza)
 
-Program AKS obsługuje tworzenie opartych na technologii Intel SGX pul węzłów obliczeniowych (maszyn wirtualnych DCSv2). Węzły przetwarzania poufnego umożliwiają uruchamianie kontenerów w zaufanym i izolowanym środowisku wykonawczym (enclaves). Izolacja między kontenerami połączonymi ze spójnością kodu dzięki zaświadczeniu może pomóc w strategii bezpieczeństwa kontenerów z kompleksową ochroną. Węzły przetwarzania poufnego obsługują zarówno kontenery poufne (istniejące aplikacje platformy Docker), jak i kontenery enklawy.
+Program AKS obsługuje tworzenie opartych na technologii Intel SGX pul węzłów obliczeniowych (maszyn wirtualnych DCSv2). Węzły przetwarzania poufnego umożliwiają uruchamianie kontenerów w środowisku zaufanego wykonywania (enclaves) sprzętowym. Izolacja między kontenerami, w połączeniu z integralnością kodu dzięki zaświadczeniu, może pomóc w strategii bezpieczeństwa kontenerów z kompleksową ochroną. Węzły przetwarzania poufnego obsługują zarówno kontenery poufne (istniejące aplikacje platformy Docker), jak i kontenery obsługujące enklawy.
 
-Aby uzyskać więcej informacji, zobacz [poufne węzły obliczeniowe w witrynie AKS][conf-com-node]
+Aby uzyskać więcej informacji, zobacz [poufne węzły obliczeniowe w AKS][conf-com-node].
 
 ### <a name="storage-volume-support"></a>Obsługa woluminów magazynu
 
@@ -80,7 +80,7 @@ Rozpocznij pracę z dynamicznymi woluminami trwałymi przy użyciu [usługi Azur
 
 ## <a name="virtual-networks-and-ingress"></a>Sieci wirtualne i ruch przychodzący
 
-Klaster usługi AKS można wdrożyć w istniejącej sieci wirtualnej. W takiej konfiguracji każdy zasobnik w klastrze ma przypisany adres IP w sieci wirtualnej i może bezpośrednio komunikować się z innymi zasobnikami w klastrze oraz innymi węzłami w sieci wirtualnej. Zasobniki mogą też łączyć się z innymi usługami w równorzędnych sieciach wirtualnych i z sieciami lokalnymi za pośrednictwem usługi ExpressRoute lub połączeń sieci VPN typu lokacja-lokacja (S2S).
+Klaster usługi AKS można wdrożyć w istniejącej sieci wirtualnej. W takiej konfiguracji każdy zasobnik w klastrze ma przypisany adres IP w sieci wirtualnej i może bezpośrednio komunikować się z innymi zasobnikami w klastrze oraz innymi węzłami w sieci wirtualnej. Działy firmy mogą również łączyć się z innymi usługami w równorzędnej sieci wirtualnej oraz sieciami lokalnymi za pośrednictwem połączeń sieci VPN ExpressRoute lub typu lokacja-lokacja (S2S).
 
 Aby uzyskać więcej informacji, zobacz [pojęcia dotyczące sieci dla aplikacji w AKS][aks-networking].
 
@@ -98,15 +98,15 @@ Kubernetes ma rozbudowany ekosystem narzędzi do tworzenia i zarządzania, takic
 
 Dodatkowo usługa Azure Dev Spaces udostępnia środowisko do szybkiego, iteracyjnego programowania na platformie Kubernetes dla zespołów. Wykonując minimum czynności konfiguracyjnych, możesz uruchamiać i debugować kontenery bezpośrednio w usłudze AKS. Aby rozpocząć pracę, zobacz usługę [Azure Dev Spaces][azure-dev-spaces].
 
-Projekt DevOps platformy Azure udostępnia proste rozwiązanie do przeniesienia istniejącego kodu i repozytorium Git na platformę Azure. Projekt DevOps automatycznie tworzy zasoby platformy Azure, takie jak usługa AKS i potok wydania w usłudze Azure DevOps Services zawierający potok kompilacji dla ciągłej integracji, konfiguruje potok wydania dla ciągłego dostarczania, a następnie tworzy zasób usługi Azure Application Insights na potrzeby monitorowania.
+DevOps Starter oferuje proste rozwiązanie do przenoszenia istniejącego kodu i repozytoriów Git na platformę Azure. DevOps Starter automatycznie tworzy zasoby platformy Azure, takie jak AKS, potok wydania w Azure DevOps Services, który obejmuje potok kompilacji dla CI, konfiguruje potok wydania dla dysku CD, a następnie tworzy zasób usługi Azure Application Insights do monitorowania.
 
-Aby uzyskać więcej informacji, zobacz [Projekt DevOps platformy Azure][azure-devops].
+Aby uzyskać więcej informacji, zobacz [DevOps Starter][azure-devops].
 
 ## <a name="docker-image-support-and-private-container-registry"></a>Obsługa obrazów platformy Docker i prywatny rejestr kontenerów
 
 Usługa AKS obsługuje format obrazu platformy Docker. Integracja usługi AKS z usługą Azure Container Registry (ACR) pozwala uzyskać prywatny magazyn obrazów platformy Docker.
 
-Aby utworzyć prywatny magazyn obrazów, zobacz usługę [Azure Container Registry][acr-docs].
+Aby utworzyć prywatny magazyn obrazów, zobacz [Azure Container Registry][acr-docs].
 
 ## <a name="kubernetes-certification"></a>Certyfikat platformy Kubernetes
 

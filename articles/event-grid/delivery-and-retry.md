@@ -3,12 +3,12 @@ title: Azure Event Grid dostarczania i ponów próbę
 description: Opisuje, w jaki sposób Azure Event Grid dostarcza zdarzenia i jak obsługuje niedostarczone komunikaty.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 51473cf457a1c713e6694edd23c344be8c4d439e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3c4ed6ec2c9eae4dbcf70a831e3e7f70a28a57a0
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463243"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247373"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid dostarczania komunikatów i ponów próbę
 
@@ -67,7 +67,7 @@ Poniżej znajdują się typy punktów końcowych, dla których próba ponowienia
 | Webhook | 400 Nieprawidłowe żądanie, 413 jednostka żądania jest zbyt duża, 403 zabronione, nie znaleziono 404, 401 nieautoryzowane |
  
 > [!NOTE]
-> Jeśli Dead-Letter nie jest skonfigurowany dla punktu końcowego, zdarzenia zostaną porzucone w przypadku wystąpienia powyższych błędów, więc Rozważ skonfigurowanie wiadomości utraconych, jeśli nie chcesz, aby te typy zdarzeń zostały porzucone.
+> Jeśli nie skonfigurowano Dead-Letter dla punktu końcowego, zdarzenia zostaną usunięte, gdy wystąpią powyższe błędy. Rozważ skonfigurowanie wiadomości utraconych, jeśli nie chcesz, aby tego rodzaju zdarzenia zostały porzucone.
 
 Jeśli błąd zwrócony przez subskrybowany punkt końcowy nie należy do powyższej listy, EventGrid wykonuje ponowienie przy użyciu zasad opisanych poniżej:
 
@@ -80,7 +80,10 @@ Event Grid czeka 30 sekund na odpowiedź po dostarczeniu komunikatu. Po 30 sekun
 - 10 minut
 - 30 minut
 - 1 godzina
-- Co godzinę przez maksymalnie 24 godziny
+- 3 godziny
+- 6 godz.
+- Co 12 godzin do 24 godzin
+
 
 Jeśli punkt końcowy odpowie w ciągu 3 minut, Event Grid podejmie próbę usunięcia zdarzenia z kolejki ponawiania prób, ale duplikaty mogą nadal zostać odebrane.
 
@@ -104,7 +107,7 @@ Gdy Event Grid nie może dostarczyć zdarzenia w określonym czasie lub po prób
 
 Jeśli spełniony jest dowolny z warunków, zdarzenie zostanie porzucone lub utracone.  Domyślnie Event Grid nie powoduje wyłączenia utraconych wiadomości. Aby je włączyć, należy określić konto magazynu do przechowywania niedostarczonych zdarzeń podczas tworzenia subskrypcji zdarzeń. Zdarzenia z tego konta magazynu są ściągane, aby można było rozpoznać dostawy.
 
-Event Grid wysyła zdarzenie do lokalizacji utraconych, gdy nastąpi próba wszystkich ponownych prób. Jeśli Event Grid otrzymuje kod odpowiedzi 400 (złe żądanie) lub 413 (żądanie jest zbyt duże), natychmiast wysyła zdarzenie do punktu końcowego utraconych wiadomości. Te kody odpowiedzi wskazują, że dostarczenie zdarzenia nigdy nie powiedzie się.
+Event Grid wysyła zdarzenie do lokalizacji utraconych, gdy nastąpi próba wszystkich ponownych prób. Jeśli Event Grid otrzymuje kod odpowiedzi 400 (Nieprawidłowe żądanie) lub 413 (żądanie jest zbyt duże), natychmiast planuje zdarzenie dla utraconych wiadomości. Te kody odpowiedzi wskazują, że dostarczenie zdarzenia nigdy nie powiedzie się.
 
 Wygaśnięcie czasu wygaśnięcia jest sprawdzane tylko przy następnej zaplanowanej próbie dostarczenia. W związku z tym, nawet jeśli czas wygaśnięcia (TTL) przed kolejną zaplanowaną próbą dostarczenia, wygasanie zdarzeń jest sprawdzane tylko w momencie następnego dostarczania, a następnie po usunięciu utraconych wiadomości. 
 
@@ -119,7 +122,7 @@ W tej sekcji przedstawiono przykłady zdarzeń i zdarzeń utraconych w różnych
 
 ### <a name="event-grid-schema"></a>Schemat usługi Event Grid
 
-#### <a name="event"></a>Wydarzenie 
+#### <a name="event"></a>Zdarzenie 
 ```json
 {
     "id": "93902694-901e-008f-6f95-7153a806873c",
@@ -178,7 +181,7 @@ W tej sekcji przedstawiono przykłady zdarzeń i zdarzeń utraconych w różnych
 
 ### <a name="cloudevents-10-schema"></a>Schemat CloudEvents 1,0
 
-#### <a name="event"></a>Wydarzenie
+#### <a name="event"></a>Zdarzenie
 
 ```json
 {
@@ -219,7 +222,7 @@ W tej sekcji przedstawiono przykłady zdarzeń i zdarzeń utraconych w różnych
 
 ### <a name="custom-schema"></a>Schemat niestandardowy
 
-#### <a name="event"></a>Wydarzenie
+#### <a name="event"></a>Zdarzenie
 
 ```json
 {

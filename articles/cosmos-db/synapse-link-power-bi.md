@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: acomet
-ms.openlocfilehash: 8a3142199502b912f20ebe05c625aa40be9fab11
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: f0111228b9b0030cbbceb9fc70d829a7a22fda01
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218675"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247016"
 ---
 # <a name="use-power-bi-and-serverless-synapse-sql-pool-preview-to-analyze-azure-cosmos-db-data-with-synapse-link"></a>Użyj Power BI i bezserwerowej puli SQL Synapse (wersja zapoznawcza) w celu przeanalizowania Azure Cosmos DB danych za pomocą linku Synapse 
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -41,7 +41,7 @@ Przed rozpoczęciem upewnij się, że zostały utworzone następujące zasoby:
 
 ## <a name="create-a-database-and-views"></a>Tworzenie bazy danych i widoków
 
-Tworzenie widoków w bazach danych Master lub default nie jest zalecane ani obsługiwane. Aby rozpocząć ten krok, należy utworzyć bazę danych. W obszarze roboczym Synapse przejdź do karty **programowanie** , wybierz **+** ikonę, a następnie wybierz pozycję **skrypt SQL**.
+W obszarze roboczym Synapse przejdź do karty **programowanie** , wybierz **+** ikonę, a następnie wybierz pozycję **skrypt SQL**.
 
 :::image type="content" source="./media/synapse-link-power-bi/add-sql-script.png" alt-text="Dodawanie skryptu SQL do obszaru roboczego analizy Synapse":::
 
@@ -49,7 +49,7 @@ Każdy obszar roboczy jest dostarczany z bezserwerowym punktem końcowym SQL. Po
 
 :::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="Umożliwienie skryptowi SQL używania punktu końcowego SQL bezserwerowego w obszarze roboczym":::
 
-Utwórz nową bazę danych o nazwie **RetailCosmosDB** i Widok SQL dla kontenerów z włączonym linkiem Synapse. Następujące polecenie pokazuje, jak utworzyć bazę danych:
+Tworzenie widoków w bazach danych **Master** lub **default** nie jest zalecane ani obsługiwane. Utwórz nową bazę danych o nazwie **RetailCosmosDB** i Widok SQL dla kontenerów z włączonym linkiem Synapse. Następujące polecenie pokazuje, jak utworzyć bazę danych:
 
 ```sql
 -- Create database

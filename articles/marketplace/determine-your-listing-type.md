@@ -6,21 +6,15 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 12/18/2020
-ms.openlocfilehash: 091af70383eb3cab32a0453d7f7542d8a4395d0b
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.date: 01/14/2021
+ms.openlocfilehash: 89cd9f46474e8e311f003f317b90bdb21eae55fe
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98107399"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247555"
 ---
 # <a name="introduction-to-listing-options"></a>Wprowadzenie do opcji wyświetlania
-
-Możesz skorzystać z dostępnych _opcji wyświetlania_ w komercyjnej witrynie Marketplace, aby zaangażować potencjalnych klientów na różne sposoby. Po opublikowaniu oferty opcje aukcji wybrane dla oferty będą wyświetlane jako przycisk w lewym górnym rogu strony aukcji oferty w sklepie online (s). Na przykład poniższy zrzut ekranu przedstawia stronę z listą ofert w Microsoft AppSource sklepu online za pomocą przycisków **kontakt ja** i **Test Drive** .
-
-:::image type="content" source="./media/listing-options.png" alt-text="Przedstawia stronę aukcji oferty. Przyciski skontaktuj się ze mną i Testuj dysk są wyświetlane.":::
-
-## <a name="available-listing-options-by-offer-type"></a>Dostępne opcje wyświetlania na liście według typu oferty
 
 Podczas tworzenia typu oferty należy wybrać jedną lub więcej opcji dotyczących wyświetlania. Te opcje określają, które przyciski są widoczne dla klientów na stronie z listą ofert w sklepach online. Opcje dotyczące aukcji obejmują _bezpłatny okres próbny, wersję_ _testową_, _kontakt ze mną_ i _uzyskają teraz_.
 
@@ -42,7 +36,7 @@ Ta tabela zawiera listę opcji dostępnych dla każdego typu oferty.
 | Oprogramowanie jako usługa | &#10004; | &#10004; | &#10004; | &#10004; |
 ||||||
 
-`*` Opcja Pobierz ją teraz zawiera pozycję Pobierz teraz (bezpłatnie), wprowadź własną licencję (BYOL), subskrypcję i Cennik oparty na użyciu. Aby uzyskać szczegółowe informacje, zobacz [Pobierz teraz](#get-it-now).
+&#42; opcję Pobierz teraz listę, która obejmuje pobieranie teraz (bezpłatnie), korzystanie z własnej licencji (BYOL), subskrypcji i cen opartych na użyciu. Aby uzyskać szczegółowe informacje, zobacz [Pobierz teraz](#get-it-now).
 
 ### <a name="free-trial"></a>Bezpłatna wersja próbna
 
@@ -102,9 +96,15 @@ W tej tabeli przedstawiono typy ofert obsługujące dodatkowe opcje cenowe, któ
 
 Użyj tej opcji, aby bezpłatnie zaoferować swoją aplikację. Klienci używają przycisku _Pobierz teraz_ , aby skorzystać z bezpłatnej oferty.
 
-#### <a name="byol"></a>BYOL
+> [!NOTE]
+> Oferta Pobierz teraz (bezpłatna) nie kwalifikuje się do skorzystania z zalet oferowanych przez witrynę Marketplace w przypadku ofert z możliwością realizacji transakcji. Ze względu na to, że nie ma transakcji w sklepie, są one klasyfikowane jako "wersja próbna". Skorzystaj z poniższych [korzyści z witryny Marketplace](#marketplace-rewards) .
 
-Skorzystaj z komercyjnej witryny Marketplace, aby zwiększyć możliwości wykrywania i automatyzowania aprowizacji rozwiązania oraz dokończyć transakcję finansową oddzielną od portalu Marketplace. Opcja wystawiania własnej licencji (BYOL) jest idealna dla migracji w chmurze. Klienci używają przycisku _Pobierz teraz_ , aby kupić ofertę przy użyciu licencji, która została wstępnie zakupiona.
+#### <a name="bring-your-own-license-byol"></a>Bring Your Own License (BYOL)
+
+Skorzystaj z tej opcji, aby umożliwić klientom wdrożenie oferty przy użyciu licencji zakupionej poza rynkiem komercyjnym. Ta opcja jest idealnym rozwiązaniem w przypadku migracji między lokalizacjami lokalnymi i chmurą. Klienci używają przycisku _Pobierz teraz_ , aby kupić ofertę przy użyciu licencji, którą wstępnie kupisz.
+
+> [!NOTE]
+> Oferty BYOL nie są objęte korzyściami z tytułu Oferty Marketplace w przypadku ofert transakcyjnych. Ponieważ wymagają one klientowi uzyskania licencji od partnera i nie ma transakcji za pośrednictwem komercyjnej witryny sklepu Marketplace, są one podzielone na kategorie jako "Lista". Skorzystaj z poniższych [korzyści z witryny Marketplace](#marketplace-rewards) .
 
 #### <a name="subscription"></a>Subskrypcja
 
@@ -117,11 +117,17 @@ Możesz naliczać stałą opłatę za następujące typy ofert:
 
 Następujące typy ofert obsługują Cennik oparty na użyciu:
 
-- Usługa Azure Application (zarządzana aplikacja) oferuje pomoc techniczną dotyczącą naliczanych opłat. Aby uzyskać więcej informacji, zobacz [rozliczenia taryfowe dotyczące aplikacji zarządzanych](./partner-center-portal/azure-app-metered-billing.md).
-- Oferty SaaS umożliwiają rozliczanie opłat naliczanych i na użytkownika (za stanowisko). Aby uzyskać więcej informacji na temat rozliczeń naliczanych, zobacz [naliczanie opłat za SaaS przy użyciu komercyjnej usługi pomiarowej Marketplace](./partner-center-portal/saas-metered-billing.md).
+- Usługa Azure Application (zarządzana aplikacja) oferuje pomoc techniczną dotyczącą naliczanych opłat. Aby uzyskać więcej informacji, zobacz [rozliczenia taryfowe dotyczące aplikacji zarządzanych](partner-center-portal/azure-app-metered-billing.md).
+- Oferty SaaS umożliwiają rozliczanie opłat naliczanych i na użytkownika (za stanowisko). Aby uzyskać więcej informacji na temat rozliczeń naliczanych, zobacz [naliczanie opłat za SaaS przy użyciu komercyjnej usługi pomiarowej Marketplace](partner-center-portal/saas-metered-billing.md).
 - Usługa Azure Virtual Machine oferuje pomoc techniczną na rdzeń, rozmiar na rdzeń i ceny za rozmiar podstawowy. Te opcje cen są wyceniane za godzinę i rozliczane miesięcznie.
 
 Podczas tworzenia oferty transakcyjnej warto zrozumieć kwestie dotyczące cen, rozliczeń, fakturowania i wypłaty przed wybraniem typu oferty i utworzeniem oferty. Aby dowiedzieć się więcej, zobacz [komercyjne sklepy online Marketplace](overview.md#commercial-marketplace-online-stores).
+
+## <a name="sample-offer"></a>Przykładowa oferta
+
+Po opublikowaniu oferty wybrane opcje wyświetlania są wyświetlane jako przycisk w lewym górnym rogu strony aukcji w sklepach online... Na przykład na poniższym ekranie przedstawiono stronę aukcji oferty w Microsoft AppSource sklepu online z przyciskami **Pobierz teraz** i **Przetestuj dysk** :
+
+:::image type="content" source="media/listing-options.png" alt-text="Ilustracja strony z listą oferty z przyciskami skontaktuj się z nami i Testuj dysk.":::
 
 ## <a name="listing-and-pricing-options-by-online-store"></a>Opcje tworzenia listy i cen według sklepu online
 
@@ -149,10 +155,14 @@ Oferty &#42; SaaS w AppSource są obecnie tylko kartą kredytową.
 
 Dodatki Microsoft 365 &#42;&#42; są bezpłatne do zainstalowania i mogą być sprzedawane deweloperom zewnętrznym przy użyciu oferty SaaS. Aby uzyskać więcej informacji, zobacz [Zarabiaj The Office 365 dodatek za pomocą komercyjnej witryny Microsoft Marketplace](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
 
-## <a name="marketplace-rewards"></a>Nagrody dotyczące portalu Marketplace
+## <a name="marketplace-rewards"></a>Program Marketplace Rewards
 
 Korzyści z witryny Marketplace różnią się w zależności od wybranej opcji tworzenia oferty. Aby dowiedzieć się więcej, zobacz [komercyjne korzyści z witryny Marketplace](gtm-your-marketplace-benefits.md).
 
+Jeśli oferta ma charakter transakcyjny, uzyskasz korzyści w miarę wzrostu rozliczanej sprzedaży.
+
+Nietransakcyjne oferty zapewniają korzyści w zależności od tego, czy jest dołączona bezpłatna wersja próbna.
+
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby wybrać typ oferty do utworzenia, zobacz temat [Publikowanie przewodnika według typu oferty](./publisher-guide-by-offer-type.md).
+- Aby wybrać typ oferty do utworzenia, zobacz temat [Publikowanie przewodnika według typu oferty](publisher-guide-by-offer-type.md).

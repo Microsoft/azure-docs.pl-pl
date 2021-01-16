@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/07/2020
 ms.topic: article
-ms.openlocfilehash: fc82d046caa3663cffcda585258642813ab3a7d8
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 76bb9d289e984dd8c229bdaaab09e679e11283fe
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207261"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246285"
 ---
 # <a name="camera"></a>Aparat fotograficzny
 
@@ -32,7 +32,7 @@ Następujące właściwości można zmienić w ustawieniach aparatu:
 
 **Bliskie i odległe płaszczyzny:**
 
-Aby upewnić się, że nie można ustawić żadnych nieprawidłowych zakresów, właściwości **NearPlane** i **FarPlane** są tylko do odczytu i aby zmienić zakres, istnieje oddzielna funkcja **SetNearAndFarPlane** . Te dane zostaną wysłane na serwer na końcu ramki.
+Aby upewnić się, że nie można ustawić żadnych nieprawidłowych zakresów, właściwości **NearPlane** i **FarPlane** są tylko do odczytu i aby zmienić zakres, istnieje oddzielna funkcja **SetNearAndFarPlane** . Te dane zostaną wysłane na serwer na końcu ramki. Po ustawieniu tych wartości **NearPlane** musi być mniejszy niż **FarPlane**. W przeciwnym razie wystąpi błąd.
 
 > [!IMPORTANT]
 > W środowisku Unity jest to obsługiwane automatycznie podczas zmiany głównego aparatu w bliskich i odległych płaszczyznach.
@@ -44,6 +44,21 @@ Czasami warto wyłączyć zapis buforu głębokości obrazu zdalnego na potrzeby
 > [!TIP]
 > W aparacie Unity jest dostarczany składnik Debug o nazwie **EnableDepthComponent** , który może służyć do przełączania tej funkcji w interfejsie użytkownika edytora.
 
+**InverseDepth**:
+
+> [!NOTE]
+> To ustawienie ma znaczenie tylko wtedy `EnableDepth` , gdy jest ustawione na `true` . W przeciwnym razie to ustawienie nie ma żadnego wpływu.
+
+Bufory głębokości zwykle zapisują wartości z w zakresie liczb zmiennoprzecinkowych [0; 1], z wartością 0 oznaczającą głębokość najbliższej płaszczyzny i 1 oznaczającą głębokość międzypłaszczyzny. Istnieje również możliwość odwrócenia tego zakresu i zapisania wartości głębokości z zakresu [1; 0], co oznacza, że głębokość zbliżonej warstwy zmieni się na 1, a głębokość między płaszczyzną będzie równa 0. Ogólnie rzecz biorąc, to drugie zwiększa rozkład liczby zmiennoprzecinkowej w nieliniowej liczbie z.
+
+> [!WARNING]
+> Typowym podejściem jest odwracanie wartości zbliżonych i międzypłaszczyznowych w obiektach aparatu. To nie powiedzie się w przypadku renderowania zdalnego na platformie Azure z powodu błędu podczas próby wykonania tej na `CameraSettings` .
+
+Interfejs API renderowania zdalnego platformy Azure musi wiedzieć o konwencji buforu głębokości lokalnego modułu renderowania, aby poprawnie złożyć zdalną głębokość do lokalnego buforu głębokości. Jeśli zakres buforu głębokości wynosi [0; 1], pozostaw tę flagę jako `false` . Jeśli używasz odwróconego buforu głębokości z zakresem [1; 0], ustaw `InverseDepth` flagę na wartość `true` .
+
+> [!NOTE]
+> W przypadku aparatu Unity odpowiednie ustawienie jest już stosowane przez program, `RemoteManager` dlatego nie ma potrzeby interwencji ręcznej.
+
 Zmiana ustawień aparatu można wykonać w następujący sposób:
 
 ```cs
@@ -53,6 +68,7 @@ void ChangeCameraSetting(AzureSession session)
 
     settings.SetNearAndFarPlane(0.1f, 20.0f);
     settings.EnableDepth = false;
+    settings.InverseDepth = false;
 }
 ```
 
@@ -63,6 +79,7 @@ void ChangeStageSpace(ApiHandle<AzureSession> session)
 
     settings->SetNearAndFarPlane(0.1f, 20.0f);
     settings->SetEnableDepth(false);
+    settings->SetInverseDepth(false);
 }
 ```
 

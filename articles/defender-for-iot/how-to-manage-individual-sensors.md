@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/10/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: b61bef89d53da280961b818425d11a6f81bbf5ea
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 25f47be98b11f05ee6ac27018152ece05c0de4e4
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210243"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246693"
 ---
 # <a name="manage-individual-sensors"></a>Zarządzanie pojedynczymi czujnikami
 
@@ -84,7 +84,7 @@ Jeśli nie można przekazać pliku aktywacji, zostanie wyświetlony komunikat o 
 
 - **W przypadku czujników połączonych lokalnie**: plik aktywacji jest nieprawidłowy. Jeśli plik jest nieprawidłowy, przejdź do portalu Defender for IoT. Na stronie **Zarządzanie czujnikami** wybierz czujnik z nieprawidłowym plikiem i Pobierz nowy plik aktywacji.
 
-- **W przypadku czujników połączonych z chmurą**: czujnik nie może połączyć się z Internetem. Sprawdź konfigurację sieci czujnika. Jeśli czujnik musi nawiązać połączenie za pomocą serwera proxy sieci Web w celu uzyskania dostępu do Internetu, sprawdź, czy serwer proxy jest prawidłowo skonfigurowany na ekranie **konfiguracji sieci czujnika** . Sprawdź, czy \* w zaporze i/lub serwerze proxy jest dozwolony Azure-Devices.NET:443. Jeśli symbole wieloznaczne nie są obsługiwane lub chcesz mieć większą kontrolę, nazwa FQDN określonej usługi Defender for IoT Hub powinna być otwarta w zaporze i/lub serwerze proxy. Aby uzyskać szczegółowe informacje, zobacz [punkty końcowe IoT Hub referencyjnych](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-endpoints).  
+- **W przypadku czujników połączonych z chmurą**: czujnik nie może połączyć się z Internetem. Sprawdź konfigurację sieci czujnika. Jeśli czujnik musi nawiązać połączenie za pomocą serwera proxy sieci Web w celu uzyskania dostępu do Internetu, sprawdź, czy serwer proxy jest prawidłowo skonfigurowany na ekranie **konfiguracji sieci czujnika** . Sprawdź, czy \* w zaporze i/lub serwerze proxy jest dozwolony Azure-Devices.NET:443. Jeśli symbole wieloznaczne nie są obsługiwane lub chcesz mieć większą kontrolę, nazwa FQDN określonej usługi Defender for IoT Hub powinna być otwarta w zaporze i/lub serwerze proxy. Aby uzyskać szczegółowe informacje, zobacz [punkty końcowe IoT Hub referencyjnych](../iot-hub/iot-hub-devguide-endpoints.md).  
 
 - **W przypadku czujników połączonych z chmurą**: plik aktywacji jest prawidłowy, ale usługa Defender dla usługi IoT odrzuciła ją. Jeśli nie możesz rozwiązać tego problemu, możesz pobrać kolejną aktywację ze strony **zarządzania czujnikami** w portalu Defender for IoT. Jeśli to nie zadziała, skontaktuj się z pomoc techniczna firmy Microsoft.
 
@@ -455,7 +455,7 @@ Aby uzyskać dostęp do właściwości systemu:
 
 3. Wybierz pozycję **Właściwości systemu** z sekcji **Ogólne** .
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 [Badania i pakiety analizy zagrożeń](how-to-work-with-threat-intelligence-packages.md)
 

@@ -2,15 +2,15 @@
 title: Rozwiązywanie problemów dotyczących Update Management Azure Automation
 description: W tym artykule opisano sposób rozwiązywania problemów z Azure Automation Update Management.
 services: automation
-ms.date: 12/04/2020
+ms.date: 01/13/2021
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: f00002c7374e0c35c7bb91c28b2dd87ad71e3350
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 55e58c92004f4f4cf4ba6a96620b4f037c80cdb4
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184921"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246268"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Rozwiązywanie problemów z usługą Update Management
 
@@ -144,13 +144,11 @@ Przyczyną tego problemu mogą być lokalne problemy z konfiguracją lub niepraw
    | summarize by Computer, Solutions
    ```
 
-4. Jeśli komputer nie jest widoczny w wynikach zapytania, nie został ostatnio zaewidencjonowany. Prawdopodobnie wystąpił problem z konfiguracją lokalną i należy [ponownie zainstalować agenta](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
+    Jeśli komputer nie jest widoczny w wynikach zapytania, nie został ostatnio zaewidencjonowany. Prawdopodobnie wystąpił problem z konfiguracją lokalną i należy [ponownie zainstalować agenta](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
-5. Jeśli komputer jest wyświetlany w wynikach zapytania, sprawdź, czy występują problemy z konfiguracją zakresu. [Konfiguracja zakresu](../update-management/scope-configuration.md) określa, które maszyny są skonfigurowane do Update Management.
+    Jeśli komputer znajduje się na liście wyników zapytania, sprawdź, czy znajduje się w obszarze właściwości **rozwiązania** , na której znajdują się **aktualizacje** . Spowoduje to sprawdzenie, czy jest on zarejestrowany w Update Management. Jeśli tak nie jest, sprawdź, czy występują problemy z konfiguracją zakresu. [Konfiguracja zakresu](../update-management/scope-configuration.md) określa, które maszyny są skonfigurowane do Update Management. Aby skonfigurować konfigurację zakresu dla maszyny docelowej, zobacz [Włączanie maszyn w obszarze roboczym](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
 
-6. Jeśli Twoja maszyna jest wyświetlana w obszarze roboczym, ale nie w Update Management, musisz skonfigurować konfigurację zakresu, aby wskazać maszynę docelową. Aby dowiedzieć się, jak to zrobić, zobacz temat [Włączanie maszyn w obszarze roboczym](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
-
-7. W obszarze roboczym Uruchom to zapytanie.
+4. W obszarze roboczym Uruchom to zapytanie.
 
    ```kusto
    Operation
@@ -158,9 +156,9 @@ Przyczyną tego problemu mogą być lokalne problemy z konfiguracją lub niepraw
    | sort by TimeGenerated desc
    ```
 
-8. Jeśli otrzymasz `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` wynik, zostanie osiągnięty limit przydziału zdefiniowany w obszarze roboczym, w którym zarejestrowano dane. W obszarze roboczym przejdź do pozycji **Zarządzanie ilością danych** w obszarze **użycie i szacowane koszty**, a następnie Zmień lub Usuń przydział.
+   Jeśli otrzymasz `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` wynik, zostanie osiągnięty limit przydziału zdefiniowany w obszarze roboczym, w którym zarejestrowano dane. W obszarze roboczym przejdź do pozycji **Zarządzanie ilością danych** w obszarze **użycie i szacowane koszty**, a następnie Zmień lub Usuń przydział.
 
-9. Jeśli problem nadal nie zostanie rozwiązany, wykonaj kroki opisane w sekcji [wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Windows](../automation-windows-hrw-install.md) w celu ponownego zainstalowania hybrydowego procesu roboczego dla systemu Windows. W przypadku systemu Linux wykonaj kroki opisane w sekcji [wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Linux](../automation-linux-hrw-install.md).
+5. Jeśli problem nadal nie zostanie rozwiązany, wykonaj kroki opisane w sekcji [wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Windows](../automation-windows-hrw-install.md) w celu ponownego zainstalowania hybrydowego procesu roboczego dla systemu Windows. W przypadku systemu Linux wykonaj kroki opisane w sekcji [wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Linux](../automation-linux-hrw-install.md).
 
 ## <a name="scenario-unable-to-register-automation-resource-provider-for-subscriptions"></a><a name="rp-register"></a>Scenariusz: nie można zarejestrować dostawcy zasobów usługi Automation dla subskrypcji
 

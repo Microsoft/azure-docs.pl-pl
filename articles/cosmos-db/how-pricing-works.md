@@ -6,28 +6,28 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 978a2909202e01d8c58ba9253bfe0b3996b72d56
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 573fc4fac413ceed50246bc6fb8df1d9db021c94
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100885"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247475"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Model cen w usłudze Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Model cen usługi Azure Cosmos DB upraszcza zarządzanie kosztami i planowanie. Dzięki Azure Cosmos DB płacisz za operacje wykonywane w bazie danych i w przypadku magazynu zużywanego przez dane.
 
-- **Operacje bazy danych** : sposób naliczania opłat za operacje bazy danych zależy od typu konta usługi Azure Cosmos, którego używasz.
+- **Operacje bazy danych**: sposób naliczania opłat za operacje bazy danych zależy od typu konta usługi Azure Cosmos, którego używasz.
 
-  - **Elastyczna przepływność** : [zainicjowana](set-throughput.md) przepływność (nazywana również przepływem zarezerwowanym) zapewnia wysoką wydajność w dowolnej skali. Należy określić przepływność, która jest wymagana w [jednostkach żądań](request-units.md) na sekundę (ru/s), a Azure Cosmos DB przydzielenia zasobów wymaganych do zapewnienia skonfigurowanej przepływności. Przepustowość można [zainicjować przy użyciu bazy danych lub kontenera](set-throughput.md). W zależności od potrzeb związanych z obciążeniem można skalować przepustowość w górę/w dół w dowolnym momencie lub użyć funkcji [automatycznego skalowania](provision-throughput-autoscale.md) (chociaż w bazie danych lub kontenerze jest wymagana minimalna przepływność, która gwarantuje umowy SLA). Opłaty są naliczane godzinowo za maksymalną zainicjowaną przepływność przez daną godzinę.
+  - **Elastyczna przepływność**: [zainicjowana](set-throughput.md) przepływność (nazywana również przepływem zarezerwowanym) zapewnia wysoką wydajność w dowolnej skali. Należy określić przepływność, która jest wymagana w [jednostkach żądań](request-units.md) na sekundę (ru/s), a Azure Cosmos DB przydzielenia zasobów wymaganych do zapewnienia skonfigurowanej przepływności. Przepustowość można [zainicjować przy użyciu bazy danych lub kontenera](set-throughput.md). W zależności od potrzeb związanych z obciążeniem można skalować przepustowość w górę/w dół w dowolnym momencie lub użyć funkcji [automatycznego skalowania](provision-throughput-autoscale.md) (chociaż w bazie danych lub kontenerze jest wymagana minimalna przepływność, która gwarantuje umowy SLA). Opłaty są naliczane godzinowo za maksymalną zainicjowaną przepływność przez daną godzinę.
 
    > [!NOTE]
    > Ze względu na to, że dedykowany model przepływności przydzieli zasoby do kontenera lub bazy danych, opłata zostanie naliczona za przepływność, która została zainicjowana, nawet jeśli nie uruchomiono żadnych obciążeń.
 
-  - **Bezserwerowe** : w trybie [bezserwerowym](serverless.md) nie trzeba udostępniać żadnej przepływności podczas tworzenia zasobów na koncie usługi Azure Cosmos. Na koniec okresu rozliczeniowego opłaty są naliczane za liczbę jednostek żądania, które zostały zużyte przez operacje bazy danych.
+  - **Bezserwerowe**: w trybie [bezserwerowym](serverless.md) nie trzeba udostępniać żadnej przepływności podczas tworzenia zasobów na koncie usługi Azure Cosmos. Na koniec okresu rozliczeniowego opłaty są naliczane za liczbę jednostek żądania, które zostały zużyte przez operacje bazy danych.
 
-- **Magazyn** : jest rozliczana stała stawka za łączną ilość miejsca w magazynie (w GB) zużywaną przez dane i indeksy w danej godzinie. Magazyn jest rozliczany na podstawie zużycia, więc nie trzeba zarezerwować z góry żadnych magazynów. Opłaty są naliczane tylko za zużyty magazyn.
+- **Magazyn**: jest rozliczana stała stawka za łączną ilość miejsca w magazynie (w GB) zużywaną przez dane i indeksy w danej godzinie. Magazyn jest rozliczany na podstawie zużycia, więc nie trzeba zarezerwować z góry żadnych magazynów. Opłaty są naliczane tylko za zużyty magazyn.
 
 Model cen w Azure Cosmos DB jest spójny dla wszystkich interfejsów API. Aby uzyskać więcej informacji, zobacz [stronę z cennikiem Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/), [opisującą Azure Cosmos DB rachunku](understand-your-bill.md) i [sposób, w jaki model cen Azure Cosmos DB jest ekonomiczny dla klientów](total-cost-ownership.md).
 
@@ -37,13 +37,13 @@ W przypadku wdrożenia konta Azure Cosmos DB w regionie nierządowym w Stanach Z
 
 Azure Cosmos DB oferuje dla deweloperów wiele opcji bezpłatnych. Dostępne są następujące opcje:
 
-* **Azure Cosmos DB bezpłatna** : warstwa Bezpłatna Azure Cosmos DB ułatwia rozpoczęcie pracy, opracowywanie i testowanie aplikacji, a nawet uruchamianie małych obciążeń produkcyjnych. Po włączeniu warstwy Bezpłatna na koncie uzyskasz pierwsze 400 RU/s i 5 GB miejsca do magazynowania w ramach konta, przez okres istnienia konta. W ramach każdej subskrypcji platformy Azure można korzystać z maksymalnie jednego konta warstwy bezpłatnej i musi on być w trakcie tworzenia konta. Aby rozpocząć, [Utwórz nowe konto w Azure Portal z włączoną bezpłatną warstwą](create-cosmosdb-resources-portal.md) lub Użyj [szablonu ARM](./manage-with-templates.md#free-tier).
+* **Azure Cosmos DB bezpłatna**: warstwa Bezpłatna Azure Cosmos DB ułatwia rozpoczęcie pracy, opracowywanie i testowanie aplikacji, a nawet uruchamianie małych obciążeń produkcyjnych. Po włączeniu warstwy Bezpłatna na koncie uzyskasz pierwsze 400 RU/s i 5 GB miejsca do magazynowania w ramach konta, przez okres istnienia konta. W ramach każdej subskrypcji platformy Azure można korzystać z maksymalnie jednego konta warstwy bezpłatnej i musi on być w trakcie tworzenia konta. Aby rozpocząć, [Utwórz nowe konto w Azure Portal z włączoną bezpłatną warstwą](create-cosmosdb-resources-portal.md) lub Użyj [szablonu ARM](./manage-with-templates.md#free-tier).
 
-* **Bezpłatne konto platformy Azure** : platforma Azure oferuje [bezpłatną warstwę](https://azure.microsoft.com/free/) , która daje $200 na środki na korzystanie z platformy Azure za pierwsze 30 dni i ograniczoną liczbę bezpłatnych usług przez 12 miesięcy. Aby uzyskać więcej informacji, zobacz [Bezpłatne konto platformy Azure](../cost-management-billing/manage/avoid-charges-free-account.md). Azure Cosmos DB jest częścią bezpłatnego konta platformy Azure. W odniesieniu do Azure Cosmos DB to bezpłatne konto oferuje 5 GB miejsca do magazynowania i 400 RU/s zainicjowanej przepływności przez cały rok.
+* **Bezpłatne konto platformy Azure**: platforma Azure oferuje [bezpłatną warstwę](https://azure.microsoft.com/free/) , która daje $200 na środki na korzystanie z platformy Azure za pierwsze 30 dni i ograniczoną liczbę bezpłatnych usług przez 12 miesięcy. Aby uzyskać więcej informacji, zobacz [Bezpłatne konto platformy Azure](../cost-management-billing/manage/avoid-charges-free-account.md). Azure Cosmos DB jest częścią bezpłatnego konta platformy Azure. W odniesieniu do Azure Cosmos DB to bezpłatne konto oferuje 25 GB miejsca do magazynowania i 400 RU/s zainicjowanej przepływności przez cały rok.
 
-* **Wypróbuj bezpłatnie usługę Azure Cosmos DB** : Azure Cosmos DB oferuje ograniczony czas środowisko, korzystając z funkcji Wypróbuj Azure Cosmos DB w przypadku bezpłatnych kont. Możesz utworzyć konto Azure Cosmos DB, utworzyć bazę danych i kolekcje oraz uruchomić przykładową aplikację przy użyciu przewodników Szybki Start i samouczków. Możesz uruchomić przykładową aplikację bez subskrybowania konta platformy Azure lub korzystania z karty kredytowej. [Wypróbuj Azure Cosmos DB bezpłatnych](https://azure.microsoft.com/try/cosmosdb/) ofert Azure Cosmos DB przez jeden miesiąc, z możliwością odnowienia konta przez dowolną liczbę razy.
+* **Wypróbuj bezpłatnie usługę Azure Cosmos DB**: Azure Cosmos DB oferuje ograniczony czas środowisko, korzystając z funkcji Wypróbuj Azure Cosmos DB w przypadku bezpłatnych kont. Możesz utworzyć konto Azure Cosmos DB, utworzyć bazę danych i kolekcje oraz uruchomić przykładową aplikację przy użyciu przewodników Szybki Start i samouczków. Możesz uruchomić przykładową aplikację bez subskrybowania konta platformy Azure lub korzystania z karty kredytowej. [Wypróbuj Azure Cosmos DB bezpłatnych](https://azure.microsoft.com/try/cosmosdb/) ofert Azure Cosmos DB przez jeden miesiąc, z możliwością odnowienia konta przez dowolną liczbę razy.
 
-* **Emulator Azure Cosmos DB** : Azure Cosmos DB emulator udostępnia środowisko lokalne, które emuluje usługę Azure Cosmos DB do celów deweloperskich. Emulator jest oferowany bezpłatnie i z wysoką dokładnością do usługi w chmurze. Korzystając z emulatora Azure Cosmos DB, możesz tworzyć i testować aplikacje lokalnie, bez tworzenia subskrypcji platformy Azure ani ponoszenia kosztów. Aplikacje można opracowywać przy użyciu emulatora lokalnie przed przejściem do środowiska produkcyjnego. Po spełnieniu funkcjonalności aplikacji względem emulatora możesz przełączyć się do korzystania z konta Azure Cosmos DB w chmurze i znacząco zaoszczędzić koszt. Więcej informacji na temat emulatora można znaleźć w temacie [Using Azure Cosmos DB for Development and test](local-emulator.md) article (Aby uzyskać więcej informacji).
+* **Emulator Azure Cosmos DB**: Azure Cosmos DB emulator udostępnia środowisko lokalne, które emuluje usługę Azure Cosmos DB do celów deweloperskich. Emulator jest oferowany bezpłatnie i z wysoką dokładnością do usługi w chmurze. Korzystając z emulatora Azure Cosmos DB, możesz tworzyć i testować aplikacje lokalnie, bez tworzenia subskrypcji platformy Azure ani ponoszenia kosztów. Aplikacje można opracowywać przy użyciu emulatora lokalnie przed przejściem do środowiska produkcyjnego. Po spełnieniu funkcjonalności aplikacji względem emulatora możesz przełączyć się do korzystania z konta Azure Cosmos DB w chmurze i znacząco zaoszczędzić koszt. Więcej informacji na temat emulatora można znaleźć w temacie [Using Azure Cosmos DB for Development and test](local-emulator.md) article (Aby uzyskać więcej informacji).
 
 ## <a name="pricing-with-reserved-capacity"></a>Cennik z zarezerwowaną pojemnością
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2020
 ms.author: rkarlin
-ms.openlocfilehash: 0c303adb4ee7c7551c6b389ec169d92a661a63bc
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 678b50ffb2df2cd16312548109b93f6f1a7f08ff
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835027"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247469"
 ---
 # <a name="azure-defender-for-iot-frequently-asked-questions"></a>Usługa Azure Defender dla IoT — często zadawane pytania
 
@@ -38,7 +38,7 @@ Usługa Azure Defender for IoT oferuje kompleksową obsługę protokołów. Opr�
 To unikatowe rozwiązanie do tworzenia protokołów jako wtyczek, nie wymaga dedykowanych zespołów deweloperów ani wersji do obsługi nowego protokołu. Deweloperzy, partnerzy i klienci mogą bezpiecznie opracowywać protokoły i dzielić się informacjami i wiedzą przy użyciu horyzontu. 
 
 ## <a name="do-i-have-to-purchase-hardware-appliances-from-microsoft-partners"></a>Czy muszę kupić urządzenia sprzętowe od partnerów firmy Microsoft?
-Usługa Azure Defender for IoT sensor działa na określonych specyfikacjach sprzętu zgodnie z opisem w [przewodniku dotyczącym specyfikacji sprzętowych](https://aka.ms/AzureDefenderforIoTBareMetalAppliance), klienci mogą zakupić Certyfikowany sprzęt od partnerów firmy Microsoft lub użyć dostarczonych materiałów (BOM) i zakupić je samodzielnie. 
+Usługa Azure Defender for IoT sensor działa na określonych specyfikacjach sprzętu zgodnie z opisem w [przewodniku dotyczącym specyfikacji sprzętowych](./how-to-identify-required-appliances.md), klienci mogą zakupić Certyfikowany sprzęt od partnerów firmy Microsoft lub użyć dostarczonych materiałów (BOM) i zakupić je samodzielnie. 
 
 Certyfikowany sprzęt został przetestowany w naszym laboratorium pod kątem stabilności sterowników, porzucania pakietów i ustalania rozmiarów sieci.
 

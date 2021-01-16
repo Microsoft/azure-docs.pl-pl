@@ -16,12 +16,12 @@ ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77271679306b0fbde10c748afc7535f3ad3d0945
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c6ec162ceb51c3bf19be42219b054d8371ff221
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317569"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247356"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Rozwiązywanie problemów z synchronizacją skrótów haseł za pomocą usługi synchronizacji programu Azure AD Connect
 
@@ -253,7 +253,7 @@ Wykonaj następujące kroki, aby określić, dlaczego hasła nie są synchronizo
 
     ![Dane wyjściowe skryptu programu PowerShell z ustawień synchronizacji haseł](./media/tshoot-connect-password-hash-synchronization/psverifyconfig.png)  
 
-3. Jeśli ta funkcja nie jest włączona w usłudze Azure AD lub jeśli stan kanału synchronizacji nie jest włączony, uruchom Kreatora instalacji programu Connect. Wybierz opcję **Dostosuj opcje synchronizacji**i usuń zaznaczenie opcji Synchronizacja haseł. Ta zmiana tymczasowo wyłącza funkcję. Następnie ponownie uruchom kreatora i ponownie Włącz synchronizację haseł. Uruchom ponownie skrypt, aby sprawdzić, czy konfiguracja jest poprawna.
+3. Jeśli ta funkcja nie jest włączona w usłudze Azure AD lub jeśli stan kanału synchronizacji nie jest włączony, uruchom Kreatora instalacji programu Connect. Wybierz opcję **Dostosuj opcje synchronizacji** i usuń zaznaczenie opcji Synchronizacja haseł. Ta zmiana tymczasowo wyłącza funkcję. Następnie ponownie uruchom kreatora i ponownie Włącz synchronizację haseł. Uruchom ponownie skrypt, aby sprawdzić, czy konfiguracja jest poprawna.
 
 4. Sprawdź błędy w dzienniku zdarzeń. Poszukaj następujących zdarzeń, co może wskazywać na problem:
     * Źródło: "Synchronizacja katalogów" Identyfikator: 0, 611, 652, 655, Jeśli zobaczysz te zdarzenia, wystąpił problem z połączeniem. Komunikat dziennika zdarzeń zawiera informacje o lesie, w którym występuje problem. Aby uzyskać więcej informacji, zobacz [problem z łącznością](#connectivity problem).
@@ -291,7 +291,7 @@ Jeśli użyto instalacji niestandardowej, Ustaw uprawnienia ręcznie, wykonując
 
 7. Wróć do **Synchronization Service Manager** i **Skonfiguruj partycję katalogu**. 
  
-8. W obszarze **Wybierz partycje katalogu**zaznacz domenę, zaznacz pole wyboru **Użyj tylko preferowanych kontrolerów domeny** , a następnie kliknij przycisk **Konfiguruj**. 
+8. W obszarze **Wybierz partycje katalogu** zaznacz domenę, zaznacz pole wyboru **Użyj tylko preferowanych kontrolerów domeny** , a następnie kliknij przycisk **Konfiguruj**. 
 
 9. Na liście wprowadź kontrolery domeny, które mają być używane do synchronizacji haseł. Ta sama lista jest również używana do importowania i eksportowania. Wykonaj te kroki dla wszystkich domen.
 
@@ -362,7 +362,7 @@ Kolumna stan może mieć następujące wartości:
 | SourceConnectorNotPresent |Nie znaleziono obiektu w lokalnym obszarze łącznika Active Directory. |
 | TargetNotExportedToDirectory |Obiekt w obszarze łącznika usługi Azure AD nie został jeszcze wyeksportowany. |
 | MigratedCheckDetailsForMoreInfo |Wpis dziennika został utworzony przed kompilacją 1.0.9125.0 i jest wyświetlany w jego starszym stanie. |
-| Błąd |Usługa zwróciła nieznany błąd. |
+| Error |Usługa zwróciła nieznany błąd. |
 | Nieznane |Wystąpił błąd podczas próby przetworzenia partii skrótów haseł.  |
 | Brakattribute |Określone atrybuty (na przykład skrót protokołu Kerberos) wymagane przez Azure AD Domain Services są niedostępne. |
 | RetryRequestedByTarget |Określone atrybuty (na przykład skrót protokołu Kerberos) wymagane przez Azure AD Domain Services nie były wcześniej dostępne. Podjęto próbę ponownego zsynchronizowania skrótu hasła użytkownika. |
@@ -380,7 +380,7 @@ if ($aadConnectors -ne $null -and $adConnectors -ne $null)
 {
     if ($aadConnectors.Count -eq 1)
     {
-        $features = Get-ADSyncAADCompanyFeature -ConnectorName $aadConnectors[0].Name
+        $features = Get-ADSyncAADCompanyFeature
         Write-Host
         Write-Host "Password sync feature enabled in your Azure AD directory: "  $features.PasswordHashSync
         foreach ($adConnector in $adConnectors)

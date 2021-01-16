@@ -5,14 +5,14 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: article
-ms.date: 10/05/2019
+ms.date: 01/15/2021
 ms.author: rohink
-ms.openlocfilehash: 24f2ca238288854b99160a25c3d4dcedf8ce3368
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 3272f4fea4169fd5e91b1ba2b97ad72dfbb49080
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952390"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247390"
 ---
 # <a name="azure-private-dns-faq"></a>Prywatna strefa DNS — Często zadawane pytania
 
@@ -88,6 +88,10 @@ Jeśli istniejąca prywatna strefa DNS została utworzona przy użyciu interfejs
 ## <a name="how-do-i-migrate-my-existing-private-dns-zones-to-the-new-model"></a>Jak mogę zmigrować istniejące prywatne strefy DNS do nowego modelu?
 
 Zdecydowanie zalecamy przeprowadzenie migracji do nowego modelu zasobów najszybciej, jak to możliwe. Starsza wersja modelu zasobów będzie obsługiwana, jednak dalsze funkcje nie będą opracowywane na tym modelu. W przyszłości zamierzamy zastąpić go nowym modelem zasobów. Aby uzyskać wskazówki dotyczące migrowania istniejących prywatnych stref DNS do nowego modelu zasobów, zobacz[Przewodnik migracji Azure DNS stref prywatnych](private-dns-migration-guide.md).
+
+### <a name="does-azure-dns-private-zones-store-any-customer-content"></a>Czy Azure DNS strefy prywatne przechowują zawartość klienta?
+
+Nie, Azure DNS strefy prywatne nie przechowują żadnej zawartości klienta.
 
 ## <a name="next-steps"></a>Następne kroki
 

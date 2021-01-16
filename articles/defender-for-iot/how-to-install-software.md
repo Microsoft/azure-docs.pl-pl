@@ -7,18 +7,18 @@ ms.author: shhazam
 ms.date: 12/2/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 2bd994f14863715274e137bce2dd6873eeec1135
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 49a0129ff26d4a12392066aa6304317d71fdb0f1
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208764"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247594"
 ---
 # <a name="defender-for-iot-installation"></a>Instalacja usługi Defender for IoT
 
 W tym artykule opisano sposób instalowania następujących elementów usługi Azure Defender dla IoT:
 
-- **Czujnik**: usługa Defender for IoT zbiera dane o ruchu sieciowym za pomocą pasywnego (bezagentowego) monitorowania. Czujniki pasywne i nieinwazyjne nie mają wpływu na sieci i urządzenia IoT. Czujnik nawiązuje połączenie z portem SPAN lub NACIŚNIĘCIem sieci i natychmiast rozpoczyna monitorowanie sieci. Wykrycia są wyświetlane w konsoli czujnika. W tym miejscu możesz wyświetlać, badać i analizować je w mapie sieciowej, spisie urządzeń i wielu różnych raportach. Przykłady obejmują raporty oceny ryzyka, zapytania wyszukiwania danych i wektory ataków. Przeczytaj więcej na temat funkcji czujników w [podręczniku użytkownika czujnika usługi Defender for IoT (Pobieranie bezpośrednie)](https://aka.ms/AzureDefenderforIoTUserGuide).
+- **Czujnik**: usługa Defender for IoT zbiera dane o ruchu sieciowym za pomocą pasywnego (bezagentowego) monitorowania. Czujniki pasywne i nieinwazyjne nie mają wpływu na sieci i urządzenia IoT. Czujnik nawiązuje połączenie z portem SPAN lub NACIŚNIĘCIem sieci i natychmiast rozpoczyna monitorowanie sieci. Wykrycia są wyświetlane w konsoli czujnika. W tym miejscu możesz wyświetlać, badać i analizować je w mapie sieciowej, spisie urządzeń i wielu różnych raportach. Przykłady obejmują raporty oceny ryzyka, zapytania wyszukiwania danych i wektory ataków. Przeczytaj więcej na temat funkcji czujników w [podręczniku użytkownika czujnika usługi Defender for IoT (Pobieranie bezpośrednie)](./getting-started.md).
 
 - **Lokalna Konsola zarządzania**: lokalna Konsola zarządzania umożliwia przeprowadzenie zarządzania urządzeniami, zarządzania ryzykiem i zarządzania lukami w zabezpieczeniach. Można go również używać do przeprowadzania monitorowania zagrożeń i reagowania na zdarzenia w całym przedsiębiorstwie. Zapewnia ujednolicony widok wszystkich urządzeń sieciowych, najważniejszych rzeczy oraz wskaźników ryzyka i wykrytych alertów w miejscach, w których są wdrażane czujniki. Lokalna Konsola zarządzania umożliwia wyświetlanie czujników w sieciach gapped i zarządzanie nimi.
 

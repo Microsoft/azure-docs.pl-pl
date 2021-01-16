@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/19/2020
-ms.openlocfilehash: 9d351bc945c08c82e96791059b00dc94eb94b918
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 793ff9eedb747da0edcbbf2df50b62f06f407892
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368743"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247429"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Przydziały usługi Azure Cosmos DB
 
@@ -256,7 +256,8 @@ W poniższej tabeli przedstawiono limity dla [Azure Cosmos DB Wypróbuj bezpłat
 
 Wypróbuj Cosmos DB obsługuje dystrybucję globalną tylko w regionach Środkowe stany USA, Europa Północna i Azja Południowo-Wschodnia. Nie można utworzyć biletów pomocy technicznej systemu Azure dla usług try Azure Cosmos DB. Jednak pomoc techniczna jest świadczona dla subskrybentów z istniejącymi planami pomocy technicznej.
 
-## <a name="free-tier-account-limits"></a>Limity kont w warstwie Bezpłatna
+## <a name="azure-cosmos-db-free-tier-account-limits"></a>Azure Cosmos DB limity kont warstwy Bezpłatna
+
 W poniższej tabeli wymieniono limity [Azure Cosmos DB kont warstwy bezpłatnej.](optimize-dev-test.md#azure-cosmos-db-free-tier)
 
 | Zasób | Limit domyślny |
@@ -268,7 +269,10 @@ W poniższej tabeli wymieniono limity [Azure Cosmos DB kont warstwy bezpłatnej.
 | Maksymalna liczba udostępnionych baz danych przepływności | 5 |
 | Maksymalna liczba kontenerów w udostępnionej bazie danych przepływności | 25 <br>W przypadku kont warstwy Bezpłatna minimalna wartość RU/s dla udostępnionej bazy danych przepływności z maksymalnie 25 kontenerami wynosi 400 RU/s. |
 
-  Oprócz powyższych [wartości limity dla konta](#per-account-limits) są stosowane również do kont warstwy Bezpłatna.
+Oprócz powyższych [wartości limity dla konta](#per-account-limits) są stosowane również do kont warstwy Bezpłatna.
+
+> [!NOTE]
+> Azure Cosmos DB bezpłatna jest różna od bezpłatnego konta platformy Azure. Bezpłatne konto platformy Azure oferuje środki na korzystanie z platformy Azure bezpłatnie, przez ograniczony czas. W przypadku korzystania z Azure Cosmos DB w ramach tego bezpłatnego konta uzyskasz 25 GB miejsca do magazynowania i 400 RU/s zainicjowanej przepływności przez 12 miesięcy.
 
 ## <a name="next-steps"></a>Następne kroki
 
