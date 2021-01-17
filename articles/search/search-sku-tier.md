@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 38ddfc2d3940bb9267edd6c5c683918c1fb5dc58
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 1a1fc0ce634282ffd4fcf374138fe97a04f32062
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251708"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539600"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Wybierz warstwę cenową dla usługi Azure Wyszukiwanie poznawcze
 
@@ -71,7 +71,7 @@ Cennik warstwy obejmuje szczegóły dotyczące magazynu na partycję z zakresu o
 
 ## <a name="billing-rates"></a>Stawki za rozliczenia
 
-Warstwy mają różne stawki rozliczeń z wyższymi stawkami dla warstw, które działają na tańszym sprzęcie lub zapewniają bardziej kosztowne funkcje. Stawka rozliczeniowa jest wyświetlana na [stronach cen platformy Azure](https://azure.microsoft.com/pricing/details/search/) dla każdej warstwy usług platformy Azure wyszukiwanie poznawcze.
+Warstwy mają różne stawki rozliczeń z wyższymi stawkami dla warstw, które działają na tańszym sprzęcie lub zapewniają bardziej kosztowne funkcje. Stawkę rozliczania według warstwy można znaleźć na [stronie cennika platformy Azure](https://azure.microsoft.com/pricing/details/search/) dla usługi Azure wyszukiwanie poznawcze.
 
 Po utworzeniu usługi stawka rozliczeniowa naliczy się zarówno na *stały koszt* działania usługi przez zegar, jak i *koszt przyrostowy* , jeśli zdecydujesz się zwiększyć pojemność.
 

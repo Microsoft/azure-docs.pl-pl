@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 327dce053c38fdb7b03e7ceb0d7a62ec8b8e7248
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 87af99d5136a8bed93854e9396895cddeb22549a
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96993051"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98540471"
 ---
 ## <a name="download-and-install"></a>Pobieranie i instalowanie
 
@@ -59,11 +59,11 @@ Wykonaj następujące kroki, aby zainstalować interfejs wiersza polecenia mowy 
 
 1. <a href="https://www.docker.com/get-started" target="_blank">Zainstaluj program Docker <span class="docon docon-navigate-external x-hidden-focus"></span> Desktop</a> dla danej platformy, jeśli nie jest jeszcze zainstalowana.
 2. W nowym wierszu polecenia lub terminalu wpisz następujące polecenie:
-   ```shell   
+   ```console   
    docker pull msftspeech/spx
    ```
 3. Wpisz to polecenie. Należy zapoznać się z informacjami pomocy dla interfejsu wiersza polecenia usługi Speech:
-   ```shell 
+   ```console 
    docker run -it --rm msftspeech/spx help
    ```
 
@@ -93,27 +93,27 @@ Podczas wywoływania `spx` polecenia w kontenerze platformy Docker należy zains
 
 W systemie Windows polecenia będą wyglądać następująco:
 
-```shell
+```console
 docker run -it -v c:\spx-data:/data --rm msftspeech/spx
 ```
 
 W systemie Linux lub macOS polecenia będą wyglądały jak przykład poniżej. Zamień na `ABSOLUTE_PATH` ścieżkę bezwzględną dla zainstalowanego katalogu. Ta ścieżka została zwrócona przez `pwd` polecenie w poprzedniej sekcji. 
 
 W przypadku uruchomienia tego polecenia przed ustawieniem klucza i regionu zostanie wyświetlony komunikat o błędzie z informacją o ustawieniu klucza i regionu:
-```shell   
+```console   
 sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx
 ```
 
 Aby użyć `spx` polecenia zainstalowanego w kontenerze, należy zawsze wprowadzić pełne pokazane powyżej polecenie, a następnie parametry żądania.
 Na przykład w systemie Windows to polecenie ustawia klucz:
 
-```shell
+```console
 docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY
 ```
 
 Aby uzyskać bardziej rozszerzoną interakcję z narzędziem wiersza polecenia, można uruchomić kontener z interaktywną powłoką bash, dodając parametr punktu wejścia.
 W systemie Windows wprowadź to polecenie, aby uruchomić kontener, który udostępnia interaktywny interfejs wiersza polecenia, w którym można wprowadzić wiele `spx` poleceń:
-```shell
+```console
 docker run -it --entrypoint=/bin/bash -v c:\spx-data:/data --rm msftspeech/spx
 ```
 
@@ -160,7 +160,7 @@ Follow these instructions to create a shortcut:
 Aby rozpocząć korzystanie z interfejsu wiersza polecenia mowy, należy wprowadzić klucz subskrypcji mowy i Identyfikator regionu. Pobierz te poświadczenia, wykonując czynności opisane w sekcji [Wypróbuj bezpłatnie usługę Speech](../overview.md#try-the-speech-service-for-free).
 Gdy masz klucz subskrypcji i Identyfikator regionu (np. `eastus`, `westus` Uruchom następujące polecenia.
 
-```shell
+```console
 spx config @key --set SUBSCRIPTION-KEY
 spx config @region --set REGION
 ```

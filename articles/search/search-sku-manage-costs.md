@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
-ms.openlocfilehash: a708fb76b5a3d0fd0683cdb8915d1a5e1824a57c
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 4ad362b983f81e2cdc10cdbccafd8dda951482d7
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251672"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539550"
 ---
 # <a name="how-to-estimate-and-manage-costs-of-an-azure-cognitive-search-service"></a>Jak oszacować koszty usługi Wyszukiwanie poznawcze platformy Azure i zarządzać nimi
 
@@ -25,7 +25,12 @@ Architektura skalowalności w usłudze Azure Wyszukiwanie poznawcze opiera się 
 
 Ilość zasobów używanych przez usługę wyszukiwania pomnożona przez stawkę rozliczeń ustanowioną przez warstwę usługi określa koszt uruchomienia usługi. Koszty i pojemność są ściśle powiązane. W przypadku szacowania kosztów zrozumienie pojemności wymaganej do uruchomienia obciążeń indeksowania i wykonywania zapytań daje najlepsze rozwiązanie dotyczące przewidywanych kosztów.
 
-Na potrzeby rozliczeń Wyszukiwanie poznawcze ma koncepcję *jednostki wyszukiwania* (Su). SU to iloczyn *replik* i *partycji* używanych przez usługę: **(R x P = Su)**. Liczba usług SUs pomnożona przez stawkę rozliczenia **(wartość Su * stawka miesięcznie)** jest głównym wykluczeniem kosztów związanych z wyszukiwaniem. 
+Na potrzeby rozliczania istnieją dwie proste formuły, dla których należy pamiętać:
+
+| Formuła | Opis |
+|---------|-------------|
+| **R x P = SU** | Liczba użytych replik, pomnożona przez liczbę użytych partycji, jest równa liczbie *jednostek wyszukiwania* (Su) używanej przez usługę. SU jest jednostką zasobów i może być partycją lub repliką. |
+| **SU * stawka rozliczenia = miesięczne wydatki** | Liczba usług SUs pomnożona przez stawkę rozliczenia w warstwie, w której zainicjowano obsługę, jest głównym wyznacznikiem ogólnego rachunku miesięcznego. Niektóre funkcje lub obciążenia mają zależności od innych usług platformy Azure, które mogą zwiększyć koszt rozwiązania na poziomie subskrypcji. Poniższa sekcja dotyczące rozliczeń zawiera funkcje, które mogą zostać dodane do rachunku. |
 
 Każda usługa rozpoczyna się od jednego SU (jedna replika pomnożona przez jedną partycję) jako minimum. Wartość maksymalna dla każdej usługi to 36 usług SUs. Tę wartość maksymalną można osiągnąć na wiele sposobów: 6 partycji x 6 replik lub 3 partycji x 12 replik, na przykład. Jest to typowe użycie mniejsze niż całkowita pojemność (na przykład 3-Replica, 3-podzielone usługi są rozliczane jako 9 usług SUs). Zobacz wykres [kombinacji partycji i repliki](search-capacity-planning.md#chart) dla prawidłowych kombinacji.
 

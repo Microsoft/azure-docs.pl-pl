@@ -1,37 +1,34 @@
 ---
-title: Ograniczanie zawartości Azure CDN według kraju/regionu | Microsoft Docs
+title: Ogranicz zawartość Azure CDN według kraju/regionu
 description: Dowiedz się, jak ograniczyć dostęp według kraju/regionu do zawartości Azure CDN przy użyciu funkcji filtrowania geograficznego.
 services: cdn
 documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: ''
-ms.assetid: 12c17cc5-28ee-4b0b-ba22-2266be2e786a
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 06/19/2018
+ms.date: 01/16/2021
 ms.author: allensu
-ms.openlocfilehash: ed82adcc1432bde27042d5775c454bfabcdb96ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8901dffb752409acd7fb08a2025bed9a4cc70132
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358138"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539479"
 ---
 # <a name="restrict-azure-cdn-content-by-countryregion"></a>Ogranicz zawartość Azure CDN według kraju/regionu
 
 ## <a name="overview"></a>Omówienie
-Gdy użytkownik zażąda zawartości, domyślnie zawartość jest obsługiwana niezależnie od lokalizacji użytkownika wysyłającego żądanie. Jednak w niektórych przypadkach możesz chcieć ograniczyć dostęp do zawartości według kraju/regionu. Za pomocą funkcji *filtrowania geograficznego* można tworzyć reguły dla określonych ścieżek w punkcie końcowym usługi CDN, aby zezwalać na zawartość lub blokować ją w wybranych krajach/regionach.
+Gdy użytkownik zażąda zawartości, zawartość jest obsługiwana użytkownikom we wszystkich lokalizacjach. Możesz chcieć ograniczyć dostęp do zawartości według kraju/regionu. 
+
+Za pomocą funkcji *filtrowania geograficznego* można tworzyć reguły dla określonych ścieżek w punkcie końcowym usługi CDN. Możesz ustawić reguły, aby zezwalać lub blokować zawartość w wybranych krajach/regionach.
 
 > [!IMPORTANT]
 > Usługi **Azure CDN Standard from profile firmy Microsoft** nie obsługują filtrowania geograficznego opartego na ścieżkach.
 > 
 
 ## <a name="standard-profiles"></a>Profile standardowe
-Procedury przedstawione w tej sekcji dotyczą tylko **Azure CDN standardowych od Akamai** i **Azure CDN Standard z profilów Verizon** . 
+
+Te instrukcje są przeznaczone dla **Azure CDN Standard from Akamai** i **Azure CDN Standard from Verizon** profile.
 
 W przypadku **Azure CDN Premium z profilów Verizon** należy użyć portalu **zarządzania** w celu aktywowania filtrowania geograficznego. Aby uzyskać więcej informacji, zobacz [Azure CDN Premium from profile Verizon](#azure-cdn-premium-from-verizon-profiles).
 
@@ -42,7 +39,7 @@ Aby uzyskać dostęp do funkcji filtrowania geograficznego, wybierz punkt końco
 
 W polu **ścieżka** określ ścieżkę względną do lokalizacji, do której użytkownicy będą mogli uzyskać dostęp lub którym odmówiono dostępu. 
 
-Można zastosować filtrowanie geograficzne dla wszystkich plików z ukośnikiem (/) lub wybrać określone foldery, określając ścieżki katalogów (na przykład */Pictures/*). Można również zastosować filtrowanie geograficzne do pojedynczego pliku (na przykład */pictures/city.png*). Dozwolone są wiele reguł; Po wprowadzeniu reguły zostanie wyświetlony pusty wiersz, aby wprowadzić następną regułę.
+Można zastosować filtrowanie geograficzne dla wszystkich plików z ukośnikiem (/) lub wybrać określone foldery, określając ścieżki katalogów (na przykład */Pictures/*). Można również zastosować filtrowanie geograficzne do pojedynczego pliku (na przykład */pictures/city.png*). Dozwolone są wiele reguł. Po wprowadzeniu reguły zostanie wyświetlony pusty wiersz, aby wprowadzić następną regułę.
 
 Na przykład wszystkie następujące filtry ścieżki katalogu są prawidłowe:   
 */*                                 
@@ -63,6 +60,7 @@ Na przykład reguła filtrowania geograficznego do blokowania ścieżki */Photos
  *http: \/ / \<endpoint> . azureedge.NET/Photos/Strasbourg/Cathedral/1000.jpg*
 
 ### <a name="define-the-countriesregions"></a>Zdefiniuj kraje/regiony
+
 Z listy **Kody krajów** wybierz kraje/regiony, które mają być blokowane lub dozwolone dla ścieżki. 
 
 Po wybraniu krajów/regionów wybierz pozycję **Zapisz** , aby aktywować nową regułę filtrowania geograficznego. 
@@ -70,31 +68,33 @@ Po wybraniu krajów/regionów wybierz pozycję **Zapisz** , aby aktywować nową
 ![Zrzut ekranu przedstawia kody krajów, które mają być używane do blokowania lub zezwalania na kraje lub regiony.](./media/cdn-filtering/cdn-geo-filtering-rules.png)
 
 ### <a name="clean-up-resources"></a>Czyszczenie zasobów
+
 Aby usunąć regułę, wybierz ją z listy na stronie **filtrowania geograficznego** , a następnie wybierz **Usuń**.
 
 ## <a name="azure-cdn-premium-from-verizon-profiles"></a>Azure CDN Premium z profilów Verizon
-Dla **programu Azure CDN Premium z profilów Verizon** interfejs użytkownika służący do tworzenia reguł filtrowania geograficznego jest różny:
+
+W przypadku **Azure CDN Premium z profilów Verizon** interfejs użytkownika służący do tworzenia reguł filtrowania geograficznego jest różny:
 
 1. W górnym menu w profilu Azure CDN wybierz pozycję **Zarządzaj**.
 
 2. W portalu Verizon wybierz pozycję **http Large**, a następnie wybierz pozycję **Filtrowanie krajów**.
 
-    ![Zrzut ekranu pokazuje, jak wybrać filtrowanie kraju na platformie Azure C D N.](./media/cdn-filtering/cdn-geo-filtering-premium.png)
-
+    :::image type="content" source="./media/cdn-filtering/cdn-geo-filtering-premium.png" alt-text="Zrzut ekranu przedstawia sposób wybierania filtrowania kraju w Azure CDN" border="true":::
+  
 3. Wybierz pozycję **Dodaj filtr kraju**.
 
-    Zostanie wyświetlona strona **krok jeden:** .
+4. W **kroku 1:** wprowadź ścieżkę katalogu. Wybierz pozycję **Blokuj** lub **Dodaj**, a następnie wybierz pozycję **dalej**.
 
-4. Wprowadź ścieżkę do katalogu, wybierz opcję **Blokuj** lub **Dodaj**, a następnie wybierz przycisk **dalej**.
-
-    Zostanie wyświetlona strona **krok 2** . 
-
-5. Wybierz z listy co najmniej jeden kraj/region, a następnie wybierz pozycję **Zakończ** , aby aktywować regułę. 
+    > [!IMPORTANT]
+    > Nazwa punktu końcowego musi znajdować się w ścieżce.  Przykład: **/myendpoint8675/MyFolder**.  Zastąp **myendpoint8675** nazwą punktu końcowego.
+    > 
+    
+5. W **kroku dwa** wybierz co najmniej jeden kraj/region z listy. Wybierz pozycję **Zakończ** , aby aktywować regułę. 
     
     Nowa reguła zostanie wyświetlona w tabeli na stronie **Filtrowanie krajów** .
-
-    ![Zrzut ekranu pokazuje, gdzie reguła jest wyświetlana w obszarze Filtrowanie kraju.](./media/cdn-filtering/cdn-geo-filtering-premium-rules.png)
-
+    
+    :::image type="content" source="./media/cdn-filtering/cdn-geo-filtering-premium-rules.png" alt-text="Zrzut ekranu pokazuje, gdzie reguła jest wyświetlana w obszarze Filtrowanie kraju." border="true":::
+ 
 ### <a name="clean-up-resources"></a>Czyszczenie zasobów
 W tabeli reguł filtrowania kraju/regionu wybierz ikonę Usuń obok reguły, aby ją usunąć, lub ikonę edycji, aby ją zmodyfikować.
 

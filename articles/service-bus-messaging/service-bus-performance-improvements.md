@@ -2,14 +2,14 @@
 title: Najlepsze rozwiązania dotyczące poprawy wydajności przy użyciu Azure Service Bus
 description: Opisuje, w jaki sposób używać Service Bus do optymalizowania wydajności podczas wymiany komunikatów obsługiwanych przez brokera.
 ms.topic: article
-ms.date: 11/11/2020
+ms.date: 01/15/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6a0457537712ccb85191f320fd348446eed9b229
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 7bfff1a31365724ed1d1cb6ff1956a4e2ef4f4c0
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97655632"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539436"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Najlepsze rozwiązania dotyczące zwiększania wydajności przy użyciu komunikatów usługi Service Bus
 
@@ -24,22 +24,27 @@ Service Bus umożliwia klientom wysyłanie i odbieranie komunikatów za pośredn
 2. Service Bus Messaging Protocol (SBMP)
 3. Protokół HTTP
 
-AMQP jest najbardziej wydajny, ponieważ utrzymuje połączenie z Service Bus. Implementuje również przetwarzanie wsadowe i pobieranie z wyprzedzeniem. O ile nie zostało to wyraźnie określone, cała zawartość tego artykułu zakłada użycie AMQP lub SBMP.
+AMQP jest najbardziej wydajny, ponieważ utrzymuje połączenie z Service Bus. Implementuje również [Przetwarzanie wsadowe](#batching-store-access) i [pobieranie z wyprzedzeniem](#prefetching). O ile nie zostało to wyraźnie określone, cała zawartość tego artykułu zakłada użycie AMQP lub SBMP.
 
 > [!IMPORTANT]
 > SBMP jest dostępna tylko dla .NET Framework. AMQP jest wartością domyślną dla .NET Standard.
 
 ## <a name="choosing-the-appropriate-service-bus-net-sdk"></a>Wybieranie odpowiedniego zestawu SDK platformy .NET Service Bus
-Istnieją dwa obsługiwane Azure Service Bus zestawy SDK platformy .NET. Ich interfejsy API są podobne i mogą być trudne do wyboru. Zapoznaj się z poniższą tabelą, aby ułatwić podjęcie decyzji. Zalecamy używanie zestawu SDK Microsoft. Azure. ServiceBus, ponieważ jest to bardziej nowoczesny, wydajny i jest zgodny z różnymi platformami. Ponadto obsługuje AMQP przez WebSockets i jest częścią kolekcji zestawu SDK platformy Azure dla projektów typu open source.
+Istnieją trzy obsługiwane Azure Service Bus zestawy SDK platformy .NET. Ich interfejsy API są podobne i mogą być trudne do wyboru. Zapoznaj się z poniższą tabelą, aby ułatwić podjęcie decyzji. Usługa Azure. Messaging. ServiceBus SDK jest najnowsza i zalecamy użycie jej w porównaniu z innymi zestawami SDK. Platformy Azure. Messaging. ServiceBus i Microsoft. Azure. ServiceBus SDK są nowoczesne, wydajne i Międzyplatformowe. Ponadto obsługują one AMQP za pośrednictwem elementów WebSockets i są częścią kolekcji zestawu SDK platformy Azure dla projektów typu open source.
 
 | Pakiet NuGet | Podstawowe przestrzenie nazw | Minimalna liczba platform | Protokoły |
 |---------------|----------------------|---------------------|-------------|
-| <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus" target="_blank">Microsoft. Azure. ServiceBus <span class="docon docon-navigate-external x-hidden-focus"></span></a> | `Microsoft.Azure.ServiceBus`<br>`Microsoft.Azure.ServiceBus.Management` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5,4<br>Platforma Xamarin. iOS 10,14<br>Xamarin. Mac 3,8<br>Xamarin. Android 8,0<br>Platforma uniwersalna systemu Windows 10.0.16299 | AMQP<br>HTTP |
-| <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus" target="_blank">WindowsAzure. ServiceBus <span class="docon docon-navigate-external x-hidden-focus"></span></a> | `Microsoft.ServiceBus`<br>`Microsoft.ServiceBus.Messaging` | .NET Framework 4.6.1 | AMQP<br>SBMP<br>HTTP |
+| [Azure. Messaging. ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) | `Azure.Messaging.ServiceBus`<br>`Azure.Messaging.ServiceBus.Administration` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5,4<br>Platforma Xamarin. iOS 10,14<br>Xamarin. Mac 3,8<br>Xamarin. Android 8,0<br>Platforma uniwersalna systemu Windows 10.0.16299 | AMQP<br>HTTP |
+| [Microsoft. Azure. ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/) | `Microsoft.Azure.ServiceBus`<br>`Microsoft.Azure.ServiceBus.Management` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5,4<br>Platforma Xamarin. iOS 10,14<br>Xamarin. Mac 3,8<br>Xamarin. Android 8,0<br>Platforma uniwersalna systemu Windows 10.0.16299 | AMQP<br>HTTP |
+| [WindowsAzure. ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) | `Microsoft.ServiceBus`<br>`Microsoft.ServiceBus.Messaging` | .NET Framework 4.6.1 | AMQP<br>SBMP<br>HTTP |
 
 Aby uzyskać więcej informacji o minimalnej obsłudze platformy .NET Standard, zobacz [Obsługa implementacji platformy .NET](/dotnet/standard/net-standard#net-implementation-support).
 
 ## <a name="reusing-factories-and-clients"></a>Używanie fabryk i klientów
+# <a name="azuremessagingservicebus-sdk"></a>[Zestaw SDK platformy Azure. Messaging. ServiceBus](#tab/net-standard-sdk-2)
+Obiekty Service Bus, które współpracują z usługą, takie jak [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient), [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender), [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver)i [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor), powinny być zarejestrowane na potrzeby iniekcji zależności jako pojedyncze (lub są tworzone raz i udostępnione). ServiceBusClient można zarejestrować na potrzeby iniekcji zależności z [ServiceBusClientBuilderExtensions](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/src/Compatibility/ServiceBusClientBuilderExtensions.cs). 
+
+Nie zaleca się zamykania ani usuwania tych obiektów po wysłaniu lub odebraniu poszczególnych komunikatów. Zamykanie lub likwidowanie obiektów specyficznych dla obiektu (ServiceBusSender/Receiver/procesor) powoduje przerwanie połączenia z usługą Service Bus. Likwidacja ServiceBusClient skutkuje rozbiciem połączenia z usługą Service Bus. Nawiązywanie połączenia jest kosztowną operacją, którą można uniknąć przez ponowne użycie tego samego ServiceBusClient i utworzenie niepotrzebnych obiektów właściwych dla jednostki z tego samego wystąpienia ServiceBusClient. Można bezpiecznie używać tych obiektów klienta do równoczesnych operacji asynchronicznych i z wielu wątków.
 
 # <a name="microsoftazureservicebus-sdk"></a>[Zestaw SDK Microsoft. Azure. ServiceBus](#tab/net-standard-sdk)
 
@@ -55,6 +60,27 @@ Service Bus obiektów klienta, takich jak `QueueClient` lub `MessageSender` , s�
 Operacje, takie jak wysyłanie, odbieranie, usuwanie i tak dalej, zajmuje trochę czasu. Ten czas obejmuje czas, przez jaki usługa Service Bus podejmuje proces przetwarzania operacji oraz opóźnienia żądania i odpowiedzi. Aby zwiększyć liczbę operacji na czas, operacje muszą być wykonywane współbieżnie.
 
 Klient planuje współbieżne operacje przez wykonywanie operacji **asynchronicznych** . Następne żądanie zostało uruchomione przed ukończeniem poprzedniego żądania. Poniższy fragment kodu jest przykładem asynchronicznej operacji wysyłania:
+
+# <a name="azuremessagingservicebus-sdk"></a>[Zestaw SDK platformy Azure. Messaging. ServiceBus](#tab/net-standard-sdk-2)
+```csharp
+var messageOne = new ServiceBusMessage(body);
+var messageTwo = new ServiceBusMessage(body);
+
+var sendFirstMessageTask =
+    sender.SendMessageAsync(messageOne).ContinueWith(_ =>
+    {
+        Console.WriteLine("Sent message #1");
+    });
+var sendSecondMessageTask =
+    sender.SendMessageAsync(messageTwo).ContinueWith(_ =>
+    {
+        Console.WriteLine("Sent message #2");
+    });
+
+await Task.WhenAll(sendFirstMessageTask, sendSecondMessageTask);
+Console.WriteLine("All messages sent");
+
+```
 
 # <a name="microsoftazureservicebus-sdk"></a>[Zestaw SDK Microsoft. Azure. ServiceBus](#tab/net-standard-sdk)
 
@@ -101,6 +127,35 @@ Console.WriteLine("All messages sent");
 ---
 
 Poniższy kod jest przykładem asynchronicznej operacji odbierania.
+
+# <a name="azuremessagingservicebus-sdk"></a>[Zestaw SDK platformy Azure. Messaging. ServiceBus](#tab/net-standard-sdk-2)
+
+```csharp
+var client = new ServiceBusClient(connectionString);
+var options = new ServiceBusProcessorOptions 
+{
+
+      AutoCompleteMessages = false,
+      MaxConcurrentCalls = 20
+};
+await using ServiceBusProcessor processor = client.CreateProcessor(queueName,options);
+processor.ProcessMessageAsync += MessageHandler;
+processor.ProcessErrorAsync += ErrorHandler;
+
+static Task ErrorHandler(ProcessErrorEventArgs args)
+{
+    Console.WriteLine(args.Exception);
+    return Task.CompletedTask;
+};
+
+static async Task MessageHandler(ProcessMessageEventArgs args)
+{
+Console.WriteLine("Handle message");
+      await args.CompleteMessageAsync(args.Message);
+}
+
+await processor.StartProcessingAsync();
+```
 
 # <a name="microsoftazureservicebus-sdk"></a>[Zestaw SDK Microsoft. Azure. ServiceBus](#tab/net-standard-sdk)
 
@@ -168,9 +223,12 @@ Service Bus nie obsługuje transakcji dla operacji odbierania i usuwania. Ponadt
 
 Tworzenie wsadowe po stronie klienta umożliwia klientowi kolejki lub tematu opóźnienie wysyłania komunikatu przez określony czas. Jeśli klient wysyła dodatkowe komunikaty w tym okresie, przesyła komunikaty w jednej partii. Przetwarzanie wsadowe po stronie klienta powoduje także, że klient kolejki lub subskrypcji **wykonuje** wsadowe wiele żądań w ramach pojedynczego żądania. Przetwarzanie wsadowe jest dostępne tylko w przypadku asynchronicznych operacji **wysyłania** i **kończenia** . Operacje synchroniczne są natychmiast wysyłane do usługi Service Bus. Przetwarzanie wsadowe nie odbywa się w przypadku operacji wglądu lub odbierania, ani nie występuje przetwarzanie wsadowe na wielu klientach.
 
+# <a name="azuremessagingservicebus-sdk"></a>[Zestaw SDK platformy Azure. Messaging. ServiceBus](#tab/net-standard-sdk-2)
+Funkcja przetwarzania wsadowego dla zestawu SDK .NET Standard nie uwidacznia jeszcze właściwości do manipulowania.
+
 # <a name="microsoftazureservicebus-sdk"></a>[Zestaw SDK Microsoft. Azure. ServiceBus](#tab/net-standard-sdk)
 
-Funkcja wsadowa dla zestawu SDK .NET Standard nie uwidacznia jeszcze właściwości do manipulowania.
+Funkcja przetwarzania wsadowego dla zestawu SDK .NET Standard nie uwidacznia jeszcze właściwości do manipulowania.
 
 # <a name="windowsazureservicebus-sdk"></a>[WindowsAzure. ServiceBus SDK](#tab/net-framework-sdk)
 
@@ -217,6 +275,19 @@ Aby zwiększyć przepływność kolejki, tematu lub subskrypcji, Service Bus prz
 Dodatkowe operacje magazynu występujące w tym interwale są dodawane do zadania wsadowego. Dostęp do magazynu wsadowego ma wpływ tylko na operacje **wysyłania** i **kończenia** . nie ma to wpływu na operacje odbierania. Dostęp do magazynu wsadowego jest właściwością obiektu. Przetwarzanie wsadowe odbywa się we wszystkich jednostkach, które umożliwiają dostęp do magazynu wsadowego.
 
 Podczas tworzenia nowej kolejki, tematu lub subskrypcji dostęp do magazynu wsadowego jest domyślnie włączony.
+
+
+# <a name="azuremessagingservicebus-sdk"></a>[Zestaw SDK platformy Azure. Messaging. ServiceBus](#tab/net-standard-sdk-2)
+Aby wyłączyć dostęp do magazynu wsadowego, konieczne będzie wystąpienie elementu `ServiceBusAdministrationClient` . Utwórz na `CreateQueueOptions` podstawie opisu kolejki, który ustawia `EnableBatchedOperations` Właściwość na `false` .
+
+```csharp
+var options = new CreateQueueOptions(path)
+{
+    EnableBatchedOperations = false
+};
+var queue = await administrationClient.CreateQueueAsync(options);
+```
+
 
 # <a name="microsoftazureservicebus-sdk"></a>[Zestaw SDK Microsoft. Azure. ServiceBus](#tab/net-standard-sdk)
 
@@ -270,6 +341,12 @@ Właściwość Time-to-Live (TTL) komunikatu jest sprawdzana przez serwer w mome
 
 Pobieranie z wyprzedzeniem nie wpływa na liczbę operacji wysyłania komunikatów do rozliczeń i jest dostępne tylko dla protokołu klienta Service Bus. Protokół HTTP nie obsługuje pobierania z wyprzedzeniem. Pobieranie z wyprzedzeniem jest dostępne zarówno dla operacji synchronicznych, jak i asynchronicznych.
 
+# <a name="azuremessagingservicebus-sdk"></a>[Zestaw SDK platformy Azure. Messaging. ServiceBus](#tab/net-standard-sdk-2)
+Aby uzyskać więcej informacji, zobacz następujące `PrefetchCount` Właściwości:
+
+- [ServiceBusReceiver.PrefetchCount](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.prefetchcount)
+- [ServiceBusProcessor.PrefetchCount](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.prefetchcount)
+
 # <a name="microsoftazureservicebus-sdk"></a>[Zestaw SDK Microsoft. Azure. ServiceBus](#tab/net-standard-sdk)
 
 Aby uzyskać więcej informacji, zobacz następujące `PrefetchCount` Właściwości:
@@ -287,10 +364,6 @@ Aby uzyskać więcej informacji, zobacz następujące `PrefetchCount` Właściwo
 ---
 
 ## <a name="prefetching-and-receivebatch"></a>Pobieranie i ReceiveBatch
-
-> [!NOTE]
-> Ta sekcja dotyczy tylko zestawu SDK WindowsAzure. ServiceBus, ponieważ zestaw SDK Microsoft. Azure. ServiceBus nie ujawnia funkcji usługi Batch.
-
 Chociaż koncepcje pobierania wielu wiadomości razem mają podobną semantykę do przetwarzania komunikatów w partii ( `ReceiveBatch` ), istnieją pewne drobne różnice, które należy wziąć pod uwagę podczas wspólnego korzystania z tych metod.
 
 Pobieranie z wyprzedzeniem jest konfiguracją (lub trybem) na kliencie ( `QueueClient` i `SubscriptionClient` ) i `ReceiveBatch` jest operacją (która ma semantykę odpowiedzi żądania).
@@ -309,7 +382,7 @@ Jeśli jedna kolejka lub temat nie może obsłużyć oczekiwanego, Użyj wielu j
 ## <a name="development-and-testing-features"></a>Funkcje deweloperskie i testowe
 
 > [!NOTE]
-> Ta sekcja dotyczy tylko zestawu SDK WindowsAzure. ServiceBus, ponieważ zestaw SDK Microsoft. Azure. ServiceBus nie uwidacznia tej funkcji.
+> Ta sekcja dotyczy tylko zestawu SDK WindowsAzure. ServiceBus, takich jak Microsoft. Azure. ServiceBus i Azure. Messaging. ServiceBus nie uwidacznia tej funkcji.
 
 Service Bus ma jedną funkcję, która została użyta do celów deweloperskich, która **nigdy nie powinna być używana w konfiguracjach produkcyjnych**: [`TopicDescription.EnableFilteringMessagesBeforePublishing`][TopicDescription.EnableFiltering] .
 
@@ -372,9 +445,9 @@ Aby zmaksymalizować przepływność, postępuj zgodnie z następującymi wskaz�
 * Pozostaw włączony dostęp do magazynu wsadowego. Ten dostęp zmniejsza całkowite obciążenie jednostki. Zmniejsza również ogólną szybkość, z jaką komunikaty mogą być zapisywane do kolejki lub tematu.
 * Ustaw liczbę pobierania z wyprzedzeniem na niewielką wartość (na przykład PrefetchCount = 10). Ta liczba uniemożliwia bezczynne odbiorców, a inne odbiorniki mają w pamięci podręcznej dużą liczbę komunikatów.
 
-### <a name="topic-with-a-small-number-of-subscriptions"></a>Temat z małą liczbą subskrypcji
+### <a name="topic-with-a-few-subscriptions"></a>Temat z kilkoma subskrypcjami
 
-Cel: Maksymalizuj przepływność tematu o niewielkiej liczbie subskrypcji. Wiadomość jest odbierana przez wiele subskrypcji, co oznacza, że łączna szybkość odbierania dla wszystkich subskrypcji jest większa niż szybkość wysyłania. Liczba nadawców jest niewielka. Liczba odbiorników na subskrypcję jest mała.
+Cel: Maksymalizuj przepływność tematu za pomocą kilku subskrypcji. Wiadomość jest odbierana przez wiele subskrypcji, co oznacza, że łączna szybkość odbierania dla wszystkich subskrypcji jest większa niż szybkość wysyłania. Liczba nadawców jest niewielka. Liczba odbiorników na subskrypcję jest mała.
 
 Aby zmaksymalizować przepływność, postępuj zgodnie z następującymi wskazówkami:
 

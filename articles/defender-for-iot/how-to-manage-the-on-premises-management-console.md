@@ -4,15 +4,15 @@ description: Dowiedz się więcej na temat opcji lokalnej konsoli zarządzania, 
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/12/2020
+ms.date: 1/12/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 7bbac0d8593d47c3162a8ea43e928343a88f2de4
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 80dbad919e9446100bdeebb7cde71c147abfc8bc
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861434"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539346"
 ---
 # <a name="manage-the-on-premises-management-console"></a>Zarządzanie lokalną konsolą zarządzania
 
@@ -49,9 +49,26 @@ Usługa Azure Defender for IoT używa certyfikatów SSL i TLS, aby:
 
 - Zapoznaj się z określonymi wymaganiami dotyczącymi certyfikatów i szyfrowania, przekazując certyfikat podpisany przez urząd certyfikacji.
 
-- Zezwalaj na sprawdzanie poprawności między konsolą zarządzania i połączonymi czujnikami oraz między konsolą zarządzania i konsolą zarządzania o wysokiej dostępności. Sprawdzanie poprawności jest oceniane względem listy odwołania certyfikatów i daty wygaśnięcia certyfikatu. *Jeśli walidacja nie powiedzie się, komunikacja między konsolą zarządzania i czujnikiem zostanie zatrzymana, a w konsoli zostanie wyświetlony komunikat o błędzie walidacji.* Ta opcja jest domyślnie włączona po instalacji.
+- Zezwalaj na sprawdzanie poprawności między konsolą zarządzania i połączonymi czujnikami oraz między konsolą zarządzania i konsolą zarządzania o wysokiej dostępności. Sprawdzanie poprawności jest oceniane względem listy odwołania certyfikatów i daty wygaśnięcia certyfikatu. *Jeśli walidacja nie powiedzie się, komunikacja między konsolą zarządzania i czujnikiem zostanie zatrzymana, a w konsoli zostanie wyświetlony komunikat o błędzie walidacji*. Ta opcja jest domyślnie włączona po instalacji.
 
 Reguły przekazujące inne firmy nie są weryfikowane. Przykłady to informacje o alercie wysyłane do dziennika systemowego, Splunk lub usługi ServiceNow; i komunikacja z Active Directory.
+
+#### <a name="ssl-certificates"></a>Certyfikaty SSL
+
+Usługa Defender dla czujnika IoT oraz lokalna Konsola zarządzania używają protokołu SSL i certyfikatów TLS dla następujących funkcji: 
+
+ - Bezpieczna komunikacja między użytkownikami i konsolą sieci Web urządzenia. 
+ 
+ - Zabezpieczanie komunikacji z interfejsem API REST na czujniku i lokalnej konsoli zarządzania.
+ 
+ - Bezpieczna komunikacja między czujnikami i lokalną konsolą zarządzania. 
+
+Po zainstalowaniu urządzenie generuje lokalny certyfikat z podpisem własnym, aby umożliwić wstępny dostęp do konsoli sieci Web. Za pomocą narzędzia wiersza polecenia można zainstalować certyfikaty SSL przedsiębiorstwa i TLS [`cyberx-xsense-certificate-import`](#cli-commands) . 
+
+ > [!NOTE]
+ > W przypadku integracji i reguł przekazywania, gdy urządzenie jest klientem i inicjatorem sesji, używane są określone certyfikaty i nie są związane z certyfikatami systemu.  
+ >
+ >W takich przypadkach certyfikaty są zwykle odbierane z serwera lub używają szyfrowania asymetrycznego, w którym zostanie dostarczony określony certyfikat w celu skonfigurowania integracji. 
 
 ### <a name="update-certificates"></a>Aktualizowanie certyfikatów
 
@@ -60,16 +77,19 @@ Użytkownicy będący administratorami lokalnej konsoli zarządzania mogą aktua
 Aby zaktualizować certyfikat:  
 
 1. Wybierz pozycję **Ustawienia systemowe**.
+
 1. Wybierz opcję **Certyfikaty SSL/TLS**.
 1. Usuń lub Edytuj certyfikat i Dodaj nowy.
    
    - Dodaj nazwę certyfikatu.
+   
    - Przekaż plik CRT i plik klucza, a następnie wprowadź hasło.
    - W razie potrzeby Przekaż plik PEM.
 
 Aby zmienić ustawienie walidacji:
 
 1. Włącz lub wyłącz przełącznik **Włącz weryfikację certyfikatu** .
+
 1. Wybierz pozycję **Zapisz**.
 
 Jeśli opcja jest włączona, a Walidacja nie powiedzie się, komunikacja między konsolą zarządzania a czujnikiem zostanie zatrzymana, a w konsoli zostanie wyświetlony komunikat o błędzie walidacji.
@@ -78,25 +98,30 @@ Jeśli opcja jest włączona, a Walidacja nie powiedzie się, komunikacja międz
 
 Obsługiwane są następujące certyfikaty:
 
-- Infrastruktura kluczy prywatnych i korporacyjnych (prywatna infrastruktura PKI) 
+- Infrastruktura kluczy prywatnych i korporacyjnych (prywatna infrastruktura PKI)
+ 
 - Infrastruktura kluczy publicznych (publiczna infrastruktura PKI) 
+
 - Wygenerowane lokalnie na urządzeniu (lokalnie z podpisem własnym) 
 
   > [!IMPORTANT]
-  > Nie zalecamy używania certyfikatów z podpisem własnym. To połączenie nie jest bezpieczne i powinno być używane tylko w środowiskach testowych. Nie można zweryfikować właściciela certyfikatu, a zabezpieczenia systemu nie są obsługiwane. Certyfikaty z podpisem własnym nigdy nie powinny być używane dla sieci produkcyjnych.  
+  > Nie zalecamy używania certyfikatów z podpisem własnym. Ten typ połączenia nie jest bezpieczny i powinien być używany tylko w środowiskach testowych. Od tego czasu nie można sprawdzić poprawności właściciela certyfikatu i nie można utrzymywać zabezpieczeń systemu, dlatego certyfikaty z podpisem własnym nigdy nie powinny być używane dla sieci produkcyjnych.
+
+### <a name="supported-ssl-certificates"></a>Obsługiwane certyfikaty SSL 
 
 Obsługiwane są następujące parametry: 
 
 **CRT certyfikat**
 
 - Podstawowy plik certyfikatu dla nazwy domeny
+
 - Algorytm podpisu = SHA256RSA
 - Algorytm wyznaczania wartości skrótu podpisu = SHA256
 - Ważny od = prawidłowa data przeszła
 - Ważny do = prawidłowa data przyszła
 - Klucz publiczny = RSA 2048 bitów (minimum) lub 4096 bitów
 - Punkt dystrybucji listy CRL = adres URL pliku listy CRL
-- Nazwa podmiotu (CN = URL) może być certyfikatem z symbolem wieloznacznym; na przykład www.contoso.com lub \* . contoso.com
+- Nazwa podmiotu (CN = URL) może być certyfikatem z symbolem wieloznacznym; na przykład czujnik. contoso. <span> com lub *. contoso. <span> Dodatki
 - Podmiot (C) ountry = zdefiniowany, na przykład US
 - Podmiot (OU) — jednostka organizacyjna = zdefiniowana; Przykładowo firma Contoso Labs
 - Podmiot (O) rganizacji = zdefiniowany; na przykład contoso Inc
@@ -104,17 +129,25 @@ Obsługiwane są następujące parametry:
 **Plik klucza**
 
 - Plik klucza wygenerowany podczas tworzenia CSR
+
 - RSA 2048 bitów (minimum) lub 4096 bitów
+
+ > [!Note]
+ > Użycie klucza o długości 4096bits:
+ > - Uzgadnianie protokołu SSL na początku każdego połączenia będzie wolniejsze.  
+ > - Podczas uzgadniania występuje wzrost użycia procesora CPU. 
 
 **Łańcuch certyfikatów**
 
 - Pośredni plik certyfikatu (jeśli istnieje), który został dostarczony przez urząd certyfikacji.
+
 - Certyfikat urzędu certyfikacji, który wystawił certyfikat serwera, powinien znajdować się najpierw w pliku, a po nim wszystkie inne osoby w katalogu głównym. 
 - Łańcuch może zawierać atrybuty zbioru.
 
 **Danym**
 
 - Jeden klucz jest obsługiwany.
+
 - Konfiguruje się podczas importowania certyfikatu.
 
 Certyfikaty z innymi parametrami mogą funkcjonować, ale firma Microsoft nie obsługuje ich.
@@ -123,23 +156,51 @@ Certyfikaty z innymi parametrami mogą funkcjonować, ale firma Microsoft nie ob
 
 **PEM: plik kontenera certyfikatów**
 
-Nazwa jest z Privacy Enhanced Mail (PEM), metody historycznej do bezpiecznej poczty e-mail. Format kontenera to tłumaczenie Base64 kluczy ASN. 1.  
+Pliki Privacy Enhanced Mail (PEM) były ogólnym typem pliku używanym do zabezpieczania wiadomości e-mail. Obecnie pliki PEM są używane z certyfikatami i używają kluczy x509 ASN1.  
 
-Ten plik jest zdefiniowany w dokumentach RFC 1421 do 1424: format kontenera, który może zawierać tylko certyfikat publiczny (na przykład w przypadku instalacji Apache, plików certyfikatów urzędu certyfikacji itp.). Może to być również cały łańcuch certyfikatów, w tym klucz publiczny, klucz prywatny i certyfikaty główne.  
+Plik kontenera jest zdefiniowany w RFC 1421 do 1424, format kontenera, który może zawierać tylko certyfikat publiczny. Na przykład program Apache instaluje certyfikat urzędu certyfikacji, pliki itp., SSL lub certyfikaty. Może to obejmować cały łańcuch certyfikatów, w tym klucz publiczny, klucz prywatny i certyfikaty główne.  
 
-Może również zakodować CSR, ponieważ format PKCS10 można przetłumaczyć na PEM.
+Może również zakodować CSR jako format PKCS10, który można przetłumaczyć na PEM.
 
 **. Certificate. cer. CRT: plik kontenera certyfikatów**
 
-Jest to plik w formacie PEM (lub rzadko, der) o innym rozszerzeniu. Eksplorator plików systemu Windows rozpoznaje go jako certyfikat. Eksplorator plików nie rozpoznaje pliku PEM.
+`.pem` `.der` Plik lub sformatowany przy użyciu innego rozszerzenia. Plik jest rozpoznawany przez Eksploratora Windows jako certyfikat. `.pem`   Plik nie jest rozpoznawany przez Eksploratora Windows.
 
 **. klucz: plik klucza prywatnego**
 
-Plik klucza ma ten sam format co plik PEM, ale ma inne rozszerzenie. 
+Plik klucza jest w tym samym formacie co plik PEM, ale ma inne rozszerzenie. 
+
+#### <a name="additional-commonly-available-key-artifacts"></a>Dodatkowe często dostępne artefakty kluczy
+
+**. CSR-żądanie podpisania certyfikatu**.  
+
+Ten plik jest używany do przesłania do urzędów certyfikacji. Rzeczywisty format to PKCS10, który jest zdefiniowany w dokumencie RFC 2986 i może zawierać niektóre lub wszystkie szczegóły klucza żądanego certyfikatu. Na przykład temat, organizacja i stan. Jest to klucz publiczny certyfikatu, który jest podpisywany przez urząd certyfikacji i odbiera certyfikat w programie Return.  
+
+Zwrócony certyfikat jest certyfikatem publicznym, który zawiera klucz publiczny, ale nie klucz prywatny. 
+
+**. PKCS12. pfx. p12 — kontener hasła**. 
+
+Pierwotnie zdefiniowane przez firmę RSA w Public-Key standardach kryptograficznych (PKCS), 12-wariantowe zostały pierwotnie ulepszone przez firmę Microsoft i przesłane dalej jako RFC 7292.  
+
+Ten format kontenera wymaga hasła, które zawiera pary certyfikatów Public i Private. W przeciwieństwie do `.pem`   plików, ten kontener jest w pełni szyfrowany.  
+
+Możesz użyć OpenSSL, aby przekształcić plik w `.pem`   plik z kluczami publicznymi i prywatnymi: `openssl pkcs12 -in file-to-convert.p12 -out converted-file.pem -nodes`  
+
+**algorytm der — szyfrowany binarnie PEM**.
+
+Sposób kodowania składni ASN. 1 w formacie binarnym polega na `.pem`   pliku, który jest tylko zakodowanym algorytmem Base64 `.der` . 
+
+OpenSSL może przekonwertować te pliki na `.pem` :  `openssl x509 -inform der -in to-convert.der -out converted.pem` .  
+
+System Windows będzie rozpoznawał te pliki jako pliki certyfikatów. Domyślnie system Windows będzie eksportować certyfikaty jako `.der` sformatowane pliki o innym rozszerzeniu.
+
+**. CRL — lista odwołania certyfikatów**.  
+
+Urzędy certyfikacji tworzą te produkty jako sposób cofania autoryzacji certyfikatów przed ich wygaśnięciem. 
 
 #### <a name="cli-commands"></a>Polecenia interfejsu wiersza polecenia
 
-Użyj `cyberx-xsense-certificate-import` polecenia CLI, aby zaimportować certyfikaty. Aby użyć tego narzędzia, należy przekazać pliki certyfikatów do urządzenia (za pomocą narzędzi, takich jak WinSCP lub Wget).
+Użyj `cyberx-xsense-certificate-import` polecenia CLI, aby zaimportować certyfikaty. Aby użyć tego narzędzia, należy przekazać pliki certyfikatów do urządzenia za pomocą narzędzi, takich jak WinSCP lub Wget.
 
 Polecenie obsługuje następujące flagi wejściowe:
 
@@ -160,6 +221,41 @@ Gdy korzystasz z polecenia CLI:
 - Sprawdź, czy pliki certyfikatów są odczytywane na urządzeniu.
 
 - Sprawdź, czy nazwa domeny i adres IP w certyfikacie są zgodne z konfiguracją zaplanowaną przez dział IT.
+
+### <a name="use-openssl-to-manage-certificates"></a>Zarządzanie certyfikatami za pomocą OpenSSL
+
+Zarządzaj certyfikatami za pomocą następujących poleceń:
+
+| Opis | Interfejs wiersza polecenia |
+|--|--|
+| Generowanie nowego klucza prywatnego i żądania podpisania certyfikatu | `openssl req -out CSR.csr -new -newkey rsa:2048 -nodes -keyout privateKey.key` |
+| Generowanie certyfikatu z podpisem własnym | `openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out certificate.crt` |
+| Generuj żądanie podpisania certyfikatu (CSR) dla istniejącego klucza prywatnego | `openssl req -out CSR.csr -key privateKey.key -new` |
+| Generowanie żądania podpisania certyfikatu opartego na istniejącym certyfikacie | `openssl x509 -x509toreq -in certificate.crt -out CSR.csr -signkey privateKey.key` |
+| Usuń hasło z klucza prywatnego | `openssl rsa -in privateKey.pem -out newPrivateKey.pem` |
+
+Jeśli musisz sprawdzić informacje w ramach certyfikatu, CSR lub klucza prywatnego, Użyj tych poleceń;
+
+| Opis | Interfejs wiersza polecenia |
+|--|--|
+| Sprawdź żądanie podpisania certyfikatu (CSR) | `openssl req -text -noout -verify -in CSR.csr` |
+| Sprawdź klucz prywatny | `openssl rsa -in privateKey.key -check` |
+| Sprawdź certyfikat | `openssl x509 -in certificate.crt -text -noout`  |
+
+Jeśli zostanie wyświetlony komunikat o błędzie, że klucz prywatny nie jest zgodny z certyfikatem lub że certyfikat zainstalowany w lokacji nie jest zaufany, Użyj tych poleceń, aby naprawić błąd.
+
+| Opis | Interfejs wiersza polecenia |
+|--|--|
+| Sprawdź skrót MD5 klucza publicznego, aby upewnić się, że jest on zgodny z tym, co znajduje się w CSR lub kluczu prywatnym | jedno. `openssl x509 -noout -modulus -in certificate.crt | openssl md5` <br /> dwóch. `openssl rsa -noout -modulus -in privateKey.key | openssl md5` <br /> r.3. `openssl req -noout -modulus -in CSR.csr | openssl md5 ` |
+
+Aby przekonwertować certyfikaty i klucze na różne formaty, aby były zgodne z określonymi typami serwerów lub oprogramowania, Użyj tych poleceń;
+
+| Opis | Interfejs wiersza polecenia |
+|--|--|
+| Konwertuj plik algorytmu DER (. CRT. cer. der) na PEM  | `openssl x509 -inform der -in certificate.cer -out certificate.pem`  |
+| Konwertuj plik PEM na algorytm DER | `openssl x509 -outform der -in certificate.pem -out certificate.der`  |
+| Konwertowanie pliku PKCS # 12 (pfx. p12) zawierającego klucz prywatny i certyfikaty do PEM | `openssl pkcs12 -in keyStore.pfx -out keyStore.pem -nodes` <br />Można dodać `-nocerts` tylko do danych wyjściowych klucza prywatnego lub dodać `-nokeys` tylko do danych wyjściowych. |
+| Konwertowanie pliku certyfikatu PEM i klucza prywatnego na PKCS # 12 (. pfx. p12) | `openssl pkcs12 -export -out certificate.pfx -inkey privateKey.key -in certificate.crt -certfile CACert.crt` |
 
 ## <a name="define-backup-and-restore-settings"></a>Zdefiniuj ustawienia kopii zapasowej i przywracania
 
@@ -323,4 +419,4 @@ Poniższa procedura zawiera opis sposobu aktualizowania wersji oprogramowania lo
 
 [Zarządzanie czujnikami z poziomu konsoli zarządzania](how-to-manage-sensors-from-the-on-premises-management-console.md)
 
-[Zarządzanie indywidualnymi czujnikami](how-to-manage-individual-sensors.md)
+[Zarządzanie pojedynczymi czujnikami](how-to-manage-individual-sensors.md)
