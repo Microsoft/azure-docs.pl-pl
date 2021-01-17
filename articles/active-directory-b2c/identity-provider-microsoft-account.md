@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 123b36ba854bec8b363d59bbed5e70f18da1e578
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: d9cba08e5b6650edc0decd3ff9df4060e9ad815c
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653711"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538000"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Skonfiguruj konto i zaloguj się za pomocą konto Microsoft przy użyciu Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ ms.locfileid: "97653711"
 
 ## <a name="create-a-microsoft-account-application"></a>Tworzenie aplikacji konto Microsoft
 
-Aby użyć konto Microsoft jako [dostawcy tożsamości](openid-connect.md) w Azure Active Directory B2C (Azure AD B2C), należy utworzyć aplikację w dzierżawie usługi Azure AD. Dzierżawa usługi Azure AD nie jest taka sama jak dzierżawa Azure AD B2C. Jeśli nie masz jeszcze konto Microsoft, możesz uzyskać jeden z nich [https://www.live.com/](https://www.live.com/) .
+Aby włączyć logowanie dla użytkowników za pomocą konto Microsoft w Azure Active Directory B2C (Azure AD B2C), należy utworzyć aplikację w [Azure Portal](https://portal.azure.com). Aby uzyskać więcej informacji, zobacz [Rejestrowanie aplikacji na platformie tożsamości firmy Microsoft](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). Jeśli nie masz jeszcze konto Microsoft, możesz uzyskać jeden z nich [https://www.live.com/](https://www.live.com/) .
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Upewnij się, że używasz katalogu, który zawiera dzierżawę usługi Azure AD, wybierając filtr **katalog + subskrypcja** w górnym menu i wybierając katalog zawierający dzierżawę usługi Azure AD.
@@ -210,7 +210,7 @@ Teraz, gdy masz już przycisk, musisz połączyć go z akcją. W tym przypadku a
 ## <a name="add-microsoft-identity-provider-to-a-user-flow"></a>Dodawanie dostawcy tożsamości firmy Microsoft do przepływu użytkownika 
 
 1. W dzierżawie Azure AD B2C wybierz pozycję **przepływy użytkownika**.
-1. Kliknij przepływ użytkownika, który chcesz do dostawcy tożsamości firmy Microsoft.
+1. Kliknij przepływ użytkownika, do którego chcesz dodać dostawcę tożsamości firmy Microsoft.
 1. W obszarze **dostawcy tożsamości społecznościowej** wybierz pozycję **konto Microsoft**.
 1. Wybierz pozycję **Zapisz**.
 1. Aby przetestować zasady, wybierz pozycję **Uruchom przepływ użytkownika**.

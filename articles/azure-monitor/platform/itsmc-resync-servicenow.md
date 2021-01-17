@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: 9a6e46c0b52c22df0682034deaebd58bbfeb34a7
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 2f0889732ac756e16465659ee2e5b52335d1148f
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210065"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539263"
 ---
 # <a name="troubleshooting-problems-in-itsm-connector"></a>Rozwiązywanie problemów w łączniku ITSM
 
@@ -31,47 +31,7 @@ Możesz wizualizować dane zdarzenia i żądania zmiany za pomocą pulpitu nawig
 
 Pulpit nawigacyjny zawiera również informacje o stanie łącznika, którego można użyć jako punktu wyjścia do analizowania problemów z połączeniami.
 
-### <a name="error-investigation-using-the-dashboard"></a>Badanie błędów przy użyciu pulpitu nawigacyjnego
-
-Aby wyświetlić błędy na pulpicie nawigacyjnym, należy wykonać następujące czynności:
-
-1. W obszarze **wszystkie zasoby** Znajdź pozycję **Servicedesk (*Nazwa obszaru roboczego*)**:
-
-   ![Zrzut ekranu pokazujący najnowsze zasoby w Azure Portal.](media/itsmc-definition/create-new-connection-from-resource.png)
-
-2. W obszarze **źródła danych obszaru roboczego** w okienku po lewej stronie wybierz pozycję **połączenia narzędzia ITSM**:
-
-   ![Zrzut ekranu pokazujący element menu Narzędzia ITSM Connections.](media/itsmc-overview/add-new-itsm-connection.png)
-
-3. W obszarze **Podsumowanie** w polu po lewej stronie **Łącznik zarządzania usługami IT** wybierz pozycję **Wyświetl podsumowanie**:
-
-    ![Zrzut ekranu pokazujący podsumowanie widoku.](media/itsmc-resync-servicenow/dashboard-view-summary.png)
-
-4. W obszarze **Podsumowanie** w polu po lewej stronie **Łącznik zarządzania usługami IT** kliknij wykres:
-
-    ![Zrzut ekranu pokazujący kliknięcie wykresu.](media/itsmc-resync-servicenow/dashboard-graph-click.png)
-
-5. Za pomocą tego pulpitu nawigacyjnego będzie można sprawdzić stan i błędy w łączniku.
-    ![Zrzut ekranu przedstawiający stan łącznika.](media/itsmc-resync-servicenow/connector-dashboard.png)
-
-### <a name="dashboard-elements"></a>Elementy pulpitu nawigacyjnego
-
-Pulpit nawigacyjny zawiera informacje o alertach, które zostały wysłane do narzędzia Narzędzia ITSM przy użyciu tego łącznika.
-Pulpit nawigacyjny jest podzielony na 4 części:
-
-1. Utworzono element roboczy: wykres i tabela poniżej zawierają liczbę elementów roboczych według typu. Po kliknięciu grafu lub w tabeli można zobaczyć więcej szczegółów na temat elementów roboczych.
-    ![Zrzut ekranu pokazujący utworzony element roboczy.](media/itsmc-resync-servicenow/itsm-dashboard-workitems.png)
-2. Komputery, których to dotyczy: tabele zawierają szczegółowe informacje o elementach konfiguracji, które utworzyły elementy konfiguracji.
-    Klikając wiersze w tabelach, można uzyskać więcej szczegółów na temat elementów konfiguracji.
-    Tabela zawiera ograniczoną liczbę wierszy, jeśli chcesz wyświetlić całą listę, a następnie kliknij pozycję "Zobacz wszystko".
-    ![Zrzut ekranu przedstawiający komputery, na których ma wpływ.](media/itsmc-resync-servicenow/itsm-dashboard-impacted-comp.png)
-3. Stan łącznika: wykres i tabela poniżej zawierają komunikaty o stanie łącznika. Klikając wykres w wierszach w tabeli, możesz uzyskać więcej szczegółów na temat komunikatów o stanie łącznika.
-    Tabela zawiera ograniczoną liczbę wierszy, jeśli chcesz wyświetlić całą listę, a następnie kliknij pozycję "Zobacz wszystko".
-    ![Zrzut ekranu przedstawiający stan łącznika.](media/itsmc-resync-servicenow/itsm-dashboard-connector-status.png)
-4. Reguły alertów: tabele zawierają informacje o liczbie wykrytych reguł alertów.
-    Klikając wiersze w tabelach, można uzyskać więcej szczegółów na temat wykrytych reguł.
-    Tabela zawiera ograniczoną liczbę wierszy, jeśli chcesz wyświetlić całą listę, a następnie kliknij pozycję "Zobacz wszystko".
-    ![Zrzut ekranu pokazujący reguły alertów.](media/itsmc-resync-servicenow/itsm-dashboard-alert-rules.png)
+Aby uzyskać więcej informacji na temat badania pulpitu nawigacyjnego, zobacz [Badanie błędów przy użyciu pulpitu nawigacyjnego](./itsmc-dashboard.md).
 
 ### <a name="service-map"></a>Mapa usługi
 

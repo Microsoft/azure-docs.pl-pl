@@ -1,7 +1,7 @@
 ---
-title: Uczenie się z usługą Azure DataSets
+title: Uczenie z zestawami danych uczenia maszynowego
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak udostępnić dane dla lokalnego lub zdalnego obliczenia dla szkolenia modelu ML za pomocą zestawów danych Azure Machine Learning.
+description: Dowiedz się, jak udostępnić dane dla lokalnego lub zdalnego obliczenia dla szkolenia modeli przy użyciu zestawów danych Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,15 +12,14 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 52b52c4c19b22fb1afd76d1e8dfa4163326c0244
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 2d6282c527293abdb8b21e0591548cb51e1339a9
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108594"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539669"
 ---
-# <a name="train-with-datasets-in-azure-machine-learning"></a>Uczenie się z zestawami danych w Azure Machine Learning
-
+# <a name="train-models-with-azure-machine-learning-datasets"></a>Uczenie modeli za pomocą zestawów danych Azure Machine Learning 
 
 W tym artykule dowiesz się, jak korzystać z [Azure Machine Learning zestawów danych](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) w celu uczenia modeli uczenia maszynowego.  Możesz użyć zestawów danych w lokalnym lub zdalnym miejscu docelowym, bez obaw o parametry połączenia lub ścieżki danych. 
 
@@ -41,7 +40,7 @@ Aby tworzyć zestawy danych i uczenia się z nich, potrzebne są:
 > [!Note]
 > Niektóre klasy zestawu danych mają zależności w pakiecie [Azure preprodukcyjnym](/python/api/azureml-dataprep/?preserve-view=true&view=azure-ml-py) . W przypadku użytkowników systemu Linux te klasy są obsługiwane tylko w następujących dystrybucjach: Red Hat Enterprise Linux, Ubuntu, Fedora i CentOS.
 
-## <a name="use-datasets-directly-in-training-scripts"></a>Używanie zestawów danych bezpośrednio w skryptach szkoleniowych
+## <a name="consume-datasets-in-machine-learning-training-scripts"></a>Korzystanie z zestawów danych w skryptach szkoleń dotyczących uczenia maszynowego
 
 Jeśli masz dane strukturalne, które nie zostały jeszcze zarejestrowane jako zestaw danych, Utwórz TabularDataset i użyj go bezpośrednio w skrypcie szkoleniowym dla lokalnego lub zdalnego eksperymentu.
 
@@ -90,6 +89,7 @@ df = dataset.to_pandas_dataframe()
 ```
 
 ### <a name="configure-the-training-run"></a>Konfigurowanie przebiegu szkoleniowego
+
 Obiekt [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrun?preserve-view=true&view=azure-ml-py) służy do konfigurowania i przesyłania przebiegu szkoleniowego.
 
 Ten kod tworzy obiekt ScriptRunConfig, `src` który określa
@@ -141,6 +141,7 @@ mnist_ds = Dataset.File.from_files(path = web_paths)
 ```
 
 ### <a name="configure-the-training-run"></a>Konfigurowanie przebiegu szkoleniowego
+
 Zalecamy przekazanie zestawu danych jako argumentu podczas instalowania za pośrednictwem `arguments` parametru `ScriptRunConfig` konstruktora. Wykonanie tej czynności spowoduje uzyskanie ścieżki danych (punktu instalacji) w skrypcie szkoleniowym przez argumenty. Dzięki temu będzie można użyć tego samego skryptu szkoleniowego na potrzeby debugowania lokalnego i zdalnego szkolenia na dowolnej platformie w chmurze.
 
 Poniższy przykład tworzy ScriptRunConfig, który przekazuje w FileDataset za pośrednictwem `arguments` . Po przesłaniu przebiegu pliki danych, do których odwołuje się zestaw danych, `mnist_ds` zostaną zainstalowane do obiektu docelowego obliczeń.
@@ -160,7 +161,7 @@ run = experiment.submit(src)
 run.wait_for_completion(show_output=True)
 ```
 
-### <a name="retrieve-the-data-in-your-training-script"></a>Pobierz dane w skrypcie szkoleniowym
+### <a name="retrieve-data-in-your-training-script"></a>Pobieranie danych w skrypcie szkoleniowym
 
 Poniższy kod przedstawia sposób pobierania danych w skrypcie.
 
@@ -222,10 +223,9 @@ print(os.listdir(mounted_path))
 print (mounted_path)
 ```
 
+## <a name="get-datasets-in-machine-learning-scripts"></a>Pobieranie zestawów danych w skryptach uczenia maszynowego
 
-## <a name="directly-access-datasets-in-your-script"></a>Bezpośredni dostęp do zestawów danych w skrypcie
-
-Zarejestrowane zestawy danych są dostępne lokalnie i zdalnie w klastrach obliczeniowych, takich jak Azure Machine Learning COMPUTE. Aby uzyskać dostęp do zarejestrowanego zestawu danych w ramach eksperymentów, użyj następującego kodu, aby uzyskać dostęp do obszaru roboczego i zarejestrowano zestaw danych według nazwy. Domyślnie [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) Metoda `Dataset` klasy zwraca najnowszą wersję zestawu danych, który jest zarejestrowany w obszarze roboczym.
+Zarejestrowane zestawy danych są dostępne lokalnie i zdalnie w klastrach obliczeniowych, takich jak Azure Machine Learning COMPUTE. Aby uzyskać dostęp do zarejestrowanego zestawu danych w ramach eksperymentów, użyj poniższego kodu, aby uzyskać dostęp do obszaru roboczego i uzyskać zestaw danych, który został użyty w wcześniej przesłanym przebiegu. Domyślnie [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) Metoda `Dataset` klasy zwraca najnowszą wersję zestawu danych, który jest zarejestrowany w obszarze roboczym.
 
 ```Python
 %%writefile $script_folder/train.py
@@ -244,7 +244,7 @@ titanic_ds = Dataset.get_by_name(workspace=workspace, name=dataset_name)
 df = titanic_ds.to_pandas_dataframe()
 ```
 
-## <a name="accessing-source-code-during-training"></a>Uzyskiwanie dostępu do kodu źródłowego podczas szkolenia
+## <a name="access-source-code-during-training"></a>Dostęp do kodu źródłowego podczas szkolenia
 
 Usługa Azure Blob Storage ma większe szybkości przepływności niż udział plików platformy Azure i skalowanie na dużą liczbę zadań uruchomionych równolegle. Z tego powodu zalecamy skonfigurowanie przebiegów do korzystania z usługi BLOB Storage na potrzeby przesyłania plików kodu źródłowego.
 

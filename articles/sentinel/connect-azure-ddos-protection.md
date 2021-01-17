@@ -9,12 +9,12 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: yelevin
-ms.openlocfilehash: b5d98a834ed4f87fb95a13e666967a7b2d80975d
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: c54b5b785f6da1bb651d8b1f508da42ab0fb802d
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656058"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538382"
 ---
 # <a name="connect-data-from-azure-ddos-protection"></a>Łączenie danych z Azure DDoS Protection
 
@@ -38,7 +38,7 @@ Ataki rozproszonego typu "odmowa usługi" (DDoS) podejmują próbę wyczerpania 
 
 1. Wybierz **Azure DDoS Protection** z galerii łączników danych, a następnie wybierz **Otwórz stronę łącznika** w okienku podglądu.
 
-1. Włącz **dzienniki diagnostyczne** na wszystkich zaporach, których dzienniki chcesz połączyć:
+1. Włącz **dzienniki diagnostyczne** dla wszystkich publicznych adresów IP, których dzienników chcesz połączyć:
 
     1. Wybierz łącze **Otwórz ustawienia diagnostyki >** i wybierz z listy zasób **publicznego adresu IP** .
 

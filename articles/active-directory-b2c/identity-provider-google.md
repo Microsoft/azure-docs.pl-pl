@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c8b942e66a76bcc3a095f9bd3d40b44bf4217e50
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 286f4f5ca8a18a67da2ac24beb4c6935de35778d
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584888"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538105"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Skonfiguruj konto usługi logowania i zaloguj się za pomocą konta Google przy użyciu Azure Active Directory B2C
 
@@ -37,7 +37,7 @@ ms.locfileid: "97584888"
 
 ## <a name="create-a-google-application"></a>Tworzenie aplikacji Google
 
-Aby użyć konta Google jako [dostawcy tożsamości](authorization-code-flow.md) w Azure Active Directory B2C (Azure AD B2C), musisz utworzyć aplikację w konsoli deweloperów firmy Google. Jeśli nie masz jeszcze konta Google, możesz zarejestrować się w usłudze [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp) .
+Aby włączyć Logowanie użytkowników przy użyciu konta Google w Azure Active Directory B2C (Azure AD B2C), musisz utworzyć aplikację w [konsoli deweloperów firmy Google](https://console.developers.google.com/). Aby uzyskać więcej informacji, zobacz [Konfigurowanie protokołu OAuth 2,0](https://support.google.com/googleapi/answer/6158849). Jeśli nie masz jeszcze konta Google, możesz zarejestrować się w usłudze [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp) .
 
 1. Zaloguj się do [konsoli usługi Google Developer](https://console.developers.google.com/) przy użyciu poświadczeń konta Google.
 1. W lewym górnym rogu strony wybierz listę projektu, a następnie wybierz pozycję **Nowy projekt**.
@@ -48,7 +48,7 @@ Wprowadź **nazwę** aplikacji. Wprowadź *b2clogin.com* w sekcji **autoryzowane
 1. Z menu po lewej stronie wybierz pozycję **poświadczenia** , a następnie wybierz pozycję **Utwórz poświadczenia**  >  **Identyfikator klienta OAuth**.
 1. W obszarze **Typ aplikacji** wybierz pozycję **aplikacja sieci Web**.
 1. Wprowadź **nazwę** aplikacji, wprowadź `https://your-tenant-name.b2clogin.com` w polu **autoryzowane źródła kodu JavaScript** i `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` w polu **autoryzowane identyfikatory URI przekierowania**. Zamień `your-tenant-name` na nazwę dzierżawy. Musisz użyć wszystkich małych liter, wprowadzając nazwę dzierżawy, nawet jeśli dzierżawa jest zdefiniowana z dużymi literami w Azure AD B2C.
-1. Kliknij przycisk **Utwórz**.
+1. Kliknij pozycję **Utwórz**.
 1. Skopiuj wartości **Identyfikator klienta** i **klucz tajny klienta**. Oba te elementy będą potrzebne do skonfigurowania usługi Google jako dostawcy tożsamości w dzierżawie. **Klucz tajny klienta** jest ważnym poświadczeniem zabezpieczeń.
 
 ::: zone pivot="b2c-user-flow"
@@ -81,7 +81,7 @@ Należy przechowywać klucz tajny klienta, który został wcześniej zarejestrow
 7. Wprowadź **nazwę** klucza zasad. Na przykład `GoogleSecret`. Prefiks `B2C_1A_` jest automatycznie dodawany do nazwy klucza.
 8. W **kluczu tajnym** wprowadź wcześniej zarejestrowany klucz tajny klienta.
 9. W obszarze **użycie klucza** wybierz opcję `Signature` .
-10. Kliknij przycisk **Utwórz**.
+10. Kliknij pozycję **Utwórz**.
 
 ## <a name="add-a-claims-provider"></a>Dodawanie dostawcy oświadczeń
 
@@ -189,7 +189,7 @@ Teraz, gdy masz już przycisk, musisz połączyć go z akcją. W tym przypadku a
 ## <a name="add-google-identity-provider-to-a-user-flow"></a>Dodawanie dostawcy usługi Google Identity do przepływu użytkownika 
 
 1. W dzierżawie Azure AD B2C wybierz pozycję **przepływy użytkownika**.
-1. Kliknij przepływ użytkownika, który chcesz do dostawcy tożsamości Google.
+1. Kliknij przepływ użytkownika, do którego chcesz dodać dostawcę tożsamości Google.
 1. W obszarze **dostawcy tożsamości społecznościowej** wybierz pozycję **Google**.
 1. Wybierz pozycję **Zapisz**.
 1. Aby przetestować zasady, wybierz pozycję **Uruchom przepływ użytkownika**.

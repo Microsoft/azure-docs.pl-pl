@@ -1,7 +1,7 @@
 ---
 title: Przechowywanie wersji zestawu danych
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak najlepiej określić wersję zestawów danych i jak działa obsługa wersji przy użyciu potoków uczenia maszynowego.
+description: Dowiedz się, jak w wersji Machine Learning zestawy danych i jak działają wersje przy użyciu potoków uczenia maszynowego.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +11,14 @@ ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 7eb8010853ba370f4502b6bc155c6a098e64965b
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 3290574b26abe544c8c749165e22bef41a83ecf3
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133450"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538159"
 ---
-# <a name="version-and-track-datasets-in-experiments"></a>Wersje i śledzenie zestawów danych w eksperymentach
+# <a name="version-and-track-azure-machine-learning-datasets"></a>Wersja i śledzenie Azure Machine Learning zestawy danych
 
 Ten artykuł zawiera informacje na temat wersji i śledzenia Azure Machine Learning zestawów danych w celu uzyskania odtwarzalności. Wersja zestawu danych to sposób zakładania stanu danych, aby można było zastosować określoną wersję zestawu danych do przyszłych eksperymentów.
 

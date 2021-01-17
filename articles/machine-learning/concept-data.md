@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 6d8c04e48a3d0009a152830a4ee332cd706c4b2c
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 8b73676adbb9aa12e6f3b42dd26bed94b22780a8
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360177"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539900"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Bezpieczny dostęp do danych w Azure Machine Learning
 
@@ -42,7 +42,7 @@ Gdy wszystko będzie gotowe do użycia danych w rozwiązaniu do magazynowania w 
 
     1. Korzystaj bezpośrednio z rozwiązań Azure Machine Learning, takich jak zautomatyzowany przebiegi eksperymentów uczenia maszynowego (zautomatyzowany ML), potoki uczenia maszynowego lub [projektant Azure Machine Learning](concept-designer.md).
 
-4. Utwórz [Monitory zestawu danych](#data-drift) dla wyjściowego zestawu danych modelu, aby wykryć dryf danych. 
+4. Utwórz [Monitory zestawu danych](#drift) dla wyjściowego zestawu danych modelu, aby wykryć dryf danych. 
 
 5. Jeśli wykryto dryfowanie danych, zaktualizuj wejściowy zestaw danych i odpowiednio ponownie naszkol model.
 
@@ -50,7 +50,8 @@ Na poniższym diagramie przedstawiono wizualizację tego zalecanego przepływu p
 
 ![Na diagramie przedstawiono usługę Azure Storage, która jest przesyłana do magazynu danych, który jest przesyłany do elementu DataSet. Zestaw danych przenosi do szkolenia modelu, który przechodzi do dryfu danych, który przechodzi z powrotem do zestawu danych.](./media/concept-data/data-concept-diagram.svg)
 
-## <a name="datastores"></a>Magazyny danych
+<a name="datastores"></a>
+## <a name="connect-to-storage-with-datastores"></a>Łączenie z magazynem za pomocą magazynów danych
 
 Azure Machine Learning magazyny danych bezpiecznie przechowują informacje o połączeniu z usługą Azure Storage, dzięki czemu nie trzeba będzie kodu w skryptach. [Zarejestruj i Utwórz magazyn](how-to-access-data.md) danych, aby łatwo nawiązać połączenie z kontem magazynu i uzyskać dostęp do danych w podstawowej usłudze Azure Storage. 
 
@@ -65,7 +66,8 @@ Obsługiwane usługi magazynu w chmurze na platformie Azure, które mogą być r
 + System plików usługi Databricks
 + Azure Database for MySQL
 
-## <a name="datasets"></a>Zestawy danych
+<a name="datasets"></a>
+## <a name="reference-data-in-storage-with-datasets"></a>Dane referencyjne w magazynie z zestawami danych
 
 Zbiory danych Azure Machine Learning nie są kopiami Twoich dane. Tworząc zestaw danych, można utworzyć odwołanie do danych w usłudze Storage wraz z kopią jej metadanych. 
 
@@ -105,7 +107,7 @@ Zestawy danych umożliwiają wykonywanie wielu zadań uczenia maszynowego poprze
 
 <a name="label"></a>
 
-## <a name="data-labeling"></a>Etykietowanie danych
+## <a name="label-data-with-data-labeling-projects"></a>Etykieta danych z projektami etykietowania danych
 
 Etykietowanie dużych ilości danych często było kłopotliwej w projektach uczenia maszynowego. Te ze składnikiem przetwarzania obrazów, takie jak Klasyfikacja obrazu lub wykrywanie obiektów, zwykle wymagają tysięcy obrazów i odpowiednich etykiet.
 
@@ -115,7 +117,7 @@ Utwórz [projekt etykietowania danych](how-to-create-labeling-projects.md)i wyj�
 
 <a name="drift"></a>
 
-## <a name="data-drift"></a>Dryfowanie danych
+## <a name="monitor-model-performance-with-data-drift"></a>Monitorowanie wydajności modelu z dryfem danych
 
 W kontekście uczenia maszynowego, dryfowanie danych to zmiana danych wejściowych modelu, które prowadzą do obniżenia wydajności modelu. Jest to jedna z najważniejszych przyczyn, które pogorszą się w miarę upływu czasu, dlatego monitorowanie dryfowania danych pomaga wykrywać problemy z wydajnością modelu.
 

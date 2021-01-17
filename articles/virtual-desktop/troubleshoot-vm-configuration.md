@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 31e9b4b065b2acb8378c2eeac332341f48b28165
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84a49ea2f6ce4a5119af024ab3de67fa2b89c02e
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88005224"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539735"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Konfiguracja maszyny wirtualnej hosta sesji
 
@@ -20,7 +20,7 @@ ms.locfileid: "88005224"
 
 Ten artykuł służy do rozwiązywania problemów występujących podczas konfigurowania maszyn wirtualnych hosta sesji usług pulpitu wirtualnego systemu Windows.
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 
 Odwiedź [społeczność Tech. pulpitu wirtualnego systemu Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) , aby omówić usługę pulpitu wirtualnego systemu Windows z zespołem produktu i aktywnymi członkami społeczności.
 
@@ -310,7 +310,7 @@ Jeśli zobaczysz jeden z tych komunikatów, oznacza to, że obraz nie ma zainsta
 
 ### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>Wyłącz ustawienie zasad grupy trybu licencjonowania Pulpit zdalny
 
-Sprawdź ustawienie zasad grupy, otwierając Edytor zasady grupy na maszynie wirtualnej i przechodząc do **Szablony administracyjne**  >  **składniki systemu Windows**  >  **usługi pulpitu zdalnego**  >  **pulpit zdalny**  >  **Licencjonowanie**hosta sesji  >  **Ustaw tryb licencjonowania pulpit zdalny**. Jeśli ustawienie zasad grupy jest **włączone**, zmień je na **wyłączone**. Jeśli jest już wyłączona, pozostaw ją jako-is.
+Sprawdź ustawienie zasad grupy, otwierając Edytor zasady grupy na maszynie wirtualnej i przechodząc do **Szablony administracyjne**  >  **składniki systemu Windows**  >  **usługi pulpitu zdalnego**  >  **pulpit zdalny**  >  **Licencjonowanie** hosta sesji  >  **Ustaw tryb licencjonowania pulpit zdalny**. Jeśli ustawienie zasad grupy jest **włączone**, zmień je na **wyłączone**. Jeśli jest już wyłączona, pozostaw ją jako-is.
 
 >[!NOTE]
 >Jeśli zasady grupy są ustawiane za pośrednictwem domeny, należy wyłączyć to ustawienie dla zasad przeznaczonych dla maszyn wirtualnych obejmujących wiele sesji systemu Windows 10 Enterprise.
@@ -321,7 +321,7 @@ Aby sprawdzić, która wersja systemu Windows 10 Enterprise ma wiele sesji:
 
 1. Zaloguj się przy użyciu konta administratora.
 2. Wprowadź "informacje" na pasku wyszukiwania obok menu Start.
-3. Wybierz pozycję **Informacje o**komputerze.
+3. Wybierz pozycję **Informacje o** komputerze.
 4. Sprawdź liczbę obok pozycji "wersja". Liczba powinna mieć wartość "1809" lub "1903", jak pokazano na poniższej ilustracji.
 
     > [!div class="mx-imgBorder"]
@@ -348,6 +348,7 @@ Aby dowiedzieć się więcej na temat tych zasad, zobacz [Zezwalanie na logowani
 - Aby zapoznać się z omówieniem rozwiązywania problemów z pulpitem wirtualnym systemu Windows i ścieżkami eskalacji, zobacz [Omówienie rozwiązywania problemów, opinie i pomoc techniczna](troubleshoot-set-up-overview.md).
 - Aby rozwiązać problemy podczas tworzenia puli hostów w środowisku pulpitu wirtualnego systemu Windows, zobacz [Tworzenie puli środowiska i hosta](troubleshoot-set-up-issues.md).
 - Aby rozwiązać problemy podczas konfigurowania maszyny wirtualnej w programie Virtual Desktop systemu Windows, zobacz [Konfiguracja maszyny wirtualnej hosta sesji](troubleshoot-vm-configuration.md).
+- Rozwiązywanie problemów związanych z agentem pulpitu wirtualnego systemu Windows lub łącznością sesji można znaleźć w temacie [Rozwiązywanie typowych problemów z systemem Windows Virtual Desktop Agent](troubleshoot-agent.md).
 - Aby rozwiązać problemy z połączeniami klienta pulpitu wirtualnego systemu Windows, zobacz [połączenia usługi pulpitu wirtualnego systemu Windows](troubleshoot-service-connection.md).
 - Aby rozwiązać problemy z Pulpit zdalny klientami, zobacz [Rozwiązywanie problemów z klientem pulpit zdalny](troubleshoot-client.md)
 - Aby rozwiązać problemy występujące podczas korzystania z programu PowerShell z pulpitem wirtualnym systemu Windows, zobacz [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).

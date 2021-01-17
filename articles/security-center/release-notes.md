@@ -7,17 +7,17 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.devlang: na
-ms.topic: overview
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/07/2021
 ms.author: memildin
-ms.openlocfilehash: 4e4ee8690822c6caf4a7c5bd69387ea00d6d00a8
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 86da6c0a3393dd3f47143355597cd9ccdec9928d
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955454"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539943"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -401,7 +401,7 @@ Dowiedz się więcej w temacie [usuwanie standardu z pulpitu nawigacyjnego](upda
 
 Azure Resource Graph to usługa platformy Azure, która została zaprojektowana w celu zapewnienia wydajnej eksploracji zasobów dzięki możliwości wykonywania zapytań na dużą skalę w ramach danego zestawu subskrypcji, dzięki czemu możesz efektywnie zarządzać środowiskiem. 
 
-Aby uzyskać Azure Security Center, można użyć ARG i [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) do wykonywania zapytań o szeroki zakres danych stan zabezpieczeń. Przykład:
+Aby uzyskać Azure Security Center, można użyć ARG i [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) do wykonywania zapytań o szeroki zakres danych stan zabezpieczeń. Na przykład:
 
 - Wykorzystanie spisu zasobów (ARG)
 - Zarejestrowano przykładowe zapytanie ARG dotyczące [identyfikowania kont bez włączonej usługi uwierzytelniania wieloskładnikowego (MFA)](security-center-identity-access.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)
@@ -532,7 +532,7 @@ Po włączeniu usługi Azure Defender w obszarze **cennika i ustawienia** Azure 
 - [Usługa Azure Defender dla serwerów](defender-for-servers-introduction.md)
 - [Usługa Azure Defender dla usługi App Service](defender-for-app-service-introduction.md)
 - [Usługa Azure Defender dla usługi Storage](defender-for-storage-introduction.md)
-- [Usługa Azure Defender dla bazy danych SQL](defender-for-sql-introduction.md)
+- [Azure Defender for SQL](defender-for-sql-introduction.md)
 - [Usługa Azure Defender dla usługi Key Vault](defender-for-key-vault-introduction.md)
 - [Usługa Azure Defender dla platformy Kubernetes](defender-for-kubernetes-introduction.md)
 - [Usługa Azure Defender dla rejestrów kontenerów](defender-for-container-registries-introduction.md)

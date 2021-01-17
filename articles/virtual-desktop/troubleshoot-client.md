@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c6083dbcc270c0e9dde1da45ed01369d03146237
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 097c97d16cf62793d03ac42662267e0553383bc1
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108970"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539612"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Rozwiązywanie problemów z klientem Pulpit zdalny
 
@@ -93,7 +93,7 @@ Jeśli w kanale informacyjnym klienta systemu Windows nie będą wyświetlane ap
 
 Jeśli na liście nie można znaleźć identyfikatora aplikacji 9cdead84-a844-4324-93f2-b2e6bb768d07, należy zarejestrować dostawcę zasobów pulpitu wirtualnego systemu Windows. Aby zarejestrować dostawcę zasobów:
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się do witryny Azure Portal.
 2. Przejdź do **subskrypcji**, a następnie wybierz swoją subskrypcję.
 3. W menu po lewej stronie strony wybierz pozycję **dostawca zasobów**.
 4. Znajdź i wybierz pozycję **Microsoft. DesktopVirtualization**, a następnie wybierz pozycję **zarejestruj ponownie**.
@@ -103,5 +103,6 @@ Jeśli na liście nie można znaleźć identyfikatora aplikacji 9cdead84-a844-43
 - Aby zapoznać się z omówieniem rozwiązywania problemów z pulpitem wirtualnym systemu Windows i ścieżkami eskalacji, zobacz [Omówienie rozwiązywania problemów, opinie i pomoc techniczna](troubleshoot-set-up-overview.md).
 - Aby rozwiązać problemy podczas tworzenia środowiska pulpitu wirtualnego systemu Windows i puli hostów w środowisku pulpitu wirtualnego systemu Windows, zobacz [Tworzenie puli środowiska i hosta](troubleshoot-set-up-issues.md).
 - Aby rozwiązać problemy podczas konfigurowania maszyny wirtualnej w programie Virtual Desktop systemu Windows, zobacz [Konfiguracja maszyny wirtualnej hosta sesji](troubleshoot-vm-configuration.md).
+- Rozwiązywanie problemów związanych z agentem pulpitu wirtualnego systemu Windows lub łącznością sesji można znaleźć w temacie [Rozwiązywanie typowych problemów z systemem Windows Virtual Desktop Agent](troubleshoot-agent.md).
 - Aby rozwiązać problemy występujące podczas korzystania z programu PowerShell z pulpitem wirtualnym systemu Windows, zobacz [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
 - Aby przejść przez samouczek dotyczący rozwiązywania problemów, zobacz [Samouczek: Rozwiązywanie problemów z wdrożeniami szablonów Menedżer zasobów](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).

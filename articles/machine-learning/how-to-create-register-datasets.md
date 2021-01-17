@@ -1,5 +1,5 @@
 ---
-title: Tworzenie Azure Machine Learningych zestawów danych w celu uzyskiwania do nich dostępu
+title: Tworzenie zestawów danych usługi Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, jak tworzyć zestawy danych Azure Machine Learning, aby uzyskać dostęp do Twoich operacji w przypadku przebiegów eksperymentów usługi Machine Learning.
 services: machine-learning
@@ -12,16 +12,14 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: fa6cdeaa47c7fdf9e90cdab96397473d8498afa0
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 8dac15f359d8ab6c7a84bbc30dba392322e84bb5
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108708"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538200"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Tworzenie zestawów danych usługi Azure Machine Learning
-
-
 
 W tym artykule opisano sposób tworzenia Azure Machine Learning zestawów danych w celu uzyskania dostępu do danych dla eksperymentów lokalnych lub zdalnych za pomocą Azure Machine Learning SDK języka Python. Aby dowiedzieć się, gdzie zestawy danych mieszczą się w przepływie pracy ogólnego dostępu do danych Azure Machine Learning, zobacz artykuł dotyczący [bezpiecznego dostępu do danych](concept-data.md#data-workflow) .
 
@@ -127,6 +125,7 @@ Aby ponownie wykorzystać i udostępnić zestawy danych w ramach eksperymentu w 
 > Przekaż pliki z katalogu lokalnego i Utwórz FileDataset w jednej metodzie przy użyciu metody publicznej wersji zapoznawczej, [upload_directory ()](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?preserve-view=true&view=azure-ml-py#upload-directory-src-dir--target--pattern-none--overwrite-false--show-progress-true-). Ta metoda jest [eksperymentalną](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) funkcją w wersji zapoznawczej i może ulec zmianie w dowolnym momencie. 
 > 
 >  Ta metoda służy do przekazywania danych do magazynu bazowego, a w związku z tym koszty związane z magazynowaniem. 
+
 ### <a name="create-a-tabulardataset"></a>Utwórz TabularDataset
 
 Użyj [`from_delimited_files()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory) metody `TabularDatasetFactory` klasy, aby odczytać pliki w formacie CSV lub TSV oraz utworzyć niezarejestrowane TabularDataset. W przypadku odczytywania z wielu plików wyniki zostaną zagregowane w jednej reprezentacji tabelarycznej. 
@@ -176,7 +175,6 @@ titanic_ds.take(3).to_pandas_dataframe()
 2|3|Prawda|3|Heikkinen, chybień. Laina|kobieta|26,0|0|0|STON/O2. 3101282|7,9250||S
 
 Aby ponownie użyć zestawów danych i udostępnić je w ramach eksperymentów w obszarze roboczym, [zarejestruj ten element dataset](#register-datasets).
-
 
 ## <a name="explore-data"></a>Eksplorowanie danych
 

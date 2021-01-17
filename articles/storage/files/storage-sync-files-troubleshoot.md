@@ -4,15 +4,15 @@ description: Rozwiązywanie typowych problemów ze wdrożeniem na Azure File Syn
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 1/13/2021
+ms.date: 1/15/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: a262c2b4351c96217001ba42e8c745f7d71c7d45
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 71de1d17731e086d012da5365fa6671bcb9e6e3b
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233903"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539239"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Rozwiązywanie problemów z usługą Azure File Sync
 Użyj Azure File Sync, aby scentralizować udziały plików w organizacji w Azure Files, utrzymując elastyczność, wydajność i zgodność lokalnego serwera plików. Funkcja Azure File Sync przekształca system Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Na całym świecie możesz mieć dowolną liczbę pamięci podręcznych.
@@ -916,6 +916,22 @@ Ten błąd występuje, ponieważ Azure File Sync nie obsługuje przekierowania H
 | **Wymagana korekta** | Nie |
 
 Ten błąd występuje, gdy operacja pozyskiwania danych przekracza limit czasu. Ten błąd można zignorować, jeśli synchronizacja jest w toku (AppliedItemCount jest większa niż 0). Zobacz [Jak mogę Monitoruj postęp bieżącej sesji synchronizacji?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
+
+<a id="-2134375814"></a>**Synchronizacja nie powiodła się, ponieważ na serwerze nie można odnaleźć ścieżki punktu końcowego serwera.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c8027a |
+| **HRESULT (dziesiętny)** | -2134375814 |
+| **Ciąg błędu** | ECS_E_SYNC_ROOT_DIRECTORY_NOT_FOUND |
+| **Wymagana korekta** | Tak |
+
+Ten błąd występuje, gdy nazwa katalogu użyta jako ścieżka punktu końcowego serwera została zmieniona lub została usunięta. Jeśli nazwa katalogu została zmieniona, Zmień nazwę katalogu z powrotem na oryginalną nazwę i ponownie uruchom usługę agenta synchronizacji magazynu (FileSyncSvc).
+
+Jeśli katalog został usunięty, wykonaj następujące kroki, aby usunąć istniejący punkt końcowy serwera i utworzyć nowy punkt końcowy serwera przy użyciu nowej ścieżki:
+
+1. Usuń punkt końcowy serwera w grupie synchronizacji, wykonując czynności opisane w temacie [Usuwanie punktu końcowego serwera](./storage-sync-files-server-endpoint.md#remove-a-server-endpoint).
+2. Utwórz nowy punkt końcowy serwera w grupie synchronizacji, wykonując kroki opisane w temacie [Dodawanie punktu końcowego serwera](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#add-a-server-endpoint).
 
 ### <a name="common-troubleshooting-steps"></a>Typowe kroki rozwiązywania problemów
 <a id="troubleshoot-storage-account"></a>**Sprawdź, czy konto magazynu istnieje.**  

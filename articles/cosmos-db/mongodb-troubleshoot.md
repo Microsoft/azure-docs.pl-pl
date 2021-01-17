@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: chrande
-ms.openlocfilehash: 06a06d275ba6f5ded475ffd693ee61e7a72b9516
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 26097408d0b83b043f4a25183146c892fc4b48ad
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127706"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538541"
 ---
 # <a name="troubleshoot-common-issues-in-azure-cosmos-dbs-api-for-mongodb"></a>Rozwiązywanie typowych problemów z interfejsem API Azure Cosmos DB MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -36,7 +36,7 @@ W poniższym artykule opisano typowe błędy i rozwiązania dla wdrożeń za pom
 | 67 | CannotCreateIndex | Nie można ukończyć żądania utworzenia indeksu. | W kontenerze można utworzyć maksymalnie 500 indeksów pojedynczego pola. Można uwzględnić maksymalnie osiem pól w indeksie złożonym (indeksy złożone są obsługiwane w wersji 3.6 +). |
 | 115 | CommandNotSupported | Żądanie nie jest obsługiwane. | Dodatkowe szczegóły powinny zostać podane w błędzie. Jeśli ta funkcja jest ważna dla wdrożeń, daj nam znać, tworząc bilet pomocy technicznej w [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). |
 | 11000 | DuplicateKey | Klucz fragmentu (klucz partycji Azure Cosmos DB) wstawianego dokumentu już istnieje w kolekcji lub naruszenie ograniczenia pola indeksu unikatowego. | Użyj funkcji Update (), aby zaktualizować istniejący dokument. Jeśli ograniczenie pola indeksu unikatowego zostało naruszone, Wstaw lub zaktualizuj dokument przy użyciu wartości pola, która nie istnieje jeszcze na fragmentu/partycji. |
-| 16500 | TooManyRequests  | Łączna liczba użytych jednostek żądania jest większa niż aprowizowana prędkość jednostek żądania dla tej kolekcji i zostało zastosowane ograniczanie. | Rozważ skalowanie przepływności przypisanej do kontenera lub zestawu kontenerów w witrynie Azure Portal albo spróbuj wykonać operację ponownie. Jeśli włączysz serwer SSR (ponowienie po stronie serwera), Azure Cosmos DB automatycznie ponawia próbę żądania, które się nie powiodły z powodu tego błędu. |
+| 16500 | TooManyRequests  | Łączna liczba użytych jednostek żądania jest większa niż aprowizowana prędkość jednostek żądania dla tej kolekcji i zostało zastosowane ograniczanie. | Rozważ skalowanie przepływności przypisanej do kontenera lub zestawu kontenerów w witrynie Azure Portal albo spróbuj wykonać operację ponownie. Jeśli [włączysz serwer SSR](prevent-rate-limiting-errors.md) (ponowienie po stronie serwera), Azure Cosmos DB automatycznie ponawia próbę żądania, które się nie powiodły z powodu tego błędu. |
 | 16501 | ExceededMemoryLimit | W ramach usługi wielodostępnej Operacja przekroczyła przydział pamięci klienta. | Zmniejsz zakres operacji przy użyciu bardziej restrykcyjnych kryteriów zapytania lub skontaktuj się z pomocą techniczną z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Przykład: `db.getCollection('users').aggregate([{$match: {name: "Andy"}}, {$sort: {age: -1}}]))` |
 | 40324 | Nierozpoznana Nazwa etapu potoku. | Nie rozpoznano nazwy etapu w żądaniu potoku agregacji. | Upewnij się, że wszystkie nazwy potoków agregacji są prawidłowe w żądaniu. |
 | - | Problemy dotyczące wersji protokołu Wire bazy danych MongoDB | Starsze wersje sterowników MongoDB nie mogą wykryć nazwy konta usługi Azure Cosmos w parametrach połączenia. | Dołącz *nazwa_aplikacji = @**AccountName** @* na końcu interfejsu API Cosmos DB dla parametrów połączenia MongoDB, gdzie ***AccountName*** jest nazwą konta Cosmos DB. |

@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 06/12/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 43718f8ebc851f27035f2999bfb4ff3ec12ca5b4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7bbd54ed68863a4704319a25af96b6463ad2377b
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021966"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539699"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Tworzenie punktu końcowego Azure CDN
 W tym artykule opisano wszystkie ustawienia dotyczące tworzenia punktu końcowego [usługi Azure Content Delivery Network (CDN)](cdn-overview.md) w istniejącym profilu CDN. Po utworzeniu profilu i punktu końcowego możesz rozpocząć dostarczanie zawartości do klientów. Aby zapoznać się z przewodnikiem Szybki Start dotyczącym tworzenia profilu i punktu końcowego, zobacz [Szybki Start: tworzenie Azure CDN profilu i punktu końcowego](cdn-create-new-endpoint.md).
@@ -97,7 +97,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com) przy użyciu ko
     Punkt końcowy nie jest natychmiast dostępny do użycia, ponieważ propagacja rejestracji zajmuje trochę czasu: 
     - W przypadku profili usługi **Azure CDN Standard from Microsoft** propagacja zwykle trwa do 10 minut. 
     - W przypadku profili usługi **Azure CDN Standard from Akamai** propagacja zwykle trwa mniej niż jedną minutę. 
-    - W przypadku profili usługi **Azure CDN Standard from Verizon** oraz usługi **Azure CDN Premium from Verizon** propagacja zwykle trwa do 90 minut. 
+    - W przypadku **Azure CDN Standard from Verizon** i **Azure CDN Premium z profilów Verizon** , Propagacja jest zwykle zakończona w ciągu 30 minut. 
    
     Jeśli próbujesz użyć nazwy domeny usługi CDN przed przekazaniem konfiguracji punktu końcowego do serwerów punktu obecności (POP), może zostać wyświetlony stan odpowiedzi HTTP 404. Jeśli masz kilka godzin od momentu utworzenia punktu końcowego, a nadal otrzymujesz 404 o stanie odpowiedzi, zobacz [Rozwiązywanie problemów Azure CDN punkty końcowe, które zwracają kod stanu 404](cdn-troubleshoot-endpoint.md).
 

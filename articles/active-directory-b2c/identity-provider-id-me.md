@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 01/15/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 6877a82d81b46ac2ffda8d0f0bf3fb0d7b337ff3
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: c7d43a55878a07e424ce1b6f55782502c244239c
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97663629"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98537932"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-idme-account-using-azure-active-directory-b2c"></a>Konfigurowanie rejestracji i logowania przy użyciu konta usługi ID.me za pomocą Azure Active Directory B2C
 
@@ -39,7 +39,7 @@ ms.locfileid: "97663629"
 
 ## <a name="create-an-idme-application"></a>Tworzenie aplikacji ID.me
 
-Aby użyć konta ID.me jako dostawcy tożsamości w Azure Active Directory B2C (Azure AD B2C), musisz utworzyć aplikację w [zasobach deweloperów ID.me dla interfejsu API & SDK](https://developers.id.me/). Jeśli nie masz jeszcze konta dewelopera ID.me, możesz zarejestrować się w usłudze [https://developers.id.me/registration/new](https://developers.id.me/registration/new) .
+Aby włączyć logowanie dla użytkowników przy użyciu konta usługi ID.me w Azure Active Directory B2C (Azure AD B2C), musisz utworzyć aplikację w usłudze [ID.me Developer sources dla interfejsu API & SDK](https://developers.id.me/). Aby uzyskać więcej informacji, zobacz [Przewodnik po integracji z uwierzytelnianiem OAuth](https://developers.id.me/documentation/oauth/overview/kyc). Jeśli nie masz jeszcze konta dewelopera ID.me, możesz zarejestrować się w usłudze [https://developers.id.me/registration/new](https://developers.id.me/registration/new) .
 
 1. Zaloguj się do [zasobów deweloperów ID.me dla interfejsu API & SDK](https://developers.id.me/) przy użyciu poświadczeń konta ID.me.
 1. Wybierz pozycję **Wyświetl moje aplikacje**, a następnie wybierz pozycję **Kontynuuj**.

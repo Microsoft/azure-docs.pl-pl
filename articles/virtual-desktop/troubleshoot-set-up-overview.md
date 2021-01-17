@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d051594572f742b290867d12e0fb148f2abbf370
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 4d4bdc4fa15f634b36f12a650b70b9ffd89b40e0
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621318"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539113"
 ---
 # <a name="troubleshooting-overview-feedback-and-support-for-windows-virtual-desktop"></a>Omówienie rozwiązywania problemów, opinie i pomoc techniczna dla pulpitu wirtualnego systemu Windows
 
@@ -32,7 +32,7 @@ Przed wykonaniem jakichkolwiek innych czynności upewnij się, że Sprawdź [str
 
 Skorzystaj z poniższej tabeli, aby zidentyfikować i rozwiązać problemy, które mogą wystąpić podczas konfigurowania środowiska przy użyciu programu Pulpit zdalny Client. Po skonfigurowaniu środowiska możesz użyć naszej nowej [usługi diagnostycznej](diagnostics-role-service.md) , aby zidentyfikować problemy dla typowych scenariuszy.
 
-| **Problem**                                                            | **Sugerowane rozwiązanie**  |
+| **Wykonaj**                                                            | **Sugerowane rozwiązanie**  |
 |----------------------------------------------------------------------|-------------------------------------------------|
 | Ustawienia puli hostów sesji Azure Virtual Network (VNET) i usługi Express Route               | [Otwórz żądanie pomocy technicznej platformy Azure](https://azure.microsoft.com/support/create-ticket/), a następnie wybierz odpowiednią usługę (w obszarze Kategoria sieci). |
 | Tworzenie maszyny wirtualnej puli hostów sesji, gdy Azure Resource Manager szablony udostępniane z pulpitem wirtualnym systemu Windows nie są używane | [Otwórz żądanie pomocy technicznej platformy Azure](https://azure.microsoft.com/support/create-ticket/), a następnie wybierz pozycję **pulpit wirtualny systemu Windows** dla usługi. <br> <br> Problemy z szablonami Azure Resource Manager udostępnianymi z pulpitem wirtualnym systemu Windows znajdują się w sekcji Azure Resource Manager szablonów błędów [tworzenia puli hostów](troubleshoot-set-up-issues.md). |
@@ -53,6 +53,7 @@ Skorzystaj z poniższej tabeli, aby zidentyfikować i rozwiązać problemy, któ
 
 - Aby rozwiązać problemy podczas tworzenia puli hostów w środowisku pulpitu wirtualnego systemu Windows, zobacz [Tworzenie puli hostów](troubleshoot-set-up-issues.md).
 - Aby rozwiązać problemy podczas konfigurowania maszyny wirtualnej w programie Virtual Desktop systemu Windows, zobacz [Konfiguracja maszyny wirtualnej hosta sesji](troubleshoot-vm-configuration.md).
+- Rozwiązywanie problemów związanych z agentem pulpitu wirtualnego systemu Windows lub łącznością sesji można znaleźć w temacie [Rozwiązywanie typowych problemów z systemem Windows Virtual Desktop Agent](troubleshoot-agent.md).
 - Aby rozwiązać problemy z połączeniami klienta pulpitu wirtualnego systemu Windows, zobacz [połączenia usługi pulpitu wirtualnego systemu Windows](troubleshoot-service-connection.md).
 - Aby rozwiązać problemy z Pulpit zdalny klientami, zobacz [Rozwiązywanie problemów z klientem pulpit zdalny](troubleshoot-client.md)
 - Aby rozwiązać problemy występujące podczas korzystania z programu PowerShell z pulpitem wirtualnym systemu Windows, zobacz [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).

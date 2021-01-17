@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 24e267b66d11cb3c5ca2b70ed09b7acb3653da99
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 36b7618fbacc18ec506f12eabc642246d3148ce0
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653609"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98537927"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Konfigurowanie rejestracji i logowania przy użyciu konta usługi Weibo za pomocą Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ ms.locfileid: "97653609"
 
 ## <a name="create-a-weibo-application"></a>Tworzenie aplikacji Weibo
 
-Aby użyć konta Weibo jako dostawcy tożsamości w Azure Active Directory B2C (Azure AD B2C), musisz utworzyć aplikację w swojej dzierżawie, która go reprezentuje. Jeśli nie masz jeszcze konta Weibo, możesz zarejestrować się w usłudze [https://weibo.com/signup/signup.php?lang=en-us](https://weibo.com/signup/signup.php?lang=en-us) .
+Aby włączyć Logowanie użytkowników przy użyciu konta usługi Weibo w Azure Active Directory B2C (Azure AD B2C), musisz utworzyć aplikację w [portalu Weibo Developer](https://open.weibo.com/). Jeśli nie masz jeszcze konta Weibo, możesz zarejestrować się w usłudze [https://weibo.com](https://weibo.com/signup/signup.php?lang=en-us) .
 
 1. Zaloguj się do [portalu deweloperów Weibo](https://open.weibo.com/) przy użyciu poświadczeń konta Weibo.
 1. Po zalogowaniu wybierz swoją nazwę wyświetlaną w prawym górnym rogu.
@@ -263,7 +263,7 @@ Teraz, gdy masz już przycisk, musisz połączyć go z akcją. W tym przypadku a
 ## <a name="add-weibo-identity-provider-to-a-user-flow"></a>Dodawanie dostawcy tożsamości Weibo do przepływu użytkownika 
 
 1. W dzierżawie Azure AD B2C wybierz pozycję **przepływy użytkownika**.
-1. Kliknij przepływ użytkownika, który ma być dostawcą tożsamości Weibo.
+1. Kliknij przepływ użytkownika, do którego chcesz dodać dostawcę tożsamości Weibo.
 1. W obszarze **dostawcy tożsamości społecznościowej** wybierz pozycję **Weibo**.
 1. Wybierz pozycję **Zapisz**.
 1. Aby przetestować zasady, wybierz pozycję **Uruchom przepływ użytkownika**.

@@ -5,24 +5,30 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/13/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 97d89db17af9cde3afadee430b3d0c2a434e12c9
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 57192ab2ee1624cb18de832ac91c95290da727df
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210141"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539878"
 ---
 # <a name="dynamically-provision-service-bus-namespaces-and-entities"></a>Dynamicznie zastrzegaj Service Bus przestrzenie nazw i jednostek 
 Azure Service Bus biblioteki zarządzania mogą dynamicznie inicjować Service Bus przestrzenie nazw i jednostek. Umożliwia to złożone wdrożenia i scenariusze obsługi komunikatów oraz umożliwia programowe Określanie, które jednostki mają być udostępniane. Te biblioteki są obecnie dostępne dla platformy .NET.
 
-## <a name="supported-functionality"></a>Obsługiwane funkcje
+## <a name="overview"></a>Omówienie
+Dostępne są trzy biblioteki zarządzania służące do tworzenia jednostek Service Bus i zarządzania nimi. Są to:
 
-* Tworzenie, aktualizowanie, usuwanie przestrzeni nazw
-* Tworzenie, aktualizowanie, usuwanie kolejki
-* Tworzenie, aktualizowanie, usuwanie tematu
-* Tworzenie, aktualizowanie, usuwanie subskrypcji
+- [Azure. Messaging. ServiceBus. Administration](#azuremessagingservicebusadministration)
+- [Microsoft. Azure. ServiceBus. Management](#microsoftazureservicebusmanagement)
+- [Microsoft.Azure.Management.ServiceBus](#microsoftazuremanagementservicebus)
 
-## <a name="azuremessagingservicebusadministration-recommended"></a>Azure. Messaging. ServiceBus. Administration (zalecane)
+Wszystkie te pakiety obsługują operacje tworzenia, pobierania, wyświetlania, usuwania, aktualizowania, usuwania i aktualizacji w **kolejkach, tematach i subskrypcjach**. Jednak tylko [Microsoft. Azure. Management. ServiceBus](#microsoftazuremanagementservicebus) obsługuje operacje tworzenia, aktualizowania, wyświetlania, pobierania i usuwania w **przestrzeniach nazw**, wyświetlania i ponownego generowania kluczy SAS i nie tylko. 
+
+Biblioteka Microsoft. Azure. Management. ServiceBus działa tylko z uwierzytelnianiem za pomocą usługi Azure Active Directory (Azure AD) i nie obsługuje używania parametrów połączenia. Pozostałe dwie biblioteki (Azure. Messaging. ServiceBus i Microsoft. Azure. ServiceBus) obsługują używanie parametrów połączenia do uwierzytelniania w usłudze i są łatwiejsze w użyciu. Między tymi bibliotekami usługa Azure. Messaging. ServiceBus jest najnowsza i dlatego zalecamy jej użycie.
+
+Poniższe sekcje zawierają więcej informacji na temat tych bibliotek. 
+
+## <a name="azuremessagingservicebusadministration"></a>Azure. Messaging. ServiceBus. Administration
 Możesz użyć klasy [ServiceBusAdministrationClient](/dotnet/api/azure.messaging.servicebus.administration.servicebusadministrationclient) w przestrzeni nazw [Azure. Messaging. ServiceBus. Administration](/dotnet/api/azure.messaging.servicebus.administration) , aby zarządzać przestrzeniami nazw, kolejkami, tematami i subskrypcjami. Oto przykładowy kod. Aby zapoznać się z kompletnym przykładem, zobacz [przykład CRUD](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/tests/Samples/Sample07_CrudOperations.cs).
 
 ```csharp
@@ -89,7 +95,7 @@ namespace adminClientTrack2
 Można użyć klasy [ManagementClient](/dotnet/api/microsoft.azure.servicebus.management.managementclient) w przestrzeni nazw [Microsoft. Azure. ServiceBus. Management](/dotnet/api/microsoft.azure.servicebus.management) do zarządzania przestrzeniami nazw, kolejkami, tematami i subskrypcjami. Oto przykładowy kod: 
 
 > [!NOTE]
-> Zalecamy używanie `ServiceBusAdministrationClient` klasy z `Azure.Messaging.ServiceBus.Administration` biblioteki, która jest NAJNOWSZYm zestawem SDK. Aby uzyskać szczegółowe informacje, zobacz [pierwszą sekcję](#azuremessagingservicebusadministration-recommended). 
+> Zalecamy używanie `ServiceBusAdministrationClient` klasy z `Azure.Messaging.ServiceBus.Administration` biblioteki, która jest NAJNOWSZYm zestawem SDK. Aby uzyskać szczegółowe informacje, zobacz [pierwszą sekcję](#azuremessagingservicebusadministration). 
 
 ```csharp
 using System;
@@ -156,7 +162,7 @@ Aby rozpocząć korzystanie z tej biblioteki, musisz się uwierzytelnić za pomo
 
 * [Użyj Azure Portal, aby utworzyć Active Directory aplikację i nazwę główną usługi, które mogą uzyskiwać dostęp do zasobów](../active-directory/develop/howto-create-service-principal-portal.md)
 * [Use Azure PowerShell to create a service principal to access resources (Tworzenie jednostki usługi używanej do uzyskiwania dostępu do zasobów przy użyciu programu Azure PowerShell)](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
-* [Use Azure CLI to create a service principal to access resources (Tworzenie jednostki usługi używanej do uzyskiwania dostępu do zasobów przy użyciu interfejsu wiersza polecenia platformy Azure)](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
+* [Use Azure CLI to create a service principal to access resources (Tworzenie jednostki usługi używanej do uzyskiwania dostępu do zasobów przy użyciu interfejsu wiersza polecenia platformy Azure)](/cli/azure/create-an-azure-service-principal-azure-cli)
 
 Te samouczki zapewniają `AppId` (identyfikator klienta), `TenantId` i `ClientSecret` (klucz uwierzytelniania), które są używane do uwierzytelniania przez biblioteki zarządzania. Musisz mieć co najmniej Azure Service Bus uprawnienia [**właściciela danych**](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) lub [**współautora**](../role-based-access-control/built-in-roles.md#contributor) dla grupy zasobów, w której chcesz uruchomić.
 

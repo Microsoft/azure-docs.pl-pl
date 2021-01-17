@@ -5,13 +5,13 @@ author: savjani
 ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
-ms.date: 01/15/2021
-ms.openlocfilehash: 5ebae41e68633eb10959c56011dd71952f9564bd
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.date: 01/18/2021
+ms.openlocfilehash: 67e4da13d6954342b9979eb57a35c812cb63bb3e
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250421"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539987"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Konfigurowanie replikacja typu data-in w Azure Database for MariaDB
 
@@ -23,6 +23,9 @@ Przed wykonaniem kroków opisanych w tym artykule Przejrzyj [ograniczenia i wyma
 
 > [!NOTE]
 > Jeśli serwer źródłowy jest w wersji 10,2 lub nowszej, zalecamy skonfigurowanie replikacja typu data-in przy użyciu [globalnego identyfikatora transakcji](https://mariadb.com/kb/en/library/gtid/).
+
+> [!NOTE]
+> Ten artykuł zawiera odwołania do warunku _podrzędnego_, termin, który nie jest już wykorzystywany przez firmę Microsoft. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
 
 ## <a name="create-a-mariadb-server-to-use-as-a-replica"></a>Utwórz serwer MariaDB, który ma być używany jako replika
 
@@ -40,10 +43,6 @@ Przed wykonaniem kroków opisanych w tym artykule Przejrzyj [ograniczenia i wyma
 3. Dodaj adres IP serwera źródłowego do reguł zapory repliki. 
 
    Zaktualizuj reguły zapory za pomocą [witryny Azure Portal](howto-manage-firewall-portal.md) lub [interfejsu wiersza polecenia platformy Azure](howto-manage-firewall-cli.md).
-
-> [!NOTE]
-> Ten artykuł zawiera odwołania do warunku _podrzędnego_, termin, który nie jest już wykorzystywany przez firmę Microsoft. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
->
 
 ## <a name="configure-the-source-server"></a>Skonfiguruj serwer źródłowy
 
@@ -95,7 +94,7 @@ Poniższe kroki przygotowują i skonfigurują serwer MariaDB hostowany lokalnie,
 
 3. Włącz rejestrowanie plików binarnych.
 
-    Aby sprawdzić, czy na wzorcu jest włączone rejestrowanie plików binarnych, wprowadź następujące polecenie:
+    Aby sprawdzić, czy funkcja rejestrowania plików binarnych jest włączona na serwerze podstawowym, wprowadź następujące polecenie:
 
    ```sql
    SHOW VARIABLES LIKE 'log_bin';

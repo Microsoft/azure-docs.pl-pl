@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 01/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: b8be516051f8eed0649064ae0f7c29a4dde85675
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 8a0d69ea57eb5b8b2a074c37d4798a99c576ce95
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98224497"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538171"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-azure-ad-b2c-account-from-another-azure-ad-b2c-tenant"></a>Konfigurowanie rejestracji i logowania przy użyciu konta Azure AD B2C z poziomu innej dzierżawy Azure AD B2C
 
@@ -43,7 +43,7 @@ W tym artykule opisano sposób konfigurowania Federacji z inną dzierżawą Azur
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Tworzenie aplikacji Azure AD B2C
 
-Aby użyć konta Azure AD B2C jako [dostawcy tożsamości](openid-connect.md) w dzierżawie Azure AD B2C (na przykład contoso), w innym Azure AD B2C (na przykład Fabrikam):
+Aby włączyć Logowanie użytkowników przy użyciu konta z innej dzierżawy Azure AD B2C (na przykład Fabrikam), w Azure AD B2C (na przykład contoso):
 
 1. Tworzenie [przepływu użytkownika](tutorial-create-user-flows.md)lub [zasad niestandardowych](custom-policy-get-started.md).
 1. Następnie Utwórz aplikację w Azure AD B2C, zgodnie z opisem w tej sekcji. 
@@ -123,7 +123,7 @@ Należy przechowywać klucz aplikacji utworzony wcześniej w dzierżawie Azure A
 1. Wprowadź **nazwę** klucza zasad. Na przykład `FabrikamAppSecret`.  Prefiks `B2C_1A_` jest automatycznie dodawany do nazwy klucza podczas jego tworzenia, więc jego odwołanie w kodzie XML w poniższej sekcji ma *B2C_1A_FabrikamAppSecret*.
 1. W **kluczu tajnym** wprowadź wcześniej zarejestrowany klucz tajny klienta.
 1. W obszarze **użycie klucza** wybierz opcję `Signature` .
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ## <a name="add-a-claims-provider"></a>Dodawanie dostawcy oświadczeń
 

@@ -1,20 +1,20 @@
 ---
-title: Aktywowanie i Konfigurowanie czujnika
+title: Aktywowanie i konfigurowanie czujnika
 description: W tym artykule opisano sposób logowania i aktywowania konsoli czujnika.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/26/2020
+ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 9305609b624a96e4d785657dfb63af6639e132c4
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 4ad1562bdd9853b6ff3c537790a54dbeab96b5b8
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97842537"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538573"
 ---
-# <a name="activate-and-set-up-your-sensor"></a>Aktywowanie i Konfigurowanie czujnika
+# <a name="activate-and-set-up-your-sensor"></a>Aktywowanie i konfigurowanie czujnika
 
 W tym artykule opisano sposób aktywowania czujnika i wykonywania konfiguracji początkowej.
 
@@ -65,10 +65,13 @@ Dostępne są dwa poziomy zabezpieczeń:
 Konsola obsługuje następujące typy certyfikatów:
 
 - Infrastruktura kluczy prywatnych i korporacyjnych (prywatna infrastruktura PKI)
+
 - Infrastruktura kluczy publicznych (publiczna infrastruktura PKI)
+
 - Wygenerowane lokalnie na urządzeniu (lokalnie z podpisem własnym) 
 
-  > WAŻNE Zalecamy, aby nie używać domyślnego certyfikatu z podpisem własnym. Certyfikat nie jest zabezpieczony i powinien być używany tylko w środowiskach testowych. Nie można zweryfikować właściciela certyfikatu, a zabezpieczenia systemu nie są obsługiwane. Nie należy używać tej opcji w przypadku sieci produkcyjnych.
+  > [!IMPORTANT]
+  > Zalecamy, aby nie używać domyślnego certyfikatu z podpisem własnym. Certyfikat nie jest zabezpieczony i powinien być używany tylko w środowiskach testowych. Nie można zweryfikować właściciela certyfikatu, a zabezpieczenia systemu nie są obsługiwane. Nie należy używać tej opcji w przypadku sieci produkcyjnych.
 
 ### <a name="sign-in-and-activate-the-sensor"></a>Logowanie i aktywowanie czujnika
 
@@ -217,4 +220,4 @@ Dostęp do narzędzi konsoli programu można uzyskać z menu po stronie.
 
 [Zarządzaj plikami aktywacji czujników](how-to-manage-individual-sensors.md#manage-sensor-activation-files)
 
-[Kontroluj, jaki ruch jest monitorowany](how-to-control-what-traffic-is-monitored.md)
+[Sterowanie monitorowanym ruchem](how-to-control-what-traffic-is-monitored.md)

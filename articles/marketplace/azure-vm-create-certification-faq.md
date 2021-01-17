@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 10/19/2020
-ms.openlocfilehash: 921c05b76640935a1bd9e65d556933c23093e5b2
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.date: 01/15/2021
+ms.openlocfilehash: 8c2739503f00848b1515f2061c2a9aa250c091a3
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251441"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539849"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Rozwiązywanie problemów z certyfikatem maszyny wirtualnej
 
@@ -22,7 +22,6 @@ W tym artykule opisano typowe komunikaty o błędach podczas publikowania obraz�
 
 > [!NOTE]
 > Jeśli masz pytania dotyczące tego artykułu lub sugestie dotyczące ulepszeń, skontaktuj się z [pomocą techniczną Centrum partnerskiego](https://aka.ms/marketplacepublishersupport).
-
 
 ## <a name="vm-extension-failure"></a>Niepowodzenie rozszerzenia maszyny wirtualnej
 
@@ -60,12 +59,12 @@ Problemy z aprowizacjim mogą obejmować następujące scenariusze awarii:
 |1|Nieprawidłowy wirtualny dysk twardy (VHD)|Jeśli określona wartość pliku cookie w stopce dysku VHD jest niepoprawna, wirtualny dysk twardy będzie uznawany za nieprawidłowy.|Utwórz ponownie obraz i prześlij żądanie.|
 |2|Nieprawidłowy typ obiektu BLOB|Inicjowanie obsługi maszyny wirtualnej nie powiodło się, ponieważ użyty blok jest typem obiektu BLOB, a nie typem strony.|Utwórz ponownie obraz i prześlij żądanie.|
 |3|Limit czasu aprowizacji lub nieprawidłowo uogólniony|Wystąpił problem z generalizacją maszyn wirtualnych.|Utwórz ponownie obraz z generalizacją i prześlij żądanie.|
+|
 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat generalizacji maszyn wirtualnych, zobacz:
 > - [Dokumentacja systemu Linux](azure-vm-create-using-approved-base.md#generalize-the-image)
 > - [Dokumentacja systemu Windows](../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep)
-
 
 ## <a name="vhd-specifications"></a>Specyfikacje wirtualnego dysku twardego
 
@@ -93,7 +92,7 @@ Suma kontrolna|4
 Unikatowy identyfikator|16
 Zapisany stan|1
 Zarezerwowany|427
-
+|
 
 ### <a name="vhd-specifications"></a>Specyfikacje wirtualnego dysku twardego
 
@@ -139,6 +138,7 @@ Poniższa tabela zawiera listę przypadków testowych systemu Linux, które będ
 |8|Interwał aktywności klienta|Ustaw wartość ClientAliveInterval na 180. Na potrzeby aplikacji można ustawić wartość z przeliczania od 30 do 235. W przypadku włączenia protokołu SSH dla użytkowników końcowych należy ustawić tę wartość jako wyjaśnioną.|
 |9|Architektura systemu operacyjnego|Obsługiwane są tylko 64-bitowe systemy operacyjne.|
 |10|Aktualizuj aktualizacje|Określa, czy jest włączona funkcja autoaktualizacji agenta systemu Linux.|
+|
 
 ### <a name="common-test-case-errors"></a>Typowe błędy przypadków testowych
 
@@ -150,7 +150,7 @@ W poniższej tabeli przedstawiono typowe błędy, które mogą pojawić się pod
 | 2 | Przypadek testowy historii bash | Błąd występuje, jeśli rozmiar historii bash w przesłanym obrazie przekracza 1 kilobajt (KB). Rozmiar jest ograniczony do 1 KB, aby upewnić się, że plik historii bash nie zawiera żadnych potencjalnie poufnych informacji. | Rozwiąż problem, instalując dysk VHD na innej działającej maszynie wirtualnej i wprowadź zmiany, aby zmniejszyć rozmiar do 1 KB lub mniej. Na przykład Usuń `.bash` pliki historii. |
 | 3 | Wymagany przypadek testowy parametru jądra | Ten błąd zostanie wyświetlony, gdy wartość parametru `console` nie jest ustawiona na `ttyS0` . Sprawdź, uruchamiając następujące polecenie: <br /> `cat /proc/cmdline` | Ustaw wartość na `console` na `ttyS0` i ponownie prześlij żądanie. |
 | 4 | Przypadek testowy interwału ClientAlive | Jeśli zestaw narzędzi daje wynik niepowodzenia dla tego przypadku testowego, istnieje niewłaściwa wartość dla `ClientAliveInterval` . | Ustaw wartość na `ClientAliveInterval` mniejszą lub równą 235, a następnie prześlij żądanie ponownie. |
-
+|
 
 ### <a name="windows-test-cases"></a>Przypadki testowe systemu Windows
 
@@ -175,8 +175,9 @@ W poniższej tabeli przedstawiono przypadki testowe systemu Windows, które będ
 |15|Usługi SNMP|Funkcja usług Simple Network Management Protocol (SNMP) nie jest jeszcze obsługiwana. Aplikacja nie powinna być zależna od tej funkcji.|
 |16|Usługa nazw internetowych systemu Windows|Usługa nazw internetowych systemu Windows. Ta funkcja serwera nie jest jeszcze obsługiwana. Aplikacja nie powinna być zależna od tej funkcji.|
 |17|Usługa bezprzewodowej sieci LAN|Usługa bezprzewodowej sieci LAN. Ta funkcja serwera nie jest jeszcze obsługiwana. Aplikacja nie powinna być zależna od tej funkcji.|
+|
 
-Jeśli występują problemy z poprzednimi przypadkami testowymi, zapoznaj się z kolumną **Opis** rozwiązania w tabeli. Aby uzyskać więcej informacji, skontaktuj się z zespołem pomocy technicznej. 
+Jeśli występują problemy z poprzednimi przypadkami testowymi, zapoznaj się z kolumną **Opis** rozwiązania w tabeli. Aby uzyskać więcej informacji, skontaktuj się z zespołem pomocy technicznej.
 
 ## <a name="data-disk-size-verification"></a>Weryfikacja rozmiaru dysku danych
 
@@ -192,6 +193,7 @@ Zapoznaj się z następującymi regułami dotyczącymi ograniczeń rozmiaru dysk
 |---|---|
 |Linux|1 GB do 1023 GB|
 |Windows|30 GB do 250 GB|
+|
 
 Ponieważ maszyny wirtualne umożliwiają dostęp do podstawowego systemu operacyjnego, upewnij się, że rozmiar dysku VHD jest wystarczająco duży dla dysku VHD. Dyski nie są rozwijane bez przestojów. Użyj rozmiaru dysku z 30 GB do 50 GB.
 
@@ -199,6 +201,7 @@ Ponieważ maszyny wirtualne umożliwiają dostęp do podstawowego systemu operac
 |---|---|---|
 |>500 tebibajtów (TiB)|n/d|Skontaktuj się z zespołem pomocy technicznej w celu zatwierdzenia wyjątku.|
 |250-500 TiB|>200 gibibajtach (GiB) — różnica między rozmiarem obiektu BLOB|Skontaktuj się z zespołem pomocy technicznej w celu zatwierdzenia wyjątku.|
+|
 
 > [!NOTE]
 > Większe rozmiary dysków wiążą się z wyższymi kosztami i spowoduje to opóźnienie podczas procesu instalacji i replikacji. Ze względu na to opóźnienie i koszt zespół pomocy technicznej może zwrócić się do uzasadnienia zatwierdzenia wyjątku.
@@ -209,7 +212,7 @@ Aby zapobiec potencjalnym atakom związanym z wirusem atak wannacry, upewnij si�
 
 Możesz sprawdzić wersję pliku obrazu z `C:\windows\system32\drivers\srv.sys` lub `srv2.sys` .
 
-W poniższej tabeli przedstawiono minimalną wersję poprawki systemu Windows Server: 
+W poniższej tabeli przedstawiono minimalną wersję poprawki systemu Windows Server:
 
 |System operacyjny|Wersja|
 |---|---|
@@ -218,6 +221,7 @@ W poniższej tabeli przedstawiono minimalną wersję poprawki systemu Windows Se
 |Windows Server 2012 z dodatkiem R2|6.3.9600.18604|
 |Windows Server 2016|10.0.14393.953|
 |Windows Server 2019|Nie dotyczy|
+|
 
 > [!NOTE]
 > System Windows Server 2019 nie ma wymagań dotyczących wersji obowiązkowej.
@@ -230,8 +234,8 @@ Zaktualizuj jądro przy użyciu zatwierdzonej wersji i ponownie prześlij żąda
 
 Jeśli obraz nie jest zainstalowany z jedną z następujących wersji jądra, zaktualizuj go przy użyciu poprawnych poprawek. Zażądaj niepotrzebnego zatwierdzenia od zespołu pomocy technicznej po zaktualizowaniu obrazu przy użyciu wymaganych poprawek:
 
-- CVE-2019-11477 
-- CVE-2019-11478 
+- CVE-2019-11477
+- CVE-2019-11478
 - CVE-2019-11479
 
 |Rodzina systemów operacyjnych|Wersja|Jądro|
@@ -278,6 +282,7 @@ Jeśli obraz nie jest zainstalowany z jedną z następujących wersji jądra, za
 ||Rozciągnij (zabezpieczenia)|4.9.168-1 + deb9u3|
 ||Debian GNU/Linux 10 (Buster)|Debian 6.3.0-18 + deb9u1|
 ||Buster, SID (rozciąganie portów)|4.19.37-5|
+|
 
 ## <a name="image-size-should-be-in-multiples-of-megabytes"></a>Rozmiar obrazu powinien być wielokrotnością megabajtów
 
@@ -303,7 +308,7 @@ Aby przesłać żądanie z wyłączonym obrazem SSH dla procesu certyfikacji:
 3. Prześlij ponownie żądanie certyfikacji.
 
 ## <a name="download-failure"></a>Błąd pobierania
-    
+
 Zapoznaj się z poniższą tabelą dotyczącą problemów występujących podczas pobierania obrazu maszyny wirtualnej przy użyciu adresu URL sygnatury dostępu współdzielonego (SAS).
 
 |Scenariusz|Error|Przyczyna|Rozwiązanie|
@@ -314,12 +319,13 @@ Zapoznaj się z poniższą tabelą dotyczącą problemów występujących podcza
 |4|Nieprawidłowy podpis|Skojarzony adres URL sygnatury dostępu współdzielonego dla wirtualnego dysku twardego jest niepoprawny.|Uzyskaj prawidłowy adres URL sygnatury dostępu współdzielonego.|
 |6|Nagłówek warunkowy HTTP|Adres URL sygnatury dostępu współdzielonego jest nieprawidłowy.|Uzyskaj prawidłowy adres URL sygnatury dostępu współdzielonego.|
 |7|Nieprawidłowa nazwa wirtualnego dysku twardego|Sprawdź, czy `%` `"` w nazwie wirtualnego dysku twardego istnieją jakiekolwiek znaki specjalne, takie jak znak procentu czy znak cudzysłowu.|Zmień nazwę pliku VHD, usuwając znaki specjalne.|
+|
 
-## <a name="first-1-mb-partition-2048-sectors-each-sector-of-512-bytes"></a>Pierwsza partycja 1-MB (2 048 sektorów, każdy sektor o 512 bajtów)
+## <a name="first-1-mb-2048-sectors-each-sector-of-512-bytes-partition"></a>Pierwsze 1 MB (2048 sektorów, każdy sektor z 512 bajtów)
 
-Jeśli tworzysz [własny obraz](azure-vm-create-using-own-image.md), upewnij się, że pierwsze 2 048 sektorów (1 MB) dysku systemu operacyjnego jest puste. W przeciwnym razie publikowanie zakończy się niepowodzeniem. To wymaganie dotyczy tylko dysku systemu operacyjnego (nie do dysków danych). Jeśli tworzysz obraz [z zatwierdzonego podstawowego](azure-vm-create-using-approved-base.md), możesz pominąć to wymaganie. 
+Jeśli [tworzysz własny obraz](azure-vm-create-using-own-image.md), upewnij się, że pierwsze 2048 sektory (1 MB) dysku systemu operacyjnego jest puste. W przeciwnym razie publikowanie zakończy się niepowodzeniem. To wymaganie ma zastosowanie tylko do dysku systemu operacyjnego (nie dysków danych). Jeśli tworzysz obraz [z zatwierdzonego podstawowego](azure-vm-create-using-approved-base.md), możesz pominąć to wymaganie.
 
-### <a name="create-a-1-mb-partition-2048-sectors-each-sector-of-512-bytes-on-an-empty-vhd-linux-only-steps"></a>Utwórz partycję z 1 MB (2 048 sektorów, każdy sektor 512 bajtów) na pustym dysku VHD (kroki tylko dla systemu Linux)
+### <a name="create-a-1-mb-2048-sectors-each-sector-of-512-bytes-partition-on-an-empty-vhd"></a>Utwórz 1 MB (2048 sektorów, każdy sektor z 512 bajtów) partycji na pustym dysku VHD
 
 Te kroki dotyczą tylko systemu Linux.
 
@@ -374,17 +380,17 @@ Te kroki dotyczą tylko systemu Linux.
 
       ![Pokazuje zrzut ekranu wiersza polecenia klienta pokazujący polecenia i dane wyjściowe dla wymazanych danych.](./media/create-vm/vm-certification-issues-solutions-22.png)
 
-   1. Wpisz `w` , aby potwierdzić tworzenie partycji. 
+   1. Wpisz `w` , aby potwierdzić tworzenie partycji.
 
       ![Wyświetla zrzut ekranu wiersza polecenia klienta z poleceniami służącymi do tworzenia partycji.](./media/create-vm/vm-certification-issues-solutions-23.png)
 
-   1. Tabelę partycji można sprawdzić, uruchamiając polecenie `n fdisk /dev/sdb` i wpisując `p` . Zobaczysz, że partycja zostanie utworzona z 2048 wartością przesunięcia. 
+   1. Tabelę partycji można sprawdzić, uruchamiając polecenie `n fdisk /dev/sdb` i wpisując `p` . Zobaczysz, że partycja zostanie utworzona z 2048 wartością przesunięcia.
 
       ![Wyświetlona zrzut ekranu wiersza polecenia klienta z poleceniami służącymi do tworzenia przesunięcia 2048.](./media/create-vm/vm-certification-issues-solutions-24.png)
 
 1. Odłącz wirtualny dysk twardy od maszyny wirtualnej i Usuń maszynę wirtualną.
 
-### <a name="create-a-first-1-mb-partition-2048-sectors-each-sector-of-512-bytes-by-moving-existing-data-on-vhd"></a>Tworzenie pierwszej partycji o rozmiarze 1 MB (2 048 sektorów, każdy sektor o 512 bajtów) przez przeniesienie istniejących danych z dysku VHD
+### <a name="create-a-1-mb-2048-sectors-each-sector-of-512-bytes-partition-by-moving-existing-data-on-vhd"></a>Utwórz 1 MB (2048 sektorów, każdy sektor z 512 bajtów), przenosząc istniejące dane na dysku VHD
 
 Te kroki dotyczą tylko systemu Linux.
 
@@ -452,11 +458,11 @@ Po utworzeniu obrazu można go zamapować lub przypisać do nieprawidłowej etyk
 
 Jeśli wszystkie obrazy pobierane z witryny Azure Marketplace będą używane ponownie, należy przeprowadzić uogólniony dysk VHD systemu operacyjnego.
 
-* W przypadku systemu **Linux** następujący proces służy do UOGÓLNIANIA maszyny wirtualnej z systemem Linux i wdrażania jej ponownie jako oddzielnej maszyny wirtualnej.
+- W przypadku systemu **Linux** następujący proces służy do UOGÓLNIANIA maszyny wirtualnej z systemem Linux i wdrażania jej ponownie jako oddzielnej maszyny wirtualnej.
 
   W oknie SSH wprowadź następujące polecenie: `sudo waagent -deprovision+user` .
 
-* W przypadku **systemu Windows** można uogólniać obrazy systemu Windows przy użyciu programu `sysreptool` .
+- W przypadku **systemu Windows** można uogólniać obrazy systemu Windows przy użyciu programu `sysreptool` .
 
   Aby uzyskać więcej informacji na temat `sysreptool` Narzędzia, zobacz temat [przygotowanie systemu (Sysprep) — Omówienie](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 

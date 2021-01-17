@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 10/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6a9eb99ae7af88e77fa597fa92ff8e6278c307e6
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 42502864cfed177adfe487e9c59247579628fec8
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108953"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539078"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Połączenia usługi pulpitu wirtualnego systemu Windows
 
@@ -20,7 +20,7 @@ ms.locfileid: "92108953"
 
 Ten artykuł służy do rozwiązywania problemów z połączeniami klienta pulpitu wirtualnego systemu Windows.
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 
 Możesz przekazać nam swoją opinię i omówić usługę pulpitów wirtualnych systemu Windows z zespołem produktu i innymi członkami społeczności w [systemie Windows — społeczność Tech](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 
@@ -48,7 +48,7 @@ Aby rozwiązać ten problem, wystarczy zmienić przypisanie użytkowników do gr
 
 Przyczyną może być również, że dostawca CSP utworzył subskrypcję, a następnie przeniósł ją do klienta. Aby rozwiązać ten problem, należy ponownie zarejestrować dostawcę zasobów.
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się do witryny Azure Portal.
 2. Przejdź do **subskrypcji**, a następnie wybierz swoją subskrypcję.
 3. W menu po lewej stronie strony wybierz pozycję **dostawca zasobów**.
 4. Znajdź i wybierz pozycję **Microsoft. DesktopVirtualization**, a następnie wybierz pozycję **zarejestruj ponownie**.
@@ -58,5 +58,6 @@ Przyczyną może być również, że dostawca CSP utworzył subskrypcję, a nast
 - Aby zapoznać się z omówieniem rozwiązywania problemów z pulpitem wirtualnym systemu Windows i ścieżkami eskalacji, zobacz [Omówienie rozwiązywania problemów, opinie i pomoc techniczna](troubleshoot-set-up-overview.md).
 - Aby rozwiązać problemy podczas tworzenia środowiska pulpitu wirtualnego systemu Windows i puli hostów w środowisku pulpitu wirtualnego systemu Windows, zobacz [Tworzenie puli środowiska i hosta](troubleshoot-set-up-issues.md).
 - Aby rozwiązać problemy podczas konfigurowania maszyny wirtualnej w programie Virtual Desktop systemu Windows, zobacz [Konfiguracja maszyny wirtualnej hosta sesji](troubleshoot-vm-configuration.md).
+- Rozwiązywanie problemów związanych z agentem pulpitu wirtualnego systemu Windows lub łącznością sesji można znaleźć w temacie [Rozwiązywanie typowych problemów z systemem Windows Virtual Desktop Agent](troubleshoot-agent.md).
 - Aby rozwiązać problemy występujące podczas korzystania z programu PowerShell z pulpitem wirtualnym systemu Windows, zobacz [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
 - Aby przejść przez samouczek dotyczący rozwiązywania problemów, zobacz [Samouczek: Rozwiązywanie problemów z wdrożeniami szablonów Menedżer zasobów](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).

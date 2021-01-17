@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 05c4d36f266fb526a1d0232cc32f0408e4322c80
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 2b640730bac410136ef8fdd4ea8e0261f68a3284
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654391"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538145"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Konfigurowanie logowania dla konkretnej organizacji Azure Active Directory w programie Azure Active Directory B2C
 
@@ -38,7 +38,7 @@ W tym artykule opisano sposób włączania logowania dla użytkowników z okreś
 
 ## <a name="register-an-azure-ad-app"></a>Rejestrowanie aplikacji usługi Azure AD
 
-Aby włączyć Logowanie użytkowników z określonej organizacji usługi Azure AD, musisz zarejestrować aplikację w ramach organizacji dzierżawy usługi Azure AD.
+Aby włączyć Logowanie użytkowników przy użyciu konta usługi Azure AD z określonej organizacji usługi Azure AD, w Azure Active Directory B2C (Azure AD B2C) musisz utworzyć aplikację w [Azure Portal](https://portal.azure.com). Aby uzyskać więcej informacji, zobacz [Rejestrowanie aplikacji na platformie tożsamości firmy Microsoft](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Upewnij się, że używasz katalogu zawierającego swoją organizacyjną dzierżawę usługi Azure AD (na przykład contoso.com). Wybierz **Filtr katalog + subskrypcja** w górnym menu, a następnie wybierz katalog zawierający dzierżawę usługi Azure AD.
@@ -238,7 +238,7 @@ Teraz, gdy masz już przycisk, musisz połączyć go z akcją. W tym przypadku a
 ## <a name="add-azure-ad-identity-provider-to-a-user-flow"></a>Dodawanie dostawcy tożsamości usługi Azure AD do przepływu użytkownika 
 
 1. W dzierżawie Azure AD B2C wybierz pozycję **przepływy użytkownika**.
-1. Kliknij przepływ użytkownika, który ma być dostawcą tożsamości usługi Azure AD.
+1. Kliknij przepływ użytkownika, do którego chcesz dodać dostawcę tożsamości usługi Azure AD.
 1. W obszarze **dostawcy tożsamości społecznościowej** wybierz pozycję **contoso Azure AD**.
 1. Wybierz pozycję **Zapisz**.
 1. Aby przetestować zasady, wybierz pozycję **Uruchom przepływ użytkownika**.

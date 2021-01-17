@@ -5,13 +5,13 @@ author: mksuni
 ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 01/15/2021
-ms.openlocfilehash: b0f0ee9477a84dc198ea3fb48b2ed81be10ea9c5
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.date: 01/18/2021
+ms.openlocfilehash: ac7019abab1aefaee95c155e34fbc0cb551b4d94
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251883"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538430"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Informacje o zmianach w katalogu głównym urzędu certyfikacji dotyczące Azure Database for MariaDB
 
@@ -19,6 +19,9 @@ Azure Database for MariaDB zmieni certyfikat główny dla aplikacji klienckiej/s
 
 >[!NOTE]
 > Na podstawie opinii klientów przedłużono przestarzałą certyfikat główny dla istniejącego głównego urzędu certyfikacji Baltimore z 26 października 2020 do 15 lutego 2021. Mamy nadzieję, że to rozszerzenie zapewni wystarczającą ilość czasu realizacji przez naszych użytkowników, aby mogli wdrożyć zmiany klienta.
+
+> [!NOTE]
+> Ten artykuł zawiera odwołania do warunku _podrzędnego_, termin, który nie jest już wykorzystywany przez firmę Microsoft. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
 
 ## <a name="what-update-is-going-to-happen"></a>Jaką aktualizację ma mieć miejsce?
 
@@ -69,7 +72,7 @@ Aby uniknąć przerwania dostępności aplikacji z powodu nieoczekiwanego odwoł
 
   - W przypadku użytkowników platformy .NET (MariaDB Connector/NET, MariaDBConnector) Upewnij się, że **BaltimoreCyberTrustRoot** i **DigiCertGlobalRootG2** istnieją w obszarze magazyn certyfikatów systemu Windows, Zaufane główne urzędy certyfikacji. Jeśli jakieś certyfikaty nie istnieją, zaimportuj brakujący certyfikat.
 
-    ![Azure Database for MariaDB certyfikatem platformy .NET](media/overview/netconnecter-cert.png)
+    [![Azure Database for MariaDB certyfikatem platformy .NET](media/overview/netconnecter-cert.png)](media/overview/netconnecter-cert.png#lightbox)
 
   - W przypadku użytkowników platformy .NET w systemie Linux przy użyciu SSL_CERT_DIR upewnij się, że w katalogu wskazanym przez SSL_CERT_DIR istnieją zarówno **BaltimoreCyberTrustRoot** , jak i **DigiCertGlobalRootG2** . Jeśli jakieś certyfikaty nie istnieją, Utwórz plik brakującego certyfikatu.
 
@@ -80,10 +83,10 @@ Aby uniknąć przerwania dostępności aplikacji z powodu nieoczekiwanego odwoł
    (Root CA1: BaltimoreCyberTrustRoot.crt.pem)
    -----END CERTIFICATE-----
    -----BEGIN CERTIFICATE-----
-    (Root CA2: DigiCertGlobalRootG2.crt.pem)
+   (Root CA2: DigiCertGlobalRootG2.crt.pem)
    -----END CERTIFICATE-----
    ```
-   
+
 - Zastąp oryginalny plik PEM głównego urzędu certyfikacji z plikiem połączonego głównego urzędu certyfikacji i uruchom ponownie aplikację/klienta.
 - W przyszłości po wdrożeniu nowego certyfikatu po stronie serwera można zmienić plik PEM urzędu certyfikacji na DigiCertGlobalRootG2. CRT. pem.
 
@@ -150,11 +153,7 @@ Ponieważ ta aktualizacja jest zmianą po stronie klienta, jeśli klient używan
 
 ### <a name="12-if-im-using-data-in-replication-do-i-need-to-perform-any-action"></a>12. Jeśli używam replikacji danych, muszę wykonać dowolną akcję?
 
-> [!NOTE]
-> Ten artykuł zawiera odwołania do warunku _podrzędnego_, termin, który nie jest już wykorzystywany przez firmę Microsoft. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
->
-
-*   Jeśli replikacja danych jest z maszyny wirtualnej (Premium lub Azure Virtual Machine) do Azure Database for MySQL, należy sprawdzić, czy protokół SSL jest używany do tworzenia repliki. Uruchom opcję **Pokaż stan podrzędny** i sprawdź poniższe ustawienie.
+- Jeśli replikacja danych jest z maszyny wirtualnej (Premium lub Azure Virtual Machine) do Azure Database for MySQL, należy sprawdzić, czy protokół SSL jest używany do tworzenia repliki. Uruchom opcję **Pokaż stan podrzędny** i sprawdź poniższe ustawienie.
 
     ```azurecli-interactive
     Master_SSL_Allowed            : Yes
@@ -177,6 +176,7 @@ W przypadku korzystania z [replikacji danych w](concepts-data-in-replication.md)
   Master_SSL_Cipher             :
   Master_SSL_Key                : ~\azure_mysqlclient_key.pem
   ```
+
   Jeśli widzisz certyfikat dla CA_file, SSL_Cert i SSL_Key należy zaktualizować plik przez dodanie [nowego certyfikatu](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem).
 
 - Jeśli replikacja danych jest między dwoma Azure Database for MySQL, należy zresetować replikę przez wykonanie **wywołania MySQL.az_replication_change_master** i udostępnić nowy podwójny certyfikat główny jako ostatni parametr [master_ssl_ca](howto-data-in-replication.md#link-the-source-and-replica-servers-to-start-data-in-replication).

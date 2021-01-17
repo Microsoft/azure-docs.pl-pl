@@ -8,25 +8,13 @@ ms.topic: include
 ms.date: 04/02/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: de0cf260207747f4acb02a377819a13de8b8ba22
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e207866b61d21334bc9923d0d784b900906b0045
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002526"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539719"
 ---
-[!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
-
-## <a name="regional-availability"></a>Dostępność regionalna
-[!INCLUDE [virtual-machines-disks-incremental-snapshots-regions](virtual-machines-disks-incremental-snapshots-regions.md)]
-
-### <a name="restrictions"></a>Ograniczenia
-
-[!INCLUDE [virtual-machines-disks-incremental-snapshots-restrictions](virtual-machines-disks-incremental-snapshots-restrictions.md)]
-
-## <a name="portal"></a>Portal
-
-
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/) i przejdź do dysku, który ma być migawką.
 1. Na dysku wybierz pozycję **Utwórz migawkę**
 
@@ -40,7 +28,3 @@ ms.locfileid: "96002526"
 1. Wybierz pozycję **Utwórz**
 
     :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/create-incremental-snapshot-validation.png" alt-text="Zrzut ekranu. Strona walidacji dla migawki, Potwierdź wybrane opcje, a następnie utwórz migawkę.":::
-
-## <a name="next-steps"></a>Następne kroki
-
-Jeśli chcesz zobaczyć przykładowy kod pokazujący różnicowe możliwości migawek przyrostowych, korzystając z platformy .NET, zobacz [Kopiuj kopie zapasowe platformy Azure Managed disks do innego regionu z różnicową możliwością migawek przyrostowych](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots).

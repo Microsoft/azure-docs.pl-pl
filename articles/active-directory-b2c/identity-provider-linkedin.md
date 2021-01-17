@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: bde7c1adefea88ed5b5d86e2c0e17f475be1bc71
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: e2c576c97d170726f5ec1b06e5a6d0d859a85e64
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654374"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538126"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Konfigurowanie rejestracji i logowania za pomocą konta LinkedIn przy użyciu Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ ms.locfileid: "97654374"
 
 ## <a name="create-a-linkedin-application"></a>Tworzenie aplikacji LinkedIn
 
-Aby użyć konta LinkedIn jako [dostawcy tożsamości](authorization-code-flow.md) w Azure Active Directory B2C (Azure AD B2C), musisz utworzyć aplikację w swojej dzierżawie, która go reprezentuje. Jeśli nie masz jeszcze konta LinkedIn, możesz zarejestrować się w usłudze [https://www.linkedin.com/](https://www.linkedin.com/) .
+Aby włączyć Logowanie użytkowników przy użyciu konta LinkedIn w Azure Active Directory B2C (Azure AD B2C), musisz utworzyć aplikację w [witrynie sieci Web deweloperów serwisu LinkedIn](https://www.developer.linkedin.com/). Aby uzyskać więcej informacji, zobacz [przepływ kodu autoryzacji](https://docs.microsoft.com/linkedin/shared/authentication/authorization-code-flow). Jeśli nie masz jeszcze konta LinkedIn, możesz zarejestrować się w usłudze [https://www.linkedin.com/](https://www.linkedin.com/) .
 
 1. Zaloguj się do [witryny sieci Web deweloperów serwisu LinkedIn](https://www.developer.linkedin.com/) przy użyciu poświadczeń konta usługi LinkedIn.
 1. Wybierz pozycję **Moje aplikacje**, a następnie kliknij pozycję **Utwórz aplikację**.
@@ -232,7 +232,7 @@ Teraz, gdy masz już przycisk, musisz połączyć go z akcją. W tym przypadku a
 ## <a name="add-linkedin-identity-provider-to-a-user-flow"></a>Dodawanie dostawcy tożsamości LinkedIn do przepływu użytkownika 
 
 1. W dzierżawie Azure AD B2C wybierz pozycję **przepływy użytkownika**.
-1. Kliknij przepływ użytkownika, który ma być dostawcą tożsamości LinkedIn.
+1. Kliknij przepływ użytkownika, do którego chcesz dodać dostawcę tożsamości LinkedIn.
 1. W obszarze **dostawcy tożsamości społecznościowej** wybierz pozycję **LinkedIn**.
 1. Wybierz pozycję **Zapisz**.
 1. Aby przetestować zasady, wybierz pozycję **Uruchom przepływ użytkownika**.

@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/05/2021
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 129809a83bcebdcf80b05a7300dd9acf862e5886
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 92c5850c3e8c6db63bb5f6287078d2b0345a051c
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900403"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538036"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-salesforce-account-using-azure-active-directory-b2c"></a>Skonfiguruj konto usługi Salesforce i zaloguj się przy użyciu usługi Azure Active Directory B2C
 
@@ -37,7 +37,7 @@ ms.locfileid: "97900403"
 
 ## <a name="create-a-salesforce-application"></a>Tworzenie aplikacji usługi Salesforce
 
-Aby korzystać z konta usługi Salesforce w Azure Active Directory B2C (Azure AD B2C), musisz utworzyć aplikację w **Menedżerze aplikacji** usługi Salesforce. Aby uzyskać więcej informacji, zobacz [Konfigurowanie ustawień podstawowej połączonej aplikacji](https://help.salesforce.com/articleView?id=connected_app_create_basics.htm)i [Włączanie ustawień uwierzytelniania OAuth dla integracji z interfejsem API](https://help.salesforce.com/articleView?id=connected_app_create_api_integration.htm)
+Aby włączyć Logowanie użytkowników przy użyciu konta usługi Salesforce w Azure Active Directory B2C (Azure AD B2C), musisz utworzyć aplikację w [Menedżerze aplikacji](https://login.salesforce.com/)usługi Salesforce. Aby uzyskać więcej informacji, zobacz [Konfigurowanie ustawień podstawowej połączonej aplikacji](https://help.salesforce.com/articleView?id=connected_app_create_basics.htm)i [Włączanie ustawień uwierzytelniania OAuth dla integracji z interfejsem API](https://help.salesforce.com/articleView?id=connected_app_create_api_integration.htm)
 
 1. [Zaloguj się do usługi Salesforce](https://login.salesforce.com/).
 1. Z menu wybierz pozycję **Setup (Konfiguracja**).
@@ -102,7 +102,7 @@ Należy przechowywać klucz tajny klienta, który został wcześniej zarejestrow
 7. Wprowadź **nazwę** klucza zasad. Na przykład `SalesforceSecret`. Prefiks `B2C_1A_` jest automatycznie dodawany do nazwy klucza.
 8. W **kluczu tajnym** wprowadź wcześniej zarejestrowany klucz tajny klienta.
 9. W obszarze **użycie klucza** wybierz opcję `Signature` .
-10. Kliknij przycisk **Utwórz**.
+10. Kliknij pozycję **Utwórz**.
 
 ## <a name="add-a-claims-provider"></a>Dodawanie dostawcy oświadczeń
 
@@ -210,7 +210,7 @@ Teraz, gdy masz już przycisk, musisz połączyć go z akcją. W tym przypadku a
 ## <a name="add-salesforce-identity-provider-to-a-user-flow"></a>Dodawanie dostawcy tożsamości usługi Salesforce do przepływu użytkownika 
 
 1. W dzierżawie Azure AD B2C wybierz pozycję **przepływy użytkownika**.
-1. Kliknij przepływ użytkownika, który ma być dostawcą tożsamości usługi Salesforce.
+1. Kliknij przepływ użytkownika, do którego chcesz dodać dostawcę tożsamości usługi Salesforce.
 1. W obszarze **dostawcy tożsamości społecznościowej** wybierz pozycję **Salesforce**.
 1. Wybierz pozycję **Zapisz**.
 1. Aby przetestować zasady, wybierz pozycję **Uruchom przepływ użytkownika**.

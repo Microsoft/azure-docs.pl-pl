@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
-ms.openlocfilehash: 43784fe2bb94d5abd012f22ed530e4631a304614
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c13203c076378e1ff8f213971466eb5f63dfc4f4
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335990"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539165"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Korzyść użycia hybrydowego platformy Azure dla systemu Windows Server
 W przypadku klientów z programem Software Assurance Korzyść użycia hybrydowego platformy Azure dla systemu Windows Server umożliwia korzystanie z lokalnych licencji systemu Windows Server i uruchamianie maszyn wirtualnych z systemem Windows na platformie Azure przy niższych kosztach. Za pomocą Korzyść użycia hybrydowego platformy Azure dla systemu Windows Server można wdrożyć nowe maszyny wirtualne z systemem operacyjnym Windows. W tym artykule opisano procedurę wdrażania nowych maszyn wirtualnych przy użyciu programu Korzyść użycia hybrydowego platformy Azure dla systemu Windows Server i sposobu aktualizowania istniejących uruchomionych maszyn wirtualnych. Aby uzyskać więcej informacji na temat Korzyść użycia hybrydowego platformy Azure licencjonowania i oszczędności w systemie Windows Server, zobacz [stronę licencjonowanie korzyść użycia hybrydowego platformy Azure dla systemu Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -42,10 +42,9 @@ Istnieje kilka sposobów używania maszyn wirtualnych z systemem Windows z Korzy
 Wszystkie obrazy oparte na systemie Windows Server OS są obsługiwane dla Korzyść użycia hybrydowego platformy Azure dla systemu Windows Server. Możesz użyć obrazów obsługi platformy Azure lub przekazać własne niestandardowe obrazy systemu Windows Server. 
 
 ### <a name="portal"></a>Portal
-Aby utworzyć maszynę wirtualną za pomocą Korzyść użycia hybrydowego platformy Azure dla systemu Windows Server, należy użyć przełącznika w sekcji "Zapisz pieniądze".
+Aby utworzyć maszynę wirtualną z Korzyść użycia hybrydowego platformy Azure dla systemu Windows Server, przewiń w dół karty **podstawowe informacje** w trakcie procesu tworzenia i w obszarze **Licencjonowanie** zaznacz pole wyboru Użyj istniejącej licencji systemu Windows Server. 
 
 ### <a name="powershell"></a>PowerShell
-
 
 ```powershell
 New-AzVm `
@@ -65,7 +64,7 @@ az vm create \
     --license-type Windows_Server
 ```
 
-### <a name="template"></a>Szablon
+### <a name="template"></a>Template
 W szablonach Menedżer zasobów należy określić dodatkowy parametr `licenseType` . Aby dowiedzieć się więcej na temat [tworzenia szablonów Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) , zobacz
 ```json
 "properties": {
@@ -85,7 +84,7 @@ Jeśli masz istniejącą maszynę wirtualną, którą chcesz przekonwertować, a
 ### <a name="portal"></a>Portal
 W bloku maszyny wirtualnej portalu możesz zaktualizować maszynę wirtualną, aby używała Korzyść użycia hybrydowego platformy Azure, wybierając opcję "Konfiguracja" i przełączając opcję "korzyść użycia hybrydowego platformy Azure"
 
-### <a name="powershell"></a>Program PowerShell
+### <a name="powershell"></a>PowerShell
 - Konwertuj istniejące maszyny wirtualne z systemem Windows Server na Korzyść użycia hybrydowego platformy Azure dla systemu Windows Server
 
     ```powershell
@@ -115,7 +114,7 @@ Po wdrożeniu maszyny wirtualnej za pomocą programu PowerShell, Menedżer zasob
 ### <a name="portal"></a>Portal
 W bloku maszyny wirtualnej portalu można wyświetlić przełącznik dla Korzyść użycia hybrydowego platformy Azure dla systemu Windows Server, wybierając kartę "Konfiguracja".
 
-### <a name="powershell"></a>Program PowerShell
+### <a name="powershell"></a>PowerShell
 W poniższym przykładzie przedstawiono typ licencji dla jednej maszyny wirtualnej
 ```powershell
 Get-AzVM -ResourceGroup "myResourceGroup" -Name "myVM"

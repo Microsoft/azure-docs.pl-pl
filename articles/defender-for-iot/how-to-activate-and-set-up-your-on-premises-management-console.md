@@ -1,20 +1,20 @@
 ---
-title: Aktywuj i skonfiguruj lokalną konsolę zarządzania
+title: Aktywowanie i konfigurowanie lokalnej konsoli zarządzania
 description: Aktywacja i konfiguracja konsoli zarządzania zapewniają, że czujniki są zarejestrowane na platformie Azure i wysyłają informacje do lokalnej konsoli zarządzania oraz że lokalna Konsola zarządzania wykonuje zadania zarządzania w połączonych czujników.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/24/2020
+ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 56092d61e1eed4e4ebe4f8cb7f97d01e91e8543e
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: d344b3d9ea54243d61cc6a1f3f0982eb5ab1d238
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97843815"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538579"
 ---
-# <a name="activate-and-set-up-your-on-premises-management-console"></a>Aktywuj i skonfiguruj lokalną konsolę zarządzania 
+# <a name="activate-and-set-up-your-on-premises-management-console"></a>Aktywowanie i konfigurowanie lokalnej konsoli zarządzania 
 
 Aktywacja i konfiguracja lokalnej konsoli zarządzania zapewniają następujące działania:
 
@@ -51,7 +51,7 @@ Po początkowej aktywacji liczba monitorowanych urządzeń może przekroczyć li
 
 ## <a name="set-up-a-certificate"></a>Konfigurowanie certyfikatu
 
-Po zainstalowaniu konsoli zarządzania zostanie wygenerowany lokalny certyfikat z podpisem własnym, który będzie używany do uzyskiwania dostępu do konsoli programu. Gdy administrator zaloguje się po raz pierwszy, użytkownik zostanie poproszony o dołączenie certyfikatu SSL/TLS. Firma Microsoft zaleca, aby współpracować z zaufanym certyfikatem z podpisem CA i nie używać lokalnie wygenerowanego certyfikatu z podpisem własnym.
+Po zainstalowaniu konsoli zarządzania zostanie wygenerowany lokalny certyfikat z podpisem własnym, który będzie używany do uzyskiwania dostępu do konsoli programu. Gdy administrator zaloguje się po raz pierwszy, użytkownik zostanie poproszony o dołączenie certyfikatu SSL/TLS. 
 
 Dostępne są dwa poziomy zabezpieczeń:
 
@@ -61,7 +61,9 @@ Dostępne są dwa poziomy zabezpieczeń:
 Konsola obsługuje następujące typy certyfikatów:
 
 - Infrastruktura kluczy prywatnych i korporacyjnych (prywatna infrastruktura PKI)
+
 - Infrastruktura kluczy publicznych (publiczna infrastruktura PKI)
+
 - Wygenerowane lokalnie na urządzeniu (lokalnie z podpisem własnym) 
 
   > [!IMPORTANT]

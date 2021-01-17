@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.custom: project-no-code
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 48887df0ce6228fa436cb91bfb0a3ee7aa0f6c08
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 79fcbb6d2bf10da566139b0d103a4f31930f3200
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654510"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98537996"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Skonfiguruj konto usługi Amazon i zaloguj się na nim przy użyciu Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ ms.locfileid: "97654510"
 
 ## <a name="create-an-app-in-the-amazon-developer-console"></a>Tworzenie aplikacji w konsoli dewelopera usługi Amazon
 
-Aby użyć konta Amazon jako dostawcy tożsamości federacyjnych w Azure Active Directory B2C (Azure AD B2C), musisz utworzyć aplikację w usłudze [Amazon Developer Services i technologiach](https://developer.amazon.com). Jeśli nie masz jeszcze konta usługi Amazon, możesz zarejestrować się w usłudze [https://www.amazon.com/](https://www.amazon.com/) .
+Aby włączyć Logowanie użytkowników przy użyciu konta Amazon w Azure Active Directory B2C (Azure AD B2C), musisz utworzyć aplikację w [usłudze Amazon Developer Services i technologiach](https://developer.amazon.com). Aby uzyskać więcej informacji, zobacz [Rejestrowanie na potrzeby logowania za pomocą usługi Amazon](https://developer.amazon.com/docs/login-with-amazon/register-web.html). Jeśli nie masz jeszcze konta usługi Amazon, możesz zarejestrować się w usłudze [https://www.amazon.com/](https://www.amazon.com/) .
 
 > [!NOTE]  
 > Użyj następujących adresów URL w **kroku 8** poniżej, zastępując `your-tenant-name` je nazwą dzierżawy. Wprowadzając nazwę dzierżawy, użyj wszystkich małych liter, nawet jeśli dzierżawa jest zdefiniowana z dużymi literami w Azure AD B2C.
@@ -181,7 +181,7 @@ Teraz, gdy masz już przycisk, musisz połączyć go z akcją. W tym przypadku a
 ## <a name="add-amazon-identity-provider-to-a-user-flow"></a>Dodawanie dostawcy tożsamości Amazon do przepływu użytkownika 
 
 1. W dzierżawie Azure AD B2C wybierz pozycję **przepływy użytkownika**.
-1. Kliknij przepływ użytkownika, który ma być dostawcą tożsamości Amazon.
+1. Kliknij przepływ użytkownika, do którego chcesz dodać dostawcę tożsamości usługi Amazon.
 1. W obszarze **dostawcy tożsamości społecznościowej** wybierz pozycję **Amazon**.
 1. Wybierz pozycję **Zapisz**.
 1. Aby przetestować zasady, wybierz pozycję **Uruchom przepływ użytkownika**.

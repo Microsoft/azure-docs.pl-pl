@@ -5,14 +5,14 @@ author: savjani
 ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 01/18/2021
 ms.custom: references_regions
-ms.openlocfilehash: c91aab2bf59f93cf897f9a1b9109172523ae4e57
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 39547e3156a684293a0624f974a8b0930f656485
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251407"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98540018"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Repliki do odczytu w usłudze Azure Database for MariaDB
 
@@ -27,13 +27,13 @@ Więcej informacji na temat replikacji GTID można znaleźć w [dokumentacji dot
 
 ## <a name="when-to-use-a-read-replica"></a>Kiedy używać repliki odczytu
 
-Funkcja odczytu repliki pomaga zwiększyć wydajność i skalowalność obciążeń intensywnie korzystających z odczytu. Obciążenia odczytu mogą być odizolowane do replik, a obciążenia zapisu mogą być kierowane do wzorca.
+Funkcja odczytu repliki pomaga zwiększyć wydajność i skalowalność obciążeń intensywnie korzystających z odczytu. Obciążenia odczytu mogą być odizolowane dla replik, podczas gdy obciążenia zapisu mogą być kierowane do podstawowego.
 
 Typowy scenariusz polega na tym, że obciążenia analizy biznesowej i analizy używają repliki odczytu jako źródła danych do raportowania.
 
-Ponieważ repliki są tylko do odczytu, nie zmniejszają bezpośrednio obciążeń związanych z pojemnością zapisu na serwerze głównym. Ta funkcja nie jest przeznaczona dla obciążeń intensywnie korzystających z zapisu.
+Ponieważ repliki są tylko do odczytu, nie zmniejszają bezpośrednio obciążeń związanych z pojemnością zapisu w podstawowym. Ta funkcja nie jest przeznaczona dla obciążeń intensywnie korzystających z zapisu.
 
-Funkcja odczytu repliki korzysta z replikacji asynchronicznej. Ta funkcja nie jest przeznaczona do scenariuszy replikacji synchronicznej. Nastąpi wymierne opóźnienie między źródłem a repliką. Dane z repliki ostatecznie staną się spójne z danymi na serwerze głównym. Użyj tej funkcji dla obciążeń, które mogą obsłużyć to opóźnienie.
+Funkcja odczytu repliki korzysta z replikacji asynchronicznej. Ta funkcja nie jest przeznaczona do scenariuszy replikacji synchronicznej. Nastąpi wymierne opóźnienie między źródłem a repliką. Dane z repliki ostatecznie staną się spójne z danymi na serwerze podstawowym. Użyj tej funkcji dla obciążeń, które mogą obsłużyć to opóźnienie.
 
 ## <a name="cross-region-replication"></a>Replikacja między regionami
 
@@ -44,11 +44,13 @@ Serwer źródłowy może być w dowolnym [regionie Azure Database for MariaDB](h
 [![Odczytaj regiony repliki](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>Regiony uniwersalnej repliki
+
 Replikę odczytu można utworzyć w dowolnym z następujących regionów, niezależnie od lokalizacji serwera źródłowego. Obsługiwane regiony uniwersalnej repliki obejmują:
 
 Australia Wschodnia, Australia Południowo-Wschodnia, Brazylia Południowa, Kanada środkowa, Kanada Wschodnia, środkowe stany USA, Azja Wschodnia, Wschodnie stany USA, Wschodnie stany USA 2, Japonia Wschodnia, Japonia Zachodnia, Korea środkowa, Korea Południowa, Północno-środkowe stany USA, Europa Północna, Południowo-środkowe stany USA, Zachodnie Zjednoczone Królestwo Południowe Zjednoczone Królestwo Azja Południowo-Wschodnia.
 
 ### <a name="paired-regions"></a>Sparowane regiony
+
 Oprócz regionów uniwersalnej repliki można utworzyć replikę odczytu w sparowanym regionie platformy Azure na serwerze źródłowym. Jeśli nie znasz pary regionów, możesz dowiedzieć się więcej z [artykułu z sparowanymi regionami platformy Azure](../best-practices-availability-paired-regions.md).
 
 Jeśli używasz replik między regionami do planowania odzyskiwania po awarii, zalecamy utworzenie repliki w sparowanym regionie, a nie w jednym z innych regionów. Sparowane regiony umożliwiają uniknięcie jednoczesnych aktualizacji i określanie priorytetów fizycznej izolacji i miejsca zamieszkania danych.  
@@ -56,7 +58,7 @@ Jeśli używasz replik między regionami do planowania odzyskiwania po awarii, z
 Istnieją jednak ograniczenia, które należy wziąć pod uwagę: 
 
 * Dostępność regionalna: Azure Database for MariaDB jest dostępna w regionach Francja środkowa, Zjednoczone Emiraty Arabskie i Niemcy środkowe. Jednak ich sparowane regiony nie są dostępne.
-    
+
 * Pary jednokierunkowe: niektóre regiony platformy Azure są sparowane tylko w jednym kierunku. Regiony te obejmują Indie Zachodnie, Brazylia Południowa i US Gov Wirginia. 
    Oznacza to, że serwer źródłowy w regionie zachodnie Indie może utworzyć replikę w Indiach Południowej. Jednak serwer źródłowy w Republice Południowej Indie nie może utworzyć repliki w Indiach zachodnim. Jest to spowodowane tym, że region pomocniczy w zachodniej Indiach to Indie Południowe, ale region pomocniczy w Republice Południowej Indie nie jest Indie Zachodnie.
 
@@ -110,7 +112,7 @@ Dowiedz się, jak [zatrzymać replikację do repliki](howto-read-replicas-portal
 
 ## <a name="failover"></a>Tryb failover
 
-Nie istnieje automatyczna praca awaryjna między serwerami źródłowym i repliki. 
+Nie istnieje automatyczna praca awaryjna między serwerami źródłowym i repliki.
 
 Ponieważ replikacja jest asynchroniczna, między źródłem a repliką występuje opóźnienie. Na czas opóźnienia może wpływać wiele czynników, takich jak zmniejszanie obciążenia uruchomionego na serwerze źródłowym i opóźnienia między centrami danych. W większości przypadków opóźnienia repliki wynoszą od kilku sekund do kilku minut. Rzeczywiste opóźnienie replikacji można śledzić przy użyciu *opóźnienia repliki* metryk, które jest dostępne dla każdej repliki. Ta Metryka przedstawia czas od ostatniego odtworzonej transakcji. Zalecamy, aby określić, co to jest średnie opóźnienie, obserwując opóźnienie repliki w danym okresie czasu. Można ustawić alert w przypadku zwłoki repliki, aby w przypadku, gdy znajdzie się poza oczekiwanym zakresem, można wykonać akcję.
 
@@ -119,13 +121,13 @@ Ponieważ replikacja jest asynchroniczna, między źródłem a repliką występu
 
 Po podjęciu decyzji o przejściu do trybu failover w replice
 
-1. Zatrzymaj replikację do repliki<br/>
+1. Zatrzymaj replikację do repliki.
 
-   Ten krok jest niezbędny, aby serwer repliki mógł akceptować operacje zapisu. W ramach tego procesu serwer repliki zostanie odłączone od wzorca. Po zainicjowaniu zatrzymania replikacji proces zaplecza zwykle trwa około 2 minuty. Zapoznaj się z sekcją [Zatrzymaj replikację](#stop-replication) tego artykułu, aby poznać konsekwencje tej akcji.
+   Ten krok jest niezbędny, aby serwer repliki mógł akceptować operacje zapisu. W ramach tego procesu serwer repliki zostanie odłączone od klasy podstawowej. Po zainicjowaniu zatrzymania replikacji proces zaplecza zwykle trwa około 2 minuty. Zapoznaj się z sekcją [Zatrzymaj replikację](#stop-replication) tego artykułu, aby poznać konsekwencje tej akcji.
 
-2. Wskazywanie aplikacji na (dawniej) replikę
+2. Wskaż aplikację na (dawniej) replikę.
 
-   Każdy serwer ma unikatowe parametry połączenia. Zaktualizuj swoją aplikację, tak aby wskazywała replikę (dawniej), a nie główną.
+   Każdy serwer ma unikatowe parametry połączenia. Zaktualizuj swoją aplikację, tak aby wskazywała replikę (dawniej) zamiast podstawowej.
 
 Po pomyślnym przetworzeniu odczytów i zapisów aplikacja została ukończona w trybie failover. Czas przestoju, w jakim zależą od aplikacji, będzie zależny od tego, kiedy wykryjesz problem, i wykonaj kroki 1 i 2 powyżej.
 
@@ -148,10 +150,10 @@ Replika odczytu jest tworzona jako nowy serwer Azure Database for MariaDB. Nie m
 
 ### <a name="replica-configuration"></a>Konfiguracja repliki
 
-Replika jest tworzona przy użyciu tej samej konfiguracji serwera co serwer główny. Po utworzeniu repliki kilka ustawień można zmienić niezależnie od serwera źródłowego: generowanie obliczeń, rdzeni wirtualnych, magazyn, okres przechowywania kopii zapasowej i wersja aparatu MariaDB. Warstwę cenową można także zmienić niezależnie, z wyjątkiem warstwy Podstawowa lub z niej.
+Replika jest tworzona przy użyciu tej samej konfiguracji serwera co podstawowa. Po utworzeniu repliki kilka ustawień można zmienić niezależnie od serwera źródłowego: generowanie obliczeń, rdzeni wirtualnych, magazyn, okres przechowywania kopii zapasowej i wersja aparatu MariaDB. Warstwę cenową można także zmienić niezależnie, z wyjątkiem warstwy Podstawowa lub z niej.
 
 > [!IMPORTANT]
-> Przed zaktualizowaniem konfiguracji serwera źródłowego do nowych wartości zaktualizuj konfigurację repliki do takich samych lub wyższych wartości. Dzięki temu replika może być na bieżąco ze zmianami wprowadzonymi we wzorcu.
+> Przed zaktualizowaniem konfiguracji serwera źródłowego do nowych wartości zaktualizuj konfigurację repliki do takich samych lub wyższych wartości. Ta akcja zapewnia, że replika może być zachowywana wraz ze wszystkimi zmianami wprowadzonymi do podstawowego.
 
 Reguły zapory i ustawienia parametrów są dziedziczone z serwera źródłowego do repliki podczas tworzenia repliki. Następnie reguły repliki są niezależne.
 
@@ -172,20 +174,21 @@ Użytkownicy na serwerze źródłowym są replikowana do replik odczytu. Można 
 Aby zapobiec utracie synchronizacji danych i ich możliwej utracie lub uszkodzeniu, aktualizacja niektórych parametrów jest zablokowana w przypadku korzystania z replik do odczytu.
 
 Następujące parametry serwera są blokowane zarówno na serwerze źródłowym, jak i w programie Replica:
-- [`innodb_file_per_table`](https://mariadb.com/kb/en/library/innodb-system-variables/#innodb_file_per_table) 
-- [`log_bin_trust_function_creators`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#log_bin_trust_function_creators)
+
+* [`innodb_file_per_table`](https://mariadb.com/kb/en/library/innodb-system-variables/#innodb_file_per_table) 
+* [`log_bin_trust_function_creators`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#log_bin_trust_function_creators)
 
 [`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables/#event_scheduler)Parametr jest zablokowany na serwerach repliki.
 
-Aby zaktualizować jeden z powyższych parametrów na serwerze źródłowym, Usuń serwery repliki, zaktualizuj wartość parametru na wzorcu i ponownie utwórz repliki.
+Aby zaktualizować jeden z powyższych parametrów na serwerze źródłowym, Usuń serwery repliki, zaktualizuj wartość parametru w podstawowym i ponownie utwórz repliki.
 
 ### <a name="other"></a>Inne
 
-- Tworzenie repliki repliki nie jest obsługiwane.
-- Tabele w pamięci mogą spowodować, że repliki nie zostaną zsynchronizowane. Jest to ograniczenie technologii replikacji MariaDB.
-- Upewnij się, że tabele serwera źródłowego mają klucze podstawowe. Brak kluczy podstawowych może spowodować opóźnienie replikacji między źródłem i replikami.
+* Tworzenie repliki repliki nie jest obsługiwane.
+* Tabele w pamięci mogą spowodować, że repliki nie zostaną zsynchronizowane. Jest to ograniczenie technologii replikacji MariaDB.
+* Upewnij się, że tabele serwera źródłowego mają klucze podstawowe. Brak kluczy podstawowych może spowodować opóźnienie replikacji między źródłem i replikami.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się [, jak tworzyć repliki odczytu i zarządzać nimi przy użyciu Azure Portal](howto-read-replicas-portal.md)
-- Dowiedz się, jak [tworzyć repliki odczytu i zarządzać nimi za pomocą interfejsu wiersza polecenia platformy Azure](howto-read-replicas-cli.md)
+* Dowiedz się [, jak tworzyć repliki odczytu i zarządzać nimi przy użyciu Azure Portal](howto-read-replicas-portal.md)
+* Dowiedz się, jak [tworzyć repliki odczytu i zarządzać nimi za pomocą interfejsu wiersza polecenia platformy Azure](howto-read-replicas-cli.md)
