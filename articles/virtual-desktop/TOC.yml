@@ -128,6 +128,8 @@
       href: authentication.md
     - name: Środowisko usługi Windows Virtual Desktop
       href: environment-setup.md
+    - name: Agent usługi Windows Virtual Desktop
+      href: agent-overview.md
     - name: Łączność sieciowa
       items:
         - name: Opis łączności sieciowej
@@ -180,6 +182,8 @@
       href: troubleshoot-vm-configuration.md
     - name: Połączenia usług pulpitu zdalnego
       href: troubleshoot-service-connection.md
+    - name: Agent usługi Windows Virtual Desktop
+      href: troubleshoot-agent.md
     - name: Problemy z klientem pulpitu zdalnego
       href: troubleshoot-client.md
     - name: Program PowerShell dla usługi Windows Virtual Desktop

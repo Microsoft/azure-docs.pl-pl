@@ -11,19 +11,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 360fbc3e1bfe7890f1f3b05899eb95ce7a3a72c2
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 4e19991de20b130b878a230313d87ca09d31a84e
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96496624"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556447"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Samouczek: tworzenie pierwszej fabryki danych przy użyciu witryny Azure Portal
 > [!div class="op_single_selector"]
 > * [Przegląd i wymagania wstępne](data-factory-build-your-first-pipeline.md)
 > * [Program Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [Program PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-> * [Szablon Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
+> * [Szablon usługi Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 > * [Interfejs API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
@@ -31,7 +31,7 @@ ms.locfileid: "96496624"
 > Ten artykuł dotyczy wersji 1 usługi Azure Data Factory, która jest ogólnie dostępna. Jeśli używasz bieżącej wersji usługi Data Factory, zobacz [Szybki start: tworzenie fabryki danych przy użyciu usługi Data Factory](../quickstart-create-data-factory-dot-net.md).
 
 > [!WARNING]
-> Edytor JSON w witrynie Azure Portal na potrzeby tworzenia & wdrażania potoków w wersji 1 systemu APD zostanie wyłączony z 31 lipca 2019. Po 31 lipca 2019 można nadal korzystać z [poleceń cmdlet programu PowerShell](/powershell/module/az.datafactory/?view=azps-2.4.0&viewFallbackFrom=azps-2.3.2)w usłudze ADF V1, [zestawu SDK programu .NET](/dotnet/api/microsoft.azure.management.datafactories.models?view=azure-dotnet)ADF V1, a [także do tworzenia](/rest/api/datafactory/) & wdrażania potoków w wersji 1.
+> Edytor JSON w witrynie Azure Portal na potrzeby tworzenia & wdrażania potoków w wersji 1 systemu APD zostanie wyłączony z 31 lipca 2019. Po 31 lipca 2019 można nadal korzystać z [poleceń cmdlet programu PowerShell](/powershell/module/az.datafactory/)w usłudze ADF V1, [zestawu SDK programu .NET](/dotnet/api/microsoft.azure.management.datafactories.models)ADF V1, a [także do tworzenia](/rest/api/datafactory/) & wdrażania potoków w wersji 1.
 
 Ten artykuł zawiera instrukcje korzystania z witryny [Azure Portal](https://portal.azure.com/) w celu utworzenia pierwszej fabryki danych. Aby wykonać instrukcje z tego samouczka przy użyciu innych narzędzi/zestawów SDK, wybierz jedną z opcji z listy rozwijanej. 
 
@@ -76,7 +76,7 @@ Aby utworzyć fabrykę danych, wykonaj następujące kroki:
 
 1. Zaznacz pole wyboru **Przypnij do pulpitu nawigacyjnego**.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
    > [!IMPORTANT]
    > Aby utworzyć wystąpienia Data Factory, musisz być członkiem roli [współautor Data Factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) na poziomie subskrypcji/grupy zasobów.
@@ -93,7 +93,7 @@ Aby utworzyć fabrykę danych, wykonaj następujące kroki:
 Przed utworzeniem potoku w fabryce danych musisz utworzyć kilka jednostek fabryki danych. Najpierw utwórz połączone usługi, aby połączyć magazyny danych/obliczenia ze swoim magazynem danych. Następnie zdefiniuj wejściowy i wyjściowy zestaw danych w celu reprezentowania danych wejściowych/wyjściowych w połączonych magazynach danych. Na koniec utwórz potok z działaniem używającym tych zestawów danych.
 
 ## <a name="create-linked-services"></a>Tworzenie połączonych usług
-W tym kroku opisano połączenie konta usługi Azure Storage oraz klastra usługi HDInsight na żądanie z fabryką danych. W tym przykładzie konto magazynu będzie przechowywać dane wejściowe i wyjściowe dla potoku. Połączona usługa HDInsight służy do uruchamiania skryptu programu Hive określonego w działaniu potoku w tym przykładzie. Określ, [data store](data-factory-data-movement-activities.md)które / [usługi obliczeniowe](data-factory-compute-linked-services.md) magazynu danych są używane w danym scenariuszu. Następnie połącz te usługi z fabryką danych, tworząc połączone usługi.  
+W tym kroku opisano połączenie konta usługi Azure Storage oraz klastra usługi HDInsight na żądanie z fabryką danych. W tym przykładzie konto magazynu będzie przechowywać dane wejściowe i wyjściowe dla potoku. Połączona usługa HDInsight służy do uruchamiania skryptu programu Hive określonego w działaniu potoku w tym przykładzie. Określ, [](data-factory-data-movement-activities.md)które / [usługi obliczeniowe](data-factory-compute-linked-services.md) magazynu danych są używane w danym scenariuszu. Następnie połącz te usługi z fabryką danych, tworząc połączone usługi.  
 
 ### <a name="create-a-storage-linked-service"></a>Tworzenie połączonej usługi Storage
 W tym kroku opisano łączenie konta magazynu z fabryką danych. Na potrzeby tego samouczka do przechowywania danych wejściowych/wyjściowych oraz pliku skryptu HQL używa się tego samego konta magazynu.
@@ -437,7 +437,7 @@ W tym artykule opisano tworzenie potoku za pomocą działania przekształcenia (
 ## <a name="see-also"></a>Zobacz też
 | Temat | Opis |
 |:--- |:--- |
-| [Potoki](data-factory-create-pipelines.md) |Ten artykuł ułatwia zapoznanie się z potokami i działaniami w usłudze Data Factory oraz ze sposobem konstruowania za ich pomocą kompletnych przepływów pracy opartych na danych na potrzeby scenariusza lub firmy. |
+| [Pipelines](data-factory-create-pipelines.md) |Ten artykuł ułatwia zapoznanie się z potokami i działaniami w usłudze Data Factory oraz ze sposobem konstruowania za ich pomocą kompletnych przepływów pracy opartych na danych na potrzeby scenariusza lub firmy. |
 | [Zestawy danych](data-factory-create-datasets.md) |Ten artykuł ułatwia zapoznanie się z zestawami danych w usłudze Data Factory. |
 | [Planowanie i wykonywanie](data-factory-scheduling-and-execution.md) |W tym artykule wyjaśniono aspekty planowania i wykonywania modelu aplikacji usługi Data Factory. |
 | [Monitorowanie potoków i zarządzanie nimi za pomocą aplikacji Monitorowanie i zarządzanie](data-factory-monitor-manage-app.md) |Ten artykuł zawiera instrukcje dotyczące monitorowania i debugowania potoków oraz zarządzania nimi przy użyciu aplikacji Monitorowanie i zarządzanie. |

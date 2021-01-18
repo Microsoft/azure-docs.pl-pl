@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: e0a1d8dba9ea284322584de3b4be2ae390d15fdf
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: c95f8b9e4466b22519a4dea580a86a0dcda83857
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920257"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555937"
 ---
 # <a name="register-and-scan-azure-synapse-analytics"></a>Rejestrowanie i skanowanie usługi Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ Usługa Azure Synapse Analytics (wcześniej SQL DW) obsługuje pełne i przyrost
 
 ### <a name="known-limitations"></a>Znane ograniczenia
 
-Usługa Azure kontrolą nie obsługuje skanowania [widoków](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) w usłudze Azure Synapse Analytics
+Usługa Azure kontrolą nie obsługuje skanowania [widoków](/sql/relational-databases/views/views?view=azure-sqldw-latest&preserve-view=true) w usłudze Azure Synapse Analytics
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -45,7 +45,7 @@ Istnieją trzy sposoby konfigurowania uwierzytelniania dla usługi Azure Blob St
 
 ### <a name="managed-identity-recommended"></a>Zarządzana tożsamość (zalecana) 
    
-Twoje konto kontrolą ma własną tożsamość zarządzaną, która stanowi zasadniczo swoją nazwę kontrolą podczas jego tworzenia. Musisz utworzyć użytkownika usługi Azure AD w usłudze Azure Synapse Analytics (dawniej SQL DW) o nazwie tożsamości zarządzanej kontrolą, postępując zgodnie z wymaganiami wstępnymi i samouczkiem dotyczącym [tworzenia użytkowników usługi Azure AD przy użyciu aplikacji usługi Azure AD](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial).
+Twoje konto kontrolą ma własną tożsamość zarządzaną, która stanowi zasadniczo swoją nazwę kontrolą podczas jego tworzenia. Musisz utworzyć użytkownika usługi Azure AD w usłudze Azure Synapse Analytics (dawniej SQL DW) o nazwie tożsamości zarządzanej kontrolą, postępując zgodnie z wymaganiami wstępnymi i samouczkiem dotyczącym [tworzenia użytkowników usługi Azure AD przy użyciu aplikacji usługi Azure AD](/azure/azure-sql/database/authentication-aad-service-principal-tutorial).
 
 Przykładowa składnia SQL służąca do tworzenia uprawnień użytkownika i udzielania:
 
@@ -102,7 +102,7 @@ GO
 
 ### <a name="sql-authentication"></a>Uwierzytelnianie SQL
 
-Aby utworzyć identyfikator logowania dla usługi Azure Synapse Analytics (dawniej SQL DW), możesz postępować zgodnie z instrukcjami w temacie [Tworzenie logowania](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) .
+Aby utworzyć identyfikator logowania dla usługi Azure Synapse Analytics (dawniej SQL DW), możesz postępować zgodnie z instrukcjami w temacie [Tworzenie logowania](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest&preserve-view=true#examples-1) .
 
 Gdy wybrana metoda uwierzytelniania to **uwierzytelnianie SQL**, należy uzyskać hasło i magazyn w magazynie kluczy:
 

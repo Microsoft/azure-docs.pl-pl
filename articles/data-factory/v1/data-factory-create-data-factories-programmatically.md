@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dd1c7c20441d12600e2101f738904caf6260509e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 0305094d3883fa6fc3254a682f9aa6f3202c9e48
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96496011"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555546"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Tworzenie i monitorowanie fabryk danych platformy Azure oraz zarządzanie nimi przy użyciu zestawu Azure Data Factory .NET SDK
 > [!NOTE]
@@ -27,7 +27,7 @@ ms.locfileid: "96496011"
 Fabryki danych platformy Azure można tworzyć, monitorować programowo i zarządzać nimi za pomocą Data Factory .NET SDK. Ten artykuł zawiera przewodnik, który można wykonać w celu utworzenia przykładowej aplikacji konsolowej .NET, która tworzy i monitoruje fabrykę danych. 
 
 > [!NOTE]
-> Ten artykuł nie obejmuje całego interfejsu API .NET usługi Data Factory. Aby uzyskać kompleksową dokumentację interfejsu API platformy .NET dla Data Factory, Data Factory Zobacz Dokumentacja [interfejsu API platformy .NET](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) . 
+> Ten artykuł nie obejmuje całego interfejsu API .NET usługi Data Factory. Aby uzyskać kompleksową dokumentację interfejsu API platformy .NET dla Data Factory, Data Factory Zobacz Dokumentacja [interfejsu API platformy .NET](/dotnet/api/overview/azure/data-factory) . 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -93,7 +93,7 @@ Utwórz aplikację usługi Azure Active Directory, utwórz nazwę główną usł
 9. Uzyskaj identyfikator aplikacji.
 
     ```powershell
-    $azureAdApplication 
+    $azureAdApplication    
     ```
     Zanotuj identyfikator aplikacji (applicationID) z danych wyjściowych.
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 9fe1b7a077142b00aaf2a8502faa0e166c4311c4
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 219f8728eb90101e7437cbb82b44a1f7124ef14d
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915627"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556430"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Zabezpiecz i Izoluj klastry usługi Azure HDInsight za pomocą prywatnego linku (wersja zapoznawcza)
 
@@ -60,7 +60,7 @@ Usługi równoważenia obciążenia w warstwie Standardowa nie zapewniają autom
 
 ### <a name="prepare-your-environment"></a>Przygotowywanie środowiska
 
-Aby successgfull tworzenie usług łączy prywatnych, należy jawnie [wyłączyć zasady sieci dla usługi łącza prywatnego](../private-link/disable-private-link-service-network-policy.md).
+W celu pomyślnego utworzenia usług łączy prywatnych należy jawnie [wyłączyć zasady sieci dla usługi łącza prywatnego](../private-link/disable-private-link-service-network-policy.md).
 
 Na poniższym diagramie przedstawiono przykład konfiguracji sieci wymaganej przed utworzeniem klastra. W tym przykładzie cały ruch wychodzący jest [wymuszany](../firewall/forced-tunneling.md) w zaporze platformy Azure przy użyciu programu UDR, a przed utworzeniem klastra wymagane są "dozwolone" w zaporze. W przypadku klastrów pakiet Enterprise Security połączenie sieciowe z Azure Active Directory Domain Services może być zapewnione przez komunikację równorzędną sieci wirtualnych.
 
@@ -102,10 +102,10 @@ Pełny szablon z wieloma funkcjami zabezpieczeń systemu HDInsight Enterprise, w
 
 ### <a name="use-azure-powershell"></a>Korzystanie z programu Azure PowerShell
 
-Aby użyć programu PowerShell, zobacz przykład [tutaj](/powershell/module/az.hdinsight/new-azhdinsightcluster?view=azps-5.1.0#example-4--create-an-azure-hdinsight-cluster-with-relay-outbound-and-private-link-feature).
+Aby użyć programu PowerShell, zobacz przykład [tutaj](/powershell/module/az.hdinsight/new-azhdinsightcluster#example-4--create-an-azure-hdinsight-cluster-with-relay-outbound-and-private-link-feature).
 
 ### <a name="use-azure-cli"></a>Interfejs wiersza polecenia platformy Azure
-Aby korzystać z interfejsu wiersza polecenia platformy Azure, zobacz przykład [tutaj](/cli/azure/hdinsight?view=azure-cli-latest#az_hdinsight_create-examples).
+Aby korzystać z interfejsu wiersza polecenia platformy Azure, zobacz przykład [tutaj](/cli/azure/hdinsight#az_hdinsight_create-examples).
 
 ## <a name="next-steps"></a>Następne kroki
 

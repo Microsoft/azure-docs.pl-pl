@@ -11,12 +11,12 @@ author: dcstwh
 ms.author: weetok
 manager: anandsub
 ms.custom: devx-track-python
-ms.openlocfilehash: e7b435080fda48e1df0bb31d16dafed30ac3d3db
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: b5d1f0c0d6aa848e590e68e1f18abf7861674483
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497864"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556566"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Programowe monitorowanie fabryki danych Azure
 
@@ -68,7 +68,7 @@ Pełny Przewodnik tworzenia i monitorowania potoku przy użyciu zestawu .NET SDK
     Console.ReadKey();
     ```
 
-Aby uzyskać pełną dokumentację dotyczącą zestawu SDK platformy .NET, zobacz temat [informacje dotyczące Data Factory .NET SDK](/dotnet/api/microsoft.azure.management.datafactory?view=azure-dotnet).
+Aby uzyskać pełną dokumentację dotyczącą zestawu SDK platformy .NET, zobacz temat [informacje dotyczące Data Factory .NET SDK](/dotnet/api/microsoft.azure.management.datafactory).
 
 ## <a name="python"></a>Python
 Pełny Przewodnik tworzenia i monitorowania potoku przy użyciu zestawu SDK języka Python można znaleźć w temacie [Tworzenie fabryki danych i potoku przy użyciu języka Python](quickstart-create-data-factory-python.md).
@@ -86,7 +86,7 @@ activity_runs_paged = list(adf_client.activity_runs.list_by_pipeline_run(
 print_activity_run_details(activity_runs_paged[0])
 ```
 
-Aby uzyskać pełną dokumentację dotyczącą zestawu SDK języka Python, zobacz [Data Factory Dokumentacja zestawu SDK języka Python](/python/api/overview/azure/datafactory?view=azure-python).
+Aby uzyskać pełną dokumentację dotyczącą zestawu SDK języka Python, zobacz [Data Factory Dokumentacja zestawu SDK języka Python](/python/api/overview/azure/datafactory).
 
 ## <a name="rest-api"></a>Interfejs API REST
 Pełny Przewodnik tworzenia i monitorowania potoku przy użyciu interfejsu API REST można znaleźć w temacie [Tworzenie fabryki danych i potoku przy użyciu interfejsu API REST](quickstart-create-data-factory-rest-api.md).

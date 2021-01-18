@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: b4902e1fb7a2a181d3d5b2ce2ac6d1d458500fce
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 9609c382161514611ddc41af040e8fb438431fdf
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844186"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556005"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Rozwiązywanie problemów z wykonywaniem pakietów w środowisku SSIS Integration Runtime
 
@@ -28,7 +28,7 @@ Ten artykuł zawiera najczęstsze błędy, które można napotkać podczas wykon
 
 Użyj portalu Azure Data Factory, aby sprawdzić dane wyjściowe działania wykonywania pakietu SSIS. Dane wyjściowe obejmują wyniki wykonywania, komunikaty o błędach i identyfikator operacji. Aby uzyskać szczegółowe informacje, zobacz [monitorowanie potoku](how-to-invoke-ssis-package-ssis-activity.md#monitor-the-pipeline).
 
-Użyj wykazu usług SSIS (SSISDB), aby sprawdzić dzienniki szczegółów wykonania. Aby uzyskać szczegółowe informacje, zobacz [monitorowanie uruchomionych pakietów i innych operacji](/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017).
+Użyj wykazu usług SSIS (SSISDB), aby sprawdzić dzienniki szczegółów wykonania. Aby uzyskać szczegółowe informacje, zobacz [monitorowanie uruchomionych pakietów i innych operacji](/sql/integration-services/performance/monitor-running-packages-and-other-operations).
 
 ## <a name="common-errors-causes-and-solutions"></a>Typowe błędy, przyczyny i rozwiązania
 
@@ -91,7 +91,7 @@ Ten błąd oznacza, że dysk lokalny jest używany w węźle SSIS Integration Ru
 Ten błąd występuje, gdy wykonanie pakietu nie może znaleźć pliku na dysku lokalnym w programie SSIS Integration Runtime. Wypróbuj następujące czynności:
 * Nie używaj ścieżki bezwzględnej w pakiecie, który jest wykonywany w programie SSIS Integration Runtime. Użyj bieżącego katalogu roboczego wykonywania (.) lub folderu tymczasowego (% TEMP%) INSTEAD.
 * Aby zachować niektóre pliki w węzłach SSIS Integration Runtime, przygotuj pliki zgodnie z opisem w temacie [Dostosowywanie Instalatora](how-to-configure-azure-ssis-ir-custom-setup.md). Wszystkie pliki w katalogu roboczym zostaną oczyszczone po zakończeniu wykonywania.
-* Użyj Azure Files zamiast przechowywania pliku w węźle SSIS Integration Runtime. Aby uzyskać szczegółowe informacje, zobacz [Korzystanie z udziałów plików platformy Azure](/sql/integration-services/lift-shift/ssis-azure-files-file-shares?view=sql-server-2017#use-azure-file-shares).
+* Użyj Azure Files zamiast przechowywania pliku w węźle SSIS Integration Runtime. Aby uzyskać szczegółowe informacje, zobacz [Korzystanie z udziałów plików platformy Azure](/sql/integration-services/lift-shift/ssis-azure-files-file-shares#use-azure-file-shares).
 
 ### <a name="error-message-the-database-ssisdb-has-reached-its-size-quota"></a>Komunikat o błędzie: "w bazie danych" SSISDB "Osiągnięto limit przydziału rozmiaru"
 
@@ -154,7 +154,7 @@ Jedną z potencjalnych przyczyn jest to, że Self-Hosted Integration Runtime nie
 
 * Potencjalna przyczyna i zalecana akcja:
   * Jeśli jest również wyświetlany komunikat ostrzegawczy "składnik nie obsługuje używania Menedżera połączeń z ustawieniem wartości ConnectByProxy wartość true" w dzienniku wykonywania, oznacza to, że Menedżer połączeń jest używany w składniku, który nie obsługuje jeszcze "ConnectByProxy". Obsługiwane składniki można znaleźć w temacie [konfigurowanie Self-Hosted IR jako serwera proxy dla Azure-SSIS IR w usłudze ADF](self-hosted-integration-runtime-proxy-ssis.md#enable-ssis-packages-to-connect-by-proxy)
-  * Dziennik wykonywania można znaleźć w [raportach programu SSMS](/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017#reports) lub w folderze dziennika określonym w działaniu pakietu usług SSIS.
+  * Dziennik wykonywania można znaleźć w [raportach programu SSMS](/sql/integration-services/performance/monitor-running-packages-and-other-operations#reports) lub w folderze dziennika określonym w działaniu pakietu usług SSIS.
   * Sieć wirtualna może być również używana do uzyskiwania dostępu do danych lokalnych jako alternatywy. Więcej szczegółów można znaleźć w witrynie [Azure-SSIS Integration Runtime do sieci wirtualnej](join-azure-ssis-integration-runtime-virtual-network.md)
 
 ### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-ssis-executor-exit-code--1n-loglocation-ssistelemetryexecutionlog-effectiveintegrationruntime--executionduration--durationinqueue--integrationruntimequeue--"></a>Komunikat o błędzie: "stan zadania przemieszczania: niepowodzenie. Błąd zadania przemieszczania: ErrorCode: 2906, ErrorMessage: wykonywanie pakietu nie powiodło się., dane wyjściowe: {"OperationErrorMessages": "kod zakończenia modułu SSIS:-1. \ n", "LogLocation": "... \\ SSISTelemetry \\ ExecutionLog \\ ... "," effectiveIntegrationRuntime ":"... "," executionDuration ":...," durationInQueue ": {" integrationRuntimeQueue ":...}}"

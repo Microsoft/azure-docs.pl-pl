@@ -12,12 +12,12 @@ manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 11/06/2020
-ms.openlocfilehash: bc5d2cad7b4fbf1871d2c02dc91db30daf55e855
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: b9dc88c5773d1329ad4fb4d1c45a0cbc88737423
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96600731"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556583"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Dostosuj konfigurację dla Azure-SSIS Integration Runtime
 
@@ -345,7 +345,7 @@ Aby wyświetlić i ponownie użyć niektórych przykładów standardowych konfig
 
       * Folder *TLS 1,2* , który zawiera niestandardowy skrypt instalacyjny (*Main. cmd*) do korzystania z mocnej kryptografii i bezpieczniejszego protokołu sieciowego (TLS 1,2) w każdym węźle Azure-SSIS IR. Skrypt wyłącza również starsze wersje protokołu SSL/TLS.
 
-      * Folder *Zulu OPENJDK* , który zawiera niestandardowy skrypt instalacyjny (*Main. cmd*) i plik programu PowerShell (*install_openjdk.ps1*), aby zainstalować OPENJDK Zulu na każdym węźle Azure-SSIS IR. Ta konfiguracja pozwala używać Azure Data Lake Store i elastycznych łączników plików do przetwarzania plików ORC i Parquet. Aby uzyskać więcej informacji, zobacz [pakiet Azure Feature Pack dla usług Integration Services](/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-ver15#dependency-on-java). 
+      * Folder *Zulu OPENJDK* , który zawiera niestandardowy skrypt instalacyjny (*Main. cmd*) i plik programu PowerShell (*install_openjdk.ps1*), aby zainstalować OPENJDK Zulu na każdym węźle Azure-SSIS IR. Ta konfiguracja pozwala używać Azure Data Lake Store i elastycznych łączników plików do przetwarzania plików ORC i Parquet. Aby uzyskać więcej informacji, zobacz [pakiet Azure Feature Pack dla usług Integration Services](/sql/integration-services/azure-feature-pack-for-integration-services-ssis#dependency-on-java). 
       
         Najpierw [Pobierz najnowszą Zulu OpenJDK](https://www.azul.com/downloads/zulu/zulu-windows/) (na przykład *zulu8.33.0.1-jdk8.0.192-win_x64.zip*), a następnie Przekaż go wraz z *Main. cmd* i *install_openjdk.ps1* do kontenera.
 

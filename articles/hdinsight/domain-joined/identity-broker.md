@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 11/03/2020
-ms.openlocfilehash: c6bc5ca748a35b17c61d314e96f7284d30e7fc3b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b8dfe9a23e5c6697323142212156006cb65d2f9b
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96338133"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556532"
 ---
 # <a name="azure-hdinsight-id-broker-hib"></a>Broker identyfikatorów usługi Azure HDInsight (HIB)
 
@@ -126,9 +126,9 @@ Aby rozwiązać problemy z uwierzytelnianiem, zobacz [ten przewodnik](./domain-j
 
 W konfiguracji brokera identyfikatora usługi HDInsight można zaktualizować niestandardowe aplikacje i klientów, którzy łączą się z bramą w celu uzyskania najpierw wymaganego tokenu OAuth. Wykonaj kroki opisane w [tym dokumencie](../../storage/common/storage-auth-aad-app.md) , aby uzyskać token z następującymi informacjami:
 
-*   Identyfikator URI zasobu OAuth: `https://hib.azurehdinsight.net` 
+*    Identyfikator URI zasobu OAuth: `https://hib.azurehdinsight.net` 
 *   Identyfikator aplikacji: 7865c1d2-F040-46cc-875f-831a1ef6a28a
-*   Uprawnienie: (nazwa: cluster. ReadWrite, ID: 8f89faa0-ffef-4007-974d-4989b39ad77d)
+*    Uprawnienie: (nazwa: cluster. ReadWrite, ID: 8f89faa0-ffef-4007-974d-4989b39ad77d)
 
 Po uzyskaniu tokenu OAuth Użyj go w nagłówku autoryzacji żądania HTTP do bramy klastra (na przykład https:// <clustername> -int.azurehdinsight.NET). Przykładowa postać polecenia zwinięcie do interfejsu API Apache usługi Livy może wyglądać następująco:
     
@@ -138,7 +138,7 @@ curl -k -v -H "Authorization: Bearer Access_TOKEN" -H "Content-Type: application
 
 W przypadku korzystania z Z usługi Beeline i usługi Livy można także wykonać poniższe kody próbek, [Aby skonfigurować](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/HIB/HIBSamples) klienta do korzystania z protokołu OAuth i łączenia się z klastrem.
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 ### <a name="what-app-is-created-by-hdinsight-in-aad"></a>Którą aplikację tworzy Usługa HDInsight w usłudze AAD?
 W przypadku każdego klastra aplikacja innej firmy zostanie zarejestrowana w usłudze AAD z identyfikatorem URI klastra jako identifierUri (np `https://clustername.azurehdinsight.net` .).
 
@@ -146,7 +146,7 @@ W przypadku każdego klastra aplikacja innej firmy zostanie zarejestrowana w us�
 W usłudze AAD zgoda jest wymagana dla wszystkich aplikacji innych firm, zanim będzie można uwierzytelnić użytkowników lub uzyskać dostęp do danych.
 
 ### <a name="can-the-consent-be-approved-programatically"></a>Czy zgoda można zatwierdzić programowo?
-Interfejs API Microsoft Graph umożliwia automatyzację zgody. Zapoznaj się z [dokumentacją interfejsu API](/graph/api/resources/oauth2permissiongrant?view=graph-rest-1.0) , aby zautomatyzować wyrażanie zgody:
+Interfejs API Microsoft Graph umożliwia automatyzację zgody. Zapoznaj się z [dokumentacją interfejsu API](/graph/api/resources/oauth2permissiongrant) , aby zautomatyzować wyrażanie zgody:
 
 * Zarejestruj aplikację i Udziel aplikacji Application. ReadWrite. All uprawnienia do aplikacji, aby uzyskać dostęp do Microsoft Graph
 * Po utworzeniu klastra Zapytaj aplikację klastra na podstawie identyfikatora URI identyfikatora

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 15708e35fa27bb4a1f72368df6f49ff747eb799b
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 36781e7f975ee9d4a03cf899650701bf2d3940ac
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739794"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555954"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Rejestrowanie i skanowanie Azure SQL Database
 
@@ -28,7 +28,7 @@ Azure SQL Database źródło danych obsługuje następujące funkcje:
 
 ### <a name="known-limitations"></a>Znane ograniczenia
 
-Usługa Azure kontrolą nie obsługuje skanowania [widoków](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15&preserve-view=true) w Azure SQL Database. 
+Usługa Azure kontrolą nie obsługuje skanowania [widoków](/sql/relational-databases/views/views?view=azuresqldb-current&preserve-view=true) w Azure SQL Database.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -50,7 +50,7 @@ Uwierzytelnianie do skanowania Azure SQL Database. Jeśli musisz utworzyć nowe 
 > [!Note]
 > Nowe nazwy logowania można tworzyć tylko w przypadku głównego konta serwera (utworzonego przez proces aprowizacji) lub członkiem `loginmanager` roli bazy danych w bazie danych Master. Po udzieleniu uprawnień trwa około **15 minut** , konto kontrolą powinno mieć odpowiednie uprawnienia do skanowania zasobów.
 
-Możesz postępować zgodnie z instrukcjami w temacie [Tworzenie nazwy logowania](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) , aby utworzyć identyfikator logowania dla Azure SQL Database, jeśli nie jest dostępny. Do następnych kroków będzie potrzebna **Nazwa użytkownika** i **hasło** .
+Możesz postępować zgodnie z instrukcjami w temacie [Tworzenie nazwy logowania](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) , aby utworzyć identyfikator logowania dla Azure SQL Database, jeśli nie jest dostępny. Do następnych kroków będzie potrzebna **Nazwa użytkownika** i **hasło** .
 
 1. Przejdź do magazynu kluczy w Azure Portal
 1. Wybierz pozycję **ustawienia > wpisy tajne**
@@ -100,7 +100,7 @@ Nazwa główna usługi lub zarządzana tożsamość musi mieć uprawnienia do po
     ```
 
     > [!Note]
-    > `Username`Jest to Twoja nazwa główna usługi lub tożsamość zarządzana kontrolą. Więcej informacji na temat [ról stałych baz danych i ich możliwości](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15&preserve-view=true#fixed-database-roles).
+    > `Username`Jest to Twoja nazwa główna usługi lub tożsamość zarządzana kontrolą. Więcej informacji na temat [ról stałych baz danych i ich możliwości](/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15&preserve-view=true#fixed-database-roles).
     
 ##### <a name="add-service-principal-to-key-vault-and-purviews-credential"></a>Dodaj nazwę główną usługi do magazynu kluczy i poświadczenia kontrolą
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: ''
 ms.date: 05/04/2020
-ms.openlocfilehash: fd9e78b6bc3513f79b05c9522e891d346e3d31a0
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 754f58fe7ee9bc8d10ba1fa973615781ce4d6dce
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637517"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555920"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Przyrostowe ładowanie danych z wystąpienia zarządzanego usługi Azure SQL do usługi Azure Storage przy użyciu funkcji przechwytywania zmian danych
 
@@ -52,13 +52,13 @@ W tym samouczku utworzysz potok, który wykonuje następujące operacje:
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* **Azure SQL Database wystąpienia zarządzanego** . Baza danych jest używana jako magazyn danych **źródłowych** . Jeśli nie masz wystąpienia zarządzanego Azure SQL Database, zapoznaj się z artykułem [tworzenie Azure SQL Database wystąpienia zarządzanego](../azure-sql/managed-instance/instance-create-quickstart.md) , aby zapoznać się z krokami.
-* **Konto usługi Azure Storage** . Magazyn obiektów blob jest używany jako magazyn danych **źródłowych** . Jeśli nie masz konta usługi Azure Storage, utwórz je, wykonując czynności przedstawione w artykule [Tworzenie konta magazynu](../storage/common/storage-account-create.md). Utwórz kontener o nazwie **RAW** . 
+* **Azure SQL Database wystąpienia zarządzanego**. Baza danych jest używana jako magazyn danych **źródłowych**. Jeśli nie masz wystąpienia zarządzanego Azure SQL Database, zapoznaj się z artykułem [tworzenie Azure SQL Database wystąpienia zarządzanego](../azure-sql/managed-instance/instance-create-quickstart.md) , aby zapoznać się z krokami.
+* **Konto usługi Azure Storage**. Magazyn obiektów blob jest używany jako magazyn danych **źródłowych**. Jeśli nie masz konta usługi Azure Storage, utwórz je, wykonując czynności przedstawione w artykule [Tworzenie konta magazynu](../storage/common/storage-account-create.md). Utwórz kontener o nazwie **RAW**. 
 
 ### <a name="create-a-data-source-table-in-azure-sql-database"></a>Tworzenie tabeli źródła danych w Azure SQL Database
 
 1. Uruchom **SQL Server Management Studio** i nawiąż połączenie z serwerem usługi Azure SQL Managed Instances.
-2. W **Eksploratorze serwera** kliknij prawym przyciskiem używaną **bazę danych** , a następnie wybierz pozycję **Nowe zapytanie** .
+2. W **Eksploratorze serwera** kliknij prawym przyciskiem używaną **bazę danych**, a następnie wybierz pozycję **Nowe zapytanie**.
 3. Uruchom następujące polecenie SQL względem bazy danych wystąpień zarządzanych Azure SQL, aby utworzyć tabelę o nazwie `customers` jako magazyn źródła danych.  
 
     ```sql
@@ -75,7 +75,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
     > [!NOTE]
     > - Zastąp &lt; nazwę schematu źródłowego własnym &gt; schematem platformy Azure SQL, który zawiera tabelę Customers.
-    > - Przechwytywanie zmian danych nie wykonuje żadnych operacji w ramach transakcji, które zmieniają śledzoną tabelę. Zamiast tego operacje wstawiania, aktualizowania i usuwania są zapisywane w dzienniku transakcji. Dane, które są zdeponowane w tabelach zmian, zostaną rozbudowywane w sposób niezarządzany, jeśli nie zostaną okresowo i systematyczne oczyszczanie danych. Aby uzyskać więcej informacji, zobacz [Włączanie przechwytywania zmian danych dla bazy danych](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?enable-change-data-capture-for-a-database=&view=sql-server-ver15)
+    > - Przechwytywanie zmian danych nie wykonuje żadnych operacji w ramach transakcji, które zmieniają śledzoną tabelę. Zamiast tego operacje wstawiania, aktualizowania i usuwania są zapisywane w dzienniku transakcji. Dane, które są zdeponowane w tabelach zmian, zostaną rozbudowywane w sposób niezarządzany, jeśli nie zostaną okresowo i systematyczne oczyszczanie danych. Aby uzyskać więcej informacji, zobacz [Włączanie przechwytywania zmian danych dla bazy danych](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server#enable-change-data-capture-for-a-database)
 
     ```sql
     EXEC sys.sp_cdc_enable_db 
@@ -102,36 +102,36 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
-1. Uruchom przeglądarkę internetową **Microsoft Edge** lub **Google Chrome** . Obecnie interfejs użytkownika usługi Data Factory jest obsługiwany tylko przez przeglądarki internetowe Microsoft Edge i Google Chrome.
-1. W menu po lewej stronie wybierz pozycję **Utwórz zasób**  >  **dane + analiza**  >  **Data Factory** :
+1. Uruchom przeglądarkę internetową **Microsoft Edge** lub **Google Chrome**. Obecnie interfejs użytkownika usługi Data Factory jest obsługiwany tylko przez przeglądarki internetowe Microsoft Edge i Google Chrome.
+1. W menu po lewej stronie wybierz pozycję **Utwórz zasób**  >  **dane + analiza**  >  **Data Factory**:
 
    ![Wybór usługi Data Factory w okienku „Nowy”](./media/tutorial-incremental-copy-change-data-capture-feature-portal/new-azure-data-factory-menu.png)
 
-2. Na stronie **Nowa fabryka danych** wprowadź wartość **ADFTutorialDataFactory** w polu **Nazwa** .
+2. Na stronie **Nowa fabryka danych** wprowadź wartość **ADFTutorialDataFactory** w polu **Nazwa**.
 
      ![Strona Nowa fabryka danych](./media/tutorial-incremental-copy-change-data-capture-feature-portal/new-azure-data-factory.png)
 
-   Nazwa fabryki danych Azure musi być **globalnie unikatowa** . Jeśli wystąpi poniższy błąd, zmień nazwę fabryki danych (np. twojanazwaADFTutorialDataFactory) i spróbuj utworzyć ją ponownie. Artykuł [Data Factory — Naming Rules (Usługa Data Factory — reguły nazewnictwa)](naming-rules.md) zawiera reguły nazewnictwa artefaktów usługi Data Factory.
+   Nazwa fabryki danych Azure musi być **globalnie unikatowa**. Jeśli wystąpi poniższy błąd, zmień nazwę fabryki danych (np. twojanazwaADFTutorialDataFactory) i spróbuj utworzyć ją ponownie. Artykuł [Data Factory — Naming Rules (Usługa Data Factory — reguły nazewnictwa)](naming-rules.md) zawiera reguły nazewnictwa artefaktów usługi Data Factory.
 
     *Nazwa fabryki danych "ADFTutorialDataFactory" jest niedostępna.*
-3. Wybierz opcję **V2** w obszarze **Wersja** .
+3. Wybierz opcję **V2** w obszarze **Wersja**.
 4. Wybierz **subskrypcję** Azure, w której chcesz utworzyć fabrykę danych.
 5. Dla opcji **Grupa zasobów** wykonaj jedną z następujących czynności:
 
-   1. Wybierz pozycję **Użyj istniejącej** , a następnie wybierz istniejącą grupę zasobów z listy rozwijanej.
-   2. Wybierz pozycję **Utwórz nową** , a następnie wprowadź nazwę grupy zasobów.   
+   1. Wybierz pozycję **Użyj istniejącej**, a następnie wybierz istniejącą grupę zasobów z listy rozwijanej.
+   2. Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę grupy zasobów.   
          
     Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
 5. Na liście **lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (Azure Storage, Azure SQL Database itp.) i jednostki obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą mieścić się w innych regionach.
-6. Usuń zaznaczenie opcji **Włącz git** .     
-7. Kliknij pozycję **Utwórz** .
+6. Usuń zaznaczenie opcji **Włącz git**.     
+7. Kliknij pozycję **Utwórz**.
 8. Po zakończeniu wdrażania kliknij pozycję **Przejdź do zasobu** .
 
    ![Zrzut ekranu przedstawia komunikat informujący, że wdrożenie zostało ukończone, i opcję przejścia do zasobów.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-deploy-complete.png)
-9. Po zakończeniu tworzenia zostanie wyświetlona strona **Fabryka danych** , jak pokazano na poniższej ilustracji.
+9. Po zakończeniu tworzenia zostanie wyświetlona strona **Fabryka danych**, jak pokazano na poniższej ilustracji.
 
    ![Zrzut ekranu przedstawia wdrożoną fabrykę danych.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-home-page.png)
-10. Kliknij kafelek **Tworzenie i monitorowanie** , aby w osobnej karcie uruchomić interfejs użytkownika usługi Azure Data Factory.
+10. Kliknij kafelek **Tworzenie i monitorowanie**, aby w osobnej karcie uruchomić interfejs użytkownika usługi Azure Data Factory.
 11. Na stronie **Wprowadzenie** przejdź do karty **Edycja** w lewym panelu, jak pokazano na poniższej ilustracji:
 
     ![Przycisk Utwórz potok](./media/tutorial-incremental-copy-change-data-capture-feature-portal/get-started-page.png)
@@ -142,17 +142,17 @@ Połączone usługi tworzy się w fabryce danych w celu połączenia magazynów 
 ### <a name="create-azure-storage-linked-service"></a>Utwórz połączoną usługę Azure Storage.
 W tym kroku opisano łączenie konta usługi Azure Storage z fabryką danych.
 
-1. Kliknij kolejno pozycje **Połączenia** i **+ Nowy** .
+1. Kliknij kolejno pozycje **Połączenia** i **+ Nowy**.
 
    ![Przycisk Nowe połączenie](./media/tutorial-incremental-copy-change-data-capture-feature-portal/new-connection-button-storage.png)
-2. W oknie **Nowa połączona usługa** wybierz pozycję **Azure Blob Storage** , a następnie kliknij pozycję **Kontynuuj** .
+2. W oknie **Nowa połączona usługa** wybierz pozycję **Azure Blob Storage**, a następnie kliknij pozycję **Kontynuuj**.
 
    ![Wybieranie pozycji Azure Blob Storage](./media/tutorial-incremental-copy-change-data-capture-feature-portal/select-azure-storage.png)
 3. W oknie **Nowa połączona usługa** wykonaj następujące czynności:
 
-   1. Wprowadź wartość **AzureStorageLinkedService** w polu **Nazwa** .
-   2. Wybierz swoje konto usługi Azure Storage w polu **Nazwa konta magazynu** .
-   3. Kliknij pozycję **Zapisz** .
+   1. Wprowadź wartość **AzureStorageLinkedService** w polu **Nazwa**.
+   2. Wybierz swoje konto usługi Azure Storage w polu **Nazwa konta magazynu**.
+   3. Kliknij pozycję **Zapisz**.
 
    ![Ustawienia konta usługi Azure Storage](./media/tutorial-incremental-copy-change-data-capture-feature-portal/azure-storage-linked-service-settings.png)
 
@@ -163,8 +163,8 @@ W tym kroku połączysz bazę danych usługi Azure SQL MI z fabryką danych.
 > [!NOTE]
 > Aby uzyskać informacje dotyczące dostępu za pośrednictwem publicznego punktu końcowego i prywatnego programu SQL, zobacz w [tym miejscu](./connector-azure-sql-managed-instance.md#prerequisites) . W przypadku korzystania z prywatnego punktu końcowego należy uruchomić ten potok przy użyciu własnego środowiska Integration Runtime. Ta sama wartość zostałaby zastosowana do tych uruchomionych SQL Server w scenariuszach dotyczących maszyn wirtualnych lub sieci wirtualnej.
 
-1. Kliknij kolejno pozycje **Połączenia** i **+ Nowy** .
-2. W oknie **Nowa połączona usługa** wybierz pozycję **Azure SQL Database wystąpienie zarządzane** , a następnie kliknij przycisk **Kontynuuj** .
+1. Kliknij kolejno pozycje **Połączenia** i **+ Nowy**.
+2. W oknie **Nowa połączona usługa** wybierz pozycję **Azure SQL Database wystąpienie zarządzane**, a następnie kliknij przycisk **Kontynuuj**.
 3. W oknie **Nowa połączona usługa** wykonaj następujące czynności:
 
    1. W polu **Nazwa** wprowadź **AzureSqlMI1** .
@@ -173,7 +173,7 @@ W tym kroku połączysz bazę danych usługi Azure SQL MI z fabryką danych.
    5. W polu **Nazwa użytkownika** podaj nazwę użytkownika.
    6. W polu **Hasło** podaj hasło użytkownika.
    7. Kliknij pozycję **Testuj połączenie** w celu przetestowania połączenia.
-   8. Kliknij przycisk **Zapisz** , aby zapisać połączoną usługę.
+   8. Kliknij przycisk **Zapisz**, aby zapisać połączoną usługę.
 
    ![Ustawienia usługi połączonej bazy danych Azure SQL](./media/tutorial-incremental-copy-change-data-capture-feature-portal/azure-sql-managed-instance-database-linked-service-settings.png)
 
@@ -183,51 +183,51 @@ W tym kroku utworzysz zestawy danych reprezentujące źródło danych i miejsce 
 ### <a name="create-a-dataset-to-represent-source-data"></a>Tworzenie zestawu danych reprezentującego źródło danych
 W tym kroku utworzysz zestaw danych reprezentujący źródło danych.
 
-1. W widoku drzewa kliknij kolejno pozycje **+ (plus)** i **Zestaw danych** .
+1. W widoku drzewa kliknij kolejno pozycje **+ (plus)** i **Zestaw danych**.
 
    ![Menu Nowy zestaw danych](./media/tutorial-incremental-copy-change-data-capture-feature-portal/new-dataset-menu.png)
-2. Wybierz **Azure SQL Database wystąpienie zarządzane** , a następnie kliknij przycisk **Kontynuuj** .
+2. Wybierz **Azure SQL Database wystąpienie zarządzane**, a następnie kliknij przycisk **Kontynuuj**.
 
    ![Typ zestawu danych będącego źródłem — Azure SQL Database](./media/tutorial-incremental-copy-change-data-capture-feature-portal/select-azure-sql-database.png)
    
 3. Na karcie **Właściwości ustaw** wartość Nazwa zestawu danych i informacje o połączeniu:
  
-   1. Wybierz pozycję **AzureSqlMI1** dla **połączonej usługi** .
-   2. Wybierz pozycję **[dbo]. [ dbo_customers_CT]** dla **nazwy tabeli** .  Uwaga: Ta tabela została utworzona automatycznie, gdy włączono funkcję przechwytywania zmian w tabeli Customers. Zmiany danych nigdy nie są wysyłane z tej tabeli bezpośrednio, ale zamiast tego są wyodrębniane za pomocą [funkcji przechwytywania](/sql/relational-databases/system-functions/change-data-capture-functions-transact-sql?view=sql-server-ver15)zmian.
+   1. Wybierz pozycję **AzureSqlMI1** dla **połączonej usługi**.
+   2. Wybierz pozycję **[dbo]. [ dbo_customers_CT]** dla **nazwy tabeli**.  Uwaga: Ta tabela została utworzona automatycznie, gdy włączono funkcję przechwytywania zmian w tabeli Customers. Zmiany danych nigdy nie są wysyłane z tej tabeli bezpośrednio, ale zamiast tego są wyodrębniane za pomocą [funkcji przechwytywania](/sql/relational-databases/system-functions/change-data-capture-functions-transact-sql)zmian.
 
    ![Połączenie ze źródłem](./media/tutorial-incremental-copy-change-data-capture-feature-portal/source-dataset-configuration.png)
 
 ### <a name="create-a-dataset-to-represent-data-copied-to-sink-data-store"></a>Utwórz zestaw danych reprezentujący dane skopiowane do magazynu danych będącego ujściem.
 W tym kroku utworzysz zestaw danych reprezentujący dane skopiowane z magazynu danych źródłowych. Kontener Data Lake został utworzony w ramach usługi Azure Blob Storage w ramach wymagań wstępnych. Utwórz kontener, jeśli nie istnieje, lub zmień nazwę istniejącego kontenera. W tym samouczku nazwa pliku wyjściowego jest generowana dynamicznie przy użyciu czasu wyzwalacza, który zostanie później skonfigurowany.
 
-1. W widoku drzewa kliknij kolejno pozycje **+ (plus)** i **Zestaw danych** .
+1. W widoku drzewa kliknij kolejno pozycje **+ (plus)** i **Zestaw danych**.
 
    ![Menu Nowy zestaw danych](./media/tutorial-incremental-copy-change-data-capture-feature-portal/new-dataset-menu.png)
-2. Wybierz pozycję **Azure Blob Storage** i kliknij przycisk **Kontynuuj** .
+2. Wybierz pozycję **Azure Blob Storage** i kliknij przycisk **Kontynuuj**.
 
    ![Typ zestawu danych będącego ujściem — Azure Blob Storage](./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-type.png)
-3. Wybierz pozycję **DelimitedText** , a następnie kliknij przycisk **Kontynuuj** .
+3. Wybierz pozycję **DelimitedText**, a następnie kliknij przycisk **Kontynuuj**.
 
    ![Format zestawu danych ujścia — DelimitedText](./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-format.png)
 4. Na karcie **Właściwości ustaw** wartość Nazwa zestawu danych i informacje o połączeniu:
 
-   1. Wybierz pozycję **AzureStorageLinkedService** w polu **Połączona usługa** .
-   2. Wprowadź **RAW** dla części **kontenera** **ścieżki FilePath** .
+   1. Wybierz pozycję **AzureStorageLinkedService** w polu **Połączona usługa**.
+   2. Wprowadź **RAW** dla części **kontenera** **ścieżki FilePath**.
    3. Włącz **pierwszy wiersz jako nagłówek**
    4. Kliknij przycisk **OK** .
 
    ![Zestaw danych będący ujściem — połączenie](./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration.png)
 
 ## <a name="create-a-pipeline-to-copy-the-changed-data"></a>Tworzenie potoku w celu skopiowania zmienionych danych
-W tym kroku utworzysz potok, który najpierw sprawdza liczbę zmienionych rekordów znajdujących się w tabeli zmian za pomocą **działania Lookup** . Działanie warunku IF sprawdza, czy liczba zmienionych rekordów jest większa od zera i uruchamia **działanie kopiowania** , aby skopiować wstawione/zaktualizowane/usunięte dane z Azure SQL Database do platformy Azure Blob Storage. Na koniec zostaje skonfigurowany wyzwalacz okna wirowania i godziny rozpoczęcia i zakończenia zostaną przesłane do działań jako parametry okna początkowego i końcowego. 
+W tym kroku utworzysz potok, który najpierw sprawdza liczbę zmienionych rekordów znajdujących się w tabeli zmian za pomocą **działania Lookup**. Działanie warunku IF sprawdza, czy liczba zmienionych rekordów jest większa od zera i uruchamia **działanie kopiowania** , aby skopiować wstawione/zaktualizowane/usunięte dane z Azure SQL Database do platformy Azure Blob Storage. Na koniec zostaje skonfigurowany wyzwalacz okna wirowania i godziny rozpoczęcia i zakończenia zostaną przesłane do działań jako parametry okna początkowego i końcowego. 
 
-1. W interfejsie użytkownika Data Factory przejdź do karty **Edycja** . Kliknij pozycję **+ (plus)** w lewym okienku, a następnie kliknij pozycję **potok** .
+1. W interfejsie użytkownika Data Factory przejdź do karty **Edycja** . Kliknij pozycję **+ (plus)** w lewym okienku, a następnie kliknij pozycję **potok**.
 
     ![Menu Nowy potok](./media/tutorial-incremental-copy-change-data-capture-feature-portal/new-pipeline-menu.png)
-2. Zostanie wyświetlona nowa karta służąca do konfigurowania potoku. Potok powinien być też widoczny w widoku drzewa. W oknie **Właściwości** zmień nazwę potoku na **IncrementalCopyPipeline** .
+2. Zostanie wyświetlona nowa karta służąca do konfigurowania potoku. Potok powinien być też widoczny w widoku drzewa. W oknie **Właściwości** zmień nazwę potoku na **IncrementalCopyPipeline**.
 
     ![Nazwa potoku](./media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-name.png)
-3. W przyborniku **Działania** rozwiń pozycję **Ogólne** , a następnie przeciągnij działanie **Lookup** (Wyszukiwanie) i upuść je na powierzchni projektanta potoku. Ustaw nazwę działania na **GetChangeCount** . To działanie Pobiera liczbę rekordów w tabeli zmian dla danego przedziału czasu.
+3. W przyborniku **Działania** rozwiń pozycję **Ogólne**, a następnie przeciągnij działanie **Lookup** (Wyszukiwanie) i upuść je na powierzchni projektanta potoku. Ustaw nazwę działania na **GetChangeCount**. To działanie Pobiera liczbę rekordów w tabeli zmian dla danego przedziału czasu.
 
     ![Działanie Lookup (Wyszukiwanie) — nazwa](./media/tutorial-incremental-copy-change-data-capture-feature-portal/first-lookup-activity-name.png)
 4. Przejdź do **ustawień** w oknie **Właściwości** :
@@ -245,7 +245,7 @@ W tym kroku utworzysz potok, który najpierw sprawdza liczbę zmienionych rekord
 5. Kliknij przycisk **Podgląd danych** , aby upewnić się, że prawidłowe dane wyjściowe są uzyskiwane przez działanie Lookup
 
     ![Działanie Lookup (wyszukiwanie) — wersja zapoznawcza](./media/tutorial-incremental-copy-change-data-capture-feature-portal/first-lookup-activity-preview.png)
-6. Rozwiń **& iteracji** w przyborniku **działania** , a następnie przeciągnij i upuść działanie **if Condition** do powierzchni projektanta potoku. Ustaw nazwę działania na **HasChangedRows** . 
+6. Rozwiń **& iteracji** w przyborniku **działania** , a następnie przeciągnij i upuść działanie **if Condition** do powierzchni projektanta potoku. Ustaw nazwę działania na **HasChangedRows**. 
 
     ![Działanie if Condition-Name](./media/tutorial-incremental-copy-change-data-capture-feature-portal/if-condition-activity-name.png)
 7. Przejdź do **działań** w oknie **Właściwości** :
@@ -269,14 +269,14 @@ W tym kroku utworzysz potok, który najpierw sprawdza liczbę zmienionych rekord
 8. Uruchom potok w trybie **debugowania** , aby sprawdzić, czy potok został pomyślnie wykonany. 
 
    ![Potok — debugowanie](./media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-debug.png)
-9. Następnie wróć do kroku true warunek i Usuń działanie **oczekiwania** . W przyborniku **działania** rozwiń pozycję **Przenieś & Przekształć** , a następnie przeciągnij i upuść działanie **kopiowania** do powierzchni projektanta potoku. Ustaw nazwę działania na **IncrementalCopyActivity** . 
+9. Następnie wróć do kroku true warunek i Usuń działanie **oczekiwania** . W przyborniku **działania** rozwiń pozycję **Przenieś & Przekształć**, a następnie przeciągnij i upuść działanie **kopiowania** do powierzchni projektanta potoku. Ustaw nazwę działania na **IncrementalCopyActivity**. 
 
    ![Działanie Copy (Kopiowanie) — nazwa](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-name.png)
 10. Przejdź do karty **Źródło** w oknie **Właściwości** i wykonaj następujące czynności:
 
    1. Określ nazwę zestawu danych SQL i dla pola **zestawu danych źródłowych** . 
-   2. Wybierz pozycję **Zapytanie** w polu **Użyj zapytania** .
-   3. Wprowadź następujące **zapytanie** .
+   2. Wybierz pozycję **Zapytanie** w polu **Użyj zapytania**.
+   3. Wprowadź następujące **zapytanie**.
 
       ```sql
       DECLARE @from_lsn binary(10), @to_lsn binary(10); 
@@ -296,20 +296,20 @@ W tym kroku utworzysz potok, który najpierw sprawdza liczbę zmienionych rekord
 13. Kliknij przycisk z powrotem do głównej kanwy potoku i Połącz działanie **Lookup** z działaniem **warunku if** . Przeciągnij **zielony** przycisk dołączony do działania **odnośnik** do działania **Jeśli warunek** .
 
     ![Łączenie działań Lookup (Wyszukiwanie) i Copy (Kopiowanie)](./media/tutorial-incremental-copy-change-data-capture-feature-portal/connect-lookup-if.png)
-14. Na pasku narzędzi kliknij pozycję **Weryfikuj** . Potwierdź, że weryfikacja nie zwróciła błędów. Zamknij okno **Raport weryfikacji potoku** , klikając pozycję **>>** .
+14. Na pasku narzędzi kliknij pozycję **Weryfikuj**. Potwierdź, że weryfikacja nie zwróciła błędów. Zamknij okno **Raport weryfikacji potoku**, klikając pozycję **>>**.
 
     ![Przycisk Weryfikuj](./media/tutorial-incremental-copy-change-data-capture-feature-portal/validate-button.png)
 15. Kliknij pozycję Debuguj, aby przetestować potok i sprawdzić, czy plik jest generowany w lokalizacji magazynu.
 
     ![Debuguj potoku przyrostowe — 2](./media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-debug-2.png)
-16. Opublikuj jednostki (połączone usługi, zestawy danych i potoki) do usługi Data Factory, klikając przycisk **Opublikuj wszystko** . Poczekaj na wyświetlenie komunikatu **Publikowanie powiodło się** .
+16. Opublikuj jednostki (połączone usługi, zestawy danych i potoki) do usługi Data Factory, klikając przycisk **Opublikuj wszystko** . Poczekaj na wyświetlenie komunikatu **Publikowanie powiodło się**.
 
     ![Przycisk Publikuj](./media/tutorial-incremental-copy-change-data-capture-feature-portal/publish-button-2.png)    
 
 ### <a name="configure-the-tumbling-window-trigger-and-cdc-window-parameters"></a>Konfigurowanie wyzwalacza okna wirowania i parametrów okna przechwytywania zmian 
 W tym kroku utworzysz wyzwalacz okna wirowania, aby uruchomić zadanie zgodnie z częstym harmonogramem. Będziesz używać zmiennych systemowych WindowStart i WindowEnd wyzwalacza okna wirowania i przekazać je jako parametry do potoku w celu użycia w zapytaniu przechwytywania.
 
-1. Przejdź do karty **Parametry** potoku **IncrementalCopyPipeline** i przy użyciu przycisku **+ Nowy** Dodaj dwa parametry ( **triggerStartTime** i **triggerEndTime** ) do potoku, które będzie reprezentować okno wirowania i godzinę zakończenia. Na potrzeby debugowania Dodaj wartości domyślne w formacie **rrrr-mm-dd HH24: mi: SS. fff** , ale upewnij się, że triggerStartTime nie jest wcześniejsza niż włączona w tabeli, w przeciwnym razie spowoduje to wystąpienie błędu.
+1. Przejdź do karty **Parametry** potoku **IncrementalCopyPipeline** i przy użyciu przycisku **+ Nowy** Dodaj dwa parametry (**triggerStartTime** i **triggerEndTime**) do potoku, które będzie reprezentować okno wirowania i godzinę zakończenia. Na potrzeby debugowania Dodaj wartości domyślne w formacie **rrrr-mm-dd HH24: mi: SS. fff** , ale upewnij się, że triggerStartTime nie jest wcześniejsza niż włączona w tabeli, w przeciwnym razie spowoduje to wystąpienie błędu.
 
     ![Menu Wyzwól teraz](./media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-parameters.png)
 2. Kliknij kartę Ustawienia działania **Wyszukiwanie** i skonfiguruj zapytanie tak, aby korzystało z parametrów początkowych i końcowych. Skopiuj następujący do zapytania:
@@ -361,7 +361,7 @@ W tym kroku utworzysz wyzwalacz okna wirowania, aby uruchomić zadanie zgodnie z
 7. Upewnij się, że parametry są wstrzykiwane do zapytania, przeglądając parametry wejściowe uruchomienia potoku.
 
     ![Debugowanie przyrostowe — 4](./media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-debug-4.png)
-8. Opublikuj jednostki (połączone usługi, zestawy danych i potoki) do usługi Data Factory, klikając przycisk **Opublikuj wszystko** . Poczekaj na wyświetlenie komunikatu **Publikowanie powiodło się** .
+8. Opublikuj jednostki (połączone usługi, zestawy danych i potoki) do usługi Data Factory, klikając przycisk **Opublikuj wszystko** . Poczekaj na wyświetlenie komunikatu **Publikowanie powiodło się**.
 9. Na koniec Skonfiguruj wyzwalacz okna wirowania, aby uruchomić potok w regularnych odstępach czasu i ustawić parametry czasu rozpoczęcia i zakończenia. 
    1. Kliknij przycisk **Dodaj wyzwalacz** , a następnie wybierz pozycję **Nowy/Edytuj** .
 
@@ -390,12 +390,12 @@ W tym kroku utworzysz wyzwalacz okna wirowania, aby uruchomić zadanie zgodnie z
     update customers set first_name='Elon' where customer_id=6;
     delete from customers where customer_id=5;
     ```
-11. Kliknij przycisk **Opublikuj wszystko** . Poczekaj na wyświetlenie komunikatu **Publikowanie powiodło się** .  
+11. Kliknij przycisk **Opublikuj wszystko** . Poczekaj na wyświetlenie komunikatu **Publikowanie powiodło się**.  
 12. Po kilku minutach zostanie wyzwolony potok, a nowy plik zostanie załadowany do usługi Azure Storage
 
 
 ### <a name="monitor-the-incremental-copy-pipeline"></a>Monitorowanie potoku kopiowania przyrostowego
-1. Kliknij kartę **Monitorowanie** po lewej stronie. Na liście zostanie wyświetlone uruchomienie potoku i jego stan. Aby odświeżyć listę, kliknij pozycję **Odśwież** . Umieść kursor w górnej części nazwy potoku, aby uzyskać dostęp do raportu ponowne uruchomienie i raport użycia.
+1. Kliknij kartę **Monitorowanie** po lewej stronie. Na liście zostanie wyświetlone uruchomienie potoku i jego stan. Aby odświeżyć listę, kliknij pozycję **Odśwież**. Umieść kursor w górnej części nazwy potoku, aby uzyskać dostęp do raportu ponowne uruchomienie i raport użycia.
 
     ![Uruchomienia potoków](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-pipeline-runs.png)
 2. Aby wyświetlić uruchomienia działań skojarzone z uruchomieniem potoku, kliknij nazwę potoku. W przypadku wykrycia zmienionych danych istnieją trzy działania z uwzględnieniem działania kopiowania, w przeciwnym razie na liście będą znajdować się tylko dwa wpisy. Aby przełączyć się z powrotem do widoku uruchomienia potoków, kliknij link **wszystkie potoki** u góry.

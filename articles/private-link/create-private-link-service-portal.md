@@ -3,23 +3,25 @@ title: Szybki Start — Tworzenie usługi linku prywatnego przy użyciu Azure Po
 titlesuffix: Azure Private Link
 description: Dowiedz się, jak utworzyć usługę link prywatny przy użyciu Azure Portal w tym przewodniku Szybki Start
 services: private-link
-author: malopMSFT
+author: asudbring
 ms.service: private-link
 ms.topic: quickstart
-ms.date: 02/03/2020
+ms.date: 01/18/2021
 ms.author: allensu
-ms.openlocfilehash: 5b7bc8be89068f0d3cf6722c36ae7fd5cc560736
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 3e9ade329d2b26d36763db579b0fcec03e938aad
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96012122"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555461"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>Szybki Start: Tworzenie usługi linku prywatnego przy użyciu Azure Portal
 
-Usługa łącza prywatnego platformy Azure odnosi się do własnej usługi, która jest zarządzana przez link prywatny. Możesz dać prywatny link do usługi lub zasobu, który działa za usługa Load Balancer w warstwie Standardowa platformy Azure. Konsumenci Twojej usługi mogą uzyskać do nich dostęp prywatnie z własnych sieci wirtualnych. W tym przewodniku szybki start dowiesz się, jak utworzyć usługę linku prywatnego przy użyciu Azure Portal.
+Rozpocznij tworzenie usługi linku prywatnego, która odwołuje się do Twojej usługi.  Udziel prywatnego linku dostępu do usługi lub zasobu wdrożonego za usługa Load Balancer w warstwie Standardowa platformy Azure.  Użytkownicy usługi mają prywatny dostęp z sieci wirtualnej.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+## <a name="prerequisites"></a>Wymagania wstępne
+
+* Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
@@ -27,159 +29,210 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
 ## <a name="create-an-internal-load-balancer"></a>Utwórz wewnętrzny moduł równoważenia obciążenia.
 
-Najpierw Utwórz sieć wirtualną. Następnie utwórz wewnętrzny moduł równoważenia obciążenia, który będzie używany z usługą link prywatny.
+W tej sekcji utworzysz sieć wirtualną i wewnętrzną Azure Load Balancer.
 
-## <a name="virtual-network-and-parameters"></a>Sieć wirtualna i parametry
+### <a name="virtual-network"></a>Sieć wirtualna
 
-W tej sekcji utworzysz sieć wirtualną. Należy również utworzyć podsieć, która będzie hostować moduł równoważenia obciążenia, który uzyskuje dostęp do usługi linków prywatnych.
+W tej sekcji utworzysz sieć wirtualną i podsieć służącą do hostowania modułu równoważenia obciążenia, który uzyskuje dostęp do usługi linków prywatnych.
 
-W tej sekcji należy zamienić następujące parametry w krokach z poniższymi informacjami:
+1. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób > Sieć > Sieć wirtualna** lub wyszukaj frazę **Sieć wirtualna** w polu wyszukiwania.
 
-| Parametr                   | Wartość                |
-|-----------------------------|----------------------|
-| **\<resource-group-name>**  | myResourceGroupLB |
-| **\<virtual-network-name>** | myVNet          |
-| **\<region-name>**          | Wschodnie stany USA 2      |
-| **\<IPv4-address-space>**   | 10.3.0.0/16          |
-| **\<subnet-name>**          | myBackendSubnet        |
-| **\<subnet-address-range>** | 10.3.0.0/24          |
+2. W obszarze **Utwórz sieć wirtualną** wprowadź lub wybierz te informacje na karcie **podstawowe** :
 
-[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
+    | **Ustawienie**          | **Wartość**                                                           |
+    |------------------|-----------------------------------------------------------------|
+    | **Szczegóły projektu**  |                                                                 |
+    | Subskrypcja     | Wybierz subskrypcję platformy Azure                                  |
+    | Grupa zasobów   | Wybierz pozycję **CreatePrivLinkService — RG** |
+    | **Szczegóły wystąpienia** |                                                                 |
+    | Nazwa             | Wprowadź **myVNet**                                    |
+    | Region (Region)           | Wybierz **Wschodnie stany USA 2** |
+
+3. Wybierz kartę **adresy IP** lub wybierz przycisk **Dalej: adresy IP** w dolnej części strony.
+
+4. Na karcie **adresy IP** wprowadź następujące informacje:
+
+    | Ustawienie            | Wartość                      |
+    |--------------------|----------------------------|
+    | Przestrzeń adresowa IPv4 | Wprowadź **10.1.0.0/16** |
+
+5. W obszarze **Nazwa podsieci** wybierz pozycję **domyślny** wyraz.
+
+6. W obszarze **Edytuj podsieć** wprowadź następujące informacje:
+
+    | Ustawienie            | Wartość                      |
+    |--------------------|----------------------------|
+    | Nazwa podsieci | Wprowadź **maskę** |
+    | Zakres adresów podsieci | Wprowadź **10.1.0.0/24** |
+
+7. Wybierz pozycję **Zapisz**.
+
+8. Wybierz kartę **Recenzja + tworzenie** lub wybierz przycisk **Recenzja + tworzenie** .
+
+9. Wybierz przycisk **Utwórz**.
 
 ### <a name="create-a-standard-load-balancer"></a>Tworzenie modułu równoważenia obciążenia w warstwie Standardowa
 
-Użyj portalu do utworzenia standardowego wewnętrznego modułu równoważenia obciążenia. Określona nazwa i adres IP są automatycznie konfigurowane jako fronton modułu równoważenia obciążenia.
+Użyj portalu do utworzenia standardowego wewnętrznego modułu równoważenia obciążenia. 
 
-1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób zasobów**  >  **Networking**  >  **Load Balancer**.
+1. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób zasobów**  >    >  **Load Balancer**.
 
-1. Na karcie **podstawy** na stronie **Tworzenie modułu równoważenia obciążenia** wprowadź lub wybierz następujące informacje:
+2. Na karcie **podstawy** na stronie **Tworzenie modułu równoważenia obciążenia** wprowadź lub wybierz następujące informacje: 
 
     | Ustawienie                 | Wartość                                              |
     | ---                     | ---                                                |
-    | **Subskrypcja**               | Wybierz subskrypcję.    |
-    | **Grupa zasobów**         | W polu Wybierz pozycję **myResourceGroupLB** .|
-    | **Nazwa**                   | Wprowadź **myLoadBalancer**.                                   |
-    | **Region**         | Wybierz pozycję **East US 2** (Wschodnie stany USA 2).                                        |
-    | **Typ**          | wybierz pozycję **Wewnętrzny**.                                        |
-    | **SKU**           | Wybierz pozycję **Standardowy**.                          |
-    | **Sieć wirtualna**           | Wybierz pozycję **myVNet**.                          |
-    | **Przypisanie adresu IP**              | Wybierz wartość **Statyczny**.   |
-    | **Prywatny adres IP**|Wprowadź adres znajdujący się w przestrzeni adresowej sieci wirtualnej i podsieci. Przykładem jest 10.3.0.7.  |
+    | Subskrypcja               | Wybierz subskrypcję.    |    
+    | Grupa zasobów         | Wybierz pozycję **CreatePrivLinkService-RG** utworzone w poprzednim kroku.|
+    | Nazwa                   | Wprowadź **myLoadBalancer**                                   |
+    | Region (Region)         | Wybierz pozycję **East US 2** (Wschodnie stany USA 2).                                        |
+    | Typ          | wybierz pozycję **Wewnętrzny**.                                        |
+    | Jednostka SKU           | Wybierz pozycję **standardowa** |
+    | Sieć wirtualna | Wybierz **myVNet** utworzone w poprzednim kroku. |
+    | Podsieć  | Wybierz pozycję Moja **podsieć** utworzona w poprzednim kroku. |
+    | Przypisanie adresu IP | wybierz pozycję **Dynamiczne**. |
+    | Strefa dostępności | Wybierz **strefę nadmiarową** |
 
-1. Zaakceptuj wartości domyślne pozostałych ustawień, a następnie wybierz pozycję **Przegląd + Utwórz** .
+3. Zaakceptuj wartości domyślne pozostałych ustawień, a następnie wybierz pozycję **Przegląd + Utwórz**.
 
-1. Na karcie **Recenzja i tworzenie** wybierz pozycję **Utwórz**.
+4. Na karcie **Recenzja i tworzenie** wybierz pozycję **Utwórz**.   
 
-### <a name="create-standard-load-balancer-resources"></a>Tworzenie zasobów usługi równoważenia obciążenia w warstwie Standardowa
+## <a name="create-load-balancer-resources"></a>Tworzenie zasobów modułu równoważenia obciążenia
 
-W tej sekcji skonfigurujesz ustawienia modułu równoważenia obciążenia dla puli adresów zaplecza i sondy kondycji. Należy również określić reguły usługi równoważenia obciążenia.
+W tej sekcji skonfigurujesz:
 
-#### <a name="create-a-back-end-pool"></a>Tworzenie puli zaplecza
+* Ustawienia usługi równoważenia obciążenia dla puli adresów zaplecza.
+* Sonda kondycji.
+* Reguła modułu równoważenia obciążenia.
 
-Pula adresów zaplecza zawiera adresy IP wirtualnych kart sieciowych podłączonych do modułu równoważenia obciążenia. Ta Pula umożliwia dystrybucję ruchu do zasobów. Utwórz pulę adresów zaplecza o nazwie **myBackendPool** , aby uwzględnić zasoby, które równoważą obciążenie ruchem.
+### <a name="create-a-backend-pool"></a>Tworzenie puli zaplecza
 
-1. Wybierz pozycję **wszystkie usługi** z menu z lewej strony.
-1. Wybierz pozycję **wszystkie zasoby**, a następnie wybierz pozycję **myLoadBalancer** z listy zasoby.
-1. W obszarze **Ustawienia** wybierz pozycję **Pule zaplecza**, a następnie wybierz pozycję **Dodaj**.
-1. Na stronie **Dodawanie puli zaplecza** wprowadź **myBackendPool** jako nazwę puli zaplecza, a następnie wybierz pozycję **Dodaj**.
+Pula adresów zaplecza zawiera adresy IP wirtualnych (kart sieciowych) podłączonych do modułu równoważenia obciążenia. 
 
-#### <a name="create-a-health-probe"></a>Tworzenie sondy kondycji
+Utwórz pulę adresów zaplecza **myBackendPool** , aby uwzględnić maszyny wirtualne na potrzeby ruchu internetowego związanego z równoważeniem obciążenia.
 
-Użyj sondy kondycji, aby umożliwić usłudze równoważenia obciążenia monitorowanie stanu zasobów. W oparciu o odpowiedź zasobów na testy kondycji sonda kondycji dynamicznie dodaje lub usuwa zasoby z rotacji modułu równoważenia obciążenia.
+1. W menu po lewej stronie wybierz pozycję Wszystkie **usługi** , wybierz pozycję **wszystkie zasoby**, a następnie wybierz pozycję **myLoadBalancer** z listy zasoby.
 
-Aby utworzyć sondę kondycji do monitorowania kondycji zasobów:
+2. W obszarze **Ustawienia** wybierz pozycję **Pule zaplecza**, a następnie wybierz pozycję **Dodaj**.
 
-1. Wybierz pozycję **wszystkie zasoby** w menu po lewej stronie, a następnie wybierz pozycję **myLoadBalancer** z listy zasobów.
+3. Na stronie **Dodawanie puli zaplecza** wpisz nazwę **myBackendPool**, jako nazwę puli zaplecza, a następnie wybierz pozycję **Dodaj**.
 
-1. W obszarze **Ustawienia** wybierz pozycję **Sondy kondycji**, a następnie wybierz pozycję **Dodaj**.
+### <a name="create-a-health-probe"></a>Tworzenie sondy kondycji
 
-1. Na stronie **Dodawanie sondy kondycji** wprowadź lub wybierz następujące wartości:
+Moduł równoważenia obciążenia monitoruje stan aplikacji przy użyciu sondy kondycji. 
 
-   - **Nazwa**: wprowadź **myHealthProbe**.
-   - **Protokół**: wybierz pozycję **TCP**.
-   - **Port**: wprowadź **80**.
-   - **Interwał**: wprowadź **15**. Ta wartość to liczba sekund między próbami sondy.
-   - **Próg złej kondycji**: wprowadź wartość **2**. Ta wartość jest liczbą kolejnych niepowodzeń sondy, które wystąpiły, zanim maszyna wirtualna zostanie uznana za złą.
+Sonda kondycji dodaje lub usuwa maszyny wirtualne z modułu równoważenia obciążenia na podstawie odpowiedzi na testy kondycji. 
 
-1. Wybierz pozycję **OK**.
+Utwórz sondę kondycji o nazwie **myHealthProbe**, aby monitorować kondycję maszyn wirtualnych.
 
-#### <a name="create-a-load-balancer-rule"></a>Tworzenie reguły modułu równoważenia obciążenia
+1. W menu po lewej stronie wybierz pozycję Wszystkie **usługi** , wybierz pozycję **wszystkie zasoby**, a następnie wybierz pozycję **myLoadBalancer** z listy zasoby.
 
-Reguła modułu równoważenia obciążenia definiuje sposób dystrybucji ruchu do zasobów. Zasada definiuje:
+2. W obszarze **Ustawienia** wybierz pozycję **sondy kondycji**, a następnie wybierz pozycję **Dodaj**.
+    
+    | Ustawienie | Wartość |
+    | ------- | ----- |
+    | Nazwa | Wprowadź **myHealthProbe**. |
+    | Protokół | Wybierz pozycję **TCP**. |
+    | Port | Wprowadź **80**.|
+    | Interwał | Wprowadź **15** dla liczby **interwałów** (w sekundach) między kolejnymi próbami sondowania. |
+    | Próg złej kondycji | Wybierz **2** dla liczby **progów złej kondycji** lub kolejnych niepowodzeń sondy, które muszą wystąpić, zanim maszyna wirtualna zostanie uznana za złą.|
+    | | |
 
-- Konfiguracja adresu IP frontonu dla ruchu przychodzącego.
-- Pula adresów IP zaplecza do odbierania ruchu sieciowego.
-- Wymagane porty źródłowe i docelowe.
+3. Pozostaw pozostałe wartości domyślne i wybierz **przycisk OK**.
 
-Reguła modułu równoważenia obciążenia o nazwie **myLoadBalancerRule** nasłuchuje na porcie 80 w frontonie **LoadBalancerFrontEnd** . Reguła wysyła ruch sieciowy do puli adresów zaplecza **myBackendPool** na tym samym porcie 80.
+### <a name="create-a-load-balancer-rule"></a>Tworzenie reguły modułu równoważenia obciążenia
 
-Aby utworzyć regułę modułu równoważenia obciążenia:
+Reguła modułu równoważenia obciążenia służy do definiowania sposobu dystrybucji ruchu do maszyn wirtualnych. Należy zdefiniować konfigurację adresu IP frontonu dla ruchu przychodzącego i pulę adresów IP zaplecza do odbierania ruchu. Port źródłowy i docelowy są zdefiniowane w regule. 
 
-1. Wybierz pozycję **wszystkie zasoby** w menu po lewej stronie, a następnie wybierz pozycję **myLoadBalancer** z listy zasobów.
+W tej sekcji utworzysz regułę modułu równoważenia obciążenia:
 
-1. W obszarze **Ustawienia** wybierz pozycję **reguły równoważenia obciążenia**, a następnie wybierz pozycję **Dodaj**.
+* O nazwie **myHTTPRule**.
+* Na frontonie o nazwie **LoadBalancerFrontEnd**.
+* Nasłuchiwanie na **porcie 80**.
+* Kieruje ruch o zrównoważonym obciążeniu do zaplecza o nazwie **myBackendPool** na **porcie 80**.
 
-1. Na stronie **Dodaj regułę równoważenia obciążenia** wprowadź lub wybierz następujące wartości, jeśli nie są one jeszcze obecne:
+1. W menu po lewej stronie wybierz pozycję Wszystkie **usługi** , wybierz pozycję **wszystkie zasoby**, a następnie wybierz pozycję **myLoadBalancer** z listy zasoby.
 
-   - **Nazwa**: wprowadź **myLoadBalancerRule**.
-   - **Adres IP frontonu:** Wprowadź **LoadBalancerFrontEnd**.
-   - **Protokół**: wybierz pozycję **TCP**.
-   - **Port**: wprowadź **80**.
-   - **Port zaplecza**: wprowadź **80**.
-   - **Pula zaplecza**: wybierz pozycję **myBackendPool**.
-   - **Sonda kondycji**: wybierz pozycję **myHealthProbe**. 
+2. W obszarze **Ustawienia** wybierz pozycję **reguły równoważenia obciążenia**, a następnie wybierz pozycję **Dodaj**.
 
-1. Wybierz pozycję **OK**.
+3. Użyj tych wartości, aby skonfigurować regułę równoważenia obciążenia:
+    
+    | Ustawienie | Wartość |
+    | ------- | ----- |
+    | Nazwa | Wprowadź **myHTTPRule**. |
+    | Wersja protokołu IP | Wybierz **protokół IPv4** |
+    | Adres IP frontonu | Wybierz **LoadBalancerFrontEnd** |
+    | Protokół | Wybierz pozycję **TCP**. |
+    | Port | Wprowadź **80**.|
+    | Port zaplecza | Wprowadź **80**. |
+    | Pula zaplecza | Wybierz pozycję **myBackendPool**.|
+    | Sonda kondycji | Wybierz pozycję **myHealthProbe**. |
+    | Limit czasu bezczynności (minuty) | Przesuń suwak do **15** minut. |
+    | Resetowanie protokołu TCP | Wybierz pozycję **Włączone**. |
+
+4. Pozostaw pozostałe wartości domyślne, a następnie wybierz przycisk **OK**.
 
 ## <a name="create-a-private-link-service"></a>Tworzenie usługi łącza prywatnego
 
 W tej sekcji utworzysz usługę linku prywatnego za pomocą usługi równoważenia obciążenia w warstwie Standardowa.
 
-1. W lewym górnym rogu strony w Azure Portal wybierz pozycję **Utwórz zasób**  >  **Sieć**  >  **prywatne centrum linków (wersja zapoznawcza)**. Możesz również użyć pola wyszukiwania portalu, aby wyszukać link prywatny.
+1. W lewym górnym rogu strony w Azure Portal wybierz pozycję **Utwórz zasób**.
 
-1. W **centrum linków prywatnych — Omówienie**  >  **udostępniania własnej usługi, aby inne osoby mogły nawiązać połączenie**, wybierz pozycję **Uruchom**.
+2. Wyszukaj **link prywatny** w polu **Wyszukaj w portalu Marketplace** .
 
-1. W obszarze **Tworzenie usługi link prywatny — podstawowe** wprowadź lub wybierz następujące informacje:
+3. Wybierz przycisk **Utwórz**.
 
-    | Ustawienie           | Wartość                                                                        |
-    |-------------------|------------------------------------------------------------------------------|
-    | Szczegóły projektu:  |                                                                              |
-    | **Subskrypcja**      | Wybierz subskrypcję.                                                     |
-    | **Grupa zasobów**    | Wybierz pozycję **myResourceGroupLB**.                                                    |
-    | Szczegóły wystąpienia: |                                                                              |
-    | **Nazwa**              | Wprowadź **myPrivateLinkService**. |
-    | **Region**            | Wybierz pozycję **East US 2** (Wschodnie stany USA 2).                                                        |
+4. W obszarze **Omówienie** w obszarze **prywatne centrum linków** wybierz przycisk Blue **Create Private Link Service** .
 
-1. Wybierz pozycję **Dalej: ustawienia wychodzące**.
+5. Na karcie **podstawowe** w obszarze **Utwórz usługę link prywatny** wprowadź lub wybierz następujące informacje:
 
-1. W obszarze **Tworzenie usługi link prywatny — ustawienia wychodzące** wprowadź lub wybierz następujące informacje:
+    | Ustawienie | Wartość |
+    | ------- | ----- |
+    | **Szczegóły projektu** |  |
+    | Subskrypcja | Wybierz subskrypcję. |
+    | Grupa zasobów | Wybierz pozycję **CreatePrivLinkService-RG**. |
+    | **Szczegóły wystąpienia** |  |
+    | Nazwa | Wprowadź **myPrivateLinkService**. |
+    | Region (Region) | Wybierz pozycję **East US 2** (Wschodnie stany USA 2). |
 
-    | Ustawienie                           | Wartość                                                                           |
-    |-----------------------------------|---------------------------------------------------------------------------------|
-    | **Load Balancer**                     | Wybierz pozycję **myLoadBalancer**.                                                           |
-    | **Load Balancer adres IP frontonu** | Wybierz adres IP frontonu **myLoadBalancer**.                                |
-    | **Źródłowa sieć wirtualna translatora adresów sieciowych**        | Wybierz pozycję **myVNet**.                                                                   |
-    | **Źródłowa podsieć NAT**                 | Wybierz pozycję **myBackendSubnet**.                                                          |
-    | **Włącz serwer proxy TCP v2**               | Wybierz opcję **tak** lub **nie** , w zależności od tego, czy aplikacja oczekuje nagłówka proxy protokołu TCP v2. |
-    | **Ustawienia prywatnego adresu IP**       | Skonfiguruj metodę alokacji i adres IP dla każdego adresu IP translatora adresów sieciowych.                  |
+6. Wybierz kartę **Ustawienia wychodzące** lub wybierz pozycję **Dalej: ustawienia wychodzące** w dolnej części strony.
 
-1. Wybierz pozycję **Dalej: zabezpieczenia dostępu**.
+7. Na karcie **Ustawienia wychodzące** wprowadź lub wybierz następujące informacje:
 
-1. W obszarze **Tworzenie usługi link prywatny — zabezpieczenia dostępu** wybierz pozycję **widoczność**, a następnie wybierz pozycję **Kontrola dostępu oparta na rolach**.
-  
-1. Wybierz pozycję **Dalej:**  >  **Przegląd tagów + Utwórz** lub wybierz kartę **Recenzja + tworzenie** w górnej części strony.
+    | Ustawienie | Wartość |
+    | ------- | ----- |
+    | Moduł równoważenia obciążenia | Wybierz pozycję **myLoadBalancer**. |
+    | Adres IP frontonu modułu równoważenia obciążenia | Wybierz pozycję **LoadBalancerFrontEnd (10.1.0.4)**. |
+    | Źródłowa podsieć NAT | Wybierz pozycję Moja **podsieć (10.1.0.0/24)**. |
+    | Włącz serwer proxy TCP v2 | Pozostaw wartość domyślną **nie**. </br> Jeśli aplikacja oczekuje nagłówka serwera proxy TCP v2, wybierz pozycję **tak**. |
+    | **Ustawienia prywatnego adresu IP** |  |
+    | Pozostaw ustawienia domyślne |  |
 
-1. Przejrzyj informacje, a następnie wybierz pozycję **Utwórz**.
+8. Wybierz kartę **zabezpieczenia dostępu** lub wybierz pozycję **Dalej: zabezpieczenia dostępu** w dolnej części strony.
+
+9. Domyślne ustawienie **kontroli dostępu opartej na rolach** należy pozostawić tylko na karcie **zabezpieczenia dostępu** .
+
+10. Wybierz kartę **Tagi** lub wybierz pozycję **Dalej: Tagi** w dolnej części strony.
+
+11. Wybierz kartę **Recenzja + tworzenie** lub wybierz pozycję **Dalej: przegląd + Utwórz** w dolnej części strony.
+
+12. Wybierz pozycję **Utwórz** na karcie **Recenzja + tworzenie** .
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Po zakończeniu korzystania z usługi link prywatny Usuń grupę zasobów, aby wyczyścić zasoby używane w tym przewodniku Szybki Start.
+Gdy skończysz korzystać z usługi link prywatny, Usuń grupę zasobów, aby wyczyścić zasoby używane w tym przewodniku Szybki Start.
 
-1. Wprowadź **myResourceGroupLB** w polu wyszukiwania w górnej części portalu, a następnie wybierz pozycję **myResourceGroupLB** w wynikach wyszukiwania.
+1. Wprowadź ciąg **CreatePrivLinkService-RG** w polu wyszukiwania w górnej części portalu, a następnie wybierz pozycję **CreatePrivLinkService-RG** z wyników wyszukiwania.
 1. Wybierz pozycję **Usuń grupę zasobów**.
-1. W polu **wpisz nazwę grupy zasobów** wprowadź wartość **WebResource**.
+1. W polu **wpisz nazwę grupy zasobów** wpisz **CreatePrivLinkService-RG**.
 1. Wybierz pozycję **Usuń**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono wewnętrzny moduł równoważenia obciążenia platformy Azure i usługę łącza prywatnego. Możesz również dowiedzieć się, jak [utworzyć prywatny punkt końcowy przy użyciu Azure Portal](./create-private-endpoint-portal.md).
+W ramach tego przewodnika Szybki start wykonasz następujące czynności:
+
+* Utworzono sieć wirtualną i wewnętrzną Azure Load Balancer.
+* Utworzono usługę linku prywatnego
+
+Aby dowiedzieć się więcej o prywatnym punkcie końcowym platformy Azure, przejdź do:
+> [!div class="nextstepaction"]
+> [Szybki Start: Tworzenie prywatnego punktu końcowego przy użyciu Azure Portal](create-private-endpoint-portal.md)
