@@ -1,0 +1,15 @@
+- name: Dokumentacja rozwiązań partnerskich platformy Azure
+  href: overview.md
+- name: Rozwiązania partnerskie
+  items:
+    - name: Platforma Apache Kafka na platformie Confluent Cloud
+      items:
+        - name: Omówienie
+          displayName: 'Apache, Kafka, Confluent'
+          href: ./apache-kafka-confluent-cloud/overview.md
+        - name: Utwórz
+          href: ./apache-kafka-confluent-cloud/create.md
+        - name: Zarządzanie
+          href: ./apache-kafka-confluent-cloud/manage.md
+        - name: Rozwiązywanie problemów
+          href: ./apache-kafka-confluent-cloud/troubleshoot.md

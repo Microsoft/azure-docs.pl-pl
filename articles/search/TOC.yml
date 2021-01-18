@@ -308,10 +308,10 @@
       items:
         - name: Wybieranie warstwy
           href: search-sku-tier.md
-        - name: Szacowanie wydajności i kosztów
-          href: search-sku-manage-costs.md
-        - name: Dostosowywanie pojemności
+        - name: Szacowanie pojemności i zarządzanie nią
           href: search-capacity-planning.md
+        - name: Szacowanie kosztów
+          href: search-sku-manage-costs.md
         - name: Limity usługi
           href: search-limits-quotas-capacity.md
         - name: Skalowanie pod kątem wydajności

@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
-  ms.date: 08/19/2020
-  ms.openlocfilehash: 772fa134eabc45dcbaa9e9b05c573aec493dd57b
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.date: 01/15/2020
+  ms.openlocfilehash: 3aaf42935e292bda64d9227d01f498c83f4c9f7a
+  ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "89438162"
+  ms.lasthandoff: 01/16/2021
+  ms.locfileid: "98250778"
 landingContent:
 - title: Informacje o wirtualnej sieci WAN
   linkLists:
@@ -75,12 +75,14 @@ landingContent:
       url: about-virtual-hub-routing.md
     - text: Scenariusz — kierowanie ruchem za pośrednictwem urządzenia WUS
       url: scenario-route-through-nva.md
-    - text: Scenariusz — dowolny z dowolnym
+    - text: Scenariusz — dowolna szprycha z dowolną szprychą
       url: scenario-any-to-any.md
-    - text: Scenariusz — izolowane sieci wirtualne
+    - text: Scenariusz — izolowanie sieci wirtualnej
       url: scenario-isolate-vnets.md
-    - text: Scenariusz — sieci wirtualne usług współdzielonych
+    - text: Scenariusz — kierowanie do sieci wirtualnej usług udostępnionych
       url: scenario-shared-services-vnet.md
+    - text: Scenariusz — routing niestandardowy za pośrednictwem usługi Azure Firewall
+      url: scenario-route-between-vnets-firewall.md
   - linkListType: how-to-guide
     links:
     - text: Konfigurowanie routingu na koncentratorze wirtualnym

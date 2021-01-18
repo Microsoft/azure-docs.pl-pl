@@ -223,14 +223,12 @@
           items:
             - name: Renderowanie przy użyciu platformy Azure
               href: batch-rendering-service.md
-            - name: Renderowanie obrazów maszyn wirtualnych
+            - name: Renderowanie obrazów maszyn wirtualnych w usłudze Batch
               href: batch-rendering-applications.md
             - name: Możliwości renderowania usługi Batch
               href: batch-rendering-functionality.md
             - name: Korzystanie z renderowania w usłudze Batch
               href: batch-rendering-using.md
-            - name: Korzystanie z menedżerów renderowania
-              href: batch-rendering-render-managers.md
             - name: Dokumentacja dotycząca renderowania aplikacji
               href: batch-rendering-application-reference.md
             - name: Usługa Storage i przenoszenie danych

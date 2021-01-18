@@ -8,6 +8,8 @@
       href: faq.md
     - name: Co nowego?
       href: whats-new.md
+    - name: Migrowanie z programu Operations Manager
+      href: azure-monitor-operations-manager.md
 - name: Przewodniki Szybki start
   items:
     - name: Monitorowanie zasobu platformy Azure
@@ -196,6 +198,8 @@
               href: platform/metric-chart-samples.md
             - name: Rozwiązywanie problemów z wykresami metryk
               href: platform/metrics-troubleshoot.md
+            - name: Omówienie agregacji metryk
+              href: platform/metrics-aggregation-explained.md
     - name: Dzienniki usługi Azure Monitor
       items:
         - name: Omówienie
@@ -664,6 +668,8 @@
                       href: app/javascript-react-native-plugin.md
                     - name: Wtyczka usługi Angular
                       href: app/javascript-angular-plugin.md
+                    - name: Wtyczka automatycznego zbierania analizy kliknięć
+                      href: app/javascript-click-analytics-plugin.md
                 - name: Rozwiązywanie problemów
                   items:
                     - name: Niepowodzenie ładowania zestawu SDK
