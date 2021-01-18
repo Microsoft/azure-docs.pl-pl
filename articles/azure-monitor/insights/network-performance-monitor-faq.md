@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: dd6c6248fcdf30350daecaa4857a81447bbdb7a8
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 8e26a4d996e4c1767856b3dd98ae318d8992a89b
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280313"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562696"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Rozwiązanie Network Performance Monitor — często zadawane pytania
 
@@ -34,7 +34,7 @@ Poniżej wymieniono wymagania dotyczące platformy dla różnych możliwości NP
 - NPM ExpressRoute monitor obsługuje tylko system operacyjny Windows Server (2008 z dodatkiem SP1 lub nowszym).
 
 ### <a name="can-i-use-linux-machines-as-monitoring-nodes-in-npm"></a>Czy można używać maszyn z systemem Linux jako węzłów monitorowania w NPM?
-Możliwość monitorowania sieci przy użyciu węzłów opartych na systemie Linux jest obecnie dostępna w wersji zapoznawczej. Dostępu agenta [tutaj](../../virtual-machines/extensions/oms-linux.md). Aby dowiedzieć się więcej, skontaktuj się z menedżerem konta. Agenci systemu Linux oferują możliwość monitorowania tylko dla funkcji monitora wydajności NPM i nie są dostępne na potrzeby funkcji Monitor łączności usługi i ExpressRoute
+Możliwość monitorowania sieci przy użyciu węzłów opartych na systemie Linux jest teraz ogólnie dostępna. Dostępu agenta [tutaj](../../virtual-machines/extensions/oms-linux.md). Agenci systemu Linux oferują możliwość monitorowania tylko dla funkcji monitora wydajności NPM i nie są dostępne na potrzeby funkcji Monitor łączności usługi i ExpressRoute
 
 ### <a name="what-are-the-size-requirements-of-the-nodes-to-be-used-for-monitoring-by-npm"></a>Jakie są wymagania dotyczące rozmiaru węzłów, które mają być używane do monitorowania przez NPM?
 Aby można było uruchomić rozwiązanie NPM na maszynach wirtualnych węzła do monitorowania sieci, węzły powinny mieć co najmniej 500 MB pamięci i jeden rdzeń. Nie musisz używać oddzielnych węzłów do uruchamiania NPM. Rozwiązanie można uruchomić na węzłach, które mają uruchomione inne obciążenia. Rozwiązanie ma możliwość zatrzymania procesu monitorowania, jeśli używa więcej niż 5% procesora CPU.

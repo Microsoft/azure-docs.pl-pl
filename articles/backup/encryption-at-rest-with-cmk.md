@@ -3,12 +3,12 @@ title: Szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych prze
 description: Dowiedz się, jak Azure Backup umożliwia szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych przez klienta (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: cc6ad2f67b84bcd62bcc18566a4ac5d159ea32c4
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 30bcf907e1a2759c8a9977e50cb4880c2e254ca2
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197776"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562764"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych przez klienta
 
@@ -37,7 +37,10 @@ W tym artykule omówiono następujące zagadnienia:
 
 - Przeniesienie CMK szyfrowanego magazynu Recovery Services między grupami zasobów i subskrypcjami nie jest obecnie obsługiwane.
 
-- Ta funkcja jest obecnie konfigurowalna tylko na podstawie Azure Portal.
+- Tę funkcję można skonfigurować za pomocą Azure Portal i programu PowerShell.
+
+    >[!NOTE]
+    >Użyj AZ module 5.3.0 lub nowszego, aby używać kluczy zarządzanych przez klienta do tworzenia kopii zapasowych w magazynie Recovery Services.
 
 Jeśli magazyn Recovery Services nie został utworzony i skonfigurowany, możesz [zapoznać się z](backup-create-rs-vault.md)artykułem jak to zrobić.
 
@@ -62,6 +65,8 @@ Azure Backup używa tożsamości zarządzanej przypisanej przez system do uwierz
 >[!NOTE]
 >Po włączeniu **nie** można wyłączyć zarządzanej tożsamości (nawet tymczasowo). Wyłączenie zarządzanej tożsamości może prowadzić do niespójnych zachowań.
 
+**W portalu:**
+
 1. Przejdź do magazynu Recovery Services — > **tożsamość**
 
     ![Ustawienia tożsamości](./media/encryption-at-rest-with-cmk/managed-identity.png)
@@ -70,9 +75,33 @@ Azure Backup używa tożsamości zarządzanej przypisanej przez system do uwierz
 
 1. Generowany jest identyfikator obiektu, który jest zarządzaną przez system tożsamością magazynową.
 
+**Za pomocą programu PowerShell:**
+
+Użyj polecenia [Update-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/update-azrecoveryservicesvault) , aby włączyć tożsamość zarządzaną przypisaną przez system dla magazynu usługi Recovery Services.
+
+Przykład:
+
+```AzurePowerShell
+$vault=Get-AzRecoveryServicesVault -ResourceGroupName "testrg" -Name "testvault"
+
+Update-AzRecoveryServicesVault -IdentityType SystemAssigned -VaultId $vault.ID
+
+$vault.Identity | fl
+```
+
+Dane wyjściowe:
+
+```output
+PrincipalId : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+TenantId    : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+Type        : SystemAssigned
+```
+
 ### <a name="assign-permissions-to-the-recovery-services-vault-to-access-the-encryption-key-in-the-azure-key-vault"></a>Przypisz uprawnienia do magazynu Recovery Services, aby uzyskać dostęp do klucza szyfrowania w Azure Key Vault
 
 Teraz musisz zezwolić magazynowi Recovery Services na dostęp do Azure Key Vault, który zawiera klucz szyfrowania. Jest to realizowane przez umożliwienie zarządzanej tożsamości magazynu Recovery Services dostępu do Key Vault.
+
+**W portalu**:
 
 1. Przejdź do **zasad dostępu**> Azure Key Vault. Kontynuuj **i Dodaj zasady dostępu**.
 
@@ -89,6 +118,32 @@ Teraz musisz zezwolić magazynowi Recovery Services na dostęp do Azure Key Vaul
 1. Po zakończeniu wybierz pozycję **Dodaj** , aby dodać nowe zasady dostępu.
 
 1. Wybierz pozycję **Zapisz** , aby zapisać zmiany wprowadzone w zasadach dostępu Azure Key Vault.
+
+**Za pomocą programu PowerShell**:
+
+Użyj polecenia [Set-AzRecoveryServicesVaultProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) , aby włączyć szyfrowanie przy użyciu kluczy zarządzanych przez klienta oraz przypisać lub zaktualizować klucz szyfrowania, który ma być używany.
+
+Przykład:
+
+```azurepowershell
+$keyVault = Get-AzKeyVault -VaultName "testkeyvault" -ResourceGroupName "testrg" 
+$key = Get-AzKeyVaultKey -VaultName $keyVault -Name "testkey" 
+Set-AzRecoveryServicesVaultProperty -EncryptionKeyId $key.ID -KeyVaultSubscriptionId "xxxx-yyyy-zzzz"  -VaultId $vault.ID
+
+
+$enc=Get-AzRecoveryServicesVaultProperty -VaultId $vault.ID
+$enc.encryptionProperties | fl
+```
+
+Dane wyjściowe:
+
+```output
+EncryptionAtRestType          : CustomerManaged
+KeyUri                        : testkey
+SubscriptionId                : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 
+LastUpdateStatus              : Succeeded
+InfrastructureEncryptionState : Disabled
+```
 
 ### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Włącz ochronę przed usuwaniem i przeczyszczaniem na Azure Key Vault
 
@@ -220,6 +275,8 @@ Przywrócony dysk/maszynę wirtualną można zaszyfrować po zakończeniu przywr
 
 #### <a name="select-a-disk-encryption-set-while-restoring-from-vault-recovery-point"></a>Wybierz zestaw szyfrowania dysków podczas przywracania z punktu odzyskiwania magazynu
 
+**W portalu**:
+
 Zestaw szyfrowanie dysków jest określony w obszarze Ustawienia szyfrowania w okienku przywracanie, jak pokazano poniżej:
 
 1. Na stronie **szyfrowanie dysków przy użyciu klucza** wybierz pozycję **tak**.
@@ -230,6 +287,21 @@ Zestaw szyfrowanie dysków jest określony w obszarze Ustawienia szyfrowania w o
 >Możliwość wybrania algorytmu DES podczas przywracania jest niedostępna, jeśli przywracana jest maszyna wirtualna, która używa Azure Disk Encryption.
 
 ![Szyfrowanie dysku przy użyciu klucza](./media/encryption-at-rest-with-cmk/encrypt-disk-using-your-key.png)
+
+**Za pomocą programu PowerShell**:
+
+Użyj polecenia [Get-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) z parametrem [ `-DiskEncryptionSetId <string>` ], aby [określić algorytm DES,](https://docs.microsoft.com/powershell/module/az.compute/get-azdiskencryptionset) który ma być używany do szyfrowania przywróconego dysku. Aby uzyskać więcej informacji o przywracaniu dysków z kopii zapasowej maszyny wirtualnej, zobacz [ten artykuł](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-an-azure-vm).
+
+Przykład:
+
+```azurepowershell
+$namedContainer = Get-AzRecoveryServicesBackupContainer  -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM" -VaultId $vault.ID
+$backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM" -VaultId $vault.ID
+$startDate = (Get-Date).AddDays(-7)
+$endDate = Get-Date
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -Item $backupitem -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime() -VaultId $vault.ID
+$restorejob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks" -DiskEncryptionSetId “testdes1” -VaultId $vault.ID
+```
 
 #### <a name="restoring-files"></a>Przywracanie plików
 

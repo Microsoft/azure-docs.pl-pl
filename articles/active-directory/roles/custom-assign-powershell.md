@@ -1,6 +1,6 @@
 ---
-title: Przypisywanie ról niestandardowych przy użyciu Azure PowerShell — Azure AD | Microsoft Docs
-description: Zarządzaj członkami roli niestandardowej administratora usługi Azure AD przy użyciu Azure PowerShell.
+title: Przypisywanie ról niestandardowych przy użyciu programu Azure AD PowerShell — Azure AD | Microsoft Docs
+description: Zarządzanie członkami roli niestandardowej administratora usługi Azure AD przy użyciu programu Azure AD PowerShell.
 services: active-directory
 author: curtand
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4695d0844ef8b707edce53a05de611c91223a46
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 8b155ccd7f8f0d7f6d63d906d7d0baaa3243512b
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861956"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562781"
 ---
 # <a name="assign-custom-roles-with-resource-scope-using-powershell-in-azure-active-directory"></a>Przypisywanie ról niestandardowych z zakresem zasobów przy użyciu programu PowerShell w programie Azure Active Directory
 
@@ -32,26 +32,26 @@ Połącz się z organizacją usługi Azure AD przy użyciu konta administratora 
 
 ## <a name="prepare-powershell"></a>Przygotowywanie programu PowerShell
 
-Zainstaluj moduł Azure AD PowerShell z [Galeria programu PowerShell](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). Następnie zaimportuj moduł programu Azure AD PowerShell w wersji zapoznawczej przy użyciu następującego polecenia:
+Zainstaluj moduł Azure AD PowerShell z [Galeria programu PowerShell](https://www.powershellgallery.com/packages/AzureADPreview). Następnie zaimportuj moduł programu Azure AD PowerShell w wersji zapoznawczej przy użyciu następującego polecenia:
 
 ``` PowerShell
-import-module azureadpreview
+Import-Module AzureADPreview
 ```
 
 Aby sprawdzić, czy moduł jest gotowy do użycia, Dopasuj wersję zwróconą przez następujące polecenie do wymienionego poniżej:
 
 ``` PowerShell
-get-module azureadpreview
+Get-Module AzureADPreview
   ModuleType Version      Name                         ExportedCommands
   ---------- ---------    ----                         ----------------
   Binary     2.0.0.115    azureadpreview               {Add-AzureADMSAdministrati...}
 ```
 
-Teraz możesz zacząć korzystać z poleceń cmdlet w module. Aby zapoznać się z pełnymi opisami poleceń cmdlet w module usługi Azure AD, zobacz dokumentację referencyjną online [modułu usługi Azure AD w wersji zapoznawczej](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17).
+Teraz możesz zacząć korzystać z poleceń cmdlet w module. Aby zapoznać się z pełnymi opisami poleceń cmdlet w module usługi Azure AD, zobacz dokumentację referencyjną online [modułu usługi Azure AD w wersji zapoznawczej](https://www.powershellgallery.com/packages/AzureADPreview).
 
-## <a name="assign-a-role-to-a-user-or-service-principal-with-resource-scope"></a>Przypisywanie roli do użytkownika lub nazwy głównej usługi z zakresem zasobów
+## <a name="assign-a-directory-role-to-a-user-or-service-principal-with-resource-scope"></a>Przypisywanie roli katalogu do użytkownika lub nazwy głównej usługi z zakresem zasobów
 
-1. Otwórz moduł programu PowerShell usługi Azure AD w wersji zapoznawczej.
+1. Załaduj moduł programu Azure AD PowerShell (wersja zapoznawcza).
 1. Zaloguj się, wykonując polecenie `Connect-AzureAD` .
 1. Utwórz nową rolę przy użyciu poniższego skryptu programu PowerShell.
 
@@ -69,13 +69,13 @@ $resourceScope = '/' + $appRegistration.objectId
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-Aby przypisać rolę do jednostki usługi zamiast użytkownika, należy użyć [polecenia cmdlet Get-AzureADMSServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal).
+Aby przypisać rolę do jednostki usługi zamiast użytkownika, należy użyć polecenia cmdlet [Get-AzureADMSServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) .
 
-## <a name="operations-on-roledefinition"></a>Operacje na definicji
+## <a name="role-definitions"></a>Definicje ról
 
-Obiekty definicji ról zawierają definicję wbudowanej lub niestandardowej roli wraz z uprawnieniami przyznanymi przez to przypisanie roli. Ten zasób wyświetla zarówno definicje ról niestandardowych, jak i wbudowane directoryRoles (które są wyświetlane w postaci równoważnej definicji). Obecnie organizacja usługi Azure AD może mieć maksymalnie 30 unikatowych niestandardowych RoleDefinitions zdefiniowanych przez użytkownika.
+Obiekty definicji ról zawierają definicję wbudowanej lub niestandardowej roli wraz z uprawnieniami przyznanymi przez to przypisanie roli. Ten zasób zawiera definicje ról niestandardowych i wbudowane role katalogów (które są wyświetlane w definicji równoważnej). Obecnie organizacja usługi Azure AD może mieć zdefiniowane maksymalnie 30 unikatowych definicji ról niestandardowych.
 
-### <a name="create-operations-on-roledefinition"></a>Tworzenie operacji na definicji
+### <a name="create-a-role-definition"></a>Tworzenie definicji roli
 
 ``` PowerShell
 # Basic information
@@ -83,32 +83,32 @@ $description = "Can manage credentials of application registrations"
 $displayName = "Application Registration Credential Administrator"
 $templateId = (New-Guid).Guid
 
-# Set of actions to grant
-$allowedResourceAction =
-@(
-    "microsoft.directory/applications/standard/read",
-    "microsoft.directory/applications/credentials/update"
-)
-$rolePermissions = @{'allowedResourceActions'= $allowedResourceAction}
+# Set of actions to include
+$rolePermissions = @{
+    "allowedResourceActions" = @(
+        "microsoft.directory/applications/standard/read",
+        "microsoft.directory/applications/credentials/update"
+    )
+}
 
-# Create new custom admin role
+# Create new custom directory role
 $customAdmin = New-AzureADMSRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
 ```
 
-### <a name="read-operations-on-roledefinition"></a>Operacje odczytu na definicji
+### <a name="read-and-list-role-definitions"></a>Odczytuj i wyświetlaj definicje ról
 
 ``` PowerShell
 # Get all role definitions
 Get-AzureADMSRoleDefinitions
 
-# Get single role definition by objectId
+# Get single role definition by ID
 Get-AzureADMSRoleDefinition -Id 86593cfc-114b-4a15-9954-97c3494ef49b
 
 # Get single role definition by templateId
 Get-AzureADMSRoleDefinition -Filter "templateId eq 'c4e39bd9-1100-46d3-8c65-fb160da0071f'"
 ```
 
-### <a name="update-operations-on-roledefinition"></a>Aktualizowanie operacji na definicji
+### <a name="update-a-role-definition"></a>Aktualizowanie definicji roli
 
 ``` PowerShell
 # Update role definition
@@ -117,18 +117,18 @@ Get-AzureADMSRoleDefinition -Filter "templateId eq 'c4e39bd9-1100-46d3-8c65-fb16
 Set-AzureADMSRoleDefinition -Id c4e39bd9-1100-46d3-8c65-fb160da0071f -DisplayName "Updated DisplayName"
 ```
 
-### <a name="delete-operations-on-roledefinition"></a>Operacje usuwania na definicji
+### <a name="delete-a-role-definition"></a>Usuwanie definicji roli
 
 ``` PowerShell
 # Delete role definition
 Remove-AzureADMSRoleDefinitions -Id c4e39bd9-1100-46d3-8c65-fb160da0071f
 ```
 
-## <a name="operations-on-roleassignment"></a>Operacje na RoleAssignment
+## <a name="role-assignments"></a>Przypisania ról
 
-Przypisania ról zawierają informacje łączące dany podmiot zabezpieczeń (nazwę główną użytkownika lub usługi aplikacji) z definicją roli. W razie potrzeby można dodać zakres pojedynczego zasobu usługi Azure AD dla przypisanych uprawnień.  Ograniczanie zakresu uprawnień jest obsługiwane w przypadku ról wbudowanych i niestandardowych.
+Przypisania ról zawierają informacje łączące dany podmiot zabezpieczeń (nazwę główną użytkownika lub usługi aplikacji) z definicją roli. W razie potrzeby można dodać zakres pojedynczego zasobu usługi Azure AD dla przypisanych uprawnień.  Ograniczanie zakresu przypisania roli jest obsługiwane w przypadku ról wbudowanych i niestandardowych.
 
-### <a name="create-operations-on-roleassignment"></a>Tworzenie operacji na RoleAssignment
+### <a name="create-a-role-assignment"></a>Utwórz przypisanie roli
 
 ``` PowerShell
 # Get the user and role definition you want to link
@@ -143,7 +143,7 @@ $resourceScope = '/' + $appRegistration.objectId
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-### <a name="read-operations-on-roleassignment"></a>Operacje odczytu na RoleAssignment
+### <a name="read-and-list-role-assignments"></a>Odczytaj i Wyświetl listę przypisań ról
 
 ``` PowerShell
 # Get role assignments for a given principal
@@ -153,7 +153,7 @@ Get-AzureADMSRoleAssignment -Filter "principalId eq '27c8ca78-ab1c-40ae-bd1b-eae
 Get-AzureADMSRoleAssignment -Filter "roleDefinitionId eq '355aed8a-864b-4e2b-b225-ea95482e7570'"
 ```
 
-### <a name="delete-operations-on-roleassignment"></a>Operacje usuwania na RoleAssignment
+### <a name="delete-a-role-assignment"></a>Usuwanie przypisania roli
 
 ``` PowerShell
 # Delete role assignment

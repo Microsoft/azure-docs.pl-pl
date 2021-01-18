@@ -6,16 +6,16 @@ ms.author: rahugup
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: a1203133d8749b43a92d89e7251539a1e002bfd8
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: a3e8b19810a58031b4d11cc6e361215afbc85de2
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968572"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562645"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Macierz obsługi dla migracji serwera fizycznego
 
-Ten artykuł zawiera podsumowanie ustawień i ograniczeń dotyczących migracji serwerów fizycznych z [Azure Migrate: Migracja serwera](migrate-services-overview.md#azure-migrate-server-migration-tool) . Jeśli szukasz informacji na temat oceniania serwerów fizycznych do migracji na platformę Azure, zapoznaj się z [matrycą pomocy technicznej](migrate-support-matrix-physical.md)dotyczącej oceny.
+Ten artykuł zawiera podsumowanie ustawień i ograniczeń dotyczących migracji serwerów fizycznych na platformę Azure przy użyciu [Azure Migrate: Migracja serwera](migrate-services-overview.md#azure-migrate-server-migration-tool) . Jeśli szukasz informacji na temat oceniania serwerów fizycznych do migracji na platformę Azure, zapoznaj się z [matrycą pomocy technicznej](migrate-support-matrix-physical.md)dotyczącej oceny.
 
 ## <a name="migrating-machines-as-physical"></a>Migrowanie maszyn jako fizycznych
 
@@ -25,7 +25,7 @@ Maszyny lokalne można migrować jako serwery fizyczne przy użyciu replikacji o
 - Maszyny wirtualne zwirtualizowane przez platformy takie jak Xen, KVM.
 - Maszyny wirtualne funkcji Hyper-V lub maszyny wirtualne VMware, jeśli z jakiegoś powodu nie chcesz używać standardowych przepływów [funkcji Hyper-V](tutorial-migrate-hyper-v.md) lub [VMware](server-migrate-overview.md) .
 - Maszyny wirtualne działające w chmurach prywatnych.
-- Maszyny wirtualne działające w chmurach publicznych, takie jak Amazon Web Services (AWS) lub Google Cloud Platform (GCP).
+- Maszyny wirtualne działające w chmurach publicznych, w tym Amazon Web Services (AWS) lub Google Cloud Platform (GCP).
 
 
 ## <a name="migration-limitations"></a>Ograniczenia migracji
@@ -57,7 +57,6 @@ W tabeli zestawiono obsługę serwerów fizycznych, które mają być migrowane 
 **NFS** | Woluminy NFS zainstalowane jako woluminy na maszynach nie zostaną zreplikowane.
 **obiekty docelowe iSCSI** | Maszyny z obiektami docelowymi iSCSI nie są obsługiwane w przypadku migracji bez wykorzystania agentów.
 **Wielościeżkowe we/wy** | Nieobsługiwane.
-**VMotion magazynu** | Obsługiwane
 **Zespoły kart sieciowych** | Nieobsługiwane.
 **Protokół IPv6** | Nieobsługiwane.
 

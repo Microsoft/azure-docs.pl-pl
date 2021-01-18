@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: 6c1f323828eb48b61b38370bc2fe56d4c93bf036
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 889ee48c43119086047d6f52737266f4c611fc8d
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127213"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562747"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Klucz zarządzany przez klienta usługi Azure Monitor 
 
@@ -83,19 +83,19 @@ Niektóre kroki konfiguracji działają asynchronicznie, ponieważ nie mogą by�
 
 # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
-Brak
+Nie dotyczy
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Brak
+Nie dotyczy
 
 # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
-Brak
+Nie dotyczy
 
 # <a name="rest"></a>[REST](#tab/rest)
 
-W przypadku użycia opcji REST odpowiedź początkowo zwraca kod stanu HTTP 200 (OK) i nagłówek z właściwością *Azure-AsyncOperation* po zaakceptowaniu:
+W przypadku korzystania z funkcji REST odpowiedź początkowo zwraca kod stanu HTTP 202 (zaakceptowane) i nagłówek przy użyciu właściwości *Azure-AsyncOperation* :
 ```json
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
 ```
@@ -160,7 +160,7 @@ Operacja jest asynchroniczna i może chwilę potrwać.
 
 # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
-Brak
+Nie dotyczy
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -200,7 +200,7 @@ Wykonanie propagacji klucza trwa kilka minut. Stan aktualizacji można sprawdzi�
 1. Skopiuj wartość Azure-AsyncOperation adresu URL z odpowiedzi i postępuj zgodnie z [testem stanu operacji asynchronicznych](#asynchronous-operations-and-status-check).
 2. Wyślij żądanie GET w klastrze i sprawdź właściwości *KeyVaultProperties* . Ostatnio zaktualizowany klucz powinien zwrócić odpowiedź.
 
-Odpowiedź na żądanie pobrania powinna wyglądać następująco po zakończeniu aktualizacji klucza: 200 OK i nagłówek
+Odpowiedź na żądanie uzyskania żądania powinna wyglądać następująco po zakończeniu aktualizacji klucza: 202 (zaakceptowane) i nagłówek
 ```json
 {
   "identity": {
@@ -283,7 +283,7 @@ Połącz konto magazynu w celu *wysłania zapytania* do obszaru roboczego — *z
 
 # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
-Brak
+Nie dotyczy
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -327,7 +327,7 @@ Po zakończeniu konfiguracji wszystkie nowe *zapisane zapytania wyszukiwania* zo
 
 # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
-Brak
+Nie dotyczy
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 

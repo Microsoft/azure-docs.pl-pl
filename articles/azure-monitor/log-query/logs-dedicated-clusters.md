@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 34524626cc213233c3db2ca438261b238eb18a2a
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 93b05a5535b80d0e0d1a07c88aa9b19052f1b703
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831775"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562679"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor rejestruje dedykowane klastry
 
@@ -58,7 +58,7 @@ Więcej szczegółów zawiera rozliczenia dla Log Analytics dedykowanych klastr�
 
 ## <a name="asynchronous-operations-and-status-check"></a>Operacje asynchroniczne i sprawdzanie stanu
 
-Niektóre kroki konfiguracji działają asynchronicznie, ponieważ nie mogą być szybko wykonywane. Stan w odpowiedzi zawiera może być jedną z następujących wartości: "InProgress", "Aktualizacja", "Usuwanie", "powodzenie" lub "zakończonych niepowodzeniem", w tym kod błędu. W przypadku użycia opcji REST odpowiedź początkowo zwraca kod stanu HTTP 200 (OK) i nagłówek z właściwością Azure-AsyncOperation po zaakceptowaniu:
+Niektóre kroki konfiguracji działają asynchronicznie, ponieważ nie mogą być szybko wykonywane. Stan w odpowiedzi zawiera może być jedną z następujących wartości: "InProgress", "Aktualizacja", "Usuwanie", "powodzenie" lub "zakończonych niepowodzeniem", w tym kod błędu. Gdy używana jest funkcja REST, odpowiedź początkowo zwraca kod stanu HTTP 202 (zaakceptowane) i nagłówek z właściwością Azure-AsyncOperation:
 
 ```JSON
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
@@ -125,7 +125,7 @@ Content-type: application/json
 
 *Odpowiedź*
 
-Powinna być 200 OK i nagłówek.
+Powinno być 202 (zaakceptowane) i nagłówek.
 
 ### <a name="check-cluster-provisioning-status"></a>Sprawdź stan aprowizacji klastra
 
@@ -229,7 +229,7 @@ Content-type: application/json
 
 *Odpowiedź*
 
-200 OK i nagłówek.
+202 (zaakceptowane) i nagłówek.
 
 ### <a name="check-workspace-link-status"></a>Sprawdź stan linku obszaru roboczego
   

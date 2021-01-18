@@ -7,16 +7,16 @@ ms.author: shhazam
 ms.date: 12/27/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: a763d8b65049cd9f301379c2c038a1d799114653
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 427ea3884a3db6ba33405014435cf1f962670064
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97841887"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562713"
 ---
 # <a name="onboard-and-manage-sensors-in-the-defender-for-iot-portal"></a>Dodawanie czujników i zarządzanie nimi w portalu Defender for IoT
 
-W tym artykule opisano sposób dołączania i wyświetlania czujników oraz zarządzania nimi w portalu usługi Defender for IoT.
+W tym artykule opisano sposób dołączania i wyświetlania czujników oraz zarządzania nimi w [portalu usługi Defender for IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 
 ## <a name="onboard-sensors"></a>Dołączanie czujników
 
@@ -26,9 +26,9 @@ Czujnik można dołączyć, rejestrując go za pomocą usługi Azure Defender dl
 
 W celu przeprowadzenia rejestracji:
 
-1. Przejdź do strony **powitalnej** w portalu Defender for IoT.
+1. Przejdź do strony **powitalnej** w [portalu Defender for IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 1. Wybierz pozycję **czujnik** dołączania.
-1. Utwórz nazwę czujnika. Zalecamy dołączenie adresu IP czujnika, który został zainstalowany jako część nazwy, lub użycie łatwej do zidentyfikowania nazwy. Zapewni to łatwiejsze śledzenie i spójność nazw rejestracji w portalu usługi Azure Defender dla IoT oraz adres IP wdrożonego czujnika wyświetlanego w konsoli czujnika.
+1. Utwórz nazwę czujnika. Zalecamy dołączenie adresu IP czujnika, który został zainstalowany jako część nazwy, lub użycie łatwej do zidentyfikowania nazwy. Zapewni to łatwiejsze śledzenie i spójność nazw rejestracji w portalu usługi Azure [Defender dla IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) oraz adres IP wdrożonego czujnika wyświetlanego w konsoli czujnika.
 1. Skojarz czujnik z subskrypcją platformy Azure.
 1. Wybierz tryb zarządzania czujnikiem przy użyciu przełącznika **połączonego z chmurą** . Jeśli przełącznik jest włączony, czujnik jest połączony z chmurą. Jeśli przełącznik jest wyłączony, czujnik jest zarządzany lokalnie.
 
@@ -52,7 +52,7 @@ Aby pobrać plik aktywacji:
 
 ## <a name="view-onboarded-sensors"></a>Wyświetlanie czujników dołączanych
 
-W portalu Defender for IoT można wyświetlić podstawowe informacje na temat czujników dołączanych. 
+W [portalu Defender for IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started)można wyświetlić podstawowe informacje na temat czujników dołączanych. 
 
 1. Wybierz **Lokacje i czujniki**.
 1. Na stronie **witryny i czujniki** Użyj narzędzi filtrujących i wyszukiwania, aby znaleźć potrzebne informacje o czujnikach.
@@ -66,7 +66,7 @@ Dostępne są następujące informacje:
 
 ## <a name="manage-onboarded-sensors"></a>Zarządzanie czujnikami dołączanymi
 
-Portal usługi Defender for IoT służy do zarządzania zadaniami związanymi z czujnikami.
+[Portal usługi Defender for IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) służy do zarządzania zadaniami związanymi z czujnikami.
 
 ### <a name="export"></a>Eksportowanie
 
@@ -87,9 +87,9 @@ Aby usunąć Czujnik:
 
 ### <a name="reactivate"></a>Uaktywnij ponownie
 
-Możesz chcieć zaktualizować tryb, w którym zarządzasz czujnikiem. Na przykład:
+Możesz chcieć zaktualizować tryb, w którym zarządzasz czujnikiem. Przykład:
 
-- **Pracuj w trybie podłączonym do chmury, a nie w trybie zarządzanym lokalnie**: Aby to zrobić, zaktualizuj plik aktywacji dla czujnika połączonego lokalnie z plikiem aktywacji dla czujnika połączonego z chmurą. Po ponownym uaktywnieniu wykrywania czujników są wyświetlane zarówno w czujnikach, jak i w portalu usługi Defender for IoT. Po pomyślnym przekazaniu pliku reaktywacji nowo wykryte informacje o alercie są wysyłane do platformy Azure.
+- **Pracuj w trybie podłączonym do chmury, a nie w trybie zarządzanym lokalnie**: Aby to zrobić, zaktualizuj plik aktywacji dla czujnika połączonego lokalnie z plikiem aktywacji dla czujnika połączonego z chmurą. Po ponownym uaktywnieniu wykrywania czujników są wyświetlane zarówno w czujnikach, jak i w [portalu usługi Defender for IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started). Po pomyślnym przekazaniu pliku reaktywacji nowo wykryte informacje o alercie są wysyłane do platformy Azure.
 
 - **Pracuj w trybie połączonym lokalnie, a nie w trybie połączonym z chmurą**: Aby to zrobić, zaktualizuj plik aktywacji dla czujnika połączonego z chmurą z plikiem aktywacji dla lokalnego czujnika zarządzanego. Po ponownej aktywacji informacje wykrywania czujnika są wyświetlane tylko w czujniku.
 
@@ -97,7 +97,7 @@ Możesz chcieć zaktualizować tryb, w którym zarządzasz czujnikiem. Na przyk�
 
 Aby ponownie uaktywnić Czujnik:
 
-1. Przejdź do strony **witryny i czujniki** w portalu Defender for IoT.
+1. Przejdź do strony **witryny i czujniki** w [portalu Defender for IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 
 2. Wybierz czujnik, dla którego chcesz przekazać nowy plik aktywacji.
 
@@ -117,6 +117,6 @@ Aby ponownie uaktywnić Czujnik:
 
 9. Wybierz pozycję **Aktywuj**. 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
-[Aktywowanie i Konfigurowanie czujnika](how-to-activate-and-set-up-your-sensor.md)
+[Aktywowanie i konfigurowanie czujnika](how-to-activate-and-set-up-your-sensor.md)
