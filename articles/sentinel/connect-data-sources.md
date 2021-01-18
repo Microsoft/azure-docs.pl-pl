@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 432104c7e2cb9486dfb47a793ae73829d8705b60
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e294423e3f078253984dc4fcd8695c2676abb236
+ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655820"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541261"
 ---
 # <a name="connect-data-sources"></a>Łączenie ze źródłami danych
 
@@ -69,6 +69,8 @@ Następujące metody łączenia danych są obsługiwane przez wskaźnik na platf
     - [Alcide kAudit](connect-alcide-kaudit.md)
     - [Zapora aplikacji internetowej Barracuda](connect-barracuda.md)
     - [Barracuda CloudGen Firewall](connect-barracuda-cloudgen-firewall.md)
+    - [LEPSZA ochrona przed zagrożeniami mobilnymi](connect-better-mtd.md)
+    - [Beyond Security beSECURE](connect-besecure.md)
     - [Citrix Analytics (Security)](connect-citrix-analytics.md)
     - [F5 BIG-IP](connect-f5-big-ip.md)
     - [Forcepoint DLP](connect-forcepoint-dlp.md)
@@ -93,6 +95,8 @@ Następujące metody łączenia danych są obsługiwane przez wskaźnik na platf
         - [AI Vectra Detect](connect-ai-vectra-detect.md)
         - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
+        - [Citrix WAF](connect-citrix-waf.md)
+        - [CyberArk Enterprise Password Vault](connect-cyberark.md)
         - [ExtraHop Reveal(x)](connect-extrahop.md)
         - [F5 ASM](connect-f5.md)
         - [Produkty firmy Forcepoint](connect-forcepoint-casb-ngfw.md)
@@ -101,6 +105,8 @@ Następujące metody łączenia danych są obsługiwane przez wskaźnik na platf
         - [Łączenie z rozwiązaniem One Identity Safeguard](connect-one-identity.md)
         - [Palo Alto Networks](connect-paloalto.md)
         - [Trend Micro Deep Security](connect-trend-micro.md)
+        - [Trend Micro TippingPoint](connect-trend-micro-tippingpoint.md)
+        - [Platforma dowodowych Network WireX](connect-wirex-systems.md)
         - [Zscaler](connect-zscaler.md)
         - [Inne urządzenia z systemem CEF](connect-common-event-format.md)
     - **Zapory, proxy i punkty końcowe — dziennik systemowy:**

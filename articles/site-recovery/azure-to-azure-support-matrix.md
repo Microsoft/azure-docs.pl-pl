@@ -4,12 +4,12 @@ description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych pla
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: e2cbea433d56d4c1290a5d1cdc54b56e81b4cd73
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: f0c7e23e45a84fa73c7e63b5aaa6280177cf8b27
+ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234328"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541312"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Macierz obsługi odzyskiwania po awarii maszyny wirtualnej platformy Azure między regionami platformy Azure
 
@@ -44,13 +44,13 @@ Maszyny wirtualne można replikować i odzyskiwać między dwoma regionami w tym
 **Klaster geograficzny** | **Regiony platformy Azure**
 -- | --
 USA | Kanada Wschodnia, Kanada środkowa, Południowo-środkowe stany USA, zachodnie stany USA, Wschodnie stany USA, Wschodnie stany USA 2, zachodnie stany USA, zachodnie stany USA 2, środkowe stany USA, Północno-środkowe stany USA
-Europa | Zachodnie Zjednoczone Królestwo, Południowe Zjednoczone Królestwo, Europa Północna, Europa Zachodnia, Zachodnia Republika Południowej Afryki, Północna Republika Południowej Afryki, Norwegia Wschodnia, Norwegia Zachodnia, Francja środkowa, Szwajcaria Północna
+Europa | Zachodnie Zjednoczone Królestwo, Południowe Zjednoczone Królestwo, Europa Północna, Europa Zachodnia, Zachodnia Republika Południowej Afryki, Północna Republika Południowej Afryki, Norwegia Wschodnia, Francja środkowa, Szwajcaria Północna
 Azja | Indie Południowe, Indie Środkowe, Indie Zachodnie, Azja Południowo-Wschodnia, Azja Wschodnia, Japonia Wschodnia, Japonia Zachodnia, Korea środkowa, Korea Południowa
 Australia    | Australia Wschodnia, Australia Południowo-Wschodnia, Australia Środkowa, Australia Środkowa 2
 Azure Government    | Stany USA GOV Wirginia, US GOV Iowa, US GOV Arizona, US GOV Texass, US DOD USA, US DOD USA
 Niemcy    | Niemcy środkowe, Niemcy północno-wschodnie
 Chiny | Chiny Wschodnie, Chiny Północne, Chiny North2, Chiny 2
-Ograniczone regiony zarezerwowane na potrzeby odzyskiwania po awarii w kraju |Niemcy Północne zarezerwowane dla Niemcy Środkowo-Zachodnie Szwajcaria Zachodnia zarezerwowanych dla Szwajcaria Północna, Francja Południowa zastrzeżona dla Francji środkowe, środkowe Zjednoczone Emiraty Arabskie
+Ograniczone regiony zarezerwowane na potrzeby odzyskiwania po awarii w kraju |Niemcy Północne zarezerwowane dla Niemcy Środkowo-Zachodnie, Szwajcaria Zachodnia zarezerwowane dla Szwajcaria Północna, Francja Południowa zastrzeżona dla Francji środkowe, środkowe Zjednoczone Emiraty Arabskie dla klientów z północno-wschodnia, Norwegia Zachodnia
 
 >[!NOTE]
 >

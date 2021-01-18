@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 90532a88e145507b09de9d36f704bc5c88899e95
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 109f61d9ff76d084b292dbe3cc8ce663b50141ae
+ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861893"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541329"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>Samouczek: odnajdywanie maszyn wirtualnych funkcji Hyper-V z oceną serwera
 
@@ -42,16 +42,14 @@ Przed rozpoczęciem tego samouczka zapoznaj się z wymaganiami wstępnymi.
 **Wymaganie** | **Szczegóły**
 --- | ---
 **Host funkcji Hyper-V** | Hosty funkcji Hyper-V, na których znajdują się maszyny wirtualne, mogą być autonomiczne lub w klastrze.<br/><br/> Na hoście musi być uruchomiony system Windows Server 2019, Windows Server 2016 lub Windows Server 2012 R2.<br/><br/> Sprawdź, czy połączenia przychodzące są dozwolone na porcie WinRM 5985 (HTTP), tak aby urządzenie mogło nawiązać połączenie w celu ściągnięcia metadanych maszyny wirtualnej i danych wydajności przy użyciu sesji model wspólnych informacji (CIM).
-**Wdrażanie urządzenia** | Host funkcji Hyper-V wymaga zasobów do przydzielenia maszyny wirtualnej dla urządzenia:<br/><br/> — Windows Server 2016<br/><br/> -16 GB pamięci RAM<br/><br/> -Osiem procesorów wirtualnych vCPU<br/><br/> -Około 80 GB miejsca na dysku.<br/><br/> — Zewnętrzny przełącznik wirtualny.<br/><br/> — Dostęp do Internetu dla maszyny wirtualnej, bezpośrednio lub za pośrednictwem serwera proxy.
+**Wdrażanie urządzenia** | Host funkcji Hyper-V wymaga zasobów do przydzielenia maszyny wirtualnej dla urządzenia:<br/><br/> -16 GB pamięci RAM, 8 procesorów wirtualnych vCPU i około 80 GB miejsca na dysku.<br/><br/> — Zewnętrzny przełącznik wirtualny i dostęp do Internetu na maszynie wirtualnej urządzenia, bezpośrednio lub za pośrednictwem serwera proxy.
 **Maszyny wirtualne** | Na maszynach wirtualnych może działać dowolny system operacyjny Windows lub Linux. 
-
-Przed rozpoczęciem możesz [przejrzeć dane](migrate-appliance.md#collected-data---hyper-v) zbierane przez urządzenie podczas odnajdywania.
 
 ## <a name="prepare-an-azure-user-account"></a>Przygotowywanie konta użytkownika platformy Azure
 
 Aby utworzyć projekt Azure Migrate i zarejestrować urządzenie Azure Migrate, musisz mieć konto z:
 - Uprawnienia współautora lub właściciela w ramach subskrypcji platformy Azure.
-- Uprawnienia do rejestrowania aplikacji Azure Active Directory.
+- Uprawnienia do rejestrowania aplikacji Azure Active Directory (AAD).
 
 Jeśli bezpłatne konto platformy Azure zostało właśnie utworzone, jesteś właścicielem subskrypcji. Jeśli nie jesteś właścicielem subskrypcji, Pracuj z właścicielem, aby przypisać uprawnienia w następujący sposób:
 
@@ -71,20 +69,20 @@ Jeśli bezpłatne konto platformy Azure zostało właśnie utworzone, jesteś w�
 
     ![Otwiera stronę Dodawanie przypisania roli w celu przypisania roli do konta](./media/tutorial-discover-hyper-v/assign-role.png)
 
-7. W portalu Wyszukaj użytkowników, a w obszarze **usługi** wybierz pozycję **Użytkownicy**.
-8. W obszarze **Ustawienia użytkownika** Sprawdź, czy użytkownicy usługi Azure AD mogą rejestrować aplikacje (domyślnie ustawione na **wartość tak** ).
+1. Aby zarejestrować urządzenie, konto platformy Azure musi mieć **uprawnienia do rejestrowania aplikacji usługi AAD.**
+1. W Azure Portal przejdź do **Azure Active Directory**  >  **użytkowników**  >  **Ustawienia użytkownika**.
+1. W obszarze **Ustawienia użytkownika** Sprawdź, czy użytkownicy usługi Azure AD mogą rejestrować aplikacje (domyślnie ustawione na **wartość tak** ).
 
     ![Sprawdź ustawienia użytkownika, które użytkownicy mogą rejestrować Active Directory aplikacje](./media/tutorial-discover-hyper-v/register-apps.png)
 
-9. Alternatywnie, dzierżawa/Administrator globalny może przypisać rolę **dewelopera aplikacji** do konta, aby umożliwić rejestrację aplikacji usługi AAD. [Dowiedz się więcej](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+9. Jeśli ustawienia "Rejestracje aplikacji" są ustawione na wartość "nie", zażądaj dzierżawy/administratora globalnego, aby przypisał wymagane uprawnienie. Alternatywnie, dzierżawa/Administrator globalny może przypisać rolę **dewelopera aplikacji** do konta, aby umożliwić rejestrację aplikacji usługi AAD. [Dowiedz się więcej](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="prepare-hyper-v-hosts"></a>Przygotuj hosty funkcji Hyper-V
 
 Skonfiguruj konto z dostępem administratora na hostach funkcji Hyper-V. Urządzenie używa tego konta do odnajdowania.
 
 - Opcja 1: Przygotuj konto z dostępem administratora do komputera hosta funkcji Hyper-V.
-- Opcja 2: przygotowywanie konta administratora lokalnego lub konta administratora domeny i Dodawanie konta do tych grup: Użytkownicy zarządzania zdalnego, Administratorzy funkcji Hyper-V i użytkownicy monitora wydajności.
-
+- Opcja 2. Jeśli nie chcesz przypisywać uprawnień administratora, Utwórz konto użytkownika lokalnego lub domeny, a następnie Dodaj konto użytkownika do tych grup — Użytkownicy zarządzania zdalnego, Administratorzy funkcji Hyper-V i użytkownicy monitora wydajności.
 
 ## <a name="set-up-a-project"></a>Konfigurowanie projektu
 
@@ -99,26 +97,28 @@ Skonfiguruj nowy projekt Azure Migrate.
    ![Pola nazwy i regionu projektu](./media/tutorial-discover-hyper-v/new-project.png)
 
 7. Wybierz przycisk **Utwórz**.
-8. Zaczekaj kilka minut, aż projekt usługi Azure Migrate zostanie wdrożony.
-
-**Azure Migrate: Narzędzie do oceny serwera** jest domyślnie dodawane do nowego projektu.
+8. Zaczekaj kilka minut, aż projekt Azure Migrate zostanie wdrożony. **Azure Migrate: Narzędzie do oceny serwera** jest domyślnie dodawane do nowego projektu.
 
 ![Zostanie wyświetlona strona narzędzia do oceny serwera, która jest domyślnie dodawana](./media/tutorial-discover-hyper-v/added-tool.png)
 
+> [!NOTE]
+> Jeśli projekt został już utworzony, możesz użyć tego samego projektu do zarejestrowania dodatkowych urządzeń w celu odnalezienia i oceny większej liczby maszyn wirtualnych.[Dowiedz się więcej](create-manage-projects.md#find-a-project)
 
 ## <a name="set-up-the-appliance"></a>Konfigurowanie urządzenia
 
+Azure Migrate: Ocena serwera używa urządzenia uproszczonego Azure Migrate. Urządzenie wykonuje odnajdywanie maszyn wirtualnych i wysyła do Azure Migrate metadane dotyczące konfiguracji maszyny wirtualnej i wydajności. Urządzenie można skonfigurować przez wdrożenie pliku VHD, który można pobrać z projektu Azure Migrate.
+
+> [!NOTE]
+> Jeśli z jakiegoś powodu nie można skonfigurować urządzenia przy użyciu szablonu, można skonfigurować go za pomocą skryptu programu PowerShell na istniejącym serwerze z systemem Windows Server 2016. [Dowiedz się więcej](deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).
+
 Ten samouczek konfiguruje urządzenie na maszynie wirtualnej funkcji Hyper-V w następujący sposób:
 
-- Podaj nazwę urządzenia i Wygeneruj klucz projektu Azure Migrate w portalu.
-- Pobierz skompresowany wirtualny dysk twardy funkcji Hyper-V z Azure Portal.
-- Utwórz urządzenie i sprawdź, czy może nawiązać połączenie z oceną serwera Azure Migrate.
-- Skonfiguruj urządzenie po raz pierwszy i zarejestruj je w projekcie Azure Migrate przy użyciu klucza projektu Azure Migrate.
-> [!NOTE]
-> Jeśli z jakiegoś powodu nie można skonfigurować urządzenia przy użyciu szablonu, można skonfigurować go za pomocą skryptu programu PowerShell. [Dowiedz się więcej](deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).
+1. Podaj nazwę urządzenia i Wygeneruj klucz projektu Azure Migrate w portalu.
+1. Pobierz skompresowany wirtualny dysk twardy funkcji Hyper-V z Azure Portal.
+1. Utwórz urządzenie i sprawdź, czy może nawiązać połączenie z oceną serwera Azure Migrate.
+1. Skonfiguruj urządzenie po raz pierwszy i zarejestruj je w projekcie Azure Migrate przy użyciu klucza projektu Azure Migrate.
 
-
-### <a name="generate-the-azure-migrate-project-key"></a>Generowanie klucza projektu Azure Migrate
+### <a name="1-generate-the-azure-migrate-project-key"></a>1. Wygeneruj klucz projektu Azure Migrate
 
 1. W obszarze **Cele migracji** > **Serwery** > **Azure Migrate: Server Assessment** wybierz pozycję **Odnajdź**.
 2. W obszarze **odnajdywanie** maszyn  >  **są zwirtualizowane maszyny?** wybierz pozycję **tak, używając funkcji Hyper-V**.
@@ -127,10 +127,9 @@ Ten samouczek konfiguruje urządzenie na maszynie wirtualnej funkcji Hyper-V w n
 1. Po pomyślnym utworzeniu zasobów platformy Azure zostanie wygenerowany **klucz projektu Azure Migrate** .
 1. Skopiuj klucz, ponieważ będzie on potrzebny do ukończenia rejestracji urządzenia podczas jego konfiguracji.
 
-### <a name="download-the-vhd"></a>Pobierz dysk VHD
+### <a name="2-download-the-vhd"></a>2. Pobierz dysk VHD
 
-W **2: Pobierz urządzenie Azure Migrate**, wybierz opcję. Plik VHD i kliknij pozycję **Pobierz**. 
-
+W **2: Pobierz urządzenie Azure Migrate**, wybierz opcję. Plik VHD i kliknij pozycję **Pobierz**.
 
 ### <a name="verify-security"></a>Weryfikuj zabezpieczenia
 
@@ -156,7 +155,7 @@ Przed wdrożeniem należy sprawdzić, czy spakowany plik jest bezpieczny.
         --- | --- | ---
         Funkcja Hyper-V (85,8 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140424) |  cfed44bb52c9ab3024a628dc7a5d0df8c624f156ec1ecc3507116bae330b257f
 
-### <a name="create-the-appliance-vm"></a>Tworzenie maszyny wirtualnej urządzenia
+### <a name="3-create-the-appliance-vm"></a>3. Utwórz maszynę wirtualną urządzenia
 
 Zaimportuj pobrany plik i Utwórz maszynę wirtualną.
 
@@ -177,7 +176,7 @@ Zaimportuj pobrany plik i Utwórz maszynę wirtualną.
 
 Upewnij się, że maszyna wirtualna urządzenia może połączyć się z adresami URL platformy Azure dla chmur [publicznych](migrate-appliance.md#public-cloud-urls) i dla [instytucji rządowych](migrate-appliance.md#government-cloud-urls) .
 
-### <a name="configure-the-appliance"></a>Konfigurowanie urządzenia
+### <a name="4-configure-the-appliance"></a>4. Skonfiguruj urządzenie
 
 Skonfiguruj urządzenie po raz pierwszy.
 
@@ -214,8 +213,6 @@ Skonfiguruj urządzenie po raz pierwszy.
 1. Po pomyślnym zalogowaniu Wróć do poprzedniej karty przy użyciu Menedżera konfiguracji urządzeń.
 4. Jeśli konto użytkownika platformy Azure używane do rejestrowania ma odpowiednie uprawnienia do zasobów platformy Azure utworzonych podczas generowania klucza, Rejestracja urządzenia zostanie zainicjowana.
 1. Po pomyślnym zarejestrowaniu urządzenia można wyświetlić szczegóły rejestracji, klikając pozycję **Wyświetl szczegóły**.
-
-
 
 ### <a name="delegate-credentials-for-smb-vhds"></a>Delegowanie poświadczeń dla wirtualnych dysków twardych SMB
 

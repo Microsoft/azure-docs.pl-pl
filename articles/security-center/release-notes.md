@@ -1,6 +1,6 @@
 ---
 title: Informacje o wersji Azure Security Center
-description: Opis nowości i zmian w programie Azure Security Center.
+description: Opis nowości i zmian w programie Azure Security Center
 services: security-center
 documentationcenter: na
 author: memildin
@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2021
+ms.date: 01/17/2021
 ms.author: memildin
-ms.openlocfilehash: 86da6c0a3393dd3f47143355597cd9ccdec9928d
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 48e7093c30ffb135231f5843cb0767848f242d89
+ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539943"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541391"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -32,6 +32,24 @@ Aby dowiedzieć się o *planowanych* zmianach, które wkrótce zostaną udostęp
 
 
 ## <a name="january-2021"></a>Styczeń 2021 r.
+
+Aktualizacje w grudniu obejmują:
+
+- [Eksport CSV przefiltrowanej listy zaleceń](#csv-export-of-filtered-list-of-recommendations)
+- [Ocena luk w zabezpieczeniach dla maszyn lokalnych i wielochmurowych jest ogólnie dostępna](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-generally-available)
+
+
+### <a name="csv-export-of-filtered-list-of-recommendations"></a>Eksport CSV przefiltrowanej listy zaleceń 
+
+W listopadzie 2020 dodaliśmy filtry do strony rekomendacje ([Lista zaleceń zawiera teraz filtry](#recommendations-list-now-includes-filters)). W grudniu rozwinięto te filtry ([Strona zalecenia ma nowe filtry dotyczące środowiska, ważności i dostępnych odpowiedzi](#recommendations-page-has-new-filters-for-environment-severity-and-available-responses)). 
+
+W tym ogłoszeniu zmienimy zachowanie przycisku **Pobierz do formatu CSV** , tak aby eksport CSV zawierał tylko zalecenia aktualnie wyświetlane na liście filtrowanej. 
+
+Na przykład na poniższej ilustracji widać, że lista została przefiltrowana do dwóch zaleceń. Wygenerowany plik CSV zawiera szczegóły stanu każdego zasobu, którego dotyczą te dwa zalecenia.   
+
+:::image type="content" source="media/security-center-managing-and-responding-alerts/export-to-csv-with-filters.png" alt-text="Eksportowanie zaleceń filtrowanych do pliku CSV":::
+
+Więcej informacji zawiera temat [zalecenia dotyczące zabezpieczeń w Azure Security Center](security-center-recommendations.md).
 
 ### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-generally-available"></a>Ocena luk w zabezpieczeniach dla maszyn lokalnych i wielochmurowych jest ogólnie dostępna
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: sideeksh
-ms.openlocfilehash: 599ad76f38833e06cc458fd0687921e6975e190b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f63021275574e294fa372357d6e62724f5efe0f7
+ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89426371"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541194"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>Dostosowywanie konfiguracji sieci dla docelowej maszyny wirtualnej platformy Azure
 
@@ -44,7 +44,7 @@ Podczas replikowania maszyn wirtualnych platformy Azure można dostarczyć nast�
 
      ![Dostosowywanie konfiguracji sieci trybu failover](media/azure-to-azure-customize-networking/edit-networking-properties.png)
 
-4. Wybierz testową sieć wirtualną w trybie failover. Możesz pozostawić to pole puste i wybrać je w czasie testu pracy w trybie failover.
+4. Wybierz testową sieć wirtualną w trybie failover.
 5. Sieć trybu failover jest **wybierana** obok karty sieciowej, która ma zostać skonfigurowana. W następnym bloku, który zostanie otwarty, wybierz odpowiednie wstępnie utworzone zasoby w lokalizacji testowej pracy w trybie failover i w trybie failover.
 
     ![Edytowanie konfiguracji karty sieciowej](media/azure-to-azure-customize-networking/nic-drilldown.png) 

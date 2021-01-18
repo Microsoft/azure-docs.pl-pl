@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/25/2020
+ms.date: 01/12/2021
 ms.author: yelevin
-ms.openlocfilehash: f6fd6920fafe4c1080cb5539e4e0222d9d6e18cd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 313f201aeabd470850b27d979dc5253f80e82a55
+ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103025"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541170"
 ---
 # <a name="connect-your-beyond-security-besecure-to-azure-sentinel"></a>Łączenie poza beSECUREem zabezpieczeń z platformą Azure — wskaźnikiem
 
 > [!IMPORTANT]
-> Łącznik danych beSECURE z zabezpieczeniami na platformie Azure jest obecnie w publicznej wersji zapoznawczej. Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Łącznik beSECURE Security jest obecnie w **wersji zapoznawczej**. Zapoznaj się z dodatkowymi [warunkami użytkowania Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) wersji zapoznawczych, aby uzyskać dodatkowe postanowienia prawne dotyczące funkcji systemu Azure, które są w wersji beta, Preview lub w inny sposób nie zostały jeszcze udostępnione publicznie.
 
-Za pomocą łącznika usługi Security beSECURE można z łatwością połączyć wszystkie dzienniki rozwiązań zabezpieczeń beSECURE z obszarem danych platformy Azure, aby wyświetlić pulpity nawigacyjne, utworzyć niestandardowe alerty i poprawić badanie. Integracja między programem beSECURE i platformą Azure ze wskaźnikami korzysta z interfejsu API REST.
+Łącznik "beSECURE Security" umożliwia łatwe łączenie dzienników własnych rozwiązań zabezpieczeń beSECURE z badaniem wskaźnikowym platformy Azure w celu wyświetlania pulpitów nawigacyjnych, tworzenia niestandardowych alertów i ulepszania badania. Integracja między programem beSECURE i platformą Azure ze wskaźnikami korzysta z interfejsu API REST.
 
 > [!NOTE]
 > Dane będą przechowywane w lokalizacji geograficznej obszaru roboczego, w którym jest uruchamiany wskaźnik platformy Azure.
@@ -36,7 +36,9 @@ Za pomocą łącznika usługi Security beSECURE można z łatwością połączy�
 
 beSECURE można zintegrować z dziennikami i eksportować je bezpośrednio do platformy Azure.
 
-1. W portalu usługi Azure wskaźnikowego kliknij pozycję **Łączniki danych** i wybierz pozycję **poza zabezpieczeniami beSECURE (wersja zapoznawcza)** , a następnie **Otwórz stronę łącznik** .
+1. W menu nawigacji wskaźnikowej platformy Azure wybierz pozycję **Łączniki danych**.
+
+1. W galerii **łączników danych** wybierz pozycję **poza zabezpieczeniami beSECURE (wersja zapoznawcza)** , a następnie **Otwórz stronę łącznik**.
 
 1. Wykonaj poniższe kroki, aby skonfigurować rozwiązanie beSECURE do wysyłania wyników skanowania, stanu skanowania i dzienników dziennika inspekcji do usługi Azure wskaźnikowej.
 
@@ -49,8 +51,11 @@ beSECURE można zintegrować z dziennikami i eksportować je bezpośrednio do pl
 
     1. Włączanie usługi Azure Sentinel
 
-    **Podaj beSECURE z ustawieniami wskaźnikiem na platformie Azure.**
-      - Skopiuj wartości *Identyfikator obszaru roboczego* i *klucz podstawowy* ze strony łącznika wskaźnikowego platformy Azure, wklej je w konfiguracji beSECURE, a następnie kliknij przycisk **Modyfikuj** .
+    **Podaj beSECURE z ustawieniami wskaźnikiem na platformie Azure:**
+
+      Skopiuj wartości *Identyfikator obszaru roboczego* i *klucz podstawowy* ze strony łącznika wskaźnikowego platformy Azure, wklej je w konfiguracji beSECURE, a następnie kliknij przycisk **Modyfikuj**.
+      
+      :::image type="content" source="media/connectors/workspace-id-primary-key.png" alt-text="{Identyfikator obszaru roboczego i klucz podstawowy}":::
 
 ## <a name="find-your-data"></a>Znajdowanie danych
 
@@ -59,13 +64,13 @@ Po pomyślnym nawiązaniu połączenia dane pojawiają się w **dziennikach** w 
   - `beSECURE_ScanEvents_CL`
   - `beSECURE_Audit_CL`
 
-Aby wykonać zapytanie dotyczące dzienników beSECURE w Log Analytics, wprowadź jedną z powyższych nazw tabel w górnej części okna zapytania.
+Aby wykonywać zapytania dotyczące dzienników beSECURE w regułach analizy, zapytań polowających, dochodzeń lub w dowolnym miejscu w punkcie kontrolnym platformy Azure, wprowadź jedną z powyższych nazw tabel w górnej części okna zapytania.
 
 ## <a name="validate-connectivity"></a>Sprawdź poprawność łączności
 Rozpoczęcie wyświetlania dzienników w Log Analytics może potrwać do 20 minut.
 
 ## <a name="next-steps"></a>Następne kroki
 W tym dokumencie przedstawiono sposób łączenia beSECURE z platformą Azure — wskaźnikiem. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
-- Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).
+- Dowiedz się [, jak uzyskać wgląd w dane i potencjalne zagrożenia](quickstart-get-visibility.md).
 - Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](tutorial-detect-threats-built-in.md).
 - [Używaj skoroszytów](tutorial-monitor-your-data.md) do monitorowania danych.
