@@ -228,7 +228,7 @@
         - name: Rezerwacje usługi Disk Storage
           href: ../../cost-management-billing/reservations/understand-disk-reservations.md
         - name: Wydajność maszyny wirtualnej i dysku
-          href: disk-performance-windows.md
+          href: ../disks-performance.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Projektowanie pod kątem wysokiej wydajności
           href: ../premium-storage-performance.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Rozszerzanie możliwości dysków
@@ -814,10 +814,8 @@
           href: snapshot-copy-managed-disk.md
         - name: Rezerwowanie usługi Disk Storage
           href: ../disks-reserved-capacity.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-        - name: Tworzenie migawki przyrostowej — PowerShell
-          href: disks-incremental-snapshots.md
-        - name: Tworzenie migawki przyrostowej — portal
-          href: disks-incremental-snapshots-portal.md
+        - name: Tworzenie migawki przyrostowej
+          href: ../disks-incremental-snapshots.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Tworzenie kopii zapasowych dysków niezarządzanych
           href: incremental-snapshots.md
         - name: Szyfrowanie
@@ -851,7 +849,7 @@
             - name: Używanie dysków ultra
               href: ../disks-enable-ultra-ssd.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Test porównawczy dysku
-              href: disks-benchmarks.md
+              href: ../disks-benchmarks.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Znajdowanie niedołączonych dysków — PowerShell
           href: find-unattached-disks.md
         - name: Znajdowanie niedołączonych dysków — portal
@@ -867,7 +865,7 @@
           href: ../../virtual-network/quick-create-portal.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
         - name: Otwieranie portów dla maszyny wirtualnej
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: nsg-quickstart-portal.md
             - name: Azure PowerShell
               href: nsg-quickstart-powershell.md

@@ -1094,25 +1094,26 @@
     - name: Samouczki
       items:
         - name: Wizualizowanie danych za pomocą platformy Apache Spark
+          displayname: machine learning
           href: ./spark/apache-spark-data-visualization-tutorial.md
-          displayname: machine learning
         - name: Używanie kreatora oceniania dla dedykowanych pul SQL
-          href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
           displayname: machine learning
+          href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
         - name: Trenowanie modelu bez kodu za pomocą zautomatyzowanego uczenia maszynowego
+          displayname: machine learning
           href: ./machine-learning/tutorial-automl.md
         - name: Trenowanie modelu w języku Python za pomocą zautomatyzowanego uczenia maszynowego
+          displayname: machine learning
           href: ./spark/apache-spark-azure-machine-learning-tutorial.md
-          displayname: machine learning
         - name: Tworzenie modelu za pomocą biblioteki MLlib platformy Apache Spark
-          href: ./spark/apache-spark-machine-learning-mllib-notebook.md
           displayname: machine learning
+          href: ./spark/apache-spark-machine-learning-mllib-notebook.md
+        - name: Konfigurowanie usługi Cognitive Services dla usługi Azure Synapse
+          href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
         - name: Analiza tonacji za pomocą usługi Cognitive Services
           href: ./machine-learning/tutorial-cognitive-services-sentiment.md
         - name: Wykrywanie anomalii przy użyciu usługi Cognitive Services
           href: ./machine-learning/tutorial-cognitive-services-anomaly.md
-        - name: Konfigurowanie usługi Cognitive Services dla usługi Azure Synapse
-          href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
 - name: Wykaz danych i ład
   items:
     - name: Przewodniki Szybki start
