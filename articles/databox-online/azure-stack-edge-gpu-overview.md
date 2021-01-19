@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/23/2020
+ms.date: 01/18/2021
 ms.author: alkohli
-ms.openlocfilehash: 059aad8b45aa449f5cd28c97f4ba55e2204c04ce
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 31947ca4d5eb632998f5c50257c12ef9a52dfc66
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937070"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570103"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-gpu"></a>Co to jest Azure Stack Edge Pro z procesorem GPU?
 
@@ -21,7 +21,7 @@ Azure Stack EDGE Pro z procesorem GPU to urządzenie obliczeniowe z systemem AI 
 
 Azure Stack EDGE Pro z procesorem GPU to rozwiązanie typu "sprzęt jako usługa". Firma Microsoft dostarcza urządzenie zarządzane przez chmurę, które działa jako brama magazynu sieciowego i ma wbudowaną jednostkę przetwarzania graficznego (GPU), która umożliwia przyspieszenie inferencing. 
 
-## <a name="use-cases"></a>Przypadki użycia
+## <a name="use-cases"></a>Przypadki zastosowań
 
 Poniżej przedstawiono różne scenariusze, w których Azure Stack EDGE Pro można używać do szybkiego Machine Learning (ML) inferencing na granicy i przetwarzania wstępnego danych przed wysłaniem ich do platformy Azure.
 
@@ -71,7 +71,7 @@ Rozwiązanie Azure Stack EDGE Pro składa się z Azure Stack zasobów brzegowych
 
 Azure Stack Edge urządzenie fizyczne, zasób platformy Azure i docelowe konto magazynu, do którego są przesyłane dane, nie muszą znajdować się w tym samym regionie.
 
-- **Dostępność zasobów** — w przypadku tej wersji zapoznawczej zasób jest dostępny w regionach Wschodnie stany USA, zachodnie UE i południowe Azja Wschodnia.
+- **Dostępność zasobów** — w przypadku tej wersji zasób jest dostępny w regionach Wschodnie stany USA, zachodnie UE i południowe Azja Wschodnia.
 
 - **Dostępność urządzenia** — aby zapoznać się z listą wszystkich krajów/regionów, w których jest dostępne urządzenie Azure Stack EDGE Pro, przejdź do sekcji **dostępność** na karcie **Azure Stack EDGE Pro** dla pozycji [Azure Stack EDGE Pro — Cennik](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
     

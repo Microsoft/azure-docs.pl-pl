@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: rbeckers
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e9e5db87f983c5db59715eb8b6a9561acf5fad14
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 9c8016b566db8be1b7f5c5ddb8d92123d6673db5
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630619"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569848"
 ---
 # <a name="migrate-code-from-v20-to-v30-of-the-rest-api"></a>Migrowanie kodu z wersji v 2.0 do wersji 3.0 interfejsu API REST
 
@@ -24,11 +24,51 @@ W porównaniu do wersji 2 wersja v3 interfejsu API REST usługi Speech Services 
 
 ## <a name="forward-compatibility"></a>Zgodność dalej
 
-Wszystkie jednostki z wersji 2 można również znaleźć w interfejsie API V3 w ramach tej samej tożsamości. W przypadku zmiany schematu wyniku (na przykład transkrypcji) wynik GET w wersji v3 interfejsu API używa schematu v3. Wynik pobrania w wersji 2 interfejsu API używa tego samego schematu v2. Nowo utworzone jednostki w wersji 3 **nie** są dostępne w wynikach z interfejsów API v2.
+Wszystkie jednostki z wersji 2 można również znaleźć w interfejsie API V3 w ramach tej samej tożsamości. W przypadku zmiany schematu wyniku (na przykład transkrypcji) wynik GET w wersji v3 interfejsu API używa schematu v3. Wynik pobrania w wersji 2 interfejsu API używa tego samego schematu v2. Nowo utworzone jednostki w wersji 3 **nie** są   dostępne w odpowiedziach z interfejsów API v2. 
+
+## <a name="migration-steps"></a>Kroki migracji
+
+Ta lista zawiera podsumowanie elementów, o których należy pamiętać podczas przygotowywania do migracji. Szczegółowe informacje znajdują się w poszczególnych łączach. W zależności od bieżącego użycia interfejsu API nie wszystkie kroki wymienione w tym miejscu mogą być stosowane. Tylko niektóre zmiany wymagają nieuproszczonych zmian w kodzie wywołującym. Większość zmian wymaga tylko zmiany nazw elementów. 
+
+Ogólne zmiany: 
+
+1. [Zmień nazwę hosta](#host-name-changes)
+
+1. [Zmień nazwę identyfikatora właściwości na własny w kodzie klienta](#identity-of-an-entity) 
+
+1. [Zmień kod, aby wykonać iterację kolekcji jednostek](#working-with-collections-of-entities)
+
+1. [Zmień nazwę właściwości na displayName w kodzie klienta](#name-of-an-entity)
+
+1. [Dostosuj Pobieranie metadanych jednostek, do których istnieją odwołania](#accessing-referenced-entities)
+
+1. Jeśli używasz transkrypcji partii: 
+
+    * [Dostosuj kod na potrzeby tworzenia transkrypcji partii](#creating-transcriptions) 
+
+    * [Dostosowanie kodu do nowego schematu wyników transkrypcji](#format-of-v3-transcription-results)
+
+    * [Dostosuj kod na potrzeby pobierania wyników](#getting-the-content-of-entities-and-the-results)
+
+1. Jeśli używasz niestandardowych interfejsów API szkolenia/testowania: 
+
+    * [Stosowanie modyfikacji do szkolenia modelu niestandardowego](#customizing-models)
+
+    * [Zmień sposób pobierania modeli podstawowych i niestandardowych](#retrieving-base-and-custom-models)
+
+    * [Zmień nazwę segmentu ścieżki accuracytests na oceny w kodzie klienta](#accuracy-tests)
+
+1. Jeśli używasz interfejsów API punktów końcowych:
+
+    * [Zmień sposób pobierania dzienników punktów końcowych](#retrieving-endpoint-logs)
+
+1. Inne drobne zmiany: 
+
+    * [Przekazuj wszystkie właściwości niestandardowe jako customProperties zamiast właściwości w żądaniach POST](#using-custom-properties)
+
+    * [Odczytaj lokalizację z lokalizacji nagłówka odpowiedzi zamiast z lokalizacji operacji](#response-headers)
 
 ## <a name="breaking-changes"></a>Fundamentalne zmiany
-
-Lista istotnych zmian została posortowana według wielkości zmian wymaganych do dostosowania. Tylko niektóre zmiany wymagają nieuproszczonych zmian w kodzie wywołującym. Większość zmian wymaga tylko zmiany nazw elementów.
 
 ### <a name="host-name-changes"></a>Zmiany nazwy hosta
 

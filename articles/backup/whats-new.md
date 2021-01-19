@@ -3,12 +3,12 @@ title: Co nowego w usłudze Azure Backup
 description: Dowiedz się więcej o nowych funkcjach w Azure Backup.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: ba29ddea5d5f096640f2bfc012c44ab06bb3e131
-ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
+ms.openlocfilehash: 62a6146990863c339917777b2624fee76ebe60d8
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96309668"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569423"
 ---
 # <a name="whats-new-in-azure-backup"></a>Co nowego w usłudze Azure Backup
 
@@ -18,6 +18,9 @@ Więcej informacji o nowych wersjach można uzyskać, zaznaczając je na tej str
 
 ## <a name="updates-summary"></a>Podsumowanie aktualizacji
 
+- Styczeń 2021 r.
+  - [Kopia zapasowa Azure Disk (wersja zapoznawcza)](disk-backup-overview.md)
+  - [Szyfrowanie w spoczynku przy użyciu kluczy zarządzanych przez klienta jest teraz ogólnie dostępne](encryption-at-rest-with-cmk.md)
 - Listopad 2020 r.
   - [Szablon Azure Resource Manager dla kopii zapasowej udziału plików platformy Azure (AFS)](#azure-resource-manager-template-for-afs-backup)
   - [Przyrostowe kopie zapasowe baz danych SAP HANA na maszynach wirtualnych platformy Azure](#incremental-backups-for-sap-hana-databases)
@@ -31,6 +34,18 @@ Więcej informacji o nowych wersjach można uzyskać, zaznaczając je na tej str
   - [SAP HANA kopii zapasowych w usłudze RHEL Azure Virtual Machines](#backup-sap-hana-in-rhel-azure-virtual-machines)
   - [Magazyn strefowo nadmiarowy (ZRS) dla danych kopii zapasowej](#zone-redundant-storage-zrs-for-backup-data)
   - [Usuwanie nietrwałe dla obciążeń SQL Server i SAP HANA na maszynach wirtualnych platformy Azure](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## <a name="azure-disk-backup-in-preview"></a>Kopia zapasowa Azure Disk (wersja zapoznawcza)
+
+Usługa Kopia zapasowa Azure Disk oferuje rozwiązanie gotowe, które zapewnia możliwość zarządzania cyklem życia migawek dla [systemu Azure Managed disks](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview) przez Automatyzowanie okresowego tworzenia migawek i przechowywanie ich na skonfigurowany czas trwania przy użyciu zasad tworzenia kopii zapasowych. Można zarządzać migawkami dysków bez ponoszenia kosztów związanych z infrastrukturą oraz niepotrzebami niestandardowych skryptów ani narzutami związanymi z zarządzaniem. Jest to rozwiązanie do tworzenia kopii zapasowej spójnej na poziomie awarii, które pobiera kopie zapasowe z dysku zarządzanego do określonego momentu przy użyciu [migawek przyrostowych](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots) z obsługą wielu kopii zapasowych dziennie. Jest to również rozwiązanie bez agenta i nie ma wpływu na wydajność aplikacji produkcyjnej. Obsługuje ona tworzenie kopii zapasowych i przywracanie dysków systemu operacyjnego i danych (w tym dysków udostępnionych), niezależnie od tego, czy są one obecnie dołączone do uruchomionej maszyny wirtualnej platformy Azure.
+
+Aby uzyskać więcej informacji, zobacz [kopia zapasowa Azure Disk (wersja zapoznawcza)](disk-backup-overview.md).
+
+## <a name="encryption-at-rest-using-customer-managed-keys"></a>Szyfrowanie w spoczynku przy użyciu kluczy zarządzanych przez klienta
+
+Obsługa szyfrowania magazynowanego przy użyciu kluczy zarządzanych przez klienta jest teraz ogólnie dostępna. Dzięki temu można szyfrować dane kopii zapasowej w magazynach Recovery Services przy użyciu własnych kluczy przechowywanych w magazynach kluczy platformy Azure. Klucz szyfrowania używany do szyfrowania kopii zapasowych w magazynie Recovery Services może różnić się od tych używanych do szyfrowania źródła. Dane są chronione przy użyciu klucza szyfrowania danych opartego na protokole AES 256 (z szyfrowaniem), który jest z kolei chroniony przy użyciu kluczy przechowywanych w Key Vault. W porównaniu z szyfrowaniem przy użyciu kluczy zarządzanych przez platformę (które są domyślnie dostępne), daje to większą kontrolę nad kluczami i pomaga lepiej spełnić wymagania dotyczące zgodności.
+
+Aby uzyskać więcej informacji, zobacz [szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych przez klienta](encryption-at-rest-with-cmk.md).
 
 ## <a name="azure-resource-manager-template-for-afs-backup"></a>Szablon Azure Resource Manager dla kopii zapasowej AFS
 

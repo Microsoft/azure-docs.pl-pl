@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 95993b35174b80dae8c878c22554ee60afeb8a14
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 57a9f6f11283e020efc25f55f1df473a6cb2d321
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206224"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570001"
 ---
 # <a name="server-side-performance-queries"></a>Zapytania wydajności po stronie serwera
 
@@ -62,12 +62,12 @@ void QueryFrameData(ApiHandle<AzureSession> session)
 
 Pobrany `FrameStatistics` obiekt zawiera następujące elementy członkowskie:
 
-| Członek | Objaśnienie |
+| Członek | Wyjaśnienie |
 |:-|:-|
 | latencyPoseToReceive | Opóźnienie z aparatu jest szacowane na urządzeniu klienckim do momentu, gdy ramka serwera dla tego ułożenia jest w pełni dostępna dla aplikacji klienckiej. Ta wartość obejmuje sieć w sieci, czas renderowania serwera, dekodowanie wideo i kompensację wahania. Zobacz **interwał 1 na powyższej ilustracji.**|
-| latencyReceiveToPresent | Opóźnienie od dostępności odebranej ramki zdalnej do momentu, gdy aplikacja kliencka wywoła PresentFrame na procesorze CPU. |
-| latencyPresentToDisplay  | Opóźnienie wyświetlania ramki na procesorze CPU do momentu wyświetlenia świateł w górę. Ta wartość obejmuje czas procesora GPU, wszelkie bufory klatek wykonywane przez system operacyjny, reprojektowanie sprzętu i czas skanowania ekranu zależnego od urządzenia. Zobacz **Interwał 2 na powyższej ilustracji.**|
-| timeSinceLastPresent | Czas między kolejnymi wywołaniami do PresentFrame na PROCESORze. Wartości większe niż czas trwania wyświetlania (na przykład 16,6 MS na urządzeniu klienckim 60-Hz) wskazują problemy spowodowane przez aplikację kliencką, która nie kończy obciążenia procesora w czasie. Zobacz **Interwał 3 na powyższej ilustracji.**|
+| latencyReceiveToPresent | Opóźnienie od dostępności odebranej ramki zdalnej do momentu, gdy aplikacja kliencka wywoła PresentFrame na procesorze CPU. Zobacz **Interwał 2 na powyższej ilustracji.**|
+| latencyPresentToDisplay  | Opóźnienie wyświetlania ramki na procesorze CPU do momentu wyświetlenia świateł w górę. Ta wartość obejmuje czas procesora GPU, wszelkie bufory klatek wykonywane przez system operacyjny, reprojektowanie sprzętu i czas skanowania ekranu zależnego od urządzenia. Zobacz **Interwał 3 na powyższej ilustracji.**|
+| timeSinceLastPresent | Czas między kolejnymi wywołaniami do PresentFrame na PROCESORze. Wartości większe niż czas trwania wyświetlania (na przykład 16,6 MS na urządzeniu klienckim 60-Hz) wskazują problemy spowodowane przez aplikację kliencką, która nie kończy obciążenia procesora w czasie.|
 | videoFramesReceived | Liczba ramek odebranych z serwera w ciągu ostatniej sekundy. |
 | videoFrameReusedCount | Liczba odebranych ramek w ciągu ostatniej sekundy, które były używane na urządzeniu więcej niż raz. Wartości inne niż zero wskazują, że ramki musiały być ponownie używane i przeprojektować ze względu na wahania sieci lub nadmierny czas renderowania serwera. |
 | videoFramesSkipped | Liczba odebranych ramek w ostatniej sekundzie, które zostały zdekodowane, ale nie są wyświetlane na ekranie, ponieważ dotarła do niej nowsza ramka. Wartości inne niż zero wskazują, że zakłócenia sieci powodowało opóźnione przełączenie wielu ramek, a następnie dotarcie na urządzenie klienckie razem do serii. |
@@ -121,7 +121,7 @@ void QueryPerformanceAssessment(ApiHandle<AzureSession> session)
 
 W przeciwieństwie do `FrameStatistics` obiektu, `PerformanceAssessment` obiekt zawiera informacje po stronie serwera:
 
-| Członek | Objaśnienie |
+| Członek | Wyjaśnienie |
 |:-|:-|
 | timeCPU | Średni czas procesora CPU serwera na klatkę w milisekundach |
 | timeGPU | Średni czas procesora GPU serwera na klatkę w milisekundach |
@@ -132,7 +132,7 @@ W przeciwieństwie do `FrameStatistics` obiektu, `PerformanceAssessment` obiekt 
 | networkLatency | Przybliżone średnie opóźnienie sieci dwukierunkowej w milisekundach. Na powyższej ilustracji odpowiada sumie czerwonych strzałek. Wartość jest obliczana przez odjęcie rzeczywistego czasu renderowania serwera od `latencyPoseToReceive` wartości `FrameStatistics` . Chociaż to przybliżenie nie jest dokładne, daje kilka oznak opóźnienia sieci, odizolowanych od wartości opóźnienia obliczonych na kliencie. |
 | polygonsRendered | Liczba trójkątów renderowanych w jednej ramce. Ta liczba obejmuje również Trójkąty, które są wyłączane później podczas renderowania. Oznacza to, że ta liczba nie różni się od siebie w różnych położeniach kamer, ale wydajność może się nieco różnić w zależności od współczynnika usuwania.|
 
-Aby ułatwić ocenę wartości, każda część zawiera klasyfikację jakości, taką jak **doskonały**, **dobry**, **mediocre**lub **zły**.
+Aby ułatwić ocenę wartości, każda część zawiera klasyfikację jakości, taką jak **doskonały**, **dobry**, **mediocre** lub **zły**.
 Ta Metryka oceny zapewnia przybliżoną wskazówkę dotyczącą kondycji serwera, ale nie powinna być traktowana jako bezwzględna. Załóżmy na przykład, że dla czasu procesora GPU zobaczysz wynik "mediocre". Jest on uznawany za mediocre, ponieważ zbliża się do limitu ogólnego budżetu czasu ramki. W takim przypadku może być jednak dobrą wartością, ponieważ renderuje skomplikowany model.
 
 ## <a name="statistics-debug-output"></a>Statystyka danych wyjściowych debugowania

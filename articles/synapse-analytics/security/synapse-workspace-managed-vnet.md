@@ -5,15 +5,15 @@ author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: security
-ms.date: 04/15/2020
+ms.date: 01/18/2021
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 949b7e55569cc6fceacc37677ed06a28bb85d7c2
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: f55251932c8aa8f632bd3b498943ac722f006dee
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116368"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569921"
 ---
 # <a name="azure-synapse-analytics-managed-virtual-network"></a>Virtual Network zarządzane przez usługę Azure Synapse Analytics
 
@@ -52,8 +52,21 @@ Jeśli pole wyboru nie zostanie zaznaczone, obszar roboczy nie będzie z nim sko
 
 ![Włącz zarządzaną Virtual Network obszaru roboczego](./media/synapse-workspace-managed-vnet/enable-managed-vnet-1.png)
 
+Po wybraniu skojarzenia zarządzanego obszaru roboczego Virtual Network z obszarem roboczym można chronić przed eksfiltracji danych, zezwalając na połączenie wychodzące z zarządzanego obszaru roboczego Virtual Network tylko do zatwierdzonych celów przy użyciu [zarządzanych prywatnych punktów końcowych](./synapse-workspace-managed-private-endpoints.md). Wybierz opcję **tak** , aby ograniczyć ruch wychodzący z zarządzanego obszaru roboczego Virtual Network do obiektów docelowych za pośrednictwem zarządzanych prywatnych punktów końcowych. 
 
-Możesz sprawdzić, czy obszar roboczy usługi Azure Synapse jest skojarzony z zarządzanym Virtual Network obszarem roboczym, wybierając pozycję **Przegląd** z Azure Portal.
+
+>[!IMPORTANT]
+>Magazyn metadanych jest wyłączony w obszarze roboczym Synapse, które mają zarządzane Virtual Network z włączoną ochroną eksfiltracji danych. W tych obszarach roboczych nie będzie można używać platformy Spark SQL.
+
+![Ruch wychodzący przy użyciu zarządzanych prywatnych punktów końcowych](./media/synapse-workspace-managed-vnet/select-outbound-connectivity.png)
+
+Wybierz pozycję **nie** , aby zezwolić na ruch wychodzący z obszaru roboczego do dowolnego obiektu docelowego.
+
+Można również kontrolować cele, do których zarządzane prywatne punkty końcowe są tworzone w obszarze roboczym usługi Azure Synapse. Domyślnie zarządzane prywatne punkty końcowe do zasobów w tej samej dzierżawie usługi AAD, do których należy subskrypcja, są dozwolone. Jeśli chcesz utworzyć zarządzany prywatny punkt końcowy do zasobu w dzierżawie usługi AAD, który jest inny niż ten, do którego należy subskrypcja, możesz dodać tę dzierżawę usługi AAD, wybierając pozycję **+ Dodaj**. Możesz wybrać dzierżawę usługi AAD z listy rozwijanej lub ręcznie wprowadzić identyfikator dzierżawy usługi AAD.
+
+![Dodawanie dodatkowych dzierżawców usługi AAD](./media/synapse-workspace-managed-vnet/add-additional-azure-active-directory-tenants.png)
+
+Po utworzeniu obszaru roboczego możesz sprawdzić, czy obszar roboczy usługi Azure Synapse jest skojarzony z zarządzanym obszarem roboczym Virtual Network, wybierając pozycję **Przegląd** z Azure Portal.
 
 ![Omówienie obszaru roboczego w Azure Portal](./media/synapse-workspace-managed-vnet/enable-managed-vnet-2.png)
 

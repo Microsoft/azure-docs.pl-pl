@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 08/05/2020
+ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: a62943c1a808424ded1a5e46ed115cda332bf7d5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6a73ecf18a4bd89567dc603758d9ff8501267a1f
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020759"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570046"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning"></a>Samouczek: Konfigurowanie aprowizacji oprogramowania SAP SuccessFactors w usłudze Azure AD
 Celem tego samouczka jest przedstawienie czynności, które należy wykonać w celu udostępnienia danych procesu roboczego od SuccessFactors pracowników centralnych do Azure Active Directory z opcjonalnym zapisem adresu e-mail do SuccessFactors. 
@@ -91,51 +91,61 @@ Skontaktuj się z zespołem administracyjnym SuccessFactors lub partnerem implem
 
 ### <a name="create-an-api-permissions-role"></a>Utwórz rolę uprawnień interfejsu API
 
-* Zaloguj się do platformy SAP SuccessFactors przy użyciu konta użytkownika, które ma dostęp do centrum administracyjnego.
-* Wyszukaj pozycje *Zarządzaj rolami uprawnień*, a następnie wybierz pozycję **Zarządzaj rolami uprawnień** z wyników wyszukiwania.
+1. Zaloguj się do platformy SAP SuccessFactors przy użyciu konta użytkownika, które ma dostęp do centrum administracyjnego.
+1. Wyszukaj pozycje *Zarządzaj rolami uprawnień*, a następnie wybierz pozycję **Zarządzaj rolami uprawnień** z wyników wyszukiwania.
   ![Zarządzanie rolami uprawnień](./media/sap-successfactors-inbound-provisioning/manage-permission-roles.png)
-* Na liście rola uprawnień kliknij pozycję **Utwórz nową**.
-  > [!div class="mx-imgBorder"]
-  > ![Utwórz nową rolę uprawnienia](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
-* Dodaj nazwę i **Opis** **roli** dla nowej roli uprawnienia. Nazwa i opis powinny wskazywać, że rola ma uprawnienia do użycia interfejsu API.
-  > [!div class="mx-imgBorder"]
-  > ![Szczegóły roli uprawnień](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
-* W obszarze Ustawienia uprawnień kliknij pozycję **uprawnienie...**, a następnie przewiń w dół listę uprawnień i kliknij pozycję **Zarządzaj narzędzia integracji**. Zaznacz pole wyboru **Zezwalaj administratorowi na dostęp do interfejsu API OData za pomocą uwierzytelniania podstawowego**.
-  > [!div class="mx-imgBorder"]
-  > ![Zarządzanie narzędziami integracji](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
-* Przewiń w dół do tego samego pola i wybierz pozycję **Employee Central API**. Dodaj uprawnienia, jak pokazano poniżej, aby czytać przy użyciu interfejsu API ODATA i edytować za pomocą interfejsu API ODATA. Wybierz opcję Edytuj, jeśli planujesz używać tego samego konta do scenariusza zapisywania zwrotnego SuccessFactors. 
-  > [!div class="mx-imgBorder"]
-  > ![Odczyt uprawnień do zapisu](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
-* Kliknij przycisk **gotowe**. Kliknij przycisk **Zapisz zmiany**.
+1. Na liście rola uprawnień kliknij pozycję **Utwórz nową**.
+    > [!div class="mx-imgBorder"]
+    > ![Utwórz nową rolę uprawnienia](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
+1. Dodaj nazwę i **Opis** **roli** dla nowej roli uprawnienia. Nazwa i opis powinny wskazywać, że rola ma uprawnienia do użycia interfejsu API.
+    > [!div class="mx-imgBorder"]
+    > ![Szczegóły roli uprawnień](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
+1. W obszarze Ustawienia uprawnień kliknij pozycję **uprawnienie...**, a następnie przewiń w dół listę uprawnień i kliknij pozycję **Zarządzaj narzędzia integracji**. Zaznacz pole wyboru **Zezwalaj administratorowi na dostęp do interfejsu API OData za pomocą uwierzytelniania podstawowego**.
+    > [!div class="mx-imgBorder"]
+    > ![Zarządzanie narzędziami integracji](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
+1. Przewiń w dół do tego samego pola i wybierz pozycję **Employee Central API**. Dodaj uprawnienia, jak pokazano poniżej, aby czytać przy użyciu interfejsu API ODATA i edytować za pomocą interfejsu API ODATA. Wybierz opcję Edytuj, jeśli planujesz używać tego samego konta do scenariusza zapisywania zwrotnego SuccessFactors. 
+    > [!div class="mx-imgBorder"]
+    > ![Odczyt uprawnień do zapisu](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
+
+1. W tym samym polu Uprawnienia wybierz pozycję **uprawnienia użytkownika — > dane pracowników** i przejrzyj atrybuty, które konto usługi może odczytywać z dzierżawy SuccessFactors. Na przykład aby pobrać atrybut *username* z SuccessFactors, upewnij się, że dla tego atrybutu jest udzielone uprawnienie "widok". Podobnie Przejrzyj każdy atrybut uprawnienia do wyświetlania. 
+
+    > [!div class="mx-imgBorder"]
+    > ![Uprawnienia do danych pracownika](./media/sap-successfactors-inbound-provisioning/review-employee-data-permissions.png)
+   
+
+    >[!NOTE]
+    >Aby uzyskać pełną listę atrybutów pobranych przez tę aplikację aprowizacji, zapoznaj się z [odwołaniem do atrybutu SuccessFactors](../app-provisioning/sap-successfactors-attribute-reference.md)
+
+1. Kliknij przycisk **gotowe**. Kliknij przycisk **Zapisz zmiany**.
 
 ### <a name="create-a-permission-group-for-the-api-user"></a>Tworzenie grupy uprawnień dla użytkownika interfejsu API
 
-* W centrum administracyjnym SuccessFactors Wyszukaj pozycję *Zarządzaj grupami uprawnień*, a następnie wybierz pozycję **Zarządzaj grupami uprawnień** z wyników wyszukiwania.
-  > [!div class="mx-imgBorder"]
-  > ![Zarządzaj grupami uprawnień](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
-* W oknie Zarządzanie grupami uprawnień kliknij pozycję **Utwórz nowe**.
-  > [!div class="mx-imgBorder"]
-  > ![Dodaj nową grupę](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
-* Dodaj nazwę grupy dla nowej grupy. Nazwa grupy powinna wskazywać, że grupa jest przeznaczony dla użytkowników interfejsu API.
-  > [!div class="mx-imgBorder"]
-  > ![Nazwa grupy uprawnień](./media/sap-successfactors-inbound-provisioning/permission-group-name.png)
-* Dodaj członków do grupy. Można na przykład wybrać pozycję **Nazwa użytkownika** z menu rozwijanego Pula osób, a następnie wprowadzić nazwę użytkownika konta interfejsu API, która będzie używana do integracji. 
-  > [!div class="mx-imgBorder"]
-  > ![Dodawanie członków grupy](./media/sap-successfactors-inbound-provisioning/add-group-members.png)
-* Kliknij pozycję **gotowe** , aby zakończyć tworzenie grupy uprawnień.
+1. W centrum administracyjnym SuccessFactors Wyszukaj pozycję *Zarządzaj grupami uprawnień*, a następnie wybierz pozycję **Zarządzaj grupami uprawnień** z wyników wyszukiwania.
+    > [!div class="mx-imgBorder"]
+    > ![Zarządzaj grupami uprawnień](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
+1. W oknie Zarządzanie grupami uprawnień kliknij pozycję **Utwórz nowe**.
+    > [!div class="mx-imgBorder"]
+    > ![Dodaj nową grupę](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
+1. Dodaj nazwę grupy dla nowej grupy. Nazwa grupy powinna wskazywać, że grupa jest przeznaczony dla użytkowników interfejsu API.
+    > [!div class="mx-imgBorder"]
+    > ![Nazwa grupy uprawnień](./media/sap-successfactors-inbound-provisioning/permission-group-name.png)
+1. Dodaj członków do grupy. Można na przykład wybrać pozycję **Nazwa użytkownika** z menu rozwijanego Pula osób, a następnie wprowadzić nazwę użytkownika konta interfejsu API, która będzie używana do integracji. 
+    > [!div class="mx-imgBorder"]
+    > ![Dodawanie członków grupy](./media/sap-successfactors-inbound-provisioning/add-group-members.png)
+1. Kliknij pozycję **gotowe** , aby zakończyć tworzenie grupy uprawnień.
 
 ### <a name="grant-permission-role-to-the-permission-group"></a>Udziel uprawnienia roli do grupy uprawnień
 
-* W centrum administracyjnym SuccessFactors Wyszukaj pozycję *Zarządzaj rolami uprawnień*, a następnie wybierz pozycję **Zarządzaj rolami uprawnień** z wyników wyszukiwania.
-* Z **listy rola uprawnień** wybierz rolę utworzoną na potrzeby uprawnień użycia interfejsu API.
-* W obszarze **Przypisz tę rolę do...** kliknij przycisk **Dodaj.** ...
-* Z menu rozwijanego wybierz pozycję **Grupa uprawnień** , a następnie kliknij pozycję **Wybierz...** , aby otworzyć okno grupy, aby wyszukać i wybrać utworzoną powyżej grupę. 
-  > [!div class="mx-imgBorder"]
-  > ![Dodaj grupę uprawnień](./media/sap-successfactors-inbound-provisioning/add-permission-group.png)
-* Przejrzyj uprawnienia przyznane grupie uprawnień. 
-  > [!div class="mx-imgBorder"]
-  > ![Szczegóły roli i grupy uprawnień](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
-* Kliknij przycisk **Zapisz zmiany**.
+1. W centrum administracyjnym SuccessFactors Wyszukaj pozycję *Zarządzaj rolami uprawnień*, a następnie wybierz pozycję **Zarządzaj rolami uprawnień** z wyników wyszukiwania.
+1. Z **listy rola uprawnień** wybierz rolę utworzoną na potrzeby uprawnień użycia interfejsu API.
+1. W obszarze **Przypisz tę rolę do...** kliknij przycisk **Dodaj.** ...
+1. Z menu rozwijanego wybierz pozycję **Grupa uprawnień** , a następnie kliknij pozycję **Wybierz...** , aby otworzyć okno grupy, aby wyszukać i wybrać utworzoną powyżej grupę. 
+    > [!div class="mx-imgBorder"]
+    > ![Dodaj grupę uprawnień](./media/sap-successfactors-inbound-provisioning/add-permission-group.png)
+1. Przejrzyj uprawnienia przyznane grupie uprawnień. 
+    > [!div class="mx-imgBorder"]
+    > ![Szczegóły roli i grupy uprawnień](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
+1. Kliknij przycisk **Zapisz zmiany**.
 
 ## <a name="configuring-user-provisioning-from-successfactors-to-azure-ad"></a>Konfigurowanie aprowizacji użytkowników z SuccessFactors do usługi Azure AD
 
@@ -161,7 +171,7 @@ Ta sekcja zawiera kroki dla aprowizacji konta użytkownika z SuccessFactors do u
 
 6. Po dodaniu aplikacji i wyświetleniu ekranu Szczegóły aplikacji wybierz opcję **aprowizacji**
 
-7. Zmień tryb **aprowizacji** **Mode** na **automatyczny**
+7. Zmień tryb **aprowizacji**  na **automatyczny**
 
 8. Wypełnij sekcję **poświadczenia administratora** w następujący sposób:
 

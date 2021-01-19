@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 07/20/2020
+ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: 805cdc0713afd43502bb224cce60167adbc418ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e97be7fef09287e6c4f8696e217702b97853fa6a
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90969525"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569457"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-sap-successfactors"></a>Jak Azure Active Directory aprowizacji integruje się z usługą SAP SuccessFactors 
 
@@ -47,29 +47,30 @@ Dla każdego użytkownika w SuccessFactors usługa Azure AD Provisioning pobiera
 
 | \# | Jednostka SuccessFactors                  | Węzeł OData     | Reguła pobierania |
 |----|----------------------------------------|------------------------------|------------------|
-| 1  | PerPerson                              | *węzeł główny*                  | Zawsze           |
-| 2  | PerPersonal                            | personalInfoNav              | Zawsze           |
-| 3  | PerPhone                               | phoneNav                     | Zawsze           |
-| 4  | PerEmail                               | emailNav                     | Zawsze           |
-| 5  | EmpEmployment                          | employmentNav                | Zawsze           |
-| 6  | Użytkownik                                   | employmentNav/userNav        | Zawsze           |
-| 7  | EmpJob                                 | employmentNav/jobInfoNav     | Zawsze           |
-| 8  | EmpEmploymentTermination               | activeEmploymentsCount       | Zawsze           |
-| 9  | FOCompany                              | employmentNav/jobInfoNav/companyNav | Tylko wtedy `company` , gdy `companyId` atrybut lub jest mapowany |
-| 10 | FODepartment                           | employmentNav/jobInfoNav/departmentNav | Tylko wtedy `department` , gdy `departmentId` atrybut lub jest mapowany |
-| 11 | FOBusinessUnit                         | employmentNav/jobInfoNav/businessUnitNav | Tylko wtedy `businessUnit` , gdy `businessUnitId` atrybut lub jest mapowany |
-| 12 | FOCostCenter                           | employmentNav/jobInfoNav/costCenterNav | Tylko wtedy `costCenter` , gdy `costCenterId` atrybut lub jest mapowany |
-| 13 | FODivision                             | employmentNav/jobInfoNav/divisionNav  | Tylko wtedy `division` , gdy `divisionId` atrybut lub jest mapowany |
-| 14 | FOJobCode                              | employmentNav/jobInfoNav/jobCodeNav  | Tylko wtedy `jobCode` , gdy `jobCodeId` atrybut lub jest mapowany |
-| 15 | FOPayGrade                             | employmentNav/jobInfoNav/payGradeNav  | Tylko wtedy, gdy `payGrade` atrybut jest zamapowany |
-| 16 | FOLocation                             | employmentNav/jobInfoNav/locationNav  | Tylko wtedy, gdy `location` atrybut jest zamapowany |
-| 17 | FOCorporateAddressDEFLT                | employmentNav/jobInfoNav/addressNavDEFLT  | Jeśli mapowanie zawiera jeden z następujących atrybutów: `officeLocationAddress,  officeLocationCity, officeLocationZipCode` |
-| 18 | FOEventReason                          | employmentNav/jobInfoNav/eventReasonNav  | Tylko wtedy, gdy `eventReason` atrybut jest zamapowany |
-| 19 | EmpGlobalAssignment                    | employmentNav/empGlobalAssignmentNav | Tylko wtedy, gdy `assignmentType` jest zamapowany |
-| 20 | Lista wyboru                | employmentNav/jobInfoNav/employmentTypeNav | Tylko wtedy, gdy `employmentType` jest zamapowany |
-| 21 | Lista wyboru EmployeeClass                 | employmentNav/jobInfoNav/employeeClassNav | Tylko wtedy, gdy `employeeClass` jest zamapowany |
-| 22 | Lista wyboru EmplStatus                    | employmentNav/jobInfoNav/emplStatusNav | Tylko wtedy, gdy `emplStatus` jest zamapowany |
-| 23 | Lista wyboru przypisania                | employmentNav/empGlobalAssignmentNav/assignmentTypeNav | Tylko wtedy, gdy `assignmentType` jest zamapowany |
+| 1  | PerPerson                              | *węzeł główny*                  | Always (Zawsze)           |
+| 2  | PerPersonal                            | personalInfoNav              | Always (Zawsze)           |
+| 3  | PerPhone                               | phoneNav                     | Always (Zawsze)           |
+| 4  | PerEmail                               | emailNav                     | Always (Zawsze)           |
+| 5  | EmpEmployment                          | employmentNav                | Always (Zawsze)           |
+| 6  | Użytkownik                                   | employmentNav/userNav        | Always (Zawsze)           |
+| 7  | EmpJob                                 | employmentNav/jobInfoNav     | Always (Zawsze)           |
+| 8  | EmpEmploymentTermination               | activeEmploymentsCount       | Always (Zawsze)           |
+| 9  | Menedżer użytkownika                         | employmentNav/userNav/Manager/empInfo | Always (Zawsze)  |
+| 10 | FOCompany                              | employmentNav/jobInfoNav/companyNav | Tylko wtedy `company` , gdy `companyId` atrybut lub jest mapowany |
+| 11 | FODepartment                           | employmentNav/jobInfoNav/departmentNav | Tylko wtedy `department` , gdy `departmentId` atrybut lub jest mapowany |
+| 12 | FOBusinessUnit                         | employmentNav/jobInfoNav/businessUnitNav | Tylko wtedy `businessUnit` , gdy `businessUnitId` atrybut lub jest mapowany |
+| 13 | FOCostCenter                           | employmentNav/jobInfoNav/costCenterNav | Tylko wtedy `costCenter` , gdy `costCenterId` atrybut lub jest mapowany |
+| 14 | FODivision                             | employmentNav/jobInfoNav/divisionNav  | Tylko wtedy `division` , gdy `divisionId` atrybut lub jest mapowany |
+| 15 | FOJobCode                              | employmentNav/jobInfoNav/jobCodeNav  | Tylko wtedy `jobCode` , gdy `jobCodeId` atrybut lub jest mapowany |
+| 16 | FOPayGrade                             | employmentNav/jobInfoNav/payGradeNav  | Tylko wtedy, gdy `payGrade` atrybut jest zamapowany |
+| 17 | FOLocation                             | employmentNav/jobInfoNav/locationNav  | Tylko wtedy, gdy `location` atrybut jest zamapowany |
+| 18 | FOCorporateAddressDEFLT                | employmentNav/jobInfoNav/addressNavDEFLT  | Jeśli mapowanie zawiera jeden z następujących atrybutów: `officeLocationAddress,  officeLocationCity, officeLocationZipCode` |
+| 19 | FOEventReason                          | employmentNav/jobInfoNav/eventReasonNav  | Tylko wtedy, gdy `eventReason` atrybut jest zamapowany |
+| 20 | EmpGlobalAssignment                    | employmentNav/empGlobalAssignmentNav | Tylko wtedy, gdy `assignmentType` jest zamapowany |
+| 21 | Lista wyboru                | employmentNav/jobInfoNav/employmentTypeNav | Tylko wtedy, gdy `employmentType` jest zamapowany |
+| 22 | Lista wyboru EmployeeClass                 | employmentNav/jobInfoNav/employeeClassNav | Tylko wtedy, gdy `employeeClass` jest zamapowany |
+| 23 | Lista wyboru EmplStatus                    | employmentNav/jobInfoNav/emplStatusNav | Tylko wtedy, gdy `emplStatus` jest zamapowany |
+| 24 | Lista wyboru przypisania                | employmentNav/empGlobalAssignmentNav/assignmentTypeNav | Tylko wtedy, gdy `assignmentType` jest zamapowany |
 
 ## <a name="how-full-sync-works"></a>Jak działa pełna synchronizacja
 W oparciu o Mapowanie atrybutów podczas pełnej synchronizacji usługa aprowizacji usługi Azure AD wysyła następujące zapytanie interfejsu API OData, aby pobrać efektywne dane wszystkich aktywnych użytkowników. 
@@ -113,7 +114,7 @@ Gdy usługa Azure AD Provisioning Service SuccessFactors kwerend, Pobiera zestaw
 
 Aby pobrać dodatkowe atrybuty, wykonaj następujące czynności:
     
-1. Przejdź do strony **aplikacje dla przedsiębiorstw**  ->  **SuccessFactors**  ->  **Provisioning**  ->  — umożliwia**Edytowanie**  ->  **atrybutów**aprowizacji.
+1. Przejdź do strony **aplikacje dla przedsiębiorstw**  ->  **SuccessFactors**  ->    ->  — umożliwia **Edytowanie**  ->  **atrybutów** aprowizacji.
 1. Przewiń w dół i kliknij pozycję **Pokaż opcje zaawansowane**.
 1. Kliknij pozycję **Edytuj listę atrybutów dla SuccessFactors**. 
 
@@ -244,8 +245,8 @@ Ta zmiana schematu obsługuje również scenariusz konwersji procesów roboczych
 ### <a name="handling-global-assignment-scenario"></a>Obsługa globalnego scenariusza przypisania
 
 Gdy użytkownik w centrali jest przetwarzany dla przypisania globalnego, SuccessFactors dodaje nową jednostkę *EmpEmployment* i ustawia *ASSIGNMENTCLASS* na "ga". Tworzy również nową jednostkę *użytkownika* . W ten sposób użytkownik ma teraz:
-* Jedna *EmpEmployment*  +  Jednostka*użytkownika* EmpEmployment, która odnosi się do przypisywania macierzystego z *assignmentClassem* ustawionym na "St" i 
-* Inna *EmpEmployment*  +  Jednostka*użytkownika* EmpEmployment, która odnosi się do przypisania globalnego z *assignmentClassem* ustawionym na "ga"
+* Jedna   +  Jednostka *użytkownika* EmpEmployment, która odnosi się do przypisywania macierzystego z *assignmentClassem* ustawionym na "St" i 
+* Inna   +  Jednostka *użytkownika* EmpEmployment, która odnosi się do przypisania globalnego z *assignmentClassem* ustawionym na "ga"
 
 Aby pobrać atrybuty należące do profilu standardowego przypisania i globalnego przypisania, wykonaj czynności opisane poniżej: 
 

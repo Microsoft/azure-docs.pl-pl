@@ -4,12 +4,12 @@ description: Dowiedz się więcej o Azure Database for PostgreSQL kopii zapasowe
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: 32837e5bb871f7db5024569efc27940047aeacd7
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 628f43788c11558185a7b8a735373f0a663fdad1
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734644"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569491"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Azure Database for PostgreSQL kopii zapasowej z długoterminowym przechowywaniem (wersja zapoznawcza)
 
@@ -135,7 +135,7 @@ Poniższe instrukcje to przewodnik krok po kroku dotyczący konfigurowania kopii
 
 1. Zdefiniuj ustawienia **przechowywania** . Można dodać co najmniej jedną regułę przechowywania. Każda reguła przechowywania przyjmuje dane wejściowe dla określonych kopii zapasowych oraz czas przechowywania i przechowywania danych dla tych kopii zapasowych.
 
-1. Możesz zapisywać kopie zapasowe w jednym z dwóch magazynów danych (lub warstw): **Backup Data Store** (warstwa gorąca) lub **archiwum danych archiwalnych** (w wersji zapoznawczej). Można wybrać jedną z **dwóch opcji warstwowych** , aby zdefiniować, kiedy kopie zapasowe mają być warstwowe między dwoma magazynami danych:
+1. Możesz zapisywać kopie zapasowe w jednym z dwóch magazynów danych (lub warstw): **zapasowe magazyny danych** (warstwa standardowa) lub **Magazyn danych archiwalnych** (w wersji zapoznawczej). Można wybrać jedną z **dwóch opcji warstwowych** , aby zdefiniować, kiedy kopie zapasowe mają być warstwowe między dwoma magazynami danych:
 
     - Wybierz opcję kopiowania **natychmiast** , jeśli wolisz utworzyć kopię zapasową zarówno dla magazynu danych kopii zapasowej, jak i archiwum.
     - Wybierz przeniesienie **na wygaśnięcie** , jeśli wolisz przenieść kopię zapasową w celu zarchiwizowania magazynu danych w magazynie danych kopii zapasowej.

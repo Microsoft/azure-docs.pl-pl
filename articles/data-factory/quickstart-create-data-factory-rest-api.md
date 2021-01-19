@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 06/10/2019
+ms.date: 01/18/2021
 ms.author: jingwang
-ms.openlocfilehash: 48928c5c4f3a2787e8f00e4084daacf6a64f1ea7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 34a2e423e06782b0d43766cccac9319ce68239d4
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461565"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569474"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Szybki start: Tworzenie fabryki danych platformy Azure i potoku przy użyciu interfejsu API REST
 
@@ -303,7 +303,7 @@ Oto przykładowe dane wyjściowe:
 ```
 ## <a name="create-pipeline"></a>Tworzenie potoku
 
-W niniejszym przykładzie ten potok zawiera jedno działanie i pobiera dwa parametry — ścieżkę wejściowego obiektu blob i ścieżkę wyjściowego obiektu blob. Wartości tych parametrów są ustawiane w chwili wyzwolenia/uruchomienia potoku. Działanie kopiowania dotyczy tego samego zestawu danych obiektu blob, który został utworzony w poprzednim kroku jako wejście i wyjście. W przypadku użycia zestawu danych jako zestawu danych wejściowych określana jest ścieżka wejściowa. Natomiast w przypadku użycia zestawu danych jako zestawu danych wyjściowych określana jest ścieżka wyjściowa.
+W tym przykładzie ten potok zawiera jedno działanie kopiowania. Działanie kopiowania odwołuje się do elementów "InputDataset" i "OutputDataset" utworzonych w poprzednim kroku jako dane wejściowe i wyjściowe.
 
 ```powershell
 $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${dataFactoryName}/pipelines/Adfv2QuickStartPipeline?api-version=${apiVersion}"
@@ -383,10 +383,7 @@ Oto przykładowe dane wyjściowe:
 
 ## <a name="create-pipeline-run"></a>Tworzenie uruchomienia potoku
 
-W tym kroku ustawisz wartości parametrów **inputPath** i **outputPath** określonych w potoku za pomocą rzeczywistych wartości ścieżek źródła i ujścia obiektu blob oraz wyzwolisz uruchomienie potoku. Identyfikator uruchomienia potoku zwracany w treści odpowiedzi jest używany później do monitorowania interfejsu API.
-
-Zastąp wartość **inputPath** i **outputPath** ścieżką źródłową i ujścia obiektu BLOB, aby skopiować dane z i do przed zapisaniem pliku.
-
+W tym kroku zostanie wyzwolone uruchomienie potoku. Identyfikator uruchomienia potoku zwracany w treści odpowiedzi jest używany później do monitorowania interfejsu API.
 
 ```powershell
 $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/pipelines/Adfv2QuickStartPipeline/createRun?api-version=${apiVersion}"

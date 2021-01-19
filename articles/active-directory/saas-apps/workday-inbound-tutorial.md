@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 05/26/2020
+ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: 5cbfdd57ebd25da013bfb82b761839b1e74ee012
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 8e83841031593d0d1af4499f3ef9a15400ce7794
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97609024"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569609"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie produktu Workday do automatycznego aprowizacji użytkowników
 
@@ -41,11 +41,11 @@ Celem tego samouczka jest przedstawienie czynności, które należy wykonać, ab
 ### <a name="whats-new"></a>Co nowego
 W tej sekcji znajdują się najnowsze ulepszenia integracji z produktem Workday. Aby uzyskać listę kompleksowych aktualizacji, planowanych zmian i archiwów, odwiedź stronę [co nowego w Azure Active Directory?](../fundamentals/whats-new.md) 
 
+* **Oct 2020 — włączono obsługę administracyjną na żądanie dla produktu Workday:** Przy użyciu [aprowizacji na żądanie](../app-provisioning/provision-on-demand.md) możesz teraz przetestować kompleksowe Inicjowanie obsługi dla określonego profilu użytkownika w dniu Workday, aby zweryfikować Mapowanie atrybutów i logikę wyrażenia.   
+
 * **Może 2020 — możliwość stornowania numerów telefonów do produktu Workday:** Oprócz poczty e-mail i nazwy użytkownika można teraz Stornowaniem numeru telefonu służbowego i numeru telefonu komórkowego z usługi Azure AD do produktu Workday. Aby uzyskać więcej informacji, zapoznaj się z [samouczkiem dotyczącym aplikacji zapisywania zwrotnego](workday-writeback-tutorial.md).
 
 * **Kwiecień 2020 — wsparcie dla najnowszej wersji interfejsu API usługi Web Services (WWS) platformy Workday:** Dwa razy rok w marcu i wrześniu firma Workday oferuje aktualizacje bogate w funkcje, które pomagają spełnić cele biznesowe i zmieniać wymagania pracowników. Aby zachować nowe funkcje dostarczone przez dzień Workday, możesz teraz bezpośrednio określić wersję interfejsu API WWS, która ma być używana w adresie URL połączenia. Aby uzyskać szczegółowe informacje na temat określania wersji interfejsu API produktu Workday, zapoznaj się z sekcją [Konfigurowanie łączności](#part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory)z usługą Workday. 
-
-* **Jan 2020 — możliwość ustawienia atrybutu accountExpires usługi AD:** Za pomocą funkcji [NumFromDate](../app-provisioning/functions-for-customizing-application-data.md#numfromdate) można teraz mapować pola daty produktu Workday, takie jak *EndContractDate* lub *StatusTerminationDate*. 
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>Dla kogo to rozwiązanie do aprowizacji użytkowników jest najlepiej dopasowane?
 
@@ -151,51 +151,37 @@ W tym kroku zostanie udzielone uprawnienie "zabezpieczenia domeny" dotyczące da
 
 **Aby skonfigurować uprawnienia zasad zabezpieczeń domeny:**
 
-1. W polu wyszukiwania wprowadź **konfigurację zabezpieczeń domeny** , a następnie kliknij pozycję **raport Konfiguracja zabezpieczeń domeny** łącza.  
+1. W polu wyszukiwania wprowadź **przynależność do grupy zabezpieczeń i dostęp** , a następnie kliknij łącze raportu.
    >[!div class="mx-imgBorder"]
-   >![Zrzut ekranu pokazujący "Konfiguracja zabezpieczeń domeny" w polu wyszukiwania z opcją "Konfiguracja zabezpieczeń domeny-raport" wyświetlany w wynikach.](./media/workday-inbound-tutorial/wd_isu_06.png "Zasady zabezpieczeń domeny")  
-2. W polu tekstowym **domena** Wyszukaj następujące domeny i Dodaj je do filtru jeden według jednego.  
+   >![Wyszukaj członkostwo w grupie zabezpieczeń](./media/workday-inbound-tutorial/security-group-membership-access.png)
+
+1. Wyszukaj i wybierz grupę zabezpieczeń utworzoną w poprzednim kroku. 
+   >[!div class="mx-imgBorder"]
+   >![Wybierz grupę zabezpieczeń](./media/workday-inbound-tutorial/select-security-group-msft-wdad.png)
+
+1. Kliknij przycisk wielokropka (...) obok nazwy grupy i z menu, wybierz opcję **Grupa zabezpieczeń > zachować uprawnienia domeny dla grupy zabezpieczeń**
+   >[!div class="mx-imgBorder"]
+   >![Wybierz pozycję Zachowaj uprawnienia domeny](./media/workday-inbound-tutorial/select-maintain-domain-permissions.png)
+
+1. W obszarze **uprawnienia integracji** Dodaj następujące domeny do listy **zasad zabezpieczeń domeny z zezwoleniem na dostęp** .
    * *Inicjowanie obsługi konta zewnętrznego*
+   * *Dane procesu roboczego: raporty dotyczące publicznych procesów roboczych* 
+   * *Dane osoby: informacje kontaktowe służbowych* (wymagane w przypadku planowania zapisywania zwrotnego danych kontaktowych z usługi Azure AD do produktu Workday)
+   * *Konta programu Workday* (wymagane w przypadku planowania zapisywania zwrotnego nazwy użytkownika/nazwy UPN z usługi Azure AD do produktu Workday)
+
+1. W obszarze **uprawnienia integracji** Dodaj następujące domeny do listy **zasad zabezpieczeń domeny z zezwoleniem na dostęp** .
    * *Dane procesu roboczego: procesy robocze*
-   * *Dane procesu roboczego: raporty dotyczące publicznych procesów roboczych*
-   * *Dane osoby: służbowe informacje kontaktowe*
    * *Dane procesu roboczego: wszystkie pozycje*
    * *Dane procesu roboczego: bieżące informacje o kadrze*
    * *Dane procesu roboczego: tytuł działalności w profilu procesu roboczego*
-   * *Konta Workday*
+   * *Dane procesu roboczego: zakwalifikowani pracownicy* (opcjonalnie Dodaj ten proces, aby pobrać dane dotyczące kwalifikacji procesów roboczych do aprowizacji)
+   * *Dane procesu roboczego: umiejętności i doświadczenia* (opcjonalnie Dodaj ten proces, aby pobrać dane umiejętności procesu roboczego w celu aprowizacji)
 
-     >[!div class="mx-imgBorder"]
-     >![Zrzut ekranu przedstawiający raport konfiguracji zabezpieczeń domeny z "kontem zewnętrznym" w polu tekstowym "domena".](./media/workday-inbound-tutorial/wd_isu_07.png "Zasady zabezpieczeń domeny")  
-
-     >[!div class="mx-imgBorder"]
-     >![Zrzut ekranu przedstawiający raport Konfiguracja zabezpieczeń domeny z wybraną listą domen.](./media/workday-inbound-tutorial/wd_isu_08.png "Zasady zabezpieczeń domeny") 
-
-     Kliknij przycisk **OK**.
-
-3. W wyświetlonym raporcie wybierz przycisk wielokropka (...) wyświetlany obok pozycji **zewnętrzne Inicjowanie obsługi konta** i kliknij opcję menu **domena-> Edytuj uprawnienia zasad zabezpieczeń**
+1. Po wykonaniu powyższych kroków zostanie wyświetlony ekran uprawnienia, jak pokazano poniżej:
    >[!div class="mx-imgBorder"]
-   >![Zasady zabezpieczeń domeny](./media/workday-inbound-tutorial/wd_isu_09.png "Zasady zabezpieczeń domeny")  
+   >![Wszystkie uprawnienia zabezpieczeń domeny](./media/workday-inbound-tutorial/all-domain-security-permissions.png)
 
-4. Na stronie **Edytowanie uprawnień zasad zabezpieczeń domeny** przewiń w dół do sekcji **uprawnienia integracji**. Kliknij znak "+", aby dodać grupę system Integration do listy grup zabezpieczeń z uprawnieniami do **pobierania** i **umieszczania** integracji.
-   >[!div class="mx-imgBorder"]
-   >![Zrzut ekranu pokazujący podświetloną sekcję "Integration uprawnień".](./media/workday-inbound-tutorial/wd_isu_10.png "Edytuj uprawnienie")  
-
-5. Kliknij znak "+", aby dodać grupę system Integration do listy grup zabezpieczeń z uprawnieniami do **pobierania** i **umieszczania** integracji.
-
-   >[!div class="mx-imgBorder"]
-   >![Edytuj uprawnienie](./media/workday-inbound-tutorial/wd_isu_11.png "Edytuj uprawnienie")  
-
-6. Powtórz kroki 3-5 powyżej dla każdej z pozostałych zasad zabezpieczeń:
-
-   | Operacja | Zasady zabezpieczeń domeny |
-   | ---------- | ---------- |
-   | Pobierz i umieść | Dane procesu roboczego: raporty dotyczące publicznych procesów roboczych |
-   | Pobierz i umieść | Dane osoby: służbowe informacje kontaktowe |
-   | Get | Dane procesu roboczego: procesy robocze |
-   | Get | Dane procesu roboczego: wszystkie pozycje |
-   | Get | Dane procesu roboczego: bieżące informacje o kadrze |
-   | Get | Dane procesu roboczego: tytuł działalności w profilu procesu roboczego |
-   | Pobierz i umieść | Konta Workday |
+1. Kliknij  przycisk OK **i wykonaj** na następnym ekranie, aby zakończyć konfigurację. 
 
 ### <a name="configuring-business-process-security-policy-permissions"></a>Konfigurowanie uprawnień zasad zabezpieczeń procesów firmy
 
@@ -240,35 +226,9 @@ W tym kroku zostanie udzielone uprawnienie "zabezpieczenia procesu biznesowego" 
    >[!div class="mx-imgBorder"]
    >![Aktywuj oczekujące zabezpieczenia](./media/workday-inbound-tutorial/wd_isu_18.png "Aktywuj oczekujące zabezpieczenia")  
 
-## <a name="configure-active-directory-service-account"></a>Skonfiguruj konto usługi Active Directory
+## <a name="provisioning-agent-installation-prerequisites"></a>Wymagania wstępne instalacji agenta aprowizacji
 
-W tej sekcji opisano uprawnienia konta usługi AD, które są wymagane do zainstalowania i skonfigurowania agenta aprowizacji Azure AD Connect.
-
-### <a name="permissions-required-to-run-the-provisioning-agent-installer"></a>Uprawnienia wymagane do uruchomienia instalatora agenta aprowizacji
-Po zidentyfikowaniu systemu Windows Server, który będzie obsługiwał agenta aprowizacji, zaloguj się na hoście serwera przy użyciu poświadczeń administratora lokalnego lub administratora domeny. Proces instalacji agenta tworzy pliki poświadczeń bezpiecznego magazynu kluczy i aktualizuje konfigurację profilu usługi na serwerze hosta. Wymaga to dostępu administratora na serwerze hostującym agenta. 
-
-### <a name="permissions-required-to-configure-the-provisioning-agent-service"></a>Uprawnienia wymagane do skonfigurowania usługi agenta aprowizacji
-Wykonaj poniższe kroki, aby skonfigurować konto usługi, które może służyć do wykonywania operacji agenta aprowizacji. 
-1. Na kontrolerze domeny usługi AD Otwórz przystawkę *Użytkownicy i komputery Active Directory* . 
-2. Tworzenie nowego użytkownika domeny (przykład: *provAgentAdmin*)  
-3. Kliknij prawym przyciskiem myszy nazwę jednostki organizacyjnej lub domeny i wybierz pozycję *Deleguj kontrolę* , która spowoduje otwarcie *Kreatora delegowania kontroli*. 
-
-> [!NOTE] 
-> Jeśli chcesz ograniczyć agenta aprowizacji do tworzenia i odczytywania tylko użytkowników z określonej jednostki organizacyjnej na potrzeby testowania, zalecamy delegowanie kontroli przy użyciu odpowiedniego poziomu jednostki organizacyjnej podczas przebiegów testów.
-
-4. Kliknij przycisk **dalej** na ekranie powitalnym. 
-5. Na ekranie **Wybieranie użytkowników lub grup** Dodaj użytkownika domeny utworzonego w kroku 2. Kliknij przycisk **Dalej**.
-   >[!div class="mx-imgBorder"]
-   >![Dodaj ekran](./media/workday-inbound-tutorial/delegation-wizard-01.png "Dodaj ekran")
-
-6. Na ekranie **zadania do delegowania** wybierz następujące zadania: 
-   * Tworzenie i usuwanie kont użytkowników oraz zarządzanie nimi
-   * Odczytaj wszystkie informacje o użytkowniku
-
-   >[!div class="mx-imgBorder"]
-   >![Ekran zadań](./media/workday-inbound-tutorial/delegation-wizard-02.png "Ekran zadań")
-
-7. Kliknij przycisk **dalej** i **Zapisz** konfigurację.
+Przed przejściem do następnej sekcji zapoznaj się z [wymaganiami wstępnymi instalacji agenta aprowizacji](../cloud-provisioning/how-to-prerequisites.md) . 
 
 ## <a name="configuring-user-provisioning-from-workday-to-active-directory"></a>Konfigurowanie aprowizacji użytkowników z produktu Workday do Active Directory
 
@@ -305,72 +265,9 @@ Ta sekcja zawiera kroki dla aprowizacji konta użytkownika z produktu Workday do
 
 ### <a name="part-2-install-and-configure-on-premises-provisioning-agents"></a>Część 2. Instalowanie i konfigurowanie lokalnych agentów aprowizacji
 
-Aby zapewnić Active Directory lokalnego, Agent aprowizacji musi być zainstalowany na serwerze, który ma .NET 4.7.1 + Framework i dostęp sieciowy do żądanych Active Directory domen.
+Aby zapewnić Active Directory lokalnego, Agent aprowizacji musi być zainstalowany na serwerze przyłączonym do domeny, który ma dostęp sieciowy do żądanych Active Directory domen.
 
-> [!TIP]
-> Możesz sprawdzić wersję programu .NET Framework na serwerze, korzystając z instrukcji przedstawionych [tutaj](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
-> Jeśli na serwerze nie jest zainstalowany program .NET 4.7.1 lub nowszy, możesz go pobrać z tego [miejsca](https://support.microsoft.com/help/4033342/the-net-framework-4-7-1-offline-installer-for-windows).  
-
-Przenieś pobrany Instalator agenta na hosta serwera i wykonaj kroki podane poniżej, aby ukończyć konfigurację agenta.
-
-1. Zaloguj się do systemu Windows Server, na którym chcesz zainstalować nowego agenta.
-
-1. Uruchom Instalatora agenta aprowizacji, zaakceptuj warunki i kliknij przycisk **Instaluj** .
-
-   >[!div class="mx-imgBorder"]
-   >![Ekran instalacji](./media/workday-inbound-tutorial/pa_install_screen_1.png "Ekran instalacji")
-
-1. Po zakończeniu instalacji Kreator zostanie uruchomiony i zostanie wyświetlony ekran **łączenie z usługą Azure AD** . Kliknij przycisk **Uwierzytelnij** , aby nawiązać połączenie z wystąpieniem usługi Azure AD.
-
-   >[!div class="mx-imgBorder"]
-   >![Łączenie z usługą Azure AD](./media/workday-inbound-tutorial/pa_install_screen_2.png "Łączenie z usługą Azure AD")
-
-1. Uwierzytelnij się w wystąpieniu usługi Azure AD przy użyciu poświadczeń administratora tożsamości hybrydowej.
-
-   >[!div class="mx-imgBorder"]
-   >![Uwierzytelnianie administratora](./media/workday-inbound-tutorial/pa_install_screen_3.png "Uwierzytelnianie administratora")
-
-   > [!NOTE]
-   > Poświadczenia administratora usługi Azure AD są używane tylko w celu nawiązania połączenia z dzierżawą usługi Azure AD. Agent nie przechowuje poświadczeń lokalnie na serwerze.
-
-1. Po pomyślnym uwierzytelnieniu w usłudze Azure AD zostanie wyświetlony ekran **Connect Active Directory** . W tym kroku wprowadź nazwę domeny usługi AD i kliknij przycisk **Dodaj katalog** .
-
-   >[!div class="mx-imgBorder"]
-   >![Dodaj katalog](./media/workday-inbound-tutorial/pa_install_screen_4.png "Dodaj katalog")
-
-1. Teraz zostanie wyświetlony monit o wprowadzenie poświadczeń wymaganych do nawiązania połączenia z domeną usługi AD. Na tym samym ekranie można użyć **priorytetu wybierz kontroler domeny** , aby określić kontrolery domeny, które mają być używane przez agenta do wysyłania żądań aprowizacji.
-
-   >[!div class="mx-imgBorder"]
-   >![Poświadczenia domeny](./media/workday-inbound-tutorial/pa_install_screen_5.png)
-
-1. Po skonfigurowaniu domeny w instalatorze zostanie wyświetlona lista skonfigurowanych domen. Na tym ekranie można powtórzyć krok #5 i #6, aby dodać więcej domen lub kliknąć przycisk **dalej** , aby przejść do rejestracji agenta.
-
-   >[!div class="mx-imgBorder"]
-   >![Skonfigurowane domeny](./media/workday-inbound-tutorial/pa_install_screen_6.png "Skonfigurowane domeny")
-
-   > [!NOTE]
-   > Jeśli masz wiele domen usługi AD (np. na.contoso.com, emea.contoso.com), Dodaj każdą domenę osobno do listy.
-   > Dodawanie domeny nadrzędnej (np. contoso.com) nie jest wystarczające. Należy zarejestrować każdą domenę podrzędną w agencie.
-
-1. Przejrzyj szczegóły konfiguracji i kliknij przycisk **Potwierdź** , aby zarejestrować agenta.
-
-   >[!div class="mx-imgBorder"]
-   >![Potwierdź ekran](./media/workday-inbound-tutorial/pa_install_screen_7.png "Potwierdź ekran")
-
-1. Kreator konfiguracji wyświetla postęp rejestracji agenta.
-
-   >[!div class="mx-imgBorder"]
-   >![Rejestracja agenta](./media/workday-inbound-tutorial/pa_install_screen_8.png "Rejestracja agenta")
-
-1. Po pomyślnym zarejestrowaniu agenta możesz kliknąć przycisk **Zakończ** , aby zamknąć kreatora.
-
-   >[!div class="mx-imgBorder"]
-   >![Ekran zakończenia](./media/workday-inbound-tutorial/pa_install_screen_9.png "Ekran zakończenia")
-
-1. Sprawdź instalację agenta i upewnij się, że jest on uruchomiony, otwierając "usługi" Snap-In i poszukaj usługi o nazwie "Microsoft Azure AD Połącz agenta aprowizacji"
-
-   >[!div class="mx-imgBorder"]
-   >![Zrzut ekranu przedstawiający agenta aprowizacji Microsoft Azure AD łączenia z usługą w usługach.](./media/workday-inbound-tutorial/services.png)
+Przenieś pobrany Instalator agenta na hosta serwera i wykonaj kroki opisane [w sekcji **Instalowanie agenta**](../cloud-provisioning/how-to-install.md) , aby ukończyć konfigurację agenta.
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory"></a>Część 3: w aplikacji aprowizacji Skonfiguruj łączność z produktem Workday i Active Directory
 W tym kroku ustanawiamy łączność z produktem Workday i Active Directory w Azure Portal. 
@@ -514,24 +411,22 @@ W tej sekcji skonfigurujesz sposób przepływu danych przez użytkownika z produ
 | **LocalReference** |  preferredLanguage  |     |  Utwórz i zaktualizuj |                                               
 | **Switch ( \[ gmina \] : "OU = default users, DC = contoso, DC = com", "Dallas", "OU = Dallas, OU = users, DC = contoso, DC = com", "Austin", "OU = Austin, OU = users, DC = contoso, DC = com", "Seattle", "OU = Seattle, OU = users, DC = contoso, DC = com", "Londyn", "OU = Londyn, OU = users, DC = contoso, DC = com")**  | parentDistinguishedName     |     |  Utwórz i zaktualizuj |
 
-Po zakończeniu konfiguracji mapowania atrybutów możesz teraz [włączyć i uruchomić usługę aprowizacji użytkowników](#enable-and-launch-user-provisioning).
+Po zakończeniu konfiguracji mapowania atrybutów można testować Inicjowanie obsługi dla pojedynczego użytkownika przy użyciu [inicjowania obsługi na żądanie](../app-provisioning/provision-on-demand.md) , a następnie [włączyć i uruchomić usługę aprowizacji użytkowników](#enable-and-launch-user-provisioning).
 
 ## <a name="enable-and-launch-user-provisioning"></a>Włączanie i uruchamianie aprowizacji użytkowników
 
-Po zakończeniu konfiguracji aplikacji inicjowania obsługi dla programu Workday można włączyć usługę aprowizacji w Azure Portal.
+Po zakończeniu konfiguracji aplikacji do aprowizacji w dniu Workday i sprawdzeniu aprowizacji dla pojedynczego użytkownika z obsługą [administracyjną na żądanie](../app-provisioning/provision-on-demand.md)można włączyć usługę aprowizacji w Azure Portal.
 
 > [!TIP]
-> Domyślnie po włączeniu usługi aprowizacji zostaną zainicjowane operacje aprowizacji dla wszystkich użytkowników w zakresie. Jeśli występują błędy w mapowaniu lub problemach z danymi w dniach roboczych, zadanie aprowizacji może się nie powieść i przejść do stanu kwarantanny. Aby tego uniknąć, najlepszym rozwiązaniem jest zalecamy skonfigurowanie filtru **zakresu obiektów źródłowych** i przetestowanie mapowań atrybutów z kilkoma użytkownikami testowymi przed uruchomieniem pełnej synchronizacji dla wszystkich użytkowników. Po sprawdzeniu, czy mapowania działają i dają odpowiednie wyniki, można usunąć filtr lub stopniowo rozwijać go, aby uwzględnić więcej użytkowników.
+> Domyślnie po włączeniu usługi aprowizacji zostaną zainicjowane operacje aprowizacji dla wszystkich użytkowników w zakresie. Jeśli występują błędy w mapowaniu lub problemach z danymi w dniach roboczych, zadanie aprowizacji może się nie powieść i przejść do stanu kwarantanny. Aby tego uniknąć, najlepszym rozwiązaniem jest zalecamy skonfigurowanie filtru **zakresu obiektów źródłowych** i przetestowanie mapowań atrybutów za pomocą kilku użytkowników testowych korzystających z [aprowizacji na żądanie](../app-provisioning/provision-on-demand.md) przed uruchomieniem pełnej synchronizacji dla wszystkich użytkowników. Po sprawdzeniu, czy mapowania działają i dają odpowiednie wyniki, można usunąć filtr lub stopniowo rozwijać go, aby uwzględnić więcej użytkowników.
 
-1. Na karcie **aprowizacji** Ustaw **stan aprowizacji** na **włączone**.
+1. Przejdź do bloku **aprowizacji** i kliknij pozycję **Rozpocznij Inicjowanie obsługi**.
 
-2. Kliknij pozycję **Zapisz**.
+1. Ta operacja rozpocznie synchronizację początkową, która może potrwać zmienną liczbę godzin w zależności od liczby użytkowników w dzierżawie produktu Workday. Możesz sprawdzić, czy pasek postępu śledzi postęp cyklu synchronizacji. 
 
-3. Ta operacja rozpocznie synchronizację początkową, która może potrwać zmienną liczbę godzin w zależności od liczby użytkowników w dzierżawie produktu Workday. 
+1. W dowolnym momencie sprawdź kartę **dzienniki inspekcji** w Azure Portal, aby zobaczyć, jakie akcje zostały wykonane przez usługę aprowizacji. W dziennikach inspekcji są wyświetlane wszystkie zdarzenia synchronizacji wykonywane przez usługę aprowizacji, takie jak informacje o użytkownikach, które są odczytywane z dnia roboczego, a następnie dodane lub zaktualizowane do Active Directory. Zapoznaj się z sekcją rozwiązywania problemów, aby uzyskać instrukcje dotyczące sposobu przeglądania dzienników inspekcji i naprawiania błędów aprowizacji.
 
-4. W dowolnym momencie sprawdź kartę **dzienniki inspekcji** w Azure Portal, aby zobaczyć, jakie akcje zostały wykonane przez usługę aprowizacji. W dziennikach inspekcji są wyświetlane wszystkie zdarzenia synchronizacji wykonywane przez usługę aprowizacji, takie jak informacje o użytkownikach, które są odczytywane z dnia roboczego, a następnie dodane lub zaktualizowane do Active Directory. Zapoznaj się z sekcją rozwiązywania problemów, aby uzyskać instrukcje dotyczące sposobu przeglądania dzienników inspekcji i naprawiania błędów aprowizacji.
-
-5. Po zakończeniu synchronizacji początkowej zostanie zapisany raport z podsumowaniem inspekcji na karcie **aprowizacji** , jak pokazano poniżej.
+1. Po zakończeniu synchronizacji początkowej zostanie zapisany raport z podsumowaniem inspekcji na karcie **aprowizacji** , jak pokazano poniżej.
    > [!div class="mx-imgBorder"]
    > ![Pasek postępu aprowizacji](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
 
@@ -540,12 +435,10 @@ Po zakończeniu konfiguracji aplikacji inicjowania obsługi dla programu Workday
 * **Pytania dotyczące możliwości rozwiązania**
   * [W jaki sposób rozwiązanie ustawia hasło dla nowego konta użytkownika w Active Directory w przypadku przetwarzania nowego zatrudnienia z produktu Workday?](#when-processing-a-new-hire-from-workday-how-does-the-solution-set-the-password-for-the-new-user-account-in-active-directory)
   * [Czy rozwiązanie obsługuje wysyłanie powiadomień pocztą e-mail po ukończeniu operacji aprowizacji?](#does-the-solution-support-sending-email-notifications-after-provisioning-operations-complete)
-  * [Jak mogę zarządzać dostarczaniem haseł dla nowych pracowników i bezpiecznie udostępniać mechanizm resetowania hasła?](#how-do-i-manage-delivery-of-passwords-for-new-hires-and-securely-provide-a-mechanism-to-reset-their-password)
   * [Czy w przypadku pamięci podręcznej rozwiązania profile użytkowników platformy Workday w chmurze usługi Azure AD lub w warstwie agenta aprowizacji?](#does-the-solution-cache-workday-user-profiles-in-the-azure-ad-cloud-or-at-the-provisioning-agent-layer)
   * [Czy rozwiązanie obsługuje przypisywanie lokalnych grup usługi AD do użytkownika?](#does-the-solution-support-assigning-on-premises-ad-groups-to-the-user)
   * [Które interfejsy API programu Workday wykorzystują rozwiązanie do wysyłania zapytań i aktualizowania profilów procesów roboczych dla programu Workday?](#which-workday-apis-does-the-solution-use-to-query-and-update-workday-worker-profiles)
   * [Czy mogę skonfigurować dzierżawę usługi Workday HCM z dwoma dzierżawami usługi Azure AD?](#can-i-configure-my-workday-hcm-tenant-with-two-azure-ad-tenants)
-  * [Dlaczego aplikacja do inicjowania obsługi użytkownika w usłudze Azure AD nie jest obsługiwana, jeśli wdrożono Azure AD Connect?](#why-workday-to-azure-ad-user-provisioning-app-is-not-supported-if-we-have-deployed-azure-ad-connect)
   * [Jak mogę Sugeruj ulepszenia lub zażądać nowych funkcji związanych z usługą Workday i integracją usługi Azure AD?](#how-do-i-suggest-improvements-or-request-new-features-related-to-workday-and-azure-ad-integration)
 
 * **Pytania dotyczące agenta aprowizacji**
@@ -577,19 +470,13 @@ Gdy lokalny Agent aprowizacji otrzyma żądanie utworzenia nowego konta usługi 
 
 Nie, wysyłanie powiadomień pocztą e-mail po ukończeniu operacji aprowizacji nie jest obsługiwane w bieżącej wersji.
 
-#### <a name="how-do-i-manage-delivery-of-passwords-for-new-hires-and-securely-provide-a-mechanism-to-reset-their-password"></a>Jak mogę zarządzać dostarczaniem haseł dla nowych pracowników i bezpiecznie udostępniać mechanizm resetowania hasła?
-
-Jedną z ostatnich kroków związanych z nową obsługą kont usługi AD jest dostarczanie tymczasowego hasła przypisanego do konta usługi AD użytkownika. Wiele przedsiębiorstw nadal używa tradycyjnego podejścia do dostarczania tymczasowego hasła do Menedżera użytkownika, który następnie przekazuje hasło do nowego pracownika zatrudniania/warunkowego. Ten proces ma nieodłączną lukę w zabezpieczeniach i istnieje możliwość wdrożenia lepszego podejścia przy użyciu funkcji usługi Azure AD.
-
-W ramach procesu zatrudniania zespoły kadr zwykle uruchamiają sprawdzenie w tle i Zweryfikuj numer telefonu komórkowego nowego zatrudnienia. Dzięki integracji z programem Workday do obsługi użytkowników w usłudze AD można kompilować na podstawie tego faktu i wdrażać funkcję samoobsługowego resetowania hasła dla użytkownika w dniu 1. Jest to realizowane przez propagowanie atrybutu "numer telefonu komórkowego" nowego zatrudnienia z produktu Workday do usługi AD, a następnie z usługi AD do usługi Azure AD przy użyciu Azure AD Connect. Gdy w usłudze Azure AD jest obecny numer telefonu komórkowego, możesz włączyć funkcję samoobsługowego [resetowania hasła (SSPR)](../authentication/howto-sspr-authenticationdata.md) dla konta użytkownika, tak aby w dniu 1 nowe zatrudnienie mogły używać zarejestrowanego i zweryfikowanego numeru komórkowego na potrzeby uwierzytelniania.
-
 #### <a name="does-the-solution-cache-workday-user-profiles-in-the-azure-ad-cloud-or-at-the-provisioning-agent-layer"></a>Czy w przypadku pamięci podręcznej rozwiązania profile użytkowników platformy Workday w chmurze usługi Azure AD lub w warstwie agenta aprowizacji?
 
 Nie, rozwiązanie nie utrzymuje pamięci podręcznej profilów użytkowników. Usługa Azure AD Provisioning działa po prostu jako procesor danych, odczytywanie danych z produktu Workday i zapisywanie do Active Directory docelowej lub usługi Azure AD. Zapoznaj się z sekcją [Zarządzanie danymi osobowymi](#managing-personal-data) w celu uzyskania szczegółowych informacji dotyczących prywatności użytkowników i przechowywania danych.
 
 #### <a name="does-the-solution-support-assigning-on-premises-ad-groups-to-the-user"></a>Czy rozwiązanie obsługuje przypisywanie lokalnych grup usługi AD do użytkownika?
 
-Ta funkcja nie jest obecnie obsługiwana. Zalecane obejście polega na wdrożeniu skryptu programu PowerShell, który wysyła zapytanie do punktu końcowego interfejsu API Microsoft Graph na potrzeby [danych dziennika inspekcji](/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-beta) i służy do wyzwalania scenariuszy, takich jak przypisywanie grup. Ten skrypt programu PowerShell może zostać dołączony do harmonogramu zadań i wdrożony w tym samym oknie, na którym jest uruchomiony agent aprowizacji.  
+Ta funkcja nie jest obecnie obsługiwana. Zalecane obejście polega na wdrożeniu skryptu programu PowerShell, który wysyła zapytanie do punktu końcowego interfejsu API Microsoft Graph na potrzeby [danych dziennika inspekcji](/graph/api/resources/azure-ad-auditlog-overview) i służy do wyzwalania scenariuszy, takich jak przypisywanie grup. Ten skrypt programu PowerShell może zostać dołączony do harmonogramu zadań i wdrożony w tym samym oknie, na którym jest uruchomiony agent aprowizacji.  
 
 #### <a name="which-workday-apis-does-the-solution-use-to-query-and-update-workday-worker-profiles"></a>Które interfejsy API programu Workday wykorzystują rozwiązanie do wysyłania zapytań i aktualizowania profilów procesów roboczych dla programu Workday?
 
@@ -611,10 +498,6 @@ Tak, ta konfiguracja jest obsługiwana. Poniżej przedstawiono procedurę wysoki
 * Wdróż agenta aprowizacji #2 i zarejestruj go przy użyciu dzierżawy usługi Azure AD #2.
 * Na podstawie "domen podrzędnych", które będą zarządzane przez każdego agenta aprowizacji, należy skonfigurować każdego agenta za pomocą domen. Jeden Agent może obsługiwać wiele domen.
 * W Azure Portal Skonfiguruj aplikację Workday do usługi AD User Provisioning w każdej dzierżawie i ustaw ją z odpowiednimi domenami.
-
-#### <a name="why-workday-to-azure-ad-user-provisioning-app-is-not-supported-if-we-have-deployed-azure-ad-connect"></a>Dlaczego aplikacja do inicjowania obsługi użytkownika w usłudze Azure AD nie jest obsługiwana, jeśli wdrożono Azure AD Connect?
-
-Gdy usługa Azure AD jest używana w trybie hybrydowym (w którym znajduje się mieszanka użytkowników w chmurze i lokalnych), ważne jest, aby mieć przejrzystą definicję "Źródło urzędu". Zwykle scenariusze hybrydowe wymagają wdrożenia Azure AD Connect. Po wdrożeniu Azure AD Connect lokalna usługi AD jest źródłem urzędu. Wprowadzenie produktu Workday do łącznika usługi Azure AD może prowadzić do sytuacji, w której wartości atrybutów produktu Workday mogą potencjalnie zastąpić wartości ustawione przez Azure AD Connect. Z tego względu korzystanie z aplikacji aprowizacji "Workday do usługi Azure AD" nie jest obsługiwane, gdy Azure AD Connect jest włączona. W takich sytuacjach zalecamy użycie aplikacji "Workday to AD User", aby uzyskać użytkowników w lokalnej usłudze AD, a następnie zsynchronizować je z usługą Azure AD przy użyciu Azure AD Connect.
 
 #### <a name="how-do-i-suggest-improvements-or-request-new-features-related-to-workday-and-azure-ad-integration"></a>Jak mogę Sugeruj ulepszenia lub zażądać nowych funkcji związanych z usługą Workday i integracją usługi Azure AD?
 
@@ -845,35 +728,69 @@ Ta sekcja zawiera szczegółowe wskazówki dotyczące rozwiązywania problemów 
 
 W tej części omówiono następujące aspekty rozwiązywania problemów:
 
+* [Konfigurowanie agenta aprowizacji w celu emitowania dzienników Podgląd zdarzeń](#configure-provisioning-agent-to-emit-event-viewer-logs)
 * [Konfigurowanie Podgląd zdarzeń systemu Windows na potrzeby rozwiązywania problemów z agentem](#setting-up-windows-event-viewer-for-agent-troubleshooting)
 * [Konfigurowanie dzienników inspekcji Azure Portal na potrzeby rozwiązywania problemów z usługą](#setting-up-azure-portal-audit-logs-for-service-troubleshooting)
 * [Omówienie dzienników dla operacji tworzenia konta użytkownika usługi AD](#understanding-logs-for-ad-user-account-create-operations)
 * [Omówienie dzienników dla operacji aktualizacji Menedżera](#understanding-logs-for-manager-update-operations)
 * [Rozwiązywanie najczęściej występujących błędów](#resolving-commonly-encountered-errors)
 
+### <a name="configure-provisioning-agent-to-emit-event-viewer-logs"></a>Konfigurowanie agenta aprowizacji w celu emitowania dzienników Podgląd zdarzeń
+1. Zaloguj się na komputerze z systemem Windows Server, na którym został wdrożony Agent aprowizacji
+1. Zatrzymaj usługę **Microsoft Azure AD Połącz agenta aprowizacji**.
+1. Utwórz kopię oryginalnego pliku konfiguracji: *C:\Program Files\Microsoft Azure AD Connect aprowizacji Agent\AADConnectProvisioningAgent.exe.config*.
+1. Zastąp istniejącą `<system.diagnostics>` sekcję następującą sekcją. 
+   * Ta konfiguracja odbiornika **ETW** emituje komunikaty do dzienników Podglądzie zdarzeń
+   * **TextWriterListener** konfiguracji odbiornika wysyła komunikaty śledzenia do pliku *ProvAgentTrace. log*. Usuń znaczniki komentarza z wierszy związanych z textWriterListener tylko w celu zaawansowania rozwiązywania problemów. 
+
+   ```xml
+     <system.diagnostics>
+         <sources>
+         <source name="AAD Connect Provisioning Agent">
+             <listeners>
+             <add name="console"/>
+             <add name="etw"/>
+             <!-- <add name="textWriterListener"/> -->
+             </listeners>
+         </source>
+         </sources>
+         <sharedListeners>
+         <add name="console" type="System.Diagnostics.ConsoleTraceListener" initializeData="false"/>
+         <add name="etw" type="System.Diagnostics.EventLogTraceListener" initializeData="Azure AD Connect Provisioning Agent">
+             <filter type="System.Diagnostics.EventTypeFilter" initializeData="All"/>
+         </add>
+         <!-- <add name="textWriterListener" type="System.Diagnostics.TextWriterTraceListener" initializeData="C:/ProgramData/Microsoft/Azure AD Connect Provisioning Agent/Trace/ProvAgentTrace.log"/> -->
+         </sharedListeners>
+     </system.diagnostics>
+
+   ```
+1. Uruchom usługę Service **Microsoft Azure AD Connect Agent aprowizacji**.
+
 ### <a name="setting-up-windows-event-viewer-for-agent-troubleshooting"></a>Konfigurowanie Podgląd zdarzeń systemu Windows na potrzeby rozwiązywania problemów z agentem
 
-* Zaloguj się na komputerze z systemem Windows Server, na którym został wdrożony Agent aprowizacji
-* Otwórz aplikację klasyczną **systemu Windows Server Podgląd zdarzeń** .
-* Wybierz pozycję **Dzienniki systemu Windows > aplikacji**.
-* Użyj **bieżącego dziennika filtru...** Opcja wyświetlania wszystkich zdarzeń zarejestrowanych w ramach źródłowego usługi **AAD. Połącz. ProvisioningAgent** i Wyklucz zdarzenia o identyfikatorze "5", określając filtr "-5", jak pokazano poniżej.
+1. Zaloguj się na komputerze z systemem Windows Server, na którym został wdrożony Agent aprowizacji
+1. Otwórz aplikację klasyczną **systemu Windows Server Podgląd zdarzeń** .
+1. Wybierz pozycję **Dzienniki systemu Windows > aplikacji**.
+1. Użyj **bieżącego dziennika filtru...** Opcja wyświetlania wszystkich zdarzeń zarejestrowanych w źródle **Azure AD Connect agenta aprowizacji** i wykluczania zdarzeń z identyfikatorem zdarzenia "5", określając filtr "-5", jak pokazano poniżej.
+   > [!NOTE]
+   > Zdarzenie o IDENTYFIKATORze 5 przechwytuje komunikaty Bootstrap agenta do usługi Azure AD w chmurze i dlatego filtruje ją podczas analizowania plików dziennika. 
 
-  ![Podgląd zdarzeń systemu Windows](media/workday-inbound-tutorial/wd_event_viewer_01.png))
+   ![Podgląd zdarzeń systemu Windows](media/workday-inbound-tutorial/wd_event_viewer_01.png)
 
-* Kliknij przycisk **OK** i posortuj widok wyników według kolumny **daty i godziny** .
+1. Kliknij przycisk **OK** i posortuj widok wyników według kolumny **daty i godziny** .
 
 ### <a name="setting-up-azure-portal-audit-logs-for-service-troubleshooting"></a>Konfigurowanie dzienników inspekcji Azure Portal na potrzeby rozwiązywania problemów z usługą
 
-* Uruchom [Azure Portal](https://portal.azure.com)i przejdź do sekcji **dzienniki inspekcji** aplikacji do aprowizacji w programie Workday.
-* Użyj przycisku **kolumny** na stronie dzienniki inspekcji, aby wyświetlić tylko następujące kolumny w widoku (Data, działanie, stan, Przyczyna stanu). Ta konfiguracja zapewnia skoncentrowanie się tylko na danych, które są istotne w przypadku rozwiązywania problemów.
+1. Uruchom [Azure Portal](https://portal.azure.com)i przejdź do sekcji **dzienniki inspekcji** aplikacji do aprowizacji w programie Workday.
+1. Użyj przycisku **kolumny** na stronie dzienniki inspekcji, aby wyświetlić tylko następujące kolumny w widoku (Data, działanie, stan, Przyczyna stanu). Ta konfiguracja zapewnia skoncentrowanie się tylko na danych, które są istotne w przypadku rozwiązywania problemów.
 
-  ![Kolumny dziennika inspekcji](media/workday-inbound-tutorial/wd_audit_logs_00.png)
+   ![Kolumny dziennika inspekcji](media/workday-inbound-tutorial/wd_audit_logs_00.png)
 
-* Użyj parametrów zapytania **docelowego** i **zakresu dat** , aby przefiltrować widok. 
-  * Ustaw **docelowy** parametr zapytania na "Identyfikator procesu roboczego" lub "identyfikator pracownika" obiektu roboczego Workday.
-  * Ustaw **zakres dat** na odpowiedni przedział czasu, w którym chcesz zbadać błędy lub problemy z obsługą administracyjną.
+1. Użyj parametrów zapytania **docelowego** i **zakresu dat** , aby przefiltrować widok. 
+   * Ustaw **docelowy** parametr zapytania na "Identyfikator procesu roboczego" lub "identyfikator pracownika" obiektu roboczego Workday.
+   * Ustaw **zakres dat** na odpowiedni przedział czasu, w którym chcesz zbadać błędy lub problemy z obsługą administracyjną.
 
-  ![Filtry dziennika inspekcji](media/workday-inbound-tutorial/wd_audit_logs_01.png)
+   ![Filtry dziennika inspekcji](media/workday-inbound-tutorial/wd_audit_logs_01.png)
 
 ### <a name="understanding-logs-for-ad-user-account-create-operations"></a>Omówienie dzienników dla operacji tworzenia konta użytkownika usługi AD
 

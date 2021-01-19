@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: 5342c4505bd300d1287acba246ca59610f2697bd
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: 0d0597c2df8731171505a090de6959d8a112c004
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858641"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569984"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Wprowadzenie do rozwiązywania problemów z zasobami w usłudze Azure Network Watcher
 
@@ -209,7 +209,9 @@ Elapsed Time            330 sec
 ```
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia 
+* Można uruchamiać tylko jedną operację rozwiązywania problemów na subskrypcję. Aby uruchomić kolejną operację rozwiązywania problemów, poczekaj na ukończenie poprzedniej. Wyzwól więcej operacji, podczas gdy poprzedni nie zostanie zakończony, spowoduje to, że kolejne operacje kończą się niepowodzeniem. 
 * Usterka interfejsu wiersza polecenia: Jeśli korzystasz z interfejsu CLI platformy Azure, aby uruchomić polecenie, VPN Gateway i konto magazynu musi znajdować się w tej samej grupie zasobów. Klienci z zasobami w różnych grupach zasobów mogą korzystać z programu PowerShell lub Azure Portal zamiast tego.  
+
 
 ## <a name="next-steps"></a>Następne kroki
 

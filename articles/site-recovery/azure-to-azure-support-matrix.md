@@ -4,12 +4,12 @@ description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych pla
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: f0c7e23e45a84fa73c7e63b5aaa6280177cf8b27
-ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
+ms.openlocfilehash: fdd5b8f9cea549f64c4857d1c45b95b0d9b9ec53
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98541312"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569967"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Macierz obsługi odzyskiwania po awarii maszyny wirtualnej platformy Azure między regionami platformy Azure
 
@@ -18,7 +18,7 @@ W tym artykule podsumowano obsługę i wymagania wstępne dotyczące odzyskiwani
 
 ## <a name="deployment-method-support"></a>Obsługa metod wdrażania
 
-**Wdrażanie** |  **Pomoc techniczna**
+**Wdrożenie** |  **Pomoc techniczna**
 --- | ---
 **Witryna Azure Portal** | Obsługiwane.
 **Program PowerShell** | Obsługiwane. [Dowiedz się więcej](azure-to-azure-powershell.md)
@@ -44,13 +44,13 @@ Maszyny wirtualne można replikować i odzyskiwać między dwoma regionami w tym
 **Klaster geograficzny** | **Regiony platformy Azure**
 -- | --
 USA | Kanada Wschodnia, Kanada środkowa, Południowo-środkowe stany USA, zachodnie stany USA, Wschodnie stany USA, Wschodnie stany USA 2, zachodnie stany USA, zachodnie stany USA 2, środkowe stany USA, Północno-środkowe stany USA
-Europa | Zachodnie Zjednoczone Królestwo, Południowe Zjednoczone Królestwo, Europa Północna, Europa Zachodnia, Zachodnia Republika Południowej Afryki, Północna Republika Południowej Afryki, Norwegia Wschodnia, Francja środkowa, Szwajcaria Północna
+Europa | Zachodnie Zjednoczone Królestwo, Południowe Zjednoczone Królestwo, Europa Północna, Europa Zachodnia, Zachodnia Republika Południowej Afryki, Północna Republika Południowej Afryki, Norwegia Wschodnia, Francja środkowa, Szwajcaria Północna, Niemcy Środkowo-Zachodnie
 Azja | Indie Południowe, Indie Środkowe, Indie Zachodnie, Azja Południowo-Wschodnia, Azja Wschodnia, Japonia Wschodnia, Japonia Zachodnia, Korea środkowa, Korea Południowa
 Australia    | Australia Wschodnia, Australia Południowo-Wschodnia, Australia Środkowa, Australia Środkowa 2
 Azure Government    | Stany USA GOV Wirginia, US GOV Iowa, US GOV Arizona, US GOV Texass, US DOD USA, US DOD USA
 Niemcy    | Niemcy środkowe, Niemcy północno-wschodnie
 Chiny | Chiny Wschodnie, Chiny Północne, Chiny North2, Chiny 2
-Ograniczone regiony zarezerwowane na potrzeby odzyskiwania po awarii w kraju |Niemcy Północne zarezerwowane dla Niemcy Środkowo-Zachodnie, Szwajcaria Zachodnia zarezerwowane dla Szwajcaria Północna, Francja Południowa zastrzeżona dla Francji środkowe, środkowe Zjednoczone Emiraty Arabskie dla klientów z północno-wschodnia, Norwegia Zachodnia
+Ograniczone regiony zarezerwowane na potrzeby odzyskiwania po awarii w kraju |Szwajcaria Zachodnia zarezerwowane dla Szwajcaria Północna, Francja Południowo-Wschodnia zastrzeżona dla francuskich Francji, w przypadku ZJEDNOCZONEgo Zjednoczonego, z ograniczeniami przeznaczonymi dla klientów z USA, Norwegia Zachodnia
 
 >[!NOTE]
 >

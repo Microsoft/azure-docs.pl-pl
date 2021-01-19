@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/28/2020
+ms.date: 01/18/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 511801962d07e5fb99000b2fc19adce2489b46d3
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2c7ea804e9e85578076969f0ec6bdf90b571bb75
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967486"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570086"
 ---
 # <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>Woluminy NFS 4.1 w usłudze Azure NetApp Files dla platformy SAP HANA
 
@@ -69,10 +69,10 @@ Maksymalna przepływność dla LIF i jednej sesji systemu Linux wynosi od 1,2 do
 | 1 TB | 16 MB/s | 64 MB/s | 128 MB/s |
 | 2 TB | 32 MB/s | 128 MB/s | 256 MB/s |
 | 4 TB | 64 MB/s | 256 MB/s | 512 MB/s |
-| 10 TB | 160 MB/s | 640 MB/s | 1,280 MB/s |
-| 15 TB | 240 MB/s | 960 MB/s | 1,400 MB/s |
-| 20 TB | 320 MB/s | 1,280 MB/s | 1,400 MB/s |
-| 40 TB | 640 MB/s | 1,400 MB/s | 1,400 MB/s |
+| 10 TB | 160 MB/s | 640 MB/s | 1 280 MB/s |
+| 15 TB | 240 MB/s | 960 MB/s | 1 400 MB/s |
+| 20 TB | 320 MB/s | 1 280 MB/s | 1 400 MB/s |
+| 40 TB | 640 MB/s | 1 400 MB/s | 1 400 MB/s |
 
 Ważne jest, aby zrozumieć, że dane są zapisywane w tym samym dysków SSD w zapleczu magazynu. Przydział wydajności z puli pojemności został utworzony, aby można było zarządzać środowiskiem.
 Wskaźniki KPI magazynu są równe dla wszystkich rozmiarów baz danych platformy HANA. W prawie wszystkich przypadkach to założenie nie odzwierciedla rzeczywistości i oczekiwanego przez klienta. Rozmiar systemów HANA nie musi oznaczać, że mały system wymaga niskiej przepływności magazynu, a duży system wymaga dużej przepływności magazynu. Ogólnie rzecz biorąc, możemy oczekiwać wyższego poziomu przepływności dla większych wystąpień bazy danych HANA. W wyniku reguł ustalania rozmiaru dla danego sprzętu, takich jak większe wystąpienia platformy HANA, zapewnia również więcej zasobów procesora CPU i wyższą równoległość w zadaniach, takich jak ładowanie danych po ponownym uruchomieniu wystąpień. W związku z tym rozmiary woluminów należy przyjąć w zależności od oczekiwań klientów i wymagań. I nie tylko przez czyste wymagania dotyczące pojemności.

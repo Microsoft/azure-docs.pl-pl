@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 08/05/2020
+ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: 53707261070e8efbd014614ee700df63a0925ef8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ce48d87c6e04e6c349b681e953647feb5e7ddda5
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999709"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570120"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning"></a>Samouczek: Konfigurowanie programu SAP SuccessFactors do Active Directory aprowizacji użytkowników 
 Celem tego samouczka jest przedstawienie czynności, które należy wykonać w celu udostępnienia użytkownikom SuccessFactorsego Active Directory w centrum danych (AD) i usługi Azure AD z opcjonalnym zwrotem adresu e-mail na SuccessFactors. 
@@ -94,55 +94,61 @@ Skontaktuj się z zespołem administracyjnym SuccessFactors lub partnerem implem
 
 ### <a name="create-an-api-permissions-role"></a>Utwórz rolę uprawnień interfejsu API
 
-* Zaloguj się do platformy SAP SuccessFactors przy użyciu konta użytkownika, które ma dostęp do centrum administracyjnego.
-* Wyszukaj pozycje *Zarządzaj rolami uprawnień*, a następnie wybierz pozycję **Zarządzaj rolami uprawnień** z wyników wyszukiwania.
+1. Zaloguj się do platformy SAP SuccessFactors przy użyciu konta użytkownika, które ma dostęp do centrum administracyjnego.
+1. Wyszukaj pozycje *Zarządzaj rolami uprawnień*, a następnie wybierz pozycję **Zarządzaj rolami uprawnień** z wyników wyszukiwania.
   ![Zarządzanie rolami uprawnień](./media/sap-successfactors-inbound-provisioning/manage-permission-roles.png)
-* Na liście rola uprawnień kliknij pozycję **Utwórz nową**.
-  > [!div class="mx-imgBorder"]
-  > ![Utwórz nową rolę uprawnienia](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
-* Dodaj nazwę i **Opis** **roli** dla nowej roli uprawnienia. Nazwa i opis powinny wskazywać, że rola ma uprawnienia do użycia interfejsu API.
-  > [!div class="mx-imgBorder"]
-  > ![Szczegóły roli uprawnień](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
-* W obszarze Ustawienia uprawnień kliknij pozycję **uprawnienie...**, a następnie przewiń w dół listę uprawnień i kliknij pozycję **Zarządzaj narzędzia integracji**. Zaznacz pole wyboru **Zezwalaj administratorowi na dostęp do interfejsu API OData za pomocą uwierzytelniania podstawowego**.
-  > [!div class="mx-imgBorder"]
-  > ![Zarządzanie narzędziami integracji](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
-* Przewiń w dół do tego samego pola i wybierz pozycję **Employee Central API**. Dodaj uprawnienia, jak pokazano poniżej, aby czytać przy użyciu interfejsu API ODATA i edytować za pomocą interfejsu API ODATA. Wybierz opcję Edytuj, jeśli planujesz używać tego samego konta do scenariusza zapisywania zwrotnego SuccessFactors. 
-  > [!div class="mx-imgBorder"]
-  > ![Odczyt uprawnień do zapisu](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
+1. Na liście rola uprawnień kliknij pozycję **Utwórz nową**.
+    > [!div class="mx-imgBorder"]
+    > ![Utwórz nową rolę uprawnienia](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
+1. Dodaj nazwę i **Opis** **roli** dla nowej roli uprawnienia. Nazwa i opis powinny wskazywać, że rola ma uprawnienia do użycia interfejsu API.
+    > [!div class="mx-imgBorder"]
+    > ![Szczegóły roli uprawnień](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
+1. W obszarze Ustawienia uprawnień kliknij pozycję **uprawnienie...**, a następnie przewiń w dół listę uprawnień i kliknij pozycję **Zarządzaj narzędzia integracji**. Zaznacz pole wyboru **Zezwalaj administratorowi na dostęp do interfejsu API OData za pomocą uwierzytelniania podstawowego**.
+    > [!div class="mx-imgBorder"]
+    > ![Zarządzanie narzędziami integracji](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
+1. Przewiń w dół do tego samego pola i wybierz pozycję **Employee Central API**. Dodaj uprawnienia, jak pokazano poniżej, aby czytać przy użyciu interfejsu API ODATA i edytować za pomocą interfejsu API ODATA. Wybierz opcję Edytuj, jeśli planujesz używać tego samego konta do scenariusza zapisywania zwrotnego SuccessFactors. 
+    > [!div class="mx-imgBorder"]
+    > ![Odczyt uprawnień do zapisu](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
 
-  >[!NOTE]
-  >Aby uzyskać pełną listę atrybutów pobranych przez tę aplikację aprowizacji, zapoznaj się z [odwołaniem do atrybutu SuccessFactors](../app-provisioning/sap-successfactors-attribute-reference.md)
+1. W tym samym polu Uprawnienia wybierz pozycję **uprawnienia użytkownika — > dane pracowników** i przejrzyj atrybuty, które konto usługi może odczytywać z dzierżawy SuccessFactors. Na przykład aby pobrać atrybut *username* z SuccessFactors, upewnij się, że dla tego atrybutu jest udzielone uprawnienie "widok". Podobnie Przejrzyj każdy atrybut uprawnienia do wyświetlania. 
 
-* Kliknij przycisk **gotowe**. Kliknij przycisk **Zapisz zmiany**.
+    > [!div class="mx-imgBorder"]
+    > ![Uprawnienia do danych pracownika](./media/sap-successfactors-inbound-provisioning/review-employee-data-permissions.png)
+   
+
+    >[!NOTE]
+    >Aby uzyskać pełną listę atrybutów pobranych przez tę aplikację aprowizacji, zapoznaj się z [odwołaniem do atrybutu SuccessFactors](../app-provisioning/sap-successfactors-attribute-reference.md)
+
+1. Kliknij przycisk **gotowe**. Kliknij przycisk **Zapisz zmiany**.
 
 ### <a name="create-a-permission-group-for-the-api-user"></a>Tworzenie grupy uprawnień dla użytkownika interfejsu API
 
-* W centrum administracyjnym SuccessFactors Wyszukaj pozycję *Zarządzaj grupami uprawnień*, a następnie wybierz pozycję **Zarządzaj grupami uprawnień** z wyników wyszukiwania.
-  > [!div class="mx-imgBorder"]
-  > ![Zarządzaj grupami uprawnień](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
-* W oknie Zarządzanie grupami uprawnień kliknij pozycję **Utwórz nowe**.
-  > [!div class="mx-imgBorder"]
-  > ![Dodaj nową grupę](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
-* Dodaj nazwę grupy dla nowej grupy. Nazwa grupy powinna wskazywać, że grupa jest przeznaczony dla użytkowników interfejsu API.
-  > [!div class="mx-imgBorder"]
-  > ![Nazwa grupy uprawnień](./media/sap-successfactors-inbound-provisioning/permission-group-name.png)
-* Dodaj członków do grupy. Można na przykład wybrać pozycję **Nazwa użytkownika** z menu rozwijanego Pula osób, a następnie wprowadzić nazwę użytkownika konta interfejsu API, która będzie używana do integracji. 
-  > [!div class="mx-imgBorder"]
-  > ![Dodawanie członków grupy](./media/sap-successfactors-inbound-provisioning/add-group-members.png)
-* Kliknij pozycję **gotowe** , aby zakończyć tworzenie grupy uprawnień.
+1. W centrum administracyjnym SuccessFactors Wyszukaj pozycję *Zarządzaj grupami uprawnień*, a następnie wybierz pozycję **Zarządzaj grupami uprawnień** z wyników wyszukiwania.
+    > [!div class="mx-imgBorder"]
+    > ![Zarządzaj grupami uprawnień](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
+1. W oknie Zarządzanie grupami uprawnień kliknij pozycję **Utwórz nowe**.
+    > [!div class="mx-imgBorder"]
+    > ![Dodaj nową grupę](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
+1. Dodaj nazwę grupy dla nowej grupy. Nazwa grupy powinna wskazywać, że grupa jest przeznaczony dla użytkowników interfejsu API.
+    > [!div class="mx-imgBorder"]
+    > ![Nazwa grupy uprawnień](./media/sap-successfactors-inbound-provisioning/permission-group-name.png)
+1. Dodaj członków do grupy. Można na przykład wybrać pozycję **Nazwa użytkownika** z menu rozwijanego Pula osób, a następnie wprowadzić nazwę użytkownika konta interfejsu API, która będzie używana do integracji. 
+    > [!div class="mx-imgBorder"]
+    > ![Dodawanie członków grupy](./media/sap-successfactors-inbound-provisioning/add-group-members.png)
+1. Kliknij pozycję **gotowe** , aby zakończyć tworzenie grupy uprawnień.
 
 ### <a name="grant-permission-role-to-the-permission-group"></a>Udziel uprawnienia roli do grupy uprawnień
 
-* W centrum administracyjnym SuccessFactors Wyszukaj pozycję *Zarządzaj rolami uprawnień*, a następnie wybierz pozycję **Zarządzaj rolami uprawnień** z wyników wyszukiwania.
-* Z **listy rola uprawnień** wybierz rolę utworzoną na potrzeby uprawnień użycia interfejsu API.
-* W obszarze **Przypisz tę rolę do...** kliknij przycisk **Dodaj.** ...
-* Z menu rozwijanego wybierz pozycję **Grupa uprawnień** , a następnie kliknij pozycję **Wybierz...** , aby otworzyć okno grupy, aby wyszukać i wybrać utworzoną powyżej grupę. 
-  > [!div class="mx-imgBorder"]
-  > ![Dodaj grupę uprawnień](./media/sap-successfactors-inbound-provisioning/add-permission-group.png)
-* Przejrzyj uprawnienia przyznane grupie uprawnień. 
-  > [!div class="mx-imgBorder"]
-  > ![Szczegóły roli i grupy uprawnień](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
-* Kliknij przycisk **Zapisz zmiany**.
+1. W centrum administracyjnym SuccessFactors Wyszukaj pozycję *Zarządzaj rolami uprawnień*, a następnie wybierz pozycję **Zarządzaj rolami uprawnień** z wyników wyszukiwania.
+1. Z **listy rola uprawnień** wybierz rolę utworzoną na potrzeby uprawnień użycia interfejsu API.
+1. W obszarze **Przypisz tę rolę do...** kliknij przycisk **Dodaj.** ...
+1. Z menu rozwijanego wybierz pozycję **Grupa uprawnień** , a następnie kliknij pozycję **Wybierz...** , aby otworzyć okno grupy, aby wyszukać i wybrać utworzoną powyżej grupę. 
+    > [!div class="mx-imgBorder"]
+    > ![Dodaj grupę uprawnień](./media/sap-successfactors-inbound-provisioning/add-permission-group.png)
+1. Przejrzyj uprawnienia przyznane grupie uprawnień. 
+    > [!div class="mx-imgBorder"]
+    > ![Szczegóły roli i grupy uprawnień](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
+1. Kliknij przycisk **Zapisz zmiany**.
 
 ## <a name="configuring-user-provisioning-from-successfactors-to-active-directory"></a>Konfigurowanie aprowizacji użytkowników z SuccessFactors do Active Directory
 
@@ -170,71 +176,17 @@ Ta sekcja zawiera kroki związane z inicjowaniem obsługi kont użytkowników z 
 
 6. Po dodaniu aplikacji i wyświetleniu ekranu Szczegóły aplikacji wybierz opcję **aprowizacji**
 
-7. Zmień tryb **aprowizacji** **Mode** na **automatyczny**
+7. Zmień tryb **aprowizacji**  na **automatyczny**
 
 8. Kliknij transparent informacji wyświetlany, aby pobrać agenta aprowizacji. 
-   > [!div class="mx-imgBorder"]
-   > ![Pobierz agenta](./media/sap-successfactors-inbound-provisioning/download-pa-agent.png "Pobierz ekran agenta")
-
+   >[!div class="mx-imgBorder"]
+   >![Pobierz agenta](./media/workday-inbound-tutorial/pa-download-agent.png "Pobierz ekran agenta")
 
 ### <a name="part-2-install-and-configure-on-premises-provisioning-agents"></a>Część 2. Instalowanie i konfigurowanie lokalnych agentów aprowizacji
 
-Aby zapewnić Active Directory lokalnego, Agent aprowizacji musi być zainstalowany na serwerze, który ma .NET 4.7.1 + Framework i dostęp sieciowy do żądanych Active Directory domen.
+Aby zapewnić Active Directory lokalnego, Agent aprowizacji musi być zainstalowany na serwerze przyłączonym do domeny, który ma dostęp sieciowy do żądanych Active Directory domen.
 
-> [!TIP]
-> Możesz sprawdzić wersję programu .NET Framework na serwerze, korzystając z instrukcji przedstawionych [tutaj](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
-> Jeśli na serwerze nie jest zainstalowany program .NET 4.7.1 lub nowszy, możesz go pobrać z tego [miejsca](https://support.microsoft.com/help/4033342/the-net-framework-4-7-1-offline-installer-for-windows).  
-
-Przenieś pobrany Instalator agenta na hosta serwera i wykonaj kroki podane poniżej, aby ukończyć konfigurację agenta.
-
-1. Zaloguj się do systemu Windows Server, na którym chcesz zainstalować nowego agenta.
-
-1. Uruchom Instalatora agenta aprowizacji, zaakceptuj warunki i kliknij przycisk **Instaluj** .
-
-   ![Ekran instalacji](./media/workday-inbound-tutorial/pa_install_screen_1.png "Ekran instalacji")
-   
-1. Po zakończeniu instalacji Kreator zostanie uruchomiony i zostanie wyświetlony ekran **łączenie z usługą Azure AD** . Kliknij przycisk **Uwierzytelnij** , aby nawiązać połączenie z wystąpieniem usługi Azure AD.
-
-   ![Łączenie z usługą Azure AD](./media/workday-inbound-tutorial/pa_install_screen_2.png "Łączenie z usługą Azure AD")
-   
-1. Uwierzytelnij się w wystąpieniu usługi Azure AD przy użyciu poświadczeń administratora globalnego.
-
-   ![Uwierzytelnianie administratora](./media/workday-inbound-tutorial/pa_install_screen_3.png "Uwierzytelnianie administratora")
-
-   > [!NOTE]
-   > Poświadczenia administratora usługi Azure AD są używane tylko w celu nawiązania połączenia z dzierżawą usługi Azure AD. Agent nie przechowuje poświadczeń lokalnie na serwerze.
-
-1. Po pomyślnym uwierzytelnieniu w usłudze Azure AD zostanie wyświetlony ekran **Connect Active Directory** . W tym kroku wprowadź nazwę domeny usługi AD i kliknij przycisk **Dodaj katalog** .
-
-   ![Dodaj katalog](./media/workday-inbound-tutorial/pa_install_screen_4.png "Dodaj katalog")
-  
-1. Teraz zostanie wyświetlony monit o wprowadzenie poświadczeń wymaganych do nawiązania połączenia z domeną usługi AD. Na tym samym ekranie można użyć **priorytetu wybierz kontroler domeny** , aby określić kontrolery domeny, które mają być używane przez agenta do wysyłania żądań aprowizacji.
-
-   ![Poświadczenia domeny](./media/workday-inbound-tutorial/pa_install_screen_5.png)
-   
-1. Po skonfigurowaniu domeny w instalatorze zostanie wyświetlona lista skonfigurowanych domen. Na tym ekranie można powtórzyć krok #5 i #6, aby dodać więcej domen lub kliknąć przycisk **dalej** , aby przejść do rejestracji agenta.
-
-   ![Skonfigurowane domeny](./media/workday-inbound-tutorial/pa_install_screen_6.png "Skonfigurowane domeny")
-
-   > [!NOTE]
-   > Jeśli masz wiele domen usługi AD (np. na.contoso.com, emea.contoso.com), Dodaj każdą domenę osobno do listy.
-   > Dodawanie domeny nadrzędnej (np. contoso.com) nie jest wystarczające. Należy zarejestrować każdą domenę podrzędną w agencie.
-   
-1. Przejrzyj szczegóły konfiguracji i kliknij przycisk **Potwierdź** , aby zarejestrować agenta.
-  
-   ![Potwierdź ekran](./media/workday-inbound-tutorial/pa_install_screen_7.png "Potwierdź ekran")
-   
-1. Kreator konfiguracji wyświetla postęp rejestracji agenta.
-  
-   ![Rejestracja agenta](./media/workday-inbound-tutorial/pa_install_screen_8.png "Rejestracja agenta")
-   
-1. Po pomyślnym zarejestrowaniu agenta możesz kliknąć przycisk **Zakończ** , aby zamknąć kreatora.
-  
-   ![Ekran zakończenia](./media/workday-inbound-tutorial/pa_install_screen_9.png "Ekran zakończenia")
-   
-1. Sprawdź instalację agenta i upewnij się, że jest on uruchomiony, otwierając "usługi" Snap-In i poszukaj usługi o nazwie "Microsoft Azure AD Połącz agenta aprowizacji"
-  
-   ![Zrzut ekranu przedstawiający agenta aprowizacji Microsoft Azure AD łączenia z usługą w usługach.](./media/workday-inbound-tutorial/services.png)
+Przenieś pobrany Instalator agenta na hosta serwera i wykonaj kroki opisane [w sekcji Instalowanie agenta](../cloud-provisioning/how-to-install.md) , aby ukończyć konfigurację agenta.
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-successfactors-and-active-directory"></a>Część 3: w aplikacji aprowizacji Skonfiguruj łączność z SuccessFactors i Active Directory
 W tym kroku ustanawiamy łączność z usługą SuccessFactors i Active Directory w Azure Portal. 
@@ -331,24 +283,22 @@ W tej sekcji skonfigurujesz sposób przepływu danych przez użytkownika z Succe
 
 1. Aby zapisać mapowania, kliknij pozycję **Zapisz** w górnej części sekcji Attribute-Mapping.
 
-Po zakończeniu konfiguracji mapowania atrybutów możesz teraz [włączyć i uruchomić usługę aprowizacji użytkowników](#enable-and-launch-user-provisioning).
+Po zakończeniu konfiguracji mapowania atrybutów można testować Inicjowanie obsługi dla pojedynczego użytkownika przy użyciu [inicjowania obsługi na żądanie](../app-provisioning/provision-on-demand.md) , a następnie [włączyć i uruchomić usługę aprowizacji użytkowników](#enable-and-launch-user-provisioning).
 
 ## <a name="enable-and-launch-user-provisioning"></a>Włączanie i uruchamianie aprowizacji użytkowników
 
-Po zakończeniu konfiguracji aplikacji SuccessFactorsing (Inicjowanie obsługi administracyjnej) można włączyć usługę aprowizacji w Azure Portal.
+Po zakończeniu konfiguracji aplikacji SuccessFactors aprowizacji i sprawdzeniu aprowizacji dla pojedynczego użytkownika z obsługą [administracyjną na żądanie](../app-provisioning/provision-on-demand.md)można włączyć usługę aprowizacji w Azure Portal....
 
 > [!TIP]
-> Domyślnie po włączeniu usługi aprowizacji zostaną zainicjowane operacje aprowizacji dla wszystkich użytkowników w zakresie. Jeśli występują błędy związane z mapowaniem lub SuccessFactors danych, zadanie aprowizacji może się nie powieść i przejść do stanu kwarantanny. Aby tego uniknąć, najlepszym rozwiązaniem jest zalecamy skonfigurowanie filtru **zakresu obiektów źródłowych** i przetestowanie mapowań atrybutów z kilkoma użytkownikami testowymi przed uruchomieniem pełnej synchronizacji dla wszystkich użytkowników. Po sprawdzeniu, czy mapowania działają i dają odpowiednie wyniki, można usunąć filtr lub stopniowo rozwijać go, aby uwzględnić więcej użytkowników.
+> Domyślnie po włączeniu usługi aprowizacji zostaną zainicjowane operacje aprowizacji dla wszystkich użytkowników w zakresie. Jeśli występują błędy związane z mapowaniem lub SuccessFactors danych, zadanie aprowizacji może się nie powieść i przejść do stanu kwarantanny. Aby tego uniknąć, najlepszym rozwiązaniem jest zalecamy skonfigurowanie filtru **zakresu obiektów źródłowych** i przetestowanie mapowań atrybutów za pomocą kilku użytkowników testowych korzystających z [aprowizacji na żądanie](../app-provisioning/provision-on-demand.md) przed uruchomieniem pełnej synchronizacji dla wszystkich użytkowników. Po sprawdzeniu, czy mapowania działają i dają odpowiednie wyniki, można usunąć filtr lub stopniowo rozwijać go, aby uwzględnić więcej użytkowników.
 
-1. Na karcie **aprowizacji** Ustaw **stan aprowizacji** na **włączone**.
+1. Przejdź do bloku **aprowizacji** i kliknij pozycję **Rozpocznij Inicjowanie obsługi**.
 
-2. Kliknij pozycję **Zapisz**.
+1. Ta operacja rozpocznie synchronizację początkową, która może potrwać zmienną liczbę godzin w zależności od liczby użytkowników w dzierżawie SuccessFactors. Możesz sprawdzić, czy pasek postępu śledzi postęp cyklu synchronizacji. 
 
-3. Ta operacja rozpocznie synchronizację początkową, która może potrwać zmienną liczbę godzin w zależności od liczby użytkowników w dzierżawie SuccessFactors. Możesz sprawdzić, czy pasek postępu śledzi postęp cyklu synchronizacji. 
+1. W dowolnym momencie sprawdź kartę **dzienniki inspekcji** w Azure Portal, aby zobaczyć, jakie akcje zostały wykonane przez usługę aprowizacji. W dziennikach inspekcji są wyświetlane wszystkie zdarzenia synchronizacji wykonywane przez usługę aprowizacji, takie jak użytkownicy, którzy są czytani z SuccessFactors, a następnie dodani do Active Directory. 
 
-4. W dowolnym momencie sprawdź kartę **dzienniki inspekcji** w Azure Portal, aby zobaczyć, jakie akcje zostały wykonane przez usługę aprowizacji. W dziennikach inspekcji są wyświetlane wszystkie zdarzenia synchronizacji wykonywane przez usługę aprowizacji, takie jak użytkownicy, którzy są czytani z SuccessFactors, a następnie dodani do Active Directory. 
-
-5. Po zakończeniu synchronizacji początkowej zostanie zapisany raport z podsumowaniem inspekcji na karcie **aprowizacji** , jak pokazano poniżej.
+1. Po zakończeniu synchronizacji początkowej zostanie zapisany raport z podsumowaniem inspekcji na karcie **aprowizacji** , jak pokazano poniżej.
 
    > [!div class="mx-imgBorder"]
    > ![Pasek postępu aprowizacji](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
