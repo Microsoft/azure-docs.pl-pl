@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 12/07/2020
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 7e4f18b5d4f074d6596b375cbc11f40c2ab69d68
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 19a98b5786f35839d84e1e969c29e45e2b5e8dea
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616613"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573398"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Włącz replikację do platformy Azure dla maszyn wirtualnych VMware
 
@@ -141,7 +141,7 @@ Następnie sprawdź właściwości źródłowej maszyny wirtualnej. Należy pami
    :::image type="content" source="./media/vmware-azure-enable-replication/vmproperties.png" alt-text="Okno właściwości obliczania i sieci":::
 
    - **Nazwa maszyny wirtualnej platformy Azure**: zmodyfikuj nazwę, aby spełniała wymagania platformy Azure, w razie potrzeby.
-   - **Docelowy rozmiar maszyny wirtualnej lub typ maszyny wirtualnej**: domyślny rozmiar maszyny wirtualnej jest wybierany na podstawie parametrów obejmujących liczbę dysków, liczbę kart sieciowych, liczbę rdzeni procesora CPU, pamięć i dostępne rozmiary ról maszyny wirtualnej w docelowym regionie platformy Azure. Azure Site Recovery wybiera pierwszy dostępny rozmiar maszyny wirtualnej spełniający wszystkie kryteria. Przed przejściem w tryb failover możesz wybrać inny rozmiar maszyny wirtualnej w zależności od potrzeb. Rozmiar dysku maszyny wirtualnej jest również oparty na rozmiarze dysku źródłowego i można go zmienić tylko po przejściu do trybu failover. Dowiedz się więcej na temat rozmiarów dysków i szybkości operacji we/wy na [potrzeby skalowalności i wydajności dla dysków maszyn wirtualnych w systemie Windows](../virtual-machines/windows/disk-scalability-targets.md).
+   - **Docelowy rozmiar maszyny wirtualnej lub typ maszyny wirtualnej**: domyślny rozmiar maszyny wirtualnej jest wybierany na podstawie parametrów obejmujących liczbę dysków, liczbę kart sieciowych, liczbę rdzeni procesora CPU, pamięć i dostępne rozmiary ról maszyny wirtualnej w docelowym regionie platformy Azure. Azure Site Recovery wybiera pierwszy dostępny rozmiar maszyny wirtualnej spełniający wszystkie kryteria. Przed przejściem w tryb failover możesz wybrać inny rozmiar maszyny wirtualnej w zależności od potrzeb. Rozmiar dysku maszyny wirtualnej jest również oparty na rozmiarze dysku źródłowego i można go zmienić tylko po przejściu do trybu failover. Dowiedz się więcej na temat rozmiarów dysków i szybkości operacji we/wy na [potrzeby skalowalności i wydajności dla dysków maszyn wirtualnych](../virtual-machines/disks-scalability-targets.md).
    - **Grupa zasobów**: można wybrać [grupę zasobów](../azure-resource-manager/management/overview.md#resource-groups), z której maszyna wirtualna stanie się częścią przełączenia w tryb failover. To ustawienie można zmienić w dowolnym momencie przed przełączeniem w tryb failover. Po przejściu w tryb failover w przypadku migrowania maszyny wirtualnej do innej grupy zasobów ustawienia ochrony dla tej maszyny wirtualnej zostaną przerwane.
    - **Zestaw dostępności**: można wybrać [zestaw dostępności](../virtual-machines/windows/tutorial-availability-sets.md) , jeśli maszyna wirtualna musi być częścią wpisu do trybu failover. Po wybraniu zestawu dostępności należy pamiętać o następujących kwestiach:
      - Wyświetlane są tylko zestawy dostępności należące do określonej grupy zasobów.

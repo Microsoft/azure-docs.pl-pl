@@ -4,12 +4,12 @@ description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych pla
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: fdd5b8f9cea549f64c4857d1c45b95b0d9b9ec53
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 2dbd7cd756e386b44c6933697ff50180021ac035
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/19/2021
-ms.locfileid: "98569967"
+ms.locfileid: "98572310"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Macierz obsługi odzyskiwania po awarii maszyny wirtualnej platformy Azure między regionami platformy Azure
 
@@ -213,7 +213,7 @@ Zmiany w trybie offline na dyskach chronionych | Odłączanie dysków i Dokonywa
 
 Ta tabela zawiera podsumowanie obsługi dysku systemu operacyjnego Azure VM, dysku danych i dysku tymczasowego.
 
-- Ważne jest, aby obserwować limity dysku maszyny wirtualnej i elementy docelowe dla maszyn wirtualnych z systemami [Linux](../virtual-machines/linux/disk-scalability-targets.md) i [Windows](../virtual-machines/windows/disk-scalability-targets.md) , aby uniknąć problemów z wydajnością.
+- Należy przestrzegać limitów dysku maszyny wirtualnej i elementów docelowych dla [dysków zarządzanych](../virtual-machines/disks-scalability-targets.md) , aby uniknąć problemów z wydajnością.
 - W przypadku wdrożenia z ustawieniami domyślnymi program Site Recovery automatycznie tworzy dyski i konta magazynu na podstawie ustawień źródłowych.
 - W przypadku dostosowania programu upewnij się, że przestrzegasz wytycznych.
 
@@ -261,7 +261,7 @@ Dyski z włączonym akceleratorem zapisu | Nieobsługiwane
 Tagi  | Tagi generowane przez użytkownika są replikowane co 24 godziny.
 
 >[!IMPORTANT]
-> Aby uniknąć problemów z wydajnością, należy się upewnić, że są używane elementy docelowe skalowalności i wydajności dysków maszyny wirtualnej dla maszyn wirtualnych z systemem [Linux](../virtual-machines/linux/disk-scalability-targets.md) lub [Windows](../virtual-machines/windows/disk-scalability-targets.md) . Jeśli używasz ustawień domyślnych, Site Recovery tworzy wymagane dyski i konta magazynu na podstawie konfiguracji źródłowej. Jeśli dostosowujesz i wybierasz własne ustawienia, postępuj zgodnie z celami skalowalności i wydajności dysków dla źródłowych maszyn wirtualnych.
+> Aby uniknąć problemów z wydajnością, należy się upewnić, że dla [dysków zarządzanych](../virtual-machines/disks-scalability-targets.md)są używane elementy docelowe skalowalności i wydajności dysków maszyny wirtualnej. Jeśli używasz ustawień domyślnych, Site Recovery tworzy wymagane dyski i konta magazynu na podstawie konfiguracji źródłowej. Jeśli dostosowujesz i wybierasz własne ustawienia, postępuj zgodnie z celami skalowalności i wydajności dysków dla źródłowych maszyn wirtualnych.
 
 ## <a name="limits-and-data-change-rates"></a>Limity i szybkości zmian danych
 

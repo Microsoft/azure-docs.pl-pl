@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/03/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: b5cb7d0e421657b84c365d8dca536191cafd4e72
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 2053632f24504f896d1045f99d581b9aa6050b55
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861974"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573143"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Informacje o usłudze Azure Defender dla sieci IoT — konfiguracja
 
@@ -104,7 +104,7 @@ Sprawdź, czy zasady zabezpieczeń organizacji umożliwiają dostęp do następu
 | **Połączenie między platformą Defender a platformą zarządzania i serwerem poczty (jeśli dotyczy)** | SMTP | TCP | Poza zarządzaniem czujnikiem | 25 | E-mail |
 | **Dzienniki wysyłane z lokalnej konsoli zarządzania na serwer dziennika systemu (jeśli dotyczy)** | Dziennik systemu | UDP | Poza zarządzaniem czujnikiem| 514 | LEEF |
 | **Port serwera DNS (jeśli dotyczy)** | DNS | Nie dotyczy | Do lub do zewnątrz| 53 | DNS |
-| **Połączenie między platformą usługi Defender for IoT a lokalną konsolą zarządzania w celu Active Directory (jeśli dotyczy)** | PROTOKOŁU LDAPS | TCP | Do lub do zewnątrz | 636 <br />389 | Usługa Active Directory |
+| **Połączenie między platformą usługi Defender for IoT a lokalną konsolą zarządzania w celu Active Directory (jeśli dotyczy)** | PROTOKOŁU LDAPS | TCP | Do lub do zewnątrz | 636 <br />389 | Active Directory |
 | **Zdalne moduły zbierające protokołu SNMP (jeśli dotyczy)** | SNMP | UDP | Poza zarządzaniem czujnikiem| 161 | Monitorowanie |
 | **Monitorowanie punktów końcowych systemu Windows (jeśli dotyczy)** | WMI | UDP | Poza zarządzaniem czujnikiem| 135 | Monitorowanie |
 | **Monitorowanie punktów końcowych systemu Windows (jeśli dotyczy)** | WMI | TCP | Poza zarządzaniem czujnikiem| 1024 i więcej | Monitorowanie |
@@ -223,7 +223,7 @@ W sieci gwiazdy każdy host jest połączony z koncentratorem centralnym. W najp
 
 Poniżej przedstawiono kilka zaleceń dotyczących wdrażania wielu czujników:
 
-| * * Number * *| **Liczniki** | **Zależność** | **Liczba czujników** |
+| **Liczba** | **Liczniki** | **Zależność** | **Liczba czujników** |
 |--|--|--|--|
 | Maksymalna odległość między przełącznikami | 80 metrów | Przygotowany kabel Ethernet | Więcej niż 1 |
 | Liczba nieot sieci | Więcej niż 1 | Brak łączności fizycznej | Więcej niż 1 |
@@ -363,7 +363,7 @@ Do monitorowania portów można także używać agregatorów TAP. Urządzenia te
 
 Te modele zostały przetestowane pod kątem zgodności. Inni dostawcy i modele mogą również być zgodne.
 
-| Image (Obraz) | Model |
+| Obraz | Model |
 | -- | -- |
 | :::image type="content" source="media/how-to-set-up-your-network/garland-p1gccas-v2.png" alt-text="Zrzut ekranu przedstawiający Garland P1GCCAS.":::  | Garland P1GCCAS  |
 | :::image type="content" source="media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="Zrzut ekranu przedstawiający IXIA TPA2-CU3.":::  | IXIA TPA2 — CU3  |
@@ -562,7 +562,7 @@ Przejrzyj tę listę przed wdrożeniem lokacji:
 
 Omówienie diagramu sieci przemysłowej umożliwi zdefiniowanie odpowiedniej lokalizacji dla sprzętu usługi Defender for IoT.
 
-1.  Wyświetl globalny Diagram sieciowy środowiska nieprzemysłowego. Na przykład:
+1.  Wyświetl globalny Diagram sieciowy środowiska nieprzemysłowego. Przykład:
 
     :::image type="content" source="media/how-to-set-up-your-network/ot-global-network-diagram.png" alt-text="Diagram środowiska przemysłowego niezwiązanego z siecią globalną.":::
 
@@ -604,7 +604,7 @@ Omówienie diagramu sieci przemysłowej umożliwi zdefiniowanie odpowiedniej lok
 
     Jakie są zasady? __________________________________ 
 
-    Na przykład:
+    Przykład:
 
     - Firmie
 
@@ -694,6 +694,6 @@ Skontaktuj się z administratorem Active Directory, aby utworzyć grupę użytko
 | Aparat fotograficzny | |
 | Maszyna X-ray | |
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Informacje o instalacji usługi Defender for IoT](how-to-install-software.md)

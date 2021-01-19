@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowej Managed Disks platformy Azure
 description: Dowiedz się, jak utworzyć kopię zapasową Managed Disks platformy Azure z Azure Portal.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: c4e2d4e649d59389ac3f8bd115e43acabc792eb2
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 2169e2f44e3ffb2c05c674d633efabed2c531878
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98558369"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573126"
 ---
 # <a name="back-up-azure-managed-disks-in-preview"></a>Tworzenie kopii zapasowej Managed Disks platformy Azure (w wersji zapoznawczej)
 
@@ -129,6 +129,8 @@ Aby skonfigurować tworzenie kopii zapasowych dysków zarządzanych, wymagane s�
    >Wpisz nazwę magazynu kopii zapasowych, aby wybrać zarządzaną tożsamość magazynu.
 
    ![Dodaj rolę współautor migawki dysku](./media/backup-managed-disks/disk-snapshot-contributor-role.png)
+
+1. Jeśli dysk, którego kopia zapasowa ma zostać utworzona, jest szyfrowany przy użyciu [kluczy zarządzanych przez klienta (CMK)](https://docs.microsoft.com/azure/virtual-machines/disks-enable-customer-managed-keys-portal) lub przy użyciu [podwójnego szyfrowania przy użyciu kluczy zarządzanych przez platformę i kluczy zarządzanych przez klienta](https://docs.microsoft.com/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal), przypisz uprawnienie roli **czytelnik** do zarządzanej tożsamości magazynu kopii zapasowych w ramach zasobu **zestawu szyfrowania dysku** .
 
 1. Sprawdź, czy zarządzana tożsamość magazynu kopii zapasowych ma odpowiedni zestaw przypisań ról na dysku źródłowym i w grupie zasobów, która służy jako migawka magazynu danych.
 

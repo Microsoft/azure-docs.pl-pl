@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: 4da707ab698599c8ea5dd8e1ea8647f543eb2a68
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 00b220e07dc3fa7580100d6d36108c14fe598d40
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95524253"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572191"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Obsługa przemieszczania maszyn wirtualnych platformy Azure między regionami platformy Azure
 
@@ -113,7 +113,7 @@ Rozszerzenia | Nieobsługiwane | Rozszerzenia nie są kopiowane do maszyny wirtu
 
 ## <a name="supported-vm-storage-settings"></a>Obsługiwane ustawienia magazynu maszyny wirtualnej
 
-Ta tabela zawiera podsumowanie obsługi dysku systemu operacyjnego Azure VM, dysku danych i dysku tymczasowego. Ważne jest, aby obserwować limity dysku maszyny wirtualnej i elementy docelowe dla maszyn wirtualnych z systemami [Linux](../virtual-machines/linux/disk-scalability-targets.md) i [Windows](../virtual-machines/windows/disk-scalability-targets.md) , aby uniknąć problemów z wydajnością.
+Ta tabela zawiera podsumowanie obsługi dysku systemu operacyjnego Azure VM, dysku danych i dysku tymczasowego. Należy przestrzegać limitów dysku maszyny wirtualnej i elementów docelowych dla [dysków zarządzanych](../virtual-machines/disks-scalability-targets.md) , aby uniknąć problemów z wydajnością.
 
 > [!NOTE]
 > Docelowy rozmiar maszyny wirtualnej powinien być równy lub większy niż źródłowa maszyna wirtualna. Parametry używane do walidacji: liczba dysków danych, liczba kart sieciowych, dostępne procesory CPU, pamięć w GB. Jeśli nie, zostanie wystawiony błąd.
@@ -172,8 +172,8 @@ Maszyny wirtualne platformy Azure, które chcesz przenieść, wymagają dostępu
 
 **Nazwa** | **Chmura publiczna Azure** | **Szczegóły** 
 --- | --- | --- 
-Storage | `*.blob.core.windows.net`  | Umożliwia zapisanie danych z maszyny wirtualnej na koncie magazynu pamięci podręcznej znajdującym się w regionie źródłowym. 
-Azure Active Directory | `login.microsoftonline.com`  | Umożliwia autoryzację i uwierzytelnianie przy użyciu adresów URL usługi Site Recovery. 
+Magazyn | `*.blob.core.windows.net`  | Umożliwia zapisanie danych z maszyny wirtualnej na koncie magazynu pamięci podręcznej znajdującym się w regionie źródłowym. 
+Usługa Azure Active Directory | `login.microsoftonline.com`  | Umożliwia autoryzację i uwierzytelnianie przy użyciu adresów URL usługi Site Recovery. 
 Replikacja | `*.hypervrecoverymanager.windowsazure.com` | Umożliwia komunikację między maszyną wirtualną a usługą Site Recovery. 
 Service Bus | `*.servicebus.windows.net` | Umożliwia maszynie wirtualnej zapisywanie danych monitorowania i danych diagnostycznych usługi Site Recovery. 
 

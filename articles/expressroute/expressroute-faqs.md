@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: ef5b065425fa05d016c1b1c1688cc28508f32d30
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: deb5f07340f44e7ae4da3372fd17e484d500e6ab
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462056"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573262"
 ---
 # <a name="expressroute-faq"></a>Usługa ExpressRoute — często zadawane pytania
 
@@ -92,7 +92,7 @@ Jeśli obwód usługi ExpressRoute jest włączony dla komunikacji równorzędne
 
 * [Microsoft 365](/microsoft-365/enterprise/azure-expressroute)
 * Power BI — dostępne za pośrednictwem społeczności regionalnej platformy Azure, zobacz [tutaj](/power-bi/service-admin-where-is-my-tenant-located) , jak sprawdzić region dzierżawy Power BI.
-* Azure Active Directory
+* Usługa Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (społeczność usług globalnych platformy Azure)
 * Publiczne adresy IP platformy Azure dla IaaS (Virtual Machines, bram Virtual Network, modułów równoważenia obciążenia itp.)  
 * Obsługiwane są również większość innych usług platformy Azure. Skontaktuj się bezpośrednio z usługą, która ma zostać użyta, aby zweryfikować pomoc techniczną.
@@ -256,7 +256,7 @@ W przypadku anonsowania tras domyślnych Wymuś ruch do usług oferowanych za po
 
 ### <a name="can-virtual-networks-linked-to-the-same-expressroute-circuit-talk-to-each-other"></a>Czy sieci wirtualne połączone z tym samym obwodem ExpressRoute komunikują się ze sobą?
 
-Tak. Maszyny wirtualne wdrożone w sieciach wirtualnych podłączonych do tego samego obwodu ExpressRoute mogą komunikować się ze sobą.
+Tak. Maszyny wirtualne wdrożone w sieciach wirtualnych podłączonych do tego samego obwodu ExpressRoute mogą komunikować się ze sobą. Zalecamy skonfigurowanie komunikacji [równorzędnej sieci wirtualnej](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) w celu ułatwienia tej komunikacji.
 
 ### <a name="can-i-use-site-to-site-connectivity-for-virtual-networks-in-conjunction-with-expressroute"></a>Czy można używać łączności między lokacjami dla sieci wirtualnych w połączeniu z usługą ExpressRoute?
 
@@ -424,7 +424,7 @@ Istniejący obwód będzie kontynuował anonsowanie prefiksów Microsoft 365. Je
 
 [!INCLUDE [Global Reach](../../includes/expressroute-global-reach-faq-include.md)]
 
-## <a name="privacy"></a>Ochrona prywatności
+## <a name="privacy"></a>Prywatność
 
 ### <a name="does-the-expressroute-service-store-customer-data"></a>Czy usługa ExpressRoute przechowuje dane klienta?
 

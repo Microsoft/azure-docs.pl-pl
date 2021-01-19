@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 51c22346ee89150194fb1dc83752e2ba2a2e0cf0
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: c6c09dc771692cb2fc2f36840e729874cfaf2d09
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185448"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572820"
 ---
 # <a name="basic-concepts"></a>Koncepcje podstawowe
 
@@ -28,9 +28,7 @@ Poniżej przedstawiono podstawowe pojęcia związane z zaświadczeniem Microsoft
 
 ## <a name="attestation-provider"></a>Dostawca zaświadczania
 
-Dostawca zaświadczania należy do dostawcy zasobów platformy Azure o nazwie Microsoft. zaświadczanie. Dostawca zasobów jest punktem końcowym usługi, który zapewnia umowę REST zaświadczania platformy Azure i jest wdrażany przy użyciu [Azure Resource Manager](../azure-resource-manager/management/overview.md). Każdy dostawca zaświadczania jest uznawany za określone, wykrywalne zasady. 
-
-Dostawcy zaświadczania zostaną utworzeni przy użyciu domyślnych zasad dla każdego typu zaświadczania (należy zauważyć, że VBS enklawy nie ma zasad domyślnych). Zobacz [przykłady zasad zaświadczania](policy-examples.md) , aby uzyskać więcej szczegółowych informacji na temat zasad domyślnych dla SGX.
+Dostawca zaświadczania należy do dostawcy zasobów platformy Azure o nazwie Microsoft. zaświadczanie. Dostawca zasobów jest punktem końcowym usługi, który zapewnia umowę REST zaświadczania platformy Azure i jest wdrażany przy użyciu [Azure Resource Manager](../azure-resource-manager/management/overview.md). Każdy dostawca zaświadczania jest uznawany za określone, wykrywalne zasady. Dostawcy zaświadczania zostaną utworzeni przy użyciu domyślnych zasad dla każdego typu zaświadczania (należy zauważyć, że VBS enklawy nie ma zasad domyślnych). Zobacz [przykłady zasad zaświadczania](policy-examples.md) , aby uzyskać więcej szczegółowych informacji na temat zasad domyślnych dla SGX.
 
 ### <a name="regional-default-provider"></a>Domyślny dostawca regionalny
 
@@ -63,7 +61,7 @@ Zasady zaświadczania są używane do przetwarzania dowodów zaświadczania i s�
 
 Jeśli zasady domyślne w ramach dostawcy zaświadczania nie spełnią potrzeb, klienci będą mogli tworzyć niestandardowe zasady w dowolnym regionie obsługiwanym przez zaświadczanie platformy Azure. Zarządzanie zasadami to kluczowa funkcja udostępniona klientom przez zaświadczanie platformy Azure. Zasady będą specyficzne dla typu zaświadczania i mogą służyć do identyfikowania enclaves lub dodawania oświadczeń do tokenu wyjściowego lub modyfikowania oświadczeń w tokenie wyjściowym. 
 
-Zobacz [przykłady zasad zaświadczania](policy-examples.md) dla domyślnej zawartości i przykładów zasad.
+Zobacz [przykłady zasad zaświadczania](policy-examples.md) dla przykładów zasad.
 
 ## <a name="benefits-of-policy-signing"></a>Zalety podpisywania zasad
 
@@ -85,25 +83,55 @@ Przykład generowania tokenu JWT dla SGX enklawy:
 
 ```
 {
-  “alg”: “RS256”,
-  “jku”: “https://tradewinds.us.attest.azure.net/certs”,
-  “kid”: “f1lIjBlb6jUHEUp1/Nh6BNUHc6vwiUyMKKhReZeEpGc=”,
-  “typ”: “JWT”
+  "alg": "RS256",
+  "jku": "https://tradewinds.us.attest.azure.net/certs",
+  "kid": <self signed certificate reference to perform signature verification of attestation token,
+  "typ": "JWT"
 }.{
-  “maa-ehd”: <input enclave held data>,
-  “exp”: 1568187398,
-  “iat”: 1568158598,
-  “is-debuggable”: false,
-  “iss”: “https://tradewinds.us.attest.azure.net”,
-  “nbf”: 1568158598,
-  “product-id”: 4639,
-  “sgx-mrenclave”: “”,
-  “sgx-mrsigner”: “”,
-  “svn”: 0,
-  “tee”: “sgx”
+  "aas-ehd": <input enclave held data>,
+  "exp": 1568187398,
+  "iat": 1568158598,
+  "is-debuggable": false,
+  "iss": "https://tradewinds.us.attest.azure.net",
+  "maa-attestationcollateral": 
+    {
+      "qeidcertshash": <SHA256 value of QE Identity issuing certs>,
+      "qeidcrlhash": <SHA256 value of QE Identity issuing certs CRL list>,
+      "qeidhash": <SHA256 value of the QE Identity collateral>,
+      "quotehash": <SHA256 value of the evaluated quote>, 
+      "tcbinfocertshash": <SHA256 value of the TCB Info issuing certs>, 
+      "tcbinfocrlhash": <SHA256 value of the TCB Info issuing certs CRL list>, 
+      "tcbinfohash": <SHA256 value of the TCB Info collateral>
+     },
+  "maa-ehd": <input enclave held data>,
+  "nbf": 1568158598,
+  "product-id": 4639,
+  "sgx-mrenclave": <SGX enclave mrenclave value>,
+  "sgx-mrsigner": <SGX enclave msrigner value>,
+  "svn": 0,
+  "tee": "sgx"
+  "x-ms-attestation-type": "sgx", 
+  "x-ms-policy-hash": <>,
+  "x-ms-sgx-collateral": 
+    {
+      "qeidcertshash": <SHA256 value of QE Identity issuing certs>,
+      "qeidcrlhash": <SHA256 value of QE Identity issuing certs CRL list>,
+      "qeidhash": <SHA256 value of the QE Identity collateral>,
+      "quotehash": <SHA256 value of the evaluated quote>, 
+      "tcbinfocertshash": <SHA256 value of the TCB Info issuing certs>, 
+      "tcbinfocrlhash": <SHA256 value of the TCB Info issuing certs CRL list>, 
+      "tcbinfohash": <SHA256 value of the TCB Info collateral>
+     },
+  "x-ms-sgx-ehd": <>, 
+  "x-ms-sgx-is-debuggable": true,
+  "x-ms-sgx-mrenclave": <SGX enclave mrenclave value>,
+  "x-ms-sgx-mrsigner": <SGX enclave msrigner value>, 
+  "x-ms-sgx-product-id": 1, 
+  "x-ms-sgx-svn": 1,
+  "x-ms-ver": "1.0"
 }.[Signature]
 ```
-Oświadczenia, takie jak "EXP", "IAT", "ISS", "NBF", są definiowane przez [RFC](https://tools.ietf.org/html/rfc7517) , a pozostałe są generowane przez zaświadczanie o platformie Azure. Aby uzyskać więcej informacji [, zobacz oświadczenia wystawione przez zaświadczenie platformy Azure](claim-sets.md) .
+Niektóre z użytych powyżej oświadczeń są uważane za przestarzałe, ale są w pełni obsługiwane.  Zaleca się, aby wszystkie przyszłe kod i narzędzia używały nieprzestarzałych nazw zgłoszeń. Aby uzyskać więcej informacji [, zobacz oświadczenia wystawione przez zaświadczenie platformy Azure](claim-sets.md) .
 
 ## <a name="encryption-of-data-at-rest"></a>Szyfrowanie danych magazynowanych
 

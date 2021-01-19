@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: 53fd2332224d903c5a4b33563470cf3569f82b13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec605fd30252b9a0cfb80d0bc3ff145ed3b5a1d4
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86526660"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573313"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Rozwiązywanie problemów z wydajnością maszyny wirtualnej platformy Azure w systemie Linux lub Windows
 
@@ -198,7 +198,7 @@ Niską averagee2elatency reprezentuje opóźnienie klienta. Sprawdź, w jaki spo
 
 #### <a name="check-for-azure-storage-throttling---add-the-storage-account-metrics-throttlingerror"></a>Sprawdź ograniczenia dotyczące usługi Azure Storage — Dodaj metryki konta magazynu: ThrottlingError
 
-Wartości ograniczania wydajności wskazują, że są ograniczane na poziomie konta magazynu, co oznacza, że naciśnięcie limitu liczby IOPS dla konta. Możesz określić, czy osiągasz próg IOPs, sprawdzając **TotalRequests**metryki.
+Wartości ograniczania wydajności wskazują, że są ograniczane na poziomie konta magazynu, co oznacza, że naciśnięcie limitu liczby IOPS dla konta. Możesz określić, czy osiągasz próg IOPs, sprawdzając **TotalRequests** metryki.
 
 Należy pamiętać, że każdy wirtualny dysk twardy ma limit 500 operacji we/wy lub 60 megabitów, ale jest związany z łącznym limitem liczby operacji 20000 we/wy na konto magazynu.
 
@@ -208,7 +208,7 @@ Aby ustalić, czy zbliżasz się do limitu liczby operacji we/wy, przejdź do di
 
 Dzięki nowym oferowanym dyskom w ramach magazynu w warstwie Standardowa przepustowość i limity przepływności mogą się różnić, ale łączny limit konta magazynu to 20000 IOPS (magazyn w warstwie Premium ma inne limity na poziomie konta lub dysku). Dowiedz się więcej o różnych ofertach dysków magazynu w warstwie Standardowa i limitach na dysku:
 
-* [Elementy docelowe skalowalności i wydajności dla dysków maszyn wirtualnych w systemie Windows](../windows/disk-scalability-targets.md).
+* [Elementy docelowe skalowalności i wydajności dla dysków maszyn wirtualnych w systemie Windows](../disks-scalability-targets.md).
 
 #### <a name="references"></a>Odwołania
 
@@ -224,7 +224,7 @@ Sprawdź limity przepływności wirtualnych dysków twardych dołączonych do ma
 
 Nowe oferty dysków w ramach magazynu w warstwie Standardowa mają różne liczby IOPS i limity przepływności (operacje we/wy nie są widoczne dla wirtualnego dysku twardego). Sprawdź dane, aby sprawdzić, czy są używane limity łącznej przepływności dysków VHD na poziomie maszyny wirtualnej przy użyciu odczytu i zapisu na dysku, a następnie Zoptymalizuj konfigurację magazynu maszyn wirtualnych w celu skalowania ostatnich limitów jednego dysku VHD. Dowiedz się więcej o różnych ofertach dysków magazynu w warstwie Standardowa i limitach na dysku:
 
-* [Elementy docelowe skalowalności i wydajności dla dysków maszyn wirtualnych w systemie Windows](../windows/disk-scalability-targets.md).
+* [Elementy docelowe skalowalności i wydajności dla dysków maszyn wirtualnych w systemie Windows](../disks-scalability-targets.md).
 
 ### <a name="high-disk-utilizationlatency-remediation"></a>Duże użycie dysku/korygowanie opóźnień
 

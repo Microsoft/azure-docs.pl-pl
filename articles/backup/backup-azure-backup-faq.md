@@ -3,12 +3,12 @@ title: Odpowiedzi na często zadawane pytania
 description: 'Odpowiedzi na typowe pytania dotyczące funkcji usługi Azure Backup, w tym magazynów usług Recovery Services, elementów, których kopie zapasowe można tworzyć, sposobu działania, szyfrowania i ograniczeń. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: d85866e490b2c56abb7de1e94cd0ffaa8f714615
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: bd84ff553b486d200ec4501b89b42335335b223f
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327155"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572531"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup — często zadawane pytania
 
@@ -61,6 +61,10 @@ Jeśli kopia zapasowa została już skonfigurowana i musi zostać przeniesiona z
 ### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>Jak przenieść dane z magazynu Recovery Services do lokalnego?
 
 Eksportowanie danych bezpośrednio z magazynu Recovery Services do lokalnego przy użyciu urządzenie Data Box nie jest obsługiwane. Dane muszą zostać przywrócone do konta magazynu, a następnie można je przenieść do lokalizacji lokalnej za pośrednictwem [urządzenie Data Box](../databox/data-box-overview.md) lub [zaimportować/wyeksportować](../storage/common/storage-import-export-service.md).
+
+### <a name="what-is-the-difference-between-a-geo-redundant-storage-grs-vault-with-and-without-the-cross-region-restore-crr-capability-enabled"></a>Jaka jest różnica między magazynem geograficznie nadmiarowym (GRS) i bez włączonej funkcji przywracania między regionami (CRR)?
+
+W przypadku magazynu [GRS](azure-backup-glossary.md#grs) bez włączonej możliwości [CRR](azure-backup-glossary.md#cross-region-restore-crr) nie można uzyskać dostępu do danych w regionie pomocniczym, dopóki platforma Azure nie zadeklaruje awarii w regionie podstawowym. W takim scenariuszu przywracanie odbywa się z regionu pomocniczego. Gdy CRR jest włączona, nawet jeśli region podstawowy jest uruchomiony, można wyzwolić przywracanie w regionie pomocniczym.
 
 ## <a name="azure-backup-agent"></a>Agent usługi Azure Backup
 

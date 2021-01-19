@@ -11,18 +11,18 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 06/16/2020
-ms.openlocfilehash: 2e26bfa484d573c0158e518b31087fb10bdcdfb9
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 8e749e5f6ea6bcf76a1b4f143bce03ceb41cbb07
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185686"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573296"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Konfigurowanie podziałów danych i krzyżowego sprawdzania poprawności w ramach zautomatyzowanego uczenia maszynowego
 
 Ten artykuł zawiera informacje o różnych opcjach związanych z konfigurowaniem danych dotyczących szkoleń/weryfikacji oraz przeprowadzania krzyżowego sprawdzania poprawności dla zautomatyzowanej uczenia maszynowego, zautomatyzowanej sieci, eksperymentów.
 
-W Azure Machine Learning, gdy używasz zautomatyzowanej ML do kompilowania wielu modeli ML, każdy przebieg podrzędny musi sprawdzać pokrewny model, obliczając metryki jakości dla tego modelu, na przykład dokładność lub AUC ważone. Te metryki są obliczane przez porównanie prognoz wykonanych z poszczególnymi modelami z rzeczywistymi etykietami z ostatnich obserwacji w danych sprawdzania poprawności. 
+W Azure Machine Learning, gdy używasz zautomatyzowanej ML do kompilowania wielu modeli ML, każdy przebieg podrzędny musi sprawdzać pokrewny model, obliczając metryki jakości dla tego modelu, na przykład dokładność lub AUC ważone. Te metryki są obliczane przez porównanie prognoz wykonanych z poszczególnymi modelami z rzeczywistymi etykietami z ostatnich obserwacji w danych sprawdzania poprawności. [Dowiedz się więcej o tym, jak metryki są obliczane na podstawie typu walidacji](#metric-calculation-for-cross-validation-in-machine-learning). 
 
 Automatyczne eksperymenty w MILILITRach wykonują walidację modelu automatycznie. W poniższych sekcjach opisano, jak można modyfikować ustawienia walidacji za pomocą [zestawu SDK języka Python Azure Machine Learning](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py). 
 
@@ -43,9 +43,9 @@ W tym artykule należy
 
     * [Informacje o szkoleniach, walidacji i zestawach testów w Machine Learning](https://towardsdatascience.com/train-validation-and-test-sets-72cb40cba9e7)
 
-    * [Opis krzyżowego sprawdzania poprawności w usłudze Machine Learning](https://towardsdatascience.com/understanding-cross-validation-419dbd47e9bd)
+    * [Opis krzyżowego sprawdzania poprawności w usłudze Machine Learning](https://towardsdatascience.com/understanding-cross-validation-419dbd47e9bd) 
 
-## <a name="default-data-splits-and-cross-validation"></a>Domyślne podziały danych i wzajemne sprawdzanie poprawności
+## <a name="default-data-splits-and-cross-validation-in-machine-learning"></a>Domyślne podziały danych i wzajemne sprawdzanie poprawności w usłudze Machine Learning
 
 Użyj obiektu [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py) , aby zdefiniować ustawienia eksperymentu i szkolenia. W poniższym fragmencie kodu należy zauważyć, że są zdefiniowane tylko wymagane parametry, które są parametrami dla `n_cross_validation` lub `validation_ data` **nie** są uwzględniane.
 
@@ -155,6 +155,13 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 
 > [!NOTE]
 > Aby użyć programu `cv_split_column_names` z programem `training_data` i `label_column_name` , Uaktualnij Azure Machine Learning Python SDK w wersji 1.6.0 lub nowszej. W przypadku poprzednich wersji zestawu SDK zapoznaj się z tematem using `cv_splits_indices` , ale pamiętaj, że jest on używany `X` `y` tylko z danymi wejściowymi i zestawem danych. 
+
+
+## <a name="metric-calculation-for-cross-validation-in-machine-learning"></a>Obliczanie metryki dla krzyżowego sprawdzania poprawności w usłudze Machine Learning
+
+Gdy używana jest funkcja Monte lub Carlo krzyżowego sprawdzania poprawności, metryki są obliczane dla każdego złożenia walidacji, a następnie agregowane. Operacja agregacji jest średnią dla metryk skalarnych i sumy dla wykresów. Metryki obliczane podczas wykonywania krzyżowego walidacji są oparte na wszystkich zgięciach i dlatego wszystkich próbkach z zestawu szkoleniowego. [Dowiedz się więcej o metrykach w obszarze Automatyczne Uczenie maszynowe](how-to-understand-automated-ml.md).
+
+Gdy jest używany niestandardowy zestaw walidacji lub automatycznie wybrany zestaw walidacji, metryki oceny modelu są obliczane tylko przez ten zestaw walidacji, a nie dane szkoleniowe.
 
 ## <a name="next-steps"></a>Następne kroki
 

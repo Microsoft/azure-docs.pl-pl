@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 01/19/2021
 ms.author: alkohli
-ms.openlocfilehash: 225cb9a31b73f330d8b4ed5790caacc4fa729477
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d40d26e8fab0832a37a43c353e11189f8f193f14
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839949"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573330"
 ---
 # <a name="technical-specifications-and-compliance-for-azure-stack-edge-pro-with-gpu"></a>Specyfikacje techniczne i zgodność dla Azure Stack EDGE Pro z procesorem GPU 
 
@@ -26,7 +26,7 @@ Urządzenie Azure Stack EDGE Pro ma następujące specyfikacje dotyczące oblicz
 | Specyfikacja           | Wartość                  |
 |-------------------------|----------------------------|
 | Procesor CPU                     | 2 X procesor Intel Xeon Silver 4214 (Kaskada Lake)            |
-| Pamięć                  | 128 (8x16 GB) GB pamięci RAM                     |
+| Pamięć                  | 128 (8x16 GB) GB pamięci RAM <br> Zgodny z firmą Dell 16 GB PC4-23400 DDR4-2933Mhz 2Rx8 1.2 v ECC, zarejestrowane RDIMM       |
 
 
 ## <a name="compute-acceleration-specifications"></a>Specyfikacje przyspieszania obliczeń
@@ -56,7 +56,7 @@ Urządzenie Azure Stack EDGE Pro ma sześć interfejsów sieciowych, PORT1-PORT6
 
 | Specyfikacja           | Opis                 |
 |-------------------------|----------------------------|
-|  Interfejsy sieciowe    | **2 X 1 GbE interfejsy** — 1 interfejs zarządzania port 1 jest używany do początkowej konfiguracji i jest domyślnie statyczny. Po zakończeniu wstępnej instalacji można użyć interfejsu dla danych z dowolnymi adresami IP. Jednak po zresetowaniu interfejs przywraca statyczny adres IP. <br>Innym interfejsem jest port 2 konfigurowany przez użytkownika, który może być używany do transferu danych i domyślnie jest DHCP. <br>**interfejsy 4 X 25 GbE** — te interfejsy danych, port 3 przez port 6 mogą być konfigurowane przez użytkownika jako serwer DHCP (domyślnie) lub statyczny. Mogą one również działać jako interfejsy 10 GbE.  | 
+|  Interfejsy sieciowe    | **2 X 1 GbE interfejsy** — 1 interfejs zarządzania port 1 jest używany do początkowej konfiguracji i jest domyślnie statyczny. Po zakończeniu wstępnej instalacji można użyć interfejsu dla danych z dowolnymi adresami IP. Jednak po zresetowaniu interfejs przywraca statyczny adres IP. <br>Innym interfejsem jest port 2 konfigurowany przez użytkownika, który może być używany do transferu danych i domyślnie jest DHCP. <br>**interfejsy 4 X 25 GbE** — te interfejsy danych, port 3 przez port 6 mogą być konfigurowane przez użytkownika jako serwer DHCP (domyślnie) lub statyczny. Mogą również działać jako interfejsy 10 GbE.  | 
 
 Urządzenie Azure Stack EDGE Pro ma następujący sprzęt sieciowy:
 
@@ -68,7 +68,7 @@ Poniżej znajdują się szczegółowe informacje dotyczące karty Mellanox:
 | Parametr           | Opis                 |
 |-------------------------|----------------------------|
 | Model    | ConnectX®-4 LX interfejsu sieciowego karty sieciowej                      |
-| Opis modelu               | 25GbE Dual-port SFP28; PCIe 3.0 x8; R6 ROHS                    |
+| Opis modelu               | 25 GbE Dual-port SFP28; PCIe 3.0 x8; R6 ROHS                    |
 | Numer części urządzenia (R640) | MCX4121A-ACAT  |
 | PUSTY PSID (R640)           | MT_2420110034                         |
 
@@ -88,11 +88,9 @@ Urządzenia Azure Stack EDGE Pro mają pięć 2,5 "interfejsu NVMe DC P4610 dysk
 |    Rozruch dysków SSD SATA (SSD)      |    1                  |
 |    Pojemność dysków SSD rozruchowego                       |    240 GB             |
 |    Całkowita pojemność                          |    8,0 TB             |
-|    Łączna pojemność użyteczna *                  |    ~ 4,19 TB          |
+|    Łączna pojemność użyteczna                   |    ~ 4,19 TB          |
+|    Konfiguracja RAID                      |    Bezpośrednie miejsca do magazynowania z połączeniem dublowania i parzystości  |
 |    Kontroler SAS                          |    HBA330 12 GB/s     |
-
-
-**Po odporności parzystości i zachowaniu miejsca do użytku wewnętrznego.*
 
 <!--Remove based on feedback from Ravi
 ## Other hardware specifications
@@ -150,6 +148,7 @@ W tej sekcji przedstawiono specyfikacje dotyczące środowiska obudowy, takie ja
 |     Szaf                           |     Specyfikacje operacyjne                                                                                                                                                                                         |
 |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    Przepływ powietrza                              |    Przepływ powietrza systemu jest przedsunięty do tyłu. System musi być obsługiwany przy użyciu instalacji z niską ilością wylotu. <!--Back pressure created by rack doors and obstacles should not exceed 5 pascals (0.5 mm water gauge).-->    |
+| Ochrona danych przychodzących (IP)                 |    Tego typu sprzęt montowany w stojaku do użytku pomieszczeń zwykle nie jest testowany pod kątem ochrony transferu danych przychodzących (ochrona przed pełnymi i cieczami dla obudowy elektrycznej). Ocena bezpieczeństwa producenta przedstawia IPXO (bez ochrony danych wejściowych).  |
 |    Maksymalna wysokość, operacyjna        |    3048 mierników (10 000 stóp) z maksymalną temperaturą działania, która jest określana przez niesklasyfikowane [wymagania dotyczące temperatury działania](#operating-temperature-de-rating-specifications).                                                                                |
 |    Maksymalna wysokość, niedziałająca    |    12 000 metrów (39 370 stóp)                                                                                                                                                                                         |
 |    Wstrząsy, operacyjne                   |    6 G dla 11 milisekund w 6 orientacjach                                                                                                                                                                         |

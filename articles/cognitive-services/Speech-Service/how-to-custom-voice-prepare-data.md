@@ -10,18 +10,26 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 5427e9f996fb77d455aa8064fc7cb1c65e1fcf7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 563a3e224ffedc98bcc3102ea865f06315294365
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74805981"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573109"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>Przygotowywanie danych do tworzenia niestandardowego głosu
 
 Gdy wszystko jest gotowe do utworzenia niestandardowego głosu zamiany tekstu na mowę dla aplikacji, pierwszym krokiem jest zebranie nagrań audio i skojarzonych skryptów, aby rozpocząć uczenie modelu głosowego. Usługa mowy używa tych danych do utworzenia unikatowego głosu dopasowanego do głosu w nagraniach. Po przeszkoleniu głosu możesz rozpocząć uczenie mowy w aplikacjach.
 
-Możesz zacząć od małej ilości danych, aby utworzyć weryfikację koncepcji. Jednak im więcej danych jest zapewnianych przez użytkownika, tym bardziej naturalnie jest dźwięk. Aby można było nauczyć własny model głosu zamiany tekstu na mowę, potrzebne są nagrania audio i powiązane transkrypcje tekstu. Na tej stronie zostanie przejrzane typy danych, sposób ich użycia oraz sposób zarządzania każdym z nich.
+Aby można było nauczyć własny model głosu zamiany tekstu na mowę, potrzebne są nagrania audio i powiązane transkrypcje tekstu. Na tej stronie zostanie przejrzane typy danych, sposób ich użycia oraz sposób zarządzania każdym z nich.
+
+> [!NOTE]
+> Jeśli chcesz przeprowadzić uczenie głosu neuronowych, musisz określić profil talenta głosowego z plikiem zgody na dźwięk dostarczonym w przypadku głosu talent, aby użyć jego danych mowy do uczenia niestandardowego modelu głosowego. Podczas przygotowywania skryptu nagrywania upewnij się, że zawarto następujące zdanie. 
+
+> "I [stan imię i nazwisko] wie, że nagrania mojego głosu będą używane przez użytkownika [Nadaj nazwę firmie] do tworzenia i używania syntetycznej wersji mojego głosu".
+To zdanie zostanie użyte do sprawdzenia, czy dane szkolenia są wykonywane przez tę samą osobę, która wyraża zgodę. Więcej informacji na temat [weryfikacji talent głosu](https://aka.ms/CNV-data-privacy) można znaleźć tutaj.
+
+> Niestandardowy głos neuronowych jest dostępny z ograniczonym dostępem. Upewnij się, że rozumiesz odpowiednie [wymagania AI](https://aka.ms/gating-overview) , i [Zastosuj tutaj dostęp](https://aka.ms/customneural). 
 
 ## <a name="data-types"></a>Typy danych
 
@@ -31,22 +39,22 @@ W niektórych przypadkach możesz nie mieć odpowiedniego zestawu danych, który
 
 Ta tabela zawiera listę typów danych i sposób ich użycia w celu utworzenia niestandardowego modelu głosu zamiany tekstu na mowę.
 
-| Typ danych | Opis | Kiedy stosować | Wymagana jest dodatkowa usługa | Ilość szkoleniowa modelu | Ustawienia regionalne |
-| --------- | ----------- | ----------- | --------------------------- | ----------------------------- | --------- |
-| **Poszczególne wyrażenia długości + pasujące transkrypcje** | Kolekcja (zip) plików audio (. wav) jako pojedyncze wyrażenia długości. Każdy plik audio powinien mieć długość co najmniej 15 sekund, sparowany z sformatowaną transkrypcją (. txt). | Profesjonalne nagrania z pasującymi transkrypcjami | Gotowe do uczenia się. | Brak twardych wymagań dla en-US i zh-CN. Więcej niż 2000 wyrażenia długości różne ustawienia regionalne. | [Wszystkie niestandardowe ustawienia regionalne głosu](language-support.md#customization) |
-| **Długi dźwięk + transkrypcja (beta)** | Kolekcja (zip) długich, niesegmentowych plików audio (dłużej niż 20 sekund) sparowana z transkrypcją (. txt), która zawiera wszystkie wymawiane słowa. | Masz pliki audio i pasujące transkrypcje, ale nie są one podzielone na wyrażenia długości. | Segmentacja (przy użyciu transkrypcji partii).<br>Przekształcanie formatu audio, gdy jest to wymagane. | Brak wymagań twardych  | [Wszystkie niestandardowe ustawienia regionalne głosu](language-support.md#customization) |
-| **Tylko audio (beta)** | Kolekcja (zip) plików audio bez transkrypcji. | Dostępne są tylko pliki audio, bez transkrypcji. | Segmentacja + generacja transkrypcji (przy użyciu transkrypcji partii).<br>Przekształcanie formatu audio, gdy jest to wymagane.| Brak wymagań twardych | [Wszystkie niestandardowe ustawienia regionalne głosu](language-support.md#customization) |
+| Typ danych | Opis | Kiedy stosować | Wymagane jest dodatkowe przetwarzanie | 
+| --------- | ----------- | ----------- | --------------------------- |
+| **Poszczególne wyrażenia długości + pasujące transkrypcje** | Kolekcja (zip) plików audio (. wav) jako pojedyncze wyrażenia długości. Każdy plik audio powinien mieć długość co najmniej 15 sekund, sparowany z sformatowaną transkrypcją (. txt). | Profesjonalne nagrania z pasującymi transkrypcjami | Gotowe do uczenia się. |
+| **Długi dźwięk + transkrypcja (beta)** | Kolekcja (zip) długich, niesegmentowych plików audio (dłużej niż 20 sekund) sparowana z transkrypcją (. txt), która zawiera wszystkie wymawiane słowa. | Masz pliki audio i pasujące transkrypcje, ale nie są one podzielone na wyrażenia długości. | Segmentacja (przy użyciu transkrypcji partii).<br>Przekształcanie formatu audio, gdy jest to wymagane. | 
+| **Tylko audio (beta)** | Kolekcja (zip) plików audio bez transkrypcji. | Dostępne są tylko pliki audio, bez transkrypcji. | Segmentacja + generacja transkrypcji (przy użyciu transkrypcji partii).<br>Przekształcanie formatu audio, gdy jest to wymagane.| 
 
 Pliki powinny być pogrupowane według typu w zestawie danych i przekazywane jako plik zip. Każdy zestaw danych może zawierać tylko jeden typ danych.
 
 > [!NOTE]
-> Maksymalna liczba zestawów danych, które mogą zostać zaimportowane na subskrypcję, to 10. zip plików dla użytkowników bezpłatnej subskrypcji (F0) i użytkowników 500 for Standard Subscription (S0).
+> Maksymalna liczba zestawów danych, które mogą zostać zaimportowane na subskrypcję, to 10 plików ZIP dla użytkowników bezpłatnej subskrypcji (F0) i użytkowników 500 for Standard Subscription (S0).
 
 ## <a name="individual-utterances--matching-transcript"></a>Poszczególne wyrażenia długości + pasujące transkrypcje
 
 Możesz przygotować nagrania poszczególnych wyrażenia długości i zgodne transkrypcji na dwa sposoby. Napisz skrypt i odczytaj go za pomocą głosu talent lub użyj publicznie dostępnego dźwięku i transkrypcja go do tekstu. Jeśli wykonasz te czynności, Edytuj disfluencies z plików audio, takich jak "UM" i innych dźwięków Filler, stutters, mumbled słów lub wymowy.
 
-Aby utworzyć dobrą czcionkę głosową, Utwórz nagrania w cichym pokoju przy użyciu mikrofonu o wysokiej jakości. Istotna jest stała ilość głosu, częstotliwość mówienia, gęstość głosu i mannerisms.
+Aby utworzyć dobry model głosowy, Utwórz nagrania w cichym pokoju przy użyciu mikrofonu o wysokiej jakości. Istotna jest stała ilość głosu, częstotliwość mówienia, gęstość głosu i mannerisms.
 
 > [!TIP]
 > Aby utworzyć głos do użycia w środowisku produkcyjnym, zalecamy korzystanie z profesjonalnego nagrywania programu Studio i głosu talent. Aby uzyskać więcej informacji, zobacz [jak zarejestrować przykłady głosu dla niestandardowego głosu](record-custom-voice-samples.md).
@@ -89,9 +97,6 @@ Poniżej znajduje się przykład sposobu, w jaki transkrypcje są zorganizowane 
 0000000003[tab] It was Janet Maslin.
 ```
 Należy pamiętać, że transkrypcje są 100% dokładne transkrypcje odpowiedniego dźwięku. Błędy w transkrypcjach spowodują utratę jakości podczas uczenia się.
-
-> [!TIP]
-> Podczas tworzenia głosów produkcji zamiany tekstu na mowę wybierz pozycję wyrażenia długości (lub napisz skrypty), która uwzględnia zarówno pokrycie, jak i wydajność. Masz problemy z uzyskaniem żądanych wyników? [Skontaktuj się z niestandardowym zespołem mowy,](mailto:speechsupport@microsoft.com) aby dowiedzieć się więcej o tym, jak się skontaktować.
 
 ## <a name="long-audio--transcript-beta"></a>Długi dźwięk + transkrypcja (beta)
 

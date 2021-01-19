@@ -1,15 +1,15 @@
 ---
 title: Informacje o tym, jak alerty metryk działają w Azure Monitor.
 description: Zapoznaj się z informacjami o tym, co możesz zrobić z alertami metryk i jak działają w Azure Monitor.
-ms.date: 01/13/2021
+ms.date: 01/19/2021
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: ab80496784b5d86d270830546cec73aadbcc50a6
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 031768b8a72fbe9498abd3c17e0f79fd157d4f52
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251237"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572735"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Omówienie działania alertów metryk w usłudze Azure Monitor
 
@@ -26,7 +26,7 @@ Załóżmy, że utworzono prostą regułę alertu metryki statycznej progu:
 - Zasób docelowy (zasób platformy Azure, który chcesz monitorować): myVM
 - Metryka: procentowy procesor CPU
 - Typ warunku: statyczny
-- Agregacja czasu (statystyka, która jest uruchamiana za pośrednictwem wartości metryk nieprzetworzonych. [Agregacje obsługiwanego czasu](metrics-charts.md#aggregation) to min, Max, średnia, suma, liczba): Średnia
+- Typ agregacji (statystyka, która jest uruchamiana dla nieprzetworzonych wartości metryki. [Obsługiwane typy agregacji](./metrics-aggregation-explained.md#aggregation-types) to minimum, maksimum, średnia, suma, liczba): Średnia
 - Okres (wyszukanie okna, nad którym są sprawdzane wartości metryk): w ciągu ostatnich 5 minut
 - Częstotliwość (częstotliwość, z jaką alert dotyczący metryki sprawdza, czy warunki są spełnione): 1 min
 - Operator: większe niż
@@ -43,7 +43,7 @@ Załóżmy, że utworzono prostą regułę alertu metryki dynamicznej wartości 
 - Zasób docelowy (zasób platformy Azure, który chcesz monitorować): myVM
 - Metryka: procentowy procesor CPU
 - Typ warunku: dynamiczny
-- Agregacja czasu (statystyka, która jest uruchamiana za pośrednictwem wartości metryk nieprzetworzonych. [Agregacje obsługiwanego czasu](metrics-charts.md#aggregation) to min, Max, średnia, suma, liczba): Średnia
+- Typ agregacji (statystyka, która jest uruchamiana dla nieprzetworzonych wartości metryki. [Obsługiwane typy agregacji](./metrics-aggregation-explained.md#aggregation-types) to minimum, maksimum, średnia, suma, liczba): Średnia
 - Okres (wyszukanie okna, nad którym są sprawdzane wartości metryk): w ciągu ostatnich 5 minut
 - Częstotliwość (częstotliwość, z jaką alert dotyczący metryki sprawdza, czy warunki są spełnione): 1 min
 - Operator: większe niż
@@ -80,7 +80,7 @@ Załóżmy, że masz plan App Service dla witryny sieci Web. Chcesz monitorować
 - Typ warunku: statyczny
 - Wymiary
   - Wystąpienie = InstanceName1, InstanceName2
-- Agregacja czasu: Średnia
+- Typ agregacji: Średnia
 - Okres: w ciągu ostatnich 5 minut
 - Częstotliwość: 1 min
 - Operator: GreaterThan
@@ -95,7 +95,7 @@ Załóżmy, że masz aplikację sieci Web, która widzi ogromne zapotrzebowanie 
 - Typ warunku: statyczny
 - Wymiary
   - Wystąpienie = *
-- Agregacja czasu: Średnia
+- Typ agregacji: Średnia
 - Okres: w ciągu ostatnich 5 minut
 - Częstotliwość: 1 min
 - Operator: GreaterThan
@@ -112,7 +112,7 @@ Załóżmy, że masz aplikację sieci Web z wieloma wystąpieniami i nie wiesz, 
 - Typ warunku: dynamiczny
 - Wymiary
   - Wystąpienie = *
-- Agregacja czasu: Średnia
+- Typ agregacji: Średnia
 - Okres: w ciągu ostatnich 5 minut
 - Częstotliwość: 1 min
 - Operator: GreaterThan

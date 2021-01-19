@@ -4,21 +4,21 @@ titleSuffix: Azure Digital Twins
 description: Zobacz jak skonfigurować trasy zdarzeń z usługi Azure Digital bliźniaczych reprezentacji do Azure Time Series Insights.
 author: alexkarcher-msft
 ms.author: alkarche
-ms.date: 7/14/2020
+ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f776482c684004c8d661f69d8158ba9597c923b2
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 24b4f56e5798acc4d9bd0962be7059a359958645
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127040"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573245"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integracja usługi Azure Digital bliźniaczych reprezentacji z usługą Azure Time Series Insights
 
 W tym artykule dowiesz się, jak zintegrować usługę Azure Digital bliźniaczych reprezentacji z [Azure Time Series Insights (TSI)](../time-series-insights/overview-what-is-tsi.md).
 
-Rozwiązanie opisane w tym artykule umożliwi zbieranie i analizowanie danych historycznych dotyczących rozwiązania IoT. Usługa Azure Digital bliźniaczych reprezentacji to doskonałe rozwiązanie do obsługi danych w Time Series Insights, ponieważ umożliwia skorelowanie wielu strumieni danych i standaryzację informacji przed wysłaniem ich do Time Series Insights. 
+Rozwiązanie opisane w tym artykule umożliwi zbieranie i analizowanie danych historycznych dotyczących rozwiązania IoT. Usługa Azure Digital Twins to doskonałe rozwiązanie do obsługi danych w usłudze Time Series Insights, ponieważ umożliwia skorelowanie wielu strumieni danych i standaryzację informacji przed wysłaniem ich do usługi Time Series Insights. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -38,31 +38,28 @@ Time Series Insights można dołączyć do usługi Azure Digital bliźniaczych r
     :::column-end:::
 :::row-end:::
 
-## <a name="create-a-route-and-filter-to-twin-update-notifications"></a>Tworzenie trasy i filtrowanie w celu otrzymywania powiadomień o aktualizacjach bliźniaczych
+## <a name="create-a-route-and-filter-to-twin-update-notifications"></a>Tworzenie trasy i filtrowanie powiadomień o aktualizacjach reprezentacji bliźniaczej
 
 Usługa Azure Digital bliźniaczych reprezentacji Instances może emitować [wieloosiowe zdarzenia aktualizacji](how-to-interpret-event-data.md) za każdym razem, gdy stanem splotu jest zaktualizowany. W tej sekcji utworzysz [**trasę zdarzeń**](concepts-route-events.md) usługi Azure Digital bliźniaczych reprezentacji, która będzie kierować te zdarzenia aktualizacji do usługi Azure [Event Hubs](../event-hubs/event-hubs-about.md) w celu dalszej obróbki.
 
 Samouczek Digital bliźniaczych reprezentacji na platformie Azure [*: łączenie kompleksowego rozwiązania*](./tutorial-end-to-end.md) w scenariuszu, w którym termometr jest używany do aktualizacji atrybutu temperatury na dwucyfrowej sieci dwukierunkowej. Ten wzorzec polega na aktualizacjach bliźniaczych, a nie przekazywaniu danych telemetrycznych z urządzenia IoT, co zapewnia elastyczność zmiany bazowego źródła danych bez konieczności aktualizowania logiki Time Series Insights.
 
-1. Najpierw utwórz przestrzeń nazw centrum zdarzeń, która będzie odbierać zdarzenia z wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Możesz użyć poniższych instrukcji interfejsu wiersza polecenia platformy Azure lub użyć Azure Portal: [*Szybki Start: tworzenie centrum zdarzeń przy użyciu Azure Portal*](../event-hubs/event-hubs-create.md).
+1. Najpierw utwórz przestrzeń nazw centrum zdarzeń, która będzie odbierać zdarzenia z wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Możesz użyć poniższych instrukcji interfejsu wiersza polecenia platformy Azure lub użyć Azure Portal: [*Szybki Start: tworzenie centrum zdarzeń przy użyciu Azure Portal*](../event-hubs/event-hubs-create.md). Aby dowiedzieć się, które regiony obsługują Event Hubs, odwiedź stronę [*usługi Azure dostępne według regionów*](https://azure.microsoft.com/global-infrastructure/services/?products=event-hubs).
 
     ```azurecli-interactive
-    # Create an Event Hubs namespace. Specify a name for the Event Hubs namespace.
-    az eventhubs namespace create --name <name for your Event Hubs namespace> --resource-group <resource group name> -l <region, for example: East US>
+    az eventhubs namespace create --name <name for your Event Hubs namespace> --resource-group <resource group name> -l <region>
     ```
 
-2. Utwórz centrum zdarzeń w przestrzeni nazw.
+2. Utwórz centrum zdarzeń w przestrzeni nazw, aby otrzymywać dwuosiowe zdarzenia zmiany. Określ nazwę centrum zdarzeń.
 
     ```azurecli-interactive
-    # Create an event hub to receive twin change events. Specify a name for the event hub. 
     az eventhubs eventhub create --name <name for your Twins event hub> --resource-group <resource group name> --namespace-name <Event Hubs namespace from above>
     ```
 
-3. Utwórz [regułę autoryzacji](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest&preserve-view=true#az-eventhubs-eventhub-authorization-rule-create) z uprawnieniami do wysyłania i odbierania.
+3. Utwórz [regułę autoryzacji](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest&preserve-view=true#az-eventhubs-eventhub-authorization-rule-create) z uprawnieniami do wysyłania i odbierania. Określ nazwę reguły.
 
     ```azurecli-interactive
-    # Create an authorization rule. Specify a name for the rule.
-    az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from above> --eventhub-name <Twins event hub name from above> --name <name for your Twins auth rule>
+        az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from above> --eventhub-name <Twins event hub name from above> --name <name for your Twins auth rule>
     ```
 
 4. Utwórz [punkt końcowy](concepts-route-events.md#create-an-endpoint) usługi Azure Digital bliźniaczych reprezentacji, który łączy centrum zdarzeń z wystąpieniem usługi Azure Digital bliźniaczych reprezentacji.
@@ -71,12 +68,12 @@ Samouczek Digital bliźniaczych reprezentacji na platformie Azure [*: łączenie
     az dt endpoint create eventhub --endpoint-name <name for your Event Hubs endpoint> --eventhub-resource-group <resource group name> --eventhub-namespace <Event Hubs namespace from above> --eventhub <Twins event hub name from above> --eventhub-policy <Twins auth rule from above> -n <your Azure Digital Twins instance name>
     ```
 
-5. Utwórz [trasę](concepts-route-events.md#create-an-event-route) w usłudze Azure Digital bliźniaczych reprezentacji, aby wysyłać do punktu końcowego zdarzenia aktualizacji z przędzą. Filtr w tej trasie zezwala tylko na przekazywanie komunikatów o aktualizacjach dwuosiowych do punktu końcowego.
+5. Utwórz [trasę](concepts-route-events.md#create-an-event-route) w usłudze Azure Digital Twins, aby wysyłać zdarzenia aktualizacji reprezentacji bliźniaczej do punktu końcowego. Filtr w tej trasie zezwala tylko na przekazywanie komunikatów o aktualizacjach dwuosiowych do punktu końcowego.
 
     >[!NOTE]
-    >Obecnie występuje **znany problem** w Cloud Shell wpływu na te grupy poleceń: `az dt route` , `az dt model` , `az dt twin` .
+    >Obecnie istnieje **znany problem** w usłudze Cloud Shell, który wpływa na następujące grupy poleceń: `az dt route`, `az dt model`, `az dt twin`.
     >
-    >Aby rozwiązać ten problem, należy uruchomić `az login` polecenie w Cloud Shell przed uruchomieniem polecenia lub użyć [lokalnego interfejsu wiersza](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) polecenia, a nie Cloud Shell. Aby uzyskać szczegółowe informacje na ten temat, zobacz [*Rozwiązywanie problemów: znane problemy w usłudze Azure Digital bliźniaczych reprezentacji*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
+    >Aby rozwiązać ten problem, uruchom polecenie `az login` w usłudze Cloud Shell przed uruchomieniem danego polecenia lub użyj [lokalnego interfejsu wiersza polecenia](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) zamiast usługi Cloud Shell. Aby uzyskać szczegółowe informacje na ten temat, zobacz [*Rozwiązywanie problemów: znane problemy w usłudze Azure Digital bliźniaczych reprezentacji*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
 
     ```azurecli-interactive
     az dt route create -n <your Azure Digital Twins instance name> --endpoint-name <Event Hub endpoint from above> --route-name <name for your route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
@@ -86,7 +83,7 @@ Przed przejściem do programu Zanotuj *Event Hubs przestrzeń nazw* i *grupę za
 
 ## <a name="create-a-function-in-azure"></a>Tworzenie funkcji na platformie Azure
 
-Następnie użyjesz Azure Functions, aby utworzyć funkcję wyzwalaną Event Hubs wewnątrz aplikacji funkcji. Możesz użyć aplikacji funkcji utworzonej w kompleksowym samouczku ([*Samouczek: łączenie kompleksowego rozwiązania*](./tutorial-end-to-end.md)) lub własnych. 
+Następnie użyjesz Azure Functions, aby utworzyć **funkcję wyzwalaną Event Hubs** wewnątrz aplikacji funkcji. Możesz użyć aplikacji funkcji utworzonej w kompleksowym samouczku ([*Samouczek: łączenie kompleksowego rozwiązania*](./tutorial-end-to-end.md)) lub własnych. 
 
 Ta funkcja spowoduje przekonwertowanie tych dwuosiowych zdarzeń aktualizacji z ich oryginalnego formularza jako dokumentów poprawek JSON do obiektów JSON, zawierających tylko zaktualizowane i dodane wartości z bliźniaczych reprezentacji.
 
@@ -102,7 +99,7 @@ Później należy również ustawić zmienne środowiskowe, które będą używa
 
 ## <a name="send-telemetry-to-an-event-hub"></a>Wysyłanie danych telemetrycznych do centrum zdarzeń
 
-Teraz utworzysz drugie centrum zdarzeń i skonfigurujesz funkcję do przesyłania strumieniowego danych wyjściowych do tego centrum zdarzeń. To centrum zdarzeń zostanie następnie podłączone do Time Series Insights.
+Teraz utworzysz drugie centrum zdarzeń i skonfigurujesz funkcję do przesyłania strumieniowego danych wyjściowych do tego centrum zdarzeń. To centrum zdarzeń zostanie następnie połączone z usługą Time Series Insights.
 
 ### <a name="create-an-event-hub"></a>Tworzenie centrum zdarzeń
 
@@ -110,22 +107,22 @@ Aby utworzyć drugie centrum zdarzeń, możesz użyć poniższych instrukcji int
 
 1. Przygotuj *Event Hubs przestrzeń nazw* i nazwę *grupy zasobów* z wcześniejszej części tego artykułu
 
-2. Utwórz nowe centrum zdarzeń
+2. Utwórz nowe centrum zdarzeń. Określ nazwę centrum zdarzeń.
+
     ```azurecli-interactive
-    # Create an event hub. Specify a name for the event hub. 
     az eventhubs eventhub create --name <name for your TSI event hub> --resource-group <resource group name from earlier> --namespace-name <Event Hubs namespace from earlier>
     ```
-3. Tworzenie [reguły autoryzacji](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest&preserve-view=true#az-eventhubs-eventhub-authorization-rule-create) z uprawnieniami do wysyłania i odbierania
+3. Utwórz [regułę autoryzacji](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest&preserve-view=true#az-eventhubs-eventhub-authorization-rule-create) z uprawnieniami do wysyłania i odbierania. Określ nazwę reguły.
+
     ```azurecli-interactive
-    # Create an authorization rule. Specify a name for the rule.
-    az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from earlier> --eventhub-name <TSI event hub name from above> --name <name for your TSI auth rule>
+        az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from earlier> --eventhub-name <TSI event hub name from above> --name <name for your TSI auth rule>
     ```
 
 ## <a name="configure-your-function"></a>Skonfiguruj funkcję
 
 Następnie musisz ustawić zmienne środowiskowe w aplikacji funkcji z wcześniejszych wersji zawierających parametry połączenia dla utworzonych centrów zdarzeń.
 
-### <a name="set-the-twins-event-hub-connection-string"></a>Ustaw parametry połączenia centrum zdarzeń bliźniaczych reprezentacji
+### <a name="set-the-twins-event-hub-connection-string"></a>Ustawianie parametrów połączenia centrum zdarzeń reprezentacji bliźniaczych
 
 1. Pobierz [Parametry połączenia centrum zdarzeń](../event-hubs/event-hubs-get-connection-string.md)bliźniaczych reprezentacji, używając reguł autoryzacji utworzonych powyżej dla centrum bliźniaczych reprezentacji.
 
@@ -133,13 +130,13 @@ Następnie musisz ustawić zmienne środowiskowe w aplikacji funkcji z wcześnie
     az eventhubs eventhub authorization-rule keys list --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <Twins event hub name from earlier> --name <Twins auth rule from earlier>
     ```
 
-2. Użyj parametrów połączenia, które otrzymujesz w wyniku, aby utworzyć ustawienie aplikacji w aplikacji funkcji, która zawiera parametry połączenia:
+2. Użyj parametrów połączenia uzyskanych w wyniku, aby utworzyć w aplikacji funkcji ustawienie aplikacji zawierające parametry połączenia:
 
     ```azurecli-interactive
     az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<Twins event hub connection string>" -g <resource group> -n <your App Service (function app) name>
     ```
 
-### <a name="set-the-time-series-insights-event-hub-connection-string"></a>Ustawianie parametrów połączenia centrum zdarzeń Time Series Insights
+### <a name="set-the-time-series-insights-event-hub-connection-string"></a>Ustawianie parametrów połączenia centrum zdarzeń usługi Time Series Insights
 
 1. Pobierz [Parametry połączenia centrum zdarzeń](../event-hubs/event-hubs-get-connection-string.md)TSI przy użyciu reguł autoryzacji utworzonych powyżej dla centrum Time Series Insights:
 
@@ -147,13 +144,13 @@ Następnie musisz ustawić zmienne środowiskowe w aplikacji funkcji z wcześnie
     az eventhubs eventhub authorization-rule keys list --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <TSI event hub name> --name <TSI auth rule>
     ```
 
-2. W aplikacji funkcji Utwórz ustawienie aplikacji zawierające parametry połączenia:
+2. W aplikacji funkcji utwórz ustawienie aplikacji zawierające parametry połączenia:
 
     ```azurecli-interactive
     az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<TSI event hub connection string>" -g <resource group> -n <your App Service (function app) name>
     ```
 
-## <a name="create-and-connect-a-time-series-insights-instance"></a>Tworzenie i łączenie wystąpienia Time Series Insights
+## <a name="create-and-connect-a-time-series-insights-instance"></a>Tworzenie i łączenie wystąpienia usługi Time Series Insights
 
 Następnie skonfigurujesz wystąpienie Time Series Insights, aby otrzymywać dane z drugiego centrum zdarzeń. Wykonaj poniższe kroki i aby uzyskać więcej informacji o tym procesie, zobacz [*Samouczek: Konfigurowanie środowiska Azure Time Series Insights GEN2 PAYG*](../time-series-insights/tutorials-set-up-tsi-environment.md).
 
@@ -173,7 +170,7 @@ Aby rozpocząć wysyłanie danych do Time Series Insights, należy rozpocząć a
 
 Jeśli używasz kompleksowego samouczka ([*Samouczek: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md)) w celu ułatwienia instalacji środowiska, możesz zacząć wysyłać symulowane dane IoT, uruchamiając projekt *DeviceSimulator* z przykładu. Instrukcje znajdują się w sekcji [*Konfigurowanie i uruchamianie symulacji*](tutorial-end-to-end.md#configure-and-run-the-simulation) w samouczku.
 
-## <a name="visualize-your-data-in-time-series-insights"></a>Wizualizowanie danych w Time Series Insights
+## <a name="visualize-your-data-in-time-series-insights"></a>Wizualizowanie danych w usłudze Time Series Insights
 
 Teraz dane powinny być przepływane do wystąpienia Time Series Insights, gotowe do przeanalizowania. Postępuj zgodnie z poniższymi instrukcjami, aby poznać dane pochodzące z programu.
 

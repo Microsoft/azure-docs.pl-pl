@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: erhopf
-ms.openlocfilehash: dae7b8e0485c1a2456b85e0910f60b2164d4e41c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 966b11e2c9a0f7ffc5e6ec9238080b9076d37af6
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026322"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572429"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Rejestruj przykłady głosu, aby utworzyć niestandardowy głos
 
@@ -24,6 +24,14 @@ Tworzenie niestandardowego, niestandardowego głosu dla produkcji nie jest zobow
 Przed wprowadzeniem tych nagrań potrzebny jest skrypt: słowa, które będą wymawiane przez Talente głosu do tworzenia próbek audio. Aby uzyskać najlepsze wyniki, Twój skrypt musi mieć dobre pokrycie fonetyczne i dostateczną odmianę do uczenia niestandardowego modelu głosu.
 
 Wiele małych, ale ważnych szczegółów, aby utworzyć profesjonalne nagrywanie głosu. Ten przewodnik jest planem procesu, który pomoże Ci uzyskać dobre, spójne wyniki.
+
+> [!NOTE]
+> Jeśli chcesz przeprowadzić uczenie głosu neuronowych, musisz określić profil talenta głosowego z plikiem zgody na dźwięk dostarczonym w przypadku głosu talent, aby użyć jego danych mowy do uczenia niestandardowego modelu głosowego. Podczas przygotowywania skryptu nagrywania upewnij się, że zawarto następujące zdanie. 
+
+> "I [stan imię i nazwisko] wie, że nagrania mojego głosu będą używane przez użytkownika [Nadaj nazwę firmie] do tworzenia i używania syntetycznej wersji mojego głosu".
+To zdanie zostanie użyte do sprawdzenia, czy dane szkolenia są wykonywane przez tę samą osobę, która wyraża zgodę. Więcej informacji na temat [weryfikacji talent głosu](https://aka.ms/CNV-data-privacy) można znaleźć tutaj.
+
+> Niestandardowy głos neuronowych jest dostępny z ograniczonym dostępem. Upewnij się, że rozumiesz odpowiednie [wymagania AI](https://aka.ms/gating-overview) , i [Zastosuj tutaj dostęp](https://aka.ms/customneural). 
 
 > [!TIP]
 > Aby uzyskać najwyższej jakości wyniki, rozważ zaangażowanie firmy Microsoft w rozwój niestandardowego głosu. Firma Microsoft ma rozległe doświadczenie w zakresie tworzenia głosów o wysokiej jakości dla własnych produktów, w tym Cortany i pakietu Office.
@@ -56,7 +64,7 @@ Talent głosu to druga połowa równania. Muszą być w stanie mówić ze stał�
 
 Nagrywanie niestandardowych przykładów głosowych może być bardziej fatiguing niż inne rodzaje pracy głosowej. Większość talent głosu może zarejestrować się przez dwa lub trzy godziny dziennie. Ogranicz liczbę sesji do trzech lub czterech tygodni, z których każdy ma wartość z zakresu od do do między, jeśli to możliwe.
 
-Nagrania dla modelu głosowego powinny być tys neutralne. Oznacza to, że smutna wypowiedź nie powinna być odczytywana w sposób SAD. Nastrój można dodać do wydanej mowy później za pomocą kontrolek Prosody. Skontaktuj się z talentą głosu, aby utworzyć "Persona", która definiuje ogólny dźwięk i emocjonalneję niestandardowego głosu. W procesie należy określić, co to jest "neutralny" dźwięk, jak dla danej osoby.
+Skontaktuj się z talentą głosu, aby utworzyć "Persona", która definiuje ogólny dźwięk i emocjonalneję niestandardowego głosu. W procesie należy określić, co to jest "neutralny" dźwięk, jak dla danej osoby. Korzystając z funkcji niestandardowego głosu neuronowych, możesz nauczyć model, który mówisz z emocji. Zdefiniuj "Style głosu" i podawaj talent głosu, aby odczytywać skrypt w taki sposób, aby lepiej style, które chcesz.  
 
 Osoba może mieć, na przykład, charakter naturalny. Dlatego głos "ich" może mieć zanotowanie optimism nawet wtedy, gdy mówisz w sposób neutralny. Jednak taka cecha ma charakter delikatny i spójny. Odsłuchaj odczyty według istniejących głosów, aby uzyskać pomysł dotyczący tego, czego potrzebujesz.
 
@@ -211,7 +219,7 @@ Uważnie nasłuchiwanie każdego pliku. Na tym etapie można edytować małe nie
 
 Przekonwertuj każdy plik na 16 bitów i szybkość próbkowania 16 kHz przed zapisaniem i, jeśli nagrano czat Studio, Usuń drugi kanał. Zapisz każdy plik w formacie WAV, nazywając je numerem wypowiedź ze skryptu.
 
-Na koniec Utwórz *transkrypcję* , która kojarzy każdy plik WAV z wersją tekstową odpowiedniego wypowiedź. [Tworzenie niestandardowych czcionek głosowych](./how-to-custom-voice-create-voice.md) zawiera szczegółowe informacje o wymaganym formacie. Możesz skopiować tekst bezpośrednio ze skryptu. Następnie utwórz plik zip plików WAV i transkrypcję tekstu.
+Na koniec Utwórz *transkrypcję* , która kojarzy każdy plik WAV z wersją tekstową odpowiedniego wypowiedź. [Tworzenie niestandardowych głosów](./how-to-custom-voice-create-voice.md) zawiera szczegółowe informacje o wymaganym formacie. Możesz skopiować tekst bezpośrednio ze skryptu. Następnie utwórz plik zip plików WAV i transkrypcję tekstu.
 
 Archiwizuj oryginalne nagrania w bezpiecznym miejscu, jeśli będą potrzebne później. Zachowaj swój skrypt i notatki.
 

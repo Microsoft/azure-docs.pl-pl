@@ -3,12 +3,12 @@ title: Macierz obsługi dla oprogramowania VMware/fizycznego odzyskiwania po awa
 description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych programu VMware i serwera fizycznego na platformie Azure przy użyciu Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: eaf12a9799f834046bc3914816f38d672fcc931b
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 4bf0227cf11b21d7cde2807d465385bfc2b998b5
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234090"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573058"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Macierz obsługi odzyskiwania po awarii maszyn wirtualnych VMware i serwerów fizycznych na platformie Azure
 
@@ -57,6 +57,9 @@ IIS | Upewnij się, że:<br/><br/> -Nie ma wstępnie istniejącej domyślnej wit
 Typ karty sieciowej | VMXNET3 (po wdrożeniu jako maszyny wirtualnej VMware)
 Typ adresu IP | Static
 Porty | 443 używane na potrzeby aranżacji kanału kontroli<br/>9443 do transportu danych
+
+> [!NOTE]
+System operacyjny musi być zainstalowany przy użyciu ustawień regionalnych w języku angielskim. Konwersja instalacji po wprowadzeniu ustawień regionalnych może spowodować potencjalne problemy.
 
 ## <a name="replicated-machines"></a>Zreplikowane maszyny
 

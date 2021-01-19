@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
-ms.openlocfilehash: fb0e56c5eeebb4f3a869feacb996d690ea7dde86
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: e003d0121721838bd5ae038a3a8b4d1b8cd9d1eb
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124173"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573194"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limity Azure Data Box Disk
 
@@ -44,7 +44,7 @@ Najnowsze informacje na temat limitów usługi Azure Storage i najlepszych rozwi
 
 ## <a name="data-upload-caveats"></a>Zastrzeżenia dotyczące przekazywania danych
 
-- Nie należy kopiować danych bezpośrednio do dysków. Skopiuj dane do wstępnie utworzonych folderów *BlockBlob*,*PageBlob*i *AzureFile* .
+- Nie należy kopiować danych bezpośrednio do dysków. Skopiuj dane do wstępnie utworzonych folderów *BlockBlob*,*PageBlob* i *AzureFile* .
 - Folder w *BlockBlob* i *PageBlob* jest kontenerem. Na przykład kontenery są tworzone jako *BlockBlob/Container* i *PageBlob/Container*.
 - Jeśli masz istniejący obiekt platformy Azure (np. obiekt BLOB) w chmurze o takiej samej nazwie jak kopiowany obiekt, Data Box Disk zmieni nazwę pliku jako plik (1) w chmurze.
 - Każdy plik zapisany w udziałach *BlockBlob* i *PageBlob* jest przekazywany jako blokowy obiekt BLOB i stronicowy obiekt BLOB.
@@ -76,7 +76,7 @@ Poniżej przedstawiono rozmiary obiektów platformy Azure, które mogą być zap
 | Blokowy obiekt BLOB        | ~ 4,75 TiB                                                 |
 | Obiekt BLOB strony         | 8 TiB <br> (Każdy plik przekazany w formacie stronicowego obiektu BLOB musi być wyrównany do 512 bajtów, w przeciwnym razie przekazywanie nie powiedzie się. <br> Pliki VHD i VHDX są wyrównane do 512 bajtów. |
 |Azure Files        | 1 TiB <br> Maksymalnie z rozmiar udziału to 5 TiB     |
-| Dyski zarządzane     |4 TiB <br> Aby uzyskać więcej informacji na temat rozmiaru i limitów, zobacz: <li>[Elementy docelowe skalowalności dla dysków zarządzanych](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
+| Dyski zarządzane     |4 TiB <br> Aby uzyskać więcej informacji na temat rozmiaru i limitów, zobacz: <li>[Elementy docelowe skalowalności dla dysków zarządzanych](../virtual-machines/disks-scalability-targets.md#managed-virtual-machine-disks)</li>|
 
 
 ## <a name="azure-block-blob-page-blob-and-file-naming-conventions"></a>Blokowe obiekty blob platformy Azure, stronicowe obiekty blob i konwencje nazewnictwa plików

@@ -6,15 +6,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 12/08/2020
+ms.date: 01/19/2021
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 42701fbcee9833fd31fff3ace55d48079015dbcd
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: c1b17d8c624d4bef74278acc24ece37a736a5ca8
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906407"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572973"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Szybki start: bezpośredni ruch internetowy w usłudze Azure Application Gateway — Azure Portal
 
@@ -78,7 +78,7 @@ Możesz utworzyć bramę aplikacji przy użyciu kart na stronie **Tworzenie bram
    > [!NOTE]
    > W przypadku jednostki SKU Application Gateway v2 musi istnieć **publiczna** Konfiguracja adresu IP frontonu. Nadal można skonfigurować publiczną i prywatną konfigurację adresu IP frontonu, ale tylko prywatna Konfiguracja adresu IP frontonu (tylko tryb ILB) nie jest obecnie włączona dla jednostki SKU w wersji 2. 
 
-2. Wybierz opcję **Utwórz nowy** dla **publicznego adresu IP** i wprowadź *MYAGPUBLICIPADDRESS* dla nazwy publicznego adresu IP, a następnie wybierz przycisk **OK**. 
+2. Wybierz pozycję **Dodaj nowy** dla **publicznego adresu IP** i wprowadź *MYAGPUBLICIPADDRESS* dla nazwy publicznego adresu IP, a następnie wybierz przycisk **OK**. 
 
      ![Utwórz nową bramę aplikacji: frontony](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
 
@@ -86,9 +86,9 @@ Możesz utworzyć bramę aplikacji przy użyciu kart na stronie **Tworzenie bram
 
 ### <a name="backends-tab"></a>Karta zakończyła się
 
-Pula zaplecza służy do kierowania żądań do serwerów zaplecza, które obsługują żądanie. Pule zaplecza mogą składać się z kart sieciowych, zestawów skalowania maszyn wirtualnych, publicznych adresów IP, wewnętrznych adresów IP, w pełni kwalifikowanych nazw domen (FQDN) i wielodostępnych zapleczy, takich jak Azure App Service. W tym przykładzie utworzysz pustą pulę zaplecza z bramą aplikacji, a następnie dodasz cele zaplecza do puli zaplecza.
+Pula zaplecza służy do kierowania żądań do serwerów zaplecza, które obsługują żądanie. Pule zaplecza mogą składać się z kart sieciowych, zestawów skalowania maszyn wirtualnych, publicznych adresów IP, wewnętrznych adresów IP, w pełni kwalifikowanych nazw domen (FQDN) i wielodostępnych zaplecza, takich jak Azure App Service. W tym przykładzie utworzysz pustą pulę zaplecza z bramą aplikacji, a następnie dodasz cele zaplecza do puli zaplecza.
 
-1. Na karcie **nadkończenie** wybierz pozycję **+ Dodaj pulę zaplecza**.
+1. Na karcie **nadkończenie** wybierz pozycję **Dodaj pulę zaplecza**.
 
 2. W otwartym oknie **Dodawanie puli zaplecza** wprowadź następujące wartości, aby utworzyć pustą pulę zaplecza:
 
@@ -105,7 +105,7 @@ Pula zaplecza służy do kierowania żądań do serwerów zaplecza, które obsł
 
 Na karcie **Konfiguracja** zostanie nawiązane połączenie frontonu i puli zaplecza utworzonej przy użyciu reguły routingu.
 
-1. Wybierz pozycję **Dodaj regułę** w kolumnie **reguły routingu** .
+1. Wybierz pozycję **Dodaj regułę routingu** w kolumnie **reguły routingu** .
 
 2. W otwartym oknie **Dodawanie reguły routingu** wpisz *MyRoutingRule* dla **nazwy reguły**.
 
@@ -120,7 +120,7 @@ Na karcie **Konfiguracja** zostanie nawiązane połączenie frontonu i puli zapl
 
 4. Na karcie **cele zaplecza** wybierz pozycję **myBackendPool** dla **elementu docelowego zaplecza**.
 
-5. Dla **Ustawienia http** wybierz pozycję **Utwórz nowy** , aby utworzyć nowe ustawienie http. Ustawienie HTTP określi zachowanie reguły routingu. W oknie **Dodawanie ustawienia protokołu HTTP** , które zostanie otwarte, wprowadź *myHTTPSetting* dla **nazwy ustawienia http** i *80* dla **portu zaplecza**. Zaakceptuj wartości domyślne pozostałych ustawień w oknie **Dodawanie ustawienia protokołu HTTP** , a następnie wybierz pozycję **Dodaj** , aby powrócić do okna **Dodawanie reguły routingu** . 
+5. Dla **Ustawienia http** wybierz pozycję **Dodaj nowy** , aby dodać nowe ustawienie protokołu HTTP. Ustawienie HTTP określi zachowanie reguły routingu. W oknie **Dodawanie ustawienia protokołu HTTP** , które zostanie otwarte, wprowadź *myHTTPSetting* dla **nazwy ustawienia http** i *80* dla **portu zaplecza**. Zaakceptuj wartości domyślne pozostałych ustawień w oknie **Dodawanie ustawienia protokołu HTTP** , a następnie wybierz pozycję **Dodaj** , aby powrócić do okna **Dodawanie reguły routingu** . 
 
      ![Utwórz nową bramę aplikacji: ustawienie HTTP](./media/application-gateway-create-gateway-portal/application-gateway-create-httpsetting.png)
 
@@ -147,7 +147,7 @@ W tym celu wykonaj następujące czynności:
 ### <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
 1. W menu witryny Azure Portal lub na **stronie głównej** wybierz pozycję **Utwórz zasób**. Zostanie wyświetlone okno **Nowe**.
-2. Wybierz pozycję **Windows Server 2016 Datacenter** na **popularnej** liście. Zostanie wyświetlona strona **Tworzenie maszyny wirtualnej**.<br>Application Gateway może kierować ruch do dowolnego typu maszyny wirtualnej używanej w puli zaplecza. W tym przykładzie używane jest centrum danych systemu Windows Server 2016.
+2. Wybierz pozycję **Windows Server 2016 Datacenter** na **popularnej** liście. Zostanie wyświetlona strona **Tworzenie maszyny wirtualnej**.<br>Application Gateway może kierować ruch do dowolnego typu maszyny wirtualnej używanej w puli zaplecza. W tym przykładzie jest używana maszyna wirtualna z systemem Windows Server 2016 Datacenter.
 3. Wprowadź następujące wartości na karcie **Podstawy** dla poniższych ustawień maszyny wirtualnej:
 
     - **Grupa zasobów**: wybierz pozycję **myResourceGroupAG** dla nazwy grupy zasobów.
@@ -165,9 +165,11 @@ W tym celu wykonaj następujące czynności:
 
 ### <a name="install-iis-for-testing"></a>Zainstaluj usługi IIS do testowania
 
-W tym przykładzie należy zainstalować usługi IIS tylko na maszynach wirtualnych, aby sprawdzić, czy platforma Azure utworzyła bramę aplikacji pomyślnie.
+W tym przykładzie zainstalujesz usługi IIS na maszynach wirtualnych, aby sprawdzić, czy platforma Azure utworzyła bramę aplikacji pomyślnie.
 
-1. Otwórz program Azure PowerShell. Wybierz **Cloud Shell** z górnego paska nawigacyjnego Azure Portal a następnie wybierz z listy rozwijanej opcję **PowerShell** . 
+1. Otwórz program Azure PowerShell.
+
+   Wybierz **Cloud Shell** z górnego paska nawigacyjnego Azure Portal a następnie wybierz z listy rozwijanej opcję **PowerShell** . 
 
     ![Instalowanie rozszerzenia niestandardowego](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
@@ -208,7 +210,9 @@ W tym przykładzie należy zainstalować usługi IIS tylko na maszynach wirtualn
 
 ## <a name="test-the-application-gateway"></a>Testowanie bramy aplikacji
 
-Chociaż usługi IIS nie są wymagane do utworzenia bramy aplikacji, zainstalowano ją w tym przewodniku Szybki Start, aby sprawdzić, czy platforma Azure pomyślnie utworzyła bramę aplikacji. Użyj usług do przetestowania bramy aplikacji:
+Chociaż usługi IIS nie są wymagane do utworzenia bramy aplikacji, zainstalowano ją w tym przewodniku Szybki Start, aby sprawdzić, czy platforma Azure pomyślnie utworzyła bramę aplikacji. 
+
+Użyj usług do przetestowania bramy aplikacji:
 
 1. Na stronie **przeglądowej** Znajdź publiczny adres IP bramy aplikacji. ![ Zarejestruj publiczny adres IP bramy aplikacji ](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) lub, wybierz pozycję **wszystkie zasoby**, wpisz *myAGPublicIPAddress* w polu wyszukiwania, a następnie wybierz go w wynikach wyszukiwania. Platforma Azure wyświetla publiczny adres IP na stronie **Omówienie**.
 2. Skopiuj publiczny adres IP, a następnie wklej go na pasku adresu przeglądarki, aby przeglądać ten adres IP.
@@ -227,7 +231,7 @@ Aby usunąć grupę zasobów:
 1. W menu Azure Portal wybierz pozycję **grupy zasobów** lub Wyszukaj, a następnie wybierz pozycję *grupy zasobów*.
 2. Na stronie **Grupy zasobów** wyszukaj pozycję **myResourceGroupAG** na liście i wybierz ją.
 3. Na **stronie grupy zasobów** wybierz pozycję **Usuń grupę zasobów**.
-4. Wprowadź ciąg *myResourceGroupAG* w polu **WPISZ NAZWĘ GRUPY ZASOBÓW**, a następnie wybierz pozycję **Usuń**
+4. Wprowadź *myResourceGroupAG* w polu **wpisz nazwę grupy zasobów** , a następnie wybierz pozycję **Usuń** .
 
 ## <a name="next-steps"></a>Następne kroki
 

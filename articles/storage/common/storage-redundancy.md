@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 01/19/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5a09a2083c1258a3120f8696aa39a0252dbfcf2d
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 83a4a2aa8328a6e3de9eab44bbf19fc76921b128
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209698"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573363"
 ---
 # <a name="azure-storage-redundancy"></a>Nadmiarowość usługi Azure Storage
 
@@ -35,11 +35,15 @@ Dane na koncie usługi Azure Storage są zawsze replikowane trzy razy w regionie
 
 ### <a name="locally-redundant-storage"></a>Magazyn lokalnie nadmiarowy
 
-Magazyn lokalnie nadmiarowy (LRS) replikuje dane trzy razy w jednej lokalizacji fizycznej w regionie podstawowym. LRS zapewnia co najmniej 99,999999999% (11 dziewięciu) trwałości obiektów w danym roku.
+Magazyn lokalnie nadmiarowy (LRS) replikuje dane trzy razy w jednym centrum danych w regionie podstawowym. LRS zapewnia co najmniej 99,999999999% (11 dziewięciu) trwałości obiektów w danym roku.
 
 LRS jest opcją najniższego kosztu nadmiarowości i oferuje najmniejszą trwałość w porównaniu z innymi opcjami. LRS chroni dane przed awarią serwera i uszkodzeniem dysku. Jeśli jednak w centrum danych wystąpi awaria, taka jak pożar lub zalanie, wszystkie repliki konta magazynu za pomocą LRS mogą zostać utracone lub nieodwracalne. Aby zmniejszyć to ryzyko, firma Microsoft zaleca korzystanie z [magazynu strefowo](#zone-redundant-storage) nadmiarowego (ZRS), [magazynu geograficznie nadmiarowego](#geo-redundant-storage) (GRS) lub [geograficznie nadmiarowego magazynu](#geo-zone-redundant-storage) (GZRS).
 
 Żądanie zapisu do konta magazynu, które korzysta z LRS, odbywa się synchronicznie. Operacja zapisu jest zwracana pomyślnie tylko po zapisaniu danych we wszystkich trzech replikach.
+
+Na poniższym diagramie pokazano, jak dane są replikowane w jednym centrum danych z LRS:
+
+:::image type="content" source="media/storage-redundancy/locally-redundant-storage.png" alt-text="Diagram przedstawiający sposób replikowania danych w jednym centrum danych za pomocą LRS":::
 
 LRS to dobry wybór w następujących scenariuszach:
 
@@ -54,7 +58,11 @@ Dzięki ZRS dane są nadal dostępne dla operacji odczytu i zapisu, nawet jeśli
 
 Żądanie zapisu do konta magazynu, które korzysta z ZRS, odbywa się synchronicznie. Operacja zapisu jest zwracana pomyślnie tylko po zapisaniu danych we wszystkich replikach w trzech strefach dostępności.
 
-Firma Microsoft zaleca korzystanie z usługi ZRS w regionie podstawowym w scenariuszach wymagających spójności, trwałości i wysokiej dostępności. Zalecamy również użycie ZRS, jeśli chcesz ograniczyć aplikację do replikowania danych tylko w obrębie kraju lub regionu z powodu wymagań dotyczących nadzoru danych.
+Firma Microsoft zaleca korzystanie z usługi ZRS w regionie podstawowym w scenariuszach wymagających spójności, trwałości i wysokiej dostępności. ZRS jest również zalecany do ograniczania replikacji danych do kraju lub regionu w celu spełnienia wymagań dotyczących zarządzania danymi.
+
+Na poniższym diagramie pokazano, jak dane są replikowane w strefach dostępności w regionie podstawowym przy użyciu ZRS:
+
+:::image type="content" source="media/storage-redundancy/zone-redundant-storage.png" alt-text="Diagram przedstawiający sposób replikowania danych w regionie podstawowym przy użyciu ZRS":::
 
 ZRS zapewnia doskonałą wydajność, małe opóźnienia i odporność na dane, jeśli staną się tymczasowo niedostępne. Niemniej jednak ZRS może nie chronić danych przed regionalną awarią, w której mają stałe wpływ na wiele stref. Aby chronić przed awariami regionalnymi, firma Microsoft zaleca używanie [magazynu geograficznie nadmiarowego](#geo-zone-redundant-storage) (GZRS), który używa ZRS w regionie podstawowym, a także geograficznie replikuje dane do regionu pomocniczego.
 

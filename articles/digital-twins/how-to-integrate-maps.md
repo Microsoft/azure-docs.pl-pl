@@ -4,16 +4,16 @@ titleSuffix: Azure Digital Twins
 description: Zapoznaj się z tematem jak używać Azure Functions, aby utworzyć funkcję, która może korzystać z grafu sznurów i powiadomień Digital bliźniaczych reprezentacji na platformie Azure w celu zaktualizowania Azure Maps mapy pomieszczeń.
 author: alexkarcher-msft
 ms.author: alkarche
-ms.date: 6/3/2020
+ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 24487d3028b90d28f302a6f259096ba68c964541
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 6a654f74ff6a32ad37646021d504359c84942c12
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222126"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573041"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Użyj usługi Azure Digital bliźniaczych reprezentacji, aby zaktualizować mapę pomieszczeń Azure Maps
 
@@ -72,7 +72,7 @@ Ten wzorzec odczytuje ze źródła salonu bezpośrednio, a nie urządzenia IoT, 
 
 ## <a name="create-a-function-to-update-maps"></a>Utwórz funkcję do aktualizowania map
 
-Zamierzasz utworzyć *funkcję wyzwalającą Event Grid* w aplikacji funkcji z kompleksowego samouczka ([*Samouczek: łączenie kompleksowego rozwiązania*](./tutorial-end-to-end.md)). Ta funkcja spowoduje rozpakowanie tych powiadomień i wysłanie aktualizacji do Azure Maps funkcji stateset w celu zaktualizowania temperatury jednego pokoju. 
+Zamierzasz utworzyć **funkcję wyzwalającą Event Grid** w aplikacji funkcji z kompleksowego samouczka ([*Samouczek: łączenie kompleksowego rozwiązania*](./tutorial-end-to-end.md)). Ta funkcja spowoduje rozpakowanie tych powiadomień i wysłanie aktualizacji do Azure Maps funkcji stateset w celu zaktualizowania temperatury jednego pokoju.
 
 Zapoznaj się z następującym dokumentem, aby uzyskać informacje referencyjne: [*wyzwalacz Azure Event Grid dla Azure Functions*](../azure-functions/functions-bindings-event-grid-trigger.md).
 
