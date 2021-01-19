@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/12/2021
 ms.author: yelevin
-ms.openlocfilehash: 549b4e1e5e1aef3f6957fa52d69d252c55934286
-ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
+ms.openlocfilehash: 989520e079988e1821d8bb9a936f857e1f62c11a
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98541577"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567763"
 ---
 # <a name="connect-your-trend-micro-tippingpoint-solution-to-azure-sentinel"></a>Połącz swoje rozwiązanie Trend Micro TippingPoint z platformą Azure — wskaźnikiem
 
@@ -48,15 +48,15 @@ Aby pobrać swoje dzienniki do funkcji wskaźnikowej platformy Azure, skonfiguru
 
 1. Postępuj zgodnie z instrukcjami wyświetlanymi na karcie **instrukcje** w obszarze **Konfiguracja**:
 
-    1. **1. Konfiguracja agenta dziennika systemu Linux** — wykonaj ten krok, jeśli nie masz jeszcze uruchomionego usługi przesyłania dalej dzienników lub potrzebujesz innej. Zobacz [krok 1. wdrażanie usługi przesyłania dalej dzienników](connect-cef-agent.md) w dokumentacji usługi Azure wskaźnikowej w celu uzyskania bardziej szczegółowych instrukcji i wyjaśnień.
+    1. W obszarze **1. Konfiguracja agenta dziennika systemu Linux** — wykonaj ten krok, jeśli nie masz jeszcze uruchomionego usługi przesyłania dalej dzienników lub jeśli potrzebujesz innego. Zobacz [krok 1. wdrażanie usługi przesyłania dalej dzienników](connect-cef-agent.md) w dokumentacji usługi Azure wskaźnikowej w celu uzyskania bardziej szczegółowych instrukcji i wyjaśnień.
 
-    1. **2. Prześlij dalej dzienniki SMS usługi Trend Micro TippingPoint do agenta dziennika** systemu — ta konfiguracja powinna obejmować następujące elementy:
+    1. W obszarze **2. Prześlij dalej dzienniki SMS usługi Trend Micro TippingPoint do agenta dziennika** systemu — ta konfiguracja powinna obejmować następujące elementy:
         - Miejsce docelowe dziennika — nazwa hosta i/lub adres IP serwera przekazywania dzienników
         - Protokół i port — **TCP 514** (w razie potrzeby w przeciwnym razie należy wprowadzić zmianę równoległą w demona dziennika systemowego na serwerze przesyłania dalej dzienników)
         - Format dziennika — **ARCSIGHT CEF format v 4.2**
         - Typy dzienników — wszystkie dostępne
 
-    1. **3. Sprawdź poprawność** pozyskiwania danych, kopiując polecenie na stronie łącznika i uruchamiając je w usłudze przesyłania dalej dzienników. Zobacz [krok 3. Weryfikowanie łączności](connect-cef-verify.md) w dokumentacji usługi Azure wskaźnikowej, aby uzyskać bardziej szczegółowe instrukcje i wyjaśnienie.
+    1. W obszarze **3. Sprawdź poprawność** pozyskiwania danych przez skopiowanie polecenia na stronie łącznika i uruchomienie go w usłudze przesyłania dalej dzienników. Zobacz [krok 3. Weryfikowanie łączności](connect-cef-verify.md) w dokumentacji usługi Azure wskaźnikowej, aby uzyskać bardziej szczegółowe instrukcje i wyjaśnienie.
 
         Rozpoczęcie wyświetlania dzienników w Log Analytics może potrwać do 20 minut.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 36c832e198d7b6e9a6c3f6ddc19ad87c87917f38
-ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
+ms.openlocfilehash: 80e5cc18888b0e014fc1f617ca27dee05146472e
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98541278"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567676"
 ---
 # <a name="step-2-configure-your-security-solution-to-send-cef-messages"></a>Krok 2. Konfigurowanie rozwiązania zabezpieczeń do wysyłania komunikatów CEF
 
@@ -41,6 +41,7 @@ Jeśli rozwiązanie zabezpieczeń ma już istniejący łącznik, użyj instrukcj
 - [Illusive Networks AMS](connect-illusive-attack-management-system.md)
 - [Łączenie z rozwiązaniem One Identity Safeguard](connect-one-identity.md)
 - [Palo Alto Networks](connect-paloalto.md)
+- [Serwer Thycotic Secret](connect-thycotic-secret-server.md)
 - [Trend Micro Deep Security](connect-trend-micro.md)
 - [Trend Micro TippingPoint](connect-trend-micro-tippingpoint.md)
 - [Platforma dowodowych Network WireX](connect-wirex-systems.md)
@@ -64,7 +65,7 @@ Jeśli łącznik nie istnieje dla określonego rozwiązania zabezpieczającego, 
 > [!NOTE]
 > **Zmiana źródła pola TimeGenerated**
 >
-> - Domyślnie agent Log Analytics wypełnia pole *TimeGenerated* w schemacie, gdy agent otrzymał zdarzenie z demona dziennika systemowego. W efekcie czas, w którym zdarzenie zostało wygenerowane w systemie źródłowym, nie jest rejestrowany na platformie Azure.
+> - Domyślnie agent Log Analytics wypełnia pole *TimeGenerated* w schemacie, gdy agent otrzymał zdarzenie z demona dziennika systemowego. W rezultacie czas, w którym zdarzenie zostało wygenerowane w systemie źródłowym, nie jest rejestrowany w usłudze Azure Sentinel.
 >
 > - Można jednak uruchomić następujące polecenie, które spowoduje pobranie i uruchomienie `TimeGenerated.py` skryptu. Ten skrypt konfiguruje agenta Log Analytics, aby wypełnić pole *TimeGenerated* z oryginalnym czasem zdarzenia w jego systemie źródłowym, zamiast czasu odebranego przez agenta.
 >

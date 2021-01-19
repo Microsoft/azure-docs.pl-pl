@@ -12,12 +12,12 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07acd71eb1a77592c82b80aa574d79b98c48f60e
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 0067ed618f95e7f83fc041fe214bbc4d715a504f
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608303"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567624"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api"></a>Interfejs API punktu końcowego synchronizacji programu Azure AD Connect 2 
 Firma Microsoft wdrożyła nowy punkt końcowy (API) dla Azure AD Connect, który poprawia wydajność operacji usługi synchronizacji do Azure Active Directory. Korzystając z nowego punktu końcowego w wersji 2, zobaczysz zauważalny wzrost wydajności dotyczący eksportowania i importowania do usługi Azure AD. Ten nowy punkt końcowy obsługuje następujące elementy:
@@ -28,7 +28,7 @@ Firma Microsoft wdrożyła nowy punkt końcowy (API) dla Azure AD Connect, któr
 > [!NOTE]
 > Obecnie nowy punkt końcowy nie ma skonfigurowanego limitu rozmiaru grupy dla grup Microsoft 365, które są zapisywane z powrotem. Może to mieć wpływ na Active Directory i opóźnienia cyklu synchronizacji. Zaleca się przyrostowe zwiększenie rozmiarów grup.  
 
-## <a name="pre-requisites"></a>Wymagania wstępne  
+## <a name="prerequisites"></a>Wymagania wstępne  
 Aby można było korzystać z nowego punktu końcowego v2, należy użyć Azure AD Connect w [wersji 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) lub nowszej i postępować zgodnie z poniższymi instrukcjami wdrażania, aby włączyć punkt końcowy V2 dla Azure AD Connect serwera.   
 
 ## <a name="deployment-guidance"></a>Wskazówki dotyczące wdrażania 
@@ -176,7 +176,7 @@ Jeśli włączono punkt końcowy w wersji 2 i konieczne jest wycofanie, wykonaj 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania  
  
 **Kiedy nowy punkt końcowy stanie się domyślny dla uaktualnień i nowych instalacji?**  
-</br>Planujemy opublikowanie nowej wersji AADConnect do pobrania w styczniu 2021. Ta wersja domyślnie użyje punktu końcowego v2 i umożliwi synchronizowanie grup większych niż 50 000 withuot dowolną dodatkową konfigurację. Ta wersja zostanie później opublikowana w celu przeprowadzenia uaktualnienia do odpowiednich serwerów.
+</br>Planujemy opublikowanie nowej wersji AADConnect do pobrania w styczniu 2021. Ta wersja domyślnie użyje punktu końcowego v2 i włączy synchronizowanie grup większe niż 50 000 bez żadnej dodatkowej konfiguracji. Ta wersja zostanie później opublikowana w celu przeprowadzenia uaktualnienia do odpowiednich serwerów.
  
 ## <a name="next-steps"></a>Następne kroki
 

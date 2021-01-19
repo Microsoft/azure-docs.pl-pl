@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: c95f8b9e4466b22519a4dea580a86a0dcda83857
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 3ba43b83166b5548dee4ea4e52c7411db48d23f5
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555937"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567280"
 ---
 # <a name="register-and-scan-azure-synapse-analytics"></a>Rejestrowanie i skanowanie usługi Azure Synapse Analytics
 
@@ -34,7 +34,7 @@ Usługa Azure kontrolą nie obsługuje skanowania [widoków](/sql/relational-dat
  
 ## <a name="setting-up-authentication-for-a-scan"></a>Konfigurowanie uwierzytelniania na potrzeby skanowania
 
-Istnieją trzy sposoby konfigurowania uwierzytelniania dla usługi Azure Blob Storage:
+Istnieją trzy sposoby konfigurowania uwierzytelniania dla usługi Azure Synapse Analytics:
 
 - Tożsamość zarządzana
 - Uwierzytelnianie SQL

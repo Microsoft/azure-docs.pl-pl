@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: c8af1c32607e5fc7bf548b40069e18923c666303
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28abb9f09e3bca2522b959c6a9b890de5320b17a
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87089655"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567446"
 ---
 # <a name="connect-your-infoblox-nios-to-azure-sentinel"></a>Połącz swoje Infoblox NIOS z platformą Azure — wskaźnikiem
 
@@ -34,7 +34,7 @@ W tym artykule wyjaśniono, jak połączyć [urządzenie z systemem operacyjnym 
 
 ## <a name="forward-infoblox-logs-to-the-syslog-agent"></a>Przekazywanie dzienników Infoblox do agenta dziennika systemu  
 
-Skonfiguruj Infoblox do przesyłania komunikatów dziennika systemowego do obszaru roboczego platformy Azure za pośrednictwem agenta dziennika systemowego.
+Skonfiguruj Infoblox do przesyłania komunikatów dziennika systemowego do obszaru roboczego wskaźnikowego platformy Azure za pośrednictwem agenta dziennika systemowego.
 
 1. W portalu wskaźnikowym platformy Azure kliknij pozycję **Łączniki danych** i wybierz pozycję Łącznik **Infoblox Nios** .
 
@@ -48,7 +48,7 @@ Po pomyślnym nawiązaniu połączenia dane są wyświetlane w Log Analytics w o
 
 ## <a name="validate-connectivity"></a>Sprawdź poprawność łączności
 
-Rozpoczęcie wyświetlania dzienników w Log Analytics może zająć więcej niż 20 minut. 
+Rozpoczęcie wyświetlania dzienników w Log Analytics może potrwać do 20 minut. 
 
 ## <a name="next-steps"></a>Następne kroki
 

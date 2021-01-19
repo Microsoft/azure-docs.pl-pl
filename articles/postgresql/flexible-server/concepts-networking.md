@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: cf7c5fa8563544add55a7fad5075848eb5116fe1
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: c30c01a18a17981b4e034c9df2cf822e6580430e
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96901936"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567731"
 ---
 # <a name="networking-overview---azure-database-for-postgresql---flexible-server"></a>Przegląd sieci — serwer elastyczny Azure Database for PostgreSQL
 
@@ -74,7 +74,7 @@ Poniżej przedstawiono kilka koncepcji, które należy znać w przypadku korzyst
 Dowiedz się, jak utworzyć elastyczny serwer z dostępem prywatnym (Integracja z siecią wirtualną) w [Azure Portal](how-to-manage-virtual-network-portal.md) lub [interfejsie wiersza polecenia platformy Azure](how-to-manage-virtual-network-cli.md).
 
 > [!NOTE]
-> W przypadku korzystania z niestandardowego serwera DNS należy użyć usługi przesyłania dalej DNS w celu rozpoznania nazwy FQDN serwera Azure Database for MySQL-elastyczny. Aby dowiedzieć się więcej [, zobacz Rozpoznawanie nazw, które używa własnego serwera DNS](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) .
+> W przypadku korzystania z niestandardowego serwera DNS należy użyć usługi przesyłania dalej DNS w celu rozpoznania nazwy FQDN serwera Azure Database for PostgreSQL-elastyczny. Aby dowiedzieć się więcej [, zobacz Rozpoznawanie nazw, które używa własnego serwera DNS](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) .
 
 ## <a name="public-access-allowed-ip-addresses"></a>Dostęp publiczny (dozwolone adresy IP)
 Właściwości metody dostępu publicznego obejmują:

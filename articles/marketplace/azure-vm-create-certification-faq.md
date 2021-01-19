@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 01/15/2021
-ms.openlocfilehash: 8c2739503f00848b1515f2061c2a9aa250c091a3
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.date: 01/18/2021
+ms.openlocfilehash: f802292d9723179b36d5291993bd4e07487fe6a8
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539849"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567394"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Rozwiązywanie problemów z certyfikatem maszyny wirtualnej
 
@@ -54,7 +54,7 @@ Przed przesłaniem oferty upewnij się, że masz rygorystyczne podejście do ini
 
 Problemy z aprowizacjim mogą obejmować następujące scenariusze awarii:
 
-|Scenariusz|Error|Przyczyna|Rozwiązanie|
+|Scenariusz|Błąd|Przyczyna|Rozwiązanie|
 |---|---|---|---|
 |1|Nieprawidłowy wirtualny dysk twardy (VHD)|Jeśli określona wartość pliku cookie w stopce dysku VHD jest niepoprawna, wirtualny dysk twardy będzie uznawany za nieprawidłowy.|Utwórz ponownie obraz i prześlij żądanie.|
 |2|Nieprawidłowy typ obiektu BLOB|Inicjowanie obsługi maszyny wirtualnej nie powiodło się, ponieważ użyty blok jest typem obiektu BLOB, a nie typem strony.|Utwórz ponownie obraz i prześlij żądanie.|
@@ -70,7 +70,7 @@ Problemy z aprowizacjim mogą obejmować następujące scenariusze awarii:
 
 ### <a name="conectix-cookie-and-other-vhd-specifications"></a>Conectix plik cookie i inne specyfikacje wirtualnego dysku twardego
 
-Ciąg "conectix" jest częścią specyfikacji wirtualnego dysku twardego. Jest on definiowany jako 8-bajtowy plik cookie w stopce wirtualnego dysku twardego, który identyfikuje twórcę pliku. Wszystkie pliki VHD utworzone przez firmę Microsoft mają ten plik cookie. 
+Ciąg "conectix" jest częścią specyfikacji wirtualnego dysku twardego. Jest on definiowany jako 8-bajtowy plik cookie w stopce wirtualnego dysku twardego, który identyfikuje twórcę pliku. Wszystkie pliki VHD utworzone przez firmę Microsoft mają ten plik cookie.
 
 Obiekt BLOB sformatowanego wirtualnego dysku twardego powinien mieć 512-bajtową stopkę w tym formacie:
 
@@ -144,7 +144,7 @@ Poniższa tabela zawiera listę przypadków testowych systemu Linux, które będ
 
 W poniższej tabeli przedstawiono typowe błędy, które mogą pojawić się podczas wykonywania przypadków testowych:
 
-| Scenariusz | Przypadek testowy | Error | Rozwiązanie |
+| Scenariusz | Przypadek testowy | Błąd | Rozwiązanie |
 | --- | --- | --- | --- |
 | 1 | Przypadek testowy wersji agenta systemu Linux | Minimalna wersja agenta systemu Linux to 2.2.41 lub nowsza. To wymaganie jest obowiązkowe od 1 maja 2020. | Zaktualizuj wersję agenta systemu Linux. Powinna być 2,241 lub nowsza. Aby uzyskać więcej informacji, odwiedź [stronę aktualizacji agenta systemu Linux](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support). |
 | 2 | Przypadek testowy historii bash | Błąd występuje, jeśli rozmiar historii bash w przesłanym obrazie przekracza 1 kilobajt (KB). Rozmiar jest ograniczony do 1 KB, aby upewnić się, że plik historii bash nie zawiera żadnych potencjalnie poufnych informacji. | Rozwiąż problem, instalując dysk VHD na innej działającej maszynie wirtualnej i wprowadź zmiany, aby zmniejszyć rozmiar do 1 KB lub mniej. Na przykład Usuń `.bash` pliki historii. |
@@ -311,14 +311,14 @@ Aby przesłać żądanie z wyłączonym obrazem SSH dla procesu certyfikacji:
 
 Zapoznaj się z poniższą tabelą dotyczącą problemów występujących podczas pobierania obrazu maszyny wirtualnej przy użyciu adresu URL sygnatury dostępu współdzielonego (SAS).
 
-|Scenariusz|Error|Przyczyna|Rozwiązanie|
-|---|---|---|---|
-|1|Nie znaleziono obiektu BLOB|Wirtualny dysk twardy może zostać usunięty lub przeniesiony z określonej lokalizacji.|| 
-|2|Obiekt BLOB w użyciu|Wirtualny dysk twardy jest używany przez inny proces wewnętrzny.|Wirtualny dysk twardy powinien znajdować się w stanie używanym podczas pobierania go przy użyciu adresu URL sygnatury dostępu współdzielonego.|
-|3|Nieprawidłowy adres URL SAS|Skojarzony adres URL sygnatury dostępu współdzielonego dla wirtualnego dysku twardego jest niepoprawny.|Uzyskaj prawidłowy adres URL sygnatury dostępu współdzielonego.|
-|4|Nieprawidłowy podpis|Skojarzony adres URL sygnatury dostępu współdzielonego dla wirtualnego dysku twardego jest niepoprawny.|Uzyskaj prawidłowy adres URL sygnatury dostępu współdzielonego.|
-|6|Nagłówek warunkowy HTTP|Adres URL sygnatury dostępu współdzielonego jest nieprawidłowy.|Uzyskaj prawidłowy adres URL sygnatury dostępu współdzielonego.|
-|7|Nieprawidłowa nazwa wirtualnego dysku twardego|Sprawdź, czy `%` `"` w nazwie wirtualnego dysku twardego istnieją jakiekolwiek znaki specjalne, takie jak znak procentu czy znak cudzysłowu.|Zmień nazwę pliku VHD, usuwając znaki specjalne.|
+|Błąd|Przyczyna|Rozwiązanie|
+|---|---|---|
+|Nie znaleziono obiektu BLOB|Wirtualny dysk twardy może zostać usunięty lub przeniesiony z określonej lokalizacji.|| 
+|Obiekt BLOB w użyciu|Wirtualny dysk twardy jest używany przez inny proces wewnętrzny.|Wirtualny dysk twardy powinien znajdować się w stanie używanym podczas pobierania go przy użyciu adresu URL sygnatury dostępu współdzielonego.|
+|Nieprawidłowy adres URL SAS|Skojarzony adres URL sygnatury dostępu współdzielonego dla wirtualnego dysku twardego jest niepoprawny.|Uzyskaj prawidłowy adres URL sygnatury dostępu współdzielonego.|
+|Nieprawidłowy podpis|Skojarzony adres URL sygnatury dostępu współdzielonego dla wirtualnego dysku twardego jest niepoprawny.|Uzyskaj prawidłowy adres URL sygnatury dostępu współdzielonego.|
+|Nagłówek warunkowy HTTP|Adres URL sygnatury dostępu współdzielonego jest nieprawidłowy.|Uzyskaj prawidłowy adres URL sygnatury dostępu współdzielonego.|
+|Nieprawidłowa nazwa wirtualnego dysku twardego|Sprawdź, czy `%` `"` w nazwie wirtualnego dysku twardego istnieją jakiekolwiek znaki specjalne, takie jak znak procentu czy znak cudzysłowu.|Zmień nazwę pliku VHD, usuwając znaki specjalne.|
 |
 
 ## <a name="first-1-mb-2048-sectors-each-sector-of-512-bytes-partition"></a>Pierwsze 1 MB (2048 sektorów, każdy sektor z 512 bajtów)
@@ -470,7 +470,7 @@ Jeśli wszystkie obrazy pobierane z witryny Azure Marketplace będą używane po
 
 W przypadku rozwiązań błędów, które są związane z dyskiem danych, należy użyć poniższej tabeli:
 
-|Error|Przyczyna|Rozwiązanie|
+|Błąd|Przyczyna|Rozwiązanie|
 |---|---|---|
 |`DataDisk- InvalidUrl:`|Ten błąd może wystąpić z powodu nieprawidłowego numeru jednostki logicznej (LUN) podczas przesyłania oferty.|Sprawdź, czy sekwencja numerów LUN dla dysku danych znajduje się w centrum partnerskim.|
 |`DataDisk- NotFound:`|Ten błąd może wystąpić, ponieważ dysk danych nie znajduje się w określonym adresie URL sygnatury dostępu współdzielonego.|Sprawdź, czy dysk danych znajduje się w określonym adresie URL sygnatury dostępu współdzielonego.|
@@ -558,7 +558,7 @@ Aby zapewnić stały obraz maszyny wirtualnej w celu zastąpienia obrazu maszyny
 
 #### <a name="provide-a-new-vm-image-to-address-the-security-vulnerability-or-exploit"></a>Podaj nowy obraz maszyny wirtualnej w celu rozwiązania luk w zabezpieczeniach lub wykorzystania
 
-Aby wykonać te kroki, przygotuj zasoby techniczne dla obrazu maszyny wirtualnej, który chcesz dodać. Aby uzyskać więcej informacji, zobacz temat [Tworzenie maszyny wirtualnej przy użyciu zatwierdzonej bazy](azure-vm-create-using-approved-base.md)lub [Tworzenie maszyny wirtualnej przy użyciu własnego obrazu](azure-vm-create-using-own-image.md) oraz [generowanie identyfikatora URI sygnatury dostępu współdzielonego dla obrazu maszyny wirtualnej](azure-vm-get-sas-uri.md).
+Aby wykonać te kroki, przygotuj zasoby techniczne dla obrazu maszyny wirtualnej, który chcesz dodać. Aby uzyskać więcej informacji, zobacz temat [Tworzenie maszyny wirtualnej przy użyciu zatwierdzonej bazy](azure-vm-create-using-approved-base.md) lub [Tworzenie maszyny wirtualnej przy użyciu własnego obrazu](azure-vm-create-using-own-image.md) oraz [generowanie identyfikatora URI sygnatury dostępu współdzielonego dla obrazu maszyny wirtualnej](azure-vm-get-sas-uri.md).
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
 1. W okienku po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  .

@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 01/02/2021
 ms.custom: MVC
-ms.openlocfilehash: aac949de0b0ae1f085187c1b5e1f3b64d8edad03
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: c0f4f1d7f0213ad24d25d8d34235475bbdb0316a
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233818"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567106"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrowanie maszyn jako serwerów fizycznych na platformę Azure
 
@@ -163,6 +163,8 @@ Na maszynach, które mają zostać zmigrowane, należy zainstalować agenta usł
     - Hasło można uzyskać na urządzeniu replikacji. W wierszu polecenia Uruchom polecenie **C:\ProgramData\ASR\home\svsystems\bin\genpassphrase.exe-v** , aby wyświetlić bieżące hasło.
     - Nie generuj ponownie hasła. Spowoduje to przerwanie łączności i konieczne będzie ponowne zarejestrowanie urządzenia replikacji.
 
+> [!NOTE]
+> W parametrze */platform* należy określić program *VMware* w przypadku migrowania maszyn wirtualnych VMware lub komputerów fizycznych.
 
 ### <a name="install-on-windows"></a>Instalowanie w systemie Windows
 

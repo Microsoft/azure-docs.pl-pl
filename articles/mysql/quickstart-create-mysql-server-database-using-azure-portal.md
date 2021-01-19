@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/04/2020
-ms.openlocfilehash: a2e5cd43add6db080441812e4350d6f003ef81a2
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: b8f3a8e06bb27051417205c4dc3141948960bb00
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538495"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567803"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Szybki Start: Tworzenie serwera Azure Database for MySQL przy użyciu Azure Portal
 
@@ -45,7 +45,7 @@ Wymagana jest subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy
    Nazwa serwera | **mydemoserver** | Wprowadź unikatową nazwę. Nazwa serwera może zawierać tylko małe litery, cyfry i znaki łącznika (-). Musi zawierać od 3 do 63 znaków.
    Źródło danych |**Brak** | Wybierz pozycję **Brak**, aby utworzyć nowy serwer od podstaw. Wybierz pozycję **kopia zapasowa** tylko wtedy, gdy przywracasz z geograficznej kopii zapasowej istniejącego serwera.
    Lokalizacja |Żądana lokalizacja | Wybierz lokalizację z listy.
-   Wersja | Najnowsza wersja główna| Użyj najnowszej wersji głównej. Zobacz [Wszystkie obsługiwane wersje](../mysql/concepts-supported-versions.md).
+   Wersja | Najnowsza wersja główna| Użyj najnowszej wersji głównej. Zobacz [Wszystkie obsługiwane wersje](concepts-supported-versions.md).
    Obliczenia i magazyn | Użyj ustawień domyślnych| Domyślna warstwa cenowa jest **ogólnego przeznaczenia** z **4 rdzeni wirtualnych** i **100 GB** pamięci. Przechowywanie kopii zapasowych jest ustawione na **7 dni** przy użyciu opcji tworzenia kopii zapasowej **geograficznie nadmiarowej** .<br/>Zapoznaj się z [cennikiem](https://azure.microsoft.com/pricing/details/mysql/) i zaktualizuj wartości domyślne, jeśli zachodzi taka potrzeba.
    Nazwa użytkownika administratora | **mydemoadmin** | Wprowadź nazwę użytkownika administratora serwera. Nie można użyć **azure_superuser**, **admin**, **administrator**, **root**, **Guest** ani **Public** dla nazwy użytkownika administratora.
    Hasło | Hasło | Nowe hasło dla użytkownika administratora serwera. Hasło musi mieć długość od 8 do 128 znaków i zawierać kombinację wielkich lub małych liter, cyfr i znaków innych niż alfanumeryczne (!, $, #,% itd.).

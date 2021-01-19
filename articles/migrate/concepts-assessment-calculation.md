@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: f8a4f29114f7e0a2ed7868f01e05e25c8a0d0ce1
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 9bdf907ede2c09f7e314df619cd81059956f17dc
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752230"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567747"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vms"></a>Przegląd oceny serwera (Migrowanie do maszyn wirtualnych platformy Azure)
 
@@ -268,8 +268,14 @@ W tej tabeli przedstawiono oceny stopnia zaufania, które są zależne od warto�
 Poniżej przedstawiono kilka powodów, dla których ocena może uzyskać klasyfikację o niskiej pewności:
 
 - Twoje środowisko nie było profilem przez czas, w którym tworzysz ocenę. Jeśli na przykład zostanie utworzona Ocena z czasem trwania wydajności ustawionym na jeden dzień, należy poczekać co najmniej dzień po rozpoczęciu odnajdywania dla wszystkich punktów danych do zebrania.
-- Niektóre maszyny wirtualne zostały zamknięte w czasie, w którym obliczono ocenę. Jeśli wszystkie maszyny wirtualne są wyłączone przez pewien czas, Ocena serwera nie może zebrać danych wydajności dla tego okresu.
-- Niektóre maszyny wirtualne zostały utworzone w czasie, w którym obliczono ocenę. Załóżmy na przykład, że utworzono ocenę historii wydajności w ostatnim miesiącu, ale niektóre maszyny wirtualne zostały utworzone tylko przez tydzień temu. Historia wydajności nowych maszyn wirtualnych nie będzie istnieć przez cały czas trwania.
+- Ocena nie jest w stanie zebrać danych wydajności dla niektórych lub wszystkich maszyn wirtualnych w okresie oceny. W celu uzyskania oceny o wysokiej pewności upewnij się, że: 
+    - Maszyny wirtualne są zasilane na czas trwania oceny
+    - Połączenia wychodzące na portach 443 są dozwolone
+    - Dla pamięci dynamicznej maszyn wirtualnych funkcji Hyper-V jest włączona 
+    
+    Użyj opcji „Oblicz ponownie”, aby uwzględnić najnowsze zmiany w ocenie ufności.
+
+- Niektóre maszyny wirtualne zostały utworzone w czasie, w którym obliczono ocenę. Załóżmy na przykład, że utworzono ocenę historii wydajności w ostatnim miesiącu, ale niektóre maszyny wirtualne zostały utworzone tylko przez tydzień temu. W tym przypadku dane wydajności dla nowych maszyn wirtualnych nie będą dostępne przez cały czas trwania i ocena ufności będzie niska.
 
 > [!NOTE]
 > Jeśli Ocena zaufania dowolnej oceny jest mniejsza niż pięć gwiazdek, zalecamy odczekanie co najmniej jednego dnia urządzenia, aby profilować środowisko, a następnie ponownie obliczyć ocenę. W przeciwnym razie rozmiary oparte na wydajności mogą być zawodne. W takim przypadku zaleca się przełączenie oceny do rozmiarów lokalnych.

@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: 67d4137a21753b221e17a1effde35bc1b89600d3
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: f52c0296023098c755feb1bf0baba980f2988bd7
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753811"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567707"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vmware-solution"></a>Przegląd oceny serwera (Migrowanie do rozwiązania Azure VMware)
 
@@ -207,6 +207,8 @@ Po ustaleniu wartości efektywnego wykorzystania magazyn, Sieć i rozmiar oblicz
 
 Jeśli używasz *jako lokalizacji lokalnej*, Ocena serwera nie uwzględnia historii wydajności maszyn wirtualnych i dysków. Zamiast tego przydziela węzły automatycznej synchronizacji na podstawie rozmiaru przydzielonego lokalnie. Domyślny typ magazynu to sieci vSAN w wersji zaautomatycznej.
 
+[Dowiedz się więcej](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware-azure-vmware-solution#review-an-assessment) na temat sposobu przeglądania oceny rozwiązań VMware platformy Azure.
+
 ## <a name="confidence-ratings"></a>Klasyfikacje zaufania
 
 Każda Ocena oparta na wydajności w Azure Migrate jest skojarzona z oceną zaufania z zakresu od jednej (najniższej) do pięciu gwiazdek (najwyższa).
@@ -235,9 +237,15 @@ W zależności od wartości procentowej dostępnych punktów danych Ocena zaufan
 
 Poniżej przedstawiono kilka powodów, dla których ocena może uzyskać klasyfikację o niskiej pewności:
 
-- Twoje środowisko nie było profilem przez czas, w którym tworzysz ocenę. Jeśli na przykład utworzysz ocenę z czasem trwania wydajności ustawionym na jeden dzień, musisz poczekać co najmniej dzień po rozpoczęciu odnajdywania dla wszystkich punktów danych do zebrania.
-- Niektóre maszyny wirtualne zostały wyłączone w okresie, dla którego została obliczona Ocena. Jeśli wszystkie maszyny wirtualne są wyłączone przez pewien czas, Ocena serwera nie może zebrać danych wydajności dla tego okresu.
-- Niektóre maszyny wirtualne zostały utworzone w okresie, dla którego została obliczona Ocena. Na przykład jeśli utworzono ocenę dla historii wydajności w ostatnim miesiącu, ale niektóre maszyny wirtualne zostały utworzone w danym środowisku tylko tydzień temu, historia wydajności nowych maszyn wirtualnych nie będzie miała na cały czas trwania.
+- Twoje środowisko nie było profilem przez czas, w którym tworzysz ocenę. Jeśli na przykład zostanie utworzona Ocena z czasem trwania wydajności ustawionym na jeden dzień, należy poczekać co najmniej dzień po rozpoczęciu odnajdywania dla wszystkich punktów danych do zebrania.
+- Ocena nie jest w stanie zebrać danych wydajności dla niektórych lub wszystkich maszyn wirtualnych w okresie oceny. W celu uzyskania oceny o wysokiej pewności upewnij się, że: 
+    - Maszyny wirtualne są zasilane na czas trwania oceny
+    - Połączenia wychodzące na portach 443 są dozwolone
+    - Dla pamięci dynamicznej maszyn wirtualnych funkcji Hyper-V jest włączona 
+    
+    Użyj opcji „Oblicz ponownie”, aby uwzględnić najnowsze zmiany w ocenie ufności.
+
+- Niektóre maszyny wirtualne zostały utworzone w czasie, w którym obliczono ocenę. Załóżmy na przykład, że utworzono ocenę historii wydajności w ostatnim miesiącu, ale niektóre maszyny wirtualne zostały utworzone tylko przez tydzień temu. W tym przypadku dane wydajności dla nowych maszyn wirtualnych nie będą dostępne przez cały czas trwania i ocena ufności będzie niska.
 
 > [!NOTE]
 > Jeśli Ocena zaufania dowolnej oceny jest mniejsza niż pięć gwiazdek, zalecamy odczekanie co najmniej jednego dnia urządzenia, aby profilować środowisko, a następnie ponownie obliczyć ocenę. Jeśli tego nie zrobisz, ustalanie rozmiarów na podstawie wydajności może być niezawodne. W takim przypadku zaleca się przełączenie oceny do rozmiarów lokalnych.

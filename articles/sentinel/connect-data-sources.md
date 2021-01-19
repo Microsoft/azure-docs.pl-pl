@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: e294423e3f078253984dc4fcd8695c2676abb236
-ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
+ms.openlocfilehash: cffc41264dfa30fd833aef465a13abc799334b2f
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98541261"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567468"
 ---
 # <a name="connect-data-sources"></a>Łączenie ze źródłami danych
 
@@ -69,7 +69,7 @@ Następujące metody łączenia danych są obsługiwane przez wskaźnik na platf
     - [Alcide kAudit](connect-alcide-kaudit.md)
     - [Zapora aplikacji internetowej Barracuda](connect-barracuda.md)
     - [Barracuda CloudGen Firewall](connect-barracuda-cloudgen-firewall.md)
-    - [LEPSZA ochrona przed zagrożeniami mobilnymi](connect-better-mtd.md)
+    - [BETTER Mobile Threat Defense](connect-better-mtd.md)
     - [Beyond Security beSECURE](connect-besecure.md)
     - [Citrix Analytics (Security)](connect-citrix-analytics.md)
     - [F5 BIG-IP](connect-f5-big-ip.md)
@@ -77,8 +77,10 @@ Następujące metody łączenia danych są obsługiwane przez wskaźnik na platf
     - [Okta SSO](connect-okta-single-sign-on.md)
     - [Orca Security](connect-orca-security-alerts.md)
     - [Dzienniki rozwiązania Perimeter 81](connect-perimeter-81-logs.md)
+    - [Zabezpieczenia poczty E-mail Proofpoint na żądanie (POD)](connect-proofpoint-pod.md)
     - [Proofpoint TAP](connect-proofpoint-tap.md)
     - [Qualys VM](connect-qualys-vm.md)
+    - [Salesforce Service Cloud](connect-salesforce-service-cloud.md)
     - [Squadra Technologies secRMM](connect-squadra-secrmm.md)
     - [Symantec ICDX](connect-symantec.md)
     - [VMware Carbon Black Cloud Endpoint Standard](connect-vmware-carbon-black.md)
@@ -104,15 +106,19 @@ Następujące metody łączenia danych są obsługiwane przez wskaźnik na platf
         - [Illusive Networks AMS](connect-illusive-attack-management-system.md)
         - [Łączenie z rozwiązaniem One Identity Safeguard](connect-one-identity.md)
         - [Palo Alto Networks](connect-paloalto.md)
+        - [Serwer Thycotic Secret](connect-thycotic-secret-server.md)
         - [Trend Micro Deep Security](connect-trend-micro.md)
         - [Trend Micro TippingPoint](connect-trend-micro-tippingpoint.md)
         - [Platforma dowodowych Network WireX](connect-wirex-systems.md)
         - [Zscaler](connect-zscaler.md)
         - [Inne urządzenia z systemem CEF](connect-common-event-format.md)
     - **Zapory, proxy i punkty końcowe — dziennik systemowy:**
+        - [Cisco Unified Computing System (UCS)](connect-cisco-ucs.md)
         - [Infoblox NIOS](connect-infoblox.md)
+        - [Juniper SRX](connect-juniper-srx.md)
         - [Pulse Connect Secure](connect-pulse-connect-secure.md)
         - [Sophos XG](connect-sophos-xg-firewall.md)
+        - [Squid serwer proxy](connect-squid-proxy.md)
         - [Symantec Proxy SG](connect-symantec-proxy-sg.md)
         - [Symantec VIP](connect-symantec-vip.md)
         - [Inne urządzenia oparte na dzienniku systemu](connect-syslog.md)

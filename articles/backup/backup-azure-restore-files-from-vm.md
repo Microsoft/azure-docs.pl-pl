@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak odzyskiwać pliki i foldery z punk
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: b4bd64fb00c2f341e474ecb96738fab47d717474
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 9bd66c1e3c89c8974adc3970f8595e5100878088
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831673"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567141"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Odzyskiwanie plików z kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -188,7 +188,7 @@ W systemie Linux woluminy punktu odzyskiwania są instalowane do folderu, w któ
 Jeśli proces odzyskiwania plików zawiesza się po uruchomieniu skryptu przywracania pliku (na przykład jeśli dyski nigdy nie są zainstalowane lub są zainstalowane, ale nie są wyświetlane woluminy), wykonaj następujące czynności:
 
 1. W pliku/etc/iSCSI/iscsid.conf Zmień ustawienie z:
-    - `node.conn[0].timeo.noop_out_timeout = 5`  do `node.conn[0].timeo.noop_out_timeout = 30`
+    - `node.conn[0].timeo.noop_out_timeout = 5`  do `node.conn[0].timeo.noop_out_timeout = 120`
 2. Po wprowadzeniu powyższych zmian ponownie uruchom skrypt. Jeśli występują błędy przejściowe, należy się upewnić, że między kolejnymi uruchomieniami występuje odstęp od 20 do 30 minut, aby uniknąć kolejnych serii żądań mających wpływ na przygotowanie docelowe. Ten interwał między ponownymi uruchomieniami zapewni, że obiekt docelowy będzie gotowy do połączenia ze skryptu.
 3. Po odzyskaniu plików upewnij się, że Wróć do portalu i wybierz opcję **odinstalowania dysków** dla punktów odzyskiwania, w których nie można było zainstalować woluminów. Zasadniczo ten krok spowoduje wyczyszczenie wszystkich istniejących procesów/sesji i zwiększenie możliwości odzyskania.
 

@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 93d17ec2a4fb5c191ce02c73a7a3532e9c854b00
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: fb1ec55bc68ccc323f8dee90982a9169e3085219
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752077"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567650"
 ---
 # <a name="create-an-azure-vmware-solution-avs-assessment"></a>Tworzenie oceny rozwiązania Azure VMware (Automatyczna synchronizacja)
 
@@ -58,27 +58,29 @@ Uruchom ocenę rozwiązania Azure VMware (Automatyczna synchronizacja) w następ
 
     ![Zrzut ekranu przedstawia Azure Migrate serwery z oceną wybraną w obszarze narzędzia do oceny.](./media/how-to-create-assessment/assess.png)
 
-3. W obszarze **ocenianie serwerów** wybierz typ oceny jako "rozwiązanie Azure VMware (Automatyczna synchronizacja)", wybierz źródło odnajdywania i określ nazwę oceny.
+3. W obszarze **ocenianie serwerów** wybierz typ oceny jako "rozwiązanie Azure VMware (Automatyczna synchronizacja)", wybierz źródło odnajdywania.
 
-    ![Podstawowe informacje dotyczące oceny](./media/how-to-create-avs-assessment/assess-servers-avs.png)
+    :::image type="content" source="./media/how-to-create-avs-assessment/assess-servers-avs.png" alt-text="Dodawanie podstawowych podstaw oceny":::
 
-4. Kliknij pozycję **Wyświetl wszystko**, aby sprawdzić właściwości oceny.
+4. Kliknij przycisk **Edytuj** , aby przejrzeć właściwości oceny.
 
-    ![Właściwości oceny automatycznej synchronizacji](./media/how-to-create-avs-assessment/avs-view-all.png)
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-servers.png" alt-text="Lokalizacja przycisku edycji służącego do przeglądania właściwości oceny":::
 
-5. Kliknij pozycję **Dalej**, aby **wybrać maszyny do oceny**. W obszarze **Wybierz lub utwórz grupę** wybierz pozycję **Utwórz nową** i określ nazwę grupy. Grupa zbiera jedną lub więcej maszyn wirtualnych w celu oceny.
+1. W obszarze **Wybieranie maszyn do oceny**  >  **nazwy oceny** > Określ nazwę oceny. 
+ 
+1. W obszarze **Wybierz lub Utwórz grupę** > wybierz pozycję **Utwórz nową** i określ nazwę grupy. Grupa zbiera jedną lub więcej maszyn wirtualnych w celu oceny.
+    
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-group.png" alt-text="Dodawanie maszyn wirtualnych do grupy":::
 
-6. W obszarze **Dodawanie maszyn do grupy** Wybierz Maszyny wirtualne, które mają zostać dodane do grupy.
+1. W obszarze **Dodawanie maszyn do grupy** Wybierz Maszyny wirtualne, które mają zostać dodane do grupy.
 
-7. Kliknij przycisk **Dalej**, aby przejść do pozycji **Przejrzyj i utwórz ocenę**, aby przejrzeć szczegóły dotyczące oceny.
+1. Kliknij przycisk **Dalej**, aby przejść do pozycji **Przejrzyj i utwórz ocenę**, aby przejrzeć szczegóły dotyczące oceny.
 
-8. Kliknij pozycję **Utwórz ocenę** , aby utworzyć grupę, i uruchom ocenę.
+1. Kliknij pozycję **Utwórz ocenę** , aby utworzyć grupę, i uruchom ocenę.
 
-    ![Tworzenie oceny w usłudze AVS](./media/how-to-create-avs-assessment/avs-assessment-create.png)
+1. Po utworzeniu oceny możesz ją wyświetlić w pozycji **Serwery** > **Azure Migrate: Server Assessment** > **Oceny**.
 
-9. Po utworzeniu oceny możesz ją wyświetlić w pozycji **Serwery** > **Azure Migrate: Server Assessment** > **Oceny**.
-
-10. Kliknij polecenie **Eksportuj ocenę**, aby pobrać ocenę jako plik programu Excel.
+1. Kliknij polecenie **Eksportuj ocenę**, aby pobrać ocenę jako plik programu Excel.
 
 
 ## <a name="review-an-azure-vmware-solution-avs-assessment"></a>Zapoznaj się z oceną rozwiązania Azure VMware (Automatyczna synchronizacja)
@@ -88,16 +90,18 @@ Ocena rozwiązania Azure VMware (Automatyczna synchronizacja) zawiera opis:
 - **Gotowość do rozwiązania Azure VMware (Automatyczna synchronizacja)**: czy lokalne maszyny wirtualne są odpowiednie do migracji do rozwiązania Azure VMware (Automatyczna synchronizacja).
 - **Liczba węzłów automatycznej synchronizacji**: Szacowana liczba węzłów synchronizacji wymaganych do uruchomienia maszyn wirtualnych.
 - **Wykorzystanie w węzłach automatycznej synchronizacji**: przewidywany procesor CPU, pamięć i wykorzystanie magazynu we wszystkich węzłach.
+    - Użycie obejmuje czołową fabrykę w poniższych oddziałach zarządzania klastrami, takimi jak vCenter Server, NSX Manager (duże), NSX Edge, jeśli HCX jest wdrożona, również w Menedżerze HCX i w IXm wykorzystaniu urządzenia ~ 44vCPU (11 CPU), 75 GB pamięci RAM i 722GB magazynu przed kompresją i deduplikacją.
+    - Pamięć, deduplikacja i kompresja są obecnie ustawione na 100% wykorzystania pamięci i dekompresności i kompresji 1,5, które będą zdefiniowane przez użytkownika w późniejszych wersjach, co umożliwia użytkownikom precyzyjne dostosowanie ich wymaganych rozmiarów.
 - **Oszacowanie kosztów miesięcznych**: szacowane miesięczne koszty wszystkich węzłów platformy Azure VMware (Automatyczna synchronizacja) z uruchomionymi lokalnymi maszynami wirtualnymi.
 
 
 ### <a name="view-an-assessment"></a>Widok oceny
 
-1. W obszarze serwery **celów migracji**  >   **Servers** kliknij pozycję **oceny** w **Azure Migrate: Ocena serwera**.
+1. W obszarze serwery **celów migracji**  >   kliknij pozycję **oceny** w **Azure Migrate: Ocena serwera**.
 
 2. W obszarze **oceny** kliknij ocenę, aby go otworzyć.
 
-    ![Podsumowanie oceny automatycznej synchronizacji](./media/how-to-create-avs-assessment/avs-assessment-summary.png)
+    :::image type="content" source="./media/how-to-create-avs-assessment/avs-assessment-summary.png" alt-text="Podsumowanie oceny automatycznej synchronizacji":::
 
 ### <a name="review-azure-vmware-solution-avs-readiness"></a>Przegląd gotowości rozwiązania Azure VMware (Automatyczna synchronizacja)
 
