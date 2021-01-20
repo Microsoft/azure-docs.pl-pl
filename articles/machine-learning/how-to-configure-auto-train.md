@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: f2170aad9bc0218d39244d08f5cc838235f8fee9
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 9021d933e3808867ec784ad3c6d0f8810d608ea3
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134368"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600071"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurowanie eksperymentów zautomatyzowanego uczenia maszynowego w języku Python
 
@@ -65,7 +65,7 @@ automl_config = AutoMLConfig(task = "classification")
 
 Zautomatyzowane uczenie maszynowe obsługuje dane, które znajdują się na komputerze lokalnym lub w chmurze, na przykład w usłudze Azure Blob Storage. Dane można odczytać do **Pandas Dataframe** lub **Azure Machine Learning TabularDataset**. [Dowiedz się więcej o zestawach danych](how-to-create-register-datasets.md).
 
-Wymagania dotyczące danych szkoleniowych:
+Wymagania dotyczące danych szkoleniowych w usłudze Machine Learning:
 - Dane muszą być w formie tabelarycznej.
 - Wartość do przewidywania, kolumna docelowa, musi znajdować się w danych.
 
@@ -96,9 +96,9 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
 ## <a name="training-validation-and-test-data"></a>Szkolenia, walidacja i dane testowe
 
-Możesz określić oddzielne **zestawy szkoleniowe i weryfikacyjne** bezpośrednio w `AutoMLConfig` konstruktorze. Dowiedz się więcej na temat [sposobu konfigurowania podziałów danych i krzyżowego sprawdzania poprawności](how-to-configure-cross-validation-data-splits.md) dla eksperymentów AutoML. 
+Możesz określić oddzielne **dane szkoleniowe i zestawy danych sprawdzania poprawności** bezpośrednio w `AutoMLConfig` konstruktorze. Dowiedz się więcej na temat [sposobu konfigurowania podziałów danych i krzyżowego sprawdzania poprawności](how-to-configure-cross-validation-data-splits.md) dla eksperymentów AutoML. 
 
-Jeśli nie określisz jawnie `validation_data` `n_cross_validation` parametru lub, AutoML stosuje domyślne techniki, aby określić sposób sprawdzania poprawności. To obliczanie zależy od liczby wierszy w zestawie danych przypisanych do `training_data` parametru. 
+Jeśli nie określisz jawnie `validation_data` `n_cross_validation` parametru lub, zautomatyzowanej sieci stosuje domyślne techniki, aby określić sposób sprawdzania poprawności. To obliczanie zależy od liczby wierszy w zestawie danych przypisanych do `training_data` parametru. 
 
 |&nbsp;Rozmiar danych szkoleniowych &nbsp;| Technika walidacji |
 |---|-----|

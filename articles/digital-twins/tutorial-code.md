@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: fd958c09a14334d8230e52413c590febb2148851
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 37bd7d91dfe9e4b9e620f89e7504331d8f631a6a
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98048961"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602125"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Samouczek: kodowanie za pomocą cyfrowych interfejsów API usługi Azure bliźniaczych reprezentacji
 
@@ -57,9 +57,12 @@ Spowoduje to utworzenie kilku plików znajdujących się w katalogu, w tym jeden
 
 Pozostaw otwarte okno polecenia, ponieważ będziesz nadal korzystać z niego w całym samouczku.
 
-Następnie **Dodaj dwie zależności do projektu** , które będą konieczne do pracy z usługą Azure Digital bliźniaczych reprezentacji. Możesz użyć linków poniżej, aby przejść do pakietów w pakiecie NuGet, gdzie można znaleźć polecenia konsoli (w tym dla interfejsu wiersza polecenia platformy .NET), aby dodać najnowszą wersję każdej do projektu.
-* [**Azure. DigitalTwins. Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Jest to pakiet dla [zestawu SDK Digital bliźniaczych reprezentacji systemu Azure dla platformy .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
-* [**Azure. Identity**](https://www.nuget.org/packages/Azure.Identity). Ta biblioteka zawiera narzędzia, które ułatwiają uwierzytelnianie na platformie Azure.
+Następnie **Dodaj dwie zależności do projektu** , które będą konieczne do pracy z usługą Azure Digital bliźniaczych reprezentacji. Pierwszy to pakiet [usługi Azure Digital bliźniaczych reprezentacji SDK dla platformy .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), a drugi zawiera narzędzia, które ułatwiają uwierzytelnianie na platformie Azure.
+
+```cmd/sh
+dotnet add package Azure.DigitalTwins.Core
+dotnet add package Azure.Identity
+```
 
 ## <a name="get-started-with-project-code"></a>Wprowadzenie do kodu projektu
 
@@ -181,7 +184,7 @@ Teraz, jeśli w oknie poleceń zostanie uruchomiony program z `dotnet run` teraz
 
 Od tego momentu samouczek umieści wszystkie wywołania metod usługi w obsłudze try/catch.
 
-### <a name="create-digital-twins"></a>Utwórz cyfrowy bliźniaczych reprezentacji
+### <a name="create-digital-twins"></a>Tworzenie cyfrowych reprezentacji bliźniaczych
 
 Po przekazaniu modelu do usługi Azure Digital bliźniaczych reprezentacji można użyć tej definicji modelu do utworzenia **cyfrowego bliźniaczych reprezentacji**. [Digital bliźniaczych reprezentacji](concepts-twins-graph.md) to wystąpienia modelu i reprezentujące jednostki w środowisku biznesowym — takie jak czujniki w farmie, pokoje w budynku lub lampy w kabinie. Ta sekcja tworzy kilka bliźniaczych reprezentacji cyfrowych na podstawie przekazanego wcześniej modelu.
 
@@ -195,7 +198,7 @@ Następnie ponownie uruchom program.
 
 Należy zauważyć, że żaden błąd nie jest zgłaszany, gdy bliźniaczych reprezentacji jest tworzony drugi raz, nawet jeśli bliźniaczych reprezentacji już istnieje po pierwszym uruchomieniu. W przeciwieństwie do tworzenia modelu, tworzenie sznurka to, na poziomie REST, wywołanie *Put* z semantyką *upsert* . Oznacza to, że jeśli przędza już istnieje, próba utworzenia tego samego przędzy spowoduje jedynie zamienienie oryginalnego sznurka. Nie zgłoszono żadnego błędu.
 
-### <a name="create-relationships"></a>Utwórz relacje
+### <a name="create-relationships"></a>Tworzenie relacji
 
 Następnie można utworzyć **relacje** między utworzonym bliźniaczych reprezentacji, aby połączyć je z **wykresem bliźniaczym**. [Wykresy bliźniaczy](concepts-twins-graph.md) są używane do reprezentowania całego środowiska.
 

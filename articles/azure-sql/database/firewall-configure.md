@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 06/17/2020
-ms.openlocfilehash: 9fe0c79a2f65b27b35aa5029d0a53de62ef08078
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: e85c97df29bbbcc5d446d788cc190f3c90f24024
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251679"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602222"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Azure SQL Database i reguły zapory adresów IP dla usługi Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -43,6 +43,9 @@ Reguły zapory adresów IP na poziomie serwera można skonfigurować przy użyci
 
 - Aby korzystać z portalu lub programu PowerShell, musisz być właścicielem subskrypcji lub współautorem subskrypcji.
 - Aby można było używać języka Transact-SQL, należy połączyć się z bazą danych *Master* jako główna nazwa logowania na poziomie serwera lub jako administrator Azure Active Directory. (Reguła zapory adresów IP na poziomie serwera musi być najpierw utworzona przez użytkownika, który ma uprawnienia na poziomie platformy Azure).
+
+> [!NOTE]
+> Domyślnie podczas tworzenia nowego logicznego serwera SQL z Azure Portal ustawienie **Zezwalaj na dostęp do tego serwera dla usług i zasobów platformy Azure** ma wartość **nie**.
 
 ### <a name="database-level-ip-firewall-rules"></a>Reguły zapory adresów IP na poziomie bazy danych
 

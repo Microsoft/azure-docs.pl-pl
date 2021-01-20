@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 43bf70d66c42bc0ecd5e26e4cc724456bd4bf84e
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: f51b46efcaf9be4f51e96b038b93562d0e3eae0b
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896926"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601159"
 ---
 # <a name="web-sdk-supported-browsers"></a>Przeglądarki obsługiwane przez zestaw Web SDK
 
@@ -36,11 +36,11 @@ Azure Maps Web SDK obsługuje następujące przeglądarki pulpitu:
 - Microsoft Edge (bieżąca i Poprzednia wersja)
 - Google Chrome (bieżąca i Poprzednia wersja)
 - Mozilla Firefox (bieżąca i Poprzednia wersja)
-- Apple Safari (Mac OS X) (bieżąca i Poprzednia wersja)
+- Apple Safari (macOS X) (bieżąca i Poprzednia wersja)
 
 Zobacz też więcej niż [starsze przeglądarki](#Target-Legacy-Browsers) w dalszej części tego artykułu.
 
-## <a name="mobile"></a>Komórkowy
+## <a name="mobile"></a>Aplikacje mobilne
 
 Zestaw SDK sieci Web Azure Maps obsługuje następujące przeglądarki dla urządzeń przenośnych:
 
@@ -63,7 +63,7 @@ W Node.js są również obsługiwane następujące moduły zestawu SDK sieci Web
 
 ## <a name="target-legacy-browsers"></a><a name="Target-Legacy-Browsers"></a>Docelowe starsze przeglądarki
 
-Możesz chcieć użyć starszych przeglądarek, które nie obsługują WebGL lub które mają tylko ograniczoną obsługę. W takich przypadkach zalecamy używanie usług Azure Maps razem z kontrolką mapy typu "open source", taką jak [ulotka](https://leafletjs.com/). Oto przykład:
+Możesz chcieć użyć starszych przeglądarek, które nie obsługują WebGL lub które mają tylko ograniczoną obsługę. W takich przypadkach zalecamy używanie usług Azure Maps razem z kontrolką mapy typu "open source", taką jak [ulotka](https://leafletjs.com/). Oto przykład, który korzysta z [wtyczki ulotek Azure Maps](https://github.com/azure-samples/azure-maps-leaflet)typu open source.
 
 <br/>
 
@@ -71,6 +71,7 @@ Możesz chcieć użyć starszych przeglądarek, które nie obsługują WebGL lub
 Zobacz pióro <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure Maps + ulotka</a> Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
+Dodatkowe przykłady kodu używające Azure Maps w ulotce można znaleźć [tutaj](https://azuremapscodesamples.azurewebsites.net/?search=leaflet).
 
 ## <a name="next-steps"></a>Następne kroki
 

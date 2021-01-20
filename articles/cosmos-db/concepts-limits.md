@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/19/2020
-ms.openlocfilehash: 793ff9eedb747da0edcbbf2df50b62f06f407892
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.date: 01/19/2021
+ms.openlocfilehash: 9ace9a319f4cc6bcc1545d6d1becce61b1892765
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247429"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598675"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Przydziały usługi Azure Cosmos DB
 
@@ -37,7 +37,7 @@ Przepustowość można zainicjować na poziomie kontenera lub na poziomie bazy d
 | Maksymalny rozmiar magazynu na kontener | Nieograniczona liczba |
 | Maksymalny rozmiar magazynu na bazę danych | Nieograniczona liczba |
 | Maksymalny rozmiar załączników na konto (funkcja załącznika jest przestarzała) | 2 GB |
-| Minimalna wymagana jednostka RU/s na 1 GB | 10 RU/s<br>**Uwaga:** Jeśli kontener lub baza danych zawiera więcej niż 1 TB danych, Twoje konto może kwalifikować się do naszego [programu "High Storage/niska przepływność"](set-throughput.md#high-storage-low-throughput-program) |
+| Minimalna wymagana jednostka RU/s na 1 GB | 10 RU/s<br>**Uwaga:** to minimum można obniżyć, jeśli Twoje konto jest uprawnione do naszego [programu "High Storage/niska przepływność"](set-throughput.md#high-storage-low-throughput-program) |
 
 > [!NOTE]
 > Aby dowiedzieć się więcej o najlepszych rozwiązaniach dotyczących zarządzania obciążeniami z kluczami partycji wymagającymi wyższych limitów dla magazynu lub przepływności, zobacz [Tworzenie klucza partycji syntetycznej](synthetic-partition-keys.md).
@@ -60,7 +60,7 @@ Aby oszacować minimalną przepływność wymaganą przez kontener z ręczną pr
 
 Przykład: Załóżmy, że masz kontener z obsługą 400 RU/s i 0 GB magazynu. Można zwiększyć przepływność do 50 000 RU/s i zaimportować 20 GB danych. Minimalna wartość RU/s to teraz `MAX(400, 20 * 10 RU/s per GB, 50,000 RU/s / 100)` = 500 ru/s. W miarę upływu czasu magazyn rośnie do 200 GB. Minimalna wartość RU/s to teraz `MAX(400, 200 * 10 RU/s per GB, 50,000 / 100)` = 2000 ru/s. 
 
-**Uwaga:** Jeśli kontener lub baza danych zawiera więcej niż 1 TB danych, Twoje konto może kwalifikować się do naszego [programu "High Storage/niska przepływność"](set-throughput.md#high-storage-low-throughput-program).
+**Uwaga:** minimalny przepływność 10 jednostek ru/s na GB magazynu można obniżyć, jeśli Twoje konto kwalifikuje się do korzystania z naszego [programu "High Storage/niska przepływność"](set-throughput.md#high-storage-low-throughput-program).
 
 #### <a name="minimum-throughput-on-shared-throughput-database"></a>Minimalna przepływność dla udostępnionej bazy danych przepływności 
 Aby oszacować minimalną przepływność wymaganą przez udostępnioną bazę danych przepływności z ręczną przepływność, Znajdź maksymalnie:
@@ -72,7 +72,7 @@ Aby oszacować minimalną przepływność wymaganą przez udostępnioną bazę d
 
 Przykład: Załóżmy, że masz bazę danych z obsługą 400 RU/s, 15 GB miejsca do magazynowania i 10 kontenerów. Minimalna wartość RU/s to `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 ru/s. Jeśli w bazie danych wystąpiło 30 kontenerów, minimalna wartość RU/s byłaby `400 + MAX(30 - 25, 0) * 100 RU/s` = 900 ru/s. 
 
-**Uwaga:** Jeśli kontener lub baza danych zawiera więcej niż 1 TB danych, Twoje konto może kwalifikować się do naszego [programu "High Storage/niska przepływność"](set-throughput.md#high-storage-low-throughput-program).
+**Uwaga:** minimalny przepływność 10 jednostek ru/s na GB magazynu można obniżyć, jeśli Twoje konto kwalifikuje się do korzystania z naszego [programu "High Storage/niska przepływność"](set-throughput.md#high-storage-low-throughput-program).
 
 Poniżej znajduje się podsumowanie minimalnych limitów przydziałów RU. 
 

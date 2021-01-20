@@ -9,12 +9,12 @@ ms.date: 11/13/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: 14e53efb7be9eef3ca388e6524e5ffd678671cd0
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 0bad4637f13bbcf02047416499e4f82fdc53eb4f
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251645"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601314"
 ---
 # <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Planowanie i zarządzanie kosztami usługi Azure Blob Storage
 
@@ -41,7 +41,7 @@ Skorzystaj z [kalkulatora cen platformy Azure](https://azure.microsoft.com/prici
 4. Zmodyfikuj pozostałe opcje, aby zobaczyć ich wpływ na oszacowanie.
 
    > [!NOTE]
-   > Opłaty za usługę Azure Blob Storage można uiścić przy użyciu środków na korzystanie z zobowiązania pieniężnego na platformie Azure Umowa Enterprise. Nie można jednak użyć kredytu zobowiązania pieniężnego, aby uregulować opłaty za produkty i usługi innych firm, w tym te z portalu Azure Marketplace.
+   > Opłaty za usługę Azure Blob Storage można zapłacić za pomocą przedpłaty platformy Azure (wcześniej zwanego zobowiązaniem pieniężnym). Nie można jednak używać środków zaliczkowych na platformie Azure, aby zapłacić za opłaty za produkty i usługi innych firm, w tym te z portalu Azure Marketplace.
 
 ## <a name="optimize-costs"></a>Optymalizowanie kosztów
 

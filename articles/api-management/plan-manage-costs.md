@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: api-management
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.openlocfilehash: 90449a29f58f31827e2a36b5f6c41563e88ac032
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 799ef33e78737bfd2e1c1a1cfa4991f44c8f5ec0
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251356"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599635"
 ---
 # <a name="plan-and-manage-costs-for-api-management"></a>Planowanie i zarządzanie kosztami API Management
 
@@ -49,7 +49,7 @@ Aby uzyskać dodatkowe informacje dotyczące cen i funkcji, zobacz:
 
 ### <a name="using-monetary-credit-with-api-management"></a>Korzystanie z środków pieniężnych w API Management
 
-Opłaty za API Management są naliczane za zobowiązania pieniężne z tytułu umowy EA. Nie można jednak używać kredytu zobowiązania pieniężnego umowy EA do płacenia za opłaty za produkty i usługi innych firm, w tym te z portalu Azure Marketplace.
+Opłaty za API Management mogą być naliczane przy użyciu przedpłaty platformy Azure (wcześniej zwanej zobowiązaniem pieniężnym). Nie można jednak używać środków zaliczkowych na platformie Azure, aby zapłacić za opłaty za produkty i usługi innych firm, w tym te z portalu Azure Marketplace.
 
 ## <a name="monitor-costs"></a>Monitorowanie kosztów
 

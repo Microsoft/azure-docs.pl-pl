@@ -3,17 +3,17 @@ title: 'Szybki Start: Biblioteka kliencka usługi Azure Blob Storage v10 dla ję
 description: Tworzenie, przekazywanie i usuwanie obiektów blob i kontenerów w Node.js przy użyciu biblioteki klienta usługi Azure Storage v10 dla języka JavaScript
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 07/24/2020
+ms.date: 01/19/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 1f47c35997fe060fd3c318602bcad17de83b530c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2371c789b9e4a9fc70f4207fd8a634e419c97912
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91249624"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599458"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-nodejs"></a>Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK języka JavaScript v10 w Node.js
 
@@ -139,7 +139,7 @@ const ONE_MEGABYTE = 1024 * 1024;
 const FOUR_MEGABYTES = 4 * ONE_MEGABYTE;
 ```
 
-Żądania wykonywane przez interfejs API można ustawić, aby przekroczyć limit czasu po upływie określonego interwału. Klasa [Aborter](/javascript/api/%40azure/storage-blob/aborter?view=azure-node-legacy) jest odpowiedzialna za zarządzanie sposobem wygasania żądań, a poniższa stała służy do definiowania limitów czasu używanych w tym przykładzie.
+Żądania wykonywane przez interfejs API można ustawić, aby przekroczyć limit czasu po upływie określonego interwału. Klasa [Aborter](/javascript/api/%40azure/storage-blob/aborter?view=azure-node-legacy&preserve-view=true) jest odpowiedzialna za zarządzanie sposobem wygasania żądań, a poniższa stała służy do definiowania limitów czasu używanych w tym przykładzie.
 
 ```javascript
 const ONE_MINUTE = 60 * 1000;
@@ -178,13 +178,13 @@ const serviceURL = new ServiceURL(`https://${STORAGE_ACCOUNT_NAME}.blob.core.win
 
 W tym bloku kodu są używane następujące klasy:
 
-- Klasa [SharedKeyCredential](/javascript/api/%40azure/storage-blob/sharedkeycredential?view=azure-node-legacy) jest odpowiedzialna za opakowywanie poświadczeń konta magazynu w celu dostarczenia ich do potoku żądań.
+- Klasa [SharedKeyCredential](/javascript/api/%40azure/storage-blob/sharedkeycredential?view=azure-node-legacy&preserve-view=true) jest odpowiedzialna za opakowywanie poświadczeń konta magazynu w celu dostarczenia ich do potoku żądań.
 
-- Klasa [StorageURL](/javascript/api/%40azure/storage-blob/storageurl?view=azure-node-legacy) jest odpowiedzialna za tworzenie nowego potoku.
+- Klasa [StorageURL](/javascript/api/%40azure/storage-blob/storageurl?view=azure-node-legacy&preserve-view=true) jest odpowiedzialna za tworzenie nowego potoku.
 
-- Klasa [ServiceURL](/javascript/api/%40azure/storage-blob/serviceurl?view=azure-node-legacy) modeluje adres URL używany w interfejsie API REST. Wystąpienia tej klasy umożliwiają wykonywanie akcji, takich jak wyświetlanie kontenerów i podawanie informacji o kontekście w celu generowania adresów URL kontenerów.
+- Klasa [ServiceURL](/javascript/api/%40azure/storage-blob/serviceurl?view=azure-node-legacy&preserve-view=true) modeluje adres URL używany w interfejsie API REST. Wystąpienia tej klasy umożliwiają wykonywanie akcji, takich jak wyświetlanie kontenerów i podawanie informacji o kontekście w celu generowania adresów URL kontenerów.
 
-Wystąpienie klasy *ServiceURL* jest używane z wystąpieniami [ContainerURL](/javascript/api/%40azure/storage-blob/containerurl?view=azure-node-legacy) i [BlockBlobURL](/javascript/api/%40azure/storage-blob/blockbloburl?view=azure-node-legacy) w celu zarządzania kontenerami i obiektami blob na koncie magazynu.
+Wystąpienie klasy *ServiceURL* jest używane z wystąpieniami [ContainerURL](/javascript/api/%40azure/storage-blob/containerurl?view=azure-node-legacy&preserve-view=true) i [BlockBlobURL](/javascript/api/%40azure/storage-blob/blockbloburl?view=azure-node-legacy&preserve-view=true) w celu zarządzania kontenerami i obiektami blob na koncie magazynu.
 
 ```javascript
 const containerURL = ContainerURL.fromServiceURL(serviceURL, containerName);

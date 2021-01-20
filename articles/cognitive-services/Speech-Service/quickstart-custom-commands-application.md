@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.custom: references_regions
-ms.openlocfilehash: c5f8be87e7ee95e1deff12cce09204b5fe8a0bb7
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 2cc37cc66c06dc9e6997c6a031a9c60ad050c01a
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694191"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601761"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Tworzenie asystenta głosowego przy użyciu poleceń niestandardowych
 
-W tym przewodniku szybki start utworzysz i testujesz podstawową aplikację poleceń niestandardowych przy użyciu programu Speech Studio. Będziesz również mieć dostęp do tej aplikacji z aplikacji klienckiej systemu Windows. **Polecenia niestandardowe** ułatwiają tworzenie zaawansowanych poleceń głosowych zoptymalizowanych pod kątem interakcji głosowych. Zapewnia ujednolicone środowisko tworzenia, automatyczny model hostingu i stosunkowo niższą złożoność, ułatwiając skoncentrowanie się na tworzeniu najlepszego rozwiązania dla scenariuszy poleceń głosowych.
+W tym przewodniku szybki start utworzysz i testujesz podstawową aplikację poleceń niestandardowych przy użyciu programu Speech Studio. Będziesz również mieć dostęp do tej aplikacji z aplikacji klienckiej systemu Windows.
 
 ## <a name="region-availability"></a>Dostępność regionów
 W tej chwili polecenia niestandardowe obsługują subskrypcje mowy utworzone w następujących regionach:

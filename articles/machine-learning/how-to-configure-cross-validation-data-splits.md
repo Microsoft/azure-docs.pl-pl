@@ -11,16 +11,16 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 06/16/2020
-ms.openlocfilehash: 8e749e5f6ea6bcf76a1b4f143bce03ceb41cbb07
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: a781900534156e455c125dffe3b1334820fdf4d5
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573296"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599067"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Konfigurowanie podziałów danych i krzyżowego sprawdzania poprawności w ramach zautomatyzowanego uczenia maszynowego
 
-Ten artykuł zawiera informacje o różnych opcjach związanych z konfigurowaniem danych dotyczących szkoleń/weryfikacji oraz przeprowadzania krzyżowego sprawdzania poprawności dla zautomatyzowanej uczenia maszynowego, zautomatyzowanej sieci, eksperymentów.
+W tym artykule przedstawiono różne opcje konfigurowania danych szkoleniowych i podziałów danych sprawdzania poprawności oraz ustawienia wzajemnego sprawdzania poprawności dla zautomatyzowanej uczenia maszynowego, zautomatyzowanej sieci, eksperymentów.
 
 W Azure Machine Learning, gdy używasz zautomatyzowanej ML do kompilowania wielu modeli ML, każdy przebieg podrzędny musi sprawdzać pokrewny model, obliczając metryki jakości dla tego modelu, na przykład dokładność lub AUC ważone. Te metryki są obliczane przez porównanie prognoz wykonanych z poszczególnymi modelami z rzeczywistymi etykietami z ostatnich obserwacji w danych sprawdzania poprawności. [Dowiedz się więcej o tym, jak metryki są obliczane na podstawie typu walidacji](#metric-calculation-for-cross-validation-in-machine-learning). 
 
@@ -29,7 +29,7 @@ Automatyczne eksperymenty w MILILITRach wykonują walidację modelu automatyczni
 Aby zapoznać się z niską ilością kodu lub bez kodu, zobacz [Tworzenie zautomatyzowanych eksperymentów uczenia maszynowego w programie Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md). 
 
 > [!NOTE]
-> W programie Studio są obecnie obsługiwane dane szkoleniowe i dotyczące sprawdzania poprawności, ale nie jest obsługiwane Określanie pojedynczych plików danych dla zestawu walidacji. 
+> W programie Studio są obecnie obsługiwane dane szkoleniowe i weryfikacyjne oraz opcje sprawdzania poprawności, ale nie obsługują one określania poszczególnych plików danych dla zestawu weryfikacyjnego. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -41,7 +41,7 @@ W tym artykule należy
 
 * Zrozumienie danych związanych z pouczeniem/sprawdzaniem poprawności polega na rozdzieleniu i weryfikacji krzyżowej w formie koncepcji uczenia maszynowego. Ogólne wyjaśnienie,
 
-    * [Informacje o szkoleniach, walidacji i zestawach testów w Machine Learning](https://towardsdatascience.com/train-validation-and-test-sets-72cb40cba9e7)
+    * [Informacje o szkoleniu, sprawdzaniu poprawności i testowaniu danych w usłudze Machine Learning](https://towardsdatascience.com/train-validation-and-test-sets-72cb40cba9e7)
 
     * [Opis krzyżowego sprawdzania poprawności w usłudze Machine Learning](https://towardsdatascience.com/understanding-cross-validation-419dbd47e9bd) 
 
@@ -62,7 +62,7 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
                             )
 ```
 
-Jeśli nie określisz jawnie `validation_data` `n_cross_validation` parametru lub, AutoML stosuje domyślne techniki w zależności od liczby wierszy w pojedynczym zestawie danych `training_data` :
+Jeśli nie określisz jawnie `validation_data` `n_cross_validation` parametru lub, automatyczna ml stosuje domyślne techniki w zależności od liczby wierszy podanych w pojedynczym zestawie danych `training_data` :
 
 |&nbsp;Rozmiar danych szkoleniowych &nbsp;| Technika walidacji |
 |---|-----|
@@ -71,7 +71,7 @@ Jeśli nie określisz jawnie `validation_data` `n_cross_validation` parametru lu
 
 ## <a name="provide-validation-data"></a>Podaj dane weryfikacji
 
-W takim przypadku można rozpocząć od pojedynczego pliku danych i podzielić go na zestawy szkoleniowe i weryfikacyjne lub udostępnić osobny plik danych dla zestawu walidacji. W obu przypadkach `validation_data` parametr w `AutoMLConfig` obiekcie przypisuje dane, które mają być używane jako zestaw walidacji. Ten parametr akceptuje tylko zestawy danych w postaci [Azure Machine Learning DataSet](how-to-create-register-datasets.md) lub Pandas Dataframe.   
+W takim przypadku można rozpocząć od pojedynczego pliku danych i podzielić go na dane szkoleniowe i zestawy danych sprawdzania poprawności lub podać osobny plik danych dla zestawu walidacji. W obu przypadkach `validation_data` parametr w `AutoMLConfig` obiekcie przypisuje dane, które mają być używane jako zestaw walidacji. Ten parametr akceptuje tylko zestawy danych w postaci [Azure Machine Learning DataSet](how-to-create-register-datasets.md) lub Pandas Dataframe.   
 
 Poniższy przykład kodu jawnie definiuje, która część dostarczonych danych jest używana do `dataset` szkolenia i weryfikacji.
 

@@ -13,12 +13,12 @@ ms.date: 09/18/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: fd836afd6b8574be71ad22d26d67f49971834a88
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 6616b0573019703f287d3be521569f5953aeb032
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064729"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600282"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Inicjuj aplikacje klienckie przy użyciu MSAL.NET
 W tym artykule opisano sposób inicjowania publicznego klienta i poufnych aplikacji klienckich przy użyciu biblioteki uwierzytelniania firmy Microsoft dla platformy .NET (MSAL.NET).  Aby dowiedzieć się więcej na temat typów aplikacji klienta i opcji konfiguracji aplikacji, zapoznaj się z [omówieniem](msal-client-applications.md).
@@ -166,3 +166,12 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .WithB2CAuthority("https://fabrikamb2c.b2clogin.com/tfp/{tenant}/{PolicySignInSignUp}")
         .Build();
 ```
+
+## <a name="next-steps"></a>Następne kroki
+
+Po zainicjowaniu aplikacji klienckiej następnym zadaniem jest dodanie obsługi logowania użytkownika, autoryzowania dostępu do interfejsu API lub obu tych funkcji.
+
+Nasza dokumentacja scenariusza aplikacji zawiera wskazówki dotyczące podpisywania użytkownika i uzyskiwania tokenu dostępu w celu uzyskania dostępu do interfejsu API w imieniu tego użytkownika:
+
+- [Aplikacja internetowa, która loguje użytkowników: Logowanie i wylogowywanie](scenario-web-app-sign-user-sign-in.md)
+- [Aplikacja sieci Web, która wywołuje interfejsy API sieci Web: uzyskiwanie tokenu](scenario-web-app-call-api-acquire-token.md)

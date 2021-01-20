@@ -6,26 +6,26 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/18/2021
-ms.openlocfilehash: 5e12ca3bf626ae212f44fe0378ccb6649738753c
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: 7240c1b0f19dc49ab4130c5ee2516dcfefb2e2c2
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562876"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602191"
 ---
 # <a name="errors-in-the-connector-status"></a>Błędy w stanie łącznika
 
-Na liście stan łącznika można znaleźć błędy, które mogą pomóc w naprawieniu łącznika narzędzia ITSM.
+Na liście stan łącznika można znaleźć błędy, które mogą pomóc w rozwiązaniu problemów w łączniku narzędzia ITSM.
 
 ## <a name="status-common-errors"></a>Typowe błędy stanu
 
-w tej sekcji można znaleźć typowy błąd, który można znaleźć na liście stanów i jak należy go rozwiązać:
+w tej sekcji znajdują się typowe błędy, które przedstawiono w sekcji stan łącznika i jak należy rozwiązać ten problem:
 
-*  **Błąd**: "Nieoczekiwana odpowiedź z usługi ServiceNow wraz z kodem stanu sukcesu. Odpowiedź: {"import_set": "{import_set_id}", "staging_table": "x_mioms_microsoft_oms_incident", "result": [{"transform_map": "zdarzenie pakietu OMS", "Tabela": "zdarzenie", "stan": "błąd", "error_message": "{docelowy rekord nie został znaleziony | Nieprawidłowa tabela | Nieprawidłowa tabela przemieszczania "}"
+* **Błąd**: "Nieoczekiwana odpowiedź z usługi ServiceNow wraz z kodem stanu sukcesu. Odpowiedź: {"import_set": "{import_set_id}", "staging_table": "x_mioms_microsoft_oms_incident", "result": [{"transform_map": "zdarzenie pakietu OMS", "Tabela": "zdarzenie", "stan": "błąd", "error_message": "{docelowy rekord nie został znaleziony | Nieprawidłowa tabela | Nieprawidłowa tabela przemieszczania "}"
 
     **Przyczyna**: ten błąd jest zwracany z usługi ServiceNow, gdy:
-    * Skrypt niestandardowy wdrożony w wystąpieniu usługi ServiceNow powoduje ignorowanie zdarzeń.
-    * "Aplikacja integratora pakietu OMS" została zmodyfikowana po stronie usługi ServiceNow, np. za pomocą skryptu onbefore.
+  * Skrypt niestandardowy wdrożony w wystąpieniu usługi ServiceNow powoduje ignorowanie zdarzeń.
+  * "Aplikacja integratora pakietu OMS" została zmodyfikowana po stronie usługi ServiceNow, np. za pomocą skryptu onbefore.
 
     **Rozwiązanie**: Wyłącz wszystkie niestandardowe skrypty lub modyfikacje kodu ścieżki importu danych.
 
@@ -43,7 +43,7 @@ w tej sekcji można znaleźć typowy błąd, który można znaleźć na liście 
 
 * **Błąd**: "ServiceDeskHttpBadRequestException: StatusCode = 429"
 
-    **Przyczyna**: limity szybkości usługi ServiceNow są zbyt niskie.
+    **Przyczyna**: limity szybkości usługi ServiceNow są zbyt wysokie/niskie.
 
     **Rozwiązanie**: Zwiększ lub Anuluj limity szybkości w wystąpieniu usługi ServiceNow, jak wyjaśniono [tutaj](https://docs.servicenow.com/bundle/london-application-development/page/integrate/inbound-rest/task/investigate-rate-limit-violations.html).
 
@@ -57,14 +57,14 @@ w tej sekcji można znaleźć typowy błąd, który można znaleźć na liście 
 
     **Przyczyna**: Łącznik ITSM został usunięty.
 
-    **Rozwiązanie**: Łącznik ITSM zostało usunięte, ale nadal istnieją akcje narzędzia ITSM zdefiniowane do użycia. Istnieją dwie opcje rozwiązania tego problemu:
+    **Rozwiązanie**: Łącznik ITSM zostało usunięte, ale nie zdefiniowano dla niej grup akcji narzędzia ITSM. Istnieją dwie opcje rozwiązania tego problemu:
   * Znajdowanie i wyłączanie lub usuwanie tej akcji
   * [Skonfiguruj ponownie grupę akcji](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts) , aby użyć istniejącej łącznik ITSM.
   * [Utwórz nowy łącznik narzędzia ITSM](./itsmc-definition.md#create-an-itsm-connection) i [Skonfiguruj ponownie grupę akcji, aby z niej korzystać](itsmc-definition.md#create-itsm-work-items-from-azure-alerts).
 
 ## <a name="ui-common-errors"></a>Typowe błędy interfejsu użytkownika
 
-* **Błąd**: "Wystąpił problem. Nie można pobrać szczegółów połączenia ".
+* **Błąd**: "Wystąpił problem. Nie można pobrać szczegółów połączenia ". Ten błąd jest wyświetlany, gdy Klient definiuje grupę akcji narzędzia ITSM.
 
     **Przyczyna**: nowo utworzona łącznik ITSM nie mogła ukończyć synchronizacji początkowej.
 

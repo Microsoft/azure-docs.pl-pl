@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: e50d7aba5cc5b3d5d620d844cc9ad169ad8b3bf6
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 6f2dfdbb5833b34441b4abba7359ad70c4717d1d
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025895"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602153"
 ---
 # <a name="set-up-web-endpoints"></a>Konfigurowanie internetowych punktów końcowych
 
@@ -23,7 +23,7 @@ W tym artykule dowiesz się, jak skonfigurować internetowe punkty końcowe w ap
 
 - Konfigurowanie internetowych punktów końcowych dla aplikacji Polecenia niestandardowe
 - Wywoływanie internetowych punktów końcowych dla aplikacji Polecenia niestandardowe
-- Odbieranie odpowiedzi z internetowych punktów końcowych 
+- Odbieranie odpowiedzi z internetowych punktów końcowych
 - Integrowanie odpowiedzi z internetowych punktów końcowych w niestandardowym ładunku JSON, wysyłanie i wizualizowanie ich z aplikacji klienckiej zestawu SDK usługi Mowa na platformie uniwersalnej systemu Windows w języku C#
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -35,7 +35,7 @@ W tym artykule dowiesz się, jak skonfigurować internetowe punkty końcowe w ap
 
 ## <a name="setup-web-endpoints"></a>Konfigurowanie internetowych punktów końcowych
 
-1. Otwórz utworzoną wcześniej aplikację Polecenia niestandardowe. 
+1. Otwórz utworzoną wcześniej aplikację Polecenia niestandardowe.
 1. Przejdź do pozycji „Internetowe punkty końcowe”, a następnie kliknij pozycję „Nowy internetowy punkt końcowy”.
 
    > [!div class="mx-imgBorder"]
@@ -61,7 +61,7 @@ W tym artykule dowiesz się, jak skonfigurować internetowe punkty końcowe w ap
 1. Przejdź do polecenia **TurnOnOff**, w regule ukończenia wybierz pozycję **ConfirmationResponse**, a następnie wybierz pozycję **Dodaj akcję**.
 1. W obszarze **Nowa akcja — Typ** wybierz pozycję **Wywołaj internetowy punkt końcowy**
 1. W obszarze **Edytuj akcję — Punkty końcowe** wybierz pozycję **UpdateDeviceState**, która jest utworzonym przez nas internetowym punktem końcowym.  
-1. W obszarze **Konfiguracja** umieść następujące wartości: 
+1. W obszarze **Konfiguracja** umieść następujące wartości:
    > [!div class="mx-imgBorder"]
    > ![Parametry akcji wywoływania internetowych punktów końcowych](media/custom-commands/setup-web-endpoint-edit-action-parameters.png)
 
@@ -75,16 +75,16 @@ W tym artykule dowiesz się, jak skonfigurować internetowe punkty końcowe w ap
     > - Sugerowane parametry zapytania są wymagane tylko w przypadku przykładowego punktu końcowego
 
 1. W obszarze **W przypadku powodzenia — Akcja do wykonania** wybierz pozycję **Wyślij odpowiedź na mowę**.
-    
+
     W obszarze **Prosty edytor** wprowadź wartość `{SubjectDevice} is {OnOff}`.
-   
+
    > [!div class="mx-imgBorder"]
    > ![Zrzut ekranu, na którym jest wyświetlany ekran o powodzeniu działania do wykonania.](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
 
    | Ustawienie | Sugerowana wartość | Opis |
    | ------- | --------------- | ----------- |
    | Akcja do wykonania | Wyślij odpowiedź na mowę | Akcja do wykonania, jeśli żądanie internetowego punktu końcowego zakończy się pomyślnie |
-   
+
    > [!NOTE]
    > - Możesz również uzyskać dostęp do pól w odpowiedzi HTTP bezpośrednio, używając parametru `{YourWebEndpointName.FieldName}`. Na przykład: `{UpdateDeviceState.TV}`
 
@@ -101,7 +101,7 @@ W tym artykule dowiesz się, jak skonfigurować internetowe punkty końcowe w ap
 
    > [!NOTE]
    > - Parametr `{WebEndpointErrorMessage}` jest opcjonalny. Możesz go usunąć, jeśli nie chcesz uwidaczniać żadnego komunikatu o błędzie.
-   > - W naszym przykładowym punkcie końcowym wysyłamy odpowiedź HTTP ze szczegółowymi komunikatami o błędach dotyczącymi typowych błędów, takich jak brakujące parametry nagłówka. 
+   > - W naszym przykładowym punkcie końcowym wysyłamy odpowiedź HTTP ze szczegółowymi komunikatami o błędach dotyczącymi typowych błędów, takich jak brakujące parametry nagłówka.
 
 ### <a name="try-it-out-in-test-portal"></a>Wypróbowywanie działania w portalu testowym
 - Odpowiedź w przypadku powodzenia\
@@ -119,7 +119,7 @@ W czasie szkolenia [Instrukcje: wysyłanie działania do aplikacji klienckiej (w
 Jednak w większości przypadków chcesz, aby aktywność była wysyłana do aplikacji klienckiej wyłącznie w przypadku, gdy wywołanie internetowego punktu końcowego zakończyło się powodzeniem. W tym przykładzie ma to miejsce po pomyślnym zaktualizowaniu stanu urządzenia.
 
 1. Usuń dodaną wcześniej akcję **Wyślij aktywność do klienta**.
-1. Przeprowadź edycję wywołania internetowego punktu końcowego: 
+1. Przeprowadź edycję wywołania internetowego punktu końcowego:
     1. W obszarze **Konfiguracja** upewnij się, że **Parametry zapytania** to `item={SubjectDevice}&&value={OnOff}`
     1. W obszarze **W przypadku powodzenia** zmień wartość pola **Akcja do wykonania** na **Wyślij aktywność do klienta**
     1. Skopiuj poniższy kod JSON do pola **Zawartość aktywności**
@@ -133,7 +133,6 @@ Jednak w większości przypadków chcesz, aby aktywność była wysyłana do apl
       }
     }
    ```
-   
 Teraz aktywność zostanie wysłana do klienta tylko w przypadku, gdy żądanie do internetowego punktu końcowego zakończy się powodzeniem.
 
 ### <a name="create-visuals-for-syncing-device-state"></a>Tworzenie wizualizacji w celu synchronizowania stanu urządzenia
@@ -147,7 +146,7 @@ W pliku `MainPage.xaml` dodaj poniższy kod XML nad blokiem `"EnableMicrophoneBu
         .........../>
 ```
 
-### <a name="sync-device-state"></a>Synchronizowanie stanu urządzeń 
+### <a name="sync-device-state"></a>Synchronizowanie stanu urządzeń
 
 W pliku `MainPage.xaml.cs` dodaj odwołanie `using Windows.Web.Http;`. Dodaj poniższy kod do klasy `MainPage`. Ta metoda spowoduje wysłanie żądania GET do przykładowego punktu końcowego i wyodrębnienie bieżącego stanu urządzenia dla aplikacji. Nie zapomnij zmienić parametru `<your_app_name>` na wartość użytą w **nagłówku** w internetowym punkcie końcowym aplikacji Polecenia niestandardowe
 
@@ -157,7 +156,7 @@ private async void SyncDeviceState_ButtonClicked(object sender, RoutedEventArgs 
     //Create an HTTP client object
     var httpClient = new HttpClient();
 
-    //Add a user-agent header to the GET request. 
+    //Add a user-agent header to the GET request.
     var your_app_name = "<your-app-name>";
 
     Uri endpoint = new Uri("https://webendpointexample.azurewebsites.net/api/DeviceState");

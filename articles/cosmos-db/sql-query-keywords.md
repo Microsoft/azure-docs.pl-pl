@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 01/20/2021
 ms.author: tisande
-ms.openlocfilehash: 35232f95bc18432db05775807d95f23ceab66aea
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 09148e65e446d723fbfe7a54602db59ee0739f83
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93333787"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599351"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Słowa kluczowe w Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -107,6 +107,73 @@ Zapytania z zagregowaną funkcją systemową i podzapytaniem z `DISTINCT` nie s�
 ```sql
 SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 ```
+
+## <a name="like"></a>LIKE
+
+Zwraca wartość logiczną w zależności od tego, czy określony ciąg znaków jest zgodny z określonym wzorcem. Wzorzec może zawierać zwykłe znaki i symbole wieloznaczne. Można napisać logicznie równoważne zapytania za pomocą `LIKE` słowa kluczowego lub funkcji system [RegexMatch](sql-query-regexmatch.md) . Użyjesz tego samego indeksu, niezależnie od tego, który z nich wybierzesz. W związku z tym należy użyć, `LIKE` Jeśli wolisz, aby składnia była większa niż wyrażenia regularne.
+
+> [!NOTE]
+> Ponieważ `LIKE` może korzystać z indeksu, należy [utworzyć indeks zakresu](indexing-policy.md) dla właściwości, które są porównywane za pomocą `LIKE` .
+
+Można użyć następujących symboli wieloznacznych, takich jak:
+
+| Symbol wieloznaczny | Opis                                                  | Przykład                                     |
+| -------------------- | ------------------------------------------------------------ | ------------------------------------------- |
+| %                    | Dowolny ciąg składający się z zero lub więcej znaków                      | GDZIE c. Description, np. "%,% PS%"      |
+| _ (podkreślenie)     | Dowolny pojedynczy znak                                       | GDZIE c. Description, np. "% SO_PS%"      |
+| [ ]                  | Dowolny pojedynczy znak w określonym zakresie ([a-f]) lub Set ([abcdef]). | GDZIE c. Description jak "% SO [t-z] PS%"  |
+| [^]                  | Dowolny pojedynczy znak spoza określonego zakresu ([^ a-f]) lub zestawu ([^ abcdef]). | GDZIE c. Description, np. "% SO [^ abc] PS%" |
+
+
+### <a name="using-like-with-the--wildcard-character"></a>Używanie jak ze znakiem wieloznacznym%
+
+`%`Znak pasuje do dowolnego ciągu składającego się z zero lub więcej znaków. Na przykład, umieszczając na `%` początku i na końcu wzorca, następujące zapytanie zwraca wszystkie elementy z opisem, który zawiera `fruit` :
+
+```sql
+SELECT *
+FROM c
+WHERE c.description LIKE "%fruit%"
+```
+
+Jeśli używasz tylko `%` znaku na początku wzorca, będziesz zwracać tylko elementy z opisem, który rozpoczyna się od `fruit` :
+
+```sql
+SELECT *
+FROM c
+WHERE c.description LIKE "fruit%"
+```
+
+
+### <a name="using-not-like"></a>Użycie nie podobne
+
+Poniższy przykład zwraca wszystkie elementy z opisem, który nie zawiera `fruit` :
+
+```sql
+SELECT *
+FROM c
+WHERE c.description NOT LIKE "%fruit%"
+```
+
+### <a name="using-the-escape-clause"></a>Używanie klauzuli ucieczki
+
+Można wyszukiwać wzorce, które zawierają jeden lub więcej symboli wieloznacznych przy użyciu klauzuli ESCAPE. Jeśli na przykład chcesz wyszukać opisy zawierające ciąg, nie chcesz `20-30%` interpretować `%` znaku jako symbolu wieloznacznego.
+
+```sql
+SELECT *
+FROM c
+WHERE c.description LIKE '%20-30!%%' ESCAPE '!'
+```
+
+### <a name="using-wildcard-characters-as-literals"></a>Używanie symboli wieloznacznych jako literałów
+
+Symbole wieloznaczne można ująć w nawiasy, aby traktować je jako znaki literału. Gdy w nawiasach zostanie umieszczony symbol wieloznaczny, należy usunąć wszystkie atrybuty specjalne. Oto kilka przykładów:
+
+| Wzorce           | Znaczenie |
+| ----------------- | ------- |
+| LIKE "20-30 [%]" | 20-30%  |
+| LIKE "[_] n"     | _n      |
+| LIKE "[[]"    | [       |
+| LIKE "]"        | ]       |
 
 ## <a name="in"></a>IN
 

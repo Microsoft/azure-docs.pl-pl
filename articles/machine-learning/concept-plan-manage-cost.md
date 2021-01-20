@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 81d9a6bcbd910a60e1f659e430bbe527eb3077c6
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 5be02ff698dac02d702e47f8929c6f8ddf2adbb7
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251747"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602545"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planowanie i zarządzanie kosztami Azure Machine Learning
 
@@ -70,7 +70,7 @@ Po usunięciu obszaru roboczego Azure Machine Learning w Azure Portal lub przy u
 
 * Azure Container Registry
 * Blob Storage blokowe platformy Azure
-* Key Vault
+* Usługa Key Vault
 * Application Insights
 
 Aby usunąć obszar roboczy wraz z tymi zasobami zależnymi, użyj zestawu SDK:
@@ -81,9 +81,9 @@ ws.delete(delete_dependent_resources=True)
 
 Jeśli utworzysz usługę Azure Kubernetes Service (AKS) w obszarze roboczym lub dołączysz wszystkie zasoby obliczeniowe do obszaru roboczego, musisz je usunąć oddzielnie w [Azure Portal](https://portal.azure.com).
 
-### <a name="using-monetary-credit-with-azure-machine-learning"></a>Korzystanie z środków pieniężnych w Azure Machine Learning
+### <a name="using-azure-prepayment-credit-with-azure-machine-learning"></a>Przy użyciu środków na korzystanie z systemu Azure w wysokości Azure Machine Learning
 
-Opłaty za Azure Machine Learning są naliczane za zobowiązania pieniężne z tytułu umowy EA. Nie można jednak użyć kredytu zobowiązania pieniężnego umowy EA, aby uregulować opłaty za produkty i usługi innych firm, w tym te z portalu Azure Marketplace.
+Opłaty za Azure Machine Learning mogą być naliczane przy użyciu przedpłaty za korzystanie z platformy Azure (wcześniej zwanego zobowiązaniem pieniężnym). Nie można jednak używać przedpłaty platformy Azure, aby zapłacić za opłaty za produkty i usługi innych firm, w tym te z portalu Azure Marketplace.
 
 
 ## <a name="create-budgets"></a>Tworzenie budżetów

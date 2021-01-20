@@ -3,19 +3,22 @@ title: Przygotowywanie i dostosowywanie głównego obrazu wirtualnego dysku twar
 description: Przygotowywanie, dostosowywanie i przekazywanie obrazu wzorca pulpitu wirtualnego systemu Windows na platformę Azure.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/14/2019
+ms.date: 01/19/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9e4cb4fe8a701600290d24c055e2be5187a711c5
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 33af83934e8ecc5745f2edad3a7832a870406452
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023398"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602380"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Przygotowywanie i dostosowywanie głównego obrazu wirtualnego dysku twardego
 
 W tym artykule przedstawiono sposób przygotowania obrazu głównego wirtualnego dysku twardego (VHD) do przekazania do platformy Azure, w tym sposobu tworzenia maszyn wirtualnych i instalowania na nich oprogramowania. Te instrukcje dotyczą konfiguracji specyficznej dla pulpitu wirtualnego systemu Windows, która może być używana z istniejącymi procesami w organizacji.
+
+>[!IMPORTANT]
+>Zalecamy używanie obrazu z galerii obrazów platformy Azure. Jeśli jednak potrzebujesz użyć niestandardowego obrazu, upewnij się, że na urządzeniu nie jest jeszcze zainstalowany agent pulpitu wirtualnego systemu WIndows. Używanie niestandardowego obrazu z agentem pulpitu wirtualnego systemu Windows może spowodować problemy z obrazem.  
 
 ## <a name="create-a-vm"></a>Tworzenie maszyny wirtualnej
 
@@ -114,7 +117,7 @@ Aby przekierować strefy czasowe:
 1. Na serwerze Active Directory Otwórz **Konsola zarządzania zasadami grupy**.
 2. Rozwiń domenę i zasady grupy obiekty.
 3. Kliknij prawym przyciskiem myszy **obiekt zasady grupy** , który został utworzony dla ustawień zasad grupy, a następnie wybierz polecenie **Edytuj**.
-4. W **Edytor zarządzania zasadami grupy** przejdź do węzła zasady **konfiguracji**,  >  **Policies**  >  **Szablony administracyjne**  >  **składniki systemu Windows**  >  **usługi pulpitu zdalnego**  >  **pulpit zdalny Sesja hosta sesji**  >  **i przekierowania zasobów**.
+4. W **Edytor zarządzania zasadami grupy** przejdź do węzła zasady **konfiguracji**,  >    >  **Szablony administracyjne**  >  **składniki systemu Windows**  >  **usługi pulpitu zdalnego**  >  **pulpit zdalny Sesja hosta sesji**  >  **i przekierowania zasobów**.
 5. Włącz ustawienie **Zezwalaj na przekierowywanie strefy czasowej** .
 
 Możesz również uruchomić to polecenie na głównym obrazie, aby przekierować strefy czasowe:

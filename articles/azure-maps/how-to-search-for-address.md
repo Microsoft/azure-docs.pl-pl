@@ -3,17 +3,17 @@ title: Wyszukiwanie lokalizacji przy użyciu usług wyszukiwania Azure Maps
 description: Dowiedz się więcej na temat usługi wyszukiwania Azure Maps. Zobacz, jak używać tego zestawu interfejsów API do geokodowania, odwracania geokodowania, wyszukiwania rozmytego i odwrotnego wyszukiwania krzyżowego.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 10/05/2020
+ms.date: 01/19/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 00ddb53276c052d538d658f2c40384e86cf72aee
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: dddf56edf2037d87a28589a59834db32f8d04a4c
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910988"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598372"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Wyszukiwanie lokalizacji przy użyciu usług wyszukiwania Azure Maps
 
@@ -36,14 +36,14 @@ W tym samouczku jest stosowana aplikacja programu [Poster](https://www.postman.c
 
 ## <a name="request-latitude-and-longitude-for-an-address-geocoding"></a>Żądaj szerokości geograficznej i długości geograficznej dla adresu (geokodowania)
 
-W tym przykładzie użyjemy interfejsu API usługi Azure Maps [Get Address Search](/rest/api/maps/search/getsearchaddress) w celu przekonwertowania adresu na współrzędne geograficzne. Ten proces jest również nazywany *geokodowaniem* . Oprócz zwracania współrzędnych odpowiedź zwróci także szczegółowe właściwości adresu, takie jak ulica, kod pocztowy, gmina i informacje o kraju/regionie.
+W tym przykładzie użyjemy interfejsu API usługi Azure Maps [Get Address Search](/rest/api/maps/search/getsearchaddress) w celu przekonwertowania adresu na współrzędne geograficzne. Ten proces jest również nazywany *geokodowaniem*. Oprócz zwracania współrzędnych odpowiedź zwróci także szczegółowe właściwości adresu, takie jak ulica, kod pocztowy, gmina i informacje o kraju/regionie.
 
 >[!TIP]
 >Jeśli masz zestaw adresów na potrzeby geokodowania, możesz użyć [interfejsu API usługi Batch](/rest/api/maps/search/postsearchaddressbatch) w celu wysłania partii zapytań w jednym wywołaniu interfejsu API.
 
-1. Otwórz aplikację Poster. W górnej części aplikacji Poster wybierz pozycję **Nowy** . W oknie **Tworzenie nowego** okna wybierz pozycję **Kolekcja** .  Nadaj kolekcji nazwę i wybierz przycisk **Utwórz** . Ta kolekcja zostanie użyta w pozostałej części przykładów tego dokumentu.
+1. Otwórz aplikację Poster. W górnej części aplikacji Poster wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Kolekcja**.  Nadaj kolekcji nazwę i wybierz przycisk **Utwórz** . Ta kolekcja zostanie użyta w pozostałej części przykładów tego dokumentu.
 
-2. Aby utworzyć żądanie, wybierz pozycję **nowe** ponownie. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj** . Wprowadź **nazwę żądania** dla żądania. Wybierz kolekcję utworzoną w poprzednim kroku, a następnie wybierz pozycję **Zapisz** .
+2. Aby utworzyć żądanie, wybierz pozycję **nowe** ponownie. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** dla żądania. Wybierz kolekcję utworzoną w poprzednim kroku, a następnie wybierz pozycję **Zapisz**.
 
 3. Wybierz metodę **Get** http na karcie Konstruktor i wprowadź następujący adres URL. W ramach tego żądania szukamy określonego adresu: `400 Braod St, Seattle, WA 98109` . W przypadku tego żądania i innych żądań wymienionych w tym artykule Zastąp `{Azure-Maps-Primary-Subscription-key}` klucz subskrypcji podstawowym.
 
@@ -75,7 +75,7 @@ W tym przykładzie użyjemy wyszukiwania rozmytego, aby przeszukać cały świat
 >[!IMPORTANT]
 >Aby uzyskać efekt geobias do odpowiedniego obszaru dla użytkowników, należy zawsze dodać dowolną liczbę szczegółów lokalizacji. Aby dowiedzieć się więcej, zobacz [najlepsze rozwiązania dotyczące wyszukiwania](how-to-use-best-practices-for-search.md#geobiased-search-results).
 
-1. Otwórz aplikację Poster, kliknij pozycję **New (nowy** ), a następnie wybierz pozycję **żądanie** . Wprowadź **nazwę żądania** dla żądania. Wybierz kolekcję utworzoną w poprzedniej sekcji lub utworzoną nową, a następnie wybierz pozycję **Zapisz** .
+1. Otwórz aplikację Poster, kliknij pozycję **New (nowy**), a następnie wybierz pozycję **żądanie**. Wprowadź **nazwę żądania** dla żądania. Wybierz kolekcję utworzoną w poprzedniej sekcji lub utworzoną nową, a następnie wybierz pozycję **Zapisz**.
 
 2. Wybierz metodę **Get** http na karcie Konstruktor i wprowadź następujący adres URL. W przypadku tego żądania i innych żądań wymienionych w tym artykule Zastąp `{Azure-Maps-Primary-Subscription-key}` klucz subskrypcji podstawowym.
 
@@ -94,7 +94,7 @@ W tym przykładzie użyjemy wyszukiwania rozmytego, aby przeszukać cały świat
 
 4. Domyślnym zachowaniem jest przeszukanie całego świata i potencjalnie zwrócenie niepotrzebnych wyników. Następnie wyszukamy Pizza tylko Stany Zjednoczone. Dodaj `countrySet` klucz do sekcji **paramss** i ustaw jego wartość na `US` . Ustawienie `countrySet` klucza w celu `US` powiązania wyników z Stany Zjednoczone.
 
-    :::image type="content" source="./media/how-to-search-for-address/search-fuzzy-country.png" alt-text="Wyszukaj adres":::
+    :::image type="content" source="./media/how-to-search-for-address/search-fuzzy-country.png" alt-text="Wyszukaj Pizza w Stany Zjednoczone":::
 
     Wyniki są teraz ograniczone przez kod kraju, a zapytanie zwraca Pizza Restauracje w Stany Zjednoczone.
 
@@ -107,9 +107,9 @@ W tym przykładzie użyjemy wyszukiwania rozmytego, aby przeszukać cały świat
     | usługę | 47,620525 |
     | Długość | -122,349274 |
     | promienie | 400 |
-    | granice | 5|
+    | limit | 5|
 
-6. Kliknij pozycję **Wyślij** . Odpowiedź zawiera wyniki dla Pizza Restauracje w okolicy wskazówki dotyczącej obszaru Seattle.
+6. Kliknij pozycję **Wyślij**. Odpowiedź zawiera wyniki dla Pizza Restauracje w okolicy wskazówki dotyczącej obszaru Seattle.
 
 ## <a name="search-for-a-street-address-using-reverse-address-search"></a>Wyszukaj adres ulicy przy użyciu wyszukiwania odwrotnego adresu
 
@@ -123,7 +123,7 @@ Azure Maps [Pobierz adres wyszukiwania Odwróć interfejs API]( https://docs.mic
 
 W tym przykładzie przeprowadzimy wyszukiwanie wsteczne przy użyciu kilku opcjonalnych parametrów, które są dostępne. Aby zapoznać się z pełną listą parametrów opcjonalnych, zobacz [wyszukiwanie wsteczne parametrów wyszukiwania](/rest/api/maps/search/getsearchaddressreverse#uri-parameters).
 
-1. W aplikacji Poster kliknij pozycję **Nowy** , a następnie wybierz pozycję **żądanie** . Wprowadź **nazwę żądania** dla żądania. Wybierz kolekcję utworzoną w pierwszej sekcji lub utworzoną nową, a następnie wybierz pozycję **Zapisz** .
+1. W aplikacji Poster kliknij pozycję **Nowy**, a następnie wybierz pozycję **żądanie**. Wprowadź **nazwę żądania** dla żądania. Wybierz kolekcję utworzoną w pierwszej sekcji lub utworzoną nową, a następnie wybierz pozycję **Zapisz**.
 
 2. Wybierz metodę **Get** http na karcie Konstruktor i wprowadź następujący adres URL. W przypadku tego żądania i innych żądań wymienionych w tym artykule Zastąp `{Azure-Maps-Primary-Subscription-key}` klucz subskrypcji podstawowym. Żądanie powinno wyglądać następująco:
 
@@ -142,15 +142,15 @@ W tym przykładzie przeprowadzimy wyszukiwanie wsteczne przy użyciu kilku opcjo
     | returnRoadUse | true | Zwraca typy użycia drogowego pod adresem. Aby uzyskać wszystkie możliwe typy użycia dróg, zobacz [typy użycia drogowego](/rest/api/maps/search/getsearchaddressreverse#uri-parameters).|
     | returnMatchType | true| Zwraca typ dopasowania. Aby uzyskać wszystkie możliwe wartości, zobacz [odwrotne wyniki wyszukiwania adresów](/rest/api/maps/search/getsearchaddressreverse#searchaddressreverseresult)
 
-   :::image type="content" source="./media/how-to-search-for-address/search-reverse.png" alt-text="Wyszukaj adres":::
+   :::image type="content" source="./media/how-to-search-for-address/search-reverse.png" alt-text="Wyszukaj wstecz.":::
 
 5. Kliknij przycisk **Wyślij** i sprawdź treść odpowiedzi.
 
 6. Następnie dodamy `entityType` klucz i ustawisz jego wartość na `Municipality` . `entityType`Klucz spowoduje zastąpienie `returnMatchType` klucza w poprzednim kroku. Należy również usunąć `returnSpeedLimit` i `returnRoadUse` ponieważ żądamy informacji o gminie.  Dla wszystkich możliwych typów jednostek, zobacz [typy jednostek](/rest/api/maps/search/getsearchaddressreverse#entitytype).
 
-    :::image type="content" source="./media/how-to-search-for-address/search-reverse-entity-type.png" alt-text="Wyszukaj adres":::
+    :::image type="content" source="./media/how-to-search-for-address/search-reverse-entity-type.png" alt-text="Wyszukaj odwrotny obiekt entityType.":::
 
-7. Kliknij pozycję **Wyślij** . Porównaj wyniki z wynikami zwróconymi w kroku 5.  Ponieważ żądany typ jednostki jest teraz `municipality` , odpowiedź nie obejmuje informacji o adresie ulicy. Ponadto zwracaną wartość `geometryId` można użyć do żądania wielokąta granicy przez Azure Maps uzyskać [interfejsu API wielokątów wyszukiwania](/rest/api/maps/search/getsearchpolygon).
+7. Kliknij pozycję **Wyślij**. Porównaj wyniki z wynikami zwróconymi w kroku 5.  Ponieważ żądany typ jednostki jest teraz `municipality` , odpowiedź nie obejmuje informacji o adresie ulicy. Ponadto zwracaną wartość `geometryId` można użyć do żądania wielokąta granicy przez Azure Maps uzyskać [interfejsu API wielokątów wyszukiwania](/rest/api/maps/search/getsearchpolygon).
 
 >[!TIP]
 >Aby uzyskać więcej informacji na temat tych parametrów, a także zapoznać się z innymi informacjami, zobacz [sekcję parametry wyszukiwania wstecznego](/rest/api/maps/search/getsearchaddressreverse#uri-parameters).
@@ -159,7 +159,7 @@ W tym przykładzie przeprowadzimy wyszukiwanie wsteczne przy użyciu kilku opcjo
 
 W tym przykładzie wyszukamy krzyżyk na podstawie współrzędnych adresu.
 
-1. W aplikacji Poster kliknij pozycję **Nowy** , a następnie wybierz pozycję **żądanie** . Wprowadź **nazwę żądania** dla żądania. Wybierz kolekcję utworzoną w pierwszej sekcji lub utworzoną nową, a następnie wybierz pozycję **Zapisz** .
+1. W aplikacji Poster kliknij pozycję **Nowy**, a następnie wybierz pozycję **żądanie**. Wprowadź **nazwę żądania** dla żądania. Wybierz kolekcję utworzoną w pierwszej sekcji lub utworzoną nową, a następnie wybierz pozycję **Zapisz**.
 
 2. Wybierz metodę **Get** http na karcie Konstruktor i wprowadź następujący adres URL. W przypadku tego żądania i innych żądań wymienionych w tym artykule Zastąp `{Azure-Maps-Primary-Subscription-key}` klucz subskrypcji podstawowym. Żądanie powinno wyglądać następująco:
   
@@ -167,9 +167,9 @@ W tym przykładzie wyszukamy krzyżyk na podstawie współrzędnych adresu.
    https://atlas.microsoft.com/search/address/reverse/crossstreet/json?&api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&language=en-US&query=47.591180,-122.332700
     ```
 
-    :::image type="content" source="./media/how-to-search-for-address/search-address-cross.png" alt-text="Wyszukaj adres":::
+    :::image type="content" source="./media/how-to-search-for-address/search-address-cross.png" alt-text="Przeszukaj krzyżyk.":::
   
-3. Kliknij przycisk **Wyślij** i sprawdź treść odpowiedzi. Zauważ, że odpowiedź zawiera `crossStreet` wartość `Occidental Avenue South` .
+3. Kliknij przycisk **Wyślij** i sprawdź treść odpowiedzi. Zauważ, że odpowiedź zawiera `crossStreet` wartość `South Atlantic Street` .
 
 ## <a name="next-steps"></a>Następne kroki
 

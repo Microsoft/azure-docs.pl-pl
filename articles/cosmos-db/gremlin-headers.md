@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/03/2019
 author: christopheranderson
 ms.author: chrande
-ms.openlocfilehash: 3f5996b281c1985747f754e3796e9fb84f90fdd3
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 0442d21aebe1cf577c50d14a5aeff40bd1f6cd9c
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356964"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600529"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Azure Cosmos DB nagłówki odpowiedzi serwera Gremlin
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -23,7 +23,7 @@ Należy pamiętać, że w zależności od tych nagłówków ograniczenie przeno�
 
 ## <a name="headers"></a>Nagłówki
 
-| Header | Typ | Przykładowa wartość | Po dołączeniu | Wyjaśnienie |
+| Nagłówek | Typ | Przykładowa wartość | Po dołączeniu | Wyjaśnienie |
 | --- | --- | --- | --- | --- |
 | **x-ms-request-charge** | double | 11,3243 | Sukces i niepowodzenie | Ilość przepływności kolekcji lub bazy danych wykorzystywana w [jednostkach żądania (ru/s lub jednostek ru)](request-units.md) dla komunikatu częściowego odpowiedzi. Ten nagłówek jest obecny w każdej kontynuacji dla żądań, które mają wiele fragmentów. Odzwierciedla opłaty za konkretny fragment odpowiedzi. Tylko w przypadku żądań składających się z pojedynczego fragmentu odpowiedzi ten nagłówek dopasowuje łączny koszt przechodzenia. Jednak w przypadku większości złożonych przechodzenia ta wartość reprezentuje koszt częściowy. |
 | **x-ms-total-request-charge** | double | 423,987 | Sukces i niepowodzenie | Ilość przepływności kolekcji lub bazy danych wykorzystywana w [jednostkach żądania (ru/s lub jednostek ru)](request-units.md) dla całego żądania. Ten nagłówek jest obecny w każdej kontynuacji dla żądań, które mają wiele fragmentów. Wskazuje ona łączną opłatę od początku żądania. Wartość tego nagłówka w ostatnim fragmencie wskazuje na całkowitą opłatą żądania. |
@@ -36,13 +36,12 @@ Należy pamiętać, że w zależności od tych nagłówków ograniczenie przeno�
 
 ## <a name="status-codes"></a>Kody stanu
 
-Poniżej wymieniono najczęstsze kody stanu zwracane przez serwer.
+Poniżej wymieniono najbardziej typowe kody zwracane dla `x-ms-status-code` atrybutu stanu.
 
 | Stan | Wyjaśnienie |
 | --- | --- |
 | **401** | Komunikat o błędzie `"Unauthorized: Invalid credentials provided"` jest zwracany, jeśli hasło uwierzytelniania nie jest zgodne z kluczem konta Cosmos DB. Przejdź do konta Cosmos DB Gremlin w Azure Portal i upewnij się, że klucz jest prawidłowy.|
 | **404** | Współbieżne operacje, które próbują usunąć i zaktualizować tę samą krawędź lub wierzchołek jednocześnie. Komunikat o błędzie `"Owner resource does not exist"` wskazuje, że określona baza danych lub kolekcja jest niepoprawna w ramach parametrów połączenia w formacie `/dbs/<database name>/colls/<collection or graph name>`.|
-| **408** | `"Server timeout"` wskazuje, że przechodzenie trwało ponad **30 sekund** i zostało anulowane przez serwer. Zoptymalizuj przechodzenie, aby szybko pracować przez filtrowanie wierzchołków lub krawędzi dla każdego przeskoku, aby zawęzić zakres wyszukiwania.|
 | **409** | `"Conflicting request to resource has been attempted. Retry to avoid conflicts."` Taka sytuacja zwykle występuje, gdy wierzchołek lub krawędź z danym identyfikatorem już istnieje w grafie.| 
 | **412** | Kod stanu jest uzupełniony komunikatem o błędzie `"PreconditionFailedException": One of the specified pre-condition is not met` . Ten błąd jest indykatywny dla optymistycznego naruszenia kontroli współbieżności między odczytaniem krawędzi lub wierzchołkiem i zapisem go z powrotem do magazynu po modyfikacji. Najczęstsze sytuacje, w których ten błąd występuje w przypadku modyfikacji właściwości, na przykład `g.V('identifier').property('name','value')` . Aparat Gremlin odczyta wierzchołek, zmodyfikuje go i zapisze ponownie. Jeśli inne przechodzenie działa równolegle, próba zapisania tego samego wierzchołka lub krawędzi spowoduje wystąpienie tego błędu. Aplikacja powinna ponownie przesłać przechodzenie na serwer.| 
 | **429** | Żądanie zostało ograniczone i powinno być ponawiane po wartości w **x-MS-retry-After-MS**| 
@@ -53,6 +52,7 @@ Poniżej wymieniono najczęstsze kody stanu zwracane przez serwer.
 | **1004** | Ten kod stanu wskazuje źle sformułowane żądanie grafu. Żądanie może być nieprawidłowo sformułowane, gdy nie powiedzie się deserializacja, typ inny niż wartość jest deserializowany jako typ wartości lub zażądano nieobsługiwanej operacji Gremlin. Aplikacja nie powinna ponowić próby żądania, ponieważ nie powiodło się. | 
 | **1007** | Zazwyczaj ten kod stanu jest zwracany z komunikatem o błędzie `"Could not process request. Underlying connection has been closed."` . Taka sytuacja może wystąpić, jeśli sterownik klienta próbuje użyć połączenia, które jest zamykane przez serwer. Aplikacja powinna ponowić próbę przechodzenia przy użyciu innego połączenia.
 | **1008** | Cosmos DB Gremlin serwer może przerwać połączenia, aby ponownie zrównoważyć ruch w klastrze. Sterowniki klientów powinny obsługiwać tę sytuację i używać tylko połączeń na żywo do wysyłania żądań do serwera. Sporadyczne sterowniki klienta nie mogą wykryć, czy połączenie zostało zamknięte. Gdy aplikacja napotka błąd, `"Connection is too busy. Please retry after sometime or open more connections."` powinien ponowić próbę przechodzenia na inne połączenie.
+| **1009** | Operacja nie została ukończona w wyznaczonym czasie i została anulowana przez serwer. Zoptymalizuj przechodzenie, aby szybko pracować przez filtrowanie wierzchołków lub krawędzi w każdym przechodzeniu do zakresu wyszukiwania wąskiego. Wartość domyślna limitu czasu żądania to **60 sekund**. |
 
 ## <a name="samples"></a>Samples
 

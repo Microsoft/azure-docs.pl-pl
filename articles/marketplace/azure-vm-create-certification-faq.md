@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 01/18/2021
-ms.openlocfilehash: f802292d9723179b36d5291993bd4e07487fe6a8
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 80dc19a58d212bb6ab8d608e222cd3a0bd3990d1
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567394"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600980"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Rozwiązywanie problemów z certyfikatem maszyny wirtualnej
 
@@ -321,7 +321,7 @@ Zapoznaj się z poniższą tabelą dotyczącą problemów występujących podcza
 |Nieprawidłowa nazwa wirtualnego dysku twardego|Sprawdź, czy `%` `"` w nazwie wirtualnego dysku twardego istnieją jakiekolwiek znaki specjalne, takie jak znak procentu czy znak cudzysłowu.|Zmień nazwę pliku VHD, usuwając znaki specjalne.|
 |
 
-## <a name="first-1-mb-2048-sectors-each-sector-of-512-bytes-partition"></a>Pierwsze 1 MB (2048 sektorów, każdy sektor z 512 bajtów)
+## <a name="first-partition-starts-at-1-mb-2048-sectors"></a>Pierwsze partycje zaczynają się od 1 MB (2048 sektorów)
 
 Jeśli [tworzysz własny obraz](azure-vm-create-using-own-image.md), upewnij się, że pierwsze 2048 sektory (1 MB) dysku systemu operacyjnego jest puste. W przeciwnym razie publikowanie zakończy się niepowodzeniem. To wymaganie ma zastosowanie tylko do dysku systemu operacyjnego (nie dysków danych). Jeśli tworzysz obraz [z zatwierdzonego podstawowego](azure-vm-create-using-approved-base.md), możesz pominąć to wymaganie.
 

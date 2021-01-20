@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: 14f1056bf761eb7b591d04db34610468058bc255
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: 2ffe7c8994d32917a08896c7d25f20d4adf09066
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562867"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601896"
 ---
 # <a name="troubleshooting-problems-in-itsm-connector"></a>Rozwiązywanie problemów w łączniku ITSM
 
@@ -53,11 +53,36 @@ Jeśli używasz Service Map, możesz wyświetlić elementy pomocy technicznej ut
      - Upewnij się, że aplikacja sieci Web została pomyślnie wdrożona, a połączenie hybrydowe zostało utworzone. Aby sprawdzić, czy połączenie zostało pomyślnie nawiązane z lokalnym komputerem Service Manager, przejdź do adresu URL aplikacji sieci Web, zgodnie z opisem w dokumentacji dotyczącej tworzenia [połączenia hybrydowego](./itsmc-connections-scsm.md#configure-the-hybrid-connection).  
 
 - Jeśli Log Analytics alerty są wyzwalane, ale elementy robocze nie są tworzone w produkcie narzędzia ITSM, jeśli elementy konfiguracji nie są tworzone/połączone z elementami roboczymi lub innych informacji, zobacz następujące zasoby:
-   -  ITSMC: rozwiązanie pokazuje podsumowanie połączeń, elementów roboczych, komputerów i nie tylko. Wybierz kafelek z etykietą **stanu łącznika** . Wykonanie tej czynności spowoduje przeprowadzenie **rejestrowania wyszukiwania** przy użyciu odpowiedniego zapytania. `LogType_S`Aby uzyskać więcej informacji, zobacz rekordy dziennika z a `ERROR` .
+   -  ITSMC: rozwiązanie pokazuje [Podsumowanie połączeń](itsmc-dashboard.md), elementów roboczych, komputerów i nie tylko. Wybierz kafelek z etykietą **stanu łącznika** . Wykonanie tej czynności spowoduje przeprowadzenie **rejestrowania wyszukiwania** przy użyciu odpowiedniego zapytania. `LogType_S`Aby uzyskać więcej informacji, zobacz rekordy dziennika z a `ERROR` .
+   Szczegółowe informacje o komunikatach znajdują się w [tabeli.](itsmc-dashboard-errors.md)
    - Strona **przeszukiwania dzienników** : Wyświetl błędy i powiązane informacje bezpośrednio przy użyciu zapytania `*ServiceDeskLog_CL*` .
 
-### <a name="troubleshoot-service-manager-web-app-deployment"></a>Rozwiązywanie problemów z wdrażaniem aplikacji sieci Web Service Manager
+## <a name="common-symptoms---how-it-should-be-resolved"></a>Często spotykane objawy — jak należy je rozwiązać?
 
--   Jeśli masz problemy z wdrażaniem aplikacji sieci Web, upewnij się, że masz uprawnienia do tworzenia/wdrażania zasobów w ramach subskrypcji.
--   Jeśli podczas uruchamiania [skryptu](itsmc-service-manager-script.md)otrzymasz **odwołanie do obiektu, które nie jest ustawione na wystąpienie błędu obiektu** , upewnij się, że wprowadzono prawidłowe wartości w sekcji **Konfiguracja użytkownika** .
--   Jeśli nie można utworzyć przestrzeni nazw usługi Service Bus Relay, upewnij się, że wymagany dostawca zasobów jest zarejestrowany w subskrypcji. Jeśli nie jest ona zarejestrowana, należy ręcznie utworzyć przestrzeń nazw usługi Service Bus Relay z Azure Portal. Można go również utworzyć podczas [tworzenia połączenia hybrydowego](./itsmc-connections-scsm.md#configure-the-hybrid-connection) w Azure Portal.
+Poniższa lista zawiera typowe objawy i sposób ich rozwiązywania:
+
+* **Objaw**: utworzono zduplikowane elementy robocze
+
+    **Przyczyna**: Przyczyna może być jedną z dwóch opcji:
+    * Dla tego alertu zdefiniowano więcej niż jedną akcję narzędzia ITSM.
+    * Alert został rozwiązany.
+
+    **Rozwiązanie**: dostępne są dwa rozwiązania:
+    * Upewnij się, że masz pojedynczą narzędzia ITSM grupę akcji dla każdego alertu.
+    * Łącznik ITSM nie obsługuje aktualizacji stanu pasujących elementów roboczych po rozwiązaniu alertu. Zostanie utworzony nowy rozpoznany element roboczy.
+* **Objaw**: elementy robocze nie są tworzone
+
+    **Przyczyna**: może istnieć kilka przyczyn dla tego objawu:
+    * Modyfikowanie kodu po stronie usługi ServiceNow
+    * Niepozwolenia konfiguracja uprawnień
+    * Limity szybkości usługi ServiceNow są zbyt wysokie/niskie
+    * Token odświeżania wygasł
+    * łącznik ITSM został usunięty
+
+    **Rozwiązanie**: można sprawdzić [pulpit nawigacyjny](itsmc-dashboard.md) i przejrzeć błędy w sekcji stan łącznika. Przejrzyj [typowe błędy](itsmc-dashboard-errors.md) i Dowiedz się, jak rozwiązać ten problem.
+
+* **Objaw**: nie można utworzyć akcji narzędzia ITSM dla grupy akcji
+
+    **Przyczyna**: nowo utworzona łącznik ITSM nie mogła ukończyć synchronizacji początkowej.
+
+    **Rozwiązanie**: można przejrzeć [typowe błędy interfejsu użytkownika](itsmc-dashboard-errors.md#ui-common-errors) i dowiedzieć się, jak rozwiązać ten problem.

@@ -4,12 +4,12 @@ description: Dowiedz się, jak używać tożsamości zarządzanych w usłudze Az
 services: container-service
 ms.topic: article
 ms.date: 12/16/2020
-ms.openlocfilehash: 948a189e1c6e03efca046b6d43dddcaf3d141957
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: fe11170b1cdf18aacf832f4c8171bfc082339395
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607290"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599611"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Korzystanie z tożsamości zarządzanych w usłudze Azure Kubernetes Service
 
@@ -17,7 +17,7 @@ Obecnie klaster usługi Azure Kubernetes Service (AKS) (w odróżnieniu od dosta
 
 *Tożsamości zarządzane* są zasadniczo otoką dla podmiotów usługi i upraszczają zarządzanie nimi. Rotacja poświadczeń dla mnie odbywa się automatycznie co 46 dni zgodnie z ustawieniami domyślnymi Azure Active Directory. AKS używa typów zarządzanych tożsamości przypisanych do systemu i przypisanych przez użytkownika. Te tożsamości są obecnie niezmienne. Aby dowiedzieć się więcej, Przeczytaj o [zarządzanych tożsamościach dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Musisz mieć zainstalowany następujący zasób:
 
@@ -131,7 +131,7 @@ Zaktualizuj tożsamość przypisaną przez użytkownika:
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identity <UserAssignedIdentityResourceID> 
 ```
 > [!NOTE]
-> Po zaktualizowaniu tożsamości przypisanych do systemu lub przypisanej przez użytkownika do tożsamości zarządzanej wykonaj czynności `az nodepool upgrade --node-image-only` w węzłach, aby zakończyć aktualizowanie tożsamości zarządzanej.
+> Po zaktualizowaniu tożsamości przypisanych do systemu lub przypisanej przez użytkownika do tożsamości zarządzanej wykonaj czynności `az aks nodepool upgrade --node-image-only` w węzłach, aby zakończyć aktualizowanie tożsamości zarządzanej.
 
 ## <a name="bring-your-own-control-plane-mi"></a>Przesuwaj własną płaszczyznę kontroli
 Tożsamość niestandardowej płaszczyzny kontroli umożliwia dostęp do istniejącej tożsamości przed utworzeniem klastra. Ta funkcja umożliwia korzystanie z takich scenariuszy jak niestandardowa Sieć wirtualna lub niezależna wartość UDR ze wstępnie utworzoną tożsamością zarządzaną.

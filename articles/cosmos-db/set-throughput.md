@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: 4fea027663b55e87822eae1fd0cdb2d67dbc630b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 01/19/2021
+ms.openlocfilehash: a03ad1eb893c97671d7ab60cc38708115a73d260
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96170831"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602401"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Wprowadzenie do zainicjowanej przepływności w Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -109,7 +109,7 @@ Odpowiedź tych metod zawiera również [minimalną zainicjowaną przepływnoś�
 Rzeczywiste minimum RU/s może się różnić w zależności od konfiguracji konta. Zwykle jest to maksymalna wartość:
 
 * 400 RU/s 
-* Bieżący magazyn w GB * 10 RU/s (chyba że kontener lub baza danych zawiera więcej niż 1 TB danych, zobacz nasz [duży magazyn/niska przepływność](#high-storage-low-throughput-program))
+* Bieżący magazyn w GB * 10 RU/s (to ograniczenie może być w niektórych przypadkach swobodne, zobacz nasz [duży magazyn/niska przepływność](#high-storage-low-throughput-program))
 * Najwyższy poziom RU/s zainicjowany dla bazy danych lub kontenera/100
 
 ### <a name="changing-the-provisioned-throughput"></a>Zmiana zainicjowanej przepływności
@@ -139,7 +139,7 @@ Zgodnie z opisem w powyższej sekcji dotyczącej [przepływności](#current-prov
 
 Może to stanowić problem w sytuacjach, w których należy przechowywać duże ilości danych, ale mają one niewielkie wymagania dotyczące przepływności. Aby lepiej dopasować te scenariusze, Azure Cosmos DB wprowadził **"wysoki magazyn/niska przepływność"** , który zmniejsza ograniczenie ru/s na kwalifikujące się konta.
 
-Obecnie musisz mieć co najmniej 1 bazę danych o pojemności lub udostępnionej przepływności zawierającej więcej niż 1 TB danych na koncie, aby można było kwalifikować się do korzystania z niego. Aby dołączyć do tego programu i ocenić swoje pełne uprawnienia, musisz wypełnić [tę ankietę](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u). Zespół Azure Cosmos DB będzie następnie kontynuował pracę i Doprowadzimy do dołączania.
+Aby dołączyć do tego programu i ocenić swoje pełne uprawnienia, musisz wypełnić [tę ankietę](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u). Zespół Azure Cosmos DB będzie następnie kontynuował pracę i Doprowadzimy do dołączania.
 
 ## <a name="comparison-of-models"></a>Porównanie modeli
 W tej tabeli przedstawiono porównanie standardowego (ręcznej) przepływności dla bazy danych i kontenera. 

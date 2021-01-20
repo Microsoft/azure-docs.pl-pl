@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 0f0d94dbc7b2c720faa1da41a88e3c3313dac377
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: df82e76fa2e5a9ea70c447411beafb8a2df9b036
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680754"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601594"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Azure Maps projekty "open source" dla społeczności
 
@@ -65,6 +65,12 @@ Poniżej znajduje się lista projektów typu "open source", które zwiększają 
 | [Azure Maps zdalne sterowanie programem .NET platformy UWP IoT](https://github.com/Azure-Samples/azure-maps-dotnet-webgl-uwp-iot-remote-control) | Jest to przykładowa aplikacja, która pokazuje, jak utworzyć zdalnie sterowaną mapę przy użyciu usług Azure Maps i IoT Hub. |
 | [Wdrażanie analizy przestrzennej IoT przy użyciu usługi Azure Maps](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing) | Śledzenie i przechwytywanie istotnych zdarzeń występujących w miejscu i czasie jest typowym scenariuszem IoT. |
 
+**Wtyczki formantów mapy innych firm**
+
+| Nazwa projektu | Opis |
+|-|-|
+| [Wtyczka do Azure Maps ulotek](https://github.com/azure-samples/azure-maps-leaflet) | Wtyczka z [ulotką](https://leafletjs.com/) , która ułatwia nałożenie warstw kafelków z [usług kafelków Azure Maps](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). |
+ 
 **Narzędzia i zasoby**
 
 | Nazwa projektu | Opis |

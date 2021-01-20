@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 433875e52e77a8992197b47fe0424cd0b7e9f50c
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: d9e26b6388223ae252a5e85e6e9fb9783a3b8429
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628292"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600411"
 ---
 # <a name="how-to-plan-a-virtual-machine-offer"></a>Planowanie oferty maszyny wirtualnej
 
@@ -73,7 +73,7 @@ Oferty maszyn wirtualnych wymagają co najmniej jednego planu. Plan definiuje za
 Maszyny wirtualne są w pełni obsługiwane w handlu z opcją płatność zgodnie z rzeczywistym użyciem lub BYOL. Firma Microsoft hostuje transakcję handlową i rozlicza klienta w Twoim imieniu. Korzyści wynikające z korzystania z preferowanej relacji płatności między klientem i firmą Microsoft, w tym dowolnymi umowami Enterprise Agreement. Aby uzyskać więcej informacji, zobacz [komercyjne funkcje Transact Marketplace](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
 > [!NOTE]
-> Zobowiązania pieniężne związane z Umowa Enterprise mogą być używane w odniesieniu do użycia platformy Azure przez maszynę wirtualną, ale nie do opłat za licencje na oprogramowanie.
+> Przedpłata na platformę Azure (wcześniej nazywana zobowiązanie pieniężne) skojarzona z Umowa Enterprise może być używana w odniesieniu do użycia platformy Azure przez maszynę wirtualną, ale nie z opłatami za licencje na oprogramowanie.
 
 ### <a name="licensing-options"></a>Opcje licencjonowania
 

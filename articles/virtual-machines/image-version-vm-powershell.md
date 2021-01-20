@@ -1,5 +1,5 @@
 ---
-title: Tworzenie obrazu na podstawie maszyny wirtualnej (wersja zapoznawcza)
+title: Tworzenie obrazu na podstawie maszyny wirtualnej
 description: Dowiedz się, jak za pomocą Azure PowerShell utworzyć obraz w galerii obrazów udostępnionych z istniejącej maszyny wirtualnej na platformie Azure.
 author: cynthn
 ms.topic: how-to
@@ -9,14 +9,14 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 3a7ca8236307bbf8a419d2988e1a6dc1e4c40597
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 1a0bfb79b03b778696faef29597cabbcff47e6df
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964868"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601658"
 ---
-# <a name="preview-create-an-image-from-a-vm"></a>Wersja zapoznawcza: Tworzenie obrazu na podstawie maszyny wirtualnej
+# <a name="create-an-image-from-a-vm"></a>Tworzenie obrazu na podstawie maszyny wirtualnej
 
 Jeśli masz istniejącą maszynę wirtualną, która ma być używana do tworzenia wielu identycznych maszyn wirtualnych, możesz użyć tej maszyny wirtualnej do utworzenia obrazu w udostępnionej galerii obrazów przy użyciu Azure PowerShell. Możesz również utworzyć obraz z maszyny wirtualnej przy użyciu [interfejsu wiersza polecenia platformy Azure](image-version-vm-cli.md).
 
@@ -27,7 +27,7 @@ Obrazy w galerii obrazów mają dwa składniki, które zostaną utworzone w tym 
 - **Wersja obrazu** jest używana do tworzenia maszyny wirtualnej w przypadku korzystania z galerii obrazów udostępnionych. Dla danego środowiska można mieć wiele wersji obrazu. Podczas tworzenia maszyny wirtualnej wersja obrazu jest używana do tworzenia nowych dysków dla maszyny wirtualnej. Wersje obrazów można wielokrotnie używać.
 
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby ukończyć ten artykuł, musisz mieć istniejącą udostępnioną galerię obrazów oraz istniejącą maszynę wirtualną na platformie Azure, która będzie używana jako źródło. 
 

@@ -5,12 +5,12 @@ ms.custom: subject-cost-optimization
 ms.service: app-service
 ms.topic: how-to
 ms.date: 01/01/2021
-ms.openlocfilehash: f92b766fc1122456fda70d2deff81fa80a02d159
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 85035ff894127df4e9eb8334702fd9546d7a63c3
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250115"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598709"
 ---
 # <a name="plan-and-manage-costs-for-azure-app-service"></a>Planowanie i zarządzanie kosztami Azure App Service
 
@@ -51,7 +51,7 @@ Inne zasoby dotyczące kosztów App Service są (zobacz [App Service cennika](ht
 
 Po usunięciu wszystkich aplikacji w planie App Service plan nadal naliczane są opłaty na podstawie skonfigurowanej warstwy cenowej i liczby wystąpień. Aby uniknąć niepotrzebnych opłat, Usuń plan lub Skaluj go do warstwy **bezpłatna** .
 
-Po usunięciu zasobów Azure App Service zasoby z pokrewnych usług platformy Azure mogą nadal istnieć. W dalszym ciągu naliczane są koszty, dopóki nie zostaną usunięte. Na przykład:
+Po usunięciu zasobów Azure App Service zasoby z pokrewnych usług platformy Azure mogą nadal istnieć. W dalszym ciągu naliczane są koszty, dopóki nie zostaną usunięte. Przykład:
 
 - Virtual Network, który został utworzony dla warstwy **izolowanej** App Service plan
 - Konta magazynu utworzone w celu przechowywania kopii zapasowych lub dzienników diagnostycznych
@@ -61,7 +61,7 @@ Po usunięciu zasobów Azure App Service zasoby z pokrewnych usług platformy Az
 
 ### <a name="using-monetary-credit-with-azure-app-service"></a>Korzystanie z środków pieniężnych w Azure App Service
 
-Opłaty za Azure App Service są naliczane za zobowiązania pieniężne z tytułu umowy EA. Nie można jednak użyć kredytu zobowiązania pieniężnego w ramach umowy EA, aby uregulować opłaty za produkty i usługi innych firm, w tym te z portalu Azure Marketplace.
+Opłaty za Azure App Service mogą być naliczane przy użyciu przedpłaty za korzystanie z platformy Azure (wcześniej zwanego zobowiązaniem pieniężnym). Nie można jednak używać środków zaliczkowych na platformie Azure, aby zapłacić za opłaty za produkty i usługi innych firm, w tym te z portalu Azure Marketplace.
 
 ## <a name="estimate-costs"></a>Szacowanie kosztów
 

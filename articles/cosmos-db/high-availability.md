@@ -4,22 +4,22 @@ description: W tym artykule opisano, jak Azure Cosmos DB zapewnia wysoką dostę
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 01/18/2021
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 58507703ca3440e73dbc41757e0bc70f56e886c3
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: d827011c4f831433a7446c90eed0c30c7b1e94d7
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360160"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600564"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Jak Azure Cosmos DB zapewniać wysoką dostępność
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB zapewnia wysoką dostępność na dwa podstawowe sposoby. Najpierw Azure Cosmos DB replikuje dane między regionami skonfigurowanymi w ramach konta Cosmos. Po drugie, Azure Cosmos DB przechowuje 4 repliki danych w danym regionie.
 
-Azure Cosmos DB to globalnie dystrybuowana usługa bazy danych i jest usługą fundamentową na platformie Azure. Domyślnie program jest dostępny we [wszystkich regionach, w których platforma Azure jest dostępna](https://azure.microsoft.com/global-infrastructure/services/?products=cosmos-db&regions=all). Możesz skojarzyć dowolną liczbę regionów świadczenia usługi Azure z kontem usługi Azure Cosmos, a Twoje dane są automatycznie i w sposób niewidoczny dla użytkownika zreplikowane. Możesz w dowolnym momencie dodać lub usunąć region do konta usługi Azure Cosmos. Cosmos DB jest dostępny we wszystkich pięciu różnych środowiskach chmury platformy Azure dostępnych dla klientów:
+Azure Cosmos DB to globalnie dystrybuowana usługa bazy danych i usługa jest dostępna we [wszystkich regionach, w których platforma Azure jest dostępna](https://azure.microsoft.com/global-infrastructure/services/?products=cosmos-db&regions=all). Możesz skojarzyć dowolną liczbę regionów świadczenia usługi Azure z kontem usługi Azure Cosmos, a Twoje dane są automatycznie i w sposób niewidoczny dla użytkownika zreplikowane. Możesz w dowolnym momencie dodać lub usunąć region do konta usługi Azure Cosmos. Cosmos DB jest dostępny we wszystkich pięciu różnych środowiskach chmury platformy Azure dostępnych dla klientów:
 
 * Chmura **publiczna platformy Azure** , która jest dostępna globalnie.
 
@@ -39,15 +39,15 @@ W ramach regionu Azure Cosmos DB przechowuje cztery kopie danych jako repliki w 
 
 * Zestaw partycji jest kolekcją wielu zestawów replik. W każdym regionie każda partycja jest chroniona przez zestaw replik, a wszystkie zapisy są replikowane i trwale zatwierdzone przez większość replik. Repliki są dystrybuowane w wielu domenach błędów 10-20.
 
-* Każda partycja we wszystkich regionach jest replikowana. Każdy region zawiera wszystkie partycje danych kontenera usługi Azure Cosmos i może akceptować zapisy i obsłużyć odczyty.  
+* Każda partycja we wszystkich regionach jest replikowana. Każdy region zawiera wszystkie partycje danych kontenera usługi Azure Cosmos i może obsłużyć operacje odczytu, a także obsłużyć zapisy w przypadku włączenia zapisu w ramach wieloregionu.  
 
 Jeśli Twoje konto usługi Azure Cosmos jest dystrybuowane w obrębie *N* regionów platformy Azure, wszystkie dane będą mieć co najmniej *N* x 4 kopii. Posiadanie konta usługi Azure Cosmos w więcej niż 2 regionach zwiększa dostępność aplikacji i zapewnia małe opóźnienia w skojarzonych regionach.
 
 ## <a name="slas-for-availability"></a>Umowy SLA do dostępności
 
-Jako globalnie dystrybuowana baza danych Azure Cosmos DB zapewnia kompleksową umowy SLA, która obejmuje przepływność, opóźnienie w 99 percentylu, spójności i wysokiej dostępności. W poniższej tabeli przedstawiono gwarancje dotyczące wysokiej dostępności zapewnianej przez Azure Cosmos DB w przypadku kont z pojedynczym i wieloregionem. Aby zapewnić wysoką dostępność, należy zawsze skonfigurować konta usługi Azure Cosmos tak, aby zawierały wiele regionów zapisu.
+Azure Cosmos DB zapewnia kompleksową umowy SLA, która obejmuje przepływność, opóźnienie w 99 percentylu, spójność i wysoką dostępność. W poniższej tabeli przedstawiono gwarancje dotyczące wysokiej dostępności zapewnianej przez Azure Cosmos DB w przypadku kont z pojedynczym i wieloregionem. Aby uzyskać większą dostępność zapisu, skonfiguruj konto usługi Azure Cosmos w taki sposób, aby miało wiele regionów zapisu.
 
-|Typ operacji  | Pojedynczy region |Wiele regionów (zapis w jednym regionie)|Wiele regionów (zapisy w regionie wieloregionowym) |
+|Typ operacji  | Jeden region |Wiele regionów (zapis w jednym regionie)|Wiele regionów (zapisy w regionie wieloregionowym) |
 |---------|---------|---------|-------|
 |Zapisy    | 99,99    |99,99   |99,999|
 |Odczyty     | 99,99    |99,999  |99,999|
@@ -90,47 +90,43 @@ W rzadkich przypadkach regionalnych awarii Azure Cosmos DB gwarantuje, że baza 
 
 * Dalsze operacje odczytu są przekierowywane do odzyskanego regionu bez konieczności wprowadzania jakichkolwiek zmian w kodzie aplikacji. Podczas pracy w trybie failover i ponownego przyłączania do poprzedniego regionu, gwarancje spójności odczytu są nadal uznawane przez Azure Cosmos DB.
 
-* Nawet w rzadkich i niezbyt krótkich przypadkach, gdy region platformy Azure jest nieodwracalnie nieodwracalny, nie ma utraty danych, jeśli konto usługi Azure Cosmos dla wieloregionu jest skonfigurowane z *silną* spójnością. W przypadku trwałego odzyskania regionu zapisu w wieloregionowym koncie usługi Azure Cosmos skonfigurowanym ze spójnością nieodświeżoną, potencjalne okno utraty danych jest ograniczone do okna nieodświeżone ( *K* lub *T* ), gdzie K = 100 000 aktualizacji i T = 5 minut. W przypadku sesji, spójnego i ostatecznego poziomu spójności, potencjalne okno utraty danych jest ograniczone do maksymalnie 15 minut. Aby uzyskać więcej informacji na temat elementów docelowych RTO i RPO dla Azure Cosmos DB, zobacz [poziomy spójności i trwałość danych](./consistency-levels.md#rto)
+* Nawet w rzadkich i niezbyt krótkich przypadkach, gdy region platformy Azure jest nieodwracalnie nieodwracalny, nie ma utraty danych, jeśli konto usługi Azure Cosmos dla wieloregionu jest skonfigurowane z *silną* spójnością. W przypadku trwałego odzyskania regionu zapisu w wieloregionowym koncie usługi Azure Cosmos skonfigurowanym z ograniczoną spójnością nieodświeżoną, potencjalne okno utraty danych jest ograniczone do okna nieodświeżonego (*K* lub *T*), gdzie K = 100 000 aktualizacji lub T = 5 minut, które kiedykolwiek się powtarzają. W przypadku sesji, spójnego i ostatecznego poziomu spójności, potencjalne okno utraty danych jest ograniczone do maksymalnie 15 minut. Aby uzyskać więcej informacji na temat elementów docelowych RTO i RPO dla Azure Cosmos DB, zobacz [poziomy spójności i trwałość danych](./consistency-levels.md#rto)
 
 ## <a name="availability-zone-support"></a>Obsługa strefy dostępności
 
-Oprócz odporności między regionami można teraz włączyć **nadmiarowość stref** podczas wybierania regionu do skojarzenia z bazą danych Azure Cosmos.
+Oprócz odporności między regionami Azure Cosmos DB obsługuje również **nadmiarowość stref** w obsługiwanych regionach podczas wybierania regionu do skojarzenia z kontem usługi Azure Cosmos.
 
-W przypadku obsługi stref dostępności Azure Cosmos DB zapewnia, że repliki są umieszczane w wielu strefach w danym regionie w celu zapewnienia wysokiej dostępności i odporności podczas awarii stref. W tej konfiguracji nie wprowadzono żadnych zmian w czasie oczekiwania i innych umowy SLA. W przypadku awarii pojedynczej strefy nadmiarowość stref zapewnia pełną trwałość danych z elementem RPO = 0 i dostępnością z RTO = 0.
+Dzięki obsłudze strefy dostępności (AZ) Azure Cosmos DB zapewnią, że repliki są umieszczane w wielu strefach w danym regionie w celu zapewnienia wysokiej dostępności i odporności na awarie stref. Strefy dostępności udostępnić umowę SLA dotyczącą dostępności na 99,995% bez zmian opóźnienia. W przypadku awarii pojedynczej strefy nadmiarowość stref zapewnia pełną trwałość danych z elementem RPO = 0 i dostępnością z RTO = 0. Nadmiarowość stref jest dodatkową możliwością dla replikacji regionalnej. W celu uzyskania odporności regionalnej nie można korzystać z samej nadmiarowości strefy.
 
-Nadmiarowość stref jest *dodatkową możliwością* [replikacji w wieloregionowej funkcji zapisów](how-to-multi-master.md) . W celu uzyskania odporności regionalnej nie można korzystać z samej nadmiarowości strefy. Na przykład w przypadku regionalnego systemu przestoju lub małego opóźnienia w regionach zaleca się, aby oprócz nadmiarowości strefy była dostępna wiele regionów zapisu.
+Nadmiarowość strefy można skonfigurować tylko w przypadku dodawania nowego regionu do konta usługi Azure Cosmos. W przypadku istniejących regionów nadmiarowość stref można włączyć, usuwając region, a następnie dodając go ponownie z włączonym nadmiarowością strefy. W przypadku konta z jednym regionem należy dodać jeden dodatkowy region do tymczasowego przejścia w tryb failover, a następnie usunąć i dodać żądany region z włączoną nadmiarowością strefy.
 
-Podczas konfigurowania wieloregionowych zapisów dla konta usługi Azure Cosmos możesz zrezygnować z nadmiarowości strefy bez dodatkowych kosztów. W przeciwnym razie zapoznaj się z poniższymi uwagami dotyczącymi cen obsługi nadmiarowości stref. Nadmiarowość strefy można włączyć w istniejącym regionie konta usługi Azure Cosmos, usuwając region i dodając go ponownie z włączonym nadmiarowością strefy. Aby zapoznać się z listą regionów, w których są obsługiwane strefy dostępności, zobacz dokumentację dotyczącą [stref dostępności](../availability-zones/az-region.md) .
+Podczas konfigurowania wieloregionowych zapisów dla konta usługi Azure Cosmos możesz zrezygnować z nadmiarowości strefy bez dodatkowych kosztów. W przeciwnym razie zapoznaj się z poniższą tabelą dotyczącą cennika obsługi nadmiarowości strefy. Aby zapoznać się z listą regionów, w których dostępne są strefy dostępności, zobacz [strefy dostępności](../availability-zones/az-region.md).
 
 Poniższa tabela zawiera podsumowanie możliwości wysokiej dostępności różnych konfiguracji konta:
 
-|KPI  |Pojedynczy region bez Strefy dostępności (nie AZ)  |Pojedynczy region z Strefy dostępności (AZ)  |Zapisy w wielu regionach z Strefy dostępności (AZ, 2 regiony) — najbardziej zalecanym ustawieniem |
-|---------|---------|---------|---------|
-|Umowa SLA dotycząca dostępności zapisu | 99,99% | 99,99% | 99.999% |
-|Umowa SLA dotycząca dostępności odczytu  | 99,99% | 99,99% | 99.999% |
-|Cena | Stawka rozliczenia w jednym regionie | Stawka rozliczenia strefy dostępności pojedynczego regionu | Wieloregionowa stawka rozliczeniowa |
-|Awarie stref — utrata danych | Utrata danych | Brak utraty danych | Brak utraty danych |
-|Awarie stref — dostępność | Utrata dostępności | Brak utraty dostępności | Brak utraty dostępności |
-|Opóźnienie odczytu | Między regionami | Między regionami | Niski |
-|Opóźnienie zapisu | Między regionami | Między regionami | Niski |
-|Awaria regionalna — utrata danych | Utrata danych |  Utrata danych | Utrata danych <br/><br/> W przypadku używania ograniczonej spójności niezgodności z wieloma regionami zapisu i więcej niż jednym regionem utrata danych jest ograniczona do ograniczenia nieaktualnego skonfigurowanego na Twoim koncie. <br /><br />Można uniknąć utraty danych podczas regionalnej awarii, konfigurując silną spójność z wieloma regionami. Ta opcja ma wpływ na dostępność i wydajność. Można ją skonfigurować tylko na kontach, które są skonfigurowane do zapisu w jednym regionie. |
-|Awaria regionalna — dostępność | Utrata dostępności | Utrata dostępności | Brak utraty dostępności |
-|Przepływność | X RU/s zainicjowana przepływność | X RU/s alokowanej przepływności * 1,25 | przepustowość z obsługą jednostki RU/s <br/><br/> Ten tryb konfiguracji wymaga dwukrotnej ilości przepływności w porównaniu do jednego regionu z Strefy dostępności, ponieważ istnieją dwa regiony. |
+|KPI|Pojedynczy region bez AZs|Pojedynczy region z AZs|Wieloregionowe zapisy w jednym regionie z AZs|Wieloregionowe zapisy wieloregionowe z AZs|
+|---------|---------|---------|---------|---------|
+|Umowa SLA dotycząca dostępności zapisu | 99,99% | 99,995% | 99,995% | 99.999% |
+|Umowa SLA dotycząca dostępności odczytu  | 99,99% | 99,995% | 99,995% | 99.999% |
+|Awarie stref — utrata danych | Utrata danych | Brak utraty danych | Brak utraty danych | Brak utraty danych |
+|Awarie stref — dostępność | Utrata dostępności | Brak utraty dostępności | Brak utraty dostępności | Brak utraty dostępności |
+|Awaria regionalna — utrata danych | Utrata danych |  Utrata danych | Zależne od poziomu spójności. Aby uzyskać więcej informacji [, zobacz kompromisy dotyczące spójności, dostępności i wydajności](consistency-levels-tradeoffs.md) . | Zależne od poziomu spójności. Aby uzyskać więcej informacji [, zobacz kompromisy dotyczące spójności, dostępności i wydajności](consistency-levels-tradeoffs.md) .
+|Awaria regionalna — dostępność | Utrata dostępności | Utrata dostępności | Brak utraty dostępności dla niepowodzenia odczytu regionu, tymczasowego dla niepowodzenia w regionie zapisu | Brak utraty dostępności |
+|Cena (**_1_* _) | Nie dotyczy | Liczba zainicjowanych jednostek RU/s x 1,25 | Liczba zainicjowanych jednostek RU/s x 1,25 (_*_2_*_) | Wieloregionowa stawka zapisu |
 
-> [!NOTE]
-> Aby włączyć obsługę strefy dostępności dla konta usługi Azure Cosmos dla regionu wieloregionowego, konto musi mieć włączone zapisy w regionie.
+_*_1_*_ w przypadku jednostek żądań bezserwerowych (ru) są mnożone przez współczynnik 1,25.
 
-Nadmiarowość strefy można włączyć podczas dodawania regionu do nowych lub istniejących kont usługi Azure Cosmos. Aby włączyć nadmiarowość strefy na koncie usługi Azure Cosmos, należy ustawić `isZoneRedundant` flagę na `true` dla określonej lokalizacji. Tę flagę można ustawić we właściwości Locations. Na przykład poniższy fragment kodu programu PowerShell umożliwia nadmiarowość strefy dla regionu "Azja Południowo-Wschodnia":
+_*_2_*_ 1,25 stawka stosowana tylko do tych regionów, w których jest włączona funkcja AZ.
 
 Strefy dostępności można włączyć za pośrednictwem:
 
-* [Azure Portal](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+_ [Azure Portal](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 
 * [Azure PowerShell](manage-with-powershell.md#create-account)
 
 * [Interfejs wiersza polecenia platformy Azure](manage-with-cli.md#add-or-remove-regions)
 
-* [Szablony Azure Resource Manager](./manage-with-templates.md)
+* [Szablony usługi Azure Resource Manager](./manage-with-templates.md)
 
 ## <a name="building-highly-available-applications"></a>Tworzenie aplikacji o wysokiej dostępności
 

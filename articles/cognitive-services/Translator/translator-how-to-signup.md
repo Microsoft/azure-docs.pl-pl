@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: a9050b85c974a3c04ca717e8fe3d5188c1bf7a40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6773c6b29ecfd8354c54a6214cfe0b4050edcd38
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88244316"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602656"
 ---
 # <a name="how-to-sign-up-for-translator"></a>Jak zarejestrować się w usłudze translator
 
@@ -41,7 +41,7 @@ Po zalogowaniu się do portalu można utworzyć subskrypcję usługi Translator 
 Po zarejestrowaniu się w usłudze translator otrzymujesz spersonalizowany klucz dostępu unikatowy dla Twojej subskrypcji. Ten klucz jest wymagany dla każdego wywołania translatora.
 
 1. Pobierz klucz uwierzytelniania, wybierając odpowiednią subskrypcję.
-1. Wybierz pozycję **klucze** w sekcji **Zarządzanie zasobami** w obszarze szczegóły subskrypcji.
+1. Wybierz pozycję **klucze i punkt końcowy** w sekcji **Zarządzanie zasobami** w szczegółach subskrypcji.
 1. Skopiuj jeden z kluczy wymienionych dla Twojej subskrypcji.
 
 ## <a name="learn-test-and-get-support"></a>Uczenie się, testowanie i uzyskiwanie pomocy technicznej
@@ -59,7 +59,7 @@ Usługi Microsoft Translator zazwyczaj umożliwią przekazanie pierwszych kilku 
 
 Użyj translatora niestandardowego, aby dostosować tłumaczenia i utworzyć system tłumaczenia dostosowany do własnej terminologii i stylu, rozpoczynając od ogólnego systemu tłumaczenia usługi Microsoft Translator neuronowych Machine. [Dowiedz się więcej](customization.md)
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Wprowadzenie do platformy Azure (wideo 3-minutowy)](https://azure.microsoft.com/get-started/?b=16.24)
 - [Jak uregulować fakturę](https://azure.microsoft.com/pricing/invoicing/)

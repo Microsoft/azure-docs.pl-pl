@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: d602687ea623b90ea5dcae4ece09a1ccc438ea57
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 5a2a7abf0227812826428557b86c4468f7693c82
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822390"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600396"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Komercyjne funkcje Transact Marketplace
 
@@ -115,7 +115,7 @@ W tym scenariuszu firma Microsoft rozlicza $1,14 za godzinę w celu użycia opub
 |Firma Microsoft utrzymuje 100% kosztów użycia platformy Azure | $0,14 za godzinę |
 ||
 
-**Bring Your Own License (BYOL)**
+**Korzystanie z własnej licencji (BYOL)**
 
 BYOL ma następującą strukturę kosztów:
 
@@ -160,7 +160,7 @@ W tym scenariuszu firma Microsoft Bills $100,00 na potrzeby licencji na oprogram
 
 **Karty kredytowe i faktury miesięczne** — klienci mogą również skorzystać z karty kredytowej i faktury miesięcznej. W tym przypadku opłaty za licencję na oprogramowanie będą rozliczane w taki sam sposób jak scenariusz Umowa Enterprise, jako koszt określony, niezależnie od kosztów użycia specyficznych dla platformy Azure.
 
-**Bezpłatne kredyty i zobowiązania pieniężne** — niektórzy klienci wybierają przedpłatę platformy Azure z zobowiązaniem pieniężnym w ramach Umowa Enterprise lub otrzymali bezpłatne kredyty na korzystanie z platformy Azure. Chociaż te kredyty mogą być używane do płacenia za użycie platformy Azure, nie mogą być używane do płacenia opłat za licencje na oprogramowanie wydawcy.
+**Bezpłatne kredyty i przedpłata na platformę Azure** — niektórzy klienci wybierają przedpłatę platformy Azure z zaliczką na korzystanie z platformy Azure (wcześniej zwaną zobowiązaniem pieniężnym) w ramach Umowa Enterprise lub za bezpłatne kredyty do użycia z platformą Azure. Chociaż te kredyty mogą być używane do płacenia za użycie platformy Azure, nie mogą być używane do płacenia opłat za licencje na oprogramowanie wydawcy.
 
 **Rozliczenia i kolekcje** — rozliczanie licencji na oprogramowanie wydawcy jest prezentowane przy użyciu metody fakturowania w wybranym przez klienta i postępuj według czasu fakturowania. Klienci bez Umowa Enterprise są rozliczani miesięcznie za licencje na oprogramowanie w portalu Marketplace. Klienci z Umowa Enterprise są rozliczani miesięcznie za pośrednictwem faktury prezentowanej kwartalnie.
 

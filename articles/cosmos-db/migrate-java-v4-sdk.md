@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 6bbf87689b577eda7de491744156e63eaa3b440c
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: e537c964d6063b76df63b3d80c5ef72b1ea56c92
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546883"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600258"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-java-sdk-v4"></a>Migrowanie aplikacji do korzystania z Azure Cosmos DB Java SDK v4
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -33,7 +33,7 @@ W tym artykule wyjaśniono, jak uaktualnić istniejącą aplikację Java, która
 
 W poniższej tabeli wymieniono różne Azure Cosmos DB zestawy SDK Java, nazwę pakietu i informacje o wersji:
 
-| Zestaw SDK Java| Data wydania | Powiązane interfejsy API   | Maven jar  | Nazwa pakietu Java  |Dokumentacja interfejsu API   | Informacje o wersji  |
+| Zestaw SDK Java| Data wydania | Powiązane interfejsy API   | Maven jar  | Nazwa pakietu Java  |Dokumentacja interfejsu API   | Uwagi do wersji  |
 |-------|------|-----------|-----------|--------------|-------------|---------------------------|
 | Async 2. x. x  | Czerwiec 2018 r.    | Async (RxJava)  | `com.microsoft.azure::azure-cosmosdb` | `com.microsoft.azure.cosmosdb.rx` | [Interfejs API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Uwagi do wersji](sql-api-sdk-async-java.md) |
 | Synchronizuj 2. x. x     | Września 2018    | Synchronizuj   | `com.microsoft.azure::azure-documentdb` | `com.microsoft.azure.cosmosdb` | [Interfejs API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Uwagi do wersji](sql-api-sdk-java.md)  |
@@ -90,7 +90,8 @@ W Azure Cosmos DB Java SDK 3. x, `CosmosItemProperties` obiekt jest uwidaczniany
 ### <a name="imports"></a>Importowania
 
 * Pakiety Azure Cosmos DB Java SDK 4,0 zaczynają się od `com.azure.cosmos`
-  * Azure Cosmos DB zestawu Java SDK 3. x. x pakiety rozpoczynają się od `com.azure.data.cosmos`
+* Azure Cosmos DB zestawu Java SDK 3. x. x pakiety rozpoczynają się od `com.azure.data.cosmos`
+* Azure Cosmos DB pakiety API synchronizacji zestawu Java SDK 2. x. x — zaczynają się od `com.microsoft.azure.documentdb`
 
 * Azure Cosmos DB Java SDK 4,0 umieszcza kilka klas w zagnieżdżonym pakiecie `com.azure.cosmos.models` . Niektóre z tych pakietów obejmują:
 
@@ -114,7 +115,7 @@ Różni się to od Azure Cosmos DB Java SDK 3. x. x, który uwidacznia interfejs
 
 ### <a name="create-resources"></a>Tworzenie zasobów
 
-Poniższy fragment kodu przedstawia różnice w sposobie tworzenia zasobów między 4,0 i 3. x asynchronicznymi interfejsami API:
+Poniższy fragment kodu przedstawia różnice w sposobie tworzenia zasobów między 4,0, 3. x asynchronicznymi interfejsami API i 2. x. x synchronizacji:
 
 # <a name="java-sdk-40-async-api"></a>[Interfejs API Async SDK 4,0 języka Java](#tab/java-v4-async)
 
@@ -150,11 +151,38 @@ client.createDatabaseIfNotExists("YourDatabaseName")
         return Mono.empty();
 }).subscribe();
 ```
+
+# <a name="java-sdk-2xx-sync-api"></a>[Interfejs API synchronizacji zestawu Java SDK 2. x](#tab/java-v2-sync)
+
+```java
+ConnectionPolicy defaultPolicy = ConnectionPolicy.GetDefault();
+//  Setting the preferred location to Cosmos DB Account region
+defaultPolicy.setPreferredLocations(Lists.newArrayList("Your Account Location"));
+
+//  Create document client
+//  <CreateDocumentClient>
+client = new DocumentClient("your.hostname", "your.masterkey", defaultPolicy, ConsistencyLevel.Eventual)
+
+// Create database with specified name
+Database databaseDefinition = new Database();
+databaseDefinition.setId("YourDatabaseName");
+ResourceResponse<Database> databaseResourceResponse = client.createDatabase(databaseDefinition, new RequestOptions());
+
+// Read database with specified name
+String databaseLink = "dbs/YourDatabaseName";
+databaseResourceResponse = client.readDatabase(databaseLink, new RequestOptions());
+Database database = databaseResourceResponse.getResource();
+
+// Create container with specified name
+DocumentCollection documentCollection = new DocumentCollection();
+documentCollection.setId("YourContainerName");
+documentCollection = client.createCollection(database.getSelfLink(), documentCollection, new RequestOptions()).getResource();
+```
 ---
 
 ### <a name="item-operations"></a>Operacje elementu
 
-Poniższy fragment kodu przedstawia różnice w sposobie wykonywania operacji elementów między 4,0 i 3. x asynchronicznymi interfejsami API:
+Poniższy fragment kodu przedstawia różnice w sposobie wykonywania operacji na elementach między 4,0, 3. x asynchronicznymi interfejsami API i 2. x. x synchronizacji:
 
 # <a name="java-sdk-40-async-api"></a>[Interfejs API Async SDK 4,0 języka Java](#tab/java-v4-async)
 
@@ -172,11 +200,22 @@ Flux.fromIterable(docs)
     .flatMap(doc -> container.createItem(doc))
     .subscribe(); // ...Subscribing triggers stream execution.
 ```
+
+# <a name="java-sdk-2xx-sync-api"></a>[Interfejs API synchronizacji zestawu Java SDK 2. x](#tab/java-v2-sync)
+
+```java
+//  Container is created. Generate documents to insert.
+Document document = new Document();
+document.setId("YourDocumentId");
+ResourceResponse<Document> documentResourceResponse = client.createDocument(documentCollection.getSelfLink(), document,
+    new RequestOptions(), true);
+Document responseDocument = documentResourceResponse.getResource();
+```
 ---
 
 ### <a name="indexing"></a>Indeksowanie
 
-Poniższy fragment kodu przedstawia różnice w sposobie tworzenia indeksowania między 4,0 i 3. x asynchronicznymi interfejsami API:
+Poniższy fragment kodu przedstawia różnice w sposobie tworzenia indeksowania między 4,0, 3. x asynchronicznymi interfejsami API i 2. x. x synchronizacji:
 
 # <a name="java-sdk-40-async-api"></a>[Interfejs API Async SDK 4,0 języka Java](#tab/java-v4-async)
 
@@ -196,7 +235,7 @@ List<IncludedPath> includedPaths = new ArrayList<>();
 IncludedPath includedPath = new IncludedPath();
 includedPath.path("/*");
 includedPaths.add(includedPath);
-indexingPolicy.setIncludedPaths(includedPaths);
+indexingPolicy.includedPaths(includedPaths);
 
 // Excluded paths
 List<ExcludedPath> excludedPaths = new ArrayList<>();
@@ -211,11 +250,39 @@ CosmosContainer containerIfNotExists = database.createContainerIfNotExists(conta
                                                .block()
                                                .container();
 ```
+
+# <a name="java-sdk-2xx-sync-api"></a>[Interfejs API synchronizacji zestawu Java SDK 2. x](#tab/java-v2-sync)
+
+```java
+// Custom indexing policy
+IndexingPolicy indexingPolicy = new IndexingPolicy();
+indexingPolicy.setIndexingMode(IndexingMode.Consistent); //To turn indexing off set IndexingMode.NONE
+
+// Included paths
+List<IncludedPath> includedPaths = new ArrayList<>();
+IncludedPath includedPath = new IncludedPath();
+includedPath.setPath("/*");
+includedPaths.add(includedPath);
+indexingPolicy.setIncludedPaths(includedPaths);
+
+// Excluded paths
+List<ExcludedPath> excludedPaths = new ArrayList<>();
+ExcludedPath excludedPath = new ExcludedPath();
+excludedPath.setPath("/name/*");
+excludedPaths.add(excludedPath);
+indexingPolicy.setExcludedPaths(excludedPaths);
+
+// Create container with specified name and indexing policy
+DocumentCollection documentCollection = new DocumentCollection();
+documentCollection.setId("YourContainerName");
+documentCollection.setIndexingPolicy(indexingPolicy);
+documentCollection = client.createCollection(database.getSelfLink(), documentCollection, new RequestOptions()).getResource();
+```
 ---
 
 ### <a name="stored-procedures"></a>Procedury składowane
 
-Poniższy fragment kodu przedstawia różnice w sposobie tworzenia procedur przechowywanych między 4,0 i 3. x asynchronicznymi interfejsami API:
+Poniższy fragment kodu przedstawia różnice w sposobie tworzenia procedur składowanych między 4,0, 3. x asynchronicznymi interfejsami API i 2. x. x synchronizacji:
 
 # <a name="java-sdk-40-async-api"></a>[Interfejs API Async SDK 4,0 języka Java](#tab/java-v4-async)
 
@@ -262,6 +329,45 @@ container.getScripts()
             return Mono.empty();
         }).block();
 ```
+
+# <a name="java-sdk-2xx-sync-api"></a>[Interfejs API synchronizacji zestawu Java SDK 2. x](#tab/java-v2-sync)
+
+```java
+logger.info("Creating stored procedure...\n");
+
+String sprocId = "createMyDocument";
+String sprocBody = "function createMyDocument() {\n" +
+    "var documentToCreate = {\"id\":\"test_doc\"}\n" +
+    "var context = getContext();\n" +
+    "var collection = context.getCollection();\n" +
+    "var accepted = collection.createDocument(collection.getSelfLink(), documentToCreate,\n" +
+    "    function (err, documentCreated) {\n" +
+    "if (err) throw new Error('Error' + err.message);\n" +
+    "context.getResponse().setBody(documentCreated.id)\n" +
+    "});\n" +
+    "if (!accepted) return;\n" +
+    "}";
+StoredProcedure storedProcedureDef = new StoredProcedure();
+storedProcedureDef.setId(sprocId);
+storedProcedureDef.setBody(sprocBody);
+StoredProcedure storedProcedure = client.createStoredProcedure(documentCollection.getSelfLink(), storedProcedureDef, new RequestOptions())
+                                        .getResource();
+
+// ...
+
+logger.info(String.format("Executing stored procedure %s...\n\n", sprocId));
+
+RequestOptions options = new RequestOptions();
+options.setPartitionKey(new PartitionKey("test_doc"));
+
+StoredProcedureResponse storedProcedureResponse =
+    client.executeStoredProcedure(storedProcedure.getSelfLink(), options, null);
+logger.info(String.format("Stored procedure %s returned %s (HTTP %d), at cost %.3f RU.\n",
+    sprocId,
+    storedProcedureResponse.getResponseAsString(),
+    storedProcedureResponse.getStatusCode(),
+    storedProcedureResponse.getRequestCharge()));
+```
 ---
 
 ### <a name="change-feed"></a>Źródło zmian
@@ -306,11 +412,15 @@ ChangeFeedProcessor.Builder()
                             .subscribeOn(Schedulers.elastic())
                             .subscribe();
 ```
+
+# <a name="java-sdk-2xx-sync-api"></a>[Interfejs API synchronizacji zestawu Java SDK 2. x](#tab/java-v2-sync)
+
+* Ta funkcja nie jest obsługiwana w przypadku synchronizacji ze standardem Java SDK V2. 
 ---
 
 ### <a name="container-level-time-to-livettl"></a>Czas wygaśnięcia kontenera (TTL)
 
-Poniższy fragment kodu przedstawia różnice w sposobie tworzenia czasu na żywo dla danych w kontenerze przy użyciu asynchronicznych interfejsów API 4,0 i 3. x:
+Poniższy fragment kodu przedstawia różnice w sposobie tworzenia czasu na żywo dla danych w kontenerze przy użyciu asynchronicznych interfejsów API 4,0, 3. x. x i interfejsów API synchronizacji z 2. x. x:
 
 # <a name="java-sdk-40-async-api"></a>[Interfejs API Async SDK 4,0 języka Java](#tab/java-v4-async)
 
@@ -326,11 +436,21 @@ CosmosContainerProperties containerProperties = new CosmosContainerProperties("m
 containerProperties.defaultTimeToLive(90 * 60 * 60 * 24);
 container = database.createContainerIfNotExists(containerProperties, 400).block().container();
 ```
+
+# <a name="java-sdk-2xx-sync-api"></a>[Interfejs API synchronizacji zestawu Java SDK 2. x](#tab/java-v2-sync)
+
+```java
+DocumentCollection documentCollection;
+
+// Create a new container with TTL enabled with default expiration value
+documentCollection.setDefaultTimeToLive(90 * 60 * 60 * 24);
+documentCollection = client.createCollection(database.getSelfLink(), documentCollection, new RequestOptions()).getResource();
+```
 ---
 
 ### <a name="item-level-time-to-livettl"></a>Czas wygaśnięcia elementu na żywo (TTL)
 
-Poniższy fragment kodu przedstawia różnice w sposobie tworzenia czasu wygaśnięcia dla elementu przy użyciu asynchronicznych interfejsów API 4,0 i 3. x:
+Poniższy fragment kodu przedstawia różnice w sposobie tworzenia czasu wygaśnięcia dla elementu przy użyciu asynchronicznych interfejsów API 4,0, 3. x. x i interfejsów API synchronizacji 2. x. x:
 
 # <a name="java-sdk-40-async-api"></a>[Interfejs API Async SDK 4,0 języka Java](#tab/java-v4-async)
 
@@ -370,6 +490,17 @@ SalesOrder salesOrder = new SalesOrder(
     "CO18009186470",
     60 * 60 * 24 * 30  // Expire sales orders in 30 days
 );
+```
+
+# <a name="java-sdk-2xx-sync-api"></a>[Interfejs API synchronizacji zestawu Java SDK 2. x](#tab/java-v2-sync)
+
+```java
+Document document = new Document();
+document.setId("YourDocumentId");
+document.setTimeToLive(60 * 60 * 24 * 30 ); // Expire document in 30 days
+ResourceResponse<Document> documentResourceResponse = client.createDocument(documentCollection.getSelfLink(), document,
+    new RequestOptions(), true);
+Document responseDocument = documentResourceResponse.getResource();
 ```
 ---
 

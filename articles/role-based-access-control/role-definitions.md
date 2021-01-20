@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2020
+ms.date: 01/18/2021
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: bc3640fecbe1138e46fd0d36975691740bc669dd
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: f6ae9ff27e773c36626812387b1284d660cbf39d
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369263"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602470"
 ---
 # <a name="understand-azure-role-definitions"></a>Informacje o definicjach ról platformy Azure
 
@@ -291,11 +291,27 @@ Aby wyświetlić operacje na danych w interfejsie API REST i korzystać z nich, 
 
 ## <a name="notactions"></a>NotActions
 
-`NotActions`Uprawnienie określa operacje zarządzania, które są wykluczone z dozwolonej `Actions` . Użyj `NotActions` uprawnienia, jeśli zestaw operacji, do których chcesz zezwolić, jest łatwiejszy w użyciu, wykluczając operacje ograniczone. Dostęp udzielony przez rolę (czynne uprawnienia) jest obliczany przez odjęcie `NotActions` operacji od `Actions` operacji.
+`NotActions`Uprawnienie określa operacje zarządzania, które są odejmowane lub wykluczone z dozwolonego `Actions` , który ma symbol wieloznaczny ( `*` ). Użyj `NotActions` uprawnienia, jeśli zestaw operacji, które chcesz zezwolić, jest łatwiejszy do zdefiniowania przez odjęcie od `Actions` , który ma symbol wieloznaczny ( `*` ). Dostęp udzielony przez rolę (czynne uprawnienia) jest obliczany przez odjęcie `NotActions` operacji od `Actions` operacji.
+
+`Actions - NotActions = Effective management permissions`
+
+W poniższej tabeli przedstawiono dwa przykłady czynnych uprawnień dla operacji wieloznacznej [Microsoft. CostManagement](resource-provider-operations.md#microsoftcostmanagement) :
+
+> [!div class="mx-tableFixed"]
+> | Actions | NotActions | Efektywne uprawnienia zarządzania |
+> | --- | --- | --- |
+> | `Microsoft.CostManagement/exports/*` | *brak* | `Microsoft.CostManagement/exports/action`</br>`Microsoft.CostManagement/exports/read`</br>`Microsoft.CostManagement/exports/write`</br>`Microsoft.CostManagement/exports/delete`</br>`Microsoft.CostManagement/exports/run/action` |
+> | `Microsoft.CostManagement/exports/*` | `Microsoft.CostManagement/exports/delete` | `Microsoft.CostManagement/exports/action`</br>`Microsoft.CostManagement/exports/read`</br>`Microsoft.CostManagement/exports/write`</br>`Microsoft.CostManagement/exports/run/action` |
 
 > [!NOTE]
 > Jeśli użytkownik ma przypisaną rolę, która wyklucza operację w programie `NotActions` , i ma przypisaną drugą rolę, która przyznaje dostęp do tej samej operacji, użytkownik może wykonać tę operację. `NotActions` nie jest regułą odmowy — jest to po prostu wygodny sposób tworzenia zestawu dozwolonych operacji, gdy wymagane jest wykluczenie określonych operacji.
 >
+
+### <a name="differences-between-notactions-and-deny-assignments"></a>Różnice między oddziałami i Odmów przypisań
+
+`NotActions` i Odmów przypisania nie są takie same i służą do różnych celów. `NotActions` jest wygodnym sposobem odejmowania określonych akcji z wieloznacznej `*` operacji ().
+
+Odmowa przypisań uniemożliwia użytkownikom wykonywanie określonych akcji nawet wtedy, gdy przypisanie roli udzieli im dostępu. Aby uzyskać więcej informacji, zobacz [Omówienie przypisań Odmów na platformie Azure](deny-assignments.md).
 
 ## <a name="dataactions"></a>Akcje dataactions
 
@@ -311,7 +327,17 @@ Aby wyświetlić operacje na danych w interfejsie API REST i korzystać z nich, 
 
 ## <a name="notdataactions"></a>NotDataActions
 
-`NotDataActions`Uprawnienie określa operacje na danych, które są wykluczone z dozwolonej `DataActions` . Dostęp udzielony przez rolę (czynne uprawnienia) jest obliczany przez odjęcie `NotDataActions` operacji od `DataActions` operacji. Każdy dostawca zasobów udostępnia swój odpowiedni zestaw interfejsów API do realizacji operacji na danych.
+`NotDataActions`Uprawnienie określa operacje na danych, które są odejmowane lub wykluczone z dozwolonego `DataActions` , który ma symbol wieloznaczny ( `*` ). Użyj `NotDataActions` uprawnienia, jeśli zestaw operacji, które chcesz zezwolić, jest łatwiejszy do zdefiniowania przez odjęcie od `DataActions` , który ma symbol wieloznaczny ( `*` ). Dostęp udzielony przez rolę (czynne uprawnienia) jest obliczany przez odjęcie `NotDataActions` operacji od `DataActions` operacji. Każdy dostawca zasobów udostępnia swój odpowiedni zestaw interfejsów API do realizacji operacji na danych.
+
+`DataActions - NotDataActions = Effective data permissions`
+
+W poniższej tabeli przedstawiono dwa przykłady czynnych uprawnień dla operacji symboli wieloznacznych [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) :
+
+> [!div class="mx-tableFixed"]
+> | Akcje dataactions | NotDataActions | Obowiązujące uprawnienia do danych |
+> | --- | --- | --- |
+> | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/*` | *brak* | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/read`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/write`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action` |
+> | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/*` | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete`</br> | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/read`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/write`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action` |
 
 > [!NOTE]
 > Jeśli użytkownik ma przypisaną rolę, która wyklucza operację danych w programie `NotDataActions` , i przypisuje drugą rolę, która przyznaje dostęp do tej samej operacji danych, użytkownik może wykonać tę operację. `NotDataActions` nie jest regułą odmowy — jest to po prostu wygodny sposób tworzenia zestawu dozwolonych operacji na danych, gdy wymagane jest wykluczenie określonych operacji na danych.
@@ -337,6 +363,6 @@ Informacje o `AssignableScopes` rolach niestandardowych można znaleźć w temac
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Role wbudowane platformy Azure](built-in-roles.md)
+* [Wbudowane role platformy Azure](built-in-roles.md)
 * [Role niestandardowe platformy Azure](custom-roles.md)
 * [Operacje dostawcy zasobów platformy Azure](resource-provider-operations.md)

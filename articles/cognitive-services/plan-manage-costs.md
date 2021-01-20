@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: cognitive-services
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.openlocfilehash: 4fe06edbb3e02f23ef56a3e7fff848682e36e3af
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 925a092eb67fa459213a37df0fc6b3f7a1b8a0fb
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251322"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602369"
 ---
 # <a name="plan-and-manage-costs-for-azure-cognitive-services"></a>Planowanie i zarządzanie kosztami Cognitive Services platformy Azure
 
@@ -60,9 +60,9 @@ Po usunięciu zasobów QnA Maker następujące zasoby mogą nadal istnieć. W da
 - [Azure App Service (dla środowiska uruchomieniowego)](https://azure.microsoft.com/pricing/details/app-service/)
 - [Wyszukiwanie poznawcze platformy Azure (dla danych)](https://azure.microsoft.com/pricing/details/search/)
 
-### <a name="using-monetary-credit-with-cognitive-services"></a>Korzystanie z środków pieniężnych w Cognitive Services
+### <a name="using-azure-prepayment-credit-with-cognitive-services"></a>Przy użyciu środków na korzystanie z systemu Azure w wysokości Cognitive Services
 
-Opłaty za Cognitive Services są naliczane za zobowiązania pieniężne z tytułu umowy EA. Nie można jednak użyć kredytu zobowiązania pieniężnego umowy EA, aby uregulować opłaty za produkty i usługi innych firm, w tym te z portalu Azure Marketplace.
+Opłaty za Cognitive Services mogą być naliczane przy użyciu przedpłaty za korzystanie z platformy Azure (wcześniej zwanego zobowiązaniem pieniężnym). Nie można jednak używać środków zaliczkowych na platformie Azure, aby zapłacić za opłaty za produkty i usługi innych firm, w tym te z portalu Azure Marketplace.
 
 ## <a name="create-budgets"></a>Tworzenie budżetów
 

@@ -1,18 +1,18 @@
 ---
-title: Uzyskaj pomoc techniczną dla portalu komercyjnej witryny Marketplace w centrum partnerskim
-description: Dowiedz się więcej o opcjach pomocy technicznej w centrum partnerskim, w tym o sposobach tworzenia plików żądania pomocy technicznej.
+title: Uzyskaj pomoc techniczną dotyczącą komercyjnego programu w witrynie Marketplace w centrum partnerskim
+description: Dowiedz się więcej o opcjach pomocy technicznej dla komercyjnego programu Marketplace w centrum partnerskim, w tym informacje na temat sposobu tworzenia żądania obsługi.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: navits09
 ms.author: navits
-ms.date: 01/14/2020
-ms.openlocfilehash: 8979a94ee63ef50c0a3abacd5ab3515226200131
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.date: 01/19/2020
+ms.openlocfilehash: 6075027124352746a3adbb8f6937d3787eb22b9d
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183442"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602561"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Wsparcie dla komercyjnego programu w witrynie Marketplace w centrum partnerskim
 
@@ -22,60 +22,43 @@ Firma Microsoft zapewnia pomoc techniczną dla wielu różnych produktów i usł
 - Jeśli jesteś wydawcą i wykryjesz problem z zabezpieczeniami aplikacji działającej na platformie Azure, zobacz [jak rejestrować bilet pomocy technicznej dotyczącej zdarzeń zabezpieczeń](/azure/security/fundamentals/event-support-ticket). Wydawcy muszą zgłaszać podejrzane zdarzenia zabezpieczeń, w tym zdarzenia dotyczące zabezpieczeń i luki w zabezpieczeniach oprogramowania i usług portalu Azure Marketplace, z najwcześniejszą możliwością.
 - Jeśli jesteś wydawcą i masz pytanie dotyczące Twojej aplikacji lub usługi, zapoznaj się z następującymi opcjami pomocy technicznej.
 
-## <a name="support-options-for-publishers"></a>Opcje pomocy technicznej dla wydawców
+## <a name="get-help-or-open-a-support-ticket"></a>Uzyskaj pomoc lub Otwórz bilet pomocy technicznej
 
-1. Zaloguj się do [komercyjnego programu Marketplace w centrum partnerskim](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) przy użyciu konta służbowego (jeśli jeszcze tego nie zrobiono, musisz [utworzyć konto Centrum partnerskiego](partner-center-portal/create-account.md).
+1. Zaloguj się przy użyciu konta służbowego. Jeśli jeszcze tego nie zrobiono, należy [utworzyć konto Centrum partnerskiego](partner-center-portal/create-account.md).
 
-2. W górnym menu po prawej stronie strony wybierz ikonę **obsługi** .
+1. W menu w prawym górnym rogu strony wybierz ikonę **Pomoc techniczna** . Okienko **Pomoc i obsługa techniczna** pojawia się po prawej stronie strony.
 
-3. Po prawej stronie strony zostanie wyświetlone okienko **Pomoc i obsługa techniczna** .
+1. Aby uzyskać pomoc dotyczącą komercyjnej witryny Marketplace, wybierz pozycję **Marketing komercyjny**.
 
    ![Menu rozwijane obsługa](./media/support/commercial-marketplace-support-pane.png)
 
-    Lub przejdź do okienka **strony głównej** , a następnie wybierz pozycję **Pomoc i obsługa techniczna**.
+1. W polu **Podsumowanie problemu** wprowadź krótki opis problemu.
 
-   ![Pomoc i obsługa techniczna ze strony głównej](./media/support/homepage-help-support.png)
+1. W polu **typ problemu** wykonaj jedną z następujących czynności:
 
-4. Wybierz **[dokumentację](../index.yml)** , aby przejrzeć kompleksowe odpowiedzi na pytania i zasoby.
+    - **Opcja 1**: Wprowadź słowa kluczowe, takie jak: Marketplace, Azure App, SaaS oferta, zarządzanie kontami, zarządzanie potencjalnymi klientami, problem z wdrożeniem, wypłata lub migracja oferty do sprzedaży. Następnie wybierz typ problemu z wyświetlonej listy zalecane.
 
-5. Wybierz **[forum społeczności partnerów w portalu Marketplace](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** , aby odpowiedzieć na pytania, korzystając z wiedzy innych wydawców firmy Microsoft.
+    - **Opcja 2**: wybierz pozycję **Przeglądaj tematy** z listy **Kategoria** , a następnie wybierz pozycję **Marketing komercyjny**. Następnie wybierz odpowiedni **temat** i **temat podrzędny**.
 
-6. Wybierz **[dodatkową pomoc](https://aka.ms/marketplacepublishersupport)** , aby otworzyć **nowy bilet żądania pomocy technicznej** .  
+1. Po znalezieniu wybranego tematu wybierz pozycję **Przejrzyj rozwiązania**.
 
-## <a name="how-to-open-a-support-ticket"></a>Jak otworzyć bilet pomocy technicznej
+    ![Następny krok](./media/support/next-step.png)
 
-Teraz możesz już otworzyć bilet pomocy technicznej na ekranie **Pomoc i obsługa techniczna** .
+Wyświetlane są następujące opcje:
 
-![Pomoc i obsługa techniczna](./media/support/help-and-support.png)
+- Aby wybrać inny temat, kliknij opcję **Wybierz inny problem**.
+- Aby pomóc w rozwiązaniu problemu, zapoznaj się z zalecanymi krokami i dokumentami, jeśli są dostępne.
 
->[!Note]
->Jeśli logujesz się w centrum partnerskim, będziesz mieć lepszy komfort obsługi.
+    ![Zalecane rozwiązania](./media/support/recommended-solutions.png)
 
-**Opcja 1:** Wprowadź słowa kluczowe, takie jak: Marketplace, Azure App, SaaS oferta, zarządzanie kontami, zarządzanie potencjalnymi klientami, problem z wdrażaniem, wypłata itp.
-
-**Opcja 2:** Tematy dotyczące przeglądania — > wybierz **kategorię** = komercyjna witryna marketplace — > wybierz odpowiedni **temat** , a następnie **temat podrzędny**.
-
-Po znalezieniu wybranego tematu wybierz pozycję **Przejrzyj rozwiązania**.
-
-![Następny krok](./media/support/next-step.png)
-
-Dostępne są następujące opcje:
-
-- Aby wybrać inny temat, wybierz inny link tematu w obszarze **wybrany problem**.
-- Przejrzyj opis tego problemu, jeśli jest dostępny.  Jest to tekst wyświetlany powyżej **zalecanych kroków**.
-- Przejrzyj **zalecane kroki**, jeśli są dostępne.
-- Przejrzyj **zalecane dokumenty**, jeśli są dostępne.
-
-![Zalecane rozwiązania](./media/support/recommended-solutions.png)
-
-Jeśli nie możesz znaleźć odpowiedzi w **zalecanych rozwiązaniach**, wybierz pozycję **Podaj szczegóły problemu**. Wypełnij wszystkie wymagane pola, aby przyspieszyć proces rozwiązywania problemów, a następnie wybierz pozycję **Prześlij**.
+Jeśli nie możesz znaleźć odpowiedzi w pomocy, wybierz pozycję **Podaj szczegóły problemu**. Wypełnij wszystkie wymagane pola, aby przyspieszyć proces rozwiązywania problemów, a następnie wybierz pozycję **Prześlij**.
 
 >[!Note]
->Jeśli użytkownik nie zalogował się w centrum partnerskim, a temat wymaga uwierzytelniania, przed kontynuowaniem będzie wymagane zalogowanie się.  W przypadku publicznych tematów uwierzytelnianie nie jest wymagane.
+>Jeśli użytkownik nie zalogował się do Centrum partnerskiego, może być wymagane zalogowanie się, aby można było utworzyć bilet.
 
 ## <a name="track-your-existing-support-requests"></a>Śledź istniejące żądania obsługi
 
-Aby przejrzeć wszystkie otwarte i zamknięte bilety, przejdź do **komercyjnej witryny Marketplace** na pasku nawigacyjnym po lewej stronie, a następnie wybierz pozycję **Pomoc techniczna**.
+Aby przejrzeć otwarte i zamknięte bilety, w menu nawigacji po lewej stronie wybierz pozycję **komercyjna**  >  **Pomoc techniczna** Marketplace.
 
 ## <a name="record-issue-details-with-a-har-file"></a>Rejestruj Szczegóły problemu przy użyciu pliku HAR
 
