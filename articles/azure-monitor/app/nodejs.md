@@ -4,12 +4,12 @@ description: Monitoruj wydajność i diagnozuj problemy w usługach Node.js za p
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 7aea6c03b0ce35fa0e74c39ff5f94f714447ad6f
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 0d414ce44a8d6ab308bd31f7372bb1c146fac9f5
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920584"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611019"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorowanie usług i aplikacji Node.js za pomocą usługi Application Insights
 
@@ -335,6 +335,12 @@ server.on("listening", () => {
 });
 ```
 
+### <a name="flush"></a>Płukan
+
+Domyślnie dane telemetryczne są buforowane przez 15 sekund przed wysłaniem do serwera pozyskiwania. Jeśli aplikacja ma krótkie cykl życia (np. Narzędzie interfejsu wiersza polecenia), może być konieczne ręczne opróżnianie buforowanej telemetrii po zakończeniu działania aplikacji `appInsights.defaultClient.flush()` .
+
+Jeśli zestaw SDK wykryje, że aplikacja uległa awarii, spowoduje to wywołanie opróżniania dla Ciebie, `appInsights.defaultClient.flush({ isAppCrashing: true })` . W przypadku opcji opróżniania `isAppCrashing` aplikacja zakłada się, że jest w nietypowym stanie, nie jest odpowiednia do wysyłania telemetrii. Zamiast tego zestaw SDK zapisze wszystkie buforowane dane telemetryczne w [magazynie trwałym](./data-retention-privacy.md#nodejs) i umożliwią zakończenie działania aplikacji. Gdy aplikacja zostanie uruchomiona ponownie, podejmie próbę wysłania wszelkich danych telemetrycznych, które zostały zapisane w magazynie trwałym.
+
 ### <a name="preprocess-data-with-telemetry-processors"></a>Przetwarzaj wstępnie dane za pomocą procesorów telemetrii
 
 Zebrane dane można przetwarzać i filtrować przed wysłaniem ich do przechowywania za pomocą *procesorów telemetrii*. Procesory telemetrii są wywoływane jeden według jednego w kolejności, w jakiej zostały dodane przed wysłaniem elementu telemetrii do chmury.
@@ -377,7 +383,7 @@ appInsights.defaultClient.addTelemetryProcessor(removeStackTraces);
 
 Można utworzyć wiele zasobów Application Insights i wysyłać do nich różne dane przy użyciu odpowiednich kluczy Instrumentacji ("iKey").
 
- Na przykład:
+ Przykład:
 
 ```javascript
 let appInsights = require("applicationinsights");

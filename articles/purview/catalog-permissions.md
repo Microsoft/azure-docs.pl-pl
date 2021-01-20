@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.openlocfilehash: e87c9efc910d08307d40d42e58f8272a01902a41
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: b351be1e7212dc9923f701599dd951a73254afe0
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554275"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610373"
 ---
 # <a name="role-based-access-control-in-azure-purviews-data-plane"></a>Kontrola dostępu oparta na rolach w płaszczyźnie danych usługi Azure kontrolą
 
@@ -31,9 +31,9 @@ Usługa Azure kontrolą definiuje zestaw wstępnie zdefiniowanych ról płaszczy
 
 ## <a name="understanding-how-to-use-azure-purviews-data-plane-roles"></a>Informacje na temat używania ról płaszczyzny danych usługi Azure kontrolą
 
-Po utworzeniu konta usługi Azure kontrolą twórca będzie traktowany tak, jakby znajdowały się zarówno w roli administratora źródła danych Curator, jak i kontrolą. Jednak twórca konta nie jest przypisany do tych ról w magazynie roli. Usługa Azure kontrolą uznaje, że podmiot zabezpieczeń jest twórcą konta i rozszerza te możliwości na podstawie ich tożsamości.
+Po utworzeniu konta usługi Azure kontrolą twórca będzie traktowany tak, jakby znajdowały się zarówno w roli administratora źródła danych Curator, jak i kontrolą. Jednak te role nie są przypisane do twórcy konta w magazynie ról. Usługa Azure Purview uznaje, że podmiot zabezpieczeń jest twórcą konta i rozszerza na niego te możliwości na podstawie tożsamości.
 
-Wszyscy inni użytkownicy mogą korzystać tylko z konta usługi Azure kontrolą, jeśli są umieszczone w co najmniej jednej z tych ról. Oznacza to, że po utworzeniu konta usługi Azure kontrolą nikt, ale nie może uzyskać dostępu do konta ani używać jego interfejsów API, dopóki nie zostaną umieszczone w co najmniej jednej z poprzednich zdefiniowanych ról.
+Wszyscy inni użytkownicy mogą korzystać z konta usługi Azure Purview tylko wtedy, jeśli mają co najmniej jedną z tych ról. Oznacza to, że po utworzeniu konta usługi Azure kontrolą nikt, ale nie może uzyskać dostępu do konta ani używać jego interfejsów API, dopóki nie zostaną umieszczone w co najmniej jednej z poprzednich zdefiniowanych ról.
 
 Należy pamiętać, że rola administratora źródła danych kontrolą ma dwa obsługiwane scenariusze. Pierwszy scenariusz jest przeznaczony dla użytkowników, którzy już kontrolą czytelnicy danych lub kontrolą Curators danych, które również muszą mieć możliwość tworzenia skanów. Ci użytkownicy muszą znajdować się w dwóch rolach, co najmniej jeden z kontrolą danych kontrolą i Curator danych, a także być umieszczany w roli administratora źródła danych kontrolą.
 
@@ -77,8 +77,8 @@ W przypadku użytkowników mających dostęp do [Azure Portal](https://portal.az
 |Muszę włączyć jednostkę usługi lub inną tożsamość programistyczną, aby skonfigurować i monitorować skany w usłudze Azure kontrolą bez zezwalania na tożsamość programistyczną w celu uzyskania dostępu do informacji o wykazie |Rola administratora źródła danych kontrolą|
 |Muszę umieścić użytkowników w rolach na platformie Azure kontrolą | Administrator dostępu użytkownika lub właściciela |
 
-Przejdź do następnego artykułu, aby dowiedzieć się, jak dodać podmiot zabezpieczeń do roli.
+Aby uzyskać więcej informacji na temat dodawania podmiotu zabezpieczeń do roli, zobacz [Szybki Start: Tworzenie konta usługi Azure kontrolą](create-catalog-portal.md) .
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Szybki Start: Tworzenie konta usługi Azure kontrolą](create-catalog-portal.md)
+* [Analiza danych](concept-insights.md)

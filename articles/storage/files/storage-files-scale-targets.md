@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 43d593a65fd08542eb2829fcebcea81ea0c99986
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: e10f45af89e19f6fe62ff729f96d870e008c96ec
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995437"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611104"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Cele dotyczące skalowalności i wydajności usługi Azure Files
 
@@ -31,7 +31,7 @@ Zasób nadrzędny dla udziału plików platformy Azure to konto usługi Azure St
 > [!Important]  
 > Użycie konta magazynu ogólnego zastosowania z innych usług magazynu ma wpływ na udziały plików platformy Azure na Twoim koncie magazynu. Jeśli na przykład osiągniesz maksymalną pojemność konta magazynu za pomocą usługi Azure Blob Storage, nie będziesz mieć możliwości tworzenia nowych plików w udziale plików platformy Azure, nawet jeśli udział plików platformy Azure jest mniejszy niż maksymalny rozmiar udziału.
 
-## <a name="azure-files-scale-targets"></a>Elementy docelowe skalowania Azure Files
+## <a name="azure-files-scale-targets"></a>Cele skalowania usługi Azure Files
 
 Istnieją trzy kategorie ograniczeń, które należy wziąć pod uwagę w Azure Files: konta magazynu, udziały i pliki.
 
@@ -87,16 +87,16 @@ Aby ułatwić Planowanie wdrożenia dla każdego z etapów, poniżej przedstawio
 | Liczba obiektów | 25 000 000 obiektów |
 | Rozmiar zestawu danych| ~ 4,7 TiB |
 | Średni rozmiar pliku | ~ 200 KiB (największy plik: 100 GiB) |
-| Początkowe Wyliczenie zmian w chmurze | 7 obiektów na sekundę  |
+| Początkowe Wyliczenie zmian w chmurze | 20 obiektów na sekundę  |
 | Przepływność przekazywania | 20 obiektów na sekundę na grupę synchronizacji |
 | Przepływność pobierania przestrzeni nazw | 400 obiektów na sekundę |
 
 ### <a name="initial-one-time-provisioning"></a>Początkowe Inicjowanie obsługi po raz pierwszy
 
 **Początkowe Wyliczenie zmian w chmurze**: po utworzeniu nowej grupy synchronizacji, początkowym wyliczeniem zmian w chmurze jest pierwszy krok, który zostanie wykonany. W tym procesie system wylicza wszystkie elementy w udziale plików platformy Azure. W trakcie tego procesu nie będzie żadnych działań synchronizacji, co oznacza, że żadne elementy nie zostaną pobrane z punktu końcowego w chmurze do punktu końcowego serwera i żadne elementy nie zostaną przekazane z punktu końcowego serwera do punktu końcowego w chmurze. Działanie synchronizacji zostanie wznowione po zakończeniu początkowego wyliczenia zmian w chmurze.
-Szybkość działania wynosi 7 obiektów na sekundę. Klienci mogą oszacować czas trwania wstępnego wyliczania zmian w chmurze, określając liczbę elementów w udziale chmury i korzystając z następującej formuły, aby uzyskać czas w dniach. 
+Szybkość wydajności to 20 obiektów na sekundę. Klienci mogą oszacować czas trwania wstępnego wyliczania zmian w chmurze, określając liczbę elementów w udziale chmury i korzystając z następującej formuły, aby uzyskać czas w dniach. 
 
-   **Czas (w dniach) dla początkowej wyliczenia chmury = (liczba obiektów w punkcie końcowym w chmurze)/(7 * 60 * 60 * 24)**
+   **Czas (w dniach) dla początkowej wyliczenia chmury = (liczba obiektów w punkcie końcowym w chmurze)/(20 * 60 * 60 * 24)**
 
 **Przepływność pobierania przestrzeni nazw** Po dodaniu nowego punktu końcowego serwera do istniejącej grupy synchronizacji Agent Azure File Sync nie pobiera żadnej zawartości pliku z punktu końcowego w chmurze. Najpierw synchronizuje pełną przestrzeń nazw, a następnie wyzwala odwołanie w tle w celu pobrania plików, w całości lub, jeśli włączono obsługę warstw w chmurze, do zasad obsługi warstw w chmurze ustawionych w punkcie końcowym serwera.
 

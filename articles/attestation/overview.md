@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: 6a587ecbe7ff67908b22d4f2429cfdd0c511e07d
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: 0d1b2bd039f3e110c83d7ad4bf32f1e53e4c7a79
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96748777"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610152"
 ---
 # <a name="microsoft-azure-attestation-preview"></a>Microsoft Azure Attestation (wersja zapoznawcza)
 
@@ -39,6 +39,12 @@ Aplikacje klienckie mogą być zaprojektowane tak, aby korzystały z SGX enclave
 [Open enklawy](https://openenclave.io/sdk/) (OE) to zbiór bibliotek przeznaczonych do tworzenia jednego ujednoliconego abstrakcji enclaving dla deweloperów w celu tworzenia aplikacji opartych na tee. Oferuje on uniwersalny, bezpieczny model aplikacji, który minimalizuje specyfikę platformy. Firma Microsoft przegląda ją jako istotny dla siebie democratizing technologie enklawy, takie jak SGX i zwiększając ich pobór na platformie Azure.
 
 W przypadku programu OE są spełnione określone wymagania dotyczące weryfikacji dowodów enklawy. Dzięki temu klient usługi zaświadczania o wysokim stopniu dopasowania jest uważany za usługę zaświadczania o systemie Azure.
+
+### <a name="tpm-attestation"></a>Poświadczanie za pomocą modułu TPM 
+
+Zaświadczanie oparte na moduł TPM (TPM) ma kluczowe znaczenie dla zapewnienia dowodu stanu platformy. Moduł TPM pełni rolę główną zaufania i współprocesorem zabezpieczeń, aby zapewnić poprawność kryptograficzną dla pomiarów (dowodów). Urządzenia z modułem TPM mogą polegać na zaświadczeniu, aby udowodnić, że integralność rozruchowa nie została naruszona wraz z użyciem oświadczeń do wykrywania stanu funkcji w trakcie rozruchu. 
+
+Aplikacje klienckie można zaprojektować w taki sposób, aby korzystały z zaświadczania modułu TPM przez delegowanie zadań związanych z zabezpieczeniami, które są wykonywane tylko po zweryfikowaniu poprawności platformy pod kątem bezpieczeństwa. Takie aplikacje mogą następnie używać zaświadczania platformy Azure do rutynowego ustanawiania zaufania na platformie i uzyskiwania dostępu do poufnych danych.
 
 ## <a name="azure-attestation-can-run-in-a-tee"></a>Zaświadczanie platformy Azure może być uruchamiane w TEE
 

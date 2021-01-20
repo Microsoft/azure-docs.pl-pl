@@ -3,12 +3,12 @@ title: Przywracanie Managed Disks platformy Azure
 description: Dowiedz się, jak przywrócić Managed Disks platformy Azure z Azure Portal.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 043a10a7359c95529ff1c4dcc181ea4aba75cb5f
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 848a7476b1c5095d4e4d3156d4c7ce33da777090
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98558379"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611138"
 ---
 # <a name="restore-azure-managed-disks-in-preview"></a>Przywracanie Managed Disks platformy Azure (w wersji zapoznawczej)
 
@@ -65,6 +65,8 @@ Do wykonania operacji przywracania wymagane są następujące wymagania wstępne
     >Mimo że przypisania ról są poprawnie widoczne w portalu, może upłynąć około 15 minut, aby można było zastosować uprawnienie do tożsamości zarządzanej magazynu kopii zapasowych.
     >
     >Podczas zaplanowanych kopii zapasowych lub operacji tworzenia kopii zapasowej na żądanie Azure Backup przechowuje przyrostowe migawki dysku w grupie zasobów migawek podanej podczas konfigurowania kopii zapasowej dysku. Azure Backup używa tych migawek przyrostowych podczas operacji przywracania. Jeśli migawki zostaną usunięte lub przeniesione z grupy zasobów migawek lub przypisania roli magazynu kopii zapasowych zostaną odwołane w grupie zasobów migawka, operacja przywracania zakończy się niepowodzeniem.
+
+1. Jeśli dysk, który ma zostać przywrócony, jest szyfrowany za pomocą [kluczy zarządzanych przez klienta (CMK)](https://docs.microsoft.com/azure/virtual-machines/disks-enable-customer-managed-keys-portal) lub przy użyciu [podwójnego szyfrowania przy użyciu kluczy zarządzanych przez platformę i kluczy zarządzanych przez klienta](https://docs.microsoft.com/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal), przypisz uprawnienie roli **czytelnik** do zarządzanej tożsamości magazynu kopii zapasowych w ramach zasobu **zestawu szyfrowania dysku** .
 
 Po spełnieniu wymagań wstępnych wykonaj następujące kroki, aby wykonać operację przywracania.
 

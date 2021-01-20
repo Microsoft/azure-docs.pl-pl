@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/19/2020
-ms.openlocfilehash: 048068a74151bb986392b5cb27787385fc0f5363
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.date: 01/19/2021
+ms.openlocfilehash: 7013a4ab1becd6108d30d8369f1f72bcb3e55c37
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95315536"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611070"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Reguły zbierania danych w Azure Monitor (wersja zapoznawcza)
 Zasady zbierania danych (DCR) definiują dane wprowadzane do Azure Monitor i określają, gdzie mają być wysyłane lub przechowywane dane. Ten artykuł zawiera omówienie zasad zbierania danych, w tym ich zawartości i struktury, oraz sposobu tworzenia i pracy z nimi.
@@ -53,10 +53,20 @@ Aby uzyskać ograniczenia dotyczące poszczególnych reguł zbierania danych, zo
 
 
 ## <a name="create-a-dcr"></a>Tworzenie elementu DCR
-Obecnie istnieją dwie dostępne metody tworzenia DCR:
+Obecnie można użyć dowolnej z poniższych metod, aby utworzyć DCR:
 
 - [Użyj Azure Portal,](data-collection-rule-azure-monitor-agent.md) aby utworzyć regułę zbierania danych i skojarzyć ją z co najmniej jedną maszyną wirtualną.
 - Bezpośrednio Edytuj regułę zbierania danych w formacie JSON i [przesyłaj przy użyciu interfejsu API REST](/rest/api/monitor/datacollectionrules).
+- Utwórz DCR i skojarzenia przy użyciu [interfejsu wiersza polecenia platformy Azure](https://github.com/Azure/azure-cli-extensions/blob/master/src/monitor-control-service/README.md).
+- Utwórz DCR i skojarzenia przy użyciu Azure PowerShell.
+  - [Get-AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Get-AzDataCollectionRule.md)
+  - [New-AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/New-AzDataCollectionRule.md)
+  - [Set-AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Set-AzDataCollectionRule.md)
+  - [Update-AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Update-AzDataCollectionRule.md)
+  - [Remove-AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Remove-AzDataCollectionRule.md)
+  - [Get-AzDataCollectionRuleAssociation](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Get-AzDataCollectionRuleAssociation.md)
+  - [New-AzDataCollectionRuleAssociation](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/New-AzDataCollectionRuleAssociation.md)
+  - [Remove-AzDataCollectionRuleAssociation](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Remove-AzDataCollectionRuleAssociation.md)
 
 ## <a name="sample-data-collection-rule"></a>Zasada przykładowej zbierania danych
 Poniższa zasada zbierania danych przykładowych dotyczy maszyn wirtualnych z usługą Azure Management Agent i ma następujące szczegóły:

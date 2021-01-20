@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: 2ffe7c8994d32917a08896c7d25f20d4adf09066
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: a4a7b7a4008d5cc4636e2d533c225a618f35af05
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601896"
+ms.locfileid: "98611189"
 ---
 # <a name="troubleshooting-problems-in-itsm-connector"></a>Rozwiązywanie problemów w łączniku ITSM
 
@@ -57,7 +57,7 @@ Jeśli używasz Service Map, możesz wyświetlić elementy pomocy technicznej ut
    Szczegółowe informacje o komunikatach znajdują się w [tabeli.](itsmc-dashboard-errors.md)
    - Strona **przeszukiwania dzienników** : Wyświetl błędy i powiązane informacje bezpośrednio przy użyciu zapytania `*ServiceDeskLog_CL*` .
 
-## <a name="common-symptoms---how-it-should-be-resolved"></a>Często spotykane objawy — jak należy je rozwiązać?
+## <a name="common-symptoms---how-should-it-be-resolved"></a>Często spotykane objawy — jak należy je rozwiązać?
 
 Poniższa lista zawiera typowe objawy i sposób ich rozwiązywania:
 

@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z błędami kopii zapasowych na dysku Azure
 description: Informacje o rozwiązywaniu problemów z błędami kopii zapasowych w usłudze Kopia zapasowa Azure Disk
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 0a2ef1ea20ee8d6b7a3f32e244d3e00f3add80a2
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 3e7c81d70fc898528532a841a484bf6fff8b83a7
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98558839"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611240"
 ---
 # <a name="troubleshooting-backup-failures-in-azure-disk-backup-in-preview"></a>Rozwiązywanie problemów z błędami kopii zapasowych na dysku platformy Azure (wersja zapoznawcza)
 
@@ -153,12 +153,30 @@ Komunikat o błędzie: metadane migawki dysku dla tego punktu przywracania zosta
 
 Zalecana akcja: należy rozważyć użycie innego punktu odzyskiwania w celu przywrócenia. Aby uzyskać więcej informacji, zobacz [dokumentację dotyczącą przywracania](restore-managed-disks.md).
 
+### <a name="error-code-backupagentpluginhostvalidateprotectionerror"></a>Kod błędu: BackupAgentPluginHostValidateProtectionError
+
+Komunikat o błędzie: kopia zapasowa dysku nie jest jeszcze dostępna w regionie magazynu kopii zapasowych, w którym jest podejmowana próba skonfigurowania ochrony.
+
+Zalecana akcja: Magazyn kopii zapasowych musi znajdować się w regionie obsługiwanym w wersji zapoznawczej. Aby uzyskać dostęp do regionu, zobacz [Macierz obsługi](disk-backup-support-matrix.md).
+
+### <a name="error-code-usererrordppdatasourcealreadyhasbackupinstance"></a>Kod błędu: UserErrorDppDatasourceAlreadyHasBackupInstance
+
+Komunikat o błędzie: dysk, dla którego próbujesz skonfigurować kopię zapasową, jest już chroniony. Dysk jest już skojarzony z wystąpieniem kopii zapasowej w magazynie kopii zapasowych.
+
+Zalecana akcja: ten dysk jest już skojarzony z wystąpieniem kopii zapasowej w magazynie kopii zapasowych. Jeśli chcesz ponownie chronić ten dysk, Usuń wystąpienie kopii zapasowej z magazynu kopii zapasowych, w którym jest obecnie chronione, i ponownie Włącz ochronę dysku w innym magazynie.
+
+### <a name="error-code-usererrordppdatasourcealreadyprotected"></a>Kod błędu: UserErrorDppDatasourceAlreadyProtected
+
+Komunikat o błędzie: dysk, dla którego próbujesz skonfigurować kopię zapasową, jest już chroniony. Dysk jest już skojarzony z wystąpieniem kopii zapasowej w magazynie kopii zapasowych.
+
+Zalecana akcja: ten dysk jest już skojarzony z wystąpieniem kopii zapasowej w magazynie kopii zapasowych. Jeśli chcesz ponownie chronić ten dysk, Usuń wystąpienie kopii zapasowej z magazynu kopii zapasowych, w którym jest obecnie chronione, i ponownie Włącz ochronę dysku w innym magazynie.
+
 ### <a name="error-code-usererrormaxconcurrentoperationlimitreached"></a>Kod błędu: UserErrorMaxConcurrentOperationLimitReached
 
-Komunikat o błędzie: nie można rozpocząć operacji, ponieważ osiągnięto maksymalną dozwoloną liczbę równoczesnych operacji dla tego typu operacji.
+Komunikat o błędzie: nie można rozpocząć operacji, ponieważ osiągnięto maksymalną dozwoloną liczbę równoczesnych kopii zapasowych.
 
-Zalecana akcja: Poczekaj na zakończenie poprzednich operacji.
+Zalecana akcja: Poczekaj na zakończenie poprzedniej uruchomionej kopii zapasowej.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Macierz obsługi kopii zapasowych na dysku platformy Azure](disk-backup-support-matrix.md)
+- [Macierz obsługi kopii zapasowych dysków na platformie Azure](disk-backup-support-matrix.md)

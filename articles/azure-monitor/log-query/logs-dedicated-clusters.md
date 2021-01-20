@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 93b05a5535b80d0e0d1a07c88aa9b19052f1b703
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: a5cbbed3881433121f5ab811082969bc3c6c4f7f
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562679"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98609948"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor rejestruje dedykowane klastry
 
@@ -512,27 +512,25 @@ Aby usunąć klaster, użyj następującego wywołania REST:
 
 - Możesz połączyć obszar roboczy z klastrem, a następnie odłączyć go od siebie. Liczba operacji linku obszaru roboczego w określonym obszarze roboczym jest ograniczona do 2 w okresie 30 dni.
 
-- Link obszaru roboczego do klastra należy przeprowadzić dopiero po sprawdzeniu, czy zakończono Inicjowanie obsługi klastra Log Analytics. Dane wysyłane do obszaru roboczego przed ukończeniem zostaną usunięte i nie będzie można ich odzyskać.
-
 - Klaster przeniesiony do innej grupy zasobów lub subskrypcji nie jest obecnie obsługiwany.
-
-- Łącze obszaru roboczego do klastra zakończy się niepowodzeniem, jeśli jest ono połączone z innym klastrem.
 
 - Skrytka nie jest obecnie dostępna w Chinach. 
 
-- [Podwójne szyfrowanie](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) jest konfigurowane automatycznie w przypadku klastrów utworzonych z października 2020 w obsługiwanych regionach. Możesz sprawdzić, czy klaster jest skonfigurowany do podwójnego szyfrowania przez żądanie GET w klastrze i obserwując `"isDoubleEncryptionEnabled"` wartość właściwości — `true` dla klastrów z włączonym podwójnym szyfrowaniem. 
-  - Jeśli utworzysz klaster i wystąpi błąd "<regionu-Name> nie obsługuje podwójnego szyfrowania dla klastrów" ", można nadal utworzyć klaster bez podwójnego szyfrowania. Dodaj `"properties": {"isDoubleEncryptionEnabled": false}` Właściwość w treści żądania Rest.
+- [Podwójne szyfrowanie](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) jest konfigurowane automatycznie w przypadku klastrów utworzonych z października 2020 w obsługiwanych regionach. Można sprawdzić, czy klaster jest skonfigurowany do podwójnego szyfrowania, wysyłając żądanie GET w klastrze i obserwując, że `isDoubleEncryptionEnabled` wartość jest `true` w przypadku klastrów z włączonym podwójnym szyfrowaniem. 
+  - Jeśli utworzysz klaster i wystąpi błąd "<regionu-Name> nie obsługuje podwójnego szyfrowania klastrów" ", można nadal utworzyć klaster bez podwójnego szyfrowania, dodając `"properties": {"isDoubleEncryptionEnabled": false}` w treści żądania Rest.
   - Ustawienia podwójnego szyfrowania nie można zmienić po utworzeniu klastra.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 - W przypadku wystąpienia błędu konfliktu podczas tworzenia klastra — może to być, że klaster został usunięty w ciągu ostatnich 14 dni i jest w stanie usuwania nietrwałego. Nazwa klastra pozostaje zarezerwowana w okresie usuwania nietrwałego i nie można utworzyć nowego klastra o takiej nazwie. Nazwa jest wydawana po okresie usuwania nietrwałego, gdy klaster zostanie trwale usunięty.
 
-- Jeśli aktualizujesz klaster, gdy operacja jest w toku, operacja zakończy się niepowodzeniem.
+- Jeśli klaster zostanie zaktualizowany w trakcie aprowizacji lub aktualizowania stanu, aktualizacja zakończy się niepowodzeniem.
 
 - Niektóre operacje są długie i mogą chwilę potrwać — są to między innymi tworzenie klastra, Aktualizacja klucza klastra i usuwanie klastra. Stan operacji można sprawdzić na dwa sposoby:
   - W przypadku korzystania z usługi REST skopiuj wartość Azure-AsyncOperation adresu URL z odpowiedzi i postępuj zgodnie ze [sprawdzaniem stanu operacji asynchronicznych](#asynchronous-operations-and-status-check).
   - Wyślij żądanie GET do klastra lub obszaru roboczego i obserwuj odpowiedź. Na przykład niepołączony obszar roboczy nie będzie miał *clusterResourceId* w obszarze *funkcje*.
+
+- Łącze obszaru roboczego do klastra zakończy się niepowodzeniem, jeśli jest ono połączone z innym klastrem.
 
 - Komunikaty o błędach
   

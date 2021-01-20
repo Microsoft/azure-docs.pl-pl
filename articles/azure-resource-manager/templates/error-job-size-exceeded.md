@@ -2,17 +2,17 @@
 title: Błąd przekroczenia rozmiaru zadania
 description: Opisuje sposób rozwiązywania problemów, gdy rozmiar zadania lub szablon jest zbyt duży.
 ms.topic: troubleshooting
-ms.date: 10/07/2020
-ms.openlocfilehash: 638bdef246fc908ab997bfb99e7526febdb3792e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/19/2021
+ms.openlocfilehash: 1fde4918aff6e3bf494876f83c5b4313b3c5f3d2
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91822143"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610407"
 ---
 # <a name="resolve-errors-for-job-size-exceeded"></a>Rozwiązano błędy w przypadku przekroczenia rozmiaru zadania
 
-W tym artykule opisano sposób rozwiązywania błędów **JobSizeExceededException** i **DeploymentSizeExceededException** .
+W tym artykule opisano sposób rozwiązywania błędów **JobSizeExceededException** i **DeploymentJobSizeExceededException** .
 
 ## <a name="symptom"></a>Objaw
 
@@ -20,9 +20,12 @@ Podczas wdrażania szablonu pojawia się błąd informujący o przekroczeniu lim
 
 ## <a name="cause"></a>Przyczyna
 
-Ten błąd można uzyskać, gdy rozmiar szablonu przekracza 4 MB. Limit 4 MB ma zastosowanie do końcowego stanu szablonu po jego rozszerzeniu na definicje zasobów używające [kopiowania](copy-resources.md) do tworzenia wielu wystąpień. Ostatni stan zawiera również rozpoznane wartości zmiennych i parametrów.
+Ten błąd występuje, gdy wdrożenie przekroczy jeden z dozwolonych limitów. Zazwyczaj ten błąd jest wyświetlany, gdy szablon lub zadanie uruchamiające wdrożenie jest zbyt duże.
 
-Zadanie wdrażania zawiera również metadane dotyczące żądania. W przypadku dużych szablonów metadane połączone z szablonem mogą przekraczać dozwolony rozmiar zadania.
+Zadanie wdrażania nie może przekroczyć 1 MB. Zadanie zawiera metadane dotyczące żądania. W przypadku dużych szablonów metadane połączone z szablonem mogą przekraczać dozwolony rozmiar zadania.
+
+
+Ten szablon nie może przekroczyć 4 MB. Limit 4 MB ma zastosowanie do końcowego stanu szablonu po jego rozszerzeniu na definicje zasobów używające [kopiowania](copy-resources.md) do tworzenia wielu wystąpień. Ostatni stan zawiera również rozpoznane wartości zmiennych i parametrów.
 
 Inne limity dla szablonu są następujące:
 
@@ -44,4 +47,4 @@ Spróbuj skrócić długość nazw używanych dla [parametrów](template-paramet
 
 ## <a name="solution-3---use-serial-copy"></a>Rozwiązanie 3 — Korzystanie z kopii seryjnej
 
-Drugą opcją jest zmiana pętli kopiowania z [równoległe na przetwarzanie szeregowe](copy-resources.md#serial-or-parallel). Tej opcji należy używać tylko wtedy, gdy podejrzewasz, że błąd pochodzi z wdrażania dużej liczby zasobów za pośrednictwem kopiowania. Ta zmiana może znacząco zwiększyć czas wdrożenia, ponieważ zasoby nie są wdrażane równolegle.
+Rozważ zmianę pętli kopiowania z [równoległe na przetwarzanie szeregowe](copy-resources.md#serial-or-parallel). Tej opcji należy używać tylko wtedy, gdy podejrzewasz, że błąd pochodzi z wdrażania dużej liczby zasobów za pośrednictwem kopiowania. Ta zmiana może znacząco zwiększyć czas wdrożenia, ponieważ zasoby nie są wdrażane równolegle.

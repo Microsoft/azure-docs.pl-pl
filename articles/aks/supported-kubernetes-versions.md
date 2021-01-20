@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: ecea9dcd28aede92ef255bf002b9195ded43c68b
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 53093edb1d3c142336f06ec8544aaa7b55e37477
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296118"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611257"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Supported Kubernetes versions in Azure Kubernetes Service (AKS) (Obsługiwane wersje rozwiązania Kubernetes w usłudze Azure Kubernetes Service)
 
@@ -138,13 +138,14 @@ Aby uzyskać historię wcześniejszych wersji, zobacz [Kubernetes](https://en.wi
 
 |  Wersja K8s | Wersja nadrzędna  | AKS wersja zapoznawcza  | AKS GA  | Koniec okresu istnienia |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.16  | Wrz-19-19  | Sty 2019   | Mar 2020  | Sty 2021 * | 
+| 1.16  | Wrz-19-19  | Sty 2019   | Mar 2020  | Sty 2021| 
 | 1,17  | Gru-09-19  | Sty 2019   | Lip 2020  | 1,20 GA | 
 | 1,18  | Mar-23-20  | Maj 2020 r.   | 2020 sie  | 1,21 GA | 
 | 1,19  | Sie-04-20  | Wrz 2020   | Lis 2020  | 1,22 GA | 
 | 1,20  | Gru-08-20  | Sty 2021   | Mar 2021  | 1,23 GA |
+| 1,21  | Kwi-08-21 * | Maj 2021 r.   | Lip 2021  | 1,24 GA |
 
-\* Ze względu na sezon świąteczny AKS wydłużą okres istnienia 1,16 od listopada 2020 do 2021 stycznia. [Przeczytaj więcej](https://github.com/Azure/AKS/releases/tag/2020-10-12).
+\* Wersja Kubernetes 1,21 nadrzędnego może ulec zmianie jako kalendarz nadrzędny, ponieważ jest jeszcze gotowa.
 
 
 ## <a name="faq"></a>Często zadawane pytania

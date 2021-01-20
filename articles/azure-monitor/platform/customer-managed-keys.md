@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: 889ee48c43119086047d6f52737266f4c611fc8d
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: 6061980ec556fccde3de882a291bc390b88c5a24
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562747"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611087"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Klucz zarządzany przez klienta usługi Azure Monitor 
 
@@ -45,7 +45,7 @@ Po skonfigurowaniu klucza zarządzanego przez klienta nowe pozyskiwane dane do o
 
 ![Informacje o kluczu zarządzanym przez klienta](media/customer-managed-keys/cmk-overview.png)
 
-1. Usługa Key Vault
+1. Key Vault
 2. Log Analytics zasobu *klastra* mającego zarządzaną tożsamość z uprawnieniami do Key Vault — tożsamość jest propagowana do underlay dedykowanego log Analytics magazynu klastra
 3. Dedykowany klaster Log Analytics
 4. Obszary robocze połączone z zasobem *klastra* 
@@ -386,15 +386,11 @@ Klucz Customer-Managed jest udostępniany w dedykowanym klastrze i te operacje s
 
 ## <a name="limitations-and-constraints"></a>Ograniczenia i ograniczenia
 
-- Klucz zarządzany przez klienta jest obsługiwany w dedykowanym klastrze Log Analytics i jest przeznaczony dla klientów, którzy wysyłają 1 TB dziennie lub dłużej.
-
 - Maksymalna liczba klastrów na region i subskrypcja wynosi 2
 
-- Maksymalna liczba połączonych obszarów roboczych do klastra to 1000
+- Maksymalna liczba obszarów roboczych, które mogą być połączone z klastrem, to 1000
 
 - Możesz połączyć obszar roboczy z klastrem, a następnie odłączyć go od siebie. Liczba operacji linku obszaru roboczego w określonym obszarze roboczym jest ograniczona do 2 w okresie 30 dni.
-
-- Link obszaru roboczego do klastra należy przeprowadzić dopiero po sprawdzeniu, czy zakończono Inicjowanie obsługi klastra Log Analytics. Dane wysyłane do obszaru roboczego przed ukończeniem zostaną usunięte i nie będzie można ich odzyskać.
 
 - Szyfrowanie klucza zarządzanego przez klienta ma zastosowanie do nowo wprowadzonych danych po upływie czasu konfiguracji. Dane, które zostały wprowadzone przed rozpoczęciem konfiguracji, pozostają zaszyfrowane za pomocą klucza firmy Microsoft. Można wykonywać zapytania dotyczące danych pozyskiwanych przed bezproblemową konfiguracją klucza zarządzanego przez klienta i po nim.
 
@@ -404,14 +400,12 @@ Klucz Customer-Managed jest udostępniany w dedykowanym klastrze i te operacje s
 
 - Klaster przeniesiony do innej grupy zasobów lub subskrypcji nie jest obecnie obsługiwany.
 
-- Azure Key Vault, klaster i połączone obszary robocze muszą znajdować się w tym samym regionie i w tej samej dzierżawie Azure Active Directory (Azure AD), ale mogą znajdować się w różnych subskrypcjach.
-
-- Łącze obszaru roboczego do klastra zakończy się niepowodzeniem, jeśli jest ono połączone z innym klastrem.
+- Azure Key Vault, klaster i obszary robocze muszą znajdować się w tym samym regionie i w tej samej dzierżawie Azure Active Directory (Azure AD), ale mogą znajdować się w różnych subskrypcjach.
 
 - Skrytka nie jest obecnie dostępna w Chinach. 
 
-- [Podwójne szyfrowanie](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) jest konfigurowane automatycznie w przypadku klastrów utworzonych z października 2020 w obsługiwanych regionach. Możesz sprawdzić, czy klaster jest skonfigurowany do podwójnego szyfrowania przez żądanie GET w klastrze i obserwując `"isDoubleEncryptionEnabled"` wartość właściwości — `true` dla klastrów z włączonym podwójnym szyfrowaniem. 
-  - Jeśli utworzysz klaster i wystąpi błąd "<regionu-Name> nie obsługuje podwójnego szyfrowania dla klastrów" ", można nadal utworzyć klaster bez podwójnego szyfrowania. Dodaj `"properties": {"isDoubleEncryptionEnabled": false}` Właściwość w treści żądania Rest.
+- [Podwójne szyfrowanie](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) jest konfigurowane automatycznie w przypadku klastrów utworzonych z października 2020 w obsługiwanych regionach. Można sprawdzić, czy klaster jest skonfigurowany do podwójnego szyfrowania, wysyłając żądanie GET w klastrze i obserwując, że `isDoubleEncryptionEnabled` wartość jest `true` w przypadku klastrów z włączonym podwójnym szyfrowaniem. 
+  - Jeśli utworzysz klaster i wystąpi błąd "<regionu-Name> nie obsługuje podwójnego szyfrowania klastrów" ", można nadal utworzyć klaster bez podwójnego szyfrowania, dodając `"properties": {"isDoubleEncryptionEnabled": false}` w treści żądania Rest.
   - Ustawienia podwójnego szyfrowania nie można zmienić po utworzeniu klastra.
 
   - Jeśli klaster jest ustawiony przy użyciu tożsamości zarządzanej przypisanej przez użytkownika, ustawienie `UserAssignedIdentities` with `None` zawiesza klaster i uniemożliwia dostęp do danych, ale nie można cofnąć odwołania i aktywować klastra bez otwierania żądania obsługi. To ograniczenie jest ' zostało zastosowane do zarządzanej tożsamości przypisanej do systemu.
@@ -429,13 +423,15 @@ Klucz Customer-Managed jest udostępniany w dedykowanym klastrze i te operacje s
 
   - Key Vault szybkość dostępu — częstotliwość, z jaką Azure Monitor dostęp do magazynu Key Vault dla operacji zawijania i rozwinięcia, wynosi od 6 do 60 sekund.
 
-- Jeśli utworzysz klaster i KeyVaultProperties od razu, operacja może się nie powieść, ponieważ nie można zdefiniować zasad dostępu do momentu przypisania tożsamości systemu do klastra.
-
-- W przypadku aktualizacji istniejącego klastra z KeyVaultProperties i braku zasad dostępu do klucza "Get" w Key Vault operacja zakończy się niepowodzeniem.
+- Jeśli klaster zostanie zaktualizowany w trakcie aprowizacji lub aktualizowania stanu, aktualizacja zakończy się niepowodzeniem.
 
 - W przypadku wystąpienia błędu konfliktu podczas tworzenia klastra — może być to, że klaster został usunięty w ciągu ostatnich 14 dni i jest w okresie usuwania nietrwałego. Nazwa klastra pozostaje zarezerwowana w okresie usuwania nietrwałego i nie można utworzyć nowego klastra o takiej nazwie. Nazwa jest wydawana po okresie usuwania nietrwałego, gdy klaster zostanie trwale usunięty.
 
-- Jeśli aktualizujesz klaster, gdy operacja jest w toku, operacja zakończy się niepowodzeniem.
+- Łącze obszaru roboczego do klastra zakończy się niepowodzeniem, jeśli jest ono połączone z innym klastrem.
+
+- Jeśli utworzysz klaster i KeyVaultProperties od razu, operacja może się nie powieść, ponieważ nie można zdefiniować zasad dostępu do momentu przypisania tożsamości systemu do klastra.
+
+- W przypadku aktualizacji istniejącego klastra z KeyVaultProperties i braku zasad dostępu do klucza "Get" w Key Vault operacja zakończy się niepowodzeniem.
 
 - Jeśli klaster nie zostanie wdrożony, sprawdź, czy Azure Key Vault, klaster i połączone Log Analytics obszary robocze znajdują się w tym samym regionie. Mogą znajdować się w różnych subskrypcjach.
 

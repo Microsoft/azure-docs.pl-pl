@@ -7,12 +7,12 @@ ms.date: 01/07/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 52872175eb799785674c331ad4d687ff8ef427a4
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: e53bf377a7ef8f2293debd288ba25ef8f04ff4fc
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134283"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611002"
 ---
 # <a name="how-to-use-commands-in-an-azure-iot-central-solution"></a>Jak używać poleceń w rozwiązaniu IoT Central platformy Azure
 
@@ -248,6 +248,9 @@ Dane wyjściowe poprzedniego fragmentu kodu przedstawiają ładunek z wartościa
 Body: {"StartTime":"2021-01-06T06:00:00.000Z","Bank":2}
 Properties: {"propertyList":[{"key":"iothub-ack","value":"none"},{"key":"method-name","value":"GenerateDiagnostics"}]}
 ```
+
+> [!NOTE]
+> Domyślny czas wygaśnięcia polecenia w trybie offline wynosi 24 godziny, po upływie którego wiadomość wygaśnie.
 
 ## <a name="next-steps"></a>Następne kroki
 

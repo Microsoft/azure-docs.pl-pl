@@ -11,26 +11,28 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to,automl,contperf-fy21q2
 ms.date: 12/18/2020
-ms.openlocfilehash: 5fcb57d1ef909d7c15e21b34c3f584c6615a6a44
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: c90ef9fe49a87c18c7f4f55175bafaebfd31d722
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134419"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610305"
 ---
 # <a name="data-featurization-in-automated-machine-learning"></a>Cechowania danych w zautomatyzowanej usłudze Machine Learning
 
-
-
-Dowiedz się więcej na temat ustawień cechowania danych w Azure Machine Learning i sposobu dostosowywania tych funkcji do [zautomatyzowanych eksperymentów z ml](concept-automated-ml.md).
+Dowiedz się więcej na temat ustawień cechowania danych w Azure Machine Learning i sposobu dostosowywania tych funkcji do [zautomatyzowanych eksperymentów usługi Machine Learning](concept-automated-ml.md).
 
 ## <a name="feature-engineering-and-featurization"></a>Inżynieria funkcji i cechowania
 
-*Inżynieria funkcji* to proces używania znajomości domeny danych w celu tworzenia funkcji, które pomagają algorytmom uczenia maszynowego (ml) do lepszego uczenia się. W Azure Machine Learning są stosowane techniki skalowania i normalizacji danych, które ułatwiają inżynierom funkcji. Wspólnie te techniki i inżynieria funkcji są nazywane *cechowania* w zautomatyzowanym uczeniu maszynowym lub *autoML*.
+Dane szkoleniowe składają się z wierszy i kolumn. Każdy wiersz jest obserwacją lub rekordem, a kolumny każdego wiersza są funkcjami opisującymi każdy rekord. Zazwyczaj funkcje, które najlepiej charakteryzują wzorce w danych są wybrane do tworzenia modeli predykcyjnych.
+
+Chociaż wiele pól danych pierwotnych można używać bezpośrednio do uczenia modelu, często konieczne jest utworzenie dodatkowych (wbudowanych) funkcji, które dostarczają informacji, które lepiej odróżniają wzorce w danych. Ten proces jest nazywany **inżynierią funkcji**, gdzie wykorzystanie znajomości domeny danych jest używane do tworzenia funkcji, które z kolei pomagają algorytmom uczenia maszynowego w celu lepszego uczenia się. 
+
+W Azure Machine Learning są stosowane techniki skalowania i normalizacji danych, które ułatwiają inżynierom funkcji. Wspólnie te techniki i inżynieria funkcji są nazywane **cechowania** w zautomatyzowanych eksperymentach ml.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym artykule przyjęto założenie, że już wiesz, jak skonfigurować eksperyment AutoML. Informacje o konfiguracji można znaleźć w następujących artykułach:
+W tym artykule założono, że wiesz już, jak skonfigurować zautomatyzowany eksperyment z tablicą. Informacje o konfiguracji można znaleźć w następujących artykułach:
 
 - W przypadku środowiska pierwszego kodu: [Skonfiguruj zautomatyzowane eksperymenty ml przy użyciu zestawu SDK Azure Machine Learning dla języka Python](how-to-configure-auto-train.md).
 - W przypadku środowiska o małym kodzie lub bez kodu: [Twórz, Przeglądaj i wdrażaj automatyczne modele uczenia maszynowego za pomocą programu Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md).
@@ -59,7 +61,7 @@ W poniższej tabeli przedstawiono zaakceptowane ustawienia dla `featurization` [
 Poniższa tabela zawiera podsumowanie technik, które są automatycznie stosowane do danych. Te techniki są stosowane do eksperymentów skonfigurowanych za pomocą zestawu SDK lub Studio. Aby wyłączyć to zachowanie, ustaw `"featurization": 'off'` w `AutoMLConfig` obiekcie.
 
 > [!NOTE]
-> Jeśli planujesz eksportować modele utworzone przez AutoML do [modelu ONNX](concept-onnx.md), w formacie ONNX są obsługiwane tylko opcje cechowania oznaczone gwiazdką ("*"). Dowiedz się więcej o [konwertowaniu modeli na ONNX](concept-automated-ml.md#use-with-onnx).
+> Jeśli planujesz eksportować modele utworzone przez AutoML do [modelu ONNX](concept-onnx.md), w formacie ONNX są obsługiwane tylko opcje cechowania oznaczone gwiazdką ("*"). Dowiedz się więcej o [konwertowaniu modeli na ONNX](how-to-use-automl-onnx-model-dotnet.md).
 
 |Cechowania &nbsp; kroki| Opis |
 | ------------- | ------------- |

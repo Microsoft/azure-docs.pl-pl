@@ -9,12 +9,12 @@ ms.custom:
 - references_regions
 - fasttrack-edit
 - devx-track-azurecli
-ms.openlocfilehash: d944512e5f6126920ab4fba99fb70513b93177ba
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 26dd3f7df5a71c687bfb4935f290e7a54b4e01fe
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936825"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610271"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan Azure Functions Premium
 
@@ -142,7 +142,7 @@ az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-inst
 
 Podczas tworzenia lub skalowania planu można wybrać jeden z trzech rozmiarów wystąpień. Opłaty są naliczane za łączną liczbę rdzeni i pamięci, która została przypisana do każdego wystąpienia. Aplikacja może automatycznie skalować w poziomie do wielu wystąpień stosownie do potrzeb.
 
-|Jednostka SKU|Rdzenie|Pamięć|Magazyn|
+|Jednostka SKU|Rdzenie|Pamięć|Storage|
 |--|--|--|--|
 |EP1|1|3,5 GB|250|
 |EP2|2|7GB|250|
@@ -153,6 +153,8 @@ Podczas tworzenia lub skalowania planu można wybrać jeden z trzech rozmiarów 
 Uruchamianie na komputerze z większą ilością pamięci nie zawsze oznacza, że aplikacja funkcji korzysta ze wszystkich dostępnych pamięci.
 
 Na przykład aplikacja funkcji JavaScript jest ograniczona przez domyślny limit pamięci w Node.js. Aby zwiększyć ten limit pamięci ustalonej, Dodaj ustawienie aplikacji `languageWorkers:node:arguments` z wartością `--max-old-space-size=<max memory in MB>` .
+
+W przypadku planów mających więcej niż 4 GB pamięci upewnij się, że ustawienie platformy bitów jest ustawione na `64 Bit` [Ustawienia ogólne](/azure/app-service/configure-common#configure-general-settings).
 
 ## <a name="region-max-scale-out"></a>Maksymalny rozmiar regionu w poziomie
 

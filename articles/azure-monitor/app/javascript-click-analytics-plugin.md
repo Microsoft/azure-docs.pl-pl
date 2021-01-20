@@ -8,20 +8,20 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: lagayhar
-ms.openlocfilehash: e69d5cc76f8f4b14ab87e13546c98859bb801418
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 7af26be91ff129e4c968bcb131cc98290cd8d7b9
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234847"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610084"
 ---
 # <a name="click-analytics-auto-collection-plugin-for-application-insights-javascript-sdk"></a>Kliknij opcję wtyczka Autocollection Analytics dla Application Insights JavaScript SDK
 
-Kliknij opcję wtyczka automatycznej kolekcji analizy dla Application Insights JavaScript SDK, umożliwiając automatyczne śledzenie zdarzeń kliknięcia na stronach sieci Web na podstawie `data-*` tagów Meta. Ta wtyczka używa `data-*` atrybutów globalnych do przechwytywania zdarzeń kliknięcia i wypełniania danych telemetrycznych.
+Ta wtyczka automatycznie śledzi zdarzenia klikania na stronach sieci Web i używa atrybutów danych * dla elementów HTML do wypełniania telemetrii zdarzeń.
 
 ## <a name="getting-started"></a>Wprowadzenie
 
-Użytkownicy mogą skonfigurować wtyczkę funkcji autokolekcjonowania usługi analizy za pośrednictwem npm.
+Użytkownicy mogą skonfigurować wtyczkę do samozbierania danych analitycznych za pośrednictwem npm.
 
 ### <a name="npm-setup"></a>Konfiguracja npm
 
@@ -77,7 +77,7 @@ appInsights.loadAppInsights();
     - Nazwa nie może zawierać żadnych średników (U + 003A).
     - Nazwa nie może zawierać wielkich liter.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 | Nazwa                  | Typ                               | Domyślne | Opis                                                                                                                              |
 | --------------------- | -----------------------------------| --------| ---------------------------------------------------------------------------------------------------------------------------------------- |
@@ -101,19 +101,19 @@ appInsights.loadAppInsights();
 
 ### <a name="icustomdatatags"></a>ICustomDataTags
 
-| Nazwa                      | Typ    | Domyślne   | Opis                                                                                       |
-|---------------------------|---------|-----------|---------------------------------------------------------------------------------------------------|
-| useDefaultContentNameOrId | boolean | fałsz     | Jeśli określony element nie jest oznaczony jako default customDataPrefix lub customDataPrefix nie jest dostarczany przez użytkownika, ta flaga służy do zbierania standardowego atrybutu HTML dla elementu contentname. |
-| customDataPrefix          | ciąg  | `data-`   | Automatyczne przechwytywanie nazwy zawartości i wartości elementów oznaczonych za pomocą podanego prefiksu.       |
-| aiBlobAttributeTag        | ciąg  | `ai-blob` | Wtyczka obsługuje tagowanie metadanych zawartości obiektu BLOB JSON zamiast poszczególnych `data-*` atrybutów. |
-| metaDataPrefix            | ciąg  | null      | Automatycznie Przechwytuj nazwę i zawartość elementu meta nagłówka HTML z dostarczonym prefiksem. |
-| captureAllMetaDataContent | ciąg  | null      | Automatycznie Przechwytuj nazwy i treści elementu meta nagłówka HTML. Wartość domyślna to false. Jeśli ta funkcja zostanie włączona, przesłonimy podane metaDataPrefix. |
-| parentDataTag             | ciąg  | null      | Przerywa przechodzenie modelu DOM w celu przechwycenia nazwy zawartości i wartości elementów w przypadku napotkania tego tagu.|
-| dntDataTag                | ciąg  | `ai-dnt`  | Elementy HTML z tym atrybutem będą ignorowane przez wtyczkę do przechwytywania danych telemetrycznych.|
+| Nazwa                      | Typ    | Domyślne   | Domyślny tag do użycia w kodzie HTML |   Opis                                                                                |
+|---------------------------|---------|-----------|-------------|----------------------------------------------------------------------------------------------|
+| useDefaultContentNameOrId | boolean | fałsz     | Brak         |Gromadzi informacje o standardowym atrybucie HTML dla elementu contentname, gdy określony element nie jest oznaczony jako default customDataPrefix lub gdy customDataPrefix nie jest podany przez użytkownika. |
+| customDataPrefix          | ciąg  | `data-`   | `data-*`| Automatyczne przechwytywanie nazwy zawartości i wartości elementów oznaczonych za pomocą podanego prefiksu. Na przykład `data-*-id` , `data-<yourcustomattribute>` można użyć w tagach HTML.   |
+| aiBlobAttributeTag        | ciąg  | `ai-blob` |  `data-ai-blob`| Wtyczka obsługuje atrybut obiektu BLOB JSON zamiast poszczególnych `data-*` atrybutów. |
+| metaDataPrefix            | ciąg  | null      | Nie dotyczy  | Automatycznie Przechwytuj nazwę i zawartość elementu meta nagłówka HTML z dostarczonym prefiksem podczas przechwytywania. Na przykład, `custom-` może być używany w tagu Meta html. |
+| captureAllMetaDataContent | boolean | fałsz     | Brak   | Automatycznie Przechwytuj nazwy i treści elementu meta nagłówka HTML. Wartość domyślna to false. Jeśli ta funkcja zostanie włączona, przesłonimy podane metaDataPrefix. |
+| parentDataTag             | ciąg  | null      |  Nie dotyczy  | Przerywa przechodzenie modelu DOM w celu przechwycenia nazwy zawartości i wartości elementów w przypadku napotkania tego tagu. Na przykład, `data-<yourparentDataTag>` może być używany w TAGACH html.|
+| dntDataTag                | ciąg  | `ai-dnt`  |  `data-ai-dnt`| Elementy HTML z tym atrybutem będą ignorowane przez wtyczkę do przechwytywania danych telemetrycznych.|
 
 ### <a name="behaviorvalidator"></a>behaviorValidator
 
-Możesz użyć funkcji behaviorValidator, gdy chcesz zapewnić spójność danych, chociaż sprawdzają, czy otagowane zachowania w kodzie są zgodne ze wstępnie zdefiniowaną listą znanych i zaakceptowanych taksonomii w przedsiębiorstwie. Nie jest to wymagane ani oczekuje się, że większość Azure Monitor klienci będą korzystać z tej usługi, ale jest ona dostępna dla zaawansowanych scenariuszy. W ramach tego rozszerzenia dostępne są trzy różne funkcje wywołania zwrotnego behaviorValidator. Jednak użytkownicy mogą korzystać z własnych funkcji wywołania zwrotnego, jeśli widoczne funkcje nie rozwiązują wymagań. Celem jest przeprowadzenie własnej struktury danych zachowań, Wtyczka używa tej funkcji do sprawdzania poprawności podczas wyodrębniania zachowań ze znaczników danych.
+Funkcje behaviorValidator automatycznie sprawdzają, czy otagowane zachowania w kodzie są zgodne ze wstępnie zdefiniowaną listą. Zapewnia to spójność oznakowanych zachowań z ustaloną taksonomią przedsiębiorstwa. Nie jest to wymagane ani oczekuje się, że większość Azure Monitor klienci będą korzystać z tej usługi, ale jest ona dostępna dla zaawansowanych scenariuszy. W ramach tego rozszerzenia dostępne są trzy różne funkcje wywołania zwrotnego behaviorValidator. Jednak użytkownicy mogą korzystać z własnych funkcji wywołania zwrotnego, jeśli widoczne funkcje nie rozwiązują wymagań. Celem jest przeprowadzenie własnej struktury danych zachowań, Wtyczka używa tej funkcji do sprawdzania poprawności podczas wyodrębniania zachowań ze znaczników danych.
 
 | Nazwa                   | Opis                                                                        |
 | ---------------------- | -----------------------------------------------------------------------------------|
@@ -312,6 +312,7 @@ appInsights.loadAppInsights();
 
 ## <a name="next-steps"></a>Następne kroki
 
+- Zapoznaj się z [repozytorium GitHub](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) i [pakietem npm](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) dla wtyczki kliknij pozycję analiza Autocollection.
 - [Analiza zdarzeń w środowisku użycia](usage-segmentation.md) służy do analizowania górnych kliknięć i wycinków według dostępnych wymiarów.
 - Znajdź pozycję dane w obszarze pole zawartości w atrybucie customDimensions w tabeli CustomEvents w [log Analytics](../log-query/log-analytics-tutorial.md#write-a-query).
 - Utwórz [skoroszyt](../platform/workbooks-overview.md) , aby utworzyć niestandardowe wizualizacje danych do kliknięcia.

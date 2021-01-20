@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 434917c1cee26a4a8eeb7f27808e3fcb487f3f55
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: aac0139e09866ce44d25989119b2eafb31e76961
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350045"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610458"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Uzyskiwanie dostępu do dzienników diagnostycznych dla Azure Data Lake Storage Gen1
 Dowiedz się, jak włączyć rejestrowanie diagnostyczne dla konta Azure Data Lake Storage Gen1 i jak wyświetlić dzienniki zebrane dla Twojego konta.
@@ -136,6 +136,8 @@ Oto przykładowy wpis w dzienniku żądań w formacie JSON. Każdy obiekt BLOB m
 | Identyfikatorem żądania klienta |Ciąg |Identyfikator, który jednoznacznie identyfikuje to żądanie |
 | StartTime |Ciąg |Godzina, o której serwer odebrał żądanie |
 | EndTime |Ciąg |Godzina, o której serwer wysłał odpowiedź |
+| StoreIngressSize |Długo |Rozmiar w bajtach ingressed do Data Lake Store |
+| StoreEgressSize |Długo |Rozmiar w bajtach egressed od Data Lake Store |
 
 ### <a name="audit-logs"></a>Dzienniki inspekcji
 Oto przykładowy wpis w dzienniku inspekcji w formacie JSON. Każdy obiekt BLOB ma jeden element główny o nazwie **Records** zawierający tablicę obiektów dziennika

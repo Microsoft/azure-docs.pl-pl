@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 5d160c46b235c6890426cab9de52ec7b827efe4a
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 37753265afa7e76e87dbcdc5893595bea66798f4
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750717"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610254"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Przygotowywanie aplikacji do wdrożenia w chmurze Azure wiosennej
 
@@ -146,40 +146,14 @@ Chmura sprężynowa platformy Azure obsługuje tylko aplikacje do rozruchu sprę
 
 Wersja sprężyny rozruchowej | Wersja chmury wiosennej
 ---|---
-2.1 | Greenwich. RELEASE
 2.2 | Hoxton.SR8
 2.3 | Hoxton.SR8
+2.4.1 + | 2020.0.0
 
 > [!NOTE]
-> Zidentyfikowano problem związany z rozruchem wiosny 2,4 na potrzeby uwierzytelniania TLS między aplikacjami i Eureka i pracujemy obecnie ze społecznością wiosenną w celu jej rozwiązania. Zapoznaj się z naszymi [często zadawanymi pytaniami](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-faq?pivots=programming-language-java#development) dotyczącymi obejścia.
+> Zidentyfikowano problem związany z rozruchem wiosny 2.4.0 na uwierzytelniania TLS między aplikacjami i Eureka, należy użyć 2.4.1 lub nowszej. Zapoznaj się z naszymi [często zadawanymi pytaniami](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-faq?pivots=programming-language-java#development) , jeśli nie jesteś w korzystaniu z usługi 2.4.0.
 
-### <a name="dependencies-for-spring-boot-version-21"></a>Zależności w przypadku rozruchu sprężynowego w wersji 2,1
-
-W przypadku rozruchu sprężynowego w wersji 2,1 Dodaj następujące zależności do pliku pliku pom aplikacji.
-
-```xml
-    <!-- Spring Boot dependencies -->
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.12.RELEASE</version>
-    </parent>
-
-    <!-- Spring Cloud dependencies -->
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Greenwich.RELEASE</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-```
-
-### <a name="dependencies-for-spring-boot-version-22"></a>Zależności w przypadku rozruchu sprężynowego w wersji 2,2
+### <a name="dependencies-for-spring-boot-version-2223"></a>Zależności dotyczące rozruchu sprężynowego 2.2/2.3
 
 W przypadku rozruchu sprężynowego w wersji 2,2 Dodaj następujące zależności do pliku pliku pom aplikacji.
 
@@ -204,16 +178,17 @@ W przypadku rozruchu sprężynowego w wersji 2,2 Dodaj następujące zależnośc
         </dependencies>
     </dependencyManagement>
 ```
-### <a name="dependencies-for-spring-boot-version-23"></a>Zależności w przypadku rozruchu sprężynowego w wersji 2,3
 
-W przypadku rozruchu sprężynowego w wersji 2,3 Dodaj następujące zależności do pliku pliku pom aplikacji.
+### <a name="dependencies-for-spring-boot-version-24"></a>Zależności w przypadku rozruchu sprężynowego w wersji 2,4
+
+W przypadku rozruchu sprężynowego w wersji 2,2 Dodaj następujące zależności do pliku pliku pom aplikacji.
 
 ```xml
     <!-- Spring Boot dependencies -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.0.RELEASE</version>
+        <version>2.4.1.RELEASE</version>
     </parent>
 
     <!-- Spring Cloud dependencies -->
@@ -222,34 +197,14 @@ W przypadku rozruchu sprężynowego w wersji 2,3 Dodaj następujące zależnośc
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.SR8</version>
+                <version>2020.0.0</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
 ```
-## <a name="azure-spring-cloud-client-dependency"></a>Zależność klienta chmury ze sprężyną Azure
 
-Usługa Azure wiosny Cloud hostuje i zarządza składnikami chmury Wiosnowej. Składniki obejmują rejestr usługi w chmurze ze sprężyną i wiosną serwerów konfiguracji chmury. Zalecane jest użycie sprężyny Boot 2,2 lub 2,3. W przypadku rozruchu sprężynowego 2,1 należy uwzględnić w zależnoście bibliotekę kliencką chmury Azure wiosny, aby umożliwić komunikację z wystąpieniem usługi w chmurze ze sprężyną na platformie Azure.
-
-W poniższej tabeli wymieniono prawidłowe wersje chmurowe platformy Azure dla aplikacji, które korzystają z chmury rozruchowej i sprężyny.
-
-Wersja sprężyny rozruchowej | Wersja chmury wiosennej | Wersja początkowa klienta usługi Azure wiosny Cloud
----|---|---
-2.1. x | Greenwich. RELEASE | 2.1.2
-2.2. x | Hoxton.SR8 | Nie jest wymagany
-2.3. x | Hoxton.SR8 | Nie jest wymagany
-
-Jeśli używasz sieci z rozruchem sprężynowym 2,1, Dołącz następujący dependenciy do pliku pom.xml.
-
-```xml
-<dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.1.2</version>
-</dependency>
-```
 > [!WARNING]
 > Nie określaj `server.port` w konfiguracji. Chmura sprężynowa platformy Azure będzie overide to ustawienie na stały numer portu. Należy również przestrzegać tego ustawienia i nie określać portu serwera w kodzie.
 
@@ -329,6 +284,9 @@ Uwzględnij `spring-boot-starter-actuator` zależność w sekcji zależności pl
 
 ### <a name="distributed-tracing"></a>Śledzenie rozproszone
 
+Musisz również włączyć wystąpienie usługi Azure Application Insights, aby współpracowało z wystąpieniem usług w chmurze sieci Azure ze sprężyną. Aby uzyskać informacje o sposobach używania Application Insights z chmurą Azure wiosennej, zapoznaj się z [dokumentacją śledzenia rozproszonego](spring-cloud-tutorial-distributed-tracing.md).
+
+#### <a name="spring-boot-2223"></a>Rozruch z sprężyną 2.2/2.3
 Uwzględnij poniższe `spring-cloud-starter-sleuth` i `spring-cloud-starter-zipkin` zależności w sekcji zależności pliku pom.xml:
 
 ```xml
@@ -342,9 +300,17 @@ Uwzględnij poniższe `spring-cloud-starter-sleuth` i `spring-cloud-starter-zipk
 </dependency>
 ```
 
- Musisz również włączyć wystąpienie usługi Azure Application Insights, aby współpracowało z wystąpieniem usług w chmurze sieci Azure ze sprężyną. Aby uzyskać informacje o sposobach używania Application Insights z chmurą Azure wiosennej, zapoznaj się z [dokumentacją śledzenia rozproszonego](spring-cloud-tutorial-distributed-tracing.md).
+#### <a name="spring-boot-24"></a>Rozruch z sprężyną 2,4
+`spring-cloud-sleuth-zipkin`W sekcji zależności pliku pom.xml Uwzględnij następującą zależność:
 
-## <a name="see-also"></a>Zobacz także
+```xml
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-sleuth-zipkin</artifactId>
+</dependency>
+```
+
+## <a name="see-also"></a>Zobacz też
 * [Analizowanie dzienników i metryk aplikacji](./diagnostic-services.md)
 * [Konfigurowanie serwera konfiguracji](./spring-cloud-tutorial-config-server.md)
 * [Korzystanie z rozproszonego śledzenia w chmurze Azure wiosennej](./spring-cloud-tutorial-distributed-tracing.md)

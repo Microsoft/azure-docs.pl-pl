@@ -7,16 +7,18 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e5cc3b5fb7ca38df196119de12d346f5d0346b58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53052b35a50899d6f9e761301f31b9ffd20a4b91
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91346085"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610016"
 ---
-# <a name="virtualization-based-security-vbs-attestation-protocol"></a>Protokół zaświadczania zabezpieczeń oparty na wirtualizacji (VBS) 
+# <a name="trusted-platform-module-tpm-and-virtualization-based-securityvbs-enclave-attestation-protocol"></a>Moduł TPM (TPM) i zabezpieczenia oparte na wirtualizacji (VBS) enklawy — protokół zaświadczania 
 
-W przypadku Microsoft Azure zaświadczania o silnych gwarancjach bezpieczeństwa, że dane, które są raportowane są autentyczne, jest wymagane do utworzenia łańcucha zaufania od oprogramowania układowego do uruchamiania funkcji hypervisor i bezpiecznego jądra. Aby osiągnąć to zaświadczenie platformy Azure, należy zaświadczać o stanie rozruchu maszyny, zanim będziemy mogli ustanowić zaufanie w bezpiecznej enklawy. System operacyjny, funkcja hypervisor i bezpieczne pliki binarne jądra muszą być podpisane przez poprawne oficjalne urzędy firmy Microsoft i skonfigurowane w bezpieczny sposób. Po powiązaniu zaufania między moduł TPM (TPM) i kondycją funkcji hypervisor można zaufać IDKS VBS w mierzonym dzienniku rozruchowym. Dzięki temu można sprawdzić, czy para kluczy została wygenerowana przez enklawy i mennic raport zaświadczania, który wiąże zaufanie w tym kluczu i zawiera inne oświadczenia, takie jak poziom zabezpieczeń i właściwości zaświadczania rozruchu.
+Microsoft Azure zaświadczania, aby zapewnić silną gwarancję bezpieczeństwa, polega na sprawdzeniu, czy łańcuch zaufania jest utrzymywany z poziomu głównego zaufania (TPM) do uruchamiania funkcji hypervisor i bezpiecznego jądra. Aby osiągnąć to zaświadczenie platformy Azure, należy zaświadczać o stanie rozruchu maszyny, zanim będziemy mogli ustanowić zaufanie w bezpiecznej enklawy. System operacyjny, funkcja hypervisor i bezpieczne pliki binarne jądra muszą być podpisane przez odpowiednie oficjalne urzędy firmy Microsoft i skonfigurowane w bezpieczny sposób. Po powiązaniu zaufania między moduł TPM (TPM) i kondycją funkcji hypervisor firma Microsoft może ufać zabezpieczeniom opartym na wirtualizacji (VBS) enklawy IDKs dostarczonym w mierzonym dzienniku rozruchu, dzięki czemu możemy sprawdzić, czy para kluczy została wygenerowana przez enklawy i mennic raport zaświadczania, który wiąże zaufanie w tym kluczu i zawiera inne oświadczenia, takie jak właściwości poziomu zabezpieczeń i zaświadczania rozruchu. 
+
+VBS enclaves wymaga, aby moduł TPM zapewniał pomiar do sprawdzania poprawności podstawy zabezpieczeń. VBS enclaves są zaświadczone przez punkt końcowy modułu TPM z dodaniem do obiektu żądania w protokole. 
 
 ## <a name="protocol-messages"></a>Komunikaty protokołu
 
@@ -29,9 +31,9 @@ Zaświadczanie klienta > platformy Azure
 #### <a name="payload"></a>Ładunku
 
 ```
-{
-  "type": "aikcert"
-}
+{ 
+  "type": "aikcert" 
+} 
 ```
 
 "Type" (ciąg ASCII): reprezentuje typ żądanego zaświadczania. Obecnie obsługiwana jest tylko wartość "aikcert".
@@ -45,18 +47,15 @@ Zaświadczanie platformy Azure — klient >
 #### <a name="payload"></a>Ładunku
 
 ```
-{
-
-  "challenge": "<BASE64URL(CHALLENGE)>",
-  
-  "service_context": "<BASE64URL(SERVICECONTEXT)>"
-  
-}
+{ 
+  "challenge": "<BASE64URL(CHALLENGE)>", 
+  "service_context": "<BASE64URL(SERVICECONTEXT)>" 
+} 
 ```
 
 **Challenge** (BASE64URL (octets)): wartość losowa wystawiona przez usługę.
 
-**service_context** (BASE64URL (octets)): nieprzezroczysty, szyfrowany kontekst utworzony przez usługę, w tym między innymi, wyzwanie i czas wygaśnięcia dla tego wyzwania.
+**service_context** (BASE64URL (octets)): nieprzezroczysty, zaszyfrowanego kontekstu utworzonego przez usługę, w tym między innymi, wyzwaniem i czasem wygaśnięcia dla tego wyzwania. 
 
 
 ### <a name="request-message"></a>Komunikat żądania
@@ -69,9 +68,7 @@ Zaświadczanie klienta > platformy Azure
 
 ```
 {
-
   "request": "<JWS>"
-  
 }
 ```
 
@@ -95,103 +92,112 @@ BASE64URL (JWS Signature)
 
 ##### <a name="jws-payload"></a>Ładunek JWS
 
-Ładunek JWS może być typu Basic lub VBS. Podstawowa jest używana, gdy dowód zaświadczania nie obejmuje danych VBS.
+Ładunek JWS może być typu Basic lub VBS. Podstawowa jest używana, gdy dowód zaświadczania nie obejmuje danych VBS. 
 
-Przykład podstawowy
+Tylko przykład TPM: 
 
 ``` 
-{
-  "att_type": "basic",
-  "att_data": {
-    "rp_id": "<URL>",
-    "rp_data": "<BASE64URL(RPCUSTOMDATA)>",
-    "challenge": "<BASE64URL(CHALLENGE)>",
-    "tpm_att_data": {
-      "srtm_boot_log": "<BASE64URL(SRTMBOOTLOG)>",
-      "srtm_resume_log": "<BASE64URL(SRTMRESUMELOG)>",
-      "drtm_boot_log": "<BASE64URL(DRTMBOOTLOG)>",
-      "drtm_resume_log": "<BASE64URL(DRTMRESUMELOG)>",
-      "aik_cert": "<BASE64URL(AIKCERTIFICATE)>",
-      // aik_pub is represented as a JSON Web Key (JWK) object (RFC 7517).
-      "aik_pub": {
-        "kty": "RSA",
-        "n": "<Base64urlUInt(MODULUS)>",
-        "e": "<Base64urlUInt(EXPONENT)>"
-      },
-      "current_claim": "<BASE64URL(CURRENTCLAIM)>",
-      "boot_claim": "<BASE64URL(BOOTCLAIM)>"
-    },
-    // attest_key is represented as a JSON Web Key (JWK) object (RFC 7517).
-    "attest_key": {
-      "kty": "RSA",
-      "n": "<Base64urlUInt(MODULUS)>",
-      "e": "<Base64urlUInt(EXPONENT)>"
-    },
-    "custom_claims": [
-      {
-        "name": "<name>",
-        "value": "<value>",
-        "value_type": "<value_type>"
-      },
-      {
-        "name": "<name>",
-        "value": "<value>",
-        "value_type": "<value_type>"
-      }
-    ],
-    "service_context": "<BASE64URL(SERVICECONTEXT)>"
-  }
-}
+{ 
+  "att_type": "basic", 
+  "att_data": { 
+    "rp_id": "<URL>", 
+    "rp_data": "<BASE64URL(RPCUSTOMDATA)>", 
+    "challenge": "<BASE64URL(CHALLENGE)>", 
+
+    "tpm_att_data": { 
+      "srtm_boot_log": "<BASE64URL(SRTMBOOTLOG)>", 
+      "srtm_resume_log": "<BASE64URL(SRTMRESUMELOG)>", 
+      "drtm_boot_log": "<BASE64URL(DRTMBOOTLOG)>", 
+      "drtm_resume_log": "<BASE64URL(DRTMRESUMELOG)>", 
+      "aik_cert": "<BASE64URL(AIKCERTIFICATE)>", 
+
+      // aik_pub is represented as a JSON Web Key (JWK) object (RFC 7517). 
+
+      "aik_pub": { 
+        "kty": "RSA", 
+        "n": "<Base64urlUInt(MODULUS)>", 
+        "e": "<Base64urlUInt(EXPONENT)>" 
+      }, 
+      "current_claim": "<BASE64URL(CURRENTCLAIM)>", 
+      "boot_claim": "<BASE64URL(BOOTCLAIM)>" 
+    }, 
+
+    // attest_key is represented as a JSON Web Key (JWK) object (RFC 7517). 
+
+    "attest_key": { 
+      "kty": "RSA", 
+      "n": "<Base64urlUInt(MODULUS)>", 
+      "e": "<Base64urlUInt(EXPONENT)>" 
+    }, 
+    "custom_claims": [ 
+      { 
+        "name": "<name>", 
+        "value": "<value>", 
+        "value_type": "<value_type>" 
+      }, 
+      { 
+        "name": "<name>", 
+        "value": "<value>", 
+        "value_type": "<value_type>" 
+      } 
+    ], 
+    "service_context": "<BASE64URL(SERVICECONTEXT)>" 
+  } 
+} 
 ```
 
-Przykład VBS
+Przykład enklawy TPM + VBS: 
 
 ``` 
-{
-  "att_type": "vbs",
-  "att_data": {
-    "report_signed": {
-      "rp_id": "<URL>",
-      "rp_data": "<BASE64URL(RPCUSTOMDATA)>",
-      "challenge": "<BASE64URL(CHALLENGE)>",
-      "tpm_att_data": {
-        "srtm_boot_log": "<BASE64URL(SRTMBOOTLOG)>",
-        "srtm_resume_log": "<BASE64URL(SRTMRESUMELOG)>",
-        "drtm_boot_log": "<BASE64URL(DRTMBOOTLOG)>",
-        "drtm_resume_log": "<BASE64URL(DRTMRESUMELOG)>",
-        "aik_cert": "<BASE64URL(AIKCERTIFICATE)>",
-        // aik_pub is represented as a JSON Web Key (JWK) object (RFC 7517).
-        "aik_pub": {
-          "kty": "RSA",
-          "n": "<Base64urlUInt(MODULUS)>",
-          "e": "<Base64urlUInt(EXPONENT)>"
-        },
-        "current_claim": "<BASE64URL(CURRENTCLAIM)>",
-        "boot_claim": "<BASE64URL(BOOTCLAIM)>"
-      },
-      // attest_key is represented as a JSON Web Key (JWK) object (RFC 7517).
-      "attest_key": {
-        "kty": "RSA",
-        "n": "<Base64urlUInt(MODULUS)>",
-        "e": "<Base64urlUInt(EXPONENT)>"
-      },
-      "custom_claims": [
-        {
-          "name": "<name>",
-          "value": "<value>",
-          "value_type": "<value_type>"
-        },
-        {
-          "name": "<name>",
-          "value": "<value>",
-          "value_type": "<value_type>"
-        }
-      ],
-      "service_context": "<BASE64URL(SERVICECONTEXT)>"
-    },
-    "vbs_report": "<BASE64URL(REPORT)>"
-  }
-}
+{ 
+  "att_type": "vbs", 
+  "att_data": { 
+    "report_signed": { 
+      "rp_id": "<URL>", 
+      "rp_data": "<BASE64URL(RPCUSTOMDATA)>", 
+      "challenge": "<BASE64URL(CHALLENGE)>", 
+      "tpm_att_data": { 
+        "srtm_boot_log": "<BASE64URL(SRTMBOOTLOG)>", 
+        "srtm_resume_log": "<BASE64URL(SRTMRESUMELOG)>", 
+        "drtm_boot_log": "<BASE64URL(DRTMBOOTLOG)>", 
+        "drtm_resume_log": "<BASE64URL(DRTMRESUMELOG)>", 
+        "aik_cert": "<BASE64URL(AIKCERTIFICATE)>", 
+
+        // aik_pub is represented as a JSON Web Key (JWK) object (RFC 7517). 
+
+        "aik_pub": { 
+          "kty": "RSA", 
+          "n": "<Base64urlUInt(MODULUS)>", 
+          "e": "<Base64urlUInt(EXPONENT)>" 
+        }, 
+        "current_claim": "<BASE64URL(CURRENTCLAIM)>", 
+        "boot_claim": "<BASE64URL(BOOTCLAIM)>" 
+      }, 
+
+      // attest_key is represented as a JSON Web Key (JWK) object (RFC 7517). 
+
+      "attest_key": { 
+        "kty": "RSA", 
+        "n": "<Base64urlUInt(MODULUS)>", 
+        "e": "<Base64urlUInt(EXPONENT)>" 
+      }, 
+      "custom_claims": [ 
+        { 
+          "name": "<name>", 
+          "value": "<value>", 
+          "value_type": "<value_type>" 
+        }, 
+        { 
+          "name": "<name>", 
+          "value": "<value>", 
+          "value_type": "<value_type>" 
+        } 
+      ], 
+      "service_context": "<BASE64URL(SERVICECONTEXT)>" 
+    }, 
+    "vsm_report": "<BASE64URL(REPORT)>" 
+  } 
+} 
 ``` 
 
 **rp_id** (StringOrURI): identyfikator jednostki uzależnionej. Używane przez usługę w obliczaniu żądania identyfikatora maszyny
@@ -202,13 +208,13 @@ Przykład VBS
 
 **tpm_att_data**: dane zaświadczania dotyczące modułu TPM
 
-- **srtm_boot_log (BASE64URL (oktety))**: SRTM dziennik rozruchowy, który został pobrany przez funkcję Tbsi_Get_TCG_Log_Ex z typem dziennika = TBS_TCGLOG_SRTM_BOOT
+- **srtm_boot_log (BASE64URL (octets))**: SRTM dzienników rozruchowych pobieranych przez funkcję Tbsi_Get_TCG_Log_Ex z typem dziennika = TBS_TCGLOG_SRTM_BOOT
 
-- **srtm_resume_log (BASE64URL (octets))**: SRTM wznowić dziennik jako pobrany przez funkcję Tbsi_Get_TCG_Log_Ex z typem dziennika = TBS_TCGLOG_SRTM_RESUME
+- **srtm_resume_log (BASE64URL (octets))**: SRTM wznawia dziennik jako pobrany przez funkcję Tbsi_Get_TCG_Log_Ex z typem dziennika = TBS_TCGLOG_SRTM_RESUME
 
-- **drtm_boot_log (BASE64URL (oktety))**: drtm dziennik rozruchowy, który został pobrany przez funkcję Tbsi_Get_TCG_Log_Ex z typem dziennika = TBS_TCGLOG_DRTM_BOOT
+- **drtm_boot_log (BASE64URL (octets))**: drtm dzienników rozruchowych pobieranych przez funkcję Tbsi_Get_TCG_Log_Ex z typem dziennika = TBS_TCGLOG_DRTM_BOOT
 
-- **drtm_resume_log (BASE64URL (octets))**: drtm wznowić dziennik jako pobrany przez funkcję Tbsi_Get_TCG_Log_Ex z typem dziennika = TBS_TCGLOG_DRTM_RESUME
+- **drtm_resume_log (BASE64URL (octets))**: drtm wznawia dziennik jako pobrany przez funkcję Tbsi_Get_TCG_Log_Ex z typem dziennika = TBS_TCGLOG_DRTM_RESUME
 
 - **aik_cert (BASE64URL (octets))**: certyfikat X. 509 dla zestawu AIK, zwracany przez funkcję NCryptGetProperty z właściwością = NCRYPT_CERTIFICATE_PROPERTY
 
@@ -218,7 +224,7 @@ Przykład VBS
 
 - **boot_claim (BASE64URL (octets))**: poświadczenie zaświadczania dla stanu PCR na rozruchu, jak zostało zwrócone przez funkcję NCryptCreateClaim z dwClaimType = NCRYPT_CLAIM_PLATFORM i NCRYPTBUFFER_TPM_PLATFORM_CLAIM_PCR_MASK ustawionym do uwzględnienia wszystkich PCR
 
-**vbs Report** (BASE64URL (octets)): Raport zaświadczania vbs enklawy zwracany przez funkcję EnclaveGetAttestationReport. Parametr EnclaveData musi być skrótem SHA-512 wartości report_signed (włącznie z otwierającym i zamykającym nawiasem klamrowym). Dane wejściowe funkcji mieszania są UTF8 (report_signed)
+**vsm_report**   (BASE64URL (OCTETs)): Raport zaświadczania VBS enklawy zwracany przez funkcję EnclaveGetAttestationReport. Parametr EnclaveData musi być skrótem SHA-512 wartości report_signed (włącznie z otwierającym i zamykającym nawiasem klamrowym). Dane wejściowe funkcji mieszania są UTF8 (report_signed)
 
 **attest_key**: publiczna część klucza enklawy reprezentowana jako obiekt klucza internetowego JSON (JWK) (RFC 7517)
 
@@ -247,3 +253,7 @@ Zaświadczanie platformy Azure — klient >
 ```
 
 **raport** (JWT): Raport zaświadczania w formacie tokenu sieci Web JSON (JWT) (RFC 7519).
+
+## <a name="next-steps"></a>Następne kroki
+
+- [Przepływ pracy zaświadczania platformy Azure](workflow.md)

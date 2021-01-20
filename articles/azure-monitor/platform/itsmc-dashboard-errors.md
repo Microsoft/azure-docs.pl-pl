@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/18/2021
-ms.openlocfilehash: 7240c1b0f19dc49ab4130c5ee2516dcfefb2e2c2
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 9521c13b21317bb0a782b0bea0b08312ff24b113
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602191"
+ms.locfileid: "98610356"
 ---
 # <a name="errors-in-the-connector-status"></a>Błędy w stanie łącznika
 
@@ -27,7 +27,7 @@ w tej sekcji znajdują się typowe błędy, które przedstawiono w sekcji stan �
   * Skrypt niestandardowy wdrożony w wystąpieniu usługi ServiceNow powoduje ignorowanie zdarzeń.
   * "Aplikacja integratora pakietu OMS" została zmodyfikowana po stronie usługi ServiceNow, np. za pomocą skryptu onbefore.
 
-    **Rozwiązanie**: Wyłącz wszystkie niestandardowe skrypty lub modyfikacje kodu ścieżki importu danych.
+  **Rozwiązanie**: Wyłącz wszystkie niestandardowe skrypty lub modyfikacje kodu ścieżki importu danych.
 
 * **Błąd**: "{" Error ": {" Message ":" operacja nie powiodła się "," Detail ":" Aktualizacja wyjątku listy ACL nie powiodła się z powodu ograniczeń zabezpieczeń "}"
 

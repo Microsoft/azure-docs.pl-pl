@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 8a2ad6cea4ab97742261b1cfd84975b243a46e87
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 4a9663e1356f616ed5f428c993f3367ce67cdbb5
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938719"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610916"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Moduł równoważenia obciążenia między regionami (wersja zapoznawcza)
 
@@ -35,7 +35,7 @@ Usługa Azure usługa Load Balancer w warstwie Standardowa obsługuje międzyreg
 * [Kompiluj na istniejącym rozwiązaniu modułu równoważenia obciążenia](#build-cross-region-solution-on-existing-azure-load-balancer) bez krzywej uczenia
 
 > [!IMPORTANT]
-> Moduł równoważenia obciążenia między regionami jest obecnie w wersji zapoznawczej i ukryty w portalu w wersji zapoznawczej. Zaloguj się, aby **https://preview.portal.azure.com** wyświetlić i wdrożyć funkcję... </br> </br>
+> Moduł równoważenia obciążenia między regionami jest obecnie w wersji zapoznawczej i można go wdrożyć w portalu. Zaloguj się, aby **https://portal.azure.com** wyświetlić i wdrożyć funkcję... </br> </br>
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Równoważenie obciążenia między regionami zapewnia te same korzyści wynikające z wysokiej wydajności i małych opóźnień jako regionalnej standardowej usługi równoważenia obciążenia. 
