@@ -7,12 +7,12 @@ ms.date: 01/30/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: e3642a621253b79fdfcdd8cb2b648dee534c6758
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: db6575894904e6ced2d4be48fec5961f5b8b8a54
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968689"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602635"
 ---
 # <a name="reduce-costs-with-azure-disks-reservation"></a>Obniżenie kosztów dzięki rezerwacji dysków platformy Azure
 
@@ -69,8 +69,8 @@ Wykonaj następujące kroki, aby zakupić zastrzeżoną pojemność:
 
    |Element  |Opis  |
    |---------|---------|
-   |**Zakres**   |  Liczby subskrypcji mogą korzystać z zalet rozliczeń skojarzonych z rezerwacją. Ta wartość określa również sposób zastosowania rezerwacji do określonych subskrypcji. <br/><br/> W przypadku wybrania opcji **udostępnione**rabat zostanie zastosowany do pojemności usługi Azure Storage w każdej subskrypcji w kontekście rozliczania. Kontekst rozliczania jest oparty na sposobie rejestracji w usłudze Azure. W przypadku klientów korporacyjnych zakresem udostępnionym jest rejestracja i uwzględnianie wszystkich subskrypcji w ramach rejestracji. W przypadku klientów z systemem płatność zgodnie z rzeczywistym użyciem zakres udostępniony obejmuje wszystkie poszczególne subskrypcje z opłatami z rabatem zgodnie z rzeczywistym użyciem utworzonymi przez administratora konta.  <br/><br/>  W przypadku wybrania opcji **Pojedyncza subskrypcja**rabat zostanie zastosowany do pojemności usługi Azure Storage w ramach wybranej subskrypcji. <br/><br/> W przypadku wybrania opcji **pojedynczy zasób**rabat zostanie zastosowany do pojemności usługi Azure Storage w ramach wybranej subskrypcji i grupy zasobów wybranej subskrypcji. <br/><br/> Można zmienić zakres rezerwacji po zakupie rezerwacji.  |
-   |**Subskrypcja**  | Subskrypcja używana do płacenia za rezerwację usługi Azure Storage. Metoda płatności w ramach wybranej subskrypcji jest używana w celu naliczania kosztów. Subskrypcja musi być jednym z następujących typów:<br/><ul><li> Umowa Enterprise (numery oferty MS-AZR-0017P i MS-AZR-0148P). W przypadku subskrypcji przedsiębiorstwa opłaty są odejmowane od salda zobowiązania pieniężnego rejestracji lub są naliczane jako nadwyżkowe.</li><br/><li>Indywidualna subskrypcja z stawką płatność zgodnie z rzeczywistym użyciem (numery ofert: MS-AZR-0003P i MS-AZR-0023P). W przypadku pojedynczej subskrypcji z stawką płatności zgodnie z rzeczywistym użyciem opłaty są naliczane za kartę kredytową lub formę płatności faktury dla subskrypcji.</li></ul>    |
+   |**Zakres**   |  Liczby subskrypcji mogą korzystać z zalet rozliczeń skojarzonych z rezerwacją. Ta wartość określa również sposób zastosowania rezerwacji do określonych subskrypcji. <br/><br/> W przypadku wybrania opcji **udostępnione** rabat zostanie zastosowany do pojemności usługi Azure Storage w każdej subskrypcji w kontekście rozliczania. Kontekst rozliczania jest oparty na sposobie rejestracji w usłudze Azure. W przypadku klientów korporacyjnych zakresem udostępnionym jest rejestracja i uwzględnianie wszystkich subskrypcji w ramach rejestracji. W przypadku klientów z systemem płatność zgodnie z rzeczywistym użyciem zakres udostępniony obejmuje wszystkie poszczególne subskrypcje z opłatami z rabatem zgodnie z rzeczywistym użyciem utworzonymi przez administratora konta.  <br/><br/>  W przypadku wybrania opcji **Pojedyncza subskrypcja** rabat zostanie zastosowany do pojemności usługi Azure Storage w ramach wybranej subskrypcji. <br/><br/> W przypadku wybrania opcji **pojedynczy zasób** rabat zostanie zastosowany do pojemności usługi Azure Storage w ramach wybranej subskrypcji i grupy zasobów wybranej subskrypcji. <br/><br/> Można zmienić zakres rezerwacji po zakupie rezerwacji.  |
+   |**Subskrypcja**  | Subskrypcja używana do płacenia za rezerwację usługi Azure Storage. Metoda płatności w ramach wybranej subskrypcji jest używana w celu naliczania kosztów. Subskrypcja musi być jednym z następujących typów:<br/><ul><li> Umowa Enterprise (numery oferty MS-AZR-0017P i MS-AZR-0148P). W przypadku subskrypcji przedsiębiorstwa opłaty są naliczane od przedpłaty za subskrypcję platformy Azure (wcześniej nazywanej zobowiązaniem pieniężnym) lub za użycie.</li><br/><li>Indywidualna subskrypcja z stawką płatność zgodnie z rzeczywistym użyciem (numery ofert: MS-AZR-0003P i MS-AZR-0023P). W przypadku pojedynczej subskrypcji z stawką płatności zgodnie z rzeczywistym użyciem opłaty są naliczane za kartę kredytową lub formę płatności faktury dla subskrypcji.</li></ul>    |
    | **Dyski** | Jednostka SKU, którą chcesz utworzyć. |
    | **Region** | Region, w którym rezerwacja jest obowiązująca. |
    | **Częstotliwość rozliczeń** | Jak często konto jest rozliczane dla rezerwacji. Opcje obejmują **co miesiąc** i z **góry**. |

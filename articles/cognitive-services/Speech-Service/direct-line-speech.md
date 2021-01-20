@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: e8c7e21b0784aacc85bd02e3c1702e1a710e76ab
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 501a0e954efbdbc9a0396fd94c915efaf0fde9fc
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021885"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601114"
 ---
 # <a name="what-is-direct-line-speech"></a>Co to jest mowa Direct Line?
 
@@ -23,7 +23,7 @@ ms.locfileid: "95021885"
 
 [Asystenci głosowani](voice-assistants.md) nasłuchują użytkowników i podejmują działania w odpowiedzi, często mówiąc z powrotem. Używają [zamiany mowy na tekst](speech-to-text.md) , aby transkrypcja mowę użytkownika, a następnie podejmować działania dotyczące interpretacji języka naturalnego tekstu. Ta akcja często obejmuje głosowanie danych wyjściowych wygenerowanego przez asystenta z funkcją [zamiany tekstu na mowę](text-to-speech.md).
 
-Funkcja bezpośrednie linie rozpoznawania mowy oferuje najwyższy poziom dostosowania i złożoności dla asystentów głosowych. Jest ona przeznaczona dla scenariuszy konwersacji, które są otwartymi, naturalnymi lub hybrydowymi z dwoma z ukończeniem zadania lub użyciem kontroli poleceń. Taka wysoka elastyczność ma większą złożoność, a scenariusze, które są ograniczone do dobrze zdefiniowanych zadań przy użyciu danych wejściowych języka naturalnego, mogą chcieć rozważyć użycie [poleceń niestandardowych (wersja zapoznawcza)](custom-commands.md) w celu usprawnienia rozwiązania.
+Funkcja bezpośrednie linie rozpoznawania mowy oferuje najwyższy poziom dostosowania i złożoności dla asystentów głosowych. Jest ona przeznaczona dla scenariuszy konwersacji, które są otwartymi, naturalnymi lub hybrydowymi z dwoma z ukończeniem zadania lub użyciem kontroli poleceń. Taka wysoka elastyczność ma większą złożoność, a scenariusze, które są ograniczone do dobrze zdefiniowanych zadań przy użyciu danych wejściowych języka naturalnego, mogą chcieć rozważyć użycie [poleceń niestandardowych](custom-commands.md) dla usprawnionego środowiska rozwiązania.
 
 ## <a name="getting-started-with-direct-line-speech"></a>Wprowadzenie do bezpośredniej obsługi mowy w wierszu
 
@@ -45,7 +45,7 @@ Oferujemy również Przewodniki Szybki Start zaprojektowane z założeniami szyb
 
 Przykładowy kod służący do tworzenia asystenta głosowego jest dostępny w witrynie GitHub. Te przykłady obejmują aplikację kliencką do łączenia się z asystentem w kilku popularnych językach programowania.
 
-* [Przykłady asystenta głosowego (SDK)](https://aka.ms/csspeech/samples)
+* [Przykłady asystenta głosowego (SDK)](https://aka.ms/csspeech/samples/#voice-assistants-quickstarts)
 * [Samouczek: Włączanie głosu przez asystenta przy użyciu zestawu Speech SDK, C #](tutorial-voice-enable-your-bot-speech-sdk.md)
 
 ## <a name="customization"></a>Dostosowywanie

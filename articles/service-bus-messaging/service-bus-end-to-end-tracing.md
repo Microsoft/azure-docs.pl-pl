@@ -2,14 +2,14 @@
 title: Azure Service Bus kompleksowe śledzenie i Diagnostyka | Microsoft Docs
 description: Przegląd Service Bus diagnostyki klienta i kompleksowego śledzenia (klient przez wszystkie usługi, które są związane z przetwarzaniem).
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 01/17/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bc7dab21fc01b624e8ab122fe883be89ea8633f6
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: edfd789f8803acf9fc8d76202805dec0187d220e
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832696"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601249"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Śledzenie rozproszone i korelacja za poorednictwem Service Bus Messaging
 
@@ -20,6 +20,186 @@ Gdy producent wysyła komunikat za pomocą kolejki, zwykle odbywa się to w zakr
 
 Microsoft Azure Service Bus Messaging ma zdefiniowane właściwości ładunku, których producenci i konsumenci powinni używać do przekazywania takiego kontekstu śledzenia.
 Protokół jest oparty na [protokole korelacji http](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md).
+
+# <a name="azuremessagingservicebus-sdk-latest"></a>[Azure. Messaging. ServiceBus SDK (Najnowsza wersja)](#tab/net-standard-sdk-2)
+| Nazwa właściwości        | Opis                                                 |
+|----------------------|-------------------------------------------------------------|
+|  Diagnostic-Id       | Unikatowy identyfikator wywołania zewnętrznego od producenta do kolejki. Zapoznaj się z [identyfikatorem żądania w protokole HTTP](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) , aby uzyskać racjonalne informacje, zagadnienia i format |
+
+## <a name="service-bus-net-client-autotracing"></a>Service Bus autośledzenie klienta platformy .NET
+`ServiceBusProcessor`Klasa [klienta usługi Azure Messaging Service Bus dla platformy .NET](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) oferuje śledzenie punktów instrumentacji, które mogą być podłączane przez systemy śledzenia lub fragment kodu klienta. Instrumentacja umożliwia śledzenie wszystkich wywołań usługi Service Bus Messaging po stronie klienta. Jeśli przetwarzanie komunikatów odbywa się przy użyciu [ `ProcessMessageAsync` programu `ServiceBusProcessor` ](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) (wzorzec obsługi komunikatów), przetwarzanie wiadomości jest również Instrumentacją.
+
+### <a name="tracking-with-azure-application-insights"></a>Śledzenie za pomocą usługi Azure Application Insights
+
+[Firma Microsoft Application Insights](https://azure.microsoft.com/services/application-insights/) oferuje bogate możliwości monitorowania wydajności, w tym żądanie AUTOMAGIC i śledzenie zależności.
+
+W zależności od typu projektu Zainstaluj Application Insights SDK:
+- [ASP.NET](../azure-monitor/app/asp-net.md) — zainstaluj wersję 2,5-beta2 lub nowszą
+- [ASP.NET Core](../azure-monitor/app/asp-net-core.md) — Zainstaluj wersję 2.2.0-beta2 lub nowszą.
+Te linki zawierają szczegółowe informacje dotyczące instalowania zestawu SDK, tworzenia zasobów i konfigurowania zestawu SDK (w razie konieczności). W przypadku aplikacji non-ASP.NET zapoznaj się z artykułem [Application Insights platformy Azure dla aplikacji konsoli](../azure-monitor/app/console.md) .
+
+Jeśli używasz [ `ProcessMessageAsync` programu `ServiceBusProcessor` ](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) (wzorca obsługi komunikatów) do przetwarzania komunikatów, przetwarzanie wiadomości jest również Instrumentacją. Wszystkie wywołania Service Bus wykonywane przez usługę są automatycznie śledzone i skorelowane z innymi elementami telemetrii. W przeciwnym razie zapoznaj się z poniższym przykładem śledzenia ręcznego przetwarzania komunikatów.
+
+#### <a name="trace-message-processing"></a>Przetwarzanie komunikatów śledzenia
+
+```csharp
+async Task ProcessAsync(ProcessMessageEventArgs args)
+{
+    ServiceBusReceivedMessage message = args.Message;
+    if (message.ApplicationProperties.TryGetValue("Diagnostic-Id", out var objectId) && objectId is string diagnosticId)
+    {
+        var activity = new Activity("ServiceBusProcessor.ProcessMessage");
+        activity.SetParentId(diagnosticId);
+        // If you're using Microsoft.ApplicationInsights package version 2.6-beta or higher, you should call StartOperation<RequestTelemetry>(activity) instead
+        using (var operation = telemetryClient.StartOperation<RequestTelemetry>("Process", activity.RootId, activity.ParentId))
+        {
+            telemetryClient.TrackTrace("Received message");
+            try 
+            {
+            // process message
+            }
+            catch (Exception ex)
+            {
+                telemetryClient.TrackException(ex);
+                operation.Telemetry.Success = false;
+                throw;
+            }
+
+            telemetryClient.TrackTrace("Done");
+        }
+    }
+}
+```
+
+W tym przykładzie dane telemetryczne żądania są raportowane dla każdego przetworzonego komunikatu, który ma sygnaturę czasową, czas trwania i wynik (powodzenie). Dane telemetryczne zawierają również zestaw właściwości korelacji. Zagnieżdżone dane śledzenia i wyjątki zgłoszone podczas przetwarzania komunikatu są również sygnaturą z właściwościami korelacji reprezentującymi je jako elementy podrzędne elementu `RequestTelemetry` .
+
+W przypadku tworzenia wywołań do obsługiwanych składników zewnętrznych podczas przetwarzania komunikatów są one również automatycznie śledzone i skorelowane. Zapoznaj się z tematem [śledzenie operacji niestandardowych przy użyciu zestawu SDK platformy Application Insights .NET](../azure-monitor/app/custom-operations-tracking.md) do ręcznego śledzenia i korelacji.
+
+Jeśli korzystasz z dowolnego kodu zewnętrznego oprócz zestawu SDK Application Insights, prawdopodobnie zobaczysz dłuższy **czas trwania** podczas wyświetlania dzienników Application Insights. 
+
+![Dłuższy czas trwania w dzienniku Application Insights](./media/service-bus-end-to-end-tracing/longer-duration.png)
+
+Nie oznacza to, że Odebrano komunikat. W tym scenariuszu wiadomość została już odebrana od momentu, gdy wiadomość zostanie przeniesiona jako parametr do kodu zestawu SDK. Natomiast tag **name** w dziennikach usługi App Insights (**proces**) wskazuje, że komunikat jest teraz przetwarzany przez zewnętrzny kod przetwarzania zdarzeń. Ten problem nie jest powiązany z platformą Azure. Zamiast tego metryki odnoszą się do wydajności kodu zewnętrznego, dzięki czemu komunikat został już odebrany z Service Bus. 
+
+### <a name="tracking-without-tracing-system"></a>Śledzenie bez systemu śledzenia
+Na wypadek, gdy system śledzenia nie obsługuje automatycznego śledzenia wywołań Service Bus, może zajrzeć do dodawania takiego wsparcia do systemu śledzenia lub do aplikacji. W tej sekcji opisano zdarzenia diagnostyczne wysyłane przez program Service Bus klienta programu .NET.  
+
+Klient platformy .NET Service Bus jest Instrumentacją przy użyciu elementów podstawowych śledzenia .NET [System. Diagnostics. Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) i [System. Diagnostics. DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md).
+
+`Activity` służy jako kontekst śledzenia, gdy `DiagnosticSource` jest mechanizmem powiadamiania. 
+
+Jeśli nie ma żadnych odbiorników dla zdarzeń DiagnosticSource, Instrumentacja jest wyłączona, utrzymując koszty Instrumentacji. DiagnosticSource daje wszystkie sterowanie odbiornikiem:
+- odbiornik steruje źródłami i zdarzeniami, do których nasłuchuje
+- szybkość zdarzeń i próbkowanie kontrolek odbiornika
+- zdarzenia są wysyłane z ładunkiem, który zapewnia pełen kontekst, dzięki czemu można uzyskiwać dostęp do obiektu komunikatu i modyfikować go podczas zdarzenia.
+
+Przed kontynuowaniem implementacji zapoznaj się z [podręcznikiem użytkownika DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) .
+
+Utwórzmy odbiornik dla zdarzeń Service Bus w aplikacji ASP.NET Core, która zapisuje dzienniki przy użyciu Microsoft. Extension. rejestratora.
+Używa ona biblioteki [System. Reactive. Core](https://www.nuget.org/packages/System.Reactive.Core) , aby subskrybować DiagnosticSource (jest to również łatwe subskrybowanie DiagnosticSource bez użycia)
+
+```csharp
+public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory factory, IApplicationLifetime applicationLifetime)
+{
+    // configuration...
+
+    var serviceBusLogger = factory.CreateLogger("Azure.Messaging.ServiceBus");
+
+    IDisposable innerSubscription = null;
+    IDisposable outerSubscription = DiagnosticListener.AllListeners.Subscribe(delegate (DiagnosticListener listener)
+    {
+        // subscribe to the Service Bus DiagnosticSource
+        if (listener.Name == "Azure.Messaging.ServiceBus")
+        {
+            // receive event from Service Bus DiagnosticSource
+            innerSubscription = listener.Subscribe(delegate (KeyValuePair<string, object> evnt)
+            {
+                // Log operation details once it's done
+                if (evnt.Key.EndsWith("Stop"))
+                {
+                    Activity currentActivity = Activity.Current;
+                    serviceBusLogger.LogInformation($"Operation {currentActivity.OperationName} is finished, Duration={currentActivity.Duration}, Id={currentActivity.Id}, StartTime={currentActivity.StartTimeUtc}");
+                }
+            });
+        }
+    });
+
+    applicationLifetime.ApplicationStopping.Register(() =>
+    {
+        outerSubscription?.Dispose();
+        innerSubscription?.Dispose();
+    });
+}
+```
+
+W tym przykładzie, odbiornik rejestruje czas trwania, wynik, unikatowy identyfikator i godzinę rozpoczęcia dla każdej operacji Service Bus.
+
+### <a name="events"></a>Zdarzenia
+Dla każdej operacji są wysyłane dwa zdarzenia: "Start" i "Stop". Najprawdopodobniej interesuje Cię tylko zdarzenia "Stop". Zapewniają one wynik operacji oraz czas rozpoczęcia i czas trwania jako właściwości działania.
+
+Ładunek zdarzenia udostępnia odbiornik z kontekstem operacji, replikuje parametry przychodzące interfejsu API i wartość zwracaną. Ładunek zdarzenia "Stop" ma wszystkie właściwości ładunku zdarzenia "Start", więc można zignorować wydarzenie "Start" w całości.
+
+Każde zdarzenie "Stop" ma `Status` Właściwość z `TaskStatus` operacją asynchroniczną została ukończona z, która jest również pomijana w poniższej tabeli dla uproszczenia.
+
+Wszystkie zdarzenia będą miały następujące właściwości, które są zgodne ze specyfikacją Open telemetrii: https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/trace/api.md .
+
+- `message_bus.destination` — ścieżka kolejki/tematu/subskrypcji
+- `peer.address` — w pełni kwalifikowana przestrzeń nazw
+- `kind` — Producent, konsument lub klient. Producent jest używany podczas wysyłania wiadomości, odbiorcy po odebraniu i klienta podczas rozliczania.
+- `component` – `servicebus`
+
+Wszystkie zdarzenia mają również właściwości "Entity" i "Endpoint", które zostały pominięte w poniższej tabeli
+  * `string Entity` --Nazwa jednostki (kolejki, tematu itd.)
+  * `Uri Endpoint` -Service Bus adres URL punktu końcowego
+
+### <a name="instrumented-operations"></a>Operacje Instrumentacji
+Oto pełna lista operacji Instrumentacji:
+
+| Nazwa operacji | Śledzony interfejs API |
+| -------------- | ----------- | 
+| ServiceBusSender. Send | ServiceBusSender.SendMessageAsync<br/>ServiceBusSender.SendMessagesAsync |
+| ServiceBusSender. Schedule | ServiceBusSender.ScheduleMessageAsync<br/>ServiceBusSender.ScheduleMessagesAsync | 
+| ServiceBusSender. Cancel | ServiceBusSender.CancelScheduledMessageAsync<br/>ServiceBusSender.CancelScheduledMessagesAsync |
+| ServiceBusReceiver. Receive | ServiceBusReceiver.ReceiveMessageAsync<br/>ServiceBusReceiver.ReceiveMessagesAsync |
+| ServiceBusReceiver.ReceiveDeferred | ServiceBusReceiver.ReceiveDeferredMessagesAsync |
+| ServiceBusReceiver. Peek | ServiceBusReceiver.PeekMessageAsync<br/>ServiceBusReceiver.PeekMessagesAsync |
+| ServiceBusReceiver. Abandon | ServiceBusReceiver.AbandonMessagesAsync |
+| ServiceBusReceiver. Complete | ServiceBusReceiver.CompleteMessagesAsync |
+| ServiceBusReceiver. utraconych wiadomości | ServiceBusReceiver.DeadLetterMessagesAsync |
+| ServiceBusReceiver. Odłóż |  ServiceBusReceiver.DeferMessagesAsync |
+| ServiceBusReceiver.RenewMessageLock | ServiceBusReceiver.RenewMessageLockAsync |
+| ServiceBusSessionReceiver.RenewSessionLock | ServiceBusSessionReceiver.RenewSessionLockAsync |
+| ServiceBusSessionReceiver.GetSessionState | ServiceBusSessionReceiver.GetSessionStateAsync |
+| ServiceBusSessionReceiver.SetSessionState | ServiceBusSessionReceiver.SetSessionStateAsync |
+| ServiceBusProcessor.ProcessMessage | Wywołanie zwrotne procesora ustawione na ServiceBusProcessor. Właściwość ProcessMessageAsync |
+| ServiceBusSessionProcessor.ProcessSessionMessage | Wywołanie zwrotne procesora ustawione na ServiceBusSessionProcessor. Właściwość ProcessMessageAsync |
+
+### <a name="filtering-and-sampling"></a>Filtrowanie i próbkowanie
+
+W niektórych przypadkach wskazane jest zarejestrowanie tylko części zdarzeń, aby zmniejszyć obciążenie związane z wydajnością lub użycie magazynu. Można rejestrować tylko zdarzenia "Stop" (jak w powyższym przykładzie) lub próbkować procent zdarzeń. 
+`DiagnosticSource` Określ sposób osiągnięcia tego celu z `IsEnabled` predykatem. Aby uzyskać więcej informacji, zobacz [filtrowanie na podstawie kontekstu w DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md#context-based-filtering).
+
+`IsEnabled` może być wywoływana wiele razy dla jednej operacji, aby zminimalizować wpływ na wydajność.
+
+`IsEnabled` jest wywoływana w następującej kolejności:
+
+1. `IsEnabled(<OperationName>, string entity, null)` na przykład `IsEnabled("ServiceBusSender.Send", "MyQueue1")` . Uwaga nie ma na końcu elementu "Start" ani "Stop". Służy do filtrowania określonych operacji lub kolejek. Jeśli metoda wywołania zwrotnego zwróci metodę `false` , zdarzenia dla operacji nie są wysyłane.
+
+   * W przypadku operacji "Process" i "ProcessSession" otrzymasz również `IsEnabled(<OperationName>, string entity, Activity activity)` wywołanie zwrotne. Służy do filtrowania zdarzeń na podstawie `activity.Id` Właściwości tagów lub.
+  
+2. `IsEnabled(<OperationName>.Start)` na przykład `IsEnabled("ServiceBusSender.Send.Start")` . Sprawdza, czy zdarzenie "Start" powinno być wyzwalane. Wynik dotyczy tylko zdarzenia "Start", ale dalsze Instrumentacja nie jest od niego zależne.
+
+Nie ma `IsEnabled` dla zdarzenia "Stop".
+
+Jeśli wynikiem operacji jest wyjątek, `IsEnabled("ServiceBusSender.Send.Exception")` jest wywoływana. Można zasubskrybować tylko zdarzenia "Exception" i uniemożliwić resztę Instrumentacji. W takim przypadku nadal trzeba obsługiwać takie wyjątki. Ponieważ inne Instrumentacja jest wyłączona, nie należy oczekiwać kontekstu śledzenia do przepływu z komunikatami od konsumenta do producenta.
+
+Można użyć `IsEnabled` również strategii próbkowania. Próbkowanie oparte na `Activity.Id` lub `Activity.RootId` zapewnia spójne próbkowanie na wszystkich oponach (o ile jest propagowane przez system śledzenia lub przez własny kod).
+
+W obecności wielu `DiagnosticSource` odbiorników dla tego samego źródła wystarczy tylko jeden odbiornik do zaakceptowania zdarzenia, dlatego nie ma żadnej gwarancji, która `IsEnabled` jest wywoływana.
+
+
+
+# <a name="microsoftazureservicebus-sdk"></a>[Zestaw SDK Microsoft. Azure. ServiceBus](#tab/net-standard-sdk)
 
 | Nazwa właściwości        | Opis                                                 |
 |----------------------|-------------------------------------------------------------|
@@ -40,7 +220,7 @@ W zależności od typu projektu Zainstaluj Application Insights SDK:
 - [ASP.NET Core](../azure-monitor/app/asp-net-core.md) — Zainstaluj wersję 2.2.0-beta2 lub nowszą.
 Te linki zawierają szczegółowe informacje dotyczące instalowania zestawu SDK, tworzenia zasobów i konfigurowania zestawu SDK (w razie konieczności). W przypadku aplikacji non-ASP.NET zapoznaj się z artykułem [Application Insights platformy Azure dla aplikacji konsoli](../azure-monitor/app/console.md) .
 
-W przypadku używania [wzorca obsługi komunikatów](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) do przetwarzania komunikatów: wszystkie wywołania Service Bus wykonywane przez usługę są automatycznie śledzone i skorelowane z innymi elementami telemetrii. W przeciwnym razie zapoznaj się z poniższym przykładem śledzenia ręcznego przetwarzania komunikatów.
+Jeśli używasz [wzorca obsługi komunikatów](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) do przetwarzania komunikatów, wszystko jest gotowe: wszystkie Service Bus wywołania wykonywane przez usługę są automatycznie śledzone i skorelowane z innymi elementami telemetrii. W przeciwnym razie zapoznaj się z poniższym przykładem śledzenia ręcznego przetwarzania komunikatów.
 
 #### <a name="trace-message-processing"></a>Przetwarzanie komunikatów śledzenia
 
@@ -51,7 +231,7 @@ async Task ProcessAsync(Message message)
 {
     var activity = message.ExtractActivity();
     
-    // If you are using Microsoft.ApplicationInsights package version 2.6-beta or higher, you should call StartOperation<RequestTelemetry>(activity) instead
+    // If you're using Microsoft.ApplicationInsights package version 2.6-beta or higher, you should call StartOperation<RequestTelemetry>(activity) instead
     using (var operation = telemetryClient.StartOperation<RequestTelemetry>("Process", activity.RootId, activity.ParentId))
     {
         telemetryClient.TrackTrace("Received message");
@@ -138,7 +318,7 @@ W tym przykładzie, odbiornik rejestruje czas trwania, wynik, unikatowy identyfi
 
 #### <a name="events"></a>Zdarzenia
 
-Dla każdej operacji są wysyłane dwa zdarzenia: "Start" i "Stop". Najprawdopodobniej interesuje Cię tylko zdarzenia "Stop". Zapewniają one wynik operacji, a także czas rozpoczęcia i czas trwania jako właściwości działania.
+Dla każdej operacji są wysyłane dwa zdarzenia: "Start" i "Stop". Najprawdopodobniej interesuje Cię tylko zdarzenia "Stop". Zapewniają one wynik operacji oraz czas rozpoczęcia i czas trwania jako właściwości działania.
 
 Ładunek zdarzenia udostępnia odbiornik z kontekstem operacji, replikuje parametry przychodzące interfejsu API i wartość zwracaną. Ładunek zdarzenia "Stop" ma wszystkie właściwości ładunku zdarzenia "Start", więc można zignorować wydarzenie "Start" w całości.
 
@@ -176,10 +356,10 @@ Oto pełna lista operacji Instrumentacji:
 
 W każdym zdarzeniu można uzyskać dostęp do `Activity.Current` , który zawiera bieżący kontekst operacji.
 
-#### <a name="logging-additional-properties"></a>Rejestrowanie dodatkowych właściwości
+#### <a name="logging-more-properties"></a>Rejestrowanie większej liczby właściwości
 
-`Activity.Current` zawiera szczegółowy kontekst bieżącej operacji i jej obiektów nadrzędnych. Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą [działania](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) , aby uzyskać więcej szczegółów.
-Instrumentacja Service Bus zapewnia dodatkowe informacje w ich `Activity.Current.Tags` wstrzymaniu `MessageId` i `SessionId` za każdym razem, gdy są dostępne.
+`Activity.Current` zawiera szczegółowy kontekst bieżącej operacji i jej obiektów nadrzędnych. Aby uzyskać więcej informacji, zobacz [dokumentację dotyczącą działania](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md).
+Instrumentacja Service Bus zapewnia więcej informacji o tym, że są `Activity.Current.Tags` one przechowywane `MessageId` i `SessionId` zawsze, gdy są dostępne.
 
 Działania śledzące zdarzenie "Receive", "Peek" i "ReceiveDeferred" mogą także mieć `RelatedTo` tag. Zawiera ona odrębną listę `Diagnostic-Id` (y) komunikatów, które zostały odebrane w wyniku.
 Takie działanie może spowodować odebranie kilku niepowiązanych komunikatów. Ponadto `Diagnostic-Id` nie jest znana, gdy operacja zostanie uruchomiona, więc operacje "Receive" mogą być skorelowane dla operacji "Process" tylko przy użyciu tego tagu. Jest to przydatne podczas analizowania problemów z wydajnością, aby sprawdzić, jak długo trwało odbieranie komunikatów.
@@ -208,7 +388,7 @@ W niektórych przypadkach wskazane jest zarejestrowanie tylko części zdarzeń,
 
 `IsEnabled` jest wywoływana w następującej kolejności:
 
-1. `IsEnabled(<OperationName>, string entity, null)` na przykład `IsEnabled("Microsoft.Azure.ServiceBus.Send", "MyQueue1")` . Pamiętaj, że na końcu nie ma żadnego "Start" lub "Stop". Służy do filtrowania określonych operacji lub kolejek. Jeśli wywołanie zwrotne zwraca `false` , zdarzenia dla operacji nie są wysyłane
+1. `IsEnabled(<OperationName>, string entity, null)` na przykład `IsEnabled("Microsoft.Azure.ServiceBus.Send", "MyQueue1")` . Uwaga nie ma na końcu elementu "Start" ani "Stop". Służy do filtrowania określonych operacji lub kolejek. Jeśli metoda wywołania zwrotnego zwraca `false` , zdarzenia dla operacji nie są wysyłane
 
    * W przypadku operacji "Process" i "ProcessSession" otrzymasz również `IsEnabled(<OperationName>, string entity, Activity activity)` wywołanie zwrotne. Służy do filtrowania zdarzeń na podstawie `activity.Id` Właściwości tagów lub.
   
@@ -220,10 +400,13 @@ Jeśli wynikiem operacji jest wyjątek, `IsEnabled("Microsoft.Azure.ServiceBus.E
 
 Można użyć `IsEnabled` również strategii próbkowania. Próbkowanie oparte na `Activity.Id` lub `Activity.RootId` zapewnia spójne próbkowanie na wszystkich oponach (o ile jest propagowane przez system śledzenia lub przez własny kod).
 
-W obecności wielu `DiagnosticSource` odbiorników dla tego samego źródła wystarcza tylko jeden odbiornik do zaakceptowania zdarzenia, więc `IsEnabled` nie ma gwarancji, że jest on wywoływany,
+W obecności wielu `DiagnosticSource` odbiorników dla tego samego źródła wystarczy tylko jeden odbiornik do zaakceptowania zdarzenia, dlatego nie ma żadnej gwarancji, która `IsEnabled` jest wywoływana.
+
+---
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Application Insights korelacji](../azure-monitor/app/correlation.md)
 * [Application Insights Monitoruj zależności](../azure-monitor/app/asp-net-dependencies.md) , aby zobaczyć, czy REST, SQL lub inne zasoby zewnętrzne spowalniają pracę.
 * [Śledzenie operacji niestandardowych przy użyciu zestawu SDK platformy Application Insights .NET](../azure-monitor/app/custom-operations-tracking.md)
+

@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: c28abc882635f7cd0815952fe0ae183bef7138d2
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 462ba0ccbd5d7e7048c2c7fcb9c5bece04adaebe
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241620"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600907"
 ---
 # <a name="prepay-for-azure-database-for-mariadb-compute-resources-with-reserved-capacity"></a>Przedpłata za Azure Database for MariaDB zasoby obliczeniowe z zarezerwowaną pojemnością
 
@@ -22,7 +22,7 @@ Nie trzeba przypisywać rezerwacji do określonych serwerów Azure Database for 
 W [Azure Portal](https://portal.azure.com/)można kupić Azure Database for MariaDB zarezerwowaną pojemność. Płatność za rezerwację jest wnoszona [z góry lub w ratach miesięcznych](../cost-management-billing/reservations/prepare-buy-reservation.md). Aby kupić zarezerwowaną pojemność:
 
 * Musisz być w roli właściciela dla co najmniej jednej subskrypcji przedsiębiorstwa lub indywidualnej, która ma stawki płatność zgodnie z rzeczywistym użyciem.
-* W przypadku subskrypcji Enterprise w witrynie [EA Portal](https://ea.azure.com/) musi być włączona opcja **Dodaj wystąpienia zarezerwowane** . Jeśli to ustawienie jest wyłączone, musisz być administratorem EA w subskrypcji.
+* W przypadku subskrypcji Enterprise w witrynie [EA Portal](https://ea.azure.com/) musi być włączona opcja **Dodaj wystąpienia zarezerwowane**. Jeśli to ustawienie jest wyłączone, musisz być administratorem EA w subskrypcji.
 * W przypadku programu Cloud Solution Provider (CSP) tylko agenci administracyjni lub agenci sprzedaży mogą zakupić Azure Database for MariaDB zarezerwowaną pojemność. </br>
 
 Szczegółowe informacje na temat tego, w jaki sposób Klienci korporacyjni i klienci korzystający z płatnej zgodnie z rzeczywistym [użyciem są](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) obciążani opłatami za zakup rezerwacji [.](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
@@ -38,7 +38,7 @@ Załóżmy na przykład, że korzystasz z jednego ogólnego celu, 5 rdzeń – 3
 ## <a name="buy-azure-database-for-mariadb-reserved-capacity"></a>Kupowanie Azure Database for MariaDB zarezerwowanej pojemności
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-2. Wybierz pozycję **Wszystkie usługi** > **Rezerwacje** .
+2. Wybierz pozycję **Wszystkie usługi** > **Rezerwacje**.
 3.  Wybierz pozycję **Dodaj** , a następnie w okienku rezerwacje zakupu wybierz pozycję **Azure Database for MariaDB** , aby zakupić nową rezerwację dla baz danych MariaDB.
 4.  Wypełnij pola wymagane. Istniejące lub nowe bazy danych zgodne z wybranymi atrybutami kwalifikują się do uzyskania rabatu zarezerwowanej pojemności. Rzeczywista liczba serwerów Azure Database for MariaDB, które pobierają rabat, zależą od wybranego zakresu i ilości.
 
@@ -50,13 +50,13 @@ W poniższej tabeli opisano wymagane pola.
 
 | Pole | Opis |
 | :------------ | :------- |
-| Subskrypcja   | Subskrypcja używana do płacenia za Azure Database for MariaDB zarezerwowaną rezerwację zdolności produkcyjnych. W ramach metody płatności w ramach subskrypcji jest naliczana opłata z tytułu kosztów ponoszonych z góry Azure Database for MariaDB zastrzeżonej rezerwacji. Typ subskrypcji musi być umową Enterprise Agreement (Numer oferty: MS-AZR-0017P lub MS-AZR-0148P) lub indywidualna umowa z cennikiem z opcją płatność zgodnie z rzeczywistym użyciem (numery ofert: MS-AZR-0003P lub MS-AZR-0023P). W przypadku subskrypcji Enterprise opłaty są odliczane od salda zobowiązania pieniężnego rejestracji lub naliczane jako nadwyżka. W przypadku indywidualnej subskrypcji z płatnością zgodnie z rzeczywistym użyciem opłaty są naliczane za kartę kredytową lub formę płatności faktury dla subskrypcji.
-| Zakres | Zakres rezerwacji rdzeń wirtualny może obejmować jedną subskrypcję lub wiele subskrypcji (zakres udostępniony). W przypadku wybrania opcji: </br></br> **Shared** Rdzeń wirtualny rabat rezerwacji jest stosowany do serwerów Azure Database for MariaDB uruchomionych w ramach dowolnych subskrypcji w kontekście rozliczeń. W przypadku klientów korporacyjnych zakresem udostępnionym jest rejestracja i uwzględnianie wszystkich subskrypcji w ramach rejestracji. W przypadku klientów z płatnością zgodnie z rzeczywistym użyciem zakresem udostępnionym są wszystkie subskrypcje z opcją płatności zgodnie z rzeczywistym użyciem utworzone przez administratora konta.</br></br> **Pojedyncza subskrypcja** — rabat rezerwacji rdzeń wirtualny jest stosowany do serwerów Azure Database for MariaDB w tej subskrypcji. </br></br> **Pojedynczej grupy zasobów** , Rabat rezerwacji jest stosowany do Azure Database for MariaDB serwerów w wybranej subskrypcji i wybranej grupy zasobów w ramach tej subskrypcji.
-| Region | Region świadczenia usługi Azure objęty Azure Database for MariaDB rezerwacji zarezerwowanej pojemności.
+| Subskrypcja   | Subskrypcja używana do płacenia za Azure Database for MariaDB zarezerwowaną rezerwację zdolności produkcyjnych. W ramach metody płatności w ramach subskrypcji jest naliczana opłata z tytułu kosztów ponoszonych z góry Azure Database for MariaDB zastrzeżonej rezerwacji. Typ subskrypcji musi być umową Enterprise Agreement (Numer oferty: MS-AZR-0017P lub MS-AZR-0148P) lub indywidualna umowa z cennikiem z opcją płatność zgodnie z rzeczywistym użyciem (numery ofert: MS-AZR-0003P lub MS-AZR-0023P). W przypadku subskrypcji przedsiębiorstwa opłaty są naliczane od przedpłaty za subskrypcję platformy Azure (wcześniej nazywanej zobowiązaniem pieniężnym) lub za użycie. W przypadku indywidualnej subskrypcji z płatnością zgodnie z rzeczywistym użyciem opłaty są naliczane za kartę kredytową lub formę płatności faktury dla subskrypcji.
+| Zakres | Zakres rezerwacji rdzeń wirtualny może obejmować jedną subskrypcję lub wiele subskrypcji (zakres udostępniony). W przypadku wybrania opcji: </br></br> Rdzeń wirtualny rabat rezerwacji jest stosowany do serwerów Azure Database for MariaDB uruchomionych w ramach dowolnych subskrypcji w kontekście rozliczeń. W przypadku klientów korporacyjnych zakresem udostępnionym jest rejestracja i uwzględnianie wszystkich subskrypcji w ramach rejestracji. W przypadku klientów z płatnością zgodnie z rzeczywistym użyciem zakresem udostępnionym są wszystkie subskrypcje z opcją płatności zgodnie z rzeczywistym użyciem utworzone przez administratora konta.</br></br> **Pojedyncza subskrypcja**— rabat rezerwacji rdzeń wirtualny jest stosowany do serwerów Azure Database for MariaDB w tej subskrypcji. </br></br> **Pojedynczej grupy zasobów**, Rabat rezerwacji jest stosowany do Azure Database for MariaDB serwerów w wybranej subskrypcji i wybranej grupy zasobów w ramach tej subskrypcji.
+| Region (Region) | Region świadczenia usługi Azure objęty Azure Database for MariaDB rezerwacji zarezerwowanej pojemności.
 | Typ wdrożenia | Typ zasobu Azure Database for MariaDB, dla którego chcesz kupić rezerwację.
 | Warstwa wydajności | Warstwa usług dla serwerów Azure Database for MariaDB.
 | Termin | Jeden rok
-| Liczba | Ilość zasobów obliczeniowych zakupionych w ramach rezerwacji Azure Database for MariaDB zarezerwowanej. Ilość to liczba rdzeni wirtualnych w wybranym regionie i warstwie wydajności platformy Azure, które są zarezerwowane i pobierają rabat rozliczeń. Na przykład w przypadku uruchamiania programu lub planowania uruchamiania serwerów Azure Database for MariaDB z łączną pojemnością obliczeniową 5 rdzeń 16 rdzeni wirtualnych w regionie Wschodnie stany USA należy określić liczbę jako 16, aby zmaksymalizować korzyść dla wszystkich serwerów.
+| Ilość | Ilość zasobów obliczeniowych zakupionych w ramach rezerwacji Azure Database for MariaDB zarezerwowanej. Ilość to liczba rdzeni wirtualnych w wybranym regionie i warstwie wydajności platformy Azure, które są zarezerwowane i pobierają rabat rozliczeń. Na przykład w przypadku uruchamiania programu lub planowania uruchamiania serwerów Azure Database for MariaDB z łączną pojemnością obliczeniową 5 rdzeń 16 rdzeni wirtualnych w regionie Wschodnie stany USA należy określić liczbę jako 16, aby zmaksymalizować korzyść dla wszystkich serwerów.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Anulowanie, wymiana lub zwrot rezerwacji
 

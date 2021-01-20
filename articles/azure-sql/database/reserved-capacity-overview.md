@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
 ms.date: 10/13/2020
-ms.openlocfilehash: b4a8b809fc135a4af26fae10912890f2017153f4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: cacd43502a01352c24f8fcfd85b12aac781dccbd
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780924"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602521"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-sql-database--sql-managed-instance"></a>Oszczędność kosztów zasobów przy użyciu zarezerwowanej pojemności — Azure SQL Database & wystąpienia zarządzane SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)] 
@@ -31,7 +31,7 @@ Rezerwacja dotyczy podstawowej i rozliczanej repliki obliczeniowej, ale nie obej
 Możesz kupić zastrzeżoną pojemność w [Azure Portal](https://portal.azure.com). Płatność za rezerwację jest wnoszona [z góry lub w ratach miesięcznych](../../cost-management-billing/reservations/prepare-buy-reservation.md). Aby kupić pojemność zarezerwowaną:
 
 - Musisz być w roli właściciela dla co najmniej jednej subskrypcji przedsiębiorstwa lub indywidualnej, która ma stawki płatność zgodnie z rzeczywistym użyciem.
-- W przypadku subskrypcji Enterprise w witrynie [EA Portal](https://ea.azure.com) musi być włączona opcja **Dodaj wystąpienia zarezerwowane** . Jeśli to ustawienie jest wyłączone, musisz być administratorem EA w subskrypcji. Zarezerwowana pojemność.
+- W przypadku subskrypcji Enterprise w witrynie [EA Portal](https://ea.azure.com) musi być włączona opcja **Dodaj wystąpienia zarezerwowane**. Jeśli to ustawienie jest wyłączone, musisz być administratorem EA w subskrypcji. Zarezerwowana pojemność.
 
 Aby uzyskać więcej informacji na temat sposobu, w jaki Klienci korporacyjni i klienci korzystający z płatnej zgodnie z rzeczywistym użyciem są obciążani opłatami za zakupy rezerwacji, zobacz [Opis użycia usługi Azure Reservation na potrzeby rejestracji w przedsiębiorstwie](../../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) i informacje [dotyczące użycia rezerwacji na platformie Azure dla subskrypcji z opcją płatność za](../../cost-management-billing/reservations/understand-reserved-instance-usage.md)użycie.
 
@@ -47,7 +47,7 @@ Załóżmy na przykład, że korzystasz z jednego ogólnego celu, 5 rdzeń – 1
 ## <a name="buy-reserved-capacity"></a>Kupowanie pojemności zarezerwowanej
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Wybierz pozycję **Wszystkie usługi** > **Rezerwacje** .
+2. Wybierz pozycję **Wszystkie usługi** > **Rezerwacje**.
 3. Wybierz pozycję **Dodaj** , a następnie w okienku **rezerwacje zakupu** wybierz pozycję **SQL Database** , aby zakupić nową rezerwację dla SQL Database.
 4. Wypełnij pola wymagane. Istniejące bazy danych w SQL Database i wystąpieniu zarządzanym SQL, które pasują do wybranych atrybutów, kwalifikują się do uzyskania rabatu zarezerwowanej pojemności. Rzeczywista liczba baz danych lub wystąpień zarządzanych, które pobierają rabat, zależy od wybranego zakresu i ilości.
 
@@ -57,16 +57,16 @@ Załóżmy na przykład, że korzystasz z jednego ogólnego celu, 5 rdzeń – 1
     
     | Pole      | Opis|
     |------------|--------------|
-    |Subskrypcja|Subskrypcja używana do regulowania rezerwacji zdolności produkcyjnych. W przypadku metody płatności w ramach subskrypcji jest naliczana opłata za pozostały koszt. Typ subskrypcji musi być umową Enterprise Agreement (Numer oferty MS-AZR-0017P lub MS-AZR-0148P) lub indywidualna umowa z cennikiem z opcją płatność zgodnie z rzeczywistym użyciem (Numer oferty MS-AZR-0003P lub MS-AZR-0023P). W przypadku subskrypcji Enterprise opłaty są odliczane od salda zobowiązania pieniężnego rejestracji lub naliczane jako nadwyżka. W przypadku indywidualnej subskrypcji z płatnością zgodnie z rzeczywistym użyciem opłaty są naliczane za kartę kredytową lub formę płatności faktury dla subskrypcji.|
-    |Zakres       |Zakres rezerwacji rdzeń wirtualny może obejmować jedną subskrypcję lub wiele subskrypcji (zakres udostępniony). W przypadku wybrania pozycji <br/><br/>**Shared** Rdzeń wirtualny rabat rezerwacji jest stosowany do bazy danych lub wystąpienia zarządzanego uruchomionego w dowolnej subskrypcji w kontekście rozliczania. W przypadku klientów korporacyjnych zakresem udostępnionym jest rejestracja i uwzględnianie wszystkich subskrypcji w ramach rejestracji. W przypadku klientów z płatnością zgodnie z rzeczywistym użyciem zakresem udostępnionym są wszystkie subskrypcje z opcją płatności zgodnie z rzeczywistym użyciem utworzone przez administratora konta.<br/><br/>**Pojedyncza subskrypcja** — rabat rezerwacji rdzeń wirtualny jest stosowany do baz danych lub wystąpień zarządzanych w tej subskrypcji. <br/><br/>**Pojedynczej grupy zasobów** , Rabat rezerwacji jest stosowany do wystąpień baz danych lub wystąpień zarządzanych w wybranej subskrypcji i wybranej grupy zasobów w ramach tej subskrypcji.|
-    |Region      |Region świadczenia usługi Azure objęty rezerwacją pojemności.|
+    |Subskrypcja|Subskrypcja używana do regulowania rezerwacji zdolności produkcyjnych. W przypadku metody płatności w ramach subskrypcji jest naliczana opłata za pozostały koszt. Typ subskrypcji musi być umową Enterprise Agreement (Numer oferty MS-AZR-0017P lub MS-AZR-0148P) lub indywidualna umowa z cennikiem z opcją płatność zgodnie z rzeczywistym użyciem (Numer oferty MS-AZR-0003P lub MS-AZR-0023P). W przypadku subskrypcji przedsiębiorstwa opłaty są naliczane od przedpłaty za subskrypcję platformy Azure (wcześniej nazywanej zobowiązaniem pieniężnym) lub za użycie. W przypadku indywidualnej subskrypcji z płatnością zgodnie z rzeczywistym użyciem opłaty są naliczane za kartę kredytową lub formę płatności faktury dla subskrypcji.|
+    |Zakres       |Zakres rezerwacji rdzeń wirtualny może obejmować jedną subskrypcję lub wiele subskrypcji (zakres udostępniony). W przypadku wybrania pozycji <br/><br/>Rdzeń wirtualny rabat rezerwacji jest stosowany do bazy danych lub wystąpienia zarządzanego uruchomionego w dowolnej subskrypcji w kontekście rozliczania. W przypadku klientów korporacyjnych zakresem udostępnionym jest rejestracja i uwzględnianie wszystkich subskrypcji w ramach rejestracji. W przypadku klientów z płatnością zgodnie z rzeczywistym użyciem zakresem udostępnionym są wszystkie subskrypcje z opcją płatności zgodnie z rzeczywistym użyciem utworzone przez administratora konta.<br/><br/>**Pojedyncza subskrypcja**— rabat rezerwacji rdzeń wirtualny jest stosowany do baz danych lub wystąpień zarządzanych w tej subskrypcji. <br/><br/>**Pojedynczej grupy zasobów**, Rabat rezerwacji jest stosowany do wystąpień baz danych lub wystąpień zarządzanych w wybranej subskrypcji i wybranej grupy zasobów w ramach tej subskrypcji.|
+    |Region (Region)      |Region świadczenia usługi Azure objęty rezerwacją pojemności.|
     |Typ wdrożenia|Typ zasobu SQL, dla którego chcesz kupić rezerwację.|
     |Warstwa wydajności|Warstwa usług dla baz danych lub wystąpień zarządzanych. |
     |Termin        |Jeden rok lub trzy lata.|
-    |Liczba    |Ilość zasobów obliczeniowych zakupionych w ramach rezerwacji pojemności. Ilość to liczba rdzeni wirtualnych w wybranym regionie i warstwie wydajności platformy Azure, które są zarezerwowane i pobierają rabat rozliczeń. Na przykład w przypadku uruchamiania lub planowania uruchamiania wielu baz danych o całkowitej pojemności obliczeniowej 5 rdzeń 16 rdzeni wirtualnych w regionie Wschodnie stany USA należy określić liczbę jako 16, aby zmaksymalizować korzyść dla wszystkich baz danych. |
+    |Ilość    |Ilość zasobów obliczeniowych zakupionych w ramach rezerwacji pojemności. Ilość to liczba rdzeni wirtualnych w wybranym regionie i warstwie wydajności platformy Azure, które są zarezerwowane i pobierają rabat rozliczeń. Na przykład w przypadku uruchamiania lub planowania uruchamiania wielu baz danych o całkowitej pojemności obliczeniowej 5 rdzeń 16 rdzeni wirtualnych w regionie Wschodnie stany USA należy określić liczbę jako 16, aby zmaksymalizować korzyść dla wszystkich baz danych. |
 
 1. Sprawdź koszt rezerwacji zdolności produkcyjnych w sekcji **koszty** .
-1. Wybierz pozycję **Kup** .
+1. Wybierz pozycję **Kup**.
 1. Wybierz pozycję **Wyświetl to zastrzeżenie** , aby zobaczyć stan zakupu.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Anulowanie, wymiana lub zwrot rezerwacji

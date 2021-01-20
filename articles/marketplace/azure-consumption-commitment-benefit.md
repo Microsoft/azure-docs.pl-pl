@@ -8,12 +8,12 @@ author: emuench
 ms.author: mingshen
 ms.date: 10/15/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: d8cb5179583dd23ea2bd4baf5ebe7d84b0ae9cbf
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 748b6c3506127de8fce153a77571664ea531ffa1
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814435"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601358"
 ---
 # <a name="azure-consumption-commitment-benefit"></a>Korzyść z tytułu zobowiązania do użycia platformy Azure
 
@@ -24,7 +24,7 @@ Wybór zestawu ofert komercyjnych portalu Microsoft Marketplace będzie uczestni
 
 Wszystkie oferty, które uczestniczą w tym programie, są weryfikowane w celu zapewnienia otrzymywania rozwiązań o wysokiej jakości.
 
-Aby skorzystać z tej korzyści, wystarczy zakupić ofertę kwalifikującą w witrynie Azure Marketplace przy użyciu subskrypcji powiązanej z umową platformy Azure. Zaliczki i zobowiązania pieniężne platformy Azure nie kwalifikują się do skorzystania z tej korzyści.
+Aby skorzystać z tej korzyści, wystarczy zakupić ofertę kwalifikującą w witrynie Azure Marketplace przy użyciu subskrypcji powiązanej z umową platformy Azure. Przedpłata na platformę Azure (wcześniej nazywana zobowiązaniem pieniężnym) nie kwalifikuje się do tej korzyści.
 
 > [!IMPORTANT]
 > Wykluczenia mogą dotyczyć umów CtC podpisanych przed tą korzyścią z witryny Marketplace. Jeśli masz pytania dotyczące uprawnień, skontaktuj się z biurem konto Microsoft Executive.

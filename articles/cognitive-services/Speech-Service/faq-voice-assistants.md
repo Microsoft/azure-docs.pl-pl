@@ -1,7 +1,7 @@
 ---
 title: Często zadawane pytania dotyczące asystentów głosowych
 titleSuffix: Azure Cognitive Services
-description: Uzyskaj odpowiedzi na najpopularniejsze pytania dotyczące asystentów głosowych przy użyciu poleceń niestandardowych (wersja zapoznawcza) lub kanału mowy z linią bezpośrednią.
+description: Uzyskaj odpowiedzi na najpopularniejsze pytania dotyczące asystentów głosowych przy użyciu poleceń niestandardowych lub kanału bezpośredniej pomocy liniowej.
 services: cognitive-services
 author: trrwilson
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: b43d446930d1f8c40c12e5d0aeba6eb202ef47ef
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 4b0bbb982ed48dc052b1a15514ad36b1d69b62b5
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353735"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599427"
 ---
 # <a name="voice-assistants-frequently-asked-questions"></a>Często zadawane pytania dotyczące asystentów głosowych
 
@@ -25,11 +25,11 @@ Jeśli nie możesz znaleźć odpowiedzi na pytania w tym dokumencie, zapoznaj si
 
 **P: co to jest asystent głosowy?**
 
-Odp **.:** Podobnie jak Cortana, asystent głosowy to rozwiązanie, które nasłuchuje w wyrażenia długości mówionym przez użytkownika, analizuje zawartość tych wyrażenia długości w znaczenie, wykonuje co najmniej jedną akcję w odpowiedzi na intencje wypowiedź, a następnie dostarcza odpowiedzi użytkownikowi, który często zawiera wymawiany składnik. Jest to "głosowanie", co prowadzi do korzystania z systemu. Autorzy asystentów głosowych tworzą aplikację na urządzeniu przy użyciu `DialogServiceConnector` zestawu SDK mowy do komunikowania się z asystentem utworzonym za pomocą [poleceń niestandardowych (wersja zapoznawcza)](custom-commands.md) lub kanałem [mowy liniowej](direct-line-speech.md) bot Framework. Ci Asystenci mogą używać niestandardowych słów kluczowych, niestandardowej mowy i niestandardowego głosu, aby zapewnić środowisko dostosowane do Twojej marki lub produktu.
+Odp **.:** Podobnie jak Cortana, asystent głosowy to rozwiązanie, które nasłuchuje w wyrażenia długości mówionym przez użytkownika, analizuje zawartość tych wyrażenia długości w znaczenie, wykonuje co najmniej jedną akcję w odpowiedzi na intencje wypowiedź, a następnie dostarcza odpowiedzi użytkownikowi, który często zawiera wymawiany składnik. Jest to "głosowanie", co prowadzi do korzystania z systemu. Autorzy asystentów głosowych tworzą aplikację na urządzeniu przy użyciu `DialogServiceConnector` zestawu SDK mowy do komunikowania się z asystentem utworzonym za pomocą [poleceń niestandardowych](custom-commands.md) lub kanałem [mowy linii Direct](direct-line-speech.md) w środowisku bot Framework. Ci Asystenci mogą używać niestandardowych słów kluczowych, niestandardowej mowy i niestandardowego głosu, aby zapewnić środowisko dostosowane do Twojej marki lub produktu.
 
-**P: czy należy używać poleceń niestandardowych (wersja zapoznawcza) czy bezpośredniej linii mowy? Jaka jest różnica?**
+**P: czy należy używać poleceń niestandardowych czy bezpośredniej mowy wiersza? Jaka jest różnica?**
 
-Odp. **:** [polecenia niestandardowe (wersja zapoznawcza)](custom-commands.md) to zestaw narzędzi, które ułatwiają tworzenie i obsługę asystenta, który jest dobrze dostosowany do scenariuszy ukończenia zadań. [Bezpośredni wiersz mowy](direct-line-speech.md) zapewnia bogatsze i bardziej zaawansowane funkcje, które mogą umożliwić niezawodne scenariusze konwersacji. Zobacz [porównanie rozwiązań asystenta](voice-assistants.md#choosing-an-assistant-solution) , aby uzyskać więcej informacji.
+Odp. **:** [polecenia niestandardowe](custom-commands.md) to zestaw narzędzi o niższej złożoności, który umożliwia łatwe tworzenie i hostowanie asystenta, który jest dobrze dostosowany do scenariuszy ukończenia zadań. [Bezpośredni wiersz mowy](direct-line-speech.md) zapewnia bogatsze i bardziej zaawansowane funkcje, które mogą umożliwić niezawodne scenariusze konwersacji. Zobacz [porównanie rozwiązań asystenta](voice-assistants.md#choosing-an-assistant-solution) , aby uzyskać więcej informacji.
 
 **P: Jak mogę zacząć?**
 
@@ -61,7 +61,7 @@ Odp **.:** Podczas zarządzania subskrypcją w Azure Portal upewnij się, że u�
 
 Odp **.:** Ten błąd wskazuje na problem z komunikacją między asystentem a usługą asystenta głosowego.
 
-- W przypadku poleceń niestandardowych (wersja zapoznawcza) Upewnij się, że aplikacja poleceń niestandardowych (wersja zapoznawcza) została opublikowana
+- W przypadku poleceń niestandardowych upewnij się, że aplikacja poleceń niestandardowych została opublikowana
 - W przypadku bezpośredniej obsługi mowy w wierszu upewnij się, że [nawiązano połączenie z usługą bot z kanałem mowy z linią Direct](/azure/bot-service/bot-service-channel-connect-directlinespeech), [Dodano obsługę protokołu przesyłania strumieniowego](/azure/bot-service/directline-speech-bot) do bot (z obsługą obsługiwanego gniazda sieci Web), a następnie sprawdź, czy bot odpowiada na żądania przychodzące z kanału.
 
 **P: ten kod nadal nie działa i/lub występuje inny błąd podczas korzystania z `DialogServiceConnector` . Co mam zrobić?**

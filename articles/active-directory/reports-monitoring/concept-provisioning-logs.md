@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/28/2020
+ms.date: 1/19/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56818862b6bc4eb38b819185aceb121e6e78488e
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 05a514debcf8036a296bbe66b2dd75c7dacacdc2
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803531"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600740"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Raporty dotyczące aprowizacji w portalu Azure Active Directory (wersja zapoznawcza)
 
@@ -121,7 +121,7 @@ Po wybraniu niestandardowego przedziału czasu można skonfigurować datę pocz�
 Filtr **stanu** umożliwia wybranie:
 
 - Wszystko
-- Success
+- Powodzenie
 - Niepowodzenie
 - Pominięto
 
@@ -130,7 +130,7 @@ Filtr **stanu** umożliwia wybranie:
 Filtr **akcji** umożliwia filtrowanie:
 
 - Utwórz 
-- Aktualizowanie
+- Aktualizacja
 - Usuń
 - Wyłącz
 - Inne
@@ -215,8 +215,6 @@ Karta **Podsumowanie** zawiera przegląd informacji o tym, co się stało i iden
 - W Azure Portal są przechowywane zgłoszone dane aprowizacji przez 30 dni, jeśli masz wersję Premium i 7 dni, jeśli masz bezpłatną wersję. Dzienniki aprowizacji można publikować w usłudze [log Analytics](../app-provisioning/application-provisioning-log-analytics.md) w celu przechowywania danych przez okres dłuższy niż 30 dni. 
 
 - Można użyć atrybutu identyfikatora zmiany jako unikatowego identyfikatora. Jest to przydatne na przykład podczas współdziałania z pomocą techniczną produktu.
-
-- Obecnie nie ma możliwości pobrania danych aprowizacji jako pliku CSV, ale dane można eksportować przy użyciu [Microsoft Graph](/graph/api/provisioningobjectsummary-list?tabs=http&view=graph-rest-beta).
 
 - W przypadku użytkowników, którzy nie znajdują się w zakresie, mogą zostać wyświetlone pominięte zdarzenia. Jest to oczekiwane, szczególnie w przypadku, gdy zakres synchronizacji jest ustawiony na wszystkich użytkowników i grupy. Nasza usługa oceni wszystkie obiekty w dzierżawie, nawet te, które znajdują się poza zakresem. 
 

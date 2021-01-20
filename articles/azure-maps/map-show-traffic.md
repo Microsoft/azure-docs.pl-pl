@@ -9,22 +9,26 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: ec7459a356221fb7b599cbbc02f1cb825920b5b3
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: b6fcf39e05c4649503f0b7a80aadaaa16df24674
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890670"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599549"
 ---
 # <a name="show-traffic-on-the-map"></a>Pokaż ruch na mapie
 
 Istnieją dwa typy danych ruchu dostępne w Azure Maps:
 
 - Dane zdarzenia — składa się z punktów i danych opartych na wierszu dla elementów, takich jak konstrukcja, zamknięcie dróg i awarie.
-- Dane przepływu — dostarcza metryki przepływu ruchu na drogach. Często dane przepływu ruchu są używane do kolorowania dróg. Kolory są zależne od tego, jaki ruch zmniejsza przepływ w stosunku do limitu szybkości lub innej metryki. Dane przepływu ruchu w Azure Maps mają trzy różne metryki pomiaru:
-    - `relative` -jest względem prędkości swobodnego przepływu drogi.
-    - `absolute` -jest bezwzględną szybkością wszystkich pojazdów w podróży.
-    - `relative-delay` -Wyświetla obszary, które są wolniejsze niż średnie oczekiwane opóźnienie.
+- Dane przepływu — dostarcza metryki przepływu ruchu na drogach. Często dane przepływu ruchu są używane do kolorowania dróg. Kolory są zależne od tego, jaki ruch zmniejsza przepływ w stosunku do limitu szybkości lub innej metryki. Istnieją cztery wartości, które można przekazywać do opcji ruchu na `flow` mapie.
+
+    |Wartość przepływu | Opis|
+    | :-- | :-- |
+    | `none` | Nie wyświetla danych o ruchu na mapie |
+    | `relative` | Pokazuje dane o ruchu odnoszące się do szybkości swobodnego przepływu drogi |
+    | `relative-delay` | Wyświetla obszary, które są wolniejsze niż średnie oczekiwane opóźnienie |
+    | `absolute` | Pokazuje absolutną prędkość wszystkich pojazdów w podróży |
 
 Poniższy kod przedstawia sposób wyświetlania danych o ruchu na mapie.
 

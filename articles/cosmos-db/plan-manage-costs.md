@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/19/2020
-ms.openlocfilehash: 07e165382608f4fde5433de0f4436cb86f5083af
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 2bea2324817986654de6689a2be15d0cbf999b38
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251900"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602138"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Planowanie i zarządzanie kosztami Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -73,7 +73,7 @@ Po rozpoczęciu korzystania z Azure Cosmos DB zasobów z Azure Portal można zob
 
 Jeśli subskrypcja platformy Azure ma limit wydatków, platforma Azure nie pozwala na korzystanie z wydatków w wysokości. Twoje środki są używane podczas tworzenia i używania zasobów platformy Azure. Po osiągnięciu limitu kredytu wdrożone zasoby są wyłączone dla pozostałej części okresu rozliczeniowego. Nie możesz zmienić limitu kredytowego, ale możesz go usunąć. Aby uzyskać więcej informacji na temat limitów wydatków, zobacz [limit wydatków platformy Azure](../cost-management-billing/manage/spending-limit.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
-Opłaty za Azure Cosmos DB mogą być naliczane z tytułu zobowiązania pieniężnego na platformie Azure Umowa Enterprise. Nie można jednak użyć kredytu zobowiązania pieniężnego, aby uregulować opłaty za produkty i usługi innych firm, w tym te z portalu Azure Marketplace.
+Opłaty za Azure Cosmos DB mogą być naliczane przy użyciu przedpłaty za korzystanie z platformy Azure (wcześniej zwanego zobowiązaniem pieniężnym). Nie można jednak używać środków zaliczkowych na platformie Azure, aby zapłacić za opłaty za produkty i usługi innych firm, w tym te z portalu Azure Marketplace.
 
 ## <a name="monitor-costs"></a>Monitorowanie kosztów
 

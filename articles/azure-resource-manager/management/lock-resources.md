@@ -4,16 +4,16 @@ description: Zablokuj użytkownikom możliwość aktualizowania lub usuwania zas
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f1073d8c4a6902ea00a9b4098ef87bc411b3e6c0
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 7efeb8a073a04f78f77046c07c107abf0c7526f4
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555672"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602210"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Blokowanie zasobów w celu uniemożliwienia nieoczekiwanych zmian
 
-Jako administrator możesz zablokować subskrypcję, grupę zasobów lub zasób, aby zapobiec przypadkowemu usunięciu lub zmodyfikowaniu kluczowych zasobów przez innych użytkowników w organizacji. Poziom blokady można ustawić na wartość **CanNotDelete** lub **ReadOnly**. W portalu blokady są nazywane odpowiednio **usuwaniem** i **tylko do odczytu** .
+Jako administrator możesz chcieć zablokować subskrypcję, grupę zasobów lub zasób, aby zapobiec przypadkowemu usunięciu lub zmodyfikowaniu kluczowych zasobów przez innych użytkowników w organizacji. Poziom blokady można ustawić na wartość **CanNotDelete** lub **ReadOnly**. W portalu blokady są nazywane odpowiednio **usuwaniem** i **tylko do odczytu** .
 
 * **CanNotDelete** oznacza, że autoryzowani użytkownicy nadal mogą odczytywać i modyfikować zasób, ale nie mogą usunąć tego zasobu.
 * **ReadOnly** oznacza, że autoryzowani użytkownicy mogą odczytywać zasoby, ale nie mogą usuwać ani aktualizować zasobu. Zastosowanie tej blokady jest podobne do ograniczenia wszystkich autoryzowanych użytkowników do uprawnień udzielonych przez rolę **czytelnika** .
@@ -28,7 +28,7 @@ Blokady usługi Resource Manager dotyczą tylko operacji wykonywanych na płaszc
 
 ## <a name="considerations-before-applying-locks"></a>Zagadnienia przed zastosowaniem blokad
 
-Zastosowanie blokad może prowadzić do nieoczekiwanych wyników, ponieważ niektóre operacje, które nie pozornie modyfikują zasobu, rzeczywiście wymagają akcji blokowanych przez blokadę. Niektóre typowe przykłady operacji blokowanych przez blokady są następujące:
+Zastosowanie blokad może prowadzić do nieoczekiwanych wyników, ponieważ niektóre operacje, które nie pozornie modyfikują zasobu, rzeczywiście wymagają akcji blokowanych przez blokadę. Blokady uniemożliwią wykonywanie operacji, które wymagają żądania POST do interfejsu API Azure Resource Manager. Niektóre typowe przykłady operacji blokowanych przez blokady są następujące:
 
 * Blokada tylko do odczytu na **koncie magazynu** uniemożliwia wszystkim użytkownikom wyświetlanie kluczy. Operacje listy kluczy są obsługiwane za pomocą żądania POST, ponieważ zwrócone klucze są dostępne dla operacji zapisu.
 

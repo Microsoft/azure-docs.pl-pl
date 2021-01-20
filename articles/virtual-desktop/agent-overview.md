@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 6450b44e5c7281f0a24fd5000c9feec6e61fa29c
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 325502255e84e38a39ca5b90ee4126354c0d425b
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98540626"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601243"
 ---
 # <a name="get-started-with-the-windows-virtual-desktop-agent"></a>Wprowadzenie do agenta pulpitu wirtualnego systemu Windows
 
@@ -44,5 +44,4 @@ Ta instalacja aktualizacji zwykle trwa 2-3 minut na nowej maszynie wirtualnej i 
 
 Teraz, gdy znasz już agenta pulpitu wirtualnego systemu Windows, Oto kilka zasobów, które mogą Ci pomóc:
 
-- Zapoznaj się z sekcją [aktualizacje agenta pulpitu wirtualnego systemu Windows](whats-new.md) , aby uzyskać informacje o tym, co Nowa aktualizacja agenta obejmuje każdy miesiąc.
 - Jeśli występują problemy z agentem lub łącznością, zapoznaj się z [tematem Rozwiązywanie problemów z agentem pulpitu wirtualnego systemu Windows](troubleshoot-agent.md).

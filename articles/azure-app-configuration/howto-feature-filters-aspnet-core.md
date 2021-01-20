@@ -8,12 +8,12 @@ author: AlexandraKemperMS
 ms.author: alkemper
 ms.topic: conceptual
 ms.date: 3/9/2020
-ms.openlocfilehash: 13857580d434736fbf0b12f52d39537ca864a497
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 39455c4bc193cce036bd169c702b5c020d53d2f6
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98203142"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602251"
 ---
 # <a name="use-feature-filters-to-enable-conditional-feature-flags"></a>Używanie filtrów funkcji do włączania flag funkcji warunkowej
 
@@ -31,7 +31,7 @@ Możesz również utworzyć własny filtr funkcji, który implementuje [interfej
 
 ## <a name="registering-a-feature-filter"></a>Rejestrowanie filtru funkcji
 
-Filtr funkcji można zarejestrować `AddFeatureFilter` , wywołując metodę, określając nazwę filtru funkcji. Na przykład następujące rejestry kodu `PercentageFilter` :
+Filtr funkcji można zarejestrować `AddFeatureFilter` , wywołując metodę, określając nazwę typu żądanego filtru funkcji. Na przykład następujące rejestry kodu `PercentageFilter` :
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -56,14 +56,14 @@ Te ustawienia można skonfigurować dla flag funkcji zdefiniowanych w obszarze K
     > [!div class="mx-imgBorder"]
     > ![Edytuj flagę funkcji beta](./media/edit-beta-feature-flag.png)
 
-1. Na ekranie **Edycja** wybierz przycisk **Włącz flagę funkcji** , jeśli nie został jeszcze wybrany. Następnie kliknij przycisk **Użyj filtru funkcji** i wybierz pozycję **niestandardowy**. 
+1. Na ekranie **Edycja** zaznacz pole wyboru **Włącz flagę funkcji** , jeśli nie zostało jeszcze włączone. Następnie zaznacz pole wyboru **Użyj filtru funkcji** i wybierz pozycję **niestandardowe**. 
 
-1. W polu **klucz** wprowadź *wartość Microsoft. PERCENTAGE*.
+1. W polu **Nazwa** wybierz pozycję *Microsoft. PERCENTAGE*.
 
     > [!div class="mx-imgBorder"]
     > ![Dodaj filtr funkcji](./media/feature-flag-add-filter.png)
 
-1. Kliknij menu kontekstowe obok klucza filtru funkcji. Kliknij przycisk **Edytuj parametry filtru**.
+1. Kliknij menu kontekstowe obok nazwy filtru funkcji. Kliknij przycisk **Edytuj parametry filtru**.
 
     > [!div class="mx-imgBorder"]
     > ![Edytuj parametry filtru funkcji](./media/feature-flags-edit-filter-parameters.png)
@@ -75,10 +75,10 @@ Te ustawienia można skonfigurować dla flag funkcji zdefiniowanych w obszarze K
 
 1. Kliknij przycisk **Zastosuj** , aby powrócić do ekranu **flagi edycji funkcji** . Następnie kliknij przycisk **Zastosuj** ponownie, aby zapisać ustawienia flagi funkcji.
 
-1. **Stan** flagi funkcji jest teraz wyświetlany jako *Conditional*. Ten stan wskazuje, że flaga funkcji zostanie włączona lub wyłączona dla poszczególnych żądań na podstawie kryteriów wymuszanych przez filtr funkcji.
+1. Na stronie **Menedżer funkcji** flaga funkcji ma teraz wartość **filtru funkcji** *niestandardowa*. 
 
     > [!div class="mx-imgBorder"]
-    > ![Flaga funkcji warunkowej](./media/feature-flag-filter-enabled.png)
+    > ![Flaga funkcji na liście z wartością filtru funkcji "Custom"](./media/feature-flag-filter-custom.png)
 
 ## <a name="feature-filters-in-action"></a>Filtry funkcji w akcji
 

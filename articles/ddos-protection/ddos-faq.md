@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: yitoh
-ms.openlocfilehash: e87fd8724ab9a967bf3b75579eb0e375a324a7b1
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: b53501bf5aa4bafb0229158edfe0cb244116b909
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183102"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600853"
 ---
 # <a name="azure-ddos-protection-standard-frequent-asked-questions"></a>Często zadawane pytania Azure DDoS Protection standardowe
 
@@ -34,6 +34,12 @@ Plany ochrony DDoS mają stałą miesięczną opłatą równą $2 944 miesięczn
 W ramach dzierżawy może być używany jeden plan ochrony DDoS w wielu subskrypcjach, więc nie ma potrzeby tworzenia więcej niż jednego planu ochrony DDoS.
 
 Aby uzyskać więcej informacji, zobacz [Cennik Standard Azure DDoS Protection](https://azure.microsoft.com/pricing/details/ddos-protection/) .
+
+## <a name="is-the-service-zone-resilient"></a>Czy strefa usługi jest odporna?
+Tak. Azure DDoS Protection jest domyślnie odporny na strefy.
+
+## <a name="how-do-i-configure-the-service-to-be-zone-resilient"></a>Jak mogę skonfigurować usługę tak, aby była odporna na strefy?
+W celu włączenia odporności stref nie trzeba wykonywać żadnych czynności konfiguracyjnych. Odporność stref na zasoby Azure DDoS Protection jest domyślnie dostępna i zarządzana przez samą usługę.
 
 ## <a name="what-about-protection-at-the-service-layer-layer-7"></a>Co z ochroną w warstwie usług (warstwa 7)?
 Klienci mogą używać usługi Azure DDoS Protection w połączeniu z zaporą aplikacji sieci Web (WAF) w celu zapewnienia ochrony zarówno w warstwie sieciowej (warstwy 3 i 4, oferowanej przez Azure DDoS Protection standard), jak i w warstwie aplikacji (warstwa 7, oferowana przez WAF). Oferty WAF obejmują usługi Azure [Application Gateway WAF SKU](../web-application-firewall/ag/ag-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) oraz oferty zapory aplikacji internetowych innych firm dostępne w [portalu Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall).
