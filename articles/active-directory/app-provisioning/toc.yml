@@ -80,6 +80,8 @@
           href: sap-successfactors-integration-reference.md
         - name: Dokumentacja atrybutów rozwiązania SuccessFactors
           href: sap-successfactors-attribute-reference.md
+        - name: Integracja z rozwiązaniem Workday
+          href: workday-integration-reference.md
         - name: Dokumentacja atrybutów rozwiązania Workday
           href: workday-attribute-reference.md
         - name: Historia wersji agenta aprowizacji

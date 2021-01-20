@@ -75,7 +75,7 @@
               href: ../../batch/best-practices.md?toc=/azure/azure-resource-manager/management/toc.json#moving-batch-accounts-across-regions
             - name: Azure Cognitive Search
               href: ../../search/search-howto-move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
-            - name: Usługa Azure Cosmos DB
+            - name: Azure Cosmos DB
               href: ../../cosmos-db/how-to-move-regions.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Azure Dev Spaces
               href: ../../dev-spaces/faq.md?toc=/azure/azure-resource-manager/management/toc.json#can-i-migrate-my-aks-cluster-with-azure-dev-spaces-to-another-region
@@ -102,6 +102,8 @@
             - name: Site Recovery (magazyny usługi Recovery Services)
               href: ../../site-recovery/move-vaults-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Sieć wirtualna
+              href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
+            - name: Interfejs sieciowy (karta sieciowa)
               href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Serwer usługi Azure Database for PostgreSQL
               href: ../../postgresql/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json

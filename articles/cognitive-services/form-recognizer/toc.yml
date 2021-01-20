@@ -20,6 +20,8 @@
       href: ../../search/cognitive-search-custom-skill-form.md
     - name: Korzystanie z usługi Rozpoznawanie formularzy w usłudze AI Builder
       href: tutorial-ai-builder.md
+    - name: Zbiorcze wyodrębnianie danych z formularzy
+      href: tutorial-bulk-processing.md
 - name: Pojęcia
   items:
     - name: Wyodrębnianie układu

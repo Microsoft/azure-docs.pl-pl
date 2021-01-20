@@ -129,90 +129,92 @@
               href: troubleshoot-error-403.md
 - name: Dokumentacja
   items:
-    - name: Limity usługi Digital Twins
-      href: reference-service-limits.md
-    - name: Cennik usługi Digital Twins
-      href: 'https://azure.microsoft.com/pricing/details/digital-twins/'
-    - name: Interfejsy API i zestawy SDK
+    - name: Dokumentacja interfejsu API REST
+      href: /rest/api/azure-digitaltwins/
+    - name: Zestawy SDK
       items:
-        - name: Dokumentacja interfejsu API REST
-          href: /rest/api/azure-digitaltwins/
         - name: Płaszczyzna sterowania
           items:
-            - name: Swagger
+            - name: Zestaw SDK dla platformy .NET (C#)
+              href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet
+            - name: Zestaw SDK Java
+              href: /azure/developer/java/sdk/
+        - name: Płaszczyzna danych
+          items:
+            - name: Zestaw SDK dla platformy .NET (C#)
+              href: /dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet
+            - name: Zestaw SDK Java
+              href: /java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-stable
+            - name: Zestaw SDK dla języka JavaScript
+              href: /javascript/api/@azure/digital-twins-core/?branch=master&view=azure-node-latest
+            - name: Zestaw SDK dla języka Python
+              href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python
+    - name: Interfejs wiersza polecenia usługi Digital Twins
+      href: /cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true
+- name: Zasoby
+  items:
+    - name: Interfejsy API i zestawy SDK
+      items:
+        - name: Płaszczyzna sterowania
+          items:
+            - name: Płaszczyzna sterowania — struktura Swagger
               href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable'
             - name: Zestaw SDK dla platformy .NET (C#) — NuGet
               href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/'
-            - name: Dokumentacja zestawu SDK dla platformy .NET (C#)
-              href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet
-            - name: Zestaw SDK dla platformy .NET (C#) — źródło
+            - name: Zestaw SDK dla platformy .NET (C#) — kod źródłowy
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins'
             - name: Java SDK — Maven
               href: 'https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar'
-            - name: Zestaw Java SDK — dokumentacja
-              href: /azure/developer/java/sdk/
-            - name: Zestaw SDK dla języka Java — źródło
+            - name: Zestaw SDK dla języka Java — kod źródłowy
               href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31'
-            - name: Zestaw SDK dla języka JavaScript
+            - name: Zestaw SDK dla języka JavaScript — narzędzie NPM
               href: 'https://www.npmjs.com/package/@azure/arm-digitaltwins'
-            - name: Zestaw SDK dla języka JavaScript — źródło
+            - name: Zestaw SDK dla języka JavaScript — kod źródłowy
               href: 'https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins'
             - name: Python SDK — PyPi
               href: 'https://pypi.org/project/azure-mgmt-digitaltwins/'
-            - name: Zestaw SDK dla języka Python — źródło
+            - name: Zestaw SDK dla języka Python — kod źródłowy
               href: 'https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins'
             - name: Go SDK — GoDoc
               href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins'
-            - name: Go — źródło
+            - name: Język Go — kod źródłowy
               href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt/2020-10-31/digitaltwins'
         - name: Płaszczyzna danych
           items:
-            - name: Swagger
+            - name: Płaszczyzna danych — struktura Swagger
               href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins'
             - name: Zestaw SDK dla platformy .NET (C#) — NuGet
               href: 'https://www.nuget.org/packages/Azure.DigitalTwins.Core'
-            - name: Dokumentacja zestawu SDK dla platformy .NET (C#)
-              href: /dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet
-            - name: Zestaw SDK dla platformy .NET (C#) — źródło
+            - name: Zestaw SDK dla platformy .NET (C#) — kod źródłowy
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core'
             - name: Java SDK — Maven
               href: 'https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0/jar'
-            - name: Zestaw Java SDK — dokumentacja
-              href: /java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-stable
-            - name: Zestaw SDK dla języka Java — źródło
+            - name: Zestaw SDK dla języka Java — kod źródłowy
               href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core'
-            - name: JavaScript SDK — npm
+            - name: Zestaw SDK dla języka JavaScript — narzędzie NPM
               href: 'https://www.npmjs.com/package/@azure/digital-twins-core'
-            - name: JavaScript SDK — dokumentacja
-              href: /javascript/api/@azure/digital-twins-core/?branch=master&view=azure-node-latest
-            - name: Zestaw SDK dla języka JavaScript — źródło
+            - name: Zestaw SDK dla języka JavaScript — kod źródłowy
               href: 'https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core'
             - name: Python SDK — PyPi
               href: 'https://pypi.org/project/azure-digitaltwins-core/'
-            - name: Python SDK — dokumentacja
-              href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python
-            - name: Zestaw SDK dla języka Python — źródło
+            - name: Zestaw SDK dla języka Python — kod źródłowy
               href: 'https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core'
-    - name: Interfejs wiersza polecenia usługi Digital Twins
-      items:
-        - name: Dokumentacja interfejsu wiersza polecenia usługi Digital Twins
-          href: /cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true
-        - name: Pakiet interfejsu wiersza polecenia
-          href: 'https://github.com/Azure/azure-iot-cli-extension/releases'
+    - name: Pakiet interfejsu wiersza polecenia usługi Digital Twins
+      href: 'https://github.com/Azure/azure-iot-cli-extension/releases'
     - name: Moduł usługi Azure PowerShell dla usługi Digital Twins
       href: 'https://www.powershellgallery.com/packages/Az.DigitalTwins/'
-    - name: Specyfikacja DTDL
+    - name: Moduły programu Terraform
       items:
-        - name: Specyfikacja DTDL v2
-          href: 'https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md'
-        - name: Rozszerzenie DTDL dla programu VS Code
-          href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl'
-        - name: Biblioteka analizatora DTDL — NuGet
-          href: 'https://www.nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/'
-        - name: Moduł sprawdzania poprawności DTDL (przykład)
-          href: /samples/azure-samples/dtdl-validator/dtdl-validator/
-        - name: Specyfikacja DTMI
-          href: 'https://github.com/Azure/digital-twin-model-identifier'
+        - name: Zasób wystąpienia usługi Digital Twins
+          href: 'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_instance'
+        - name: Źródło danych wystąpienia usługi Digital Twins
+          href: 'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/digital_twins_instance'
+        - name: Zasób punktu końcowego centrum zdarzeń
+          href: 'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_endpoint_eventhub'
+        - name: Zasób punktu końcowego usługi Event Grid
+          href: 'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_endpoint_eventgrid'
+        - name: Zasób punktu końcowego usługi Service Bus
+          href: 'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_endpoint_servicebus'
     - name: Narzędzia i przykładowe projekty
       items:
         - name: Usługa symulatora urządzeń
@@ -229,6 +231,34 @@
           href: /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/
         - name: Niestandardowe struktury Swagger dla łącznika usługi Logic Apps
           href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
+    - name: Specyfikacja DTDL
+      items:
+        - name: Specyfikacja DTDL v2
+          href: 'https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md'
+        - name: Rozszerzenie DTDL dla programu VS Code
+          href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl'
+        - name: Biblioteka analizatora DTDL — NuGet
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/'
+        - name: Moduł sprawdzania poprawności DTDL (przykład)
+          href: /samples/azure-samples/dtdl-validator/dtdl-validator/
+        - name: Specyfikacja DTMI
+          href: 'https://github.com/Azure/digital-twin-model-identifier'
+        - name: Żądania danych klienta
+      href: resources-customer-data-requests.md
+    - name: Cennik i dostępność
+      items:
+        - name: Cennik
+          href: 'https://azure.microsoft.com/pricing/details/digital-twins'
+        - name: Umowa SLA
+          href: 'https://azure.microsoft.com/support/legal/sla/digital-twins'
+        - name: Regiony i dostępność
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins'
+        - name: Limity usługi Digital Twins
+          href: reference-service-limits.md
+    - name: Historie klientów
+      href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc'
+    - name: Filmy w witrynie Channel 9
+      href: 'https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22'
     - name: Narzędzia platformy Azure
       items:
         - name: Azure Cloud Shell
@@ -239,21 +269,5 @@
           href: 'https://portal.azure.com'
     - name: Dokumentacja kontroli RBAC na platformie Azure
       href: ../role-based-access-control/overview.md
-- name: Zasoby
-  items:
     - name: Opcje wsparcia technicznego i pomocy
       href: ../iot-fundamentals/iot-support-help.md
-    - name: Historie klientów
-      href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc'
-    - name: Filmy w witrynie Channel 9
-      href: 'https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22'
-    - name: Żądania danych klienta
-      href: resources-customer-data-requests.md
-    - name: Cennik i dostępność
-      items:
-        - name: Cennik
-          href: 'https://azure.microsoft.com/pricing/details/digital-twins'
-        - name: Umowa SLA
-          href: 'https://azure.microsoft.com/support/legal/sla/digital-twins'
-        - name: Regiony i dostępność
-          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins'
