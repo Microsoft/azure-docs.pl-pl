@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: victorh
-ms.openlocfilehash: ff97aa6c6f04ad41ba6e1b986f3cc0734ec7a326
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 4c7c68bf690097004f2f3310a8d89ce954d7f87f
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92526148"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98612941"
 ---
 | Zasób | Limit | Uwaga |
 | --- | --- | --- |
@@ -32,6 +32,9 @@ ms.locfileid: "92526148"
 | Mapowania adresów URL na odbiornik |1 | |
 | Maksymalna liczba reguł opartych na ścieżce na mapę URL|100||
 | Konfiguracja przekierowania |100<sup>1</sup>| |
+| Liczba zestawów reguł ponownego zapisywania |400| |
+| Liczba konfiguracji nagłówka lub adresu URL dla zestawu reguł ponownego zapisywania|40| |
+| Liczba warunków według zestawu reguł ponownego zapisu|40| |
 | Współbieżne połączenia protokołu WebSocket |Średnie bramy 20 000<br> Duże bramy 50 000| |
 | Maksymalna długość adresu URL|32 KB| |
 | Maksymalny rozmiar nagłówka dla protokołu HTTP/2 |4 KB| |
