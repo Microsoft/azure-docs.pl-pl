@@ -573,9 +573,13 @@
             - name: Rozwiązywanie problemów w łączniku ITSM
               items:
                 - name: Omówienie
+                  href: platform/itsmc-troubleshoot-overview.md
+                - name: Synchronizacja łącznika ITSM
                   href: platform/itsmc-resync-servicenow.md
                 - name: Badanie pulpitu nawigacyjnego
                   href: platform/itsmc-dashboard.md
+                - name: Typowe błędy
+                  href: platform/itsmc-dashboard-errors.md
             - name: Integracja z bezpiecznym eksportowaniem
               items:
                 - name: Omówienie

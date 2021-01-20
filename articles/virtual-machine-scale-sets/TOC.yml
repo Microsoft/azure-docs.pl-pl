@@ -182,7 +182,7 @@
         - name: Efemeryczne dyski systemu operacyjnego
           href: ../virtual-machines/ephemeral-os-disks.md
         - name: Wartości docelowe skalowalności dysków
-          href: ../virtual-machines/windows/disk-scalability-targets.md
+          href: ../virtual-machines/disks-scalability-targets.md
           maintainContext: true
         - name: Kopia zapasowa i odzyskiwanie po awarii dla dysków
           href: ../virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks.md
