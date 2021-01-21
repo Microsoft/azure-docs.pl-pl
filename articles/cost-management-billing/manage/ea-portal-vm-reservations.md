@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 7c8a35e7c8ecd0952f8e02b66c5071253d9b0445
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 072377f98939d996547cb6ee9f9a535b4b32a3dc
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348929"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597954"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Wystąpienia zarezerwowane maszyn wirtualnych z umowami EA platformy Azure
 
@@ -25,7 +25,7 @@ Rezerwację można wymienić na inną rezerwację tego samego typu. Jeśli rezer
 
 ### <a name="partial-refunds"></a>Częściowe zwroty
 
-Dokonamy częściowego zwrotu, gdy klienci z umową EA zwrócą rezerwacje, które zakupili jako nadwyżkowe, a nie przy użyciu zobowiązania pieniężnego.
+Dokonamy częściowego zwrotu, gdy klienci z umową EA zwrócą rezerwacje, które zakupili jako nadwyżkowe, a nie w ramach przedpłaty za platformę Azure (wcześniej nazywanej zobowiązaniem pieniężnym).
 
 Zwrot będzie wyświetlany w portalu EA Portal jako ujemna korekta w poprzednim miesiącu oraz dodatnia korekta w bieżącym miesiącu. Będzie on widoczny w sposób podobny do wymiany rezerwacji. Faktura korygująca będzie zawierać numer pierwotnej faktury. W związku z tym, aby uzgodnić początkowy zakup z fakturą korygującą, skorzystaj z numeru pierwotnej faktury.
 

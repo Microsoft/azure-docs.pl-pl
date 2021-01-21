@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: c59bd7f9bc8c5049572afdf93343222b30c0007b
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: d1546ef92d923b9d72c4aca0ddf61d2b93646656
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131908"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602347"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Monitorowanie użycia i wydatków za pomocą alertów o kosztach
 
@@ -29,7 +29,7 @@ Za pomocą interfejsu API budżetu możesz wysyłać alerty e-mail w innym języ
 
 ## <a name="credit-alerts"></a>Alerty dotyczące środków
 
-Alerty dotyczące środków powiadamiają o wykorzystaniu zobowiązań pieniężnych w postaci środków na korzystanie z platformy Azure. Zobowiązania pieniężne są przeznaczone dla organizacji z umową Enterprise Agreement. Alerty dotyczące środków są generowane automatycznie po osiągnięciu 90% i 100% salda środków na korzystanie z platformy Azure. Po wygenerowaniu alertu jest on uwzględniany w alertach dotyczących kosztów i w wiadomościach e-mail wysyłanych do właścicieli konta.
+Alerty dotyczące środków powiadamiają o wykorzystaniu przedpłaty platformy Azure (wcześniej nazywanej zobowiązaniem pieniężnym). Opłata z góry za platformę Azure jest przeznaczona dla organizacji z umowami Enterprise Agreement. Alerty dotyczące środków są generowane automatycznie przy przekroczeniu 90% i 100% salda środków przedpłaty na platformę Azure. Po wygenerowaniu alertu jest on uwzględniany w alertach dotyczących kosztów i w wiadomościach e-mail wysyłanych do właścicieli konta.
 
 ## <a name="department-spending-quota-alerts"></a>Alerty dotyczące limitów przydziału wydatków dla działu
 

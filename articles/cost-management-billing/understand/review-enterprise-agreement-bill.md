@@ -9,18 +9,18 @@ ms.subservice: enterprise
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: d707051e20b4ce9d1289557aec6f8256c2e6bfba
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 643aac7927cc7b14693387fbb5765bdcd0214dc2
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150076"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598253"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Omówienie rachunku za umowę Enterprise platformy Azure
 
 Klienci mający umowę Enterprise platformy Azure otrzymują fakturę w przypadku przekroczenia dostępnych środków w organizacji lub korzystania z usług, które nie są pokrywane z tych środków.
 
-Środki dostępne w organizacji obejmują jej zobowiązanie pieniężne. Zobowiązanie pieniężne to kwota zapłacona z góry przez organizację na poczet korzystania z usług platformy Azure. Można dodać środki ze zobowiązania pieniężnego do umowy Enterprise, kontaktując się z kierownikiem ds. klientów w firmie Microsoft lub odsprzedawcą.
+Środki organizacji obejmują opłatę z góry za platformę Azure (wcześniej nazywaną zobowiązaniem pieniężnym). Opłata z góry za platformę Azure to kwota zapłacona z góry przez organizację na poczet korzystania z usług platformy Azure. Można dodać środki z opłaty z góry za platformę Azure do umowy Enterprise Agreement, kontaktując się z kierownikiem ds. klientów w firmie Microsoft lub odsprzedawcą.
 
 Ten samouczek dotyczy tylko klientów platformy Azure z umową Enterprise platformy Azure.
 
@@ -155,7 +155,7 @@ Niektóre przyczyny różnic w cenach:
 
 ## <a name="request-detailed-usage-information"></a>Żądanie szczegółowych informacji o użyciu
 
-Administratorzy przedsiębiorstwa mogą wyświetlić podsumowanie danych użycia, użytego zobowiązania pieniężnego i opłat związanych z dodatkowym użyciem w witrynie Azure Enterprise Portal. Opłaty są wyświetlane na poziomie podsumowania dla wszystkich kont i subskrypcji.
+Administratorzy przedsiębiorstwa mogą wyświetlić podsumowanie danych użycia, użytej przedpłaty za platformę Azure i opłat związanych z dodatkowym użyciem w witrynie Azure Enterprise Portal. Opłaty są wyświetlane na poziomie podsumowania dla wszystkich kont i subskrypcji.
 
 Aby wyświetlić szczegółowe informacje o użyciu na określonych kontach, pobierz raport Szczegóły użycia, przechodząc do pozycji **Raporty** > **Pobierz zestawienie użycia**.
 
@@ -166,7 +166,7 @@ W przypadku rejestracji pośrednich partner musi włączyć funkcję marży, zan
 
 ## <a name="reports"></a>Raporty
 
-Administratorzy przedsiębiorstwa mogą wyświetlić podsumowanie danych użycia, użytego zobowiązania pieniężnego i opłat związanych z dodatkowym użyciem w witrynie Azure Enterprise Portal. Opłaty są wyświetlane na poziomie podsumowania dla wszystkich kont i subskrypcji.
+Administratorzy przedsiębiorstwa mogą wyświetlić podsumowanie danych użycia, użytej przedpłaty za platformę Azure i opłat związanych z dodatkowym użyciem w witrynie Azure Enterprise Portal. Opłaty są wyświetlane na poziomie podsumowania dla wszystkich kont i subskrypcji.
 
 ### <a name="azure-enterprise-reports"></a>Raporty usługi Azure Enterprise
 

@@ -8,15 +8,15 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/11/2020
+ms.date: 01/06/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: d37225f988cc906bdd92467afcf3f286220eebda
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: ae588708a41c1259628b726a3a471034dba7d131
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027870"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601539"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Przeniesienie własności rozliczeń subskrypcji platformy Azure na inne konto
 
@@ -72,6 +72,18 @@ Jeśli zaakceptujesz własność rozliczeń subskrypcji platformy Azure, zalecam
    1. Klucze dostępu dla usług, takich jak Storage. Więcej informacji — zobacz [Informacje o kontach usługi Azure Storage](../../storage/common/storage-account-create.md).
    1. Poświadczenia dostępu zdalnego dla usług, takich jak Azure Virtual Machines.
 1. Jeśli pracujesz z partnerem, rozważ zaktualizowanie identyfikatora partnera w ramach subskrypcji. Identyfikator partnera można zaktualizować w witrynie [Azure Portal](https://portal.azure.com). Więcej informacji — zobacz [Łączenie identyfikatora partnera z kontami platformy Azure](link-partner-id.md).
+
+## <a name="cancel-a-transfer-request"></a>Anulowanie żądania przeniesienia
+
+Tylko jedno żądanie przeniesienia jest aktywne w danym momencie. Żądanie przeniesienia jest ważne przez 15 dni. Po upływie 15 dni żądanie przeniesienia wygasa.
+
+Aby anulować żądanie przeniesienia:
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Przejdź do pozycji **Subskrypcje**, wybierz subskrypcję, w ramach której wysłano żądanie przeniesienia i wybierz pozycję **Przenieś własność rozliczeń**.
+1. W dolnej części strony wybierz pozycję **Anuluj żądanie przeniesienia**.
+
+:::image type="content" source="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" alt-text="Przykład z oknem przeniesienia własności rozliczeń z opcją anulowania żądania przeniesienia" lightbox="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" :::
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 

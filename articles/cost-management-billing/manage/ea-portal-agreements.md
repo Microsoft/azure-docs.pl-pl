@@ -3,17 +3,17 @@ title: Umowy EA platformy Azure i poprawki
 description: W tym artykule wyjaśniono, w jaki sposób umowy EA platformy Azure i ich poprawki wpływają na Twoje korzystanie z witryny Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/03/2020
+ms.date: 01/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 9e6750bd8404b4f9b910dda93859a0ca3fd268d4
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: c2c3636e98d67616826b03cca9657b806c5bd653
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442534"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598003"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Umowy EA platformy Azure i poprawki
 
@@ -21,7 +21,7 @@ W tym artykule opisano możliwy wpływ umów EA platformy Azure i ich poprawek n
 
 ## <a name="enrollment-provisioning-status"></a>Stan aprowizacji rejestracji
 
-Data rozpoczęcia nowej przedpłaty za platformę Azure zależy od daty przetworzenia jej w regionalnym centrum operacyjnym. Ponieważ przedpłaty za platformę Azure wynikające z zamówień składanych za pośrednictwem witryny Azure EA Portal są przetwarzane w strefie czasowej UTC, może wystąpić pewne opóźnienie, jeśli Twoja przedpłata za platformę Azure wynikająca z zamówień zakupów została przetworzona w innym regionie. Data rozpoczęcia obsługi w zamówieniu wskazuje datę rozpoczęcia przedpłaty za platformę Azure. Data rozpoczęcia obsługi odpowiada momentowi wyświetlenia przedpłaty za platformę Azure w witrynie Azure EA Portal.
+Data rozpoczęcia nowej przedpłaty za platformę Azure (wcześniej nazywanej zobowiązaniem pieniężnym) zależy od daty przetworzenia jej w regionalnym centrum operacyjnym. Ponieważ przedpłaty za platformę Azure wynikające z zamówień składanych za pośrednictwem witryny Azure EA Portal są przetwarzane w strefie czasowej UTC, może wystąpić pewne opóźnienie, jeśli Twoja przedpłata za platformę Azure wynikająca z zamówień zakupów została przetworzona w innym regionie. Data rozpoczęcia obsługi w zamówieniu wskazuje datę rozpoczęcia przedpłaty za platformę Azure. Data rozpoczęcia obsługi odpowiada momentowi wyświetlenia przedpłaty za platformę Azure w witrynie Azure EA Portal.
 
 ## <a name="support-for-enterprise-customers"></a>Pomoc techniczna dla klientów korporacyjnych
 
@@ -60,7 +60,7 @@ Firma Microsoft nie będzie mieć dostępu do podanego narzutu ani skojarzonych 
 
 ### <a name="how-the-calculation-works"></a>W jaki sposób są wykonywane obliczenia
 
-Dostawca rozwiązań licencjonowania udostępnia pojedynczą procentową liczbę w witrynie EA Portal.  Wszystkie informacje handlowe dostępne w portalu zostaną podniesione o wartość procentową określoną przez dostawcę LSP. Przykład:
+Dostawca rozwiązań licencjonowania udostępnia pojedynczą procentową liczbę w witrynie EA Portal.    Wszystkie informacje handlowe dostępne w portalu zostaną podniesione o wartość procentową określoną przez dostawcę LSP. Przykład:
 
 - Klient podpisuje umowę EA z przedpłatą za platformę Azure w kwocie 100 000 USD.
 - Stawka miernika dla usługi A wynosi 10 USD/godzinę.
@@ -101,13 +101,14 @@ Pamiętaj, aby przejrzeć informacje handlowe — informacje o saldzie środków
 Przejrzyj ceny z narzutem w obszarze _Podsumowanie użycia_ dla terminu przedpłaty w widoku klienta. Cena firmy Microsoft będzie nadal dostępna w widoku partnera. Widoki można przełączać za pomocą przełącznika „osoby” narzutu partnera w prawym górnym rogu.
 
 1. Przejrzyj ceny w arkuszu cen.
-1. Przed opublikowaniem można wprowadzać zmiany, wybierając pozycję **Edytuj** na karcie _Wyświetl podsumowanie użycia > Widok klienta_.  
-  Ta sama wartość procentowa narzutu zostanie naliczona zarówno dla cen usług, jak i salda przedpłat. Nie używaj tej funkcji, jeśli masz różne wartości procentowe dla salda środków pieniężnych i stawek mierników lub różne wartości procentowe dla różnych usług.
+1. Przed opublikowaniem można wprowadzać zmiany, wybierając pozycję **Edytuj** na karcie _Wyświetl podsumowanie użycia > Widok klienta_. 
+   
+Ta sama wartość procentowa narzutu zostanie naliczona zarówno dla cen usług, jak i salda przedpłat. Nie używaj tej funkcji, jeśli masz różne wartości procentowe dla salda środków pieniężnych i stawek mierników lub różne wartości procentowe dla różnych usług.
 
 **Krok trzeci: Publikowanie**
 
 Po przejrzeniu i sprawdzeniu poprawności cen kliknij pozycję **Publikuj**.
-  
+  
 Cennik z narzutem będzie dostępny dla administratorów przedsiębiorstw natychmiast po wybraniu opcji publikowania. Nie można wprowadzać zmian w narzucie. Jeśli chcesz coś zmodyfikować, musisz wyłączyć funkcję narzutu i zacząć od pierwszego kroku.
 
 ### <a name="which-enrollments-have-a-markup-enabled"></a>Które rejestracje mają włączoną funkcję narzutu?

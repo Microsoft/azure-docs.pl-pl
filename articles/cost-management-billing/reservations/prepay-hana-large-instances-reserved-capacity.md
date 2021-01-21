@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: d6d0d0a4c4b3328fa50777b5106bac202c9972ef
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ea1ee2311d8655ce17017c73309bc69e89f4b5f4
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151497"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599117"
 ---
 # <a name="save-on-sap-hana-large-instances-with-an-azure-reservation"></a>Zaoszczędź na dużych wystąpieniach platformy SAP HANA dzięki rezerwacji platformy Azure
 
@@ -224,7 +224,7 @@ Poniższe informacje wyjaśniają znaczenie różnych pól rezerwacji.
 
   **Typ zasobu zarezerwowanego** `SapHana`
 
-  **Subskrypcja** Subskrypcja używana do płacenia za rezerwację. Kosztami rezerwacji jest obciążana forma płatności za subskrypcję. Wymagany typ subskrypcji to Enterprise Agreement (numery ofert: MS-AZR-0017P or MS-AZR-0148P) lub Umowa z Klientem Microsoft. Opłaty są odliczane od salda zobowiązania pieniężnego (jeśli jest dostępne) lub naliczane jako nadwyżka.
+  **Subskrypcja** Subskrypcja używana do płacenia za rezerwację. Kosztami rezerwacji jest obciążana forma płatności za subskrypcję. Wymagany typ subskrypcji to Enterprise Agreement (numery ofert: MS-AZR-0017P or MS-AZR-0148P) lub Umowa z Klientem Microsoft. Opłaty są odliczane od salda opłaty z góry za platformę Azure (wcześniej nazywanej zobowiązaniem pieniężnym), jeśli jest dostępne, lub naliczane jako nadwyżka.
 
   **Zakres** Zakres rezerwacji powinien być pojedynczym zakresem.
 

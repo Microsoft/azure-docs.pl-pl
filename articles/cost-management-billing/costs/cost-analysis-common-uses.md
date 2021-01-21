@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: c03bf5e52ae7f6b259c7b744e6033d760af23dd0
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 72b371fd1184c9c9e69593c5ad7e57310abf1de2
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683678"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600029"
 ---
 # <a name="common-cost-analysis-uses"></a>Najczęstsze zastosowania analizy kosztów
 
@@ -198,7 +198,7 @@ Koszty są wyświetlane tylko dla aktywnej rejestracji. W przypadku przeniesieni
 
 
 1. W witrynie Azure Portal przejdź do obszaru **Zarządzanie kosztami i rozliczenia** > **Omówienie**.
-1. Kliknij pozycję **Podział** dla bieżącego miesiąca i wyświetl podział zobowiązania pieniężnego.  
+1. Kliknij pozycję **Podział** dla bieżącego miesiąca i wyświetl podział opłaty z góry za platformę Azure (wcześniej nazywanej zobowiązaniem pieniężnym).  
     [![Przegląd kosztów umowy EA — podsumowanie z podziałem](./media/cost-analysis-common-uses/breakdown1.png)](./media/cost-analysis-common-uses/breakdown1.png#lightbox)
 1.  Kliknij kartę **Użycie i opłaty** i wyświetl podział dla poprzedniego miesiąca w wybranym przedziale czasu.  
     [![Karta Użycie i opłaty](./media/cost-analysis-common-uses/breakdown2.png)](./media/cost-analysis-common-uses/breakdown2.png#lightbox)

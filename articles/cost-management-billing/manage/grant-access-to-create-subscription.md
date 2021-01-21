@@ -4,20 +4,23 @@ description: Dowiedz się, jak przyznać użytkownikowi lub jednostce usługi mo
 author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.reviewer: amberb
+ms.reviewer: andalmia
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 01/13/2021
 ms.author: banders
-ms.openlocfilehash: c13670df26e5d0f7774b5a2aac81f656de94c960
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 039e728f6518d21ddfb9c7c359a6cf2ec743f232
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844714"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185108"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Przyznawanie dostępu do tworzenia subskrypcji Enterprise platformy Azure (wersja zapoznawcza)
 
 Jako klient platformy Azure posiadający umowę [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) możesz przyznać innemu użytkownikowi lub jednostce usługi uprawnienia do tworzenia subskrypcji rozliczanych w ramach Twojego konta. W tym artykule dowiesz się, jak korzystać z [kontroli dostępu na podstawie ról (role-based access control, RBAC) platformy Azure](../../role-based-access-control/role-assignments-portal.md) w celu udostępniania możliwości tworzenia subskrypcji oraz jak przeprowadzać inspekcję tworzenia subskrypcji. W tym celu musisz mieć rolę właściciela konta, które chcesz udostępnić.
+
+> [!NOTE]
+> Ten interfejs API działa tylko z [interfejsami API w wersji zapoznawczej na potrzeby tworzenia subskrypcji](programmatically-create-subscription-preview.md). Jeśli chcesz użyć[wersji ogólnie dostępnej](programmatically-create-subscription-enterprise-agreement.md), użyj najnowszej wersji interfejsu API [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). W przypadku migrowania do używania nowszych interfejsów API należy ponownie przyznać uprawnienia właściciela przy użyciu wersji [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). Poprzednia konfiguracja, która używa następujących interfejsów API, nie jest automatycznie konwertowana do użycia z nowszymi interfejsami API.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

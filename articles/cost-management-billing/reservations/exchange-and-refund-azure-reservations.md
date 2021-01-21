@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 12/15/2020
 ms.author: banders
-ms.openlocfilehash: b0f17149eb646b6108dc6a81922e6e5b00f143d6
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 045ab35a35aa4caefb1e1bcbbf7bf78b726c09f7
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560546"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601468"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Samoobsługowe wymiany i zwroty kosztów dotyczące rezerwacji na platformie Azure
 
@@ -47,7 +47,7 @@ Najpierw firma Microsoft anuluje istniejącą rezerwację i zwraca kwotę propor
 
 ### <a name="enterprise-agreement-customers"></a>Klienci posiadający umowę Enterprise Agreement
 
-Pieniądze są dodawane do zobowiązania pieniężnego na wymiany i zwroty w przypadku, gdy pierwotny zakup został utworzony przy jego użyciu. Jeśli okres zobowiązania pieniężnego korzystający z rezerwacji, który został już zakupiony, nie jest już aktywny, do bieżącego okresu zobowiązania pieniężnego w ramach umowy Enterprise Agreement zostaną dodane środki. Środki są ważne przez 90 dni od daty zwrotu pieniędzy. Niewykorzystane środki wygasną po upływie 90 dni.
+Pieniądze są dodawane do opłaty z góry za platformę Azure (wcześniej nazywanej zobowiązaniem pieniężnym) na wymiany i zwroty w przypadku, gdy pierwotny zakup został utworzony przy jego użyciu. Jeśli okres opłaty z góry za platformę Azure korzystający z rezerwacji, który został już zakupiony, nie jest już aktywny, do bieżącego okresu opłaty z góry za platformę Azure w ramach umowy Enterprise Agreement zostaną dodane środki. Środki są ważne przez 90 dni od daty zwrotu pieniędzy. Niewykorzystane środki wygasną po upływie 90 dni.
 
 Jeśli zakup pierwotny został zrealizowany jako nadwyżka, oryginalna faktura, na podstawie której została zakupiona rezerwacja, i wszystkie późniejsze faktury są ponownie otwierane i korygowane. Firma Microsoft wystawia notę kredytową dla zwrotów.
 

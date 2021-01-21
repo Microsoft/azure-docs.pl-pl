@@ -3,18 +3,18 @@ title: Wprowadzenie do usługi Azure Cost Management dla partnerów
 description: W tym artykule wyjaśniono, w jaki sposób partnerzy używają funkcji usługi Azure Cost Management i jak umożliwiają dostęp do usługi Cost Management swoim klientom.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/16/2020
+ms.date: 01/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: cd3ca4d3ddf73469cd1f1fc065eccb369cf765af
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 8a04cb2c590bc4f0104a93ac7c7c2cf7b71a4662
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905683"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602169"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Wprowadzenie do usługi Azure Cost Management dla partnerów
 
@@ -71,9 +71,9 @@ Po dodaniu klientów do Umowy z Klientem Microsoft w Twojej dzierżawie są dost
 
 Zakres konta rozliczeniowego służy do wyświetlania kosztów przed opodatkowaniem dla wszystkich klientów i profilów rozliczeniowych. Koszty faktury są pokazywane tylko dla tych produktów klienta bazujących na użyciu, które są zawarte w Umowie z Klientem Microsoft. W przypadku produktów dla klientów bazujących na zakupach koszty faktury są pokazywane dla produktów w Umowie z Klientem Microsoft i w ofercie dostawcy usług w chmurze. Obecnie domyślną walutą do wyświetlania kosztów w zakresie są dolary amerykańskie (USD). Budżety ustawione dla zakresu są również w USD.
 
-Niezależnie od różnych walut naliczanych dla klientów, partnerzy używają zakresu konta rozliczeniowego do ustalania budżetów i zarządzania kosztami w USD dla swoich klientów, subskrypcji, zasobów i grup zasobów.
+Niezależnie od różnych naliczanych walut, partnerzy używają zakresu konta rozliczeniowego do ustalania budżetów i zarządzania kosztami w USD dla swoich klientów, subskrypcji, zasobów i grup zasobów.
 
-Partnerzy filtrują także koszty w określonej walucie rozliczeniowej dla klientów w widoku analizy kosztów. Wybierz listę **Koszty rzeczywiste**, aby wyświetlić koszty w obsługiwanych walutach rozliczeniowych klientów.
+Partnerzy filtrują także koszty w określonej walucie rozliczeniowej dla klientów w widoku analizy kosztów. Wybierz listę **Koszty rzeczywiste**, aby wyświetlić koszty w obsługiwanych walutach rozliczeniowych.
 
 ![Przykład pokazujący wybór kosztów rzeczywistych dla walut](./media/get-started-partners/actual-cost-selector.png)
 
@@ -83,7 +83,7 @@ Użyj [widoku kosztu amortyzowanego](quick-acm-cost-analysis.md#customize-cost-v
 
 Zakres profilu rozliczeniowego umożliwia wyświetlanie kosztów przed opodatkowaniem w walucie rozliczeń dla wszystkich klientów oraz wszystkich produktów i subskrypcji zawartych na fakturze. Możesz filtrować koszty w profilu rozliczeniowym dla określonej faktury przy użyciu filtru **InvoiceID**. Filtr pokazuje koszty użycia i zakupu produktów dla określonej faktury. Możesz również filtrować koszty dla określonego klienta na fakturze, aby zobaczyć koszty przed opodatkowaniem.
 
-Po dołączeniu klientów do Umowy z Klientem Microsoft otrzymasz fakturę zawierającą wszystkie opłaty za wszystkie produkty (użycie, zakupy i upoważnienia) dla tych klientów w Umowie z Klientem Microsoft. W przypadku rozliczania w tej samej walucie faktury te obejmują również opłaty za upoważnienia i zakupione produkty, takie jak SaaS, Azure Marketplace i rezerwacje dla klientów, którzy nadal są objęci ofertą dostawcy usług w chmurze.
+Po dołączeniu klientów do Umowy z Klientem Microsoft otrzymasz fakturę zawierającą wszystkie opłaty za wszystkie produkty (użycie, zakupy i upoważnienia) dla tych klientów w Umowie z Klientem Microsoft. W przypadku rozliczania w tej samej walucie faktury te obejmują również opłaty za upoważnienia i zakupione produkty, takie jak SaaS, Azure Marketplace i rezerwacje dla klientów, którzy nadal są objęci klasyczną ofertą dostawcy usług w chmurze poza planem platformy Azure.
 
 Aby pomóc w uzgadnianiu opłat z fakturą klienta, zakres profilu rozliczeniowego umożliwia wyświetlenie wszystkich kosztów, które naliczane są za faktury dla klientów. Podobnie jak w przypadku faktury, zakres pokazuje koszty każdego klienta w nowej Umowie z Klientem Microsoft. Zakres pokazuje również wszystkie opłaty za produkty związane z upoważnieniami klienta nadal dostępne w bieżącej ofercie dostawcy CSP.
 
@@ -91,7 +91,7 @@ Zakresy profilu rozliczeniowego i konta rozliczeniowego są jedynymi odpowiednim
 
 Profile rozliczeniowe definiują subskrypcje uwzględnione na fakturze. Profile rozliczeniowe to funkcjonalny odpowiednik rejestracji w ramach umowy Enterprise Agreement. Profil rozliczeniowy jest zakresem, w którym są generowane faktury.
 
-Obecnie waluta rozliczeniowa klienta jest walutą domyślną podczas wyświetlania kosztów w zakresie profilu rozliczeniowego. Budżety ustawione w zakresie profilu rozliczeniowego są wyrażone w walucie rozliczeniowej.
+Obecnie waluta rozliczeniowa jest walutą domyślną podczas wyświetlania kosztów w zakresie profilu rozliczeniowego. Budżety ustawione w zakresie profilu rozliczeniowego są wyrażone w walucie rozliczeniowej.
 
 Partnerzy mogą używać zakresu, aby uzgadniać faktury. Wykorzystują oni zakres do ustalania budżetów w walucie rozliczeniowej dla następujących elementów:
 
@@ -220,7 +220,7 @@ Następujące pola danych znajdują się w plikach szczegółów użycia i inter
 | Liczba | Zmierzona ilość zakupiona lub zużyta. Ilość wskazana przez miernik użycia w okresie rozliczeniowym. | Liczba jednostek. Upewnij się, że jest ona zgodna z informacjami w systemie rozliczeniowym podczas uzgadniania. |
 | unitOfMeasure | Identyfikuje jednostkę, w której rozliczana jest usługa. Na przykład GB i godziny. | Identyfikuje jednostkę, w której rozliczana jest usługa. Na przykład GB, godziny i dziesiątki tysięcy. |
 | pricingCurrency | Waluta określająca cenę jednostkową. | Waluta w cenniku.|
-| billingCurrency | Waluta definiująca koszt naliczany. | Waluta regionu geograficznego klienta. |
+| billingCurrency | Waluta definiująca koszt naliczany. | Waluta zdefiniowana jako waluta rozliczania na fakturze. |
 | chargeType | Określa typ opłaty reprezentowanej przez koszt w usłudze Azure Cost Management, taki jak zakup i zwrot. | Typ opłaty lub korekty. Niedostępne dla bieżącego działania. |
 | costinBillingCurrency | Koszt rozszerzony lub zmieszany przed opodatkowaniem w walucie rozliczeniowej. | Nie dotyczy |
 | costinPricingCurrency | Koszt rozszerzony lub zmieszany przed opodatkowaniem w walucie cennika w celu skorelowania z cenami. | Nie dotyczy |

@@ -5,16 +5,16 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 01/13/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 0cdd25b2937dd1fb2cc70ef7b1c5a9e9ddaef375
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: bd155ea3c98231cf20fa7c62325e3c2ecfb89920
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780607"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185924"
 ---
 # <a name="programmatically-create-azure-enterprise-agreement-subscriptions-with-the-latest-apis"></a>Programowe tworzenie subskrypcji umowy Azure Enterprise Agreement przy użyciu najnowszych interfejsów API
 
@@ -31,7 +31,9 @@ Subskrypcja platformy Azure utworzona programowo podlega warunkom umowy, w ramac
 Aby utworzyć subskrypcję, musisz mieć rolę właściciela na koncie rejestracji. Istnieją dwa sposoby, aby uzyskać tę rolę:
 
 * Administrator przedsiębiorstwa Twojej rejestracji może [przyznać Ci rolę właściciela konta](https://ea.azure.com/helpdocs/addNewAccount) (wymagane jest zalogowanie się), dzięki czemu zostaniesz właścicielem konta rejestracji.
-* Aktualny właściciel konta rejestracji może [przyznać Ci dostęp](grant-access-to-create-subscription.md). Analogicznie, aby utworzyć subskrypcję umowy EA za pomocą jednostki usługi, musisz [przyznać jednostce usługi możliwość tworzenia subskrypcji](grant-access-to-create-subscription.md).
+* Aktualny właściciel konta rejestracji może [przyznać Ci dostęp](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). Analogicznie, aby utworzyć subskrypcję umowy EA za pomocą jednostki usługi, musisz [przyznać jednostce usługi możliwość tworzenia subskrypcji](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). 
+  > [!NOTE]
+  > Upewnij się, że używasz prawidłowej wersji interfejsu API, aby nadać uprawnienia właściciela konta rejestracji. Na potrzeby tego artykułu oraz interfejsów API, które opisano w tym artykule, należy użyć interfejsu API w wersji [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). W przypadku migrowania do używania nowszych interfejsów API należy ponownie przyznać uprawnienia właściciela przy użyciu wersji [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). Poprzednia konfiguracja, utworzona za pomocą [wersji 2015-07-01](grant-access-to-create-subscription.md), nie jest automatycznie konwertowana do użycia z nowszymi interfejsami API.
 
 ## <a name="find-accounts-you-have-access-to"></a>Odnajdowanie kont, do których masz dostęp
 

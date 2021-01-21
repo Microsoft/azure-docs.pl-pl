@@ -8,19 +8,19 @@ ms.subservice: enterprise
 ms.topic: reference
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: b78b046e2991fa4ebfb575e4f6a1cc900df0d298
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a1c420eed89b7b45ea6c50345737b8615f39ad8c
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686908"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602087"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Przegląd interfejsów API raportowania dla klientów korporacyjnych
 
 > [!Note]
 > Firma Microsoft nie przeprowadza już aktualizacji interfejsów API rozliczeń platformy Azure — raportowania dla przedsiębiorstw Zamiast nich należy używać interfejsów API [użycia platformy Azure](/rest/api/consumption).
 
-Interfejsy API raportowania umożliwiają klientom korporacyjnym platformy Azure programowe ściąganie danych użycia i rozliczeń do preferowanych narzędzi do analizy danych. Klienci korporacyjni podpisali umowę [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) na platformie Azure, na podstawie której mają wynegocjowane zobowiązania pieniężne i dostęp do niestandardowych cen zasobów platformy Azure.
+Interfejsy API raportowania umożliwiają klientom korporacyjnym platformy Azure programowe ściąganie danych użycia i rozliczeń do preferowanych narzędzi do analizy danych. Klienci korporacyjni podpisali umowę [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) na platformie Azure, na podstawie której mają wynegocjowaną opłatę z góry za platformę Azure (wcześniej nazywaną zobowiązaniem pieniężnym) i dostęp do niestandardowych cen zasobów platformy Azure.
 
 Wszystkie parametry daty i godziny wymagane dla interfejsów API muszą być reprezentowane jako wartości uniwersalnego czasu koordynowanego (UTC). Wartości zwracane przez interfejsy API są wyświetlane w formacie UTC.
 

@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: b82f4252754e79813629e0c792ee0ba35e437714
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: bd43b668c318b825c5c5b6f36fc1da1055863bed
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151515"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599092"
 ---
 # <a name="save-costs-for-azure-synapse-analytics-charges-with-reserved-capacity"></a>Oszczędź na opłatach za usługę Azure Synapse Analytics dzięki pojemności zarezerwowanej
 
@@ -46,7 +46,7 @@ Załóżmy na przykład, że całkowite zużycie usługi Azure Synapse Analytics
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 2. Wybierz pozycję **Wszystkie usługi** > **Rezerwacje**.
 3. Wybierz subskrypcję. Z listy Subskrypcja wybierz subskrypcję, w ramach której jest opłacana zarezerwowana pojemność. Kosztami zarezerwowanej pojemności jest obciążana forma płatności subskrypcji. Wymagany typ subskrypcji to Enterprise Agreement (numery ofert: MS-AZR-0017P lub MS-AZR-0148P) albo Płatność zgodnie z rzeczywistym użyciem (numery ofert: MS-AZR-0003P lub MS-AZR-0023P).
-   - W przypadku subskrypcji Enterprise opłaty są odliczane od salda zobowiązania pieniężnego rejestracji lub naliczane jako nadwyżka.
+   - W przypadku subskrypcji dla przedsiębiorstw opłaty są odliczane od salda opłaty z góry za platformę Azure (wcześniej nazywanej zobowiązaniem pieniężnym) rejestracji lub naliczane jako nadwyżka.
    - W przypadku subskrypcji z płatnością zgodnie z rzeczywistym użyciem opłaty obciążają kartę kredytową lub metodę płatności faktury powiązaną z subskrypcją.
 4. Wybierz zakres. Użyj listy Zakres w celu wybrania zakresu subskrypcji.
    - **Zakres pojedynczej grupy zasobów** — rabat na rezerwację jest stosowany do odpowiednich zasobów tylko w wybranej grupie zasobów.

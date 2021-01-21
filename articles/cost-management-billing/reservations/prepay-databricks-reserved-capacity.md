@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: b7d7380114046fbeaaf4b6eb2660997d64168715
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 390a8b421a7b34391bde689e4b968fa98cdbaf76
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91368570"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599161"
 ---
 # <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>Optymalizowanie kosztów usługi Azure Databricks dzięki wcześniejszemu zakupowi
 
@@ -48,7 +48,7 @@ Plany usługi Databricks można kupić w witrynie [Azure Portal](https://portal.
 **Aby dokonać zakupu:**
 
 1. Przejdź do witryny [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D).
-1. Wybierz subskrypcję. Z listy **Subskrypcja** wybierz subskrypcję, w ramach której jest opłacana wydajność rezerwowa. Forma płatności subskrypcji jest obciążana z góry za wydajność rezerwową. Opłaty są odliczane od salda zobowiązania pieniężnego rejestracji lub naliczane jako nadwyżka.
+1. Wybierz subskrypcję. Z listy **Subskrypcja** wybierz subskrypcję, w ramach której jest opłacana wydajność rezerwowa. Forma płatności subskrypcji jest obciążana z góry za wydajność rezerwową. Opłaty są odliczane od salda opłaty z góry za platformę Azure (wcześniej nazywanej zobowiązaniem pieniężnym) w ramach rejestracji lub naliczane jako nadwyżka.
 1. Wybierz zakres. Z listy **Zakres** wybierz zakres subskrypcji:
     - **Zakres pojedynczej grupy zasobów** — rabat na rezerwację jest stosowany do odpowiednich zasobów tylko w wybranej grupie zasobów.
     - **Zakres pojedynczej subskrypcji** — rabat na rezerwację jest stosowany do odpowiednich zasobów w wybranej subskrypcji.

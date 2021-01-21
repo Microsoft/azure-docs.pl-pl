@@ -3,18 +3,18 @@ title: Faktury za rejestracje w usłudze Azure Enterprise
 description: W tym artykule wyjaśniono, jak zarządzać fakturami za usługę Azure Enterprise i wykonywać związane z nimi działania.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/09/2020
+ms.date: 01/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: c64127f7ebbb416d9dfebb5e417cd27d51697665
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 90ae9bdcee5f5f4c4281f2c3f931389b2ebf9486
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030726"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598075"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Faktury za rejestracje w usłudze Azure Enterprise
 
@@ -238,7 +238,7 @@ Zapoznaj się z [usługami platformy Azure](https://azure.microsoft.com/services
 
 ### <a name="enterprise-agreement-units-of-measure"></a>Jednostki miary dotyczące umowy Enterprise Agreement
 
-Jednostki miary w przypadku umowy Enterprise Agreement są często inne niż w przypadku innych programów, takich jak Microsoft Online Services Agreement (MOSA). Te różnice oznaczają, że dla pewnej liczby usług jednostka miary jest agregowana w celu zapewnienia znormalizowanych cen. Jednostka miary wyświetlana w widoku Podsumowanie użycia w witrynie Enterprise Portal jest zawsze miarą dla umowy Enterprise. Pełna lista bieżących jednostek miary i konwersji dla każdej usługi jest podana w pliku programu Excel [przyjaznych nazw usług](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx).
+Jednostki miary w przypadku umowy Enterprise Agreement są często inne niż w przypadku innych programów, takich jak Microsoft Online Services Agreement (MOSA). Te różnice oznaczają, że dla pewnej liczby usług jednostka miary jest agregowana w celu zapewnienia znormalizowanych cen. Jednostka miary wyświetlana w widoku Podsumowanie użycia w witrynie Enterprise Portal jest zawsze miarą dla umowy Enterprise. Pełna lista bieżących jednostek miary i konwersji dla każdej usługi jest podawana przez przesłanie [wniosku o pomoc techniczną](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="conversion-between-usage-detail-report-and-the-usage-summary-page"></a>Konwersja między raportem Szczegóły użycia a stroną Podsumowanie użycia
 
@@ -324,13 +324,6 @@ Jeśli zmiana partnera kanału nastąpi w połowie miesiąca, klient otrzyma fak
 Faktury zostaną wystawione po miesiącu, w którym kończy się okres rozliczeniowy. Jeśli rozliczenia są miesięczne, faktura za wrzesień zostanie wystawiona dla obu partnerów w październiku. Jeśli cykl rozliczeniowy jest kwartalny lub roczny, klient może oczekiwać faktury dla poprzedniego powiązanego partnera za użycie w okresie współpracy z nim, a reszta zostanie naliczona dla nowego partnera zgodnie z okresem rozliczeniowym.
 
 ## <a name="next-steps"></a>Następne kroki
-
-- Następujące pliki programu Excel zawierają szczegółowe informacje dotyczące usług platformy Azure. Są one aktualizowane szóstego i dwudziestego dnia każdego miesiąca:
-
-   | Tytuł | Opis | Nazwa pliku |
-   | --- | --- | --- |
-   | [Przyjazne nazwy usług](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Lista wszystkich aktywnych usług. Obejmuje następujące informacje: <br>  <ul><li>Kategoria usługi</li>   <li>Przyjazna nazwa usługi</li>   <li>Nazwa przedpłaty i numer części</li> <li>Nazwa użycia i numer części</li>   <li>Jednostki miary</li>   <li>Współczynniki konwersji między raportowanym użyciem a prezentowanym użyciem witryny Enterprise Portal</li></ul> | Friendly\_Service\_Names.xlsx |
-   | [Pola pobierania usługi](https://azurepricing.blob.core.windows.net/supplemental/Service_Download_Fields.xlsx) | Ten arkusz kalkulacyjny zawiera listę wszystkich możliwych kombinacji pól dotyczących usługi w pobieranym raporcie użycia. | Service\_Download\_Fields.xlsx |
 
 - Aby uzyskać informacje na temat faktur i opłat, zobacz [Omówienie rachunku za umowę Azure Enterprise Agreement](../understand/review-enterprise-agreement-bill.md).
 - Aby dowiedzieć się, jak rozpocząć korzystanie z witryny Azure Enterprise Portal, zobacz [Wprowadzenie do witryny Azure EA Portal](ea-portal-get-started.md).

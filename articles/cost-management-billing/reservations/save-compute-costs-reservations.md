@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: overview
 ms.date: 12/15/2020
 ms.author: banders
-ms.openlocfilehash: b79bde204d82b069b3314855a45a680b863c3f69
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 0e45e9741e92bb9e1fe23af79695cae06e64e871
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560495"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602063"
 ---
 # <a name="what-are-azure-reservations"></a>Co to jest Azure Reservations?
 
@@ -56,7 +56,7 @@ Aby uzyskać więcej informacji, zobacz  [Kupowanie rezerwacji](prepare-buy-re
 
 ## <a name="how-is-a-reservation-billed"></a>Jak jest rozliczana rezerwacja? 
 
-Kosztem rezerwacji jest obciążana forma płatności powiązana z subskrypcją. Koszt rezerwacji jest odejmowany od salda zobowiązania pieniężnego, jeśli jest dostępne. Gdy saldo zobowiązania pieniężnego nie pokrywa kosztu rezerwacji, są naliczane opłaty za użycie nadwyżkowe. Jeśli masz subskrypcję z planu indywidualnego z płatnością zgodnie z rzeczywistym użyciem, karta kredytowa powiązana z kontem jest obciążana natychmiast w przypadku zakupów płatnych z góry. Płatności miesięczne są widoczne na fakturze, a karta kredytowa jest obciążana co miesiąc. W przypadku rozliczania z użyciem faktury opłaty pojawią się na następnej fakturze. 
+Kosztem rezerwacji jest obciążana forma płatności powiązana z subskrypcją. Koszt rezerwacji jest odejmowany od salda opłaty z góry za platformę Azure (wcześniej nazywanej zobowiązaniem pieniężnym), jeśli jest dostępne. Gdy saldo opłaty z góry za platformę Azure nie pokrywa kosztu rezerwacji, są naliczane opłaty za użycie nadwyżkowe. Jeśli masz subskrypcję z planu indywidualnego z płatnością zgodnie z rzeczywistym użyciem, karta kredytowa powiązana z kontem jest obciążana natychmiast w przypadku zakupów płatnych z góry. Płatności miesięczne są widoczne na fakturze, a karta kredytowa jest obciążana co miesiąc. W przypadku rozliczania z użyciem faktury opłaty pojawią się na następnej fakturze. 
 
 ## <a name="who-can-manage-a-reservation-by-default"></a>Kto może domyślnie zarządzać rezerwacją
 

@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: reference
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 8cef36cf26231758eb839379d0c020484cbe09fb
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: e0a7553269e1223a5e744db967d65814877878ab
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132605"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598264"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Scenariusze automatyzacji dotyczące rozliczeń i zarządzania kosztami
 
@@ -103,7 +103,7 @@ Następujące interfejsy API są dostępne tylko w przypadku korzystania z subsk
 ### <a name="whats-the-difference-between-the-enterprise-reporting-apis-and-the-consumption-apis-when-should-i-use-each"></a>Czym różnią się interfejsy API raportowania korporacyjnego od interfejsów API użycia? Kiedy używa się tych interfejsów?
 Te interfejsy API mają podobny zestaw funkcji i umożliwiają odpowiadanie na wiele tych samych pytań w obszarze rozliczeń i zarządzania kosztami. Są one jednak przeznaczone dla różnych użytkowników:
 
-- Interfejsy API raportowania korporacyjnego są dostępne dla klientów, którzy podpisali umowę Enterprise Agreement z firmą Microsoft i mogą korzystać z negocjowanych zobowiązań pieniężnych i niestandardowych cen. Interfejsy API wymagają klucza, który można uzyskać w witrynie [Enterprise Portal](https://ea.azure.com). Opis tych interfejsów API można znaleźć w temacie [Przegląd interfejsów API raportowania dla klientów korporacyjnych](enterprise-api.md).
+- Interfejsy API raportowania korporacyjnego są dostępne dla klientów, którzy podpisali umowę Enterprise Agreement z firmą Microsoft i mogą korzystać z negocjowanych opłat z góry za platformę Azure (wcześniej nazywanych zobowiązaniem pieniężnym) i niestandardowych cen. Interfejsy API wymagają klucza, który można uzyskać w witrynie [Enterprise Portal](https://ea.azure.com). Opis tych interfejsów API można znaleźć w temacie [Przegląd interfejsów API raportowania dla klientów korporacyjnych](enterprise-api.md).
 
 - Interfejsy API użycia są dostępne dla wszystkich klientów z kilkoma wyjątkami. Aby uzyskać więcej informacji, zobacz [Przegląd interfejsu API użycia platformy Azure](consumption-api-overview.md) i [Dokumentacja interfejsu API użycia platformy Azure](/rest/api/consumption/). W najnowszych scenariuszach programistycznych zalecamy używanie udostępnionych interfejsów API.
 
@@ -112,7 +112,7 @@ Te interfejsy API udostępniają zasadniczo różne dane:
 
 - [Interfejs API szczegółów użycia](/rest/api/consumption/usagedetails) udostępnia informacje o użyciu i kosztach platformy Azure dotyczące wystąpienia miernika. Udostępnione dane zostały już przetworzone przez system zliczania kosztów na platformie Azure, a koszty — wraz z ewentualnymi innymi zmianami — zostały zastosowane:
 
-   - Zmiany na koncie dotyczące korzystania z przedpłaconych zobowiązań pieniężnych
+   - Zmiany na koncie dotyczące korzystania z opłat z góry za platformę Azure
    - Zmiany na koncie dotyczące rozbieżności użycia wykrytych przez platformę Azure
 
 - [Interfejs API użycia](/previous-versions/azure/reference/mt219003(v=azure.100)) udostępnia nieprzetworzone informacje o użyciu platformy Azure przed ich przekazaniem do systemu zliczania kosztów na platformie Azure. Dane te nie muszą być skorelowane z danymi użycia lub kwotą opłaty, które są generowane przez system pomiaru opłat platformy Azure.

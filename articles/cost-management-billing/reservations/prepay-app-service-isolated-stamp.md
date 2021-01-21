@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: feb7be6ad5dbd0dfbd04b05836842d0476780d40
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: fb463d80e8cb980505df825d6f22d75f8a5c5f5a
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151530"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599207"
 ---
 # <a name="save-costs-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>Oszczędzanie kosztów w przypadku podatku od czynności cywilnoprawnych za korzystanie z usługi Azure App Service w izolowanym środowisku za pomocą wydajności rezerwowej
 
@@ -48,7 +48,7 @@ Wydajność rezerwową izolowanej sygnatury można kupić w witrynie [Azure Port
 
 1. Przejdź do witryny [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D).
 1. Wybierz subskrypcję. Z listy **Subskrypcja** wybierz subskrypcję, w ramach której jest opłacana wydajność rezerwowa. Kosztami wydajności rezerwowej jest obciążana forma płatności subskrypcji. Wymagany typ subskrypcji to Enterprise Agreement (numery ofert: MS-AZR-0017P lub MS-AZR-0148P) albo Płatność zgodnie z rzeczywistym użyciem (numer ofert: MS-AZR-0003P lub MS-AZR-0023P) lub Subskrypcja CSP.
-    - W przypadku subskrypcji Enterprise opłaty są odliczane od salda zobowiązania pieniężnego rejestracji lub naliczane jako nadwyżka.
+    - W przypadku subskrypcji dla przedsiębiorstw opłaty są odliczane od salda opłaty z góry za platformę Azure (wcześniej nazywanej zobowiązaniem pieniężnym) rejestracji lub naliczane jako nadwyżka.
     - W przypadku subskrypcji z płatnością zgodnie z rzeczywistym użyciem opłaty obciążają kartę kredytową lub metodę płatności faktury powiązaną z subskrypcją.
 1. Za pomocą listy **Zakres** wybierz zakres subskrypcji.
     - **Zakres pojedynczej grupy zasobów** — rabat na rezerwację jest stosowany do odpowiednich zasobów tylko w wybranej grupie zasobów.
