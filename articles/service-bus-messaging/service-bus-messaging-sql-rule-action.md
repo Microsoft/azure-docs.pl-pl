@@ -3,16 +3,16 @@ title: Składnia akcji SQL Azure Service Bus reguły subskrypcji | Microsoft Doc
 description: Ten artykuł zawiera odwołanie do składni akcji reguły SQL. Akcje są zapisywane w składni opartej na języku SQL, która jest wykonywana względem wiadomości.
 ms.topic: article
 ms.date: 11/24/2020
-ms.openlocfilehash: 7ce3332fb1a2025e89135e5e42e72d4afe1e7a5e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 606281d42d5598d7f73312990d3a19775a202c08
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489398"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632815"
 ---
 # <a name="subscription-rule-sql-action-syntax"></a>Składnia akcji SQL reguły subskrypcji
 
-*Akcja SQL* służy do manipulowania metadanymi komunikatów po wybraniu komunikatu przez filtr reguły subskrypcji. Jest to wyrażenie tekstowe, które jest chude w podzestawie standardu SQL-92. Wyrażenia akcji są używane z `sqlExpression` elementem właściwości "Action" Service Bus `Rule` w [szablonie Azure Resource Manager](service-bus-resource-manager-namespace-topic-with-rule.md)lub z `az servicebus topic subscription rule create` argumentem polecenia platformy Azure [`--action-sql-expression`](/cli/azure/servicebus/topic/subscription/rule?preserve-view=true&view=azure-cli-latest#az_servicebus_topic_subscription_rule_create) , a także z kilkoma funkcjami zestawu SDK, które umożliwiają zarządzanie regułami subskrypcji.
+*Akcja SQL* służy do manipulowania metadanymi komunikatów po wybraniu komunikatu przez filtr reguły subskrypcji. Jest to wyrażenie tekstowe, które jest chude w podzestawie standardu SQL-92. Wyrażenia akcji są używane z `sqlExpression` elementem właściwości "Action" Service Bus `Rule` w [szablonie Azure Resource Manager](service-bus-resource-manager-namespace-topic-with-rule.md)lub z `az servicebus topic subscription rule create` argumentem polecenia platformy Azure [`--action-sql-expression`](/cli/azure/servicebus/topic/subscription/rule#az_servicebus_topic_subscription_rule_create) , a także z kilkoma funkcjami zestawu SDK, które umożliwiają zarządzanie regułami subskrypcji.
   
   
 ```  

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/22/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 8af8d7695c48c6ac682109bb38935e98921fa9e4
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: fc3bd5d2590e969db07e9dffa61b4902ea4604c3
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681911"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632550"
 ---
 # <a name="vm-is-unresponsive-while-waiting-for-the-local-session-manager-service"></a>Maszyna wirtualna nie odpowiada podczas oczekiwania na lokalną usługę menedżera sesji
 
@@ -34,6 +34,9 @@ Gdy używasz [diagnostyki rozruchu](./boot-diagnostics.md) do wyświetlania zrzu
 Może być wiele powodów, aby maszyna wirtualna mogła zawieszać się, aż Menedżer sesji lokalnej. Jeśli ten problem będzie się powtarzać, należy zebrać zrzut pamięci do analizy.
 
 ## <a name="solution"></a>Rozwiązanie
+
+> [!TIP]
+> Jeśli masz najnowszą kopię zapasową maszyny wirtualnej, możesz spróbować [przywrócić maszynę wirtualną z kopii zapasowej](../../backup/backup-azure-arm-restore-vms.md) , aby rozwiązać problem z rozruchem.
 
 W niektórych przypadkach po prostu oczekiwanie na zakończenie procesu program rozwiąże problem. Jeśli maszyna wirtualna nie odpowiada i pozostaje na ekranie oczekiwania przez ponad godzinę, należy zebrać zrzut pamięci, a następnie skontaktować się z pomocą techniczną firmy Microsoft.
 

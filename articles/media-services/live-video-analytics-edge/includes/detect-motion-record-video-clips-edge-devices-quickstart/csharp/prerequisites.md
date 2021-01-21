@@ -1,12 +1,14 @@
 ---
-ms.openlocfilehash: 4b6e89d6a4a89927e6e9942f0b4aaa842bab3b0a
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: d3a65122772a7cb89de6d3f7f27c2f49d3f74c98
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98061217"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633359"
 ---
 * Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) , jeśli jeszcze go nie masz.
+  > [!NOTE]
+  > Potrzebna jest subskrypcja platformy Azure z uprawnieniami do tworzenia jednostek usługi (jest to **rola właściciela** ). Jeśli nie masz odpowiednich uprawnień, skontaktuj się z administratorem konta, aby przyznać Ci odpowiednie uprawnienia. 
 * [Visual Studio Code](https://code.visualstudio.com/), z następującymi rozszerzeniami:
     * [Narzędzia usługi Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
         > [!TIP]

@@ -3,12 +3,12 @@ title: Tworzenie i wyświetlanie tematów systemu Azure Event Grid oraz zarządz
 description: W tym artykule pokazano, jak za pomocą interfejsu wiersza polecenia platformy Azure tworzyć, wyświetlać i usuwać tematy systemowe.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 354afb89b145e288f525e40ad700e8f8a67c6dad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1c847c7f25e3a656b798e186a408e560b9ee9e6
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86115047"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633226"
 ---
 # <a name="create-view-and-manage-event-grid-system-topics-using-azure-cli"></a>Tworzenie i wyświetlanie Event Grid tematów systemowych przy użyciu interfejsu wiersza polecenia platformy Azure oraz zarządzanie nimi
 W tym artykule pokazano, jak tworzyć tematy systemowe i zarządzać nimi za pomocą interfejsu wiersza polecenia platformy Azure. Aby zapoznać się z omówieniem tematów systemowych, zobacz [Tematy systemowe](system-topics.md).
@@ -30,7 +30,7 @@ W przypadku instalacji lokalnej:
 ## <a name="create-a-system-topic"></a>Tworzenie tematu systemu
 
 - Aby najpierw utworzyć temat systemowy w źródle platformy Azure, a następnie utworzyć subskrypcję zdarzeń dla tego tematu, zobacz następujące tematy dotyczące odwołań:
-    - [AZ eventgrid system-temat Create](/cli/azure/ext/eventgrid/eventgrid/system-topic?view=azure-cli-latest#ext-eventgrid-az-eventgrid-system-topic-create)
+    - [AZ eventgrid system-temat Create](/cli/azure/ext/eventgrid/eventgrid/system-topic#ext-eventgrid-az-eventgrid-system-topic-create)
 
         ```azurecli-interactive
         # Get the ID of the Azure source (for example: Azure Storage account)
@@ -53,14 +53,14 @@ W przypadku instalacji lokalnej:
         ```azurecli-interactive
         az eventgrid topic-type  list --output json | grep -w id
         ```
-    - [zdarzenie AZ eventgrid system-temat-Subscription Create](/cli/azure/ext/eventgrid/eventgrid/system-topic/event-subscription?view=azure-cli-latest#ext-eventgrid-az-eventgrid-system-topic-event-subscription-create)
+    - [zdarzenie AZ eventgrid system-temat-Subscription Create](/cli/azure/ext/eventgrid/eventgrid/system-topic/event-subscription#ext-eventgrid-az-eventgrid-system-topic-event-subscription-create)
 
         ```azurecli-interactive
         az eventgrid system-topic event-subscription create --name <SPECIFY EVENT SUBSCRIPTION NAME> \
             -g rg1 --system-topic-name <SYSTEM TOPIC NAME> \
             --endpoint <ENDPOINT URL>         
         ```
-- Aby utworzyć temat systemowy (niejawnie) podczas tworzenia subskrypcji zdarzeń dla źródła platformy Azure, użyj metody [AZ eventgrid Event-Subscription Create](/cli/azure/ext/eventgrid/eventgrid/event-subscription?view=azure-cli-latest#ext-eventgrid-az-eventgrid-event-subscription-create) . Oto przykład:
+- Aby utworzyć temat systemowy (niejawnie) podczas tworzenia subskrypcji zdarzeń dla źródła platformy Azure, użyj metody [AZ eventgrid Event-Subscription Create](/cli/azure/ext/eventgrid/eventgrid/event-subscription#ext-eventgrid-az-eventgrid-event-subscription-create) . Oto przykład:
     
     ```azurecli-interactive
     storageid=$(az storage account show --name <AZURE STORAGE ACCOUNT NAME> --resource-group <AZURE RESOURCE GROUP NAME> --query id --output tsv)
@@ -76,12 +76,12 @@ W przypadku instalacji lokalnej:
 ## <a name="view-all-system-topics"></a>Wyświetl wszystkie tematy dotyczące systemu
 Aby wyświetlić wszystkie tematy systemowe i szczegóły wybranego tematu systemu, użyj następujących poleceń:
 
-- [AZ eventgrid system-temat list](/cli/azure/ext/eventgrid/eventgrid/system-topic?view=azure-cli-latest#ext-eventgrid-az-eventgrid-system-topic-list)
+- [AZ eventgrid system-temat list](/cli/azure/ext/eventgrid/eventgrid/system-topic#ext-eventgrid-az-eventgrid-system-topic-list)
 
     ```azurecli-interactive
     az eventgrid system-topic list   
      ```
-- [AZ eventgrid system-temat show](/cli/azure/ext/eventgrid/eventgrid/system-topic?view=azure-cli-latest#ext-eventgrid-az-eventgrid-system-topic-show)
+- [AZ eventgrid system-temat show](/cli/azure/ext/eventgrid/eventgrid/system-topic#ext-eventgrid-az-eventgrid-system-topic-show)
 
     ```azurecli-interactive
     az eventgrid system-topic show -g <AZURE RESOURCE GROUP NAME> -n <SYSTEM TOPIC NAME>     
@@ -90,7 +90,7 @@ Aby wyświetlić wszystkie tematy systemowe i szczegóły wybranego tematu syste
 ## <a name="delete-a-system-topic"></a>Usuwanie tematu systemu
 Aby usunąć temat systemowy, użyj następującego polecenia: 
 
-- [AZ eventgrid system-temat Delete](/cli/azure/ext/eventgrid/eventgrid/system-topic?view=azure-cli-latest#ext-eventgrid-az-eventgrid-system-topic-delete)
+- [AZ eventgrid system-temat Delete](/cli/azure/ext/eventgrid/eventgrid/system-topic#ext-eventgrid-az-eventgrid-system-topic-delete)
 
     ```azurecli-interactive
     az eventgrid system-topic delete -g <AZURE RESOURCE GROUP NAME> --name <SYSTEM TOPIC NAME>   

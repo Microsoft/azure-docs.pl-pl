@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 06/17/2020
-ms.openlocfilehash: e85c97df29bbbcc5d446d788cc190f3c90f24024
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: bbad7dcaa1d92df4969c88e4ba86a62987509e39
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602222"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632803"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Azure SQL Database i reguły zapory adresów IP dla usługi Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -101,7 +101,9 @@ Gdy komputer próbuje nawiązać połączenie z serwerem za pośrednictwem Inter
 
 ### <a name="connections-from-inside-azure"></a>Połączenia z platformy Azure
 
-Aby umożliwić aplikacjom hostowanym na platformie Azure Łączenie się z programem SQL Server, należy włączyć połączenia platformy Azure. Gdy aplikacja z platformy Azure próbuje nawiązać połączenie z serwerem, Zapora sprawdzi, czy połączenia platformy Azure są dozwolone. Tę funkcję można włączyć bezpośrednio w bloku Azure Portal, ustawiając reguły zapory, a także przełączając ustawienia **Zezwalaj usługom i zasobom platformy Azure na dostęp do tego serwera** **w obszarze** **zapory i sieci wirtualne** . Jeśli połączenie nie jest dozwolone, żądanie nie dociera do serwera.
+Aby umożliwić aplikacjom hostowanym na platformie Azure Łączenie się z programem SQL Server, należy włączyć połączenia platformy Azure. Aby włączyć połączenia platformy Azure, musi istnieć Reguła zapory z początkowym i końcowym adresem IP ustawioną na wartość 0.0.0.0.
+
+Gdy aplikacja z platformy Azure próbuje nawiązać połączenie z serwerem, Zapora sprawdzi, czy połączenia platformy Azure są dozwolone, sprawdzając, czy ta reguła zapory istnieje. Tę funkcję można włączyć bezpośrednio w bloku Azure Portal, przełączając ustawienie **Zezwalaj usługom i zasobom platformy Azure na dostęp do tego serwera** **w ustawieniach** **zapory i sieci wirtualne** . Ustawienie na wartość włączone powoduje utworzenie reguły zapory dla ruchu przychodzącego dla adresu IP 0.0.0.0-0.0.0.0 o nazwie **AllowAllWindowsIP**. Użyj programu PowerShell lub interfejsu wiersza polecenia platformy Azure, aby utworzyć regułę zapory z początkowym i końcowym adresem IP ustawionym na wartość 0.0.0.0, jeśli nie używasz portalu. 
 
 > [!IMPORTANT]
 > Ta opcja umożliwia skonfigurowanie zapory w taki sposób, aby zezwalała na wszystkie połączenia z platformy Azure, w tym połączenia z subskrypcji innych klientów. W przypadku wybrania tej opcji upewnij się, że uprawnienia logowania i użytkownika ograniczają dostęp tylko do autoryzowanych użytkowników.

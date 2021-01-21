@@ -6,12 +6,12 @@ ms.date: 10/29/2020
 author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
-ms.openlocfilehash: 39897e490e4653fbaad7a64ecc0b33f161d1264b
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: c0745dd4069c64292fbcaef666d843ae2d25f7b3
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165794"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632584"
 ---
 # <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>Procesory telemetrii (wersja zapoznawcza) — Azure Monitor Application Insights dla środowiska Java
 
@@ -241,7 +241,7 @@ W przypadku `hash` akcji wymagane są następujące elementy
 ### `extract`
 
 > [!NOTE]
-> Ta funkcja jest tylko w 3.0.1 i nowszych
+> Ta funkcja jest tylko w 3.0.2 i nowszych
 
 Wyodrębnianie wartości przy użyciu reguły wyrażenia regularnego z klucza wejściowego do kluczy docelowych określonych w regule. Jeśli klucz docelowy już istnieje, zostanie zastąpiony. Zachowuje się podobnie do ustawienia [procesor span](#extract-attributes-from-span-name) `toAttributes` z istniejącym atrybutem jako źródło.
 

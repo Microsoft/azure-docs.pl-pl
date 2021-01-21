@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: 8c3e76f1a7edffefc8773dfa548773ec0932fae6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a937528e3bfd8bea16912d614133988763748bab
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86129860"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632963"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>System Windows wyświetla "KRYTYCZNa usługa nie powiodła się" na niebieskim ekranie podczas uruchamiania maszyny wirtualnej platformy Azure
 W tym artykule opisano błąd "niepowodzenie usługi KRYTYCZNEj", która może wystąpić w przypadku uruchamiania maszyny wirtualnej z systemem Windows w Microsoft Azure. Zawiera kroki rozwiązywania problemów, aby pomóc w rozwiązaniu problemów. 
@@ -27,8 +27,8 @@ W tym artykule opisano błąd "niepowodzenie usługi KRYTYCZNEj", która może w
 
 Nie uruchomiono maszyny wirtualnej z systemem Windows. Po sprawdzeniu zrzutów ekranu rozruchowego w ramach [diagnostyki rozruchu](./boot-diagnostics.md)na niebieskim ekranie zostanie wyświetlony jeden z następujących komunikatów o błędach:
 
-- "Komputer napotkał problem i wymaga ponownego uruchomienia. Można uruchomić ponownie. Aby uzyskać więcej informacji na temat tego problemu i możliwych poprawek, odwiedź stronę https://windows.com/stopcode . Jeśli skontaktujesz się z pomocą techniczną, przekaż im te informacje: zatrzymywanie kodu: usługa KRYTYCZNa nie powiodła się. 
-- "Komputer napotkał problem i wymaga ponownego uruchomienia. Właśnie zbieramy pewne informacje o błędzie, a następnie będziemy ponownie uruchamiać dane. Jeśli chcesz dowiedzieć się więcej, możesz przeszukać w trybie online w późniejszym czasie dla tego błędu: CRITICAL_SERVICE_FAILED "
+- „Komputer napotkał problem i wymaga ponownego uruchomienia. Można uruchomić ponownie. Aby uzyskać więcej informacji na temat tego problemu i możliwych poprawek, odwiedź stronę https://windows.com/stopcode . Jeśli skontaktujesz się z pomocą techniczną, przekaż im te informacje: zatrzymywanie kodu: usługa KRYTYCZNa nie powiodła się. 
+- „Komputer napotkał problem i wymaga ponownego uruchomienia. Właśnie zbieramy pewne informacje o błędzie, a następnie będziemy ponownie uruchamiać dane. Jeśli chcesz dowiedzieć się więcej, możesz przeszukać w trybie online w późniejszym czasie dla tego błędu: CRITICAL_SERVICE_FAILED "
 
 ## <a name="cause"></a>Przyczyna
 
@@ -38,6 +38,9 @@ Istnieją różne przyczyny błędów zatrzymania. Najczęstszymi przyczynami s�
 - Aplikacja uzyskuje dostęp do niedozwolonego sektora pamięci
 
 ## <a name="solution"></a>Rozwiązanie 
+
+> [!TIP]
+> Jeśli masz najnowszą kopię zapasową maszyny wirtualnej, możesz spróbować [przywrócić maszynę wirtualną z kopii zapasowej](../../backup/backup-azure-arm-restore-vms.md) , aby rozwiązać problem z rozruchem.
 
 Aby rozwiązać ten problem, [skontaktuj się z pomocą techniczną i Prześlij plik zrzutu](./troubleshoot-common-blue-screen-error.md#collect-memory-dump-file), który pomoże nam w szybszym zdiagnozowaniu problemu lub wypróbuj poniższe rozwiązanie do samodzielnej pomocy.
 
@@ -115,15 +118,15 @@ Aby samodzielnie analizować dzienniki zrzutów, wykonaj następujące czynnośc
 1. Dołącz dysk systemu operacyjnego do maszyny wirtualnej odzyskiwania.
 2. Na dołączonym dysku systemu operacyjnego przejdź do **\Windows\System32\Config**. Skopiuj wszystkie pliki jako kopię zapasową w przypadku, gdy wymagane jest wycofanie.
 3. Uruchom **Edytor rejestru** (regedit.exe).
-4. Wybierz klucz **HKEY_LOCAL_MACHINE** . Z menu wybierz opcję **File**  >  **Załaduj plik Hive**.
+4. Wybierz klucz **HKEY_LOCAL_MACHINE** . Z menu wybierz opcję   >  **Załaduj plik Hive**.
 5. Przejdź do folderu **\windows\system32\config\SYSTEM** na dysku systemu operacyjnego, który został podłączony. W polu Nazwa gałęzi wpisz **BROKENSYSTEM**. W kluczu **HKEY_LOCAL_MACHINE** zostanie wyświetlona nowa gałąź rejestru.
 6. Przejdź do **HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Control\CrashControl** i wprowadź następujące zmiany:
 
     Autoboot = 0
 
     CrashDumpEnabled = 2
-7.  Wybierz pozycję **BROKENSYSTEM**. Z menu wybierz pozycję **File**  >  **Zwolnij plik Hive**.
-8.  Zmodyfikuj konfigurację BCD, aby przeprowadzić rozruch w trybie debugowania. Uruchom następujące polecenia w wierszu polecenia z podwyższonym poziomem uprawnień:
+7.  Wybierz pozycję **BROKENSYSTEM**. Z menu wybierz pozycję   >  **Zwolnij plik Hive**.
+8.  Zmodyfikuj konfigurację BCD, aby przeprowadzić rozruch w trybie debugowania. W wierszu polecenia z podwyższonym poziomem uprawnień uruchom następujące polecenia:
 
     ```cmd
     REM Setup some debugging flags on the boot manager

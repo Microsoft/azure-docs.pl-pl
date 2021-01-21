@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 55dcd65e901a5ce8665ef8d3a2a29d7943581df9
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 145d58013b259bf14c26d0840b8cd4299cfe85f0
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200723"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632626"
 ---
 # <a name="vm-is-unresponsive-with-c01a001d-error-when-applying-windows-update"></a>Maszyna wirtualna nie odpowiada z błędem "C01A001D" podczas stosowania Windows Update
 
@@ -38,6 +38,9 @@ Nie można utworzyć pliku podstawowego w systemie plików. System operacyjny ni
 ## <a name="resolution"></a>Rozwiązanie
 
 ### <a name="process-overview"></a>Przegląd procesu
+
+> [!TIP]
+> Jeśli masz najnowszą kopię zapasową maszyny wirtualnej, możesz spróbować [przywrócić maszynę wirtualną z kopii zapasowej](../../backup/backup-azure-arm-restore-vms.md) , aby rozwiązać problem z rozruchem.
 
 1. [Utwórz maszynę wirtualną naprawy i uzyskaj do niej dostęp](#create-and-access-a-repair-vm).
 2. [Zwolnij miejsce na dysku twardym](#free-up-space-on-the-hard-disk).

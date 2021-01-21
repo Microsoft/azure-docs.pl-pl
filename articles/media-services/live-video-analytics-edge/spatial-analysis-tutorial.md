@@ -3,12 +3,12 @@ title: Analizowanie wideo na żywo przy użyciu przetwarzanie obrazów na potrze
 description: W tym samouczku pokazano, jak korzystać z analizy filmów wideo na żywo wraz z przetwarzanie obrazów funkcją AI do analizy przestrzennej z poziomu usługi Azure Cognitive Services w celu przeanalizowania na żywo kanału informacyjnego wideo z aparatu (symulowane).
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 5b979bfeb6961b285cfeb2287888d8f157608d96
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 1c6fe6e10a91034d794437f31d495b85ef086848
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060184"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632946"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Analizowanie wideo na żywo przy użyciu przetwarzanie obrazów na potrzeby analizy przestrzennej (wersja zapoznawcza)
 
@@ -23,7 +23,8 @@ W tym samouczku wykonasz następujące instrukcje:
 > * Monitoruj zdarzenia.
  
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
+  > [!NOTE]
+  > Potrzebna jest subskrypcja platformy Azure z uprawnieniami do tworzenia jednostek usługi (jest to **rola właściciela** ). Jeśli nie masz odpowiednich uprawnień, skontaktuj się z administratorem konta, aby przyznać Ci odpowiednie uprawnienia. 
 ## <a name="suggested-pre-reading"></a>Sugerowane przed odczytem
 
 Przeczytaj te artykuły przed rozpoczęciem:
@@ -136,10 +137,10 @@ Istnieje kilka rzeczy, do których należy zwrócić uwagę w pliku szablonu wdr
 1. `IpcMode` w lvaEdge i module analizy przestrzennej elementu weboptions powinna być taka sama i ustawiona na wartość host.
 1. Aby symulator był działał, upewnij się, że skonfigurowano granice woluminu. Aby uzyskać więcej informacji, zobacz [Instalowanie instalacji woluminów platformy Docker](deploy-azure-stack-edge-how-to.md#optional-setup-docker-volume-mounts).
 
-    1. [Połącz się z udziałem SMB](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) i skopiuj [przykładowy plik wideo Bulldozer](https://lvamedia.blob.core.windows.net/public/bulldozer.mkv) do udziału lokalnego.
+    1. [Połącz się z udziałem SMB](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) i skopiuj [przykładowy plik wideo Bulldozer](https://lvamedia.blob.core.windows.net/public/bulldozer.mkv) do udziału lokalnego.  
+        > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Mesi]  
     1. Sprawdź, czy moduł rtspsim ma następującą konfigurację:
-        
-        ```json
+        ```
         "createOptions": {
                             "HostConfig": {
                               "Mounts": [
@@ -159,6 +160,8 @@ Istnieje kilka rzeczy, do których należy zwrócić uwagę w pliku szablonu wdr
                             }
                           }
         ```
+        
+
 ## <a name="generate-and-deploy-the-deployment-manifest"></a>Generowanie i wdrażanie manifestu wdrożenia
 
 Manifest wdrożenia definiuje, jakie moduły są wdrażane na urządzeniu brzegowym. Definiuje również ustawienia konfiguracji dla tych modułów.

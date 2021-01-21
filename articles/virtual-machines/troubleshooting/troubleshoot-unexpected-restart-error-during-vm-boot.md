@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/22/2020
 ms.author: v-mibufo
-ms.openlocfilehash: cfeb040893ae2be5842959ed8458bd713bebe6ee
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: d8d2ab2bb3f24e1faa4791ebdc1ce3852f6a790e
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512141"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632694"
 ---
 # <a name="os-start-up--computer-restarted-unexpectedly-or-encountered-an-unexpected-error"></a>Uruchomienie systemu operacyjnego — komputer został nieoczekiwanie uruchomiony ponownie lub wystąpił nieoczekiwany błąd
 
@@ -52,6 +52,9 @@ Ten problem jest najczęściej tworzony podczas korzystania z programu Sysprep z
 ## <a name="solution"></a>Rozwiązanie
 
 ### <a name="do-not-use-unattendxml"></a>Nie używaj Unattend.xml
+
+> [!TIP]
+> Jeśli masz najnowszą kopię zapasową maszyny wirtualnej, możesz spróbować [przywrócić maszynę wirtualną z kopii zapasowej](../../backup/backup-azure-arm-restore-vms.md) , aby rozwiązać problem z rozruchem.
 
 Aby rozwiązać ten problem, postępuj zgodnie [ze wskazówkami platformy Azure dotyczącymi przygotowania/przechwytywania obrazu](../windows/upload-generalized-managed.md) i przygotowania nowego uogólnionego obrazu. W trakcie działania programu Sysprep nie należy **używać `/unattend:<your file’s name>` flagi**. Zamiast tego należy użyć tylko poniższych flag:
 

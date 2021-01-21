@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: genli
-ms.openlocfilehash: b382efc4d283d64ce0f833bde9104fa2e3bc973a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a95ddf882e5edba9daa8ff91c02d1df1f50bceb
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87088549"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632980"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>System Windows wyświetla błąd niebieskiego ekranu podczas uruchamiania maszyny wirtualnej platformy Azure
 W tym artykule opisano błędy niebieskiego ekranu, które mogą wystąpić podczas uruchamiania maszyny wirtualnej z systemem Windows w Microsoft Azure. Zawiera instrukcje ułatwiające zbieranie danych dla biletu pomocy technicznej. 
@@ -41,6 +41,9 @@ Może istnieć wiele powodów, dla których wystąpił błąd zatrzymania. Najcz
 - Aplikacja uzyskuje dostęp do niedozwolonego sektora pamięci
 
 ## <a name="collect-memory-dump-file"></a>Zbierz plik zrzutu pamięci
+
+> [!TIP]
+> Jeśli masz najnowszą kopię zapasową maszyny wirtualnej, możesz spróbować [przywrócić maszynę wirtualną z kopii zapasowej](../../backup/backup-azure-arm-restore-vms.md) , aby rozwiązać problem z rozruchem.
 
 Aby rozwiązać ten problem, należy najpierw zebrać plik zrzutu dla awarii i skontaktować się z pomocą techniczną pliku zrzutu. Aby zebrać plik zrzutu, wykonaj następujące kroki:
 

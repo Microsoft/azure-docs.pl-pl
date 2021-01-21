@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: f83a1820eb931fa075681da7a9661b304059cd2a
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 0c0ec45eee86031e1533b97ccf352de0ecf70e38
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635709"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633158"
 ---
 # <a name="troubleshoot-os-start-up--windows-update-installation-capacity"></a>Rozwiązywanie problemów z uruchamianiem systemu operacyjnego — Windows Update pojemności instalacji
 
@@ -38,6 +38,9 @@ W takiej sytuacji system operacyjny (OS) nie może zakończyć instalacji Window
 ## <a name="solution"></a>Rozwiązanie
 
 ### <a name="process-overview"></a>Przegląd procesu:
+
+> [!TIP]
+> Jeśli masz najnowszą kopię zapasową maszyny wirtualnej, możesz spróbować [przywrócić maszynę wirtualną z kopii zapasowej](../../backup/backup-azure-arm-restore-vms.md) , aby rozwiązać problem z rozruchem.
 
 1. Utwórz maszynę wirtualną naprawy i uzyskaj do niej dostęp.
 1. Wolne miejsce na dysku.
@@ -73,12 +76,12 @@ Defragmentacja może potrwać kilka godzin, w zależności od poziomu fragmentac
 
 ### <a name="enable-the-serial-console-and-memory-dump-collection"></a>Włącz zbieranie danych z konsoli szeregowej i zrzutu pamięci
 
-**Zalecane** : przed odbudowaniem maszyny wirtualnej Włącz zbieranie danych z konsoli szeregowej i zrzutu pamięci przez uruchomienie następującego skryptu:
+**Zalecane**: przed odbudowaniem maszyny wirtualnej Włącz zbieranie danych z konsoli szeregowej i zrzutu pamięci przez uruchomienie następującego skryptu:
 
 1. Otwórz sesję wiersza polecenia z podwyższonym poziomem uprawnień jako administrator.
 1. Uruchom następujące polecenia:
 
-   **Włącz konsolę seryjną** :
+   **Włącz konsolę seryjną**:
    
    ```
    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON 
@@ -87,7 +90,7 @@ Defragmentacja może potrwać kilka godzin, w zależności od poziomu fragmentac
 
 1. Sprawdź, czy ilość wolnego miejsca na dysku systemu operacyjnego jest większa niż rozmiar pamięci (RAM) na maszynie wirtualnej.
 
-   Jeśli na dysku systemu operacyjnego nie ma wystarczającej ilości miejsca, należy zmienić lokalizację, w której zostanie utworzony plik zrzutu pamięci, i odnieść tę lokalizację do dowolnego dysku z danymi dołączonym do maszyny wirtualnej z wystarczającą ilością wolnego miejsca. Aby zmienić lokalizację, Zamień **% główny_katalog_systemowy%** na literę dysku danych, na przykład **F:** , w poniższych poleceniach.
+   Jeśli na dysku systemu operacyjnego nie ma wystarczającej ilości miejsca, należy zmienić lokalizację, w której zostanie utworzony plik zrzutu pamięci, i odnieść tę lokalizację do dowolnego dysku z danymi dołączonym do maszyny wirtualnej z wystarczającą ilością wolnego miejsca. Aby zmienić lokalizację, Zamień **% główny_katalog_systemowy%** na literę dysku danych, na przykład **F:**, w poniższych poleceniach.
 
    Sugerowana konfiguracja do włączenia zrzutu systemu operacyjnego:
 
@@ -97,7 +100,7 @@ Defragmentacja może potrwać kilka godzin, w zależności od poziomu fragmentac
    REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM 
    ```
    
-   **Włącz w ControlSet001** :
+   **Włącz w ControlSet001**:
 
    ```
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
@@ -105,7 +108,7 @@ Defragmentacja może potrwać kilka godzin, w zależności od poziomu fragmentac
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
    ```
    
-   **Włącz w ControlSet002** :
+   **Włącz w ControlSet002**:
 
    ```
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
@@ -113,7 +116,7 @@ Defragmentacja może potrwać kilka godzin, w zależności od poziomu fragmentac
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
    ```
    
-   **Zwolnij przerwany dysk systemu operacyjnego** :
+   **Zwolnij przerwany dysk systemu operacyjnego**:
 
    ```
    REG UNLOAD HKLM\BROKENSYSTEM

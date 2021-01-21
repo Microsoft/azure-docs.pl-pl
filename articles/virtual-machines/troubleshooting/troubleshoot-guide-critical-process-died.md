@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: c04f3b27c7214dcf821c7698796bfaea399b947d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8279aee4a0df8155b23e6f984d259bf92555dc95
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86509107"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632837"
 ---
 # <a name="windows-stop-error---0x000000ef-critical-process-died"></a>Błąd zatrzymania systemu Windows — #0x000000EF "proces krytyczny padł"
 
@@ -29,7 +29,7 @@ W tym artykule przedstawiono kroki rozwiązywania problemów, w których proces 
 
 W przypadku korzystania z [diagnostyki rozruchu](./boot-diagnostics.md) w celu wyświetlenia zrzutu ekranu maszyny wirtualnej zobaczysz, że zrzut ekranu wyświetla komunikat o błędzie *#0x000000EF* z *procesem krytycznym komunikat padł*.
 
-!["Komputer napotkał problem i wymaga ponownego uruchomienia. Właśnie zbieramy pewne informacje o błędzie, a następnie można uruchomić ponownie. (ukończono # #%) Jeśli chcesz dowiedzieć się więcej, możesz przeszukać w trybie online w późniejszym czasie dla tego błędu: 0x000000EF "](media/troubleshoot-guide-critical-process-died/1.jpg)
+![„Komputer napotkał problem i wymaga ponownego uruchomienia. Właśnie zbieramy pewne informacje o błędzie, a następnie można uruchomić ponownie. (ukończono # #%) Jeśli chcesz dowiedzieć się więcej, możesz przeszukać w trybie online w późniejszym czasie dla tego błędu: 0x000000EF "](media/troubleshoot-guide-critical-process-died/1.jpg)
 
 ## <a name="cause"></a>Przyczyna
 
@@ -38,6 +38,9 @@ Zwykle jest to spowodowane tym, że krytyczny proces systemu zakończy się niep
 ## <a name="solution"></a>Rozwiązanie
 
 ### <a name="process-overview"></a>Przegląd procesu:
+
+> [!TIP]
+> Jeśli masz najnowszą kopię zapasową maszyny wirtualnej, możesz spróbować [przywrócić maszynę wirtualną z kopii zapasowej](../../backup/backup-azure-arm-restore-vms.md) , aby rozwiązać problem z rozruchem.
 
 1. Utwórz maszynę wirtualną naprawy i uzyskaj do niej dostęp.
 2. Napraw wszystkie uszkodzenia systemu operacyjnego.

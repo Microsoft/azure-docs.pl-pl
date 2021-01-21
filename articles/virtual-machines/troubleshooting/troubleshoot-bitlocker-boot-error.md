@@ -13,18 +13,16 @@ ms.workload: infrastructure
 ms.date: 11/20/2020
 ms.author: genli
 ms.custom: has-adal-ref
-ms.openlocfilehash: 00095eed3fe6d143d9ed7a0c748c4702028f4632
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 87bf311b5199ec187c24c28a42314d9dc6787998
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832064"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633031"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Błędy rozruchu funkcji BitLocker na maszynie wirtualnej platformy Azure
 
  W tym artykule opisano błędy funkcji BitLocker, które mogą wystąpić podczas uruchamiania maszyny wirtualnej z systemem Windows w Microsoft Azure.
-
- 
 
 ## <a name="symptom"></a>Objaw
 
@@ -42,6 +40,9 @@ ms.locfileid: "97832064"
 Ten problem może wystąpić, jeśli maszyna wirtualna nie może zlokalizować pliku klucza odzyskiwania funkcji BitLocker (klucz szyfrowania bloków) w celu odszyfrowania zaszyfrowanego dysku.
 
 ## <a name="solution"></a>Rozwiązanie
+
+> [!TIP]
+> Jeśli masz najnowszą kopię zapasową maszyny wirtualnej, możesz spróbować [przywrócić maszynę wirtualną z kopii zapasowej](../../backup/backup-azure-arm-restore-vms.md) , aby rozwiązać problem z rozruchem.
 
 Aby rozwiązać ten problem, Zatrzymaj i Cofnij przydział maszyny wirtualnej, a następnie uruchom ją. Ta operacja wymusza pobranie przez maszynę wirtualną pliku klucz szyfrowania bloków z Azure Key Vault, a następnie umieszczenie go na zaszyfrowanym dysku. 
 

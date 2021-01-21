@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
-ms.date: 01/15/2021
-ms.openlocfilehash: c889498d6341875682055e9d67b8d2b958bac70a
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.date: 01/20/2021
+ms.openlocfilehash: 337e242e3c194c8ec9f66e1888926e6a8f6a8375
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251067"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633082"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Zabezpieczanie dostępu i danych w Azure Logic Apps
 
@@ -38,7 +38,7 @@ Aby uzyskać więcej informacji o zabezpieczeniach na platformie Azure, zobacz n
 
 ## <a name="access-for-inbound-calls-to-request-based-triggers"></a>Dostęp do wywołań przychodzących do wyzwalaczy opartych na żądaniach
 
-Wywołania przychodzące, które aplikacja logiki odbiera za pośrednictwem wyzwalacza opartego na żądaniach, takie jak wyzwalacz [żądania](../connectors/connectors-native-reqres.md) lub wyzwalacz [elementu webhook protokołu HTTP](../connectors/connectors-native-webhook.md) , obsługują szyfrowanie i są zabezpieczone przy użyciu [Transport Layer Security (TLS) 1,2 w minimalnej](https://en.wikipedia.org/wiki/Transport_Layer_Security), znanej wcześniej jako SSL (SSL). Logic Apps wymusza tę wersję podczas otrzymywania wywołania przychodzącego do wyzwalacza żądania lub wywołania zwrotnego do wyzwalacza lub akcji elementu webhook protokołu HTTP. W przypadku uzyskiwania błędów uzgadniania protokołu TLS upewnij się, że używasz protokołu TLS 1,2. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemu z protokołem TLS 1,0](/security/solving-tls1-problem).
+Wywołania przychodzące, które aplikacja logiki odbiera za pośrednictwem wyzwalacza opartego na żądaniach, takie jak wyzwalacz [żądania](../connectors/connectors-native-reqres.md) lub wyzwalacz [elementu webhook protokołu HTTP](../connectors/connectors-native-webhook.md) , obsługują szyfrowanie i są zabezpieczone przy użyciu [Transport Layer Security (TLS) 1,2 w minimalnej](https://en.wikipedia.org/wiki/Transport_Layer_Security), znanej wcześniej jako Secure Sockets Layer (SSL). Logic Apps wymusza tę wersję podczas otrzymywania wywołania przychodzącego do wyzwalacza żądania lub wywołania zwrotnego do wyzwalacza lub akcji elementu webhook protokołu HTTP. W przypadku uzyskiwania błędów uzgadniania protokołu TLS upewnij się, że używasz protokołu TLS 1,2. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemu z protokołem TLS 1,0](/security/solving-tls1-problem).
 
 Wywołania przychodzące obsługują następujące mechanizmy szyfrowania:
 
@@ -842,7 +842,7 @@ Ten przykładowy szablon, który ma wiele zabezpieczonych definicji parametrów,
 
 ## <a name="access-for-outbound-calls-to-other-services-and-systems"></a>Dostęp do wychodzących wywołań do innych usług i systemów
 
-W oparciu o możliwości docelowego punktu końcowego, wywołania wychodzące wysyłane przez [wyzwalacz http lub akcję http](../connectors/connectors-native-http.md), obsługują szyfrowanie i są zabezpieczone za pomocą [Transport Layer Security (TLS) 1,0, 1,1 lub 1,2](https://en.wikipedia.org/wiki/Transport_Layer_Security), wcześniej znanych jako SSL (SSL). Logic Apps negocjuje z docelowym punktem końcowym przy użyciu najwyższej możliwej wersji, która jest obsługiwana. Na przykład jeśli docelowy punkt końcowy obsługuje 1,2, wyzwalacz HTTP lub akcja używa najpierw 1,2. W przeciwnym razie łącznik używa następnej najwyższej obsługiwanej wersji.
+W oparciu o możliwości docelowego punktu końcowego, wywołania wychodzące wysyłane przez [wyzwalacz http lub akcję http](../connectors/connectors-native-http.md), obsługują szyfrowanie i są zabezpieczone za pomocą [Transport Layer Security (TLS) 1,0, 1,1 lub 1,2](https://en.wikipedia.org/wiki/Transport_Layer_Security), wcześniej znanych jako Secure Sockets Layer (SSL). Logic Apps negocjuje z docelowym punktem końcowym przy użyciu najwyższej możliwej wersji, która jest obsługiwana. Na przykład jeśli docelowy punkt końcowy obsługuje 1,2, wyzwalacz HTTP lub akcja używa najpierw 1,2. W przeciwnym razie łącznik używa następnej najwyższej obsługiwanej wersji.
 
 Poniżej przedstawiono informacje na temat certyfikatów z podpisem własnym protokołu TLS/SSL:
 
@@ -966,7 +966,7 @@ Jeśli opcja [certyfikat klienta](../active-directory/authentication/active-dire
 | Właściwość (Projektant) | Właściwość (JSON) | Wymagane | Wartość | Opis |
 |---------------------|-----------------|----------|-------|-------------|
 | **Authentication** | `type` | Tak | **Certyfikat klienta** <br>lub <br>`ClientCertificate` | Typ uwierzytelniania do użycia. Można zarządzać certyfikatami za pomocą [usługi Azure API Management](../api-management/api-management-howto-mutual-certificates.md). <p></p>**Uwaga**: Łączniki niestandardowe nie obsługują uwierzytelniania opartego na certyfikatach dla wywołań przychodzących i wychodzących. |
-| **PFX** | `pfx` | Tak | <*zakodowany plik PFX — zawartość*> | Zawartość zakodowana algorytmem Base64 z pliku wymiany informacji osobistych (PFX) <p><p>Aby przekonwertować plik PFX na format szyfrowany algorytmem Base64, można użyć programu PowerShell, wykonując następujące czynności: <p>1. Zapisz zawartość certyfikatu w zmiennej: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. Przekonwertuj zawartość certyfikatu przy użyciu `ToBase64String()` funkcji i Zapisz tę zawartość do pliku tekstowego: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
+| **PFX** | `pfx` | Tak | <*zakodowany plik PFX — zawartość*> | Zawartość zakodowana algorytmem Base64 z pliku wymiany informacji osobistych (PFX) <p><p>Aby przekonwertować plik PFX na format szyfrowany algorytmem Base64, można użyć programu PowerShell, wykonując następujące czynności: <p>1. Zapisz zawartość certyfikatu w zmiennej: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. Przekonwertuj zawartość certyfikatu przy użyciu `ToBase64String()` funkcji i Zapisz tę zawartość do pliku tekstowego: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` <p><p>**Rozwiązywanie problemów**: Jeśli używasz `cert mmc/PowerShell` polecenia, może wystąpić następujący błąd: <p><p>`Could not load the certificate private key. Please check the authentication certificate password is correct and try again.` <p><p>Aby rozwiązać ten problem, spróbuj przekonwertować plik PFX na plik PEM i ponownie przy użyciu `openssl` polecenia: <p><p>`openssl pkcs12 -in certificate.pfx -out certificate.pem` <br>`openssl pkcs12 -in certificate.pem -export -out certificate2.pfx` <p><p>Po otrzymaniu ciągu zakodowanego algorytmem Base64 dla nowo przekonwertowanego pliku PFX, ciąg teraz działa w Azure Logic Apps. |
 | **Password** (Hasło) | `password`| Nie | <*hasło dla pliku PFX*> | Hasło do uzyskiwania dostępu do pliku PFX |
 |||||
 
@@ -994,7 +994,7 @@ Aby uzyskać więcej informacji na temat zabezpieczania usług przy użyciu uwie
 * [Ulepszanie zabezpieczeń usług zaplecza przy użyciu uwierzytelniania certyfikatów klientów na platformie Azure API Management](../api-management/api-management-howto-mutual-certificates.md)
 * [Zwiększ bezpieczeństwo usługi RESTfuL przy użyciu certyfikatów klienta](../active-directory-b2c/secure-rest-api.md)
 * [Poświadczenia certyfikatu na potrzeby uwierzytelniania aplikacji](../active-directory/develop/active-directory-certificate-credentials.md)
-* [Użyj certyfikatu TLS/SSL w kodzie w Azure App Service](../app-service/configure-ssl-certificate-in-code.md)
+* [Używanie certyfikatu TLS/SSL w kodzie w usłudze Azure App Service](../app-service/configure-ssl-certificate-in-code.md)
 
 <a name="azure-active-directory-oauth-authentication"></a>
 

@@ -3,12 +3,12 @@ title: Omówienie AMQP 1,0 w Azure Service Bus
 description: Dowiedz się, jak Azure Service Bus obsługuje Advanced Message Queuing Protocol (AMQP), Open standard Protocol.
 ms.topic: article
 ms.date: 11/20/2020
-ms.openlocfilehash: 241a6b7fb9f9055ce610e44e5cd37dba87c77554
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: 58c2cc8e9d92fff31a286b6e9bd63b63bee26aee
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97709286"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632888"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Obsługa AMQP 1,0 w Service Bus
 Usługa Azure Service Bus w chmurze korzysta z [protokołu Advanced Message Queue Protocol (AMQP) 1,0](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html) jako podstawowego środka komunikacji. Firma Microsoft współpracuje z partnerami w branży, zarówno klientom, jak i dostawcom konkurujących brokerów obsługi komunikatów, aby rozwijać i rozwijać AMQP w ciągu ostatniej dekady, z nowymi rozszerzeniami opracowanymi w ramach [języka Oasis AMQP](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp). AMQP 1,0 to standard ISO i IEC ([iso 19464:20149](https://www.iso.org/standard/64955.html)). 
@@ -64,11 +64,11 @@ Na poniższej ilustracji przedstawiono przykładowe wdrożenie, w którym klienc
 
 Wszystkie obsługiwane Service Bus biblioteki klienckie dostępne za pośrednictwem zestawu Azure SDK używają AMQP 1,0.
 
-- [Azure Service Bus dla platformy .NET](/dotnet/api/overview/azure/service-bus?preserve-view=true&view=azure-dotnet)
-- [Biblioteki Azure Service Bus dla języka Java](/java/api/overview/azure/servicebus?preserve-view=true&view=azure-java-stable)
+- [Azure Service Bus dla platformy .NET](/dotnet/api/overview/azure/service-bus?preserve-view=true)
+- [Biblioteki Azure Service Bus dla języka Java](/java/api/overview/azure/servicebus?preserve-view=true)
 - [Dostawca Azure Service Bus dla języka Java JMS 2,0](how-to-use-java-message-service-20.md)
-- [Moduły Azure Service Bus dla języków JavaScript i TypeScript](/javascript/api/overview/azure/service-bus?preserve-view=true&view=azure-node-latest)
-- [Biblioteki Azure Service Bus dla języka Python](/python/api/overview/azure/servicebus?preserve-view=true&view=azure-python)
+- [Moduły Azure Service Bus dla języków JavaScript i TypeScript](/javascript/api/overview/azure/service-bus?preserve-view=true)
+- [Biblioteki Azure Service Bus dla języka Python](/python/api/overview/azure/servicebus?preserve-view=true)
 
 [!INCLUDE [service-bus-websockets-options](../../includes/service-bus-websockets-options.md)]
 

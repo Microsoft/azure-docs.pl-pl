@@ -17,12 +17,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 3fe87f94ce05efa4a784ba7e3f65e53abb00fd05
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 7ddc13306f4adb1730169c4811b9d2227dedca33
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914250"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632770"
 ---
 # <a name="automate-management-with-the-sql-server-iaas-agent-extension"></a>Automatyzowanie zarządzania przy użyciu rozszerzenia agenta SQL Server IaaS
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -115,7 +115,7 @@ Istnieją trzy sposoby rejestracji z rozszerzeniem:
 
 ### <a name="named-instance-support"></a>Obsługa nazwanych wystąpień
 
-SQL Server rozszerzenie agenta IaaS współpracuje z nazwanym wystąpieniem SQL Server, jeśli jest to jedyne SQL Server wystąpienie dostępne na maszynie wirtualnej. Nie można zainstalować rozszerzenia na maszynach wirtualnych z wieloma wystąpieniami SQL Server. 
+SQL Server rozszerzenie agenta IaaS współpracuje z nazwanym wystąpieniem SQL Server, jeśli jest to jedyne wystąpienie SQL Server dostępne na maszynie wirtualnej. Nie można zainstalować rozszerzenia na maszynach wirtualnych o wielu wystąpieniach o nazwie SQL Server, jeśli na maszynie wirtualnej nie ma wystąpienia domyślnego. 
 
 Aby użyć nazwanego wystąpienia SQL Server, Wdróż maszynę wirtualną platformy Azure, zainstaluj w niej pojedyncze wystąpienie o nazwie SQL Server, a następnie zarejestruj je przy użyciu [rozszerzenia SQL IaaS](sql-agent-extension-manually-register-single-vm.md).
 
@@ -173,7 +173,7 @@ Nie. Firma Microsoft automatycznie rejestruje maszyny wirtualne obsługiwane prz
 
 **Czy rozszerzenie usługi SQL IaaS Agent jest dostępne dla wszystkich klientów?** 
 
-Tak. Klienci powinni rejestrować SQL Server maszyny wirtualne przy użyciu rozszerzenia, jeśli nie korzystają z obrazu SQL Server z witryny Azure Marketplace, a zamiast tego są samoinstalujące się SQL Server lub mają swój niestandardowy dysk VHD. Maszyny wirtualne należące do wszystkich typów subskrypcji (Direct, Umowa Enterprise i dostawca rozwiązań w chmurze) mogą być rejestrowane przy użyciu rozszerzenia programu SQL IaaS Agent.
+Tak. Klienci powinni rejestrować SQL Server maszyny wirtualne przy użyciu rozszerzenia, jeśli nie korzystają z obrazu SQL Server z witryny Azure Marketplace, a zamiast tego są samoinstalujące się SQL Server lub mają swój niestandardowy dysk VHD. Maszyny wirtualne należące do wszystkich typów subskrypcji (Direct, Enterprise Agreement i dostawca rozwiązań w chmurze) mogą być rejestrowane przy użyciu rozszerzenia programu SQL IaaS Agent.
 
 **Jaki jest domyślny tryb zarządzania podczas rejestrowania w rozszerzeniu programu SQL IaaS Agent?**
 
@@ -228,7 +228,7 @@ Nie. Maszyna wirtualna musi mieć co najmniej jedno wystąpienie SQL Server (apa
 
 **Czy można zarejestrować maszynę wirtualną za pomocą rozszerzenia programu SQL IaaS Agent, jeśli istnieje wiele wystąpień SQL Server?**
 
-Tak. Rozszerzenie agenta SQL IaaS zarejestruje tylko jedno wystąpienie SQL Server (aparatu bazy danych). Rozszerzenie programu SQL IaaS Agent zarejestruje domyślne wystąpienie SQL Server w przypadku wielu wystąpień. Jeśli nie ma wystąpienia domyślnego, obsługiwane jest tylko rejestrowanie w trybie uproszczonym. Aby można było uaktualnić tryb uproszczony do pełnego zarządzania, należy podać domyślne wystąpienie SQL Server lub maszyna wirtualna powinna mieć tylko jedno nazwane wystąpienie SQL Server.
+Tak, pod warunkiem, że na maszynie wirtualnej jest domyślne wystąpienie. Rozszerzenie agenta SQL IaaS zarejestruje tylko jedno wystąpienie SQL Server (aparatu bazy danych). Rozszerzenie programu SQL IaaS Agent zarejestruje domyślne wystąpienie SQL Server w przypadku wielu wystąpień.
 
 **Czy można zarejestrować SQL Server wystąpienie klastra trybu failover z rozszerzeniem agenta SQL IaaS?**
 

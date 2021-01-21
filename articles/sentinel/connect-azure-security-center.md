@@ -9,12 +9,12 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: yelevin
-ms.openlocfilehash: b37675d46d501fc43446eafc83d6c0a02f238177
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: bb188aa79015c2123b9d9d8b6baf277dfadf2f9c
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655956"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633048"
 ---
 # <a name="connect-azure-defender-alert-data-from-azure-security-center"></a>Połącz dane alertów usługi Azure Defender z Azure Security Center
 
@@ -39,6 +39,8 @@ Skorzystaj z łącznika alertu usługi Azure Defender, aby uzyskać alerty usłu
 1. Aby użyć odpowiedniego schematu w Log Analytics dla alertów usługi Azure Defender, Wyszukaj pozycję **SecurityAlert**.
 
 ## <a name="next-steps"></a>Następne kroki
+
 W tym dokumencie przedstawiono sposób nawiązywania połączenia z usługą Azure Defender z platformą Azure. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
+
 - Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).
 - Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](tutorial-detect-threats-built-in.md).

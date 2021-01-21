@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 1131c8e79d9df2883dcf7e975af9732c21318a49
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: e1462246b95da67591cbdfd1f9ed819220de5764
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621168"
+ms.locfileid: "98633065"
 ---
 # <a name="connect-your-barracuda-waf-appliance"></a>Łączenie urządzenia z programem Barracuda WAF 
 
@@ -30,16 +30,20 @@ ms.locfileid: "98621168"
 > Dane będą przechowywane w lokalizacji geograficznej obszaru roboczego, w którym jest uruchamiany wskaźnik platformy Azure.
 
 ## <a name="configure-and-connect-barracuda-waf"></a>Konfigurowanie i łączenie Barracuda WAF
-Zapora aplikacji sieci Web Barracuda umożliwia integrację i eksportowanie dzienników bezpośrednio do funkcji wskaźnikowej platformy Azure za pośrednictwem agenta Log Analytics.
-1. Przejdź do [przepływu konfiguracji usługi Barracuda WAF](https://campus.barracuda.com/product/webapplicationfirewall/doc/73696965/configure-the-barracuda-web-application-firewall-to-integrate-with-the-oms-server-and-export-logs/)i postępuj zgodnie z instrukcjami, aby skonfigurować połączenie przy użyciu następujących parametrów:
-    - **Identyfikator obszaru roboczego**: Skopiuj wartość identyfikatora obszaru roboczego ze strony łącznika usługi Azure nazwa_obszaru_roboczego Barracuda.
-    - **Klucz podstawowy**: Skopiuj wartość klucza podstawowego ze strony łącznika usługi Azure wskaźnik Barracuda.
-1. Aby użyć odpowiedniego schematu w Log Analytics dla zdarzeń Barracuda, Wyszukaj **CommonSecurityLog** i **barracuda_CL**.
 
+Zapora aplikacji sieci Web Barracuda umożliwia integrację i eksportowanie dzienników bezpośrednio do funkcji wskaźnikowej platformy Azure za pośrednictwem agenta Log Analytics.
+
+1. Przejdź do [przepływu konfiguracji usługi Barracuda WAF](https://campus.barracuda.com/product/webapplicationfirewall/doc/73696965/configure-the-barracuda-web-application-firewall-to-integrate-with-the-oms-server-and-export-logs/)i postępuj zgodnie z instrukcjami, aby skonfigurować połączenie przy użyciu następujących parametrów:
+
+    - **Identyfikator obszaru roboczego**: Skopiuj wartość identyfikatora obszaru roboczego ze strony łącznika usługi Azure nazwa_obszaru_roboczego Barracuda.
+
+    - **Klucz podstawowy**: Skopiuj wartość klucza podstawowego ze strony łącznika usługi Azure wskaźnik Barracuda.
+
+1. Aby użyć odpowiedniego schematu w Log Analytics dla zdarzeń Barracuda, Wyszukaj **CommonSecurityLog** i **barracuda_CL**.
 
 ## <a name="validate-connectivity"></a>Sprawdź poprawność łączności
 
-Rozpoczęcie wyświetlania dzienników w Log Analytics może zająć więcej niż 20 minut. 
+Rozpoczęcie wyświetlania dzienników w Log Analytics może potrwać do 20 minut. 
 
 
 

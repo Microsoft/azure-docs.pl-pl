@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/16/2020
+ms.date: 01/20/2021
 ms.author: b-juche
-ms.openlocfilehash: 7b664dcd1cb12808960ffacf91c6d02d58632c4e
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 4a4fff18d21ccb0c729ecb1f79df17225c8086bc
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95243141"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632677"
 ---
 # <a name="requirements-and-considerations-for-using-cross-region-replication"></a>Wymagania i zagadnienia dotyczące korzystania z replikacji między regionami 
 
@@ -31,6 +31,7 @@ Należy zwrócić uwagę na następujące wymagania i zagadnienia dotyczące kor
 * Replikacja Azure NetApp Files jest dostępna tylko w pewnych stałych parach regionów. Zobacz [obsługiwane pary regionów](cross-region-replication-introduction.md#supported-region-pairs). 
 * Woluminy SMB są obsługiwane razem z woluminami NFS. Replikacja woluminów SMB wymaga połączenia Active Directory w źródłowym i docelowym koncie NetApp. Docelowe połączenie usługi AD musi mieć dostęp do serwerów DNS lub dodaje kontrolery domeny, które są dostępne z delegowanej podsieci w regionie docelowym. Aby uzyskać więcej informacji, zobacz [wymagania dotyczące połączeń Active Directory](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). 
 * Konto docelowe musi znajdować się w innym regionie niż region woluminu źródłowego. Możesz również wybrać istniejące konto NetApp w innym regionie.  
+* Wolumin docelowy replikacji jest tylko do odczytu do momentu przełączenia w tryb failover [do regionu docelowego](cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume) w celu włączenia woluminu docelowego do odczytu i zapisu. 
 * Azure NetApp Files replikacja nie obsługuje obecnie wielu subskrypcji; wszystkie replikacje muszą być wykonywane w ramach jednej subskrypcji.
 * Można skonfigurować maksymalnie pięć woluminów do replikacji w ramach jednej subskrypcji na region. Możesz otworzyć bilet pomocy technicznej, aby zażądać zwiększenia domyślnego limitu przydziału pięciu woluminów docelowych replikacji (na subskrypcję w regionie). 
 * W celu odzwierciedlenia nowo dodanej migawki na woluminie źródłowym może wystąpić maksymalnie pięć minut.  
@@ -41,7 +42,7 @@ Należy zwrócić uwagę na następujące wymagania i zagadnienia dotyczące kor
 * Nie można przywrócić migawki, która została wykonana przed utworzeniem woluminu docelowego replikacji.
 
 ## <a name="next-steps"></a>Następne kroki
-* [Utwórz replikację woluminu](cross-region-replication-create-peering.md)
+* [Tworzenie replikacji woluminu](cross-region-replication-create-peering.md)
 * [Wyświetlanie stanu kondycji relacji replikacji](cross-region-replication-display-health-status.md)
 * [Zarządzanie odzyskiwaniem po awarii](cross-region-replication-manage-disaster-recovery.md)
 * [Metryki replikacji woluminów](azure-netapp-files-metrics.md#replication)

@@ -3,17 +3,19 @@ title: Eksportuj przepływy z automatyzacji, aby Azure Logic Apps
 description: Migrowanie przepływów z poziomu automatyzacji do Azure Logic Apps przez eksportowanie jako Azure Resource Manager szablonów
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, sneshaf, pinath, logicappspm
 ms.topic: conceptual
-ms.date: 06/03/2020
-ms.openlocfilehash: 1c2f0a2c54be7adbc7b8babd596f18e08c67a024
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/20/2021
+ms.openlocfilehash: 2192ae5f3de551cb8ff2b6c36e233804c3c56bf1
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014418"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633251"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Eksportowanie przepływów z usługi Power Automate i wdrażanie w usłudze Azure Logic Apps
+
+> W przypadku przepływów utworzonych po październiku 2020 nie można już wyeksportować z usługi Automatyzacja i wdrożyć do Azure Logic Apps.
 
 Aby rozszerzać i rozszerzać możliwości przepływu, można migrować ten przepływ z [automatyzacji](https://flow.microsoft.com) , aby [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Możesz wyeksportować przepływ jako szablon Azure Resource Manager dla aplikacji logiki, wdrożyć ten szablon aplikacji logiki w grupie zasobów platformy Azure, a następnie otworzyć tę aplikację logiki w Projektancie aplikacji logiki.
 
@@ -76,13 +78,13 @@ Aby uzyskać więcej informacji, zobacz [zwiększanie do Azure Logic Apps](https
       | <*Nazwa połączenia*> | Jedna lub wiele nazw dla wszystkich wcześniej utworzonych połączeń, które mogą być używane przez aplikację logiki <p><p>**Uwaga**: Jeśli ta aplikacja logiki jest w pierwszej kolejności, wszystkie połączenia są tworzone jako nowe, więc można zaakceptować domyślne nazwy. W przeciwnym razie można określić nazwy dla wcześniej utworzonych połączeń, które mogą być używane w wielu aplikacjach logiki. |
       |||
 
-      Na przykład:
+      Przykład:
 
       ![Określ parametry wejściowe dla szablonu](./media/export-from-microsoft-flow-logic-app-template/template-input-parameters.png)
 
    1. Gdy skończysz, zapoznaj się z **warunkami i postanowieniami** dotyczącymi tworzenia niezbędnych zasobów platformy Azure i rozliczania subskrypcji platformy Azure zgodnie z potrzebami.
 
-   1. Gdy wszystko będzie gotowe, wybierz pozycję **Wyrażam zgodę na warunki i postanowienia podane powyżej**  >  **Purchase**.
+   1. Gdy wszystko będzie gotowe, wybierz pozycję **Wyrażam zgodę na warunki i postanowienia podane powyżej**  >  .
 
       Platforma Azure wdraża szablon jako aplikację logiki do określonej grupy zasobów.
 
@@ -156,7 +158,7 @@ Jeśli skonfigurowano program Visual Studio z [wymaganiami wstępnymi](../logic-
 
    ![Edytuj parametry wdrożenia](./media/export-from-microsoft-flow-logic-app-template/edit-parameters-deployment.png)
 
-   Po rozpoczęciu wdrażania stan wdrożenia aplikacji zostanie wyświetlony w oknie **Dane wyjściowe** programu Visual Studio. Jeśli stan się nie pojawi, otwórz listę **Pokaż dane wyjściowe z** i wybierz grupę zasobów platformy Azure. Na przykład:
+   Po rozpoczęciu wdrażania stan wdrożenia aplikacji zostanie wyświetlony w oknie **Dane wyjściowe** programu Visual Studio. Jeśli stan się nie pojawi, otwórz listę **Pokaż dane wyjściowe z** i wybierz grupę zasobów platformy Azure. Przykład:
 
    ![Okno wyniku](./media/export-from-microsoft-flow-logic-app-template/output-window.png)
 

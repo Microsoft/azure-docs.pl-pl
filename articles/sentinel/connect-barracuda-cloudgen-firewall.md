@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: dd0115fa34b10805570b6e9d8d09ae96fc169dfc
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 9e0aa186e742318ab5793fa8390251d94327bf08
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621135"
+ms.locfileid: "98632711"
 ---
 # <a name="connect-barracuda-cloudgen-firewall"></a>Łączenie z rozwiązaniem Barracuda CloudGen Firewall
 
@@ -35,15 +35,14 @@ ms.locfileid: "98621135"
 
 1. W Azure Portal przejdź do łączników **danych wskaźnikowych platformy Azure**,  >   a następnie wybierz łącznik **zapory Barracuda CloudGen** .
 
-2. Wybierz pozycję **Otwórz stronę łącznika**.
+1. Wybierz pozycję **Otwórz stronę łącznika**.
 
-3. Postępuj zgodnie z instrukcjami na stronie **zapory Barracuda CloudGen** .
-
+1. Postępuj zgodnie z instrukcjami na stronie **zapory Barracuda CloudGen** .
 
 ## <a name="next-steps"></a>Następne kroki
+
 W tym dokumencie przedstawiono sposób łączenia zapory Barracuda CloudGen z usługą Azure wskaźnikiem. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
+
 - Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).
 - Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](tutorial-detect-threats-built-in.md).
 - [Używaj skoroszytów](tutorial-monitor-your-data.md) do monitorowania danych.
-
-

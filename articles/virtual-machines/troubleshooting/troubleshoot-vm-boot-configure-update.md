@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: d7e56fe36af3d841cfd888dd6c1bf05502837cdd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3e4d51b4d41fa0dc23e9b12ac0251c14215de5c
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87079846"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633014"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>Uruchamianie maszyny wirtualnej jest zablokowane na "Trwa przygotowywanie systemu Windows. Nie wyłączaj komputera "na platformie Azure
 
@@ -39,6 +39,9 @@ Maszyna wirtualna z systemem Windows nie jest uruchamiana. W przypadku korzystan
 Zazwyczaj ten problem występuje, gdy serwer przeprowadza ostateczną ponowny rozruch po zmianie konfiguracji. Zmiana konfiguracji może zostać zainicjowana przez aktualizacje systemu Windows lub zmiany na rolach/funkcji serwera. W przypadku Windows Update, jeśli rozmiar aktualizacji był duży, system operacyjny potrzebuje więcej czasu, aby ponownie skonfigurować zmiany.
 
 ## <a name="collect-an-os-memory-dump"></a>Zbieranie zrzutu pamięci systemu operacyjnego
+
+> [!TIP]
+> Jeśli masz najnowszą kopię zapasową maszyny wirtualnej, możesz spróbować [przywrócić maszynę wirtualną z kopii zapasowej](../../backup/backup-azure-arm-restore-vms.md) , aby rozwiązać problem z rozruchem.
 
 Jeśli problem nie zostanie rozwiązany po oczekiwaniu na zmiany w procesie, należy zebrać plik zrzutu pamięci i skontaktować się z pomocą techniczną. Aby zebrać plik zrzutu, wykonaj następujące kroki:
 

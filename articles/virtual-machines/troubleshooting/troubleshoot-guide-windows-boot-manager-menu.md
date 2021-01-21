@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 2457952051f575306de46e3e8145cc26678a1ef8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f83f4871d5cde23194ff51a90a22031b526cf91
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86526543"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632567"
 ---
 # <a name="windows-vm-cannot-boot-due-to-windows-boot-manager"></a>Maszyna wirtualna z systemem Windows nie może zostać uruchomiona z powodu Menedżera rozruchu systemu Windows
 
@@ -40,6 +40,9 @@ Rysunek 1.
 Ten błąd jest spowodowany *DISPLAYBOOTMENU* flagi BCD w Menedżerze rozruchu systemu Windows. Gdy flaga jest włączona, Menedżer rozruchu systemu Windows wyświetli z pytaniem użytkownika, podczas procesu uruchamiania, aby wybrać moduł ładujący, który ma zostać uruchomiony, powodując opóźnienie rozruchu. Na platformie Azure ta funkcja może zostać dodana do czasu potrzebnego do rozruchu maszyny wirtualnej.
 
 ## <a name="solution"></a>Rozwiązanie
+
+> [!TIP]
+> Jeśli masz najnowszą kopię zapasową maszyny wirtualnej, możesz spróbować [przywrócić maszynę wirtualną z kopii zapasowej](../../backup/backup-azure-arm-restore-vms.md) , aby rozwiązać problem z rozruchem.
 
 Przegląd procesu:
 
