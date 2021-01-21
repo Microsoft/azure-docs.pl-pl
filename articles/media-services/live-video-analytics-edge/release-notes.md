@@ -3,12 +3,12 @@ title: Analiza filmów wideo na żywo na IoT Edge informacji o wersji — Azure
 description: Ten temat zawiera informacje o wersji analizy wideo na żywo na temat wydań IoT Edge, ulepszeń, poprawek błędów i znanych problemów.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 7f8957d1ec93259cf6defe7980f19298f782ea5e
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 328fe97c4e03f039a1224d13ce6712ccff06b3b7
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121247"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629780"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Analiza filmów wideo na żywo na IoT Edge informacji o wersji
 
@@ -23,7 +23,7 @@ Ten artykuł zawiera informacje na temat:
 
 <hr width=100%>
 
-## <a name="january-12-2021"></a>12 stycznia 2021
+## <a name="january-12-2021"></a>12 stycznia 2021 r.
 
 Ten tag wersji jest przeznaczony do odświeżania w styczniu 2021 dla modułu:
 
@@ -51,9 +51,12 @@ Ta wersja jest publiczną wersją zapoznawczą w wersji zapoznawczej analizy wid
 * Dodano obsługę zarządzania miejscem na dysku dla węzłów ujścia.
 * `MediaGraphGrpcExtension` węzeł obsługuje teraz Właściwość [extensionConfiguration](grpc-extension-protocol.md) na potrzeby używania wielu modeli AI w ramach jednego serwera gRPC.
 * Dodano obsługę zbierania metryk modułu analizy wideo na żywo w [formacie Prometheus](https://prometheus.io/docs/practices/naming/). Dowiedz się więcej o tym [, jak zbierać metryki i wyświetlać dane w Azure monitor.](monitoring-logging.md#azure-monitor-collection-via-telegraf) 
+* Dodano możliwość filtrowania wyboru danych wyjściowych. Można przekazać **tylko dźwięk** lub **tylko wideo** lub **audio i wideo** , korzystając z pomocy programu `outputSelectors` do dowolnego węzła grafu. 
 * Procesor filtru szybkości klatek jest **przestarzały**.  
     * Zarządzanie szybkością klatek jest teraz dostępne w ramach węzłów procesora rozszerzenia grafu.
 
+### <a name="visual-studio-code-extension"></a>Rozszerzenie programu Visual Studio Code
+* Udostępnienie usługi [Live Video Analytics na IoT Edge](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.live-video-analytics-edge) — Visual Studio Code rozszerzenie, które ułatwia zarządzanie wykresami multimediów LVA. To rozszerzenie współdziała z **modułem LVA 2,0** i oferuje możliwość edytowania wykresów multimedialnych i zarządzania nimi za pomocą bardzo eleganckiego i łatwego w użyciu interfejsu graficznego.
 ## <a name="september-22-2020"></a>22 września, 2020
 
 Ten tag wersji jest przeznaczony do odświeżania 2020 września modułu:

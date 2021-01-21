@@ -7,16 +7,28 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: 986bc5ef24855ac0014975edc0a26a11a82ec6ca
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: ca75416a66bcf2c90028c7f1dc11fbe23a9a9bd9
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510966"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631371"
 ---
 # <a name="common-errors"></a>Typowe błędy
 
 Azure Database for MySQL to w pełni zarządzana usługa oparta na wersji społeczności MySQL. Środowisko MySQL w środowisku usługi zarządzanej może się różnić od uruchamiania programu MySQL w Twoim środowisku. W tym artykule zobaczysz niektóre typowe błędy, które użytkownicy mogą napotkać podczas migrowania lub opracowywania usługi Azure Database for MySQL po raz pierwszy.
+
+## <a name="common-connection-errors"></a>Typowe błędy połączeń
+
+#### <a name="error-1184-08s01-aborted-connection-22-to-db-db-name-user-user-host-hostip-init_connect-command-failed"></a>BŁĄD 1184 (08S01): przerwano połączenie z 22 do DB: "DB-Name" User: "User" host: "hostIP" (init_connect polecenie nie powiodło się)
+Powyższy błąd występuje po pomyślnym zalogowaniu, ale przed wykonaniem dowolnego polecenia po ustanowieniu sesji. Powyższy komunikat oznacza, że ustawiono niepoprawną wartość parametru serwera init_connect, co powoduje niepowodzenie inicjowania sesji.
+
+Istnieją pewne parametry serwera, takie jak require_secure_transport, które nie są obsługiwane na poziomie sesji i dlatego próba zmiany wartości tych parametrów przy użyciu init_connect może spowodować błąd 1184 podczas łączenia się z serwerem MySQL, jak pokazano poniżej
+
+Baza danych MySQL> show Database; BŁĄD 2006 (HY000): serwer MySQL nie ma połączenia. Trwa próba ponownego nawiązania połączenia... Identyfikator połączenia: 64897 bieżąca baza danych: * * * brak * * _ błąd 1184 (08S01): przerwane połączenie 22 do bazy danych: "DB-Name" User: "User" host: "hostIP" (polecenie init_connect nie powiodło się)
+
+_ *Rozdzielczość**: należy zresetować wartość init_connect na karcie parametry serwera w Azure Portal i ustawić tylko obsługiwane parametry serwera przy użyciu parametru init_connect. 
+
 
 ## <a name="errors-due-to-lack-of-super-privilege-and-dba-role"></a>Błędy ze względu na brak uprawnienia administratora i roli administratora systemu
 

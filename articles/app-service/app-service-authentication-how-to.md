@@ -4,12 +4,12 @@ description: Dowiedz się, jak dostosować funkcję uwierzytelniania i autoryzac
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 85fd7fdba4c62f4837a419af44c83f7e46cb9e39
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 4f2f43b142b290d29a4a90e504422b6c9ba2739c
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601785"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630331"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Zaawansowane użycie uwierzytelniania i autoryzacji w Azure App Service
 
@@ -34,7 +34,7 @@ Najpierw na stronie **uwierzytelnianie/autoryzacja** w Azure Portal Skonfiguruj 
 
 W obszarze **Akcja do wykonania, gdy żądanie nie zostanie uwierzytelnione**, wybierz opcję **Zezwalaj na żądania anonimowe (bez akcji)**.
 
-Na stronie logowania lub na pasku nawigacyjnym lub w dowolnej innej lokalizacji aplikacji Dodaj łącze logowania do każdego z włączonych dostawców ( `/.auth/login/<provider>` ). Na przykład:
+Na stronie logowania lub na pasku nawigacyjnym lub w dowolnej innej lokalizacji aplikacji Dodaj łącze logowania do każdego z włączonych dostawców ( `/.auth/login/<provider>` ). Przykład:
 
 ```html
 <a href="/.auth/login/aad">Log in with Azure AD</a>
@@ -57,7 +57,7 @@ Aby przekierować użytkownika po zalogowaniu się do niestandardowego adresu UR
 
 W przypadku logowania po stronie klienta program automatycznie loguje użytkownika do dostawcy, a następnie przesyła token uwierzytelniania do App Service na potrzeby weryfikacji (zobacz [przepływ uwierzytelniania](overview-authentication-authorization.md#authentication-flow)). Takie sprawdzenie poprawności nie pozwala na uzyskanie dostępu do żądanych zasobów aplikacji, ale pomyślne sprawdzenie poprawności spowoduje użycie tokenu sesji umożliwiającego dostęp do zasobów aplikacji. 
 
-Aby sprawdzić poprawność tokenu dostawcy, aplikacja App Service należy najpierw skonfigurować przy użyciu żądanego dostawcy. W czasie wykonywania, po pobraniu tokenu uwierzytelniania od dostawcy, Opublikuj token w celu `/.auth/login/<provider>` sprawdzenia poprawności. Na przykład: 
+Aby sprawdzić poprawność tokenu dostawcy, aplikacja App Service należy najpierw skonfigurować przy użyciu żądanego dostawcy. W czasie wykonywania, po pobraniu tokenu uwierzytelniania od dostawcy, Opublikuj token w celu `/.auth/login/<provider>` sprawdzenia poprawności. Przykład: 
 
 ```
 POST https://<appname>.azurewebsites.net/.auth/login/aad HTTP/1.1
@@ -88,7 +88,7 @@ W przypadku pomyślnego zweryfikowania tokenu dostawcy interfejs API zwraca wart
 }
 ```
 
-Gdy masz ten token sesji, możesz uzyskać dostęp do chronionych zasobów aplikacji, dodając `X-ZUMO-AUTH` nagłówek do żądań HTTP. Na przykład: 
+Gdy masz ten token sesji, możesz uzyskać dostęp do chronionych zasobów aplikacji, dodając `X-ZUMO-AUTH` nagłówek do żądań HTTP. Przykład: 
 
 ```
 GET https://<appname>.azurewebsites.net/api/products/1
@@ -109,7 +109,7 @@ Oto prosty link na stronie internetowej służący do wylogowywania:
 <a href="/.auth/logout">Sign out</a>
 ```
 
-Domyślnie pomyślne wylogowanie przekierowuje klienta do adresu URL `/.auth/logout/done` . Można zmienić stronę przekierowywanie po wylogowaniu, dodając `post_logout_redirect_uri` parametr zapytania. Na przykład:
+Domyślnie pomyślne wylogowanie przekierowuje klienta do adresu URL `/.auth/logout/done` . Można zmienić stronę przekierowywanie po wylogowaniu, dodając `post_logout_redirect_uri` parametr zapytania. Przykład:
 
 ```
 GET /.auth/logout?post_logout_redirect_uri=/index.html
@@ -156,7 +156,7 @@ W kodzie serwera tokeny specyficzne dla dostawcy są wstawiane do nagłówka ż�
 
 | Dostawca | Nazwy nagłówków |
 |-|-|
-| Usługa Azure Active Directory | `X-MS-TOKEN-AAD-ID-TOKEN` <br/> `X-MS-TOKEN-AAD-ACCESS-TOKEN` <br/> `X-MS-TOKEN-AAD-EXPIRES-ON`  <br/> `X-MS-TOKEN-AAD-REFRESH-TOKEN` |
+| Azure Active Directory | `X-MS-TOKEN-AAD-ID-TOKEN` <br/> `X-MS-TOKEN-AAD-ACCESS-TOKEN` <br/> `X-MS-TOKEN-AAD-EXPIRES-ON`  <br/> `X-MS-TOKEN-AAD-REFRESH-TOKEN` |
 | Token Facebook | `X-MS-TOKEN-FACEBOOK-ACCESS-TOKEN` <br/> `X-MS-TOKEN-FACEBOOK-EXPIRES-ON` |
 | Google | `X-MS-TOKEN-GOOGLE-ID-TOKEN` <br/> `X-MS-TOKEN-GOOGLE-ACCESS-TOKEN` <br/> `X-MS-TOKEN-GOOGLE-EXPIRES-ON` <br/> `X-MS-TOKEN-GOOGLE-REFRESH-TOKEN` |
 | Konto Microsoft | `X-MS-TOKEN-MICROSOFTACCOUNT-ACCESS-TOKEN` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-EXPIRES-ON` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-AUTHENTICATION-TOKEN` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-REFRESH-TOKEN` |
@@ -271,7 +271,7 @@ W przypadku dowolnej aplikacji systemu Windows można zdefiniować zachowanie au
 
 ### <a name="identity-provider-level"></a>Poziom dostawcy tożsamości
 
-Dostawca tożsamości może zapewnić pewną autoryzację klucza. Na przykład:
+Dostawca tożsamości może zapewnić pewną autoryzację klucza. Przykład:
 
 - [Azure App Service](configure-authentication-provider-aad.md)można [zarządzać dostępem na poziomie przedsiębiorstwa](../active-directory/manage-apps/what-is-access-management.md) bezpośrednio w usłudze Azure AD. Aby uzyskać instrukcje, zobacz [Jak usunąć dostęp użytkownika do aplikacji](../active-directory/manage-apps/methods-for-removing-user-access.md).
 - W przypadku usługi [Google](configure-authentication-provider-google.md)interfejsy API, które należą do [organizacji](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#organizations) , można skonfigurować tak, aby zezwalały na dostęp tylko użytkownikom w organizacji (zobacz sekcję [Konfigurowanie pomocy technicznej **OAuth 2,0**](https://support.google.com/cloud/answer/6158849?hl=en)).
@@ -279,6 +279,150 @@ Dostawca tożsamości może zapewnić pewną autoryzację klucza. Na przykład:
 ### <a name="application-level"></a>Poziom aplikacji
 
 Jeśli jeden z pozostałych poziomów nie zapewnia autoryzacji lub dostawca tożsamości nie jest obsługiwany, należy napisać kod niestandardowy w celu autoryzowania użytkowników na podstawie [oświadczeń użytkowników](#access-user-claims).
+
+## <a name="updating-the-configuration-version-preview"></a>Aktualizowanie wersji konfiguracji (wersja zapoznawcza)
+
+Istnieją dwie wersje interfejsu API zarządzania dla funkcji uwierzytelnianie/autoryzacja. Wersja zapoznawcza v2 jest wymagana w przypadku środowiska "uwierzytelnianie (wersja zapoznawcza)" w Azure Portal. Aplikacja, która korzysta już z interfejsu API V1, może przeprowadzić uaktualnienie do wersji v2 po wprowadzeniu kilku zmian. W szczególnych przypadkach konfiguracja wpisu tajnego musi zostać przeniesiona do ustawień aplikacji miejsca do wykonania. Konfiguracja dostawcy konta Microsoft nie jest również obsługiwana w wersji 2.
+
+> [!WARNING]
+> Migracja do wersji 2 wersji zapoznawczej uniemożliwi zarządzanie funkcją App Service uwierzytelnianie/autoryzację dla aplikacji za pomocą niektórych klientów, takich jak jej istniejące środowisko Azure Portal, interfejsu wiersza polecenia platformy Azure i Azure PowerShell. Tego nie można cofnąć. W trakcie okresu zapoznawczego migracja obciążeń produkcyjnych nie jest wspierana ani obsługiwana. Należy postępować zgodnie z krokami w tej sekcji dla aplikacji testowych.
+
+### <a name="moving-secrets-to-application-settings"></a>Przeniesienie kluczy tajnych do ustawień aplikacji
+
+1. Pobierz istniejącą konfigurację przy użyciu interfejsu API V1:
+
+   ```azurecli
+   # For Web Apps
+   az webapp auth show -g <group_name> -n <site_name>
+
+   # For Azure Functions
+   az functionapp auth show -g <group_name> -n <site_name>
+   ```
+
+   W powstającym ładunku JSON Zanotuj wartość klucza tajnego użytą dla każdego skonfigurowanego dostawcy:
+
+   * AAD `clientSecret`
+   * Usłudze `googleClientSecret`
+   * Serwis `facebookAppSecret`
+   * Ekran `twitterConsumerSecret`
+   * Konto Microsoft: `microsoftAccountClientSecret`
+
+   > [!IMPORTANT]
+   > Wartości tajne są ważnymi poświadczeniami zabezpieczeń i powinny być obsługiwane uważnie. Nie udostępniaj tych wartości ani nie Utrwalaj ich na komputerze lokalnym.
+
+1. Utwórz ustawienia aplikacji do gniazd i dla każdej wartości klucza tajnego. Możesz wybrać nazwę poszczególnych ustawień aplikacji. Wartość powinna być zgodna z informacjami uzyskanymi w poprzednim kroku lub [odwoływać się do Key Vault wpisu tajnego](./app-service-key-vault-references.md?toc=/azure/azure-functions/toc.json) , który został utworzony za pomocą tej wartości.
+
+   Aby utworzyć ustawienie, można użyć Azure Portal lub uruchomić zmianę następujących elementów dla każdego dostawcy:
+
+   ```azurecli
+   # For Web Apps, Google example    
+   az webapp config appsettings set -g <group_name> -n <site_name> --slot-settings GOOGLE_PROVIDER_AUTHENTICATION_SECRET=<value_from_previous_step>
+
+   # For Azure Functions, Twitter example
+   az functionapp config appsettings set -g <group_name> -n <site_name> --slot-settings TWITTER_PROVIDER_AUTHENTICATION_SECRET=<value_from_previous_step>
+   ```
+
+   > [!NOTE]
+   > Ustawienia aplikacji dla tej konfiguracji powinny być oznaczone jako szczeliny-Sticky, co oznacza, że nie będą przenoszone między środowiskami podczas [operacji wymiany gniazd](./deploy-staging-slots.md). Wynika to z faktu, że sama konfiguracja uwierzytelniania jest powiązana ze środowiskiem. 
+
+1. Utwórz nowy plik JSON o nazwie `authsettings.json` . Wypełnij wcześniej otrzymane dane wyjściowe i Usuń z niej każdą wartość klucza tajnego. Zapisz pozostałe dane wyjściowe do pliku, upewniając się, że nie jest uwzględniony wpis tajny. W niektórych przypadkach konfiguracja może zawierać tablice zawierające puste ciągi. Upewnij się, że nie `microsoftAccountOAuthScopes` , a jeśli tak, Zmień wartość na `null` .
+
+1. Dodaj właściwość, `authsettings.json` która wskazuje na nazwę ustawienia aplikacji utworzoną wcześniej dla każdego dostawcy:
+ 
+   * AAD `clientSecretSettingName`
+   * Usłudze `googleClientSecretSettingName`
+   * Serwis `facebookAppSecretSettingName`
+   * Ekran `twitterConsumerSecretSettingName`
+   * Konto Microsoft: `microsoftAccountClientSecretSettingName`
+
+   Przykładowy plik po tej operacji może wyglądać podobnie do poniższego, w tym przypadku skonfigurowany tylko dla usługi AAD:
+
+   ```json
+   {
+       "id": "/subscriptions/00d563f8-5b89-4c6a-bcec-c1b9f6d607e0/resourceGroups/myresourcegroup/providers/Microsoft.Web/sites/mywebapp/config/authsettings",
+       "name": "authsettings",
+       "type": "Microsoft.Web/sites/config",
+       "location": "Central US",
+       "properties": {
+           "enabled": true,
+           "runtimeVersion": "~1",
+           "unauthenticatedClientAction": "AllowAnonymous",
+           "tokenStoreEnabled": true,
+           "allowedExternalRedirectUrls": null,
+           "defaultProvider": "AzureActiveDirectory",
+           "clientId": "3197c8ed-2470-480a-8fae-58c25558ac9b",
+           "clientSecret": null,
+           "clientSecretSettingName": "MICROSOFT_IDENTITY_AUTHENTICATION_SECRET",
+           "clientSecretCertificateThumbprint": null,
+           "issuer": "https://sts.windows.net/0b2ef922-672a-4707-9643-9a5726eec524/",
+           "allowedAudiences": [
+               "https://mywebapp.azurewebsites.net"
+           ],
+           "additionalLoginParams": null,
+           "isAadAutoProvisioned": true,
+           "aadClaimsAuthorization": null,
+           "googleClientId": null,
+           "googleClientSecret": null,
+           "googleClientSecretSettingName": null,
+           "googleOAuthScopes": null,
+           "facebookAppId": null,
+           "facebookAppSecret": null,
+           "facebookAppSecretSettingName": null,
+           "facebookOAuthScopes": null,
+           "gitHubClientId": null,
+           "gitHubClientSecret": null,
+           "gitHubClientSecretSettingName": null,
+           "gitHubOAuthScopes": null,
+           "twitterConsumerKey": null,
+           "twitterConsumerSecret": null,
+           "twitterConsumerSecretSettingName": null,
+           "microsoftAccountClientId": null,
+           "microsoftAccountClientSecret": null,
+           "microsoftAccountClientSecretSettingName": null,
+           "microsoftAccountOAuthScopes": null,
+           "isAuthFromFile": "false"
+       }   
+   }
+   ```
+
+1. Prześlij ten plik jako nową konfigurację uwierzytelniania/autoryzacji dla aplikacji:
+
+   ```azurecli
+   az rest --method PUT --url "/subscriptions/<subscription_id>/resourceGroups/<group_name>/providers/Microsoft.Web/sites/<site_name>/config/authsettings?api-version=2020-06-01" --body @./authsettings.json
+   ```
+
+1. Sprawdź, czy aplikacja nadal działa zgodnie z oczekiwaniami po tym gestie.
+
+1. Usuń plik użyty w poprzednich krokach.
+
+Przeprowadzono migrację aplikacji do przechowywania wpisów tajnych dostawcy tożsamości jako ustawień aplikacji.
+
+### <a name="support-for-microsoft-account-registrations"></a>Obsługa rejestracji konto Microsoft
+
+Interfejs API v2 nie obsługuje obecnie konta Microsoft jako osobnego dostawcy. Zamiast tego wykorzystuje zbieżną [platformę tożsamości firmy Microsoft](../active-directory/develop/v2-overview.md) do logowania użytkowników przy użyciu osobistych kont Microsoft. Podczas przełączania do interfejsu API v2 konfiguracja Azure Active Directory w wersji 1 jest używana do konfigurowania dostawcy platformy tożsamości firmy Microsoft.
+
+Jeśli istniejąca konfiguracja zawiera dostawcę konta Microsoft i nie zawiera dostawcy Azure Active Directory, można przełączyć konfigurację do dostawcy Azure Active Directory, a następnie przeprowadzić migrację. W tym celu:
+
+1. Przejdź do [**rejestracje aplikacji**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) w Azure Portal i Znajdź rejestrację skojarzoną z dostawcą konta Microsoft. Może być ona objęta nagłówkiem "aplikacje z konta osobistego".
+1. Przejdź do strony "Uwierzytelnianie" na potrzeby rejestracji. W obszarze "identyfikatory URI przekierowania" powinien zostać wyświetlony wpis kończący się na `/.auth/login/microsoftaccount/callback` . Skopiuj ten identyfikator URI.
+1. Dodaj nowy identyfikator URI, który jest zgodny z tym, który właśnie skopiowano, z wyjątkiem tego, że zakończył się `/.auth/login/aad/callback` . Pozwoli to na rejestrację, która będzie używana przez App Service konfigurację uwierzytelniania/autoryzacji.
+1. Przejdź do App Service konfiguracji uwierzytelniania/autoryzacji dla aplikacji.
+1. Zbierz konfigurację dostawcy konta Microsoft.
+1. Skonfiguruj dostawcę Azure Active Directory przy użyciu trybu zarządzania "Zaawansowane", podając identyfikator klienta i wartości klucza tajnego klienta zebrane w poprzednim kroku. W przypadku adresu URL wystawcy Użyj użycia `<authentication-endpoint>/<tenant-id>/v2.0` i Zastąp *\<authentication-endpoint>* [punkt końcowy uwierzytelniania dla środowiska chmury](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (np. " https://login.microsoftonline.com " dla globalnej platformy Azure), zastępując go *\<tenant-id>* **identyfikatorem katalogu (dzierżawy)**.
+1. Po zapisaniu konfiguracji Przetestuj przepływ logowania, przechodząc w przeglądarce do `/.auth/login/aad` punktu końcowego w witrynie i wykonując przepływ logowania.
+1. W tym momencie pomyślnie skopiowano konfigurację do programu, ale istniejąca konfiguracja dostawcy kont Microsoft pozostanie. Przed jego usunięciem upewnij się, że wszystkie części aplikacji odwołują się do dostawcy Azure Active Directory za pomocą linków logowania itp. Sprawdź, czy wszystkie części aplikacji działają zgodnie z oczekiwaniami.
+1. Po sprawdzeniu, czy elementy działają względem dostawcy Azure Active Directory usługi AAD, możesz usunąć konfigurację dostawcy kont Microsoft.
+
+Niektóre aplikacje mogą mieć już oddzielne rejestracje dla Azure Active Directory i konta Microsoft. W tej chwili nie można migrować tych aplikacji. 
+
+> [!WARNING]
+> Możliwe jest zbieżność dwóch rejestracji, modyfikując [obsługiwane typy kont](../active-directory/develop/supported-accounts-validation.md) dla rejestracji aplikacji usługi AAD. Jednak spowoduje to wymuszenie nowego monitu o zgodę dla użytkowników kont Microsoft, a oświadczenia tożsamości tych użytkowników mogą się różnić w strukturze, a `sub` zwłaszcza zmienić wartości od momentu użycia nowego identyfikatora aplikacji. Takie podejście nie jest zalecane, chyba że zostanie dokładnie zrozumiane. Zamiast tego należy zaczekać na pomoc techniczną dla dwóch rejestracji w powierzchni interfejsu API w wersji 2.
+
+### <a name="switching-to-v2"></a>Przełączanie do wersji 2
+
+Po wykonaniu powyższych kroków przejdź do aplikacji w Azure Portal. Wybierz sekcję "uwierzytelnianie (wersja zapoznawcza)". 
+
+Alternatywnie można wprowadzić żądanie PUT względem `config/authsettingsv2` zasobu w ramach zasobu lokacji. Schemat ładunku jest taki sam jak przechwycony w sekcji [Konfigurowanie przy użyciu pliku](#config-file) .
 
 ## <a name="configure-using-a-file-preview"></a><a name="config-file"> </a>Konfigurowanie przy użyciu pliku (wersja zapoznawcza)
 

@@ -9,12 +9,12 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 705910a9e2f4ebc80a63ab22ac4edecc5ae03cd0
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 7f72d703e5377f725addc4aa8c52e1cdb0fa571d
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724803"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630755"
 ---
 # <a name="create-an-azure-file-share"></a>Tworzenie udziału plików platformy Azure
 Aby utworzyć udział plików platformy Azure, musisz odpowiedzieć na trzy pytania dotyczące sposobu ich używania:
@@ -172,7 +172,7 @@ Właściwość **limit przydziału** oznacza nieco inaczej między udziałami pl
 
 - W przypadku standardowych udziałów plików jest to górne ograniczenie udziału plików platformy Azure, poza tym, którzy użytkownicy końcowi nie mogą go używać. Głównym celem przydziału dla standardowego udziału plików jest budżet: "nie chcę, aby ten udział plików został powiększony poza ten punkt". Jeśli nie określono limitu przydziału, standardowy udział plików może obejmować do 100 TiB (lub 5 TiB, jeśli nie ustawiono właściwości dużych udziałów plików dla konta magazynu).
 
-- W przypadku udziałów plików w warstwie Premium limit przydziału jest przeciążony do średniego **rozmiaru**. Zarezerwowany rozmiar to kwota, za którą zostanie naliczona opłata, niezależnie od rzeczywistego użycia. Gdy udostępniasz udział plików w warstwie Premium, chcesz wziąć pod uwagę dwa czynniki: 1) przyszły wzrost udziału z perspektywy użycia miejsca i 2) liczba IOPS wymagana dla obciążenia. Każdy zainicjowany GiB uprawnia do dodatkowych operacji wejścia/wyjścia na sekundę. Aby uzyskać więcej informacji na temat planowania udziału plików w warstwie Premium, zobacz Udostępnianie [udziałów plików w warstwie Premium](understanding-billing.md#provisioned-billing).
+- W przypadku udziałów plików w warstwie Premium limit przydziału jest przeciążony do średniego **rozmiaru**. Zarezerwowany rozmiar to kwota, za którą zostanie naliczona opłata, niezależnie od rzeczywistego użycia. Gdy udostępniasz udział plików w warstwie Premium, chcesz wziąć pod uwagę dwa czynniki: 1) przyszły wzrost udziału z perspektywy użycia miejsca i 2) liczba IOPS wymagana dla obciążenia. Każdy zainicjowany GiB uprawnia do dodatkowych operacji wejścia/wyjścia na sekundę. Aby uzyskać więcej informacji na temat planowania udziału plików w warstwie Premium, zobacz Udostępnianie [udziałów plików w warstwie Premium](understanding-billing.md#provisioned-model).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Jeśli konto magazynu zostało właśnie utworzone, możesz przejść do niego z poziomu ekranu wdrożenia, wybierając pozycję **Przejdź do zasobu**. Jeśli wcześniej utworzono konto magazynu, możesz przejść do niego za pośrednictwem grupy zasobów zawierającej ją. Na koncie magazynu wybierz kafelek z etykietą **udziały plików** (można również przejść do **udziałów plików** za pośrednictwem spisu treści dla konta magazynu).

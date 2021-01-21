@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 37c237cdaf6c0d4f766d4b2e39c10e3e96215463
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1258fd4b5c69b399b70d1f2db1be63765771e631
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187837"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629407"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway-preview"></a>Łączenie urządzenia podrzędnego IoT Edge z bramą Azure IoT Edge (wersja zapoznawcza)
 
@@ -63,7 +63,7 @@ W Azure Portal można zarządzać relacją nadrzędny/podrzędny podczas tworzen
 
 Podczas tworzenia nowego urządzenia IoT Edge istnieje możliwość wyboru urządzeń nadrzędnych i podrzędnych z listy istniejących urządzeń IoT Edge w tym centrum.
 
-1. W witrynie [Azure Portal](https://portal.azure.com) przejdź do centrum IoT Hub.
+1. W [Azure Portal](https://portal.azure.com)przejdź do centrum IoT Hub.
 1. Wybierz **IoT Edge** z menu nawigacji.
 1. Wybierz pozycję **Dodaj urządzenie IoT Edge**.
 1. Wraz z ustawianiem identyfikatora urządzenia i ustawień uwierzytelniania można **ustawić urządzenie nadrzędne** lub **wybrać opcję urządzenia podrzędne**.
@@ -71,7 +71,7 @@ Podczas tworzenia nowego urządzenia IoT Edge istnieje możliwość wyboru urzą
 
 Można również utworzyć relacje nadrzędny/podrzędny dla istniejących urządzeń lub zarządzać nimi.
 
-1. W witrynie [Azure Portal](https://portal.azure.com) przejdź do centrum IoT Hub.
+1. W [Azure Portal](https://portal.azure.com)przejdź do centrum IoT Hub.
 1. Wybierz **IoT Edge** z menu nawigacji.
 1. Wybierz urządzenie, którym chcesz zarządzać, z listy **urządzeń IoT Edge**.
 1. Wybierz pozycję **Ustaw urządzenie nadrzędne** lub **Zarządzaj urządzeniami podrzędnymi**.
@@ -118,7 +118,7 @@ Aby włączyć odnajdywanie bramy, każde urządzenie bramy IoT Edge musi być s
 
 Aby włączyć bezpieczne połączenia, każde urządzenie IoT Edge w scenariuszu bramy musi być skonfigurowane przy użyciu unikatowego certyfikatu urzędu certyfikacji urządzenia i kopii certyfikatu głównego urzędu certyfikacji, który jest współużytkowany przez wszystkie urządzenia w hierarchii bramy.
 
-Na urządzeniu powinno być już zainstalowane IoT Edge. W przeciwnym razie postępuj zgodnie z instrukcjami, aby [zainstalować środowisko uruchomieniowe Azure IoT Edge](how-to-install-iot-edge.md) , a następnie zainicjuj urządzenie przy użyciu uwierzytelniania za pomocą [klucza symetrycznego](how-to-manual-provision-symmetric-key.md) lub [uwierzytelniania certyfikatu X. 509](how-to-manual-provision-x509.md).
+Na urządzeniu powinno być już zainstalowane IoT Edge. W przeciwnym razie wykonaj kroki w celu [zarejestrowania urządzenia IoT Edge w IoT Hub](how-to-register-device.md) a następnie [Zainstaluj środowisko uruchomieniowe Azure IoT Edge](how-to-install-iot-edge.md).
 
 Kroki opisane w tej sekcji odwołują się do **certyfikatu głównego urzędu certyfikacji** i **certyfikatu urzędu certyfikacji urządzenia oraz klucza prywatnego** , który został omówiony wcześniej w tym artykule. Jeśli te certyfikaty zostały utworzone na innym urządzeniu, należy je udostępnić na tym urządzeniu. Pliki można przenieść fizycznie, podobnie jak w przypadku dysku USB, za pomocą usługi, takiej jak [Azure Key Vault](../key-vault/general/overview.md), lub za pomocą funkcji, takiej jak [zabezpieczony plik kopii](https://www.ssh.com/ssh/scp/).
 
@@ -248,7 +248,7 @@ Urządzenie IoT Edge w najwyższej warstwie hierarchii bramy ma zestaw wymaganyc
 
 Moduł proxy interfejsu API został zaprojektowany tak, aby był dostosowany do obsługi większości typowych scenariuszy bramy. W tym artykule przedstawiono i przykład konfigurowania modułów w konfiguracji podstawowej. Zapoznaj się z tematem [Konfigurowanie modułu proxy interfejsu API dla scenariusza hierarchii bramy](how-to-configure-api-proxy-module.md) , aby uzyskać bardziej szczegółowe informacje i przykłady.
 
-1. W witrynie [Azure Portal](https://portal.azure.com) przejdź do centrum IoT Hub.
+1. W [Azure Portal](https://portal.azure.com)przejdź do centrum IoT Hub.
 1. Wybierz **IoT Edge** z menu nawigacji.
 1. Wybierz urządzenie warstwy najwyższej konfiguracji, które konfigurujesz z listy **urządzeń IoT Edge**.
 1. Wybierz pozycję **Ustaw moduły**.
@@ -378,7 +378,7 @@ Jeśli używasz lokalnego rejestru kontenerów lub ręcznie udostępniasz obrazy
 
 Moduł proxy interfejsu API został zaprojektowany tak, aby był dostosowany do obsługi większości typowych scenariuszy bramy. W tym artykule krótko opisano procedurę konfigurowania modułów w konfiguracji podstawowej. Zapoznaj się z tematem [Konfigurowanie modułu proxy interfejsu API dla scenariusza hierarchii bramy](how-to-configure-api-proxy-module.md) , aby uzyskać bardziej szczegółowe informacje i przykłady.
 
-1. W witrynie [Azure Portal](https://portal.azure.com) przejdź do centrum IoT Hub.
+1. W [Azure Portal](https://portal.azure.com)przejdź do centrum IoT Hub.
 1. Wybierz **IoT Edge** z menu nawigacji.
 1. Wybierz urządzenie warstwy niższej konfiguracji, które konfigurujesz z listy **urządzeń IoT Edge**.
 1. Wybierz pozycję **Ustaw moduły**.

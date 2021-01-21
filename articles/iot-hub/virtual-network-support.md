@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: jlian
-ms.openlocfilehash: 08f033cbe121135e281379a013e11a33ae962dfb
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 1e28c7767868904fb20ae6d27c6aea9e7077eb62
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97703810"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630297"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>IoT Hub obsługa sieci wirtualnych z linkiem prywatnym i tożsamością zarządzaną
 
@@ -70,6 +70,9 @@ Prywatny punkt końcowy działa w przypadku IoT Hub interfejsów API urządzeń 
 
 :::image type="content" source="media/virtual-network-support/private-built-in-endpoint.png" alt-text="Obraz przedstawiający dwa prywatne punkty końcowe podaną IoT Hub prywatnym linku":::
 
+[Filtr IP](iot-hub-ip-filtering.md) IoT Hub może opcjonalnie kontrolować publiczny dostęp do wbudowanego punktu końcowego. 
+
+Aby całkowicie zablokować dostęp do sieci publicznej do centrum IoT, [Wyłącz dostęp do sieci publicznej](iot-hub-public-network-access.md) lub Użyj filtru IP, aby zablokować wszystkie adresy IP i wybrać opcję zastosowania reguł do wbudowanego punktu końcowego.
 
 ### <a name="pricing-for-private-link"></a>Cennik linku prywatnego
 

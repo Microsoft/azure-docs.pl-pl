@@ -1,53 +1,51 @@
 ---
 title: 'Szybki start: tworzenie urządzenia usługi Azure IoT Edge w systemie Windows | Microsoft Docs'
 description: Z tego przewodnika Szybki start dowiesz się, jak utworzyć urządzenie usługi IoT Edge, a następnie zdalnie wdrożyć wstępnie skompilowany kod z poziomu witryny Azure Portal.
-author: kgremban
-manager: philmea
-ms.author: kgremban
-ms.date: 06/30/2020
+author: rsameser
+manager: kgremban
+ms.author: riameser
+ms.date: 01/20/2021
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 547bf111e73813c939caa917c0117dac6c8989e9
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+monikerRange: =iotedge-2018-06
+ms.openlocfilehash: f3af2b7839465f886d1edba01eb9988419761dac
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922476"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630983"
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Szybki Start: wdrażanie pierwszego modułu IoT Edge na urządzeniu wirtualnym z systemem Windows
+# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-windows-device-preview"></a>Szybki Start: wdrażanie pierwszego modułu IoT Edge na urządzeniu z systemem Windows (wersja zapoznawcza)
 
-Wypróbuj Azure IoT Edge w tym przewodniku Szybki Start, wdrażając kod kontenerowy na wirtualnym urządzeniu z systemem Windows IoT Edge. IoT Edge umożliwia zdalne zarządzanie kodem na urządzeniach, dzięki czemu można wysyłać więcej obciążeń do krawędzi. W tym przewodniku szybki start zalecamy korzystanie z maszyny wirtualnej platformy Azure dla urządzenia IoT Edge. Za pomocą maszyny wirtualnej można szybko utworzyć maszynę testową, zainstalować wymagania wstępne, a następnie usunąć ją po zakończeniu.
+Wypróbuj Azure IoT Edge w tym przewodniku Szybki Start, wdrażając kod kontenerowy w systemie Linux na urządzeniu z systemem Windows IoT Edge. IoT Edge umożliwia zdalne zarządzanie kodem na urządzeniach, dzięki czemu można wysyłać więcej obciążeń do krawędzi. W tym przewodniku szybki start zalecamy użycie własnego urządzenia, aby sprawdzić, jak łatwo jest używać Azure IoT Edge dla systemu Linux w systemie Windows.
 
 W tym przewodniku Szybki start zawarto informacje na temat wykonywania następujących czynności:
 
 * Utwórz centrum IoT.
 * Rejestrowanie urządzenia usługi IoT Edge w centrum IoT Hub.
-* Zainstaluj i uruchom środowisko uruchomieniowe IoT Edge na urządzeniu wirtualnym.
-* Zdalne wdrażanie modułu do urządzenia usługi IoT Edge i wysyłanie telemetrii do usługi IoT Hub.
+* Zainstaluj i uruchom IoT Edge dla systemu Linux w środowisku uruchomieniowym Windows na urządzeniu.
+* Zdalne wdrażanie modułu na urządzeniu IoT Edge i wysyłanie danych telemetrycznych.
 
 ![Diagram — architektura przewodnika Szybki start dla urządzenia i chmury](./media/quickstart/install-edge-full.png)
 
-Ten przewodnik Szybki Start przeprowadzi Cię przez proces tworzenia maszyny wirtualnej z systemem Windows i skonfigurowania jej jako urządzenia IoT Edge. Następnie należy wdrożyć moduł z Azure Portal na urządzeniu. Moduł używany w tym przewodniku szybki start to symulowany czujnik, który generuje dane dotyczące temperatury, wilgotności i ciśnienia. Inne samouczki Azure IoT Edge kompilują się po pracy wykonywanej w tym miejscu przez wdrożenie dodatkowych modułów, które analizują symulowane dane dla szczegółowych informacji o firmie.
+Ten przewodnik Szybki Start przeprowadzi Cię przez proces konfigurowania Azure IoT Edge dla systemu Linux na urządzeniu z systemem Windows. Następnie należy wdrożyć moduł z Azure Portal na urządzeniu. Moduł używany w tym przewodniku szybki start to symulowany czujnik, który generuje dane dotyczące temperatury, wilgotności i ciśnienia. Inne samouczki Azure IoT Edge kompilują się po pracy wykonywanej w tym miejscu przez wdrożenie dodatkowych modułów, które analizują symulowane dane dla szczegółowych informacji o firmie.
 
 Jeśli nie masz aktywnej subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free).
+
+>[!NOTE]
+>IoT Edge dla systemu Linux w systemie Windows jest w [publicznej wersji zapoznawczej](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Przygotuj środowisko dla interfejsu wiersza polecenia platformy Azure.
 
-- Użyj [Azure Cloud Shell](/azure/cloud-shell/quickstart-powershell) przy użyciu środowiska PowerShell.
-
-   [![Uruchamianie osadzane](https://shell.azure.com/images/launchcloudshell.png "Uruchamianie usługi Azure Cloud Shell")](https://shell.azure.com)   
-- Jeśli chcesz, [zainstaluj](/cli/azure/install-azure-cli) interfejs wiersza polecenia platformy Azure, aby móc uruchamiać polecenia referencyjne interfejsu CLI.
-   - Jeśli korzystasz z instalacji lokalnej, zaloguj się za pomocą polecenia [az login](/cli/azure/reference-index#az-login) interfejsu wiersza polecenia platformy Azure.  Aby ukończyć proces uwierzytelniania, wykonaj kroki wyświetlane w terminalu.  Dodatkowe opcje logowania opisano w sekcji [Logowanie za pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli).
-  - Po wyświetleniu monitu przy pierwszym użyciu zainstaluj rozszerzenia interfejsu wiersza polecenia platformy Azure.  Aby uzyskać więcej informacji na temat rozszerzeń, zobacz [Korzystanie z rozszerzeń w interfejsie wiersza polecenia platformy Azure](/cli/azure/azure-cli-extensions-overview).
-  - Uruchom polecenie [az version](/cli/azure/reference-index?#az_version), aby znaleźć zainstalowane wersje i biblioteki zależne. Aby uaktualnić do najnowszej wersji, uruchom polecenie [az upgrade](/cli/azure/reference-index?#az_upgrade).
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 Zasoby w chmurze:
 
-- Grupa zasobów do zarządzania wszystkimi zasobami używanymi w tym przewodniku Szybki start.
+* Grupa zasobów do zarządzania wszystkimi zasobami używanymi w tym przewodniku Szybki start.
 
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus2
@@ -55,28 +53,9 @@ Zasoby w chmurze:
 
 Urządzenie usługi IoT Edge:
 
-- Maszyna wirtualna z systemem Windows, która będzie działać jako urządzenie IoT Edge. Tę maszynę wirtualną można utworzyć przy użyciu następującego polecenia, zastępując je `{password}` bezpiecznym hasłem:
-
-  ```azurecli-interactive
-  az vm create --resource-group IoTEdgeResources --name EdgeVM --image MicrosoftWindowsDesktop:Windows-10:rs5-pro:latest --admin-username azureuser --admin-password {password} --size Standard_DS1_v2
-  ```
-
-  Utworzenie i uruchomienie nowej maszyny wirtualnej może potrwać kilka minut.
-
-  Po uruchomieniu maszyny wirtualnej można pobrać plik RDP do użycia podczas nawiązywania połączenia z maszyną wirtualną:
-
-  1. Przejdź do nowej maszyny wirtualnej z systemem Windows w Azure Portal.
-  1. Wybierz pozycję **Połącz**.
-  1. Na karcie **RDP** wybierz pozycję **Pobierz plik RDP**.
-
-  Otwórz ten plik z Podłączanie pulpitu zdalnego, aby nawiązać połączenie z maszyną wirtualną z systemem Windows przy użyciu nazwy użytkownika i hasła podanego za pomocą `az vm create` polecenia.
-
-> [!NOTE]
-> Maszyna wirtualna z systemem Windows zaczyna się od systemu Windows w wersji 1809 (kompilacja 17763), czyli najnowszej [kompilacji długoterminowej pomocy technicznej systemu Windows](/windows/release-information/). System Windows automatycznie sprawdza aktualizacje co 22 godziny. Po sprawdzeniu maszyny wirtualnej system Windows wypycha aktualizację wersji, która jest niezgodna z IoT Edge dla systemu Windows, co uniemożliwi dalsze korzystanie z IoT Edge funkcji systemu Windows. Zalecamy ograniczenie używania maszyny wirtualnej do 22 godzin lub [czasowo wstrzymanie aktualizacji systemu Windows](https://support.microsoft.com/help/4028233/windows-10-manage-updates).
->
-> W tym przewodniku szybki start do uproszczenia jest stosowana maszyna wirtualna z systemem Windows. Informacje o tym, które systemy operacyjne Windows są ogólnie dostępne w scenariuszach produkcyjnych, można znaleźć w temacie [Azure IoT Edge obsługiwane systemy](support.md).
->
-> Aby skonfigurować własne urządzenie z systemem Windows w celu IoT Edge, w tym urządzeń z systemem IoT Core, wykonaj kroki opisane w temacie [Instalowanie środowiska uruchomieniowego Azure IoT Edge](how-to-install-iot-edge.md).
+* Urządzenie musi być komputerem lub serwerem z systemem Windows w wersji 1809 lub nowszej
+* Co najmniej 4 GB pamięci, zalecane 8 GB pamięci
+* 10 GB wolnego miejsca na dysku
 
 ## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
 
@@ -97,6 +76,7 @@ Poniższy kod tworzy bezpłatny koncentrator **F1** w grupie zasobów `IoTEdgeRe
 ## <a name="register-an-iot-edge-device"></a>Rejestrowanie urządzenia usługi IoT Edge
 
 Zarejestruj urządzenie usługi IoT Edge, korzystając z nowo utworzonego centrum IoT.
+
 ![Diagram — rejestrowanie urządzenia przy użyciu tożsamości usługi IoT Hub](./media/quickstart/register-device.png)
 
 Utwórz tożsamość urządzenia symulowanego, aby umożliwić mu komunikowanie się z centrum IoT Hub. Tożsamość urządzenia jest przechowywana w chmurze, a w celu skojarzenia urządzenia fizycznego z tożsamością urządzenia używane są unikatowe parametry połączenia urządzenia.
@@ -123,75 +103,63 @@ Ponieważ urządzenia usługi IoT Edge zachowują się inaczej niż typowe urzą
 
 ## <a name="install-and-start-the-iot-edge-runtime"></a>Instalowanie i uruchamianie środowiska uruchomieniowego usługi IoT Edge
 
-Zainstaluj środowisko uruchomieniowe usługi Azure IoT Edge na urządzeniu usługi IoT Edge i skonfiguruj je przy użyciu parametrów połączenia urządzenia.
-![Diagram — uruchamianie środowiska uruchomieniowego na urządzeniu](./media/quickstart/start-runtime.png)
+Zainstaluj IoT Edge dla systemu Linux w systemie Windows na urządzeniu i skonfiguruj go za pomocą parametrów połączenia urządzenia.
 
-Środowisko uruchomieniowe usługi IoT Edge jest wdrażane na wszystkich urządzeniach usługi IoT Edge. Składa się ono z trzech składników. *Demon IoT Edge Security* jest uruchamiany za każdym razem, gdy IoT Edge urządzenie zostanie uruchomione i rozpocznie rozruch urządzenia przez uruchomienie agenta IoT Edge. *Agent usługi IoT Edge* ułatwia wdrażanie i monitorowanie modułów na urządzeniu usługi IoT Edge, w tym centrum usługi IoT Edge. *Centrum usługi IoT Edge* obsługuje komunikację między modułami na urządzeniu usługi IoT Edge oraz między urządzeniem a usługą IoT Hub.
+![Diagram — uruchamianie IoT Edge środowiska uruchomieniowego na urządzeniu](./media/quickstart/start-runtime.png)
 
-Skrypt instalacji zawiera także aparat kontenera o nazwie Moby, który zarządza obrazami kontenerów na urządzeniu usługi IoT Edge.
+1. [Pobierz centrum administracyjne systemu Windows](https://aka.ms/WACDownloadEFLOW).
+2. Postępuj zgodnie z instrukcjami Kreatora instalacji, aby skonfigurować centrum administracyjne systemu Windows na urządzeniu.
+3. Gdy jesteś w centrum administracyjnym systemu Windows, w prawym górnym rogu ekranu wybierz **ikonę koła zębatego ustawienia**  
+4. W menu Ustawienia w obszarze Brama wybierz pozycję **rozszerzenia** .
+5. Z listy **dostępnych rozszerzeń** wybierz pozycję **Azure IoT Edge**
+6. **Zainstaluj** rozszerzenie
 
-Podczas instalowania środowiska uruchomieniowego pojawi się prośba o podanie parametrów połączenia urządzenia. Użyj parametrów pobranych za pomocą wiersza polecenia platformy Azure. Za pomocą tych parametrów urządzenie fizyczne jest kojarzone z tożsamością urządzenia usługi IoT Edge na platformie Azure.
+7. Po zainstalowaniu rozszerzenia przejdź do głównej strony pulpitu nawigacyjnego, wybierając pozycję **Centrum administracyjne systemu Windows** w lewym górnym rogu ekranu.
 
-### <a name="connect-to-your-iot-edge-device"></a>Nawiązywanie połączenia z urządzeniem usługi IoT Edge
+8. Zostanie wyświetlone połączenie hosta lokalnego reprezentujące komputer z uruchomionym centrum administracyjnym systemu Windows.
 
-Kroki opisane w tej sekcji odbywają się na urządzeniu IoT Edge, dlatego chcesz połączyć się z tą maszyną wirtualną teraz za pośrednictwem pulpitu zdalnego.
+   :::image type="content" source="media/quickstart/windows-admin-center-start-page.png" alt-text="Zrzut ekranu — Strona startowa administratora systemu Windows":::
 
-### <a name="install-and-configure-the-iot-edge-service"></a>Instalowanie i Konfigurowanie usługi IoT Edge
+9. Wybierz pozycję **Dodaj**.
 
-Pobierz i zainstaluj środowisko uruchomieniowe usługi IoT Edge za pomocą programu PowerShell. Do skonfigurowania urządzenia użyj parametrów połączenia urządzenia pobranych z usługi IoT Hub.
+   :::image type="content" source="media/quickstart/windows-admin-center-start-page-add.png" alt-text="Zrzut ekranu — przycisk Dodaj strony początkowej administratora systemu Windows":::
 
-1. Na maszynie wirtualnej Uruchom program PowerShell jako administrator.
+10. Znajdź kafelek Azure IoT Edge i wybierz pozycję **Utwórz nowy**. Spowoduje to uruchomienie Kreatora instalacji.
 
-   >[!NOTE]
-   >Użyj sesji AMD64 programu PowerShell, aby zainstalować IoT Edge, a nie PowerShell (x86). Jeśli nie masz pewności, który typ sesji jest używany, uruchom następujące polecenie:
-   >
-   >```powershell
-   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
-   >```
+    :::image type="content" source="media/quickstart/select-tile-screen.png" alt-text="Zrzut ekranu — Azure IoT Edge dla systemu Linux na kafelku z systemem Windows":::
 
-2. Polecenie **Deploy-IoTEdge** sprawdza, czy komputer z systemem Windows jest w obsługiwanej wersji, włącza funkcję Containers, pobiera środowisko uruchomieniowe Moby, a następnie pobiera środowisko uruchomieniowe IoT Edge.
+11. Przejdź do Kreatora instalacji, aby zaakceptować umowę licencyjną i wybierz pozycję **dalej** .
 
-   ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-   Deploy-IoTEdge -ContainerOs Windows
-   ```
+    :::image type="content" source="media/quickstart/wizard-welcome-screen.png" alt-text="Zrzut ekranu — Witamy w Kreatorze":::
 
-3. Komputer może zostać automatycznie uruchomiony ponownie. Jeśli zostanie wyświetlony monit Deploy-IoTEdge polecenie w celu ponownego uruchomienia systemu, zrób to teraz.
+12. Wybierz **opcjonalne dane diagnostyczne** , aby zapewnić rozszerzone dane diagnostyczne, które umożliwiają firmie Microsoft monitorowanie i konserwowanie jakości usług, a następnie kliknij przycisk **Dalej: Wdróż.**
 
-4. Uruchom ponownie program PowerShell jako administrator.
+    :::image type="content" source="media/quickstart/diagnostic-data-screen.png" alt-text="Zrzut ekranu — dane diagnostyczne":::
 
-5. Polecenie **Initialize-IoTEdge** konfiguruje środowisko uruchomieniowe IoT Edge na komputerze. Polecenie domyślnie umożliwia ręczne Inicjowanie obsługi przy użyciu kontenerów systemu Windows.
+13. Na ekranie **Wybieranie urządzenia docelowego** wybierz odpowiednie urządzenie docelowe, aby sprawdzić, czy spełnia ono wymagania minimalne. Na potrzeby tego przewodnika Szybki Start instalujemy IoT Edge na urządzeniu lokalnym, dlatego należy wybrać połączenie localhost. Po potwierdzeniu wybierz pozycję **dalej** , aby kontynuować.
 
-   ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -ContainerOs Windows
-   ```
+    :::image type="content" source="media/quickstart/wizard-select-target-device-screen.png" alt-text="Zrzut ekranu — wybierz urządzenie docelowe":::
 
-6. Po wyświetleniu prośby o podanie wartości **DeviceConnectionString**, wpisz parametry skopiowane w poprzedniej sekcji. Nie dołączaj znaków cudzysłowów otaczających parametry połączenia.
+14. Zaakceptuj ustawienia domyślne, wybierając pozycję **dalej**.
 
-### <a name="view-the-iot-edge-runtime-status"></a>Wyświetlanie stanu środowiska uruchomieniowego usługi IoT Edge
+15. Na ekranie wdrożenia jest wyświetlany proces pobierania pakietu, instalowania pakietu, konfigurowania hosta i finalnej konfiguracji maszyny wirtualnej systemu Linux.  Pomyślne wdrożenie będzie wyglądać następująco:
 
-Sprawdź, czy środowisko uruchomieniowe zostało pomyślnie zainstalowane i skonfigurowane. Ukończenie instalacji może potrwać kilka minut, a moduł agenta IoT Edge zostanie uruchomiony.
+    :::image type="content" source="media/quickstart/wizard-deploy-success-screen.png" alt-text="Zrzut ekranu — powodzenie wdrażania Kreatora":::
 
-1. Sprawdź stan usługi IoT Edge.
+16. Kliknij przycisk **Dalej: Połącz** , aby przejść do ostatniego kroku, aby zainicjować obsługę administracyjną urządzenia Azure IoT Edge przy użyciu identyfikatora urządzenia z wystąpienia usługi IoT Hub.
 
-   ```powershell
-   Get-Service iotedge
-   ```
+17. Skopiuj parametry połączenia z urządzenia na platformie Azure IoT Hub i wklej je do pola parametry połączenia urządzenia. Następnie wybierz opcję **aprowizacji z wybraną metodą**.
 
-2. Jeśli potrzebujesz rozwiązać problem z usługą, pobierz jej dzienniki.
+    > [!NOTE]
+    > Zobacz Krok 3 w poprzedniej sekcji, [Zarejestruj urządzenie IoT Edge](#register-an-iot-edge-device), aby pobrać parametry połączenia.
 
-   ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
-   ```
+    :::image type="content" source="media/quickstart/wizard-provision.png" alt-text="Zrzut ekranu — Inicjowanie obsługi Kreatora":::
 
-3. Wyświetl wszystkie moduły uruchomione na urządzeniu usługi IoT Edge. Ponieważ usługa została właśnie uruchomiona po raz pierwszy, tylko moduł **edgeAgent** powinien być widoczny jako uruchomiony. Moduł edgeAgent jest domyślnie uruchamiany i ułatwia Instalowanie i uruchamianie wszelkich dodatkowych modułów wdrażanych na urządzeniu.
+18. Po zakończeniu aprowizacji wybierz pozycję **Zakończ** , aby zakończyć, i wróć do ekranu startowego centrum administracyjnego systemu Windows. Teraz powinno być możliwe wyświetlenie urządzenia na liście jako urządzenie IoT Edge.
 
-    ```powershell
-    iotedge list
-    ```
+    :::image type="content" source="media/quickstart/windows-admin-center-device-screen.png" alt-text="Zrzut ekranu — Centrum administracyjne systemu Windows Azure IoT Edge urządzenie":::
 
-   ![Wyświetlanie jednego modułu na urządzeniu](./media/quickstart/iotedge-list-1.png)
+19. Wybierz urządzenie Azure IoT Edge, aby wyświetlić jego pulpit nawigacyjny. Należy sprawdzić, czy zostały wdrożone obciążenia z sznurka urządzenia w usłudze Azure IoT Hub. **Lista modułów IoT Edge** powinna zawierać jeden moduł z systemem, **EdgeAgent**, a **stan IoT Edge** powinien być widoczny jako **aktywny (uruchomiony)**.
 
 Urządzenie usługi IoT Edge jest teraz skonfigurowane. Jest ono gotowe do uruchamiania modułów wdrożonych w chmurze.
 
@@ -209,24 +177,36 @@ W tym przewodniku Szybki start utworzono nowe urządzenie usługi IoT Edge i zai
 
 W takim przypadku moduł, który wypychał, generuje przykładowe dane środowiska, których można użyć do testowania później. Symulowany czujnik monitoruje maszynę i środowisko wokół maszyny. Na przykład ten czujnik może być umieszczony w serwerowni, w hali fabrycznej lub na turbinie wiatrowej. Komunikat zawiera temperaturę i wilgotność otoczenia, temperaturę maszyny, ciśnienie oraz znacznik czasu. W samouczkach usługi IoT Edge dane utworzone przez ten moduł są używane jako dane testowe do analizy.
 
-Upewnij się, że moduł wdrożony z chmury jest uruchomiony na urządzeniu usługi IoT Edge.
+Upewnij się, że moduł wdrożony z chmury jest uruchomiony na urządzeniu IoT Edge, przechodząc do powłoki poleceń w centrum administracyjnym systemu Windows.
 
-```powershell
-iotedge list
-```
+1. Nawiązywanie połączenia z nowo utworzonym urządzeniem IoT Edge
 
-   ![Wyświetlanie trzech modułów na urządzeniu](./media/quickstart/iotedge-list-2.png)
+   :::image type="content" source="media/quickstart/connect-edge-screen.png" alt-text="Zrzut ekranu — łączenie urządzenia":::
 
-Wyświetl komunikaty wysyłane z modułu czujnika temperatury do chmury.
+2. Na stronie **Omówienie** zostanie wyświetlona **Lista modułów IoT Edge** i **stan IoT Edge** , w których można zobaczyć różne moduły, które zostały wdrożone, a także stan urządzenia.  
 
-```powershell
-iotedge logs SimulatedTemperatureSensor -f
-```
+3. W obszarze **Narzędzia** wybierz pozycję **powłoka poleceń**. Powłoka poleceń jest terminalem programu PowerShell, który automatycznie używa protokołu SSH (Secure Shell) do nawiązywania połączenia z maszyną wirtualną z systemem Azure IoT Edge przy użyciu urządzenia PRZENOŚNEgo w systemie Windows.
+
+   :::image type="content" source="media/quickstart/command-shell-screen.png" alt-text="Zrzut ekranu — powłoka poleceń":::
+
+4. Aby sprawdzić trzy moduły na urządzeniu, uruchom następujące **polecenie bash**:
+
+   ```bash
+   sudo iotedge list
+   ```
+
+   :::image type="content" source="media/quickstart/iotedge-list-screen.png" alt-text="Zrzut ekranu — lista powłok poleceń":::
+
+5. Wyświetl komunikaty wysyłane z modułu czujnika temperatury do chmury.
+
+   ```bash
+   iotedge logs SimulatedTemperatureSensor -f
+   ```
 
    >[!TIP]
    >Przy odwoływaniu się do nazw modułów w poleceniach usługi IoT Edge jest rozróżniana wielkość liter.
 
-   ![Wyświetlanie danych z modułu](./media/quickstart/iotedge-logs.png)
+   :::image type="content" source="media/quickstart/temperature-sensor-screen.png" alt-text="Zrzut ekranu — czujnik temperatury":::
 
 Możesz również obejrzeć komunikaty docierające do centrum IoT Hub przy użyciu [rozszerzenia IoT Hub platformy Azure dla Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
@@ -251,6 +231,15 @@ Można potwierdzić, że grupa zasobów zostanie usunięta, wyświetlając list�
 az group list
 ```
 
+### <a name="clean-removal-of-azure-iot-edge-for-linux-on-windows"></a>Czyste usuwanie Azure IoT Edge dla systemu Linux w systemie Windows
+
+Azure IoT Edge dla systemu Linux w systemie Windows można odinstalować z urządzenia IoT Edge za pomocą rozszerzenia pulpitu nawigacyjnego w centrum administracyjnym systemu Windows.
+
+1. Nawiąż połączenie z Azure IoT Edge dla systemu Linux na urządzeniu z systemem Windows w centrum administracyjnym systemu Windows. Zostanie załadowane rozszerzenie narzędzia pulpitu nawigacyjnego platformy Azure.
+2. Wybierz pozycję **Odinstaluj**. Po usunięciu Azure IoT Edge dla systemu Linux w systemie Windows centrum administracyjne systemu Windows przejdzie do strony Start i usunie z listy wpis połączenia z urządzeniem Azure IoT Edge.
+
+Innym sposobem usunięcia Azure IoT Edge z systemu Windows jest przejście do pozycji **Rozpocznij**  >  **Ustawienia**  >  **aplikacje**  >  **Azure IoT Edge**  >  **odinstalowania** na urządzeniu IoT Edge. Spowoduje to usunięcie Azure IoT Edge z urządzenia IoT Edge, ale pozostawienie połączenia za pośrednictwem Centrum administracyjnego systemu Windows. Centrum administracyjne systemu Windows można odinstalować również z poziomu menu Ustawienia.
+
 ## <a name="next-steps"></a>Następne kroki
 
 W tym przewodniku Szybki start utworzono urządzenie usługi IoT Edge i wdrożono na nim kod przy użyciu interfejsu usługi Azure IoT Edge w chmurze. Masz teraz urządzenie testowe generujące dane pierwotne dotyczące jego otoczenia.
@@ -258,4 +247,4 @@ W tym przewodniku Szybki start utworzono urządzenie usługi IoT Edge i wdrożon
 Następnym krokiem jest skonfigurowanie lokalnego środowiska programistycznego, aby można było rozpocząć tworzenie modułów IoT Edge, które uruchamiają logikę biznesową.
 
 > [!div class="nextstepaction"]
-> [Rozpocznij opracowywanie modułów IoT Edge dla urządzeń z systemem Windows](tutorial-develop-for-windows.md)
+> [Rozpocznij opracowywanie modułów IoT Edge](tutorial-develop-for-linux.md)

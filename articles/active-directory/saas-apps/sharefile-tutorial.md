@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/21/2020
+ms.date: 01/18/2021
 ms.author: jeedes
-ms.openlocfilehash: d7cafdcbbf44f3f501d54c13d1b4549c446ed8c8
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: ebd07990767d91c88f245b4ed7f8a66f93de0b85
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97723970"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631418"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>Samouczek: integracja Azure Active Directory z usługą Citrix ShareFile
 
@@ -31,8 +31,8 @@ Integracja aplikacji Citrix ShareFile z usługą Azure AD oferuje następujące 
 
 Do skonfigurowania integracji usługi Azure AD z aplikacją Citrix ShareFile potrzebne są następujące elementy:
 
-* Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz skorzystać z miesięcznej wersji próbnej [tutaj](https://azure.microsoft.com/pricing/free-trial/)
-* Subskrypcja aplikacji Citrix ShareFile z obsługą logowania jednokrotnego
+* Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz w [tym miejscu](https://azure.microsoft.com/pricing/free-trial/)uzyskać miesięczną wersję próbną.
+* Subskrypcja obsługująca Logowanie jednokrotne w programie Citrix ShareFile.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -126,7 +126,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
 1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
 1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
+1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
 ## <a name="configure-citrix-sharefile-sso"></a>Konfigurowanie logowania jednokrotnego dla serwera Citrix ShareFile
@@ -141,7 +141,7 @@ Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybra�
 
 3. Jeśli chcesz ręcznie skonfigurować program Citrix ShareFile, w innym oknie przeglądarki sieci Web Zaloguj się do witryny firmy Citrix ShareFile jako administrator.
 
-1. Na **pulpicie nawigacyjnym** kliknij pozycję **Ustawienia** , a następnie wybierz pozycję **Ustawienia administratora** .
+1. Na **pulpicie nawigacyjnym** kliknij pozycję **Ustawienia** , a następnie wybierz pozycję **Ustawienia administratora**.
 
     ![Administracja](./media/sharefile-tutorial/settings.png)
 
@@ -165,7 +165,9 @@ Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybra�
     
     f. W polu tekstowym **adres URL wylogowywania** wklej wartość **adresu URL wylogowywania** skopiowanego z Azure Portal.
 
-5. Kliknij pozycję **Save** (Zapisz) w portalu zarządzania usługi Citrix ShareFile.
+    przykład W **ustawieniach opcjonalnych** wybierz **kontekst uwierzytelniania zainicjowanego przez program SP** jako **nazwę użytkownika i hasło** oraz **dokładne**.
+
+5. Kliknij pozycję **Zapisz**.
 
 ## <a name="create-citrix-sharefile-test-user"></a>Tworzenie użytkownika testowego aplikacji Citrix ShareFile
 

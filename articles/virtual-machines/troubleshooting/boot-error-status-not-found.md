@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: ff7d5a4e1181dccedc3584d958038a1d695c57ca
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: a91add684d7b7aaee67e7dd4f4f2d0c6df078132
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657128"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632228"
 ---
 # <a name="troubleshoot-windows-boot-manager-error----0xc0000225-status-not-found"></a>Rozwiązywanie problemów z błędem Menedżera rozruchu systemu Windows-0xC0000225 "nie znaleziono stanu"
  
@@ -79,6 +79,9 @@ Uszkodzenie gałęzi rejestru może być spowodowane:
 ## <a name="solution"></a>Rozwiązanie
 
 ### <a name="process-overview"></a>Przegląd procesu
+
+> [!TIP]
+> Jeśli masz najnowszą kopię zapasową maszyny wirtualnej, możesz spróbować [przywrócić maszynę wirtualną z kopii zapasowej](../../backup/backup-azure-arm-restore-vms.md) , aby rozwiązać problem z rozruchem.
 
 1. Utwórz maszynę wirtualną naprawy i uzyskaj do niej dostęp.
 1. Wybierz rozwiązanie:

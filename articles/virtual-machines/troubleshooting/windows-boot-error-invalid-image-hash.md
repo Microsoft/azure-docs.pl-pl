@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/03/2020
 ms.author: v-miegge
-ms.openlocfilehash: e58e349d7b7385ec913986c39462c17deadcb61d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 22db9c7966b6f988ca0ea799104275f3f86c77ea
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969606"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629576"
 ---
 # <a name="windows-boot-manager-error---0xc0000428-status-invalid-image-hash"></a>Błąd Menedżera rozruchu systemu Windows — 0xC0000428 stanu nieprawidłowy skrót obrazu
 
@@ -65,6 +65,9 @@ Nie można przesunąć daty wygaśnięcia obrazu w wersji zapoznawczej. Po wyga�
 - Na platformie Azure wszystkie obrazy dla systemu Windows, które są wersjami w wersji zapoznawczej, zawierają informacje w opisie, że nie są przeznaczone do produkcji i są dostępne do użycia tylko w określonym okresie próbnym lub jako wersja zapoznawcza.
 
 ## <a name="solution"></a>Rozwiązanie
+
+> [!TIP]
+> Jeśli masz najnowszą kopię zapasową maszyny wirtualnej, możesz spróbować [przywrócić maszynę wirtualną z kopii zapasowej](../../backup/backup-azure-arm-restore-vms.md) , aby rozwiązać problem z rozruchem.
 
 Jeśli obraz jest obrazem w wersji zapoznawczej, nie ma możliwości przeciągnięcia daty wygaśnięcia dla używanego obrazu, należy [wdrożyć nową maszynę wirtualną](../windows/quick-create-portal.md) przy użyciu obrazu bez podglądu. Poniższe kroki ułatwią ustalenie, czy używasz obrazu w wersji zapoznawczej, a także udostępnienie zasobów ułatwiających transfer danych z tej maszyny wirtualnej do nowej maszyny wirtualnej. W przypadku pozytywnego zidentyfikowania obrazu jako obrazu podglądu obraz nie jest możliwy do odzyskania, ponieważ już wygasł.
 

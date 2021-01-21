@@ -1,5 +1,5 @@
 ---
-title: Usługi platformy Azure, które obsługują Strefy dostępności
+title: Usługi platformy Azure obsługujące strefy dostępności
 description: Aby utworzyć aplikacje o wysokiej dostępności i odporności na platformie Azure, Strefy dostępności zapewnić fizycznie oddzielne lokalizacje, za pomocą których można uruchamiać zasoby.
 author: cynthn
 ms.service: azure
@@ -7,14 +7,14 @@ ms.topic: article
 ms.date: 12/17/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 0365a60317538ba31f39928cd30a57e2c969c832
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: ea21a56249c8eaa7c6b329b755e96b21b91ebaa1
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97723046"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632312"
 ---
-# <a name="azure-services-that-support-availability-zones"></a>Usługi platformy Azure, które obsługują Strefy dostępności
+# <a name="azure-services-that-support-availability-zones"></a>Usługi platformy Azure obsługujące strefy dostępności
 
 Strefy dostępności to oferta wysokiej dostępności, która chroni Twoje aplikacje i dane przed awariami centrów danych. Aby zapoznać się z listą istniejących i nadchodzących regionów, które obsługują Strefy dostępności, zobacz [regiony i strefy dostępności na platformie Azure](az-overview.md).  
 
@@ -88,7 +88,7 @@ Aby zapewnić kompleksową ciągłość biznesową na platformie Azure, skompilu
 | **Integracja** |  |  |  |  |  |
 | [Event Grid](../event-grid/index.yml) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Service Bus](../service-fabric/service-fabric-cross-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Zarządzanie i ład** |  |  |  |  |  |
+| **Zarządzanie i nadzór** |  |  |  |  |  |
 | [Network Watcher](../network-watcher/frequently-asked-questions.md) | y | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | y |
 | **Bezpieczeństwo** |  |  |  |  |  |
 | [Azure Active Directory Domain Services](../active-directory-domain-services/overview.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -124,14 +124,14 @@ Aby zapewnić kompleksową ciągłość biznesową na platformie Azure, skompilu
 | [Azure Data Explorer](/azure/data-explorer/create-cluster-database-portal) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure Database for MySQL — elastyczny serwer](../mysql/flexible-server/concepts-high-availability.md) | y | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure Database for PostgreSQL — elastyczny serwer](../postgresql/flexible-server/overview.md) | y | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure SQL Database (warstwa Ogólnego przeznaczenia)](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) | y | : heavy_check_mark: (wersja zapoznawcza) | y | : heavy_check_mark: (wersja zapoznawcza) |
+| [Azure SQL Database (warstwa Ogólnego przeznaczenia)](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) | : heavy_check_mark: (wersja zapoznawcza) | : heavy_check_mark: (wersja zapoznawcza) | y | : heavy_check_mark: (wersja zapoznawcza) |
 | [Azure SQL Database (warstwy & Premium Krytyczne dla działania firmy)](../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **Analiza** |  |  |  |  |
 | [Event Hubs](../event-hubs/index.yml) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **Integracja** |  |  |  |  |
 | [Event Grid](../event-grid/index.yml) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Service Bus](../service-fabric/service-fabric-cross-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Zarządzanie i ład** |  |  |  |  |
+| **Zarządzanie i nadzór** |  |  |  |  |
 | [Network Watcher](../network-watcher/frequently-asked-questions.md) | :heavy_check_mark: | :heavy_check_mark: | y | :heavy_check_mark: |
 | **Bezpieczeństwo** |  |  |  |  |
 | [Azure Active Directory Domain Services](../active-directory-domain-services/overview.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -169,14 +169,14 @@ Aby zapewnić kompleksową ciągłość biznesową na platformie Azure, skompilu
 | [Azure Data Explorer](/azure/data-explorer/create-cluster-database-portal) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure Database for MySQL — elastyczny serwer](../mysql/flexible-server/concepts-high-availability.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure Database for PostgreSQL — elastyczny serwer](../postgresql/flexible-server/overview.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure SQL Database (warstwa Ogólnego przeznaczenia)](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) | y | : heavy_check_mark: (wersja zapoznawcza) | : heavy_check_mark: (wersja zapoznawcza) |
+| [Azure SQL Database (warstwa Ogólnego przeznaczenia)](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) | : heavy_check_mark: (wersja zapoznawcza) | : heavy_check_mark: (wersja zapoznawcza) | : heavy_check_mark: (wersja zapoznawcza) |
 | [Azure SQL Database (warstwy & Premium Krytyczne dla działania firmy)](../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **Analiza** |  |  |  |
 | [Event Hubs](../event-hubs/index.yml) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **Integracja** |  |  |  |
 | [Event Grid](../event-grid/index.yml) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Service Bus](../service-fabric/service-fabric-cross-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Zarządzanie i ład** |  |  |  |
+| **Zarządzanie i nadzór** |  |  |  |
 | [Network Watcher](../network-watcher/frequently-asked-questions.md) | :heavy_check_mark: | y | y |
 | **Bezpieczeństwo** |  |  |  |
 | [Azure Active Directory Domain Services](../active-directory-domain-services/overview.md) | :heavy_check_mark: | :heavy_check_mark: |  |

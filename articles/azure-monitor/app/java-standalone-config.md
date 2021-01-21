@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 98499961f55b55b15687d5742b4d593e3d461e49
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 397c650d1d7a593a855c8f26e61dbf12ec6360fa
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625334"
+ms.locfileid: "98631325"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opcje konfiguracji — Azure Monitor Application Insights dla języka Java
 
@@ -296,7 +296,9 @@ Jeśli aplikacja znajduje się za zaporą i nie może połączyć się bezpośre
 }
 ```
 
-[//]: # "Pamiętaj, aby nie ogłaszać pomocy technicznej OpenTelemetry do momentu wsparcia 0.10.0, który ma ogromne zmiany od 0.9.0"
+Application Insights Java 3,0 odnoszą się również do globalnych `-Dhttps.proxyHost` i, `-Dhttps.proxyPort` Jeśli są ustawione.
+
+[//]: # "Uwaga Obsługa OpenTelemetry jest w prywatnej wersji zapoznawczej do momentu, gdy interfejs API OpenTelemetry osiągnie 1,0"
 
 [//]: # "Obsługa # # w przypadku wersji pre-1,0 interfejsu API OpenTelemetry"
 
@@ -343,6 +345,8 @@ Domyślnie program Application Insights dzienniki Java 3,0 na poziomie `INFO` za
 `maxSizeMb` jest maksymalnym rozmiarem pliku dziennika przed przekazaniem go.
 
 `maxHistory` to liczba rzutowanych plików dziennika (oprócz bieżącego pliku dziennika).
+
+Począwszy od wersji 3.0.2 można także ustawić samodiagnostykę `level` przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL` .
 
 ## <a name="an-example"></a>Przykład
 

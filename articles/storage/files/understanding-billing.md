@@ -4,22 +4,22 @@ description: Dowiedz się, jak interpretować udostępniane modele rozliczeń i 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/1/2020
+ms.date: 01/20/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 880ec90ce1cf0efffce0cfd6800bdbaed23f8dd0
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 19ecbea70d9cb6b8cc31c72ed3c1294cd137ce93
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831469"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632482"
 ---
 # <a name="understanding-azure-files-billing"></a>Informacje o rozliczeniach Azure Files
 Azure Files oferuje dwa odrębne modele rozliczeń: obsługiwane i płatność zgodnie z rzeczywistym użyciem. Model aprowizacji jest dostępny tylko dla udziałów plików w warstwie Premium, które są udziałami plików wdrożonymi w rodzaju konta magazynu **FileStorage** . Model płatność zgodnie z rzeczywistym użyciem jest dostępny tylko dla standardowych udziałów plików, czyli udziałów plików wdrożonych w ramach konta magazynu **ogólnego przeznaczenia w wersji 2 (GPv2)** . W tym artykule wyjaśniono, jak działają oba modele, aby pomóc Ci zrozumieć miesięczne Azure Files.
 
 Bieżące ceny dla Azure Files można znaleźć na [stronie cennika Azure Files](https://azure.microsoft.com/pricing/details/storage/files/).
 
-## <a name="provisioned-billing"></a>Rozliczenia inicjowane
+## <a name="provisioned-model"></a>Model aprowizacji
 Azure Files korzysta z modelu aprowizacji dla udziałów plików w warstwie Premium. W modelu biznesowym z obsługą administracyjną można aktywnie określić usługi Azure Files, jakie są wymagania dotyczące magazynu, a nie na podstawie ich użycia. Jest to podobne do kupowania sprzętu lokalnie, w tym przypadku gdy udostępniasz udział plików platformy Azure z określoną ilością pamięci, płacisz za ten magazyn, bez względu na to, czy używasz tego magazynu, czy nie, tak jak w przypadku, gdy zaczniesz korzystać z przestrzeni dyskowej w środowisku lokalnym. W przeciwieństwie do kupowania multimediów fizycznych lokalnie udostępnione udziały plików można dynamicznie skalować w górę lub w dół w zależności od charakterystyki magazynu i wydajności operacji we/wy.
 
 Gdy udostępniasz udział plików w warstwie Premium, możesz określić liczbę GiBs wymaganych do obciążenia. Każdy GiB, który zastrzega sobie, uprawnia do dodatkowych IOPS i przepływności na stałym wskaźniku. Oprócz operacji wejścia/wyjścia linii bazowej, dla których użytkownik jest gwarantowany, każdy udział plików w warstwie Premium obsługuje maksymalnie duże nakłady pracy. Formuły dla operacji we/wy i przepływności są następujące:
@@ -63,7 +63,7 @@ Kredyty na udostępnianie mają trzy stany:
 
 Nowe udziały plików zaczynają się od pełnej liczby kredytów w swoim zasobniku. Środki na korzystanie z serii nie zostaną naliczone, jeśli liczba operacji we/wy udziałów spadnie poniżej liczby operacji wejścia/wyjścia na sekundę z powodu ograniczenia przez serwer.
 
-## <a name="pay-as-you-go-billing"></a>Płatność zgodnie z rzeczywistym użyciem
+## <a name="pay-as-you-go-model"></a>Model płatność zgodnie z rzeczywistym użyciem
 W przypadku standardowych udziałów plików Azure Files jest stosowany model biznesowy z opcją płatność zgodnie z rzeczywistym użyciem. W modelu biznesowym z opcją płatność zgodnie z rzeczywistym użyciem kwota płatna jest określana na podstawie ilości faktycznie używanej zamiast zainicjowanej. Na wysokim poziomie opłaty są nanoszone za ilość danych przechowywanych na dysku, a następnie dodatkowy zestaw transakcji oparty na użyciu tych danych. Model płatność zgodnie z rzeczywistym użyciem może być opłacalny, ponieważ nie jest konieczne przeprowadzenie nadmiernej aprowizacji w celu uwzględnienia w przyszłości wymagań dotyczących wzrostu lub wydajności lub anulowania aprowizacji, jeśli obciążenie jest różne w czasie. Z drugiej strony model płatności zgodnie z rzeczywistym użyciem może być trudny do zaplanowania w ramach procesu tworzenia budżetu, ponieważ model rozliczeń z płatnością zgodnie z rzeczywistym użyciem jest oparty na zużyciu przez użytkownika końcowego.
 
 ### <a name="differences-in-standard-tiers"></a>Różnice w warstwach standardowych
@@ -92,7 +92,7 @@ Istnieje pięć podstawowych kategorii transakcji: Write, list, Read, Other i DE
 > [!Note]  
 > System plików NFS 4,1 jest dostępny tylko dla udziałów plików w warstwie Premium, które korzystają z modelu rozliczania z zainicjowaną obsługą, transakcje nie wpływają na rozliczenia udziałów plików w warstwie Premium.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 - [Strona cennika Azure Files](https://azure.microsoft.com/pricing/details/storage/files/).
 - [Planowanie wdrożenia Azure Files](./storage-files-planning.md) i [Planowanie wdrożenia Azure File Sync](./storage-sync-files-planning.md).
 - [Utwórz udział plików](./storage-how-to-create-file-share.md) i [Wdróż Azure File Sync](./storage-sync-files-deployment-guide.md).

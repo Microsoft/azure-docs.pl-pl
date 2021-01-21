@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/08/2020
 ms.author: v-miegge
-ms.openlocfilehash: 4f181a6dee7ed182150bd0cad2b51690b6c77d7a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6c139398182ca9d875de0d3b21c58afe503bd8a5
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963129"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632278"
 ---
 # <a name="vm-is-unresponsive-while-applying-default-domain-controllers-policy"></a>Maszyna wirtualna nie odpowiada podczas stosowania domyślnych zasad kontrolerów domeny
 
@@ -28,7 +28,7 @@ Ten artykuł zawiera kroki rozwiązywania problemów, w których domyślne zasad
 
 ## <a name="symptom"></a>Objaw
 
-W przypadku korzystania z [diagnostyki rozruchu](./boot-diagnostics.md) w celu wyświetlenia zrzutu ekranu maszyny wirtualnej zobaczysz, że zrzut ekranu wyświetla system operacyjny, który nie odpowiada, podczas rozruchu przy użyciu **domyślnych zasad kontrolerów domeny**komunikatów.
+W przypadku korzystania z [diagnostyki rozruchu](./boot-diagnostics.md) w celu wyświetlenia zrzutu ekranu maszyny wirtualnej zobaczysz, że zrzut ekranu wyświetla system operacyjny, który nie odpowiada, podczas rozruchu przy użyciu **domyślnych zasad kontrolerów domeny** komunikatów.
 
   ![Rysunek 1 wyświetla system operacyjny zablokowany przy użyciu komunikatu "domyślne zasady kontrolerów domeny"](./media/vm-unresponsive-domain-controllers-policy/1-default-domain-controllers-policy.png)
 
@@ -37,6 +37,9 @@ W przypadku korzystania z [diagnostyki rozruchu](./boot-diagnostics.md) w celu w
 Przyczyną tego problemu może być Niedawne wprowadzenie zmian w domyślnych zasadach kontrolerów domeny. W przeciwnym razie analiza pliku zrzutu pamięci będzie musiała zostać wykonana w celu określenia głównej przyczyny.
 
 ## <a name="solution"></a>Rozwiązanie
+
+> [!TIP]
+> Jeśli masz najnowszą kopię zapasową maszyny wirtualnej, możesz spróbować [przywrócić maszynę wirtualną z kopii zapasowej](../../backup/backup-azure-arm-restore-vms.md) , aby rozwiązać problem z rozruchem.
 
 Jeśli niedawno wprowadzono zmiany w domyślnych zasadach kontrolerów domeny, można cofnąć te zmiany, aby rozwiązać problem. Jeśli nie masz pewności, co jest przyczyną problemu, Zbierz zrzut pamięci, a następnie Prześlij bilet pomocy technicznej.
 

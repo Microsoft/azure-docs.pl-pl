@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: fe2d444bbdc09ed5ab0205d4139591e3288e3358
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 3090b7b889d914fc0cdb598b8bf29a73c81f50cb
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734569"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632007"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Uruchamianie maszyny wirtualnej platformy Azure jest zablokowane w usłudze Windows Update
 
@@ -37,6 +37,8 @@ Ten artykuł pomaga w rozwiązaniu problemu, gdy maszyna wirtualna (VM) jest zab
 
 
 ## <a name="solution"></a>Rozwiązanie
+> [!TIP]
+> Jeśli masz najnowszą kopię zapasową maszyny wirtualnej, możesz spróbować [przywrócić maszynę wirtualną z kopii zapasowej](../../backup/backup-azure-arm-restore-vms.md) , aby rozwiązać problem z rozruchem.
 
 W zależności od liczby aktualizacji, które są instalowane lub wycofywane, proces aktualizacji może chwilę potrwać. Pozostaw maszynę wirtualną w tym stanie przez 8 godzin. Jeśli maszyna wirtualna nadal znajduje się w tym stanie po tym okresie, uruchom ponownie maszynę wirtualną z Azure Portal i sprawdź, czy może ona zostać uruchomiona normalnie. Jeśli ten krok nie działa, wypróbuj poniższe rozwiązanie.
 

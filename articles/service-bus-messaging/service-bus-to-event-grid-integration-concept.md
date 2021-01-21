@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 5cc112767b2204d019cb1b7bd23b1603cefdf416
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 71ee21c971b71c4000a123d1561e7e93d21203e1
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882521"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629151"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Omówienie integracji usług Azure Service Bus i Event Grid
 
@@ -174,7 +174,7 @@ Istnieją trzy różne sposoby tworzenia subskrypcji usługi Event Grid dla prze
 Aby utworzyć nową subskrypcję usługi Event Grid, wykonaj następujące czynności:
 1. W witrynie Azure Portal przejdź do przestrzeni nazw.
 2. W okienku po lewej stronie wybierz pozycję **Event Grid**. 
-3. Wybierz pozycję **Subskrypcja zdarzeń**.  
+3. Wybierz pozycję **subskrypcja zdarzeń**.  
 
    Poniższa ilustracja przedstawia przestrzeń nazw z subskrypcją usługi Event Grid:
 
@@ -186,7 +186,7 @@ Aby utworzyć nową subskrypcję usługi Event Grid, wykonaj następujące czynn
 
 ## <a name="azure-cli-instructions"></a>Instrukcje dotyczące interfejsu wiersza polecenia platformy Azure
 
-Najpierw upewnij się, że zainstalowano interfejs wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. [Pobierz instalatora](/cli/azure/install-azure-cli?view=azure-cli-latest). Wybierz pozycję **Windows + X**, a następnie otwórz nową konsolę programu PowerShell z uprawnieniami administratora. Możesz również użyć powłoki poleceń w witrynie Azure Portal.
+Najpierw upewnij się, że zainstalowano interfejs wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. [Pobierz instalatora](/cli/azure/install-azure-cli). Wybierz pozycję **Windows + X**, a następnie otwórz nową konsolę programu PowerShell z uprawnieniami administratora. Możesz również użyć powłoki poleceń w witrynie Azure Portal.
 
 Wykonaj następujący kod:
 

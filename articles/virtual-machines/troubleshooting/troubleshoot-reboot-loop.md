@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
-ms.openlocfilehash: 4c336fe9a65d7bcc44790a4bfb02bed44f028733
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad0ed7e9619f0b789bf8949fe398aa27bc36b9e0
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86500926"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629644"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Pętla ponownego uruchamiania systemu Windows na maszynie wirtualnej platformy Azure
 W tym artykule opisano pętlę ponownego uruchamiania, którą można napotkać na maszynie wirtualnej z systemem Windows w Microsoft Azure.
@@ -49,6 +49,9 @@ Wprowadzono pewne zmiany w systemie operacyjnym. Zazwyczaj są one powiązane z 
 Przyczyną może być uszkodzenie systemu plików. Trudno jest jednak zdiagnozować i zidentyfikować zmianę powodującą uszkodzenie systemu operacyjnego.
 
 ## <a name="solution"></a>Rozwiązanie
+
+> [!TIP]
+> Jeśli masz najnowszą kopię zapasową maszyny wirtualnej, możesz spróbować [przywrócić maszynę wirtualną z kopii zapasowej](../../backup/backup-azure-arm-restore-vms.md) , aby rozwiązać problem z rozruchem.
 
 Aby rozwiązać ten problem, [Wykonaj kopię zapasową dysku systemu operacyjnego](../windows/snapshot-copy-managed-disk.md)i [Dołącz dysk systemu operacyjnego do ratowniczej maszyny wirtualnej](./troubleshoot-recovery-disks-portal-windows.md), a następnie postępuj zgodnie z opcjami rozwiązania lub wypróbuj te rozwiązania po jednej.
 

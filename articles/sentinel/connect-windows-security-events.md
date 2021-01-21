@@ -1,6 +1,6 @@
 ---
 title: Łączenie danych zdarzeń zabezpieczeń systemu Windows z platformą Azure Microsoft Docs
-description: Dowiedz się, jak za pomocą łącznika zdarzeń zabezpieczeń przesyłać strumieniowo wszystkie zdarzenia zabezpieczeń z systemów Windows do obszaru roboczego wskaźnikowego platformy Azure. 
+description: Dowiedz się, jak za pomocą łącznika zdarzeń zabezpieczeń przesyłać strumieniowo wszystkie zdarzenia zabezpieczeń z systemów Windows do obszaru roboczego wskaźnikowego platformy Azure.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: a16afcafa03ef2ab8642316db560e30a473a526b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 226d5a46482d6611fdecf214d040fc27af9ac586
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883718"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632050"
 ---
 # <a name="connect-windows-security-events"></a>Łączenie ze zdarzeniami zabezpieczeń systemu Windows 
 
@@ -54,7 +54,7 @@ Aby zebrać zdarzenia zabezpieczeń systemu Windows na platformie Azure — wska
 
 1. Z menu nawigacyjnego wskaźnikowego platformy Azure wybierz pozycję **Łączniki danych**. Z listy łączników kliknij pozycję **zdarzenia zabezpieczeń**, a następnie na przycisk **Otwórz stronę łącznika** w prawym dolnym rogu. Następnie postępuj zgodnie z instrukcjami wyświetlanymi na ekranie na karcie **instrukcje** , zgodnie z opisem w pozostałej części tej sekcji.
 
-1. Sprawdź, czy masz odpowiednie uprawnienia, zgodnie z opisem w sekcji **wymagania wstępne**.
+1. Sprawdź, czy masz odpowiednie uprawnienia, zgodnie z opisem w sekcji **wymagania wstępne** na stronie łącznika.
 
 1. Pobierz i zainstaluj [agenta log Analytics](../azure-monitor/platform/log-analytics-agent.md) (znanego również jako Microsoft Monitoring Agent lub MMA) na maszynach, dla których chcesz przesyłać strumieniowo zdarzenia zabezpieczeń do usługi Azure wskaźnikowej.
 
@@ -73,9 +73,9 @@ Aby zebrać zdarzenia zabezpieczeń systemu Windows na platformie Azure — wska
     >
     > Aby zezwolić na używanie systemów Windows bez konieczności łączności z Internetem w celu przesyłania strumieniowego zdarzeń do platformy Azure, należy pobrać i zainstalować **bramę pakietu OMS** na oddzielnym komputerze przy użyciu linku w prawym dolnym rogu, aby działać jako serwer proxy.  Nadal trzeba będzie zainstalować agenta Log Analytics w każdym systemie Windows, którego zdarzenia mają być zbierane.
     >
-    > Aby uzyskać więcej informacji na temat tego scenariusza, zobacz dokumentację usługi [ **log Analytics Gateway** ](../azure-monitor/platform/gateway.md).
+    > Aby uzyskać więcej informacji na temat tego scenariusza, zobacz dokumentację usługi [ **log Analytics Gateway**](../azure-monitor/platform/gateway.md).
 
-    Dodatkowe opcje instalacji i dalsze szczegóły znajdują się w [dokumentacji **agenta log Analytics** ](../azure-monitor/platform/agent-windows.md).
+    Dodatkowe opcje instalacji i dalsze szczegóły znajdują się w [dokumentacji **agenta log Analytics**](../azure-monitor/platform/agent-windows.md).
 
 1. Wybierz zestaw zdarzeń ([wszystkie, typowe lub minimalne](#event-sets)), które chcesz przesłać strumieniowo.
 

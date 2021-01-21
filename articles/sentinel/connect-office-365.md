@@ -14,20 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: 4d3e3615ede7406a3b581171ae759ec0ec53f13e
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 05848eb2761284669e659b3875e96acdfa71f90f
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655374"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632186"
 ---
-# <a name="connect-office-365-logs-to-azure-sentinel"></a>Łączenie dzienników pakietu Office 365 z usługą Azure wskaźnikowego
+# <a name="connect-office-365-logs-to-azure-sentinel"></a>Łączenie dzienników usługi Office 365 z usługą Azure Sentinel
 
 Łącznik dziennika [pakietu Office 365](/office/) zawiera informacje na temat działań związanych z trwającym użytkownikiem i administratorami w **programach Exchange** i **SharePoint** (w tym **OneDrive**), a teraz także w **zespołach** . Te informacje obejmują szczegółowe informacje o akcjach, takie jak pobieranie plików, wysłane żądania dostępu, zmiany w grupach zdarzeń, operacje skrzynek pocztowych, zdarzenia zespołów (takie jak rozmowy, zespoły, elementy członkowskie i kanały), a także szczegółowe informacje o użytkowniku, który wykonał akcje. Połączenie dzienników pakietu Office 365 z platformą Azure wskaźnikowego pozwala na wyświetlanie i analizowanie tych danych w skoroszytach, wykonywanie zapytań dotyczących tworzenia niestandardowych alertów i wprowadzanie ich w celu usprawnienia procesu badania, dzięki czemu możesz uzyskać dokładniejsze informacje o zabezpieczeniach pakietu Office 365.
-
-> [!IMPORTANT]
-> **Rozszerzenie** łącznika dziennika pakietu Office 365 jest obecnie w publicznej wersji zapoznawczej.
-> Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

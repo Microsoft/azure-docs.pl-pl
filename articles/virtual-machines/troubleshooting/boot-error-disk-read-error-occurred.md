@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/01/2020
 ms.author: v-miegge
-ms.openlocfilehash: f59903ed111be1fe414f4b3ded250d754c91d323
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75d1cf8638f922bb0275322568eb1399db4f49e8
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87069145"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629729"
 ---
 # <a name="troubleshoot-boot-error---disk-read-error-occurred"></a>Rozwiązywanie problemów z błędem rozruchu — Wystąpił błąd odczytu dysku
 
@@ -38,6 +38,9 @@ Ten komunikat o błędzie wskazuje, że struktura dysku jest uszkodzona i nie mo
 ## <a name="solution"></a>Rozwiązanie
 
 ### <a name="process-overview"></a>Przegląd procesu
+
+> [!TIP]
+> Jeśli masz najnowszą kopię zapasową maszyny wirtualnej, możesz spróbować [przywrócić maszynę wirtualną z kopii zapasowej](../../backup/backup-azure-arm-restore-vms.md) , aby rozwiązać problem z rozruchem.
 
 1. Utwórz maszynę wirtualną naprawy i uzyskaj do niej dostęp.
 1. Wybierz rozwiązanie:

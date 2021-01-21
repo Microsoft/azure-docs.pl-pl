@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: 233dcbeee0bccc714e3b4fe93e7c8b19aa9f2df0
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: e9182a2a0b88f85af5305f5794fec2ffe7935701
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242453"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631737"
 ---
 # <a name="azure-database-for-mysql-infrastructure-double-encryption"></a>Azure Database for MySQL podwójne szyfrowanie infrastruktury
 
@@ -20,7 +20,7 @@ Azure Database for MySQL korzysta [z szyfrowania magazynu danych w usłudze REST
 Podwójne szyfrowanie infrastruktury dodaje drugą warstwę szyfrowania przy użyciu kluczy zarządzanych przez usługę. Używa on zatwierdzonego modułu kryptograficznego FIPS 140-2, ale z innym algorytmem szyfrowania. Zapewnia to dodatkową warstwę ochrony danych przechowywanych w usłudze. Klucz używany w przypadku szyfrowania podwójnego infrastruktury jest również zarządzany przez usługę Azure Database for MySQL. Podwójne szyfrowanie infrastruktury nie jest domyślnie włączone, ponieważ dodatkowa warstwa szyfrowania może mieć wpływ na wydajność.
 
 > [!NOTE]
-> Ta funkcja jest obsługiwana tylko dla warstw cenowych "Ogólnego przeznaczenia" i "zoptymalizowanych pod kątem pamięci" w Azure Database for PostgreSQL.
+> Ta funkcja jest obsługiwana tylko dla warstw cenowych "Ogólnego przeznaczenia" i "zoptymalizowanych pod kątem pamięci" w Azure Database for MySQL.
 
 Zaletą szyfrowania warstwy infrastruktury jest implementacja na warstwie najbliżej urządzenia magazynującego lub sieci. Azure Database for MySQL implementuje dwie warstwy szyfrowania przy użyciu kluczy zarządzanych przez usługę. Mimo że w warstwie usług nadal są technicznie, jest to bardzo bliski sprzęt przechowujący dane. Nadal można opcjonalnie włączyć szyfrowanie danych w spoczynku przy użyciu [klucza zarządzanego przez klienta](concepts-data-encryption-mysql.md) dla aprowizacji serwera MySQL. 
 
@@ -59,13 +59,7 @@ Funkcje szyfrowania zapewniane przez Azure Database for MySQL mogą być używan
 W przypadku Azure Database for MySQL Obsługa podwójnego szyfrowania infrastruktury przy użyciu klucza zarządzanego przez usługę ma następujące ograniczenia:
 
 * Obsługa tej funkcji jest ograniczona do warstw cenowych **ogólnego przeznaczenia** i **zoptymalizowanych pod kątem pamięci** .
-* Azure Database for MySQL z szyfrowaniem infrastruktury można utworzyć w następujących regionach:
-
-   * East US
-   * South Central US
-   * Zachodnie stany USA 2
-   
-* * Ta funkcja jest obsługiwana tylko w regionach i serwerach, które obsługują magazyn do 16 TB. Listę regionów świadczenia usługi Azure obsługującą magazyn o pojemności do 16 TB można znaleźć w [dokumentacji magazynu](concepts-pricing-tiers.md#storage).
+* Ta funkcja jest obsługiwana tylko w regionach i serwerach, które obsługują magazyn do 16 TB. Listę regionów świadczenia usługi Azure obsługującą magazyn o pojemności do 16 TB można znaleźć w [dokumentacji magazynu](concepts-pricing-tiers.md#storage).
 
     > [!NOTE]
     > - Wszystkie **nowe** serwery MySQL utworzone w wymienionych powyżej regionach obsługują również szyfrowanie danych za pomocą kluczy menedżera klienta. W takim przypadku serwery utworzone za poorednictwem przywracania do punktu w czasie (kopie) lub odczytu replik nie kwalifikują się do "New".

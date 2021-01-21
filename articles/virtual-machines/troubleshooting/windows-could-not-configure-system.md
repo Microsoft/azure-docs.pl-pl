@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/09/2020
 ms.author: v-miegge
-ms.openlocfilehash: bde091b4a4559c3574ee122d74574d1f9477f3fd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6cb3467fec99bd12810ed058a61de1be7b39cdd0
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977052"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629593"
 ---
 # <a name="troubleshoot-windows-could-not-finish-configuring-the-system"></a>Rozwiązywanie problemów polegających na tym, że system Windows nie mógł zakończyć konfigurowania systemu
 
@@ -39,5 +39,8 @@ W przypadku korzystania z [diagnostyki rozruchu](./boot-diagnostics.md) w celu w
 Ten błąd jest spowodowany tym, że system operacyjny (OS) nie może ukończyć [procesu Sysprep](/windows-hardware/manufacture/desktop/sysprep-process-overview). Ten błąd wystąpi podczas próby początkowego uruchomienia uogólnionej maszyny wirtualnej. Jeśli wystąpi ten problem, Utwórz ponownie uogólniony obraz, ponieważ obraz jest w stanie niegotowym do wdrożenia i nie można go odzyskać.
 
 ## <a name="solution"></a>Rozwiązanie
+
+> [!TIP]
+> Jeśli masz najnowszą kopię zapasową maszyny wirtualnej, możesz spróbować [przywrócić maszynę wirtualną z kopii zapasowej](../../backup/backup-azure-arm-restore-vms.md) , aby rozwiązać problem z rozruchem.
 
 Aby rozwiązać ten problem, postępuj zgodnie ze [wskazówkami platformy Azure dotyczącymi przygotowania/przechwytywania obrazu](../windows/upload-generalized-managed.md) i przygotowania nowego uogólnionego obrazu.

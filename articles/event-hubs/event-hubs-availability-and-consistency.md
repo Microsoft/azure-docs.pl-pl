@@ -4,12 +4,12 @@ description: Jak zapewnić maksymalną ilość dostępności i spójność za po
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 81bacd5507396352bb814310979498234ee35347
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 7b97d76f29ee8b7e44373c865baa09ba5ea4dd23
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902905"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631923"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Availability and consistency in Event Hubs (Dostępność i spójność w usłudze Event Hubs)
 
@@ -30,10 +30,10 @@ Event Hubs jest tworzona na podstawie partycjonowanego modelu danych. Można sko
 Najprostszym sposobem na rozpoczęcie pracy z Event Hubs jest użycie zachowania domyślnego. 
 
 #### <a name="azuremessagingeventhubs-500-or-later"></a>[Azure. Messaging. EventHubs (5.0.0 lub nowszy)](#tab/latest)
-Jeśli utworzysz nowy obiekt **[EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient?view=azure-dotnet)** i użyjesz metody **[SendAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync?view=azure-dotnet)** , zdarzenia są automatycznie dystrybuowane między partycjami w centrum zdarzeń. To zachowanie umożliwia największą ilość czasu.
+Jeśli utworzysz nowy obiekt **[EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient)** i użyjesz metody **[SendAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync)** , zdarzenia są automatycznie dystrybuowane między partycjami w centrum zdarzeń. To zachowanie umożliwia największą ilość czasu.
 
 #### <a name="microsoftazureeventhubs-410-or-earlier"></a>[Microsoft. Azure. EventHubs (4.1.0 lub starszy)](#tab/old)
-W przypadku utworzenia nowego obiektu **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** i użycia metody **[send](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** zdarzenia są automatycznie dystrybuowane między partycjami w centrum zdarzeń. To zachowanie umożliwia największą ilość czasu.
+W przypadku utworzenia nowego obiektu **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** i użycia metody **[send](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** zdarzenia są automatycznie dystrybuowane między partycjami w centrum zdarzeń. To zachowanie umożliwia największą ilość czasu.
 
 ---
 

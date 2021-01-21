@@ -11,22 +11,22 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba802cb86d68298cd4dfff94162069590744833c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da22a4e5e9ab13ec18347e58bea6cfc5f45333de
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91256466"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630704"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Jak działa logowanie jednokrotne do zasobów lokalnych na urządzeniach dołączonych do usługi Azure AD
 
-Prawdopodobnie nie jest to nieoczekiwane, że urządzenie dołączone do usługi Azure Active Directory (Azure AD) udostępnia Logowanie jednokrotne do aplikacji w chmurze Twojej dzierżawy. Jeśli środowisko ma Active Directory lokalnego (AD), możesz je rozłożyć na te urządzenia do zasobów i aplikacji, które są zależne od lokalnych usług AD. 
+Prawdopodobnie nie jest to nieoczekiwane, że urządzenie dołączone do usługi Azure Active Directory (Azure AD) udostępnia Logowanie jednokrotne do aplikacji w chmurze Twojej dzierżawy. Jeśli środowisko ma lokalną Active Directory (AD), możesz również uzyskać obsługę logowania jednokrotnego na urządzeniach dołączonych do usługi Azure AD do zasobów i aplikacji korzystających z lokalnej usługi AD. 
 
 W tym artykule wyjaśniono, jak to działa.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
- Jeśli maszyny przyłączone do usługi Azure AD nie są połączone z siecią organizacji, wymagana jest sieć VPN lub inna infrastruktura sieciowa. Lokalne Logowanie jednokrotne wymaga komunikacji liniowej z lokalnymi kontrolerami domeny AD DS.
+Lokalne Logowanie jednokrotne wymaga komunikacji liniowej z lokalnymi kontrolerami domeny AD DS. Jeśli urządzenia dołączone do usługi Azure AD nie są połączone z siecią organizacji, wymagana jest sieć VPN lub inna infrastruktura sieciowa. 
 
 ## <a name="how-it-works"></a>Jak to działa 
 
@@ -34,10 +34,13 @@ W przypadku urządzenia dołączonego do usługi Azure AD użytkownicy mają ju�
 
 Urządzenia przyłączone do usługi Azure AD nie mają znajomości lokalnego środowiska usługi AD, ponieważ nie są do niego dołączone. Można jednak podać dodatkowe informacje o lokalnej usłudze AD na tych urządzeniach przy użyciu Azure AD Connect.
 
-Środowisko, które ma zarówno usługi Azure AD, jak i lokalna usługa AD, jest również znane w środowisku hybrydowym. Jeśli masz środowisko hybrydowe, prawdopodobnie masz już Azure AD Connect wdrożone w celu zsynchronizowania informacji o tożsamości lokalnej z chmurą. W ramach procesu synchronizacji Azure AD Connect synchronizuje informacje o użytkowniku lokalnym z usługą Azure AD. Gdy użytkownik loguje się do urządzenia dołączonego do usługi Azure AD w środowisku hybrydowym:
+Jeśli masz środowisko hybrydowe, z usługą Azure AD i lokalną usługą AD prawdopodobnie masz już Azure AD Connect wdrożone w celu zsynchronizowania informacji o tożsamości lokalnej z chmurą. W ramach procesu synchronizacji Azure AD Connect synchronizuje informacje o lokalnym użytkowniku i domenie w usłudze Azure AD. Gdy użytkownik loguje się do urządzenia dołączonego do usługi Azure AD w środowisku hybrydowym:
 
 1. Usługa Azure AD wysyła szczegóły domeny lokalnej użytkownika z powrotem do urządzenia wraz z [podstawowym tokenem odświeżania](concept-primary-refresh-token.md)
 1. Usługa urząd zabezpieczeń lokalnych (LSA) umożliwia uwierzytelnianie Kerberos i NTLM na urządzeniu.
+
+>[!NOTE]
+> Funkcja Windows Hello dla firm wymaga dodatkowej konfiguracji umożliwiającej lokalne Logowanie jednokrotne z urządzenia dołączonego do usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Konfigurowanie urządzeń przyłączonych do usługi Azure AD dla lokalnego Single-Sign przy użyciu funkcji Windows Hello dla firm](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base). 
 
 Podczas próby dostępu do zasobu żądającego protokołu Kerberos lub NTLM w środowisku lokalnym użytkownika urządzenie:
 
@@ -45,8 +48,6 @@ Podczas próby dostępu do zasobu żądającego protokołu Kerberos lub NTLM w �
 1. Odbiera [bilet uprawniający do przyznania biletu protokołu Kerberos (TGT)](/windows/desktop/secauthn/ticket-granting-tickets) lub token NTLM oparty na protokole obsługiwanym przez lokalny zasób lub aplikację. Jeśli próba pobrania tokenu TGT protokołu Kerberos lub NTLM dla domeny nie powiedzie się (pokrewny limit czasu DCLocator może spowodować opóźnienie), podejmowane są próby wprowadzenia wpisów Menedżera poświadczeń lub użytkownik może otrzymać wyskakujące uwierzytelnienie żądające poświadczeń dla zasobu docelowego.
 
 Wszystkie aplikacje, które są skonfigurowane pod kątem **uwierzytelniania zintegrowanego systemu Windows** , bezproblemowo otrzymują Logowanie jednokrotne, gdy użytkownik próbuje uzyskać do niego dostęp.
-
-Funkcja Windows Hello dla firm wymaga dodatkowej konfiguracji umożliwiającej lokalne Logowanie jednokrotne z urządzenia dołączonego do usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Konfigurowanie urządzeń przyłączonych do usługi Azure AD dla lokalnego Single-Sign przy użyciu funkcji Windows Hello dla firm](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base). 
 
 ## <a name="what-you-get"></a>Co otrzymujemy
 

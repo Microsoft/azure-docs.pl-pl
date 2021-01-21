@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: 7d1233c97ec80d5a2efa8b53c68e9e07a823165d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: cbfdb9a73f53e194b43010c0b2d84357aa3e2e5b
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977035"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631989"
 ---
 # <a name="windows-stop-error---0x00000074-bad-system-config-info"></a>Błąd zatrzymania systemu Windows — 0x00000074 nieprawidłowe informacje o konfiguracji systemu
 
@@ -47,6 +47,9 @@ Kod zatrzymania **BAD_SYSTEM_CONFIG_INFO** występuje, jeśli gałąź rejestru 
 ## <a name="solution"></a>Rozwiązanie
 
 ### <a name="process-overview"></a>Przegląd procesu:
+
+> [!TIP]
+> Jeśli masz najnowszą kopię zapasową maszyny wirtualnej, możesz spróbować [przywrócić maszynę wirtualną z kopii zapasowej](../../backup/backup-azure-arm-restore-vms.md) , aby rozwiązać problem z rozruchem.
 
 1. Utwórz maszynę wirtualną naprawy i uzyskaj do niej dostęp.
 1. Sprawdź uszkodzenie Hive.

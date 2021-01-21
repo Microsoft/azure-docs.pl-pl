@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 11/13/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f55af61a061bf3a3897569058aace728f7465b64
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: ec3f53e6f69614028c013efa5f0e6852cbc3f8ae
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862126"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631644"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-net"></a>Wysyłanie komunikatów do i odbieranie komunikatów z kolejek Azure Service Bus (.NET)
 W tym samouczku utworzysz aplikację konsolową .NET Core w celu wysyłania komunikatów do i odbierania komunikatów z kolejki Service Bus przy użyciu pakietu **Azure. Messaging. ServiceBus** . 
@@ -272,4 +272,4 @@ Zapoznaj się z poniższą dokumentacją i przykładami:
 
 - [Azure Service Busa Biblioteka kliencka dla platformy .NET — plik Readme](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus)
 - [Przykłady w serwisie GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)
-- [Dokumentacja interfejsów API platformy .NET](/dotnet/api/azure.messaging.servicebus?preserve-view=true&view=azure-dotnet-preview)
+- [Dokumentacja interfejsów API platformy .NET](/dotnet/api/azure.messaging.servicebus?preserve-view=true)

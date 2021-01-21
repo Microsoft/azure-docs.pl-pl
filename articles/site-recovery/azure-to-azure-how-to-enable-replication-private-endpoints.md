@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: 2db8d09511385039ea79ad1ed1f50177156f69c8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 86f18be73966cb07489630191420b846622e45b8
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369934"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629831"
 ---
 # <a name="replicate-machines-with-private-endpoints"></a>Replikowanie maszyn z prywatnymi punktami końcowymi
 
@@ -55,9 +55,9 @@ Magazyn usługi Recovery Services jest jednostką, która zawiera informacje o r
 [Zarządzana tożsamość](../active-directory/managed-identities-azure-resources/overview.md) zezwala magazynowi na uzyskanie dostępu do kont magazynu klienta. Site Recovery musi uzyskać dostęp do magazynu źródłowego, magazynu docelowego i kont magazynu pamięci podręcznej/dziennika w zależności od wymagań scenariusza.
 Dostęp do tożsamości zarządzanej jest istotny, gdy korzystasz z usługi linki prywatne dla magazynu.
 
-1. Przejdź do magazynu Recovery Services. W obszarze _Ustawienia_wybierz pozycję **tożsamość** .
+1. Przejdź do magazynu Recovery Services. W obszarze _Ustawienia_ wybierz pozycję **tożsamość** .
 
-   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/enable-managed-identity-in-vault.png" alt-text="Architektura referencyjna dla Site Recovery z prywatnymi punktami końcowymi.":::
+   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/enable-managed-identity-in-vault.png" alt-text="Pokazuje Azure Portal i Recovery Services strony.":::
 
 1. Zmień **stan** na _włączone_ i wybierz pozycję **Zapisz**.
 
@@ -73,19 +73,21 @@ Utwórz pierwszy prywatny punkt końcowy dla swojego magazynu w źródłowej sie
 
 1. Na pasku wyszukiwania Azure Portal Wyszukaj i wybierz pozycję "link prywatny". Ta akcja spowoduje przejście do prywatnego centrum linków.
 
-   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/search-private-links.png" alt-text="Architektura referencyjna dla Site Recovery z prywatnymi punktami końcowymi.":::
+   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/search-private-links.png" alt-text="Pokazuje przeszukiwanie Azure Portal dla prywatnego centrum linków.":::
 
-1. Na pasku nawigacyjnym po lewej stronie wybierz pozycję **prywatne punkty końcowe**. Na stronie prywatne punkty końcowe wybierz pozycję ** \+ Dodaj** , aby rozpocząć tworzenie prywatnego punktu końcowego dla magazynu.
+1. Na pasku nawigacyjnym po lewej stronie wybierz pozycję **prywatne punkty końcowe**. Na stronie prywatne punkty końcowe wybierz pozycję **\+ Dodaj** , aby rozpocząć tworzenie prywatnego punktu końcowego dla magazynu.
 
-   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/create-private-endpoints.png" alt-text="Architektura referencyjna dla Site Recovery z prywatnymi punktami końcowymi." wymagane jest określenie szczegółów dotyczących tworzenia połączenia prywatnego punktu końcowego.
+   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/create-private-endpoints.png" alt-text="Pokazuje, jak utworzyć prywatny punkt końcowy w prywatnym centrum połączeń.":::
+
+1. Raz w środowisku "Tworzenie prywatnego punktu końcowego" wymagane jest określenie szczegółów dotyczących tworzenia połączenia prywatnego punktu końcowego.
 
    1. **Podstawowe**: Podaj podstawowe informacje o prywatnych punktach końcowych. Region powinien być taki sam jak maszyny źródłowe.
 
-      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/create-private-endpoints-basic-tab.png" alt-text="Architektura referencyjna dla Site Recovery z prywatnymi punktami końcowymi.":::
+      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/create-private-endpoints-basic-tab.png" alt-text="Pokazuje kartę podstawowe, szczegóły projektu, subskrypcję i inne powiązane pola służące do tworzenia prywatnego punktu końcowego w Azure Portal.":::
 
    1. **Zasób**: na tej karcie należy wspomnieć zasób platformy jako usługi, dla którego chcesz utworzyć połączenie. Wybierz pozycję _Microsoft. RecoveryServices/magazyny_ z **typu zasobu** dla wybranej subskrypcji. Następnie wybierz nazwę magazynu Recovery Services dla **zasobu** i ustaw _Azure Site Recovery_ jako **docelowy zasób podrzędny**.
 
-      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/create-private-endpoints-resource-tab.png" alt-text="Architektura referencyjna dla Site Recovery z prywatnymi punktami końcowymi.":::
+      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/create-private-endpoints-resource-tab.png" alt-text="Pokazuje kartę zasób, typ zasobu, zasób i docelowe pola zasobu podrzędnego do konsolidacji do prywatnego punktu końcowego w Azure Portal.":::
 
    1. **Konfiguracja**: w obszarze Konfiguracja Określ sieć wirtualną i podsieć, w której ma zostać utworzony prywatny punkt końcowy. Ta sieć wirtualna jest siecią, w której znajduje się maszyna wirtualna. Włącz integrację z prywatną strefą DNS, wybierając opcję **tak**. Wybierz już utworzoną strefę DNS lub Utwórz nową. Wybranie opcji **tak** automatycznie łączy strefę ze źródłową siecią wirtualną i dodaje rekordy DNS, które są wymagane do rozpoznawania nazw DNS nowych adresów IP i w pełni kwalifikowanych nazwy domen utworzonych dla prywatnego punktu końcowego.
 
@@ -95,7 +97,7 @@ Utwórz pierwszy prywatny punkt końcowy dla swojego magazynu w źródłowej sie
 
       Aby ręcznie utworzyć prywatną strefę DNS, wykonaj kroki opisane w temacie [tworzenie prywatnych stref DNS i ręczne Dodawanie rekordów DNS](#create-private-dns-zones-and-add-dns-records-manually).
 
-      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/create-private-endpoints-configuration-tab.png" alt-text="Architektura referencyjna dla Site Recovery z prywatnymi punktami końcowymi.":::
+      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/create-private-endpoints-configuration-tab.png" alt-text="Przedstawia kartę Konfiguracja zawierającą pola Integracja sieci i usługi DNS w celu skonfigurowania prywatnego punktu końcowego w Azure Portal.":::
 
    1. **Tagi**: Opcjonalnie możesz dodać Tagi dla prywatnego punktu końcowego.
 
@@ -113,7 +115,7 @@ Jeśli użytkownik tworzący prywatny punkt końcowy jest również właściciel
 
 Aby sprawdzić stan połączenia przed kontynuowaniem, można przejść do zasobu prywatnego punktu końcowego.
 
-:::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/vault-private-endpoint-connections.png" alt-text="Architektura referencyjna dla Site Recovery z prywatnymi punktami końcowymi.":::
+:::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/vault-private-endpoint-connections.png" alt-text="Pokazuje stronę połączenia prywatnego punktu końcowego magazynu i listę połączeń w Azure Portal.":::
 
 ## <a name="optional-create-private-endpoints-for-the-cache-storage-account"></a><a name="create-private-endpoints-for-the-cache-storage-account"></a>Obowiązkowe Utwórz prywatne punkty końcowe dla konta magazynu pamięci podręcznej
 
@@ -121,6 +123,9 @@ Można użyć prywatnego punktu końcowego w usłudze Azure Storage. Tworzenie p
 
 - Potrzebujesz prywatnego punktu końcowego dla konta magazynu pamięci podręcznej/dziennika w źródłowej sieci wirtualnej.
 - Potrzebny jest drugi prywatny punkt końcowy w czasie ponownej ochrony maszyn przełączonej w tryb failover w sieci odzyskiwania. Ten prywatny punkt końcowy jest przeznaczony dla nowego konta magazynu utworzonego w regionie docelowym.
+
+> [!NOTE]
+> Jeśli prywatne punkty końcowe nie są włączone na koncie magazynu, ochrona nadal powiodła się. Jednak ruch związany z replikacją będzie przenoszony do Azure Site Recovery publicznych punktów końcowych. Aby zapewnić ruch związany z replikacją za pośrednictwem linków prywatnych, konto magazynu musi być włączone za pomocą prywatnych punktów końcowych.
 
 > [!NOTE]
 > Prywatny punkt końcowy dla magazynu można utworzyć tylko na kontach magazynu **ogólnego przeznaczenia v2** . Aby uzyskać informacje o cenach, zobacz [standardowe ceny obiektów BLOB na stronie](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
@@ -149,9 +154,13 @@ W poniższych krokach opisano, jak dodać przypisanie roli do kont magazynu, poj
 
 1. Po włączeniu **kontroli dostępu (IAM)** w polu "Dodaj przypisanie roli" Wybierz pozycję **Dodaj**.
 
-   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/storage-role-assignment.png" alt-text="Architektura referencyjna dla Site Recovery z prywatnymi punktami końcowymi." Wybierz rolę z powyższej listy na liście rozwijanej **rola** . Wprowadź **nazwę** magazynu i wybierz pozycję **Zapisz**.
+   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/storage-role-assignment.png" alt-text="Pokazuje stronę kontroli dostępu (IAM) na koncie magazynu i przycisk &quot;Dodaj przypisanie roli&quot; w Azure Portal.":::
 
-   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/storage-role-assignment-select-role.png" alt-text="Architektura referencyjna dla Site Recovery z prywatnymi punktami końcowymi." w **wyjątkach**.
+1. Na stronie "Dodawanie przypisania roli" Wybierz rolę z powyższej listy na liście rozwijanej **rola** . Wprowadź **nazwę** magazynu i wybierz pozycję **Zapisz**.
+
+   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/storage-role-assignment-select-role.png" alt-text="Pokazuje stronę kontroli dostępu (IAM) na koncie magazynu oraz opcje wyboru roli i jednostki, do której ma zostać przyznana rola w Azure Portal.":::
+
+Oprócz tych uprawnień usługi firmy MS muszą mieć również dostęp do programu. Przejdź do obszaru "zapory i sieci wirtualne" i wybierz opcję "Zezwalaj na dostęp zaufanych usług firmy Microsoft do tego konta magazynu" w **wyjątkach**.
 
 ## <a name="protect-your-virtual-machines"></a>Ochrona maszyn wirtualnych
 
@@ -167,9 +176,13 @@ Utwórz jedną prywatną strefę DNS, aby zezwolić agentowi mobilności na rozp
 
    1. Wyszukaj ciąg "Prywatna strefa DNS Zone" na pasku wyszukiwania **wszystkie usługi** i wybierz pozycję "strefy prywatna strefa DNS" z listy rozwijanej.
 
-      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Architektura referencyjna dla Site Recovery z prywatnymi punktami końcowymi." Wprowadź wymagane szczegóły. Wprowadź nazwę prywatnej strefy DNS jako `privatelink.siterecovery.windowsazure.com` . Możesz wybrać dowolną grupę zasobów i dowolną subskrypcję, aby ją utworzyć.
+      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Pokazuje wyszukiwanie &quot;prywatne strefy DNS&quot; na nowych zasobach w Azure Portal.":::
 
-      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/create-private-dns-zone.png" alt-text="Architektura referencyjna dla Site Recovery z prywatnymi punktami końcowymi.":::
+   1. Na stronie "Prywatna strefa DNS Zones" Wybierz przycisk **\+ Dodaj** , aby rozpocząć tworzenie nowej strefy.
+
+   1. Na stronie "Tworzenie prywatnej strefy DNS" Wprowadź wymagane szczegóły. Wprowadź nazwę prywatnej strefy DNS jako `privatelink.siterecovery.windowsazure.com` . Możesz wybrać dowolną grupę zasobów i dowolną subskrypcję, aby ją utworzyć.
+
+      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/create-private-dns-zone.png" alt-text="Pokazuje kartę podstawowe strony Tworzenie Prywatna strefa DNS strefy i powiązane szczegóły projektu w Azure Portal.":::
 
    1. Przejdź do karty **Recenzja \+ Create (Tworzenie** ), aby przejrzeć i utworzyć strefę DNS.
 
@@ -177,15 +190,28 @@ Utwórz jedną prywatną strefę DNS, aby zezwolić agentowi mobilności na rozp
 
    Prywatne strefy DNS utworzone powyżej muszą teraz być połączone z siecią wirtualną, w której obecnie znajdują się serwery. Należy również połączyć prywatną strefę DNS z zaawansowaną docelową siecią wirtualną.
 
-   1. Przejdź do prywatnej strefy DNS, która została utworzona w poprzednim kroku, i przejdź do pozycji **linki sieci wirtualnej** w lewej części strony. Po wybraniu tej opcji wybierz przycisk ** \+ Dodaj** .
+   1. Przejdź do prywatnej strefy DNS, która została utworzona w poprzednim kroku, i przejdź do pozycji **linki sieci wirtualnej** w lewej części strony. Po wybraniu tej opcji wybierz przycisk **\+ Dodaj** .
 
    1. Wprowadź wymagane szczegóły. Pola **subskrypcja** i **Sieć wirtualna** muszą zawierać odpowiednie szczegóły dotyczące sieci wirtualnej, w której znajdują się serwery. Pozostałe pola muszą pozostać w postaci, w jakiej jest.
 
-      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/add-virtual-network-link.png" alt-text="Architektura referencyjna dla Site Recovery z prywatnymi punktami końcowymi." w temacie **Omówienie**. Jak pokazano w poniższym przykładzie, pierwsza w pełni kwalifikowana nazwa domeny z prywatnego punktu końcowego jest dodawana do zestawu rekordów w prywatnej strefie DNS.
+      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/add-virtual-network-link.png" alt-text="Pokazuje stronę umożliwiającą dodanie linku sieci wirtualnej z nazwą łącza, subskrypcją i pokrewną siecią wirtualną w Azure Portal.":::
+
+1. Dodawanie rekordów DNS
+
+   Po utworzeniu wymaganych prywatnych stref DNS i prywatnych punktów końcowych należy dodać rekordy DNS do stref DNS.
+
+   > [!NOTE]
+   > W przypadku korzystania z niestandardowej prywatnej strefy DNS upewnij się, że podobne wpisy zostały opisane poniżej.
+
+   Ten krok wymaga wprowadzenia wpisów dla każdej w pełni kwalifikowanej nazwy domeny w prywatnym punkcie końcowym do prywatnej strefy DNS.
+
+   1. Przejdź do prywatnej strefy DNS i przejdź do sekcji **Przegląd** w lewej części strony. Po wybraniu tej opcji wybierz pozycję **\+ zestaw rekordów** , aby rozpocząć Dodawanie rekordów.
+
+   1. Na otwartej stronie "Dodawanie zestawu rekordów" Dodaj wpis dla każdej w pełni kwalifikowanej nazwy domeny i prywatnego adresu IP jako rekord _typu._ Listę w pełni kwalifikowanych nazw domen i adresów IP można uzyskać ze strony "prywatny punkt końcowy" w temacie **Omówienie**. Jak pokazano w poniższym przykładzie, pierwsza w pełni kwalifikowana nazwa domeny z prywatnego punktu końcowego jest dodawana do zestawu rekordów w prywatnej strefie DNS.
 
       Te w pełni kwalifikowane nazwy domen pasują do wzorca: `{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
 
-      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/add-record-set.png" alt-text="Architektura referencyjna dla Site Recovery z prywatnymi punktami końcowymi.":::
+      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/add-record-set.png" alt-text="Pokazuje stronę umożliwiającą dodanie rekordu typu DNS dla w pełni kwalifikowanej nazwy domeny do prywatnego punktu końcowego w Azure Portal.":::
 
    > [!NOTE]
    > Po włączeniu replikacji do prywatnych punktów końcowych w obu regionach są tworzone dwa więcej w pełni kwalifikowanych nazw domen. Upewnij się, że dodano rekordy DNS dla tych nowo utworzonych w pełni kwalifikowanych nazw domen.

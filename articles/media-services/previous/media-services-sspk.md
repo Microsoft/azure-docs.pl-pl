@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: xpouyat
-ms.openlocfilehash: cdb575d7b3884370e1a53f79f1184d40cd15d270
-ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
+ms.openlocfilehash: eb88d2cf96cc8557f2b8c729554106530cf6f956
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97732397"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629627"
 ---
 # <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licencjonowanie &reg; zestawu portów programu Microsoft Smooth Streaming Client
 
@@ -128,6 +128,7 @@ Licencje na tymczasowe i końcowe SSPK mogą przesyłać pytania techniczne do p
 * Hongkong Konka Ltd
 * InnoLux Corporation
 * Technologie Innopia, Inc
+* Jinpin Electrical Company Ltd. Zhuhai. S. E. Z
 * Technologia K-Tronics (Suzhou) co., Ltd. 
 * Kaonmedia co., Ltd.
 * KDDI Corporation
@@ -160,6 +161,6 @@ Licencje na tymczasowe i końcowe SSPK mogą przesyłać pytania techniczne do p
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

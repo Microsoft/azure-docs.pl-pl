@@ -8,12 +8,12 @@ ms.date: 10/06/2020
 ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a082ccb62103ab5bd027bf49b9ee05bc48c63115
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2878d682d0f2025a50f26baf87476f66aa236e2c
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979674"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630620"
 ---
 # <a name="powershell-scripts-for-iot-edge-on-windows"></a>Skrypty programu PowerShell dla IoT Edge w systemie Windows
 
@@ -21,14 +21,14 @@ Zapoznaj się ze skryptami programu PowerShell, które instalują, aktualizują 
 
 Polecenia opisane w tym artykule pochodzą z `IoTEdgeSecurityDaemon.ps1` pliku wydanego w każdej [IoT Edge wydania](https://github.com/Azure/azure-iotedge/releases). Najnowsza wersja skryptu jest zawsze dostępna pod adresem aka.ms/iotedge-win.
 
-Aby uzyskać dostęp do najnowszej wersji skryptu, można uruchomić dowolne polecenie przy użyciu `Invoke-WebRequest` polecenia cmdlet. Na przykład:
+Aby uzyskać dostęp do najnowszej wersji skryptu, można uruchomić dowolne polecenie przy użyciu `Invoke-WebRequest` polecenia cmdlet. Przykład:
 
 ```powershell
 . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
 Deploy-IoTEdge
 ```
 
-Możesz również pobrać ten skrypt lub wersję skryptu z określonej wersji, aby uruchomić polecenia. Na przykład:
+Możesz również pobrać ten skrypt lub wersję skryptu z określonej wersji, aby uruchomić polecenia. Przykład:
 
 ```powershell
 . <path>\IoTEdgeSecurityDaemon.ps1
@@ -96,13 +96,11 @@ Initialize-IoTEdge polecenie konfiguruje IoT Edge przy użyciu parametrów poł�
 
 | Parametr | Dopuszczalne wartości | Komentarze |
 | --------- | --------------- | -------- |
-| **Moc** | brak | Ta flaga wymusza dezinstalację w przypadku, gdy poprzednia próba odinstalowania zakończyła się niepowodzeniem.
+| **Force** | brak | Ta flaga wymusza dezinstalację w przypadku, gdy poprzednia próba odinstalowania zakończyła się niepowodzeniem.
 | **RestartIfNeeded** | brak | Ta flaga umożliwia skryptowi dezinstalacji ponowne uruchomienie maszyny bez monitowania, w razie potrzeby. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak używać tych poleceń w następujących artykułach:
+Dowiedz się, jak używać tych poleceń w następującym artykule:
 
-* [Instalowanie lub Odinstalowywanie środowiska uruchomieniowego Azure IoT Edge](how-to-install-iot-edge.md)
-* [Inicjowanie obsługi administracyjnej urządzenia Azure IoT Edge z uwierzytelnianiem przy użyciu klucza symetrycznego](how-to-manual-provision-symmetric-key.md)
-* [Inicjowanie obsługi administracyjnej urządzenia Azure IoT Edge przy użyciu uwierzytelniania certyfikatu X. 509](how-to-manual-provision-x509.md)
+* [Instalowanie lub odinstalowywanie Azure IoT Edge dla systemu Windows](how-to-install-iot-edge-windows-on-windows.md)

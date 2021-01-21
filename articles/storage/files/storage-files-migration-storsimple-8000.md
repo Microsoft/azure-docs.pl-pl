@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 08ed07adbfe0fc4b22d8a3d0afcfc9ab1312dba4
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 76a244810042adf3cec64b15fe847c5b684527c2
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134351"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631188"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 i 8600 migracji do Azure File Sync
 
@@ -160,7 +160,7 @@ Dostępna jest opcja pobrania magazynu Premium Storage (SSD) dla udziałów plik
 
 Nadal nie masz pewności?
 
-* Wybierz pozycję Magazyn Premium Storage, jeśli potrzebujesz [wydajności udziału plików platformy Azure w warstwie Premium](understanding-billing.md#provisioned-billing).
+* Wybierz pozycję Magazyn Premium Storage, jeśli potrzebujesz [wydajności udziału plików platformy Azure w warstwie Premium](understanding-billing.md#provisioned-model).
 * Wybierz pozycję Magazyn standardowy do obsługi obciążeń serwera plików ogólnego przeznaczenia, który obejmuje dane gorącą i dane archiwalne. Wybierz również pozycję Magazyn w warstwie Standardowa, jeśli będzie Azure File Sync tylko obciążenie udziału w chmurze.
 
 #### <a name="account-kind"></a>Rodzaj konta
@@ -244,7 +244,7 @@ W tej sekcji opisano sposób konfigurowania zadania migracji i dokładnego mapow
         ![Zadanie migracji serii StorSimple 8000.](media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-job.png "Zrzut ekranu przedstawiający formularz tworzenia nowego zadania dla zadania usługi przekształcania danych.")
     :::column-end:::
     :::column:::
-        **Nazwa definicji zadania**</br>Ta nazwa powinna wskazywać zestaw plików, które są przenoszone. Przyznaj mu podobną nazwę, ponieważ udział plików platformy Azure jest dobrym zwyczajem. </br></br>**Lokalizacja, w której jest uruchamiane zadanie**</br>W przypadku wybrania regionu należy wybrać ten sam region, w którym znajduje się konto magazynu StorSimple lub, jeśli to nie jest dostępne, a następnie zamknąć region. </br></br><h3>Element źródłowy</h3>**Subskrypcja źródłowa**</br>Wybierz subskrypcję, w ramach której przechowujesz zasób StorSimple Menedżer urządzeń. </br></br>**Zasób StorSimple**</br>Wybierz StorSimple Menedżer urządzeń Twoje urządzenie jest zarejestrowane w usłudze. </br></br>**Klucz szyfrowania danych usługi**</br>Sprawdź tę [wcześniejszą sekcję w tym artykule](#storsimple-service-data-encryption-key) , jeśli nie możesz zlokalizować klucza w rekordach. </br></br>**Urządzenie**</br>Wybierz urządzenie StorSimple, które zawiera wolumin, na którym chcesz przeprowadzić migrację. </br></br>**Wolumin**</br>Wybierz wolumin źródłowy. Następnie zdecyduj, czy chcesz migrować cały wolumin lub podkatalogi do docelowego udziału plików platformy Azure. </br></br><h3>Cel</h3>Wybierz subskrypcję, konto magazynu i udział plików platformy Azure jako element docelowy tego zadania migracji.
+        **Nazwa definicji zadania**</br>Ta nazwa powinna wskazywać zestaw plików, które są przenoszone. Przyznaj mu podobną nazwę, ponieważ udział plików platformy Azure jest dobrym zwyczajem. </br></br>**Lokalizacja, w której jest uruchamiane zadanie**</br>W przypadku wybrania regionu należy wybrać ten sam region, w którym znajduje się konto magazynu StorSimple lub, jeśli to nie jest dostępne, a następnie zamknąć region. </br></br><h3>Element źródłowy</h3>**Subskrypcja źródłowa**</br>Wybierz subskrypcję, w ramach której przechowujesz zasób StorSimple Device Manager. </br></br>**Zasób StorSimple**</br>Wybierz StorSimple Device Manager Twoje urządzenie jest zarejestrowane w usłudze. </br></br>**Klucz szyfrowania danych usługi**</br>Sprawdź tę [wcześniejszą sekcję w tym artykule](#storsimple-service-data-encryption-key) , jeśli nie możesz zlokalizować klucza w rekordach. </br></br>**Urządzenie**</br>Wybierz urządzenie StorSimple, które zawiera wolumin, na którym chcesz przeprowadzić migrację. </br></br>**Wolumin**</br>Wybierz wolumin źródłowy. Następnie zdecyduj, czy chcesz migrować cały wolumin lub podkatalogi do docelowego udziału plików platformy Azure. </br></br><h3>Cel</h3>Wybierz subskrypcję, konto magazynu i udział plików platformy Azure jako element docelowy tego zadania migracji.
     :::column-end:::
 :::row-end:::
 
@@ -567,7 +567,7 @@ Zanim zaczniesz, najlepszym rozwiązaniem jest obserwowanie nowego wdrożenia Az
 
 1. Cofaj obsługę administracyjną zasobu StorSimple Data Manager za pośrednictwem Azure Portal. Wszystkie zadania DTS zostaną usunięte razem z nim. Nie będziesz w stanie łatwo pobrać dzienników kopiowania. Jeśli są ważne dla rekordów, pobierz je przed cofnięciem aprowizacji.
 1. Upewnij się, że urządzenia fizyczne StorSimple zostały zmigrowane, a następnie Wyrejestruj je. Jeśli nie masz pewności, że zostały zmigrowane, nie należy przechodzić. W przypadku anulowania aprowizacji tych zasobów, gdy są nadal niezbędne, nie będzie można odzyskać danych ani ich konfiguracji.<br>Opcjonalnie można najpierw cofnąć aprowizacji zasobu woluminu StorSimple, co spowoduje wyczyszczenie danych z urządzenia. Może to potrwać kilka dni i **nie będzie** forensically danych na urządzeniu. Jeśli jest to ważne, należy obsługiwać zero dysków niezależnie od anulowania aprowizacji zasobów i zgodnie z zasadami.
-1. Jeśli nie ma więcej zarejestrowanych urządzeń w StorSimple Menedżer urządzeń, możesz wykonać operację usuwania Menedżer urządzeń samego zasobu.
+1. Jeśli nie ma więcej zarejestrowanych urządzeń w StorSimple Device Manager, możesz wykonać operację usuwania Device Manager samego zasobu.
 1. Teraz można usunąć konto magazynu StorSimple na platformie Azure. Ponownie, Zatrzymaj i Potwierdź, że migracja została ukończona i że nic nie zależą od tych danych przed kontynuowaniem.
 1. Odłącz urządzenie fizyczne StorSimple od centrum danych.
 1. Jeśli jesteś posiadaczem urządzenia StorSimple, możesz go odtworzyć na komputerze. Jeśli urządzenie jest dzierżawione, należy poinformować o nim mniej i przywrócić odpowiednie urządzenie.

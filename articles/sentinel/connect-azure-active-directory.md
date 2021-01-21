@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/20/2021
 ms.author: yelevin
-ms.openlocfilehash: 9700e5d9179f7c1e33b2371eea89be9bb1c8d08f
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: e84484990725b0c39b132aead51e9b01dbb7e7ef
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621366"
+ms.locfileid: "98632295"
 ---
 # <a name="connect-data-from-azure-active-directory-azure-ad"></a>Łączenie danych z Azure Active Directory (Azure AD)
 
@@ -28,7 +28,7 @@ Korzystając z wbudowanego łącznika kontrolki Azure, można zbierać dane z [A
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Musisz mieć subskrypcję [Azure AD — wersja Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) , aby pozyskiwanie dzienników logowania do platformy Azure — wskaźnik. Dodatkowe opłaty za gigabajty mogą dotyczyć Azure Monitor (Log Analytics) i platformy Azure.
+- Każda licencja usługi Azure AD (bezpłatna/O365/P1/P2) jest wystarczająca do pozyskiwania dzienników logowania do platformy Azure. Dodatkowe opłaty za gigabajty mogą dotyczyć Azure Monitor (Log Analytics) i platformy Azure.
 
 - Użytkownik musi mieć przypisaną rolę współautora wskaźnikowego platformy Azure w obszarze roboczym.
 
@@ -42,11 +42,27 @@ Korzystając z wbudowanego łącznika kontrolki Azure, można zbierać dane z [A
 
 1. Z galerii łączniki danych wybierz pozycję **Azure Active Directory** a następnie wybierz pozycję **Otwórz stronę łącznika**.
 
-1. Zaznacz pola wyboru obok dzienników, które chcesz przesłać do usługi Azure wskaźnikowej, a następnie kliknij przycisk **Połącz**.
+1. Zaznacz pola wyboru obok typów dzienników, które chcesz przesłać strumieniowo do usługi Azure wskaźnikowej, a następnie kliknij przycisk **Połącz**. Oto typy dzienników, spośród których można wybrać:
 
-1. Możesz wybrać, czy alerty z usługi Azure AD mają automatycznie generować zdarzenia na platformie Azure. W obszarze **Tworzenie zdarzeń** wybierz pozycję **Włącz** , aby włączyć domyślną regułę analizy, która automatycznie tworzy zdarzenia z alertów generowanych w połączonej usłudze zabezpieczeń. Następnie można edytować tę regułę w obszarze **Analiza** , a następnie **aktywne reguły**.
+    - Dzienniki logowania
+    - Dzienniki inspekcji
+    - Dzienniki logowania użytkowników nieinterakcyjnych
+    - Dzienniki logowania nazwy głównej usługi
+    - Dzienniki logowania tożsamości zarządzanej
+    - Dzienniki aprowizowania
 
-1. Aby użyć odpowiedniego schematu w Log Analytics do wykonywania zapytań dotyczących alertów usługi Azure AD, wpisz `SigninLogs` lub `AuditLogs` w oknie zapytania.
+## <a name="find-your-data"></a>Znajdowanie danych
+
+Po pomyślnym nawiązaniu połączenia dane pojawiają się w **dziennikach** w sekcji **LogManagement** w następujących tabelach:
+
+- `SigninLogs`
+- `AuditLogs`
+- `AADNonInteractiveUserSignInLogs`
+- `AADServicePrincipalSignInLogs`
+- `AADManagedIdentitySignInLogs`
+- `AADProvisioningLogs`
+
+Aby wykonać zapytanie dotyczące dzienników usługi Azure AD, wprowadź odpowiednią nazwę tabeli w górnej części okna zapytania.
 
 ## <a name="next-steps"></a>Następne kroki
 W tym dokumencie przedstawiono sposób nawiązywania połączenia Azure Active Directory z platformą Azure — wskaźnikiem. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
