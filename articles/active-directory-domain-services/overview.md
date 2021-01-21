@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/03/2020
+ms.date: 01/20/2021
 ms.author: justinha
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 765aa10e57c472d7a1af0952364783bb1d711078
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 194a5420f38e99d45f74241f67ae8cfbbaaee8f4
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861502"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661001"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>Co to są usługi Azure Active Directory Domain Services?
 
@@ -24,10 +24,14 @@ Azure Active Directory Domain Services (AD DS) oferuje zarządzane usługi domen
 
 Domena zarządzana AD DS platformy Azure umożliwia uruchamianie starszych aplikacji w chmurze, które nie mogą korzystać z nowoczesnych metod uwierzytelniania, lub w przypadku, gdy nie chcesz, aby przeszukiwania katalogów były zawsze przywracane do lokalnego środowiska AD DS. Te starsze aplikacje można przekształcać i przenoszone ze środowiska lokalnego do domeny zarządzanej bez konieczności zarządzania środowiskiem AD DS w chmurze.
 
-Platforma Azure AD DS integruje się z istniejącą dzierżawą usługi Azure AD. Ta Integracja umożliwia użytkownikom logowanie się do usługi i aplikacji podłączonych do domeny zarządzanej przy użyciu istniejących poświadczeń. Do zabezpieczenia dostępu do zasobów można także używać istniejących grup i kont użytkowników. Te funkcje zapewniają płynne podniesienie i przesunięcia zasobów lokalnych na platformę Azure.
+Platforma Azure AD DS integruje się z istniejącą dzierżawą usługi Azure AD. Ta Integracja umożliwia użytkownikom logowanie się do usług i aplikacji połączonych z domeną zarządzaną za pomocą istniejących poświadczeń. Do zabezpieczenia dostępu do zasobów można także używać istniejących grup i kont użytkowników. Te funkcje zapewniają płynne podniesienie i przesunięcia zasobów lokalnych na platformę Azure.
 
 > [!div class="nextstepaction"]
 > [Aby rozpocząć, Utwórz domenę zarządzaną platformy Azure AD DS przy użyciu Azure Portal][tutorial-create]
+
+Zapoznaj się z naszym krótkim wideo, aby dowiedzieć się więcej o usłudze Azure AD DS.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LblD]
 
 ## <a name="how-does-azure-ad-ds-work"></a>Jak działa usługa Azure AD DS?
 

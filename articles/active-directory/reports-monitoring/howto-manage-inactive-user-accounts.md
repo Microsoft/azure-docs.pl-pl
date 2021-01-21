@@ -13,16 +13,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/07/2020
+ms.date: 01/21/2021
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b48a84bb69a356815cccd1e33c555eeb667699f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8fb517f8c50ad2c32f23542e60069a0e0a496a2d
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89244725"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660668"
 ---
 # <a name="how-to-manage-inactive-user-accounts-in-azure-ad"></a>Instrukcje: Zarządzanie kontami nieaktywnych użytkowników w usłudze Azure AD
 
@@ -85,7 +85,7 @@ Każde logowanie interaktywne, które powiodło się, spowoduje zaktualizowanie 
 
 Aby wygenerować sygnaturę czasową lastSignInDateTime, konieczne jest pomyślne zalogowanie. Ponieważ właściwość lastSignInDateTime jest nową funkcją, wartość właściwości lastSignInDateTime może być pusta, jeśli:
 
-- Ostatnia pomyślna Rejestracja użytkownika miała miejsce przed wydaniem tej funkcji (1 grudnia 2019).
+- Ostatnie pomyślne Logowanie użytkownika miało miejsce przed 2020 kwietnia.
 - Konto użytkownika, którego to dotyczy, nigdy nie było używane do pomyślnego logowania.
 
 ## <a name="next-steps"></a>Następne kroki

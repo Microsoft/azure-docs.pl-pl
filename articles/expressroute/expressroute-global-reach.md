@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 09/18/2020
 ms.author: duau
 ms.custom: references_regions
-ms.openlocfilehash: e3f9105037c049a53f1b7b99da96dd857070fcc7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50679e11697a4227af69b8568c5f3cd23fe26cbe
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987615"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662801"
 ---
 # <a name="expressroute-global-reach"></a>ExpressRoute Global Reach
 ExpressRoute to prywatny i odporny na połączenie sieci lokalnych z Microsoft Cloud. Dostęp do wielu usług w chmurze firmy Microsoft, takich jak Azure i Microsoft 365, można uzyskać z prywatnego centrum danych lub sieci firmowej. Na przykład możesz mieć oddział w sieci San Francisco z obwodem usługi ExpressRoute w Dolina krzemu i innym biurze oddziału w Londynie z obwodem usługi ExpressRoute w tym samym mieście. Obie biura oddziałów mają wysoką szybkość łączności z zasobami platformy Azure w zachodnich stanach USA i Południowe Zjednoczone Królestwo. Oddziały nie mogą jednak łączyć i wysyłać danych bezpośrednio ze sobą. Innymi słowy, 10.0.1.0/24 może wysyłać dane do sieci 10.0.3.0/24 i 10.0.4.0/24, ale nie do sieci 10.0.2.0/24.
 
 ![Diagram przedstawiający obwody, które nie są połączone ze sobą za pomocą usługi Express Route Global Reach.][1]
 
-Program **ExpressRoute Global REACH**umożliwia łączenie obwodów ExpressRoute ze sobą w celu naprowadzenia prywatnej sieci między sieciami lokalnymi. W powyższym przykładzie, przy dodawaniu ExpressRoute Global Reach, Sieć San Francisco Office (10.0.1.0/24) może bezpośrednio wymieniać dane z biurem w Londynie (10.0.2.0/24) za pośrednictwem istniejących obwodów usługi ExpressRoute i sieci globalnej firmy Microsoft. 
+Program **ExpressRoute Global REACH** umożliwia łączenie obwodów ExpressRoute ze sobą w celu naprowadzenia prywatnej sieci między sieciami lokalnymi. W powyższym przykładzie, przy dodawaniu ExpressRoute Global Reach, Sieć San Francisco Office (10.0.1.0/24) może bezpośrednio wymieniać dane z biurem w Londynie (10.0.2.0/24) za pośrednictwem istniejących obwodów usługi ExpressRoute i sieci globalnej firmy Microsoft. 
 
 ![Diagram przedstawiający obwody połączone ze sobą za pomocą usługi Express Route Global Reach.][2]
 
@@ -47,6 +47,7 @@ ExpressRoute Global Reach jest obsługiwane w następujących miejscach.
 * Nowa Zelandia
 * Norwegia
 * Singapur
+* Republika Południowej Afryki (tylko Johannesburg)
 * Szwecja
 * Szwajcaria
 * Zjednoczone Królestwo

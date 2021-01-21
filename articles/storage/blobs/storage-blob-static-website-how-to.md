@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 8ca670049b49500e6b6310bca25cb78ded31a294
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: a90251097f2b4cced5b30f5d6eea03b6ca0b1c61
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95537853"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664753"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hostowanie statycznej witryny sieci Web w usłudze Azure Storage
 
@@ -54,9 +54,9 @@ Hostowanie statycznej witryny sieci Web to funkcja, którą należy włączyć n
 
 <a id="cli"></a>
 
-Można włączyć obsługę statycznej witryny sieci Web przy użyciu [interfejsu Azure Command-Line Interface (CLI)](/cli/azure/?view=azure-cli-latest).
+Można włączyć obsługę statycznej witryny sieci Web przy użyciu [interfejsu Azure Command-Line Interface (CLI)](/cli/azure/).
 
-1. Najpierw Otwórz [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest)lub jeśli interfejs wiersza polecenia platformy Azure został [zainstalowany](/cli/azure/install-azure-cli?view=azure-cli-latest) lokalnie, Otwórz aplikację konsoli poleceń, taką jak Windows PowerShell.
+1. Najpierw Otwórz [Azure Cloud Shell](../../cloud-shell/overview.md)lub jeśli interfejs wiersza polecenia platformy Azure został [zainstalowany](/cli/azure/install-azure-cli) lokalnie, Otwórz aplikację konsoli poleceń, taką jak Windows PowerShell.
 
 2. Jeśli Twoja tożsamość jest skojarzona z więcej niż jedną subskrypcją, ustaw aktywną subskrypcję na konto magazynu, które będzie hostować statyczną witrynę sieci Web.
 

@@ -3,16 +3,16 @@ title: Przegląd — Azure Database for MariaDB
 description: Dowiedz się więcej na temat usługi Azure Database for MariaDB, usługi relacyjnej bazy danych w chmurze firmy Microsoft w oparciu o wersję MySQL Community Edition.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: overview
 ms.custom: mvc
 ms.date: 3/18/2020
-ms.openlocfilehash: 8115625099543d378728a6313a8cc4c95fec0cd2
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 7c365dee2b3ac32a62b38d0b3273f2f13e402936
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94537003"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662021"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>Co to jest usługa Azure Database for MariaDB?
 

@@ -3,17 +3,17 @@ title: Przykłady interfejsu wiersza polecenia platformy Azure — Azure Databas
 description: W tym artykule wymieniono dostępne przykłady kodu interfejsu wiersza polecenia platformy Azure na potrzeby interakcji z usługą Azure Database for MariaDB.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 3/18/2020
-ms.openlocfilehash: aa9efba1c49063d40b4df0444fb3bc63b124a0a0
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 5218d087a622c1f651785afd1ab7cb418732b093
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536776"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664602"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-mariadb"></a>Przykłady interfejsu wiersza polecenia platformy Azure dla usługi Azure Database for MariaDB 
 Poniższa tabela zawiera linki do przykładowych skryptów interfejsu wiersza polecenia platformy Azure dla usługi Azure Database for MariaDB.

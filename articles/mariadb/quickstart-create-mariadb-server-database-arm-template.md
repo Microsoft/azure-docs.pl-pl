@@ -3,16 +3,16 @@ title: 'Szybki Start: Tworzenie szablonu usługi Azure DB dla MariaDB — ARM'
 description: W tym artykule dotyczącym szybkiego startu dowiesz się, jak utworzyć serwer Azure Database for MariaDB przy użyciu szablonu Azure Resource Manager.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/14/2020
-ms.openlocfilehash: de6df8349025c3e87e5b005196008053039fa49f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: b40aa30121bf98e756e26d70b44bc74a500de79f
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94537147"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662077"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mariadb-server"></a>Szybki Start: Tworzenie serwera Azure Database for MariaDB przy użyciu szablonu ARM
 
@@ -60,7 +60,7 @@ Szablon definiuje pięć zasobów platformy Azure:
 
 Więcej przykładów szablonów Azure Database for MariaDB można znaleźć w [szablonach szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformariadb&pageNumber=1&sort=Popular).
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -70,30 +70,30 @@ Wybierz następujący link, aby wdrożyć szablon Azure Database for MariaDB Ser
 
 Na stronie **wdrażanie Azure Database for MariaDB przy użyciu sieci wirtualnej** :
 
-1. W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową** , wprowadź nazwę nowej grupy zasobów, a następnie wybierz pozycję **OK**.
+1. W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową**, wprowadź nazwę nowej grupy zasobów, a następnie wybierz pozycję **OK**.
 
 2. Jeśli utworzono nową grupę zasobów, wybierz **lokalizację** dla grupy zasobów i nowy serwer.
 
-3. Wprowadź **nazwę serwera** , **Identyfikator logowania administratora** i **hasło logowania administratora**.
+3. Wprowadź **nazwę serwera**, **Identyfikator logowania administratora** i **hasło logowania administratora**.
 
     ![Wdrażanie Azure Database for MariaDB przy użyciu okna Sieć wirtualna, szablon szybkiego startu platformy Azure, Azure Portal](./media/quickstart-create-mariadb-server-database-arm-template/deploy-azure-database-mariadb-vnet.png)
 
 4. Zmień inne ustawienia domyślne, jeśli chcesz:
 
-    * **Subskrypcja** : subskrypcja platformy Azure, która ma być używana dla serwera.
-    * **Pojemność jednostki SKU** : pojemność rdzeń wirtualny, która może być *2* (wartość domyślna), *4* , *8* , *16* , *32* lub *64*.
-    * **Nazwa jednostki SKU** : prefiks warstwy SKU, Rodzina SKU i pojemność jednostki SKU, dołączone przez podkreślenia, takie jak *B_Gen5_1* , *GP_Gen5_2* (domyślne) lub *MO_Gen5_32*.
-    * **Rozmiar jednostki SKU MB** : rozmiar magazynu (w megabajtach) serwera Azure Database for MariaDB (domyślnie *51200* ).
-    * **Warstwa SKU** : warstwa wdrożenia, taka jak *podstawowa* , *GeneralPurpose* (domyślna) lub *MemoryOptimized*.
-    * **Rodzina SKU** : *obliczenia* lub *5 rdzeń* (domyślnie), która wskazuje na generowanie sprzętu na potrzeby wdrażania serwera.
-    * **Wersja MariaDB** : wersja serwera MariaDB do wdrożenia, na przykład *10,2* lub *10,3* (wartość domyślna).
-    * **Liczba dni przechowywania kopii zapasowych** : żądany okres przechowywania kopii zapasowych z Geograficznie nadmiarowy w dniach (domyślnie *7* ).
-    * **Geograficznie nadmiarowa kopia zapasowa** : *włączone* lub *wyłączone* (wartość domyślna), w zależności od wymagań geograficznych odzyskiwania po awarii (GEO-dr).
-    * **Nazwa Virtual Network** : Nazwa sieci wirtualnej (domyślna *azure_mariadb_vnet* ).
-    * **Nazwa podsieci** : Nazwa podsieci (domyślna *azure_mariadb_subnet* ).
-    * **Nazwa reguły Virtual Network** : Nazwa reguły sieci wirtualnej zezwalającej na podsieć (domyślnie *AllowSubnet* ).
-    * **Prefiks adresu** sieci wirtualnej: prefiks adresu dla usługi Virtual Network (domyślnie *10.0.0.0/16* ).
-    * **Prefiks podsieci** : prefiks adresu podsieci (domyślnie *10.0.0.0/16* ).
+    * **Subskrypcja**: subskrypcja platformy Azure, która ma być używana dla serwera.
+    * **Pojemność jednostki SKU**: pojemność rdzeń wirtualny, która może być *2* (wartość domyślna), *4*, *8*, *16*, *32* lub *64*.
+    * **Nazwa jednostki SKU**: prefiks warstwy SKU, Rodzina SKU i pojemność jednostki SKU, dołączone przez podkreślenia, takie jak *B_Gen5_1*, *GP_Gen5_2* (domyślne) lub *MO_Gen5_32*.
+    * **Rozmiar jednostki SKU MB**: rozmiar magazynu (w megabajtach) serwera Azure Database for MariaDB (domyślnie *51200*).
+    * **Warstwa SKU**: warstwa wdrożenia, taka jak *podstawowa*, *GeneralPurpose* (domyślna) lub *MemoryOptimized*.
+    * **Rodzina SKU**: *obliczenia* lub *5 rdzeń* (domyślnie), która wskazuje na generowanie sprzętu na potrzeby wdrażania serwera.
+    * **Wersja MariaDB**: wersja serwera MariaDB do wdrożenia, na przykład *10,2* lub *10,3* (wartość domyślna).
+    * **Liczba dni przechowywania kopii zapasowych**: żądany okres przechowywania kopii zapasowych z Geograficznie nadmiarowy w dniach (domyślnie *7*).
+    * **Geograficznie nadmiarowa kopia zapasowa**: *włączone* lub *wyłączone* (wartość domyślna), w zależności od wymagań geograficznych odzyskiwania po awarii (GEO-dr).
+    * **Nazwa Virtual Network**: Nazwa sieci wirtualnej (domyślna *azure_mariadb_vnet*).
+    * **Nazwa podsieci**: Nazwa podsieci (domyślna *azure_mariadb_subnet*).
+    * **Nazwa reguły Virtual Network**: Nazwa reguły sieci wirtualnej zezwalającej na podsieć (domyślnie *AllowSubnet*).
+    * **Prefiks adresu** sieci wirtualnej: prefiks adresu dla usługi Virtual Network (domyślnie *10.0.0.0/16*).
+    * **Prefiks podsieci**: prefiks adresu podsieci (domyślnie *10.0.0.0/16*).
 
 5. Przeczytaj warunki i postanowienia, a następnie wybierz **Akceptuję warunki i postanowienia podane powyżej**.
 

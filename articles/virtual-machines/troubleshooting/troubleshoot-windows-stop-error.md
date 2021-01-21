@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 33b4c59e14301e496d0eddafa7bdfdf201b7aa29
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d6e738152e542617046834980d3e7c58e497093
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005909"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664685"
 ---
 # <a name="windows-stop-error---status-no-memory"></a>Błąd zatrzymania systemu Windows — stan braku pamięci
 
@@ -44,6 +44,9 @@ Dysk systemu operacyjnego jest pełny, zbyt pofragmentowany lub system operacyjn
 ## <a name="solution"></a>Rozwiązanie
 
 ### <a name="process-overview"></a>Przegląd procesu:
+
+> [!TIP]
+> Jeśli masz najnowszą kopię zapasową maszyny wirtualnej, możesz spróbować [przywrócić maszynę wirtualną z kopii zapasowej](../../backup/backup-azure-arm-restore-vms.md) , aby rozwiązać problem z rozruchem.
 
 1. Tworzenie maszyny wirtualnej naprawy i uzyskiwanie do niej dostępu
 1. Zwolnij miejsce na dysku

@@ -10,12 +10,12 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: f3af2b7839465f886d1edba01eb9988419761dac
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 71e38059aceb7da63f3545610b9acfe48c5d3150
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/21/2021
-ms.locfileid: "98630983"
+ms.locfileid: "98663217"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-windows-device-preview"></a>Szybki Start: wdrażanie pierwszego modułu IoT Edge na urządzeniu z systemem Windows (wersja zapoznawcza)
 
@@ -108,58 +108,69 @@ Zainstaluj IoT Edge dla systemu Linux w systemie Windows na urządzeniu i skonfi
 ![Diagram — uruchamianie IoT Edge środowiska uruchomieniowego na urządzeniu](./media/quickstart/start-runtime.png)
 
 1. [Pobierz centrum administracyjne systemu Windows](https://aka.ms/WACDownloadEFLOW).
-2. Postępuj zgodnie z instrukcjami Kreatora instalacji, aby skonfigurować centrum administracyjne systemu Windows na urządzeniu.
-3. Gdy jesteś w centrum administracyjnym systemu Windows, w prawym górnym rogu ekranu wybierz **ikonę koła zębatego ustawienia**  
-4. W menu Ustawienia w obszarze Brama wybierz pozycję **rozszerzenia** .
-5. Z listy **dostępnych rozszerzeń** wybierz pozycję **Azure IoT Edge**
-6. **Zainstaluj** rozszerzenie
 
-7. Po zainstalowaniu rozszerzenia przejdź do głównej strony pulpitu nawigacyjnego, wybierając pozycję **Centrum administracyjne systemu Windows** w lewym górnym rogu ekranu.
+1. Postępuj zgodnie z instrukcjami Kreatora instalacji, aby skonfigurować centrum administracyjne systemu Windows na urządzeniu.
 
-8. Zostanie wyświetlone połączenie hosta lokalnego reprezentujące komputer z uruchomionym centrum administracyjnym systemu Windows.
+1. Gdy jesteś w centrum administracyjnym systemu Windows, w prawym górnym rogu ekranu wybierz **ikonę koła zębatego ustawienia**
+
+1. W menu Ustawienia w obszarze Brama wybierz pozycję **rozszerzenia** .
+
+1. Wybierz kartę **źródła danych** , a następnie wybierz pozycję **Dodaj**.
+
+1. Wprowadź https://aka.ms/wac-insiders-feed tekst w polu tekstowym, a następnie wybierz pozycję **Dodaj**.
+
+1. Po dodaniu kanału informacyjnego przejdź do karty **dostępne rozszerzenia** . Aktualizacja listy rozszerzeń może chwilę potrwać.
+
+1. Z listy **dostępnych rozszerzeń** wybierz pozycję **Azure IoT Edge**
+
+1. **Zainstaluj** rozszerzenie
+
+1. Po zainstalowaniu rozszerzenia przejdź do głównej strony pulpitu nawigacyjnego, wybierając pozycję **Centrum administracyjne systemu Windows** w lewym górnym rogu ekranu.
+
+1. Zostanie wyświetlone połączenie hosta lokalnego reprezentujące komputer z uruchomionym centrum administracyjnym systemu Windows.
 
    :::image type="content" source="media/quickstart/windows-admin-center-start-page.png" alt-text="Zrzut ekranu — Strona startowa administratora systemu Windows":::
 
-9. Wybierz pozycję **Dodaj**.
+1. Wybierz pozycję **Dodaj**.
 
    :::image type="content" source="media/quickstart/windows-admin-center-start-page-add.png" alt-text="Zrzut ekranu — przycisk Dodaj strony początkowej administratora systemu Windows":::
 
-10. Znajdź kafelek Azure IoT Edge i wybierz pozycję **Utwórz nowy**. Spowoduje to uruchomienie Kreatora instalacji.
+1. Znajdź kafelek Azure IoT Edge i wybierz pozycję **Utwórz nowy**. Spowoduje to uruchomienie Kreatora instalacji.
 
     :::image type="content" source="media/quickstart/select-tile-screen.png" alt-text="Zrzut ekranu — Azure IoT Edge dla systemu Linux na kafelku z systemem Windows":::
 
-11. Przejdź do Kreatora instalacji, aby zaakceptować umowę licencyjną i wybierz pozycję **dalej** .
+1. Przejdź do Kreatora instalacji, aby zaakceptować umowę licencyjną i wybierz pozycję **dalej** .
 
     :::image type="content" source="media/quickstart/wizard-welcome-screen.png" alt-text="Zrzut ekranu — Witamy w Kreatorze":::
 
-12. Wybierz **opcjonalne dane diagnostyczne** , aby zapewnić rozszerzone dane diagnostyczne, które umożliwiają firmie Microsoft monitorowanie i konserwowanie jakości usług, a następnie kliknij przycisk **Dalej: Wdróż.**
+1. Wybierz **opcjonalne dane diagnostyczne** , aby zapewnić rozszerzone dane diagnostyczne, które umożliwiają firmie Microsoft monitorowanie i konserwowanie jakości usług, a następnie kliknij przycisk **Dalej: Wdróż.**
 
     :::image type="content" source="media/quickstart/diagnostic-data-screen.png" alt-text="Zrzut ekranu — dane diagnostyczne":::
 
-13. Na ekranie **Wybieranie urządzenia docelowego** wybierz odpowiednie urządzenie docelowe, aby sprawdzić, czy spełnia ono wymagania minimalne. Na potrzeby tego przewodnika Szybki Start instalujemy IoT Edge na urządzeniu lokalnym, dlatego należy wybrać połączenie localhost. Po potwierdzeniu wybierz pozycję **dalej** , aby kontynuować.
+1. Na ekranie **Wybieranie urządzenia docelowego** wybierz odpowiednie urządzenie docelowe, aby sprawdzić, czy spełnia ono wymagania minimalne. Na potrzeby tego przewodnika Szybki Start instalujemy IoT Edge na urządzeniu lokalnym, dlatego należy wybrać połączenie localhost. Po potwierdzeniu wybierz pozycję **dalej** , aby kontynuować.
 
     :::image type="content" source="media/quickstart/wizard-select-target-device-screen.png" alt-text="Zrzut ekranu — wybierz urządzenie docelowe":::
 
-14. Zaakceptuj ustawienia domyślne, wybierając pozycję **dalej**.
+1. Zaakceptuj ustawienia domyślne, wybierając pozycję **dalej**.
 
-15. Na ekranie wdrożenia jest wyświetlany proces pobierania pakietu, instalowania pakietu, konfigurowania hosta i finalnej konfiguracji maszyny wirtualnej systemu Linux.  Pomyślne wdrożenie będzie wyglądać następująco:
+1. Na ekranie wdrożenia jest wyświetlany proces pobierania pakietu, instalowania pakietu, konfigurowania hosta i finalnej konfiguracji maszyny wirtualnej systemu Linux.  Pomyślne wdrożenie będzie wyglądać następująco:
 
     :::image type="content" source="media/quickstart/wizard-deploy-success-screen.png" alt-text="Zrzut ekranu — powodzenie wdrażania Kreatora":::
 
-16. Kliknij przycisk **Dalej: Połącz** , aby przejść do ostatniego kroku, aby zainicjować obsługę administracyjną urządzenia Azure IoT Edge przy użyciu identyfikatora urządzenia z wystąpienia usługi IoT Hub.
+1. Kliknij przycisk **Dalej: Połącz** , aby przejść do ostatniego kroku, aby zainicjować obsługę administracyjną urządzenia Azure IoT Edge przy użyciu identyfikatora urządzenia z wystąpienia usługi IoT Hub.
 
-17. Skopiuj parametry połączenia z urządzenia na platformie Azure IoT Hub i wklej je do pola parametry połączenia urządzenia. Następnie wybierz opcję **aprowizacji z wybraną metodą**.
+1. Skopiuj parametry połączenia z urządzenia na platformie Azure IoT Hub i wklej je do pola parametry połączenia urządzenia. Następnie wybierz opcję **aprowizacji z wybraną metodą**.
 
     > [!NOTE]
     > Zobacz Krok 3 w poprzedniej sekcji, [Zarejestruj urządzenie IoT Edge](#register-an-iot-edge-device), aby pobrać parametry połączenia.
 
     :::image type="content" source="media/quickstart/wizard-provision.png" alt-text="Zrzut ekranu — Inicjowanie obsługi Kreatora":::
 
-18. Po zakończeniu aprowizacji wybierz pozycję **Zakończ** , aby zakończyć, i wróć do ekranu startowego centrum administracyjnego systemu Windows. Teraz powinno być możliwe wyświetlenie urządzenia na liście jako urządzenie IoT Edge.
+1. Po zakończeniu aprowizacji wybierz pozycję **Zakończ** , aby zakończyć, i wróć do ekranu startowego centrum administracyjnego systemu Windows. Teraz powinno być możliwe wyświetlenie urządzenia na liście jako urządzenie IoT Edge.
 
     :::image type="content" source="media/quickstart/windows-admin-center-device-screen.png" alt-text="Zrzut ekranu — Centrum administracyjne systemu Windows Azure IoT Edge urządzenie":::
 
-19. Wybierz urządzenie Azure IoT Edge, aby wyświetlić jego pulpit nawigacyjny. Należy sprawdzić, czy zostały wdrożone obciążenia z sznurka urządzenia w usłudze Azure IoT Hub. **Lista modułów IoT Edge** powinna zawierać jeden moduł z systemem, **EdgeAgent**, a **stan IoT Edge** powinien być widoczny jako **aktywny (uruchomiony)**.
+1. Wybierz urządzenie Azure IoT Edge, aby wyświetlić jego pulpit nawigacyjny. Należy sprawdzić, czy zostały wdrożone obciążenia z sznurka urządzenia w usłudze Azure IoT Hub. **Lista modułów IoT Edge** powinna zawierać jeden moduł z systemem, **EdgeAgent**, a **stan IoT Edge** powinien być widoczny jako **aktywny (uruchomiony)**.
 
 Urządzenie usługi IoT Edge jest teraz skonfigurowane. Jest ono gotowe do uruchamiania modułów wdrożonych w chmurze.
 

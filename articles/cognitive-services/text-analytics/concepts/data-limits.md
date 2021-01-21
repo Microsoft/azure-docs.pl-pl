@@ -11,17 +11,17 @@ ms.topic: overview
 ms.date: 11/19/2020
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: 2adca03a820d02731bca252dee99c76debc85e2e
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 9ba9fe7ca73e874fb55c228e22b884a86de736cf
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028135"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661463"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Limity danych i szybkości dla interfejs API analizy tekstu
 <a name="data-limits"></a>
 
-Skorzystaj z tego artykułu, aby znaleźć limity rozmiaru i stawek, które umożliwiają wysyłanie danych do interfejs API analizy tekstu. 
+Skorzystaj z tego artykułu, aby znaleźć limity rozmiaru i stawek, które umożliwiają wysyłanie danych do interfejs API analizy tekstu. Należy zauważyć, że nie ma to wpływ na Cennik ani limity szybkości. Cennik podlega [szczegółom dotyczącym cennika](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)zasobów analiza tekstu.
 
 ## <a name="data-limits"></a>Limity danych
 

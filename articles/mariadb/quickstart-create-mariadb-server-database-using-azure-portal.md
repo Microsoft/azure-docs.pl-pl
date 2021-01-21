@@ -3,16 +3,16 @@ title: 'Szybki Start: Tworzenie serwera Azure Portal-Azure Database for MariaDB'
 description: W tym artykule przedstawiono sposób tworzenia przykładowego serwera usługi Azure Database for MariaDB za pomocą witryny Azure Portal w ciągu około pięciu minut.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 3/19/2020
-ms.openlocfilehash: 7b27bff50b4e2cfa57e41919552086ba1d31f217
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d7ec7a2c70ae860a54b3771927a79449953e8569
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188738"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662113"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Szybki Start: Tworzenie serwera Azure Database for MariaDB przy użyciu Azure Portal
 
@@ -207,7 +207,7 @@ Aby nawiązać połączenia z serwerem za pomocą aplikacji MySQL Workbench:
     > [!NOTE]
     > Domyślnie na serwerze wymuszany jest protokół SSL. W celu pomyślnego nawiązania połączenia wymagane jest wykonanie dodatkowych czynności konfiguracyjnych. Aby uzyskać więcej informacji, zobacz [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL (Konfigurowanie łączności SSL w aplikacji w celu bezpiecznego nawiązywania połączeń z usługą Azure Database for MariaDB)](./howto-configure-ssl.md). Aby wyłączyć protokół SSL w ramach tego przewodnika Szybki start, na stronie przeglądu serwera w witrynie Azure Portal wybierz z menu pozycję **Zabezpieczenia połączeń**. Dla pozycji **Wymuszaj połączenie SSL** wybierz opcję **Wyłączone**.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Zasoby, które zostały utworzone w ramach tego przewodnika Szybki start, możesz wyczyścić na dwa sposoby. Możesz usunąć [grupę zasobów platformy Azure](../azure-resource-manager/management/overview.md). Powoduje to usunięcie wszystkich zasobów w grupie zasobów. Jeśli chcesz zachować inne zasoby bez zmian, usuń tylko ten jeden zasób serwera.
 

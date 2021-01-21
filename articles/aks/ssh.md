@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć połączenie SSH z węzłami klastra us
 services: container-service
 ms.topic: article
 ms.date: 07/31/2019
-ms.openlocfilehash: 50a52584618e505aa2ae7bd9ed7e0a9f6bc330a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c044b552cd0c28a7073364c48b9572045a290331
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87015616"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662861"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Nawiązywanie połączenia przy użyciu protokołu SSH z węzłami klastra usługi Azure Kubernetes Service w celu konserwacji lub rozwiązywania problemów
 
@@ -25,7 +25,7 @@ Domyślnie klucze SSH są pobierane lub generowane, a następnie dodawane do wę
 
 W tym artykule przyjęto również, że masz klucz SSH. Klucz SSH można utworzyć za pomocą [macOS lub Linux][ssh-nix] lub [Windows][ssh-windows]. Jeśli używasz wypełniania generacji do utworzenia pary kluczy, Zapisz parę kluczy w formacie OpenSSH, a nie domyślny format klucza prywatnego (plik PPK).
 
-Konieczne jest również zainstalowanie i skonfigurowanie interfejsu wiersza polecenia platformy Azure w wersji 2.0.64 lub nowszej. Uruchom polecenie  `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie przeprowadzenie instalacji lub uaktualnienia, zobacz  [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
+Konieczne jest również zainstalowanie i skonfigurowanie interfejsu wiersza polecenia platformy Azure w wersji 2.0.64 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
 
 ## <a name="configure-virtual-machine-scale-set-based-aks-clusters-for-ssh-access"></a>Konfigurowanie klastrów AKS opartych na zestawie skalowania maszyn wirtualnych na potrzeby dostępu SSH
 
@@ -35,7 +35,7 @@ Użyj polecenia [AZ AKS show][az-aks-show] , aby pobrać nazwę grupy zasobów k
 
 ```azurecli-interactive
 CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
-SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query [0].name -o tsv)
+SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query '[0].name' -o tsv)
 ```
 
 Powyższy przykład przypisuje nazwę grupy zasobów klastra dla *myAKSCluster* w elemencie *webresourceing* do *CLUSTER_RESOURCE_GROUP*. Przykład używa *CLUSTER_RESOURCE_GROUP* , aby wyświetlić listę Nazwa zestawu skalowania i przypisać ją do *SCALE_SET_NAME*.

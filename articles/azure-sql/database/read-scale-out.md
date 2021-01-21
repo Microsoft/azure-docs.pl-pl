@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
-ms.date: 09/03/2020
-ms.openlocfilehash: 9c09a54daa482d738ded9f7aca1c95c2b640617e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 01/20/2021
+ms.openlocfilehash: 5f9e7e1c96db2b60e41fe0ded69ea562cf8fcea6
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790274"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98663989"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Korzystanie z replik tylko do odczytu w celu odciążenia obciążeń zapytań tylko do odczytu
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -115,12 +115,12 @@ W rzadkich przypadkach, jeśli transakcja izolacji migawek uzyskuje dostęp do m
 
 ### <a name="long-running-queries-on-read-only-replicas"></a>Długotrwałe zapytania dotyczące replik tylko do odczytu
 
-Zapytania działające w replikach tylko do odczytu muszą uzyskiwać dostęp do metadanych dla obiektów, do których odwołuje się zapytanie (tabele, indeksy, statystyki itp.). W rzadkich przypadkach, jeśli obiekt metadanych jest modyfikowany w replice podstawowej, podczas gdy zapytanie przechowuje blokadę tego samego obiektu w replice tylko do odczytu, zapytanie może [blokować](/sql/database-engine/availability-groups/windows/troubleshoot-primary-changes-not-reflected-on-secondary#BKMK_REDOBLOCK) proces, który stosuje zmiany z repliki podstawowej do repliki tylko do odczytu. Jeśli takie zapytanie było uruchamiane przez dłuższy czas, spowodowałoby to, że replika tylko do odczytu będzie znacząco synchronizowana z repliką podstawową. 
+Zapytania działające w replikach tylko do odczytu muszą uzyskiwać dostęp do metadanych dla obiektów, do których odwołuje się zapytanie (tabele, indeksy, statystyki itp.). W rzadkich przypadkach, jeśli obiekt metadanych jest modyfikowany w replice podstawowej, podczas gdy zapytanie przechowuje blokadę tego samego obiektu w replice tylko do odczytu, zapytanie może [blokować](/sql/database-engine/availability-groups/windows/troubleshoot-primary-changes-not-reflected-on-secondary#BKMK_REDOBLOCK) proces, który stosuje zmiany z repliki podstawowej do repliki tylko do odczytu. Jeśli takie zapytanie było uruchamiane przez dłuższy czas, spowodowałoby to, że replika tylko do odczytu będzie znacząco synchronizowana z repliką podstawową.
 
-Jeśli długotrwałe zapytanie w replice tylko do odczytu powoduje, że ten rodzaj blokowania zostanie automatycznie zakończony, a sesja otrzyma błąd 1219, "sesja została rozłączona z powodu operacji DDL o wysokim priorytecie".
+Jeśli długotrwałe zapytanie w replice tylko do odczytu powoduje, że ten rodzaj blokowania zostanie automatycznie zakończony. Sesja będzie otrzymywać Błąd 1219, "sesja została rozłączona z powodu operacji DDL o wysokim priorytecie" lub błędu 3947 "transakcja została przerwana, ponieważ pomocnicze obliczenie nie mogło przechwycić ponownie. Spróbuj ponownie wykonać transakcję ".
 
 > [!NOTE]
-> Jeśli wystąpi błąd 3961 lub Błąd 1219 podczas uruchamiania zapytań w odniesieniu do repliki tylko do odczytu, ponów próbę wykonania zapytania.
+> Jeśli wystąpi błąd 3961, 1219 lub 3947 podczas wykonywania zapytań dotyczących repliki tylko do odczytu, ponów próbę wykonania zapytania.
 
 > [!TIP]
 > W warstwach usług premium i Krytyczne dla działania firmy w przypadku połączenia z repliką tylko do odczytu `redo_queue_size` kolumny i `redo_rate` w [sys.dm_database_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) DMV mogą służyć do monitorowania procesu synchronizacji danych, służącego jako wskaźniki opóźnienia danych w replice tylko do odczytu.
@@ -135,7 +135,7 @@ Można wyłączyć i ponownie włączyć skalowanie w poziomie dla pojedynczych 
 > [!NOTE]
 > W przypadku pojedynczych baz danych i baz danych puli elastycznej można wyłączyć funkcję odczytywania skalowalnego w poziomie w celu zapewnienia zgodności z poprzednimi wersjami. Nie można wyłączyć funkcji odczytu skalowalnego w poziomie dla Krytyczne dla działania firmy wystąpieniami zarządzanymi.
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 Ustawienie skalowanie odczyt w poziomie można zarządzać w bloku **Konfiguruj** bazę danych.
 

@@ -3,15 +3,15 @@ title: Prywatny link — Azure Database for MariaDB
 description: Dowiedz się, jak działa łącze prywatne dla Azure Database for MariaDB.
 author: mksuni
 ms.author: sumuth
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: ec43fa995fc9772964db399baa0b6f8c2a7db1db
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 12f52cd497d606fda6bbea9b54f467522373eeb7
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241501"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98665144"
 ---
 # <a name="private-link-for-azure-database-for-mariadb"></a>Prywatny link do Azure Database for MariaDB
 
@@ -100,7 +100,7 @@ Aby nawiązać połączenie ze środowiskiem lokalnym z Azure Database for Maria
 
 * [Połączenie punkt-lokacja](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 * [Połączenie sieci VPN typu lokacja-lokacja](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
-* [Obwód usługi ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
+* [Obwód ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
 
 ## <a name="private-link-combined-with-firewall-rules"></a>Link prywatny połączony z regułami zapory
 
@@ -114,9 +114,9 @@ W przypadku korzystania z prywatnego linku w połączeniu z regułami zapory są
 
 ## <a name="deny-public-access-for-azure-database-for-mariadb"></a>Odmów dostępu publicznego dla Azure Database for MariaDB
 
-Jeśli chcesz całkowicie używać prywatnych punktów końcowych do uzyskiwania dostępu do swoich Azure Database for MariaDB, możesz wyłączyć ustawienie wszystkie publiczne punkty końcowe ( [reguły zapory](concepts-firewall-rules.md) i [punkty końcowe usługi sieci wirtualnej](concepts-data-access-security-vnet.md)), ustawiając opcję **Odmów dostępu** do poczty publicznej na serwerze bazy danych. 
+Jeśli chcesz całkowicie używać prywatnych punktów końcowych do uzyskiwania dostępu do swoich Azure Database for MariaDB, możesz wyłączyć ustawienie wszystkie publiczne punkty końcowe ([reguły zapory](concepts-firewall-rules.md) i [punkty końcowe usługi sieci wirtualnej](concepts-data-access-security-vnet.md)), ustawiając opcję **Odmów dostępu** do poczty publicznej na serwerze bazy danych. 
 
-Jeśli to ustawienie ma wartość *tak* , do Azure Database for MariaDB mogą być używane tylko połączenia za pośrednictwem prywatnych punktów końcowych. Jeśli to ustawienie ma wartość *nie* , klienci mogą łączyć się z Azure Database for MariaDB na podstawie ustawień zapory lub punktu końcowego usługi sieci wirtualnej. Ponadto po ustawieniu wartości dostępu do sieci prywatnej klienci nie mogą dodawać i/lub aktualizować istniejących reguł zapory i zasad punktu końcowego usługi sieci wirtualnej.
+Jeśli to ustawienie ma wartość *tak*, do Azure Database for MariaDB mogą być używane tylko połączenia za pośrednictwem prywatnych punktów końcowych. Jeśli to ustawienie ma wartość *nie*, klienci mogą łączyć się z Azure Database for MariaDB na podstawie ustawień zapory lub punktu końcowego usługi sieci wirtualnej. Ponadto po ustawieniu wartości dostępu do sieci prywatnej klienci nie mogą dodawać i/lub aktualizować istniejących reguł zapory i zasad punktu końcowego usługi sieci wirtualnej.
 
 > [!Note]
 > Ta funkcja jest dostępna we wszystkich regionach świadczenia usługi Azure, w których Azure Database for PostgreSQL — jeden serwer obsługuje warstwy cenowe Ogólnego przeznaczenia i zoptymalizowane pod kątem pamięci.

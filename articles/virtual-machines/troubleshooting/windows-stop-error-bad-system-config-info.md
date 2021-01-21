@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: cbfdb9a73f53e194b43010c0b2d84357aa3e2e5b
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 8d501bcc745ef19d15564951b8c0f29f9e2678ab
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631989"
+ms.locfileid: "98661310"
 ---
 # <a name="windows-stop-error---0x00000074-bad-system-config-info"></a>Błąd zatrzymania systemu Windows — 0x00000074 nieprawidłowe informacje o konfiguracji systemu
 
@@ -34,7 +34,7 @@ W przypadku korzystania z [diagnostyki rozruchu](./boot-diagnostics.md) w celu w
  *Jeśli skontaktujesz się z osobą odpowiedzialną za pomoc techniczną, przekaż im następujące informacje:* 
  *Kod zatrzymania: BAD_SYSTEM_CONFIG_INFO*
 
-  ![0x00000074 kod zatrzymania systemu Windows, który jest również pokazywany jako "BAD_SYSTEM_CONFIG_INFO". System Windows informuje użytkownika, że jego komputer napotkał problem i wymaga ponownego uruchomienia.](./media/windows-stop-error-bad-system-config-info/1.png)
+  ![0x00000074 kod zatrzymania systemu Windows, który jest również pokazywany jako "BAD_SYSTEM_CONFIG_INFO". System Windows informuje użytkownika, że jego komputer napotkał problem i wymaga ponownego uruchomienia.](./media/windows-stop-error-bad-system-config-info/stop-code-0x00000074.png)
 
 ## <a name="cause"></a>Przyczyna
 
@@ -56,8 +56,8 @@ Kod zatrzymania **BAD_SYSTEM_CONFIG_INFO** występuje, jeśli gałąź rejestru 
 1. Włącz zbieranie danych z konsoli szeregowej i zrzutu pamięci.
 1. Skompiluj ponownie maszynę wirtualną.
 
-> [!NOTE]
-> W przypadku wystąpienia tego błędu system operacyjny gościa nie działa. Aby rozwiązać ten problem, należy przeprowadzić rozwiązywanie problemów w trybie offline.
+   > [!NOTE]
+   > W przypadku wystąpienia tego błędu system operacyjny gościa nie działa. Aby rozwiązać ten problem, należy przeprowadzić rozwiązywanie problemów w trybie offline.
 
 ### <a name="create-and-access-a-repair-vm"></a>Tworzenie maszyny wirtualnej naprawy i uzyskiwanie do niej dostępu
 
@@ -66,8 +66,8 @@ Kod zatrzymania **BAD_SYSTEM_CONFIG_INFO** występuje, jeśli gałąź rejestru 
 1. Użyj Podłączanie pulpitu zdalnego, aby nawiązać połączenie z maszyną wirtualną naprawy.
 1. Skopiuj `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` folder i Zapisz go w odpowiedniej partycji dysku lub w innej bezpiecznej lokalizacji. Utwórz kopię zapasową tego folderu jako środek zapobiegawczy, ponieważ będziesz edytować krytyczne pliki rejestru. 
 
-> [!NOTE]
-> Utwórz kopię `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` folderu jako kopie zapasowe w przypadku konieczności wycofania wszelkich zmian wprowadzonych w rejestrze.
+   > [!NOTE]
+   > Utwórz kopię `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` folderu jako kopie zapasowe w przypadku konieczności wycofania wszelkich zmian wprowadzonych w rejestrze.
 
 ### <a name="check-for-hive-corruption"></a>Sprawdź uszkodzenie Hive
 
@@ -80,7 +80,7 @@ Poniższe instrukcje ułatwią ustalenie, czy przyczyną jest uszkodzenie Hive l
 
    1. Jeśli nie można otworzyć programu Hive lub jest on pusty, gałąź jest uszkodzona. Jeśli gałąź została uszkodzona, [Otwórz bilet pomocy technicznej](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-     ![Wystąpił błąd informujący, że Edytor rejestru nie może załadować gałęzi.](./media/windows-stop-error-bad-system-config-info/2.png)
+      ![Wystąpił błąd informujący, że Edytor rejestru nie może załadować gałęzi.](./media/windows-stop-error-bad-system-config-info/cannot-load-hive-error.png)
 
    1. Jeśli gałąź zostanie otwarta normalnie, gałąź nie została prawidłowo ZAMKNIĘTA. Przejdź do kroku 5.
 
@@ -95,7 +95,7 @@ Poniższe instrukcje ułatwią ustalenie, czy przyczyną jest uszkodzenie Hive l
 
    **Włącz konsolę seryjną**:
    
-   ```
+   ```ps
    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON 
    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
    ```
@@ -108,13 +108,13 @@ Poniższe instrukcje ułatwią ustalenie, czy przyczyną jest uszkodzenie Hive l
 
    **Załaduj gałąź rejestru ze złamanego dysku systemu operacyjnego:**
 
-   ```
+   ```ps
    REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM
    ```
 
    **Włącz w ControlSet001:**
 
-   ```
+   ```ps
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f 
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f 
@@ -122,7 +122,7 @@ Poniższe instrukcje ułatwią ustalenie, czy przyczyną jest uszkodzenie Hive l
 
    **Włącz w ControlSet002:**
 
-   ```
+   ```ps
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f 
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f 
@@ -130,7 +130,7 @@ Poniższe instrukcje ułatwią ustalenie, czy przyczyną jest uszkodzenie Hive l
 
    **Zwolnij przerwany dysk systemu operacyjnego:**
 
-   ```
+   ```ps
    REG UNLOAD HKLM\BROKENSYSTEM
    ```
    

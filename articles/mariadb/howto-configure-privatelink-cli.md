@@ -3,16 +3,16 @@ title: Link prywatny — interfejs wiersza polecenia platformy Azure — Azure D
 description: Dowiedz się, jak skonfigurować link prywatny dla Azure Database for MariaDB z interfejsu wiersza polecenia platformy Azure
 author: mksuni
 ms.author: sumuth
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7ba8a5ded1d83ffdf153724c5e76b27e10bccfcb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 693fe5820894de38a5b43fc700d517cdcb27233e
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015472"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660127"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>Tworzenie prywatnego linku do Azure Database for MariaDB przy użyciu interfejsu wiersza polecenia i zarządzanie nim
 

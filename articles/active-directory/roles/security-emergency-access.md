@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie kontami administratorów dostępu awaryjnego — Azure AD | Microsoft Docs
+title: Zarządzanie kontami administratorów dostępu awaryjnego — Azure AD
 description: W tym artykule opisano sposób korzystania z kont dostępu awaryjnego w celu zapobiegania niezamierzonemu blokowaniu organizacji usługi Azure Active Directory (Azure AD).
 services: active-directory
 author: markwahl-msft
@@ -13,18 +13,18 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10d93b92f3bb0adfe734ad439079afdfcaa6270e
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 6ef8e7ed662d8c0acfc7c43112d6d7edb1cb9a94
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94834442"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660651"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Zarządzanie kontami dostępu awaryjnego w usłudze Azure AD
 
 Ważne jest, aby zapobiec przypadkowemu zablokowaniu organizacji usługi Azure Active Directory (Azure AD), ponieważ nie można zalogować się ani aktywować konta innego użytkownika jako administrator. Można ograniczyć wpływ przypadkowego braku dostępu administracyjnego przez utworzenie dwóch lub więcej *kont dostępu awaryjnego* w organizacji.
 
-Konta dostępu awaryjnego są wysoce uprzywilejowane i nie są przypisane do określonych osób. Konta dostępu awaryjnego są ograniczone do sytuacji awaryjnych lub "szkła Break", w których normalne konta administracyjne nie mogą być używane. Zalecamy, aby zachować cel ograniczenia użycia konta awaryjnego tylko do czasu, gdy jest to absolutnie konieczne.
+Konta dostępu awaryjnego są wysoce uprzywilejowane i nie są przypisane do określonych osób. Konta dostępu awaryjnego są ograniczone do sytuacji awaryjnych lub nagłych, w których normalne konta administracyjne nie mogą być używane. Zalecamy, aby zachować cel ograniczenia użycia konta awaryjnego tylko do czasu, gdy jest to absolutnie konieczne.
 
 Ten artykuł zawiera wskazówki dotyczące zarządzania kontami dostępu awaryjnego w usłudze Azure AD.
 
@@ -60,7 +60,7 @@ W sytuacji awaryjnej nie ma możliwości, aby zasady nie blokowały dostępu do 
 
 ## <a name="federation-guidance"></a>Wskazówki dotyczące Federacji
 
-Dodatkową opcją dla organizacji korzystających z usług domenowych w usłudze AD i ADFS lub podobnego dostawcy tożsamości do sfederować usługi Azure AD jest skonfigurowanie konta dostępu awaryjnego, którego może zostać dostarczone przez dostawcę tożsamości.  Na przykład konto dostępu awaryjnego może być obsługiwane przez certyfikat i parę kluczy, takich jak jedna przechowywana na karcie inteligentnej.  Gdy ten użytkownik jest uwierzytelniany w usłudze AD, usługi AD FS mogą dostarczać w usłudze Azure AD zgłoszenie, wskazujące, że użytkownik spełnił wymagania MFA.  Nawet w przypadku tego podejścia organizacje muszą nadal mieć konta dostępu awaryjnego opartego na chmurze w przypadku, gdy nie można ustalić Federacji przypadku. 
+Niektóre organizacje wykorzystują usługi domenowe AD i usług AD FS oraz podobny dostawca tożsamości do sfederować usługi Azure AD. [Nie powinno być kont lokalnych z uprawnieniami administracyjnymi](../fundamentals/protect-m365-from-on-premises-attacks.md). Uwierzytelnianie główne i pozyskiwanie dla kont z uprawnieniami administracyjnymi poza usługą Azure AD dodaje niepotrzebne ryzyko w przypadku awarii lub naruszenia tych systemów.
 
 ## <a name="store-account-credentials-safely"></a>Bezpieczne przechowywanie poświadczeń konta
 

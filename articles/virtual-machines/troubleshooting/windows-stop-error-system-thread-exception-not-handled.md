@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/04/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 1ce594d9e3ffddf781c61717ae4534f0c7bd40f8
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: beb658474e49f9b47900d8481dab0424dae8c5be
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681894"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661395"
 ---
 # <a name="windows-stop-error---0x0000007e-system-thread-exception-not-handled"></a>Błąd zatrzymania systemu Windows — wyjątek wątku systemowego 0x0000007E nie został obsłużony
 
@@ -34,6 +34,10 @@ W przypadku korzystania z [diagnostyki rozruchu](./boot-diagnostics.md) w celu w
 Nie można określić przyczyny, dopóki nie zostanie przeanalizowany plik zrzutu pamięci. Kontynuuj zbieranie pliku zrzutu pamięci.
 
 ## <a name="solution"></a>Rozwiązanie
+
+> [!TIP]
+> Jeśli masz najnowszą kopię zapasową maszyny wirtualnej, możesz spróbować [przywrócić maszynę wirtualną z kopii zapasowej](../../backup/backup-azure-arm-restore-vms.md) , aby rozwiązać problem z rozruchem.
+
 
 Aby rozwiązać ten problem, należy najpierw zebrać plik zrzutu pamięci dla awarii, a następnie wysłać plik do pomocy technicznej firmy Microsoft. Aby zebrać plik zrzutu, postępuj zgodnie z instrukcjami podanymi w dwóch następnych sekcjach.
 
