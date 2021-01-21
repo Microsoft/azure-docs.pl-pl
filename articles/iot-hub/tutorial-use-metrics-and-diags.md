@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie metryk i dzienników przy użyciu usługi Azure IoT Hub oraz korzystanie z nich
-description: Dowiedz się, jak skonfigurować metryki i dzienniki oraz korzystać z nich za pomocą usługi Azure IoT Hub. Umożliwi to analizowanie danych, które mogą być pomocne w diagnozowaniu problemów z centrum.
+title: Samouczek — Konfigurowanie metryk i dzienników oraz korzystanie z nich za pomocą usługi Azure IoT Hub
+description: Samouczek — informacje na temat konfigurowania metryk i dzienników przy użyciu usługi Azure IoT Hub oraz korzystania z nich. Umożliwi to analizowanie danych, które mogą być pomocne w diagnozowaniu problemów z centrum.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: a16dbeedc2362f4a263d59a673dbb4358f7ba034
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: bf834a6dd648ffc8f4b1633dbb383f33cd99335f
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436491"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625202"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-logs-with-an-iot-hub"></a>Samouczek: Konfigurowanie metryk i dzienników przy użyciu Centrum IoT Hub oraz korzystanie z nich
 

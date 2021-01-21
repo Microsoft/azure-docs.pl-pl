@@ -4,12 +4,12 @@ description: W tym artykule przedstawiono podsumowanie jednego z najważniejszyc
 ms.topic: article
 ms.custom: devx-track-csharp
 ms.date: 06/23/2020
-ms.openlocfilehash: 44d5800c08b49118e99a678e31d02e5b7a1f550c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 724fb1a62b82036b4a0fa8b9f4f3608293f608a9
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935674"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625135"
 ---
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Omówienie interfejsu API Azure Relay Połączenia hybrydowe .NET Standard
 
@@ -83,7 +83,7 @@ var hybridConnectionStream = await client.CreateConnectionAsync();
 
 ### <a name="receiving-data"></a>Pobieranie danych
 
-Klasa [HybridConnectionStream][HCStream] umożliwia komunikację dwukierunkową. W większości przypadków ciągle otrzymujesz ze strumienia. W przypadku odczytywania tekstu ze strumienia warto również użyć obiektu [StreamReader](/dotnet/api/system.io.streamreader?view=netcore-3.1) , który umożliwia łatwiejsze analizowanie danych. Można na przykład odczytywać dane jako tekst, a nie jako `byte[]` .
+Klasa [HybridConnectionStream][HCStream] umożliwia komunikację dwukierunkową. W większości przypadków ciągle otrzymujesz ze strumienia. W przypadku odczytywania tekstu ze strumienia warto również użyć obiektu [StreamReader](/dotnet/api/system.io.streamreader) , który umożliwia łatwiejsze analizowanie danych. Można na przykład odczytywać dane jako tekst, a nie jako `byte[]` .
 
 Poniższy kod odczytuje poszczególne wiersze tekstu ze strumienia do momentu żądania anulowania:
 
@@ -110,14 +110,14 @@ while (!cancellationToken.IsCancellationRequested)
 
 ### <a name="sending-data"></a>Wysyłanie danych
 
-Po nawiązaniu połączenia można wysłać komunikat do punktu końcowego usługi Relay. Ponieważ obiekt Connection dziedziczy [strumień](/dotnet/api/system.io.stream?view=netcore-3.1), Wyślij dane jako `byte[]` . Poniższy przykład pokazuje, jak to zrobić:
+Po nawiązaniu połączenia można wysłać komunikat do punktu końcowego usługi Relay. Ponieważ obiekt Connection dziedziczy [strumień](/dotnet/api/system.io.stream), Wyślij dane jako `byte[]` . Poniższy przykład pokazuje, jak to zrobić:
 
 ```csharp
 var data = Encoding.UTF8.GetBytes("hello");
 await clientConnection.WriteAsync(data, 0, data.Length);
 ```
 
-Jeśli jednak chcesz wysłać tekst bezpośrednio, bez konieczności kodowania ciągu za każdym razem, możesz otoczyć `hybridConnectionStream` obiekt obiektem [StreamWriter —](/dotnet/api/system.io.streamwriter?view=netcore-3.1) .
+Jeśli jednak chcesz wysłać tekst bezpośrednio, bez konieczności kodowania ciągu za każdym razem, możesz otoczyć `hybridConnectionStream` obiekt obiektem [StreamWriter —](/dotnet/api/system.io.streamwriter) .
 
 ```csharp
 // The StreamWriter object only needs to be created once

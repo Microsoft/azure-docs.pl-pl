@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 47e3833fe9f35467c1d16945a9b336d4014b2efd
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 9da5c8c89ee124e527584164b21b096ac815e5ca
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97841847"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625468"
 ---
 # <a name="investigate-all-enterprise-sensor-detections-in-the-device-inventory"></a>Zbadaj wszystkie wykrycia czujnika przedsiębiorstwa w spisie urządzeń
 
@@ -51,7 +51,7 @@ W poniższej tabeli opisano kolumny tabeli w spisie urządzeń.
 
 Funkcje integracji danych pozwalają ulepszyć dane w spisie urządzeń przy użyciu informacji z innych zasobów przedsiębiorstwa. Te źródła obejmują dyrektywy CMDB, DNS, zapory i interfejsy API sieci Web.
 
-Możesz użyć tych informacji, aby dowiedzieć się. Na przykład:
+Możesz użyć tych informacji, aby dowiedzieć się. Przykład:
 
 - Daty zakupu urządzenia i daty końcowej gwarancji
 
@@ -67,7 +67,7 @@ Możesz użyć tych informacji, aby dowiedzieć się. Na przykład:
 
 - Użytkownicy zalogowani do urządzeń
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-screen-with-items-highlighted-v2.png" alt-text="Tabela danych na ekranie spisu zasobów.":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-screen-with-items-highlighted-v2.png" alt-text="Tabela danych na ekranie spisu urządzeń.":::
 
 Możesz zintegrować dane przez:
 
@@ -131,13 +131,13 @@ Aby pobrać i zintegrować te informacje, Pracuj z poleceniami interfejsu API us
 
 Można filtrować spis urządzeń w celu wyświetlenia interesujących kolumn. Można na przykład wyświetlić informacje o urządzeniu PLC.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-view-v2.png" alt-text="Zrzut ekranu przedstawiający spis zasobów.":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-view-v2.png" alt-text="Zrzut ekranu przedstawiający spis urządzeń.":::
 
 Filtr jest wyczyszczony po opuszczeniu okna.
 
 Aby użyć tego samego filtru wiele razy, można zapisać filtr lub kombinację filtrów, które są potrzebne. Możesz otworzyć lewe okienko i wyświetlić zapisane filtry:
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/view-your-asset-inventories-v2.png" alt-text="Ekran spisów zasobów.":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/view-your-asset-inventories-v2.png" alt-text="Ekran spisów urządzeń.":::
 
 Aby odfiltrować spis urządzeń:
 
@@ -187,7 +187,7 @@ Następujące narzędzia są dostępne do wyświetlania informacji dotyczących 
 
 - **Wyświetl właściwości urządzenia**: na przykład czujnik monitorujący urządzenie i podstawowe właściwości urządzeń. Kliknij prawym przyciskiem myszy urządzenie, aby wyświetlić jego właściwości.
 
-  :::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-properties-v2.png" alt-text="Zrzut ekranu przedstawiający widok Właściwości zasobu.":::
+  :::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-properties-v2.png" alt-text="Zrzut ekranu przedstawiający widok właściwości urządzenia.":::
 
 - **Alert skojarzony z urządzeniem:** Kliknij prawym przyciskiem myszy urządzenie, aby wyświetlić powiązane alerty.
 
@@ -225,6 +225,6 @@ Dostępne są następujące dodatkowe informacje o strefie:
 
 - **Postęp aktualizacji**: jeśli czujnik podłączony jest uaktualniany, zostaną wyświetlone Stany uaktualnienia. Podczas uaktualniania lokalna Konsola zarządzania nie odbiera informacji o urządzeniu z czujnika.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
-[Badanie wykrywania czujników w spisie urządzeń](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+[Badanie wykryć czujników w spisie urządzeń](how-to-investigate-sensor-detections-in-a-device-inventory.md)

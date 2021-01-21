@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 8cc7c1e0b776574ec7908557108e2cda49bb2a11
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 31dd1c06b0f17b469454593131ccdc93b45b2446
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896664"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624970"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Samouczek: Wyszukiwanie punktów orientacyjnych w pobliżu za pomocą Azure Maps
 
-W tym samouczku przedstawiono konfigurowanie konta przy użyciu usługi Azure Maps, a następnie wyszukiwanie punktu orientacyjnego za pomocą interfejsów API usługi Maps. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+W tym samouczku przedstawiono konfigurowanie konta przy użyciu usługi Azure Maps, a następnie wyszukiwanie punktu orientacyjnego za pomocą interfejsów API usługi Maps. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie konta usługi Azure Maps
@@ -41,7 +41,7 @@ W tym samouczku przedstawiono konfigurowanie konta przy użyciu usługi Azure Ma
 
 Interfejs API kontrolka mapy jest wygodną biblioteką klienta. Ten interfejs API pozwala łatwo zintegrować mapy z aplikacją sieci Web. Powoduje to ukrycie złożoności wywołań usługi REST i zwiększa produktywność dzięki dostosowywanym składnikom. Poniższe kroki pokazują, jak utworzyć statyczną stronę HTML osadzoną przy użyciu interfejsu API kontrolki mapy.
 
-1. Na maszynie lokalnej utwórz nowy plik i nadaj mu nazwę **MapSearch.html** .
+1. Na maszynie lokalnej utwórz nowy plik i nadaj mu nazwę **MapSearch.html**.
 2. Dodaj następujące składniki HTML do pliku:
 
    ```HTML
@@ -246,6 +246,10 @@ W wynikach wyszukiwania na utworzonej mapie są używane tylko dane o długości
     ![Kontrolka mapy platformy Azure i usługa Search Service](./media/tutorial-search-location/popup-map.png)
 
 Aby wyświetlić pełny kod dla tego samouczka, kliknij [tutaj](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html). Aby wyświetlić przykład na żywo, kliknij [tutaj](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest) .
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Brak zasobów, które wymagają oczyszczenia.
 
 ## <a name="next-steps"></a>Następne kroki
 

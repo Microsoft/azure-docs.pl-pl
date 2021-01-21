@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: d475c76d338270cb9b8e34ea8563cdfd8fdf5122
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: a3481830a09b183213e84490b5300f2fb38f8d19
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563062"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625068"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>Samouczek: implementowanie analizy przestrzennej IoT przy użyciu Azure Maps
 
@@ -183,7 +183,7 @@ Teraz Skonfiguruj funkcję platformy Azure.
 
     :::image type="content" source="./media/tutorial-iot-hub-maps/rental-app.png" alt-text="Zrzut ekranu przedstawiający tworzenie aplikacji funkcji.":::
 
-1. W polu **konto magazynu** wybierz konto magazynu utworzone w [ramach tworzenia konta usługi Azure Storage](#create-an-azure-storage-account). Wybierz pozycję **Przeglądanie + tworzenie**.
+1. W polu **konto magazynu** wybierz konto magazynu utworzone w [ramach tworzenia konta usługi Azure Storage](#create-an-azure-storage-account). Wybierz pozycję **Przejrzyj i utwórz**.
 
 1. Przejrzyj szczegóły aplikacji funkcji i wybierz pozycję **Utwórz**.
 
@@ -215,7 +215,7 @@ Teraz Skonfiguruj funkcję platformy Azure.
 
     :::image type="content" source="./media/tutorial-iot-hub-maps/function-create-event-subscription.png" alt-text="Zrzut ekranu przedstawiający subskrypcję zdarzeń tworzenia.":::
 
-1. Przejrzyj ustawienia. Upewnij się, że punkt końcowy określa funkcję utworzoną na początku tej sekcji. Wybierz pozycję **Utwórz**.
+1. Przejrzyj ustawienia. Upewnij się, że punkt końcowy określa funkcję utworzoną na początku tej sekcji. Wybierz przycisk **Utwórz**.
 
     :::image type="content" source="./media/tutorial-iot-hub-maps/function-create-event-subscription-confirm.png" alt-text="Zrzut ekranu przedstawiający potwierdzenie tworzenia subskrypcji zdarzeń.":::
 
@@ -283,6 +283,10 @@ Aby uzyskać pełną listę Azure Maps interfejsów API REST, zobacz:
 Aby uzyskać listę urządzeń z certyfikatem platformy Azure dla IoT, odwiedź stronę:
 
 * [Certyfikowane urządzenia platformy Azure](https://catalog.azureiotsolutions.com/)
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Brak zasobów, które wymagają oczyszczenia.
 
 ## <a name="next-steps"></a>Następne kroki
 

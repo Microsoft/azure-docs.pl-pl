@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: f30b99a1d9c8303d5b2ed4b02819d0ca837946d2
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 7a33cf4e66ce31f8fb8534de25d7564a5784ca3a
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905744"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625052"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Samouczek: kierowanie pojazdów elektrycznych przy użyciu Azure Notebooks (Python)
 
@@ -62,7 +62,7 @@ Aby wykonać czynności opisane w tym samouczku, należy utworzyć projekt Azure
  
     ![Okienko Utwórz nowy projekt](./media/tutorial-ev-routing/create-project-window.png)
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 1. Po utworzeniu projektu Pobierz ten [Jupyter notebook plik dokumentu](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb) z [repozytorium Azure Maps Jupyter Notebook](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook).
 
@@ -398,6 +398,10 @@ Aby poznać Azure Maps interfejsów API, które są używane w tym samouczku, zo
 * [Macierz po trasie](/rest/api/maps/route/postroutematrix)
 * [Pobierz wskazówki dotyczące trasy](/rest/api/maps/route/getroutedirections)
 * [Interfejsy API REST Azure Maps](./consumption-model.md)
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Brak zasobów, które wymagają oczyszczenia.
 
 ## <a name="next-steps"></a>Następne kroki
 

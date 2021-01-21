@@ -1,5 +1,5 @@
 ---
-title: Importuj informacje o urządzeniu
+title: Importowanie informacji o urządzeniu
 description: Usługa Defender for IoT monitoruje i analizuje ruch dublowany. W takich przypadkach możesz chcieć zaimportować dane do wzbogacania informacji na urządzeniach, które zostały już wykryte.
 author: shhazam-ms
 manager: rkarlin
@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 0a443ba7b41615fc62882bd8de6bf077c6b5a137
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 7cb805f60ba9feb0ae2d1483b2ab2df4e03639d8
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97842507"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625418"
 ---
 # <a name="import-device-information-to-a-sensor"></a>Importuj informacje o urządzeniu do czujnika
 
@@ -67,7 +67,7 @@ W tej sekcji opisano sposób importowania adresu IP urządzenia, systemu operacy
 
 Aby zaimportować adres IP, system operacyjny i poziom poprawek:
 
-1. Pobierz pliki [assets_info_2.2.8 i up.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) z [centrum pomocy](https://cyberx-labs.zendesk.com/hc/en-us) i wprowadź informacje w następujący sposób:
+1. Pobierz pliki [devices_info_2.2.8 i up.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) z [centrum pomocy](https://cyberx-labs.zendesk.com/hc/en-us) i wprowadź informacje w następujący sposób:
 
    - **Adres IP**: wprowadź adres IP urządzenia.
 
@@ -85,7 +85,7 @@ Aby zaimportować adres IP, system operacyjny i poziom poprawek:
 
 Aby zaimportować stan autoryzacji:
 
-1. Pobierz i Zapisz plik [authorized_assets.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) z centrum pomocy usługi Defender for IoT. Sprawdź, czy plik został zapisany jako wolumin CSV.
+1. Pobierz i Zapisz plik [authorized_devices.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) z centrum pomocy usługi Defender for IoT. Sprawdź, czy plik został zapisany jako wolumin CSV.
 
 2. Wprowadź informacje jako:
 
@@ -154,7 +154,7 @@ W tej sekcji opisano sposób importowania adresu IP urządzenia, systemu operacy
 
 Aby zaimportować adres IP, system operacyjny i poziom poprawek:
 
-1. Pobierz pliki [assets_info_2.2.8 i up.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) z [centrum pomocy](https://cyberx-labs.zendesk.com/hc/en-us) i wprowadź informacje w następujący sposób:
+1. Pobierz pliki [devices_info_2.2.8 i up.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) z [centrum pomocy](https://cyberx-labs.zendesk.com/hc/en-us) i wprowadź informacje w następujący sposób:
 
    - **Adres IP**: adres IP urządzenia.
 
@@ -172,7 +172,7 @@ Aby zaimportować adres IP, system operacyjny i poziom poprawek:
 
 Aby zaimportować stan autoryzacji:
 
-1. Pobierz i Zapisz plik [authorized_assets.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) z centrum pomocy usługi Defender for IoT. Sprawdź, czy plik został zapisany jako wolumin CSV.
+1. Pobierz i Zapisz plik [authorized_devices.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) z centrum pomocy usługi Defender for IoT. Sprawdź, czy plik został zapisany jako wolumin CSV.
 
 2. Wprowadź informacje jako:
 
@@ -188,8 +188,8 @@ Aby zaimportować stan autoryzacji:
 
 Po zaimportowaniu informacji otrzymujesz alerty dotyczące nieautoryzowanych urządzeń dla wszystkich urządzeń, które nie są wyświetlane na tej liście.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
-[Kontroluj, jaki ruch jest monitorowany](how-to-control-what-traffic-is-monitored.md)
+[Sterowanie monitorowanym ruchem](how-to-control-what-traffic-is-monitored.md)
 
-[Badanie wykrywania czujników w spisie urządzeń](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+[Badanie wykryć czujników w spisie urządzeń](how-to-investigate-sensor-detections-in-a-device-inventory.md)

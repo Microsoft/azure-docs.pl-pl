@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: e46bb87788de27916860720284087643db7153dc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a63c309c8e728e3f76ad904d479557b368388954
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95913406"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624779"
 ---
 # <a name="use-azure-storage-explorer-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Zarządzanie katalogami, plikami i listami ACL w usłudze Azure Data Lake Storage Gen2 za pomocą Eksploratora usługi Azure Storage
 
@@ -80,7 +80,7 @@ Aby pobrać pliki przy użyciu **Eksplorator usługi Azure Storage**, po wybrani
 
 Możesz ustawić uprawnienia w katalogu głównym kontenera. Aby to zrobić, należy zalogować się do Eksplorator usługi Azure Storage przy użyciu indywidualnego konta z uprawnieniami do tego celu (w przeciwieństwie do parametrów połączenia). Kliknij prawym przyciskiem myszy kontener i wybierz pozycję **Zarządzaj uprawnieniami**, a następnie okno dialogowe **Zarządzanie uprawnieniami** .
 
-![Eksplorator usługi Microsoft Azure Storage — zarządzanie dostępem do katalogów](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
+![Eksplorator usługi Microsoft Azure Storage — zarządzanie dostępem do katalogów](media/storage-quickstart-blobs-storage-explorer/manageperms.png)
 
 Okno dialogowe **Zarządzanie uprawnieniami** służy do zarządzania uprawnieniami właściciela i grupy właściciela. Umożliwia również dodawanie do listy kontroli dostępu nowych użytkowników i grup, dla których można następnie zarządzać uprawnieniami.
 
@@ -105,6 +105,10 @@ W ramach obu tych kategorii istnieją trzy uprawnienia, które można następnie
 > Dokonanie wyboru w tym miejscu nie spowoduje ustawienie uprawnień dla wszystkich elementów znajdujących się obecnie w katalogu. Jeśli dany plik już istnieje, należy przejść do poszczególnych elementów i ustawić uprawnienia ręcznie.
 
 Można zarządzać uprawnieniami dla poszczególnych katalogów, a także dla pojedynczych plików, co umożliwia szczegółową kontrolę dostępu. Proces zarządzania uprawnieniami dla plików i katalogów jest taki sam, jak opisano powyżej. Kliknij prawym przyciskiem myszy plik lub katalog, dla którego chcesz zarządzać uprawnieniami, i wykonaj ten sam proces.
+
+## <a name="private-endpoints-in-azure-data-lake-storage-gen2"></a>Prywatne punkty końcowe w Azure Data Lake Storage Gen2
+
+Eksplorator usługi Storage korzysta z [punktów końcowych](../common/storage-private-endpoints.md#private-endpoints-for-azure-storage) & Data Lake Storage Gen2 (DFS) w czasie pracy z Azure Data Lake Storage Gen2. Jeśli dostęp do Azure Data Lake Storage Gen2 jest skonfigurowany za pomocą prywatnych punktów końcowych, upewnij się, że dla konta magazynu utworzono dwa prywatne punkty końcowe: jeden z docelowym podzasobem, `blob` a drugi z docelowym zasobem podrzędnym `dfs` .
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 953a9cfeed558291fba1cb517039f26860444904
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 98499961f55b55b15687d5742b4d593e3d461e49
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233665"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625334"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opcje konfiguracji — Azure Monitor Application Insights dla języka Java
 
@@ -39,14 +39,14 @@ Poniżej znajdziesz więcej szczegółów i dodatkowe opcje konfiguracji.
 
 ## <a name="configuration-file-path"></a>Ścieżka pliku konfiguracji
 
-Domyślnie Application Insights Java 3,0 oczekuje, że plik konfiguracji jest nazwany `applicationinsights.json` i znajduje się w tym samym katalogu co `applicationinsights-agent-3.0.1.jar` .
+Domyślnie Application Insights Java 3,0 oczekuje, że plik konfiguracji jest nazwany `applicationinsights.json` i znajduje się w tym samym katalogu co `applicationinsights-agent-3.0.2.jar` .
 
 Ścieżkę do pliku konfiguracji można określić przy użyciu opcji
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` Zmienna środowiskowa lub
 * `applicationinsights.configuration.file` Właściwość systemu Java
 
-W przypadku określenia ścieżki względnej zostanie ona rozwiązany względem katalogu, w którym `applicationinsights-agent-3.0.1.jar` znajduje się lokalizacja.
+W przypadku określenia ścieżki względnej zostanie ona rozwiązany względem katalogu, w którym `applicationinsights-agent-3.0.2.jar` znajduje się lokalizacja.
 
 ## <a name="connection-string"></a>Parametry połączenia
 
@@ -170,7 +170,7 @@ Jeśli chcesz dodać wymiary niestandardowe do wszystkich danych telemetrycznych
 `${...}` można go użyć do odczytu wartości z określonej zmiennej środowiskowej podczas uruchamiania.
 
 > [!NOTE]
-> Rozpoczynając od wersji 3.0.1, jeśli dodasz niestandardowy wymiar o nazwie `service.version` , wartość zostanie zapisana w `application_Version` kolumnie w tabeli dzienników Application Insights, a nie jako wymiar niestandardowy.
+> Rozpoczynając od wersji 3.0.2, jeśli dodasz niestandardowy wymiar o nazwie `service.version` , wartość zostanie zapisana w `application_Version` kolumnie w tabeli dzienników Application Insights, a nie jako wymiar niestandardowy.
 
 ## <a name="telemetry-processors-preview"></a>Procesory telemetrii (wersja zapoznawcza)
 
@@ -241,7 +241,7 @@ Aby wyłączyć autozbieranie metryk Micrometer (w tym metryki uruchamiającego 
 
 ## <a name="suppressing-specific-auto-collected-telemetry"></a>Pomijanie określonych autozbieranych danych telemetrycznych
 
-Rozpoczynając od wersji 3.0.1, można pominąć określoną funkcję automatycznej zebranej telemetrii przy użyciu następujących opcji konfiguracji:
+Rozpoczynając od wersji 3.0.2, można pominąć określoną funkcję automatycznej zebranej telemetrii przy użyciu następujących opcji konfiguracji:
 
 ```json
 {
@@ -338,7 +338,7 @@ Domyślnie program Application Insights dzienniki Java 3,0 na poziomie `INFO` za
 
 `level` może być jedną z `OFF` , `ERROR` ,,, `WARN` `INFO` `DEBUG` lub `TRACE` .
 
-`path` może być ścieżką bezwzględną lub względną. Ścieżki względne są rozwiązywane względem katalogu, gdzie się `applicationinsights-agent-3.0.1.jar` znajduje.
+`path` może być ścieżką bezwzględną lub względną. Ścieżki względne są rozwiązywane względem katalogu, gdzie się `applicationinsights-agent-3.0.2.jar` znajduje.
 
 `maxSizeMb` jest maksymalnym rozmiarem pliku dziennika przed przekazaniem go.
 

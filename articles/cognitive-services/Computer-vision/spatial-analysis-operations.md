@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 63184a623c6f0a8c53e09e6af92c05e45c5e0794
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: b530fc320f6c29dd7a86a39c5a7019265bb6b724
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185986"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624426"
 ---
 # <a name="spatial-analysis-operations"></a>Operacje analizy przestrzennej
 
@@ -69,6 +69,38 @@ Są to parametry wymagane przez każdą z tych operacji analizy przestrzennej.
 | DETECTOR_NODE_CONFIG | KOD JSON wskazujący procesor GPU, na którym ma być uruchamiany węzeł czujnika. Powinien mieć następujący format: `"{ \"gpu_index\": 0 }",`|
 | SPACEANALYTICS_CONFIG | Konfiguracja JSON dla strefy i linii, jak pokazano poniżej.|
 | ENABLE_FACE_MASK_CLASSIFIER | `True` Aby umożliwić wykrywanie osób w strumieniu wideo, należy je `False` wyłączyć. Domyślnie to ustawienie jest wyłączone. Wykrywanie maski czołowej wymaga, aby wejściowy parametr szerokości wideo miał 1920 `"INPUT_VIDEO_WIDTH": 1920` . Atrybut maska czołowa nie zostanie zwrócony, jeśli wykryte osoby nie będą znajdować się w aparacie lub są zbyt daleko od niego. Aby uzyskać więcej informacji, zapoznaj się z przewodnikiem [umieszczania w aparacie](spatial-analysis-camera-placement.md) |
+
+Jest to przykład parametrów DETECTOR_NODE_CONFIG dla wszystkich operacji analizy przestrzennej.
+
+```json
+{
+"gpu_index": 0,
+"do_calibration": true,
+"enable_recalibration": true,
+"calibration_quality_check_frequency_seconds":86400,
+"calibration_quality_check_sampling_num": 80,
+"calibration_quality_check_sampling_times": 5,
+"calibration_quality_check_sample_collect_frequency_seconds": 300,
+"calibration_quality_check_one_round_sample_collect_num":10,
+"calibration_quality_check_queue_max_size":1000,
+"recalibration_score": 75
+}
+```
+
+| Nazwa | Typ| Opis|
+|---------|---------|---------|
+| `gpu_index` | ciąg| Indeks procesora GPU, na którym zostanie uruchomiona ta operacja.|
+| `do_calibration` | ciąg | Wskazuje, że kalibracja jest włączona. `do_calibration` Aby funkcja **cognitiveservices. Vision. spatialanalysis-persondistance** działała prawidłowo, musi mieć wartość true. do_calibration jest ustawiona domyślnie na wartość true. |
+| `enable_recalibration` | bool | Wskazuje, czy automatyczna Rekalibracja jest włączona. Wartość domyślna to `true`.|
+| `calibration_quality_check_frequency_seconds` | int | Minimalna liczba sekund między wszystkimi sprawdzeniami jakości, aby określić, czy wymagana jest ponowna kalibracja. Wartość domyślna to `86400` (24 godziny). Używane tylko wtedy, gdy `enable_recalibration=True` .|
+| `calibration_quality_check_sampling_num` | int | Liczba losowo wybranych przechowywanych próbek danych do użycia na potrzeby pomiaru błędów kontroli jakości. Wartość domyślna to `80`. Używane tylko wtedy, gdy `enable_recalibration=True` .|
+| `calibration_quality_check_sampling_times` | int | Liczba pomiarów błędów wykonywanych w różnych zestawach losowo wybranych próbek danych na sprawdzenie jakości. Wartość domyślna to `5`. Używane tylko wtedy, gdy `enable_recalibration=True` .|
+| `calibration_quality_check_sample_collect_frequency_seconds` | int | Minimalna liczba sekund między zbieraniem nowych próbek danych w celu odkalibracji i sprawdzenia jakości. Wartość domyślna to `300` (5 minut). Używane tylko wtedy, gdy `enable_recalibration=True` .|
+| `calibration_quality_check_one_round_sample_collect_num` | int | Minimalna liczba nowych próbek danych do zebrania na kilka próbek kolekcji. Wartość domyślna to `10`. Używane tylko wtedy, gdy `enable_recalibration=True` .|
+| `calibration_quality_check_queue_max_size` | int | Maksymalna liczba próbek danych do przechowywania podczas kalibracji modelu aparatu fotograficznego. Wartość domyślna to `1000`. Używane tylko wtedy, gdy `enable_recalibration=True` .|
+| `recalibration_score` | int | Maksymalny próg jakości, aby rozpocząć rekalibrację. Wartość domyślna to `75`. Używane tylko wtedy, gdy `enable_recalibration=True` . Jakość kalibracji jest obliczana w oparciu o relację odwrotną z błędem reprojektowania obiektu docelowego obrazu. W przypadku wykrytych elementów docelowych w ramkach obrazu 2D elementy docelowe są rzutowane na przestrzeń 3D i ponownie rzutowane z powrotem do ramki obrazu 2D przy użyciu istniejących parametrów kalibracji aparatu. Błąd reprojektowy jest mierzony przez średnią odległość między wykrytymi obiektami docelowymi a reprojektowanymi obiektami docelowymi.|
+| `enable_breakpad`| bool | Wskazuje, czy chcesz włączyć BreakPad, który jest używany do generowania zrzutu awaryjnego na potrzeby debugowania. Jest on `false` domyślnie. Jeśli ustawisz ją na `true` , należy również dodać `"CapAdd": ["SYS_PTRACE"]` w `HostConfig` części kontenera `createOptions` . Domyślnie zrzut awaryjny jest przekazywany do aplikacji [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) AppCenter, jeśli chcesz, aby Zrzuty awaryjne były przekazywane do własnej aplikacji AppCenter, można zastąpić zmienną środowiskową `RTPT_APPCENTER_APP_SECRET` kluczem tajnym aplikacji.
+
 
 ### <a name="zone-configuration-for-cognitiveservicesvisionspatialanalysis-personcount"></a>Konfiguracja strefy dla cognitiveservices. Vision. spatialanalysis-personcount
 
@@ -142,10 +174,10 @@ Jest to przykład danych wejściowych JSON dla parametru SPACEANALYTICS_CONFIG, 
 | `line` | list| Definicja wiersza. Jest to linia kierunkowa umożliwiająca zrozumienie "wpisu" i "Exit".|
 | `start` | para wartości| Współrzędne x, y punktu początkowego wiersza. Wartości zmiennoprzecinkowe reprezentują pozycję wierzchołka względem górnego, lewego rogu. Aby obliczyć bezwzględne wartości x, y, należy pomnożyć te wartości z rozmiarem ramki. |
 | `end` | para wartości| Współrzędne x, y punktu końcowego wiersza. Wartości zmiennoprzecinkowe reprezentują pozycję wierzchołka względem górnego, lewego rogu. Aby obliczyć bezwzględne wartości x, y, należy pomnożyć te wartości z rozmiarem ramki. |
-| `threshold` | float| Zdarzenia są egressed, gdy poziom zaufania modeli AI jest większy lub równy tej wartości. |
+| `threshold` | float| Zdarzenia są egressed, gdy poziom zaufania modeli AI jest większy lub równy tej wartości. Wartość domyślna to 16. Jest to zalecana wartość, aby osiągnąć maksymalną dokładność. |
 | `type` | ciąg| Dla **cognitiveservices. Vision. spatialanalysis-personcrossingline** powinno to być `linecrossing` .|
 |`trigger`|ciąg|Typ wyzwalacza do wysyłania zdarzenia.<br>Obsługiwane wartości: "Event": Fire, gdy ktoś przecina linię.|
-| `focus` | ciąg| Lokalizacja punktu w polu ograniczenia osoby służąca do obliczania zdarzeń. Wartość fokusu może być `footprint` (powierzchnia osoby), `bottom_center` (Dolna część pola granica osoby) `center` (środek obwiedni osoby).|
+| `focus` | ciąg| Lokalizacja punktu w polu ograniczenia osoby służąca do obliczania zdarzeń. Wartość fokusu może być `footprint` (powierzchnia osoby), `bottom_center` (Dolna część pola granica osoby) `center` (środek obwiedni osoby). Wartość domyślna to.|
 
 ### <a name="zone-configuration-for-cognitiveservicesvisionspatialanalysis-personcrossingpolygon"></a>Konfiguracja strefy dla cognitiveservices. Vision. spatialanalysis-personcrossingpolygon
 
@@ -186,10 +218,10 @@ Jest to przykład danych wejściowych JSON dla parametru SPACEANALYTICS_CONFIG, 
 | `zones` | list| Lista stref. |
 | `name` | ciąg| Przyjazna nazwa dla tej strefy.|
 | `polygon` | list| Każda para wartości reprezentuje symbol x, y dla wierzchołków wielokąta. Wielokąt reprezentuje obszary, w których są śledzone lub zliczane ludzie. Wartości zmiennoprzecinkowe reprezentują pozycję wierzchołka względem górnego, lewego rogu. Aby obliczyć bezwzględne wartości x, y, należy pomnożyć te wartości z rozmiarem ramki. 
-| `threshold` | float| Zdarzenia są egressed, gdy poziom zaufania modeli AI jest większy lub równy tej wartości. |
+| `threshold` | float| Zdarzenia są egressed, gdy poziom zaufania modeli AI jest większy lub równy tej wartości. Wartość domyślna to 48, gdy typem jest zonecrossing i 16, gdy jest DwellTime. Są to zalecane wartości, aby osiągnąć maksymalną dokładność.  |
 | `type` | ciąg| Dla **cognitiveservices. Vision. spatialanalysis-personcrossingpolygon** powinno to być `zonecrossing` lub `zonedwelltime` .|
 | `trigger`|ciąg|Typ wyzwalacza do wysyłania zdarzenia<br>Obsługiwane wartości: "Event": Fire, gdy ktoś wprowadzi lub wyjdzie z strefy.|
-| `focus` | ciąg| Lokalizacja punktu w polu ograniczenia osoby służąca do obliczania zdarzeń. Wartość fokusu może być `footprint` (powierzchnia osoby), `bottom_center` (Dolna część pola granica osoby) `center` (środek obwiedni osoby).|
+| `focus` | ciąg| Lokalizacja punktu w polu ograniczenia osoby służąca do obliczania zdarzeń. Wartość fokusu może być `footprint` (powierzchnia osoby), `bottom_center` (Dolna część pola granica osoby) `center` (środek obwiedni osoby). Wartość domyślna to.|
 
 ### <a name="zone-configuration-for-cognitiveservicesvisionspatialanalysis-persondistance"></a>Konfiguracja strefy dla cognitiveservices. Vision. spatialanalysis-persondistance
 
@@ -228,29 +260,6 @@ Jest to przykład danych wejściowych JSON dla parametru SPACEANALYTICS_CONFIG, 
 | `minimum_distance_threshold` | float| Odległość, która spowoduje wyzwolenie zdarzenia "TooClose", gdy ludzie są mniej niż odległość od siebie.|
 | `maximum_distance_threshold` | float| Odległość, która spowoduje wyzwolenie zdarzenia "TooFar", gdy ludzie są większe niż odległość od siebie.|
 | `focus` | ciąg| Lokalizacja punktu w polu ograniczenia osoby służąca do obliczania zdarzeń. Wartość fokusu może być `footprint` (powierzchnia osoby), `bottom_center` (Dolna część pola granica osoby) `center` (środek obwiedni osoby).|
-
-Jest to przykład danych wejściowych JSON dla parametru DETECTOR_NODE_CONFIG, który służy do konfigurowania strefy **cognitiveservices. Vision. spatialanalysis-persondistance** .
-
-```json
-{ 
-"gpu_index": 0, 
-"do_calibration": true
-}
-```
-
-| Nazwa | Typ| Opis|
-|---------|---------|---------|
-| `gpu_index` | ciąg| Indeks procesora GPU, na którym zostanie uruchomiona ta operacja.|
-| `do_calibration` | ciąg | Wskazuje, że kalibracja jest włączona. `do_calibration` Aby funkcja **cognitiveservices. Vision. spatialanalysis-persondistance** działała prawidłowo, musi mieć wartość true.|
-| `enable_recalibration` | bool | Wskazuje, czy automatyczna Rekalibracja jest włączona. Wartość domyślna to `true`.|
-| `calibration_quality_check_frequency_seconds` | int | Minimalna liczba sekund między wszystkimi sprawdzeniami jakości, aby określić, czy wymagana jest ponowna kalibracja. Wartość domyślna to `86400` (24 godziny). Używane tylko wtedy, gdy `enable_recalibration=True` .|
-| `calibration_quality_check_sampling_num` | int | Liczba losowo wybranych przechowywanych próbek danych do użycia na potrzeby pomiaru błędów kontroli jakości. Wartość domyślna to `80`. Używane tylko wtedy, gdy `enable_recalibration=True` .|
-| `calibration_quality_check_sampling_times` | int | Liczba pomiarów błędów wykonywanych w różnych zestawach losowo wybranych próbek danych na sprawdzenie jakości. Wartość domyślna to `5`. Używane tylko wtedy, gdy `enable_recalibration=True` .|
-| `calibration_quality_check_sample_collect_frequency_seconds` | int | Minimalna liczba sekund między zbieraniem nowych próbek danych w celu odkalibracji i sprawdzenia jakości. Wartość domyślna to `300` (5 minut). Używane tylko wtedy, gdy `enable_recalibration=True` .|
-| `calibration_quality_check_one_round_sample_collect_num` | int | Minimalna liczba nowych próbek danych do zebrania na kilka próbek kolekcji. Wartość domyślna to `10`. Używane tylko wtedy, gdy `enable_recalibration=True` .|
-| `calibration_quality_check_queue_max_size` | int | Maksymalna liczba próbek danych do przechowywania podczas kalibracji modelu aparatu fotograficznego. Wartość domyślna to `1000`. Używane tylko wtedy, gdy `enable_recalibration=True` .|
-| `recalibration_score` | int | Maksymalny próg jakości, aby rozpocząć rekalibrację. Wartość domyślna to `75`. Używane tylko wtedy, gdy `enable_recalibration=True` . Jakość kalibracji jest obliczana w oparciu o relację odwrotną z błędem reprojektowania obiektu docelowego obrazu. W przypadku wykrytych elementów docelowych w ramkach obrazu 2D elementy docelowe są rzutowane na przestrzeń 3D i ponownie rzutowane z powrotem do ramki obrazu 2D przy użyciu istniejących parametrów kalibracji aparatu. Błąd reprojektowy jest mierzony przez średnią odległość między wykrytymi obiektami docelowymi a reprojektowanymi obiektami docelowymi.|
-| `enable_breakpad`| bool | Wskazuje, czy chcesz włączyć BreakPad, który jest używany do generowania zrzutu awaryjnego na potrzeby debugowania. Jest on `false` domyślnie. Jeśli ustawisz ją na `true` , należy również dodać `"CapAdd": ["SYS_PTRACE"]` w `HostConfig` części kontenera `createOptions` . Domyślnie zrzut awaryjny jest przekazywany do aplikacji [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) AppCenter, jeśli chcesz, aby Zrzuty awaryjne były przekazywane do własnej aplikacji AppCenter, można zastąpić zmienną środowiskową `RTPT_APPCENTER_APP_SECRET` kluczem tajnym aplikacji.
 
 Zobacz wskazówki dotyczące [umieszczania w aparacie](spatial-analysis-camera-placement.md) , aby poznać konfiguracje stref i linii.
 
@@ -606,7 +615,7 @@ Przykładowy kod JSON dla wykrywania danych wyjściowych przez tę operację z `
 | `trackinId` | ciąg| Wykryto unikatowy identyfikator osoby|
 | `status` | ciąg| Kierunek skrzyżowania wielokąta, "Enter" lub "Exit"|
 | `side` | int| Liczba boków wielokąta, który przekroczyła osobę. Każda Strona jest numerowaną krawędzią między dwoma wierzchołkami wielokąta, który reprezentuje strefę. Krawędź między pierwszymi dwoma wierzchołkami wielokąta reprezentującymi pierwszą stronę|
-| `durationMs` | int | Liczba milisekund, która przedstawia czas spędzony w strefie. To pole jest dostępne, gdy typem zdarzenia jest _personZoneDwellTimeEvent_|
+| `durationMs` | float | Liczba milisekund, która przedstawia czas spędzony w strefie. To pole jest dostępne, gdy typem zdarzenia jest _personZoneDwellTimeEvent_|
 | `zone` | ciąg | Pole "name" wielokąta reprezentujące przekreśloną strefę|
 
 | Nazwa pola wykrywania | Typ| Opis|

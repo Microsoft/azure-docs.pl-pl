@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/09/2020
+ms.date: 01/20/2021
 ms.author: jeedes
-ms.openlocfilehash: 9272114dd472717e59680b40c07d8435dea19682
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d99a19efcef0cae518d8d21d3371adaf37d32ff7
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181972"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625484"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Samouczek: integracja logowania jednokrotnego w usłudze Azure AD z pakietem
 
@@ -41,7 +41,6 @@ Pakiet servicesuite obsługuje:
 
 * Zainicjowane przez dostawcy tożsamości Logowanie jednokrotne.
 * Inicjowanie obsługi administracyjnej użytkowników w trybie JIT (just-in-Time).
-* [Automatyczne Inicjowanie obsługi użytkowników](NetSuite-provisioning-tutorial.md).
 
 > [!NOTE]
 > Ponieważ identyfikator tej aplikacji jest stałą wartością ciągu, można skonfigurować tylko jedno wystąpienie w jednej dzierżawie.
@@ -153,7 +152,7 @@ W tej sekcji zostanie włączona funkcja User B. Simon, która umożliwia logowa
 
 1. Otwórz nową kartę w przeglądarce i zaloguj się do swojej witryny firmowej jako administrator.
 
-2. Na górnym pasku nawigacyjnym wybierz pozycję **Instalator**, a następnie **Company** wybierz pozycję  >  **funkcje włączania** firmy.
+2. Na górnym pasku nawigacyjnym wybierz pozycję **Instalator**, a następnie wybierz pozycję  >  **funkcje włączania** firmy.
 
     ![Zrzut ekranu przedstawia funkcje włączania wybrane z firmy.](./media/NetSuite-tutorial/ns-setupsaml.png)
 

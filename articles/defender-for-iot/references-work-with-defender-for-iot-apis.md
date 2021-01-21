@@ -1,5 +1,5 @@
 ---
-title: Współpraca z usługą Defender dla interfejsów API IoT
+title: Praca z interfejsami API usługi Defender for IoT
 description: Użyj zewnętrznego interfejsu API REST, aby uzyskać dostęp do danych wykrytych przez czujniki i konsole zarządzania oraz wykonywać działania z tymi danymi.
 author: shhazam-ms
 manager: rkarlin
@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/14/2020
 ms.topic: reference
 ms.service: azure
-ms.openlocfilehash: d49aa50b1b8843dfb5c3d32983ff0bb129543bb0
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 44ea6e8343203a9cb18947f31f45aa0b023178b0
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97843676"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624578"
 ---
 # <a name="defender-for-iot-sensor-and-management-console-apis"></a>Usługa Defender dla interfejsów API konsoli zarządzania i czujnika IoT
 
@@ -44,7 +44,7 @@ Aby wygenerować token:
 
 5. Wybierz pozycję **Zakończ**. Utworzone tokeny są wyświetlane w oknie dialogowym **tokeny dostępu** .
    
-   :::image type="content" source="media/references-work-with-defender-for-iot-apis/access-token-window.png" alt-text="Zrzut ekranu przedstawiający okno dialogowe tokeny zasobów z wypełnieniem tokenów":::
+   :::image type="content" source="media/references-work-with-defender-for-iot-apis/access-token-window.png" alt-text="Zrzut ekranu przedstawiający okno dialogowe tokeny urządzeń z wypełnieniem tokenów":::
 
    **Używany** wskazuje czas ostatniego wywołania zewnętrznego z tym tokenem.
 
@@ -86,7 +86,7 @@ Użyj tego interfejsu API, aby zażądać listy wszystkich urządzeń, dla któr
 
 #### <a name="method"></a>Metoda
 
-**GET**
+**Pobierz**
 
 Żąda listy wszystkich urządzeń, dla których wykryto czujnik usługi Defender for IoT.
 
@@ -112,9 +112,9 @@ Tablica obiektów JSON reprezentujących urządzenia.
 
 | Nazwa | Typ | Dopuszczający wartość null | Lista wartości |
 |--|--|--|--|
-| **id** | Numeryczne | Nie | - |
+| **id** | Numeryczny | Nie | - |
 | **Adresy IP** | Tablica JSON | Tak | Adresy IP (mogą zawierać więcej niż jeden adres w przypadku adresów internetowych lub urządzeń z dwoma kartami sieciowymi) |
-| **Nazwij** | Ciąg | Nie | - |
+| **name** | Ciąg | Nie | - |
 | **Wprowadź** | Ciąg | Nie | Nieznany, stacja robocza, PLC, HMI, Historian, kontroler domeny, serwer bazy danych, punkt dostępu bezprzewodowego, router, przełącznik, serwer, stacja robocza, kamera IP, drukarka, Zapora, stacja terminalowa, VPN Gateway, Internet lub Multiemisja i emisja |
 | **macAddresses** | Tablica JSON | Tak | Adresy MAC (w przypadku urządzenia z dwoma kartami sieciowymi może być więcej niż jeden adres) |
 | **operatingSystem** | Ciąg | Tak | - |
@@ -287,7 +287,7 @@ Użyj tego interfejsu API, aby zażądać listy wszystkich połączeń na urząd
 
 #### <a name="method"></a>Metoda
 
-**GET**
+**Pobierz**
 
 #### <a name="query-parameters"></a>Parametry zapytania
 
@@ -333,10 +333,10 @@ Tablica obiektów JSON reprezentujących połączenia urządzeń.
 
 | Nazwa | Typ | Dopuszczający wartość null | Lista wartości |
 |--|--|--|--|
-| **firstDeviceId** | Numeryczne | Nie | - |
-| **secondDeviceId** | Numeryczne | Nie | - |
-| **lastSeen** | Numeryczne | Nie | Epoka (UTC) |
-| **odnalezione** | Numeryczne | Nie | Epoka (UTC) |
+| **firstDeviceId** | Numeryczny | Nie | - |
+| **secondDeviceId** | Numeryczny | Nie | - |
+| **lastSeen** | Numeryczny | Nie | Epoka (UTC) |
+| **odnalezione** | Numeryczny | Nie | Epoka (UTC) |
 | **np** | Tablica liczb | Nie | - |
 | **protokołów** | Tablica JSON | Nie | Pole protokołu |
 
@@ -344,7 +344,7 @@ Tablica obiektów JSON reprezentujących połączenia urządzeń.
 
 | Nazwa | Typ | Dopuszczający wartość null | Lista wartości |
 |--|--|--|--|
-| **Nazwij** | Ciąg | Nie | - |
+| **name** | Ciąg | Nie | - |
 | **polecenia** | Tablica ciągów | Nie | - |
 
 #### <a name="response-example"></a>Przykład odpowiedzi
@@ -455,7 +455,7 @@ Użyj tego interfejsu API, aby zażądać listy wszystkich znanych CVEs odnalezi
 
 #### <a name="method"></a>Metoda
 
-**GET**
+**Pobierz**
 
 #### <a name="query-parameters"></a>Parametry zapytania
 
@@ -565,7 +565,7 @@ Użyj tego interfejsu API, aby zażądać listy wszystkich alertów wykrytych pr
 
 #### <a name="method"></a>Metoda
 
-**GET**
+**Pobierz**
 
 #### <a name="query-parameters"></a>Parametry zapytania
 
@@ -605,14 +605,14 @@ Tablica obiektów JSON, które reprezentują alerty.
 
 | Nazwa | Typ | Dopuszczający wartość null | Lista wartości |
 |--|--|--|--|
-| **ID (Identyfikator)** | Numeryczne | Nie | - |
-| **pierwszym** | Numeryczne | Nie | Epoka (UTC) |
+| **ID (Identyfikator)** | Numeryczny | Nie | - |
+| **pierwszym** | Numeryczny | Nie | Epoka (UTC) |
 | **title** | Ciąg | Nie | - |
 | **Komunikat** | Ciąg | Nie | - |
 | **obrażeń** | Ciąg | Nie | Ostrzeżenie, pomocniczy, główny lub krytyczny |
 | **wyszukiwarce** | Ciąg | Nie | Naruszenie protokołu, naruszenie zasad, złośliwe oprogramowanie, anomalia lub operacyjna |
-| **sourceDevice** | Numeryczne | Tak | Identyfikator urządzenia |
-| **destinationDevice** | Numeryczne | Tak | Identyfikator urządzenia |
+| **sourceDevice** | Numeryczny | Tak | Identyfikator urządzenia |
+| **destinationDevice** | Numeryczny | Tak | Identyfikator urządzenia |
 | **additionalInformation** | Obiekt informacji dodatkowych | Tak | - |
 
 #### <a name="additional-information-fields"></a>Dodatkowe pola informacji
@@ -693,7 +693,7 @@ Użyj tego interfejsu API, aby zażądać listy zdarzeń raportowanych do osi cz
 
 #### <a name="method"></a>Metoda
 
-**GET**
+**Pobierz**
 
 #### <a name="query-parameters"></a>Parametry zapytania
 
@@ -723,11 +723,11 @@ Tablica obiektów JSON, które reprezentują alerty.
 
 | Nazwa | Typ | Dopuszczający wartość null | Lista wartości |
 |--|--|--|--|--|
-| **znacznik czasu** | Numeryczne | Nie | Epoka (UTC) |
+| **znacznik czasu** | Numeryczny | Nie | Epoka (UTC) |
 | **title** | Ciąg | Nie | - |
 | **obrażeń** | Ciąg | Nie | Informacja, powiadomienie lub ALERT |
 | **właociciela** | Ciąg | Tak | Jeśli zdarzenie zostało utworzone ręcznie, to pole będzie zawierać nazwę użytkownika, który utworzył zdarzenie |
-| **treści** | Ciąg | Nie | - |
+| **zawartość** | Ciąg | Nie | - |
 
 #### <a name="response-example"></a>Przykład odpowiedzi
 
@@ -810,7 +810,7 @@ Użyj tego interfejsu API, aby zażądać wyników oceny luk w zabezpieczeniach 
 
 #### <a name="method"></a>Metoda
 
-**GET**
+**Pobierz**
 
 #### <a name="response-type"></a>Typ odpowiedzi
 
@@ -832,9 +832,9 @@ Obiekt urządzenia zawiera:
 
 | Nazwa | Typ | Dopuszczający wartość null | Lista wartości |
 |--|--|--|--|
-| **Nazwij** | Ciąg | Nie | - |
+| **name** | Ciąg | Nie | - |
 | **Adresy IP** | Tablica JSON | Nie | - |
-| **securityScore** | Numeryczne | Nie | - |
+| **securityScore** | Numeryczny | Nie | - |
 | **Vendor** | Ciąg | Tak |  |
 | **firmwareVersion** | Ciąg | Tak | - |
 | **wzorów** | Ciąg | Tak | - |
@@ -879,7 +879,7 @@ Obiekt urządzenia zawiera:
 
 | Nazwa | Typ | Dopuszczający wartość null | Lista wartości |
 |--|--|--|--|
-| **przewożąc** | Numeryczne | Nie | - |
+| **przewożąc** | Numeryczny | Nie | - |
 | **transportu** | Ciąg | Nie | TCP lub UDP |
 | **Klient** | Ciąg | Nie | Adres IP |
 | **clientSoftware** | Ciąg | Nie | SSH, VNC, pulpit zdalny lub przeglądarka Team Viewer |
@@ -888,7 +888,7 @@ Obiekt urządzenia zawiera:
 
 | Nazwa | Typ | Dopuszczający wartość null | Lista wartości |
 |--|--|--|--|
-| **przewożąc** | Numeryczne | Nie | - |
+| **przewożąc** | Numeryczny | Nie | - |
 | **transportu** | Ciąg | Nie | TCP lub UDP |
 | **protokol** | Ciąg | Tak | - |
 | **isConflictingWithFirewall** | Wartość logiczna | Nie | Prawda lub FAŁSZ |
@@ -898,7 +898,7 @@ Obiekt urządzenia zawiera:
 | Nazwa | Typ | Dopuszczający wartość null | Lista wartości |
 |--|--|--|--|
 | **ID (Identyfikator)** | Ciąg | Nie | - |
-| **dały** | Numeryczne | Nie | Double |
+| **dały** | Numeryczny | Nie | Double |
 | **zharmonizowan** | Ciąg | Nie | - |
 
 #### <a name="response-example"></a>Przykład odpowiedzi
@@ -1062,7 +1062,7 @@ Ta ocena jest oparta na ogólnych informacjach dotyczących sieci i systemu, a n
 
 #### <a name="method"></a>Metoda
 
-**GET**
+**Pobierz**
 
 #### <a name="response-type"></a>Typ odpowiedzi
 
@@ -1081,9 +1081,9 @@ Obiekt JSON reprezentujący szacowane wyniki. Każdy klucz może być dopuszczan
 | Nazwa pola | Typ | Lista wartości |
 | ---------- | ---- | -------------- |
 | **Ulica** | Ciąg | Adres IP |
-| **Nazwij** | Ciąg | - |
-| **firstDetectionTime** | Numeryczne | Epoka (UTC) |
-| lastSeen | Numeryczne | Epoka (UTC) |
+| **name** | Ciąg | - |
+| **firstDetectionTime** | Numeryczny | Epoka (UTC) |
+| lastSeen | Numeryczny | Epoka (UTC) |
 
 **illegalTrafficByFirewallRules**
 
@@ -1091,7 +1091,7 @@ Obiekt JSON reprezentujący szacowane wyniki. Każdy klucz może być dopuszczan
 | ---------- | ---- | -------------- |
 | **Server** | Ciąg | Adres IP |
 | **Klient** | Ciąg | Adres IP |
-| **przewożąc** | Numeryczne | - |
+| **przewożąc** | Numeryczny | - |
 | **transportu** | Ciąg | TCP, UDP lub ICMP |
 
 **weakFirewallRules**
@@ -1109,7 +1109,7 @@ Obiekt JSON reprezentujący szacowane wyniki. Każdy klucz może być dopuszczan
 | **macAddress** | Ciąg | Adres MAC |
 | **Vendor** | Ciąg | Nazwa dostawcy |
 | **Adresu** | Ciąg | Adres IP lub nie ma |
-| **Nazwij** | Ciąg | Nazwa urządzenia lub nie |
+| **name** | Ciąg | Nazwa urządzenia lub nie |
 | **sieci** | Ciąg | Nie, podejrzane lub tak |
 
 **connectionsBetweenSubnets**
@@ -1123,7 +1123,7 @@ Obiekt JSON reprezentujący szacowane wyniki. Każdy klucz może być dopuszczan
 
 | Nazwa pola | Typ | Lista wartości |
 | ---------- | ---- | -------------- |
-| **detectionTime** | Numeryczne | Epoka (UTC) |
+| **detectionTime** | Numeryczny | Epoka (UTC) |
 | **Określony komunikat alarmu** | Ciąg | - |
 | **zharmonizowan** | Ciąg | - |
 | **urządzeniem** | Tablica JSON | Nazwy urządzeń | 
@@ -1303,7 +1303,7 @@ Ten interfejs API służy do żądania wyników ogólnej oceny luk w zabezpiecze
 
 #### <a name="method"></a>Metoda
 
-**GET**
+**Pobierz**
 
 #### <a name="response-type"></a>Typ odpowiedzi
 
@@ -1323,16 +1323,16 @@ Obiekt JSON reprezentujący szacowane wyniki. Każdy klucz zawiera tablicę wyni
 |--|--|--|
 | **zewnętrz** | Ciąg | Adres IP |
 | **punktu** | Ciąg | Adres IP |
-| **przewożąc** | Numeryczne | - |
+| **przewożąc** | Numeryczny | - |
 | **transportu** | Ciąg | TCP lub UDP |
 | **backupMaximalInterval** | Ciąg | - |
-| **lastSeenBackup** | Numeryczne | Epoka (UTC) |
+| **lastSeenBackup** | Numeryczny | Epoka (UTC) |
 
 **ipNetworks**
 
 | Nazwa pola | Typ | Lista wartości |
 |--|--|--|
-| **adresowanie** s | Numeryczne | - |
+| **adresowanie** s | Numeryczny | - |
 | **NFS** | Ciąg | Adres IP |
 | **maska** | Ciąg | Maska podsieci |
 
@@ -1343,7 +1343,7 @@ Obiekt JSON reprezentujący szacowane wyniki. Każdy klucz zawiera tablicę wyni
 | **protokol** | Ciąg | - |
 | **adres** | Tablica JSON | Adresy IP |
 | **wiadom** | Ciąg | - |
-| **reportTime** | Numeryczne | Epoka (UTC) |
+| **reportTime** | Numeryczny | Epoka (UTC) |
 
 **protocolDataVolumes**
 
@@ -1358,8 +1358,8 @@ Obiekt JSON reprezentujący szacowane wyniki. Każdy klucz zawiera tablicę wyni
 |--|--|--|
 | **assetAddress** | Ciąg | Adres IP |
 | **element zawartości** | Ciąg | - |
-| **lastDetectionTime** | Numeryczne | Epoka (UTC) |
-| **backToNormalTime** | Numeryczne | Epoka (UTC) |     
+| **lastDetectionTime** | Numeryczny | Epoka (UTC) |
+| **backToNormalTime** | Numeryczny | Epoka (UTC) |     
 
 #### <a name="response-example"></a>Przykład odpowiedzi
 
@@ -1746,7 +1746,7 @@ Ten interfejs API żąda listy wszystkich urządzeń wykrywanych przez usługę 
 
 #### <a name="method"></a>Metoda
 
-**GET**
+**Pobierz**
 
 #### <a name="response-type"></a>Typ odpowiedzi
 
@@ -1784,11 +1784,11 @@ Tablica obiektów JSON reprezentujących urządzenia.
 
 | Nazwa | Typ | Dopuszczający wartość null | Lista wartości |
 |--|--|--|--|
-| **sensorId** | Numeryczne | Nie | - |
-| **zoneId** | Numeryczne | Tak | - |
-| **Witryny** | Numeryczne | Tak | - |
+| **sensorId** | Numeryczny | Nie | - |
+| **zoneId** | Numeryczny | Tak | - |
+| **Witryny** | Numeryczny | Tak | - |
 | **Adresy IP** | Tablica JSON | Tak | Adresy IP (mogą zawierać więcej niż jeden adres w przypadku adresów internetowych lub urządzeń z dwoma kartami sieciowymi) |
-| **Nazwij** | Ciąg | Nie | - |
+| **name** | Ciąg | Nie | - |
 | **Wprowadź** | Ciąg | Nie | Nieznany, stacja robocza, PLC, HMI, Historian, kontroler domeny, serwer bazy danych, punkt dostępu bezprzewodowego, router, przełącznik, serwer, stacja robocza, kamera IP, drukarka, Zapora, stacja terminalowa, VPN Gateway, Internet lub Multiemisja i emisja |
 | **macAddresses** | Tablica JSON | Tak | Adresy MAC (w przypadku urządzenia z dwoma kartami sieciowymi może być więcej niż jeden adres) |
 | **operatingSystem** | Ciąg | Tak | - |
@@ -1967,7 +1967,7 @@ Ten interfejs API umożliwia pobieranie wszystkich lub odfiltrowanych alertów z
 
 #### <a name="method"></a>Metoda
 
-**GET**
+**Pobierz**
 
 #### <a name="query-parameters"></a>Parametry zapytania
 
@@ -2001,14 +2001,14 @@ Ten interfejs API umożliwia pobieranie wszystkich lub odfiltrowanych alertów z
 
 | Nazwa | Typ | Dopuszczający wartość null | Lista wartości |
 |--|--|--|--|
-| **ID (Identyfikator)** | Numeryczne | Nie | - |
-| **pierwszym** | Numeryczne | Nie | Epoka (UTC) |
+| **ID (Identyfikator)** | Numeryczny | Nie | - |
+| **pierwszym** | Numeryczny | Nie | Epoka (UTC) |
 | **title** | Ciąg | Nie | - |
 | **Komunikat** | Ciąg | Nie | - |
 | **obrażeń** | Ciąg | Nie | Ostrzeżenie, pomocniczy, główny lub krytyczny |
 | **wyszukiwarce** | Ciąg | Nie | Naruszenie protokołu, naruszenie zasad, złośliwe oprogramowanie, anomalia lub operacyjna |
-| **sourceDevice** | Numeryczne | Tak | Identyfikator urządzenia |
-| **destinationDevice** | Numeryczne | Tak | Identyfikator urządzenia |
+| **sourceDevice** | Numeryczny | Tak | Identyfikator urządzenia |
+| **destinationDevice** | Numeryczny | Tak | Identyfikator urządzenia |
 | **additionalInformation** | Obiekt informacji dodatkowych | Tak | - |
 
 #### <a name="additional-information-fields"></a>Dodatkowe pola informacji
@@ -2364,7 +2364,7 @@ Tablica obiektów JSON reprezentująca operacje okna obsługi.
 | **silnika** | Tablica ciągów | - | tak |
 | **sensorIds** | Tablica ciągów | - | tak |
 | **podsieci** | Tablica ciągów | - | tak |
-| **wartość** | Numeryczne | - | tak |
+| **czas wygaśnięcia** | Numeryczny | - | tak |
 | **operationType** | Ciąg | Wartości to "OPEN", "UPDATE" i "CLOSE" | nie |
 
 ### <a name="authenticate-user-credentials"></a>Uwierzytelnianie poświadczeń użytkownika
@@ -2572,6 +2572,6 @@ response:
 | **uż** | Ciąg | Nie |
 | **new_password** | Ciąg | Nie |
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 [Badanie wykrywania czujników w spisie urządzeń](how-to-investigate-sensor-detections-in-a-device-inventory.md) 
  [Zbadaj wszystkie wykrycia czujnika przedsiębiorstwa w spisie urządzeń](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)

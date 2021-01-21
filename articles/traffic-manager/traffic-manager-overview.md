@@ -1,28 +1,27 @@
 ---
 title: Azure Traffic Manager | Microsoft Docs
-description: Ten artykuł zawiera omówienie usługi Azure Traffic Manager. Sprawdź, czy jest ona dobrym rozwiązaniem w przypadku równoważenia obciążenia ruchu użytkownika w aplikacji.
+description: Ten artykuł zawiera omówienie usługi Azure Traffic Manager. Sprawdź, czy jest to właściwy wybór dla ruchu użytkowników z równoważeniem obciążenia dla aplikacji.
 services: traffic-manager
 author: duongau
-manager: twooley
 ms.service: traffic-manager
 customer intent: As an IT admin, I want to learn about Traffic Manager and what I can use it for.
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/23/2019
+ms.date: 01/19/2021
 ms.author: duau
-ms.openlocfilehash: e2a4db1404709dadb2500df29f3f7acf8787c2b2
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 09b82eed5ad6a9ad121ca56d197eb9c003d027f5
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185735"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624913"
 ---
 # <a name="what-is-traffic-manager"></a>Co to jest Traffic Manager?
-Usługa Azure Traffic Manager to oparty na systemie DNS moduł równoważenia obciążenia ruchu, który umożliwia optymalną dystrybucję ruchu do usług w wielu regionach platformy Azure na świecie, przy jednoczesnym zapewnieniu wysokiej dostępności i krótkiego czasu odpowiedzi.
+Azure Traffic Manager to moduł równoważenia obciążenia opartego na systemie DNS. Ta usługa umożliwia dystrybucję ruchu do publicznych aplikacji w regionach platformy Azure. Traffic Manager udostępnia również publiczne punkty końcowe o wysokiej dostępności i szybkiej odpowiedzi.
 
-Usługa Traffic Manager używa systemu DNS do kierowania żądań klientów do najodpowiedniejszego punktu końcowego usługi w oparciu o metodę routingu ruchu i kondycję punktów końcowych. Punkt końcowy to dowolna internetowa usługa hostowana wewnątrz platformy Azure lub poza nią. Usługa Traffic Manager udostępnia szereg [metod routingu ruchu](traffic-manager-routing-methods.md) oraz [opcji monitorowania punktów końcowych](traffic-manager-monitoring.md), które zaspokoją potrzeby różnych aplikacji i modeli automatycznej pracy w trybie failover. Usługa Traffic Manager jest odporna na awarie, w tym awarię całego regionu platformy Azure.
+Traffic Manager używa systemu DNS do kierowania żądań klientów do odpowiedniego punktu końcowego usługi na podstawie metody routingu ruchu. Menedżer ruchu udostępnia również monitorowanie kondycji dla każdego punktu końcowego. Punktem końcowym może być dowolna usługa internetowa hostowana w ramach platformy Azure lub poza nią. Usługa Traffic Manager udostępnia szereg [metod routingu ruchu](traffic-manager-routing-methods.md) oraz [opcji monitorowania punktów końcowych](traffic-manager-monitoring.md), które zaspokoją potrzeby różnych aplikacji i modeli automatycznej pracy w trybie failover. Usługa Traffic Manager jest odporna na awarie, w tym awarię całego regionu platformy Azure.
 
 >[!NOTE]
 > Platforma Azure udostępnia zestaw w pełni zarządzanych rozwiązań do równoważenia obciążenia dla Twoich scenariuszy. Jeśli chcesz zakończyć protokół zabezpieczeń TLS (Transport Layer Security) („odciążanie protokołu SSL”) lub przetwarzanie poszczególnych żądań dotyczących protokołu HTTP/HTTPS na poziomie warstwy aplikacji, zapoznaj się z tematem dotyczącym usługi [Application Gateway](../application-gateway/overview.md). Jeśli chcesz równoważyć obciążenie w poszczególnych regionach, zapoznaj się z tematem dotyczącym usługi [Load Balancer](../load-balancer/load-balancer-overview.md). Scenariusze kompleksowe mogą w razie potrzeby korzystać z zalet łączenia tych rozwiązań.
@@ -37,11 +36,11 @@ Usługa Traffic Manager zapewnia wysoką dostępność aplikacji o krytycznym zn
     
 ## <a name="improve-application-performance"></a>Zwiększanie wydajności aplikacji
 
-Platforma Azure umożliwia uruchamianie usług w chmurze lub witryn internetowych w centrach danych, które znajdują się w różnych częściach świata. Usługa Traffic Manager skraca czas odpowiedzi aplikacji, kierując ruch do punktu końcowego z najniższym opóźnieniem sieci dla klienta.
+System Azure umożliwia uruchamianie usług w chmurze i witryn sieci Web w centrach danych znajdujących się na całym świecie. Traffic Manager może zwiększyć czas odpowiedzi witryny sieci Web przez kierowanie ruchu do punktu końcowego z najniższym opóźnieniem.
 
-## <a name="perform-service-maintenance-without-downtime"></a>Przeprowadzanie konserwacji usługi bez przestojów
+## <a name="service-maintenance-without-downtime"></a>Konserwacja usług bez przestojów
 
-Operacje planowanej konserwacji aplikacji można przeprowadzać bez przestojów. W czasie konserwacji usługa Traffic Manager może kierować ruch do alternatywnych punktów końcowych.
+Możesz zaplanować konserwację aplikacji bez przestojów. W czasie konserwacji usługa Traffic Manager może kierować ruch do alternatywnych punktów końcowych.
 
 ## <a name="combine-hybrid-applications"></a>Tworzenie aplikacji hybrydowych
 

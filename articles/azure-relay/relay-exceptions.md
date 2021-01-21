@@ -3,12 +3,12 @@ title: Azure Relay wyjątki i sposoby ich rozwiązywania | Microsoft Docs
 description: Lista wyjątków Azure Relay i sugerowanych działań, które można podjąć, aby rozwiązać te problemy.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: a644dfe80255c64980400866a5e3d197f75375bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44eeba6eb7b8cfd4e81a923c2d9a3155f1709f2c
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87532972"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625152"
 ---
 # <a name="azure-relay-exceptions"></a>Wyjątki Azure Relay
 
@@ -18,16 +18,16 @@ W tym artykule wymieniono wyjątki, które mogą zostać wygenerowane przez inte
 
 Interfejsy API przekazywania generują wyjątki, które mogą należeć do następujących kategorii. Wymienione również są sugerowane akcje, które można wykonać, aby pomóc w rozwiązaniu wyjątków.
 
-*   **Błąd kodowania użytkownika**: [System. ArgumentException](/dotnet/api/system.argumentexception?view=netcore-3.1), [System. InvalidOperationException](/dotnet/api/system.invalidoperationexception?view=netcore-3.1), [System. OperationCanceledException](/dotnet/api/system.operationcanceledexception?view=netcore-3.1), [System. Runtime. Serialization. SerializationException](/dotnet/api/system.runtime.serialization.serializationexception?view=netcore-3.1). 
+*   **Błąd kodowania użytkownika**: [System. ArgumentException](/dotnet/api/system.argumentexception), [System. InvalidOperationException](/dotnet/api/system.invalidoperationexception), [System. OperationCanceledException](/dotnet/api/system.operationcanceledexception), [System. Runtime. Serialization. SerializationException](/dotnet/api/system.runtime.serialization.serializationexception). 
 
     **Akcja ogólna**: spróbuj naprawić kod przed kontynuowaniem.
-*   **Błąd instalacji/konfiguracji**: [System. UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1). 
+*   **Błąd instalacji/konfiguracji**: [System. UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception). 
 
     **Akcja ogólna**: Przejrzyj konfigurację. W razie potrzeby zmień konfigurację.
 *   **Wyjątki przejściowe**: [Microsoft. ServiceBus. Messaging. messagingexception](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft. ServiceBus. Messaging. wyjątek serverbusyexception](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception), [Microsoft. ServiceBus. Messaging. MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception). 
 
     **Akcja ogólna**: ponów próbę wykonania operacji lub Powiadom użytkowników.
-*   **Inne wyjątki**: [System. Actions. TransactionException](/dotnet/api/system.transactions.transactionexception?view=netcore-3.1), [System. TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1). 
+*   **Inne wyjątki**: [System. Actions. TransactionException](/dotnet/api/system.transactions.transactionexception), [System. TimeoutException](/dotnet/api/system.timeoutexception). 
 
     **Akcja ogólna**: określona dla typu wyjątku. Zapoznaj się z tabelą w poniższej sekcji. 
 
@@ -37,11 +37,11 @@ W poniższej tabeli wymieniono typy wyjątków komunikatów i ich przyczyny. Zaw
 
 | **Typ wyjątku** | **Opis** | **Zalecane działanie** | **Uwaga dotycząca automatycznego lub natychmiastowego ponawiania próby** |
 | --- | --- | --- | --- |
-| [Limit czasu](/dotnet/api/system.timeoutexception?view=netcore-3.1) |Serwer nie odpowiedział na żądaną operację w określonym czasie, który jest kontrolowany przez [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout). Serwer mógł zakończyć żądaną operację. Może się to zdarzyć z powodu opóźnień sieci lub innych. |Sprawdź stan systemu pod kątem spójności, a następnie ponów próbę, jeśli to konieczne. Zobacz [TimeoutException](#timeoutexception). |Ponowienie próby może pomóc w niektórych przypadkach; Dodaj logikę ponowień do kodu. |
-| [Nieprawidłowa operacja](/dotnet/api/system.invalidoperationexception?view=netcore-3.1) |Żądana operacja użytkownika nie jest dozwolona w ramach serwera lub usługi. Aby uzyskać szczegółowe informacje, zobacz komunikat o wyjątku. |Sprawdź kod i dokumentację. Upewnij się, że żądana operacja jest prawidłowa. |Ponowienie próby nie powiedzie się. |
-| [Operacja anulowana](/dotnet/api/system.operationcanceledexception?view=netcore-3.1) |Podjęto próbę wywołania operacji na obiekcie, który został już zamknięty, przerwany lub usunięty. W rzadkich przypadkach transakcja otoczenia została już usunięta. |Sprawdź kod i upewnij się, że nie wywoła operacji na usuniętym obiekcie. |Ponowienie próby nie powiedzie się. |
-| [Nieautoryzowany dostęp](/dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1) |Obiekt [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) nie może uzyskać tokenu, token jest nieprawidłowy lub token nie zawiera oświadczeń wymaganych do wykonania tej operacji. |Upewnij się, że Dostawca tokenu został utworzony z prawidłowymi wartościami. Sprawdź konfigurację usługi Access Control. |Ponowienie próby może pomóc w niektórych przypadkach; Dodaj logikę ponowień do kodu. |
-| [Wyjątek argumentu](/dotnet/api/system.argumentexception?view=netcore-3.1),<br /> [Argument ma wartość null](/dotnet/api/system.argumentnullexception?view=netcore-3.1),<br />[Argument poza zakresem](/dotnet/api/system.argumentoutofrangeexception?view=netcore-3.1) |Wystąpił co najmniej jeden z następujących elementów:<br />Jeden lub więcej argumentów dostarczonych do metody są nieprawidłowe.<br /> Identyfikator URI podany w [przestrzeni nazwmanager](/dotnet/api/microsoft.servicebus.namespacemanager) lub [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create) zawiera jeden lub więcej segmentów ścieżki.<br />Schemat identyfikatora URI dostarczony do [przestrzeni nazwmanager](/dotnet/api/microsoft.servicebus.namespacemanager) lub [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create) jest nieprawidłowy. <br />Wartość właściwości jest większa niż 32 KB. |Sprawdź kod wywołujący i upewnij się, że argumenty są poprawne. |Ponowienie próby nie powiedzie się. |
+| [Limit czasu](/dotnet/api/system.timeoutexception) |Serwer nie odpowiedział na żądaną operację w określonym czasie, który jest kontrolowany przez [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout). Serwer mógł zakończyć żądaną operację. Może się to zdarzyć z powodu opóźnień sieci lub innych. |Sprawdź stan systemu pod kątem spójności, a następnie ponów próbę, jeśli to konieczne. Zobacz [TimeoutException](#timeoutexception). |Ponowienie próby może pomóc w niektórych przypadkach; Dodaj logikę ponowień do kodu. |
+| [Nieprawidłowa operacja](/dotnet/api/system.invalidoperationexception) |Żądana operacja użytkownika nie jest dozwolona w ramach serwera lub usługi. Aby uzyskać szczegółowe informacje, zobacz komunikat o wyjątku. |Sprawdź kod i dokumentację. Upewnij się, że żądana operacja jest prawidłowa. |Ponowienie próby nie powiedzie się. |
+| [Operacja anulowana](/dotnet/api/system.operationcanceledexception) |Podjęto próbę wywołania operacji na obiekcie, który został już zamknięty, przerwany lub usunięty. W rzadkich przypadkach transakcja otoczenia została już usunięta. |Sprawdź kod i upewnij się, że nie wywoła operacji na usuniętym obiekcie. |Ponowienie próby nie powiedzie się. |
+| [Nieautoryzowany dostęp](/dotnet/api/system.unauthorizedaccessexception) |Obiekt [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) nie może uzyskać tokenu, token jest nieprawidłowy lub token nie zawiera oświadczeń wymaganych do wykonania tej operacji. |Upewnij się, że Dostawca tokenu został utworzony z prawidłowymi wartościami. Sprawdź konfigurację usługi Access Control. |Ponowienie próby może pomóc w niektórych przypadkach; Dodaj logikę ponowień do kodu. |
+| [Wyjątek argumentu](/dotnet/api/system.argumentexception),<br /> [Argument ma wartość null](/dotnet/api/system.argumentnullexception),<br />[Argument poza zakresem](/dotnet/api/system.argumentoutofrangeexception) |Wystąpił co najmniej jeden z następujących elementów:<br />Jeden lub więcej argumentów dostarczonych do metody są nieprawidłowe.<br /> Identyfikator URI podany w [przestrzeni nazwmanager](/dotnet/api/microsoft.servicebus.namespacemanager) lub [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create) zawiera jeden lub więcej segmentów ścieżki.<br />Schemat identyfikatora URI dostarczony do [przestrzeni nazwmanager](/dotnet/api/microsoft.servicebus.namespacemanager) lub [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create) jest nieprawidłowy. <br />Wartość właściwości jest większa niż 32 KB. |Sprawdź kod wywołujący i upewnij się, że argumenty są poprawne. |Ponowienie próby nie powiedzie się. |
 | [Serwer zajęty](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) |Usługa nie może w tej chwili przetworzyć żądania. |Klient może czekać przez pewien czas, a następnie ponowić próbę wykonania operacji. |Klient może ponowić próbę po upływie określonego interwału. Jeśli ponowienie próby spowoduje inny wyjątek, sprawdź zachowanie ponowienia tego wyjątku. |
 | [Przekroczono limit przydziału](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) |Jednostka obsługi komunikatów osiągnęła maksymalny dozwolony rozmiar. |Utwórz miejsce w jednostce przez odebranie komunikatów z jednostki lub jej podkolejek. Zobacz [QuotaExceededException](#quotaexceededexception). |Ponowienie próby może pomóc w przypadku usunięcia komunikatów w międzyczasie. |
 | [Przekroczono rozmiar komunikatu](/dotnet/api/microsoft.servicebus.messaging.messagesizeexceededexception) |Ładunek komunikatu przekracza limit 256 KB. Należy pamiętać, że limit 256 KB jest całkowitym rozmiarem komunikatu. Łączny rozmiar komunikatu może obejmować właściwości systemu i wszelkie Microsoft .NET obciążenie. |Zmniejsz rozmiar ładunku komunikatu, a następnie spróbuj ponownie wykonać operację. |Ponowienie próby nie powiedzie się. |
@@ -50,12 +50,12 @@ W poniższej tabeli wymieniono typy wyjątków komunikatów i ich przyczyny. Zaw
 
 Wyjątek [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) wskazuje, że przekroczono limit przydziału dla określonej jednostki.
 
-W przypadku przekaźnika ten wyjątek otacza obiekt [System. ServiceModel. QuotaExceededException](/dotnet/api/system.servicemodel.quotaexceededexception?view=dotnet-plat-ext-3.1), który wskazuje, że Przekroczono maksymalną liczbę odbiorników dla tego punktu końcowego. Jest to wskazane w wartości **MaximumListenersPerEndpoint** komunikatu o wyjątku.
+W przypadku przekaźnika ten wyjątek otacza obiekt [System. ServiceModel. QuotaExceededException](/dotnet/api/system.servicemodel.quotaexceededexception), który wskazuje, że Przekroczono maksymalną liczbę odbiorników dla tego punktu końcowego. Jest to wskazane w wartości **MaximumListenersPerEndpoint** komunikatu o wyjątku.
 
 ## <a name="timeoutexception"></a>TimeoutException
-[Limit czasu](/dotnet/api/system.timeoutexception?view=netcore-3.1) wskazuje, że operacja inicjowana przez użytkownika trwa dłużej niż limit czasu operacji. 
+[Limit czasu](/dotnet/api/system.timeoutexception) wskazuje, że operacja inicjowana przez użytkownika trwa dłużej niż limit czasu operacji. 
 
-Sprawdź wartość właściwości [ServicePointManager. DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit?view=netcore-3.1#System_Net_ServicePointManager_DefaultConnectionLimit) . Osiągnięcie tego limitu również może spowodować [przekroczenie limitu czasu](/dotnet/api/system.timeoutexception?view=netcore-3.1).
+Sprawdź wartość właściwości [ServicePointManager. DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) . Osiągnięcie tego limitu również może spowodować [przekroczenie limitu czasu](/dotnet/api/system.timeoutexception).
 
 W przypadku usługi Relay może wystąpić wyjątek limitu czasu podczas pierwszego otwarcia połączenia nadawcy przekaźnika. Istnieją dwie typowe przyczyny tego wyjątku:
 

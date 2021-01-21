@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: Blackmist
 ms.author: nigup
 author: nishankgu
-ms.date: 11/09/2020
+ms.date: 01/20/2020
 ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2
-ms.openlocfilehash: 636f63b3f7e43bd8f27d1df58ab82d24bd19a616
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 8420aecbc160fa6df2640d2ba0ae8a8b77702b67
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033752"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624544"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Zarządzanie dostępem do obszaru roboczego usługi Azure Machine Learning
 
@@ -161,6 +161,10 @@ Musisz mieć uprawnienia do całego zakresu nowej definicji roli. Jeśli na przy
 > [!NOTE]
 > Zastosowanie aktualizacji ról może zająć od 15 minut do godziny.
 
+## <a name="use-azure-resource-manager-templates-for-repeatability"></a>Użyj szablonów Azure Resource Manager do powtarzalności
+
+Jeśli przewidujesz, że będzie konieczne ponowne utworzenie złożonych przypisań ról, szablon Azure Resource Manager może być dużą pomoc. W [szablonie 201-Machine-Learning-](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-dependencies-role-assignment) Resources-przypisań ról można określić, w jaki sposób przypisania ról mogą być określone w kodzie źródłowym do ponownego użycia. 
+
 ## <a name="common-scenarios"></a>Typowe scenariusze
 
 Poniższa tabela zawiera podsumowanie działań Azure Machine Learning i uprawnienia wymagane do ich wykonania w najniższym zakresie. Na przykład, jeśli działanie może być wykonywane z zakresem obszaru roboczego (kolumna 4), wówczas cały wyższy zakres z tym uprawnieniem będzie również działać automatycznie:
@@ -207,7 +211,7 @@ Aby wykonać operacje MLflow z obszarem roboczym Azure Machine Learning, użyj n
 
 ## <a name="example-custom-roles"></a>Przykładowe role niestandardowe
 
-### <a name="data-scientist"></a>Mistrz danych
+### <a name="data-scientist"></a>Analityk danych
 
 Umożliwia analitykowi danych wykonywanie wszystkich operacji w obszarze roboczym **z wyjątkiem**:
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 01/12/2021
 ms.author: jeedes
-ms.openlocfilehash: b9a85c7093d0f42ac97c4a548ba6f0feebae8b89
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 1c5fa1c704e51026d5cd4defdb7f5e85827ccb9b
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350725"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624795"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netdocuments"></a>Samouczek: integracja logowania jednokrotnego (SSO) Azure Active Directory z dokumentami
 
@@ -25,8 +25,6 @@ W tym samouczku dowiesz się, jak zintegrować dokumenty z usługą Azure Active
 * Kontrolka w usłudze Azure AD, która ma dostęp do dokumentów w usłudze.
 * Umożliwia użytkownikom automatyczne logowanie się do dokumentów w dokumentach sieci przy użyciu kont usługi Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
-
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -45,14 +43,14 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 
 Aby skonfigurować integrację dokumentów w usłudze Azure AD, musisz dodać dokumenty z galerii do listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
 1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
 1. W sekcji **Dodaj z galerii** wpisz **dokumenty** w polu wyszukiwania.
 1. Wybierz pozycję **dokumenty** z panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-netdocuments"></a>Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD dla dokumentów
+## <a name="configure-and-test-azure-ad-sso-for-netdocuments"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla dokumentów
 
 Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą dokumentów sieci przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację łącza między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w dokumentach sieciowych.
 
@@ -69,7 +67,7 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pom
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie **integracja aplikacji sieci** Web Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
+1. W Azure Portal na stronie **integracja aplikacji sieci** Web Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
@@ -77,22 +75,46 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W sekcji **Podstawowa konfiguracja języka SAML** wprowadź wartości dla następujących pól:
 
-    a. W polu tekstowym **Adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`
+    a. W polu tekstowym **adres URL logowania** wpisz jeden z następujących wzorców URL:
 
-    b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`
-    
-    c. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, używając następującego wzorca: `http://netdocuments.com/VAULT`
+    |Adres URL logowania|
+    |-----------|
+    |`https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |`https://eu.netdocuments.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |`https://de.netdocuments.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |`https://au.netdocuments.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |
+
+    b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz jeden z adresów URL:
+
+    |Identyfikator|
+    |-----------|
+    |`http://netdocuments.com/VAULT`|
+    |`http://netdocuments.com/EU`|
+    |`http://netdocuments.com/AU`|
+    |`http://netdocuments.com/DE`|
+    |
+
+    c. W polu tekstowym **adres URL odpowiedzi** wpisz jeden z następujących wzorców URL:
+
+    |Adres URL odpowiedzi|
+    |-----------|
+    |`https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |`https://eu.netdocuments.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |`https://de.netdocuments.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |`https://au.netdocuments.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |
 
     > [!NOTE]
     > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu adresu URL logowania i adresu URL odpowiedzi. Identyfikator repozytorium to wartość rozpoczynająca się od **urzędu certyfikacji** , po którym następuje 8 kodów znaków skojarzonych z repozytorium dokumentów. Aby uzyskać więcej informacji, możesz sprawdzić dokument dotyczący [obsługi tożsamości federacyjnych w dokumentach](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login) . Możesz też skontaktować się z [zespołem pomocy technicznej klienta](https://support.netdocuments.com/hc/) , aby uzyskać te wartości, jeśli masz problemy z konfiguracją przy użyciu powyższych informacji. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
-1. Aplikacja sieci Documents oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Na poniższym zrzucie ekranu przedstawiono listę atrybutów domyślnych, gdzie atrybut **nameidentifier** jest mapowany na atrybut **user.userprincipalname**. Aplikacja sieciową oczekuje, że **NameIdentifier** mają być mapowane przy użyciu **IDPracownika** lub innych roszczeń, które mają zastosowanie w organizacji jako **NameIdentifier**, dlatego należy edytować Mapowanie atrybutów, klikając ikonę **Edytuj** i zmieniając mapowanie atrybutu.
+1. Aplikacja sieci Documents oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Na poniższym zrzucie ekranu przedstawiono listę atrybutów domyślnych, gdzie atrybut **nameidentifier** jest mapowany na atrybut **user.userprincipalname**. Aplikacja dla dokumentów sieci oczekuje mapowania **NameIdentifier** z identyfikatorem **objectid** lub innym zastrzeżeniem, które ma zastosowanie do Twojej organizacji jako **NameIdentifier**, dlatego należy edytować Mapowanie atrybutów, klikając ikonę **Edytuj** i zmieniając mapowanie atrybutu.
 
     ![image (obraz)](common/edit-attribute.png)
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **plik XML metadanych Federacji** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **adres URL metadanych federacji aplikacji** i skopiuj adres URL.
 
-    ![Link do pobierania certyfikatu](common/metadataxml.png)
+    ![Link do pobierania certyfikatu](common/copy-metadataurl.png)
 
 1. W sekcji **Konfigurowanie dokumentów** sieci skopiuj odpowiednie adresy URL na podstawie wymagania.
 
@@ -117,15 +139,9 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Na liście Aplikacje wybierz pozycję **dokumenty**.
 1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
-
-   ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
-
 1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
-
-    ![Link Dodaj użytkownika](common/add-assign-user.png)
-
 1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
 ## <a name="configure-netdocuments-sso"></a>Konfigurowanie rejestracji jednokrotnej dokumentów w dokumentach
@@ -136,7 +152,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 3. Wybierz pozycję **Security Center**.
    
-    ![Zrzut ekranu przedstawia Security Center wybrane z dokumentów prawnych.](./media/netdocuments-tutorial/security-center.png "Security Center")
+    ![Repozytorium](./media/netdocuments-tutorial/security-center.png "Security Center")
 
 4. Wybierz pozycję **Zaawansowane uwierzytelnianie**.
     
@@ -144,9 +160,9 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 5.  Na karcie **Identyfikator federacyjny** wykonaj następujące czynności:   
    
-    ![Tożsamość federacyjna](./media/netdocuments-tutorial/federated-id.png "Tożsamość federacyjna")
+    [![Tożsamość federacyjna](./media/netdocuments-tutorial/federated-id.png "Tożsamość federacyjna")](./media/netdocuments-tutorial/federated-id.png#lightbox)
    
-    a. Jako **Typ federacyjnego serwera tożsamości** wybierz **Active Directory Federation Services**.
+    a. W przypadku **typu federacyjnego serwera tożsamości** wybierz opcję jako **Azure Active Directory systemu Windows**.
     
     b.  Wybierz pozycję **Wybierz plik**, aby przekazać pobrany plik metadanych pobrany z Azure Portal.
     
@@ -162,11 +178,11 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w dokumentach, mus
 
 2. W prawym górnym rogu wybierz swoją nazwę>**administrator**.
    
-    ![Administracja](./media/netdocuments-tutorial/user-admin.png "Administracja")
+    ![Administracja](./media/netdocuments-tutorial/user-admin.png "Administrator")
 
 3. Wybierz pozycję **Użytkownicy i grupy**.
    
-    ![Zrzut ekranu przedstawia użytkowników & grup wybranych z dokumentów prawnych.](./media/netdocuments-tutorial/users-groups.png "Repozytorium")
+    ![Użytkownicy i grupy](./media/netdocuments-tutorial/users-groups.png "Repozytorium")
 
 4. W polu tekstowym **adres e-mail** wpisz adres e-mail prawidłowego konta Azure Active Directory, które chcesz udostępnić, a następnie kliknij przycisk **Dodaj użytkownika**.
    
@@ -177,16 +193,15 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w dokumentach, mus
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji. 
 
-Po kliknięciu kafelka dokumenty w panelu dostępu należy automatycznie zalogować się do dokumentów, dla których skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie do adresu URL logowania do dokumentu, w którym można zainicjować przepływ logowania. 
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+* Przejdź bezpośrednio do dokumentacji usługi dokumenty dotyczącej logowania i zainicjuj tam przepływ logowania.
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
+* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka dokumenty w moich aplikacjach należy automatycznie zalogować się do dokumentów, dla których skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
+## <a name="next-steps"></a>Następne kroki
 
-- [Wypróbuj dokumenty w usłudze Azure AD](https://aad.portal.azure.com/)
+Po skonfigurowaniu dokumentów sieci Web można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

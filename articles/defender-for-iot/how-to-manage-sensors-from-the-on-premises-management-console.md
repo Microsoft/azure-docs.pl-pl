@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 36db1b23d8fb17cec4fe981c938f8c7003543b4d
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 73eb693ab9f06535fd523eb386969e2cce961eef
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97841926"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624595"
 ---
 # <a name="manage-sensors-from-the-management-console"></a>Zarządzanie czujnikami z poziomu konsoli zarządzania
 
@@ -34,7 +34,7 @@ Można zdefiniować następujące ustawienia systemowe czujnika z poziomu konsol
 
 - Monitorowanie MIB usługi SNMP
 
-- Usługa Active Directory
+- Active Directory
 
 - Ustawienia DNS
 
@@ -150,7 +150,7 @@ Czujniki są chronione przez pięć aparatów usługi Defender for IoT. Można w
 | Aparat naruszenia zasad | Naruszenie zasad występuje w odróżnieniu od zachowania linii bazowej zdefiniowanej w zasadach zapoznania lub skonfigurowanych. | Alert "nieautoryzowany agent użytkownika HTTP". Ten alert wskazuje na to, że aplikacja, która nie została wybrana lub zatwierdzona przez zasady, jest używana jako klient HTTP na urządzeniu. Może to być Nowa przeglądarka lub aplikacja sieci Web na tym urządzeniu. |
 | Aparat złośliwego oprogramowania | Aparat złośliwego oprogramowania wykrywa złośliwe działanie sieciowe. | Alert "podejrzenie złośliwego działania (Stuxnet)". Ten alert wskazuje, że czujnik znalazł podejrzaną aktywność sieci znaną jako powiązaną ze złośliwym oprogramowaniem Stuxnet, który jest zaawansowanym trwałym zagrożeniem mającym na celu kontrolę przemysłową i sieci SCADA. |
 | Aparat anomalii | Aparat złośliwego oprogramowania wykrywa anomalię w działaniu sieciowym. | "Okresowe zachowanie w kanale komunikacji". Jest to składnik, który sprawdza połączenia sieciowe i wyszukuje okresowe lub cykliczne zachowanie transmisji danych, która jest wspólna w sieciach przemysłowych. |
-| Aparat operacyjny | Ten aparat wykrywa zdarzenia operacyjne lub wadliwe jednostki. | Alert "zasób prawdopodobnie zostanie odłączony (nie odpowiada)". Ten alert jest wyzwalany, gdy urządzenie nie odpowiada na żądania ze wstępnie zdefiniowanego okresu. Może to wskazywać na zamknięcie urządzenia, odłączenie lub nieprawidłowe działanie.
+| Aparat operacyjny | Ten aparat wykrywa zdarzenia operacyjne lub wadliwe jednostki. | `Device is Suspected to be Disconnected (Unresponsive)` wiadom. Ten alert jest wyzwalany, gdy urządzenie nie odpowiada na żądania ze wstępnie zdefiniowanego okresu. Może to wskazywać na zamknięcie urządzenia, odłączenie lub nieprawidłowe działanie.
 |
 
 Aby włączyć lub wyłączyć Aparaty dla czujników połączonych:
@@ -315,6 +315,6 @@ Aby skonfigurować serwer SMB, aby można było zapisać kopię zapasową czujni
 
 9. Ustaw `Backup.shared_location` wartość `<backup_folder_name_on_cyberx_server>` .
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
-[Zarządzanie indywidualnymi czujnikami](how-to-manage-individual-sensors.md)
+[Zarządzanie pojedynczymi czujnikami](how-to-manage-individual-sensors.md)

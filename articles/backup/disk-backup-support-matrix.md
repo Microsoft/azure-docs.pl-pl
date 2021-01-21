@@ -1,15 +1,15 @@
 ---
-title: Macierz obsługi kopii zapasowych na dysku platformy Azure
+title: Macierz obsługi kopii zapasowych dysków na platformie Azure
 description: Zawiera podsumowanie ustawień pomocy technicznej i ograniczenia kopii zapasowej na dysku platformy Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 950651148237c7b9374c378e27ef5cd76697ae9e
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 099e83d8a2fb109da862657265dad8be8143f608
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98558428"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624938"
 ---
 # <a name="azure-disk-backup-support-matrix-in-preview"></a>Macierz obsługi kopii zapasowych na dysku platformy Azure (w wersji zapoznawczej)
 
@@ -55,6 +55,8 @@ Więcej regionów zostanie ogłoszonych, gdy staną się dostępne.
 - Obecnie nie można modyfikować zasad tworzenia kopii zapasowych i nie można zmienić grupy zasobów migawek przypisanej do wystąpienia kopii zapasowej podczas konfigurowania kopii zapasowej dysku.
 
 - Obecnie Azure Portal środowisko konfigurowania kopii zapasowych dysków jest ograniczone do maksymalnie 20 dysków z tej samej subskrypcji.
+
+- Obecnie (w trakcie korzystania z wersji zapoznawczej) korzystanie z programu PowerShell i interfejsu wiersza polecenia platformy Azure w celu skonfigurowania kopii zapasowych i przywracania dysków nie jest obsługiwane.
 
 - Podczas konfigurowania kopii zapasowej dysk wybrany do utworzenia kopii zapasowej i Grupa zasobów migawek, w której mają być przechowywane migawki, muszą być częścią tej samej subskrypcji. Nie można utworzyć migawki przyrostowej dla określonego dysku poza subskrypcją tego dysku. Dowiedz się więcej na temat [migawek przyrostowych](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) dla dysku zarządzanego. Aby uzyskać więcej informacji na temat wybierania grupy zasobów migawek, zobacz  [Konfigurowanie kopii zapasowej](backup-managed-disks.md#configure-backup).
 

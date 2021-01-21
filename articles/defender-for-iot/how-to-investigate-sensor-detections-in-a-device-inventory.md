@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: f3058953e702f40fa1500441e382898b0314ddbb
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 9c868685ad943c1ab9ab263a164111e46294c042
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97841807"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625435"
 ---
-# <a name="investigate-sensor-detections-in-a-device-inventory"></a>Badanie wykrywania czujników w spisie urządzeń
+# <a name="investigate-sensor-detections-in-a-device-inventory"></a>Badanie wykryć czujników w spisie urządzeń
 
 W spisie urządzeń jest wyświetlany szeroki zakres atrybutów urządzeń wykrywanych przez czujnik. Dostępne są następujące opcje:
 
@@ -147,7 +147,7 @@ Można przebadać następujące systemy operacyjne Windows:
 
 - System Windows Server 2003/2008/2012/2016
 
-### <a name="before-you-begin"></a>Przed rozpoczęciem
+### <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby móc współpracować ze skryptem, musisz spełnić następujące wymagania:
 
@@ -223,8 +223,8 @@ Aby wyeksportować plik CSV:
 
 - W prawym górnym menu spisu urządzeń wybierz pozycję :::image type="icon" source="media/how-to-work-with-asset-inventory-information/csv-excel-export-icon.png" border="false"::: . Raport CSV jest generowany i pobierany.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
-[Zbadaj wszystkie wykrycia czujnika przedsiębiorstwa w spisie urządzeń](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
+[Badanie wszystkich wykryć czujników przedsiębiorstwa w spisie urządzeń](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
 
 [Pracuj z widokami mapy witryny](how-to-gain-insight-into-global-regional-and-local-threats.md#work-with-site-map-views)

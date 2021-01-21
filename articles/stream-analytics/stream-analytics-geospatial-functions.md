@@ -6,16 +6,16 @@ ms.author: krishmam
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 8d01f43dd6e404bb8f8ae0898625ae1ea9d09fd6
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: dc590593b9bff8f646ee6155d32a2ce3f9790f6e
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020438"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625252"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>Wprowadzenie do Stream Analytics funkcji geoprzestrzennych
 
-Funkcje geoprzestrzenne w Azure Stream Analytics włączają analizę w czasie rzeczywistym w przypadku przesyłania strumieniowego danych geoprzestrzennych. Za pomocą zaledwie kilku wierszy kodu możesz opracować rozwiązanie klasy produkcyjnej dla złożonych scenariuszy. 
+Funkcje geoprzestrzenne w Azure Stream Analytics włączają analizę w czasie rzeczywistym w przypadku przesyłania strumieniowego danych geoprzestrzennych. Za pomocą zaledwie kilku wierszy kodu możesz opracować rozwiązanie klasy produkcyjnej dla złożonych scenariuszy. Te funkcje obsługują wszystkie typy WKT oraz punkt GEOJSON, Wielokąt i LineString.
 
 Przykładowe scenariusze, które mogą korzystać z funkcji geoprzestrzennych, to m.in.:
 
@@ -110,7 +110,7 @@ Aby dowiedzieć się więcej, odwiedź odwołanie do [wielokąta](/stream-analyt
 
 
 ## <a name="st_distance"></a>ST_DISTANCE
-`ST_DISTANCE`Funkcja zwraca odległość między dwoma punktami w licznikach. 
+`ST_DISTANCE`Funkcja zwraca odległość między dwoma geometrie w metrach. 
 
 Poniższe zapytanie używa `ST_DISTANCE` do generowania zdarzenia, gdy stacja gazowa jest mniejsza niż 10 km od samochodu.
 
@@ -123,7 +123,7 @@ JOIN Station s ON ST_DISTANCE(c.Location, s.Location) < 10 * 1000
 Aby dowiedzieć się więcej, odwiedź stronę referencyjną [ST_DISTANCE](/stream-analytics-query/st-distance) .
 
 ## <a name="st_overlaps"></a>ST_OVERLAPS
-`ST_OVERLAPS`Funkcja porównuje dwa wielokąty. Jeśli wielokąty nakładają się, funkcja zwraca 1. Funkcja zwraca wartość 0, jeśli wielokąty nie nakładają się. 
+`ST_OVERLAPS`Funkcja porównuje dwie geometrie. Jeśli geometrie się pokrywa, funkcja zwraca 1. Funkcja zwraca wartość 0, jeśli geometrie nie nakłada się na siebie. 
 
 Poniższe zapytanie używa `ST_OVERLAPS` do generowania zdarzenia, gdy kompilacja znajduje się w możliwej oblewania strefy.
 
@@ -144,7 +144,7 @@ JOIN Storm s ON ST_OVERLAPS(c.Location, s.Course)
 Aby dowiedzieć się więcej, odwiedź stronę referencyjną [ST_OVERLAPS](/stream-analytics-query/st-overlaps) .
 
 ## <a name="st_intersects"></a>ST_INTERSECTS
-`ST_INTERSECTS`Funkcja porównuje dwie LineString. Jeśli LineString Intersect, funkcja zwraca 1. Funkcja zwraca wartość 0, jeśli LineString nie przecina.
+`ST_INTERSECTS`Funkcja porównuje dwie geometrie. Jeśli geometrie Intersect, funkcja zwraca 1. Funkcja zwraca wartość 0, jeśli geometrie nie przecina siebie nawzajem.
 
 Poniższe przykładowe zapytanie używa `ST_INTERSECTS` do określenia, czy ukryte Road przecina drogę.
 
@@ -170,7 +170,7 @@ FROM input
 Aby dowiedzieć się więcej, odwiedź stronę referencyjną [ST_INTERSECTS](/stream-analytics-query/st-intersects) .
 
 ## <a name="st_within"></a>ST_WITHIN
-`ST_WITHIN`Funkcja określa, czy punkt lub Wielokąt znajduje się w obrębie wielokąta. Jeśli Wielokąt zawiera punkt lub Wielokąt, funkcja zwróci wartość 1. Funkcja zwróci wartość 0, jeśli punkt lub Wielokąt nie znajdują się w obrębie zadeklarowanego wielokąta.
+`ST_WITHIN`Funkcja określa, czy geometria znajduje się w innej geometrii. Jeśli pierwszy jest zawarty w ostatnim, funkcja zwróci wartość 1. Funkcja zwróci wartość 0, jeśli pierwsza geometria nie znajduje się w ciągu ostatniej.
 
 Poniższy Przykładowa kwerenda służy `ST_WITHIN` do określenia, czy punkt docelowy dostawy znajduje się w obrębie danego wielokąta magazynu.
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/15/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 1e88aac4209f7960b2589cf43f59ead4bd129134
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 383b5bb5c7295fe54efda883e47b9b2338286de5
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605077"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624729"
 ---
 # <a name="availability-zone-support-for-app-service-environments"></a>Obsługa stref dostępności dla środowisk App Service
 
@@ -30,14 +30,12 @@ O ile nie są stosowane kroki opisane w tym artykule, ILB środowisk ASE nie są
 Strefę środowisk ASE ILB można utworzyć w jednym z następujących regionów:
 
 - Australia Wschodnia
-- Brazil South
 - Kanada Środkowa
 - Central US
 - East US
 - Wschodnie stany USA 2
 - Wschodnie stany USA 2 (— EUAP)
 - Francja Środkowa 
-- Niemcy Środkowo-Zachodnie
 - Japan East
 - Europa Północna
 - West Europe
@@ -51,9 +49,9 @@ Aplikacje wdrożone na zona ILB ASE będą nadal działać i obsługują ruch w 
 
 ILB środowisk ASE należy utworzyć przy użyciu szablonów usługi ARM. Gdy strefa ILB ASE zostanie utworzona za pomocą szablonu ARM, można ją wyświetlać i współdziałać za pośrednictwem Azure Portal i interfejsu wiersza polecenia.  Szablon ARM jest wymagany tylko w przypadku początkowego tworzenia stref ILB ASE.
 
-Jedyną zmianą potrzebną w szablonie ARM do określenia zona ILB ASE jest właściwość New ***Zones*** . Właściwość ***Zones*** powinna mieć ustawioną wartość "1", "2" lub "3" w zależności od logicznej strefy dostępności, do której ma zostać przypięty ILB ASE.
+Jedyną zmianą potrzebną w szablonie ARM, aby określić strefę ILB ASE, jest nowa właściwość ***Zones** _. Właściwość _*_Zones_*_ powinna mieć ustawioną wartość "1", "2" lub "3" w zależności od logicznej strefy dostępności, do której ma zostać przypięty ILB ASE.
 
-Poniższy fragment kodu szablonu ARM przedstawia nową właściwość ***Zones*** określającą, że ILB ASE ma być przypięty do strefy 2.
+Poniższy fragment kodu szablonu ARM przedstawia nową właściwość _*_Zones_*_ określającą, że ILB ASE ma być przypięty do strefy 2.
 
 ```
    "resources": [
@@ -91,6 +89,6 @@ Klienci zapewniają dostęp do danych w jednym regionie, wykonując czynności o
 
 Klienci mogą sprawdzić, czy App Service Environment jest prawidłowo skonfigurowany do przechowywania danych w jednym regionie, wykonując następujące czynności: 
 
-1. Przy użyciu [Eksplorator zasobów](https://resources.azure.com)przejdź do zasobu ARM dla App Service Environment.  Środowisk ASE są wymienione w obszarze *dostawcy/Microsoft. Web/hostingEnvironments*.
+1. Przy użyciu [Eksplorator zasobów](https://resources.azure.com)przejdź do zasobu ARM dla App Service Environment.  Środowisk ASE są wymienione w obszarze _providers/Microsoft.Web/hostingEnvironments *.
 2. Jeśli właściwość *Zones* istnieje w widoku składni JSON w usłudze ARM i zawiera tablicę JSON o pojedynczej wartości z wartością "1", "2" lub "3", wówczas środowisko ASE jest zonally wdrożone i dane klienta pozostają w tym samym regionie.
 2. Jeśli właściwość *Zones* nie istnieje lub właściwość nie ma prawidłowej wartości strefy określonej wcześniej, środowisko ASE nie zostanie zonally wdrożone i dane klienta nie są przechowywane wyłącznie w tym samym regionie.

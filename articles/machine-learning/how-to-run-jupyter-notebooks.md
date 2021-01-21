@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: 7bb1ce8141f609feb4f354aa85f202915e197f37
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: cdd8783daf9e1e1458f47e773eb3b6ccedfbae83
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599244"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624561"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Jak uruchamiać notesy Jupyter w obszarze roboczym
 
@@ -342,7 +342,14 @@ Korzystając z następujących skrótów klawiaturowych, można łatwiej nawigow
 
 Znajdź szczegółowe informacje o wystąpieniach obliczeniowych na stronie **obliczenia** w programie [Studio](https://ml.azure.com).
 
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
+
+* Jeśli nie możesz połączyć się z notesem, upewnij się, że komunikacja gniazda internetowego **nie** jest wyłączona. Aby można było korzystać z funkcji Jupyter wystąpienia obliczeniowego, musi być włączona komunikacja między gniazdami sieci Web. Upewnij się, że sieć zezwala na połączenia protokołu WebSocket z *. instances.azureml.net i *. instances.azureml.ms. 
+
+* Gdy wystąpienie obliczeniowe zostanie wdrożone w prywatnym obszarze roboczym łącza, można uzyskać do niego dostęp tylko z poziomu sieci wirtualnej. Jeśli używasz niestandardowego pliku DNS lub hosta, Dodaj wpis dla <nazwa wystąpienia>. <region> . instances.azureml.ms z prywatnym adresem IP prywatnego punktu końcowego obszaru roboczego. Aby uzyskać więcej informacji, zobacz artykuł [niestandardowy DNS](https://docs.microsoft.com/azure/machine-learning/how-to-custom-dns?tabs=azure-cli) .
+    
 ## <a name="next-steps"></a>Następne kroki
 
 * [Uruchamianie pierwszego eksperymentu](tutorial-1st-experiment-sdk-train.md)
 * [Tworzenie kopii zapasowej magazynu plików za pomocą migawek](../storage/files/storage-snapshots-files.md)
+* [Praca w bezpiecznych środowiskach](https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-vnet#compute-instance)

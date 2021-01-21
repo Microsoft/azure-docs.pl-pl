@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 125ca501dbad74263f32632db44eebd097c3b0a1
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: dbf2331dc6bcd3187175554b61d347e8bb2c04a4
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896705"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625002"
 ---
 # <a name="tutorial-find-and-display-routes-for-different-modes-of-travel-using-azure-maps"></a>Samouczek: Znajdowanie i wyświetlanie tras dla różnych trybów podróży przy użyciu Azure Maps
 
-W tym samouczku pokazano, jak używać [usługi route](/rest/api/maps/route) Azure Maps i [kontrolki mapy](./how-to-use-map-control.md) do wyświetlania kierunków tras zarówno dla pojazdów prywatnych, jak i pojazdów komercyjnych z `USHazmatClass2` typem ładunku. Ponadto przeprowadzimy Cię przez proces wizualizacji danych o ruchu w czasie rzeczywistym na mapie. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+W tym samouczku pokazano, jak używać [usługi route](/rest/api/maps/route) Azure Maps i [kontrolki mapy](./how-to-use-map-control.md) do wyświetlania kierunków tras zarówno dla pojazdów prywatnych, jak i pojazdów komercyjnych z `USHazmatClass2` typem ładunku. Ponadto przeprowadzimy Cię przez proces wizualizacji danych o ruchu w czasie rzeczywistym na mapie. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie i wyświetlanie kontrolki mapy na stronie sieci Web
@@ -39,7 +39,7 @@ W [tym miejscu](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/maste
 
 Poniższe kroki pokazują, jak utworzyć i wyświetlić formant mapy na stronie sieci Web.
 
-1. Na komputerze lokalnym utwórz nowy plik i nadaj mu nazwę **MapTruckRoute.html** .
+1. Na komputerze lokalnym utwórz nowy plik i nadaj mu nazwę **MapTruckRoute.html**.
 2. Skopiuj/wklej następujący znacznik HTML do pliku.
 
     ```HTML
@@ -121,7 +121,7 @@ Poniższe kroki pokazują, jak utworzyć i wyświetlić formant mapy na stronie 
 
 2. Zapisz plik **MapTruckRoute.html** i odśwież stronę w przeglądarce. Jeśli powiększesz dowolne miasto, np. Los Angeles, zobaczysz, że ulice są wyświetlane z bieżącymi danymi przepływu ruchu.
 
-    :::image type="content" source="./media/tutorial-prioritized-routes/traffic-map.png" alt-text="Renderowanie mapy podstawowej kontrolki mapy":::
+    :::image type="content" source="./media/tutorial-prioritized-routes/traffic-map.png" alt-text="Wyświetlanie ruchu na mapie":::
 
 <a id="queryroutes"></a>
 
@@ -197,7 +197,7 @@ W tym samouczku na mapie zostaną obliczone i wyrenderowane dwie trasy. Pierwsza
 
 3. Zapisz **TruckRoute.html** i Odśwież przeglądarkę. Mapa jest teraz wyśrodkowana w Seattle. Niebieski numer PIN Teardrop oznacza punkt początkowy. Okrągły niebieski numer PIN oznacza punkt końcowy.
 
-   :::image type="content" source="./media/tutorial-prioritized-routes/pins-map.png" alt-text="Renderowanie mapy podstawowej kontrolki mapy":::
+   :::image type="content" source="./media/tutorial-prioritized-routes/pins-map.png" alt-text="Wyświetlanie mapy z punktem początkowym i punktem końcowym":::
 
 <a id="multipleroutes"></a>
 
@@ -206,7 +206,7 @@ W tym samouczku na mapie zostaną obliczone i wyrenderowane dwie trasy. Pierwsza
 W tej sekcji pokazano, jak za pomocą usługi Azure Maps Route uzyskać wskazówki od jednego punktu do drugiego, w zależności od używanego trybu transportu. Będziemy używać dwóch trybów transportu: ciężarówki i samochodu.
 
 >[!TIP]
->Usługa Route Service oferuje interfejsy API do planowania *najszybszych* , *najkrótszych* , *ekonomicznych* lub *thrillingych* tras na podstawie odległości, warunków ruchu oraz używanego trybu transportu. Usługa umożliwia również użytkownikom planowanie przyszłych tras w oparciu o historyczne warunki ruchu. Użytkownicy mogą zobaczyć prognozowanie czasów trwania tras w danym momencie. Aby uzyskać więcej informacji, zobacz [Uzyskiwanie interfejsu API wskazówek dotyczących trasy](/rest/api/maps/route/getroutedirections).
+>Usługa Route Service oferuje interfejsy API do planowania *najszybszych*, *najkrótszych*, *ekonomicznych* lub *thrillingych* tras na podstawie odległości, warunków ruchu oraz używanego trybu transportu. Usługa umożliwia również użytkownikom planowanie przyszłych tras w oparciu o historyczne warunki ruchu. Użytkownicy mogą zobaczyć prognozowanie czasów trwania tras w danym momencie. Aby uzyskać więcej informacji, zobacz [Uzyskiwanie interfejsu API wskazówek dotyczących trasy](/rest/api/maps/route/getroutedirections).
 
 1. W `GetMap` funkcji wewnątrz `ready` procedury obsługi zdarzeń kontrolki Dodaj następujący kod do kodu JavaScript.
 
@@ -277,7 +277,7 @@ W tej sekcji pokazano, jak za pomocą usługi Azure Maps Route uzyskać wskazów
 
 4. Zapisz plik **TruckRoute.html** i Odśwież przeglądarkę sieci Web. Mapa powinna teraz wyświetlać trasy ciężarówki i samochodu.
 
-    :::image type="content" source="./media/tutorial-prioritized-routes/prioritized-routes.png" alt-text="Renderowanie mapy podstawowej kontrolki mapy":::
+    :::image type="content" source="./media/tutorial-prioritized-routes/prioritized-routes.png" alt-text="Prywatne i komercyjne trasy pojazdów na mapie za pomocą usługi Azure Route Service":::
 
     Trasa ciężarówki jest wyświetlana przy użyciu grubego niebieskiego wiersza. Trasa samochodowa jest wyświetlana przy użyciu cienkiej linii purpurowej. Trasa samochodowa odbywa się w jeziorach Waszyngton za pośrednictwem I-90, przekazując tunele do obszarów mieszkalnych. Ze względu na to, że tunele znajdują się blisko obszarów mieszkalnych, odpadi z odpadów niebezpiecznych są ograniczone. Trasa ciężarówki, która określa `USHazmatClass2` Typ ładunku, jest skierowana do korzystania z innego autostrady.
 
@@ -285,7 +285,9 @@ W [tym miejscu](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/maste
 
 Można również [użyć wyrażeń stylów opartych na danych](data-driven-style-expressions-web-sdk.md)
 
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
+Brak zasobów, które wymagają oczyszczenia.
 
 ## <a name="next-steps"></a>Następne kroki
 

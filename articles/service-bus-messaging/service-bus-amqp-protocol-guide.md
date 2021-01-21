@@ -3,12 +3,12 @@ title: AMQP 1,0 Azure Service Bus i Event Hubs Przewodnik po protokole | Microso
 description: Przewodnik po protokole do wyrażeń i opisów AMQP 1,0 w Azure Service Bus i Event Hubs
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: e001327c2c7da08cb9a3552f97fc9a7d8b7921a2
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 2154221ebfe69b659ff83100ed614133e178ccdb
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95736718"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624493"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1,0 Azure Service Bus i Event Hubs Przewodnik po protokole
 
@@ -73,7 +73,7 @@ Połączenia, kanały i sesje są nieulotne. Jeśli połączenie podstawowe jest
 
 ### <a name="amqp-outbound-port-requirements"></a>Wymagania dotyczące portów wychodzących AMQP
 
-Klienci korzystający z połączeń AMQP za pośrednictwem protokołu TCP potrzebują portów 5671 i 5672 do otwarcia w lokalnej zaporze. Wraz z tymi portami może być konieczne otwarcie dodatkowych portów, jeśli funkcja [EnableLinkRedirect](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) jest włączona. `EnableLinkRedirect` to nowa funkcja obsługi komunikatów, która pomaga w pomijaniu jednego przeskoku podczas odbierania komunikatów, co pomaga zwiększyć przepływność. Klient zacznie komunikować się bezpośrednio z usługą zaplecza za pośrednictwem zakresu portów 104XX, jak pokazano na poniższej ilustracji. 
+Klienci korzystający z połączeń AMQP za pośrednictwem protokołu TCP potrzebują portów 5671 i 5672 do otwarcia w lokalnej zaporze. Wraz z tymi portami może być konieczne otwarcie dodatkowych portów, jeśli funkcja [EnableLinkRedirect](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect) jest włączona. `EnableLinkRedirect` to nowa funkcja obsługi komunikatów, która pomaga w pomijaniu jednego przeskoku podczas odbierania komunikatów, co pomaga zwiększyć przepływność. Klient zacznie komunikować się bezpośrednio z usługą zaplecza za pośrednictwem zakresu portów 104XX, jak pokazano na poniższej ilustracji. 
 
 ![Lista portów docelowych][4]
 
@@ -223,9 +223,9 @@ Każda właściwość, którą aplikacja musi definiować, powinna być mapowana
 | Identyfikator komunikatu |Zdefiniowany przez aplikację identyfikator dowolnej postaci dla tego komunikatu. Używany do wykrywania duplikatów. |[Identyfikatora](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | user-id |Identyfikator użytkownika zdefiniowany przez aplikację, nieinterpretowany przez Service Bus. |Niedostępne za pomocą interfejsu API Service Bus. |
 | na wartość |Zdefiniowany przez aplikację identyfikator docelowy, nieinterpretowany przez Service Bus. |[Do](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| Temat |Identyfikator przeznaczenie komunikatu zdefiniowany przez aplikację, nieinterpretowany przez Service Bus. |[Etykieta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| subject |Identyfikator przeznaczenie komunikatu zdefiniowany przez aplikację, nieinterpretowany przez Service Bus. |[Etykieta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | Odpowiedz do |Zdefiniowany przez aplikację wskaźnik ścieżki odpowiedzi, nieinterpretowany przez Service Bus. |[From](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| correlation-id |Zdefiniowany przez aplikację identyfikator korelacji, nieinterpretowany przez Service Bus. |[Korelacj](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| correlation-id |Zdefiniowany przez aplikację identyfikator korelacji, nieinterpretowany przez Service Bus. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | Typ zawartości |Zdefiniowany przez aplikację wskaźnik typu zawartości dla treści, nieinterpretowany przez Service Bus. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | Kodowanie zawartości |Zdefiniowany przez aplikację wskaźnik kodowania zawartości dla treści, nieinterpretowany przez Service Bus. |Niedostępne za pomocą interfejsu API Service Bus. |
 | bezwzględny czas wygaśnięcia |Deklaruje, że bezwzględnie utraci komunikat. Zignorowano w danych wejściowych (zaobserwowane jest czas wygaśnięcia nagłówka), autorytatywny dla danych wyjściowych. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
@@ -240,14 +240,14 @@ Istnieje kilka innych właściwości komunikatów usługi Service Bus, które ni
 
 | Klucz mapowania adnotacji | Użycie | Nazwa interfejsu API |
 | --- | --- | --- |
-| x-opt-planowana-czas w kolejce | Deklaruje, w którym czasie komunikat powinien pojawić się w jednostce |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc?view=azure-dotnet) |
-| x-opt-Partition-Key | Klucz zdefiniowany przez aplikację wskazujący partycję, w której ma być używany komunikat. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
-| x-opt-Via-Partition-Key | Zdefiniowana przez aplikację wartość klucza partycji, gdy transakcja ma być używana do wysyłania wiadomości za pośrednictwem kolejki transferu. | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey?view=azure-dotnet) |
-| x-opt-w czasie | Czas UTC zdefiniowany przez usługę reprezentujący rzeczywisty czas umieszczenie komunikatu. Zignorowano przy wejściu. | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc?view=azure-dotnet) |
-| x-opt-Sequence-Number | Unikatowy numer zdefiniowany przez usługę przypisany do wiadomości. | [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber?view=azure-dotnet) |
-| x-opt-offset | Zdefiniowany przez usługę numer sekwencyjny wiadomości w kolejce. | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber?view=azure-dotnet) |
-| x-opt-Locked-until | Zdefiniowane przez usługę. Data i godzina, do której wiadomość zostanie zablokowana w kolejce/subskrypcji. | [LockedUntilUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.lockeduntilutc?view=azure-dotnet) |
-| x-opt-utracono-Źródło | Zdefiniowane przez usługę. Jeśli wiadomość zostanie odebrana z kolejki utraconych wiadomości, Źródło oryginalnej wiadomości. | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource?view=azure-dotnet) |
+| x-opt-planowana-czas w kolejce | Deklaruje, w którym czasie komunikat powinien pojawić się w jednostce |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc) |
+| x-opt-Partition-Key | Klucz zdefiniowany przez aplikację wskazujący partycję, w której ma być używany komunikat. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey) |
+| x-opt-Via-Partition-Key | Zdefiniowana przez aplikację wartość klucza partycji, gdy transakcja ma być używana do wysyłania wiadomości za pośrednictwem kolejki transferu. | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey) |
+| x-opt-w czasie | Czas UTC zdefiniowany przez usługę reprezentujący rzeczywisty czas umieszczenie komunikatu. Zignorowano przy wejściu. | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc) |
+| x-opt-Sequence-Number | Unikatowy numer zdefiniowany przez usługę przypisany do wiadomości. | [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber) |
+| x-opt-offset | Zdefiniowany przez usługę numer sekwencyjny wiadomości w kolejce. | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber) |
+| x-opt-Locked-until | Zdefiniowane przez usługę. Data i godzina, do której wiadomość zostanie zablokowana w kolejce/subskrypcji. | [LockedUntilUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.lockeduntilutc) |
+| x-opt-utracono-Źródło | Zdefiniowane przez usługę. Jeśli wiadomość zostanie odebrana z kolejki utraconych wiadomości, Źródło oryginalnej wiadomości. | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource) |
 
 ### <a name="transaction-capability"></a>Możliwość transakcji
 

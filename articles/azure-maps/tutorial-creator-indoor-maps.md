@@ -8,20 +8,18 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: eab8a2729209bb0023662b652f862b4fa678470e
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: dac5a434d7f7c62d7a20e971294992ea91c79d2b
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905727"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625019"
 ---
 # <a name="tutorial-use-creator-preview-to-create-indoor-maps"></a>Samouczek: Tworzenie map wewnętrznych przy użyciu kreatora (wersja zapoznawcza)
 
 > [!IMPORTANT]
 > Usługi Azure Maps Creator Services są obecnie dostępne w publicznej wersji zapoznawczej.
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-
 
 W tym samouczku pokazano, jak utworzyć mapy wewnętrzne. W tym samouczku dowiesz się, jak używać interfejsu API w celu:
 
@@ -411,6 +409,10 @@ Tileset to zbiór kafelków wektorowych, które są renderowane na mapie. Tilese
 [Interfejs API Get States funkcji](/rest/api/maps/featurestate/getstatespreview) umożliwia pobranie stanu funkcji przy użyciu jej funkcji `ID` . Stateset i jego zasoby można także usunąć za pomocą [interfejsu API usuwania stanu funkcji](/rest/api/maps/featurestate/deletestatesetpreview).
 
 Aby dowiedzieć się więcej na temat różnych usług Azure Maps Creator Services (wersja zapoznawcza) omówionych w tym artykule, zobacz Tworzenie wbudowanych [map programu Creator](creator-indoor-maps.md).
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Brak zasobów, które wymagają oczyszczenia.
 
 ## <a name="next-steps"></a>Następne kroki
 

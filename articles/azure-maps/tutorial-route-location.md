@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 0004a250173ce6707462b852016d205782479717
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d8aaf093a7e2a0ad1470d72d815e919f5b4e2d05
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896684"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624986"
 ---
 # <a name="tutorial-how-to-display-route-directions-using-azure-maps-route-service-and-map-control"></a>Samouczek: jak wyświetlić kierunki tras za pomocą usługi Azure Maps Route i kontrolki mapy
 
@@ -39,7 +39,7 @@ W [tym miejscu](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/maste
 
 Poniższe kroki pokazują, jak utworzyć i wyświetlić formant mapy na stronie sieci Web.
 
-1. Na komputerze lokalnym utwórz nowy plik i nadaj mu nazwę **MapRoute.html** .
+1. Na komputerze lokalnym utwórz nowy plik i nadaj mu nazwę **MapRoute.html**.
 2. Skopiuj/wklej następujący znacznik HTML do pliku.
 
     ```HTML
@@ -174,7 +174,7 @@ W tym samouczku wyrenderuje trasę przy użyciu warstwy liniowej. Punkty począt
 
 3. Zapisz **MapRoute.html** i Odśwież przeglądarkę. Mapa jest teraz wyśrodkowana w Seattle. Niebieski numer PIN Teardrop oznacza punkt początkowy. Okrągły niebieski numer PIN oznacza punkt końcowy.
 
-    :::image type="content" source="./media/tutorial-route-location/map-pins.png" alt-text="Renderowanie mapy podstawowej kontrolki mapy":::
+    :::image type="content" source="./media/tutorial-route-location/map-pins.png" alt-text="Wyświetlanie punktów początkowych i końcowych tras na mapie":::
 
 <a id="getroute"></a>
 
@@ -183,7 +183,7 @@ W tym samouczku wyrenderuje trasę przy użyciu warstwy liniowej. Punkty począt
 W tej sekcji pokazano, jak za pomocą interfejsu API wskazówek dotyczących tras Azure Maps uzyskać wskazówki dotyczące trasy i szacowany czas przybycia z jednego punktu do drugiego.
 
 >[!TIP]
->Usługi tras Azure Maps oferują interfejsy API, które umożliwiają planowanie tras opartych na różnych typach *fastest* tras, takich jak najszybszy *eco* , *najkrótszy* , *thrilling* lub na trasie na podstawie odległości, warunków ruchu oraz używanego trybu transportu. Usługa umożliwia również użytkownikom planowanie przyszłych tras w oparciu o historyczne warunki ruchu. Użytkownicy mogą zobaczyć prognozowanie czasów trwania tras w danym momencie. Aby uzyskać więcej informacji, zobacz [Uzyskiwanie interfejsu API wskazówek dotyczących trasy](/rest/api/maps/route/getroutedirections).
+>Usługi tras Azure Maps oferują interfejsy API, które umożliwiają planowanie tras opartych na różnych typach tras, takich jak najszybszy , *najkrótszy*, *thrilling* lub na trasie na podstawie odległości, warunków ruchu oraz używanego trybu transportu. Usługa umożliwia również użytkownikom planowanie przyszłych tras w oparciu o historyczne warunki ruchu. Użytkownicy mogą zobaczyć prognozowanie czasów trwania tras w danym momencie. Aby uzyskać więcej informacji, zobacz [Uzyskiwanie interfejsu API wskazówek dotyczących trasy](/rest/api/maps/route/getroutedirections).
 
 1. W `GetMap` funkcji wewnątrz `ready` procedury obsługi zdarzeń kontrolki Dodaj następujący kod do kodu JavaScript.
 
@@ -216,9 +216,13 @@ W tej sekcji pokazano, jak za pomocą interfejsu API wskazówek dotyczących tra
 
 3. Zapisz plik **MapRoute.html** i odśwież przeglądarkę. Mapa powinna teraz wyświetlać trasę od początku do punktu końcowego.
 
-     :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="Renderowanie mapy podstawowej kontrolki mapy":::
+     :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="Kontrolka mapy platformy Azure i usługa Route Service":::
 
 W [tym miejscu](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)możesz uzyskać pełny kod źródłowy dla przykładu. Przykład na żywo można znaleźć [tutaj](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination).
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Brak zasobów, które wymagają oczyszczenia.
 
 ## <a name="next-steps"></a>Następne kroki
 

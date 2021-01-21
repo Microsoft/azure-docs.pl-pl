@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: b2f95ddb13896ed461a20f1948fef34569586d1f
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: bfe3e00c4930ba57c930eb1bc2f2dd4ed11886e0
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97977086"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624688"
 ---
 # <a name="control-what-traffic-is-monitored"></a>Sterowanie monitorowanym ruchem
 
@@ -157,7 +157,7 @@ Mogą wystąpić zmiany, na przykład gdy serwer DHCP przypisuje adresy IP.
 
 Zdefiniowanie dynamicznych adresów IP na każdym czujniku umożliwia kompleksową, przejrzystą obsługę w wystąpieniach zmian adresów IP. Zapewnia to kompleksowe raportowanie dla każdego unikatowego urządzenia.
 
-Konsola czujnika przedstawia najbardziej aktualny adres IP skojarzony z urządzeniem i wskazuje, które urządzenia są dynamiczne. Na przykład:
+Konsola czujnika przedstawia najbardziej aktualny adres IP skojarzony z urządzeniem i wskazuje, które urządzenia są dynamiczne. Przykład:
 
 - Raport wyszukiwania danych i spis urządzeń są konsolidowane wszystkie działania uzyskane z urządzenia jako jedna jednostka, niezależnie od zmiany adresu IP. Te raporty wskazują, które adresy zostały zdefiniowane jako adresy DHCP.
 
@@ -186,11 +186,11 @@ Aby ustawić zakres adresów DHCP:
 
 ## <a name="configure-dns-servers-for-reverse-lookup-resolution"></a>Skonfiguruj serwery DNS do rozpoznawania odwrotnego wyszukiwania
 
-Aby zwiększyć wzbogacenie zasobów, można skonfigurować wiele serwerów DNS do Carryout wyszukiwania wstecznego. Można rozpoznać nazwy hostów lub nazwy FQDN skojarzone z adresami IP wykrytymi w podsieciach sieciowych. Na przykład, jeśli czujnik odnajduje adres IP, może wysyłać zapytania do wielu serwerów DNS w celu rozpoznania nazwy hosta.
+Aby ulepszyć wzbogacanie urządzeń, można skonfigurować wiele serwerów DNS do Carryout wyszukiwania wstecznego. Można rozpoznać nazwy hostów lub nazwy FQDN skojarzone z adresami IP wykrytymi w podsieciach sieciowych. Na przykład, jeśli czujnik odnajduje adres IP, może wysyłać zapytania do wielu serwerów DNS w celu rozpoznania nazwy hosta.
 
 Obsługiwane są wszystkie formaty CIDR.
 
-Nazwa hosta zostanie wyświetlona w spisie zasobów i mapie zasobów, a także w raportach.
+Nazwa hosta jest wyświetlana w spisie urządzeń i w raportach.
 
 Harmonogramy rozdzielczości wyszukiwania wstecznego można zaplanować dla określonych interwałów godzinowych, takich jak co 12 godzin. Lub można zaplanować określony czas.
 
@@ -212,7 +212,7 @@ Aby zdefiniować serwery DNS:
 
 5. W polu **port serwera DNS** Wprowadź port DNS.
 
-6. Rozpoznaj adresy IP sieci z nazwami FQDN zasobów. W polu **Liczba etykiet** Dodaj liczbę wyświetlanych etykiet domeny. Do 30 znaków są wyświetlane od lewej do prawej.
+6. Rozpoznaj adresy IP sieci z nazwami FQDN urządzeń. W polu **Liczba etykiet** Dodaj liczbę wyświetlanych etykiet domeny. Do 30 znaków są wyświetlane od lewej do prawej.
 
 7. W polu **podsieci** wprowadź podsieci, do których serwer DNS ma wykonać zapytanie.
 
@@ -220,7 +220,7 @@ Aby zdefiniować serwery DNS:
 
 ### <a name="test-the-dns-configuration"></a>Testowanie konfiguracji DNS 
 
-Przy użyciu elementu zawartości testowej Sprawdź, czy zdefiniowane ustawienia działają prawidłowo:
+Za pomocą urządzenia testowego Sprawdź, czy zdefiniowane ustawienia działają prawidłowo:
 
 1. Włącz przełącznik **wyszukiwania DNS** .
 

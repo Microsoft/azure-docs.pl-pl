@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: ee32749e2c6f0118507fcfc6d4994a04ea3a6d69
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 759adea3cf34b79c76b6facec3bd4626ca54107e
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997277"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625036"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Samouczek: Konfigurowanie geofencingu przy użyciu usługi Azure Maps
 
@@ -205,7 +205,7 @@ Następnie utworzysz dwa punkty końcowe [aplikacji logiki](../event-grid/handle
 
     :::image type="content" source="./media/tutorial-geofence/logic-app-create.png" alt-text="Zrzut ekranu przedstawiający tworzenie aplikacji logiki.":::
 
-6. Wybierz pozycję **Recenzja + Utwórz**. Przejrzyj ustawienia i wybierz pozycję **Utwórz** , aby przesłać wdrożenie. Po pomyślnym zakończeniu wdrożenia wybierz pozycję **Przejdź do zasobu**. Nastąpi przekierowanie do **projektanta aplikacji logiki**.
+6. Wybierz pozycję **Przejrzyj i utwórz**. Przejrzyj ustawienia i wybierz pozycję **Utwórz** , aby przesłać wdrożenie. Po pomyślnym zakończeniu wdrożenia wybierz pozycję **Przejdź do zasobu**. Nastąpi przekierowanie do **projektanta aplikacji logiki**.
 
 7. Wybierz typ wyzwalacza. Przewiń w dół do sekcji **Rozpocznij od typowego wyzwalacza** . Wybierz **po odebraniu żądania HTTP**.
 
@@ -254,7 +254,7 @@ Poniższe kroki pokazują, jak utworzyć subskrypcję zdarzeń dla zdarzeń wej�
 
     :::image type="content" source="./media/tutorial-geofence/events-subscription.png" alt-text="Zrzut ekranu przedstawiający szczegóły subskrypcji zdarzeń Azure Maps.":::
 
-4. Wybierz pozycję **Utwórz**.
+4. Wybierz przycisk **Utwórz**.
 
 Powtórz kroki 1-4 dla punktu końcowego aplikacji logiki, który został utworzony w poprzedniej sekcji. W kroku 3 Upewnij się, że wybrano opcję `Geofence Exited` jako typ zdarzenia.
 
@@ -471,6 +471,10 @@ W powyższej odpowiedzi GEOJSON sprzęt zakończył geoogrodzenie lokacji głów
 
 
 [Powiadomienia e-mail można także wysyłać przy użyciu Event Grid i Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md) i sprawdzić [obsługiwane programy obsługi zdarzeń w Event Grid](../event-grid/event-handlers.md) przy użyciu Azure Maps.
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Brak zasobów, które wymagają oczyszczenia.
 
 ## <a name="next-steps"></a>Następne kroki
 

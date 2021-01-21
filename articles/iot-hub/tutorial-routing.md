@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie routingu komunikatów dla IoT Hub platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
-description: Skonfiguruj Routing komunikatów dla platformy Azure IoT Hub przy użyciu interfejsu wiersza polecenia platformy Azure i Azure Portal
+title: Samouczek — Konfigurowanie routingu komunikatów dla platformy Azure IoT Hub przy użyciu interfejsu wiersza polecenia platformy Azure
+description: Samouczek — Konfigurowanie routingu komunikatów dla platformy Azure IoT Hub przy użyciu interfejsu wiersza polecenia platformy Azure i Azure Portal
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 13130a7ea473b260ddc4f0ebca2ef5b496b34c66
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: d7a10aac82286616273f7283bc3fba74f2c58f35
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98203006"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625218"
 ---
 # <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>Samouczek: korzystanie z interfejsu wiersza polecenia platformy Azure i Azure Portal konfigurowania routingu komunikatów IoT Hub
 

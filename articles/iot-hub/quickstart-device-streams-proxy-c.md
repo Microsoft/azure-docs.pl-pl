@@ -1,20 +1,20 @@
 ---
-title: Usługa Azure IoT Hub Streams C — szybki start dla protokołów SSH i RDP
+title: Szybki Start — strumienie urządzeń z systemem Azure IoT Hub C szybki start dla protokołów SSH i RDP
 description: W tym przewodniku szybki start uruchomisz przykładową aplikację w języku C, która działa jako serwer proxy, aby umożliwić obsługę scenariuszy SSH i RDP przez IoT Hub strumieni urządzeń.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: quickstart
-ms.custom: mvc, devx-track-azurecli
+ms.custom: references_regions
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 037ff64f4811515e7ce64d66a36e08e71de54058
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 2305a87b91160b5de90f4cbfbc9418adc50bb92a
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94831994"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624409"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Szybki Start: Włączanie protokołu SSH i RDP przez strumień urządzenia IoT Hub przy użyciu aplikacji serwera proxy języka C (wersja zapoznawcza)
 
@@ -25,6 +25,22 @@ Usługa Azure IoT Hub obecnie obsługuje strumienie urządzeń jako [funkcję w 
 [Strumienie urządzeń usługi IoT Hub](./iot-hub-device-streams-overview.md) umożliwiają aplikacjom usług i urządzeń bezpieczną komunikację w sposób przyjazny dla zapory. Aby zapoznać się z omówieniem instalacji, zobacz [stronę Przykładowa lokalny serwer proxy](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp).
 
 W tym przewodniku szybki start opisano konfigurowanie protokołu tunelowania Secure Shell (SSH) (przy użyciu portu 22) za pośrednictwem strumieni urządzeń. Konfiguracja dla ruchu Remote Desktop Protocol (RDP) jest podobna i wymaga prostej zmiany konfiguracji. Ponieważ strumienie urządzeń są typu Application-and Protocol-niezależny od, można zmodyfikować ten przewodnik Szybki Start, aby pomieścić inne typy ruchu aplikacji.
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+* Podgląd strumieni urządzeń jest obecnie obsługiwany tylko w przypadku centrów IoT, które zostały utworzone w następujących regionach:
+
+  * Central US
+  * Środkowe stany USA — EUAP
+  * Europa Północna
+  * Azja Południowo-Wschodnia
+
+* Zainstaluj [program Visual Studio 2019](https://www.visualstudio.com/vs/) z włączonym [programowaniem pulpitu przy użyciu języka C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) .
+* Zainstaluj najnowszą wersję usługi [Git](https://git-scm.com/download/).
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="how-it-works"></a>Jak to działa
 
@@ -47,22 +63,6 @@ Na poniższej ilustracji przedstawiono sposób, w jaki programy lokalnego serwer
 > Ruch SSH przesyłany za pośrednictwem strumienia urządzenia jest tunelowany za pośrednictwem punktu końcowego przesyłania strumieniowego usługi IoT Hub zamiast bezpośredniego przesyłania między usługą i urządzeniem. Aby uzyskać więcej informacji, zobacz [korzyści wynikające z używania strumieni urządzeń usługi IoT Hub](iot-hub-device-streams-overview.md#benefits). Na rysunku przedstawiono również demona SSH, która jest uruchomiona na tym samym urządzeniu (lub komputerze) co lokalny serwer proxy urządzenia. W tym przewodniku szybki start adres IP demona SSH umożliwia również uruchamianie lokalnego serwera proxy na urządzeniu i demona na różnych komputerach.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-## <a name="prerequisites"></a>Wymagania wstępne
-
-* Podgląd strumieni urządzeń jest obecnie obsługiwany tylko w przypadku centrów IoT, które zostały utworzone w następujących regionach:
-
-  * Central US
-  * Środkowe stany USA — EUAP
-  * Europa Północna
-  * Azja Południowo-Wschodnia
-
-* Zainstaluj [program Visual Studio 2019](https://www.visualstudio.com/vs/) z włączonym [programowaniem pulpitu przy użyciu języka C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) .
-* Zainstaluj najnowszą wersję usługi [Git](https://git-scm.com/download/).
-
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
-
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="prepare-the-development-environment"></a>Przygotowywanie środowiska deweloperskiego
 
@@ -120,7 +120,7 @@ W tym przewodniku szybki start użyjesz [zestawu SDK urządzeń Azure IoT dla j�
 
 ## <a name="register-a-device"></a>Rejestrowanie urządzenia
 
-Zanim urządzenie będzie mogło nawiązać połączenie, należy je najpierw zarejestrować w centrum IoT. W tej sekcji użyjesz Azure Cloud Shell z [rozszerzeniem IoT](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) , aby zarejestrować symulowane urządzenie.
+Zanim urządzenie będzie mogło nawiązać połączenie, należy je najpierw zarejestrować w centrum IoT. W tej sekcji użyjesz Azure Cloud Shell z [rozszerzeniem IoT](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest&preserve-view=true) , aby zarejestrować symulowane urządzenie.
 
 1. Aby utworzyć tożsamość urządzenia, uruchom następujące polecenie w Cloud Shell:
 
@@ -138,7 +138,7 @@ Zanim urządzenie będzie mogło nawiązać połączenie, należy je najpierw za
    > Zastąp symbol zastępczy *YourIoTHubName* nazwą wybraną dla Centrum IoT Hub.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
+    az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
     Zwróć uwagę na zwrócone parametry połączenia urządzenia do późniejszego użycia w tym przewodniku Szybki Start. Wygląda to następująco:

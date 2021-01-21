@@ -1,5 +1,5 @@
 ---
-title: Komunikacja z aplikacją urządzenia w Node.js przy użyciu strumieni urządzeń IoT Hub platformy Azure
+title: Szybki Start — komunikacja z aplikacją urządzenia w Node.js przy użyciu strumieni urządzeń IoT Hub platformy Azure
 description: W tym przewodniku szybki start uruchomisz Node.js aplikację po stronie usługi, która komunikuje się z urządzeniem IoT za pośrednictwem strumienia urządzeń.
 author: robinsh
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-js, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 678955970f3eeb87a10c43cd43effc3464db7794
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 335014f032162866e4780bf1294ddcd108b4fd03
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832011"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624392"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Szybki Start: komunikacja z aplikacją urządzenia w Node.js za pośrednictwem IoT Hub strumieni urządzenia (wersja zapoznawcza)
 
@@ -79,7 +79,7 @@ Zanim urządzenie będzie mogło nawiązać połączenie, należy je najpierw za
     **YourIoTHubName**: zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
+    az iot hub connection-string show --policy-name service --name {YourIoTHubName} --output table
     ```
 
     Zwróć uwagę na zwrócone parametry połączenia usługi do późniejszego użycia w tym przewodniku Szybki Start. Wygląda to następująco:
@@ -154,4 +154,4 @@ W tym przewodniku szybki start skonfigurujesz usługę IoT Hub, zarejestrowano u
 Aby dowiedzieć się więcej na temat strumieni urządzeń, użyj poniższych linków:
 
 > [!div class="nextstepaction"]
-> [Omówienie strumieni urządzeń](./iot-hub-device-streams-overview.md) 
+> [Omówienie strumieni urządzeń](./iot-hub-device-streams-overview.md)

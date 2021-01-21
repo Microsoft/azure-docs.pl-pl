@@ -1,5 +1,5 @@
 ---
-title: Zdefiniuj globalną kontrolę dostępu użytkowników
+title: Definiowanie globalnej kontroli dostępu użytkowników
 description: W dużych organizacjach uprawnienia użytkowników mogą być złożone i mogą być określane przez globalną strukturę organizacyjną, oprócz standardowej struktury lokacji i strefy.
 author: shhazam-ms
 manager: rkarlin
@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/08/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: de3ff6ead1f0dd86e07c86b992a720a676a2095c
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 399eee06d472204eaf6dbc333f15cee7c4373739
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97843287"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624646"
 ---
 # <a name="define-global-access-control"></a>Definiowanie globalnej kontroli dostępu
 
@@ -20,7 +20,7 @@ W dużych organizacjach uprawnienia użytkowników mogą być złożone i mogą 
 
 Aby obsługiwać zapotrzebowanie na uprawnienia dostępu użytkowników, które są globalne i bardziej złożone, można utworzyć globalną topologię biznesową opartą na jednostkach, regionach i lokacjach firmy. Następnie można zdefiniować uprawnienia dostępu użytkowników wokół tych jednostek.
 
-Współpraca z narzędziami dostępu do topologii biznesowej ułatwia organizacjom implementowanie strategii z zerowym zaufaniem przez lepszą kontrolę nad tym, w jaki sposób użytkownicy mogą zarządzać zasobami i analizować je na platformie Azure Defender dla IoT.
+Współpraca z narzędziami dostępu do topologii biznesowej ułatwia organizacjom implementowanie strategii z zerowym zaufaniem przez lepszą kontrolę nad tym, gdzie użytkownicy zarządzają i analizują urządzenia w usłudze Azure Defender for IoT.
 
 ## <a name="about-access-groups"></a>Informacje o grupach dostępu
 
@@ -88,6 +88,6 @@ Podczas tworzenia reguł należy zwrócić uwagę na następujące informacje:
 
 - Jeśli nie zostanie wybrana żadna jednostka biznesowa lub region, użytkownicy będą mieli dostęp do wszystkich zdefiniowanych jednostek i regionów firmy.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Informacje o usłudze Defender dla użytkowników konsoli IoT](how-to-create-and-manage-users.md)

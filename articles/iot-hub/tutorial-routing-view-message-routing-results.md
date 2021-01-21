@@ -1,6 +1,6 @@
 ---
-title: Wyświetlanie wyników routingu komunikatów usługi Azure IoT Hub (.NET) | Microsoft Docs
-description: Po skonfigurowaniu wszystkich zasobów przy użyciu części 1 samouczka Dodaj możliwość kierowania wiadomości do Azure Stream Analytics i wyświetlania wyników w usłudze PowerBI.
+title: Samouczek — wyświetlanie wyników routingu komunikatów usługi Azure IoT Hub (.NET) | Microsoft Docs
+description: Samouczek — po skonfigurowaniu wszystkich zasobów przy użyciu części 1 samouczka Dodaj możliwość przesyłania komunikatów do Azure Stream Analytics i wyświetlania wyników w Power BI.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 14f6fc685e99060474a17503cb13ba09a61a5a9a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 0db05c8caae8483de3b55448bfbe6b2bcfc23187
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149200"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625285"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Samouczek: część 2 — Wyświetlanie rozesłanych komunikatów
 
@@ -52,7 +52,7 @@ Kolejka usługi Service Bus jest używana do odbierania komunikatów oznaczonych
 
    ![Ekran Tworzenie aplikacji logiki](./media/tutorial-routing-view-message-routing-results/create-logic-app.png)
 
-   Wybierz pozycję **Utwórz**. Wdrożenie aplikacji może potrwać kilka minut.
+   Wybierz przycisk **Utwórz**. Wdrożenie aplikacji może potrwać kilka minut.
 
 2. Teraz przejdź do aplikacji logiki. Najprostszym sposobem, aby uzyskać dostęp do aplikacji logiki, jest wybranie **grup zasobów**, wybranie grupy zasobów (w tym samouczku jest używany program **ContosoResources**), a następnie wybierz aplikację logiki z listy zasobów. 
 
@@ -116,7 +116,7 @@ Aby wyświetlić dane w wizualizacji usługi Power BI, najpierw skonfiguruj zada
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Dodawanie danych wejściowych do zadania usługi Stream Analytics
 
-1. W obszarze **topologia zadania**wybierz pozycję **dane wejściowe**.
+1. W obszarze **topologia zadania** wybierz pozycję **dane wejściowe**.
 
 2. W okienku **dane** wejściowe wybierz pozycję **Dodaj strumień wejściowy** i wybierz pozycję IoT Hub. Na wyświetlonym ekranie wypełnij następujące pola:
 
@@ -142,7 +142,7 @@ Aby wyświetlić dane w wizualizacji usługi Power BI, najpierw skonfiguruj zada
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Dodawanie danych wyjściowych do zadania usługi Stream Analytics
 
-1. W obszarze **topologia zadania**wybierz pozycję dane **wyjściowe**.
+1. W obszarze **topologia zadania** wybierz pozycję dane **wyjściowe**.
 
 2. W okienku dane **wyjściowe** wybierz pozycję **Dodaj**, a następnie wybierz pozycję **Power BI**. Na wyświetlonym ekranie wypełnij następujące pola:
 
@@ -154,7 +154,7 @@ Aby wyświetlić dane w wizualizacji usługi Power BI, najpierw skonfiguruj zada
 
    Zaakceptuj wartości domyślne w pozostałych polach.
 
-3. Wybierz pozycję **Autoryzuj**i zaloguj się na koncie Power BI. (Może to potrwać więcej niż jedna próba).
+3. Wybierz pozycję **Autoryzuj** i zaloguj się na koncie Power BI. (Może to potrwać więcej niż jedna próba).
 
    ![Konfigurowanie danych wyjściowych dla zadania usługi Stream Analytics](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-outputs.png)
 
@@ -162,7 +162,7 @@ Aby wyświetlić dane w wizualizacji usługi Power BI, najpierw skonfiguruj zada
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Konfigurowanie zapytania zadania usługi Stream Analytics
 
-1. W obszarze **topologia zadania**wybierz pozycję **zapytanie**.
+1. W obszarze **topologia zadania** wybierz pozycję **zapytanie**.
 
 2. Zastąp element `[YourInputAlias]` aliasem wejściowym zadania. W tym samouczku jest używany alias **contosoinputs**.
 
@@ -176,7 +176,7 @@ Aby wyświetlić dane w wizualizacji usługi Power BI, najpierw skonfiguruj zada
 
 ### <a name="run-the-stream-analytics-job"></a>Uruchamianie zadania usługi Stream Analytics
 
-W Stream Analytics zadania wybierz pozycję **Rozpocznij**  >  **teraz**  >  **Start**. Po pomyślnym uruchomieniu zadania jego stan zmieni się z **Zatrzymano** na **Uruchomiono**.
+W Stream Analytics zadania wybierz pozycję **Rozpocznij**  >  **teraz**  >  . Po pomyślnym uruchomieniu zadania jego stan zmieni się z **Zatrzymano** na **Uruchomiono**.
 
 Do skonfigurowania raportu usługi Power BI potrzebujesz danych, dlatego po utworzeniu urządzenia i uruchomieniu aplikacji do symulacji urządzenia skonfigurujesz usługę Power BI.
 
@@ -238,7 +238,7 @@ Teraz, gdy aplikacja nadal działa, skonfiguruj wizualizację Power BI, aby zoba
 
    Powinien pojawić się wymieniony na liście zestaw danych, który został wybrany podczas tworzenia danych wyjściowych zadania usługi Stream Analytics. W tym samouczku jest używany zestaw danych **contosodataset**. (Wyświetlenie zestawu danych po raz pierwszy może potrwać 5–10 minut).
 
-4. W obszarze **Akcje**wybierz pierwszą ikonę, aby utworzyć raport.
+4. W obszarze **Akcje** wybierz pierwszą ikonę, aby utworzyć raport.
 
    ![Obszar roboczy Power BI z wyróżnioną akcją i ikoną raportu](./media/tutorial-routing-view-message-routing-results/power-bi-actions.png)
 
@@ -280,7 +280,7 @@ Zaloguj się do swojego konta usługi [Power BI](https://powerbi.microsoft.com/)
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Czyszczenie zasobów przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Aby usunąć grupę zasobów, użyj polecenia [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete). `$resourceGroup` została ustawiona na **ContosoResources** z powrotem na początku tego samouczka.
+Aby usunąć grupę zasobów, użyj polecenia [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true). `$resourceGroup` została ustawiona na **ContosoResources** z powrotem na początku tego samouczka.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
