@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 4ad1562bdd9853b6ff3c537790a54dbeab96b5b8
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 908460bd0a034e21524b6ea6d3042f362cc810d4
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538573"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623593"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>Aktywowanie i konfigurowanie czujnika
 
@@ -134,15 +134,15 @@ Po zalogowaniu zostanie otwarta Konsola usługi Azure Defender dla IoT.
 
 ## <a name="initial-setup-and-learning-for-administrators"></a>Początkowa konfiguracja i nauka (dla administratorów)
 
-Po pierwszym zalogowaniu czujnik usługi Azure Defender for IoT rozpocznie automatyczne monitorowanie sieci. Zasoby sieci będą wyświetlane w sekcji Mapa zasobów i spis zasobów. Usługa Azure Defender for IoT rozpocznie wykrywanie wszystkich zdarzeń związanych z zabezpieczeniami i operacyjną w sieci, a następnie powiadamia o nich. Następnie można tworzyć raporty i kwerendy na podstawie wykrytych informacji.
+Po pierwszym zalogowaniu czujnik usługi Azure Defender for IoT rozpocznie automatyczne monitorowanie sieci. Urządzenia sieciowe pojawią się w sekcjach Mapa urządzeń i spis urządzeń. Usługa Azure Defender for IoT rozpocznie wykrywanie wszystkich zdarzeń związanych z zabezpieczeniami i operacyjną w sieci, a następnie powiadamia o nich. Następnie można tworzyć raporty i kwerendy na podstawie wykrytych informacji.
 
-Początkowo to działanie jest wykonywane w trybie uczenia, co powoduje, że czujnik jest poznanie typowego działania sieci. Na przykład czujnik zawiera informacje o zasobach odnalezionych w sieci, protokołach wykrytych w sieci i transferach plików, które występują między określonymi zasobami. To działanie będzie działaniem linii bazowej sieci.
+Początkowo to działanie jest wykonywane w trybie uczenia, co powoduje, że czujnik jest poznanie typowego działania sieci. Na przykład czujnik uczy urządzenia odnalezione w sieci, protokoły wykryte w sieci i transfery plików, które występują między określonymi urządzeniami. To działanie będzie działaniem linii bazowej sieci.
 
 ### <a name="review-and-update-basic-system-settings"></a>Przejrzyj i zaktualizuj podstawowe ustawienia systemu
 
 Sprawdź ustawienia systemowe czujnika, aby upewnić się, że czujnik jest skonfigurowany pod kątem optymalnego wykrywania i alertu.
 
-Zdefiniuj ustawienia systemowe czujnika. Na przykład:
+Zdefiniuj ustawienia systemowe czujnika. Przykład:
 
 - Definiowanie usługi ICS (lub IoT) i podsieci rozdzielonych.
 
@@ -214,7 +214,7 @@ Dostęp do narzędzi konsoli programu można uzyskać z menu po stronie.
 |----|---|---|
 | Pomoc techniczna | :::image type="icon" source="media/concept-sensor-console-overview/support-icon-azure.png" border="false"::: | Skontaktuj się [Pomoc techniczna firmy Microsoft](https://support.microsoft.com/) , aby uzyskać pomoc. |
 
-### <a name="see-also"></a>Zobacz także
+### <a name="see-also"></a>Zobacz też
 
 [Dołączanie czujnika](getting-started.md#4-onboard-a-sensor)
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 444e7c9ad06c6f2ad584c0701fa652b901a4c3e7
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 3bb0aadf81ba501070ce0c734847bb16c0378896
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680767"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624042"
 ---
 # <a name="tutorial-migrate-web-service-from-google-maps"></a>Samouczek: Migrowanie usługi sieci Web ze sklepu Google Maps
 
@@ -22,6 +22,7 @@ Zarówno platforma Azure, jak i usługa Google Maps zapewniają dostęp do przes
 
 Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
 
+> [!div class="checklist"]
 > * Przekazanie i odwrócenie geokodowania
 > * Wyszukiwanie punktów orientacyjnych
 > * Obliczanie tras i wskazówek
@@ -40,7 +41,7 @@ W tabeli przedstawiono interfejsy API usługi Azure Maps, które mają podobną 
 
 | Interfejs API usługi Mapy Google | Interfejs API usługi Azure Maps                                                                      |
 |-------------------------|---------------------------------------------------------------------------------------------|
-| Wskazówki              | [Trasa](/rest/api/maps/route)                                     |                         
+| Wskazówki              | [Szlak](/rest/api/maps/route)                                     |                         
 | Macierz odległości         | [Macierz trasy](/rest/api/maps/route/postroutematrixpreview)       |                         
 | Geokodowanie               | [Wyszukiwanie](/rest/api/maps/search)                                   |                         
 | Wyszukiwanie miejsc           | [Wyszukiwanie](/rest/api/maps/search)                                   |                         
@@ -475,7 +476,7 @@ Oprócz tego interfejsu API Azure Maps udostępnia wiele interfejsów API strefy
 - [**Wersja programu Iana strefy czasowej**](/rest/api/maps/timezone/gettimezoneianaversion): zwraca bieżący numer wersji programu Iana używany przez Azure Maps.
 - [**System Windows strefy czasowej dla organizacji Iana**](/rest/api/maps/timezone/gettimezonewindowstoiana): zwraca odpowiedni identyfikator Iana, uwzględniając prawidłowy identyfikator strefy czasowej systemu Windows. Dla pojedynczego identyfikatora systemu Windows można zwrócić wiele identyfikatorów IANA.
 
-## <a name="client-libraries"></a>Biblioteki klienckie
+## <a name="client-libraries"></a>Biblioteki klienta
 
 Azure Maps udostępnia biblioteki klienckie dla następujących języków programowania:
 

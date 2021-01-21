@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 72b2ba0ea444fb14ef9fc1bc3ea6aea3654677df
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 0db4e0fe0472c75f1eae392980ae697f53007244
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655531"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623370"
 ---
 # <a name="connect-alerts-from-microsoft-defender-for-endpoint-formerly-microsoft-defender-atp"></a>Łączenie alertów z usługi Microsoft Defender dla punktu końcowego (dawniej usługa Microsoft Defender ATP)
 
@@ -28,10 +28,6 @@ ms.locfileid: "94655531"
 > - Usługa **Microsoft Defender dla punktu końcowego** była znana wcześniej jako usługa **Microsoft Defender Advanced Threat Protection** lub **MDATP**.
 >
 >     W danym okresie można zobaczyć starą nazwę, która jest nadal używana w produkcie (w tym Łącznik danych na platformie Azure.
->
-> - Pozyskiwanie alertów usługi Microsoft Defender dla punktów końcowych jest obecnie dostępne w publicznej wersji zapoznawczej.
-> Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych.
-> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Łącznik usługi [Microsoft Defender dla punktu końcowego](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) umożliwia strumieniowe przesyłanie alertów z programu Microsoft Defender dla punktu końcowego do platformy Azure. Pozwoli to na dokładniejsze przeanalizowanie zdarzeń zabezpieczeń w organizacji oraz kompilację elementy PlayBook na potrzeby skutecznej i natychmiastowej reakcji.
 
@@ -51,7 +47,7 @@ Jeśli program Microsoft Defender for Endpoint został wdrożony i pozyskuje dan
 
 1. W obszarze wskaźnik platformy Azure wybierz pozycję **Łączniki danych**, wybierz pozycję **Microsoft Defender for Endpoint** (może być nadal wywoływana usługa *Microsoft Defender Advanced Threat Protection*) z galerii, a następnie wybierz pozycję **Otwórz stronę łącznika**.
 
-1. Kliknij przycisk **Podłącz**. 
+1. Kliknij przycisk **Połącz**. 
 
 1. Aby wysłać zapytanie dotyczące alertów usługi Microsoft Defender dla punktów końcowych w **dziennikach**, wprowadź **SecurityAlert** w oknie zapytania i Dodaj filtr, gdzie **Nazwa dostawcy** to **MDATP**.
 

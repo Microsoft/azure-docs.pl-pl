@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62fb239fd9cb8c1817dea5ab5c22684a65955ed5
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 3a66ad61afe1439a80d750097d3c90d010547539
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555733"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98622412"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Uprawnienia roli administratora w usłudze Azure Active Directory
 
@@ -1971,6 +1971,7 @@ Deweloper aplikacji | Deweloper aplikacji | CF1C38E5-3621-4004-A7CB-879624DCED7C
 Administrator uwierzytelniania | Administrator uwierzytelniania | c4e39bd9-1100-46d3-8c65-fb160da0071f
 Autor ładunku ataku | Autor ładunku ataku | 9c6df0f2-1e7c-4dc3-b195-66dfbd24aa8f
 Administrator symulacji ataku | Administrator symulacji ataku | c430b396-e693-46cc-96f3-db01bf8bb62a
+Lokalny administrator urządzenia przyłączonego do usługi Azure AD | Lokalny administrator urządzenia przyłączonego do usługi Azure AD | 9f06204d-73c1-4d4c-880a-6edb90606fd8
 Administrator usługi Azure DevOps | Administrator usługi Azure DevOps | e3973bdf-4987-49ae-837a-ba8e231c7286
 Azure Information Protection administrator | Azure Information Protection administrator | 7495fdc4-34c4-4d15-a289-98788ce399fd
 Administrator zestawu kluczy B2C IEF | Administrator zestawu kluczy B2C IEF | aaf43236-0c0d-4d5f-883a-6955382ac081
@@ -1978,24 +1979,23 @@ Administrator zasad B2C IEF | Administrator zasad B2C IEF | 3edaf663-341e-4475-9
 Administrator rozliczeń | Administrator rozliczeń | b0f54661-2d74-4c50-afa3-1ec803f12efe
 Administrator aplikacji w chmurze | Administrator aplikacji w chmurze | 158c047a-c907-4556-b7ef-446551a6b5f7
 Administrator urządzenia w chmurze | Administrator urządzenia w chmurze | 7698a772-787b-4ac8-901f-60d6b08affd2
-Administrator firmy | Administrator globalny | 62e90394-69f5-4237-9190-012177145e10
 Administrator zgodności | Administrator zgodności | 17315797-102d-40b4-93e0-432062caca18
 Administrator danych zgodności | Administrator danych zgodności | e6d1a23a-da11-4be4-9570-befc86d067a7
 Administrator dostępu warunkowego | Administrator dostępu warunkowego | b1be1c3e-b65d-4f19-8427-f6fa0d97feb9
-Administrator usługi CRM | Administrator systemu Dynamics 365 | 44367163-eba1-44c3-98af-f5787879f96a
 Osoba zatwierdzająca dostęp do skrytki klienta | Osoba zatwierdzająca Skrytka klienta dostępu | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91
 Administrator usługi Desktop Analytics | Administrator usługi Desktop Analytics | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
-Administratorzy urządzeń | Administratorzy urządzeń | 9f06204d-73c1-4d4c-880a-6edb90606fd8
 Przyłączanie urządzenia | Przestarzałe | 9c094953-4995-41c8-84c8-3ebb9b32c93f
 Menedżerowie urządzeń | Przestarzałe | 2b499bcd-da44-4968-8aec-78e1674fa64d
 Użytkownicy urządzeń | Przestarzałe | d405c6df-0af8-4e3b-95e4-4d06e542189e
 Czytelnicy katalogów | Czytelnicy katalogów | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
 Konta synchronizacji katalogów | Niewyświetlane, ponieważ nie powinno być używane | d29b2b05-8046-44ba-8758-1e26182fcf32
 Autorzy katalogów | Autorzy katalogów | 9360feb5-f418-4baa-8175-e2a00bac4301
-Administrator usługi Exchange | Administrator programu Exchange | 29232cdf-9323-42fd-ade2-1d097af3e4de
+Administrator systemu Dynamics 365 | Administrator systemu Dynamics 365 | 44367163-eba1-44c3-98af-f5787879f96a
+Administrator programu Exchange | Administrator programu Exchange | 29232cdf-9323-42fd-ade2-1d097af3e4de
 Administrator przepływu użytkownika z identyfikatorem zewnętrznym | Administrator przepływu użytkownika z identyfikatorem zewnętrznym | 6e591065-9bad-43ed-90f3-e9424366d2f0
 Administrator atrybutów przepływu użytkownika zewnętrznego ID | Administrator atrybutów przepływu użytkownika zewnętrznego ID | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
 Administrator zewnętrznego dostawcy tożsamości | Administrator zewnętrznego dostawcy tożsamości | be2f45a1-457d-42af-a067-6ec1fa63bc45
+Administrator globalny | Administrator globalny | 62e90394-69f5-4237-9190-012177145e10
 Czytelnik globalny | Czytnik globalny | f2ef992c-3afb-46b9-b7cf-a126ee74c451
 Administrator grup | Administrator grup | fdd7a751-b60b-444a-984c-02652fe8fa1c 
 Zapraszający gościa | Zapraszający gościa | 95e79109-95c0-4d8e-aee3-d01accf2d47b
@@ -2006,7 +2006,6 @@ Lider biznesowy usługi Insights | Lider biznesowy usługi Insights | 31e939ad-9
 Administrator usługi Intune | Administrator usługi Intune | 3a2c62db-5318-420d-8d74-23affee5d9d5
 Usługi kaizala administrator | Usługi kaizala administrator | 74ef975b-6605-40af-a5d2-b9539d836353
 Administrator licencji | Administrator licencji | 4d6ac14f-3453-41d0-bef9-a3e0c569773a
-Administrator usługi Lync | Administrator programu Skype dla firm | 75941009-915A-4869-abe7-691bff18279e
 Czytnik prywatności centrum wiadomości | Czytnik prywatności centrum wiadomości | ac16e43d-7b2d-40e0-ac05-243ff356ab5b
 Czytelnik centrum wiadomości | Czytelnik centrum wiadomości | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
 Nowoczesny użytkownik handlowy | Nowoczesny użytkownik handlowy | d24aef57-1500-4070-84db-2666f29cf966
@@ -2015,7 +2014,7 @@ Administrator aplikacji pakietu Office | Administrator aplikacji pakietu Office 
 Obsługa pomoc partnera | Niewyświetlane, ponieważ nie powinno być używane | 4ba39ca4-527c-499a-b93d-d9b492c50246
 Obsługa SVR partnera | Niewyświetlane, ponieważ nie powinno być używane | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
 Administrator haseł | Administrator haseł | 966707d0-3269-4727-9be2-8c3a10f19b9d
-Administrator usługi Power BI | Power BI administrator | a9ea8996-122f-4c74-9520-8edcd192826c
+Power BI administrator | Power BI administrator | a9ea8996-122f-4c74-9520-8edcd192826c
 Administrator platformy w elektrowni | platforma Power administrator | 11648597-926c-4cf3-9c36-bcebb0ba8dcc
 Administrator drukarki | Administrator drukarki | 644ef478-e28f-4e28-b9dc-3fdde9aa0b1f
 Technika drukarki | Technika drukarki | e8cef6f1-e4bd-4ea8-bc07-4b8d950f4477
@@ -2028,15 +2027,16 @@ Administrator zabezpieczeń | Administrator zabezpieczeń | 194ae4cb-b126-40b2-b
 Operator zabezpieczeń | Operator zabezpieczeń | 5f2222b1-57c3-48ba-8ad5-d4759f1fde6f
 Czytelnik zabezpieczeń | Czytelnik zabezpieczeń | 5d6b6bb7-de71-4623-b4af-96380a352509
 Administrator pomocy technicznej usługi | Administrator pomocy technicznej usługi | f023fd81-a637-4b56-95fd-791ac0226033
-Administrator usługi SharePoint | Administrator programu SharePoint | f28a1f50-f6e7-4571-818b-6a12f2af6b6c
+Administrator programu SharePoint | Administrator programu SharePoint | f28a1f50-f6e7-4571-818b-6a12f2af6b6c
+Administrator programu Skype dla firm | Administrator programu Skype dla firm | 75941009-915A-4869-abe7-691bff18279e
 Administratorzy zespołu ds. komunikacji | Administratorzy zespołu ds. komunikacji | baf37b3a-610e-45da-9e62-d9d1e5e8914b
 Inżynierowie pomocy technicznej dla zespołów | Inżynierowie pomocy technicznej dla zespołów | f70938a0-fc10-4177-9e90-2178f8765737
 Zespoły ds. pomocy technicznej | Zespoły ds. pomocy technicznej | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
 Administrator urządzeń zespołów | Administrator urządzeń zespołów | 3d762c5a-1b6c-493f-843e-55a3b42923d4
-Administrator usługi Teams | Administrator usługi Teams | 69091246-20e8-4a56-aa4d-066075b2a7a8
+Administrator zespołów | Administrator zespołów | 69091246-20e8-4a56-aa4d-066075b2a7a8
 Czytnik raportów podsumowujących użycia | Czytnik raportów podsumowujących użycia | 75934031-6c7e-415a-99d7-48dbd49e875e
 Użytkownik | Niepokazywany, ponieważ nie można go użyć | a0b1b346-4d3e-4e8b-98f8-753987be4970
-Administrator konta użytkownika | Administrator użytkowników | fe930be7-5e62-47db-91af-98c3a49a38b1
+Administrator użytkowników | Administrator użytkowników | fe930be7-5e62-47db-91af-98c3a49a38b1
 Dołączanie urządzenia w miejscu pracy | Przestarzałe | c34f683f-4d5a-4403-AFFD-6615e00e3a7f
 
 ## <a name="deprecated-roles"></a>Przestarzałe role
@@ -2057,15 +2057,11 @@ Nie każda rola zwrócona przez program PowerShell lub MS interfejs API programu
 
 Nazwa interfejsu API | Nazwa Azure Portal | Uwagi
 -------- | ------------------- | -------------
-Administrator firmy | Administrator globalny | [Zmiana nazwy dla lepszego przejrzystości](permissions-reference.md#role-template-ids)
-Administrator usługi CRM | Administrator systemu Dynamics 365 | [Odzwierciedla bieżącą markę produktu](permissions-reference.md#role-template-ids)
 Przyłączanie urządzenia | Przestarzałe | [Dokumentacja przestarzałych ról](permissions-reference.md#deprecated-roles)
 Menedżerowie urządzeń | Przestarzałe | [Dokumentacja przestarzałych ról](permissions-reference.md#deprecated-roles)
 Użytkownicy urządzeń | Przestarzałe | [Dokumentacja przestarzałych ról](permissions-reference.md#deprecated-roles)
 Konta synchronizacji katalogów | Niewyświetlane, ponieważ nie powinno być używane | [Dokumentacja kont synchronizacji katalogów](permissions-reference.md#directory-synchronization-accounts)
-Autorzy katalogów | Niewyświetlane, ponieważ nie powinno być używane | [Dokumentacja usługi zapisywania katalogów](permissions-reference.md#directory-writers)
 Użytkownik-gość | Niepokazywany, ponieważ nie można go użyć  | Nie dotyczy
-Administrator usługi Lync | Administrator programu Skype dla firm | [Odzwierciedla bieżącą markę produktu](permissions-reference.md#role-template-ids)
 Obsługa warstwy 1 dla partnerów | Niewyświetlane, ponieważ nie powinno być używane | [Dokumentacja dotycząca pomocy technicznej pomoc partnera](permissions-reference.md#partner-tier1-support)
 Obsługa warstwy 2 partnera | Niewyświetlane, ponieważ nie powinno być używane | [Dokumentacja dotycząca pomocy technicznej SVR partnera](permissions-reference.md#partner-tier2-support)
 Ograniczony użytkownik-Gość | Niepokazywany, ponieważ nie można go użyć | Nie dotyczy

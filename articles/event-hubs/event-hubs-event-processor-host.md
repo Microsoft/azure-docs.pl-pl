@@ -4,12 +4,12 @@ description: W tym artykule opisano hosta procesora zdarzeń w usłudze Azure Ev
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a05f2172b266301919d0a800fb863b8f0dbe5884
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de5d8f0f8bf9f64a473b18a50434cac83e8e38c3
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89319506"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98622066"
 ---
 # <a name="event-processor-host"></a>Host procesora zdarzeń
 > [!NOTE]
@@ -42,7 +42,7 @@ Zamiast tworzyć własne rozwiązanie, Event Hubs udostępnia tę funkcję za po
 
 ## <a name="ieventprocessor-interface"></a>IEventProcessor, interfejs
 
-Pierwsze, zużywające aplikacje implementują interfejs  [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) , który ma cztery metody: [openAsync, CloseAsync, ProcessErrorAsync i ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor?view=azure-dotnet#methods). Ten interfejs zawiera rzeczywisty kod służący do korzystania z zdarzeń wysyłanych Event Hubs. Poniższy kod pokazuje prostą implementację:
+Pierwsze, zużywające aplikacje implementują interfejs  [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) , który ma cztery metody: [openAsync, CloseAsync, ProcessErrorAsync i ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor#methods). Ten interfejs zawiera rzeczywisty kod służący do korzystania z zdarzeń wysyłanych Event Hubs. Poniższy kod pokazuje prostą implementację:
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor
@@ -150,7 +150,7 @@ Jak wyjaśniono wcześniej, tabela śledzenia znacznie upraszcza charakter autom
 
 ## <a name="control-event-processor-host-options"></a>Sterowanie opcjami hosta procesora zdarzeń
 
-Ponadto jedno Przeciążenie [RegisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync?view=azure-dotnet#Microsoft_Azure_EventHubs_Processor_EventProcessorHost_RegisterEventProcessorAsync__1_Microsoft_Azure_EventHubs_Processor_EventProcessorOptions_) przyjmuje obiekt [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync?view=azure-dotnet#Microsoft_Azure_EventHubs_Processor_EventProcessorHost_RegisterEventProcessorAsync__1_Microsoft_Azure_EventHubs_Processor_EventProcessorOptions_) jako parametr. Użyj tego parametru, aby kontrolować zachowanie [klasy eventprocessorhost. UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) . [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions) definiuje cztery właściwości i jedno zdarzenie:
+Ponadto jedno Przeciążenie [RegisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync#Microsoft_Azure_EventHubs_Processor_EventProcessorHost_RegisterEventProcessorAsync__1_Microsoft_Azure_EventHubs_Processor_EventProcessorOptions_) przyjmuje obiekt [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync#Microsoft_Azure_EventHubs_Processor_EventProcessorHost_RegisterEventProcessorAsync__1_Microsoft_Azure_EventHubs_Processor_EventProcessorOptions_) jako parametr. Użyj tego parametru, aby kontrolować zachowanie [klasy eventprocessorhost. UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) . [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions) definiuje cztery właściwości i jedno zdarzenie:
 
 - [MaxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize): maksymalny rozmiar kolekcji, która ma zostać odebrana w wywołaniu [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync). Ten rozmiar nie jest minimalny, tylko maksymalny rozmiar. Jeśli jest mniej komunikatów do odebrania, **ProcessEventsAsync** wykonuje się za pomocą tak dużo, jak były dostępne.
 - [PrefetchCount](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.prefetchcount): wartość używana przez podstawowy kanał AMQP do określenia górnego limitu liczby komunikatów, które powinien odebrać klient. Ta wartość powinna być większa lub równa [maxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize).
@@ -163,7 +163,7 @@ Ponadto jedno Przeciążenie [RegisterEventProcessorAsync](/dotnet/api/microsoft
 Oto jak działa Epoka odbioru:
 
 ### <a name="with-epoch"></a>Z epoką
-Epoka jest unikatowym identyfikatorem (wartość epoki) używaną przez usługę, aby wymusić własność partycji/dzierżawy. Można utworzyć odbiornik oparty na epoki przy użyciu metody [CreateEpochReceiver](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver?view=azure-dotnet) . Ta metoda tworzy odbiornik oparty na epoki. Odbiorca jest tworzony dla określonej partycji centrum zdarzeń z określonej grupy odbiorców.
+Epoka jest unikatowym identyfikatorem (wartość epoki) używaną przez usługę, aby wymusić własność partycji/dzierżawy. Można utworzyć odbiornik oparty na epoki przy użyciu metody [CreateEpochReceiver](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver) . Ta metoda tworzy odbiornik oparty na epoki. Odbiorca jest tworzony dla określonej partycji centrum zdarzeń z określonej grupy odbiorców.
 
 Funkcja Epoka zapewnia użytkownikom możliwość zapewnienia, że w dowolnym momencie w grupie odbiorców istnieje tylko jeden odbiornik z następującymi regułami:
 
@@ -172,7 +172,7 @@ Funkcja Epoka zapewnia użytkownikom możliwość zapewnienia, że w dowolnym mo
 - Jeśli istnieje odbiornik z wartością epoki E1 i nowy odbiorca jest tworzony z wartością epoki E2, gdzie E1 > E2, a następnie utworzenie E2 z zakończeniem się niepowodzeniem z powodu błędu: odbiornik z epoką.
 
 ### <a name="no-epoch"></a>Brak epoki
-Tworzysz odbiornik oparty na protokole epoki przy użyciu metody [OnReceive](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver?view=azure-dotnet) . 
+Tworzysz odbiornik oparty na protokole epoki przy użyciu metody [OnReceive](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver) . 
 
 W przypadku przetwarzania strumieniowego istnieją pewne scenariusze, w których użytkownicy mogą utworzyć wielu odbiorników w pojedynczej grupie odbiorców. Aby wspierać takie scenariusze, firma Microsoft może utworzyć odbiorcę bez epoki. w takim przypadku zezwolimy na maksymalnie 5 współbieżnych odbiorców w grupie konsumentów.
 

@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 8/15/2018
+ms.date: 01/20/2021
 ms.author: victorh
-ms.openlocfilehash: 413ae2ee19f0b8e427de9167b52971e413cdf573
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: f0c06a94498f4d2481a6e953b959d766c60415fb
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397233"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98622184"
 ---
 # <a name="renew-application-gateway-certificates"></a>Odnów Application Gateway certyfikaty
 
@@ -22,11 +22,11 @@ Certyfikat skojarzony z odbiornikiem można odnowić przy użyciu Azure Portal, 
 
 ## <a name="azure-portal"></a>Azure Portal
 
-Aby odnowić certyfikat odbiornika z portalu, przejdź do odbiornika usługi Application Gateway. Kliknij odbiornik z certyfikatem, który musi zostać odnowiony, a następnie kliknij pozycję **Odnów lub Edytuj wybrany certyfikat**.
+Aby odnowić certyfikat odbiornika z portalu, przejdź do odbiornika usługi Application Gateway. Wybierz odbiornik z certyfikatem, który musi zostać odnowiony, a następnie wybierz pozycję **Odnów lub Edytuj wybrany certyfikat**.
 
-![Odnów certyfikat](media/renew-certificate/ssl-cert.png)
+:::image type="content" source="media/renew-certificate/ssl-cert.png" alt-text="Odnów certyfikat":::
 
-Przekaż nowy certyfikat PFX, nadaj mu nazwę, wpisz hasło, a następnie kliknij przycisk **Zapisz**.
+Przekaż nowy certyfikat PFX, nadaj mu nazwę, wpisz hasło, a następnie wybierz pozycję **Zapisz**.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 

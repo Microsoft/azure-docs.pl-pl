@@ -11,12 +11,12 @@ ms.date: 09/22/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f1b1d792891b3ab8dabff42757d0e705e512879
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 80a035f30294449a024bbde76df2d42ddc23396e
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98613796"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98622715"
 ---
 # <a name="azure-ad-connect-cloud-sync-attribute-mapping"></a>Mapowanie atrybutu synchronizacji chmury Azure AD Connect
 
@@ -57,9 +57,9 @@ Aby skorzystać z nowej funkcji, wykonaj poniższe kroki.
 
 1.  W witrynie Azure Portal wybierz pozycję **Azure Active Directory**.
 2.  Wybierz **Azure AD Connect**.
-3.  Wybierz pozycję **Zarządzaj obsługą**.
+3.  Wybierz pozycję **Zarządzaj synchronizacją w chmurze**.
 
-    ![Zarządzanie obsługą administracyjną](media/how-to-configure/manage-1.png)
+    ![Zarządzanie obsługą administracyjną](media/how-to-install/install-6.png)
 
 4. W obszarze **Konfiguracja** wybierz konfigurację.
 5. Wybierz **pozycję kliknij, aby edytować mapowania**.  Spowoduje to otwarcie ekranu mapowania atrybutów.

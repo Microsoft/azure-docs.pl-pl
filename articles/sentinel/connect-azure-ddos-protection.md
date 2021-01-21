@@ -7,20 +7,16 @@ ms.assetid: bfa2eca4-abdc-49ce-b11a-0ee229770cdd
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: how-to
-ms.date: 09/01/2020
+ms.date: 01/20/2021
 ms.author: yelevin
-ms.openlocfilehash: c54b5b785f6da1bb651d8b1f508da42ab0fb802d
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 8089b1e74e88db81c1c15ad2cbf2072abcfff241
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538382"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621349"
 ---
 # <a name="connect-data-from-azure-ddos-protection"></a>Łączenie danych z Azure DDoS Protection
-
-> [!IMPORTANT]
-> Łącznik danych Azure DDoS Protection na platformie Azure jest obecnie w publicznej wersji zapoznawczej.
-> Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Ataki rozproszonego typu "odmowa usługi" (DDoS) podejmują próbę wyczerpania zasobów aplikacji, co sprawia, że aplikacja jest niedostępna dla uprawnionych użytkowników. Celem ataku DDoS może być dowolny punkt końcowy publicznie dostępny za pośrednictwem Internetu. [Usługa Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md), w połączeniu z najlepszymi rozwiązaniami dotyczącymi projektowania aplikacji, zapewnia niezawodną ochronę przed atakami DDoS. Możesz połączyć Azure DDoS Protection dzienniki z platformą Azure wskaźnikiem wydajności, umożliwiając wyświetlanie danych dziennika w skoroszytach, korzystanie z nich do tworzenia niestandardowych alertów i uwzględnianie ich w celu ulepszania badań. 
 

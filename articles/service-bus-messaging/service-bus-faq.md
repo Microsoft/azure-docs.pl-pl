@@ -3,12 +3,12 @@ title: Azure Service Bus często zadawanych pytań (FAQ) | Microsoft Docs
 description: Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytania dotyczące Azure Service Bus.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: acd741101928f5a2dfd72eab1598af6e4556a3d1
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 576df12a9d53ec3585f8691016cd250bf1ba4be3
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96022147"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623111"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus — często zadawane pytania
 
@@ -57,7 +57,7 @@ Oficjalne zestawy Azure SDK zwykle używają protokołu AMQP do wysyłania i otr
 
 [!INCLUDE [service-bus-websockets-options](../../includes/service-bus-websockets-options.md)]
 
-Starszy pakiet WindowsAzure. ServiceBus dla .NET Framework ma opcję użycia starszej wersji "Service Bus Messaging Protocol" (SBMP), zwanej również "obsługą komunikatów". Ten protokół używa portów TCP 9350-9354. Domyślnym trybem tego pakietu jest automatyczne wykrywanie, czy te porty są dostępne do komunikacji i przełączają się do obiektów WebSockets z protokołem TLS przez port 443, jeśli tak nie jest. Można zastąpić to ustawienie i wymusić ten tryb, ustawiając wartość `Https` opcji [connectivitymode](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) dla [`ServiceBusEnvironment.SystemConnectivity`](/dotnet/api/microsoft.servicebus.servicebusenvironment.systemconnectivity?view=azure-dotnet) Ustawienia, które ma zastosowanie globalnie do aplikacji.
+Starszy pakiet WindowsAzure. ServiceBus dla .NET Framework ma opcję użycia starszej wersji "Service Bus Messaging Protocol" (SBMP), zwanej również "obsługą komunikatów". Ten protokół używa portów TCP 9350-9354. Domyślnym trybem tego pakietu jest automatyczne wykrywanie, czy te porty są dostępne do komunikacji i przełączają się do obiektów WebSockets z protokołem TLS przez port 443, jeśli tak nie jest. Można zastąpić to ustawienie i wymusić ten tryb, ustawiając wartość `Https` opcji [connectivitymode](/dotnet/api/microsoft.servicebus.connectivitymode) dla [`ServiceBusEnvironment.SystemConnectivity`](/dotnet/api/microsoft.servicebus.servicebusenvironment.systemconnectivity) Ustawienia, które ma zastosowanie globalnie do aplikacji.
 
 ### <a name="what-ip-addresses-do-i-need-to-add-to-allow-list"></a>Jakie adresy IP muszę dodać do listy dozwolonych?
 Aby znaleźć odpowiednie adresy IP do dodania do listy dozwolonych połączeń, wykonaj następujące kroki:

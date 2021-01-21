@@ -1,6 +1,6 @@
 ---
-title: Wysyłanie danych telemetrycznych do usługi Azure IoT Hub — szybki start (iOS)
-description: Uruchom przykładową aplikację dla systemu iOS, aby wysłać symulowane dane telemetryczne do usługi IoT Hub i odczytać dane telemetryczne z usługi IoT Hub na potrzeby przetwarzania w chmurze.
+title: Szybki Start — wysyłanie danych telemetrycznych do usługi Azure IoT Hub — szybki start (iOS)
+description: W tym przewodniku Szybki start uruchomisz przykładową aplikację systemu iOS wysyłającą symulowane dane telemetryczne do centrum IoT oraz odczytującą dane telemetryczne z centrum IoT na potrzeby przetwarzania w chmurze.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 ms.date: 04/03/2019
-ms.openlocfilehash: 6699015a3c8939f012eb837da3d8b0c3d49527d5
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 4af985d93c5b02ab20df97abd5fa0371edf889f5
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121490"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624256"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Szybki start: wysyłanie danych telemetrycznych z urządzenia do centrum IoT (iOS)
 

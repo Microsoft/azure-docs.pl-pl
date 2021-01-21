@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/04/2020
+ms.date: 01/19/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8dce284c0fffe10fe077fcb6c6713ba65c45751
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 9442489efd2a84ac8a31dfb2efb5718e1fd4f594
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743908"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621797"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Rejestracja informacji o zabezpieczeniach dla Azure Active Directory przegląd
 
@@ -30,18 +30,18 @@ W tym artykule przedstawiono łączną rejestrację zabezpieczeń. Aby rozpoczą
 > [!div class="nextstepaction"]
 > [Włącz łączną rejestrację zabezpieczeń](howto-registration-mfa-sspr-combined.md)
 
-![Mój profil pokazujący zarejestrowane informacje zabezpieczające dla użytkownika](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
+![Moje konto pokazujące zarejestrowane informacje zabezpieczające dla użytkownika](media/concept-registration-mfa-sspr-combined/combined-security-info-defaults-registered.png)
 
 Przed włączeniem nowego środowiska zapoznaj się z dokumentacją zorientowaną na administratora i dokumentacją zorientowaną na użytkownika, aby upewnić się, że rozumiesz funkcjonalność i wpływ tej funkcji. Zapoznaj się z [dokumentacją użytkownika](../user-help/security-info-setup-signin.md) w celu przygotowania użytkowników do nowego środowiska i zapewnienia pomyślnego wdrożenia.
 
 Rejestracja informacji o zabezpieczeniach połączonej usługi Azure AD nie jest obecnie dostępna dla chmur narodowych, takich jak Azure (Niemcy) lub Azure Chiny. Jest ona dostępna dla instytucji rządowych USA platformy Azure.
 
 > [!IMPORTANT]
-> Użytkownicy, którzy są włączeni do zarówno oryginalnej wersji zapoznawczej, jak i udoskonalonego, połączonego środowiska rejestracji, zobaczą nowe zachowanie. Użytkownicy, którzy są włączeni do obu środowisk, zobaczą tylko nowe środowisko my profile. Nowy *mój profil* jest wyrównany do wyglądu i sposobu działania złożonej rejestracji oraz zapewnia bezproblemowe środowisko dla użytkowników. Użytkownicy mogą zobaczyć mój profil, przechodząc do [https://myprofile.microsoft.com](https://myprofile.microsoft.com) .
+> Użytkownicy, którzy są włączeni do zarówno oryginalnej wersji zapoznawczej, jak i udoskonalonego, połączonego środowiska rejestracji, zobaczą nowe zachowanie. Użytkownicy, którzy są włączeni do obu środowisk, zobacz tylko środowisko My account. *Moje konto* jest wyrównane z wyglądem i działaniem połączonej rejestracji i zapewnia bezproblemowe środowisko dla użytkowników. Użytkownicy mogą zobaczyć moje konto, przechodząc do [https://myaccount.microsoft.com](https://myaccount.microsoft.com) .
 >
 > Podczas próby uzyskania dostępu do opcji informacje zabezpieczające, na przykład "Niestety, nie możemy cię zalogować", może wystąpić komunikat o błędzie. Upewnij się, że nie masz żadnej konfiguracji ani obiektu zasad grupy, który blokuje pliki cookie innych firm w przeglądarce sieci Web.
 
-*Moje strony profilów* są zlokalizowane na podstawie ustawień języka komputera uzyskujących dostęp do strony. Firma Microsoft przechowuje najnowszy język używany w pamięci podręcznej przeglądarki, a następnie próbuje uzyskać dostęp do stron w dalszym ciągu w ostatnio używanym języku. Jeśli wyczyścisz pamięć podręczną, strony są ponownie renderowane.
+Strony *moje konta* są zlokalizowane na podstawie ustawień języka komputera uzyskujących dostęp do strony. Firma Microsoft przechowuje najnowszy język używany w pamięci podręcznej przeglądarki, a następnie próbuje uzyskać dostęp do stron w dalszym ciągu w ostatnio używanym języku. Jeśli wyczyścisz pamięć podręczną, strony są ponownie renderowane.
 
 Jeśli chcesz wymusić określony język, możesz dodać `?lng=<language>` na końcu adresu URL, gdzie `<language>` jest kodem języka, który ma być renderowany.
 
@@ -51,7 +51,7 @@ Jeśli chcesz wymusić określony język, możesz dodać `?lng=<language>` na ko
 
 Rejestracja łączona obsługuje następujące metody uwierzytelniania i akcje:
 
-| Metoda | Rejestruj | Zmiana | Usuwanie |
+| Metoda | Zarejestruj | Zmiana | Usuń |
 | --- | --- | --- | --- |
 | Microsoft Authenticator | Tak (maksymalnie 5) | Nie | Tak |
 | Inna aplikacja uwierzytelniania | Tak (maksymalnie 5) | Nie | Tak |
@@ -59,7 +59,7 @@ Rejestracja łączona obsługuje następujące metody uwierzytelniania i akcje:
 | Telefon | Tak | Tak | Tak |
 | Alternatywny numer telefonu | Tak | Tak | Tak |
 | Telefon służbowy | Tak | Tak | Tak |
-| Poczta e-mail | Tak | Tak | Tak |
+| E-mail | Tak | Tak | Tak |
 | Pytania zabezpieczające | Tak | Nie | Tak |
 | Hasła aplikacji | Tak | Nie | Tak |
 | FIDO2 klucze zabezpieczeń<br />*Tryb zarządzany tylko ze strony z [informacjami o zabezpieczeniach](https://mysignins.microsoft.com/security-info)*| Tak | Tak | Tak |
@@ -116,7 +116,7 @@ Jeśli zasady SSPR wymagają od użytkowników przeglądania ich informacji zabe
 
 ### <a name="manage-mode"></a>Tryb zarządzania
 
-Użytkownicy mogą uzyskać dostęp do trybu zarządzania, przechodząc do [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) lub wybierając pozycję **informacje zabezpieczające** z mojego profilu. Z tego miejsca użytkownicy mogą dodawać metody, usuwać lub zmieniać istniejące metody, zmieniać metodę domyślną i nie tylko.
+Użytkownicy mogą uzyskać dostęp do trybu zarządzania, przechodząc do [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) lub wybierając pozycję **informacje zabezpieczające** z mojego konta. Z tego miejsca użytkownicy mogą dodawać metody, usuwać lub zmieniać istniejące metody, zmieniać metodę domyślną i nie tylko.
 
 ## <a name="key-usage-scenarios"></a>Scenariusze użycia klucza
 
@@ -126,17 +126,17 @@ Administrator wymusił rejestrację.
 
 Użytkownik nie skonfigurował wszystkich wymaganych informacji zabezpieczających i przechodzi do Azure Portal. Po wprowadzeniu nazwy użytkownika i hasła użytkownik otrzymuje monit o skonfigurowanie informacji zabezpieczających. Następnie użytkownik postępuje zgodnie z instrukcjami wyświetlanymi w kreatorze, aby skonfigurować wymagane informacje zabezpieczające. Jeśli Twoje ustawienia pozwalają na to, użytkownik może zdecydować się na skonfigurowanie metod innych niż te, które są domyślnie wyświetlane. Po zakończeniu pracy Kreatora użytkownicy przeglądają skonfigurowane metody i ich domyślną metodę dla Multi-Factor Authentication. Aby ukończyć proces instalacji, użytkownik potwierdza informacje i kontynuuje Azure Portal.
 
-### <a name="set-up-security-info-from-my-profile"></a>Skonfiguruj informacje zabezpieczające z mojego profilu
+### <a name="set-up-security-info-from-my-account"></a>Skonfiguruj informacje zabezpieczające z mojego konta
 
 Administrator nie wymusił rejestracji.
 
-Użytkownik, który jeszcze nie skonfigurował wszystkich wymaganych informacji zabezpieczających, przejdzie do programu [https://myprofile.microsoft.com](https://myprofile.microsoft.com) . Użytkownik wybiera **informacje zabezpieczające** w okienku po lewej stronie. W tym miejscu użytkownik zdecyduje się dodać metodę, wybiera dowolną z dostępnych metod i postępuje zgodnie z instrukcjami, aby skonfigurować tę metodę. Po zakończeniu użytkownik zobaczy metodę, która została skonfigurowana na stronie informacje zabezpieczające.
+Użytkownik, który jeszcze nie skonfigurował wszystkich wymaganych informacji zabezpieczających, przejdzie do programu [https://myaccount.microsoft.com](https://myaccount.microsoft.com) . Użytkownik wybiera **informacje zabezpieczające** w okienku po lewej stronie. W tym miejscu użytkownik zdecyduje się dodać metodę, wybiera dowolną z dostępnych metod i postępuje zgodnie z instrukcjami, aby skonfigurować tę metodę. Po zakończeniu użytkownik zobaczy metodę, która została skonfigurowana na stronie informacje zabezpieczające.
 
-### <a name="delete-security-info-from-my-profile"></a>Usuń informacje zabezpieczające z mojego profilu
+### <a name="delete-security-info-from-my-account"></a>Usuń informacje zabezpieczające z mojego konta
 
 Użytkownik, który wcześniej skonfigurował co najmniej jedną metodę [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) . Użytkownik zdecyduje się na usunięcie jednej z wcześniej zarejestrowanych metod. Po zakończeniu użytkownik nie widzi już tej metody na stronie informacje zabezpieczające.
 
-### <a name="change-the-default-method-from-my-profile"></a>Zmień domyślną metodę z mojego profilu
+### <a name="change-the-default-method-from-my-account"></a>Zmień domyślną metodę z mojego konta
 
 Użytkownik, który wcześniej skonfigurował co najmniej jedną metodę, która może być używana do Multi-Factor Authentication nawigowania do [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) . Użytkownik zmienia bieżącą metodę domyślną na inną metodę domyślną. Po zakończeniu użytkownik zobaczy nową domyślną metodę na stronie informacje zabezpieczające.
 

@@ -4,12 +4,12 @@ description: W tym artykule wyjaśniono, jak odroczyć dostarczanie komunikatów
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7c9ec55de24c97df3530d80deef55ed87be84077
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3a940f8aa9e72d9b09e9c0a3305521c6f17dfb0
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511283"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98622049"
 ---
 # <a name="message-deferral"></a>Odraczanie komunikatów
 
@@ -26,7 +26,7 @@ Ostatecznie w przypadku zmiany kolejności komunikatów z zamówienia przyjęcia
 
 ## <a name="message-deferral-apis"></a>Interfejsy API odroczeń komunikatów
 
-Interfejs API to [BrokeredMessage. Ustąp](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.defer?view=azureservicebus-4.1.1#Microsoft_ServiceBus_Messaging_BrokeredMessage_Defer) lub [BrokeredMessage. DeferAsync](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deferasync?view=azureservicebus-4.1.1#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeferAsync) w kliencie .NET Framework, [MessageReceiver. DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) w kliencie .NET Standard, a [IMessageReceiver. Ustąp](/java/api/com.microsoft.azure.servicebus.imessagereceiver.defer?view=azure-java-stable) lub [IMessageReceiver. DeferAsync](/java/api/com.microsoft.azure.servicebus.imessagereceiver.deferasync?view=azure-java-stable) w kliencie Java. 
+Interfejs API to [BrokeredMessage. Ustąp](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.defer#Microsoft_ServiceBus_Messaging_BrokeredMessage_Defer) lub [BrokeredMessage. DeferAsync](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deferasync#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeferAsync) w kliencie .NET Framework, [MessageReceiver. DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) w kliencie .NET Standard, a [IMessageReceiver. Ustąp](/java/api/com.microsoft.azure.servicebus.imessagereceiver.defer) lub [IMessageReceiver. DeferAsync](/java/api/com.microsoft.azure.servicebus.imessagereceiver.deferasync) w kliencie Java. 
 
 Komunikaty odroczone pozostają w kolejce głównej wraz ze wszystkimi innymi aktywnymi komunikatami (w przeciwieństwie do wiadomości utraconych w kolejce), ale nie mogą być już odbierane przy użyciu zwykłych funkcji Receive/ReceiveAsync. Komunikaty odroczone mogą zostać odnalezione za pośrednictwem [przeglądania komunikatów](message-browsing.md) , jeśli aplikacja utraci ich śledzenie.
 

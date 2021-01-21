@@ -1,5 +1,5 @@
 ---
-title: Wysyłanie danych telemetrycznych do usługi Azure IoT Hub (CLI) — szybki start
+title: Szybki Start — wysyłanie danych telemetrycznych do platformy Azure IoT Hub (CLI) — szybki start
 description: Ten przewodnik Szybki Start przedstawia deweloperów, którzy IoT Hub jak rozpocząć pracę przy użyciu interfejsu wiersza polecenia platformy Azure, aby utworzyć Centrum IoT, wysyłać dane telemetryczne i wyświetlać komunikaty między urządzeniem a centrum.
 ms.service: iot-hub
 ms.topic: quickstart
@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
-ms.openlocfilehash: ffcdf8d2baf7a449234ca14d603583f62949159d
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 20e7998b4d0ec5a36f8fb8f1ddb04d591c54542b
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150612"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624273"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-monitor-it-with-the-azure-cli"></a>Szybki Start: wysyłanie danych telemetrycznych z urządzenia do centrum IoT Hub i monitorowanie go za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -55,7 +55,7 @@ W tej sekcji przygotowasz dwie sesje interfejsu wiersza polecenia platformy Azur
 
 Interfejs wiersza polecenia platformy Azure wymaga zalogowania się do konta platformy Azure. Cała komunikacja między sesją powłoki interfejsu wiersza polecenia platformy Azure i centrum IoT Hub jest uwierzytelniana i szyfrowana. W związku z tym ten przewodnik Szybki Start nie wymaga dodatkowego uwierzytelniania, którego można używać z rzeczywistym urządzeniem, na przykład z parametrami połączenia.
 
-*  Uruchom polecenie [AZ Extension Add](/cli/azure/extension?view=azure-cli-latest#az-extension-add) , aby dodać rozszerzenie Microsoft Azure IoT dla interfejsu wiersza polecenia platformy Azure do powłoki interfejsu wiersza polecenia. Rozszerzenie IOT dodaje do interfejsu wiersza polecenia platformy Azure IoT Hub, IoT Edge i usługi IoT Device Provisioning Service (DPS).
+*  Uruchom polecenie [AZ Extension Add](/cli/azure/extension?view=azure-cli-latest#az-extension-add&preserve-view=true) , aby dodać rozszerzenie Microsoft Azure IoT dla interfejsu wiersza polecenia platformy Azure do powłoki interfejsu wiersza polecenia. Rozszerzenie IOT dodaje do interfejsu wiersza polecenia platformy Azure IoT Hub, IoT Edge i usługi IoT Device Provisioning Service (DPS).
 
    ```azurecli
    az extension add --name azure-iot
@@ -76,13 +76,13 @@ W tej sekcji utworzysz grupę zasobów i IoT Hub przy użyciu interfejsu wiersza
 > [!TIP]
 > Opcjonalnie można utworzyć grupę zasobów platformy Azure, IoT Hub i inne zasoby przy użyciu [Azure Portal](iot-hub-create-through-portal.md), [Visual Studio Code](iot-hub-create-use-iot-toolkit.md)lub innych metod programistycznych.  
 
-1. Uruchom polecenie [AZ Group Create](/cli/azure/group?view=azure-cli-latest#az-group-create) , aby utworzyć grupę zasobów. Następujące polecenie tworzy grupę zasobów o nazwie Moja *zasobów* w lokalizacji *Wschodnie* . 
+1. Uruchom polecenie [AZ Group Create](/cli/azure/group?view=azure-cli-latest#az-group-create&preserve-view=true) , aby utworzyć grupę zasobów. Następujące polecenie tworzy grupę zasobów o nazwie Moja *zasobów* w lokalizacji *Wschodnie* . 
 
     ```azurecli
     az group create --name MyResourceGroup --location eastus
     ```
 
-1. Uruchom polecenie [AZ IoT Hub Create](/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-create) , aby utworzyć Centrum IoT Hub. Utworzenie centrum IoT Hub może potrwać kilka minut. 
+1. Uruchom polecenie [AZ IoT Hub Create](/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-create&preserve-view=true) , aby utworzyć Centrum IoT Hub. Utworzenie centrum IoT Hub może potrwać kilka minut. 
 
     *YourIotHubName*. zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub. Nazwa Centrum IoT musi być globalnie unikatowa na platformie Azure. Ten symbol zastępczy jest używany w pozostałej części tego przewodnika Szybki Start do reprezentowania nazwy Centrum IoT.
 
@@ -94,7 +94,7 @@ W tej sekcji utworzysz grupę zasobów i IoT Hub przy użyciu interfejsu wiersza
 W tej sekcji utworzysz symulowane urządzenie w pierwszej sesji interfejsu wiersza polecenia. Symulowane urządzenie wysyła dane telemetryczne urządzenia do centrum IoT Hub. W drugiej sesji interfejsu wiersza polecenia można monitorować zdarzenia i dane telemetryczne oraz wysyłać komunikaty z chmury do urządzenia do symulowanego urządzenia.
 
 Aby utworzyć i uruchomić symulowane urządzenie:
-1. Uruchom polecenie [AZ IoT Hub Device-Identity Create](/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-create) w pierwszej sesji interfejsu wiersza polecenia. Spowoduje to utworzenie symulowanej tożsamości urządzenia. 
+1. Uruchom polecenie [AZ IoT Hub Device-Identity Create](/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-create&preserve-view=true) w pierwszej sesji interfejsu wiersza polecenia. Spowoduje to utworzenie symulowanej tożsamości urządzenia. 
 
     *YourIotHubName*. zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub. 
 
@@ -104,7 +104,7 @@ Aby utworzyć i uruchomić symulowane urządzenie:
     az iot hub device-identity create --device-id simDevice --hub-name {YourIoTHubName} 
     ```
 
-1. Uruchom polecenie [AZ IoT Device symulacja](/cli/azure/ext/azure-iot/iot/device?view=azure-cli-latest#ext-azure-iot-az-iot-device-simulate) w pierwszej sesji interfejsu wiersza polecenia.  Spowoduje to uruchomienie symulowanego urządzenia. Urządzenie wysyła dane telemetryczne do centrum IoT Hub i odbiera z niego komunikaty.  
+1. Uruchom polecenie [AZ IoT Device symulacja](/cli/azure/ext/azure-iot/iot/device?view=azure-cli-latest#ext-azure-iot-az-iot-device-simulate&preserve-view=true) w pierwszej sesji interfejsu wiersza polecenia.  Spowoduje to uruchomienie symulowanego urządzenia. Urządzenie wysyła dane telemetryczne do centrum IoT Hub i odbiera z niego komunikaty.  
 
     *YourIotHubName*. zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub. 
 
@@ -113,7 +113,7 @@ Aby utworzyć i uruchomić symulowane urządzenie:
     ```
 
 Aby monitorować urządzenie:
-1. W drugiej sesji interfejsu wiersza polecenia Uruchom polecenie [AZ IoT Hub monitor-Events](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events) . Spowoduje to rozpoczęcie monitorowania symulowanego urządzenia. Wyjście przedstawia dane telemetryczne wysyłane przez urządzenie symulowane do centrum IoT Hub.
+1. W drugiej sesji interfejsu wiersza polecenia Uruchom polecenie [AZ IoT Hub monitor-Events](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events&preserve-view=true) . Spowoduje to rozpoczęcie monitorowania symulowanego urządzenia. Wyjście przedstawia dane telemetryczne wysyłane przez urządzenie symulowane do centrum IoT Hub.
 
     *YourIotHubName*. zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub. 
 
@@ -136,7 +136,7 @@ W tej sekcji zostanie użyta druga sesja interfejsu wiersza polecenia w celu wys
     az iot device simulate -d simDevice -n {YourIoTHubName}
     ```
 
-1. W drugiej sesji interfejsu wiersza polecenia Uruchom polecenie [AZ IoT Device C2D-Message Send](/cli/azure/ext/azure-iot/iot/device/c2d-message?view=azure-cli-latest#ext-azure-iot-az-iot-device-c2d-message-send) . Spowoduje to wysłanie komunikatu z chmury do urządzenia z Centrum IoT Hub do urządzenia symulowanego. Komunikat zawiera ciąg i dwie pary klucz-wartość.  
+1. W drugiej sesji interfejsu wiersza polecenia Uruchom polecenie [AZ IoT Device C2D-Message Send](/cli/azure/ext/azure-iot/iot/device/c2d-message?view=azure-cli-latest#ext-azure-iot-az-iot-device-c2d-message-send&preserve-view=true) . Spowoduje to wysłanie komunikatu z chmury do urządzenia z Centrum IoT Hub do urządzenia symulowanego. Komunikat zawiera ciąg i dwie pary klucz-wartość.  
 
     *YourIotHubName*. zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub. 
 
@@ -184,12 +184,12 @@ W przypadku kontynuowania następnego zalecanego artykułu można zachować zaso
 > Usunięcie grupy zasobów jest nieodwracalne. Grupa zasobów oraz wszystkie zawarte w niej zasoby zostaną trwale usunięte. Uważaj, aby nie usunąć przypadkowo niewłaściwych zasobów lub grupy zasobów. 
 
 Aby usunąć grupę zasobów na podstawie nazwy:
-1. Uruchom polecenie [AZ Group Delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) . Spowoduje to usunięcie grupy zasobów, IoT Hub i utworzonej rejestracji urządzenia.
+1. Uruchom polecenie [AZ Group Delete](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) . Spowoduje to usunięcie grupy zasobów, IoT Hub i utworzonej rejestracji urządzenia.
 
     ```azurecli
     az group delete --name MyResourceGroup
     ```
-1. Uruchom polecenie [AZ Group list](/cli/azure/group?view=azure-cli-latest#az-group-list) , aby potwierdzić, że grupa zasobów została usunięta.  
+1. Uruchom polecenie [AZ Group list](/cli/azure/group?view=azure-cli-latest#az-group-list&preserve-view=true) , aby potwierdzić, że grupa zasobów została usunięta.  
 
     ```azurecli
     az group list

@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie routingu komunikatów dla IoT Hub platformy Azure przy użyciu szablonu Azure Resource Manager
-description: Konfigurowanie routingu komunikatów dla IoT Hub platformy Azure przy użyciu szablonu Azure Resource Manager
+title: Samouczek — Konfigurowanie routingu komunikatów dla platformy Azure IoT Hub przy użyciu szablonu Azure Resource Manager
+description: Samouczek — Konfigurowanie routingu komunikatów dla platformy Azure IoT Hub przy użyciu szablonu Azure Resource Manager
 author: robinsh
 manager: philmeagit st
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: e5ae5948c8baf1573393c73026c84d0f62e8693e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 53217340b0d91f3de77e5e0d8c0a82e30599d6ed
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480109"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621431"
 ---
 # <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>Samouczek: używanie szablonu Azure Resource Manager do konfigurowania routingu komunikatów IoT Hub
 
@@ -58,7 +58,7 @@ Identyfikator **subskrypcji**: to pole jest ustawione dla subskrypcji, w której
 
 **sku_name**: to pole jest skalowaniem dla IoT Hub. Ta wartość musi być równa S1 lub większa; warstwa Bezpłatna nie działa w tym samouczku, ponieważ nie zezwala na używanie wielu punktów końcowych.
 
-**sku_units**: to pole zawiera **sku_name**i jest liczbą IoT Hub jednostek, które mogą być używane.
+**sku_units**: to pole zawiera **sku_name** i jest liczbą IoT Hub jednostek, które mogą być używane.
 
 **d2c_partitions**: to pole jest liczbą partycji używanych przez strumień zdarzeń.
 
@@ -364,7 +364,7 @@ Użyj Eksploratora plików, który znajduje się w programie, aby znaleźć plik
 
 Po przekazaniu plików w oknie dialogowym wyników zostanie wyświetlony komunikat podobny do następującego.
 
-![Pasek menu Cloud Shell z wyróżnionymi plikami przekazywania/pobierania](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_results.png)
+![Pasek menu Cloud Shell z wyróżnionymi wynikami przekazywania/pobierania](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_results.png)
 
 Pliki są przekazywane do udziału używanego przez wystąpienie Cloud Shell. 
 

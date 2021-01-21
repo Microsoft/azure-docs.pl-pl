@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 68fa3ea15199ec1d9cc99f92f497847fb029acd6
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 16031c3d67b075e962c73fbb38ada36c7efeddad
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539569"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621218"
 ---
 # <a name="manage-individual-sensors"></a>Zarządzanie pojedynczymi czujnikami
 
@@ -315,7 +315,7 @@ Aby przekonwertować certyfikaty i klucze na różne formaty, aby były zgodne z
 
 ## <a name="connect-a-sensor-to-the-management-console"></a>Łączenie czujnika z konsolą zarządzania
 
-W tej sekcji opisano sposób zapewnienia połączenia między czujnikiem i lokalną konsolą zarządzania. Zrób to, jeśli pracujesz w sieci gapped i chcesz wysyłać informacje o zasobach i alertach do konsoli zarządzania z czujnika. To połączenie umożliwia również konsoli zarządzania wypychanie ustawień systemowych do czujnika i wykonywanie innych zadań zarządzania na czujniku.
+W tej sekcji opisano sposób zapewnienia połączenia między czujnikiem i lokalną konsolą zarządzania. Należy to zrobić, jeśli pracujesz w sieci gapped i chcesz wysyłać informacje o urządzeniu i alercie do konsoli zarządzania z czujnika. To połączenie umożliwia również konsoli zarządzania wypychanie ustawień systemowych do czujnika i wykonywanie innych zadań zarządzania na czujniku.
 
 Aby nawiązać połączenie:
 
@@ -562,7 +562,7 @@ Aby uzyskać dostęp do właściwości systemu:
 
 3. Wybierz pozycję **Właściwości systemu** z sekcji **Ogólne** .
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Badania i pakiety analizy zagrożeń](how-to-work-with-threat-intelligence-packages.md)
 

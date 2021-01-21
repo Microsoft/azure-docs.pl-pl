@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 005830575ba7f45d30fed71a73e7a419e4d98220
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 13bfd7c602389ff286a80f625829da5924a73bdf
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922584"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621899"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Publikowanie i subskrybowanie za pomocą Azure IoT Edge
 
@@ -87,7 +87,7 @@ Aby klient MQTT mógł się uwierzytelnić, najpierw musi wysłać pakiet CONNEC
 
 Moduły wdrożone przez IoT Edge używają [uwierzytelniania kluczy symetrycznych](how-to-authenticate-downstream-device.md#symmetric-key-authentication) i mogą wywołać [interfejs API obciążenia lokalnego IoT Edge](https://github.com/Azure/iotedge/blob/40f10950dc65dd955e20f51f35d69dd4882e1618/edgelet/workload/README.md) , aby programowo uzyskać token sygnatury dostępu współdzielonego nawet w trybie offline.
 
-### <a name="authorization"></a>Authorization
+### <a name="authorization"></a>Autoryzacja
 
 Po uwierzytelnieniu klienta programu MQTT w usłudze IoT Edge Hub musi on mieć autoryzację, aby nawiązać połączenie. Po nawiązaniu połączenia należy mieć autoryzację, aby opublikować lub subskrybować określone tematy. Te autoryzacji są udzielane przez Centrum IoT Edge w oparciu o zasady autoryzacji. Zasady autoryzacji są zestawem instrukcji wyrażonych jako struktura JSON, która jest wysyłana do centrum IoT Edge za pośrednictwem jego sznurka. Edytuj dwuosiową IoT Edge centrum, aby skonfigurować zasady autoryzacji.
 
@@ -251,7 +251,7 @@ Utwórz dwa urządzenia IoT w IoT Hub i uzyskaj swoje hasła. Korzystanie z inte
 
 ### <a name="authorize-publisher-and-subscriber-clients"></a>Autoryzowanie klientów korzystających z wydawcy i subskrybentów
 
-Aby autoryzować wydawcę i abonenta, Edytuj IoT Edgeą sieć centrów za pośrednictwem interfejsu wiersza polecenia platformy Azure, programu Visual Studio lub programu Visual Studio Code, aby uwzględnić następujące zasady autoryzacji:
+Aby autoryzować wydawcę i abonenta, Edytuj IoT Edgeową sieć piasty, tworząc wdrożenie IoT Edge za pomocą interfejsu wiersza polecenia platformy Azure, programu Visual Studio lub programu Visual Studio Code w celu uwzględnienia następujących zasad autoryzacji:
 
 ```json
 {
@@ -311,7 +311,7 @@ Aby autoryzować wydawcę i abonenta, Edytuj IoT Edgeą sieć centrów za pośre
 
 ### <a name="symmetric-keys-authentication-without-tls"></a>Uwierzytelnianie kluczy symetrycznych bez protokołu TLS
 
-#### <a name="subscribe"></a>Zasubskrybowanie
+#### <a name="subscribe"></a>Subskrybuj
 
 Połącz klienta **sub_client** MQTT z brokerem MQTT i Subskrybuj go, `test_topic` uruchamiając następujące polecenie na urządzeniu IoT Edge:
 

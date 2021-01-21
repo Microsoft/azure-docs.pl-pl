@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/13/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 1ac87f98af555aae155a201cc20692c950fc7924
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 419e32a127947cde1d3761507f0df7a889528ff2
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97841716"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621932"
 ---
 # <a name="basic-concepts"></a>Podstawowe pojęcia 
 
@@ -22,7 +22,7 @@ W tym artykule opisano najważniejsze zalety usługi Azure Defender dla IoT.
 
 Usługa Defender for IoT umożliwia łączenie się z portem SPAN lub NACISKiem sieci i natychmiastowe rozpoczęcie zbierania ruchu sieciowego usługi ICS za pośrednictwem pasywnego monitorowania (bez agentów). Głębokiej inspekcji pakietów (DPI) używa się do DISSECT ruchu z urządzeń sieciowych z kontrolką zarówno serial i Ethernet. Usługa Defender for IoT nie ma wpływu na nieaktywne sieci, ponieważ nie jest umieszczana w ścieżce danych i nie skanuje urządzeń. 
 
-Aby zapewnić błyskawiczne migawki szczegółowych informacji o zasobach, usługa Defender dla czujnika IoT uzupełnia pasywne monitorowanie z opcjonalnym aktywnym składnikiem. Ten składnik używa bezpiecznych poleceń zatwierdzonych przez dostawcę do wykonywania zapytań dotyczących urządzeń z systemem Windows i kontrolerów w celu uzyskania szczegółowych informacji o zasobach, tak często, jak chcesz.
+Aby zapewnić błyskawiczne migawki szczegółowych informacji o urządzeniu, usługa Defender dla czujnika IoT uzupełnia pasywne monitorowanie z opcjonalnym aktywnym składnikiem. Ten składnik używa bezpiecznych poleceń zaakceptowanych przez dostawcę do wykonywania zapytań dotyczących urządzeń z systemem Windows i kontrolerów w celu uzyskania szczegółowych informacji dotyczących urządzeń, tak często, jak to jest często.
 
 ## <a name="embedded-knowledge-of-ics-protocols-devices-and-applications"></a>Osadzona znajomość protokołów, urządzeń i aplikacji usługi ICS
 
@@ -34,7 +34,7 @@ Aparaty identyfikują problemy z zabezpieczeniami za pośrednictwem ciągłego m
 
 - **Wykrywanie naruszenia protokołu**: Określa użycie struktur pakietów i wartości pól, które naruszają specyfikacje protokołu ICS.
 
-- **Wykrywanie naruszenia zasad**: identyfikuje naruszenia zasad, takie jak nieautoryzowane użycie kodów funkcji, dostęp do określonych obiektów lub zmiany w konfiguracji zasobów.
+- **Wykrywanie naruszenia zasad**: identyfikuje naruszenia zasad, takie jak nieautoryzowane użycie kodów funkcji, dostęp do określonych obiektów lub zmiany konfiguracji urządzeń.
 
 - **Wykrywanie złośliwego oprogramowania w przemyśle**: identyfikuje zachowania wskazujące obecność znanego złośliwego oprogramowania, takiego jak robak, czarna energia, Havex, atak wannacry i NotPetya.
 
@@ -83,7 +83,7 @@ Zalecamy zapoznanie się z pojęciami, funkcjami i funkcjami dostępnymi dla czu
 
 Możesz rozszerzyć możliwości usługi Defender for IoT, udostępniając zarówno informacje o urządzeniu, jak i alercie z systemami partnerskimi. Integracja pomaga przedsiębiorstwom w wykorzystaniu wcześniej silosowych rozwiązań w zakresie zabezpieczeń, aby znacząco ulepszyć widoczność urządzeń i analizę zagrożeń. Integracje pomagają również przedsiębiorstwom przyspieszyć reagowanie na całe systemy i zmniejszyć ryzyko. 
 
-Integracja zmniejsza złożoność i eliminuje jej silosy poprzez integrację z istniejącymi przepływami pracy SOC i stosem zabezpieczeń. Na przykład:
+Integracja zmniejsza złożoność i eliminuje jej silosy poprzez integrację z istniejącymi przepływami pracy SOC i stosem zabezpieczeń. Przykład:
 
 - Rozwiązań Siem, takie jak IBM QRadar, Splunk, ArcSight, LogRhythm i RSA — monitor
 

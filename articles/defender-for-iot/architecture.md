@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/13/2021
 ms.author: shhazam
-ms.openlocfilehash: f3239434a7ba737bc9323bc4f383afd794800db1
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 66b960bf874cc46985230e488c749663eff0b835
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201483"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621101"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Architektura usługi Azure Defender for IoT
 
@@ -81,7 +81,7 @@ Zarządzanie usługą Azure Defender dla IoT w środowiskach hybrydowych odbywa 
 - Witryna Azure Portal
 
 ### <a name="sensor-console"></a>Konsola czujnika
-Wykrywanie czujników są wyświetlane w konsoli czujników, gdzie można je przeglądać, badać i analizować w mapie sieci, spisie zasobów i w szerokim zakresie raportów, na przykład raporty oceny ryzyka, zapytania wyszukiwania danych i wektory ataków. Konsoli programu można także używać do wyświetlania i obsługi zagrożeń wykrytych przez aparaty czujników, przekazywania informacji do systemów partnerskich, zarządzania użytkownikami i innych.
+Wykrywanie czujników są wyświetlane w konsoli czujników, gdzie można je przeglądać, badać i analizować na mapie sieci, spisie urządzeń i w szerokim zakresie raportów, na przykład raporty oceny ryzyka, zapytania wyszukiwania danych i wektory ataków. Konsoli programu można także używać do wyświetlania i obsługi zagrożeń wykrytych przez aparaty czujników, przekazywania informacji do systemów partnerskich, zarządzania użytkownikami i innych.
 
 :::image type="content" source="./media/architecture/sensor-console-v2.png" alt-text="Usługa Defender for IoT — konsola czujnika":::
 
@@ -96,7 +96,7 @@ Konsolę zarządzania można wdrożyć w celu skonfigurowania wysokiej dostępno
 
 Ścisła integracja z przepływami pracy SOC i uruchamianie książek umożliwia łatwe określanie priorytetów działań zaradczych i korelację między lokacjami.
 
-- Kompleksowe — zmniejszenie złożoności dzięki pojedynczej ujednoliconej platformie na potrzeby zarządzania zasobami, ryzyka i zarządzania lukami w zabezpieczeniach oraz monitorowania zagrożeń z odpowiedzią na zdarzenia.
+- Kompleksowe — zmniejszenie złożoności dzięki pojedynczej ujednoliconej platformie na potrzeby zarządzania urządzeniami, ryzyka i luk w zabezpieczeniach, a także monitorowania zagrożeń z odpowiedzią na zdarzenia.
 
 - Agregacja i korelacja — wyświetlanie, agregowanie i analizowanie danych i alertów zebranych ze wszystkich lokacji.
 

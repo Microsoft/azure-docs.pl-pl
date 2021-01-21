@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie routingu komunikatów dla usługi Azure IoT Hub przy użyciu Azure PowerShell
-description: Skonfiguruj Routing komunikatów dla platformy Azure IoT Hub przy użyciu Azure PowerShell. W zależności od właściwości komunikatu, trasy do konta magazynu lub kolejki Service Bus.
+title: Samouczek — Konfigurowanie routingu komunikatów dla usługi Azure IoT Hub przy użyciu Azure PowerShell
+description: Samouczek — Konfigurowanie routingu komunikatów dla platformy Azure IoT Hub przy użyciu Azure PowerShell. W zależności od właściwości komunikatu, trasy do konta magazynu lub kolejki Service Bus.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 92c30287e836ccadda915dab70a4d40e9c4e851a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be1560bcc03ec7a26f4bc374392c746243cd731a
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89073407"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624075"
 ---
 # <a name="tutorial-use-azure-powershell-to-configure-iot-hub-message-routing"></a>Samouczek: używanie Azure PowerShell do konfigurowania routingu komunikatów IoT Hub
 
@@ -142,7 +142,7 @@ Najpierw należy skonfigurować punkt końcowy dla konta magazynu, a następnie 
 
 Są to zmienne używane przez skrypt, które muszą być ustawione w ramach sesji Cloud Shell:
 
-Grupa **zasobów: istnieją**dwa wystąpienia tego pola — Ustaw obydwie te elementy w danej grupie.
+Grupa **zasobów: istnieją** dwa wystąpienia tego pola — Ustaw obydwie te elementy w danej grupie.
 
 **Nazwa**: to pole jest nazwą IoT Hub, do którego zostanie zastosowana trasa.
 

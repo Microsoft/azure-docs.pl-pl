@@ -4,16 +4,16 @@ description: Samouczek przedstawiający sposób używania wzbogacania komunikat�
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 12/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 60bd416cf330676485f83720be4365b56c56baaf
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: ddc212e99c0e55156f56df6bf77e122408a727f9
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436712"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624059"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Samouczek: korzystanie z wzbogacania komunikatów IoT Hub platformy Azure
 
@@ -386,7 +386,7 @@ Aby usunąć wszystkie zasoby utworzone w tym samouczku, Usuń grupę zasobów. 
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Czyszczenie zasobów przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Aby usunąć grupę zasobów, użyj polecenia [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete). Odwołaj się `$resourceGroup` do **ContosoResourcesMsgEn** na początku tego samouczka.
+Aby usunąć grupę zasobów, użyj polecenia [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true). Odwołaj się `$resourceGroup` do **ContosoResourcesMsgEn** na początku tego samouczka.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
@@ -397,6 +397,7 @@ az group delete --name $resourceGroup
 W tym samouczku skonfigurowano i przetestowano Dodawanie wzbogacania komunikatów do IoT Hub komunikatów, wykonując następujące czynności:
 
 **Użyj wzbogacania komunikatów IoT Hub**
+
 > [!div class="checklist"]
 > * Pierwsza metoda: Tworzenie zasobów i Konfigurowanie routingu komunikatów przy użyciu interfejsu wiersza polecenia platformy Azure. Ręcznie skonfiguruj wzbogacanie komunikatów przy użyciu [Azure Portal](https://portal.azure.com).
 > * Druga metoda: Tworzenie zasobów i Konfigurowanie routingu komunikatów i wzbogacania komunikatów przy użyciu szablonu Azure Resource Manager.
@@ -407,5 +408,8 @@ Aby uzyskać więcej informacji na temat wzbogacania komunikatów, zobacz [Omów
 
 Aby uzyskać więcej informacji na temat routingu wiadomości, zobacz następujące artykuły:
 
-* [Używanie routingu komunikatów IoT Hub do wysyłania komunikatów z urządzenia do chmury do różnych punktów końcowych](iot-hub-devguide-messages-d2c.md)
-* [Samouczek: Routing IoT Hub](tutorial-routing.md)
+> [!div class="nextstepaction"]
+> [Używanie routingu komunikatów IoT Hub do wysyłania komunikatów z urządzenia do chmury do różnych punktów końcowych](iot-hub-devguide-messages-d2c.md)
+
+> [!div class="nextstepaction"]
+> [Samouczek: Routing IoT Hub](tutorial-routing.md)

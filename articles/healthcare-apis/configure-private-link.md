@@ -8,17 +8,14 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 10/12/2020
 ms.author: matjazl
-ms.openlocfilehash: bfbdb98e691312db5665261743f8ce698541d4cc
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: cdb41f12e8f050e3c74fccddb392d7a816c15b2f
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93398219"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621882"
 ---
 # <a name="configure-private-link"></a>Konfigurowanie linku prywatnego
-
-> [!IMPORTANT]
-> Ta możliwość jest dostępna w publicznej wersji zapoznawczej, nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Link prywatny umożliwia dostęp do usługi Azure API for FHIR za pośrednictwem prywatnego punktu końcowego, interfejsu sieciowego, który nawiązuje połączenie prywatnie i bezpiecznie przy użyciu prywatnego adresu IP z sieci wirtualnej. Za pomocą linku prywatnego możesz bezpiecznie uzyskiwać dostęp do naszych usług z sieci wirtualnej jako usługi pierwszej firmy bez konieczności przechodzenia przez publiczny system DNS. W tym artykule omówiono sposób tworzenia, testowania i zarządzania prywatnym punktem końcowym usługi Azure API for FHIR.
 
@@ -90,6 +87,6 @@ Prywatne punkty końcowe i skojarzona z nią karty sieciowe są widoczne w Azure
 
 ### <a name="delete"></a>Usuń
 
-Prywatne punkty końcowe można usunąć tylko z Azure Portal za pośrednictwem bloku przegląd (jak poniżej) lub za pośrednictwem opcji Usuń w obszarze Sieć (wersja zapoznawcza) karta "połączenia prywatne punktów końcowych". Kliknięcie przycisku Usuń spowoduje usunięcie prywatnego punktu końcowego i skojarzonej karty sieciowej. Jeśli usuniesz wszystkie prywatne punkty końcowe do zasobu FHIR i dostęp do sieci publicznej zostanie wyłączony, żądanie nie zostanie wprowadzone do serwera FHIR. Wszystkie prywatne punkty końcowe należy usunąć z zasobów FHIR, zanim będzie można usunąć lub przenieść zasób FHIR.
+Prywatne punkty końcowe można usunąć tylko z Azure Portal za pośrednictwem bloku przegląd (jak poniżej) lub za pośrednictwem opcji Usuń w obszarze Sieć (wersja zapoznawcza) karta "połączenia prywatne punktów końcowych". Kliknięcie przycisku Usuń spowoduje usunięcie prywatnego punktu końcowego i skojarzonej karty sieciowej. Jeśli usuniesz wszystkie prywatne punkty końcowe do zasobu FHIR i dostęp do sieci publicznej zostanie wyłączony, żądanie nie zostanie wprowadzone do serwera FHIR.
 
 ![Usuń prywatny punkt końcowy](media/private-link/private-link-delete.png)

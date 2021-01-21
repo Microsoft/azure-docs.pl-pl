@@ -17,19 +17,19 @@ ms.date: 1/19/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05a514debcf8036a296bbe66b2dd75c7dacacdc2
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 4c7d02b48d30fa558f8fd12f92705046dab74057
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600740"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624239"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Raporty dotyczące aprowizacji w portalu Azure Active Directory (wersja zapoznawcza)
 
 Architektura raportowania w Azure Active Directory (Azure AD) składa się z następujących składników:
 
 - **Działanie** 
-    - **Logowania** — informacje na temat użycia zarządzanych aplikacji i działań związanych z logowaniem użytkowników.
+    - **Logowania** — informacje o użyciu aplikacji zarządzanych oraz działania związane z logowaniem użytkowników.
     - **Dzienniki inspekcji**  -  [Dzienniki inspekcji](concept-audit-logs.md) zapewniają informacje o aktywności systemu dotyczące zarządzania użytkownikami i grupami, zarządzanych aplikacji i działań związanych z katalogiem.
     - **Dzienniki aprowizacji** — zapewniają działania systemowe dotyczące użytkowników, grup i ról, które są obsługiwane przez usługę aprowizacji usługi Azure AD. 
 
@@ -37,7 +37,11 @@ Architektura raportowania w Azure Active Directory (Azure AD) składa się z nas
     - **Ryzykowne logowania** — [ryzykowne logowanie](../identity-protection/overview-identity-protection.md) jest wskaźnikiem próby logowania, które mogło zostać wykonane przez kogoś, kto nie jest uprawnionym właścicielem konta użytkownika.
     - **Użytkownicy oflagowani do ryzyka** — [ryzykowny użytkownik](../identity-protection/overview-identity-protection.md) jest wskaźnikiem konta użytkownika, które mogło zostać naruszone.
 
-Ten temat zawiera omówienie raportu aprowizacji.
+Ten temat zawiera omówienie dzienników aprowizacji. Zapewniają odpowiedzi na pytania, takie jak: 
+
+* Które grupy zostały pomyślnie utworzone w usługi ServiceNow?
+* Jakie użytkowników zostało pomyślnie usuniętych z firmy Adobe?
+* Co użytkownicy z produktu Workday zostały pomyślnie utworzone w Active Directory? 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -52,14 +56,16 @@ Ten temat zawiera omówienie raportu aprowizacji.
 
 Dzierżawca musi mieć skojarzoną licencję Azure AD — wersja Premium, aby wyświetlić raport dotyczący całej aktywności aprowizacji. Aby uaktualnić swoją wersję usługi Azure Active Directory, zobacz [Wprowadzenie do usługi Azure Active Directory w wersji Premium](../fundamentals/active-directory-get-started-premium.md). 
 
-## <a name="provisioning-logs"></a>Dzienniki aprowizowania
 
-Dzienniki aprowizacji zapewniają odpowiedzi na następujące pytania:
+## <a name="ways-of-interacting-with-the-provisioning-logs"></a>Sposoby współpracy z dziennikami aprowizacji 
+Klienci mają cztery metody współdziałania z dziennikami aprowizacji:
 
-* Które grupy zostały pomyślnie utworzone w usługi ServiceNow?
-* Jakie użytkowników zostało pomyślnie usuniętych z firmy Adobe?
-* Które użytkowników nie zostały pomyślnie utworzone w usłudze DropBox?
+1. Uzyskiwanie dostępu do dzienników z Azure Portal zgodnie z poniższym opisem.
+1. Przesyłanie strumieniowe dzienników aprowizacji do [Azure monitor](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics), co pozwala na Rozszerzone przechowywanie danych, tworzenie niestandardowych pulpitów nawigacyjnych, alertów i zapytań.
+1. Wykonywanie zapytania dotyczącego [interfejsu API Microsoft Graph](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) dla dzienników aprowizacji.
+1. Pobieranie dzienników aprowizacji jako pliku CSV lub JSON.
 
+## <a name="access-the-logs-from-the-azure-portal"></a>Uzyskaj dostęp do dzienników z Azure Portal
 Dostęp do dzienników aprowizacji można uzyskać, wybierając pozycję **dzienniki aprowizacji** w sekcji **monitorowanie** w bloku **Azure Active Directory** w [Azure Portal](https://portal.azure.com). W przypadku niektórych rekordów aprowizacji w portalu może upłynąć do dwóch godzin.
 
 ![Dzienniki aprowizowania](./media/concept-provisioning-logs/access-provisioning-logs.png "Dzienniki aprowizowania")
@@ -205,10 +211,57 @@ Karta **Rozwiązywanie problemów i zalecenia** zawiera kod błędu i przyczynę
 
 **Zmodyfikowane właściwości** pokazuje starą wartość i nową wartość. W przypadku braku starej wartości kolumna stara wartość jest pusta. 
 
-
 ### <a name="summary"></a>Podsumowanie
 
 Karta **Podsumowanie** zawiera przegląd informacji o tym, co się stało i identyfikatory dla obiektu w systemie źródłowym i docelowym. 
+
+## <a name="download-logs-as-csv-or-json"></a>Pobierz dzienniki jako plik CSV lub JSON
+
+Dzienniki aprowizacji można pobrać do użycia później, przechodząc do dzienników w Azure Portal a następnie klikając pozycję Pobierz. Plik zostanie przefiltrowany na podstawie wybranych kryteriów filtrowania. Można sprawić, aby filtry były możliwie jak najbardziej określone, aby skrócić czas pobierania i rozmiar pobieranych plików. Pobieranie woluminu CSV zostało podzielone na trzy pliki:
+
+* ProvisioningLogs: Pobiera wszystkie dzienniki, z wyjątkiem kroków aprowizacji i zmodyfikowanych właściwości.
+* ProvisioningLogs_ProvisioningSteps: zawiera kroki inicjowania obsługi administracyjnej i identyfikator zmiany. Identyfikator zmiany może służyć do sprzęgania zdarzenia z innymi dwoma plikami.
+* ProvisioningLogs_ModifiedProperties: zawiera atrybuty, które zostały zmienione wraz z IDENTYFIKATORem zmiany. Identyfikator zmiany może służyć do sprzęgania zdarzenia z innymi dwoma plikami.
+
+#### <a name="opening-the-json-file"></a>Otwieranie pliku JSON
+Aby otworzyć plik JSON, użyj edytora tekstów, takiego jak [kod Microsoft Visual Studio](https://aka.ms/vscode). Visual Studio Code ułatwia ich odczytywanie, zapewniając wyróżnianie składni. Plik JSON można także otworzyć przy użyciu przeglądarek w nieedytowalnym formacie, np. [Microsoft Edge](https://aka.ms/msedge) 
+
+#### <a name="prettifying-the-json-file"></a>Prettifying plik JSON
+Plik JSON zostanie pobrany w formacie zminimalizowanego, aby zmniejszyć rozmiar pobierania. To z kolei może utrudnić odczytywanie ładunku. Zapoznaj się z dwoma opcjami, aby Prettify plik:
+
+1. Użyj Visual Studio Code, aby sformatować kod JSON
+
+Postępuj zgodnie z instrukcjami zdefiniowanymi [tutaj](https://code.visualstudio.com/docs/languages/json#_formatting) , aby sformatować plik JSON przy użyciu Visual Studio Code.
+
+2. Formatowanie kodu JSON przy użyciu programu PowerShell
+
+Ten skrypt będzie wyprowadzał dane JSON w formacie prettified z kartami i spacjami. 
+
+` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
+
+`$JSONContent | ConvertTo-Json > <PATH TO OUTPUT THE JSON FILE>`
+
+#### <a name="parsing-the-json-file"></a>Analizowanie pliku JSON
+
+Oto kilka przykładowych poleceń do pracy z plikiem JSON przy użyciu programu PowerShell. Możesz użyć dowolnego języka programowania, z którym masz doświadczenie.  
+
+Najpierw [Przeczytaj plik JSON](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1) , uruchamiając polecenie:
+
+` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
+
+Teraz można analizować dane w danym scenariuszu. Oto kilka przykładów: 
+
+1. Wyprowadź wszystkie jobIDs w JsonFile
+
+`foreach ($provitem in $JSONContent) { $provitem.jobId }`
+
+2. Wyprowadź wszystkie changeIds dla zdarzeń, w których akcja była "Create"
+
+`foreach ($provitem in $JSONContent) { `
+`   if ($provItem.action -eq 'Create') {`
+`       $provitem.changeId `
+`   }`
+`}`
 
 ## <a name="what-you-should-know"></a>Co należy wiedzieć
 
@@ -234,14 +287,14 @@ Skorzystaj z poniższej tabeli, aby lepiej zrozumieć, jak rozwiązywać błędy
 |InsufficientRights, MethodNotAllowed, NotPermitted, nieautoryzowane| Usługa Azure AD mogła uwierzytelnić się w aplikacji docelowej, ale nie ma autoryzacji do wykonania tej aktualizacji. Przejrzyj wszelkie instrukcje dostarczone przez aplikację docelową oraz odpowiedni [samouczek](../saas-apps/tutorial-list.md)aplikacji.|
 |UnprocessableEntity|Aplikacja docelowa zwróciła nieoczekiwaną odpowiedź. Konfiguracja aplikacji docelowej może być niepoprawna lub wystąpił problem z aplikacją docelową, która uniemożliwia wykonywanie tego działania.|
 |WebExceptionProtocolError |Wystąpił błąd protokołu HTTP podczas nawiązywania połączenia z aplikacją docelową. Nie ma nic do zrobienia. Ta próba zostanie automatycznie wycofana w ciągu 40 minut.|
-|InvalidAnchor|Użytkownik, który został wcześniej utworzony lub dopasowany przez usługę aprowizacji, już nie istnieje. Sprawdź, czy użytkownik istnieje. Aby wymusić ponowne dopasowanie wszystkich użytkowników, należy [ponownie uruchomić zadanie](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta)przy użyciu programu MS interfejs API programu Graph. Należy pamiętać, że ponowne uruchomienie aprowizacji wywoła cykl początkowy, co może zająć trochę czasu. Powoduje również usunięcie pamięci podręcznej używanej przez usługę aprowizacji do działania, co oznacza, że wszyscy użytkownicy i grupy w dzierżawie będą musieli ponownie ocenić i można porzucić pewne zdarzenia aprowizacji.|
-|Nie zaimplementowano | Aplikacja docelowa zwróciła nieoczekiwaną odpowiedź. Konfiguracja aplikacji może być niepoprawna lub wystąpił problem z usługą dla aplikacji docelowej, która uniemożliwia wykonanie tej pracy. Przejrzyj wszelkie instrukcje dostarczone przez aplikację docelową oraz odpowiedni [samouczek](../saas-apps/tutorial-list.md)aplikacji. |
+|InvalidAnchor|Użytkownik, który został wcześniej utworzony lub dopasowany przez usługę aprowizacji, już nie istnieje. Sprawdź, czy użytkownik istnieje. Aby wymusić ponowne dopasowanie wszystkich użytkowników, należy [ponownie uruchomić zadanie](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta)przy użyciu programu MS interfejs API programu Graph. Ponowne uruchomienie aprowizacji wyzwoli cykl początkowy, który może zająć trochę czasu. Powoduje również usunięcie pamięci podręcznej używanej przez usługę aprowizacji do działania, co oznacza, że wszyscy użytkownicy i grupy w dzierżawie będą musieli ponownie ocenić i można porzucić pewne zdarzenia aprowizacji.|
+|Nie zaimplementowano | Aplikacja docelowa zwróciła nieoczekiwaną odpowiedź. Konfiguracja aplikacji może być niepoprawna lub wystąpił problem z usługą dla aplikacji docelowej, która uniemożliwia wykonanie tej pracy. Przejrzyj wszelkie instrukcje dostarczone przez aplikację docelową i odpowiedni [samouczek](../saas-apps/tutorial-list.md)aplikacji. |
 |MandatoryFieldsMissing, MissingValues |Nie można utworzyć użytkownika, ponieważ brakuje wymaganych wartości. Popraw brakujące wartości atrybutów w rekordzie źródłowym lub przejrzyj zgodną konfigurację atrybutów, aby upewnić się, że wymagane pola nie zostały pominięte. [Dowiedz się więcej](../app-provisioning/customize-application-attributes.md) o konfigurowaniu pasujących atrybutów.|
 |SchemaAttributeNotFound |Nie można wykonać operacji, ponieważ określono atrybut, który nie istnieje w aplikacji docelowej. Zapoznaj się z [dokumentacją](../app-provisioning/customize-application-attributes.md) dotyczącą dostosowywania atrybutów i upewnij się, że konfiguracja jest poprawna.|
 |InternalError |Wystąpił wewnętrzny błąd usługi w usłudze Azure AD Provisioning. Nie ma nic do zrobienia. Ta próba zostanie ponowiona automatycznie w ciągu 40 minut.|
 |InvalidDomain |Nie można wykonać operacji z powodu wartości atrybutu zawierającej nieprawidłową nazwę domeny. Zaktualizuj nazwę domeny użytkownika lub Dodaj ją do listy dozwolonych w aplikacji docelowej. |
 |Limit czasu |Nie można ukończyć operacji, ponieważ aplikacja docelowa zbyt długo nie odpowiadała. Nie ma nic do zrobienia. Ta próba zostanie ponowiona automatycznie w ciągu 40 minut.|
-|LicenseLimitExceeded|Nie można utworzyć użytkownika w aplikacji docelowej, ponieważ nie ma żadnych dostępnych licencji dla tego użytkownika. Uzyskaj dodatkowe licencje dla aplikacji docelowej lub przejrzyj przypisania użytkowników i konfigurację mapowania atrybutów, aby upewnić się, że poprawni użytkownicy są przypisani przy użyciu poprawnych atrybutów.|
+|LicenseLimitExceeded|Nie można utworzyć użytkownika w aplikacji docelowej, ponieważ nie ma żadnych dostępnych licencji dla tego użytkownika. Uzyskaj więcej licencji dla aplikacji docelowej lub przejrzyj przypisania użytkowników i konfigurację mapowania atrybutów, aby upewnić się, że poprawni użytkownicy są przypisani przy użyciu poprawnych atrybutów.|
 |DuplicateTargetEntries  |Nie można ukończyć operacji, ponieważ znaleziono więcej niż jednego użytkownika w aplikacji docelowej ze skonfigurowanymi pasującymi atrybutami. Usuń zduplikowanego użytkownika z aplikacji docelowej lub ponownie skonfiguruj mapowania atrybutów zgodnie z opisem w [tym miejscu](../app-provisioning/customize-application-attributes.md).|
 |DuplicateSourceEntries | Nie można ukończyć operacji, ponieważ znaleziono więcej niż jednego użytkownika ze skonfigurowanymi pasującymi atrybutami. Usuń zduplikowanego użytkownika lub Zmień konfigurację mapowań atrybutów zgodnie z opisem w [tym miejscu](../app-provisioning/customize-application-attributes.md).|
 |ImportSkipped | Podczas oceniania każdego użytkownika podjęto próbę zaimportowania użytkownika z systemu źródłowego. Ten błąd występuje często, gdy importowany użytkownik nie ma pasującej właściwości zdefiniowanej w mapowaniu atrybutów. Bez wartości znajdującej się w obiekcie użytkownika dla pasującego atrybutu nie można obliczyć zakresu, dopasowywania ani eksportowania zmian. Należy zauważyć, że obecność tego błędu nie wskazuje, że użytkownik należy do zakresu, ponieważ nie oceniamy jeszcze zakresu dla użytkownika.|

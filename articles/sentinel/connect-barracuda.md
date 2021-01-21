@@ -15,19 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: f28243be6b4f998e8bdea0ce02da3ceedde23e02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1131c8e79d9df2883dcf7e975af9732c21318a49
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85559124"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621168"
 ---
-# <a name="connect-your-barracuda-appliance"></a>Łączenie urządzenia z programem Barracuda 
-
-
+# <a name="connect-your-barracuda-waf-appliance"></a>Łączenie urządzenia z programem Barracuda WAF 
 
 Łącznik zapory aplikacji sieci Web Barracuda (WAF) umożliwia łatwe łączenie dzienników Barracuda z platformą Azure, w celu wyświetlania pulpitów nawigacyjnych, tworzenia alertów niestandardowych i ulepszania badania. Zapewnia to dokładniejszy wgląd w sieć organizacji i zwiększa możliwości operacji zabezpieczeń. Korzystanie z platformy Azure w celu zapewnienia bezproblemowej integracji obejmuje natywną integrację między **Barracuda** i agentem log Analytics. 
-
 
 > [!NOTE]
 > Dane będą przechowywane w lokalizacji geograficznej obszaru roboczego, w którym jest uruchamiany wskaźnik platformy Azure.

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: d344b3d9ea54243d61cc6a1f3f0982eb5ab1d238
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 94a1db30419e5d7e52f369392d94b817d0dc273a
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538579"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623758"
 ---
 # <a name="activate-and-set-up-your-on-premises-management-console"></a>Aktywowanie i konfigurowanie lokalnej konsoli zarządzania 
 
@@ -147,13 +147,13 @@ Aby skonfigurować tunelowanie na czujniku:
 
 ## <a name="set-up-a-site"></a>Konfigurowanie lokacji
 
-Domyślna mapa przedsiębiorstwa zapewnia ogólny widok zasobów na podstawie kilku poziomów lokalizacji geograficznych.
+Domyślna mapa przedsiębiorstwa zapewnia ogólny widok swoich urządzeń w oparciu o kilka poziomów lokalizacji geograficznych.
 
-Widok zasobów może być wymagany w przypadku, gdy struktura organizacyjna i uprawnienia użytkownika są złożone. W takich przypadkach Konfiguracja lokacji może być określona przez globalną strukturę organizacyjną, oprócz standardowej struktury lokacji lub strefy.
+Widok urządzeń może być wymagany w przypadku, gdy struktura organizacyjna i uprawnienia użytkownika są złożone. W takich przypadkach Konfiguracja lokacji może być określona przez globalną strukturę organizacyjną, oprócz standardowej struktury lokacji lub strefy.
 
 Aby można było obsługiwać to środowisko, należy utworzyć globalną topologię biznesową opartą na jednostkach, regionach, lokacjach i strefach firmy w organizacji. Należy również zdefiniować uprawnienia dostępu użytkowników wokół tych jednostek za pomocą grup dostępu.
 
-Grupy dostępu umożliwiają lepszą kontrolę nad tym, gdzie użytkownicy zarządzają i analizują zasoby w usłudze Defender for IoT.
+Grupy dostępu umożliwiają lepszą kontrolę nad tym, gdzie użytkownicy zarządzają i analizują urządzenia w usłudze Defender for IoT.
 
 ### <a name="how-it-works"></a>Jak to działa
 
@@ -215,7 +215,7 @@ Aby usunąć lokację:
 
 ## <a name="create-enterprise-zones"></a>Utwórz strefy przedsiębiorstwa
 
-Strefy są jednostkami logicznymi, które umożliwiają dzielenie zasobów w obrębie lokacji na grupy według różnych właściwości. Można na przykład utworzyć grupy dla linii produkcyjnych, podstacji, obszarów lokacji lub typów zasobów. Strefy można definiować na podstawie wszelkich cech, które są odpowiednie dla Twojej organizacji.
+Strefy są jednostkami logicznymi, które umożliwiają dzielenie urządzeń w obrębie lokacji na grupy według różnych właściwości. Można na przykład utworzyć grupy dla linii produkcyjnych, podstacji, obszarów lokacji lub typów urządzeń. Strefy można definiować na podstawie wszelkich cech, które są odpowiednie dla Twojej organizacji.
 
 Strefy można konfigurować w ramach procesu konfiguracji lokacji.
 
@@ -231,7 +231,7 @@ W poniższej tabeli opisano parametry w oknie **Zarządzanie lokacją** .
 | Łączność | Stan łączności czujnika. Stan może być **połączony** lub **odłączony**. |
 | Ostatnie uaktualnienie | Data ostatniego uaktualnienia. |
 | Postęp uaktualniania | Pasek postępu pokazuje stan procesu uaktualniania w następujący sposób:<br />-Przekazywanie pakietu<br />— Przygotowywanie do instalacji<br />-Zatrzymywanie procesów<br />— Tworzenie kopii zapasowej danych<br />— Tworzenie migawki<br />-Aktualizowanie konfiguracji<br />-Aktualizowanie zależności<br />-Aktualizowanie bibliotek<br />-Stosowanie poprawek baz danych<br />-Uruchamianie procesów<br />-Walidacja Sanity systemu<br />-Walidacja zakończyła się pomyślnie<br />-Sukces<br />-Niepowodzenie<br />-Rozpoczęto uaktualnianie<br />— Rozpoczynanie instalacjiogress bar shows the status of the upgrade process, as follows:<br />- Uploading package<br />- Preparing to install<br />- Stopping processes<br />- Backing up data<br />- Taking snapshot<br />- Updating configuration<br />- Updating dependencies<br />- Updating libraries<br />- Patching databases<br />- Starting processes<br />- Validating system sanity<br />- Validation succeeded<br />- Success<br />- Failure<br />- Upgrade started<br />- Starting installation<br /></br >Aby uzyskać szczegółowe informacje o uaktualnianiu programu, zapoznaj się z tematem [Pomoc techniczna firmy Microsoft](https://support.microsoft.com/) . |
-| Elementy zawartości | Liczba elementów zawartości monitorowanych przez czujnik. |
+| Urządzenia | Liczba urządzeń, które są monitorowane przez czujnik. |
 | Alerty | Liczba alertów w czujniku. |
 | :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/assign-icon.png" border="false"::: | Umożliwia przypisanie czujnika do stref. |
 | :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/delete-icon.png" border="false":::| Włącza usuwanie odłączonego czujnika z lokacji. |
@@ -316,6 +316,6 @@ Aby cofnąć przypisanie i usunięcie czujnika:
 
 3. Aby usunąć nieprzypisany czujnik z lokacji, wybierz czujnik z listy nieprzypisanych czujników i wybierz opcję :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/delete-icon.png" border="false"::: .
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Rozwiązywanie problemów z czujnikiem i lokalną konsolą zarządzania](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)

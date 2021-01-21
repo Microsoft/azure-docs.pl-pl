@@ -4,12 +4,12 @@ description: Ten artykuł zawiera informacje dotyczące sposobu pisania kodu dla
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 46bd0c3c1488d6dd7afbae5e88e0b83f56654bb8
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: a299813620ee90591d8c9491991237f75f2e9382
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131240"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623052"
 ---
 # <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>Przewodnik programowania .NET dla platformy Azure Event Hubs (starszy pakiet Microsoft. Azure. EventHubs)
 W tym artykule omówiono niektóre typowe scenariusze tworzenia kodu przy użyciu usługi Azure Event Hubs. Przyjęto założenie, że wstępnie znasz i rozumiesz usługę Event Hubs. Omówienie koncepcji usługi Event Hubs można znaleźć w temacie [Przegląd usługi Event Hubs](./event-hubs-about.md).
@@ -24,7 +24,7 @@ Zdarzenia są wysyłane do centrum zdarzeń przy użyciu protokołu HTTP POST lu
 
 W przypadku używania zarządzanych interfejsów API platformy .NET głównymi konstrukcjami na potrzeby publikowania danych w usłudze Event Hubs są klasy [EventHubClient][] i [EventData][]. [EventHubClient][] udostępnia kanał komunikacji AMQP, przez który zdarzenia są wysyłane do centrum zdarzeń. Klasa [EVENTDATA][] reprezentuje zdarzenie i jest używana do publikowania komunikatów w centrum zdarzeń. Ta klasa obejmuje treść, niektóre metadane (właściwości) i informacje nagłówka (SystemProperties) dotyczące zdarzenia. Inne właściwości są dodawane do obiektu [EVENTDATA][] , gdy przechodzi on przez centrum zdarzeń.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 Klasy .NET obsługujące Event Hubs są dostępne w pakiecie NuGet [Microsoft. Azure. EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) . Program można zainstalować za pomocą Eksploratora rozwiązań programu Visual Studio lub [konsoli Menedżera pakietów](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) w programie Visual Studio. Aby to zrobić, należy wydać następujące polecenie w oknie [konsoli menedżera pakietów](https://docs.nuget.org/docs/start-here/using-the-package-manager-console):
 
 ```shell
@@ -57,7 +57,7 @@ Zdarzenia są wysyłane do centrum zdarzeń przez utworzenie wystąpienia [Event
 
 ## <a name="event-serialization"></a>Serializacja zdarzeń
 
-Klasa [EVENTDATA][] ma [dwa przeciążone konstruktory](/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor) , które przyjmują wiele parametrów, bajtów lub tablicę bajtową, która reprezentuje ładunek danych zdarzenia. W przypadku używania formatu JSON z klasą [EventData][] można użyć funkcji **Encoding.UTF8.GetBytes()** do pobrania tablicy bajtowej dla ciągu zakodowanego w formacie JSON. Na przykład:
+Klasa [EVENTDATA][] ma [dwa przeciążone konstruktory](/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor) , które przyjmują wiele parametrów, bajtów lub tablicę bajtową, która reprezentuje ładunek danych zdarzenia. W przypadku używania formatu JSON z klasą [EventData][] można użyć funkcji **Encoding.UTF8.GetBytes()** do pobrania tablicy bajtowej dla ciągu zakodowanego w formacie JSON. Przykład:
 
 ```csharp
 for (var i = 0; i < numMessagesToSend; i++)
@@ -97,7 +97,7 @@ Pojedyncza partia nie może przekroczyć limitu 1 MB zdarzenia. Ponadto każdy k
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>Wysyłanie asynchroniczne i wysyłanie na dużą skalę
 
-Zdarzenia są wysyłane do centrum zdarzeń asynchronicznie. Asynchroniczne wysyłanie zwiększa szybkość, z jaką klient może wysyłać zdarzenia. [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) zwraca obiekt [zadania](/dotnet/api/system.threading.tasks.task?view=netcore-3.1) . Aby sterować opcjami ponowień klienta, można użyć klasy [RetryPolicy](/dotnet/api/microsoft.servicebus.retrypolicy) na kliencie.
+Zdarzenia są wysyłane do centrum zdarzeń asynchronicznie. Asynchroniczne wysyłanie zwiększa szybkość, z jaką klient może wysyłać zdarzenia. [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) zwraca obiekt [zadania](/dotnet/api/system.threading.tasks.task) . Aby sterować opcjami ponowień klienta, można użyć klasy [RetryPolicy](/dotnet/api/microsoft.servicebus.retrypolicy) na kliencie.
 
 ## <a name="event-consumers"></a>Odbiorcy zdarzeń
 Klasa [EventProcessorHost][] przetwarza dane z usługi Event Hubs. Podczas tworzenia czytników zdarzeń na platformie .NET należy używać tej implementacji. Klasa [EventProcessorHost][] udostępnia bezpieczne wątkowo, wieloprocesowe, bezpieczne środowisko uruchomieniowe dla implementacji procesora zdarzeń, które umożliwia także tworzenie punktów kontrolnych i zarządzanie dzierżawą partycji.
@@ -109,7 +109,7 @@ Aby używać klasy [EventProcessorHost][], można zaimplementować interfejs [IE
 * [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync)
 * [ProcessErrorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processerrorasync)
 
-Aby rozpocząć przetwarzanie zdarzeń, Utwórz wystąpienie [klasy eventprocessorhost][], dostarczając odpowiednie parametry dla centrum zdarzeń. Na przykład:
+Aby rozpocząć przetwarzanie zdarzeń, Utwórz wystąpienie [klasy eventprocessorhost][], dostarczając odpowiednie parametry dla centrum zdarzeń. Przykład:
 
 > [!NOTE]
 > Klasy eventprocessorhost i powiązane klasy są dostępne w pakiecie **Microsoft. Azure. EventHubs. Processor** . Dodaj pakiet do projektu programu Visual Studio, wykonując instrukcje podane w [tym artykule](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) lub wykonując następujące polecenie w oknie [konsola Menedżera pakietów](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) : `Install-Package Microsoft.Azure.EventHubs.Processor` .

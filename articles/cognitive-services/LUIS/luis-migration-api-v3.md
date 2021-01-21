@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: 59cf250a9db5a1f6759495c1b5a3c48cb07cde15
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 59dfa439f6428f2db972a8f848887e1a74bc2622
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95018790"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624307"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Zmiany przewidywanych punktów końcowych dla wersji 3
 
@@ -66,9 +66,6 @@ Ten interfejs API nie jest obsługiwany w punkcie końcowym przewidywania v3 —
 
 Kontynuuj korzystanie z punktu końcowego przewidywania interfejsu API v2 do momentu wydania wersji bot Framework.
 
-## <a name="v2-api-deprecation"></a>Przestarzałe interfejsy API v2
-
-Interfejs API przewidywania w wersji 2 nie będzie przestarzały przez co najmniej 9 miesięcy od wersji zapoznawczej v3, 8 czerwca 2020.
 
 ## <a name="endpoint-url-changes"></a>Zmiany adresu URL punktu końcowego
 
@@ -268,9 +265,6 @@ W wersji 3, ten sam wynik z `verbose` flagą do zwrócenia metadanych jednostki:
 
 Poznaj [koncepcje](schema-change-prediction-runtime.md) dotyczące sposobu rozbudowywania aplikacji w środowisku uruchomieniowym przewidywania.
 
-## <a name="deprecation"></a>Przestarzałe
-
-Interfejs API v2 nie będzie przestarzały przez co najmniej 9 miesięcy od wersji zapoznawczej v3.
 
 ## <a name="next-steps"></a>Następne kroki
 

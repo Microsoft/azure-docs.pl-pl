@@ -2,13 +2,13 @@
 title: Przegląd szablonów
 description: Opisuje zalety korzystania z szablonów Azure Resource Manager (szablony ARM) na potrzeby wdrażania zasobów.
 ms.topic: conceptual
-ms.date: 12/17/2020
-ms.openlocfilehash: c4995791b784351219458c546442d082e2396315
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.date: 01/20/2021
+ms.openlocfilehash: dd9207ca1d0397b7dce63eb826567f07b1d0b892
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657315"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621843"
 ---
 # <a name="what-are-arm-templates"></a>Co to są szablony usługi ARM?
 
@@ -125,6 +125,12 @@ Jeśli przewidujesz, że warstwy będą miały osobne cykle, możesz wdrożyć t
 ![szablon warstwowy](./media/overview/tier-templates.png)
 
 Informacje dotyczące szablonów zagnieżdżonych można znaleźć w temacie [Using linked templates with Azure Resource Manager](linked-templates.md) (Używanie szablonów połączonych w usłudze Azure Resource Manager).
+
+## <a name="share-templates"></a>Udostępnianie szablonów
+
+Po utworzeniu szablonu warto udostępnić go innym użytkownikom w organizacji. [Specyfikacje szablonu](template-specs.md) umożliwiają przechowywanie szablonu jako typu zasobu. Za pomocą kontroli dostępu opartej na rolach można zarządzać dostępem do specyfikacji szablonu. Użytkownicy z dostępem do odczytu do specyfikacji szablonu mogą ją wdrożyć, ale nie zmieniać szablonu.
+
+To podejście oznacza, że można bezpiecznie udostępniać szablony zgodne ze standardami organizacji.
 
 ## <a name="next-steps"></a>Następne kroki
 

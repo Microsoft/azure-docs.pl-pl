@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/03/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 2053632f24504f896d1045f99d581b9aa6050b55
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: a71ea75eb603b141c4b28cff5f2b4aa957583bcd
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573143"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621316"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Informacje o usłudze Azure Defender dla sieci IoT — konfiguracja
 
@@ -94,35 +94,36 @@ Następujące przeglądarki są obsługiwane w przypadku aplikacji sieci Web czu
 
 Sprawdź, czy zasady zabezpieczeń organizacji umożliwiają dostęp do następujących danych:
 
-| **Cel** | **Protokół** | **Transport** | **Do lub do zewnątrz** | **Port** | **Kategoria** |
-| ----------- | ----------- | ------------ | ---------- | -------- | ------------ |
-| **Dostęp do konsoli sieci Web** | HTTPS | TCP | Do lub do zewnątrz | 443 | Lokalna Konsola zarządzania dla platformy Defender for IoT |
-| **Dostęp do interfejsu wiersza polecenia** | Protokół SSH | TCP | Do lub do zewnątrz | 22 | Interfejs wiersza polecenia |
-| **Połączenie między platformą Defender for IoT a lokalną konsolą zarządzania** | Protokół SSL | TCP | Do lub do zewnątrz | 443 | Czujnik i lokalna Konsola zarządzania|
-| **Lokalna Konsola zarządzania używana jako NTP do czujnika** | NTP | UDP| Do CM | 123 | Synchronizowanie czasu | 
-| **Czujnik połączony z zewnętrznym serwerem NTP (jeśli dotyczy)** | NTP | UDP | Do lub do zewnątrz| 123 | Synchronizowanie czasu |
-| **Połączenie między platformą Defender a platformą zarządzania i serwerem poczty (jeśli dotyczy)** | SMTP | TCP | Poza zarządzaniem czujnikiem | 25 | E-mail |
-| **Dzienniki wysyłane z lokalnej konsoli zarządzania na serwer dziennika systemu (jeśli dotyczy)** | Dziennik systemu | UDP | Poza zarządzaniem czujnikiem| 514 | LEEF |
-| **Port serwera DNS (jeśli dotyczy)** | DNS | Nie dotyczy | Do lub do zewnątrz| 53 | DNS |
-| **Połączenie między platformą usługi Defender for IoT a lokalną konsolą zarządzania w celu Active Directory (jeśli dotyczy)** | PROTOKOŁU LDAPS | TCP | Do lub do zewnątrz | 636 <br />389 | Active Directory |
-| **Zdalne moduły zbierające protokołu SNMP (jeśli dotyczy)** | SNMP | UDP | Poza zarządzaniem czujnikiem| 161 | Monitorowanie |
-| **Monitorowanie punktów końcowych systemu Windows (jeśli dotyczy)** | WMI | UDP | Poza zarządzaniem czujnikiem| 135 | Monitorowanie |
-| **Monitorowanie punktów końcowych systemu Windows (jeśli dotyczy)** | WMI | TCP | Poza zarządzaniem czujnikiem| 1024 i więcej | Monitorowanie |
-| **Tunelowanie (jeśli dotyczy)** | Tunelowanie | TCP | Do CM | 9000<br />Oprócz portu 443<br />Od użytkownika końcowego do lokalnej konsoli zarządzania <br />Port 22 z czujnika do lokalnej konsoli zarządzania | Monitorowanie |
-| **Wychodzące do usługi Defender dla usługi IoT Hub** | HTTPS | TCP | Poza zarządzaniem czujnikiem| **Adres URL**<br />*. azure-devices.net:443<br />lub jeśli symbole wieloznaczne nie są obsługiwane<br />{Nazwa Centrum IoT Hub}. Azure-devices.net:443 |
+| Protokół | Transport | We/Wy | Port | Użyte | Przeznaczenie | Element źródłowy | Element docelowy |
+|--|--|--|--|--|--|--|--|
+| HTTPS | TCP | WE/WYCHODZĄCE | 443 | Konsola sieci Web czujnika i lokalnej konsoli zarządzania | Dostęp do konsoli sieci Web | Klient | Czujnik i lokalna Konsola zarządzania |
+| Protokół SSH | TCP | WE/WYCHODZĄCE | 22 | Interfejs wiersza polecenia | Dostęp do interfejsu wiersza polecenia | Klient | Czujnik i lokalna Konsola zarządzania |
+| Protokół SSL | TCP | WE/WYCHODZĄCE | 443 | Czujnik i lokalna Konsola zarządzania | Połączenie między platformą CyberX a centralną platformą zarządzania | czujnik | Lokalna Konsola zarządzania |
+| NTP | UDP | IN | 123 | Synchronizacja czasu | Lokalna Konsola zarządzania używana jako NTP do czujnika | czujnik | lokalna Konsola zarządzania |
+| NTP | UDP | WE/WYCHODZĄCE | 123 | Synchronizacja czasu | Czujnik połączony z zewnętrznym serwerem NTP, gdy nie ma zainstalowanej lokalnej konsoli zarządzania | czujnik | NTP |
+| SMTP | TCP | OKREŚLONĄ | 25 | E-mail | Połączenie między platformą CyberX a platformą zarządzania i serwerem poczty | Czujnik i lokalna Konsola zarządzania | Serwer poczty e-mail |
+| Dziennik systemu | UDP | OKREŚLONĄ | 514 | LEEF | Dzienniki wysyłane z lokalnej konsoli zarządzania do serwera dziennika systemowego | Lokalna Konsola zarządzania i czujnik | Serwer Syslog |
+| DNS |  | WE/WYCHODZĄCE | 53 | DNS | Port serwera DNS | Lokalna Konsola zarządzania i czujnik | Serwer DNS |
+| LDAP | TCP | WE/WYCHODZĄCE | 389 | Active Directory | Połączenie między platformą CyberX a platformą zarządzania Active Directory | Lokalna Konsola zarządzania i czujnik | Serwer LDAP |
+| PROTOKOŁU LDAPS | TCP | WE/WYCHODZĄCE | 636 | Active Directory | Połączenie między platformą CyberX a platformą zarządzania Active Directory | Lokalna Konsola zarządzania i czujnik | Serwer LDAPs |
+| SNMP | UDP | OKREŚLONĄ | 161 | Monitorowanie | Zdalne moduły zbierające protokołu SNMP. | Lokalna Konsola zarządzania i czujnik | Serwer SNMP |
+| WMI | UDP | OKREŚLONĄ | 135 | monitorowanie | Monitorowanie punktów końcowych systemu Windows | Czujnik | Odpowiedni element sieci |
+| Tunelowanie | TCP | IN | 9000 <br /><br />-na szczycie portu 443 <br /><br />Od użytkownika końcowego do lokalnej konsoli zarządzania. <br /><br />-Port 22 z czujnika do lokalnej konsoli zarządzania  | monitorowanie | Tunelowanie | Czujnik | Lokalna Konsola zarządzania |
 
 ### <a name="planning-rack-installation"></a>Planowanie instalacji stojaka
 
 Aby zaplanować instalację stojaka:
 
 1. Przygotuj monitor i klawiaturę dla ustawień sieci urządzenia.
-2. Przydziel miejsce w stojaku dla urządzenia.
-3. Dostępna jest energia AC dla urządzenia.
-4. Przygotuj kabel sieci LAN do łączenia zarządzania z przełącznikiem sieci.
-5. Przygotuj kable sieci LAN do łączenia portów przedziału (dublowania) i przełączania sieci z urządzeniem Defender for IoT. 
-6. Skonfiguruj, Połącz i Weryfikuj zakresy portów w przełącznikach dublowanych zgodnie z opisem w sesji przeglądu architektury.
-7. Połącz skonfigurowany port SPAN z komputerem z uruchomionym programem Wireshark i sprawdź, czy port jest prawidłowo skonfigurowany.
-8. Otwórz wszystkie odpowiednie porty zapory.
+
+1. Przydziel miejsce w stojaku dla urządzenia.
+
+1. Dostępna jest energia AC dla urządzenia.
+1. Przygotuj kabel sieci LAN do łączenia zarządzania z przełącznikiem sieci.
+1. Przygotuj kable sieci LAN do łączenia portów przedziału (dublowania) i przełączania sieci z urządzeniem Defender for IoT. 
+1. Skonfiguruj, Połącz i Weryfikuj zakresy portów w przełącznikach dublowanych zgodnie z opisem w sesji przeglądu architektury.
+1. Połącz skonfigurowany port SPAN z komputerem z uruchomionym programem Wireshark i sprawdź, czy port jest prawidłowo skonfigurowany.
+1. Otwórz wszystkie odpowiednie porty zapory.
 
 ## <a name="about-passive-network-monitoring"></a>Informacje o monitorowaniu sieci pasywnych
 
@@ -141,6 +142,7 @@ W poniższych sekcjach opisano poziomy Purdue.
 Poziom 0 obejmuje szeroką gamę czujników, siłowników i urządzeń, które są wykorzystywane w podstawowym procesie produkcyjnym. Te urządzenia wykonują podstawowe funkcje systemu automatyzacji i kontroli przemysłowej, takie jak:
 
 - Napędzanie silnika.
+
 - Mierzenie zmiennych.
 - Ustawianie danych wyjściowych.
 - Wykonywanie kluczowych funkcji, takich jak malowanie, spawanie i zginanie.
@@ -227,7 +229,7 @@ Poniżej przedstawiono kilka zaleceń dotyczących wdrażania wielu czujników:
 |--|--|--|--|
 | Maksymalna odległość między przełącznikami | 80 metrów | Przygotowany kabel Ethernet | Więcej niż 1 |
 | Liczba nieot sieci | Więcej niż 1 | Brak łączności fizycznej | Więcej niż 1 |
-| Liczba przełączników | Można użyć konfiguracji RSPAN | Do 8 przełączników z zakresem lokalnym blisko czujnika przez odległość okablowania | Więcej niż 1 |
+| Liczba przełączników | Można użyć konfiguracji RSPAN | Do ośmiu przełączników z zakresem lokalnym blisko czujnika przez odległość okablowania | Więcej niż 1 |
 
 #### <a name="traffic-mirroring"></a>Dublowanie ruchu  
 
@@ -355,7 +357,7 @@ Punkt dostępu terminalu (TAP) to urządzenie sprzętowe, które pozwala na prze
 
 Krany są korzystne z różnych powodów. Są one oparte na sprzęcie i nie mogą zostać naruszone. Przekazują cały ruch, nawet uszkodzone komunikaty, które przełączniki często są używane. Nie są one zależne od procesora, dlatego czasy pakietów są dokładne, gdzie przełączniki obsługują funkcję dublowania jako zadanie o niskim priorytecie, które może wpływać na czas tworzenia dublowanych pakietów. Na potrzeby śledczej NACIŚNIĘCIe jest najlepszym urządzeniem.
 
-Do monitorowania portów można także używać agregatorów TAP. Urządzenia te są oparte na procesorach i nie są tak bezpieczne, jak w przypadku naciśnięcia sprzętowego. Mogą nie odzwierciedlać dokładnego chronometrażu pakietu.
+Do monitorowania portów można także używać agregatorów TAP. Urządzenia te są oparte na procesorach i nie są tak bezpieczne, jak naciśnięcie sprzętowe. Mogą nie odzwierciedlać dokładnego chronometrażu pakietu.
 
 :::image type="content" source="media/how-to-set-up-your-network/active-passive-tap-v2.PNG" alt-text="Diagram aktywacji aktywnych i pasywnych.":::
 
@@ -364,10 +366,10 @@ Do monitorowania portów można także używać agregatorów TAP. Urządzenia te
 Te modele zostały przetestowane pod kątem zgodności. Inni dostawcy i modele mogą również być zgodne.
 
 | Obraz | Model |
-| -- | -- |
-| :::image type="content" source="media/how-to-set-up-your-network/garland-p1gccas-v2.png" alt-text="Zrzut ekranu przedstawiający Garland P1GCCAS.":::  | Garland P1GCCAS  |
-| :::image type="content" source="media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="Zrzut ekranu przedstawiający IXIA TPA2-CU3.":::  | IXIA TPA2 — CU3  |
-| :::image type="content" source="media/how-to-set-up-your-network/us-robotics-usr-4503-v2.png" alt-text="Zrzut ekranu Stanów Zjednoczonych USR 4503.":::  | US Robotics USR 4503  |
+|--|--|
+| :::image type="content" source="media/how-to-set-up-your-network/garland-p1gccas-v2.png" alt-text="Zrzut ekranu przedstawiający Garland P1GCCAS."::: | Garland P1GCCAS |
+| :::image type="content" source="media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="Zrzut ekranu przedstawiający IXIA TPA2-CU3."::: | IXIA TPA2 — CU3 |
+| :::image type="content" source="media/how-to-set-up-your-network/us-robotics-usr-4503-v2.png" alt-text="Zrzut ekranu Stanów Zjednoczonych USR 4503."::: | US Robotics USR 4503 |
 
 ##### <a name="special-tap-configuration"></a>Specjalna konfiguracja TAP
 
@@ -425,7 +427,7 @@ Istotne informacje:
 
 - Jeśli urządzenie Defender for IoT powinno być połączone z tym przełącznikiem, czy w tym pliku jest dostępne fizyczne miejsce w stojaku?
 
-#### <a name="additional-considerations"></a>Dodatkowe zagadnienia
+#### <a name="other-considerations"></a>Inne zagadnienia
 
 Celem usługi Defender for IoT jest monitorowanie ruchu z warstw 1 i 2.
 
@@ -547,7 +549,7 @@ Przejrzyj tę listę przed wdrożeniem lokacji:
 | 14 | Stelaż i okablowanie urządzeń. | ☐ |  |
 | 15 | Przydzielanie zasobów lokacji w celu obsługi wdrożenia. | ☐ |  |
 | 16 | Tworzenie grup Active Directory lub użytkowników lokalnych. | ☐ |  |
-| 17 | Konfigurowanie szkoleń (samouczenie). | ☐ |  |
+| 17 | Szkolenia dotyczące konfigurowania (samodzielnego uczenia się). | ☐ |  |
 | 18 | Przejdź lub nie — Przejdź. | ☐ |  |
 | 19 | Zaplanuj datę wdrożenia. | ☐ |  |
 
@@ -671,7 +673,7 @@ Podaj szczegóły adresu karty sieciowej czujnika, która będzie podłączona w
 | Klucz tajny | |
 | Ciąg identyfikacyjny protokołu SNMP w wersji 2 |
 
-### <a name="cm-ssl-certificate"></a>Certyfikat SSL Menedżera konfiguracji
+### <a name="on-premises-management-console-ssl-certificate"></a>Certyfikat SSL lokalnej konsoli zarządzania
 
 Czy planowane jest użycie certyfikatu SSL? Tak lub Nie
 

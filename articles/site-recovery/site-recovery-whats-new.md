@@ -2,13 +2,13 @@
 title: Co nowego w Azure Site Recovery
 description: Zawiera podsumowanie nowych funkcji i najnowszych aktualizacji usługi Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: 3667f963eac0ebc719872db00ac069c7da70ec91
-ms.sourcegitcommit: b849ecdc8aa97337299b0f09970b7810c59cd044
+ms.date: 01/20/2021
+ms.openlocfilehash: 2778f1af99512c4594d2d688eea7e04b3b81ae47
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96310361"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621764"
 ---
 # <a name="whats-new-in-site-recovery"></a>Co nowego w usłudze Site Recovery
 
@@ -22,13 +22,27 @@ W przypadku składników Site Recovery obsługiwane są wersje N-4, gdzie N to n
 
 **Aktualizowanie** |  **Ujednolicona konfiguracja** | **Komórki jajowe serwera konfiguracji** | **Agent usługi mobilności** | **Dostawca Site Recovery** | **Agent Recovery Services**
 --- | --- | --- | --- | --- | ---
+[Pakiet zbiorczy 53](https://support.microsoft.com/help/4602881/)  | 9.40.5850.1 | 5.1.6537.0 | 9.40.5850.1 | 5.1.6537.0  | 2.0.9202.0
 [Pakiet zbiorczy 52](https://support.microsoft.com/help/4597409/)  | 9.39.5796.1 | 5.1.6458.0 | 9.39.5796.1 | 5.1.6458.0  | 2.0.9196.0
 [Pakiet zbiorczy 51](https://support.microsoft.com/help/4590304)  | 9.38.5761.1 | 5.1.6400.0 | 9.38.5761.1 | 5.1.6400.0  | 2.0.9193.0
 [Pakiet zbiorczy 50](https://support.microsoft.com/help/4582666/) | 9.37.5724.1 | 5.1.6347.0 | 9.37.5724.1 | 5.1.6347.0  | 2.0.9192.0
 [Pakiet zbiorczy 49](https://support.microsoft.com/help/4578241/) | 9.36.5696.1 | 5.1.6315.0 | 9.36.5696.1 | 5.1.6315.0 | 2.0.9188.0
-[Pakiet zbiorczy 48](https://support.microsoft.com/help/4573888/) | 9.35.5659.1 | 5.1.6200.0 | 9.35.5659.1 | 5.1.6200.0 | 2.0.9186.0
+
 
 [Dowiedz się więcej](service-updates-how-to.md) na temat instalacji i obsługi aktualizacji.
+
+## <a name="updates-january-2021"></a>Aktualizacje (styczeń 2021)
+
+### <a name="update-rollup-53"></a>Pakiet zbiorczy aktualizacji 53
+
+[Pakiet zbiorczy aktualizacji 53](https://support.microsoft.com/help/4602881/update-rollup-53-for-azure-site-recovery) udostępnia następujące aktualizacje:
+
+**Aktualizowanie** | **Szczegóły**
+--- | ---
+**Dostawcy i agenci** | Aktualizacje Site Recovery agentów i dostawców zgodnie z opisem w zestawie zbiorczym.
+**Rozwiązywanie poprawek/ulepszeń** | Szereg poprawek i ulepszeń, które opisano szczegółowo w pakiecie zbiorczym. 
+**Odzyskiwanie po awarii maszyny wirtualnej platformy Azure** | Replikacja tagów jest teraz obsługiwana. Wszystkie Tagi dodane do maszyn wirtualnych, dysków i kart sieciowych platformy Azure w regionie źródłowym są replikowane do maszyn w regionie docelowym.<br/><br/> Maszyny wirtualne platformy Azure z systemem Debian 10 są teraz obsługiwane na potrzeby replikacji.
+**Maszyna wirtualna VMware/odzyskiwanie po awarii na platformie Azure** | Aktualizacja obejmuje ulepszenia rejestrowania w przypadku replikacji maszyn wirtualnych VMware na platformę Azure i udoskonalone komunikaty o błędach.<br/><br/> Na potrzeby replikacji obsługiwane są maszyny wirtualne VMware i maszyny fizyczne z systemem Debian 10.
 
 
 ## <a name="updates-november-2020"></a>Aktualizacje (listopad 2020)

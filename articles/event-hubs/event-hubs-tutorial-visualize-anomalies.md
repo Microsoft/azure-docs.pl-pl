@@ -3,12 +3,12 @@ title: Azure Event Hubs — Wizualizuj anomalie danych w zdarzeniach w czasie rz
 description: 'Samouczek: Wizualizuj anomalie danych w zdarzeniach w czasie rzeczywistym wysyłanych do Microsoft Azure Event Hubs'
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: b72b82f3959565e6bd0598fef8e21bb64fedb053
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: bd08d611761e125fdd03173ce6027c60e82baed6
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97655683"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623462"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Samouczek: wizualizowanie anomalii dotyczących danych w zdarzeniach w czasie rzeczywistym wysyłanych do usługi Azure Event Hubs
 
@@ -349,7 +349,7 @@ Zaloguj się do swojego konta usługi Power BI. Przejdź do obszaru **Mój obsza
 
 ### <a name="clean-up-resources-using-azure-cli"></a>Oczyszczanie zasobów przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Aby usunąć grupę zasobów, użyj polecenia [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete).
+Aby usunąć grupę zasobów, użyj polecenia [az group delete](/cli/azure/group#az-group-delete).
 
 ```azurecli-interactive
 az group delete --name $resourceGroup

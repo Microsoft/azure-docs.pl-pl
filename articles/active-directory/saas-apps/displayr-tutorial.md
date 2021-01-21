@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 13edc0280f1a6f7e962e8e4593d8a17990dd9e6f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3cb6ee3162c70d2d07c4868ae90ecc54bd489966
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92454749"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98622494"
 ---
 # <a name="tutorial-integrate-displayr-with-azure-active-directory"></a>Samouczek: integracja z usługą Azure Active Directory
 
@@ -78,6 +78,10 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     a. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://<YOURDOMAIN>.displayr.com`
 
     b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, używając następującego wzorca:`<YOURDOMAIN>.displayr.com`
+    
+    c. W polu tekstowym **adres URL odpowiedzi** wpisz `https://app.displayr.com/Login/ProcessSamlResponse` .
+    
+    d. Kliknij pozycję **Zapisz**.
 
     >[!NOTE]
     >Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. Skontaktuj się z [zespołem obsługi klienta](mailto:support@displayr.com) w celu uzyskania tych wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji Podstawowa konfiguracja protokołu SAML w witrynie Azure Portal.
@@ -88,25 +92,23 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Aplikacja do odtwarzania oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych. Kliknij ikonę **Edytuj**, aby otworzyć okno dialogowe Atrybuty użytkownika.
 
-    ![Zrzut ekranu pokazujący sekcję "atrybuty użytkownika" z wyróżnioną ikoną "Edytuj".](common/edit-attribute.png)
+   ![Zrzut ekranu pokazujący sekcję "atrybuty użytkownika" z wyróżnioną ikoną "Edytuj".](common/edit-attribute.png)
 
 1. Oprócz powyższych, aplikacja do odtwarzania oczekuje kilku atrybutów do przekazania z powrotem w odpowiedzi SAML. W sekcji **atrybuty użytkownika & oświadczenia** w oknie dialogowym **oświadczenia grupy (wersja zapoznawcza)** wykonaj następujące czynności:
 
-    a. Kliknij **pióro** obok **grup zwróconych w ramach żądania**.
+   a. Kliknij pozycję **Dodaj zgłoszenie do grupy**.
 
-    ![Zrzut ekranu przedstawiający sekcję "atrybuty użytkownika & oświadczenia" z ikoną "pióro" obok pozycji "grupy zwrócone w ramach oświadczenia".](./media/displayr-tutorial/config04.png)
+      ![Zrzut ekranu pokazujący okno "oświadczenia grupy (wersja zapoznawcza) z wybranymi ustawieniami.](./media/displayr-tutorial/config05.png)
 
-    ![Zrzut ekranu pokazujący okno "oświadczenia grupy (wersja zapoznawcza) z wybranymi ustawieniami.](./media/displayr-tutorial/config05.png)
+   b. Wybierz pozycję **wszystkie grupy** z listy radiowej.
 
-    b. Wybierz pozycję **wszystkie grupy** z listy radiowej.
+   c. Wybierz **atrybut Source** **identyfikatora grupy**.
 
-    c. Wybierz **atrybut Source** **identyfikatora grupy**.
+   d. Zaznacz pole wyboru **Dostosuj nazwę tego żądania**.
 
-    d. Zaznacz pole wyboru **Dostosuj nazwę tego żądania**.
+   e. Sprawdź **grupy emisji jako oświadczenia ról**.
 
-    e. Sprawdź **grupy emisji jako oświadczenia ról**.
-
-    f. Kliknij pozycję **Zapisz**.
+   f. Kliknij pozycję **Zapisz**.
 
 1. W sekcji **Konfiguracja odporności** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
 

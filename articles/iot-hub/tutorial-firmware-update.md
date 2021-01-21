@@ -1,6 +1,6 @@
 ---
-title: Aktualizowanie oprogramowania układowego urządzenia za pośrednictwem usługi Azure IoT Hub | Microsoft Docs
-description: Dowiedz się, jak zaimplementować proces aktualizacji oprogramowania układowego urządzenia, który może zostać wywołany z poziomu aplikacji zaplecza połączonej z Centrum IoT.
+title: Samouczek — aktualizowanie oprogramowania układowego urządzenia za pomocą usługi Azure IoT Hub | Microsoft Docs
+description: Samouczek — informacje o implementacji procesu aktualizacji oprogramowania układowego urządzenia, który można wywołać z aplikacji zaplecza połączonej z Centrum IoT Hub.
 services: iot-hub
 author: wesmc7777
 ms.author: wesmc
@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: IoT Device'
 - devx-track-js
 - devx-track-azurecli
-ms.openlocfilehash: b4de685accf665c7555a454ef247ddf589c6ba5f
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 807de3c41ec8026edd2b2d8859eb70863ae5697b
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572341"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621399"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Samouczek: wdrażanie procesu aktualizacji oprogramowania układowego urządzenia
 
