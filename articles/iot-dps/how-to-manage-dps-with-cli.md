@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-dps
 ms.custom: devx-track-azurecli
 services: iot-dps
-ms.openlocfilehash: 020b0dbc937885923b26c115f91147437b7a0f9b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: dd0564fbb23a0695d849852fd464308cd1b5fac9
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964732"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678965"
 ---
 # <a name="how-to-use-azure-cli-and-the-iot-extension-to-manage-the-iot-hub-device-provisioning-service"></a>Jak zarządzać IoT Hub Device Provisioning Service przy użyciu interfejsu wiersza polecenia platformy Azure i rozszerzenia IoT
 
-[Interfejs wiersza polecenia platformy Azure](/cli/azure?view=azure-cli-latest) to narzędzie wielodostępnej do obsługi wielu platform i zarządzania zasobami platformy Azure, takimi jak IoT Edge. Interfejs wiersza polecenia platformy Azure jest dostępny w systemach Windows, Linux i macOS. Interfejs wiersza polecenia platformy Azure umożliwia zarządzanie zasobami IoT Hub platformy Azure, wystąpieniami usługi Device Provisioning i połączonymi centrami poza urządzeniem.
+[Interfejs wiersza polecenia platformy Azure](/cli/azure) to narzędzie wielodostępnej do obsługi wielu platform i zarządzania zasobami platformy Azure, takimi jak IoT Edge. Interfejs wiersza polecenia platformy Azure jest dostępny w systemach Windows, Linux i macOS. Interfejs wiersza polecenia platformy Azure umożliwia zarządzanie zasobami IoT Hub platformy Azure, wystąpieniami usługi Device Provisioning i połączonymi centrami poza urządzeniem.
 
 Rozszerzenie IoT wzbogaca interfejs wiersza polecenia platformy Azure z funkcjami takimi jak zarządzanie urządzeniami i pełna IoT Edge.
 
@@ -25,20 +25,13 @@ W tym samouczku należy najpierw wykonać kroki konfigurowania interfejsu wiersz
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-## <a name="installation"></a>Instalacja 
+## <a name="prerequisites"></a>Wymagania wstępne
 
-### <a name="install-python"></a>Instalowanie języka Python
+- Wymagany jest język [Python 2.7x lub Python 3.x](https://www.python.org/downloads/).
 
-Wymagany jest język [Python 2.7x lub Python 3.x](https://www.python.org/downloads/).
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-### <a name="install-the-azure-cli"></a>Instalowanie interfejsu wiersza polecenia platformy Azure
-
-Postępuj zgodnie z [instrukcjami instalacji](/cli/azure/install-azure-cli?view=azure-cli-latest) , aby skonfigurować interfejs wiersza polecenia platformy Azure w Twoim środowisku. Minimalna wersja interfejsu wiersza polecenia platformy Azure musi być 2.0.70 lub nowsza. Użyj polecenia `az –version` w celu przeprowadzenia weryfikacji. Ta wersja obsługuje polecenia rozszerzenia az i wprowadza platformę poleceń Knack. Prostym sposobem instalowania w systemie Windows jest pobranie i zainstalowanie instalatora [MSI](https://aka.ms/InstallAzureCliWindows).
-
-### <a name="install-iot-extension"></a>Zainstaluj rozszerzenie IoT
-
-[Plik readme rozszerzenia IoT](https://github.com/Azure/azure-iot-cli-extension) opisuje kilka sposobów instalowania rozszerzenia. Najprostszym sposobem jest uruchomienie polecenia `az extension add --name azure-iot`. Po zakończeniu instalacji można użyć polecenia `az extension list` w celu zweryfikowania aktualnie zainstalowanych rozszerzeń lub polecenia `az extension show --name azure-iot` w celu wyświetlenia szczegółów rozszerzenia IoT. Aby usunąć rozszerzenie, można użyć polecenia `az extension remove --name azure-iot`.
-
+- Ten artykuł wymaga wersji 2.0.70 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
 ## <a name="basic-device-provisioning-service-operations"></a>Podstawowe operacje usługi Device Provisioning
 

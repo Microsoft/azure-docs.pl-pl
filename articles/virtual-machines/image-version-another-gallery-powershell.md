@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 2f26716a4d04b574bf393f502758a725948419da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85bc6f4468e0365d247b0adc204bd53ce9fa3006
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89299953"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676720"
 ---
 # <a name="copy-an-image-from-another-gallery-using-powershell"></a>Kopiowanie obrazu z innej galerii przy użyciu programu PowerShell
 
@@ -127,7 +127,7 @@ Utwórz wersję obrazu przy użyciu polecenia [New-AzGalleryImageVersion](/power
 
 Dozwolone znaki wersji obrazu to liczby i kropki. Liczba musi należeć do zakresu 32-bitowej liczby całkowitej. Format: *MajorVersion*. *MinorVersion*. *Poprawka*.
 
-W tym przykładzie Galeria docelowa ma nazwę *myDestinationGallery*w grupie zasobów *MyDestinationRG* w lokalizacji *zachodnie stany USA* . Wersja naszego obrazu to *1.0.0* , a firma Microsoft chce utworzyć 1 replikę w regionie *Południowo-środkowe stany USA* i 2 repliki w regionie *zachodnie stany USA* . 
+W tym przykładzie Galeria docelowa ma nazwę *myDestinationGallery* w grupie zasobów *MyDestinationRG* w lokalizacji *zachodnie stany USA* . Wersja naszego obrazu to *1.0.0* , a firma Microsoft chce utworzyć 1 replikę w regionie *Południowo-środkowe stany USA* i 2 repliki w regionie *zachodnie stany USA* . 
 
 
 ```azurepowershell-interactive
@@ -164,6 +164,6 @@ $job.State
 
 Utwórz maszynę wirtualną na podstawie [uogólnionej](vm-generalized-image-version-powershell.md) lub [wyspecjalizowanej](vm-specialized-image-version-powershell.md) wersji obrazu.
 
-[Usługa Azure Image Builder (wersja zapoznawcza)](./linux/image-builder-overview.md) ułatwia automatyzację tworzenia wersji obrazu. można nawet użyć jej do aktualizacji i [tworzenia nowej wersji obrazu z istniejącej wersji obrazu](./linux/image-builder-gallery-update-image-version.md). 
+[Usługa Azure Image Builder (wersja zapoznawcza)](./image-builder-overview.md) ułatwia automatyzację tworzenia wersji obrazu. można nawet użyć jej do aktualizacji i [tworzenia nowej wersji obrazu z istniejącej wersji obrazu](./linux/image-builder-gallery-update-image-version.md). 
 
 Aby uzyskać informacje o sposobach dostarczania informacji o planie zakupu, zobacz temat [dostarczanie informacji o planie zakupu portalu Azure Marketplace podczas tworzenia obrazów](marketplace-images.md).

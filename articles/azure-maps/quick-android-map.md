@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: mvc
-ms.openlocfilehash: 874da5ffcd2777648bb06c6e702932d64a32e59c
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 740563935e12d5a7418bada2a18b48fb573f6e7d
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97682002"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679011"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-maps"></a>Szybki Start: Tworzenie aplikacji dla systemu Android za pomocą Azure Maps
 
@@ -59,7 +59,7 @@ Po pomyślnym utworzeniu konta Maps Pobierz klucz podstawowy, który umożliwia 
 3. Skopiuj **klucz podstawowy** do schowka. Zapisz go lokalnie — będzie używany w dalszej części tego samouczka.
 
 >[!NOTE]
-> Jeśli używasz klucza subskrypcji platformy Azure zamiast Azure Maps klucz podstawowy, mapa nie będzie renderowana prawidłowo. Ponadto ze względów bezpieczeństwa zaleca się obracanie między kluczami podstawowymi i pomocniczymi. Aby obrócić klucze, zaktualizuj aplikację tak, aby korzystała z klucza pomocniczego, wdróż, a następnie naciśnij przycisk Cykl/Odśwież obok klucza podstawowego, aby wygenerować nowy klucz podstawowy. Stary klucz podstawowy zostanie wyłączony. Aby uzyskać więcej informacji na temat rotacji kluczy, zobacz [konfigurowanie Azure Key Vault przy użyciu rotacji kluczy i inspekcji](https://docs.microsoft.com/azure/key-vault/secrets/key-rotation-log-monitoring)
+> Jeśli używasz klucza subskrypcji platformy Azure zamiast Azure Maps klucz podstawowy, mapa nie będzie renderowana prawidłowo. Ponadto ze względów bezpieczeństwa zaleca się obracanie między kluczami podstawowymi i pomocniczymi. Aby obrócić klucze, zaktualizuj aplikację tak, aby korzystała z klucza pomocniczego, wdróż, a następnie naciśnij przycisk Cykl/Odśwież obok klucza podstawowego, aby wygenerować nowy klucz podstawowy. Stary klucz podstawowy zostanie wyłączony. Aby uzyskać więcej informacji na temat rotacji kluczy, zobacz [konfigurowanie Azure Key Vault przy użyciu rotacji kluczy i inspekcji](../key-vault/secrets/tutorial-rotation-dual.md)
 
 ![Pobierz klucz podstawowy Azure Maps w Azure Portal](media/quick-android-map/get-key.png)
 

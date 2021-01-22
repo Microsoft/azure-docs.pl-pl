@@ -2,18 +2,21 @@
 title: Autoprzekazywanie Azure Service Bus jednostek komunikatów
 description: W tym artykule opisano sposób łańcucha kolejki Azure Service Bus lub subskrypcji do innej kolejki lub tematu.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 01/20/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8f5f93f65871c0b9658a75264ab959dbae7fefe7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80bef52d568130fa800a1da661f4867abb3df02c
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819572"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678992"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Łączenie Service Bus jednostek z funkcją autoprzesyłania dalej
 
 Funkcja *autoprzesyłania dalej* Service Bus umożliwia łańcuchowanie kolejki lub subskrypcji do innej kolejki lub tematu, który jest częścią tej samej przestrzeni nazw. Gdy automatyczne przesyłanie dalej jest włączone, Service Bus automatycznie usuwa komunikaty umieszczone w pierwszej kolejce lub subskrypcji (źródłowej) i umieszcza je w drugiej kolejce lub temacie (miejsce docelowe). Nadal możliwe jest bezpośrednie wysyłanie komunikatów do jednostki docelowej.
+
+> [!NOTE]
+> Warstwa Podstawowa Service Bus nie obsługuje funkcji autoprzesyłania dalej. Warstwy Standardowa i Premium obsługują tę funkcję. Aby zapoznać się z różnicami między tymi warstwami, zobacz [Cennik usługi Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ## <a name="using-autoforwarding"></a>Używanie autoprzesyłania dalej
 

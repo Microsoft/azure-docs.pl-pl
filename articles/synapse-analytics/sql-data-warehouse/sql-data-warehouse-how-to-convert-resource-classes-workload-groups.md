@@ -11,12 +11,12 @@ ms.date: 08/13/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b82342ffb76f8bb58b8f6875751601094d6131ca
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b6dd2199452837d81c201cf4aef2bcd94b35cda3
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461899"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677209"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>Konwertowanie klas zasobów na grupy obciążeń
 
@@ -56,7 +56,7 @@ CREATE WORKLOAD GROUP wgDataLoads WITH
 
 ## <a name="create-the-classifier"></a>Tworzenie klasyfikatora
 
-Poprzednio mapowanie zapytań do klas zasobów zostało wykonane z [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Aby osiągnąć te same funkcje i mapować żądania do grup obciążeń, użyj składni [KLASYFIKATORA obciążeń](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .  Za pomocą sp_addrolemember można mapować zasoby na żądanie na podstawie nazwy logowania.  Klasyfikator zapewnia dodatkowe opcje oprócz logowania, takie jak:
+Poprzednio mapowanie zapytań do klas zasobów zostało wykonane z [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Aby osiągnąć te same funkcje i mapować żądania do grup obciążeń, użyj składni [KLASYFIKATORA obciążeń](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) .  Za pomocą sp_addrolemember można mapować zasoby na żądanie na podstawie nazwy logowania.  Klasyfikator zapewnia dodatkowe opcje oprócz logowania, takie jak:
     - label
     - sesja
     - czas w poniższym przykładzie przypisuje zapytania z `AdfLogin` nazwy logowania, które również mają ustawioną [etykietę opcji](sql-data-warehouse-develop-label.md)  na `factloads` grupę obciążeń `wgDataLoads` utworzoną powyżej.
@@ -91,4 +91,4 @@ SELECT request_id, [label], classifier_name, group_name, command
 - [Izolacja obciążenia](sql-data-warehouse-workload-isolation.md)
 - [Jak utworzyć grupę obciążeń](quickstart-configure-workload-isolation-tsql.md)
 - [Utwórz klasyfikator obciążeń (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?&view=azure-sqldw-latest)
-- [Utwórz grupę obciążeń (Transact-SQL)](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
+- [Utwórz grupę obciążeń (Transact-SQL)](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest&preserve-view=true)

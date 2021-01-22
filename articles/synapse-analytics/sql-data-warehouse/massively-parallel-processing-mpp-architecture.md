@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: c537d3109f770c1ce77be6495bdacd24270dad5f
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 0e87451531750e502f67dc30e6fbd26c8c944d22
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98119598"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678597"
 ---
 # <a name="dedicated-sql-pool-formerly-sql-dw-architecture-in-azure-synapse-analytics"></a>Architektura dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics
 
@@ -61,7 +61,7 @@ Węzeł kontrolny to mózg całej architektury. Jest to fronton współdziałaj�
 
 Węzły obliczeniowe zapewniają moc obliczeniową. Dystrybucje są mapowane na węzły obliczeniowe do przetwarzania. Ponieważ płacisz za więcej zasobów obliczeniowych, dystrybucje są ponownie mapowane na dostępne węzły obliczeniowe. Liczba węzłów obliczeniowych z zakresu od 1 do 60 i jest określana na podstawie poziomu usługi dla Synapse SQL.
 
-Każdy węzeł obliczeniowy ma identyfikator węzła, który jest widoczny w widokach systemu. IDENTYFIKATOR węzła obliczeniowego można zobaczyć, szukając kolumny node_id w widokach systemowych, których nazwy rozpoczynają się od sys.pdw_nodes. Listę tych widoków systemowych można znaleźć w temacie [Synapse SQL system viewss](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Każdy węzeł obliczeniowy ma identyfikator węzła, który jest widoczny w widokach systemu. IDENTYFIKATOR węzła obliczeniowego można zobaczyć, szukając kolumny node_id w widokach systemowych, których nazwy rozpoczynają się od sys.pdw_nodes. Listę tych widoków systemowych można znaleźć w temacie [Synapse SQL system viewss](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ### <a name="data-movement-service"></a>Usługa przenoszenia danych
 

@@ -16,12 +16,12 @@ ms.subservice: hybrid
 ms.reviewer: chmutali
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4cdda52271bc7b9e9d854e0af181e2c8f22ad9a
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 1f39ef611e2ea15ef3bc3dbfcf09e9624cbcf8b3
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98613632"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678225"
 ---
 # <a name="manage-agent-registry-options"></a>Zarządzanie opcjami rejestru agentów
 
@@ -34,7 +34,7 @@ Podczas wykonywania operacji LDAP na skonfigurowanych Active Directory kontroler
 System.DirectoryServices.Protocols.LdapException: The operation was aborted because the client side timeout limit was exceeded.
 `
 
-Operacje wyszukiwania LDAP mogą trwać dłużej, jeśli atrybut Search nie jest indeksowany. W pierwszym kroku, jeśli zostanie pobrany powyższy błąd, należy najpierw sprawdzić, czy atrybut Search/Lookup jest [indeksowany](https://docs.microsoft.com/windows/win32/ad/indexed-attributes). Jeśli atrybuty wyszukiwania są indeksowane, a błąd będzie nadal występował, można zwiększyć limit czasu połączenia LDAP, wykonując następujące czynności: 
+Operacje wyszukiwania LDAP mogą trwać dłużej, jeśli atrybut Search nie jest indeksowany. W pierwszym kroku, jeśli zostanie pobrany powyższy błąd, należy najpierw sprawdzić, czy atrybut Search/Lookup jest [indeksowany](/windows/win32/ad/indexed-attributes). Jeśli atrybuty wyszukiwania są indeksowane, a błąd będzie nadal występował, można zwiększyć limit czasu połączenia LDAP, wykonując następujące czynności: 
 
 1. Zaloguj się jako administrator na serwerze z systemem Windows, na którym jest uruchomiony agent aprowizacji Azure AD Connect.
 1. Użyj elementu menu *Uruchom* , aby otworzyć Edytor rejestru (regedit.exe) 
@@ -48,7 +48,7 @@ Operacje wyszukiwania LDAP mogą trwać dłużej, jeśli atrybut Search nie jest
 1. Jeśli wdrożono wielu agentów aprowizacji, Zastosuj tę zmianę w rejestrze do wszystkich agentów w celu zapewnienia spójności. 
 
 ## <a name="configure-referral-chasing"></a>Konfigurowanie kartach odwołań
-Domyślnie agent aprowizacji Azure AD Connect nie ma [odwołań](https://docs.microsoft.com/windows/win32/ad/referrals). Możesz włączyć kartach odwołań, aby obsługiwać niektóre scenariusze aprowizacji ruchu przychodzącego w usłudze HR, takie jak: 
+Domyślnie agent aprowizacji Azure AD Connect nie ma [odwołań](/windows/win32/ad/referrals). Możesz włączyć kartach odwołań, aby obsługiwać niektóre scenariusze aprowizacji ruchu przychodzącego w usłudze HR, takie jak: 
 * Sprawdzanie unikatowości nazw UPN w wielu domenach
 * Rozpoznawanie odwołań między różnymi domenami
 

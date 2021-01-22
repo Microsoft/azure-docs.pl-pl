@@ -11,12 +11,12 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: 2b54277d0306244dc4ab6740fdd30e52668dd63c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: d8c6c8d22c059c63fb4f84c84a02a70de30d4ebe
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460776"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678529"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Strojenie wydajności za pomocą buforowania zestawu wyników
 
@@ -24,13 +24,13 @@ Gdy buforowanie zestawu wyników jest włączone, dedykowana Pula SQL automatycz
 
 ## <a name="key-commands"></a>Polecenia kluczowe
 
-[Włącz/Wyłącz buforowanie zestawu wyników dla bazy danych użytkownika](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+[Włącz/Wyłącz buforowanie zestawu wyników dla bazy danych użytkownika](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
-[Włącz/Wyłącz buforowanie zestawu wyników dla sesji](/sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+[Włącz/Wyłącz buforowanie zestawu wyników dla sesji](/sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
-[Sprawdź rozmiar buforowanego zestawu wyników](/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  
+[Sprawdź rozmiar buforowanego zestawu wyników](/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)  
 
-[Czyszczenie pamięci podręcznej](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+[Czyszczenie pamięci podręcznej](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
 ## <a name="whats-not-cached"></a>Co nie jest buforowane  
 
@@ -74,7 +74,7 @@ Buforowany zestaw wyników jest ponownie używany w przypadku zapytania, jeśli 
 - Istnieje dokładne dopasowanie między nowym zapytaniem i poprzednim zapytaniem, które spowodowało wygenerowanie pamięci podręcznej zestawu wyników.
 - Brak danych lub schematu w tabelach, w których Wygenerowano buforowany zestaw wyników.
 
-Uruchom to polecenie, aby sprawdzić, czy zapytanie zostało wykonane z trafieniem lub chybień pamięci podręcznej wyników. Kolumna result_cache_hit zwraca wartość 1 dla trafienia pamięci podręcznej, 0 dla chybień w pamięci podręcznej oraz wartości ujemne z przyczyn, dla których buforowanie zestawu wyników nie było używane. Sprawdź [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) , aby uzyskać szczegółowe informacje.
+Uruchom to polecenie, aby sprawdzić, czy zapytanie zostało wykonane z trafieniem lub chybień pamięci podręcznej wyników. Kolumna result_cache_hit zwraca wartość 1 dla trafienia pamięci podręcznej, 0 dla chybień w pamięci podręcznej oraz wartości ujemne z przyczyn, dla których buforowanie zestawu wyników nie było używane. Sprawdź [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) , aby uzyskać szczegółowe informacje.
 
 ```sql
 SELECT request_id, command, result_cache_hit FROM sys.dm_pdw_exec_requests

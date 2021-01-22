@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6fb75257a86e9e46d6c180a2a38193adecb2b36a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: de04be2495c6e81e9c5f8d32f9d876b49482c5fe
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451676"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678376"
 ---
 # <a name="t-sql-views-with-dedicated-sql-pool-and-serverless-sql-pool-in-azure-synapse-analytics"></a>Widoki języka T-SQL z dedykowaną pulą SQL i bezserwerową pulą SQL w usłudze Azure Synapse Analytics
 
@@ -27,11 +27,11 @@ Widoki mogą być używane na wiele różnych sposobów ulepszania jakości rozw
 ### <a name="sql-pool---create-view"></a>Pula SQL — Tworzenie widoku
 
 > [!NOTE]
-> Składnia instrukcji CREATE VIEW nie została omówiona w tym artykule. Aby uzyskać więcej informacji, zobacz dokumentację [tworzenia widoku](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) .
+> Składnia instrukcji CREATE VIEW nie została omówiona w tym artykule. Aby uzyskać więcej informacji, zobacz dokumentację [tworzenia widoku](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) .
 
 ## <a name="architectural-abstraction"></a>Abstrakcja architektury
 
-Typowym wzorcem aplikacji jest ponowne tworzenie tabel przy użyciu [CREATE TABLE jako SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (CTAs), po którym następuje zmiana nazwy obiektu wzorca podczas ładowania danych.
+Typowym wzorcem aplikacji jest ponowne tworzenie tabel przy użyciu [CREATE TABLE jako SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (CTAs), po którym następuje zmiana nazwy obiektu wzorca podczas ładowania danych.
 
 Poniższy przykład dodaje nowe rekordy dat do wymiaru daty. Zwróć uwagę, jak nowa tabela, DimDate_New, została najpierw utworzona, a następnie zmieniono jej nazwę, aby zastąpić oryginalną wersję tabeli.
 

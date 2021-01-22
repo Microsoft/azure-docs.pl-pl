@@ -3,12 +3,12 @@ title: Azure Service Bus często zadawanych pytań (FAQ) | Microsoft Docs
 description: Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytania dotyczące Azure Service Bus.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: 576df12a9d53ec3585f8691016cd250bf1ba4be3
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: e5bc9aae081868c92e0968c88c8cb6dcfb8ee57c
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98623111"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676378"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus — często zadawane pytania
 
@@ -168,6 +168,8 @@ Select-AzSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
 $res = Find-AzResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
 Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
+## <a name="is-it-possible-to-disable-tls-10-or-11-on-service-bus-namespaces"></a>Czy istnieje możliwość wyłączenia protokołu TLS 1,0 lub 1,1 w Service Bus przestrzenie nazw?
+Nie. Nie można wyłączyć protokołu TLS 1,0 lub 1,1 na Service Bus przestrzenie nazw. W aplikacjach klienckich łączących się z Service Bus Użyj protokołu TLS 1,2 lub nowszego. Aby uzyskać więcej informacji, zobacz [wymuszanie użycia protokołu TLS 1,2 z Azure Service Bus — społeczność Tech. firmy Microsoft](https://techcommunity.microsoft.com/t5/messaging-on-azure/enforcing-tls-1-2-use-with-azure-service-bus/ba-p/370912).
 
 ## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się więcej na temat Service Bus, zobacz następujące artykuły:

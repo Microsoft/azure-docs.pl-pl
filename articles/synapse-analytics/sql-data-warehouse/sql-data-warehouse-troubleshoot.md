@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 8db1825e7abfaaeca4650cbd03dd05eec4777c21
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 9b2fc61054c40f52f7e638117109ec556cc63a78
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121281"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678461"
 ---
 # <a name="troubleshooting-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Rozwiązywanie problemów z dedykowaną pulą SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics
 
@@ -30,13 +30,13 @@ W tym artykule opisano typowe problemy związane z rozwiązywaniem problemów w 
 | Podmiot zabezpieczeń serwera „nousername” nie jest w stanie uzyskać dostępu do bazy danych „master” w bieżącym kontekście zabezpieczeń. Nie można otworzyć domyślnej bazy danych użytkownika. Logowanie nie powiodło się. Logowanie użytkownika „nousername” nie powiodło się. (Microsoft SQL Server, błąd: 916) | Ten błąd występuje, gdy użytkownik usługi Azure AD próbuje nawiązać połączenie z bazą danych Master, ale nie ma użytkownika w głównej.  Aby rozwiązać ten problem, należy określić dedykowaną pulę SQL (dawniej SQL DW), z którą chcesz nawiązać połączenie, lub dodać użytkownika do bazy danych Master.  Aby uzyskać więcej informacji, zobacz artykuł [Omówienie zabezpieczeń](sql-data-warehouse-overview-manage-security.md) . |
 | Błąd CTAIP                                                  | Ten błąd może wystąpić, gdy została utworzona nazwa logowania w bazie danych Master SQL Database, ale nie w określonej bazie danych SQL.  Jeśli ten błąd wystąpi, zapoznaj się z artykułem [Omówienie zabezpieczeń](sql-data-warehouse-overview-manage-security.md) .  W tym artykule wyjaśniono, jak utworzyć identyfikator logowania i użytkownika w bazie danych Master, a następnie jak utworzyć użytkownika w bazie danych SQL. |
 | Zablokowany przez zaporę                                          | Dedykowana Pula SQL (wcześniej SQL DW) jest chroniona przez zapory w celu zapewnienia, że tylko znane adresy IP mają dostęp do bazy danych. Zapory są domyślnie bezpieczne, co oznacza, że musisz jawnie włączyć i adres IP lub zakres adresów, aby można było nawiązać połączenie.  Aby skonfigurować zaporę w celu uzyskania dostępu, wykonaj kroki opisane w sekcji [Konfigurowanie dostępu do zapory serwera dla adresu IP klienta](create-data-warehouse-portal.md) w [instrukcje aprowizacji](create-data-warehouse-portal.md). |
-| Nie można nawiązać połączenia z narzędziem lub sterownikiem                           | Dedykowana Pula SQL (wcześniej SQL DW) zaleca użycie programu [SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [SSDT dla programu Visual Studio](sql-data-warehouse-install-visual-studio.md)lub [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) do wykonywania zapytań dotyczących danych. Aby uzyskać więcej informacji na temat sterowników i łączenia się z usługą Azure Synapse, zobacz [sterowniki dla platformy Azure Synapse](sql-data-warehouse-connection-strings.md) i Połącz się z artykułami [Synapse platformy Azure](sql-data-warehouse-connect-overview.md) . |
+| Nie można nawiązać połączenia z narzędziem lub sterownikiem                           | Dedykowana Pula SQL (wcześniej SQL DW) zaleca użycie programu [SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), [SSDT dla programu Visual Studio](sql-data-warehouse-install-visual-studio.md)lub [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) do wykonywania zapytań dotyczących danych. Aby uzyskać więcej informacji na temat sterowników i łączenia się z usługą Azure Synapse, zobacz [sterowniki dla platformy Azure Synapse](sql-data-warehouse-connection-strings.md) i Połącz się z artykułami [Synapse platformy Azure](sql-data-warehouse-connect-overview.md) . |
 
-## <a name="tools"></a>narzędzia
+## <a name="tools"></a>Narzędzia
 
 | Problem                                                        | Rozwiązanie                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| W Eksploratorze obiektów programu Visual Studio brakuje użytkowników usługi Azure AD           | Jest to znany problem.  Aby obejść ten sposób, Wyświetl użytkowników w [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Zobacz [uwierzytelnianie w usłudze Azure Synapse](sql-data-warehouse-authentication.md) , aby dowiedzieć się więcej o korzystaniu z Azure Active Directory z dedykowaną pulą SQL (dawniej SQL DW). |
+| W Eksploratorze obiektów programu Visual Studio brakuje użytkowników usługi Azure AD           | Jest to znany problem.  Aby obejść ten sposób, Wyświetl użytkowników w [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  Zobacz [uwierzytelnianie w usłudze Azure Synapse](sql-data-warehouse-authentication.md) , aby dowiedzieć się więcej o korzystaniu z Azure Active Directory z dedykowaną pulą SQL (dawniej SQL DW). |
 | Ręczne wykonywanie skryptów, Używanie kreatora skryptów lub Nawiązywanie połączenia za pośrednictwem programu SSMS jest powolne, nie odpowiada ani nie produkuje błędów | Upewnij się, że utworzono użytkowników w bazie danych Master. W obszarze Opcje obsługi skryptów upewnij się również, że wersja aparatu jest ustawiona na wartość "Microsoft Azure Synapse Analytics Edition", a typ aparatu to "Microsoft Azure SQL Database". |
 | Generowanie skryptów kończy się niepowodzeniem w programie SSMS                               | Generowanie skryptu dla dedykowanej puli SQL (dawniej SQL DW) kończy się niepowodzeniem, jeśli opcja "Generuj skrypt dla obiektów zależnych" ma wartość "true". Aby obejść ten krok, użytkownicy muszą ręcznie przejść do **opcji narzędzia-> Options->Eksplorator obiektów SQL Server-> generować skrypt dla opcji zależnych i ustawić na wartość false** . |
 
@@ -75,7 +75,7 @@ W tym artykule opisano typowe problemy związane z rozwiązywaniem problemów w 
 | Nieobsługiwane funkcje SQL Database     | Zobacz [Nieobsługiwane funkcje tabeli](sql-data-warehouse-tables-overview.md#unsupported-table-features). |
 | Nieobsługiwane typy danych SQL Database   | Zobacz [nieobsługiwane typy danych](sql-data-warehouse-tables-data-types.md#identify-unsupported-data-types).        |
 | Ograniczenia procedury składowanej          | Zobacz [ograniczenia procedury składowanej](sql-data-warehouse-develop-stored-procedures.md#limitations) , aby poznać niektóre ograniczenia procedur składowanych. |
-| UDF nie obsługują instrukcji SELECT | Jest to bieżące ograniczenie naszych UDF.  Zobacz [Tworzenie funkcji](/sql/t-sql/statements/create-function-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) dla składni obsługiwanej przez nas. |
+| UDF nie obsługują instrukcji SELECT | Jest to bieżące ograniczenie naszych UDF.  Zobacz [Tworzenie funkcji](/sql/t-sql/statements/create-function-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) dla składni obsługiwanej przez nas. |
 
 ## <a name="next-steps"></a>Następne kroki
 

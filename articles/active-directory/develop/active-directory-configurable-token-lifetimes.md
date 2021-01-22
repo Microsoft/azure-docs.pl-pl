@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: ec925ce165c1de98fe920381e1b51e3388c1e4ad
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 33dffa40e0236483d641c2e2bbe318bb62a7724d
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232407"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678191"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Konfigurowalne okresy istnienia tokenów na platformie tożsamości firmy Microsoft (wersja zapoznawcza)
 
@@ -82,9 +82,11 @@ Można ustawić zasady okresu istnienia tokenu dla tokenów odświeżania i toke
 > [!IMPORTANT]
 > Od maja 2020 nowi dzierżawcy nie mogą konfigurować okresów istnienia odświeżania i tokenu sesji.  Dzierżawy z istniejącą konfiguracją mogą modyfikować zasady odświeżania i tokenów sesji do 30 stycznia 2021.   Azure Active Directory przestanie przestrzegać istniejących konfiguracji odświeżania i tokenu sesji w zasadach po 30 stycznia 2021. Po wycofaniu można nadal konfigurować okresy istnienia tokenu dostępu, SAML i identyfikatora.
 >
-> Jeśli musisz nadal zdefiniować okres, po upływie którego użytkownik zostanie poproszony o ponowne zalogowanie, skonfiguruj częstotliwość logowania w polu dostęp warunkowy. Aby dowiedzieć się więcej na temat dostępu warunkowego, przeczytaj artykuł [Konfigurowanie sesji uwierzytelniania zarządzanie przy użyciu dostępu warunkowego](/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime).
+> Jeśli musisz nadal zdefiniować okres, po upływie którego użytkownik zostanie poproszony o ponowne zalogowanie, skonfiguruj częstotliwość logowania w polu dostęp warunkowy. Aby dowiedzieć się więcej na temat dostępu warunkowego, przeczytaj artykuł [Konfigurowanie sesji uwierzytelniania zarządzanie przy użyciu dostępu warunkowego](../conditional-access/howto-conditional-access-session-lifetime.md).
 >
 > Jeśli nie chcesz korzystać z dostępu warunkowego po dacie wycofania, tokeny odświeżania i sesji zostaną ustawione na [domyślną konfigurację](#configurable-token-lifetime-properties-after-the-retirement) w tej dacie i nie będzie już można zmienić ich okresów istnienia.
+>
+> Okres istnienia istniejącego tokenu nie zostanie zmieniony. Po ich wygaśnięciu nowy token zostanie wystawiony na podstawie wartości domyślnej.
 
 :::image type="content" source="./media/active-directory-configurable-token-lifetimes/roadmap.svg" alt-text="Informacje dotyczące emerytury":::
 

@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: f59ed16f98a22f77b2e67ec2bf829f58dccef611
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 4212c76d052fe1f272963003e836425b50d6f105
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740508"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677618"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Co to jest usługa Azure Machine Learning Studio?
 
@@ -68,7 +68,7 @@ Zarządzaj zasobami uczenia maszynowego bezpośrednio w przeglądarce. Zasoby s�
 - Notebooks
 - Eksperymenty
 - Uruchamianie dzienników
-- Potoki 
+- Pipelines 
 - Punkty końcowe potoku
 
 Nawet jeśli jesteś doświadczonym deweloperem, program Studio może uprościć zarządzanie zasobami obszaru roboczego.
@@ -90,7 +90,7 @@ Poniższa tabela zawiera podsumowanie podstawowych różnic między ML Studio (k
 | Cechy | ML Studio (klasyczny) | Azure Machine Learning |
 |---| --- | --- |
 | Przeciąganie i upuszczanie interfejsu | Środowisko klasyczne | Zaktualizowane środowisko — [projektant Azure Machine Learning](concept-designer.md)| 
-| Zestawy SDK kodu | Nieobsługiwane | W pełni zintegrowane z [Azure Machine Learning Python](/python/api/overview/azure/ml/) i [języka R](tutorial-1st-r-experiment.md) SDK |
+| Zestawy SDK kodu | Nieobsługiwane | W pełni zintegrowane z [Azure Machine Learning Python](/python/api/overview/azure/ml/) i [języka R](https://github.com/Azure/azureml-sdk-for-r) SDK |
 | Experiment | Skalowalne (limit danych szkolenia 10 GB) | Skalowanie za pomocą elementu docelowego obliczeń |
 | Szkoleniowe cele obliczeniowe | Własnościowy obiekt docelowy obliczeń, tylko obsługa procesora CPU | Szeroki zakres dostosowywalnych [obiektów docelowych obliczeń szkoleniowych](concept-compute-target.md#train). Obejmuje obsługę procesora GPU i procesorów | 
 | Cele obliczeń wdrożenia | Własny format usługi sieci Web, niedostosowywalny | Szeroka gama [elementów docelowych obliczeniowych wdrożenia](concept-compute-target.md#deploy). Obejmuje obsługę procesora GPU i procesorów |

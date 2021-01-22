@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
-ms.openlocfilehash: b8b7a03d5176f5dbd8500b5ff9044c2f22ecbfc0
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 343ddb109de41a0959533b16b11762841b5b1105
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127145"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676763"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Rozwiązywanie problemów z błędami rozszerzenia maszyny wirtualnej systemu Windows Azure
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
@@ -85,7 +85,7 @@ Ten certyfikat zostanie automatycznie wygenerowany ponownie przez ponowne urucho
 - Kliknij prawym przyciskiem myszy, a następnie wybierz pozycję "Zakończ zadanie". Proces zostanie automatycznie uruchomiony ponownie
 
 
-Możesz również wyzwolić nowe GoalState do maszyny wirtualnej, wykonując polecenie "ponownie Zastosuj maszynę wirtualną". [Ponowne zastosowanie](https://docs.microsoft.com/rest/api/compute/virtualmachines/reapply) maszyny wirtualnej jest interfejsem API wprowadzonym w 2020 w celu ponownego zastosowania stanu maszyny wirtualnej. Zalecamy to w czasie, gdy można tolerować krótki czas przestoju maszyny wirtualnej. Gdy ponowne zastosowanie nie powoduje ponownego uruchomienia maszyny wirtualnej, a większość przypadków, w których ponowne zastosowanie nie spowoduje ponownego uruchomienia maszyny wirtualnej, istnieje bardzo małe ryzyko, że niektóre inne oczekujące aktualizacje modelu maszyny wirtualnej zostaną zastosowane po ponownym zastosowaniu wyzwalają nowe Stany celu, a inne zmiany mogą wymagać ponownego uruchomienia. 
+Możesz również wyzwolić nowe GoalState do maszyny wirtualnej, wykonując polecenie "ponownie Zastosuj maszynę wirtualną". [Ponowne zastosowanie](/rest/api/compute/virtualmachines/reapply) maszyny wirtualnej jest interfejsem API wprowadzonym w 2020 w celu ponownego zastosowania stanu maszyny wirtualnej. Zalecamy to w czasie, gdy można tolerować krótki czas przestoju maszyny wirtualnej. Gdy ponowne zastosowanie nie powoduje ponownego uruchomienia maszyny wirtualnej, a większość przypadków, w których ponowne zastosowanie nie spowoduje ponownego uruchomienia maszyny wirtualnej, istnieje bardzo małe ryzyko, że niektóre inne oczekujące aktualizacje modelu maszyny wirtualnej zostaną zastosowane po ponownym zastosowaniu wyzwalają nowe Stany celu, a inne zmiany mogą wymagać ponownego uruchomienia. 
 
 Azure Portal:
 

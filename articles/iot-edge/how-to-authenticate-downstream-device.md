@@ -8,12 +8,12 @@ ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f2dd7cac8370c261f24f5587e801bd621fbdb0f0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3876b44bc6bb1ddbc5398126421fb9651003838f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017002"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678827"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Uwierzytelnianie urządzenia podrzędnego w usłudze Azure IoT Hub
 
@@ -71,7 +71,7 @@ Podczas tworzenia nowej tożsamości urządzenia podaj następujące informacje:
 
 Możesz również użyć [rozszerzenia IoT dla interfejsu wiersza polecenia platformy Azure](https://github.com/Azure/azure-iot-cli-extension) , aby ukończyć tę samą operację. W poniższym przykładzie za pomocą polecenia [AZ IoT Hub Device-Identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) można utworzyć nowe urządzenie IoT z uwierzytelnianiem przy użyciu klucza symetrycznego i przypisać urządzenie nadrzędne:
 
-```cli
+```azurecli
 az iot hub device-identity create -n {iothub name} -d {new device ID} --pd {existing gateway device ID}
 ```
 
@@ -126,7 +126,7 @@ W przypadku uwierzytelniania z podpisem własnym X. 509, czasami określanego ja
 
 Możesz również użyć [rozszerzenia IoT dla interfejsu wiersza polecenia platformy Azure](https://github.com/Azure/azure-iot-cli-extension) , aby ukończyć tę samą operację tworzenia urządzenia. W poniższym przykładzie za pomocą polecenia [AZ IoT Hub Device-Identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) można utworzyć nowe urządzenie IoT z uwierzytelnianiem z podpisem własnym X. 509 i przypisywać urządzenie nadrzędne:
 
-```cli
+```azurecli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_thumbprint --ptp {primary thumbprint} --stp {secondary thumbprint}
 ```
 
@@ -170,7 +170,7 @@ Ta sekcja jest oparta na instrukcji przedstawionych w IoT Hub artykule [Konfigur
 
 Możesz również użyć [rozszerzenia IoT dla interfejsu wiersza polecenia platformy Azure](https://github.com/Azure/azure-iot-cli-extension) , aby ukończyć tę samą operację tworzenia urządzenia. W poniższym przykładzie za pomocą polecenia [AZ IoT Hub Device-Identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) można utworzyć nowe urządzenie IoT przy użyciu podpisanego uwierzytelniania urzędu certyfikacji X. 509 i przypisywać urządzenie nadrzędne:
 
-```cli
+```azurecli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_ca
 ```
 
@@ -191,19 +191,19 @@ Parametry połączenia dla urządzeń podrzędnych muszą mieć następujące sk
 
 Wszystkie razem, kompletne parametry połączenia wyglądają następująco:
 
-```
+```console
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz;GatewayHostName=myGatewayDevice
 ```
 
 Oraz
 
-```
+```console
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;x509=true;GatewayHostName=myGatewayDevice
 ```
 
-Dzięki relacji nadrzędny/podrzędny można uprościć parametry połączenia przez wywołanie bramy bezpośrednio jako hosta połączenia. Na przykład:
+Dzięki relacji nadrzędny/podrzędny można uprościć parametry połączenia przez wywołanie bramy bezpośrednio jako hosta połączenia. Przykład:
 
-```
+```console
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz
 ```
 

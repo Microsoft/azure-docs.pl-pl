@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: a3481830a09b183213e84490b5300f2fb38f8d19
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: b5c65035f8b51b53f617d4562fe1982f53f0deec
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625068"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678275"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>Samouczek: implementowanie analizy przestrzennej IoT przy użyciu Azure Maps
 
@@ -161,15 +161,15 @@ IoT Hub umożliwia bezpieczną i niezawodną komunikację dwukierunkową między
 > [!NOTE]
 > Możliwość publikowania zdarzeń telemetrii urządzenia w Event Grid jest obecnie w wersji zapoznawczej. Ta funkcja jest dostępna we wszystkich regionach, z wyjątkiem następujących: Wschodnie stany USA, zachodnie stany USA, Europa Zachodnia, Azure Government, chiński (Chiny) i Azure (Niemcy).
 
-Aby utworzyć Centrum IoT Hub w grupie zasobów *ContosoRental* , wykonaj kroki opisane w temacie [Tworzenie Centrum IoT Hub](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-dotnet#create-an-iot-hub).
+Aby utworzyć Centrum IoT Hub w grupie zasobów *ContosoRental* , wykonaj kroki opisane w temacie [Tworzenie Centrum IoT Hub](../iot-hub/quickstart-send-telemetry-dotnet.md#create-an-iot-hub).
 
 ## <a name="register-a-device-in-your-iot-hub"></a>Rejestrowanie urządzenia w centrum IoT Hub
 
-Urządzenia nie mogą nawiązać połączenia z Centrum IoT, chyba że są zarejestrowane w rejestrze tożsamości Centrum IoT Hub. Tutaj utworzysz jedno urządzenie o nazwie *InVehicleDevice*. Aby utworzyć i zarejestrować urządzenie w usłudze IoT Hub, wykonaj kroki opisane w temacie [Rejestrowanie nowego urządzenia w centrum IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal#register-a-new-device-in-the-iot-hub). Należy pamiętać o skopiowaniu podstawowych parametrów połączenia urządzenia. Będzie on potrzebny później.
+Urządzenia nie mogą nawiązać połączenia z Centrum IoT, chyba że są zarejestrowane w rejestrze tożsamości Centrum IoT Hub. Tutaj utworzysz jedno urządzenie o nazwie *InVehicleDevice*. Aby utworzyć i zarejestrować urządzenie w usłudze IoT Hub, wykonaj kroki opisane w temacie [Rejestrowanie nowego urządzenia w centrum IoT Hub](../iot-hub/iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub). Należy pamiętać o skopiowaniu podstawowych parametrów połączenia urządzenia. Będzie on potrzebny później.
 
 ## <a name="create-a-function-and-add-an-event-grid-subscription"></a>Tworzenie funkcji i Dodawanie subskrypcji Event Grid
 
-Azure Functions to bezserwerowa usługa obliczeniowa, która umożliwia uruchamianie małych fragmentów kodu ("Functions") bez konieczności jawnego udostępniania infrastruktury obliczeniowej ani zarządzania nią. Aby dowiedzieć się więcej, zobacz [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview).
+Azure Functions to bezserwerowa usługa obliczeniowa, która umożliwia uruchamianie małych fragmentów kodu ("Functions") bez konieczności jawnego udostępniania infrastruktury obliczeniowej ani zarządzania nią. Aby dowiedzieć się więcej, zobacz [Azure Functions](../azure-functions/functions-overview.md).
 
 Funkcja jest wyzwalana przez określone zdarzenie. Tutaj utworzysz funkcję wyzwalaną przez wyzwalacz Event Grid. Utwórz relację między wyzwalaczem a funkcją, tworząc subskrypcję zdarzeń dla zdarzeń telemetrii urządzenia IoT Hub. Gdy wystąpi zdarzenie telemetrii urządzenia, funkcja jest wywoływana jako punkt końcowy i otrzymuje odpowiednie dane dla urządzenia, które zostało wcześniej zarejestrowane w IoT Hub.
 
@@ -223,7 +223,7 @@ Teraz Skonfiguruj funkcję platformy Azure.
 
 ## <a name="filter-events-by-using-iot-hub-message-routing"></a>Filtrowanie zdarzeń przy użyciu IoT Hub Routing komunikatów
 
-Po dodaniu subskrypcji Event Grid do funkcji platformy Azure zostanie automatycznie utworzona trasa obsługi komunikatów w określonym Centrum IoT Hub. Routing komunikatów umożliwia kierowanie różnych typów danych do różnych punktów końcowych. Można na przykład kierować komunikaty telemetryczne urządzenia, zdarzenia cyklu życia urządzenia i zdarzenia zmiany z przędzą urządzenia. Aby uzyskać więcej informacji, zobacz [używanie IoT Hub Routing komunikatów](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c).
+Po dodaniu subskrypcji Event Grid do funkcji platformy Azure zostanie automatycznie utworzona trasa obsługi komunikatów w określonym Centrum IoT Hub. Routing komunikatów umożliwia kierowanie różnych typów danych do różnych punktów końcowych. Można na przykład kierować komunikaty telemetryczne urządzenia, zdarzenia cyklu życia urządzenia i zdarzenia zmiany z przędzą urządzenia. Aby uzyskać więcej informacji, zobacz [używanie IoT Hub Routing komunikatów](../iot-hub/iot-hub-devguide-messages-d2c.md).
 
 :::image type="content" source="./media/tutorial-iot-hub-maps/hub-route.png" alt-text="Zrzut ekranu przedstawiający Routing komunikatów w usłudze IoT Hub.":::
 
@@ -232,7 +232,7 @@ W Twoim przykładowym scenariuszu chcesz otrzymywać tylko komunikaty po przenie
 :::image type="content" source="./media/tutorial-iot-hub-maps/hub-filter.png" alt-text="Zrzut ekranu przedstawiający komunikaty dotyczące filtru routingu.":::
 
 >[!TIP]
->Istnieją różne sposoby wykonywania zapytań dotyczących komunikatów przesyłanych z urządzeń do chmury. Aby dowiedzieć się więcej na temat składni routingu wiadomości, zobacz [IoT Hub Routing komunikatów](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax).
+>Istnieją różne sposoby wykonywania zapytań dotyczących komunikatów przesyłanych z urządzeń do chmury. Aby dowiedzieć się więcej na temat składni routingu wiadomości, zobacz [IoT Hub Routing komunikatów](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
 
 ## <a name="send-telemetry-data-to-iot-hub"></a>Wyślij dane telemetryczne do IoT Hub
 

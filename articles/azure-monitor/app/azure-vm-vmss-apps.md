@@ -3,12 +3,12 @@ title: Monitorowanie wydajności na maszynach wirtualnych platformy Azure — Ap
 description: Monitorowanie wydajności aplikacji dla maszyn wirtualnych platformy Azure i zestawów skalowania maszyn wirtualnych platformy Azure. Załaduj wykres i czas odpowiedzi, informacje o zależnościach i ustaw alerty wydajności.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 6bc70b3d9a1a7a2d3fffb71ad28f2cf64cbd323b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ed56bc88a9d2e8a9490331605cd4a72aef6930db
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461727"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677947"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Wdrażanie agenta Application Insights Azure Monitor na maszynach wirtualnych platformy Azure i w zestawach skalowania maszyn wirtualnych platformy Azure
 
@@ -17,7 +17,7 @@ Włączenie monitorowania w aplikacjach sieci Web opartych na architekturze .NET
 W tym artykule omówiono Włączanie monitorowania Application Insights przy użyciu agenta Application Insights i przedstawiono wstępne wskazówki dotyczące automatyzowania procesu wdrożeń na dużą skalę.
 
 > [!IMPORTANT]
-> Usługa Azure Application Insights Agent dla aplikacji ASP.NET działających na **maszynach wirtualnych platformy Azure i VMSS** jest obecnie w publicznej wersji zapoznawczej. Aby monitorować aplikacje ASP.Net uruchomione **lokalnie**, użyj [agenta Application Insights platformy Azure dla serwerów lokalnych](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview), które są ogólnie dostępne i w pełni obsługiwane.
+> Usługa Azure Application Insights Agent dla aplikacji ASP.NET działających na **maszynach wirtualnych platformy Azure i VMSS** jest obecnie w publicznej wersji zapoznawczej. Aby monitorować aplikacje ASP.Net uruchomione **lokalnie**, użyj [agenta Application Insights platformy Azure dla serwerów lokalnych](./status-monitor-v2-overview.md), które są ogólnie dostępne i w pełni obsługiwane.
 > Wersja zapoznawcza dla maszyn wirtualnych platformy Azure i VMSS jest udostępniana bez umowy dotyczącej poziomu usług i nie jest ona zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą nie być obsługiwane, a niektóre z nich mogą mieć ograniczone możliwości.
 > Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 

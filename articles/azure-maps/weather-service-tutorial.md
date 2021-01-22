@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 32ce875600bb948e7c3e8479f712e99d25eb6367
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 276dd5b7eba33081c5131eba722df91d8685adff
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624954"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678166"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Samouczek: Dołączanie danych z czujników z danymi prognoz pogody przy użyciu Azure Notebooks (Python)
 
@@ -27,7 +27,7 @@ Energia wiatru jest jednym Alternatywnym źródłem energii dla paliw kopalnych,
 W tym samouczku wykonasz następujące czynności:
 
 > [!div class="checklist"]
-> * Pracuj z plikami danych w [Azure Notebooks](../notebooks/index.yml) w chmurze.
+> * Pracuj z plikami danych w [Azure Notebooks](https://notebooks.azure.com) w chmurze.
 > * Załaduj dane demonstracyjne z pliku.
 > * Wywołaj interfejsy API REST Azure Maps w języku Python.
 > * Renderuj dane lokalizacji na mapie.
@@ -206,4 +206,4 @@ Brak zasobów, które wymagają oczyszczenia.
 Aby dowiedzieć się więcej na temat Azure Notebooks, zobacz
 
 > [!div class="nextstepaction"]
-> [Azure Notebooks](../notebooks/index.yml)
+> [Azure Notebooks](https://notebooks.azure.com)

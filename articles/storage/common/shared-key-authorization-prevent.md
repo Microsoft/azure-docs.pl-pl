@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/21/2021
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 6a24713a6027c38d2b9817928f3a82161bd37314
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: e4a5803b3d04b59316f71e50af24945efc87cb69
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936730"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677567"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Zapobiegaj autoryzacji klucza współużytkowanego dla konta usługi Azure Storage (wersja zapoznawcza)
 
@@ -239,8 +239,6 @@ Niektóre narzędzia platformy Azure oferują możliwość korzystania z autoryz
 ## <a name="about-the-preview"></a>Informacje o wersji zapoznawczej
 
 Wersja zapoznawcza dotycząca niedozwolonej autoryzacji klucza współużytkowanego jest dostępna w chmurze publicznej platformy Azure. Jest on obsługiwany w przypadku kont magazynu, które używają tylko modelu wdrażania Azure Resource Manager. Aby uzyskać informacje o tym, które konta magazynu korzystają z modelu wdrażania Azure Resource Manager, zobacz [typy kont magazynu](storage-account-overview.md#types-of-storage-accounts).
-
-Aby zarejestrować się w wersji zapoznawczej, zobacz [usługa Azure Storage zezwala na dostęp do udostępnionej wersji zapoznawczej](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUN1o4TUtUUzZBV0JYVlhKQ1FITDlVUUU0Ui4u).
 
 > [!IMPORTANT]
 > Ta wersja zapoznawcza jest przeznaczona wyłącznie do użytku nieprodukcyjnego.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8b7726e4e8fee0044a7865c8c494ef6451425676
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 9c8e971b4fda313ffede58455dd6d057d6848ce4
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903874"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678133"
 ---
 # <a name="azure-maps-weather-services-preview-frequently-asked-questions-faq"></a>Azure Maps usługi pogodowe (wersja zapoznawcza) — często zadawane pytania
 
@@ -21,7 +21,7 @@ ms.locfileid: "96903874"
 > Usługi Azure Maps Pogoda są obecnie dostępne w publicznej wersji zapoznawczej.
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące danych i funkcji [usług pogoda](https://docs.microsoft.com/rest/api/maps/weather) Azure Maps. Omówiono następujące tematy:
+W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące danych i funkcji [usług pogoda](/rest/api/maps/weather) Azure Maps. Omówiono następujące tematy:
 
 * Źródła danych i modele danych
 * Pokrycie i dostępność usług pogodowych
@@ -59,7 +59,7 @@ Wiele systemów wskazówek dotyczących prognoz pogodowych jest wykorzystywanych
 
 **Jakiego rodzaju pokrycie może oczekiwać w różnych krajach/regionach?**
 
-Pokrycie usług pogodowych różni się w zależności od kraju/regionu. Wszystkie funkcje nie są dostępne w każdym kraju/regionie. Aby uzyskać więcej informacji, zobacz [dokumentację dotyczącą pokrycia](https://docs.microsoft.com/azure/azure-maps/weather-coverage).
+Pokrycie usług pogodowych różni się w zależności od kraju/regionu. Wszystkie funkcje nie są dostępne w każdym kraju/regionie. Aby uzyskać więcej informacji, zobacz [dokumentację dotyczącą pokrycia](./weather-coverage.md).
 
 ## <a name="data-update-frequency"></a>Częstotliwość aktualizacji danych
 
@@ -79,7 +79,7 @@ Interfejsy API prognozowania Azure Maps są buforowane przez maksymalnie 30 minu
 
 **Czy Azure Maps zestaw SDK sieci Web natywnie obsługuje integrację usług pogody (wersja zapoznawcza)?**
 
-Zestaw SDK sieci Web Azure Maps zawiera moduł usług. Moduł usług jest biblioteką pomocniczą, która ułatwia korzystanie z Azure Maps usług REST w aplikacjach sieci Web lub Node.js. za pomocą języka JavaScript lub TypeScript. Aby rozpocząć, zapoznaj się z naszą [dokumentacją](https://docs.microsoft.com/azure/azure-maps/how-to-use-services-module).
+Zestaw SDK sieci Web Azure Maps zawiera moduł usług. Moduł usług jest biblioteką pomocniczą, która ułatwia korzystanie z Azure Maps usług REST w aplikacjach sieci Web lub Node.js. za pomocą języka JavaScript lub TypeScript. Aby rozpocząć, zapoznaj się z naszą [dokumentacją](./how-to-use-services-module.md).
 
 **Czy Azure Maps Android SDK natywnie obsługiwać integrację usług pogodowych (wersja zapoznawcza)?**
 
@@ -91,26 +91,26 @@ Planujemy utworzenie modułu usług dla środowiska Java/Android podobnego do mo
 
 **Czy Azure Maps Power BI obsługi wizualizacji Azure Maps kafelków pogody?**
 
-Tak. Aby dowiedzieć się, jak migrować kafelki satelitarne radaru i podczerwieni do wizualizacji Power BI firmy Microsoft, zobacz [Dodawanie warstwy kafelków do Power BI wizualizacji](https://docs.microsoft.com/azure/azure-maps/power-bi-visual-add-tile-layer). 
+Tak. Aby dowiedzieć się, jak migrować kafelki satelitarne radaru i podczerwieni do wizualizacji Power BI firmy Microsoft, zobacz [Dodawanie warstwy kafelków do Power BI wizualizacji](./power-bi-visual-add-tile-layer.md). 
 
 **Jak mogę Interpretuj kolory używane dla kafelków radarowych i satelitarnych?**
 
-Artykuł dotyczący [koncepcji Azure Maps Pogoda](https://docs.microsoft.com/azure/azure-maps/weather-services-concepts#radar-and-satellite-imagery-color-scale) zawiera przewodnik ułatwiający interpretację kolorów używanych na potrzeby kafelków radarowych i satelitarnych. W artykule omówiono przykłady kolorów i kody koloru SZESNASTKOWego.
+Artykuł dotyczący [koncepcji Azure Maps Pogoda](./weather-services-concepts.md#radar-and-satellite-imagery-color-scale) zawiera przewodnik ułatwiający interpretację kolorów używanych na potrzeby kafelków radarowych i satelitarnych. W artykule omówiono przykłady kolorów i kody koloru SZESNASTKOWego.
  
 **Czy mogę tworzyć animacje kafelków radarowych i satelitarnych?**
 
-Tak. Oprócz kafelków radarowych i satelitarnych, Azure Maps klienci mogą żądać wcześniejszych i przyszłych kafelków, aby usprawnić wizualizacje danych za pomocą nakładki mapy. Można to zrobić przez bezpośrednie wywołanie [interfejsu API Get map kafelka v2](https://aka.ms/AzureMapsWeatherTiles ) lub zażądanie kafelków za pośrednictwem Azure Maps Web SDK. Kafelki radarowe są dostępne przez maksymalnie 1,5 godzin w przeszłości i przez maksymalnie 2 godziny w przyszłości. Kafelki i są dostępne w 5-minutowych interwałach. Kafelki podczerwieni są udostępniane przez maksymalnie 3 godziny w przeszłości i są dostępne w 10-minutowych interwałach. Aby uzyskać więcej informacji, zobacz [przykład kodu](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Animated%20tile%20layer)animacji "open source" kafelka Pogoda.  
+Tak. Oprócz kafelków radarowych i satelitarnych, Azure Maps klienci mogą żądać wcześniejszych i przyszłych kafelków, aby usprawnić wizualizacje danych za pomocą nakładki mapy. Można to zrobić przez bezpośrednie wywołanie [interfejsu API Get map kafelka v2](/rest/api/maps/renderv2/getmaptilepreview) lub zażądanie kafelków za pośrednictwem Azure Maps Web SDK. Kafelki radarowe są dostępne przez maksymalnie 1,5 godzin w przeszłości i przez maksymalnie 2 godziny w przyszłości. Kafelki i są dostępne w 5-minutowych interwałach. Kafelki podczerwieni są udostępniane przez maksymalnie 3 godziny w przeszłości i są dostępne w 10-minutowych interwałach. Aby uzyskać więcej informacji, zobacz [przykład kodu](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Animated%20tile%20layer)animacji "open source" kafelka Pogoda.  
 
 **Czy są oferowane ikony różnych warunków pogodowych?**
 
-Tak. W [tym miejscu](https://docs.microsoft.com/azure/azure-maps/weather-services-concepts#weather-icons)można znaleźć ikony i odpowiednie kody. Należy zauważyć, że tylko niektóre interfejsy API usługi Pogoda (wersja zapoznawcza), takie jak  [pobieranie bieżących warunków API](https://aka.ms/azuremapsweathercurrentconditions), zwracają *iconCode* w odpowiedzi. Aby uzyskać więcej informacji, zobacz bieżący [przykład kodu](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Get%20current%20weather%20at%20a%20location)Open Source WeatherConditions.
+Tak. W [tym miejscu](./weather-services-concepts.md#weather-icons)można znaleźć ikony i odpowiednie kody. Należy zauważyć, że tylko niektóre interfejsy API usługi Pogoda (wersja zapoznawcza), takie jak  [pobieranie bieżących warunków API](/rest/api/maps/weather/getcurrentconditionspreview), zwracają *iconCode* w odpowiedzi. Aby uzyskać więcej informacji, zobacz bieżący [przykład kodu](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Get%20current%20weather%20at%20a%20location)Open Source WeatherConditions.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Jeśli te często zadawane pytania nie odpowiedzą na Twoje pytanie, możesz skontaktować się z nami za pomocą następujących kanałów (w kolejności eskalacji):
 
 * Sekcja komentarzy w tym artykule.
-* [MSFT Q&stronę Azure Maps](https://docs.microsoft.com/answers/topics/azure-maps.html).
+* [MSFT Q&stronę Azure Maps](/answers/topics/azure-maps.html).
 * pomoc techniczna firmy Microsoft. Aby utworzyć nowe żądanie obsługi, w [Azure Portal](https://portal.azure.com/)na karcie Pomoc wybierz przycisk **Pomoc i** obsługa techniczna, a następnie wybierz pozycję **nowe żądanie obsługi**.
 * [Azure Maps UserVoice](https://feedback.azure.com/forums/909172-azure-maps) , aby przesłać żądania funkcji.
 
@@ -125,4 +125,4 @@ Artykuł pojęcia dotyczące Azure Maps usług pogodowych (wersja zapoznawcza):
 Poznaj dokumentację interfejsu API usługi Azure Maps Pogoda (wersja zapoznawcza):
 
 > [!div class="nextstepaction"]
-> [Azure Maps usług pogodowych](/rest/api/maps/weather)
+> [Usługi pogodowe w usłudze Azure Maps](/rest/api/maps/weather)

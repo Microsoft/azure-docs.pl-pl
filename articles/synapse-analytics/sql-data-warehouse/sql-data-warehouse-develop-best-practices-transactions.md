@@ -11,12 +11,12 @@ ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 46a165ea7fa21c02e859c16027086695f1f378c3
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3f7d6f8ca285fdc024db9ba952af9f7d169e7188
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462797"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678478"
 ---
 # <a name="optimizing-transactions-in-dedicated-sql-pool-in-azure-synapse-analytics"></a>Optymalizowanie transakcji w dedykowanej puli SQL w usłudze Azure Synapse Analytics
 
@@ -85,7 +85,7 @@ Warto zauważyć, że wszystkie zapisy do aktualizacji pomocniczych lub nieklast
 
 ## <a name="optimizing-deletes"></a>Optymalizowanie usunięć
 
-Usuwanie jest operacją w pełni zarejestrowana.  Jeśli konieczne jest usunięcie dużej ilości danych w tabeli lub partycji, często jest to bardziej zrozumiałe dla danych, które mają `SELECT` być przechowywane, które mogą być uruchamiane jako zarejestrowane minimalnie.  Aby wybrać dane, Utwórz nową tabelę z [CTAs](sql-data-warehouse-develop-ctas.md).  Po utworzeniu Użyj [nazwy](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) , aby zamienić starą tabelę na nowo utworzoną tabelę.
+Usuwanie jest operacją w pełni zarejestrowana.  Jeśli konieczne jest usunięcie dużej ilości danych w tabeli lub partycji, często jest to bardziej zrozumiałe dla danych, które mają `SELECT` być przechowywane, które mogą być uruchamiane jako zarejestrowane minimalnie.  Aby wybrać dane, Utwórz nową tabelę z [CTAs](sql-data-warehouse-develop-ctas.md).  Po utworzeniu Użyj [nazwy](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) , aby zamienić starą tabelę na nowo utworzoną tabelę.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -117,7 +117,7 @@ RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 
 ## <a name="optimizing-updates"></a>Optymalizowanie aktualizacji
 
-Aktualizacja jest w pełni zarejestrowanej operacji.  Jeśli trzeba zaktualizować dużą liczbę wierszy w tabeli lub partycji, często może być dużo bardziej wydajna, aby użyć operacji zarejestrowanej minimalnie, takiej jak [CTAs](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .
+Aktualizacja jest w pełni zarejestrowanej operacji.  Jeśli trzeba zaktualizować dużą liczbę wierszy w tabeli lub partycji, często może być dużo bardziej wydajna, aby użyć operacji zarejestrowanej minimalnie, takiej jak [CTAs](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) .
 
 W poniższym przykładzie aktualizacja pełnej tabeli została przekonwertowane na CTAS, aby możliwe było minimalne rejestrowanie.
 
@@ -414,7 +414,7 @@ Dedykowana Pula SQL umożliwia [wstrzymywanie, wznawianie i skalowanie](sql-data
 
 Najlepszym scenariuszem jest umożliwienie przeprowadzenia transakcji modyfikacji danych lotu przed zawstrzymywaniem lub skalowaniem dedykowanej puli SQL. Jednak ten scenariusz może nie zawsze być praktyczny. Aby zmniejszyć ryzyko długotrwałego wycofywania, należy wziąć pod uwagę jedną z następujących opcji:
 
-* Ponownie Napisz długotrwałe operacje przy użyciu [CTAs](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* Ponownie Napisz długotrwałe operacje przy użyciu [CTAs](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 * Przerwij operację do fragmentów; działanie na podzestawie wierszy
 
 ## <a name="next-steps"></a>Następne kroki

@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick; azure-synapse
-ms.openlocfilehash: 902f0ac96349cf3e30ec12aeda02130afc2b800c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e137611809e2d2beefecfeaea11b4295bf6ba141
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460762"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678495"
 ---
 # <a name="performance-tune-with-materialized-views"></a>Dostrajanie wydajności w widokach z materiałami
 
@@ -29,7 +29,7 @@ Widok standardowy oblicza swoje dane za każdym razem, gdy widok jest używany. 
 
 Widok z materiałami umożliwia wstępne obliczenie, przechowywanie i przechowywanie danych w puli SQL w taki sam sposób jak tabela.  Za każdym razem, gdy jest używany widok materiałowy, nie jest wymagana żadna konieczność obliczenia.  Dlatego, że zapytania, które używają wszystkich lub podzbiór danych w widokach z możliwością, mogą uzyskać lepszą wydajność.  Jeszcze lepsze zapytania mogą korzystać z widoku z materiałami bez bezpośredniego odniesienia do niego, dlatego nie trzeba zmieniać kodu aplikacji.  
 
-Większość wymagań dotyczących widoku standardowego nadal stosuje się do widoku z materiałami. Aby uzyskać szczegółowe informacje na temat składniowe widoku i innych wymagań, zapoznaj się z artykułem [Tworzenie widoku z materiałami jako wybrane](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+Większość wymagań dotyczących widoku standardowego nadal stosuje się do widoku z materiałami. Aby uzyskać szczegółowe informacje na temat składniowe widoku i innych wymagań, zapoznaj się z artykułem [Tworzenie widoku z materiałami jako wybrane](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
 | Porównanie                     | Widok                                         | Zmaterializowany widok
 |:-------------------------------|:---------------------------------------------|:--------------------------------------------------------------|
@@ -55,8 +55,8 @@ Widoki z materiałami zaimplementowane w puli SQL oferują również następują
 W porównaniu z innymi dostawcami magazynu danych, widoki z materiałami zaimplementowane w usłudze Azure Synapse Analytics oferują również następujące dodatkowe korzyści:
 
 - Automatyczne i synchroniczne odświeżanie danych ze zmianami danych w tabelach podstawowych. Nie jest wymagane wykonanie jakiejkolwiek czynności przez użytkownika.
-- Szeroka Obsługa funkcji agregujących. Zobacz [Tworzenie widoku z materiałami jako Select (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
-- Wsparcie dla zalecenia dotyczącego widoku z materiałami specyficznymi dla zapytań.  Zobacz [wyjaśnienie (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+- Szeroka Obsługa funkcji agregujących. Zobacz [Tworzenie widoku z materiałami jako Select (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+- Wsparcie dla zalecenia dotyczącego widoku z materiałami specyficznymi dla zapytań.  Zobacz [wyjaśnienie (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="common-scenarios"></a>Typowe scenariusze  
 

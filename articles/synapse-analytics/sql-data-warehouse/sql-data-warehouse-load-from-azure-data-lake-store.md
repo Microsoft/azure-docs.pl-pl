@@ -11,16 +11,16 @@ ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 4f881dcc0d26589c4029246019119fa0555dcd5d
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 0974e880b75cce69f2b5ac82e3c4b39de53e03ce
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98117779"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677108"
 ---
 # <a name="load-data-from-azure-data-lake-storage-into-dedicated-sql-pools-in-azure-synapse-analytics"></a>Ładowanie danych z Azure Data Lake Storage do dedykowanych pul SQL w usłudze Azure Synapse Analytics
 
-W tym przewodniku opisano sposób używania [instrukcji Copy](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) do ładowania danych z Azure Data Lake Storage. Aby zapoznać się z szybkimi przykładami dotyczącymi używania instrukcji COPY we wszystkich metodach uwierzytelniania, zapoznaj się z następującą dokumentacją: [bezpiecznie Ładuj dane przy użyciu dedykowanych pul SQL](./quickstart-bulk-load-copy-tsql-examples.md).
+W tym przewodniku opisano sposób używania [instrukcji Copy](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) do ładowania danych z Azure Data Lake Storage. Aby zapoznać się z szybkimi przykładami dotyczącymi używania instrukcji COPY we wszystkich metodach uwierzytelniania, zapoznaj się z następującą dokumentacją: [bezpiecznie Ładuj dane przy użyciu dedykowanych pul SQL](./quickstart-bulk-load-copy-tsql-examples.md).
 
 > [!NOTE]  
 > Aby przekazać opinię lub zgłosić problemy dotyczące instrukcji COPY, Wyślij wiadomość e-mail na następującą listę dystrybucyjną: sqldwcopypreview@service.microsoft.com .
@@ -32,9 +32,9 @@ W tym przewodniku opisano sposób używania [instrukcji Copy](/sql/t-sql/stateme
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
-Zanim rozpoczniesz ten samouczek, pobierz i zainstaluj najnowszą wersję programu [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
+Zanim rozpoczniesz ten samouczek, pobierz i zainstaluj najnowszą wersję programu [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS).
 
 Aby uruchomić ten samouczek, potrzebne są:
 
@@ -133,6 +133,6 @@ Dane zostały pomyślnie załadowane do magazynu danych. Dobra robota!
 > [Dowiedz się, jak opracowywać tabele na potrzeby magazynowania danych](sql-data-warehouse-tables-overview.md)
 
 Aby uzyskać więcej przykładów i odwołań, zapoznaj się z następującą dokumentacją:
-- [Kopiuj dokumentację referencyjną instrukcji](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax)
+- [Kopiuj dokumentację referencyjną instrukcji](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#syntax)
 - [Kopiuj przykłady dla każdej metody uwierzytelniania](./quickstart-bulk-load-copy-tsql-examples.md)
 - [Kopiuj Przewodnik Szybki Start dla pojedynczej tabeli](./quickstart-bulk-load-copy-tsql.md)

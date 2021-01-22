@@ -3,12 +3,12 @@ title: Tworzenie planu Azure Functions Premium w portalu
 description: Dowiedz się, jak za pomocą Azure Portal utworzyć aplikację funkcji, która jest uruchamiana w planie Premium.
 ms.topic: how-to
 ms.date: 10/30/2020
-ms.openlocfilehash: 20921423247dda3cbb39b58dcc805dac6d367390
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 9cab67f096665c9333fa40bcb790896fcbebd8d5
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937776"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676590"
 ---
 # <a name="create-a-premium-plan-function-app-in-the-azure-portal"></a>Tworzenie aplikacji funkcji planu Premium w Azure Portal
 
@@ -35,4 +35,4 @@ W tym momencie można tworzyć funkcje w nowej aplikacji funkcji. Te funkcje mog
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Dodaj funkcję wyzwalaną przez protokół HTTP](functions-create-first-azure-function.md#create-function)
+> [Dodaj funkcję wyzwalaną przez protokół HTTP] (./functions-get-started.md

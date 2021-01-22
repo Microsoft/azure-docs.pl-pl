@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 531c423e42338b72b41c54466d5bfe8a89cd3c45
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e69781bf6d33c176d27c16a7f3cf38539ec28f07
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969641"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678242"
 ---
 # <a name="azure-image-builder-service-networking-options"></a>Opcje sieci usługi Azure Image Builder
 
@@ -89,4 +89,4 @@ Usługa link prywatny wymaga adresu IP z danej sieci wirtualnej i podsieci. Obec
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Image Builder](image-builder-overview.md).
+Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Image Builder](../image-builder-overview.md).

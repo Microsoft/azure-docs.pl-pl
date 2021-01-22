@@ -11,12 +11,12 @@ ms.date: 05/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 4c761404ab5a95bc0189407cc97ce779b66356fe
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 1f4d113f3bc6add67dd34a7ef5e3f8cdc08cecf0
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460721"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677525"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-workload-classifier-using-the-azure-portal"></a>Szybki Start: tworzenie dedykowanego klasyfikatora obciążeń puli SQL przy użyciu Azure Portal
 
@@ -45,7 +45,7 @@ Grupa obciążenia `DataLoads` istnieje.  Zobacz samouczek [Szybki Start: Konfig
 
 ## <a name="create-a-login-for-eltlogin"></a>Utwórz nazwę logowania dla ELTLogin
 
-Utwórz SQL Server Logowanie do uwierzytelniania w `master` bazie danych przy użyciu polecenia [Utwórz login](/sql/t-sql/statements/create-login-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) dla `ELTLogin` .
+Utwórz SQL Server Logowanie do uwierzytelniania w `master` bazie danych przy użyciu polecenia [Utwórz login](/sql/t-sql/statements/create-login-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) dla `ELTLogin` .
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.sql_logins WHERE name = 'ELTLogin')
@@ -57,7 +57,7 @@ END
 
 ## <a name="create-user-and-grant-permissions"></a>Utwórz użytkownika i Udziel uprawnień
 
-Po utworzeniu nazwy logowania należy utworzyć użytkownika w bazie danych programu.  Użyj instrukcji [Create User](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) , aby utworzyć użytkownika SQL `ELTRole` w **mySampleDataWarehouse**.  Ponieważ będziemy testować klasyfikację w trakcie tego samouczka, udziel `ELTLogin` uprawnień **mySampleDataWarehouse**. 
+Po utworzeniu nazwy logowania należy utworzyć użytkownika w bazie danych programu.  Użyj instrukcji [Create User](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) , aby utworzyć użytkownika SQL `ELTRole` w **mySampleDataWarehouse**.  Ponieważ będziemy testować klasyfikację w trakcie tego samouczka, udziel `ELTLogin` uprawnień **mySampleDataWarehouse**. 
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = 'ELTLogin')
@@ -96,13 +96,13 @@ Klasyfikacja pozwala na kierowanie żądań na podstawie zestawu reguł do grupy
     ![Kliknij pozycję Konfiguracja](./media/quickstart-create-a-workload-classifier-portal/config-wc.png)
 
 ## <a name="verify-and-test-classification"></a>Weryfikuj i Testuj klasyfikację
-Sprawdź widok wykazu [sys.workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql?view=azure-sqldw-latest) , aby sprawdzić istnienie `ELTLoginDataLoads` klasyfikatora.
+Sprawdź widok wykazu [sys.workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql?view=azure-sqldw-latest&preserve-view=true) , aby sprawdzić istnienie `ELTLoginDataLoads` klasyfikatora.
 
 ```sql
 SELECT * FROM sys.workload_management_workload_classifiers WHERE name = 'ELTLoginDataLoads'
 ```
 
-Sprawdź widok wykazu [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?view=azure-sqldw-latest) , aby zweryfikować szczegóły klasyfikatora.
+Sprawdź widok wykazu [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?view=azure-sqldw-latest&preserve-view=true) , aby zweryfikować szczegóły klasyfikatora.
 
 ```sql
 SELECT c.[name], c.group_name, c.importance, cd.classifier_type, cd.classifier_value

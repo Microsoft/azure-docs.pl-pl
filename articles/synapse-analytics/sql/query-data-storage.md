@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 967250cf29d1f0248f296cb545a764bd8e611773
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9500d682a99e6345289a83b4b3b2fc29ffe18457
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462655"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676888"
 ---
 # <a name="query-storage-files-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Wykonywanie zapytań dotyczących plików magazynu z pulą SQL bezserwerowych w usłudze Azure Synapse Analytics
 
 Pula SQL bezserwerowa umożliwia wykonywanie zapytań dotyczących danych w usłudze Data Lake. Oferuje obszar powierzchni zapytania T-SQL, który służy do obsługi zapytań o dane z częściową strukturą i bez struktury. Do wykonywania zapytań są obsługiwane następujące aspekty języka T-SQL:
 
-- Pełny [wybór](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) obszaru powierzchni, w tym większość [funkcji SQL i operatorów](overview-features.md).
+- Pełny [wybór](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) obszaru powierzchni, w tym większość [funkcji SQL i operatorów](overview-features.md).
 - Utwórz tabelę ZEWNĘTRZną jako SELECT ([CETAS](develop-tables-cetas.md)) tworzy [tabelę zewnętrzną](develop-tables-external-tables.md) , a następnie eksportuje, równolegle, wyniki instrukcji SELECT języka Transact-SQL do usługi Azure Storage.
 
 Aby uzyskać więcej informacji na temat tego, co to jest program vs. co nie jest obecnie obsługiwane, przeczytaj artykuł [Omówienie puli SQL bezserwerowej](on-demand-workspace-overview.md) lub następujące artykuły:
@@ -190,15 +190,15 @@ Aby zapoznać się z przykładami zapytań, zapoznaj się z sekcją elementy dos
 
 #### <a name="access-elements-from-repeated-columns"></a>Dostęp do elementów z powtórzonych kolumn
 
-Aby uzyskać dostęp do elementów z powtórzonej kolumny, takich jak element tablicy lub mapy, użyj funkcji [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) dla każdego elementu skalarnego, który jest potrzebny do projektu i zapewnia:
+Aby uzyskać dostęp do elementów z powtórzonej kolumny, takich jak element tablicy lub mapy, użyj funkcji [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) dla każdego elementu skalarnego, który jest potrzebny do projektu i zapewnia:
 
 - Kolumna zagnieżdżona lub powtarzana, jako pierwszy parametr
-- [Ścieżka JSON](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) określająca element lub właściwość do uzyskania dostępu, jako drugi parametr
+- [Ścieżka JSON](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) określająca element lub właściwość do uzyskania dostępu, jako drugi parametr
 
-Aby uzyskać dostęp do nieskalarnych elementów z powtórzonej kolumny, użyj funkcji [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) dla każdego nieskalarnego elementu, który jest potrzebny do projektu i zapewnia:
+Aby uzyskać dostęp do nieskalarnych elementów z powtórzonej kolumny, użyj funkcji [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) dla każdego nieskalarnego elementu, który jest potrzebny do projektu i zapewnia:
 
 - Kolumna zagnieżdżona lub powtarzana, jako pierwszy parametr
-- [Ścieżka JSON](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) określająca element lub właściwość do uzyskania dostępu, jako drugi parametr
+- [Ścieżka JSON](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) określająca element lub właściwość do uzyskania dostępu, jako drugi parametr
 
 Zobacz fragment składni poniżej:
 

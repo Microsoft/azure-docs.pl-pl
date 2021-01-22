@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: d4abc9e1bba151f46adf71dd0185ddddad916a38
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 5087278e5c89514cd43b7ca871a58f18e0fa98f2
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98216465"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678150"
 ---
 # <a name="authentication-vs-authorization"></a>Uwierzytelnianie i autoryzacja
 
@@ -51,7 +51,7 @@ Ten film wideo wyjaśnia platformę tożsamości firmy Microsoft i podstawowe in
 Poniżej przedstawiono porównanie protokołów używanych przez platformę tożsamości firmy Microsoft:
 
 * **Połączenie OAuth i OpenID Connect**: platforma używa protokołu OAuth do autoryzacji i OpenID Connect Connect (OIDC) do uwierzytelniania. OpenID Connect Connect jest tworzona na podstawie protokołu OAuth 2,0, więc Terminologia i przepływ są podobne między nimi. Można nawet uwierzytelnić użytkownika (za pomocą usługi OpenID Connect Connect) i uzyskać autoryzację w celu uzyskania dostępu do chronionego zasobu, którego właścicielem jest użytkownik (za pomocą protokołu OAuth 2,0). Aby uzyskać więcej informacji, zobacz [Protokoły OAuth 2,0 i OpenID Connect Connect](active-directory-v2-protocols.md) [Protocols i OpenID Connect Connect](v2-protocols-oidc.md)
-* **OAuth a SAML**: platforma używa protokołu OAuth 2,0 do autoryzacji i protokołu SAML do uwierzytelniania. Aby uzyskać więcej informacji na temat sposobu korzystania z tych protokołów razem zarówno do uwierzytelniania użytkownika, jak i uzyskiwania autoryzacji dostępu do chronionego zasobu, zobacz [Microsoft Identity platform i OAuth 2,0 SAML Flow Assertion](v2-saml-bearer-assertion.md).
+* **OAuth a SAML**: platforma używa protokołu OAuth 2,0 do autoryzacji i protokołu SAML do uwierzytelniania. Aby uzyskać więcej informacji na temat sposobu korzystania z tych protokołów razem zarówno do uwierzytelniania użytkownika, jak i uzyskiwania autoryzacji dostępu do chronionego zasobu, zobacz [Microsoft Identity platform i OAuth 2,0 SAML Flow Assertion](./scenario-token-exchange-saml-oauth.md).
 * **OpenID Connect nawiązuje połączenie z SAML**: platforma używa zarówno połączenia OpenID Connect, jak i SAML do uwierzytelniania użytkownika i włączania logowania jednokrotnego. Uwierzytelnianie SAML jest często używane z dostawcami tożsamości, takimi jak Active Directory Federation Services (AD FS) federacyjnego do usługi Azure AD, więc jest często używana w aplikacjach dla przedsiębiorstw. OpenID Connect Connect jest często używana w przypadku aplikacji, które są wyłącznie w chmurze, takich jak aplikacje mobilne, witryny internetowe i interfejsy API sieci Web.
 
 ## <a name="next-steps"></a>Następne kroki

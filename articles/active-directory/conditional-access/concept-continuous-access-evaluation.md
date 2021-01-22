@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7519b6c7e1f3381be77b9a0734ddda250228e7d
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: fd14c7911676768a61d2b2c0e366d2c227455be8
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860307"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678208"
 ---
 # <a name="continuous-access-evaluation"></a>Ciągła weryfikacja dostępu
 
@@ -28,7 +28,7 @@ Czasowa reakcja na naruszenia zasad lub problemy z zabezpieczeniami naprawdę wy
 
 Początkowa implementacja oceny ciągłego dostępu koncentruje się na wymianie, zespołach i usłudze SharePoint Online.
 
-Aby przygotować aplikacje do korzystania z programu CAE, zobacz [jak używać interfejsów API do oceny dostępu ciągłego w aplikacjach](/azure/active-directory/develop/app-resilience-continuous-access-evaluation).
+Aby przygotować aplikacje do korzystania z programu CAE, zobacz [jak używać interfejsów API do oceny dostępu ciągłego w aplikacjach](../develop/app-resilience-continuous-access-evaluation.md).
 
 ### <a name="key-benefits"></a>Najważniejsze korzyści
 
@@ -128,7 +128,7 @@ W poniższym przykładzie administrator dostępu warunkowego skonfigurował zasa
 ## <a name="enable-or-disable-cae-preview"></a>Włącz lub Wyłącz CAE (wersja zapoznawcza)
 
 1. Zaloguj się do **Azure Portal** jako administrator dostępu warunkowego, administrator zabezpieczeń lub Administrator globalny
-1. Przejdź do **Azure Active Directory** wersji  >  **Security**  >  **ewaluacyjnej ciągłego dostępu** Azure Active Directory zabezpieczeń.
+1. Przejdź do wersji  >    >  **ewaluacyjnej ciągłego dostępu** Azure Active Directory zabezpieczeń.
 1. Wybierz pozycję **Włącz podgląd**.
 
 Na tej stronie możesz opcjonalnie ograniczyć użytkowników i grupy, które będą podlegać wersji zapoznawczej.
@@ -146,7 +146,7 @@ W przypadku usługi CAE dostępne są tylko szczegółowe informacje o nazwanych
 
 ### <a name="ip-address-configuration"></a>Konfiguracja adresu IP
 
-Dostawca tożsamości i dostawcy zasobów mogą zobaczyć różne adresy IP. Taka niezgodność może wystąpić ze względu na implementacje serwera proxy sieci w organizacji lub nieprawidłowe konfiguracje protokołu IPv4/IPv6 między dostawcą tożsamości i dostawcą zasobów. Na przykład:
+Dostawca tożsamości i dostawcy zasobów mogą zobaczyć różne adresy IP. Taka niezgodność może wystąpić ze względu na implementacje serwera proxy sieci w organizacji lub nieprawidłowe konfiguracje protokołu IPv4/IPv6 między dostawcą tożsamości i dostawcą zasobów. Przykład:
 
 - Dostawca tożsamości widzi jeden adres IP od klienta.
 - Dostawca zasobów widzi inny adres IP od klienta po przejściu przez serwer proxy.

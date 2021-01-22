@@ -8,20 +8,20 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/19/2021
 ms.custom: seodec18
-ms.openlocfilehash: eeb3de2fc3f0e3e0be9c98002f11e470eaf04f8c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 912dbf48254a8d68b9bf76db04734fd791a3edb9
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020933"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677057"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-gen2-environment"></a>Samouczek: Konfigurowanie środowiska Azure Time Series Insights Gen2
 
 Ten samouczek przeprowadzi Cię przez proces tworzenia Azure Time Series Insights Gen2 *w trybie płatność zgodnie z rzeczywistym* użyciem.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -119,11 +119,11 @@ W tej sekcji opisano sposób tworzenia środowiska Azure Time Series Insights Ge
    | **Grupa konsumentów IoT Hub** | Wybierz pozycję **Nowy**, wprowadź unikatową nazwę, a następnie wybierz pozycję **+ Dodaj**. Grupa konsumentów musi być unikatową wartością w Azure Time Series Insights Gen2. |
    | **Właściwość znacznika czasu** | Ta wartość służy do identyfikowania właściwości **timestamp** w przychodzących danych telemetrycznych. Na potrzeby tego samouczka pozostaw to pole puste. Ten symulator używa przychodzącej sygnatury czasowej z IoT Hub, która Azure Time Series Insights wartość domyślna Gen2. |
 
-1. Wybierz pozycję **Recenzja + Utwórz**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
 
    [![Skonfiguruj utworzone Centrum IoT Hub jako źródło zdarzenia.](media/v2-update-provision/tsi-configure-event-source.png)](media/v2-update-provision/tsi-configure-event-source.png#lightbox)
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
     [![Przejrzyj i Utwórz stronę przy użyciu przycisku Utwórz.](media/v2-update-provision/tsi-environment-confirmation.png)](media/v2-update-provision/tsi-environment-confirmation.png#lightbox)
 
@@ -233,7 +233,7 @@ W tej sekcji zastosujesz model, aby ustrukturyzować dane. Do utworzenia modelu 
         | **Wartość** | Wybierz jedną z ustawień predefiniowanych: wybierz pozycję **temperatura (Podwójna precyzja)**. <br /> Uwaga: może upłynąć kilka minut, zanim **wartość** zostanie automatycznie wypełniona, gdy Azure Time Series Insights Gen2 zacznie otrzymywać zdarzenia.|
         | **Operacja agregacji** | Rozwiń **Opcje zaawansowane**. <br /> Wybierz opcję **AVG** (średnia). |
 
-    1. Wybierz pozycję **Zastosuj**. Następnie ponownie **Dodaj zmienną** i ustaw następujące wartości:
+    1. Wybierz przycisk **Zastosuj**. Następnie ponownie **Dodaj zmienną** i ustaw następujące wartości:
 
         | Parametr | Akcja |
         | --- | --- |
@@ -242,7 +242,7 @@ W tej sekcji zastosujesz model, aby ustrukturyzować dane. Do utworzenia modelu 
         | **Wartość** | Wybierz spośród ustawień predefiniowanych: wybierz pozycję **drgania (Double)**. <br /> Uwaga: może upłynąć kilka minut, zanim **wartość** zostanie automatycznie wypełniona, gdy Azure Time Series Insights Gen2 zacznie otrzymywać zdarzenia.|
         | **Operacja agregacji** | Rozwiń **Opcje zaawansowane**. <br /> Wybierz opcję **AVG** (średnia). |
 
-    1. Wybierz pozycję **Zastosuj**. Następnie ponownie **Dodaj zmienną** i ustaw następujące wartości dla zmiennej trzeciej i końcowej:
+    1. Wybierz przycisk **Zastosuj**. Następnie ponownie **Dodaj zmienną** i ustaw następujące wartości dla zmiennej trzeciej i końcowej:
 
         | Parametr | Akcja |
         | --- | --- |
@@ -254,7 +254,7 @@ W tej sekcji zastosujesz model, aby ustrukturyzować dane. Do utworzenia modelu 
 
         [![Dodaj zmienne typu.](media/v2-update-provision/tsi-add-type-variables.png)](media/v2-update-provision/tsi-add-type-variables.png#lightbox)
 
-    1. Wybierz pozycję **Zastosuj**. 
+    1. Wybierz przycisk **Zastosuj**. 
     1. Wybierz pozycję **Zapisz**. Zostaną utworzone i wyświetlone trzy zmienne.
 
         [![Po dodaniu typu Sprawdź go w widoku model.](media/v2-update-provision/tsi-add-type-and-view.png)](media/v2-update-provision/tsi-add-type-and-view.png#lightbox)
@@ -287,7 +287,7 @@ W tej sekcji zastosujesz model, aby ustrukturyzować dane. Do utworzenia modelu 
         | Parametr | Akcja |
         | --- | --- |
         | **Hierarchie** | Wybierz **hierarchię lokalizacji** |
-        | **Kraj** | Wprowadź **Stan USA** |
+        | **Trzeciego** | Wprowadź **Stan USA** |
         | **—** | Wprowadź **Seattle** |
         | **Budowaniu** | Wprowadź **wskazówkę miejsca** |
 
@@ -303,7 +303,7 @@ W tej sekcji zastosujesz model, aby ustrukturyzować dane. Do utworzenia modelu 
     | **Nazwa** | Wprowadź **windę 2**|
     | **Opis** | Wprowadź **wystąpienie dla wind 2** |
     | **Hierarchie** | Wybierz **hierarchię lokalizacji** |
-    | **Kraj** | Wprowadź **Stan USA** |
+    | **Trzeciego** | Wprowadź **Stan USA** |
     | **—** | Wprowadź **Seattle** |
     | **Budowaniu** | Wprowadź **centrum nauki Pacyfiku** |
 
@@ -315,7 +315,7 @@ W tej sekcji zastosujesz model, aby ustrukturyzować dane. Do utworzenia modelu 
     | **Nazwa** | Wprowadź **windę 3**|
     | **Opis** | Wprowadź **wystąpienie dla wind 3** |
     | **Hierarchie** | Wybierz **hierarchię lokalizacji** |
-    | **Kraj** | Wprowadź **Stan USA** |
+    | **Trzeciego** | Wprowadź **Stan USA** |
     | **—** | Wprowadź **Nowy Jork** |
     | **Budowaniu** | Wprowadź **kompilację stanu Empire** |
 

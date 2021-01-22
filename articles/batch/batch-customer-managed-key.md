@@ -5,12 +5,12 @@ author: pkshultz
 ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: peshultz
-ms.openlocfilehash: 404103caf376b792d363996664a69f655d5bd202
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 2ed19846209d098d9eba8dba991e08d1fc57f185
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326016"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678013"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Skonfiguruj klucze zarządzane przez klienta dla konta Azure Batch przy użyciu tożsamości Azure Key Vault i zarządzanej
 
@@ -39,7 +39,7 @@ Po utworzeniu konta można znaleźć unikatowy identyfikator GUID w polu **Ident
 
 Podczas tworzenia nowego konta usługi Batch należy określić `SystemAssigned` wartość `--identity` parametru.
 
-```powershell
+```azurecli
 resourceGroupName='myResourceGroup'
 accountName='mybatchaccount'
 
@@ -52,7 +52,7 @@ az batch account create \
 
 Po utworzeniu konta możesz sprawdzić, czy na tym koncie jest włączona tożsamość zarządzana przypisana przez system. Należy pamiętać, że należy zwrócić uwagę `PrincipalId` , ponieważ ta wartość będzie konieczna do udzielenia temu kontu wsadowemu dostępu do Key Vault.
 
-```powershell
+```azurecli
 az batch account show \
     -n $accountName \
     -g $resourceGroupName \
@@ -100,7 +100,7 @@ W [Azure Portal](https://portal.azure.com/)przejdź do strony konto w usłudze B
 
 Po utworzeniu konta w usłudze Batch przy użyciu tożsamości zarządzanej przypisanej do systemu i udzieleniu dostępu do Key Vault, zaktualizuj konto wsadowe przy użyciu `{Key Identifier}` adresu URL w obszarze `keyVaultProperties` parametr. Ustaw również **encryption_key_source** jako `Microsoft.KeyVault` .
 
-```powershell
+```azurecli
 az batch account set \
     -n $accountName \
     -g $resourceGroupName \
@@ -118,7 +118,7 @@ Podczas tworzenia nowej wersji klucza należy zaktualizować konto w usłudze Ba
 
 Możesz również użyć interfejsu wiersza polecenia platformy Azure, aby zaktualizować wersję.
 
-```powershell
+```azurecli
 az batch account set \
     -n $accountName \
     -g $resourceGroupName \
@@ -134,7 +134,7 @@ Aby zmienić klucz używany do szyfrowania wsadowego, wykonaj następujące czyn
 
 Możesz również użyć interfejsu wiersza polecenia platformy Azure, aby użyć innego klucza.
 
-```powershell
+```azurecli
 az batch account set \
     -n $accountName \
     -g $resourceGroupName \

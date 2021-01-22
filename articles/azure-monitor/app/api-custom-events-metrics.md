@@ -4,12 +4,12 @@ description: Wstaw kilka wierszy kodu z urządzenia lub aplikacji klasycznej, st
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: d553c192d62baedb93c7f8270c56526fbf8edb62
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 8fecca4875ba291da093bf1eea596eef290f80c8
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233750"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678116"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Interfejs API usługi Application Insights dla niestandardowych zdarzeń i metryk
 
@@ -439,7 +439,7 @@ exceptions
 | summarize sum(itemCount) by type
 ```
 
-Większość ważnych informacji stosu jest już wyodrębnionych do oddzielnych zmiennych, ale można ściągnąć `details` strukturę, aby uzyskać więcej. Ponieważ ta struktura jest dynamiczna, należy rzutować wynik na oczekiwany typ. Na przykład:
+Większość ważnych informacji stosu jest już wyodrębnionych do oddzielnych zmiennych, ale można ściągnąć `details` strukturę, aby uzyskać więcej. Ponieważ ta struktura jest dynamiczna, należy rzutować wynik na oczekiwany typ. Przykład:
 
 ```kusto
 exceptions
@@ -502,7 +502,7 @@ Można wyszukiwać zawartość wiadomości, ale (w przeciwieństwie do wartości
 Limit rozmiaru `message` jest znacznie wyższy niż limit właściwości.
 Zaletą TrackTrace jest możliwość umieszczania stosunkowo długich danych w komunikacie. Na przykład możesz kodować dane POST w tym miejscu.  
 
-Ponadto do wiadomości można dodać poziom ważności. Podobnie jak w przypadku innych telemetrii, można dodać wartości właściwości, aby ułatwić filtrowanie lub wyszukiwanie różnych zestawów śladów. Na przykład:
+Ponadto do wiadomości można dodać poziom ważności. Podobnie jak w przypadku innych telemetrii, można dodać wartości właściwości, aby ułatwić filtrowanie lub wyszukiwanie różnych zestawów śladów. Przykład:
 
 *C#*
 
@@ -534,7 +534,7 @@ Jeśli [próbkowanie](./sampling.md) jest w operacji, właściwość itemCount p
 Użyj wywołania TrackDependency, aby śledzić czasy odpowiedzi i szybkość powodzeń wywołań do zewnętrznego fragmentu kodu. Wyniki są wyświetlane na wykresach zależności w portalu. Poniższego fragmentu kodu należy dodać wszędzie tam, gdzie jest wykonywane wywołanie zależności.
 
 > [!NOTE]
-> Dla platform .NET i .NET Core można alternatywnie użyć `TelemetryClient.StartOperation` metody (rozszerzenia), która wypełnia `DependencyTelemetry` właściwości potrzebne do korelacji, a także inne właściwości, takie jak godzina rozpoczęcia i czas trwania, aby nie trzeba było tworzyć czasomierza niestandardowego, jak w poniższych przykładach. Aby uzyskać więcej informacji, zapoznaj się [z sekcją w tym artykule dotyczącym wychodzącego śledzenia zależności](https://docs.microsoft.com/azure/azure-monitor/app/custom-operations-tracking#outgoing-dependencies-tracking).
+> Dla platform .NET i .NET Core można alternatywnie użyć `TelemetryClient.StartOperation` metody (rozszerzenia), która wypełnia `DependencyTelemetry` właściwości potrzebne do korelacji, a także inne właściwości, takie jak godzina rozpoczęcia i czas trwania, aby nie trzeba było tworzyć czasomierza niestandardowego, jak w poniższych przykładach. Aby uzyskać więcej informacji, zapoznaj się [z sekcją w tym artykule dotyczącym wychodzącego śledzenia zależności](./custom-operations-tracking.md#outgoing-dependencies-tracking).
 
 *C#*
 
@@ -1068,7 +1068,7 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## <a name="telemetrycontext"></a>TelemetryContext
 
-TelemetryClient ma Właściwość kontekstu, która zawiera wartości, które są wysyłane wraz ze wszystkimi danymi telemetrii. Są one zazwyczaj ustawiane przez standardowe moduły telemetrii, ale można je również ustawić samodzielnie. Na przykład:
+TelemetryClient ma Właściwość kontekstu, która zawiera wartości, które są wysyłane wraz ze wszystkimi danymi telemetrii. Są one zazwyczaj ustawiane przez standardowe moduły telemetrii, ale można je również ustawić samodzielnie. Przykład:
 
 ```csharp
 telemetry.Context.Operation.Name = "MyOperationName";

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: alkohli
-ms.openlocfilehash: 8ea0c27fdd64bae1e6fe9443df76c86e0eb89a75
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 54a4a938be18d39993652cecb87b3604e268fcef
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97762926"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678957"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Wdrażanie maszyn wirtualnych na urządzeniu z systemem Azure Stack Edge na komputerze GPU przy użyciu interfejsu wiersza polecenia platformy Azure i języka Python
 
@@ -123,7 +123,7 @@ Przed rozpoczęciem tworzenia i zarządzania maszyną wirtualną na urządzeniu 
 
     Poniżej przedstawiono przykładowe dane wyjściowe powyższego polecenia:
 
-    ```powershell
+    ```output
     PS C:\windows\system32> az --version
     azure-cli                         2.0.80
     
@@ -147,7 +147,7 @@ Przed rozpoczęciem tworzenia i zarządzania maszyną wirtualną na urządzeniu 
     PS C:\windows\system32>
     ```
 
-    Jeśli nie masz interfejsu wiersza polecenia platformy Azure, Pobierz i [Zainstaluj interfejs wiersza polecenia platformy Azure w systemie Windows](/cli/azure/install-azure-cli-windows?view=azure-cli-latest). Interfejs wiersza polecenia platformy Azure można uruchomić przy użyciu wiersza poleceń systemu Windows lub środowiska Windows PowerShell.
+    Jeśli nie masz interfejsu wiersza polecenia platformy Azure, Pobierz i [Zainstaluj interfejs wiersza polecenia platformy Azure w systemie Windows](/cli/azure/install-azure-cli-windows). Interfejs wiersza polecenia platformy Azure można uruchomić przy użyciu wiersza poleceń systemu Windows lub środowiska Windows PowerShell.
 
 2. Zanotuj lokalizację języka Python interfejsu wiersza polecenia. Należy to zrobić, aby określić lokalizację zaufanego głównego magazynu certyfikatów dla interfejsu wiersza polecenia platformy Azure.
 
@@ -171,7 +171,7 @@ Przed rozpoczęciem tworzenia i zarządzania maszyną wirtualną na urządzeniu 
 
     Następujące przykładowe dane wyjściowe pokazują instalację Haikunator:
 
-    ```powershell
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> .\python.exe -m pip install haikunator
 
     Collecting haikunator
@@ -187,7 +187,7 @@ Przed rozpoczęciem tworzenia i zarządzania maszyną wirtualną na urządzeniu 
 
     Następujące przykładowe dane wyjściowe pokazują instalację PIP dla `msrestazure` : 
     
-    ```powershell
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> .\python.exe -m pip install msrestazure==0.6.2
     Requirement already satisfied: msrestazure==0.6.2 in c:\program files (x86)\microsoft sdks\azure\cli2\lib\site-packages (0.6.2)
     Requirement already satisfied: msrest<2.0.0,>=0.6.0 in c:\program files (x86)\microsoft sdks\azure\cli2\lib\site-packages (from msrestazure==0.6.2) (0.6.10)
@@ -211,7 +211,7 @@ Przed rozpoczęciem tworzenia i zarządzania maszyną wirtualną na urządzeniu 
     
     Polecenie cmdlet zwraca lokalizację certyfikatu, jak pokazano poniżej:  
         
-    ```powershell
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> .\python -c "import certifi; print(certifi.where())"
     C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\certifi\cacert.pem
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
@@ -323,7 +323,7 @@ Przed rozpoczęciem tworzenia i zarządzania maszyną wirtualną na urządzeniu 
 
    Poniżej przedstawiono przykładowe dane wyjściowe dla pomyślnego logowania po podaniu hasła:  
    
-   ```powershell
+   ```output
    PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> az login -u EdgeARMuser
    Password:
    [
