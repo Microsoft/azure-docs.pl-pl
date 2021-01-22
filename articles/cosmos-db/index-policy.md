@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 01/21/2021
 ms.author: tisande
-ms.openlocfilehash: 00c80fa311837918a78f26e941f00cb17f1dc279
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 4d2ad9cf6b47d8307d9652419b82de8ffcbcb099
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019180"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681654"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Zasady indeksowania w usłudze Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -35,6 +35,17 @@ Azure Cosmos DB obsługuje dwa tryby indeksowania:
 > Azure Cosmos DB obsługuje również tryb indeksowania z opóźnieniem. Indeksowanie z opóźnieniem aktualizuje indeks na znacznie niższym poziomie priorytetu, gdy aparat nie wykonuje żadnej innej pracy. Może to doprowadzić do **niespójnych lub niekompletnych** wyników zapytań. Jeśli planujesz wysyłać zapytania względem kontenera Cosmos, nie wybieraj indeksowania z opóźnieniem. Nowe kontenery nie mogą wybrać indeksowania z opóźnieniem. Możesz zażądać wykluczenia, kontaktując się z [pomocą techniczną platformy Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (chyba że używasz konta usługi Azure Cosmos w trybie bez [serwera](serverless.md) , który nie obsługuje indeksowania z opóźnieniem).
 
 Domyślnie zasady indeksowania są ustawione na `automatic` . Jest to osiągane przez ustawienie `automatic` właściwości w zasadach indeksowania na `true` . Ustawienie tej właściwości `true` umożliwia usłudze Azure CosmosDB Automatyczne indeksowanie dokumentów w miarę ich pisania.
+
+## <a name="index-size"></a><a id="index-size"></a>Rozmiar indeksu
+
+W Azure Cosmos DB łączny zużyty magazyn to kombinacja rozmiaru danych i rozmiaru indeksu. Poniżej przedstawiono niektóre funkcje rozmiaru indeksu:
+
+* Rozmiar indeksu zależy od zasad indeksowania. Jeśli wszystkie właściwości są indeksowane, rozmiar indeksu może być większy niż rozmiar danych.
+* Gdy dane są usuwane, indeksy są kompaktowe blisko siebie. Jednak w przypadku małych usunięć danych nie należy od razu obniżyć rozmiaru indeksu.
+* Rozmiar indeksu można zwiększyć w następujących przypadkach:
+
+  * Czas trwania podziału partycji — miejsce na indeks jest wydawany po zakończeniu podziału partycji.
+  * Gdy partycja jest podzielna, przestrzeń indeksu zostanie tymczasowo zwiększona podczas dzielenia partycji. 
 
 ## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>Uwzględnianie i wykluczanie ścieżek właściwości
 

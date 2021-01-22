@@ -10,14 +10,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: da6c9f6df0e9e74de297cf6c8f655b62e3446bad
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: bd911868028825164cdd9627bf6b5c6d56de7164
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462704"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679622"
 ---
-# <a name="azure-synapse-sql-architecture"></a>Architektura SQL usługi Azure Synapse 
+# <a name="azure-synapse-sql-architecture"></a>Architektura usługi Azure Synapse SQL 
 
 W tym artykule opisano składniki architektury programu SQL Synapse.
 
@@ -49,7 +49,7 @@ Dzięki rozdzieleniu magazynu i obliczeń użycie usługi Synapse SQL one może 
 
 Synapse SQL wykorzystuje usługę Azure Storage, aby zapewnić bezpieczeństwo danych użytkownika. Ponieważ dane są przechowywane i zarządzane przez usługę Azure Storage, istnieje oddzielna opłata za użycie magazynu. 
 
-Pula SQL bezserwerowa umożliwia wykonywanie zapytań dotyczących plików w usłudze Data Lake w sposób tylko do odczytu, natomiast Pula SQL umożliwia również pozyskiwanie danych. W przypadku pozyskiwania danych w dedykowanej puli SQL dane są podzielonej na fragmenty do **dystrybucji** w celu zoptymalizowania wydajności systemu. Można wybrać, który wzorzec fragmentowania ma być używany do dystrybucji danych podczas definiowania tabeli. Te wzorce fragmentowania są obsługiwane:
+Pula SQL bezserwerowa umożliwia wykonywanie zapytań dotyczących plików w usłudze Data Lake w sposób tylko do odczytu, natomiast Pula SQL umożliwia również pozyskiwanie danych. W przypadku pozyskiwania danych w dedykowanej puli SQL dane są podzielonej na fragmenty do **dystrybucji** w celu zoptymalizowania wydajności systemu. Podczas definiowania tabeli możesz wybrać wzorzec dzielenia na fragmenty używany do dystrybucji danych. Te wzorce fragmentowania są obsługiwane:
 
 * Skrót
 * Działanie okrężne
@@ -67,7 +67,7 @@ W puli SQL bezserwerowej aparat DQP jest uruchamiany w węźle sterowania, aby z
 
 Węzły obliczeniowe zapewniają moc obliczeniową. 
 
-W dedykowanej puli SQL dystrybucje są mapowane na węzły obliczeniowe do przetwarzania. W miarę płacenia za więcej zasobów obliczeniowych Pula ponownie mapuje dystrybucje do dostępnych węzłów obliczeniowych. Liczba węzłów obliczeniowych z zakresu od 1 do 60 i jest określana na podstawie poziomu usługi dla dedykowanej puli SQL. Każdy węzeł obliczeniowy ma identyfikator węzła, który jest widoczny w widokach systemu. IDENTYFIKATOR węzła obliczeniowego można zobaczyć, szukając kolumny node_id w widokach systemowych, których nazwy rozpoczynają się od sys.pdw_nodes. Listę tych widoków systemowych można znaleźć w temacie [Synapse SQL system viewss](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest).
+W dedykowanej puli SQL dystrybucje są mapowane na węzły obliczeniowe do przetwarzania. W miarę płacenia za więcej zasobów obliczeniowych Pula ponownie mapuje dystrybucje do dostępnych węzłów obliczeniowych. Liczba węzłów obliczeniowych z zakresu od 1 do 60 i jest określana na podstawie poziomu usługi dla dedykowanej puli SQL. Każdy węzeł obliczeniowy ma identyfikator węzła, który jest widoczny w widokach systemu. IDENTYFIKATOR węzła obliczeniowego można zobaczyć, szukając kolumny node_id w widokach systemowych, których nazwy rozpoczynają się od sys.pdw_nodes. Listę tych widoków systemowych można znaleźć w temacie [Synapse SQL system viewss](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest&preserve-view=true).
 
 W puli SQL bezserwerowej każdy węzeł obliczeniowy jest przypisywany do zadania i zestawu plików do wykonania zadania. Zadanie jest jednostką wykonawczą zapytania rozproszonego, która jest w rzeczywistości częścią kwerendy przesłanej przez użytkownika. Automatyczne skalowanie jest stosowane w celu zapewnienia wystarczającej liczby węzłów obliczeniowych do wykonywania zapytań użytkownika.
 

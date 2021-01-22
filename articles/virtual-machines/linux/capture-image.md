@@ -8,24 +8,24 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: legacy, devx-track-azurecli
-ms.openlocfilehash: eacd1426b856de11a18b0da6c509d281b3bca94c
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 53fb11216e65ebead43c02a7153d937c37b841a0
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97655173"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681064"
 ---
 # <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>Jak utworzyć zarządzany obraz maszyny wirtualnej lub wirtualnego dysku twardego
 
 Aby utworzyć wiele kopii maszyny wirtualnej do użycia na platformie Azure na potrzeby tworzenia i testowania, Przechwyć zarządzany obraz maszyny wirtualnej lub wirtualnego dysku twardego systemu operacyjnego. Aby tworzyć, przechowywać i udostępniać obrazy na dużą skalę, zobacz [udostępnione Galerie obrazów](../shared-images-cli.md).
 
-Jeden zarządzany obraz obsługuje maksymalnie 20 równoczesnych wdrożeń. Próba utworzenia więcej niż 20 maszyn wirtualnych współbieżnie z tego samego obrazu zarządzanego może spowodować przekroczenie limitu czasu oczekiwania z ograniczeniami wydajności magazynu pojedynczego wirtualnego dysku twardego. Aby jednocześnie utworzyć więcej niż 20 maszyn wirtualnych, Użyj obrazu [udostępnionego galerii obrazów](shared-image-galleries.md) skonfigurowanego z 1 repliką dla każdego 20 współbieżnych wdrożeń maszyn wirtualnych.
+Jeden zarządzany obraz obsługuje maksymalnie 20 równoczesnych wdrożeń. Próba utworzenia więcej niż 20 maszyn wirtualnych współbieżnie z tego samego obrazu zarządzanego może spowodować przekroczenie limitu czasu oczekiwania z ograniczeniami wydajności magazynu pojedynczego wirtualnego dysku twardego. Aby jednocześnie utworzyć więcej niż 20 maszyn wirtualnych, Użyj obrazu [udostępnionego galerii obrazów](../shared-image-galleries.md) skonfigurowanego z 1 repliką dla każdego 20 współbieżnych wdrożeń maszyn wirtualnych.
 
 Aby utworzyć obraz zarządzany, należy usunąć informacje o koncie osobistym. W poniższych krokach wycofasz obsługę istniejącej maszyny wirtualnej, zwolnisz ją i utworzysz obraz. Ten obraz służy do tworzenia maszyn wirtualnych w ramach dowolnej grupy zasobów w ramach subskrypcji.
 
 Aby utworzyć kopię istniejącej maszyny wirtualnej z systemem Linux na potrzeby tworzenia kopii zapasowej lub debugowania albo przesłać wyspecjalizowany wirtualny dysk twardy z systemem Linux z lokalnej maszyny wirtualnej, zobacz temat [przekazywanie i Tworzenie maszyny wirtualnej z systemem Linux z niestandardowego obrazu dysku](upload-vhd.md).  
 
-Możesz użyć usługi **Azure VM Image Builder (publiczna wersja zapoznawcza)** , aby utworzyć niestandardowy obraz, nie trzeba uczyć się żadnych narzędzi ani skonfigurować potoków kompilacji, po prostu dostarczając konfigurację obrazu, a Konstruktor obrazów utworzy obraz. Aby uzyskać więcej informacji, zobacz [wprowadzenie z konstruktorem obrazów maszyn wirtualnych platformy Azure](./image-builder-overview.md).
+Możesz użyć usługi **Azure VM Image Builder (publiczna wersja zapoznawcza)** , aby utworzyć niestandardowy obraz, nie trzeba uczyć się żadnych narzędzi ani skonfigurować potoków kompilacji, po prostu dostarczając konfigurację obrazu, a Konstruktor obrazów utworzy obraz. Aby uzyskać więcej informacji, zobacz [wprowadzenie z konstruktorem obrazów maszyn wirtualnych platformy Azure](../image-builder-overview.md).
 
 Przed utworzeniem obrazu potrzebne są następujące elementy:
 

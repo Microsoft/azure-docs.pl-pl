@@ -3,12 +3,12 @@ title: Opublikuj zdarzenie w temacie Azure Event Grid niestandardowego
 description: W tym artykule opisano sposób publikowania zdarzenia w temacie niestandardowym. Pokazuje format danych post i zdarzenia.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 197d8eb1963300bc6576e664c7c3fd470cf70bb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed126487938e524264c94544903460854ffc4d41
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86108264"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681621"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Opublikuj w temacie niestandardowym dla Azure Event Grid
 
@@ -34,7 +34,7 @@ Aby uzyskać punkt końcowy dla niestandardowego tematu z Azure PowerShell, uży
 (Get-AzEventGridTopic -ResourceGroupName <topic-resource-group> -Name <topic-name>).Endpoint
 ```
 
-## <a name="header"></a>Header
+## <a name="header"></a>Nagłówek
 
 W żądaniu Dołącz wartość nagłówka o nazwie `aeg-sas-key` , która zawiera klucz do uwierzytelniania.
 
@@ -71,10 +71,7 @@ W przypadku niestandardowych tematów dane najwyższego poziomu zawierają te sa
 ]
 ```
 
-Aby uzyskać opis tych właściwości, zobacz [Azure Event Grid schemacie zdarzeń](event-schema.md). Podczas ogłaszania zdarzeń w temacie Event Grid tablica może mieć łączny rozmiar do 1 MB. Każde zdarzenie w tablicy jest ograniczone do 64 KB (ogólna dostępność) lub 1 MB (wersja zapoznawcza).
-
-> [!NOTE]
-> Zdarzenie o rozmiarze do 64 KB jest objęte ogólnym dostępnością Umowa dotycząca poziomu usług (SLA). Obsługa zdarzeń o rozmiarze do 1 MB jest obecnie dostępna w wersji zapoznawczej. Zdarzenia powyżej 64 KB są naliczone w przyrostach 64 KB. 
+Aby uzyskać opis tych właściwości, zobacz [Azure Event Grid schemacie zdarzeń](event-schema.md). Podczas ogłaszania zdarzeń w temacie Event Grid tablica może mieć łączny rozmiar do 1 MB. Maksymalny dozwolony rozmiar dla zdarzenia to również 1 MB. Zdarzenia powyżej 64 KB są naliczone w przyrostach 64 KB. 
 
 Na przykład prawidłowy schemat danych zdarzenia to:
 

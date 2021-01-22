@@ -4,12 +4,12 @@ description: Automatyzowanie niestandardowych raportów codziennych/cotygodniowy
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: d465666ce5d631a234644d1adc85afcf6e3c1e27
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: da465fbc899cb52fc48dbde830d3db4f3b58c68b
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010609"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680454"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatyzowanie niestandardowych raportów za pomocą usługi Azure Application Insights Data
 
@@ -33,7 +33,7 @@ Można [programowo wykonywać zapytania dotyczące Application Insights](https:/
 
 * [Automatyzowanie raportów za pomocą automatyzacji](../platform/logicapp-flow-connector.md)
 * [Automatyzowanie raportów za pomocą Logic Apps](automate-with-logic-apps.md)
-* Użyj szablonu [funkcji platformy Azure](../../azure-functions/functions-create-first-azure-function.md) "Application Insights zaplanowanego skrótu" w scenariuszu monitorowania. Ta funkcja używa SendGrid do dostarczania wiadomości e-mail. 
+* Użyj szablonu [funkcji platformy Azure](../../azure-functions/functions-get-started.md) "Application Insights zaplanowanego skrótu" w scenariuszu monitorowania. Ta funkcja używa SendGrid do dostarczania wiadomości e-mail. 
 
     ![Szablon funkcji platformy Azure](./media/automate-custom-reports/azure-function-template.png)
 
@@ -72,7 +72,7 @@ availabilityResults
 
 1. Utwórz aplikacja funkcji platformy Azure. _(Application Insights jest_ wymagane tylko wtedy, gdy chcesz monitorować nowy aplikacja funkcji z Application Insights)
 
-   Odwiedź dokumentację Azure Functions, aby dowiedzieć się, jak [utworzyć aplikację funkcji](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app)
+   Odwiedź dokumentację Azure Functions, aby dowiedzieć się, jak [utworzyć aplikację funkcji](../../azure-functions/functions-get-started.md)
 
 2. Po zakończeniu wdrażania nowego aplikacja funkcji wybierz pozycję **Przejdź do zasobu**.
 
@@ -91,7 +91,7 @@ availabilityResults
 
    ![Zrzut ekranu ustawień funkcji](./media/automate-custom-reports/scheduled-digest.png)
 
-6. Wybierz konfigurację **Function App**  >  **funkcji platformy** aplikacja funkcji  >  **Configuration**.
+6. Wybierz konfigurację   >  **funkcji platformy** aplikacja funkcji  >  .
 
     ![Zrzut ekranu ustawień aplikacji funkcji platformy Azure](./media/automate-custom-reports/config.png)
 
@@ -154,4 +154,3 @@ Te kroki mają zastosowanie tylko wtedy, gdy nie masz jeszcze skonfigurowanego k
 * Dowiedz się więcej na temat [programowo przeszukiwania danych Application Insights](https://dev.applicationinsights.io/)
 * Dowiedz się więcej na temat usługi [Logic Apps](../../logic-apps/logic-apps-overview.md).
 * Dowiedz się więcej o [programie Microsoft PowerShell](https://ms.flow.microsoft.com).
-

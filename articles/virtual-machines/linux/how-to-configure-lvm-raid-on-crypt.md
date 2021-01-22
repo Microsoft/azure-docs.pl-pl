@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 46d2c039806e4e6a72e091458d44e7b21b3dfa70
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 3f90d5a95d153405f9257258fba6ab9cc1ce9a35
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843523"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681306"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>Konfigurowanie LVM i RAID na zaszyfrowanych urządzeniach
 
@@ -42,7 +42,7 @@ Woluminy fizyczne (PVs) są tworzone w warstwie zaszyfrowanej. Woluminy fizyczne
 
 W podobny sposób urządzenie RAID jest tworzone na podstawie warstwy zaszyfrowanej na dyskach. System plików jest tworzony na urządzeniu RAID i dodawany do/etc/fstab jako zwykłe urządzenie.
 
-## <a name="considerations"></a>Kwestie do rozważenia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 
 Zalecamy użycie LVM-on-Crypt. RAID to opcja, gdy nie można użyć LVM z powodu określonych ograniczeń aplikacji lub środowiska.
 
@@ -77,7 +77,7 @@ New-AzVm -ResourceGroupName ${RGNAME} `
 ```
 Interfejs wiersza polecenia platformy Azure:
 
-```bash
+```azurecli
 az vm create \
 -n ${VMNAME} \
 -g ${RGNAME} \
@@ -105,7 +105,7 @@ Update-AzVM -VM ${VM} -ResourceGroupName ${RGNAME}
 
 Interfejs wiersza polecenia platformy Azure:
 
-```bash
+```azurecli
 az vm disk attach \
 -g ${RGNAME} \
 --vm-name ${VMNAME} \
@@ -125,7 +125,7 @@ $VM.StorageProfile.DataDisks | Select-Object Lun,Name,DiskSizeGB
 
 Interfejs wiersza polecenia platformy Azure:
 
-```bash
+```azurecli
 az vm show -g ${RGNAME} -n ${VMNAME} --query storageProfile.dataDisks -o table
 ```
 ![Lista dołączonych dysków w interfejsie wiersza polecenia platformy Azure](./media/disk-encryption/lvm-raid-on-crypt/002-lvm-raid-check-disks-cli.png)
@@ -207,7 +207,7 @@ Set-AzVMDiskEncryptionExtension -ResourceGroupName $RGNAME `
 
 Interfejs wiersza polecenia platformy Azure korzystający z KEK:
 
-```bash
+```azurecli
 az vm encryption enable \
 --resource-group ${RGNAME} \
 --name ${VMNAME} \
@@ -231,7 +231,7 @@ Get-AzVmDiskEncryptionStatus -ResourceGroupName ${RGNAME} -VMName ${VMNAME}
 
 Interfejs wiersza polecenia platformy Azure:
 
-```bash
+```azurecli
 az vm encryption show -n ${VMNAME} -g ${RGNAME} -o table
 ```
 ![Stan szyfrowania w interfejsie wiersza polecenia platformy Azure](./media/disk-encryption/lvm-raid-on-crypt/009-lvm-raid-verify-encryption-status-cli.png)

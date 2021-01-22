@@ -13,12 +13,12 @@ ms.date: 9/18/2019
 ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
-ms.openlocfilehash: a8c7ae8de41a01cb07a4bbbcd5943fb6290eced8
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: f87f2e79bd9439fddb52fad82c7ab4712fc68fb9
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131648"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680369"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Korzystanie z MSAL dla systemu Android z B2C
 
@@ -36,7 +36,7 @@ Dana aplikacja B2C, która ma dwie zasady:
 
 Plik konfiguracyjny aplikacji deklaruje dwa `authorities` . Jeden dla każdej zasady. `type`Właściwość każdego urzędu ma wartość `B2C` .
 
->Uwaga: wartość `account_mode` musi być ustawiona na **wielokrotność** dla aplikacji B2C. Aby uzyskać więcej informacji na temat [publicznych aplikacji klienckich na wielu kontach](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account#multiple-account-public-client-application), zapoznaj się z dokumentacją.
+>Uwaga: wartość `account_mode` musi być ustawiona na **wielokrotność** dla aplikacji B2C. Aby uzyskać więcej informacji na temat [publicznych aplikacji klienckich na wielu kontach](./single-multi-account.md#multiple-account-public-client-application), zapoznaj się z dokumentacją.
 
 ### `app/src/main/res/raw/msal_config.json`
 ```json
@@ -142,7 +142,7 @@ pca.acquireTokenSilentAsync(parameters);
 
 ## <a name="specify-a-policy"></a>Określanie zasad
 
-Ponieważ zasady w B2C są reprezentowane jako osobne urzędy, wywoływanie zasad innych niż domyślne jest realizowane przez określenie `fromAuthority` klauzuli podczas konstruowania `acquireToken` lub `acquireTokenSilent` parametrów.  Na przykład:
+Ponieważ zasady w B2C są reprezentowane jako osobne urzędy, wywoływanie zasad innych niż domyślne jest realizowane przez określenie `fromAuthority` klauzuli podczas konstruowania `acquireToken` lub `acquireTokenSilent` parametrów.  Przykład:
 
 ```java
 AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()

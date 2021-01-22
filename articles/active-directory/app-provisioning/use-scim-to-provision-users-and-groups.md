@@ -12,12 +12,12 @@ ms.date: 01/12/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 646c47920d87fe1d11bc991838ba767b8569a6c9
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 63bd44140ea5c355c3bb1a891a21e6c2e73ab041
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246761"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679504"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Samouczek — Tworzenie punktu końcowego Standard scim i Konfigurowanie aprowizacji użytkowników przy użyciu usługi Azure AD
 
@@ -56,7 +56,7 @@ Każda aplikacja wymaga innych atrybutów do utworzenia użytkownika lub grupy. 
 |loginName|userName|userPrincipalName|
 |firstName|name.givenName|givenName|
 |lastName|Nazwa. lastName|lastName|
-|workMail|Wiadomości e-mail [Type EQ "Work"]. Value|Mail|
+|workMail|wiadomości e-mail [Type EQ "Work"]. Value|Mail|
 |manager|manager|manager|
 |tag|urn: IETF: params: Standard scim: schematy: rozszerzenie: 2.0: CustomExtension: tag|extensionAttribute1|
 |status|aktywne|isSoftDeleted (obliczona wartość nie jest przechowywana na użytkowniku)|

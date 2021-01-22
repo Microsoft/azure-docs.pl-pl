@@ -11,12 +11,12 @@ ms.date: 05/15/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 067551d198f717dd40995cb8bc3e1345e82f078f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 38fb842cf90c110266f53b79a9ab2ef6157025b4
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461907"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681289"
 ---
 # <a name="configure-workload-importance-in-dedicated-sql-pool-for-azure-synapse-analytics"></a>Skonfiguruj ważność obciążenia w dedykowanej puli SQL dla usługi Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ Ustawienie znaczenia w dedykowanej puli SQL dla usługi Azure Synapse umożliwia
 
 ## <a name="create-a-workload-classifier-with-importance"></a>Tworzenie klasyfikatora obciążeń o ważności
 
-Często w scenariuszu hurtowni danych masz użytkowników, którzy korzystają z systemu, który musi szybko uruchamiać swoje zapytania.  Użytkownik może być dyrektorem firmy, którzy muszą uruchamiać raporty lub użytkownik może być analitykiem, na którym działa zapytanie ad hoc. Aby przypisać ważność, należy utworzyć klasyfikator obciążeń i znaczenie jest przypisane do zapytania.  W poniższych przykładach użyto składni  [klasyfikatora tworzenia obciążenia](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) , aby utworzyć dwa klasyfikatory. `Membername` może być pojedynczym użytkownikiem lub grupą.  Aby znaleźć istniejących dedykowanych użytkowników puli SQL, uruchom polecenie:
+Często w scenariuszu hurtowni danych masz użytkowników, którzy korzystają z systemu, który musi szybko uruchamiać swoje zapytania.  Użytkownik może być dyrektorem firmy, którzy muszą uruchamiać raporty lub użytkownik może być analitykiem, na którym działa zapytanie ad hoc. Aby przypisać ważność, należy utworzyć klasyfikator obciążeń i znaczenie jest przypisane do zapytania.  W poniższych przykładach użyto składni  [klasyfikatora tworzenia obciążenia](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) , aby utworzyć dwa klasyfikatory. `Membername` może być pojedynczym użytkownikiem lub grupą.  Aby znaleźć istniejących dedykowanych użytkowników puli SQL, uruchom polecenie:
 
 ```sql
 Select name from sys.sysusers

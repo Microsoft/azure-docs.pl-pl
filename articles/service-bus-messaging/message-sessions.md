@@ -2,13 +2,13 @@
 title: Sesje komunikatów Azure Service Bus | Microsoft Docs
 description: W tym artykule wyjaśniono, jak używać sesji, aby umożliwić wspólną i uporządkowaną obsługę niepowiązanych sekwencji powiązanych komunikatów.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 05efc550e119186a2925c13d3fcfed11bec17251
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/20/2021
+ms.openlocfilehash: 6d316571d69d2e1e73ddca4ccca53c116ee8fa5f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511300"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680757"
 ---
 # <a name="message-sessions"></a>Sesje komunikatów
 Sesje Microsoft Azure Service Bus umożliwiają wspólną i uporządkowaną obsługę niepowiązanych sekwencji powiązanych komunikatów. Sesji można używać w wzorcach **First In, First Out (FIFO)** i **Request-Response** . W tym artykule pokazano, jak za pomocą sesji zaimplementować te wzorce przy użyciu Service Bus. 
@@ -25,7 +25,7 @@ W przypadku kolejek lub subskrypcji z obsługą sesji sesje są dostępne, gdy i
 
 Zwykle jednak aplikacja ma jasne koncepcje, w której zestaw powiązanych komunikatów zaczyna się i kończy. Service Bus nie ustawi żadnych określonych reguł.
 
-Przykładem sposobu odróżnić sekwencji transferu pliku jest ustawienie właściwości **etykieta** pierwszego komunikatu do **uruchomienia** **, w**przypadku komunikatów pośrednich i dla ostatniego komunikatu do **końca**. Względne położenie komunikatów zawartości można obliczyć jako bieżące *SequenceNumber* różnice **między komunikatami** z *SequenceNumber*.
+Przykładem sposobu odróżnić sekwencji transferu pliku jest ustawienie właściwości **etykieta** pierwszego komunikatu do **uruchomienia** **, w** przypadku komunikatów pośrednich i dla ostatniego komunikatu do **końca**. Względne położenie komunikatów zawartości można obliczyć jako bieżące *SequenceNumber* różnice **między komunikatami** z *SequenceNumber*.
 
 Funkcja sesji w Service Bus włącza określoną operację odbierania w postaci [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) w interfejsach API języka C# i języka Java. Aby włączyć tę funkcję, należy ustawić właściwość [requiresSession](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) w kolejce lub subskrypcji za pośrednictwem Azure Resource Manager lub ustawić flagę w portalu. Jest to wymagane przed podjęciem próby użycia pokrewnych operacji interfejsu API.
 
@@ -34,9 +34,9 @@ W portalu Ustaw flagę przy użyciu następującego pola wyboru:
 ![Zrzut ekranu przedstawiający okno dialogowe Tworzenie kolejki z wybraną opcją Włącz sesje i wyróżnioną kolorem czerwonym.][2]
 
 > [!NOTE]
-> Po włączeniu sesji dla kolejki lub subskrypcji aplikacje klienckie ***nie mogą już*** wysyłać/odbierać zwykłych komunikatów. Wszystkie komunikaty muszą być wysyłane w ramach sesji (przez ustawienie identyfikatora sesji) i odebrane przez odebranie sesji.
+> Gdy sesje są włączane w ramach kolejki lub subskrypcji, aplikacje klienckie mogą ***nie być dłuższe** niż wysyłanie i odbieranie zwykłych komunikatów. Wszystkie komunikaty muszą być wysyłane w ramach sesji (przez ustawienie identyfikatora sesji) i odebrane przez odebranie sesji.
 
-Interfejsy API dla sesji znajdują się na klientach w kolejkach i subskrypcjach. Istnieje model, który kontroluje czas odbierania sesji i komunikatów oraz model oparty na programie obsługi, podobny do *OnMessage*, który ukrywa złożoność zarządzania pętlą odbierania.
+Interfejsy API dla sesji znajdują się na klientach w kolejkach i subskrypcjach. Istnieje model, który kontroluje czas odbierania sesji i komunikatów oraz model oparty na programie obsługi, podobny do _OnMessage *, który ukrywa złożoność zarządzania pętlą odbierania.
 
 ### <a name="session-features"></a>Funkcje sesji
 

@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: b033fd9c0a7f752cf08d6e679facc9fa27b44037
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: d8c680ec30dcecc56c064f08e4690cbbde9c2377
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120210"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679917"
 ---
 # <a name="backup-and-restore-in-azure-synapse-dedicated-sql-pool"></a>Tworzenie kopii zapasowych i przywracanie danych w dedykowanej puli SQL Synapse platformy Azure
 
@@ -88,7 +88,7 @@ Aby uzyskać więcej informacji o cenach usługi Azure Synapse, zobacz [Cennik u
 
 Każda migawka tworzy punkt przywracania, który reprezentuje czas rozpoczęcia migawki. Aby przywrócić magazyn danych, należy wybrać punkt przywracania i wydać polecenie przywracania.  
 
-Możesz zachować przywrócony magazyn danych i bieżący lub usunąć jeden z nich. Jeśli chcesz zamienić bieżący magazyn danych na przywrócony magazyn danych, możesz zmienić jego nazwę za pomocą [polecenia ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) z opcją Modify Name.
+Możesz zachować przywrócony magazyn danych i bieżący lub usunąć jeden z nich. Jeśli chcesz zamienić bieżący magazyn danych na przywrócony magazyn danych, możesz zmienić jego nazwę za pomocą [polecenia ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) z opcją Modify Name.
 
 Aby przywrócić magazyn danych, zobacz [przywracanie dedykowanej puli SQL](sql-data-warehouse-restore-points.md#create-user-defined-restore-points-through-the-azure-portal).
 

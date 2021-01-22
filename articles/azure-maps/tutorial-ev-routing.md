@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 7a33cf4e66ce31f8fb8534de25d7564a5784ca3a
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 7341d1f07e8814edcad7b84f6b3b46c7bece3159
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625052"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680335"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Samouczek: kierowanie pojazdów elektrycznych przy użyciu Azure Notebooks (Python)
 
@@ -27,7 +27,7 @@ W tym samouczku poznasz sterownik, którego bateria elektryczności jest niska. 
 W tym samouczku wykonasz następujące czynności:
 
 > [!div class="checklist"]
-> * Utwórz i uruchom Jupyter Notebook plik na [Azure Notebooks](../notebooks/index.yml) w chmurze.
+> * Utwórz i uruchom Jupyter Notebook plik na [Azure Notebooks](https://notebooks.azure.com) w chmurze.
 > * Wywołaj interfejsy API REST Azure Maps w języku Python.
 > * Wyszukaj osiągalny zakres oparty na modelu zużycia pojazdu elektrycznego.
 > * Wyszukaj stacje opłat za pojazdy elektryczne w dostępnym zakresie lub isochrone.
@@ -49,7 +49,7 @@ Aby uzyskać więcej informacji na temat uwierzytelniania w Azure Maps, zobacz [
 
 Aby wykonać czynności opisane w tym samouczku, należy utworzyć projekt Azure Notebooks i pobrać i uruchomić plik Jupyter Notebook. Plik Jupyter Notebook zawiera kod języka Python, który implementuje scenariusz w tym samouczku. Aby utworzyć projekt Azure Notebooks i przekazać do niego dokument Jupyter Notebook, wykonaj następujące czynności:
 
-1. Przejdź do [Azure Notebooks](https://notebooks.azure.com) i zaloguj się. Aby uzyskać więcej informacji, zobacz [Szybki Start: Logowanie i Ustawianie identyfikatora użytkownika](../notebooks/quickstart-sign-in-azure-notebooks.md).
+1. Przejdź do [Azure Notebooks](https://notebooks.azure.com) i zaloguj się. Aby uzyskać więcej informacji, zobacz [Szybki Start: Logowanie i Ustawianie identyfikatora użytkownika](https://notebooks.azure.com).
 1. W górnej części strony profilu publicznego wybierz pozycję **Moje projekty**.
 
     ![Przycisk moje projekty](./media/tutorial-ev-routing/myproject.png)
@@ -408,4 +408,4 @@ Brak zasobów, które wymagają oczyszczenia.
 Aby dowiedzieć się więcej na temat Azure Notebooks, zobacz
 
 > [!div class="nextstepaction"]
-> [Azure Notebooks](../notebooks/index.yml)
+> [Azure Notebooks](https://notebooks.azure.com)

@@ -1,15 +1,15 @@
 ---
 title: Szczegóły zgodności z przepisami dla NIST SP 800-53 R4
 description: Szczegóły dotyczące wbudowanej inicjatywy NIST SP 800-53 R4 z regulacją zgodności. Każda kontrolka jest zamapowana na co najmniej jedną definicję Azure Policy, która pomaga w ocenie.
-ms.date: 01/08/2021
+ms.date: 01/21/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 7e74acf11316cb736651241388b8c975d790799a
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 14e5e6918557f11cf2e3058c75087a646c2916ff
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98047862"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682125"
 ---
 # <a name="details-of-the-nist-sp-800-53-r4-regulatory-compliance-built-in-initiative"></a>Szczegóły procedury wbudowanej zgodności z przepisami NIST SP 800-53 R4
 

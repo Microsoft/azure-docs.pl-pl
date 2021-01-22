@@ -4,12 +4,12 @@ description: Monitoruj swoją aplikację sieci Web w czasie rzeczywistym za pomo
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: c50f7e57c520321d752d6d46e36c45c615b5e785
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 865de94f1d9b4012a908643bbf87f38aeb8594a0
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803582"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679470"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: monitorowanie & diagnozowanie przy użyciu 1-sekundowego opóźnienia
 
@@ -36,7 +36,7 @@ Metryki na żywo są obecnie obsługiwane w aplikacjach ASP.NET, ASP.NET Core, A
    * Metryki na żywo [ASP.NET Core](./asp-net-core.md)są domyślnie włączone.
    * Metryki dla [konsoli/procesu roboczego platformy .NET Core](./worker-service.md)są domyślnie włączone.
    * [Aplikacje .NET — Włączanie przy użyciu kodu](#enable-livemetrics-using-code-for-any-net-application).
-    * Funkcja [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) -Live Metrics jest domyślnie włączona.
+    * Funkcja [Java](./java-in-process-agent.md) -Live Metrics jest domyślnie włączona.
    * [Node.js](./nodejs.md#live-metrics)
 
 2. W [Azure Portal](https://portal.azure.com)otwórz zasób Application Insights dla aplikacji, a następnie otwórz Live Stream.

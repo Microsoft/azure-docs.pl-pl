@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: srrengar
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: eda0b62729343b0a138d027548d8750b1e0fc74f
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 63c79169646f05cddc7c605c764398bdef7492d4
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844407"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682075"
 ---
 # <a name="monitoring-and-diagnostics"></a>Monitorowanie i diagnostyka
 Usługa Azure Service Fabric Mesh to w pełni zarządzana usługa, która pozwala deweloperom na wdrażanie aplikacji mikrousług bez zarządzania maszynami wirtualnymi, magazynem i siecią. Monitorowanie i Diagnostyka dla Service Fabric siatki jest podzielone na trzy główne typy danych diagnostycznych:
@@ -26,7 +26,7 @@ W tym artykule omówiono opcje monitorowania i diagnostyki dostępne w najnowsze
 
 Możesz wyświetlić dzienniki platformy Docker ze wdrożonych kontenerów na podstawie każdego kontenera. W modelu aplikacji Service Fabric siatki każdy kontener jest pakietem kodu w aplikacji. Aby wyświetlić skojarzone dzienniki z pakietem kodu, użyj następującego polecenia:
 
-```cli
+```azurecli
 az mesh code-package-log get --resource-group <nameOfRG> --app-name <nameOfApp> --service-name <nameOfService> --replica-name <nameOfReplica> --code-package-name <nameOfCodePackage>
 ```
 
@@ -35,7 +35,7 @@ az mesh code-package-log get --resource-group <nameOfRG> --app-name <nameOfApp> 
 
 Oto, co jest podobne do wyświetlania dzienników z kontenera VotingWeb. Code z aplikacji do głosowania:
 
-```cli
+```azurecli
 az mesh code-package-log get --resource-group <nameOfRG> --application-name SbzVoting --service-name VotingWeb --replica-name 0 --code-package-name VotingWeb.Code
 ```
 
@@ -74,7 +74,7 @@ Każdy wymiar odpowiada różnym składnikom [modelu aplikacji Service Fabric](s
 
 ### <a name="azure-monitor-cli"></a>Interfejs wiersza polecenia Azure Monitor
 
-Pełna lista poleceń jest dostępna w dokumentacji [interfejsu wiersza polecenia Azure monitor](/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list) , ale zawarto kilka przydatnych przykładów poniżej 
+Pełna lista poleceń jest dostępna w dokumentacji [interfejsu wiersza polecenia Azure monitor](/cli/azure/monitor/metrics#az-monitor-metrics-list) , ale zawarto kilka przydatnych przykładów poniżej 
 
 W każdym przykładzie identyfikator zasobu jest zgodny z tym wzorcem
 
@@ -83,21 +83,21 @@ W każdym przykładzie identyfikator zasobu jest zgodny z tym wzorcem
 
 * Użycie procesora CPU przez kontenery w aplikacji
 
-```cli
+```azurecli
     az monitor metrics list --resource <resourceId> --metric "CpuUtilization"
 ```
 * Użycie pamięci dla każdej repliki usługi
-```cli
+```azurecli
     az monitor metrics list --resource <resourceId> --metric "MemoryUtilization" --dimension "ServiceReplicaName"
 ``` 
 
 * Ponowne uruchamianie dla każdego kontenera w oknie 1 godziny 
-```cli
+```azurecli
     az monitor metrics list --resource <resourceId> --metric "RestartCount" --start-time 2019-02-01T00:00:00Z --end-time 2019-02-01T01:00:00Z
 ``` 
 
 * Średnie użycie procesora CPU przez usługi o nazwie "VotingWeb" w oknie 1 godziny
-```cli
+```azurecli
     az monitor metrics list --resource <resourceId> --metric "CpuUtilization" --start-time 2019-02-01T00:00:00Z --end-time 2019-02-01T01:00:00Z --aggregation "Average" --filter "ServiceName eq 'VotingWeb'"
 ``` 
 
@@ -118,4 +118,4 @@ In addition to the metrics explorer, we also have a dashboard available out of t
 
 ## <a name="next-steps"></a>Następne kroki
 * Aby dowiedzieć się więcej na temat usługi Service Fabric Mesh, przeczytaj [omówienie usługi Service Fabric Mesh](service-fabric-mesh-overview.md).
-* Aby dowiedzieć się więcej na temat poleceń metryk Azure Monitor, zapoznaj się z dokumentacją [interfejsu wiersza polecenia Azure monitor](/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list).
+* Aby dowiedzieć się więcej na temat poleceń metryk Azure Monitor, zapoznaj się z dokumentacją [interfejsu wiersza polecenia Azure monitor](/cli/azure/monitor/metrics#az-monitor-metrics-list).

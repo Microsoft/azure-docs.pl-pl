@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: allensu
-ms.openlocfilehash: a1d94166c6c56a3652dc0ad532bd481c6e792c52
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 0b5e8f28be9960a2bb4e1406a293ab5e03962681
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98217094"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680573"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Przypisywanie wielu adresów IP do maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -38,7 +38,7 @@ Poniższe kroki wyjaśniają, jak utworzyć przykładową maszynę wirtualną z 
 3. W powłoce poleceń Zaloguj się przy użyciu polecenia `az login` i wybierz subskrypcję, której używasz.
 4. Utwórz maszynę wirtualną, wykonując skrypt następujący na komputerze z systemem Linux lub Mac. Skrypt tworzy grupę zasobów, jedną sieć wirtualną (VNet), jedną kartę sieciową z trzema konfiguracjami adresów IP oraz maszynę wirtualną z dołączonymi dwiema kartami sieciowymi. Wszystkie zasoby karty sieciowej, publicznego adresu IP, sieci wirtualnej i maszyny wirtualnej muszą znajdować się w tej samej lokalizacji i subskrypcji. Mimo że zasoby nie muszą znajdować się w tej samej grupie zasobów, w poniższym skrypcie.
 
-```bash
+```azurecli
     
 #!/bin/sh
     

@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: ce854c8f2d1d317c3660aaab9c0a6569aae0bb36
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 4d6401c53071235784a5371a4a6315e4e25a438f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97895975"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680268"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>Samouczek: Logowanie użytkowników i wywoływanie chronionego interfejsu API z aplikacji Blazor webassembly
 
@@ -26,7 +26,7 @@ W tym samouczku:
 > * Utwórz nową aplikację Blazor webassembly skonfigurowaną do korzystania z Azure Active Directory (Azure AD) na potrzeby [uwierzytelniania i autoryzacji](authentication-vs-authorization.md) przy użyciu platformy tożsamości firmy Microsoft
 > * Pobieranie danych z chronionego internetowego interfejsu API, w tym przypadku [Microsoft Graph](/graph/overview)
 
-Ten samouczek używa programu .NET Core 3,1. Dokumentacja platformy .NET zawiera instrukcje dotyczące [zabezpieczania aplikacji Blazor webassembly](https://docs.microsoft.com/aspnet/core/blazor/security/webassembly/graph-api) przy użyciu ASP.NET Core 5,0. 
+Ten samouczek używa programu .NET Core 3,1. Dokumentacja platformy .NET zawiera instrukcje dotyczące [zabezpieczania aplikacji Blazor webassembly](/aspnet/core/blazor/security/webassembly/graph-api) przy użyciu ASP.NET Core 5,0. 
 
 Mamy również [Samouczek dotyczący serwera Blazor](tutorial-blazor-server.md). 
 
@@ -80,7 +80,7 @@ Składniki tego szablonu, które umożliwiają logowanie za pomocą usługi Azur
 
 [Microsoft Graph](/graph/overview) zawiera interfejsy API zapewniające dostęp do Microsoft 365 danych dla użytkowników i obsługuje tokeny wystawione przez platformę tożsamości firmy Microsoft, co sprawia, że jest to dobry chroniony interfejs API do użycia jako przykład. W tej sekcji dodasz kod do wywoływania Microsoft Graph i wyświetlania wiadomości e-mail użytkownika na stronie "pobieranie danych" aplikacji.
 
-Ta sekcja jest zapisywana przy użyciu typowego podejścia do wywoływania chronionego interfejsu API przy użyciu nazwanego klienta. Tej samej metody można użyć dla innych chronionych interfejsów API, które mają być wywoływane. Jeśli jednak planujesz wywołać Microsoft Graph z aplikacji, możesz użyć zestawu SDK programu Graph, aby zmniejszyć liczbę standardowych. Dokumentacja platformy .NET zawiera instrukcje dotyczące [korzystania z zestawu Graph SDK](https://docs.microsoft.com/aspnet/core/blazor/security/webassembly/graph-api?view=aspnetcore-5.0).
+Ta sekcja jest zapisywana przy użyciu typowego podejścia do wywoływania chronionego interfejsu API przy użyciu nazwanego klienta. Tej samej metody można użyć dla innych chronionych interfejsów API, które mają być wywoływane. Jeśli jednak planujesz wywołać Microsoft Graph z aplikacji, możesz użyć zestawu SDK programu Graph, aby zmniejszyć liczbę standardowych. Dokumentacja platformy .NET zawiera instrukcje dotyczące [korzystania z zestawu Graph SDK](/aspnet/core/blazor/security/webassembly/graph-api?view=aspnetcore-5.0).
 
 Przed rozpoczęciem Wyloguj się z aplikacji, ponieważ będziesz wprowadzać zmiany w wymaganych uprawnieniach, a bieżący token nie będzie działać. Jeśli jeszcze tego nie zrobiono, uruchom ponownie aplikację i wybierz opcję **Wyloguj** się przed aktualizacją poniższego kodu.
 

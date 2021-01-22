@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 12/07/2020
-ms.openlocfilehash: 7122c960dc7921e833329d528f96f0efe0347bda
-ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
+ms.openlocfilehash: 00cd97ada1a458f13225961566a99aa79d724558
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97707473"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679984"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limits and configuration information for Azure Logic Apps (Limity i informacje o konfiguracji dla usługi Azure Logic Apps)
 
@@ -114,9 +114,9 @@ Poniżej przedstawiono limity dla pojedynczego uruchomienia aplikacji logiki:
 
 | Nazwa | Limit | Uwagi |
 | ---- | ----- | ----- |
-| Elementy tablicy foreach | 100 000 | Ten limit opisuje największą liczbę elementów tablicy, które może przetworzyć pętla for each. <p><p>Aby filtrować większe tablice, można użyć [akcji zapytania](logic-apps-perform-data-operations.md#filter-array-action). |
-| Współbieżność foreach | Z współbieżnością: 20 <p><p>Z współbieżnością: <p><p>-Domyślnie: 20 <br>-Min: 1 <br>-Max: 50 | Ten limit to największą liczbę iteracji pętli "for each", które mogą być uruchamiane w tym samym czasie lub równolegle. <p><p>Aby zmienić ten limit, zobacz [zmiana "dla każdego" ograniczenia współbieżności](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) lub [uruchomienie "dla każdego" pętli sekwencyjnie](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
-| Iteracje Until | -Wartość domyślna: 60 <br>-Min: 1 <br>-Max: 5 000 | Największa liczba cykli, jaką może mieć pętla "until" podczas uruchamiania aplikacji logiki. <p><p>Aby zmienić ten limit, w kształcie pętla "until" Wybierz pozycję **zmiany limity** i określ wartość właściwości **Count** . |
+| Elementy tablicy foreach | 100 000 | Ten limit określa maksymalną liczbę elementów tablicy, które może przetworzyć pętla for each. <p><p>Aby filtrować większe tablice, można użyć [akcji zapytania](logic-apps-perform-data-operations.md#filter-array-action). |
+| Współbieżność foreach | Z współbieżnością: 20 <p><p>Z współbieżnością: <p><p>-Domyślnie: 20 <br>-Min: 1 <br>-Max: 50 | Ten limit to maksymalna liczba iteracji pętli "for each", które mogą być uruchamiane w tym samym czasie lub równolegle. <p><p>Aby zmienić ten limit, zobacz [zmiana "dla każdego" ograniczenia współbieżności](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) lub [uruchomienie "dla każdego" pętli sekwencyjnie](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
+| Iteracje Until | -Wartość domyślna: 60 <br>-Min: 1 <br>-Max: 5 000 | Maksymalna liczba cykli, jaką może mieć pętla "until" podczas uruchamiania aplikacji logiki. <p><p>Aby zmienić ten limit, w kształcie pętla "until" Wybierz pozycję **zmiany limity** i określ wartość właściwości **Count** . |
 | Do czasu wygaśnięcia | -Wartość domyślna: PT1H (1 godzina) | Czas, przez który można uruchomić pętlę "until" przed wyjściem i jest określony w [formacie ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Wartość limitu czasu jest obliczana dla każdego cyklu pętli. Jeśli jakakolwiek akcja w pętli trwa dłużej niż limit czasu, bieżący cykl nie zostanie zatrzymany. Jednak następny cykl nie zostanie uruchomiony, ponieważ warunek limitu nie jest spełniony. <p><p>Aby zmienić ten limit, w kształcie pętla "until" Wybierz pozycję **zmiany limity** i określ wartość dla właściwości **limit czasu** . |
 ||||
 
@@ -124,8 +124,8 @@ Poniżej przedstawiono limity dla pojedynczego uruchomienia aplikacji logiki:
 
 | Nazwa | Limit | Uwagi |
 | ---- | ----- | ----- |
-| Współbieżność wyzwalacza | Z współbieżnością: nieograniczone <p><p>Z funkcją concurrency on, której nie można cofnąć po włączeniu: <p><p>-Wartość domyślna: 25 <br>-Min: 1 <br>-Max: 50 | Ten limit to największa liczba wystąpień aplikacji logiki, które mogą być uruchamiane w tym samym czasie lub równolegle. <p><p>**Uwaga**: po włączeniu współbieżności limit SplitOn zostaje zredukowany do 100 elementów na potrzeby tworzenia [wsadowych tablic](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Aby zmienić ten limit, zobacz kolejno pozycje [Zmień wyzwalacz współbieżności](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) lub [wystąpienia wyzwalacza](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
-| Maksymalna liczba oczekujących przebiegów | Z współbieżnością: <p><p>-Min: 1 <br>-Max: 50 <p><p>Z współbieżnością: <p><p>-Min: 10 plus liczba współbieżnych uruchomień (współbieżność wyzwalacza) <br>-Max: 100 | Ten limit to największa liczba wystąpień aplikacji logiki, które mogą oczekiwać na uruchomienie, gdy aplikacja logiki już korzysta z maksymalnej liczby równoczesnych wystąpień. <p><p>Aby zmienić ten limit, zobacz [Limit oczekujących uruchomień](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
+| Współbieżność wyzwalacza | Z współbieżnością: nieograniczone <p><p>Z funkcją concurrency on, której nie można cofnąć po włączeniu: <p><p>-Wartość domyślna: 25 <br>-Min: 1 <br>-Max: 50 | Ten limit to maksymalna liczba wystąpień aplikacji logiki, które mogą być uruchamiane w tym samym czasie lub równolegle. <p><p>**Uwaga**: po włączeniu współbieżności limit SplitOn zostaje zredukowany do 100 elementów na potrzeby tworzenia [wsadowych tablic](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Aby zmienić ten limit, zobacz kolejno pozycje [Zmień wyzwalacz współbieżności](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) lub [wystąpienia wyzwalacza](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
+| Maksymalna liczba oczekujących przebiegów | Z współbieżnością: <p><p>-Min: 1 <br>-Max: 50 <p><p>Z współbieżnością: <p><p>-Min: 10 plus liczba współbieżnych uruchomień (współbieżność wyzwalacza) <br>-Max: 100 | Ten limit to maksymalna liczba wystąpień aplikacji logiki, które mogą czekać na uruchomienie, gdy w aplikacji logiki jest już uruchomiona Maksymalna liczba równoczesnych wystąpień. <p><p>Aby zmienić ten limit, zobacz [Limit oczekujących uruchomień](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
 | Elementy SplitOn | Z współbieżnością: 100 000 <p><p>Z współbieżnością: 100 | Dla wyzwalaczy, które zwracają tablicę, można określić wyrażenie używające właściwości "SplitOn", które [dzieli lub departia elementy tablicy w wielu wystąpieniach przepływu pracy](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) do przetworzenia, zamiast używać pętli "foreach". To wyrażenie odwołuje się do tablicy, która ma zostać użyta do utworzenia i uruchomienia wystąpienia przepływu pracy dla każdego elementu tablicy. <p><p>**Uwaga**: po włączeniu współbieżności limit SplitOn zostanie zmniejszony do 100 elementów. |
 ||||
 
@@ -310,7 +310,7 @@ Dla każdej subskrypcji platformy Azure obowiązują następujące limity kont i
   | JEDNOSTKA SKU ISE | Limity konta integracji |
   |---------|----------------------------|
   | **Premium** | 20 łącznych kont, w tym jednego konta standardowego bez dodatkowych kosztów. W przypadku tej jednostki SKU można korzystać tylko z kont [standardowych](../logic-apps/logic-apps-pricing.md#integration-accounts) . Nie są dozwolone żadne konta bezpłatne ani podstawowe. |
-  | **Developer** | 20 łącznych kont, w tym jednego [bezpłatnego](../logic-apps/logic-apps-pricing.md#integration-accounts) konta (ograniczone do 1). Za pomocą tej jednostki SKU można mieć dowolną kombinację: <p>— Bezpłatne konto i maksymalnie 19 [standardowe](../logic-apps/logic-apps-pricing.md#integration-accounts) konta. <br>— Brak bezpłatnego konta i maksymalnie 20 kont w warstwie Standardowa. <p>Nie są dozwolone żadne podstawowe lub dodatkowe bezpłatne konta. <p><p>**Ważne**: Użyj [jednostki SKU dla deweloperów](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) na potrzeby eksperymentowania, programowania i testowania, ale nie na potrzeby testowania produkcji lub wydajności. |
+  | **Deweloper** | 20 łącznych kont, w tym jednego [bezpłatnego](../logic-apps/logic-apps-pricing.md#integration-accounts) konta (ograniczone do 1). Za pomocą tej jednostki SKU można mieć dowolną kombinację: <p>— Bezpłatne konto i maksymalnie 19 [standardowe](../logic-apps/logic-apps-pricing.md#integration-accounts) konta. <br>— Brak bezpłatnego konta i maksymalnie 20 kont w warstwie Standardowa. <p>Nie są dozwolone żadne podstawowe lub dodatkowe bezpłatne konta. <p><p>**Ważne**: Użyj [jednostki SKU dla deweloperów](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) na potrzeby eksperymentowania, programowania i testowania, ale nie na potrzeby testowania produkcji lub wydajności. |
   |||
 
 Aby dowiedzieć się, jak korzystać z cen i rozliczeń dla usługi ISEs, zobacz [model cen Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Stawki cenowe znajdują się w temacie [Logic Apps cenniku](https://azure.microsoft.com/pricing/details/logic-apps/).
@@ -324,7 +324,7 @@ Poniżej przedstawiono limity liczby artefaktów dla każdej warstwy konta integ
 > [!NOTE]
 > Korzystaj z warstwy Bezpłatna tylko w scenariuszach poznawczych, a nie w scenariuszach produkcyjnych. Ta warstwa ogranicza przepływność i użycie oraz nie ma umowy dotyczącej poziomu usług (SLA).
 
-| Artefakt | Bezpłatna | Podstawowy | Standardowa (Standard) |
+| Artefakt | Bezpłatna | Podstawowa | Standardowa (Standard) |
 |----------|------|-------|----------|
 | Umowy handlowe EDI | 10 | 1 | 1000 |
 | Partnerzy handlowi EDI | 25 | 2 | 1000 |
@@ -350,7 +350,7 @@ Poniżej przedstawiono limity liczby artefaktów dla każdej warstwy konta integ
 
 ### <a name="throughput-limits"></a>Limity przepływności
 
-| Punkt końcowy środowiska uruchomieniowego | Bezpłatna | Podstawowy | Standardowa (Standard) | Uwagi |
+| Punkt końcowy środowiska uruchomieniowego | Bezpłatna | Podstawowa | Standardowa (Standard) | Uwagi |
 |------------------|------|-------|----------|-------|
 | Wywołania odczytu na 5 minut | 3000 | 30 000 | 60 000 | Ten limit dotyczy wywołań, które pobierają nieprzetworzone dane wejściowe i wyjściowe z historii uruchamiania aplikacji logiki. W razie potrzeby można rozesłać obciążenie do więcej niż jednego konta. |
 | Wywołania wywołań na 5 minut | 3000 | 30 000 | 45 000 | W razie potrzeby można rozesłać obciążenie do więcej niż jednego konta. |

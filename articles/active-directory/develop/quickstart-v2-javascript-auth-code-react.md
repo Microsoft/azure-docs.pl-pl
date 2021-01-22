@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/14/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 4e1addc9a5b07f9ae6f119b89b0e7d6f8186f29a
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 58e8fd5006e72465e35912a5b15cade1201d680f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98634464"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680319"
 ---
 # <a name="quickstart-sign-in-and-get-an-access-token-in-a-react-spa-using-the-auth-code-flow"></a>Szybki Start: Logowanie i uzyskiwanie tokenu dostępu w reakcji SPA przy użyciu przepływu kodu uwierzytelniania
 
@@ -66,6 +66,15 @@ Ten przewodnik Szybki Start używa reakcji MSAL z przepływem kodu autoryzacji. 
 > 1. Kliknij przycisk **Konfiguruj** , aby zastosować zmiany.
 > 1. W obszarze **konfiguracje platformy** rozwiń **aplikację jednostronicową**.
 > 1. Upewnij się, że w obszarze **przyznane typy** ![ już skonfigurowano ](media/quickstart-v2-javascript/green-check.png) Identyfikator URI przekierowania jest uprawniony do przepływu kodu autoryzacji z PKCE.
+
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Krok 1. Konfigurowanie aplikacji w witrynie Azure Portal
+> Aby próbkować kod w tym przewodniku Szybki Start, musisz dodać `redirectUri` jako `http://localhost:3000/` .
+> > [!div renderon="portal" id="makechanges" class="nextstepaction"]
+> > [Wprowadź zmiany automatycznie]()
+>
+> > [!div id="appconfigured" class="alert alert-info"]
+> > ![Już skonfigurowano](media/quickstart-v2-javascript/green-check.png) Twoja aplikacja została skonfigurowana za pomocą tych atrybutów.
 
 #### <a name="step-2-download-the-project"></a>Krok 2. Pobieranie projektu
 

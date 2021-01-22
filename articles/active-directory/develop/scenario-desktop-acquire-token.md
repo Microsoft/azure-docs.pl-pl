@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: e15dce586dc4dd43cf56fd1cbb08b84ebcda1787
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 040f9fa67617b058138926310706f4bc56c4ff62
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232305"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680977"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplikacja klasyczna, która wywołuje interfejsy API sieci Web: uzyskiwanie tokenu
 
@@ -1181,7 +1181,7 @@ Dostosowanie serializacji pamięci podręcznej tokenów w celu udostępnienia st
 
 ### <a name="simple-token-cache-serialization-msal-only"></a>Serializacja prostej pamięci podręcznej tokenów (tylko MSAL)
 
-Poniższy przykład to algorytmie implementacja niestandardowej serializacji pamięci podręcznej tokenów dla aplikacji klasycznych. W tym miejscu pamięć podręczna tokenów użytkownika znajduje się w pliku w tym samym folderze, w którym znajduje się aplikacja, lub w folderze na użytkownika dla aplikacji w przypadku, gdy aplikacja jest [spakowaną aplikacją klasyczną](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-behind-the-scenes). Aby uzyskać pełny kod, zobacz następujący przykład: [Active-Directory-dotnet-Desktop-MSGraph-v2](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2).
+Poniższy przykład to algorytmie implementacja niestandardowej serializacji pamięci podręcznej tokenów dla aplikacji klasycznych. W tym miejscu pamięć podręczna tokenów użytkownika znajduje się w pliku w tym samym folderze, w którym znajduje się aplikacja, lub w folderze na użytkownika dla aplikacji w przypadku, gdy aplikacja jest [spakowaną aplikacją klasyczną](/windows/msix/desktop/desktop-to-uwp-behind-the-scenes). Aby uzyskać pełny kod, zobacz następujący przykład: [Active-Directory-dotnet-Desktop-MSGraph-v2](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2).
 
 Po skompilowaniu aplikacji należy włączyć serializację, wywołując ``TokenCacheHelper.EnableSerialization()`` i przekazując aplikację `UserTokenCache` .
 

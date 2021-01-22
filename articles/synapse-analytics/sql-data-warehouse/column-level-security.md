@@ -12,23 +12,23 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 817a912dabfc5365eabe8e0dabd7e0b40e40c525
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: fb34051f7d4b24190806dde939c8cc6d9c2a4896
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462515"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679951"
 ---
 # <a name="column-level-security"></a>Zabezpieczenia na poziomie kolumny
 
 Column-Level zabezpieczenia umożliwiają klientom kontrolowanie dostępu do kolumn tabeli na podstawie kontekstu wykonywania użytkownika lub członkostwa w grupie.
 
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
-Ponieważ to wideo zostało ogłoszone, [zabezpieczenia na poziomie wiersza](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) stały się dostępne dla dedykowanej puli SQL w usłudze Azure Synapse.
+Ponieważ to wideo zostało ogłoszone, [zabezpieczenia na poziomie wiersza](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) stały się dostępne dla dedykowanej puli SQL w usłudze Azure Synapse.
 
 Zabezpieczenia na poziomie kolumny upraszczają projektowanie i kodowanie zabezpieczeń w aplikacji, co pozwala ograniczyć dostęp do kolumn w celu ochrony poufnych danych. Na przykład w celu zapewnienia, że określeni użytkownicy będą mieli dostęp tylko do niektórych kolumn tabeli odnoszących się do ich działu. Logika ograniczeń dostępu znajduje się w warstwie bazy danych, a nie na danych w innej warstwie aplikacji. Baza danych stosuje ograniczenia dostępu przy każdym próbie dostępu do danych z dowolnej warstwy. To ograniczenie sprawia, że zabezpieczenia są bardziej niezawodne i niezawodne przez zredukowanie obszaru ogólnego systemu zabezpieczeń. Ponadto zabezpieczenia na poziomie kolumny eliminują również konieczność wprowadzenia widoków do filtrowania kolumn w celu nakładania ograniczeń dostępu dla użytkowników.
 
-Zabezpieczenia na poziomie kolumny można zaimplementować przy użyciu instrukcji [Grant](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) języka T-SQL. W przypadku tego mechanizmu obsługiwane są zarówno uwierzytelnianie SQL, jak i Azure Active Directory (Azure AD).
+Zabezpieczenia na poziomie kolumny można zaimplementować przy użyciu instrukcji [Grant](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) języka T-SQL. W przypadku tego mechanizmu obsługiwane są zarówno uwierzytelnianie SQL, jak i Azure Active Directory (Azure AD).
 
 ![Diagram przedstawia tabelę schematyczną z pierwszą kolumną, w której znajduje się ZAMKNIĘTA kłódka i jej komórki kolorem pomarańczowym, podczas gdy inne kolumny są białymi komórkami.](./media/column-level-security/cls.png)
 

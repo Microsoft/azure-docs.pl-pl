@@ -1,7 +1,7 @@
 ---
-title: Jak zachować prywatność danych przy użyciu pakietów SmartNoise (wersja zapoznawcza)
+title: Różnicowa Ochrona prywatności instrukcje-to-SmartNoise (wersja zapoznawcza)
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak stosować różnice w zakresie ochrony prywatności dla Azure Machine Learning modeli przy użyciu pakietów SmartNoise.
+description: Dowiedz się, jak stosować różnice w zakresie ochrony prywatności dla Azure Machine Learning modeli przy użyciu bibliotek Open Source SmartNoise.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,19 +10,19 @@ ms.custom: how-to, responsible-ml
 ms.author: slbird
 author: slbird
 ms.reviewer: luquinta
-ms.date: 12/21/2020
-ms.openlocfilehash: ebc14d6c9d0ebaa6e0258578f94771c9f286bdb4
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.date: 01/21/2020
+ms.openlocfilehash: 62a002569696da4ef18e7bd967f027eb8247ef65
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98221939"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681408"
 ---
 # <a name="use-differential-privacy-in-azure-machine-learning-preview"></a>Używanie różnicowej ochrony prywatności w Azure Machine Learning (wersja zapoznawcza)
 
-Dowiedz się, jak stosować różnice w zakresie ochrony prywatności dla Azure Machine Learning modeli przy użyciu pakietów języka Python SmartNoise.
+Dowiedz się, jak stosować różnice w zakresie ochrony prywatności dla Azure Machine Learning modeli przy użyciu bibliotek Open Source SmartNoise języka Python.
 
-Różnicowa Ochrona prywatności jest standardową definicją prywatności. Systemy, które są zgodne z tą definicją prywatności, zapewniają mocne gwarancje dotyczące szerokiego zakresu ataków związanych z odtwarzaniem i ponownym identyfikacją danych, w tym ataków przez źródłami ataków, którzy posiadają informacje pomocnicze. Dowiedz się więcej o tym, jak [działa różnicowa prywatność](./concept-differential-privacy.md).
+Różnicowa Ochrona prywatności jest standardową definicją prywatności. Systemy, które są zgodne z tą definicją prywatności, zapewniają mocne gwarancje dotyczące szerokiego zakresu ataków związanych z odtwarzaniem i ponownym identyfikacją danych, w tym ataków przez źródłami ataków, którzy posiadają informacje pomocnicze. Dowiedz się więcej o tym, [jak działa różnicowa prywatność](./concept-differential-privacy.md).
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -30,7 +30,7 @@ Różnicowa Ochrona prywatności jest standardową definicją prywatności. Syst
 - Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz bezpłatne konto. Wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree) dzisiaj.
 - [Python 3](https://www.python.org/downloads/)
 
-## <a name="install-smartnoise-packages"></a>Zainstaluj pakiety SmartNoise
+## <a name="install-smartnoise-python-libraries"></a>Instalowanie bibliotek SmartNoise Python
 
 ### <a name="standalone-installation"></a>Instalacja autonomiczna
 
@@ -51,7 +51,7 @@ import opendp.smartnoise.sql
 
 Jeśli Importy zakończą się pomyślnie, biblioteki są zainstalowane i gotowe do użycia.
 
-### <a name="docker-image"></a>Obraz platformy Docker
+### <a name="docker-image-installation"></a>Instalacja obrazu platformy Docker
 
 Możesz również użyć pakietów SmartNoise z platformą Docker.
 
