@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c6c1dcb0af500c47aabbd8e8193c066bb4a921c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 634b508ca15349152540aca90125575b17943929
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89267772"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696434"
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Używanie usługi Azure queue storage do monitorowania powiadomień dotyczących zadań Media Services za pomocą platformy .NET
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Po uruchomieniu zadań kodowania często potrzebny jest sposób śledzenia postępów zadań. Media Services można skonfigurować w celu dostarczania powiadomień do [usługi Azure queue storage](../../storage/queues/storage-dotnet-how-to-use-queues.md). Postęp zadania można monitorować przez otrzymywanie powiadomień z magazynu kolejek. 
 
@@ -67,7 +67,7 @@ Przykład kodu w tej sekcji wykonuje następujące czynności:
 > [!NOTE]
 > Zalecanym sposobem monitorowania stanu zadania jest nasłuchiwanie komunikatów powiadomień, jak pokazano w następującym przykładzie:
 >
-> Alternatywnie można sprawdzić stan zadania przy użyciu właściwości **IJob. State** .  Komunikat z powiadomieniem o ukończeniu zadania może pojawić **się przed**ustawieniem stan na **IJob** . Właściwość **IJob. State**  odzwierciedla dokładny stan z niewielkim opóźnieniem.
+> Alternatywnie można sprawdzić stan zadania przy użyciu właściwości **IJob. State** .  Komunikat z powiadomieniem o ukończeniu zadania może pojawić **się przed** ustawieniem stan na **IJob** . Właściwość **IJob. State**  odzwierciedla dokładny stan z niewielkim opóźnieniem.
 >
 >
 
@@ -382,5 +382,5 @@ Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

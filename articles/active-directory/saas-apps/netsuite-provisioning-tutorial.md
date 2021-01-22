@@ -10,21 +10,19 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: a5b995fd273fcfa231e101bc77b11d268be728fb
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 294870d3448886b9cea573a0e79b3ac436941f89
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359139"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696493"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie pakietu dla automatycznej aprowizacji użytkowników
 
 Celem tego samouczka jest przedstawienie czynności, które należy wykonać w pakietach OneWorld i Azure AD w celu automatycznego aprowizacji i cofania aprowizacji kont użytkowników z usługi Azure AD do pakietu.
 
-> [!NOTE]
-> Ta integracja jest obecnie uwierzytelniana przy użyciu uwierzytelniania podstawowego (nazwa użytkownika i hasło). W ramach pakietu zaimplementowano wymaganie usługi uwierzytelniania wieloskładnikowego, które uniemożliwia klientom korzystanie z tej integracji, chyba że wystąpiło wykluczenie z tego wymagania. Pracujemy z pakietem servicesuite, aby zaktualizować tę integrację do nowszej metody uwierzytelniania, aby umożliwić klientom bez wykluczania do ponownego użycia. Ten dokument zostanie zaktualizowany o EZT, gdy jest on dostępny.
-
-Zalecana akcja: Zaczekaj na wydanie aktualizacji zachowania uwierzytelniania dla tej integracji lub skontaktuj się z pomocą techniczną, aby dowiedzieć się więcej o wykluczeniu wymagania dotyczącego uwierzytelniania wieloskładnikowego.
+> [!WARNING]
+> Ta integracja aprowizacji przestanie działać w lutym 2020 w związku ze zmianą interfejsów API pakietu, które są używane przez firmę Microsoft do udostępniania użytkownikom w pakiecie. W wyniku tego zostanie wkrótce usunięta funkcja aprowizacji aplikacji sieci w Galerii Azure Active Directory Enterprise App Gallery. Funkcja logowania jednokrotnego aplikacji pozostanie nienaruszona. Firma Microsoft współpracuje z pakietem servicesuite w celu utworzenia nowej, nowoczesnej integracji aprowizacji, ale nie ma obecnie żadnej EZT dotyczącej sytuacji, w której ta wartość zostanie zakończona.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

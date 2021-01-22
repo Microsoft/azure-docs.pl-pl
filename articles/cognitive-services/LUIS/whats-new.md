@@ -4,13 +4,13 @@ description: Ten artykuł jest regularnie aktualizowany za pomocą wiadomości o
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 01/12/2021
-ms.openlocfilehash: 4bcd25e96aba1ca103737679540cb9ff67674914
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.date: 01/21/2021
+ms.openlocfilehash: 5fdde81d31eae4c50b86a5553742f9b599f32505
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179133"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693599"
 ---
 # <a name="whats-new-in-language-understanding"></a>Co nowego w Language Understanding
 
@@ -21,8 +21,9 @@ Dowiedz się, co nowego w usłudze. Te elementy obejmują informacje o wersji, k
 ### <a name="january-2021"></a>Styczeń 2021 r.
 
 * Interfejs API przewidywania v3 obsługuje teraz [interfejs API sprawdzania pisowni usługi Bing](luis-how-to-publish-app.md#spelling-correction).
+* Portale regionalne (au.luis.ai i eu.luis.ai) zostały skonsolidowane w jeden portal i adres URL. Jeśli używasz jednego z tych portali, nastąpi automatyczne przekierowanie do luis.ai.
 
-### <a name="december-2020"></a>Grudzień 2020 r.
+### <a name="december-2020"></a>Grudzień 2020 r.
 
 * Wszyscy użytkownicy LUIS są zobowiązani do [migracji do zasobu tworzenia Luis](luis-migration-authoring.md)
 * Nowe [punkty końcowe oceny](luis-how-to-batch-test.md#batch-testing-using-the-rest-api) , które umożliwiają przesyłanie testów wsadowych przy użyciu interfejsu API REST, oraz uzyskiwanie wyników dokładności dla zamiar i jednostek. Dostępne od punktu końcowego LUIS v 3.0 — wersja zapoznawcza.

@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 3d6c494232456b4819c9275d66fa6f7ab5de9b77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2ac03f600f57ae97cebb77e3b67bcd466955d0b
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89260734"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695411"
 ---
 # <a name="get-started-with-azure-ad-authentication-by-using-the-azure-portal"></a>Wprowadzenie do uwierzytelniania usługi Azure AD przy użyciu witryny Azure Portal
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Dowiedz się, jak za pomocą Azure Portal uzyskać dostęp do uwierzytelniania Azure Active Directory (Azure AD) w celu uzyskania dostępu do interfejsu API Azure Media Services.
 
@@ -45,7 +45,7 @@ Ta strona umożliwia wybranie metody uwierzytelniania, która ma być używana d
 
 1. W [Azure Portal](https://portal.azure.com/)wybierz swoje konto Media Services.
 2. Wybierz sposób nawiązywania połączenia z interfejsem API Media Services.
-3. W obszarze **Połącz z interfejsem api Media Services**wybierz Media Services wersję interfejsu API, z którą chcesz nawiązać połączenie.
+3. W obszarze **Połącz z interfejsem api Media Services** wybierz Media Services wersję interfejsu API, z którą chcesz nawiązać połączenie.
 
 ## <a name="service-principal-authentication--recommended"></a>Uwierzytelnianie jednostki usługi (zalecane)
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: juliako
-ms.openlocfilehash: 5b570efa54d99380f2beff5441dc40a3a10b902a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c4f099df071bccb8a74f29a98953fe1e0323b12
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269118"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695581"
 ---
 # <a name="dynamic-packaging"></a>Dynamiczne tworzenie pakietów
 
@@ -29,7 +29,7 @@ ms.locfileid: "89269118"
 > * [Wersja 2](media-services-dynamic-packaging-overview.md)
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Microsoft Azure Media Services może służyć do dostarczania wielu formatów plików źródłowych multimediów, formatów przesyłania strumieniowego multimediów i formatów ochrony zawartości do różnych technologii klienta (na przykład iOS, XBOX, Silverlight i Windows 8). Ci klienci znają różne protokoły, na przykład system iOS wymaga formatu HTTP Live Streaming (HLS) v4, a technologia Silverlight i konsola Xbox wymagają Smooth Streaming. Jeśli masz zestaw plików MP4 z adaptacyjną szybkością transmisji bitów (z nośnikami ISO 14496-12) lub zestaw z adaptacyjną szybkością transmisji bitów Smooth Streaming plików, które mają być używane dla klientów, którzy wiedzą, że HLS lub Smooth Streaming, należy skorzystać z Media Services dynamicznego tworzenia pakietów.
 
@@ -69,6 +69,6 @@ Dynamiczne pakowanie obsługuje pliki MP4, które zawierają kodowanie audio z [
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

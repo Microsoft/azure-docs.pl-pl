@@ -4,12 +4,12 @@ description: Opisuje sposób rozwiązywania typowych błędów podczas wdrażani
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 01/20/2021
-ms.openlocfilehash: bb701baf164cfd6ba1dd5c670a406343e83c5c70
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 61a306cd36c55a005ee9ebd897fcfc9a6c88d7c9
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98622815"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696400"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Usuwanie typowych błędów wdrożeń na platformie Azure przy użyciu usługi Azure Resource Manager
 
@@ -25,7 +25,7 @@ Jeśli szukasz informacji o kodzie błędu i te informacje nie zostały podane w
 | AccountPropertyCannotBeSet | Sprawdź dostępne właściwości konta magazynu. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
 | AllocationFailed | W klastrze lub regionie nie ma dostępnych zasobów lub nie można obsłużyć żądanego rozmiaru maszyny wirtualnej. Ponów próbę żądania w późniejszym czasie lub zażądaj innego rozmiaru maszyny wirtualnej. | [Problemy z obsługą i alokacją dla](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-linux.md)problemów z systemem Linux, [aprowizacji i alokacji dla systemu Windows](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-windows.md) i [Rozwiązywanie problemów z błędami alokacji](../../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Poczekaj na zakończenie operacji współbieżności. | |
-| AuthorizationFailed | Twoje konto lub jednostka usługi nie ma wystarczających uprawnień, aby ukończyć wdrażanie. Sprawdź rolę, do której należy konto, i dostęp do zakresu wdrożenia.<br><br>Ten błąd może pojawić się, jeśli nie zarejestrowano wymaganego dostawcy zasobów. | [Kontrola dostępu oparta na rolach (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)<br><br>[Rozwiązywanie rejestracji](error-register-resource-provider.md) |
+| AuthorizationFailed | Twoje konto lub jednostka usługi nie ma wystarczających uprawnień, aby ukończyć wdrażanie. Sprawdź rolę, do której należy konto, i dostęp do zakresu wdrożenia.<br><br>Ten błąd może pojawić się, jeśli nie zarejestrowano wymaganego dostawcy zasobów. | [Kontrola dostępu na podstawie ról na platformie Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)<br><br>[Rozwiązywanie rejestracji](error-register-resource-provider.md) |
 | BadRequest | Wartości wdrożeń są wysyłane, które nie są zgodne z oczekiwaniami Menedżer zasobów. Sprawdź wewnętrzny komunikat o stanie, aby uzyskać pomoc dotyczącą rozwiązywania problemów. | [Odwołania do szablonu](/azure/templates/) i [obsługiwane lokalizacje](resource-location.md) |
 | Konflikt | Żądasz operacji, która nie jest dozwolona w bieżącym stanie zasobu. Na przykład zmiany rozmiarów dysków są dozwolone tylko w przypadku tworzenia maszyny wirtualnej lub po cofnięciu przydziału maszyny wirtualnej. | |
 | DeploymentActiveAndUneditable | Poczekaj na ukończenie współbieżnego wdrażania tej grupy zasobów. | |
@@ -37,7 +37,7 @@ Jeśli szukasz informacji o kodzie błędu i te informacje nie zostały podane w
 | DeploymentJobSizeExceeded | Uprość szablon, aby zmniejszyć rozmiar. | [Rozwiązywanie błędów rozmiaru szablonu](error-job-size-exceeded.md) |
 | DnsRecordInUse | Nazwa rekordu DNS musi być unikatowa. Wprowadź inną nazwę. | |
 | ImageNotFound | Sprawdź ustawienia obrazu maszyny wirtualnej. |  |
-| InUseSubnetCannotBeDeleted | Ten błąd może wystąpić podczas próby zaktualizowania zasobu, a żądanie jest przetwarzane przez usunięcie i utworzenie zasobu. Upewnij się, że określono wszystkie niezmienione wartości. | [Aktualizowanie zasobu](/azure/architecture/building-blocks/extending-templates/update-resource) |
+| InUseSubnetCannotBeDeleted | Ten błąd może wystąpić podczas próby zaktualizowania zasobu, a żądanie jest przetwarzane przez usunięcie i utworzenie zasobu. Upewnij się, że określono wszystkie niezmienione wartości. | [Aktualizowanie zasobu](/azure/architecture/guide/azure-resource-manager/advanced-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | Uzyskaj token dostępu dla odpowiedniej dzierżawy. Możesz uzyskać tylko token z dzierżawy, do której należy Twoje konto. | |
 | InvalidContentLink | Najprawdopodobniej podjęto próbę połączenia z zagnieżdżonym szablonem, który nie jest dostępny. Sprawdź dokładnie identyfikator URI podany dla szablonu zagnieżdżonego. Jeśli szablon istnieje na koncie magazynu, upewnij się, że identyfikator URI jest dostępny. Może być konieczne przekazanie tokenu SAS. Obecnie nie można połączyć się z szablonem znajdującym się na koncie magazynu za [zaporą usługi Azure Storage](../../storage/common/storage-network-security.md). Rozważ przeniesienie szablonu do innego repozytorium, takiego jak GitHub. | [Połączone szablony](linked-templates.md) |
 | InvalidDeploymentLocation | Podczas wdrażania na poziomie subskrypcji podano inną lokalizację dla wcześniej używanej nazwy wdrożenia. | [Wdrożenia na poziomie subskrypcji](deploy-to-subscription.md) |
@@ -64,7 +64,7 @@ Jeśli szukasz informacji o kodzie błędu i te informacje nie zostały podane w
 | PasswordTooLong | Być może wybrano zbyt wiele znaków hasła lub przekonwertowano wartość hasła na bezpieczny ciąg przed przekazaniem go jako parametru. Jeśli szablon zawiera parametr **Secure String** , nie trzeba konwertować wartości na bezpieczny ciąg. Podaj wartość hasła jako tekst. |  |
 | PrivateIPAddressInReservedRange | Określony adres IP zawiera zakres adresów wymagany przez platformę Azure. Zmień adres IP, aby uniknąć zarezerwowanego zakresu. | [Adresy IP](../../virtual-network/public-ip-addresses.md) |
 | PrivateIPAddressNotInSubnet | Określony adres IP znajduje się poza zakresem podsieci. Zmień adres IP, aby mieścił się w zakresie podsieci. | [Adresy IP](../../virtual-network/public-ip-addresses.md) |
-| PropertyChangeNotAllowed | Niektórych właściwości nie można zmienić we wdrożonym zasobie. Podczas aktualizowania zasobu należy ograniczyć zmiany do dozwolonych właściwości. | [Aktualizowanie zasobu](/azure/architecture/building-blocks/extending-templates/update-resource) |
+| PropertyChangeNotAllowed | Niektórych właściwości nie można zmienić we wdrożonym zasobie. Podczas aktualizowania zasobu należy ograniczyć zmiany do dozwolonych właściwości. | [Aktualizowanie zasobu](/azure/architecture/guide/azure-resource-manager/advanced-templates/update-resource) |
 | RequestDisallowedByPolicy | Twoja subskrypcja obejmuje zasady zasobów, które uniemożliwiają wykonanie akcji podczas wdrażania. Znajdź zasady blokujące akcję. Jeśli to możliwe, Zmień wdrożenie, aby spełniało ograniczenia z zasad. | [Rozwiązywanie zasad](error-policy-requestdisallowedbypolicy.md) |
 | ReservedResourceName | Podaj nazwę zasobu, która nie zawiera zastrzeżonej nazwy. | [Zarezerwowane nazwy zasobów](error-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | Poczekaj na zakończenie usuwania. | |

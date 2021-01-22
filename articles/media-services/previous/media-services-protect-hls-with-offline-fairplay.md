@@ -16,12 +16,12 @@ ms.date: 05/07/2020
 ms.author: willzhan
 ms.reviewer: dwgeo
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5e003e17490c2e35ef3f8adfdef6de0377cda7d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae1d4ef81d14d5adfb728cf7a59534cb376a0eb1
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89259714"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695090"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Przesyłanie strumieniowe w trybie offline przy użyciu technologii FairPlay na potrzeby systemu iOS
 
@@ -32,7 +32,7 @@ ms.locfileid: "89259714"
 > * [Wersja 2](media-services-protect-hls-with-offline-fairplay.md)
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Azure Media Services zawiera zestaw dobrze zaprojektowanych [usług ochrony zawartości](https://azure.microsoft.com/services/media-services/content-protection/) , które obejmują:
 
@@ -204,7 +204,7 @@ Trzy próbki testowe w Media Services obejmują następujące trzy scenariusze:
 Te przykłady można znaleźć w [tej witrynie demonstracyjnej](https://aka.ms/poc#22)przy użyciu odpowiedniego certyfikatu aplikacji hostowanego w aplikacji sieci Web platformy Azure.
 W przypadku wersji 3 lub 4 zestawu SDK serwera FPS, jeśli główna lista odtwarzania zawiera alternatywny dźwięk, w trybie offline jest odtwarzany tylko dźwięk. W związku z tym należy rozdzielić alternatywny dźwięk. Innymi słowy, drugi i trzeci przykłady wymienione wcześniej działają w trybie online i offline. Przykładowa podano w pierwszej kolejności dźwięk tylko w trybie offline, podczas gdy Transmisja strumieniowa w trybie online działa prawidłowo.
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 Poniższe często zadawane pytania zapewniają pomoc w rozwiązywaniu problemów:
 
 - **Dlaczego dźwięk jest odtwarzany tylko w trybie offline, ale nie wideo?** Takie zachowanie wydaje się być projektem przykładowej aplikacji. Jeśli istnieje alternatywna ścieżka audio (w przypadku programu HLS) w trybie offline, zarówno system iOS 10, jak i iOS 11 domyślnie są alternatywną ścieżką audio. Aby zrekompensować to zachowanie w trybie offline w trybie online, Usuń alternatywną ścieżkę audio ze strumienia. Aby to zrobić na Media Services, Dodaj filtr manifestu dynamicznego "audio-Only = false". Innymi słowy, adres URL HLS ma koniec. ISM/manifest (format = M3U8-AAPL, audio-Only = false). 
@@ -214,7 +214,7 @@ Poniższe często zadawane pytania zapewniają pomoc w rozwiązywaniu problemów
 - **Co oznacza ostatni parametr w następującym interfejsie API dla trybu online z FPS?**
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
 
-    Aby zapoznać się z dokumentacją dla tego interfejsu API, zobacz [FairPlayConfiguration. CreateSerializedFairPlayOptionConfiguration](/dotnet/api/microsoft.windowsazure.mediaservices.client.fairplay.fairplayconfiguration.createserializedfairplayoptionconfiguration?view=azure-dotnet). Parametr reprezentuje czas trwania dzierżawy w trybie offline, a drugi jako jednostkę.
+    Aby zapoznać się z dokumentacją dla tego interfejsu API, zobacz [FairPlayConfiguration. CreateSerializedFairPlayOptionConfiguration](/dotnet/api/microsoft.windowsazure.mediaservices.client.fairplay.fairplayconfiguration.createserializedfairplayoptionconfiguration). Parametr reprezentuje czas trwania dzierżawy w trybie offline, a drugi jako jednostkę.
 - **Co to jest struktura plików pobierana/w trybie offline na urządzeniach z systemem iOS?** Pobrana struktura plików na urządzeniu z systemem iOS wygląda podobnie do poniższego zrzutu ekranu. `_keys`Folder przechowuje pobrane licencje FPS z jednym plikiem magazynu dla każdego hosta usługi licencjonowania. `.movpkg`Folder przechowuje zawartość audio i wideo. Pierwszy folder o nazwie kończącej się znakiem łącznika, po którym następuje wartość liczbowa, zawiera zawartość wideo. Wartość liczbowa jest PeakBandwidthą dla odwzorowań wideo. Drugi folder o nazwie kończącej się znakiem łącznika, po którym następuje 0, zawiera zawartość audio. Trzeci folder o nazwie "Data" zawiera główną listę odtwarzania zawartości FPS. Na koniec boot.xml zawiera pełny opis `.movpkg` zawartości folderu. 
 
 ![Struktura pliku przykładowej aplikacji w trybie offline FairPlay iOS](media/media-services-protect-hls-with-offline-FairPlay/media-services-offline-FairPlay-file-structure.png)

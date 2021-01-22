@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 50a0fe0fa5dece41ac9e343d5a8939e8d9dc634e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 9e48d14419e2cd24251f1b00a09fd0289c50c55f
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426885"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693811"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Media Services v3 — często zadawane pytania
 
@@ -30,7 +30,7 @@ Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące Azure Med
 
 Za pomocą [Azure Portal](https://portal.azure.com/) można zarządzać zdarzeniami na żywo v3, wyświetlać zasoby v3 i zadania, uzyskiwać informacje o uzyskiwaniu dostępu do interfejsów API, szyfrować zawartość. <br/>W przypadku wszystkich innych zadań zarządzania (na przykład zarządzania transformami i zadaniami lub analizowania zawartości v3) należy użyć [interfejsu API REST](/rest/api/media/accountfilters), [interfejsu wiersza polecenia](/cli/azure/ams)lub jednego z obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
 
-Jeśli Twoje wideo zostało wcześniej przekazane do konta Media Services przy użyciu interfejsu API Media Services v3 lub zawartość została wygenerowana na podstawie danych wyjściowych na żywo, nie będą wyświetlane przyciski **Koduj**, **Analizuj**ani **Szyfruj** w Azure Portal. Użyj interfejsów API Media Services v3, aby wykonać te zadania.  
+Jeśli Twoje wideo zostało wcześniej przekazane do konta Media Services przy użyciu interfejsu API Media Services v3 lub zawartość została wygenerowana na podstawie danych wyjściowych na żywo, nie będą wyświetlane przyciski **Koduj**, **Analizuj** ani **Szyfruj** w Azure Portal. Użyj interfejsów API Media Services v3, aby wykonać te zadania.  
 
 ### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Jakie role platformy Azure mogą wykonywać akcje na Azure Media Services zasobach? 
 
@@ -60,7 +60,7 @@ W przypadku korzystania z stronicowania należy zawsze używać następnego link
 
 ### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>Jakie funkcje nie są jeszcze dostępne w wersji Azure Media Services v3?
 
-Aby uzyskać szczegółowe informacje, zobacz [luki w funkcji w odniesieniu do interfejsów API w wersji 2](media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis).
+Aby uzyskać szczegółowe informacje, zobacz [Przewodnik migracji](migrate-v-2-v-3-migration-introduction.md).
 
 ### <a name="what-is-the-process-of-moving-a-media-services-account-between-subscriptions"></a>Jaki jest proces przechodzenia konta Media Services między subskrypcjami?  
 
@@ -169,7 +169,7 @@ W przypadku wszystkich innych zadań zarządzania (na przykład [transformacji i
 
 `AssetFile`Koncepcja została usunięta z interfejsu API Media Services, aby oddzielić Media Services od zależności zestawu SDK magazynu. Teraz usługa Azure Storage, nie Media Services, utrzymuje informacje, które należą do zestawu SDK magazynu. 
 
-Aby uzyskać więcej informacji, zobacz [Migrowanie do Media Services v3](media-services-v2-vs-v3.md).
+Aby uzyskać więcej informacji, zobacz [Migrowanie do Media Services v3](migrate-v-2-v-3-migration-introduction.md).
 
 ### <a name="where-did-client-side-storage-encryption-go"></a>Gdzie działa szyfrowanie magazynu po stronie klienta?
 

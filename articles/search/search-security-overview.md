@@ -7,24 +7,24 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 01/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: ffb5a78c13413a46565a9c57c87dc8273742fd24
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 49364681f0c5b4b6cc4d5f20778edb61e9f6f5b3
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563453"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695784"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Zabezpieczenia w usłudze Azure Wyszukiwanie poznawcze — Omówienie
 
-W tym artykule opisano kluczowe funkcje zabezpieczeń w usłudze Azure Wyszukiwanie poznawcze, które mogą chronić zawartość i operacje.
+W tym artykule opisano funkcje zabezpieczeń w usłudze Azure Wyszukiwanie poznawcze chroniące zawartość i operacje.
 
-+ W warstwie magazynu szyfrowanie w spoczynku jest wbudowane dla całej zawartości zarządzanej przez usługę, która została zapisana na dysku, w tym indeksów, map synonimów i definicji indeksatorów, źródeł danych i umiejętności. Usługa Azure Wyszukiwanie poznawcze obsługuje także dodawanie kluczy zarządzanych przez klienta (CMK) na potrzeby dodatkowej szyfrowania indeksowanej zawartości. W przypadku usług utworzonych po sierpniu 1 2020 szyfrowanie CMK rozciąga się do danych na dyskach tymczasowych, co umożliwia pełne szyfrowanie indeksowanej zawartości.
++ W warstwie magazynowania szyfrowanie danych jest wbudowane dla całej zawartości zarządzanej przez usługę, która została zapisana na dysku, w tym indeksów, map synonimów i definicji indeksatorów, źródeł danych i umiejętności. Opcjonalnie można dodać klucze zarządzane przez klienta (CMK) na potrzeby dodatkowej szyfrowania indeksowanej zawartości. W przypadku usług utworzonych po sierpniu 1 2020 szyfrowanie CMK rozciąga się na dane na dyskach tymczasowych, aby uzyskać pełne "podwójne szyfrowanie" indeksowanej zawartości.
 
-+ Zabezpieczenia przychodzące chronią punkt końcowy usługi wyszukiwania przy jednoczesnym zwiększeniu poziomu zabezpieczeń: od kluczy interfejsu API w żądaniu do reguł ruchu przychodzącego w zaporze do prywatnych punktów końcowych, które w pełni chronią usługę przed publicznym Internetem.
++ Zabezpieczenia przychodzące odnoszą się do ochrony w punkcie końcowym usługi wyszukiwania przy zwiększonym poziomie zabezpieczeń: od kluczy interfejsu API w żądaniu, do reguł ruchu przychodzącego w zaporze do prywatnych punktów końcowych, które w pełni chronią usługę przed publicznym Internetem.
 
-+ Zabezpieczenia wychodzące dotyczą indeksatorów, które pobierają zawartość ze źródeł zewnętrznych. W przypadku żądań wychodzących Skonfiguruj zarządzaną tożsamość, aby przeszukiwać zaufaną usługę podczas uzyskiwania dostępu do danych z usługi Azure Storage, Azure SQL, Cosmos DB lub innych źródeł danych platformy Azure. Tożsamość zarządzana zastępuje poświadczenia lub klucze dostępu w połączeniu. Zabezpieczenia wychodzące nie zostały omówione w tym artykule. Aby uzyskać więcej informacji na temat tej funkcji, zobacz [nawiązywanie połączenia ze źródłem danych przy użyciu tożsamości zarządzanej](search-howto-managed-identities-data-sources.md).
++ Zabezpieczenia wychodzące odnoszą się do indeksatorów, które pobierają zawartość ze źródeł zewnętrznych. W przypadku żądań wychodzących Skonfiguruj zarządzaną tożsamość, aby przeszukiwać zaufaną usługę podczas uzyskiwania dostępu do danych z usługi Azure Storage, Azure SQL, Cosmos DB lub innych źródeł danych platformy Azure. Tożsamość zarządzana zastępuje poświadczenia lub klucze dostępu w połączeniu. Zabezpieczenia wychodzące nie zostały omówione w tym artykule. Aby uzyskać więcej informacji na temat tej funkcji, zobacz [nawiązywanie połączenia ze źródłem danych przy użyciu tożsamości zarządzanej](search-howto-managed-identities-data-sources.md).
 
 Obejrzyj ten krótki film wideo, aby zapoznać się z omówieniem architektury zabezpieczeń i każdej kategorii funkcji.
 
@@ -43,8 +43,8 @@ W przypadku danych obsługiwanych wewnętrznie przez usługę wyszukiwania w pon
 | Model | Ponownie&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Wymagania&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Ograniczenia | Dotyczy |
 |------------------|-------|-------------|--------------|------------|
 | szyfrowanie po stronie serwera | Klucze zarządzane przez firmę Microsoft | Brak (wbudowane) | Brak, dostępne we wszystkich warstwach, we wszystkich regionach, dla zawartości utworzonej po styczniu 24 2018. | Zawartość (indeksy i mapy synonimów) i definicje (indeksatory, źródła danych, umiejętności) |
-| szyfrowanie po stronie serwera | klucze zarządzane przez klienta | W usłudze Azure Key Vault | Dostępne w warstwach rozliczanych we wszystkich regionach dla zawartości utworzonej po styczniu 2019. | Zawartość (indeksy i mapy synonimów) na dyskach danych |
-| podwójne szyfrowanie po stronie serwera | klucze zarządzane przez klienta | W usłudze Azure Key Vault | Dostępne w warstwach rozliczanych w wybranych regionach w usługach wyszukiwania po 1 2020 sierpnia. | Zawartość (indeksy i mapy synonimów) na dyskach danych i dyskach tymczasowych |
+| szyfrowanie po stronie serwera | klucze zarządzane przez klienta | Azure Key Vault | Dostępne w warstwach rozliczanych we wszystkich regionach dla zawartości utworzonej po styczniu 2019. | Zawartość (indeksy i mapy synonimów) na dyskach danych |
+| podwójne szyfrowanie po stronie serwera | klucze zarządzane przez klienta | Azure Key Vault | Dostępne w warstwach rozliczanych w wybranych regionach w usługach wyszukiwania po 1 2020 sierpnia. | Zawartość (indeksy i mapy synonimów) na dyskach danych i dyskach tymczasowych |
 
 ### <a name="service-managed-keys"></a>Klucze zarządzane przez usługę
 
@@ -150,7 +150,7 @@ Azure Policy to funkcja wbudowana w platformę Azure, która ułatwia zarządzan
 
 W przypadku usługi Azure Wyszukiwanie poznawcze istnieje obecnie jedna wbudowana definicja. Służy do rejestrowania diagnostycznego. Za pomocą tego wbudowanego programu można przypisać zasady, które identyfikują dowolną usługę wyszukiwania, w której brakuje rejestrowania diagnostycznego, a następnie włącza ją. Aby uzyskać więcej informacji, zobacz [Azure Policy kontroli zgodności z przepisami dla wyszukiwanie poznawcze platformy Azure](security-controls-policy.md).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 + [Podstawy zabezpieczeń platformy Azure](../security/fundamentals/index.yml)
 + [Zabezpieczenia platformy Azure](https://azure.microsoft.com/overview/security)

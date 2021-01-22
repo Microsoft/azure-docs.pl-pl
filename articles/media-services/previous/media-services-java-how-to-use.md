@@ -15,19 +15,19 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-java
-ms.openlocfilehash: 3c86689681aa99f60c4345e92f7f5c426795a69e
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: f05b78c777fdfa633e07bc03266c862f9e85ee0c
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586707"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695725"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Rozpoczynanie korzystania z zestawu SDK klienta Java dla usług Azure Media Services
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 W tym samouczku przedstawiono kolejne kroki wdrażania podstawowej usługi dostarczania zawartości wideo za pomocą usług Azure Media Services przy użyciu zestawu SDK klienta Java.
 
@@ -310,7 +310,7 @@ Kod korzysta również z lokalnie przechowywanego pliku wideo. Należy edytować
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby

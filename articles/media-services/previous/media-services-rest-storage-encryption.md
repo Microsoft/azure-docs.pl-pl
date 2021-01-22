@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8a3a51644f61d4a1e118798986f9c6fb6c52d0e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ae1d19ee3da59c43722ca1ea720eb441f6dd484
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89264168"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696214"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Szyfrowanie zawartości przy użyciu szyfrowania magazynu
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).   > żadne nowe funkcje lub funkcje nie są dodawane do Media Services V2. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
+> Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).   > żadne nowe funkcje lub funkcje nie są dodawane do Media Services V2. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-v-2-v-3-migration-introduction.md)
 >
 
 Ten artykuł zawiera omówienie szyfrowania magazynu usługi AMS i pokazuje, jak przekazać zaszyfrowaną zawartość magazynu:
@@ -110,7 +110,7 @@ Poniżej znajdują się ogólne czynności związane z generowaniem kluczy zawar
     }
     ```
 
-5. Utwórz klucz zawartości z **EncryptedContentKey** (przekonwertowanym na ciąg szyfrowany algorytmem Base64), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType**i wartościami **sum kontrolnych** , które zostały odebrane w poprzednich krokach.
+5. Utwórz klucz zawartości z **EncryptedContentKey** (przekonwertowanym na ciąg szyfrowany algorytmem Base64), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType** i wartościami **sum kontrolnych** , które zostały odebrane w poprzednich krokach.
 
     W przypadku szyfrowania magazynu należy uwzględnić w treści żądania następujące właściwości.
 

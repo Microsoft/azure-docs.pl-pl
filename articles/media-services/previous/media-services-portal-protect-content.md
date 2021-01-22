@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 061d66f08e79f935c778eb84dd47f71cab1a62d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ddd31f96ca88a02fa667f8809a00e2a4e3ecc50
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266633"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695428"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Konfigurowanie zasad ochrony zawartości przy użyciu Azure Portal
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).   > żadne nowe funkcje lub funkcje nie są dodawane do Media Services V2. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
+> Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).   > żadne nowe funkcje lub funkcje nie są dodawane do Media Services V2. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-v-2-v-3-migration-introduction.md)
 >
 
  Za pomocą Azure Media Services można zabezpieczyć nośnik od momentu, w którym komputer przejdzie przez magazyn, przetwarzanie i dostarczanie. Za pomocą Media Services można zapewnić zaszyfrowaną zawartość dynamicznie przy użyciu Advanced Encryption Standard (AES), używając kluczy szyfrowania 128-bitowych. Można go również używać z typowym szyfrowaniem (CENC) przy użyciu usług PlayReady i/lub Widevine Digital Rights Management (DRM) i Apple FairPlay. 
@@ -75,10 +75,10 @@ W przypadku skonfigurowania licencji jako trwałej jest ona zapisywana w magazyn
 ## <a name="widevine-license-template"></a>Szablon licencji Widevine
 Szablon licencji Widevine służy do ustawiania funkcjonalności włączonej na licencjach Widevine.
 
-### <a name="basic"></a>Podstawowy
-Po wybraniu opcji **podstawowa**szablon zostanie utworzony ze wszystkimi wartościami domyślnymi.
+### <a name="basic"></a>Podstawowa
+Po wybraniu opcji **podstawowa** szablon zostanie utworzony ze wszystkimi wartościami domyślnymi.
 
-### <a name="advanced"></a>Zaawansowane
+### <a name="advanced"></a>Zaawansowany
 Aby uzyskać więcej informacji na temat szablonu praw Widevine, zobacz [Omówienie szablonu licencji Widevine](media-services-widevine-license-template-overview.md).
 
 ![Zaawansowana ochrona zawartości](./media/media-services-portal-content-protection/media-services-content-protection005.png)
@@ -105,7 +105,7 @@ Szyfrowanie klucza Wyczyść AES jest włączone dla wszystkich protokołów prz
 ![Konfiguracja szyfrowania](./media/media-services-portal-content-protection/media-services-content-protection008.png)
 
 #### <a name="drm"></a>ZASTOSOWANIE
-1. Po wybraniu funkcji **DRM**zostaną wyświetlone różne zasady ochrony zawartości (które muszą być konfigurowane przez ten punkt) oraz zestaw protokołów przesyłania strumieniowego:
+1. Po wybraniu funkcji **DRM** zostaną wyświetlone różne zasady ochrony zawartości (które muszą być konfigurowane przez ten punkt) oraz zestaw protokołów przesyłania strumieniowego:
 
     a. Technologie **PlayReady i Widevine z użyciem MPEG-pauz** dynamicznie szyfrują strumień MPEG-pauzowy przy użyciu oprogramowania PlayReady i Widevine protokołów DRM.
 
@@ -133,5 +133,5 @@ Szyfrowanie klucza Wyczyść AES jest włączone dla wszystkich protokołów prz
 ## <a name="next-steps"></a>Następne kroki
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

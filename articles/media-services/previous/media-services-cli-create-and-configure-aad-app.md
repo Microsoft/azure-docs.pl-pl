@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: juliako
-ms.openlocfilehash: 12d6beac446f8a15a41daf0dfe8ca1783c95c775
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 76a7cef074dd16a41dee59773aff00d8e58d432d
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021116"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695949"
 ---
 # <a name="use-azure-cli-to-create-an-azure-ad-app-and-configure-it-to-access-media-services-api"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure w celu utworzenia aplikacji usługi Azure AD i skonfigurowania jej w celu uzyskania dostępu do interfejsu API Media Services
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 W tym temacie pokazano, jak za pomocą interfejsu wiersza polecenia platformy Azure utworzyć aplikację Azure Active Directory (Azure AD) i nazwę główną usługi, aby uzyskać dostęp do zasobów Azure Media Services. 
 

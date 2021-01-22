@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 84e94a431efdc84ff6896de416bd222120784899
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f48a01bb81829ff2bc10b4db1ed543382f992b58
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89264287"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696231"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Omówienie interfejsu API REST usługi Media Services Operations
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Interfejs API **REST usługi Media Services Operations** jest używany do tworzenia zadań, zasobów, kanałów na żywo i innych zasobów na koncie Media Services. Aby uzyskać więcej informacji, zobacz [Media Services Dokumentacja interfejsu API REST usługi Operations](/rest/api/media/operations/azure-media-services-rest-api-reference).
 
@@ -62,12 +62,12 @@ W przypadku korzystania z usługi REST obowiązują następujące zagadnienia.
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Standardowe nagłówki żądań HTTP obsługiwane przez Media Services
 Dla każdego wywołania, które wprowadzasz do Media Services, istnieje zestaw wymaganych nagłówków, które należy uwzględnić w żądaniu, a także zestaw opcjonalnych nagłówków, które warto uwzględnić. W poniższej tabeli wymieniono wymagane nagłówki:
 
-| Header | Typ | Wartość |
+| Nagłówek | Typ | Wartość |
 | --- | --- | --- |
 | Autoryzacja |Bearer |Posiadacz jest jedynym zaakceptowanym mechanizmem autoryzacji. Wartość musi również zawierać token dostępu dostarczony przez Azure Active Directory. |
 | x-MS-Version |Liczba dziesiętna |2,17 (lub Najnowsza wersja)|
-| DataServiceVersion |Liczba dziesiętna |3,0 |
-| MaxDataServiceVersion |Liczba dziesiętna |3,0 |
+| DataServiceVersion |Liczba dziesiętna |3.0 |
+| MaxDataServiceVersion |Liczba dziesiętna |3.0 |
 
 > [!NOTE]
 > Ponieważ Media Services używa protokołu OData do uwidaczniania interfejsów API REST, nagłówki DataServiceVersion i MaxDataServiceVersion powinny być uwzględniane we wszystkich żądaniach. Jeśli jednak tak nie jest, obecnie Media Services zakłada, że wartość DataServiceVersion jest używana, to 3,0.
@@ -76,9 +76,9 @@ Dla każdego wywołania, które wprowadzasz do Media Services, istnieje zestaw w
 
 Poniżej znajduje się zestaw opcjonalnych nagłówków:
 
-| Header | Typ | Wartość |
+| Nagłówek | Typ | Wartość |
 | --- | --- | --- |
-| Date |Data 1123 |Sygnatura czasowa żądania |
+| Date (Data) |Data 1123 |Sygnatura czasowa żądania |
 | Zaakceptuj |Typ zawartości |Żądany typ zawartości dla odpowiedzi, na przykład następujące:<p> -Application/JSON; OData = verbose<p> -Application/Atom + XML<p> Odpowiedzi mogą mieć inny typ zawartości, taki jak pobieranie obiektów blob, gdzie pomyślnie odpowiedź zawiera strumień obiektów BLOB jako ładunek. |
 | Accept-Encoding |Gzip, Wklęśnięcie |Kodowanie GZIP i WKLĘŚNIĘCIE, jeśli ma zastosowanie. Uwaga: w przypadku dużych zasobów Media Services może zignorować ten nagłówek i zwrócić nieskompresowane dane. |
 | Accept-Language |"pl", "es" i tak dalej. |Określa preferowany język odpowiedzi. |
@@ -90,11 +90,11 @@ Poniżej znajduje się zestaw opcjonalnych nagłówków:
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Standardowe nagłówki odpowiedzi HTTP obsługiwane przez Media Services
 Poniżej znajduje się zestaw nagłówków, które mogą zostać zwrócone do użytkownika w zależności od zasobu, którego dotyczy żądanie, oraz akcji, która ma zostać wykonana.
 
-| Header | Typ | Wartość |
+| Nagłówek | Typ | Wartość |
 | --- | --- | --- |
 | Identyfikator żądania |Ciąg |Unikatowy identyfikator bieżącej operacji i wygenerowanej usługi. |
 | Identyfikator żądania klienta |Ciąg |Identyfikator określony przez obiekt wywołujący w oryginalnym żądaniu, jeśli jest obecny. |
-| Date |Data 1123 |Data/godzina przetworzenia żądania. |
+| Date (Data) |Data 1123 |Data/godzina przetworzenia żądania. |
 | Content-Type |Różnie |Typ zawartości treści odpowiedzi. |
 | Content-Encoding |Różnie |Odpowiednio, gzip lub Wklęśnięcie. |
 
@@ -130,5 +130,5 @@ Aby dowiedzieć się, jak używać uwierzytelniania usługi Azure AD za pomocą 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

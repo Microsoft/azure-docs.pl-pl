@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8eb45397b1941b9a6955066c22d6d9d00eeef4c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dda7849b6a5e22eea4891eacb2678b4c500dc1e1
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89262096"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693667"
 ---
 # <a name="media-services-development-with-net"></a>Programowanie Media Services przy użyciu platformy .NET
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 W tym artykule omówiono sposób rozpoczynania opracowywania aplikacji Media Services przy użyciu platformy .NET.
 
@@ -46,7 +46,7 @@ W tej sekcji pokazano, jak Media Services dodać rozszerzenia zestawu SDK platfo
 
 Alternatywnie możesz uzyskać najnowsze Media Services .NET SDK z usługi GitHub ([GitHub.com/Azure/Azure-SDK-for-Media-Services](https://github.com/Azure/azure-sdk-for-media-services) lub [GitHub.com/Azure/Azure-SDK-for-Media-Services-Extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)), skompilować rozwiązanie i dodać odwołania do projektu klienta. Wszystkie niezbędne zależności są pobierane i wyodrębniane automatycznie.
 
-1. Utwórz nową aplikację konsoli języka C# w programie Visual Studio. Wprowadź **nazwę**, **lokalizację**i **nazwę rozwiązania**, a następnie kliknij przycisk OK.
+1. Utwórz nową aplikację konsoli języka C# w programie Visual Studio. Wprowadź **nazwę**, **lokalizację** i **nazwę rozwiązania**, a następnie kliknij przycisk OK.
 2. Skompiluj rozwiązanie.
 3. Zainstaluj i Dodaj **rozszerzenia Azure Media Services .NET SDK** (**windowsazure. MediaServices. Extensions**) przy użyciu narzędzia **NuGet** . Podczas instalacji tego pakietu instalowany jest również zestaw **.NET SDK usługi Media Services** oraz dodawane są wszystkie inne wymagane zależności.
    
@@ -144,5 +144,5 @@ Teraz [możesz nawiązać połączenie z interfejsem API usługi AMS](media-serv
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

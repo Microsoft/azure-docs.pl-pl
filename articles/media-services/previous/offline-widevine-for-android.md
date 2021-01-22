@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
 ms.reviewer: dwgeo
-ms.openlocfilehash: 4b3b2b8c39b5b2552b5ce9f508bacd1ea86b2638
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: dc21523d158330d70adfbc33734abe3d49535804
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006369"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696299"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Przesyłanie strumieniowe przy użyciu technologii Widevine w trybie offline dla systemu Android
 
@@ -31,7 +31,7 @@ ms.locfileid: "96006369"
 > * [Wersja 2](offline-widevine-for-android.md)
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Oprócz ochrony zawartości w ramach przesyłania strumieniowego online, subskrypcji zawartości multimedialnej i usług najmu można pobrać zawartość, która działa, gdy nie masz połączenia z Internetem. Może być konieczne pobranie zawartości na telefonie lub tablecie do odtwarzania w trybie samolotowym, gdy napływa odłączony od sieci. Dodatkowe scenariusze, w których warto pobrać zawartość:
 

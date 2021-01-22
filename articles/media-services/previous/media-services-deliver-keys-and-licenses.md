@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 88d21c7ee092f8d4971770699bdcade4bf40039d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e564feadfdb1d3cb6943d76b4b39ba0ec814e0d6
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89267806"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693645"
 ---
 # <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Używanie Media Services do dostarczania licencji DRM lub kluczy AES
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Azure Media Services umożliwia pozyskiwanie, kodowanie, Dodawanie ochrony zawartości i przesyłanie strumieniowe zawartości. Aby uzyskać więcej informacji, zobacz [Korzystanie z dynamicznego szyfrowania Common Encryption w programie PlayReady i/lub Widevine](media-services-protect-with-playready-widevine.md). Niektórzy klienci chcą używać Media Services tylko w celu dostarczania licencji i/lub kluczy oraz kodowania, szyfrowania i przesyłania strumieniowego przy użyciu serwerów lokalnych. W tym artykule opisano, jak można użyć Media Services w celu dostarczenia licencji PlayReady i/lub Widevine, ale pozostałej pracy z serwerami lokalnymi. 
 
@@ -355,9 +355,9 @@ namespace DeliverDRMLicenses
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Używanie dynamicznego szyfrowania Common Encryption w usługach PlayReady i Widevine](media-services-protect-with-playready-widevine.md)
 * [Używanie dynamicznego szyfrowania AES-128 i usługi dostarczania kluczy](media-services-protect-with-aes128.md)

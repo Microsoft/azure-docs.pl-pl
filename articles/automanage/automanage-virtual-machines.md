@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: ab056e0685264b03d35ee6b95afad7c6362f9db6
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 0d8ce501b951f3543e1baf54c8a52648b13f6e66
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695787"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695674"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Usługa Azure automanage dla maszyn wirtualnych
 
@@ -43,16 +43,16 @@ Przed próbą włączenia usługi Azure automanage na maszynach wirtualnych nale
 
 - Tylko maszyny wirtualne z systemem Windows Server
 - Maszyny wirtualne muszą być uruchomione
-- Maszyny wirtualne muszą znajdować się w obsługiwanym regionie
+- Maszyny wirtualne muszą znajdować się w obsługiwanym regionie (zobacz akapit poniżej)
 - Użytkownik musi mieć odpowiednie uprawnienia (patrz akapit poniżej)
 - W tej chwili usługa autozarządzania nie obsługuje subskrypcji piaskownicy
 
-Aby włączyć funkcję autozarządzania na maszynach wirtualnych przy użyciu istniejącego konta Autozarządzanie, musisz mieć rolę **współautor** w grupie zasobów zawierającej swoje maszyny wirtualne. Jeśli włączysz Autozarządzanie przy użyciu nowego konta Autozarządzanie, potrzebne są następujące uprawnienia do subskrypcji: rola **właściciela** lub **współautor** wraz z rolami **administratora dostępu użytkowników** . 
+Należy również pamiętać, że Autozarządzanie obsługuje tylko maszyny wirtualne z systemem Windows, które znajdują się w następujących regionach: Europa Zachodnia, Wschodnie stany USA, zachodnie stany USA 2, Kanada środkowa, zachodnio-środkowe stany USA, Japonia Wschodnia.
+
+Aby włączyć funkcję autozarządzania na maszynach wirtualnych przy użyciu istniejącego konta Autozarządzanie, musisz mieć rolę **współautor** w grupie zasobów zawierającej swoje maszyny wirtualne. Jeśli włączysz Autozarządzanie przy użyciu nowego konta Autozarządzanie, potrzebne są następujące uprawnienia do subskrypcji: rola **właściciela** lub **współautor** wraz z rolami **administratora dostępu użytkowników** .
 
 > [!NOTE]
 > Jeśli chcesz używać autozarządzania na maszynie wirtualnej, która jest połączona z obszarem roboczym w innej subskrypcji, musisz mieć uprawnienia opisane powyżej dla każdej subskrypcji.
-
-Należy również pamiętać, że Autozarządzanie obsługuje tylko maszyny wirtualne z systemem Windows, które znajdują się w następujących regionach: Europa Zachodnia, Wschodnie stany USA, zachodnie stany USA 2, Kanada środkowa, zachodnio-środkowe stany USA, Japonia Wschodnia.
 
 ## <a name="participating-services"></a>Usługi uczestniczące
 
@@ -102,12 +102,20 @@ Ustawienia domyślnego profilu konfiguracji można dostosować za pomocą prefer
 
 ## <a name="automanage-account"></a>Autozarządzanie kontem
 
-Konto autozarządzaj jest kontekstem zabezpieczeń lub tożsamością, w której występują operacje zautomatyzowane. Zazwyczaj opcja autozarządzania konta jest niezbędna do wybrania, ale jeśli w scenariuszu delegowania chcesz podzielić zautomatyzowane zarządzanie (być może między dwoma administratorami systemu), ta opcja umożliwia zdefiniowanie tożsamości platformy Azure dla każdego z tych administratorów.
+Konto autozarządzaj jest kontekstem zabezpieczeń lub tożsamością, w której występują operacje zautomatyzowane. Zazwyczaj opcja konta automanage nie jest wymagana do wybrania, ale jeśli w scenariuszu delegowania chcesz podzielić zautomatyzowane zarządzanie zasobami (być może między dwoma administratorami systemu), ta opcja umożliwia zdefiniowanie tożsamości platformy Azure dla każdego z tych administratorów.
 
 W Azure Portal środowiska, gdy włączasz funkcję autozarządzania na maszynach wirtualnych, istnieje zaawansowana lista rozwijana w bloku **Włączanie usługi Azure VM Best Practice** , który umożliwia przypisanie lub ręczne utworzenie konta Autozarządzanie.
 
+Kontu autozarządzania zostanie przyznany **współautor** i role **współautor zasad zasobów** do subskrypcji zawierających maszyny, które zostaną dołączone do autozarządzania. Możesz użyć tego samego konta autozarządzania na maszynach w wielu subskrypcjach, co spowoduje przyznanie uprawnienia do autozarządzania **współautor** konta i **współautor zasad zasobów** dla wszystkich subskrypcji.
+
+Jeśli maszyna wirtualna jest połączona z obszarem roboczym Log Analytics w innej subskrypcji, do konta automanage zostanie przyznany **współautor i** **współautor zasad zasobów** w tej innej subskrypcji.
+
+Jeśli włączysz Autozarządzanie przy użyciu nowego konta Autozarządzanie, potrzebne są następujące uprawnienia do subskrypcji: rola **właściciela** lub **współautor** wraz z rolami **administratora dostępu użytkowników** .
+
+Jeśli włączysz Autozarządzanie przy użyciu istniejącego konta Autozarządzanie, musisz mieć rolę **współautor** w grupie zasobów zawierającej maszyny wirtualne.
+
 > [!NOTE]
-> Musisz mieć rolę **współautor** w grupie zasobów zawierającej swoje maszyny wirtualne, aby włączyć funkcję autozarządzania na maszynach wirtualnych przy użyciu istniejącego konta autozarządzania. Jeśli włączysz Autozarządzanie przy użyciu nowego konta Autozarządzanie, potrzebne są następujące uprawnienia do subskrypcji: rola **właściciela** lub **współautor** wraz z rolami **administratora dostępu użytkowników** .
+> Po wyłączeniu najlepszych rozwiązań z zakresu autozarządzania uprawnienia konta Autozarządzanie dla wszystkich skojarzonych subskrypcji pozostaną. Ręcznie usuń uprawnienia, przechodząc do strony usługi IAM subskrypcji lub Usuń konto autozarządzaj. Konta automanage nie można usunąć, jeśli nadal zarządza wszystkimi maszynami.
 
 
 ## <a name="status-of-vms"></a>Stan maszyn wirtualnych
@@ -122,6 +130,7 @@ W kolumnie **stan** można wyświetlić następujące stany:
 - *W toku* — maszyna wirtualna została właśnie włączona i jest konfigurowana
 - *Skonfigurowane* — maszyna wirtualna jest skonfigurowana i nie wykryto dryfu
 - *Niepowodzenie* — maszyna wirtualna została przedryfna i nie można jej skorygować
+- *Oczekujące* — maszyna wirtualna nie jest obecnie uruchomiona, a Autozarządzanie podejmie próbę dołączenia lub skorygowania maszyny wirtualnej po jej następnym uruchomieniu
 
 Jeśli zobaczysz **stan** jako *Niepowodzenie*, możesz rozwiązać problemy ze wdrożeniem za pomocą grupy zasobów, w której znajduje się maszyna wirtualna. Przejdź do pozycji **grupy zasobów**, wybierz grupę zasobów, kliknij pozycję **wdrożenia** , a następnie  Zobacz szczegóły błędu.
 
@@ -145,7 +154,6 @@ Uważnie przeczytaj wiadomości w wyskakującym okienku, aby wyrazić zgodę na 
 
 
 Najpierw nie należy wyłączać maszyny wirtualnej z dowolnych usług, które zostały do niej dołączone i skonfigurowane. W związku z tym wszelkie opłaty naliczane przez te usługi będą nadal obciążane opłatami. Jeśli to konieczne, należy w razie potrzeby wyłączyć. Każde zachowanie autozarządzania zostanie natychmiast zatrzymane. Na przykład nie będziemy już monitorować maszyny wirtualnej pod kątem dryfowania.
-
 
 ## <a name="next-steps"></a>Następne kroki
 

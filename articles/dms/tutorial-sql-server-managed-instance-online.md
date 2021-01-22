@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 08/04/2020
-ms.openlocfilehash: 0041779abcd97901fb9315125a287a1d45cff133
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 02adb6f47b907fea402f8b312b3f4e8e117927ed
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350113"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693684"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>Samouczek: Migrowanie SQL Server do wystąpienia zarządzanego Azure SQL w trybie online za pomocą usługi DMS
 
@@ -183,7 +183,7 @@ Po utworzeniu wystąpienia usługi znajdź je w witrynie Azure Portal, otwórz j
 
 ## <a name="specify-target-details"></a>Określanie szczegółów elementu docelowego
 
-1. Na ekranie **szczegóły docelowej migracji** Określ identyfikator i klucz **aplikacji** , których **Key** wystąpienie DMS może używać do nawiązywania połączenia z wystąpieniem docelowym wystąpienia zarządzanego SQL i kontem usługi Azure Storage.
+1. Na ekranie **szczegóły docelowej migracji** Określ identyfikator i klucz **aplikacji** , których  wystąpienie DMS może używać do nawiązywania połączenia z wystąpieniem docelowym wystąpienia zarządzanego SQL i kontem usługi Azure Storage.
 
     Aby uzyskać więcej informacji, zobacz artykuł [Use portal to create an Azure Active Directory application and service principal that can access resources (Tworzenie aplikacji usługi Azure Active Directory i jednostki usługi, które mogą uzyskać dostęp do zasobów, w portalu)](../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -211,9 +211,9 @@ Po utworzeniu wystąpienia usługi znajdź je w witrynie Azure Portal, otwórz j
 
     | | |
     |--------|---------|
-    |**Udział lokalizacji sieciowej protokołu SMB** | Lokalny udział sieciowy SMB lub udział plików platformy Azure, który zawiera pliki pełnej kopii zapasowej bazy danych i pliki kopii zapasowej dziennika transakcji, które Azure Database Migration Service mogą być używane do migracji. Konto usługi, na którym uruchomiono źródłowe wystąpienie programu SQL Server, musi mieć uprawnienia do odczytu/zapisu w tym udziale sieciowym. Podaj nazwę FQDN lub adresy IP serwera w udziale sieciowym, na przykład „\\\nazwa_serwera.nazwa_domeny.com\folder_kopii_zapasowych” lub „\\\adres_IP\folder_kopii_zapasowych”. W celu zwiększenia wydajności zaleca się użycie osobnego folderu dla każdej bazy danych, która ma zostać zmigrowana. Ścieżkę udziału plików na poziomie bazy danych można podać przy użyciu opcji **Ustawienia zaawansowane** . |
-    |**Nazwa użytkownika** | Upewnij się, że użytkownik systemu Windows ma uprawnienia pełnej kontroli w udziale sieciowym, który podano powyżej. Azure Database Migration Service personifikuje poświadczenia użytkownika w celu przekazania plików kopii zapasowej do kontenera usługi Azure Storage w celu wykonania operacji przywracania. Jeśli korzystasz z udziału plików platformy Azure, użyj nazwy konta magazynu wstępnie na platformie AZURE jako nazwy użytkownika. |
-    |**Hasło** | Hasło użytkownika. Jeśli używasz udziału plików platformy Azure, użyj klucza konta magazynu jako hasła. |
+    |**Udział lokalizacji sieciowej protokołu SMB** | Lokalny udział sieciowy SMB lub udział plików platformy Azure, który zawiera pliki pełnej kopii zapasowej bazy danych i pliki kopii zapasowej dziennika transakcji, które Azure Database Migration Service mogą być używane do migracji. Konto usługi, na którym uruchomiono źródłowe wystąpienie programu SQL Server, musi mieć uprawnienia do odczytu/zapisu w tym udziale sieciowym. Podaj nazwę FQDN lub adresy IP serwera w udziale sieciowym, na przykład „\\\nazwa_serwera.nazwa_domeny.com\folder_kopii_zapasowych” lub „\\\adres_IP\folder_kopii_zapasowych”. W celu zwiększenia wydajności zaleca się użycie osobnego folderu dla każdej bazy danych, która ma zostać zmigrowana. Ścieżkę udziału plików na poziomie bazy danych można podać przy użyciu opcji **Ustawienia zaawansowane** . Jeśli występują problemy z nawiązywaniem połączenia z udziałem SMB, zobacz [udostępnianie SMB](known-issues-azure-sql-db-managed-instance-online.md#smb-file-share-connectivity). |
+    |**User name** (Nazwa użytkownika) | Upewnij się, że użytkownik systemu Windows ma uprawnienia pełnej kontroli w udziale sieciowym, który podano powyżej. Azure Database Migration Service personifikuje poświadczenia użytkownika w celu przekazania plików kopii zapasowej do kontenera usługi Azure Storage w celu wykonania operacji przywracania. Jeśli korzystasz z udziału plików platformy Azure, użyj nazwy konta magazynu wstępnie na platformie AZURE jako nazwy użytkownika. |
+    |**Password** (Hasło) | Hasło użytkownika. Jeśli używasz udziału plików platformy Azure, użyj klucza konta magazynu jako hasła. |
     |**Subskrypcja konta usługi Azure Storage** | Wybierz subskrypcję, która zawiera konto usługi Azure Storage. |
     |**Konto usługi Azure Storage** | Wybierz konto usługi Azure Storage, na które usługa DMS może przekazać pliki kopii zapasowej z udziału sieciowego protokołu SMB używane podczas migracji bazy danych.  Zalecamy wybranie konta usługi Storage w tym samym regionie co usługa DMS w celu uzyskania optymalnej wydajności przekazywania plików. |
 

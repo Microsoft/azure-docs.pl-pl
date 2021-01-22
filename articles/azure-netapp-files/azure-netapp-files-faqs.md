@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/05/2020
+ms.date: 01/21/2020
 ms.author: b-juche
-ms.openlocfilehash: 913d61c506505d18fff416291e7f3b718f1d92f3
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: f680b1ec76200cb4d3bfc90cd83a2c134f379245
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913502"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696129"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Często zadawane pytania dotyczące Azure NetApp Files
 
@@ -258,6 +258,16 @@ Nie. Azure Data Box obecnie nie obsługuje Azure NetApp Files.
 ### <a name="is-migration-with-azure-importexport-service-supported"></a>Czy migracja z usługą Azure Import/Export jest obsługiwana?
 
 Nie. Usługa Azure Import/Export nie obsługuje obecnie Azure NetApp Files.
+
+## <a name="product-faqs"></a>Często zadawane pytania dotyczące produktu
+
+### <a name="can-i-use-azure-netapp-files-nfs-or-smb-volumes-with-azure-vmware-solution-avs"></a>Czy mogę używać Azure NetApp Files woluminów NFS lub SMB z rozwiązaniem Azure VMware (Automatyczna synchronizacja)?
+
+Woluminy systemu plików NFS można Azure NetApp Files instalować na maszynach wirtualnych z systemem Windows lub na maszynach wirtualnych systemu Linux. Można mapować Azure NetApp Files udziały SMB na maszynach wirtualnych z systemem Windows. Aby uzyskać więcej informacji, zobacz [Azure NetApp Files z rozwiązaniem VMware platformy Azure]( ../azure-vmware/net-app-files-with-azure-vmware-solution.md).  
+
+### <a name="what-regions-are-supported-for-using-azure-netapp-files-nfs-or-smb-volumes-with-azure-vmware-solution-avs"></a>Jakie regiony są obsługiwane do używania Azure NetApp Files NFS lub woluminów SMB z rozwiązaniem Azure VMware (Automatyczna synchronizacja)?
+
+Korzystanie z Azure NetApp Files woluminów NFS lub SMB z funkcją automatycznej synchronizacji jest obsługiwane w następujących regionach: Wschodnie stany USA, zachodnie stany USA, Europa Zachodnia i Australia Wschodnia.
 
 ## <a name="next-steps"></a>Następne kroki  
 

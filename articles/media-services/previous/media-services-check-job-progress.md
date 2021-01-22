@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 591f69855204c4489eb3e9c6edb3900044dda2db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5a1c45290d07099c1f7d202854284ef638ad638
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89258405"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695979"
 ---
 # <a name="monitor-job-progress-using-net"></a>Monitoruj postęp zadań przy użyciu platformy .NET
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Podczas uruchamiania zadań często potrzebny jest sposób śledzenia postępów zadań. Postęp można sprawdzić przez zdefiniowanie programu obsługi zdarzeń StateChanged (zgodnie z opisem w tym temacie) lub użycie usługi Azure queue storage do monitorowania powiadomień dotyczących zadań Media Services (zgodnie z opisem w [tym](media-services-dotnet-check-job-progress-with-queues.md) temacie).
 
@@ -118,5 +118,5 @@ Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

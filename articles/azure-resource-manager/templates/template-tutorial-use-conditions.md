@@ -5,12 +5,12 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: bc6dc5b385a39ddb1c4f1663649ea21e5ed14767
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 4affc2add2822702c1d5395f81efe01eeedf448b
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97669316"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696027"
 ---
 # <a name="tutorial-use-condition-in-arm-templates"></a>Samouczek: Używanie warunku w szablonach usługi ARM
 
@@ -31,7 +31,7 @@ Ten samouczek obejmuje następujące zadania:
 Ten samouczek obejmuje tylko podstawowy scenariusz użycia warunków. Aby uzyskać więcej informacji, zobacz:
 
 * [Struktura pliku szablonu: warunek](conditional-resource-deployment.md).
-* [Warunkowego wdrażania zasobu w szablonie ARM](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
+* [Warunkowego wdrażania zasobu w szablonie ARM](/azure/architecture/guide/azure-resource-manager/advanced-templates/conditional-deploy).
 * [Funkcja szablonu: Jeśli](./template-functions-logical.md#if).
 * [Funkcje porównania dla szablonów ARM](./template-functions-comparison.md)
 

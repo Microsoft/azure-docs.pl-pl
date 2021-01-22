@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: dc08e23b6ef040ba5833ffa97f71d8cd1da3bb8a
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 3f9fc9fd1bacce8733949969b496dc03d6c10901
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019804"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695831"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Przesyłanie strumieniowe na żywo z Azure Media Services v3
 
@@ -135,4 +135,4 @@ Zapoznaj się z artykułem [community Azure Media Services](media-services-commu
 
 * [Transmisja strumieniowa na żywo — Szybki Start](live-events-wirecast-quickstart.md)
 * [Samouczek przesyłania strumieniowego na żywo](stream-live-tutorial-with-api.md)
-* [Wskazówki dotyczące migracji dotyczące przenoszenia z Media Services V2 do wersji v3](migrate-from-v2-to-v3.md)
+* [Wskazówki dotyczące migracji dotyczące przenoszenia z Media Services V2 do wersji v3](migrate-v-2-v-3-migration-introduction.md)

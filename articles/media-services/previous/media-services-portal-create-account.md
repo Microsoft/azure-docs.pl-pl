@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/03/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2ca47e49af06ab0a6dffc1f4011d7dceb58830be
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 34546e74c9d066af20ece834275732d55b8d6277
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348512"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695464"
 ---
 # <a name="create-a-media-services-account-using-the-azure-portal"></a>Tworzenie konta usługi Media Services przy użyciu witryny Azure Portal
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Portal Azure umożliwia szybkie utworzenie konta usługi Azure Media Services (AMS). Korzystając z konta, możesz uzyskiwać dostęp do usługi Media Services, która umożliwia przechowywanie, szyfrowanie, kodowanie i przesyłanie strumieniowe zawartości oraz zarządzanie nią na platformie Azure. Podczas tworzenia konta usługi Media Services możesz również utworzyć skojarzone konto magazynu (lub użyć istniejącego konta). Jeśli usuniesz konto usługi Media Services, obiekty blob na powiązanym koncie magazynu nie zostaną usunięte.
 
@@ -56,7 +56,7 @@ W tej sekcji opisano kroki w procesie tworzenia konta usługi AMS.
    5. W polu **Konto magazynu** wybierz konto magazynu, aby udostępnić magazyn obiektów Blob dla zawartości multimedialnej z konta usługi Media Services. Można wybrać istniejące konto magazynu w tym samym regionie geograficznym co konto usługi Media Services albo utworzyć konto magazynu. Nowe konto magazynu jest tworzone w tym samym regionie. Reguły dotyczące nazw kont magazynów są takie same, jak w przypadku kont usługi Media Services.
 
        Więcej informacji o magazynie można znaleźć [tutaj](../../storage/common/storage-introduction.md).
-   6. Wybierz opcję **Przypnij do pulpitu nawigacyjnego** , aby wyświetlić postęp wdrażania konta.
+   6. Wybierz opcję **Przypnij do pulpitu nawigacyjnego**, aby wyświetlić postęp wdrażania konta.
 4. Kliknij opcję **Utwórz** w dolnej części formularza.
 
     Po pomyślnym utworzeniu konta zostanie załadowana strona przeglądu. W tabeli punktów końcowych przesyłania strumieniowego konto będzie mieć domyślny punkt końcowy przesyłania strumieniowego w stanie **Zatrzymany**. 
@@ -66,7 +66,7 @@ W tej sekcji opisano kroki w procesie tworzenia konta usługi AMS.
    
 ## <a name="to-manage-your-ams-account"></a>Zarządzanie kontem usługi AMS
 
-W celu zarządzania kontem usługi AMS (na przykład programowego łączenia się z interfejsem API usługi AMS, przekazywania plików wideo, kodowania zasobów, konfigurowania ochrony zawartości, monitorowania postępów zadań) wybierz opcję **Ustawienia** po lewej stronie portalu. W obszarze **Ustawienia** przejdź do jednego z dostępnych bloków (na przykład: **Dostęp do interfejsu API** , **Zasoby** , **Zadania** , **Ochrona zawartości** ).
+W celu zarządzania kontem usługi AMS (na przykład programowego łączenia się z interfejsem API usługi AMS, przekazywania plików wideo, kodowania zasobów, konfigurowania ochrony zawartości, monitorowania postępów zadań) wybierz opcję **Ustawienia** po lewej stronie portalu. W obszarze **Ustawienia** przejdź do jednego z dostępnych bloków (na przykład: **Dostęp do interfejsu API**, **Zasoby**, **Zadania**, **Ochrona zawartości**).
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -77,5 +77,5 @@ Jeśli planujesz uzyskiwać dostęp do interfejsu API usługi AMS programowo, zo
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

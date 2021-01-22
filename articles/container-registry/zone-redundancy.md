@@ -3,12 +3,12 @@ title: Strefowo nadmiarowy rejestr w celu zapewnienia wysokiej dostępności
 description: Dowiedz się więcej na temat włączania nadmiarowości stref w Azure Container Registry. Utwórz rejestr kontenerów lub replikację w strefie dostępności platformy Azure. Nadmiarowość stref jest funkcją warstwy usługi Premium.
 ms.topic: article
 ms.date: 01/07/2021
-ms.openlocfilehash: 8c03b2bb093f8d0fa70ff5132f7448ce86e8779d
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 7de8ed101d2df9e491c475f522a56580798c49a9
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127360"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696282"
 ---
 # <a name="enable-zone-redundancy-in-azure-container-registry-for-resiliency-and-high-availability"></a>Włącz nadmiarowość stref w Azure Container Registry na potrzeby odporności i wysokiej dostępności
 
@@ -39,7 +39,7 @@ Aby włączyć nadmiarowość strefy przy użyciu interfejsu wiersza polecenia p
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-W razie potrzeby uruchom polecenie [AZ Group Create](/cli/az/group#az_group_create) , aby utworzyć grupę zasobów dla rejestru.
+W razie potrzeby uruchom polecenie [AZ Group Create](/cli/azure/group#az_group_create) , aby utworzyć grupę zasobów dla rejestru.
 
 ```azurecli
 az group create --name <resource-group-name> --location <location>
@@ -47,7 +47,7 @@ az group create --name <resource-group-name> --location <location>
 
 ### <a name="create-zone-enabled-registry"></a>Utwórz rejestr obsługujący strefę
 
-Uruchom polecenie [AZ ACR Create](/cli/az/acr#az_acr_create) , aby utworzyć strefowo nadmiarowy rejestr w warstwie usługi Premium. Wybierz region, który [obsługuje strefy dostępności](../availability-zones/az-region.md) dla Azure Container Registry. W poniższym przykładzie jest włączona nadmiarowość strefy w regionie *wschodnim* . Zobacz `az acr create` Pomoc polecenia, aby uzyskać więcej opcji rejestru.
+Uruchom polecenie [AZ ACR Create](/cli/azure/acr?view=azure-cli-latest#az_acr_create) , aby utworzyć strefowo nadmiarowy rejestr w warstwie usługi Premium. Wybierz region, który [obsługuje strefy dostępności](../availability-zones/az-region.md) dla Azure Container Registry. W poniższym przykładzie jest włączona nadmiarowość strefy w regionie *wschodnim* . Zobacz `az acr create` Pomoc polecenia, aby uzyskać więcej opcji rejestru.
 
 ```azurecli
 az acr create \
@@ -69,7 +69,7 @@ W danych wyjściowych polecenia Zanotuj `zoneRedundancy` Właściwość rejestru
 
 ### <a name="create-zone-redundant-replication"></a>Utwórz strefowo nadmiarową replikację
 
-Uruchom polecenie [AZ ACR Replication Create](/cli/az/acr/replication#az_acr_replication_create) , aby utworzyć strefowo nadmiarową replikę rejestru w regionie, który [obsługuje strefy dostępności](../availability-zones/az-region.md) dla Azure Container Registry, na przykład *westus2*. 
+Uruchom polecenie [AZ ACR Replication Create](/cli/azure/acr/replication?view=azure-cli-latest#az_acr_replication_create) , aby utworzyć strefowo nadmiarową replikę rejestru w regionie, który [obsługuje strefy dostępności](../availability-zones/az-region.md) dla Azure Container Registry, na przykład *westus2*. 
 
 ```azurecli
 az acr replication create \
@@ -113,7 +113,7 @@ Aby utworzyć strefowo nadmiarową replikację:
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-W razie potrzeby uruchom polecenie [AZ Group Create](/cli/az/group#az_group_create) , aby utworzyć grupę zasobów dla rejestru w regionie, który [obsługuje strefy dostępności](../availability-zones/az-region.md) dla Azure Container Registry, takich jak *Wschodnie*. Ten region jest używany przez szablon do ustawiania lokalizacji w rejestrze.
+W razie potrzeby uruchom polecenie [AZ Group Create](/cli/azure/group#az_group_create) , aby utworzyć grupę zasobów dla rejestru w regionie, który [obsługuje strefy dostępności](../availability-zones/az-region.md) dla Azure Container Registry, takich jak *Wschodnie*. Ten region jest używany przez szablon do ustawiania lokalizacji w rejestrze.
 
 ```azurecli
 az group create --name <resource-group-name> --location eastus
@@ -219,7 +219,7 @@ Skopiuj poniższą zawartość do nowego pliku i Zapisz go przy użyciu nazwy pl
   }
 ```
 
-Uruchom następujące polecenie [AZ Deployment Group Create](/cli/az/deployment#az_group_deployment_create) , aby utworzyć rejestr przy użyciu poprzedniego pliku szablonu. Gdzie to wskazane, podaj:
+Uruchom następujące polecenie [AZ Deployment Group Create](/cli/azure/group/deployment?view=azure-cli-latest#az_group_deployment_create) , aby utworzyć rejestr przy użyciu poprzedniego pliku szablonu. Gdzie to wskazane, podaj:
 
 * Unikatowa nazwa rejestru lub wdrożenie szablonu bez parametrów i spowoduje utworzenie unikatowej nazwy
 * Lokalizacja repliki obsługującej strefy dostępności, na przykład *westus2*
