@@ -12,12 +12,12 @@ metadata:
   author: Juliako
   ms.author: juliako
   ms.date: 02/18/2020
-  ms.openlocfilehash: 3bcc408014f16c3c60accc5d0e7f3c5bf3652f50
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-  ms.translationtype: HT
+  ms.openlocfilehash: 05a5e8d179258815e75482f1532e01e79fa0353c
+  ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+  ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "87091734"
+  ms.lasthandoff: 01/22/2021
+  ms.locfileid: "98707910"
 landingContent:
 - title: Informacje o usłudze Azure Media Services w wersji 2
   linkLists:
@@ -26,7 +26,7 @@ landingContent:
     - text: Omówienie usługi Azure Media Services w wersji 2
       url: media-services-overview.md
     - text: Migrowanie do usługi Media Services w wersji 3
-      url: ../latest/migrate-from-v2-to-v3.md
+      url: ../latest/migrate-v-2-v-3-migration-introduction.md
   - linkListType: whats-new
     links:
     - text: Co nowego w usłudze Media Services w wersji 2?

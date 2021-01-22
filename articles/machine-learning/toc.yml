@@ -70,10 +70,6 @@
         - name: Dane etykiety obrazu
           displayName: 'tag, tagging, images'
           href: tutorial-labeling.md
-    - name: Zestaw SDK języka R
-      items:
-        - name: Tworzenie pierwszego eksperymentu uczenia maszynowego (R)
-          href: tutorial-1st-r-experiment.md
     - name: Interfejs wiersza polecenia
       items:
         - name: Uczenie i wdrażanie przy użyciu interfejsu wiersza polecenia

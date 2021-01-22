@@ -268,6 +268,13 @@
         - name: Azure Custom Providers
           tocHref: /azure/azure-resource-manager/custom-providers/
           topicHref: /azure/azure-resource-manager/custom-providers/
+    - name: Rozwiązania partnerskie
+      tocHref: /azure/partner-solutions/
+      topicHref: /azure/partner-solutions/
+      items:
+        - name: Apache Kafka dla chmury z niefluent
+          tocHref: /azure/partner-solutions/apache-kafka-confluent-cloud
+          topicHref: /azure/partner-solutions/apache-kafka-confluent-cloud
     - name: SignalR Service
       tocHref: /azure/azure-signalr/
       topicHref: /azure/azure-signalr/

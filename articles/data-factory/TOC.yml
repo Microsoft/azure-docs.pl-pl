@@ -109,8 +109,8 @@
               href: tutorial-data-flow.md
             - name: Samouczki wideo dotyczące przepływów mapowania danych
               href: data-flow-tutorials.md
-        - name: Przygotowywanie danych za pomocą przepływów uzdatniania danych
-          href: wrangling-data-flow-tutorial.md
+        - name: Przygotowywanie danych za pomocą przetwarzanie
+          href: wrangling-tutorial.md
         - name: Korzystanie z usług zewnętrznych
           items:
             - name: HDInsight Spark
@@ -197,12 +197,12 @@
               href: concepts-data-flow-expression-builder.md
             - name: Język wyrażeń
               href: data-flow-expression-functions.md
-        - name: Przygotowywanie danych za pomocą przepływów danych uzdatniania
+        - name: Przygotowywanie danych za pomocą Power Query danych przetwarzanie
           items:
-            - name: Omówienie przepływu danych uzdatniania
-              href: wrangling-data-flow-overview.md
+            - name: Przetwarzanie danych — omówienie
+              href: wrangling-overview.md
             - name: Obsługiwane funkcje
-              href: wrangling-data-flow-functions.md
+              href: wrangling-functions.md
     - name: Role i uprawnienia
       href: concepts-roles-permissions.md
     - name: Reguły nazewnictwa
@@ -407,7 +407,7 @@
           href: connector-shopify.md
         - name: Snowflake
           href: connector-snowflake.md
-        - name: platforma Spark
+        - name: Spark
           href: connector-spark.md
         - name: SQL Server
           href: connector-sql-server.md
@@ -464,6 +464,8 @@
       items:
         - name: Działanie wykonywania przepływu danych
           href: control-flow-execute-data-flow-activity.md
+        - name: Działanie wykonywania Power Query
+          href: control-flow-power-query-activity.md
         - name: Działanie funkcji platformy Azure
           href: control-flow-azure-function-activity.md
         - name: Działanie niestandardowe

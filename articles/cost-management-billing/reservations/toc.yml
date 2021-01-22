@@ -51,7 +51,7 @@
       href: reserved-instance-windows-software-costs.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Dane użycia poszczególnych subskrypcji
       href: understand-reserved-instance-usage.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Dane użycia dla klientów korporacyjnych
+    - name: Dane użycia umowy Enterprise i klienta firmy Microsoft
       href: understand-reserved-instance-usage-ea.md?toc=/azure/cost-management-billing/reservations/toc.json
 - name: Przewodniki z instrukcjami
   expanded: true

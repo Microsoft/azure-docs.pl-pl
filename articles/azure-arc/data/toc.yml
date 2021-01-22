@@ -50,6 +50,8 @@
           href: create-data-controller-using-azdata.md
         - name: Narzędzia platformy Kubernetes
           href: create-data-controller-using-kubernetes-native-tools.md
+        - name: Zastosuj SCC (OpenShift)
+          href: how-to-apply-security-context-constraint.md
     - name: Typowe środowiska usług danych z obsługą usługi Azure Arc
       items:
         - name: Monitorowanie przy użyciu pulpitów nawigacyjnych (Azure Data Studio)

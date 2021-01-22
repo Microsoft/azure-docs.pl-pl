@@ -1,0 +1,88 @@
+- name: Synchronizacja z chmurą
+  href: index.yml
+- name: Omówienie
+  items:
+    - name: Co to jest aprowizacja tożsamości?
+      href: what-is-provisioning.md
+    - name: Co to jest Azure AD Connect Sync Cloud?
+      href: what-is-cloud-sync.md
+      maintainContext: true
+- name: Samouczki
+  expanded: true
+  items:
+    - name: Integrowanie pojedynczego lasu usługi AD z jedną dzierżawą usługi Azure AD
+      href: tutorial-single-forest.md
+    - name: Integrowanie istniejącego i nowego lasu z jedną dzierżawą usługi Azure AD
+      href: tutorial-existing-forest.md
+    - name: Pilotażowa synchronizacja z chmurą dla istniejącego synchronizowanego lasu usługi AD
+      href: tutorial-pilot-aadc-aadccp.md
+- name: Pojęcia
+  items:
+    - name: Jak to działa
+      href: concept-how-it-works.md
+    - name: Co to jest synchronizacja skrótów haseł?
+      href: ../hybrid/whatis-phs.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcloud-provisioning-context
+    - name: 'Informacje o schemacie, atrybutach i wyrażeniach usługi Azure AD'
+      href: concept-attributes.md
+    - name: Pisanie wyrażeń na potrzeby mapowania atrybutów w usłudze Azure Active Directory
+      href: reference-expressions.md
+- name: Przewodniki z instrukcjami
+  items:
+    - name: Instalacja i uaktualnianie
+      items:
+        - name: Wymagania wstępne dotyczące instalacji
+          href: how-to-prerequisites.md
+        - name: Instalowanie agenta aprowizacji w chmurze programu Azure AD Connect
+          href: how-to-install.md
+        - name: Konfiguracja synchronizacji z chmurą
+          href: how-to-configure.md
+        - name: Aprowizacja na żądanie
+          href: how-to-on-demand-provision.md
+        - name: Mapowanie atrybutów
+          href: how-to-attribute-mapping.md
+        - name: Korzystanie z logowania jednokrotnego
+          href: how-to-sso.md
+    - name: Planowanie i projektowanie
+      items:
+        - name: Topologie i scenariusze Azure AD Connect synchronizacji w chmurze
+          href: plan-cloud-sync-topologies.md
+    - name: Zarządzanie
+      items:
+        - name: Automatyczne uaktualnianie agenta
+          href: how-to-automatic-upgrade.md
+        - name: Przypadkowe usunięcie
+          href: how-to-accidental-deletes.md
+        - name: Opcje rejestru agenta
+          href: how-to-manage-registry-options.md
+        - name: Polecenia cmdlet programu PowerShell dla agenta gMSA
+          href: how-to-gmsa-cmdlets.md
+        - name: Instalowanie agenta aprowizacji przy użyciu programu PowerShell
+          href: how-to-install-pshell.md
+    - name: Programowanie
+      items:
+        - name: Przekształcenia
+          href: how-to-transformation.md
+        - name: Synchronizacja ruchu przychodzącego przy użyciu interfejsu MS Graph API
+          href: how-to-inbound-synch-ms-graph.md
+        - name: Interfejs API synchronizacji usługi Azure AD
+          href: /graph/api/resources/synchronization-overview
+    - name: Rozwiązywanie problemów
+      items:
+        - name: Rozwiązywanie problemów z synchronizacją chmury
+          href: how-to-troubleshoot.md
+        - name: Zduplikowane atrybuty
+          href: ../hybrid/how-to-connect-syncservice-duplicate-attribute-resiliency.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
+- name: Dokumentacja
+  items:
+    - name: Historia wersji agenta aprowizacji w chmurze programu Azure AD Connect
+      href: reference-version-history.md
+    - name: Azure AD Connect — często zadawane pytania dotyczące synchronizacji w chmurze
+      href: reference-cloud-sync-faq.md
+    - name: Moduł AADCloudSyncTools programu PowerShell
+      href: reference-powershell.md
+    - name: Synchronizowane atrybuty
+      href: ../hybrid/reference-connect-sync-attributes-synchronized.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
+    - name: Kody błędów i opisy
+      href: reference-error-codes.md
+    - name: Podstawowe środowisko usług Active Directory i Azure AD
+      href: tutorial-basic-ad-azure.md

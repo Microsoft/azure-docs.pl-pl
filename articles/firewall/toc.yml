@@ -58,6 +58,8 @@
       href: fqdn-filtering-network-rules.md
     - name: Punkt odniesienia zabezpieczeń
       href: security-baseline.md
+    - name: Obsługa Active FTP
+      href: active-ftp-support.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Wdrażanie przy użyciu programu Azure PowerShell

@@ -397,6 +397,11 @@
   items:
     - name: Punkt odniesienia zabezpieczeń
       href: security-baseline.md
+- name: Odwołania
+  items:
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Zasoby
   items:
     - name: Azure Stack Edge Pro — przykłady modułów języka C# (.NET)

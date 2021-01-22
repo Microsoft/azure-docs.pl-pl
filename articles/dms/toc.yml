@@ -89,8 +89,10 @@
       items:
         - name: z programu SQL Server do usługi SQL Database
           href: howto-sql-server-to-azure-sql-powershell.md
-        - name: z programu SQL Server do wystąpienia zarządzanego SQL
-          href: howto-sql-server-to-azure-sql-mi-powershell.md
+        - name: SQL Server do SQL — MI (online)
+          href: howto-sql-server-to-azure-sql-managed-instance-powershell-online.md
+        - name: SQL Server do SQL — MI (offline)
+          href: howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md
     - name: Ponowne wdrażanie pakietu SSIS w
       items:
         - name: Azure SQL Database
@@ -137,17 +139,17 @@
               href: known-issues-dms-hybrid-mode.md
         - name: Znane problemy z migracją
           items:
-            - name: do usługi SQL Database
+            - name: Baza danych SQL
               href: known-issues-azure-sql-online.md
             - name: Wystąpienie zarządzane SQL
               href: known-issues-azure-sql-db-managed-instance-online.md
-            - name: do usługi Azure DB for MySQL
+            - name: Azure DB dla MySQL
               href: known-issues-azure-mysql-online.md
-            - name: z bazy danych PostgreSQL do usługi Azure DB for PostgreSQL
+            - name: PostgreSQL do usługi Azure DB dla PostgreSQL
               href: known-issues-azure-postgresql-online.md
-            - name: z bazy danych Oracle do usługi Azure DB for PostgreSQL
+            - name: Oracle do usługi Azure DB dla PostgreSQL
               href: known-issues-oracle-azure-postgresql-online.md
-            - name: z bazy danych MongoDB do interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB
+            - name: Azure Cosmos DB MongoDB interfejsu API dla MongoDB
               href: known-issues-mongo-cosmos-db.md
     - name: Filmy wideo
       items:

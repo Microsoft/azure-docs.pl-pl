@@ -1,0 +1,50 @@
+### YamlMime:Landing
+title: Dokumentacja usługi Azure AD Connect Cloud Sync
+summary: Azure AD Connect synchronizacja w chmurze pomaga uprościć i zautomatyzować zarządzanie użytkownikami usługi Azure AD za pomocą reguł zarządzanych przez chmurę do synchronizowania tych użytkowników z istniejących lasów usługi AD.
+metadata:
+  author: billmath
+  description: Synchronizacja w chmurze pomaga uprościć i zautomatyzować zarządzanie użytkownikami usługi Azure AD za pomocą reguł zarządzanych przez chmurę do synchronizowania tych użytkowników z istniejących lasów usługi AD.
+  ms.author: billmath
+  ms.collection: na
+  ms.date: 09/05/2019
+  ms.service: active-directory
+  ms.subservice: na
+  ms.topic: landing-page
+  services: active-directory
+  ms.openlocfilehash: 52032c39e77fb4ebd6488f25d660428ba59dfbd3
+  ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+  ms.translationtype: MT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 01/20/2021
+  ms.locfileid: "98611783"
+landingContent:
+- title: Informacje o synchronizacji z chmurą
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to jest Azure AD Connect Sync Cloud?
+      url: what-is-cloud-sync.md
+- title: Dowiedz się, jak zaimplementować najlepsze rozwiązanie do zarządzania cyklem życia użytkowników i grup
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Integrowanie pojedynczego lasu usługi AD z jedną dzierżawą usługi Azure AD
+      url: tutorial-single-forest.md
+    - text: Integrowanie istniejącego i nowego lasu z jedną dzierżawą usługi Azure AD
+      url: tutorial-existing-forest.md
+    - text: Pilotażowa synchronizacja z chmurą dla istniejącego synchronizowanego lasu usługi AD
+      url: tutorial-pilot-aadc-aadccp.md
+- title: Wprowadzenie do synchronizacji z chmurą
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Wymagania wstępne dotyczące synchronizacji Azure AD Connect Cloud
+      url: how-to-prerequisites.md
+    - text: Instalowanie Azure AD Connect synchronizacji w chmurze
+      url: how-to-install.md
+    - text: Azure AD Connect konfigurację agenta aprowizacji
+      url: how-to-configure.md
+  - linkListType: reference
+    links:
+    - text: Obsługiwane topologie i scenariusze
+      url: plan-cloud-sync-topologies.md

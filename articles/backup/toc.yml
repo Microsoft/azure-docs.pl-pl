@@ -210,6 +210,8 @@
           items:
             - name: Odzyskiwanie plików z platformy Azure do systemu Windows Server
               href: backup-azure-restore-windows-server.md
+            - name: Przywróć wszystkie pliki w woluminie
+              href: restore-all-files-volume-mars.md
             - name: Przywracanie stanu systemu Windows Server
               href: backup-azure-restore-system-state.md
         - name: Zarządzanie

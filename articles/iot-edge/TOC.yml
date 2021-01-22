@@ -17,9 +17,9 @@
   items:
     - name: Konfigurowanie środowiska deweloperskiego
       items:
-        - name: Opracowywanie zawartości dla urządzeń z systemem Linux
+        - name: Programowanie przy użyciu kontenerów systemu Linux
           href: tutorial-develop-for-linux.md
-        - name: Opracowywanie zawartości dla urządzeń z systemem Windows
+        - name: Programowanie przy użyciu kontenerów systemu Windows
           href: tutorial-develop-for-windows.md
     - name: Tworzenie modułów kodu niestandardowego
       items:
@@ -77,6 +77,8 @@
   items:
     - name: Środowisko uruchomieniowe usługi IoT Edge
       href: iot-edge-runtime.md
+    - name: IoT Edge dla systemu Linux w systemie Windows
+      href: iot-edge-for-linux-on-windows.md
     - name: Moduły usługi IoT Edge
       items:
         - name: Omówienie modułów usługi Azure IoT Edge
@@ -119,23 +121,25 @@
   items:
     - name: Tworzenie urządzenia usługi IoT Edge
       items:
-        - name: Instalowanie środowiska uruchomieniowego
-          href: how-to-install-iot-edge.md
-        - name: Rejestrowanie i uwierzytelnianie urządzenia
+        - name: Rejestrowanie urządzenia w IoT Hub
+          href: how-to-register-device.md
+        - name: Instalowanie i udostępnianie IoT Edge
           items:
-            - name: Uwierzytelnianie za pomocą klucza zawartości
-              href: how-to-manual-provision-symmetric-key.md
-            - name: Uwierzytelnienie za pomocą certyfikatu X.509
-              href: how-to-manual-provision-x509.md
+            - name: Zainstaluj IoT Edge dla systemu Linux
+              href: how-to-install-iot-edge.md
+            - name: Uruchamianie IoT Edge dla systemu Linux w systemie Windows
+              href: how-to-install-iot-edge-on-windows.md
         - name: Aktualizowanie środowiska uruchomieniowego
           href: how-to-update-iot-edge.md
         - name: Zarządzanie certyfikatami urządzeń
           href: how-to-manage-device-certificates.md
-        - name: Tworzenie certyfikatów testowych
-          href: how-to-create-test-certificates.md
-        - name: Usługa IoT Edge na platformie Kubernetes
+    - name: Alternatywne scenariusze urządzeń
+      items:
+        - name: Uruchamianie IoT Edge z kontenerami systemu Windows
+          href: how-to-install-iot-edge-windows-on-windows.md
+        - name: Uruchom IoT Edge w Kubernetes
           href: how-to-install-iot-edge-kubernetes.md
-        - name: Maszyna wirtualna usługi IoT Edge przy użyciu szablonu usługi Resource Manager
+        - name: Wdróż maszynę wirtualną IoT Edge przy użyciu szablonu ARM
           href: how-to-install-iot-edge-ubuntuvm.md
     - name: Automatyczne aprowizowanie za pomocą usługi DPS
       items:
@@ -243,6 +247,8 @@
           href: troubleshoot-common-errors.md
 - name: Dokumentacja
   items:
+    - name: Tworzenie certyfikatów testowych
+      href: how-to-create-test-certificates.md
     - name: Skrypty zarządzania urządzeniami z systemem Windows
       href: reference-windows-scripts.md
     - name: Interfejs wiersza polecenia platformy Azure

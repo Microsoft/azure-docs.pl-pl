@@ -1,18 +1,18 @@
 ---
 title: Wbudowane definicje zasad dla Azure Database for MySQL
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Database for MySQL. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 01/08/2021
+ms.date: 01/21/2021
 ms.topic: reference
 author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 57a1ffe3ec5412d3dce83723540c4460de106592
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: dde73bdba9e4e6d3e7ca79e4d90cf96cb12efa3d
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051042"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702640"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-database-for-mysql"></a>Azure Policy wbudowane definicje Azure Database for MySQL
 

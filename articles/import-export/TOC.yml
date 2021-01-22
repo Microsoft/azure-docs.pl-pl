@@ -1,0 +1,54 @@
+- name: Dokumentacja usługi Azure Import/Export
+  href: ./index.yml
+- name: Omówienie
+  expanded: true
+  items:
+    - name: Co to jest Import/Export?
+      href: storage-import-export-service.md
+- name: Pojęcia
+  items:
+    - name: Sprawdzanie wymagań
+      href: storage-import-export-requirements.md
+    - name: Często zadawane pytania
+      href: storage-import-export-service-faq.md
+- name: Instrukcje
+  expanded: true
+  items:
+    - name: Wdróż
+      items:
+        - name: Importowanie danych do obiektów blob
+          href: storage-import-export-data-to-blobs.md
+        - name: Importowanie danych do plików
+          href: storage-import-export-data-to-files.md
+        - name: Eksportowanie danych z obiektów blob
+          href: storage-import-export-data-from-blobs.md
+    - name: Korzystanie z kluczy zarządzanych przez klienta
+      href: storage-import-export-encryption-key-portal.md
+    - name: Monitor
+      items:
+        - name: Wyświetlanie stanu dysku
+          href: storage-import-export-view-drive-status.md
+        - name: Sprawdzanie stanu zadania
+          href: storage-import-export-tool-reviewing-job-status-v1.md
+    - name: Rozwiązywanie problemów
+      items:
+        - name: Rozwiązywanie typowych błędów
+          href: storage-import-export-tool-troubleshooting-v1.md
+        - name: Naprawianie zadania importu
+          href: storage-import-export-tool-repairing-an-import-job-v1.md
+        - name: Naprawa zadania eksportu
+          href: storage-import-export-tool-repairing-an-export-job-v1.md
+        - name: Kontakt z pomocą techniczną
+          href: storage-import-export-contact-microsoft-support.md
+- name: Dokumentacja
+  items:
+    - name: Interfejs API REST
+      href: /rest/api/storageimportexport/jobs
+    - name: Azure PowerShell
+      href: /powershell/module/Az.ImportExport
+- name: Zasoby
+  items:
+    - name: Eksportowanie danych do trybu offline
+      href: /learn/modules/export-data-with-azure-import-export
+    - name: Inne opcje transferu w trybie offline
+      href: ../databox/index.yml

@@ -1,19 +1,19 @@
 ---
 title: Wbudowane definicje zasad dla interfejsu API platformy Azure dla usługi FHIR
 description: Zawiera listę wbudowanych definicji zasad Azure Policy dla interfejsu API platformy Azure dla usługi FHIR. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 01/08/2021
+ms.date: 01/21/2021
 author: matjazl
 ms.author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: dab9ff889db9665026090a6a470153e72a73768d
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: b7ab4a4c97b76d6775cf66138159d7c9b7ab4c14
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044038"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98699432"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-api-for-fhir"></a>Azure Policy wbudowane definicje dla interfejsu API platformy Azure dla FHIR
 

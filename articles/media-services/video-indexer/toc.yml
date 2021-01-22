@@ -25,6 +25,8 @@
       href: 'https://github.com/Azure-Samples/media-services-video-indexer'
 - name: Pojęcia
   items:
+    - name: Omówienie
+      href: concepts-overview.md
     - name: Porównanie ustawień wstępnych usług Video Indexer i Media Services
       href: compare-video-indexer-with-media-services-presets.md
     - name: Zarządzanie wieloma dzierżawami

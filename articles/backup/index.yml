@@ -9,12 +9,12 @@ metadata:
   author: dcurwin
   ms.author: dacurwin
   ms.date: 12/01/2019
-  ms.openlocfilehash: e2afc60f6fa67c1dc0582839e2d3f7480907facc
-  ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
-  ms.translationtype: HT
+  ms.openlocfilehash: ea54d6e4a08ff5baa2a46051a8ec342128175de3
+  ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+  ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 01/18/2021
-  ms.locfileid: "98556498"
+  ms.lasthandoff: 01/21/2021
+  ms.locfileid: "98707451"
 landingContent:
 - title: Dowiedz się więcej o usłudze Azure Backup
   linkLists:
@@ -40,8 +40,6 @@ landingContent:
       url: quick-backup-vm-cli.md
     - text: Tworzenie kopii zapasowej maszyny wirtualnej za pomocą szablonu usługi Resource Manager
       url: quick-backup-vm-template.md
-- title: Wypróbuj te samouczki krok po kroku
-  linkLists:
   - linkListType: tutorial
     links:
     - text: Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure
@@ -84,6 +82,20 @@ landingContent:
       url: backup-azure-vm-backup-faq.md
     - text: Zarządzanie kopiami zapasowymi maszyn wirtualnych platformy Azure
       url: backup-azure-manage-vms.md
+- title: Tworzenie kopii zapasowej Managed Disks platformy Azure (w wersji zapoznawczej)
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Omówienie usługi Kopia zapasowa Azure Disk
+      url: disk-backup-overview.md
+    - text: Macierz obsługi dla usługi Kopia zapasowa Azure Disk
+      url: disk-backup-support-matrix.md
+    - text: Tworzenie kopii zapasowej Managed Disks platformy Azure
+      url: backup-managed-disks.md
+    - text: Często zadawane pytania — Managed Disks platformy Azure
+      url: disk-backup-faq.md
+    - text: Rozwiązywanie problemów z usługą Azure Managed Disks Backup
+      url: disk-backup-troubleshoot.md
 - title: Tworzenie kopii zapasowej programu SQL Server na maszynach wirtualnych platformy Azure
   linkLists:
   - linkListType: concept

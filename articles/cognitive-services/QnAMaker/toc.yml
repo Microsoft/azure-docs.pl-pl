@@ -14,9 +14,7 @@
           href: Quickstarts/create-publish-knowledge-base.md
         - name: Wykonywanie zapytań w bazie wiedzy
           href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
-    - name: Korzystanie z interfejsu REST
-      href: Quickstarts/quickstart-rest-curl.md
-    - name: Używanie zestawu SDK
+    - name: Korzystanie z bibliotek klienta lub interfejsu API REST
       href: Quickstarts/quickstart-sdk.md
 - name: Samouczki
   items:
