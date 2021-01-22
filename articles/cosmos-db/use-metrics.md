@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 243f6f26be592e2db82d8f46df3de9aafcd2078b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b0760b86012504ea86e4a0cde36ae878e8ff3b26
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996988"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685741"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Monitoruj i Debuguj przy użyciu metryk w Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -77,7 +77,7 @@ Po zidentyfikowaniu, który klucz partycji powoduje pochylenie w dystrybucji, mo
 
 ## <a name="compare-data-size-against-index-size"></a>Porównaj rozmiar danych z rozmiarem indeksu
 
-W Azure Cosmos DB łączny zużyty magazyn to kombinacja rozmiaru danych i rozmiaru indeksu. Zazwyczaj rozmiar indeksu jest częścią rozmiaru danych. W bloku metryk w [Azure Portal](https://portal.azure.com)na karcie Magazyn jest prezentowany podział użycia magazynu na podstawie danych i indeksu.
+W Azure Cosmos DB łączny zużyty magazyn to kombinacja rozmiaru danych i rozmiaru indeksu. Zazwyczaj rozmiar indeksu jest częścią rozmiaru danych. Aby dowiedzieć się więcej, zobacz artykuł dotyczący [rozmiaru indeksu](index-policy.md#index-size) . W bloku metryk w [Azure Portal](https://portal.azure.com)na karcie Magazyn jest prezentowany podział użycia magazynu na podstawie danych i indeksu.
 
 ```csharp
 // Measure the document size usage (which includes the index size)  

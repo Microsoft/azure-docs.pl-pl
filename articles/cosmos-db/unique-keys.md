@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 165fb2937db5edfa4f51f62033afaf87cfff83ef
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9eb2b916bfe6c73a1535afb077b04fbb081dd5f1
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353106"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685724"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Ograniczenia unikatowego klucza w Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,7 +22,7 @@ Klucze unikatowe umożliwiają dodanie warstwy integralności danych do kontener
 
 Po utworzeniu kontenera z unikatowymi zasadami kluczy, utworzenie nowej lub aktualizacji istniejącego elementu, co spowodowało wystąpienie duplikatu w obrębie partycji logicznej, jest blokowane, zgodnie z ograniczeniami unikatowego klucza. Klucz partycji połączony z unikatowym kluczem gwarantuje unikatowość elementu w zakresie kontenera.
 
-Rozważmy na przykład kontener usługi Azure Cosmos z adresem e-mail jako ograniczenie unikatowego klucza i `CompanyID` klucz partycji. W przypadku skonfigurowania adresu e-mail użytkownika przy użyciu unikatowego klucza każdy element ma unikatowy adres e-mail w danym `CompanyID` . Nie można tworzyć dwóch elementów ze zduplikowanymi adresami e-mail i z tą samą wartością klucza partycji. W interfejsie API SQL (rdzeń) Azure Cosmos DB elementy są przechowywane jako wartości JSON. Te wartości JSON uwzględniają wielkość liter. W przypadku wybrania właściwości jako unikatowego klucza można wstawić wartości z uwzględnieniem wielkości liter dla tej właściwości. Na przykład jeśli masz unikatowy klucz zdefiniowany dla właściwości Name, "Gaby" różni się od "Gaby" i można wstawić oba elementy do kontenera.
+Rozważmy na przykład kontener Azure Cosmos z `Email address` ograniczeniem Unique Key i `CompanyID` kluczem partycji. W przypadku skonfigurowania adresu e-mail użytkownika przy użyciu unikatowego klucza każdy element ma unikatowy adres e-mail w danym `CompanyID` . Nie można tworzyć dwóch elementów ze zduplikowanymi adresami e-mail i z tą samą wartością klucza partycji. W interfejsie API SQL (rdzeń) Azure Cosmos DB elementy są przechowywane jako wartości JSON. Te wartości JSON uwzględniają wielkość liter. W przypadku wybrania właściwości jako unikatowego klucza można wstawić wartości z uwzględnieniem wielkości liter dla tej właściwości. Na przykład jeśli masz unikatowy klucz zdefiniowany dla właściwości Name, "Gaby" różni się od "Gaby" i można wstawić oba elementy do kontenera.
 
 Aby utworzyć elementy o tym samym adresie e-mail, ale nie te same imię, nazwisko i adres e-mail, Dodaj więcej ścieżek do unikatowych zasad kluczy. Zamiast tworzyć unikatowe klucze wyłącznie na podstawie adresu e-mail, można również utworzyć unikatowy klucz z kombinacją imię, nazwisko i adres e-mail. Ten klucz jest znany jako złożony klucz unikatowy. W takim przypadku każda unikatowa kombinacja trzech wartości w ramach danego elementu `CompanyID` jest dozwolona. 
 

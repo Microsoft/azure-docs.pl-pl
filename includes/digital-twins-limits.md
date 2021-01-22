@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 183d12b5e9d32c777c8acf01177c8cbbe1b6ca00
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 08ae189253c6141a6b84035b71016ff5099ec162
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96025724"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98689785"
 ---
 ### <a name="functional-limits"></a>Limity funkcjonalne
 
@@ -22,7 +22,7 @@ Poniższa tabela zawiera listę limitów funkcjonalnych usługi Azure Digital bl
 | Digital Twins | Liczba bliźniaczych reprezentacji w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji | 200,000 | Tak |
 | Digital Twins | Liczba przychodzących relacji do pojedynczej sznurka | 5000 | Nie |
 | Digital Twins | Liczba wychodzących relacji z pojedynczej sznurka | 5000 | Nie |
-| Digital Twins | Maksymalny rozmiar pojedynczego sznurka | 32 KB | Nie |
+| Digital Twins | Maksymalny rozmiar (treść w formacie JSON w żądaniu PUT lub PATCH) pojedynczej bliźniaczyej | 32 KB | Nie |
 | Digital Twins | Maksymalny rozmiar ładunku żądania | 32 KB | Nie | 
 | Routing | Liczba punktów końcowych dla pojedynczego wystąpienia usługi Azure Digital bliźniaczych reprezentacji | 6 | Nie |
 | Routing | Liczba tras dla pojedynczego wystąpienia usługi Azure Digital bliźniaczych reprezentacji | 6 | Tak |

@@ -2,13 +2,13 @@
 title: Koncepcje Azure Event Grid
 description: Opis usługi Azure Event Grid i pojęć z nią związanych. Definiuje kilka najważniejszych składników Event Grid.
 ms.topic: conceptual
-ms.date: 10/29/2020
-ms.openlocfilehash: 6cfb8b3aaf16a0080b9864ce5198b8a7232e8bc8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 01/21/2021
+ms.openlocfilehash: 6edc8a3980bfea15f28cfb7114bb9f8350a47a3f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075113"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685707"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Pojęcia w Azure Event Grid
 
@@ -18,10 +18,7 @@ W tym artykule opisano główne koncepcje w Azure Event Grid.
 
 Wydarzenie jest najmniejszą ilością informacji, które w pełni opisują coś, co się stało w systemie. Każde zdarzenie ma typowe informacje, takie jak: Źródło zdarzenia, czas trwania zdarzenia i unikatowy identyfikator. Każde zdarzenie ma także określone informacje, które mają zastosowanie tylko do określonego typu zdarzenia. Na przykład zdarzenie dotyczące tworzenia nowego pliku w usłudze Azure Storage zawiera szczegóły pliku, takie jak wartość `lastTimeModified`. Zdarzenie usługi Event Hubs ma adres URL pliku funkcji Capture. 
 
-Zdarzenie o rozmiarze do 64 KB jest objęte ogólnym dostępnością Umowa dotycząca poziomu usług (SLA). Obsługa zdarzeń o rozmiarze do 1 MB jest obecnie dostępna w wersji zapoznawczej. Zdarzenia powyżej 64 KB są naliczone w przyrostach 64 KB. 
-
-
-Dla właściwości, które są wysyłane w zdarzeniu, zobacz [Azure Event Grid schemacie zdarzeń](event-schema.md).
+Maksymalny dozwolony rozmiar dla zdarzenia wynosi 1 MB. Zdarzenia powyżej 64 KB są naliczone w przyrostach 64 KB. Dla właściwości, które są wysyłane w zdarzeniu, zobacz [Azure Event Grid schemacie zdarzeń](event-schema.md).
 
 ## <a name="publishers"></a>Wydawcy
 
@@ -41,7 +38,7 @@ Temat GridY zdarzeń zawiera punkt końcowy, w którym źródło wysyła zdarzen
 
 **Tematy niestandardowe** są tematami aplikacji i innych firm. Gdy temat niestandardowy zostanie utworzony lub zostanie przypisany do niego dostęp, będzie on widoczny w ramach subskrypcji. Aby uzyskać więcej informacji, zobacz [Tematy niestandardowe](custom-topics.md). Podczas projektowania aplikacji masz elastyczność podczas decydowania o liczbie tematów do utworzenia. W przypadku dużych rozwiązań Utwórz niestandardowy temat dla każdej kategorii powiązanych zdarzeń. Może to na przykład być aplikacja, która wysyła zdarzenia powiązane z modyfikowaniem kont użytkowników i przetwarzaniem zamówień. Istnieje małe prawdopodobieństwo, że procedura obsługi zdarzeń oczekuje obu kategorii zdarzeń. Utwórz dwa tematy niestandardowe, a procedury obsługi zdarzeń subskrybują temat, którymi są zainteresowane. W przypadku małych rozwiązań można chcieć wysłać wszystkie zdarzenia do jednego tematu. Subskrybenci zdarzeń mogą odfiltrować żądane typy zdarzeń.
 
-Istnieje inny typ tematu: **temat partnera** . Funkcja [zdarzenia partnera](partner-events-overview.md) umożliwia dostawcy SaaS innej firmy publikowanie zdarzeń z usług, aby udostępnić je klientom, którzy mogą subskrybować te zdarzenia. Dostawca SaaS uwidacznia typ tematu, **temat partnera** , którego Subskrybenci używają do korzystania z zdarzeń. Oferuje również czysty model pub-sub, oddzielając problemy i własność zasobów używanych przez wydawców zdarzeń i subskrybentów.
+Istnieje inny typ tematu: **temat partnera**. Funkcja [zdarzenia partnera](partner-events-overview.md) umożliwia dostawcy SaaS innej firmy publikowanie zdarzeń z usług, aby udostępnić je klientom, którzy mogą subskrybować te zdarzenia. Dostawca SaaS uwidacznia typ tematu, **temat partnera**, którego Subskrybenci używają do korzystania z zdarzeń. Oferuje również czysty model pub-sub, oddzielając problemy i własność zasobów używanych przez wydawców zdarzeń i subskrybentów.
 
 ## <a name="event-subscriptions"></a>Subskrypcje zdarzeń
 
@@ -76,10 +73,7 @@ Jeśli Event Grid nie może potwierdzić, że zdarzenie zostało odebrane przez 
 
 ## <a name="batching"></a>Przetwarzanie wsadowe
 
-W przypadku korzystania z tematu niestandardowego zdarzenia muszą być zawsze publikowane w tablicy. Może to być partia dla scenariuszy o niskiej przepływności, jednak w przypadku dużych przypadków użycia należy wykonać wiele zadań wsadowych na potrzeby publikowania, aby osiągnąć wyższą wydajność. Liczba partii może wynosić do 1 MB. Każde zdarzenie nie powinno być większe niż 64 KB (ogólna dostępność) lub 1 MB (wersja zapoznawcza).
-
-> [!NOTE]
-> Zdarzenie o rozmiarze do 64 KB jest objęte ogólnym dostępnością Umowa dotycząca poziomu usług (SLA). Obsługa zdarzeń o rozmiarze do 1 MB jest obecnie dostępna w wersji zapoznawczej. Zdarzenia powyżej 64 KB są naliczone w przyrostach 64 KB. 
+W przypadku korzystania z tematu niestandardowego zdarzenia muszą być zawsze publikowane w tablicy. Może to być partia dla scenariuszy o niskiej przepływności, jednak w przypadku dużych przypadków użycia należy wykonać wiele zadań wsadowych na potrzeby publikowania, aby osiągnąć wyższą wydajność. Partie mogą być maksymalnie 1 MB, a maksymalny rozmiar zdarzenia wynosi 1 MB. 
 
 ## <a name="next-steps"></a>Następne kroki
 

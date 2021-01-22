@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/12/2020
 ms.author: aahi
-ms.openlocfilehash: b19fb3f86be46a5db60fb87f9c7f5c3e28ac6428
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 82c33c038a1f8eaba540c9906efcffa0a9214762
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965150"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98689826"
 ---
 ## <a name="install-the-container"></a>Instalowanie kontenera
 
@@ -38,7 +38,7 @@ Wykonaj następujące `docker run` polecenie. Zastąp Poniższe symbole zastępc
 | **{API_KEY}** | Klucz dla zasobu analiza tekstu. Można je znaleźć na stronie **klucz zasobu i punkt końcowy** na Azure Portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
 | **{ENDPOINT_URI}** | Punkt końcowy do uzyskiwania dostępu do interfejs API analizy tekstu. Można je znaleźć na stronie **klucz zasobu i punkt końcowy** na Azure Portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 | **{IMAGE_ID}** | Identyfikator obrazu dla kontenera. | `1.1.011300001-amd64-preview` |
-| **{INPUT_DIR}** | Katalog wejściowy dla kontenera. | Systemy `C:\healthcareMount` <br> Linux/MacOS: `/home/username/input` |
+| **{INPUT_DIR}** | Katalog wejściowy dla kontenera. | Windows: `C:\healthcareMount` <br> Linux/MacOS: `/home/username/input` |
 
 ```bash
 docker run --rm -it -p 5000:5000 --cpus 6 --memory 12g \
@@ -84,7 +84,7 @@ Azure [Web App for Containers](https://azure.microsoft.com/services/app-service/
 
 Uruchom ten skrypt programu PowerShell przy użyciu interfejsu wiersza polecenia platformy Azure, aby utworzyć Web App for Containers przy użyciu subskrypcji i obrazu kontenera za pośrednictwem protokołu HTTPS. Poczekaj na zakończenie wykonywania skryptu (około 25-30 minut) przed przesłaniem pierwszego żądania.
 
-```bash
+```azurecli
 $subscription_name = ""                    # THe name of the subscription you want you resource to be created on.
 $resource_group_name = ""                  # The name of the resource group you want the AppServicePlan
                                            #    and AppSerivce to be attached to.
@@ -118,7 +118,7 @@ Aby uzyskać informacje o dostępności, zobacz artykuł dotyczący [pomocy regi
 > [!NOTE] 
 > Azure Container Instances nie Uwzględniaj obsługi protokołu HTTPS dla domen wbudowanych. Jeśli potrzebujesz protokołu HTTPS, konieczne będzie jego ręczne skonfigurowanie, w tym utworzenie certyfikatu i zarejestrowanie domeny. Instrukcje można znaleźć w NGINX poniżej.
 
-```bash
+```azurecli
 $subscription_name = ""                    # The name of the subscription you want you resource to be created on.
 $resource_group_name = ""                  # The name of the resource group you want the AppServicePlan
                                            # and AppService to be attached to.

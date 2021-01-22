@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 5aab11b31756ee8430e8ae4d54a2b3de5ea2e136
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 8cd6f6a32071dc7bbd4aaccb92168cda009933a6
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97612599"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98690208"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>Czy usługa Azure Virtual WAN jest dostępna w wersji GA?
 
@@ -198,6 +198,9 @@ Gdy lokacje sieci VPN nawiązują połączenie z koncentratorem, wykonują poł�
 ### <a name="what-is-the-total-vpn-throughput-of-a-vpn-tunnel-and-a-connection"></a>Jaka jest całkowita przepustowość sieci VPN tunelu VPN i połączenia?
 
 Całkowita przepustowość sieci VPN koncentratora to 20 GB/s w oparciu o wybraną jednostkę skalowania bramy sieci VPN. Przepływność jest współdzielona przez wszystkie istniejące połączenia. Każdy tunel w połączeniu może obsługiwać do 1 GB/s.
+
+### <a name="can-i-use-nat-t-on-my-vpn-connections"></a>Czy mogę użyć translatora adresów sieciowych dla połączeń sieci VPN?
+Tak, obsługiwane jest przechodzenie NAT (NAT-T). Wirtualna sieć WAN VPN Gateway nie będzie wykonywać żadnych funkcji podobnej do translatora adresów sieciowych do/z tuneli IPsec. W tej konfiguracji upewnij się, że urządzenie lokalne inicjuje tunel IPSec.
 
 ### <a name="i-dont-see-the-20-gbps-setting-for-the-virtual-hub-in-portal-how-do-i-configure-that"></a>Nie widzę ustawienia 20 GB/s dla koncentratora wirtualnego w portalu. Jak mogę skonfigurować?
 

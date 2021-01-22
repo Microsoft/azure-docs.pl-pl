@@ -2,34 +2,34 @@
 title: Wprowadzenie do programu PowerShell
 description: Krótkie wprowadzenie do poleceń cmdlet programu Azure PowerShell, których można użyć do zarządzania zasobami usługi Batch.
 ms.topic: how-to
-ms.date: 01/15/2019
+ms.date: 01/21/2021
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 3c152733ee3a75732d119db16f7db7c266740fdb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b51a2a7852df82625fb342bbbbc4a3a1cbf72a3
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89079850"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685514"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Zarządzanie zasobami usługi Batch za pomocą poleceń cmdlet programu PowerShell
 
-Za pomocą poleceń cmdlet PowerShell usługi Azure Batch można wykonywać oraz tworzyć skrypty dla wielu zadań, które wykonuje się za pomocą interfejsów API usługi Batch, witryny Azure Portal oraz interfejsu wiersza polecenia platformy Azure. Oto krótkie wprowadzenie do poleceń cmdlet, których można używać do zarządzania kontami usługi Batch oraz pracy z zasobami usługi Batch, np. pulami i zadaniami.
+Za pomocą poleceń cmdlet programu PowerShell Azure Batch, można wykonywać i skryptów wiele typowych zadań wsadowych. Oto krótkie wprowadzenie do poleceń cmdlet, których można używać do zarządzania kontami usługi Batch oraz pracy z zasobami usługi Batch, np. pulami i zadaniami.
 
 Pełna lista poleceń cmdlet w usłudze Batch oraz szczegółowa składnia poleceń cmdlet znajdują się w [dokumentacji dotyczącej poleceń cmdlet w usłudze Azure Batch](/powershell/module/az.batch).
 
-Informacje w tym artykule dotyczą poleceń cmdlet modułu usługi Az Batch w wersji 1.0.0. Zaleca się częstą aktualizację modułów programu Azure PowerShell, aby mieć możliwość korzystania z aktualizacji i rozszerzeń usługi.
+Zaleca się częstą aktualizację modułów programu Azure PowerShell, aby mieć możliwość korzystania z aktualizacji i rozszerzeń usługi.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Zainstaluj i skonfiguruj [moduł programu Azure PowerShell](/powershell/azure/). Aby zainstalować określony moduł usługi Azure Batch, na przykład moduł w wersji wstępnej, zobacz [Galerię programu PowerShell](https://www.powershellgallery.com/packages/Az.Batch/1.0.0).
+- Zainstaluj i skonfiguruj [moduł programu Azure PowerShell](/powershell/azure/). Aby zainstalować określony moduł usługi Azure Batch, na przykład moduł w wersji wstępnej, zobacz [Galerię programu PowerShell](https://www.powershellgallery.com/packages/Az.Batch/).
 
-* Uruchom polecenie cmdlet **Connect-AzAccount**, aby połączyć się z subskrypcją (polecenia cmdlet usługi Azure Batch są dostarczane w module usługi Azure Resource Manager):
+- Uruchom polecenie cmdlet **Connect-AzAccount**, aby połączyć się z subskrypcją (polecenia cmdlet usługi Azure Batch są dostarczane w module usługi Azure Resource Manager):
 
   ```powershell
   Connect-AzAccount
   ```
 
-* **Zarejestruj się w przestrzeni nazw dostawcy usługi Batch**. Tę operację wystarczy wykonać **raz w całym okresie obowiązywania subskrypcji**.
+- **Zarejestruj się w przestrzeni nazw dostawcy usługi Batch**. Tę operację wystarczy wykonać **raz w całym okresie obowiązywania subskrypcji**.
   
   ```powershell
   Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
@@ -39,13 +39,13 @@ Informacje w tym artykule dotyczą poleceń cmdlet modułu usługi Az Batch w we
 
 ### <a name="create-a-batch-account"></a>Tworzenie konta usługi Batch
 
-Polecenie **New-AzBatchAccount** umożliwia utworzenie konta usługi Batch w określonej grupie zasobów. Jeśli nie masz jeszcze grupy zasobów, utwórz ją, uruchamiając polecenie cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). W parametrze **Location** określ jeden z regionów świadczenia usługi Azure, na przykład „Środkowe stany USA”. Na przykład:
+Polecenie **New-AzBatchAccount** umożliwia utworzenie konta usługi Batch w określonej grupie zasobów. Jeśli nie masz jeszcze grupy zasobów, utwórz ją, uruchamiając polecenie cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). W parametrze **Location** określ jeden z regionów świadczenia usługi Azure, na przykład „Środkowe stany USA”. Przykład:
 
 ```powershell
 New-AzResourceGroup –Name MyBatchResourceGroup –Location "Central US"
 ```
 
-Następnie utwórz konto usługi Batch w grupie zasobów. Określ nazwę konta w parametrze <*nazwa_konta*> i lokalizację oraz nazwę grupy zasobów. Tworzenie konta usługi Batch może zająć nieco czasu. Na przykład:
+Następnie utwórz konto usługi Batch w grupie zasobów. Określ nazwę konta w parametrze <*nazwa_konta*> i lokalizację oraz nazwę grupy zasobów. Tworzenie konta usługi Batch może zająć nieco czasu. Przykład:
 
 ```powershell
 New-AzBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName <res_group_name>
@@ -79,7 +79,7 @@ New-AzBatchAccountKey -AccountName <account_name> -KeyType Primary
 
 ### <a name="delete-a-batch-account"></a>Usuwanie konta usługi Batch
 
-Polecenie **Remove-AzBatchAccount** umożliwia usunięcie konta usługi Batch. Na przykład:
+Polecenie **Remove-AzBatchAccount** umożliwia usunięcie konta usługi Batch. Przykład:
 
 ```powershell
 Remove-AzBatchAccount -AccountName <account_name>
@@ -114,9 +114,9 @@ Podczas korzystania z wielu tych poleceń cmdlet oprócz przekazywania obiektu B
 
 ### <a name="create-a-batch-pool"></a>Tworzenie puli usługi Batch
 
-Podczas tworzenia lub aktualizowania puli usługi Batch należy wybrać konfigurację usług w chmurze lub konfigurację maszyny wirtualnej dla systemu operacyjnego w węzłach obliczeniowych (zobacz [węzły i pule](nodes-and-pools.md#configurations)). Jeśli wybierzesz konfigurację usług w chmurze, węzły obliczeniowe będą obrazami z jednej z [wersji systemu operacyjnego gościa platformy Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases). Jeśli wybierzesz konfigurację maszyny wirtualnej, możesz określić jeden z obsługiwanych obrazów maszyn wirtualnych z systemem Linux lub Windows wymienionych w witrynie [Azure Virtual Machines Marketplace][vm_marketplace] lub udostępnić samodzielnie przygotowany obraz niestandardowy.
+Podczas tworzenia lub aktualizowania puli wsadowej należy określić [konfigurację](nodes-and-pools.md#configurations). Pule powinny być zwykle konfigurowane z konfiguracją maszyny wirtualnej, która umożliwia określenie jednego z obsługiwanych obrazów maszyn wirtualnych z systemem Linux lub Windows wymienionych w [witrynie Azure Virtual Machines Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images&page=1)lub udostępnienie przygotowanego obrazu niestandardowego. Cloud Services pule konfiguracji zapewniają tylko węzły obliczeniowe systemu Windows i nie obsługują wszystkich funkcji wsadowych.
 
-Po uruchomieniu polecenia **New-AzBatchPool** należy przekazać ustawienia systemu operacyjnego w obiekcie PSCloudServiceConfiguration lub PSVirtualMachineConfiguration. Na przykład poniższy fragment kodu tworzy pulę usługi Batch z węzłami obliczeniowymi o rozmiarze Standardowa_A1 w konfiguracji maszyny wirtualnej, z obrazami systemu Ubuntu Server 18.04-LTS. W tym miejscu parametr **VirtualMachineConfiguration** określa zmienną *$configuration* jako obiekt PSVirtualMachineConfiguration. Parametr **BatchContext** określa uprzednio zdefiniowaną zmienną *$context* jako obiekt BatchAccountContext.
+Po uruchomieniu polecenie **New-AzBatchPool** Przekaż ustawienia systemu operacyjnego w obiekcie PSVirtualMachineConfiguration lub PSCloudServiceConfiguration. Na przykład poniższy fragment kodu tworzy pulę usługi Batch z węzłami obliczeniowymi o rozmiarze Standardowa_A1 w konfiguracji maszyny wirtualnej, z obrazami systemu Ubuntu Server 18.04-LTS. W tym miejscu parametr **VirtualMachineConfiguration** określa zmienną *$configuration* jako obiekt PSVirtualMachineConfiguration. Parametr **BatchContext** określa uprzednio zdefiniowaną zmienną *$context* jako obiekt BatchAccountContext.
 
 ```powershell
 $imageRef = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("UbuntuServer","Canonical","18.04-LTS")
@@ -164,7 +164,7 @@ Parametr **Id** obsługuje tylko wyszukiwanie pełnych identyfikatorów, a nie s
 
 ### <a name="use-the-maxcount-parameter"></a>Korzystanie z parametru MaxCount
 
-Domyślnie każde polecenie cmdlet zwraca maksymalnie 1000 obiektów. W przypadku osiągnięcia tego limitu zmień ustawienia filtru w taki sposób, aby zwracał mniej obiektów, lub jawnie ustaw wartość maksymalną przy użyciu parametru **MaxCount** (Maksymalna liczba). Na przykład:
+Domyślnie każde polecenie cmdlet zwraca maksymalnie 1000 obiektów. W przypadku osiągnięcia tego limitu zmień ustawienia filtru w taki sposób, aby zwracał mniej obiektów, lub jawnie ustaw wartość maksymalną przy użyciu parametru **MaxCount** (Maksymalna liczba). Przykład:
 
 ```powershell
 Get-AzBatchTask -MaxCount 2500 -BatchContext $context
@@ -190,7 +190,10 @@ Get-AzBatchComputeNode -PoolId "myPool" -BatchContext $context | Restart-AzBatch
 
 ## <a name="application-package-management"></a>Zarządzanie pakietem aplikacji
 
-Pakiety aplikacji zapewniają uproszczony sposób na wdrażanie aplikacji do węzłów obliczeniowych w pulach. Przy użyciu poleceń cmdlet programu PowerShell usługi Batch możesz przekazywać pakiety aplikacji na swoim koncie usługi Batch i zarządzać nimi oraz wdrażać wersje pakietów do węzłów obliczeniowych.
+[Pakiety aplikacji](batch-application-packages.md) zapewniają uproszczony sposób wdrażania aplikacji w węzłach obliczeniowych w pulach. Przy użyciu poleceń cmdlet programu PowerShell usługi Batch możesz przekazywać pakiety aplikacji na swoim koncie usługi Batch i zarządzać nimi oraz wdrażać wersje pakietów do węzłów obliczeniowych.
+
+> [!IMPORTANT]
+> Najpierw połącz konto usługi Azure Storage z kontem usługi Batch, aby użyć pakietów aplikacji.
 
 **Tworzenie** aplikacji:
 
@@ -247,17 +250,13 @@ $appPackageReference.ApplicationId = "MyBatchApplication"
 $appPackageReference.Version = "1.0"
 ```
 
-Teraz Utwórz konfigurację i pulę. W tym przykładzie używany jest parametr **CloudServiceConfiguration** z `PSCloudServiceConfiguration` obiektem typu, który został zainicjowany w `$configuration` , który ustawia **rodzina systemów operacyjnych** `6` dla systemu Windows Server 2019 ' i **OSVersion** na `*` . Określ obiekt odwołania do pakietu jako argument dla `ApplicationPackageReferences` opcji:
+Teraz utwórz pulę i określ obiekt odwołania do pakietu jako argument opcji `ApplicationPackageReferences`:
 
 ```powershell
-$configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSCloudServiceConfiguration" -ArgumentList @(6,"*")  # 6 = OSFamily 'Windows Server 2019'
-New-AzBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -BatchContext $context -ApplicationPackageReferences $appPackageReference
+New-AzBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -VirtualMachineConfiguration $configuration -BatchContext $context -ApplicationPackageReferences $appPackageReference
 ```
 
 Więcej informacji dotyczących pakietów aplikacji można znaleźć w temacie [Deploy applications to compute nodes with Batch application packages (Wdrażanie aplikacji w węzłach obliczeniowych za pomocą pakietów aplikacji usługi Batch)](batch-application-packages.md).
-
-> [!IMPORTANT]
-> Najpierw połącz konto usługi Azure Storage z kontem usługi Batch, aby użyć pakietów aplikacji.
 
 ### <a name="update-a-pools-application-packages"></a>Aktualizowanie pakietów aplikacji puli
 
@@ -272,7 +271,7 @@ $appPackageReference.Version = "2.0"
 
 ```
 
-Następnie pobierz pulę z usługi Batch, wyczyść wszystkie istniejące pakiety, dodaj nasze nowe odwołanie do pakietu i zaktualizuj usługę Batch przy użyciu nowych ustawień puli:
+Następnie Pobierz pulę z usługi Batch, wyczyść wszystkie istniejące pakiety, Dodaj odwołanie do nowego pakietu i zaktualizuj usługę Batch przy użyciu nowych ustawień puli:
 
 ```powershell
 $pool = Get-AzBatchPool -BatchContext $context -Id "PoolWithAppPackage"
@@ -291,11 +290,9 @@ Get-AzBatchComputeNode -PoolId "PoolWithAppPackage" -BatchContext $context | Res
 ```
 
 > [!TIP]
-> Do węzłów obliczeniowych w puli możesz wdrożyć wiele pakietów aplikacji. Jeśli chcesz *dodać* pakiet aplikacji zamiast zastępowania aktualnie wdrożonych pakietów, pomiń wiersz `$pool.ApplicationPackageReferences.Clear()` powyżej.
+> Do węzłów obliczeniowych w puli możesz wdrożyć wiele pakietów aplikacji. Jeśli chcesz dodać pakiet aplikacji zamiast zastępowania aktualnie wdrożonych pakietów, pomiń wiersz `$pool.ApplicationPackageReferences.Clear()` powyżej.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Szczegóły składni poleceń cmdlet oraz przykłady znajdują się w [dokumentacji dotyczącej poleceń cmdlet w usłudze Azure Batch](/powershell/module/az.batch).
-* Aby uzyskać więcej informacji dotyczących aplikacji i pakietów aplikacji w usłudze Batch, zobacz temat [Deploy applications to compute nodes with Batch application packages (Wdrażanie aplikacji w węzłach obliczeniowych za pomocą pakietów aplikacji usługi Batch)](batch-application-packages.md).
-
-[vm_marketplace]: https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images&page=1
+- Zapoznaj się z dokumentacją [poleceń cmdlet Azure Batch](/powershell/module/az.batch) , aby uzyskać szczegółowe informacje o składni i przykładach polecenia cmdlet.
+- Dowiedz się, jak [wdrażać aplikacje w węzłach obliczeniowych za pomocą pakietów aplikacji w usłudze Batch](batch-application-packages.md).

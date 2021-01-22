@@ -1,15 +1,15 @@
 ---
 title: Lista wbudowanych definicji zasad
 description: Utwórz listę wbudowanych definicji zasad dla Azure Policy. Kategorie obejmują Tagi, zgodność z przepisami, Key Vault, Kubernetes, konfigurację gościa i inne.
-ms.date: 01/08/2021
+ms.date: 01/21/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: ccd310583f003fd381b9ddd48333644f2241ea88
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 3b29a4c86ee61247fa3caeb542e08a4ac24ff8c4
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98047442"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685818"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Azure Policy wbudowane definicje zasad
 
@@ -41,7 +41,7 @@ Nazwa każdego wbudowanego łącza do definicji zasad w Azure Portal. Użyj link
 
 [!INCLUDE [azure-policy-reference-policies-automanage](../../../../includes/policy/reference/bycat/policies-automanage.md)]
 
-## <a name="automation"></a>Automatyzacja
+## <a name="automation"></a>Automation
 
 [!INCLUDE [azure-policy-reference-policies-automation](../../../../includes/policy/reference/bycat/policies-automation.md)]
 
@@ -73,7 +73,7 @@ Nazwa każdego wbudowanego łącza do definicji zasad w Azure Portal. Użyj link
 
 [!INCLUDE [azure-policy-reference-policies-cognitive-services](../../../../includes/policy/reference/bycat/policies-cognitive-services.md)]
 
-## <a name="compute"></a>Wystąpienia obliczeniowe
+## <a name="compute"></a>Obliczenia
 
 [!INCLUDE [azure-policy-reference-policies-compute](../../../../includes/policy/reference/bycat/policies-compute.md)]
 
@@ -92,6 +92,10 @@ Nazwa każdego wbudowanego łącza do definicji zasad w Azure Portal. Użyj link
 ## <a name="data-box"></a>Data Box
 
 [!INCLUDE [azure-policy-reference-policies-data-box](../../../../includes/policy/reference/bycat/policies-data-box.md)]
+
+## <a name="data-factory"></a>Data Factory
+
+[!INCLUDE [azure-policy-reference-policies-data-factory](../../../../includes/policy/reference/bycat/policies-data-factory.md)]
 
 ## <a name="data-lake"></a>Data Lake
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: cdd8783daf9e1e1458f47e773eb3b6ccedfbae83
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: d6832238b0c76059079e2a1330d31eed3212b242
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624561"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685582"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Jak uruchamiać notesy Jupyter w obszarze roboczym
 
@@ -230,6 +230,7 @@ W notesie zostaną automatycznie znalezione wszystkie jądra Jupyter zainstalowa
     conda install -y ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
+1. Po zainstalowaniu jądra należy odświeżyć stronę i otworzyć Notes. Nowe jądro zostanie teraz wyświetlone na liście jądra.
 
 > [!NOTE]
 > Aby zarządzać pakietami w ramach notesu, użyj funkcji **% PIP** lub **% Conda** Magic w celu automatycznego zainstalowania pakietów w **aktualnie uruchomionym jądrze** zamiast **! PIP** lub **! Conda** , które odwołują się do wszystkich pakietów (w tym pakietów poza aktualnie uruchomionym jądrem).

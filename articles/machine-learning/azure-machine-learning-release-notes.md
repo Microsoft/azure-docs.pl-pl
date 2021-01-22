@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: 4ba06af98714004e4429fe802a206acdfa8fb148
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 117bc71ba304445e3186b4e633f5888647be9223
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127621"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685633"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Informacje o wersji Azure Machine Learning
 
@@ -703,7 +703,7 @@ Dowiedz się więcej o [etykietowaniu segmentacji wystąpień obrazu](how-to-lab
       + Wartość domyślna dla process_count_per_node jest zmieniana na 1. Użytkownik powinien dostosować tę wartość w celu zwiększenia wydajności. Najlepszym rozwiązaniem jest ustawienie liczby węzłów procesora GPU lub procesorów.
       + ParallelRunStep nie wprowadza żadnych pakietów, użytkownik musi uwzględnić pakiety **Azure-Core** i Azure- **[Pandas, bezpiecznik]** w definicji środowiska. Jeśli w user_managed_dependencies jest używany niestandardowy obraz platformy Docker, użytkownik musi zainstalować Conda na obrazie.
       
-+ **Zmiany powodujące niezgodność**
++ **Fundamentalne zmiany**
   + **azureml-pipeline-steps**
     + Zaniechano używania usługi Azure. dprep. przepływu danych jako prawidłowego typu danych wejściowych dla AutoMLConfig
   + **azureml-train-automl-client**
@@ -907,7 +907,7 @@ Uzyskaj dostęp do następujących narzędzi autorskich opartych na sieci Web z 
   + Klastry AmlCompute obsługują teraz Konfigurowanie tożsamości zarządzanej w klastrze w momencie aprowizacji. Wystarczy określić, czy chcesz użyć tożsamości przypisanej do systemu lub tożsamości przypisanej do użytkownika, i przekazać identityId dla tej ostatniej. Następnie można skonfigurować uprawnienia dostępu do różnych zasobów, takich jak Storage lub ACR, w taki sposób, aby tożsamość obliczeń była używana do bezpiecznego dostępu do danych, zamiast podejścia opartego na tokenach, które AmlCompute już dziś. Zapoznaj się z naszym odwołaniem do zestawu SDK, aby uzyskać więcej informacji o parametrach.
   
 
-+ **Zmiany powodujące niezgodność**
++ **Fundamentalne zmiany**
   + Klastry AmlCompute obsługują funkcję w wersji zapoznawczej wokół tworzenia opartego na uruchomieniach, które planujemy zaniechania w dwóch tygodniach. Możesz kontynuować tworzenie trwałych obiektów docelowych obliczeń jako zawsze przy użyciu klasy Amlcompute, ale konkretna metoda określania identyfikatora "Amlcompute" jako elementu docelowego obliczeń w konfiguracji uruchomieniowej nie będzie obsługiwana w najbliższej przyszłości. 
 
 + **Poprawki i ulepszenia błędów**
@@ -978,7 +978,7 @@ Uzyskaj dostęp do następujących narzędzi autorskich opartych na sieci Web z 
 
 ### <a name="azure-machine-learning-sdk-for-python-v120"></a>Zestaw Azure Machine Learning SDK dla języka Python v 1.2.0
 
-+ **Zmiany powodujące niezgodność**
++ **Fundamentalne zmiany**
   + Porzuć wsparcie dla języka Python 2,7
 
 + **Poprawki i ulepszenia błędów**
@@ -1013,7 +1013,7 @@ Uzyskaj dostęp do następujących narzędzi autorskich opartych na sieci Web z 
   + **Python 2,7**
     + Ostatnia wersja do obsługi języka Python 2,7
 
-+ **Zmiany powodujące niezgodność**
++ **Fundamentalne zmiany**
   + **Semantyczne przechowywanie wersji 2.0.0**
     + Począwszy od wersji 1,1 usługi Azure ML Python SDK przyjmuje 2.0.0 wersji semantycznej. [Przeczytaj więcej tutaj](https://semver.org/). Wszystkie kolejne wersje będą zgodne z nowym schematem numeracji i kontraktem wersji semantycznej. 
 
@@ -1176,7 +1176,7 @@ Uzyskaj dostęp do następujących narzędzi autorskich opartych na sieci Web z 
 
 ### <a name="azure-machine-learning-sdk-for-python-v110rc0-pre-release"></a>Zestaw Azure Machine Learning SDK dla języka Python v 1.1.0 RC0 (wersja wstępna)
 
-+ **Zmiany powodujące niezgodność**
++ **Fundamentalne zmiany**
   + **Semantyczne przechowywanie wersji 2.0.0**
     + Począwszy od wersji 1,1 usługi Azure ML Python SDK przyjmuje 2.0.0 wersji semantycznej. [Przeczytaj więcej tutaj](https://semver.org/). Wszystkie kolejne wersje będą zgodne z nowym schematem numeracji i kontraktem wersji semantycznej. 
   
@@ -1306,7 +1306,7 @@ Uzyskaj dostęp do następujących narzędzi autorskich opartych na sieci Web z 
 
 ### <a name="azure-machine-learning-sdk-for-python-v1076"></a>Zestaw Azure Machine Learning SDK dla języka Python v 1.0.76
 
-+ **Zmiany powodujące niezgodność**
++ **Fundamentalne zmiany**
   + Problemy z aktualizacją uczenia maszynowego — AutoML
     + Uaktualnianie do usługi Azure-uczenie-automl>= 1.0.76 z usługi Azure-pociąg-automl<1.0.76 może spowodować niepowodzenie instalacji częściowych. Aby rozwiązać ten problem, można uruchomić skrypt Instalatora znajdujący się pod adresem https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/automl_setup.cmd . Lub jeśli używasz narzędzia PIP bezpośrednio, możesz:
       + "Instalacja PIP--upgrade Azure-pociąg-automl"
@@ -1421,7 +1421,7 @@ Uzyskaj dostęp do następujących narzędzi autorskich opartych na sieci Web z 
 
 ### <a name="r-sdk"></a>Zestaw SDK języka R 
  
-Analitycy danych i deweloperzy AI używają [zestawu SDK Azure Machine Learning dla języka R](tutorial-1st-r-experiment.md) do kompilowania i uruchamiania przepływów pracy uczenia maszynowego przy użyciu Azure Machine Learning.
+Analitycy danych i deweloperzy AI używają [zestawu SDK Azure Machine Learning dla języka R](https://github.com/Azure/azureml-sdk-for-r) do kompilowania i uruchamiania przepływów pracy uczenia maszynowego przy użyciu Azure Machine Learning.
 
 Zestaw Azure Machine Learning SDK dla języka R używa `reticulate` pakietu do powiązania z zestawem Python SDK. Dzięki powiązaniu bezpośrednio z językiem Python zestaw SDK dla języka R umożliwia dostęp do podstawowych obiektów i metod zaimplementowanych w zestawie Python SDK z dowolnego wybranego środowiska języka R.
 
@@ -1597,13 +1597,13 @@ Azure Machine Learning jest teraz dostawcą zasobów dla Event Grid, można skon
   + **Uczenie maszynowe — automl**
     + Utworzenie obiektu [eksperymentu](/python/api/azureml-core/azureml.core.experiment.experiment) powoduje pobranie lub utworzenie eksperymentu w obszarze roboczym Azure Machine Learning na potrzeby śledzenia historii uruchamiania. Identyfikator eksperymentu i czas archiwizowany są wypełniane w obiekcie eksperymentu podczas tworzenia. Przykład:
 
-        ```py
+        ```python
         experiment = Experiment(workspace, "New Experiment")
         experiment_id = experiment.id
         ```
         Funkcja [Archive ()](/python/api/azureml-core/azureml.core.experiment.experiment#archive--) i [reactivate ()](/python/api/azureml-core/azureml.core.experiment.experiment#reactivate-new-name-none-) to funkcje, które mogą być wywoływane w ramach eksperymentu w celu ukrycia i przywrócenia eksperymentu z wyświetlania w środowisku użytkownika lub zwrócenia domyślnie w wywołaniu eksperymentów z listą. Jeśli zostanie utworzony nowy eksperyment o takiej samej nazwie jak zarchiwizowany eksperyment, można zmienić nazwę zarchiwizowanego eksperymentu podczas ponownej aktywacji, przekazując nową nazwę. Może istnieć tylko jeden aktywny eksperyment o danej nazwie. Przykład:
 
-        ```py
+        ```python
         experiment1 = Experiment(workspace, "Active Experiment")
         experiment1.archive()
         # Create new active experiment with the same name as the archived.
@@ -1612,7 +1612,7 @@ Azure Machine Learning jest teraz dostawcą zasobów dla Event Grid, można skon
         ```
         Lista metod statycznych [()](/python/api/azureml-core/azureml.core.experiment.experiment#list-workspace--experiment-name-none--view-type--activeonly---tags-none-) na eksperymentie może przyjmować filtr nazw i filtru widoku. Wartości ViewType są "ACTIVE_ONLY", "ARCHIVED_ONLY" i "ALL". Przykład:
 
-        ```py
+        ```python
         archived_experiments = Experiment.list(workspace, view_type="ARCHIVED_ONLY")
         all_first_experiments = Experiment.list(workspace, name="First Experiment", view_type="ALL")
         ```
@@ -1768,7 +1768,7 @@ Karta eksperymenty w [nowym portalu obszaru roboczego](https://ml.azure.com) zos
     + Dodano obsługę pliku dockerfile w `environment_definition` parametrze w szacowania.
     + Uproszczone dystrybuowanie parametrów szkoleniowych w szacowania.
 
-         ```py
+         ```python
         from azureml.train.dnn import TensorFlow, Mpi, ParameterServer
         ```
 
@@ -1820,14 +1820,14 @@ W tej wersji obsługiwane są następujące przeglądarki: Chrome, Firefox, Safa
   + **azureml-core**
     + Wprowadź Dataset.get_all (obszar roboczy), który zwraca słownik i obiekty podkluczy `TabularDataset` `FileDataset` według nazwy rejestracji.
 
-    ```py
+    ```python
     workspace = Workspace.from_config()
     all_datasets = Dataset.get_all(workspace)
     mydata = all_datasets['my-data']
     ```
 
     + Wprowadź `parition_format` jako argument do `Dataset.Tabular.from_delimited_files` i `Dataset.Tabular.from_parquet.files` . Informacje o partycji każdej ścieżki danych zostaną wyodrębnione do kolumn w oparciu o określony format. "{column_name}" tworzy kolumnę String, a "{column_name: RRRR/MM/DD/HH/mm/SS}" tworzy kolumnę datetime, gdzie "RRRR", "MM", "DD", "gg", "mm" i "SS" są używane do wyodrębniania wartości typu Year, month, Day, Hour, minute i Second. Partition_format powinna rozpoczynać się od pozycji pierwszego klucza partycji aż do końca ścieżki pliku. Na przykład dana ścieżka ".. /USA/2019/01/01/data.csv "gdzie partycja jest według kraju i godziny, partition_format ="/{Country}/{PartitionDate: RRRR/MM/DD}/data.csv "tworzy kolumnę ciągu" Country "z wartością" USA "i kolumną DateTime" PartitionDate "o wartości" 2019-01-01 ".
-        ```py
+        ```python
         workspace = Workspace.from_config()
         all_datasets = Dataset.get_all(workspace)
         mydata = all_datasets['my-data']
@@ -2239,7 +2239,7 @@ Azure Machine Learning zestawu SDK dla języka Python v 1.0.30.
 
 ### <a name="azure-machine-learning-sdk-for-python-v1018"></a>Zestaw Azure Machine Learning SDK dla języka Python v 1.0.18
 
- + **Wprowadzane**
+ + **Zmiany**
    + Pakiet Azure-tensorboard zastępuje usługę Azure-contrib-tensorboard.
    + W tej wersji można skonfigurować konto użytkownika w zarządzanym klastrze obliczeniowym (amlcompute) podczas jego tworzenia. Można to zrobić, przekazując te właściwości w konfiguracji aprowizacji. Więcej szczegółów można znaleźć w [dokumentacji referencyjnej zestawu SDK](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none--remote-login-port-public-access--notspecified--).
 

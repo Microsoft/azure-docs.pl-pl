@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 72caeb60fc058b88158979d211a0bc38985975c7
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 444b514dfb1798ff810e84fc4e9d50001dbaee1c
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968861"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685792"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Tworzenie grup akcji i zarządzanie nimi w witrynie Azure Portal
 Grupa akcji to zbiór preferencji powiadomień definiowanych przez właściciela subskrypcji platformy Azure. Alerty Azure Monitor i Service Health umożliwiają Powiadamianie użytkowników o wyzwoleniu alertu. Różne alerty mogą korzystać z tej samej grupy akcji lub różnych grup akcji w zależności od wymagań użytkownika. 
@@ -164,6 +164,7 @@ W grupie akcji może istnieć ograniczona liczba akcji aplikacji logiki.
 
 > [!NOTE]
 > Użycie akcji elementu webhook wymaga, aby docelowy punkt końcowy elementu webhook nie wymagał pomyślnego funkcjonowania alertu lub może on przeanalizować informacje kontekstu alertu, które są dostarczane jako część operacji POST. Jeśli punkt końcowy elementu webhook nie może samodzielnie obsłużyć informacji kontekstu alertu, możesz użyć rozwiązania, takiego jak [Akcja aplikacji logiki](./action-groups-logic-app.md) do niestandardowego manipulowania informacjami kontekstu alertu w celu dopasowania do oczekiwanego formatu danych elementu webhook.
+> Użytkownik powinien być **właścicielem** jednostki usługi elementu webhook, aby upewnić się, że zabezpieczenia nie zostały naruszone. Ponieważ dowolny klient platformy Azure może uzyskać dostęp do wszystkich identyfikatorów obiektów za pomocą portalu bez sprawdzania właściciela, każdy może dodać bezpieczny element webhook do własnej grupy akcji dla powiadomień o alertach usługi Azure monitor, które naruszają zabezpieczenia.
 
 Akcja elementu webhook grup akcji umożliwia korzystanie z Azure Active Directory w celu zabezpieczenia połączenia między grupą akcji i chronionym internetowym interfejsem API (punkt końcowy elementu webhook). Poniżej opisano ogólny przepływ pracy w celu skorzystania z zalet tej funkcji. Omówienie aplikacji usługi Azure AD i nazw głównych usług można znaleźć w temacie [Microsoft Identity platform (v 2.0) — Omówienie](../../active-directory/develop/v2-overview.md).
 
@@ -318,11 +319,7 @@ Cennik dla obsługiwanych krajów/regionów znajduje się na [stronie cennika Az
 ### <a name="webhook"></a>Webhook
 
 > [!NOTE]
-> Użycie akcji elementu webhook wymaga, aby docelowy punkt końcowy elementu webhook nie wymagał pomyślnego funkcjonowania alertu lub może on przeanalizować informacje kontekstu alertu, które są dostarczane jako część operacji POST. 
-
-> Użytkownik powinien być **właścicielem** jednostki usługi elementu webhook, aby upewnić się, że zabezpieczenia nie zostały naruszone. Ponieważ dowolny klient platformy Azure może uzyskać dostęp do wszystkich identyfikatorów obiektów za pomocą portalu bez sprawdzania właściciela, każdy może dodać bezpieczny element webhook do własnej grupy akcji dla powiadomień o alertach usługi Azure monitor, które naruszają zabezpieczenia.
-
-> Jeśli punkt końcowy elementu webhook nie może samodzielnie obsłużyć informacji kontekstu alertu, możesz użyć rozwiązania, takiego jak [Akcja aplikacji logiki](./action-groups-logic-app.md) do niestandardowego manipulowania informacjami kontekstu alertu w celu dopasowania do oczekiwanego formatu danych elementu webhook.
+> Użycie akcji elementu webhook wymaga, aby docelowy punkt końcowy elementu webhook nie wymagał pomyślnego funkcjonowania alertu lub może on przeanalizować informacje kontekstu alertu, które są dostarczane jako część operacji POST. Jeśli punkt końcowy elementu webhook nie może samodzielnie obsłużyć informacji kontekstu alertu, możesz użyć rozwiązania, takiego jak [Akcja aplikacji logiki](./action-groups-logic-app.md) do niestandardowego manipulowania informacjami kontekstu alertu w celu dopasowania do oczekiwanego formatu danych elementu webhook.
 
 Elementy webhook są przetwarzane przy użyciu następujących reguł
 - Podjęto próbę wywołania elementu webhook z maksymalnie 3 razy.
