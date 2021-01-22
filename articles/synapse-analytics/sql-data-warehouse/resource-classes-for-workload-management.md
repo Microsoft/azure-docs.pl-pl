@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: a557d4045b18b5c0ff71b3e47f0c189028702863
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7714ce748eb172565357723924ab2212e9559e1f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289535"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685331"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>Zarządzanie obciążeniami przy użyciu klas zasobów w usłudze Azure Synapse Analytics
 
@@ -129,7 +129,7 @@ Następujące instrukcje są wykluczone z klas zasobów i zawsze uruchamiane w s
 - Utwórz lub upuść widok
 - WSTAW WARTOŚCI
 - Wybierz z widoków systemowych i widoków DMV
-- UZASADNIENI
+- EXPLAIN
 - DBCC
 
 <!--
@@ -162,13 +162,13 @@ WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
 
 Klasy zasobów są implementowane przez przypisanie użytkowników do ról bazy danych. Gdy użytkownik uruchamia zapytanie, zapytanie jest uruchamiane z klasą zasobów użytkownika. Na przykład, jeśli użytkownik jest członkiem roli bazy danych staticrc10, ich zapytania są uruchamiane z niewielkimi ilościami pamięci. Jeśli użytkownik bazy danych jest członkiem roli bazy danych xlargerc lub staticrc80, ich zapytania działają z dużą ilością pamięci.
 
-Aby zwiększyć klasę zasobów użytkownika, należy użyć [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) , aby dodać użytkownika do roli bazy danych dla dużej klasy zasobów.  Poniższy kod dodaje użytkownika do roli bazy danych largerc.  Każde żądanie otrzymuje 22% pamięci systemowej.
+Aby zwiększyć klasę zasobów użytkownika, należy użyć [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) , aby dodać użytkownika do roli bazy danych dla dużej klasy zasobów.  Poniższy kod dodaje użytkownika do roli bazy danych largerc.  Każde żądanie otrzymuje 22% pamięci systemowej.
 
 ```sql
 EXEC sp_addrolemember 'largerc', 'loaduser';
 ```
 
-Aby zmniejszyć klasę zasobów, użyj [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Jeśli "loaduser" nie jest członkiem ani innymi klasami zasobów, przychodzą do domyślnej klasy zasobów smallrc z przyznanym pamięcią 3%.  
+Aby zmniejszyć klasę zasobów, użyj [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  Jeśli "loaduser" nie jest członkiem ani innymi klasami zasobów, przychodzą do domyślnej klasy zasobów smallrc z przyznanym pamięcią 3%.  
 
 ```sql
 EXEC sp_droprolemember 'largerc', 'loaduser';

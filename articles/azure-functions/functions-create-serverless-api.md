@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: d683ef92c4e8d11e9defbed5454e5849211bf8f7
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 7375a46245fbe523ddf0512bb5a55371adff64e9
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104754"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683746"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Dostosowywanie punktu końcowego HTTP w Azure Functions
 
@@ -31,7 +31,7 @@ Zaloguj się w [witrynie Azure Portal](https://portal.azure.com) przy użyciu da
 
 Domyślnie funkcja wyzwalacza HTTP jest skonfigurowana do akceptowania dowolnej metody HTTP. Możesz również użyć domyślnego adresu URL `http://<yourapp>.azurewebsites.net/api/<funcname>?code=<functionkey>` . W tej sekcji zmodyfikujesz funkcję tak, aby odpowiadała tylko na żądania GET `/api/hello` . 
 
-1. Przejdź do swojej funkcji w witrynie Azure Portal. W menu po lewej stronie wybierz pozycję **integracja** , a następnie w obszarze **wyzwalacz**wybierz pozycję **http (REQ)** .
+1. Przejdź do swojej funkcji w witrynie Azure Portal. W menu po lewej stronie wybierz pozycję **integracja** , a następnie w obszarze **wyzwalacz** wybierz pozycję **http (REQ)** .
 
     :::image type="content" source="./media/functions-create-serverless-api/customizing-http.png" alt-text="Dostosowywanie funkcji HTTP":::
 
@@ -86,7 +86,7 @@ W tej sekcji utworzysz nowy serwer proxy, który służy jako fronton dla ogóln
 
 ### <a name="setting-up-the-frontend-environment"></a>Konfigurowanie środowiska frontonu
 
-Wykonaj ponownie procedurę [Tworzenie aplikacji funkcji](./functions-create-first-azure-function.md#create-a-function-app), aby utworzyć nową aplikację funkcji, w której utworzysz serwer proxy. Ten adres URL nowej aplikacji służy jako fronton dla naszego interfejsu API, a aplikacja funkcji, która była wcześniej edytowana, służy jako zaplecze.
+Wykonaj ponownie procedurę [Tworzenie aplikacji funkcji](./functions-get-started.md), aby utworzyć nową aplikację funkcji, w której utworzysz serwer proxy. Ten adres URL nowej aplikacji służy jako fronton dla naszego interfejsu API, a aplikacja funkcji, która była wcześniej edytowana, służy jako zaplecze.
 
 1. Przejdź do nowej aplikacji funkcji frontonu w portalu.
 1. Wybierz pozycję **Funkcje platformy**, a następnie pozycję **Ustawienia aplikacji**.
@@ -112,7 +112,7 @@ Wykonaj ponownie procedurę [Tworzenie aplikacji funkcji](./functions-create-fir
     | Adres URL zaplecza | https://%HELLO_HOST%/api/hello | Określa punkt końcowy, do którego powinno być przekazywane żądanie |
 
     
-    :::image type="content" source="./media/functions-create-serverless-api/creating-proxy.png" alt-text="Dostosowywanie funkcji HTTP":::
+    :::image type="content" source="./media/functions-create-serverless-api/creating-proxy.png" alt-text="Tworzenie serwera proxy":::
 
     Serwery proxy usługi Azure Functions nie udostępnia `/api` prefiksu ścieżki podstawowej, który musi być uwzględniony w szablonie trasy. `%HELLO_HOST%`Składnia odwołuje się do utworzonego wcześniej ustawienia aplikacji. Rozpoznany adres URL będzie wskazywał oryginalną funkcję.
 
@@ -124,7 +124,7 @@ Wykonaj ponownie procedurę [Tworzenie aplikacji funkcji](./functions-create-fir
 
 Następnie użyjesz serwera proxy, aby utworzyć interfejs API służący do rozwiązania. Ten serwer proxy pozwala na postęp opracowywania klienta bez konieczności pełnego zaimplementowania wewnętrznej bazy danych. W dalszej części opracowywania można utworzyć nową aplikację funkcji, która obsługuje tę logikę i przekierowuje do niej serwer proxy.
 
-Aby utworzyć ten interfejs API, utworzymy nowy serwer proxy, tym razem używając [Edytor usługi App Service](https://github.com/projectkudu/kudu/wiki/App-Service-Editor). Aby rozpocząć, przejdź do aplikacji funkcji w portalu. Wybierz pozycję **funkcje platformy**i w obszarze **Narzędzia programistyczne** Znajdź **Edytor usługi App Service**. Edytor usługi App Service zostanie otwarta na nowej karcie.
+Aby utworzyć ten interfejs API, utworzymy nowy serwer proxy, tym razem używając [Edytor usługi App Service](https://github.com/projectkudu/kudu/wiki/App-Service-Editor). Aby rozpocząć, przejdź do aplikacji funkcji w portalu. Wybierz pozycję **funkcje platformy** i w obszarze **Narzędzia programistyczne** Znajdź **Edytor usługi App Service**. Edytor usługi App Service zostanie otwarta na nowej karcie.
 
 Wybierz pozycję `proxies.json` na lewym pasku nawigacyjnym. Ten plik przechowuje konfigurację dla wszystkich serwerów proxy. Jeśli używasz jednej z [metod wdrażania funkcji](./functions-continuous-deployment.md), ten plik jest zachowywany w kontroli źródła. Aby dowiedzieć się więcej na temat tego pliku, zobacz [Konfiguracja zaawansowana serwerów proxy](./functions-proxies.md#advanced-configuration).
 
@@ -195,5 +195,5 @@ Podczas dalszego programowania interfejsu API może być przydatna następująca
 - [Dokumentowanie interfejsu API usługi Azure Functions (wersja zapoznawcza)](./functions-openapi-definition.md)
 
 
-[Create your first function]: ./functions-create-first-azure-function.md
+[Create your first function]: ./functions-get-started.md
 [Praca z serwerami proxy usługi Azure Functions]: ./functions-proxies.md

@@ -7,21 +7,21 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 01/06/2021
 ms.author: sngun
-ms.openlocfilehash: bfc17af99a435c7c17f308f913346045aa22b18d
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: d78ddf983f1c8f2bfeaf733c273afc1cc98b1185
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165556"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684862"
 ---
-# <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Monitorowanie danych Azure Cosmos DB przy użyciu ustawień diagnostycznych na platformie Azure
+# <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Monitorowanie danych usługi Azure Cosmos DB przy użyciu ustawień diagnostycznych na platformie Azure
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Ustawienia diagnostyczne na platformie Azure służą do zbierania dzienników zasobów. Dzienniki zasobów platformy Azure są emitowane przez zasób i zapewniają rozbudowane, częste dane dotyczące operacji tego zasobu. Te dzienniki są przechwytywane na żądanie i są również określane jako "dzienniki płaszczyzny danych". Niektóre przykłady operacji płaszczyzny danych obejmują Delete, INSERT i readFeed. Zawartość tych dzienników różni się w zależności od typu zasobu.
+Ustawienia diagnostyczne na platformie Azure umożliwiają zbieranie dzienników zasobów. Dzienniki zasobów platformy Azure są emitowane przez zasób i zapewniają rozbudowane, częste dane dotyczące operacji tego zasobu. Te dzienniki są przechwytywane na żądanie i są również określane jako "dzienniki płaszczyzny danych". Niektóre przykłady operacji płaszczyzny danych obejmują Delete, INSERT i readFeed. Zawartość tych dzienników różni się w zależności od typu zasobu.
 
 Metryki platformy i dzienniki aktywności są zbierane automatycznie. w związku z tym należy utworzyć ustawienie diagnostyczne w celu zbierania dzienników zasobów lub przesyłania ich dalej poza Azure Monitor. Ustawienie diagnostyczne dla kont usługi Azure Cosmos można włączyć, wykonując następujące czynności:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com).
 
 1. Przejdź do swojego konta usługi Azure Cosmos. Otwórz okienko **Ustawienia diagnostyczne** , a następnie wybierz opcję **Dodaj ustawienie diagnostyczne** .
 
@@ -33,7 +33,7 @@ Metryki platformy i dzienniki aktywności są zbierane automatycznie. w związku
 
 1. Podczas tworzenia ustawień diagnostycznych należy określić, którą kategorię dzienników należy zebrać. Kategorie dzienników obsługiwane przez Azure Cosmos DB są wymienione poniżej wraz z przykładowym dziennikiem zebranym przez nich:
 
- * **DataPlaneRequests**: Wybierz tę opcję, aby rejestrować żądania wewnętrznej bazy danych do wszystkich interfejsów API, takich jak SQL, Graph, MongoDB, Cassandra i interfejs API tabel, w Azure Cosmos DB. Właściwości klucza, które należy zwrócić uwagę: `Requestcharge` ,,,, `statusCode` `clientIPaddress` `partitionID` `resourceTokenPermissionId` , i `resourceTokenPermissionMode` .
+ * **DataPlaneRequests**: Wybierz tę opcję, aby rejestrować żądania zaplecza do kont interfejsu API SQL w Azure Cosmos DB. Właściwości klucza, które należy zwrócić uwagę: `Requestcharge` ,,,, `statusCode` `clientIPaddress` `partitionID` `resourceTokenPermissionId` , i `resourceTokenPermissionMode` .
 
    ```json
     { "time": "2019-04-23T23:12:52.3814846Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "DataPlaneRequests", "operationName": "ReadFeed", "properties": {"activityId": "66a0c647-af38-4b8d-a92a-c48a805d6460","requestResourceType": "Database","requestResourceId": "","collectionRid": "","statusCode": "200","duration": "0","userAgent": "Microsoft.Azure.Documents.Common/2.2.0.0","clientIpAddress": "10.0.0.24","requestCharge": "1.000000","requestLength": "0","responseLength": "372", "resourceTokenPermissionId": "perm-prescriber-app","resourceTokenPermissionMode": "all", "resourceTokenUserRid": "","region": "East US","partitionId": "062abe3e-de63-4aa5-b9de-4a77119c59f8","keyType": "PrimaryReadOnlyMasterKey","databaseName": "","collectionName": ""}}

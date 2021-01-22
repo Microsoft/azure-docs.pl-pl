@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 1/5/2021
 ms.author: v-jawe
-ms.openlocfilehash: 07c9bd12664a94c64a0d0b37d638b5668cc7f61e
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: b4035e2039afb6fe66d2658ebfcd3206d46e1de5
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98605631"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682466"
 ---
 # <a name="how-to-mitigate-latency-when-using-the-face-service"></a>Instrukcje: zmniejszanie opóźnienia podczas korzystania z usługi kroju
 
@@ -42,7 +42,11 @@ var faces = await client.Face.DetectWithUrlAsync("https://www.biography.com/.ima
 
 Usługa kroju musi następnie pobrać obraz z serwera zdalnego. Jeśli połączenie z usługą Front Service do serwera zdalnego działa wolno, co będzie miało wpływ na czas odpowiedzi metody wykrywania.
 
-Aby rozwiązać ten problem, należy rozważyć [przechowywanie obrazu w usłudze Azure Premium BLOB Storage](https://docs.microsoft.com/azure/storage/blobs/storage-upload-process-images?tabs=dotnet).
+Aby rozwiązać ten problem, należy rozważyć [przechowywanie obrazu w usłudze Azure Premium BLOB Storage](https://docs.microsoft.com/azure/storage/blobs/storage-upload-process-images?tabs=dotnet). Przykład:
+
+``` csharp
+var faces = await client.Face.DetectWithUrlAsync("https://csdx.blob.core.windows.net/resources/Face/Images/Family1-Daughter1.jpg");
+```
 
 ### <a name="large-upload-size"></a>Duży rozmiar przekazywania
 
@@ -58,7 +62,10 @@ Jeśli plik do przekazania jest duży, wpłynie to na czas odpowiedzi `DetectWit
 - Przetworzenie pliku przez usługę dłużej nie jest możliwe, proporcjonalnie do rozmiaru pliku.
 
 Środki zaradcze
-- Rozważ [przechowywanie obrazu w usłudze Azure Premium BLOB Storage](https://docs.microsoft.com/azure/storage/blobs/storage-upload-process-images?tabs=dotnet).
+- Rozważ [przechowywanie obrazu w usłudze Azure Premium BLOB Storage](https://docs.microsoft.com/azure/storage/blobs/storage-upload-process-images?tabs=dotnet). Przykład:
+``` csharp
+var faces = await client.Face.DetectWithUrlAsync("https://csdx.blob.core.windows.net/resources/Face/Images/Family1-Daughter1.jpg");
+```
 - Rozważ przekazanie mniejszego pliku.
     - Zapoznaj się z wytycznymi dotyczącymi [danych wejściowych na potrzeby wykrywania](https://docs.microsoft.com/azure/cognitive-services/face/concepts/face-detection#input-data) i [wprowadzania danych w celu rozpoznawania kroju](https://docs.microsoft.com/azure/cognitive-services/face/concepts/face-recognition#input-data).
     - W przypadku wykrywania wydajności podczas korzystania z modelu wykrywania `DetectionModel.Detection01` zmniejszenie rozmiaru pliku obrazu spowoduje zwiększenie szybkości przetwarzania. W przypadku korzystania z modelu wykrywania `DetectionModel.Detection02` zmniejszenie rozmiaru pliku obrazu spowoduje zwiększenie szybkości przetwarzania tylko wtedy, gdy plik obrazu jest mniejszy niż 1920 x 1080.

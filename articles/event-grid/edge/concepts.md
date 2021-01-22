@@ -7,12 +7,12 @@ ms.author: vkukke
 ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
-ms.openlocfilehash: b3babfe93012fae15e79362ba34f3f48856bc833
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8314447e7d5d282eb428ec9316c4eef6844a7423
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86171741"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682383"
 ---
 # <a name="event-grid-concepts"></a>Event Grid — pojęcia
 
@@ -48,7 +48,7 @@ Zobacz [dokumentację interfejsu API REST](api.md) na temat zarządzania subskry
 
 ## <a name="event-handlers"></a>Procedury obsługi zdarzeń
 
-W perspektywie Event Grid program obsługi zdarzeń jest miejscem, w którym zdarzenie jest wysyłane. Program obsługi wykonuje dalsze czynności, aby przetworzyć zdarzenie. Event Grid obsługuje kilka typów obsługi. Do obsługi programu można użyć obsługiwanej usługi platformy Azure lub własnego elementu webhook. W zależności od typu procedury obsługi Event Grid są zgodne z różnymi mechanizmami w celu zagwarantowania dostarczania zdarzenia. Jeśli program obsługi zdarzeń docelowych jest punktem zaczepienia sieci Web HTTP, zdarzenie jest ponawiane, gdy program obsługi zwróci kod stanu `200 – OK` . W przypadku centrum brzegowego, jeśli zdarzenie jest dostarczane bez żadnego wyjątku, zostanie uznane za pomyślne.
+W perspektywie Event Grid program obsługi zdarzeń jest miejscem, w którym zdarzenie jest wysyłane. Program obsługi wykonuje dalsze czynności, aby przetworzyć zdarzenie. Event Grid obsługuje kilka typów obsługi. Do obsługi programu można użyć obsługiwanej usługi platformy Azure lub własnego elementu webhook. W zależności od typu procedury obsługi Event Grid są zgodne z różnymi mechanizmami w celu zagwarantowania dostarczania zdarzenia. Jeśli program obsługi zdarzeń docelowych jest punktem zaczepienia sieci Web HTTP, zdarzenie jest ponawiane do momentu, gdy procedura obsługi zwróci kod stanu `200 – OK` . W przypadku centrum brzegowego, jeśli zdarzenie jest dostarczane bez żadnego wyjątku, zostanie uznane za pomyślne.
 
 ## <a name="security"></a>Zabezpieczenia
 

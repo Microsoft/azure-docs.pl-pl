@@ -1,25 +1,25 @@
 ---
-title: Zaimplementuj różnicową prywatność z pakietem SmartNoise (wersja zapoznawcza)
+title: Różnicowa prywatność w usłudze Machine Learning (wersja zapoznawcza)
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, co to jest różnicowa Ochrona prywatności i jak pakiet SmartNoise może pomóc w zaimplementowaniu różnicowych systemów prywatnych, które zachowują prywatność danych.
+description: Dowiedz się, co to jest różnicowa Ochrona prywatności i jak wdrożyć zróżnicowane systemy prywatne, które zachowują prywatność danych.
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 12/21/2020
+ms.date: 01/21/2020
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: responsible-ml
-ms.openlocfilehash: 22ba505a2e13b2f88f212f2fe1b85d07f79f77e5
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 39f4b1a7b9eb1ad7a87097240dd772e4f2dadf17
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218964"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683547"
 ---
-# <a name="preserve-data-privacy-by-using-differential-privacy-and-the-smartnoise-package-preview"></a>Zachowanie prywatności danych przy użyciu różnicowej prywatności i pakietu SmartNoise (wersja zapoznawcza)
+# <a name="what-is-differential-privacy-in-machine-learning-preview"></a>Co to jest różnicowa prywatność w usłudze Machine Learning (wersja zapoznawcza)
 
-Dowiedz się, co to jest różnicowa Ochrona prywatności i jak pakiet SmartNoise może pomóc w zaimplementowaniu różnych systemów prywatnych.
+Dowiedz się więcej o zasadach poufności informacji w usłudze Machine Learning i sposobie jej działania.
 
 Ponieważ ilość danych, które organizacja zbiera i używa do analiz, zwiększa się, dlatego nie ma obaw o prywatność i bezpieczeństwo. Analizy wymagają danych. Zazwyczaj im więcej danych służy do uczenia modeli, tym dokładniejsze są. Gdy dane osobowe są używane na potrzeby tych analiz, szczególnie ważne jest, aby były one prywatne przez cały czas użytkowania.
 
@@ -28,9 +28,9 @@ Ponieważ ilość danych, które organizacja zbiera i używa do analiz, zwiększ
 Różnicowa Ochrona prywatności to zestaw systemów i praktyk, które ułatwiają zapewnienie bezpieczeństwa i prywatnego danych osobom.
 
 > [!div class="mx-imgBorder"]
-> ![Różnicowa proces ochrony prywatności](./media/concept-differential-privacy/differential-privacy-process.jpg)
+> ![Różnicowa proces uczenia maszynowego dotyczącego prywatności](./media/concept-differential-privacy/differential-privacy-machine-learning.jpg)
 
-W tradycyjnych scenariuszach dane pierwotne są przechowywane w plikach i bazach danych. Gdy użytkownicy analizują dane, zazwyczaj korzystają z danych pierwotnych. Jest to problem, ponieważ może naruszać prywatność poszczególnych użytkowników. Różnicowa Ochrona prywatności próbuje rozwiązać ten problem, dodając "szum" lub losowość do danych, tak aby użytkownicy nie mogli identyfikować poszczególnych punktów danych. Co najmniej taki system zapewnia możliwość odmowy dostępu.
+W tradycyjnych scenariuszach dane pierwotne są przechowywane w plikach i bazach danych. Gdy użytkownicy analizują dane, zazwyczaj korzystają z danych pierwotnych. Jest to problem, ponieważ może naruszać prywatność poszczególnych użytkowników. Różnicowa Ochrona prywatności próbuje rozwiązać ten problem, dodając "szum" lub losowość do danych, tak aby użytkownicy nie mogli identyfikować poszczególnych punktów danych. Co najmniej taki system zapewnia możliwość odmowy dostępu. W związku z tym Ochrona prywatności osób jest zachowywana z ograniczonym wpływem na dokładność danych.
 
 W różnych systemach prywatnych dane są udostępniane za poorednictwem żądań o nazwie **zapytania**. Gdy użytkownik przesyła zapytanie o dane, operacje znane jako **mechanizmy ochrony prywatności** dodają szum do żądanych danych. Mechanizmy ochrony prywatności zwracają *przybliżone dane* zamiast danych pierwotnych. Ten wynik zachowywania prywatności pojawia się w **raporcie**. Raporty składają się z dwóch części, obliczane są rzeczywiste dane oraz opis sposobu tworzenia danych.
 
@@ -42,22 +42,22 @@ Wartości Epsilon nie są ujemne. Wartości poniżej 1 zapewniają pełną odmow
 
 Inna wartość, która jest bezpośrednio skorelowane z Epsilon, jest **różnicą**. Delta to miara prawdopodobieństwa, że raport nie jest w pełni prywatny. Im wyższa różnica, tym wyższa wartość Epsilon. Ponieważ te wartości są skorelowane, wartość Epsilon jest używana częściej.
 
-## <a name="privacy-budget"></a>Budżet ochrony prywatności
+## <a name="limit-queries-with-a-privacy-budget"></a>Ogranicz zapytania z budżetem prywatności
 
-Aby zapewnić prywatność w systemach, w których dozwolone jest wiele zapytań, różnicowa Ochrona prywatności definiuje Limit szybkości. Ten limit jest określany jako **budżet ochrony prywatności**. Budżety dla prywatności są przydzieloną proporcjonalnie, zwykle od 1 do 3, aby ograniczyć ryzyko reidentyfikacji. W miarę generowania raportów, budżety prywatności śledzą wartość Epsilon poszczególnych raportów, a także agregację dla wszystkich raportów. Po uzyskaniu lub wyczerpaniu budżetu ochrony prywatności użytkownicy nie będą mieli już dostępu do danych.  
+Aby zapewnić prywatność w systemach, w których dozwolone jest wiele zapytań, różnicowa Ochrona prywatności definiuje Limit szybkości. Ten limit jest określany jako **budżet ochrony prywatności**. Budżety prywatności uniemożliwiają odtworzenie danych przez wiele zapytań. Budżety dla prywatności są przydzieloną proporcjonalnie, zwykle od 1 do 3, aby ograniczyć ryzyko reidentyfikacji. W miarę generowania raportów, budżety prywatności śledzą wartość Epsilon poszczególnych raportów, a także agregację dla wszystkich raportów. Po uzyskaniu lub wyczerpaniu budżetu ochrony prywatności użytkownicy nie będą mieli już dostępu do danych. 
 
 ## <a name="reliability-of-data"></a>Niezawodność danych
 
-Mimo że zachowanie prywatności powinno być celem, istnieje kompromis, gdy jest on przydatny do użyteczności i niezawodności danych. W analizie danych dokładność może być uważana za miarę niepewności wprowadzoną przez próbkowanie błędów. Ta niepewność jest zależeć do określonych granic. **Dokładność** różnic między zasadami zachowania poufności a zamiast nich mierzy niezawodność danych, na które ma wpływ niepewność wprowadzona przez mechanizmy ochrony prywatności. W skrócie wyższy poziom szumu lub prywatności tłumaczy dane o mniejszej wartości Epsilon, dokładności i niezawodności. Mimo że dane są bardziej prywatne, ponieważ nie są niezawodne, mniej prawdopodobnie do użycia.
+Mimo że zachowanie prywatności powinno być celem, istnieje kompromis, gdy jest on przydatny do użyteczności i niezawodności danych. W analizie danych dokładność może być uważana za miarę niepewności wprowadzoną przez próbkowanie błędów. Ta niepewność jest zależeć do określonych granic. **Dokładność** różnic między zasadami zachowania poufności a zamiast nich mierzy niezawodność danych, na które ma wpływ niepewność wprowadzona przez mechanizmy ochrony prywatności. W skrócie wyższy poziom szumu lub prywatności tłumaczy dane o mniejszej wartości Epsilon, dokładności i niezawodności. 
 
-## <a name="implementing-differentially-private-systems"></a>Implementacja różnicowych systemów prywatnych
+## <a name="open-source-differential-privacy-libraries"></a>Różnicowe biblioteki ochrony prywatności Open Source
 
-Implementacja różnicowych systemów prywatnych jest trudna. SmartNoise to projekt open-source, który zawiera różne składniki służące do tworzenia globalnych, różnicowych systemów prywatnych. SmartNoise składa się z następujących składników najwyższego poziomu:
+SmartNoise to projekt open-source, który zawiera różne składniki służące do tworzenia globalnych, różnicowych systemów prywatnych. SmartNoise składa się z następujących składników najwyższego poziomu:
 
-- Core
-- SDK
+- Biblioteka podstawowa SmartNoise
+- Biblioteka zestawu SDK SmartNoise
 
-### <a name="core"></a>Core
+### <a name="smartnoise-core"></a>SmartNoise rdzeń
 
 Biblioteka podstawowa obejmuje następujące mechanizmy ochrony prywatności dotyczące wdrażania systemu w trybie różnicowym:
 
@@ -68,7 +68,7 @@ Biblioteka podstawowa obejmuje następujące mechanizmy ochrony prywatności dot
 |Środowisko uruchomieniowe     | Nośnik do wykonania analizy. Dokumentacja środowiska uruchomieniowego jest zapisywana w Rust, ale środowiska uruchomieniowe można napisać przy użyciu dowolnego środowiska obliczeniowego, takiego jak SQL i Spark, w zależności od potrzeb dotyczących danych.        |
 |Powiązania     | Powiązania języka i biblioteki pomocników do kompilowania analiz. Obecnie SmartNoise zapewnia powiązania języka Python. |
 
-### <a name="sdk"></a>SDK
+### <a name="smartnoise-sdk"></a>SmartNoise SDK
 
 Biblioteka systemowa udostępnia następujące narzędzia i usługi do pracy z danymi tabelarycznymi i relacyjnymi:
 
@@ -80,6 +80,6 @@ Biblioteka systemowa udostępnia następujące narzędzia i usługi do pracy z d
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Zachowanie prywatności danych](how-to-differential-privacy.md) w Azure Machine Learning.
+[Jak utworzyć zróżnicowany system prywatny](how-to-differential-privacy.md) w Azure Machine Learning.
 
-Aby dowiedzieć się więcej o składnikach SmartNoise, zapoznaj się z repozytoriami usługi GitHub dla [pakietu SmartNoise Core](https://github.com/opendifferentialprivacy/smartnoise-core), [zestawem SDK SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-sdk)i przykładami [SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-samples).
+Aby dowiedzieć się więcej o składnikach SmartNoise, zapoznaj się z repozytoriami usługi GitHub dla [SmartNoise Core](https://github.com/opendifferentialprivacy/smartnoise-core), [SmartNoise SDK](https://github.com/opendifferentialprivacy/smartnoise-sdk)i [SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-samples).

@@ -11,12 +11,12 @@ ms.date: 03/26/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019, azure-synapse
-ms.openlocfilehash: 95158193a978702392106c8aa3347de211fd1a3e
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 6750f010e3992a2b76cc688449ad44efa7ec76d0
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98115450"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683277"
 ---
 # <a name="create-table-as-select-ctas"></a>CREATE TABLE JAKO SELECT (CTAS)
 
@@ -24,11 +24,11 @@ W tym artykule wyjaśniono, CREATE TABLE jak SELECT (CTAS) instrukcja T-SQL w Sy
 
 ## <a name="create-table-as-select"></a>CREATE TABLE AS SELECT
 
-Instrukcja [CREATE TABLE as SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (CTAs) to jedna z najważniejszych dostępnych funkcji języka T-SQL. CTAS jest operacją równoległą, która tworzy nową tabelę na podstawie danych wyjściowych instrukcji SELECT. CTAS to najprostszy i najszybszy sposób tworzenia i wstawiania danych do tabeli za pomocą jednego polecenia.
+Instrukcja [CREATE TABLE as SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (CTAs) to jedna z najważniejszych dostępnych funkcji języka T-SQL. CTAS jest operacją równoległą, która tworzy nową tabelę na podstawie danych wyjściowych instrukcji SELECT. CTAS to najprostszy i najszybszy sposób tworzenia i wstawiania danych do tabeli za pomocą jednego polecenia.
 
 ## <a name="selectinto-vs-ctas"></a>Wybierz... DO programu vs. CTAS
 
-CTAS jest bardziej dostosowywalną wersją elementu [SELECT... INTO w](/sql/t-sql/queries/select-into-clause-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) instrukcji.
+CTAS jest bardziej dostosowywalną wersją elementu [SELECT... INTO w](/sql/t-sql/queries/select-into-clause-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) instrukcji.
 
 Poniżej znajduje się przykład prostego wyboru... PRZEKSZTAŁCA
 
@@ -379,7 +379,7 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 
 Można zobaczyć, że zgodność typów i utrzymywanie właściwości wartości null na CTAS to najlepsze rozwiązanie inżynieryjne. Pomaga zachować integralność obliczeń, a także zapewnia możliwość przełączenia na partycje.
 
-CTAS jest jednym z najważniejszych instrukcji w Synapse SQL. Zadbaj o to, aby dokładnie je zrozumieć. Zapoznaj się z [dokumentacją CTAs](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+CTAS jest jednym z najważniejszych instrukcji w Synapse SQL. Zadbaj o to, aby dokładnie je zrozumieć. Zapoznaj się z [dokumentacją CTAs](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="next-steps"></a>Następne kroki
 

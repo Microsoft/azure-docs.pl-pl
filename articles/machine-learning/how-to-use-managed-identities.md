@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 3490e3004e5f5dd99795967f0deb8510200fa50b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b0b0c43039648737b229edc79dd4e0a3dc45f38e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311045"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683344"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Korzystanie z tożsamości zarządzanych z Azure Machine Learning (wersja zapoznawcza)
 
@@ -38,7 +38,7 @@ W tym artykule dowiesz się, jak używać tożsamości zarządzanych do:
 - Obszar roboczy usługi Azure Machine Learning. Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego Azure Machine Learning](how-to-manage-workspace.md).
 - [Rozszerzenie interfejsu wiersza polecenia platformy Azure dla usługi Machine Learning](reference-azure-machine-learning-cli.md)
 - [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?view=azure-ml-py).
-- Aby przypisać role, identyfikator logowania dla subskrypcji platformy Azure musi mieć rolę [operatora tożsamości zarządzanej](../role-based-access-control/built-in-roles.md#managed-identity-operator) lub inną rolę, która przyznaje wymagane akcje (takie jak __właściciel__ ).
+- Aby przypisać role, identyfikator logowania dla subskrypcji platformy Azure musi mieć rolę [operatora tożsamości zarządzanej](../role-based-access-control/built-in-roles.md#managed-identity-operator) lub inną rolę, która przyznaje wymagane akcje (takie jak __właściciel__).
 - Musisz znać, jak tworzyć i pracować z [tożsamościami zarządzanymi](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="configure-managed-identities"></a>Konfigurowanie tożsamości zarządzanych
@@ -59,7 +59,7 @@ Jeśli użytkownik administracyjny ACR jest niedozwolony przez zasady subskrypcj
 [Utwórz ACR z poziomu interfejsu wiersza polecenia platformy Azure](../container-registry/container-registry-get-started-azure-cli.md) bez ustawienia ```--admin-enabled``` argumentu lub z Azure Portal bez włączania użytkownika administracyjnego. Następnie podczas tworzenia obszaru roboczego Azure Machine Learning Określ identyfikator zasobu platformy Azure ACR. Poniższy przykład ilustruje tworzenie nowego obszaru roboczego usługi Azure ML, który używa istniejącej ACR:
 
 > [!TIP]
-> Aby uzyskać wartość `--container-registry` parametru, użyj polecenia [AZ ACR show](/cli/azure/acr?view=azure-cli-latest#az_acr_show) , aby wyświetlić informacje dotyczące ACR. `id`Pole zawiera identyfikator zasobu dla ACR.
+> Aby uzyskać wartość `--container-registry` parametru, użyj polecenia [AZ ACR show](/cli/azure/acr#az_acr_show) , aby wyświetlić informacje dotyczące ACR. `id`Pole zawiera identyfikator zasobu dla ACR.
 
 ```azurecli-interactive
 az ml workspace create -w <workspace name> \
@@ -90,7 +90,7 @@ Jeśli nie podasz własnych ACR, usługa Azure Machine Learning utworzy ją podc
 
     To polecenie zwraca wartość podobną do poniższego tekstu. Potrzebujesz tylko ostatniej części tekstu, która jest nazwą wystąpienia ACR:
 
-    ```text
+    ```output
     /subscriptions/<subscription id>/resourceGroups/<my resource group>/providers/MicrosoftContainerReggistry/registries/<ACR instance name>
     ```
 

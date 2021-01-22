@@ -11,12 +11,12 @@ ms.date: 06/26/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: bd32b9690f8a9aef92eb1f2fbcc4ec926a65584e
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 6510a7143e78c054130a1f1dddba78342a6785fe
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121196"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685280"
 ---
 # <a name="azure-advisor-recommendations-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Zalecenia dotyczące Azure Advisor dedykowanej puli SQL w usłudze Azure Synapse Analytics
 
@@ -73,4 +73,4 @@ Wydajność zapytań może wzniżyć, gdy istnieje duża rywalizacja o bazę dan
 
 ## <a name="data-loading-misconfiguration"></a>Niekonfiguracja ładowania danych
 
-Należy zawsze ładować dane z konta magazynu w tym samym regionie co dedykowana Pula SQL, aby zminimalizować opóźnienia. Użyj [instrukcji Copy do pozyskiwania danych o wysokiej przepływności](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) i Podziel pliki przemieszczane na koncie magazynu, aby zmaksymalizować przepływność. Jeśli nie można użyć instrukcji COPY, można użyć interfejsu API SqlBulkCopy lub BCP o dużej wielkości partii, aby zapewnić lepszą przepływność. Aby uzyskać dodatkowe wskazówki dotyczące ładowania danych, zapoznaj się z poniższą [dokumentacją](./guidance-for-loading-data.md).
+Należy zawsze ładować dane z konta magazynu w tym samym regionie co dedykowana Pula SQL, aby zminimalizować opóźnienia. Użyj [instrukcji Copy do pozyskiwania danych o wysokiej przepływności](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) i Podziel pliki przemieszczane na koncie magazynu, aby zmaksymalizować przepływność. Jeśli nie można użyć instrukcji COPY, można użyć interfejsu API SqlBulkCopy lub BCP o dużej wielkości partii, aby zapewnić lepszą przepływność. Aby uzyskać dodatkowe wskazówki dotyczące ładowania danych, zapoznaj się z poniższą [dokumentacją](./guidance-for-loading-data.md).

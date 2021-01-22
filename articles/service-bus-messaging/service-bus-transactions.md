@@ -4,16 +4,19 @@ description: Ten artykuł zawiera omówienie przetwarzania transakcji i funkcji 
 ms.topic: article
 ms.date: 10/28/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9162b8578fe4f48cc3740b38d9d84ffaa2f260de
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9a95a200b57d348109884a319b5433f0ffd5dde1
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023605"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684795"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Przegląd Service Bus przetwarzania transakcji
 
 W tym artykule omówiono możliwości transakcji Microsoft Azure Service Bus. Wiele dyskusji jest zilustrowanych przez [transakcje AMQP z przykładem Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia). W tym artykule zawarto informacje dotyczące przetwarzania transakcji i funkcji *wysyłania za pośrednictwem* Service Bus, podczas gdy próbki niepodzielnych transakcji są szersze i bardziej złożone w zakresie.
+
+> [!NOTE]
+> Warstwa Podstawowa Service Bus nie obsługuje transakcji. Warstwy Standardowa i Premium obsługują transakcje. Aby zapoznać się z różnicami między tymi warstwami, zobacz [Cennik usługi Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ## <a name="transactions-in-service-bus"></a>Transakcje w Service Bus
 
@@ -42,7 +45,7 @@ Moc tej możliwości transakcyjnej stanie się widoczna, gdy kolejka transferu l
 
 ### <a name="see-it-in-code"></a>Zobacz go w kodzie
 
-Aby skonfigurować takie transfery, należy utworzyć nadawcę wiadomości, który jest przeznaczony dla kolejki docelowej za pośrednictwem kolejki transferu. Istnieje również odbiornik, który pobiera wiadomości z tej samej kolejki. Na przykład:
+Aby skonfigurować takie transfery, należy utworzyć nadawcę wiadomości, który jest przeznaczony dla kolejki docelowej za pośrednictwem kolejki transferu. Istnieje również odbiornik, który pobiera wiadomości z tej samej kolejki. Przykład:
 
 ```csharp
 var connection = new ServiceBusConnection(connectionString);

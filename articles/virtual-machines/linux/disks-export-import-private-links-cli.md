@@ -8,12 +8,12 @@ ms.date: 08/11/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 9a005712eda1e735608e3ddf93be2bba98fbdcd3
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 68b96401fc4fc6ea8916664978dbd4c094d9e5b4
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630045"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684529"
 ---
 # <a name="azure-cli---restrict-importexport-access-for-managed-disks-with-private-links"></a>Interfejs wiersza polecenia platformy Azure — ograniczanie dostępu do usługi Import/Export dla dysków zarządzanych przy użyciu linków prywatnych
 
@@ -155,4 +155,4 @@ az snapshot create -n $snapshotNameSecuredWithPL \
 ## <a name="next-steps"></a>Następne kroki
 
 - [Często zadawane pytania dotyczące linków prywatnych](../faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
-- [Eksportowanie/kopiowanie zarządzanych migawek jako dysku VHD do konta magazynu w innym regionie przy użyciu interfejsu wiersza polecenia](../scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md)
+- [Eksportowanie/kopiowanie zarządzanych migawek jako dysku VHD do konta magazynu w innym regionie przy użyciu interfejsu wiersza polecenia](/previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-vhd)

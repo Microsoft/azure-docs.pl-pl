@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a735817f59e43e1a9e5d2a513f1ad397f18aab8
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 92a0cc93b4d159a4ba87c1cadc2d0dedc0a28b2d
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232322"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683814"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Zarządzanie tożsamościami urządzeń przy użyciu witryny Azure Portal
 
@@ -168,7 +168,7 @@ Do wyświetlania ustawień urządzenia i zarządzania nimi w Azure Portal należ
 - **Urządzenia, które mają być przyłączone do usługi Azure AD lub zarejestrowane w usłudze Azure AD wymagane Multi-Factor Authentication** — możesz zdecydować, czy użytkownicy są zobowiązani do zapewnienia dodatkowego czynnika uwierzytelniania w celu przyłączenia lub zarejestrowania urządzenia w usłudze Azure AD. Wartość domyślna to **nie**. Zalecamy wymaganie uwierzytelniania wieloskładnikowego podczas rejestrowania lub przyłączania urządzenia. Przed włączeniem uwierzytelniania wieloskładnikowego dla tej usługi należy się upewnić, że uwierzytelnianie wieloskładnikowe jest skonfigurowane dla użytkowników, którzy rejestrują swoje urządzenia. Aby uzyskać więcej informacji na temat różnych usług Multi-Factor Authentication usługi Azure AD, zobacz Rozpoczynanie [pracy z usługą Azure ad Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md). 
 
 > [!NOTE]
-> **Urządzenia, które mają być przyłączone do usługi Azure AD lub zarejestrowane w usłudze Azure AD ustawienie wymagaj Multi-Factor Authentication** ma zastosowanie do urządzeń, które są dołączone do usługi Azure AD (z pewnymi wyjątkami) lub zarejestrowane w usłudze Azure AD To ustawienie nie dotyczy urządzeń przyłączonych do hybrydowej usługi Azure AD, [przyłączonych do usługi Azure AD maszyn wirtualnych na platformie Azure i w](/azure/active-directory/devices/howto-vm-sign-in-azure-ad-windows#enabling-azure-ad-login-in-for-windows-vm-in-azure) usłudze Azure AD przyłączonych w trybie samoobsługowego [wdrażania systemu Windows](/mem/autopilot/self-deploying).
+> **Urządzenia, które mają być przyłączone do usługi Azure AD lub zarejestrowane w usłudze Azure AD ustawienie wymagaj Multi-Factor Authentication** ma zastosowanie do urządzeń, które są dołączone do usługi Azure AD (z pewnymi wyjątkami) lub zarejestrowane w usłudze Azure AD To ustawienie nie dotyczy urządzeń przyłączonych do hybrydowej usługi Azure AD, [przyłączonych do usługi Azure AD maszyn wirtualnych na platformie Azure i w](./howto-vm-sign-in-azure-ad-windows.md#enabling-azure-ad-login-in-for-windows-vm-in-azure) usłudze Azure AD przyłączonych w trybie samoobsługowego [wdrażania systemu Windows](/mem/autopilot/self-deploying).
 
 - **Maksymalna liczba urządzeń** — to ustawienie pozwala wybrać maksymalną liczbę przyłączonych do usługi Azure AD lub zarejestrowanych urządzeń usługi Azure AD, które użytkownik może mieć w usłudze Azure AD. Jeśli użytkownik osiągnie ten limit przydziału, nie będzie mógł dodać dodatkowych urządzeń, dopóki nie zostaną usunięte co najmniej jedno z istniejących urządzeń. Wartość domyślna to **50**.
 

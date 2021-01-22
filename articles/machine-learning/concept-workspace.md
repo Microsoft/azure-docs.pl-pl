@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/22/2020
-ms.openlocfilehash: 7acb555ddde20d6512119af85a8db055bcd9eeed
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 5211555102c0a8d29eb05abd7a680935d828f9dc
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701657"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683444"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Co to jest obszar roboczy usługi Azure Machine Learning?
 
@@ -134,6 +134,5 @@ Aby rozpocząć pracę z Azure Machine Learning, zobacz:
 + [Tworzenie obszaru roboczego i zarządzanie nim](how-to-manage-workspace.md)
 + [Samouczek: wprowadzenie do Azure Machine Learning w środowisku deweloperskim](tutorial-1st-experiment-sdk-setup-local.md)
 + [Samouczek: wprowadzenie do tworzenia pierwszego eksperymentu w ramach wystąpienia obliczeniowego](tutorial-1st-experiment-sdk-setup.md)
-+ [Samouczek: wprowadzenie do Azure Machine Learning za pomocą zestawu SDK języka R](tutorial-1st-r-experiment.md)
 + [Samouczek: Tworzenie pierwszego modelu klasyfikacji za pomocą zautomatyzowanego uczenia maszynowego](tutorial-first-experiment-automated-ml.md) 
-+ [Samouczek: przewidywanie ceny za samochód przy użyciu narzędzia Projektant](tutorial-designer-automobile-price-train-score.md)
++ [Samouczek: Przewidywanie ceny samochodów w projektancie](tutorial-designer-automobile-price-train-score.md)

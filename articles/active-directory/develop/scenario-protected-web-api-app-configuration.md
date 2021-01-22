@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f1277972480f504d9d2df67930d9385cbe8c06b4
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 9ffb77db4f7bcd5a07e25085eed17e8972aa9a33
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063199"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683763"
 ---
 # <a name="protected-web-api-code-configuration"></a>Chroniony internetowy interfejs API: Konfiguracja kodu
 
@@ -175,7 +175,7 @@ services.AddControllers();
 > - `$"api://{ClientId}` we wszystkich innych przypadkach (dla [tokenów dostępu](access-tokens.md)w wersji 1.0).
 > Aby uzyskać szczegółowe informacje, zobacz Microsoft. Identity. Web [Code Source](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/Resource/RegisterValidAudience.cs#L70-L83).
 
-Poprzedni fragment kodu jest wyodrębniany z [wielostopniowego samouczka interfejsu API sieci web ASP.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/63087e83326e6a332d05fee6e1586b66d840b08f/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Startup.cs#L23-L28). Szczegóły **AddMicrosoftIdentityWebApiAuthentication** są dostępne w [witrynie Microsoft. Identity. Web](microsoft-identity-web.md). Ta metoda wywołuje [AddMicrosoftIdentityWebAPI](https://docs.microsoft.com/dotnet/api/microsoft.identity.web.microsoftidentitywebapiauthenticationbuilderextensions.addmicrosoftidentitywebapi?view=azure-dotnet-preview&preserve-view=true), która sama nakazuje oprogramowaniu pośredniczącemu na sprawdzanie poprawności tokenu.
+Poprzedni fragment kodu jest wyodrębniany z [wielostopniowego samouczka interfejsu API sieci web ASP.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/63087e83326e6a332d05fee6e1586b66d840b08f/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Startup.cs#L23-L28). Szczegóły **AddMicrosoftIdentityWebApiAuthentication** są dostępne w [witrynie Microsoft. Identity. Web](microsoft-identity-web.md). Ta metoda wywołuje [AddMicrosoftIdentityWebAPI](/dotnet/api/microsoft.identity.web.microsoftidentitywebapiauthenticationbuilderextensions.addmicrosoftidentitywebapi?preserve-view=true&view=azure-dotnet-preview), która sama nakazuje oprogramowaniu pośredniczącemu na sprawdzanie poprawności tokenu.
 
 ## <a name="token-validation"></a>Sprawdzanie poprawności tokenu
 

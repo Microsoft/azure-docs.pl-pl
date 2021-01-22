@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: c255a3d68b1a24e25c1c0e308faa3fd364a15861
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: bd16f0ef330d1d4a33dd796af0ec3e94dda5acfc
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358745"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684597"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modify a virtual machine scale set (Modyfikowanie zestawu skalowania maszyn wirtualnych)
 
@@ -350,7 +350,7 @@ Niektóre właściwości można zmienić z wyjątkami w zależności od bieżąc
 
 - **singlePlacementGroup** — Jeśli singlePlacementGroup ma wartość true, może być modyfikowany na wartość false. Jeśli jednak singlePlacementGroup ma wartość false, **nie** można jej zmodyfikować na wartość true.
 - **podsieć** — podsieć zestawu skalowania może zostać zmodyfikowana, o ile oryginalna podsieć i Nowa podsieć znajdują się w tej samej sieci wirtualnej.
-- **imageReferenceSku** — jednostka SKU odwołująca się do obrazu może zostać zaktualizowana w przypadku potwierdzonych systemów [Linux dystrybucje](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros), Windows Server/Client images i obrazów bez [informacji o planie](https://docs.microsoft.com/azure/virtual-machines/linux/cli-ps-findimage#view-plan-properties). 
+- **imageReferenceSku** — jednostka SKU odwołująca się do obrazu może zostać zaktualizowana w przypadku potwierdzonych systemów [Linux dystrybucje](../virtual-machines/linux/endorsed-distros.md), Windows Server/Client images i obrazów bez [informacji o planie](../virtual-machines/linux/cli-ps-findimage.md#view-plan-properties). 
 
 ### <a name="properties-that-require-deallocation-to-change"></a>Właściwości, które wymagają zmiany alokacji
 Niektóre właściwości można zmienić tylko na określone wartości, jeśli nie zostaną cofnięte alokacje maszyn wirtualnych w zestawie skalowania. Te właściwości obejmują:

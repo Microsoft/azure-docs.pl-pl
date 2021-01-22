@@ -8,13 +8,13 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/01/2020
-ms.openlocfilehash: ee13b2fbe4abbaf9bddf4975f8e25d746dc78f5e
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.date: 01/19/2021
+ms.openlocfilehash: 31398a49de871ad44499a796adfef1be618ccab9
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232186"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685178"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Azure Time Series Insights źródła zdarzeń Gen2
 
@@ -45,7 +45,7 @@ Po nawiązaniu połączenia ze źródłem zdarzeń środowisko Azure Time Series
 
 - Nie należy przekroczyć [limitu szybkości przepływności](./concepts-streaming-ingress-throughput-limits.md) dla środowiska lub limitu partycji.
 
-- Skonfiguruj [alert](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) z opóźnieniem, aby otrzymywać powiadomienia o problemach z przetwarzaniem danych w środowisku. Zobacz poniższe [obciążenia produkcyjne](./concepts-streaming-ingestion-event-sources.md#production-workloads) w przypadku sugerowanych warunków alertów. 
+- Skonfiguruj [alert](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) z opóźnieniem, aby otrzymywać powiadomienia o problemach z przetwarzaniem danych w środowisku. Zobacz poniższe [obciążenia produkcyjne](./concepts-streaming-ingestion-event-sources.md#production-workloads) w przypadku sugerowanych warunków alertów.
 
 - Używaj pozyskiwania strumieniowego w przypadku niemal czasu rzeczywistego i ostatnich danych, ale dane historyczne przesyłania strumieniowego nie są obsługiwane.
 
@@ -55,14 +55,14 @@ Po nawiązaniu połączenia ze źródłem zdarzeń środowisko Azure Time Series
 
 ## <a name="production-workloads"></a>Obciążenia produkcyjne
 
-Oprócz najlepszych praktyk zaleca się wdrożenie następujących rozwiązań dla obciążeń krytycznych dla działalności biznesowej. 
+Oprócz najlepszych praktyk zaleca się wdrożenie następujących rozwiązań dla obciążeń krytycznych dla działalności biznesowej.
 
 - Zwiększ czas przechowywania danych IoT Hub lub centrum zdarzeń do maksymalnie 7 dni.
 
 - Utwórz alerty środowiska w Azure Portal. Alerty oparte na [metrykach](https://docs.microsoft.com/azure/time-series-insights/how-to-monitor-tsi-reference#metrics) platformy umożliwiają Weryfikowanie kompleksowego zachowania potoku. Instrukcje dotyczące tworzenia alertów i zarządzania nimi znajdują się [tutaj](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts). Sugerowane warunki alertu:
 
-     - IngressReceivedMessagesTimeLag jest większa niż 5 minut
-     - IngressReceivedBytes jest 0
+  - IngressReceivedMessagesTimeLag jest większa niż 5 minut
+  - IngressReceivedBytes jest 0
 - Utrzymuj zrównoważenie obciążenia pozyskiwania między IoT Hubami i partycjami centrum zdarzeń.
 
 ### <a name="historical-data-ingestion"></a>Pozyskiwanie danych historycznych

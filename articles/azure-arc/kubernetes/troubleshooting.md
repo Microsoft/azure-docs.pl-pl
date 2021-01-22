@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Rozwiązywanie typowych problemów z obsługą Arc klastrów Kubernetes.
 keywords: Kubernetes, łuk, Azure, kontenery
-ms.openlocfilehash: 42c90708854af6973ed1ef399b9867101a736b07
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 0827386eb6ec089cf7951e8fa513a77fc78aef22
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586163"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684093"
 ---
 # <a name="azure-arc-enabled-kubernetes-troubleshooting-preview"></a>Kubernetes Rozwiązywanie problemów z usługą Azure ARC (wersja zapoznawcza)
 
@@ -24,7 +24,7 @@ W tym dokumencie przedstawiono kilka typowych scenariuszy rozwiązywania problem
 ### <a name="azure-cli-set-up"></a>Konfiguracja interfejsu wiersza polecenia platformy Azure
 Przed użyciem polecenia AZ connectedk8s lub AZ k8sconfiguration CLI, należy upewnić się, że program AZ jest ustawiony do pracy z poprawną subskrypcją platformy Azure.
 
-```console
+```azurecli
 az account set --subscription 'subscriptionId'
 az account show
 ```
@@ -79,7 +79,7 @@ Wszystkie zasobniki powinny `STATUS` być wyświetlane jako `Running` i `READY` 
 
 Jeśli podany plik kubeconfig nie ma wystarczających uprawnień do instalacji agentów usługi Azure ARC, polecenie interfejsu wiersza polecenia platformy Azure zwróci błąd próbujący wywołać interfejs API Kubernetes.
 
-```console
+```azurecli
 $ az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
 Command group 'connectedk8s' is in preview. It may be changed/removed in a future release.
 Ensure that you have the latest helm version installed before proceeding to avoid unexpected errors.
@@ -94,7 +94,7 @@ Właściciel klastra powinien używać użytkownika Kubernetes z uprawnieniami a
 
 Instalacja agenta usługi Azure Arc wymaga uruchomienia zestawu kontenerów w klastrze docelowym. Jeśli klaster działa za pośrednictwem wolnego połączenia internetowego, ściąganie obrazów kontenera może trwać dłużej niż limity czasu interfejsu wiersza polecenia platformy Azure.
 
-```console
+```azurecli
 $ az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
 Command group 'connectedk8s' is in preview. It may be changed/removed in a future release.
 Ensure that you have the latest helm version installed before proceeding to avoid unexpected errors.

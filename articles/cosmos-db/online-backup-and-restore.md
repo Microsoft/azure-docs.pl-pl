@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 43625a80df76ff35b8bb1804df5f5fd1524326c5
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ba66013e37c196c58291a6bcd979be7fb5fa0130
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097536"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684580"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Kopia zapasowa online i przywracanie danych na żądanie w Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -52,15 +52,15 @@ Wykonaj następujące kroki, aby zmienić domyślne opcje tworzenia kopii zapaso
 
    * **Kopie przechowywanych danych** — domyślnie dwie kopie zapasowe danych są oferowane bezpłatnie. Jeśli potrzebujesz więcej niż dwóch kopii, występuje dodatkowa opłata. Zobacz sekcję Wykorzystany magazyn na stronie [Cennik](https://azure.microsoft.com/pricing/details/cosmos-db/), aby poznać dokładną cenę dodatkowych kopii.
 
-   :::image type="content" source="./media/online-backup-and-restore/configure-backup-interval-retention.png" alt-text="Okresowe pełne kopie zapasowe wszystkich jednostek Cosmos DB w usłudze GRS Azure Storage" border="true":::
+   :::image type="content" source="./media/online-backup-and-restore/configure-backup-interval-retention.png" alt-text="Konfigurowanie interwału i przechowywania kopii zapasowych dla istniejącego konta usługi Azure Cosmos" border="true":::
 
-W przypadku konfigurowania opcji tworzenia kopii zapasowej podczas tworzenia konta można skonfigurować **zasady tworzenia kopii zapasowych** , które są **okresowe** lub **ciągłe** . Zasady okresowe umożliwiają skonfigurowanie interwału kopii zapasowych i przechowywania kopii zapasowych. Zasady ciągłe są obecnie dostępne tylko w przypadku rejestracji. Zespół Azure Cosmos DB oceni obciążenie i zatwierdzi Twoje żądanie.
+W przypadku konfigurowania opcji tworzenia kopii zapasowej podczas tworzenia konta można skonfigurować **zasady tworzenia kopii zapasowych**, które są **okresowe** lub **ciągłe**. Zasady okresowe umożliwiają skonfigurowanie interwału kopii zapasowych i przechowywania kopii zapasowych. Zasady ciągłe są obecnie dostępne tylko w przypadku rejestracji. Zespół Azure Cosmos DB oceni obciążenie i zatwierdzi Twoje żądanie.
 
-:::image type="content" source="./media/online-backup-and-restore/configure-periodic-continuous-backup-policy.png" alt-text="Okresowe pełne kopie zapasowe wszystkich jednostek Cosmos DB w usłudze GRS Azure Storage" border="true":::
+:::image type="content" source="./media/online-backup-and-restore/configure-periodic-continuous-backup-policy.png" alt-text="Skonfiguruj zasady okresowe lub ciągłej kopii zapasowej dla nowych kont usługi Azure Cosmos" border="true":::
 
 ## <a name="request-data-restore-from-a-backup"></a>Żądanie przywracania danych z kopii zapasowej
 
-Jeśli przypadkowo usuniesz bazę danych lub kontener, możesz [utworzyć bilet pomocy technicznej](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) lub [wywoływać pomoc techniczną platformy Azure](https://azure.microsoft.com/support/options/) w celu przywrócenia danych z automatycznych kopii zapasowych online. Pomoc techniczna systemu Azure jest dostępna dla wybranych planów, takich jak **Standard** , **Developer** i plany wyższe niż te. Pomoc techniczna systemu Azure nie jest dostępna w planie **Basic** . Aby dowiedzieć się więcej o różnych planach pomocy technicznej, zobacz stronę [plany pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/) .
+Jeśli przypadkowo usuniesz bazę danych lub kontener, możesz [utworzyć bilet pomocy technicznej](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) lub [wywoływać pomoc techniczną platformy Azure](https://azure.microsoft.com/support/options/) w celu przywrócenia danych z automatycznych kopii zapasowych online. Pomoc techniczna systemu Azure jest dostępna dla wybranych planów, takich jak **Standard**, **Developer** i plany wyższe niż te. Pomoc techniczna systemu Azure nie jest dostępna w planie **Basic** . Aby dowiedzieć się więcej o różnych planach pomocy technicznej, zobacz stronę [plany pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/) .
 
 Aby przywrócić określoną migawkę kopii zapasowej, Azure Cosmos DB wymaga, aby dane były dostępne na czas trwania cyklu tworzenia kopii zapasowej dla tej migawki.
 Przed zażądaniem przywrócenia należy mieć następujące szczegóły:
@@ -81,7 +81,7 @@ Oprócz nazw kont usługi Azure Cosmos, nazw baz danych i nazw kontenerów nale�
 
 Poniższy zrzut ekranu ilustruje sposób tworzenia żądania obsługi dla kontenera (kolekcji/wykresu/tabeli) w celu przywrócenia danych przy użyciu Azure Portal. Podaj dodatkowe szczegóły, takie jak typ danych, cel przywracania, czas, po usunięciu danych, aby pomóc nam określić priorytet żądania.
 
-:::image type="content" source="./media/online-backup-and-restore/backup-support-request-portal.png" alt-text="Okresowe pełne kopie zapasowe wszystkich jednostek Cosmos DB w usłudze GRS Azure Storage":::
+:::image type="content" source="./media/online-backup-and-restore/backup-support-request-portal.png" alt-text="Utwórz żądanie obsługi kopii zapasowej za pomocą Azure Portal":::
 
 ## <a name="considerations-for-restoring-the-data-from-a-backup"></a>Zagadnienia dotyczące przywracania danych z kopii zapasowej
 
@@ -115,6 +115,13 @@ Jeśli przypadkowo usunięto lub uszkodzenie danych, należy skontaktować się 
 
 Jeśli zainicjujesz przepływność na poziomie bazy danych, proces tworzenia kopii zapasowych i przywracania w tym przypadku odbywa się na całym poziomie bazy danych, a nie na poziomie poszczególnych kontenerów. W takich przypadkach nie można wybrać podzestawu kontenerów do przywrócenia.
 
+## <a name="required-permissions-to-change-retention-or-restore-from-the-portal"></a>Uprawnienia wymagane do zmiany przechowywania lub przywracania z portalu
+Podmioty zabezpieczeń będące częścią roli [CosmosdbBackupOperator](../role-based-access-control/built-in-roles.md#cosmosbackupoperator), Owner lub współautor mogą żądać przywrócenia lub zmienić okres przechowywania.
+
+## <a name="understanding-costs-of-extra-backups"></a>Informacje o kosztach dodatkowych kopii zapasowych
+2 kopie zapasowe są udostępniane bezpłatnie, a dodatkowe kopie zapasowe są naliczone zgodnie z cennikiem opartym na regionie dla magazynu kopii zapasowych opisanym w [cenniku usługi Backup Storage](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/) Na przykład jeśli przechowywanie kopii zapasowych jest skonfigurowane na 240 godz., 10 dni i interwał tworzenia kopii zapasowej do 24 godzin. To oznacza 10 kopii kopii zapasowych danych. Zakładając, że 1 TB danych w regionie zachodnie stany USA 2, 1000 * 0,12 ~ $120 dla magazynu kopii zapasowych w danym miesiącu. 
+
+
 ## <a name="options-to-manage-your-own-backups"></a>Opcje zarządzania własnymi kopiami zapasowymi
 
 Za pomocą Azure Cosmos DB kont interfejsu API SQL można również zachować własne kopie zapasowe, korzystając z jednej z następujących metod:
@@ -147,4 +154,3 @@ Następnie możesz dowiedzieć się, jak przywrócić dane z konta usługi Azure
 * Aby wykonać żądanie przywrócenia, skontaktuj się z pomocą techniczną platformy Azure, Utwórz [bilet z Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
 * Aby przenieść dane do Azure Cosmos DB, [Użyj kanału informacyjnego zmiany Cosmos DB](change-feed.md) .
 * Przenieś dane do Azure Cosmos DB [za pomocą Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) .
-

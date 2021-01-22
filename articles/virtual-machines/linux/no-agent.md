@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 9f0309f4e8273c2ef19ea86636de8e3aa6b6c4bc
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: edbcabfe4d0b633a784163562f52b303120916ca
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435104"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685070"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>Tworzenie uogólnionych obrazów bez agenta aprowizacji
 
@@ -180,7 +180,7 @@ Jeśli na maszynie wirtualnej nie zainstalowano ani nie jest dostępny język Py
 
 W tej wersji demonstracyjnej jest używany system, który jest najbardziej typowym systemem init w nowoczesnych dystrybucje Linux. Dlatego najłatwiejszym i najbardziej natywnym sposobem upewnienia się, że ten mechanizm gotowości raportu jest uruchamiany w odpowiednim czasie, to utworzenie systemowej jednostki usługi. Można dodać następujący plik jednostki do (w `/etc/systemd/system` tym przykładzie nazwa pliku jednostki `azure-provisioning.service` ):
 
-```
+```bash
 [Unit]
 Description=Azure Provisioning
 
@@ -204,7 +204,7 @@ Ta usługa systemowa ma trzy rzeczy na potrzeby podstawowej aprowizacji:
 
 W przypadku jednostki w systemie plików uruchom następujące polecenie, aby je włączyć:
 
-```
+```bash
 $ sudo systemctl enable azure-provisioning.service
 ```
 
@@ -214,14 +214,14 @@ Teraz maszyna wirtualna jest gotowa do uogólnionia i ma utworzony obraz.
 
 Na komputerze deweloperskim Uruchom następujące polecenie, aby przygotować się do utworzenia obrazu z podstawowej maszyny wirtualnej:
 
-```
+```bash
 $ az vm deallocate --resource-group demo1 --name demo1
 $ az vm generalize --resource-group demo1 --name demo1
 ```
 
 I Utwórz obraz z tej maszyny wirtualnej:
 
-```
+```bash
 $ az image create \
     --resource-group demo1 \
     --source demo1 \
@@ -231,7 +231,7 @@ $ az image create \
 
 Teraz wszystko jest gotowe do utworzenia nowej maszyny wirtualnej (lub wielu maszyn wirtualnych) z obrazu:
 
-```
+```bash
 $ IMAGE_ID=$(az image show -g demo1 -n demo1img --query id -o tsv)
 $ az vm create \
     --resource-group demo12 \
@@ -249,7 +249,7 @@ $ az vm create \
 
 Ta maszyna wirtualna powinna pomyślnie zainicjowania obsługi. Po zalogowaniu się do nowo zainicjowanej maszyny wirtualnej powinny być widoczne dane wyjściowe przygotowanej usługi systemowej:
 
-```
+```bash
 $ sudo journalctl -u azure-provisioning.service
 -- Logs begin at Thu 2020-06-11 20:28:45 UTC, end at Thu 2020-06-11 20:31:24 UTC. --
 Jun 11 20:28:49 thstringnopa systemd[1]: Starting Azure Provisioning...

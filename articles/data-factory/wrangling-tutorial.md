@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/19/2021
-ms.openlocfilehash: f32739b06920f6b20dc87b8e1fbd2884c323a859
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 3d43a532f57feab361c6a3de79269991f46fc55d
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98634127"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684026"
 ---
 # <a name="prepare-data-with-data-wrangling"></a>Przygotowywanie danych za pomocą przetwarzanie danych
 
@@ -33,9 +33,9 @@ Istnieją dwa sposoby tworzenia Power Query w Azure Data Factory. Jednym ze spos
 
 Druga metoda znajduje się w okienku działania kanwy potoku. Otwórz **Power Query** stosownie i przeciągnij aktywność **Power Query** na kanwę.
 
-![Zrzut ekranu, który podświetla opcję przepływu danych przetwarzanie.](media/data-flow/power-query-activity.png)
+![Zrzut ekranu, który podświetla opcję przetwarzanie danych.](media/data-flow/power-query-activity.png)
 
-## <a name="author-a-wrangling-data-flow"></a>Tworzenie przepływu danych przetwarzanie
+## <a name="author-a-power-query-data-wrangling-activity"></a>Tworzenie działania przetwarzanie danych Power Query
 
 Dodaj **źródłowy zestaw danych** dla Power Query różny. Możesz wybrać istniejący zestaw danych lub utworzyć nowy. Możesz również wybrać zestaw danych ujścia. Można wybrać jeden lub więcej źródłowych zestawów danych, ale w tej chwili dozwolony jest tylko jeden obiekt sink. Wybór zestawu danych ujścia jest opcjonalny, ale wymagany jest co najmniej jeden źródłowy zestaw danych.
 
@@ -45,19 +45,19 @@ Kliknij przycisk **Utwórz** , aby otworzyć Edytor zestawu połączonych Online
 
 ![Zrzut ekranu pokazujący przycisk Utwórz, który otwiera Edytor zestawu połączonych online Power Query.](media/wrangling-data-flow/tutorial5.png)
 
-Twórz przepływ danych przetwarzanie przy użyciu przygotowywania danych bez kodu. Aby uzyskać listę dostępnych funkcji, zobacz [funkcje transformacji](wrangling-functions.md). Moduł ADF tłumaczy ```M``` skrypt na skrypt przepływu danych, dzięki czemu można wykonywać Power Query na dużą skalę przy użyciu środowiska Spark przepływu danych ADF.
+Utwórz przetwarzanie Power Query przy użyciu przygotowywania danych bez użycia kodu. Aby uzyskać listę dostępnych funkcji, zobacz [funkcje transformacji](wrangling-functions.md). Moduł ADF tłumaczy skrypt M na skrypt przepływu danych, dzięki czemu można wykonywać Power Query na dużą skalę przy użyciu środowiska Spark Azure Data Factory Flow.
 
-![Zrzut ekranu pokazujący proces tworzenia przepływu danych przetwarzanie.](media/wrangling-data-flow/tutorial6.png)
+![Zrzut ekranu pokazujący proces tworzenia Power Query danych przetwarzanie.](media/wrangling-data-flow/tutorial6.png)
 
-## <a name="running-and-monitoring-a-wrangling-data-flow"></a>Uruchamianie i monitorowanie przepływu danych przetwarzanie
+## <a name="running-and-monitoring-a-power-query-data-wrangling-activity"></a>Uruchamianie i monitorowanie działania przetwarzanie danych Power Query
 
-Aby wykonać przebieg debugowania potoku w przepływie danych przetwarzanie, kliknij pozycję **Debuguj** na kanwie potoku. Po opublikowaniu przepływu danych **Wyzwól teraz** wykonywane jest uruchomienie na żądanie ostatniego opublikowanego potoku. Przepływy danych przetwarzanie można zaplanować przy użyciu wszystkich istniejących wyzwalaczy Azure Data Factory.
+Aby wykonać przebieg debugowania potoku działania Power Query, kliknij pozycję **Debuguj** na kanwie potoku. Po opublikowaniu potoku **Wyzwól teraz** wykonywane jest uruchomienie na żądanie ostatniego opublikowanego potoku. Potoki Power Query mogą być zaplanowane ze wszystkimi istniejącymi wyzwalaczami Azure Data Factory.
 
-![Zrzut ekranu pokazujący sposób dodawania przepływu danych przetwarzanie.](media/wrangling-data-flow/tutorial3.png)
+![Zrzut ekranu pokazujący sposób dodawania Power Query danych działanie przetwarzanie.](media/wrangling-data-flow/tutorial3.png)
 
-Przejdź do karty **monitorowanie** , aby wizualizować dane wyjściowe uruchomionego uruchomienia działania przepływu danych przetwarzanie.
+Przejdź do karty **monitorowanie** , aby wizualizować dane wyjściowe uruchomionego uruchomienia działania Power Query.
 
-![Zrzut ekranu pokazujący dane wyjściowe uruchomionego uruchomienia działania przepływu danych przetwarzanie.](media/wrangling-data-flow/tutorial2.png)
+![Zrzut ekranu pokazujący dane wyjściowe uruchomionego uruchomienia działania przetwarzanie Power Query.](media/wrangling-data-flow/tutorial2.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

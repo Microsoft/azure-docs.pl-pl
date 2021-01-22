@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: ef2c69409ce3f479338ffc9d418b3469f197ad30
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: db53e4407674abc1e6c81090dc4a50afa784940d
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679397"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684828"
 ---
 # <a name="tutorial-migrate-a-web-app-from-bing-maps"></a>Samouczek: Migrowanie aplikacji internetowej z usługi mapy Bing
 
@@ -85,7 +85,7 @@ Azure Maps również ma wiele dodatkowych [modułów Open Source dla zestawu SDK
 
 Poniżej przedstawiono niektóre kluczowe różnice między mapami Bing i Azure Maps zestawy SDK sieci Web, które mają być świadome:
 
-* Oprócz udostępniania hostowanego punktu końcowego do uzyskiwania dostępu do zestawu Web SDK Azure Maps pakiet NPM jest również dostępny do osadzania zestawu SDK sieci Web w aplikacjach, jeśli są preferowane. Aby uzyskać więcej informacji, zobacz tę [dokumentację](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control) , aby uzyskać więcej informacji. Ten pakiet zawiera również definicje języka TypeScript.
+* Oprócz udostępniania hostowanego punktu końcowego do uzyskiwania dostępu do zestawu Web SDK Azure Maps pakiet NPM jest również dostępny do osadzania zestawu SDK sieci Web w aplikacjach, jeśli są preferowane. Aby uzyskać więcej informacji, zobacz tę [dokumentację](./how-to-use-map-control.md) , aby uzyskać więcej informacji. Ten pakiet zawiera również definicje języka TypeScript.
 * Mapy Bing udostępniają dwie hostowane gałęzie zestawu SDK; Wersja i eksperymentalna. W przypadku tworzenia nowych aplikacji eksperymentalna gałąź może otrzymywać wiele aktualizacji dziennie. Azure Maps obsługuje tylko gałąź wydania, ale funkcje eksperymentalne są tworzone jako moduły niestandardowe w projekcie Azure Maps kodu typu open source. Mapy Bing używane do posiadania zablokowanej gałęzi, która była również aktualizowana rzadziej, w związku z tym zmniejszają ryzyko przerwania zmian spowodowanych wydaniem. W Azure Maps można użyć modułu NPM i wskazać dowolną poprzednią wersję pomocniczą.
 
 > [!TIP]
@@ -95,7 +95,7 @@ Poniżej przedstawiono niektóre kluczowe różnice między mapami Bing i Azure 
 * Obie platformy używają podobnego systemu rozmieszczania dla map bazowych, jednak kafelki w usłudze mapy Bing są 256 pikseli w wymiarze, podczas gdy kafelki w Azure Maps mają 512 pikseli w wymiarze. W związku z tym aby uzyskać ten sam widok mapy w Azure Maps jak mapy Bing, poziom powiększenia używany w usłudze mapy Bing musi być odejmowany przez jeden w Azure Maps.
 * Współrzędne w usłudze mapy Bing są określane jako, `latitude, longitude` gdy Azure Maps używa `longitude, latitude` . Ten format jest zgodny ze standardem `[x, y]` , po którym następuje większość platform GIS.
 
-* Kształty w Azure Maps Web SDK są oparte na schemacie GEOJSON. Klasy pomocników są udostępniane za pomocą [przestrzeni nazw Atlas. Data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data). Jest również w [Atlasie. Klasa Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape) , która może służyć do zawijania obiektów GEOJSON i ułatwiania ich aktualizowania i konserwowania w sposób umożliwiający powiązanie danych.
+* Kształty w Azure Maps Web SDK są oparte na schemacie GEOJSON. Klasy pomocników są udostępniane za pomocą [przestrzeni nazw Atlas. Data](/javascript/api/azure-maps-control/atlas.data). Jest również w [Atlasie. Klasa Shape](/javascript/api/azure-maps-control/atlas.shape) , która może służyć do zawijania obiektów GEOJSON i ułatwiania ich aktualizowania i konserwowania w sposób umożliwiający powiązanie danych.
 * Współrzędne w Azure Maps są zdefiniowane jako obiekty położenia, które można określić jako prostą tablicę liczbową w formacie `[longitude, latitude]` lub `new atlas.data.Position(longitude, latitude)` .
 
 > [!TIP]
@@ -1635,7 +1635,7 @@ W Azure Maps moduł narzędzi do rysowania musi być załadowany przez załadowa
 -   [Dokumentacja](./set-drawing-options.md)
 -   [Przykłady kodu](https://azuremapscodesamples.azurewebsites.net/#Drawing-Tools-Module)
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 Zapoznaj się z [modułami zestawu SDK sieci Web typu "open source" Azure Maps](open-source-projects.md#open-web-sdk-modules). Te moduły zapewniają dodatkową funkcjonalność i są w pełni dostosowywane.
 

@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: b8738b46359287ce1d4e410292cdce213ab80999
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 9077ce35065b1bf45646496cc4c43d6def82d958
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98115824"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685229"
 ---
 # <a name="what-is-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Co to jest dedykowana Pula SQL (wcześniej SQL DW) w usłudze Azure Synapse Analytics?
 
@@ -29,7 +29,7 @@ Usługa Azure Synapse Analytics to usługa analizy, która łączy magazynowanie
 
 Dedykowana Pula SQL (wcześniej SQL DW) reprezentuje kolekcję zasobów analitycznych, które są obsługiwane podczas korzystania z Synapse SQL. Rozmiar dedykowanej puli SQL (dawniej SQL DW) jest określany przez jednostki magazynowania danych (jednostek dwu).
 
-Po utworzeniu dedykowanej puli SQL można zaimportować dane Big Data za [pomocą prostych zapytań](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL, a następnie użyć możliwości aparatu zapytań rozproszonych w celu uruchomienia analizy o wysokiej wydajności. Po zintegrowaniu i przeanalizowaniu danych dedykowana Pula SQL (dawniej SQL DW) stanie się jedną wersją prawdy, na którą firma może liczyć, aby szybciej i bardziej niezawodnie analizować szczegółowe informacje.
+Po utworzeniu dedykowanej puli SQL można zaimportować dane Big Data za [pomocą prostych zapytań](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) T-SQL, a następnie użyć możliwości aparatu zapytań rozproszonych w celu uruchomienia analizy o wysokiej wydajności. Po zintegrowaniu i przeanalizowaniu danych dedykowana Pula SQL (dawniej SQL DW) stanie się jedną wersją prawdy, na którą firma może liczyć, aby szybciej i bardziej niezawodnie analizować szczegółowe informacje.
 
 > [!NOTE]
 >Zapoznaj się z [dokumentacją usługi Azure Synapse Analytics](../overview-what-is.md).

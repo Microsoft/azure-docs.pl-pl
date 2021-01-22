@@ -16,12 +16,12 @@ ms.subservice: report-monitor
 ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2c7cc68c84cc9f137ba5b51206526ff96111fe9a
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 54bce5e839786862a6dac9aeb685dd364547a09a
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93122745"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685036"
 ---
 # <a name="usage-and-insights-report-in-the-azure-active-directory-portal"></a>Raport dotyczący użycia i szczegółowych informacji w portalu Azure Active Directory
 
@@ -37,12 +37,12 @@ Aby uzyskać dostęp do danych z raportu Użycie i szczegółowe informacje, pot
 
 * Dzierżawa usługi Azure AD
 * Licencja usługi Azure AD Premium (P1/P2) do wyświetlania danych logowania
-* Użytkownik w roli administratora globalnego, administratora zabezpieczeń, czytnika zabezpieczeń lub czytelnika raportu. Ponadto wszyscy użytkownicy (inni niż administratorzy) mogą uzyskać dostęp do swoich logowań. 
+* Użytkownik w rolach Administrator globalny, administrator zabezpieczeń, czytelnik zabezpieczeń lub czytelnik raportów. Ponadto wszyscy użytkownicy (inni niż administratorzy) mogą uzyskać dostęp do swoich logowań. 
 
 ## <a name="access-the-usage-and-insights-report"></a>Dostęp do raportu dotyczącego użycia i szczegółowych informacji
 
 1. Przejdź do [Azure Portal](https://portal.azure.com).
-2. Wybierz odpowiedni katalog, a następnie wybierz pozycję **Azure Active Directory** i wybierz pozycję **aplikacje dla przedsiębiorstw** .
+2. Wybierz odpowiedni katalog, a następnie wybierz pozycję **Azure Active Directory** i wybierz pozycję **aplikacje dla przedsiębiorstw**.
 3. W sekcji **działanie** wybierz pozycję **użycie & szczegółowych** informacji, aby otworzyć raport. 
 
 ![Zrzut ekranu przedstawia użycie & szczegółowych informacji w sekcji działanie.](./media/concept-usage-insights-report/main-menu.png)
@@ -50,15 +50,17 @@ Aby uzyskać dostęp do danych z raportu Użycie i szczegółowe informacje, pot
 
 ## <a name="use-the-report"></a>Korzystanie z raportu
 
-Raport użycie i szczegółowe informacje przedstawia listę aplikacji z co najmniej jedną próbą logowania, a także umożliwia sortowanie według liczby pomyślnych logowań, nieudanych logowań i częstotliwości powodzeń.
+Raport użycie i wgląd w szczegółowe dane przedstawia listę aplikacji z co najmniej jedną próbą logowania, a także umożliwia posortowanie według liczby pomyślnych logowań, niepowodzeń logowania i częstotliwości sukcesów.
 
-Kliknięcie przycisku Załaduj więcej u dołu listy umożliwia wyświetlenie dodatkowych aplikacji na stronie. Możesz wybrać zakres dat, aby wyświetlić wszystkie aplikacje, które zostały użyte w zakresie.
+Kliknięcie przycisku **Załaduj więcej** u dołu listy umożliwia wyświetlenie dodatkowych aplikacji na stronie. Możesz wybrać zakres dat, aby wyświetlić wszystkie aplikacje, które zostały użyte w zakresie.
 
-Możesz również ustawić fokus dla określonej aplikacji. Wybierz pozycję **Wyświetl działanie związane z logowaniem** , aby zobaczyć działanie logowania w czasie dla aplikacji, a także najważniejszych błędów.  
+![Zrzut ekranu przedstawia użycie & szczegółowych informacji na temat działania aplikacji, w którym można wybrać zakres i wyświetlić działania związane z logowaniem dla różnych aplikacji.](./media/concept-usage-insights-report/usage-and-insights-report.png)
+
+Możesz również ustawić fokus dla określonej aplikacji. Wybierz pozycję **Wyświetl działanie związane z logowaniem** , aby zobaczyć aktywność logowania w czasie dla aplikacji, a także najważniejszych błędów.  
 
 Po wybraniu dnia na wykresie użycia aplikacji zostanie wykorzystana Szczegółowa lista działań związanych z logowaniem dla aplikacji.  
 
-![Zrzut ekranu przedstawia użycie & szczegółowych informacji na temat działania aplikacji, w którym można wybrać zakres i wyświetlić działania związane z logowaniem dla różnych aplikacji.](./media/concept-usage-insights-report/usage-and-insights-report.png)
+:::image type="content" source="./media/concept-usage-insights-report/usage-and-insights-application-report.png" alt-text="Zrzut ekranu przedstawia użycie & szczegółowych informacji dotyczących konkretnej aplikacji, w której można zobaczyć Graf działania związanego z logowaniem.":::
 
 ## <a name="next-steps"></a>Następne kroki
 

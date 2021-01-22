@@ -12,12 +12,12 @@ ms.date: 12/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 37d9c24d58e0dd9fb10db607ef1b96de0a44eb78
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 1f1100c27bb3c02e3d1a5040942509c24bab0e65
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97399370"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683992"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publikowanie aplikacji w galerii aplikacji usługi Azure AD
 
@@ -153,7 +153,7 @@ Aby zapoznać się z konkretnymi przykładami, zobacz [przykłady kodu platformy
 Aby przejrzeć przykłady dotyczące urządzeń przenośnych, zobacz: 
 * [Android](quickstart-v2-android.md)
 * [iOS](quickstart-v2-ios.md)
-* [Platforma uniwersalna systemu Windows](quickstart-v2-uwp.md)
+* [platforma uniwersalna systemu Windows](quickstart-v2-uwp.md)
 
 ### <a name="implement-saml-20"></a>Zaimplementuj element SAML 2,0
 
@@ -175,7 +175,7 @@ Obsługa [Standard scim](https://aka.ms/scimoverview) aprowizacji jest opcjonaln
 Aby dowiedzieć się więcej na temat standardów Standard scim i korzyści dla klientów, zobacz [Inicjowanie obsługi przy użyciu Standard scim — wprowadzenie](https://aka.ms/scimoverview).
 
 ### <a name="understand-the-azure-ad-scim-implementation"></a>Opis implementacji usługi Azure AD Standard scim
-Aby dowiedzieć się więcej na temat implementacji usługi Azure AD Standard scim, zobacz [Tworzenie punktu końcowego Standard scim i Konfigurowanie aprowizacji użytkowników w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups).
+Aby dowiedzieć się więcej na temat implementacji usługi Azure AD Standard scim, zobacz [Tworzenie punktu końcowego Standard scim i Konfigurowanie aprowizacji użytkowników w usłudze Azure AD](../app-provisioning/use-scim-to-provision-users-and-groups.md).
 
 ### <a name="implement-scim"></a>Implementuj Standard scim
 Usługa Azure AD zawiera [kod referencyjny](https://aka.ms/scimoverview) ułatwiający Tworzenie punktu końcowego Standard scim. Istnieje również wiele bibliotek/odwołań innych firm, które można znaleźć w witrynie GitHub.  
@@ -186,7 +186,7 @@ Do przetestowania aplikacji potrzebna jest dzierżawa usługi Azure AD. Aby skon
 
 Alternatywnie dzierżawa usługi Azure AD jest dostarczana z każdą subskrypcją Microsoft 365. Aby skonfigurować bezpłatne środowisko deweloperskie Microsoft 365, zobacz [dołączanie do programu Microsoft 365 Developer](/office/developer-program/microsoft-365-developer-program).
 
-Po uzyskaniu dzierżawy należy przetestować Logowanie jednokrotne i [Inicjowanie obsługi administracyjnej](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
+Po uzyskaniu dzierżawy należy przetestować Logowanie jednokrotne i [Inicjowanie obsługi administracyjnej](../app-provisioning/use-scim-to-provision-users-and-groups.md#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
 
 **W przypadku aplikacji OIDC lub Oath** [zarejestruj aplikację](quickstart-register-app.md) jako aplikację wielodostępną. W obszarze obsługiwane typy kont wybierz opcję konta z dowolnego katalogu organizacyjnego i osobiste konta Microsoft.
 
@@ -274,7 +274,7 @@ Jeśli chcesz dodać aplikację do listy w galerii przy użyciu hasła logowania
 
 ![Wyświetlanie listy aplikacji Logowanie jednokrotne w galerii](./media/howto-app-gallery-listing/passwordsso.png)
 
-Jeśli wdrażasz punkt końcowy [standard scim](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2,0 na potrzeby aprowizacji użytkowników, wybierz opcję, jak pokazano. Dostarczając schemat w żądaniu dołączania, postępuj zgodnie z instrukcjami znajdującymi się [tutaj](https://docs.microsoft.com/azure/active-directory/app-provisioning/export-import-provisioning-configuration) , aby pobrać schemat. Zostanie użyty schemat skonfigurowany podczas testowania aplikacji spoza galerii w celu utworzenia aplikacji galerii. 
+Jeśli wdrażasz punkt końcowy [standard scim](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2,0 na potrzeby aprowizacji użytkowników, wybierz opcję, jak pokazano. Dostarczając schemat w żądaniu dołączania, postępuj zgodnie z instrukcjami znajdującymi się [tutaj](../app-provisioning/export-import-provisioning-configuration.md) , aby pobrać schemat. Zostanie użyty schemat skonfigurowany podczas testowania aplikacji spoza galerii w celu utworzenia aplikacji galerii. 
 
    ![Żądanie aprowizacji użytkownika](./media/howto-app-gallery-listing/user-provisioning.png)
 

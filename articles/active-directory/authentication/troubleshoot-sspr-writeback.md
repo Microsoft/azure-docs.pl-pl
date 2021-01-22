@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d6bf4df1499d919cead0a184054e5ba0db9c06e
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 0620304de1866d24719b137836419502cd25bee9
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346604"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682241"
 ---
 # <a name="troubleshoot-self-service-password-reset-writeback-in-azure-active-directory"></a>Rozwiązywanie problemów z funkcją stornowania samoobsługowego resetowania haseł w Azure Active Directory
 
@@ -43,7 +43,7 @@ W przypadku Azure AD Connect w wersji *wersji 1.1.443.0* lub nowszej dostęp do 
 * *\*. passwordreset.microsoftonline.com*
 * *\*. servicebus.windows.net*
 
-[Punkty końcowe](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#guidance-for-developers)usługi Azure gov:
+[Punkty końcowe](../../azure-government/compare-azure-government-global-azure.md#guidance-for-developers)usługi Azure gov:
 
 * *\*. passwordreset.microsoftonline.us*
 * *\*. servicebus.usgovcloudapi.net*

@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 43447454b82b74c10b1d53c41c7883b0b9bef242
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 634fc183cc27db1ae949959c3ae7fae8eda5b644
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196507"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684546"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Zadanie DevOps usługi Azure Image Builder
 
@@ -71,10 +71,10 @@ Użyj grupy zasobów, w której będzie przechowywany artefakt szablonu obrazu t
  
 ### <a name="location"></a>Lokalizacja
 
-Lokalizacja to region, w którym zostanie uruchomiony Konstruktor obrazów. Obsługiwane są tylko zestawy [regionów](../windows/image-builder-overview.md#regions) . Obrazy źródłowe muszą znajdować się w tej lokalizacji. Na przykład jeśli używasz galerii obrazów udostępnionych, replika musi znajdować się w tym regionie.
+Lokalizacja to region, w którym zostanie uruchomiony Konstruktor obrazów. Obsługiwane są tylko zestawy [regionów](../image-builder-overview.md#regions) . Obrazy źródłowe muszą znajdować się w tej lokalizacji. Na przykład jeśli używasz galerii obrazów udostępnionych, replika musi znajdować się w tym regionie.
 
 ### <a name="managed-identity-required"></a>Tożsamość zarządzana (wymagana)
-Konstruktor obrazów wymaga tożsamości zarządzanej, która używa do odczytywania źródłowych obrazów niestandardowych, łączenia się z usługą Azure Storage i tworzenia obrazów niestandardowych. Więcej informacji można znaleźć [tutaj](./image-builder-overview.md#permissions).
+Konstruktor obrazów wymaga tożsamości zarządzanej, która używa do odczytywania źródłowych obrazów niestandardowych, łączenia się z usługą Azure Storage i tworzenia obrazów niestandardowych. Więcej informacji można znaleźć [tutaj](../image-builder-overview.md#permissions).
 
 ### <a name="vnet-support"></a>Obsługa sieci wirtualnej
 
@@ -154,7 +154,7 @@ W poniższym przykładzie wyjaśniono, jak to działa:
     & 'c:\buildArtifacts\webapp\webconfig.ps1'
     ```
 
-* Komputery z systemem Linux — w systemie Linux artefakty kompilacji są umieszczane w `/tmp` katalogu. Jednak w wielu systemach OSs systemu Linux po ponownym uruchomieniu zostanie usunięta zawartość katalogu/tmp. Jeśli chcesz, aby artefakty istniały w obrazie, należy utworzyć inny katalog i skopiować je.  Na przykład:
+* Komputery z systemem Linux — w systemie Linux artefakty kompilacji są umieszczane w `/tmp` katalogu. Jednak w wielu systemach OSs systemu Linux po ponownym uruchomieniu zostanie usunięta zawartość katalogu/tmp. Jeśli chcesz, aby artefakty istniały w obrazie, należy utworzyć inny katalog i skopiować je.  Przykład:
 
     ```bash
     sudo mkdir /lib/buildArtifacts
@@ -176,7 +176,7 @@ W poniższym przykładzie wyjaśniono, jak to działa:
 > Konstruktor obrazów nie usuwa automatycznie artefaktów kompilacji, dlatego zdecydowanie zaleca się, aby zawsze mieć kod do usuwania artefaktów kompilacji.
 > 
 
-* Windows-Image Builder służy do wdrażania plików w `c:\buildArtifacts` katalogu. Katalog jest utrwalany należy usunąć katalog. Można go usunąć w skrypcie wykonywanym przez użytkownika. Na przykład:
+* Windows-Image Builder służy do wdrażania plików w `c:\buildArtifacts` katalogu. Katalog jest utrwalany należy usunąć katalog. Można go usunąć w skrypcie wykonywanym przez użytkownika. Przykład:
 
     ```PowerShell
     # Clean up buildArtifacts directory
@@ -186,7 +186,7 @@ W poniższym przykładzie wyjaśniono, jak to działa:
     Remove-Item -Path "C:\buildArtifacts" -Force 
     ```
     
-* Linux — artefakty kompilacji są umieszczane w `/tmp` katalogu. Jednak w wielu systemach OSs systemu Linux po ponownym uruchomieniu `/tmp` zawartość katalogu zostanie usunięta. Zalecane jest, aby usunąć zawartość z kodu, a nie polegać na systemie operacyjnym, aby usunąć zawartość. Na przykład:
+* Linux — artefakty kompilacji są umieszczane w `/tmp` katalogu. Jednak w wielu systemach OSs systemu Linux po ponownym uruchomieniu `/tmp` zawartość katalogu zostanie usunięta. Zalecane jest, aby usunąć zawartość z kodu, a nie polegać na systemie operacyjnym, aby usunąć zawartość. Przykład:
 
     ```bash
     sudo rm -R "/tmp/AppsAndImageBuilderLinux"
@@ -312,7 +312,7 @@ Nie. Zostanie użyta unikatowa nazwa szablonu, a następnie usunięta.
 
 Jeśli wystąpi błąd kompilacji, zadanie DevOps nie usuwa tymczasowej grupy zasobów. Możesz uzyskać dostęp do tymczasowej grupy zasobów zawierającej dziennik dostosowania kompilacji.
 
-Zostanie wyświetlony komunikat o błędzie w dzienniku DevOps zadania konstruktora obrazów maszyn wirtualnych i zapoznaj się z lokalizacją dostosowywać. log. Na przykład:
+Zostanie wyświetlony komunikat o błędzie w dzienniku DevOps zadania konstruktora obrazów maszyn wirtualnych i zapoznaj się z lokalizacją dostosowywać. log. Przykład:
 
 :::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="Przykładowy błąd zadania DevOps, który zawiera błąd.":::
 
@@ -335,4 +335,4 @@ Artefakt zasobu szablonu obrazu znajduje się w grupie zasobów określonej pocz
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Image Builder](image-builder-overview.md).
+Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Image Builder](../image-builder-overview.md).

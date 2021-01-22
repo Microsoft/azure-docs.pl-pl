@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
-ms.openlocfilehash: c39104912c99b199d38cf489bb61d64e83b89286
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 3b647a02731a4fa404aab4bb648853eea766d92e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895600"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684076"
 ---
 # <a name="how-to-secure-a-single-page-application-with-non-interactive-sign-in"></a>Jak zabezpieczyć aplikację jednostronicową z logowaniem nieinterakcyjnym
 
@@ -30,7 +30,7 @@ Poniższy przewodnik dotyczy aplikacji korzystającej z Azure Active Directory (
 
 Utwórz bezpieczną aplikację usługi sieci Web, która jest odpowiedzialna za uwierzytelnianie w usłudze Azure AD. 
 
-1. Utwórz funkcję w Azure Portal. Aby uzyskać więcej informacji, zobacz [Tworzenie funkcji platformy Azure](../azure-functions/functions-create-first-azure-function.md).
+1. Utwórz funkcję w Azure Portal. Aby uzyskać więcej informacji, zobacz [Tworzenie funkcji platformy Azure](../azure-functions/functions-get-started.md).
 
 2. Skonfiguruj zasady CORS w funkcji platformy Azure, aby były dostępne dla jednostronicowej aplikacji sieci Web. Dzięki temu klienci przeglądarki będą zabezpieczeni z dozwolonymi źródłami aplikacji sieci Web. Zobacz [Dodawanie funkcji CORS](../app-service/app-service-web-tutorial-rest-api.md#add-cors-functionality).
 
@@ -102,14 +102,14 @@ Utwórz bezpieczną aplikację usługi sieci Web, która jest odpowiedzialna za 
 
 ## <a name="grant-role-based-access"></a>Udzielanie dostępu opartego na rolach
 
-Dostęp do *kontroli dostępu opartej na rolach (Azure RBAC)* jest udzielany przez przypisanie tożsamości przypisanej do systemu do co najmniej jednej definicji roli platformy Azure. Aby wyświetlić definicje ról platformy Azure, które są dostępne dla Azure Maps, przejdź do obszaru **Kontrola dostępu (IAM)** . Wybierz pozycję **role** , a następnie wyszukaj role zaczynające się od *Azure Maps* .
+Dostęp do *kontroli dostępu opartej na rolach (Azure RBAC)* jest udzielany przez przypisanie tożsamości przypisanej do systemu do co najmniej jednej definicji roli platformy Azure. Aby wyświetlić definicje ról platformy Azure, które są dostępne dla Azure Maps, przejdź do obszaru **Kontrola dostępu (IAM)**. Wybierz pozycję **role**, a następnie wyszukaj role zaczynające się od *Azure Maps*.
 
-1. Przejdź do swojego **konta Azure Maps** . Wybierz pozycję **Kontrola dostępu (IAM)**  >  **przypisanie roli** .
+1. Przejdź do swojego **konta Azure Maps**. Wybierz pozycję **Kontrola dostępu (IAM)**  >  **przypisanie roli**.
 
     > [!div class="mx-imgBorder"]
     > ![Udzielanie dostępu przy użyciu funkcji RBAC platformy Azure](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
-2. Na karcie **przypisania roli** w obszarze **rola** wybierz wbudowaną definicję roli Azure Maps, na przykład **Azure Maps czytnika danych** lub **Azure Maps współautor danych** . W obszarze **Przypisz dostęp do** wybierz pozycję **aplikacja funkcji** . Wybierz nazwę główną według nazwy. Następnie wybierz pozycję **Zapisz** .
+2. Na karcie **przypisania roli** w obszarze **rola** wybierz wbudowaną definicję roli Azure Maps, na przykład **Azure Maps czytnika danych** lub **Azure Maps współautor danych**. W obszarze **Przypisz dostęp do** wybierz pozycję **aplikacja funkcji**. Wybierz nazwę główną według nazwy. Następnie wybierz pozycję **Zapisz**.
 
    * Zobacz szczegóły dotyczące [dodawania lub usuwania przypisań ról](../role-based-access-control/role-assignments-portal.md).
 

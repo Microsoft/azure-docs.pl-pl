@@ -6,12 +6,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.custom: references_regions
-ms.openlocfilehash: 2dd91e5c506f229d653fdf98bc0549c173cec793
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 1e5a53c80aed90e44ba594dcff3c8ca23afc2c4f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93351890"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684778"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes"></a>Utwórz i skonfiguruj klaster usługi Azure Kubernetes Services (AKS) do korzystania z węzłów wirtualnych
 
@@ -48,6 +48,7 @@ Funkcjonalność węzłów wirtualnych jest w dużym stopniu zależna od zestawu
 * Węzły wirtualne z klastrami prywatnymi.
 * Użycie zakresów adresów IP autoryzowanych przez serwer API dla AKS.
 * Instalowanie woluminu Azure Files udostępnienie [ogólnego przeznaczenia w wersji 1](../storage/common/storage-account-overview.md#types-of-storage-accounts). Postępuj zgodnie z instrukcjami dotyczącymi instalowania [woluminu z udziałem Azure Files](azure-files-volume.md)
+* Używanie protokołu IPv6 nie jest obsługiwane.
 
 ## <a name="next-steps"></a>Następne kroki
 

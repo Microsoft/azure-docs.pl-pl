@@ -3,12 +3,12 @@ title: Azure Functions hosting planu zużycia
 description: Dowiedz się, jak hosting planu zużycia funkcji platformy Azure umożliwia uruchamianie kodu w środowisku, które jest skalowane dynamicznie, ale płacisz tylko za zasoby używane podczas wykonywania.
 ms.date: 8/31/2020
 ms.topic: conceptual
-ms.openlocfilehash: c0619def4687935cd9e403563966b35b84f13c7c
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: ffb556ce48f18702e06fcdb02dda84f41ae5f906
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937788"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684695"
 ---
 # <a name="azure-functions-consumption-plan-hosting"></a>Azure Functions hosting planu zużycia
 
@@ -33,10 +33,10 @@ Podczas tworzenia aplikacji funkcji w Azure Portal jest to domyślny plan zużyc
 Skorzystaj z poniższych linków, aby dowiedzieć się, jak utworzyć aplikację funkcji bezserwerowej w planie zużycia, programowo lub w Azure Portal:
 
 + [Interfejs wiersza polecenia platformy Azure](./scripts/functions-cli-create-serverless.md)
-+ [Witryna Azure Portal](functions-create-first-azure-function.md)
++ [Witryna Azure Portal](./functions-get-started.md)
 + [Szablon usługi Azure Resource Manager](functions-create-first-function-resource-manager.md)
 
-Możesz również tworzyć aplikacje funkcji w planie zużycia podczas publikowania projektu funkcji z [Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) lub [Visual Studio](functions-create-your-first-function-visual-studio.md#publish-the-project-to-azure).
+Możesz również tworzyć aplikacje funkcji w planie zużycia podczas publikowania projektu funkcji z [Visual Studio Code](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure) lub [Visual Studio](functions-create-your-first-function-visual-studio.md#publish-the-project-to-azure).
 
 ## <a name="multiple-apps-in-the-same-plan"></a>Wiele aplikacji w tym samym planie
 

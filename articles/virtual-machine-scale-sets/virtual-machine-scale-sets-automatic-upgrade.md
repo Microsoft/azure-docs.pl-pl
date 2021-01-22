@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 06/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: 4ebb16186e613affdb886a8819240d47f944c42f
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: ff1a29577c0778d6ef88d3523c726f7a48739cdc
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763544"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684614"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Automatyczne uaktualnienia obrazów systemu operacyjnego dla zestawu skalowania maszyn wirtualnych platformy Azure
 
@@ -49,7 +49,7 @@ Aktualizacja systemu operacyjnego zestawu skalowania programu Orchestrator spraw
 >Automatyczne uaktualnianie systemu operacyjnego nie uaktualnia jednostki SKU obrazu referencyjnego w zestawie skalowania. Aby zmienić jednostkę SKU (na przykład Ubuntu 16,04-LTS do 18,04-LTS), należy zaktualizować [model zestawu skalowania](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model) bezpośrednio z odpowiednią jednostką SKU obrazu. Nie można zmienić wydawcy i oferty obrazu dla istniejącego zestawu skalowania.  
 
 ## <a name="supported-os-images"></a>Obsługiwane obrazy systemu operacyjnego
-Obecnie obsługiwane są tylko niektóre obrazy platformy systemu operacyjnego. Obrazy niestandardowe [są obsługiwane](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images) , jeśli zestaw skalowania używa obrazów niestandardowych za pośrednictwem [galerii obrazów udostępnionych](shared-image-galleries.md).
+Obecnie obsługiwane są tylko niektóre obrazy platformy systemu operacyjnego. Obrazy niestandardowe [są obsługiwane](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images) , jeśli zestaw skalowania używa obrazów niestandardowych za pośrednictwem [galerii obrazów udostępnionych](../virtual-machines/shared-image-galleries.md).
 
 Następujące jednostki SKU platformy są obecnie obsługiwane (i więcej jest dodawanych okresowo):
 
@@ -89,11 +89,11 @@ Upewnij się, że ustawienia trwałości nie są niezgodne w przypadku klastra S
 
 ## <a name="automatic-os-image-upgrade-for-custom-images"></a>Automatyczne uaktualnianie obrazu systemu operacyjnego dla obrazów niestandardowych
 
-Automatyczne uaktualnianie obrazu systemu operacyjnego jest obsługiwane w przypadku obrazów niestandardowych wdrożonych za poorednictwem [galerii obrazów udostępnionych](shared-image-galleries.md). Inne obrazy niestandardowe nie są obsługiwane na potrzeby automatycznych uaktualnień obrazu systemu operacyjnego.
+Automatyczne uaktualnianie obrazu systemu operacyjnego jest obsługiwane w przypadku obrazów niestandardowych wdrożonych za poorednictwem [galerii obrazów udostępnionych](../virtual-machines/shared-image-galleries.md). Inne obrazy niestandardowe nie są obsługiwane na potrzeby automatycznych uaktualnień obrazu systemu operacyjnego.
 
 ### <a name="additional-requirements-for-custom-images"></a>Dodatkowe wymagania dotyczące obrazów niestandardowych
 - Proces instalacji i konfiguracji automatycznego uaktualniania obrazu systemu operacyjnego jest taki sam dla wszystkich zestawów skalowania, jak opisano w [sekcji Konfiguracja](virtual-machine-scale-sets-automatic-upgrade.md#configure-automatic-os-image-upgrade) tej strony.
-- Wystąpienia zestawów skalowania skonfigurowane na potrzeby automatycznych uaktualnień obrazu systemu operacyjnego zostaną uaktualnione do najnowszej wersji obrazu udostępnionej galerii obrazów po opublikowaniu nowej wersji obrazu i [replikacji](shared-image-galleries.md#replication) do regionu tego zestawu skalowania. Jeśli nowy obraz nie jest replikowany do regionu, w którym wdrożono skalowanie, wystąpienia zestawu skalowania nie zostaną uaktualnione do najnowszej wersji. Funkcja replikacji obrazów regionalnych pozwala kontrolować wprowadzanie nowego obrazu dla zestawów skalowania.
+- Wystąpienia zestawów skalowania skonfigurowane na potrzeby automatycznych uaktualnień obrazu systemu operacyjnego zostaną uaktualnione do najnowszej wersji obrazu udostępnionej galerii obrazów po opublikowaniu nowej wersji obrazu i [replikacji](../virtual-machines/shared-image-galleries.md#replication) do regionu tego zestawu skalowania. Jeśli nowy obraz nie jest replikowany do regionu, w którym wdrożono skalowanie, wystąpienia zestawu skalowania nie zostaną uaktualnione do najnowszej wersji. Funkcja replikacji obrazów regionalnych pozwala kontrolować wprowadzanie nowego obrazu dla zestawów skalowania.
 - Nie można wykluczyć nowej wersji obrazu z najnowszej wersji dla tego obrazu galerii. Wersje obrazów wykluczone z najnowszej wersji obrazu galerii nie są przełączane do zestawu skalowania za pośrednictwem automatycznego uaktualniania obrazu systemu operacyjnego.
 
 > [!NOTE]

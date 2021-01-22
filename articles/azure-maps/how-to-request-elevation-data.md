@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: a303f5e6177d0dc4205eaec8c3b1911e8e004fe3
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: d14eda84144105bf2e04f1238284bc58a91c4c03
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602428"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684059"
 ---
 # <a name="request-elevation-data-using-the-azure-maps-elevation-service-preview"></a>Zażądaj podniesienia uprawnień za pomocą usługi podniesienia uprawnień Azure Maps (wersja zapoznawcza)
 
@@ -22,7 +22,7 @@ ms.locfileid: "98602428"
 > Usługa podniesienia uprawnień Azure Maps jest obecnie dostępna w publicznej wersji zapoznawczej.
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Usługa Azure Maps [podniesienia uprawnień](https://docs.microsoft.com/rest/api/maps/elevation) zapewnia interfejsom API wykonywanie zapytań dotyczących danych podniesienia uprawnień w dowolnym miejscu na powierzchni ziemi. Można zażądać próbkowania pobranych próbek wzdłuż ścieżek, w obrębie zdefiniowanego pola ograniczenia lub określonych współrzędnych. Ponadto można użyć [interfejsu API renderowania w wersji 2-get mapy](https://docs.microsoft.com/rest/api/maps/renderv2) , aby pobrać dane podniesienia uprawnień w formacie kafelków. Kafelki są dostarczane w formacie TIFF rastrowej. W tym artykule pokazano, jak za pomocą usługi podniesienia uprawnień Azure Maps i uzyskać dostęp do interfejsu API kafelków mapy. Dane podniesienia uprawnień można żądać zarówno w formatach GEOJSON, jak i GeoTIFF.
+Usługa Azure Maps [podniesienia uprawnień](/rest/api/maps/elevation) zapewnia interfejsom API wykonywanie zapytań dotyczących danych podniesienia uprawnień w dowolnym miejscu na powierzchni ziemi. Można zażądać próbkowania pobranych próbek wzdłuż ścieżek, w obrębie zdefiniowanego pola ograniczenia lub określonych współrzędnych. Ponadto można użyć [interfejsu API renderowania w wersji 2-get mapy](/rest/api/maps/renderv2) , aby pobrać dane podniesienia uprawnień w formacie kafelków. Kafelki są dostarczane w formacie TIFF rastrowej. W tym artykule pokazano, jak za pomocą usługi podniesienia uprawnień Azure Maps i uzyskać dostęp do interfejsu API kafelków mapy. Dane podniesienia uprawnień można żądać zarówno w formatach GEOJSON, jak i GeoTIFF.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -35,7 +35,7 @@ W tym artykule jest stosowana aplikacja programu [Poster](https://www.postman.co
 
 ## <a name="request-elevation-data-in-raster-tiled-format"></a>Zażądaj danych podniesienia uprawnień w formacie rastrowym
 
-Aby zażądać danych podniesienia uprawnień w formacie kafelków rastrowych, użyj [interfejsu API renderowania w wersji 2-get](https://docs.microsoft.com/rest/api/maps/renderv2). Jeśli kafelek można znaleźć, interfejs API zwraca kafelek jako GeoTIFF. W przeciwnym razie interfejs API zwróci wartość 0. Wszystkie kafelki rastrowych DEM są używane w trybie Geo (poziom morski). W tym przykładzie będziemy żądać danych podniesienia uprawnień dla Mt. Everest.
+Aby zażądać danych podniesienia uprawnień w formacie kafelków rastrowych, użyj [interfejsu API renderowania w wersji 2-get](/rest/api/maps/renderv2). Jeśli kafelek można znaleźć, interfejs API zwraca kafelek jako GeoTIFF. W przeciwnym razie interfejs API zwróci wartość 0. Wszystkie kafelki rastrowych DEM są używane w trybie Geo (poziom morski). W tym przykładzie będziemy żądać danych podniesienia uprawnień dla Mt. Everest.
 
 >[!TIP]
 >Aby można było pobrać kafelek w określonym obszarze mapy świata, należy znaleźć odpowiedni kafelek na odpowiednim poziomie powiększenia. Należy również pamiętać, że WorldDEM obejmuje całe globalne landmass, ale nie obejmuje oceanów.  Aby uzyskać więcej informacji, zobacz [poziomy powiększenia i siatka kafelków](zoom-levels-and-tile-grid.md).
@@ -58,9 +58,9 @@ Użyj interfejsów API usługi podniesienia uprawnień (wersja zapoznawcza), aby
 
 * [Pobierz dane dla punktów](/rest/api/maps/elevation/getdataforpoints)
 * [Publikuj dane dla punktów](/rest/api/maps/elevation/postdataforpoints)
-* [Pobieranie danych dla linii łamanej](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline)
-* [Publikowanie danych dla linii łamanej](https://docs.microsoft.com/rest/api/maps/elevation/postdataforpolyline)
-* [Pobierz dane dla pola ograniczenia](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox)
+* [Pobieranie danych dla linii łamanej](/rest/api/maps/elevation/getdataforpolyline)
+* [Publikowanie danych dla linii łamanej](/rest/api/maps/elevation/postdataforpolyline)
+* [Pobierz dane dla pola ograniczenia](/rest/api/maps/elevation/getdataforboundingbox)
 
 >[!IMPORTANT]
 > Gdy nie można zwrócić danych, wszystkie interfejsy API zwracają `0` .
@@ -126,11 +126,11 @@ W tym przykładzie użyjemy [interfejsu API Pobierz dane dla punktów](/rest/api
 
 ### <a name="request-elevation-data-samples-along-a-polyline"></a>Próbki danych podniesienia uprawnień w linii łamanej
 
-W tym przykładzie użyjemy poleceń [Pobierz dane dla linii łamanej](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline) , aby zażądać pięciu przykładowo rozmieszczonych próbek danych podniesienia uprawnień wzdłuż prostej linii między współrzędne na Mt. Everest i Chamlang górach. Oba współrzędne muszą być zdefiniowane w formacie długim/warstwowym. Jeśli nie określisz wartości `samples` parametru, liczba próbek domyślnie wynosi 10. Maksymalna liczba próbek to 2 000.
+W tym przykładzie użyjemy poleceń [Pobierz dane dla linii łamanej](/rest/api/maps/elevation/getdataforpolyline) , aby zażądać pięciu przykładowo rozmieszczonych próbek danych podniesienia uprawnień wzdłuż prostej linii między współrzędne na Mt. Everest i Chamlang górach. Oba współrzędne muszą być zdefiniowane w formacie długim/warstwowym. Jeśli nie określisz wartości `samples` parametru, liczba próbek domyślnie wynosi 10. Maksymalna liczba próbek to 2 000.
 
 Następnie użyjemy funkcji Pobierz dane dla linii łamanej, aby zażądać trzech równomiernie rozmieszczonych próbek danych podniesienia uprawnień wzdłuż ścieżki. Zdefiniujemy dokładną lokalizację dla przykładów, przekazując trzy pary współrzędnych "Long/lat".
 
-Na koniec użyjemy [interfejsu API danych post dla linii łamanej](https://docs.microsoft.com/rest/api/maps/elevation/postdataforpolyline) , aby zażądać danych podniesienia uprawnień przy użyciu tych samych trzech równomiernie rozwidzianych próbek.
+Na koniec użyjemy [interfejsu API danych post dla linii łamanej](/rest/api/maps/elevation/postdataforpolyline) , aby zażądać danych podniesienia uprawnień przy użyciu tych samych trzech równomiernie rozwidzianych próbek.
 
 Latitudes i Długość geograficzna w adresie URL powinny być w zakresie od WGS84 (World Geodetic System).
 
@@ -229,7 +229,7 @@ Latitudes i Długość geograficzna w adresie URL powinny być w zakresie od WGS
     }
     ```
 
-7. Teraz wywołamy [interfejs API danych post dla linii łamanej](https://docs.microsoft.com/rest/api/maps/elevation/postdataforpolyline) , aby uzyskać dane podniesienia uprawnień dla tych samych trzech punktów. Wybierz metodę **post** http na karcie Konstruktor i wprowadź następujący adres URL. W przypadku tego żądania i innych żądań wymienionych w tym artykule Zastąp `{Azure-Maps-Primary-Subscription-key}` klucz subskrypcji podstawowym.
+7. Teraz wywołamy [interfejs API danych post dla linii łamanej](/rest/api/maps/elevation/postdataforpolyline) , aby uzyskać dane podniesienia uprawnień dla tych samych trzech punktów. Wybierz metodę **post** http na karcie Konstruktor i wprowadź następujący adres URL. W przypadku tego żądania i innych żądań wymienionych w tym artykule Zastąp `{Azure-Maps-Primary-Subscription-key}` klucz subskrypcji podstawowym.
 
     ```http
     https://atlas.microsoft.com/elevation/line/json?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&samples=5
@@ -256,7 +256,7 @@ Latitudes i Długość geograficzna w adresie URL powinny być w zakresie od WGS
 
 ### <a name="request-elevation-data-by-bounding-box"></a>Zażądaj danych podniesienia uprawnień przez pole ograniczenia
 
-Teraz użyjemy [pola Pobierz dane dla ograniczenia](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox) , aby zażądać danych podniesienia uprawnień blisko Mt. Rainier, WA. Dane podniesienia uprawnień zostaną zwrócone w równomiernie rozmieszczeniu w obrębie pola ograniczenia. Obszar ograniczający zdefiniowany przez (2) zestawy lat/długich współrzędnych (Szerokość geograficzna, Długość geograficzna, Szerokość geograficzna, Długość geograficzna) jest podzielony na wiersze i kolumny. Krawędzie konta pola ograniczenia dla dwóch (2) wierszy i dwóch (2) kolumn. Podniesienia uprawnień są zwracane dla wierzchołków siatki utworzonych w ramach przecięć wierszy i kolumn. Do 2000 podniesienia uprawnień można zwrócić w jednym żądaniu.
+Teraz użyjemy [pola Pobierz dane dla ograniczenia](/rest/api/maps/elevation/getdataforboundingbox) , aby zażądać danych podniesienia uprawnień blisko Mt. Rainier, WA. Dane podniesienia uprawnień zostaną zwrócone w równomiernie rozmieszczeniu w obrębie pola ograniczenia. Obszar ograniczający zdefiniowany przez (2) zestawy lat/długich współrzędnych (Szerokość geograficzna, Długość geograficzna, Szerokość geograficzna, Długość geograficzna) jest podzielony na wiersze i kolumny. Krawędzie konta pola ograniczenia dla dwóch (2) wierszy i dwóch (2) kolumn. Podniesienia uprawnień są zwracane dla wierzchołków siatki utworzonych w ramach przecięć wierszy i kolumn. Do 2000 podniesienia uprawnień można zwrócić w jednym żądaniu.
 
 W tym przykładzie określimy wiersze = 3 i kolumny = 6. w odpowiedzi są zwracane 18 wartości podniesienia uprawnień. Na poniższym diagramie wartości podniesienia uprawnień są uporządkowane począwszy od górnego rogu, a następnie Kontynuuj od północy do wschodu i od południa do północnego.  Punkty podniesienia uprawnień są numerowane w kolejności, w jakiej są zwracane.
 
@@ -488,15 +488,15 @@ Aby dowiedzieć się więcej na temat interfejsów API podniesienia uprawnień A
 > [Podniesienie uprawnień (wersja zapoznawcza) — pobieranie danych dla długich współrzędnych lat](/rest/api/maps/elevation/getdataforpoints)
 
 > [!div class="nextstepaction"]
-> [Podniesienie uprawnień (wersja zapoznawcza) — pobieranie danych dla pola ograniczenia](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox)
+> [Podniesienie uprawnień (wersja zapoznawcza) — pobieranie danych dla pola ograniczenia](/rest/api/maps/elevation/getdataforboundingbox)
 
 > [!div class="nextstepaction"]
-> [Podniesienie uprawnień (wersja zapoznawcza) — pobieranie danych dla linii łamanej](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline)
+> [Podniesienie uprawnień (wersja zapoznawcza) — pobieranie danych dla linii łamanej](/rest/api/maps/elevation/getdataforpolyline)
 
 > [!div class="nextstepaction"]
-> [Renderowanie w wersji 2 — pobieranie kafelka mapy](https://docs.microsoft.com/rest/api/maps/renderv2)
+> [Renderowanie w wersji 2 — pobieranie kafelka mapy](/rest/api/maps/renderv2)
 
 Aby uzyskać pełną listę Azure Maps interfejsów API REST, zobacz:
 
 > [!div class="nextstepaction"]
-> [Interfejsy API REST Azure Maps](https://docs.microsoft.com/rest/api/maps/)
+> [Interfejsy API REST Azure Maps](/rest/api/maps/)

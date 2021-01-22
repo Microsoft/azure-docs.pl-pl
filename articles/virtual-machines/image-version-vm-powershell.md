@@ -9,18 +9,18 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 1a0bfb79b03b778696faef29597cabbcff47e6df
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: a7b8cb10f75d7a99198ddfdc1a1bbef3c34a03da
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601658"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685110"
 ---
 # <a name="create-an-image-from-a-vm"></a>Tworzenie obrazu na podstawie maszyny wirtualnej
 
 Jeśli masz istniejącą maszynę wirtualną, która ma być używana do tworzenia wielu identycznych maszyn wirtualnych, możesz użyć tej maszyny wirtualnej do utworzenia obrazu w udostępnionej galerii obrazów przy użyciu Azure PowerShell. Możesz również utworzyć obraz z maszyny wirtualnej przy użyciu [interfejsu wiersza polecenia platformy Azure](image-version-vm-cli.md).
 
-Można przechwycić obraz z [wyspecjalizowanych i uogólnionych](./windows/shared-image-galleries.md#generalized-and-specialized-images) maszyn wirtualnych przy użyciu Azure PowerShell. 
+Można przechwycić obraz z [wyspecjalizowanych i uogólnionych](./shared-image-galleries.md#generalized-and-specialized-images) maszyn wirtualnych przy użyciu Azure PowerShell. 
 
 Obrazy w galerii obrazów mają dwa składniki, które zostaną utworzone w tym przykładzie:
 - **Definicja obrazu** przenosi informacje o obrazie i wymaganiach dotyczących korzystania z niego. Obejmuje to zarówno system Windows, jak i Linux, wyspecjalizowane lub uogólnione informacje o wersji oraz minimalne i maksymalne wymagania dotyczące pamięci. Jest to definicja typu obrazu. 
@@ -77,7 +77,7 @@ Definicje obrazów tworzą logiczne grupowanie dla obrazów. Są one używane do
 
 Podczas tworzenia definicji obrazu upewnij się, że zawiera on wszystkie prawidłowe informacje. W przypadku uogólnionej maszyny wirtualnej (przy użyciu programu Sysprep dla systemu Windows lub waagent-anulowania aprowizacji w systemie Linux) należy utworzyć definicję obrazu przy użyciu polecenia `-OsState generalized` . Jeśli maszyna wirtualna nie została uogólniona, Utwórz definicję obrazu za pomocą polecenia `-OsState specialized` .
 
-Aby uzyskać więcej informacji na temat wartości, które można określić dla definicji obrazu, zobacz [definicje obrazu](./windows/shared-image-galleries.md#image-definitions).
+Aby uzyskać więcej informacji na temat wartości, które można określić dla definicji obrazu, zobacz [definicje obrazu](./shared-image-galleries.md#image-definitions).
 
 Utwórz definicję obrazu przy użyciu polecenia [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). 
 

@@ -14,12 +14,12 @@ ms.service: azure
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
-ms.openlocfilehash: 65d8ade438228d7af71de1fc66639e5b6de2edda
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 735c0955a25a3995c94c73bd6471643ce2783df3
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040797"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682617"
 ---
 # <a name="create-a-pivotal-cloud-foundry-cluster-on-azure"></a>Tworzenie klastra rozwiązania Pivotal Cloud Foundry na platformie Azure
 
@@ -42,11 +42,13 @@ Aby uzyskać więcej informacji, zobacz [Use SSH keys with Windows on Azure (Kor
 
 > [!NOTE]
 >
-> Aby utworzyć jednostkę usługi, potrzebne są uprawnienia właściciela konta. Możesz też napisać skrypt w celu zautomatyzowania tworzenia jednostki usługi. Możesz na przykład użyć polecenia interfejsu wiersza polecenia platformy Azure [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest).
+> Aby utworzyć jednostkę usługi, potrzebne są uprawnienia właściciela konta. Możesz też napisać skrypt w celu zautomatyzowania tworzenia jednostki usługi. Możesz na przykład użyć polecenia interfejsu wiersza polecenia platformy Azure [az ad sp create-for-rbac](/cli/azure/ad/sp).
 
 1. Zaloguj się do swojego konta platformy Azure.
 
-    `az login`
+    ```azurecli
+    az login
+    ```
 
     ![Logowanie do interfejsu wiersza polecenia platformy Azure](media/deploy/az-login-output.png )
  
@@ -54,11 +56,15 @@ Aby uzyskać więcej informacji, zobacz [Use SSH keys with Windows on Azure (Kor
 
 2. Ustaw subskrypcję domyślną dla tej konfiguracji.
 
-    `az account set -s {id}`
+    ```azurecli
+    az account set -s {id}
+    ```
 
 3. Utworzenie aplikacji usługi Azure Active Directory dla rozwiązania Pivotal Cloud Foundry. Określ unikatowe hasło alfanumeryczne. Zapisz hasło jako element **clientSecret** do późniejszego użycia.
 
-    `az ad app create --display-name "Svc Principal for OpsManager" --password {enter-your-password} --homepage "{enter-your-homepage}" --identifier-uris {enter-your-homepage}`
+    ```azurecli
+    az ad app create --display-name "Svc Principal for OpsManager" --password {enter-your-password} --homepage "{enter-your-homepage}" --identifier-uris {enter-your-homepage}
+    ```
 
     Skopiuj wartość „appId” w danych wyjściowych jako identyfikator **clientID** do późniejszego użycia.
 
@@ -68,23 +74,31 @@ Aby uzyskać więcej informacji, zobacz [Use SSH keys with Windows on Azure (Kor
 
 4. Utwórz jednostkę usługi przy użyciu nowego identyfikatora aplikacji.
 
-    `az ad sp create --id {appId}`
+    ```azurecli
+    az ad sp create --id {appId}
+    ```
 
 5. Ustaw rolę uprawnień jednostki usługi jako Współautor.
 
-    `az role assignment create --assignee "{enter-your-homepage}" --role "Contributor"`
+    ```azurecli
+    az role assignment create --assignee "{enter-your-homepage}" --role "Contributor"
+    ```
 
     Możesz też użyć
 
-    `az role assignment create --assignee {service-principal-name} --role "Contributor"`
+    ```azurecli
+    az role assignment create --assignee {service-principal-name} --role "Contributor"
+    ```
 
     ![przypisania roli Jednostka usługi.](media/deploy/svc-princ.png )
 
 6. Upewnij się, że możesz pomyślnie zalogować się do jednostki usługi przy użyciu identyfikatora aplikacji, hasła oraz identyfikatora dzierżawy.
 
-    `az login --service-principal -u {appId} -p {your-password}  --tenant {tenantId}`
+    ```azurecli
+    az login --service-principal -u {appId} -p {your-password}  --tenant {tenantId}
+    ```
 
-7. Utwórz plik JSON w następującym formacie. Użyj wcześniej skopiowanych wartości **subscriptionID** , **tenantID** , **clientID** i **clientSecret** . Zapisz plik.
+7. Utwórz plik JSON w następującym formacie. Użyj wcześniej skopiowanych wartości **subscriptionID**, **tenantID**, **clientID** i **clientSecret**. Zapisz plik.
 
     ```json
     {
@@ -99,7 +113,7 @@ Aby uzyskać więcej informacji, zobacz [Use SSH keys with Windows on Azure (Kor
 
 1. Zarejestruj się lub zaloguj się na swoim koncie usługi [Pivotal Network](https://network.pivotal.io).
 2. Wybierz nazwę profilu w prawym górnym rogu strony. Wybierz pozycję **Edit Profile** (Edytuj profil).
-3. Przewiń do dołu strony i skopiuj wartość **LEGACY API TOKEN** . Jest to wartość **tokenu usługi Pivotal Network** do późniejszego użycia.
+3. Przewiń do dołu strony i skopiuj wartość **LEGACY API TOKEN**. Jest to wartość **tokenu usługi Pivotal Network** do późniejszego użycia.
 
 ## <a name="provision-your-cloud-foundry-cluster-on-azure"></a>Aprowizowanie klastra rozwiązania Cloud Foundry na platformie Azure
 
