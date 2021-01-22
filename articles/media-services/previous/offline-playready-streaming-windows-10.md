@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a26be590d5f7b467f57e8e18eac54ce57be24094
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd1d50003ef4334f1ea83ac256b371b20d021936
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266599"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693896"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Przesyłanie strumieniowe przy użyciu technologii PlayReady w trybie offline dla systemu Windows 10
 
@@ -31,7 +31,7 @@ ms.locfileid: "89266599"
 > * [Wersja 2](offline-playready-streaming-windows-10.md)
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Azure Media Services obsługiwać pobieranie/odtwarzanie w trybie offline przy użyciu ochrony DRM. W tym artykule omówiono obsługę Azure Media Services w przypadku klientów z systemem Windows 10/PlayReady w trybie offline. W następujących artykułach można zapoznać się z obsługą trybu offline dla urządzeń z systemami iOS/FairPlay i Android/Widevine:
 
@@ -42,7 +42,7 @@ Azure Media Services obsługiwać pobieranie/odtwarzanie w trybie offline przy u
 
 W tej sekcji przedstawiono niektóre w tle odtwarzania w trybie offline, szczególnie dlatego:
 
-* W niektórych krajach/regionach dostępność i/lub przepustowość Internetu są nadal ograniczone.Użytkownicy mogą wybrać opcję wcześniejszego pobrania, aby móc oglądać zawartość w wysokiej rozdzielczości, aby zapewnić zadowalające środowisko wyświetlania. W takim przypadku problem nie jest dostępny w sieci, a jego przepustowość jest ograniczona. Dostawcy OTT/OVP żądają obsługi trybu offline.
+* W niektórych krajach/regionach dostępność i/lub przepustowość Internetu są nadal ograniczone. Użytkownicy mogą wybrać opcję wcześniejszego pobrania, aby móc oglądać zawartość w wysokiej rozdzielczości, aby zapewnić zadowalające środowisko wyświetlania. W takim przypadku problem nie jest dostępny w sieci, a jego przepustowość jest ograniczona. Dostawcy OTT/OVP żądają obsługi trybu offline.
 * Jak przedstawiono na konferencji udziałowców Netflix 2016 Q3, pobieranie zawartości to "funkcja" z prośbą o "oft" i "jest ona otwarta" zgodnie z opisem w Reed Hastings, dyrektor generalny Netflix.
 * Niektórzy dostawcy zawartości mogą nie zezwalać na dostarczanie licencji DRM poza granicami kraju/regionu. Jeśli użytkownik musi podróżować za granicą i nadal chce obserwować zawartość, wymagane jest pobranie do trybu offline.
  

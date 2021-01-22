@@ -2,13 +2,13 @@
 title: Azure Service Bus często zadawanych pytań (FAQ) | Microsoft Docs
 description: Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytania dotyczące Azure Service Bus.
 ms.topic: article
-ms.date: 09/16/2020
-ms.openlocfilehash: e5bc9aae081868c92e0968c88c8cb6dcfb8ee57c
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.date: 01/20/2021
+ms.openlocfilehash: 3a96cf94ca4a7edd115f12b3e2eded11a5894e04
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676378"
+ms.locfileid: "98693408"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus — często zadawane pytania
 
@@ -35,8 +35,11 @@ Określanie kolejności nie jest zapewnione w przypadku korzystania z partycjono
 
  Partycjonowane jednostki nie są już obsługiwane w [jednostce SKU Premium](service-bus-premium-messaging.md). 
 
-### <a name="where-does-azure-service-bus-store-customer-data"></a><a name="in-region-data-residency"></a>Gdzie usługa Azure Service Bus przechowywać dane klienta?
-Azure Service Bus przechowuje dane klientów. Te dane są automatycznie przechowywane przez Service Bus w jednym regionie, więc ta usługa automatycznie spełnia wymagania dotyczące miejsca zamieszkania danych regionu, w tym te określone w [Centrum zaufania](https://azuredatacentermap.azurewebsites.net/).
+### <a name="where-does-azure-service-bus-store-data"></a><a name="in-region-data-residency"></a>Gdzie usługa Azure Service Bus przechowuje dane?
+Azure Service Bus warstwa standardowa wykorzystuje Azure SQL Database do warstwy magazynu zaplecza. W przypadku wszystkich regionów z wyjątkiem Brazylii Południowe i Południowo-Wschodnia, kopia zapasowa bazy danych jest hostowana w innym regionie (zazwyczaj jest to region sparowany na platformie Azure). W regionach Brazylia Południowa i Południowo-Wschodnia, kopie zapasowe bazy danych są przechowywane w tym samym regionie, aby uwzględnić wymagania dotyczące miejsca zamieszkania danych dla tych regionów.
+
+Azure Service Bus w warstwie Premium są przechowywane metadane i dane w wybranych regionach. Po skonfigurowaniu odzyskiwania geograficznego po awarii dla Azure Service Bus przestrzeni nazw w warstwie Premium metadane są kopiowane do regionu pomocniczego, który został wybrany.
+
 
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Jakie porty muszę otworzyć na zaporze? 
 Za pomocą następujących protokołów można Azure Service Bus wysyłać i odbierać komunikaty:

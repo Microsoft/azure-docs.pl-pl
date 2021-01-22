@@ -6,12 +6,12 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/15/2019
-ms.openlocfilehash: 9fe1aaed58d6069cd583f8607f7bd6332f97674e
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 0b4356c74b2e0c1494456d5d1082efd7b8953a15
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019894"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693379"
 ---
 # <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>Użyj pakietu NuGet pozostałej CI/CD Azure Stream Analytics na potrzeby integracji i programowania 
 W tym artykule opisano sposób użycia pakietu NuGet Azure Stream Analytics/CD w celu skonfigurowania ciągłego procesu integracji i wdrażania.
@@ -51,7 +51,7 @@ Parametry domyślne w parameters.jsna pliku pochodzą z ustawień w projekcie pr
       "value": null
     },
 ```
-Dowiedz się więcej na temat sposobu [wdrażania przy użyciu pliku szablonu Menedżer zasobów i Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md). Dowiedz się więcej na temat [używania obiektu jako parametru w szablonie Menedżer zasobów](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
+Dowiedz się więcej na temat sposobu [wdrażania przy użyciu pliku szablonu Menedżer zasobów i Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md). Dowiedz się więcej na temat [używania obiektu jako parametru w szablonie Menedżer zasobów](/azure/architecture/guide/azure-resource-manager/advanced-templates/objects-as-parameters).
 
 Aby użyć tożsamości zarządzanej dla Azure Data Lake Store Gen1 jako ujścia danych wyjściowych, musisz zapewnić dostęp do jednostki usługi przy użyciu programu PowerShell przed wdrożeniem na platformie Azure. Dowiedz się więcej na temat sposobu [wdrażania ADLS Gen1 z zarządzaną tożsamością przy użyciu szablonu Menedżer zasobów](stream-analytics-managed-identities-adls.md#resource-manager-template-deployment).
 

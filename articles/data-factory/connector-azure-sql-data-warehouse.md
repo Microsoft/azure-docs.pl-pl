@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/11/2021
-ms.openlocfilehash: a411f4ce261ee6d203e274efe3cf23ca23203453
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.date: 01/22/2021
+ms.openlocfilehash: 48450218975f2c6ee14e12af8d722942e8db1347
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070905"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695852"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-by-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w usłudze Azure Synapse Analytics przy użyciu Azure Data Factory
 
@@ -76,6 +76,9 @@ W przypadku różnych typów uwierzytelniania zapoznaj się z poniższymi sekcja
 - [Uwierzytelnianie SQL](#sql-authentication)
 - Uwierzytelnianie tokenu aplikacji usługi Azure AD: nazwa [główna usługi](#service-principal-authentication)
 - Uwierzytelnianie tokenu aplikacji usługi Azure AD: [zarządzane tożsamości dla zasobów platformy Azure](#managed-identity)
+
+>[!TIP]
+>Podczas tworzenia połączonej usługi dla puli SQL **bezserwerowej** usługi Azure Synapse z poziomu interfejsu użytkownika wybierz opcję "wprowadź ręcznie" zamiast przeglądać z poziomu subskrypcji.
 
 >[!TIP]
 >Jeśli wystąpi błąd z kodem błędu jako "UserErrorFailedToConnectToSqlServer" i komunikatem "limit sesji dla bazy danych to XXX i został osiągnięty.", Dodaj `Pooling=false` do parametrów połączenia i spróbuj ponownie.
@@ -226,7 +229,7 @@ Następujące właściwości są obsługiwane dla zestawu danych usługi Azure S
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | typ      | Właściwość **Type** zestawu danych musi być ustawiona na wartość **AzureSqlDWTable**. | Tak                         |
 | schema | Nazwa schematu. |Nie dla źródła, tak dla ujścia  |
-| table (stolik) | Nazwa tabeli/widoku. |Nie dla źródła, tak dla ujścia  |
+| tabela | Nazwa tabeli/widoku. |Nie dla źródła, tak dla ujścia  |
 | tableName | Nazwa tabeli/widoku ze schematem. Ta właściwość jest obsługiwana w celu zapewnienia zgodności z poprzednimi wersjami. W przypadku nowych obciążeń Użyj `schema` i `table` . | Nie dla źródła, tak dla ujścia |
 
 ### <a name="dataset-properties-example"></a>Przykład właściwości zestawu danych
@@ -391,7 +394,7 @@ Aby skopiować dane do usługi Azure Synapse Analytics, ustaw typ ujścia w dzia
 | writeBatchTimeout | Czas oczekiwania na zakończenie operacji wstawiania partii przed przekroczeniem limitu czasu.<br/><br/>Dozwolona wartość to **TimeSpan**. Przykład: "00:30:00" (30 minut). | Nie.<br/>Zastosuj przy użyciu wstawiania zbiorczego.        |
 | preCopyScript     | Określ zapytanie SQL dla działania kopiowania, które ma zostać uruchomione przed zapisaniem danych w usłudze Azure Synapse Analytics w każdym przebiegu. Ta właściwość służy do czyszczenia wstępnie załadowanych danych. | Nie                                            |
 | tableOption | Określa, czy [tabela ujścia ma być automatycznie tworzona,](copy-activity-overview.md#auto-create-sink-tables) Jeśli nie istnieje na podstawie schematu źródłowego. Dozwolone wartości to: `none` (domyślnie), `autoCreate` . |Nie |
-| disableMetricsCollection | Data Factory zbiera metryki, takie jak Azure Synapse Analytics jednostek dwu na potrzeby optymalizacji wydajności kopiowania i zaleceń, co wprowadza dodatkowy dostęp do bazy danych Master. W przypadku tego zachowania należy określić, `true` aby je wyłączyć. | Nie (domyślnie `false` ) |
+| disableMetricsCollection | Data Factory zbiera takie metryki jak Azure Synapse Analytics jednostek dwu na potrzeby optymalizacji wydajności kopiowania i zaleceń, które wprowadzają dodatkowy dostęp do bazy danych Master. W przypadku tego zachowania należy określić, `true` aby je wyłączyć. | Nie (domyślnie `false` ) |
 
 #### <a name="azure-synapse-analytics-sink-example"></a>Przykład ujścia usługi Azure Synapse Analytics
 
@@ -780,6 +783,7 @@ Ustawienia specyficzne dla usługi Azure Synapse Analytics są dostępne na karc
 
 - W przypadku korzystania z uwierzytelniania tożsamości zarządzanej dla połączonej usługi magazynu należy odpowiednio poznać potrzebne konfiguracje [obiektów blob platformy Azure](connector-azure-blob-storage.md#managed-identity) i [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) .
 - Jeśli usługa Azure Storage jest skonfigurowana za pomocą punktu końcowego usługi sieci wirtualnej, należy użyć uwierzytelniania tożsamości zarządzanej z włączoną opcją "Zezwalaj na zaufaną usługę firmy Microsoft" na koncie magazynu, zapoznaj się z tematem [wpływ korzystania z punktów końcowych usługi sieci wirtualnej w usłudze Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage).
+- W przypadku używania puli SQL bez **serwera** usługi Azure Synapse jako źródła, Włączanie przemieszczania nie jest obsługiwane.
 
 **Zapytanie**: w przypadku wybrania zapytania w polu wejściowym wprowadź zapytanie SQL dla źródła. To ustawienie przesłania każdą tabelę, która została wybrana w zestawie danych. Klauzule **order by** nie są obsługiwane w tym miejscu, ale można ustawić pełną instrukcję SELECT FROM. Można również użyć funkcji tabeli zdefiniowanej przez użytkownika. **SELECT * FROM udfGetData ()** to format UDF w języku SQL, który zwraca tabelę. To zapytanie spowoduje utworzenie tabeli źródłowej, której można użyć w przepływie danych. Używanie zapytań jest również doskonałym sposobem zredukowania liczby wierszy do testowania lub wyszukiwania.
 
@@ -838,9 +842,9 @@ W przypadku kopiowania danych z programu lub do usługi Azure Synapse Analytics 
 | :------------------------------------ | :----------------------------- |
 | bigint                                | Int64                          |
 | binarny                                | Byte []                         |
-| bit                                   | Boolean                        |
+| bit                                   | Wartość logiczna                        |
 | char                                  | String, Char []                 |
-| date                                  | DateTime                       |
+| data                                  | DateTime                       |
 | Datetime (data/godzina)                              | DateTime                       |
 | datetime2                             | DateTime                       |
 | DateTimeOffset                        | DateTimeOffset                 |

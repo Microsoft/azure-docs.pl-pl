@@ -11,16 +11,16 @@ author: justinha
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43573b54be6884e01121e404370d2e1d85a3c4e8
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: d9430066ad92b4d0b69bd07c763e3f7b5d6e889a
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660885"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693540"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory"></a>Konfigurowanie i umożliwienie użytkownikom uwierzytelniania opartego na programie SMS przy użyciu Azure Active Directory 
 
-Aby uprościć i bezpiecznie zalogować się do aplikacji i usług, Azure Active Directory (Azure AD) udostępnia wiele opcji uwierzytelniania. Uwierzytelnianie oparte na programie SMS umożliwia użytkownikom logowanie się bez podawania nazwy użytkownika i hasła, a nawet ich znajomości. Po utworzeniu konta przez administratora tożsamości można wprowadzić numer telefonu w wierszu logowania. Otrzymują oni kod uwierzytelniania za pośrednictwem wiadomości SMS, którą mogą zapewnić, aby zakończyć logowanie. Ta metoda uwierzytelniania upraszcza dostęp do aplikacji i usług, szczególnie w przypadku pracowników frontonu.
+Aby uprościć i bezpiecznie zalogować się do aplikacji i usług, Azure Active Directory (Azure AD) udostępnia wiele opcji uwierzytelniania. Uwierzytelnianie oparte na programie SMS umożliwia użytkownikom logowanie się bez podawania nazwy użytkownika i hasła, a nawet ich znajomości. Po utworzeniu konta przez administratora tożsamości można wprowadzić numer telefonu w wierszu logowania. Otrzymują oni kod uwierzytelniania za pośrednictwem wiadomości SMS, którą mogą zapewnić, aby zakończyć logowanie. Ta metoda uwierzytelniania upraszcza dostęp do aplikacji i usług, szczególnie w przypadku procesów roboczych teraźniejszości.
 
 W tym artykule opisano sposób włączania uwierzytelniania opartego na programie SMS dla wybranych użytkowników lub grup w usłudze Azure AD.
 

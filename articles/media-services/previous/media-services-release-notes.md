@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bd4f50365ced61e35ae6d10a9763a0f9815098d7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: e1700489b4f3ee37d95b87b1bf026d47c9f1de4d
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014107"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98694900"
 ---
 # <a name="azure-media-services-release-notes"></a>Informacje o wersji Azure Media Services
 
@@ -28,7 +28,7 @@ ms.locfileid: "92014107"
 Te informacje o wersji Azure Media Services podsumowują zmiany z poprzednich wersji i znanych problemów.
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Chcemy poznać naszych klientów, aby móc skupić się na rozwiązywaniu problemów, które mają wpływ na Ciebie. Aby zgłosić problem lub zadawać pytania, Prześlij wpis na stronie [Azure Media Services MSDN forum]. 
 
@@ -386,7 +386,7 @@ Metadane REST Media Services są teraz w wersji 2,7. Aby uzyskać więcej inform
 
 Zestaw Media Services SDK dla platformy .NET jest teraz w wersji 3.0.0.7
 
-### <a name="breaking-changes"></a><a id="sept_14_breaking_changes"></a>Zmiany powodujące niezgodność
+### <a name="breaking-changes"></a><a id="sept_14_breaking_changes"></a>Fundamentalne zmiany
 * Zmieniono nazwę pochodzenia na [StreamingEndpoint].
 * Zmiana została wprowadzona w domyślnym zachowaniu w przypadku używania Azure Portal do kodowania i publikowania plików MP4.
 
@@ -584,7 +584,7 @@ W wersji z listopada zestawu SDK wprowadzono następujące funkcje:
 
 * Widevine to usługa świadczona przez firmę Google Inc. z zastrzeżeniem warunków użytkowania i zasad zachowania poufności informacji w firmie Google, Inc.
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 <!-- Anchors. -->

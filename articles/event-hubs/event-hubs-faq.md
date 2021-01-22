@@ -2,13 +2,13 @@
 title: Często zadawane pytania — Azure Event Hubs | Microsoft Docs
 description: Ten artykuł zawiera listę często zadawanych pytań dotyczących usługi Azure Event Hubs i ich odpowiedzi.
 ms.topic: article
-ms.date: 10/27/2020
-ms.openlocfilehash: e7a34fe0f2ef04fffeeddc5615d3ac1749467902
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.date: 01/20/2021
+ms.openlocfilehash: e6fd4814e771d03827e51f1cd5ee182c9e432cc5
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955420"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696112"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs często zadawane pytania
 
@@ -55,8 +55,8 @@ Możesz skonfigurować okres przechowywania danych przechwyconych na koncie maga
 ### <a name="how-do-i-monitor-my-event-hubs"></a>Jak mogę monitorować moje Event Hubs?
 Event Hubs emituje wyczerpujące metryki, które zapewniają stan zasobów do [Azure monitor](../azure-monitor/overview.md). Pozwalają również ocenić ogólną kondycję usługi Event Hubs nie tylko na poziomie przestrzeni nazw, ale również na poziomie jednostki. Dowiedz się więcej na temat monitorowania oferowanego w [usłudze Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
 
-### <a name="where-does-azure-event-hubs-store-customer-data"></a><a name="in-region-data-residency"></a>Gdzie usługa Azure Event Hubs przechować dane klienta?
-Usługa Azure Event Hubs przechowuje dane klientów. Te dane są automatycznie przechowywane przez Event Hubs w jednym regionie, więc ta usługa automatycznie spełnia wymagania dotyczące miejsca zamieszkania danych regionu, w tym te określone w [Centrum zaufania](https://azuredatacentermap.azurewebsites.net/).
+### <a name="where-does-azure-event-hubs-store-data"></a><a name="in-region-data-residency"></a>Gdzie usługa Azure Event Hubs przechowuje dane?
+Usługa Azure Event Hubs Standard i warstwy dedykowane przechowują metadane i dane w wybranych regionach. Po skonfigurowaniu odzyskiwania geograficznego po awarii dla przestrzeni nazw usługi Azure Event Hubs metadane są kopiowane do regionu pomocniczego, który został wybrany. W związku z tym ta usługa automatycznie spełnia wymagania dotyczące miejsca zamieszkania danych regionu, w tym te określone w [Centrum zaufania](https://azuredatacentermap.azurewebsites.net/).
 
 [!INCLUDE [event-hubs-connectivity](../../includes/event-hubs-connectivity.md)]
 

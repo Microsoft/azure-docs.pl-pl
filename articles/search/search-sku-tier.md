@@ -9,24 +9,27 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 1a1fc0ce634282ffd4fcf374138fe97a04f32062
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 320f02f6ece106b4d0e14293f95533aa5b4e0743
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539600"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693455"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Wybierz warstwę cenową dla usługi Azure Wyszukiwanie poznawcze
 
-Podczas [tworzenia usługi wyszukiwania](search-create-service-portal.md)należy wybrać warstwę cenową (lub jednostkę SKU), która została rozwiązany przez okres istnienia usługi. Szacowane miesięczne koszty są wyświetlane na stronie **Wybierz warstwę cenową** w portalu. Jeśli tworzysz usługę za pomocą programu PowerShell lub interfejsu wiersza polecenia platformy Azure, warstwa zostanie określona za pomocą **`-Sku`** parametru.
+Część [tworzenia usługi wyszukiwania](search-create-service-portal.md) oznacza wybranie warstwy cenowej (lub jednostki SKU), która została rozwiązany przez okres istnienia usługi. Ceny — lub szacowany koszt miesięczny działania usługi — jest wyświetlany na stronie **Wybierz warstwę cenową** portalu podczas tworzenia usługi. Jeśli Zainicjowano obsługę administracyjną przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure, warstwa jest określana za pomocą **`-Sku`** parametru i należy sprawdzić [Cennik usługi](https://azure.microsoft.com/pricing/details/search/) , aby dowiedzieć się więcej o szacowanych kosztach.
 
 Wybrana warstwa określa:
 
-+ Maksymalna liczba indeksów i innych obiektów, które można utworzyć w usłudze
++ Maksymalna liczba indeksów i innych obiektów dozwolonych w usłudze
 + Rozmiar i szybkość partycji (magazyn fizyczny)
 + Stawka rozliczana jako stały koszt miesięczny, ale także koszt przyrostowy w przypadku dodania pojemności
 
 W kilku przypadkach wybrana warstwa określa dostępność [funkcji Premium](#premium-features).
+
+> [!NOTE]
+> Szukasz informacji o "jednostkach SKU platformy Azure"? Zacznij od [cen platformy Azure](https://azure.microsoft.com/pricing/) , a następnie przewiń w dół do stron cennika dla usługi.
 
 ## <a name="tier-descriptions"></a>Opisy warstw
 
@@ -67,7 +70,7 @@ Warstwy określają maksymalny magazyn samej usługi, a także maksymalną liczb
 
 ## <a name="partition-size-and-speed"></a>Rozmiar i szybkość partycji
 
-Cennik warstwy obejmuje szczegóły dotyczące magazynu na partycję z zakresu od 2 GB do warstwy Podstawowa, do 2 TB dla warstw zoptymalizowanych pod kątem magazynu (L2). Inne cechy sprzętu, takie jak szybkość operacji, opóźnienia i szybkości transferu, nie są publikowane, ale warstwy zaprojektowane dla określonych architektur rozwiązań są oparte na sprzęcie, który ma funkcje do obsługi tych scenariuszy.
+Cennik warstwy obejmuje szczegóły dotyczące magazynu na partycję z zakresu od 2 GB do warstwy Podstawowa, do 2 TB dla warstw zoptymalizowanych pod kątem magazynu (L2). Inne cechy sprzętu, takie jak szybkość operacji, opóźnienia i szybkości transferu, nie są publikowane, ale warstwy zaprojektowane dla określonych architektur rozwiązań są oparte na sprzęcie, który ma funkcje do obsługi tych scenariuszy. Aby uzyskać więcej informacji o partycjach, zobacz [oszacowania i zarządzanie pojemnością](search-capacity-planning.md) oraz [skalowanie wydajności](search-performance-optimization.md).
 
 ## <a name="billing-rates"></a>Stawki za rozliczenia
 

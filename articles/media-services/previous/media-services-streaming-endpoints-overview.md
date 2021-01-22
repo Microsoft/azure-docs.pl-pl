@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: a541e1b068ec3667120bbb31e65ca7bc35febadb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5e3d7e61b6c2a6ad3c121da9c0198c95ac24850
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89265919"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98694575"
 ---
 # <a name="streaming-endpoints-overview"></a>Omówienie punktów końcowych przesyłania strumieniowego  
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 W Microsoft Azure Media Services (AMS) **punkt końcowy przesyłania strumieniowego** reprezentuje usługę przesyłania strumieniowego, która umożliwia dostarczanie zawartości bezpośrednio do aplikacji odtwarzacza klienta lub Content Delivery Network (CDN) w celu dalszej dystrybucji. Media Services również zapewnia bezproblemowe Azure CDN integrację. Strumień wychodzący z usługi StreamingEndpoint może być strumieniem na żywo, wideo na żądanie lub pobieraniem progresywnym zasobu na koncie Media Services. Każde konto Azure Media Services obejmuje domyślny StreamingEndpoint. Dodatkowe StreamingEndpoints można utworzyć w ramach konta. Istnieją dwie wersje StreamingEndpoints, 1,0 i 2,0. Począwszy od 10 stycznia 2017 wszystkie nowo utworzone konta AMS będą zawierać **domyślne** StreamingEndpoint w wersji 2,0. Dodatkowe punkty końcowe przesyłania strumieniowego dodawane do tego konta również będą w wersji 2,0. Ta zmiana nie wpłynie na istniejące konta. istniejący StreamingEndpoints będzie w wersji 1,0 i można go uaktualnić do wersji 2,0. W przypadku tej zmiany zostanie zachowane zachowanie, rozliczenia i zmiany funkcji (Aby uzyskać więcej informacji, zobacz sekcję **Typy przesyłania strumieniowego i wersje** opisane poniżej).
 
@@ -52,7 +52,7 @@ Dla wszystkich dodatkowych punktów końcowych: `{EndpointName}-{AccountName}.st
 Począwszy od wersji 2017 stycznia Media Services, istnieją dwa typy przesyłania strumieniowego: **Standard** (wersja zapoznawcza) i **Premium**. Te typy są częścią wersji punktu końcowego przesyłania strumieniowego "2,0".
 
 
-|Type|Opis|
+|Typ|Opis|
 |--------|--------|  
 |**Standardowa**|Domyślny punkt końcowy przesyłania strumieniowego jest typem **standardowym** , można go zmienić na typ Premium przez dostosowanie jednostek przesyłania strumieniowego.|
 |**Premium** |Ta opcja jest odpowiednia dla profesjonalnych scenariuszy, które wymagają wyższego poziomu skalowania lub kontroli. Przechodzenie do typu **Premium** przez dostosowanie jednostek przesyłania strumieniowego.<br/>Dedykowane punkty końcowe przesyłania strumieniowego na żywo w środowisku izolowanym i nie konkurują o zasoby.|
@@ -77,16 +77,16 @@ Jeśli w **wersji "1,0"** punkt końcowy przesyłania strumieniowego ma >= 1 Pre
 
 ### <a name="versions"></a>Wersje
 
-|Type|StreamingEndpointVersion|ScaleUnits|CDN|Rozliczenia|
+|Typ|StreamingEndpointVersion|ScaleUnits|CDN|Rozliczenia|
 |--------------|----------|-----------------|-----------------|-----------------|
-|Klasyczny|1.0|0|Nie dotyczy|Bezpłatna|
-|Standardowy punkt końcowy przesyłania strumieniowego (wersja zapoznawcza)|2,0|0|Tak|Święcona|
-|Jednostki przesyłania strumieniowego w warstwie Premium|1.0|>0|Tak|Święcona|
-|Jednostki przesyłania strumieniowego w warstwie Premium|2,0|>0|Tak|Święcona|
+|Klasyczny|1.0|0|NA|Bezpłatna|
+|Standardowy punkt końcowy przesyłania strumieniowego (wersja zapoznawcza)|2.0|0|Tak|Płatna|
+|Jednostki przesyłania strumieniowego w warstwie Premium|1.0|>0|Tak|Płatna|
+|Jednostki przesyłania strumieniowego w warstwie Premium|2.0|>0|Tak|Płatna|
 
 ### <a name="features"></a>Funkcje
 
-Cecha|Standardowa (Standard)|Premium
+Cechy|Standardowa (Standard)|Premium
 ---|---|---
 Przepływność |Do 600 MB/s i może zapewnić znacznie wyższą skuteczną przepływność w przypadku użycia sieci CDN.|200 MB/s na jednostkę przesyłania strumieniowego (SU). W przypadku korzystania z sieci CDN można zapewnić znacznie wyższą skuteczną przepływność.
 CDN|Azure CDN, Sieć CDN innej firmy lub brak sieci CDN.|Azure CDN, Sieć CDN innej firmy lub brak sieci CDN.
@@ -122,5 +122,5 @@ Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

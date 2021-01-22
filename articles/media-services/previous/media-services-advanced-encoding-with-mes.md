@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4288e2e955f8205f3b6551c83a5c883eecf02501
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9713a2ad10d1edc9a79d475ed58a99b3b24b6483
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021150"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696044"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Wykonaj zaawansowane kodowanie, dostosowując ustawienia wstępne ustawień RYNKOWych
 
@@ -33,7 +33,7 @@ W tym temacie przedstawiono sposób dostosowywania ustawień wstępnych Media En
 W przypadku użycia ustawienia wstępnego XML Pamiętaj, aby zachować kolejność elementów, jak pokazano w poniższych przykładach XML (np. KeyFrameInterval powinna poprzedzać SceneChangeDetection).
 
 > [!NOTE] 
-> Wiele funkcji zaawansowanych Media Services V2 Media Encoder Standard nie są obecnie dostępne w wersji 3. Aby uzyskać więcej informacji, zobacz [luki w funkcji](../latest/media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis).
+> Wiele funkcji zaawansowanych Media Services V2 Media Encoder Standard nie są obecnie dostępne w wersji 3. Aby uzyskać więcej informacji, zobacz [Przewodnik migracji](../latest/migrate-v-2-v-3-migration-introduction.md).
 
 ## <a name="support-for-relative-sizes"></a>Obsługa rozmiarów względnych
 
@@ -1091,7 +1091,7 @@ Można użyć wartości "0", aby wskazać koderowi do ignorowania metadanych rot
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Zobacz też

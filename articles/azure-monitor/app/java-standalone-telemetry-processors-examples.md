@@ -6,12 +6,12 @@ ms.date: 12/29/2020
 author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
-ms.openlocfilehash: b9ad5347e146fc94b513180c591b00c4f449619f
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 9b29c9611359c97c4097ad0b90ee2673bb28f37c
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98146460"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696316"
 ---
 # <a name="telemetry-processors-examples---azure-monitor-application-insights-for-java"></a>Przykłady procesorów telemetrii — Azure Monitor Application Insights dla języka Java
 
@@ -330,7 +330,7 @@ Poniżej przedstawiono wartość skrótu istniejące wartości atrybutu.
 ### <a name="extract"></a>Wyodrębnianie
 
 Poniższy przykład ilustruje użycie wyrażenia regularnego do tworzenia nowych atrybutów na podstawie wartości innego atrybutu.
-Na przykład w przypadku protokołu HTTP. URL = http://example.com/path?queryParam1=value1 , queryParam2 = wartość2 następujące atrybuty zostaną wstawione:
+Na przykład w przypadku protokołu HTTP. URL = ' http://example.com/path?queryParam1=value1 , queryParam2 = wartość2 ' zostaną wstawione następujące atrybuty:
 * httpProtocol: http
 * httpDomain: example.com
 * httpPath: ścieżka

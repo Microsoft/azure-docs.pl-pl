@@ -4,26 +4,26 @@ ms.service: storage
 ms.topic: include
 ms.date: 08/10/2020
 ms.author: rogarana
-ms.openlocfilehash: 8dcb58499113b0b7ae0814419f0a76965a0ed945
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 86bf4911026e46c997469b956f9e7c75c4f17164
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681041"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98698099"
 ---
 #### <a name="additional-premium-file-share-level-limits"></a>Dodatkowe limity poziomów udziałów plików w warstwie Premium
 
-|Obszar  |Cel  |
+|Warstwowy  |Cel  |
 |---------|---------|
 |Minimalny wzrost/zmniejszenie rozmiaru    |1 GiB      |
-|Liczba IOPS linii bazowej    |1 Liczba operacji we/wy na sekundę, do 100 000|
-|Rozerwanie operacji we/wy    |3 razy dziennie operacji we/wy na GiB, do 100 000|
+|Liczba IOPS linii bazowej    |400 + 1 Liczba operacji we/wy na sekundę na GiB, do 100 000|
+|Rozerwanie operacji we/wy    |Maks. (4000, 1 razy dziennie operacji we/wy na GiB), do 100 000|
 |Szybkość ruchu wychodzącego         |60 MiB/s + 0,06 * GiB aprowizacji        |
 |Szybkość transferu danych przychodzących| 40 MiB/s + 0,04 * GiB aprowizacji |
 
 #### <a name="file-level-limits"></a>Limity poziomów plików
 
-|Obszar  |Plik standardowy  |Plik Premium  |
+|Warstwowy  |Plik standardowy  |Plik Premium  |
 |---------|---------|---------|
 |Rozmiar     |1 TiB         |4 TiB         |
 |Maksymalna liczba operacji we/wy na plik      |1000         |Do 8 000 *         |

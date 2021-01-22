@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a300345749351a360a16dc00424ee41ece7a17c9
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 6c1c74f86a9cf0e4bcd73844222f256a715cbfe5
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652982"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695894"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Dostosowywanie ustawień wstępnych Media Encoder Standard
 
@@ -33,7 +33,7 @@ W tym artykule pokazano, jak wykonać zaawansowane kodowanie za pomocą Media En
 W tym artykule pokazano, jak dostosować ustawienie wstępne, pobierając [wielokrotna H264 wiele szybkości transmisji bitów 720](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) i zmniejszając liczbę warstw. W artykule [dostosowanie Media Encoder Standard predefiniowane](media-services-advanced-encoding-with-mes.md) przedstawiono niestandardowe ustawienia wstępne, których można użyć do wykonywania zaawansowanych zadań kodowania.
 
 > [!NOTE]
-> Niestandardowych ustawień predefiniowanych opisanych w tym artykule nie można używać w transformacjech [Media Services v3](../latest/index.yml) ani poleceń interfejsu wiersza polecenia. Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md) .
+> Niestandardowych ustawień predefiniowanych opisanych w tym artykule nie można używać w transformacjech [Media Services v3](../latest/index.yml) ani poleceń interfejsu wiersza polecenia. Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-v-2-v-3-migration-introduction.md) .
 
 ## <a name="customizing-a-mes-preset"></a><a id="customizing_presets"></a> Dostosowywanie ustawień wstępnych MES
 
@@ -277,5 +277,5 @@ namespace CustomizeMESPresests
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

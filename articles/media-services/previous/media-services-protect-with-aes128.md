@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a0e2f785bb3c097b7d2918198457a3f7baf6a39c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 91ed9482903d66ffcf1283c4024f89fc461bab1b
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96023452"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695073"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Używanie dynamicznego szyfrowania AES-128 i usługi dostarczania kluczy
 
@@ -33,7 +33,7 @@ ms.locfileid: "96023452"
 >  
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Za pomocą Media Services można dostarczyć HTTP Live Streaming (HLS) i Smooth Streaming zaszyfrowanych za pomocą algorytmu AES przy użyciu kluczy szyfrowania 128-bitowych. Media Services zapewnia również usługę dostarczania kluczy, która dostarcza klucze szyfrowania do autoryzowanych użytkowników. Jeśli chcesz, aby Media Services szyfrowanie zasobu, skojarz klucz szyfrowania z zasobem, a także Skonfiguruj zasady autoryzacji dla klucza. Gdy gracz prosi o przesłanie strumienia, Media Services używa określonego klucza do dynamicznego szyfrowania zawartości przy użyciu szyfrowania AES. Aby odszyfrować strumień, odtwarzacz żąda klucza z usługi dostarczania kluczy. Aby określić, czy użytkownik ma uprawnienia do uzyskiwania klucza, usługa szacuje zasady autoryzacji określone dla klucza.
 
@@ -254,7 +254,7 @@ Poniższy kod przedstawia sposób wysyłania żądania do usługi dostarczania k
     <add key="Audience" value="urn:test"/>
     ```
 
-### <a name="example"></a><a id="example"></a>Przykład
+### <a name="example"></a><a id="example"></a>Przykład 
 
 Zastąp kod w pliku Program.cs kodem przedstawionym w tej sekcji.
  
@@ -268,5 +268,5 @@ Upewnij się, że zaktualizowano zmienne, tak aby wskazywały foldery, w któryc
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

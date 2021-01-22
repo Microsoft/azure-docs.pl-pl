@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: 9dcb1113bb37cb0f5f65c54ae9d6ca76a88330c1
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: c3674b6877438a0dd4fe53569cf6852e872334a7
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698669"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693616"
 ---
 # <a name="azure-operational-security-overview"></a>Omówienie zabezpieczeń operacyjnych platformy Azure
 
@@ -171,21 +171,21 @@ Plany zapewniają deklaratywny sposób organizowania wdrożenia różnych szablo
 
 ## <a name="devops"></a>DevOps
 
-Przed rozpoczęciem tworzenia aplikacji dla [deweloperów (DevOps)](https://www.visualstudio.com/learn/what-is-devops/) zespoły były odpowiedzialne za gromadzenie wymagań firmy dla programu i pisanie kodu. Następnie oddzielny zespół kontroli jakości przetestował program w izolowanym środowisku programistycznym. Jeśli zostały spełnione wymagania, zespół usługi pytań i odpowiedzi wydał kod dla operacji do wdrożenia. Zespoły wdrożeniowe zostały przedzielone na grupy, takie jak sieć i baza danych. Za każdym razem, gdy program został zgłoszony przez ściany do niezależnego zespołu, dodaliśmy wąskie gardła.
+Przed rozpoczęciem tworzenia aplikacji dla [deweloperów (DevOps)](https://azure.microsoft.com/overview/what-is-devops/) zespoły były odpowiedzialne za gromadzenie wymagań firmy dla programu i pisanie kodu. Następnie oddzielny zespół kontroli jakości przetestował program w izolowanym środowisku programistycznym. Jeśli zostały spełnione wymagania, zespół usługi pytań i odpowiedzi wydał kod dla operacji do wdrożenia. Zespoły wdrożeniowe zostały przedzielone na grupy, takie jak sieć i baza danych. Za każdym razem, gdy program został zgłoszony przez ściany do niezależnego zespołu, dodaliśmy wąskie gardła.
 
 DevOps umożliwia zespołom szybsze i wydajniejsze dostarczanie bardziej bezpiecznych rozwiązań o wyższej jakości. Klienci oczekują dynamicznego i niezawodnego środowiska podczas korzystania z oprogramowania i usług. Zespoły muszą szybko wykonać iterację aktualizacji oprogramowania i zmierzyć wpływ aktualizacji. Muszą szybko reagować na nowe iteracje programistyczne w celu rozwiązania problemów lub zapewnienia większej wartości.  
 
 Platformy w chmurze, takie jak Microsoft Azure, zostały usunięte tradycyjne wąskie gardła i pomogły postrzeganie infrastrukturę. Oprogramowanie Reigns w każdej firmie jako odróżniający klucz i współczynnik w wyników działalności biznesowej. Żadna organizacja, deweloper lub pracownik IT nie może ani nie powinien unikać przesunięć DevOps.
 
-Praktykujący lekarze DevOps przyjmuje kilka z poniższych praktyk. Te praktyki [obejmują](https://www.visualstudio.com/learn/what-is-devops-culture/) metody tworzenia strategii na podstawie scenariuszy firmy. Narzędzia mogą pomóc zautomatyzować różne praktyki.
+Praktykujący lekarze DevOps przyjmuje kilka z poniższych praktyk. Te praktyki [obejmują](/azure/devops/learn/what-is-devops-culture) metody tworzenia strategii na podstawie scenariuszy firmy. Narzędzia mogą pomóc zautomatyzować różne praktyki.
 
 - [Planowanie Agile i techniki zarządzania projektami](https://www.visualstudio.com/learn/what-is-agile/) są używane do planowania i izolowania pracy w przebiegach, zarządzania pojemnością zespołu i ułatwienia zespołom szybkiej adaptacji do zmieniających się potrzeb firmy.
-- [Kontrola wersji, zwykle z usługą git](https://www.visualstudio.com/learn/what-is-git/), umożliwia zespołom znajdującym się w dowolnym miejscu na świecie udostępnianie źródła i integrację z narzędziami do tworzenia oprogramowania w celu zautomatyzowania potoku wydania.
-- [Ciągła integracja](https://www.visualstudio.com/learn/what-is-continuous-integration/) pozwala na ciągłe scalanie i testowanie kodu, który prowadzi do wczesnego znajdowania wad.  Inne korzyści obejmują mniej czasu na problemy z scalaniem i błyskawiczną opinię dla zespołów programistycznych.
-- [Ciągłe dostarczanie](https://www.visualstudio.com/learn/what-is-continuous-delivery/) rozwiązań programowych do środowisk produkcyjnych i testowych ułatwia organizacjom szybkie rozwiązywanie usterek i reagowanie na zmieniające się wymagania biznesowe.
-- [Monitorowanie](https://www.visualstudio.com/learn/what-is-monitoring/) uruchomionych aplikacji — w tym środowisk produkcyjnych w celu zapewnienia kondycji aplikacji, a także użycia klienta — pomaga organizacjom tworzyć hipotezy i szybko weryfikować lub odrzucanie strategie.  Bogate dane są przechwytywane i przechowywane w różnych formatach rejestrowania.
-- [Infrastruktura jako kod (IaC)](https://www.visualstudio.com/learn/what-is-infrastructure-as-code/) to rozwiązanie, które umożliwia automatyzację i sprawdzanie poprawności tworzenia i usuwania sieci oraz maszyn wirtualnych w celu ułatwienia dostarczania bezpiecznych, stabilnych platform hostingu aplikacji.
-- Architektura [mikrousług](https://www.visualstudio.com/learn/what-are-microservices/) służy do izolowania przypadków użycia biznesowego w małych usługach wielokrotnego użytku.  Ta architektura umożliwia skalowalność i wydajność.
+- [Kontrola wersji, zwykle z usługą git](/azure/devops/learn/git/what-is-git), umożliwia zespołom znajdującym się w dowolnym miejscu na świecie udostępnianie źródła i integrację z narzędziami do tworzenia oprogramowania w celu zautomatyzowania potoku wydania.
+- [Ciągła integracja](/azure/devops/learn/what-is-continuous-integration) pozwala na ciągłe scalanie i testowanie kodu, który prowadzi do wczesnego znajdowania wad.  Inne korzyści obejmują mniej czasu na problemy z scalaniem i błyskawiczną opinię dla zespołów programistycznych.
+- [Ciągłe dostarczanie](/azure/devops/learn/what-is-continuous-delivery) rozwiązań programowych do środowisk produkcyjnych i testowych ułatwia organizacjom szybkie rozwiązywanie usterek i reagowanie na zmieniające się wymagania biznesowe.
+- [Monitorowanie](/azure/devops/learn/what-is-monitoring) uruchomionych aplikacji — w tym środowisk produkcyjnych w celu zapewnienia kondycji aplikacji, a także użycia klienta — pomaga organizacjom tworzyć hipotezy i szybko weryfikować lub odrzucanie strategie.  Bogate dane są przechwytywane i przechowywane w różnych formatach rejestrowania.
+- [Infrastruktura jako kod (IaC)](/azure/devops/learn/what-is-infrastructure-as-code) to rozwiązanie, które umożliwia automatyzację i sprawdzanie poprawności tworzenia i usuwania sieci oraz maszyn wirtualnych w celu ułatwienia dostarczania bezpiecznych, stabilnych platform hostingu aplikacji.
+- Architektura [mikrousług](/azure/devops/learn/what-are-microservices) służy do izolowania przypadków użycia biznesowego w małych usługach wielokrotnego użytku.  Ta architektura umożliwia skalowalność i wydajność.
 
 ## <a name="next-steps"></a>Następne kroki
 

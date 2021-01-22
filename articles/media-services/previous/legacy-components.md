@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: d85cbeb99264b5b730fe585fd39f658e6448467f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 495b6bc68e79e50a0bda773e7229225595236fac
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515767"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98694346"
 ---
 # <a name="azure-media-services-legacy-components"></a>Azure Media Services starsze składniki
 
@@ -49,4 +49,4 @@ Następujące Media Analytics procesorów multimediów są przestarzałe lub wkr
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Wskazówki dotyczące migracji dotyczące przenoszenia z Media Services V2 do wersji v3](../latest/migrate-from-v2-to-v3.md)
+[Wskazówki dotyczące migracji dotyczące przenoszenia z Media Services V2 do wersji v3](../latest/migrate-v-2-v-3-migration-introduction.md)

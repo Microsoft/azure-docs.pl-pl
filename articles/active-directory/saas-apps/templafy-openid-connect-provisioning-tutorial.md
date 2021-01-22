@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/19/2021
 ms.author: zhchia
-ms.openlocfilehash: f9e462d66e438e42c40b16ba9b818ddd330e9e5a
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 7afcf6c5814917b3356d86e7288fd2920a04cad7
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98614763"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695995"
 ---
 # <a name="tutorial-configure-templafy-openid-connect-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Templafy OpenID Connect Connect dla automatycznej aprowizacji użytkowników
 
@@ -133,7 +133,26 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 9. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do Templafy OpenID Connect Connect w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w programie Templafy OpenID Connect Connect for Updates. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
-    ![Templafy OpenID Connect Połącz atrybuty użytkownika](media/templafy-openid-connect-provisioning-tutorial/user-attribute.png)
+   |Atrybut|Typ|Obsługiwane na potrzeby filtrowania|
+   |---|---|---|
+   |userName|Ciąg|&check;|
+   |aktywne|Wartość logiczna|
+   |displayName|Ciąg|
+   |title|Ciąg|
+   |preferredLanguage|Ciąg|
+   |name.givenName|Ciąg|
+   |name.familyName|Ciąg|
+   |phoneNumbers[type eq "work"].value|Ciąg|
+   |phoneNumbers[type eq "mobile"].value|Ciąg|
+   |numer telefonu [typ EQ "Fax"]. wartość|Ciąg|
+   |externalId|Ciąg|
+   |adresy [typ EQ "Work"]. locale|Ciąg|
+   |addresss [Type EQ "Work"]. KodPocztowy|Ciąg|
+   |addresss [Type EQ "Work"]. region|Ciąg|
+   |adresy [typ EQ "Work"]. streetAddress|Ciąg|
+   |addresss [Type EQ "Work"]. Country|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|Ciąg|
 
 10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do Templafy**.
 
@@ -141,7 +160,11 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 11. Przejrzyj atrybuty grupy, które są synchronizowane z usługi Azure AD do Templafy OpenID Connect Connect w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania grup w programie Templafy OpenID Connect Connect for Updates. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
-    ![Atrybuty grupy połączeń Templafy OpenID Connect](media/templafy-openid-connect-provisioning-tutorial/group-attribute.png)
+      |Atrybut|Typ|Obsługiwane na potrzeby filtrowania|
+      |---|---|---|
+      |displayName|Ciąg|&check;|
+      |elementy członkowskie|Tematy pomocy|
+      |externalId|Ciąg|      
 
 12. Aby skonfigurować filtry zakresu, skorzystaj z instrukcji przedstawionych w [samouczku dotyczącym filtrów zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

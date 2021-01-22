@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: b7029c5cdd004910caa83425536bbe481e4b01f3
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 61858a478ead93b3709bb3e05c26335c9acbc24d
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95558110"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98698122"
 ---
 ## <a name="for-users-in-your-directory"></a>Dla użytkowników w katalogu
 
@@ -191,6 +191,8 @@ Na przykład, jeśli w pierwszej osoby zatwierdzającej wystawiłeś Alicja i Ro
 1. Kliknij przycisk **Dodaj alternatywne osoby zatwierdzające** i wybierz z listy alternatywne osoby zatwierdzające.
 
     ![Dostęp do pakietu — zasady Dodaj alternatywne osoby zatwierdzające](./media/active-directory-entitlement-management-request-policy/alternate-approvers-add.png)
+
+    Jeśli wybierzesz pozycję Menedżer jako osoba zatwierdzająca dla pierwszej osoby zatwierdzającej, będzie dostępna dodatkowa opcja, **Menedżer drugiego poziomu jako alternatywna osoba zatwierdzająca**, dostępną do wyboru w polu alternatywna osoba zatwierdzająca. W przypadku wybrania tej opcji należy dodać osobę zatwierdzającą rezerwę do przesyłania żądania do programu w przypadku, gdy system nie może odnaleźć Menedżera drugiego poziomu.
 
 1. W polu **Przekaż do alternatywnych osób zatwierdzających po** liczbie dni wprowadź liczbę dni, przez które osoby zatwierdzające muszą zatwierdzić lub odrzucić żądanie. Jeśli żadna osoba zatwierdzająca nie zatwierdziła lub nie odrzuciła żądania przed upływem czasu żądania, żądanie wygasa (timeout), a użytkownik będzie musiał przesłać kolejne żądanie dotyczące pakietu dostępu. 
 

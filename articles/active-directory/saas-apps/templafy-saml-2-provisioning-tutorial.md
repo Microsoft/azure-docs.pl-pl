@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/19/2021
 ms.author: zhchia
-ms.openlocfilehash: 057b437c5d88c4f292e08828482e5dca0d2ca5b4
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 0e7275ee92431e791fec7bd2c9ec07dd623b0f9e
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98614601"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696011"
 ---
 # <a name="tutorial-configure-templafy-saml2-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Templafy SAML2 dla automatycznej aprowizacji użytkowników
 
@@ -133,7 +133,26 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 9. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD, do Templafy SAML2 w sekcji **mapowania atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w Templafy SAML2 dla operacji aktualizacji. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
-    ![Atrybuty użytkownika Templafy SAML2](media/templafy-saml-2-provisioning-tutorial/user-attribute.png)
+   |Atrybut|Typ|Obsługiwane na potrzeby filtrowania|
+   |---|---|---|
+   |userName|Ciąg|&check;|
+   |aktywne|Wartość logiczna|
+   |displayName|Ciąg|
+   |title|Ciąg|
+   |preferredLanguage|Ciąg|
+   |name.givenName|Ciąg|
+   |name.familyName|Ciąg|
+   |phoneNumbers[type eq "work"].value|Ciąg|
+   |phoneNumbers[type eq "mobile"].value|Ciąg|
+   |numer telefonu [typ EQ "Fax"]. wartość|Ciąg|
+   |externalId|Ciąg|
+   |adresy [typ EQ "Work"]. locale|Ciąg|
+   |addresss [Type EQ "Work"]. KodPocztowy|Ciąg|
+   |addresss [Type EQ "Work"]. region|Ciąg|
+   |adresy [typ EQ "Work"]. streetAddress|Ciąg|
+   |addresss [Type EQ "Work"]. Country|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|Ciąg|
 
 10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do Templafy**.
 
@@ -141,7 +160,12 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 11. Przejrzyj atrybuty grupy, które są synchronizowane z usługi Azure AD, do Templafy SAML2 w sekcji **mapowania atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania do grup w Templafy SAML2 dla operacji aktualizacji. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
-    ![Atrybuty grupy Templafy SAML2](media/templafy-saml-2-provisioning-tutorial/group-attribute.png)
+      |Atrybut|Typ|Obsługiwane na potrzeby filtrowania|
+      |---|---|---|
+      |displayName|Ciąg|&check;|
+      |elementy członkowskie|Tematy pomocy|
+      |externalId|Ciąg|      
+
 
 12. Aby skonfigurować filtry zakresu, skorzystaj z instrukcji przedstawionych w [samouczku dotyczącym filtrów zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

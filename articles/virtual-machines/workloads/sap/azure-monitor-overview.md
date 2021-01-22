@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.reviewer: cynthn
-ms.openlocfilehash: bcb912a24dfb2a5e78719cf9010fd23afe0df185
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 1c33011d947d6dc9dd9ee4dd6331c24c06d99b38
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484400"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693828"
 ---
 # <a name="azure-monitor-for-sap-solutions-preview"></a>Azure monitor dla rozwiązań SAP (wersja zapoznawcza)
 
@@ -35,7 +35,7 @@ Obsługiwane bazy danych:
 - Baza danych SAP HANA
 - Program Microsoft SQL Server
 
-Azure Monitor dla rozwiązań SAP wykorzystuje moc istniejących możliwości [Azure monitor](../../../azure-monitor/overview.md) , takich jak log Analytics i [skoroszyty](../../../azure-monitor/platform/workbooks-overview.md) , aby zapewnić dodatkowe możliwości monitorowania. Klienci mogą tworzyć [niestandardowe wizualizacje](../../../azure-monitor/platform/workbooks-overview.md#getting-started) , edytując domyślne skoroszyty udostępniane przez Azure monitor dla rozwiązań SAP, pisać [zapytania niestandardowe](../../../azure-monitor/log-query/log-analytics-tutorial.md) i twórz [niestandardowe alerty](../../../azure-monitor/learn/tutorial-response.md) przy użyciu obszaru roboczego usługi Azure log Analytics, korzystaj z [elastycznego okresu przechowywania](../../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) i łącz dane monitorowania z systemem biletów.
+Azure Monitor dla rozwiązań SAP używa mocy istniejących funkcji [Azure monitor](../../../azure-monitor/overview.md) , takich jak log Analytics i [skoroszyty](../../../azure-monitor/platform/workbooks-overview.md) , aby zapewnić więcej możliwości monitorowania. Klienci mogą tworzyć [niestandardowe wizualizacje](../../../azure-monitor/platform/workbooks-overview.md#getting-started) , edytując domyślne skoroszyty udostępniane przez Azure monitor dla rozwiązań SAP, pisać [zapytania niestandardowe](../../../azure-monitor/log-query/log-analytics-tutorial.md) i twórz [niestandardowe alerty](../../../azure-monitor/learn/tutorial-response.md) przy użyciu obszaru roboczego usługi Azure log Analytics, korzystaj z [elastycznego okresu przechowywania](../../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) i łącz dane monitorowania z systemem biletów.
 
 ## <a name="what-data-does-azure-monitor-for-sap-solutions-collect"></a>Jakie dane są Azure Monitor na potrzeby zbierania rozwiązań SAP?
 
@@ -60,8 +60,17 @@ Dane telemetryczne programu Microsoft SQL Server:
 - Żądania wsadowe, kompilacje i życia stron stron w czasie
 - 10 najpopularniejszych instrukcji SQL w czasie
 - Najwyżej 12 największych tabel w systemie SAP
-- Problemy zarejestrowane w dziennikach błędów SQL Server
+- Problemy zarejestrowane w dzienniku błędów SQL Server
 - Blokowanie procesów i statystyk oczekiwania SQL w czasie
+
+Dane telemetryczne systemu operacyjnego (Linux) 
+- Użycie procesora CPU, liczba rozwidlenia, uruchomione i zablokowane procesy. 
+- Wykorzystanie pamięci i dystrybucja w pamięci podręcznej, buforowanej, buforowanej. 
+- Zamiana wykorzystania, stronicowania i współczynnika wymiany. 
+- Wykorzystanie systemu plików, liczba bajtów odczytanych i zapisywana na urządzeniu blokowym. 
+- Opóźnienie odczytu/zapisu na urządzenie blokowe. 
+- Bieżąca liczba operacji we/wy, bajty odczytu/zapisu pamięci trwałej. 
+- Przychodzące/wychodzące pakiety sieciowe, bajty/wyjście w sieci 
 
 ## <a name="data-sharing-with-microsoft"></a>Udostępnianie danych w firmie Microsoft
 
@@ -96,9 +105,9 @@ Kluczowe składniki architektury są następujące:
 
 Poniżej przedstawiono najważniejsze informacje o architekturze:
  - **Wiele wystąpień** — klienci mogą tworzyć monitor dla wielu wystąpień danego typu składnika (na przykład baza danych Hana, klaster ha, program Microsoft SQL Server) dla wielu identyfikatorów SID SAP w sieci wirtualnej z pojedynczym zasobem Azure monitor dla rozwiązań SAP.
- - **Wiele dostawców** — powyższy diagram architektury przedstawia dostawcę SAP HANA jako przykład. Podobnie klienci mogą konfigurować dodatkowych dostawców dla odpowiednich składników (na przykład bazy danych HANA, klastra HA, programu Microsoft SQL Server) do zbierania danych z tych składników.
+ - **Wiele dostawców** — powyższy diagram architektury przedstawia dostawcę SAP HANA jako przykład. Podobnie klienci mogą skonfigurować więcej dostawców dla odpowiednich składników (na przykład baza danych HANA, klaster HA, program Microsoft SQL Server) do zbierania danych z tych składników.
  - **Open Source** — kod źródłowy Azure monitor dla rozwiązań SAP jest dostępny w serwisie [GitHub](https://github.com/Azure/AzureMonitorForSAPSolutions). Klienci mogą odwoływać się do kodu dostawcy i dowiedzieć się więcej na temat produktu, współtworzenia lub udostępniania opinii.
- - **Extensible Query Framework** — zapytania SQL służące do zbierania danych telemetrycznych są zapisywane w formacie [JSON](https://github.com/Azure/AzureMonitorForSAPSolutions/blob/master/sapmon/content/SapHana.json). Dodatkowe zapytania SQL służące do zbierania większej ilości danych telemetrycznych mogą być łatwo dodawane. Klienci mogą zażądać, aby dane telemetryczne były dodawane do Azure Monitor dla rozwiązań SAP, pozostawiając opinię za pomocą linku na końcu tego dokumentu lub kontaktując się z zespołem kont.
+ - **Extensible Query Framework** — zapytania SQL służące do zbierania danych telemetrycznych są zapisywane w formacie [JSON](https://github.com/Azure/AzureMonitorForSAPSolutions/blob/master/sapmon/content/SapHana.json). Więcej zapytań SQL służących do zbierania większej ilości danych telemetrycznych można łatwo dodać. Klienci mogą zażądać, aby dane telemetryczne były dodawane do Azure Monitor dla rozwiązań SAP, pozostawiając opinię za pomocą linku na końcu tego dokumentu lub kontaktując się z zespołem kont.
 
 ## <a name="pricing"></a>Cennik
 Azure Monitor dla rozwiązań SAP to bezpłatny produkt (bez opłat licencyjnych). Klienci są zobowiązani do uiszczenia kosztów związanych z podstawowymi składnikami w zarządzanej grupie zasobów.

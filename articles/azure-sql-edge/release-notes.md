@@ -10,16 +10,31 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 11/24/2020
-ms.openlocfilehash: c18cb1cef9b46b4b3cd2f614945f98abf9de7c58
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: e078fb91b3279b6f4321cd51dfb094f82bbe5f14
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704354"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696383"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Informacje o wersji usługi Azure SQL Edge 
 
 W tym artykule opisano nowości i zmiany, które zostały zmienione wraz z każdą nową kompilacją usługi Azure SQL Edge.
+
+## <a name="azure-sql-edge-102"></a>Usługa Azure SQL Edge 1.0.2
+
+15.0.2000.1554 kompilacji aparatu SQL
+
+### <a name="fixes"></a>Poprawki
+
+- Przesyłanie strumieniowe T-SQL  
+   - Poprawianie własności i uprawnień do przesyłania strumieniowego obiektów
+   - Ulepszenia rejestrowania z rotacją dzienników i prefiksami dzienników
+   - Azure Stream Analytics: ulepszenia rejestrowania, poprawianie kodu błędu/komunikatów o błędach na kartach 
+
+- ONNX
+    - Poprawki błędów scenariusza zapytań równoległych i błędów oczyszczania modelu
+    - Uaktualniono środowisko uruchomieniowe ONNX do 1.5.1
 
 ## <a name="azure-sql-edge-101"></a>Usługa Azure SQL Edge 1.0.1
 
@@ -93,7 +108,7 @@ W tym artykule opisano nowości i zmiany, które zostały zmienione wraz z każd
 ## <a name="ctp-22"></a>CTP 2,2
 15.0.2000.1546 kompilacji aparatu SQL
 ### <a name="whats-new"></a>Co nowego?
-- Obsługa kontenerów niegłównych 
+- Obsługa kontenerów innych niż główne 
 - Obsługa zbierania danych użycia i diagnostyki 
 - Aktualizacje przesyłania strumieniowego T-SQL:
    - Obsługa znaków Unicode dla nazw obiektów strumienia

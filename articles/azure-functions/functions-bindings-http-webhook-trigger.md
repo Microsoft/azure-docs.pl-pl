@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: f04e2aa97cafe2345918e433bcef5e719cee7483
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: eaba099725530f24dcd6aa5da7eb59cb233efd46
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610169"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695649"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Functions wyzwalacza HTTP
 
@@ -553,7 +553,7 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 | **wskazywa** | n/d| Wymagane — musi być ustawiony na wartość `in` . |
 | **Nazwij** | n/d| Wymagane — nazwa zmiennej używana w kodzie funkcji dla żądania lub treści żądania. |
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Określa, jakie klucze (jeśli istnieją) muszą być obecne w żądaniu w celu wywołania funkcji. Poziom autoryzacji może być jedną z następujących wartości: <ul><li><code>anonymous</code>&mdash;Nie jest wymagany żaden klucz interfejsu API.</li><li><code>function</code>&mdash;Wymagany jest klucz interfejsu API specyficzny dla funkcji. Jest to wartość domyślna, jeśli nie podano żadnej z nich.</li><li><code>admin</code>&mdash;Klucz główny jest wymagany.</li></ul> Aby uzyskać więcej informacji, zapoznaj się z sekcją dotyczącej [kluczy autoryzacji](#authorization-keys). |
-| **form** |**Metody** | Tablica metod HTTP, do których funkcja reaguje. Jeśli nie zostanie określony, funkcja reaguje na wszystkie metody HTTP. Zobacz [Dostosowywanie punktu końcowego http](#customize-the-http-endpoint). |
+| **methods** |**Form** | Tablica metod HTTP, do których funkcja reaguje. Jeśli nie zostanie określony, funkcja reaguje na wszystkie metody HTTP. Zobacz [Dostosowywanie punktu końcowego http](#customize-the-http-endpoint). |
 | **route** | **Szlak** | Definiuje szablon trasy, który kontroluje adresy URL żądań, które odpowiada funkcja. Wartość domyślna, jeśli nie jest podano `<functionname>` . Aby uzyskać więcej informacji, zobacz [Dostosowywanie punktu końcowego http](#customize-the-http-endpoint). |
 | **Element webhooktype** | **Element webhooktype** | _Obsługiwane tylko dla środowiska uruchomieniowego w wersji 1. x._<br/><br/>Konfiguruje wyzwalacz HTTP do działania jako odbiornik [elementu webhook](https://en.wikipedia.org/wiki/Webhook) dla określonego dostawcy. Nie ustawiaj `methods` właściwości w przypadku ustawienia tej właściwości. Typ elementu webhook może być jedną z następujących wartości:<ul><li><code>genericJson</code>&mdash;Punkt końcowy elementu webhook ogólnego przeznaczenia bez logiki dla określonego dostawcy. To ustawienie ogranicza żądania tylko do tych, które używają protokołu HTTP POST i z `application/json` typem zawartości.</li><li><code>github</code>&mdash;Funkcja reaguje na elementy [webhook usługi GitHub](https://developer.github.com/webhooks/). Nie należy używać właściwości  _authLevel_ z elementami webhook usługi GitHub. Aby uzyskać więcej informacji, zobacz sekcję elementy webhook w usłudze GitHub w dalszej części tego artykułu.</li><li><code>slack</code>&mdash;Funkcja reaguje na elementy [webhook zapasowych](https://api.slack.com/outgoing-webhooks). Nie należy używać właściwości _authLevel_ z elementami webhook zapasowych. Aby uzyskać więcej informacji, zobacz sekcję elementy webhooks w dalszej części tego artykułu.</li></ul>|
 
@@ -749,6 +749,10 @@ Poniższa konfiguracja przedstawia sposób `{id}` przekazywania parametru do pow
 }
 ```
 
+W przypadku używania parametrów trasy `invoke_URL_template` jest automatycznie tworzony dla funkcji. Klienci mogą używać szablonu adresu URL, aby zrozumieć parametry, które muszą zostać przekazane w adresie URL podczas wywoływania funkcji przy użyciu adresu URL. Przejdź do jednej z funkcji wyzwalanych przez protokół HTTP w [Azure Portal](https://portal.azure.com) i wybierz pozycję **Pobierz adres URL funkcji**.
+
+Można programowo uzyskać dostęp do programu przy `invoke_URL_template` użyciu interfejsów api Azure Resource Manager dla [funkcji list](https://docs.microsoft.com/rest/api/appservice/webapps/listfunctions) lub [funkcji Get](https://docs.microsoft.com/rest/api/appservice/webapps/getfunction).
+
 ## <a name="working-with-client-identities"></a>Praca z tożsamościami klientów
 
 Jeśli aplikacja funkcji używa [App Service uwierzytelniania/autoryzacji](../app-service/overview-authentication-authorization.md), można wyświetlić informacje o uwierzytelnionych klientach w kodzie. Te informacje są dostępne jako [nagłówki żądań wstrzykiwane przez platformę](../app-service/app-service-authentication-how-to.md#access-user-claims).
@@ -846,11 +850,17 @@ Uwierzytelniony użytkownik jest dostępny za pośrednictwem [nagłówków HTTP]
 
 ## <a name="obtaining-keys"></a>Uzyskiwanie kluczy
 
-Klucze są przechowywane jako część aplikacji funkcji na platformie Azure i są szyfrowane w stanie spoczynku. Aby wyświetlić klucze, utworzyć nowe lub przerzucić klucze do nowych wartości, przejdź do jednej z funkcji wyzwalanych przez protokół HTTP w [Azure Portal](https://portal.azure.com) i wybierz pozycję **Zarządzaj**.
+Klucze są przechowywane jako część aplikacji funkcji na platformie Azure i są szyfrowane w stanie spoczynku. Aby wyświetlić klucze, utworzyć nowe lub przerzucić klucze do nowych wartości, przejdź do jednej z funkcji wyzwalanych przez protokół HTTP w [Azure Portal](https://portal.azure.com) i wybierz pozycję **klucze funkcji**.
 
-![Zarządzaj kluczami funkcji w portalu.](./media/functions-bindings-http-webhook/manage-function-keys.png)
+Można również zarządzać Kluczami hosta. Przejdź do aplikacji funkcji w [Azure Portal](https://portal.azure.com) i wybierz pozycję **klucze aplikacji**.
 
-Klucze funkcji można uzyskać programowo przy użyciu [interfejsów API zarządzania kluczami](https://github.com/Azure/azure-functions-host/wiki/Key-management-API).
+Można programowo uzyskać klucze funkcji i hosta za pomocą interfejsów API Azure Resource Manager. Istnieją interfejsy API umożliwiające [wyświetlenie listy kluczy funkcji](/rest/api/appservice/webapps/listfunctionkeys) i [wyświetlenie kluczy hosta](/rest/api/appservice/webapps/listhostkeys), a w przypadku korzystania z miejsc wdrożenia równoważne interfejsy API to gniazda [kluczy funkcji list](/rest/api/appservice/webapps/listfunctionkeysslot) i [listę gniazd kluczy hosta](/rest/api/appservice/webapps/listhostkeysslot).
+
+Możesz również programowo utworzyć nowe funkcje i klucze hosta przy użyciu klucza tajnego [funkcji Utwórz lub zaktualizuj](/rest/api/appservice/webapps/createorupdatefunctionsecret), [Utwórz lub zaktualizuj gniazdo tajne](/rest/api/appservice/webapps/createorupdatefunctionsecretslot)funkcji, [Utwórz lub zaktualizuj klucz tajny hosta](/rest/api/appservice/webapps/createorupdatehostsecret) oraz [Utwórz lub zaktualizuj interfejsy API miejsca na wpis tajny hosta](/rest/api/appservice/webapps/createorupdatehostsecretslot) .
+
+Klucze funkcji i hosta można usuwać programowo przy użyciu [klucza tajnego funkcji Delete](/rest/api/appservice/webapps/deletefunctionsecret), [funkcji Delete Secret miejsca](/rest/api/appservice/webapps/deletefunctionsecretslot), [usuwania wpisu tajnego hosta](/rest/api/appservice/webapps/deletehostsecret)i [usuwania interfejsów Secret hosta](/rest/api/appservice/webapps/deletehostsecretslot) .
+
+Możesz również użyć [starszych interfejsów API zarządzania kluczami, aby uzyskać klucze funkcji](https://github.com/Azure/azure-functions-host/wiki/Key-management-API), ale zamiast tego zaleca się używanie Azure Resource Manager interfejsów API.
 
 ## <a name="api-key-authorization"></a>Autoryzacja klucza interfejsu API
 

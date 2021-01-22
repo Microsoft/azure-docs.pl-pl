@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 12/09/2020
 ms.topic: how-to
-ms.openlocfilehash: 208c9b4172719b876766f0c4d07a17caa24bfd63
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 0c599f17ab37ca30ea9ef3681ea3c75dd0c2648e
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310949"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693472"
 ---
 # <a name="create-data-controller-in-azure-data-studio"></a>Utwórz kontroler danych w Azure Data Studio
 
@@ -34,33 +34,37 @@ Wykonaj następujące kroki, aby utworzyć kontroler danych usługi Azure ARC pr
 
 1. W Azure Data Studio kliknij kartę połączenia na lewym pasku nawigacyjnym.
 2. Kliknij przycisk **...** w górnej części panelu połączenia, a następnie wybierz pozycję **nowe wdrożenie...**
-3. W Kreatorze nowego wdrożenia wybierz pozycję **Azure Arc Data Controller**, zaznacz pole wyboru akceptacja licencji, a następnie kliknij przycisk **Wybierz** u dołu.
-4. Użyj domyślnego pliku kubeconfig lub wybierz inny.  Kliknij przycisk **Dalej**.
-5. Wybierz kontekst klastra Kubernetes. Kliknij przycisk **Dalej**.
-6. Wybierz plik profilu konfiguracji wdrożenia w zależności od docelowego klastra Kubernetes. **Kliknij przycisk Dalej**.
-8. Wybierz żądaną subskrypcję i grupę zasobów.
-9. Wprowadź nazwę kontrolera danych i dla przestrzeni nazw, w której zostanie utworzony kontroler danych.  
+3. W Kreatorze nowego wdrożenia wybierz pozycję **Azure Arc Data Controller**, a następnie kliknij przycisk **Wybierz** u dołu.
+4. Upewnij się, że wstępnie wymagane narzędzia są dostępne i są zgodne z wymaganymi wersjami. **Kliknij przycisk Dalej**.
+5. Użyj domyślnego pliku kubeconfig lub wybierz inny.  Kliknij przycisk **Dalej**.
+6. Wybierz kontekst klastra Kubernetes. Kliknij przycisk **Dalej**.
+7. Wybierz profil konfiguracji wdrożenia w zależności od docelowego klastra Kubernetes. **Kliknij przycisk Dalej**.
+8. Jeśli używasz platformy Azure Red Hat OpenShift lub Red Hat OpenShift Container platform, Zastosuj ograniczenia kontekstu zabezpieczeń. Postępuj zgodnie z instrukcjami w obszarze [Zastosuj ograniczenie kontekstu zabezpieczeń dla usług danych z obsługą usługi Azure Arc w systemie OpenShift](how-to-apply-security-context-constraint.md).
 
-> [!NOTE]
-> Jeśli przestrzeń nazw już istnieje, zostanie użyta, jeśli przestrzeń nazw nie zawiera jeszcze innych Kubernetes obiektów — pory itd.  Jeśli przestrzeń nazw nie istnieje, zostanie podjęta próba utworzenia przestrzeni nazw.  Tworzenie przestrzeni nazw w klastrze Kubernetes wymaga uprawnień administratora klastra Kubernetes.  Jeśli nie masz uprawnień administratora klastra Kubernetes, poproszenie administratora klastra Kubernetes o wykonanie kilku pierwszych kroków z artykułu [Tworzenie kontrolera danych przy użyciu narzędzia Kubernetes-Native Tools](./create-data-controller-using-kubernetes-native-tools.md) , które są wymagane do wykonania przez administratora Kubernetes przed ukończeniem tego kreatora.
+   >[!IMPORTANT]
+   >Na platformie Azure Red Hat OpenShift lub Red Hat OpenShift kontenera należy zastosować ograniczenie kontekstu zabezpieczeń przed utworzeniem kontrolera danych.
 
-> [!NOTE]
-> Uwaga: kontroler danych i nazwa przestrzeni nazw będą używane do tworzenia zasobów niestandardowych w klastrze Kubernetes, aby musiały one być zgodne z [konwencjami nazewnictwa Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
-
-10. Wybierz lokalizację platformy Azure.
+1. Wybierz żądaną subskrypcję i grupę zasobów.
+1. Wybierz lokalizację platformy Azure.
    
-> [!NOTE]
-> Wybrana lokalizacja platformy Azure to lokalizacja na platformie Azure, w której będą przechowywane *metadane* dotyczące kontrolera danych i wystąpień bazy danych, którymi zarządza.  Wystąpienia kontrolera danych i bazy danych będą w rzeczywistości crewted w klastrze Kubernetes, wszędzie tam, gdzie to możliwe.
+   Wybrana lokalizacja platformy Azure to lokalizacja na platformie Azure, w której będą przechowywane *metadane* dotyczące kontrolera danych i wystąpień bazy danych, którymi zarządza. Wystąpienia kontrolera danych i bazy danych będą w rzeczywistości crewted w klastrze Kubernetes, wszędzie tam, gdzie to możliwe.
 
-11.  Wprowadź nazwę użytkownika i hasło, a następnie potwierdź hasło dla konta użytkownika Administrator kontrolera danych.
+10. Wybierz odpowiedni tryb łączności. Dowiedz się więcej na temat [trybów łączności](https://docs.microsoft.com/azure/azure-arc/data/connectivity). **Kliknij przycisk Dalej**.
 
-> [!NOTE]
-> Hasło musi mieć długość co najmniej 8 znaków.
+    W przypadku wybrania opcji Tryb łączności bezpośredniej wymagane są poświadczenia główne usługi, zgodnie z opisem w temacie [Tworzenie nazwy głównej usługi](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal).
 
-1.  Kliknij przycisk **Dalej**.
-2.  Przejrzyj i kliknij pozycję **skrypt w notesie**.
-3.  **Przejrzyj wygenerowany Notes**.  Wprowadź wszelkie niezbędne zmiany, takie jak nazwy klas magazynu lub typy usług.
-4.  Kliknij pozycję **Uruchom wszystkie** w górnej części notesu.
+11. Wprowadź nazwę kontrolera danych i dla przestrzeni nazw, w której zostanie utworzony kontroler danych.
+
+    Kontroler danych i nazwa przestrzeni nazw będą używane do tworzenia zasobów niestandardowych w klastrze Kubernetes, aby musiały one być zgodne z [konwencjami nazewnictwa Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    
+    Jeśli przestrzeń nazw już istnieje, zostanie użyta, jeśli przestrzeń nazw nie zawiera jeszcze innych Kubernetes obiektów — pory itd.  Jeśli przestrzeń nazw nie istnieje, zostanie podjęta próba utworzenia przestrzeni nazw.  Tworzenie przestrzeni nazw w klastrze Kubernetes wymaga uprawnień administratora klastra Kubernetes.  Jeśli nie masz uprawnień administratora klastra Kubernetes, poproszenie administratora klastra Kubernetes o wykonanie kilku pierwszych kroków z artykułu [Tworzenie kontrolera danych przy użyciu narzędzia Kubernetes-Native Tools](./create-data-controller-using-kubernetes-native-tools.md) , które są wymagane do wykonania przez administratora Kubernetes przed ukończeniem tego kreatora.
+
+
+12. Wybierz klasę magazynu, w której zostanie wdrożony kontroler danych. 
+13.  Wprowadź nazwę użytkownika i hasło, a następnie potwierdź hasło dla konta użytkownika Administrator kontrolera danych. Kliknij przycisk **Dalej**.
+
+14. Zapoznaj się z konfiguracją wdrożenia.
+15. Kliknij przycisk **Wdróż** , aby wdrożyć żądaną konfigurację lub **skrypt do notesu** w celu przejrzenia instrukcji wdrożenia lub wprowadzić wszelkie niezbędne zmiany, takie jak nazwy klas magazynu lub typy usług. Kliknij pozycję **Uruchom wszystkie** w górnej części notesu.
 
 ## <a name="monitoring-the-creation-status"></a>Monitorowanie stanu tworzenia
 
