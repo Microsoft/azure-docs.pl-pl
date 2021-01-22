@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć prywatny klaster usługi Azure Kubernet
 services: container-service
 ms.topic: article
 ms.date: 7/17/2020
-ms.openlocfilehash: 87966a9bd2f83916998a724fc6c1c26a91609665
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 2b0cc8a2fe9a45120bf0b74dbad5e107fd860845
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133399"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664371"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Tworzenie prywatnego klastra usługi Azure Kubernetes Service
 
@@ -66,23 +66,23 @@ Gdzie `--enable-private-cluster` jest obowiązkową flagą dla klastra prywatneg
 > [!NOTE]
 > Jeśli adres CIDR (172.17.0.1/16) mostka platformy Docker koliduje z maską CIDR podsieci, należy odpowiednio zmienić adres mostka platformy Docker.
 
-### <a name="configure-private-dns-zone"></a>Konfigurowanie strefy Prywatna strefa DNS
+## <a name="configure-private-dns-zone"></a>Konfigurowanie strefy Prywatna strefa DNS
 
 Aby skonfigurować strefę Prywatna strefa DNS, można użyć następujących parametrów.
 
 1. Wartość domyślna to "system". W przypadku pominięcia argumentu--Private-DNS-strefy AKS utworzy strefę Prywatna strefa DNS w grupie zasobów węzła.
 2. "Brak" oznacza, że AKS nie utworzy strefy Prywatna strefa DNS.  Wymaga to przeniesienia własnego serwera DNS i skonfigurowania rozpoznawania nazw DNS dla prywatnej nazwy FQDN.  Jeśli nie skonfigurujesz rozpoznawania nazw DNS, usługa DNS jest rozpoznawana tylko w węzłach agenta i spowoduje problemy z klastrem po wdrożeniu.
-3. "Nazwa niestandardowej prywatnej strefy DNS" powinna być w tym formacie dla chmury globalnej platformy Azure: `privatelink.<region>.azmk8s.io` . Tożsamość przypisanego użytkownika lub nazwa główna usługi muszą mieć przyznany co najmniej `private dns zone contributor` rolę do niestandardowej prywatnej strefy DNS.
+3. "Nazwa niestandardowej prywatnej strefy DNS" powinna być w tym formacie dla chmury globalnej platformy Azure: `privatelink.<region>.azmk8s.io` . Wymagany jest identyfikator zasobu tej Prywatna strefa DNS strefy.  Ponadto potrzebna jest tożsamość lub jednostka usługi przypisana przez użytkownika z co najmniej `private dns zone contributor` rolą do niestandardowej prywatnej strefy DNS.
 
-## <a name="no-private-dns-zone-prerequisites"></a>Brak wymagań wstępnych dotyczących strefy Prywatna strefa DNS
+### <a name="prerequisites"></a>Wymagania wstępne
 
-* Interfejs wiersza polecenia platformy Azure w wersji 0.4.71 lub nowszej
+* AKS wersja zapoznawcza 0.4.71 lub nowsza
 * Interfejs API w wersji 2020-11-01 lub nowszej
 
-## <a name="create-a-private-aks-cluster-with-private-dns-zone"></a>Tworzenie prywatnego klastra AKS z strefą Prywatna strefa DNS
+### <a name="create-a-private-aks-cluster-with-private-dns-zone"></a>Tworzenie prywatnego klastra AKS z strefą Prywatna strefa DNS
 
 ```azurecli-interactive
-az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --private-dns-zone [none|system|custom private dns zone]
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone [none|system|custom private dns zone ResourceId]
 ```
 ## <a name="options-for-connecting-to-the-private-cluster"></a>Opcje łączenia się z klastrem prywatnym
 
@@ -94,7 +94,7 @@ Punkt końcowy serwera interfejsu API nie ma publicznego adresu IP. Aby zarządz
 
 Najłatwiej jest utworzyć maszynę wirtualną w tej samej sieci wirtualnej, co klaster AKS.  Funkcja Express Route i sieci VPN zwiększa koszty i wymaga dodatkowej złożoności sieci.  Komunikacja równorzędna sieci wirtualnych wymaga zaplanowania zakresów CIDR sieci, aby upewnić się, że nie ma nakładających się zakresów.
 
-## <a name="virtual-network-peering"></a>Komunikacja równorzędna sieci wirtualnych
+## <a name="virtual-network-peering"></a>Komunikacja równorzędna sieci wirtualnej
 
 Jak wspomniano, Komunikacja równorzędna sieci wirtualnej jest jednym ze sposobów uzyskiwania dostępu do klastra prywatnego. Aby użyć komunikacji równorzędnej sieci wirtualnej, należy skonfigurować połączenie między siecią wirtualną i prywatną strefą DNS.
     

@@ -3,15 +3,15 @@ title: Konfigurowanie alertów metryk — Azure Portal-Azure Database for MariaD
 description: W tym artykule opisano sposób konfigurowania i uzyskiwania dostępu do alertów metryk dla Azure Database for MariaDB z Azure Portal.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: e108ca3aa346af20b31ff446130014e1250f49c0
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 1e7dafaba6b6792afdec1f1866629fac9ba5a577
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541083"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664422"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Użyj Azure Portal, aby skonfigurować alerty dotyczące metryk dla Azure Database for MariaDB
 
@@ -48,7 +48,7 @@ Można skonfigurować i uzyskać informacje o regułach alertów przy użyciu:
    
    ![Wybierz metrykę](./media/howto-alert-metric/6-configure-signal-logic.png)
 
-7. Skonfiguruj logikę alertów, łącznie z **warunkiem** (np. "Większe niż"), **próg** (np. 85 procent), **agregacja czasu** , **okres** czasu reguły metryki musi być spełniony przed wyzwalaczami alertu (np. "W ciągu ostatnich 30 minut") i **częstotliwość**.
+7. Skonfiguruj logikę alertów, łącznie z **warunkiem** (np. "Większe niż"), **próg** (np. 85 procent), **agregacja czasu**, **okres** czasu reguły metryki musi być spełniony przed wyzwalaczami alertu (np. "W ciągu ostatnich 30 minut") i **częstotliwość**.
    
    Wybierz pozycję **gotowe** po zakończeniu.
 

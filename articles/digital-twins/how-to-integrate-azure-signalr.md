@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d84acc5501b3d40f6db85d0ee6ee369aec5a6aa4
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 71e74789654d2df91d9a087eaaf8d8f2a2664f7b
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051109"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664116"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Integrowanie usługi Azure Digital bliźniaczych reprezentacji z usługą Azure Signal Service
 
@@ -40,7 +40,11 @@ Do usługi Azure Digital bliźniaczych reprezentacji zostanie dołączana usług
 
 Najpierw pobierz wymagane przykładowe aplikacje. Wymagane są obie następujące czynności:
 * [**Przykłady kompleksowej bliźniaczych reprezentacjii na platformie Azure**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/): Ten przykład zawiera *AdtSampleAppą* dwie usługi Azure Functions do przenoszenia danych wokół wystąpienia usługi Azure Digital bliźniaczych reprezentacji (informacje o tym scenariuszu można uzyskać bardziej szczegółowo w [*samouczku: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md)). Zawiera również przykładową aplikację *DeviceSimulator* , która symuluje urządzenie IoT, generując nową wartość temperatury co sekundę. 
-    - Przejdź do linku przykładowego i naciśnij przycisk *Pobierz plik zip* , aby pobrać kopię przykładu do maszyny jako _**Azure_Digital_Twins_end_to_end_samples.zip**_. Rozpakuj folder.
+    - Jeśli przykład nie został jeszcze pobrany jako część samouczka w sekcji [*wymagania wstępne*](#prerequisites), przejdź do linku przykładowego i wybierz przycisk *Przeglądaj kod* pod tytułem. Spowoduje to przejście do repozytorium GitHub dla przykładów, które można pobrać jako *. Plik ZIP* , wybierając przycisk *Code (kod* ) i Pobierz plik *zip*.
+
+    :::image type="content" source="media/includes/download-repo-zip.png" alt-text="Widok repozytorium Digital-bliźniaczych reprezentacji-Samples w witrynie GitHub. Wybrano przycisk kod, tworząc małe okno dialogowe, w którym jest wyróżniony przycisk Pobierz plik ZIP." lightbox="media/includes/download-repo-zip.png":::
+
+    Spowoduje to pobranie kopii przykładowego repozytorium do maszyny jako **digital-twins-samples-master.zip**. Rozpakuj folder.
 * [**Przykład aplikacji sieci Web do integracji sygnałów**](/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/): jest to przykładowa aplikacja sieci Web z reakcję, która będzie korzystać z danych telemetrycznych usługi Azure Digital bliźniaczych reprezentacji z usługi Azure Signal Service.
     -  Przejdź do linku przykładowego i naciśnij przycisk *Pobierz plik zip* , aby pobrać kopię przykładu do maszyny jako _**Azure_Digital_Twins_SignalR_integration_web_app_sample.zip**_. Rozpakuj folder.
 
@@ -63,7 +67,7 @@ Najpierw przejdź do przeglądarki, w której jest otwarta Azure Portal i wykona
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="Zrzut ekranu przedstawiający Azure Portal, w którym są wyświetlane strony klucze dla wystąpienia sygnalizującego. Ikona &quot;Kopiuj do schowka&quot; obok podstawowych parametrów połączenia jest wyróżniona." lightbox="media/how-to-integrate-azure-signalr/signalr-keys.png":::
 
-Następnie uruchom program Visual Studio (lub inny wybrany edytor kodu) i Otwórz rozwiązanie Code w folderze *Azure_Digital_Twins_end_to_end_samples > ADTSampleApp* . Następnie wykonaj następujące kroki, aby utworzyć funkcje:
+Następnie uruchom program Visual Studio (lub inny wybrany edytor kodu) i Otwórz rozwiązanie Code w folderze *Digital-bliźniaczych reprezentacji-Samples-master > ADTSampleApp* . Następnie wykonaj następujące kroki, aby utworzyć funkcje:
 
 1. Utwórz nową klasę Sharp języka C# o nazwie **SignalRFunctions.cs** w projekcie *SampleFunctionsApp* .
 
@@ -71,7 +75,7 @@ Następnie uruchom program Visual Studio (lub inny wybrany edytor kodu) i Otwór
     
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/signalRFunction.cs":::
 
-1. W oknie *konsola Menedżera pakietów* programu Visual Studio lub dowolnym oknie poleceń na komputerze w folderze *Azure_Digital_Twins_end_to_end_samples \adtsampleapp\samplefunctionsapp* Uruchom następujące polecenie, aby zainstalować `SignalRService` pakiet NuGet w projekcie:
+1. W oknie *konsola Menedżera pakietów* programu Visual Studio lub dowolnym oknie poleceń na komputerze w folderze *Digital-Twins-Samples-master\AdtSampleApp\SampleFunctionsApp* Uruchom następujące polecenie, aby zainstalować `SignalRService` pakiet NuGet w projekcie:
     ```cmd
     dotnet add package Microsoft.Azure.WebJobs.Extensions.SignalRService --version 1.2.0
     ```
@@ -126,7 +130,7 @@ W tej sekcji zobaczysz wynik działania. Najpierw utworzysz **przykładową apli
 
 W ramach kompleksowego wymagania wstępnego samouczka [skonfigurowano symulator urządzenia](tutorial-end-to-end.md#configure-and-run-the-simulation) do wysyłania danych za pomocą IoT Hub i do wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
 
-Teraz wystarczy uruchomić projekt symulatora znajdujący się w *Azure_Digital_Twins_end_to_end_samples > DeviceSimulator > DeviceSimulator. sln*. Jeśli używasz programu Visual Studio, możesz otworzyć projekt, a następnie uruchomić go za pomocą tego przycisku na pasku narzędzi:
+Teraz wystarczy uruchomić projekt symulatora znajdujący się w formacie *Digital-bliźniaczych reprezentacji-Samples-master > DeviceSimulator > DeviceSimulator. sln*. Jeśli używasz programu Visual Studio, możesz otworzyć projekt, a następnie uruchomić go za pomocą tego przycisku na pasku narzędzi:
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/start-button-simulator.png" alt-text="Przycisk Start programu Visual Studio (projekt DeviceSimulator)":::
 
@@ -188,7 +192,7 @@ Korzystając z Azure Cloud Shell lub lokalnego interfejsu wiersza polecenia plat
 az group delete --name <your-resource-group>
 ```
 
-Na koniec Usuń foldery Przykładowe projektu pobrane do komputera lokalnego (*Azure_Digital_Twins_end_to_end_samples.zip* i *Azure_Digital_Twins_SignalR_integration_web_app_sample.zip*).
+Na koniec Usuń foldery Przykładowe projektu pobrane do komputera lokalnego (*digital-twins-samples-master.zip* i *Azure_Digital_Twins_SignalR_integration_web_app_sample.zip*).
 
 ## <a name="next-steps"></a>Następne kroki
 

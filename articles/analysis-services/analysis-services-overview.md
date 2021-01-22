@@ -4,16 +4,16 @@ description: Dowiedz się więcej o Azure Analysis Services — w pełni zarząd
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 01/07/2021
+ms.date: 01/20/2021
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: c4a14ab1e5b52eb36a532c6d69713d588864d288
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 542b1ed96025f6bd40cd4da766b434dde3569c25
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019078"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98663778"
 ---
 # <a name="what-is-azure-analysis-services"></a>Co to są usługi Azure Analysis Services?
 
@@ -81,8 +81,9 @@ Usługa Azure Analysis Services jest obsługiwana w regionach na całym świecie
 
 |Region (Region)  | Obsługiwane plany | Repliki zapytania (tylko plany Standard) |
 |---------|---------|:---------:|
-|Brazil South     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
+|Brazylia Południowa     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Kanada Środkowa    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
+|Kanada Środkowa     |     S8v2, S9v2   |    1    |
 |East US     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
 |Wschodnie stany USA 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
 |Wschodnie stany USA 2     |     S8v2, S9v2   |    1    |
@@ -115,8 +116,8 @@ Usługa Azure Analysis Services jest obsługiwana w regionach na całym świecie
 |Australia Wschodnia     |    B1, B2, S0, S1, S2, S4     |    3     |
 |Australia Wschodnia     |    S8v2, S9v2    |    1     |
 |Australia Południowo-Wschodnia     | B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Japan East     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Japan East     |    S8v2, S9v2    |    1     |
+|Japonia Wschodnia     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Japonia Wschodnia     |    S8v2, S9v2    |    1     |
 |Southeast Asia     |     B1, B2, S0, S1, S2, S4, D1     |   1      |
 |Southeast Asia     |     S8v2, S9v2     |   1      |
 |Indie Zachodnie     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
@@ -170,7 +171,7 @@ Na poziomie serwera usługi Analysis Services oferują zaporę, uwierzytelnianie
 
 Zapora usługi Azure Analysis Services blokuje wszystkie połączenia klienta inne niż adresy IP określone w regułach. Domyślnie ochrona za pomocą zapory nie jest włączana w przypadku nowych serwerów. Zalecane jest włączenie ochrony za pomocą zapory i skonfigurowanie zasad w ramach skryptu inicjowania obsługi serwera lub w portalu natychmiast po utworzeniu serwera. Skonfiguruj reguły, określając dozwolone adresy IP przy użyciu poszczególnych adresów IP klientów lub zakresu. Połączenia usługi Power BI również mogą być dozwolone lub zablokowane. Zaporę i reguły należy skonfigurować w portalu lub przy użyciu programu PowerShell. Aby dowiedzieć się więcej, zobacz [Configure a server firewall](analysis-services-qs-firewall.md) (Konfigurowanie zapory serwera).
 
-### <a name="authentication"></a>Uwierzytelnianie
+### <a name="authentication"></a>Authentication
 
 Uwierzytelnianie użytkownika jest obsługiwane przez usługę [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md). Podczas logowania użytkownicy korzystają z tożsamości konta organizacji z dostępem do bazy danych opartym na rolach. Tożsamości użytkowników muszą być członkami domyślnej usługi Azure Active Directory dla subskrypcji, w której znajduje się serwer. Aby dowiedzieć się więcej, zobacz [Authentication and user permissions (Uwierzytelnianie i uprawnienia użytkownika)](analysis-services-manage-users.md).
 

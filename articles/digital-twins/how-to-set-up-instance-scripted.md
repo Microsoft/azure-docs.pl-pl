@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1667c21b9a35b8e93feffb8cf1b37d4409da73c3
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 1552401953a8cba9dda787a0f0e461adb7972920
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044309"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664456"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Konfigurowanie wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji (skrypty)
 
@@ -29,11 +29,13 @@ Ta wersja tego artykułu wykonuje te kroki, uruchamiając przykładowy [ **skryp
 
 ## <a name="prerequisites-download-the-script"></a>Wymagania wstępne: pobieranie skryptu
 
-Przykładowy skrypt jest zapisywana w programie PowerShell. Jest ona częścią [**kompleksowych przykładowych bliźniaczych reprezentacji na platformie Azure**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), które można pobrać na maszynę, przechodząc do tego linku, a następnie wybierając przycisk *Pobierz zip* poniżej tytułu.
+Przykładowy skrypt jest zapisywana w programie PowerShell. Jest ona częścią [**kompleksowych przykładowych bliźniaczych reprezentacji na platformie Azure**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), które można pobrać na maszynę, przechodząc do tego linku, a następnie wybierając przycisk *Przeglądaj kod* poniżej tytułu. Spowoduje to przejście do repozytorium GitHub dla przykładów, które można pobrać jako *. Plik ZIP* , wybierając przycisk *Code (kod* ) i Pobierz plik *zip*.
 
-Spowoduje to pobranie przykładowego projektu do maszyny jako _**Azure_Digital_Twins_end_to_end_samples.zip**_. Przejdź do folderu na swoim komputerze i rozpakuj go, aby wyodrębnić pliki.
+:::image type="content" source="media/includes/download-repo-zip.png" alt-text="Widok repozytorium Digital-bliźniaczych reprezentacji-Samples w witrynie GitHub. Wybrano przycisk kod, tworząc małe okno dialogowe, w którym jest wyróżniony przycisk Pobierz plik ZIP." lightbox="media/includes/download-repo-zip.png":::
 
-W folderze rozpakowanym skrypt wdrożenia znajduje się w _Azure_Digital_Twins_end_to_end_samples > skrypty > **deploy.ps1**_.
+Spowoduje to pobranie *. Folder ZIP* na maszynę jako **digital-twins-samples-master.zip**. Przejdź do folderu na swoim komputerze i rozpakuj go, aby wyodrębnić pliki.
+
+W folderze rozpakowanym skrypt wdrożenia znajduje się w _> bliźniaczych reprezentacjiych > **deploy.ps1**_.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -56,7 +58,7 @@ Poniżej przedstawiono procedurę uruchamiania skryptu wdrażania w Cloud Shell.
 
     :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Okno Cloud Shell pokazujące wybór ikony przekazywania":::
 
-    Przejdź do pliku _**deploy.ps1**_ na komputerze (w _Azure_Digital_Twins_end_to_end_samples > skrypty > **deploy.ps1**_) i naciśnij klawisz "Otwórz". Spowoduje to przekazanie pliku do Cloud Shell, aby można było uruchomić go w oknie Cloud Shell.
+    Przejdź do pliku _**deploy.ps1**_ na swojej maszynie (w formacie _Digital-bliźniaczych reprezentacji-Samples-Master > scripts > **deploy.ps1**_) i naciśnij pozycję "Otwórz". Spowoduje to przekazanie pliku do Cloud Shell, aby można było uruchomić go w oknie Cloud Shell.
 
 4. Uruchom skrypt, wysyłając `./deploy.ps1` polecenie w oknie Cloud Shell. Możesz skopiować poniższe polecenie (odwołaj się do Cloud Shell, możesz użyć **klawiszy Ctrl + Shift + v** w systemach Windows i Linux lub **cmd + Shift + v** w macOS. Możesz również użyć menu po kliknięciu prawym przyciskiem myszy.
 
@@ -102,7 +104,7 @@ Ta strona zawiera listę wszystkich wystąpień usługi Azure Digital bliźniacz
 
 Jeśli weryfikacja nie powiodła się, można ponowić próbę utworzenia wystąpienia przy użyciu [portalu](how-to-set-up-instance-portal.md#create-the-azure-digital-twins-instance) lub [interfejsu wiersza polecenia](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance).
 
-### <a name="collect-instance-values"></a>Zbierz wartości wystąpień
+### <a name="collect-instance-values"></a>Uzyskanie wartości wystąpienia
 
 Wybierz nazwę wystąpienia ze [strony Digital bliźniaczych reprezentacji systemu Azure](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances) , aby otworzyć stronę *omówienia* tego wystąpienia. Zanotuj jego *nazwę*, *grupę zasobów* i *nazwę hosta*. Może być potrzebne później do zidentyfikowania wystąpienia i nawiązania z nim połączenia.
 

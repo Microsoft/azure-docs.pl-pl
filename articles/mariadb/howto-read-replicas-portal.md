@@ -3,15 +3,15 @@ title: Zarządzanie replikami odczytu — Azure Database for MariaDB Azure Porta
 description: W tym artykule opisano sposób konfigurowania replik odczytu i zarządzania nimi w Azure Database for MariaDB przy użyciu portalu
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 6/10/2020
-ms.openlocfilehash: 3ca6ef3c368a5f578cc90fae3923caa89f3b076a
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: fa2afdccf9c8bd6ec7f5808674e6eec968838d10
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94537751"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98665008"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>Tworzenie replik odczytu i zarządzanie nimi w Azure Database for MariaDB przy użyciu Azure Portal
 
@@ -31,7 +31,7 @@ W tym artykule przedstawiono sposób tworzenia replik odczytu i zarządzania nim
 
 Serwer repliki odczytu można utworzyć, wykonując następujące czynności:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
 
 2. Wybierz istniejący serwer Azure Database for MariaDB, który ma być używany jako główny. Ta akcja powoduje otwarcie strony **Przegląd** .
 
@@ -122,7 +122,7 @@ Aby usunąć serwer źródłowy z Azure Portal, wykonaj następujące czynności
 
 1. W [Azure Portal](https://portal.azure.com/)wybierz serwer repliki Azure Database for MariaDB, który chcesz monitorować.
 
-2. W sekcji **monitorowanie** na pasku bocznym wybierz pozycję **metryki** :
+2. W sekcji **monitorowanie** na pasku bocznym wybierz pozycję **metryki**:
 
 3. Wybierz pozycję **opóźnienie replikacji w sekundach** z listy rozwijanej dostępnych metryk.
 

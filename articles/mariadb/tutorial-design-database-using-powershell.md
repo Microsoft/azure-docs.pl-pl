@@ -3,17 +3,17 @@ title: 'Samouczek: projektowanie serwera Azure PowerShell-Azure Database for Mar
 description: W tym samouczku wyjaśniono, jak utworzyć serwer Azure Database for MariaDB i bazę danych oraz zarządzać nim przy użyciu programu PowerShell.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 05/26/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 9b4500df459e4d4ef67f97dc4fa923988f30401b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 56d901ad05aa589ecf7f2ae97251be2b853f6c55
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023095"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664505"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-powershell"></a>Samouczek: projektowanie Azure Database for MariaDB przy użyciu programu PowerShell
 

@@ -3,15 +3,15 @@ title: Powiadomienie o planowanej konserwacji — Azure Database for MariaDB
 description: W tym artykule opisano funkcję powiadomień o planowanej konserwacji w Azure Database for MariaDB
 author: ambhatna
 ms.author: ambhatna
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: c290236dfe7e88999847f8cb0d66b2d3c868c1ab
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a206d108b0935836fbc1cd5b7a1987dcf4e4725b
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96453294"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664269"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mariadb"></a>Powiadomienie o planowanej konserwacji w Azure Database for MariaDB
 

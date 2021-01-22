@@ -3,15 +3,15 @@ title: Serwery — Azure Database for MariaDB
 description: W tym temacie przedstawiono zagadnienia i wytyczne dotyczące pracy z serwerami Azure Database for MariaDB.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 4d8293258083ea3e8d0172f510e5b41e91328736
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: abe17556d9ff62c44a33bfe4c4546a284785522e
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541066"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664133"
 ---
 # <a name="server-concepts-in-azure-database-for-mariadb"></a>Pojęcia dotyczące serwerów w Azure Database for MariaDB
 W tym artykule przedstawiono zagadnienia i wytyczne dotyczące pracy z serwerami Azure Database for MariaDB.
@@ -63,6 +63,6 @@ Serwerami Azure Database for MariaDB można zarządzać przy użyciu Azure Porta
 
 ## <a name="next-steps"></a>Następne kroki
 - Aby zapoznać się z omówieniem usługi, zobacz [Azure Database for MariaDB przegląd](./overview.md)
-- Aby uzyskać informacje na temat konkretnych przydziałów zasobów i ograniczeń na podstawie **warstwy usług** , zobacz [warstwy usług](./concepts-pricing-tiers.md)
+- Aby uzyskać informacje na temat konkretnych przydziałów zasobów i ograniczeń na podstawie **warstwy usług**, zobacz [warstwy usług](./concepts-pricing-tiers.md)
 
 <!-- - For information about connecting to the service, see [Connection libraries for Azure Database for MariaDB](./concepts-connection-libraries.md). -->

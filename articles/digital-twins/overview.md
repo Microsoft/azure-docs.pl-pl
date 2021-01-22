@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 49b7bae1a0cc224b92f292b891fae210f2cffa4e
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 91915f204a68d59a603b8bdea383b497a5b33d34
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400611"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664031"
 ---
 # <a name="what-is-azure-digital-twins"></a>Co to jest usługa Azure Digital Twins?
 
@@ -34,13 +34,15 @@ W usłudze Azure Digital bliźniaczych reprezentacji definiujemy jednostki cyfro
 
 Można traktować te definicje modeli jako wyspecjalizowane słownictwo do opisywania firmy. Na przykład w przypadku rozwiązania do zarządzania kompilowaniem można definiować modele takie jak "budynek", "piętro" i "windka". Następnie można utworzyć **cyfrowy bliźniaczych reprezentacji** na podstawie tych modeli do reprezentowania określonego środowiska.
 
+[!INCLUDE [digital-twins-versus-device-twins](../../includes/digital-twins-versus-device-twins.md)]
+
 Modele są zdefiniowane w języku podobnym do notacji JSON o nazwie [Digital bliźniaczych reprezentacji Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)i opisują bliźniaczych reprezentacji pod względem właściwości stanu, zdarzeń telemetrii, poleceń, składników i relacji.
 * Modele definiują **relacje** semantyczne między swoimi obiektami, aby można było połączyć bliźniaczych reprezentacji z grafem wiedzy, który odzwierciedla ich interakcje. Modele można traktować jako rzeczowniki w opisie świata i relacje jako czasowniki.
 * Możesz również specjalizacji bliźniaczych reprezentacji przy użyciu dziedziczenia modelu. Jeden model może dziedziczyć z innego.
 
 DTDL jest używany dla modeli danych w innych usługach Azure IoT, w tym [Plug and Play IoT (PNP)](../iot-pnp/overview-iot-plug-and-play.md) i [Time Series Insights (TSI)](../time-series-insights/overview-what-is-tsi.md). Dzięki temu można zapewnić łączność i zgodność rozwiązania Azure Digital bliźniaczych reprezentacji z innymi częściami ekosystemu platformy Azure.
 
-### <a name="live-execution-environment"></a>Środowisko wykonywania na żywo
+### <a name="live-execution-environment"></a>Środowisko wykonawcze na żywo
 
 Modele cyfrowe w usłudze Azure Digital bliźniaczych reprezentacji są na bieżąco z aktualnymi reprezentacjami świata rzeczywistego. Korzystając z relacji w niestandardowych modelach DTDL, nastąpi połączenie bliźniaczych reprezentacji do **grafu na żywo** reprezentującego Twoje środowisko.
 
@@ -67,11 +69,11 @@ Możesz także dyskować usługę Azure Digital bliźniaczych reprezentacji z in
 Dane w modelu Digital bliźniaczych reprezentacji na platformie Azure mogą być kierowane do usług platformy Azure w sieci podrzędnej w celu uzyskania dodatkowej analizy lub magazynu. Jest to zapewniane za pomocą **tras zdarzeń**, które używają [centrum zdarzeń](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md)lub [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) do kierowania żądanych przepływów danych.
 
 Oto kilka rzeczy, które można wykonywać za pomocą tras zdarzeń:
-* Przechowywanie danych usługi Azure Digital bliźniaczych reprezentacji w [Azure Data Lake](../storage/blobs/data-lake-storage-introduction.md)
-* Analizowanie danych usługi Azure Digital bliźniaczych reprezentacji za pomocą [usługi Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)lub innych narzędzi do analizy danych firmy Microsoft
-* Integrowanie większych przepływów pracy z Logic Apps
+* Przechowywanie danych usługi Azure Digital Twins w usłudze [Azure Data Lake](../storage/blobs/data-lake-storage-introduction.md)
+* Analizowanie danych usługi Azure Digital Twins za pomocą usługi [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) lub innych narzędzi do analizy danych firmy Microsoft
+* Integrowanie większych przepływów pracy z usługą Logic Apps
 * Łączenie usługi Azure Digital bliźniaczych reprezentacji w celu Time Series Insights śledzenia historii poszczególnych sznurów czasowych
-* Wyrównywanie modelu szeregów czasowych w Time Series Insights ze źródłem w usłudze Azure Digital bliźniaczych reprezentacji
+* Wyrównywanie modelu szeregów czasowych w usłudze Time Series Insights ze źródłem w usłudze Azure Digital Twins
 
 Jest to inny sposób, w jaki usługa Azure Digital bliźniaczych reprezentacji może łączyć się z większym rozwiązaniem i wspierać niestandardowe potrzeby w zakresie ciągłego działania z tymi informacjami.
 

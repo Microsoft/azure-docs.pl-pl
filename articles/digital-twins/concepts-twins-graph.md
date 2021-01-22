@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d9a6eb572b1ab870fdb848f8b0989f88e6dbc3c0
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: a4875c2c75b133f0ab4046266d6aac36d5478fe4
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045958"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664048"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Informacje na temat bliźniaczych reprezentacji cyfrowych i ich bliźniaczych wykresów
 
@@ -25,7 +25,9 @@ W rozwiązaniu Digital bliźniaczych reprezentacji na platformie Azure jednostki
 
 Aby można było utworzyć dwuosiową cyfrę w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji, musisz mieć *model* przekazany do usługi. Model opisuje zestaw właściwości, wiadomości telemetrycznych i relacje, które mogą mieć poszczególne sznurki, między innymi. Aby uzyskać informacje o typach informacji, które są zdefiniowane w modelu, zobacz [*pojęcia: modele niestandardowe*](concepts-models.md).
 
-Po utworzeniu i przekazaniu modelu aplikacja kliencka może utworzyć wystąpienie typu; to jest dwuosiowa cyfra. Na przykład po utworzeniu modelu *podłogi* można utworzyć jedną lub kilka bliźniaczych reprezentacji cyfrowych, które używają tego typu (takich jak sznury typu *podłogi* o nazwie *GroundFloor*, inne o nazwie *Floor2* itp.). 
+Po utworzeniu i przekazaniu modelu aplikacja kliencka może utworzyć wystąpienie typu; to jest dwuosiowa cyfra. Na przykład po utworzeniu modelu *podłogi* można utworzyć jedną lub kilka bliźniaczych reprezentacji cyfrowych, które używają tego typu (takich jak sznury typu *podłogi* o nazwie *GroundFloor*, inne o nazwie *Floor2* itp.).
+
+[!INCLUDE [digital-twins-versus-device-twins](../../includes/digital-twins-versus-device-twins.md)]
 
 ## <a name="relationships-a-graph-of-digital-twins"></a>Relacje: wykres Digital bliźniaczych reprezentacji
 
@@ -41,7 +43,7 @@ Wynikiem tego procesu jest zestaw węzłów (Digital bliźniaczych reprezentacji
 
 W tej sekcji pokazano, jak wygląda sposób tworzenia cyfrowych bliźniaczych reprezentacji i relacji z aplikacji klienckiej. Zawiera przykłady kodu platformy .NET, które wykorzystują [interfejsy API DigitalTwins](/rest/api/digital-twins/dataplane/twins), aby zapewnić dodatkowy kontekst dotyczący tego, co się znajduje w ramach każdego z tych koncepcji.
 
-### <a name="create-digital-twins"></a>Utwórz cyfrowy bliźniaczych reprezentacji
+### <a name="create-digital-twins"></a>Tworzenie cyfrowych reprezentacji bliźniaczych
 
 Poniżej znajduje się fragment kodu klienta, który używa [interfejsów API DigitalTwins](/rest/api/digital-twins/dataplane/twins) do tworzenia wycinków typu *pokoju*.
 
@@ -54,7 +56,7 @@ Można również użyć klasy pomocnika `BasicDigitalTwin` do przechowywania pó
 >[!NOTE]
 >Gdy właściwości dwuosiowe są traktowane jako opcjonalne i nie trzeba ich inicjować, wszelkie [składniki](concepts-models.md#elements-of-a-model) **na przędze** muszą być ustawione podczas tworzenia sznurka. Mogą być pustymi obiektami, ale same składniki muszą istnieć.
 
-### <a name="create-relationships"></a>Utwórz relacje
+### <a name="create-relationships"></a>Tworzenie relacji
 
 Poniżej przedstawiono przykładowy kod klienta korzystający z [interfejsów API DigitalTwins](/rest/api/digital-twins/dataplane/twins) do tworzenia relacji między cyframi cyfrowymi typu *podłogi* o nazwie *GroundFloor* i sznurem cyfrowym typu *Room* o nazwie *Cafe*.
 

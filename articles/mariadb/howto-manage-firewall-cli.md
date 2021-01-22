@@ -3,17 +3,17 @@ title: Zarządzanie regułami zapory — interfejs wiersza polecenia platformy A
 description: W tym artykule opisano sposób tworzenia reguł zapory Azure Database for MariaDB przy użyciu wiersza polecenia platformy Azure i zarządzania nimi.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ef04e2b4c820c14ea7df6c35ecb0189ef31ef7dc
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: f4ae1f3b736f6d263b8d769e241d969d058a69f4
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540904"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98665042"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-cli"></a>Tworzenie reguł zapory Azure Database for MariaDB i zarządzanie nimi za pomocą interfejsu wiersza polecenia platformy Azure
 Reguły zapory na poziomie serwera mogą służyć do zarządzania dostępem do serwera Azure Database for MariaDB z określonego adresu IP lub zakresu adresów IP. Korzystając z wygodnych poleceń interfejsu wiersza polecenia platformy Azure, można tworzyć, aktualizować, usuwać i wyświetlać reguły zapory w celu zarządzania serwerem. Aby zapoznać się z omówieniem zapór Azure Database for MariaDB, zobacz [reguły zapory Azure Database for MariaDB Server](./concepts-firewall-rules.md).
@@ -28,11 +28,11 @@ Reguły Virtual Network (VNet) mogą również służyć do zabezpieczania dost�
 Polecenie **AZ MariaDB Server firewall-Rule** jest używane w interfejsie wiersza polecenia platformy Azure do tworzenia, usuwania, wyświetlania i aktualizowania reguł zapory.
 
 Polecenia:
-- **Tworzenie** : Tworzenie reguły zapory serwera usługi Azure MariaDB.
-- **usuwanie** : Usuwanie reguły zapory serwera usługi Azure MariaDB.
-- **Lista** : Lista reguł zapory serwera usługi Azure MariaDB.
-- **Pokaż** : pokazuje szczegóły reguły zapory serwera usługi Azure MariaDB.
-- **Aktualizacja** : aktualizowanie reguły zapory serwera usługi Azure MariaDB.
+- **Tworzenie**: Tworzenie reguły zapory serwera usługi Azure MariaDB.
+- **usuwanie**: Usuwanie reguły zapory serwera usługi Azure MariaDB.
+- **Lista**: Lista reguł zapory serwera usługi Azure MariaDB.
+- **Pokaż**: pokazuje szczegóły reguły zapory serwera usługi Azure MariaDB.
+- **Aktualizacja**: aktualizowanie reguły zapory serwera usługi Azure MariaDB.
 
 ## <a name="sign-in-to-azure-and-list-your-azure-database-for-mariadb-servers"></a>Zaloguj się do platformy Azure i wystaw serwery Azure Database for MariaDB
 Bezpiecznie łącz interfejs wiersza polecenia platformy Azure z kontem platformy Azure za pomocą polecenia **AZ login** .

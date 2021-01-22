@@ -4,18 +4,18 @@ description: Informacje na temat włączania i wyświetlania dzienników dla wę
 services: container-service
 ms.topic: article
 ms.date: 10/14/2020
-ms.openlocfilehash: 59e7259ae352491bddebe054f2c34bdc810ea48a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5f0a01adfabe59542fa999af3103a9394f4dd77b
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183230"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664082"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Włączanie i wyświetlanie dzienników węzła master platformy Kubernetes w usłudze Azure Kubernetes Service
 
 Dzięki usłudze Azure Kubernetes Service (AKS) główne składniki, takie jak *polecenia-apiserver* i *polecenia-Manager* , są udostępniane jako usługa zarządzana. Można tworzyć węzły, które uruchamiają *kubelet* i środowisko uruchomieniowe kontenera, oraz zarządzać nimi, a następnie wdrażać aplikacje za pomocą zarządzanego serwera interfejsu API Kubernetes. Aby pomóc w rozwiązywaniu problemów dotyczących aplikacji i usług, może być konieczne wyświetlenie dzienników generowanych przez te składniki główne. W tym artykule pokazano, jak używać dzienników Azure Monitor do włączania i wykonywania zapytań dotyczących dzienników ze składników głównych Kubernetes.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Ten artykuł wymaga istniejącego klastra AKS uruchomionego na Twoim koncie platformy Azure. Jeśli nie masz jeszcze klastra AKS, utwórz go przy użyciu [interfejsu wiersza polecenia platformy Azure][cli-quickstart] lub [Azure Portal][portal-quickstart]. Dzienniki Azure Monitor działają zarówno w przypadku Kubernetes RBAC, jak i kontroli RBAC platformy Azure, a nie z obsługą kontroli RBAC.
 
@@ -53,6 +53,8 @@ kind: Pod
 metadata:
   name: nginx
 spec:
+  nodeSelector:
+    "beta.kubernetes.io/os": linux
   containers:
   - name: mypod
     image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine

@@ -3,15 +3,15 @@ title: Konfiguracja protokołu TLS — Azure Portal — Azure Database for Maria
 description: Dowiedz się, jak skonfigurować konfigurację protokołu TLS przy użyciu Azure Portal dla Azure Database for MariaDB
 author: mksuni
 ms.author: sumuth
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 06/02/2020
-ms.openlocfilehash: 55a664ceb3524a0c545e037dcba7a2af90034ad4
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: b4e167714ffccd20b4628fd21fb6b284d5400112
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241988"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664770"
 ---
 # <a name="configuring-tls-settings-in-azure-database-for-mariadb-using-azure-portal"></a>Konfigurowanie ustawień protokołu TLS w Azure Database for MariaDB przy użyciu Azure Portal
 
@@ -37,7 +37,7 @@ Wykonaj następujące kroki, aby ustawić minimalną wersję protokołu TLS dla 
 
     ![Konfiguracja protokołu TLS Azure Database for MariaDB](./media/howto-tls-configurations/tls-configurations.png)
 
-1. Kliknij przycisk **Zapisz** , aby zapisać zmiany.
+1. Kliknij przycisk **Zapisz**, aby zapisać zmiany.
 
 1. Powiadomienie zostanie potwierdzone, że ustawienie zabezpieczeń połączenia zostało pomyślnie włączone.
 

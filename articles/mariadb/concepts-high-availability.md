@@ -3,15 +3,15 @@ title: Wysoka dostępność — Azure Database for MariaDB
 description: Ten artykuł zawiera informacje o wysokiej dostępności w Azure Database for MariaDB
 author: mksuni
 ms.author: sumuth
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: 4dcb1ac7ce4b468374993c11578bce553f766a42
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: dc37474a56ddb7d2c48c7acfce881fb812f0b8a4
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241348"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664337"
 ---
 # <a name="high-availability-in-azure-database-for-mariadb"></a>Wysoka dostępność w Azure Database for MariaDB
 Usługa Azure Database for MariaDB zapewnia gwarantowany wysoki poziom dostępności dzięki finansowej umowie dotyczącej poziomu usług (SLA) wynoszącej [99,99%](https://azure.microsoft.com/support/legal/sla/MariaDB) czasu. Azure Database for MariaDB zapewnia wysoką dostępność podczas planowanych zdarzeń, takich jak operacja obliczeniowa initated przez użytkownika, a także w przypadku nieplanowanych zdarzeń, takich jak podstawowy sprzęt, oprogramowanie lub awarie sieci. Azure Database for MariaDB możliwość szybkiego odzyskania sprawności od najbardziej krytycznych okoliczności, co gwarantuje praktycznie brak aplikacji podczas korzystania z tej usługi.
@@ -24,7 +24,7 @@ Azure Database for MariaDB jest odpowiednia do uruchamiania krytycznych baz dany
 | ------------ | ----------- |
 | <b>Serwer bazy danych MariaDB | Azure Database for MariaDB zapewnia zabezpieczenia, izolację, zabezpieczenia zasobów i funkcję szybkiego ponownego uruchamiania dla serwerów baz danych. Te funkcje ułatwiają wykonywanie operacji, takich jak skalowanie i odzyskiwanie serwera bazy danych, po awarii w kilka sekund. <br/> Modyfikacje danych na serwerze bazy danych zwykle występują w kontekście transakcji bazy danych. Wszystkie zmiany bazy danych są rejestrowane synchronicznie w postaci zapisu z wyprzedzeniem (ib_log) w usłudze Azure Storage, która jest dołączona do serwera bazy danych. Podczas procesu tworzenia [punktu kontrolnego](https://mariadb.com/kb/innodb-redo-log/#checkpoints) bazy danych strony danych z pamięci serwera bazy danych są również opróżniane do magazynu. |
 | <b>Magazyn zdalny | Wszystkie MariaDB fizyczne pliki danych i pliki dziennika są przechowywane w usłudze Azure Storage, która jest poddana architekturze w celu przechowywania trzech kopii danych w obrębie regionu w celu zapewnienia nadmiarowości, dostępności i niezawodności danych. Warstwa magazynowania jest również niezależna od serwera bazy danych. Można go odłączyć od nieuszkodzonego serwera bazy danych i ponownie dołączyć do nowego serwera bazy danych w ciągu kilku sekund. Ponadto usługa Azure Storage ciągle monitoruje się pod kątem błędów magazynu. W przypadku wykrycia uszkodzenia bloku zostanie ono automatycznie naprawione przez utworzenie wystąpienia nowej kopii magazynu. |
-| <b>Punkt | Brama działa jako serwer proxy bazy danych, przekierowuje wszystkie połączenia klientów do serwera bazy danych. |
+| <b>Brama | Brama działa jako serwer proxy bazy danych, przekierowuje wszystkie połączenia klientów do serwera bazy danych. |
 
 ## <a name="planned-downtime-mitigation"></a>Planowane ograniczenie przestoju
 Azure Database for MariaDB jest zaprojektowany w celu zapewnienia wysokiej dostępności podczas planowanych operacji przestojów. 

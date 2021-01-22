@@ -4,12 +4,12 @@ description: Opisuje, w jaki sposób używać Service Bus do optymalizowania wyd
 ms.topic: article
 ms.date: 01/15/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7bfff1a31365724ed1d1cb6ff1956a4e2ef4f4c0
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 70f2fe88cf363572bcbca71115ba08dc0ed10e6d
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539436"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664702"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Najlepsze rozwiązania dotyczące zwiększania wydajności przy użyciu komunikatów usługi Service Bus
 
@@ -150,8 +150,8 @@ static Task ErrorHandler(ProcessErrorEventArgs args)
 
 static async Task MessageHandler(ProcessMessageEventArgs args)
 {
-Console.WriteLine("Handle message");
-      await args.CompleteMessageAsync(args.Message);
+    Console.WriteLine("Handle message");
+    await args.CompleteMessageAsync(args.Message);
 }
 
 await processor.StartProcessingAsync();
@@ -234,7 +234,7 @@ Funkcja przetwarzania wsadowego dla zestawu SDK .NET Standard nie uwidacznia jes
 
 Domyślnie klient używa interwału partii 20 ms. Możesz zmienić interwał partii, ustawiając właściwość [BatchFlushInterval][BatchFlushInterval] przed utworzeniem fabryki komunikatów. To ustawienie ma wpływ na wszystkich klientów utworzonych przez tę fabrykę.
 
-Aby wyłączyć tworzenie partii, ustaw właściwość [BatchFlushInterval][BatchFlushInterval] na **TimeSpan. zero**. Na przykład:
+Aby wyłączyć tworzenie partii, ustaw właściwość [BatchFlushInterval][BatchFlushInterval] na **TimeSpan. zero**. Przykład:
 
 ```csharp
 var settings = new MessagingFactorySettings
@@ -346,6 +346,8 @@ Aby uzyskać więcej informacji, zobacz następujące `PrefetchCount` Właściwo
 
 - [ServiceBusReceiver.PrefetchCount](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.prefetchcount)
 - [ServiceBusProcessor.PrefetchCount](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.prefetchcount)
+
+Wartości tych właściwości można ustawić w [ServiceBusReceiverOptions](/dotnet/api/azure.messaging.servicebus.servicebusreceiveroptions) lub [ServiceBusProcessorOptions](/dotnet/api/azure.messaging.servicebus.servicebusprocessoroptions).
 
 # <a name="microsoftazureservicebus-sdk"></a>[Zestaw SDK Microsoft. Azure. ServiceBus](#tab/net-standard-sdk)
 

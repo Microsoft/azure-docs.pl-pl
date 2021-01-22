@@ -3,16 +3,16 @@ title: 'Szybki Start: łączenie MySQL Workbench — Azure Database for MariaDB'
 description: Ten przewodnik Szybki start zawiera działania umożliwiające wykorzystywanie aplikacji MySQL Workbench do łączenia z danymi usługi Azure Database for MariaDB i wykonywania zapytań względem nich.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 3/18/2020
-ms.openlocfilehash: 209c793903f1f706fc27102a783aa76e65382fcd
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: f4426e1d1b22c521dc436dc7e304d57e57b1812c
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541100"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664388"
 ---
 # <a name="quickstart-azure-database-for-mariadb-use-mysql-workbench-to-connect-and-query-data"></a>Szybki Start: Azure Database for MariaDB: używanie programu MySQL Workbench do nawiązywania połączeń i wykonywania zapytań dotyczących danych
 
@@ -35,7 +35,7 @@ Pobierz informacje o połączeniu wymagane do nawiązania połączenia z wystąp
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-2. W menu po lewej stronie w witrynie Azure Portal wybierz pozycję **Wszystkie zasoby**. Wyszukaj utworzony serwer (taki jak **mydemoserver** ).
+2. W menu po lewej stronie w witrynie Azure Portal wybierz pozycję **Wszystkie zasoby**. Wyszukaj utworzony serwer (taki jak **mydemoserver**).
 
 3. Wybierz nazwę serwera.
 
@@ -64,7 +64,7 @@ Aby nawiązać połączenie z serwerem usługi Azure Database for MariaDB przy u
 
 3. Wybierz pozycję **Test Connection** (Testuj połączenie), aby sprawdzić, czy wszystkie parametry zostały poprawnie skonfigurowane. 
 
-4. Wybierz pozycję **OK** , aby zapisać połączenie. 
+4. Wybierz pozycję **OK**, aby zapisać połączenie. 
 
 5. W obszarze **Połączenia programu MySQL** wybierz kafelek odpowiadający używanemu serwerowi. Poczekaj na nawiązanie połączenia.
 

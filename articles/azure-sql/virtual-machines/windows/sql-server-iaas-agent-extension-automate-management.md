@@ -17,12 +17,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7ddc13306f4adb1730169c4811b9d2227dedca33
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 481a4ff21c361e4cf82a21d9e98357a4c8b7b1b4
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632770"
+ms.locfileid: "98663676"
 ---
 # <a name="automate-management-with-the-sql-server-iaas-agent-extension"></a>Automatyzowanie zarządzania przy użyciu rozszerzenia agenta SQL Server IaaS
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,7 +34,7 @@ Ten artykuł zawiera Omówienie rozszerzenia. Aby zainstalować rozszerzenie SQL
 
 ## <a name="overview"></a>Omówienie
 
-SQL Server rozszerzenia agenta IaaS zapewnia szereg korzyści dla SQL Server na maszynach wirtualnych platformy Azure: 
+Rozszerzenie Agent SQL Server IaaS umożliwia integrację z Azure Portal i w zależności od trybu zarządzania powoduje odblokowanie wielu zalet funkcji dla SQL Server na maszynach wirtualnych platformy Azure: 
 
 - **Zalety funkcji**: rozszerzenie odblokowuje szereg korzyści z funkcji automatyzacji, takich jak Zarządzanie portalem, elastyczność licencji, automatyczne tworzenie kopii zapasowych, automatyczne stosowanie poprawek i nie tylko. Szczegóły [można znaleźć](#feature-benefits) w dalszej części tego artykułu. 
 
@@ -74,12 +74,13 @@ Poniższa tabela zawiera szczegółowe informacje na temat tych korzyści:
 
 | Cechy | Opis |
 | --- | --- |
-| **Portal zarządzania** | Umożliwia odblokowanie [zarządzania w portalu](manage-sql-vm-portal.md), dzięki czemu można wyświetlić wszystkie SQL Server maszyny wirtualne w jednym miejscu, co pozwoli na włączenie i wyłączenie funkcji specyficznych dla bazy danych SQL bezpośrednio z poziomu portalu. 
-| **Automatyczna kopia zapasowa** |Automatyzuje Planowanie kopii zapasowych dla wszystkich baz danych dla wystąpienia domyślnego lub [poprawnie zainstalowane](frequently-asked-questions-faq.md#administration) nazwane wystąpienie SQL Server na maszynie wirtualnej. Aby uzyskać więcej informacji, zobacz [zautomatyzowane tworzenie kopii zapasowych SQL Server w usłudze Azure Virtual Machines (Menedżer zasobów)](automated-backup-sql-2014.md). |
-| **Automatyczne stosowanie poprawek** |Konfiguruje okno obsługi, w którym mogą być wykonywane ważne aktualizacje zabezpieczeń systemu Windows i SQL Server na maszynę wirtualną, dzięki czemu można uniknąć aktualizacji w godzinach szczytu dla obciążenia. Aby uzyskać więcej informacji, zobacz [zautomatyzowane stosowanie poprawek dla SQL Server w usłudze Azure Virtual Machines (Menedżer zasobów)](automated-patching.md). |
-| **Integracja Azure Key Vault** |Umożliwia automatyczne instalowanie i Konfigurowanie Azure Key Vault na maszynie wirtualnej SQL Server. Aby uzyskać więcej informacji, zobacz [Konfigurowanie integracji Azure Key Vault dla SQL Server na platformie Azure Virtual Machines (Menedżer zasobów)](azure-key-vault-integration-configure.md). |
-| **Elastyczna Licencjonowanie** | Oszczędzaj koszty, [bezproblemowo](licensing-model-azure-hybrid-benefit-ahb-change.md) przechodząc od samodzielnej licencji (znanej również jako korzyść użycia hybrydowego platformy Azure) do modelu licencjonowania z płatność zgodnie z rzeczywistym użyciem i z powrotem. | 
-| **Elastyczna wersja/edycja** | Jeśli zdecydujesz się zmienić [wersję](change-sql-server-version.md) lub [wydanie](change-sql-server-edition.md) SQL Server, możesz zaktualizować metadane w ramach Azure Portal bez konieczności ponownego wdrażania całej SQL Server maszyny wirtualnej.  | 
+| **Portal zarządzania** | Umożliwia odblokowanie [zarządzania w portalu](manage-sql-vm-portal.md), dzięki czemu można wyświetlić wszystkie SQL Server maszyny wirtualne w jednym miejscu, co pozwoli na włączenie i wyłączenie funkcji specyficznych dla bazy danych SQL bezpośrednio z poziomu portalu. <br/> Tryb zarządzania: uproszczony & pełny|  
+| **Automatyczna kopia zapasowa** |Automatyzuje Planowanie kopii zapasowych dla wszystkich baz danych dla wystąpienia domyślnego lub [poprawnie zainstalowane](frequently-asked-questions-faq.md#administration) nazwane wystąpienie SQL Server na maszynie wirtualnej. Aby uzyskać więcej informacji, zobacz [zautomatyzowane tworzenie kopii zapasowych SQL Server w usłudze Azure Virtual Machines (Menedżer zasobów)](automated-backup-sql-2014.md). <br/> Tryb zarządzania: pełny|
+| **Automatyczne stosowanie poprawek** |Konfiguruje okno obsługi, w którym mogą być wykonywane ważne aktualizacje zabezpieczeń systemu Windows i SQL Server na maszynę wirtualną, dzięki czemu można uniknąć aktualizacji w godzinach szczytu dla obciążenia. Aby uzyskać więcej informacji, zobacz [zautomatyzowane stosowanie poprawek dla SQL Server w usłudze Azure Virtual Machines (Menedżer zasobów)](automated-patching.md). <br/> Tryb zarządzania: pełny|
+| **Integracja Azure Key Vault** |Umożliwia automatyczne instalowanie i Konfigurowanie Azure Key Vault na maszynie wirtualnej SQL Server. Aby uzyskać więcej informacji, zobacz [Konfigurowanie integracji Azure Key Vault dla SQL Server na platformie Azure Virtual Machines (Menedżer zasobów)](azure-key-vault-integration-configure.md). <br/> Tryb zarządzania: pełny|
+| **Wyświetl użycie dysku w portalu** | Umożliwia wyświetlenie graficznej reprezentacji użycia dysku dla plików danych SQL w Azure Portal.  <br/> Tryb zarządzania: pełny | 
+| **Elastyczna Licencjonowanie** | Oszczędzaj koszty, [bezproblemowo](licensing-model-azure-hybrid-benefit-ahb-change.md) przechodząc od samodzielnej licencji (znanej również jako korzyść użycia hybrydowego platformy Azure) do modelu licencjonowania z płatność zgodnie z rzeczywistym użyciem i z powrotem. <br/> Tryb zarządzania: uproszczony & pełny| 
+| **Elastyczna wersja/edycja** | Jeśli zdecydujesz się zmienić [wersję](change-sql-server-version.md) lub [wydanie](change-sql-server-edition.md) SQL Server, możesz zaktualizować metadane w ramach Azure Portal bez konieczności ponownego wdrażania całej SQL Server maszyny wirtualnej.  <br/> Tryb zarządzania: uproszczony & pełny| 
 
 
 ## <a name="management-modes"></a>Tryby zarządzania

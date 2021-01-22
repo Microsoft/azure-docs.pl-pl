@@ -3,17 +3,17 @@ title: Tworzenie kopii zapasowych i przywracanie — interfejs wiersza polecenia
 description: Dowiedz się, jak utworzyć kopię zapasową i przywrócić serwer w Azure Database for MariaDB przy użyciu interfejsu wiersza polecenia platformy Azure.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a6e46efd7f998437c3998df9a989ef9e1500e888
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: ceda6c99493818042aa281ab545465e91493a80e
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94539587"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664838"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Jak utworzyć kopię zapasową i przywrócić serwer w Azure Database for MariaDB przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -100,7 +100,7 @@ Aby przywrócić lokalizację geograficzną serwera, w wierszu polecenia platfor
 az mariadb server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen5_8
 ```
 
-To polecenie tworzy nowy serwer o nazwie *mydemoserver-georestore* w regionie Wschodnie stany USA, który będzie należeć do *zasobu*. Jest to Ogólnego przeznaczenia, serwer generacji 5 z 8 rdzeni wirtualnych. Serwer jest tworzony na podstawie geograficznie nadmiarowej kopii zapasowej *mydemoserver* , która również znajduje się w *grupie zasobów* .
+To polecenie tworzy nowy serwer o nazwie *mydemoserver-georestore* w regionie Wschodnie stany USA, który będzie należeć do *zasobu*. Jest to Ogólnego przeznaczenia, serwer generacji 5 z 8 rdzeni wirtualnych. Serwer jest tworzony na podstawie geograficznie nadmiarowej kopii zapasowej *mydemoserver*, która również znajduje się w *grupie zasobów* .
 
 Jeśli chcesz utworzyć nowy serwer w innej grupie zasobów z istniejącego serwera, w `--source-server` parametrze należy zakwalifikować nazwę serwera, tak jak w poniższym przykładzie:
 

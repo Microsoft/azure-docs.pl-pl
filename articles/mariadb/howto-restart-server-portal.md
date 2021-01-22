@@ -3,15 +3,15 @@ title: Uruchom ponownie serwer-Azure Portal-Azure Database for MariaDB
 description: W tym artykule opisano, jak można ponownie uruchomić serwer Azure Database for MariaDB przy użyciu witryny Azure Portal.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 0c16cf8d67394f6aa50cb30a44b4ff5a677159de
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: a912c1cde092b082e4c0229b1f454e80f32e319e
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538890"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664889"
 ---
 # <a name="restart-azure-database-for-mariadb-server-using-azure-portal"></a>Uruchom ponownie serwer Azure Database for MariaDB przy użyciu Azure Portal
 W tym temacie opisano, jak można ponownie uruchomić serwer Azure Database for MariaDB. Może być konieczne ponowne uruchomienie serwera ze względów konserwacyjnych, co powoduje krótkie przestoje, gdy serwer wykona operację.

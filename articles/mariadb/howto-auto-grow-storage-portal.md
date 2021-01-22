@@ -3,15 +3,15 @@ title: Azure Portal Azure Database for MariaDB magazynu
 description: W tym artykule opisano sposób włączania magazynu z możliwością autowzrostu dla Azure Database for MariaDB przy użyciu Azure Portal
 author: ambhatna
 ms.author: ambhatna
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 56bc6c0e7a294f80e946a2eb0c84e5d0bd49d0f5
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: f6410f34a4bbfde0a7090222979b3c4c98673981
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426073"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98663472"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mariadb-using-the-azure-portal"></a>Powiększ magazyn w Azure Database for MariaDB przy użyciu Azure Portal
 W tym artykule opisano, jak można skonfigurować magazyn serwera Azure Database for MariaDB do wzrostu bez wpływu na obciążenie.

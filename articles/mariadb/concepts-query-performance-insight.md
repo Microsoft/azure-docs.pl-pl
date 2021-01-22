@@ -3,15 +3,15 @@ title: Szczegółowe informacje o wydajności zapytań — Azure Database for Ma
 description: W tym artykule opisano funkcję Szczegółowe informacje o wydajności zapytań w programie Azure Database for MariaDB
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: b643ba3305736480e06d7c10d594b2271839038f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 9e8e4527ba1717b4d152f501a38c3c8f65faf70e
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536336"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664235"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mariadb"></a>Analiza wydajności zapytań w usłudze Azure Database for MariaDB
 
@@ -56,11 +56,11 @@ Klikając i przeciągając na wykresie, możesz zawęzić go do konkretnego prze
 ### <a name="wait-statistics"></a>Statystyka oczekiwania 
 
 > [!NOTE]
-> Statystyki oczekiwania są przeznaczone do rozwiązywania problemów z wydajnością zapytań. Zaleca się włączenie tylko do celów związanych z rozwiązywaniem problemów. <br>Jeśli zostanie wyświetlony komunikat o błędzie w Azure Portal " *napotkano problem dotyczący elementu" Microsoft. DBforMariaDB "; nie można zrealizować żądania. Jeśli ten problem będzie się powtarzał lub jest nieoczekiwany, skontaktuj się z pomocą techniczną, podając te informacje.* podczas przeglądania statystyk oczekiwania należy użyć mniejszego okresu.
+> Statystyki oczekiwania są przeznaczone do rozwiązywania problemów z wydajnością zapytań. Zaleca się włączenie tylko do celów związanych z rozwiązywaniem problemów. <br>Jeśli zostanie wyświetlony komunikat o błędzie w Azure Portal "*napotkano problem dotyczący elementu" Microsoft. DBforMariaDB "; nie można zrealizować żądania. Jeśli ten problem będzie się powtarzał lub jest nieoczekiwany, skontaktuj się z pomocą techniczną, podając te informacje.* podczas przeglądania statystyk oczekiwania należy użyć mniejszego okresu.
 
 Statystyka oczekiwania zawiera widok zdarzeń oczekiwania występujących podczas wykonywania określonego zapytania. Dowiedz się więcej o typach zdarzeń oczekiwania w [dokumentacji aparatu MySQL](https://go.microsoft.com/fwlink/?linkid=2098206).
 
-Wybierz kartę **Statystyki oczekiwania** , aby wyświetlić odpowiednie wizualizacje oczekiwań na serwerze.
+Wybierz kartę **Statystyki oczekiwania**, aby wyświetlić odpowiednie wizualizacje oczekiwań na serwerze.
 
 Zapytania wyświetlane w widoku Statystyka oczekiwania są pogrupowane według zapytań, które wykazują największe oczekiwania w określonym przedziale czasu.
 
