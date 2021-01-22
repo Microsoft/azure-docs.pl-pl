@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/15/2021
+ms.date: 01/19/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e2c576c97d170726f5ec1b06e5a6d0d859a85e64
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: a378a95a28b1299502ef15cadca60f3807f99429
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538126"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674403"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Konfigurowanie rejestracji i logowania za pomocą konta LinkedIn przy użyciu Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ ms.locfileid: "98538126"
 
 ## <a name="create-a-linkedin-application"></a>Tworzenie aplikacji LinkedIn
 
-Aby włączyć Logowanie użytkowników przy użyciu konta LinkedIn w Azure Active Directory B2C (Azure AD B2C), musisz utworzyć aplikację w [witrynie sieci Web deweloperów serwisu LinkedIn](https://www.developer.linkedin.com/). Aby uzyskać więcej informacji, zobacz [przepływ kodu autoryzacji](https://docs.microsoft.com/linkedin/shared/authentication/authorization-code-flow). Jeśli nie masz jeszcze konta LinkedIn, możesz zarejestrować się w usłudze [https://www.linkedin.com/](https://www.linkedin.com/) .
+Aby włączyć Logowanie użytkowników przy użyciu konta LinkedIn w Azure Active Directory B2C (Azure AD B2C), musisz utworzyć aplikację w [witrynie sieci Web deweloperów serwisu LinkedIn](https://www.developer.linkedin.com/). Aby uzyskać więcej informacji, zobacz [przepływ kodu autoryzacji](/linkedin/shared/authentication/authorization-code-flow). Jeśli nie masz jeszcze konta LinkedIn, możesz zarejestrować się w usłudze [https://www.linkedin.com/](https://www.linkedin.com/) .
 
 1. Zaloguj się do [witryny sieci Web deweloperów serwisu LinkedIn](https://www.developer.linkedin.com/) przy użyciu poświadczeń konta usługi LinkedIn.
 1. Wybierz pozycję **Moje aplikacje**, a następnie kliknij pozycję **Utwórz aplikację**.
@@ -50,7 +50,7 @@ Aby włączyć Logowanie użytkowników przy użyciu konta LinkedIn w Azure Acti
 
 ::: zone pivot="b2c-user-flow"
 
-## <a name="configure-a-linkedin-account-as-an-identity-provider"></a>Konfigurowanie konta LinkedIn jako dostawcy tożsamości
+## <a name="configure-linkedin-as-an-identity-provider"></a>Konfigurowanie serwisu LinkedIn jako dostawcy tożsamości
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/) jako administrator globalny dzierżawy usługi Azure AD B2C.
 1. Upewnij się, że używasz katalogu, który zawiera dzierżawę Azure AD B2C, wybierając pozycję **katalog i subskrypcja** w górnym menu i wybierając katalog zawierający dzierżawcę.
@@ -60,6 +60,16 @@ Aby włączyć Logowanie użytkowników przy użyciu konta LinkedIn w Azure Acti
 1. W polu **Identyfikator klienta** wprowadź identyfikator klienta aplikacji LinkedIn, który został utworzony wcześniej.
 1. W polu **klucz tajny klienta** Wprowadź zarejestrowany wpis tajny klienta.
 1. Wybierz pozycję **Zapisz**.
+
+## <a name="add-linkedin-identity-provider-to-a-user-flow"></a>Dodawanie dostawcy tożsamości LinkedIn do przepływu użytkownika 
+
+1. W dzierżawie Azure AD B2C wybierz pozycję **przepływy użytkownika**.
+1. Kliknij przepływ użytkownika, do którego chcesz dodać dostawcę tożsamości LinkedIn.
+1. W obszarze **dostawcy tożsamości społecznościowej** wybierz pozycję **LinkedIn**.
+1. Wybierz pozycję **Zapisz**.
+1. Aby przetestować zasady, wybierz pozycję **Uruchom przepływ użytkownika**.
+1. W przypadku **aplikacji** wybierz aplikację sieci Web o nazwie *testapp1* , która została wcześniej zarejestrowana. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
+1. Kliknij pozycję **Uruchom przepływ użytkownika**
 
 ::: zone-end
 
@@ -80,9 +90,9 @@ Należy przechowywać klucz tajny klienta, który został wcześniej zarejestrow
 9. W obszarze **użycie klucza** wybierz opcję `Signature` .
 10. Kliknij pozycję **Utwórz**.
 
-## <a name="add-a-claims-provider"></a>Dodawanie dostawcy oświadczeń
+## <a name="configure-linkedin-as-an-identity-provider"></a>Konfigurowanie serwisu LinkedIn jako dostawcy tożsamości
 
-Jeśli chcesz, aby użytkownicy mogli się logować przy użyciu konta LinkedIn, musisz zdefiniować konto jako dostawcę oświadczeń, z którym Azure AD B2C może komunikować się za pośrednictwem punktu końcowego. Punkt końcowy zawiera zestaw oświadczeń, które są używane przez Azure AD B2C do sprawdzenia, czy określony użytkownik został uwierzytelniony.
+Aby umożliwić użytkownikom logowanie się przy użyciu konta LinkedIn, należy zdefiniować konto jako dostawcę oświadczeń, z którym Azure AD B2C może komunikować się za pośrednictwem punktu końcowego. Punkt końcowy zawiera zestaw oświadczeń, które są używane przez Azure AD B2C do sprawdzenia, czy określony użytkownik został uwierzytelniony.
 
 Zdefiniuj konto serwisu LinkedIn jako dostawcę oświadczeń, dodając je do elementu **ClaimsProviders** w pliku rozszerzenia zasad.
 
@@ -95,7 +105,7 @@ Zdefiniuj konto serwisu LinkedIn jako dostawcę oświadczeń, dodając je do ele
       <Domain>linkedin.com</Domain>
       <DisplayName>LinkedIn</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="LinkedIn-OAUTH">
+        <TechnicalProfile Id="LinkedIn-OAuth2">
           <DisplayName>LinkedIn</DisplayName>
           <Protocol Name="OAuth2" />
           <Metadata>
@@ -181,79 +191,27 @@ Dodaj element **BuildingBlocks** w górnej części pliku *TrustFrameworkExtensi
 </BuildingBlocks>
 ```
 
-### <a name="upload-the-extension-file-for-verification"></a>Przekaż plik rozszerzenia w celu weryfikacji
+[!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]
 
-Masz już skonfigurowane zasady, które Azure AD B2C wiedzą, jak komunikować się z kontem w serwisie LinkedIn. Spróbuj przekazać plik rozszerzenia zasad, aby upewnić się, że nie ma żadnych problemów do tej pory.
 
-1. Na stronie **zasady niestandardowe** w dzierżawie Azure AD B2C wybierz pozycję **Przekaż zasady**.
-1. Włącz **Zastępowanie zasad, jeśli istnieje**, a następnie wyszukaj i wybierz plik *TrustFrameworkExtensions.xml* .
-1. Kliknij pozycję **Przekaż**.
-
-## <a name="register-the-claims-provider"></a>Rejestrowanie dostawcy oświadczeń
-
-W tym momencie dostawca tożsamości został skonfigurowany, ale nie jest dostępny na żadnym z ekranów rejestracji lub logowania. Aby można było go udostępnić, należy utworzyć duplikat istniejącej podróży użytkownika szablonu, a następnie zmodyfikować go tak, aby miał także dostawcę tożsamości LinkedIn.
-
-1. Otwórz plik *TrustFrameworkBase.xml* w pakiecie startowym.
-1. Znajdź i Skopiuj całą zawartość elementu **UserJourney** , który zawiera `Id="SignUpOrSignIn"` .
-1. Otwórz *TrustFrameworkExtensions.xml* i Znajdź element **UserJourneys** . Jeśli element nie istnieje, Dodaj go.
-1. Wklej całą zawartość elementu **UserJourney** , który został skopiowany jako element podrzędny elementu **UserJourneys** .
-1. Zmień nazwę identyfikatora podróży użytkownika. Na przykład `SignUpSignInLinkedIn`.
-
-### <a name="display-the-button"></a>Wyświetl przycisk
-
-Element **ClaimsProviderSelection** jest analogiczny do przycisku dostawcy tożsamości na ekranie rejestracji lub logowania. Jeśli dodasz element **ClaimsProviderSelection** dla konta LinkedIn, nowy przycisk będzie wyświetlany, gdy użytkownik zostanie wystawiony na stronie.
-
-1. Znajdź element **OrchestrationStep** , który obejmuje `Order="1"` w podróży użytkownika.
-2. W obszarze **ClaimsProviderSelections** Dodaj następujący element. Ustaw wartość **TargetClaimsExchangeId** na odpowiednią wartość, na przykład `LinkedInExchange` :
-
-    ```xml
+```xml
+<OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+  <ClaimsProviderSelections>
+    ...
     <ClaimsProviderSelection TargetClaimsExchangeId="LinkedInExchange" />
-    ```
+  </ClaimsProviderSelections>
+  ...
+</OrchestrationStep>
 
-### <a name="link-the-button-to-an-action"></a>Połącz przycisk z akcją
+<OrchestrationStep Order="2" Type="ClaimsExchange">
+  ...
+  <ClaimsExchanges>
+    <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAuth2" />
+  </ClaimsExchanges>
+</OrchestrationStep>
+```
 
-Teraz, gdy masz już przycisk, musisz połączyć go z akcją. W tym przypadku akcja w tym przypadku Azure AD B2C do komunikowania się z kontem LinkedIn w celu uzyskania tokenu.
-
-1. Znajdź **OrchestrationStep** obejmujący `Order="2"` w podróży użytkownika.
-1. Dodaj następujący element **ClaimsExchange** , aby upewnić się, że używasz tej samej wartości dla identyfikatora, który został użyty dla **TargetClaimsExchangeId**:
-
-    ```xml
-    <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
-    ```
-
-    Zaktualizuj wartość **TechnicalProfileReferenceId** na identyfikator utworzonego wcześniej profilu technicznego. Na przykład `LinkedIn-OAUTH`.
-
-1. Zapisz plik *TrustFrameworkExtensions.xml* i przekaż go ponownie w celu weryfikacji.
-
-::: zone-end
-
-:: Zone Pivot = "B2C-User-Flow"
-
-## <a name="add-linkedin-identity-provider-to-a-user-flow"></a>Dodawanie dostawcy tożsamości LinkedIn do przepływu użytkownika 
-
-1. W dzierżawie Azure AD B2C wybierz pozycję **przepływy użytkownika**.
-1. Kliknij przepływ użytkownika, do którego chcesz dodać dostawcę tożsamości LinkedIn.
-1. W obszarze **dostawcy tożsamości społecznościowej** wybierz pozycję **LinkedIn**.
-1. Wybierz pozycję **Zapisz**.
-1. Aby przetestować zasady, wybierz pozycję **Uruchom przepływ użytkownika**.
-1. W przypadku **aplikacji** wybierz aplikację sieci Web o nazwie *testapp1* , która została wcześniej zarejestrowana. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
-1. Kliknij pozycję **Uruchom przepływ użytkownika**
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-## <a name="update-and-test-the-relying-party-file"></a>Aktualizowanie i testowanie pliku jednostki uzależnionej
-
-Zaktualizuj plik jednostki uzależnionej (RP), który inicjuje utworzoną przez Ciebie podróż użytkownika.
-
-1. Utwórz kopię *SignUpOrSignIn.xml* w katalogu roboczym i zmień jej nazwę. Na przykład zmień nazwę na *SignUpSignInLinkedIn.xml*.
-1. Otwórz nowy plik i zaktualizuj wartość atrybutu **PolicyId** dla **TrustFrameworkPolicy** przy użyciu unikatowej wartości. Na przykład `SignUpSignInLinkedIn`.
-1. Zaktualizuj wartość **PublicPolicyUri** za pomocą identyfikatora URI dla zasad. Na przykład`http://contoso.com/B2C_1A_signup_signin_linkedin`
-1. Zaktualizuj wartość atrybutu **ReferenceId** w **DefaultUserJourney** w taki sposób, aby odpowiadała identyfikatorowi nowej podróży użytkownika, która została utworzona (SignUpSignLinkedIn).
-1. Zapisz zmiany, Przekaż plik, a następnie wybierz nowe zasady z listy.
-1. Upewnij się, że utworzona aplikacja Azure AD B2C została wybrana w polu **Wybierz aplikację** , a następnie przetestuj ją, klikając polecenie **Uruchom teraz**.
-
+[!INCLUDE [active-directory-b2c-create-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
 ## <a name="migration-from-v10-to-v20"></a>Migracja z wersji 1.0 do programu v 2.0
 

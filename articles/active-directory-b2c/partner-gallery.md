@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 15b4b61fd250dfb7d68c563f9f42c7d288a0019c
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 9aca01bae7911d2b6234d48bedc14b116e911a79
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070868"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675385"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Azure Active Directory B2C partnerów niezależnych dostawców oprogramowania
 
@@ -40,6 +40,7 @@ Partnerzy firmy Microsoft z następującymi dostawcami oprogramowania (ISV) do w
 |![Zrzut ekranu przedstawiający logo Experian.](./media/partner-gallery/experian-logo.png) | [Experian](./partner-experian.md) jest weryfikacją tożsamości i dostawcą sprawdzającym, który przeprowadza ocenę ryzyka na podstawie atrybutów użytkownika w celu zapobiegania oszustwom. |
 |![Zrzut ekranu przedstawiający logo IDology.](./media/partner-gallery/idology-logo.png) | [IDology](./partner-idology.md) to weryfikacja tożsamości i dostawca weryfikacji z rozwiązaniami weryfikacji identyfikatora, rozwiązaniami zapobiegania oszustwom, rozwiązaniami zgodności i innymi.|
 |![Zrzut ekranu przedstawiający logo Jumio.](./media/partner-gallery/jumio-logo.png) | [Jumio](./partner-jumio.md) to usługa weryfikacji identyfikatora, która umożliwia automatyczne weryfikację identyfikatora w czasie rzeczywistym, chroniąc dane klientów. |
+|![Zrzut ekranu przedstawiający logo bez znaku.](./media/partner-gallery/keyless-logo.png) | Funkcja [less](./partner-keyless.md) jest usługą weryfikacji identyfikatora, która zapewnia uwierzytelnianie w formie skanowania biometrycznego urządzenia i eliminuje oszustwo, phishing i ponowne użycie poświadczeń.
 | ![Zrzut ekranu przedstawiający logo LexisNexis.](./media/partner-gallery/lexisnexis-logo.png) | [LexisNexis](./partner-lexisnexis.md) jest dostawcą profilowania i weryfikacji tożsamości, który weryfikuje tożsamość użytkownika i zapewnia kompleksową ocenę ryzyka opartą na urządzeniu użytkownika. |
 | ![Zrzut ekranu przedstawiający logo Onfido](./media/partner-gallery/onfido-logo.png) | [Onfido](./partner-onfido.md) to identyfikator dokumentu oraz rozwiązanie do weryfikacji twarzy biometryczne, które umożliwia firmom zaspokajanie wymagań *klienta* i tożsamości w czasie rzeczywistym.  |
 
@@ -57,7 +58,7 @@ Partnerzy firmy Microsoft z następującymi dostawcami oprogramowania dla uwierz
 | ![Zrzut ekranu przedstawiający logo typingDNA](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-typingdna.md) umożliwia silne uwierzytelnianie klienta przez analizowanie wzorca wpisywania przez użytkownika. Pomaga firmom w włączaniu dyskretnej usługi MFA i spełnianiu wymagań SCA dla PSD2. |
 | ![Zrzut ekranu przedstawiający logo whoiam](./media/partner-gallery/whoiam-logo.png) | [WhoIAM](./partner-whoiam.md) to aplikacja typu "Mark Management System" (BRIMS), która umożliwia organizacjom Weryfikowanie bazy użytkowników przy użyciu głosu, wiadomości SMS i wiadomości e-mail. |
 
-## <a name="role-based-access-control"></a>Kontrola dostępu na podstawie ról 
+## <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach 
  
 Partnerzy firmy Microsoft z następującymi niezależnymi dostawcami oprogramowania do kontroli dostępu opartej na rolach.
 
@@ -78,9 +79,9 @@ W celu zapewnienia bezpieczeństwa partnerzy firmy Microsoft z następującymi d
 
 ## <a name="additional-information"></a>Dodatkowe informacje
 
-- [Zasady niestandardowe w usłudze Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Zasady niestandardowe w usłudze Azure AD B2C](./custom-policy-overview.md)
 
-- [Wprowadzenie do zasad niestandardowych w Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Wprowadzenie do zasad niestandardowych w Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -8,18 +8,18 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/06/2020
+ms.date: 01/21/2021
 ms.author: justinha
-ms.openlocfilehash: faa46178262777454d4d67d23bbd0bb013974ab5
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: e381c80dddc4484d541f5f81de6b5df712cff69b
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208492"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673471"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services"></a>Samouczek: Tworzenie zaufania lasu wychodzącego do domeny lokalnej w Azure Active Directory Domain Services
 
-W środowiskach, w których nie można synchronizować skrótów haseł lub masz użytkowników, którzy logują się wyłącznie przy użyciu kart inteligentnych, aby nie wiedzieli hasła, możesz użyć lasu zasobów w Azure Active Directory Domain Services (Azure AD DS). Las zasobów używa jednokierunkowego zaufania wychodzącego z platformy Azure AD DS do co najmniej jednego środowiska AD DS lokalnego. Ta relacja zaufania umożliwia użytkownikom, aplikacjom i komputerom uwierzytelnianie w domenie lokalnej z domeny zarządzanej AD DS platformy Azure. W lesie zasobów lokalne skróty haseł nigdy nie są synchronizowane.
+W środowiskach, w których nie można synchronizować skrótów haseł lub w przypadku, gdy użytkownicy logują się wyłącznie przy użyciu kart inteligentnych i nie znają hasła, można użyć lasu zasobów w Azure Active Directory Domain Services (Azure AD DS). Las zasobów używa jednokierunkowego zaufania wychodzącego z platformy Azure AD DS do co najmniej jednego środowiska AD DS lokalnego. Ta relacja zaufania umożliwia użytkownikom, aplikacjom i komputerom uwierzytelnianie w domenie lokalnej z domeny zarządzanej AD DS platformy Azure. W lesie zasobów lokalne skróty haseł nigdy nie są synchronizowane.
 
 ![Diagram zaufania lasów z usługi Azure AD DS do lokalnego AD DS](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
@@ -61,7 +61,7 @@ Przed skonfigurowaniem zaufania lasu w usłudze Azure AD DS upewnij się, że si
 
 * Użyj prywatnych adresów IP. Nie należy polegać na usłudze DHCP z przypisaniem dynamicznego adresu IP.
 * Należy unikać nakładania się przestrzeni adresów IP, aby umożliwić komunikację równorzędną i routing sieci wirtualnych między platformą Azure i środowiskiem lokalnym.
-* Sieć wirtualna platformy Azure wymaga podsieci bramy w celu skonfigurowania połączenia [sieci VPN typu lokacja-lokacja (S2S) na platformie Azure][vpn-gateway] lub [ExpressRoute][expressroute]
+* W celu skonfigurowania połączenia sieci [VPN typu lokacja-lokacja (S2S)][vpn-gateway] lub [ExpressRoute][expressroute] połączenie sieci wirtualnej platformy Azure wymaga podsieci bramy.
 * Utwórz podsieci z wystarczającą liczbą adresów IP, aby obsłużyć twój scenariusz.
 * Upewnij się, że usługa Azure AD DS ma własną podsieć, nie udostępniaj tej podsieci sieci wirtualnej z maszynami wirtualnymi i usługami aplikacji.
 * Równorzędne sieci wirtualne nie są przechodnie.
@@ -84,8 +84,8 @@ Lokalna domena AD DS musi mieć przychodzące zaufanie lasu dla domeny zarządza
 
 Aby skonfigurować zaufanie przychodzące w domenie AD DS lokalnego, wykonaj następujące kroki na stacji roboczej zarządzania dla lokalnej domeny AD DS:
 
-1. Wybierz pozycję **Uruchom | Narzędzia administracyjne | Active Directory domen i relacji zaufania**.
-1. Kliknij prawym przyciskiem myszy pozycję domena, na przykład *OnPrem.contoso.com*, a następnie wybierz pozycję **Właściwości**.
+1. Wybierz kolejno pozycje **Start**  >  **Narzędzia administracyjne**  >  **Active Directory domeny i relacje zaufania**.
+1. Kliknij prawym przyciskiem myszy domenę, na przykład *OnPrem.contoso.com*, a następnie wybierz pozycję **Właściwości**.
 1. Wybierz kartę **relacje zaufania** , a następnie pozycję **nowe zaufanie**.
 1. Wprowadź nazwę nazwy domeny usługi Azure AD DS, na przykład *aaddscontoso.com*, a następnie wybierz przycisk **dalej**.
 1. Wybierz opcję utworzenia **zaufania lasu**, aby utworzyć **jeden ze sposobów: zaufanie przychodzące** .
@@ -93,6 +93,14 @@ Aby skonfigurować zaufanie przychodzące w domenie AD DS lokalnego, wykonaj nas
 1. Wybierz opcję użycia **uwierzytelniania w całym lesie**, a następnie wprowadź i Potwierdź hasło zaufania. To samo hasło jest również wprowadzane w Azure Portal w następnej sekcji.
 1. Przejdź do kolejnych kilku okien z opcjami domyślnymi, a następnie wybierz opcję **nie, nie potwierdzaj zaufania wychodzącego**.
 1. Wybierz pozycję **Zakończ**.
+
+Jeśli zaufanie lasu nie jest już potrzebne w środowisku, wykonaj następujące kroki, aby usunąć je z domeny lokalnej:
+
+1. Wybierz kolejno pozycje **Start**  >  **Narzędzia administracyjne**  >  **Active Directory domeny i relacje zaufania**.
+1. Kliknij prawym przyciskiem myszy domenę, na przykład *OnPrem.contoso.com*, a następnie wybierz pozycję **Właściwości**.
+1. Wybierz kartę **relacje zaufania** , a następnie **domen, które ufają tej domenie (przychodzące zaufania)**, kliknij zaufanie, które chcesz usunąć, a następnie kliknij przycisk **Usuń**.
+1. Na karcie zaufania w obszarze **domeny zaufane przez tę domenę (wychodzące zaufania)** kliknij zaufanie, które ma zostać usunięte, a następnie kliknij przycisk Usuń.
+1. Kliknij przycisk **nie, Usuń relację zaufania tylko z domeny lokalnej**.
 
 ## <a name="create-outbound-forest-trust-in-azure-ad-ds"></a>Tworzenie zaufania dla lasu wychodzącego na platformie Azure AD DS
 
@@ -107,11 +115,17 @@ Aby utworzyć zaufanie wychodzące dla domeny zarządzanej w Azure Portal, wykon
    > Jeśli nie widzisz opcji menu **relacje zaufania** , sprawdź w obszarze **Właściwości** *typu lasu*. Tylko lasy *zasobów* mogą tworzyć relacje zaufania. Jeśli typ lasu to *User*, nie można utworzyć relacji zaufania. Obecnie nie ma możliwości zmiany typu lasu domeny zarządzanej. Musisz usunąć i utworzyć ponownie domenę zarządzaną jako Las zasobów.
 
 1. Wprowadź nazwę wyświetlaną, która identyfikuje zaufanie, a następnie nazwę DNS lokalnego lasu zaufanego, na przykład *OnPrem.contoso.com*.
-1. Podaj to samo hasło zaufania, które było używane podczas konfigurowania zaufania lasu przychodzącego dla lokalnej domeny AD DS w poprzedniej sekcji.
+1. Podaj to samo hasło zaufania, które zostało użyte do skonfigurowania przychodzącego zaufania lasu dla lokalnej domeny AD DS w poprzedniej sekcji.
 1. Podaj co najmniej dwa serwery DNS dla lokalnej domeny AD DS, takie jak *10.1.1.4* i *klienta 10.1.1.5*.
 1. Gdy wszystko będzie gotowe, **Zapisz** wychodzące zaufanie lasu.
 
     ![Utwórz zaufanie do lasu wychodzącego w Azure Portal](./media/tutorial-create-forest-trust/portal-create-outbound-trust.png)
+
+Jeśli zaufanie lasu nie jest już potrzebne w środowisku, wykonaj następujące kroki, aby usunąć je z usługi Azure AD DS:
+
+1. W Azure Portal Wyszukaj i wybierz pozycję **Azure AD Domain Services**, a następnie wybierz domenę zarządzaną, taką jak *aaddscontoso.com*.
+1. Z menu po lewej stronie domeny zarządzanej wybierz opcję **relacje zaufania**, wybierz zaufanie, a następnie kliknij przycisk **Usuń**.
+1. Podaj to samo hasło zaufania, które zostało użyte do skonfigurowania zaufania lasu, a następnie kliknij przycisk **OK**.
 
 ## <a name="validate-resource-authentication"></a>Weryfikowanie uwierzytelniania zasobów
 

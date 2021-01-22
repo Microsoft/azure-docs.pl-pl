@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 2a17825d062496e6600966dc7c90b14749507e4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0fea82c376a178de0be8ede6c0393e1de21de614
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86494517"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675808"
 ---
 # <a name="disable-or-remove-the-linux-agent-from-vms-and-images"></a>Wyłączanie i usuwanie agenta systemu Linux z maszyn wirtualnych i obrazów
 
@@ -31,9 +31,9 @@ Platforma Azure obsługuje wiele rozszerzeń, które przedziały od konfiguracji
 
 ## <a name="disabling-extension-processing"></a>Wyłączanie przetwarzania rozszerzenia
 
-Istnieje kilka sposobów, aby wyłączyć przetwarzanie rozszerzeń, w zależności od potrzeb, ale przed kontynuowaniem **należy** usunąć wszystkie rozszerzenia wdrożone na maszynie wirtualnej, na przykład za pomocą polecenia AZ CLI, można [wyświetlić](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-list) i [usunąć](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-delete):
+Istnieje kilka sposobów, aby wyłączyć przetwarzanie rozszerzeń, w zależności od potrzeb, ale przed kontynuowaniem **należy** usunąć wszystkie rozszerzenia wdrożone na maszynie wirtualnej, na przykład korzystając z interfejsu wiersza polecenia platformy Azure, można [wyświetlać](/cli/azure/vm/extension#az-vm-extension-list) i [usuwać](/cli/azure/vm/extension#az-vm-extension-delete):
 
-```bash
+```azurecli
 az vm extension delete -g MyResourceGroup --vm-name MyVm -n extension_name
 ```
 > [!Note]
@@ -43,7 +43,7 @@ az vm extension delete -g MyResourceGroup --vm-name MyVm -n extension_name
 ### <a name="disable-at-the-control-plane"></a>Wyłącz na płaszczyźnie kontroli
 Jeśli nie masz pewności, czy w przyszłości będziesz potrzebować rozszerzeń, możesz pozostawić na maszynie wirtualnej agenta systemu Linux, a następnie wyłączyć możliwość przetwarzania rozszerzeń z poziomu platformy. Ta opcja jest dostępna w `Microsoft.Compute` wersji interfejsu API `2018-06-01` lub nowszej i nie ma zależności od zainstalowanej wersji agenta systemu Linux.
 
-```bash
+```azurecli
 az vm update -g <resourceGroup> -n <vmName> --set osProfile.allowExtensionOperations=false
 ```
 Można łatwo włączyć to przetwarzanie rozszerzenia z poziomu platformy przy użyciu powyższego polecenia, ale ustawić wartość "true".
@@ -132,7 +132,7 @@ Po ukończeniu powyższych operacji można utworzyć niestandardowy obraz przy u
 
 
 **Tworzenie regularnego zarządzanego obrazu**
-```bash
+```azurecli
 az vm deallocate -g <resource_group> -n <vm_name>
 az vm generalize -g <resource_group> -n <vm_name>
 az image create -g <resource_group> -n <image_name> --source <vm_name>
@@ -140,7 +140,7 @@ az image create -g <resource_group> -n <image_name> --source <vm_name>
 
 **Tworzenie wersji obrazu w galerii obrazów udostępnionych**
 
-```bash
+```azurecli
 az sig image-version create \
     -g $sigResourceGroup 
     --gallery-name $sigName 
@@ -157,7 +157,7 @@ Podczas tworzenia maszyny wirtualnej z obrazu bez agenta systemu Linux należy u
 
 Aby wdrożyć maszynę wirtualną z wyłączonymi rozszerzeniami, można użyć interfejsu wiersza polecenia platformy Azure z opcją [--enable-Agent](/cli/azure/vm#az-vm-create).
 
-```bash
+```azurecli
 az vm create \
     --resource-group $resourceGroup \
     --name $prodVmName \

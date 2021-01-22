@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ed477a931ed63c0db378ff84f85544072492ef96
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 644192de74a888daa0391b31dd42eb6028403fd8
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387041"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674478"
 ---
 # <a name="azure-ad-b2c-custom-policy-overview"></a>Przegląd zasad niestandardowych Azure AD B2C
 
@@ -53,7 +53,7 @@ Po uruchomieniu zasad Azure AD B2C wysyła i odbiera oświadczenia do i od wewn�
 
 ### <a name="customize-and-localize-your-ui"></a>Dostosowywanie i lokalizowanie interfejsu użytkownika
 
-Jeśli chcesz zbierać informacje od użytkowników przez przedstawienie strony w przeglądarce sieci Web, użyj [profilu technicznego z własnym potwierdzeniem](self-asserted-technical-profile.md). Możesz edytować własny profil techniczny, aby [dodać oświadczenia i dostosować dane wprowadzane przez użytkownika](custom-policy-configure-user-input.md).
+Jeśli chcesz zbierać informacje od użytkowników przez przedstawienie strony w przeglądarce sieci Web, użyj [profilu technicznego z własnym potwierdzeniem](self-asserted-technical-profile.md). Możesz edytować własny profil techniczny, aby [dodać oświadczenia i dostosować dane wprowadzane przez użytkownika](./configure-user-input.md).
 
 Aby [dostosować interfejs użytkownika](customize-ui-with-html.md) dla własnego profilu technicznego, należy określić adres URL w elemencie [definicji zawartości](contentdefinitions.md) z dostosowanej zawartości HTML. W profilu technicznym z własnym potwierdzeniem możesz wskazać ten identyfikator definicji zawartości.
 
@@ -133,11 +133,11 @@ W ramach niestandardowych zasad Azure AD B2C można zintegrować własną logik�
 
 - Utwórz logikę w ramach **zasad rozszerzenia** lub **zasad jednostek przekazywania**. Można dodać nowe elementy, które przesłonią zasady podstawowe przez odwołanie do tego samego identyfikatora. Pozwoli to na skalowanie projektu przy równoczesnym uaktualnieniu zasad podstawowych w przypadku wydania przez firmę Microsoft nowych pakietów startowych.
 - W ramach **podstawowych zasad** zdecydowanie zalecamy uniknięcie wprowadzania jakichkolwiek zmian.  W razie potrzeby wprowadź komentarze, w których wprowadzane są zmiany.
-- Podczas zastępowania elementu, takiego jak metadane profilu technicznego, należy unikać kopiowania całego profilu technicznego z zasad podstawowych. Zamiast tego Skopiuj tylko wymaganą sekcję elementu. Zobacz temat [wyłączanie weryfikacji poczty e-mail](custom-policy-disable-email-verification.md) , aby zapoznać się z przykładem sposobu wprowadzania zmiany.
+- Podczas zastępowania elementu, takiego jak metadane profilu technicznego, należy unikać kopiowania całego profilu technicznego z zasad podstawowych. Zamiast tego Skopiuj tylko wymaganą sekcję elementu. Zobacz temat [wyłączanie weryfikacji poczty e-mail](./disable-email-verification.md) , aby zapoznać się z przykładem sposobu wprowadzania zmiany.
 - Aby zmniejszyć duplikowanie profilów technicznych, w których funkcje podstawowe są udostępniane, należy użyć funkcji [dołączania do profilu technicznego](technicalprofiles.md#include-technical-profile).
 - Unikaj zapisywania do katalogu usługi Azure AD podczas logowania, co może prowadzić do ograniczania problemów.
 - Jeśli zasady mają zależności zewnętrzne, takie jak interfejs API REST, upewnij się, że są one wysoce dostępne.
-- Aby lepiej korzystać z interfejsu użytkownika, upewnij się, że niestandardowe szablony HTML są wdrożone globalnie przy użyciu [dostarczania zawartości online](https://docs.microsoft.com/azure/cdn/). Usługa Azure Content Delivery Network (CDN) pozwala skrócić czas ładowania, zaoszczędzić przepustowość i szybkość odpowiedzi.
+- Aby lepiej korzystać z interfejsu użytkownika, upewnij się, że niestandardowe szablony HTML są wdrożone globalnie przy użyciu [dostarczania zawartości online](../cdn/index.yml). Usługa Azure Content Delivery Network (CDN) pozwala skrócić czas ładowania, zaoszczędzić przepustowość i szybkość odpowiedzi.
 - Jeśli chcesz wprowadzić zmianę w podróży użytkownika. Skopiuj całą podróż użytkownika z zasad podstawowych do zasad rozszerzenia. Podaj unikatowy identyfikator podróży użytkownika do przejazdu użytkownika, który został skopiowany. Następnie w [zasadach jednostki uzależnionej](relyingparty.md)Zmień [domyślny element podróż użytkownika](relyingparty.md#defaultuserjourney) , tak aby wskazywał nową podróż użytkownika.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
@@ -168,9 +168,9 @@ Rozpoczynasz pracę z Azure AD B2C zasadami niestandardowymi:
 
 Po skonfigurowaniu i przetestowaniu zasad Azure AD B2C można rozpocząć Dostosowywanie zasad. Zapoznaj się z następującymi artykułami, aby dowiedzieć się, jak:
 
-- [Dodawanie oświadczeń i dostosowywanie danych wejściowych użytkownika](custom-policy-configure-user-input.md) przy użyciu zasad niestandardowych. Dowiedz się, jak zdefiniować zastrzeżenie, dodać do interfejsu użytkownika, dostosowując niektóre profile techniczne pakietu startowego.
+- [Dodawanie oświadczeń i dostosowywanie danych wejściowych użytkownika](./configure-user-input.md) przy użyciu zasad niestandardowych. Dowiedz się, jak zdefiniować zastrzeżenie, dodać do interfejsu użytkownika, dostosowując niektóre profile techniczne pakietu startowego.
 - [Dostosuj interfejs użytkownika](customize-ui-with-html.md) aplikacji przy użyciu zasad niestandardowych. Dowiedz się, jak utworzyć własną zawartość HTML i dostosować definicję zawartości.
-- [Lokalizowanie interfejsu użytkownika](custom-policy-localization.md) aplikacji przy użyciu zasad niestandardowych. Dowiedz się, jak skonfigurować listę obsługiwanych języków i udostępnić etykiety specyficzne dla języka poprzez dodanie elementu zlokalizowane zasoby.
-- Podczas opracowywania i testowania zasad można [wyłączyć weryfikację poczty e-mail](custom-policy-disable-email-verification.md). Dowiedz się, jak zastąpić metadane profilu technicznego.
-- [Skonfiguruj logowanie za pomocą konta Google](identity-provider-google-custom.md) przy użyciu zasad niestandardowych. Dowiedz się, jak utworzyć nowego dostawcę oświadczeń przy użyciu profilu technicznego OAuth2. Następnie dostosuj podróż użytkownika w celu uwzględnienia opcji logowania Google.
+- [Lokalizowanie interfejsu użytkownika](./language-customization.md) aplikacji przy użyciu zasad niestandardowych. Dowiedz się, jak skonfigurować listę obsługiwanych języków i udostępnić etykiety specyficzne dla języka poprzez dodanie elementu zlokalizowane zasoby.
+- Podczas opracowywania i testowania zasad można [wyłączyć weryfikację poczty e-mail](./disable-email-verification.md). Dowiedz się, jak zastąpić metadane profilu technicznego.
+- [Skonfiguruj logowanie za pomocą konta Google](./identity-provider-google.md) przy użyciu zasad niestandardowych. Dowiedz się, jak utworzyć nowego dostawcę oświadczeń przy użyciu profilu technicznego OAuth2. Następnie dostosuj podróż użytkownika w celu uwzględnienia opcji logowania Google.
 - Aby zdiagnozować problemy z zasadami niestandardowymi, można [zbierać Azure Active Directory B2C dzienników z Application Insights](troubleshoot-with-application-insights.md). Dowiedz się, jak dodać nowe profile techniczne i skonfigurować zasady dotyczące jednostek przekazywania.

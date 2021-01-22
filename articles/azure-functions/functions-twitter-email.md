@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, mvc, cc996988-fb4f-47
-ms.openlocfilehash: feb6b36f8e5e7bbec83d8882552484f68abfd56d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5750597d7d4d372be975aa64ce8db11859791da2
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537756"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674321"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Tworzenie funkcji integrującej się z usługą Azure Logic Apps
 
@@ -40,7 +40,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > [!NOTE]
 > Jeśli chcesz korzystać z łącznika usługi Gmail, tylko konta firmowe z zestawu G-Suite mogą używać tego łącznika bez ograniczeń w usłudze Logic Apps. Jeśli masz konto użytkownika usługi Gmail, możesz użyć łącznika usługi Gmail z tylko określonymi aplikacjami i usługami zatwierdzonymi przez firmę Google. Możesz też [utworzyć aplikację kliencką Google, która będzie używana do uwierzytelniania w łączniku usługi Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Aby uzyskać więcej informacji, zobacz [zabezpieczenia danych i zasady ochrony prywatności dla łączników Google w Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
-+ Do wykonania czynności przedstawionych w tym artykule są wymagane zasoby utworzone w temacie [Tworzenie pierwszej funkcji w witrynie Azure Portal](functions-create-first-azure-function.md).
++ Do wykonania czynności przedstawionych w tym artykule są wymagane zasoby utworzone w temacie [Tworzenie pierwszej funkcji w witrynie Azure Portal](./functions-get-started.md).
 Jeśli jeszcze tego nie zrobiono, wykonaj teraz te kroki, aby utworzyć aplikację funkcji.
 
 ## <a name="create-a-cognitive-services-resource"></a>Tworzenie zasobu usług Cognitive Services
@@ -136,7 +136,7 @@ Została utworzona funkcja kategoryzująca wyniki tonacji. Następnie należy ut
 
 1. W Azure Portal kliknij przycisk **Utwórz zasób** znajdujący się w lewym górnym rogu Azure Portal.
 
-2. Kliknij **Web**pozycję  >  **aplikacja logiki**sieci Web.
+2. Kliknij pozycję  >  **aplikacja logiki** sieci Web.
  
 3. Następnie wpisz wartość **Nazwa**, taką jak `TweetSentiment`, i użyj ustawień określonych w tabeli.
 
@@ -239,11 +239,11 @@ Ostatnia część przepływu pracy polega na wyzwoleniu wiadomości e-mail, gdy 
     
 | Ustawienie      |  Sugerowana wartość   | Opis  |
 | ----------------- | ------------ | ------------- |
-| **Działanie** | Wpisz adres e-mail | Adres e-mail, na który będą wysyłane powiadomienia. |
+| **Do** | Wpisz adres e-mail | Adres e-mail, na który będą wysyłane powiadomienia. |
 | **Temat** | Wykryto negatywną tonację tweetów  | Wiersz tematu powiadomienia w wiadomości e-mail.  |
 | **Treść** | Tekst tweetu, lokalizacja | Kliknij parametry **Tekst tweetu** i **Lokalizacja**. |
 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 Przepływ pracy jest gotowy, można więc włączyć aplikację logiki i przyjrzeć się funkcji w działaniu.
 

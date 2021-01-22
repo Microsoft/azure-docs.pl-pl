@@ -5,12 +5,12 @@ ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.topic: how-to
 ms.date: 04/24/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 9c635b01bcd04bd03191fca2590b0189bad0f544
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2821a16e0b72b32cc392b7ae626d782734458a6
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90982020"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674205"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Dodawanie komunikatów do kolejki usługi Azure Storage przy użyciu funkcji
 
@@ -22,13 +22,13 @@ Aby ukończyć ten przewodnik Szybki start:
 
 - Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- Postępuj zgodnie z instrukcjami znajdującymi się w kroku [Tworzenie pierwszej funkcji w witrynie Azure Portal](functions-create-first-azure-function.md) i nie wykonuj kroku **Oczyszczanie zasobów**. W tym przewodniku Szybki start tworzona jest aplikacja funkcji i funkcja używana w tym miejscu.
+- Postępuj zgodnie z instrukcjami znajdującymi się w kroku [Tworzenie pierwszej funkcji w witrynie Azure Portal](./functions-get-started.md) i nie wykonuj kroku **Oczyszczanie zasobów**. W tym przewodniku Szybki start tworzona jest aplikacja funkcji i funkcja używana w tym miejscu.
 
 ## <a name="add-an-output-binding"></a><a name="add-binding"></a>Dodawanie powiązania danych wyjściowych
 
 W tej sekcji użyjesz interfejsu użytkownika portalu w celu dodania powiązania danych wyjściowych usługi Queue Storage do wcześniej utworzonej funkcji. To powiązanie umożliwia zapisanie minimalnej ilości kodu w celu utworzenia komunikatu w kolejce. Nie będzie konieczne pisanie kodu na potrzeby zadań, takich jak otwieranie połączenia z magazynem, tworzenie kolejki lub pobieranie odwołania do kolejki. Te zadania zostaną wykonane za pomocą środowiska uruchomieniowego usługi Azure Functions i powiązania danych wyjściowych kolejki.
 
-1. W witrynie Azure Portal otwórz stronę aplikacji funkcji na potrzeby aplikacji funkcji utworzonej w kroku [Tworzenie pierwszej funkcji w witrynie Azure Portal](functions-create-first-azure-function.md). Aby otworzyć stronę, Wyszukaj i wybierz **aplikacja funkcji**. Następnie wybierz aplikację funkcji.
+1. W witrynie Azure Portal otwórz stronę aplikacji funkcji na potrzeby aplikacji funkcji utworzonej w kroku [Tworzenie pierwszej funkcji w witrynie Azure Portal](./functions-get-started.md). Aby otworzyć stronę, Wyszukaj i wybierz **aplikacja funkcji**. Następnie wybierz aplikację funkcji.
 
 1. Wybierz aplikację funkcji, a następnie wybierz funkcję utworzoną w poprzednim przewodniku Szybki Start.
 
@@ -38,7 +38,7 @@ W tej sekcji użyjesz interfejsu użytkownika portalu w celu dodania powiązania
 
 1. Wybierz typ powiązania **queue storage platformy Azure** i Dodaj ustawienia określone w tabeli, która następuje po tym zrzucie ekranu: 
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-create-output-binding-details.png" alt-text="Utwórz powiązanie danych wyjściowych dla funkcji." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-create-output-binding-details.png" alt-text="Dodaj powiązanie danych wyjściowych kolejki magazynu do funkcji w witrynie Azure Portal." border="true":::
     
     | Ustawienie      |  Sugerowana wartość   | Opis                              |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -94,11 +94,11 @@ W tej sekcji dodasz kod służący do zapisywania komunikatu do kolejki wyjścio
 1. Po zapisaniu zmian w kodzie wybierz pozycję **Testuj**.
 1. Upewnij się, że test pasuje do poniższego obrazu, i wybierz pozycję **Uruchom**. 
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png" alt-text="Utwórz powiązanie danych wyjściowych dla funkcji." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png" alt-text="Przetestuj powiązanie magazynu kolejki w Azure Portal." border="true":::
 
     Zwróć uwagę na to, że **treść żądania** zawiera `name` wartość *Azure*. Ta wartość jest wyświetlana w komunikacie w kolejce tworzonym po wywołaniu funkcji.
     
-    Alternatywą do wyboru w tym miejscu polecenia **Uruchom** może być wywołanie funkcji, wprowadzając adres URL w przeglądarce i określając wartość `name` w ciągu zapytania. Metoda zakładająca użycie przeglądarki jest przedstawiona w [poprzednim przewodniku Szybkie start](functions-create-first-azure-function.md#test-the-function).
+    Alternatywą do wyboru w tym miejscu polecenia **Uruchom** może być wywołanie funkcji, wprowadzając adres URL w przeglądarce i określając wartość `name` w ciągu zapytania. Metoda zakładająca użycie przeglądarki jest przedstawiona w [poprzednim przewodniku Szybkie start](./functions-get-started.md).
 
 1. Sprawdź dzienniki, aby upewnić się, że funkcja zakończyła się pomyślnie. 
 
@@ -109,19 +109,19 @@ W tej sekcji dodasz kod służący do zapisywania komunikatu do kolejki wyjścio
 
 1. Przejdź do aplikacji funkcji i wybierz pozycję **Konfiguracja**.
 
-1. W obszarze **Ustawienia aplikacji**wybierz pozycję **AzureWebJobsStorage**.
+1. W obszarze **Ustawienia aplikacji** wybierz pozycję **AzureWebJobsStorage**.
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-find-storage-account.png" alt-text="Utwórz powiązanie danych wyjściowych dla funkcji." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-find-storage-account.png" alt-text="Zrzut ekranu przedstawia stronę konfiguracji z wybraną pozycją AzureWebJobsStorage." border="true":::
 
 1. Znajdź i zanotuj nazwę konta.
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-storage-account-name.png" alt-text="Utwórz powiązanie danych wyjściowych dla funkcji." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-storage-account-name.png" alt-text="Znajdź konto magazynu połączone z usługą AzureWebJobsStorage." border="true":::
 
 ### <a name="examine-the-output-queue"></a>Sprawdzanie kolejki wyjściowej
 
 1. W grupie zasobów dla aplikacji funkcji wybierz konto magazynu używane w ramach tego przewodnika Szybki Start.
 
-1. W obszarze **Usługa kolejki**wybierz pozycję **Queues** (kolejki) i wybierz kolejkę o nazwie **requeue**. 
+1. W obszarze **Usługa kolejki** wybierz pozycję **Queues** (kolejki) i wybierz kolejkę o nazwie **requeue**. 
 
    Kolejka zawiera komunikat utworzony za pomocą powiązania danych wyjściowych kolejki po uruchomieniu funkcji wyzwalanej przez protokół HTTP. Jeśli funkcja została wywołana przy użyciu domyślnego elementu `name` o wartości *Azure*, komunikat w kolejce to *Nazwa przekazana do funkcji: Azure*.
 

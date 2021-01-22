@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/30/2020
+ms.date: 01/21/2021
 ms.author: victorh
-ms.openlocfilehash: c56298d68bddd326ed2b32215f30a9057fa51e85
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: dc1eb64b5cfb527c10967a1a46525a418fdc37e3
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94653117"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674001"
 ---
 # <a name="ip-groups-in-azure-firewall"></a>Grupy IP w zaporze platformy Azure
 
@@ -26,6 +26,9 @@ Grupy IP umożliwiają grupowanie adresów IP dla reguł zapory platformy Azure 
 Grupa adresów IP może mieć jeden adres IP, wiele adresów IP lub jeden lub więcej zakresów adresów IP.
 
 Grupy adresów IP mogą być ponownie używane w regułach DNAT, sieci i aplikacji zapory platformy Azure dla wielu zapór w różnych regionach i subskrypcjach na platformie Azure. Nazwy grup muszą być unikatowe. Grupę adresów IP można skonfigurować w Azure Portal, w interfejsie wiersza polecenia platformy Azure lub interfejsu API REST. Przykładowy szablon jest dostarczany, aby pomóc Ci rozpocząć pracę.
+
+> [!NOTE]
+> Grupy IP nie są obecnie dostępne w środowiskach chmur narodowych platformy Azure.
 
 ## <a name="sample-format"></a>Format próbki
 

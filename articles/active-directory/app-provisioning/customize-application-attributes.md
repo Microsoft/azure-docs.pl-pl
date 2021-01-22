@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/10/2020
 ms.author: kenwith
-ms.openlocfilehash: 012038399796a0f2dc87acfb350043542268379a
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: efdbec10c74a6b1892df13b8308538e61f42f679
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936985"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673505"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Samouczek — Dostosowywanie mapowania atrybutów aprowizacji użytkowników dla aplikacji SaaS w Azure Active Directory
 
@@ -115,7 +115,7 @@ Aplikacje i systemy obsługujące Dostosowywanie listy atrybutów obejmują:
 
 
 > [!NOTE]
-> Edytowanie listy obsługiwanych atrybutów jest zalecane tylko dla administratorów, którzy dostosowali schemat aplikacji i systemów, i posiadają pierwszą wiedzę o sposobie definiowania ich atrybutów niestandardowych. Czasami wymaga to znajomości interfejsów API i narzędzi programistycznych udostępnianych przez aplikację lub system. Możliwość edycji listy obsługiwanych atrybutów jest domyślnie zablokowana, ale klienci mogą włączyć tę funkcję, przechodząc do następującego adresu URL: https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true . Następnie możesz przejść do swojej aplikacji, aby wyświetlić listę atrybutów zgodnie z [powyższym](https://docs.microsoft.com/azure/active-directory/app-provisioning/customize-application-attributes#editing-the-list-of-supported-attributes)opisem. 
+> Edytowanie listy obsługiwanych atrybutów jest zalecane tylko dla administratorów, którzy dostosowali schemat aplikacji i systemów, i posiadają pierwszą wiedzę o sposobie definiowania ich atrybutów niestandardowych. Czasami wymaga to znajomości interfejsów API i narzędzi programistycznych udostępnianych przez aplikację lub system. Możliwość edycji listy obsługiwanych atrybutów jest domyślnie zablokowana, ale klienci mogą włączyć tę funkcję, przechodząc do następującego adresu URL: https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true . Następnie możesz przejść do swojej aplikacji, aby wyświetlić listę atrybutów zgodnie z [powyższym](#editing-the-list-of-supported-attributes)opisem. 
 
 Podczas edytowania listy obsługiwanych atrybutów są dostępne następujące właściwości:
 

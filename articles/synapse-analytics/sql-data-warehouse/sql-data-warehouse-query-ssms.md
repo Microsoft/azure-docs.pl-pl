@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b213954dde6ca4eaa0a69ddf0e40398fc09b9063
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: b142c88b0003281237dad125080930c0dd4d3bee
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98115773"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673607"
 ---
 # <a name="connect-to-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-with-sql-server-management-studio-ssms"></a>Nawiązywanie połączenia z dedykowaną pulą SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics przy użyciu programu SQL Server Management Studio (SSMS)
 
@@ -24,7 +24,7 @@ ms.locfileid: "98115773"
 >
 > * [Power BI](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
-> * [Program Visual Studio](sql-data-warehouse-query-visual-studio.md)
+> * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 
@@ -35,7 +35,7 @@ Użyj SQL Server Management Studio (SSMS), aby nawiązać połączenie z dedykow
 Aby użyć tego samouczka, potrzebne są następujące elementy:
 
 * Istniejąca dedykowana Pula SQL. Aby go utworzyć, zobacz [Tworzenie dedykowanej puli SQL (dawniej SQL DW)](create-data-warehouse-portal.md).
-* SQL Server Management Studio (SSMS). [Pobierz](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) bezpłatnie program SSMS, jeśli go jeszcze nie masz.
+* SQL Server Management Studio (SSMS). [Pobierz](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) bezpłatnie program SSMS, jeśli go jeszcze nie masz.
 * W pełni kwalifikowana nazwa serwera SQL. Aby znaleźć te informacje, zobacz [dedykowana Pula SQL (dawniej SQL DW)](sql-data-warehouse-connect-overview.md).
 
 ## <a name="1-connect-to-your-dedicated-sql-pool-formerly-sql-dw"></a>1. Nawiąż połączenie z dedykowaną pulą SQL (dawniej SQL DW)

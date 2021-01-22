@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: f65c1d6fda09d7762a59fb5a932a72ad706a767a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8a59c24100b433719ccfd3a9ea1b6a676695d381
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448016"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673438"
 ---
 # <a name="partitioning-tables-in-dedicated-sql-pool"></a>Partycjonowanie tabel w dedykowanej puli SQL
 
@@ -58,9 +58,9 @@ Aby uzyskać więcej informacji, zobacz artykuł dotyczący [indeksowania](sql-d
 
 Dedykowana Pula SQL wprowadza sposób definiowania partycji, które są prostsze niż SQL Server. Funkcje i schematy partycjonowania nie są używane w dedykowanej puli SQL, ponieważ znajdują się w SQL Server. Zamiast tego należy tylko określić kolumnę partycjonowaną i punkty graniczne. 
 
-Chociaż składnia partycjonowania może się nieco różnić od SQL Server, podstawowe koncepcje są takie same. SQL Server i dedykowana Pula SQL obsługuje jedną kolumnę partycji na tabelę, która może być partycją z zakresem. Aby dowiedzieć się więcej na temat partycjonowania, zobacz [partycjonowane tabele i indeksy](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Chociaż składnia partycjonowania może się nieco różnić od SQL Server, podstawowe koncepcje są takie same. SQL Server i dedykowana Pula SQL obsługuje jedną kolumnę partycji na tabelę, która może być partycją z zakresem. Aby dowiedzieć się więcej na temat partycjonowania, zobacz [partycjonowane tabele i indeksy](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
-Poniższy przykład używa instrukcji [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) , aby podzielić tabelę FactInternetSales na kolumnę OrderDateKey:
+Poniższy przykład używa instrukcji [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) , aby podzielić tabelę FactInternetSales na kolumnę OrderDateKey:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -90,8 +90,8 @@ WITH
 
 Aby migrować definicje partycji SQL Server do dedykowanej puli SQL po prostu:
 
-- Usuń [schemat partycji](/sql/t-sql/statements/create-partition-scheme-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)SQL Server.
-- Dodaj definicję [funkcji partycji](/sql/t-sql/statements/create-partition-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) do CREATE TABLE.
+- Usuń [schemat partycji](/sql/t-sql/statements/create-partition-scheme-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)SQL Server.
+- Dodaj definicję [funkcji partycji](/sql/t-sql/statements/create-partition-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) do CREATE TABLE.
 
 W przypadku migrowania tabeli partycjonowanej z wystąpienia SQL Server następujące polecenie SQL może pomóc ustalić liczbę wierszy w poszczególnych partycjach. Należy pamiętać, że jeśli ten sam stopień szczegółowości partycjonowania jest używany w dedykowanej puli SQL, liczba wierszy na partycję zmniejsza się o współczynnik 60.  
 
@@ -131,7 +131,7 @@ GROUP BY    s.[name]
 
 ## <a name="partition-switching"></a>Przełączanie partycji
 
-Dedykowana Pula SQL obsługuje dzielenie, scalanie i przełączanie partycji. Każda z tych funkcji jest wykonywana przy użyciu instrukcji [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .
+Dedykowana Pula SQL obsługuje dzielenie, scalanie i przełączanie partycji. Każda z tych funkcji jest wykonywana przy użyciu instrukcji [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) .
 
 Aby przełączyć partycje między dwiema tabelami, należy się upewnić, że partycje są wyrównane do odpowiednich granic i że definicje tabeli są zgodne. Ponieważ ograniczenia check nie są dostępne, aby wymusić zakres wartości w tabeli, tabela źródłowa musi zawierać te same granice partycji co tabela docelowa. Jeśli granice partycji nie są takie same, przełączenie nie powiedzie się, ponieważ metadane partycji nie zostaną zsynchronizowane.
 

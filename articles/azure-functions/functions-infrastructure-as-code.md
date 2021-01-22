@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: dbb380dca231f75f6d6e77676c9059ef3762dac5
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 4b649942a52c51aef0d6edd17b913f75e1fb247b
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98050939"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674171"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatyzowanie wdrażania zasobów dla aplikacji funkcji w Azure Functions
 
@@ -112,7 +112,7 @@ Ponadto klucz Instrumentacji musi być dostarczany do aplikacji funkcji przy uż
 Definicja planu hostingu jest różna i może być jedną z następujących czynności:
 * [Plan zużycia](#consumption) (wartość domyślna)
 * [Plan Premium](#premium)
-* [Plan App Service](#app-service-plan)
+* [Plan usługi App Service](#app-service-plan)
 
 ### <a name="function-app"></a>Aplikacja funkcji
 
@@ -692,7 +692,7 @@ Dowiedz się więcej na temat sposobu tworzenia i konfigurowania Azure Functions
 
 * [Dokumentacja usługi Azure Functions dla deweloperów](functions-reference.md)
 * [Jak skonfigurować ustawienia aplikacji funkcji platformy Azure](functions-how-to-use-azure-function-app-settings.md)
-* [Tworzenie pierwszej funkcji platformy Azure](functions-create-first-azure-function.md)
+* [Tworzenie pierwszej funkcji platformy Azure](./functions-get-started.md)
 
 <!-- LINKS -->
 

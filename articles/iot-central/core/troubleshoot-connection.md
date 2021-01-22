@@ -8,12 +8,12 @@ ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
 ms.custom: device-developer, devx-track-azurecli
-ms.openlocfilehash: 2bbf400840c968587de3a0a0951d28c7c35b210f
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: d1a7c94152b611ea0dbea249156add617178d7ca
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990894"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673238"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>Rozwiązywanie problemów dotyczących niewyświetlania danych z urządzeń w usłudze Azure IoT Central
 
@@ -35,11 +35,11 @@ W tej sekcji można określić, czy dane docierają do IoT Central.
 
 Jeśli jeszcze tego nie zrobiono, zainstaluj `az cli` Narzędzie i `azure-iot` rozszerzenie.
 
-Aby dowiedzieć się, jak zainstalować `az cli` program, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Aby dowiedzieć się, jak zainstalować `az cli` program, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
-Aby [zainstalować](/cli/azure/azure-cli-reference-for-IoT?view=azure-cli-latest#extension-reference-installation) `azure-iot` rozszerzenie, uruchom następujące polecenie:
+Aby [zainstalować](/cli/azure/azure-cli-reference-for-IoT#extension-reference-installation) `azure-iot` rozszerzenie, uruchom następujące polecenie:
 
-```cmd/bash
+```azurecli
 az extension add --name azure-iot
 ```
 
@@ -50,20 +50,20 @@ Po zainstalowaniu `azure-iot` rozszerzenia Uruchom urządzenie, aby sprawdzić, 
 
 Użyj następujących poleceń, aby zalogować się do subskrypcji, w której masz aplikację IoT Central:
 
-```cmd/bash
+```azurecli
 az login
 az set account --subscription <your-subscription-id>
 ```
 
 Aby monitorować dane telemetryczne wysyłane przez urządzenie, użyj następującego polecenia:
 
-```cmd/bash
+```azurecli
 az iot central diagnostics monitor-events --app-id <app-id> --device-id <device-name>
 ```
 
 Jeśli urządzenie zostało pomyślnie podłączone do IoT Central, zobaczysz dane wyjściowe podobne do następujących:
 
-```cmd/bash
+```output
 Monitoring telemetry.
 Filtering on device: device-001
 {
@@ -82,13 +82,13 @@ Filtering on device: device-001
 
 Aby monitorować aktualizacje właściwości, urządzenie jest wymieniane z IoT Central, użyj następującego polecenia w wersji zapoznawczej:
 
-```cmd/bash
+```azurecli
 az iot central diagnostics monitor-properties --app-id <app-id> --device-id <device-name>
 ```
 
 Jeśli urządzenie pomyślnie wyśle aktualizacje właściwości, zobaczysz dane wyjściowe podobne do następujących:
 
-```cmd/bash
+```output
 Changes in reported properties:
 version : 32
 {'state': 'true', 'name': {'value': {'value': 'Contoso'}, 'status': 'completed', 'desiredVersion': 7, 'ad': 'completed', 'av': 7, 'ac
@@ -106,7 +106,7 @@ Jeśli nadal nie widzisz żadnych danych w terminalu, prawdopodobnie urządzenie
 
 Jeśli dane nie są wyświetlane na monitorze, sprawdź stan aprowizacji urządzenia, uruchamiając następujące polecenie:
 
-```cmd/bash
+```azurecli
 az iot central device registration-info --app-id <app-id> --device-id <device-name>
 ```
 
@@ -176,13 +176,13 @@ Aby wykryć, których kategorii dotyczy problem, uruchom najbardziej odpowiednie
 
 - Aby sprawdzić poprawność telemetrii, użyj polecenia podglądu:
 
-    ```cmd/bash
+    ```azurecli
     az iot central diagnostics validate-messages --app-id <app-id> --device-id <device-name>
     ```
 
 - Aby sprawdzić poprawność aktualizacji właściwości, użyj polecenia podglądu
 
-    ```cmd/bash
+    ```azurecli
     az iot central diagnostics validate-properties --app-id <app-id> --device-id <device-name>
     ```
 
@@ -190,7 +190,7 @@ Może zostać wyświetlony monit o zainstalowanie `uamqp` biblioteki podczas pie
 
 Następujące dane wyjściowe pokazują przykład błędu i komunikaty ostrzegawcze z polecenia Validate:
 
-```cmd/bash
+```output
 Validating telemetry.
 Filtering on device: v22upeoqx6.
 Exiting after 300 second(s), or 10 message(s) have been parsed (whichever happens first).

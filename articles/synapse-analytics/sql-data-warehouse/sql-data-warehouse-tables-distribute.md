@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 3b61df954e913671eafff4b739e0f53a4d420c28
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 5aefe869041d9fff8112b6aa380961ca6568ae0b
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98117303"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673573"
 ---
 # <a name="guidance-for-designing-distributed-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Wskazówki dotyczące projektowania tabel rozproszonych przy użyciu dedykowanej puli SQL w usłudze Azure Synapse Analytics
 
@@ -96,7 +96,7 @@ Dane przechowywane w kolumnie dystrybucja można aktualizować. Aktualizacje dan
 
 Wybór kolumny dystrybucji jest ważną decyzją projektową, ponieważ wartości w tej kolumnie określają sposób dystrybuowania wierszy. Najlepszy wybór zależy od kilku czynników i zazwyczaj wymaga kompromisów. Po wybraniu kolumny dystrybucji nie można jej zmienić.  
 
-Jeśli nie wybrano najlepszej kolumny po raz pierwszy, można użyć [CREATE TABLE jako Select (CTAs)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) , aby ponownie utworzyć tabelę z inną kolumną dystrybucji.
+Jeśli nie wybrano najlepszej kolumny po raz pierwszy, można użyć [CREATE TABLE jako Select (CTAs)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) , aby ponownie utworzyć tabelę z inną kolumną dystrybucji.
 
 ### <a name="choose-a-distribution-column-with-data-that-distributes-evenly"></a>Wybierz kolumnę dystrybucji z danymi, które dystrybuują równomiernie
 
@@ -133,7 +133,7 @@ Po załadowaniu danych do tabeli rozproszonej przez funkcję tworzenia skrótów
 
 ### <a name="determine-if-the-table-has-data-skew"></a>Ustal, czy tabela ma skośne dane
 
-Aby szybko sprawdzić pochylenie danych, należy użyć [polecenia DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Poniższy kod SQL zwraca liczbę wierszy tabeli, które są przechowywane w każdej z dystrybucji 60. W celu zapewnienia zrównoważonej wydajności wiersze w tabeli rozproszonej powinny być równomiernie rozłożone na wszystkie dystrybucje.
+Aby szybko sprawdzić pochylenie danych, należy użyć [polecenia DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Poniższy kod SQL zwraca liczbę wierszy tabeli, które są przechowywane w każdej z dystrybucji 60. W celu zapewnienia zrównoważonej wydajności wiersze w tabeli rozproszonej powinny być równomiernie rozłożone na wszystkie dystrybucje.
 
 ```sql
 -- Find data skew for a distributed table
@@ -183,7 +183,7 @@ Ponieważ nie można zmienić kolumny dystrybucji w istniejącej tabeli, typowym
 
 ### <a name="re-create-the-table-with-a-new-distribution-column"></a>Utwórz ponownie tabelę z nową kolumną dystrybucji
 
-W tym przykładzie używa się [CREATE TABLE jako zaznaczone,](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) aby ponownie utworzyć tabelę z inną kolumną dystrybucji skrótów.
+W tym przykładzie używa się [CREATE TABLE jako zaznaczone,](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) aby ponownie utworzyć tabelę z inną kolumną dystrybucji skrótów.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_CustomerKey]
@@ -225,5 +225,5 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 
 Aby utworzyć tabelę rozproszoną, należy użyć jednej z następujących instrukcji:
 
-- [CREATE TABLE (dedykowana Pula SQL)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [CREATE TABLE jako wybór (dedykowana Pula SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE (dedykowana Pula SQL)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [CREATE TABLE jako wybór (dedykowana Pula SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)

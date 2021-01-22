@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 9520196c8dce9ea511c2f3b799bd12b34c6f988f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: ad3a2ae9fd9a99398b384ef4e4a44820faccf8c7
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499751"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675889"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Dodawanie dysku do maszyny wirtualnej z systemem Linux
 
@@ -181,5 +181,5 @@ Istnieją dwa sposoby włączania obsługi przycinania na maszynie wirtualnej z 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby upewnić się, że maszyna wirtualna z systemem Linux została prawidłowo skonfigurowana, przejrzyj zalecenia dotyczące [wydajności maszyny z systemem Linux](optimization.md) .
+* Aby upewnić się, że maszyna wirtualna z systemem Linux została prawidłowo skonfigurowana, przejrzyj zalecenia dotyczące [wydajności maszyny z systemem Linux](/previous-versions/azure/virtual-machines/linux/optimization) .
 * Zwiększ pojemność magazynu, dodając dodatkowe dyski i [Skonfiguruj macierz RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) pod kątem dodatkowej wydajności.

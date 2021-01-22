@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 19aa847ce7ce1a6ba727a4733aefcdfad845e8c6
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 282ec6a25dc381dc51f28534d272bae57d2e792e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629395"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674997"
 ---
 # <a name="tutorial-to-configure-nevis-with-azure-active-directory-b2c-for-passwordless-authentication"></a>Samouczek konfigurowania programu Nevis z Azure Active Directory B2C do uwierzytelniania bezhaseł
 
@@ -30,9 +30,9 @@ Aby rozpocząć, musisz:
 
 - Subskrypcja usługi Azure AD. Jeśli go nie masz, uzyskaj [bezpłatne konto](https://azure.microsoft.com/free/).
 
-- [Dzierżawa Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) , która jest połączona z subskrypcją platformy Azure.
+- [Dzierżawa Azure AD B2C](./tutorial-create-tenant.md) , która jest połączona z subskrypcją platformy Azure.
 
-- Skonfigurowanie środowiska Azure AD B2C na potrzeby używania [zasad niestandardowych](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started), jeśli chcesz zintegrować go z przepływem zasad rejestracji.
+- Skonfigurowanie środowiska Azure AD B2C na potrzeby używania [zasad niestandardowych](./custom-policy-get-started.md), jeśli chcesz zintegrować go z przepływem zasad rejestracji.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -92,7 +92,7 @@ Otrzymasz dwie wiadomości e-mail:
 >[!NOTE]
 >Token dostępu do Nevis będzie potrzebny później.
 
-11. Wybierz pozycję **Gotowe**.
+11. Kliknij **Gotowe**.
 
 ### <a name="install-the-nevis-access-app-on-your-phone"></a>Zainstaluj aplikację "Nevis Access" na telefonie
 
@@ -134,9 +134,9 @@ Otrzymasz dwie wiadomości e-mail:
 
 4. **Zapisz** zmiany w pliku.
 
-5. Postępuj zgodnie z [instrukcjami](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html#2-create-an-azure-blob-storage-account) i przekaż plik **nevis.html** do magazynu obiektów blob platformy Azure.
+5. Postępuj zgodnie z [instrukcjami](./customize-ui-with-html.md#2-create-an-azure-blob-storage-account) i przekaż plik **nevis.html** do magazynu obiektów blob platformy Azure.
 
-6. Postępuj zgodnie z [instrukcjami](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html#3-configure-cors) i Włącz współużytkowanie zasobów między źródłami (CORS) dla tego pliku.
+6. Postępuj zgodnie z [instrukcjami](./customize-ui-with-html.md#3-configure-cors) i Włącz współużytkowanie zasobów między źródłami (CORS) dla tego pliku.
 
 7. Po zakończeniu przekazywania i włączeniu funkcji CORS zaznacz plik **nevis.html** na liście.
 
@@ -268,6 +268,6 @@ Otrzymasz dwie wiadomości e-mail:
 
 Aby uzyskać dodatkowe informacje, zapoznaj się z następującymi artykułami
 
-- [Zasady niestandardowe w usłudze Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Zasady niestandardowe w usłudze Azure AD B2C](./custom-policy-overview.md)
 
-- [Wprowadzenie do zasad niestandardowych w Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Wprowadzenie do zasad niestandardowych w Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

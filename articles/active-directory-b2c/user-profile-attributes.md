@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/13/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7b134c4e9e980104a54f6a96d45445ee114556a5
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: f76aecc80537e6db55c8c4f2e5a7a240be6b1415
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178725"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675750"
 ---
 # <a name="user-profile-attributes"></a>Atrybuty profilu użytkownika
 
@@ -41,7 +41,7 @@ W poniższej tabeli wymieniono atrybuty [typu zasobu użytkownika](/graph/api/re
 
 |Nazwa     |Typ     |Opis|Azure Portal|Przepływy użytkowników|Zasady niestandardowe|
 |---------|---------|----------|------------|----------|-------------|
-|accountEnabled  |Boolean (wartość logiczna)|Niezależnie od tego, czy konto użytkownika jest włączone, czy wyłączone: **prawda** , jeśli konto jest włączone, w przeciwnym razie **false**.|Tak|Nie|Utrwalony, wyjściowy|
+|accountEnabled  |Wartość logiczna|Niezależnie od tego, czy konto użytkownika jest włączone, czy wyłączone: **prawda** , jeśli konto jest włączone, w przeciwnym razie **false**.|Tak|Nie|Utrwalony, wyjściowy|
 |grupa_wiekowa        |Ciąg|Grupa wiekowa użytkownika. Możliwe wartości: null, undefined, moll, dorosły, NotAdult.|Tak|Nie|Utrwalony, wyjściowy|
 |alternativeSecurityId ([tożsamości](#identities-attribute))|Ciąg|Tożsamość pojedynczego użytkownika od zewnętrznego dostawcy tożsamości.|Nie|Nie|Dane wejściowe, utrwalone i wyjściowe|
 |alternativeSecurityIds ([tożsamości](#identities-attribute))|Alternatywna kolekcja securityId|Kolekcja tożsamości użytkowników od zewnętrznych dostawców tożsamości.|Nie|Nie|Utrwalony, wyjściowy|
@@ -50,7 +50,7 @@ W poniższej tabeli wymieniono atrybuty [typu zasobu użytkownika](/graph/api/re
 |country         |Ciąg|Kraj/region, w którym znajduje się użytkownik. Przykład: "US" lub "UK". Maksymalna długość 128.|Tak|Tak|Utrwalony, wyjściowy|
 |createdDateTime|DateTime|Data utworzenia obiektu użytkownika. Tylko do odczytu.|Nie|Nie|Utrwalony, wyjściowy|
 |Jeżeli    |Ciąg|Jeśli konto użytkownika zostało utworzone jako konto lokalne dla dzierżawy Azure Active Directory B2C, wartość to LocalAccount lub nameCoexistence. Tylko do odczytu.|Nie|Nie|Utrwalony, wyjściowy|
-|dateOfBirth     |Data|Data urodzenia.|Nie|Nie|Utrwalony, wyjściowy|
+|dateOfBirth     |Date|Data urodzenia.|Nie|Nie|Utrwalony, wyjściowy|
 |działu,      |Ciąg|Nazwa działu, w którym pracuje użytkownik. Maksymalna długość 64.|Tak|Nie|Utrwalony, wyjściowy|
 |displayName     |Ciąg|Nazwa wyświetlana użytkownika. Maksymalna długość 256.|Tak|Tak|Utrwalony, wyjściowy|
 |facsimileTelephoneNumber<sup>1</sup>|Ciąg|Numer telefonu służbowego komputera faksowego użytkownika.|Tak|Nie|Utrwalony, wyjściowy|
@@ -160,7 +160,7 @@ W scenariuszach migracji użytkowników, jeśli konta, które mają zostać podd
 
 ## <a name="mfa-phone-number-attribute"></a>Atrybut numeru telefonu MFA
 
-W przypadku korzystania z telefonu do uwierzytelniania wieloskładnikowego (MFA) telefon komórkowy służy do weryfikowania tożsamości użytkownika. Aby [dodać](https://docs.microsoft.com/graph/api/authentication-post-phonemethods) nowy numer telefonu programowo, [zaktualizować](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-update), [pobrać](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-get)lub [usunąć](https://docs.microsoft.com/graph/api/phoneauthenticationmethod-delete) numer telefonu, użyj [metody uwierzytelniania](https://docs.microsoft.com/graph/api/resources/phoneauthenticationmethod)MS interfejs API programu Graph Phone.
+W przypadku korzystania z telefonu do uwierzytelniania wieloskładnikowego (MFA) telefon komórkowy służy do weryfikowania tożsamości użytkownika. Aby [dodać](/graph/api/authentication-post-phonemethods) nowy numer telefonu programowo, [zaktualizować](/graph/api/b2cauthenticationmethodspolicy-update), [pobrać](/graph/api/b2cauthenticationmethodspolicy-get)lub [usunąć](/graph/api/phoneauthenticationmethod-delete) numer telefonu, użyj [metody uwierzytelniania](/graph/api/resources/phoneauthenticationmethod)MS interfejs API programu Graph Phone.
 
 W Azure AD B2C [zasad niestandardowych](custom-policy-overview.md)numer telefonu jest dostępny za pomocą `strongAuthenticationPhoneNumber` typu zgłoszenia.
 
@@ -175,7 +175,7 @@ Atrybuty rozszerzenia [rozszerzają schemat](/graph/extensibility-overview#schem
 > - Jeśli aplikacja B2C-Extensions-App zostanie usunięta, te atrybuty rozszerzenia zostaną usunięte ze wszystkich użytkowników wraz z wszelkimi zawartymi w nich danymi.
 > - Jeśli atrybut rozszerzenia zostanie usunięty przez aplikację, zostanie on usunięty z wszystkich kont użytkowników i wartości są usuwane.
 
-Atrybuty rozszerzenia w interfejs API programu Graph są nazwane przy użyciu konwencji, w `extension_ApplicationClientID_AttributeName` której `ApplicationClientID` jest **Identyfikator aplikacji (klienta)** `b2c-extensions-app` aplikacji (znajdujący się w **rejestracje aplikacji**  >  **wszystkie aplikacje** w Azure Portal). Należy zauważyć, że **Identyfikator aplikacji (klienta)** , która jest reprezentowana w nazwie atrybutu rozszerzenia, nie zawiera łączników. Na przykład:
+Atrybuty rozszerzenia w interfejs API programu Graph są nazwane przy użyciu konwencji, w `extension_ApplicationClientID_AttributeName` której `ApplicationClientID` jest **Identyfikator aplikacji (klienta)** `b2c-extensions-app` aplikacji (znajdujący się w **rejestracje aplikacji**  >  **wszystkie aplikacje** w Azure Portal). Należy zauważyć, że **Identyfikator aplikacji (klienta)** , która jest reprezentowana w nazwie atrybutu rozszerzenia, nie zawiera łączników. Przykład:
 
 ```json
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
@@ -185,7 +185,7 @@ Podczas definiowania atrybutu w rozszerzeniu schematu obsługiwane są następuj
 
 |Typ |Uwagi  |
 |--------------|---------|
-|Boolean (wartość logiczna)    | Możliwe wartości: **true** lub **false**. |
+|Wartość logiczna    | Możliwe wartości: **true** lub **false**. |
 |DateTime   | Musi być określony w formacie ISO 8601. Będą przechowywane w formacie UTC.   |
 |Liczba całkowita    | 32 — wartość bitowa.               |
 |Ciąg     | maksymalnie 256 znaków.     |

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 07/17/2020
 ms.author: cynthn
-ms.openlocfilehash: 96c68850cfd8b03f7d1457eb0f1ca9ce5880c926
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: a20c19c3da89801570ca4d74a646e3cf0d8434b6
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98198003"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675906"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Korzystanie z narzędzi do automatyzacji infrastruktury z maszynami wirtualnymi na platformie Azure
 
@@ -87,8 +87,8 @@ Skrypty można pobrać z usługi Azure Storage lub z dowolnej lokalizacji public
 
 Instrukcje:
 
-- [Utwórz maszynę wirtualną z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure i Użyj niestandardowego rozszerzenia skryptu](./scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fcli%2fazure%2ftoc.json).
-- [Utwórz maszynę wirtualną z systemem Windows przy użyciu Azure PowerShell i Użyj niestandardowego rozszerzenia skryptu](./scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md).
+- [Utwórz maszynę wirtualną z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure i Użyj niestandardowego rozszerzenia skryptu](/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-nginx?toc=%2fcli%2fazure%2ftoc.json).
+- [Utwórz maszynę wirtualną z systemem Windows przy użyciu Azure PowerShell i Użyj niestandardowego rozszerzenia skryptu](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis).
 
 
 ## <a name="packer"></a>Usługi Packer
@@ -109,7 +109,7 @@ Instrukcje:
 - [Utwórz infrastrukturę platformy Azure z usługą Terraform](/azure/developer/terraform/create-linux-virtual-machine-with-infrastructure).
 
 
-## <a name="azure-automation"></a>Usługa Azure Automation
+## <a name="azure-automation"></a>Azure Automation
 [Azure Automation](https://azure.microsoft.com/services/automation/) używa elementów Runbook do przetwarzania zestawu zadań dla docelowych maszyn wirtualnych. Azure Automation jest używany do zarządzania istniejącymi maszynami wirtualnymi, a nie do tworzenia infrastruktury. Azure Automation można uruchamiać na maszynach wirtualnych z systemem Linux i Windows, a także na maszynach wirtualnych lub fizycznych z hybrydowym procesem roboczym elementu Runbook. Elementy Runbook mogą być przechowywane w repozytorium kontroli źródła, takim jak GitHub. Te elementy Runbook można następnie uruchomić ręcznie lub zgodnie ze zdefiniowanym harmonogramem.
 
 Azure Automation udostępnia również usługę konfiguracji żądanego stanu (DSC), która umożliwia tworzenie definicji, w jaki sposób należy skonfigurować dany zestaw maszyn wirtualnych. Usługa DSC gwarantuje, że wymagana konfiguracja zostanie zastosowana, a maszyna wirtualna pozostaje spójna. Azure Automation DSC działa na komputerach z systemem Windows i Linux.
@@ -124,7 +124,7 @@ Instrukcje:
 ## <a name="azure-devops-services"></a>Usługa Azure DevOps Services
 [Azure DevOps Services](https://www.visualstudio.com/team-services/) to pakiet narzędzi, które ułatwiają udostępnianie i śledzenie kodu, korzystanie z zautomatyzowanych kompilacji oraz tworzenie kompletnego potoku ciągłej integracji i tworzenia oprogramowania (Ci/CD). Azure DevOps Services integruje się z programem Visual Studio i innymi edytorami, aby uprościć użycie. Azure DevOps Services może również tworzyć i konfigurować maszyny wirtualne platformy Azure, a następnie wdrażać w nich kod.
 
-Dowiedz się więcej:
+Dowiedz się więcej na następujące tematy:
 
 - [Azure DevOps Services](/azure/devops/user-guide/index?view=vsts).
 
@@ -144,7 +144,7 @@ Instrukcje:
 
 - [Wdróż maszyny wirtualne przy użyciu szablonu Menedżer zasobów](./linux/spot-template.md).
 - [Utwórz maszynę wirtualną z systemem Windows na podstawie szablonu Menedżer zasobów](./windows/ps-template.md).
-- [Pobierz szablon dla maszyny wirtualnej](./windows/download-template.md).
+- [Pobierz szablon dla maszyny wirtualnej](/previous-versions/azure/virtual-machines/windows/download-template).
 - [Utwórz szablon usługi Azure Image Builder](./linux/image-builder-json.md).
 
 ## <a name="next-steps"></a>Następne kroki

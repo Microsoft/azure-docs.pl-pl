@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c271107b85e4903153c29b58aadadd37fb051b76
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5161d8e169a7eb9e757dfbfa71fa697880e1806e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022568"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673691"
 ---
 # <a name="use-azure-files-with-linux"></a>Używanie usługi Azure Files z systemem Linux
 [Azure Files](storage-files-introduction.md) to łatwy w użyciu system plików w chmurze firmy Microsoft. Udziały plików platformy Azure można instalować w dystrybucjach systemu Linux przy użyciu [klienta jądra SMB](https://wiki.samba.org/index.php/LinuxCIFS). W tym artykule przedstawiono dwa sposoby instalowania udziału plików platformy Azure: na żądanie z `mount` poleceniem i przy rozruchu, tworząc wpis w `/etc/fstab` .
@@ -24,7 +24,7 @@ Zalecanym sposobem instalowania udziału plików platformy Azure w systemie Linu
 | Ubuntu | 14.04 + | 16.04 + |
 | Red Hat Enterprise Linux (RHEL) | 7 + | 7.5 + |
 | CentOS | 7 + |  7.5 + |
-| Debian | 8 + | 10+ |
+| Debian | 8 + | Ponad 10 |
 | openSUSE | 13.2 + | 42.3 + |
 | SUSE Linux Enterprise Server | 12+ | 12 Z DODATKIEM SP2 + |
 
@@ -67,7 +67,7 @@ uname -r
 
     W przypadku innych dystrybucji Użyj odpowiedniego Menedżera pakietów lub [Skompiluj ze źródła](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download)
 
-* **Najnowsza wersja interfejsu wiersza polecenia platformy Azure (CLI).** Aby uzyskać więcej informacji na temat instalowania interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) i wybieranie systemu operacyjnego. Jeśli wolisz używać modułu Azure PowerShell w programie PowerShell 6 lub nowszym, możesz jednak przedstawić poniższe instrukcje dla interfejsu wiersza polecenia platformy Azure.
+* **Najnowsza wersja interfejsu wiersza polecenia platformy Azure (CLI).** Aby uzyskać więcej informacji na temat instalowania interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) i wybieranie systemu operacyjnego. Jeśli wolisz używać modułu Azure PowerShell w programie PowerShell 6 lub nowszym, możesz jednak przedstawić poniższe instrukcje dla interfejsu wiersza polecenia platformy Azure.
 
 * **Upewnij się, że port 445 jest otwarty**: protokół SMB komunikuje się za pośrednictwem portu TCP 445 — Sprawdź, czy Zapora nie blokuje portów TCP 445 z komputera klienckiego.  Zastąp `<your-resource-group>` , a `<your-storage-account>` następnie uruchom następujący skrypt:
     ```bash
@@ -87,7 +87,7 @@ uname -r
 
     Jeśli połączenie zakończyło się pomyślnie, powinien zostać wyświetlony komunikat podobny do następującego:
 
-    ```
+    ```ouput
     Connection to <your-storage-account> 445 port [tcp/microsoft-ds] succeeded!
     ```
 

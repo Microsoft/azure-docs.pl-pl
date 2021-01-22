@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 2f383876963e3e1d310e7d93f7dc99bb58b189d3
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 78b0cbbdccc7d6853d4ce2821bf659e888680a5f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97681655"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674647"
 ---
 # <a name="create-a-data-source-android-sdk"></a>Tworzenie źródła danych (Android SDK)
 
@@ -355,10 +355,10 @@ Utils.importData("URL_or_FilePath_to_GeoJSON_data",
 
 Azure Maps jest zgodna ze [specyfikacją kafelka wektora MapBox](https://github.com/mapbox/vector-tile-spec), otwartym standardem. Azure Maps udostępnia następujące usługi kafelków wektorowych jako część platformy:
 
-- [](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview)  |  [Szczegóły formatu danych dokumentacji dotyczącej](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile) kafelków dróg
-- [](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidenttile)  |  [Szczegóły dotyczące formatu danych dokumentacji dotyczącej](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles) zdarzeń ruchu
-- [](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowtile)  |  [Szczegóły formatu danych](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles) dokumentacji przepływu ruchu
-- Kreator Azure Maps umożliwia również tworzenie niestandardowych kafelków wektorowych i uzyskiwanie do nich dostępu za pomocą funkcji [renderowania kafelków w wersji 2](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview)
+- [](/rest/api/maps/renderv2/getmaptilepreview)  |  [Szczegóły formatu danych dokumentacji dotyczącej](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile) kafelków dróg
+- [](/rest/api/maps/traffic/gettrafficincidenttile)  |  [Szczegóły dotyczące formatu danych dokumentacji dotyczącej](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles) zdarzeń ruchu
+- [](/rest/api/maps/traffic/gettrafficflowtile)  |  [Szczegóły formatu danych](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles) dokumentacji przepływu ruchu
+- Kreator Azure Maps umożliwia również tworzenie niestandardowych kafelków wektorowych i uzyskiwanie do nich dostępu za pomocą funkcji [renderowania kafelków w wersji 2](/rest/api/maps/renderv2/getmaptilepreview)
 
 Aby wyświetlić dane ze źródła kafelka wektorowego na mapie, Podłącz źródło do jednej z warstw renderowania danych. Wszystkie warstwy używające źródła wektora muszą określać `sourceLayer` wartość w opcjach. Poniższy kod ładuje usługę kafelków wektora przepływu ruchu Azure Maps jako źródło kafelka wektora, a następnie wyświetla ją na mapie przy użyciu warstwy liniowej. To źródło kafelka wektorowego zawiera pojedynczy zestaw danych w warstwie źródłowej o nazwie "przepływ ruchu". Dane wiersza w tym zestawie danych mają właściwość o nazwie `traffic_level` , która jest używana w tym kodzie do wybierania koloru i skalowania rozmiaru wierszy.
 
@@ -523,4 +523,4 @@ Zapoznaj się z następującymi artykułami, aby uzyskać więcej przykładów k
 > [Dodawanie mapy cieplnej](map-add-heat-map-layer-android.md)
 
 > [!div class="nextstepaction"]
-> [Przykłady kodu zestawu SDK sieci Web](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Przykłady kodu zestawu SDK sieci Web](/samples/browse/?products=azure-maps)

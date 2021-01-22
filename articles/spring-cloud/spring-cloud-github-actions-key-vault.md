@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 995d10b3c7064e462500e0bec4d5d8aa010afe64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ea0db1faf8c452958b8d95c193d45506057777c
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888784"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673336"
 ---
 # <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Uwierzytelnianie chmury Azure wiosennej za pomocą Key Vault w akcjach GitHub
 
@@ -22,13 +22,14 @@ Magazyn kluczy jest bezpiecznym miejscem do przechowywania kluczy. Użytkownicy 
 
 ## <a name="generate-credential"></a>Generuj poświadczenia
 Aby wygenerować klucz w celu uzyskania dostępu do magazynu kluczy, wykonaj poniższe polecenie na komputerze lokalnym:
-```
+
+```azurecli
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.KeyVault/vaults/<KEY_VAULT> --sdk-auth
 ```
 Zakres określony przez `--scopes` parametr ogranicza dostęp klucza do zasobu.  Może uzyskać dostęp tylko do silnego pola.
 
 Z wynikami:
-```
+```output
 {
     "clientId": "<GUID>",
     "clientSecret": "<GUID>",
@@ -50,7 +51,7 @@ Przejdź do pulpitu nawigacyjnego **Key Vault** w Azure Portal, kliknij menu **K
 
  ![Ustawianie zasad dostępu](./media/github-actions/key-vault1.png)
 
-Skopiuj nazwę poświadczenia, na przykład `azure-cli-2020-01-19-04-39-02` . Otwórz menu **zasady dostępu** , a następnie kliknij pozycję **+ Dodaj zasady dostępu** .  Wybierz pozycję `Secret Management` dla **szablonu**, a następnie wybierz pozycję **podmiot zabezpieczeń**. Wklej nazwę poświadczenia w **Principal** / polu wejściowym**SELECT** Principal:
+Skopiuj nazwę poświadczenia, na przykład `azure-cli-2020-01-19-04-39-02` . Otwórz menu **zasady dostępu** , a następnie kliknij pozycję **+ Dodaj zasady dostępu** .  Wybierz pozycję `Secret Management` dla **szablonu**, a następnie wybierz pozycję **podmiot zabezpieczeń**. Wklej nazwę poświadczenia w  / polu wejściowym **SELECT** Principal:
 
  ![Wybierz](./media/github-actions/key-vault2.png)
 
@@ -59,12 +60,12 @@ Skopiuj nazwę poświadczenia, na przykład `azure-cli-2020-01-19-04-39-02` . Ot
 ## <a name="generate-full-scope-azure-credential"></a>Generowanie poświadczeń platformy Azure z pełnym zakresem
 Jest to klucz główny, aby otworzyć wszystkie drzwi w budynku. Procedura jest podobna do poprzedniego kroku, ale w tym miejscu zmienimy zakres na wygenerowanie klucza głównego:
 
-```
+```azurecli
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID> --sdk-auth
 ```
 
 Wyniki:
-```
+```output
 {
     "clientId": "<GUID>",
     "clientSecret": "<GUID>",
@@ -84,7 +85,7 @@ Skopiuj cały ciąg JSON.  Wróć do pulpitu nawigacyjnego **Key Vault** . Otwó
 ## <a name="combine-credentials-in-github-actions"></a>Łączenie poświadczeń w akcjach usługi GitHub
 Ustaw poświadczenia używane podczas wykonywania potoku CICD:
 
-```
+```console
 on: [push]
 
 jobs:

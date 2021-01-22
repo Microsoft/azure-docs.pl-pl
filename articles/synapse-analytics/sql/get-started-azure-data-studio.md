@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: ff7b07cb1a4f480907bb51e741a05deeaae8e66b
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: cfd0476d3462fc902acb7238fcc1947c85af041f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116487"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676183"
 ---
 # <a name="connect-to-synapse-sql-with-azure-data-studio"></a>Nawiązywanie połączenia z usługą Synapse SQL przy użyciu Azure Data Studio
 
@@ -22,11 +22,11 @@ ms.locfileid: "98116487"
 >
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
-> * [Program Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+> * [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 > * [sqlcmd](get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
-Za pomocą [Azure Data Studio)](/sql/azure-data-studio/download-azure-data-studio?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) można nawiązać połączenie z usługą SQL Synapse i wysyłać do niej zapytania Synapse. 
+Za pomocą [Azure Data Studio)](/sql/azure-data-studio/download-azure-data-studio?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) można nawiązać połączenie z usługą SQL Synapse i wysyłać do niej zapytania Synapse. 
 
 ## <a name="connect"></a>Connect
 
@@ -73,7 +73,7 @@ Po pomyślnym zalogowaniu powinien zostać wyświetlony pulpit nawigacyjny podob
 
 ## <a name="query"></a>Zapytanie
 
-Po nawiązaniu połączenia możesz wysyłać zapytania do Synapse SQL przy użyciu obsługiwanych instrukcji [języka Transact-SQL (T-SQL)](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) dla tego wystąpienia. Wybierz pozycję **nowe zapytanie** w widoku pulpitu nawigacyjnego, aby rozpocząć pracę.
+Po nawiązaniu połączenia możesz wysyłać zapytania do Synapse SQL przy użyciu obsługiwanych instrukcji [języka Transact-SQL (T-SQL)](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) dla tego wystąpienia. Wybierz pozycję **nowe zapytanie** w widoku pulpitu nawigacyjnego, aby rozpocząć pracę.
 
 ![Nowe zapytanie](./media/get-started-azure-data-studio/5-new-query.png)
 
@@ -92,7 +92,7 @@ Poznaj inne sposoby nawiązywania połączenia z usługą Synapse SQL:
 
 - [SSMS](get-started-ssms.md)
 - [Power BI](get-started-power-bi-professional.md)
-- [Program Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [sqlcmd](get-started-connect-sqlcmd.md)
 
 Aby uzyskać więcej informacji, odwiedź stronę [używanie Azure Data Studio do łączenia i wykonywania zapytań dotyczących danych za pomocą dedykowanej puli SQL w usłudze Azure Synapse Analytics](/sql/azure-data-studio/quickstart-sql-dw).

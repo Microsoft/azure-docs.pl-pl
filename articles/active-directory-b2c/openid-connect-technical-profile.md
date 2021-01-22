@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 42880eed3c694029ef70ee29a00a9ade7f1d398f
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: f6b6fb18ce086c2eadc829f03460452deb0a12b9
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98058994"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675156"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj profil techniczny OpenID Connect Connect w zasadach niestandardowych Azure Active Directory B2C
 
@@ -94,7 +94,7 @@ Profil techniczny zwraca również oświadczenia, które nie są zwracane przez 
 | IncludeClaimResolvingInClaimsHandling  | Nie | W przypadku oświadczeń wejściowych i wyjściowych określa, czy w profilu technicznym znajduje się [rozpoznawanie oświadczeń](claim-resolver-overview.md) . Możliwe wartości: `true` , lub `false` (wartość domyślna). Jeśli chcesz użyć programu rozpoznawania oświadczeń w profilu technicznym, ustaw dla tej opcji wartość `true` . |
 | token_endpoint_auth_method | Nie | Określa sposób, w jaki Azure AD B2C wysyła nagłówek uwierzytelniania do punktu końcowego tokenu. Możliwe wartości: `client_secret_post` (ustawienie domyślne) i `client_secret_basic` (publiczna wersja zapoznawcza). Aby uzyskać więcej informacji, zobacz [sekcję OpenID Connect Connect Client Authentication](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
 | token_signing_algorithm | Nie | Algorytm podpisywania używany na potrzeby potwierdzeń klientów, gdy metadane **token_endpoint_auth_method** są ustawione na `private_key_jwt` . Możliwe wartości: `RS256` (wartość domyślna). |
-| SingleLogoutEnabled | Nie | Wskazuje, czy podczas logowania profil techniczny próbuje wylogować się z federacyjnych dostawców tożsamości. Aby uzyskać więcej informacji, zobacz [Azure AD B2C wylogowania sesji](session-overview.md#sign-out).  Możliwe wartości: `true` (ustawienie domyślne) lub `false` . |
+| SingleLogoutEnabled | Nie | Wskazuje, czy podczas logowania profil techniczny próbuje wylogować się z federacyjnych dostawców tożsamości. Aby uzyskać więcej informacji, zobacz [Azure AD B2C wylogowania sesji](./session-behavior.md#sign-out).  Możliwe wartości: `true` (ustawienie domyślne) lub `false` . |
 
 ```xml
 <Metadata>

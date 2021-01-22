@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: cffa6b1200b7236b3c0a3e48b50c58275cf4c57b
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: 01ac42cce29f941a90631936ece025f02afedeaf
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95316624"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673624"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Ustawienia serwera proxy i zapory usługi Azure File Sync
 Azure File Sync nawiązuje połączenie z serwerami lokalnymi w celu Azure Files, włączając synchronizację z obsługą wielolokacją i funkcjami obsługi warstw w chmurze. W związku z tym serwer lokalny musi być połączony z Internetem. Administrator IT musi zdecydować najlepszą ścieżkę serwera, aby uzyskać dostęp do usług Azure Cloud Services.
@@ -86,7 +86,7 @@ Aby skonfigurować ustawienia serwera proxy dla maszyny, wykonaj następujące c
 
       Uwaga: usługa agenta synchronizacji magazynu (filesyncsvc) zostanie uruchomiona ponownie po zatrzymaniu.
 
-## <a name="firewall"></a>Zapora
+## <a name="firewall"></a>Firewall
 Jak wspomniano w poprzedniej sekcji, port 443 musi być otwarty dla ruchu wychodzącego. W oparciu o zasady w centrum danych, rozgałęzieniu lub regionie, może być konieczne lub wymagane dalsze ograniczenie ruchu przez ten port do określonych domen.
 
 W poniższej tabeli opisano wymagane domeny do komunikacji:
@@ -114,7 +114,7 @@ Ze względu na ciągłość działania i odzyskiwanie po awarii (BCDR), możesz 
 |--------|--------|----------------------|---------------|---------------|
 | Publiczne |Australia Wschodnia | https: \/ /australiaeast01.AFS.Azure.NET<br>https: \/ /Kailani-Aue.one.Microsoft.com | Australia Południowo-Wschodnia | https: \/ /TM-australiaeast01.AFS.Azure.NET<br>https: \/ /TM-Kailani-Aue.one.Microsoft.com |
 | Publiczne |Australia Południowo-Wschodnia | https: \/ /australiasoutheast01.AFS.Azure.NET<br>https: \/ /Kailani-aus.one.Microsoft.com | Australia Wschodnia | https: \/ /TM-australiasoutheast01.AFS.Azure.NET<br>https: \/ /TM-Kailani-aus.one.Microsoft.com |
-| Publiczne | Brazil South | https: \/ /brazilsouth01.AFS.Azure.NET | South Central US | https: \/ /TM-brazilsouth01.AFS.Azure.NET |
+| Publiczne | Brazylia Południowa | https: \/ /brazilsouth01.AFS.Azure.NET | South Central US | https: \/ /TM-brazilsouth01.AFS.Azure.NET |
 | Publiczne | Kanada Środkowa | https: \/ /canadacentral01.AFS.Azure.NET<br>https: \/ /Kailani-CAC.one.Microsoft.com | Kanada Wschodnia | https: \/ /TM-canadacentral01.AFS.Azure.NET<br>https: \/ /TM-Kailani-CAC.one.Microsoft.com |
 | Publiczne | Kanada Wschodnia | https: \/ /canadaeast01.AFS.Azure.NET<br>https: \/ /Kailani-CAE.one.Microsoft.com | Kanada Środkowa | https: \/ /TM-canadaeast01.AFS.Azure.NET<br>https: \/ /TM-Kailani.CAE.one.Microsoft.com |
 | Publiczne | Indie Środkowe | https: \/ /centralindia01.AFS.Azure.NET<br>https: \/ /Kailani-CIN.one.Microsoft.com | Indie Południowe | https: \/ /TM-centralindia01.AFS.Azure.NET<br>https: \/ /TM-Kailani-CIN.one.Microsoft.com |
@@ -124,8 +124,8 @@ Ze względu na ciągłość działania i odzyskiwanie po awarii (BCDR), możesz 
 | Publiczne | Wschodnie stany USA 2 | https: \/ /eastus201.AFS.Azure.NET<br>https: \/ /Kailani-ESS.one.Microsoft.com | Central US | https: \/ /TM-eastus201.AFS.Azure.NET<br>https: \/ /TM-Kailani-ESS.one.Microsoft.com |
 | Publiczne | Niemcy Północne | https: \/ /germanynorth01.AFS.Azure.NET | Niemcy Środkowo-Zachodnie | https: \/ /TM-germanywestcentral01.AFS.Azure.NET |
 | Publiczne | Niemcy Środkowo-Zachodnie | https: \/ /germanywestcentral01.AFS.Azure.NET | Niemcy Północne | https: \/ /TM-germanynorth01.AFS.Azure.NET |
-| Publiczne | Japan East | https: \/ /japaneast01.AFS.Azure.NET | Japonia Zachodnia | https: \/ /TM-japaneast01.AFS.Azure.NET |
-| Publiczne | Japonia Zachodnia | https: \/ /japanwest01.AFS.Azure.NET | Japan East | https: \/ /TM-japanwest01.AFS.Azure.NET |
+| Publiczne | Japonia Wschodnia | https: \/ /japaneast01.AFS.Azure.NET | Japonia Zachodnia | https: \/ /TM-japaneast01.AFS.Azure.NET |
+| Publiczne | Japonia Zachodnia | https: \/ /japanwest01.AFS.Azure.NET | Japonia Wschodnia | https: \/ /TM-japanwest01.AFS.Azure.NET |
 | Publiczne | Korea Środkowa | https: \/ /koreacentral01.AFS.Azure.NET/ | Korea Południowa | https: \/ /TM-koreacentral01.AFS.Azure.NET/ |
 | Publiczne | Korea Południowa | https: \/ /koreasouth01.AFS.Azure.NET/ | Korea Środkowa | https: \/ /TM-koreasouth01.AFS.Azure.NET/ |
 | Publiczne | Północno-środkowe stany USA | https: \/ /northcentralus01.AFS.Azure.NET | South Central US | https: \/ /TM-northcentralus01.AFS.Azure.NET |
@@ -133,6 +133,8 @@ Ze względu na ciągłość działania i odzyskiwanie po awarii (BCDR), możesz 
 | Publiczne | South Central US | https: \/ /southcentralus01.AFS.Azure.NET | Północno-środkowe stany USA | https: \/ /TM-southcentralus01.AFS.Azure.NET |
 | Publiczne | Indie Południowe | https: \/ /southindia01.AFS.Azure.NET<br>https: \/ /Kailani-Sin.one.Microsoft.com | Indie Środkowe | https: \/ /TM-southindia01.AFS.Azure.NET<br>https: \/ /TM-Kailani-Sin.one.Microsoft.com |
 | Publiczne | Southeast Asia | https: \/ /southeastasia01.AFS.Azure.NET<br>https: \/ /kailani10.one.Microsoft.com | Azja Wschodnia | https: \/ /TM-southeastasia01.AFS.Azure.NET<br>https: \/ /TM-kailani10.one.Microsoft.com |
+| Publiczne | Szwajcaria Północna | https: \/ /switzerlandnorth01.AFS.Azure.NET<br>https: \/ /TM-switzerlandnorth01.AFS.Azure.NET | Szwajcaria Zachodnia | https: \/ /switzerlandwest01.AFS.Azure.NET<br>https: \/ /TM-switzerlandwest01.AFS.Azure.NET |
+| Publiczne | Szwajcaria Zachodnia | https: \/ /switzerlandwest01.AFS.Azure.NET<br>https: \/ /TM-switzerlandwest01.AFS.Azure.NET | Szwajcaria Północna | https: \/ /switzerlandnorth01.AFS.Azure.NET<br>https: \/ /TM-switzerlandnorth01.AFS.Azure.NET |
 | Publiczne | Południowe Zjednoczone Królestwo | https: \/ /uksouth01.AFS.Azure.NET<br>https: \/ /Kailani-UKS.one.Microsoft.com | Zachodnie Zjednoczone Królestwo | https: \/ /TM-uksouth01.AFS.Azure.NET<br>https: \/ /TM-Kailani-UKS.one.Microsoft.com |
 | Publiczne | Zachodnie Zjednoczone Królestwo | https: \/ /ukwest01.AFS.Azure.NET<br>https: \/ /Kailani-UKW.one.Microsoft.com | Południowe Zjednoczone Królestwo | https: \/ /TM-ukwest01.AFS.Azure.NET<br>https: \/ /TM-Kailani-UKW.one.Microsoft.com |
 | Publiczne | Zachodnio-środkowe stany USA | https: \/ /westcentralus01.AFS.Azure.NET | Zachodnie stany USA 2 | https: \/ /TM-westcentralus01.AFS.Azure.NET |

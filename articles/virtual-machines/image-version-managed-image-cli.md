@@ -10,12 +10,12 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0e53bebf9cdb8c0fc084d04550c7444c1c01be50
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 56611794bc2f190eccef739679da8474c9b04eb4
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352868"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675964"
 ---
 # <a name="clone-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Klonowanie zarządzanego obrazu do wersji obrazu przy użyciu interfejsu wiersza polecenia platformy Azure
 Jeśli masz istniejący obraz zarządzany, który chcesz sklonować do galerii obrazów udostępnionych, możesz utworzyć obraz udostępnionej galerii obrazów bezpośrednio z poziomu zarządzanego obrazu. Po przetestowaniu nowego obrazu można usunąć źródłowy obraz zarządzany. Możesz także przeprowadzić migrację z zarządzanego obrazu do udostępnionej galerii obrazów przy użyciu [programu PowerShell](image-version-managed-image-powershell.md).
@@ -25,7 +25,7 @@ Obrazy w galerii obrazów mają dwa składniki, które zostaną utworzone w tym 
 - **Wersja obrazu** jest używana do tworzenia maszyny wirtualnej w przypadku korzystania z galerii obrazów udostępnionych. Dla danego środowiska można mieć wiele wersji obrazu. Podczas tworzenia maszyny wirtualnej wersja obrazu jest używana do tworzenia nowych dysków dla maszyny wirtualnej. Wersje obrazów można wielokrotnie używać.
 
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Do wykonania tego artykułu jest wymagana istniejąca [Galeria obrazów udostępnionych](shared-images-cli.md). 
 
@@ -41,11 +41,11 @@ Ponieważ obrazy zarządzane są zawsze uogólnione, utworzysz definicję obrazu
 
 Nazwy definicji obrazów mogą składać się z wielkich lub małych liter, cyfr, kropek, kresek i kropek. 
 
-Aby uzyskać więcej informacji na temat wartości, które można określić dla definicji obrazu, zobacz [definicje obrazu](./linux/shared-image-galleries.md#image-definitions).
+Aby uzyskać więcej informacji na temat wartości, które można określić dla definicji obrazu, zobacz [definicje obrazu](./shared-image-galleries.md#image-definitions).
 
 Utwórz definicję obrazu w galerii za pomocą polecenia [AZ SIG Image-Definition Create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
-W tym przykładzie definicja obrazu ma nazwę *myImageDefinition* i ma na celu [uogólniony](./linux/shared-image-galleries.md#generalized-and-specialized-images) obraz systemu operacyjnego Linux. Aby utworzyć definicję dla obrazów przy użyciu systemu operacyjnego Windows, użyj polecenia `--os-type Windows` . 
+W tym przykładzie definicja obrazu ma nazwę *myImageDefinition* i ma na celu [uogólniony](./shared-image-galleries.md#generalized-and-specialized-images) obraz systemu operacyjnego Linux. Aby utworzyć definicję dla obrazów przy użyciu systemu operacyjnego Windows, użyj polecenia `--os-type Windows` . 
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG

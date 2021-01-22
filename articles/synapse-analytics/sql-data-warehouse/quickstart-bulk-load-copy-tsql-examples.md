@@ -9,23 +9,23 @@ ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 25c692ea9a2dce4723472f6812ac46d82b2b318d
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 1551e85bd45d4d64861b43bf53dd0c155520861f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120992"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673641"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Bezpieczne ładowanie danych przy użyciu języka SQL Synapse
 
-W tym artykule omówiono i przedstawiono przykłady mechanizmów bezpiecznego uwierzytelniania [instrukcji Copy](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Instrukcja COPY to najbardziej elastyczny i bezpieczny sposób ładowania danych w języku SQL Synapse.
+W tym artykule omówiono i przedstawiono przykłady mechanizmów bezpiecznego uwierzytelniania [instrukcji Copy](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true). Instrukcja COPY to najbardziej elastyczny i bezpieczny sposób ładowania danych w języku SQL Synapse.
 ## <a name="supported-authentication-mechanisms"></a>Obsługiwane mechanizmy uwierzytelniania
 
 W poniższej macierzy opisano obsługiwane metody uwierzytelniania dla poszczególnych typów plików i kont magazynu. Dotyczy to źródłowej lokalizacji przechowywania i lokalizacji pliku błędów.
 
 |                          |                CSV                |                      Parquet                       |                        ORC                         |
 | :----------------------: | :-------------------------------: | :------------------------------------------------: | :------------------------------------------------: |
-|  **Magazyn obiektów blob platformy Azure**  | SAS/MSI/NAZWA GŁÓWNA USŁUGI/USŁUGA/AAD |                      SYGNATURA DOSTĘPU WSPÓŁDZIELONEGO/KLUCZ                       |                      SYGNATURA DOSTĘPU WSPÓŁDZIELONEGO/KLUCZ                       |
+|  **Azure Blob Storage**  | SAS/MSI/NAZWA GŁÓWNA USŁUGI/USŁUGA/AAD |                      SYGNATURA DOSTĘPU WSPÓŁDZIELONEGO/KLUCZ                       |                      SYGNATURA DOSTĘPU WSPÓŁDZIELONEGO/KLUCZ                       |
 | **Azure Data Lake Gen2** | SAS/MSI/NAZWA GŁÓWNA USŁUGI/USŁUGA/AAD | Sygnatura dostępu współdzielonego (BLOB<sup>1</sup>)/MSI (DFS<sup>2</sup>)/Service Principal/Key/AAD | Sygnatura dostępu współdzielonego (BLOB<sup>1</sup>)/MSI (DFS<sup>2</sup>)/Service Principal/Key/AAD |
 
 1: Ta metoda uwierzytelniania wymaga punktu końcowego. blob (**. blob**. Core.Windows.NET) w ścieżce lokalizacji zewnętrznej.
@@ -176,5 +176,5 @@ Uwierzytelnianie tożsamości zarządzanej jest wymagane, gdy konto magazynu jes
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zapoznaj się ze szczegółowym opisem składni artykułu w artykule dotyczącym [kopiowania instrukcji](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax)
+- Zapoznaj się ze szczegółowym opisem składni artykułu w artykule dotyczącym [kopiowania instrukcji](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#syntax)
 - Zapoznaj się z artykułem [Przegląd ładowania danych](./design-elt-data-loading.md#what-is-elt) w celu załadowania najlepszych rozwiązań

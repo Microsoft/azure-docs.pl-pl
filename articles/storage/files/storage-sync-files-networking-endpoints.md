@@ -8,12 +8,12 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 61ff5d05eb74804af69b90d839115a8468619275
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 64d66e1b9eab225b38ee21306fea6f9534a708f3
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921728"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673856"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Konfigurowanie punktów końcowych sieci usługi Azure File Sync
 Azure Files i Azure File Sync zapewniają dwa główne typy punktów końcowych do uzyskiwania dostępu do udziałów plików platformy Azure: 
@@ -52,13 +52,13 @@ Podczas tworzenia prywatnego punktu końcowego dla zasobu platformy Azure wdroż
 
 Jeśli masz maszynę wirtualną w sieci wirtualnej lub usługa przekazywania DNS została skonfigurowana zgodnie z opisem w temacie [Konfigurowanie przekazywania DNS dla Azure Files](storage-files-networking-dns.md), możesz sprawdzić, czy prywatny punkt końcowy został prawidłowo skonfigurowany, uruchamiając następujące polecenia z programu PowerShell, wiersza polecenia lub terminalu (działa dla systemu Windows, Linux lub macOS). Należy zamienić na `<storage-account-name>` odpowiednią nazwę konta magazynu:
 
-```
+```console
 nslookup <storage-account-name>.file.core.windows.net
 ```
 
 Jeśli wszystko działało prawidłowo, powinny zostać wyświetlone następujące dane wyjściowe, gdzie `192.168.0.5` jest prywatnym adresem IP prywatnego punktu końcowego w sieci wirtualnej (dane wyjściowe wyświetlane dla systemu Windows):
 
-```Output
+```output
 Server:  UnKnown
 Address:  10.2.4.4
 
@@ -73,7 +73,7 @@ Aliases:  storageaccount.file.core.windows.net
 
 Jeśli masz maszynę wirtualną w sieci wirtualnej lub usługa przekazywania DNS została skonfigurowana zgodnie z opisem w temacie [Konfigurowanie przekazywania DNS dla Azure Files](storage-files-networking-dns.md), możesz sprawdzić, czy prywatny punkt końcowy został prawidłowo skonfigurowany przy użyciu następujących poleceń:
 
-```PowerShell
+```powershell
 $storageAccountHostName = [System.Uri]::new($storageAccount.PrimaryEndpoints.file) | `
     Select-Object -ExpandProperty Host
 
@@ -82,7 +82,7 @@ Resolve-DnsName -Name $storageAccountHostName
 
 Jeśli wszystko działało prawidłowo, należy zobaczyć następujące dane wyjściowe, gdzie `192.168.0.5` jest prywatnym adresem IP prywatnego punktu końcowego w sieci wirtualnej:
 
-```Output
+```output
 Name                             Type   TTL   Section    NameHost
 ----                             ----   ---   -------    --------
 storageaccount.file.core.windows CNAME  60    Answer     storageaccount.privatelink.file.core.windows.net
@@ -113,7 +113,7 @@ nslookup $hostName
 
 Jeśli wszystko działało prawidłowo, należy zobaczyć następujące dane wyjściowe, gdzie `192.168.0.5` jest prywatnym adresem IP prywatnego punktu końcowego w sieci wirtualnej:
 
-```Output
+```output
 Server:         127.0.0.53
 Address:        127.0.0.53#53
 
@@ -168,7 +168,7 @@ Get-AzPrivateEndpoint `
 
 Jeśli wszystko działało prawidłowo, należy zobaczyć następujące dane wyjściowe, gdzie `192.168.1.4` ,, `192.168.1.5` `192.168.1.6` i `192.168.1.7` są prywatnymi adresami IP przypisanymi do prywatnego punktu końcowego:
 
-```Output
+```output
 Name     : mysssmanagement.westus2.afs.azure.net
 Type     : CNAME
 TTL      : 60
@@ -244,7 +244,7 @@ if ($null -eq $storageSyncService) {
 
 Aby utworzyć prywatny punkt końcowy, należy utworzyć połączenie usługi link prywatny z usługą synchronizacji magazynu. Połączenie prywatne to dane wejściowe do tworzenia prywatnego punktu końcowego.
 
-```PowerShell 
+```powershell 
 # Disable private endpoint network policies
 $subnet.PrivateEndpointNetworkPolicies = "Disabled"
 $virtualNetwork = $virtualNetwork | `
@@ -325,7 +325,7 @@ if ($null -eq $dnsZone) {
 ```
 Teraz, gdy masz odwołanie do prywatnej strefy DNS, musisz utworzyć rekordy A dla usługi synchronizacji magazynu.
 
-```PowerShell 
+```powershell 
 $privateEndpointIpFqdnMappings = $privateEndpoint | `
     Select-Object -ExpandProperty NetworkInterfaces | `
     Select-Object -ExpandProperty Id | `
@@ -607,7 +607,8 @@ $storageSyncService = $storageSyncService | Set-AzResource -Confirm:$false -Forc
 ```
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
-<a name="azure-cli-does-not-support-setting-the-incomingtrafficpolicy-property-on-the-storage-sync-service-please-select-the-azure-powershell-tab-to-get-instructions-on-how-to-disable-the-storage-sync-service-public-endpoint"></a>Interfejs wiersza polecenia platformy Azure nie obsługuje ustawiania `incomingTrafficPolicy` właściwości w usłudze synchronizacji magazynu. Wybierz kartę Azure PowerShell, aby uzyskać instrukcje dotyczące sposobu wyłączania publicznego punktu końcowego usługi synchronizacji magazynu.
+Interfejs wiersza polecenia platformy Azure nie obsługuje ustawiania `incomingTrafficPolicy` właściwości w usłudze synchronizacji magazynu. Wybierz kartę Azure PowerShell, aby uzyskać instrukcje dotyczące sposobu wyłączania publicznego punktu końcowego usługi synchronizacji magazynu.
+
 ---
 
 ## <a name="see-also"></a>Zobacz też
