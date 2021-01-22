@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: 881309c040f6c1bdff758d17ab7f51e935437192
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: a49258208f7a5945ac71c8f17db56fccfdcd6515
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607885"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662004"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie MediusFlow na potrzeby automatycznego aprowizacji użytkowników
 
@@ -155,17 +155,25 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 9. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD, do MediusFlow w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w programie MediusFlow for Updates. Jeśli zdecydujesz się zmienić [pasujący atrybut docelowy](../app-provisioning/customize-application-attributes.md), należy się upewnić, że interfejs API MediusFlow obsługuje filtrowanie użytkowników na podstawie tego atrybutu. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
-   |Atrybut|Typ|
-   |---|---|
-   |userName|Ciąg|
+   |Atrybut|Typ|Obsługiwane na potrzeby filtrowania|
+   |---|---|---|
+   |userName|Ciąg|&check;|
    |emails[type eq "work"].value|Ciąg|
-   |Nazwa. displayName|String|
+   |Nazwa. displayName|Ciąg|
    |aktywne|Wartość logiczna|
    |name.givenName|Ciąg|
    |name.familyName|Ciąg|
-   |Nazwa. sformatowana|String|
-   |externalID|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Dokumentacja|
+   |Nazwa. sformatowana|Ciąg|
+   |externalId|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Odwołanie|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie:element: 2.0: użytkownik: configurationFilter|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie:element: 2.0: użytkownik: identityProvider|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie:element: 2.0: użytkownik: nameIdentifier|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie:element: 2.0: użytkownik: customFieldText1|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie:element: 2.0: użytkownik: customFieldText2|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie:element: 2.0: użytkownik: customFieldText3|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie:element: 2.0: użytkownik: customFieldText4|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie:element: 2.0: użytkownik: customFieldText5|Ciąg|
 
 
 10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do MediusFlow**.
@@ -201,7 +209,11 @@ Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, a
 2. Sprawdź [pasek postępu](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md), aby zapoznać się ze stanem cyklu aprowizacji i czasem pozostałym do jego zakończenia
 3. Jeśli konfiguracja aprowizacji jest w złej kondycji, aplikacja przejdzie w stan kwarantanny. Więcej informacji o stanach kwarantanny znajdziesz [tutaj](../app-provisioning/application-provisioning-quarantine-status.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="change-log"></a>Dziennik zmian
+
+* 01/21/2021 — dodano niestandardowe atrybuty rozszerzeń **configurationFilter**, **identityProvider**, **nameIdentifier**, **customFieldText1**, **customFieldText2**, **customFieldText3**, **customFieldText3** i **customFieldText5** .
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

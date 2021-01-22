@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0a8e08d0045d0520241341cc08fb800468ed6897
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: c3e6c1d6bfa83ef238ef38b25b189510cf142a38
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928617"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661089"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Omówienie kont użytkowników w Azure Active Directory B2C
 
@@ -38,7 +38,7 @@ Po dodaniu nowego konta służbowego należy wziąć pod uwagę następujące us
 
 - **Nazwa** i **Nazwa użytkownika** — Właściwość **name** zawiera imię i nazwisko użytkownika. **Nazwa użytkownika** to identyfikator, który użytkownik wprowadza do logowania. Nazwa użytkownika obejmuje pełną domenę. Część nazwy domeny musi być początkową domyślną nazwą domeny *Your-Domain.onmicrosoft.com* lub zweryfikowaną [niestandardową nazwą domeny](../active-directory/fundamentals/add-custom-domain.md) nieautorytatywną, taką jak *contoso.com*.
 - **Profil** — konto jest konfigurowane z profilem danych użytkownika. Możesz wprowadzić imię, nazwisko, stanowisko i nazwę działu. Można edytować profil po utworzeniu konta.
-- **Grupy** — Użyj grupy do wykonywania zadań zarządzania, takich jak Przypisywanie licencji lub uprawnień do kilku użytkowników lub urządzeń jednocześnie. Nowe konto można umieścić w istniejącej [grupie](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) w dzierżawie.
+- **Grupy** — używanie grup do wykonywania zadań zarządzania, takich jak Przypisywanie licencji lub uprawnień do wielu użytkowników lub urządzeń jednocześnie. Nowe konto można umieścić w istniejącej [grupie](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) w dzierżawie.
 - **Rola katalogu** — należy określić poziom dostępu, który ma być używany przez konto użytkownika do zasobów w dzierżawie. Dostępne są następujące poziomy uprawnień:
 
     - **Użytkownik** — użytkownicy mogą uzyskać dostęp do przypisanych zasobów, ale nie może zarządzać większością zasobów dzierżawców.
@@ -70,7 +70,7 @@ Poniższe informacje służą do resetowania hasła użytkownika:
 
 Użytkowników zewnętrznych można zaprosić do Twojej dzierżawy jako użytkownik-Gość. Typowym scenariuszem zapraszania użytkownika-gościa do dzierżawy usługi Azure AD B2C jest udostępnianie obowiązków administracyjnych. Aby zapoznać się z przykładem korzystania z konta gościa, zobacz [właściwości Azure Active Directory użytkownika współpracy B2B](../active-directory/external-identities/user-properties.md).
 
-Po zaproszeniu użytkownika-gościa do dzierżawy Podaj adres e-mail adresata i komunikat opisujący zaproszenie. Link do zaproszenia przenosi użytkownika na stronę zgody, na której wybrano przycisk **wprowadzenie** i zaakceptowano przegląd uprawnień. Jeśli skrzynka odbiorcza nie jest dołączona do adresu e-mail, użytkownik może przejść do strony zgody, przechodząc do strony firmy Microsoft przy użyciu zaproszonych poświadczeń. Następnie użytkownik jest zmuszony do zrealizowania zaproszenia w taki sam sposób jak kliknięcie linku w wiadomości e-mail. Przykład: `https://myapps.microsoft.com/B2CTENANTNAME`.
+Po zaproszeniu użytkownika-gościa do dzierżawy Podaj adres e-mail adresata i komunikat opisujący zaproszenie. Link do zaproszenia przenosi użytkownika na stronę zgody. Jeśli skrzynka odbiorcza nie jest dołączona do adresu e-mail, użytkownik może przejść do strony zgody, przechodząc do strony firmy Microsoft przy użyciu zaproszonych poświadczeń. Następnie użytkownik jest zmuszony do zrealizowania zaproszenia w taki sam sposób jak kliknięcie linku w wiadomości e-mail. Na przykład: `https://myapps.microsoft.com/B2CTENANTNAME`.
 
 Możesz również użyć [interfejsu API Microsoft Graph](/graph/api/invitation-post?view=graph-rest-beta) , aby zaprosić użytkownika-gościa.
 
@@ -78,7 +78,7 @@ Możesz również użyć [interfejsu API Microsoft Graph](/graph/api/invitation-
 
 Użytkownik będący odbiorcą może zalogować się do aplikacji zabezpieczonych przez Azure AD B2C, ale nie może uzyskać dostępu do zasobów platformy Azure, takich jak Azure Portal. Użytkownik odbiorcy może korzystać z konta lokalnego lub kont federacyjnych, takich jak Facebook lub Twitter. Konto klienta jest tworzone przy użyciu usługi [rejestrowania lub logowania użytkownika](user-flow-overview.md)przy użyciu interfejsu API Microsoft Graph lub przy użyciu Azure Portal.
 
-Można określić dane, które są zbierane podczas tworzenia konta użytkownika odbiorcy przy użyciu niestandardowych atrybutów użytkownika. Aby uzyskać więcej informacji, zobacz [Definiowanie atrybutów niestandardowych w Azure Active Directory B2C](user-flow-custom-attributes.md).
+Można określić dane, które są zbierane podczas tworzenia konta użytkownika. Aby uzyskać więcej informacji, zobacz [Dodawanie atrybutów użytkownika i dostosowywanie danych wejściowych użytkownika](configure-user-input.md).
 
 Więcej informacji o zarządzaniu kontami użytkowników znajduje się w temacie [Manage Azure AD B2C accounts with Microsoft graphs](manage-user-accounts-graph-api.md).
 

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2021
+ms.date: 01/21/2021
 ms.author: memildin
-ms.openlocfilehash: 48e7093c30ffb135231f5843cb0767848f242d89
-ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
+ms.openlocfilehash: d171e3a7f1f0d63d0a5d130c6e19b246bf0cd795
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98541391"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661818"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -35,27 +35,17 @@ Aby dowiedzieć się o *planowanych* zmianach, które wkrótce zostaną udostęp
 
 Aktualizacje w grudniu obejmują:
 
+- [Ocena luk w zabezpieczeniach dla maszyn lokalnych i wielochmurowych jest dostępna na potrzeby ogólnie dostępnej wersji](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga)
+- [Interfejs API oceny zabezpieczeń jest publikowany na potrzeby ogólnej dostępności](#secure-score-api-is-released-for-general-availability-ga)
 - [Eksport CSV przefiltrowanej listy zaleceń](#csv-export-of-filtered-list-of-recommendations)
-- [Ocena luk w zabezpieczeniach dla maszyn lokalnych i wielochmurowych jest ogólnie dostępna](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-generally-available)
+- [Zasoby "nie dotyczy" są teraz zgłaszane jako "zgodne" w Azure Policy oceny](#not-applicable-resources-now-reported-as-compliant-in-azure-policy-assessments)
 
 
-### <a name="csv-export-of-filtered-list-of-recommendations"></a>Eksport CSV przefiltrowanej listy zaleceń 
-
-W listopadzie 2020 dodaliśmy filtry do strony rekomendacje ([Lista zaleceń zawiera teraz filtry](#recommendations-list-now-includes-filters)). W grudniu rozwinięto te filtry ([Strona zalecenia ma nowe filtry dotyczące środowiska, ważności i dostępnych odpowiedzi](#recommendations-page-has-new-filters-for-environment-severity-and-available-responses)). 
-
-W tym ogłoszeniu zmienimy zachowanie przycisku **Pobierz do formatu CSV** , tak aby eksport CSV zawierał tylko zalecenia aktualnie wyświetlane na liście filtrowanej. 
-
-Na przykład na poniższej ilustracji widać, że lista została przefiltrowana do dwóch zaleceń. Wygenerowany plik CSV zawiera szczegóły stanu każdego zasobu, którego dotyczą te dwa zalecenia.   
-
-:::image type="content" source="media/security-center-managing-and-responding-alerts/export-to-csv-with-filters.png" alt-text="Eksportowanie zaleceń filtrowanych do pliku CSV":::
-
-Więcej informacji zawiera temat [zalecenia dotyczące zabezpieczeń w Azure Security Center](security-center-recommendations.md).
-
-### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-generally-available"></a>Ocena luk w zabezpieczeniach dla maszyn lokalnych i wielochmurowych jest ogólnie dostępna
+### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga"></a>Ocena luk w zabezpieczeniach dla maszyn lokalnych i wielochmurowych jest dostępna na potrzeby ogólnie dostępnej wersji
 
 W październiku ogłoszono w wersji zapoznawczej skanowanie serwerów z obsługą usługi Azure ARC przy użyciu [usługi Azure Defender na potrzeby](defender-for-servers-introduction.md)zintegrowanego skanera oceny luk w zabezpieczeniach serwerów (obsługiwanego przez Qualys).
 
-Jest ona teraz ogólnie dostępna. 
+Ten element jest teraz udostępniany do ogólnej dostępności (GA).
 
 Gdy usługa Azure Arc została włączona na maszynach spoza platformy Azure, Security Center będzie oferować ręczne wdrażanie skanera zintegrowanej luki w zabezpieczeniach.
 
@@ -71,6 +61,36 @@ Główne możliwości:
 [Dowiedz się więcej o wdrażaniu zintegrowanego skanera luk w zabezpieczeniach na maszynach hybrydowych](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
 
 [Dowiedz się więcej o serwerach z obsługą usługi Azure Arc](../azure-arc/servers/index.yml).
+
+
+### <a name="secure-score-api-is-released-for-general-availability-ga"></a>Interfejs API oceny zabezpieczeń jest publikowany na potrzeby ogólnej dostępności
+
+Teraz możesz uzyskać dostęp do oceny za pośrednictwem [interfejsu API protokołu Secure Score](/rest/api/securitycenter/securescores/). Metody interfejsu API zapewniają elastyczność umożliwiającą wykonywanie zapytań dotyczących danych i Tworzenie własnego mechanizmu raportowania z bezpiecznymi wynikami w czasie. Na przykład możesz użyć interfejsu API **Secure Scores** , aby uzyskać ocenę dla określonej subskrypcji. Ponadto można użyć interfejsu API **kontroli** zabezpieczeń, aby wyświetlić listę kontrolek bezpieczeństwa i bieżący wynik subskrypcji.
+
+Aby zapoznać się z przykładowymi narzędziami zewnętrznymi z bezpiecznym interfejsem API oceny, zapoznaj [się z obszarem "bezpieczeństwo" w naszej społeczności usługi GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score).
+
+Dowiedz się więcej o [bezpiecznych kontrolach oceny i zabezpieczeń w Azure Security Center](secure-score-security-controls.md).
+
+
+### <a name="csv-export-of-filtered-list-of-recommendations"></a>Eksport CSV przefiltrowanej listy zaleceń 
+
+W listopadzie 2020 dodaliśmy filtry do strony rekomendacje ([Lista zaleceń zawiera teraz filtry](#recommendations-list-now-includes-filters)). W grudniu rozwinięto te filtry ([Strona zalecenia ma nowe filtry dotyczące środowiska, ważności i dostępnych odpowiedzi](#recommendations-page-has-new-filters-for-environment-severity-and-available-responses)). 
+
+W tym ogłoszeniu zmienimy zachowanie przycisku **Pobierz do formatu CSV** , tak aby eksport CSV zawierał tylko zalecenia aktualnie wyświetlane na liście filtrowanej. 
+
+Na przykład na poniższej ilustracji widać, że lista została przefiltrowana do dwóch zaleceń. Wygenerowany plik CSV zawiera szczegóły stanu każdego zasobu, którego dotyczą te dwa zalecenia.   
+
+:::image type="content" source="media/security-center-managing-and-responding-alerts/export-to-csv-with-filters.png" alt-text="Eksportowanie zaleceń filtrowanych do pliku CSV":::
+
+Więcej informacji zawiera temat [zalecenia dotyczące zabezpieczeń w Azure Security Center](security-center-recommendations.md).
+
+
+### <a name="not-applicable-resources-now-reported-as-compliant-in-azure-policy-assessments"></a>Zasoby "nie dotyczy" są teraz zgłaszane jako "zgodne" w Azure Policy oceny
+
+Wcześniej zasoby, które zostały ocenione pod kątem rekomendacji i nie są **stosowane** , pojawiły się w Azure Policy jako "niezgodne". Żadna akcja użytkownika nie może zmienić stanu na "zgodny". W przypadku tej zmiany są one zgłaszane jako "zgodne" w celu zwiększenia przejrzystości.
+
+Jedyny wpływ będzie widoczny w Azure Policy, w którym zostanie zwiększona liczba zgodnych zasobów. Nie będzie to miało wpływu na Twój bezpieczny wynik w Azure Security Center.
+
 
 
 ## <a name="december-2020"></a>Grudzień 2020 r.
@@ -419,7 +439,7 @@ Dowiedz się więcej w temacie [usuwanie standardu z pulpitu nawigacyjnego](upda
 
 Azure Resource Graph to usługa platformy Azure, która została zaprojektowana w celu zapewnienia wydajnej eksploracji zasobów dzięki możliwości wykonywania zapytań na dużą skalę w ramach danego zestawu subskrypcji, dzięki czemu możesz efektywnie zarządzać środowiskiem. 
 
-Aby uzyskać Azure Security Center, można użyć ARG i [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) do wykonywania zapytań o szeroki zakres danych stan zabezpieczeń. Na przykład:
+Aby uzyskać Azure Security Center, można użyć ARG i [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) do wykonywania zapytań o szeroki zakres danych stan zabezpieczeń. Przykład:
 
 - Wykorzystanie spisu zasobów (ARG)
 - Zarejestrowano przykładowe zapytanie ARG dotyczące [identyfikowania kont bez włączonej usługi uwierzytelniania wieloskładnikowego (MFA)](security-center-identity-access.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)

@@ -4,14 +4,14 @@ description: Typowe problemy związane z alertami metryk Azure Monitor i możliw
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 01/11/2021
+ms.date: 01/21/2021
 ms.subservice: alerts
-ms.openlocfilehash: e4e876b58c82605df0c005b225dcf2cdbcda1b34
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 11dc71578b3d94ce41fe040557184ff32bcf3240
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070735"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661801"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Rozwiązywanie problemów z alertami metryk usługi Azure Monitor 
 
@@ -24,8 +24,9 @@ Alerty Azure Monitor z wyprzedzeniem powiadamiają Cię, gdy w danych monitorowa
 Jeśli uważasz, że alert dotyczący metryki powinien zostać wywołany, ale nie został uruchomiony i nie został znaleziony w Azure Portal, spróbuj wykonać następujące czynności:
 
 1. **Konfiguracja** — Sprawdź konfigurację reguły alertu metryki, aby upewnić się, że została prawidłowo skonfigurowana:
-    - Sprawdź, czy **typ agregacji**, **stopień szczegółowości agregacji (okres)** i **wartość progowa** lub **czułość** są skonfigurowane zgodnie z oczekiwaniami
-    - Dla reguły alertu korzystającej z progów dynamicznych Sprawdź, czy skonfigurowano ustawienia zaawansowane, ponieważ **Liczba naruszeń** może odfiltrować alerty i **ignorować dane przed** wpływem na sposób obliczania progów
+    - Sprawdź, czy **typ agregacji** i **stopień szczegółowości agregacji (okres)** są skonfigurowane zgodnie z oczekiwaniami. **Typ agregacji** określa sposób agregowania wartości metryk (Dowiedz się więcej [tutaj](./metrics-aggregation-explained.md#aggregation-types)), a **stopień szczegółowości agregacji (okres)** określa, jak daleko z powrotem agreguje wartości metryk przy każdym uruchomieniu reguły alertu.
+    -  Sprawdź, czy **wartość progowa** lub **czułość** są skonfigurowane zgodnie z oczekiwaniami.
+    - Dla reguły alertu korzystającej z progów dynamicznych Sprawdź, czy skonfigurowano ustawienia zaawansowane, ponieważ **Liczba naruszeń** może odfiltrować alerty i **ignorować dane, zanim** będzie można mieć wpływ na sposób obliczania progów.
 
        > [!NOTE] 
        > Progi dynamiczne wymagają co najmniej 3 dni i 30 próbek metryk, zanim staną się aktywne.
@@ -252,7 +253,7 @@ Podczas używania wymiarów w regule alertu zawierającej wiele warunków należ
 - Można wybrać tylko jedną wartość dla każdego wymiaru w każdym warunku.
 - Nie można użyć opcji "zaznacz wszystkie bieżące i przyszłe wartości" (wybierz \* ).
 - Gdy metryki, które są skonfigurowane w różnych warunkach, obsługują ten sam wymiar, wówczas skonfigurowana wartość wymiaru musi być jawnie ustawiona w taki sam sposób dla wszystkich metryk (w odpowiednich warunkach).
-Na przykład:
+Przykład:
     - Należy wziąć pod uwagę regułę alertu metryki zdefiniowaną na koncie magazynu i monitoruje dwa warunki:
         * Łączna liczba **transakcji** > 5
         * Średnia **SuccessE2ELatency** > 250 MS

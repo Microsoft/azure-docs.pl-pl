@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/21/2020
 ms.author: v-mibufo
-ms.openlocfilehash: b13b61aff819271ed1722572f251f9a6d14b17ab
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8af656e00c457dfa3d438f0cb104d85ccc687745
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977001"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661242"
 ---
 # <a name="windows-stop-error---0xc000021a-status-system-process-terminated"></a>Błąd zatrzymania systemu Windows — Przerwano proces systemowy stanu 0xC000021A
 
@@ -47,6 +47,10 @@ Ten błąd występuje, gdy proces krytyczny, taki jak WinLogon (winlogon.exe) lu
 ## <a name="solution"></a>Rozwiązanie
 
 ### <a name="collect-the-memory-dump-file"></a>Zbierz plik zrzutu pamięci
+
+> [!TIP]
+> Jeśli masz najnowszą kopię zapasową maszyny wirtualnej, możesz spróbować [przywrócić maszynę wirtualną z kopii zapasowej](../../backup/backup-azure-arm-restore-vms.md) , aby rozwiązać problem z rozruchem.
+
 
 Aby rozwiązać ten problem, konieczne będzie przeanalizowanie zrzutu awaryjnego. Zbierz plik zrzutu pamięci dla pomocy technicznej dotyczącej awarii i kontaktu. Aby zebrać plik zrzutu, wykonaj następujące kroki:
 

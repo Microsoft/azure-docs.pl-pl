@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 01/20/2021
 ms.author: justinha
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4e65b47b2a1fd71c69ecb350f60df1fedff66b74
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 34692f5e563e4931a27ea59db84d9c88f27817da
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618913"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660902"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services-using-the-azure-portal"></a>Konfigurowanie synchronizacji z zakresem z usługi Azure AD do Azure Active Directory Domain Services przy użyciu Azure Portal
 
@@ -27,7 +27,7 @@ Domyślnie wszyscy użytkownicy i grupy z katalogu usługi Azure AD są synchron
 
 W tym artykule opisano sposób konfigurowania synchronizacji z zakresem, a następnie zmieniania lub wyłączania zestawu użytkowników z zakresem przy użyciu Azure Portal. [Te kroki można również wykonać przy użyciu programu PowerShell][scoped-sync-powershell].
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 
@@ -43,15 +43,14 @@ Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 
 Domyślnie wszyscy użytkownicy i grupy z katalogu usługi Azure AD są synchronizowane z domeną zarządzaną. Jeśli tylko kilku użytkowników potrzebuje dostępu do domeny zarządzanej, można synchronizować tylko te konta użytkowników. Ta synchronizacja w zakresie jest oparta na grupach. Podczas konfigurowania synchronizacji z zakresem opartym na grupach tylko konta użytkowników należące do określonych grup są synchronizowane z domeną zarządzaną. Grupy zagnieżdżone nie są zsynchronizowane, tylko wybrane grupy.
 
-Zakres synchronizacji można zmienić podczas tworzenia domeny zarządzanej lub po jej wdrożeniu. Teraz można także zmienić zakres synchronizacji w istniejącej domenie zarządzanej bez konieczności ponownego tworzenia jej.
+Zakres synchronizacji można zmienić przed lub po utworzeniu domeny zarządzanej. Zakres synchronizacji jest definiowany przez jednostkę usługi z identyfikatorem aplikacji 2565bd9d-DA50-47d4-8b85-4c97f669dc36. Aby zapobiec utracie zakresu, nie usuwaj ani nie zmieniaj nazwy głównej usługi. W razie przypadkowego usunięcia nie można odzyskać zakresu synchronizacji. 
+
+Należy pamiętać o następujących zastrzeżeniach, jeśli zmienisz zakres synchronizacji:
+
+- Występuje pełna synchronizacja.
+- Obiekty, które nie są już wymagane w domenie zarządzanej, są usuwane. Nowe obiekty są tworzone w domenie zarządzanej.
 
 Aby dowiedzieć się więcej o procesie synchronizacji, zobacz [Omówienie synchronizacji w Azure AD Domain Services][concepts-sync].
-
-> [!WARNING]
-> Zmiana zakresu synchronizacji powoduje, że zarządzana domena ponownie zsynchronizuje wszystkie dane. Obowiązują następujące zastrzeżenia:
->
->  * W przypadku zmiany zakresu synchronizacji dla domeny zarządzanej następuje pełna ponowna synchronizacja.
->  * Obiekty, które nie są już wymagane w domenie zarządzanej, są usuwane. Nowe obiekty są tworzone w domenie zarządzanej.
 
 ## <a name="enable-scoped-synchronization"></a>Włącz synchronizację z zakresem
 

@@ -4,12 +4,12 @@ description: Dostępność zasobów obliczeniowych i pamięci dla usługi Azure 
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 8651a1cc2c2ba41e2c28e9f63dc78c091a6af61d
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 63ec7c9027f957714108263dcbb4300a3cc68388
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763897"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661378"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Dostępność zasobów dla Azure Container Instances w regionach świadczenia usługi Azure
 
@@ -32,7 +32,7 @@ Poniższe regiony i maksymalne zasoby są dostępne dla grup kontenerów z konte
 | Region (Region) | CPU (maksymalnie) | Maksymalna ilość pamięci (GB) | Maksymalny procesor sieci wirtualnej | Maksymalna pamięć sieci wirtualnej (GB) | Magazyn (GB) | Jednostki SKU procesora GPU (wersja zapoznawcza) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: | :----: |
 | Australia Wschodnia | 4 | 16 | 4 | 16 | 50 | Nie dotyczy |
-| Brazil South | 4 | 16 | 2 | 8 | 50 | Nie dotyczy |
+| Brazylia Południowa | 4 | 16 | 2 | 8 | 50 | Nie dotyczy |
 | Kanada Środkowa | 4 | 16 | 4 | 16 | 50 | Nie dotyczy |
 | Indie Środkowe | 4 | 16 | NIE DOTYCZY | NIE DOTYCZY | 50 | V100 |
 | Central US | 4 | 16 | 4 | 16 | 50 | Nie dotyczy |
@@ -40,7 +40,8 @@ Poniższe regiony i maksymalne zasoby są dostępne dla grup kontenerów z konte
 | East US | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 | Wschodnie stany USA 2 | 4 | 16 | 4 | 16 | 50 | Nie dotyczy |
 | Francja Środkowa | 4 | 16 | 4 | 16 | 50 | Nie dotyczy |
-| Japan East | 2 | 8 | 4 | 16 | 50 | Nie dotyczy |
+| Niemcy Środkowo-Zachodnie | 3 | 16 | NIE DOTYCZY | NIE DOTYCZY | 50 | Nie dotyczy |
+| Japonia Wschodnia | 2 | 8 | 4 | 16 | 50 | Nie dotyczy |
 | Korea Środkowa | 4 | 16 | NIE DOTYCZY | NIE DOTYCZY | 50 | Nie dotyczy |
 | Północno-środkowe stany USA | 2 | 3,5 | 4 | 16 | 50 | K80, P100, V100 |
 | Europa Północna | 4 | 16 | 4 | 16 | 50 | K80 |
@@ -48,6 +49,7 @@ Poniższe regiony i maksymalne zasoby są dostępne dla grup kontenerów z konte
 | Southeast Asia | 4 | 16 | 4 | 16 | 50 | P100, V100 |
 | Indie Południowe | 4 | 16 | NIE DOTYCZY | NIE DOTYCZY | 50 | Nie dotyczy |
 | Południowe Zjednoczone Królestwo | 4 | 16 | 4 | 16 | 50 | Nie dotyczy |
+| Północne Zjednoczone Emiraty Arabskie | 3 | 16 | NIE DOTYCZY | NIE DOTYCZY | 50 | Nie dotyczy |
 | Zachodnio-środkowe stany USA| 4 | 16 | 4 | 16 | 50 | Nie dotyczy |
 | West Europe | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 | Zachodnie stany USA | 4 | 16 | 4 | 16 | 50 | Nie dotyczy |
@@ -82,14 +84,14 @@ Następujące regiony i maksymalne zasoby są dostępne dla grup kontenerów z [
 | Region (Region) | 1B/2B maksymalny procesor CPU | 1B/2B Maksymalna pamięć (GB) |3B maksymalny procesor CPU | b Maksymalna pamięć (GB) | Magazyn (GB) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: |
 | Australia Wschodnia | 2 | 8 | 2 | 8 | 20 |
-| Brazil South | 4 | 16 | 4 | 16 | 20 |
+| Brazylia Południowa | 4 | 16 | 4 | 16 | 20 |
 | Kanada Środkowa | 2 | 8 | 2 | 3,5 | 20 |
 | Indie Środkowe | 2 | 3,5 | 2 | 3,5 | 20 |
 | Central US | 2 | 3,5 | 2 | 3,5 | 20 |
 | Azja Wschodnia | 2 | 3,5 | 2 | 3,5 | 20 |
 | East US | 4 | 16 | 2 | 8 | 20 |
 | Wschodnie stany USA 2 | 2 | 3,5 | 4 | 16 | 20 |
-| Japan East | 4 | 16 | 4 | 16 | 20 |
+| Japonia Wschodnia | 4 | 16 | 4 | 16 | 20 |
 | Korea Środkowa | 4 | 16 | 4 | 16 | 20 |
 | Północno-środkowe stany USA | 4 | 16 | 4 | 16 | 20 |
 | Europa Północna | 2 | 8 | 2 | 8 | 20 |
@@ -111,7 +113,7 @@ Następujące regiony i maksymalne zasoby są dostępne dla grup kontenerów z [
 | Region (Region) | 1B/2B maksymalny procesor CPU | 1B/2B Maksymalna pamięć (GB) |3B maksymalny procesor CPU | b Maksymalna pamięć (GB) | Magazyn (GB) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: |
 | Australia Wschodnia | 4 | 16 | 4 | 16 | 20 |
-| Brazil South | 4 | 16 | 4 | 16 | 20 |
+| Brazylia Południowa | 4 | 16 | 4 | 16 | 20 |
 | Kanada Środkowa | 4 | 16 | 4 | 16 | 20 |
 | Indie Środkowe | 4 | 16 | 4 | 16 | 20 |
 | Central US | 4 | 16 | 4 | 16 | 20 |
@@ -119,7 +121,7 @@ Następujące regiony i maksymalne zasoby są dostępne dla grup kontenerów z [
 | East US | 4 | 16 | 4 | 16 | 20 |
 | Wschodnie stany USA 2 | 2 | 3,5 | 2 | 3,5 | 20 |
 | Francja Środkowa | 4 | 16 | 4 | 16 | 20 |
-| Japan East | NIE DOTYCZY | Nie dotyczy | 4 | 16 | 20 |
+| Japonia Wschodnia | NIE DOTYCZY | Nie dotyczy | 4 | 16 | 20 |
 | Korea Środkowa | 4 | 16 | 4 | 16 | 20 |
 | Północno-środkowe stany USA | 4 | 16 | 4 | 16 | 20 |
 | Europa Północna | 4 | 16 | 4 | 16 | 20 |

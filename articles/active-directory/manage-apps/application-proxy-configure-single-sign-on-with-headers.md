@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: d39d72a79d4b273918986d0d350df4706592c77d
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: c30d8a66cf9deffaa32e5ec0356a9067575b77e8
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95503176"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660706"
 ---
 # <a name="header-based-single-sign-on-for-on-premises-apps-with-azure-ad-app-proxy-preview"></a>Logowanie jednokrotne oparte na nagłówkach dla aplikacji lokalnych z serwerem proxy aplikacja usługi Azure AD (wersja zapoznawcza)
 
@@ -88,6 +88,10 @@ Po wykonaniu wszystkich powyższych czynności aplikacja powinna być uruchomion
 1. Otwórz nową przeglądarkę lub okno przeglądarki prywatnej, aby upewnić się, że wcześniej buforowane nagłówki są wyczyszczone. Następnie przejdź do **zewnętrznego adresu URL**   z ustawień serwera proxy aplikacji.
 2. Zaloguj się przy użyciu konta testowego, które zostało przypisane do aplikacji. Jeśli możesz załadować aplikację i zalogować się do niej za pomocą logowania jednokrotnego, możesz to zrobić. 
 
+## <a name="considerations"></a>Zagadnienia do rozważenia
+
+- Serwer proxy aplikacji służy do zapewnienia dostępu zdalnego do aplikacji lokalnych lub w chmurze prywatnej. Serwer proxy aplikacji nie jest zalecany do obsługi ruchu pochodzącego z sieci firmowej.
+- Dostęp do aplikacji uwierzytelniania opartych na nagłówkach powinien być ograniczony tylko do ruchu z łącznika lub innego dozwolonego rozwiązania uwierzytelniania opartego na nagłówkach. Jest to zazwyczaj realizowane poprzez ograniczenie dostępu do sieci do aplikacji przy użyciu zapory lub ograniczenia adresów IP na serwerze aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 

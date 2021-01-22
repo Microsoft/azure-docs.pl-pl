@@ -1,5 +1,5 @@
 ---
-title: Środowisko użytkownika logowania do programu SMS dla numeru telefonu (wersja zapoznawcza) — Azure AD
+title: Środowisko użytkownika logowania do programu SMS dla numeru telefonu — Azure AD
 description: Dowiedz się więcej na temat środowiska użytkownika logowania do programu SMS dla nowych lub istniejących numerów telefonów
 services: active-directory
 author: curtand
@@ -8,18 +8,18 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 04/14/2020
+ms.date: 01/21/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: a4dcb6774990c03ce3d55fb6c519b0600a1086f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a50f2032a978a552205d1bba602249f34f0478a
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536889"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661600"
 ---
-# <a name="use-your-phone-number-as-a-user-name-preview"></a>Użyj swojego numeru telefonu jako nazwy użytkownika (wersja zapoznawcza)
+# <a name="use-your-phone-number-as-a-user-name"></a>Użyj swojego numeru telefonu jako nazwy użytkownika
 
 Zarejestrowanie urządzenia zapewnia dostęp do usług organizacji i nie pozwala organizacji na dostęp do telefonu. Jeśli jesteś administratorem, możesz znaleźć więcej informacji w temacie [Konfigurowanie i umożliwienie użytkownikom uwierzytelniania opartego na programie SMS](../authentication/howto-authentication-sms-signin.md).
 
@@ -36,7 +36,7 @@ Jeśli otrzymujesz nowy numer telefonu lub nowy i zarejestrujesz go w organizacj
 1. Zostanie wyświetlony monit z informacją o zweryfikowaniu wiadomości SMS. Twój telefon został pomyślnie zarejestrowany. "
 
 > [!Important]
-> Ze względu na znany problem w wersji zapoznawczej przez krótki czas dodawania numeru telefonu nie jest rejestrowany numer logowania do programu SMS. Musisz zalogować się przy użyciu dodanego numeru, a następnie postępować zgodnie z monitami, aby zarejestrować numer logowania do programu SMS.
+> Ze względu na znany problem, przez krótki czas dodawania numeru telefonu nie jest rejestrowany numer logowania do programu SMS. Musisz zalogować się przy użyciu dodanego numeru, a następnie postępować zgodnie z monitami, aby zarejestrować numer logowania do programu SMS.
 
 ### <a name="when-the-phone-number-is-in-use"></a>Gdy numer telefonu jest używany
 

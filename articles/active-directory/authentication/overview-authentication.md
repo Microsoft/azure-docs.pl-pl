@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: overview
-ms.date: 07/13/2020
+ms.date: 01/20/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f85b78480e7258780f8dd396431edeb968189e4c
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: ae7ae239493c999d98100bf9dee4f4f0183addf2
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741256"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660817"
 ---
 # <a name="what-is-azure-active-directory-authentication"></a>Co to jest Azure Active Directory Authentication?
 
@@ -27,6 +27,8 @@ Jedną z głównych funkcji platformy tożsamości jest weryfikowanie i *uwierzy
 * Integracja hybrydowa do zapisywania zmian haseł z powrotem w środowisku lokalnym
 * Integracja hybrydowa do wymuszania zasad ochrony hasłem dla środowiska lokalnego
 * Uwierzytelnianie bez hasła
+
+Zapoznaj się z naszym krótkim wideo, aby dowiedzieć się więcej o tych składnikach uwierzytelniania.
 
 ## <a name="improve-the-end-user-experience"></a>Ulepszanie środowiska użytkownika końcowego
 
@@ -80,7 +82,7 @@ Celem końcowym wielu środowisk jest usunięcie używania haseł w ramach zdarz
 
 ![Bezpieczeństwo i wygoda dzięki procesowi uwierzytelniania, który prowadzi do bezhaseł](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
 
-Po zalogowaniu się przy użyciu metody bez hasła poświadczenia są udostępniane przy użyciu metod takich jak biometria z usługą Windows Hello dla firm lub z kluczem zabezpieczeń FIDO2. Te metody uwierzytelniania nie mogą być w łatwy sposób duplikowane przez osobę atakującą.
+Po zalogowaniu się przy użyciu metody bez hasła poświadczenia są udostępniane przy użyciu metod takich jak biometria z usługą Windows Hello dla firm lub klucza zabezpieczeń FIDO2. Te metody uwierzytelniania nie mogą być w łatwy sposób duplikowane przez osobę atakującą.
 
 Usługa Azure AD zapewnia sposoby natywnego uwierzytelniania przy użyciu metod bezopartych na hasłach, aby uprościć środowisko logowania dla użytkowników i zmniejszyć ryzyko ataków.
 

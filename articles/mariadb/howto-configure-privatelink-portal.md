@@ -3,15 +3,15 @@ title: Prywatny link — Azure Portal — Azure Database for MariaDB
 description: Informacje o konfigurowaniu prywatnego linku do Azure Database for MariaDB z Azure Portal
 author: mksuni
 ms.author: sumuth
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 79b3c3f8eca2fa4442a7845ca4aa3921d0302453
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 127a1c83525c4a9c457f551c05045a63a3c4347a
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005048"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98659628"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-portal"></a>Tworzenie prywatnego linku do Azure Database for MariaDB przy użyciu portalu i zarządzanie nim
 
@@ -22,7 +22,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 > [!NOTE]
 > Funkcja Link prywatny jest dostępna tylko dla serwerów Azure Database for MariaDB w warstwach cenowych Ogólnego przeznaczenia lub zoptymalizowanych pod kątem pamięci. Upewnij się, że serwer bazy danych znajduje się w jednej z tych warstw cenowych.
 
-## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-an-azure-vm"></a>Tworzenie maszyny wirtualnej platformy Azure
@@ -117,7 +117,7 @@ W tej sekcji utworzysz serwer Azure Database for MariaDB na platformie Azure.
     | Obliczenia i magazyn| Wybierz warstwę cenową, która jest wymagana dla serwera na podstawie obciążenia. |
     |||
 
-7. Wybierz pozycję **OK**. 
+7. Wybierz przycisk **OK**. 
 8. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przekierowanie do strony **Przeglądanie i tworzenie**, na której platforma Azure zweryfikuje konfigurację. 
 9. Gdy zobaczysz komunikat o przekazaniu walidacji, wybierz pozycję **Utwórz**. 
 10. Gdy zobaczysz komunikat o przekazaniu walidacji, wybierz pozycję Utwórz. 
@@ -245,7 +245,7 @@ Po utworzeniu **myVm** Połącz się z nim za pośrednictwem Internetu w następ
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Gdy skończysz korzystać z prywatnego punktu końcowego, serwera MariaDB i maszyny wirtualnej, Usuń grupę zasobów i wszystkie zawarte w niej zasoby:
 
-1. Wprowadź  *myResourceGroup*   w polu **wyszukiwania** w górnej części portalu i wybierz pozycję Moja zasobów  *myResourceGroup*   z wyników wyszukiwania.
+1. Wprowadź  **   w polu **wyszukiwania** w górnej części portalu i wybierz pozycję Moja zasobów  **   z wyników wyszukiwania.
 2. Wybierz pozycję **Usuń grupę zasobów**.
 3. Wprowadź wartość webresourcename **, aby wpisać nazwę grupy zasobów** , a następnie wybierz pozycję **Usuń**.
 

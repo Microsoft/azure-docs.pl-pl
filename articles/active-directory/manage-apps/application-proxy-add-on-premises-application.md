@@ -8,20 +8,22 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/10/2020
+ms.date: 01/20/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: contperf-fy21q2
-ms.openlocfilehash: bcb484d62b7c4add7e1ab5562c19417a90cfb7e1
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 6b46a5ea71bf8c9705ffc3bc51ea48f4b0c28502
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587557"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660767"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Samouczek: Dodawanie aplikacji lokalnej dla dostępu zdalnego przy użyciu serwera proxy aplikacji w Azure Active Directory
 
 Usługa Azure Active Directory (Azure AD) udostępnia usługę serwera proxy aplikacji, która umożliwia użytkownikom zalogowanym na konto usługi Azure AD dostęp do aplikacji lokalnych. W tym samouczku przygotujemy środowisko do obsługi serwera proxy aplikacji. Gdy środowisko będzie gotowe, za pomocą witryny Azure Portal dodamy aplikację lokalną do dzierżawy usługi Azure AD.
+
+:::image type="content" source="./media/application-proxy-add-on-premises-application/app-proxy-diagram.png" alt-text="Diagram omówienia serwera proxy aplikacji" lightbox="./media/application-proxy-add-on-premises-application/app-proxy-diagram.png":::
 
 Łączniki są kluczową częścią serwera proxy aplikacji. Aby dowiedzieć się więcej na temat łączników, zobacz [Omówienie łączników usługi Azure serwer proxy aplikacji usługi Azure AD](application-proxy-connectors.md).
 
@@ -126,7 +128,11 @@ Zezwól na dostęp do następujących adresów URL:
 | login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;. microsoftonline-p.com<br>&ast;. msauth.net<br>&ast;. msauthimages.net<br>&ast;. msecnd.net<br>&ast;. msftauth.net<br>&ast;. msftauthimages.net<br>&ast;. phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com<br>www.microsoft.com/pkiops | 443/HTTPS |Łącznik używa tych adresów URL podczas procesu rejestracji. |
 | ctldl.windowsupdate.com | 80/HTTP |Łącznik używa tego adresu URL podczas procesu rejestracji. |
 
-Można zezwolić na połączenia z &ast; . msappproxy.NET, &ast; . ServiceBus.Windows.NET i innych adresów URL powyżej, Jeśli zapora lub serwer proxy umożliwia skonfigurowanie list dozwolonych DNS. W przeciwnym razie musisz zezwolić na dostęp do [zakresów adresów IP i tagów usług platformy Azure — chmury publicznej](https://www.microsoft.com/download/details.aspx?id=56519). Zakresy adresów IP są aktualizowane co tydzień.
+Można zezwolić na połączenia z &ast; . msappproxy.NET, &ast; . ServiceBus.Windows.NET i innych adresów URL powyżej, Jeśli zapora lub serwer proxy umożliwia skonfigurowanie reguł dostępu na podstawie sufiksów domeny. W przeciwnym razie musisz zezwolić na dostęp do [zakresów adresów IP i tagów usług platformy Azure — chmury publicznej](https://www.microsoft.com/download/details.aspx?id=56519). Zakresy adresów IP są aktualizowane co tydzień.
+
+### <a name="dns-name-resolution-for-azure-ad-application-proxy-endpoints"></a>Rozpoznawanie nazw DNS dla punktów końcowych usługi Azure serwer proxy aplikacji usługi Azure AD
+
+Publiczne rekordy DNS dla punktów końcowych usługi Azure serwer proxy aplikacji usługi Azure AD są łańcucha rekordy CNAME wskazujące rekord A. Zapewnia to odporność na uszkodzenia i elastyczność. Jest to gwarantowane, że łącznik usługi Azure serwer proxy aplikacji usługi Azure AD zawsze uzyskuje dostęp do nazw hostów za pomocą sufiksów domeny _*. msappproxy.NET_ lub _*. ServiceBus.Windows.NET_. Jednak podczas rozpoznawania nazw rekordy CNAME mogą zawierać rekordy DNS z różnymi nazwami hostów i sufiksami.  Z tego względu należy upewnić się, że urządzenie (w zależności od serwera łącznika Instalatora, zapory, serwera proxy wychodzącego) może rozpoznać wszystkie rekordy w łańcuchu i umożliwia nawiązanie połączenia z rozpoznanymi adresami IP. Ponieważ rekordy DNS w łańcuchu mogą ulec zmianie od czasu do czasu, nie możemy udostępnić żadnych rekordów DNS z listą.
 
 ## <a name="install-and-register-a-connector"></a>Instalowanie i rejestrowanie łącznika
 
@@ -245,7 +251,7 @@ Aby przetestować logowanie do aplikacji:
 
 Aby uzyskać informacje na temat rozwiązywania problemów, zobacz [Troubleshoot Application Proxy problems and error messages (Rozwiązywanie problemów z serwerem proxy aplikacji i problemów związanych z komunikatami o błędach)](application-proxy-troubleshoot.md).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie jest już potrzebne, Usuń zasoby utworzone w tym samouczku.
 

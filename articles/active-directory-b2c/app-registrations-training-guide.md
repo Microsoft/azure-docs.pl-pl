@@ -11,12 +11,12 @@ ms.date: 05/25/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7c9e3344ed819f607feeab88ac43a9dc286a61e0
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 430da23986fc36a0e94c049512ef716aff1fed5c
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109100"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660254"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>Nowe środowisko Rejestracje aplikacji dla Azure Active Directory B2C
 
@@ -66,9 +66,10 @@ W starszym środowisku aplikacje były zawsze tworzone jako aplikacje dla klient
 Można również użyć tej opcji, aby użyć Azure AD B2C jako dostawcy usługi SAML. [Dowiedz się więcej](identity-provider-adfs.md).
 
 ## <a name="applications-for-devops-scenarios"></a>Aplikacje dla scenariuszy DevOps
+
 Przy użyciu innych typów kont można utworzyć aplikację do zarządzania scenariuszami DevOps, takich jak używanie Microsoft Graph do przekazywania zasad struktury środowiska tożsamości lub udostępniania użytkownikom. Dowiedz się, [jak zarejestrować aplikację Microsoft Graph, aby zarządzać zasobami Azure AD B2C](microsoft-graph-get-started.md).
 
-Niektóre uprawnienia Microsoft Graph mogą nie być widoczne, ponieważ wiele z tych uprawnień nie ma zastosowania do użytkowników indywidualnych platformy Azure B2C. [Przeczytaj więcej na temat zarządzania użytkownikami za pomocą Microsoft Graph](manage-user-accounts-graph-api.md).
+Niektóre uprawnienia Microsoft Graph mogą nie być widoczne, ponieważ wiele z tych uprawnień nie ma zastosowania do użytkowników indywidualnych platformy Azure B2C. [Przeczytaj więcej na temat zarządzania użytkownikami za pomocą Microsoft Graph](microsoft-graph-operations.md).
 
 ## <a name="admin-consent-and-offline_accessopenid-scopes"></a>Zgoda administratora i zakresy offline_access + OpenID Connect
 <!-- Azure AD B2C doesn't support user consent. That is, when a user signs into an application, the user doesn't see a screen requesting consent for the application permissions. All permissions have to be granted through admin consent.  -->

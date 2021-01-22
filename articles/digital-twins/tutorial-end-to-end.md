@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 09ce611b5bca6c04d55da95a82a8fcd7ae348db3
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 4f68eba8106a20d357fe6d3fb2baac1d1661aa1e
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98049220"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660542"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Samouczek: Tworzenie kompleksowego rozwiązania
 
@@ -167,11 +167,13 @@ Aby umożliwić aplikacji funkcji dostęp do usługi Azure Digital bliźniaczych
 
 [!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
-W Azure Cloud Shell Użyj następującego polecenia, aby ustawić ustawienie aplikacji, które będzie używane przez aplikację funkcji do odwoływania się do wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
+W Azure Cloud Shell Użyj następującego polecenia, aby ustawić ustawienie aplikacji, które będzie używane przez aplikację funkcji do odwoływania się do wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Wypełnij symbole zastępcze szczegółami dotyczącymi zasobów (Pamiętaj, że adres URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji jest nazwą hosta poprzedzoną przez *https://*).
 
 ```azurecli-interactive
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
 ```
+
+Dane wyjściowe to lista ustawień funkcji platformy Azure, która powinna zawierać wpis o nazwie *ADT_SERVICE_URL*.
 
 Użyj następującego polecenia, aby utworzyć tożsamość zarządzaną przez system. Zwróć uwagę na pole *principalId* w danych wyjściowych.
 
@@ -257,7 +259,7 @@ Dane wyjściowe to informacje o utworzonym urządzeniu.
 
 ### <a name="configure-and-run-the-simulation"></a>Konfigurowanie i uruchamianie symulacji
 
-Następnie skonfiguruj symulator urządzenia, aby wysyłał dane do wystąpienia IoT Hub.
+Skonfiguruj symulator urządzenia, aby wysyłał dane do wystąpienia centrum IoT.
 
 Zacznij od pobrania *parametrów połączenia usługi IoT Hub* za pomocą tego polecenia:
 
@@ -265,7 +267,7 @@ Zacznij od pobrania *parametrów połączenia usługi IoT Hub* za pomocą tego p
 az iot hub connection-string show -n <your-IoT-hub-name>
 ```
 
-Następnie Pobierz *Parametry połączenia z urządzeniem* za pomocą tego polecenia:
+Następnie pobierz *parametry połączenia urządzenia* za pomocą tego polecenia:
 
 ```azurecli-interactive
 az iot hub device-identity connection-string show --device-id thermostat67 --hub-name <your-IoT-hub-name>

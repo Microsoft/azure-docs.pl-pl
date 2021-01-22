@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8d41f8959d0a1ec0d6e48cf2fa4711a8ef8d8ae5
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 2600ea3488c643bcf215b058425de42cd439dcff
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178946"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660271"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Skonfiguruj konto i zaloguj się przy użyciu zasad niestandardowych w Azure AD B2C
 
@@ -39,12 +39,12 @@ Przy rejestrowaniu i logowaniu użytkownik może zarejestrować się w aplikacji
 >
 > *&lt;Wstawianie: link do zasad zachowania poufności informacji&gt;*<br/>*&lt;Wstawianie: link do warunków użytkowania usługi&gt;*
 
-Aby dodać własne informacje o zgodzie, Dostosuj Poniższy przykład i Uwzględnij go w LocalizedResources dla ContentDefinition używanego przez samodzielną stronę z kontrolką wyświetlania ( *Phone_Email_Base.xml* pliku w ramach [rejestracji na telefonie i w pakiecie początkowym logowania][starter-pack-phone]):
+Aby dodać własne informacje o zgodzie, Dostosuj Poniższy przykład. Uwzględnij ją w `LocalizedResources` usłudze dla ContentDefinition używanej przez poproszony element z kontrolką wyświetlania (plik *Phone_Email_Base.xml* na stronie [rejestracja i logowanie][starter-pack-phone]za pomocą telefonu):
 
 ```xml
 <LocalizedResources Id="phoneSignUp.en">        
     <LocalizedStrings>
-    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_msg_intro">By providing your phone number, you consent to receiving a one-time passcode sent by text message to help you sign into {insert your application name}. Standard messsage and data rates may apply.</LocalizedString>          
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_msg_intro">By providing your phone number, you consent to receiving a one-time passcode sent by text message to help you sign into {insert your application name}. Standard message and data rates may apply.</LocalizedString>          
     <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_1_text">Privacy Statement</LocalizedString>                
     <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_1_url">{insert your privacy statement URL}</LocalizedString>          
     <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_2_text">Terms and Conditions</LocalizedString>             
@@ -64,7 +64,7 @@ Jednorazowy kod weryfikacyjny jest wysyłany do numeru telefonu użytkownika. U�
 
 ![Użytkownik weryfikuje kod podczas rejestracji w telefonie](media/phone-authentication/phone-signup-verify-code.png)
 
- Użytkownik wprowadza wszelkie inne informacje wymagane na stronie **rejestracji, na** przykład **Nazwa wyświetlana**, imię i **nazwisko** (kraj i numer telefonu pozostają wypełnione). Jeśli użytkownik chce użyć innego numeru telefonu, może wybrać pozycję **Zmień numer** , aby ponownie uruchomić konto. Po zakończeniu użytkownik wybiera pozycję **Kontynuuj**.
+Użytkownik wprowadza wszelkie inne informacje wymagane na stronie rejestracji. Na przykład **Nazwa wyświetlana** **, imię i** **nazwisko** (kraj i numer telefonu pozostają wypełnione). Jeśli użytkownik chce użyć innego numeru telefonu, może wybrać pozycję **Zmień numer** , aby ponownie uruchomić konto. Po zakończeniu użytkownik wybiera pozycję **Kontynuuj**.
 
 ![Użytkownik udostępnia dodatkowe informacje](media/phone-authentication/phone-signup-additional-info.png)
 
@@ -100,8 +100,6 @@ Przed skonfigurowaniem uwierzytelniania OTP wymagane są następujące zasoby.
 
 Zacznij od aktualizacji niestandardowych plików zasad rejestracji i logowania na telefonie, aby współpracowały z dzierżawą Azure AD B2C.
 
-W poniższych krokach przyjęto założenie, że zostały spełnione [wymagania wstępne](#prerequisites) i zostało już Sklonowane repozytorium [zasad niestandardowych][starter-pack] na komputerze lokalnym.
-
 1. Znajdź [pliki zasad niestandardowych rejestracji i logowania na telefonie][starter-pack-phone] w lokalnym klonie repozytorium pakietu początkowego lub Pobierz je bezpośrednio. Pliki zasad XML znajdują się w następującym katalogu:
 
     `active-directory-b2c-custom-policy-starterpack/scenarios/`**`phone-number-passwordless`**
@@ -136,15 +134,15 @@ Podczas przekazywania każdego pliku, platforma Azure dodaje prefiks `B2C_1A_` .
 
 ## <a name="get-user-account-by-phone-number"></a>Pobierz konto użytkownika według numeru telefonu
 
-Użytkownik, który zarejestruje się przy użyciu numeru telefonu, ale nie poda adresu e-mail odzyskiwania, jest rejestrowany w katalogu Azure AD B2C przy użyciu numeru telefonu jako nazwy logowania. Jeśli użytkownik chce zmienić swój numer telefonu, dział pomocy technicznej lub zespół pomocy technicznej musi najpierw znaleźć swoje konto, a następnie zaktualizować numer telefonu.
+Użytkownik, który zarejestruje się przy użyciu numeru telefonu, bez adresu e-mail odzyskiwania jest rejestrowany w katalogu Azure AD B2C i numerem telefonu jako nazwy logowania. Aby zmienić numer telefonu, dział pomocy technicznej lub zespół pomocy technicznej musi najpierw znaleźć swoje konto, a następnie zaktualizować numer telefonu.
 
-Możesz znaleźć użytkownika według numeru telefonu (nazwy logowania), korzystając z [Microsoft Graph](manage-user-accounts-graph-api.md):
+Możesz znaleźć użytkownika według numeru telefonu (nazwy logowania), korzystając z [Microsoft Graph](microsoft-graph-operations.md):
 
 ```http
 GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+{phone number}' and c/issuer eq '{tenant name}.onmicrosoft.com')
 ```
 
-Na przykład:
+Przykład:
 
 ```http
 GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+450334567890' and c/issuer eq 'contosob2c.onmicrosoft.com')

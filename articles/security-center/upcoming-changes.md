@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/18/2021
+ms.date: 01/21/2021
 ms.author: memildin
-ms.openlocfilehash: ba9a640c2231c7098e58ad6e29bbfa196436a7f9
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: 6d656dbb3fb50091fc8721ba40431b37f77c4ad6
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562322"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662951"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Ważne zmiany w Azure Security Center
 
@@ -33,7 +33,6 @@ Jeśli szukasz najnowszych informacji o wersji, znajdziesz je w temacie [co nowe
 
 - [Dwa zalecenia dotyczące kontroli zabezpieczeń "Zastosuj aktualizacje systemu" są przestarzałe](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
 - [Ulepszenia zalecenia klasyfikacji danych SQL](#enhancements-to-sql-data-classification-recommendation)
-- [Zasoby "nie dotyczy", które mają być zgłaszane jako "zgodne" w ocenach Azure Policy](#not-applicable-resources-to-be-reported-as-compliant-in-azure-policy-assessments)
 - [35 zaleceń dotyczących wersji zapoznawczej dodano w celu zwiększenia zakresu testów zabezpieczeń platformy Azure](#35-preview-recommendations-being-added-to-increase-coverage-of-azure-security-benchmark)
 
 
@@ -61,15 +60,6 @@ Aktualna wersja zaleceń **poufnych danych w bazach danych SQL powinna być skla
 - Kontrola zabezpieczeń ("Zastosuj klasyfikację danych") nie będzie już miała wpływu na swój Bezpieczny wynik
 - Identyfikator zalecenia również zostanie zmieniony (obecnie b0df6f56-862d-4730-8597-38c0fd4ebd59)
 
-
-
-### <a name="not-applicable-resources-to-be-reported-as-compliant-in-azure-policy-assessments"></a>Zasoby "nie dotyczy", które mają być zgłaszane jako "zgodne" w ocenach Azure Policy
-
-**Szacowana data zmiany:** Styczeń 2021
-
-Obecnie zasoby, które są oceniane pod kątem rekomendacji i nie są **stosowane** , są wyświetlane w Azure Policy jako "niezgodne". Żadna akcja użytkownika nie może zmienić stanu na "zgodny". Od tej planowanej zmiany zostaną one zgłoszone jako "zgodne" w celu zwiększenia przejrzystości.
-
-Jedyny wpływ będzie widoczny w Azure Policy, w którym zostanie zwiększona liczba zgodnych zasobów. Nie będzie to miało wpływu na Twój bezpieczny wynik w Azure Security Center.
 
 ### <a name="35-preview-recommendations-being-added-to-increase-coverage-of-azure-security-benchmark"></a>35 zaleceń dotyczących wersji zapoznawczej w celu zwiększenia zakresu testów zabezpieczeń platformy Azure
 

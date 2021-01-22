@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: lagayhar
-ms.openlocfilehash: 7af26be91ff129e4c968bcb131cc98290cd8d7b9
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: b2e9c267b0a3723c9ac7b3edd49e23b95741962f
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610084"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660457"
 ---
 # <a name="click-analytics-auto-collection-plugin-for-application-insights-javascript-sdk"></a>Kliknij opcję wtyczka Autocollection Analytics dla Application Insights JavaScript SDK
 
@@ -69,7 +69,7 @@ appInsights.loadAppInsights();
     2. Aby zwiększyć wydajność, Wtyczka używa tego znacznika jako flagi, gdy wystąpił, przestanie ona być w większym zakresie niż w dalsze przetwarzanie modelu DOM (Document Object Model) w górę.
     
     > [!CAUTION]
-    > Gdy `parentDataTag` jest używany, ma trwały wpływ na całą aplikację, a nie tylko element HTML, który był przez niego używany.
+    > Gdy `parentDataTag` jest używany, zestaw SDK rozpocznie wyszukiwanie tagów nadrzędnych w całej aplikacji, a nie tylko elementu HTML, w którym był używany.
 4. `customDataPrefix` dostarczone przez użytkownika powinny zawsze rozpoczynać się od `data-` , na przykład `data-sample-` . W kodzie HTML `data-*` atrybuty globalne tworzą klasę atrybutów o nazwie Custom Data Attributes, które umożliwiają wymianę informacji zastrzeżonych między kodem HTML i jego reprezentacją modelu Dom przez skrypty. Starsze przeglądarki (Internet Explorer, Safari) będą upuszczać niezrozumiałe atrybuty, o ile nie zaczynają się od `data-` .
 
     `*`Program w programie `data-*` może być zastąpiony dowolną nazwą, [która jest](https://www.w3.org/TR/REC-xml/#NT-Name) następująca:
@@ -314,5 +314,5 @@ appInsights.loadAppInsights();
 
 - Zapoznaj się z [repozytorium GitHub](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) i [pakietem npm](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) dla wtyczki kliknij pozycję analiza Autocollection.
 - [Analiza zdarzeń w środowisku użycia](usage-segmentation.md) służy do analizowania górnych kliknięć i wycinków według dostępnych wymiarów.
-- Znajdź pozycję dane w obszarze pole zawartości w atrybucie customDimensions w tabeli CustomEvents w [log Analytics](../log-query/log-analytics-tutorial.md#write-a-query).
+- Znajdź pozycję dane w obszarze pole zawartości w atrybucie customDimensions w tabeli CustomEvents w [log Analytics](../log-query/log-analytics-tutorial.md#write-a-query). Zobacz [przykładową aplikację](https://go.microsoft.com/fwlink/?linkid=2152871) , aby uzyskać dodatkowe wskazówki.
 - Utwórz [skoroszyt](../platform/workbooks-overview.md) , aby utworzyć niestandardowe wizualizacje danych do kliknięcia.

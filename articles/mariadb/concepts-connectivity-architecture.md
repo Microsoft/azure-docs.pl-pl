@@ -3,15 +3,15 @@ title: Architektura łączności — Azure Database for MariaDB
 description: Opisuje architekturę łączności dla serwera Azure Database for MariaDB.
 author: mksuni
 ms.author: sumuth
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: 98a75cee88a7d30161fc3166bce0eaec855d347c
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 57e14fa4a026dafb085ea636611ab26b6bad7c01
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656720"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661708"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Architektura łączności w Azure Database for MariaDB
 W tym artykule opisano architekturę Azure Database for MariaDB łączności oraz sposób kierowania ruchu do wystąpienia Azure Database for MariaDB z klientów zarówno w ramach platformy Azure, jak i poza nią.
@@ -47,7 +47,7 @@ W poniższej tabeli wymieniono adresy IP bramy bramy Azure Database for MariaDB 
 | Australia Central2     | 20.36.113.0  | | |
 | Australia Wschodnia | 13.75.149.87, 40.79.161.1     |  | |
 | Australia Południowo-Wschodnia |191.239.192.109, 13.73.109.251   |  | |
-| Brazil South |191.233.201.8, 191.233.200.16    |  | 104.41.11.5|
+| Brazylia Południowa |191.233.201.8, 191.233.200.16    |  | 104.41.11.5|
 | Kanada Środkowa |40.85.224.249  | | |
 | Kanada Wschodnia | 40.86.226.166    | | |
 | Central US | 23.99.160.139, 13.67.215.62, 52.182.136.37, 52.182.136.38 | | |
@@ -65,7 +65,7 @@ W poniższej tabeli wymieniono adresy IP bramy bramy Azure Database for MariaDB 
 | Indie Środkowe | 104.211.96.159     | | |
 | Indie Południowe | 104.211.224.146  | | |
 | Indie Zachodnie | 104.211.160.80    | | |
-| Japan East | 13.78.61.196, 191.237.240.43, 40.79.192.23 | | |
+| Japonia Wschodnia | 13.78.61.196, 191.237.240.43, 40.79.192.23 | | |
 | Japonia Zachodnia | 104.214.148.156, 191.238.68.11, 40.74.96.6, 40.74.96.7    | | |
 | Korea Środkowa | 52.231.32.42   | | |
 | Korea Południowa | 52.231.200.86    | | |
