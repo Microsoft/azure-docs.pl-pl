@@ -3,14 +3,14 @@ title: Azure Batch uruchamia duże zadania równoległe w chmurze
 description: Opis korzystania z usługi Azure Batch na potrzeby dużych obciążeń równoległych oraz HPC
 ms.topic: overview
 ms.date: 07/30/2020
-ms.openlocfilehash: 93dcf19b3b6af0f369fe19b7823bf43d597a9c21
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: dbd27dc1a00966a2d71952335cfb47c7ca55bc24
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97106652"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743104"
 ---
-# <a name="what-is-azure-batch"></a>Co to jest usługa Azure Batch?
+# <a name="what-is-azure-batch"></a>Co to jest Azure Batch?
 
 Usługa Azure Batch umożliwia wydajne uruchamianie równoległych zadań wsadowych oraz zadań wsadowych obliczeń o wysokiej wydajności na platformie Azure. Usługa Azure Batch tworzy pulę węzłów obliczeniowych (maszyn wirtualnych) i zarządza nią, instaluje aplikacje, które chcesz uruchamiać, i tworzy harmonogram zadań do uruchomienia na węzłach. Nie istnieje klaster ani oprogramowanie harmonogramu zadań do zainstalowania, zarządzania i skalowania. Zamiast tego korzysta się z [interfejsu API usługi Batch i narzędzi](batch-apis-tools.md), skryptów wiersza polecenia lub witryny Azure Portal, aby konfigurować i monitorować zadania oraz zarządzać nimi.
 
@@ -74,6 +74,9 @@ Na poniższym diagramie przedstawiono kroki typowego przepływu pracy usługi Ba
 Należy pamiętać, że przepływ pracy opisany powyżej to tylko jeden sposób korzystania z programu Batch i istnieje wiele innych funkcji i opcji. Na przykład można uruchamiać [wiele zadań podrzędnych równolegle](batch-parallel-node-tasks.md) na każdym węźle obliczeniowym. Można też użyć [zadań przygotowania i ukończenia zadania](batch-job-prep-release.md) w celu przygotowania węzłów do zadań, a następnie oczyścić się później.
 
 Zobacz [przepływ pracy usługi Batch i zasoby](batch-service-workflow-features.md) , aby zapoznać się z omówieniem funkcji, takich jak pule, węzły, zadania i zadania. Zobacz też najnowsze [aktualizacje usługi Batch](https://azure.microsoft.com/updates/?product=batch).
+
+## <a name="in-region-data-residency"></a>Zamieszkania danych w regionie
+Azure Batch nie przenosi ani nie zapisuje danych klienta z regionu, w którym został wdrożony. 
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -2,25 +2,38 @@
 title: Filtry tematu Azure Service Bus | Microsoft Docs
 description: W tym artykule wyjaśniono, jak subskrybenci mogą definiować komunikaty, które chcą otrzymywać z tematu przez określenie filtrów.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 04ae585c42f8acfbf338bf23befb32a5521fcf57
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.date: 01/22/2021
+ms.openlocfilehash: 63cf6e67d4fa32c5c7f52f569094e1165554108c
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94889035"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742968"
 ---
 # <a name="topic-filters-and-actions"></a>Filtry tematów i akcje
 
-Subskrybenci mogą zdefiniować, które komunikaty chcą odbierać z tematu. Komunikaty te są określone w formie co najmniej jednej nazwanej reguły subskrypcji. Każda reguła składa się z warunku, który wybiera określone komunikaty i akcję, która oznacza wybrany komunikat. Dla każdego pasującego warunku reguły subskrypcja tworzy kopię komunikatu, która może być inaczej adnotowana dla każdej pasującej reguły.
+Subskrybenci mogą zdefiniować, które komunikaty chcą odbierać z tematu. Komunikaty te są określone w formie co najmniej jednej nazwanej reguły subskrypcji. Każda reguła składa się z warunku **filtru** , który wybiera określone komunikaty i **Opcjonalnie** zawiera **akcję** , która umożliwia dodawanie adnotacji do wybranego komunikatu. 
+
+Wszystkie reguły **bez akcji** są łączone za pomocą `OR` warunku i powodują powstanie **jednej wiadomości** w subskrypcji, nawet jeśli istnieje wiele pasujących reguł. 
+
+Każda reguła **z akcją** tworzy kopię wiadomości. Ten komunikat będzie miał właściwość o nazwie, `RuleName` gdzie wartość jest nazwą reguły dopasowywania. Akcja może spowodować dodanie lub zaktualizowanie właściwości lub usunięcie właściwości z oryginalnej wiadomości w celu utworzenia komunikatu w subskrypcji. 
+
+Poniżej przedstawiono przykładowy scenariusz:
+
+- Subskrypcja ma pięć reguł.
+- Dwie reguły zawierają akcje.
+- Trzy reguły nie zawierają akcji.
+
+Jeśli w tym przykładzie wyślesz jeden komunikat zgodny ze wszystkimi pięcioma regułami, uzyskasz trzy komunikaty w ramach subskrypcji. Są to dwa komunikaty dla dwóch reguł z akcjami i jeden komunikat dla trzech reguł bez akcji. 
 
 Każda nowo utworzona subskrypcja tematu ma wstępną regułę domyślnej subskrypcji. Jeśli nie określisz jawnie warunku filtru dla reguły, stosowany filtr jest filtrem **true** , który umożliwia wybranie wszystkich komunikatów do subskrypcji. Reguła domyślna nie ma skojarzonej akcji adnotacji.
 
+## <a name="filters"></a>Filtry
 Service Bus obsługuje trzy warunki filtrowania:
 
--   *Filtry logiczne* — **TrueFilter** i **FalseFilter** powodują, że wszystkie przychodzące komunikaty (**true**) lub żaden z przychodzących komunikatów (**false**) do wybrania dla subskrypcji. Te dwa filtry pochodzą z filtru SQL. 
-
 -   *Filtry SQL* — element **sqlfilter** zawiera wyrażenie warunkowe podobne do programu SQL, które jest oceniane w brokerze względem przychodzących komunikatów i właściwości systemu, które zostały zdefiniowane przez użytkownika. Wszystkie właściwości systemu muszą być poprzedzone prefiksem `sys.` w wyrażeniu warunkowym. [Podzbiór języka SQL na potrzeby testów warunków filtru](service-bus-messaging-sql-filter.md) dla istnienia właściwości ( `EXISTS` ), wartości null ( `IS NULL` ), logicznego not/i/lub operatorów relacyjnych, prostej arytmetycznej liczbowej i prostego dopasowania do wzorca tekstu `LIKE` .
+
+-   *Filtry logiczne* — **TrueFilter** i **FalseFilter** powodują, że wszystkie przychodzące komunikaty (**true**) lub żaden z przychodzących komunikatów (**false**) do wybrania dla subskrypcji. Te dwa filtry pochodzą z filtru SQL. 
 
 -   *Filtry korelacji* — **CorrelationFilter** przechowuje zestaw warunków, które są dopasowane do co najmniej jednej właściwości użytkownika i systemu przychodzącego komunikatu. Typowym zastosowaniem jest dopasowanie do właściwości **Identyfikator korelacji** , ale aplikacja może również dopasować się do następujących właściwości:
 
@@ -53,74 +66,8 @@ Partycjonowanie używa filtrów do dystrybuowania komunikatów w kilku istnieją
 
 Funkcja routingu używa filtrów do dystrybuowania komunikatów między subskrypcjami tematów w przewidywalny sposób, ale niekoniecznie na wyłączność. W połączeniu z funkcją [autoprzekazywania](service-bus-auto-forwarding.md) filtry tematu mogą służyć do tworzenia złożonych wykresów routingu w ramach przestrzeni nazw Service Bus na potrzeby dystrybucji komunikatów w regionie świadczenia usługi Azure. W przypadku Azure Functions lub Azure Logic Apps działającego jako Most między przestrzeniami nazw Azure Service Bus można tworzyć złożone topologie globalne z bezpośrednią integracją z aplikacjami biznesowymi.
 
-## <a name="examples"></a>Przykłady
+[!INCLUDE [service-bus-filter-examples](../../includes/service-bus-filter-examples.md)]
 
-### <a name="set-rule-action-for-a-sql-filter"></a>Ustawianie akcji reguły dla filtru SQL
-
-```csharp
-// instantiate the ManagementClient
-this.mgmtClient = new ManagementClient(connectionString);
-
-// create the SQL filter
-var sqlFilter = new SqlFilter("source = @stringParam");
-
-// assign value for the parameter
-sqlFilter.Parameters.Add("@stringParam", "orders");
-
-// instantiate the Rule = Filter + Action
-var filterActionRule = new RuleDescription
-{
-    Name = "filterActionRule",
-    Filter = sqlFilter,
-    Action = new SqlRuleAction("SET source='routedOrders'")
-};
-
-// create the rule on Service Bus
-await this.mgmtClient.CreateRuleAsync(topicName, subscriptionName, filterActionRule);
-```
-
-### <a name="sql-filter-on-a-system-property"></a>Filtr SQL dla właściwości systemowej
-
-```csharp
-sys.Label LIKE '%bus%'`
-```
-
-### <a name="using-or"></a>Przy użyciu lub 
-
-```csharp
-sys.Label LIKE '%bus%' OR user.tag IN ('queue', 'topic', 'subscription')
-```
-
-### <a name="using-in-and-not-in"></a>Używanie w i nie w
-
-```csharp
-StoreId IN('Store1', 'Store2', 'Store3')"
-
-sys.To IN ('Store5','Store6','Store7') OR StoreId = 'Store8'
-
-sys.To NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8') OR StoreId NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8')
-```
-
-Aby zapoznać się z przykładem w języku C# przy użyciu tych filtrów, zobacz [przykładowe filtry tematu w witrynie GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Azure.Messaging.ServiceBus/BasicSendReceiveTutorialwithFilters).
-
-### <a name="correlation-filter-using-correlationid"></a>Filtr korelacji przy użyciu korelacji
-
-```csharp
-new CorrelationFilter("Contoso");
-```
-
-Filtruje komunikaty z `CorrelationID` ustawionym na `Contoso` . 
-
-### <a name="correlation-filter-using-system-and-user-properties"></a>Filtr korelacji przy użyciu właściwości systemu i użytkownika
-
-```csharp
-var filter = new CorrelationFilter();
-filter.Label = "Important";
-filter.ReplyTo = "johndoe@contoso.com";
-filter.Properties["color"] = "Red";
-```
-
-Jest to równoważne: `sys.ReplyTo = 'johndoe@contoso.com' AND sys.Label = 'Important' AND color = 'Red'`
 
 
 > [!NOTE]

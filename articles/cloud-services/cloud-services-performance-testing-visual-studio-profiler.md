@@ -1,27 +1,25 @@
 ---
-title: Profilowanie usługi w chmurze lokalnie w emulatorze obliczeń | Microsoft Docs
-services: cloud-services
+title: Profilowanie usługi w chmurze (klasycznej) lokalnie w emulatorze obliczeń | Microsoft Docs
 description: Zbadaj problemy z wydajnością w usługach w chmurze za pomocą profilera programu Visual Studio
-documentationcenter: ''
-author: mikejo
-manager: jillfra
-editor: ''
-tags: ''
-ms.assetid: 25e40bf3-eea0-4b0b-9f4a-91ffe797f6c3
-ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/18/2016
-ms.author: mikejo
-ms.openlocfilehash: 6b5707405879c462a1d919e04730d368332ba68c
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 2f924d84967c1a1928a47b59fd3a8c28da091130
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077159"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743563"
 ---
-# <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Testowanie wydajności usługi w chmurze lokalnie w emulatorze obliczeń platformy Azure przy użyciu profilera programu Visual Studio
+# <a name="testing-the-performance-of-a-cloud-service-classic-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Testowanie wydajności usługi w chmurze (klasycznej) lokalnie w emulatorze obliczeń platformy Azure przy użyciu programu Visual Studio profiler
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
+
 Różne narzędzia i techniki są dostępne do testowania wydajności usług Cloud Services.
 Po opublikowaniu usługi w chmurze na platformie Azure możesz mieć program Visual Studio zbierający dane profilowania, a następnie przeanalizować ją lokalnie, zgodnie z opisem w temacie [Profilowanie aplikacji platformy Azure][1].
 Można również użyć diagnostyki do śledzenia różnych liczników wydajności, zgodnie z opisem w temacie [Korzystanie z liczników wydajności na platformie Azure][2].

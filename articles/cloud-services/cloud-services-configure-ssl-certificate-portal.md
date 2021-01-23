@@ -1,21 +1,24 @@
 ---
 title: Konfigurowanie protokołu TLS dla usługi w chmurze | Microsoft Docs
 description: Informacje na temat określania punktu końcowego HTTPS dla roli sieci Web oraz przekazywania certyfikatu TLS/SSL w celu zabezpieczenia aplikacji. W poniższych przykładach użyto Azure Portal.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 05/26/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: c69b74cf91d8e097f8ad8a9ba2a16f3375f483ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 33aa088efd7768153d4a17472d82e0826f4ffa6b
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82024850"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742645"
 ---
 # <a name="configuring-tls-for-an-application-in-azure"></a>Konfigurowanie protokołu TLS dla aplikacji na platformie Azure
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
 
 Transport Layer Security (TLS), wcześniej znana jako szyfrowanie Secure Socket Layer (SSL), to najczęściej stosowana Metoda zabezpieczania danych wysyłanych przez Internet. W ramach tego typowego zadania omówiono sposób określania punktu końcowego HTTPS dla roli sieci Web oraz przekazywania certyfikatu TLS/SSL w celu zabezpieczenia aplikacji.
 
@@ -34,7 +37,7 @@ Certyfikat musi spełniać następujące wymagania dotyczące certyfikatów TLS/
 
 * Certyfikat musi zawierać klucz publiczny.
 * Należy utworzyć certyfikat do wymiany kluczy, który można wyeksportować do pliku wymiany informacji osobistych (pfx).
-* Nazwa podmiotu certyfikatu musi być zgodna z domeną używaną do uzyskiwania dostępu do usługi w chmurze. Nie można uzyskać certyfikatu TLS/SSL z urzędu certyfikacji dla domeny cloudapp.net. Musisz uzyskać niestandardową nazwę domeny, która będzie używana podczas uzyskiwania dostępu do usługi. W przypadku żądania certyfikatu od urzędu certyfikacji nazwa podmiotu certyfikatu musi być zgodna z niestandardową nazwą domeny używaną w celu uzyskania dostępu do aplikacji. Na przykład jeśli nazwa domeny niestandardowej to **contoso.com** , żądanie certyfikatu z urzędu certyfikacji dla ***. contoso.com** lub **www \. contoso.com**.
+* Nazwa podmiotu certyfikatu musi być zgodna z domeną używaną do uzyskiwania dostępu do usługi w chmurze. Nie można uzyskać certyfikatu TLS/SSL z urzędu certyfikacji dla domeny cloudapp.net. Musisz uzyskać niestandardową nazwę domeny, która będzie używana podczas uzyskiwania dostępu do usługi. W przypadku żądania certyfikatu od urzędu certyfikacji nazwa podmiotu certyfikatu musi być zgodna z niestandardową nazwą domeny używaną w celu uzyskania dostępu do aplikacji. Na przykład jeśli nazwa domeny niestandardowej to **contoso.com** , żądanie certyfikatu z urzędu certyfikacji dla **_. contoso.com_* lub **www \. contoso.com**.
 * Certyfikat musi mieć co najmniej 2048-bitowe szyfrowanie.
 
 W celach testowych można [utworzyć](cloud-services-certs-create.md) certyfikat z podpisem własnym i użyć go. Certyfikat z podpisem własnym nie jest uwierzytelniany przez urząd certyfikacji i może używać domeny cloudapp.net jako adresu URL witryny sieci Web. Na przykład następujące zadanie używa certyfikatu z podpisem własnym, w którym nazwa pospolita (CN) użyta w certyfikacie jest **sslexample.cloudapp.NET**.

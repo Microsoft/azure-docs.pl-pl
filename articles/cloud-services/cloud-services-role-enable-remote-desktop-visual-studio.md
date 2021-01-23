@@ -1,30 +1,29 @@
 ---
-title: Korzystanie z programu Visual Studio, Włączanie Pulpit zdalny dla roli (Cloud Services platformy Azure)
+title: Za pomocą programu Visual Studio Włącz Pulpit zdalny dla roli (Azure Cloud Services Classic)
 description: Jak skonfigurować aplikację usługi w chmurze platformy Azure w celu zezwalania na połączenia pulpitu zdalnego
-services: cloud-services
-author: ghogen
-manager: jillfra
-ms.assetid: f5727ebe-9f57-4d7d-aff1-58761e8de8c1
-ms.prod: visual-studio-dev15
-ms.technology: vs-azure
-ms.custom: vs-azure
-ms.topic: conceptual
-ms.workload: azure-vs
-ms.date: 03/06/2018
-ms.author: ghogen
-ms.openlocfilehash: f4622e44c795182ee68c617f335c9e1651d3adcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.topic: article
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: ad95cefbdf839c28b0979b051e217a1dfec76eea
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80294383"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743240"
 ---
-# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Włączanie Podłączanie pulpitu zdalnego roli na platformie Azure Cloud Services przy użyciu programu Visual Studio
+# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-classic-using-visual-studio"></a>Włączanie Podłączanie pulpitu zdalnego roli na platformie Azure Cloud Services (klasyczny) przy użyciu programu Visual Studio
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
+> * [Witryna Azure Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
 > * [Program PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
-> * [Program Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
+> * [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
 Pulpit zdalny umożliwia dostęp do pulpitu roli działającej na platformie Azure. Połączenia Pulpit zdalny można użyć do rozwiązywania problemów i diagnozowania problemów z aplikacją, gdy jest ona uruchomiona.
 
@@ -47,7 +46,7 @@ W przypadku korzystania z programu Visual Studio 2017 w wersji 15,4 lub starszej
    > [!Note]
    > Certyfikaty, które są potrzebne dla połączenia pulpitu zdalnego, różnią się od certyfikatów używanych dla innych operacji platformy Azure. Certyfikat dostępu zdalnego musi mieć klucz prywatny.
 
-5. Wybierz certyfikat z listy lub wybierz pozycję ** &lt; Utwórz... &gt; **. W przypadku tworzenia nowego certyfikatu podaj przyjazną nazwę dla nowego certyfikatu po wyświetleniu monitu, a następnie wybierz **przycisk OK**. Nowy certyfikat pojawi się w polu listy rozwijanej.
+5. Wybierz certyfikat z listy lub wybierz pozycję **&lt; Utwórz... &gt;**. W przypadku tworzenia nowego certyfikatu podaj przyjazną nazwę dla nowego certyfikatu po wyświetleniu monitu, a następnie wybierz **przycisk OK**. Nowy certyfikat pojawi się w polu listy rozwijanej.
 
 6. Podaj nazwę użytkownika i hasło. Nie można użyć istniejącego konta. Nie używaj "administratora" jako nazwy użytkownika dla nowego konta.
 
@@ -146,6 +145,6 @@ Po opublikowaniu usługi w chmurze na platformie Azure i włączeniu Pulpit zdal
 
 3. Wprowadź nazwę użytkownika i hasło, które zostały wcześniej utworzone. Użytkownik jest zalogowany do sesji zdalnej.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 [Jak skonfigurować Cloud Services](cloud-services-how-to-configure-portal.md)

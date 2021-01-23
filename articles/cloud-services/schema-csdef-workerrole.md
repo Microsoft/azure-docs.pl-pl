@@ -1,26 +1,25 @@
 ---
-title: Azure Cloud Services def. Rola procesu roboczego schemat | Microsoft Docs
+title: Azure Cloud Services (klasyczny) def. Rola procesu roboczego schemat | Microsoft Docs
 description: Rola procesu roboczego platformy Azure służy do ogólnego opracowywania i może wykonywać przetwarzanie w tle dla roli sieci Web. Dowiedz się więcej o schemacie roli proces roboczy platformy Azure.
-services: cloud-services
-ms.custom: ''
-ms.date: 04/14/2015
-ms.reviewer: ''
+ms.topic: article
 ms.service: cloud-services
-ms.suite: ''
-ms.tgt_pltfrm: ''
-ms.topic: reference
-ms.assetid: 41cd46bc-c479-43fa-96e5-d6c83e4e6d89
-caps.latest.revision: 55
-author: tgore03
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 26225442c72fb209bb1ac4cd2bf4777fb39542fb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 0871527187a3d678cb2b94bd8dc342cf2abde1ba
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005167"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743138"
 ---
-# <a name="azure-cloud-services-definition-workerrole-schema"></a>Schemat rola procesu roboczego definicji Cloud Services platformy Azure
+# <a name="azure-cloud-services-classic-definition-workerrole-schema"></a>Schemat rola procesu roboczego definicji platformy Cloud Services Azure (klasyczny)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
+
 Rola procesu roboczego platformy Azure to rola, która jest przydatna do uogólnionego programowania i może wykonywać przetwarzanie w tle dla roli sieci Web.
 
 Domyślnym rozszerzeniem dla pliku definicji usługi jest. csdef.
@@ -323,7 +322,7 @@ W poniższej tabeli opisano atrybuty `Variable` elementu:
 | Atrybut | Typ | Opis |
 | --------- | ---- | ----------- |
 |name|ciąg|Wymagane. Nazwa zmiennej środowiskowej, która ma zostać ustawiona.|
-|value|ciąg|Opcjonalny. Wartość, która ma zostać ustawiona dla zmiennej środowiskowej. Musisz dołączyć atrybut value lub `RoleInstanceValue` element.|
+|wartość|ciąg|Opcjonalny. Wartość, która ma zostać ustawiona dla zmiennej środowiskowej. Musisz dołączyć atrybut value lub `RoleInstanceValue` element.|
 
 ##  <a name="roleinstancevalue"></a><a name="RoleInstanceValue"></a> RoleInstanceValue
 `RoleInstanceValue`Element określa wyrażenie XPath, z którego ma zostać pobrana wartość zmiennej.

@@ -1,22 +1,25 @@
 ---
-title: Komunikacja dla ról w Cloud Services | Microsoft Docs
+title: Komunikacja dla ról w Cloud Services (klasyczny) | Microsoft Docs
 description: Wystąpienia roli w Cloud Services mogą mieć punkty końcowe (http, https, TCP, UDP) zdefiniowane dla nich, które komunikują się z zewnętrznym lub innym wystąpieniem roli.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-manager: carmonm
-ms.service: cloud-services
 ms.topic: article
-ms.date: 12/14/2016
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 094e08becf4f3a60c98d89bfae7e7c3a69b677f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 82aa1579a1f7feb36732153341e1eacf266a7218
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75386344"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743036"
 ---
-# <a name="enable-communication-for-role-instances-in-azure"></a>Włączanie komunikacji dla wystąpień roli na platformie Azure
+# <a name="enable-communication-for-role-instances-in-azure-cloud-services-classic"></a>Włączanie komunikacji dla wystąpień ról w usłudze Azure Cloud Services (wersja klasyczna)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
+
 Role usługi w chmurze komunikują się za poorednictwem połączeń wewnętrznych i zewnętrznych. Połączenia zewnętrzne są nazywane **wejściowymi punktami końcowymi** , gdy wewnętrzne połączenia są nazywane **wewnętrznymi punktami końcowymi**. W tym temacie opisano sposób modyfikowania [definicji usługi](cloud-services-model-and-package.md#csdef) w celu tworzenia punktów końcowych.
 
 ## <a name="input-endpoint"></a>Wejściowy punkt końcowy
@@ -106,7 +109,7 @@ Właściwość **Instances** zwraca kolekcję obiektów **RoleInstance** . Ta ko
 > 
 > 
 
-Aby określić numer portu wewnętrznego punktu końcowego w wystąpieniu roli, można użyć właściwości [InstanceEndpoints](/previous-versions/azure/reference/ee741917(v=azure.100)) , aby zwrócić obiekt słownika zawierający nazwy punktów końcowych i odpowiadające im adresy IP i porty. Właściwość [IPEndPoint](/previous-versions/azure/reference/ee741919(v=azure.100)) zwraca adres IP i port dla określonego punktu końcowego. Właściwość **PublicIPEndpoint** zwraca port dla punktu końcowego ze zrównoważonym obciążeniem. Część adresu IP właściwości **PublicIPEndpoint** nie jest używana.
+Aby określić numer portu wewnętrznego punktu końcowego w wystąpieniu roli, można użyć [`InstanceEndpoints`](/previous-versions/azure/reference/ee741917(v=azure.100)) właściwości, aby zwrócić obiekt słownika zawierający nazwy punktów końcowych i odpowiadające im adresy IP i porty. [`IPEndpoint`](/previous-versions/azure/reference/ee741919(v=azure.100))Właściwość zwraca adres IP i port dla określonego punktu końcowego. `PublicIPEndpoint`Właściwość zwraca Port punktu końcowego ze zrównoważonym obciążeniem. Część adresu IP `PublicIPEndpoint` właściwości nie jest używana.
 
 Oto przykład, który iteruje wystąpienia roli.
 
@@ -124,7 +127,7 @@ foreach (RoleInstance roleInst in RoleEnvironment.CurrentRoleInstance.Role.Insta
 Oto przykład roli procesu roboczego, który pobiera punkt końcowy uwidoczniony za pomocą definicji usługi i zaczyna nasłuchiwanie połączeń.
 
 > [!WARNING]
-> Ten kod będzie działał tylko dla wdrożonej usługi. W przypadku uruchamiania w emulatorze obliczeń platformy Azure elementy konfiguracji usługi, które tworzą bezpośrednie punkty końcowe portu (elementy**InstanceInputEndpoint** ), są ignorowane.
+> Ten kod będzie działał tylko dla wdrożonej usługi. W przypadku uruchamiania w emulatorze obliczeń platformy Azure elementy konfiguracji usługi, które tworzą bezpośrednie punkty końcowe portu (elementy **InstanceInputEndpoint** ), są ignorowane.
 > 
 > 
 
@@ -294,7 +297,7 @@ Zezwala tylko na ruch sieciowy z **WebRole1** do **WorkerRole1** i **WorkerRole2
 ```
 
 ### <a name="scenario-3"></a>Scenariusz 3
-Zezwala tylko na ruch sieciowy z **WebRole1** do **WorkerRole1**i **WorkerRole1** do **WorkerRole2**.
+Zezwala tylko na ruch sieciowy z **WebRole1** do **WorkerRole1** i **WorkerRole1** do **WorkerRole2**.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -323,7 +326,7 @@ Zezwala tylko na ruch sieciowy z **WebRole1** do **WorkerRole1**i **WorkerRole1*
 ```
 
 ### <a name="scenario-4"></a>Scenariusz 4
-Zezwala tylko na ruch sieciowy z **WebRole1** do **WorkerRole1**, **WebRole1** do **WorkerRole2**i **WorkerRole1** do **WorkerRole2**.
+Zezwala tylko na ruch sieciowy z **WebRole1** do **WorkerRole1**, **WebRole1** do **WorkerRole2** i **WorkerRole1** do **WorkerRole2**.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">

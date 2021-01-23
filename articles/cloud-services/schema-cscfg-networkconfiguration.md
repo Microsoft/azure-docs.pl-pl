@@ -1,22 +1,25 @@
 ---
-title: Schemat NetworkConfiguration platformy Azure Cloud Services | Microsoft Docs
+title: Azure Cloud Services (klasyczny) schemat NetworkConfiguration | Microsoft Docs
 description: Dowiedz się więcej na temat elementów podrzędnych elementu NetworkConfiguration w pliku konfiguracji usługi, który określa Virtual Network i wartości DNS.
-ms.custom: ''
-ms.date: 12/07/2016
-services: cloud-services
+ms.topic: article
 ms.service: cloud-services
-ms.topic: reference
-caps.latest.revision: 28
-author: tgore03
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: a3f62bb33332e818cc40c5195a1cc2f667f819b4
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+'---thor': tagore
+ms.openlocfilehash: acf4c050ade21a6e5fc51ee6ace512eff00360ab
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072581"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743461"
 ---
-# <a name="azure-cloud-services-config-networkconfiguration-schema"></a>Schemat NetworkConfiguration usługi Azure Cloud Services config
+# <a name="azure-cloud-services-classic-config-networkconfiguration-schema"></a>Schemat NetworkConfiguration konfiguracji platformy Cloud Services Azure (klasyczny)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
 
 `NetworkConfiguration`Element pliku konfiguracji usługi określa wartości Virtual Network i DNS. Te ustawienia są opcjonalne dla usług Cloud Services.
 

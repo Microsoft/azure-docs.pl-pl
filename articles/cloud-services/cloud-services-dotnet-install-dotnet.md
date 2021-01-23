@@ -1,24 +1,25 @@
 ---
-title: Instalowanie platformy .NET na rolach usługi Azure Cloud Services | Microsoft Docs
+title: Instalowanie ról platformy .NET na platformie Azure Cloud Services (klasyczne) | Microsoft Docs
 description: W tym artykule opisano sposób ręcznej instalacji .NET Framework w roli sieć Web i proces roboczy usługi w chmurze
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-manager: carmonm
-ms.service: cloud-services
-ms.devlang: dotnet
-ms.custom: devx-track-dotnet
 ms.topic: article
-ms.date: 06/22/2018
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 6de4b79560557fc86edb9e1a25e32a6a1983ceb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 18665fabad079a8759f26be8834b2fe029ab5f49
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88932240"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742781"
 ---
-# <a name="install-net-on-azure-cloud-services-roles"></a>Zainstaluj platformę .NET na rolach usługi Azure Cloud Services
+# <a name="install-net-on-azure-cloud-services-classic-roles"></a>Instalowanie ról platformy .NET na platformie Azure Cloud Services (klasyczne)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
+
 W tym artykule opisano sposób instalowania wersji .NET Framework, które nie są dostępne w systemie operacyjnym gościa platformy Azure. Możesz użyć platformy .NET w systemie operacyjnym gościa, aby skonfigurować role sieci Web i proces roboczy usługi w chmurze.
 
 Na przykład można zainstalować .NET Framework 4.6.2 w rodzinie systemu operacyjnego gościa 4, która nie jest dostępna w żadnej wersji .NET Framework 4,6. (Rodzina systemów operacyjnych gościa 5 zawiera .NET Framework 4,6). Aby uzyskać najnowsze informacje na temat wydań systemu operacyjnego gościa platformy Azure, zobacz informacje o [wersji systemu operacyjnego gościa platformy Azure](cloud-services-guestos-update-matrix.md). 
@@ -223,7 +224,7 @@ Ten plik XML konfiguruje diagnostykę do transferu plików w katalogu dziennika 
 ## <a name="deploy-your-cloud-service"></a>Wdrażanie usługi w chmurze
 Podczas wdrażania usługi w chmurze zadania uruchamiania instalują .NET Framework, jeśli nie zostały jeszcze zainstalowane. Twoje role usługi w chmurze są w stanie *zajętym* podczas instalowania platformy. Jeśli instalacja struktury wymaga ponownego uruchomienia, role usługi mogą być również ponownie uruchomione. 
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 * [Instalowanie programu .NET Framework][Installing the .NET Framework]
 * [Ustal, które wersje .NET Framework są zainstalowane][How to: Determine Which .NET Framework Versions Are Installed]
 * [Rozwiązywanie problemów z instalacjami .NET Framework][Troubleshooting .NET Framework Installations]

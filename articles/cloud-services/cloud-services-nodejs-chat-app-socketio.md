@@ -1,23 +1,24 @@
 ---
 title: Node.js aplikacji przy użyciu programu Socket.io — Azure
 description: Skorzystaj z tego samouczka, aby dowiedzieć się, jak hostować gniazdo. Aplikacja czatu oparta na we/wy na platformie Azure. Socket.IO zapewnia komunikację w czasie rzeczywistym dla serwera i klientów node.js.
-services: cloud-services
-documentationcenter: nodejs
-author: tgore03
-ms.service: cloud-services
-ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/17/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.custom: devx-track-js
-ms.openlocfilehash: ef7325b53f7d6450acdff4664f3e338c31be9612
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: abc02769d7d978e14975d90ae0f98547bdc4faf7
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077222"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743325"
 ---
-# <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Tworzenie aplikacji czatu Node.js przy użyciu usługi Socket.IO w usłudze w chmurze platformy Azure
+# <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service-classic"></a>Tworzenie aplikacji czatu Node.js przy użyciu usługi Socket.IO w usłudze w chmurze platformy Azure (wersja klasyczna)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
 
 Socket.IO zapewnia komunikację w czasie rzeczywistym między serwerem node.js i klientami. Ten samouczek przeprowadzi Cię przez hosting gniazda. Oparta na we/wy aplikacja czatu na platformie Azure. Aby uzyskać więcej informacji na temat Socket.IO, zobacz [Socket.IO](https://socket.io).
 
@@ -35,7 +36,7 @@ Upewnij się, że następujące produkty i wersje zostały zainstalowane w celu 
 ## <a name="create-a-cloud-service-project"></a>Tworzenie projektu usługi w chmurze
 W poniższych krokach opisano tworzenie projektu usługi w chmurze, który będzie obsługiwał aplikację Socket.IO.
 
-1. W **menu Start** lub **Start ekranu**Wyszukaj program **Windows PowerShell**. Na koniec kliknij prawym przyciskiem myszy program **Windows PowerShell** i wybierz polecenie **Uruchom jako administrator**.
+1. W **menu Start** lub **Start ekranu** Wyszukaj program **Windows PowerShell**. Na koniec kliknij prawym przyciskiem myszy program **Windows PowerShell** i wybierz polecenie **Uruchom jako administrator**.
 
     ![Ikona Azure PowerShell][powershell-menu]
 2. Utwórz katalog o nazwie **c: \\ Node**.
@@ -50,7 +51,7 @@ W poniższych krokach opisano tworzenie projektu usługi w chmurze, który będz
     PS C:\> cd node
     ```
 
-4. Wprowadź następujące polecenia, aby utworzyć nowe rozwiązanie o nazwie **ChatApp** i roli proces roboczy o nazwie **WorkerRole1**:
+4. Wprowadź następujące polecenia, aby utworzyć nowe rozwiązanie o nazwie `chatapp` i rolę procesu roboczego o nazwie `WorkerRole1` :
 
     ```powershell
     PS C:\node> New-AzureServiceProject chatapp
@@ -67,7 +68,7 @@ Dla tego projektu będziemy używać przykładu czatu z [repozytorium usługi So
 1. Utwórz kopię lokalną repozytorium za pomocą przycisku **Klonuj** . Możesz również użyć przycisku **zip** , aby pobrać projekt.
 
    ![Wyświetlanie okna przeglądarki https://github.com/LearnBoost/socket.io/tree/master/examples/chat z wyróżnioną ikoną pobierania zip](./media/cloud-services-nodejs-chat-app-socketio/socketio-22.png)
-2. Przejdź do struktury katalogów lokalnego repozytorium do momentu, aż przytrzesz do katalogu ** \\ czatu przykładów** . Skopiuj zawartość tego katalogu do katalogu **C: \\ Node \\ ChatApp \\ WorkerRole1** utworzonego wcześniej.
+2. Przejdź do struktury katalogów lokalnego repozytorium do momentu, aż przytrzesz do katalogu **\\ czatu przykładów** . Skopiuj zawartość tego katalogu do katalogu **C: \\ Node \\ ChatApp \\ WorkerRole1** utworzonego wcześniej.
 
    ![Eksplorator, wyświetlając zawartość przykładowego \\ katalogu rozmowy wyodrębnionego z archiwum][chat-contents]
 
@@ -92,16 +93,16 @@ Przed przetestowaniem aplikacji w emulatorze platformy Azure należy wprowadzić
 3. Aby upewnić się, że aplikacja nasłuchuje na poprawnym porcie, Otwórz server.js w Notatniku lub w ulubionym edytorze, a następnie zmień następujący wiersz, zastępując **3000** with **Process. env. Port** , jak pokazano poniżej:
 
     ```js
-    //app.listen(3000, function () {            //Original
+    //app.listen(3000, function () {            //Original
     app.listen(process.env.port, function () {  //Updated
       var addr = app.address();
       console.log('   app listening on http://' + addr.address + ':' + addr.port);
     });
     ```
 
-Po zapisaniu zmian w **server.js**wykonaj następujące kroki, aby zainstalować wymagane moduły, a następnie przetestuj aplikację w emulatorze platformy Azure:
+Po zapisaniu zmian w **server.js** wykonaj następujące kroki, aby zainstalować wymagane moduły, a następnie przetestuj aplikację w emulatorze platformy Azure:
 
-1. Przy użyciu **Azure PowerShell**zmień katalogi na katalog **C: \\ Node \\ ChatApp \\ WorkerRole1** i użyj następującego polecenia, aby zainstalować moduły wymagane przez tę aplikację:
+1. Przy użyciu **Azure PowerShell** zmień katalogi na katalog **C: \\ Node \\ ChatApp \\ WorkerRole1** i użyj następującego polecenia, aby zainstalować moduły wymagane przez tę aplikację:
 
     ```powershell
     PS C:\node\chatapp\WorkerRole1> npm install

@@ -1,20 +1,24 @@
 ---
-title: Automatyczne skalowanie usługi w chmurze w portalu | Microsoft Docs
+title: Automatyczne skalowanie usługi w chmurze (klasycznej) w portalu | Microsoft Docs
 description: Dowiedz się, jak za pomocą portalu skonfigurować reguły automatycznego skalowania dla roli sieci Web lub roli procesu roboczego usługi w chmurze na platformie Azure.
-services: cloud-services
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 05/18/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 06a0209c2bbd0982054d33c199685d016f405b0c
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: a3e7f72dbe16c51280b922da2b5fc6550dee1d34
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165489"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743359"
 ---
-# <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Jak skonfigurować Skalowanie automatyczne dla usługi w chmurze w portalu
+# <a name="how-to-configure-auto-scaling-for-a-cloud-service-classic-in-the-portal"></a>Jak skonfigurować automatyczne skalowanie dla usługi w chmurze (klasycznej) w portalu
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
 
 Warunki można ustawić dla roli proces roboczy usługi w chmurze, która wyzwala operację skalowania w poziomie lub out. Warunki roli mogą opierać się na PROCESORAch, dyskach lub obciążeniach sieciowych roli. Możesz również ustawić warunek na podstawie kolejki komunikatów lub metryki innego zasobu platformy Azure skojarzonego z subskrypcją.
 
@@ -34,7 +38,7 @@ Przed skonfigurowaniem skalowania aplikacji należy wziąć pod uwagę następuj
 
 * Aby włączyć wysoką dostępność aplikacji, należy się upewnić, że jest ona wdrażana z co najmniej dwoma wystąpieniami roli. Aby uzyskać więcej informacji, zobacz [umowy dotyczące poziomu usług](https://azure.microsoft.com/support/legal/sla/).
 
-* Automatyczne skalowanie jest wykonywane tylko wtedy, gdy wszystkie role są w stanie **gotowe** .  
+* Automatyczne skalowanie jest wykonywane tylko wtedy, gdy wszystkie role są w stanie **gotowe** .  
 
 
 ## <a name="where-scale-is-located"></a>Gdzie znajduje się skala
@@ -53,7 +57,7 @@ Ustawienia skalowania dla roli można skonfigurować przy użyciu obu trybów **
 
 Ustaw opcję **skalowanie przez** , aby **zaplanować i reguły wydajności**.
 
-![Zrzut ekranu pokazujący opcję harmonogram i reguły wydajności.](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
+![ustawienia skalowania usług obrazów w chmurze z profilem i regułą](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
 
 1. Istniejący profil.
 2. Dodaj regułę dla profilu nadrzędnego.

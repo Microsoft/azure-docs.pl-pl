@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 11/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 85026092e513ecc9ec3c23e292a416297774a2e4
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 052d11fe0125de7970fb7d02931edfc7f3c2e4d9
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98217842"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743121"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Korzystanie z programu Microsoft Teams na pulpicie wirtualnym systemu Windows
 
@@ -146,6 +146,7 @@ Korzystanie z zespołów w środowisku zwirtualizowanym różni się od używani
 - Zespoły w systemie Windows Virtual Desktop obsługują tylko jedno przychodzące dane wejściowe wideo w danym momencie. Oznacza to, że za każdym razem, gdy ktoś podejmie próbę udostępnienia ekranu, pojawi się jego ekran zamiast ekranu lidera spotkania.
 - Ze względu na ograniczenia protokołu WebRTC rozwiązanie przychodzące i wychodzące strumień wideo jest ograniczone do 720.
 - Aplikacja Teams nie obsługuje przycisków HID ani kontrolek LED z innymi urządzeniami.
+- Nowe środowisko spotkań (NME) nie jest obecnie obsługiwane w środowiskach infrastruktury VDI.
 
 Znane problemy dotyczące zespołów, które nie są związane z zwirtualizowanymi środowiskami, można znaleźć [w temacie zespoły pomocy technicznej w Twojej organizacji](/microsoftteams/known-issues) .
 

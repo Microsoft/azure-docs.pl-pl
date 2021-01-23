@@ -9,14 +9,15 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 5/21/2017
 ms.author: raiye
-ms.openlocfilehash: 6de03969a22c5b699fdfd2be17a6ba65905d23e6
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 7f6d3feee95d4cce654b2cc1547b8bd7f4eb45d2
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073397"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743019"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Powiadomienie o wycofaniu rodziny systemów operacyjnych gościa 1
+
 Wycofanie rodziny systemów operacyjnych 1 zostało po raz pierwszy ogłoszone 1 czerwca 2013.
 
 **Września 2, 2014** Rodzina systemów operacyjnych gościa platformy Azure (system operacyjny gościa) 1. x, która jest oparta na systemie operacyjnym Windows Server 2008, została oficjalnie wycofana. Wszystkie próby wdrożenia nowych usług lub uaktualnienia istniejących usług przy użyciu rodziny 1 zakończą się niepowodzeniem z komunikatem o błędzie z informacją o tym, że Rodzina systemów operacyjnych gościa 1 została wycofana.

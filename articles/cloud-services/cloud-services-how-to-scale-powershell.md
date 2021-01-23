@@ -1,21 +1,24 @@
 ---
-title: Skalowanie usługi w chmurze platformy Azure w programie Windows PowerShell | Microsoft Docs
+title: Skalowanie usługi w chmurze platformy Azure (klasycznej) w programie Windows PowerShell | Microsoft Docs
 description: motyw Dowiedz się, jak skalować rolę sieci Web lub rolę procesu roboczego na platformie Azure przy użyciu programu PowerShell.
-services: cloud-services
-author: mmccrory
-ms.service: cloud-services
 ms.topic: article
-ms.date: 12/01/2016
-ms.author: memccror
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c2cec08d86760694ec3c41a98af62c6b86e0a4c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: a090da1933b0fcd6edb5b2415c773f9efcb27387
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89071095"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743308"
 ---
-# <a name="how-to-scale-a-cloud-service-in-powershell"></a>Jak skalować usługę w chmurze w programie PowerShell
+# <a name="how-to-scale-an-azure-cloud-service-classic-in-powershell"></a>Jak skalować usługę w chmurze platformy Azure (klasyczną) w programie PowerShell
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
 
 Za pomocą programu Windows PowerShell można skalować rolę sieci Web lub proces roboczy w lub na zewnątrz przez dodawanie lub usuwanie wystąpień.  
 

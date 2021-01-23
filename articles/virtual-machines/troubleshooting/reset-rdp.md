@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 2f242de3bfa6a2bc95dc46b4ca5c10222b755a2f
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 720d25079e1350315c9f403a8215f650db49ceb7
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200927"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743087"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Resetowanie Usługi pulpitu zdalnego lub jego hasła administratora na maszynie wirtualnej z systemem Windows
 Jeśli nie można nawiązać połączenia z maszyną wirtualną z systemem Windows, możesz zresetować hasło administratora lokalnego lub zresetować konfigurację Usługi pulpitu zdalnego (nieobsługiwane przez kontrolery domeny systemu Windows). Możesz zresetować hasło w witrynie Azure Portal lub za pośrednictwem rozszerzenia VM Access w programie Azure PowerShell. Po zalogowaniu się na maszynie wirtualnej zresetuj hasło administratora lokalnego.  
@@ -90,10 +90,14 @@ Najpierw upewnij się, że masz [zainstalowany i skonfigurowany najnowszy moduł
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Jeśli rozszerzenie dostępu do maszyny wirtualnej platformy Azure nie odpowiada i nie możesz zresetować hasła, możesz [zresetować lokalne hasło systemu Windows do trybu offline](reset-local-password-without-agent.md). Ta metoda jest bardziej zaawansowana i wymaga połączenia wirtualnego dysku twardego problematycznej maszyny wirtualnej z inną maszyną wirtualną. Wykonaj najpierw kroki opisane w tym artykule, a następnie spróbuj użyć metody resetowania hasła w trybie offline tylko wtedy, gdy te kroki nie działają.
+
+- Jeśli instalacja rozszerzenia dostępu do maszyny wirtualnej platformy Azure nie powiedzie się, można [rozwiązać problemy z rozszerzeniem maszyny wirtualnej](../extensions/troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
+- Jeśli nie możesz zresetować hasła przy użyciu rozszerzenia dostępu do maszyny wirtualnej, możesz [zresetować lokalne hasło systemu Windows do trybu offline](reset-local-password-without-agent.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Ta metoda jest bardziej zaawansowana i wymaga połączenia wirtualnego dysku twardego problematycznej maszyny wirtualnej z inną maszyną wirtualną. Wykonaj najpierw kroki opisane w tym artykule, a następnie spróbuj użyć metody resetowania hasła w trybie offline tylko wtedy, gdy te kroki nie działają.
 
 - [Dowiedz się więcej o rozszerzeniach i funkcjach maszyn wirtualnych platformy Azure](../extensions/features-windows.md).
 
 - [Połącz się z maszyną wirtualną platformy Azure przy użyciu protokołu RDP lub SSH](/previous-versions/azure/dn535788(v=azure.100)).
 
-- [Rozwiązywanie problemów z połączeniami pulpit zdalny z maszyną wirtualną platformy Azure](troubleshoot-rdp-connection.md)z systemem Windows.
+
+- [Rozwiązywanie problemów z połączeniami pulpit zdalny z maszyną wirtualną platformy Azure](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)z systemem Windows.

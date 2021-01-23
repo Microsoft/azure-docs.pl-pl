@@ -1,20 +1,25 @@
 ---
-title: Łączenie usługi w chmurze z niestandardowym kontrolerem domeny | Microsoft Docs
+title: Łączenie usługi w chmurze (klasycznej) z niestandardowym kontrolerem domeny | Microsoft Docs
 description: Dowiedz się, jak połączyć role sieci Web/proces roboczy z niestandardową domeną usługi AD przy użyciu programu PowerShell i rozszerzenia domeny usługi AD
-services: cloud-services
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 07/18/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: fa918a3a6894205ed36c4b576608e7a71e523a92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 8c2c8377944caa7ad28f6b379531e6d5bf44c9e7
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87092715"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742509"
 ---
-# <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Łączenie ról Cloud Services platformy Azure z niestandardowym kontrolerem domeny usługi Active Directory hostowanym na platformie Azure
+# <a name="connecting-azure-cloud-services-classic-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Łączenie ról platformy Azure Cloud Services (klasycznych) z niestandardowym kontrolerem domeny usługi Active Directory hostowanym na platformie Azure
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
+
 Najpierw skonfigurujemy Virtual Network (VNet) na platformie Azure. Następnie dodamy kontroler domena usługi Active Directory (hostowany na maszynie wirtualnej platformy Azure) do sieci wirtualnej. Następnie dodamy istniejące role usługi w chmurze do wstępnie utworzonej sieci wirtualnej, a następnie nawiążesz połączenie z kontrolerem domeny.
 
 Przed rozpoczęciem należy pamiętać o kilku kwestiach:
@@ -27,7 +32,7 @@ Postępuj zgodnie z tym przewodnikiem krok po kroku, a jeśli napotkasz jakiekol
 Sieć, do której odwołuje się usługa w chmurze, musi być **klasyczną siecią wirtualną**.
 
 ## <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
-Virtual Network można utworzyć na platformie Azure przy użyciu Azure Portal lub programu PowerShell. W tym samouczku jest używany program PowerShell. Aby utworzyć sieć wirtualną przy użyciu Azure Portal, zobacz [Tworzenie sieci wirtualnej](../virtual-network/quick-create-portal.md). W tym artykule opisano tworzenie sieci wirtualnej (Menedżer zasobów), ale należy utworzyć sieć wirtualną (klasyczną) dla usług Cloud Services. W tym celu w portalu wybierz pozycję **Utwórz zasób**, w polu **wyszukiwania** wpisz *sieć wirtualną* , a następnie naciśnij klawisz **Enter**. W wynikach wyszukiwania w obszarze **wszystko**wybierz pozycję **Sieć wirtualna**. W obszarze **Wybierz model wdrożenia**wybierz pozycję **klasyczny**, a następnie wybierz pozycję **Utwórz**. Następnie można wykonać kroki opisane w artykule.
+Virtual Network można utworzyć na platformie Azure przy użyciu Azure Portal lub programu PowerShell. W tym samouczku jest używany program PowerShell. Aby utworzyć sieć wirtualną przy użyciu Azure Portal, zobacz [Tworzenie sieci wirtualnej](../virtual-network/quick-create-portal.md). W tym artykule opisano tworzenie sieci wirtualnej (Menedżer zasobów), ale należy utworzyć sieć wirtualną (klasyczną) dla usług Cloud Services. W tym celu w portalu wybierz pozycję **Utwórz zasób**, w polu **wyszukiwania** wpisz *sieć wirtualną* , a następnie naciśnij klawisz **Enter**. W wynikach wyszukiwania w obszarze **wszystko** wybierz pozycję **Sieć wirtualna**. W obszarze **Wybierz model wdrożenia** wybierz pozycję **klasyczny**, a następnie wybierz pozycję **Utwórz**. Następnie można wykonać kroki opisane w artykule.
 
 ```powershell
 #Create Virtual Network

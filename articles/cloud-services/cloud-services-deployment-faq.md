@@ -1,28 +1,24 @@
 ---
 title: Problemy z wdrażaniem Microsoft Azure Cloud Services często zadawane pytania | Microsoft Docs
 description: Ten artykuł zawiera listę często zadawanych pytań dotyczących wdrażania Microsoft Azure Cloud Services.
-services: cloud-services
-documentationcenter: ''
-author: genlin
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
-ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/31/2018
-ms.author: genli
-ms.openlocfilehash: 63a219078927e9001a8eb4085c722e7ec8d2fac9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 67c20823d1f80360b2ab23dc3f208673d36a7374
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75980628"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742220"
 ---
-# <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemy z wdrażaniem w usłudze Azure Cloud Services: często zadawane pytania
+# <a name="deployment-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Problemy z wdrażaniem w usłudze Azure Cloud Services (klasyczny): często zadawane pytania
 
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
 W tym artykule opisano często zadawane pytania dotyczące problemów z wdrażaniem [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). Informacje o rozmiarze można także znaleźć na [stronie Cloud Services rozmiaru maszyny wirtualnej](cloud-services-sizes-specs.md) .
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
@@ -63,9 +59,9 @@ Nie można zmienić rozmiaru maszyny wirtualnej wdrożonej usługi w chmurze bez
 
 Aby uzyskać więcej informacji, zobacz [jak zaktualizować usługę w chmurze](cloud-services-update-azure-service.md).
 
-## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Dlaczego nie mogę wdrożyć Cloud Services za pośrednictwem interfejsów API zarządzania usługami lub programu PowerShell w przypadku korzystania z konta magazynu Azure Resource Manager? 
+## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Dlaczego nie mogę wdrożyć Cloud Services za pośrednictwem interfejsów API zarządzania usługami lub programu PowerShell w przypadku korzystania z konta magazynu Azure Resource Manager? 
 
-Ponieważ usługa w chmurze jest zasobem klasycznym, który nie jest bezpośrednio zgodny z modelem Azure Resource Manager, nie można go skojarzyć z kontami magazynu Azure Resource Manager. Oto kilka opcji: 
+Ponieważ usługa w chmurze jest zasobem klasycznym, który nie jest bezpośrednio zgodny z modelem Azure Resource Manager, nie można go skojarzyć z kontami magazynu Azure Resource Manager. Oto kilka opcji: 
 
 - Wdrażanie przy użyciu interfejsu API REST.
 
@@ -73,7 +69,7 @@ Ponieważ usługa w chmurze jest zasobem klasycznym, który nie jest bezpośredn
 
 - Wdrażanie za [Azure Portal](https://portal.azure.com).
 
-    Będzie to [Azure Portal](https://portal.azure.com) możliwe, gdy połączenie przechodzi przez serwer proxy/podkładkę, która umożliwia komunikację między zasobami Azure Resource Manager i klasycznymi. 
+    Będzie to [Azure Portal](https://portal.azure.com) możliwe, gdy połączenie przechodzi przez serwer proxy/podkładkę, która umożliwia komunikację między zasobami Azure Resource Manager i klasycznymi. 
 
 ## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Dlaczego Azure Portal wymaga podania konta magazynu na potrzeby wdrożenia?
 

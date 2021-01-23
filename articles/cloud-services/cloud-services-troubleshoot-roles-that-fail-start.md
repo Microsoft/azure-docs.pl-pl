@@ -1,27 +1,25 @@
 ---
 title: Rozwiązywanie problemów z rolami, których uruchomienie nie powiodło się | Microsoft Docs
 description: Poniżej przedstawiono niektóre typowe przyczyny niepowodzenia uruchomienia roli usługi w chmurze. Dostępne są również rozwiązania tych problemów.
-services: cloud-services
-documentationcenter: ''
-author: simonxjx
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 674b2faf-26d7-4f54-99ea-a9e02ef0eb2f
+ms.topic: article
 ms.service: cloud-services
-ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: tbd
-ms.date: 06/15/2018
-ms.author: v-six
-ms.openlocfilehash: bedf4dd2a955a8ffe648b47c1691e77ac1fdb8f5
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 2453fa2d9b4e78b60d4922e09347799266a84cff
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187803"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743223"
 ---
-# <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Rozwiązywanie problemów z rolami usługi w chmurze, których nie można uruchomić
+# <a name="troubleshoot-azure-cloud-service-classic-roles-that-fail-to-start"></a>Rozwiązywanie problemów z rolami usługi w chmurze platformy Azure (klasycznymi), których nie można uruchomić
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
+
 Poniżej przedstawiono niektóre typowe problemy i rozwiązania dotyczące ról Cloud Services platformy Azure, których nie można uruchomić.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
@@ -77,7 +75,7 @@ Przechodzenie do witryny sieci Web spowoduje teraz zwrócenie bardziej jawnych k
 * Opis: Wystąpił nieobsługiwany wyjątek podczas wykonywania bieżącego żądania sieci Web. Przejrzyj ślad stosu, aby uzyskać więcej informacji o błędzie i o tym, skąd pochodzi w kodzie.
 * Szczegóły wyjątku: System. IO. FIleNotFoundException: nie można załadować pliku lub zestawu "Microsoft. WindowsAzure. StorageClient, Version = 1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35" lub jednej z jego zależności. W systemie nie można odnaleźć określonego pliku.
 
-Przykład:
+Na przykład:
 
 ![Jawny błąd serwera w aplikacji "/"](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 

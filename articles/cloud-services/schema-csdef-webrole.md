@@ -1,26 +1,25 @@
 ---
-title: Azure Cloud Services def — schemat roli webrole | Microsoft Docs
+title: 'Azure Cloud Services (klasyczny) def: schemat roli webrole | Microsoft Docs'
 description: Rola sieci Web platformy Azure jest dostosowywana do programowania aplikacji sieci Web obsługującego ASP.NET, PHP, WCF i FastCGI. Dowiedz się więcej o elementach definicji usługi roli sieci Web.
-ms.custom: ''
-ms.date: 04/14/2015
-services: cloud-services
-ms.reviewer: ''
+ms.topic: article
 ms.service: cloud-services
-ms.suite: ''
-ms.tgt_pltfrm: ''
-ms.topic: reference
-ms.assetid: 85368e4e-a0db-4c02-8dbc-8e2928fa6091
-caps.latest.revision: 60
-author: tgore03
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 4368bb38a280461fdd77348de60a0e5793ee9582
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 3c5811649d7d6c0aa1e90ed34c61be6a7f9339f8
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011323"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743155"
 ---
-# <a name="azure-cloud-services-definition-webrole-schema"></a>Schemat roli webrole webCloud Services platformy Azure
+# <a name="azure-cloud-services-classic-definition-webrole-schema"></a>Schemat roli webrole usługi Azure Cloud Services (klasyczny)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
+
 Rola sieci Web platformy Azure jest rolą dostosowaną do programowania aplikacji sieci Web, która jest obsługiwana przez usługi IIS 7, takie jak ASP.NET, PHP, Windows Communication Foundation i FastCGI.
 
 Domyślnym rozszerzeniem dla pliku definicji usługi jest. csdef.
@@ -337,7 +336,7 @@ W poniższej tabeli opisano atrybuty `Variable` elementu:
 | Atrybut | Typ | Opis |  
 | --------- | ---- | ----------- |  
 |name|ciąg|Wymagane. Nazwa zmiennej środowiskowej, która ma zostać ustawiona.|  
-|value|ciąg|Opcjonalny. Wartość, która ma zostać ustawiona dla zmiennej środowiskowej. Musisz dołączyć atrybut value lub `RoleInstanceValue` element.|  
+|wartość|ciąg|Opcjonalny. Wartość, która ma zostać ustawiona dla zmiennej środowiskowej. Musisz dołączyć atrybut value lub `RoleInstanceValue` element.|  
 
 ##  <a name="roleinstancevalue"></a><a name="RoleInstanceValue"></a> RoleInstanceValue  
 `RoleInstanceValue`Element określa wyrażenie XPath, z którego ma zostać pobrana wartość zmiennej.
@@ -405,7 +404,7 @@ W poniższej tabeli opisano atrybuty `VirtualDirectory` elementu.
 | Atrybut | Typ | Opis |  
 | --------- | ---- | ----------- |  
 |name|ciąg|Wymagane. Określa nazwę identyfikującą katalog wirtualny.|  
-|value|physicalDirectory|Wymagane. Określa ścieżkę na komputerze deweloperskim, który zawiera zawartość witryny sieci Web lub katalogu wirtualnego. W emulatorze obliczeń usługi IIS są skonfigurowane do pobierania zawartości z tej lokalizacji. Podczas wdrażania na platformie Azure zawartość katalogu fizycznego jest spakowana wraz z resztą usługi. Po wdrożeniu pakietu usług na platformie Azure usługi IIS są skonfigurowane z lokalizacją zawartości rozpakowanej.|  
+|wartość|physicalDirectory|Wymagane. Określa ścieżkę na komputerze deweloperskim, który zawiera zawartość witryny sieci Web lub katalogu wirtualnego. W emulatorze obliczeń usługi IIS są skonfigurowane do pobierania zawartości z tej lokalizacji. Podczas wdrażania na platformie Azure zawartość katalogu fizycznego jest spakowana wraz z resztą usługi. Po wdrożeniu pakietu usług na platformie Azure usługi IIS są skonfigurowane z lokalizacją zawartości rozpakowanej.|  
 
 ##  <a name="bindings"></a><a name="Bindings"></a> Powiązań  
 `Bindings`Element opisuje zbiór powiązań dla witryny sieci Web. Jest elementem nadrzędnym `Binding` elementu. Element jest wymagany dla każdego `Site` elementu. Aby uzyskać więcej informacji na temat konfigurowania punktów końcowych, zobacz [Włączanie komunikacji dla wystąpień ról](cloud-services-enable-communication-role-instances.md).

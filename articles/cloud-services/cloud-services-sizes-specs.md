@@ -1,21 +1,25 @@
 ---
-title: Rozmiary maszyn wirtualnych dla usług Azure Cloud Services | Microsoft Docs
+title: Rozmiary maszyn wirtualnych dla usług Azure Cloud Services (klasyczny) | Microsoft Docs
 description: Wyświetla różne rozmiary maszyn wirtualnych (i identyfikatory) dla ról Sieć Web i proces roboczy usługi w chmurze platformy Azure.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 07/18/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: b617ba8db8f9dbb1c25ac34aa879613c29c723b7
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 55fa3ab4e5bd4472f7dae9692ae3ac9bcfa8e2b6
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96340292"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743172"
 ---
-# <a name="sizes-for-cloud-services"></a>Rozmiary dla Cloud Services
+# <a name="sizes-for-cloud-services-classic"></a>Rozmiary dla Cloud Services (klasyczne)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
+
 W tym temacie opisano dostępne rozmiary i opcje dla wystąpień ról usługi w chmurze (ról sieci Web i procesów roboczych). Zawiera również zagadnienia dotyczące wdrażania, które należy wziąć pod uwagę podczas planowania użycia tych zasobów. Każdy rozmiar ma identyfikator, który został umieszczony w [pliku definicji usługi](cloud-services-model-and-package.md#csdef). Ceny za każdy rozmiar są dostępne na stronie [cennika Cloud Services](https://azure.microsoft.com/pricing/details/cloud-services/) .
 
 > [!NOTE]
@@ -58,12 +62,12 @@ Utworzyliśmy koncepcję jednostki obliczeniowej platformy Azure (ACU), aby zape
 | [A5 — 7](#a-series) |100 |
 | [A8–A11](#a-series) |225* |
 | [A wersja 2](#av2-series) |100 |
-| [D](#d-series) |160 |
+| [Wykres](#d-series) |160 |
 | [D v2](#dv2-series) |160 – 190 * |
 | [D v3](#dv3-series) |160 – 190 * |
 | [E v3](#ev3-series) |160 – 190 * |
 | [G](#g-series) |180 - 240* |
-| [H](#h-series) |290 - 300* |
+| [C](#h-series) |290 - 300* |
 
 Jednostki ACU oznaczone gwiazdką (*) wykorzystują technologię Intel® Turbo w celu zwiększenia częstotliwości zegara procesora CPU i zapewniania większej wydajności. Skala zwiększenia wydajności może się różnić w zależności od rozmiaru maszyny wirtualnej, obciążenia i innych obciążeń uruchomionych na tym samym hoście.
 
@@ -79,9 +83,9 @@ W poniższych tabelach przedstawiono rozmiary maszyn wirtualnych i możliwości,
 | Rozmiar            | Rdzenie procesora CPU | Pamięć: GiB  | Magazyn tymczasowy: GiB       | Maksymalna liczba kart sieciowych / przepustowość sieci |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | ExtraSmall      | 1         | 0,768        | 20                   | 1 / niska |
-| Mała           | 1         | 1,75         | 225                  | 1 / średnia |
+| Mały           | 1         | 1,75         | 225                  | 1 / średnia |
 | Średniaa          | 2         | 3,5          | 490                  | 1 / średnia |
-| Duża           | 4         | 7            | 1000                 | 2 / wysoka |
+| Duży           | 4         | 7            | 1000                 | 2 / wysoka |
 | ExtraLarge      | 8         | 14           | 2040                 | 4 / wysoka |
 | A5              | 2         | 14           | 490                  | 1 / średnia |
 | A6              | 4         | 28           | 1000                 | 2 / wysoka |

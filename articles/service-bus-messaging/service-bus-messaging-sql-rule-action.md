@@ -1,14 +1,14 @@
 ---
 title: Składnia akcji SQL Azure Service Bus reguły subskrypcji | Microsoft Docs
-description: Ten artykuł zawiera odwołanie do składni akcji reguły SQL. Akcje są zapisywane w składni opartej na języku SQL, która jest wykonywana względem wiadomości.
+description: Ten artykuł zawiera odwołanie do składni akcji reguły SQL. Akcje są zapisywane w składni opartej na języku SQL, która jest wykonywana w odniesieniu do komunikatu.
 ms.topic: article
 ms.date: 11/24/2020
-ms.openlocfilehash: 606281d42d5598d7f73312990d3a19775a202c08
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: f7b8cdfcccc22508b98a42391d2a0ef9955232d0
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632815"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742690"
 ---
 # <a name="subscription-rule-sql-action-syntax"></a>Składnia akcji SQL reguły subskrypcji
 
@@ -137,7 +137,7 @@ Próba uzyskania dostępu do nieistniejącej właściwości systemu jest błęde
   
 ### <a name="arguments"></a>Argumenty  
   
--   `<integer_constant>` jest ciągiem liczb, które nie są ujęte w cudzysłów i nie zawierają punktów dziesiętnych. Wartości są przechowywane jako `System.Int64` wewnętrznie i zgodne z tym samym zakresem.  
+-   `<integer_constant>` jest ciągiem liczb, które nie są ujęte w znaki cudzysłowu i nie zawierają punktów dziesiętnych. Wartości są przechowywane jako `System.Int64` wewnętrznie i zgodne z tym samym zakresem.  
   
      Poniżej przedstawiono przykłady długich stałych:  
   
@@ -146,7 +146,7 @@ Próba uzyskania dostępu do nieistniejącej właściwości systemu jest błęde
     2  
     ```  
   
--   `<decimal_constant>` jest ciągiem liczb, które nie są ujęte w cudzysłów i zawierają separator dziesiętny. Wartości są przechowywane jako `System.Double` wewnętrznie i zgodne z tym samym zakresem/dokładnością.  
+-   `<decimal_constant>` jest ciągiem liczb, które nie są ujęte w znaki cudzysłowu i zawierają separator dziesiętny. Wartości są przechowywane jako `System.Double` wewnętrznie i zgodne z tym samym zakresem/dokładnością.  
   
      W przyszłych wersjach ten numer może być przechowywany w innym typie danych do obsługi dokładnej semantyki liczb, dlatego nie należy polegać na tym, że jest to typ danych bazowych `System.Double` `<decimal_constant>` .  
   
@@ -195,9 +195,11 @@ Stałe ciągów są ujęte w znaki pojedynczego cudzysłowu i zawierają wszystk
   
 ### <a name="remarks"></a>Uwagi  
 
-`newid()`Funkcja zwraca obiekt **System. GUID** wygenerowany przez `System.Guid.NewGuid()` metodę.  
+`newid()`Funkcja zwraca `System.Guid` wygenerowany przez `System.Guid.NewGuid()` metodę.  
   
 `property(name)`Funkcja zwraca wartość właściwości, do której odwołuje się `name` . `name`Wartość może być dowolnym prawidłowym wyrażeniem zwracającym wartość ciągu.  
+
+[!INCLUDE [service-bus-filter-examples](../../includes/service-bus-filter-examples.md)]
   
 ## <a name="considerations"></a>Zagadnienia do rozważenia
 
@@ -214,5 +216,5 @@ Stałe ciągów są ujęte w znaki pojedynczego cudzysłowu i zawierają wszystk
 - [Klasa SQLRuleAction (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlruleaction)
 - [SqlRuleAction — Klasa (Java)](/java/api/com.microsoft.azure.servicebus.rules.sqlruleaction)
 - [SqlRuleAction (JavaScript)](/javascript/api/@azure/service-bus/sqlruleaction)
-- [AZ ServiceBus — reguła subskrypcji tematu](/cli/azure/servicebus/topic/subscription/rule)
+- [`az servicebus topic subscription rule`](/cli/azure/servicebus/topic/subscription/rule)
 - [New-AzServiceBusRule](/powershell/module/az.servicebus/new-azservicebusrule)

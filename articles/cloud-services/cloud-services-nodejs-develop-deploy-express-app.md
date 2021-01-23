@@ -1,24 +1,24 @@
 ---
-title: Kompilowanie i wdrażanie aplikacji Node.js Express na platformie Azure Cloud Services
-titleSuffix: Azure Cloud Services
+title: Kompilowanie i wdrażanie aplikacji Node.js Express na platformie Azure Cloud Services (wersja klasyczna)
 description: Skorzystaj z tego samouczka, aby utworzyć nową aplikację przy użyciu modułu Express, który udostępnia strukturę MVC do tworzenia Node.js aplikacji sieci Web.
-services: cloud-services
-documentationcenter: nodejs
-author: tgore03
-ms.service: cloud-services
-ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/17/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.custom: devx-track-js
-ms.openlocfilehash: 7ecaccf36988e94d0cb1114bd04c5d571d4fe86d
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: e15af589b3a3c496738c97c0c2c6429ba708ba7e
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071867"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743342"
 ---
-# <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Kompilowanie i wdrażanie aplikacji sieci Web Node.js przy użyciu programu Express na platformie Azure Cloud Services
+# <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services-classic"></a>Kompilowanie i wdrażanie aplikacji sieci Web Node.js przy użyciu programu Express na platformie Azure Cloud Services (wersja klasyczna)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
 
 Node.js obejmuje minimalny zestaw funkcji w środowisku uruchomieniowym Core.
 Deweloperzy często używają modułów innych firm, aby zapewnić dodatkową funkcjonalność podczas tworzenia aplikacji Node.js. W tym samouczku utworzysz nową aplikację przy użyciu modułu [Express](https://github.com/expressjs/express) , który udostępnia strukturę MVC służącą do tworzenia Node.js aplikacji sieci Web.
@@ -32,7 +32,7 @@ Zrzut ekranu ukończonej aplikacji jest poniżej:
 
 Wykonaj następujące kroki, aby utworzyć nowy projekt usługi w chmurze o nazwie "expressapp":
 
-1. W **menu Start** lub **Start ekranu**Wyszukaj program **Windows PowerShell**. Na koniec kliknij prawym przyciskiem myszy program **Windows PowerShell** i wybierz polecenie **Uruchom jako administrator**.
+1. W **menu Start** lub **Start ekranu** Wyszukaj program **Windows PowerShell**. Na koniec kliknij prawym przyciskiem myszy program **Windows PowerShell** i wybierz polecenie **Uruchom jako administrator**.
 
     ![Ikona Azure PowerShell](./media/cloud-services-nodejs-develop-deploy-express-app/azure-powershell-start.png)
 2. Zmień katalogi na katalog **c: \\ Node** , a następnie wprowadź następujące polecenia, aby utworzyć nowe rozwiązanie o nazwie **expressapp** i rolę sieci Web o nazwie **WebRole1**:

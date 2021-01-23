@@ -1,22 +1,25 @@
 ---
-title: Schemat definicji Cloud Services platformy Azure (plik cscfg) | Microsoft Docs
+title: Schemat definicji platformy Azure Cloud Services (klasyczny) (plik cscfg) | Microsoft Docs
 description: Plik konfiguracji usługi (. cscfg) określa liczbę wystąpień roli do wdrożenia dla każdej roli, wartości konfiguracji i odcisków palców certyfikatów dla roli.
-services: cloud-services
-ms.custom: ''
-ms.date: 12/07/2016
+ms.topic: article
 ms.service: cloud-services
-ms.topic: reference
-caps.latest.revision: 35
-author: tgore03
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: cb77181e00c97b7f426429793f17af3cb5e84ebe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: ba933d4981fb7ed209a7fb5d5c41113750f312de
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79534749"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743478"
 ---
-# <a name="azure-cloud-services-config-schema-cscfg-file"></a>Schemat konfiguracji usługi Azure Cloud Services (plik cscfg)
+# <a name="azure-cloud-services-classic-config-schema-cscfg-file"></a>Schemat konfiguracji usługi Azure Cloud Services (klasyczny) (plik. cscfg)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
+
 Plik konfiguracji usługi określa liczbę wystąpień roli do wdrożenia dla każdej roli w usłudze, wartości wszelkich ustawień konfiguracji i odcisków palców dla wszystkich certyfikatów skojarzonych z rolą. Jeśli usługa jest częścią Virtual Network, informacje o konfiguracji sieci muszą być podane w pliku konfiguracji usługi, a także w pliku konfiguracji sieci wirtualnej. Domyślnym rozszerzeniem dla pliku konfiguracji usługi jest. cscfg.
 
 Model usług został opisany w [schemacie definicji usługi w chmurze (klasycznej)](schema-csdef-file.md).

@@ -1,27 +1,25 @@
 ---
 title: Domyślny rozmiar folderu tymczasowego jest za mały dla roli | Microsoft Docs
 description: Rola usługi w chmurze ma ograniczoną ilość miejsca dla folderu tymczasowego. W tym artykule przedstawiono kilka sugestii, w których można uniknąć braku miejsca.
-services: cloud-services
-documentationcenter: ''
-author: simonxjx
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 9f2af8dd-2012-4b36-9dd5-19bf6a67e47d
+ms.topic: article
 ms.service: cloud-services
-ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: tbd
-ms.date: 06/15/2018
-ms.author: v-six
-ms.openlocfilehash: d18e174eac30bbcf87010531821a4017efb088ba
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 1b7bfb47168c31f9e2e1b7e40764439118c00805
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075114"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743206"
 ---
-# <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-webworker-role"></a>Domyślny rozmiar folderu tymczasowego jest za mały w roli sieć Web/proces roboczy usługi w chmurze
+# <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-classic-webworker-role"></a>Domyślny rozmiar folderu tymczasowego jest za mały w usłudze w chmurze (klasycznej) w roli sieć Web/proces roboczy
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
+
 Domyślny katalog tymczasowy procesu roboczego usługi w chmurze lub roli sieci Web ma maksymalny rozmiar 100 MB, który może być zapełniony w pewnym momencie. W tym artykule opisano, jak uniknąć braku miejsca na katalog tymczasowy.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]

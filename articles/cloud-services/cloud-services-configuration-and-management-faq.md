@@ -1,28 +1,24 @@
 ---
 title: Problemy z konfiguracją i zarządzaniem — często zadawane pytania
-titleSuffix: Azure Cloud Services
 description: Ten artykuł zawiera listę często zadawanych pytań dotyczących konfiguracji i zarządzania dla Microsoft Azure Cloud Services.
-services: cloud-services
-documentationcenter: ''
-author: genlin
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
-ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/23/2018
-ms.author: genli
-ms.openlocfilehash: c4497805e64ef303c9d7340c48a49027b3a26bef
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: c5dd09292897d69f90606e8661b4e6cb28090612
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011029"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742594"
 ---
-# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemy związane z konfiguracją i zarządzaniem w usłudze Azure Cloud Services: często zadawane pytania
+# <a name="configuration-and-management-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Problemy związane z konfiguracją i zarządzaniem w usłudze Azure Cloud Services (wersja klasyczna): często zadawane pytania
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
 
 W tym artykule opisano często zadawane pytania dotyczące problemów z konfiguracją i zarządzaniem w programie [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). Informacje o rozmiarze można także znaleźć na [stronie Cloud Services rozmiaru maszyny wirtualnej](cloud-services-sizes-specs.md) .
 
@@ -62,7 +58,7 @@ W tym artykule opisano często zadawane pytania dotyczące problemów z konfigur
 
 **Ogólny**
 
-- [Jak mogę dodać "nowykrywanie" do mojej witryny sieci Web?](#how-do-i-add-nosniff-to-my-website)
+- [Jak mogę dodać `nosniff` do mojej witryny sieci Web?](#how-do-i-add-nosniff-to-my-website)
 - [Jak mogę dostosować usługi IIS dla roli sieci Web?](#how-do-i-customize-iis-for-a-web-role)
 - [Jaki jest limit przydziału dla usługi w chmurze?](#what-is-the-quota-limit-for-my-cloud-service)
 - [Dlaczego dysk na maszynie wirtualnej usługi w chmurze pokazuje bardzo mało wolnego miejsca na dysku?](#why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space)
@@ -103,7 +99,7 @@ Select-AzureSubscription -Current -SubscriptionName <your subscription name>
 Get-AzurePublishSettingsFile
 ```
 
-Element **Get-AzurePublishSettingsFile** utworzy nowy certyfikat zarządzania w ramach **Subscription**  >  **certyfikatów zarządzania** subskrypcjami w Azure Portal. Nazwa nowego certyfikatu wygląda jak "YourSubscriptionNam]-[CurrentDate]-Credentials".
+Element **Get-AzurePublishSettingsFile** utworzy nowy certyfikat zarządzania w ramach   >  **certyfikatów zarządzania** subskrypcjami w Azure Portal. Nazwa nowego certyfikatu wygląda jak "YourSubscriptionNam]-[CurrentDate]-Credentials".
 
 ### <a name="how-to-automate-the-installation-of-main-tlsssl-certificatepfx-and-intermediate-certificatep7b"></a>Jak zautomatyzować instalację głównego certyfikatu TLS/SSL (pfx) i certyfikatu pośredniego (. p7b)?
 
@@ -128,7 +124,7 @@ $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLoc
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
-Możliwość wyboru obiektu BLOB lub lokalnego dla lokalizacji przekazywania csdef i cscfg będzie dostępna wkrótce. Za pomocą polecenia [New-AzureDeployment](/powershell/module/servicemanagement/azure.service/new-azuredeployment?view=azuresmps-4.0.0)można ustawić każdą wartość lokalizacji.
+Możliwość wyboru obiektu BLOB lub lokalnego dla lokalizacji przekazywania csdef i cscfg będzie dostępna wkrótce. Za pomocą polecenia [New-AzureDeployment](/powershell/module/servicemanagement/azure.service/new-azuredeployment?view=azuresmps-4.0.0&preserve-view=true)można ustawić każdą wartość lokalizacji.
 
 Możliwość monitorowania metryk na poziomie wystąpienia. Dodatkowe możliwości monitorowania są dostępne w temacie [Jak monitorować Cloud Services](cloud-services-how-to-monitor.md).
 
@@ -148,7 +144,7 @@ Możesz włączyć rejestrowanie w systemie Windows Diagnostyka Azure (funkcji w
 2. [Włącz za poorednictwem kodu platformy .NET](./cloud-services-dotnet-diagnostics.md)
 3. [Włącz za poorednictwem programu PowerShell](./cloud-services-diagnostics-powershell.md)
 
-Aby uzyskać bieżące ustawienia funkcji wad usługi w chmurze, można użyć polecenia [Get-AzureServiceDiagnosticsExtensions](./cloud-services-diagnostics-powershell.md#get-current-diagnostics-extension-configuration) PS cmd lub wyświetlić je za pośrednictwem portalu z bloku "Cloud Services--> Extensions".
+Aby uzyskać bieżące ustawienia funkcji wad usługi w chmurze, można użyć polecenia programu PowerShell [Get-AzureServiceDiagnosticsExtensions](./cloud-services-diagnostics-powershell.md#get-current-diagnostics-extension-configuration) lub wyświetlić go za pośrednictwem portalu z bloku "Cloud Services--> Extensions".
 
 
 ## <a name="network-configuration"></a>Konfiguracja sieci
@@ -254,7 +250,7 @@ Aby uzyskać więcej informacji na temat włączania rejestrowania Diagnostyka A
 
 ## <a name="generic"></a>Ogólny
 
-### <a name="how-do-i-add-nosniff-to-my-website"></a>Jak mogę dodać "nowykrywanie" do mojej witryny sieci Web?
+### <a name="how-do-i-add-nosniff-to-my-website"></a>Jak mogę dodać `nosniff` do mojej witryny sieci Web?
 Aby uniemożliwić klientom wykrywanie typów MIME, Dodaj ustawienie w pliku *web.config* .
 
 ```xml
@@ -284,11 +280,11 @@ Zobacz [limity dotyczące usługi](../azure-resource-manager/management/azure-su
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>Dlaczego dysk na maszynie wirtualnej usługi w chmurze pokazuje bardzo mało wolnego miejsca na dysku?
 Jest to oczekiwane zachowanie i nie powinno spowodować jakiegokolwiek problemu dla aplikacji. Funkcja rejestrowania jest włączona dla dysku% głównego aplikacji% na maszynach wirtualnych usługi Azure PaaS, które zasadniczo zużywają dwukrotnie ilość miejsca, w którym zwykle zajmują się pliki. Należy jednak pamiętać o kilku kwestiach, które zasadniczo przenoszą tę funkcję na nieemisyjną.
 
-Rozmiar dysku% głównego aplikacji% jest obliczany jako \<size of .cspkg + max journal size + a margin of free space> lub 1,5 GB, w zależności od tego, który jest większy. Rozmiar maszyny wirtualnej nie ma znaczenia dla tego obliczenia. Rozmiar maszyny wirtualnej ma wpływ tylko na rozmiar dysku tymczasowego C:. 
+Rozmiar dysku% głównego aplikacji% jest obliczany jako rozmiar <rozmiaru. cspkg + maksymalny rozmiar dziennika + margines wolnego miejsca> lub 1,5 GB, w zależności od tego, który jest większy. Rozmiar maszyny wirtualnej nie ma znaczenia dla tego obliczenia. Rozmiar maszyny wirtualnej ma wpływ tylko na rozmiar dysku tymczasowego C:. 
 
 Zapis na dysku% głównego aplikacji% nie jest obsługiwany. Jeśli piszesz na maszynę wirtualną platformy Azure, musisz to zrobić w tymczasowym zasobie LocalStorage (lub innej opcji, takiej jak BLOB Storage, Azure Files itp.). Ilość wolnego miejsca w folderze% głównego aplikacji% jest niezrozumiała. Jeśli nie masz pewności, czy aplikacja zapisuje się na dysku% głównego aplikacji%, zawsze możesz pozwolić, aby usługa działała przez kilka dni, a następnie porównać rozmiary "Before" i "After". 
 
-System Azure nie zapisze niczego na dysku% głównego aplikacji%. Po utworzeniu wirtualnego dysku twardego z pliku. cspkg i zainstalowaniu go na maszynie wirtualnej platformy Azure jedyną przyczyną, którą może zapisywać na tym dysku, jest aplikacja. 
+System Azure nie zapisze niczego na dysku% głównego aplikacji%. Po utworzeniu wirtualnego dysku twardego `.cspkg` i zainstalowaniu go na maszynie wirtualnej platformy Azure jedyną przyczyną, którą może zapisywać na tym dysku, jest aplikacja. 
 
 Ustawienia dziennika nie są konfigurowalne, więc nie można go wyłączyć.
 
@@ -297,7 +293,7 @@ Ustawienia dziennika nie są konfigurowalne, więc nie można go wyłączyć.
 Rozszerzenie chroniące przed złośliwym kodem można włączyć przy użyciu skryptu programu PowerShell w ramach zadania uruchamiania. Wykonaj kroki opisane w poniższych artykułach, aby je wdrożyć: 
  
 - [Tworzenie zadania uruchamiania programu PowerShell](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
-- [Set-AzureServiceAntimalwareExtension](/powershell/module/servicemanagement/azure.service/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
+- [Set-AzureServiceAntimalwareExtension](/powershell/module/servicemanagement/azure.service/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0&preserve-view=true)
 
 Aby uzyskać więcej informacji o scenariuszach wdrażania oprogramowania chroniącego przed złośliwym kodem i sposobach ich włączania z portalu, zobacz [scenariusze wdrażania oprogramowania chroniącego przed złośliwym kodem](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios).
 

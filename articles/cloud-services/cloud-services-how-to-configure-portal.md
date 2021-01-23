@@ -1,21 +1,24 @@
 ---
-title: Jak skonfigurować usługę w chmurze (Portal) | Microsoft Docs
+title: Jak skonfigurować usługę w chmurze (klasyczną) — Portal | Microsoft Docs
 description: Dowiedz się, jak skonfigurować usługi w chmurze na platformie Azure. Dowiedz się, jak zaktualizować konfigurację usługi w chmurze i skonfigurować dostęp zdalny do wystąpień roli. W poniższych przykładach użyto Azure Portal.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 12/07/2016
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 4f2b5716e253f2810ff953a10c879574c6a6c342
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: f16fcfe227663958279281659b09929a4cd2d386
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576663"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743427"
 ---
-# <a name="how-to-configure-cloud-services"></a>Jak skonfigurować Cloud Services
+# <a name="how-to-configure-and-azure-cloud-service-classic"></a>Konfigurowanie i usługa w chmurze platformy Azure (klasyczna)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
 
 W Azure Portal można skonfigurować najczęściej używane ustawienia dla usługi w chmurze. Lub, jeśli chcesz bezpośrednio aktualizować pliki konfiguracji, Pobierz plik konfiguracji usługi do zaktualizowania, a następnie Przekaż zaktualizowany plik i zaktualizuj usługę w chmurze przy użyciu zmian konfiguracji. W obu przypadkach aktualizacje konfiguracji są przekazywane do wszystkich wystąpień ról.
 
@@ -29,7 +32,7 @@ Po otwarciu [Azure Portal](https://portal.azure.com/)przejdź do usługi w chmur
 
 ![Strona Ustawienia](./media/cloud-services-how-to-configure-portal/cloud-service.png)
 
-Link **Ustawienia** lub **wszystkie ustawienia** spowoduje otwarcie **ustawień** , w których można zmienić **Właściwości**, zmienić **konfigurację**, zarządzać **certyfikatami**, skonfigurować **reguły alertów**i zarządzać **użytkownikami** mającymi dostęp do tej usługi w chmurze.
+Link **Ustawienia** lub **wszystkie ustawienia** spowoduje otwarcie **ustawień** , w których można zmienić **Właściwości**, zmienić **konfigurację**, zarządzać **certyfikatami**, skonfigurować **reguły alertów** i zarządzać **użytkownikami** mającymi dostęp do tej usługi w chmurze.
 
 ![Ustawienia usługi w chmurze platformy Azure](./media/cloud-services-how-to-configure-portal/cs-settings-blade.png)
 
@@ -62,7 +65,7 @@ W tym miejscu możesz skonfigurować alert. Za pomocą pola listy rozwijanej **M
 
 ### <a name="configure-monitoring-from-a-metric-tile"></a>Konfigurowanie monitorowania na podstawie kafelka metryki
 
-Zamiast korzystać z **Settings**  >  **reguł alertów**dotyczących ustawień, można kliknąć jeden z kafelków metryk w sekcji **monitorowanie** w usłudze w chmurze.
+Zamiast korzystać z   >  **reguł alertów** dotyczących ustawień, można kliknąć jeden z kafelków metryk w sekcji **monitorowanie** w usłudze w chmurze.
 
 ![Monitorowanie usługi w chmurze](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
 

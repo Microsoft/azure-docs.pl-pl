@@ -1,21 +1,25 @@
 ---
 title: Typowe zadania zarządzania usługą w chmurze | Microsoft Docs
 description: Dowiedz się, jak zarządzać Cloud Services w Azure Portal. W poniższych przykładach użyto Azure Portal.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 07/05/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 84e450a55f9482c3a713943adfcc4d7940ab873f
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 306da8dae31c2bbdb487e7128e3a2e24424c239d
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076712"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743393"
 ---
-# <a name="manage-cloud-services-in-the-azure-portal"></a>Zarządzanie Cloud Services w Azure Portal
+# <a name="manage-cloud-services-classic-in-the-azure-portal"></a>Zarządzaj Cloud Services (klasyczny) w Azure Portal
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
+
 W obszarze **Cloud Services** Azure Portal można wykonać następujące działania:
 
 * Zaktualizuj rolę usługi lub wdrożenie.
@@ -77,7 +81,7 @@ Istnieją dwa kluczowe wymagania wstępne dotyczące przeprowadzenia zamiany wdr
 
 - Jeśli chcesz użyć statycznego adresu IP dla miejsca produkcyjnego, musisz zarezerwować jeden dla miejsca przejściowego. W przeciwnym razie swap nie powiedzie się.
 
-- Aby można było przeprowadzić zamianę, wszystkie wystąpienia ról muszą być uruchomione. Stan wystąpień można sprawdzić w bloku **przegląd** Azure Portal. Alternatywnie możesz użyć polecenia [Get-AzureRole](/powershell/module/servicemanagement/azure.service/get-azurerole?view=azuresmps-3.7.0) w programie Windows PowerShell.
+- Aby można było przeprowadzić zamianę, wszystkie wystąpienia ról muszą być uruchomione. Stan wystąpień można sprawdzić w bloku **przegląd** Azure Portal. Alternatywnie możesz użyć polecenia [Get-AzureRole](/powershell/module/servicemanagement/azure.service/get-azurerole?view=azuresmps-3.7.0&preserve-view=true) w programie Windows PowerShell.
 
 Należy pamiętać, że aktualizacje systemu operacyjnego gościa i operacje naprawy usług mogą również spowodować niepowodzenie zamiany wdrożenia. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z wdrażaniem usługi w chmurze](cloud-services-troubleshoot-deployment-problems.md).
 

@@ -1,25 +1,26 @@
 ---
-title: Jak korzystać z diagnostyki Azure (.NET) z Cloud Services | Microsoft Docs
+title: Jak korzystać z diagnostyki Azure (.NET) z Cloud Services (klasyczny) | Microsoft Docs
 description: Używanie diagnostyki Azure do zbierania danych z usług Azure Cloud Services na potrzeby debugowania, mierzenia wydajności, monitorowania, analizy ruchu i nie tylko.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-manager: carmonm
-ms.service: cloud-services
-ms.devlang: dotnet
-ms.custom: devx-track-csharp
 ms.topic: article
-ms.date: 05/22/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 6a015a8d56cf3991d04b212db73d5b752c13a793
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 89ba50b91e8ff2e2d7a05d59f2b738a1f87a5fd2
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077545"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742152"
 ---
-# <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Włączanie Diagnostyka Azure na platformie Azure Cloud Services
-Zobacz [Diagnostyka Azure przegląd](../azure-monitor/platform/diagnostics-extension-overview.md) dla tła na Diagnostyka Azure.
+# <a name="enabling-azure-diagnostics-in-azure-cloud-services-classic"></a>Włączanie Diagnostyka Azure na platformie Azure Cloud Services (klasyczny)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
+
+Zobacz [Diagnostyka Azure przegląd](../azure-diagnostics.md) dla tła na Diagnostyka Azure.
 
 ## <a name="how-to-enable-diagnostics-in-a-worker-role"></a>Jak włączyć diagnostykę w roli procesu roboczego
 W tym przewodniku opisano sposób implementacji roli procesu roboczego platformy Azure, która emituje dane telemetryczne przy użyciu klasy EventSource programu .NET. Diagnostyka Azure służy do zbierania danych telemetrycznych i przechowywania ich na koncie usługi Azure Storage. Podczas tworzenia roli procesu roboczego program Visual Studio automatycznie włącza diagnostykę 1,0 w ramach rozwiązania w zestawach SDK platformy Azure dla platformy .NET 2,4 i starszych. Poniższe instrukcje opisują proces tworzenia roli procesu roboczego, wyłączania diagnostyki 1,0 z rozwiązania oraz wdrażania diagnostyki 1,2 lub 1,3 do roli procesu roboczego.
@@ -31,7 +32,7 @@ W tym artykule przyjęto założenie, że masz subskrypcję platformy Azure i ko
 1. Uruchom **program Visual Studio**.
 2. Utwórz projekt **usługi w chmurze platformy Azure** na podstawie szablonu w **chmurze** , który jest przeznaczony dla .NET Framework 4,5.  Nadaj projektowi nazwę "WadExample" i kliknij przycisk OK.
 3. Wybierz **rolę proces roboczy** , a następnie kliknij przycisk OK. Projekt zostanie utworzony.
-4. W **Eksplorator rozwiązań**kliknij dwukrotnie plik właściwości **WorkerRole1** .
+4. W **Eksplorator rozwiązań** kliknij dwukrotnie plik właściwości **WorkerRole1** .
 5. Na karcie **Konfiguracja** Cofnij zaznaczenie pola wyboru **Włącz diagnostykę** , aby wyłączyć diagnostykę 1,0 (zestaw Azure SDK 2,4 lub starszy).
 6. Skompiluj rozwiązanie, aby sprawdzić, czy nie ma żadnych błędów.
 
@@ -183,7 +184,7 @@ Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -Diagnostic
 ```
 
 ### <a name="step-6-look-at-your-telemetry-data"></a>Krok 6. Przyjrzyj się danych telemetrii
-W programie Visual Studio **Eksplorator serwera**przejdź do konta magazynu wadexample. Po uruchomieniu usługi w chmurze około pięciu (5) minut powinna zostać wyświetlona tabela **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** i **WADSetOtherTable**. Kliknij dwukrotnie jedną z tabel, aby wyświetlić dane telemetryczne, które zostały zebrane.
+W programie Visual Studio **Eksplorator serwera** przejdź do konta magazynu wadexample. Po uruchomieniu usługi w chmurze około pięciu (5) minut powinna zostać wyświetlona tabela **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** i **WADSetOtherTable**. Kliknij dwukrotnie jedną z tabel, aby wyświetlić dane telemetryczne, które zostały zebrane.
 
 ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
