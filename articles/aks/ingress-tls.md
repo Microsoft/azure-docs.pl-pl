@@ -5,12 +5,12 @@ description: Dowiedz się, jak zainstalować i skonfigurować kontroler protoko�
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 0b0e26262f75ba8030188a2bffbce8282b38bca8
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 1faabdda869bbaba8027df121d080b0fb421e9f1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219644"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728896"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Tworzenie kontrolera protokołu HTTPS w usłudze Azure Kubernetes Service (AKS)
 
@@ -26,7 +26,7 @@ Możesz również wykonać następujące czynności:
 - [Tworzenie kontrolera transferu danych przychodzących korzystającego z własnych certyfikatów TLS][aks-ingress-own-tls]
 - [Utwórz kontroler transferu danych przychodzących, który używa szyfrowania, aby automatycznie generować certyfikaty TLS ze statycznym publicznym adresem IP][aks-ingress-static-tls]
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zapoznaj się z przewodnikiem Szybki Start AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub [przy użyciu Azure Portal][aks-quickstart-portal].
 
@@ -60,7 +60,8 @@ helm install nginx-ingress ingress-nginx/ingress-nginx \
     --namespace ingress-basic \
     --set controller.replicaCount=2 \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
-    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
 Podczas instalacji jest tworzony publiczny adres IP platformy Azure dla kontrolera transferu danych przychodzących. Ten publiczny adres IP jest statyczny dla okresu istnienia kontrolera transferu danych przychodzących. Jeśli usuniesz kontroler transferu danych przychodzących, przypisanie publicznego adresu IP zostanie utracone. Jeśli następnie utworzysz dodatkowy kontroler transferu danych przychodzących, zostanie przypisany nowy publiczny adres IP. Jeśli chcesz zachować publiczny adres IP, możesz utworzyć kontroler transferu danych przychodzących [ze statycznym publicznym adresem IP][aks-ingress-static-tls].
@@ -125,13 +126,13 @@ helm repo add jetstack https://charts.jetstack.io
 helm repo update
 
 # Install the cert-manager Helm chart
-helm install \
-  cert-manager \
+helm install cert-manager jetstack/cert-manager \
   --namespace ingress-basic \
   --version v0.16.1 \
   --set installCRDs=true \
-  --set nodeSelector."beta\.kubernetes\.io/os"=linux \
-  jetstack/cert-manager
+  --set nodeSelector."kubernetes\.io/os"=linux \
+  --set webhook.nodeSelector."kubernetes\.io/os"=linux \
+  --set cainjector.nodeSelector."kubernetes\.io/os"=linux
 ```
 
 Aby uzyskać więcej informacji na temat konfiguracji Menedżera certyfikatów, zobacz [projekt Menedżera certyfikatów][cert-manager].

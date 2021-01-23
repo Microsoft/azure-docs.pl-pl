@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: drewbat
-ms.openlocfilehash: fbe517c766b3835bf4265a1309b8737a25925b7c
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 4d80c034ab03fed6b9ae2ed0c4c0420afe6f7e32
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914964"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728095"
 ---
 # <a name="pull-settings-to-app-configuration-with-azure-pipelines"></a>Ustawienia ściągnięcia do konfiguracji aplikacji z Azure Pipelines
 
@@ -47,7 +47,7 @@ Po utworzeniu połączenia usługi Znajdź nazwę przypisanej do niej nazwy gł�
 
 Przypisz odpowiednią rolę konfiguracji aplikacji do połączenia z usługą używaną w ramach zadania, aby zadanie miało dostęp do magazynu konfiguracji aplikacji.
 
-1. Przejdź do magazynu konfiguracji aplikacji docelowej. Przewodnik konfigurowania magazynu konfiguracji aplikacji można znaleźć w temacie [Tworzenie magazynu konfiguracji aplikacji](/azure/azure-app-configuration/quickstart-dotnet-core-app#create-an-app-configuration-store) w jednej z przewodników szybki start dotyczących konfiguracji aplikacji platformy Azure.
+1. Przejdź do magazynu konfiguracji aplikacji docelowej. Przewodnik konfigurowania magazynu konfiguracji aplikacji można znaleźć w temacie [Tworzenie magazynu konfiguracji aplikacji](./quickstart-dotnet-core-app.md#create-an-app-configuration-store) w jednej z przewodników szybki start dotyczących konfiguracji aplikacji platformy Azure.
 1. Po lewej stronie wybierz pozycję **Kontrola dostępu (IAM)**.
 1. W górnej części wybierz pozycję **+ Dodaj** i wybierz opcję **Dodaj przypisanie roli**.
 1. W obszarze **rola** wybierz pozycję **czytnik danych konfiguracji aplikacji**. Ta rola pozwala zadanie odczytać z magazynu konfiguracji aplikacji. 

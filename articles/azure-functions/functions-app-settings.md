@@ -3,12 +3,12 @@ title: Dokumentacja ustawień aplikacji dla usługi Azure Functions
 description: Dokumentacja referencyjna dla ustawień aplikacji Azure Functions lub zmiennych środowiskowych.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 72b42e392f350a8693ca8a052bdec1d5fd337234
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 80b2daebbd64f08dd4f5d728b2a9a4ee04b8952f
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937114"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728996"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Dokumentacja ustawień aplikacji dla usługi Azure Functions
 
@@ -229,11 +229,13 @@ Wartość tego klucza jest podawana w formacie `<DESTINATION>:<VERBOSITY>` zdefi
 
 ## <a name="website_contentazurefileconnectionstring"></a>CONTENTAZUREFILECONNECTIONSTRING witryny sieci Web \_
 
-Do użycia tylko w planach Premium &. Parametry połączenia dla konta magazynu, w którym są przechowywane kod i konfiguracja aplikacji funkcji. Zobacz [Tworzenie aplikacji funkcji](functions-infrastructure-as-code.md#create-a-function-app).
+Parametry połączenia dla konta magazynu, w którym kod i konfiguracja aplikacji funkcji są przechowywane w planach skalowania sterowanego zdarzeniami uruchomionymi w systemie Windows. Aby uzyskać więcej informacji, zobacz [Tworzenie aplikacji funkcji](functions-infrastructure-as-code.md#windows).
 
 |Klucz|Wartość przykładowa|
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol = https; AccountName = [name]; AccountKey = [klucz]|
+
+Używane tylko w przypadku wdrażania w planach zużycia lub Premium uruchomionych w systemie Windows. Nieobsługiwane w systemie Linux. Zmiana lub usunięcie tego ustawienia może spowodować, że aplikacja funkcji nie zostanie uruchomiona. Aby dowiedzieć się więcej, zobacz [ten artykuł dotyczący rozwiązywania problemów](functions-recover-storage-account.md#storage-account-application-settings-were-deleted). 
 
 ## <a name="website_contentovervnet"></a>CONTENTOVERVNET witryny sieci Web \_
 
@@ -245,11 +247,15 @@ Tylko w przypadku planów Premium. Wartość `1` umożliwia skalowanie aplikacji
 
 ## <a name="website_contentshare"></a>CONTENTSHARE witryny sieci Web \_
 
-Do użycia tylko w planach Premium &. Ścieżka pliku do kodu i konfiguracji aplikacji funkcji. Używany z WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Wartość domyślna to unikatowy ciąg, który rozpoczyna się od nazwy aplikacji funkcji. Zobacz [Tworzenie aplikacji funkcji](functions-infrastructure-as-code.md#create-a-function-app).
+Ścieżka do kodu i konfiguracji aplikacji funkcji w planie skalowania sterowanego zdarzeniami w systemie Windows. Używany z WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Wartość domyślna to unikatowy ciąg, który rozpoczyna się od nazwy aplikacji funkcji. Zobacz [Tworzenie aplikacji funkcji](functions-infrastructure-as-code.md#windows).
 
 |Klucz|Wartość przykładowa|
 |---|------------|
 |WEBSITE_CONTENTSHARE|functionapp091999e2|
+
+Używane przez aplikacje funkcji w planach użycia lub Premium działających w systemie Windows. Nieobsługiwane w systemie Linux. Zmiana lub usunięcie tego ustawienia może spowodować, że aplikacja funkcji nie zostanie uruchomiona. Aby dowiedzieć się więcej, zobacz [ten artykuł dotyczący rozwiązywania problemów](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
+
+W przypadku korzystania z Azure Resource Manager do tworzenia aplikacji funkcji podczas wdrażania nie należy dołączać WEBSITE_CONTENTSHARE do szablonu. To ustawienie aplikacji jest generowane podczas wdrażania. Aby dowiedzieć się więcej, zobacz [Automatyzowanie wdrażania zasobów dla aplikacji funkcji](functions-infrastructure-as-code.md#windows).   
 
 ## <a name="website_max_dynamic_application_scale_out"></a>\_Maksymalna \_ \_ \_ SKALOWANIe aplikacji \_ sieci Web w poziomie
 

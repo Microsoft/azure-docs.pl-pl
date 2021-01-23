@@ -3,12 +3,12 @@ title: Adresy IP w Azure Functions
 description: Dowiedz się, jak znaleźć przychodzące i wychodzące adresy IP dla aplikacji funkcji i co powoduje ich zmianę.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 291a1cda7b8a2acc5426ea255519e1c2e58a2d7c
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: fcc92e61e180d25bc67d5ca3f9e2bff4af01fd3f
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936723"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98726735"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Adresy IP w Azure Functions
 
@@ -27,8 +27,7 @@ Każda aplikacja funkcji ma jeden adres IP ruchu przychodzącego. Aby znaleźć 
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Przejdź do aplikacji funkcji.
-3. Wybierz **funkcje platformy**.
-4. Wybierz **Właściwości**, a adres IP ruchu przychodzącego jest wyświetlany w obszarze **wirtualny adres IP**.
+3. W obszarze **Ustawienia** wybierz pozycję **Właściwości**. Adres IP ruchu przychodzącego jest wyświetlany w obszarze **wirtualny adres IP**.
 
 ## <a name="function-app-outbound-ip-addresses"></a><a name="find-outbound-ip-addresses"></a>Wychodzące adresy IP aplikacji funkcji
 

@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2020
 ms.author: Zhchia
-ms.openlocfilehash: 4eaac716d06b102a07872059af28da4986889caa
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 72e021f47bb8db4dedf0e434d0d94bb2118a4c00
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673444"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728167"
 ---
 # <a name="tutorial-configure-bizagi-studio-for-digital-process-automation-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie programu Bizagi Studio do automatyzacji procesów cyfrowych w celu automatycznego aprowizacji użytkowników
 
-W tym samouczku opisano kroki, które należy wykonać w programie Bizagi Studio dla automatyzacji procesów cyfrowych i Azure Active Directory (Azure AD) w celu skonfigurowania automatycznego aprowizacji użytkowników. Po skonfigurowaniu tej opcji usługa Azure AD automatycznie inicjuje i zastrzega użytkownikom i grupom [Bizagi Studio na potrzeby automatyzacji procesów cyfrowych](https://www.bizagi.com/) przy użyciu usługi Azure AD Provisioning. Aby zapoznać się z ważnymi szczegółowymi informacjami na temat przeznaczenia i sposobu działania tej usługi oraz z często zadawanymi pytaniami, zobacz [Automatyzowanie aprowizacji i cofania aprowizacji użytkowników w aplikacjach SaaS przy użyciu usługi Azure Active Directory](../manage-apps/user-provisioning.md). 
+W tym samouczku opisano kroki, które należy wykonać w programie Bizagi Studio dla automatyzacji procesów cyfrowych i Azure Active Directory (Azure AD) w celu skonfigurowania automatycznego aprowizacji użytkowników. Po skonfigurowaniu tej opcji usługa Azure AD automatycznie inicjuje i zastrzega użytkownikom i grupom [Bizagi Studio na potrzeby automatyzacji procesów cyfrowych](https://www.bizagi.com/) przy użyciu usługi Azure AD Provisioning. Aby zapoznać się z ważnymi szczegółowymi informacjami na temat przeznaczenia i sposobu działania tej usługi oraz z często zadawanymi pytaniami, zobacz [Automatyzowanie aprowizacji i cofania aprowizacji użytkowników w aplikacjach SaaS przy użyciu usługi Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Obsługiwane funkcje
@@ -32,22 +32,22 @@ W tym samouczku opisano kroki, które należy wykonać w programie Bizagi Studio
 > * Tworzenie użytkowników w programie Bizagi Studio na potrzeby automatyzacji procesów cyfrowych
 > * Usuwanie użytkowników w programie Bizagi Studio na potrzeby automatyzacji procesów cyfrowych, gdy nie wymagają już dostępu
 > * Utrzymywanie synchronizacji atrybutów użytkowników między usługą Azure AD i programem Bizagi Studio na potrzeby automatyzacji procesów cyfrowych
-> * [Logowanie](https://docs.microsoft.com/azure/active-directory/saas-apps/bizagi-studio-for-digital-process-automation-tutorial) jednokrotne do programu Bizagi Studio na potrzeby automatyzacji procesów cyfrowych (zalecane)
+> * [Logowanie](./bizagi-studio-for-digital-process-automation-tutorial.md) jednokrotne do programu Bizagi Studio na potrzeby automatyzacji procesów cyfrowych (zalecane)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Scenariusz opisany w tym samouczku założono, że masz już następujące elementy:
 
-* [Dzierżawę usługi Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). 
-* Konto użytkownika w usłudze Azure AD z [uprawnieniami](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) do konfigurowania aprowizacji. Przykładami mogą być Administratorzy aplikacji, administrator aplikacji w chmurze, właściciel aplikacji lub Administrator globalny. 
+* [Dzierżawę usługi Azure AD](../develop/quickstart-create-new-tenant.md). 
+* Konto użytkownika w usłudze Azure AD z [uprawnieniami](../roles/permissions-reference.md) do konfigurowania aprowizacji. Przykładami mogą być Administratorzy aplikacji, administrator aplikacji w chmurze, właściciel aplikacji lub Administrator globalny. 
 * Bizagi Studio for Digital Process Automation w wersji 11.2.4.2 X lub nowszej.
 
 ## <a name="plan-your-provisioning-deployment"></a>Planowanie wdrożenia aprowizacji
 Wykonaj następujące kroki w celu zaplanowania:
 
-1. Dowiedz się więcej na temat [sposobu działania usługi aprowizacji](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-2. Określ, kto będzie [objęty zakresem aprowizacji](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-3. Określ dane, które mają być [mapowane między usługą Azure AD i Bizagi Studio na potrzeby automatyzacji procesów cyfrowych](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
+1. Dowiedz się więcej na temat [sposobu działania usługi aprowizacji](../app-provisioning/user-provisioning.md).
+2. Określ, kto będzie [objęty zakresem aprowizacji](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+3. Określ dane, które mają być [mapowane między usługą Azure AD i Bizagi Studio na potrzeby automatyzacji procesów cyfrowych](../app-provisioning/customize-application-attributes.md). 
 
 ## <a name="configure-to-support-provisioning-with-azure-ad"></a>Konfigurowanie obsługi aprowizacji w usłudze Azure AD
 Aby skonfigurować program Bizagi Studio do automatyzacji procesów cyfrowych w celu obsługi aprowizacji w usłudze Azure AD, wykonaj następujące kroki:
@@ -69,17 +69,17 @@ Aby skonfigurować program Bizagi Studio do automatyzacji procesów cyfrowych w 
 
 ## <a name="add-the-application-from-the-azure-ad-gallery"></a>Dodawanie aplikacji z galerii usługi Azure AD
 
-Aby rozpocząć zarządzanie obsługą administracyjną programu Bizagi Studio na potrzeby automatyzacji procesów cyfrowych, Dodaj aplikację z galerii aplikacji usługi Azure AD. Jeśli wcześniej skonfigurowano program Bizagi Studio do automatyzacji procesów cyfrowych na potrzeby logowania jednokrotnego, możesz użyć tej samej aplikacji. Po pierwszym przetestowaniu integracji należy jednak utworzyć oddzielną aplikację. Aby uzyskać więcej informacji, zobacz [Szybki Start: Dodawanie aplikacji do dzierżawy usługi Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Aby rozpocząć zarządzanie obsługą administracyjną programu Bizagi Studio na potrzeby automatyzacji procesów cyfrowych, Dodaj aplikację z galerii aplikacji usługi Azure AD. Jeśli wcześniej skonfigurowano program Bizagi Studio do automatyzacji procesów cyfrowych na potrzeby logowania jednokrotnego, możesz użyć tej samej aplikacji. Po pierwszym przetestowaniu integracji należy jednak utworzyć oddzielną aplikację. Aby uzyskać więcej informacji, zobacz [Szybki Start: Dodawanie aplikacji do dzierżawy usługi Azure Active Directory (Azure AD)](../manage-apps/add-application-portal.md). 
 
 ## <a name="define-who-is-in-scope-for-provisioning"></a>Zdefiniuj, kto jest w zakresie aprowizacji 
 
-Za pomocą usługi Azure AD Provisioning można określić zakres, który jest inicjowany na podstawie przypisywania do aplikacji na podstawie atrybutów użytkownika i grupy lub obu tych elementów. Jeśli zakres jest oparty na przypisaniu, zapoznaj się z instrukcjami w sekcji [przypisywanie lub cofanie przypisania użytkowników i grup w przypadku aplikacji przy użyciu interfejs API programu Graph](../manage-apps/assign-user-or-group-access-portal.md) do przypisywania użytkowników i grup do aplikacji. Jeśli zakres jest oparty wyłącznie na atrybutach użytkownika lub grupy, można użyć filtru określania zakresu. Aby uzyskać więcej informacji, zobacz Tworzenie [aplikacji opartych na atrybutach przy użyciu filtrów zakresu](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+Za pomocą usługi Azure AD Provisioning można określić zakres, który jest inicjowany na podstawie przypisywania do aplikacji na podstawie atrybutów użytkownika i grupy lub obu tych elementów. Jeśli zakres jest oparty na przypisaniu, zapoznaj się z instrukcjami w sekcji [przypisywanie lub cofanie przypisania użytkowników i grup w przypadku aplikacji przy użyciu interfejs API programu Graph](../manage-apps/assign-user-or-group-access-portal.md) do przypisywania użytkowników i grup do aplikacji. Jeśli zakres jest oparty wyłącznie na atrybutach użytkownika lub grupy, można użyć filtru określania zakresu. Aby uzyskać więcej informacji, zobacz Tworzenie [aplikacji opartych na atrybutach przy użyciu filtrów zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 Należy zwrócić uwagę na następujące kwestie dotyczące określania zakresu:
 
-* Podczas przypisywania użytkowników i grup do programu Bizagi Studio na potrzeby automatyzacji procesów cyfrowych należy wybrać rolę inną niż **domyślny dostęp**. Użytkownicy z domyślną rolą dostępu są wykluczeni z aprowizacji i są oznaczani w dziennikach aprowizacji jako nieskutecznie uprawnieni. Jeśli jedyną rolą dostępną w aplikacji jest domyślna rola dostępu, można [zaktualizować manifest aplikacji](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) , aby dodać więcej ról. 
+* Podczas przypisywania użytkowników i grup do programu Bizagi Studio na potrzeby automatyzacji procesów cyfrowych należy wybrać rolę inną niż **domyślny dostęp**. Użytkownicy z domyślną rolą dostępu są wykluczeni z aprowizacji i są oznaczani w dziennikach aprowizacji jako nieskutecznie uprawnieni. Jeśli jedyną rolą dostępną w aplikacji jest domyślna rola dostępu, można [zaktualizować manifest aplikacji](../develop/howto-add-app-roles-in-azure-ad-apps.md) , aby dodać więcej ról. 
 
-* Zacznij od mniejszej skali. Przeprowadź test z użyciem mniejszego zestawu użytkowników i grup, zanim wdrożysz to rozwiązanie dla wszystkich. W przypadku wybrania dla zakresu aprowizacji przypisanych użytkowników i grup można kontrolować ten sposób, przypisując do aplikacji jednego lub dwóch użytkowników lub grupy. Gdy zakres jest ustawiony dla wszystkich użytkowników i grup, można określić [Filtr określania zakresu oparty na atrybutach](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+* Zacznij od mniejszej skali. Przeprowadź test z użyciem mniejszego zestawu użytkowników i grup, zanim wdrożysz to rozwiązanie dla wszystkich. W przypadku wybrania dla zakresu aprowizacji przypisanych użytkowników i grup można kontrolować ten sposób, przypisując do aplikacji jednego lub dwóch użytkowników lub grupy. Gdy zakres jest ustawiony dla wszystkich użytkowników i grup, można określić [Filtr określania zakresu oparty na atrybutach](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 
 ## <a name="configure-automatic-user-provisioning"></a>Konfigurowanie automatycznej aprowizacji użytkowników 
@@ -121,7 +121,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 8. W sekcji **mapowania** wybierz kolejno pozycje **Synchronizuj Azure Active Directory użytkownicy do Bizagi Studio na potrzeby automatyzacji procesów cyfrowych**.
 
-9. W sekcji **Mapowanie atrybutów** Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do Bizagi Studio na potrzeby automatyzacji procesów cyfrowych. Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w programie Bizagi Studio do automatyzacji procesów cyfrowych dla operacji aktualizacji. W przypadku zmiany [pasującego atrybutu Target](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)należy upewnić się, że interfejs API automatyzacji procesów Bizagi Studio for Digital Process obsługuje filtrowanie użytkowników na podstawie tego atrybutu. Wybierz pozycję **Zapisz** , aby zatwierdzić wszelkie zmiany.
+9. W sekcji **Mapowanie atrybutów** Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do Bizagi Studio na potrzeby automatyzacji procesów cyfrowych. Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w programie Bizagi Studio do automatyzacji procesów cyfrowych dla operacji aktualizacji. W przypadku zmiany [pasującego atrybutu Target](../app-provisioning/customize-application-attributes.md)należy upewnić się, że interfejs API automatyzacji procesów Bizagi Studio for Digital Process obsługuje filtrowanie użytkowników na podstawie tego atrybutu. Wybierz pozycję **Zapisz** , aby zatwierdzić wszelkie zmiany.
 
    |Atrybut|Typ|Obsługiwane na potrzeby filtrowania|
    |---|---|---|
@@ -137,12 +137,12 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    
     ![Edytuj listę atrybutów.](media/bizagi-studio-for-digital-process-automation-provisioning-tutorial/edit.png)  
 
-   Więcej informacji na temat dodawania atrybutów niestandardowych można znaleźć w temacie [Dostosowywanie atrybutów aplikacji](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).
+   Więcej informacji na temat dodawania atrybutów niestandardowych można znaleźć w temacie [Dostosowywanie atrybutów aplikacji](../app-provisioning/customize-application-attributes.md).
 
 > [!NOTE]
 > Obsługiwane są tylko podstawowe właściwości typu (na przykład ciąg, liczba całkowita, wartość logiczna, DateTime itp.). Właściwości połączone z tabelami parametrycznymi lub wieloma typami nie są jeszcze obsługiwane.
 
-10. Aby skonfigurować filtry zakresu, zobacz [samouczek filtru określania zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Aby skonfigurować filtry zakresu, zobacz [samouczek filtru określania zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 11. Aby włączyć usługę Azure AD Provisioning for Bizagi Studio na potrzeby automatyzacji procesów cyfrowych, w sekcji **Ustawienia** Zmień **stan aprowizacji** na **włączone**.
 
@@ -161,15 +161,15 @@ Ta operacja spowoduje rozpoczęcie cyklu synchronizacji początkowej wszystkich 
 ## <a name="monitor-your-deployment"></a>Monitorowanie wdrożenia
 Po skonfigurowaniu aprowizacji Użyj następujących zasobów do monitorowania wdrożenia:
 
-- Użyj [dzienników aprowizacji](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) , aby określić, którzy użytkownicy zostali zainicjowani pomyślnie lub niepomyślnie.
-- Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
-- Jeśli konfiguracja aprowizacji jest w złej kondycji, aplikacja zostanie przestawiona na kwarantannę. Aby uzyskać więcej informacji, zobacz [Inicjowanie obsługi aplikacji w stanie kwarantanny](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
+- Użyj [dzienników aprowizacji](../reports-monitoring/concept-provisioning-logs.md) , aby określić, którzy użytkownicy zostali zainicjowani pomyślnie lub niepomyślnie.
+- Sprawdź [pasek postępu](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
+- Jeśli konfiguracja aprowizacji jest w złej kondycji, aplikacja zostanie przestawiona na kwarantannę. Aby uzyskać więcej informacji, zobacz [Inicjowanie obsługi aplikacji w stanie kwarantanny](../app-provisioning/application-provisioning-quarantine-status.md).  
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące działań aprowizacji](../manage-apps/check-status-user-account-provisioning.md)
+* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące działań aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)

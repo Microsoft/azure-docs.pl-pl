@@ -7,12 +7,12 @@ ms.date: 12/04/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: github-actions-azure
-ms.openlocfilehash: 4f5deb33218c336da7a477b4f39cd45f7386debf
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: fec4ba8cba33a1d52d8f330308645fb616921ba4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97604978"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98726811"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Wdrażanie niestandardowego kontenera do App Service przy użyciu akcji GitHub
 
@@ -50,7 +50,7 @@ Profil publikowania to poświadczenie na poziomie aplikacji. Skonfiguruj swój p
 1. Na stronie **Przegląd** wybierz pozycję **Pobierz profil publikowania**.
 
     > [!NOTE]
-    > Od 2020 października aplikacje sieci Web dla systemu Linux będą potrzebować ustawienia aplikacji `WEBSITE_WEBDEPLOY_USE_SCM` ustawionego na `true` **przed pobraniem pliku**. To wymaganie zostanie usunięte w przyszłości. Aby dowiedzieć się, jak skonfigurować typowe ustawienia aplikacji sieci Web, zobacz [Konfigurowanie aplikacji App Service w Azure Portal](/azure/app-service/configure-common).  
+    > Od 2020 października aplikacje sieci Web dla systemu Linux będą potrzebować ustawienia aplikacji `WEBSITE_WEBDEPLOY_USE_SCM` ustawionego na `true` **przed pobraniem pliku**. To wymaganie zostanie usunięte w przyszłości. Aby dowiedzieć się, jak skonfigurować typowe ustawienia aplikacji sieci Web, zobacz [Konfigurowanie aplikacji App Service w Azure Portal](./configure-common.md).  
 
 1. Zapisz pobrany plik. Zawartość pliku zostanie użyta do utworzenia wpisu tajnego usługi GitHub.
 
@@ -88,7 +88,7 @@ W witrynie [GitHub](https://github.com/)Przejrzyj repozytorium, wybierz pozycję
 
 Aby użyć [poświadczeń na poziomie aplikacji](#generate-deployment-credentials), wklej zawartość pobranego pliku profilu publikowania w polu wartość klucza tajnego. Nazwij klucz tajny `AZURE_WEBAPP_PUBLISH_PROFILE` .
 
-Podczas konfigurowania przepływu pracy w usłudze GitHub należy użyć `AZURE_WEBAPP_PUBLISH_PROFILE` akcji w obszarze Wdróż aplikację sieci Web platformy Azure. Przykład:
+Podczas konfigurowania przepływu pracy w usłudze GitHub należy użyć `AZURE_WEBAPP_PUBLISH_PROFILE` akcji w obszarze Wdróż aplikację sieci Web platformy Azure. Na przykład:
     
 ```yaml
 - uses: azure/webapps-deploy@v2
@@ -102,7 +102,7 @@ W witrynie [GitHub](https://github.com/)Przejrzyj repozytorium, wybierz pozycję
 
 Aby użyć [poświadczeń na poziomie użytkownika](#generate-deployment-credentials), Wklej wszystkie dane wyjściowe JSON z polecenia platformy Azure w polu wartość klucza tajnego. Podaj tajną nazwę, taką jak `AZURE_CREDENTIALS` .
 
-Podczas późniejszej konfiguracji pliku przepływu pracy należy użyć wpisu tajnego dla danych wejściowych `creds` akcji logowania platformy Azure. Przykład:
+Podczas późniejszej konfiguracji pliku przepływu pracy należy użyć wpisu tajnego dla danych wejściowych `creds` akcji logowania platformy Azure. Na przykład:
 
 ```yaml
 - uses: azure/login@v1

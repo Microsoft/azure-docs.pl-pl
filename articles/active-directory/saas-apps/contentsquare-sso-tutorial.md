@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 008866cce2ed52b1504f1ac3356965450cf7b103
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: ddb188b31b6085af5e163972daa7a86f71402a99
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97439547"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98727827"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-contentsquare-sso"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu logowania jednokrotnego Contentsquare
 
@@ -130,10 +130,8 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 * Przejdź bezpośrednio do adresu URL logowania jednokrotnego w usłudze Contentsquare, a następnie zainicjuj w nim przepływ logowania.
 
-* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka SSO Contentsquare w obszarze Moje aplikacje zostanie on przekierowany do adresu URL logowania jednokrotnego Contentsquare. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka SSO Contentsquare w obszarze Moje aplikacje zostanie on przekierowany do adresu URL logowania jednokrotnego Contentsquare. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu logowania jednokrotnego Contentsquare można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Po skonfigurowaniu logowania jednokrotnego Contentsquare można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/02/2020
 ms.author: jeedes
-ms.openlocfilehash: 241e5abf8377bd2e2207d140e291b18592651ea6
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 0c15500bdd9f0795df9e4ce611d9386963169e23
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179592"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98727485"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kfadvance"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą KFAdvance
 
@@ -140,11 +140,9 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 * Kliknij pozycję **Testuj tę aplikację** w Azure Portal i należy automatycznie zalogować się do KFAdvance, dla którego skonfigurowano Logowanie jednokrotne 
 
-Możesz również użyć aplikacji Microsoft my Apps, aby przetestować aplikację w dowolnym trybie. Po kliknięciu kafelka KFAdvance w obszarze Moje aplikacje, jeśli jest skonfigurowany w trybie SP, nastąpi przekierowanie do strony logowania do aplikacji w celu zainicjowania przepływu logowania, a jeśli zostanie on skonfigurowany w trybie dostawcy tożsamości, należy automatycznie zalogować się do KFAdvance, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Możesz również użyć aplikacji Microsoft my Apps, aby przetestować aplikację w dowolnym trybie. Po kliknięciu kafelka KFAdvance w obszarze Moje aplikacje, jeśli jest skonfigurowany w trybie SP, nastąpi przekierowanie do strony logowania do aplikacji w celu zainicjowania przepływu logowania, a jeśli zostanie on skonfigurowany w trybie dostawcy tożsamości, należy automatycznie zalogować się do KFAdvance, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu KFAdvance można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Po skonfigurowaniu KFAdvance można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 403e42694ee7ec8993cf5dc4bf03df8ca7c20b63
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 7aaaa854ef7d0fd44bdccbe07cb38112475be367
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185550"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98727632"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-jamf-pro"></a>Samouczek: Azure Active Directory integrację z logowaniem jednokrotnym przy użyciu Jamf Pro
 
@@ -137,7 +137,7 @@ W tej sekcji przyznano użytkownikowi B. Simon dostęp do Jamf Pro.
 
     ![Strona pojedynczej Sign-On w Jamf Pro](./media/jamfprosamlconnector-tutorial/configure3.png)
 
-    a. Wybierz pozycję **Edit** (Edytuj).
+    a. Wybierz pozycję **Edytuj**.
 
     b. Zaznacz pole wyboru **Włącz uwierzytelnianie pojedynczej Sign-On** .
 
@@ -222,7 +222,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 * Kliknij pozycję **Testuj tę aplikację** w Azure Portal i należy automatycznie zalogować się do Jamf Pro, dla którego skonfigurowano Logowanie jednokrotne. 
 
-Możesz również użyć aplikacji Microsoft my Apps, aby przetestować aplikację w dowolnym trybie. Po kliknięciu kafelka Jamf Pro w obszarze Moje aplikacje, jeśli zostanie on skonfigurowany w trybie SP, nastąpi przekierowanie do strony logowania do aplikacji w celu zainicjowania przepływu logowania, a jeśli zostanie on skonfigurowany w trybie dostawcy tożsamości, należy automatycznie zalogować się do Jamf Pro, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Możesz również użyć aplikacji Microsoft my Apps, aby przetestować aplikację w dowolnym trybie. Po kliknięciu kafelka Jamf Pro w obszarze Moje aplikacje, jeśli zostanie on skonfigurowany w trybie SP, nastąpi przekierowanie do strony logowania do aplikacji w celu zainicjowania przepływu logowania, a jeśli zostanie on skonfigurowany w trybie dostawcy tożsamości, należy automatycznie zalogować się do Jamf Pro, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Następne kroki

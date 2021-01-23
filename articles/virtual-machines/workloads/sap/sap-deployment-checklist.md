@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 601f268f81c222ada5a4f99b05ae8ffcdfc13a23
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: ca2a844364d11dbb5ac2a244945e07d8ca725c1c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916290"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728444"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Obciążenia SAP na platformie Azure: Lista kontrolna planowania i wdrażania
 
@@ -66,7 +66,7 @@ W tej fazie planujesz migrację obciążenia SAP na platformę Azure. Co najmnie
     - Architektura wysokiej dostępności i odzyskiwania po awarii.
         - W oparciu o RTO i cel punktu odzyskiwania należy określić, co ma być podobne do potrzeb.
         - Aby zapewnić wysoką dostępność w ramach strefy, sprawdź, co wymaga system DBMS do zaoferowania na platformie Azure. Większość pakietów systemu DBMS oferuje synchroniczną metodę synchronicznej rezerwy gorącą, którą zalecamy dla systemów produkcyjnych. Zapoznaj się również z dokumentacją dotyczącą oprogramowania SAP dla różnych baz danych, rozpoczynając od [uwagi dotyczącej wdrożenia systemu Azure Virtual Machines DBMS dla obciążeń SAP](./dbms_guide_general.md) i powiązanych dokumentów.
-           Używanie klastra trybu failover systemu Windows Server z konfiguracją dysku udostępnionego dla warstwy DBMS, na przykład [opisanej dla SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017&preserve-view=true), nie jest obsługiwane. Zamiast tego należy używać rozwiązań, takich jak:
+           Używanie klastra trybu failover systemu Windows Server z konfiguracją dysku udostępnionego dla warstwy DBMS, na przykład [opisanej dla SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server), nie jest obsługiwane. Zamiast tego należy używać rozwiązań, takich jak:
            - [Opcja Zawsze włączone programu SQL Server](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups)
            - [Oracle Data Guard](../oracle/configure-oracle-dataguard.md)
            - [Replikacja systemu HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
@@ -82,7 +82,7 @@ W tej fazie planujesz migrację obciążenia SAP na platformę Azure. Co najmnie
     - Topologia grupy zasobów.
     - [Strategia tagowania](../../../azure-resource-manager/management/tag-resources.md#tags-and-billing).
     - Konwencje nazewnictwa dla maszyn wirtualnych i innych składników infrastruktury i/lub nazw logicznych.
-5.  Kontrakt Microsoft Professional lub pomoc techniczna Premier. Skontaktuj się z pomocą techniczną firmy Microsoft, jeśli masz umowę pomocy technicznej Premier z firmą Microsoft. Aby uzyskać wymagania dotyczące pomocy technicznej SAP, zobacz [uwagi dotyczące pomocy technicznej sap #2015553](https://launchpad.support.sap.com/#/notes/2015553).
+5.  Kontrakt Microsoft Professional lub pomoc techniczna Premium. Skontaktuj się z pomocą techniczną firmy Microsoft, jeśli masz umowę pomocy technicznej Premier z firmą Microsoft. Aby uzyskać wymagania dotyczące pomocy technicznej SAP, zobacz [uwagi dotyczące pomocy technicznej sap #2015553](https://launchpad.support.sap.com/#/notes/2015553).
 6.  Liczba subskrypcji platformy Azure i limit przydziału rdzeni dla subskrypcji. [Otwórz żądania obsługi, aby zwiększyć przydziały subskrypcji platformy Azure](../../../azure-portal/supportability/resource-manager-core-quotas-request.md) zgodnie z wymaganiami.
 7.  Planowanie zmniejszenia i migracji danych na potrzeby migrowania danych SAP na platformę Azure. W przypadku systemów SAP NetWeaver w systemie SAP zawarto wskazówki dotyczące ograniczania ilości dużych ilości danych. Zobacz [ten przewodnik SAP](https://wiki.scn.sap.com/wiki/download/attachments/247399467/DVM_%20Guide_7.2.pdf?version=1&modificationDate=1549365516000&api=v2) dotyczący zarządzania danymi w systemach SAP ERP. Część zawartości dotyczy również systemów NetWeaver i S/4HANA.
 8.  Automatyczne podejście do wdrożenia. Celem automatyzacji wdrożeń infrastruktury na platformie Azure jest wdrożenie w sposób deterministyczny i uzyskanie deterministycznych wyników. Wielu klientów używa programu PowerShell lub skryptów opartych na interfejsie wiersza polecenia. Istnieją jednak różne technologie "open source", których można użyć do wdrożenia infrastruktury platformy Azure dla oprogramowania SAP, a nawet w przypadku instalowania programu SAP. Przykłady można znaleźć w witrynie GitHub:

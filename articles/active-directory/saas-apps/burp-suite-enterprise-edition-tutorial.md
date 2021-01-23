@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/09/2020
 ms.author: jeedes
-ms.openlocfilehash: f071159b8e1a25776fad5e662f4ea18573764a89
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 480e501f8683fad405abc5e07cb43eec8ae8444c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97365054"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98727911"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-burp-suite-enterprise-edition"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z pakietem Burp Suite Enterprise Edition
 
@@ -96,7 +96,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     | Nazwa | Atrybut źródłowy|
     | ---------------| --------------- |    
-    | Grupa | User. Groups |
+    | Group (Grupa) | User. Groups |
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
@@ -144,9 +144,9 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 * Kliknij pozycję Testuj tę aplikację w Azure Portal i należy automatycznie zalogować się do programu Burp Suite Enterprise Edition, dla którego skonfigurowano Logowanie jednokrotne
 
-* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka Burp Suite Enterprise Edition w obszarze Moje aplikacje należy automatycznie zalogować się do programu Burp Suite Enterprise Edition, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka Burp Suite Enterprise Edition w obszarze Moje aplikacje należy automatycznie zalogować się do programu Burp Suite Enterprise Edition, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu programu Burp Suite Enterprise Edition można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Po skonfigurowaniu programu Burp Suite Enterprise Edition można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

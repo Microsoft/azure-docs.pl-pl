@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/08/2020
 ms.author: jeedes
-ms.openlocfilehash: 06b538f0f218beab2549b027a5da9dcc594969a4
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 12752e3d3cc08e8a13e9679725fbb6678c4bbd71
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586877"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728703"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-academy-attendance"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z usługą Academy — frekwencja
 
@@ -97,7 +97,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     | role (rola)      | user.assignedroles |
 
     > [!NOTE]
-    > Program Academy frekwencja obsługuje dwie role dla użytkowników: **wykłady** i **uczniów**. Skonfiguruj te role w usłudze Azure AD, aby użytkownicy mogli przypisywać odpowiednie role. Zapoznaj się [tą](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui) dokumentacją, w której wyjaśniono, jak tworzyć role niestandardowe w usłudze Azure AD.
+    > Program Academy frekwencja obsługuje dwie role dla użytkowników: **wykłady** i **uczniów**. Skonfiguruj te role w usłudze Azure AD, aby użytkownicy mogli przypisywać odpowiednie role. Zapoznaj się [tą](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview) dokumentacją, w której wyjaśniono, jak tworzyć role niestandardowe w usłudze Azure AD.
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **plik XML metadanych Federacji** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
@@ -117,7 +117,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -147,9 +147,9 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 * Przejdź do adresu URL logowania do usługi Academy frekwencja bezpośrednio i zainicjuj tam przepływ logowania.
 
-* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka "Academy frekwencja" w obszarze Moje aplikacje zostanie przekierowany do adresu URL logowania do programu Academy. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka "Academy frekwencja" w obszarze Moje aplikacje zostanie przekierowany do adresu URL logowania do programu Academy. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu w usłudze Academy frekwencja można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Po skonfigurowaniu w usłudze Academy frekwencja można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

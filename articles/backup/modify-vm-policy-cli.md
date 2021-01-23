@@ -3,12 +3,12 @@ title: Aktualizowanie istniejących zasad kopii zapasowych maszyny wirtualnej pr
 description: Dowiedz się, jak zaktualizować istniejące zasady tworzenia kopii zapasowych maszyny wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure.
 ms.topic: conceptual
 ms.date: 12/31/2020
-ms.openlocfilehash: ba4ded4c82a1eaea7c20ea94da580a8702467b85
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: 33083d6585d2b9296cd184ba258b8d2143d685b4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858840"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728582"
 ---
 # <a name="update-the-existing-vm-backup-policy-using-cli"></a>Aktualizowanie istniejących zasad kopii zapasowych maszyny wirtualnej przy użyciu interfejsu wiersza polecenia
 
@@ -18,7 +18,7 @@ Możesz użyć interfejsu wiersza polecenia platformy Azure, aby zaktualizować 
 
 Aby zmodyfikować istniejące zasady kopii zapasowej maszyny wirtualnej, wykonaj następujące kroki:
 
-1. Wykonaj polecenie [AZ Backup Policy show](https://docs.microsoft.com/cli/azure/backup/policy#az_backup_policy_show) , aby pobrać Szczegóły zasad, które chcesz zaktualizować.
+1. Wykonaj polecenie [AZ Backup Policy show](/cli/azure/backup/policy#az_backup_policy_show) , aby pobrać Szczegóły zasad, które chcesz zaktualizować.
 
     Przykład:
 
@@ -101,14 +101,14 @@ Aby zmodyfikować istniejące zasady kopii zapasowej maszyny wirtualnej, wykonaj
     ```
 
 1. Zapisz zmiany.
-1. Wykonaj polecenie [AZ Backup Policy Set](https://docs.microsoft.com/cli/azure/backup/policy#az_backup_policy_set) i przekaż pełną ścieżkę zaktualizowanego pliku JSON jako wartość parametru **--Policy** .
+1. Wykonaj polecenie [AZ Backup Policy Set](/cli/azure/backup/policy#az_backup_policy_set) i przekaż pełną ścieżkę zaktualizowanego pliku JSON jako wartość parametru **--Policy** .
 
     ```azurecli
     az backup policy set --resource-group rg1234 --vault-name testvault --policy C:\temp2\Policy.json --name testing123
     ```
 
 >[!NOTE]
->Możesz również pobrać przykładowe zasady JSON, wykonując polecenie [AZ Backup Policy Get-default-for-VM](https://docs.microsoft.com/cli/azure/backup/policy#az_backup_policy_get_default_for_vm) .
+>Możesz również pobrać przykładowe zasady JSON, wykonując polecenie [AZ Backup Policy Get-default-for-VM](/cli/azure/backup/policy#az_backup_policy_get_default_for_vm) .
 
 ## <a name="next-steps"></a>Następne kroki
 

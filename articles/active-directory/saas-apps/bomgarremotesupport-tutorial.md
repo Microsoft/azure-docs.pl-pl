@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/12/2020
 ms.author: jeedes
-ms.openlocfilehash: c11d8aaa578006c7dbd96b457399df5b17fd9bd8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f9e4af3330ecf5fbe161f7ba92ddf96eb04880a1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95914984"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728027"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-beyondtrust-remote-support"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą BeyondTrust Remote support
 
@@ -189,8 +189,8 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 * Przejdź do adresu URL logowania zdalnej pomocy technicznej BeyondTrust bezpośrednio i zainicjuj tam przepływ logowania.
 
-* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka obsługa zdalna BeyondTrust w obszarze Moje aplikacje zostanie ono przekierowany do adresu URL logowania do zdalnej obsługi BeyondTrust. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka obsługa zdalna BeyondTrust w obszarze Moje aplikacje zostanie ono przekierowany do adresu URL logowania do zdalnej obsługi BeyondTrust. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu obsługi zdalnej BeyondTrust można wymusić kontrolki sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolki sesji rozciągają się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+Po skonfigurowaniu obsługi zdalnej BeyondTrust można wymusić kontrolki sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolki sesji rozciągają się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)

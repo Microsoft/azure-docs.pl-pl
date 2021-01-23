@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/11/2020
-ms.openlocfilehash: 87cdecd29d684c712853970c8246002132d274ac
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: a618a5d94513f7d648d118ae3bebdb34e4f5b1c4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094339"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728863"
 ---
 # <a name="log-analytics-data-security"></a>Zabezpieczenia danych Log Analytics
 Ten dokument ma na celu dostarczenie informacji specyficznych dla Log Analytics, które są funkcją Azure Monitor, aby uzupełnić informacje o [Centrum zaufania Azure](https://www.microsoft.com/en-us/trust-center?rtc=1).  
@@ -37,7 +37,7 @@ Skontaktuj się z nami, podając wszelkie pytania, sugestie lub problemy dotycz�
 
 ## <a name="sending-data-securely-using-tls-12"></a>Bezpieczne wysyłanie danych przy użyciu protokołu TLS 1,2 
 
-Aby zapewnić bezpieczeństwo danych przesyłanych do Log Analytics, zdecydowanie zachęcamy do skonfigurowania agenta do korzystania z co najmniej Transport Layer Security (TLS) 1,2. Starsza wersja protokołu TLS/SSL (SSL) została uznana za narażoną, a mimo to nadal pracują w celu zapewnienia zgodności z poprzednimi wersjami, nie jest to **zalecane**, a branża szybko przenosi się do porzucenia, aby uzyskać pomoc techniczną dla tych starszych protokołów. 
+Aby zapewnić bezpieczeństwo danych przesyłanych do Log Analytics, zdecydowanie zachęcamy do skonfigurowania agenta do korzystania z co najmniej Transport Layer Security (TLS) 1,2. Starsza wersja protokołu TLS/Secure Sockets Layer (SSL) została uznana za narażoną, a mimo to nadal pracują w celu zapewnienia zgodności z poprzednimi wersjami, nie jest to **zalecane**, a branża szybko przenosi się do porzucenia, aby uzyskać pomoc techniczną dla tych starszych protokołów. 
 
 [Rada normy zabezpieczeń PCI](https://www.pcisecuritystandards.org/) ustawił [termin 30 czerwca 2018,](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) aby wyłączyć starsze wersje protokołu TLS/SSL i uaktualnić je do bezpieczniejsze protokoły. Gdy platforma Azure pozostanie w starszej wersji, jeśli agenci nie będą mogli komunikować się za pomocą co najmniej protokołu TLS 1,2, nie można wysyłać danych do Log Analytics. 
 
@@ -75,8 +75,8 @@ W poniższej tabeli przedstawiono przykłady typów danych:
 | **Typ danych** | **Pola** |
 | --- | --- |
 | Alerty |Nazwa alertu, opis alertu, identyfikatorze basemanagedentityid, identyfikator problemu, IsMonitorAlert, RuleId, stanu rozpoznania, priorytet, ważność, Kategoria, właściciel, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, RepeatCount |
-| Konfiguracja |CustomerID, identyfikator agenta, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
-| Wydarzenie |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Uwaga:** Gdy zapisujesz zdarzenia z polami niestandardowymi w dzienniku zdarzeń systemu Windows, Log Analytics je gromadzić. |
+| Konfigurowanie |CustomerID, identyfikator agenta, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
+| Zdarzenie |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Uwaga:** Gdy zapisujesz zdarzenia z polami niestandardowymi w dzienniku zdarzeń systemu Windows, Log Analytics je gromadzić. |
 | Metadane |Identyfikatorze basemanagedentityid, upewnić, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, networkname, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, adres IP, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime |
 | Wydajność |ObjectName, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded |
 | Stan |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, identyfikatorze basemanagedentityid, elementu monitorid, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
@@ -183,11 +183,10 @@ Możesz użyć tych dodatkowych funkcji zabezpieczeń, aby dodatkowo zabezpieczy
 - [Klucze](customer-managed-keys.md) zarządzane przez klienta — można używać kluczy zarządzanych przez klienta do szyfrowania danych wysyłanych do obszarów roboczych log Analytics. Wymaga użycia Azure Key Vault. 
 - [Magazyn prywatny/zarządzany przez klienta — Zarządzanie osobistym](private-storage.md) kontem magazynu i informowanie log Analytics, aby używać go do przechowywania danych monitorowania 
 - [Połączenie prywatne sieci](private-link-security.md) — link prywatny platformy Azure umożliwia bezpieczne łączenie usług PaaS platformy Azure (w tym Azure monitor) z siecią wirtualną przy użyciu prywatnych punktów końcowych. 
-- [Skrytka klienta platformy Azure](/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-preview) — Skrytka klienta dla Microsoft Azure udostępnia interfejs umożliwiający klientom przeglądanie i zatwierdzanie lub odrzucanie żądań dostępu do danych klienta. Jest ona używana, gdy inżynier firmy Microsoft musi uzyskać dostęp do danych klientów podczas rozpatrywania wniosku o pomoc techniczną.
+- [Skrytka klienta platformy Azure](../../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-preview) — Skrytka klienta dla Microsoft Azure udostępnia interfejs umożliwiający klientom przeglądanie i zatwierdzanie lub odrzucanie żądań dostępu do danych klienta. Jest ona używana, gdy inżynier firmy Microsoft musi uzyskać dostęp do danych klientów podczas rozpatrywania wniosku o pomoc techniczną.
 
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się, jak zbierać dane za pomocą Log Analytics dla maszyn wirtualnych platformy Azure po [rozszybkim samouczku maszyny wirtualnej platformy Azure](../learn/quick-collect-azurevm.md).  
 
 *  Jeśli chcesz zbierać dane z komputerów fizycznych lub wirtualnych z systemami Windows lub Linux w środowisku, zobacz [Przewodnik Szybki Start dla](../learn/quick-collect-linux-computer.md) komputerów z systemem Linux lub [Szybki Start dla komputerów z systemem Windows](../learn/quick-collect-windows-computer.md)
-

@@ -12,21 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 01/12/2020
+ms.date: 01/22/2020
 ms.author: b-juche
-ms.openlocfilehash: c914ab007f482e4d2b560b1cb461e27d4f4442ec
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 47aefecce846f58128335768018ba59d3520bd87
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133161"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98726684"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Tworzenie woluminu Dual-Protocol (NFSv3 i SMB) dla Azure NetApp Files
 
 Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików NFS (NFSv3 i NFSv 4.1), protokołu SMB3 lub Dual Protocol. W tym artykule opisano sposób tworzenia woluminu korzystającego z dwóch protokołów NFSv3 i SMB z obsługą mapowania użytkowników LDAP.  
 
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem 
+## <a name="before-you-begin"></a>Zanim rozpoczniesz 
 
 * Trzeba już utworzyć pulę pojemności.  
     Zobacz [Konfigurowanie puli pojemności](azure-netapp-files-set-up-capacity-pool.md).   
@@ -51,6 +51,7 @@ Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików 
     | `Unix`    | NFS   | NFSv3 tryb bitowy   | UNIX  | NFS i Windows   |
     | `Ntfs`    | Windows   | Listy ACL NTFS     | NTFS  |NFS i Windows|
 * Użytkownicy systemu UNIX instalujący wolumin stylu zabezpieczeń NTFS przy użyciu systemu plików NFS zostaną uwierzytelnieni jako użytkownik systemu Windows `root` dla systemu UNIX `root` i `pcuser` dla wszystkich innych użytkowników. Przed zainstalowaniem woluminu w systemie plików NFS upewnij się, że te konta użytkowników znajdują się w Active Directory. 
+* Do utworzenia dwuprotokołowego woluminu nie jest potrzebny certyfikat głównego urzędu certyfikacji serwera. Jest to wymagane tylko wtedy, gdy jest włączony protokół LDAP over TLS.
 
 
 ## <a name="create-a-dual-protocol-volume"></a>Tworzenie woluminu dwuprotokołowego

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 0e16cb3d24f9dd33b156bca72ce1c99e7aae957a
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 1b9c9182b8ffc6e9ea2e05fd4863783f111f81dd
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963608"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98727152"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Samouczek: integracja Azure Active Directory z portalem programu Palo Alto Networks
 
@@ -99,7 +99,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -135,7 +135,7 @@ Następnie skonfiguruj logowanie jednokrotne w aplikacji Palo Alto Networks Capt
     
     2. Obok pola **Identity Provider Metadata** (Metadane dostawcy tożsamości) wybierz przycisk **Browse** (Przeglądaj). Wybierz plik metadata.xml pobrany w witrynie Azure Portal.
     
-    3. Wybierz pozycję **OK**.
+    3. Wybierz przycisk **OK**.
 
 ### <a name="create-a-palo-alto-networks-captive-portal-test-user"></a>Tworzenie użytkownika testowego aplikacji Palo Alto Networks Captive Portal
 
@@ -150,7 +150,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 * Kliknij pozycję Testuj tę aplikację w Azure Portal i należy automatycznie zalogować się do portalu Palo Alto Networks, dla którego skonfigurowano Logowanie jednokrotne
 
-* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka portal usługi Palo Alto Networks w obszarze Moje aplikacje należy automatycznie zalogować się do portalu usługi w sieci Palo Alto, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka portal usługi Palo Alto Networks w obszarze Moje aplikacje należy automatycznie zalogować się do portalu usługi w sieci Palo Alto, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Następne kroki

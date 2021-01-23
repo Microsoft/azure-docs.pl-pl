@@ -5,12 +5,12 @@ description: Dowiedz się, jak zainstalować i skonfigurować kontroler NGINX In
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: da2aab0530dce6c7c2cb3f776fdd618880c79805
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: e5a766eafb8f4b576a571b9b5379f343bbef54ea
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246183"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98729047"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>Tworzenie kontrolera ruchu przychodzącego HTTPS i używanie własnych certyfikatów protokołu TLS w usłudze Azure Kubernetes Service (AKS)
 
@@ -55,7 +55,8 @@ helm install nginx-ingress ingress-nginx/ingress-nginx \
     --namespace ingress-basic \
     --set controller.replicaCount=2 \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
-    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
 Podczas instalacji jest tworzony publiczny adres IP platformy Azure dla kontrolera transferu danych przychodzących. Ten publiczny adres IP jest statyczny dla okresu istnienia kontrolera transferu danych przychodzących. Jeśli usuniesz kontroler transferu danych przychodzących, przypisanie publicznego adresu IP zostanie utracone. Jeśli następnie utworzysz dodatkowy kontroler transferu danych przychodzących, zostanie przypisany nowy publiczny adres IP. Jeśli chcesz zachować publiczny adres IP, możesz utworzyć kontroler transferu danych przychodzących [ze statycznym publicznym adresem IP][aks-ingress-static-tls].

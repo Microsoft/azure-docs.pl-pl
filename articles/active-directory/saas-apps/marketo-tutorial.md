@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/13/2021
 ms.author: jeedes
-ms.openlocfilehash: d4f8e71a0afbb1b00313d5e100ba8b3fd2b4e2ce
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: f0bf99748363505e362d3c35e53a51be3a03e938
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185754"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728701"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-marketo"></a>Samouczek: integracja Azure Active Directory z usługą Marketo
 
@@ -252,7 +252,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 * Kliknij pozycję Testuj tę aplikację w Azure Portal i należy automatycznie zalogować się do programu Marketo, dla którego skonfigurowano Logowanie jednokrotne
 
-* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka usługi Marketo w obszarze Moje aplikacje należy automatycznie zalogować się do programu Marketo, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka usługi Marketo w obszarze Moje aplikacje należy automatycznie zalogować się do programu Marketo, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/30/2020
 ms.author: jeedes
-ms.openlocfilehash: 98899c635b93548bd6e4359a3a5bee8b1cb55ae7
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 3339516193af6e1ff832ac586f4a81f8799c5b83
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96907779"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98727681"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-count-me-in---operations-dashboard"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z pulpitem nawigacyjnym Count in Operations
 
@@ -90,12 +90,12 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Oprócz powyższych, zliczanie do aplikacji pulpitów nawigacyjnych w operacjach oczekuje, że kilka atrybutów do przesłania z powrotem w odpowiedzi SAML, które przedstawiono poniżej. Te atrybuty są również wstępnie wypełnione, ale można je sprawdzić zgodnie z wymaganiami.
     
-    | Name |  Atrybut źródłowy|
+    | Nazwa |  Atrybut źródłowy|
     | ----------- | --------- |
     | przypisane role | user.assignedroles |
 
     > [!NOTE]
-    > Aby uzyskać role dla użytkowników przypisanych do aplikacji, należy policzyć na pulpit nawigacyjny operacji. Skonfiguruj te role w usłudze Azure AD, aby użytkownicy mogli przypisywać odpowiednie role. Aby dowiedzieć się, jak skonfigurować role w usłudze Azure AD, zobacz [tutaj](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui).
+    > Aby uzyskać role dla użytkowników przypisanych do aplikacji, należy policzyć na pulpit nawigacyjny operacji. Skonfiguruj te role w usłudze Azure AD, aby użytkownicy mogli przypisywać odpowiednie role. Aby dowiedzieć się, jak skonfigurować role w usłudze Azure AD, zobacz [tutaj](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview).
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
@@ -144,11 +144,9 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 * Przejdź do strony Zliczaj mnie w obszarze adres URL logowania na pulpicie nawigacyjnym, a następnie zainicjuj w tym miejscu przepływ logowania.
 
-* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu w obszarze Moje aplikacje kafelka pulpit nawigacyjny Zliczanie do operacji zostanie przekierowany na adres URL logowania na pulpicie nawigacyjnym operacji. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu w obszarze Moje aplikacje kafelka pulpit nawigacyjny Zliczanie do operacji zostanie przekierowany na adres URL logowania na pulpicie nawigacyjnym operacji. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu na pulpicie nawigacyjnym Zliczanie do operacji można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Po skonfigurowaniu na pulpicie nawigacyjnym Zliczanie do operacji można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

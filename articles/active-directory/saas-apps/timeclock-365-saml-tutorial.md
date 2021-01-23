@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/16/2020
 ms.author: jeedes
-ms.openlocfilehash: a3b1db5c0587156e0b966a36627f0d754725d901
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 329e0fbfdea43f3933333744f89ed1c03ef0ed13
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97730080"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98729334"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-timeclock-365-saml"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą TimeClock 365 SAML
 
@@ -143,11 +143,9 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 * Przejdź bezpośrednio do adresu URL logowania do usługi TimeClock 365 SAML i zainicjuj w nim przepływ logowania.
 
-* Możesz korzystać z aplikacji Microsoft my Apps. Kliknięcie kafelka SAML TimeClock 365 w obszarze Moje aplikacje spowoduje przekierowanie do adresu URL logowania do TimeClock 365. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Możesz korzystać z aplikacji Microsoft my Apps. Kliknięcie kafelka SAML TimeClock 365 w obszarze Moje aplikacje spowoduje przekierowanie do adresu URL logowania do TimeClock 365. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu SAML TimeClock 365 można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Po skonfigurowaniu SAML TimeClock 365 można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
