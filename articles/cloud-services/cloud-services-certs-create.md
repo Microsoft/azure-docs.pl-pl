@@ -1,21 +1,25 @@
 ---
-title: Certyfikaty Cloud Services i zarządzania | Microsoft Docs
+title: Cloud Services (klasyczny) i certyfikaty zarządzania | Microsoft Docs
 description: Dowiedz się więcej na temat sposobu tworzenia i wdrażania certyfikatów dla usług w chmurze oraz do uwierzytelniania za pomocą interfejsu API zarządzania na platformie Azure.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 04/19/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 8650b8670c61cab15b26163dd5108145b8509434
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: c73f9812f344eecf4e51f43405b48693ddfa191b
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072428"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98739738"
 ---
-# <a name="certificates-overview-for-azure-cloud-services"></a>Certificates overview for Azure Cloud Services (Omówienie certyfikatów usług Azure Cloud Services)
+# <a name="certificates-overview-for-azure-cloud-services-classic"></a>Omówienie certyfikatów dla Cloud Services platformy Azure (wersja klasyczna)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
+
 Certyfikaty są używane na platformie Azure na potrzeby usług Cloud Services ([certyfikaty usługi](#what-are-service-certificates)) oraz do uwierzytelniania za pomocą interfejsu API zarządzania ([certyfikaty zarządzania](#what-are-management-certificates)). Ten temat zawiera ogólne omówienie obu typów certyfikatów, jak [tworzyć](#create) i wdrażać je na platformie Azure.
 
 Certyfikaty używane na platformie Azure to certyfikaty x. 509 v3 i mogą być podpisane przez inny zaufany certyfikat lub mogą być podpisane z podpisem własnym. Certyfikat z podpisem własnym jest podpisany przez własnego twórcę, dlatego nie jest domyślnie zaufany. Większość przeglądarek umożliwia zignorowanie tego problemu. W przypadku tworzenia i testowania usług w chmurze należy używać tylko certyfikatów z podpisem własnym. 

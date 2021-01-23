@@ -2,23 +2,23 @@
 title: Wyświetlanie ról przypisanych do grupy w Azure Active Directory | Microsoft Docs
 description: Dowiedz się, w jaki sposób role przypisane do grupy mogą być wyświetlane przy użyciu Centrum administracyjnego usługi Azure AD. Wyświetlanie grup i przypisanych ról jest domyślnymi uprawnieniami użytkownika.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8fdfd99b2ef5c1578bc9e87534461d68398c9f6
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 1a1939be42126606fdae261e60c890c71374c894
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378282"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741829"
 ---
 # <a name="view-roles-assigned-to-a-group-in-azure-active-directory"></a>Wyświetlanie ról przypisanych do grupy w Azure Active Directory
 

@@ -3,23 +3,23 @@ title: Jednostki administracyjne w Azure Active Directory | Microsoft Docs
 description: Użyj jednostek administracyjnych, aby bardziej szczegółowo delegowania uprawnień w Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: overview
 ms.subservice: roles
 ms.workload: identity
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 792e8cd1e70f901385ed3b225a753024e06f2df0
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: e82be52cff824c69dd2fe4ea5e7e1c0d7489be1d
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394598"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740333"
 ---
 # <a name="administrative-units-in-azure-active-directory"></a>Jednostki administracyjne w Azure Active Directory
 
@@ -59,8 +59,8 @@ Kryteria, w których są tworzone jednostki administracyjne, podlegają unikatow
 Aby utworzyć jednostki administracyjne w organizacji, możesz przejść przez następujące etapy:
 
 1. **Początkowe** wdrożenie: organizacja rozpocznie tworzenie jednostek administracyjnych na podstawie kryteriów początkowych, a liczba jednostek administracyjnych zwiększy się, gdy kryteria zostaną ulepszone.
-1. **Oczyszczanie** : po zdefiniowaniu kryteriów jednostki administracyjne, które nie są już wymagane, zostaną usunięte.
-1. **Stabilizacja** : Struktura organizacyjna jest zdefiniowana, a liczba jednostek administracyjnych nie będzie znacząco zmieniana w krótkim czasie.
+1. **Oczyszczanie**: po zdefiniowaniu kryteriów jednostki administracyjne, które nie są już wymagane, zostaną usunięte.
+1. **Stabilizacja**: Struktura organizacyjna jest zdefiniowana, a liczba jednostek administracyjnych nie będzie znacząco zmieniana w krótkim czasie.
 
 ## <a name="currently-supported-scenarios"></a>Obecnie obsługiwane scenariusze
 

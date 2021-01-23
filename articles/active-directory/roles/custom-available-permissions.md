@@ -2,23 +2,23 @@
 title: Uprawnienia roli niestandardowej do rejestracji aplikacji — Azure AD | Microsoft Docs
 description: Delegowanie uprawnień roli administratora niestandardowego do zarządzania rejestracjami aplikacji.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0e2f520f55b9664d2d0b039867ef7670b190fed
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 6eb854c8b9ac3b4ee527c9a117edde13479bfeb4
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377075"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740197"
 ---
 # <a name="application-registration-permissions-for-custom-roles-in-azure-active-directory"></a>Uprawnienia rejestracji aplikacji dla ról niestandardowych w Azure Active Directory
 

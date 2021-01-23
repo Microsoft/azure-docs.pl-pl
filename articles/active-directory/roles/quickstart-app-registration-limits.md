@@ -2,23 +2,23 @@
 title: Usuwanie limitów dotyczących tworzenia rejestracji aplikacji — Azure AD | Microsoft Docs
 description: Przypisywanie roli niestandardowej w celu udzielenia nieograniczonej rejestracji aplikacji w usłudze Azure AD Active Directory
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: quickstart
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, devx-track-azurepowershell
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a78296d3fd040b047c2a6cc3761d429883aa9d1
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 260b0621bf204c6d7593b3696c602665c42ad77e
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378792"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740860"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Szybki Start: Przyznawanie uprawnień do tworzenia nieograniczonej rejestracji aplikacji
 
@@ -29,7 +29,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpł
 ## <a name="create-a-custom-role-using-the-azure-ad-portal"></a>Tworzenie roli niestandardowej przy użyciu portalu usługi Azure AD
 
 1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) przy użyciu uprawnień administrator ról uprzywilejowanych lub Administrator globalny w organizacji usługi Azure AD.
-1. Wybierz pozycję **Azure Active Directory** , wybierz pozycję **role i Administratorzy** , a następnie wybierz pozycję **Nowa rola niestandardowa**.
+1. Wybierz pozycję **Azure Active Directory**, wybierz pozycję **role i Administratorzy**, a następnie wybierz pozycję **Nowa rola niestandardowa**.
 
     ![Tworzenie lub edytowanie ról na stronie role i Administratorzy](./media/quickstart-app-registration-limits/new-custom-role.png)
 

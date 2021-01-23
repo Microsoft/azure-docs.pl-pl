@@ -1,27 +1,25 @@
 ---
-title: Rozwiązywanie problemów z wdrażaniem usługi w chmurze | Microsoft Docs
+title: Rozwiązywanie problemów z wdrażaniem usługi w chmurze (klasycznej) | Microsoft Docs
 description: Istnieje kilka typowych problemów, które można napotkać podczas wdrażania usługi w chmurze na platformie Azure. Ten artykuł zawiera rozwiązania dla niektórych z nich.
-services: cloud-services
-documentationcenter: ''
-author: simonxjx
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: a18ae415-0d1c-4bc4-ab6c-c1ddea02c870
+ms.topic: article
 ms.service: cloud-services
-ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: tbd
-ms.date: 06/15/2018
-ms.author: v-six
-ms.openlocfilehash: 0e7cd496f031f76320df5127d7e1aa3f2f7b06c7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 7b3d7a9a674aab3976da9399f71ff4d8df08eb62
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075080"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741081"
 ---
-# <a name="troubleshoot-cloud-service-deployment-problems"></a>Rozwiązywanie problemów z wdrażaniem usługi w chmurze
+# <a name="troubleshoot-azure-cloud-services-classic-deployment-problems"></a>Rozwiązywanie problemów z wdrażaniem w usłudze Azure Cloud Services (klasyczne)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
+
 Podczas wdrażania pakietu aplikacji usługi w chmurze na platformie Azure można uzyskać informacje dotyczące wdrożenia z okienka **Właściwości** w Azure Portal. Możesz użyć szczegółów w tym okienku, aby pomóc w rozwiązywaniu problemów z usługą w chmurze, a także podać te informacje do pomocy technicznej platformy Azure podczas otwierania nowego żądania pomocy technicznej.
 
 Okienko **Właściwości** można znaleźć w następujący sposób:
@@ -65,7 +63,7 @@ Aby dowiedzieć się, czy aktualizacja automatyczna uniemożliwia przeprowadzeni
 4. Jeśli aktualizacja automatyczna jest w toku, poczekaj na jej zakończenie przed podjęciem próby wykonania zamiany adresu VIP.
 
 ## <a name="problem-a-role-instance-is-looping-between-started-initializing-busy-and-stopped"></a>Problem: wystąpienie roli zawiera pętlę między uruchomioną, inicjowanie, zajętą i zatrzymaną
-Ten stan może wskazywać na problem z kodem, pakietem lub plikiem konfiguracyjnym aplikacji. W takim przypadku powinno być możliwe wyświetlenie stanu co kilka minut, a Azure Portal może powiedzieć, jak **odtwarzanie**, **zajętość**lub **Inicjowanie**. Oznacza to, że wystąpił problem z aplikacją, która uniemożliwia uruchomienie wystąpienia roli.
+Ten stan może wskazywać na problem z kodem, pakietem lub plikiem konfiguracyjnym aplikacji. W takim przypadku powinno być możliwe wyświetlenie stanu co kilka minut, a Azure Portal może powiedzieć, jak **odtwarzanie**, **zajętość** lub **Inicjowanie**. Oznacza to, że wystąpił problem z aplikacją, która uniemożliwia uruchomienie wystąpienia roli.
 
 Aby uzyskać więcej informacji na temat rozwiązywania tego problemu, zobacz wpis na blogu [dane diagnostyczne usługi Azure PaaS COMPUTE](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data) i [typowe problemy, które powodują](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md)odtworzenie ról.
 

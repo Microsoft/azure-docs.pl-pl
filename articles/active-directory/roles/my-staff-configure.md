@@ -3,22 +3,22 @@ title: Korzystanie z mojego personelu do delegowania zarządzania użytkownikami
 description: Delegowanie zarządzania użytkownikami przy użyciu funkcji mój personel i jednostki administracyjne
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.date: 05/08/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 927d1f6dff9a24fb8427bb9c353e6cc61ac6a1f0
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 304d88dfcf0c72769f27911186df04c66224419e
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376308"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740146"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>Zarządzanie użytkownikami za pomocą mojego personelu (wersja zapoznawcza)
 
@@ -32,7 +32,7 @@ Uwierzytelnianie oparte na programie SMS dla użytkowników jest publiczną funk
 
 Mój personel jest oparty na jednostkach administracyjnych (Australia), które są kontenerami zasobów, których można użyć do ograniczenia zakresu kontroli administracyjnej przypisania roli. W obszarze mój personel należy określić podzbiór użytkowników organizacji, takich jak sklep lub dział. Następnie na przykład menedżer zespołu może zostać przypisany do roli, której zakres jest jeden lub więcej. W poniższym przykładzie użytkownikowi została udzielona rola administracyjna uwierzytelniania, a trzecia jest zakresem roli. Aby uzyskać więcej informacji o jednostkach administracyjnych, zobacz [Zarządzanie jednostkami administracyjnymi w Azure Active Directory](administrative-units.md).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 
@@ -45,7 +45,7 @@ Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 * Musisz mieć uprawnienia *administratora globalnego* w dzierżawie usługi Azure AD, aby włączyć uwierzytelnianie oparte na programie SMS.
 * Każdy użytkownik, który jest włączony w zasadach metody uwierzytelniania wiadomości tekstowych musi być licencjonowany, nawet jeśli nie używa tego programu. Każdy włączony użytkownik musi mieć jedną z następujących licencji usługi Azure AD lub Microsoft 365:
 
-  * [Azure AD — wersja Premium P1 lub P2](https://azure.microsoft.com/pricing/details/active-directory/)
+  * [Usługa Azure AD — wersja Premium P1 lub P2](https://azure.microsoft.com/pricing/details/active-directory/)
   * [Microsoft 365 (M365) F1 lub F3](https://www.microsoft.com/licensing/news/m365-firstline-workers)
   * [Enterprise Mobility + Security (EMS) E3 lub E5](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing) lub [Microsoft 365 (M365) E3 lub E5](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans)
 
@@ -54,7 +54,7 @@ Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 Po skonfigurowaniu określania zespołu, możesz zastosować ten zakres do użytkowników, którzy uzyskują dostęp do mojego personelu. Tylko użytkownicy, którym przypisano rolę administracyjną, mogą uzyskać dostęp do mojego personelu. Aby włączyć personel, wykonaj następujące czynności:
 
 1. Zaloguj się do Azure Portal jako administrator użytkownika.
-2. Przejdź do **Azure Active Directory**  >  **Ustawienia użytkownika**wersje  >  **User feature previews**  >  **zapoznawcze funkcji użytkownika Zarządzaj ustawieniami wersji zapoznawczej funkcji użytkownika**.
+2. Przejdź do **Azure Active Directory**  >  **Ustawienia użytkownika** wersje  >    >  **zapoznawcze funkcji użytkownika Zarządzaj ustawieniami wersji zapoznawczej funkcji użytkownika**.
 3. W obszarze **Administratorzy mogą uzyskać dostęp do mojego personelu**, możesz wybrać opcję Włącz dla wszystkich użytkowników, wybranych użytkowników lub bez dostępu użytkownika.
 
 > [!Note]
@@ -94,7 +94,7 @@ Następujące role mają uprawnienia do resetowania hasła użytkownika:
 - [Administrator użytkowników](permissions-reference.md#user-administrator)
 - [Administrator haseł](permissions-reference.md#password-administrator)
 
-W obszarze **mój personel**Otwórz profil użytkownika. Wybierz pozycję **Resetuj hasło**.
+W obszarze **mój personel** Otwórz profil użytkownika. Wybierz pozycję **Resetuj hasło**.
 
 - Jeśli użytkownik jest tylko w chmurze, można wyświetlić hasło tymczasowe, które można nadać użytkownikowi.
 - Jeśli użytkownik jest synchronizowany z Active Directory lokalnego, można wprowadzić hasło spełniające Twoje lokalne zasady usługi AD. Następnie możesz nadać temu użytkownikowi hasło.
@@ -105,7 +105,7 @@ Użytkownik musi zmienić hasło przy następnym logowaniu.
 
 ## <a name="manage-a-phone-number"></a>Zarządzanie numerem telefonu
 
-W obszarze **mój personel**Otwórz profil użytkownika.
+W obszarze **mój personel** Otwórz profil użytkownika.
 
 - Wybierz sekcję **Dodawanie numeru telefonu** , aby dodać numer telefonu użytkownika
 - Wybierz pozycję **Edytuj numer telefonu** , aby zmienić numer telefonu
@@ -119,7 +119,7 @@ Aby zarządzać numerem telefonu użytkownika, należy przypisać jedną z nast�
 - [Administrator uprzywilejowanego uwierzytelniania](permissions-reference.md#privileged-authentication-administrator)
 - [Administrator globalny](permissions-reference.md#global-administrator--company-administrator)
 
-## <a name="search"></a>Wyszukiwanie
+## <a name="search"></a>Wyszukaj
 
 Na pasku wyszukiwania w obszarze Moi pracownicy można wyszukiwać w swojej organizacji jednostki organizacyjne i użytkowników. Możesz przeszukiwać wszystkich jednostek i użytkowników w organizacji, ale możesz wprowadzać zmiany tylko dla użytkowników, którzy znajdują się w usłudze AU, w której masz uprawnienia administratora.
 

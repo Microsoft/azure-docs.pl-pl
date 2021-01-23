@@ -21,8 +21,13 @@
         - name: Korzystanie z szablonu usługi ARM
           displayName: Resource Manager
           href: fhir-paas-arm-template-quickstart.md
-    - name: Wdrażanie łącznika usługi Azure IoT dla platformy FHIR (wersja zapoznawcza) — portal
-      href: iot-fhir-portal-quickstart.md
+    - name: Wdrażanie łącznika usługi Azure IoT dla platformy FHIR (wersja zapoznawcza)
+      expanded: false
+      items:
+        - name: Korzystanie z portalu
+          href: iot-fhir-portal-quickstart.md
+        - name: Korzystanie z szablonu usługi ARM
+          href: iot-fhir-arm-template-quickstart.md
 - name: Samouczki
   expanded: false
   items:

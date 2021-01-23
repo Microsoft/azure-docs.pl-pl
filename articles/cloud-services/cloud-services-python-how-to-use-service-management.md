@@ -1,28 +1,25 @@
 ---
 title: Korzystanie z interfejs API zarządzania usługami (Python) — Podręcznik funkcji
 description: Dowiedz się, jak programowo wykonywać typowe zadania związane z zarządzaniem usługami z poziomu języka Python.
-services: cloud-services
-documentationcenter: python
-author: tanmaygore
-manager: vashan
-editor: ''
-ms.assetid: 61538ec0-1536-4a7e-ae89-95967fe35d73
-ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: python
 ms.topic: article
-ms.date: 05/30/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.custom: devx-track-python
-ms.openlocfilehash: ef155116904ee0d3ecab250a254010e2f7664757
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 02993f2b79e37e5e50c20c4ee07220bcbd36edb8
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073992"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741404"
 ---
 # <a name="use-service-management-from-python"></a>Używanie zarządzania usługami w języku Python
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
+
 W tym przewodniku pokazano, jak programowo wykonywać typowe zadania związane z zarządzaniem usługami z poziomu języka Python. Klasa **ServiceManagementService** w [zestawie Azure SDK dla języka Python](https://github.com/Azure/azure-sdk-for-python) obsługuje programistyczny dostęp do większości funkcji związanych z zarządzaniem usługami, które są dostępne w [Azure Portal][management-portal]. Ta funkcja służy do tworzenia, aktualizowania i usuwania usług w chmurze, wdrożeń, usług zarządzania danymi i maszyn wirtualnych. Ta funkcja może być przydatna podczas tworzenia aplikacji, które potrzebują dostępu programistycznego do zarządzania usługami.
 
 ## <a name="what-is-service-management"></a><a name="WhatIs"> </a>Co to jest zarządzanie usługami?
@@ -114,7 +111,7 @@ for location in result:
     print(location.name)
 ```
 
-Podczas tworzenia usługi w chmurze lub usługi magazynu należy podać prawidłową lokalizację. Metoda ** \_ lokalizacji listy** zawsze zwraca aktualną listę aktualnie dostępnych lokalizacji. W przypadku tego zapisu dostępne są następujące lokalizacje:
+Podczas tworzenia usługi w chmurze lub usługi magazynu należy podać prawidłową lokalizację. Metoda **\_ lokalizacji listy** zawsze zwraca aktualną listę aktualnie dostępnych lokalizacji. W przypadku tego zapisu dostępne są następujące lokalizacje:
 
 * West Europe
 * Europa Północna
@@ -127,7 +124,7 @@ Podczas tworzenia usługi w chmurze lub usługi magazynu należy podać prawidł
 * East US
 * Japonia Wschodnia
 * Japonia Zachodnia
-* Brazil South
+* Brazylia Południowa
 * Australia Wschodnia
 * Australia Południowo-Wschodnia
 
@@ -274,7 +271,7 @@ for family in result:
 ```
 
 ## <a name="create-an-operating-system-image"></a><a name="CreateVMImage"> </a>Tworzenie obrazu systemu operacyjnego
-Aby dodać obraz systemu operacyjnego do repozytorium obrazów, użyj metody **Dodawanie obrazu systemu \_ operacyjnego \_ ** .
+Aby dodać obraz systemu operacyjnego do repozytorium obrazów, użyj metody **Dodawanie obrazu systemu \_ operacyjnego \_** .
 
 ```python
 from azure import *
@@ -293,7 +290,7 @@ operation_result = sms.get_operation_status(result.request_id)
 print('Operation status: ' + operation_result.status)
 ```
 
-Aby wyświetlić listę dostępnych obrazów systemów operacyjnych, użyj metody **wyświetlania obrazów systemu \_ operacyjnego \_ ** . Zawiera wszystkie obrazy platformy i obrazy użytkowników.
+Aby wyświetlić listę dostępnych obrazów systemów operacyjnych, użyj metody **wyświetlania obrazów systemu \_ operacyjnego \_** . Zawiera wszystkie obrazy platformy i obrazy użytkowników.
 
 ```python
 result = sms.list_os_images()
@@ -419,7 +416,7 @@ Aby upewnić się, że obraz został pomyślnie przechwycony, użyj interfejsu A
 images = sms.list_vm_images()
 ```
 
-Aby na koniec utworzyć maszynę wirtualną przy użyciu przechwyconego obrazu, użyj metody ** \_ \_ \_ wdrożenia maszyny wirtualnej** tak jak wcześniej, ale ten czas zostanie przekazany w vm_image_name.
+Aby na koniec utworzyć maszynę wirtualną przy użyciu przechwyconego obrazu, użyj metody **\_ \_ \_ wdrożenia maszyny wirtualnej** tak jak wcześniej, ale ten czas zostanie przekazany w vm_image_name.
 
 ```python
 from azure import *

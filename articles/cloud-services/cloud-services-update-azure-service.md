@@ -1,20 +1,24 @@
 ---
-title: Jak zaktualizować usługę w chmurze | Microsoft Docs
+title: Jak zaktualizować usługę w chmurze (klasyczną) | Microsoft Docs
 description: Dowiedz się, jak zaktualizować usługi w chmurze na platformie Azure. Dowiedz się, jak działa aktualizacja usługi w chmurze w celu zapewnienia dostępności.
-services: cloud-services
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 04/19/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: f12e5b6b0b2902d69936b9cf2695b7ee21db88e2
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 5d85003ca7b4307c308914484502ae03269f66ac
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075046"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741115"
 ---
-# <a name="how-to-update-a-cloud-service"></a>Jak zaktualizować usługę w chmurze
+# <a name="how-to-update-an-azure-cloud-service-classic"></a>Jak zaktualizować usługę w chmurze platformy Azure (klasyczną)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
 
 Proces aktualizowania usługi w chmurze, w tym jej ról i systemu operacyjnego gościa, to trzy czynności. Najpierw musi zostać przekazany plik binarny i pliki konfiguracyjne nowej usługi w chmurze lub wersji systemu operacyjnego. Następnie platforma Azure rezerwuje zasoby obliczeniowe i sieciowe dla usługi w chmurze na podstawie wymagań nowej wersji usługi w chmurze. Na koniec platforma Azure przeprowadza uaktualnienie stopniowe, aby stopniowo aktualizować dzierżawcę do nowej wersji lub systemu operacyjnego gościa, zachowując jednocześnie dostępność. W tym artykule omówiono szczegóły tego ostatniego kroku — uaktualnienie stopniowe.
 

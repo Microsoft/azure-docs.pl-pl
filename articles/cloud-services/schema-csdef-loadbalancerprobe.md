@@ -1,22 +1,25 @@
 ---
-title: Azure Cloud Services def. LoadBalancerProbe schemat | Microsoft Docs
+title: Azure Cloud Services (klasyczny) def. LoadBalancerProbe schemat | Microsoft Docs
 description: Zdefiniowany przez klienta LoadBalancerProbe to sonda kondycji punktów końcowych w wystąpieniach roli. Łączy się z rolami sieci Web lub procesu roboczego w pliku definicji usługi.
-ms.custom: ''
-ms.date: 04/14/2015
-services: cloud-services
+ms.topic: article
 ms.service: cloud-services
-ms.topic: reference
-caps.latest.revision: 14
-author: georgewallace
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 6d0e84b6724d9df4162d4be3e06a9952087a53a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 3dca519f7fb4523ce9d9267f7629c1177cc5e3b6
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79537350"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98739793"
 ---
-# <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Schemat LoadBalancerProbe definicji Cloud Services platformy Azure
+# <a name="azure-cloud-services-classic-definition-loadbalancerprobe-schema"></a>Schemat LoadBalancerProbe definicji platformy Cloud Services Azure (klasyczny)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
+
 Sonda modułu równoważenia obciążenia to zdefiniowana przez klienta sonda kondycji punktów końcowych UDP i punktów końcowych w wystąpieniach roli. `LoadBalancerProbe`Nie jest elementem autonomicznym; jest on połączony z rolą sieci Web lub procesu roboczego w pliku definicji usługi. `LoadBalancerProbe`Może być używany przez więcej niż jedną rolę.
 
 Domyślnym rozszerzeniem dla pliku definicji usługi jest. csdef.

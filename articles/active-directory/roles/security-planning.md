@@ -3,9 +3,9 @@ title: Zabezpieczanie praktyk dostępu dla administratorów w usłudze Azure AD 
 description: Upewnij się, że uprawnienia dostępu administracyjnego i administratora organizacji są bezpieczne. Dla architektów systemów i specjalistów IT, którzy konfigurują usługi Azure AD, Azure i Microsoft Online Services.
 services: active-directory
 keywords: ''
-author: curtand
+author: rolyon
 manager: daveba
-ms.author: curtand
+ms.author: rolyon
 ms.date: 11/05/2020
 ms.topic: conceptual
 ms.service: active-directory
@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c981bde4e0699c4da33ada7e287b16e54b899a58
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 12f262347938720a9d5a95e070d792a83ac9188c
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98198921"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740809"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Zabezpieczanie uprzywilejowanego dostępu dla wdrożeń hybrydowych i wdrożeń w chmurze w usłudze Azure AD
 
@@ -364,7 +364,7 @@ Zabezpieczanie uprzywilejowanego dostępu jest ważne, aby ustanowić gwarancje 
 * Serwery
 * Aplikacje
 * Komputery
-* Devices
+* Urządzenia
 * Sieć szkieletowa chmury
 
 Podczas zarządzania kontami uprzywilejowanego dostępu zalecamy stosowanie następujących zasad:

@@ -1,20 +1,25 @@
 ---
-title: Co to jest model i pakiet usługi w chmurze | Microsoft Docs
+title: Co to jest model i pakiet usługi w chmurze (klasyczny) | Microsoft Docs
 description: Opisuje model usług w chmurze (. csdef,. cscfg) i pakiet (. cspkg) na platformie Azure
-services: cloud-services
-author: tanmaygore
-ms.service: cloud-services
 ms.topic: article
-ms.date: 07/05/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 180295599082a762fc525c4740079ceefc0954a1
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 1cf8e966b80e005a0cb2cf7ea46f355e38cb0011
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077188"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741540"
 ---
-# <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Co to jest model usługi w chmurze i jak go spakować?
+# <a name="what-is-the-cloud-service-classic-model-and-how-do-i-package-it"></a>Co to jest model usługi w chmurze (klasyczny) i jak go spakować?
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
+
 Usługa w chmurze jest tworzona na podstawie trzech składników: definicji usługi *(. csdef)*, konfiguracji usługi *(. cscfg)* i pakietu usługi *(. cspkg)*. Pliki **ServiceDefinition. csdef** i **ServiceConfig. cscfg** są oparte na języku XML i opisują strukturę usługi w chmurze oraz sposób jej konfiguracji; nazywana zbiorczo modelem. **Servicepackage. cspkg** to plik zip, który jest generowany na podstawie elementu **ServiceDefinition. csdef** i między innymi, zawiera wszystkie wymagane zależności oparte na plikach binarnych. Platforma Azure tworzy usługę w chmurze zarówno z **servicepackage. cspkg** , jak i **ServiceConfig. cscfg**.
 
 Gdy usługa w chmurze jest uruchomiona na platformie Azure, można ją skonfigurować ponownie za pomocą pliku **ServiceConfig. cscfg** , ale nie można zmienić definicji.

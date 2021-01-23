@@ -3,23 +3,23 @@ title: Dodawanie i usuwanie jednostek administracyjnych — Azure Active Directo
 description: Użyj jednostek administracyjnych, aby ograniczyć zakres uprawnień roli w Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbe76d21d948525421790f574830da7b3a163216
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 537847d84b417814bddb16cf5b961bdb221af488
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395397"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740452"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Zarządzanie jednostkami administracyjnymi w Azure Active Directory
 
@@ -85,7 +85,7 @@ W usłudze Azure AD można usunąć jednostkę administracyjną, która nie jest
 
 ### <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
-1. W Azure Portal przejdź do **usługi Azure AD** , a następnie wybierz pozycję **jednostki administracyjne**. 
+1. W Azure Portal przejdź do **usługi Azure AD**, a następnie wybierz pozycję **jednostki administracyjne**. 
 1. Wybierz jednostkę administracyjną do usunięcia, a następnie wybierz pozycję **Usuń**. 
 1. Aby potwierdzić, że chcesz usunąć jednostkę administracyjną, wybierz pozycję **tak**. Jednostka administracyjna została usunięta.
 

@@ -1,21 +1,25 @@
 ---
-title: Typowe zadania uruchamiania dla Cloud Services | Microsoft Docs
+title: Typowe zadania uruchamiania dla Cloud Services (klasyczne) | Microsoft Docs
 description: Zawiera kilka przykładów typowych zadań uruchamiania, które można wykonać w roli sieci Web usług w chmurze lub roli proces roboczy.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 07/18/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 77cea7ebd333b958675438aaeb5e0e2a326a5866
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: f55b225e615a3e7a5fbcf56b405054883d3b5413
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075182"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741200"
 ---
-# <a name="common-cloud-service-startup-tasks"></a>Typowe zadania uruchamiania usługi w chmurze
+# <a name="common-cloud-service-classic-startup-tasks"></a>Typowe zadania uruchamiania usługi w chmurze (klasycznej)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
+
 W tym artykule przedstawiono kilka przykładów typowych zadań uruchamiania, które można wykonać w usłudze w chmurze. Zadania uruchamiania umożliwiają wykonywanie operacji przed rozpoczęciem roli. Operacje, które można wykonać, obejmują zainstalowanie składnika, zarejestrowanie składników modelu COM, ustawienie kluczy rejestru lub uruchomienie długotrwałego procesu. 
 
 Zapoznaj się z [tym artykułem](cloud-services-startup-tasks.md) , aby dowiedzieć się, jak działają zadania uruchamiania, oraz w jaki sposób utworzyć wpisy definiujące zadanie uruchamiania.
@@ -52,7 +56,7 @@ Zmienne mogą również używać [prawidłowej wartości XPath platformy Azure](
 
 
 ## <a name="configure-iis-startup-with-appcmdexe"></a>Skonfiguruj uruchamianie usług IIS przy użyciu AppCmd.exe
-[AppCmd.exe](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj635852(v=ws.11)) narzędzia wiersza polecenia można użyć do zarządzania ustawieniami usług IIS podczas uruchamiania na platformie Azure. *AppCmd.exe* zapewnia wygodny, w wierszu polecenia dostęp do ustawień konfiguracji, które mogą być używane w zadaniach uruchamiania na platformie Azure. Za pomocą *AppCmd.exe*można dodawać, modyfikować lub usuwać ustawienia witryny sieci Web dla aplikacji i lokacji.
+[AppCmd.exe](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj635852(v=ws.11)) narzędzia wiersza polecenia można użyć do zarządzania ustawieniami usług IIS podczas uruchamiania na platformie Azure. *AppCmd.exe* zapewnia wygodny, w wierszu polecenia dostęp do ustawień konfiguracji, które mogą być używane w zadaniach uruchamiania na platformie Azure. Za pomocą *AppCmd.exe* można dodawać, modyfikować lub usuwać ustawienia witryny sieci Web dla aplikacji i lokacji.
 
 Istnieje jednak kilka rzeczy, które należy obserwować w przypadku używania *AppCmd.exe* jako zadania uruchamiania:
 
@@ -83,7 +87,7 @@ Poniżej przedstawiono odpowiednie sekcje pliku [ServiceDefinition. csdef] , kt�
 Plik wsadowy *Start. cmd* używa *AppCmd.exe* do dodawania sekcji kompresji i wpisu kompresji dla formatu JSON do pliku *Web.config* . Oczekiwana liczba **ERRORLEVEL** z 183 jest ustawiona na zero przy użyciu programu wiersza polecenia VERIFY.EXE. Nieoczekiwane ERRORLEVEL są rejestrowane w StartupErrorLog.txt.
 
 ```cmd
-REM   *** Add a compression section to the Web.config file. ***
+REM   **_ Add a compression section to the Web.config file. _*_
 %windir%\system32\inetsrv\appcmd set config /section:urlCompression /doDynamicCompression:True /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
 
 REM   ERRORLEVEL 183 occurs when trying to add a section that already exists. This error is expected if this
@@ -98,7 +102,7 @@ IF %ERRORLEVEL% NEQ 0 (
     GOTO ErrorExit
 )
 
-REM   *** Add compression for json. ***
+REM   _*_ Add compression for json. _*_
 %windir%\system32\inetsrv\appcmd set config  -section:system.webServer/httpCompression /+"dynamicTypes.[mimeType='application/json; charset=utf-8',enabled='True']" /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
 IF %ERRORLEVEL% EQU 183 VERIFY > NUL
 IF %ERRORLEVEL% NEQ 0 (
@@ -106,10 +110,10 @@ IF %ERRORLEVEL% NEQ 0 (
     GOTO ErrorExit
 )
 
-REM   *** Exit batch file. ***
+REM   _*_ Exit batch file. _*_
 EXIT /b 0
 
-REM   *** Log error and exit ***
+REM   _*_ Log error and exit _*_
 :ErrorExit
 REM   Report the date, time, and ERRORLEVEL of the error.
 DATE /T >> "%TEMP%\StartupLog.txt" 2>&1
@@ -125,7 +129,7 @@ Druga Zapora kontroluje połączenia między maszyną wirtualną a procesami w r
 
 Platforma Azure tworzy reguły zapory dla procesów uruchomionych w ramach ról. Na przykład po uruchomieniu usługi lub programu Platforma Azure automatycznie tworzy niezbędne reguły zapory, aby umożliwić tej usłudze komunikowanie się z Internetem. Jeśli jednak utworzysz usługę uruchomioną przez proces poza rolą (np. z usługą COM+ lub zaplanowanym zadaniem systemu Windows), musisz ręcznie utworzyć regułę zapory, aby zezwolić na dostęp do tej usługi. Te reguły zapory można utworzyć przy użyciu zadania uruchamiania.
 
-Zadanie uruchamiania, które tworzy regułę zapory, musi mieć zadanie [kontekście wykonywania][Task] o **podniesionych uprawnieniach**. Dodaj następujące zadanie uruchamiania do pliku [ServiceDefinition. csdef] .
+Zadanie uruchamiania, które tworzy regułę zapory, musi mieć zadanie [kontekście wykonywania][] _ * z podwyższonym poziomem uprawnień * *. Dodaj następujące zadanie uruchamiania do pliku [ServiceDefinition. csdef] .
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -464,12 +468,12 @@ Przykładowe dane wyjściowe w pliku **StartupLog.txt** :
 ### <a name="set-executioncontext-appropriately-for-startup-tasks"></a>Ustaw kontekście wykonywania odpowiednio dla zadań uruchamiania
 Ustaw uprawnienia odpowiednio dla zadania uruchamiania. Czasami zadania uruchamiania muszą być uruchamiane z podniesionymi uprawnieniami nawet wtedy, gdy rola jest uruchomiona z normalnymi uprawnieniami.
 
-Atrybut [executionContext][zadania] kontekście wykonywania ustawia poziom uprawnień zadania uruchamiania. Użycie `executionContext="limited"` oznacza, że zadanie uruchamiania ma ten sam poziom uprawnień co rola. Użycie `executionContext="elevated"` oznacza, że zadanie uruchamiania ma uprawnienia administratora, co umożliwia zadanie uruchamiania wykonywanie zadań administratora bez nadawania uprawnień administratora do roli.
+Atrybut [][zadania] kontekście wykonywania ustawia poziom uprawnień zadania uruchamiania. Użycie `executionContext="limited"` oznacza, że zadanie uruchamiania ma ten sam poziom uprawnień co rola. Użycie `executionContext="elevated"` oznacza, że zadanie uruchamiania ma uprawnienia administratora, co umożliwia zadanie uruchamiania wykonywanie zadań administratora bez nadawania uprawnień administratora do roli.
 
 Przykładem zadania uruchamiania, które wymaga podniesionych uprawnień, jest zadanie uruchamiania, które używa **AppCmd.exe** do konfigurowania usług IIS. **AppCmd.exe** wymaga `executionContext="elevated"` .
 
 ### <a name="use-the-appropriate-tasktype"></a>Użyj odpowiedniego zadania
-Atrybut [taskType][zadania] TaskType określa sposób wykonywania zadania uruchamiania. Istnieją trzy wartości: **proste**, **tła**i **pierwszego planu**. Zadania tła i pierwszego planu są uruchamiane asynchronicznie, a następnie proste zadania są wykonywane synchronicznie po jednym naraz.
+Atrybut [][zadania] TaskType określa sposób wykonywania zadania uruchamiania. Istnieją trzy wartości: **proste**, **tła** i **pierwszego planu**. Zadania tła i pierwszego planu są uruchamiane asynchronicznie, a następnie proste zadania są wykonywane synchronicznie po jednym naraz.
 
 Przy użyciu **prostych** zadań uruchamiania można ustawić kolejność wykonywania zadań w kolejności, w której zadania są wyświetlane w pliku ServiceDefinition. csdef. Jeśli **proste** zadanie kończy się niezerowym kodem zakończenia, procedura uruchamiania zostaje zatrzymana, a rola nie zostanie uruchomiona.
 
@@ -506,7 +510,7 @@ Dowiedz się więcej na temat działania [zadań](cloud-services-startup-tasks.m
 [Zmienna]: /previous-versions/azure/reference/gg557552(v=azure.100)#Variable
 [RoleInstanceValue]: /previous-versions/azure/reference/gg557552(v=azure.100)#RoleInstanceValue
 [RoleEnvironment]: /previous-versions/azure/reference/ee773173(v=azure.100)
-[Punktów końcowych]: /previous-versions/azure/reference/gg557552(v=azure.100)#Endpoints
+[Punkty końcowe]: /previous-versions/azure/reference/gg557552(v=azure.100)#Endpoints
 [LocalStorage]: /previous-versions/azure/reference/gg557552(v=azure.100)#LocalStorage
 [LocalResources]: /previous-versions/azure/reference/gg557552(v=azure.100)#LocalResources
 [RoleInstanceValue]: /previous-versions/azure/reference/gg557552(v=azure.100)#RoleInstanceValue

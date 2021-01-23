@@ -3,23 +3,23 @@ title: Przypisywanie i wyświetlanie listy ról z zakresem jednostki administrac
 description: Użyj jednostek administracyjnych, aby ograniczyć zakres przypisań ról w Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73ed2741c7dd754127a57642703b650a70637c63
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: ecfa9186ef42d4822c9b3053d76b7c0160841621
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393442"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740401"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Przypisywanie ról objętych zakresem do jednostki administracyjnej
 
@@ -54,7 +54,7 @@ Rolę objętą zakresem można przypisać przy użyciu Azure Portal, programu Po
 
 1. W Azure Portal przejdź do **usługi Azure AD**.
 
-1. Wybierz pozycję **jednostki administracyjne** , a następnie wybierz jednostkę administracyjną, do której chcesz przypisać zakres roli użytkownika. 
+1. Wybierz pozycję **jednostki administracyjne**, a następnie wybierz jednostkę administracyjną, do której chcesz przypisać zakres roli użytkownika. 
 
 1. W okienku po lewej stronie wybierz pozycję **role i Administratorzy** , aby wyświetlić listę wszystkich dostępnych ról.
 
@@ -107,9 +107,9 @@ Wszystkie przypisania ról utworzone przy użyciu zakresu jednostki administracy
 
 1. W Azure Portal przejdź do **usługi Azure AD**.
 
-1. W lewym okienku wybierz pozycję **jednostki administracyjne** , a następnie wybierz jednostkę administracyjną dla listy przypisań ról, które chcesz wyświetlić. 
+1. W lewym okienku wybierz pozycję **jednostki administracyjne**, a następnie wybierz jednostkę administracyjną dla listy przypisań ról, które chcesz wyświetlić. 
 
-1. Wybierz **role i Administratorzy** , a następnie otwórz rolę, aby wyświetlić przypisania w jednostce administracyjnej.
+1. Wybierz **role i Administratorzy**, a następnie otwórz rolę, aby wyświetlić przypisania w jednostce administracyjnej.
 
 ### <a name="use-powershell"></a>Korzystanie z programu PowerShell
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: bb00595a5d5be130bf6c1177004bf3042ef8f9f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c901d4024292ad03a9195ad0cbd226f473917ee4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327191"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98738088"
 ---
 # <a name="data-collection-for-your-app"></a>Zbieranie danych dla aplikacji
 
@@ -71,7 +71,7 @@ Zapoznaj się z [punktem końcowym wyrażenia długości](luis-concept-review-en
 
 ## <a name="test-data-selection-for-batch-testing"></a>Wybór danych testowych dla testów wsadowych
 
-Wszystkie zasady wymienione powyżej dla szkolenia wyrażenia długości mają zastosowanie do wyrażenia długości, którego należy użyć dla [zestawu testowego](luis-concept-batch-test.md). Upewnij się, że dystrybucja między intencjami i jednostkami dublowania prawdziwej dystrybucji tak blisko jak to możliwe.
+Wszystkie zasady wymienione powyżej dla szkolenia wyrażenia długości mają zastosowanie do wyrażenia długości, którego należy użyć dla [zestawu testowego](./luis-how-to-batch-test.md). Upewnij się, że dystrybucja między intencjami i jednostkami dublowania prawdziwej dystrybucji tak blisko jak to możliwe.
 
 Nie używaj ponownie wyrażenia długości z zestawu szkoleniowego w zestawie testów. To niepoprawnie podzieli Twoje wyniki i nie przekaże mu odpowiedniego wskazania, w jaki sposób aplikacja LUIS będzie działać w środowisku produkcyjnym.
 

@@ -1,27 +1,25 @@
 ---
-title: Typowe przyczyny odtwarzania przez role usługi w chmurze | Microsoft Docs
+title: Typowe przyczyny odtwarzania ról usługi w chmurze (klasycznej) | Microsoft Docs
 description: Rola usługi w chmurze, która nagle odtwarza może spowodować znaczny Przestój. Poniżej przedstawiono niektóre typowe problemy, które powodują odtworzenie ról, co może pomóc w zmniejszeniu przestojów.
-services: cloud-services
-documentationcenter: ''
-author: simonxjx
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 533930d1-8035-4402-b16a-cf887b2c4f85
+ms.topic: article
 ms.service: cloud-services
-ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: tbd
-ms.date: 06/15/2018
-ms.author: v-six
-ms.openlocfilehash: 0484eb919a9de11b64dcc3334c5a9a942d875ca6
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 9610b32207f8367b9415c0881e49b54e24c49ad7
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075131"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741166"
 ---
-# <a name="common-issues-that-cause-roles-to-recycle"></a>Typowe problemy, które powodują odtwarzanie ról
+# <a name="common-issues-that-cause-azure-cloud-service-classic-roles-to-recycle"></a>Typowe problemy, które powodują odtworzenie ról usługi w chmurze Azure (klasycznej)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
+
 W tym artykule omówiono niektóre typowe przyczyny problemów z wdrażaniem i przedstawiono wskazówki dotyczące rozwiązywania problemów, aby pomóc w rozwiązaniu tych problemów. Wskazanie, że problem występuje w przypadku aplikacji, gdy uruchomienie wystąpienia roli nie powiedzie się lub przechodzi między stanem inicjowania, zajętości i zatrzymywania.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
@@ -70,4 +68,4 @@ Zobacz więcej scenariuszy tworzenia ról na [seriach blogów Jan Williamson](/a
 [RoleEntryPoint]: /previous-versions/azure/reference/ee758619(v=azure.100)
 [OnStart]: /previous-versions/azure/reference/ee772851(v=azure.100)
 [OnStop]: /previous-versions/azure/reference/ee772844(v=azure.100)
-[Wykonane]: /previous-versions/azure/reference/ee772746(v=azure.100)
+[Uruchom]: /previous-versions/azure/reference/ee772746(v=azure.100)

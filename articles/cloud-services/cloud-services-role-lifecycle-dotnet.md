@@ -1,28 +1,31 @@
 ---
-title: Obsługa zdarzeń cyklu życia usługi w chmurze | Microsoft Docs
+title: Obsługa zdarzeń cyklu życia usługi w chmurze (klasycznej) | Microsoft Docs
 description: Dowiedz się, jak korzystać z metod cyklu życia roli usługi w chmurze w programie .NET, w tym RoleEntryPoint, która zapewnia metody reagowania na zdarzenia cyklu życia.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
-ms.custom: devx-track-csharp
 ms.topic: article
-ms.date: 07/18/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: d64414abfbc62e52b172a2c42796ec8d89d1719f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: b5aa4bd061647f63ebcc70109f0ba21b39e814cc
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88930064"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741336"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Dostosowywanie cyklu życia roli sieci Web lub procesu roboczego w programie .NET
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
+
 Podczas tworzenia roli procesu roboczego należy zwiększyć klasę [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) , która dostarcza metody umożliwiające przesłonięcie reakcji na zdarzenia cyklu życia. W przypadku ról sieci Web Ta klasa jest opcjonalna, dlatego należy jej użyć do reagowania na zdarzenia cyklu życia.
 
 ## <a name="extend-the-roleentrypoint-class"></a>Poszerzenie klasy RoleEntryPoint
-Klasa [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) zawiera metody, które są wywoływane przez platformę Azure podczas **uruchamiania**, **uruchamiania**lub **zatrzymywania** roli sieci Web lub procesu roboczego. Opcjonalnie można zastąpić te metody, aby zarządzać inicjalizacją roli, sekwencjami zamykania ról lub wątkiem wykonywania roli. 
+Klasa [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) zawiera metody, które są wywoływane przez platformę Azure podczas **uruchamiania**, **uruchamiania** lub **zatrzymywania** roli sieci Web lub procesu roboczego. Opcjonalnie można zastąpić te metody, aby zarządzać inicjalizacją roli, sekwencjami zamykania ról lub wątkiem wykonywania roli. 
 
-Podczas rozszerzania **RoleEntryPoint**należy mieć świadomość następujących zachowań metod:
+Podczas rozszerzania **RoleEntryPoint** należy mieć świadomość następujących zachowań metod:
 
 * Metoda [OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) zwraca wartość logiczną, dlatego można zwrócić **false** z tej metody.
   
@@ -73,7 +76,7 @@ Można zastąpić metodę **Run** , aby zaimplementować długotrwały wątek dl
 Zastępowanie metody **Run** nie jest wymagane; Domyślna implementacja uruchamia wątek, który w stanie uśpienia w nieskończoność. W przypadku zastąpienia metody **Run** kod powinien blokować czas nieokreślony. Jeśli metoda **Run** zwraca metodę, rola jest automatycznie odtwarzana; Innymi słowy, platforma Azure zgłasza zdarzenie **zatrzymania** i wywołuje metodę **OnStop** , aby można było wykonać sekwencje zamknięcia przed przełączeniem roli w tryb offline.
 
 ### <a name="implementing-the-aspnet-lifecycle-methods-for-a-web-role"></a>Implementowanie metod cyklu życia ASP.NET dla roli sieci Web
-Aby zarządzać sekwencjami inicjalizacji i zamykania dla roli sieci Web, można użyć metod cyklu życia ASP.NET (oprócz tych dostarczonych przez klasę **RoleEntryPoint** ). Może to być przydatne w przypadku przenoszenia istniejącej aplikacji ASP.NET na platformę Azure. Metody cyklu życia ASP.NET są wywoływane z poziomu metod **RoleEntryPoint** . Metoda ** \_ startowa aplikacji** jest wywoływana po zakończeniu metody **RoleEntryPoint. OnStart** . Metoda **Application \_ End** jest wywoływana przed wywołaniem metody **RoleEntryPoint. OnStop** .
+Aby zarządzać sekwencjami inicjalizacji i zamykania dla roli sieci Web, można użyć metod cyklu życia ASP.NET (oprócz tych dostarczonych przez klasę **RoleEntryPoint** ). Może to być przydatne w przypadku przenoszenia istniejącej aplikacji ASP.NET na platformę Azure. Metody cyklu życia ASP.NET są wywoływane z poziomu metod **RoleEntryPoint** . Metoda **\_ startowa aplikacji** jest wywoływana po zakończeniu metody **RoleEntryPoint. OnStart** . Metoda **Application \_ End** jest wywoływana przed wywołaniem metody **RoleEntryPoint. OnStop** .
 
 ## <a name="next-steps"></a>Następne kroki
 Dowiedz się, jak [utworzyć pakiet usługi w chmurze](cloud-services-model-and-package.md).

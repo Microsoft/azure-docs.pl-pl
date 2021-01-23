@@ -4,16 +4,16 @@ description: Dowiedz się, jak utworzyć prywatny klaster usługi Azure Red Hat 
 ms.service: container-service
 ms.topic: article
 ms.date: 03/12/2020
-author: georgewallace
-ms.author: gwallace
+author: sakthi-vetrivel
+ms.author: suvetriv
 keywords: ARO, OpenShift, AZ ARO, Red Hat, CLI
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3864d48399f00d5cfbdfa0a94939be0d88a73322
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 6daeb617e7d1922427fe1889b41512a61c5067cf
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928063"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740928"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Tworzenie klastra prywatnego usługi Azure Red Hat OpenShift 4
 
@@ -23,9 +23,9 @@ W tym artykule opisano przygotowanie środowiska do tworzenia prywatnych klastr�
 > * Skonfiguruj wymagania wstępne i utwórz wymaganą sieć wirtualną i podsieci
 > * Wdrażanie klastra z punktem końcowym prywatnego serwera interfejsu API i prywatnym kontrolerem danych przychodzących
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.6.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.6.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 ### <a name="register-the-resource-providers"></a>Rejestrowanie dostawców zasobów
 
@@ -192,7 +192,7 @@ az aro create \
 Po wykonaniu `az aro create` polecenia zwykle trwa około 35 minut na utworzenie klastra.
 
 >[!IMPORTANT]
-> Jeśli zdecydujesz się określić domenę niestandardową, na przykład **foo.example.com** , konsola OpenShift będzie dostępna pod adresem URL, takim jak `https://console-openshift-console.apps.foo.example.com` , a nie wbudowaną domeną `https://console-openshift-console.apps.<random>.<location>.aroapp.io` .
+> Jeśli zdecydujesz się określić domenę niestandardową, na przykład **foo.example.com**, konsola OpenShift będzie dostępna pod adresem URL, takim jak `https://console-openshift-console.apps.foo.example.com` , a nie wbudowaną domeną `https://console-openshift-console.apps.<random>.<location>.aroapp.io` .
 >
 > Domyślnie OpenShift używa certyfikatów z podpisem własnym dla wszystkich tras utworzonych w usłudze `*.apps.<random>.<location>.aroapp.io` .  W przypadku wybrania opcji niestandardowy serwer DNS po nawiązaniu połączenia z klastrem należy skorzystać z dokumentacji OpenShift w celu [skonfigurowania niestandardowego urzędu certyfikacji dla kontrolera](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) usług przychodzących i [niestandardowego urzędu certyfikacji dla serwera interfejsu API](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
 
@@ -233,9 +233,9 @@ Uruchom w przeglądarce adres URL konsoli i zaloguj się przy użyciu `kubeadmin
 
 ## <a name="install-the-openshift-cli"></a>Instalowanie interfejsu wiersza polecenia OpenShift
 
-Po zalogowaniu się do konsoli sieci Web OpenShift kliknij pozycję **?** w prawym górnym rogu, a następnie w **narzędziach wiersza polecenia** . Pobierz wydanie odpowiednie dla Twojej maszyny.
+Po zalogowaniu się do konsoli sieci Web OpenShift kliknij pozycję **?** w prawym górnym rogu, a następnie w **narzędziach wiersza polecenia**. Pobierz wydanie odpowiednie dla Twojej maszyny.
 
-![Ekran logowania OpenShift na platformie Azure Red Hat](media/aro4-download-cli.png)
+![Obraz przedstawiający ekran logowania usługi Azure Red Hat OpenShift](media/aro4-download-cli.png)
 
 Możesz również pobrać najnowszą wersję interfejsu wiersza polecenia odpowiednią dla komputera z programu <https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/> .
 

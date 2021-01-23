@@ -1,27 +1,25 @@
 ---
-title: Rozwiązywanie problemów z niepowodzeniem alokacji usługi w chmurze | Microsoft Docs
+title: Rozwiązywanie problemów z niepowodzeniem alokacji usługi w chmurze (klasycznej) | Microsoft Docs
 description: Rozwiązywanie problemów z niepowodzeniem alokacji podczas wdrażania usługi Azure Cloud Services. Dowiedz się, jak działa przydział i dlaczego Alokacja może zakończyć się niepowodzeniem.
-services: azure-service-management, cloud-services
-documentationcenter: ''
-author: simonxjx
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 529157eb-e4a1-4388-aa2b-09e8b923af74
+ms.topic: article
 ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: ibiza
-ms.topic: troubleshooting
-ms.date: 06/15/2018
-ms.author: v-six
-ms.openlocfilehash: 1d82b7223c2b392e6b9aebffdc545dc38b38ca2f
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 0c172add9aa49b2ca64d2fb2281d326256e3aec7
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074230"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741591"
 ---
-# <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Rozwiązywanie problemów z błędami alokacji podczas wdrażania usługi Cloud Services na platformie Azure
+# <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-classic-in-azure"></a>Rozwiązywanie problemów z niepowodzeniem alokacji podczas wdrażania Cloud Services (klasyczny) na platformie Azure
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
+
 ## <a name="summary"></a>Podsumowanie
 W przypadku wdrażania wystąpień do usługi w chmurze lub dodawania nowych wystąpień roli sieci Web lub procesu roboczego Microsoft Azure przydziela zasoby obliczeniowe. Czasami mogą wystąpić błędy podczas wykonywania tych operacji nawet przed osiągnięciem limitów subskrypcji platformy Azure. W tym artykule wyjaśniono przyczyny niektórych typowych błędów alokacji i zaproponowano możliwe korygowanie. Te informacje mogą być również przydatne podczas planowania wdrożenia usług.
 

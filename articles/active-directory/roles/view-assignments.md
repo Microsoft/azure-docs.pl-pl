@@ -2,23 +2,23 @@
 title: Wyświetlanie przypisań ról niestandardowych w portalu Azure Active Directory | Microsoft Docs
 description: Teraz można wyświetlać członków roli administrator Azure Active Directory w centrum administracyjnym Azure Active Directory i zarządzać nimi.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8546c2b50c78c7a24d07c75d2d730fd2566e8ba0
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: c13167706c2794253108b04eaa2dcc46e0e6c09a
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862092"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740690"
 ---
 # <a name="view-custom-role-assignments-using-azure-active-directory"></a>Wyświetlanie przypisań ról niestandardowych przy użyciu Azure Active Directory
 

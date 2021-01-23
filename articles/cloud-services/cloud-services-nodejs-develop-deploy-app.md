@@ -1,23 +1,24 @@
 ---
 title: Przewodnik Wprowadzenie dla języka Node.js
 description: Dowiedz się, jak utworzyć prostą aplikację internetową Node.js, a następnie wdrożyć ją do usługi w chmurze Azure.
-services: cloud-services
-documentationcenter: nodejs
-author: tgore03
+ms.topic: article
 ms.service: cloud-services
-ms.devlang: nodejs
-ms.topic: conceptual
-ms.date: 08/17/2017
+ms.date: 10/14/2020
 ms.author: tagore
-ms.custom: devx-track-js
-ms.openlocfilehash: 86bc968c922bcfb90da9ae2babd456ce4db81cb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 9889e0e95db84b4dbc5856ba6425f0f303161068
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327480"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741625"
 ---
-# <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Tworzenie i wdrażanie aplikacji Node.js do usługi w chmurze Azure
+# <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service-classic"></a>Kompilowanie i wdrażanie aplikacji Node.js w usłudze w chmurze systemu Azure (wersja klasyczna)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
 
 Ten samouczek pokazuje, jak utworzyć prostą aplikację Node.js działającą w usłudze w chmurze Azure. Usługi Cloud Services są blokami konstrukcyjnymi skalowalnych aplikacji w chmurze na platformie Azure. Umożliwiają one rozdzielanie i skalowanie w poziomie składników frontonu i zaplecza aplikacji oraz niezależne zarządzanie nimi.  Usługi Cloud Services oferują specjalną maszynę wirtualną, która w niezawodny sposób hostuje poszczególne role.
 

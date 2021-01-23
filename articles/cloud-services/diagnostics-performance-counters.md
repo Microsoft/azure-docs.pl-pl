@@ -1,21 +1,24 @@
 ---
-title: Zbieranie danych o licznikach wydajności na platformie Azure Cloud Services | Microsoft Docs
+title: Zbieranie informacji o licznikach wydajności na platformie Azure Cloud Services (klasyczny) | Microsoft Docs
 description: Informacje na temat odnajdywania, używania i tworzenia liczników wydajności w Cloud Services z Diagnostyka Azure i Application Insights.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 02/02/2018
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 39843ad83830a72b5d6b01cc00ecd65269c02e12
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 16b54e8a59eb42c6e2351d37ec0a29d775161493
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078599"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98739840"
 ---
-# <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Zbieranie liczników wydajności dla usługi w chmurze platformy Azure
+# <a name="collect-performance-counters-for-your-azure-cloud-service-classic"></a>Zbieranie liczników wydajności dla usługi w chmurze systemu Azure (wersja klasyczna)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
 
 Liczniki wydajności umożliwiają śledzenie, jak dobrze działa aplikacja i host. System Windows Server oferuje wiele różnych liczników wydajności związanych z sprzętem, aplikacjami, systemem operacyjnym i innymi. Zbierając i wysyłając liczniki wydajności do platformy Azure, możesz analizować te informacje, aby ułatwić podejmowanie lepszych decyzji. 
 

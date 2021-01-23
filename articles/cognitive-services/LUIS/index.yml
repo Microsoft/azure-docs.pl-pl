@@ -12,12 +12,12 @@ metadata:
   title: Dokumentacja usługi Language Understanding (LUIS)
   titleSuffix: Azure Cognitive Services
   description: Usługa Language Understanding (LUIS) umożliwia aplikacji rozpoznawanie poleceń wydawanych naturalnymi słowami. Usługa LUIS korzysta z uczenia maszynowego, aby umożliwić deweloperom tworzenie aplikacji odbierających dane wejściowe użytkownika w języku naturalnym i wyodrębniających ich znaczenie.
-  ms.openlocfilehash: ff928f1879f8cfd356fa020ff6afaa68b72f63c5
-  ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
-  ms.translationtype: HT
+  ms.openlocfilehash: ca9209295d8265eeac5545091e4d4c5c9678e994
+  ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+  ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 11/21/2020
-  ms.locfileid: "95019385"
+  ms.lasthandoff: 01/23/2021
+  ms.locfileid: "98738071"
 landingContent:
 - title: Informacje o usłudze Language Understanding (LUIS)
   linkLists:
@@ -60,9 +60,9 @@ landingContent:
     - text: 'Portal: Tworzenie nowej aplikacji usługi LUIS'
       url: get-started-portal-build-app.md
     - text: Korzystanie z zestawu SDK języka C#
-      url: azure-sdk-quickstart.md?pivots=programming-language-csharp
+      url: ./client-libraries-rest-api.md?pivots=rest-api
     - text: Korzystanie z zestawu SDK języka Python
-      url: azure-sdk-quickstart.md?pivots=programming-language-python
+      url: ./client-libraries-rest-api.md?pivots=rest-api
   - linkListType: how-to-guide
     links:
     - text: Tworzenie nowej aplikacji usługi LUIS
@@ -82,13 +82,13 @@ landingContent:
     - text: Testowanie interakcyjne
       url: luis-concept-test.md
     - text: Testowanie wsadowe
-      url: luis-concept-batch-test.md
+      url: ./luis-how-to-batch-test.md
   - linkListType: quickstart
     links:
     - text: 'Portal: Wdrażanie aplikacji w punkcie końcowym przewidywania'
       url: get-started-portal-deploy-app.md
     - text: Używanie zestawu SDK
-      url: azure-sdk-quickstart.md
+      url: ./client-libraries-rest-api.md?pivots=rest-api
   - linkListType: how-to-guide
     links:
     - text: Obsługa wersji aplikacji
@@ -106,7 +106,7 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Używanie zestawu SDK
-      url: azure-sdk-quickstart.md
+      url: ./client-libraries-rest-api.md?pivots=rest-api
   - linkListType: quickstart
     links:
     - text: Za pomocą języka C# i usługi REST

@@ -2,23 +2,23 @@
 title: Opis pojęć dotyczących ról Azure Active Directory
 description: Dowiedz się, jak zrozumieć Azure Active Directory ról wbudowanych i niestandardowych z zakresem zasobów w Azure Active Directory.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: overview
 ms.date: 11/20/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db3eaef240e1f76e4c61a454e104336806666a7c
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 8b46262e34f57b3ff9aeb6bd4ea671ec611b99df
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803905"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740350"
 ---
 # <a name="understand-roles-in-azure-active-directory"></a>Informacje o rolach w Azure Active Directory
 
@@ -58,7 +58,7 @@ Wbudowane role usługi Azure AD różnią się w zależności od tego, gdzie mog
 
 Poniższa tabela jest oferowana jako pomoc w zrozumieniu tych kategorii ról. Kategorie są nazywane arbitralnie i nie są przeznaczone do oznaczania innych możliwości wykraczających poza [udokumentowane uprawnienia roli](permissions-reference.md).
 
-Kategoria | Role
+Kategoria | Rola
 ---- | ----
 Role specyficzne dla usługi Azure AD | Administrator aplikacji<br>Deweloper aplikacji<br>Administrator uwierzytelniania<br>Administrator zestawu kluczy B2C IEF<br>Administrator zasad B2C IEF<br>Administrator aplikacji w chmurze<br>Administrator urządzenia w chmurze<br>Administrator dostępu warunkowego<br>Administratorzy urządzeń<br>Czytelnicy katalogów<br>Konta synchronizacji katalogów<br>Autorzy katalogów<br>Administrator przepływu użytkownika z IDENTYFIKATORem zewnętrznym<br>Administrator atrybutów przepływu użytkownika zewnętrznego ID<br>Administrator zewnętrznego dostawcy tożsamości<br>Administrator grup<br>Zapraszający gościa<br>Administrator pomocy technicznej<br>Administrator tożsamości hybrydowej<br>Administrator licencji<br>Obsługa pomoc partnera<br>Obsługa SVR partnera<br>Administrator haseł<br>Administrator uprzywilejowanego uwierzytelniania<br>Administrator ról uprzywilejowanych<br>Czytelnik raportów<br>Administrator konta użytkownika
 Role międzyusługowe | Administrator firmy<br>Administrator zgodności<br>Administrator danych zgodności<br>Czytelnik globalny<br>Administrator zabezpieczeń<br>Operator zabezpieczeń<br>Czytelnik zabezpieczeń<br>Administrator pomocy technicznej usługi
