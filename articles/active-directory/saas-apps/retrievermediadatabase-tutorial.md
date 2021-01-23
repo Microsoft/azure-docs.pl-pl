@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/25/2020
 ms.author: jeedes
-ms.openlocfilehash: 32ca39685772272ae93ccbe0c2afcbd1f66894b1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 786925799d19bf01e8edebbf85de04d92213298b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96355188"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732848"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-retrievermediadatabase"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą RetrieverMediaDatabase
 
@@ -118,10 +118,8 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 1. Kliknij pozycję Testuj tę aplikację w Azure Portal i należy automatycznie zalogować się do RetrieverMediaDatabase, dla którego skonfigurowano Logowanie jednokrotne
 
-1. Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka RetrieverMediaDatabase w obszarze Moje aplikacje należy automatycznie zalogować się do RetrieverMediaDatabase, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+1. Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka RetrieverMediaDatabase w obszarze Moje aplikacje należy automatycznie zalogować się do RetrieverMediaDatabase, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu RetrieverMediaDatabase można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Po skonfigurowaniu RetrieverMediaDatabase można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

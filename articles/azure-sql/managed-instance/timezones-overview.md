@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 ms.date: 10/12/2020
-ms.openlocfilehash: bf0cfd70c9850cc6a5ff4482b494d68700022ad8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8a4c1b2ac53679153c8d9485443a231b817df77a
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790631"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734583"
 ---
 # <a name="time-zones-in-azure-sql-managed-instance"></a>Strefy czasowe w wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -32,7 +32,7 @@ Funkcje języka T-SQL, takie jak [GETDATE ()](/sql/t-sql/functions/getdate-trans
 
 Zestaw obsługiwanych stref czasowych jest Dziedziczony z bazowego systemu operacyjnego wystąpienia zarządzanego. Jest ona regularnie aktualizowana w celu uzyskania nowych definicji stref czasowych i odzwierciedla zmiany w istniejących.
 
-[Zasady zmiany czasu/strefy czas letni](https://aka.ms/time) gwarantuje prawidłowość historyczną od 2010 do przodu.
+[Zasady zmiany czasu/strefy czas letni](/troubleshoot/windows-client/system-management-components/daylight-saving-time-help-support) gwarantuje prawidłowość historyczną od 2010 do przodu.
 
 Lista z nazwami obsługiwanych stref czasowych jest dostępna za pomocą widoku system [sys.time_zone_info](/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) .
 

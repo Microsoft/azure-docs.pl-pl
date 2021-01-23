@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
-ms.openlocfilehash: c41856c394166f2e3b8fd3bde794f0f294ef6af9
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 4448ce051b0c9e73865e8057cc4f224c9cbeb571
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253458"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732748"
 ---
 # <a name="plan-for-intel-sgx-enclaves-and-attestation-in-azure-sql-database"></a>Planowanie usługi Intel SGX enclaves i zaświadczania w Azure SQL Database
 
@@ -25,7 +25,7 @@ ms.locfileid: "98253458"
 > [!NOTE]
 > Always Encrypted z opcją Secure enclaves for Azure SQL Database jest obecnie w **publicznej wersji zapoznawczej**.
 
-[Always Encrypted z opcją Secure enclaves](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves) w Azure SQL Database używa [rozszerzeń Intel SGX)](https://itpeernetwork.intel.com/microsoft-azure-confidential-computing/) Enclaves i wymaga [zaświadczania Microsoft Azure](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves#secure-enclave-attestation).
+[Always Encrypted z opcją Secure enclaves](/sql/relational-databases/security/encryption/always-encrypted-enclaves) w Azure SQL Database używa [rozszerzeń Intel SGX)](https://itpeernetwork.intel.com/microsoft-azure-confidential-computing/) Enclaves i wymaga [zaświadczania Microsoft Azure](/sql/relational-databases/security/encryption/always-encrypted-enclaves#secure-enclave-attestation).
 
 ## <a name="plan-for-intel-sgx-in-azure-sql-database"></a>Planowanie dla Intel SGX w Azure SQL Database
 

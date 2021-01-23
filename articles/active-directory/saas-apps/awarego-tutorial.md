@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 6599abd6282d0d1eb7cb81002c34ddd5158dab6b
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 4682396f68d6ff1af0b2fb6a5b1a8419d6963529
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511063"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735343"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-awarego"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym za pomocą AwareGo
 
@@ -109,7 +109,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    a. W polu **Nazwa** wprowadź wartość **B. Simon**.  
    b. W polu **Nazwa użytkownika** wprowadź nazwę użytkownika w następującym formacie: `<username>@<companydomain>.<extension>` (na przykład B.Simon@contoso.com ).  
    c. Zaznacz pole wyboru **Pokaż hasło** , a następnie zanotuj wartość, która jest wyświetlana w polu **hasło** do późniejszego użycia.  
-   d. Wybierz pozycję **Utwórz**.
+   d. Wybierz przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -139,11 +139,9 @@ W tej sekcji można przetestować konfigurację logowania jednokrotnego usługi 
 
 * Przejdź bezpośrednio do strony logowania AwareGo i zainicjuj tam przepływ logowania.
 
-* Przejdź do witryny Microsoft moje aplikacje. Po wybraniu kafelka **AwareGo** w obszarze Moje aplikacje nastąpi przekierowanie do strony logowania do AwareGo. Aby uzyskać więcej informacji, zobacz artykuł [Logowanie i uruchamianie aplikacji z poziomu portalu Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Przejdź do witryny Microsoft moje aplikacje. Po wybraniu kafelka **AwareGo** w obszarze Moje aplikacje nastąpi przekierowanie do strony logowania do AwareGo. Aby uzyskać więcej informacji, zobacz artykuł [Logowanie i uruchamianie aplikacji z poziomu portalu Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu AwareGo można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od Kontrola dostępu warunkowego aplikacji. Aby uzyskać więcej informacji, zobacz [Informacje o sposobie wymuszania kontroli sesji przy użyciu Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Po skonfigurowaniu AwareGo można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od Kontrola dostępu warunkowego aplikacji. Aby uzyskać więcej informacji, zobacz [Informacje o sposobie wymuszania kontroli sesji przy użyciu Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

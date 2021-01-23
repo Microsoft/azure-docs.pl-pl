@@ -4,14 +4,14 @@ description: Przewodnik Szybki Start dotyczący Application Insights agenta. Mon
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
-ms.date: 04/23/2019
+ms.date: 01/22/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 690304ecef80d988f9a554cd10ce4689f5c72133
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0c0102f4d0f23fd7f306f431de7e90174796a56
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89070143"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732649"
 ---
 # <a name="get-started-with-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Wprowadzenie do usługi Azure Monitor Application Insights Agent dla serwerów lokalnych
 
@@ -26,6 +26,13 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 ## <a name="download-and-install-via-powershell-gallery"></a>Pobierz i zainstaluj za pomocą Galeria programu PowerShell
 
 ### <a name="install-prerequisites"></a>Instalacja wymagań wstępnych
+
+> [!NOTE]
+> Od kwietnia 2020 Galeria programu PowerShell ma przestarzałe protokoły TLS 1,1 i 1,0.
+>
+> Aby uzyskać wymagania wstępne dotyczące usługi additionnal, zobacz [Galeria programu PowerShell obsługa protokołu TLS](https://devblogs.microsoft.com/powershell/powershell-gallery-tls-support).
+>
+
 Uruchom program PowerShell jako administrator.
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force

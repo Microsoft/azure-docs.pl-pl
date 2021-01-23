@@ -3,12 +3,12 @@ title: Jednostki wystąpień BareMetal na platformie Azure
 description: Dowiedz się, jak identyfikować jednostki wystąpień BareMetal i korzystać z nich za pomocą Azure Portal.
 ms.topic: how-to
 ms.date: 1/4/2021
-ms.openlocfilehash: 30e1661e82546dbaf6d8dc4288ad896df89f401e
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: b089b45c35ff05f10ae59f8ce793645361be1e9b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861032"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733267"
 ---
 # <a name="manage-baremetal-instances-through-the-azure-portal"></a>Zarządzanie wystąpieniami BareMetal za pomocą witryny Azure Portal
  
@@ -97,7 +97,7 @@ Możliwe wersje sprzętu to:
 >[!NOTE]
 >Rev 4,2 to najnowsza BareMetal infrastruktura z wykorzystaniem istniejącej architektury rev 4. Rev 4 zapewnia bliższą bliskość hostom maszyn wirtualnych platformy Azure. W przypadku opóźnień sieci między maszynami wirtualnymi platformy Azure i jednostkami wystąpienia BareMetal wdrożonymi w znacznikach lub wierszach z 4. Możesz uzyskać dostęp do wystąpień BareMetal i zarządzać nimi za pomocą Azure Portal. Aby uzyskać więcej informacji, zobacz [infrastruktura BareMetal na platformie Azure](baremetal-overview-architecture.md).
  
-Ponadto po prawej stronie znajduje się nazwa [grupy umieszczania usługi Azure zbliżeniowe](../../../virtual-machines/linux/co-location.md) , która jest tworzona automatycznie dla każdej wdrożonej jednostki wystąpienia BareMetal. Odwołuje się do grupy położenia zbliżeniowe podczas wdrażania maszyn wirtualnych platformy Azure, które obsługują warstwę aplikacji. W przypadku korzystania z grupy umieszczania zbliżeniowe skojarzonej z jednostką wystąpienia BareMetal upewnij się, że maszyny wirtualne platformy Azure zostaną wdrożone blisko jednostki wystąpienia BareMetal.
+Ponadto po prawej stronie znajduje się nazwa [grupy umieszczania usługi Azure zbliżeniowe](../../../virtual-machines/co-location.md) , która jest tworzona automatycznie dla każdej wdrożonej jednostki wystąpienia BareMetal. Odwołuje się do grupy położenia zbliżeniowe podczas wdrażania maszyn wirtualnych platformy Azure, które obsługują warstwę aplikacji. W przypadku korzystania z grupy umieszczania zbliżeniowe skojarzonej z jednostką wystąpienia BareMetal upewnij się, że maszyny wirtualne platformy Azure zostaną wdrożone blisko jednostki wystąpienia BareMetal.
  
 >[!TIP]
 >Aby zlokalizować warstwę aplikacji w tym samym centrum danych platformy Azure w wersji 4. x, zobacz [grupy umieszczania zbliżeniowe platformy Azure w celu uzyskania optymalnego opóźnienia sieci](../../../virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md).

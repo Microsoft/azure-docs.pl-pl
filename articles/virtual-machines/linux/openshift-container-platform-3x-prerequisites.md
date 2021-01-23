@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
-ms.openlocfilehash: 68bd748e890659e4b79d76e4ccab038f251a937a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 51f6a2ac4f524ac2a504fb8e0c3dd90ec25c9f93
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016033"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734734"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Wspólne wymagania wstępne dotyczące wdrażania OpenShift Container platform 3,11 na platformie Azure
 
@@ -46,7 +46,7 @@ W tym przewodniku opisano sposób tworzenia artefaktów skojarzonych z wymagania
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure 
+## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure 
 Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [AZ login](/cli/azure/reference-index) i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie lub kliknij przycisk **Wypróbuj** , aby użyć Cloud Shell.
 
 ```azurecli
@@ -134,7 +134,7 @@ Zanotuj Właściwość appId i hasło zwrócone przez polecenie:
  > [!WARNING] 
  > Pamiętaj o zapisaniu bezpiecznego hasła, ponieważ nie będzie można ponownie pobrać tego hasła.
 
-Aby uzyskać więcej informacji o jednostkach usługi, zobacz [Tworzenie jednostki usługi platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
+Aby uzyskać więcej informacji o jednostkach usługi, zobacz [Tworzenie jednostki usługi platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 ## <a name="prerequisites-applicable-only-to-resource-manager-template"></a>Wymagania wstępne dotyczące Menedżer zasobów szablonu
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 8dd3c60c3d1b714ab75b496a94ba4bd5aec4e43d
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: cd5b709843ba2d98170aaa58eb5c3cc1ec8883af
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558474"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734685"
 ---
 # <a name="azure-signalr-service-authentication"></a>Uwierzytelnianie w usłudze Azure SignalR Service
 
@@ -46,9 +46,9 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 Do ukończenia tego samouczka niezbędne są:
 
 - Konto utworzone w usłudze [GitHub](https://github.com/)
-- [Narzędzia](https://git-scm.com/)
+- [Usługa Git](https://git-scm.com/)
 - [Zestaw .NET Core SDK](https://www.microsoft.com/net/download/windows)
-- [Azure Cloud Shell](/azure/cloud-shell/quickstart) skonfigurowany dla środowiska bash.
+- [Azure Cloud Shell](../cloud-shell/quickstart.md) skonfigurowany dla środowiska bash.
 - Pobrane lub sklonowane repozytorium GitHub [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples)
 
 ## <a name="create-an-oauth-app"></a>Tworzenie aplikacji OAuth
@@ -572,7 +572,7 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i kliknij pozyc
 
 W polu tekstowym **Filtruj według nazwy...** wpisz nazwę grupy zasobów. Instrukcje w tym artykule używają grupy zasobów o nazwie *SignalRTestResources*. Dla grupy zasobów na liście wyników kliknij pozycję **...**, a następnie kliknij pozycję **Usuń grupę zasobów**.
 
-![Usuwanie](./media/signalr-concept-authenticate-oauth/signalr-delete-resource-group.png)
+![Usuń](./media/signalr-concept-authenticate-oauth/signalr-delete-resource-group.png)
 
 Zobaczysz prośbę o potwierdzenie usunięcia grupy zasobów. Wpisz nazwę grupy zasobów w celu potwierdzenia, a następnie kliknij pozycję **Usuń**.
 

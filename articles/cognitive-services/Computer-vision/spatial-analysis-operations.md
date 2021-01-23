@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: b530fc320f6c29dd7a86a39c5a7019265bb6b724
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: d19190723ebc415e9cf3053b929788dff68aeb0e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624426"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734543"
 ---
 # <a name="spatial-analysis-operations"></a>Operacje analizy przestrzennej
 
@@ -61,7 +61,7 @@ Są to parametry wymagane przez każdą z tych operacji analizy przestrzennej.
 |---------|---------|
 | Identyfikator operacji | Identyfikator operacji z tabeli powyżej.|
 | enabled | Wartość logiczna: true lub false|
-| VIDEO_URL| Adres URL protokołu RTSP dla urządzenia aparatu fotograficznego (przykład: `rtsp://username:password@url` ). Analiza przestrzenna obsługuje strumień w formacie H. 264 przy użyciu protokołu RTSP, http lub MP4. Video_URL można podać jako zasłoniętą wartość ciągu Base64 przy użyciu szyfrowania AES, a jeśli adres URL filmu wideo zostanie zasłonięty `KEY_ENV` i `IV_ENV` musi być podany jako zmienne środowiskowe. Przykładowe narzędzie do generowania kluczy i szyfrowania można znaleźć [tutaj](https://docs.microsoft.com/dotnet/api/system.security.cryptography.aesmanaged?view=net-5.0&preserve-view=true). |
+| VIDEO_URL| Adres URL protokołu RTSP dla urządzenia aparatu fotograficznego (przykład: `rtsp://username:password@url` ). Analiza przestrzenna obsługuje strumień w formacie H. 264 przy użyciu protokołu RTSP, http lub MP4. Video_URL można podać jako zasłoniętą wartość ciągu Base64 przy użyciu szyfrowania AES, a jeśli adres URL filmu wideo zostanie zasłonięty `KEY_ENV` i `IV_ENV` musi być podany jako zmienne środowiskowe. Przykładowe narzędzie do generowania kluczy i szyfrowania można znaleźć [tutaj](/dotnet/api/system.security.cryptography.aesmanaged?preserve-view=true&view=net-5.0). |
 | VIDEO_SOURCE_ID | Przyjazna nazwa urządzenia aparatu lub strumienia wideo. Zostanie on zwrócony z danymi wyjściowymi zdarzenia JSON.|
 | VIDEO_IS_LIVE| Wartość true w przypadku urządzeń z kamerą; wartość false dla zarejestrowanych filmów wideo.|
 | VIDEO_DECODE_GPU_INDEX| Procesor GPU do zdekodowania ramki wideo. Domyślnie jest to 0. Powinna być taka sama jak `gpu_index` w przypadku innych konfiguracji węzła, takich jak `VICA_NODE_CONFIG` , `DETECTOR_NODE_CONFIG` .|
@@ -386,7 +386,7 @@ Przykładowy kod JSON dla zdarzenia danych wyjściowych przez tę operację.
 | Nazwa pola SourceInfo | Typ| Opis|
 |---------|---------|---------|
 | `id` | ciąg| Identyfikator aparatu|
-| `timestamp` | date| Data UTC, kiedy ładunek JSON został emitowany|
+| `timestamp` | data| Data UTC, kiedy ładunek JSON został emitowany|
 | `width` | int | Szerokość ramki wideo|
 | `height` | int | Wysokość ramki wideo|
 | `frameId` | int | Identyfikator ramki|
@@ -399,7 +399,7 @@ Przykładowy kod JSON dla zdarzenia danych wyjściowych przez tę operację.
 | Nazwa pola SourceInfo | Typ| Opis|
 |---------|---------|---------|
 | `id` | ciąg| Identyfikator aparatu|
-| `timestamp` | date| Data UTC, kiedy ładunek JSON został emitowany|
+| `timestamp` | data| Data UTC, kiedy ładunek JSON został emitowany|
 | `width` | int | Szerokość ramki wideo|
 | `height` | int | Wysokość ramki wideo|
 | `frameId` | int | Identyfikator ramki|
@@ -485,7 +485,7 @@ Przykładowy kod JSON dla wykrywania danych wyjściowych przez tę operację.
 | Nazwa pola SourceInfo | Typ| Opis|
 |---------|---------|---------|
 | `id` | ciąg| Identyfikator aparatu|
-| `timestamp` | date| Data UTC, kiedy ładunek JSON został emitowany|
+| `timestamp` | data| Data UTC, kiedy ładunek JSON został emitowany|
 | `width` | int | Szerokość ramki wideo|
 | `height` | int | Wysokość ramki wideo|
 | `frameId` | int | Identyfikator ramki|
@@ -756,7 +756,7 @@ W tym przykładzie `centerGroundPoint` jest `{x: 4, y: 5}` . Oznacza to, że oso
 | Nazwa pola SourceInfo | Typ| Opis|
 |---------|---------|---------|
 | `id` | ciąg| Identyfikator aparatu|
-| `timestamp` | date| Data UTC, kiedy ładunek JSON został emitowany|
+| `timestamp` | data| Data UTC, kiedy ładunek JSON został emitowany|
 | `width` | int | Szerokość ramki wideo|
 | `height` | int | Wysokość ramki wideo|
 | `frameId` | int | Identyfikator ramki|

@@ -10,13 +10,13 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 01/15/2021
-ms.openlocfilehash: db3b168826223e4eb958f7700e65623a115e5779
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.date: 01/22/2021
+ms.openlocfilehash: a4be96d35116ed40ca61f00ed8f2ddd786760242
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251475"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735245"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limity zasobów dla pojedynczych baz danych podczas używania modelu zakupu opartego na rdzeniach wirtualnych
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -411,7 +411,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń (cel usługi) i ilość miej
 |Maksymalny rozmiar danych TempDB (GB)|83,25|92,5|111|148|166,5|333|
 |Typ magazynu|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|
 |Opóźnienie we/wy (przybliżone)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|
-|Maksymalna liczba operacji we/wy danych *|5760|6400|7680|10240|11520|23040|
+|Maksymalna liczba operacji we/wy danych *|5760|6400|7680|10240|11520|12800|
 |Maksymalny współczynnik rejestrowania (MB/s)|36|36|36|36|36|36|
 |Maksymalna liczba współbieżnych procesów roboczych (żądań)|900|1000|1200|1600|1800|3600|
 |Maksymalna liczba współbieżnych logowań|1800|2000|2400|3200|3600|7200|
@@ -628,7 +628,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń (cel usługi) i ilość miej
 |Rdzeni wirtualnych|2|4|6|8|
 |Pamięć (GB)|9|18|27|36|
 |Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|
-|Magazyn OLTP w pamięci (GB)|1,7|3.7|5.9|8.2|
+|Magazyn OLTP w pamięci (GB)|1.7|3.7|5.9|8.2|
 |Maksymalny rozmiar danych (GB)|768|768|768|768|
 |Maksymalny rozmiar dziennika (GB)|230|230|230|230|
 |Maksymalny rozmiar danych TempDB (GB)|64|128|192|256|

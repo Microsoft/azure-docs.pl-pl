@@ -6,12 +6,12 @@ ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: e8d0dcae81944d5799841c22093585b942934b79
-ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
+ms.openlocfilehash: 5008da99b63cabba41dade9a745fbd5853345737
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97732108"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734970"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Używanie usługi Azure Private Link do bezpiecznego łączenia sieci z usługą Azure Monitor
 
@@ -149,7 +149,7 @@ Teraz, gdy masz zasoby połączone z AMPLS, Utwórz prywatny punkt końcowy, aby
  
    b.    Wybierz opcję **tak** dla **integracji z prywatną strefą DNS** i zezwól na automatyczne tworzenie nowej strefy prywatna strefa DNS. Rzeczywiste strefy DNS mogą się różnić od tego, co pokazano na poniższym zrzucie ekranu. 
    > [!NOTE]
-   > Jeśli wybierzesz opcję **nie** i wolisz ręcznie zarządzać rekordami DNS, najpierw Ukończ Konfigurowanie linku prywatnego — łącznie z tym prywatnym punktem końcowym i konfiguracją AMPLS. Następnie skonfiguruj system DNS zgodnie z instrukcjami w temacie [Konfiguracja DNS prywatnego punktu końcowego platformy Azure](../../private-link/private-endpoint-dns.md). Upewnij się, że nie chcesz tworzyć pustych rekordów jako przygotowania do konfiguracji linku prywatnego. Tworzone rekordy DNS mogą przesłaniać istniejące ustawienia i mieć wpływ na łączność z Azure Monitor.
+   > Jeśli wybierzesz opcję **nie** i wolisz ręcznie zarządzać rekordami DNS, najpierw Ukończ Konfigurowanie linku prywatnego — łącznie z tym prywatnym punktem końcowym i konfiguracją AMPLS. Następnie skonfiguruj usługę DNS zgodnie z instrukcjami zawartymi w artykule [Konfiguracja usługi DNS prywatnego punktu końcowego platformy Azure](../../private-link/private-endpoint-dns.md). Pamiętaj, aby nie tworzyć pustych rekordów podczas przygotowywania się do konfiguracji łącza prywatnego. Tworzone rekordy DNS mogą przesłaniać istniejące ustawienia i mieć wpływ na łączność z usługą Azure Monitor.
  
    c.    Kliknij pozycję **Przejrzyj i utwórz**.
  
@@ -192,7 +192,7 @@ Aby zezwolić agentowi Log Analytics na pobieranie pakietów rozwiązań, Dodaj 
 |Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Wychodzący
 |Azure w Chinach — 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Wychodzący
 
-## <a name="configure-application-insights"></a>Konfigurowanie Application Insights
+## <a name="configure-application-insights"></a>Konfigurowanie usługi Application Insights
 
 Przejdź do witryny Azure Portal. W Azure Monitor Application Insights zasobów składnika jest **izolacja sieci** elementu menu po lewej stronie. W tym menu można kontrolować dwa różne stany.
 
@@ -217,7 +217,7 @@ Ograniczanie dostępu w ten sposób dotyczy tylko danych w zasobie Application I
 
 Proces opisany wcześniej można zautomatyzować za pomocą szablonów Azure Resource Manager, REST i interfejsu wiersza polecenia.
 
-Aby utworzyć prywatne zakresy łączy i zarządzać nimi, użyj [interfejsu API REST](https://docs.microsoft.com/rest/api/monitor/private%20link%20scopes%20(preview)) lub [wiersza polecenia platformy Azure (AZ monitor Private-Scope-zakres)](/cli/azure/monitor/private-link-scope?view=azure-cli-latest).
+Aby utworzyć prywatne zakresy łączy i zarządzać nimi, użyj [interfejsu API REST](/rest/api/monitor/private%20link%20scopes%20(preview)) lub [wiersza polecenia platformy Azure (AZ monitor Private-Scope-zakres)](/cli/azure/monitor/private-link-scope?view=azure-cli-latest).
 
 Aby zarządzać dostępem do sieci, użyj flag `[--ingestion-access {Disabled, Enabled}]` i `[--query-access {Disabled, Enabled}]` na [log Analytics obszarach roboczych](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) lub [składników Application Insights](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest).
 
@@ -227,7 +227,7 @@ Konta magazynu są używane w procesie pozyskiwania dzienników niestandardowych
 
 Aby uzyskać więcej informacji na temat przełączania własnych kont magazynu, zobacz [konta magazynu należące do klienta na potrzeby](private-storage.md) pozyskiwania dziennika
 
-## <a name="restrictions-and-limitations"></a>Ograniczenia i ograniczenia
+## <a name="restrictions-and-limitations"></a>Ograniczenia
 
 ### <a name="agents"></a>Agenci
 

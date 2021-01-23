@@ -3,12 +3,12 @@ title: Informacje o kopii zapasowej maszyny wirtualnej platformy Azure
 description: W tym artykule dowiesz się, jak usługa Azure Backup wykonuje kopie zapasowe maszyn wirtualnych platformy Azure oraz jak postępować zgodnie z najlepszymi rozwiązaniami.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 291c50d4ac52d34a218b1b7cc76d625da3119d25
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 691fe991ad141696c0c68e915d7225001a1befd0
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968997"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733574"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Omówienie kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -64,7 +64,7 @@ BEKs również kopie zapasowe. Dlatego jeśli BEKs zostaną utracone, autoryzowa
 
 Azure Backup wykonuje migawki zgodnie z harmonogramem tworzenia kopii zapasowych.
 
-- **Maszyny wirtualne z systemem Windows:** W przypadku maszyn wirtualnych z systemem Windows usługa tworzenia kopii zapasowych koordynuje się z usługą VSS w celu utworzenia migawki dysków maszyn wirtualnych spójnej na poziomie aplikacji.  Domyślnie usługa Azure Backup pobiera pełną kopię zapasową VSS (obcina Dzienniki aplikacji, takie jak SQL Server w momencie tworzenia kopii zapasowej, aby uzyskać kopię zapasową spójną na poziomie aplikacji).  Jeśli używasz bazy danych SQL Server w kopii zapasowej maszyny wirtualnej platformy Azure, możesz zmodyfikować to ustawienie, aby wykonać kopię zapasową usługi VSS (w celu zachowania dzienników). Aby uzyskać więcej informacji, zobacz [ten artykuł](./backup-azure-vms-troubleshoot.md#troubleshoot-vm-snapshot-issues).
+- **Maszyny wirtualne z systemem Windows:** W przypadku maszyn wirtualnych z systemem Windows usługa tworzenia kopii zapasowych koordynuje się z usługą VSS w celu utworzenia migawki dysków maszyn wirtualnych spójnej na poziomie aplikacji.  Domyślnie usługa Azure Backup pobiera pełną kopię zapasową VSS (obcina Dzienniki aplikacji, takie jak SQL Server w momencie tworzenia kopii zapasowej, aby uzyskać kopię zapasową spójną na poziomie aplikacji).  Jeśli używasz bazy danych SQL Server w kopii zapasowej maszyny wirtualnej platformy Azure, możesz zmodyfikować to ustawienie, aby wykonać kopię zapasową usługi VSS (w celu zachowania dzienników). Więcej informacji znajduje się w [tym artykule](./backup-azure-vms-troubleshoot.md#troubleshoot-vm-snapshot-issues).
 
 - **Maszyny wirtualne z systemem Linux:** Aby tworzyć migawki maszyn wirtualnych z systemem Linux spójne z aplikacjami, należy użyć skryptów przedskryptowych i skryptów po skrypcie dla systemu Linux do pisania własnych skryptów niestandardowych w celu zapewnienia spójności.
 
@@ -121,7 +121,7 @@ Podczas konfigurowania kopii zapasowych maszyn wirtualnych sugerujemy następuj�
 - Jeśli przywracasz maszyny wirtualne z jednego magazynu, zdecydowanie zalecamy użycie różnych [kont magazynu ogólnego przeznaczenia w wersji 2](../storage/common/storage-account-upgrade.md) , aby upewnić się, że docelowe konto magazynu nie zostanie ograniczone. Na przykład każda maszyna wirtualna musi mieć inne konto magazynu. Na przykład jeśli zostaną przywrócone 10 maszyn wirtualnych, użyj 10 różnych kont magazynu.
 - W przypadku tworzenia kopii zapasowych maszyn wirtualnych korzystających z usługi Premium Storage z natychmiastowym przywracaniem zalecamy alokowanie *50%* wolnego miejsca w łącznym przydzielonym miejscu do magazynowania, które jest wymagane **tylko** dla pierwszej kopii zapasowej. Ilość wolnego miejsca na 50% nie jest wymagana w przypadku kopii zapasowych po wykonaniu pierwszej kopii zapasowej
 - Limit liczby dysków na konto magazynu jest określany względem tego, w jakim stopniu aplikacje działające na maszynie wirtualnej w modelu infrastruktura jako usługa (IaaS) uzyskują dostęp do dysków. Zgodnie z ogólną praktyką, jeśli na jednym koncie magazynu znajduje się od 5 do 10 dysków lub więcej, należy zrównoważyć obciążenie przez przeniesienie niektórych dysków do oddzielnych kont magazynu.
-- Aby przywrócić maszyny wirtualne z dyskami zarządzanymi przy użyciu programu PowerShell, podaj dodatkowy parametr **_TargetResourceGroupName_* _, aby określić grupę zasobów, do której zostaną przywrócone zarządzane dyski, [Dowiedz się więcej tutaj](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-managed-disks).
+- Aby przywrócić maszyny wirtualne z dyskami zarządzanymi przy użyciu programu PowerShell, podaj dodatkowy parametr **_TargetResourceGroupName_* _, aby określić grupę zasobów, do której zostaną przywrócone zarządzane dyski, [Dowiedz się więcej tutaj](./backup-azure-vms-automation.md#restore-managed-disks).
 
 ## <a name="backup-costs"></a>Koszty kopii zapasowych
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: 2bb1e667758a1430e34d222b9a5c537381c07624
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 40ea367c1298a916df541d362b85e8d485d193f1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505277"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734936"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Wskazówki dotyczące danych osobowych przechowywanych w usługach Log Analytics i Application Insights
 
@@ -91,7 +91,7 @@ W przypadku żądań danych widoku i eksportu należy użyć [interfejsu API zap
 Udostępniono jako część obsługi prywatności ścieżkę interfejsu API *przeczyszczania* . Ta ścieżka powinna być stosowana oszczędnie ze względu na ryzyko związane z tym, potencjalny wpływ na wydajność oraz możliwość pochylania wszystkich agregacji, pomiarów i innych aspektów danych Log Analytics. Zapoznaj się z sekcją [strategia obsługi danych osobowych](#strategy-for-personal-data-handling) , aby poznać alternatywne podejścia do obsługi prywatnych danych.
 
 > [!NOTE]
-> Po wykonaniu operacji przeczyszczania nie można uzyskać dostępu do danych, gdy [stan operacji przeczyszczania](https://docs.microsoft.com/rest/api/loganalytics/workspacepurge/getpurgestatus) jest *oczekujący*. 
+> Po wykonaniu operacji przeczyszczania nie można uzyskać dostępu do danych, gdy [stan operacji przeczyszczania](/rest/api/loganalytics/workspacepurge/getpurgestatus) jest *oczekujący*. 
 
 Przeczyszczanie jest operacją o wysokim poziomie uprawnień, która nie ma uprawnień do Azure Resource Manager wykonania aplikacji ani użytkownika na platformie Azure (w tym nawet Właściciel zasobu). Ta rola jest w trakcie _przeczyszczania danych_ i powinna być ostrożnie delegowana ze względu na potencjalną utratę danych. 
 
@@ -129,4 +129,3 @@ Po przypisaniu roli Azure Resource Manager dostępne są dwie nowe ścieżki int
 ## <a name="next-steps"></a>Następne kroki
 - Aby dowiedzieć się więcej o tym, jak Log Analytics dane są zbierane, przetwarzane i zabezpieczone, zobacz [log Analytics zabezpieczenia danych](./data-security.md).
 - Aby dowiedzieć się więcej o tym, jak Application Insights dane są zbierane, przetwarzane i zabezpieczone, zobacz [Application Insights zabezpieczenia danych](../app/data-retention-privacy.md).
-

@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć prywatny klaster usługi Azure Kubernet
 services: container-service
 ms.topic: article
 ms.date: 7/17/2020
-ms.openlocfilehash: 2b0cc8a2fe9a45120bf0b74dbad5e107fd860845
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 66072032b3fd1ac33bef60922c62f73a8cfb11bd
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664371"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734668"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Tworzenie prywatnego klastra usługi Azure Kubernetes Service
 
@@ -121,18 +121,18 @@ Jak wspomniano, Komunikacja równorzędna sieci wirtualnej jest jednym ze sposob
 3. W scenariuszach, w których sieć wirtualna zawierająca klaster ma niestandardowe ustawienia DNS (4), wdrożenie klastra kończy się niepowodzeniem, chyba że prywatna strefa DNS jest połączona z siecią wirtualną, która zawiera niestandardowe resolvery DNS (5). Ten link można utworzyć ręcznie po utworzeniu strefy prywatnej podczas aprowizacji klastra lub za pośrednictwem automatyzacji podczas wykrywania tworzenia strefy przy użyciu mechanizmów wdrażania opartych na zdarzeniach (na przykład Azure Event Grid i Azure Functions).
 
 > [!NOTE]
-> Jeśli używasz funkcji [Przenieś własną tabelę tras z korzystającą wtyczki kubenet](https://docs.microsoft.com/azure/aks/configure-kubenet#bring-your-own-subnet-and-route-table-with-kubenet) i przeniesiesz swój własny klaster DNS z prywatnym klastrem, tworzenie klastra zakończy się niepowodzeniem. W celu pomyślnego utworzenia klastra konieczne będzie skojarzenie [w grupie](https://docs.microsoft.com/azure/aks/configure-kubenet#bring-your-own-subnet-and-route-table-with-kubenet) zasobów węzła z podsiecią.
+> Jeśli używasz funkcji [Przenieś własną tabelę tras z korzystającą wtyczki kubenet](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) i przeniesiesz swój własny klaster DNS z prywatnym klastrem, tworzenie klastra zakończy się niepowodzeniem. W celu pomyślnego utworzenia klastra konieczne będzie skojarzenie [w grupie](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) zasobów węzła z podsiecią.
 
 ## <a name="limitations"></a>Ograniczenia 
 * Nie można zastosować dozwolonych zakresów adresów IP do punktu końcowego serwera prywatnego interfejsu API, są one stosowane tylko do publicznego serwera interfejsu API
 * [Ograniczenia usługi Azure Private link][private-link-service] są stosowane do klastrów prywatnych.
-* Brak obsługi dla agentów hostowanych przez firmę Microsoft dla platformy Azure DevOps z klastrami prywatnymi. Rozważ użycie [agentów samoobsługowych](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser&preserve-view=true). 
+* Brak obsługi dla agentów hostowanych przez firmę Microsoft dla platformy Azure DevOps z klastrami prywatnymi. Rozważ użycie [agentów samoobsługowych](/azure/devops/pipelines/agents/agents?preserve-view=true&tabs=browser&view=azure-devops). 
 * W przypadku klientów, którzy muszą umożliwić Azure Container Registry pracy z prywatnym AKS, Container Registry sieci wirtualnej musi być połączona z siecią wirtualną klastra agentów.
 * Brak obsługi konwertowania istniejących klastrów AKS do klastrów prywatnych
 * Usunięcie lub zmodyfikowanie prywatnego punktu końcowego w podsieci klienta spowoduje, że klaster przestanie działać. 
 * Azure Monitor kontenerów danych na żywo nie są obecnie obsługiwane.
 * Po zaktualizowaniu rekordu A klienta na własnych serwerach DNS te zasobniki nadal rozwiązują apiserverą nazwę FQDN do starszego adresu IP po migracji do momentu ponownego uruchomienia. Po migracji płaszczyzny kontroli klienci muszą ponownie uruchomić hostNetworky i DNSPolicye.
-* W przypadku konserwacji na płaszczyźnie kontroli [AKS IP](https://docs.microsoft.com/azure/aks/limit-egress-traffic#:~:text=By%20default%2C%20AKS%20clusters%20have%20unrestricted%20outbound%20%28egress%29,be%20accessible%20to%20maintain%20healthy%20cluster%20maintenance%20tasks.) może ulec zmianie. W takim przypadku należy zaktualizować rekord A wskazujący prywatny adres IP serwera interfejsu API na niestandardowym serwerze DNS i ponownie uruchomić wszystkie niestandardowe zasobniki lub wdrożenia przy użyciu hostNetwork.
+* W przypadku konserwacji na płaszczyźnie kontroli [AKS IP](./limit-egress-traffic.md) może ulec zmianie. W takim przypadku należy zaktualizować rekord A wskazujący prywatny adres IP serwera interfejsu API na niestandardowym serwerze DNS i ponownie uruchomić wszystkie niestandardowe zasobniki lub wdrożenia przy użyciu hostNetwork.
 
 <!-- LINKS - internal -->
 [az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register

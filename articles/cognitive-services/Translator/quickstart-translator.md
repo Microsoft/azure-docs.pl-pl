@@ -12,12 +12,12 @@ ms.date: 09/14/2020
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: translator, usługa translator, tłumaczenie tekstu, zatransliteracja tekstu, wykrywanie języka
-ms.openlocfilehash: 68bbb31ae87ebbb84cda752c2f4a7c1bd1116dda
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 38bd4d28a8ae4c737155cd74bcb39d1acfaf699c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369532"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733498"
 ---
 # <a name="quickstart-get-started-with-translator"></a>Szybki Start: Rozpoczynanie pracy z usługą translator
 
@@ -59,7 +59,7 @@ W tym przewodniku szybki start nauczysz się używać usługi translatora za po�
 # <a name="java"></a>[Java](#tab/java)
 
 * Utwórz katalog roboczy dla projektu. Na przykład: `mkdir sample-project`.
-* Zainicjuj projekt przy użyciu Gradle: `gradle init --type basic` . Po wyświetleniu monitu wybierz pozycję **Język DSL** , a następnie **Kotlin**.
+* Zainicjuj projekt przy użyciu Gradle: `gradle init --type basic` . Po wyświetleniu monitu wybierz pozycję **Język DSL**, a następnie **Kotlin**.
 * Aktualizacja `build.gradle.kts` . Pamiętaj, że musisz zaktualizować w `mainClassName` zależności od przykładu.
   ```java
   plugins {
@@ -968,7 +968,8 @@ W przypadku tłumaczenia do języka korzystającego z innego alfabetu (lub fonem
 
 Aby uzyskać translitrę z `translate` punktu końcowego, użyj `toScript` parametru.
 
-> ! KORYGUJĄC Aby zapoznać się z pełną listą dostępnych języków i opcji w obsłudze, zobacz temat [Obsługa języków](language-support.md).
+> [!NOTE]
+> Aby zapoznać się z pełną listą dostępnych języków i opcji w obsłudze, zobacz temat [Obsługa języków](language-support.md).
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -1247,7 +1248,8 @@ Po pomyślnym wywołaniu powinna zostać wyświetlona następująca odpowiedź. 
 
 Możesz również użyć `transliterate` punktu końcowego, aby uzyskać translitrę. W przypadku korzystania z punktu końcowego, należy podać język źródłowy ( `language` ), skrypt źródłowy/alfabet ( `fromScript` ) i wyjściowy skrypt/alfabet ( `toScript` ) jako parametry. W tym przykładzie będziemy korzystać z สวัสดี. 
 
-> ! KORYGUJĄC Aby zapoznać się z pełną listą dostępnych języków i opcji w obsłudze, zobacz temat [Obsługa języków](language-support.md).
+> [!NOTE]
+> Aby zapoznać się z pełną listą dostępnych języków i opcji w obsłudze, zobacz temat [Obsługa języków](language-support.md).
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -2675,7 +2677,7 @@ Jeśli występują problemy z połączeniem, być może certyfikat SSL wygasł. 
 * [Dowiedz się, jak interfejsy API zliczają znaki](character-counts.md)
 * [Dostosuj i Popraw tłumaczenie](customization.md)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Dokumentacja interfejsu API usługi Translator v3](reference/v3-0-reference.md)
 * [Obsługa języków](language-support.md)

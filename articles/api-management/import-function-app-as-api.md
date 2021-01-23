@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 01ac59ec435b19f5da56ca345840628964263a47
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: f66395b1e0f45f1e80cd0ac93bf8c9ae8674a0f2
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147032"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732966"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importowanie aplikacji funkcji platformy Azure jako interfejsu API w usłudze Azure API Management
 
@@ -38,7 +38,7 @@ Poznasz następujące czynności:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Wykonaj procedury przedstawione w przewodniku Szybki start [Tworzenie wystąpienia usługi Azure API Management](get-started-create-service-instance.md).
-* Upewnij się, że Twoja subskrypcja zawiera aplikację usługi Azure Functions. Aby uzyskać więcej informacji, zobacz [Tworzenie aplikacji funkcji platformy Azure](../azure-functions/functions-create-first-azure-function.md#create-a-function-app). Musi ona zawierać funkcje z wyzwalaczem HTTP oraz ustawienie poziomu autoryzacji *Anonimowe* lub *Funkcja* .
+* Upewnij się, że Twoja subskrypcja zawiera aplikację usługi Azure Functions. Aby uzyskać więcej informacji, zobacz [Tworzenie aplikacji funkcji platformy Azure](../azure-functions/functions-get-started.md). Musi ona zawierać funkcje z wyzwalaczem HTTP oraz ustawienie poziomu autoryzacji *Anonimowe* lub *Funkcja*.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -48,31 +48,31 @@ Aby utworzyć nowy interfejs API z poziomu aplikacji funkcji platformy Azure, wy
 
 1. Przejdź do usługi API Management w Azure Portal i wybierz opcję **interfejsy API** z menu.
 
-2. Z listy **Dodaj nowy interfejs API** wybierz pozycję **Aplikacja funkcji** .
+2. Z listy **Dodaj nowy interfejs API** wybierz pozycję **Aplikacja funkcji**.
 
     ![Zrzut ekranu przedstawiający kafelek aplikacja funkcji.](./media/import-function-app-as-api/add-01.png)
 
-3. Kliknij przycisk **Przeglądaj** , aby wybrać funkcje do zaimportowania.
+3. Kliknij przycisk **Przeglądaj**, aby wybrać funkcje do zaimportowania.
 
     ![Zrzut ekranu, który wyróżnia przycisk Przeglądaj.](./media/import-function-app-as-api/add-02.png)
 
-4. Kliknij w sekcji **Aplikacja funkcji** , aby wybrać pozycję z listy dostępnych aplikacji funkcji.
+4. Kliknij w sekcji **Aplikacja funkcji**, aby wybrać pozycję z listy dostępnych aplikacji funkcji.
 
     ![Zrzut ekranu, który podświetla sekcję aplikacja funkcji.](./media/import-function-app-as-api/add-03.png)
 
-5. Znajdź aplikację funkcji, z której chcesz zaimportować funkcje, kliknij ją i naciśnij przycisk **Wybierz** .
+5. Znajdź aplikację funkcji, z której chcesz zaimportować funkcje, kliknij ją i naciśnij przycisk **Wybierz**.
 
     ![Zrzut ekranu, który podświetla aplikacja funkcji, z których mają zostać zaimportowane funkcje, i przycisk Wybierz.](./media/import-function-app-as-api/add-04.png)
 
-6. Wybierz funkcje, które chcesz zaimportować, a następnie kliknij przycisk **Wybierz** .
+6. Wybierz funkcje, które chcesz zaimportować, a następnie kliknij przycisk **Wybierz**.
 
     ![Zrzut ekranu, który podświetla funkcje do zaimportowania i przycisk Wybierz.](./media/import-function-app-as-api/add-05.png)
 
     > [!NOTE]
-    > Możesz zaimportować tylko te funkcje, które są oparte na wyzwalaczu HTTP i mają ustawienie poziomu autoryzacji *Anonimowe* lub *Funkcja* .
+    > Możesz zaimportować tylko te funkcje, które są oparte na wyzwalaczu HTTP i mają ustawienie poziomu autoryzacji *Anonimowe* lub *Funkcja*.
 
 7. Przełącz się do widoku **Pełny** i przypisz **Produkt** do nowego interfejsu API. Jeśli to konieczne, określ inne pola podczas tworzenia lub skonfiguruj je później, przechodząc do karty **Ustawienia** . Ustawienia są wyjaśnione w samouczku [Importowanie i publikowanie pierwszego interfejsu API](import-and-publish.md#import-and-publish-a-backend-api) .
-8. Kliknij pozycję **Utwórz** .
+8. Kliknij pozycję **Utwórz**.
 
 ## <a name="append-azure-function-app-to-an-existing-api"></a><a name="append-azure-function-app-to-api"></a> Dołączanie aplikacji funkcji platformy Azure do istniejącego interfejsu API
 
@@ -84,27 +84,27 @@ Aby dołączyć aplikację funkcji platformy Azure do istniejącego interfejsu A
 
     ![Zrzut ekranu, który podświetla opcję menu Importuj.](./media/import-function-app-as-api/append-01.png)
 
-3. Kliknij kafelek **Aplikacja funkcji** .
+3. Kliknij kafelek **Aplikacja funkcji**.
 
     ![Zrzut ekranu, który podświetla kafelek aplikacja funkcji.](./media/import-function-app-as-api/append-02.png)
 
-4. W oknie podręcznym kliknij przycisk **Przeglądaj** .
+4. W oknie podręcznym kliknij przycisk **Przeglądaj**.
 
     ![Zrzut ekranu pokazujący przycisk Przeglądaj.](./media/import-function-app-as-api/append-03.png)
 
-5. Kliknij w sekcji **Aplikacja funkcji** , aby wybrać pozycję z listy dostępnych aplikacji funkcji.
+5. Kliknij w sekcji **Aplikacja funkcji**, aby wybrać pozycję z listy dostępnych aplikacji funkcji.
 
     ![Zrzut ekranu, który wyróżnia listę aplikacji funkcji.](./media/import-function-app-as-api/add-03.png)
 
-6. Znajdź aplikację funkcji, z której chcesz zaimportować funkcje, kliknij ją i naciśnij przycisk **Wybierz** .
+6. Znajdź aplikację funkcji, z której chcesz zaimportować funkcje, kliknij ją i naciśnij przycisk **Wybierz**.
 
     ![Zrzut ekranu, który wyróżnia aplikacja funkcji, z których mają zostać zaimportowane funkcje.](./media/import-function-app-as-api/add-04.png)
 
-7. Wybierz funkcje, które chcesz zaimportować, a następnie kliknij przycisk **Wybierz** .
+7. Wybierz funkcje, które chcesz zaimportować, a następnie kliknij przycisk **Wybierz**.
 
     ![Zrzut ekranu, który podświetla functnios, które chcesz zaimportować.](./media/import-function-app-as-api/add-05.png)
 
-8. Kliknij pozycję **Importuj** .
+8. Kliknij pozycję **Importuj**.
 
     ![Dołączanie z poziomu aplikacji funkcji](./media/import-function-app-as-api/append-04.png)
 
@@ -112,8 +112,8 @@ Aby dołączyć aplikację funkcji platformy Azure do istniejącego interfejsu A
 
 Zaimportowanie aplikacji funkcji platformy Azure powoduje automatyczne wygenerowanie:
 
-* Klucz hosta w aplikacja funkcji o nazwie APIM-{ *Nazwa wystąpienia usługi API Management platformy Azure* },
-* Nazwana wartość w wystąpieniu API Management platformy Azure o nazwie { *Nazwa wystąpienia aplikacja funkcji platformy Azure* } — klucz, który zawiera utworzony klucz hosta.
+* Klucz hosta w aplikacja funkcji o nazwie APIM-{*Nazwa wystąpienia usługi API Management platformy Azure*},
+* Nazwana wartość w wystąpieniu API Management platformy Azure o nazwie {*Nazwa wystąpienia aplikacja funkcji platformy Azure*} — klucz, który zawiera utworzony klucz hosta.
 
 W przypadku interfejsów API utworzonych po 4 kwietnia 2019 klucz hosta jest przesyłany w żądaniach HTTP od API Management do aplikacja funkcji w nagłówku. Starsze interfejsy API przekazują klucz hosta jako [parametr zapytania](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). To zachowanie można zmienić za pomocą `PATCH Backend` [wywołania interfejsu API REST](/rest/api/apimanagement/2019-12-01/backend/update#backendcredentialscontract) w jednostce *zaplecza* skojarzonej z aplikacja funkcji.
 
@@ -130,7 +130,7 @@ W przypadku interfejsów API utworzonych po 4 kwietnia 2019 klucz hosta jest prz
 
     ![Zrzut ekranu, który podświetla opcję Ustawienia aplikacji funkcji.](./media/import-function-app-as-api/keys-02-a.png)
 
-3. Klucz znajduje się w sekcji **Klucze hosta** .
+3. Klucz znajduje się w sekcji **Klucze hosta**.
 
     ![Zrzut ekranu, który podświetla sekcję klucze hosta.](./media/import-function-app-as-api/keys-02-b.png)
 
@@ -146,13 +146,13 @@ Operacje można wywoływać bezpośrednio w witrynie Azure Portal. Witryna Azure
 
 1. Wybierz interfejs API utworzony w poprzedniej sekcji.
 
-2. Wybierz kartę **Test** .
+2. Wybierz kartę **Test**.
 
 3. Wybierz operację.
 
     Na stronie zostaną wyświetlone pola parametrów zapytania i pola nagłówków. Jeden z nagłówków to **OCP-APIM-Subscription-Key** dla klucza subskrypcji produktu skojarzonego z tym interfejsem API. Jeśli utworzono wystąpienie API Management, oznacza to, że już jesteś administratorem, więc klucz zostanie uzupełniony automatycznie. 
 
-4. Wybierz pozycję **Wyślij** .
+4. Wybierz pozycję **Wyślij**.
 
     Zaplecze odpowiada wartością **200 OK** i pewnymi danymi.
 

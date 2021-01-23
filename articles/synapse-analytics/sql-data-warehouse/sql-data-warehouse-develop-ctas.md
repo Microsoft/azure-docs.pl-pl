@@ -11,12 +11,12 @@ ms.date: 03/26/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019, azure-synapse
-ms.openlocfilehash: 6750f010e3992a2b76cc688449ad44efa7ec76d0
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 68bab754142538fc6067cf2593ae6244a03a48d1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683277"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734818"
 ---
 # <a name="create-table-as-select-ctas"></a>CREATE TABLE JAKO SELECT (CTAS)
 
@@ -208,7 +208,7 @@ DROP TABLE CTAS_acs;
 
 ## <a name="ansi-join-replacement-for-merge"></a>Zamiana sprzężenia ANSI na potrzeby scalania 
 
-W usłudze Azure Synapse Analytics [scalanie](/sql/t-sql/statements/merge-transact-sql?view=sql-server-ver15) (wersja zapoznawcza) z niezgodnym elementem docelowym wymaga, aby element docelowy był tabelą rozproszoną.  Użytkownicy mogą użyć SPRZĘŻENIa ANSI z opcją [Update](/sql/t-sql/queries/update-transact-sql?view=sql-server-ver15) lub [delete](/sql/t-sql/statements/delete-transact-sql?view=sql-server-ver15) jako obejścia, aby zmodyfikować dane tabeli docelowej na podstawie wyniku łączenia z inną tabelą.  Oto przykład:
+W usłudze Azure Synapse Analytics [scalanie](/sql/t-sql/statements/merge-transact-sql?view=azure-sqldw-latest&preserve-view=true) (wersja zapoznawcza) z niezgodnym elementem docelowym wymaga, aby element docelowy był tabelą rozproszoną.  Użytkownicy mogą użyć SPRZĘŻENIa ANSI z opcją [Update](/sql/t-sql/queries/update-transact-sql?view=azure-sqldw-latest&preserve-view=true) lub [delete](/sql/t-sql/statements/delete-transact-sql?view=azure-sqldw-latest&preserve-view=true) jako obejścia, aby zmodyfikować dane tabeli docelowej na podstawie wyniku łączenia z inną tabelą.  Oto przykład:
 
 ```sql
 CREATE TABLE dbo.Table1   

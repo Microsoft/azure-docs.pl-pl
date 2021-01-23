@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/05/2021
 author: lgayhardt
 ms.author: lagayhar
-ms.openlocfilehash: 6f25ff02dee16812898d77d0e801f927b354dc78
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 11e21f376ea3b5cf580d54780509529b4536718b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97918332"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734178"
 ---
 # <a name="azure-monitor-for-azure-data-explorer-preview"></a>Azure Monitor dla Eksplorator danych platformy Azure (wersja zapoznawcza)
 
@@ -49,7 +49,7 @@ Na karcie **Przegląd** dla wybranej subskrypcji w tabeli wyświetlane są inter
 
 Kafelek licznika, na liście rozwijanej, rzutuje łączną liczbę klastrów Eksplorator danych platformy Azure w wybranych subskrypcjach i odzwierciedla liczbę wybranych usług. Istnieją warunkowe kodowanie kolorów dla kolumn: utrzymywanie aktywności, procesora CPU, wykorzystania pozyskiwania oraz wykorzystania pamięci podręcznej. Komórki kodowane z pomarańczowymi zawierają wartości, które nie są trwałe dla klastra. 
 
-Aby lepiej zrozumieć, co reprezentuje każda Metryka, zalecamy zapoznanie się z dokumentacją dotyczącą [metryk Eksplorator danych platformy Azure](https://docs.microsoft.com/azure/data-explorer/using-metrics#cluster-metrics).
+Aby lepiej zrozumieć, co reprezentuje każda Metryka, zalecamy zapoznanie się z dokumentacją dotyczącą [metryk Eksplorator danych platformy Azure](/azure/data-explorer/using-metrics#cluster-metrics).
 
 ### <a name="query-performance-tab"></a>Karta wydajność zapytań
 
@@ -81,7 +81,7 @@ Aby uzyskać dostęp do Azure Monitor klastrów Eksplorator danych platformy Azu
 
 Te widoki są również dostępne, wybierając nazwę zasobu klastra Eksplorator danych platformy Azure z poziomu widoku Azure Monitor szczegółowych informacji.
 
-Azure Monitor dla systemu Azure Eksplorator danych łączy dzienniki i metryki, aby zapewnić globalne rozwiązanie do monitorowania. Dołączenie wizualizacji opartych na dziennikach wymaga od użytkowników [włączenia rejestrowania diagnostycznego klastra usługi Azure Eksplorator danych i wysłania ich do log Analytics obszaru roboczego.](https://docs.microsoft.com/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs) Dzienniki diagnostyczne, które powinny być włączone, to: **Command**, **Query**, **TableDetails** i **TableUsageStatistics**.
+Azure Monitor dla systemu Azure Eksplorator danych łączy dzienniki i metryki, aby zapewnić globalne rozwiązanie do monitorowania. Dołączenie wizualizacji opartych na dziennikach wymaga od użytkowników [włączenia rejestrowania diagnostycznego klastra usługi Azure Eksplorator danych i wysłania ich do log Analytics obszaru roboczego.](/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs) Dzienniki diagnostyczne, które powinny być włączone, to: **Command**, **Query**, **TableDetails** i **TableUsageStatistics**.
 
 ![Zrzut ekranu przedstawiający niebieski przycisk z tekstem "Włączanie dzienników do monitorowania"](./media/data-explorer/enable-logs.png)
 
@@ -90,7 +90,7 @@ Azure Monitor dla systemu Azure Eksplorator danych łączy dzienniki i metryki, 
 
 - Kafelki metryk wyróżniają dostępność i ogólny stan klastra, aby szybko ocenić jego kondycję.
 
-- Podsumowanie dotyczące aktywnych [zaleceń usługi Advisor](https://docs.microsoft.com/azure/data-explorer/azure-advisor) i stanu [kondycji zasobów](https://docs.microsoft.com/azure/data-explorer/monitor-with-resource-health) .
+- Podsumowanie dotyczące aktywnych [zaleceń usługi Advisor](/azure/data-explorer/azure-advisor) i stanu [kondycji zasobów](/azure/data-explorer/monitor-with-resource-health) .
 
 - Wykresy przedstawiające najpopularniejszych odbiorców procesora i pamięci oraz liczbę unikatowych użytkowników w czasie.
 
@@ -114,7 +114,7 @@ Karta **użycie** pozwala użytkownikom na głębokie szczegółowe do wydajnoś
 
 Na karcie **tabele** są wyświetlane najnowsze i historyczne właściwości tabel w klastrze. Można zobaczyć, które tabele zużywają najwięcej miejsca, śledzić historię wzrostu według rozmiaru tabeli, gorącą i ilości wierszy w czasie.
 
-Karta **pamięć podręczna** pozwala użytkownikom analizować ich rzeczywiste zapytania, a następnie porównać je ze skonfigurowanymi zasadami pamięci podręcznej (dla każdej tabeli). Można zidentyfikować tabele używane przez większość zapytań i tabel, które nie są w ogóle badane i odpowiednio dostosować zasady pamięci podręcznej. Możesz uzyskać szczegółowe zalecenia dotyczące zasad pamięci podręcznej w określonych tabelach w Azure Advisor (obecnie zalecenia dotyczące pamięci podręcznej są dostępne tylko z [głównego pulpitu nawigacyjnego Azure Advisor](https://docs.microsoft.com/azure/data-explorer/azure-advisor#use-the-azure-advisor-recommendations)), w oparciu o rzeczywiste zapytania, w ciągu ostatnich 30 dni i niezoptymalizowane zasady pamięci podręcznej dla co najmniej 95% zapytań. Zalecenia dotyczące redukcji pamięci podręcznej w Azure Advisor są dostępne dla klastrów, które są "ograniczone przez dane" (co oznacza, że klaster ma niskie użycie procesora CPU i niskie wykorzystanie, ale z powodu dużej pojemności danych klaster nie mógł skalować w dół ani skalować w dół).
+Karta **pamięć podręczna** pozwala użytkownikom analizować ich rzeczywiste zapytania, a następnie porównać je ze skonfigurowanymi zasadami pamięci podręcznej (dla każdej tabeli). Można zidentyfikować tabele używane przez większość zapytań i tabel, które nie są w ogóle badane i odpowiednio dostosować zasady pamięci podręcznej. Możesz uzyskać szczegółowe zalecenia dotyczące zasad pamięci podręcznej w określonych tabelach w Azure Advisor (obecnie zalecenia dotyczące pamięci podręcznej są dostępne tylko z [głównego pulpitu nawigacyjnego Azure Advisor](/azure/data-explorer/azure-advisor#use-the-azure-advisor-recommendations)), w oparciu o rzeczywiste zapytania, w ciągu ostatnich 30 dni i niezoptymalizowane zasady pamięci podręcznej dla co najmniej 95% zapytań. Zalecenia dotyczące redukcji pamięci podręcznej w Azure Advisor są dostępne dla klastrów, które są "ograniczone przez dane" (co oznacza, że klaster ma niskie użycie procesora CPU i niskie wykorzystanie, ale z powodu dużej pojemności danych klaster nie mógł skalować w dół ani skalować w dół).
 
 [![Zrzut ekranu przedstawiający szczegóły pamięci podręcznej](./media/data-explorer/cache-tab.png)](./media/data-explorer/cache-tab.png#lightbox)
 
@@ -153,7 +153,7 @@ Wyświetlane są tylko subskrypcje zawierające klastry usługi Azure Eksplorato
 
 ### <a name="why-do-i-not-see-any-data-for-my-azure-data-explorer-cluster-under-the-usage-tables-or-cache-sections"></a>Dlaczego nie widzę żadnych danych dla klastra usługi Azure Eksplorator danych w sekcji użycie, tabele lub pamięć podręczna?
 
-Aby wyświetlić dane oparte na dziennikach, należy [włączyć dzienniki diagnostyczne](https://docs.microsoft.com/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs) dla każdego z klastrów Eksplorator danych platformy Azure, które mają być monitorowane. Można to zrobić w ustawieniach diagnostycznych dla każdego klastra. Konieczne będzie wysłanie danych do obszaru roboczego Log Analytics. Dzienniki diagnostyczne, które powinny być włączone, to: Command, Query, TableDetails i TableUsageStatistics.
+Aby wyświetlić dane oparte na dziennikach, należy [włączyć dzienniki diagnostyczne](/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs) dla każdego z klastrów Eksplorator danych platformy Azure, które mają być monitorowane. Można to zrobić w ustawieniach diagnostycznych dla każdego klastra. Konieczne będzie wysłanie danych do obszaru roboczego Log Analytics. Dzienniki diagnostyczne, które powinny być włączone, to: Command, Query, TableDetails i TableUsageStatistics.
 
 ### <a name="i-have-already-enabled-logs-for-my-azure-data-explorer-cluster-why-am-i-still-unable-to-see-my-data-under-commands-and-queries"></a>Mam już włączone dzienniki dla mojego klastra usługi Azure Eksplorator danych, dlaczego nadal nie mogę zobaczyć moich danych w ramach poleceń i zapytań?
 

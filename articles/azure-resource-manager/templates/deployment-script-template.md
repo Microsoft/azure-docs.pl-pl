@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/28/2020
 ms.author: jgao
-ms.openlocfilehash: 4d2a55355318a1bf916017fa77026a87a95b7f57
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
+ms.openlocfilehash: 574dcf50111c14f4924f009a74ed6f2ac2bb31e9
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97809721"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733844"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Używanie skryptów wdrażania w szablonach ARM
 
@@ -264,7 +264,7 @@ Konto magazynu i wystąpienie kontenera są niezbędne do wykonania skryptu i ro
 
 - Obsługiwane rodzaje kont magazynu:
 
-    | Jednostka SKU             | Obsługiwany rodzaj     |
+    | SKU             | Obsługiwany rodzaj     |
     |-----------------|--------------------|
     | Premium_LRS     | FileStorage        |
     | Premium_ZRS     | FileStorage        |
@@ -542,7 +542,7 @@ Cykl życia tych zasobów jest kontrolowany przez następujące właściwości w
 > [!NOTE]
 > Nie zaleca się używania konta magazynu i wystąpienia kontenera, które są generowane przez usługę skryptów do innych celów. Te dwa zasoby mogą zostać usunięte w zależności od cyklu życia skryptu.
 
-Wystąpienie kontenera i konto magazynu są usuwane zgodnie z `cleanupPreference` . Jeśli jednak skrypt zakończy się niepowodzeniem i `cleanupPreference` nie zostanie ustawiony na **zawsze**, proces wdrażania automatycznie będzie nadal działać przez jedną godzinę. Możesz użyć tej godziny do rozwiązywania problemów z skryptem. Aby zachować działanie kontenera po pomyślnym wdrożeniu, należy dodać krok uśpienia do skryptu. Na przykład Dodaj polecenie [Start-Uśpij](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep) do końca skryptu. Jeśli nie dodasz kroku uśpienia, kontener zostanie ustawiony na stan terminala i nie będzie można uzyskać do niego dostępu nawet wtedy, gdy nie został jeszcze usunięty.
+Wystąpienie kontenera i konto magazynu są usuwane zgodnie z `cleanupPreference` . Jeśli jednak skrypt zakończy się niepowodzeniem i `cleanupPreference` nie zostanie ustawiony na **zawsze**, proces wdrażania automatycznie będzie nadal działać przez jedną godzinę. Możesz użyć tej godziny do rozwiązywania problemów z skryptem. Aby zachować działanie kontenera po pomyślnym wdrożeniu, należy dodać krok uśpienia do skryptu. Na przykład Dodaj polecenie [Start-Uśpij](/powershell/module/microsoft.powershell.utility/start-sleep) do końca skryptu. Jeśli nie dodasz kroku uśpienia, kontener zostanie ustawiony na stan terminala i nie będzie można uzyskać do niego dostępu nawet wtedy, gdy nie został jeszcze usunięty.
 
 ## <a name="run-script-more-than-once"></a>Uruchom skrypt więcej niż raz
 

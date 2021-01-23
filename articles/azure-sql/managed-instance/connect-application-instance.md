@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: dd5c6527cd6a0beea291dce94ff0e5949ba00671
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 965e765e22a4da8f2ac3b7151337cf62b65be4fe
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791260"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732615"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Łączenie aplikacji z wystąpieniem zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -56,7 +56,7 @@ Możesz również połączyć aplikację lokalną z wystąpieniem zarządzanym S
 
 Istnieją dwie opcje łączenia lokalnego z siecią wirtualną platformy Azure:
 
-- Połączenie sieci VPN typu lokacja-lokacja ([Azure Portal](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [interfejs wiersza polecenia platformy Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
+- Połączenie sieci VPN typu lokacja-lokacja ([Azure Portal](../../vpn-gateway/tutorial-site-to-site-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [interfejs wiersza polecenia platformy Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
 - Połączenie [usługi Azure ExpressRoute](../../expressroute/expressroute-introduction.md)  
 
 Jeśli nawiązanie połączenia lokalnego z platformą Azure powiodło się i nie można nawiązać połączenia z wystąpieniem zarządzanym SQL, sprawdź, czy Zapora ma otwarte połączenie wychodzące na porcie SQL 1433 oraz 11000-11999 zakres portów do przekierowania.
@@ -69,12 +69,12 @@ Istnieje również możliwość połączenia Twojego dewelopera z wystąpieniem 
 
 Innym scenariuszem wdrożonym przez klientów jest to, że Brama sieci VPN jest zainstalowana w oddzielnej sieci wirtualnej i subskrypcji z jednego hostingu wystąpienia zarządzanego SQL. Dwie sieci wirtualne są następnie połączone za pomocą komunikacji równorzędnej. Poniższy przykładowy diagram architektury przedstawia, w jaki sposób można go zaimplementować.
 
-![Komunikacja równorzędna sieci wirtualnych](./media/connect-application-instance/vnet-peering.png)
+![Komunikacja równorzędna sieci wirtualnej](./media/connect-application-instance/vnet-peering.png)
 
-Po skonfigurowaniu podstawowej infrastruktury należy zmodyfikować niektóre ustawienia, aby Brama sieci VPN widziała adresy IP w sieci wirtualnej, która hostuje wystąpienie zarządzane SQL. W tym celu wprowadź następujące bardzo szczegółowe zmiany w obszarze **ustawienia komunikacji równorzędnej** .
+Po skonfigurowaniu podstawowej infrastruktury należy zmodyfikować niektóre ustawienia, aby Brama sieci VPN widziała adresy IP w sieci wirtualnej, która hostuje wystąpienie zarządzane SQL. W tym celu wprowadź następujące bardzo szczegółowe zmiany w obszarze **ustawienia komunikacji równorzędnej**.
 
-1. W sieci wirtualnej, która hostuje bramę sieci VPN, przejdź do obszaru **komunikacji równorzędnej** , przejdź do połączenia wirtualnej sieci równorzędnej dla wystąpienia zarządzanego SQL, a następnie kliknij przycisk **Zezwalaj na tranzyt bramy** .
-2. W sieci wirtualnej, która hostuje wystąpienie zarządzane SQL, przejdź do obszaru **komunikacji równorzędnej** , przejdź do połączenia sieci wirtualnej komunikacji równorzędnej dla bramy sieci VPN, a następnie kliknij opcję **Użyj bram zdalnych** .
+1. W sieci wirtualnej, która hostuje bramę sieci VPN, przejdź do obszaru **komunikacji równorzędnej**, przejdź do połączenia wirtualnej sieci równorzędnej dla wystąpienia zarządzanego SQL, a następnie kliknij przycisk **Zezwalaj na tranzyt bramy**.
+2. W sieci wirtualnej, która hostuje wystąpienie zarządzane SQL, przejdź do obszaru **komunikacji równorzędnej**, przejdź do połączenia sieci wirtualnej komunikacji równorzędnej dla bramy sieci VPN, a następnie kliknij opcję **Użyj bram zdalnych**.
 
 ## <a name="connect-azure-app-service"></a>Połącz Azure App Service 
 

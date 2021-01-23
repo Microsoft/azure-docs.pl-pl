@@ -7,17 +7,17 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 0b32158ad58a663f7d85b9814bb4f2c1c55e4178
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 5cb767c639c7ff1d9888085caa036571376cc596
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922447"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734151"
 ---
 # <a name="examples-of-an-attestation-policy-signer-certificate"></a>Przykłady certyfikatu osoby podpisującej zasady zaświadczania
 
 Certyfikaty dotyczące podpisywania zasad skojarzone z dostawcą zaświadczania będą używane przez Microsoft Azure zaświadczanie do zweryfikowania podpisanych zasad.
-Dowiedz się więcej o [zaletach podpisywania zasad](/azure/attestation/basic-concepts/#benefits-of-policy-signing)
+Dowiedz się więcej o [zaletach podpisywania zasad](./basic-concepts.md#benefits-of-policy-signing)
 
 **Format pliku certyfikatu osoby podpisującej zasady, który ma być używany w przepływie tworzenia dostawcy**
 

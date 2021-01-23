@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7e7dce7ec4b8d4d55e734487595bb330e97ab18b
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 2ead7291f52f33c271768ae2f470af65aca98030
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120448"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734751"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Jak używać funkcji OPENROWSET przy użyciu bezserwerowej puli SQL w usłudze Azure Synapse Analytics
 
@@ -171,7 +171,7 @@ WITH (
 )
 ```
 
-json_path = [wyrażenie ścieżki JSON](/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) do kolumny lub właściwości zagnieżdżonej. Domyślny [tryb ścieżki](/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15#PATHMODE) to swobodny.
+json_path = [wyrażenie ścieżki JSON](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true) do kolumny lub właściwości zagnieżdżonej. Domyślny [tryb ścieżki](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true#PATHMODE) to swobodny.
 
 > [!NOTE]
 > W zapytaniu w trybie Strict nie powiedzie się z błędem, jeśli podana ścieżka nie istnieje. Zapytanie w trybie swobodny zostanie wykonane pomyślnie, a wyrażenie ścieżki JSON zwróci wartość NULL.
@@ -266,7 +266,7 @@ Pliki Parquet zawierają opisy typów dla każdej kolumny. W poniższej tabeli o
 | INT64 | | bigint |
 | INT96 | |datetime2 |
 | FIXED_LEN_BYTE_ARRAY | |binarny |
-| BINARNY |UTF8 |varchar \* (sortowanie UTF8) |
+| BINARNY |KODOWANIA |varchar \* (sortowanie UTF8) |
 | BINARNY |PARAMETRY |varchar \* (sortowanie UTF8) |
 | BINARNY |PODSTAWOWE|varchar \* (sortowanie UTF8) |
 | FIXED_LEN_BYTE_ARRAY |INTERFEJSU |uniqueidentifier |
@@ -281,7 +281,7 @@ Pliki Parquet zawierają opisy typów dla każdej kolumny. W poniższej tabeli o
 | ELEMENTEM |INT (8, FAŁSZ) |tinyint |
 | ELEMENTEM |INT (16, FAŁSZ) |int |
 | ELEMENTEM |INT (32, false) |bigint |
-| ELEMENTEM |DATE |date |
+| ELEMENTEM |DATE |data |
 | ELEMENTEM |DOKŁADNOŚCI |decimal |
 | ELEMENTEM |CZAS (MŁYNER)|time |
 | INT64 |INT (64, true) |bigint |
@@ -371,7 +371,7 @@ WITH (
 
 ### <a name="specify-columns-using-json-paths"></a>Określanie kolumn przy użyciu ścieżek JSON
 
-Poniższy przykład pokazuje, jak można użyć [wyrażeń ścieżki JSON](/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) w klauzuli with i ilustruje różnicę między trybami ścieżki ścisłej i swobodny: 
+Poniższy przykład pokazuje, jak można użyć [wyrażeń ścieżki JSON](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true) w klauzuli with i ilustruje różnicę między trybami ścieżki ścisłej i swobodny: 
 
 ```sql
 SELECT 

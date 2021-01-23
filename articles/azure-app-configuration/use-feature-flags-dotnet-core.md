@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 1794d5b15c724008d95cfc59b16960b7ae6a0783
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 2f141b896ef11fecdf156d062a78252ce6f7ffb3
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661572"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734986"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Samouczek: używanie flag funkcji w aplikacji ASP.NET Core
 
@@ -105,7 +105,7 @@ Najprostszym sposobem łączenia aplikacji ASP.NET Core z konfiguracją aplikacj
               .UseStartup<Startup>();
    ```
 
-2. Otwórz *Startup.cs* i zaktualizuj `Configure` metodę, aby dodać wbudowane oprogramowanie pośredniczące o nazwie `UseAzureAppConfiguration` . To oprogramowanie pośredniczące umożliwia odświeżanie wartości flag funkcji w cyklicznym interwale, podczas gdy aplikacja sieci Web ASP.NET Core nadal otrzymuje żądania.
+2. Otwórz *Startup.cs* i zaktualizuj `Configure` metodę i, `ConfigureServices` Aby dodać wbudowane oprogramowanie pośredniczące o nazwie `UseAzureAppConfiguration` . To oprogramowanie pośredniczące umożliwia odświeżanie wartości flag funkcji w cyklicznym interwale, podczas gdy aplikacja sieci Web ASP.NET Core nadal otrzymuje żądania.
 
    ```csharp
    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -115,6 +115,13 @@ Najprostszym sposobem łączenia aplikacji ASP.NET Core z konfiguracją aplikacj
    }
    ```
 
+   ```csharp
+   public void ConfigureServices(IServiceCollection services)
+   {
+       services.AddAzureAppConfiguration();
+   }
+   ```
+   
 Oczekiwane wartości flagi funkcji są zmieniane z upływem czasu. Domyślnie wartości flagi funkcji są buforowane przez okres 30 sekund, więc operacja odświeżania wyzwalana, gdy oprogramowanie pośredniczące odbiera żądanie nie aktualizuje wartości do momentu wygaśnięcia wartości w pamięci podręcznej. Poniższy kod przedstawia sposób zmiany czasu wygaśnięcia pamięci podręcznej lub interwału sondowania na 5 minut w `options.UseFeatureFlags()` wywołaniu.
 
 ```csharp
@@ -172,7 +179,7 @@ public enum MyFeatureFlags
 
 ## <a name="feature-flag-checks"></a>Sprawdzanie flag funkcji
 
-Podstawowym wzorcem zarządzania funkcjami jest najpierw sprawdzenie, czy flaga funkcji jest ustawiona na wartość *włączone*. Jeśli tak, Menedżer funkcji uruchamia następnie akcje, które zawiera funkcja. Przykład:
+Podstawowym wzorcem zarządzania funkcjami jest najpierw sprawdzenie, czy flaga funkcji jest ustawiona na wartość *włączone*. Jeśli tak, Menedżer funkcji uruchamia następnie akcje, które zawiera funkcja. Na przykład:
 
 ```csharp
 IFeatureManager featureManager;

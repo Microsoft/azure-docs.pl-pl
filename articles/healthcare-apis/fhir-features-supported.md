@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: cavoeg
-ms.openlocfilehash: 9a4c331d82695aecb53990fd604ade82f3361959
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ad663b345d3d150b55e0e018afd1430775d77162
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452922"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733473"
 ---
 # <a name="features"></a>Funkcje
 
@@ -29,13 +29,13 @@ Obecnie obsługiwane są również poprzednie wersje: `3.0.2`
 
 | Interfejs API                            | Obsługiwane — PaaS | Obsługiwane — OSS (SQL) | Obsługiwane — OSS (Cosmos DB) | Komentarz                                             |
 |--------------------------------|-----------|-----------|-----------|-----------------------------------------------------|
-| przeczytaj                           | Tak       | Tak       | Tak       |                                                     |
+| odczyt                           | Tak       | Tak       | Tak       |                                                     |
 | vread                          | Tak       | Tak       | Tak       |                                                     |
 | update                         | Tak       | Tak       | Tak       |                                                     |
 | Aktualizuj przy użyciu optymistycznego blokowania | Tak       | Tak       | Tak       |                                                     |
 | Aktualizuj (warunkowo)           | Tak       | Tak       | Tak       |                                                     |
 | wysłana                          | Nie        | Nie        | Nie        |                                                     |
-| delete                         | Tak       | Tak       | Tak       |                                                     |
+| usunięcie                         | Tak       | Tak       | Tak       |                                                     |
 | Usuń (warunkowe)           | Nie        | Nie        | Nie        |                                                     |
 | historia                        | Tak       | Tak       | Tak       |                                                     |
 | create                         | Tak       | Tak       | Tak       | Obsługa funkcji POST/PUT                               |
@@ -49,7 +49,7 @@ Obecnie obsługiwane są również poprzednie wersje: `3.0.2`
 | stronicowania                         | Częściowe   | Częściowe   | Częściowe   | `self` i `next` są obsługiwane                     |
 | pośredników                 | Nie        | Nie        | Nie        |                                                     |
 
-## <a name="search"></a>Wyszukiwanie
+## <a name="search"></a>Wyszukaj
 
 Wszystkie typy parametrów wyszukiwania są obsługiwane. 
 
@@ -86,7 +86,7 @@ Wszystkie typy parametrów wyszukiwania są obsługiwane.
 | `_id`                   | Tak       | Tak       | Tak       |         |
 | `_lastUpdated`          | Tak       | Tak       | Tak       |         |
 | `_tag`                  | Tak       | Tak       | Tak       |         |
-| `_profile`              | Tak       | Tak       | Tak       |         |
+| `_profile`              | Częściowe   | Częściowe   | Częściowe   | Obsługiwane tylko w STU3, brak obsługi w R4 |
 | `_security`             | Tak       | Tak       | Tak       |         |
 | `_text`                 | Nie        | Nie        | Nie        |         |
 | `_content`              | Nie        | Nie        | Nie        |         |
@@ -137,7 +137,7 @@ Obecnie dozwolone akcje dla danej roli są stosowane *globalnie* w interfejsie A
 
 * [**Jednostki żądań (jednostek ru)**](../cosmos-db/concepts-limits.md) — możesz skonfigurować do 10 000 jednostek RU w portalu dla interfejsu API platformy Azure dla FHIR. Wymagana jest co najmniej 400 jednostek ru lub 10 jednostek ru/GB, w zależności od tego, co będzie większe. Jeśli potrzebujesz więcej niż 10 000 jednostek ru, możesz umieścić bilet pomocy technicznej w celu zwiększenia tego problemu. Maksymalna dostępna wartość to 1 000 000.
 
-* **Współbieżne połączenia** i **wystąpienia** — dzięki dafault masz pięć współbieżnych połączeń na dwóch wystąpieniach w klastrze (w sumie 10 współbieżnych żądań). Jeśli uważasz, że potrzebujesz więcej współbieżnych żądań, Otwórz bilet pomocy technicznej ze szczegółowymi informacjami dotyczącymi Twoich potrzeb.
+* **Współbieżne połączenia** i **wystąpienia** — domyślnie masz pięć współbieżnych połączeń w dwóch wystąpieniach w klastrze (w sumie 10 współbieżnych żądań). Jeśli uważasz, że potrzebujesz więcej współbieżnych żądań, Otwórz bilet pomocy technicznej ze szczegółowymi informacjami dotyczącymi Twoich potrzeb.
 
 * **Rozmiar pakietu** — każdy pakiet jest ograniczony do 500 elementów.
 

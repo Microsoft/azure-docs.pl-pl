@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, sstein
 ms.date: 12/9/2020
-ms.openlocfilehash: d1ba9445441f38c55b40a8f8ca55471ea8b0a06d
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: f50042caf21630c5054ead76825e49b820405c5b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008592"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732698"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Pule elastyczne ułatwiają zarządzanie wieloma bazami danych w Azure SQL Database i skalowanie ich.
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -156,7 +156,7 @@ Po zakończeniu konfigurowania puli można kliknąć pozycję "Zastosuj", nazwę
 
 W Azure Portal można monitorować wykorzystanie puli elastycznej i baz danych w tej puli. Możesz również wprowadzić zestaw zmian w puli elastycznej i przesłać wszystkie zmiany w tym samym czasie. Te zmiany obejmują dodawanie lub usuwanie baz danych, zmienianie ustawień puli elastycznej lub zmienianie ustawień bazy danych.
 
-Korzystając z wbudowanych narzędzi do [monitorowania wydajności](https://docs.microsoft.com/azure/azure-sql/database/performance-guidance) i [alertów](https://docs.microsoft.com/azure/azure-sql/database/alerts-insights-configure-portal), można łączyć się z ocenami wydajności.  Ponadto SQL Database mogą [emitować metryki i dzienniki zasobów](https://docs.microsoft.com/azure/azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure?tabs=azure-portal) w celu łatwiejszego monitorowania.
+Korzystając z wbudowanych narzędzi do [monitorowania wydajności](./performance-guidance.md) i [alertów](./alerts-insights-configure-portal.md), można łączyć się z ocenami wydajności.  Ponadto SQL Database mogą [emitować metryki i dzienniki zasobów](./metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-portal) w celu łatwiejszego monitorowania.
 
 ## <a name="customer-case-studies"></a>Analizy przypadków klientów
 

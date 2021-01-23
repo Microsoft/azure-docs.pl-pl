@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 138e3ee5272d790130cebfd8a1f61da7bed970d8
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 587078f1f084d002e4d725ca3be64bcec36b4c45
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98663972"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734651"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Supported Kubernetes versions in Azure Kubernetes Service (AKS) (Obsługiwane wersje rozwiązania Kubernetes w usłudze Azure Kubernetes Service)
 
@@ -107,7 +107,7 @@ Nowe wersje **pomocnicze** programu Kubernetes
 1. AKS publikuje wstępne zawiadomienie o planowanej dacie nowej wersji, a odpowiednia stara wersja jest przestarzała w [informacjach o wersji AKS](https://aka.ms/aks/releasenotes) co najmniej 30 dni przed usunięciem.
 2. AKS publikuje [powiadomienie o kondycji usługi](../service-health/service-health-overview.md) dostępne dla wszystkich użytkowników z dostępem do AKS i portalu i wysyła wiadomość e-mail do administratorów subskrypcji z datami usunięcia planowanej wersji.
 ````
-To find out who is your subscription administrators or to change it, please refer to [manage Azure subscriptions](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator#assign-a-subscription-administrator).
+To find out who is your subscription administrators or to change it, please refer to [manage Azure subscriptions](../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator).
 ````
 3. Użytkownicy mają **30 dni** od usunięcia wersji, aby przeprowadzić uaktualnienie do obsługiwanej wersji pomocniczej, aby nadal otrzymywać pomoc techniczną.
 
@@ -142,7 +142,7 @@ Aby uzyskać historię wcześniejszych wersji, zobacz [Kubernetes](https://en.wi
 | 1,17  | Gru-09-19  | Sty 2019   | Lip 2020  | 1,20 GA | 
 | 1,18  | Mar-23-20  | Maj 2020 r.   | 2020 sie  | 1,21 GA | 
 | 1,19  | Sie-04-20  | Wrz 2020   | Lis 2020  | 1,22 GA | 
-| 1,20  | Gru-08-20  | Sty 2021   | Mar 2021  | 1,23 GA |
+| 1.20  | Gru-08-20  | Sty 2021   | Mar 2021  | 1,23 GA |
 | 1,21  | Kwi-08-21 * | Maj 2021 r.   | Jun 2021  | 1,24 GA |
 
 \* Wersja Kubernetes 1,21 nadrzędnego może ulec zmianie jako kalendarz nadrzędny, ponieważ jest jeszcze gotowa.
@@ -156,7 +156,7 @@ W przypadku Kubernetes 1,19 [Pomoc techniczna typu "open source" została rozsze
 
 **Co się stanie, gdy użytkownik uaktualnia klaster Kubernetes z nieobsługiwaną wersją pomocniczą?**
 
-Jeśli korzystasz z wersji *n-3* lub starszej, oznacza to, że użytkownik jest poza pomocą techniczną i zostanie poproszony o uaktualnienie. Gdy uaktualnienie z wersji n-3 do n-2 powiedzie się, nastąpi powrót do naszych zasad pomocy technicznej. Przykład:
+Jeśli korzystasz z wersji *n-3* lub starszej, oznacza to, że użytkownik jest poza pomocą techniczną i zostanie poproszony o uaktualnienie. Gdy uaktualnienie z wersji n-3 do n-2 powiedzie się, nastąpi powrót do naszych zasad pomocy technicznej. Na przykład:
 
 - Jeśli najstarsza obsługiwana wersja AKS to *1.15. a* i jesteś w wersji *1.14. b* lub starszej, jesteś poza pomocą techniczną.
 - Gdy uaktualnienie z wersji *1.14. b* do *1.15. a* lub nowsze, nastąpi powrót do naszych zasad pomocy technicznej.

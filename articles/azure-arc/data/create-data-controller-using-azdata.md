@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 986019ec4de2fc25b6d8714a8c687cc9342f47b8
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 3d2652d2f6c1bb56dd009a9e4de375c42786986d
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696073"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735003"
 ---
 # <a name="create-azure-arc-data-controller-using-the-azure-data-cli-azdata"></a>Utwórz kontroler danych usługi Azure ARC przy użyciu [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
@@ -59,7 +59,7 @@ kubectl config current-context
 
 ### <a name="connectivity-modes"></a>Tryby łączności
 
-Zgodnie z opisem w temacie [tryby łączności i wymagania](https://docs.microsoft.com/azure/azure-arc/data/connectivity), usługa Azure Arc Data Controller można wdrożyć przy użyciu opcji `direct` lub z `indirect` trybem łączności. W `direct` trybie łączności dane użycia są automatycznie i ciągle wysyłane do platformy Azure. W tych artykułach przykłady określają `direct` tryb łączności w następujący sposób:
+Zgodnie z opisem w temacie [tryby łączności i wymagania](./connectivity.md), usługa Azure Arc Data Controller można wdrożyć przy użyciu opcji `direct` lub z `indirect` trybem łączności. W `direct` trybie łączności dane użycia są automatycznie i ciągle wysyłane do platformy Azure. W tych artykułach przykłady określają `direct` tryb łączności w następujący sposób:
 
    ```console
    --connectivity-mode direct

@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 52c0dd6825c8576d97e10d3f0568ca5fb81e789e
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 3ab1e6011a1c127c9ac5a2c7652a4bf458372e1e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210818"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733941"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-portal"></a>Szybki Start: Konfigurowanie zaświadczania platformy Azure za pomocą Azure Portal
 
@@ -58,7 +58,7 @@ Postępuj zgodnie z poniższymi instrukcjami, aby zarządzać dostawcą zaświad
 
     d. **Lokalizacja**: Wybierz lokalizację 
     
-    e. **Plik certyfikatów podpisywania zasad**: Aby skonfigurować dostawcę zaświadczania przy użyciu certyfikatów podpisywania zasad, Przekaż plik certyfikatów. Zobacz przykłady w [tym miejscu](/azure/attestation/policy-signer-examples) 
+    e. **Plik certyfikatów podpisywania zasad**: Aby skonfigurować dostawcę zaświadczania przy użyciu certyfikatów podpisywania zasad, Przekaż plik certyfikatów. Zobacz przykłady w [tym miejscu](./policy-signer-examples.md) 
 6.  Po wprowadzeniu wymaganych danych wejściowych kliknij przycisk **Przegląd + Utwórz** .
 7.  Usuń problemy z walidacją, jeśli istnieją, a następnie kliknij przycisk **Utwórz**.
 
@@ -98,7 +98,7 @@ a.  Sprawdź, czy liczba certyfikatów i certyfikaty zostały pobrane.
 3.  Wybierz dostawcę zaświadczania i przejdź do strony przegląd
 4.  Kliknij opcję **Certyfikaty osoby podpisującej zasady** w menu zasobów po lewej stronie lub w dolnym okienku.
 5.  Kliknij przycisk **Dodaj** w górnym menu (przycisk zostanie wyłączony dla dostawców zaświadczania utworzonych bez wymagania dotyczącego podpisywania zasad).
-6.  Przekaż plik certyfikatu osoby podpisującej zasady, a następnie kliknij przycisk **Dodaj**. Zobacz przykłady w [tym miejscu](/azure/attestation/policy-signer-examples)
+6.  Przekaż plik certyfikatu osoby podpisującej zasady, a następnie kliknij przycisk **Dodaj**. Zobacz przykłady w [tym miejscu](./policy-signer-examples.md)
 
 ### <a name="delete-policy-signer-certificate"></a>Usuń certyfikat podpisywania zasad
 
@@ -107,7 +107,7 @@ a.  Sprawdź, czy liczba certyfikatów i certyfikaty zostały pobrane.
 3.  Wybierz dostawcę zaświadczania i przejdź do strony przegląd
 4.  Kliknij opcję **Certyfikaty osoby podpisującej zasady** w menu zasobów po lewej stronie lub w dolnym okienku.
 5.  Kliknij przycisk **Usuń** w górnym menu (przycisk zostanie wyłączony dla dostawców zaświadczania utworzonych bez wymagania dotyczącego podpisywania zasad).
-6.  Przekaż plik certyfikatu osoby podpisującej zasady i kliknij pozycję **Usuń**. Zobacz przykłady w [tym miejscu](/azure/attestation/policy-signer-examples) 
+6.  Przekaż plik certyfikatu osoby podpisującej zasady i kliknij pozycję **Usuń**. Zobacz przykłady w [tym miejscu](./policy-signer-examples.md) 
 
 ## <a name="attestation-policy"></a>Zasady zaświadczania
 
@@ -132,7 +132,7 @@ a.  Sprawdź, czy liczba certyfikatów i certyfikaty zostały pobrane.
 5.  Kliknij pozycję **Konfiguruj** w górnym menu.
 6.  Gdy dostawca zaświadczania zostanie utworzony bez wymagania dotyczącego podpisywania zasad, użytkownik może przekazać zasady w formacie **JWT** lub **tekstowym**
 7.  Wybierz **Format zasad** jako **JWT**
-8.  Przekaż plik zasad z zawartością zasad w formacie **JWT bez znaku** i kliknij przycisk **Zapisz**. Zobacz przykłady w [tym miejscu](/azure/attestation/policy-examples)
+8.  Przekaż plik zasad z zawartością zasad w formacie **JWT bez znaku** i kliknij przycisk **Zapisz**. Zobacz przykłady w [tym miejscu](./policy-examples.md)
     
     W przypadku opcji przekazywania plików Podgląd zasad będzie wyświetlany w formacie tekstowym i Podgląd zasad nie będzie można edytować.
 
@@ -147,7 +147,7 @@ a.  Sprawdź, czy liczba certyfikatów i certyfikaty zostały pobrane.
 5.  Kliknij pozycję **Konfiguruj** w górnym menu.
 6.  Gdy dostawca zaświadczania zostanie utworzony bez wymagania dotyczącego podpisywania zasad, użytkownik może przekazać zasady w formacie **JWT** lub **tekstowym**
 7.  Wybierz **Format zasad** jako **tekst**
-8.  Przekaż plik zasad z zawartością w formacie **tekstowym** lub wprowadź treść zasady w obszarze tekstu, a następnie kliknij przycisk **Zapisz**. Zobacz przykłady w [tym miejscu](/azure/attestation/policy-examples)
+8.  Przekaż plik zasad z zawartością w formacie **tekstowym** lub wprowadź treść zasady w obszarze tekstu, a następnie kliknij przycisk **Zapisz**. Zobacz przykłady w [tym miejscu](./policy-examples.md)
 
     W przypadku opcji przekazywania plików Podgląd zasad będzie wyświetlany w formacie tekstowym i Podgląd zasad nie będzie można edytować.
 
@@ -163,20 +163,9 @@ a.  Sprawdź, czy liczba certyfikatów i certyfikaty zostały pobrane.
 4.  Kliknij pozycję **zasady** w menu zasobów po lewej stronie lub w dolnym okienku.
 5.  Kliknij pozycję **Konfiguruj** w górnym menu.
 6.  Po utworzeniu dostawcy zaświadczania przy użyciu wymagania dotyczącego podpisywania zasad użytkownik może przekazać zasady tylko w **formacie ze znakiem JWT**
-7.  Plik zasad przekazywania jest **podpisanym FORMATEM JWT** i kliknij przycisk **Zapisz**. Zobacz przykłady w [tym miejscu](/azure/attestation/policy-examples)
+7.  Plik zasad przekazywania jest **podpisanym FORMATEM JWT** i kliknij przycisk **Zapisz**. Zobacz przykłady w [tym miejscu](./policy-examples.md)
 
     W przypadku opcji przekazywania plików Podgląd zasad będzie wyświetlany w formacie tekstowym i Podgląd zasad nie będzie można edytować.
     
 8.  Kliknij przycisk **Odśwież** , aby wyświetlić skonfigurowane zasady
-
- 
-
-
-
-
-
-
-
-
-
 

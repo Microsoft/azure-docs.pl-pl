@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9500d682a99e6345289a83b4b3b2fc29ffe18457
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: b5025aa322ae26f9dd7c683d0e54762fd33eb355
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676888"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735385"
 ---
 # <a name="query-storage-files-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Wykonywanie zapytań dotyczących plików magazynu z pulą SQL bezserwerowych w usłudze Azure Synapse Analytics
 
@@ -184,7 +184,7 @@ Domyślnie `OPENROWSET` Funkcja jest zgodna z nazwą pola źródłowego i ście�
 - Funkcja zwraca wartość skalarną, taką jak int, Decimal i varchar, z określonego elementu i w określonej ścieżce dla wszystkich typów Parquet, które nie należą do grupy typów zagnieżdżonych.
 - Jeśli ścieżka wskazuje element, który jest typu zagnieżdżonego, funkcja zwraca fragment JSON, zaczynając od górnego elementu w określonej ścieżce. Fragment JSON jest typu varchar (8000).
 - Jeśli nie można odnaleźć właściwości w określonym column_name, funkcja zwróci błąd.
-- Jeśli nie można odnaleźć właściwości w określonym column_path, w zależności od [trybu ścieżki](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#PATHMODE)funkcja zwraca błąd w trybie Strict lub null w trybie swobodny.
+- Jeśli nie można odnaleźć właściwości w określonym column_path, w zależności od [trybu ścieżki](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true#PATHMODE)funkcja zwraca błąd w trybie Strict lub null w trybie swobodny.
 
 Aby zapoznać się z przykładami zapytań, zapoznaj się z sekcją elementy dostępu z zagnieżdżonych kolumn w artykule [Parquet typów zagnieżdżonych](query-parquet-nested-types.md#read-properties-from-nested-object-columns) .
 

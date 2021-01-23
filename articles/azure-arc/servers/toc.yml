@@ -99,4 +99,4 @@
 - name: Zasoby
   items:
     - name: Szybkie rozpoczynanie pracy z usługą Azure Arc
-      href: 'https://github.com/microsoft/azure_arc'
+      href: 'https://azurearcjumpstart.io'

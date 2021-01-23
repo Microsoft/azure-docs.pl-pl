@@ -11,9 +11,10 @@
     - name: Tworzenie nieograniczonej liczby rejestracji aplikacji
       href: quickstart-app-registration-limits.md
 - name: Samouczki
+  expanded: true
   items:
-    - name: Tworzenie grupy dynamicznej
-      href: ../enterprise-users/users-revoke-access.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
+    - name: Przypisywanie użytkowników do ról administratorów
+      href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Pojęcia
   expanded: true
   items:
@@ -28,18 +29,6 @@
 - name: Przewodniki z instrukcjami
   expanded: true
   items:
-    - name: Użytkownicy i role
-      items:
-        - name: Przypisywanie użytkowników do ról administratorów
-          href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
-        - name: Odwoływanie dostępu użytkownika
-          href: ../enterprise-users/users-revoke-access.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
-        - name: Przypisywanie roli do użytkownika-gościa
-          href: ../external-identities/add-guest-to-role.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
-        - name: Ograniczanie dostępu użytkowników-gości
-          href: ../enterprise-users/users-restrict-guest-permissions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
-        - name: Grupy dynamiczne i goście
-          href: ../external-identities/use-dynamic-groups.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: Role i uprawnienia
       expanded: true
       items:
@@ -119,7 +108,7 @@
     - name: Dokumentacja ról platformy Microsoft 365
       href: m365-workload-docs.md
     - name: Interfejs API programu Graph
-      href: /graph/api/resources/azure-ad-overview?view=graph-rest-1.0
+      href: /graph/api/resources/directoryrole?view=graph-rest-1.0
     - name: Interfejs wiersza polecenia usługi Azure AD
       href: /cli/azure/ad
     - name: Moduł Azure AD PowerShell dla programu Graph

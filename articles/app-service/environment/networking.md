@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 680b1f3b6af186eba27a4dd926016a04cd863760
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 0a1221a8de10fd18768a1a0f0ac08277dc2901d6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013496"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735037"
 ---
 # <a name="app-service-environment-networking"></a>App Service Environment sieci
 
@@ -27,7 +27,7 @@ ASEv3 używa dwóch podsieci.  Jedna podsieć jest używana dla prywatnego punkt
 ## <a name="addresses"></a>Adresy 
 Podczas tworzenia środowisko ASE ma następujące adresy:
 
-| Typ adresu | description |
+| Typ adresu | description (opis) |
 |--------------|-------------|
 | Adres przychodzący | Adres przychodzący to prywatny adres punktu końcowego używany przez środowisko ASE. |
 | Podsieć wychodząca | Podsieć wychodząca jest również podsiecią środowiska ASE. W trakcie podglądu ta podsieć jest używana tylko dla ruchu wychodzącego. |
@@ -52,7 +52,7 @@ W przeciwieństwie do ASEv2, z ASEv3 można ustawić sieciowe grupy zabezpiecze�
 
 ## <a name="dns"></a>DNS
 
-Aplikacje w środowisku ASE będą używać systemu DNS, z którym jest skonfigurowana Sieć wirtualna. Postępuj zgodnie z instrukcjami w temacie [using a App Service Environment](https://docs.microsoft.com/azure/app-service/environment/using#dns-configuration) , aby skonfigurować serwer DNS tak, aby WSKAZYWAŁ środowisko ASE. Jeśli chcesz, aby niektóre aplikacje używały innego serwera DNS niż konfiguracja sieci wirtualnej, możesz ustawić je ręcznie dla poszczególnych aplikacji przy użyciu ustawień aplikacji WEBSITE_DNS_SERVER i WEBSITE_DNS_ALT_SERVER. Ustawienie aplikacji WEBSITE_DNS_ALT_SERVER konfiguruje pomocniczy serwer DNS. Pomocniczy serwer DNS jest używany tylko wtedy, gdy nie ma odpowiedzi z podstawowego serwera DNS. 
+Aplikacje w środowisku ASE będą używać systemu DNS, z którym jest skonfigurowana Sieć wirtualna. Postępuj zgodnie z instrukcjami w temacie [using a App Service Environment](./using.md#dns-configuration) , aby skonfigurować serwer DNS tak, aby WSKAZYWAŁ środowisko ASE. Jeśli chcesz, aby niektóre aplikacje używały innego serwera DNS niż konfiguracja sieci wirtualnej, możesz ustawić je ręcznie dla poszczególnych aplikacji przy użyciu ustawień aplikacji WEBSITE_DNS_SERVER i WEBSITE_DNS_ALT_SERVER. Ustawienie aplikacji WEBSITE_DNS_ALT_SERVER konfiguruje pomocniczy serwer DNS. Pomocniczy serwer DNS jest używany tylko wtedy, gdy nie ma odpowiedzi z podstawowego serwera DNS. 
 
 ## <a name="preview-limitation"></a>Ograniczenie wersji zapoznawczej
 
@@ -61,4 +61,3 @@ Istnieje kilka funkcji sieciowych, które nie są dostępne w programie ASEv3.  
 • FTP • zdalne debugowanie • wdrożenie zewnętrznego modułu równoważenia obciążenia • możliwość uzyskiwania dostępu do prywatnego rejestru kontenerów dla wdrożeń kontenerów • możliwość wykonywania wywołań globalnie równorzędnych sieci wirtualnych • możliwość tworzenia kopii zapasowej/przywracania za pomocą punktu końcowego usługi lub bezpiecznego prywatnego punktu końcowego konto magazynu • możliwość używania w punkcie końcowym usługi lub prywatnych kontach magazynu kluczy ustawień aplikacji, które umożliwiają użycie BYOS do punktu końcowego usługi lub prywatnego bezpiecznego konta magazynu, z użyciem Network Watcher lub przepływu sieciowej grupy zabezpieczeń dla ruchu wychodzącego
     
     
-

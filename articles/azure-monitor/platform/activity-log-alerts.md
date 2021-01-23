@@ -4,12 +4,12 @@ description: Otrzymywanie powiadomień za pośrednictwem wiadomości SMS, elemen
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: e0d71c014780637b490c745ed829078d138df675
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: 8a30c0a0527f98cc00f7888299c09f1f26c3dd09
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97708436"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735218"
 ---
 # <a name="alerts-on-activity-log"></a>Alerty dotyczące dziennika aktywności
 
@@ -19,7 +19,7 @@ Alerty dziennika aktywności są alertami, które uaktywniają się, gdy wystąp
 
 > [!NOTE]
 > * **Nie można** tworzyć alertów dla zdarzeń w kategorii alertów dziennika aktywności.
-> * Alerty dziennika aktywności z kategorią zabezpieczeń można definiować również w [nowym uaktualnionym przepływie](https://docs.microsoft.com/azure/security-center/continuous-export?tabs=azure-portal) do [usługi ServiceNow](https://docs.microsoft.com/azure/security-center/export-to-siem)
+> * Alerty dziennika aktywności z kategorią zabezpieczeń można definiować również w [nowym uaktualnionym przepływie](../../security-center/continuous-export.md?tabs=azure-portal) do [usługi ServiceNow](../../security-center/export-to-siem.md)
 
 Zazwyczaj tworzysz alerty dziennika aktywności, aby otrzymywać powiadomienia, gdy:
 
