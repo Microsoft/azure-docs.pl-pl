@@ -4,12 +4,12 @@ description: Dowiedz się więcej o Azure Database for PostgreSQL kopii zapasowe
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: 628f43788c11558185a7b8a735373f0a663fdad1
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 1e2d83d4a5e21ed747ec9d4dcf2fa03d1e3935cc
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98569491"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737576"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Azure Database for PostgreSQL kopii zapasowej z długoterminowym przechowywaniem (wersja zapoznawcza)
 
@@ -31,7 +31,7 @@ To rozwiązanie może być używane niezależnie lub oprócz natywnego rozwiąza
 
 |Pomoc techniczna  |Szczegóły  |
 |---------|---------|
-|Obsługiwane wdrożenia   |  [Azure Database for PostgreSQL — pojedynczy serwer](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server)     |
+|Obsługiwane wdrożenia   |  [Azure Database for PostgreSQL — pojedynczy serwer](../postgresql/overview.md#azure-database-for-postgresql---single-server)     |
 |Obsługiwane regiony platformy Azure |  Wschodnie stany USA, Wschodnie stany USA 2, środkowe stany USA, Południowo-środkowe stany USA, zachodnie stany USA, zachodnie stany USA 2, zachodnie stany USA, Brazylia Południowa, Kanada środkowa, Europa Północna, Europa Zachodnia, Południowe Zjednoczone Królestwo, Zachodnie Zjednoczone Królestwo, Niemcy Środkowo-Zachodnie, Szwajcaria Północna, Szwajcaria Zachodnia, Azja Wschodnia, Południowe Azja Wschodnia, Japonia Wschodnia, Japonia Zachodnia, Korea środkowa, Korea Południowa  |
 |Obsługiwane wersje usługi Azure PostgreSQL    |   9,5, 9,6, 10, 11      |
 

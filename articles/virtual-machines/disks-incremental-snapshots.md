@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 01/15/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: a1cfabf6ccbb5d580bcad36694cd2e1a74155714
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 52e491c88d3483f21aa74f1a9f176246033bee3c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98540644"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735796"
 ---
 # <a name="create-an-incremental-snapshot-for-managed-disks"></a>Tworzenie przyrostowej migawki dla dysków zarządzanych
 
@@ -33,7 +33,7 @@ Install-Module -Name Az -AllowClobber -Scope CurrentUser
 
 Po zakończeniu instalacji zaloguj się do sesji programu PowerShell przy użyciu polecenia `Connect-AzAccount` .
 
-Aby utworzyć przyrostową migawkę z Azure PowerShell, należy ustawić konfigurację przy użyciu parametru [New-AzSnapShotConfig](/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) z `-Incremental` parametrem, a następnie przekazać ją jako zmienną do [nowego-AzSnapshot](/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) za pomocą `-Snapshot` parametru.
+Aby utworzyć przyrostową migawkę z Azure PowerShell, należy ustawić konfigurację przy użyciu parametru [New-AzSnapShotConfig](/powershell/module/az.compute/new-azsnapshotconfig) z `-Incremental` parametrem, a następnie przekazać ją jako zmienną do [nowego-AzSnapshot](/powershell/module/az.compute/new-azsnapshot) za pomocą `-Snapshot` parametru.
 
 ```PowerShell
 $diskName = "yourDiskNameHere>"

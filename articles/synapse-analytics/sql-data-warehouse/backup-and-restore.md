@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: d8c680ec30dcecc56c064f08e4690cbbde9c2377
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 842f2f92133664f58ca60d6d30181d48d63271eb
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98679917"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736309"
 ---
 # <a name="backup-and-restore-in-azure-synapse-dedicated-sql-pool"></a>Tworzenie kopii zapasowych i przywracanie danych w dedykowanej puli SQL Synapse platformy Azure
 
@@ -71,8 +71,16 @@ Po porzucenia dedykowanej puli SQL tworzona jest Ostatnia migawka, która jest z
 
 Geograficzna kopia zapasowa jest tworzona raz dziennie dla [sparowanego centrum danych](../../best-practices-availability-paired-regions.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Cel punktu odzyskiwania w przypadku przywracania geograficznego wynosi 24 godziny. Można przywrócić geograficzną kopię zapasową do serwera w dowolnym innym regionie, w którym obsługiwana jest dedykowana Pula SQL. Geograficzna kopia zapasowa zapewnia możliwość przywrócenia magazynu danych na wypadek, gdyby nie można było uzyskać dostępu do punktów przywracania w regionie podstawowym.
 
+Jeśli nie są wymagane geograficznie kopie zapasowe dla dedykowanej puli SQL, można je wyłączyć i zaoszczędzić na kosztach magazynowania odzyskiwania po awarii. W tym celu zapoznaj się z [tematem jak przewodnik: wyłączanie geograficznie kopii zapasowych dla dedykowanej puli SQL (dawniej SQL DW)](disable-geo-backup.md). Należy pamiętać, że w przypadku wyłączenia geograficznie kopii zapasowych nie będzie możliwe odzyskanie dedykowanej puli SQL w sparowanym regionie platformy Azure, jeśli główne centrum danych platformy Azure jest niedostępne. 
+
 > [!NOTE]
 > Jeśli potrzebujesz krótszego celu punktu odzyskiwania dla geograficznie kopii zapasowych, zagłosuj na tę funkcję [tutaj](https://feedback.azure.com/forums/307516-sql-data-warehouse). Można również utworzyć zdefiniowany przez użytkownika punkt przywracania i przywrócić go z nowo utworzonego punktu przywracania do nowego magazynu danych w innym regionie. Po przywróceniu będziesz mieć magazyn danych w trybie online i można go wstrzymać w nieskończoność, aby zaoszczędzić koszty obliczeniowe. Wstrzymana baza danych wiąże się z opłatami za magazyn według stawki za Premium Storage platformy Azure. Jeśli potrzebujesz aktywnej kopii hurtowni danych, możesz wznowić działanie, które powinno trwać tylko kilka minut.
+
+## <a name="data-residency"></a>Rezydencja danych 
+
+Jeśli sparowane centrum danych znajduje się poza granicami geograficznymi, możesz upewnić się, że dane znajdują się w granicach geograficznych, wychodząc z magazynu geograficznie nadmiarowego. Można to zrobić podczas aprowizacji dedykowanej puli SQL (dawniej SQL DW) za pomocą opcji magazynu geograficznie nadmiarowego podczas tworzenia lub przywracania dedykowanej puli SQL (dawniej SQL DW). 
+
+Aby potwierdzić, że sparowane centrum danych znajduje się w innym kraju, zapoznaj się z [sparowanymi regionami platformy Azure](../../best-practices-availability-paired-regions.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## <a name="backup-and-restore-costs"></a>Koszty tworzenia kopii zapasowej i przywracania
 

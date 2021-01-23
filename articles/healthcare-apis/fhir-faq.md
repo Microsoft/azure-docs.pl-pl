@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 31ae5b780bf451e29a97f04202f804db27fc387a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: bd6f32213a511987c0508dcc954252b2fd4e48f6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452931"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737595"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Często zadawane pytania dotyczące interfejsu API platformy Azure dla usługi FHIR
 
@@ -105,6 +105,12 @@ Poniżej przedstawiono przykłady poniżej:
 ### <a name="what-is-the-default-sort-when-searching-for-resources-in-azure-api-for-fhir"></a>Co to jest domyślne sortowanie podczas wyszukiwania zasobów w usłudze Azure API for FHIR?
 
 Obsługujemy sortowanie według daty ostatniej aktualizacji: _sort = _lastUpdated. Aby uzyskać więcej informacji na temat innych obsługiwanych parametrów wyszukiwania, zapoznaj się z naszymi [obsługiwanymi funkcjami](./fhir-features-supported.md#search).
+
+### <a name="does-the-azure-api-for-fhir-support-everything"></a>Czy usługa Azure API for FHIR obsługuje $everything? 
+
+Nie. W tej chwili nie obsługujemy $everything. Można go jednak osiągnąć przy użyciu dwóch wywołań interfejsu API. Aby na przykład uzyskać dostęp do wszystkich elementów pacjenta $, możesz najpierw pobrać rekord pacjenta przy użyciu/Patient/[ID], a następnie drugie wywołanie do pobrania wszystkich danych pacjenta przy użyciu/Patient/[ID]/*.
+
+Więcej szczegółów można znaleźć w tym [wpisie społeczności](https://chat.fhir.org/#narrow/stream/179166-implementers/topic/.24everything.20with.20_type). 
 
 ### <a name="how-does-export-work"></a>Jak działa $export?
 

@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 6634ab3521fee3062ecee465eaf6dcda80ee6ff8
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 0a462c7d713ea9285096db48b4a3bb5c5b0d9874
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98699518"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737391"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Różnice w języku T-SQL między SQL Server & wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -508,15 +508,14 @@ Następujące zmienne, funkcje i widoki zwracają różne wyniki:
 
 ### <a name="subnet"></a>Podsieć
 -  W podsieci, w której wdrożono wystąpienie zarządzane SQL, nie można umieścić żadnych innych zasobów (np. maszyn wirtualnych). Wdróż te zasoby przy użyciu innej podsieci.
-- Podsieć musi mieć wystarczającą liczbę dostępnych [adresów IP](connectivity-architecture-overview.md#network-requirements). Wartość minimalna to 16, podczas gdy zalecenie ma mieć co najmniej 32 adresów IP w podsieci.
-- [Punktów końcowych usługi nie można kojarzyć z podsiecią wystąpienia zarządzanego SQL](connectivity-architecture-overview.md#network-requirements). Upewnij się, że opcja punkty końcowe usługi jest wyłączona podczas tworzenia sieci wirtualnej.
+- Podsieć musi mieć wystarczającą liczbę dostępnych [adresów IP](connectivity-architecture-overview.md#network-requirements). Minimum ma mieć co najmniej 32 adresów IP w podsieci.
 - Liczba rdzeni wirtualnych i typy wystąpień, które można wdrożyć w regionie, mają pewne [ograniczenia i](resource-limits.md#regional-resource-limitations)ograniczenia.
-- Istnieją pewne [reguły zabezpieczeń, które należy zastosować w podsieci](connectivity-architecture-overview.md#network-requirements).
+- Istnieje [Konfiguracja sieciowa](connectivity-architecture-overview.md#network-requirements) , która musi zostać zastosowana w podsieci.
 
 ### <a name="vnet"></a>Sieć wirtualna
 - Sieć wirtualną można wdrożyć przy użyciu modelu zasobów — model klasyczny dla sieci wirtualnej nie jest obsługiwany.
 - Po utworzeniu wystąpienia zarządzanego SQL przeniesienie wystąpienia zarządzanego SQL lub sieci wirtualnej do innej grupy zasobów lub subskrypcji nie jest obsługiwane.
-- Niektóre usługi, takie jak środowiska App Service, Aplikacje logiki i wystąpienie zarządzane SQL (używane na potrzeby replikacji geograficznej, replikacji transakcyjnej lub połączonych serwerów) nie mogą uzyskać dostępu do wystąpienia zarządzanego SQL w różnych regionach, jeśli ich sieci wirtualnych są połączone przy użyciu [globalnej komunikacji równorzędnej](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Możesz połączyć się z tymi zasobami za pośrednictwem ExpressRoute lub sieci VNet-to-VNet za pośrednictwem bram sieci wirtualnej.
+- W przypadku wystąpień zarządzanych SQL hostowanych w klastrach wirtualnych utworzonych przed 9/22/2020 [globalna komunikacja równorzędna](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) nie jest obsługiwana. Możesz połączyć się z tymi zasobami za pośrednictwem ExpressRoute lub sieci VNet-to-VNet za pośrednictwem bram sieci wirtualnej.
 
 ### <a name="failover-groups"></a>Grupy trybu failover
 Systemowe bazy danych nie są replikowane do wystąpienia dodatkowego w grupie trybu failover. W związku z tym scenariusze, które są zależne od obiektów z systemowych baz danych, będą niedostępne w wystąpieniu pomocniczym, chyba że obiekty są tworzone ręcznie na serwerze pomocniczym.

@@ -4,12 +4,12 @@ description: Znajdź odpowiedzi na często zadawane pytania dotyczące tworzenia
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 7518fc49f7d6d728bd8faa0de4cf0edc1c6d5831
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 56dcf29a5c703a72fd137a5f1bf129f568a03b4b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734117"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735813"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Często zadawane pytania dotyczące SQL Server baz danych uruchomionych w ramach kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -108,7 +108,7 @@ Tak, Azure Backup obsługuje tworzenie kopii zapasowych SQL Server baz danych lu
 
 ## <a name="does-azure-backup-perform-a-checksum-operation-on-the-data-stream"></a>Czy Azure Backup wykonać operację sumy kontrolnej strumienia danych?
 
-Wykonujemy operację sumy kontrolnej strumienia danych. Nie należy jednak mylić z [sumą kontrolną SQL](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
+Wykonujemy operację sumy kontrolnej strumienia danych. Nie należy jednak mylić z [sumą kontrolną SQL](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
 Kopia zapasowa Azure obciążenia oblicza sumę kontrolną strumienia danych i zapisuje ją jawnie podczas operacji tworzenia kopii zapasowej. Ten strumień sum kontrolnych jest następnie traktowany jako odwołanie i jest weryfikowany krzyżowo z sumą kontrolną strumienia danych podczas operacji przywracania, aby upewnić się, że dane są spójne.
 
 ## <a name="next-steps"></a>Następne kroki

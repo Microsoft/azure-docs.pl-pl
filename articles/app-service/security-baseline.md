@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1ea8f3bccd97e1aaa15a21ae605a163b11c8ae39
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 758f7de46c524406f31a40072250eb7d59745d42
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197935"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736092"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>Podstawa zabezpieczeń platformy Azure dla App Service
 
@@ -71,7 +71,7 @@ Używaj zapory platformy Azure do wysyłania ruchu sieciowego i centralnego twor
 
 - [Informacje o zabezpieczeniach sieci zapewnianych przez Azure Security Center](../security-center/security-center-network-recommendations.md)
 
-- [Jak włączyć monitorowanie i ochronę App Service](/azure/security-center/defender-for-app-service-introduction)
+- [Jak włączyć monitorowanie i ochronę App Service](../security-center/defender-for-app-service-introduction.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -168,7 +168,7 @@ Przejrzyj linki, do których istnieją odwołania, aby uzyskać dodatkowe inform
 
 - [Jak skonfigurować kompleksową metodę TLS przy użyciu Application Gateway z portalem](../application-gateway/end-to-end-ssl-portal.md)
 
-- [Zabezpiecz środowisko ASE zgodnie z opisem w temacie blokowanie App Service](/azure/app-service/environment/firewall-integration)
+- [Zabezpiecz środowisko ASE zgodnie z opisem w temacie blokowanie App Service](./environment/firewall-integration.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -205,7 +205,7 @@ Przejrzyj linki, do których istnieją odwołania, aby uzyskać dodatkowe inform
 
 - [Jak skonfigurować kompleksową metodę TLS przy użyciu Application Gateway z portalem](../application-gateway/end-to-end-ssl-portal.md)
 
-- [Zabezpiecz środowisko ASE zgodnie z opisem w temacie blokowanie App Service](/azure/app-service/environment/firewall-integration)
+- [Zabezpiecz środowisko ASE zgodnie z opisem w temacie blokowanie App Service](./environment/firewall-integration.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -221,7 +221,7 @@ Zastosuj dowolne wbudowane definicje Azure Policy związane ze skutkami tagowani
 
 - [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
-- [Ograniczenia dostępu Azure App Service](/azure/app-service/app-service-ip-restrictions)
+- [Ograniczenia dostępu Azure App Service](./app-service-ip-restrictions.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 

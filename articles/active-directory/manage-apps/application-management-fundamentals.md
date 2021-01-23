@@ -16,12 +16,12 @@ ms.date: 11/13/2019
 ms.subservice: app-mgmt
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f5aaf4bbff4c093872228d647d3850667fb9777
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: d7a570fb322d24bf0d32efcb6f1a2ee515862755
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656411"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736973"
 ---
 # <a name="application-management-best-practices"></a>Najlepsze rozwiązania dotyczące zarządzania aplikacjami
 
@@ -33,9 +33,9 @@ Ten artykuł zawiera zalecenia i najlepsze rozwiązania dotyczące zarządzania 
 | Sprawdź galerię aplikacji usługi Azure AD dla aplikacji  | Usługa Azure AD zawiera galerię zawierającą tysiące wstępnie zintegrowanych aplikacji, które są włączone przy użyciu logowania jednokrotnego w przedsiębiorstwie. Aby uzyskać wskazówki dotyczące instalacji specyficzne dla aplikacji, zobacz [listę samouczków aplikacji SaaS](../saas-apps/tutorial-list.md).  | 
 | Używanie federacyjnego logowania jednokrotnego opartego na protokole SAML  | Gdy aplikacja je obsługuje, użyj federacyjnego, opartego na języku SAML logowania jednokrotnego w usłudze Azure AD zamiast logowania jednokrotnego i usług ADFS opartych na hasłach.  | 
 | Użycie algorytmu SHA-256 do podpisywania certyfikatu  | Usługa Azure AD domyślnie używa algorytmu SHA-256 do podpisywania odpowiedzi SAML. Użyj algorytmu SHA-256, chyba że aplikacja wymaga algorytmu SHA-1 (zobacz [Opcje podpisywania certyfikatu](certificate-signing-options.md) i [problem z logowaniem do aplikacji](application-sign-in-problem-application-error.md)).  | 
-| Wymagaj przypisania użytkownika  | Domyślnie użytkownicy mogą uzyskiwać dostęp do aplikacji firmowych bez ich przypisywania. Jeśli jednak aplikacja uwidacznia role lub jeśli chcesz, aby aplikacja była wyświetlana w aplikacjach użytkownika, wymagaj przypisania użytkownika. (Zobacz [wskazówki dla deweloperów dotyczące integrowania aplikacji](developer-guidance-for-integrating-applications.md)).  | 
+| Wymagaj przypisania użytkownika  | Domyślnie użytkownicy mogą uzyskiwać dostęp do aplikacji firmowych bez ich przypisywania. Jeśli jednak aplikacja uwidacznia role lub jeśli chcesz, aby aplikacja była wyświetlana w aplikacjach użytkownika, wymagaj przypisania użytkownika.  | 
 | Wdróż moje aplikacje dla użytkowników | [Moje aplikacje](end-user-experiences.md) w programie `https://myapps.microsoft.com` to portal oparty na sieci Web, który udostępnia użytkownikom pojedynczy punkt wejścia dla przypisanych aplikacji opartych na chmurze. W miarę dodawania dodatkowych funkcji, takich jak zarządzanie grupami i Samoobsługowe resetowanie haseł, użytkownicy mogą je znaleźć w moich aplikacjach. Zobacz [Planowanie wdrażania aplikacji](access-panel-deployment-plan.md).
-| Użyj przypisania grupy  | W przypadku uwzględnienia w subskrypcji Przypisz grupy do aplikacji, aby można było delegować bieżące zarządzanie dostępem do właściciela grupy. (Zobacz [wskazówki dla deweloperów dotyczące integrowania aplikacji](developer-guidance-for-integrating-applications.md)).   | 
+| Użyj przypisania grupy  | W przypadku uwzględnienia w subskrypcji Przypisz grupy do aplikacji, aby można było delegować bieżące zarządzanie dostępem do właściciela grupy.  | 
 | Ustanów proces zarządzania certyfikatami | Maksymalny okres istnienia certyfikatu podpisywania wynosi trzy lata. Aby zapobiec lub zminimalizować przestoje ze względu na wygaśnięcie certyfikatu, należy użyć ról i list dystrybucyjnych poczty e-mail, aby upewnić się, że powiadomienia o zmianach powiązane z certyfikatami są ściśle monitorowane. |
 
 ## <a name="provisioning-recommendations"></a>Zalecenia dotyczące aprowizacji

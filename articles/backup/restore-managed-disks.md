@@ -3,12 +3,12 @@ title: Przywracanie Managed Disks platformy Azure
 description: Dowiedz się, jak przywrócić Managed Disks platformy Azure z Azure Portal.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 848a7476b1c5095d4e4d3156d4c7ce33da777090
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: b9c9a22f25a8003151217bec15b618e3c380e67e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611138"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737380"
 ---
 # <a name="restore-azure-managed-disks-in-preview"></a>Przywracanie Managed Disks platformy Azure (w wersji zapoznawczej)
 
@@ -17,7 +17,7 @@ ms.locfileid: "98611138"
 >
 >[Wypełnij ten formularz](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) , aby utworzyć konto w wersji zapoznawczej.
 
-W tym artykule wyjaśniono, jak przywrócić [Managed disks platformy Azure](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview) z punktu przywracania utworzonego przez Azure Backup.
+W tym artykule wyjaśniono, jak przywrócić [Managed disks platformy Azure](../virtual-machines/managed-disks-overview.md) z punktu przywracania utworzonego przez Azure Backup.
 
 Obecnie opcja odzyskiwania Original-Location (OLR) przywracania przez zastąpienie istniejącego dysku źródłowego, z którego wykonano kopie zapasowe, nie jest obsługiwana. Można przywrócić z punktu odzyskiwania, aby utworzyć nowy dysk w tej samej grupie zasobów co dysk źródłowy, z którego wykonano kopie zapasowe lub w innej grupie zasobów. Jest to nazywane Alternate-Location odzyskiwaniem (ALR) i pomaga zachować zarówno dysk źródłowy, jak i przywrócony (nowy) dysk.
 
@@ -31,7 +31,7 @@ Ten artykuł obejmuje następujące zagadnienia:
 
 Magazyn kopii zapasowych używa tożsamości zarządzanej do uzyskiwania dostępu do innych zasobów platformy Azure. Aby przywrócić kopię zapasową, zarządzana tożsamość magazynu kopii zapasowych wymaga zestawu uprawnień do grupy zasobów, w której dysk ma zostać przywrócony.
 
-Magazyn kopii zapasowych używa tożsamości zarządzanej przypisanej do systemu, która jest ograniczona do jednego na zasób i jest związana z cyklem życia tego zasobu. Uprawnienia do tożsamości zarządzanej można udzielić przy użyciu kontroli dostępu opartej na rolach (Azure RBAC). Tożsamość zarządzana to nazwa główna usługi typu specjalnego, która może być używana tylko z zasobami platformy Azure. Dowiedz się więcej o [tożsamościach zarządzanych](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Magazyn kopii zapasowych używa tożsamości zarządzanej przypisanej do systemu, która jest ograniczona do jednego na zasób i jest związana z cyklem życia tego zasobu. Uprawnienia do tożsamości zarządzanej można udzielić przy użyciu kontroli dostępu opartej na rolach (Azure RBAC). Tożsamość zarządzana to nazwa główna usługi typu specjalnego, która może być używana tylko z zasobami platformy Azure. Dowiedz się więcej o [tożsamościach zarządzanych](../active-directory/managed-identities-azure-resources/overview.md).
 
 Do wykonania operacji przywracania wymagane są następujące wymagania wstępne:
 
@@ -89,7 +89,7 @@ Po spełnieniu wymagań wstępnych wykonaj następujące kroki, aby wykonać ope
     ![Parametry przywracania](./media/restore-managed-disks/restore-parameters.png)
 
     >[!TIP]
-    >Kopie zapasowe dysków tworzone przez Azure Backup przy użyciu rozwiązania do tworzenia kopii zapasowych dysków mogą być również tworzone w ramach Azure Backup przy użyciu rozwiązania do tworzenia kopii zapasowych maszyny wirtualnej platformy Azure z magazynem Recovery Services. W przypadku skonfigurowania ochrony maszyny wirtualnej platformy Azure, do której jest dołączony ten dysk, można również użyć operacji przywracania maszyny wirtualnej platformy Azure. Można przywrócić maszynę wirtualną lub dyski i pliki lub foldery z punktu odzyskiwania odpowiedniego wystąpienia kopii zapasowej maszyny wirtualnej platformy Azure. Aby uzyskać więcej informacji, zobacz [kopia zapasowa maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/backup/about-azure-vm-restore).
+    >Kopie zapasowe dysków tworzone przez Azure Backup przy użyciu rozwiązania do tworzenia kopii zapasowych dysków mogą być również tworzone w ramach Azure Backup przy użyciu rozwiązania do tworzenia kopii zapasowych maszyny wirtualnej platformy Azure z magazynem Recovery Services. W przypadku skonfigurowania ochrony maszyny wirtualnej platformy Azure, do której jest dołączony ten dysk, można również użyć operacji przywracania maszyny wirtualnej platformy Azure. Można przywrócić maszynę wirtualną lub dyski i pliki lub foldery z punktu odzyskiwania odpowiedniego wystąpienia kopii zapasowej maszyny wirtualnej platformy Azure. Aby uzyskać więcej informacji, zobacz [kopia zapasowa maszyny wirtualnej platformy Azure](./about-azure-vm-restore.md).
 
 1. Po pomyślnym sprawdzeniu poprawności wybierz pozycję **Przywróć** , aby rozpocząć operację przywracania.
 
@@ -109,9 +109,9 @@ Przywrócenie spowoduje utworzenie nowego dysku z wybranego punktu odzyskiwania 
 
     ![Wymiana dysków systemu operacyjnego](./media/restore-managed-disks/swap-os-disks.png)
 
-- W przypadku maszyn wirtualnych z systemem Windows, jeśli przywrócony dysk jest dyskiem danych, postępuj zgodnie z instrukcjami, aby [odłączyć oryginalny dysk danych](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-the-portal) z maszyny wirtualnej. Następnie [Dołącz przywrócony dysk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) do maszyny wirtualnej. Postępuj zgodnie z instrukcjami, aby [zamienić dysk systemu operacyjnego](https://docs.microsoft.com/azure/virtual-machines/windows/os-disk-swap) maszyny wirtualnej na przywrócony dysk.
+- W przypadku maszyn wirtualnych z systemem Windows, jeśli przywrócony dysk jest dyskiem danych, postępuj zgodnie z instrukcjami, aby [odłączyć oryginalny dysk danych](../virtual-machines/windows/detach-disk.md#detach-a-data-disk-using-the-portal) z maszyny wirtualnej. Następnie [Dołącz przywrócony dysk](../virtual-machines/windows/attach-managed-disk-portal.md) do maszyny wirtualnej. Postępuj zgodnie z instrukcjami, aby [zamienić dysk systemu operacyjnego](../virtual-machines/windows/os-disk-swap.md) maszyny wirtualnej na przywrócony dysk.
 
-- W przypadku maszyn wirtualnych z systemem Linux, jeśli przywrócony dysk jest dyskiem danych, postępuj zgodnie z instrukcjami, aby [odłączyć oryginalny dysk danych](https://docs.microsoft.com/azure/virtual-machines/linux/detach-disk#detach-a-data-disk-using-the-portal) z maszyny wirtualnej. Następnie [Dołącz przywrócony dysk](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#attach-an-existing-disk) do maszyny wirtualnej. Postępuj zgodnie z instrukcjami, aby [zamienić dysk systemu operacyjnego](https://docs.microsoft.com/azure/virtual-machines/linux/os-disk-swap) maszyny wirtualnej na przywrócony dysk.
+- W przypadku maszyn wirtualnych z systemem Linux, jeśli przywrócony dysk jest dyskiem danych, postępuj zgodnie z instrukcjami, aby [odłączyć oryginalny dysk danych](../virtual-machines/linux/detach-disk.md#detach-a-data-disk-using-the-portal) z maszyny wirtualnej. Następnie [Dołącz przywrócony dysk](../virtual-machines/linux/attach-disk-portal.md#attach-an-existing-disk) do maszyny wirtualnej. Postępuj zgodnie z instrukcjami, aby [zamienić dysk systemu operacyjnego](../virtual-machines/linux/os-disk-swap.md) maszyny wirtualnej na przywrócony dysk.
 
 Zaleca się odwołanie przypisania roli **operatora przywracania dysku** z zarządzanej tożsamości magazynu kopii zapasowych w **docelowej grupie zasobów** po pomyślnym zakończeniu operacji przywracania.
 

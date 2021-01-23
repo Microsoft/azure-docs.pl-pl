@@ -10,18 +10,18 @@ ms.subservice: sql-dw
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 56b417c65eae0df9b073cf72fe87ce0002fc2ba0
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 0eeea04cd42498c5ba066a3a3e977c92b2906292
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98115841"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98738037"
 ---
 # <a name="source-control-integration-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Integracja kontroli źródła dla dedykowanej puli SQL w usłudze Azure Synapse Analytics
 
 W tym samouczku opisano sposób integrowania projektu bazy danych SQL Server Data Tools (SSDT) z kontrolą źródła.  Integracja kontroli źródła to pierwszy krok w tworzeniu potoku ciągłej integracji i wdrażania przy użyciu dedykowanego zasobu puli SQL w usłudze Azure Synapse Analytics.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 - Utwórz konto w [organizacji usługi Azure DevOps](https://azure.microsoft.com/services/devops/)
 - Przejdź do samouczka [Tworzenie i łączenie](create-data-warehouse-portal.md)
@@ -51,7 +51,7 @@ W tym samouczku opisano sposób integrowania projektu bazy danych SQL Server Dat
 
    ![Klonowanie repozytorium](./media/sql-data-warehouse-source-control-integration/4-clone-repo.png "Klonowanie repozytorium")
 
-Aby uzyskać więcej informacji na temat łączenia projektów przy użyciu programu Visual Studio, zobacz [łączenie się z projektami w Team Explorer](/visualstudio/ide/connect-team-project?view=vs-2019). Aby uzyskać wskazówki dotyczące klonowania repozytorium za pomocą programu Visual Studio, zapoznaj się z artykułem [klonowanie wyjścia z repozytorium git](/azure/devops/repos/git/clone?tabs=visual-studio&view=azure-devops) . 
+Aby uzyskać więcej informacji na temat łączenia projektów przy użyciu programu Visual Studio, zobacz [łączenie się z projektami w Team Explorer](/visualstudio/ide/connect-team-project?view=vs-2019&preserve-view=true). Aby uzyskać wskazówki dotyczące klonowania repozytorium za pomocą programu Visual Studio, zapoznaj się z artykułem [klonowanie wyjścia z repozytorium git](/azure/devops/repos/git/clone?tabs=visual-studio&view=azure-devops&preserve-view=true) . 
 
 ## <a name="create-and-connect-your-project"></a>Tworzenie i łączenie projektu
 

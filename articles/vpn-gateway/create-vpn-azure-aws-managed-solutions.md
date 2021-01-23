@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: ricmmartins
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/15/2021
+ms.date: 01/22/2021
 ms.author: ricmart
-ms.openlocfilehash: 3b9e60eb037182318e9d1ef7336565908a9c8f32
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: a0655ce1d2e9939981bb4fd3280af80e359ea1e1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664787"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737748"
 ---
 # <a name="create-a-vpn-connection-between-azure-and-aws-using-managed-solutions"></a>Utwórz połączenie sieci VPN między platformą Azure i AWS przy użyciu rozwiązań zarządzanych
 
@@ -42,6 +42,8 @@ Utwórz bramę sieci VPN dla sieci wirtualnej. Aby uzyskać instrukcje, zobacz [
 
 W tym artykule są używane następujące przykładowe wartości i ustawienia:
 
+* **Nazwa bramy:** VPN-Azure-AWS
+* **Region:** Wschodnie stany USA
 * **Typ bramy:** VPN
 * **Typ sieci VPN:** oparta na trasach
 * **Jednostka SKU:** VpnGw1
@@ -173,15 +175,13 @@ W tej sekcji utworzysz drugie połączenie w celu zapewnienia wysokiej dostępno
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/azure-tunnels.png" alt-text="Stan połączenia platformy Azure":::
 
-1. Wyświetlanie połączeń AWS.
+1. Wyświetlanie połączeń AWS. W tym przykładzie można zobaczyć, że połączenia są teraz nawiązane.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/aws-tunnels.png" alt-text="Stan połączenia usługi AWS":::
 
-Połączenia są teraz nawiązane.
+## <a name="to-test-connections"></a>Aby przetestować połączenia
 
-## <a name="test-connections"></a>Testuj połączenia
-
-1. Dodaj bramę internetową do VPC na AWS. Brama internetowa jest połączeniem logicznym między siecią Amazon VPN a Internetem. Ten zasób umożliwia nawiązanie połączenia przez testową maszynę wirtualną z publicznego adresu IP AWS za pośrednictwem Internetu. Ten zasób nie jest wymagany w przypadku połączenia sieci VPN. Używamy go tylko do testowania.
+1. Dodaj **bramę internetową** do VPC na AWS. Brama internetowa jest połączeniem logicznym między siecią Amazon VPN a Internetem. Ten zasób umożliwia nawiązanie połączenia przez testową maszynę wirtualną z publicznego adresu IP AWS za pośrednictwem Internetu. Ten zasób nie jest wymagany w przypadku połączenia sieci VPN. Używamy go tylko do testowania.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/create-igw.png" alt-text="Utwórz bramę internetową":::
 
@@ -201,11 +201,11 @@ Połączenia są teraz nawiązane.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/azure-effective-routes.png" alt-text="Sprawdź obowiązujące trasy":::
 
-1. W przypadku maszyny wirtualnej z systemem Linux na platformie Azure środowisko jest podobne do poniższego przykładu.
+1. Możesz to przetestować z maszyny wirtualnej z systemem Linux na platformie Azure. Wynik będzie wyglądać podobnie do poniższego przykładu.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/azure-overview.png" alt-text="Omówienie platformy Azure na maszynie wirtualnej z systemem Linux":::
 
-1. Na maszynie wirtualnej z systemem Linux w systemie AWS środowisko jest podobne do poniższego przykładu.
+1. Można to również przetestować z poziomu maszyny wirtualnej z systemem Linux w witrynie AWS. Wynik będzie wyglądać podobnie do poniższego przykładu.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/aws-overview.png" alt-text="AWS — Omówienie z maszyny wirtualnej z systemem Linux":::
 

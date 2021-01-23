@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2021
-ms.openlocfilehash: 877251ba7e0c1f3c33cab37e20d609479b69520c
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: c213a38286de05df5c3be8e3498bcca4ab6e1fbf
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251832"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736149"
 ---
 # <a name="azure-monitor-for-existing-operations-manager-customers"></a>Azure Monitor istniejących Operations Manager klientów
-Ten artykuł zawiera wskazówki dla klientów, którzy obecnie używają [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/welcome) i planowania przejścia do [Azure monitor](overview.md) podczas migrowania aplikacji firmowych i innych zasobów na platformę Azure. Przyjęto założenie, że ostatecznym celem jest pełne przejście do chmury, zastępowanie możliwie jak największej Operations Manager funkcji w Azure Monitor, bez naruszania wymagań firmy i operacyjnych IT. 
+Ten artykuł zawiera wskazówki dla klientów, którzy obecnie używają [System Center Operations Manager](/system-center/scom/welcome) i planowania przejścia do [Azure monitor](overview.md) podczas migrowania aplikacji firmowych i innych zasobów na platformę Azure. Przyjęto założenie, że ostatecznym celem jest pełne przejście do chmury, zastępowanie możliwie jak największej Operations Manager funkcji w Azure Monitor, bez naruszania wymagań firmy i operacyjnych IT. 
 
 Szczegółowe zalecenia zawarte w tym artykule zmienią się w miarę Azure Monitor i Operations Manager dodawania funkcji. Jednak podstawowa strategia będzie niespójna.
 
@@ -22,13 +22,13 @@ Szczegółowe zalecenia zawarte w tym artykule zmienią się w miarę Azure Moni
 > Istnieje koszt implementacji kilku funkcji Azure Monitor opisanych tutaj, dlatego należy oszacować ich wartości przed wdrożeniem w całym środowisku.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-W tym artykule przyjęto założenie, że już używasz [Operations Manager](https://docs.microsoft.com/system-center/scom) i co najmniej ma podstawową wiedzę na temat [Azure monitor](overview.md). Aby zapoznać się z pełnym porównaniem między nimi, zobacz [Przewodnik monitorowania w chmurze: przegląd platform monitorowania](/azure/cloud-adoption-framework/manage/monitor/platform-overview). Ten artykuł zawiera szczegółowe informacje o różnych funkcjach między dwoma, które ułatwią zrozumienie niektórych zaleceń opisanych w tym miejscu. 
+W tym artykule przyjęto założenie, że już używasz [Operations Manager](/system-center/scom) i co najmniej ma podstawową wiedzę na temat [Azure monitor](overview.md). Aby zapoznać się z pełnym porównaniem między nimi, zobacz [Przewodnik monitorowania w chmurze: przegląd platform monitorowania](/azure/cloud-adoption-framework/manage/monitor/platform-overview). Ten artykuł zawiera szczegółowe informacje o różnych funkcjach między dwoma, które ułatwią zrozumienie niektórych zaleceń opisanych w tym miejscu. 
 
 
 ## <a name="general-strategy"></a>Ogólna strategia
 Nie ma narzędzi migracji do konwersji zasobów z Operations Manager Azure Monitor, ponieważ platformy różnią się w zależności od siebie. Migracja będzie zamiast tego stanowić [standardową implementację Azure monitor](deploy.md) podczas dalszego korzystania z Operations Manager. W miarę dostosowywania Azure Monitor, aby spełniały wymagania dotyczące różnych aplikacji i składników, a także w miarę zwiększania funkcjonalności, można rozpocząć wycofywanie różnych pakietów administracyjnych i agentów w programie Operations Manager.
 
-Ogólna strategia zalecana w tym artykule jest taka sama jak w [przewodniku monitorowania chmury](https://docs.microsoft.com/azure/cloud-adoption-framework/manage/monitor/), który zaleca strategię [monitorowania chmury hybrydowej](/azure/cloud-adoption-framework/manage/monitor/cloud-models-monitor-overview#hybrid-cloud-monitoring) , która umożliwia stopniowe przejście do chmury. Mimo że niektóre funkcje mogą się nakładać, ta strategia umożliwi zachowanie istniejących procesów firmy w taki sposób, aby były one bardziej znane z nową platformą. Można poruszać się tylko przed Operations Manager funkcją, ponieważ możesz ją zamienić na Azure Monitor. Użycie wielu narzędzi do monitorowania powoduje dodanie złożoności, ale umożliwia korzystanie z Azure Monitor możliwości monitorowania obciążeń chmurowych następnej generacji przy zachowaniu Operations Manager zdolności do monitorowania oprogramowania serwera i składników infrastruktury, które mogą być lokalne lub w innych chmurach. 
+Ogólna strategia zalecana w tym artykule jest taka sama jak w [przewodniku monitorowania chmury](/azure/cloud-adoption-framework/manage/monitor/), który zaleca strategię [monitorowania chmury hybrydowej](/azure/cloud-adoption-framework/manage/monitor/cloud-models-monitor-overview#hybrid-cloud-monitoring) , która umożliwia stopniowe przejście do chmury. Mimo że niektóre funkcje mogą się nakładać, ta strategia umożliwi zachowanie istniejących procesów firmy w taki sposób, aby były one bardziej znane z nową platformą. Można poruszać się tylko przed Operations Manager funkcją, ponieważ możesz ją zamienić na Azure Monitor. Użycie wielu narzędzi do monitorowania powoduje dodanie złożoności, ale umożliwia korzystanie z Azure Monitor możliwości monitorowania obciążeń chmurowych następnej generacji przy zachowaniu Operations Manager zdolności do monitorowania oprogramowania serwera i składników infrastruktury, które mogą być lokalne lub w innych chmurach. 
 
 
 ## <a name="components-to-monitor"></a>Składniki do monitorowania
@@ -37,7 +37,7 @@ Ułatwia ona kategoryzowanie różnych typów obciążeń, które należy monito
 Przed chmurą użyto Operations Manager do monitorowania wszystkich warstw. Po rozpoczęciu przejścia z infrastrukturą jako usługą (IaaS) można nadal używać Operations Manager dla maszyn wirtualnych, ale rozpocząć korzystanie Azure Monitor z zasobów w chmurze. Dalsze przejście do nowoczesnych aplikacji przy użyciu platformy jako usługi (PaaS) umożliwia skoncentrowanie się na Azure Monitor i rozpoczęcie wycofywania funkcji Operations Manager.
 
 
-![Modele chmury](https://docs.microsoft.com/azure/cloud-adoption-framework/strategy/media/monitoring-strategy/cloud-models.png)
+![Modele chmury](/azure/cloud-adoption-framework/strategy/media/monitoring-strategy/cloud-models.png)
 
 Te warstwy można uprościć do następujących kategorii, które są dokładniej opisane w dalszej części tego artykułu. Chociaż każde obciążenie monitorowania w środowisku może nie pasować do jednej z tych kategorii, każdy z nich powinien być blisko, aby uzyskać ogólne zalecenia, które mają zostać zastosowane.
 

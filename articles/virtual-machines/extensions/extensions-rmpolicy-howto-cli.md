@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 26874c33c496b57bf6317a7b837b3afddc2f5e37
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 41457f26c22e3b8ed529ce77cfaf452618b03655
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955654"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737646"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Używanie Azure Policy do ograniczania instalacji rozszerzeń na maszynach wirtualnych z systemem Linux
 
@@ -98,7 +98,7 @@ Gdy skończysz, naciśnij klawisz **ESC** , a następnie wpisz **: WQ** , aby za
 
 ## <a name="create-the-policy"></a>Tworzenie zasad
 
-Definicja zasad to obiekt służący do przechowywania konfiguracji, której chcesz użyć. Definicja zasad używa plików reguł i parametrów do definiowania zasad. Utwórz definicję zasad za pomocą polecenia [AZ Policy Definition Create](/cli/azure/role/assignment?view=azure-cli-latest).
+Definicja zasad to obiekt służący do przechowywania konfiguracji, której chcesz użyć. Definicja zasad używa plików reguł i parametrów do definiowania zasad. Utwórz definicję zasad za pomocą polecenia [AZ Policy Definition Create](/cli/azure/role/assignment).
 
 W tym przykładzie reguły i parametry są plikami utworzonymi i przechowywanymi jako pliki JSON w usłudze Cloud Shell.
 
@@ -117,7 +117,7 @@ az policy definition create \
 
 Ten przykład przypisuje zasady do grupy zasobów za pomocą polecenia [AZ Policy przypisanie Create](/cli/azure/policy/assignment). W przypadku wszystkich maszyn wirtualnych utworzonych w **grupie zasobów grupy zasobu nie** będzie można zainstalować dostępu do maszyny wirtualnej z systemem Linux ani rozszerzeń niestandardowego skryptu dla systemu Linux. Aby można było przypisać zasady, musi istnieć Grupa zasobów.
 
-Użyj [AZ Account List](/cli/azure/account?view=azure-cli-latest) , aby skorzystać z identyfikatora subskrypcji zamiast tego w przykładzie.
+Użyj [AZ Account List](/cli/azure/account) , aby skorzystać z identyfikatora subskrypcji zamiast tego w przykładzie.
 
 
 ```azurecli-interactive

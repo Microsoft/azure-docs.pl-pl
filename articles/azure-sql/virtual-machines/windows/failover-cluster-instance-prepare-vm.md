@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 1b8d88167dac6b2d0b1ba2afc90c443fd80b9e46
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 10f01fd5943928eda1f1e4518f30c8e3ccf56b46
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223163"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737799"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Przygotowywanie maszyn wirtualnych do FCI (SQL Server na maszynach wirtualnych platformy Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -44,7 +44,7 @@ Ustawienia konfiguracji maszyny wirtualnej różnią się w zależności od opcj
 
 ## <a name="configure-vm-availability"></a>Konfigurowanie dostępności maszyny wirtualnej 
 
-Funkcja klaster trybu failover wymaga, aby maszyny wirtualne były umieszczone w [zestawie dostępności](../../../virtual-machines/linux/tutorial-availability-sets.md) lub w [strefie dostępności](../../../availability-zones/az-overview.md#availability-zones). W przypadku wybrania zestawów dostępności można użyć [grup umieszczania w sąsiedztwie](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) , aby znaleźć bliżej maszyn wirtualnych. W rzeczywistości grupy umieszczania w sąsiedztwie są warunkiem wstępnym korzystania z dysków udostępnionych platformy Azure. 
+Funkcja klaster trybu failover wymaga, aby maszyny wirtualne były umieszczone w [zestawie dostępności](../../../virtual-machines/linux/tutorial-availability-sets.md) lub w [strefie dostępności](../../../availability-zones/az-overview.md#availability-zones). W przypadku wybrania zestawów dostępności można użyć [grup umieszczania w sąsiedztwie](../../../virtual-machines/co-location.md#proximity-placement-groups) , aby znaleźć bliżej maszyn wirtualnych. W rzeczywistości grupy umieszczania w sąsiedztwie są warunkiem wstępnym korzystania z dysków udostępnionych platformy Azure. 
 
 Starannie wybieraj opcję dostępność maszyny wirtualnej zgodną z zaznaczoną konfiguracją klastra: 
 

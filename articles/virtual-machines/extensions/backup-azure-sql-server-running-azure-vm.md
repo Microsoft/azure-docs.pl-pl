@@ -8,12 +8,12 @@ ms.subservice: extensions
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: 66675f77d480ce8d9f21e5ffb507c475337c9dab
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c6a071956565a8bbc31e5be362c41a7c39d8f551
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490734"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98738054"
 ---
 # <a name="azure-backup-for-sql-server-running-in-azure-vm"></a>Azure Backup SQL Server uruchomionego na maszynie wirtualnej platformy Azure
 
@@ -102,7 +102,7 @@ Zalecamy dodanie rozszerzenia AzureBackupWindowsWorkload do maszyny wirtualnej, 
 
 ## <a name="powershell-deployment"></a>Wdrażanie przy użyciu programu PowerShell
 
-Należy "zarejestrować" maszynę wirtualną platformy Azure zawierającą aplikację SQL z magazynem usługi Recovery Services. Podczas rejestracji rozszerzenie AzureBackupWindowsWorkload zostanie zainstalowane na maszynie wirtualnej. Zarejestruj maszynę wirtualną za pomocą polecenia cmdlet [register-AzRecoveryServicesBackupContainerPS](/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer?view=azps-1.5.0) .
+Należy "zarejestrować" maszynę wirtualną platformy Azure zawierającą aplikację SQL z magazynem usługi Recovery Services. Podczas rejestracji rozszerzenie AzureBackupWindowsWorkload zostanie zainstalowane na maszynie wirtualnej. Zarejestruj maszynę wirtualną za pomocą polecenia cmdlet [register-AzRecoveryServicesBackupContainerPS](/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer) .
 
 ```powershell
 $myVM = Get-AzVM -ResourceGroupName <VMRG Name> -Name <VMName>

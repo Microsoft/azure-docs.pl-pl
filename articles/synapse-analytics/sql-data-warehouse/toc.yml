@@ -366,6 +366,8 @@
           href: sql-data-warehouse-restore-deleted-dw.md
         - name: Przywracanie z geograficznej kopii zapasowej
           href: sql-data-warehouse-restore-from-geo-backup.md
+        - name: Wyłącz geograficznie kopie zapasowe
+          href: disable-geo-backup.md
     - name: Integracja
       items:
         - name: Korzystanie z uczenia maszynowego

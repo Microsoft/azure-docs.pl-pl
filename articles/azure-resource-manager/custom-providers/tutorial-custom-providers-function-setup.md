@@ -5,12 +5,12 @@ author: jjbfour
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: 6e11e08d861538ddf395f522495798546e04ca7c
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 55554678047faeedd16b78dea61a42d50fd59491
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948956"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737323"
 ---
 # <a name="set-up-azure-functions-for-azure-custom-providers"></a>Konfigurowanie Azure Functions dla dostawców niestandardowych platformy Azure
 
@@ -21,7 +21,7 @@ Dostawca niestandardowy to kontrakt między platformą Azure i punktem końcowym
 > [!NOTE]
 > W tym samouczku utworzysz prosty punkt końcowy usługi, który korzysta z aplikacji funkcji platformy Azure. Niestandardowi dostawcy mogą jednak korzystać z dowolnego dostępnego publicznie punktu końcowego. Alternatywy obejmują Azure Logic Apps, API Management platformy Azure i funkcję Web Apps Azure App Service.
 
-Aby rozpocząć pracę z tym samouczkiem, należy najpierw wykonać czynności opisane w samouczku [Tworzenie pierwszej aplikacji funkcji platformy Azure w Azure Portal](../../azure-functions/functions-create-first-azure-function.md). Ten samouczek tworzy funkcję elementu webhook platformy .NET Core, która może być modyfikowana w Azure Portal. Jest to również podstawa bieżącego samouczka.
+Aby rozpocząć pracę z tym samouczkiem, należy najpierw wykonać czynności opisane w samouczku [Tworzenie pierwszej aplikacji funkcji platformy Azure w Azure Portal](../../azure-functions/functions-get-started.md). Ten samouczek tworzy funkcję elementu webhook platformy .NET Core, która może być modyfikowana w Azure Portal. Jest to również podstawa bieżącego samouczka.
 
 ## <a name="install-azure-table-storage-bindings"></a>Instalowanie powiązań usługi Azure Table Storage
 
@@ -42,7 +42,7 @@ Aby zainstalować powiązania usługi Azure Table Storage:
 Aby skonfigurować funkcję platformy Azure w celu uwzględnienia metod żądania RESTful dostawcy niestandardowego:
 
 1. Przejdź do karty **integracja** dla HttpTrigger.
-1. W obszarze **wybrane metody http**wybierz **pozycję Get**, **post**, **delete**i **Put**.
+1. W obszarze **wybrane metody http** wybierz **pozycję Get**, **post**, **delete** i **Put**.
 
 ![Przegląd dostawcy niestandardowego przedstawiający metody HTTP](./media/create-custom-provider/azure-functions-http-methods.png)
 

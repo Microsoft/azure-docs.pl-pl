@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: banders
-ms.openlocfilehash: 662e1bf721c93ee1d59946d2fd603551f3f88ad3
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
-ms.translationtype: HT
+ms.openlocfilehash: 0d0dd5342cfc57da776e38ddef3df3b9c2199ac2
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503798"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735779"
 ---
 # <a name="cancel-your-azure-subscription"></a>Anulowanie subskrypcji platformy Azure
 
@@ -79,7 +79,7 @@ Jeśli masz subskrypcję bezpłatnej wersji próbnej, nie musisz czekać 30 dni,
 
 ## <a name="reactivate-a-subscription"></a>Ponowne aktywowanie subskrypcji
 
-Jeśli przypadkowo anulujesz subskrypcję z opcją płatności zgodnie z rzeczywistym użyciem, możesz ją [ponownie aktywować w Centrum konta](subscription-disabled.md).
+Jeśli anulujesz subskrypcję z opcją płatność zgodnie z rzeczywistym użyciem, możesz [ją ponownie aktywować w Azure Portal](subscription-disabled.md).
 
 Jeśli subskrypcja nie jest subskrypcją z płatnością zgodnie z rzeczywistym użyciem, skontaktuj się z pomocą techniczną w ciągu 90 dni od anulowania, aby ponownie aktywować subskrypcję.
 
@@ -101,4 +101,4 @@ Zapoznaj się z artykułem [Odnawianie i anulowanie](/visualstudio/subscriptions
 
 ## <a name="next-steps"></a>Następne kroki
 
-- W razie potrzeby możesz ponownie uaktywnić subskrypcję rozliczaną zgodnie z rzeczywistym użyciem w [Centrum konta](subscription-disabled.md).
+- W razie konieczności można ponownie aktywować subskrypcję z opcją płatność zgodnie z rzeczywistym użyciem w [Azure Portal](subscription-disabled.md).

@@ -5,14 +5,14 @@ keywords: Azure App Service, aplikacja sieci Web, aplikacja mobilna, aplikacja i
 ms.topic: article
 ms.date: 08/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 55ffb2d03a42809a41583e6be25066b0b8e104b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61bffcfa8b98ed666e450c344023258b752e4880
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961503"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736109"
 ---
-# <a name="security-in-azure-app-service"></a>Zabezpieczenia w Azure App Service
+# <a name="security-in-azure-app-service"></a>Zabezpieczenia w usłudze Azure App Service
 
 W tym artykule opisano, jak [Azure App Service](overview.md) pomaga w zabezpieczeniu aplikacji sieci Web, zaplecza aplikacji mobilnych, aplikacji interfejsu API i [aplikacji funkcji](../azure-functions/index.yml). Przedstawiono w nim również, jak można dodatkowo zabezpieczyć aplikację za pomocą wbudowanych funkcji App Service.
 
@@ -43,7 +43,7 @@ App Service obsługuje zarówno protokół FTP, jak i FTPS do wdrażania plików
 
 Domyślnie aplikacja App Service akceptuje żądania ze wszystkich adresów IP z Internetu, ale można ograniczyć ten dostęp do małego podzbioru adresów IP. App Service w systemie Windows umożliwia zdefiniowanie listy adresów IP, które mogą uzyskiwać dostęp do aplikacji. Lista dozwolonych może obejmować pojedyncze adresy IP lub zakres adresów IP definiowanych przez maskę podsieci. Aby uzyskać więcej informacji, zobacz [Azure App Service ograniczeń statycznych adresów IP](app-service-ip-restrictions.md).
 
-Aby uzyskać App Service w systemie Windows, można również dynamicznie ograniczyć adresy IP, konfigurując _web.config_. Aby uzyskać więcej informacji, zobacz [dynamiczne zabezpieczenia \<dynamicIpSecurity> adresów IP ](/iis/configuration/system.webServer/security/dynamicIpSecurity/).
+Aby uzyskać App Service w systemie Windows, można również dynamicznie ograniczyć adresy IP, konfigurując _web.config_. Aby uzyskać więcej informacji, zobacz [dynamiczne zabezpieczenia \<dynamicIpSecurity> adresów IP](/iis/configuration/system.webServer/security/dynamicIpSecurity/).
 
 ## <a name="client-authentication-and-authorization"></a>Uwierzytelnianie i autoryzacja klienta
 
@@ -85,8 +85,8 @@ Aby całkowicie wyizolować połączenie zasobów z udostępnionych sieci na pla
 Możesz bezpiecznie uzyskać dostęp do zasobów lokalnych, takich jak bazy danych, na trzy sposoby: 
 
 - [Połączenia hybrydowe](app-service-hybrid-connections.md) — ustanawia połączenie punkt-punkt z zasobem zdalnym za pośrednictwem tunelu TCP. Tunel TCP jest ustanawiany przy użyciu protokołu TLS 1,2 z kluczami sygnatury dostępu współdzielonego (SAS).
-- [Virtual Network integrację](web-sites-integrate-with-vnet.md) z siecią VPN typu lokacja-lokacja — zgodnie z opisem w obszarze [zasoby wewnątrz Virtual Network platformy Azure](#resources-inside-an-azure-virtual-network), ale Virtual Network można podłączyć do sieci lokalnej za pośrednictwem [sieci VPN typu lokacja-lokacja](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md). W tej topologii sieci aplikacja może łączyć się z zasobami lokalnymi, takimi jak inne zasoby w Virtual Network.
-- [Środowisko App Service](environment/intro.md) z siecią VPN typu lokacja-lokacja — zgodnie z opisem w obszarze [zasoby w ramach Virtual Network platformy Azure](#resources-inside-an-azure-virtual-network), ale Virtual Network może być podłączony do sieci lokalnej za pośrednictwem [sieci VPN typu lokacja-lokacja](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md). W tej topologii sieci aplikacja może łączyć się z zasobami lokalnymi, takimi jak inne zasoby w Virtual Network.
+- [Virtual Network integrację](web-sites-integrate-with-vnet.md) z siecią VPN typu lokacja-lokacja — zgodnie z opisem w obszarze [zasoby wewnątrz Virtual Network platformy Azure](#resources-inside-an-azure-virtual-network), ale Virtual Network można podłączyć do sieci lokalnej za pośrednictwem [sieci VPN typu lokacja-lokacja](../vpn-gateway/tutorial-site-to-site-portal.md). W tej topologii sieci aplikacja może łączyć się z zasobami lokalnymi, takimi jak inne zasoby w Virtual Network.
+- [Środowisko App Service](environment/intro.md) z siecią VPN typu lokacja-lokacja — zgodnie z opisem w obszarze [zasoby w ramach Virtual Network platformy Azure](#resources-inside-an-azure-virtual-network), ale Virtual Network może być podłączony do sieci lokalnej za pośrednictwem [sieci VPN typu lokacja-lokacja](../vpn-gateway/tutorial-site-to-site-portal.md). W tej topologii sieci aplikacja może łączyć się z zasobami lokalnymi, takimi jak inne zasoby w Virtual Network.
 
 ## <a name="application-secrets"></a>Wpisy tajne aplikacji
 

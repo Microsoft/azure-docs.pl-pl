@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z błędami kopii zapasowych na dysku Azure
 description: Informacje o rozwiązywaniu problemów z błędami kopii zapasowych w usłudze Kopia zapasowa Azure Disk
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 3e7c81d70fc898528532a841a484bf6fff8b83a7
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 855c6c5b19b10bdb699a25f89ebc29001b7941ac
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611240"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737731"
 ---
 # <a name="troubleshooting-backup-failures-in-azure-disk-backup-in-preview"></a>Rozwiązywanie problemów z błędami kopii zapasowych na dysku platformy Azure (wersja zapoznawcza)
 
@@ -115,7 +115,7 @@ Zalecana akcja: Udziel zarządzanej tożsamości magazynu kopii zapasowych odpow
 
 Komunikat o błędzie: operacja nie powiodła się, ponieważ osiągnięto maksymalny limit przydziału dysku w subskrypcji.
 
-Zalecana akcja: Zapoznaj się z dokumentacją dotyczącą [limitów subskrypcji i usług oraz dokumentacji przydziału](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) lub pomoc techniczna firmy Microsoft kontaktu, aby uzyskać dalsze wskazówki.
+Zalecana akcja: Zapoznaj się z dokumentacją dotyczącą [limitów subskrypcji i usług oraz dokumentacji przydziału](../azure-resource-manager/management/azure-subscription-service-limits.md) lub pomoc techniczna firmy Microsoft kontaktu, aby uzyskać dalsze wskazówki.
 
 ### <a name="error-code-usererrordiskbackuprestorergormsipermissionsnotpresent"></a>Kod błędu: UserErrorDiskBackupRestoreRGOrMSIPermissionsNotPresent
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 2bf56379a32bf8035ea2d0d3fe797776ec6ba40d
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: e31eb8deb3102ab03809f01e33b1e6548113dae4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250404"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736393"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Wprowadzenie do Eksploratora metryk platformy Azure
 
@@ -29,7 +29,7 @@ Eksplorator metryk Azure Monitor jest składnikiem Microsoft Azure Portal, któr
 
 Aby utworzyć wykres metryki, z poziomu zasobu, grupy zasobów, subskrypcji lub Azure Monitor widoku, Otwórz kartę **metryki** i wykonaj następujące kroki:
 
-1. Kliknij przycisk "Wybierz zakres", aby otworzyć selektor zakresu zasobów. Umożliwi to wybranie zasobów, dla których mają być wyświetlane metryki. Zasób należy już wypełnić, jeśli otwarto Eksploratora metryk z menu zasobów. Aby dowiedzieć się, jak wyświetlać metryki w wielu zasobach, [Przeczytaj ten artykuł](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-dynamic-scope).
+1. Kliknij przycisk "Wybierz zakres", aby otworzyć selektor zakresu zasobów. Umożliwi to wybranie zasobów, dla których mają być wyświetlane metryki. Zasób należy już wypełnić, jeśli otwarto Eksploratora metryk z menu zasobów. Aby dowiedzieć się, jak wyświetlać metryki w wielu zasobach, [Przeczytaj ten artykuł](./metrics-dynamic-scope.md).
     > ![Wybieranie zasobu](./media/metrics-getting-started/scope-picker.png)
 
 2. W przypadku niektórych zasobów należy wybrać przestrzeń nazw. Przestrzeń nazw jest tylko sposobem organizowania metryk, aby można je było łatwo znaleźć. Na przykład konta magazynu mają oddzielne przestrzenie nazw do przechowywania plików, tabel, obiektów blob i metryki kolejek. Wiele typów zasobów ma tylko jedną przestrzeń nazw.

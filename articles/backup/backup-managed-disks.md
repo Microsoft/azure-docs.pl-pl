@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowej Managed Disks platformy Azure
 description: Dowiedz się, jak utworzyć kopię zapasową Managed Disks platformy Azure z Azure Portal.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 2169e2f44e3ffb2c05c674d633efabed2c531878
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: ca86550c4dec4b51c60d9ecdef124e38783a3764
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573126"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98738156"
 ---
 # <a name="back-up-azure-managed-disks-in-preview"></a>Tworzenie kopii zapasowej Managed Disks platformy Azure (w wersji zapoznawczej)
 
@@ -17,7 +17,7 @@ ms.locfileid: "98573126"
 >
 >[Wypełnij ten formularz](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) , aby utworzyć konto w wersji zapoznawczej.
 
-W tym artykule wyjaśniono, jak utworzyć kopię zapasową [dysku zarządzanego platformy Azure](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview) z Azure Portal.
+W tym artykule wyjaśniono, jak utworzyć kopię zapasową [dysku zarządzanego platformy Azure](../virtual-machines/managed-disks-overview.md) z Azure Portal.
 
 Ten artykuł obejmuje następujące zagadnienia:
 
@@ -46,7 +46,7 @@ Magazyn kopii zapasowych to jednostka magazynowa na platformie Azure, która prz
 
    ![Inicjowanie: Tworzenie magazynu](./media/backup-managed-disks/initiate-create-vault.png)
 
-1. Na karcie **podstawy** Podaj subskrypcję, grupę zasobów, nazwę magazynu kopii zapasowych, region i nadmiarowość magazynu kopii zapasowych. Kontynuuj, wybierając pozycję **Przegląd + Utwórz**. Dowiedz się więcej o [tworzeniu magazynu kopii zapasowych](https://docs.microsoft.com/azure/backup/backup-vault-overview#create-a-backup-vault).
+1. Na karcie **podstawy** Podaj subskrypcję, grupę zasobów, nazwę magazynu kopii zapasowych, region i nadmiarowość magazynu kopii zapasowych. Kontynuuj, wybierając pozycję **Przegląd + Utwórz**. Dowiedz się więcej o [tworzeniu magazynu kopii zapasowych](./backup-vault-overview.md#create-a-backup-vault).
 
    ![Przeglądanie i tworzenie magazynu](./media/backup-managed-disks/review-and-create.png)
 
@@ -67,7 +67,7 @@ Magazyn kopii zapasowych to jednostka magazynowa na platformie Azure, która prz
 
    ![Wybieranie częstotliwości harmonogramu kopii zapasowych](./media/backup-managed-disks/backup-schedule-frequency.png)
 
-   Kopia zapasowa Azure Disk oferuje wiele kopii zapasowych dziennie. Jeśli potrzebujesz kilku częstych kopii zapasowych, wybierz częstotliwość wykonywania kopii zapasowych co **godzinę** , aby tworzyć kopie zapasowe z interwałami co 4, 6, 8 lub 12 godzin. Kopie zapasowe są planowane na podstawie wybranego przedziału **czasu** . Jeśli na przykład wybierzesz **co 4 godziny**, kopie zapasowe zostaną wykonane o około 4 godzinach, a kopie zapasowe są równomiernie rozłożone na cały dzień. Jeśli wystarcza kopia zapasowa raz dziennie, wybierz częstotliwość **codziennej** kopii zapasowej. W przypadku częstotliwości codziennej kopii zapasowej można określić godzinę wykonywania kopii zapasowych. Należy pamiętać, że czas dnia wskazuje godzinę rozpoczęcia tworzenia kopii zapasowej, a nie godzinę ukończenia tworzenia kopii zapasowej. Czas wymagany do ukończenia operacji tworzenia kopii zapasowej zależy od różnych czynników, w tym rozmiaru dysku, i współczynnika zmian między kolejnymi kopiami zapasowymi. Kopia zapasowa dysku platformy Azure to jednak kopia zapasowa bez agenta, która korzysta z [migawek przyrostowych](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal), co nie ma wpływu na wydajność aplikacji produkcyjnej.
+   Kopia zapasowa Azure Disk oferuje wiele kopii zapasowych dziennie. Jeśli potrzebujesz kilku częstych kopii zapasowych, wybierz częstotliwość wykonywania kopii zapasowych co **godzinę** , aby tworzyć kopie zapasowe z interwałami co 4, 6, 8 lub 12 godzin. Kopie zapasowe są planowane na podstawie wybranego przedziału **czasu** . Jeśli na przykład wybierzesz **co 4 godziny**, kopie zapasowe zostaną wykonane o około 4 godzinach, a kopie zapasowe są równomiernie rozłożone na cały dzień. Jeśli wystarcza kopia zapasowa raz dziennie, wybierz częstotliwość **codziennej** kopii zapasowej. W przypadku częstotliwości codziennej kopii zapasowej można określić godzinę wykonywania kopii zapasowych. Należy pamiętać, że czas dnia wskazuje godzinę rozpoczęcia tworzenia kopii zapasowej, a nie godzinę ukończenia tworzenia kopii zapasowej. Czas wymagany do ukończenia operacji tworzenia kopii zapasowej zależy od różnych czynników, w tym rozmiaru dysku, i współczynnika zmian między kolejnymi kopiami zapasowymi. Kopia zapasowa dysku platformy Azure to jednak kopia zapasowa bez agenta, która korzysta z [migawek przyrostowych](../virtual-machines/disks-incremental-snapshots.md), co nie ma wpływu na wydajność aplikacji produkcyjnej.
 
 1. Na karcie **zasady kopii zapasowej** wybierz pozycję Ustawienia przechowywania, które spełniają wymagania celu punktu odzyskiwania (RPO).
 
@@ -80,7 +80,7 @@ Magazyn kopii zapasowych to jednostka magazynowa na platformie Azure, która prz
    ![Ustawienia przechowywania](./media/backup-managed-disks/retention-settings.png)
 
    >[!NOTE]
-   >Azure Backup dla Managed Disks używa migawek przyrostowych, które są ograniczone do 200 migawek na dysk. Aby umożliwić tworzenie kopii zapasowych na żądanie poza zaplanowanymi kopiami zapasowymi, zasady tworzenia kopii zapasowych ograniczają całkowite kopie zapasowe do 180. Dowiedz się więcej na temat [migawek przyrostowych](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) dla dysku zarządzanego.
+   >Azure Backup dla Managed Disks używa migawek przyrostowych, które są ograniczone do 200 migawek na dysk. Aby umożliwić tworzenie kopii zapasowych na żądanie poza zaplanowanymi kopiami zapasowymi, zasady tworzenia kopii zapasowych ograniczają całkowite kopie zapasowe do 180. Dowiedz się więcej na temat [migawek przyrostowych](../virtual-machines/disks-incremental-snapshots.md#restrictions) dla dysku zarządzanego.
 
 1. Ukończ Tworzenie zasad tworzenia kopii zapasowych, wybierając pozycję **Przegląd + Utwórz**.
 
@@ -88,7 +88,7 @@ Magazyn kopii zapasowych to jednostka magazynowa na platformie Azure, która prz
 
 Magazyn kopii zapasowych używa tożsamości zarządzanej do uzyskiwania dostępu do innych zasobów platformy Azure. Aby skonfigurować tworzenie kopii zapasowych dysków zarządzanych, zarządzana tożsamość magazynu kopii zapasowych wymaga zestawu uprawnień na dyskach źródłowych i grupach zasobów, w których migawki są tworzone i zarządzane.
 
-Tożsamość zarządzana przypisana przez system jest ograniczona do jednego na zasób i jest powiązana z cyklem życia tego zasobu. Uprawnienia do tożsamości zarządzanej można udzielić przy użyciu kontroli dostępu opartej na rolach (Azure RBAC). Tożsamość zarządzana to nazwa główna usługi typu specjalnego, która może być używana tylko z zasobami platformy Azure. Dowiedz się więcej o [tożsamościach zarządzanych](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Tożsamość zarządzana przypisana przez system jest ograniczona do jednego na zasób i jest powiązana z cyklem życia tego zasobu. Uprawnienia do tożsamości zarządzanej można udzielić przy użyciu kontroli dostępu opartej na rolach (Azure RBAC). Tożsamość zarządzana to nazwa główna usługi typu specjalnego, która może być używana tylko z zasobami platformy Azure. Dowiedz się więcej o [tożsamościach zarządzanych](../active-directory/managed-identities-azure-resources/overview.md).
 
 Aby skonfigurować tworzenie kopii zapasowych dysków zarządzanych, wymagane są następujące wymagania wstępne:
 
@@ -115,7 +115,7 @@ Aby skonfigurować tworzenie kopii zapasowych dysków zarządzanych, wymagane s�
 
    - Tej grupy zasobów można używać do przechowywania migawek na wielu dyskach, które są tworzone w ramach kopii zapasowej (lub planowanej ich).  
 
-   - Nie można utworzyć migawki przyrostowej dla określonego dysku poza subskrypcją tego dysku. Dlatego wybierz grupę zasobów w ramach tej samej subskrypcji, co w przypadku dysku, którego kopia zapasowa ma zostać utworzona. Dowiedz się więcej o [przyrostowej migawce](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) dla dysków zarządzanych.
+   - Nie można utworzyć migawki przyrostowej dla określonego dysku poza subskrypcją tego dysku. Dlatego wybierz grupę zasobów w ramach tej samej subskrypcji, co w przypadku dysku, którego kopia zapasowa ma zostać utworzona. Dowiedz się więcej o [przyrostowej migawce](../virtual-machines/disks-incremental-snapshots.md#restrictions) dla dysków zarządzanych.
 
    Aby przypisać rolę, wykonaj następujące kroki:
 
@@ -129,8 +129,6 @@ Aby skonfigurować tworzenie kopii zapasowych dysków zarządzanych, wymagane s�
    >Wpisz nazwę magazynu kopii zapasowych, aby wybrać zarządzaną tożsamość magazynu.
 
    ![Dodaj rolę współautor migawki dysku](./media/backup-managed-disks/disk-snapshot-contributor-role.png)
-
-1. Jeśli dysk, którego kopia zapasowa ma zostać utworzona, jest szyfrowany przy użyciu [kluczy zarządzanych przez klienta (CMK)](https://docs.microsoft.com/azure/virtual-machines/disks-enable-customer-managed-keys-portal) lub przy użyciu [podwójnego szyfrowania przy użyciu kluczy zarządzanych przez platformę i kluczy zarządzanych przez klienta](https://docs.microsoft.com/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal), przypisz uprawnienie roli **czytelnik** do zarządzanej tożsamości magazynu kopii zapasowych w ramach zasobu **zestawu szyfrowania dysku** .
 
 1. Sprawdź, czy zarządzana tożsamość magazynu kopii zapasowych ma odpowiedni zestaw przypisań ról na dysku źródłowym i w grupie zasobów, która służy jako migawka magazynu danych.
 
@@ -154,7 +152,7 @@ Aby skonfigurować tworzenie kopii zapasowych dysków zarządzanych, wymagane s�
    ![Wybieranie dysku platformy Azure](./media/backup-managed-disks/select-azure-disk.png)
 
    >[!NOTE]
-   >Azure Backup używa [przyrostowych migawek](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) dysków zarządzanych, które przechowują tylko zmiany różnicowe na dysku od momentu ostatniej migawki magazynu HDD w warstwie Standardowa, niezależnie od typu magazynu dysku nadrzędnego. W celu uzyskania dodatkowej niezawodności migawki przyrostowe są domyślnie przechowywane w obszarze strefowo nadmiarowy magazyn (ZRS) w regionach, które obsługują ZRS. Obecnie kopia zapasowa Azure Disk obsługuje operacyjną kopię zapasową dysków zarządzanych, która nie kopiuje kopii zapasowych do magazynu magazynu kopii zapasowych. W związku z tym ustawienia nadmiarowości magazynu kopii zapasowych nie mają zastosowania do punktów odzyskiwania.
+   >Azure Backup używa [przyrostowych migawek](../virtual-machines/disks-incremental-snapshots.md#restrictions) dysków zarządzanych, które przechowują tylko zmiany różnicowe na dysku od momentu ostatniej migawki magazynu HDD w warstwie Standardowa, niezależnie od typu magazynu dysku nadrzędnego. W celu uzyskania dodatkowej niezawodności migawki przyrostowe są domyślnie przechowywane w obszarze strefowo nadmiarowy magazyn (ZRS) w regionach, które obsługują ZRS. Obecnie kopia zapasowa Azure Disk obsługuje operacyjną kopię zapasową dysków zarządzanych, która nie kopiuje kopii zapasowych do magazynu magazynu kopii zapasowych. W związku z tym ustawienia nadmiarowości magazynu kopii zapasowych nie mają zastosowania do punktów odzyskiwania.
 
 1. Na karcie **zasady kopii zapasowej** wybierz zasady tworzenia kopii zapasowych.
 

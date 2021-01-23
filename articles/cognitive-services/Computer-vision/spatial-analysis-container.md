@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: bb40586a93a40c2aaa3f0f884a0e747f168c324b
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: db21f1170dacbfa1e4367e7f22143ec3d0b0f6e4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98186087"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737340"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Instalowanie i uruchamianie kontenera analizy przestrzennej (wersja zapoznawcza)
 
@@ -62,7 +62,7 @@ W tym artykule zostaną pobrane i zainstalowane następujące pakiety oprogramow
 * [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) środowiska uruchomieniowego.
 
 #### <a name="azure-vm-with-gpu"></a>[Maszyna wirtualna platformy Azure z procesorem GPU](#tab/virtual-machine)
-W naszym przykładzie będziemy używać [maszyny wirtualnej z serii NC](https://docs.microsoft.com/azure/virtual-machines/nc-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) , która ma jeden procesor GPU K80.
+W naszym przykładzie będziemy używać [maszyny wirtualnej z serii NC](../../virtual-machines/nc-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) , która ma jeden procesor GPU K80.
 
 ---
 
@@ -110,7 +110,7 @@ Analiza przestrzenna korzysta z funkcji obliczeniowych Azure Stack Edge, aby uru
 
 W [Azure Portal](https://portal.azure.com/)przejdź do zasobu Azure Stack Edge. Na stronie **Przegląd** lub na liście nawigacji kliknij przycisk **wprowadzenie** do obliczeń krawędzi. Na kafelku  **konfigurowania obliczeń brzegowych**   kliknij przycisk **Konfiguruj**. 
 
-![Łącze](media/spatial-analysis/configure-edge-compute-tile.png)
+![Link](media/spatial-analysis/configure-edge-compute-tile.png)
 
 Na stronie **Konfigurowanie obliczeń krawędzi**   Wybierz istniejący IoT Hub lub wybierz opcję utworzenia nowego. Domyślnie warstwa cenowa standardowa (S1) jest używana do tworzenia zasobów IoT Hub. Aby użyć zasobu warstwy Bezpłatna IoT Hub, utwórz go, a następnie wybierz. Zasób IoT Hub używa tej samej subskrypcji i grupy zasobów, która jest używana przez zasób Azure Stack Edge 
 
@@ -309,13 +309,13 @@ Na komputerze hosta otwartym  `/etc/iotedge/config.yaml` do edycji. Zamień na `
 sudo systemctl restart iotedge
 ```
 
-Wdróż kontener analizy przestrzennej jako moduł IoT na komputerze-hoście, z poziomu [Azure Portal](../../iot-edge/how-to-deploy-modules-portal.md) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows). Jeśli używasz portalu, ustaw identyfikator URI obrazu na lokalizację Azure Container Registry. 
+Wdróż kontener analizy przestrzennej jako moduł IoT na komputerze-hoście, z poziomu [Azure Portal](../../iot-edge/how-to-deploy-modules-portal.md) lub [interfejsu wiersza polecenia platformy Azure](../cognitive-services-apis-create-account-cli.md?tabs=windows). Jeśli używasz portalu, ustaw identyfikator URI obrazu na lokalizację Azure Container Registry. 
 
 Wykonaj poniższe kroki, aby wdrożyć kontener przy użyciu interfejsu wiersza polecenia platformy Azure.
 
 #### <a name="azure-vm-with-gpu"></a>[Maszyna wirtualna platformy Azure z procesorem GPU](#tab/virtual-machine)
 
-Maszyna wirtualna platformy Azure z procesorem GPU może być również używana do uruchamiania analizy przestrzennej. W poniższym przykładzie zostanie użyta maszyna wirtualna z [serii NC](https://docs.microsoft.com/azure/virtual-machines/nc-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) , która ma jeden procesor GPU K80.
+Maszyna wirtualna platformy Azure z procesorem GPU może być również używana do uruchamiania analizy przestrzennej. W poniższym przykładzie zostanie użyta maszyna wirtualna z [serii NC](../../virtual-machines/nc-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) , która ma jeden procesor GPU K80.
 
 #### <a name="create-the-vm"></a>Tworzenie maszyny wirtualnej
 
@@ -335,7 +335,7 @@ Następnie wybierz opcję **NC6** lub **NC6_Promo**.
 
 Następnie utwórz maszynę wirtualną. Po utworzeniu przejdź do zasobu maszyny wirtualnej w Azure Portal i wybierz polecenie `Extensions` z okienka po lewej stronie. Zostanie wyświetlone okno rozszerzenia ze wszystkimi dostępnymi rozszerzeniami. Wybierz pozycję `NVIDIA GPU Driver Extension` Utwórz, a następnie Zakończ pracę kreatora.
 
-Po pomyślnym zastosowaniu rozszerzenia przejdź do strony głównej maszyny wirtualnej w Azure Portal i kliknij przycisk `Connect` . Do maszyny wirtualnej można uzyskać dostęp za pośrednictwem protokołu SSH lub RDP. Protokół RDP będzie przydatny do wyświetlania okna wizualizatora (wyjaśnionego później). Skonfiguruj dostęp do protokołu RDP, wykonując następujące [kroki](https://docs.microsoft.com/azure/virtual-machines/linux/use-remote-desktop) i otwierając połączenie pulpitu zdalnego z maszyną wirtualną.
+Po pomyślnym zastosowaniu rozszerzenia przejdź do strony głównej maszyny wirtualnej w Azure Portal i kliknij przycisk `Connect` . Do maszyny wirtualnej można uzyskać dostęp za pośrednictwem protokołu SSH lub RDP. Protokół RDP będzie przydatny do wyświetlania okna wizualizatora (wyjaśnionego później). Skonfiguruj dostęp do protokołu RDP, wykonując następujące [kroki](../../virtual-machines/linux/use-remote-desktop.md) i otwierając połączenie pulpitu zdalnego z maszyną wirtualną.
 
 ### <a name="verify-graphics-drivers-are-installed"></a>Sprawdź, czy sterowniki grafiki są zainstalowane
 
@@ -426,7 +426,7 @@ W poniższej tabeli przedstawiono różne zmienne środowiskowe używane przez m
 > [!IMPORTANT]
 > `Eula` `Billing` `ApiKey` Aby można było uruchomić kontener, należy określić opcje, i. w przeciwnym razie kontener nie zostanie uruchomiony.  Aby uzyskać więcej informacji, zobacz [rozliczenia](#billing).
 
-Po zaktualizowaniu manifestu wdrożenia dla [Azure Stack urządzeń brzegowych](https://go.microsoft.com/fwlink/?linkid=2142179), [maszyny STACJONARNEJ](https://go.microsoft.com/fwlink/?linkid=2152270) lub [maszyny wirtualnej platformy Azure z procesorem GPU](https://go.microsoft.com/fwlink/?linkid=2152189) z własnymi ustawieniami i wyborem operacji, można użyć poniższego polecenia [platformy Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows) , aby wdrożyć kontener na komputerze hosta jako moduł IoT Edge.
+Po zaktualizowaniu manifestu wdrożenia dla [Azure Stack urządzeń brzegowych](https://go.microsoft.com/fwlink/?linkid=2142179), [maszyny STACJONARNEJ](https://go.microsoft.com/fwlink/?linkid=2152270) lub [maszyny wirtualnej platformy Azure z procesorem GPU](https://go.microsoft.com/fwlink/?linkid=2152189) z własnymi ustawieniami i wyborem operacji, można użyć poniższego polecenia [platformy Azure](../cognitive-services-apis-create-account-cli.md?tabs=windows) , aby wdrożyć kontener na komputerze hosta jako moduł IoT Edge.
 
 ```azurecli
 sudo az login
@@ -457,7 +457,7 @@ Musisz użyć [operacji analizy przestrzennej](spatial-analysis-operations.md) ,
 
 ## <a name="redeploy-or-delete-the-deployment"></a>Ponowne wdrażanie lub usuwanie wdrożenia
 
-Jeśli trzeba zaktualizować wdrożenie, należy upewnić się, że poprzednie wdrożenia zostały pomyślnie wdrożone lub należy usunąć IoT Edge wdrożenia urządzeń, które nie zostały ukończone. W przeciwnym razie te wdrożenia będą kontynuowane, pozostawiając system w nieprawidłowym stanie. Możesz użyć Azure Portal lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows).
+Jeśli trzeba zaktualizować wdrożenie, należy upewnić się, że poprzednie wdrożenia zostały pomyślnie wdrożone lub należy usunąć IoT Edge wdrożenia urządzeń, które nie zostały ukończone. W przeciwnym razie te wdrożenia będą kontynuowane, pozostawiając system w nieprawidłowym stanie. Możesz użyć Azure Portal lub [interfejsu wiersza polecenia platformy Azure](../cognitive-services-apis-create-account-cli.md?tabs=windows).
 
 ## <a name="use-the-output-generated-by-the-container"></a>Użyj danych wyjściowych wygenerowanych przez kontener
 

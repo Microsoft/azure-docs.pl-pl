@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: 5c2182fc80c3745e0238c378c1cade0530393181
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 00aaa5bdc0d48adb735679fc4a71b3431970ef09
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632845"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737171"
 ---
 # <a name="install-azure-application-consistent-snapshot-tool-preview"></a>Zainstaluj narzędzie do tworzenia migawek spójnych w aplikacji Azure (wersja zapoznawcza)
 
@@ -34,9 +34,9 @@ Instalator samoinstalujący próbuje określić poprawne ustawienia i ścieżki 
 
 Postępuj zgodnie z instrukcjami w celu skonfigurowania i wykonania migawek i poleceń odzyskiwania po awarii. Przed zainstalowaniem i użyciem narzędzi do tworzenia migawek zaleca się wykonanie następujących kroków jako katalog główny.
 
-1. **Poprawka systemu operacyjnego**: Zobacz Instalator poprawek i SMT w artykule [jak zainstalować i skonfigurować SAP HANA (duże wystąpienia) na platformie Azure](/azure/virtual-machines/workloads/sap/hana-installation#setting-up-smt-server-for-suse-linux).
+1. **Poprawka systemu operacyjnego**: Zobacz Instalator poprawek i SMT w artykule [jak zainstalować i skonfigurować SAP HANA (duże wystąpienia) na platformie Azure](../virtual-machines/workloads/sap/hana-installation.md#operating-system).
 1. **Synchronizacja czasu została skonfigurowana**. Klient będzie musiał podać serwer czasu zgodnego z NTP i odpowiednio skonfigurować system operacyjny.
-1. Platforma **Hana jest zainstalowana** : Zobacz instrukcje dotyczące instalacji platformy Hana w [instalacji oprogramowania SAP NetWeaver w bazie danych Hana](https://blogs.msdn.microsoft.com/saponsqlserver/2017/11/21/sap-netweaver-installation-on-hana-database/).
+1. Platforma **Hana jest zainstalowana** : Zobacz instrukcje dotyczące instalacji platformy Hana w [instalacji oprogramowania SAP NetWeaver w bazie danych Hana](/archive/blogs/saponsqlserver/sap-netweaver-installation-on-hana-database).
 1. **[Włącz komunikację z magazynem](#enable-communication-with-storage)** (więcej informacji można znaleźć w oddzielnej sekcji): Klient musi skonfigurować protokół SSH za pomocą pary kluczy prywatnych/publicznych i podać klucz publiczny dla każdego węzła, w którym narzędzia migawek są planowane do wykonania w ramach operacji firmy Microsoft na potrzeby instalacji na zapleczu magazynu.
    1. **Aby uzyskać Azure NetApp Files (szczegółowe informacje znajdują się w osobnej sekcji)**: Klient musi wygenerować plik uwierzytelniania nazwy głównej usługi.
    1. **W przypadku dużego wystąpienia platformy Azure (szczegółowe informacje znajdują się w osobnej sekcji)**: Klient musi skonfigurować protokół SSH za pomocą pary kluczy prywatnych/publicznych i podać klucz publiczny dla każdego węzła, w którym planowane są narzędzia migawek do wykonania na potrzeby instalacji na zapleczu magazynu.

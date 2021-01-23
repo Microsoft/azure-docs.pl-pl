@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 8343c06992c896986ba26a90171e25f9c8c4f2f8
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 9b8dafa4a69358b3f6f09551ac426b908750e2f4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600095"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735476"
 ---
 # <a name="prepay-for-azure-database-for-postgresql---single-server-compute-resources-with-reserved-capacity"></a>Przedpłata za zasoby obliczeniowe dla Azure Database for PostgreSQL pojedynczego serwera z zarezerwowaną pojemnością
 
@@ -35,7 +35,7 @@ Szczegółowe informacje na temat tego, w jaki sposób Klienci korporacyjni i kl
 
 Rozmiar rezerwacji powinien opierać się na łącznej ilości obliczeń używanych przez istniejące lub wkrótce wdrożone serwery w określonym regionie oraz przy użyciu tej samej warstwy wydajności i generowania sprzętu.</br>
 
-Załóżmy na przykład, że korzystasz z jednej bazy danych ogólnego przeznaczenia 5 rdzeń – 32 rdzeń wirtualny PostgreSQL i dwóch zoptymalizowanych pod kątem pamięci 5 rdzeń-16 rdzeń wirtualny PostgreSQL. Ponadto Załóżmy, że planujesz wdrożenie w następnym miesiącu i dodatkowym głównym przeznaczeniu 5 rdzeń – 32 rdzeń wirtualny Database Server oraz jednym z zoptymalizowanych pod kątem pamięci 5 rdzeń serwera bazy danych rdzeń wirtualny. Załóżmy, że wiesz, że te zasoby będą potrzebne przez co najmniej jeden rok. W takim przypadku należy zakupić 64 (2x32) rdzeni wirtualnych, jednoletnią rezerwację dla jednej bazy danych ogólnego przeznaczenia-5 rdzeń i 48 (2x16 + 16) rdzeń wirtualny jednoletnią rezerwację dla zoptymalizowanej pod kątem pamięci pojedynczej bazy danych — 5 rdzeń
+Załóżmy na przykład, że korzystasz z jednej bazy danych ogólnego przeznaczenia 5 rdzeń – 32 rdzeń wirtualny PostgreSQL i dwóch zoptymalizowanych pod kątem pamięci 5 rdzeń-16 rdzeń wirtualny PostgreSQL. Ponadto Załóżmy, że planujesz wdrożenie w następnym miesiącu i dodatkowym głównym przeznaczeniu 5 rdzeń – 8 rdzeń wirtualny bazy danych i jednym z zoptymalizowanych pod kątem pamięci serwera bazy danych 5 rdzeń – 32 rdzeń wirtualny. Załóżmy, że wiesz, że te zasoby będą potrzebne przez co najmniej jeden rok. W takim przypadku należy zakupić 40 (32 + 8) rdzeni wirtualnych, jednoletnią rezerwację dla pojedynczej bazy danych ogólnego przeznaczenia-5 rdzeń i 64 (2x16 + 32) rdzeń wirtualny jednorocznej rezerwacji dla pojedynczej pamięci bazy danych zoptymalizowanej-5 rdzeń
 
 
 ## <a name="buy-azure-database-for-postgresql-reserved-capacity"></a>Kupowanie Azure Database for PostgreSQL zarezerwowanej pojemności
@@ -53,13 +53,13 @@ W poniższej tabeli opisano wymagane pola.
 
 | Pole | Opis |
 | :------------ | :------- |
-| Subskrypcja   | Subskrypcja używana do płacenia za Azure Database for PostgreSQL zarezerwowaną rezerwację zdolności produkcyjnych. W ramach metody płatności w ramach subskrypcji jest naliczana opłata z tytułu kosztów ponoszonych z góry Azure Database for PostgreSQL zastrzeżonej rezerwacji. Typ subskrypcji musi być umową Enterprise Agreement (Numer oferty: MS-AZR-0017P lub MS-AZR-0148P) lub indywidualna umowa z cennikiem z opcją płatność zgodnie z rzeczywistym użyciem (numery ofert: MS-AZR-0003P lub MS-AZR-0023P). W przypadku subskrypcji przedsiębiorstwa opłaty są naliczane od przedpłaty za subskrypcję platformy Azure (wcześniej nazywanej zobowiązaniem pieniężnym) lub za użycie. W przypadku indywidualnej subskrypcji z płatnością zgodnie z rzeczywistym użyciem opłaty są naliczane za kartę kredytową lub formę płatności faktury dla subskrypcji.
+| Subskrypcja   | Subskrypcja używana do płacenia za Azure Database for PostgreSQL zarezerwowaną rezerwację zdolności produkcyjnych. W ramach metody płatności w ramach subskrypcji jest naliczana opłata z tytułu kosztów ponoszonych z góry Azure Database for PostgreSQL zastrzeżonej rezerwacji. Typ subskrypcji musi być umową Enterprise Agreement (Numer oferty: MS-AZR-0017P lub MS-AZR-0148P) lub indywidualna umowa z cennikiem z opcją płatność zgodnie z rzeczywistym użyciem (numery ofert: MS-AZR-0003P lub MS-AZR-0023P). W przypadku subskrypcji dla przedsiębiorstw opłaty są odliczane od salda opłaty z góry za platformę Azure (wcześniej nazywanej zobowiązaniem pieniężnym) rejestracji lub naliczane jako nadwyżka. W przypadku indywidualnej subskrypcji z płatnością zgodnie z rzeczywistym użyciem opłaty są naliczane za kartę kredytową lub formę płatności faktury dla subskrypcji.
 | Zakres | Zakres rezerwacji rdzeń wirtualny może obejmować jedną subskrypcję lub wiele subskrypcji (zakres udostępniony). W przypadku wybrania opcji: </br></br> Rdzeń wirtualny rabat rezerwacji jest stosowany do serwerów Azure Database for PostgreSQL uruchomionych w ramach dowolnych subskrypcji w kontekście rozliczeń. W przypadku klientów korporacyjnych zakresem udostępnionym jest rejestracja i uwzględnianie wszystkich subskrypcji w ramach rejestracji. W przypadku klientów z płatnością zgodnie z rzeczywistym użyciem zakresem udostępnionym są wszystkie subskrypcje z opcją płatności zgodnie z rzeczywistym użyciem utworzone przez administratora konta.</br></br> **Pojedyncza subskrypcja**— rabat rezerwacji rdzeń wirtualny jest stosowany do serwerów Azure Database for PostgreSQL w tej subskrypcji. </br></br> **Pojedynczej grupy zasobów**, Rabat rezerwacji jest stosowany do Azure Database for PostgreSQL serwerów w wybranej subskrypcji i wybranej grupy zasobów w ramach tej subskrypcji.
 | Region (Region) | Region świadczenia usługi Azure objęty Azure Database for PostgreSQL rezerwacji zarezerwowanej pojemności.
 | Typ wdrożenia | Typ zasobu Azure Database for PostgreSQL, dla którego chcesz kupić rezerwację.
 | Warstwa wydajności | Warstwa usług dla serwerów Azure Database for PostgreSQL.
-| Termin | Jeden rok
-| Ilość | Ilość zasobów obliczeniowych zakupionych w ramach rezerwacji Azure Database for PostgreSQL zarezerwowanej. Ilość to liczba rdzeni wirtualnych w wybranym regionie i warstwie wydajności platformy Azure, które są zarezerwowane i pobierają rabat rozliczeń. Na przykład w przypadku uruchamiania programu lub planowania uruchamiania serwerów Azure Database for PostgreSQL z łączną pojemnością obliczeniową 5 rdzeń 16 rdzeni wirtualnych w regionie Wschodnie stany USA należy określić liczbę jako 16, aby zmaksymalizować korzyść dla wszystkich serwerów.
+| Okres | Jeden rok
+| Liczba | Ilość zasobów obliczeniowych zakupionych w ramach rezerwacji Azure Database for PostgreSQL zarezerwowanej. Ilość to liczba rdzeni wirtualnych w wybranym regionie i warstwie wydajności platformy Azure, które są zarezerwowane i pobierają rabat rozliczeń. Na przykład w przypadku uruchamiania programu lub planowania uruchamiania serwerów Azure Database for PostgreSQL z łączną pojemnością obliczeniową 5 rdzeń 16 rdzeni wirtualnych w regionie Wschodnie stany USA należy określić liczbę jako 16, aby zmaksymalizować korzyść dla wszystkich serwerów.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Anulowanie, wymiana lub zwrot rezerwacji
 
@@ -67,7 +67,8 @@ Rezerwacje można anulować, wymieniać lub zwracać, jednak obowiązują przy t
 
 ## <a name="vcore-size-flexibility"></a>elastyczność rozmiaru rdzeń wirtualny
 
-elastyczność rozmiaru rdzeń wirtualny ułatwia skalowanie w górę i w dół w warstwach i regionach wydajności bez utraty korzyści zarezerwowanej pojemności. 
+elastyczność rozmiaru rdzeń wirtualny ułatwia skalowanie w górę i w dół w warstwach i regionach wydajności bez utraty korzyści zarezerwowanej pojemności. W przypadku skalowania do wyższych rdzeni wirtualnych niż zarezerwowana pojemność zostanie naliczona opłata za nadwyżkowe rdzeni wirtualnych przy użyciu cennika płatności zgodnie z rzeczywistym użyciem.
+
 
 ## <a name="need-help-contact-us"></a>Potrzebujesz pomocy? Skontaktuj się z nami
 

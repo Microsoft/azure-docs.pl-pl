@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 0691411f57944f8203120ec2a6ed19013135458c
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 8db556709f68a1184046989a15fad147542a05a7
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920257"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735745"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-postgresql---single-server"></a>Powiadomienie o planowanej konserwacji w usłudze Azure Database for PostgreSQL — pojedynczy serwer
 
@@ -25,7 +25,7 @@ Planowana konserwacja to okno obsługi, gdy aktualizacje usługi są wdrażane n
 
 ## <a name="planned-maintenance---duration-and-customer-impact"></a>Planowana konserwacja — czas trwania i wpływ klienta
 
-Planowana konserwacja dla danego regionu świadczenia usługi Azure zazwyczaj oczekuje na 15 godzin. W razie potrzeby okno zawiera również czas buforowania w celu wykonania planu wycofywania. Podczas planowanej konserwacji mogą wystąpić ponowne uruchomienia serwera bazy danych lub przełączenia w tryb failover, co może prowadzić do krótkich niedostępności serwerów baz danych dla użytkowników końcowych. Serwery Azure Database for PostgreSQL są uruchomione w kontenerach, więc ponowne uruchomienia serwera bazy danych są zwykle szybkie, oczekiwane zwykle w ciągu 60-120 sekund. Całe planowane zdarzenie konserwacji, w tym każde ponowne uruchomienie serwera, jest starannie monitorowane przez Zespół inżynieryjny. Czas pracy awaryjnej serwera zależy od czasu odzyskiwania bazy danych, co może spowodować, że baza danych będzie przełączona w tryb online, jeśli na serwerze w momencie przejścia w tryb failover występuje intensywna aktywność transakcyjna. Aby uniknąć dłuższego czasu ponownego uruchomienia, zaleca się uniknięcie wolnych długotrwałych transakcji (ładowania zbiorczego) podczas planowanych zdarzeń konserwacji.
+Planowana konserwacja dla danego regionu świadczenia usługi Azure zwykle powinna zostać zakończona w ciągu 15 godzin. To okno czasowe zawiera również czas bufora do wykonania planu wycofania w razie potrzeby. Serwery Azure Database for PostgreSQL są uruchomione w kontenerach, więc ponowne uruchomienie serwera bazy danych trwa zwykle 60-120 sekund, ale nie istnieje jednoznaczny sposób, aby wiedzieć, że w tym oknie 15-godzinnym będzie miało wpływ na serwer. Całe planowane zdarzenie konserwacji, w tym każde ponowne uruchomienie serwera, jest starannie monitorowane przez Zespół inżynieryjny. Czas pracy awaryjnej serwera zależy od odzyskiwania bazy danych, co może spowodować, że baza danych będzie przełączona w tryb online, jeśli na serwerze w momencie przejścia w tryb failover występuje intensywna aktywność transakcyjna. Aby uniknąć dłuższego czasu ponownego uruchomienia, zaleca się uniknięcie wolnych długotrwałych transakcji (ładowania zbiorczego) podczas planowanych zdarzeń konserwacji.
 
 Podsumowując, podczas gdy planowane zdarzenie konserwacji działa przez 15 godzin, wpływ na serwer jest zazwyczaj trwa 60 sekund w zależności od aktywności transakcyjnej na serwerze. Powiadomienie jest wysyłane 72 godzin kalendarzowych przed rozpoczęciem zaplanowanej konserwacji i innym, gdy konserwacja jest w toku dla danego regionu.
 

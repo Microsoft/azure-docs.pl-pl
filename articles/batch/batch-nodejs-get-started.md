@@ -3,12 +3,12 @@ title: Użyj Azure Batchj biblioteki klienta dla Node.js
 description: Podstawowe pojęcia dotyczące usługi Azure Batch i tworzenie prostego rozwiązania przy użyciu języka Node.js.
 ms.topic: how-to
 ms.date: 10/08/2020
-ms.openlocfilehash: 8d34d5bbb302e3781aabdd697de11d3d492b879a
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 36a127a20014e87554f0d3e3927b05679b6f72f1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97106703"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737290"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Wprowadzenie do zestawu SDK usługi Batch dla środowiska Node.js
 
@@ -38,7 +38,7 @@ Klient Node.js wdraża zadanie wsadowe wraz z zadaniem podrzędnym przygotowania
 
 > [!TIP]
 > Klient Node.js w podanym linku nie zawiera konkretnego kodu, który można wdrożyć jako aplikację funkcji platformy Azure. Użyj następujących linków, aby zapoznać się z instrukcjami tworzenia kodu.
-> - [Tworzenie aplikacji funkcji](../azure-functions/functions-create-first-azure-function.md)
+> - [Tworzenie aplikacji funkcji](../azure-functions/functions-get-started.md)
 > - [Create timer trigger function](../azure-functions/functions-bindings-timer.md) (Tworzenie funkcji wyzwalanej czasomierzem)
 
 ## <a name="build-the-application"></a>Kompilowanie aplikacji

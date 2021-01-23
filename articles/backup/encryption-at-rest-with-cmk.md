@@ -3,12 +3,12 @@ title: Szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych prze
 description: Dowiedz się, jak Azure Backup umożliwia szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych przez klienta (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 30bcf907e1a2759c8a9977e50cb4880c2e254ca2
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: d5daa88475e3becde6e513391c555471f80396c5
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562764"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735864"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych przez klienta
 
@@ -77,7 +77,7 @@ Azure Backup używa tożsamości zarządzanej przypisanej przez system do uwierz
 
 **Za pomocą programu PowerShell:**
 
-Użyj polecenia [Update-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/update-azrecoveryservicesvault) , aby włączyć tożsamość zarządzaną przypisaną przez system dla magazynu usługi Recovery Services.
+Użyj polecenia [Update-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/update-azrecoveryservicesvault) , aby włączyć tożsamość zarządzaną przypisaną przez system dla magazynu usługi Recovery Services.
 
 Przykład:
 
@@ -121,7 +121,7 @@ Teraz musisz zezwolić magazynowi Recovery Services na dostęp do Azure Key Vaul
 
 **Za pomocą programu PowerShell**:
 
-Użyj polecenia [Set-AzRecoveryServicesVaultProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) , aby włączyć szyfrowanie przy użyciu kluczy zarządzanych przez klienta oraz przypisać lub zaktualizować klucz szyfrowania, który ma być używany.
+Użyj polecenia [Set-AzRecoveryServicesVaultProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) , aby włączyć szyfrowanie przy użyciu kluczy zarządzanych przez klienta oraz przypisać lub zaktualizować klucz szyfrowania, który ma być używany.
 
 Przykład:
 
@@ -290,7 +290,7 @@ Zestaw szyfrowanie dysków jest określony w obszarze Ustawienia szyfrowania w o
 
 **Za pomocą programu PowerShell**:
 
-Użyj polecenia [Get-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) z parametrem [ `-DiskEncryptionSetId <string>` ], aby [określić algorytm DES,](https://docs.microsoft.com/powershell/module/az.compute/get-azdiskencryptionset) który ma być używany do szyfrowania przywróconego dysku. Aby uzyskać więcej informacji o przywracaniu dysków z kopii zapasowej maszyny wirtualnej, zobacz [ten artykuł](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-an-azure-vm).
+Użyj polecenia [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) z parametrem [ `-DiskEncryptionSetId <string>` ], aby [określić algorytm DES,](/powershell/module/az.compute/get-azdiskencryptionset) który ma być używany do szyfrowania przywróconego dysku. Aby uzyskać więcej informacji o przywracaniu dysków z kopii zapasowej maszyny wirtualnej, zobacz [ten artykuł](./backup-azure-vms-automation.md#restore-an-azure-vm).
 
 Przykład:
 

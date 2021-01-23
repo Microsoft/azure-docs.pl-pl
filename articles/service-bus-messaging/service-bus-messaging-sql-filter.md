@@ -3,12 +3,12 @@ title: Składnia filtru SQL reguły subskrypcji Azure Service Bus | Microsoft Do
 description: Ten artykuł zawiera szczegółowe informacje na temat gramatyki filtru SQL. Filtr SQL obsługuje podzestaw standardu SQL-92.
 ms.topic: article
 ms.date: 11/24/2020
-ms.openlocfilehash: 60f3cb6e85cef7a166c353f78cfb50405b962bdd
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 93739b0d64fb029f4d2af1d8dbbf91947085337d
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98633175"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737663"
 ---
 # <a name="subscription-rule-sql-filter-syntax"></a>Składnia filtru SQL reguły subskrypcji
 
@@ -272,6 +272,65 @@ Rozważ użycie następujących semantyki [sqlfilter](/dotnet/api/microsoft.serv
 
 ## <a name="examples"></a>Przykłady
 
+### <a name="filter-on-system-properties"></a>Filtrowanie właściwości systemu
+Aby odwołać się do właściwości System w filtrze, użyj następującego formatu: `sys.<system-property-name>` . 
+
+```csharp
+sys.Label LIKE '%bus%'`
+sys.messageid = 'xxxx'
+sys.correlationid like 'abc-%'
+```
+
+## <a name="filter-on-message-properties"></a>Filtrowanie właściwości komunikatu
+Poniżej przedstawiono przykłady użycia właściwości komunikatów w filtrze. Możesz uzyskać dostęp do właściwości wiadomości za pomocą `user.property-name` lub tylko `property-name` .
+
+```csharp
+MessageProperty = 'A'
+SuperHero like 'SuperMan%'
+```
+
+### <a name="filter-on-message-properties-with-special-characters"></a>Filtrowanie właściwości wiadomości za pomocą znaków specjalnych
+Jeśli nazwa właściwości komunikatu zawiera znaki specjalne, należy użyć cudzysłowu podwójnego ( `"` ), aby ująć nazwę właściwości. Na przykład jeśli nazwa właściwości to `"http://schemas.microsoft.com/xrm/2011/Claims/EntityLogicalName"` , użyj następującej składni w filtrze. 
+
+```csharp
+"http://schemas.microsoft.com/xrm/2011/Claims/EntityLogicalName" = 'account'
+```
+
+### <a name="filter-on-message-properties-with-numeric-values"></a>Filtrowanie właściwości komunikatu z wartościami liczbowymi
+W poniższych przykładach pokazano, jak można użyć właściwości z wartościami liczbowymi w filtrach. 
+
+```csharp
+MessageProperty = 1
+MessageProperty > 1
+MessageProperty > 2.08
+MessageProperty = 1 AND MessageProperty2 = 3
+MessageProperty = 1 OR MessageProperty2 = 3
+```
+
+### <a name="parameter-based-filters"></a>Filtry oparte na parametrach
+Poniżej przedstawiono kilka przykładów użycia filtrów opartych na parametrach. W tych przykładach `DataTimeMp` jest właściwością komunikatu typu `DateTime` i `@dtParam` jest parametrem przesłanym do filtru jako `DateTime` obiekt.
+
+```csharp
+DateTimeMp < @dtParam
+DateTimeMp > @dtParam
+
+(DateTimeMp2-DateTimeMp1) <= @timespan //@timespan is a parameter of type TimeSpan
+DateTimeMp2-DateTimeMp1 <= @timespan
+```
+
+### <a name="using-in-and-not-in"></a>Używanie w i nie w
+
+```csharp
+StoreId IN('Store1', 'Store2', 'Store3')"
+
+sys.To IN ('Store5','Store6','Store7') OR StoreId = 'Store8'
+
+sys.To NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8') OR StoreId NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8')
+```
+
+Aby zapoznać się z przykładem w języku C#, zobacz [przykładowe filtry tematu w witrynie GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Azure.Messaging.ServiceBus/BasicSendReceiveTutorialwithFilters).
+
+
 ### <a name="set-rule-action-for-a-sql-filter"></a>Ustawianie akcji reguły dla filtru SQL
 
 ```csharp
@@ -296,30 +355,6 @@ var filterActionRule = new RuleDescription
 await this.mgmtClient.CreateRuleAsync(topicName, subscriptionName, filterActionRule);
 ```
 
-### <a name="sql-filter-on-a-system-property"></a>Filtr SQL dla właściwości systemowej
-
-```csharp
-sys.Label LIKE '%bus%'`
-```
-
-### <a name="using-or"></a>Przy użyciu lub 
-
-```csharp
- sys.Label LIKE '%bus%'` OR `user.tag IN ('queue', 'topic', 'subscription')
-```
-
-### <a name="using-in-and-not-in"></a>Używanie w i nie w
-
-```csharp
-StoreId IN('Store1', 'Store2', 'Store3')"
-
-sys.To IN ('Store5','Store6','Store7') OR StoreId = 'Store8'
-
-sys.To NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8') OR StoreId NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8')
-```
-
-Aby zapoznać się z przykładem w języku C#, zobacz [przykładowe filtry tematu w witrynie GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Azure.Messaging.ServiceBus/BasicSendReceiveTutorialwithFilters).
-
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -327,5 +362,5 @@ Aby zapoznać się z przykładem w języku C#, zobacz [przykładowe filtry temat
 - [Klasa sqlfilter (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlfilter)
 - [Sqlfilter — Klasa (Java)](/java/api/com.microsoft.azure.servicebus.rules.SqlFilter)
 - [SqlRuleFilter (JavaScript)](/javascript/api/@azure/service-bus/sqlrulefilter)
-- [AZ ServiceBus — reguła subskrypcji tematu](/cli/azure/servicebus/topic/subscription/rule)
+- [`az servicebus topic subscription rule`](/cli/azure/servicebus/topic/subscription/rule)
 - [New-AzServiceBusRule](/powershell/module/az.servicebus/new-azservicebusrule)

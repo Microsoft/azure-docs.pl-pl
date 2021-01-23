@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 28b68178b98e53b7a7d4192ad20c05a667344969
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 37cb8f5a2ff0916f53ae50f5750664204ab1ba75
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356732"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737493"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Nawiązywanie połączenia z maszyną wirtualną SQL Server na platformie Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -82,7 +82,7 @@ Po wybraniu opcji **prywatny** dla typu **łączności SQL** w portalu platforma
 > [!IMPORTANT]
 > W przypadku obrazów maszyn wirtualnych dla SQL Server Developer i wersji Express nie jest automatycznie włączany protokół TCP/IP. W przypadku wersji Developer i Express należy użyć Configuration Manager SQL Server, aby [ręcznie włączyć protokół TCP/IP](#manualtcp) po utworzeniu maszyny wirtualnej.
 
-Połączenie prywatne jest często używane w połączeniu z [siecią wirtualną](../../../virtual-network/virtual-networks-overview.md), co umożliwia wykonywanie kilku scenariuszy. Możesz połączyć maszyny wirtualne w tej samej sieci wirtualnej, nawet jeśli te maszyny wirtualne znajdują się w różnych grupach zasobów. Za pomocą [sieci VPN typu lokacja-lokacja](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)można utworzyć architekturę hybrydową, która łączy maszyny wirtualne z lokalnymi sieciami i maszynami.
+Połączenie prywatne jest często używane w połączeniu z [siecią wirtualną](../../../virtual-network/virtual-networks-overview.md), co umożliwia wykonywanie kilku scenariuszy. Możesz połączyć maszyny wirtualne w tej samej sieci wirtualnej, nawet jeśli te maszyny wirtualne znajdują się w różnych grupach zasobów. Za pomocą [sieci VPN typu lokacja-lokacja](../../../vpn-gateway/tutorial-site-to-site-portal.md)można utworzyć architekturę hybrydową, która łączy maszyny wirtualne z lokalnymi sieciami i maszynami.
 
 Sieci wirtualne umożliwiają również dołączanie maszyn wirtualnych platformy Azure do domeny. Jest to jedyny sposób używania uwierzytelniania systemu Windows do SQL Server. Inne scenariusze połączeń wymagają uwierzytelniania SQL z nazwami użytkowników i hasłami.
 

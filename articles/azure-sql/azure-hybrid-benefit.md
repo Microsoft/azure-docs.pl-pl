@@ -5,18 +5,18 @@ description: Użyj istniejących licencji SQL Server dla rabatów wystąpienia z
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: features
-ms.custom: sqldbrb=4, devx-track-azurecli
+ms.custom: sqldbrb=4
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 11/13/2019
-ms.openlocfilehash: 872b36eae9142473885885d5bf5ad3fa10ae5ccb
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 51cf4a4d3aa3cb4654b141a98064460a7152fcec
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841601"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737459"
 ---
 # <a name="azure-hybrid-benefit---azure-sql-database--sql-managed-instance"></a>Korzyść użycia hybrydowego platformy Azure-Azure SQL Database & wystąpienie zarządzane SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -89,8 +89,8 @@ SQL Database klienci mają następujące prawa skojarzone z Korzyść użycia hy
 
 |Wpływ na licencję|Co Korzyść użycia hybrydowego platformy Azure na SQL Server uzyskać użytkownika?|
 |---|---|
-|Klienci z wersjami SQL Server Enterprise Core z pakietem SA|<li>Może być płacona stawka podstawowa dla Ogólnego przeznaczenia lub Krytyczne dla działania firmy jednostki SKU</li><br><li>1 rdzeń lokalnego = 4 rdzenie w jednostce SKU Ogólnego przeznaczenia</li><br><li>1 rdzeń lokalnego = 1 rdzeń w jednostce SKU Krytyczne dla działania firmy</li>|
-|Klienci z wersjami SQL Server Standard Core z pakietem SA|<li>Można uiścić stawkę bazową tylko dla Ogólnego przeznaczenia jednostki SKU</li><br><li>1 rdzeń lokalnego = 1 rdzeń w jednostce SKU Ogólnego przeznaczenia</li>|
+|Klienci z wersjami SQL Server Enterprise Core z pakietem SA|<li>Może uiścić stawkę podstawową dla Ogólnego przeznaczenia lub Krytyczne dla działania firmy jednostki SKU</li><br><li>1 rdzeń lokalnego = 4 rdzenie w ramach jednostki SKU w skali</li><br><li>1 rdzeń lokalnego = 4 rdzenie w jednostce SKU Ogólnego przeznaczenia</li><br><li>1 rdzeń lokalnego = 1 rdzeń w jednostce SKU Krytyczne dla działania firmy</li>|
+|Klienci z wersjami SQL Server Standard Core z pakietem SA|<li>Może uiścić stawkę bazową na skalę podstawową i Ogólnego przeznaczenia tylko jednostki SKU</li><br><li>1 rdzeń lokalnego = 1 rdzeń w jednostce SKU skalowania</li><br><li>1 rdzeń lokalnego = 1 rdzeń w jednostce SKU Ogólnego przeznaczenia</li>|
 |||
 
 

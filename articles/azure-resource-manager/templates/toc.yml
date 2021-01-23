@@ -298,8 +298,6 @@
       href: template-best-practices.md
     - name: Często zadawane pytania
       href: frequently-asked-questions.md
-    - name: Specyfikacje szablonu
-      href: template-specs.md
     - name: Szablony pozwalające zachować spójność w chmurze
       href: templates-cloud-consistency.md
     - name: Tryby wdrażania
@@ -423,6 +421,12 @@
           href: test-toolkit.md
         - name: Przypadki testowe
           href: test-cases.md
+    - name: Specyfikacje szablonu
+      items:
+        - name: Tworzenie i wdrażanie specyfikacji szablonu
+          href: template-specs.md
+        - name: Konwertuj galerię szablonów portalu
+          href: convert-to-template-spec.md
     - name: CI/CD
       items:
         - name: Szablony usługi ARM z potokami

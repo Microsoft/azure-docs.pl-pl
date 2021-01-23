@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: 94e3b95e5e1d3c65550046c5db56e0f783fd60c3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8ae41167b642be75c7bb99042bca829fd8c1728e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976304"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736373"
 ---
 # <a name="use-azure-image-builder-for-windows-vms-allowing-access-to-an-existing-azure-vnet"></a>Korzystanie z usługi Azure Image Builder dla maszyn wirtualnych z systemem Windows, które umożliwiają dostęp do istniejącej sieci wirtualnej platformy Azure
 
@@ -258,7 +258,7 @@ $runOutJsonStatus
 ```
 ## <a name="create-a-vm"></a>Tworzenie maszyny wirtualnej
 
-Teraz kompilacja została zakończona, można utworzyć maszynę wirtualną na podstawie obrazu. Użyj przykładów z [dokumentacji New-AzVM programu PowerShell](/powershell/module/az.compute/new-azvm?view=azps-2.5.0#description).
+Teraz kompilacja została zakończona, można utworzyć maszynę wirtualną na podstawie obrazu. Użyj przykładów z [dokumentacji New-AzVM programu PowerShell](/powershell/module/az.compute/new-azvm#description).
 
 ## <a name="clean-up"></a>Czyszczenie
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/15/2020
 ms.author: jeedes
-ms.openlocfilehash: e5f1f16ba9a2f276d41373eaf4c819522f2d9e2b
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 75d46edb332fb28132592e414e78bad64e75fef5
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607579"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736443"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-adc-kerberos-based-authentication"></a>Samouczek: Azure Active Directory integracji z logowaniem jednokrotnym przy użyciu narzędzia Citrix ADC (uwierzytelnianie oparte na protokole Kerberos)
 
@@ -130,7 +130,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
    1. Zaznacz pole wyboru **Pokaż hasło** , a następnie napisz lub skopiuj wartość wyświetlaną w polu **hasło**.
 
-   1. Wybierz pozycję **Utwórz**.
+   1. Wybierz przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -234,7 +234,7 @@ Aby utworzyć zasady uwierzytelniania:
     
     ![Konfiguracja Citrix ADC — tworzenie okienka zasady uwierzytelniania](./media/citrix-netscaler-tutorial/policy01.png)
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ### <a name="create-an-authentication-saml-server"></a>Tworzenie serwera SAML uwierzytelniania
 
@@ -250,7 +250,7 @@ Aby utworzyć serwer uwierzytelniania SAML, przejdź do okienka **Tworzenie uwie
     
 1. W polu **Nazwa wystawcy** wprowadź odpowiedni adres URL.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ![Konfiguracja programu Citrix ADC — tworzenie okienka uwierzytelniania serwera SAML](./media/citrix-netscaler-tutorial/server01.png)
 
@@ -440,7 +440,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 * Przejdź bezpośrednio do adresu URL logowania Citrix ADC i zainicjuj w nim przepływ logowania.
 
-* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka Citrix ADC w obszarze Moje aplikacje zostanie przekierowany na adres URL logowania Citrix ADC. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka Citrix ADC w obszarze Moje aplikacje zostanie przekierowany na adres URL logowania Citrix ADC. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Następne kroki

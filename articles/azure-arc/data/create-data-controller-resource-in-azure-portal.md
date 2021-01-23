@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 297efa83fb1563e3a360f652a6ac1bc2b1679998
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd8c079e91a6765dff8ad347085c44d0aa2f8d82
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939979"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737307"
 ---
 # <a name="create-an-azure-arc-data-controller-in-the-azure-portal"></a>Utwórz kontroler danych usługi Azure Arc w Azure Portal
 
@@ -40,12 +40,16 @@ Wykonaj poniższe kroki, aby utworzyć kontroler danych usługi Azure ARC przy u
 6. Kliknij przycisk **szczegóły kontrolera danych** .
 7. Wybierz subskrypcję, grupę zasobów i lokalizację platformy Azure, tak jak w przypadku każdego innego zasobu, który ma zostać utworzony w Azure Portal. W takim przypadku wybrana lokalizacja platformy Azure będzie zawierać metadane dotyczące zasobu, które będą przechowywane.  Sam zasób zostanie utworzony w dowolnej wybranej infrastrukturze. Nie musi ona znajdować się w infrastrukturze platformy Azure.
 8. Wprowadź nazwę kontrolera danych.
-9. Tylko pośredni tryb połączony jest obecnie obsługiwany w wersji zapoznawczej.
-10. Wybierz profil konfiguracji wdrożenia.
-11. Kliknij przycisk **Otwórz w programie Azure Studio** .
-12. Na następnym ekranie zobaczysz podsumowanie wybranych opcji i wygenerowany Notes.  Możesz kliknąć przycisk **Pobierz Notes aprowizacji** , aby pobrać Notes.
-13. Otwórz Notes w Azure Data Studio i kliknij przycisk **Uruchom wszystko** w górnej części ekranu.
-14. Postępuj zgodnie z monitami i instrukcjami w notesie, aby ukończyć tworzenie kontrolera danych.
+9. Wybierz tryb łączności dla kontrolera danych. Dowiedz się więcej o [trybach i wymaganiach związanych z łącznością](./connectivity.md). 
+
+   > [!NOTE] 
+   > W przypadku wybrania trybu łączności **bezpośredniej** upewnij się, że poświadczenia jednostki usługi są ustawiane za pomocą zmiennych środowiskowych, zgodnie z opisem w temacie [Tworzenie nazwy głównej usługi](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal). 
+
+1. Wybierz profil konfiguracji wdrożenia.
+1. Kliknij przycisk **Otwórz w programie Azure Studio** .
+1. Na następnym ekranie zobaczysz podsumowanie wybranych opcji i wygenerowany Notes.  Możesz kliknąć przycisk **Pobierz Notes aprowizacji** , aby pobrać Notes.
+1. Otwórz Notes w Azure Data Studio i kliknij przycisk **Uruchom wszystko** w górnej części ekranu.
+1. Postępuj zgodnie z monitami i instrukcjami w notesie, aby ukończyć tworzenie kontrolera danych.
 
 ## <a name="monitoring-the-creation-status"></a>Monitorowanie stanu tworzenia
 

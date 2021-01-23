@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: 86d7b1a6d361ebbc0d8419d184f9a11d390a37f1
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 08edd86fd19e7698a791e411f42a2a89084a91f7
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803191"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737137"
 ---
 # <a name="tips-and-tricks-for-using-azure-application-consistent-snapshot-tool-preview"></a>Porady i wskazówki dotyczące korzystania z narzędzia migawek spójnych z aplikacjami platformy Azure (wersja zapoznawcza)
 
@@ -27,7 +27,7 @@ Ten artykuł zawiera porady i wskazówki, które mogą być przydatne w przypadk
 
 ## <a name="limit-service-principal-permissions"></a>Ogranicz uprawnienia jednostki usługi
 
-Może być konieczne ograniczenie zakresu nazwy głównej usługi AzAcSnap.  Zapoznaj się z [dokumentacją usługi Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/) , aby uzyskać więcej szczegółów na temat szczegółowych informacji na temat zarządzania dostępem do zasobów platformy Azure.  
+Może być konieczne ograniczenie zakresu nazwy głównej usługi AzAcSnap.  Zapoznaj się z [dokumentacją usługi Azure RBAC](../role-based-access-control/index.yml) , aby uzyskać więcej szczegółów na temat szczegółowych informacji na temat zarządzania dostępem do zasobów platformy Azure.  
 
 Poniżej przedstawiono przykładową definicję roli z minimalnymi wymaganymi akcjami, które są wymagane do działania funkcji AzAcSnap.
 

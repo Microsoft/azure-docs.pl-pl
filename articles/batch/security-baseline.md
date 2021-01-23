@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c27ef1af3e439b22f00f9247b5270118bbe9ca89
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 3678ead9f3e1ba2556fde3c2fbe30df4e7dc2225
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197714"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737239"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Podstawowa baza zabezpieczeń Azure dla usługi Batch
 
@@ -62,9 +62,9 @@ W razie potrzeby Wyłącz dostęp do sieci publicznej przy użyciu prywatnego li
 
 **Wskazówki**: Włącz usługę Azure DDoS (rozproszone odmowa usługi) w sieci wirtualnej chroniącą pulę Azure Batch w celu ochrony przed atakami DDoS. Użyj Azure Security Center zintegrowanej analizy zagrożeń, aby odmówić komunikacji ze znanymi złośliwymi lub nieużywanymi adresami IP.
 
-- [Jak skonfigurować ochronę DDoS](/azure/virtual-network/manage-ddos-protection)
+- [Jak skonfigurować ochronę DDoS](../ddos-protection/manage-ddos-protection.md)
 
-- [Opis Azure Security Center zintegrowanej analizy zagrożeń](/azure/security-center/security-center-alerts-service-layer)
+- [Opis Azure Security Center zintegrowanej analizy zagrożeń](../security-center/azure-defender.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -126,7 +126,7 @@ Użyj dowolnych wbudowanych definicji Azure Policy związanych ze znakiem, takic
 
 Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure, aby wyszukiwać lub wykonywać akcje na zasobach na podstawie ich tagów.
 
-- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
 - [Jak utworzyć sieć wirtualną](../virtual-network/quick-create-portal.md)
 
@@ -140,7 +140,7 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 **Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji zasobów sieciowych i wykrywania zmian zasobów sieciowych związanych z pulami Azure Batch. Tworzenie alertów w ramach Azure Monitor, które będą wyzwalane po wprowadzeniu zmian w krytycznych zasobach sieciowych.
 
-- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](/azure/azure-monitor/platform/activity-log-view) 
+- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log) 
 
 - [Jak utworzyć alerty w Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -188,7 +188,7 @@ W razie potrzeby można połączyć się z węzłami poszczególnych pul za poś
 
 - [Jak zbierać dzienniki diagnostyczne z konta usługi Azure Batch](batch-diagnostics.md#batch-diagnostics)
 
-- [Jak zdalnie nawiązać połączenie z węzłami puli Azure Batch](/azure/batch/batch-api-basics#error-handling)
+- [Jak zdalnie nawiązać połączenie z węzłami puli Azure Batch](./batch-service-workflow-features.md#basic-workflow)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -260,9 +260,9 @@ W razie potrzeby można połączyć się z węzłami poszczególnych pul za poś
 
 Ponadto możesz użyć zaleceń dotyczących zarządzania tożsamościami i dostępem Azure Security Center.
 
-- [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?preserve-view=true&view=azureadps-2.0)
 
-- [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
 - [Jak monitorować tożsamość i dostęp przy użyciu Azure Security Center](../security-center/security-center-identity-access.md)
 
@@ -324,7 +324,7 @@ Ponadto możesz użyć zaleceń dotyczących zarządzania tożsamościami i dost
 
 **Wskazówki**: Jeśli masz zintegrowane uwierzytelnianie dla Azure Batch aplikacji z Azure Active Directory, Użyj raportów zabezpieczeń Azure Active Directory do generowania dzienników i alertów w przypadku wystąpienia podejrzanych lub niebezpiecznych działań w środowisku. Użyj Azure Security Center, aby monitorować działania związane z tożsamościami i dostępem.
 
-- [Identyfikowanie użytkowników usługi Azure AD oflagowanych na skutek ryzykownego działania](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [Identyfikowanie użytkowników usługi Azure AD oflagowanych na skutek ryzykownego działania](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Jak monitorować działania związane z tożsamościami i dostępem użytkowników w Azure Security Center](../security-center/security-center-identity-access.md)
 
@@ -378,7 +378,7 @@ Ponadto możesz użyć zaleceń dotyczących zarządzania tożsamościami i dost
 
 **Wskazówki**: Użyj Azure Active Directory wykrywania ryzyka i funkcji ochrony tożsamości, aby skonfigurować automatyczne odpowiedzi na wykryte podejrzane działania związane z tożsamościami użytkowników. Dodatkowo można pozyskać dane do usługi Azure wskaźnikowej na potrzeby dalszej analizy.
 
-- [Jak wyświetlić ryzykowne logowania w usłudze Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Jak wyświetlić ryzykowne logowania w usłudze Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Jak skonfigurować i włączyć zasady dotyczące ryzyka związanego z ochroną tożsamości](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -406,7 +406,7 @@ Ponadto możesz użyć zaleceń dotyczących zarządzania tożsamościami i dost
 
 **Wskazówki**: Użyj tagów, aby pomóc w śledzeniu zasobów platformy Azure, które przechowują lub przetwarzają informacje poufne.
 
-- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -418,7 +418,7 @@ Ponadto możesz użyć zaleceń dotyczących zarządzania tożsamościami i dost
 
 - [Jak utworzyć pulę Azure Batch w ramach Virtual Network](batch-virtual-network.md)
 
-- [Zabezpieczanie kont usługi Azure Storage](/azure/storage/common/storage-security-guide)
+- [Zabezpieczanie kont usługi Azure Storage](../storage/blobs/security-recommendations.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -434,7 +434,7 @@ W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Micr
 
 - [Informacje na temat ochrony danych klientów na platformie Azure](../security/fundamentals/protection-customer-data.md)
 
-- [Zabezpieczanie kont usługi Azure Storage](/azure/storage/common/storage-security-guide)
+- [Zabezpieczanie kont usługi Azure Storage](../storage/blobs/security-recommendations.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -462,7 +462,7 @@ W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Micr
 
 - [Informacje na temat ochrony danych klientów na platformie Azure](../security/fundamentals/protection-customer-data.md)
 
-- [Zabezpieczanie kont usługi Azure Storage](/azure/storage/common/storage-security-guide)
+- [Zabezpieczanie kont usługi Azure Storage](../storage/blobs/security-recommendations.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -498,9 +498,9 @@ W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Micr
 
 Usługa Azure Disk Encryption może służyć do ochrony i zabezpieczania danych w celu spełnienia wymagań dotyczących zabezpieczeń i zgodności w organizacji. Wszystkie dyski zarządzane, migawki, obrazy i dane zapisywane na istniejących dyskach są automatycznie szyfrowane przy użyciu kluczy zarządzanych przez platformę.
 
-- [Jak zarządzać kluczami szyfrowania dla kont usługi Azure Storage](/azure/storage/common/storage-encryption-keys-portal)
+- [Jak zarządzać kluczami szyfrowania dla kont usługi Azure Storage](../storage/common/customer-managed-keys-configure-key-vault.md)
 
-- [Jak skonfigurować zarządzane przez klienta klucze szyfrowania](/azure/storage/common/storage-encryption-keys-portal)
+- [Jak skonfigurować zarządzane przez klienta klucze szyfrowania](../storage/common/customer-managed-keys-configure-key-vault.md)
 
 - [Jak utworzyć pulę z włączonym szyfrowaniem dysków](disk-encryption.md)
 
@@ -580,7 +580,7 @@ Mimo że klasyczne zasoby platformy Azure mogą zostać odnalezione za pośredni
 
 - [Jak tworzyć zapytania za pomocą eksploratora usługi Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Jak wyświetlić subskrypcje platformy Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Jak wyświetlić subskrypcje platformy Azure](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Opis kontroli RBAC platformy Azure](../role-based-access-control/overview.md)
 
@@ -592,7 +592,7 @@ Mimo że klasyczne zasoby platformy Azure mogą zostać odnalezione za pośredni
 
 **Wskazówki**: stosowanie tagów do zasobów platformy Azure, dzięki czemu metadane są logicznie zorganizowane w taksonomię.
 
-- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -602,11 +602,11 @@ Mimo że klasyczne zasoby platformy Azure mogą zostać odnalezione za pośredni
 
 **Wskazówki**: używanie tagowania, grup zarządzania i oddzielnych subskrypcji, gdzie to konieczne, do organizowania i śledzenia zasobów. Regularnie Uzgadniaj spis i zapewnij, że nieautoryzowane zasoby są usuwane z subskrypcji w odpowiednim czasie.
 
-- [Jak utworzyć dodatkowe subskrypcje platformy Azure](/azure/billing/billing-create-subscription)
+- [Jak utworzyć dodatkowe subskrypcje platformy Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Jak utworzyć Grupy zarządzania](/azure/governance/management-groups/create)
+- [Jak utworzyć Grupy zarządzania](../governance/management-groups/create-management-group-portal.md)
 
-- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -701,7 +701,7 @@ Użyj grafu zasobów platformy Azure, aby wykonywać zapytania/odnajdywać zasob
 
 **Wskazówki**: Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft.Batch", aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji kont i pul Azure Batch.
 
-- [Jak wyświetlić dostępne aliasy Azure Policy](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
@@ -747,9 +747,9 @@ Użyj grafu zasobów platformy Azure, aby wykonywać zapytania/odnajdywać zasob
 
 **Wskazówki**: Jeśli używasz niestandardowych definicji Azure Policy dla kont Azure Batch, pul lub powiązanych zasobów, użyj Azure Repos, aby bezpiecznie przechowywać kod i zarządzać nim.
 
-- [Jak przechowywać kod w usłudze Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Jak przechowywać kod w usłudze Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Dokumentacja Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Dokumentacja Azure Repos](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -791,7 +791,7 @@ Użyj grafu zasobów platformy Azure, aby wykonywać zapytania/odnajdywać zasob
 - Podsieci powinny być skojarzone z sieciową grupą zabezpieczeń — konta magazynu powinny używać punktu końcowego usługi sieci wirtualnej
 - Należy włączyć dzienniki diagnostyczne na kontach wsadowych
 
-- [Jak wyświetlić dostępne aliasy Azure Policy](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
@@ -884,7 +884,7 @@ Skanuj wstępnie wszystkie pliki przekazywane do zasobów platformy Azure, któr
 
 - [Jak skonfigurować nadmiarowość magazynu dla kont usługi Azure Storage](../storage/common/storage-redundancy.md)
 
-- [Jak utworzyć kopię zapasową kluczy magazynu kluczy na platformie Azure](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Jak utworzyć kopię zapasową kluczy magazynu kluczy na platformie Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -894,9 +894,9 @@ Skanuj wstępnie wszystkie pliki przekazywane do zasobów platformy Azure, któr
 
 **Wskazówki**: Jeśli zarządzasz własnymi kluczami dla kont usługi Azure Storage lub innych zasobów związanych z implementacją Azure Batch, okresowo Przetestuj przywracanie kluczy kopii zapasowej.
 
-- [Jak utworzyć kopię zapasową kluczy magazynu kluczy na platformie Azure](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Jak utworzyć kopię zapasową kluczy magazynu kluczy na platformie Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
-- [Jak przywrócić klucz zarządzany przez klienta za pomocą programu PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Jak przywrócić klucz zarządzany przez klienta za pomocą programu PowerShell](/powershell/module/az.keyvault/restore-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -906,7 +906,7 @@ Skanuj wstępnie wszystkie pliki przekazywane do zasobów platformy Azure, któr
 
 **Wskazówki**: Jeśli Azure Key Vault są używane do przechowywania kluczy związanych z kontami magazynu puli Azure Batch, Włącz Soft-Delete w Azure Key Vault, aby chronić klucze przed przypadkowym lub złośliwym usunięciem.
 
-- [Jak włączyć usuwanie nietrwałe w Azure Key Vault](/azure/key-vault/key-vault-soft-delete-powershell)
+- [Jak włączyć usuwanie nietrwałe w Azure Key Vault](../key-vault/general/key-vault-recovery.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -994,5 +994,5 @@ Aby uzyskać więcej informacji na temat strategii i sposobu działania tworzeni
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz [Omówienie testu porównawczego zabezpieczeń platformy Azure w wersji 2](/azure/security/benchmarks/overview)
-- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](/azure/security/benchmarks/security-baselines-overview)
+- Zobacz [Omówienie testu porównawczego zabezpieczeń platformy Azure w wersji 2](../security/benchmarks/overview.md)
+- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](../security/benchmarks/security-baselines-overview.md)

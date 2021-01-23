@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 6538243cf8fc12131e1480c8578bfa8739c4f561
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e3ebd83646353e34c239e7d1812e380b9e9d2e26
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676293"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737527"
 ---
 # <a name="dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-release-notes"></a>Dedykowana Pula SQL (dawniej SQL DW) w informacjach o wersji usługi Azure Synapse Analytics
 
@@ -52,7 +52,7 @@ W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstal
 | Ulepszenia usługi | Szczegóły |
 | --- | --- |
 |**Wbudowane funkcje Table-Valued języka T-SQL (wersja zapoznawcza)**|W tej wersji możesz teraz tworzyć wbudowane funkcje z wartościami przechowywanymi w tabeli przy użyciu języka Transact-SQL i badać ich wyniki w postaci tabeli. Ta funkcja jest obecnie dostępna w wersji zapoznawczej i będzie obsługiwana w narzędziach na bieżąco. Aby uzyskać więcej informacji, zobacz [Tworzenie funkcji (Azure Synapse Analytics)](/sql/t-sql/statements/create-function-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true).|
-|**MERGE — polecenie (wersja zapoznawcza)**|Teraz można uruchamiać operacje wstawiania, aktualizowania lub usuwania w tabeli docelowej z wyników sprzężenia z tabelą źródłową. Na przykład można synchronizować dwie tabele przez wstawianie, aktualizowanie lub usuwanie wierszy w jednej tabeli na podstawie różnic znalezionych w drugiej tabeli.  Aby uzyskać szczegółowe informacje, sprawdź [scalanie](/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) .|
+|**MERGE — polecenie (wersja zapoznawcza)**|Teraz można uruchamiać operacje wstawiania, aktualizowania lub usuwania w tabeli docelowej z wyników sprzężenia z tabelą źródłową. Na przykład można synchronizować dwie tabele przez wstawianie, aktualizowanie lub usuwanie wierszy w jednej tabeli na podstawie różnic znalezionych w drugiej tabeli.  Aby uzyskać szczegółowe informacje, sprawdź [scalanie](/sql/t-sql/statements/merge-transact-sql??view=azure-sqldw-latest&preserve-view=true) .|
 
 ## <a name="aug-2020"></a>2020 sie
 
@@ -68,7 +68,7 @@ W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstal
 |**Szyfrowanie na poziomie kolumny (publiczna wersja zapoznawcza)**|Chroń poufne informacje w usłudze Azure Synapse Analytics, stosując szyfrowanie symetryczne do kolumny danych przy użyciu języka Transact-SQL. Szyfrowanie na poziomie kolumny ma wbudowane funkcje, których można użyć do szyfrowania danych przy użyciu kluczy symetrycznych, które są dodatkowo chronione za pomocą certyfikatu, hasła, klucza symetrycznego lub klucza asymetrycznego. Aby uzyskać więcej informacji, zapoznaj się z artykułem [szyfrowanie kolumny danych](/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest&preserve-view=true).|
 |**Obsługa poziomu zgodności (GA)**|W tej wersji użytkownicy mogą teraz ustawiać poziom zgodności bazy danych w celu uzyskania zachowań języka Transact-SQL i przetwarzania zapytań dla określonej wersji aparatu SQL Synapse. Aby uzyskać więcej informacji, zobacz [sys.database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) i [ALTER DATABASE scoped Configuration](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).|
 |**Zabezpieczenia na poziomie wiersza**|Ta wersja zawiera ulepszenia operacji aktualizowania i usuwania w wierszach z wymuszeniem zabezpieczenia na poziomie wiersza. W tej wersji operacje aktualizowania i usuwania z funkcjami wewnętrznymi, takimi jak "is_rolemember", zakończą się pomyślnie, jeśli wewnętrznie nie odwołuje się do żadnej kolumny w tabeli docelowej DML. Przed tym ulepszeniem te operacje nie powiodły się z powodu ograniczenia w podstawowych operacjach DML.|
-|**DBCC SHRINKDATABASE (GA)**|Teraz można zmniejszyć rozmiar plików danych i dziennika w określonej bazie danych. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql?view=sql-server-ver15).|
+|**DBCC SHRINKDATABASE (GA)**|Teraz można zmniejszyć rozmiar plików danych i dziennika w określonej bazie danych. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql?view=azure-sqldw-latest&preserve-view=true).|
 
 ## <a name="may-2020"></a>Maj 2020 r.
 

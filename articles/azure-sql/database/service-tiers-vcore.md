@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 01/15/2021
-ms.openlocfilehash: 6589f451d4db8f2ed77ce70a2bdfa9d76927c1e2
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 35cdfdbdc04d0c88bc49c024ea7465537583e0d7
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251220"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735515"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Rdzeń wirtualny model — Omówienie — Azure SQL Database i wystąpienie zarządzane Azure SQL 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -94,7 +94,7 @@ Seria M jest obsługiwana tylko w warstwie Krytyczne dla działania firmy i nie 
 
 #### <a name="azure-offer-types-supported-by-m-series"></a>Typy ofert platformy Azure obsługiwane przez serie M
 
-Aby uzyskać dostęp do serii M, subskrypcja musi być płatnym typem oferty, w tym płatności zgodnie z rzeczywistym użyciem lub Umowa Enterprise (EA).  Aby uzyskać pełną listę typów ofert platformy Azure obsługiwanych przez serię M, zobacz [bieżące oferty bez limitów wydatków](https://azure.microsoft.com/support/legal/offer-details).
+Aby uzyskać dostęp do serii M, subskrypcja musi być płatnym typem oferty, w tym płatności zgodnie z rzeczywistym użyciem lub Enterprise Agreement (EA).  Aby uzyskać pełną listę typów ofert platformy Azure obsługiwanych przez serię M, zobacz [bieżące oferty bez limitów wydatków](https://azure.microsoft.com/support/legal/offer-details).
 
 <!--
 To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).
@@ -106,7 +106,7 @@ To enable M-series hardware for a subscription and region, a support request mus
 > Seria DC jest obecnie dostępna w **publicznej wersji zapoznawczej**.
 
 - Sprzęt z serii DC używa procesorów firmy Intel z technologią SGX (Software Guard Extensions).
-- Seria DC jest wymagana dla [Always Encrypted z bezpiecznym enclaves](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves), co nie jest obsługiwane w przypadku innych konfiguracji sprzętowych.
+- Seria DC jest wymagana dla [Always Encrypted z bezpiecznym enclaves](/sql/relational-databases/security/encryption/always-encrypted-enclaves), co nie jest obsługiwane w przypadku innych konfiguracji sprzętowych.
 - Seria DC została zaprojektowana pod kątem obciążeń, które przetwarzają dane poufne i zapewniają poufne możliwości przetwarzania zapytań udostępniane przez Always Encrypted z bezpiecznym enclaves.
 - Sprzęt z serii DC zapewnia zrównoważone zasoby obliczeniowe i pamięci.
 
@@ -114,12 +114,12 @@ Seria DC jest obsługiwana tylko w przypadku obliczeń zainicjowanych (bezserwer
 
 #### <a name="azure-offer-types-supported-by-dc-series"></a>Typy ofert platformy Azure obsługiwane przez serie kontrolerów domen
 
-Aby uzyskać dostęp do serii DC, subskrypcja musi być płatnym typem oferty, w tym płatności zgodnie z rzeczywistym użyciem lub Umowa Enterprise (EA).  Aby uzyskać pełną listę typów ofert platformy Azure obsługiwanych przez serię kontrolerów domen, zobacz [bieżące oferty bez limitów wydatków](https://azure.microsoft.com/support/legal/offer-details).
+Aby uzyskać dostęp do serii DC, subskrypcja musi być płatnym typem oferty, w tym płatności zgodnie z rzeczywistym użyciem lub Enterprise Agreement (EA).  Aby uzyskać pełną listę typów ofert platformy Azure obsługiwanych przez serię kontrolerów domen, zobacz [bieżące oferty bez limitów wydatków](https://azure.microsoft.com/support/legal/offer-details).
 
 ### <a name="compute-and-memory-specifications"></a>Specyfikacje obliczeniowe i pamięci
 
 
-|Generowanie sprzętu  |Wystąpienia obliczeniowe  |Pamięć  |
+|Generowanie sprzętu  |Obliczenia  |Pamięć  |
 |:---------|:---------|:---------|
 |Obliczenia     |-Intel® E5-2673 v3 (Haswell) procesory 2,4 GHz<br>— Zapewnij do 24 rdzeni wirtualnych (1 rdzeń wirtualny = 1 rdzeń fizyczny)  |-7 GB na rdzeń wirtualny<br>— Zapewnij do 168 GB|
 |5 rdzeń     |**Zainicjowane obliczenie**<br>-Intel® E5-2673 v4 (Broadwell) 2,3-GHz, Intel® SP-8160 (Skylake) \* i intel® 8272CL (Kaskada Lake) 2,5 GHz \*<br>— Inicjowanie obsługi administracyjnej do 80 rdzeni wirtualnych (1 rdzeń wirtualny = 1 Hyper-Thread)<br><br>**Bezserwerowe usługi obliczeniowe**<br>-Intel® E5-2673 v4 (Broadwell) 2,3-GHz i Intel® SP-8160 (Skylake) * procesory<br>-Automatyczne skalowanie do 40 rdzeni wirtualnych (1 rdzeń wirtualny = 1 Hyper-Thread)|**Zainicjowane obliczenie**<br>-5,1 GB na rdzeń wirtualny<br>— Zapewnij do 408 GB<br><br>**Bezserwerowe usługi obliczeniowe**<br>-Automatyczne skalowanie do 24 GB na rdzeń wirtualny<br>— Automatyczne skalowanie do maksymalnie 120 GB|

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: 01a41e9acccdb40bf198031d13c3ea3f13c079ce
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 8b862238c0c04fae72659d644dbaf882d00cca19
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98180153"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735694"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Rozszerzenie konfiguracji żądanego stanu z szablonami Azure Resource Manager
 
@@ -32,7 +32,7 @@ W tym artykule opisano szablon Azure Resource Manager na potrzeby [obsługi rozs
 
 Poniższy fragment kodu znajduje się w sekcji **zasobów** szablonu.
 Rozszerzenie DSC dziedziczy domyślne właściwości rozszerzenia.
-Aby uzyskać więcej informacji, zobacz [Klasa VirtualMachineExtension](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet).
+Aby uzyskać więcej informacji, zobacz [Klasa VirtualMachineExtension](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension).
 
 ```json
 {
@@ -85,7 +85,7 @@ Węzeł zestawu skalowania maszyn wirtualnych ma sekcję **Właściwości** , kt
 W obszarze **rozszerzenia** Dodaj szczegóły rozszerzenia DSC.
 
 Rozszerzenie DSC dziedziczy domyślne właściwości rozszerzenia.
-Aby uzyskać więcej informacji, zobacz [Klasa VirtualMachineScaleSetExtension](/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
+Aby uzyskać więcej informacji, zobacz [Klasa VirtualMachineScaleSetExtension](/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension).
 
 ```json
 "extensionProfile": {

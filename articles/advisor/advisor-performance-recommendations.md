@@ -3,12 +3,12 @@ title: Poprawianie wydajności aplikacji platformy Azure za pomocą usługi Advi
 description: Użyj zaleceń dotyczących wydajności w Azure Advisor, aby zwiększyć szybkość i czas odpowiedzi aplikacji o krytycznym znaczeniu dla firmy.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: d7d4e87670ca529f38465e928c4067daec802b8f
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: f546527011402b9ea33321d56356d8aabe2412c1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98248432"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735532"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Poprawianie wydajności aplikacji platformy Azure za pomocą Azure Advisor
 
@@ -179,7 +179,7 @@ Dowiedz się więcej na temat [zestawu SDK czytnika immersyjny](../cognitive-ser
 
 Usługa Advisor wykrywa, że masz pulę hostów, która ma najpierw ustawioną głębokość jako algorytm równoważenia obciążenia, a limit maksymalnej liczby sesji puli hostów jest większy lub równy 999999. Przy użyciu limitu maksymalnej liczby sesji algorytm równoważenia obciążenia Najpierw wgłąb określa maksymalną liczbę użytkowników, którzy mogą równocześnie korzystać z sesji na jednym hoście sesji. Jeśli maksymalny limit sesji jest zbyt wysoki, wszystkie sesje użytkowników będą kierowane do tego samego hosta sesji i spowoduje to problemy z wydajnością i niezawodnością. W związku z tym podczas ustawiania puli hostów w celu zdefiniowania pierwszego równoważenia obciążenia, należy ustawić odpowiedni limit maksymalnej liczby sesji, zgodnie z konfiguracją wdrożenia i pojemnością maszyn wirtualnych. 
 
-Aby dowiedzieć się więcej na temat równoważenia obciążenia w programie Virtual Desktop systemu Windows, zobacz [Konfigurowanie metody równoważenia obciążenia pulpitu wirtualnego systemu Windows](/azure/virtual-desktop/troubleshoot-set-up-overview).
+Aby dowiedzieć się więcej na temat równoważenia obciążenia w programie Virtual Desktop systemu Windows, zobacz [Konfigurowanie metody równoważenia obciążenia pulpitu wirtualnego systemu Windows](../virtual-desktop/troubleshoot-set-up-overview.md).
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Jak uzyskać dostęp do zaleceń dotyczących wydajności w usłudze Advisor
 

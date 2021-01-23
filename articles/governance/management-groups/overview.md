@@ -1,15 +1,15 @@
 ---
 title: Organizowanie zasobów przy użyciu grup zarządzania — Zarządzanie platformą Azure
 description: Dowiedz się więcej na temat grup zarządzania, sposobu działania ich uprawnień i korzystania z nich.
-ms.date: 11/17/2020
+ms.date: 01/22/2021
 ms.topic: overview
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 9f23a279733169f17f0f82cb80aa08bfafcd45d0
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: e86501527ff68319fc8d2e942e7ffa977dcecbe6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030675"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736326"
 ---
 # <a name="what-are-azure-management-groups"></a>Co to są grupy zarządzania platformy Azure?
 
@@ -162,16 +162,16 @@ Istnieje kilka różnych opcji umożliwiających rozwiązanie tego scenariusza:
 - Przed przeniesieniem subskrypcji do nowego elementu nadrzędnego MG usuń przypisanie roli z subskrypcji.
 - Dodaj subskrypcję do zakresu umożliwiającego przypisanie definicji roli.
 - Zmień zakres możliwy do przypisania w ramach definicji roli. W powyższym przykładzie można zaktualizować zakresy przypisywane z marketingu do głównej grupy zarządzania, aby można było osiągnąć tę definicję w obu gałęziach hierarchii.  
-- Utwórz dodatkową rolę niestandardową, która zostanie zdefiniowana w innej gałęzi. Ta nowa rola będzie wymagała również zmiany przypisania roli w subskrypcji.  
+- Utwórz kolejną rolę niestandardową, która jest zdefiniowana w innej gałęzi. Ta nowa rola wymaga również zmiany przypisania roli w subskrypcji.  
 
 ### <a name="limitations"></a>Ograniczenia  
 
 Istnieją ograniczenia, które istnieją podczas korzystania z ról niestandardowych w grupach zarządzania. 
 
  - Można zdefiniować tylko jedną grupę zarządzania w przypisywanych zakresach nowej roli. To ograniczenie jest stosowane w celu zmniejszenia liczby sytuacji, w których definicje ról i przypisania ról są rozłączone. Taka sytuacja występuje, gdy subskrypcja lub Grupa zarządzania z przypisaniem roli przenosi się do innego elementu nadrzędnego, który nie ma definicji roli.  
- - Akcje płaszczyzny danych dostawcy zasobów nie mogą być zdefiniowane w rolach niestandardowych grupy zarządzania. To ograniczenie ma miejsce w przypadku problemów z opóźnieniem w przypadku aktualizowania dostawców zasobów płaszczyzny danych.
-   Ten problem opóźnienia jest opracowywany, a akcje te zostaną wyłączone z definicji roli w celu ograniczenia ryzyka.
- - Azure Resource Manager nie sprawdza poprawności istnienia grupy zarządzania w zakresie możliwym do przypisania definicji roli. Jeśli na liście występuje literówka lub nieprawidłowy identyfikator grupy zarządzania, definicja roli nadal zostanie utworzona.
+ - Akcje płaszczyzny danych dostawcy zasobów nie mogą być zdefiniowane w rolach niestandardowych grupy zarządzania. To ograniczenie ma miejsce w przypadku problemów z opóźnieniem w przypadku aktualizowania dostawców zasobów płaszczyzny danych. Ten problem opóźnienia jest opracowywany, a akcje te zostaną wyłączone z definicji roli w celu ograniczenia ryzyka.
+ - Azure Resource Manager nie sprawdza poprawności istnienia grupy zarządzania w zakresie możliwym do przypisania definicji roli. Jeśli na liście występuje literówka lub nieprawidłowy identyfikator grupy zarządzania, definicja roli jest nadal utworzona.
+ - Przypisanie roli dla roli z _akcjami Dataactions_ nie jest obsługiwane. Zamiast tego Utwórz przypisanie roli w zakresie subskrypcji.
 
 > [!IMPORTANT]
 > Dodawanie grupy zarządzania do programu `AssignableScopes` jest obecnie w wersji zapoznawczej. Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych.
