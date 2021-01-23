@@ -1,23 +1,24 @@
 ---
-title: Zarządzanie usługą Azure Cloud Services przy użyciu Azure Automation | Microsoft Docs
+title: Zarządzanie usługą Azure Cloud Services (klasyczną) przy użyciu Azure Automation | Microsoft Docs
 description: Dowiedz się, w jaki sposób usługa Azure Automation może być używana do zarządzania usługami w chmurze platformy Azure na dużą skalę.
-services: cloud-services, automation
-author: jodoglevy
-manager: timlt
-editor: ''
-ms.assetid: 3789810a-2892-4eef-bf29-c781c1b5af48
-ms.service: cloud-services
 ms.topic: article
-ms.date: 06/20/2016
-ms.author: timlt
-ms.openlocfilehash: 67830f8c00d9f74f62883e0714ffe1c2bbbd6903
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 530efd09f3632637c6a12648495dcff0e7bf0e6d
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075624"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743495"
 ---
-# <a name="managing-azure-cloud-services-using-azure-automation"></a>Zarządzanie usługą Azure Cloud Services przy użyciu Azure Automation
+# <a name="managing-azure-cloud-services-classic-using-azure-automation"></a>Zarządzanie usługą Azure Cloud Services (klasyczną) przy użyciu Azure Automation
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
 W tym przewodniku zawarto informacje o usłudze Azure Automation i sposobach ich użycia do uproszczenia zarządzania usługami w chmurze platformy Azure.
 
 ## <a name="what-is-azure-automation"></a>Co to jest Azure Automation?

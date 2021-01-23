@@ -1,0 +1,83 @@
+### YamlMime:Landing
+title: Dokumentacja usługi Azure Cloud Services (obsługa rozszerzona)
+summary: Dowiedz się, jak przy użyciu usług Cloud Services hostować i uruchamiać wysoce dostępne, skalowalne aplikacje w chmurze i interfejsy API. Pokazuje, jak zarządzać hostami maszyn wirtualnych oraz konfigurować i instalować oprogramowanie oraz stosować względem niego poprawki.
+metadata:
+  title: Dokumentacja usługi Azure Cloud Services (obsługa rozszerzona)
+  description: Opisuje, jak przy użyciu usług Cloud Services hostować i uruchamiać wysoce dostępne i skalowalne aplikacje w chmurze oraz interfejsy API.
+  ms.service: cloud-services-extended-support
+  service: cloud-services-extended-support
+  ms.topic: landing-page
+  author: mimckitt
+  ms.author: mimckitt
+  ms.date: 03/06/2020
+  ms.openlocfilehash: 8f999851c1566b2a488daa4bdc5da73761f7ce0b
+  ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+  ms.translationtype: MT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 01/23/2021
+  ms.locfileid: "98745267"
+landingContent:
+- title: Informacje o Cloud Services (obsługa rozszerzona)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to jest Cloud Services (obsługa rozszerzona)?
+      url: overview.md
+    - text: Wymagania wstępne dotyczące wdrażania
+      url: deploy-prerequisite.md
+    - text: Pliki konfiguracji i pakowanie
+      url: cloud-services-model-and-package.md
+- title: Samouczki
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Wdrażanie przy użyciu programu PowerShell
+      url: deploy-powershell.md
+    - text: Wdrażanie przy użyciu witryny Azure Portal
+      url: deploy-portal.md
+    - text: Wdrażanie przy użyciu szablonów usługi ARM
+      url: deploy-template.md
+    - text: Wdrażanie przy użyciu programu Visual Studio
+      url: deploy-visual-studio.md
+- title: Pojęcia
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Dostępne rozmiary
+      url: available-sizes.md
+    - text: Często zadawane pytania
+      url: faq.md
+- title: Przewodniki z instrukcjami
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Rozszerzenia
+      url: extensions.md
+    - text: Włączanie alertów
+      url: enable-alerts.md
+    - text: Konfiguruj skalowanie
+      url: configure-scaling.md
+    - text: Certyfikaty
+      url: certificates-and-key-vault.md
+- title: Samples
+  linkLists:
+  - linkListType: sample
+    links:
+    - text: Tworzenie wdrożenia usługi w chmurze
+      url: sample-create-cloud-service.md
+    - text: Pobieranie informacji o wdrożeniu usługi w chmurze
+      url: sample-get-cloud-service.md
+    - text: Aktualizowanie wdrożenia usługi w chmurze
+      url: sample-update-cloud-service.md
+    - text: Resetowanie wdrożenia usługi w chmurze
+      url: sample-reset-cloud-service.md
+- title: Informacje o schemacie
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Schemat konfiguracji
+      url: schema-cscfg-file.md
+    - text: Schemat definicji
+      url: schema-csdef-file.md
+    - text: Schemat roli konfiguracji
+      url: schema-cscfg-role.md

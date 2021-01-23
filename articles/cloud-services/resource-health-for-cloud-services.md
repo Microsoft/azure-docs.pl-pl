@@ -1,20 +1,25 @@
 ---
 title: Resource Health Cloud Services (klasyczny)
 description: W tym artykule omówiono obsługę Resource Health Check (systemie RHC występuje) dla Microsoft Azure Cloud Services (klasyczny)
-services: cloud-services
-author: tanmaygore
-ms.service: cloud-services
 ms.topic: article
-ms.date: 9/1/2020
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: f99dd8131df9f8bc5d3e4013d4438faa8c25e53b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 37294e681066eb27ace69bcacee3a813b750b8eb
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072717"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743512"
 ---
 # <a name="resource-health-check-rhc-support-for-azure-cloud-services-classic"></a>Obsługa Resource Health Check (systemie RHC występuje) dla platformy Azure Cloud Services (wersja klasyczna)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
+
 W tym artykule omówiono obsługę Resource Health Check (systemie RHC występuje) dla [Microsoft Azure Cloud Services (klasyczny)](https://azure.microsoft.com/services/cloud-services)
 
 [Azure Resource Health](../service-health/resource-health-overview.md) dla usług w chmurze pomaga zdiagnozować i uzyskać pomoc techniczną dotyczącą problemów z usługami, które mają wpływ na wdrożenie usługi w chmurze, role & wystąpienia roli. Raporty są raportowane w bieżącej i wcześniejszej kondycji usług w chmurze w ramach wdrożenia, roli & poziomie wystąpienia roli.
