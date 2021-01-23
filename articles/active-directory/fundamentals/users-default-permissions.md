@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperf-fy21q1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c556940ace02f2e7bf0354e67d32df7c5c6714e
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: eb01a3e0fc5bc11a4d3de62b16aafb7dd308e34a
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032766"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724275"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Jakie są domyślne uprawnienia użytkownika w Azure Active Directory?
 W usłudze Azure Active Directory (Azure AD) wszystkim użytkownikom jest udzielany zestaw uprawnień domyślnych. Dostęp użytkownika składa się z typu użytkownika, ich [przypisań ról](active-directory-users-assign-role-azure-portal.md)i ich własności do poszczególnych obiektów. W tym artykule opisano te uprawnienia domyślne oraz zawarto porównanie uprawnień domyślnych członka i użytkownika gościa. Domyślne uprawnienia użytkownika można zmienić tylko w ustawieniach użytkownika w usłudze Azure AD.
@@ -30,7 +30,7 @@ Zestaw odebranych uprawnień domyślnych zależy od tego, czy użytkownik jest n
 
 ## <a name="compare-member-and-guest-default-permissions"></a>Porównanie uprawnień domyślnych członka i gościa
 
-**Obszar** | **Uprawnienia członka** | **Domyślne uprawnienia użytkownika-gościa** | **Ograniczone uprawnienia użytkownika-gościa (wersja zapoznawcza)**
+**Warstwowy** | **Uprawnienia członka** | **Domyślne uprawnienia użytkownika-gościa** | **Ograniczone uprawnienia użytkownika-gościa (wersja zapoznawcza)**
 ------------ | --------- | ---------- | ----------
 Użytkownicy i kontakty | <ul><li>Wyliczanie listy wszystkich użytkowników i kontaktów<li>Odczytywanie wszystkich publicznych właściwości użytkowników i kontaktów</li><li>Zapraszanie gości<li>Zmiana własnego hasła<li>Zarządzanie własnym numerem telefonu komórkowego<li>Zarządzanie własnym zdjęciem<li>Unieważnianie własnych tokenów odświeżania</li></ul> | <ul><li>Odczytywanie własnych właściwości<li>Odczytaj wyświetlaną nazwę, adres e-mail, nazwę logowania, Zdjęcie, główną nazwę użytkownika i właściwości typu użytkownika innych użytkowników i kontaktów<li>Zmiana własnego hasła<li>Wyszukaj innego użytkownika według identyfikatora ObjectId (jeśli jest to dozwolone)<li>Menedżer odczytu i bezpośredni raport informacje dla innych użytkowników</li></ul> | <ul><li>Odczytywanie własnych właściwości<li>Zmiana własnego hasła</li></ul>
 Grupy | <ul><li>Tworzenie grup zabezpieczeń<li>Tworzenie grup Microsoft 365<li>Wyliczanie listy wszystkich grup<li>Odczytywanie wszystkich właściwości grup<li>Odczytywanie nieukrytych członkostw w grupach<li>Odczytaj ukryte członkostwa w grupach Microsoft 365 dla grupy sprzężonej<li>Zarządzanie właściwościami, własnością i członkostwem w grupach, do których należy użytkownik<li>Dodawanie gości do posiadanych grup<li>Zarządzanie dynamicznymi ustawieniami członkostwa<li>Usuwanie posiadanych grup<li>Przywróć należące do Microsoft 365 grupy</li></ul> | <ul><li>Odczytaj właściwości nieukrytych grup, w tym członkostwo i prawa własności (nawet grupy Niesprzężone)<li>Odczytaj ukryte członkostwa w grupach Microsoft 365 dla grup sprzężonych<li>Wyszukaj grupy według nazwy wyświetlanej lub identyfikatora obiektu (jeśli jest to dozwolone)</li></ul> | <ul><li>Odczytaj identyfikator obiektu dla grup sprzężonych<li>Odczytuj członkostwo i własność przyłączonych grup w niektórych aplikacjach Microsoft 365 (jeśli są dozwolone)</li></ul>
@@ -63,7 +63,7 @@ Uprawnienia domyślne dla użytkowników-Gości mogą być ograniczone w następ
 
 Uprawnienie | Wyjaśnienie ustawienia
 ---------- | ------------
-Ograniczenia dostępu użytkowników Gości (wersja zapoznawcza) | Ustawienie tej opcji dla **użytkowników-Gości ma taki sam dostęp, jak członkowie** domyślnie przyznają wszystkim uprawnienia użytkownikom-Gościom.<p>Ustawienie tej opcji na **dostęp gościa jest ograniczone do właściwości i członkostwa własnych obiektów katalogu** ogranicza dostęp gościa tylko do własnego profilu użytkownika. Dostęp do innych użytkowników nie jest już dozwolony nawet podczas wyszukiwania według nazwy głównej użytkownika, identyfikatora obiektu lub nazwy wyświetlanej. Dostęp do informacji o grupach, w tym członkostwa w grupach, również nie jest już dozwolony.<p>**Uwaga**: to ustawienie nie zapobiega dostępowi do przyłączonych grup w niektórych usługach Microsoft 365, takich jak Microsoft Teams. Aby dowiedzieć się więcej, zobacz [dostęp gościa w usłudze Microsoft Teams](https://docs.microsoft.com/MicrosoftTeams/guest-access) .<p>Użytkowników-Gości można nadal dodawać do ról administratora, niezależnie od tego, jakie są te ustawienia uprawnień.
+Ograniczenia dostępu użytkowników Gości (wersja zapoznawcza) | Ustawienie tej opcji dla **użytkowników-Gości ma taki sam dostęp, jak członkowie** domyślnie przyznają wszystkim uprawnienia użytkownikom-Gościom.<p>Ustawienie tej opcji na **dostęp gościa jest ograniczone do właściwości i członkostwa własnych obiektów katalogu** ogranicza dostęp gościa tylko do własnego profilu użytkownika. Dostęp do innych użytkowników nie jest już dozwolony nawet podczas wyszukiwania według nazwy głównej użytkownika, identyfikatora obiektu lub nazwy wyświetlanej. Dostęp do informacji o grupach, w tym członkostwa w grupach, również nie jest już dozwolony.<p>**Uwaga**: to ustawienie nie zapobiega dostępowi do przyłączonych grup w niektórych usługach Microsoft 365, takich jak Microsoft Teams. Aby dowiedzieć się więcej, zobacz [dostęp gościa w usłudze Microsoft Teams](/MicrosoftTeams/guest-access) .<p>Użytkowników-Gości można nadal dodawać do ról administratora, niezależnie od tego, jakie są te ustawienia uprawnień.
 Goście mogą zapraszać gości | Ustawienie tej opcji na wartość tak umożliwia Gościom Zapraszanie innych Gości. Aby dowiedzieć się więcej, zobacz [delegowanie zaproszeń do współpracy B2B](../external-identities/delegate-invitations.md#configure-b2b-external-collaboration-settings) .
 Członkowie mogą zapraszać gości | Ustawienie tej opcji na tak umożliwia członkom katalogu niebędącym administratorami zapraszanie Gości. Aby dowiedzieć się więcej, zobacz [delegowanie zaproszeń do współpracy B2B](../external-identities/delegate-invitations.md#configure-b2b-external-collaboration-settings) .
 Administratorzy i użytkownicy o roli zapraszającego gości mogą zapraszać | Ustawienie tej opcji na wartość tak umożliwia administratorom i użytkownikom w roli "zapraszanie gościa" zapraszanie Gości. W przypadku ustawienia opcji tak użytkownicy w roli zapraszania gościa nadal będą mogli zapraszać Gości, niezależnie od elementów członkowskich, które mogą zapraszać ustawienia. Aby dowiedzieć się więcej, zobacz [delegowanie zaproszeń do współpracy B2B](../external-identities/delegate-invitations.md#assign-the-guest-inviter-role-to-a-user) .

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6814cafcf6dafa6f007bdd9d3623d30ef079084
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 37c27e84f15a01a2d8832baae137518685de59a8
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222449"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725445"
 ---
 # <a name="determine-your-security-posture-for-external-access"></a>Określanie stan zabezpieczeń dla dostępu zewnętrznego 
 
@@ -69,7 +69,7 @@ W zależności od przyjętej organizacji i scenariuszy należy:
 
 * **Kontroluj dostęp do aplikacji, danych i zawartości**. Można to zrobić za pomocą różnych metod, w zależności od wersji [usługi Azure AD](https://azure.microsoft.com/pricing/details/active-directory/) i [Microsoft 365](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans). 
 
-* **Zmniejszenie podatności na ataki**. [Zarządzanie tożsamościami uprzywilejowanymi](../privileged-identity-management/pim-configure.md), [Ochrona przed utratą danych (DLP)](https://docs.microsoft.com/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) i [funkcje szyfrowania](https://docs.microsoft.com/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) zmniejszają powierzchnię ataku.
+* **Zmniejszenie podatności na ataki**. [Zarządzanie tożsamościami uprzywilejowanymi](../privileged-identity-management/pim-configure.md), [Ochrona przed utratą danych (DLP)](/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) i [funkcje szyfrowania](/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) zmniejszają powierzchnię ataku.
 
 * **Regularnie sprawdzaj aktywność i dziennik inspekcji, aby potwierdzić zgodność**. Może delegować decyzje dotyczące dostępu do właścicieli firmy poprzez zarządzanie prawami, a przeglądy dostępu umożliwiają okresowe Potwierdzanie ciągłego dostępu. Automatyczna Klasyfikacja danych z etykietami czułości ułatwia automatyzację szyfrowania poufnej zawartości, co ułatwia użytkownikom końcowym pracę.
 
@@ -96,4 +96,3 @@ Zapoznaj się z następującymi artykułami dotyczącymi zabezpieczania zewnętr
 9. [Bezpieczny dostęp do usług Microsoft Teams, OneDrive i SharePoint](9-secure-access-teams-sharepoint.md)
  
 
- 

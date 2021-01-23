@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bed64df921326ad4d219f934f7a7bc6860bfc7d8
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 541f76ad825f492679530902c571096ca4b01902
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861905"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98726235"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Jak używać tożsamości zarządzanych dla zasobów platformy Azure na maszynie wirtualnej platformy Azure w celu uzyskania tokenu dostępu 
 
@@ -125,7 +125,7 @@ Content-Type: application/json
 
 ## <a name="get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net"></a>Uzyskiwanie tokenu przy użyciu biblioteki Microsoft. Azure. Services. AppAuthentication dla platformy .NET
 
-W przypadku aplikacji i funkcji platformy .NET Najprostszym sposobem pracy z tożsamościami zarządzanymi dla zasobów platformy Azure jest pakiet Microsoft. Azure. Services. AppAuthentication. Ta biblioteka umożliwia również testowanie kodu lokalnie na komputerze deweloperskim przy użyciu konta użytkownika z programu Visual Studio, [interfejsu wiersza polecenia platformy Azure](/cli/azure)lub zintegrowanego uwierzytelniania Active Directory. Aby uzyskać więcej informacji na temat lokalnych opcji tworzenia w tej bibliotece, zobacz [odwołanie Microsoft. Azure. Services. AppAuthentication](../../key-vault/general/service-to-service-authentication.md). W tej sekcji pokazano, jak rozpocząć pracę z biblioteką w kodzie.
+W przypadku aplikacji i funkcji platformy .NET Najprostszym sposobem pracy z tożsamościami zarządzanymi dla zasobów platformy Azure jest pakiet Microsoft. Azure. Services. AppAuthentication. Ta biblioteka umożliwia również testowanie kodu lokalnie na komputerze deweloperskim przy użyciu konta użytkownika z programu Visual Studio, [interfejsu wiersza polecenia platformy Azure](/cli/azure)lub zintegrowanego uwierzytelniania Active Directory. Aby uzyskać więcej informacji na temat lokalnych opcji tworzenia w tej bibliotece, zobacz [odwołanie Microsoft. Azure. Services. AppAuthentication](/dotnet/api/overview/azure/service-to-service-authentication). W tej sekcji pokazano, jak rozpocząć pracę z biblioteką w kodzie.
 
 1. Dodaj odwołania do pakietów NuGet [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) i [Microsoft. Azure.](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)
 
@@ -141,7 +141,7 @@ W przypadku aplikacji i funkcji platformy .NET Najprostszym sposobem pracy z to�
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
     ```
     
-Aby dowiedzieć się więcej na temat Microsoft. Azure. Services. AppAuthentication i wykonywanych przez niego operacji, zobacz artykuł [Microsoft. Azure. Services. AppAuthentication](../../key-vault/general/service-to-service-authentication.md) , a [App Service i Magazyn kluczy z tożsamościami zarządzanymi dla przykładu .NET zasobów platformy Azure](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
+Aby dowiedzieć się więcej na temat Microsoft. Azure. Services. AppAuthentication i wykonywanych przez niego operacji, zobacz artykuł [Microsoft. Azure. Services. AppAuthentication](/dotnet/api/overview/azure/service-to-service-authentication) , a [App Service i Magazyn kluczy z tożsamościami zarządzanymi dla przykładu .NET zasobów platformy Azure](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
 ## <a name="get-a-token-using-c"></a>Uzyskiwanie tokenu przy użyciu języka C #
 

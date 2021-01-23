@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4b649942a52c51aef0d6edd17b913f75e1fb247b
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: a1b621b5d5601e6d8bffef48e23d217e0eee1d6a
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98674171"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725823"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatyzowanie wdrażania zasobów dla aplikacji funkcji w Azure Functions
 
@@ -212,9 +212,11 @@ W przypadku jawnego definiowania planu zużycia należy ustawić `serverFarmId` 
 
 ### <a name="create-a-function-app"></a>Tworzenie aplikacji funkcji
 
+Ustawienia wymagane przez aplikację funkcji działającą w planie zużycia opóźniają między systemami Windows i Linux. 
+
 #### <a name="windows"></a>Windows
 
-W systemie Windows plan zużycia wymaga dwóch dodatkowych ustawień w konfiguracji lokacji: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` i `WEBSITE_CONTENTSHARE` . Te właściwości konfigurują konto magazynu i ścieżkę pliku, w którym są przechowywane kod i konfiguracja aplikacji funkcji.
+W systemie Windows plan zużycia wymaga dodatkowego ustawienia w konfiguracji lokacji: [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) . Ta właściwość służy do konfigurowania konta magazynu, w którym są przechowywane kod i konfiguracja aplikacji funkcji.
 
 ```json
 {
@@ -238,10 +240,6 @@ W systemie Windows plan zużycia wymaga dwóch dodatkowych ustawień w konfigura
                     "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]"
                 },
                 {
-                    "name": "WEBSITE_CONTENTSHARE",
-                    "value": "[toLower(variables('functionAppName'))]"
-                },
-                {
                     "name": "FUNCTIONS_WORKER_RUNTIME",
                     "value": "node"
                 },
@@ -259,9 +257,12 @@ W systemie Windows plan zużycia wymaga dwóch dodatkowych ustawień w konfigura
 }
 ```
 
+> [!IMPORTANT]
+> Nie ustawiaj [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) Ustawienia, ponieważ jest ono generowane podczas pierwszego tworzenia witryny.  
+
 #### <a name="linux"></a>Linux
 
-W systemie Linux aplikacja funkcji musi mieć `kind` ustawioną wartość `functionapp,linux` i musi mieć `reserved` ustawioną właściwość `true` :
+W systemie Linux aplikacja funkcji musi mieć `kind` ustawioną wartość `functionapp,linux` i musi mieć `reserved` ustawioną właściwość `true` . 
 
 ```json
 {
@@ -299,8 +300,9 @@ W systemie Linux aplikacja funkcji musi mieć `kind` ustawioną wartość `funct
 }
 ```
 
-<a name="premium"></a>
+[`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring)Ustawienia i [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) nie są obsługiwane w systemie Linux.
 
+<a name="premium"></a>
 ## <a name="deploy-on-premium-plan"></a>Wdróż w planie Premium
 
 Plan Premium oferuje takie same skalowanie jak w przypadku planu zużycia, ale obejmuje zasoby dedykowane i dodatkowe możliwości. Aby dowiedzieć się więcej, zobacz [Azure Functions plan Premium](./functions-premium-plan.md).
@@ -332,7 +334,7 @@ Plan Premium jest specjalnym typem zasobu "farma serwerów". Można go określi�
 
 ### <a name="create-a-function-app"></a>Tworzenie aplikacji funkcji
 
-Aplikacja funkcji w planie Premium musi mieć `serverFarmId` ustawioną właściwość na identyfikator zasobu utworzonego wcześniej planu. Ponadto plan Premium wymaga dwóch dodatkowych ustawień w konfiguracji lokacji: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` i `WEBSITE_CONTENTSHARE` . Te właściwości konfigurują konto magazynu i ścieżkę pliku, w którym są przechowywane kod i konfiguracja aplikacji funkcji.
+Aplikacja funkcji w planie Premium musi mieć `serverFarmId` ustawioną właściwość na identyfikator zasobu utworzonego wcześniej planu. Ponadto plan Premium wymaga dodatkowego ustawienia w konfiguracji lokacji: [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) . Ta właściwość służy do konfigurowania konta magazynu, w którym są przechowywane kod i konfiguracja aplikacji funkcji.
 
 ```json
 {
@@ -358,10 +360,6 @@ Aplikacja funkcji w planie Premium musi mieć `serverFarmId` ustawioną właści
                     "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]"
                 },
                 {
-                    "name": "WEBSITE_CONTENTSHARE",
-                    "value": "[toLower(variables('functionAppName'))]"
-                },
-                {
                     "name": "FUNCTIONS_WORKER_RUNTIME",
                     "value": "node"
                 },
@@ -378,6 +376,8 @@ Aplikacja funkcji w planie Premium musi mieć `serverFarmId` ustawioną właści
     }
 }
 ```
+> [!IMPORTANT]
+> Nie ustawiaj [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) Ustawienia, ponieważ jest ono generowane podczas pierwszego tworzenia witryny.  
 
 <a name="app-service-plan"></a>
 

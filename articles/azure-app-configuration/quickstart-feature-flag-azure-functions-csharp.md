@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 8/26/2020
 ms.author: alkemper
-ms.openlocfilehash: 6996fdd9dce4314e9365177815d7d310ac80c7cb
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 96efc0ea6300e482ddeeda8fa177847f02b7e126
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98046077"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724258"
 ---
 # <a name="quickstart-add-feature-flags-to-an-azure-functions-app"></a>Szybki Start: Dodawanie flag funkcji do aplikacji Azure Functions
 
@@ -46,7 +46,7 @@ Biblioteki zarządzania funkcjami platformy .NET zwiększają platformę z obsł
 
 ## <a name="connect-to-an-app-configuration-store"></a>Nawiązywanie połączenia z magazynem konfiguracji aplikacji
 
-Ten projekt będzie używać [iniekcji zależności w programie .net Azure Functions](/azure/azure-functions/functions-dotnet-dependency-injection). Dodaje konfigurację aplikacji platformy Azure jako dodatkowe źródło konfiguracji, w którym są przechowywane flagi funkcji.
+Ten projekt będzie używać [iniekcji zależności w programie .net Azure Functions](../azure-functions/functions-dotnet-dependency-injection.md). Dodaje konfigurację aplikacji platformy Azure jako dodatkowe źródło konfiguracji, w którym są przechowywane flagi funkcji.
 
 1. Kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję **Zarządzaj pakietami NuGet**. Na karcie **Przeglądaj** Wyszukaj i Dodaj następujące pakiety NuGet do projektu.
    - [Microsoft.Extensions.Configwersja. AzureAppConfiguration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureAppConfiguration/) w wersji 4.1.0 lub nowszej
@@ -201,6 +201,6 @@ W tym przewodniku szybki start utworzono flagę funkcji i użyto jej z aplikacj�
 
 - Dowiedz się więcej o [zarządzaniu funkcjami](./concept-feature-management.md)
 - [Zarządzanie flagami funkcji](./manage-feature-flags.md)
-- [Użyj flag funkcji warunkowej](./howto-feature-filters-aspnet-core.md)
+- [Używanie flag funkcji warunkowej](./howto-feature-filters-aspnet-core.md)
 - [Włącz etapowe wdrażanie funkcji dla docelowych odbiorców](./howto-targetingfilter-aspnet-core.md)
 - [Używanie konfiguracji dynamicznej w aplikacji Azure Functions](./enable-dynamic-configuration-azure-functions-csharp.md)

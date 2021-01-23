@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f65ab02e06319519548eaa2c02120691a0ceef02
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 64fe4b8c217ec46cbb6dd046339c3ac65eebb121
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498561"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724681"
 ---
 # <a name="build-resilience-in-your-identity-and-access-management-infrastructure"></a>Tworzenie odporności w infrastrukturze zarządzania tożsamościami i dostępem
 
@@ -32,7 +32,7 @@ Zestaw dokumentów został zaprojektowany dla
 
 * Zespoły operacji tożsamości
 
-Zapoznaj się również z dokumentacją dla [deweloperów aplikacji](https://aka.ms/azureadresilience/developer) i [systemów Azure AD B2C](resilience-b2c.md).
+Zapoznaj się również z dokumentacją dla [deweloperów aplikacji](./resilience-app-development-overview.md) i [systemów Azure AD B2C](resilience-b2c.md).
 
 ## <a name="what-is-resilience"></a>Co to jest odporność?
 
@@ -44,7 +44,7 @@ Każde wywołanie systemu uwierzytelniania jest uwarunkowane zakłóceniem, jeś
 
 W systemie uwierzytelniania opartego na tokenach, takim jak Azure AD, aplikacja użytkownika (klient) musi uzyskać token zabezpieczający z systemu tożsamości, zanim będzie mógł uzyskać dostęp do aplikacji lub innego zasobu. W trakcie okresu ważności klient może wielokrotnie przedstawić ten sam token, aby uzyskać dostęp do aplikacji.
 
-Gdy token przedstawiony dla aplikacji wygaśnie, aplikacja odrzuca token, a klient musi uzyskać nowy token z usługi Azure AD. Uzyskanie nowego tokenu może potencjalnie wymagać interakcji z użytkownikiem, takich jak prośby o poświadczenia lub spełnienie innych wymagań systemu uwierzytelniania. Zmniejszenie częstotliwości wywołań uwierzytelniania przy użyciu tokenów o dłuższej ważności zmniejsza liczbę niepotrzebnych interakcji. Należy jednak zrównoważyć czas życia tokenu z ryzykiem utworzonym przez mniejszą liczbę ocen zasad. Aby uzyskać więcej informacji o zarządzaniu okresami istnienia tokenu, zapoznaj się z tym artykułem dotyczącym [optymalizacji ponownych uwierzytelnień](https://docs.microsoft.com/azure/active-directory/authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime).
+Gdy token przedstawiony dla aplikacji wygaśnie, aplikacja odrzuca token, a klient musi uzyskać nowy token z usługi Azure AD. Uzyskanie nowego tokenu może potencjalnie wymagać interakcji z użytkownikiem, takich jak prośby o poświadczenia lub spełnienie innych wymagań systemu uwierzytelniania. Zmniejszenie częstotliwości wywołań uwierzytelniania przy użyciu tokenów o dłuższej ważności zmniejsza liczbę niepotrzebnych interakcji. Należy jednak zrównoważyć czas życia tokenu z ryzykiem utworzonym przez mniejszą liczbę ocen zasad. Aby uzyskać więcej informacji o zarządzaniu okresami istnienia tokenu, zapoznaj się z tym artykułem dotyczącym [optymalizacji ponownych uwierzytelnień](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
 ## <a name="ways-to-increase-resilience"></a>Sposoby zwiększenia odporności
 Na poniższym diagramie przedstawiono sześć konkretnych sposobów zwiększania odporności. Każda metoda została szczegółowo omówiona w artykułach powiązanych w następnych krokach tego artykułu.

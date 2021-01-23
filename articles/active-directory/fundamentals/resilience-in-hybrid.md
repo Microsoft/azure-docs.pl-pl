@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c45b362bc37df71346fc3b635c8ae4a51f62cdc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: de01788c01d4d6dedd9563faaaac07bff30bbd97
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919918"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724763"
 ---
 # <a name="build-resilience-in-your-hybrid-architecture"></a>Tworzenie odporności w architekturze hybrydowej
 
@@ -82,7 +82,7 @@ Aby zaimplementować uwierzytelnianie przekazywane, zobacz następujące zasoby.
 
 Federacja obejmuje tworzenie relacji zaufania między usługą Azure AD i usługi federacyjnej, która obejmuje wymianę punktów końcowych, tokeny certyfikatów podpisywania i inne metadane. Gdy żądanie przejdzie do usługi Azure AD, odczytuje konfigurację i przekierowuje użytkownika do skonfigurowanych punktów końcowych. W tym momencie użytkownik współdziała z usługą federacyjną, która wystawia potwierdzenie SAML, które jest sprawdzane przez usługę Azure AD. 
 
-Na poniższym diagramie przedstawiono topologię Active Directory Federation Services w przedsiębiorstwie (AD FS), wdrożenie obejmujące nadmiarowe serwery proxy aplikacji federacyjnych i sieci Web w wielu lokalnych centrach danych. Ta konfiguracja jest oparta na składnikach infrastruktury sieciowej przedsiębiorstwa, takich jak DNS, równoważenie obciążenia sieciowego z możliwościami koligacji geograficznej, zaporami itp. Wszystkie lokalne składniki i połączenia są podatne na awarię. Więcej informacji można znaleźć w dokumentacji dotyczącej [planowania pojemności AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/design/planning-for-ad-fs-server-capacity) .
+Na poniższym diagramie przedstawiono topologię Active Directory Federation Services w przedsiębiorstwie (AD FS), wdrożenie obejmujące nadmiarowe serwery proxy aplikacji federacyjnych i sieci Web w wielu lokalnych centrach danych. Ta konfiguracja jest oparta na składnikach infrastruktury sieciowej przedsiębiorstwa, takich jak DNS, równoważenie obciążenia sieciowego z możliwościami koligacji geograficznej, zaporami itp. Wszystkie lokalne składniki i połączenia są podatne na awarię. Więcej informacji można znaleźć w dokumentacji dotyczącej [planowania pojemności AD FS](/windows-server/identity/ad-fs/design/planning-for-ad-fs-server-capacity) .
 
 > [!NOTE]
 >  Federacja ma największą liczbę lokalnych zależności i dlatego najbardziej potencjalne punkty awarii. Ten diagram przedstawia AD FS, natomiast inni dostawcy tożsamości lokalnych mogą spełniać podobne zagadnienia dotyczące projektowania, aby zapewnić wysoką dostępność, skalowalność i tryb failover.
@@ -99,9 +99,9 @@ Jeśli wdrażasz strategię uwierzytelniania federacyjnego lub chcesz bardziej o
 
 * [Lista zgodności usługi Azure AD z usługami federacyjnymi](../hybrid/how-to-connect-fed-compatibility.md)
 
-* Wykonaj czynności opisane w dokumentacji dotyczącej [planowania pojemności AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/design/planning-for-ad-fs-server-capacity)
+* Wykonaj czynności opisane w dokumentacji dotyczącej [planowania pojemności AD FS](/windows-server/identity/ad-fs/design/planning-for-ad-fs-server-capacity)
 
-* [Wdrażanie AD FS na platformie Azure IaaS](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)
+* [Wdrażanie AD FS na platformie Azure IaaS](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)
 
 * [Włącz PHS](../hybrid/tutorial-phs-backup.md) wraz z Federacją
 

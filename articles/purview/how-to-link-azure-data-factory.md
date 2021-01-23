@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/22/2020
-ms.openlocfilehash: 01af7b251c9ce3bfebb87016c85ea3efd9c0e8ac
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: dbd7937667a3c4d5af9f13e15cdd4ff2081241f0
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928770"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98723884"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Jak połączyć Azure Data Factory i usługę Azure kontrolą
 
@@ -99,9 +99,9 @@ Integracja między Data Factory i kontrolą obsługuje tylko podzestaw systemów
 
 | System magazynowania danych | Obsługiwane jako źródło | Obsługiwane jako ujścia |
 | ------------------- | ------------------- | ----------------- |
-| ADLS Gen1 (brak obsługi JSON) | Tak | Tak (tylko kopiowanie niebinarne) |
-| ADLS Gen2 (brak obsługi JSON) | Tak | Tak |
-| Obiekt blob platformy Azure (bez obsługi JSON) | Tak | Tak |
+| ADLS Gen1 | Tak | Tak (tylko kopiowanie niebinarne) |
+| ADLS Gen2 | Tak | Tak |
+| Obiekt bob Azure | Tak | Tak |
 | Azure Cosmos DB (interfejs API SQL) | Tak | Tak |
 | Azure Cosmos DB (interfejs API Mongo) | Tak | Tak |
 | Azure Cognitive Search | Tak | Tak |

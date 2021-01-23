@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 766fd80ae5f7450c8e45d10afa4612a788a8d5fc
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 90b2cd4521613a7b449598f0d097a7ec1c2958c6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602160"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724546"
 ---
 # <a name="resilience-through-monitoring-and-analytics"></a>Odporność dzięki monitorowaniu i analizie
 
@@ -34,14 +34,14 @@ Podobnie, aby wykryć awarie lub zakłócenia wydajności, skonfigurowanie dobra
 
 ### <a name="how-to-implement-monitoring-and-alerting"></a>Jak zaimplementować monitorowanie i alerty
 
-- **Monitorowanie**: Użyj [Azure monitor](https://docs.microsoft.com/azure/active-directory-b2c/azure-monitor) do ciągłego monitorowania kondycji na podstawie kluczowych celów poziomu usług (SLO) i otrzymuj powiadomienia przy każdej zmianie krytycznej. Zacznij od zidentyfikowania zasad Azure AD B2C lub aplikacji jako krytycznego składnika firmy, którego Kondycja ma być monitorowana w celu utrzymania celu SLO. Zidentyfikuj kluczowe wskaźniki, które są wyrównane z SLO.
+- **Monitorowanie**: Użyj [Azure monitor](../../active-directory-b2c/azure-monitor.md) do ciągłego monitorowania kondycji na podstawie kluczowych celów poziomu usług (SLO) i otrzymuj powiadomienia przy każdej zmianie krytycznej. Zacznij od zidentyfikowania zasad Azure AD B2C lub aplikacji jako krytycznego składnika firmy, którego Kondycja ma być monitorowana w celu utrzymania celu SLO. Zidentyfikuj kluczowe wskaźniki, które są wyrównane z SLO.
 Na przykład Śledź następujące metryki, ponieważ nagłe porzucenie w jednej z nich spowoduje utratę firmy.
 
   - **Łączna liczba żądań**: całkowita wartość "n" liczby żądań wysłanych do zasad Azure AD B2C.
 
   - **Częstotliwość powodzeń (%)**: pomyślne żądania/łączna liczba żądań.
 
-  Dostęp do [kluczowych wskaźników](https://docs.microsoft.com/azure/active-directory-b2c/view-audit-logs) w usłudze [Application Insights](https://docs.microsoft.com/azure/active-directory-b2c/analytics-with-application-insights) , w których są przechowywane Azure AD B2C dzienniki oparte na zasadach, dzienniki [inspekcji](https://docs.microsoft.com/azure/active-directory-b2c/analytics-with-application-insights)i dzienniki logowania.  
+  Dostęp do [kluczowych wskaźników](../../active-directory-b2c/view-audit-logs.md) w usłudze [Application Insights](../../active-directory-b2c/analytics-with-application-insights.md) , w których są przechowywane Azure AD B2C dzienniki oparte na zasadach, dzienniki [inspekcji](../../active-directory-b2c/analytics-with-application-insights.md)i dzienniki logowania.  
 
    - **Wizualizacje**: używanie pulpitów nawigacyjnych kompilacji usługi log Analytics do wizualnego monitorowania kluczowych wskaźników.
 
@@ -49,15 +49,15 @@ Na przykład Śledź następujące metryki, ponieważ nagłe porzucenie w jednej
 
    - **Poprzedni okres**: Utwórz wykresy danych czasowych, aby wyświetlić zmiany w łącznej liczbie żądań i współczynniku sukcesu (%) dla celów referencyjnych, na przykład w ubiegłym tygodniu, w ciągu pewnego poprzedniego okresu.
 
-- **Alertowanie**: za pomocą usługi log Analytics Zdefiniuj [alerty](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) wyzwalane w przypadku nagłych zmian w kluczowych wskaźnikach. Te zmiany mogą mieć negatywny wpływ na SLO. Alerty korzystają z różnych form metod powiadomień, w tym wiadomości e-mail, wiadomości SMS i elementów webhook. Zacznij od zdefiniowania kryterium, które działa jako próg, względem którego zostanie wyzwolony alert. Na przykład:
+- **Alertowanie**: za pomocą usługi log Analytics Zdefiniuj [alerty](../../azure-monitor/platform/alerts-log.md) wyzwalane w przypadku nagłych zmian w kluczowych wskaźnikach. Te zmiany mogą mieć negatywny wpływ na SLO. Alerty korzystają z różnych form metod powiadomień, w tym wiadomości e-mail, wiadomości SMS i elementów webhook. Zacznij od zdefiniowania kryterium, które działa jako próg, względem którego zostanie wyzwolony alert. Na przykład:
   - Alert z nieoczekiwanym porzuceniem w łącznej liczbie żądań: Wyzwól alert, gdy łączna liczba porzucanych żądań zostanie nieoczekiwana. Na przykład jeśli w łącznej liczbie żądań w porównaniu z poprzednim okresem występuje 25%, Zgłoś alert.  
   - Alert dotyczący znaczącego spadku w współczynniku sukcesu (%): Wyzwól alert, gdy Częstotliwość powodzeń dla wybranych zasad znacznie spadnie.
-  - Po odebraniu alertu Rozwiąż problem przy użyciu rozszerzenia [log Analytics](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-install-use-log-analytics-views), [Application Insights](https://docs.microsoft.com/azure/active-directory-b2c/troubleshoot-with-application-insights#:~:text=Setup%20Application%20Insights%201%20Go%20to%20the%20Azure,left-menu%2C%20and%20click%20on%20it.%20More%20items...%20)i [vs Code](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c) Azure AD B2C. Po rozwiązaniu problemu i wdrożeniu zaktualizowanej aplikacji lub zasad kontynuuje monitorowanie kluczowych wskaźników do momentu powrotu z powrotem do normalnego zakresu.
+  - Po odebraniu alertu Rozwiąż problem przy użyciu rozszerzenia [log Analytics](../reports-monitoring/howto-install-use-log-analytics-views.md), [Application Insights](../../active-directory-b2c/troubleshoot-with-application-insights.md)i [vs Code](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c) Azure AD B2C. Po rozwiązaniu problemu i wdrożeniu zaktualizowanej aplikacji lub zasad kontynuuje monitorowanie kluczowych wskaźników do momentu powrotu z powrotem do normalnego zakresu.
 
-- **Alerty usługi**: Użyj [alertów poziomu usługi Azure AD B2C](https://docs.microsoft.com/azure/service-health/service-health-overview) , aby otrzymywać powiadomienia o problemach z usługami, planowanej konserwacji, poradniku kondycji i poradniku zabezpieczeń.
+- **Alerty usługi**: Użyj [alertów poziomu usługi Azure AD B2C](../../service-health/service-health-overview.md) , aby otrzymywać powiadomienia o problemach z usługami, planowanej konserwacji, poradniku kondycji i poradniku zabezpieczeń.
 
-- **Raportowanie**: [korzystając z usługi log Analytics](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics), twórz raporty, które ułatwiają zapoznanie się z informacjami o użytkownikach, wyzwaniami technicznymi i możliwościami wzrostu.
-  - **Pulpit nawigacyjny kondycji**: Tworzenie [niestandardowych pulpitów nawigacyjnych przy użyciu funkcji pulpitu nawigacyjnego platformy Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-app-dashboards) , która obsługuje dodawanie wykresów przy użyciu zapytań log Analytics. Na przykład Zidentyfikuj wzorzec udanych i niepowodzeń logowania, przyczyny niepowodzenia i dane telemetryczne dotyczące urządzeń używanych do żądania.
+- **Raportowanie**: [korzystając z usługi log Analytics](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md), twórz raporty, które ułatwiają zapoznanie się z informacjami o użytkownikach, wyzwaniami technicznymi i możliwościami wzrostu.
+  - **Pulpit nawigacyjny kondycji**: Tworzenie [niestandardowych pulpitów nawigacyjnych przy użyciu funkcji pulpitu nawigacyjnego platformy Azure](../../azure-monitor/learn/tutorial-app-dashboards.md) , która obsługuje dodawanie wykresów przy użyciu zapytań log Analytics. Na przykład Zidentyfikuj wzorzec udanych i niepowodzeń logowania, przyczyny niepowodzenia i dane telemetryczne dotyczące urządzeń używanych do żądania.
   - **Porzuć Azure AD B2C podróże**: Użyj [skoroszytu](https://github.com/azure-ad-b2c/siem#list-of-abandon-journeys) , aby śledzić listę porzuconych Azure AD B2C podróży, w których użytkownik rozpoczął proces logowania lub rejestracji, ale nigdy go nie zakończył. Zawiera szczegółowe informacje na temat identyfikatora zasad i podziału kroków wykonywanych przez użytkownika przed opuszczeniem podróży.
   - **Azure AD B2C skoroszyty monitorowania**: Użyj [skoroszytów monitorowania](https://github.com/azure-ad-b2c/siem), w tym Azure AD B2C pulpitu nawigacyjnego, operacji uwierzytelniania wieloskładnikowego (MFA), raportu dostępu warunkowego i dzienników wyszukiwania według korelacji, aby uzyskać lepszy wgląd w kondycję środowiska Azure AD B2C.
   

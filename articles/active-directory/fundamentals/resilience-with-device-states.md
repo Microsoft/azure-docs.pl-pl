@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: faa334c21e23ecddad287846d34aaf0d72af66cc
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 6d476be7a417cfc31cca76d3409074aaaa281a56
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602188"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724614"
 ---
 # <a name="build-resilience-with-device-states"></a>Tworzenie odporności przy użyciu Stanów urządzeń
 
@@ -40,11 +40,11 @@ Gdy PRT jest używany do żądania dostępu do aplikacji, jej urządzenie, sesja
 
   Jeśli w organizacji znajdują się starsze wersje systemu Windows, Uaktualnij te urządzenia do korzystania z systemu Windows 10.
 
-* Normalizuj dostęp do przeglądarki [Microsoft Edge](https://docs.microsoft.com/deployedge/microsoft-edge-security-identity) lub Google Chrome z [obsługiwanymi](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji) [rozszerzeniami](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb) , które umożliwiają bezproblemowe logowanie jednokrotne do aplikacji sieci Web przy użyciu PRT.
+* Normalizuj dostęp do przeglądarki [Microsoft Edge](/deployedge/microsoft-edge-security-identity) lub Google Chrome z [obsługiwanymi](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji) [rozszerzeniami](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb) , które umożliwiają bezproblemowe logowanie jednokrotne do aplikacji sieci Web przy użyciu PRT.
 
-* W przypadku urządzeń z systemami iOS i Android przeznaczonymi do użytku osobistego lub firmowego Wdróż [aplikację Microsoft Authenticator](../user-help/user-help-auth-app-overview.md). Oprócz usługi uwierzytelniania wieloskładnikowego i logowania bez hasła w programie aplikacja Microsoft Authenticator umożliwia logowanie jednokrotne w aplikacji natywnej za pośrednictwem uwierzytelniania obsługiwanego przez [brokera](../develop/brokered-auth.md) i mniejszą liczbę wierszy uwierzytelniania dla użytkowników końcowych.
+* W przypadku urządzeń z systemami iOS i Android przeznaczonymi do użytku osobistego lub firmowego Wdróż [aplikację Microsoft Authenticator](../user-help/user-help-auth-app-overview.md). Oprócz usługi uwierzytelniania wieloskładnikowego i logowania bez hasła w programie aplikacja Microsoft Authenticator umożliwia logowanie jednokrotne w aplikacji natywnej za pośrednictwem uwierzytelniania obsługiwanego przez [brokera](../develop/msal-android-single-sign-on.md) i mniejszą liczbę wierszy uwierzytelniania dla użytkowników końcowych.
 
-* W przypadku osobistych lub firmowych urządzeń z systemem iOS i Android za pomocą [zarządzania aplikacjami mobilnymi](https://docs.microsoft.com/mem/intune/apps/app-management) można bezpiecznie uzyskać dostęp do zasobów firmy przy mniejszej liczbie żądań uwierzytelniania. 
+* W przypadku osobistych lub firmowych urządzeń z systemem iOS i Android za pomocą [zarządzania aplikacjami mobilnymi](/mem/intune/apps/app-management) można bezpiecznie uzyskać dostęp do zasobów firmy przy mniejszej liczbie żądań uwierzytelniania. 
 
 * [Użyj wtyczki Microsoft Enterprise SSO dla urządzeń firmy Apple (wersja zapoznawcza)](../develop/apple-sso-plugin.md). Spowoduje to zarejestrowanie urządzenia i zapewnia Logowanie jednokrotne w przeglądarce i natywne aplikacje usługi Azure AD. 
 

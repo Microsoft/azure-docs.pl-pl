@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/07/2021
+ms.date: 01/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 501136c6f5015dc8c68a1aba004432900675b11c
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 91cb446da31f353162f90778d855056a9697d455
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98017973"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98726580"
 ---
 # <a name="replace-your-azure-stack-edge-pro-device"></a>Zastąp swoje urządzenie Azure Stack EDGE Pro
 
-W tym artykule opisano, jak uzyskać zastępowanie Azure Stack Edge na urządzeniu. Urządzenie zamienne jest wymagane, gdy istniejące urządzenie ma awarię sprzętową lub wymaga uaktualnienia. 
+W tym artykule opisano sposób zamiany urządzenia z usługą Azure Stack EDGE Pro. Urządzenie zamienne jest wymagane, gdy istniejące urządzenie ma awarię sprzętową lub wymaga uaktualnienia. 
 
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
@@ -25,41 +25,32 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 > [!div class="checklist"]
 >
 > * Otwórz bilet pomocy technicznej na potrzeby problemu ze sprzętem
-> * Utwórz nowy zasób dla urządzenia zastępczego w Azure Portal
+> * Utwórz nowe zamówienie dla urządzenia zastępczego w Azure Portal
 > * Instalowanie, aktywowanie urządzenia zastępującego
 > * Zwróć oryginalne urządzenie
 
 ## <a name="open-a-support-ticket"></a>Otwórz bilet pomocy technicznej
 
-Jeśli istniejące urządzenie ma awarię sprzętową, Otwórz bilet pomocy technicznej. Pomoc techniczna firmy Microsoft ustali, że jednostka wymiany w terenie (FRU) nie jest dostępna dla tego wystąpienia lub urządzenie wymaga uaktualnienia sprzętowego. W obu przypadkach pomoc techniczna będzie zamawiać urządzenie zamienne.
+Jeśli istniejące urządzenie ma awarię sprzętową, Otwórz bilet pomocy technicznej, wykonując następujące czynności:
 
-1. Otwórz bilet pomocy technicznej z pomoc techniczna firmy Microsoft wskazujący, że chcesz zwrócić urządzenie. Wybierz typ problemu jako **urządzenie Azure Stack EDGE Pro**.
+1. Otwórz bilet pomocy technicznej z pomoc techniczna firmy Microsoft wskazujący, że chcesz zwrócić urządzenie. Wybierz typ problemu **sprzętowego programu Azure Stack EDGE Pro** i wybierz podtyp **problemów sprzętowych** .  
 
     ![Otwieranie biletu pomocy technicznej](media/azure-stack-edge-replace-device/open-support-ticket-1.png)  
 
-2. Inżynier pomoc techniczna firmy Microsoft skontaktuje się z Tobą. Podaj szczegóły dotyczące wysyłki.
-<!--3. If you need a return shipping box, you can request it. Answer **Yes** to the question **Need an empty box to return**.-->
+2. Inżynier pomoc techniczna firmy Microsoft będzie mógł skontaktować się z Tobą w celu ustalenia, czy jednostka zamienna pola (FRU) może rozwiązać ten problem i czy jest dostępna dla tego wystąpienia. Jeśli jednostka FRU jest niedostępna lub urządzenie wymaga uaktualnienia sprzętowego, pomoc techniczna przeprowadzi Cię przez proces umieszczania nowego zamówienia i zwrócenia starego urządzenia.
 
+## <a name="create-a-new-order"></a>Utwórz nowe zamówienie
 
-## <a name="create-a-resource-for-replacement-device"></a>Tworzenie zasobu dla urządzenia zastępczego
+Utwórz nowy zasób na potrzeby aktywacji urządzenia zastępczego, wykonując kroki opisane w temacie [Tworzenie nowego zasobu](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
 
 > [!NOTE]
-> Utwórz nowy zasób na potrzeby aktywacji urządzenia zastępczego. Aktywacja urządzenia zastępującego względem istniejącego zasobu nie jest obsługiwana.
-
-Wykonaj następujące kroki, aby utworzyć zasób.
-
-1. Wykonaj kroki opisane w temacie [Tworzenie nowego zasobu](azure-stack-edge-deploy-prep.md#create-a-new-resource) , aby utworzyć zasób dla urządzenia zastępczego. 
-
-2. Upewnij się, że pole wyboru jest zaznaczone, aby **było dostępne urządzenie Azure Stack EDGE Pro**. 
-
-    ![Zasób urządzenia do zastępowania](media/azure-stack-edge-replace-device/replace-resource-1.png)  
+> Aktywacja urządzenia zastępującego względem istniejącego zasobu nie jest obsługiwana. Nowy zasób jest traktowany jako nowe zamówienie. Po wysłaniu urządzenia do Ciebie zostanie naliczona stawka za 14 dni.
 
 ## <a name="install-and-activate-the-replacement-device"></a>Instalowanie i aktywowanie urządzenia zastępującego
 
 Wykonaj następujące kroki, aby zainstalować i aktywować urządzenie zamienne:
 
 1. [Zainstaluj urządzenie](azure-stack-edge-deploy-install.md).
-
 2. [Aktywuj urządzenie](azure-stack-edge-deploy-connect-setup-activate.md) przy użyciu nowego zasobu, który został utworzony wcześniej.
 
 ## <a name="return-your-existing-device"></a>Zwróć istniejące urządzenie
@@ -69,7 +60,7 @@ Wykonaj wszystkie kroki, aby zwrócić oryginalne urządzenie:
 1. [Wymazywanie danych z urządzenia](azure-stack-edge-return-device.md#erase-data-from-the-device).
 2. [Zainicjuj zwrot urządzenia](azure-stack-edge-return-device.md#initiate-device-return) dla oryginalnego urządzenia.
 3. [Zaplanuj pobranie](azure-stack-edge-return-device.md#schedule-a-pickup).
-4. [Usuń zasób](azure-stack-edge-return-device.md#delete-the-resource) skojarzony z zwróconym urządzeniem.
+4. Po otrzymaniu urządzenia w firmie Microsoft można [usunąć zasób](azure-stack-edge-return-device.md#delete-the-resource) skojarzony z zwróconym urządzeniem.
 
 
 ## <a name="next-steps"></a>Następne kroki

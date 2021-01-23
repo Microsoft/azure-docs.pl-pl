@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18036644dc4df51bfacc5019f70ae7694757f753
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 218208891cccb4f606a574a9c1c09f30c4ac0b11
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222245"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725082"
 ---
 # <a name="secure-external-access-to-microsoft-teams-sharepoint-and-onedrive-for-business"></a>Bezpieczny dostęp zewnętrzny do usług Microsoft Teams, SharePoint i OneDrive dla firm 
 
@@ -77,7 +77,7 @@ Istnieją trzy opcje związane z ograniczeniami współpracy. Twoje wymagania bi
 
 ## <a name="govern-access-in-teams"></a>Zarządzanie dostępem w zespołach
 
-[Zespoły różnią się między użytkownikami zewnętrznymi (poza organizacją) i użytkownikami-gość (z kontami gościa)](https://docs.microsoft.com/microsoftteams/communicate-with-users-from-other-organizations?WT.mc_id=TeamsAdminCenterCSH). Zarządzanie ustawieniami współpracy w [portalu administratora zespołów](https://admin.teams.microsoft.com/company-wide-settings/external-communications) w obszarze Ustawienia organizacyjne. 
+[Zespoły różnią się między użytkownikami zewnętrznymi (poza organizacją) i użytkownikami-gość (z kontami gościa)](/microsoftteams/communicate-with-users-from-other-organizations?WT.mc_id=TeamsAdminCenterCSH%e2%80%8b). Zarządzanie ustawieniami współpracy w [portalu administratora zespołów](https://admin.teams.microsoft.com/company-wide-settings/external-communications) w obszarze Ustawienia organizacyjne. 
 
 > [!NOTE]
 > Ustawienia współpracy z tożsamościami zewnętrznymi w Azure Active Directory kontrolują czynne uprawnienia. Można zwiększyć ograniczenia w zespołach, ale nie zmniejszać ich od tego, co jest ustawione w usłudze Azure AD.
@@ -88,13 +88,13 @@ Istnieją trzy opcje związane z ograniczeniami współpracy. Twoje wymagania bi
 
 Aby dowiedzieć się więcej o zarządzaniu dostępem zewnętrznym w zespołach, zobacz następujące zasoby.
 
-* [Zarządzanie dostępem zewnętrznym w usłudze Microsoft Teams](https://docs.microsoft.com/microsoftteams/manage-external-access)
+* [Zarządzanie dostępem zewnętrznym w usłudze Microsoft Teams](/microsoftteams/manage-external-access)
 
-* [Microsoft 365 modele tożsamości i Azure Active Directory](https://docs.microsoft.com/microsoft-365/enterprise/about-microsoft-365-identity?view=o365-worldwide)
+* [Microsoft 365 modele tożsamości i Azure Active Directory](/microsoft-365/enterprise/about-microsoft-365-identity?view=o365-worldwide)
 
-* [Modele tożsamości i uwierzytelnianie dla zespołów Microsoft Teams](https://docs.microsoft.com/MicrosoftTeams/identify-models-authentication)
+* [Modele tożsamości i uwierzytelnianie dla zespołów Microsoft Teams](/MicrosoftTeams/identify-models-authentication)
 
-* [Etykiety czułości dla zespołów Microsoft Teams](https://docs.microsoft.com/MicrosoftTeams/sensitivity-labels)
+* [Etykiety czułości dla zespołów Microsoft Teams](/MicrosoftTeams/sensitivity-labels)
 
 ## <a name="govern-access-in-sharepoint-and-onedrive"></a>Zarządzanie dostępem w programie SharePoint i usłudze OneDrive
 
@@ -102,9 +102,9 @@ Administratorzy programu SharePoint mają wiele ustawień do współpracy. Ustaw
 
 ### <a name="integrating-sharepoint-and-one-drive-with-azure-ad-b2b"></a>Integrowanie programu SharePoint i jednej stacji z usługą Azure AD B2B
 
-W ramach ogólnej strategii zarządzania zewnętrznie zalecamy [włączenie obsługi wersji zapoznawczej programu SharePoint i usługi OneDrive przy użyciu funkcji B2B usługi Azure AD](https://docs.microsoft.com/sharepoint/sharepoint-azureb2b-integration-preview) .
+W ramach ogólnej strategii zarządzania zewnętrznie zalecamy [włączenie obsługi wersji zapoznawczej programu SharePoint i usługi OneDrive przy użyciu funkcji B2B usługi Azure AD](/sharepoint/sharepoint-azureb2b-integration-preview) .
 
-Usługa Azure AD B2B umożliwia uwierzytelnianie użytkowników-Gości i zarządzanie nimi. Dzięki integracji z usługami SharePoint i OneDrive usługa [Azure AD B2B umożliwia jednorazowe Używanie kodów dostępu](https://docs.microsoft.com/azure/active-directory/external-identities/one-time-passcode) do zewnętrznego udostępniania plików, folderów, elementów listy, bibliotek dokumentów i witryn. Ta funkcja zapewnia uaktualnione środowisko z istniejącego [środowiska odbiorcy udostępniania zewnętrznego](https://docs.microsoft.com/sharepoint/what-s-new-in-sharing-in-targeted-release).
+Usługa Azure AD B2B umożliwia uwierzytelnianie użytkowników-Gości i zarządzanie nimi. Dzięki integracji z usługami SharePoint i OneDrive usługa [Azure AD B2B umożliwia jednorazowe Używanie kodów dostępu](../external-identities/one-time-passcode.md) do zewnętrznego udostępniania plików, folderów, elementów listy, bibliotek dokumentów i witryn. Ta funkcja zapewnia uaktualnione środowisko z istniejącego [środowiska odbiorcy udostępniania zewnętrznego](/sharepoint/what-s-new-in-sharing-in-targeted-release).
 
 > [!NOTE]
 > Po włączeniu integracji z usługą Azure AD B2B w wersji zapoznawczej, udostępnianie programów SharePoint i OneDrive podlega ustawieniom organizacji usługi Azure AD, takich jak **Członkowie mogą zapraszać** i **Goście mogą zaprosić**.
@@ -171,9 +171,9 @@ Nie zaleca się włączania linków dla wszystkich osób. Jeśli to zrobisz, zal
 
 Aby dowiedzieć się więcej na temat zarządzania dostępem zewnętrznym do programu SharePoint, zobacz następujące tematy:
 
-* [Omówienie udostępniania zewnętrznego programu SharePoint](https://docs.microsoft.com/sharepoint/external-sharing-overview)
+* [Omówienie udostępniania zewnętrznego programu SharePoint](/sharepoint/external-sharing-overview)
 
-* [Integracja programów SharePoint i OneDrive z usługą Azure AD B2B](https://docs.microsoft.com/sharepoint/sharepoint-azureb2b-integration-preview)
+* [Integracja programów SharePoint i OneDrive z usługą Azure AD B2B](/sharepoint/sharepoint-azureb2b-integration-preview)
 
 #### <a name="next-steps"></a>Następne kroki
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/15/2021
 ms.author: jeedes
-ms.openlocfilehash: 18c626a11724b585bf699f8be470b439177991ae
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: fdca04c645e1bb956c8e9f294c702b639c8e2f74
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250910"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98726404"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adobe-identity-management"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą Adobe Identity Management
 
@@ -164,7 +164,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 * Przejdź bezpośrednio do adresu URL logowania do usługi Adobe Identity Management, a następnie zainicjuj w nim przepływ logowania.
 
-* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka rozwiązania Adobe Identity Management w obszarze Moje aplikacje zostanie przekierowany do adresu URL logowania do programu Adobe Identity Management. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka rozwiązania Adobe Identity Management w obszarze Moje aplikacje zostanie przekierowany do adresu URL logowania do programu Adobe Identity Management. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 01/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 24b29cfb1f58a61193f67ba924e583d4264dfc51
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 1459dd41fcdc30a29a5f9f93ec9704083767a342
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562127"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725675"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Jakie metody uwierzytelniania i weryfikacji są dostępne w usłudze Azure Active Directory?
 
@@ -40,14 +40,14 @@ W poniższej tabeli przedstawiono zagadnienia dotyczące zabezpieczeń dostępny
 
 | Metoda uwierzytelniania          | Zabezpieczenia | Łatwość obsługi | Dostępność |
 |--------------------------------|:--------:|:---------:|:------------:|
-| Windows Hello for Business     | Wysoki     | Wysoki      | Wysoki         |
-| Aplikacja Microsoft Authenticator    | Wysoki     | Wysoki      | Wysoki         |
-| Klucz zabezpieczeń FIDO2 (wersja zapoznawcza)   | Wysoki     | Wysoki      | Wysoki         |
-| Tokeny sprzętowe OATH (wersja zapoznawcza) | Średnia   | Średnia    | Wysoki         |
-| Tokeny oprogramowania OATH           | Średnia   | Średnia    | Wysoki         |
+| Windows Hello for Business     | Wys.     | Wys.      | Wys.         |
+| Aplikacja Microsoft Authenticator    | Wys.     | Wys.      | Wys.         |
+| Klucz zabezpieczeń FIDO2 (wersja zapoznawcza)   | Wys.     | Wys.      | Wys.         |
+| Tokeny sprzętowe OATH (wersja zapoznawcza) | Średnia   | Średnia    | Wys.         |
+| Tokeny oprogramowania OATH           | Średnia   | Średnia    | Wys.         |
 | SMS                            | Średniaa   | Wys.      | Śred.       |
 | Połączenia głosowe                          | Średnia   | Średnia    | Średnia       |
-| Hasło                       | Nis.      | Wys.      | Wysoki         |
+| Hasło                       | Nis.      | Wys.      | Wys.         |
 
 Aby uzyskać najnowsze informacje na temat zabezpieczeń, zapoznaj się z naszymi wpisami w blogu:
 
@@ -70,7 +70,7 @@ Poniższa tabela przedstawia, kiedy Metoda uwierzytelniania może być używana 
 | Klucz zabezpieczeń FIDO2 (wersja zapoznawcza)   | Tak                    | Uwierzytelnianie wieloskładnikowe                       |
 | Tokeny sprzętowe OATH (wersja zapoznawcza) | Nie                     | Uwierzytelnianie wieloskładnikowe                       |
 | Tokeny oprogramowania OATH           | Nie                     | Uwierzytelnianie wieloskładnikowe                       |
-| SMS                            | Tak (wersja zapoznawcza)          | Uwierzytelnianie MFA i SSPR              |
+| SMS                            | Tak                    | Uwierzytelnianie MFA i SSPR              |
 | Połączenie głosowe                     | Nie                     | Uwierzytelnianie MFA i SSPR              |
 | Hasło                       | Tak                    |                           |
 
@@ -83,7 +83,7 @@ Aby dowiedzieć się więcej o tym, jak działa każda metoda uwierzytelniania, 
 * [Klucz zabezpieczeń FIDO2 (wersja zapoznawcza)](concept-authentication-passwordless.md#fido2-security-keys)
 * [Tokeny sprzętowe OATH (wersja zapoznawcza)](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview)
 * [Tokeny oprogramowania OATH](concept-authentication-oath-tokens.md#oath-software-tokens)
-* Logowanie za pomocą programu SMS [(wersja zapoznawcza)](howto-authentication-sms-signin.md) i [weryfikacja](concept-authentication-phone-options.md#mobile-phone-verification)
+* Logowanie i [weryfikacja](concept-authentication-phone-options.md#mobile-phone-verification) [programu SMS](howto-authentication-sms-signin.md)
 * [Weryfikacja połączenia głosowego](concept-authentication-phone-options.md)
 * Hasło
 

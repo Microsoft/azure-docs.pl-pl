@@ -5,21 +5,21 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 01/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdff7e62753e75a14d6711b77dd451603353dae5
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 6a5e8b933f617d767f017f73fb6778a45b5a1ce3
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012839"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725593"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Metody uwierzytelniania w opcjach Azure Active Directory-Phone
 
-Do bezpośredniego uwierzytelniania przy użyciu wiadomości tekstowej można [skonfigurować i umożliwić użytkownikom uwierzytelnianie SMS (wersja zapoznawcza)](howto-authentication-sms-signin.md). Logowanie oparte na programie SMS jest doskonałe dla pracowników frontonu. Korzystając z logowania opartego na programie SMS, użytkownicy nie muszą znać nazwy użytkownika i hasła w celu uzyskania dostępu do aplikacji i usług. Użytkownik wprowadza swój zarejestrowany numer telefonu komórkowego, odbiera wiadomość SMS z kodem weryfikacyjnym i wprowadza ją w interfejsie logowania.
+Do bezpośredniego uwierzytelniania przy użyciu wiadomości tekstowej można [skonfigurować i umożliwić użytkownikom uwierzytelnianie oparte na programie SMS](howto-authentication-sms-signin.md). Logowanie oparte na programie SMS jest doskonałe dla pracowników teraźniejszości. Korzystając z logowania opartego na programie SMS, użytkownicy nie muszą znać nazwy użytkownika i hasła w celu uzyskania dostępu do aplikacji i usług. Użytkownik wprowadza swój zarejestrowany numer telefonu komórkowego, odbiera wiadomość SMS z kodem weryfikacyjnym i wprowadza ją w interfejsie logowania.
 
 Użytkownicy mogą również weryfikować się za pomocą telefonu komórkowego lub telefonu biurowego jako dodatkowej formy uwierzytelniania używanej podczas Multi-Factor Authentication usługi Azure AD lub samoobsługowego resetowania hasła (SSPR).
 

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f83e5584f8f9c6823e1259cb5e6034d8b13ae3a6
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 7eb168610f10ac336084ac04c19679d26fc913e0
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222381"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725248"
 ---
 # <a name="securing-external-access-with-groups"></a>Zabezpieczanie dostępu zewnętrznego z grupami 
 
@@ -48,13 +48,13 @@ Podczas opracowywania strategii grupy w celu zabezpieczenia zewnętrznego dostę
 
    * *Domyślnie każdy członek dzierżawy może utworzyć grupy zabezpieczeń usługi Azure AD*. 
 
-      * Można [ograniczyć dostęp do portalu dla administratorów innych niż administratorzy](../develop/howto-restrict-your-app-to-a-set-of-users.md) i wyłączyć możliwość tworzenia grupy w programie [PowerShell.](../users-groups-roles/groups-troubleshooting.md) 
+      * Można [ograniczyć dostęp do portalu dla administratorów innych niż administratorzy](../develop/howto-restrict-your-app-to-a-set-of-users.md) i wyłączyć możliwość tworzenia grupy w programie [PowerShell.](../enterprise-users/groups-troubleshooting.md) 
 
-      * Możesz również skonfigurować samoobsługowe [Zarządzanie grupami w Azure Active Directory](../users-groups-roles/groups-self-service-management.md). 
+      * Możesz również skonfigurować samoobsługowe [Zarządzanie grupami w Azure Active Directory](../enterprise-users/groups-self-service-management.md). 
 
    * *Domyślnie wszyscy użytkownicy mogą tworzyć grupy i grupy M365 dla wszystkich (wewnętrznych i zewnętrznych) użytkowników w dzierżawie do przyłączenia*. 
 
-      * [Można ograniczyć tworzenie grup Microsoft 365](https://docs.microsoft.com/microsoft-365/solutions/manage-creation-of-groups?view=o365-worldwide) do członków określonej grupy zabezpieczeń. Skonfiguruj to ustawienie przy użyciu programu Windows PowerShell. 
+      * [Można ograniczyć tworzenie grup Microsoft 365](/microsoft-365/solutions/manage-creation-of-groups?view=o365-worldwide) do członków określonej grupy zabezpieczeń. Skonfiguruj to ustawienie przy użyciu programu Windows PowerShell. 
 
 * **Kto powinien mieć możliwość zapraszania osób do grup?** Czy wszyscy członkowie grupy mogą dodawać innych członków, czy tylko właściciele grupy dodają członków?
 
@@ -80,7 +80,7 @@ Grupy dynamiczne mogą zawierać użytkowników lub urządzenia, ale nie oba jed
 
 ![Zrzut ekranu przedstawiający Konfigurowanie reguł członkostwa dynamicznego.](media/secure-external-access/4-dynamic-membership-rules.png)
 
-Aby uzyskać więcej informacji na temat grup dynamicznych, zobacz [Tworzenie lub aktualizowanie grupy dynamicznej w Azure Active Directory.](../users-groups-roles/groups-create-rule.md)
+Aby uzyskać więcej informacji na temat grup dynamicznych, zobacz [Tworzenie lub aktualizowanie grupy dynamicznej w Azure Active Directory.](../enterprise-users/groups-create-rule.md)
 
 ### <a name="do-not-use-groups-for-multiple-purposes"></a>Nie używaj grup w wielu celach
 
@@ -102,7 +102,7 @@ Zarówno grupy zabezpieczeń usługi Azure AD, jak i grupy Microsoft 365 można 
 
 |Zagadnienia do rozważenia | Grupy zabezpieczeń usługi Azure AD (ręczne i dynamiczne)| Grupy Microsoft 365 |
 | - | - | - |
-| Co może zawierać Grupa?| Użytkownicy<br>Grupy<br>Jednostki usługi<br>Devices| Tylko użytkownicy |
+| Co może zawierać Grupa?| Użytkownicy<br>Grupy<br>Jednostki usługi<br>Urządzenia| Tylko użytkownicy |
 | Gdzie jest utworzona grupa?| Portal usługi Azure AD<br>Portal M365 (jeśli jest włączona poczta)<br>PowerShell<br>Microsoft Graph<br>Portal użytkowników końcowych| Portal M365<br>Portal usługi Azure AD<br>PowerShell<br>Microsoft Graph<br>W aplikacjach Microsoft 365 |
 | Kto jest domyślnie tworzony?| Administratorzy <br>Użytkownicy końcowi| Administratorzy<br>Użytkownicy końcowi |
 | Kto może być domyślnie dodany?| Użytkownicy wewnętrzni (członkowie)| Członkowie dzierżawy i Goście z dowolnej organizacji |
@@ -117,7 +117,7 @@ Za pomocą grup Microsoft 365 można tworzyć i zarządzać zestawem zasobów Mi
 
 ## <a name="azure-ad-security-groups"></a>Grupy zabezpieczeń usługi Azure AD 
 
-[Grupy zabezpieczeń usługi Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups) mogą zawierać użytkowników lub urządzenia i mogą być używane do zarządzania dostępem do programu 
+[Grupy zabezpieczeń usługi Azure AD](./active-directory-manage-groups.md) mogą zawierać użytkowników lub urządzenia i mogą być używane do zarządzania dostępem do programu 
 
 * Zasoby platformy Azure, takie jak aplikacje Microsoft 365, aplikacje niestandardowe i aplikacje SaaS (Software as a Service), takie jak usługi ServiceNow usługi Dropbox.
 
@@ -127,11 +127,11 @@ Za pomocą grup Microsoft 365 można tworzyć i zarządzać zestawem zasobów Mi
 
 Grupy zabezpieczeń usługi Azure AD mogą również służyć do:
 
-* Przypisywanie licencji dla usług takich jak M365, Dynamics 365 i Enterprise Mobility and Security. Aby uzyskać więcej informacji, zobacz [Licencjonowanie oparte na grupach](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal).
+* Przypisywanie licencji dla usług takich jak M365, Dynamics 365 i Enterprise Mobility and Security. Aby uzyskać więcej informacji, zobacz [Licencjonowanie oparte na grupach](./active-directory-licensing-whatis-azure-portal.md).
 
-* Przypisywanie podwyższonych uprawnień. Aby uzyskać więcej informacji, zobacz temat [Używanie grup w chmurze do zarządzania przypisaniami ról (wersja zapoznawcza](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-groups-concept)). 
+* Przypisywanie podwyższonych uprawnień. Aby uzyskać więcej informacji, zobacz temat [Używanie grup w chmurze do zarządzania przypisaniami ról (wersja zapoznawcza](../roles/groups-concept.md)). 
 
-Aby utworzyć grupę [w Azure Portal](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal) przejdź do Azure Active Directory, a następnie do grupy. Możesz również utworzyć grupy zabezpieczeń usługi Azure AD za pomocą [poleceń cmdlet programu PowerShell](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-settings-v2-cmdlets). 
+Aby utworzyć grupę [w Azure Portal](./active-directory-groups-create-azure-portal.md) przejdź do Azure Active Directory, a następnie do grupy. Możesz również utworzyć grupy zabezpieczeń usługi Azure AD za pomocą [poleceń cmdlet programu PowerShell](../enterprise-users/groups-settings-v2-cmdlets.md). 
 
 > [!NOTE]
 > Grupy zabezpieczeń można używać do przypisywania do 1500 aplikacji, ale nie do innych. 
@@ -146,17 +146,17 @@ Aby utworzyć grupę [w Azure Portal](https://docs.microsoft.com/azure/active-di
 
 Organizacje hybrydowe mają zarówno infrastrukturę lokalną, jak i infrastrukturę chmurową usługi Azure AD. Wiele organizacji hybrydowych, które używają Active Directory tworzyć swoje grupy zabezpieczeń lokalnie i synchronizować je z chmurą. Korzystając z tej metody, można dodać tylko użytkowników w środowisku lokalnym do grup zabezpieczeń.
 
-**Ochrona lokalnej infrastruktury przed naruszeniem zabezpieczeń może być używana w celu uzyskania dostępu do dzierżawy Microsoft 365**. Zapoznaj się z tematem [ochrona Microsoft 365 z lokalnych ataków](https://aka.ms/protectm365) na wskazówki.
+**Ochrona lokalnej infrastruktury przed naruszeniem zabezpieczeń może być używana w celu uzyskania dostępu do dzierżawy Microsoft 365**. Zapoznaj się z tematem [ochrona Microsoft 365 z lokalnych ataków](./protect-m365-from-on-premises-attacks.md) na wskazówki.
 
 ## <a name="microsoft-365-groups"></a>Grupy Microsoft 365
 
-[Grupy Microsoft 365](https://docs.microsoft.com/microsoft-365/admin/create-groups/office-365-groups?view=o365-worldwide) to fundamentowa usługa członkowska, która zapewnia wszystkie prawa dostępu w M365. Można je utworzyć na podstawie [Azure Portal](https://portal.azure.com/)lub [portalu M365](https://admin.microsoft.com/). Po utworzeniu grupy M365 udzielany jest dostęp do grupy zasobów używanych do współpracy. Aby zapoznać się z pełną listą tych zasobów, zobacz [Omówienie grup Microsoft 365 dla administratorów](https://docs.microsoft.com/microsoft-365/admin/create-groups/office-365-groups?view=o365-worldwide) .
+[Grupy Microsoft 365](/microsoft-365/admin/create-groups/office-365-groups?view=o365-worldwide) to fundamentowa usługa członkowska, która zapewnia wszystkie prawa dostępu w M365. Można je utworzyć na podstawie [Azure Portal](https://portal.azure.com/)lub [portalu M365](https://admin.microsoft.com/). Po utworzeniu grupy M365 udzielany jest dostęp do grupy zasobów używanych do współpracy. Aby zapoznać się z pełną listą tych zasobów, zobacz [Omówienie grup Microsoft 365 dla administratorów](/microsoft-365/admin/create-groups/office-365-groups?view=o365-worldwide) .
 
 Grupy M365 mają następujące wszystkie szczegóły dla ich ról
 
 * **Właściciele** — właściciele grupy mogą dodawać i usuwać członków oraz mieć unikatowe uprawnienia, takie jak możliwość usuwania konwersacji z udostępnionej skrzynki odbiorczej lub zmiany ustawień grupy. Właściciele grupy mogą zmieniać nazwę grupy, aktualizować opis lub obraz i nie tylko.
 
-* **Członkowie** — członkowie mogą uzyskiwać dostęp do wszystkich elementów w grupie, ale nie mogą zmieniać ustawień grupy. Domyślnie członkowie grupy mogą zapraszać Gości do dołączenia do grupy, chociaż można [kontrolować to ustawienie](https://docs.microsoft.com/microsoft-365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide).
+* **Członkowie** — członkowie mogą uzyskiwać dostęp do wszystkich elementów w grupie, ale nie mogą zmieniać ustawień grupy. Domyślnie członkowie grupy mogą zapraszać Gości do dołączenia do grupy, chociaż można [kontrolować to ustawienie](/microsoft-365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide).
 
 * **Goście** — Goście grupy są członkami spoza organizacji. Domyślnie Goście mają pewne ograniczenia dotyczące funkcjonalności w zespołach.
 

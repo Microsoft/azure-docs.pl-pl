@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: chenyl
-ms.openlocfilehash: 33df4410b9dd82fd0b1c732eb03ab5e0e77e9869
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 6752a9564dc0d9351d1c21f5be14eb626186ac0d
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763119"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724063"
 ---
 # <a name="upstream-settings"></a>Ustawienia nadrzędne
 
@@ -59,7 +59,7 @@ Adres URL elementu nadrzędnego nie jest szyfrowany w spoczynku. Jeśli masz jak
 
 1. Dodawanie tożsamości przypisanej do systemu lub tożsamości przypisanej do użytkownika. Zobacz [jak dodać tożsamość zarządzaną w witrynie Azure Portal](./howto-use-managed-identity.md#add-a-system-assigned-identity)
 
-2. Przyznaj uprawnienia do odczytu dla tożsamości zarządzanej w zasadach dostępu w Key Vault. Zobacz [przypisywanie zasad dostępu Key Vault przy użyciu Azure Portal](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
+2. Przyznaj uprawnienia do odczytu dla tożsamości zarządzanej w zasadach dostępu w Key Vault. Zobacz [przypisywanie zasad dostępu Key Vault przy użyciu Azure Portal](../key-vault/general/assign-access-policy-portal.md)
 
 3. Zastąp poufny tekst składnią `{@Microsoft.KeyVault(SecretUri=<secret-identity>)}` w wzorcu nadrzędnego adresu URL.
 

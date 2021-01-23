@@ -17,12 +17,12 @@ ms.date: 1/19/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c7d02b48d30fa558f8fd12f92705046dab74057
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: deab3460baf9c46e2a3073eb41b738b0e7ad586f
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624239"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98726305"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Raporty dotyczące aprowizacji w portalu Azure Active Directory (wersja zapoznawcza)
 
@@ -48,7 +48,7 @@ Ten temat zawiera omówienie dzienników aprowizacji. Zapewniają odpowiedzi na 
 ### <a name="who-can-access-the-data"></a>Kto może uzyskać dostęp do danych?
 * Właściciele aplikacji mogą wyświetlać dzienniki dla aplikacji, których są właścicielami
 * Użytkownicy w rolach administrator zabezpieczeń, czytelnik zabezpieczeń, czytelnik raportu, administrator aplikacji i administrator aplikacji w chmurze
-* Użytkownicy w roli niestandardowej z [uprawnieniem provisioningLogs](https://docs.microsoft.com/azure/active-directory/roles/custom-enterprise-app-permissions#full-list-of-permissions)
+* Użytkownicy w roli niestandardowej z [uprawnieniem provisioningLogs](../roles/custom-enterprise-app-permissions.md#full-list-of-permissions)
 * Administratorzy globalni
 
 
@@ -102,7 +102,7 @@ Możesz filtrować dane aprowizacji. Niektóre wartości filtru są dynamicznie 
 W widoku domyślnym można wybrać następujące filtry:
 
 - Tożsamość
-- Date
+- Date (Data)
 - Stan
 - Akcja
 

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40738f8fcb14c48ccfe3bc7869e5176c4ab63165
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 202f2190e68b89d790c628248ae89f0cb274ff76
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222334"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725215"
 ---
 # <a name="3-create-a-security-plan-for-external-access"></a>3. Utwórz plan zabezpieczeń dla dostępu zewnętrznego 
 
@@ -93,7 +93,7 @@ Warunki logowania są konfigurowane w [dostępie warunkowym usługi Azure AD](..
 | Wysokie ryzyko| Wymagaj zawsze uwierzytelniania wieloskładnikowego dla użytkowników zewnętrznych |
 
 
-Obecnie można [wymusić uwierzytelnianie wieloskładnikowe dla użytkowników B2B w dzierżawie](https://docs.microsoft.com/azure/active-directory/external-identities/b2b-tutorial-require-mfa). 
+Obecnie można [wymusić uwierzytelnianie wieloskładnikowe dla użytkowników B2B w dzierżawie](../external-identities/b2b-tutorial-require-mfa.md). 
 
 **Warunki logowania użytkownika i urządzenia**.
 
@@ -106,11 +106,11 @@ Obecnie można [wymusić uwierzytelnianie wieloskładnikowe dla użytkowników B
 
 Obecnie aby można było korzystać z stanu urządzenia jako dane wejściowe dla zasad, urządzenie musi być zarejestrowane lub dołączone do dzierżawy. 
 
-Można używać [zasad opartych na ryzyku ochrony tożsamości](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-risk) . Problemy muszą jednak zostać skorygowane w dzierżawie głównej użytkownika.
+Można używać [zasad opartych na ryzyku ochrony tożsamości](../conditional-access/howto-conditional-access-policy-risk.md) . Problemy muszą jednak zostać skorygowane w dzierżawie głównej użytkownika.
 
-W przypadku [lokalizacji sieciowych](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-location)można ograniczyć dostęp do dowolnych zakresów adresów IP. Można jej użyć, jeśli chcesz, aby partnerzy zewnętrzni uzyskujący dostęp do aplikacji, gdy znajdują się w lokacji w organizacji.
+W przypadku [lokalizacji sieciowych](../conditional-access/howto-conditional-access-policy-location.md)można ograniczyć dostęp do dowolnych zakresów adresów IP. Można jej użyć, jeśli chcesz, aby partnerzy zewnętrzni uzyskujący dostęp do aplikacji, gdy znajdują się w lokacji w organizacji.
 
-[Dowiedz się więcej o zasadach dostępu warunkowego](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
+[Dowiedz się więcej o zasadach dostępu warunkowego](../conditional-access/overview.md).
 
 ## <a name="document-access-review-policies"></a>Zasady przeglądu dostępu do dokumentów
 
@@ -126,13 +126,13 @@ Mimo że zasady zostaną odpowiednio dostosowane do Twoich potrzeb, należy rozw
 
 * **Przeglądy dostępu do zarządzania prawami**. Korzystanie z funkcji zarządzania prawami do
 
-   * [Automatyczne wygasanie pakietów dostępu](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-access-package-lifecycle-policy), a tym samym dostęp użytkowników zewnętrznych do uwzględnionych zasobów.
+   * [Automatyczne wygasanie pakietów dostępu](../governance/entitlement-management-access-package-lifecycle-policy.md), a tym samym dostęp użytkowników zewnętrznych do uwzględnionych zasobów.
 
-   * Ustaw [wymaganą częstotliwość przeglądu](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-access-reviews-create) dla przeglądów dostępu.
+   * Ustaw [wymaganą częstotliwość przeglądu](../governance/entitlement-management-access-reviews-create.md) dla przeglądów dostępu.
 
-   * Jeśli używasz [połączonych organizacji](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-organization) do grupowania wszystkich użytkowników z jednego partnera, Zaplanuj regularne przeglądy przy użyciu właściciela firmy i przedstawiciela partnera.
+   * Jeśli używasz [połączonych organizacji](../governance/entitlement-management-organization.md) do grupowania wszystkich użytkowników z jednego partnera, Zaplanuj regularne przeglądy przy użyciu właściciela firmy i przedstawiciela partnera.
 
-* **Grupy Microsoft 365**. Ustaw [zasady wygasania grupy](https://docs.microsoft.com/microsoft-365/solutions/microsoft-365-groups-expiration-policy?view=o365-worldwide) dla grup Microsoft 365, do których są zapraszani użytkownicy zewnętrzni. 
+* **Grupy Microsoft 365**. Ustaw [zasady wygasania grupy](/microsoft-365/solutions/microsoft-365-groups-expiration-policy?view=o365-worldwide) dla grup Microsoft 365, do których są zapraszani użytkownicy zewnętrzni. 
 
 * **Inne opcje**. Jeśli użytkownicy zewnętrzni mają dostęp poza pakietami dostępu do zarządzania prawami lub grupami Microsoft 365, skonfiguruj proces biznesowy, aby sprawdzić, kiedy konta powinny być nieaktywne lub usunięte. Na przykład:
 
@@ -146,9 +146,9 @@ Mimo że zasady zostaną odpowiednio dostosowane do Twoich potrzeb, należy rozw
 
 Teraz, gdy wiesz, jak chcesz kontrolować dostęp, jak te zasoby powinny być pogrupowane pod kątem wspólnego dostępu oraz wymaganych zasad logowania i przeglądania dostępu, możesz zdecydować, jak wykonać swój plan. 
 
-Niektóre funkcje, na przykład [Zarządzanie uprawnieniami](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview), są dostępne tylko z licencjami na Azure AD — wersja Premium 2 (P2). Licencje na Microsoft 365 E5 i pakiet Office 365 E5 obejmują licencje usługi Azure AD P2. 
+Niektóre funkcje, na przykład [Zarządzanie uprawnieniami](../governance/entitlement-management-overview.md), są dostępne tylko z licencjami na Azure AD — wersja Premium 2 (P2). Licencje na Microsoft 365 E5 i pakiet Office 365 E5 obejmują licencje usługi Azure AD P2. 
 
-Inne kombinacje Microsoft 365, pakietu Office 365 i usługi Azure AD umożliwiają również obsługę niektórych funkcji zarządzania użytkownikami zewnętrznymi. Aby uzyskać więcej informacji, zobacz [Information Protection](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance) .
+Inne kombinacje Microsoft 365, pakietu Office 365 i usługi Azure AD umożliwiają również obsługę niektórych funkcji zarządzania użytkownikami zewnętrznymi. Aby uzyskać więcej informacji, zobacz [Information Protection](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance) .
 
 > [!NOTE]
 > Licencje są na użytkownika. W związku z tym można mieć określonych użytkowników, w tym administratorów i właścicieli firm delegowanych kontroli dostępu, na poziomie P2 usługi Azure AD lub Microsoft 365 E5 bez włączania tych licencji dla wszystkich użytkowników. Pierwszy 50 000 użytkowników zewnętrznych jest bezpłatny. Jeśli nie włączysz licencji P2 dla innych użytkowników wewnętrznych, nie będą oni mogli korzystać z funkcji zarządzania prawami, takich jak pakiety dostępu. 
@@ -180,7 +180,7 @@ Usługa Azure AD P2 i Microsoft 365 E5 mają pełen pakiet narzędzi zabezpiecze
 
 ### <a name="entitlement-management"></a>Zarządzanie prawami 
 
-[Pakiety dostępu do zarządzania prawami](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-access-package-create) umożliwiają udostępnianie i cofanie aprowizacji dostępu do grup i zespołów, aplikacji i witryn programu SharePoint. Można zdefiniować, które połączone organizacje mają dostęp, czy żądania samoobsługi są dozwolone i jakie przepływy pracy zatwierdzania są wymagane (jeśli istnieją), aby udzielić dostępu. Aby zapewnić, że dostęp nie pozostanie dłużej niż jest to konieczne, możesz zdefiniować zasady wygasania i przeglądy dostępu dla każdego pakietu dostępu. 
+[Pakiety dostępu do zarządzania prawami](../governance/entitlement-management-access-package-create.md) umożliwiają udostępnianie i cofanie aprowizacji dostępu do grup i zespołów, aplikacji i witryn programu SharePoint. Można zdefiniować, które połączone organizacje mają dostęp, czy żądania samoobsługi są dozwolone i jakie przepływy pracy zatwierdzania są wymagane (jeśli istnieją), aby udzielić dostępu. Aby zapewnić, że dostęp nie pozostanie dłużej niż jest to konieczne, możesz zdefiniować zasady wygasania i przeglądy dostępu dla każdego pakietu dostępu. 
 
  
 

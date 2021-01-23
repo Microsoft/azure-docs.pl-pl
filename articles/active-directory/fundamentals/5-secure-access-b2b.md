@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c0d63df3e5525b200723db209d05e5eb5013e23
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 654e1c163a16f427958320ea081c38338e0ab4e1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222364"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725396"
 ---
 # <a name="transition-to-governed-collaboration-with-azure-active-directory-b2b-collaboration"></a>Przejście do regulowanej współpracy przy Azure Active Directory współpracy B2B 
 
@@ -100,7 +100,7 @@ Określ, kto może zapraszać użytkowników-Gości do uzyskiwania dostępu do z
 
 W przypadku korzystania z usługi Azure AD do zarządzania prawami do odpowiedzi można skonfigurować pytania dla użytkowników zewnętrznych. Pytania będą następnie widoczne dla osób zatwierdzających, aby ułatwić im podejmowanie decyzji. Można skonfigurować różne zestawy pytań dla każdej [zasady pakietów dostępu](../governance/entitlement-management-access-package-approval-policy.md) , tak aby osoby zatwierdzające mogły uzyskać odpowiednie informacje dotyczące dostępu, które są zatwierdzane. Na przykład jeśli jeden pakiet dostępu jest przeznaczony dla dostępu dostawcy, żądanie może zostać poproszony o podanie numeru kontraktu dostawcy. Innym pakietem dostępu przeznaczonym dla dostawców może być poproszony o ich kraj pochodzenia.
 
-Jeśli używasz portalu samoobsługowego, możesz użyć [łączników interfejsu API](../external-identities/api-connectors-overview.md) , aby zebrać dodatkowe atrybuty dotyczące użytkowników podczas tworzenia konta. Następnie można użyć tych atrybutów do przypisania dostępu. Jeśli na przykład podczas procesu tworzenia konta zbierasz swój identyfikator dostawcy, możesz użyć tego atrybutu do dynamicznego przypisywania ich do grupy lub pakietu dostępu dla tego dostawcy. Możesz tworzyć niestandardowe atrybuty w Azure Portal i używać ich w przepływach użytkownika samoobsługowego tworzenia konta. Można również odczytywać i zapisywać te atrybuty przy użyciu [interfejsu API Microsoft Graph](https://docs.microsoft.com/azure/active-directory-b2c/manage-user-accounts-graph-api). 
+Jeśli używasz portalu samoobsługowego, możesz użyć [łączników interfejsu API](../external-identities/api-connectors-overview.md) , aby zebrać dodatkowe atrybuty dotyczące użytkowników podczas tworzenia konta. Następnie można użyć tych atrybutów do przypisania dostępu. Jeśli na przykład podczas procesu tworzenia konta zbierasz swój identyfikator dostawcy, możesz użyć tego atrybutu do dynamicznego przypisywania ich do grupy lub pakietu dostępu dla tego dostawcy. Możesz tworzyć niestandardowe atrybuty w Azure Portal i używać ich w przepływach użytkownika samoobsługowego tworzenia konta. Można również odczytywać i zapisywać te atrybuty przy użyciu [interfejsu API Microsoft Graph](../../active-directory-b2c/manage-user-accounts-graph-api.md). 
 
 ### <a name="troubleshoot-invitation-redemption-to-azure-ad-users"></a>Rozwiązywanie problemów z wykupumi zaproszeń do użytkowników usługi Azure AD
 
@@ -132,7 +132,7 @@ Zalecamy stosowanie następujących ograniczeń dla użytkowników-Gości.
 
 * **Blokuj dostęp do Azure Portal. Można dokonać rzadkich niepotrzebnych wyjątków**. 
 
-   * Utwórz zasady dostępu warunkowego, które obejmują wszystkich Gości i użytkowników zewnętrznych, a następnie [Zaimplementuj zasady w celu zablokowania dostępu](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management).
+   * Utwórz zasady dostępu warunkowego, które obejmują wszystkich Gości i użytkowników zewnętrznych, a następnie [Zaimplementuj zasady w celu zablokowania dostępu](../../role-based-access-control/conditional-access-azure-management.md).
 
  
 
@@ -185,7 +185,7 @@ Domyślnie zespoły umożliwiają dostęp zewnętrzny, co oznacza, że organizac
 
 ### <a name="direct-sharing-through-sharepoint-and-onedrive"></a>Bezpośrednie udostępnianie za pośrednictwem programu SharePoint i usługi OneDrive
 
-Bezpośrednie udostępnianie za pośrednictwem programów SharePoint i OneDrive pozwala dodawać użytkowników poza procesem zarządzania uprawnieniami. Aby zapoznać się z szczegółowymi krokami w tych konfiguracjach [, zobacz Zarządzanie dostępem za pomocą programu Microsoft Teams, SharePoint i OneDrive dla firm](9-secure-access-teams-sharepoint.md) . można także [zablokować użycie osobistej usługi OneDrive użytkownika](https://docs.microsoft.com/office365/troubleshoot/group-policy/block-onedrive-use-from-office) , jeśli jest to konieczne.
+Bezpośrednie udostępnianie za pośrednictwem programów SharePoint i OneDrive pozwala dodawać użytkowników poza procesem zarządzania uprawnieniami. Aby zapoznać się z szczegółowymi krokami w tych konfiguracjach [, zobacz Zarządzanie dostępem za pomocą programu Microsoft Teams, SharePoint i OneDrive dla firm](9-secure-access-teams-sharepoint.md) . można także [zablokować użycie osobistej usługi OneDrive użytkownika](/office365/troubleshoot/group-policy/block-onedrive-use-from-office) , jeśli jest to konieczne.
 
 ### <a name="sending-documents-through-email"></a>Wysyłanie dokumentów za pośrednictwem poczty e-mail
 
@@ -197,9 +197,9 @@ Narzędzia do współpracy są rozległe. Użytkownicy prawdopodobnie korzystaj�
 
 Aby uzyskać więcej informacji na temat zarządzania niezatwierdzonymi aplikacjami, zobacz:
 
-* [Zarządzanie połączonymi aplikacjami](https://docs.microsoft.com/cloud-app-security/governance-actions)
+* [Zarządzanie połączonymi aplikacjami](/cloud-app-security/governance-actions)
 
-* [Zaakceptowanie i odrzucanie aplikacji.](https://docs.microsoft.com/cloud-app-security/governance-discovery)
+* [Zaakceptowanie i odrzucanie aplikacji.](/cloud-app-security/governance-discovery)
 
  
 ### <a name="next-steps"></a>Następne kroki

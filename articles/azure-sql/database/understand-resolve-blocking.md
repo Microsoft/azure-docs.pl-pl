@@ -14,12 +14,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 1/14/2020
-ms.openlocfilehash: d3bd63566daaf6e1d3e3343b5956d8a8d5fc8ea5
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: b73e72969a851428034499d447ecb162a61aa9ab
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98224517"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725790"
 ---
 # <a name="understand-and-resolve-azure-sql-database-blocking-problems"></a>Zrozumienie i rozwiązywanie problemów z blokowaniem Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -345,7 +345,7 @@ Poniższe scenariusze zostaną rozwinięcie w tych scenariuszach.
     Po wysłaniu zapytania do serwera wszystkie aplikacje muszą natychmiast pobrać wszystkie wiersze wynikowe. Jeśli aplikacja nie pobiera wszystkich wierszy wynikowych, blokady mogą pozostać w tabelach, blokując innym użytkownikom. Jeśli używasz aplikacji, która w sposób przezroczysty przesyła instrukcje SQL do serwera, aplikacja musi pobrać wszystkie wiersze wynikowe. Jeśli nie (i jeśli nie można go skonfigurować w ten sposób), może być niemożliwe rozwiązanie problemu z blokowaniem. Aby uniknąć tego problemu, można ograniczyć niewłaściwie zachowywać się aplikacje do bazy danych raportowania lub z obsługą decyzji.
     
     > [!NOTE]
-    > Zobacz [wskazówki dotyczące logiki ponawiania](/azure/azure-sql/database/troubleshoot-common-connectivity-issues#retry-logic-for-transient-errors) dla aplikacji łączących się z Azure SQL Database. 
+    > Zobacz [wskazówki dotyczące logiki ponawiania](./troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) dla aplikacji łączących się z Azure SQL Database. 
     
     **Rozwiązanie**: aplikacja musi zostać ponownie zapisywana, aby można było pobrać wszystkie wiersze wyniku do ukończenia. Nie powoduje to wykluczenia użycia [przesunięcia i pobrania w klauzuli Order by](/sql/t-sql/queries/select-order-by-clause-transact-sql#using-offset-and-fetch-to-limit-the-rows-returned) zapytania do wykonywania stronicowania po stronie serwera.
 
@@ -369,7 +369,7 @@ Poniższe scenariusze zostaną rozwinięcie w tych scenariuszach.
     KILL 99
     ```
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Monitorowanie i dostrajanie wydajności usługi Azure SQL Database i wystąpienia zarządzanego Azure SQL](/monitor-tune-overview.md)
 * [Monitorowanie wydajności za pomocą magazynu zapytań](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)
@@ -378,7 +378,7 @@ Poniższe scenariusze zostaną rozwinięcie w tych scenariuszach.
 * [Szybki start: zdarzenia rozszerzone w programie SQL Server](/sql/relational-databases/extended-events/quick-start-extended-events-in-sql-server)
 * [Intelligent Insights przy użyciu AI do monitorowania i rozwiązywania problemów z wydajnością bazy danych](intelligent-insights-overview.md)
 
-## <a name="learn-more"></a>Więcej tutaj
+## <a name="learn-more"></a>Więcej informacji
 
 * [Azure SQL Database: ulepszanie dostrajania wydajności za pomocą dostrajania automatycznego](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Improving-Performance-Tuning-with-Automatic-Tuning)
 * [Poprawianie wydajności Azure SQL Database przy użyciu dostrajania automatycznego](https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 3ac81e89aaea5bc37297d2f83dce9e2158ae28d8
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 3f66da38d3303b47c2a9b6cefeee19af6bf64ec1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060660"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725510"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workplace-by-facebook"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z miejscem pracy w serwisie Facebook
 
@@ -205,7 +205,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 * Przejdź bezpośrednio do miejsca pracy przez adres URL logowania w serwisie Facebook, a następnie zainicjuj w nim przepływ logowania.
 
-* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka miejsce pracy według usługi Facebook w obszarze Moje aplikacje zostanie ono przekierowanie do miejsca pracy przez adres URL logowania w serwisie Facebook. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka miejsce pracy według usługi Facebook w obszarze Moje aplikacje zostanie ono przekierowanie do miejsca pracy przez adres URL logowania w serwisie Facebook. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="test-sso-for-workplace-by-facebook-mobile"></a>Testowanie logowania jednokrotnego w miejscu pracy przez serwis Facebook (urządzenia przenośne)
 

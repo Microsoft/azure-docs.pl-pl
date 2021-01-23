@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 36542bc87163e2be800a8f6a4db31307ae7dedbb
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 92c57c863cf09fee500b3ea7392757a4f729e4a5
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202525"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98723935"
 ---
 # <a name="azure-security-baseline-for-azure-bastion"></a>Podstawowa baza zabezpieczeń Azure dla usługi Azure bastionu
 
@@ -82,7 +82,7 @@ Aby uzyskać więcej informacji, zapoznaj się z następującymi dokumentami:
 
 - [Nawiązywanie połączenia z maszyną wirtualną z systemem Windows przy użyciu usługi Azure bastionu](bastion-connect-vm-rdp.md)
 
-- [Role wbudowane platformy Azure](../role-based-access-control/built-in-roles.md)
+- [Wbudowane role platformy Azure](../role-based-access-control/built-in-roles.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -217,7 +217,7 @@ Należy upewnić się, że poświadczenia (takie jak hasło, certyfikat lub kart
 
 - [Informacje na temat stacji roboczych uprzywilejowanego dostępu](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [Wdrażanie stacji roboczej z dostępem uprzywilejowanym](../active-directory/devices/howto-azure-managed-workstation.md)
+- [Wdrażanie stacji roboczej z dostępem uprzywilejowanym](/security/compass/privileged-access-deployment)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -238,7 +238,7 @@ Aby uzyskać więcej informacji, zapoznaj się z następującymi dokumentami:
 
 - [Nawiązywanie połączenia z maszyną wirtualną z systemem Windows przy użyciu usługi Azure bastionu](bastion-connect-vm-rdp.md)
 
-- [Role wbudowane platformy Azure](../role-based-access-control/built-in-roles.md)
+- [Wbudowane role platformy Azure](../role-based-access-control/built-in-roles.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -318,7 +318,7 @@ Uwaga: Do uzyskania wglądu w obciążenia i usługi mogą być wymagane dodatko
 
 ## <a name="logging-and-threat-detection"></a>Rejestrowanie i wykrywanie zagrożeń
 
-*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: rejestrowanie i wykrywanie zagrożeń](/azure/security/benchmarks/security-controls-v2-data-protection).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: rejestrowanie i wykrywanie zagrożeń](../security/benchmarks/security-controls-v2-data-protection.md).*
 
 ### <a name="lt-2-enable-threat-detection-for-azure-identity-and-access-management"></a>LT-2: Włącz wykrywanie zagrożeń na potrzeby zarządzania tożsamościami i dostępem na platformie Azure
 
@@ -521,7 +521,7 @@ Ponadto oznacz zasoby przy użyciu tagów i utwórz system nazewnictwa, aby zide
 
 ## <a name="posture-and-vulnerability-management"></a>Stan zabezpieczeń i zarządzanie lukami w zabezpieczeniach
 
-*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: stan zabezpieczeń i zarządzanie lukami w zabezpieczeniach](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: stan zabezpieczeń i zarządzanie lukami w zabezpieczeniach](../security/benchmarks/security-controls-v2-posture-vulnerability-management.md).*
 
 ### <a name="pv-1-establish-secure-configurations-for-azure-services"></a>PV-1: Ustanów bezpieczne konfiguracje dla usług platformy Azure 
 
@@ -600,9 +600,9 @@ Aby uzyskać więcej informacji, zapoznaj się z następującymi dokumentami:
 
 - [Cloud Adoption Framework — najlepsze rozwiązania z zakresu zabezpieczeń i szyfrowania danych platformy Azure](../security/fundamentals/data-encryption-best-practices.md?bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
-- [Test porównawczy zabezpieczeń platformy Azure — zarządzanie elementami zawartości](/azure/security/benchmarks/security-controls-v2-asset-management)
+- [Test porównawczy zabezpieczeń platformy Azure — zarządzanie elementami zawartości](../security/benchmarks/security-controls-v2-asset-management.md)
 
-- [Test porównawczy zabezpieczeń platformy Azure — ochrona danych](/azure/security/benchmarks/security-controls-v2-data-protection)
+- [Test porównawczy zabezpieczeń platformy Azure — ochrona danych](../security/benchmarks/security-controls-v2-data-protection.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -630,7 +630,7 @@ Upewnij się, że strategia segmentacji jest zaimplementowana spójnie dla róż
 
 **Wskazówka**: Nieustannie mierz i ograniczaj ryzyko dla poszczególnych elementów zawartości i środowiska, w którym są hostowane. Ustalaj priorytety elementów zawartości o wysokiej wartości i wysoce narażonych na ataki obszarów, takich jak opublikowane aplikacje, punkty danych przychodzących i wychodzących sieci, punkty końcowe użytkowników i administratorów itp.
 
-- [Test porównawczy zabezpieczeń platformy Azure — stan i zarządzanie lukami w zabezpieczeniach](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
+- [Test porównawczy zabezpieczeń platformy Azure — stan i zarządzanie lukami w zabezpieczeniach](../security/benchmarks/security-controls-v2-posture-vulnerability-management.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -671,7 +671,7 @@ Ta strategia powinna obejmować udokumentowane wskazówki, zasady i standardy dl
 Aby uzyskać więcej informacji, zapoznaj się z następującymi dokumentami:
 - [Najlepsze rozwiązanie dotyczące zabezpieczeń platformy Azure 11 — architektura. Pojedyncza ujednolicona strategia zabezpieczeń](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Test porównawczy zabezpieczeń platformy Azure — zabezpieczenia sieci](/azure/security/benchmarks/security-controls-v2-network-security)
+- [Test porównawczy zabezpieczeń platformy Azure — zabezpieczenia sieci](../security/benchmarks/security-controls-v2-network-security.md)
 
 - [Omówienie zabezpieczeń sieci platformy Azure](../security/fundamentals/network-overview.md)
 
@@ -699,9 +699,9 @@ Ta strategia powinna obejmować udokumentowane wskazówki, zasady i standardy dl
 
 Aby uzyskać więcej informacji, zapoznaj się z następującymi dokumentami:
 
-- [Test porównawczy zabezpieczeń platformy Azure — zarządzanie tożsamością](/azure/security/benchmarks/security-controls-v2-identity-management)
+- [Test porównawczy zabezpieczeń platformy Azure — zarządzanie tożsamością](../security/benchmarks/security-controls-v2-identity-management.md)
 
-- [Test porównawczy zabezpieczeń platformy Azure — dostęp uprzywilejowany](/azure/security/benchmarks/security-controls-v2-privileged-access)
+- [Test porównawczy zabezpieczeń platformy Azure — dostęp uprzywilejowany](../security/benchmarks/security-controls-v2-privileged-access.md)
 
 - [Najlepsze rozwiązanie dotyczące zabezpieczeń platformy Azure 11 — architektura. Pojedyncza ujednolicona strategia zabezpieczeń](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
@@ -733,9 +733,9 @@ Ta strategia powinna obejmować udokumentowane wskazówki, zasady i standardy dl
 
 Aby uzyskać więcej informacji, zapoznaj się z następującymi dokumentami:
 
-- [Test porównawczy zabezpieczeń platformy Azure — rejestrowanie i wykrywanie zagrożeń](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
+- [Test porównawczy zabezpieczeń platformy Azure — rejestrowanie i wykrywanie zagrożeń](../security/benchmarks/security-controls-v2-logging-threat-detection.md)
 
-- [Test porównawczy zabezpieczeń platformy Azure — reagowanie na zdarzenia](/azure/security/benchmarks/security-controls-v2-incident-response)
+- [Test porównawczy zabezpieczeń platformy Azure — reagowanie na zdarzenia](../security/benchmarks/security-controls-v2-incident-response.md)
 
 - [Najlepsze rozwiązanie dotyczące zabezpieczeń platformy Azure 4 — proces. Aktualizowanie procesów reagowania na zdarzenia dla chmury](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 

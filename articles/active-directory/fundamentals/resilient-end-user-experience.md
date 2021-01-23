@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c695466fbd50435a85c63842ceb50ce80765760
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: f6896a812ec173994a1299a28ff2e99a0f351391
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630296"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724445"
 ---
 # <a name="resilient-end-user-experience"></a>Odporne środowisko użytkownika końcowego
 
@@ -34,19 +34,19 @@ ms.locfileid: "97630296"
 
 ## <a name="choose-between-user-flow-and-custom-policy"></a>Wybieranie między przepływem użytkownika a zasadami niestandardowymi  
 
-Aby ułatwić konfigurowanie typowych zadań związanych z tożsamościami, Azure AD B2C udostępnia wbudowane, konfigurowalne [przepływy użytkowników](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-overview). Możesz również utworzyć własne [zasady niestandardowe](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview), które oferują maksymalną elastyczność. Zaleca się jednak używanie zasad niestandardowych tylko w przypadku złożonych scenariuszy.
+Aby ułatwić konfigurowanie typowych zadań związanych z tożsamościami, Azure AD B2C udostępnia wbudowane, konfigurowalne [przepływy użytkowników](../../active-directory-b2c/user-flow-overview.md). Możesz również utworzyć własne [zasady niestandardowe](../../active-directory-b2c/custom-policy-overview.md), które oferują maksymalną elastyczność. Zaleca się jednak używanie zasad niestandardowych tylko w przypadku złożonych scenariuszy.
 
 ### <a name="how-to-decide-between-user-flow-and-custom-policy"></a>Jak podjąć decyzję między przepływem użytkownika a zasadami niestandardowymi
 
 Wybierz wbudowane przepływy użytkownika, jeśli Twoje wymagania biznesowe mogą zostać przez nie spełnione. Ze względu na to, że jest to szeroko przetestowane przez firmę Microsoft, można zminimalizować testowanie, które jest potrzebne do sprawdzania funkcjonalności, wydajności lub skali tych przepływów na poziomie zasad. Nadal konieczne jest przetestowanie aplikacji w celu zapewnienia funkcjonalności, wydajności i skalowania.
 
-W przypadku [wybrania zasad niestandardowych](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started) ze względu na wymagania biznesowe upewnij się, że przeprowadzasz testowanie na poziomie zasad dotyczące funkcjonalności, wydajności lub skalowania oprócz testowania na poziomie aplikacji.
+W przypadku [wybrania zasad niestandardowych](../../active-directory-b2c/custom-policy-get-started.md) ze względu na wymagania biznesowe upewnij się, że przeprowadzasz testowanie na poziomie zasad dotyczące funkcjonalności, wydajności lub skalowania oprócz testowania na poziomie aplikacji.
 
-Zapoznaj się z artykułem, który [porównuje przepływy użytkowników i zasady niestandardowe](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview#comparing-user-flows-and-custom-policies) , aby ułatwić podjęcie decyzji.
+Zapoznaj się z artykułem, który [porównuje przepływy użytkowników i zasady niestandardowe](../../active-directory-b2c/custom-policy-overview.md#comparing-user-flows-and-custom-policies) , aby ułatwić podjęcie decyzji.
 
 ## <a name="choose-multiple-idps"></a>Wybierz wiele dostawców tożsamości
 
-W przypadku korzystania z [zewnętrznego dostawcy tożsamości](https://docs.microsoft.com/azure/active-directory-b2c/technical-overview#external-identity-providers) , takiego jak Facebook, upewnij się, że plan rezerwowy jest ustawiony na wypadek, gdyby zewnętrzny dostawca stał się niedostępny.
+W przypadku korzystania z [zewnętrznego dostawcy tożsamości](../../active-directory-b2c/technical-overview.md#external-identity-providers) , takiego jak Facebook, upewnij się, że plan rezerwowy jest ustawiony na wypadek, gdyby zewnętrzny dostawca stał się niedostępny.
 
 ### <a name="how-to-set-up-multiple-idps"></a>Jak skonfigurować wiele dostawców tożsamości
 
@@ -58,11 +58,11 @@ W ramach procesu rejestracji zewnętrznego dostawcy tożsamości należy dołąc
 
  2. Skonfiguruj zasady profilu, aby umożliwić użytkownikom [łączenie z inną tożsamością z konta](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/account-linking) po zalogowaniu się.
 
- 3. Powiadamiaj i Zezwalaj użytkownikom na [przełączanie się do alternatywnej dostawcy tożsamości](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html#configure-dynamic-custom-page-content-uri) podczas przestoju.
+ 3. Powiadamiaj i Zezwalaj użytkownikom na [przełączanie się do alternatywnej dostawcy tożsamości](../../active-directory-b2c/customize-ui-with-html.md#configure-dynamic-custom-page-content-uri) podczas przestoju.
 
 ## <a name="availability-of-multi-factor-authentication"></a>Dostępność uwierzytelniania wieloskładnikowego
 
-W przypadku korzystania z [usługi telefonicznej do uwierzytelniania wieloskładnikowego (MFA)](https://docs.microsoft.com/azure/active-directory-b2c/phone-authentication)należy wziąć pod uwagę alternatywnego dostawcę usług. Lokalny odpływ lub dostawca usług telefonicznych może powodować zakłócenia w swojej usłudze.
+W przypadku korzystania z [usługi telefonicznej do uwierzytelniania wieloskładnikowego (MFA)](../../active-directory-b2c/phone-authentication.md)należy wziąć pod uwagę alternatywnego dostawcę usług. Lokalny odpływ lub dostawca usług telefonicznych może powodować zakłócenia w swojej usłudze.
 
 ### <a name="how-to-choose-an-alternate-mfa"></a>Jak wybrać alternatywną usługę MFA  
 

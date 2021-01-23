@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 01/12/2021
+ms.date: 01/22/2021
 ms.author: b-juche
-ms.openlocfilehash: 0ae7e8f745a91e080d12a47271057ed90f9bc835
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: fb4233a87231dddb1e3cb2777ac2ef53a61f833e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134334"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98726619"
 ---
 # <a name="troubleshoot-dual-protocol-volumes"></a>Rozwiązywanie problemów z woluminami używającymi dwóch protokołów
 
@@ -29,7 +29,7 @@ W tym artykule opisano rozwiązania przyczyn błędów, które mogą wystąpić 
 
 |     Warunki błędów    |     Rozwiązanie    |
 |-|-|
-| Tworzenie woluminu z podwójnym protokołem nie powiodło się z powodu błędu `This Active Directory has no Server root CA Certificate` .    |     Jeśli ten błąd występuje podczas tworzenia woluminu dwuprotokołowego, upewnij się, że certyfikat głównego urzędu certyfikacji jest przekazywany na koncie NetApp.    |
+| Protokół LDAP za pośrednictwem protokołu TLS jest włączony, a Tworzenie woluminu z podwójnym protokołem kończy się niepowodzeniem z powodu błędu `This Active Directory has no Server root CA Certificate` .    |     Jeśli ten błąd występuje podczas tworzenia woluminu dwuprotokołowego, upewnij się, że certyfikat głównego urzędu certyfikacji jest przekazywany na koncie NetApp.    |
 | Tworzenie woluminu z podwójnym protokołem nie powiodło się z powodu błędu `Failed to validate LDAP configuration, try again after correcting LDAP configuration` .    |  Na serwerze DNS może brakować rekordu wskaźnika (PTR) maszyny hosta usługi AD. Należy utworzyć strefę wyszukiwania wstecznego na serwerze DNS, a następnie dodać rekord PTR maszyny hosta usługi AD w tej strefie wyszukiwania wstecznego. <br> Załóżmy na przykład, że adres IP komputera usługi AD to, nazwa `1.1.1.1` hosta maszyny usługi AD (jak znaleziono przy użyciu `hostname` polecenia) `AD1` , a domena to `contoso.com` .  Rekord PTR dodany do strefy wyszukiwania wstecznego powinien mieć wartość `1.1.1.1`  ->  `contoso.com` .   |
 | Tworzenie woluminu z podwójnym protokołem nie powiodło się z powodu błędu `Failed to create the Active Directory machine account \\\"TESTAD-C8DD\\\". Reason: Kerberos Error: Pre-authentication information was invalid Details: Error: Machine account creation procedure failed\\n [ 434] Loaded the preliminary configuration.\\n [ 537] Successfully connected to ip 1.1.1.1, port 88 using TCP\\n**[ 950] FAILURE` . |  Ten błąd wskazuje, że hasło usługi AD jest niepoprawne, gdy Active Directory jest przyłączony do konta NetApp. Zaktualizuj połączenie usługi AD przy użyciu poprawnego hasła i spróbuj ponownie. |
 | Tworzenie woluminu z podwójnym protokołem nie powiodło się z powodu błędu `Could not query DNS server. Verify that the network configuration is correct and that DNS servers are available` . |   Ten błąd wskazuje, że usługa DNS jest nieosiągalna. Przyczyną może być fakt, że adres IP DNS jest niepoprawny lub występuje problem z siecią. Sprawdź adres IP DNS wprowadzony w polu połączenie usługi AD i upewnij się, że adres IP jest prawidłowy. <br> Upewnij się również, że usługi AD i wolumin są w tym samym regionie i w tej samej sieci wirtualnej. Jeśli znajdują się w różnych sieci wirtualnychach, upewnij się, że Komunikacja równorzędna sieci wirtualnej jest ustanowiona między tymi dwoma sieci wirtualnych.|

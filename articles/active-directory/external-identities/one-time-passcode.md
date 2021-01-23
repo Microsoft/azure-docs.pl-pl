@@ -12,12 +12,12 @@ manager: CelesteDG
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1aebfaa176992b7e20824518bc214a6688ae493
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: a9a0668b3ea651d129dc076e5f2247e38f5ab7d0
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97703589"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725499"
 ---
 # <a name="email-one-time-passcode-authentication"></a>Wyślij wiadomość e-mail do jednorazowego uwierzytelniania kodu dostępu
 
@@ -102,7 +102,7 @@ Jeśli wcześniej zaznaczono w publicznej wersji zapoznawczej jednorazowego kodu
 
 ![Włącz jednorazowy kod dostępu wiadomości E-mail w programie](media/delegate-invitations/enable-email-otp-opted-in.png)
 
-Jeśli jednak wolisz zrezygnować z funkcji i zezwolić na jej automatyczne włączenie w marcu 2021, możesz przywrócić ustawienia domyślne za pomocą [typu zasobu konfiguracja Metoda uwierzytelniania poczty e-mail](https://aka.ms/exid-graphemailauth)Microsoft Graph API. Po przywróceniu ustawień domyślnych dostępne są następujące opcje **dla Gości poczty e-mail jednorazowo**:
+Jeśli jednak wolisz zrezygnować z funkcji i zezwolić na jej automatyczne włączenie w marcu 2021, możesz przywrócić ustawienia domyślne za pomocą [typu zasobu konfiguracja Metoda uwierzytelniania poczty e-mail](/graph/api/resources/emailauthenticationmethodconfiguration)Microsoft Graph API. Po przywróceniu ustawień domyślnych dostępne są następujące opcje **dla Gości poczty e-mail jednorazowo**:
 
 - **Automatycznie Włącz jednorazowy kod dostępu wiadomości e-mail dla Gości w marcu 2021**. Wartooć Jeśli funkcja jednorazowego kodu dostępu wiadomości e-mail nie została już włączona dla Twojej dzierżawy, zostanie automatycznie włączona w marcu 2021. Jeśli funkcja ma być włączona w tym czasie, nie są wymagane żadne dalsze działania. Jeśli funkcja została już włączona lub wyłączona, ta opcja będzie niedostępna.
 

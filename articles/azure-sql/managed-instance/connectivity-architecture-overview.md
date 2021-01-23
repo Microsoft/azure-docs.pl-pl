@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 10/22/2020
-ms.openlocfilehash: 9a35c0dc8a3b994b015d7a8d64f76f7e10d95a00
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 58563629b30e7be764732a9810162e1a0b1931e6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722406"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725840"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Architektura łączności dla usługi Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -107,7 +107,7 @@ Wdróż wystąpienie zarządzane SQL w dedykowanej podsieci w sieci wirtualnej. 
 - **Wystarczające adresy IP:** Podsieć wystąpienia zarządzanego SQL musi mieć co najmniej 32 adresów IP. Aby uzyskać więcej informacji, zobacz [Określanie rozmiaru podsieci dla wystąpienia zarządzanego SQL](vnet-subnet-determine-size.md). Wystąpienia zarządzane można wdrożyć w [istniejącej sieci](vnet-existing-add-subnet.md) po jej skonfigurowaniu w taki sposób, aby spełniały [wymagania dotyczące sieci dla wystąpienia zarządzanego SQL](#network-requirements). W innym przypadku utwórz [nową sieć i podsieć](virtual-network-subnet-create-arm-template.md).
 
 > [!IMPORTANT]
-> Podczas tworzenia wystąpienia zarządzanego w podsieci są stosowane zasady konwersji sieci, które uniemożliwiają niezgodne zmiany konfiguracji sieci. Po usunięciu ostatniego wystąpienia z podsieci zostaną również usunięte zasady dotyczące opcji sieci. Poniższe reguły są przeznaczone wyłącznie do celów informacyjnych i nie należy ich wdrażać przy użyciu szablonu ARM/PowerShell/interfejsu wiersza polecenia. Jeśli chcesz użyć najnowszego oficjalnego szablonu, zawsze możesz [pobrać go z portalu](https://docs.microsoft.com/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal).
+> Podczas tworzenia wystąpienia zarządzanego w podsieci są stosowane zasady konwersji sieci, które uniemożliwiają niezgodne zmiany konfiguracji sieci. Po usunięciu ostatniego wystąpienia z podsieci zostaną również usunięte zasady dotyczące opcji sieci. Poniższe reguły są przeznaczone wyłącznie do celów informacyjnych i nie należy ich wdrażać przy użyciu szablonu ARM/PowerShell/interfejsu wiersza polecenia. Jeśli chcesz użyć najnowszego oficjalnego szablonu, zawsze możesz [pobrać go z portalu](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 ### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>Obowiązkowe reguły zabezpieczeń dla ruchu przychodzącego z konfiguracją podsieci z obsługą usług
 

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8bfc3fb239f30911eddf0aa27496a465e36c486
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8fed78d7d2250d749ced7fe343689df76329b60d
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919882"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724664"
 ---
 # <a name="build-resilience-in-application-access-with-application-proxy"></a>Tworzenie odporności w dostępie do aplikacji za pomocą serwera proxy aplikacji
 
@@ -27,7 +27,7 @@ Serwer proxy aplikacji to funkcja usługi Azure AD, która umożliwia użytkowni
 Użytkownicy uzyskują dostęp do zasobów lokalnych za pośrednictwem adresu URL opublikowanego za pośrednictwem serwera proxy aplikacji. Nastąpi przekierowanie do strony logowania do usługi Azure AD. Usługa serwera proxy aplikacji w usłudze Azure AD wysyła token do łącznika serwera proxy aplikacji w sieci firmowej, który przekazuje token do lokalnego Active Directory uwierzytelniony użytkownik może uzyskać dostęp do zasobu lokalnego. Na poniższym diagramie [Łączniki](../manage-apps/application-proxy-connectors.md) są wyświetlane w [grupie łączników](../manage-apps/application-proxy-connector-groups.md).
 
 > [!IMPORTANT]
-> Podczas publikowania aplikacji za pośrednictwem serwera proxy aplikacji należy zaimplementować [Planowanie pojemności i odpowiednią nadmiarowość dla łączników serwera proxy aplikacji](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#capacity-planning).
+> Podczas publikowania aplikacji za pośrednictwem serwera proxy aplikacji należy zaimplementować [Planowanie pojemności i odpowiednią nadmiarowość dla łączników serwera proxy aplikacji](../manage-apps/application-proxy-connectors.md#capacity-planning).
 
 ![Diagram architektury aplikacji y](./media/resilience-on-prem-access/admin-resilience-app-proxy.png))
 

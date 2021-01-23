@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6da9f27e25fa5543f949716824f54af2b9f1ad1
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 12b5c95b67f8fada29914d3a8de559280e6145f8
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132549"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724224"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Co nowego w Azure Active Directory?
 
@@ -38,7 +38,7 @@ Usługa Azure AD otrzymuje ulepszenia na bieżąco. Aby zachować aktualność w
 Ta strona jest aktualizowana co miesiąc, dlatego należy ją regularnie odwiedzać. Jeśli szukasz elementów starszych niż sześć miesięcy, możesz je znaleźć w archiwum, aby poznać nowości [w Azure Active Directory](whats-new-archive.md).
 
 ---
-## <a name="december-2020"></a>Grudzień 2020 r.
+## <a name="december-2020"></a>Grudzień 2020 r.
 
 ### <a name="public-preview---azure-ad-b2c-phone-sign-up-and-sign-in-using-built-in-policy"></a>Publiczna wersja zapoznawcza — Azure AD B2C Rejestracja i logowanie za pomocą zasad wbudowanych
 
@@ -100,7 +100,7 @@ Teraz można zautomatyzować tworzenie, aktualizowanie i usuwanie kont użytkown
 - [Bizagi Studio for Digital Process Automation](../saas-apps/bizagi-studio-for-digital-process-automation-provisioning-tutorial.md)
 - [CybSafe](../saas-apps/cybsafe-provisioning-tutorial.md)
 - [GroupTalk](../saas-apps/grouptalk-provisioning-tutorial.md)
-- [PaperCut Cloud Print Management](/azure/active-directory/saas-apps/papercut-cloud-print-management-provisioning-tutorial)
+- [PaperCut Cloud Print Management](../saas-apps/papercut-cloud-print-management-provisioning-tutorial.md)
 - [Parsable](../saas-apps/parsable-provisioning-tutorial.md)
 - [Shopify Plus](../saas-apps/shopify-plus-provisioning-tutorial.md)
 
@@ -191,7 +191,7 @@ Aby wyświetlić listę aplikacji w galerii aplikacji usługi Azure AD, zapoznaj
 **Kategoria usługi:** RBAC  
 **Możliwość produktu:** Access Control
  
- [Niestandardowe role RBAC na potrzeby delegowania zarządzania aplikacjami przedsiębiorstwa](../users-groups-roles/roles-custom-available-permissions.md) są teraz dostępne w publicznej wersji zapoznawczej. Te nowe uprawnienia są kompilowane na rolach niestandardowych na potrzeby zarządzania rejestracją aplikacji, co umożliwia precyzyjne sterowanie dostępem administratorów. Z upływem czasu zostaną wydane dodatkowe uprawnienia do delegowania zarządzania usługą Azure AD.
+ [Niestandardowe role RBAC na potrzeby delegowania zarządzania aplikacjami przedsiębiorstwa](../roles/custom-available-permissions.md) są teraz dostępne w publicznej wersji zapoznawczej. Te nowe uprawnienia są kompilowane na rolach niestandardowych na potrzeby zarządzania rejestracją aplikacji, co umożliwia precyzyjne sterowanie dostępem administratorów. Z upływem czasu zostaną wydane dodatkowe uprawnienia do delegowania zarządzania usługą Azure AD.
 
 Niektóre typowe scenariusze delegowania:
 - przypisanie użytkowników i grup, które mogą uzyskiwać dostęp do aplikacji logowania jednokrotnego opartego na protokole SAML
@@ -247,7 +247,7 @@ Teraz można zautomatyzować tworzenie, aktualizowanie i usuwanie kont użytkown
 - [Kółko i krzyżyk-TAC Mobile](../saas-apps/tic-tac-mobile-provisioning-tutorial.md)
 - [Visibly](../saas-apps/visibly-provisioning-tutorial.md)
 
-Aby uzyskać więcej informacji, zobacz [Automatyzowanie aprowizacji użytkowników w aplikacjach SaaS za pomocą usługi Azure AD](../manage-apps/user-provisioning.md).
+Aby uzyskać więcej informacji, zobacz [Automatyzowanie aprowizacji użytkowników w aplikacjach SaaS za pomocą usługi Azure AD](../app-provisioning/user-provisioning.md).
  
 ---
 
@@ -301,7 +301,7 @@ Agent aprowizacji w chmurze został opublikowany w publicznej wersji zapoznawcze
  
 Wcześniej można było odzyskać klucze funkcji BitLocker za pośrednictwem punktu końcowego/BitLocker. Ostatecznie wycofamy ten punkt końcowy, a klienci powinni zacząć korzystać z interfejsu API, który teraz znajduje się w obszarze/informationProtection. 
 
-Aby odzwierciedlić te zmiany, zobacz [interfejs API odzyskiwania funkcji BitLocker](https://docs.microsoft.com/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta) dla aktualizacji dokumentacji.
+Aby odzwierciedlić te zmiany, zobacz [interfejs API odzyskiwania funkcji BitLocker](/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta) dla aktualizacji dokumentacji.
 
 ---
 
@@ -603,7 +603,7 @@ Aby zapewnić optymalne środowisko użytkownika, zalecamy użycie częstotliwo�
  
 Teraz można zautomatyzować tworzenie, aktualizowanie i usuwanie kont użytkowników dla nowo zintegrowanych aplikacji:
 
-- [Coda](../saas-apps/coda-provisioning-tutorial.md)
+- [Wyciąg](../saas-apps/coda-provisioning-tutorial.md)
 - [Cofense Recipient Sync](../saas-apps/cofense-provision-tutorial.md)
 - [InVision](../saas-apps/invision-provisioning-tutorial.md)
 - [myday](../saas-apps/myday-provision-tutorial.md)
@@ -1126,4 +1126,3 @@ Jeśli Twoja organizacja korzysta z zestawu Azure MFA SDK, musisz przeprowadzić
 
 ---
 
- 

@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 6b217e77310224779ea3ea840e613e28da6c86a3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 5d15947254d80d97b6a241a717fb7d33a3d5ccb5
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779870"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724020"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Usługa Azure SQL Managed Instance (często zadawane pytania)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -118,7 +118,7 @@ Zmiana nazwy wystąpienia zarządzanego nie jest obsługiwana.
 
 Tak, domyślna strefa DNS wystąpienia zarządzanego *. Database.Windows.NET* można zmienić. 
 
-Aby użyć innej strefy DNS zamiast domyślnego, na przykład *. contoso.com* : 
+Aby użyć innej strefy DNS zamiast domyślnego, na przykład *. contoso.com*: 
 - Użyj CliConfig, aby zdefiniować alias. To narzędzie jest tylko otoką ustawień rejestru, dlatego można ją wykonać przy użyciu zasad grupy lub skryptu.
 - Użyj opcji *CNAME* z opcją *TrustServerCertificate = true* .
 
@@ -326,7 +326,7 @@ Usługi zarządzania i wdrażania nawiązują połączenie z wystąpieniem zarz�
 
 **Czy mogę użyć publicznego punktu końcowego, aby uzyskać dostęp do danych w bazach danych wystąpienia zarządzanego?**
 
-Tak. Klient będzie musiał włączyć dostęp do danych publicznego punktu końcowego z [Azure portal](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal)  /  [programu Azure Portal PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) /ARM i skonfigurować sieciowej grupy zabezpieczeń do blokowania dostępu do portu danych (numer portu 3342). Aby uzyskać więcej informacji, zobacz [Konfigurowanie publicznego punktu końcowego w wystąpieniu zarządzanym Azure SQL](public-endpoint-configure.md) i [bezpieczne używanie wystąpienia zarządzanego usługi Azure SQL z publicznym punktem końcowym](public-endpoint-overview.md). 
+Tak. Klient będzie musiał włączyć dostęp do danych publicznego punktu końcowego z [](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal)  /  [programu Azure Portal PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) /ARM i skonfigurować sieciowej grupy zabezpieczeń do blokowania dostępu do portu danych (numer portu 3342). Aby uzyskać więcej informacji, zobacz [Konfigurowanie publicznego punktu końcowego w wystąpieniu zarządzanym Azure SQL](public-endpoint-configure.md) i [bezpieczne używanie wystąpienia zarządzanego usługi Azure SQL z publicznym punktem końcowym](public-endpoint-overview.md). 
 
 **Czy można określić niestandardowy port dla punktów końcowych danych SQL?**
 
@@ -339,7 +339,7 @@ Komunikacja równorzędna obwodu trasy Express jest preferowanym sposobem wykona
 > [!IMPORTANT]
 > [W dniu 9/22/2020 ogłoszono globalne wirtualne sieci równorzędne dla nowo utworzonych klastrów wirtualnych](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Oznacza to, że globalne wirtualne sieci równorzędne są obsługiwane dla wystąpień zarządzanych SQL utworzonych w pustych podsieciach, a także dla wszystkich kolejnych wystąpień zarządzanych utworzonych w tych podsieciach. W przypadku wszystkich innych obsługi komunikacji równorzędnej usługi SQL Managed Instances jest ograniczone do sieci w tym samym regionie ze względu na [ograniczenia globalnej komunikacji równorzędnej sieci wirtualnej](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Więcej informacji można znaleźć w sekcji dotyczącej [często zadawanych pytań dotyczących usługi Azure Virtual Networks](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) . 
 
-Jeśli Komunikacja równorzędna obwodu usługi Express Route i globalna komunikacja wirtualna sieci wirtualnej nie jest możliwa, jedyną inną opcją jest utworzenie połączenia sieci VPN typu lokacja-lokacja ([Azure Portal](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [programu PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [interfejsu wiersza polecenia platformy Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)).
+Jeśli Komunikacja równorzędna obwodu usługi Express Route i globalna komunikacja wirtualna sieci wirtualnej nie jest możliwa, jedyną inną opcją jest utworzenie połączenia sieci VPN typu lokacja-lokacja ([Azure Portal](../../vpn-gateway/tutorial-site-to-site-portal.md), [programu PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [interfejsu wiersza polecenia platformy Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)).
 
 ## <a name="mitigate-data-exfiltration-risks"></a>Ograniczanie ryzyka związanego z eksfiltracji danych  
 
@@ -409,8 +409,8 @@ Funkcję ochrony TDE można obrócić dla wystąpienia zarządzanego przy użyci
 
 Tak, nie musisz odszyfrowywać bazy danych, aby przywrócić ją do wystąpienia zarządzanego SQL. Musisz podać certyfikat/klucz używany jako funkcja ochrony klucza szyfrowania w systemie źródłowym do wystąpienia zarządzanego SQL, aby można było odczytywać dane z zaszyfrowanego pliku kopii zapasowej. Istnieją dwa sposoby, aby to zrobić:
 
-- *Przekaż ochronę certyfikatu do wystąpienia zarządzanego SQL* . Można to zrobić tylko przy użyciu programu PowerShell. [Przykładowy skrypt](./tde-certificate-migrate.md) opisuje cały proces.
-- *Przekaż funkcję ochrony klucza asymetrycznego do Azure Key Vault i wskaż do niej wystąpienie zarządzane przez SQL* . Takie podejście przypomina BYOK TDE użycie, który używa integracji Key Vault, która przechowuje klucz szyfrowania. Jeśli nie chcesz używać klucza jako ochrony klucza szyfrowania i po prostu chcesz udostępnić klucz dla wystąpienia zarządzanego SQL w celu przywrócenia zaszyfrowanych baz danych, postępuj zgodnie z instrukcjami dotyczącymi [KONFIGUROWANIA BYOK TDE](../database/transparent-data-encryption-tde-overview.md#manage-transparent-data-encryption)i nie zaznaczaj pola wyboru **Oznacz wybrany klucz jako domyślną ochronę TDE** .
+- *Przekaż ochronę certyfikatu do wystąpienia zarządzanego SQL*. Można to zrobić tylko przy użyciu programu PowerShell. [Przykładowy skrypt](./tde-certificate-migrate.md) opisuje cały proces.
+- *Przekaż funkcję ochrony klucza asymetrycznego do Azure Key Vault i wskaż do niej wystąpienie zarządzane przez SQL*. Takie podejście przypomina BYOK TDE użycie, który używa integracji Key Vault, która przechowuje klucz szyfrowania. Jeśli nie chcesz używać klucza jako ochrony klucza szyfrowania i po prostu chcesz udostępnić klucz dla wystąpienia zarządzanego SQL w celu przywrócenia zaszyfrowanych baz danych, postępuj zgodnie z instrukcjami dotyczącymi [KONFIGUROWANIA BYOK TDE](../database/transparent-data-encryption-tde-overview.md#manage-transparent-data-encryption)i nie zaznaczaj pola wyboru **Oznacz wybrany klucz jako domyślną ochronę TDE**.
 
 Po udostępnieniu funkcji ochrony szyfrowania wystąpieniem zarządzanym SQL można wykonać procedurę standardowego przywracania bazy danych.
 
@@ -443,7 +443,7 @@ Aby poznać opcje cennika wystąpienia zarządzanego, zobacz [stronę cennika](h
 
 **Jak mogę śledzić koszt rozliczeń dla mojego wystąpienia zarządzanego?**
 
-Można to zrobić przy użyciu [rozwiązania Azure Cost Management](../../cost-management-billing/index.yml). Przejdź do **subskrypcji** w [Azure Portal](https://portal.azure.com) i wybierz pozycję **Analiza kosztów** . 
+Można to zrobić przy użyciu [rozwiązania Azure Cost Management](../../cost-management-billing/index.yml). Przejdź do **subskrypcji** w [Azure Portal](https://portal.azure.com) i wybierz pozycję **Analiza kosztów**. 
 
 Użyj opcji **skumulowane koszty** , a następnie Przefiltruj według **typu zasobu** jako `microsoft.sql/managedinstances` .
 

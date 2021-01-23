@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/08/2020
-ms.openlocfilehash: be966a651df0c896ac7e1973d7783bb7fb686be3
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 3a02876234d43df2e98a3a4e60453fc3f1f74ef6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676492"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724173"
 ---
 # <a name="import-or-export-an-azure-sql-database-without-allowing-azure-services-to-access-the-server"></a>Importowanie lub eksportowanie Azure SQL Database bez zezwalania usługom platformy Azure na dostęp do serwera
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ W tym artykule opisano sposób importowania lub eksportowania Azure SQL Database
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się do [Azure portal](https://portal.azure.com/).
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-the-azure-virtual-machine"></a>Tworzenie maszyny wirtualnej platformy Azure
 
@@ -46,22 +46,22 @@ Poniższe kroki pokazują, jak nawiązać połączenie z maszyną wirtualną za 
 
    ![Zrzut ekranu przedstawia stronę przegląd maszyny wirtualnej z przyciskiem Połącz.](./media/database-import-export-azure-services-off/vm.png)  
 
-2. Wybierz pozycję **Połącz** .
+2. Wybierz pozycję **Połącz**.
 
    Zostanie wyświetlony formularz Remote Desktop Protocol pliku (RDP) z publicznym adresem IP i numerem portu dla maszyny wirtualnej.
 
    ![Formularz RDP](./media/database-import-export-azure-services-off/rdp.png)  
 
-3. Wybierz pozycję **Pobierz plik RDP** .
+3. Wybierz pozycję **Pobierz plik RDP**.
 
    > [!NOTE]
    > Do nawiązania połączenia z maszyną wirtualną można także użyć protokołu SSH.
 
 4. Zamknij formularz **Połącz z maszyną wirtualną** .
 5. Aby połączyć się z maszyną wirtualną, otwórz pobrany plik RDP.
-6. Po wyświetleniu monitu wybierz pozycję **Połącz** . Na komputerze Mac należy skorzystać z klienta RDP, takiego jak ten [klient pulpitu zdalnego](https://apps.apple.com/app/microsoft-remote-desktop-10/id1295203466?mt=12) ze sklepu Mac App Store.
+6. Po wyświetleniu monitu wybierz pozycję **Połącz**. Na komputerze Mac należy skorzystać z klienta RDP, takiego jak ten [klient pulpitu zdalnego](https://apps.apple.com/app/microsoft-remote-desktop-10/id1295203466?mt=12) ze sklepu Mac App Store.
 
-7. Wprowadź nazwę użytkownika i hasło określone podczas tworzenia maszyny wirtualnej, a następnie wybierz przycisk **OK** .
+7. Wprowadź nazwę użytkownika i hasło określone podczas tworzenia maszyny wirtualnej, a następnie wybierz przycisk **OK**.
 
 8. Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Wybierz opcję **tak** lub **Kontynuuj** , aby kontynuować połączenie.
 
@@ -77,7 +77,7 @@ Dodaj publiczny adres IP maszyny wirtualnej do zapory serwera.
 
 Poniższe kroki umożliwiają utworzenie reguły zapory adresów IP na poziomie serwera dla publicznego adresu IP maszyny wirtualnej i włączenie łączności z maszyną wirtualną.
 
-1. Wybierz pozycję **bazy danych SQL** z menu po lewej stronie, a następnie wybierz swoją bazę danych ze strony **bazy danych SQL** . Zostanie otwarta strona przeglądu bazy danych zawierająca w pełni kwalifikowaną nazwę serwera (na przykład **servername.Database.Windows.NET** ) i opcje dalszej konfiguracji.
+1. Wybierz pozycję **bazy danych SQL** z menu po lewej stronie, a następnie wybierz swoją bazę danych ze strony **bazy danych SQL** . Zostanie otwarta strona przeglądu bazy danych zawierająca w pełni kwalifikowaną nazwę serwera (na przykład **servername.Database.Windows.NET**) i opcje dalszej konfiguracji.
 
 2. Skopiuj tę w pełni kwalifikowaną nazwę serwera do użycia podczas nawiązywania połączenia z serwerem i jego bazami danych.
 
@@ -89,9 +89,9 @@ Poniższe kroki umożliwiają utworzenie reguły zapory adresów IP na poziomie 
 
 4. Wybierz pozycję **Dodaj adres IP klienta** na pasku narzędzi, aby dodać publiczny adres IP maszyny wirtualnej do nowej reguły zapory adresów IP na poziomie serwera. Reguła zapory bazująca na adresach IP na poziomie serwera może otworzyć port 1433 dla pojedynczego adresu IP lub zakresu adresów IP.
 
-5. Wybierz pozycję **Zapisz** . Reguła zapory adresów IP na poziomie serwera jest tworzona dla publicznego adresu IP maszyny wirtualnej otwierającej port 1433 na serwerze.
+5. Wybierz pozycję **Zapisz**. Reguła zapory adresów IP na poziomie serwera jest tworzona dla publicznego adresu IP maszyny wirtualnej otwierającej port 1433 na serwerze.
 
-6. Zamknij stronę **Ustawienia zapory** .
+6. Zamknij stronę **Ustawienia zapory**.
 
 ## <a name="export-a-database-using-sqlpackage"></a>Eksportowanie bazy danych przy użyciu elementu sqlpackage
 
@@ -147,7 +147,7 @@ Aby osiągnąć najlepszą wydajność, użyj Azure Files. Element sqlpackage dz
 
 Aby obniżyć koszty, Użyj obiektów blob platformy Azure, które są tańsze niż udział plików platformy Azure w warstwie Premium. Jednak wymaga to skopiowania [. Plik BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) między obiektem BLOB i lokalnym systemem plików przed operacją importu lub eksportu. W efekcie proces zajmie więcej czasu.
 
-W celu przeładowania lub pobrania. Pliki BACPAC, zobacz [Transferowanie danych za pomocą AzCopy i magazynu obiektów BLOB](../../storage/common/storage-use-azcopy-blobs.md), a następnie [Transferowanie danych przy użyciu AzCopy i magazynu plików](../../storage/common/storage-use-azcopy-files.md).
+W celu przeładowania lub pobrania. Pliki BACPAC, zobacz [Transferowanie danych za pomocą AzCopy i magazynu obiektów BLOB](../../storage/common/storage-use-azcopy-v10.md#transfer-data), a następnie [Transferowanie danych przy użyciu AzCopy i magazynu plików](../../storage/common/storage-use-azcopy-files.md).
 
 W zależności od środowiska może być konieczne [skonfigurowanie zapór i sieci wirtualnych usługi Azure Storage](../../storage/common/storage-network-security.md).
 

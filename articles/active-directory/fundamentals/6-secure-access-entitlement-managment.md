@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9de0ce5e83b33cd793953e2b863f26dffafe58ee
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: f06a54f59405d9833194b2e7d4488bc93d2437ae
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222398"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725182"
 ---
 # <a name="manage-external-access-with-entitlement-management"></a>Zarządzanie dostępem zewnętrznym przy użyciu zarządzania uprawnieniami 
 
@@ -94,15 +94,15 @@ Aby uzyskać więcej informacji o przeglądach dostępu, zobacz [Planowanie wdro
 
 ## <a name="using-automation-in-entitlement-management"></a>Korzystanie z automatyzacji w zarządzaniu prawami
 
-[Funkcje zarządzania prawami można wykonywać za pomocą Microsoft Graph](https://docs.microsoft.com/graph/tutorial-access-package-api), w tym
+[Funkcje zarządzania prawami można wykonywać za pomocą Microsoft Graph](/graph/tutorial-access-package-api), w tym
 
-* [Zarządzanie pakietami dostępu](https://docs.microsoft.com/graph/api/resources/accesspackage?view=graph-rest-beta)
+* [Zarządzanie pakietami dostępu](/graph/api/resources/accesspackage?view=graph-rest-beta)
 
-* [Zarządzanie recenzjami dostępu](https://docs.microsoft.com/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta)
+* [Zarządzanie recenzjami dostępu](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta)
 
-* [Zarządzanie połączonymi organizacjami](https://docs.microsoft.com/graph/api/resources/connectedorganization?view=graph-rest-beta)
+* [Zarządzanie połączonymi organizacjami](/graph/api/resources/connectedorganization?view=graph-rest-beta)
 
-* [Zarządzaj ustawieniami zarządzania uprawnieniami](https://docs.microsoft.com/graph/api/resources/entitlementmanagementsettings?view=graph-rest-beta)
+* [Zarządzaj ustawieniami zarządzania uprawnieniami](/graph/api/resources/entitlementmanagementsettings?view=graph-rest-beta)
 
 ## <a name="recommendations"></a>Zalecenia 
 
@@ -112,7 +112,7 @@ Zalecamy stosowanie praktyk związanych z zarządzaniem dostępem zewnętrznym.
 
 * Jeśli masz już użytkowników B2B w katalogu, możesz również bezpośrednio przypisać je do odpowiednich pakietów dostępu.
 
-* Można przypisać dostęp w [Azure Portal](../governance/entitlement-management-access-package-assignments.md)lub za pośrednictwem [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/accesspackageassignmentrequest?view=graph-rest-beta).
+* Można przypisać dostęp w [Azure Portal](../governance/entitlement-management-access-package-assignments.md)lub za pośrednictwem [Microsoft Graph](/graph/api/resources/accesspackageassignmentrequest?view=graph-rest-beta).
 
 **Użyj ustawień zarządzania tożsamościami, aby usunąć użytkowników z katalogu po wygaśnięciu pakietów dostępu**.
 
@@ -173,4 +173,3 @@ Zapoznaj się z następującymi artykułami dotyczącymi zabezpieczania zewnętr
 
  
 
- 
