@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 06/17/2019
+ms.date: 01/22/2021
 ms.author: mbullwin
-ms.openlocfilehash: df526c23460e7146cd630afcb8b29a380c568250
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: fcd4f73a9cea75877360b2b537776bf59fb22363
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017440"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704460"
 ---
 # <a name="featured-user-generated-content-for-the-anomaly-detector-api"></a>Proponowana zawartość wygenerowana przez użytkownika dla interfejsu API wykrywania anomalii
 
@@ -27,7 +27,7 @@ Skorzystaj z tego artykułu, aby dowiedzieć się, jak różnią się inni klien
 
 ## <a name="open-source-projects"></a>Projekty open source
 
-* [Notes Jupyter pokazujący wykrywanie anomalii i przesyłanie strumieniowe do Power BI](https://github.com/marvinbuss/MS-AnomalyFinder)
+* [Notes Jupyter pokazujący wykrywanie anomalii i przesyłanie strumieniowe do Power BI](https://github.com/marvinbuss/MS-AnomalyDetector)
 
 Jeśli chcesz wyznaczyć zasób, Wypełnij [krótką formą](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxSkyhztUNZCtaivu8nmhd1UMENTMEJWTkRORkRGQUtGQzlWQ1dSV1JLTS4u).
 Skontaktuj się z AnomalyDetector@microsoft.com nami lub Zgłoś problem w usłudze GitHub, jeśli chcesz usunąć zawartość.

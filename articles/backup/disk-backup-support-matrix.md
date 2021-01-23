@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień pomocy technicznej i ograniczenia ko
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 099e83d8a2fb109da862657265dad8be8143f608
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 447283ba1d63267722e4167e0727a827e63d2e0d
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624938"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732983"
 ---
 # <a name="azure-disk-backup-support-matrix-in-preview"></a>Macierz obsługi kopii zapasowych na dysku platformy Azure (w wersji zapoznawczej)
 
@@ -18,7 +18,7 @@ ms.locfileid: "98624938"
 >
 >[Wypełnij ten formularz](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) , aby utworzyć konto w wersji zapoznawczej.
 
-Aby chronić dyski platformy Azure, można użyć [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview) . Ten artykuł podsumowuje dostępność regionów, obsługiwane scenariusze i ograniczenia.
+Aby chronić dyski platformy Azure, można użyć [Azure Backup](./backup-overview.md) . Ten artykuł podsumowuje dostępność regionów, obsługiwane scenariusze i ograniczenia.
 
 ## <a name="supported-regions"></a>Obsługiwane regiony
 
@@ -36,9 +36,9 @@ Więcej regionów zostanie ogłoszonych, gdy staną się dostępne.
 
 - Obecnie opcja Original-Location Recovery (OLR) do przywrócenia przez zastąpienie istniejących dysków źródłowych, z których wykonano kopie zapasowe, nie jest obsługiwana. Można przywrócić z punktu odzyskiwania, aby utworzyć nowy dysk w tej samej grupie zasobów co dysk źródłowy, z którego wykonano kopie zapasowe lub w innej grupie zasobów. Jest to tzw. Alternate-Location Recovery (ALR).
 
-- Azure Backup dla Managed Disks używa migawek przyrostowych, które są ograniczone do 200 migawek na dysk. Aby umożliwić tworzenie kopii zapasowych na żądanie poza zaplanowanymi kopiami zapasowymi, zasady tworzenia kopii zapasowych ograniczają łączną liczbę kopii zapasowych do 180. Dowiedz się więcej o [przyrostowej migawce](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) dla dysków zarządzanych.
+- Azure Backup dla Managed Disks używa migawek przyrostowych, które są ograniczone do 200 migawek na dysk. Aby umożliwić tworzenie kopii zapasowych na żądanie poza zaplanowanymi kopiami zapasowymi, zasady tworzenia kopii zapasowych ograniczają łączną liczbę kopii zapasowych do 180. Dowiedz się więcej o [przyrostowej migawce](../virtual-machines/disks-incremental-snapshots.md#restrictions) dla dysków zarządzanych.
 
-- [Limity subskrypcji i usług](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-machine-disk-limits) platformy Azure mają zastosowanie do łącznej liczby migawek dysków na region na subskrypcję.
+- [Limity subskrypcji i usług](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machine-disk-limits) platformy Azure mają zastosowanie do łącznej liczby migawek dysków na region na subskrypcję.
 
 - Migawki do punktu w czasie z wieloma dyskami dołączonymi do maszyny wirtualnej nie są obsługiwane.
 
@@ -58,13 +58,13 @@ Więcej regionów zostanie ogłoszonych, gdy staną się dostępne.
 
 - Obecnie (w trakcie korzystania z wersji zapoznawczej) korzystanie z programu PowerShell i interfejsu wiersza polecenia platformy Azure w celu skonfigurowania kopii zapasowych i przywracania dysków nie jest obsługiwane.
 
-- Podczas konfigurowania kopii zapasowej dysk wybrany do utworzenia kopii zapasowej i Grupa zasobów migawek, w której mają być przechowywane migawki, muszą być częścią tej samej subskrypcji. Nie można utworzyć migawki przyrostowej dla określonego dysku poza subskrypcją tego dysku. Dowiedz się więcej na temat [migawek przyrostowych](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) dla dysku zarządzanego. Aby uzyskać więcej informacji na temat wybierania grupy zasobów migawek, zobacz  [Konfigurowanie kopii zapasowej](backup-managed-disks.md#configure-backup).
+- Podczas konfigurowania kopii zapasowej dysk wybrany do utworzenia kopii zapasowej i Grupa zasobów migawek, w której mają być przechowywane migawki, muszą być częścią tej samej subskrypcji. Nie można utworzyć migawki przyrostowej dla określonego dysku poza subskrypcją tego dysku. Dowiedz się więcej na temat [migawek przyrostowych](../virtual-machines/windows/disks-incremental-snapshots-portal.md#restrictions) dla dysku zarządzanego. Aby uzyskać więcej informacji na temat wybierania grupy zasobów migawek, zobacz  [Konfigurowanie kopii zapasowej](backup-managed-disks.md#configure-backup).
 
 - W przypadku pomyślnej operacji tworzenia kopii zapasowej i przywracania wymagane są przypisania ról zarządzane przez magazyn kopii zapasowych. Używaj tylko definicji ról znajdujących się w dokumentacji. Korzystanie z innych ról, takich jak właściciel, współautor i tak dalej, nie jest obsługiwane. Mogą wystąpić problemy z uprawnieniami, jeśli zaczniesz konfigurować operacje tworzenia kopii zapasowej lub przywracania wkrótce po przypisaniu ról. Wynika to z faktu, że przypisanie roli trwa kilka minut.
 
-- Dyski zarządzane umożliwiają zmianę warstwy wydajności podczas wdrażania lub później, bez zmiany rozmiaru dysku. Rozwiązanie do tworzenia kopii zapasowych na dysku Azure obsługuje zmiany warstwy wydajności na dysku źródłowym, którego kopia zapasowa jest tworzona. Podczas przywracania warstwa wydajności przywróconego dysku będzie taka sama jak na dysku źródłowym w momencie tworzenia kopii zapasowej. Postępuj zgodnie [z dokumentacją,](https://docs.microsoft.com/azure/virtual-machines/disks-performance-tiers-portal) aby zmienić warstwę wydajności dysku po operacji przywracania.
+- Dyski zarządzane umożliwiają zmianę warstwy wydajności podczas wdrażania lub później, bez zmiany rozmiaru dysku. Rozwiązanie do tworzenia kopii zapasowych na dysku Azure obsługuje zmiany warstwy wydajności na dysku źródłowym, którego kopia zapasowa jest tworzona. Podczas przywracania warstwa wydajności przywróconego dysku będzie taka sama jak na dysku źródłowym w momencie tworzenia kopii zapasowej. Postępuj zgodnie [z dokumentacją,](../virtual-machines/disks-performance-tiers-portal.md) aby zmienić warstwę wydajności dysku po operacji przywracania.
 
-- Obsługa [linków prywatnych](https://docs.microsoft.com/azure/virtual-machines/disks-enable-private-links-for-import-export-portal) dla dysków zarządzanych umożliwia ograniczenie eksportu i importu dysków zarządzanych w taki sposób, aby były one wykonywane tylko w ramach sieci wirtualnej platformy Azure. Usługa Kopia zapasowa Azure Disk obsługuje tworzenie kopii zapasowych dysków z włączonymi prywatnymi punktami końcowymi. Nie obejmuje to danych kopii zapasowej ani migawek, które mają być dostępne za pomocą prywatnego punktu końcowego.
+- Obsługa [linków prywatnych](../virtual-machines/disks-enable-private-links-for-import-export-portal.md) dla dysków zarządzanych umożliwia ograniczenie eksportu i importu dysków zarządzanych w taki sposób, aby były one wykonywane tylko w ramach sieci wirtualnej platformy Azure. Usługa Kopia zapasowa Azure Disk obsługuje tworzenie kopii zapasowych dysków z włączonymi prywatnymi punktami końcowymi. Nie obejmuje to danych kopii zapasowej ani migawek, które mają być dostępne za pomocą prywatnego punktu końcowego.
 
 ## <a name="next-steps"></a>Następne kroki
 

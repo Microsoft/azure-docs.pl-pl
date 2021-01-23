@@ -7,16 +7,16 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 8942735ed65f8aa0cf6d315568e00412adcb353a
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: a31ef69d84f64e4bcaa46adac26a29d2cc367351
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060541"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98731704"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Wykonywanie zapytań dotyczących danych w Azure Monitor przy użyciu usługi Azure Eksplorator danych (wersja zapoznawcza)
 
-Eksplorator danych platformy Azure obsługuje zapytania obejmujące wiele usług między usługą Azure Eksplorator danych, [Application Insights (AI)](/azure/azure-monitor/app/app-insights-overview)i [log Analytics (La)](/azure/azure-monitor/platform/data-platform-logs). Następnie można wykonać zapytanie dotyczące obszaru roboczego Log Analytics/Application Insights przy użyciu narzędzi Eksplorator danych platformy Azure i odwołać się do niego w zapytaniu o wiele usług. W tym artykule przedstawiono sposób tworzenia zapytania krzyżowego i dodawania obszaru roboczego Log Analytics/Application Insights do interfejsu użytkownika sieci Web usługi Azure Eksplorator danych.
+Eksplorator danych platformy Azure obsługuje zapytania obejmujące wiele usług między usługą Azure Eksplorator danych, [Application Insights (AI)](../app/app-insights-overview.md)i [log Analytics (La)](./data-platform-logs.md). Następnie można wykonać zapytanie dotyczące obszaru roboczego Log Analytics/Application Insights przy użyciu narzędzi Eksplorator danych platformy Azure i odwołać się do niego w zapytaniu o wiele usług. W tym artykule przedstawiono sposób tworzenia zapytania krzyżowego i dodawania obszaru roboczego Log Analytics/Application Insights do interfejsu użytkownika sieci Web usługi Azure Eksplorator danych.
 
 Przepływ zapytań między usługami Eksplorator danych platformy Azure: :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-data-explorer-monitor-flow.png" alt-text="przepływ serwera proxy w usłudze Azure Data Explorer.":::
 
@@ -62,7 +62,7 @@ Można uruchamiać zapytania przy użyciu narzędzi klienckich, które obsługuj
 > * Nazwa bazy danych powinna mieć taką samą nazwę jak zasób określony w zapytaniu o wiele usług. W nazwach jest uwzględniana wielkość liter.
 > * W przypadku zapytań między klastrami upewnij się, że nazwy aplikacji Application Insights i Log Analytics obszary robocze są poprawne.
 > * Jeśli nazwy zawierają znaki specjalne, są one zastępowane przez kodowanie adresów URL w zapytaniu o wiele usług.
-> * Jeśli nazwy zawierają znaki, które nie są zgodne z [regułami nazw identyfikatorów KQL](https://docs.microsoft.com/azure/data-explorer/kusto/query/schema-entities/entity-names), są zastępowane **-** znakiem kreski.
+> * Jeśli nazwy zawierają znaki, które nie są zgodne z [regułami nazw identyfikatorów KQL](/azure/data-explorer/kusto/query/schema-entities/entity-names), są zastępowane **-** znakiem kreski.
 
 ### <a name="direct-query-on-your-log-analytics-or-application-insights-workspaces-from-azure-data-explorer-client-tools"></a>Bezpośrednie zapytanie dotyczące Log Analytics lub Application Insights obszarów roboczych z narzędzi Azure Eksplorator danych Client Tools
 
@@ -90,7 +90,7 @@ union <Azure Data Explorer table>, cluster(CL1).database(<workspace-name>).<tabl
 
 :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-data-explorer-cross-query-proxy.png" alt-text="Zapytanie o wiele usług z Eksplorator danych platformy Azure.":::
 
-Użycie [ `join` operatora](https://docs.microsoft.com/azure/data-explorer/kusto/query/joinoperator)zamiast Union może wymagać [`hint`](https://docs.microsoft.com/azure/data-explorer/kusto/query/joinoperator#join-hints) uruchomienia go w klastrze macierzystym platformy Azure Eksplorator danych.
+Użycie [ `join` operatora](/azure/data-explorer/kusto/query/joinoperator)zamiast Union może wymagać [`hint`](/azure/data-explorer/kusto/query/joinoperator#join-hints) uruchomienia go w klastrze macierzystym platformy Azure Eksplorator danych.
 
 ### <a name="join-data-from-an-azure-data-explorer-cluster-in-one-tenant-with-an-azure-monitor-resource-in-another"></a>Dołączanie danych z klastra Eksplorator danych platformy Azure w jednej dzierżawie przy użyciu zasobu Azure Monitor w innym
 
@@ -98,9 +98,9 @@ Zapytania między różnymi dzierżawcami nie są obsługiwane. Użytkownik jest
 
 Jeśli zasób Eksplorator danych platformy Azure znajduje się w dzierżawie "A", a obszar roboczy Log Analytics znajduje się w dzierżawie "B", użyj jednej z następujących dwóch metod:
 
-1. Usługa Azure Eksplorator danych pozwala dodawać role dla podmiotów zabezpieczeń w różnych dzierżawach. Dodaj swój identyfikator użytkownika w dzierżawie "B" jako autoryzowany użytkownik w klastrze usługi Azure Eksplorator danych. Sprawdź, czy właściwość *["TrustedExternalTenant"](https://docs.microsoft.com/powershell/module/az.kusto/update-azkustocluster)* w klastrze Eksplorator danych platformy Azure zawiera dzierżawcę "B". Uruchom zapytanie krzyżowe w pełni w dzierżawie "B".
+1. Usługa Azure Eksplorator danych pozwala dodawać role dla podmiotów zabezpieczeń w różnych dzierżawach. Dodaj swój identyfikator użytkownika w dzierżawie "B" jako autoryzowany użytkownik w klastrze usługi Azure Eksplorator danych. Sprawdź, czy właściwość *["TrustedExternalTenant"](/powershell/module/az.kusto/update-azkustocluster)* w klastrze Eksplorator danych platformy Azure zawiera dzierżawcę "B". Uruchom zapytanie krzyżowe w pełni w dzierżawie "B".
 
-2. Użyj [Lighthouse](https://docs.microsoft.com/azure/lighthouse/) , aby zaprojektować zasób Azure monitor w dzierżawie "A".
+2. Użyj [Lighthouse](../../lighthouse/index.yml) , aby zaprojektować zasób Azure monitor w dzierżawie "A".
 ### <a name="connect-to-azure-data-explorer-clusters-from-different-tenants"></a>Nawiązywanie połączenia z klastrami Eksplorator danych platformy Azure od różnych dzierżawców
 
 Eksplorator Kusto automatycznie loguje użytkownika do dzierżawy, do której należy konto użytkownika. Aby uzyskać dostęp do zasobów w innych dzierżawcach przy użyciu tego samego konta użytkownika, `tenantId` musi być jawnie określona w parametrach połączenia: `Data Source=https://ade.applicationinsights.io/subscriptions/SubscriptionId/resourcegroups/ResourceGroupName;Initial Catalog=NetDefaultDB;AAD Federated Security=True;Authority ID=` **TenantId**
@@ -134,4 +134,4 @@ Podczas wywoływania Log Analytics lub Application Insights klastrów dostępne 
 ## <a name="next-steps"></a>Następne kroki
 
 - Przeczytaj więcej na temat [struktury danych log Analytics obszarów roboczych i Application Insights](data-platform-logs.md).
-- Dowiedz się, jak [pisać zapytania w usłudze Azure Eksplorator danych](https://docs.microsoft.com/azure/data-explorer/write-queries).
+- Dowiedz się, jak [pisać zapytania w usłudze Azure Eksplorator danych](/azure/data-explorer/write-queries).

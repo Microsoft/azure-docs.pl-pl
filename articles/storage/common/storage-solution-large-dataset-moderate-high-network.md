@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: f1ded1ce87df1cb57960bbc99cd950ed7b3f97ee
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: cf0e423648db174433f0717f2e5971ac49697b42
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573939"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704627"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Transfer dużych zestawów danych w przypadku umiarkowanej lub wysokiej przepustowości sieci
  
@@ -95,7 +95,7 @@ W przypadku korzystania z transferu danych w trybie online Skorzystaj z tabeli w
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Dowiedz się, jak transferować dane przy użyciu metody Import/Export](./storage-import-export-data-to-blobs.md).
+- [Dowiedz się, jak transferować dane przy użyciu metody Import/Export](../../import-export/storage-import-export-data-to-blobs.md).
 - Zapoznaj się z tematem
 
     - [Transferuj dane przy użyciu Data Box Disk](../../databox/data-box-disk-quickstart-portal.md).

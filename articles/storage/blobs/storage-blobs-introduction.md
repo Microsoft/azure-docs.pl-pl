@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 06/24/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 8e3f0435d9856d2b602a4f2b6f604aee05e040ba
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: b55ea814214397e12e50e7bc5047988394623940
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505209"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703593"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Wprowadzenie do usługi Azure Blob Storage
 
@@ -44,7 +44,7 @@ http://mystorageaccount.blob.core.windows.net
 
 Aby utworzyć konto magazynu, zobacz temat [Tworzenie konta magazynu](../common/storage-account-create.md). Aby dowiedzieć się więcej o kontach magazynu, zobacz [Omówienie konta usługi Azure Storage](../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-### <a name="containers"></a>Containers
+### <a name="containers"></a>Kontenery
 
 Kontener porządkuje zestaw obiektów blob, pełniąc funkcję podobną do katalogu w systemie plików. Konto magazynu może zawierać nieograniczoną liczbę kontenerów, a każdy kontener może zawierać nieograniczoną liczbę obiektów blob.
 
@@ -70,7 +70,7 @@ Istnieje wiele rozwiązań do migrowania istniejących danych do magazynu obiekt
 - **Azure Data Factory** obsługuje kopiowanie danych do i z usługi BLOB Storage przy użyciu klucza konta, sygnatury dostępu współdzielonego, nazwy głównej usługi lub tożsamości zarządzanych dla zasobów platformy Azure. Aby uzyskać więcej informacji, zobacz temat [Copy data to or from Azure Blob storage by using Azure Data Factory](../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (Kopiowanie danych do i z usługi Azure Blob Storage za pomocą usługi Azure Data Factory).
 - **Blobfuse** jest sterownikiem wirtualnego systemu plików usługi Azure Blob Storage. Sterownik blobfuse umożliwia dostęp do istniejących danych blokowych obiektów blob na koncie magazynu za pomocą systemu plików w systemie Linux. Aby uzyskać więcej informacji, zobacz temat [How to mount Blob storage as a file system with blobfuse](storage-how-to-mount-container-linux.md) (Jak zainstalować magazyn obiektów blob jako system plików przy użyciu sterownika blobfuse).
 - Usługa **Azure Data Box** jest dostępna do transferowania danych lokalnych do magazynu obiektów blob, gdy duże zestawy danych lub ograniczenia sieci umożliwiają przekazywanie danych przez nierealistyczny czas. W zależności od rozmiaru danych można żądać [Azure Data Box Disk](../../databox/data-box-disk-overview.md), [Azure Data Box](../../databox/data-box-overview.md)lub [Azure Data Box Heavy](../../databox/data-box-heavy-overview.md) urządzeń od firmy Microsoft. Następnie możesz skopiować dane na te urządzenia i przesłać je z powrotem do firmy Microsoft w celu przekazania ich do magazynu obiektów BLOB.
-- **Usługa Azure Import/Export** umożliwia importowanie i eksportowanie dużych ilości danych do i z konta magazynu przy użyciu podanych dysków twardych. Aby uzyskać więcej informacji, zobacz [Use the Microsoft Azure Import/Export service to transfer data to Blob Storage](../common/storage-import-export-service.md) (Przesyłanie danych do usługi Blob Storage za pomocą usługi Microsoft Azure Import/Export).
+- **Usługa Azure Import/Export** umożliwia importowanie i eksportowanie dużych ilości danych do i z konta magazynu przy użyciu podanych dysków twardych. Aby uzyskać więcej informacji, zobacz [Use the Microsoft Azure Import/Export service to transfer data to Blob Storage](../../import-export/storage-import-export-service.md) (Przesyłanie danych do usługi Blob Storage za pomocą usługi Microsoft Azure Import/Export).
 
 ## <a name="next-steps"></a>Następne kroki
 

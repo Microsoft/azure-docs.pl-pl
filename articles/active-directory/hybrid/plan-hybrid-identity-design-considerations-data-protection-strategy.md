@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e991fb0c60e8f08eb43cb7799027d4200263c9b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bac3f53def6db1038a6dd7e45d7933daa22df9f0
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89659551"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703856"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definiowanie strategii ochrony danych dla rozwiązania do tworzenia tożsamości hybrydowej
 W tym zadaniu zdefiniujemy strategię ochrony danych dla rozwiązania do obsługi tożsamości hybrydowej w celu spełnienia wymagań firmy zdefiniowanych w programie:
@@ -37,7 +37,7 @@ Zgodnie z opisem w temacie [Określanie wymagań dotyczących synchronizacji kat
 
 Po uwierzytelnieniu, główna nazwa użytkownika (UPN) jest odczytywana z tokenu uwierzytelniania. Następnie system autoryzacji określa zreplikowaną partycję i kontener odpowiadający domenie użytkownika. Informacje dotyczące istnienia, włączonego stanu i roli użytkownika pomagają systemowi autoryzacji ustalić, czy dostęp do dzierżawy docelowej jest autoryzowany dla użytkownika w tej sesji. Niektóre autoryzowane akcje (w tym w celu utworzenia użytkownika i resetowania hasła) tworzą dziennik inspekcji, który następnie używa Administrator dzierżawy do zarządzania wysiłkami lub badaniami zgodności.
 
-Przeniesienie danych z lokalnego centrum dane do usługi Azure Storage za pośrednictwem połączenia internetowego może nie być możliwe z powodu ilości danych, dostępności przepustowości lub innych zagadnień. [Usługa Azure Storage Import/Export](../../storage/common/storage-import-export-service.md) oferuje sprzętową opcję umieszczania/pobierania dużych ilości danych w usłudze BLOB Storage. Umożliwia wysyłanie dysków twardych [szyfrowanych funkcją BitLocker](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn306081(v=ws.11)#BKMK_BL2012R2) bezpośrednio do centrum danych platformy Azure, w których operatory chmury przekazują zawartość do konta magazynu, lub mogą pobrać dane platformy Azure na dyski, aby powrócić do Ciebie. Tylko zaszyfrowane dyski są akceptowane dla tego procesu (przy użyciu klucza funkcji BitLocker wygenerowanego przez usługę podczas konfigurowania zadania). Klucz funkcji BitLocker jest dostarczany osobno na platformie Azure, co zapewnia Udostępnianie kluczy poza pasmem.
+Przeniesienie danych z lokalnego centrum dane do usługi Azure Storage za pośrednictwem połączenia internetowego może nie być możliwe z powodu ilości danych, dostępności przepustowości lub innych zagadnień. [Usługa Azure Storage Import/Export](../../import-export/storage-import-export-service.md) oferuje sprzętową opcję umieszczania/pobierania dużych ilości danych w usłudze BLOB Storage. Umożliwia wysyłanie dysków twardych [szyfrowanych funkcją BitLocker](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn306081(v=ws.11)#BKMK_BL2012R2) bezpośrednio do centrum danych platformy Azure, w których operatory chmury przekazują zawartość do konta magazynu, lub mogą pobrać dane platformy Azure na dyski, aby powrócić do Ciebie. Tylko zaszyfrowane dyski są akceptowane dla tego procesu (przy użyciu klucza funkcji BitLocker wygenerowanego przez usługę podczas konfigurowania zadania). Klucz funkcji BitLocker jest dostarczany osobno na platformie Azure, co zapewnia Udostępnianie kluczy poza pasmem.
 
 Ponieważ dane w tranzycie mogą odbywać się w różnych scenariuszach, należy również wiedzieć, że Microsoft Azure używa [wirtualnych sieci](https://azure.microsoft.com/documentation/services/virtual-network/) do izolowania ruchu dzierżawców od siebie, wykorzystując miary takie jak zapory na poziomie hosta i gościa, filtrowanie pakietów IP, blokowanie portów i punkty końcowe HTTPS. Jednak większość komunikacji wewnętrznej platformy Azure, w tym infrastruktura do infrastruktury i infrastruktura na klienta (lokalnie), jest również szyfrowana. Innym ważnym scenariuszem jest komunikacja w centrach danych platformy Azure; Firma Microsoft zarządza sieciami, aby upewnić się, że żadna maszyna wirtualna nie może personifikować lub eavesdrop na adres IP innego typu. Protokół TLS/SSL jest używany podczas uzyskiwania dostępu do usługi Azure Storage lub baz danych SQL lub podczas nawiązywania połączenia z usługą Cloud Services. W takim przypadku administrator klienta jest odpowiedzialny za uzyskanie certyfikatu TLS/SSL i wdrożenie go w infrastrukturze dzierżawców. Ruch danych przenoszony między Virtual Machines w tym samym wdrożeniu lub między dzierżawcami w jednym wdrożeniu za pośrednictwem Microsoft Azure Virtual Network może być chroniony za pomocą szyfrowanych protokołów komunikacyjnych, takich jak HTTPS, SSL/TLS lub inne.
 

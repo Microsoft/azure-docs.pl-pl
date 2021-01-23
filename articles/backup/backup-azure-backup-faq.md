@@ -3,12 +3,12 @@ title: Odpowiedzi na często zadawane pytania
 description: 'Odpowiedzi na typowe pytania dotyczące funkcji usługi Azure Backup, w tym magazynów usług Recovery Services, elementów, których kopie zapasowe można tworzyć, sposobu działania, szyfrowania i ograniczeń. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: bd84ff553b486d200ec4501b89b42335335b223f
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: dbe6ce95427b559c037e38525f9f48195a2a76a4
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98572531"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703423"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup — często zadawane pytania
 
@@ -58,9 +58,9 @@ Jeśli kopia zapasowa została już skonfigurowana i musi zostać przeniesiona z
 - Przywracanie na poziomie elementu jest obsługiwane w przypadku maszyn wirtualnych platformy Azure, których kopia zapasowa jest wykonywana przez kopię zapasową maszyny wirtualnej platformy Azure. Więcej informacji znajduje się w tym [artykule](backup-azure-restore-files-from-vm.md)
 - ILR nie jest obsługiwana dla punktów odzyskiwania online lokalnych maszyn wirtualnych, których kopia zapasowa jest wykonywana przez Azure Backup Server (serwera usługi MAB) lub System Center DPM.
 
-### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>Jak przenieść dane z magazynu Recovery Services do lokalnego?
+### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>Jak mogę przenieść dane z magazynu usługi Recovery Services do środowiska lokalnego?
 
-Eksportowanie danych bezpośrednio z magazynu Recovery Services do lokalnego przy użyciu urządzenie Data Box nie jest obsługiwane. Dane muszą zostać przywrócone do konta magazynu, a następnie można je przenieść do lokalizacji lokalnej za pośrednictwem [urządzenie Data Box](../databox/data-box-overview.md) lub [zaimportować/wyeksportować](../storage/common/storage-import-export-service.md).
+Eksportowanie danych bezpośrednio z magazynu Recovery Services do lokalnego przy użyciu urządzenie Data Box nie jest obsługiwane. Dane muszą zostać przywrócone do konta magazynu, a następnie można je przenieść do lokalizacji lokalnej za pośrednictwem [urządzenie Data Box](../databox/data-box-overview.md) lub [zaimportować/wyeksportować](../import-export/storage-import-export-service.md).
 
 ### <a name="what-is-the-difference-between-a-geo-redundant-storage-grs-vault-with-and-without-the-cross-region-restore-crr-capability-enabled"></a>Jaka jest różnica między magazynem geograficznie nadmiarowym (GRS) i bez włączonej funkcji przywracania między regionami (CRR)?
 

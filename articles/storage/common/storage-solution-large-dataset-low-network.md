@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 8afedec224fed55f617340af512485726ff44326
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9b83ba106b35a0a3abd035e85f60c4c39bbadd3b
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792943"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704644"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>Transfer dużych zestawów danych w przypadku niskiej przepustowości sieci lub jej braku
  
@@ -38,12 +38,12 @@ Aby sprawdzić, czy urządzenie fizyczne jest w odpowiedniej opcji, Skorzystaj z
 
 Opcjami dostępnymi w tym scenariuszu są urządzenia do Azure Data Box transferu w trybie offline lub importowania/eksportowania platformy Azure.
 
-- **Azure Data Box rodzina do transferów w trybie offline** — używanie urządzeń z urządzeń urządzenie Data Box dostarczonych przez firmę Microsoft do przenoszenia dużych ilości danych na platformę Azure, gdy są one ograniczone przez czas, dostępność sieci lub koszty. Skopiuj dane lokalne przy użyciu narzędzi, takich jak Robocopy. W zależności od rozmiaru danych przeznaczonego do transferu można wybrać jedną z Data Box Disk, urządzenie Data Box lub Data Box Heavy.
-- **Azure Import/Export** — usługa Azure Import/Export umożliwia dostarczenie własnych stacji dysków w celu bezpiecznego zaimportowania dużych ilości danych do usługi Azure Blob storage i Azure Files. Ta usługa może również służyć do transferowania danych z usługi Azure Blob Storage do stacji dysków i dostarczania ich do lokacji lokalnych.
+- **Azure Data Box rodzina do transferów w trybie offline** — używanie urządzeń z urządzeń urządzenie Data Box dostarczonych przez firmę Microsoft do przenoszenia dużych ilości danych na platformę Azure, gdy są one ograniczone przez czas, dostępność sieci lub koszty. Kopiuj dane lokalne za pomocą narzędzi takich jak Robocopy. W zależności od rozmiaru danych, które mają zostać przesłane, wybierz urządzenie Data Box Disk, Data Box lub Data Box Heavy.
+- **Azure Import/Export** — usługa Azure Import/Export umożliwia dostarczenie własnych stacji dysków w celu bezpiecznego zaimportowania dużych ilości danych do usługi Azure Blob storage i Azure Files. Ta usługa może również służyć do transferu danych z usługi Azure Blob Storage na stacje dysków wysyłane do lokacji lokalnych.
 
 ## <a name="comparison-of-key-capabilities"></a>Porównanie kluczowych możliwości
 
-Poniższa tabela zawiera podsumowanie różnic między kluczowymi funkcjami.
+W poniższej tabeli podsumowano różnice w zakresie kluczowych funkcji.
 
 |                                     |    Data Box Disk      |    Data Box                                      |    Data Box Heavy              |    Import/Export                       |
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
@@ -68,4 +68,4 @@ Poniższa tabela zawiera podsumowanie różnic między kluczowymi funkcjami.
 
     - [Transferuj dane przy użyciu Data Box Disk](../../databox/data-box-disk-quickstart-portal.md).
     - [Transferuj dane przy użyciu urządzenie Data Box](../../databox/data-box-quickstart-portal.md).
-    - [Transferuj dane przy użyciu importu/eksportu](./storage-import-export-data-to-blobs.md).
+    - [Transferuj dane przy użyciu importu/eksportu](../../import-export/storage-import-export-data-to-blobs.md).

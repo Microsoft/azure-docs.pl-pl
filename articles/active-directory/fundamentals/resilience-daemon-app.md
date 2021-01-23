@@ -11,12 +11,12 @@ author: knicholasa
 ms.author: nichola
 manager: martinco
 ms.date: 11/23/2020
-ms.openlocfilehash: 74bfc9eeeb8375fca2c88a3fd3c31f17e130fc99
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a7b8f893026bb96c8d768d2e6d07d0240ecb81fa
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919993"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724845"
 ---
 # <a name="increase-the-resilience-of-authentication-and-authorization-in-daemon-applications-you-develop"></a>Zwiększenie odporności uwierzytelniania i autoryzacji w aplikacjach demonów, które tworzysz
 
@@ -26,7 +26,7 @@ Ten artykuł zawiera wskazówki dotyczące sposobu, w jaki deweloperzy mogą kor
 
 ## <a name="use-managed-identities-for-azure-resources"></a>Korzystanie z tożsamości zarządzanych dla zasobów platformy Azure
 
-Deweloperzy tworzący aplikacje demona w Microsoft Azure mogą używać [zarządzanych tożsamości dla zasobów platformy Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Tożsamości zarządzane eliminują konieczność zarządzania kluczami tajnymi i poświadczeniami przez deweloperów. Ta funkcja poprawia odporność, unikając błędów dotyczących wygaśnięcia certyfikatów, błędów rotacji lub relacji zaufania. Ma także kilka wbudowanych funkcji przeznaczonych specjalnie do zwiększenia odporności.
+Deweloperzy tworzący aplikacje demona w Microsoft Azure mogą używać [zarządzanych tożsamości dla zasobów platformy Azure](../managed-identities-azure-resources/overview.md). Tożsamości zarządzane eliminują konieczność zarządzania kluczami tajnymi i poświadczeniami przez deweloperów. Ta funkcja poprawia odporność, unikając błędów dotyczących wygaśnięcia certyfikatów, błędów rotacji lub relacji zaufania. Ma także kilka wbudowanych funkcji przeznaczonych specjalnie do zwiększenia odporności.
 
 Tożsamości zarządzane wykorzystują tokeny dostępu o długim okresie ważności i informacje od tożsamości firmy Microsoft w celu aktywnego pozyskiwania nowych tokenów w dużym oknie czasu przed wygaśnięciem istniejącego tokenu. Aplikacja może nadal działać podczas próby uzyskania nowego tokenu.
 
@@ -34,11 +34,11 @@ Tożsamości zarządzane również używają regionalnych punktów końcowych w 
 
 ## <a name="use-the-microsoft-authentication-library"></a>Korzystanie z biblioteki uwierzytelniania firmy Microsoft
 
-Deweloperzy aplikacji demonów, którzy nie korzystają z tożsamości zarządzanych, mogą korzystać z [biblioteki Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview), która zapewnia proste wdrażanie uwierzytelniania i autoryzacji, a także automatycznie korzysta z najlepszych rozwiązań dotyczących odporności. MSAL proces udostępniania wymaganych poświadczeń klienta będzie łatwiejszy. Na przykład aplikacja nie musi implementować tworzenia i podpisywania potwierdzeń tokenów sieci Web JSON podczas korzystania z poświadczeń opartych na certyfikatach.
+Deweloperzy aplikacji demonów, którzy nie korzystają z tożsamości zarządzanych, mogą korzystać z [biblioteki Microsoft Authentication Library (MSAL)](../develop/msal-overview.md), która zapewnia proste wdrażanie uwierzytelniania i autoryzacji, a także automatycznie korzysta z najlepszych rozwiązań dotyczących odporności. MSAL proces udostępniania wymaganych poświadczeń klienta będzie łatwiejszy. Na przykład aplikacja nie musi implementować tworzenia i podpisywania potwierdzeń tokenów sieci Web JSON podczas korzystania z poświadczeń opartych na certyfikatach.
 
 ### <a name="use-microsoftidentityweb-for-net-developers"></a>Korzystanie z Microsoft. Identity. Web dla deweloperów platformy .NET
 
-Deweloperzy tworzący aplikacje demona w ASP.NET Core mogą używać biblioteki [Microsoft. Identity. Web](https://docs.microsoft.com/azure/active-directory/develop/microsoft-identity-web) . Ta biblioteka jest oparta na MSAL, aby ułatwić wdrażanie autoryzacji dla aplikacji ASP.NET Core. Zawiera kilka strategii [rozproszonej pamięci podręcznej tokenów](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization#distributed-token-cache) dla aplikacji rozproszonych, które mogą być uruchamiane w wielu regionach.
+Deweloperzy tworzący aplikacje demona w ASP.NET Core mogą używać biblioteki [Microsoft. Identity. Web](../develop/microsoft-identity-web.md) . Ta biblioteka jest oparta na MSAL, aby ułatwić wdrażanie autoryzacji dla aplikacji ASP.NET Core. Zawiera kilka strategii [rozproszonej pamięci podręcznej tokenów](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization#distributed-token-cache) dla aplikacji rozproszonych, które mogą być uruchamiane w wielu regionach.
 
 ## <a name="cache-and-store-tokens"></a>Tokeny pamięci podręcznej i magazynu
 

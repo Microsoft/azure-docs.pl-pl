@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: ac86dfba02b54730773a1d243981e85d563517e7
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: aac1fb8e2da7a3c84b3abff47c8f476b9fb9049c
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183834"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704342"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box"></a>Samouczek: Tworzenie kolejności eksportu dla Azure Data Box
 
@@ -100,7 +100,7 @@ Wykonaj poniższe czynności w witrynie Azure Portal, aby zamówić urządzenie.
     |---------|---------|
     |Konto magazynu     | Konto usługi Azure Storage, z którego chcesz wyeksportować dane. |
     |Typ eksportu     | Określa typ danych do wyeksportowania ze **wszystkich obiektów** i **Użyj pliku XML**.<ul><li> **Wszystkie obiekty** — określa, że zadanie eksportuje wszystkie dane w zależności od wyboru **opcji transferu**.</li><li> **Użyj pliku XML** — określa plik XML, który zawiera zestaw ścieżek i prefiksów obiektów blob i/lub plików, które mają zostać wyeksportowane z konta magazynu. Plik XML musi znajdować się w kontenerze wybranego konta magazynu, a wybieranie z udziałów plików nie jest obecnie obsługiwane. Plik musi być niepustym plikiem XML.</li></ul>        |
-    |Opcje transferu     |  Określa opcje transferu danych z opcji **Zaznacz wszystko**, **wszystkie obiekty blob** i **wszystkie pliki**. <ul><li> **Zaznacz wszystko** — określa, że wszystkie obiekty blob i Azure Files są eksportowane. Jeśli używasz konta magazynu, które obsługuje tylko obiekty blob (Blob Storage account), opcja **wszystkie pliki** nie zostanie wybrana.</li><li> **Wszystkie obiekty blob** — określa, że eksportowane są tylko obiekty blob blok i Page.</li><li> **Wszystkie pliki** — określa, że wszystkie pliki są eksportowane z wyjątkiem obiektów BLOB. Typ konta magazynu (GPv1 i GPv2, magazyn Premium Storage lub BLOB Storage) określa typy danych, które można wyeksportować. Aby uzyskać więcej informacji, zobacz [obsługiwane konta magazynu do eksportowania](../storage/common/storage-import-export-requirements.md#supported-storage-types).</li></ul>         |
+    |Opcje transferu     |  Określa opcje transferu danych z opcji **Zaznacz wszystko**, **wszystkie obiekty blob** i **wszystkie pliki**. <ul><li> **Zaznacz wszystko** — określa, że wszystkie obiekty blob i Azure Files są eksportowane. Jeśli używasz konta magazynu, które obsługuje tylko obiekty blob (Blob Storage account), opcja **wszystkie pliki** nie zostanie wybrana.</li><li> **Wszystkie obiekty blob** — określa, że eksportowane są tylko obiekty blob blok i Page.</li><li> **Wszystkie pliki** — określa, że wszystkie pliki są eksportowane z wyjątkiem obiektów BLOB. Typ konta magazynu (GPv1 i GPv2, magazyn Premium Storage lub BLOB Storage) określa typy danych, które można wyeksportować. Aby uzyskać więcej informacji, zobacz [obsługiwane konta magazynu do eksportowania](../import-export/storage-import-export-requirements.md#supported-storage-types).</li></ul>         |
     |Dołącz pełny dziennik     | Wskazuje, czy chcesz uzyskać pełny plik dziennika zawierający listę wszystkich plików, które zostały pomyślnie wyeksportowane.        |
 
     > [!NOTE]

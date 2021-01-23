@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecde474abf3c814b7c3afa4ae18d044868785cf5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ff7505e7c47b93f32efd9de60463873026247329
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95920062"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724929"
 ---
 # <a name="resilience-through-developer-best-practices"></a>Odporność na najlepsze rozwiązania dla deweloperów
 
@@ -28,7 +28,7 @@ W tym artykule udostępniamy pewne informacje, które opierają się na naszych 
 
 ## <a name="use-the-microsoft-authentication-library-msal"></a>Korzystanie z biblioteki uwierzytelniania firmy Microsoft (MSAL)
 
-[Biblioteka Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) i [Biblioteka Microsoft Identity Web Authentication Library for ASP.NET](https://docs.microsoft.com/azure/active-directory/develop/reference-v2-libraries) upraszczają uzyskiwanie, zarządzanie, buforowanie i odświeżanie tokenów wymaganych przez aplikację. Te biblioteki są zoptymalizowane pod kątem obsługi tożsamości firmy Microsoft, w tym funkcji, które zwiększają odporność aplikacji.
+[Biblioteka Microsoft Authentication Library (MSAL)](../develop/msal-overview.md) i [Biblioteka Microsoft Identity Web Authentication Library for ASP.NET](../develop/reference-v2-libraries.md) upraszczają uzyskiwanie, zarządzanie, buforowanie i odświeżanie tokenów wymaganych przez aplikację. Te biblioteki są zoptymalizowane pod kątem obsługi tożsamości firmy Microsoft, w tym funkcji, które zwiększają odporność aplikacji.
 
 Deweloperzy powinni przyjąć najnowsze wersje programu MSAL i być na bieżąco. Zobacz [, jak zwiększyć odporność uwierzytelniania i autoryzacji](resilience-app-development-overview.md) w aplikacjach. Tam, gdzie to możliwe, unikaj wdrażania własnego stosu uwierzytelniania i używaj dobrze ustanowionych bibliotek.
 
@@ -40,7 +40,7 @@ Usługa katalogowa Microsoft Azure AD B2C obsługuje miliardy uwierzytelnień dz
 
 - **Unikaj zapisywania funkcji zapisu w katalogu podczas logowania**: nigdy nie wykonuj zapisu przy logowaniu bez warunku wstępnego (klauzula IF) w zasadach niestandardowych. Jeden przypadek użycia, który wymaga zapisu podczas logowania, to [migracja haseł użytkowników w czasie just in Time](https://github.com/azure-ad-b2c/user-migration/tree/master/seamless-account-migration). Unikaj jakiegokolwiek scenariusza, który wymaga zapisu przy każdym logowaniu.
 
-  - [Warunki wstępne](https://docs.microsoft.com/azure/active-directory-b2c/userjourneys) w podróży użytkownika będą wyglądać następująco:
+  - [Warunki wstępne](../../active-directory-b2c/userjourneys.md) w podróży użytkownika będą wyglądać następująco:
 
   ``
   <Precondition Type="ClaimEquals" ExecuteActionsIf="true"> 
@@ -50,7 +50,7 @@ Usługa katalogowa Microsoft Azure AD B2C obsługuje miliardy uwierzytelnień dz
   ``
   - Odporność na boty sterowane [przez integrację z systemem CAPTCHA](https://github.com/azure-ad-b2c/samples/tree/master/policies/captcha-integration).
 
-  - Użyj [przykładu testowania obciążenia](https://docs.microsoft.com/azure/active-directory-b2c/best-practices#testing) , aby zasymulować logowanie i zalogować się. 
+  - Użyj [przykładu testowania obciążenia](../../active-directory-b2c/best-practices.md#testing) , aby zasymulować logowanie i zalogować się. 
 
 - **Opis ograniczania przepustowości**: katalog implementuje zasady ograniczania poziomu aplikacji i dzierżawy. Istnieją dalsze limity szybkości operacji read/GET, Write/POST, Update/PUT i usuwania/usuwania, a każda operacja ma różne limity.
 
@@ -62,11 +62,11 @@ Usługa katalogowa Microsoft Azure AD B2C obsługuje miliardy uwierzytelnień dz
 
   - Zrozumienie i planowanie osi czasu migracji. Planując migrację użytkowników do Azure AD B2C przy użyciu Microsoft Graph, należy wziąć pod uwagę limity aplikacji i dzierżawy, aby obliczyć czas wymagany do przeprowadzenia migracji użytkowników. W przypadku dzielenia zadania tworzenia użytkownika lub skryptu przy użyciu dwóch aplikacji można użyć limitu dla aplikacji. Nadal będzie trzeba pozostawać poniżej wartości progowej dla dzierżawy.
 
-  - Zapoznaj się z efektami zadania migracji w innych aplikacjach. Weź pod uwagę ruch na żywo obsługiwany przez inne aplikacje zależne, aby upewnić się, że nie jest możliwe ograniczenie poziomu dzierżawy i zasobów dla aktywnej aplikacji. Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące ograniczania Microsoft Graph](https://docs.microsoft.com/graph/throttling).
+  - Zapoznaj się z efektami zadania migracji w innych aplikacjach. Weź pod uwagę ruch na żywo obsługiwany przez inne aplikacje zależne, aby upewnić się, że nie jest możliwe ograniczenie poziomu dzierżawy i zasobów dla aktywnej aplikacji. Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące ograniczania Microsoft Graph](/graph/throttling).
   
 ## <a name="extend-token-lifetimes"></a>Zwiększ okresy istnienia tokenów
 
-W przypadku gdy usługa uwierzytelniania Azure AD B2C nie może zakończyć tworzenia nowych kont i logowania, w razie potrzeby nadal można zapewnić środki zaradcze dla użytkowników, którzy są zalogowani. Za pomocą opcji [Konfiguracja](https://docs.microsoft.com/azure/active-directory-b2c/configure-tokens)można zezwolić użytkownikom, którzy są już zalogowani, aby nadal korzystać z aplikacji bez żadnych odczuwanych zakłóceń do momentu wylogowania użytkownika z aplikacji lub przekroczenia limitu czasu [sesji](https://docs.microsoft.com/azure/active-directory-b2c/session-behavior) z powodu braku aktywności.
+W przypadku gdy usługa uwierzytelniania Azure AD B2C nie może zakończyć tworzenia nowych kont i logowania, w razie potrzeby nadal można zapewnić środki zaradcze dla użytkowników, którzy są zalogowani. Za pomocą opcji [Konfiguracja](../../active-directory-b2c/configure-tokens.md)można zezwolić użytkownikom, którzy są już zalogowani, aby nadal korzystać z aplikacji bez żadnych odczuwanych zakłóceń do momentu wylogowania użytkownika z aplikacji lub przekroczenia limitu czasu [sesji](../../active-directory-b2c/session-behavior.md) z powodu braku aktywności.
 
 Twoje wymagania biznesowe i środowisko użytkownika końcowego będą dyktować częstotliwość odświeżania tokenu dla aplikacji sieci Web i jednostronicowych (aplikacji jednostronicowych).
 
@@ -82,7 +82,7 @@ Twoje wymagania biznesowe i środowisko użytkownika końcowego będą dyktować
 
   - Skompiluj aplikację, aby użyć bramy interfejsu API jako serwera proxy uwierzytelniania. W tej konfiguracji SPA ładuje się bez żadnego uwierzytelniania i wywołania interfejsu API są wykonywane do bramy interfejsu API. Brama interfejsu API wysyła użytkownika za pośrednictwem procesu logowania przy użyciu [przyznawania kodu autoryzacji](https://oauth.net/2/grant-types/authorization-code/) na podstawie zasad i uwierzytelnia użytkownika. Następnie sesja uwierzytelniania między bramą interfejsu API i klientem jest utrzymywana przy użyciu pliku cookie uwierzytelniania. Interfejsy API są poddawane obsłużeniu z bramy interfejsu API przy użyciu tokenu uzyskanego przez bramę interfejsu API lub innej metody bezpośredniego uwierzytelniania, takiej jak certyfikaty, poświadczenia klienta lub klucze interfejsu API.
 
-  - [Przeprowadź migrację spa z niejawnego przydzielenia](https://developer.microsoft.com/identity/blogs/msal-js-2-0-supports-authorization-code-flow-is-now-generally-available/) do [kodu autoryzacji przepływ](https://docs.microsoft.com/azure/active-directory-b2c/implicit-flow-single-page-application) z użyciem klucza testowego dla wymiany kodu (PKCE) i obsługi udostępniania zasobów między źródłami (CORS). Przeprowadź migrację aplikacji z MSAL.js 1. x do MSAL.js 2. x, aby zrealizować odporność aplikacji sieci Web.
+  - [Przeprowadź migrację spa z niejawnego przydzielenia](https://developer.microsoft.com/identity/blogs/msal-js-2-0-supports-authorization-code-flow-is-now-generally-available/) do [kodu autoryzacji przepływ](../../active-directory-b2c/implicit-flow-single-page-application.md) z użyciem klucza testowego dla wymiany kodu (PKCE) i obsługi udostępniania zasobów między źródłami (CORS). Przeprowadź migrację aplikacji z MSAL.js 1. x do MSAL.js 2. x, aby zrealizować odporność aplikacji sieci Web.
 
   - W przypadku aplikacji mobilnych zaleca się rozbudowa okresów istnienia tokenu odświeżania i dostępu.
 
@@ -90,25 +90,25 @@ Twoje wymagania biznesowe i środowisko użytkownika końcowego będą dyktować
 
 ## <a name="configure-single-sign-on"></a>Konfigurowanie logowania jednokrotnego
 
-Logowanie jednokrotne [(SSO)](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)umożliwia użytkownikom logowanie jednokrotne przy użyciu jednego konta i uzyskanie dostępu do wielu aplikacji. Aplikacja może być siecią Web, komórką lub aplikacją jednostronicową (SPA), niezależnie od nazwy platformy lub domeny. Gdy użytkownik po raz pierwszy zaloguje się do aplikacji, Azure AD B2C utrzymuje [sesję opartą na plikach cookie](https://docs.microsoft.com/azure/active-directory-b2c/session-overview).
+Logowanie jednokrotne [(SSO)](../manage-apps/what-is-single-sign-on.md)umożliwia użytkownikom logowanie jednokrotne przy użyciu jednego konta i uzyskanie dostępu do wielu aplikacji. Aplikacja może być siecią Web, komórką lub aplikacją jednostronicową (SPA), niezależnie od nazwy platformy lub domeny. Gdy użytkownik po raz pierwszy zaloguje się do aplikacji, Azure AD B2C utrzymuje [sesję opartą na plikach cookie](../../active-directory-b2c/session-behavior.md).
 
 Po kolejnych żądaniach uwierzytelniania Azure AD B2C odczytuje i sprawdza poprawność sesji opartej na plikach cookie i wystawia token dostępu bez monitowania użytkownika o ponowne zalogowanie. Jeśli logowanie jednokrotne jest skonfigurowane z ograniczonym zakresem zasad lub aplikacji, dalsze dostęp do innych zasad i aplikacji będzie wymagało ponownego uwierzytelnienia.
 
 ### <a name="how-to-configure-sso"></a>Jak skonfigurować Logowanie jednokrotne
 
-[Skonfiguruj Logowanie jednokrotne](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start) do całego dzierżawy (domyślnie), aby umożliwić wielu aplikacjom i przepływom użytkowników w dzierżawie współużytkowanie tej samej sesji użytkownika. Konfiguracja obejmująca wiele dzierżawców zapewnia największą odporność na nowe uwierzytelnianie.  
+[Skonfiguruj Logowanie jednokrotne](../hybrid/how-to-connect-sso-quick-start.md) do całego dzierżawy (domyślnie), aby umożliwić wielu aplikacjom i przepływom użytkowników w dzierżawie współużytkowanie tej samej sesji użytkownika. Konfiguracja obejmująca wiele dzierżawców zapewnia największą odporność na nowe uwierzytelnianie.  
 
 ## <a name="safe-deployment-practices"></a>Praktyki bezpiecznego wdrażania
 
-Najczęstszymi zakłóceniami usługi są zmiany kodu i konfiguracji. Wdrażanie procesów ciągłej integracji i ciągłego dostarczania (CICD) i narzędzi ułatwia szybkie wdrożenie na dużą skalę i zmniejsza liczbę błędów ludzkich podczas testowania i wdrażania w środowisku produkcyjnym. Przyjmij CICD na zmniejszenie, wydajność i spójność błędów. [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/azure/cicd-data-overview) jest przykładem CICD.
+Najczęstszymi zakłóceniami usługi są zmiany kodu i konfiguracji. Wdrażanie procesów ciągłej integracji i ciągłego dostarczania (CICD) i narzędzi ułatwia szybkie wdrożenie na dużą skalę i zmniejsza liczbę błędów ludzkich podczas testowania i wdrażania w środowisku produkcyjnym. Przyjmij CICD na zmniejszenie, wydajność i spójność błędów. [Azure Pipelines](/azure/devops/pipelines/apps/cd/azure/cicd-data-overview) jest przykładem CICD.
 
 ## <a name="web-application-firewall"></a>Zapora aplikacji internetowej
 
 Ochrona aplikacji przed znanymi lukami w zabezpieczeniach, takimi jak ataki rozproszone typu "odmowa usługi" (DDoS), iniekcje SQL, skrypty między lokacjami, zdalne wykonywanie kodu i wiele innych, zgodnie z opisem w [OWASP 10 pierwszych](https://owasp.org/www-project-top-ten/). Wdrażanie zapory aplikacji sieci Web (WAF) może być obroną przed typowymi programami wykorzystującymi luki w zabezpieczeniach.
 
-- Korzystanie z usługi Azure [WAF](https://docs.microsoft.com/azure/web-application-firewall/overview), która zapewnia scentralizowaną ochronę przed atakami.
+- Korzystanie z usługi Azure [WAF](../../web-application-firewall/overview.md), która zapewnia scentralizowaną ochronę przed atakami.
 
-- Użyj WAF z usługą Azure AD [Identity Protection i dostępem warunkowym, aby zapewnić ochronę wielowarstwową](https://docs.microsoft.com/azure/active-directory-b2c/conditional-access-identity-protection-overview) przy użyciu Azure AD B2C.  
+- Użyj WAF z usługą Azure AD [Identity Protection i dostępem warunkowym, aby zapewnić ochronę wielowarstwową](../../active-directory-b2c/conditional-access-identity-protection-overview.md) przy użyciu Azure AD B2C.  
 
 ## <a name="secrets-rotation"></a>Rotacja wpisów tajnych
 
@@ -116,9 +116,9 @@ Azure AD B2C używa wpisów tajnych dla aplikacji, interfejsów API, zasad i szy
 
 ### <a name="how-to-implement-secret-rotation"></a>Jak zaimplementować rotację kluczy tajnych
 
-- Użyj [tożsamości zarządzanych](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) dla obsługiwanych zasobów do uwierzytelniania w dowolnej usłudze, która obsługuje uwierzytelnianie w usłudze Azure AD. W przypadku korzystania z tożsamości zarządzanych można automatycznie zarządzać zasobami, w tym rotacją poświadczeń.
+- Użyj [tożsamości zarządzanych](../managed-identities-azure-resources/overview.md) dla obsługiwanych zasobów do uwierzytelniania w dowolnej usłudze, która obsługuje uwierzytelnianie w usłudze Azure AD. W przypadku korzystania z tożsamości zarządzanych można automatycznie zarządzać zasobami, w tym rotacją poświadczeń.
 
-- Zrób spis wszystkich [kluczy i certyfikatów skonfigurowanych](https://docs.microsoft.com/azure/active-directory-b2c/policy-keys-overview) w Azure AD B2C. Ta lista może zawierać klucze używane w zasadach niestandardowych, [interfejsy API](https://docs.microsoft.com/azure/active-directory-b2c/secure-rest-api), token identyfikatora podpisywania i certyfikaty dla protokołu SAML.
+- Zrób spis wszystkich [kluczy i certyfikatów skonfigurowanych](../../active-directory-b2c/policy-keys-overview.md) w Azure AD B2C. Ta lista może zawierać klucze używane w zasadach niestandardowych, [interfejsy API](../../active-directory-b2c/secure-rest-api.md), token identyfikatora podpisywania i certyfikaty dla protokołu SAML.
 
 - Korzystając z CICD, Obróć wpisy tajne, które wkrótce wygasną w ciągu dwóch miesięcy od przewidywanej pory szczytu. Zalecana maksymalna cryptoperiod kluczy prywatnych skojarzonych z certyfikatem wynosi jeden rok.
 
@@ -130,7 +130,7 @@ W kontekście odporności testowanie interfejsów API REST musi obejmować weryf
 
 ### <a name="how-to-test-apis"></a>Testowanie interfejsów API
 
-Zalecamy, aby plan testu obejmował [kompleksowe testy interfejsu API](https://docs.microsoft.com/azure/active-directory-b2c/best-practices#testing). Jeśli planujesz nadchodzące przeskoki ze względu na promocję lub ruch świąteczny, musisz poprawić testowanie obciążenia przy użyciu nowych oszacowań. Przeprowadzaj testy obciążenia interfejsów API i Content Delivery Network (CDN) w środowisku deweloperskim, a nie w produkcji.
+Zalecamy, aby plan testu obejmował [kompleksowe testy interfejsu API](../../active-directory-b2c/best-practices.md#testing). Jeśli planujesz nadchodzące przeskoki ze względu na promocję lub ruch świąteczny, musisz poprawić testowanie obciążenia przy użyciu nowych oszacowań. Przeprowadzaj testy obciążenia interfejsów API i Content Delivery Network (CDN) w środowisku deweloperskim, a nie w produkcji.
 
 ## <a name="next-steps"></a>Następne kroki
 

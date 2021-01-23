@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: d6c3dbc28da7bee0bc24a6dc24608c78e480c20e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e7a8a72d0669f39cc27c997d83af1e6272d045a6
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462170"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704156"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Wyodrębnianie, przekształcanie i ładowanie (ETL) na dużą skalę
 
@@ -27,7 +27,7 @@ W poniższych sekcjach opisano wszystkie fazy ETL i powiązane z nimi składniki
 
 ## <a name="orchestration"></a>Aranżacja
 
-Aranżacja obejmuje wszystkie fazy potoku ETL. Zadania ETL w usłudze HDInsight często obejmują kilka różnych produktów współpracujących ze sobą. Przykład:
+Aranżacja obejmuje wszystkie fazy potoku ETL. Zadania ETL w usłudze HDInsight często obejmują kilka różnych produktów współpracujących ze sobą. Na przykład:
 
 - Możesz użyć Apache Hive, aby wyczyścić część danych, i Apache świni, aby oczyścić kolejną część.
 - Azure Data Factory można użyć do załadowania danych do Azure SQL Database z Azure Data Lake Store.
@@ -82,7 +82,7 @@ W przypadku przekazywania zestawów danych w zakresie terabajtów opóźnienie s
 
 - **ExpressRoute Azure:** Tworzenie prywatnych połączeń między centrami danych platformy Azure a infrastrukturą lokalną. Te połączenia zapewniają niezawodną opcję przesyłania dużych ilości danych. Aby uzyskać więcej informacji, zobacz [dokumentację usługi Azure ExpressRoute](../../expressroute/expressroute-introduction.md).
 
-- **Przekazywanie danych z dysków twardych:** [Usługa Azure Import/Export](../../storage/common/storage-import-export-service.md) umożliwia wysyłanie dysków twardych z danymi do centrum danych platformy Azure. Dane są najpierw przekazywane do usługi Azure Blob Storage. Następnie można użyć Azure Data Factory lub narzędzia AdlCopy do kopiowania danych z usługi Azure Blob Storage do Data Lake Storage.
+- **Przekazywanie danych z dysków twardych:** [Usługa Azure Import/Export](../../import-export/storage-import-export-service.md) umożliwia wysyłanie dysków twardych z danymi do centrum danych platformy Azure. Dane są najpierw przekazywane do usługi Azure Blob Storage. Następnie można użyć Azure Data Factory lub narzędzia AdlCopy do kopiowania danych z usługi Azure Blob Storage do Data Lake Storage.
 
 ### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 72c7f1dd6652a51a960c80829a697b97fd74f8de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c806e5d1d9c9242b6ba57496327c672d7fed0654
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500031"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704493"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Samouczek: tworzenie sieci wirtualnych platformy Azure i zarządzanie nimi za pomocą interfejsu wiersza polecenia platformy Azure na maszynach wirtualnych z systemem Linux
 
@@ -52,7 +52,7 @@ Po ukończeniu samouczka zostaną utworzone następujące zasoby sieci wirtualne
 - *myBackendNSG* — sieciowa grupa zabezpieczeń, która kontroluje komunikację między maszyną *myFrontendVM* a maszyną *myBackendVM*.
 - *myBackendSubnet* — podsieć skojarzona z grupą *myBackendNSG* i używana przez zasoby zaplecza.
 - *myBackendNic* — interfejs sieciowy używany przez maszynę wirtualną *myBackendVM* do komunikacji z maszyną *myFrontendVM*.
-- *myBackendVM* — maszyna wirtualna, która korzysta z portów 22 i 3306 do komunikacji z maszyną*myFrontendVM*.
+- *myBackendVM* — maszyna wirtualna, która korzysta z portów 22 i 3306 do komunikacji z maszyną *myFrontendVM*.
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Tworzenie sieci wirtualnej i podsieci
 
@@ -300,7 +300,4 @@ W tym samouczku utworzono i zabezpieczono sieci platformy Azure na potrzeby masz
 > * Zabezpieczanie ruchu sieciowego
 > * Tworzenie maszyny wirtualnej zaplecza
 
-Przejdź do kolejnego samouczka, aby dowiedzieć się więcej na temat zabezpieczania danych na maszynach wirtualnych za pomocą usługi Azure Backup. 
-
-> [!div class="nextstepaction"]
-> [Tworzenie kopii zapasowych maszyn wirtualnych z systemem Linux na platformie Azure](./tutorial-backup-vms.md)
+Aby dowiedzieć się więcej o ochronie dysków maszyn wirtualnych, zobacz [kopia zapasowa i odzyskiwanie po awarii dla dysków](backup-and-disaster-recovery-for-azure-iaas-disks.md).

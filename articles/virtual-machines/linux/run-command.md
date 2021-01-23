@@ -8,20 +8,20 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: 5baa6d57bd3895640f1654cf7a5ebca52f101cbe
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: dae77dfb72fb6b11721500686991f2b199606b99
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970575"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737867"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-by-using-run-command"></a>Uruchamianie skryptów powłoki na maszynie wirtualnej z systemem Linux przy użyciu polecenia Run
 
-Funkcja Run command używa agenta maszyny wirtualnej do uruchamiania skryptów powłoki w ramach maszyny wirtualnej platformy Azure z systemem Linux. Za pomocą tych skryptów można zarządzać ogólnymi maszynami lub aplikacjami. Mogą one pomóc w szybkim zdiagnozowaniu i rozpoczęciu problemów z dostępem do maszyn wirtualnych i rozpoczęciu pracy z powrotem do dobrego stanu.
+Funkcja Uruchamianie polecenia używa agenta maszyny wirtualnej do uruchamiania skryptów powłoki w ramach maszyny wirtualnej platformy Azure z systemem Linux. Za pomocą tych skryptów można ogólnie zarządzać maszynami lub aplikacjami. Mogą one pomóc w szybkim zdiagnozowaniu i rozpoczęciu problemów z dostępem do maszyn wirtualnych i rozpoczęciu pracy z powrotem do dobrego stanu.
 
 ## <a name="benefits"></a>Korzyści
 
-Dostęp do maszyn wirtualnych można uzyskać na wiele sposobów. Polecenie Uruchom może zdalnie uruchamiać skrypty na maszynach wirtualnych za pomocą agenta maszyny wirtualnej. Używasz polecenia Run za pośrednictwem Azure Portal, [interfejsu API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand)lub [wiersza polecenia platformy Azure](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) dla maszyn wirtualnych z systemem Linux.
+Dostęp do maszyn wirtualnych można uzyskać na wiele sposobów. Polecenie Uruchom może zdalnie uruchamiać skrypty na maszynach wirtualnych za pomocą agenta maszyny wirtualnej. Używasz polecenia Run za pośrednictwem Azure Portal, [interfejsu API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand)lub [wiersza polecenia platformy Azure](/cli/azure/vm/run-command#az_vm_run_command_invoke) dla maszyn wirtualnych z systemem Linux.
 
 Ta funkcja jest przydatna we wszystkich scenariuszach, w których chcesz uruchomić skrypt w ramach maszyny wirtualnej. Jest to jeden z jedynych sposobów rozwiązywania problemów i korygowania maszyny wirtualnej, która nie ma otwartego portu RDP lub protokołu SSH z powodu nieprawidłowej konfiguracji sieci lub użytkownika administracyjnego.
 
@@ -56,7 +56,7 @@ The entity was not found in this Azure location
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-W poniższym przykładzie za pomocą polecenia [AZ VM Run-command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) można uruchomić skrypt powłoki na maszynie wirtualnej platformy Azure z systemem Linux.
+W poniższym przykładzie za pomocą polecenia [AZ VM Run-command](/cli/azure/vm/run-command#az_vm_run_command_invoke) można uruchomić skrypt powłoki na maszynie wirtualnej platformy Azure z systemem Linux.
 
 ```azurecli-interactive
 az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript --scripts "apt-get update && apt-get install -y nginx"
@@ -80,7 +80,7 @@ Po wybraniu polecenia wybierz pozycję **Uruchom** , aby uruchomić skrypt. Po z
 
 ![Uruchom dane wyjściowe skryptu polecenia](./media/run-command/run-command-script-output.png)
 
-### <a name="powershell"></a>Program PowerShell
+### <a name="powershell"></a>PowerShell
 
 W poniższym przykładzie za pomocą polecenia cmdlet [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand) można uruchomić skrypt programu PowerShell na maszynie wirtualnej platformy Azure. Polecenie cmdlet oczekuje skryptu, do którego istnieje odwołanie w `-ScriptPath` parametrze, do lokalizacji, w której jest uruchamiane polecenie cmdlet.
 
@@ -88,7 +88,7 @@ W poniższym przykładzie za pomocą polecenia cmdlet [Invoke-AzVMRunCommand](/p
 Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
 ```
 
-## <a name="limiting-access-to-run-command"></a>Ograniczanie dostępu do polecenia Run
+## <a name="limiting-access-to-run-command"></a>Ograniczanie dostępu do uruchamiania polecenia
 
 Wyświetlanie listy poleceń uruchamiania lub wyświetlanie szczegółów polecenia wymaga `Microsoft.Compute/locations/runCommands/read` uprawnienia. To uprawnienie ma wbudowaną rolę [czytnika](../../role-based-access-control/built-in-roles.md#reader) i wyższe poziomy.
 

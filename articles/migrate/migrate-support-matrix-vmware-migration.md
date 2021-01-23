@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: b263d3e62ae97914fc8e06580486bddd0cb9b3b7
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 0b671fbdfe16848012ac94671ce68e8a33a8b3e8
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968453"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703873"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Macierz obsługi dla migracji oprogramowania VMware
 
@@ -166,7 +166,7 @@ Architektura systemu operacyjnego gościa | 64-bitowa.
 Rozmiar dysku systemu operacyjnego | Do 2 048 GB. 
 Liczba dysków systemu operacyjnego | 1 
 Liczba dysków danych | 64 lub mniej. 
-Rozmiar dysku danych | Do 8 095 GB
+Rozmiar dysku danych | Do 32 TB
 Karty sieciowe | Obsługiwane są wiele kart.
 Udostępniony wirtualny dysk twardy | Nieobsługiwane. 
 Dysk FC | Nieobsługiwane. 

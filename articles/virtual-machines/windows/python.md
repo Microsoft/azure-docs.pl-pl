@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/22/2017
 ms.author: cynthn
 ms.custom: devx-track-python
-ms.openlocfilehash: 15714405c683889c0f783359011a0f0f5f9f3f43
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: d99f9326b3113742fdc0c14a4ae39d552df47edd
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201794"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730160"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Tworzenie maszyn wirtualnych z systemem Windows i zarządzanie nimi na platformie Azure przy użyciu języka Python
 
@@ -567,4 +567,4 @@ Ze względu na to, że opłaty są naliczone za zasoby używane na platformie Az
 ## <a name="next-steps"></a>Następne kroki
 
 - Jeśli wystąpiły problemy ze wdrożeniem, następnym krokiem jest zapoznaj się z [tematem Rozwiązywanie problemów z wdrożeniami grup zasobów za pomocą Azure Portal](../../azure-resource-manager/templates/deployment-history.md)
-- Dowiedz się więcej o [bibliotece języka Python platformy Azure](/python/api/overview/azure/?view=azure-python)
+- Dowiedz się więcej o [bibliotece języka Python platformy Azure](/python/api/overview/azure/)

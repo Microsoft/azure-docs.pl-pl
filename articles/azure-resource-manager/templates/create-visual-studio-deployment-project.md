@@ -3,18 +3,18 @@ title: Utwórz & Wdróż projekty grupy zasobów programu Visual Studio
 description: Tworzenie projektu grupy zasobów platformy Azure przy użyciu programu Visual Studio i wdrażanie zasobów na platformie Azure.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 479dbed1f288148c24fc8464f7895cd3e2b182f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1a06a3e89c5fd2ea8906ff9a438c170f135d6ec
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372650"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704418"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Tworzenie i wdrażanie grup zasobów platformy Azure za pomocą programu Visual Studio
 
 Program Visual Studio umożliwia utworzenie projektu służącego do wdrażania infrastruktury i kodu na platformie Azure. Można na przykład wdrożyć hosta sieci Web, witrynę internetową i kod witryny internetowej. Program Visual Studio zapewnia wiele różnych szablonów początkowych do wdrażania typowych scenariuszy. W tym artykule opisano wdrażanie aplikacji sieci Web.
 
-W tym artykule pokazano, jak używać [programu Visual Studio 2019 lub nowszego z zainstalowanymi obciążeniami deweloperskimi i ASP.NET platformy Azure](/visualstudio/install/install-visual-studio?view=vs-2019). W przypadku korzystania z programu Visual Studio 2017 środowisko jest w dużym stopniu takie samo.
+W tym artykule pokazano, jak używać [programu Visual Studio 2019 lub nowszego z zainstalowanymi obciążeniami deweloperskimi i ASP.NET platformy Azure](/visualstudio/install/install-visual-studio). W przypadku korzystania z programu Visual Studio 2017 środowisko jest w dużym stopniu takie samo.
 
 ## <a name="create-azure-resource-group-project"></a>Tworzenie projektu grupy zasobów platformy Azure
 
@@ -143,7 +143,7 @@ W przypadku skryptu modułu AzureRM Użyj programu Visual Studio:
 
     ![Nowy element menu wdrożenia](./media/create-visual-studio-deployment-project/deploy.png)
 
-1. Zostanie wyświetlone okno dialogowe **Wdrażanie w grupie zasobów**. W polu listy rozwijanej **Grupa zasobów** wybierz istniejącą grupę zasobów lub utwórz nową. Wybierz pozycję **Deploy** (Wdróż).
+1. Zostanie wyświetlone okno dialogowe **Wdrażanie w grupie zasobów**. W polu listy rozwijanej **Grupa zasobów** wybierz istniejącą grupę zasobów lub utwórz nową. Wybierz pozycję **Wdróż**.
 
     ![Okno dialogowe wdrażanie w grupie zasobów](./media/create-visual-studio-deployment-project/show-deployment.png)
 
@@ -259,7 +259,7 @@ Teraz otwórz konsolę programu PowerShell i uruchom następujące polecenie:
 
 W przypadku skryptu modułu AzureRM Użyj programu Visual Studio:
 
-1. Aby przeprowadzić ponowne wdrożenie, wybierz pozycję **Wdróż**i wdrożoną wcześniej grupę zasobów.
+1. Aby przeprowadzić ponowne wdrożenie, wybierz pozycję **Wdróż** i wdrożoną wcześniej grupę zasobów.
 
     ![Wdróż ponownie projekt](./media/create-visual-studio-deployment-project/redeploy.png)
 

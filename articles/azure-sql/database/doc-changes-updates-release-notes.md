@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 36c12fa7dd37ce1ffebde16cf6ca856d9fcdca0a
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 607b588d3371b20c2b3fa9854e27a7ccdfe2e551
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93391997"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703771"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Co nowego w Azure SQL Database & wystąpieniu zarządzanym SQL?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -42,7 +42,7 @@ Ta tabela zawiera krótkie porównanie zmian w terminologii:
 |**Azure SQL Database**|Azure SQL Database *pojedynczą bazę danych*| O ile nie określono jawnie inaczej, nazwa produktu Azure SQL Database obejmuje pojedyncze bazy danych i bazy danych wdrożone w puli elastycznej. |
 |**Azure SQL Database**|Azure SQL Database *elastyczna Pula*| O ile nie określono jawnie inaczej, nazwa produktu Azure SQL Database obejmuje pojedyncze bazy danych i bazy danych wdrożone w puli elastycznej.  |
 |**Azure SQL Database** |Azure SQL Database | Mimo że termin pozostaje taki sam, ma zastosowanie tylko do wdrożeń pojedynczej bazy danych i pul elastycznych i nie obejmuje wystąpienia zarządzanego. |
-| **Azure SQL**| Brak | Odnosi się to do rodziny SQL Server produktów aparatu bazy danych, które są dostępne na platformie Azure: Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL i SQL Server na maszynach wirtualnych platformy Azure. | 
+| **Azure SQL**| Nie dotyczy | Odnosi się to do rodziny SQL Server produktów aparatu bazy danych, które są dostępne na platformie Azure: Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL i SQL Server na maszynach wirtualnych platformy Azure. | 
 
 ## <a name="features-in-public-preview"></a>Funkcje w publicznej wersji zapoznawczej
 
@@ -51,7 +51,7 @@ Ta tabela zawiera krótkie porównanie zmian w terminologii:
 | Cechy | Szczegóły |
 | ---| --- |
 | Szybsze odzyskiwanie bazy danych przy użyciu pojedynczych baz danych i pul elastycznych | Aby uzyskać więcej informacji, zobacz [przyspieszone odzyskiwanie bazy danych](../accelerated-database-recovery.md).|
-| Odnajdywanie i klasyfikacja danych  |Aby uzyskać więcej informacji, zobacz [Azure SQL Database i Synapse Analytics Data discovery & Klasyfikacja](data-discovery-and-classification-overview.md).|
+| Odnajdowanie i klasyfikacja danych  |Aby uzyskać więcej informacji, zobacz [Azure SQL Database i Synapse Analytics Data discovery & Klasyfikacja](data-discovery-and-classification-overview.md).|
 | Zadania Elastic Database (wersja zapoznawcza) | Aby uzyskać więcej informacji, zobacz [Tworzenie i Konfigurowanie zadań elastycznych oraz zarządzanie nimi](elastic-jobs-overview.md). |
 | Zapytania elastyczne | Aby uzyskać więcej informacji, zobacz [Omówienie zapytania elastycznego](elastic-query-overview.md). |
 | Transakcje elastyczne | [Transakcje rozproszone w bazach danych w chmurze](elastic-transactions-overview.md). |
@@ -78,7 +78,7 @@ Ta tabela zawiera krótkie porównanie zmian w terminologii:
 ### <a name="sql-managed-instance-h2-2019-updates"></a>Wystąpienia zarządzane SQL H2 2019 aktualizacje
 
 - [Konfiguracja podsieci wspomagana przez usługę](https://azure.microsoft.com/updates/service-aided-subnet-configuration-for-managed-instance-in-azure-sql-database-available/) jest bezpiecznym i wygodnym sposobem zarządzania konfiguracją podsieci w celu kontrolowania ruchu danych, gdy wystąpienie zarządzane SQL gwarantuje nieprzerwany przepływ ruchu zarządzania.
-- [Transparent Data Encryption (TDE) with Bring Your Own Key (BYOK)](https://azure.microsoft.com/updates/general-avilability-transparent-data-encryption-with-customer-managed-keys-for-azure-sql-database-managed-instance/) umożliwia zapewnienie, że w przypadku ochrony danych w czasie spoczynku i umożliwia organizacjom oddzielenie obowiązków związanych z zarządzaniem kluczami i danymi.
+- [Transparent Data Encryption (TDE) with Bring Your Own Key (BYOK)](https://azure.microsoft.com/updates/general-avilability-transparent-data-encryption-with-customer-managed-keys-for-azure-sql-database-managed-instance/) umożliwia korzystanie ze scenariusza "dołączenie do własnego klucza" (BYOK) w celu zapewnienia ochrony danych w czasie spoczynku i umożliwia organizacjom oddzielenie obowiązków związanych z zarządzaniem kluczami i danymi.
 - [Grupy autotrybu failover](https://azure.microsoft.com/updates/azure-sql-database-auto-failover-groups-feature-now-available-in-all-regions/) umożliwiają replikację wszystkich baz danych z wystąpienia podstawowego do wystąpienia dodatkowego w innym regionie.
 - [Globalne flagi śledzenia](https://azure.microsoft.com/updates/global-trace-flags-are-now-available-in-azure-sql-database-managed-instance/) umożliwiają skonfigurowanie zachowania wystąpienia zarządzanego SQL.
 
@@ -92,12 +92,13 @@ W modelu wdrażania wystąpienia zarządzanego SQL w H1 2019 są włączone nast
   - Skonfiguruj wystąpienie zarządzane SQL, tak aby korzystało z [publicznych punktów końcowych](../managed-instance/public-endpoint-configure.md), połączenia [zastąpień serwera proxy](connectivity-architecture.md#connection-policy) w celu uzyskania lepszej wydajności sieci, <a href="https://aka.ms/four-cores-sql-mi-update"> 4 rdzeni wirtualnych na generowanie sprzętu 5 rdzeń</a> lub <a href="/azure/azure-sql/database/automated-backups-overview">Skonfiguruj przechowywanie kopii zapasowych do 35 dni</a> w przypadku przywracania do punktu w czasie. [Długoterminowe przechowywanie kopii zapasowych](long-term-retention-overview.md#sql-managed-instance-support) (do 10 lat) jest obecnie w ograniczonej publicznej wersji zapoznawczej.  
   - Nowe funkcje umożliwiają <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">przeprzywracanie geograficznej bazy danych do innego centrum danych przy użyciu programu PowerShell</a>, [zmiana nazwy bazy danych](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/), [usunięcie klastra wirtualnego](../managed-instance/virtual-cluster-delete.md).
   - Nowa [rola współautor](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) wbudowanego wystąpienia umożliwia rozdzielenie cła (SOD) z zasadami zabezpieczeń i zgodności z normami przedsiębiorstwa.
-  - Wystąpienie zarządzane SQL jest dostępne w następujących regionach Azure Government, do GA (US Gov Teksas, US Gov Arizona), a także w Chiny Północne 2 i Chiny Wschodnie 2. Jest ona również dostępna w następujących regionach publicznych: Australia Środkowa, Australia Środkowa 2, Brazylia Południowa, Francja Południowa, Europa Środkowa, Płn. Zjednoczone Emiraty Arabskie, Północna Republika Południowej Afryki, Zachodnia Republika Południowej Afryki.
+  - Wystąpienie zarządzane SQL jest dostępne w następujących regionach Azure Government, do GA (US Gov Teksas, US Gov Arizona) i w Chiny Północne 2 i Chiny Wschodnie 2. Jest ona również dostępna w następujących regionach publicznych: Australia Środkowa, Australia Środkowa 2, Brazylia Południowa, Francja Południowa, Europa Środkowa, Płn. Zjednoczone Emiraty Arabskie, Północna Republika Południowej Afryki, Zachodnia Republika Południowej Afryki.
 
 ## <a name="known-issues"></a>Znane problemy
 
 |Problem  |Data wykrycia  |Stan  |Data rozwiązania  |
 |---------|---------|---------|---------|
+|[Procedura sp_send_dbmail może przejściowo kończyć się niepowodzeniem, gdy @query parametr jest używany](#procedure-sp_send_dbmail-may-transiently-fail-when--parameter-is-used)|Sty 2021|Ma obejście||
 |[Transakcje rozproszone można wykonać po usunięciu wystąpienia zarządzanego z grupy zaufania serwera](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|2020 października|Ma obejście||
 |[Nie można wykonać transakcji rozproszonych po operacji skalowania wystąpienia zarządzanego](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|2020 października|Ma obejście||
 |[BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql) / Funkcja [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15) w usłudze Azure SQL i `BACKUP` / `RESTORE` instrukcja w wystąpieniu zarządzanym nie mogą używać tożsamości zarządzania usługą Azure AD do uwierzytelniania w usłudze Azure Storage|Wrz 2020|Ma obejście||
@@ -115,7 +116,7 @@ W modelu wdrażania wystąpienia zarządzanego SQL w H1 2019 są włączone nast
 |[Po przejściu w tryb failover może zajść konieczność ponownego skonfigurowania przyrządu zasobów na Krytyczne dla działania firmyej warstwie usług](#resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover)|Wrz 2019|Ma obejście||
 |[Okna dialogowe Service Broker między bazami danych muszą zostać zainicjowane ponownie po uaktualnieniu warstwy usług](#cross-database-service-broker-dialogs-must-be-reinitialized-after-service-tier-upgrade)|2019 sie|Ma obejście||
 |[Personifikacja typów logowania usługi Azure AD nie jest obsługiwana](#impersonation-of-azure-ad-login-types-is-not-supported)|Lip 2019|Brak obejścia||
-|[@query parametr nie jest obsługiwany w sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Kwi 2019|Brak obejścia||
+|[@query parametr nie jest obsługiwany w sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Kwi 2019|Resolved|Sty 2021|
 |[Należy ponownie skonfigurować replikację transakcyjną po geograficznym przejściu do trybu failover](#transactional-replication-must-be-reconfigured-after-geo-failover)|Mar 2019|Brak obejścia||
 |[Tymczasowa baza danych jest używana podczas operacji przywracania](#temporary-database-is-used-during-restore-operation)||Ma obejście||
 |[Struktura i zawartość bazy danych TEMPDB są odtwarzane](#tempdb-structure-and-content-is-re-created)||Brak obejścia||
@@ -128,6 +129,29 @@ W modelu wdrażania wystąpienia zarządzanego SQL w H1 2019 są włączone nast
 |Przywracanie bazy danych do punktu w czasie z warstwy Krytyczne dla działania firmy do warstwy Ogólnego przeznaczenia nie powiedzie się, jeśli źródłowa baza danych zawiera obiekty OLTP w pamięci.||Resolved|2019 października|
 |Funkcja poczty bazy danych z zewnętrznymi serwerami poczty (poza platformą Azure) przy użyciu bezpiecznego połączenia||Resolved|2019 października|
 |Zawarte bazy danych nie są obsługiwane w wystąpieniu zarządzanym SQL||Resolved|2019 sie|
+
+### <a name="procedure-sp_send_dbmail-may-transiently-fail-when-query-parameter-is-used"></a>Procedura sp_send_dbmail może przejściowo kończyć się niepowodzeniem, gdy @query parametr jest używany
+
+Procedura sp_send_dbmail może przejściowo kończyć się niepowodzeniem, gdy `@query` parametr jest używany. W przypadku wystąpienia tego problemu Wystąpił błąd i komunikat o błędzie co druga procedura sp_send_dbmail `Msg 22050, Level 16, State 1` `Failed to initialize sqlcmd library with error number -2147467259` . Aby można było prawidłowo zobaczyć ten błąd, procedura powinna zostać wywołana z wartością domyślną 0 dla parametru `@exclude_query_output` , w przeciwnym razie błąd nie zostanie propagowany.
+Przyczyną tego problemu jest znana usterka dotycząca sposobu używania personifikacji i puli połączeń przez sp_send_dbmail.
+Aby obejść ten problem, Zapakuj kod w celu wysłania wiadomości e-mail do logiki ponawiania, która opiera się na parametrze danych wyjściowych `@mailitem_id` . Jeśli wykonanie nie powiedzie się, wartość parametru będzie RÓWNa NULL, co oznacza, że sp_send_dbmail powinna być wywoływana jeszcze raz, aby pomyślnie wysłać wiadomość e-mail. Oto przykład tej logiki ponawiania.
+```sql
+CREATE PROCEDURE send_dbmail_with_retry AS
+BEGIN
+    DECLARE @miid INT
+    EXEC msdb.dbo.sp_send_dbmail
+        @recipients = 'name@mail.com', @subject = 'Subject', @query = 'select * from dbo.test_table',
+        @profile_name ='AzureManagedInstance_dbmail_profile', @execute_query_database = 'testdb',
+        @mailitem_id = @miid OUTPUT
+
+    -- If sp_send_dbmail returned NULL @mailidem_id then retry sending email.
+    --
+    IF (@miid is NULL)
+    EXEC msdb.dbo.sp_send_dbmail
+        @recipients = 'name@mail.com', @subject = 'Subject', @query = 'select * from dbo.test_table',
+        @profile_name ='AzureManagedInstance_dbmail_profile', @execute_query_database = 'testdb',
+END
+```
 
 ### <a name="distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group"></a>Transakcje rozproszone można wykonać po usunięciu wystąpienia zarządzanego z grupy zaufania serwera
 
@@ -150,19 +174,19 @@ GO
 BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzureBlobStorage');
 ```
 
-**Obejście** : Użyj [sygnatury dostępu współdzielonego, aby uwierzytelnić w magazynie](/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage).
+**Obejście**: Użyj [sygnatury dostępu współdzielonego, aby uwierzytelnić w magazynie](/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage).
 
 ### <a name="service-principal-cannot-access-azure-ad-and-akv"></a>Nazwa główna usługi nie może uzyskać dostępu do usługi Azure AD i AKV
 
 W pewnych okolicznościach może wystąpić problem z jednostką usługi służącą do uzyskiwania dostępu do usług Azure AD i Azure Key Vault (AKV). W związku z tym ten problem ma wpływ na użycie uwierzytelniania usługi Azure AD i przezroczyste szyfrowanie bazy danych (TDE) z wystąpieniem zarządzanym SQL. Może się to zdarzyć w przypadku sporadycznego problemu z łącznością lub nie można uruchomić takich instrukcji, jak tworzenie logowania/użytkownika z zewnętrznego dostawcy lub wykonywanie jako nazwa logowania/użytkownika. Skonfigurowanie TDE z kluczem zarządzanym przez klienta w nowym wystąpieniu zarządzanym Azure SQL może również nie funkcjonować w pewnych okolicznościach.
 
-**Obejście** : aby zapobiec występowaniu tego problemu w wystąpieniu zarządzanym SQL przed wykonaniem jakichkolwiek poleceń aktualizacji lub w przypadku, gdy ten problem wystąpił już po poleceniach aktualizacji, przejdź do Azure Portal, dostęp do wystąpienia zarządzanego SQL [Active Directory bloku administratora](./authentication-aad-configure.md?tabs=azure-powershell#azure-portal). Sprawdź, czy widzisz komunikat o błędzie "wystąpienie zarządzane potrzebuje nazwy głównej usługi, aby uzyskać dostęp do Azure Active Directory. Kliknij tutaj, aby utworzyć nazwę główną usługi ". Jeśli ten komunikat o błędzie został napotkany, kliknij go i postępuj zgodnie z instrukcjami krok po kroku, które są dostępne do momentu rozwiązania tego błędu.
+**Obejście**: aby zapobiec występowaniu tego problemu w wystąpieniu zarządzanym SQL przed wykonaniem jakichkolwiek poleceń aktualizacji lub w przypadku, gdy ten problem wystąpił już po poleceniach aktualizacji, przejdź do Azure Portal, dostęp do wystąpienia zarządzanego SQL [Active Directory bloku administratora](./authentication-aad-configure.md?tabs=azure-powershell#azure-portal). Sprawdź, czy widzisz komunikat o błędzie "wystąpienie zarządzane potrzebuje nazwy głównej usługi, aby uzyskać dostęp do Azure Active Directory. Kliknij tutaj, aby utworzyć nazwę główną usługi ". Jeśli ten komunikat o błędzie został napotkany, kliknij go i postępuj zgodnie z instrukcjami krok po kroku, które są dostępne do momentu rozwiązania tego błędu.
 
 ### <a name="restoring-manual-backup-without-checksum-might-fail"></a>Przywrócenie ręcznej kopii zapasowej bez sumy KONTROLnej może zakończyć się niepowodzeniem
 
 W pewnych okolicznościach ręczne tworzenie kopii zapasowych baz danych, które zostały wykonane w wystąpieniu zarządzanym bez sumy KONTROLnej, nie może zostać przywrócone. W takich przypadkach ponów próbę przywrócenia kopii zapasowej do momentu pomyślnego zakończenia.
 
-**Obejście** : Utwórz ręcznie kopie zapasowe baz danych w wystąpieniach zarządzanych z WŁĄCZONĄ sumą kontrolną.
+**Obejście**: Utwórz ręcznie kopie zapasowe baz danych w wystąpieniach zarządzanych z WŁĄCZONĄ sumą kontrolną.
 
 ### <a name="agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs"></a>Agent przestaje odpowiadać po zmodyfikowaniu, wyłączeniu lub włączeniu istniejących zadań
 
@@ -172,19 +196,19 @@ W pewnych okolicznościach modyfikowanie, wyłączanie lub Włączanie istnieją
 
 Gdy rola platformy Azure współautora wystąpienia zarządzanego SQL jest stosowana do grupy zasobów (RG), nie jest ona stosowana do wystąpienia zarządzanego SQL i nie ma żadnego wpływu.
 
-**Obejście** : Skonfiguruj rolę współautora wystąpienia zarządzanego SQL dla użytkowników na poziomie subskrypcji.
+**Obejście**: Skonfiguruj rolę współautora wystąpienia zarządzanego SQL dla użytkowników na poziomie subskrypcji.
 
 ### <a name="limitation-of-manual-failover-via-portal-for-failover-groups"></a>Ograniczenie ręcznego trybu failover za pośrednictwem portalu dla grup trybu failover
 
 Jeśli grupa trybu failover rozciąga się między wystąpieniami w różnych subskrypcjach lub grupach zasobów platformy Azure, nie można zainicjować ręcznego przełączania do trybu failover z wystąpienia podstawowego w grupie trybu failover.
 
-**Obejście** : Zainicjuj tryb failover za pośrednictwem portalu z wystąpienia geograficznego.
+**Obejście**: Zainicjuj tryb failover za pośrednictwem portalu z wystąpienia geograficznego.
 
 ### <a name="sql-agent-roles-need-explicit-execute-permissions-for-non-sysadmin-logins"></a>Role agenta SQL wymagają jawnych uprawnień do wykonywania w przypadku identyfikatorów logowania innych niż sysadmin
 
 Jeśli nazwy logowania inne niż sysadmin są dodawane do dowolnych [ról bazy danych programu SQL Agent](/sql/ssms/agent/sql-server-agent-fixed-database-roles), istnieje problem, w którym jawne uprawnienia do wykonania muszą zostać przyznane głównym procedurom składowanym dla tych logowań do działania. Jeśli wystąpi ten problem, zostanie wyświetlony komunikat o błędzie "uprawnienie EXECUTE zostało odrzucone w obiekcie <object_name> (Microsoft SQL Server, błąd: 229)".
 
-**Obejście** : po dodaniu logowań do stałej roli bazy danych programu SQL Agent (SQLAgentUserRole, SQLAgentReaderRole lub SQLAgentOperatorRole) dla każdego z nazw logowania dodanych do tych ról, wykonaj Poniższy skrypt T-SQL, aby jawnie udzielić uprawnień do wykonywania w wymienionych procedurach składowanych.
+**Obejście**: po dodaniu logowań do stałej roli bazy danych programu SQL Agent (SQLAgentUserRole, SQLAgentReaderRole lub SQLAgentOperatorRole) dla każdego z nazw logowania dodanych do tych ról, wykonaj Poniższy skrypt T-SQL, aby jawnie udzielić uprawnień do wykonywania w wymienionych procedurach składowanych.
 
 ```tsql
 USE [master]
@@ -204,33 +228,33 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
 
 Krytyczne dla działania firmy warstwa usługi nie będzie prawidłowo stosować [maksymalnego limitu pamięci dla obiektów zoptymalizowanych pod kątem pamięci](../managed-instance/resource-limits.md#in-memory-oltp-available-space) w niektórych przypadkach. Wystąpienie zarządzane SQL może umożliwić obciążeniu użycie większej ilości pamięci dla operacji OLTP w pamięci, co może mieć wpływ na dostępność i stabilność wystąpienia. Zapytania OLTP w pamięci, które zbliżają się do limitów, mogą kończyć się niepowodzeniem. Ten problem zostanie rozwiązany wkrótce. Zapytania, które używają więcej pamięci OLTP w pamięci, będą kończyć się niepowodzeniem, jeśli osiągnieją [limity](../managed-instance/resource-limits.md#in-memory-oltp-available-space).
 
-**Obejście** : [Monitoruj użycie magazynu OLTP w pamięci](../in-memory-oltp-monitor-space.md) za pomocą [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) , aby upewnić się, że obciążenie nie korzysta z więcej niż dostępnej pamięci. Zwiększ limity pamięci, które są zależne od liczby rdzeni wirtualnych, lub Zoptymalizuj obciążenie, aby użyć mniejszej ilości pamięci.
+**Obejście**: [Monitoruj użycie magazynu OLTP w pamięci](../in-memory-oltp-monitor-space.md) za pomocą [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) , aby upewnić się, że obciążenie nie korzysta z więcej niż dostępnej pamięci. Zwiększ limity pamięci, które są zależne od liczby rdzeni wirtualnych, lub Zoptymalizuj obciążenie, aby użyć mniejszej ilości pamięci.
  
 ### <a name="wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty"></a>Podczas próby usunięcia pliku, który nie jest pusty, został zwrócony nieprawidłowy błąd
 
 SQL Server i wystąpienie zarządzane SQL [nie zezwala użytkownikowi na porzucanie pliku, który nie jest pusty](/sql/relational-databases/databases/delete-data-or-log-files-from-a-database#Prerequisites). Próba usunięcia niepustego pliku danych przy użyciu `ALTER DATABASE REMOVE FILE` instrukcji spowoduje, że błąd `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` nie zostanie natychmiast zwrócony. Wystąpienie zarządzane SQL będzie nadal próbowało porzucić plik i operacja zakończy się niepowodzeniem po 30 minutach z `Internal server error` .
 
-**Obejście** : Usuń zawartość pliku przy użyciu `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)` polecenia. Jeśli jest to jedyny plik w grupie plików, należy usunąć dane z tabeli lub partycji skojarzonej z tą grupą plików przed zmniejszeniem pliku i opcjonalnie załadować te dane do innej tabeli lub partycji.
+**Obejście**: Usuń zawartość pliku przy użyciu `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)` polecenia. Jeśli jest to jedyny plik w grupie plików, należy usunąć dane z tabeli lub partycji skojarzonej z tą grupą plików przed zmniejszeniem pliku i opcjonalnie załadować te dane do innej tabeli lub partycji.
 
 ### <a name="change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore"></a>Zmiana warstwy usługi i tworzenie wystąpienia są blokowane przez trwającą operację przywracania bazy danych
 
 Ciągła `RESTORE` instrukcja, proces migracji usługi migracji danych oraz wbudowane przywracanie do punktu w czasie zablokują aktualizację warstwy usług lub zmianę rozmiaru istniejącego wystąpienia, a następnie tworzy nowe wystąpienia do momentu zakończenia procesu przywracania. 
 
-Proces przywracania spowoduje zablokowanie tych operacji na zarządzanych wystąpieniach i pulach wystąpień w tej samej podsieci, w której jest uruchomiony proces przywracania. Nie ma to żadnego oddziaływania na wystąpienia w pulach wystąpień. Operacje tworzenia lub zmiany warstwy usług będą kończyć się niepowodzeniem lub z limitem czasu. Będą one działać po zakończeniu procesu przywracania lub anulowaniu.
+Proces przywracania spowoduje zablokowanie tych operacji na zarządzanych wystąpieniach i pulach wystąpień w tej samej podsieci, w której jest uruchomiony proces przywracania. Nie ma to żadnego oddziaływania na wystąpienia w pulach wystąpień. Operacje tworzenia lub zmiany warstwy usług będą kończyć się niepowodzeniem lub przekraczają limit czasu. Będą one działać po zakończeniu procesu przywracania lub anulowaniu.
 
-**Obejście** : Poczekaj na zakończenie procesu przywracania lub Anuluj proces przywracania, jeśli operacja tworzenia lub aktualizowania warstwy usługi ma wyższy priorytet.
+**Obejście**: Poczekaj na zakończenie procesu przywracania lub Anuluj proces przywracania, jeśli operacja tworzenia lub aktualizowania warstwy usługi ma wyższy priorytet.
 
 ### <a name="resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover"></a>Po przejściu w tryb failover może zajść konieczność ponownego skonfigurowania przyrządu zasobów na Krytyczne dla działania firmyej warstwie usług
 
 Funkcja [gubernatora zasobów](/sql/relational-databases/resource-governor/resource-governor) , która umożliwia ograniczenie zasobów przypisanych do obciążenia użytkownikami, może nieprawidłowo sklasyfikować pewne obciążenie użytkownika po przejściu w tryb failover lub zainicjowanej przez użytkownika zmianie warstwy usług (na przykład zmiana maksymalnego rozmiaru magazynu rdzeń wirtualny lub maksymalnego wystąpienia).
 
-**Obejście** : uruchamiaj `ALTER RESOURCE GOVERNOR RECONFIGURE` okresowo lub jako część zadania programu SQL Agent, które wykonuje zadanie SQL, gdy wystąpienie zostanie uruchomione, jeśli używasz [prezesa zasobów](/sql/relational-databases/resource-governor/resource-governor).
+**Obejście**: uruchamiaj `ALTER RESOURCE GOVERNOR RECONFIGURE` okresowo lub jako część zadania programu SQL Agent, które wykonuje zadanie SQL, gdy wystąpienie zostanie uruchomione, jeśli używasz [prezesa zasobów](/sql/relational-databases/resource-governor/resource-governor).
 
 ### <a name="cross-database-service-broker-dialogs-must-be-reinitialized-after-service-tier-upgrade"></a>Okna dialogowe Service Broker między bazami danych muszą zostać zainicjowane ponownie po uaktualnieniu warstwy usług
 
 Okna dialogowe Service Broker między bazami danych przestaną przekazanie komunikatów do usług w innych bazach danych po operacji zmiany warstwy usług. Komunikaty nie są *tracone* i można je znaleźć w kolejce nadawcy. Wszelkie zmiany rozmiaru magazynu rdzeni wirtualnych lub wystąpienia w wystąpieniu zarządzanym SQL spowodują zmianę `service_broke_guid` wartości w widoku [sys. databases](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) dla wszystkich baz danych. Wszystkie `DIALOG` utworzone przy użyciu instrukcji [BEGIN dialog](/sql/t-sql/statements/begin-dialog-conversation-transact-sql) , które odwołują się do brokerów usług w innej bazie danych, zatrzymają dostarczanie komunikatów do usługi docelowej.
 
-**Obejście** : Zatrzymaj wszystkie działania, które używają konwersacji okna dialogowego Service Broker między bazami danych przed aktualizacją warstwy usług i ponownie zainicjuj je później. Jeśli pozostałe komunikaty są niedostarczone po zmianie warstwy usług, należy odczytać komunikaty z kolejki źródłowej i ponownie wysłać je do kolejki docelowej.
+**Obejście**: Zatrzymaj wszystkie działania, które używają konwersacji okna dialogowego Service Broker między bazami danych przed aktualizacją warstwy usług i ponownie zainicjuj je później. Jeśli pozostałe komunikaty są niedostarczone po zmianie warstwy usług, należy odczytać komunikaty z kolejki źródłowej i ponownie wysłać je do kolejki docelowej.
 
 ### <a name="impersonation-of-azure-ad-login-types-is-not-supported"></a>Personifikacja typów logowania usługi Azure AD nie jest obsługiwana
 
@@ -258,7 +282,7 @@ Baza danych, która jest w stanie *przywracania* , będzie tymczasowo mieć loso
 
 W fazie początkowej użytkownik może uzyskać dostęp do pustej bazy danych, a nawet utworzyć tabele lub załadować dane w tej bazie danych. Ta Tymczasowa baza danych zostanie porzucona, gdy usługa przywracania rozpocznie działanie drugiej fazy.
 
-**Obejście** : nie należy uzyskiwać dostępu do przywracanej bazy danych, dopóki nie zobaczysz, że Przywracanie zostało zakończone.
+**Obejście**: nie należy uzyskiwać dostępu do przywracanej bazy danych, dopóki nie zobaczysz, że Przywracanie zostało zakończone.
 
 ### <a name="tempdb-structure-and-content-is-re-created"></a>Struktura i zawartość bazy danych TEMPDB są odtwarzane
 
@@ -285,7 +309,7 @@ W tym przykładzie istniejące bazy danych nadal pracują i mogą wzrosnąć bez
 
 W kilku widokach systemu, licznikach wydajności, komunikatach o błędach, XEvents i dzienniku błędów są wyświetlane identyfikatory baz danych GUID zamiast rzeczywistej nazwy bazy danych. Nie należy polegać na tych identyfikatorach GUID, ponieważ są one zastępowane rzeczywistymi nazwami baz danych w przyszłości.
 
-**Obejście** : Użyj widoku sys. databases, aby rozpoznać rzeczywistą nazwę bazy danych z nazwy fizycznej bazy danych określonej w postaci identyfikatorów baz danych GUID:
+**Obejście**: Użyj widoku sys. databases, aby rozpoznać rzeczywistą nazwę bazy danych z nazwy fizycznej bazy danych określonej w postaci identyfikatorów baz danych GUID:
 
 ```tsql
 SELECT name as ActualDatabaseName, physical_database_name as GUIDDatabaseIdentifier 
@@ -324,13 +348,13 @@ using (var scope = new TransactionScope())
 
 ```
 
-**Obejście (niewymagane od marca 2020)** : Użyj [SqlConnection. ChangeDatabase (String)](/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) , aby użyć innej bazy danych w kontekście połączenia zamiast korzystać z dwóch połączeń.
+**Obejście (niewymagane od marca 2020)**: Użyj [SqlConnection. ChangeDatabase (String)](/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) , aby użyć innej bazy danych w kontekście połączenia zamiast korzystać z dwóch połączeń.
 
 ### <a name="clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address"></a>Moduły CLR i połączone serwery czasami nie mogą odwoływać się do lokalnego adresu IP
 
 Moduły CLR w wystąpieniu zarządzanym SQL i połączone serwery lub zapytania rozproszone, które odwołują się do bieżącego wystąpienia czasami nie mogą rozpoznać adresu IP wystąpienia lokalnego. Ten błąd jest przejściowym problemem.
 
-**Obejście** : Jeśli to możliwe, Użyj połączeń kontekstu w module CLR.
+**Obejście**: Jeśli to możliwe, Użyj połączeń kontekstu w module CLR.
 
 ## <a name="updates"></a>Aktualizacje
 

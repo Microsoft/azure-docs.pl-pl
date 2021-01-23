@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: cc373a67ee0f4ed2e900e7b41cbcb96d31d67b34
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: eafdebc795d5bede7fa52a3562d33c806035697f
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98126890"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704435"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Jak utworzyć transkrypcje z etykietami ludzkimi
 
@@ -47,6 +47,8 @@ Normalizacja tekstu to transformacja wyrazów w spójnym formacie używanym podc
 - Znaki inne niż alfabetyczne lub mieszane znaki alfanumeryczne powinny być uzyskanego jako wymawiane.
 - Skróty, które są wymawiane jako słowa, nie powinny być edytowane (takie jak "radary", "Laser", "RAM" lub "NATO").
 - Napisz skróty, które są wymawiane jako oddzielne litery z każdą literą rozdzieloną spacją.
+- Jeśli używasz dźwięku, transkrypcja liczby jako wyrazy zgodne z dźwiękiem (na przykład "101" można wyróżnić jako "1 0 1" lub "101").
+- Unikaj powtarzających się znaków, słów lub grup wyrazów więcej niż trzy razy, na przykład "Yes Yes Yes". Wiersze z takimi powtórzeniami mogą zostać porzucone przez usługę mowy.
 
 Poniżej przedstawiono kilka przykładów normalizacji, które należy wykonać w transkrypcji:
 

@@ -7,15 +7,15 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: 1a35b80ceec12b378a01555f42b7a0500b8f6229
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 5671ec68901be289a87c23b6883160f9cda2b651
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060456"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733187"
 ---
 # <a name="cross-resource-query-azure-data-explorer-by-using-azure-monitor"></a>Zapytanie dotyczące wielu zasobów Eksplorator danych platformy Azure przy użyciu Azure Monitor
-Azure Monitor obsługuje zapytania międzyusługowe między usługą Azure Eksplorator danych, [Application Insights](/azure/azure-monitor/app/app-insights-overview)i [log Analytics](/azure/azure-monitor/platform/data-platform-logs). Następnie można wykonać zapytanie dotyczące klastra usługi Azure Eksplorator danych przy użyciu narzędzi Log Analytics/Application Insights i odwołać się do niego w kwerendzie międzyusługowej. W tym artykule pokazano, jak utworzyć zapytanie międzyusługowe.
+Azure Monitor obsługuje zapytania międzyusługowe między usługą Azure Eksplorator danych, [Application Insights](../app/app-insights-overview.md)i [log Analytics](./data-platform-logs.md). Następnie można wykonać zapytanie dotyczące klastra usługi Azure Eksplorator danych przy użyciu narzędzi Log Analytics/Application Insights i odwołać się do niego w kwerendzie międzyusługowej. W tym artykule pokazano, jak utworzyć zapytanie międzyusługowe.
 
 Na poniższym diagramie przedstawiono Azure Monitor przepływ między usługami:
 
@@ -62,8 +62,8 @@ Zapytania między różnymi dzierżawcami nie są obsługiwane. Użytkownik jest
 
 Jeśli zasób Eksplorator danych platformy Azure znajduje się w dzierżawie a, Log Analytics obszar roboczy znajduje się w dzierżawie B, użyj jednej z następujących metod:
 
-*  Usługa Azure Eksplorator danych pozwala dodawać role dla podmiotów zabezpieczeń w różnych dzierżawach. Dodaj swój identyfikator użytkownika w dzierżawie B jako autoryzowany użytkownik w klastrze usługi Azure Eksplorator danych. Sprawdź, czy właściwość [TrustedExternalTenant](https://docs.microsoft.com/powershell/module/az.kusto/update-azkustocluster) klastra usługi Azure Eksplorator danych zawiera dzierżawcę b. w pełni wykonaj zapytanie w dzierżawie b.
-*  Użyj [Lighthouse](https://docs.microsoft.com/azure/lighthouse/) , aby zaprojektować zasób Azure monitor w dzierżawie A.
+*  Usługa Azure Eksplorator danych pozwala dodawać role dla podmiotów zabezpieczeń w różnych dzierżawach. Dodaj swój identyfikator użytkownika w dzierżawie B jako autoryzowany użytkownik w klastrze usługi Azure Eksplorator danych. Sprawdź, czy właściwość [TrustedExternalTenant](/powershell/module/az.kusto/update-azkustocluster) klastra usługi Azure Eksplorator danych zawiera dzierżawcę b. w pełni wykonaj zapytanie w dzierżawie b.
+*  Użyj [Lighthouse](../../lighthouse/index.yml) , aby zaprojektować zasób Azure monitor w dzierżawie A.
 
 ## <a name="connect-to-azure-data-explorer-clusters-from-different-tenants"></a>Nawiązywanie połączenia z klastrami Eksplorator danych platformy Azure od różnych dzierżawców
 
@@ -72,6 +72,6 @@ Eksplorator Kusto automatycznie loguje użytkownika do dzierżawy, do której na
 `Data Source=https://ade.applicationinsights.io/subscriptions/SubscriptionId/resourcegroups/ResourceGroupName;Initial Catalog=NetDefaultDB;AAD Federated Security=True;Authority ID=TenantId`
 
 ## <a name="next-steps"></a>Następne kroki
-* [Pisanie zapytań](https://docs.microsoft.com/azure/data-explorer/write-queries)
-* [Wykonywanie zapytań dotyczących danych w Azure Monitor przy użyciu usługi Azure Eksplorator danych](https://docs.microsoft.com/azure/data-explorer/query-monitor-data)
-* [Wykonywanie zapytań dotyczących dzienników wielu zasobów w Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query)
+* [Pisanie zapytań](/azure/data-explorer/write-queries)
+* [Wykonywanie zapytań dotyczących danych w Azure Monitor przy użyciu usługi Azure Eksplorator danych](/azure/data-explorer/query-monitor-data)
+* [Wykonywanie zapytań dotyczących dzienników wielu zasobów w Azure Monitor](../log-query/cross-workspace-query.md)

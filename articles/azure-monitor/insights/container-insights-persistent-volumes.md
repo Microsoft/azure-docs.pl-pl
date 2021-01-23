@@ -3,16 +3,16 @@ title: Konfigurowanie monitorowania PV przy użyciu Azure Monitor dla konteneró
 description: W tym artykule opisano, jak można skonfigurować monitorowanie klastrów Kubernetes z woluminami trwałymi przy użyciu Azure Monitor dla kontenerów.
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.openlocfilehash: e7c547c137fc84e6e6dfb2807b871ef0329a3c13
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d7da6bc88e7c8526e3940714502d3c92d2f37dd8
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186851"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704477"
 ---
 # <a name="configure-pv-monitoring-with-azure-monitor-for-containers"></a>Konfigurowanie monitorowania PV przy użyciu Azure Monitor dla kontenerów
 
-Począwszy od wersji agenta *ciprod10052020*, usługa Azure monitor dla kontenerów Integrated Agent obsługuje teraz użycie funkcji monitorowania PV (trwałego woluminu).
+Począwszy od wersji *ciprod10052020* agenta, Azure monitor dla kontenerów zintegrowany Agent obsługuje teraz użycie funkcji monitorowania PV (trwałego woluminu).
 
 ## <a name="pv-metrics"></a>Metryki PV
 

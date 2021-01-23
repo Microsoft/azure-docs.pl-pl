@@ -13,16 +13,16 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba7b8ff2555fd7014cf16f66745721c6425ff868
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: b40918db03c260f899c36d306c892b787cc6371c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029527"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724895"
 ---
 # <a name="build-resilience-in-your-customer-identity-and-access-management-with-azure-active-directory-b2c"></a>Tworzenie odporności w ramach zarządzania tożsamościami i dostępem klientów przy użyciu Azure Active Directory B2C
 
-[Azure Active Directory (AD) B2C](https://docs.microsoft.com/azure/active-directory-b2c/overview) to platforma zarządzania tożsamościami i dostępem klientów (CIAM), która umożliwia pomyślne uruchamianie krytycznych aplikacji dla klientów. Mamy wiele wbudowanych funkcji [odporności](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability/) , które zaprojektowano, aby ułatwić naszym potrzebom skalowanie usług i zwiększyć odporność na awarie. Ponadto podczas uruchamiania aplikacji o krytycznym znaczeniu należy wziąć pod uwagę różne elementy projektu i konfiguracji w aplikacji, a także sposób konfigurowania aplikacji w ramach Azure AD B2C, aby zapewnić odporny na awarie lub scenariusze niepowodzeń. W tym artykule omówiono niektóre najlepsze rozwiązania, które ułatwiają zwiększenie odporności.
+[Azure Active Directory (AD) B2C](../../active-directory-b2c/overview.md) to platforma zarządzania tożsamościami i dostępem klientów (CIAM), która umożliwia pomyślne uruchamianie krytycznych aplikacji dla klientów. Mamy wiele wbudowanych funkcji [odporności](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability/) , które zaprojektowano, aby ułatwić naszym potrzebom skalowanie usług i zwiększyć odporność na awarie. Ponadto podczas uruchamiania aplikacji o krytycznym znaczeniu należy wziąć pod uwagę różne elementy projektu i konfiguracji w aplikacji, a także sposób konfigurowania aplikacji w ramach Azure AD B2C, aby zapewnić odporny na awarie lub scenariusze niepowodzeń. W tym artykule omówiono niektóre najlepsze rozwiązania, które ułatwiają zwiększenie odporności.
 
 Usługa odporna na błędy jest taka, która kontynuuje działanie Pomimo przerw w działaniu. Możesz pomóc zwiększyć odporność usługi przez:
 
@@ -49,3 +49,6 @@ Podczas opracowywania aplikacji zalecamy rozważenie [zwiększenia odporności u
 - [Tworzenie odporności w infrastrukturze uwierzytelniania](resilience-in-infrastructure.md)
 
 - [Zwiększanie odporności uwierzytelniania i autoryzacji w aplikacjach](resilience-app-development-overview.md)
+
+Obejrzyj ten film wideo, aby dowiedzieć się, jak tworzyć odporne i skalowalne przepływy przy użyciu Azure AD B2C.
+>[!Video https://www.youtube.com/embed/8f_Ozpw9yTs]

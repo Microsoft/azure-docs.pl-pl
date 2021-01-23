@@ -1,16 +1,16 @@
 ---
 title: Obsługiwane regiony połączonego obszaru roboczego usługi Log Analytics
 description: W tym artykule opisano obsługiwane mapowania regionów między kontem usługi Automation a obszarem roboczym Log Analytics, które odnoszą się do niektórych funkcji Azure Automation.
-ms.date: 12/15/2020
+ms.date: 01/21/2021
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 95537bd54ecb476055608c89ac68a46d410288b6
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 3b744127b51b0e0db63c158feaf463af4cd0bdcf
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590889"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704325"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Obsługiwane regiony połączonego obszaru roboczego usługi Log Analytics
 
@@ -32,13 +32,17 @@ W poniższej tabeli przedstawiono obsługiwane mapowania:
 |**USA**||
 |Wschodnie<sup>1</sup>|EastUS2|
 |EastUS2<sup>2</sup>|EastUS|
+|WestUS|WestUS|
 |WestUS2|WestUS2|
+|CentralUS|CentralUS|
 |SouthCentralUS|SouthCentralUS|
 |WestCentralUS|WestCentralUS|
 |**Kanada**||
 |CanadaCentral|CanadaCentral|
 |**Azja i Pacyfik**||
+|AustraliaEast|AustraliaEast|
 |AustraliaSoutheast|AustraliaSoutheast|
+|EastAsia|EastAsia|
 |SoutheastAsia|SoutheastAsia|
 |CentralIndia|CentralIndia|
 |ChinaEast2<sup>3</sup>|ChinaEast2|

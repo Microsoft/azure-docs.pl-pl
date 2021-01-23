@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: article
 ms.date: 06/8/2020
 ms.author: chenyl
-ms.openlocfilehash: 4f70cbacf686210c1188cb0a87e6116af8ed4b01
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: dee15977318eda7bcd0b1950286bb33f621221dd
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763188"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98731588"
 ---
 # <a name="managed-identities-for-azure-signalr-service"></a>Zarządzane tożsamości dla usługi Azure Signal Service
 
@@ -104,7 +104,7 @@ Usługa sygnalizująca może uzyskać dostęp do Key Vault, aby uzyskać klucz t
 
 1. Dodaj tożsamość przypisaną do systemu lub tożsamość przypisaną przez użytkownika dla usługi Azure Signal Service.
 
-2. Przyznaj uprawnienia do odczytu dla tożsamości zarządzanej w zasadach dostępu w Key Vault. Zobacz [przypisywanie zasad dostępu Key Vault przy użyciu Azure Portal](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
+2. Przyznaj uprawnienia do odczytu dla tożsamości zarządzanej w zasadach dostępu w Key Vault. Zobacz [przypisywanie zasad dostępu Key Vault przy użyciu Azure Portal](../key-vault/general/assign-access-policy-portal.md)
 
 Obecnie ta funkcja może być używana w następujących scenariuszach:
 

@@ -3,12 +3,12 @@ title: Skonfiguruj Azure Backup Server rozwiązania VMware dla platformy Azure
 description: Skonfiguruj środowisko rozwiązań VMware platformy Azure, aby tworzyć kopie zapasowe maszyn wirtualnych przy użyciu Azure Backup Server.
 ms.topic: how-to
 ms.date: 10/23/2020
-ms.openlocfilehash: e71ec19402d22643d51f1435d1abcf56b20a290b
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 7885c0bc73bd5f7cd802e76ed9db470f77eda30d
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517382"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703406"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Skonfiguruj Azure Backup Server rozwiązania VMware dla platformy Azure
 
@@ -154,7 +154,7 @@ Magazyn Recovery Services jest jednostką magazynową, która przechowuje punkty
 
    Zostanie otwarte okno dialogowe **Magazyn usługi Recovery Services**.
 
-1. Wprowadź wartości dla **nazwy**, **subskrypcji**, **grupy zasobów**i **lokalizacji**.
+1. Wprowadź wartości dla **nazwy**, **subskrypcji**, **grupy zasobów** i **lokalizacji**.
 
    ![Skonfiguruj magazyn Recovery Services.](../backup/media/backup-create-rs-vault/create-new-vault-dialog.png)
 
@@ -178,9 +178,9 @@ Opcja replikacja magazynu umożliwia wybranie między magazynem geograficznie na
 > [!IMPORTANT]
 > Przed skonfigurowaniem kopii zapasowych w magazynie należy najpierw zmienić ustawienie **typu replikacji magazynu lokalnie nadmiarowego i geograficznie** nadmiarowego dla magazynu Recovery Services. Po skonfigurowaniu kopii zapasowych, opcja modyfikacji jest wyłączona i nie można zmienić typu replikacji magazynu.
 
-1. W obszarze **magazyny Recovery Services**wybierz nowy magazyn. 
+1. W obszarze **magazyny Recovery Services** wybierz nowy magazyn. 
 
-1. W obszarze **Ustawienia** wybierz pozycję **Właściwości**. W obszarze **Konfiguracja kopii zapasowej**wybierz pozycję **Aktualizuj**.
+1. W obszarze **Ustawienia** wybierz pozycję **Właściwości**. W obszarze **Konfiguracja kopii zapasowej** wybierz pozycję **Aktualizuj**.
 
 1. Wybierz typ replikacji magazynu i wybierz pozycję **Zapisz**.
 
@@ -190,7 +190,7 @@ Wykonaj kroki opisane w tej sekcji, aby pobrać, wyodrębnić i zainstalować pa
 
 ### <a name="download-the-software-package"></a>Pobierz pakiet oprogramowania
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 1. Jeśli masz już otwarty magazyn Recovery Services, przejdź do następnego kroku. Jeśli nie masz otwartego magazynu Recovery Services i masz Azure Portal, w menu głównym wybierz pozycję **Przeglądaj**.
 
@@ -218,21 +218,21 @@ Wykonaj kroki opisane w tej sekcji, aby pobrać, wyodrębnić i zainstalować pa
 
    1. W menu **gdzie jest uruchomione Twoje obciążenie?** wybierz pozycję **lokalnie**.
 
-      :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-on-premises-workload.png" alt-text="Azure Backup Server jest wdrażana jako maszyna wirtualna platformy Azure jako usługa (IaaS) w celu ochrony maszyn wirtualnych rozwiązań VMware platformy Azure.":::
+      :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-on-premises-workload.png" alt-text="Gdzie działa Twoje obciążenie?":::
 
    1. Z menu **co chcesz utworzyć kopię zapasową?** wybierz obciążenia, które chcesz chronić za pomocą Azure Backup Server.
 
    1. Wybierz pozycję **Przygotuj infrastrukturę** , aby pobrać i zainstalować Azure Backup Server i poświadczenia magazynu.
 
-      :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-prepare-infrastructure.png" alt-text="Azure Backup Server jest wdrażana jako maszyna wirtualna platformy Azure jako usługa (IaaS) w celu ochrony maszyn wirtualnych rozwiązań VMware platformy Azure.":::
+      :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-prepare-infrastructure.png" alt-text="Przygotuj infrastrukturę":::
 
 1. W otwartym oknie **infrastruktura przygotowania** :
 
    1. Wybierz link **pobierania** , aby zainstalować Azure Backup Server.
 
-   1. 1. Wybierz **już pobranie lub użycie najnowszej instalacji Azure Backup Server** a następnie **Pobierz** , aby pobrać poświadczenia magazynu. Te poświadczenia będą używane podczas rejestrowania Azure Backup Server w magazynie Recovery Services. Linki prowadzą do centrum pobierania, w którym pobierasz pakiet oprogramowania.
+   1. Wybierz **już pobranie lub użycie najnowszej instalacji Azure Backup Server** a następnie **Pobierz** , aby pobrać poświadczenia magazynu. Te poświadczenia będą używane podczas rejestrowania Azure Backup Server w magazynie Recovery Services. Linki prowadzą do centrum pobierania, w którym pobierasz pakiet oprogramowania.
 
-   :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-prepare-infrastructure2.png" alt-text="Azure Backup Server jest wdrażana jako maszyna wirtualna platformy Azure jako usługa (IaaS) w celu ochrony maszyn wirtualnych rozwiązań VMware platformy Azure.":::
+   :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-prepare-infrastructure2.png" alt-text="Przygotuj infrastrukturę — Azure Backup Server":::
 
 1. Na stronie Pobieranie zaznacz wszystkie pliki i wybierz pozycję **dalej**.
 
@@ -263,7 +263,7 @@ Jeśli pakiet oprogramowania został pobrany na inny serwer, skopiuj pliki na ut
 
 ### <a name="install-the-software-package"></a>Zainstaluj pakiet oprogramowania
 
-1. W oknie instalatora w obszarze **Instalacja**wybierz pozycję **Microsoft Azure Backup** , aby otworzyć Kreatora instalacji.
+1. W oknie instalatora w obszarze **Instalacja** wybierz pozycję **Microsoft Azure Backup** , aby otworzyć Kreatora instalacji.
 
    ![W oknie instalatora w obszarze Instalacja wybierz pozycję Microsoft Azure Backup, aby otworzyć Kreatora instalacji.](../backup/media/backup-azure-microsoft-azure-backup/launch-screen2.png)
 
@@ -303,9 +303,9 @@ Jeśli pakiet oprogramowania został pobrany na inny serwer, skopiuj pliki na ut
    W przypadku konfiguracji usług SSRS należy użyć następujących wartości:
 
    * **Konto usługi**: **Użyj wbudowanego konta** powinno być **Usługa sieciowa**.
-   * **Adres URL usługi sieci Web**: **katalog wirtualny** powinien być **ReportServer_ \<SQLInstanceName> **.
+   * **Adres URL usługi sieci Web**: **katalog wirtualny** powinien być **ReportServer_ \<SQLInstanceName>**.
    * **Baza danych**: **DatabaseName** powinna być **reportserver \<SQLInstanceName> $**.
-   * **Adres URL portalu sieci Web**: **katalog wirtualny** powinien być **Reports_ \<SQLInstanceName> **.
+   * **Adres URL portalu sieci Web**: **katalog wirtualny** powinien być **Reports_ \<SQLInstanceName>**.
 
    [Dowiedz się więcej](/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode) o konfiguracji usług SSRS.
 
