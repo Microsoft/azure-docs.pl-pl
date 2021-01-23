@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
-ms.openlocfilehash: ce7c0cba4a231fbdb33679f8cdac7d57c79845f5
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: afcc7ad34807b74fa0b1ddaaa29223d8a6e25584
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968878"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702223"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Mapowanie schematu i typu danych w działaniu kopiowania
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -39,7 +39,7 @@ Można również określić jawne mapowanie, aby dostosować mapowanie kolumn/p�
 2. Stosuje zdefiniowane mapowanie.
 3. Zapisuje dane do ujścia.
 
-Dowiedz się więcej:
+Dowiedz się więcej na następujące tematy:
 
 - [Źródło tabelaryczne z obiektem sink tabelarycznych](#tabular-source-to-tabular-sink)
 - [Źródło hierarchiczne do obiektu sink tabelaryczne](#hierarchical-source-to-tabular-sink)
@@ -185,6 +185,9 @@ Można zdefiniować takie mapowanie w interfejsie użytkownika Data Factory twor
 2. Wybierz tablicę, z której chcesz wykonać iterację i wyodrębnić dane. Zostanie ono automatycznie wypełnione jako **odwołanie do kolekcji**. Uwaga dla tej operacji jest obsługiwana tylko jedna tablica.
 
 3. Zamapuj odpowiednie pola na obiekt sink. Data Factory automatycznie określa odpowiednie ścieżki JSON dla strony hierarchicznej.
+
+> [!NOTE]
+> Dla rekordów, w których tablica oznaczona jako odwołanie do kolekcji jest pusta, a pole wyboru jest zaznaczone, cały rekord zostanie pominięty.
 
 ![Mapuj hierarchiczne do tabelaryczne przy użyciu interfejsu użytkownika](media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-ui.png)
 

@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: alkohli
-ms.openlocfilehash: 3df8f75a726639e87157a1aa7fd9ff4d35c0ef4f
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 103e4453ecf848822db0d82bc13e93b0c8c68331
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654629"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702138"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: często zadawane pytania
 
@@ -66,7 +66,7 @@ Na przykład jeśli chcesz przenieść dane z lokalizacji w Kanadzie do konta ma
 
 ### <a name="option-1"></a>Opcja 1. 
 
-Wyślij [obsługiwany dysk](../storage/common/storage-import-export-requirements.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#supported-disks) zawierający dane za pomocą [usługi Azure Import/Export](../storage/common/storage-import-export-service.md) z lokalizacji źródłowej w Kanadzie do lokalnego centrum danych platformy Azure zachodnie stany USA.
+Wyślij [obsługiwany dysk](../import-export/storage-import-export-requirements.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#supported-disks) zawierający dane za pomocą [usługi Azure Import/Export](../import-export/storage-import-export-service.md) z lokalizacji źródłowej w Kanadzie do lokalnego centrum danych platformy Azure zachodnie stany USA.
 
 ### <a name="option-2"></a>Opcja 2.
 
@@ -87,7 +87,7 @@ A.  Aby uzyskać Azure Data Box Disk, zaloguj się do Azure Portal i Utwórz zam
 ### <a name="q-i-couldnt-create-a-data-box-disk-order-in-the-azure-portal-why"></a>PYTANIE: Nie można utworzyć kolejności Data Box Disk w Azure Portal. Dlaczego?
 A. Jeśli nie możesz utworzyć kolejności Data Box Disk, wystąpił problem z typem subskrypcji lub dostępem.
 
-Sprawdź swoją subskrypcję. Data Box Disk jest dostępna tylko dla ofert subskrypcji Umowa Enterprise (EA) i dostawcy rozwiązań w chmurze (CSP). Jeśli nie masz żadnego z tych typów subskrypcji, skontaktuj się z pomoc techniczna firmy Microsoft, aby uaktualnić subskrypcję.
+Sprawdź swoją subskrypcję. Data Box Disk jest dostępna tylko dla ofert subskrypcji Enterprise Agreement (EA) i dostawcy rozwiązań w chmurze (CSP). Jeśli nie masz żadnego z tych typów subskrypcji, skontaktuj się z pomoc techniczna firmy Microsoft, aby uaktualnić subskrypcję.
 
 Jeśli masz obsługiwany typ oferty subskrypcji, sprawdź poziom dostępu swojej subskrypcji. Musisz być współautorem lub właścicielem subskrypcji, aby utworzyć zamówienie.
 

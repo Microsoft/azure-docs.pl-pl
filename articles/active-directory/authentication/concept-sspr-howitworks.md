@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5bcc6503af5f5f685ee589ed7671b4715834fef
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 496a8dba9b9ea7fb82ad9016479154d6a61cb767
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779366"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703279"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Jak to działa: Samoobsługowe resetowania hasła usługi Azure AD
 
@@ -103,7 +103,7 @@ Dla SSPR są dostępne następujące metody uwierzytelniania:
 
 * Powiadomienie aplikacji mobilnej
 * Kod aplikacji mobilnej
-* Poczta e-mail
+* E-mail
 * Telefon komórkowy
 * Telefon służbowy
 * Pytania zabezpieczające
@@ -137,7 +137,7 @@ W przypadku korzystania z aplikacji mobilnej jako metody resetowania hasła, tak
 Użytkownicy nie mają możliwości zarejestrowania aplikacji mobilnej podczas rejestrowania do samoobsługowego resetowania hasła [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) . Użytkownicy mogą rejestrować swoją aplikację mobilną w usłudze [https://aka.ms/mfasetup](https://aka.ms/mfasetup) lub w ramach rejestracji informacji o zabezpieczeniach w usłudze [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo) .
 
 > [!IMPORTANT]
-> Nie można wybrać aplikacji Authenticator jako jedynej metody uwierzytelniania, gdy wymagana jest tylko Metoda. Podobnie nie można wybrać aplikacji Authenticator i tylko jednej metody dodatkowej, gdy wymagane są dwie metody.
+> Nie można wybrać aplikacji Authenticator jako jedynej metody uwierzytelniania, gdy wymagana jest tylko jedna metoda. Podobnie nie można wybrać aplikacji Authenticator i tylko jednej metody dodatkowej, gdy wymagane są dwie metody.
 >
 > Podczas konfigurowania zasad SSPR, które obejmują aplikację Authenticator jako metodę, należy wybrać co najmniej jedną dodatkową metodę, gdy wymagana jest jedna metoda, i należy wybrać co najmniej dwie dodatkowe metody, gdy wymagane jest skonfigurowanie dwóch metod.
 >

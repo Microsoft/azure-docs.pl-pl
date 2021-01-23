@@ -4,15 +4,15 @@ description: QnA Maker to oparta na chmurze usługa NLP, która w prosty sposób
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 05/26/2020
+ms.date: 01/22/2021
 ms.custom: cog-serv-seo-aug-2020
 keywords: QNA Maker, niska Code Chat botów, wielostopniowe konwersacje
-ms.openlocfilehash: 9655f64da455fb7a7124a97e6dc2d1d8437d05b7
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 16f30801d52aa46184c4eb394f3d1cfebecd4be6
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353140"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98700722"
 ---
 # <a name="what-is-qna-maker"></a>Co jest usługa QnA Maker?
 
@@ -63,7 +63,7 @@ Po edytowaniu bazy wiedzy Opublikuj bazę wiedzy w działającej [aplikacji inte
 
 System QnA Maker jest podejściem z klasyfikacją warstwową. Dane są przechowywane w usłudze Azure Search, która również pełni rolę pierwszej warstwy klasyfikacyjnej. Najważniejsze wyniki z usługi Azure Search są następnie przenoszone QnA Maker przez NLPy model zmiany klasyfikacji, aby utworzyć końcowe wyniki i wynik pewności.
 
-## <a name="multi-turn-conversations"></a>Konwersacje z obsługą wielodostępności
+## <a name="multi-turn-conversations"></a>Konwersacje wieloetapowe
 
 QnA Maker zapewnia wielodostępne i aktywne uczenie, aby pomóc w ulepszaniu podstawowych par pytań i odpowiedzi.
 
@@ -85,8 +85,6 @@ Oferujemy Przewodniki Szybki Start w najpopularniejszych językach programowania
 
 * [Wprowadzenie do biblioteki klienta QnA Maker](../quickstarts/quickstart-sdk.md)
 * [Rozpoczynanie pracy z portalem QnA Maker](../quickstarts/create-publish-knowledge-base.md)
-* [Wprowadzenie do QnA Maker interfejsów API REST](../quickstarts/quickstart-rest-curl.md)
-
 
 ## <a name="next-steps"></a>Następne kroki
 QnA Maker zapewnia wszystko, co jest potrzebne do kompilowania i wdrażania niestandardowej bazy wiedzy oraz zarządzania nią.

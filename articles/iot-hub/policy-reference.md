@@ -1,18 +1,18 @@
 ---
 title: Wbudowane definicje zasad dla usługi Azure IoT Hub
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla IoT Hub platformy Azure. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 01/08/2021
+ms.date: 01/21/2021
 ms.topic: reference
 author: robinsh
 ms.author: robinsh
 ms.service: iot-hub
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 0fff6321764f66ec203fdee73d23ada49f2364dc
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 772d50ad4e8ba5b1df4e94c3146a7582f746c012
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98043640"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703155"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-iot-hub"></a>Azure Policy wbudowane definicje dla platformy Azure IoT Hub
 

@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 author: alkohli
 services: storage
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/17/2018
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: 5aa64671cddf2542972ac753c0132a5abebaebfb
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8ed57cd39580474925e781f3ec8fb05a2299a937
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "67183445"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98701648"
 ---
 Po wysłaniu dysków Wróć na stronę **Importuj/Eksportuj** na Azure Portal. 
 
@@ -26,4 +26,4 @@ Aby zaktualizować numer śledzenia, wykonaj następujące czynności.
 2. Kliknij pozycję **Aktualizuj stan zadania i informacje śledzenia po wysłaniu dysków**. 
 3. Zaznacz pole wyboru obok pola **Oznacz jako wysłane**.
 4. Podaj numer **operatora** i **śledzenia**.
-5. Śledź postęp zadania na pulpicie nawigacyjnym portalu. Aby zapoznać się z opisem każdego stanu zadania, przejdź do [widoku stanu zadania](../articles/storage/common/storage-import-export-view-drive-status.md).
+5. Śledź postęp zadania na pulpicie nawigacyjnym portalu. Aby zapoznać się z opisem każdego stanu zadania, przejdź do [widoku stanu zadania](../articles/import-export/storage-import-export-view-drive-status.md).

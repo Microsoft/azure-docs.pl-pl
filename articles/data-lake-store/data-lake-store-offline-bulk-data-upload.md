@@ -6,16 +6,16 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: d04a5c0e53e9a5db8bba03a5a9e9d95b87a8b5a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 940b7ac90f85e0254d59459b70ccc15312cd69f4
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85855668"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98700843"
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-storage-gen1"></a>Użyj usługi Azure Import/Export do kopiowania danych w trybie offline do Data Lake Storage Gen1
 
-W tym artykule dowiesz się, jak kopiować ogromne zestawy danych (>200 GB) do Data Lake Storage Gen1 przy użyciu metod kopiowania w trybie offline, takich jak [usługa Azure Import/Export](../storage/common/storage-import-export-service.md). W odniesieniu do pliku używanego jako przykład w tym artykule przedstawiono 339 420 860 416 b lub około 319 GB na dysku. Wywołajmy ten plik 319GB. tsv.
+W tym artykule dowiesz się, jak kopiować ogromne zestawy danych (>200 GB) do Data Lake Storage Gen1 przy użyciu metod kopiowania w trybie offline, takich jak [usługa Azure Import/Export](../import-export/storage-import-export-service.md). W odniesieniu do pliku używanego jako przykład w tym artykule przedstawiono 339 420 860 416 b lub około 319 GB na dysku. Wywołajmy ten plik 319GB. tsv.
 
 Usługa Azure Import/Export ułatwia bezpieczne przesyłanie dużych ilości danych do usługi Azure Blob Storage przez wysyłanie dysków twardych do centrum danych platformy Azure.
 
@@ -44,7 +44,7 @@ Operacja Split tworzy pliki o następujących nazwach.
 
 ## <a name="get-disks-ready-with-data"></a>Pobierz dyski gotowe do danych
 
-Postępuj zgodnie z instrukcjami w temacie [Korzystanie z usługi Azure Import/Export](../storage/common/storage-import-export-service.md) (w sekcji **przygotowanie dysków** ), aby przygotować dyski twarde. Oto ogólna sekwencja:
+Postępuj zgodnie z instrukcjami w temacie [Korzystanie z usługi Azure Import/Export](../import-export/storage-import-export-service.md) (w sekcji **przygotowanie dysków** ), aby przygotować dyski twarde. Oto ogólna sekwencja:
 
 1. Pozyskaj dysk twardy, który spełnia wymagania, aby można było użyć usługi Azure Import/Export.
 2. Określ konto usługi Azure Storage, na którym zostaną skopiowane dane po wysłaniu do centrum danych platformy Azure.
@@ -53,12 +53,12 @@ Postępuj zgodnie z instrukcjami w temacie [Korzystanie z usługi Azure Import/E
     ```
     WAImportExport PrepImport /sk:<StorageAccountKey> /t: <TargetDriveLetter> /format /encrypt /logdir:e:\myexportimportjob\logdir /j:e:\myexportimportjob\journal1.jrn /id:myexportimportjob /srcdir:F:\demo\ExImContainer /dstdir:importcontainer/vf1/
     ```
-    Zobacz [Korzystanie z usługi Azure Import/Export,](../storage/common/storage-import-export-service.md) Aby uzyskać więcej przykładowych fragmentów kodu.
+    Zobacz [Korzystanie z usługi Azure Import/Export,](../import-export/storage-import-export-service.md) Aby uzyskać więcej przykładowych fragmentów kodu.
 4. Poprzednie polecenie tworzy plik dziennika w określonej lokalizacji. Ten plik dziennika służy do tworzenia zadania importowania z [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-an-import-job"></a>Tworzenie zadania importu
 
-Teraz można utworzyć zadanie importu, korzystając z instrukcji w sekcji [Korzystanie z usługi Azure Import/Export](../storage/common/storage-import-export-service.md) (w obszarze **Tworzenie zadania importowania** ). W przypadku tego zadania importowania z innymi szczegółami Podaj również plik dziennika utworzony podczas przygotowywania stacji dysków.
+Teraz można utworzyć zadanie importu, korzystając z instrukcji w sekcji [Korzystanie z usługi Azure Import/Export](../import-export/storage-import-export-service.md) (w obszarze **Tworzenie zadania importowania** ). W przypadku tego zadania importowania z innymi szczegółami Podaj również plik dziennika utworzony podczas przygotowywania stacji dysków.
 
 ## <a name="physically-ship-the-disks"></a>Fizyczne dostarczanie dysków
 

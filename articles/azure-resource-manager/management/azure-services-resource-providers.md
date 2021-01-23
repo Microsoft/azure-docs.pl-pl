@@ -3,12 +3,12 @@ title: Dostawcy zasobów według usług platformy Azure
 description: Wyświetla listę wszystkich przestrzeni nazw dostawcy zasobów dla Azure Resource Manager i pokazuje usługę platformy Azure dla tej przestrzeni nazw.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 5e89b2b7cf7c27a501d93f63c74d81d8fb40883c
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: c319a6d06cbbcf5d36178c37207cc13f295a5897
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033548"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702857"
 ---
 # <a name="resource-providers-for-azure-services"></a>Dostawcy zasobów dla usług platformy Azure
 
@@ -80,7 +80,7 @@ Dostawcy zasobów, którzy są oznaczeni jako **zarejestrowany** , są domyślni
 | Microsoft. DBforMariaDB | [Azure Database for MariaDB](../../mariadb/index.yml) |
 | Microsoft. DBforMySQL | [Azure Database for MySQL](../../mysql/index.yml) |
 | Microsoft. DBforPostgreSQL | [Azure Database for PostgreSQL](../../postgresql/index.yml) |
-| Microsoft. Deploymentmanager | [Menedżer wdrażania platformy Azure](../templates/deployment-manager-overview.md) |
+| Microsoft. Deploymentmanager | [Deployment Manager platformy Azure](../templates/deployment-manager-overview.md) |
 | Microsoft. DesktopVirtualization | [Windows Virtual Desktop](../../virtual-desktop/index.yml) |
 | Microsoft.Devices | [Azure IoT Hub](../../iot-hub/index.yml)<br />[Usługa Azure IoT Hub Device Provisioning](../../iot-dps/index.yml) |
 | Microsoft. DevOps | [Azure DevOps](/azure/devops/) |
@@ -102,7 +102,7 @@ Dostawcy zasobów, którzy są oznaczeni jako **zarejestrowany** , są domyślni
 | Microsoft. HybridCompute | [Azure Arc](../../azure-arc/index.yml) |
 | Microsoft. HybridData | [StorSimple](../../storsimple/index.yml) |
 | Microsoft. HybridNetwork  | [Prywatne strefy brzegowe](../../networking/edge-zones-overview.md) |
-| Microsoft. ImportExport | [Usługa Azure Import/Export](../../storage/common/storage-import-export-service.md) |
+| Microsoft. ImportExport | [Usługa Azure Import/Export](../../import-export/storage-import-export-service.md) |
 | Microsoft. Insights | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft. IoTCentral | [Azure IoT Central](../../iot-central/index.yml) |
 | Microsoft. IoTSpaces | [Azure Digital Twins](../../digital-twins/index.yml) |

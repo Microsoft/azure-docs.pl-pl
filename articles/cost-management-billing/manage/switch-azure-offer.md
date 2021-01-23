@@ -1,30 +1,30 @@
 ---
 title: Zmienianie oferty subskrypcji platformy Azure
-description: Dowiedz się, jak zmienić subskrypcję platformy Azure i przełączyć się do innej oferty przy użyciu Centrum konta platformy Azure.
+description: Dowiedz się, jak zmienić subskrypcję platformy Azure i przełączyć się na inną ofertę.
 author: bandersmsft
 ms.reviewer: amberb
 tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 01/20/2021
 ms.author: banders
-ms.openlocfilehash: e62ea7052420e2d0c20b99935659a5443540a942
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
-ms.translationtype: HT
+ms.openlocfilehash: dd8040effc5972d86e620793e437f5b185e12603
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686823"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685467"
 ---
 # <a name="change-your-azure-subscription-to-a-different-offer"></a>Zmienianie subskrypcji platformy Azure na inną ofertę
 
-Jako klient z [indywidualną subskrypcją z płatnością zgodnie z rzeczywistym użyciem](https://azure.microsoft.com/offers/ms-azr-0003p/) możesz przełączyć swoją subskrypcję platformy Azure na inną ofertę w [Centrum konta](https://account.windowsazure.com/Subscriptions). Na przykład możesz użyć tej funkcji, aby skorzystać z [miesięcznych środków dla subskrybentów programu Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Jako klient z subskrypcją z [płatność zgodnie z rzeczywistym](https://azure.microsoft.com/offers/ms-azr-0003p/) użyciem możesz przełączyć swoją subskrypcję platformy Azure na inną ofertę w Azure Portal. Na przykład możesz użyć tej funkcji, aby skorzystać z [miesięcznych środków dla subskrybentów programu Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 **Chcesz tylko podwyższyć poziom z bezpłatnej wersji próbnej?** Zobacz [Podwyższanie poziomu subskrypcji](upgrade-azure-subscription.md).
 
 ## <a name="whats-supported"></a>Jakie operacje są obsługiwane:
 
-Możesz przełączać się z pojedynczej subskrypcji z płatnością zgodnie z rzeczywistym użyciem na następujące oferty:
+Subskrypcję z opcją płatność zgodnie z rzeczywistym użyciem można zmienić na:
 
 - [Płatność zgodnie z rzeczywistym użyciem — tworzenie i testowanie](https://azure.microsoft.com/offers/ms-azr-0023p/)
 - [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)
@@ -35,43 +35,31 @@ Możesz przełączać się z pojedynczej subskrypcji z płatnością zgodnie z r
 
 > [!NOTE]
 > Aby uzyskać informacje o innych zmianach ofert, [skontaktuj się z pomocą techniczną](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
->
->
 
 ## <a name="switch-subscription-offer"></a>Przełączanie oferty subskrypcji
 
-> [!VIDEO https://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/Switch-to-a-different-Azure-offer/player]
->
->
-
-1. Zaloguj się do [Centrum konta platformy Azure](https://account.windowsazure.com/Subscriptions).
-1. Wybierz pojedynczą subskrypcję z płatnością zgodnie z rzeczywistym użyciem.
-1. Kliknij pozycję **Przełącz na inną ofertę**. Ta opcja jest dostępna tylko wtedy, gdy masz indywidualną subskrypcję z płatnością zgodnie z rzeczywistym użyciem i ukończono pierwszy okres rozliczeniowy.
-
-   ![Zwróć uwagę na przycisk Przełącz ofertę po prawej stronie](./media/switch-azure-offer/switchbutton.png)
-1. **Wybierz żądaną ofertę** na liście ofert, na które można przełączyć Twoją subskrypcję. Ta lista różni się w zależności od członkostwa, z którym jest skojarzone Twoje konto. Jeśli żadna oferta nie jest dostępna, sprawdź [listę dostępnych ofert, na które możesz się przełączyć](#whats-supported) i upewnij się, że masz właściwe członkostwo.
-
-   ![Wybór oferty, do której ma nastąpić przełączenie](./media/switch-azure-offer/selectoffer.png)
-1. W zależności od wybranej oferty możesz zobaczyć uwagę dotyczącą wpływu przełączenia. Przed przejściem dalej przejrzyj tę listę uważnie i postępuj zgodnie z instrukcjami.
-
-   ![Przeglądanie uwag](./media/switch-azure-offer/thingstonote.png)
-1. Możesz zmienić nazwę subskrypcji. Domyślnie nie jest ustawiona nowa nazwa oferty. Kliknij przycisk **Przełącz ofertę**, aby zakończyć proces.
-
-   ![Kliknięcie zielonego przycisku](./media/switch-azure-offer/confirmpage.png)
-1. To wszystko! Twoja subskrypcja została przełączona do nowej oferty.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Przejdź do pozycji **subskrypcje** , a następnie wybierz subskrypcję z opcją płatność zgodnie z rzeczywistym użyciem.
+1. W górnej części strony wybierz pozycję **Przełącz ofertę**. Ta opcja jest dostępna tylko wtedy, gdy masz subskrypcję z płatnością zgodnie z rzeczywistym użyciem i ukończono pierwszy okres rozliczeniowy.  
+    :::image type="content" source="./media/switch-azure-offer/switch-offer.png" alt-text="ALTImage przedstawiające szczegóły subskrypcji z ofertą przełączania optionTEXT" lightbox="./media/switch-azure-offer/switch-offer.png" :::
+1. Wybierz żądaną ofertę z listy ofert, do których można przełączyć subskrypcję. Ta lista różni się w zależności od członkostwa, z którym jest skojarzone Twoje konto. Jeśli żadna oferta nie jest dostępna, sprawdź [listę dostępnych ofert, na które możesz się przełączyć](#whats-supported) i upewnij się, że masz właściwe członkostwo. Następnie wybierz przycisk **Dalej**.
+    :::image type="content" source="./media/switch-azure-offer/select-offer.png" alt-text="Wybór oferty, do której ma nastąpić przełączenie" lightbox="./media/switch-azure-offer/select-offer.png" :::
+    W zależności od wybranej oferty możesz zobaczyć uwagę dotyczącą wpływu przełączenia. Przed przejściem dalej przejrzyj tę listę uważnie i postępuj zgodnie z instrukcjami. Może być również konieczne zweryfikowanie numeru telefonu.
+1. Po przejrzeniu jakichkolwiek notatek lub sprawdzeniu numeru telefonu wybierz pozycję **Przełącz ofertę**.
+1. Twoja subskrypcja została przełączona do nowej oferty.
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 W poniższych sekcjach zamieszczono odpowiedzi na często zadawane pytania.
 
 ### <a name="what-is-an-azure-offer"></a>Co to jest oferta platformy Azure?
 
-Oferta platformy Azure to *typ* posiadanej subskrypcji platformy Azure. Ofertami platformy Azure są na przykład [subskrypcja ze stawkami płatności zgodnie z rzeczywistym użyciem](https://azure.microsoft.com/offers/ms-azr-0003p/), [Azure w ramach programu licencjonowania Open](https://azure.microsoft.com/offers/ms-azr-0111p/) i [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/). Każda oferta ma inne [warunki](https://azure.microsoft.com/support/legal/offer-details/), a niektóre z nich mają specjalne korzyści. Ofertę Twojej subskrypcji możesz znaleźć na stronie subskrypcji w Centrum konta. Kliknij nazwę oferty, aby uzyskać więcej szczegółów.
+Oferta platformy Azure to *typ* posiadanej subskrypcji platformy Azure. Ofertami platformy Azure są na przykład [subskrypcja ze stawkami płatności zgodnie z rzeczywistym użyciem](https://azure.microsoft.com/offers/ms-azr-0003p/), [Azure w ramach programu licencjonowania Open](https://azure.microsoft.com/offers/ms-azr-0111p/) i [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/). Każda oferta ma inne [warunki](https://azure.microsoft.com/support/legal/offer-details/), a niektóre z nich mają specjalne korzyści. Oferta subskrypcji zostanie wyświetlona na stronie szczegółów subskrypcji.
 
-   ![Kliknięcie linku oferty w Centrum konta w celu uzyskania dodatkowych szczegółów](./media/switch-azure-offer/offerlink01.png)
+:::image type="content" source="./media/switch-azure-offer/subscription-details.png" alt-text="Strona szczegółów subskrypcji przedstawiająca typ oferty" lightbox="./media/switch-azure-offer/subscription-details.png" :::
 
 ### <a name="why-dont-i-see-the-button"></a>Dlaczego nie widzę tego przycisku?
 
-Opcja **Przełącz na inną ofertę** może nie być widoczna z następujących powodów:
+Opcja **Przełącz ofertę** może nie być widoczna, jeśli:
 
 * Nie masz [subskrypcji ze stawką płatności zgodnie z rzeczywistym użyciem](https://azure.microsoft.com/offers/ms-azr-0003p/). Obecnie tylko subskrypcje ze stawką płatności zgodnie z rzeczywistym użyciem mogą być konwertowane na inną ofertę.
   * Jeśli masz [bezpłatną wersję próbną](https://azure.microsoft.com/free/), dowiedz się, jak [podwyższyć poziom planu do subskrypcji rozliczanej zgodnie z rzeczywistym użyciem](upgrade-azure-subscription.md).
@@ -85,7 +73,7 @@ Opcja **Przełącz na inną ofertę** może nie być widoczna z następujących 
 
 ### <a name="what-does-switching-azure-offers-do-to-my-service-and-billing"></a>Jaki wpływ ma przełączanie ofert platformy Azure na moje usługi lub rozliczenia?
 
-Poniżej znajdują się szczegółowe informacje o tym, co się dzieje po przełączeniu ofert platformy Azure w Centrum konta.
+Poniżej znajdują się szczegółowe informacje o tym, co się dzieje po przełączeniu ofert platformy Azure.
 
 #### <a name="no-service-downtime"></a>Brak przestojów usługi
 
@@ -102,7 +90,7 @@ W dniu przełączenia ofert zostanie wygenerowana faktura na wszystkie zaległe 
 ### <a name="can-i-migrate-from-a-subscription-with-pay-as-you-go-rates-to-cloud-solution-provider-csp-or-enterprise-agreement-ea"></a>Czy mogę przeprowadzić migrację z subskrypcji ze stawkami płatności zgodnie z rzeczywistym użyciem do programu Cloud Solution Provider (CSP) lub umowy Enterprise Agreement (EA)?
 
 * Jeśli chcesz przeprowadzić migrację do programu CSP, zobacz [Przenoszenie subskrypcji platformy Azure między subskrybentami i dostawcami usług w chmurze](transfer-subscriptions-subscribers-csp.md).
-* Aby przeprowadzić migrację do umowy EA, poproś administratora rejestracji o dodanie Twojego konta do umowy EA. Postępuj zgodnie z instrukcjami w wiadomości e-mail z zaproszeniem, aby przenieść swoje subskrypcje do rejestracji w ramach umowy EA. Aby dowiedzieć się więcej, zobacz [Kojarzenie istniejącego konta](https://ea.azure.com/helpdocs/associateExistingAccount) w witrynie EA Portal.
+* Aby przeprowadzić migrację do umowy EA, poproś administratora rejestracji o dodanie Twojego konta do umowy EA. Postępuj zgodnie z instrukcjami w wiadomości e-mail z zaproszeniem, aby subskrypcje były przenoszone w ramach rejestracji w ramach umowy EA.
 
 ### <a name="can-i-migrate-data-and-services-to-a-new-subscription"></a>Czy mogę zmigrować dane i usługi do nowej subskrypcji?
 

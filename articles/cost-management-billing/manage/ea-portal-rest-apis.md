@@ -3,17 +3,17 @@ title: Interfejsy API REST usługi Azure Enterprise
 description: W tym artykule opisano interfejsy API REST, których można używać z rejestracją usługi Azure Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/03/2020
+ms.date: 01/21/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: c4c99142c64278514066efa8925ed8e3f6617235
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
-ms.translationtype: HT
+ms.openlocfilehash: 1fdf64053a55eb33d80ed461c231e8c6dd84d63b
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132588"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677735"
 ---
 # <a name="azure-enterprise-rest-apis"></a>Interfejsy API REST usługi Azure Enterprise
 
@@ -93,17 +93,9 @@ W przypadku korzystania z interfejsu API wyświetlane są kody stanu odpowiedzi.
 
 Pliki danych użycia i rozliczeń są aktualizowane co 24 godziny dla bieżącego miesiąca rozliczeniowego. Może jednak wystąpić opóźnienie danych wynoszące maksymalnie trzy dni. Jeśli na przykład użycie występuje w poniedziałek, dane mogą nie być widoczne w pliku danych do czwartku.
 
-### <a name="test-enrollment-for-development"></a>Rejestracja testowa na potrzeby programowania
-
-Jeśli jesteś partnerem lub deweloperem bez rejestracji w usłudze Azure Enterprise i chcesz uzyskać dostęp do interfejsu API, możesz użyć rejestracji testowej. Nazwa rejestracji to _EnrollmentNumber 100_. Informacje o użyciu można znajdować i testować do czerwca 2018 r. Następnie można użyć następującego klucza, aby wywołać interfejs API i zobacz przykładowe dane.
-
-```
-eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImpoeXA2UU9DWlZmY1pmdmhDVGR1OFdxeTJ5byJ9.eyJFbnJvbGxtZW50TnVtYmVyIjoiMTAwIiwiSWQiOiI1ZTc2ZmNiMy0xN2I4LTQ5ZDItYjdkOC0zMDU0YjUwOWY0MWYiLCJSZXBvcnRWaWV3IjoiU3lzdGVtIiwiUGFydG5lcklkIjoiIiwiRGVwYXJ0bWVudElkIjoiIiwiQWNjb3VudElkIjoiIiwiaXNzIjoiZWEubWljcm9zb2Z0YXp1cmUuY29tIiwiYXVkIjoiY2xpZW50LmVhLm1pY3Jvc29mdGF6dXJlLmNvbSIsImV4cCI6MTU4NjM5MDA2OSwibmJmIjoxNTcwNTc4ODY5fQ.lENR5pCBph6iZCVexUlN1b-j7StaILCyBewVHoILD-_fn8S2o2bHY1qUseGOkBwNlaFQfk2OZIo-jQYvnf3eP3UNrNVTCINT0APbc1RqgwSjZSxugVVHH9jnSzEjONkJaSKmi4tlidk6zkF1-uY-TPJkKxYN_9ar7BgLshF9JGXk7t8OZhxSCxDZc-smntu6ORFDl4gRZZVBKXhqOGjOAdYX5tPiGDF2Bxb68RSzh9Xyr5PXxKLx5yivZzUdo0-GFHo13V9w6a5VQM4R1w4_ro8jF8WAo3mpGZ_ovx_U5IY6zMNmi_AoA1mUyvTGotgcu94RragutoJRxAGHbNJZ0Q
-```
-
 ### <a name="azure-service-catalog"></a>Wykaz usług platformy Azure
 
-Wszystkie usługi platformy Azure są ogłaszane w wykazie w formacie CSV w blogu usługi Azure Storage. Wykaz ten jest przydatny, jeśli musisz utworzyć nadzorowany wykaz wszystkich usług platformy Azure dla Twojego systemu. Bieżący katalog znajduje się pod adresem [https://azurecatalog.blob.core.windows.net/catalog/AzureCatalog.csv](https://azurecatalog.blob.core.windows.net/catalog/AzureCatalog.csv).
+Wszystkie usługi platformy Azure są ogłaszane w wykazie w formacie CSV w blogu usługi Azure Storage. Wykaz ten jest przydatny, jeśli musisz utworzyć nadzorowany wykaz wszystkich usług platformy Azure dla Twojego systemu. Bieżący katalog jest pod adresem [https://azurecatalog.blob.core.windows.net/catalog/AzureCatalog.csv](https://azurecatalog.blob.core.windows.net/catalog/AzureCatalog.csv) .
 
 ### <a name="csv-data-file-details"></a>Szczegóły pliku danych CSV
 
@@ -121,22 +113,22 @@ Format JSON jest generowany na podstawie raportu CSV. W związku z tym format je
 | SubscriptionId | SubscriptionId | SubscriptionId |   |
 | SubscriptionGuid | MOCPSubscriptionGuid | SubscriptionGuid |   |
 | Subscription Name | SubscriptionName | SubscriptionName |   |
-| Data | Data | Data | Pokazuje datę uruchomienia raportu wykazu usług. Format to ciąg daty bez sygnatury czasowej. |
-| Month | Month | Month |   |
-| Day | Day | Day |   |
-| Year | Year | Year |   |
+| Date | Date | Date | Pokazuje datę uruchomienia raportu wykazu usług. Format to ciąg daty bez sygnatury czasowej. |
+| Miesiąc | Miesiąc | Miesiąc |   |
+| Dzień | Dzień | Dzień |   |
+| Rok | Rok | Rok |   |
 | Product (Produkt) | BillableItemName | Product (Produkt) |   |
-| Identyfikator miernika | ResourceGUID | Identyfikator miernika |   |
-| Kategoria miernika | Usługa | MeterCategory | Przydatne do znajdowania usług. Dotyczy usług, które mają wiele właściwości ServiceType. Na przykład maszyn wirtualnych. |
-| Podkategoria miernika | ServiceType | MeterSubCategory | Zapewnia drugi poziom szczegółowości dla usługi. Na przykład maszyna wirtualna A1 (system inny niż Windows).  |
-| Region miernika | ServiceRegion | MeterRegion | Trzeci poziom szczegółowości wymagany dla usługi. Przydatne do znajdowania kontekstu regionu identyfikatora GUID zasobu. |
-| Nazwa miernika | ServiceResource | MeterName | Nazwa usługi. |
-| Zużyta ilość | ResourceQtyConsumed | ConsumedQuantity |   |
+| Meter ID | ResourceGUID | MeterId |   |
+| Meter Category | Usługa | MeterCategory | Przydatne do znajdowania usług. Dotyczy usług, które mają wiele właściwości ServiceType. Na przykład maszyn wirtualnych. |
+| Meter Sub-Category | ServiceType | MeterSubCategory | Zapewnia drugi poziom szczegółowości dla usługi. Na przykład maszyna wirtualna A1 (system inny niż Windows).  |
+| Meter Region | ServiceRegion | MeterRegion | Trzeci poziom szczegółowości wymagany dla usługi. Przydatne do znajdowania kontekstu regionu identyfikatora GUID zasobu. |
+| Meter Name | ServiceResource | MeterName | Nazwa usługi. |
+| Consumed Quantity | ResourceQtyConsumed | ConsumedQuantity |   |
 | ResourceRate | ResourceRate | ResourceRate |   |
 | ExtendedCost | ExtendedCost | ExtendedCost |   |
-| Lokalizacja zasobu | ServiceSubRegion | ResourceLocation |   |
-| Użyta usługa | ServiceInfo | ConsumedService |   |
-| Identyfikator wystąpienia | Składnik | InstanceId |   |
+| Resource Location | ServiceSubRegion | ResourceLocation |   |
+| Consumed Service | ServiceInfo | ConsumedService |   |
+| Instance ID | Składnik | InstanceId |   |
 | ServiceInfo1 | ServiceInfo1 | ServiceInfo1 |   |
 | ServiceInfo2 | ServiceInfo2 | ServiceInfo2 |   |
 | AdditionalInfo | AdditionalInfo | AdditionalInfo |   |
@@ -144,7 +136,7 @@ Format JSON jest generowany na podstawie raportu CSV. W związku z tym format je
 | Store Service Identifier   | OrderNumber | StoreServiceIdentifier   |   |
 | Department Name | DepartmentName | DepartmentName |   |
 | Cost Center | CostCenter | CostCenter |   |
-| Jednostka miary | UnitOfMeasure | UnitOfMeasure | Przykładowe wartości: godziny, GB, zdarzenia, wypchnięcia, jednostka, godziny korzystania z jednostki, MB, jednostki dzienne |
+| Jednostka miary | UnitOfMeasure | UnitOfMeasure | Przykładowe wartości: godziny, GB, zdarzenia, wypchnięcia, jednostka, Godziny korzystania z jednostki, MB, jednostki dzienne |
 | ResourceGroup | ResourceGroup | ResourceGroup |   |
 
 #### <a name="azure-marketplace-report"></a>Raport witryny Azure Marketplace
@@ -156,19 +148,19 @@ Format JSON jest generowany na podstawie raportu CSV. W związku z tym format je
 | SubscriptionId | SubscriptionId | SubscriptionId |
 | SubscriptionGuid | SubscriptionGuid | SubscriptionGuid |
 | Subscription Name | SubscriptionName |  SubscriptionName |
-| Data | BillingCycle |  Date (Tylko ciąg daty. Bez sygnatury czasowej)
-| Month | Month |  Month |
-| Day | Day |  Day |
-| Year | Year |  Year |
-| Identyfikator miernika | MeterResourceId |  MeterId |
+| Date (Data) | BillingCycle |  Date (Tylko ciąg daty. Bez sygnatury czasowej)
+| Miesiąc | Miesiąc |  Miesiąc |
+| Dzień | Dzień |  Dzień |
+| Rok | Rok |  Rok |
+| Meter ID | MeterResourceId |  MeterId |
 | Publisher Name | PublisherFriendlyName |  PublisherName |
 | Offer Name | OfferFriendlyName |  OfferName |
 | Plan Name | PlanFriendlyName |  PlanName |
-| Zużyta ilość | BilledQty |  ConsumedQuantity |
+| Consumed Quantity | BilledQty |  ConsumedQuantity |
 | ResourceRate | ResourceRate | ResourceRate |
 | ExtendedCost | ExtendedCost | ExtendedCost |
 | Jednostka miary | UnitOfMeasure | UnitOfMeasure |
-| Identyfikator wystąpienia | InstanceId | InstanceId |
+| Instance ID | InstanceId | InstanceId |
 | Dodatkowe informacje | AdditionalInfo | AdditionalInfo |
 | Tagi | Tagi | Tagi |
 | Order Number | OrderNumber | OrderNumber |
@@ -210,5 +202,5 @@ Mogą zostać wyświetlone komunikaty o błędach 400 i 404 (niedostępne) zwrac
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Administratorzy witryny Azure EA Portal powinni przeczytać artykuł [Administracja w witrynie Azure EA Portal](ea-portal-administration.md), aby poznać typowe zadania administracyjne.
+- Administratorzy portalu EA platformy Azure powinni przeczytać artykuł [Administracja portalu Azure EA](ea-portal-administration.md), aby poznać typowe zadania administracyjne.
 - Jeśli potrzebujesz pomocy w rozwiązywaniu problemów z witryną Azure EA Portal, zobacz [Rozwiązywanie problemów z dostępem do witryny Azure EA Portal](ea-portal-troubleshoot.md).

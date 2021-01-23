@@ -1,20 +1,20 @@
 ---
-title: Monitorowanie zaplanowanych zdarzeń dla maszyn wirtualnych z systemem Windows na platformie Azure
+title: Monitorowanie zaplanowanych zdarzeń dla maszyn wirtualnych na platformie Azure
 description: Dowiedz się, jak monitorować maszyny wirtualne platformy Azure pod kątem zaplanowanych zdarzeń.
 author: mysarn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: monitoring
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
-ms.openlocfilehash: 0d1edde5ac1b83feab458eb5d12d524163d3ffb1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: e3e44019d09927ff700e74b713a1b02136fedbc1
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483304"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702274"
 ---
-# <a name="monitoring-scheduled-events"></a>Scheduled Events monitorowania
+# <a name="monitor-scheduled-events-for-your-azure-vms"></a>Monitorowanie zaplanowanych zdarzeń dla maszyn wirtualnych platformy Azure
 
 Aktualizacje są stosowane do różnych części platformy Azure codziennie, aby zapewnić ich bezpieczeństwo i aktualność usług. Oprócz planowanych aktualizacji mogą wystąpić również niezaplanowane zdarzenia. Jeśli na przykład zostanie wykryte obniżenie wydajności sprzętu lub błędu, usługi platformy Azure mogą wymagać nieplanowanej konserwacji. Korzystanie z migracji na żywo, zachowywanie i ogólnie bardziej rygorystycznego paska wpływu na aktualizacje, w większości przypadków te zdarzenia są prawie niewidoczne dla klientów i nie mają wpływu na kilka sekund blokowania maszyn wirtualnych. Jednak w przypadku niektórych aplikacji nawet kilka sekund zablokowania maszyny wirtualnej może spowodować wpływ. Zapoznaj się z wyprzedzeniem o zbliżającej się konserwacji platformy Azure, aby zapewnić najlepsze środowisko dla tych aplikacji. [Usługa Scheduled Events](scheduled-events.md) udostępnia interfejs programistyczny, który będzie powiadamiany o nadchodzącej konserwacji i pozwala bezpiecznie obsłużyć konserwację. 
 
@@ -39,7 +39,7 @@ Należy również [utworzyć obszar roboczy log Analytics](../../azure-monitor/l
 
 ## <a name="set-up-the-environment"></a>Konfigurowanie środowiska
 
-W zestawie dostępności powinny znajdować się teraz 2 początkowe maszyny wirtualne. Teraz musimy utworzyć trzecią maszynę wirtualną o nazwie myCollectorVM w tym samym zestawie dostępności. 
+W zestawie dostępności powinny znajdować się teraz 2 początkowe maszyny wirtualne. Teraz musimy utworzyć trzecią maszynę wirtualną o nazwie `myCollectorVM` w tym samym zestawie dostępności. 
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -150,7 +150,7 @@ Po wypchnięciu zdarzeń do Log Analytics można uruchomić następujące [zapyt
     | project-away RenderedDescription,ReqJson
     ```
 
-1. Wybierz **pozycję Zapisz**, a następnie *wpisz logQuery* w polu Nazwa, pozostaw **zapytanie** jako typ, wpisz *VMLogs* jako **kategorię**, a następnie wybierz pozycję **Zapisz**. 
+1. Wybierz pozycję **Zapisz**, a następnie wpisz `ogQuery` nazwę, pozostaw **zapytanie** jako typ, `VMLogs` a następnie wybierz pozycję **Zapisz**.  
 
     ![Zapisz zapytanie](./media/notifications/save-query.png)
 
@@ -160,7 +160,7 @@ Po wypchnięciu zdarzeń do Log Analytics można uruchomić następujące [zapyt
 1. W obszarze **wartość progowa** wprowadź *0* , a następnie wybierz pozycję **gotowe**.
 1. W obszarze **Akcje** wybierz pozycję **Utwórz grupę akcji**. Zostanie otwarta strona **Dodaj grupę akcji** .
 1. W polu **Nazwa grupy akcji** wpisz *Akcja*.
-1. W polu **krótka nazwa** wpisz **Akcja**.
+1. W polu **krótka nazwa** wpisz *Akcja*.
 1. W obszarze **Grupa zasobów** wybierz pozycję **myResourceGroupAvailability**.
 1. W obszarze Akcje w polu **Nazwa akcji** wpisz **adres e-mail**, a następnie wybierz pozycję **poczta e-mail/SMS/wypychanie/głos**. Zostanie otwarta strona **wiadomości e-mail/SMS/wypychana/głosowa** .
 1. Wybierz pozycję **poczta e-mail**, wpisz adres e-mail, a następnie wybierz przycisk **OK**.

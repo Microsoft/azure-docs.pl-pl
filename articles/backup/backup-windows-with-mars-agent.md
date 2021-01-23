@@ -3,18 +3,18 @@ title: Tworzenie kopii zapasowych maszyn z systemem Windows przy użyciu agenta 
 description: Użyj agenta Microsoft Azure Recovery Services (MARS) do tworzenia kopii zapasowych maszyn z systemem Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: d2cdd5d1fa98462a70d72fd9f8723685952b665a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54932192d61633da55657e2ba57adf4e30c4fbc7
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90052226"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702772"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>Tworzenie kopii zapasowych plików i folderów systemu Windows Server na platformie Azure
 
 W tym artykule opisano sposób tworzenia kopii zapasowych maszyn z systemem Windows przy użyciu usługi [Azure Backup](backup-overview.md) i agenta Microsoft Azure Recovery Services (MARS). Usługa MARS jest również znana jako agent Azure Backup.
 
-W tym artykule dowiesz się, jak:
+Ten artykuł obejmuje następujące zagadnienia:
 
 > [!div class="checklist"]
 >
@@ -40,11 +40,11 @@ Aby utworzyć nowe zasady kopii zapasowych:
 
 1. Po pobraniu i zarejestrowaniu agenta MARS Otwórz konsolę agenta. Aby go znaleźć, wyszukaj na maszynie łańcuch **Microsoft Azure Backup**.  
 
-1. W obszarze **Akcje**wybierz pozycję **Zaplanuj kopię zapasową**.
+1. W obszarze **Akcje** wybierz pozycję **Zaplanuj kopię zapasową**.
 
     ![Planowanie tworzenia kopii zapasowej systemu Windows Server](./media/backup-configure-vault/schedule-first-backup.png)
 1. W Kreatorze harmonogramu tworzenia kopii zapasowej wybierz pozycję **Rozpocznij**  >  **dalej**.
-1. W obszarze **Wybierz elementy do utworzenia kopii zapasowej**wybierz pozycję **Dodaj elementy**.
+1. W obszarze **Wybierz elementy do utworzenia kopii zapasowej** wybierz pozycję **Dodaj elementy**.
 
     ![Dodaj elementy do kopii zapasowej](./media/backup-azure-manage-mars/select-item-to-backup.png)
 
@@ -53,7 +53,7 @@ Aby utworzyć nowe zasady kopii zapasowych:
     ![Wybierz elementy do utworzenia kopii zapasowej](./media/backup-azure-manage-mars/selected-items-to-backup.png)
 
 1. Na stronie **Wybierz elementy do utworzenia kopii zapasowej** wybierz pozycję **dalej**.
-1. Na stronie **Określanie harmonogramu tworzenia kopii zapasowych** Określ, kiedy mają być wykonywane codziennie lub cotygodniowe kopie zapasowe. Następnie wybierz pozycję **Dalej**.
+1. Na stronie **Określanie harmonogramu tworzenia kopii zapasowych** Określ, kiedy mają być wykonywane codziennie lub cotygodniowe kopie zapasowe. Następnie wybierz przycisk **Dalej**.
 
     * Punkt odzyskiwania jest tworzony podczas tworzenia kopii zapasowej.
     * Liczba punktów odzyskiwania utworzonych w danym środowisku zależy od harmonogramu tworzenia kopii zapasowych.
@@ -65,7 +65,7 @@ Aby utworzyć nowe zasady kopii zapasowych:
 
         ![Konfigurowanie tygodniowego harmonogramu tworzenia kopii zapasowych](./media/backup-configure-vault/week-schedule.png)
 
-1. Na stronie **Wybierz zasady przechowywania** Określ, w jaki sposób mają być przechowywane historyczne kopie danych. Następnie wybierz pozycję **Dalej**.
+1. Na stronie **Wybierz zasady przechowywania** Określ, w jaki sposób mają być przechowywane historyczne kopie danych. Następnie wybierz przycisk **Dalej**.
 
     * Ustawienia przechowywania określają, które punkty odzyskiwania mają być przechowywane i jak długo mają być przechowywane.
     * W przypadku ustawienia przechowywania dziennego należy wskazać, że w określonym czasie przechowywania najnowszy punkt odzyskiwania zostanie zachowany przez określoną liczbę dni. Można też określić miesięczne zasady przechowywania, aby wskazać, że punkt odzyskiwania utworzony na 30. każdy miesiąc powinien być przechowywany przez 12 miesięcy.
@@ -79,7 +79,7 @@ Aby utworzyć nowe zasady kopii zapasowych:
 
         ![Przykład zasad przechowywania](./media/backup-configure-vault/retention-example.png)
 
-1. Na stronie **Wybierz typ początkowej kopii zapasowej** Zdecyduj, czy chcesz pobrać początkową kopię zapasową za pośrednictwem sieci, czy użyć kopii zapasowej offline. Aby pobrać początkową kopię zapasową za pośrednictwem sieci, wybierz pozycję **automatycznie za pośrednictwem sieci**  >  **Next**.
+1. Na stronie **Wybierz typ początkowej kopii zapasowej** Zdecyduj, czy chcesz pobrać początkową kopię zapasową za pośrednictwem sieci, czy użyć kopii zapasowej offline. Aby pobrać początkową kopię zapasową za pośrednictwem sieci, wybierz pozycję **automatycznie za pośrednictwem sieci**  >  .
 
     Aby uzyskać więcej informacji na temat kopii zapasowej offline, zobacz [używanie Azure Data Box do tworzenia kopii zapasowych w trybie offline](offline-backup-azure-data-box.md).
 
@@ -104,7 +104,7 @@ Aby wykonać transfer w trybie offline:
 1. Zapisz dane kopii zapasowej w lokalizacji tymczasowej.
 1. Użyj narzędzia AzureOfflineBackupDiskPrep, aby skopiować dane z lokalizacji tymczasowej do co najmniej jednego dysku SATA.
 
-    Narzędzie tworzy zadanie importu platformy Azure. Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Import/Export](../storage/common/storage-import-export-service.md).
+    Narzędzie tworzy zadanie importu platformy Azure. Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Import/Export](../import-export/storage-import-export-service.md).
 1. Wyślij dyski SATA do centrum danych platformy Azure.
 
     W centrum danych dane dysku są kopiowane na konto usługi Azure Storage. Azure Backup kopiuje dane z konta magazynu do magazynu, a przyrostowe kopie zapasowe są zaplanowane.

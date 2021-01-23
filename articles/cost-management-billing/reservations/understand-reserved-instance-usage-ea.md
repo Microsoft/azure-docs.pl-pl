@@ -1,24 +1,24 @@
 ---
-title: Informacje na temat użycia rezerwacji platformy Azure w ramach umów Enterprise Agreement
-description: Dowiedz się, jak odczytywać dane użycia, aby zrozumieć, w jaki sposób stosowana jest rezerwacja platformy Azure w przypadku rejestracji Twojego przedsiębiorstwa.
+title: Informacje na temat użycia usługi Azure rezerwacje Enterprise Agreement i umowy klienta firmy Microsoft
+description: Dowiedz się, jak przeczytać informacje o użyciu, aby zrozumieć, w jaki sposób rezerwacja platformy Azure ma zastosowanie do Enterprise Agreement i użytkowania umowy klienta firmy Microsoft.
 author: bandersmsft
 ms.reviewer: yashar
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 01/19/2020
 ms.author: banders
-ms.openlocfilehash: 874d5cb022a38b172bb37009bd86b5e6988f3204
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
-ms.translationtype: HT
+ms.openlocfilehash: 0c69e9533130d6ca70c57422c7cdd5fc75adff72
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545608"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683721"
 ---
-# <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Pobieranie kosztów i użycia rezerwacji w ramach umowy Enterprise Agreement
+# <a name="get-enterprise-agreement-and-microsoft-customer-agreement-reservation-costs-and-usage"></a>Uzyskaj Enterprise Agreement i koszty rezerwacji i użycie umowy klienta firmy Microsoft
 
-Koszty rezerwacji i dane użycia są dostępne dla klientów z umową Enterprise Agreement w witrynie Azure Portal oraz w interfejsach API REST. Ten artykuł zawiera informacje, które pomogą:
+Ulepszone dane dotyczące kosztów i użycia rezerwacji są dostępne dla Enterprise Agreement (EA) oraz użycie umowy Microsoft Customer Agreement (MCA) w usłudze Cost Management. Ten artykuł zawiera informacje, które pomogą:
 
 - Pobrać dane zakupu rezerwacji
 - Dowiedzieć się, w przypadku której subskrypcji, grupy zasobów lub którego zasobu została użyta rezerwacja
@@ -61,9 +61,7 @@ Inne informacje dostępne w danych użycia platformy Azure uległy zmianie:
 
 Można pobrać dane przy użyciu interfejsu API lub pobrać je z witryny Azure Portal.
 
-Można wywołać [interfejs API szczegółów użycia](/rest/api/consumption/usagedetails/list), aby pobrać nowe dane. Aby uzyskać szczegółowe informacje na temat terminologii, zobacz [warunki użytkowania](../understand/understand-usage.md). Wywołujący powinien być administratorem Enterprise w ramach umowy Enterprise Agreement korzystającym z witryny [EA Portal](https://ea.azure.com). Administratorzy Enterprise z uprawnieniami tylko do odczytu mogą również pobierać dane.
-
-Pamiętaj, że te dane nie są dostępne w [interfejsach API raportowania dla klientów Enterprise — szczegóły użycia](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
+Można wywołać [interfejs API szczegółów użycia](/rest/api/consumption/usagedetails/list), aby pobrać nowe dane. Aby uzyskać szczegółowe informacje na temat terminologii, zobacz [warunki użytkowania](../understand/understand-usage.md).
 
 Oto przykład wywołania interfejsu API szczegółów użycia:
 
@@ -87,7 +85,7 @@ Informacje przedstawione w poniższej tabeli dotyczące metryki i filtru mogą p
 
 ## <a name="download-the-usage-csv-file-with-new-data"></a>Pobierz plik CSV użycia z nowymi danymi
 
-Jeśli jesteś administratorem EA, możesz pobrać plik CSV zawierający nowe dane użycia z witryny Azure Portal. Te dane nie są dostępne w portalu EA (ea.azure.com) — aby wyświetlić nowe dane, musisz pobrać plik użycia z witryny Azure Portal (portal.azure.com).
+Jeśli jesteś administratorem EA, możesz pobrać plik CSV zawierający nowe dane użycia z Azure Portal. Te dane nie są dostępne w portalu EA (ea.azure.com) — aby wyświetlić nowe dane, musisz pobrać plik użycia z witryny Azure Portal (portal.azure.com).
 
 W witrynie Azure Portal przejdź do obszaru [Zarządzanie kosztami i rozliczenia](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
 
@@ -150,7 +148,7 @@ Koszty rezerwacji są dostępne w [analizie kosztów](https://aka.ms/costanalysi
 
 Grupuj według typu opłaty, aby wyświetlić podział użycia, zakupów i refundacji; lub według rezerwacji na potrzeby podziału rezerwacji i kosztów na żądanie. Należy pamiętać, że jedyne koszty rezerwacji, które będą widoczne w kosztach rzeczywistych, to zakupy, ale koszty będą przydzielone do poszczególnych zasobów, które wykorzystały świadczenie podczas naliczania kosztu zamortyzowanego. Zobaczysz także nowy typ opłaty **UnusedReservation** podczas naliczania kosztu zamortyzowanego.
 
-## <a name="need-help-contact-us"></a>Potrzebujesz pomocy? Skontaktuj się z nami.
+## <a name="need-help-contact-us"></a>Potrzebujesz pomocy? Skontaktuj się z nami
 
 Jeśli masz pytania lub potrzebujesz pomocy, [utwórz wniosek o pomoc techniczną](https://go.microsoft.com/fwlink/?linkid=2083458).
 

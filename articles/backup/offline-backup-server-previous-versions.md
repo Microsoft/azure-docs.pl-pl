@@ -3,12 +3,12 @@ title: Kopia zapasowa offline dla Data Protection Manager (DPM) i Microsoft Azur
 description: Za pomocą Azure Backup można wysyłać dane z sieci za pomocą usługi Azure Import/Export. W tym artykule opisano przepływ pracy kopii zapasowej offline dla poprzednich wersji programu DPM i Azure Backup Server.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: b747fd3c682dc1caf7312ba7279470a1e6b38bd5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0405ab66b7714f00349419e94bb064267ca711a6
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88890097"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702189"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Przepływ pracy kopii zapasowej offline dla programu DPM i Azure Backup Server (poprzednie wersje)
 
@@ -17,7 +17,7 @@ ms.locfileid: "88890097"
 
 Azure Backup ma kilka wbudowanych wydajności, które oszczędzają koszty związane z siecią i magazynem podczas wstępnej pełnej kopii zapasowej danych na platformie Azure. Wstępne pełne kopie zapasowe zwykle przesyłają duże ilości danych i wymagają większej przepustowości sieci w porównaniu z kolejnymi kopiami zapasowymi, które przesyłają tylko różnice/przyrosty. Azure Backup kompresuje początkowe kopie zapasowe. W procesie umieszczania w trybie offline, Azure Backup mogą używać dysków do przekazywania skompresowanych danych początkowej kopii zapasowej w trybie offline do platformy Azure.
 
-Proces rozsadzenia w trybie offline Azure Backup jest ściśle zintegrowany z [usługą Azure Import/Export](../storage/common/storage-import-export-service.md). Ta usługa służy do transferowania danych do platformy Azure przy użyciu dysków. Jeśli masz terabajty (TBs) początkowych danych kopii zapasowej, które muszą być transferowane za pośrednictwem sieci o dużej opóźnieniu i o niskiej przepustowości, możesz użyć przepływu pracy w trybie offline, aby wysłać początkową kopię zapasową na co najmniej jednym dysku twardym do centrum danych platformy Azure. Ten artykuł zawiera omówienie i dalsze kroki kończące ten przepływ pracy dla programu System Center Data Protection Manager (DPM) i Microsoft Azure Backup Server (serwera usługi MAB).
+Proces rozsadzenia w trybie offline Azure Backup jest ściśle zintegrowany z [usługą Azure Import/Export](../import-export/storage-import-export-service.md). Ta usługa służy do transferowania danych do platformy Azure przy użyciu dysków. Jeśli masz terabajty (TBs) początkowych danych kopii zapasowej, które muszą być transferowane za pośrednictwem sieci o dużej opóźnieniu i o niskiej przepustowości, możesz użyć przepływu pracy w trybie offline, aby wysłać początkową kopię zapasową na co najmniej jednym dysku twardym do centrum danych platformy Azure. Ten artykuł zawiera omówienie i dalsze kroki kończące ten przepływ pracy dla programu System Center Data Protection Manager (DPM) i Microsoft Azure Backup Server (serwera usługi MAB).
 
 > [!NOTE]
 > Proces tworzenia kopii zapasowych w trybie offline dla agenta Microsoft Azure Recovery Services (MARS) różni się od programu DPM i serwera usługi MAB. Aby uzyskać informacje na temat używania kopii zapasowej offline z agentem MARS, zobacz [przepływ pracy kopii zapasowej offline w Azure Backup](backup-azure-backup-import-export.md). Kopia zapasowa offline nie jest obsługiwana w przypadku kopii zapasowych stanu systemu wykonywanych przy użyciu agenta Azure Backup.
@@ -58,15 +58,15 @@ Przed uruchomieniem przepływu pracy tworzenia kopii zapasowej offline upewnij s
 
     | Region suwerennej chmury | Link pliku ustawień publikowania platformy Azure |
     | --- | --- |
-    | Stany Zjednoczone | [Powiązań](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
-    | Chiny | [Powiązań](https://portal.azure.cn/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
+    | Stany Zjednoczone | [Link](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
+    | Chiny | [Link](https://portal.azure.cn/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
 
 * W subskrypcji, z której pobrano plik ustawień publikowania, utworzono konto usługi Azure Storage z modelem wdrażania Menedżer zasobów. Na koncie magazynu Utwórz nowy kontener obiektów blob, który będzie używany jako miejsce docelowe.
 
   ![Tworzenie konta magazynu przy użyciu programu Menedżer zasobów Development](./media/offline-backup-dpm-mabs-previous-versions/storage-account-resource-manager.png)
 
 * Tworzona jest lokalizacja tymczasowa, która może być udziałem sieciowym lub dodatkowym dyskiem na komputerze, wewnętrznym lub zewnętrznym, z wystarczającą ilością miejsca na dysku do przechowywania kopii początkowej. Na przykład jeśli chcesz utworzyć kopię zapasową serwera plików 500-GB, upewnij się, że obszar przejściowy jest co najmniej 500 GB. (Mniejsza ilość jest używana z powodu kompresji).
-* W przypadku dysków wysyłanych do platformy Azure upewnij się, że są używane wewnętrzne dyski twarde SATA (2,5 cala) lub 2,5-calowe i 3,5 cala. Możesz użyć dysków twardych o pojemności do 10 TB. Zapoznaj się z [dokumentacją usługi Azure Import/Export](../storage/common/storage-import-export-requirements.md#supported-hardware) , aby zapoznać się z najnowszym zestawem dysków obsługiwanych przez usługę.
+* W przypadku dysków wysyłanych do platformy Azure upewnij się, że są używane wewnętrzne dyski twarde SATA (2,5 cala) lub 2,5-calowe i 3,5 cala. Możesz użyć dysków twardych o pojemności do 10 TB. Zapoznaj się z [dokumentacją usługi Azure Import/Export](../import-export/storage-import-export-requirements.md#supported-hardware) , aby zapoznać się z najnowszym zestawem dysków obsługiwanych przez usługę.
 * Dyski SATA muszą być połączone z komputerem (nazywanym *komputerem kopiującym*), z którego są wykonywane kopie kopii zapasowych z lokalizacji tymczasowej do dysków SATA. Upewnij się, że funkcja BitLocker jest włączona na komputerze kopiowania.
 
 ## <a name="prepare-the-server-for-the-offline-backup-process"></a>Przygotowywanie serwera do procesu tworzenia kopii zapasowej w trybie offline
@@ -99,8 +99,8 @@ Przed uruchomieniem przepływu pracy tworzenia kopii zapasowej offline upewnij s
 
 Wykonaj następujące kroki, aby ręcznie przekazać certyfikat kopii zapasowej offline do wcześniej utworzonej aplikacji Azure Active Directory przeznaczonej do tworzenia kopii zapasowych w trybie offline.
 
-1. Zaloguj się do Portalu Azure.
-1. Przejdź do **Azure Active Directory**  >  **rejestracje aplikacji**Azure Active Directory.
+1. Zaloguj się do witryny Azure Portal.
+1. Przejdź do   >  **rejestracje aplikacji** Azure Active Directory.
 1. Na karcie **posiadane aplikacje** Znajdź aplikację z formatem nazwy wyświetlanej `AzureOfflineBackup _<Azure User Id` .
 
     ![Znajdź aplikację na karcie aplikacje należące do firmy](./media/offline-backup-dpm-mabs-previous-versions/owned-applications.png)
@@ -125,7 +125,7 @@ Wykonaj następujące kroki, aby ręcznie przekazać certyfikat kopii zapasowej 
     >* Przejdź do ścieżki rejestru `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup; Name: CurrentUserId;` .
 
 1. Kliknij prawym przyciskiem myszy ciąg dodany w poprzednim kroku, a następnie wybierz polecenie **Modyfikuj**. W polu wartość Podaj odcisk palca certyfikatu wyeksportowanego w kroku 7. Następnie wybierz przycisk **OK**.
-1. Aby uzyskać wartość odcisku palca, kliknij dwukrotnie certyfikat. Wybierz kartę **szczegóły** i przewiń w dół do momentu wyświetlenia pola odcisk palca. Wybierz **odcisk palca**i skopiuj wartość.
+1. Aby uzyskać wartość odcisku palca, kliknij dwukrotnie certyfikat. Wybierz kartę **szczegóły** i przewiń w dół do momentu wyświetlenia pola odcisk palca. Wybierz **odcisk palca** i skopiuj wartość.
 
     ![Kopiuj wartość z pola odcisku palca](./media/offline-backup-dpm-mabs-previous-versions/thumbprint-field.png)
 
@@ -133,7 +133,7 @@ Wykonaj następujące kroki, aby ręcznie przekazać certyfikat kopii zapasowej 
 
 ## <a name="workflow"></a>Przepływ pracy
 
-Informacje przedstawione w tej sekcji ułatwiają zakończenie przepływu pracy tworzenia kopii zapasowych w trybie offline, aby dane mogły zostać dostarczone do centrum danych platformy Azure i przekazane do usługi Azure Storage. Jeśli masz pytania dotyczące usługi import lub dowolnego aspektu procesu, zapoznaj się z [dokumentacją dotyczącą przeglądu usługi Import Service](../storage/common/storage-import-export-service.md) .
+Informacje przedstawione w tej sekcji ułatwiają zakończenie przepływu pracy tworzenia kopii zapasowych w trybie offline, aby dane mogły zostać dostarczone do centrum danych platformy Azure i przekazane do usługi Azure Storage. Jeśli masz pytania dotyczące usługi import lub dowolnego aspektu procesu, zapoznaj się z [dokumentacją dotyczącą przeglądu usługi Import Service](../import-export/storage-import-export-service.md) .
 
 ### <a name="initiate-offline-backup"></a>Inicjowanie kopii zapasowej offline
 
@@ -271,7 +271,7 @@ Aby sprawdzić stan zadania importowania:
 
     ![Sprawdź stan zadania importowania](./media/offline-backup-dpm-mabs-previous-versions/import-job-status-reporting.png)<br/>
 
-Aby uzyskać więcej informacji na temat różnych stanów zadania importowania platformy Azure, zobacz [Wyświetlanie stanu zadań importu/eksportu platformy Azure](../storage/common/storage-import-export-view-drive-status.md).
+Aby uzyskać więcej informacji na temat różnych stanów zadania importowania platformy Azure, zobacz [Wyświetlanie stanu zadań importu/eksportu platformy Azure](../import-export/storage-import-export-view-drive-status.md).
 
 ### <a name="finish-the-workflow"></a>Kończenie przepływu pracy
 
@@ -283,4 +283,4 @@ Podczas kolejnej zaplanowanej kopii zapasowej Program Azure Backup wykonuje przy
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać odpowiedzi na pytania dotyczące przepływu pracy usługi Azure Import/Export, zobacz [Używanie usługi Microsoft Azure Import/Export do transferowania danych do magazynu obiektów BLOB](../storage/common/storage-import-export-service.md).
+* Aby uzyskać odpowiedzi na pytania dotyczące przepływu pracy usługi Azure Import/Export, zobacz [Używanie usługi Microsoft Azure Import/Export do transferowania danych do magazynu obiektów BLOB](../import-export/storage-import-export-service.md).

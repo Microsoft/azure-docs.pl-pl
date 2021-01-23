@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9aca01bae7911d2b6234d48bedc14b116e911a79
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 6af68f51e76f60c807be2008ae61e27879ebbb11
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675385"
+ms.locfileid: "98703211"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Azure Active Directory B2C partnerów niezależnych dostawców oprogramowania
 
@@ -40,7 +40,6 @@ Partnerzy firmy Microsoft z następującymi dostawcami oprogramowania (ISV) do w
 |![Zrzut ekranu przedstawiający logo Experian.](./media/partner-gallery/experian-logo.png) | [Experian](./partner-experian.md) jest weryfikacją tożsamości i dostawcą sprawdzającym, który przeprowadza ocenę ryzyka na podstawie atrybutów użytkownika w celu zapobiegania oszustwom. |
 |![Zrzut ekranu przedstawiający logo IDology.](./media/partner-gallery/idology-logo.png) | [IDology](./partner-idology.md) to weryfikacja tożsamości i dostawca weryfikacji z rozwiązaniami weryfikacji identyfikatora, rozwiązaniami zapobiegania oszustwom, rozwiązaniami zgodności i innymi.|
 |![Zrzut ekranu przedstawiający logo Jumio.](./media/partner-gallery/jumio-logo.png) | [Jumio](./partner-jumio.md) to usługa weryfikacji identyfikatora, która umożliwia automatyczne weryfikację identyfikatora w czasie rzeczywistym, chroniąc dane klientów. |
-|![Zrzut ekranu przedstawiający logo bez znaku.](./media/partner-gallery/keyless-logo.png) | Funkcja [less](./partner-keyless.md) jest usługą weryfikacji identyfikatora, która zapewnia uwierzytelnianie w formie skanowania biometrycznego urządzenia i eliminuje oszustwo, phishing i ponowne użycie poświadczeń.
 | ![Zrzut ekranu przedstawiający logo LexisNexis.](./media/partner-gallery/lexisnexis-logo.png) | [LexisNexis](./partner-lexisnexis.md) jest dostawcą profilowania i weryfikacji tożsamości, który weryfikuje tożsamość użytkownika i zapewnia kompleksową ocenę ryzyka opartą na urządzeniu użytkownika. |
 | ![Zrzut ekranu przedstawiający logo Onfido](./media/partner-gallery/onfido-logo.png) | [Onfido](./partner-onfido.md) to identyfikator dokumentu oraz rozwiązanie do weryfikacji twarzy biometryczne, które umożliwia firmom zaspokajanie wymagań *klienta* i tożsamości w czasie rzeczywistym.  |
 
@@ -52,6 +51,7 @@ Partnerzy firmy Microsoft z następującymi dostawcami oprogramowania dla uwierz
 |:-------------------------|:--------------|
 | ![Zrzut ekranu przedstawiający logo hypr](./media/partner-gallery/hypr-logo.png) | [Hypr](./partner-hypr.md) to dostawca uwierzytelniania bez hasła, który zastępuje hasła z szyfrowaniem klucza publicznego eliminujące oszustwo, phishing i ponowne użycie poświadczeń. |
 | ![Zrzut ekranu przedstawiający logo itsme](./media/partner-gallery/itsme-logo.png) | [itsme](./partner-itsme.md) to elektroniczne rozwiązanie do identyfikacji, uwierzytelniania i usług zaufania (eiDAS), które umożliwia użytkownikom bezpieczne logowanie bez czytników kart, haseł, uwierzytelniania dwuskładnikowego i wielu kodów PIN. |
+|![Zrzut ekranu przedstawiający logo bez znaku.](./media/partner-gallery/keyless-logo.png) | Funkcja [less](./partner-keyless.md) nie jest dostawcą uwierzytelniania bez hasła, który zapewnia uwierzytelnianie w formie skanowania biometrycznego typu twarzy i eliminuje oszustwo, phishing i ponowne użycie poświadczeń.
 | ![Zrzut ekranu przedstawiający logo firmy Nevis](./media/partner-gallery/nevis-logo.png) | Program [Nevis](./partner-nevis.md) umożliwia uwierzytelnianie bez haseł i zapewnia mobilny, w pełni oznakowany interfejs użytkownika końcowego w celu uzyskania silnego uwierzytelniania klienta i zapewnienia zgodności z wymaganiami transakcji PSD2. |
 | ![Zrzut ekranu przedstawiający logo trusona](./media/partner-gallery/trusona-logo.png) | Integracja usługi [Trusona](./partner-trusona.md) pomaga w bezpiecznym logowaniu i umożliwia korzystanie z uwierzytelniania bez hasła, usługi MFA i skanowania licencji cyfrowych. |
 | ![Zrzut ekranu przedstawiający logo Twilio.](./media/partner-gallery/twilio-logo.png) | [Twilio Sprawdź, czy aplikacja](./partner-twilio.md) udostępnia wiele rozwiązań umożliwiających korzystanie z usługi MFA za pośrednictwem hasła jednorazowego (OTP) usługi SMS, hasła jednorazowego (TOTP) i powiadomień wypychanych oraz zgodność z wymaganiami SCA dla PSD2. |

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 01/22/2021
 ms.author: mbullwin
-ms.openlocfilehash: 9457c610b256dd4602ef0dc51a47eeffb3c63b49
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: b0869335c386712e6b759bb0ced459ebd1bf383c
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705153"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702730"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Najlepsze rozwiązania dotyczące korzystania z interfejsu API wykrywania anomalii
 
@@ -54,7 +54,7 @@ Poniżej znajduje się ten sam zestaw danych, który korzysta z wykrywania anoma
 
 Interfejs API wykrywania anomalii akceptuje dane szeregów czasowych sformatowane w obiekcie żądania JSON. Szeregi czasowe mogą być wszelkimi danymi liczbowymi zarejestrowanymi w czasie w kolejności sekwencyjnej. Możesz wysyłać okna danych szeregów czasowych do punktu końcowego interfejsu API wykrywania anomalii, aby zwiększyć wydajność interfejsu API. Minimalna liczba punktów danych, które można wysłać wynosi 12, a maksymalna to 8640 punktów. [Stopień szczegółowości](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) jest definiowany jako częstotliwość próbkowania danych. 
 
-Punkty danych wysyłane do interfejsu API wykrywania anomalii muszą mieć prawidłową sygnaturę czasową skoordynowanego czasu uniwersalnego (UTC) i wartość numeryczną. 
+Punkty danych wysyłane do interfejsu API wykrywania anomalii muszą mieć prawidłową sygnaturę czasową skoordynowanego czasu uniwersalnego (UTC) oraz wartość liczbową. 
 
 ```json
 {
@@ -95,7 +95,7 @@ Jeśli wiesz, że dane szeregów czasowych mają wzorzec sezonowy (jeden, który
 
 Określenie, `period` Kiedy utworzysz żądanie JSON, może zmniejszyć opóźnienia wykrywania anomalii o maksymalnie 50%. `period`Jest to liczba całkowita, która określa przybliżoną liczbę punktów danych potrzebnych przez serię czasową do powtarzania wzorca. Na przykład szeregi czasowe z jednym punktem danych dziennie byłyby `period` tak `7` , a serie czasowe z jednym punktem na godzinę (z tym samym wzorcem tygodniowym) byłyby `period`  `7*24` . Jeśli nie masz pewności, jakie są wzorce danych, nie musisz określać tego parametru.
 
-Aby uzyskać najlepsze wyniki, podaj 4 wartości `period` punktów danych i dodatkowe. Na przykład dane godzinowe z wzorcem tygodniowym zgodnie z powyższym opisem powinny dostarczyć 673 punktów danych w treści żądania ( `7 * 24 * 4 + 1` ).
+Aby uzyskać najlepsze wyniki, podaj cztery `period` wartości punktów danych i dodatkowe. Na przykład dane godzinowe z wzorcem tygodniowym zgodnie z powyższym opisem powinny dostarczyć 673 punktów danych w treści żądania ( `7 * 24 * 4 + 1` ).
 
 ### <a name="sampling-data-for-real-time-monitoring"></a>Próbkowanie danych do monitorowania w czasie rzeczywistym
 

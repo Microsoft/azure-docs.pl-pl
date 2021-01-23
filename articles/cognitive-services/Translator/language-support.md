@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 60da61d094316b29c8fbc5454472bb898d693937
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e8e54a97c13a69fce2e80676fa68d6d795736a83
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/22/2021
-ms.locfileid: "98681587"
+ms.locfileid: "98703126"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Obsługa języków i tekstu oraz Tłumaczenie mowy
 
@@ -194,6 +194,7 @@ Metoda transliteracji obsługuje następujące języki. W polu "do/z" <--> "wska
 | Język    | Kod języka | Skrypt | Do/z | Skrypt|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arabski | `ar` | Arabski `Arab` | <--> | Wielka `Latn` |
+| Assamski | `as` | Bengalski `Beng` | <--> | Wielka `Latn` |
 | Języku  | `bn` | Bengalski `Beng` | <--> | Wielka `Latn` |
 |Białoruski| `be` | Pisanych `Cyrl`  | <--> | Wielka `Latn` |
 |Bułgarski| `bg` | Pisanych `Cyrl`  | <--> | Wielka `Latn` |
@@ -208,6 +209,7 @@ Metoda transliteracji obsługuje następujące języki. W polu "do/z" <--> "wska
 | japoński | `ja` | Japoński `Jpan` | <--> | Wielka `Latn` |
 | Kannada | `kn` | Kannada `Knda` | <--> | Wielka `Latn` |
 |Kazachski| `kk` | Pisanych `Cyrl`  | <--> | Wielka `Latn` |
+|Koreański| `ko` | Koreański `Kore`  | <--> | Wielka `Latn` |
 |Kirgiski| `ky` | Pisanych `Cyrl`  | <--> | Wielka `Latn` |
 |Macedonii| `mk` | Pisanych `Cyrl`  | <--> | Wielka `Latn` |
 | Malayalam | `ml` | Malayalam `Mlym` | <--> | Wielka `Latn` |
@@ -220,6 +222,7 @@ Metoda transliteracji obsługuje następujące języki. W polu "do/z" <--> "wska
 | Serbski (cyrylica) | `sr-Cyrl` | Pisanych `Cyrl`  | --> | Wielka `Latn` |
 | Serbski (łaciński) | `sr-Latn` | Wielka `Latn` | --> | Pisanych `Cyrl`|
 |Sindhi| `sd` | Arabski `Arab`  | <--> | Wielka `Latn` |
+|Syngaleski| `si` | Syngaleski `Sinh`  | <--> | Wielka `Latn` |
 |Tadżycki| `tg` | Pisanych `Cyrl`  | <--> | Wielka `Latn` |
 | Tamilski | `ta` | Tamilski `Taml` | <--> | Wielka `Latn` |
 |Tatarski| `tt` | Pisanych `Cyrl`  | <--> | Wielka `Latn` |

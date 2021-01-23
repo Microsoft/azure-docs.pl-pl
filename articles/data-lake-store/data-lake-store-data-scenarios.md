@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 702a59f768bfe978e1a7708d91c6b6b1bb9c92fe
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 0bd895b0c19293a199b2a9b135915b7dc45b9e5e
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452246"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702501"
 ---
 # <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Używanie Azure Data Lake Storage Gen1 do wymagań dotyczących danych Big Data
 
@@ -88,7 +88,7 @@ Duże ilości danych mogą być przechowywane w istniejących klastrach usługi 
 Do przekazywania zestawów danych, które mają zakres w kilku terabajtach, korzystanie z metod opisanych powyżej może być czasami powolne i kosztowne. W takich przypadkach można użyć poniższych opcji.
 
 * **Korzystanie z usługi Azure ExpressRoute**. Usługa Azure ExpressRoute umożliwia tworzenie prywatnych połączeń między centrami danych platformy Azure i infrastrukturą lokalną. Zapewnia to niezawodne rozwiązanie do przenoszenia dużych ilości danych. Aby uzyskać więcej informacji, zobacz [dokumentację usługi Azure ExpressRoute](../expressroute/expressroute-introduction.md).
-* **Przekazywanie danych w trybie offline**. Jeśli korzystanie z usługi Azure ExpressRoute nie jest możliwe z jakiegokolwiek powodu, można użyć [usługi Azure Import/Export](../storage/common/storage-import-export-service.md) do dostarczania dysków twardych z danymi do centrum danych platformy Azure. Dane są najpierw przekazywane do obiektów BLOB usługi Azure Storage. Następnie można użyć narzędzia [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) lub [AdlCopy](data-lake-store-copy-data-azure-storage-blob.md) , aby skopiować dane z obiektów BLOB usługi Azure Storage do Data Lake Storage Gen1.
+* **Przekazywanie danych w trybie offline**. Jeśli korzystanie z usługi Azure ExpressRoute nie jest możliwe z jakiegokolwiek powodu, można użyć [usługi Azure Import/Export](../import-export/storage-import-export-service.md) do dostarczania dysków twardych z danymi do centrum danych platformy Azure. Dane są najpierw przekazywane do obiektów BLOB usługi Azure Storage. Następnie można użyć narzędzia [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) lub [AdlCopy](data-lake-store-copy-data-azure-storage-blob.md) , aby skopiować dane z obiektów BLOB usługi Azure Storage do Data Lake Storage Gen1.
 
   > [!NOTE]
   > W przypadku korzystania z usługi Import/Export rozmiary plików na dyskach dostarczanych do centrum danych platformy Azure nie powinny przekraczać 195 GB.

@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
-ms.openlocfilehash: 4a9a6b61e392ed2efd68cdcb1cf7e53d6bde5ccd
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 8d984a303234a24423ceae100bd139cb484d6495
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98249733"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702789"
 ---
 # <a name="estimate-and-manage-capacity-of-an-azure-cognitive-search-service"></a>Oszacuj i Zarządzaj pojemnością usługi Wyszukiwanie poznawcze platformy Azure
 
 Przed [zainicjowaniem obsługi administracyjnej usługi wyszukiwania](search-create-service-portal.md) i zablokowaniem jej w określonej warstwie cenowej Poświęć kilka minut, aby zrozumieć, jak działa wydajność oraz jak dostosować repliki i partycje, aby uwzględnić wahania obciążenia.
 
-Pojemność jest funkcją [warstwy usług](search-sku-tier.md). Warstwy są zróżnicowane według maksymalnego magazynu, magazynu na partycję i maksymalnych limitów liczby obiektów, które można utworzyć. Warstwa Podstawowa jest przeznaczona dla aplikacji mających niewielkie wymagania dotyczące magazynu (tylko jedną partycję), ale z możliwością uruchamiania w konfiguracji o wysokiej dostępności (3 repliki). Inne warstwy są przeznaczone do określonych obciążeń lub wzorców, takich jak Wielodostępność. Wewnętrznie usługi utworzone na tych warstwach korzystają ze sprzętu, który ułatwia te scenariusze.
+Pojemność jest funkcją [warstwy usług](search-sku-tier.md), ustanawiającą maksymalny rozmiar magazynu na usługę, na partycję oraz maksymalne limity liczby obiektów, które można utworzyć. Warstwa Podstawowa jest przeznaczona dla aplikacji mających niewielkie wymagania dotyczące magazynu (tylko jedną partycję), ale z możliwością uruchamiania w konfiguracji o wysokiej dostępności (3 repliki). Inne warstwy są przeznaczone do określonych obciążeń lub wzorców, takich jak Wielodostępność. Wewnętrznie usługi utworzone na tych warstwach korzystają ze sprzętu, który ułatwia te scenariusze.
 
 Architektura skalowalności w usłudze Azure Wyszukiwanie poznawcze opiera się na elastycznych kombinacjach replik i partycji, dzięki czemu można zmieniać pojemność w zależności od tego, czy potrzebne są dodatkowe zapytania czy możliwości indeksowania. Gdy usługa zostanie utworzona, można zwiększyć lub zmniejszyć liczbę replik lub partycji niezależnie od siebie. Koszty będą przenoszone z każdym dodatkowym zasobem fizycznym, ale po zakończeniu dużych obciążeń możesz zmniejszyć skalę w celu obniżenia poziomu rachunku. W zależności od warstwy i rozmiaru korekty dodanie lub zmniejszenie pojemności może zająć od 15 minut do kilku godzin.
 

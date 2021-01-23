@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 01/15/2021
 ms.custom: generated
-ms.openlocfilehash: 36f266a8402721dffecc9e80c4f769bd51b0e172
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: a521623447f4415e35a06c5c60e3723a69b4aa15
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539098"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98700605"
 ---
 # <a name="azure-resource-provider-operations"></a>Operacje dostawcy zasobów platformy Azure
 
@@ -84,7 +84,7 @@ Kliknij nazwę dostawcy zasobów w poniższej tabeli, aby wyświetlić listę op
 | [Microsoft. StreamAnalytics](#microsoftstreamanalytics) |
 | **Łańcuch bloków** |
 | [Microsoft. łańcucha bloków](#microsoftblockchain) |
-| **AI i uczenie maszynowe** |
+| **Sztuczna inteligencja i uczenie maszynowe** |
 | [Microsoft. BotService](#microsoftbotservice) |
 | [Microsoft. CognitiveServices](#microsoftcognitiveservices) |
 | [Microsoft. MachineLearning](#microsoftmachinelearning) |
@@ -122,7 +122,7 @@ Kliknij nazwę dostawcy zasobów w poniższej tabeli, aby wyświetlić listę op
 | [Microsoft. wspólny](#microsoftdevtestlab) |
 | [Microsoft. LabServices](#microsoftlabservices) |
 | [Microsoft. VisualStudio](#microsoftvisualstudio) |
-| **Migrate (Migracja)** |
+| **Migrate** |
 | [Microsoft. Migrowanie](#microsoftmigrate) |
 | [Microsoft. OffAzure](#microsoftoffazure) |
 | **Monitorowanie** |
@@ -272,7 +272,7 @@ Usługa platformy Azure: rdzeń
 > | Microsoft. Support/supportTickets/Communications/Read | Wyświetla jedną lub całą komunikację biletów pomocy technicznej |
 > | Microsoft. Support/supportTickets/Communications/Write | Dodaje nową komunikację do biletu pomocy technicznej |
 
-## <a name="compute"></a>Wystąpienia obliczeniowe
+## <a name="compute"></a>Obliczenia
 
 ### <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 
@@ -646,7 +646,7 @@ Usługa platformy Azure: [Service Fabric](../service-fabric/index.yml)
 > | Microsoft. servicefabric/Locations/Operations/Read | Odczytaj wszystkie operacje według lokalizacji |
 > | Microsoft. servicefabric/Operations/Read | Odczytaj wszystkie dostępne operacje |
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 ### <a name="microsoftcdn"></a>Microsoft. CDN
 
@@ -1464,7 +1464,7 @@ Usługa platformy Azure: [Azure Data Box](../databox/index.yml)
 
 ### <a name="microsoftimportexport"></a>Microsoft. ImportExport
 
-Usługa platformy Azure: [Import/eksport na platformie Azure](../storage/common/storage-import-export-service.md)
+Usługa platformy Azure: [Import/eksport na platformie Azure](../import-export/storage-import-export-service.md)
 
 > [!div class="mx-tableFixed"]
 > | Akcja | Opis |
@@ -1735,9 +1735,9 @@ Usługa platformy Azure: [StorSimple](../storsimple/index.yml)
 > | Microsoft. StorSimple/menedżerowie/zapis | Utwórz lub zaktualizuj menedżerów urządzeń |
 > | Microsoft. StorSimple/kierownicy/configureDevice/akcja | Konfiguruje urządzenie |
 > | Microsoft. StorSimple/kierownicy/migrateClassicToResourceManager/akcja | Migrowanie z wersji klasycznej do Menedżera zasobów |
-> | Microsoft. StorSimple/kierownicy/listActivationKey/akcja | Pobiera klucz aktywacji Menedżer urządzeń StorSimple. |
-> | Microsoft. StorSimple/kierownicy/regenerateActivationKey/akcja | Wygeneruj ponownie klucz aktywacji dla istniejących Menedżer urządzeń StorSimple. |
-> | Microsoft. StorSimple/kierownicy/listPublicEncryptionKey/akcja | Wyświetl listę publicznych kluczy szyfrowania StorSimple Menedżer urządzeń. |
+> | Microsoft. StorSimple/kierownicy/listActivationKey/akcja | Pobiera klucz aktywacji Device Manager StorSimple. |
+> | Microsoft. StorSimple/kierownicy/regenerateActivationKey/akcja | Wygeneruj ponownie klucz aktywacji dla istniejących Device Manager StorSimple. |
+> | Microsoft. StorSimple/kierownicy/listPublicEncryptionKey/akcja | Wyświetl listę publicznych kluczy szyfrowania StorSimple Device Manager. |
 > | Microsoft. StorSimple/kierownicy/provisionCloudAppliance/akcja | Utwórz nowe urządzenie w chmurze. |
 > | Microsoft. StorSimple/menedżerowie/zapis | Operacja Utwórz magazyn tworzy zasób platformy Azure typu "magazyn" |
 > | Microsoft. StorSimple/menedżerowie/odczyt | Operacja Pobierz magazyn pobiera obiekt reprezentujący zasób platformy Azure typu "magazyn" |
@@ -1897,7 +1897,7 @@ Usługa platformy Azure: [StorSimple](../storsimple/index.yml)
 > | Microsoft. StorSimple/menedżerowie/storageDomains/operationResults/Read | Wyświetla lub pobiera wyniki operacji |
 > | Microsoft. StorSimple/Operations/Read | Wyświetla lub pobiera operacje |
 
-## <a name="web"></a>Sieć Web
+## <a name="web"></a>Internet
 
 ### <a name="microsoftcertificateregistration"></a>Microsoft. CertificateRegistration
 
@@ -2675,7 +2675,7 @@ Usługa platformy Azure: [App Service](../app-service/index.yml), [Azure Functio
 > | Microsoft. Web/staticSites/privateEndpointConnections/Delete | Usuwanie połączenia prywatnego punktu końcowego dla lokacji statycznej |
 > | Microsoft. Web/staticSites/privateLinkResources/odczyt | Pobieranie prywatnych zasobów linków |
 
-## <a name="containers"></a>Containers
+## <a name="containers"></a>Kontenery
 
 ### <a name="microsoftcontainerinstance"></a>Microsoft. ContainerInstance
 
@@ -7255,7 +7255,7 @@ Usługa platformy Azure: [Azure DevOps](/azure/devops/)
 > | Microsoft. VisualStudio/Project/Delete | Usuń projekt |
 > | Microsoft. VisualStudio/Project/Read | Odczytaj projekt |
 
-## <a name="migrate"></a>Migrate (Migracja)
+## <a name="migrate"></a>Migrate
 
 ### <a name="microsoftmigrate"></a>Microsoft. Migrowanie
 
@@ -7730,7 +7730,7 @@ Usługa platformy Azure: [Azure Migrate](../migrate/migrate-services-overview.md
 > | Microsoft. OffAzure/VMwareSites/vCenter/odczyt | Pobiera właściwości programu VMware vCenter |
 > | Microsoft. OffAzure/VMwareSites/vcenters/Write | Tworzy lub aktualizuje program VMware vCenter |
 
-## <a name="monitor"></a>Monitorowanie
+## <a name="monitor"></a>Monitor
 
 ### <a name="microsoftalertsmanagement"></a>Microsoft. AlertsManagement
 

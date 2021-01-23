@@ -4,12 +4,12 @@ description: Dowiedz się, jak ciągle kompilować, testować i wdrażać szablo
 ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8e9f047497f493752947d8115084dcfe86f5e040
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: e7e2cda0524e4d754fbf879c046fee2d43c44cb3
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588135"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98701715"
 ---
 # <a name="tutorial-continuous-integration-of-arm-templates-with-azure-pipelines"></a>Samouczek: Ciągła integracja szablonów ARM z Azure Pipelines
 
@@ -29,7 +29,7 @@ Ten samouczek obejmuje następujące zadania:
 > * Tworzenie potoku platformy Azure
 > * Weryfikowanie wdrożenia potoku
 > * Zaktualizuj szablon i Wdróż ponownie
-> * Oczyszczanie zasobów
+> * Czyszczenie zasobów
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
@@ -39,12 +39,12 @@ Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
 * **Konto usługi GitHub**, za pomocą którego można utworzyć repozytorium dla szablonów. Jeśli nie masz takiego konta, możesz [je utworzyć bezpłatnie](https://github.com). Aby uzyskać więcej informacji o korzystaniu z repozytoriów usługi GitHub, zobacz [Tworzenie repozytoriów GitHub](/azure/devops/pipelines/repos/github).
 * **Zainstaluj narzędzie git**. W tej instrukcji samouczka jest stosowana funkcja *git bash* lub *powłoka git*. Aby uzyskać instrukcje, zobacz [Instalowanie usługi git](https://www.atlassian.com/git/tutorials/install-git).
-* **Organizacja usługi Azure DevOps**. Jeśli nie masz takiego konta, możesz je utworzyć bezpłatnie. Zobacz [Tworzenie organizacji lub kolekcji projektów](/azure/devops/organizations/accounts/create-organization?view=azure-devops).
+* **Organizacja usługi Azure DevOps**. Jeśli nie masz takiego konta, możesz je utworzyć bezpłatnie. Zobacz [Tworzenie organizacji lub kolekcji projektów](/azure/devops/organizations/accounts/create-organization).
 * obowiązkowe **Visual Studio Code z rozszerzeniem Menedżer zasobów Tools**. Zobacz [Szybki Start: Tworzenie szablonów ARM przy użyciu Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="prepare-a-github-repository"></a>Przygotowywanie repozytorium GitHub
 
-GitHub służy do przechowywania kodu źródłowego projektu, w tym Menedżer zasobów szablonów. W przypadku innych obsługiwanych repozytoriów zobacz [repozytoria obsługiwane przez usługę Azure DevOps](/azure/devops/pipelines/repos/?view=azure-devops).
+GitHub służy do przechowywania kodu źródłowego projektu, w tym Menedżer zasobów szablonów. W przypadku innych obsługiwanych repozytoriów zobacz [repozytoria obsługiwane przez usługę Azure DevOps](/azure/devops/pipelines/repos/).
 
 ### <a name="create-a-github-repository"></a>Tworzenie repozytorium GitHub
 
@@ -128,7 +128,7 @@ Aby można było wykonać następną procedurę, wymagana jest organizacja DevOp
     * **Kontrola wersji**: wybierz pozycję **git**. Może być konieczne rozszerzenie **Zaawansowane** , aby zobaczyć **kontrolę wersji**.
 
     Użyj wartości domyślnej dla innych właściwości.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 Utwórz połączenie usługi używane do wdrażania projektów na platformie Azure.
 
@@ -229,7 +229,7 @@ Gdy aktualizujesz szablon i wypychasz zmiany do repozytorium zdalnego, potok aut
 
 Aby sprawdzić zmiany, można sprawdzić Właściwość replikacji konta magazynu. Zobacz [weryfikacja wdrożenia](#verify-the-deployment).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów.
 

@@ -11,14 +11,14 @@ ms.topic: how-to
 ms.date: 1/17/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 7e6f19e03eee6fb6ddf946ea79d197a231f5f113
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 2ab1b5ae87cee6265c965c45b706c7fbf10dfe3f
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/22/2021
-ms.locfileid: "98690632"
+ms.locfileid: "98702958"
 ---
-# <a name="tutorial-for-configuring-keyless-with-azure-active-directory-b2c"></a>Samouczek konfigurowania usługi Less przy użyciu Azure Active Directory B2C
+# <a name="tutorial-configure-keyless-with-azure-active-directory-b2c"></a>Samouczek: Konfigurowanie mniejszej ilości przy użyciu Azure Active Directory B2C
 
 W tym przykładowym samouczku przedstawiono wskazówki dotyczące konfigurowania Azure Active Directory (AD) B2C z [mniejszą ilością](https://keyless.io/). Korzystając z Azure AD B2C jako dostawcy tożsamości, możesz zintegrować program z dowolną obsługą klienta, aby zapewnić użytkownikom prawdziwe uwierzytelnianie bez hasła.
 

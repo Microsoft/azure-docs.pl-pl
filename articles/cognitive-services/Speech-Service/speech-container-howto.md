@@ -12,12 +12,12 @@ ms.date: 11/17/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: lokalna, Docker, kontener
-ms.openlocfilehash: 829514637b72582dbb317970b0d23f92eb11bcad
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 79e53bf39e411569f87a46bfc275c784ce84babc
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862286"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703330"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instalowanie i uruchamianie kontenerów platformy Docker dla interfejsów API usługi mowy 
 
@@ -373,13 +373,6 @@ Jeśli masz wiele fraz do dodania, wywołaj `.addPhrase()` dla każdej frazy, ab
 # <a name="custom-speech-to-text"></a>[Custom Speech do tekstu](#tab/cstt)
 
 Kontener *Custom Speech do tekstu* opiera się na niestandardowym modelu mowy. Model niestandardowy musi być [szkolony](how-to-custom-speech-train-model.md) przy użyciu [portalu mowy niestandardowej](https://speech.microsoft.com/customspeech).
-
-> [!IMPORTANT]
-> Model Custom Speech musi być przeszkolony z jednej z następujących wersji modelu:
-> * **20181201 (wersja 3.3 ujednolicona)**
-> * **20190520 (wersja 4.14, ujednolicona)**
-> * **20190701 (wersja 4.17**<br>
-> ![Custom Speech model kontenera uczenia](media/custom-speech/custom-speech-train-model-container-scoped.png)
 
 Do uruchomienia kontenera jest wymagany niestandardowy **Identyfikator modelu** mowy. Można je znaleźć na stronie **uczenie** niestandardowego portalu mowy. W portalu niestandardowych mowy przejdź do strony **szkoleń** i wybierz model.
 <br>

@@ -6,13 +6,13 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-zone_pivot_groups: programming-languages-set-sixteen
-ms.openlocfilehash: d9e984d4384b59fa13bc59e09e29939457dad37c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+zone_pivot_groups: qnamaker-quickstart
+ms.openlocfilehash: de237c1bba699165e63fc0b2e4bfb58d25518bd9
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351054"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98701294"
 ---
 # <a name="quickstart-qna-maker-client-library"></a>Szybki Start: QnA Makera Biblioteka kliencka
 
@@ -40,6 +40,10 @@ Rozpocznij pracę z biblioteką klienta QnA Maker. Wykonaj następujące kroki, 
 
 ::: zone pivot="programming-language-ruby"
 [!INCLUDE [QnA Maker Ruby client library quickstart](../includes/quickstart-sdk-ruby.md)]
+::: zone-end
+
+::: zone pivot="rest"
+[!INCLUDE [QnA Maker REST quickstart](../includes/quickstart-rest.md)]
 ::: zone-end
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów

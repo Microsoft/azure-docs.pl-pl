@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: ed79d9fb3be192d300587eda5198d9b153109241
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 605bae706bbc1db2e008b8d050cbba9eacd16933
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209784"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702206"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Przygotowywanie danych dla usługi Custom Speech
 
@@ -46,7 +46,7 @@ Ta tabela zawiera listę akceptowanych typów danych, gdy należy użyć poszcze
 
 | Typ danych | Używany do testowania | Zalecana ilość | Używany do szkolenia | Zalecana ilość |
 |-----------|-----------------|----------|-------------------|----------|
-| [Dźwięk](#audio-data-for-testing) | Tak<br>Używane na potrzeby inspekcji wizualnej | 5 plików audio | Nie | Brak |
+| [Dźwięk](#audio-data-for-testing) | Tak<br>Używane na potrzeby inspekcji wizualnej | 5 plików audio | Nie | Nie dotyczy |
 | [Zapisy audio + oznakowane przez człowieka](#audio--human-labeled-transcript-data-for-testingtraining) | Tak<br>Służy do obliczania dokładności | 0,5 – 5 godzin audio | Tak | 1-20 godz. audio |
 | [Powiązany tekst](#related-text-data-for-training) | Nie | Nie dotyczy | Tak | 1-200 MB powiązanego tekstu |
 
@@ -174,7 +174,7 @@ Użyj tej tabeli, aby upewnić się, że plik powiązane dane dla wyrażenia dł
 
 Ponadto należy uwzględnić następujące ograniczenia:
 
-* Unikaj powtarzania znaków więcej niż cztery razy. Na przykład: "aaaa" lub "uuuu".
+* Unikaj powtarzających się znaków, wyrazów lub grup wyrazów więcej niż trzy razy. Na przykład: "aaaa", "tak tak, tak jak tak" lub "jest to, że jest to". Usługa mowy może upuszczać wiersze z zbyt dużą liczbą powtórzeń.
 * Nie używaj znaków specjalnych ani znaków UTF-8 powyżej `U+00A1` .
 * Identyfikatory URI zostaną odrzucone.
 

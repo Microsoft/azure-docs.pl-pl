@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 6fb17ead2546875c0f334aae322f8fb070e8f1ea
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 6634ab3521fee3062ecee465eaf6dcda80ee6ff8
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684910"
+ms.locfileid: "98699518"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Różnice w języku T-SQL między SQL Server & wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -168,7 +168,7 @@ Wystąpienie zarządzane SQL nie może uzyskać dostępu do plików, więc nie m
     - Wyeksportuj bazę danych z wystąpienia zarządzanego SQL i zaimportuj ją do SQL Database w ramach tej samej domeny usługi Azure AD. 
     - Wyeksportuj bazę danych z SQL Database i zaimportuj do wystąpienia zarządzanego SQL w ramach tej samej domeny usługi Azure AD.
     - Wyeksportuj bazę danych z wystąpienia zarządzanego SQL i zaimportuj do SQL Server (wersja 2012 lub nowsza).
-      - W tej konfiguracji wszyscy użytkownicy usługi Azure AD są utworzeni jako SQL Server podmioty zabezpieczeń bazy danych (Użytkownicy) bez logowania. Typy użytkowników są wyświetlane jako `SQL` i są widoczne jako `SQL_USER` w sys.database_principals). Ich uprawnienia i role pozostają w metadanych bazy danych SQL Server i mogą być używane do personifikacji. Nie można ich jednak używać do uzyskiwania dostępu do SQL Server i logowania się do nich przy użyciu swoich poświadczeń.
+      - W tej konfiguracji wszyscy użytkownicy usługi Azure AD są utworzeni jako SQL Server podmioty zabezpieczeń bazy danych (Użytkownicy) bez logowania. Typ użytkowników jest wyświetlany jako `SQL` i jest widoczny jako `SQL_USER` w sys.database_principals). Ich uprawnienia i role pozostają w metadanych bazy danych SQL Server i mogą być używane do personifikacji. Nie można ich jednak używać do uzyskiwania dostępu do SQL Server i logowania się do nich przy użyciu swoich poświadczeń.
 
 - Tylko główna nazwa logowania na poziomie serwera, która jest tworzona przez proces aprowizacji wystąpienia zarządzanego przez usługę SQL, członkowie ról serwera, takie jak `securityadmin` lub `sysadmin` , lub inne logowania z uprawnieniami do zmiany nazwy logowania na poziomie serwera mogą tworzyć nazwy główne serwera usługi Azure AD (nazwy logowania) w bazie danych Master dla wystąpienia zarządzanego SQL.
 - Jeśli nazwa logowania jest podmiotem SQL, tylko nazwy logowania należące do `sysadmin` roli mogą używać polecenia CREATE do tworzenia logowań dla konta usługi Azure AD.
@@ -277,7 +277,7 @@ Nie można modyfikować następujących opcji:
 - `SINGLE_USER`
 - `WITNESS`
 
-Niektóre `ALTER DATABASE` instrukcje (np. [zestaw zawierania](https://docs.microsoft.com/sql/relational-databases/databases/migrate-to-a-partially-contained-database?#converting-a-database-to-partially-contained-using-transact-sql)) mogą przejściowo kończyć się niepowodzeniem, na przykład podczas tworzenia zautomatyzowanej kopii zapasowej bazy danych lub bezpośrednio po utworzeniu bazy danych. W tej `ALTER DATABASE` instrukcji case należy ponowić próbę. Aby uzyskać więcej informacji i informacje o powiązanych komunikatach o błędach, zobacz [sekcję Uwagi](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true&tabs=sqlpool#remarks-2).
+Niektóre `ALTER DATABASE` instrukcje (na przykład [ustawienie zawierania](https://docs.microsoft.com/sql/relational-databases/databases/migrate-to-a-partially-contained-database?#converting-a-database-to-partially-contained-using-transact-sql)) mogą przejściowo kończyć się niepowodzeniem, na przykład podczas tworzenia zautomatyzowanej kopii zapasowej bazy danych lub bezpośrednio po utworzeniu bazy danych. W tej `ALTER DATABASE` instrukcji case należy ponowić próbę. Aby uzyskać więcej informacji na temat powiązanych komunikatów o błędach, zobacz [sekcję Uwagi](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true&tabs=sqlpool#remarks-2).
 
 Aby uzyskać więcej informacji, zobacz [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
@@ -305,7 +305,7 @@ Aby uzyskać więcej informacji, zobacz [ALTER DATABASE](/sql/t-sql/statements/a
   - Alerty nie są jeszcze obsługiwane.
   - Serwery proxy nie są obsługiwane.
 - Dziennik zdarzeń nie jest obsługiwany.
-- Użytkownik musi być bezpośrednio mapowany do podmiotu zabezpieczeń serwera usługi Azure AD, aby można było tworzyć, modyfikować lub wykonywać zadania programu SQL Agent. Użytkownicy, którzy nie są bezpośrednio zamapowane, np. Użytkownicy, którzy należą do grupy usługi Azure AD, która ma uprawnienia do tworzenia, modyfikowania lub wykonywania zadań agenta SQL, nie będą efektywnie mogli wykonywać tych czynności. Przyczyną jest personifikacja wystąpienia zarządzanego i [wykonywanie jako ograniczenia](#logins-and-users).
+- Użytkownik musi być bezpośrednio mapowany do podmiotu zabezpieczeń serwera usługi Azure AD, aby można było tworzyć, modyfikować lub wykonywać zadania programu SQL Agent. Użytkownicy, którzy nie są bezpośrednio zamapowane, na przykład użytkownicy, którzy należą do grupy usługi Azure AD, która ma uprawnienia do tworzenia, modyfikowania lub wykonywania zadań agenta SQL, nie będą efektywnie mogli wykonywać tych czynności. Przyczyną jest personifikacja wystąpienia zarządzanego i [wykonywanie jako ograniczenia](#logins-and-users).
 
 Następujące funkcje agenta SQL nie są obecnie obsługiwane:
 
@@ -400,12 +400,12 @@ Aby uzyskać więcej informacji, zobacz [FILESTREAM](/sql/relational-databases/b
 Połączone serwery w wystąpieniu zarządzanym SQL obsługują ograniczoną liczbę elementów docelowych:
 
 - Obsługiwane elementy docelowe to wystąpienia zarządzane SQL, SQL Database, usługa Azure Synapse SQL [Server](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) i pule dedykowane oraz wystąpienia SQL Server. 
-- Połączone serwery nie obsługują dystrybuowanych transakcji zapisywalnych (MS DTC).
+- Rozproszone transakcje zapisywalne są możliwe tylko między wystąpieniami zarządzanymi. Aby uzyskać więcej informacji, zobacz [transakcje rozproszone](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview). Jednak usługa MS DTC nie jest obsługiwana.
 - Elementy docelowe, które nie są obsługiwane to pliki, Analysis Services i inne RDBMS. Spróbuj użyć natywnego importu CSV z platformy Azure Blob Storage przy użyciu `BULK INSERT` lub `OPENROWSET` jako alternatywy dla importu plików lub załadować pliki przy użyciu [puli SQL bezserwerowej w usłudze Azure Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/).
 
 Operacje: 
 
-- Transakcje zapisu między wystąpieniami nie są obsługiwane.
+- Transakcje zapisu [między wystąpieniami](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview) są obsługiwane tylko dla wystąpień zarządzanych.
 - `sp_dropserver` jest obsługiwany w przypadku upuszczania połączonego serwera. Zobacz [sp_dropserver](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
 - `OPENROWSET`Funkcja może służyć do wykonywania zapytań tylko w wystąpieniach SQL Server. Mogą być zarządzane, lokalne lub na maszynach wirtualnych. Zobacz [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
 - `OPENDATASOURCE`Funkcja może służyć do wykonywania zapytań tylko w wystąpieniach SQL Server. Mogą być zarządzane, lokalne lub na maszynach wirtualnych. Tylko `SQLNCLI` wartości, `SQLNCLI11` i `SQLOLEDB` są obsługiwane jako dostawcy. Może to być na przykład `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Zobacz [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql).
@@ -413,7 +413,7 @@ Operacje:
 
 ### <a name="polybase"></a>PolyBase
 
-Jedyne dostępne typy źródeł zewnętrznych to RDBMS (w publicznej wersji zapoznawczej) do usługi Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL i puli Synapse platformy Azure. Można użyć [tabeli zewnętrznej, która odwołuje się do bezserwerowej puli SQL w Synapse Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) jako obejście dla wielobazowych tabel zewnętrznych, które bezpośrednio odczytuje z usługi Azure Storage. W wystąpieniu zarządzanym usługi Azure SQL można używać połączonych serwerów do [puli SQL bezserwerowej w Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) lub SQL Server odczytywania danych usługi Azure Storage.
+Jedynym dostępnym typem źródła zewnętrznego jest RDBMS (w publicznej wersji zapoznawczej) do usługi Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL i puli Synapse platformy Azure. Można użyć [tabeli zewnętrznej, która odwołuje się do bezserwerowej puli SQL w Synapse Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) jako obejście dla wielobazowych tabel zewnętrznych, które bezpośrednio odczytuje z usługi Azure Storage. W wystąpieniu zarządzanym usługi Azure SQL można używać połączonych serwerów do [puli SQL bezserwerowej w Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) lub SQL Server odczytywania danych usługi Azure Storage.
 Aby uzyskać informacje o bazie danych Base, zobacz artykuł [Base](/sql/relational-databases/polybase/polybase-guide).
 
 ### <a name="replication"></a>Replikacja

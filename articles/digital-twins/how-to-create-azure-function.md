@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 04ca8d515dbc5a28a7d3a30369d97877928c9dc1
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 1178b0ab5af3642026fe78c7de788f354691b13a
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683922"
+ms.locfileid: "98701168"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Łączenie aplikacji funkcji na platformie Azure na potrzeby przetwarzania danych
 
@@ -38,19 +38,19 @@ Poniżej przedstawiono przegląd kroków, które zawiera:
 
 W programie Visual Studio 2019 wybierz pozycję _plik > nowy > projekt_ i wyszukaj szablon _Azure Functions_ . Wybierz opcję _Dalej_.
 
-:::image type="content" source="media/how-to-create-azure-function/create-azure-function-project.png" alt-text="Visual Studio: okno dialogowe Nowy projekt":::
+:::image type="content" source="media/how-to-create-azure-function/create-azure-function-project.png" alt-text="Zrzut ekranu programu Visual Studio pokazujący okno dialogowe Nowy projekt. Szablon projektu Azure Functions jest wyróżniony.":::
 
 Określ nazwę aplikacji funkcji i wybierz pozycję _Utwórz_.
 
-:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Visual Studio: Konfigurowanie nowego projektu":::
+:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Zrzut ekranu programu Visual Studio pokazujący okno dialogowe umożliwiające skonfigurowanie nowego projektu, w tym nazwy projektu, lokalizacji zapisywania, wybór tworzenia nowego rozwiązania i nazwy rozwiązania.":::
 
 Wybierz typ aplikacji funkcji *Event Grid wyzwalacza* , a następnie wybierz pozycję _Utwórz_.
 
-:::image type="content" source="media/how-to-create-azure-function/event-grid-trigger-function.png" alt-text="Visual Studio: okno dialogowe wyzwalacza projektu Azure Functions":::
+:::image type="content" source="media/how-to-create-azure-function/event-grid-trigger-function.png" alt-text="Zrzut ekranu programu Visual Studio pokazujący okno dialogowe umożliwiające utworzenie nowej aplikacji Azure Functions. Opcja wyzwalacza Event Grid jest wyróżniona.":::
 
 Po utworzeniu aplikacji funkcji program Visual Studio wygeneruje przykład kodu w pliku **Function1.cs** w folderze projektu. Ta krótka funkcja jest używana do rejestrowania zdarzeń.
 
-:::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Visual Studio: okno projektu z przykładowym kodem":::
+:::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Zrzut ekranu programu Visual Studio w oknie projektu dla nowego projektu, który został utworzony. Istnieje kod dla przykładowej funkcji o nazwie Function1." lightbox="media/how-to-create-azure-function/visual-studio-sample-code.png":::
 
 ## <a name="write-a-function-with-an-event-grid-trigger"></a>Napisz funkcję z wyzwalaczem Event Grid
 
@@ -150,27 +150,27 @@ Tożsamość zarządzana przypisana przez system umożliwia zasobom platformy Az
 
 W [Azure Portal](https://portal.azure.com/)Wyszukaj _aplikację funkcji_ na pasku wyszukiwania przy użyciu utworzonej wcześniej nazwy aplikacji funkcji. Wybierz z listy *aplikacja funkcji* . 
 
-:::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Azure Portal: Wyszukaj aplikację funkcji":::
+:::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Zrzut ekranu przedstawiający Azure Portal: Nazwa aplikacji funkcji jest przeszukiwana na pasku wyszukiwania portalu, a wynik wyszukiwania zostanie wyróżniony.":::
 
 W oknie aplikacja funkcji wybierz pozycję _tożsamość_ na pasku nawigacyjnym po lewej stronie, aby włączyć zarządzaną tożsamość.
 W obszarze _przypisana do systemu_ Przełącz _stan_ na wartość włączone i _Zapisz_ go. Zostanie wyświetlone okno podręczne umożliwiające _włączenie tożsamości zarządzanej przypisanej do systemu_.
 Wybierz przycisk _tak_ . 
 
-:::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Azure Portal: Włącz tożsamość zarządzaną przez system":::
+:::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Zrzut ekranu przedstawiający Azure Portal: na stronie tożsamość aplikacji funkcji jest ustawiona opcja włączania tożsamości zarządzanej przypisanej do systemu. Opcja stan jest ustawiona na wartość włączone.":::
 
 Można zweryfikować powiadomienia, że funkcja została pomyślnie zarejestrowana w Azure Active Directory.
 
-:::image type="content" source="media/how-to-create-azure-function/notifications-enable-managed-identity.png" alt-text="Azure Portal: powiadomienia":::
+:::image type="content" source="media/how-to-create-azure-function/notifications-enable-managed-identity.png" alt-text="Zrzut ekranu przedstawiający Azure Portal: na liście powiadomień wybierz ikonę w kształcie dzwonka na górnym pasku portalu. Istnieje powiadomienie, że użytkownik włączył tożsamość zarządzaną przypisaną przez system.":::
 
 Należy również zwrócić uwagę na **Identyfikator obiektu** wyświetlany na stronie _tożsamości_ , ponieważ będzie on używany w następnej sekcji.
 
-:::image type="content" source="media/how-to-create-azure-function/object-id.png" alt-text="Skopiuj identyfikator obiektu do użycia w przyszłości":::
+:::image type="content" source="media/how-to-create-azure-function/object-id.png" alt-text="Zrzut ekranu przedstawiający Azure Portal: wyróżnienie wokół pola identyfikatora obiektu na stronie tożsamości funkcji platformy Azure.":::
 
 ### <a name="assign-access-roles-using-azure-portal"></a>Przypisywanie ról dostępu przy użyciu Azure Portal
 
 Wybierz przycisk _przypisania roli platformy Azure_ , który spowoduje otwarcie strony *przypisania roli platformy Azure* . Następnie wybierz pozycję _+ Dodaj przypisanie roli (wersja zapoznawcza)_.
 
-:::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Azure Portal: Dodawanie przypisania roli":::
+:::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Zrzut ekranu przedstawiający Azure Portal: wyróżniony przycisk &quot;przypisań roli platformy Azure&quot; w obszarze uprawnienia na stronie tożsamości funkcji platformy Azure.":::
 
 Na stronie _Dodaj przypisanie roli (wersja zapoznawcza)_ , która zostanie otwarta, wybierz pozycję:
 
@@ -181,7 +181,7 @@ Na stronie _Dodaj przypisanie roli (wersja zapoznawcza)_ , która zostanie otwar
 
 Następnie Zapisz szczegóły, naciskając przycisk _Zapisz_ .
 
-:::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Azure Portal: Dodawanie przypisania roli (wersja zapoznawcza) ":::
+:::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Zrzut ekranu przedstawiający okno dialogowe Azure Portal: aby dodać nowe przypisanie roli (wersja zapoznawcza). Istnieją pola dla zakresu, subskrypcji, grupy zasobów i roli.":::
 
 ### <a name="configure-application-settings-using-azure-portal"></a>Konfigurowanie ustawień aplikacji przy użyciu Azure Portal
 
@@ -189,37 +189,37 @@ Możesz wprowadzić adres URL wystąpienia usługi Azure Digital bliźniaczych r
 
 Aby ustawić zmienną środowiskową przy użyciu adresu URL wystąpienia, należy najpierw uzyskać adres URL, wyszukując nazwę hosta wystąpienia bliźniaczych reprezentacji cyfrowych platformy Azure. Wyszukaj swoje wystąpienie na pasku wyszukiwania [Azure Portal](https://portal.azure.com) . Następnie wybierz pozycję _Przegląd_ na lewym pasku nawigacyjnym, aby wyświetlić _nazwę hosta_. Skopiuj tę wartość.
 
-:::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Azure Portal: przegląd — > skopiuj nazwę hosta do użycia w polu _Value_.":::
+:::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Zrzut ekranu przedstawiający Azure Portal: na stronie Przegląd wystąpienia usługi Azure Digital bliźniaczych reprezentacji zostanie wyróżniona wartość Nazwa hosta.":::
 
 Teraz możesz utworzyć ustawienie aplikacji, wykonując poniższe kroki:
 
-1. Wyszukaj aplikację przy użyciu nazwy aplikacji funkcji na pasku wyszukiwania i wybierz aplikację funkcji z listy
+1. Wyszukaj aplikację funkcji na pasku wyszukiwania portalu i wybierz ją z wyników
 1. Wybierz pozycję _Konfiguracja_ na pasku nawigacyjnym po lewej stronie, aby utworzyć nowe ustawienie aplikacji
 1. Na karcie _Ustawienia aplikacji_ wybierz pozycję _+ nowe ustawienie aplikacji_
 
-:::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Azure Portal: wyszukiwanie istniejącej aplikacji funkcji" lightbox="media/how-to-create-azure-function/search-for-azure-function.png":::
+:::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Zrzut ekranu przedstawiający Azure Portal: Nazwa aplikacji funkcji jest przeszukiwana na pasku wyszukiwania portalu, a wynik wyszukiwania zostanie wyróżniony.":::
 
-:::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Azure Portal: Konfigurowanie ustawień aplikacji":::
+:::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Zrzut ekranu przedstawiający Azure Portal: na stronie Konfiguracja aplikacji funkcji zostanie wyróżniony przycisk służący do tworzenia nowego ustawienia aplikacji.":::
 
 W otwartym oknie Użyj wartości Nazwa hosta skopiowanej powyżej, aby utworzyć ustawienie aplikacji.
-* _Nazwa_ : ADT_SERVICE_URL
-* _Wartość_: https://{The-Azure-Digital-bliźniaczych reprezentacji-Host-Name}
+* **Nazwa**: ADT_SERVICE_URL
+* **Wartość**: https://{The-Azure-Digital-bliźniaczych reprezentacji-Host-Name}
 
 Wybierz _przycisk OK_ , aby utworzyć ustawienie aplikacji.
 
-:::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Azure Portal: Dodaj ustawienia aplikacji.":::
+:::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Zrzut ekranu przedstawiający Azure Portal: przycisk OK zostanie wyróżniony po wypełnieniu pól Nazwa i wartość na stronie Dodawanie/Edytowanie ustawienia aplikacji.":::
 
 Ustawienia aplikacji można wyświetlić za pomocą nazwy aplikacji w polu _Nazwa_ . Następnie Zapisz ustawienia aplikacji, wybierając przycisk _Zapisz_ .
 
-:::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Azure Portal: Wyświetl aplikację utworzoną i uruchom ponownie aplikację":::
+:::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Zrzut ekranu przedstawiający Azure Portal: Strona Ustawienia aplikacji z wyróżnionym nowym ustawieniem ADT_SERVICE_URL. Przycisk Zapisz jest również wyróżniony.":::
 
 Wszelkie zmiany w ustawieniach aplikacji wymagają ponownego uruchomienia aplikacji. Wybierz pozycję _Kontynuuj_ , aby ponownie uruchomić aplikację.
 
-:::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Azure Portal: Zapisz ustawienia aplikacji":::
+:::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Zrzut ekranu przedstawiający Azure Portal: należy zauważyć, że wszelkie zmiany ustawień aplikacji z ponownym uruchomieniem aplikacji. Przycisk Kontynuuj jest wyróżniony.":::
 
 Ustawienia aplikacji można wyświetlić, wybierając ikonę _powiadomienia_ . Jeśli ustawienie aplikacji nie zostanie utworzone, można ponowić próbę dodania ustawienia aplikacji, wykonując powyższy proces.
 
-:::image type="content" source="media/how-to-create-azure-function/notifications-update-web-app-settings.png" alt-text="Azure Portal: powiadomienia dotyczące aktualizowania ustawień aplikacji":::
+:::image type="content" source="media/how-to-create-azure-function/notifications-update-web-app-settings.png" alt-text="Zrzut ekranu przedstawiający Azure Portal: na liście powiadomień wybierz ikonę w kształcie dzwonka na górnym pasku portalu. Istnieje powiadomienie, że ustawienia aplikacji sieci Web zostały pomyślnie zaktualizowane.":::
 
 ## <a name="next-steps"></a>Następne kroki
 
