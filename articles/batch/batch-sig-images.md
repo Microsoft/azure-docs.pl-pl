@@ -4,16 +4,16 @@ description: Pule obrazów niestandardowych są wydajnym sposobem konfigurowania
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: eb21a9e0d355274142e34fbb5c90a4d293c88ef1
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 98dbb965d77da43d937dccbc0f99abf12c195929
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327308"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98731365"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Używanie galerii obrazów udostępnionych do tworzenia niestandardowej puli obrazów
 
-Podczas tworzenia puli Azure Batch przy użyciu konfiguracji maszyny wirtualnej należy określić obraz maszyny wirtualnej, który dostarcza system operacyjny dla każdego węzła obliczeniowego w puli. Pulę maszyn wirtualnych można utworzyć za pomocą obsługiwanego obrazu witryny Azure Marketplace lub utworzyć obraz niestandardowy z [obrazem udostępnionej galerii obrazów](../virtual-machines/windows/shared-image-galleries.md).
+Podczas tworzenia puli Azure Batch przy użyciu konfiguracji maszyny wirtualnej należy określić obraz maszyny wirtualnej, który dostarcza system operacyjny dla każdego węzła obliczeniowego w puli. Pulę maszyn wirtualnych można utworzyć za pomocą obsługiwanego obrazu witryny Azure Marketplace lub utworzyć obraz niestandardowy z [obrazem udostępnionej galerii obrazów](../virtual-machines/shared-image-galleries.md).
 
 ## <a name="benefits-of-the-shared-image-gallery"></a>Zalety galerii obrazów udostępnionych
 
@@ -31,7 +31,7 @@ Używanie udostępnionego obrazu skonfigurowanego dla danego scenariusza może z
 - **Kopiuj duże ilości danych raz.** Utwórz statyczny element danych w zarządzanym obrazie udostępnionym, kopiując go do dysków danych w zarządzanym obrazie. Należy to zrobić tylko raz i udostępnić dane dla każdego węzła puli.
 - **Zwiększaj pule do większych rozmiarów.** Za pomocą galerii obrazów udostępnionych można tworzyć większe pule przy użyciu dostosowanych obrazów wraz z bardziej udostępnionymi replikami obrazu.
 - **Lepsza wydajność niż użycie tylko obrazu zarządzanego jako obrazu niestandardowego.** W przypadku niestandardowej puli obrazów dla udostępnionego obrazu czas osiągnięcia stanu stałego jest szybszy do 25%, a opóźnienie bezczynności maszyny wirtualnej jest krótsze niż 30%.
-- **Przechowywanie wersji obrazów i grupowanie w celu łatwiejszego zarządzania.** Definicja grupowania obrazów zawiera informacje na temat przyczyny utworzenia obrazu, jego systemu operacyjnego oraz informacji o korzystaniu z obrazu. Grupowanie obrazów umożliwia łatwiejsze zarządzanie obrazami. Aby uzyskać więcej informacji, zobacz [definicje obrazu](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
+- **Przechowywanie wersji obrazów i grupowanie w celu łatwiejszego zarządzania.** Definicja grupowania obrazów zawiera informacje na temat przyczyny utworzenia obrazu, jego systemu operacyjnego oraz informacji o korzystaniu z obrazu. Grupowanie obrazów umożliwia łatwiejsze zarządzanie obrazami. Aby uzyskać więcej informacji, zobacz [definicje obrazu](../virtual-machines/shared-image-galleries.md#image-definitions).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -226,4 +226,4 @@ Jeśli planujesz utworzenie puli z setkami lub tysiącami maszyn wirtualnych lub
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby zapoznać się z szczegółowym omówieniem usługi Batch, zobacz temat [przepływ pracy i zasoby usług Batch](batch-service-workflow-features.md).
-- Dowiedz się więcej o [galerii obrazów udostępnionych](../virtual-machines/windows/shared-image-galleries.md).
+- Dowiedz się więcej o [galerii obrazów udostępnionych](../virtual-machines/shared-image-galleries.md).

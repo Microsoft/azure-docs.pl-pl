@@ -7,17 +7,17 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: e60f77495cdb822a0c50be936c2b0d3ac31348f3
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 2b68afcb9d200970ca4ea29b13175223f52c77e0
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116713"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730993"
 ---
 # <a name="cross-service-query---azure-monitor-and-azure-data-explorer-preview"></a>Zapytanie dotyczące wielu usług — Azure Monitor i Azure Eksplorator danych (wersja zapoznawcza)
-Twórz zapytania krzyżowe między usługą [Azure Eksplorator danych](https://docs.microsoft.com/azure/data-explorer/), [Application Insights](/azure/azure-monitor/app/app-insights-overview)i [log Analytics](/azure/azure-monitor/platform/data-platform-logs).
+Twórz zapytania krzyżowe między usługą [Azure Eksplorator danych](/azure/data-explorer/), [Application Insights](../app/app-insights-overview.md)i [log Analytics](./data-platform-logs.md).
 ## <a name="azure-monitor-and-azure-data-explorer-cross-service-querying"></a>Azure Monitor i obsługa zapytań międzyusługowych na platformie Azure Eksplorator danych
-Dzięki temu można [tworzyć zapytania krzyżowe między usługą azure Eksplorator danych i Azure monitor](https://docs.microsoft.com/azure/data-explorer/query-monitor-data) i [tworzyć zapytania obejmujące wiele usług między Azure monitor i Eksplorator danych platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/azure-monitor-data-explorer-proxy).
+Dzięki temu można [tworzyć zapytania krzyżowe między usługą azure Eksplorator danych i Azure monitor](/azure/data-explorer/query-monitor-data) i [tworzyć zapytania obejmujące wiele usług między Azure monitor i Eksplorator danych platformy Azure](./azure-monitor-data-explorer-proxy.md).
 
 Na przykład (wykonywanie zapytania dotyczącego usługi Azure Eksplorator danych from Log Analytics):
 ```kusto
@@ -34,15 +34,15 @@ Gdzie zapytanie zewnętrzne bada tabelę w obszarze roboczym, a następnie łąc
 
 Eksportowanie danych z Azure Monitor na konto usługi Azure Storage umożliwia przechowywanie w niskich kosztach i możliwość ponownego przydzielenia dzienników do różnych regionów.
 
-Użyj usługi Azure Eksplorator danych, aby wykonać zapytanie dotyczące danych, które zostały wyeksportowane z Log Analytics obszarów roboczych. Po skonfigurowaniu obsługiwane tabele, które są wysyłane z obszarów roboczych do konta usługi Azure Storage, będą dostępne jako źródło danych dla Eksplorator danych platformy Azure. [Wyeksportuj dane z Azure monitor przy użyciu usługi Azure Eksplorator danych (wersja zapoznawcza)](https://docs.microsoft.com/azure/azure-monitor/platform/azure-data-explorer-query-storage).
+Użyj usługi Azure Eksplorator danych, aby wykonać zapytanie dotyczące danych, które zostały wyeksportowane z Log Analytics obszarów roboczych. Po skonfigurowaniu obsługiwane tabele, które są wysyłane z obszarów roboczych do konta usługi Azure Storage, będą dostępne jako źródło danych dla Eksplorator danych platformy Azure. [Wyeksportuj dane z Azure monitor przy użyciu usługi Azure Eksplorator danych (wersja zapoznawcza)](./azure-data-explorer-query-storage.md).
 
 :::image type="content" source="media\azure-data-explorer-query-storage\exported-data-query.png" alt-text="Usługa Azure Eksplorator danych Query z przepływu magazynu.":::
 
 >[!tip] 
-> * Aby wyeksportować wszystkie dane z obszaru roboczego Log Analytics do konta usługi Azure Storage lub centrum zdarzeń, użyj funkcji eksportu danych obszaru roboczego Log Analytics dzienników Azure Monitor. [Zobacz log Analytics eksportu danych obszaru roboczego w Azure monitor (wersja zapoznawcza)](https://docs.microsoft.com/azure/data-explorer/query-monitor-data).
+> * Aby wyeksportować wszystkie dane z obszaru roboczego Log Analytics do konta usługi Azure Storage lub centrum zdarzeń, użyj funkcji eksportu danych obszaru roboczego Log Analytics dzienników Azure Monitor. [Zobacz log Analytics eksportu danych obszaru roboczego w Azure monitor (wersja zapoznawcza)](/azure/data-explorer/query-monitor-data).
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej:
-* [Twórz zapytania krzyżowe między usługą Azure Eksplorator danych i Azure monitor](https://docs.microsoft.com/azure/data-explorer/query-monitor-data). Zapytanie Azure Monitor danych z platformy Azure Eksplorator danych
-* [Twórz zapytania obejmujące wiele usług między Azure monitor i Eksplorator danych platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/azure-monitor-data-explorer-proxy). Wykonywanie zapytań dotyczących danych Eksplorator danych platformy Azure z Azure Monitor
-* [Log Analytics eksportu danych obszaru roboczego w Azure monitor (wersja zapoznawcza)](https://docs.microsoft.com/azure/data-explorer/query-monitor-data). Połącz i zbadaj konto usługi Azure Blob Storage za pomocą Log Analytics wyeksportowanych danych.
+Dowiedz się więcej na następujące tematy:
+* [Twórz zapytania krzyżowe między usługą Azure Eksplorator danych i Azure monitor](/azure/data-explorer/query-monitor-data). Zapytanie Azure Monitor danych z platformy Azure Eksplorator danych
+* [Twórz zapytania obejmujące wiele usług między Azure monitor i Eksplorator danych platformy Azure](./azure-monitor-data-explorer-proxy.md). Wykonywanie zapytań dotyczących danych Eksplorator danych platformy Azure z Azure Monitor
+* [Log Analytics eksportu danych obszaru roboczego w Azure monitor (wersja zapoznawcza)](/azure/data-explorer/query-monitor-data). Połącz i zbadaj konto usługi Azure Blob Storage za pomocą Log Analytics wyeksportowanych danych.

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: ad3a2ae9fd9a99398b384ef4e4a44820faccf8c7
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 1155b4274b97f540fd97bf39e51fd41c37bc9627
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675889"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730625"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Dodawanie dysku do maszyny wirtualnej z systemem Linux
 
@@ -21,7 +21,7 @@ W tym artykule opisano sposób dołączania dysku trwałego do maszyny wirtualne
 
 ## <a name="attach-a-new-disk-to-a-vm"></a>Dołączanie nowego dysku do maszyny wirtualnej
 
-Jeśli chcesz dodać nowy pusty dysk danych do maszyny wirtualnej, użyj polecenia [AZ VM Disk Attach](/cli/azure/vm/disk?view=azure-cli-latest) z `--new` parametrem. Jeśli maszyna wirtualna znajduje się w strefie dostępności, dysk jest automatycznie tworzony w tej samej strefie co maszyna wirtualna. Aby uzyskać więcej informacji, zobacz [omówienie strefy dostępności](../../availability-zones/az-overview.md). Poniższy przykład tworzy dysk o nazwie *myDataDisk* o rozmiarze 50 GB:
+Jeśli chcesz dodać nowy pusty dysk danych do maszyny wirtualnej, użyj polecenia [AZ VM Disk Attach](/cli/azure/vm/disk) z `--new` parametrem. Jeśli maszyna wirtualna znajduje się w strefie dostępności, dysk jest automatycznie tworzony w tej samej strefie co maszyna wirtualna. Aby uzyskać więcej informacji, zobacz [omówienie strefy dostępności](../../availability-zones/az-overview.md). Poniższy przykład tworzy dysk o nazwie *myDataDisk* o rozmiarze 50 GB:
 
 ```azurecli
 az vm disk attach \
@@ -34,7 +34,7 @@ az vm disk attach \
 
 ## <a name="attach-an-existing-disk"></a>Dołączanie istniejącego dysku
 
-Aby dołączyć istniejący dysk, Znajdź identyfikator dysku i przekaż identyfikator do polecenia [AZ VM Disk Attach](/cli/azure/vm/disk?view=azure-cli-latest) . W poniższym przykładzie zawarto zapytania dotyczące dysku o nazwie *myDataDisk* w liście *zasobów*, a następnie dołączenie go do maszyny wirtualnej o nazwie *myVM*:
+Aby dołączyć istniejący dysk, Znajdź identyfikator dysku i przekaż identyfikator do polecenia [AZ VM Disk Attach](/cli/azure/vm/disk) . W poniższym przykładzie zawarto zapytania dotyczące dysku o nazwie *myDataDisk* w liście *zasobów*, a następnie dołączenie go do maszyny wirtualnej o nazwie *myVM*:
 
 ```azurecli
 diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)

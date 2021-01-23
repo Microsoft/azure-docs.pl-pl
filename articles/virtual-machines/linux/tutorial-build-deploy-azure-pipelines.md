@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops, devx-track-js
-ms.openlocfilehash: 3d26da693d83fd680c644849d581ea35ca7b49af
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 4ca431290fe168f8fc073908bb3735ecb5992562
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739709"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98731254"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Samouczek: wdrażanie aplikacji na maszynach wirtualnych z systemem Linux na platformie Azure przy użyciu Azure DevOps Services i Azure Pipelines
 
@@ -24,7 +24,7 @@ Ciągłej integracji (CI) i ciągłego wdrażania (CD) tworzą potok, za pomocą
 
 Azure Pipelines zawiera kompletny, w pełni funkcjonalny zestaw narzędzi do automatyzacji ciągłej integracji i ciągłego wdrażania na maszynach wirtualnych, zarówno w Premium, jak i w dowolnej chmurze.
 
-W tym samouczku zostanie skonfigurowany potok ciągłej integracji/ciągłego wdrażania (YAML) umożliwiający wdrażanie aplikacji w [środowisku](/azure/devops/pipelines/process/environments?view=azure-devops) Azure Pipelinesym z maszynami wirtualnymi z systemem Linux jako zasobami, z których każdy służy jako serwery sieci Web do uruchamiania aplikacji.
+W tym samouczku zostanie skonfigurowany potok ciągłej integracji/ciągłego wdrażania (YAML) umożliwiający wdrażanie aplikacji w [środowisku](/azure/devops/pipelines/process/environments) Azure Pipelinesym z maszynami wirtualnymi z systemem Linux jako zasobami, z których każdy służy jako serwery sieci Web do uruchamiania aplikacji.
 
 Omawiane kwestie:
 
@@ -35,13 +35,13 @@ Omawiane kwestie:
 > * Utwórz potok Azure Pipelines CD.
 > * Przeprowadzanie wdrożeń wyzwalanych ręcznie i za pomocą CI.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 * Zaloguj się do swojej organizacji Azure DevOps Services ( **https://dev.azure.com/** ). 
   Możesz uzyskać [bezpłatną organizację Azure DevOps Services](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
 
   > [!NOTE]
-  > Aby uzyskać więcej informacji, zobacz [Nawiązywanie połączenia z usługami Azure DevOps Services](/azure/devops/organizations/projects/connect-to-projects?view=vsts).
+  > Aby uzyskać więcej informacji, zobacz [Nawiązywanie połączenia z usługami Azure DevOps Services](/azure/devops/organizations/projects/connect-to-projects).
 
 *  Maszyna wirtualna systemu Linux jest potrzebna jako cel wdrożenia.  Aby uzyskać więcej informacji, zobacz [Create and manage Linux VMs with the Azure CLI (Tworzenie maszyn wirtualnych systemu Linux i zarządzanie nimi za pomocą interfejsu wiersza polecenia platformy Azure)](./tutorial-manage-vm.md).
 
@@ -222,7 +222,7 @@ Aby uzyskać więcej wskazówek, postępuj zgodnie z instrukcjami w sekcji [Komp
        tags: web
    ```
 2. Można wybrać określone zestawy maszyn wirtualnych ze środowiska w celu uzyskania wdrożenia, określając **Tagi** zdefiniowane dla każdej maszyny wirtualnej w środowisku.
-[Oto](/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job) kompletny schemat YAML dla zadania wdrażania.
+[Oto](/azure/devops/pipelines/yaml-schema?tabs=schema#deployment-job) kompletny schemat YAML dla zadania wdrażania.
 
 3. Można określić albo `runOnce` `rolling` jako strategię wdrażania. 
 

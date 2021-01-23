@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2961f3f01f6ea4398fab6144b34fcb4409cdd96f
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: 84e177f1ce55d803f54bb2553078441557e5c191
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96318168"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730891"
 ---
 # <a name="tutorial-for-azure-active-directory-single-sign-on-integration-with-f5-big-ip-for-password-less-vpn"></a>Samouczek dotyczący Azure Active Directory integracji z logowaniem jednokrotnym przy użyciu protokołu F5 BIG-IP dla sieci VPN bez hasła
 
@@ -24,13 +24,13 @@ W tym samouczku dowiesz się, jak zintegrować rozwiązanie F5's BIG-IP oparty n
 
 Integracja Połączenie SSL z adresu IP sieci VPN z usługą Azure AD zapewnia [wiele najważniejszych korzyści](f5-aad-integration.md), w tym:
 
-- Udoskonalone zarządzanie zaufaniem bez nadzoru przy użyciu [uwierzytelniania wstępnego i autoryzacji usługi Azure AD](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization)
+- Udoskonalone zarządzanie zaufaniem bez nadzoru przy użyciu [uwierzytelniania wstępnego i autoryzacji usługi Azure AD](../../app-service/overview-authentication-authorization.md)
 
 - [Uwierzytelnianie bez hasła do usługi sieci VPN](https://www.microsoft.com/security/business/identity/passwordless)
 
 - Zarządzanie tożsamościami i dostępem z pojedynczej płaszczyzny kontroli — [Azure Portal](https://portal.azure.com/#home)
 
-Pomimo tego, że ta świetna wartość nie zwiększa się, klasyczna sieć VPN pozostaje niezależna od koncepcji obwodu sieci, w którym zaufana jest na zewnątrz i niezaufana. Ten model nie jest już efektywny dla osiągania prawdziwych stan zaufania, ponieważ zasoby firmowe nie są już ograniczone do ścian centrum danych przedsiębiorstwa, ale raczej w środowiskach wielu chmur bez stałych granic. Z tego powodu zachęcamy naszych klientów do rozważania przechodzenia do większej liczby rozwiązań opartych na tożsamości na potrzeby zarządzania [dostępem do poszczególnych aplikacji](https://docs.microsoft.com/azure/active-directory/fundamentals/five-steps-to-full-application-integration-with-azure-ad).
+Pomimo tego, że ta świetna wartość nie zwiększa się, klasyczna sieć VPN pozostaje niezależna od koncepcji obwodu sieci, w którym zaufana jest na zewnątrz i niezaufana. Ten model nie jest już efektywny dla osiągania prawdziwych stan zaufania, ponieważ zasoby firmowe nie są już ograniczone do ścian centrum danych przedsiębiorstwa, ale raczej w środowiskach wielu chmur bez stałych granic. Z tego powodu zachęcamy naszych klientów do rozważania przechodzenia do większej liczby rozwiązań opartych na tożsamości na potrzeby zarządzania [dostępem do poszczególnych aplikacji](../fundamentals/five-steps-to-full-application-integration-with-azure-ad.md).
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -47,9 +47,9 @@ Wcześniejsze środowisko lub znajomość F5 BIG-IP nie jest konieczne, jednak b
 
 - [Bezpłatna subskrypcja](https://azure.microsoft.com/trial/get-started-active-directory/) usługi Azure AD lub nowsza
 
-- Tożsamości użytkowników powinny być [synchronizowane z katalogu lokalnego](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis) do usługi Azure AD.
+- Tożsamości użytkowników powinny być [synchronizowane z katalogu lokalnego](../hybrid/how-to-connect-sync-whatis.md) do usługi Azure AD.
 
-- Konto z [uprawnieniami](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#application-administrator) administratora aplikacji usługi Azure AD
+- Konto z [uprawnieniami](../roles/permissions-reference.md#application-administrator) administratora aplikacji usługi Azure AD
 
 - Istniejąca infrastruktura BIG-IP z routingiem ruchu klienckiego do i z BIG-IP lub do [wdrożenia wersji zwirtualizowanej Big-IP na platformie Azure](f5-bigip-deployment-guide.md).
 
@@ -64,7 +64,7 @@ Zaznajomienie się z [terminologią F5 Big-IP](https://www.f5.com/services/resou
 
 ## <a name="add-f5-big-ip-from-the-azure-ad-gallery"></a>Dodawanie F5 BIG-IP z galerii usługi Azure AD
 
-Skonfigurowanie zaufania SAML federacji między BIG-IP umożliwia usłudze Azure AD BIG-IP przekazanie wstępnego uwierzytelniania i [dostępu warunkowego](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) do usługi Azure AD przed udzieleniem dostępu do opublikowanej usługi sieci VPN.
+Skonfigurowanie zaufania SAML federacji między BIG-IP umożliwia usłudze Azure AD BIG-IP przekazanie wstępnego uwierzytelniania i [dostępu warunkowego](../conditional-access/overview.md) do usługi Azure AD przed udzieleniem dostępu do opublikowanej usługi sieci VPN.
 
 1. Zaloguj się do portalu usługi Azure AD przy użyciu konta z prawami administratora aplikacji
 
@@ -105,7 +105,7 @@ Zwróć uwagę na właściwości **atrybutów użytkownika & oświadczenia** , p
 
 ![Obraz przedstawia oświadczenia atrybutów użytkownika](media/f5-sso-vpn/user-attributes-claims.png)
 
-Możesz dodać wszelkie inne konkretne oświadczenia, które może oczekiwać usługa opublikowana przez duże adresy IP, a jednocześnie zwracając uwagę, że wszelkie oświadczenia zdefiniowane jako uzupełnienie do zestawu domyślnego będą wystawiane tylko wtedy, gdy istnieją w usłudze Azure AD, jako wypełnione atrybuty. W ten sam sposób role usługi [lub](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-group-claims) członkostwa w grupach muszą również być definiowane względem obiektu użytkownika w usłudze Azure AD, zanim będzie można je wystawić jako zgłoszenie.
+Możesz dodać wszelkie inne konkretne oświadczenia, które może oczekiwać usługa opublikowana przez duże adresy IP, a jednocześnie zwracając uwagę, że wszelkie oświadczenia zdefiniowane jako uzupełnienie do zestawu domyślnego będą wystawiane tylko wtedy, gdy istnieją w usłudze Azure AD, jako wypełnione atrybuty. W ten sam sposób role usługi [lub](../hybrid/how-to-connect-fed-group-claims.md) członkostwa w grupach muszą również być definiowane względem obiektu użytkownika w usłudze Azure AD, zanim będzie można je wystawić jako zgłoszenie.
 
 ![Obraz przedstawiający łącze pobierania metadanych Federacji](media/f5-sso-vpn/saml-signing-certificate.png)
 
@@ -163,7 +163,7 @@ W poniższej sekcji jest tworzony Dostawca usługi i odpowiednie obiekty SAML do
 
 Poniższe kroki umożliwiają umożliwienie oferowania połączeń SSL dla użytkowników za pośrednictwem portalu sieci Web BIG-IP.
 
-1. Przejdź do **Access**  >  **Webtops**  >  **listy Webtop** i wybierz pozycję **Utwórz**.
+1. Przejdź do   >    >  **listy Webtop** i wybierz pozycję **Utwórz**.
 
 2. Nadaj nazwę portalowi i ustaw dla niego typ **Full**. Na przykład `Contoso_webtop`.
 
@@ -175,7 +175,7 @@ Poniższe kroki umożliwiają umożliwienie oferowania połączeń SSL dla użyt
 
 Funkcja sieci VPN składa się z kilku elementów, z których każdy kontroluje różne aspekty ogólnej usługi.
 
-1. Przejdź do pozycji **dostęp**  >  **łączność/sieci VPN**  >  **dostęp sieciowy (VPN)**  >  **IPV4 Lease Pools** , a następnie wybierz pozycję **Utwórz**.
+1. Przejdź do pozycji **dostęp**  >  **łączność/sieci VPN**  >  **dostęp sieciowy (VPN)**  >   , a następnie wybierz pozycję **Utwórz**.
 
 2. Podaj nazwę puli adresów IP przypisywanych do klientów sieci VPN. Na przykład Contoso_vpn_pool
 
@@ -185,7 +185,7 @@ Funkcja sieci VPN składa się z kilku elementów, z których każdy kontroluje 
 
 Lista dostępu do sieci udostępnia usługę z ustawieniami adresów IP i DNS z puli sieci VPN, uprawnieniami do routingu użytkowników, a także może uruchamiać aplikacje w razie potrzeby.
 
-1. Przejdź do pozycji **dostęp** do  >  **łączności/sieci VPN: dostęp do sieci (VPN)**  >  **Network Access Lists** , a następnie wybierz pozycję **Utwórz**.
+1. Przejdź do pozycji **dostęp** do  >  **łączności/sieci VPN: dostęp do sieci (VPN)**  >   , a następnie wybierz pozycję **Utwórz**.
 
 2. Podaj nazwę dla listy dostępu do sieci VPN i podpis, na przykład contoso-VPN, po **zakończeniu**.
 
@@ -213,7 +213,7 @@ Lista dostępu do sieci udostępnia usługę z ustawieniami adresów IP i DNS z 
 
 Profil połączenia BIG-IP jest teraz wymagany do skonfigurowania ustawień dla każdego typu klienta sieci VPN, który musi obsługiwać usługa sieci VPN. Na przykład Windows, OSX i Android.
 
-1. Przejdź do pozycji **dostęp** do  >  **połączeń/**  >  **profilów łączności** sieci VPN  >  **Profiles** i wybierz pozycję **Dodaj**.
+1. Przejdź do pozycji **dostęp** do  >  **połączeń/**  >  **profilów łączności** sieci VPN  >   i wybierz pozycję **Dodaj**.
 
 2. Podaj nazwę profilu i ustaw dla profilu nadrzędnego wartość **/Common/Connectivity**, na przykład Contoso_VPN_Profile.
 
@@ -295,15 +295,15 @@ W przypadku wszystkich ustawień program APM wymaga teraz serwera wirtualnego fr
 
 8.  Usługa SSL-VPN jest teraz publikowana i dostępna za pośrednictwem algorytmu SHA, bezpośrednio za pośrednictwem adresu URL lub portali aplikacji firmy Microsoft.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Koniec hasła, przejdź bezhasło](https://www.microsoft.com/security/business/identity/passwordless)
 
-- [Co to jest dostęp warunkowy?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy?](../conditional-access/overview.md)
 
 - [Platforma zaufania zero firmy Microsoft, która umożliwia zdalne działanie](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)
 
-- [Pięć kroków związanych z pełną integracją aplikacji z usługą Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/five-steps-to-full-application-integration-with-azure-ad)
+- [Pięć kroków związanych z pełną integracją aplikacji z usługą Azure AD](../fundamentals/five-steps-to-full-application-integration-with-azure-ad.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -312,4 +312,4 @@ Otwórz przeglądarkę na zdalnym kliencie systemu Windows i przejdź do adresu 
 ![Obraz przedstawiający uruchamianie sieci VPN](media/f5-sso-vpn/vpn-launcher.png)
 
 Wybranie kafelka sieci VPN spowoduje zainstalowanie klienta usługi BIG-IP Edge i ustanowienie połączenia sieci VPN skonfigurowanego dla algorytmu SHA.
-Aplikacja F5 VPN powinna być również widoczna jako zasób docelowy w ramach dostępu warunkowego usługi Azure AD. Zapoznaj się z naszymi [wskazówkami](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policies) dotyczącymi tworzenia zasad dostępu warunkowego, a także umożliwiających użytkownikom [uwierzytelnianie bez hasła](https://www.microsoft.com/security/business/identity/passwordless)usługi Azure AD.
+Aplikacja F5 VPN powinna być również widoczna jako zasób docelowy w ramach dostępu warunkowego usługi Azure AD. Zapoznaj się z naszymi [wskazówkami](../conditional-access/concept-conditional-access-policies.md) dotyczącymi tworzenia zasad dostępu warunkowego, a także umożliwiających użytkownikom [uwierzytelnianie bez hasła](https://www.microsoft.com/security/business/identity/passwordless)usługi Azure AD.

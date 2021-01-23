@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: jodowns
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 409ba7a954830bb2370ce83989b9e8b08b742fe7
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: f2d844054e3744aafa01f43ded354a5b5d9f8b4b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631180"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732103"
 ---
 # <a name="assign-a-managed-identity-access-to-an-application-role-using-powershell"></a>Przypisywanie zarządzanej tożsamości dostępu do roli aplikacji przy użyciu programu PowerShell
 
@@ -36,7 +36,7 @@ W tym artykule dowiesz się, jak przypisać zarządzaną tożsamość do roli ap
 - Jeśli nie masz jeszcze konta platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed kontynuowaniem.
 - Do uruchomienia przykładowych skryptów są dostępne dwie opcje:
     - Użyj [Azure Cloud Shell](../../cloud-shell/overview.md), którą można otworzyć za pomocą przycisku **Wypróbuj** w prawym górnym rogu bloków kodu.
-    - Uruchom skrypty lokalnie, instalując najnowszą wersję programu [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2).
+    - Uruchom skrypty lokalnie, instalując najnowszą wersję programu [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2).
 
 ## <a name="assign-a-managed-identity-access-to-another-applications-app-role"></a>Przypisywanie zarządzanej tożsamości dostępu do roli aplikacji innej aplikacji
 

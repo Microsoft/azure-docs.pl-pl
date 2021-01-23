@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: 1051859d514c77bad1aa5f14becc2218a923df44
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 17c29fdf88495f6ecc40963eda08858887173fd1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632994"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730942"
 ---
 # <a name="back-up-using-azure-application-consistent-snapshot-tool-preview"></a>Tworzenie kopii zapasowej za pomocą narzędzia migawek spójnej na platformie Azure (wersja zapoznawcza)
 
@@ -143,7 +143,7 @@ Nazwa *pliku dziennika* jest w tym przykładzie `azacsnap-backup-bootVol.log` .
 > Nazwa pliku dziennika składa się z "(nazwa polecenia — ( `-c` opcja) — (plik konfiguracyjny)".  Jeśli na przykład używasz `-c backup` opcji z nazwą pliku dziennika `h80.json` , zostanie wywołany plik dziennika `azacsnap-backup-h80.log` .  Lub jeśli używasz `-c test` opcji z tym samym plikiem konfiguracji, zostanie wywołany plik dziennika `azacsnap-test-h80.log` .
 
 - Typ dużego wystąpienia HANA: Istnieją dwie prawidłowe wartości z `TYPEI` lub `TYPEII` od jednostki dużego wystąpienia Hana.
-- Zobacz [dostępne jednostki SKU dla dużych wystąpień Hana](/azure/virtual-machines/workloads/sap/hana-available-skus) , aby potwierdzić dostępne jednostki SKU.
+- Zobacz [dostępne jednostki SKU dla dużych wystąpień Hana](../virtual-machines/workloads/sap/hana-available-skus.md) , aby potwierdzić dostępne jednostki SKU.
 
 ## <a name="next-steps"></a>Następne kroki
 

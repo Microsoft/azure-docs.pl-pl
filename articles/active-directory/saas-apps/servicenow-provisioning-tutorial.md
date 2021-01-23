@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 71f4cfa9e7b69e51bafa5364f857f8ab689f2ad0
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 928b8118c614d7d16293c8d6e0cec194a270314e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955471"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98729927"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi ServiceNow na potrzeby automatycznego aprowizacji użytkowników
 
@@ -155,7 +155,7 @@ Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, a
 
 * **Zakresy adresów IP** 
 
-   Usługa Azure AD Provisioning aktualnie działa pod określonymi zakresami adresów IP. Dlatego jeśli jest to wymagane, można ograniczyć inne zakresy adresów IP i dodać te konkretne zakresy adresów IP do dozwolonych aplikacji, aby umożliwić przepływ ruchu z usługi Azure AD Provisioning do aplikacji. Zapoznaj się z dokumentacją w obszarze [zakresy adresów IP](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#ip-ranges).
+   Usługa Azure AD Provisioning aktualnie działa pod określonymi zakresami adresów IP. Dlatego jeśli jest to wymagane, można ograniczyć inne zakresy adresów IP i dodać te konkretne zakresy adresów IP do dozwolonych aplikacji, aby umożliwić przepływ ruchu z usługi Azure AD Provisioning do aplikacji. Zapoznaj się z dokumentacją w obszarze [zakresy adresów IP](../app-provisioning/use-scim-to-provision-users-and-groups.md#ip-ranges).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

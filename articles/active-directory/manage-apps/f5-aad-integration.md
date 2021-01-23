@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5c960c7fbcc29d0aaea7511ba2187c916e84ab3
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: f8210e00824d7680f4eecde2f0b299dfcdc93b90
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935244"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730575"
 ---
 # <a name="f5-big-ip-access-policy-manager-and-azure-active-directory-integration-for-secure-hybrid-access"></a>F5 BIG-IP Access Manager and Azure Active Directory Integration dla bezpiecznego dostępu hybrydowego
 
@@ -29,19 +29,20 @@ Algorytm SHA eliminuje ten niewidomy punkt, umożliwiając organizacjom dalsze k
 
 Posiadanie wstępnego uwierzytelniania dostępu usługi Azure AD do usług opublikowanych w ramach dużych adresów IP zapewnia wiele korzyści:
 
-- Uwierzytelnianie bez hasła za pośrednictwem funkcji [Windows Hello](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-overview), [MS Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install), usługi [Fast Identity online (Fido)](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key)i [uwierzytelniania opartego na certyfikatach](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started)
+- Uwierzytelnianie bez hasła za pośrednictwem funkcji [Windows Hello](/windows/security/identity-protection/hello-for-business/hello-overview), [MS Authenticator](../user-help/user-help-auth-app-download-install.md), usługi [Fast Identity online (Fido)](../authentication/howto-authentication-passwordless-security-key.md)i [uwierzytelniania opartego na certyfikatach](../authentication/active-directory-certificate-based-authentication-get-started.md)
 
-- Zastępujący [dostęp warunkowy](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) i [uwierzytelnianie wieloskładnikowe (MFA)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks)
+- Zastępujący [dostęp warunkowy](../conditional-access/overview.md) i [uwierzytelnianie wieloskładnikowe (MFA)](../authentication/concept-mfa-howitworks.md)
 
-- [Ochrona tożsamości](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection#:~:text=Identity%20Protection%20is%20a%20tool%20that%20allows%20organizations,detection%20data%20to%20third-party%20utilities%20for%20further%20analysis) — kontrola adaptacyjna poprzez profilowanie ryzyka użytkowników i sesji
+- [Ochrona tożsamości](../identity-protection/overview-identity-protection.md) — kontrola adaptacyjna poprzez profilowanie ryzyka użytkowników i sesji
 
-- [Wykrywanie przecieków poświadczeń](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-risks)
 
-- [Samoobsługowe resetowanie hasła (SSPR)](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-sspr)
+- [Wykrywanie przecieków poświadczeń](../identity-protection/concept-identity-protection-risks.md)
 
-- [Współpraca z partnerami](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users) — Zarządzanie prawami dla dostępu gościa
+- [Samoobsługowe resetowanie hasła (SSPR)](../authentication/tutorial-enable-sspr.md)
 
-- [Cloud App Security (CASB)](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) — na potrzeby pełnego odnajdywania i kontroli aplikacji
+- [Współpraca z partnerami](../governance/entitlement-management-external-users.md) — Zarządzanie prawami dla dostępu gościa
+
+- [Cloud App Security (CASB)](/cloud-app-security/what-is-cloud-app-security) — na potrzeby pełnego odnajdywania i kontroli aplikacji
 
 - Monitorowanie zagrożeń — [wskaźnik platformy Azure dla usługi](https://azure.microsoft.com/services/azure-sentinel/) Advanced Threat Analytics
 
@@ -61,7 +62,7 @@ Jego lokalny Traffic Manager (LTM) umożliwia bezpieczne publikowanie usług za 
 
 Integracja jest oparta na standardowym zaufaniu federacji między APM i Azure AD, najczęściej w większości przypadków użycia algorytmu SHA, które obejmują [scenariusz SSL-VPN](f5-aad-password-less-vpn.md). Usługi SAML (SAML), OAuth i Open ID Connect (OIDC) nie są wyjątkiem, ponieważ są one zbyt bezpieczne dla dostępu zdalnego. Mogą również wystąpić scenariusze, w których BIG-IP stał się punktem podlewka dla dostępu bez zaufania do wszystkich usług, w tym aplikacji SaaS.
 
-Możliwość integracji z usługą Azure AD przez wiele adresów IP polega na tym, że przechodzenie protokołu wymagane do zabezpieczania starszych lub niezintegrowanych usług Azure AD z nowoczesnymi kontrolkami, takimi jak [uwierzytelnianie bez hasła](https://www.microsoft.com/security/business/identity/passwordless) i [dostęp warunkowy](https://docs.microsoft.com/azure/active-directory/conditional-access/overview). W tym scenariuszu duży adres IP będzie nadal spełniał rolę jako zwrotny serwer proxy, podczas gdy w ramach uwierzytelniania wstępnego i autoryzacji do usługi Azure AD odbywa się na podstawie poszczególnych usług.
+Możliwość integracji z usługą Azure AD przez wiele adresów IP polega na tym, że przechodzenie protokołu wymagane do zabezpieczania starszych lub niezintegrowanych usług Azure AD z nowoczesnymi kontrolkami, takimi jak [uwierzytelnianie bez hasła](https://www.microsoft.com/security/business/identity/passwordless) i [dostęp warunkowy](../conditional-access/overview.md). W tym scenariuszu duży adres IP będzie nadal spełniał rolę jako zwrotny serwer proxy, podczas gdy w ramach uwierzytelniania wstępnego i autoryzacji do usługi Azure AD odbywa się na podstawie poszczególnych usług.
 
 Kroki 1-4 na diagramie ilustrują wymianę przed uwierzytelnianiem wstępnym między użytkownikiem, BIG-IP i usługą Azure AD w przepływie zainicjowanym przez dostawcę usług. Kroki 5-6 pokazują kolejne wzbogacanie sesji APM i logowanie jednokrotne do poszczególnych usług zaplecza.
 
@@ -71,16 +72,16 @@ Kroki 1-4 na diagramie ilustrują wymianę przed uwierzytelnianiem wstępnym mi�
 |:------|:-----------|
 | 1. | Użytkownik wybiera ikonę aplikacji w portalu, rozwiązując adres URL do protokołu SAML SP (BIG-IP) |
 | 2. | Usługa BIG-IP przekierowuje użytkownika do usługi SAML dostawcy tożsamości (Azure AD) w celu wstępnego uwierzytelniania|
-| 3. | Usługa Azure AD przetwarza zasady dostępu warunkowego i [kontrolki sesji](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-session) na potrzeby autoryzacji|
+| 3. | Usługa Azure AD przetwarza zasady dostępu warunkowego i [kontrolki sesji](../conditional-access/concept-conditional-access-session.md) na potrzeby autoryzacji|
 | 4. | Użytkownik przekierowuje do usługi BIG-IP prezentowanie oświadczeń SAML wystawionych przez usługę Azure AD |
-| 5. | BIG-IP żąda wszelkich dodatkowych informacji o sesji do uwzględnienia w [rejestracji jednokrotnej](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso) i [kontroli dostępu opartej na rolach (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) do opublikowanej usługi |
+| 5. | BIG-IP żąda wszelkich dodatkowych informacji o sesji do uwzględnienia w [rejestracji jednokrotnej](../hybrid/how-to-connect-sso.md) i [kontroli dostępu opartej na rolach (RBAC)](../../role-based-access-control/overview.md) do opublikowanej usługi |
 | 6. | BIG-IP przekazuje żądanie klienta do usługi wewnętrznej bazy danych
 
 ## <a name="user-experience"></a>Środowisko użytkownika
 
 Niezależnie od tego, czy jest to pracownik bezpośredni, stowarzyszony czy konsument, większość użytkowników zna już środowisko logowania do pakietu Office 365, dlatego dostęp do usług BIG-IP za pośrednictwem algorytmu SHA jest w dużym stopniu znany.
 
-Użytkownicy mogą teraz znaleźć swoje usługi opublikowane przez duże adresy IP, które są skonsolidowane w programie  [webapps](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access) lub usłudze [O365](https://o365pp.blob.core.windows.net/media/Resources/Microsoft%20365%20Business/Launchpad%20Overview_for%20Partners_10292019.pdf) , a także funkcje samoobsługowe w szerszym zestawie usług, niezależnie od typu urządzenia lub lokalizacji. Użytkownicy mogą nawet nadal uzyskiwać dostęp do opublikowanych usług bezpośrednio za pośrednictwem BIG-IPs własnościowego portalu Webtop, jeśli jest preferowany. Po wylogowaniu usługa SHA gwarantuje, że sesja użytkowników zostanie zakończona w obu końcach — BIG-IP i Azure AD, zapewniając usługi w pełni chronione przed nieautoryzowanym dostępem.  
+Użytkownicy mogą teraz znaleźć swoje usługi opublikowane przez duże adresy IP, które są skonsolidowane w programie  [webapps](../user-help/my-apps-portal-end-user-access.md) lub usłudze [O365](https://o365pp.blob.core.windows.net/media/Resources/Microsoft%20365%20Business/Launchpad%20Overview_for%20Partners_10292019.pdf) , a także funkcje samoobsługowe w szerszym zestawie usług, niezależnie od typu urządzenia lub lokalizacji. Użytkownicy mogą nawet nadal uzyskiwać dostęp do opublikowanych usług bezpośrednio za pośrednictwem BIG-IPs własnościowego portalu Webtop, jeśli jest preferowany. Po wylogowaniu usługa SHA gwarantuje, że sesja użytkowników zostanie zakończona w obu końcach — BIG-IP i Azure AD, zapewniając usługi w pełni chronione przed nieautoryzowanym dostępem.  
 
 Udostępniane zrzuty ekranu pochodzą z portalu aplikacji usługi Azure AD, dzięki któremu użytkownicy uzyskują bezpieczny dostęp do usług opublikowanych przez duże adresy IP oraz do zarządzania ich właściwościami konta.  
 
@@ -92,7 +93,7 @@ Udostępniane zrzuty ekranu pochodzą z portalu aplikacji usługi Azure AD, dzi�
 
 Rola BIG-IP ma kluczowe znaczenie dla każdej firmy, dlatego wdrożone wystąpienia BIG-IP powinny być monitorowane w celu zapewnienia wysokiej dostępności usług publikowanych, zarówno na poziomie SHA, jak i w tym samym czasie.
 
-Istnieje kilka opcji rejestrowania zdarzeń lokalnie lub zdalnie za pomocą rozwiązania do zarządzania informacjami i zdarzeniami zabezpieczeń (SIEM), co umożliwia przechowywanie danych telemetrycznych i przetwarzanie danych telemetrii. Wysoce wydajne rozwiązanie do monitorowania działań związanych z usługą Azure AD i określonym przez algorytm SHA ma na celu korzystanie z [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview) i [platformy Azure ze wskaźnikami](https://docs.microsoft.com/azure/sentinel/overview):
+Istnieje kilka opcji rejestrowania zdarzeń lokalnie lub zdalnie za pomocą rozwiązania do zarządzania informacjami i zdarzeniami zabezpieczeń (SIEM), co umożliwia przechowywanie danych telemetrycznych i przetwarzanie danych telemetrii. Wysoce wydajne rozwiązanie do monitorowania działań związanych z usługą Azure AD i określonym przez algorytm SHA ma na celu korzystanie z [Azure monitor](../../azure-monitor/overview.md) i [platformy Azure ze wskaźnikami](../../sentinel/overview.md):
 
 - Szczegółowy przegląd organizacji, potencjalnie w wielu chmurach i lokalizacji lokalnych, w tym infrastruktury BIG-IP
 
@@ -126,9 +127,9 @@ Integracja F5 BIG-IP z usługą Azure AD dla algorytmu SHA ma następujące wyma
 
 - Licencjonowanie usługi Azure AD za pomocą jednej z następujących opcji:
 
-   - [Bezpłatna subskrypcja](https://docs.microsoft.com/windows/client-management/mdm/register-your-free-azure-active-directory-subscription#:~:text=%20Register%20your%20free%20Azure%20Active%20Directory%20subscription,will%20take%20you%20to%20the%20Azure...%20More%20) usługi Azure AD zapewnia minimalne wymagania podstawowe dotyczące IMPLEMENTOWANIA algorytmu SHA z uwierzytelnianiem bez hasła
+   - [Bezpłatna subskrypcja](/windows/client-management/mdm/register-your-free-azure-active-directory-subscription#:~:text=%20Register%20your%20free%20Azure%20Active%20Directory%20subscription,will%20take%20you%20to%20the%20Azure...%20More%20) usługi Azure AD zapewnia minimalne wymagania podstawowe dotyczące IMPLEMENTOWANIA algorytmu SHA z uwierzytelnianiem bez hasła
 
-   - [Subskrypcja Premium](https://azure.microsoft.com/pricing/details/active-directory/) zapewnia wszystkie dodatkowe wartości, które są opisane w przedniej, w tym [dostęp warunkowy](https://docs.microsoft.com/azure/active-directory/conditional-access/overview), uwierzytelnianie [wieloskładnikowe](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks)i [Ochrona tożsamości](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection)
+   - [Subskrypcja Premium](https://azure.microsoft.com/pricing/details/active-directory/) zapewnia wszystkie dodatkowe wartości, które są opisane w przedniej, w tym [dostęp warunkowy](../conditional-access/overview.md), uwierzytelnianie [wieloskładnikowe](../authentication/concept-mfa-howitworks.md)i [Ochrona tożsamości](../identity-protection/overview-identity-protection.md)
 
 Do wdrożenia algorytmu SHA nie są wymagane żadne poprzednie doświadczenia ani informacje o użyciu BIG-IP, ale zalecamy zapoznanie się z terminologią dotyczącą protokołu F5 BIG-IP. F5's zaawansowana [Baza wiedzy](https://www.f5.com/services/resources/glossary) jest również dobrym miejscem umożliwiającym rozpoczęcie tworzenia wiedzy o Big-IP.
 
@@ -138,9 +139,9 @@ Poniższe samouczki zawierają szczegółowe wskazówki dotyczące wdrażania ni
 
 - [F5 BIG-IP w instruktażu wdrażania platformy Azure](f5-bigip-deployment-guide.md)
 
-- [F5 BIG-IP APM i logowanie jednokrotne usługi Azure AD do aplikacji Kerberos](https://docs.microsoft.com/azure/active-directory/saas-apps/kerbf5-tutorial#configure-f5-single-sign-on-for-kerberos-application)
+- [F5 BIG-IP APM i logowanie jednokrotne usługi Azure AD do aplikacji Kerberos](../saas-apps/kerbf5-tutorial.md#configure-f5-single-sign-on-for-kerberos-application)
 
-- [F5 BIG-IP APM i logowanie jednokrotne usługi Azure AD do aplikacji opartych na nagłówku](https://docs.microsoft.com/azure/active-directory/saas-apps/headerf5-tutorial#configure-f5-single-sign-on-for-header-based-application)
+- [F5 BIG-IP APM i logowanie jednokrotne usługi Azure AD do aplikacji opartych na nagłówku](../saas-apps/headerf5-tutorial.md#configure-f5-single-sign-on-for-header-based-application)
 
 - [Zabezpieczanie BIG-Połączenie SSL z adresu IP-VPN za pomocą usługi Azure AD SHA](f5-aad-password-less-vpn.md)
 

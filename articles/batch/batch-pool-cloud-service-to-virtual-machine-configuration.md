@@ -3,16 +3,16 @@ title: Migruj konfigurację puli partii z Cloud Services do Virtual Machines
 description: Dowiedz się, jak zaktualizować konfigurację puli do najnowszej i zalecanej konfiguracji
 ms.topic: how-to
 ms.date: 1/6/2021
-ms.openlocfilehash: d987a185efb6593fd541dd14fa74b6c4d3ca41be
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 417738be2c69101129079b8ff3a3d80634f9f99c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234311"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98731503"
 ---
 # <a name="migrate-batch-pool-configuration-from-cloud-services-to-virtual-machines"></a>Migruj konfigurację puli partii z Cloud Services do Virtual Machines
 
-Pule usługi Batch można tworzyć przy użyciu [cloudServiceConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) lub [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration). "virtualMachineConfiguration" jest zalecaną konfiguracją, ponieważ obsługuje ona wszystkie możliwości partii. pule "cloudServiceConfiguration" nie obsługują wszystkich funkcji i nie są planowane żadne nowe funkcje.
+Pule usługi Batch można tworzyć przy użyciu [cloudServiceConfiguration](/rest/api/batchservice/pool/add#cloudserviceconfiguration) lub [virtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration). "virtualMachineConfiguration" jest zalecaną konfiguracją, ponieważ obsługuje ona wszystkie możliwości partii. pule "cloudServiceConfiguration" nie obsługują wszystkich funkcji i nie są planowane żadne nowe funkcje.
 
 W przypadku używania pul "cloudServiceConfiguration" zdecydowanie zaleca się przechodzenie do korzystania z pul "virtualMachineConfiguration". Dzięki temu można korzystać ze wszystkich możliwości usługi Batch, takich jak Rozszerzona funkcja [wybierania maszyn](batch-pool-vm-sizes.md)wirtualnych, maszyn wirtualnych z systemem Linux, [kontenerów](batch-docker-container-workloads.md), [Azure Resource Manager sieci wirtualnych](batch-virtual-network.md)i [szyfrowania dysków węzłowych](disk-encryption.md).
 
@@ -41,4 +41,4 @@ Podczas aktualizowania konfiguracji puli należy wziąć pod uwagę następując
 
 - Dowiedz się więcej o [konfiguracjach puli](nodes-and-pools.md#configurations).
 - Dowiedz się więcej o [najlepszych rozwiązaniach dotyczących puli](best-practices.md#pools).
-- Dokumentacja interfejsu API REST dla [dodawania puli](https://docs.microsoft.com/rest/api/batchservice/pool/add) i [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration).
+- Dokumentacja interfejsu API REST dla [dodawania puli](/rest/api/batchservice/pool/add) i [virtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration).

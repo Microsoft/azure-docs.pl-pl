@@ -3,12 +3,12 @@ title: Najlepsze rozwiązania
 description: Poznaj najlepsze rozwiązania i przydatne porady dotyczące tworzenia rozwiązań Azure Batch.
 ms.date: 12/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7e2a49c8307af89fb3898f5f2513fb493d0f5d90
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 95dca907f9380de29bd3c9b0e52b120c9114b5ee
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934292"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732415"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch najlepszych praktyk
 
@@ -149,7 +149,7 @@ Podobnie jak w przypadku innych zadań, [zadanie uruchomieniowe](jobs-and-tasks.
 
 ### <a name="isolated-nodes"></a>Izolowane węzły
 
-Należy rozważyć użycie wyizolowanych rozmiarów maszyn wirtualnych w przypadku obciążeń z wymaganiami zgodności lub przepisami prawnymi. Obsługiwane rozmiary izolowane w trybie konfiguracji maszyny wirtualnej obejmują `Standard_E80ids_v4` ,,,, `Standard_M128ms` `Standard_F72s_v2` `Standard_G5` `Standard_GS5` , i `Standard_E64i_v3` . Aby uzyskać więcej informacji na temat wyizolowanych rozmiarów maszyn wirtualnych, zobacz [izolacja maszyny wirtualnej na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/isolation).
+Należy rozważyć użycie wyizolowanych rozmiarów maszyn wirtualnych w przypadku obciążeń z wymaganiami zgodności lub przepisami prawnymi. Obsługiwane rozmiary izolowane w trybie konfiguracji maszyny wirtualnej obejmują `Standard_E80ids_v4` ,,,, `Standard_M128ms` `Standard_F72s_v2` `Standard_G5` `Standard_GS5` , i `Standard_E64i_v3` . Aby uzyskać więcej informacji na temat wyizolowanych rozmiarów maszyn wirtualnych, zobacz [izolacja maszyny wirtualnej na platformie Azure](../virtual-machines/isolation.md).
 
 ### <a name="manage-long-running-services-via-the-operating-system-services-interface"></a>Zarządzanie długotrwałymi usługami za pośrednictwem interfejsu usług systemu operacyjnego
 

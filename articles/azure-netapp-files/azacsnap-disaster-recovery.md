@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: c34ca08ae2ede9430804f6b8bb33f2bfcb0b39ab
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 70e1823b30814d7dc29fef69215fcb53a2a2ab96
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632838"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730874"
 ---
 # <a name="disaster-recovery-using-azure-application-consistent-snapshot-tool-preview"></a>Odzyskiwanie po awarii za pomocą narzędzia migawek spójnej na platformie Azure (wersja zapoznawcza)
 
@@ -40,7 +40,7 @@ Przed zaplanowaniem trybu failover odzyskiwania po awarii należy spełnić nast
 - Działa replikacja magazynu. Zespół operacyjny firmy Microsoft przeprowadza konfigurację replikacji magazynu w chwili automatycznego inicjowania obsługi programu DR. Replikację magazynu można monitorować przy użyciu polecenia `azacsnap -c details --details replication` w witrynie odzyskiwania po awarii.
 - W lokalizacji podstawowej skonfigurowano i skonfigurowano migawki magazynu.
 - W witrynie odzyskiwania po awarii jest zainstalowane wystąpienie platformy HANA z tym samym identyfikatorem SID co wystąpieniem podstawowym.
-- Przeczytaj i rozumiemy procedurę trybu failover odzyskiwania po awarii opisaną w [SAP HANA — duże wystąpienia wysokiej dostępności i odzyskiwaniu danych na platformie Azure](/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure)
+- Przeczytaj i rozumiemy procedurę trybu failover odzyskiwania po awarii opisaną w [SAP HANA — duże wystąpienia wysokiej dostępności i odzyskiwaniu danych na platformie Azure](../virtual-machines/workloads/sap/hana-failover-procedure.md)
 - W lokalizacji DR skonfigurowano i skonfigurowano migawki magazynu.
 - Plik konfiguracji (na przykład `DR.json` ) został utworzony przy użyciu woluminów magazynu Dr i skojarzonych informacji na serwerze odzyskiwania po awarii.
 - Kroki w witrynie DR zostały wykonane w celu:

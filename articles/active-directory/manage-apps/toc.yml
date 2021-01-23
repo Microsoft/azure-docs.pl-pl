@@ -51,8 +51,6 @@
           href: non-gallery-apps.md
         - name: Planowanie wdrożenia portalu Moje aplikacje
           href: access-panel-deployment-plan.md
-        - name: Wskazówki dla deweloperów
-          href: developer-guidance-for-integrating-applications.md
     - name: Logowanie jednokrotne
       items:
         - name: Planowanie wdrożenia logowania jednokrotnego

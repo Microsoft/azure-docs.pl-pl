@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c03009b08dcf33bf4b84bc91232af96e7ba2c71
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: f962bf131b87f17712186145b8c8b8e6090f7002
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095189"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730661"
 ---
 # <a name="tutorial-to-deploy-f5-big-ip-virtual-edition-vm-in-azure-iaas-for-secure-hybrid-access"></a>Samouczek pozwalający wdrożyć MASZYNę wirtualną z wirtualnym wydaniem F5 BIG-IP w usłudze Azure IaaS na potrzeby bezpiecznego dostępu hybrydowego
 
@@ -83,7 +83,7 @@ Wykonaj następujące zadania, aby wdrożyć BIG-IP VE z [portalu Azure Marketpl
  |Grupa zasobów | Istniejąca Grupa zasobów platformy Azure zostanie wdrożona na maszynie wirtualnej BIG-IP lub utworzona. Powinna to być taka sama Grupa zasobów maszyn wirtualnych DC i IIS|
  | **Szczegóły wystąpienia**|  |
  |Nazwa maszyny wirtualnej| Przykład BIG-IP-VM |
- |Region | Ukierunkowane miejsce na platformę Azure dla usługi BIG-IP-VM |
+ |Region (Region) | Ukierunkowane miejsce na platformę Azure dla usługi BIG-IP-VM |
  |Opcje dostępności| Włącz tylko w przypadku używania maszyny wirtualnej w środowisku produkcyjnym|
  |Obraz| F5 BIG-IP VE — wszystkie (BYOL, 2 lokalizacje rozruchowe)|
  |Wystąpienie usługi Azure Spot| Nie, ale możesz je włączyć, jeśli jest to konieczne |
@@ -117,7 +117,7 @@ Wykonaj następujące zadania, aby wdrożyć BIG-IP VE z [portalu Azure Marketpl
  |Diagnostyka rozruchu|Włącz z niestandardowym kontem magazynu. Umożliwia nawiązanie połączenia z interfejsem BIG-IP Secure Shell (SSH) za pośrednictwem opcji konsola szeregowa w Azure Portal. Wybierz dowolne dostępne konto usługi Azure Storage|
  |**Tożsamość**|  |
  |Tożsamość zarządzana przypisana przez system|Wyłączone|
- |Usługa Azure Active Directory|Opcja BIG-IP nie obsługuje obecnie tej opcji|
+ |Azure Active Directory|Opcja BIG-IP nie obsługuje obecnie tej opcji|
  |**Automatyczne zamykanie**|    |
  |Włącz automatyczne zamykanie| Jeśli testujesz, rozważ ustawienie opcji "BIG-IP-VM" do wyłączania codziennie|
 
@@ -264,7 +264,7 @@ System BIG-IP jest administrowany za pośrednictwem interfejsu użytkownika konf
 
 - Z klienta VPN podłączonego do sieci wewnętrznej BIG-IP-VM
 
-- Opublikowano za pośrednictwem [usługi Azure serwer proxy aplikacji usługi Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application)
+- Opublikowano za pośrednictwem [usługi Azure serwer proxy aplikacji usługi Azure AD](./application-proxy-add-on-premises-application.md)
 
 Aby można było kontynuować pracę z pozostałymi konfiguracjami, należy podjąć decyzję dotyczącą najbardziej odpowiedniej metody. W razie potrzeby można połączyć się bezpośrednio z Internetem za pośrednictwem Internetu, konfigurując podstawowy adres IP BIG-IP z publicznym adresem IP. Następnie Dodaj regułę sieciowej grupy zabezpieczeń, aby zezwolić na ruch 8443 do tego podstawowego adresu IP. Upewnij się, że źródło jest ograniczone do własnego zaufanego adresu IP. w przeciwnym razie każdy będzie mógł nawiązać połączenie.
 
@@ -276,7 +276,7 @@ Gdy wszystko będzie gotowe, potwierdź, że możesz nawiązać połączenie z k
 
 System BIG-IP może być również zarządzany za pośrednictwem własnego środowiska SSH, który jest zazwyczaj używany w przypadku zadań wiersza polecenia (CLI) i dostępu na poziomie głównym. Istnieje kilka opcji nawiązywania połączenia z interfejsem wiersza polecenia, w tym:
 
-- [Usługa Azure bastionu](https://docs.microsoft.com/azure/bastion/bastion-overview): umożliwia szybkie i bezpieczne nawiązywanie połączeń z dowolną maszyną wirtualną w sieci wirtualnej, z dowolnej lokalizacji
+- [Usługa Azure bastionu](../../bastion/bastion-overview.md): umożliwia szybkie i bezpieczne nawiązywanie połączeń z dowolną maszyną wirtualną w sieci wirtualnej, z dowolnej lokalizacji
 
 - Nawiązywanie połączenia bezpośrednio za pośrednictwem klienta SSH, takiego jak podano przez podejście JIT
 
@@ -423,7 +423,7 @@ Gdy system BIG-IP jest obecnie w pełni zainicjowany, zalecamy utworzenie pełne
 
 6. Zapisz archiwum zestawu konfiguracyjnego (UCS) użytkownika lokalnie, wybierając link do kopii zapasowej i wybierz pozycję **Pobierz**.
 
-Opcjonalnie można również utworzyć kopię zapasową całego dysku systemowego za pomocą [migawek platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk), które w przeciwieństwie do kopii zapasowej w konfiguracji sieci Web spowodują pewne sytuacje awaryjne testowania między wersjami TMOS lub przywrócenie do nowego systemu.
+Opcjonalnie można również utworzyć kopię zapasową całego dysku systemowego za pomocą [migawek platformy Azure](../../virtual-machines/windows/snapshot-copy-managed-disk.md), które w przeciwieństwie do kopii zapasowej w konfiguracji sieci Web spowodują pewne sytuacje awaryjne testowania między wersjami TMOS lub przywrócenie do nowego systemu.
 
 ```PowerShell
 # Install modules

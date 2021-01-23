@@ -3,12 +3,12 @@ title: Co nowego w usłudze Azure Backup
 description: Dowiedz się więcej o nowych funkcjach w Azure Backup.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: 62a6146990863c339917777b2624fee76ebe60d8
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 935c2a806ed3b08f19e680bf1522d98a9ad67666
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98569423"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730293"
 ---
 # <a name="whats-new-in-azure-backup"></a>Co nowego w usłudze Azure Backup
 
@@ -37,7 +37,7 @@ Więcej informacji o nowych wersjach można uzyskać, zaznaczając je na tej str
 
 ## <a name="azure-disk-backup-in-preview"></a>Kopia zapasowa Azure Disk (wersja zapoznawcza)
 
-Usługa Kopia zapasowa Azure Disk oferuje rozwiązanie gotowe, które zapewnia możliwość zarządzania cyklem życia migawek dla [systemu Azure Managed disks](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview) przez Automatyzowanie okresowego tworzenia migawek i przechowywanie ich na skonfigurowany czas trwania przy użyciu zasad tworzenia kopii zapasowych. Można zarządzać migawkami dysków bez ponoszenia kosztów związanych z infrastrukturą oraz niepotrzebami niestandardowych skryptów ani narzutami związanymi z zarządzaniem. Jest to rozwiązanie do tworzenia kopii zapasowej spójnej na poziomie awarii, które pobiera kopie zapasowe z dysku zarządzanego do określonego momentu przy użyciu [migawek przyrostowych](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots) z obsługą wielu kopii zapasowych dziennie. Jest to również rozwiązanie bez agenta i nie ma wpływu na wydajność aplikacji produkcyjnej. Obsługuje ona tworzenie kopii zapasowych i przywracanie dysków systemu operacyjnego i danych (w tym dysków udostępnionych), niezależnie od tego, czy są one obecnie dołączone do uruchomionej maszyny wirtualnej platformy Azure.
+Usługa Kopia zapasowa Azure Disk oferuje rozwiązanie gotowe, które zapewnia możliwość zarządzania cyklem życia migawek dla [systemu Azure Managed disks](../virtual-machines/managed-disks-overview.md) przez Automatyzowanie okresowego tworzenia migawek i przechowywanie ich na skonfigurowany czas trwania przy użyciu zasad tworzenia kopii zapasowych. Można zarządzać migawkami dysków bez ponoszenia kosztów związanych z infrastrukturą oraz niepotrzebami niestandardowych skryptów ani narzutami związanymi z zarządzaniem. Jest to rozwiązanie do tworzenia kopii zapasowej spójnej na poziomie awarii, które pobiera kopie zapasowe z dysku zarządzanego do określonego momentu przy użyciu [migawek przyrostowych](../virtual-machines/disks-incremental-snapshots.md) z obsługą wielu kopii zapasowych dziennie. Jest to również rozwiązanie bez agenta i nie ma wpływu na wydajność aplikacji produkcyjnej. Obsługuje ona tworzenie kopii zapasowych i przywracanie dysków systemu operacyjnego i danych (w tym dysków udostępnionych), niezależnie od tego, czy są one obecnie dołączone do uruchomionej maszyny wirtualnej platformy Azure.
 
 Aby uzyskać więcej informacji, zobacz [kopia zapasowa Azure Disk (wersja zapoznawcza)](disk-backup-overview.md).
 
