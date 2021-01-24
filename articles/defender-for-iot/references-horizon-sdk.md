@@ -1,5 +1,5 @@
 ---
-title: Zestaw Horizon SDK
+title: Horizon SDK
 titleSuffix: Azure Defender for IoT
 description: Zestaw horyzont SDK umożliwia deweloperom platformy Azure Defender projektowanie wtyczek do desektorów, które dekodują ruch sieciowy, aby można było go przetwarzać przez zautomatyzowane usługi Defender dla programów do analizy sieci IoT.
 author: shhazam-ms
@@ -8,12 +8,12 @@ ms.author: shhazam
 ms.date: 1/13/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: d6105f65508eff59164246020d9a3f286b68c5a1
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 53aafc4146680c89dd01174ec5fde765f1cc0c01
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210652"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746023"
 ---
 # <a name="horizon-proprietary-protocol-dissector"></a>Odsektora bezwłasnościowego protokołu
 
@@ -85,7 +85,7 @@ Umożliwia tworzenie wtyczek przy użyciu zestawu SDK usługi Defender for IoT (
 
 Usługa Defender for IoT oferuje podstawowe sektory dla wspólnych protokołów. Można skompilować swoje sektory na podstawie tych protokołów.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 ## <a name="what-this-sdk-contains"></a>Co to jest zestaw SDK 
 
@@ -320,7 +320,7 @@ W tej sekcji opisano podstawowe parametry.
 | **sanity_failure_codes** | Są to kody zwracane z parsera, gdy występuje konflikt Sanity związany z tożsamością kodu. Zobacz temat sprawdzanie poprawności liczby magicznej w sekcji C++. | Ciąg |
 | **malformed_codes** | Są to kody, które zostały prawidłowo zidentyfikowane, ale wykryto błąd. Na przykład, jeśli długość pola jest za krótka lub długa lub wartość jest nieprawidłowa. | Ciąg |
 | **dissect_as** | Tablica definiująca, gdzie ma być odbierany ruch określony przez protokół. | TCP/UDP, port itd. |
-| **pola** | Deklaracja, z której pola zostaną wyodrębnione z ruchu. Każde pole ma własny identyfikator (nazwę) i typ (numeric, String, RAW, Array, Complex). Na przykład [Funkcja](https://docs.google.com/document/d/14nm8cyoGiaE0ODOYQd_xjULxVz9U_bjfPKkcDhOFr5Q/edit#bookmark=id.6s1zcxa9184k) pola wyodrębniona w pliku parsera implementacji. Pola, które są zapisywane w pliku konfiguracyjnym są jedynymi, które można dodać do warstwy. |  |
+| **fields** | Deklaracja, z której pola zostaną wyodrębnione z ruchu. Każde pole ma własny identyfikator (nazwę) i typ (numeric, String, RAW, Array, Complex). Na przykład [Funkcja](https://docs.google.com/document/d/14nm8cyoGiaE0ODOYQd_xjULxVz9U_bjfPKkcDhOFr5Q/edit#bookmark=id.6s1zcxa9184k) pola wyodrębniona w pliku parsera implementacji. Pola, które są zapisywane w pliku konfiguracyjnym są jedynymi, które można dodać do warstwy. |  |
 
 ### <a name="other-advanced-fields"></a>Inne pola zaawansowane 
 
@@ -885,7 +885,7 @@ Można również użyć wartości z protokołów wcześniej przeanalizowanych w 
 
 Na przykład dla wartości, która jest oparta na protokole TCP, można użyć wartości z warstwy IPv4. Z tej warstwy można wyodrębnić wartości, takie jak źródło pakietu i miejsce docelowe.
 
-Aby to osiągnąć, należy zaktualizować plik konfiguracji JSON przy użyciu `whitelist` właściwości.
+Aby to osiągnąć, należy zaktualizować plik konfiguracji JSON przy użyciu `whitelists` właściwości.
 
 ## <a name="allow-list-data-mining-fields"></a>Pola listy dozwolonych (wyszukiwanie danych)
 

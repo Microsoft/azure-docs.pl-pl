@@ -1,27 +1,26 @@
 ---
-title: Jak skompilować, wdrożyć i rozbudować usługę IoT Plug and Play Bridge | Microsoft Docs
-description: Zidentyfikuj składniki mostka Plug and Play IoT. Dowiedz się, jak zwiększyć mostek oraz jak uruchamiać je na urządzeniach IoT, bramach i jako moduł IoT Edge.
+title: Jak skompilować i wdrożyć usługę IoT Plug and Play Bridge | Microsoft Docs
+description: Zidentyfikuj składniki mostka Plug and Play IoT. Dowiedz się, jak uruchamiać je na urządzeniach IoT, bramach i jako moduł IoT Edge.
 author: usivagna
 ms.author: ugans
-ms.date: 12/11/2020
+ms.date: 1/20/2021
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 43c89b0fac08bf9f2c72f885fbf4788371876b17
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: b7947eab93ebc8e523e163af601893522132e06a
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678580"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745671"
 ---
-# <a name="build-deploy-and-extend-the-iot-plug-and-play-bridge"></a>Kompilowanie, wdrażanie i poszerzanie mostka Plug and Play IoT
+# <a name="build-and-deploy-the-iot-plug-and-play-bridge"></a>Kompilowanie i wdrażanie mostka Plug and Play IoT
 
-Mostek Plug and Play IoT umożliwia podłączenie istniejących urządzeń podłączonych do bramy do centrum IoT Hub. Za pomocą mostka można mapować interfejsy Plug and Play IoT na dołączone urządzenia. Interfejs Plug and Play IoT definiuje dane telemetryczne wysyłane przez urządzenie, właściwości zsynchronizowane między urządzeniem a chmurą oraz polecenia, na które odpowiada urządzenie. Możesz zainstalować i skonfigurować aplikację mostka "open source" w bramach systemu Windows lub Linux.
+[Mostek Plug and Play IoT](concepts-iot-pnp-bridge.md#iot-plug-and-play-bridge-architecture) umożliwia podłączenie istniejących urządzeń podłączonych do bramy do centrum IoT Hub. Za pomocą mostka można mapować interfejsy Plug and Play IoT na dołączone urządzenia. Interfejs Plug and Play IoT definiuje dane telemetryczne wysyłane przez urządzenie, właściwości zsynchronizowane między urządzeniem a chmurą oraz polecenia, na które odpowiada urządzenie. Możesz zainstalować i skonfigurować aplikację mostka "open source" w bramach systemu Windows lub Linux. Dodatkowo mostek można uruchomić jako moduł środowiska uruchomieniowego Azure IoT Edge.
 
 W tym artykule szczegółowo wyjaśniono, jak:
 
 - Konfigurowanie mostka.
-- Zwiększ mostek, tworząc nowe karty.
 - Jak kompilować i uruchamiać mostek w różnych środowiskach.
 
 Aby zapoznać się z prostym przykładem, który pokazuje, jak korzystać z mostka, zobacz [jak podłączyć przykład usługi IoT Plug and Play Bridge, który działa w systemie Linux lub Windows, aby IoT Hub](howto-use-iot-pnp-bridge.md).
@@ -77,97 +76,6 @@ Użyj jednej z następujących opcji, aby dostarczyć plik konfiguracyjny do mos
 ### <a name="iot-edge-module-configuration"></a>IoT Edge Konfiguracja modułu
 
 Gdy mostek działa jako moduł IoT Edge w środowisku uruchomieniowym IoT Edge, plik konfiguracji jest wysyłany z chmury jako aktualizacja `PnpBridgeConfig` odpowiedniej właściwości. Mostek czeka na tę aktualizację właściwości przed skonfigurowaniem kart i składników.
-
-## <a name="extend-the-bridge"></a>Zwiększ mostek
-
-Aby zwiększyć możliwości mostka, możesz utworzyć własne karty mostków.
-
-Mostek używa kart sieciowych do:
-
-- Nawiąż połączenie między urządzeniem a chmurą.
-- Włącz przepływ danych między urządzeniem a chmurą.
-- Włącz zarządzanie urządzeniami w chmurze.
-
-Każda karta mostku musi:
-
-- Utwórz interfejs Digital bliźniaczych reprezentacji.
-- Użyj interfejsu, aby powiązać funkcje po stronie urządzenia z funkcjami opartymi na chmurze, takimi jak dane telemetryczne, właściwości i polecenia.
-- Ustanów kontrolę i komunikację z danymi przy użyciu sprzętu lub oprogramowania układowego urządzenia.
-
-Każda karta mostku współdziała z określonym typem urządzenia w zależności od tego, w jaki sposób adapter nawiązuje połączenie z urządzeniem i współdziała z nim. Nawet jeśli komunikacja z urządzeniem korzysta z protokołu uzgadniania, karta mostka może mieć wiele sposobów interpretacji danych z urządzenia. W tym scenariuszu karta mostka używa informacji dla karty w pliku konfiguracyjnym, aby określić *konfigurację interfejsu* , która powinna być używana przez adapter do analizy danych.
-
-Aby można było korzystać z urządzenia, karta mostka używa protokołu komunikacyjnego obsługiwanego przez urządzenie i interfejsy API udostępniane przez podstawowy system operacyjny lub dostawcę urządzenia.
-
-Aby można było korzystać z chmury, adapter mostku używa interfejsów API udostępnianych przez zestaw SDK języka C usługi Azure IoT do wysyłania telemetrii, tworzenia interfejsów cyfrowych sieci dwuosiowych, wysyłania aktualizacji właściwości i tworzenia funkcji wywołania zwrotnego dla aktualizacji właściwości i poleceń.
-
-### <a name="create-a-bridge-adapter"></a>Tworzenie adaptera mostkowego
-
-Most oczekuje adaptera mostu, aby zaimplementować interfejsy API zdefiniowane w interfejsie [_PNP_ADAPTER](https://github.com/Azure/iot-plug-and-play-bridge/blob/9964f7f9f77ecbf4db3b60960b69af57fd83a871/pnpbridge/src/pnpbridge/inc/pnpadapter_api.h#L296) :
-
-```c
-typedef struct _PNP_ADAPTER {
-  // Identity of the IoT Plug and Play adapter that is retrieved from the config
-  const char* identity;
-
-  PNPBRIDGE_ADAPTER_CREATE createAdapter;
-  PNPBRIDGE_COMPONENT_CREATE createPnpComponent;
-  PNPBRIDGE_COMPONENT_START startPnpComponent;
-  PNPBRIDGE_COMPONENT_STOP stopPnpComponent;
-  PNPBRIDGE_COMPONENT_DESTROY destroyPnpComponent;
-  PNPBRIDGE_ADAPTER_DESTOY destroyAdapter;
-} PNP_ADAPTER, * PPNP_ADAPTER;
-```
-
-W tym interfejsie:
-
-- `PNPBRIDGE_ADAPTER_CREATE` tworzy kartę i konfiguruje zasoby zarządzania interfejsami. Adapter może również polegać na globalnych parametrach karty do tworzenia adaptera. Ta funkcja jest wywoływana jednokrotnie dla jednej karty.
-- `PNPBRIDGE_COMPONENT_CREATE` tworzy interfejsy klienta Digital bliźniaczy i wiąże funkcje wywołania zwrotnego. Adapter inicjuje kanał komunikacyjny z urządzeniem. Karta może skonfigurować zasoby do włączania przepływu telemetrii, ale nie uruchamia zgłaszaj telemetrii do momentu `PNPBRIDGE_COMPONENT_START` wywołania. Ta funkcja jest wywoływana jednokrotnie dla każdego składnika interfejsu w pliku konfiguracji.
-- `PNPBRIDGE_COMPONENT_START` jest wywoływana, aby umożliwić karcie mostka rozpoczęcie przekazywania danych telemetrycznych z urządzenia do klienta Digital bliźniaczy. Ta funkcja jest wywoływana jednokrotnie dla każdego składnika interfejsu w pliku konfiguracji.
-- `PNPBRIDGE_COMPONENT_STOP` powoduje zatrzymanie przepływu telemetrii.
-- `PNPBRIDGE_COMPONENT_DESTROY` niszczy klienta Digital bliźniaczy i powiązane zasoby interfejsu. Ta funkcja jest wywoływana jednokrotnie dla każdego składnika interfejsu w pliku konfiguracji, gdy mostek zostanie rozłączony lub wystąpił błąd krytyczny.
-- `PNPBRIDGE_ADAPTER_DESTROY` czyści zasoby karty mostkowej.
-
-### <a name="bridge-core-interaction-with-bridge-adapters"></a>Interakcja z mostkiem z kartami mostku
-
-Poniższa lista zawiera informacje o tym, co się stanie po uruchomieniu mostka:
-
-1. Po uruchomieniu mostka Menedżer adapterów mostka przegląda każdy składnik interfejsu zdefiniowany w pliku konfiguracji i wywołuje `PNPBRIDGE_ADAPTER_CREATE` odpowiednią kartę. Adapter może używać parametrów konfiguracji karty globalnej do konfigurowania zasobów do obsługi różnych *konfiguracji interfejsu*.
-1. Dla każdego urządzenia w pliku konfiguracji Menedżer mostów inicjuje Tworzenie interfejsu przez wywołanie `PNPBRIDGE_COMPONENT_CREATE` w odpowiedniej karcie mostka.
-1. Adapter odbiera wszystkie opcjonalne ustawienia konfiguracji dla składnika interfejsu i używa tych informacji do konfigurowania połączeń z urządzeniem.
-1. Karta tworzy interfejsy klienta Digital 3945ABG i wiąże funkcje wywołania zwrotnego dla aktualizacji właściwości i poleceń. Ustanowienie połączeń urządzeń nie powinno blokować powrotu wywołania zwrotnego po pomyślnym utworzeniu interfejsu sieci dwuosiowej. Aktywne połączenie z urządzeniem jest niezależne od aktywnego klienta interfejsu tworzonego przez mostek. Jeśli połączenie nie powiedzie się, karta założono, że urządzenie jest nieaktywne. Adapter mostka może spróbować ponowić próbę nawiązania połączenia.
-1. Po utworzeniu przez Menedżera adapterów mostów wszystkich składników interfejsu określonych w pliku konfiguracji rejestruje wszystkie interfejsy za pomocą usługi Azure IoT Hub. Rejestracja jest blokowanym wywołaniem asynchronicznym. Po zakończeniu wywołania wyzwala wywołanie zwrotne na karcie mostka, która może następnie obsługiwać wywołania zwrotne właściwości i poleceń z chmury.
-1. Menedżer adapterów mostka następnie wywołuje `PNPBRIDGE_INTERFACE_START` każdy składnik, a adapter mostka uruchamia raportowanie danych telemetrycznych do klienta Digital bliźniaczy.
-
-### <a name="design-guidelines"></a>Wytyczne dotyczące projektowania
-
-Postępuj zgodnie z poniższymi wskazówkami podczas tworzenia nowej karty mostkowej:
-
-- Określ, które możliwości urządzenia są obsługiwane i jakie definicje interfejsów składników używających tej karty wyglądają.
-- Określanie interfejsu i parametrów globalnych wymaganych przez kartę w pliku konfiguracji.
-- Zidentyfikuj komunikację urządzenia niskiego poziomu wymaganą do obsługi właściwości i poleceń składnika.
-- Określ, jak karta powinna analizować dane pierwotne z urządzenia i konwertować je na typy telemetryczne, które określa definicja interfejsu Plug and Play IoT.
-- Zaimplementuj opisany wcześniej interfejs karty mostka.
-- Dodaj nową kartę do manifestu karty i skompiluj mostek.
-
-### <a name="enable-a-new-bridge-adapter"></a>Włącz nową kartę mostka
-
-Aby włączyć karty w mostku, dodając odwołanie w [adapter_manifest. c](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/src/adapters/src/shared/adapter_manifest.c):
-
-```c
-  extern PNP_ADAPTER MyPnpAdapter;
-  PPNP_ADAPTER PNP_ADAPTER_MANIFEST[] = {
-    .
-    .
-    &MyPnpAdapter
-  }
-```
-
-> [!IMPORTANT]
-> Wywołania zwrotne adaptera mostkowego są wywoływane sekwencyjnie. Adapter nie powinien blokować wywołania zwrotnego, ponieważ uniemożliwia to wykonywanie przez program Bridge rdzenia.
-
-### <a name="sample-camera-adapter"></a>Przykładowa karta aparatu
-
-[Plik Readme karty aparatu fotograficznego](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/src/adapters/src/Camera/readme.md) opisuje przykładową kartę kamery, którą można włączyć.
 
 ## <a name="build-and-run-the-bridge-on-an-iot-device-or-gateway"></a>Kompilowanie i uruchamianie mostka na urządzeniu IoT lub w bramie
 
@@ -378,7 +286,6 @@ Uruchom VS Code, Otwórz paletę poleceń, wprowadź *Remote WSL: Open folder in
 Otwórz plik *pnpbridge\Dockerfile.amd64* . Edytuj definicje zmiennych środowiskowych w następujący sposób:
 
 ```dockerfile
-ENV IOTHUB_DEVICE_CONNECTION_STRING="{Add your device connection string here}"
 ENV PNP_BRIDGE_ROOT_MODEL_ID="dtmi:com:example:RootPnpBridgeSampleDevice;1"
 ENV PNP_BRIDGE_HUB_TRACING_ENABLED="false"
 ENV IOTEDGE_WORKLOADURI="something"

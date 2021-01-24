@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 10/14/2020
-ms.openlocfilehash: 3f55e2a7d62d2f32173d382dc9be0d6eb4f83fae
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.date: 01/23/2021
+ms.openlocfilehash: 57867cc4fb539b07fc1e4117f6e956078c41e2c6
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98249758"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746700"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Szybki start: Tworzenie usługi Azure Cognitive Search w portalu
 
-Usługa Azure Wyszukiwanie poznawcze to zasób autonomiczny służący do podłączenia środowiska wyszukiwania do aplikacji niestandardowych. Wyszukiwanie poznawcze łatwo integruje się z innymi usługami platformy Azure, z aplikacjami na serwerach sieciowych lub z oprogramowaniem działającym na innych platformach w chmurze.
+[Azure wyszukiwanie poznawcze](search-what-is-azure-search.md) to zasób platformy Azure używany do dodawania obsługi wyszukiwania pełnotekstowego do aplikacji niestandardowych. Można łatwo zintegrować ją z innymi usługami platformy Azure, które zapewniają dane lub dodatkowe przetwarzanie, z aplikacjami na serwerach sieciowych lub z oprogramowaniem działającym na innych platformach w chmurze.
 
-W tym artykule dowiesz się, jak utworzyć zasób w [Azure Portal](https://portal.azure.com/).
+W tym artykule dowiesz się, jak utworzyć usługę wyszukiwania w [Azure Portal](https://portal.azure.com/).
 
 [![Animowany plik GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
@@ -31,7 +31,7 @@ Następujące właściwości usługi są rozwiązane w okresie istnienia usługi
 
 * Nazwa usługi jest częścią punktu końcowego adresu URL ([Przejrzyj wskazówki](#name-the-service) dotyczące przydatnych nazw usług).
 * [Warstwa usługi](search-sku-tier.md) ma wpływ na rozliczenia i ustawia limit w górę dla pojemności. Niektóre funkcje nie są dostępne w warstwie Bezpłatna.
-* Region usługi może ustalić dostępność niektórych scenariuszy. Jeśli potrzebujesz [wysokich funkcji zabezpieczeń](search-security-overview.md) lub [wzbogacania AI](cognitive-search-concept-intro.md), musisz umieścić wyszukiwanie poznawcze platformy Azure w tym samym regionie co inne usługi lub w regionach, które udostępniają daną funkcję. 
+* Region usługi może ustalić dostępność niektórych scenariuszy. Jeśli potrzebujesz [wysokich funkcji zabezpieczeń](search-security-overview.md) lub [wzbogacania AI](cognitive-search-concept-intro.md), musisz utworzyć wyszukiwanie poznawcze platformy Azure w tym samym regionie co inne usługi lub w regionach, które udostępniają daną funkcję. 
 
 ## <a name="subscribe-free-or-paid"></a>Subskrypcja (bezpłatna lub płatna)
 
@@ -43,7 +43,7 @@ Możesz również [aktywować korzyści dla subskrybentów MSDN](https://azure.m
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-1. Kliknij znak plus („+ Utwórz zasób”) w lewym górnym rogu.
+1. Kliknij znak plus (**"+ Utwórz zasób"**) w lewym górnym rogu.
 
 1. Użyj paska wyszukiwania, aby znaleźć "wyszukiwanie poznawcze platformy Azure" lub przejdź do zasobu za pomocą usługi **Web**  >  **Azure wyszukiwanie poznawcze**.
 

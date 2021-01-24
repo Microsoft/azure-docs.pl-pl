@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 7336078d1f04b9dcb6c2f229654f1c36d9b3114b
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: bc229974cf14ba364e5e7111dc1d2704e03c3635
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96919973"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746802"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor często zadawane pytania
 
@@ -345,7 +345,9 @@ Jest to możliwe, jeśli kod wysyła takie dane. Może również wystąpić, je�
 
 **Wszystkie** oktety adresu internetowego klienta zawsze mają ustawioną wartość 0 po wyszukiwaniu atrybutów lokalizacji geograficznej.
 
-### <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>Mój klucz Instrumentacji jest widoczny w źródle strony sieci Web. 
+[Application INSIGHTS SDK języka JavaScript](app/javascript.md) nie obejmuje domyślnie żadnych danych osobowych. Jednak niektóre dane osobowe używane w aplikacji mogą być pobierane przez zestaw SDK (na przykład pełne nazwy w `window.title` lub identyfikatory kont w parametrach zapytania adresu URL XHR). Aby uzyskać niestandardowe osobiste maskowanie danych, Dodaj [inicjatora telemetrii](app/api-filtering-sampling.md#javascript-web-applications).
+
+### <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>Mój klucz Instrumentacji jest widoczny w źródle strony sieci Web.
 
 * Jest to typowa Metoda monitorowania rozwiązań.
 * Nie można jej użyć do kradzieży danych.
@@ -425,7 +427,7 @@ Unikatowe dostosowania, które często trzeba ręcznie odtworzyć lub zaktualizo
 > [!NOTE]
 > Jeśli zasób tworzony w nowym regionie zastępuje zasób klasyczny, zalecamy zapoznanie się z zaletami [tworzenia nowego zasobu opartego na obszarze roboczym](app/create-workspace-resource.md) lub [migrowaniem istniejącego zasobu do obszaru roboczego](app/convert-classic-resource.md). 
 
-### <a name="automation"></a>Automatyzacja
+### <a name="automation"></a>Automation
 
 #### <a name="configuring-application-insights"></a>Konfigurowanie Application Insights
 

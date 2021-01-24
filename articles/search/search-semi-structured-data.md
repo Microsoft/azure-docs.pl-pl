@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 09/25/2020
-ms.openlocfilehash: 7c88aea6aff942cdcf5cbc022df8f07cfe0d4cce
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.date: 01/25/2021
+ms.openlocfilehash: a7a010e3c60d6b96947597878fcd870e9845b2b3
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701283"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746140"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>Samouczek: indeksowanie obiektów BLOB JSON z usługi Azure Storage przy użyciu interfejsu REST
 
@@ -98,13 +98,13 @@ Wywołania interfejsu REST wymagają adresu URL usługi i klucza dostępu dla ka
 
 1. W obszarze **Ustawienia**  >  **klucze** Uzyskaj klucz administratora dla pełnych praw do usługi. Istnieją dwa wymienne klucze administratora zapewniające ciągłość działania w przypadku, gdy trzeba ją wycofać. W przypadku żądań dotyczących dodawania, modyfikowania i usuwania obiektów można użyć klucza podstawowego lub pomocniczego.
 
-:::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Pobieranie punktu końcowego HTTP i klucza dostępu" border="false":::
+   :::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Pobieranie punktu końcowego HTTP i klucza dostępu" border="false":::
 
 Wszystkie żądania wymagają klucza API dla każdego żądania wysyłanego do usługi. Prawidłowy klucz ustanawia relację zaufania dla danego żądania między aplikacją wysyłającą żądanie i usługą, która je obsługuje.
 
 ## <a name="2---set-up-postman"></a>2 — Konfigurowanie wpisu
 
-Uruchom narzędzie Postman i skonfiguruj żądanie HTTP. Jeśli nie znasz tego narzędzia, zobacz [Eksplorowanie interfejsów API REST platformy Azure wyszukiwanie poznawcze](search-get-started-rest.md).
+Uruchom narzędzie Postman i skonfiguruj żądanie HTTP. Jeśli nie znasz tego narzędzia, zobacz [Tworzenie indeksu wyszukiwania przy użyciu interfejsów API REST](search-get-started-rest.md).
 
 Metody żądań dla każdego wywołania w tym samouczku są **ogłaszane** i **odbierane**. Aby utworzyć źródło danych, indeks i indeksator, należy wykonać trzy wywołania interfejsu API do usługi wyszukiwania. Źródło danych zawiera wskaźnik do konta magazynu i danych JSON. Usługa wyszukiwania nawiązuje połączenie podczas ładowania danych.
 
@@ -158,7 +158,7 @@ Identyfikatory URI muszą określać wersję interfejsu API i każde wywołanie 
     ```
 
 ## <a name="4---create-an-index"></a>4 — Tworzenie indeksu
-    
+
 Drugie wywołanie to [Tworzenie interfejsu API indeksu](/rest/api/searchservice/create-index), tworzenie indeksu wyszukiwanie poznawcze platformy Azure, w którym są przechowywane wszystkie dane z możliwością wyszukiwania. Indeks określa wszystkie parametry i ich atrybuty.
 
 1. Ustaw punkt końcowy tego wywołania `https://[service name].search.windows.net/indexes?api-version=2020-06-30` . Zastąp element `[service name]` nazwą usługi wyszukiwania.

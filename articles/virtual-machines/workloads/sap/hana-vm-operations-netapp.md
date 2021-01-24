@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/18/2021
+ms.date: 01/23/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2c7ea804e9e85578076969f0ec6bdf90b571bb75
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 906879c44a2d7a3248f3d3ac0c9fec7ced7f2a4f
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98570086"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746547"
 ---
 # <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>Woluminy NFS 4.1 w usłudze Azure NetApp Files dla platformy SAP HANA
 
@@ -62,7 +62,13 @@ Ważne jest, aby zrozumieć, że wydajność jest zależna od rozmiaru i że ist
 
 W poniższej tabeli pokazano, że warto utworzyć duży wolumin "standardowy" do przechowywania kopii zapasowych i nie ma sensu tworzenia woluminu "Ultra" większego niż 12 TB, ponieważ pojemność przepustowości fizycznej jednego LIFu zostanie przekroczona. 
 
-Maksymalna przepływność dla LIF i jednej sesji systemu Linux wynosi od 1,2 do 1,4 GB/s. 
+Maksymalna przepływność dla LIF i jednej sesji systemu Linux wynosi od 1,2 do 1,4 GB/s. Jeśli jest wymagana większa przepływność dla/Hana/Data, można użyć partycjonowania woluminów danych SAP HANA do rozdzielenia działania we/wy podczas ponownego ładowania danych lub platformy HANA punktów zapisu w wielu plikach danych platformy HANA, które znajdują się w wielu udziałach NFS. Aby uzyskać więcej informacji na temat rozłożenia woluminu danych platformy HANA, przeczytaj następujące artykuły:
+
+- [Podręcznik administratora platformy HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/40b2b2a880ec4df7bac16eae3daef756.html?q=hana%20data%20volume%20partitioning)
+- [Blog o SAP HANA — partycjonowanie woluminów danych](https://blogs.sap.com/2020/10/07/sap-hana-partitioning-data-volumes/)
+- [#2400005 uwagi SAP](https://launchpad.support.sap.com/#/notes/2400005)
+- [#2700123 uwagi SAP](https://launchpad.support.sap.com/#/notes/2700123)
+
 
 | Rozmiar  | Standard przepływności | Przepływność Premium | Przepływność Ultra |
 | --- | --- | --- | --- |

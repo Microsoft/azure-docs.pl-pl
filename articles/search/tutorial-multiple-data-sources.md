@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 10/13/2020
+ms.date: 01/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c9d9c43ae1be755ccb30fc377692257a81332ea8
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: b8711fa468cf361a42ed996c5b5dc50372d6cf90
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593726"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746156"
 ---
 # <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>Samouczek: indeksowanie z wielu źródeł danych przy użyciu zestawu .NET SDK
 
@@ -47,7 +47,7 @@ Ten samouczek został zaktualizowany do korzystania z pakietu Azure.Search.Docum
 
 + [Azure Cosmos DB](../cosmos-db/create-cosmosdb-resources-portal.md)
 + [Azure Storage](../storage/common/storage-account-create.md)
-+ [Program Visual Studio](https://visualstudio.microsoft.com/)
++ [Visual Studio](https://visualstudio.microsoft.com/)
 + [Pakiet NuGet Wyszukiwanie poznawcze platformy Azure (wersja 11. x)](https://www.nuget.org/packages/Azure.Search.Documents/)
 + [Utwórz](search-create-service-portal.md) lub [Znajdź istniejącą usługę wyszukiwania](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
@@ -78,7 +78,7 @@ Ten przykład używa dwóch małych zestawów danych, które opisują siedem fik
 
    :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-add-container.png" alt-text="Dodawanie kontenera" border="false":::
 
-1. Wybierz pozycję **elementy** w **hotelach** , a następnie kliknij pozycję **Przekaż element** na pasku poleceń. Przejdź do, a następnie wybierz plik **cosmosdb/HotelsDataSubset_CosmosDb.js** w folderze projektu.
+1. Wybierz pozycję **elementy** w **hotelach**, a następnie kliknij pozycję **Przekaż element** na pasku poleceń. Przejdź do, a następnie wybierz plik **cosmosdb/HotelsDataSubset_CosmosDb.js** w folderze projektu.
 
    :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-upload.png" alt-text="Przekaż do kolekcji Azure Cosmos DB" border="false":::
 
@@ -86,9 +86,9 @@ Ten przykład używa dwóch małych zestawów danych, które opisują siedem fik
 
 1. Skopiuj parametry połączenia ze strony **klucze** do Notatnika. Będzie ona potrzebna do **appsettings.js** w późniejszym kroku. Jeśli nie używasz sugerowanej nazwy bazy danych "Hotel-sale-DB", skopiuj również nazwę bazy danych.
 
-### <a name="azure-blob-storage"></a>Usługa Azure Blob Storage
+### <a name="azure-blob-storage"></a>Azure Blob Storage
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com), przejdź do konta usługi Azure Storage, kliknij pozycję **obiekty blob** , a następnie kliknij pozycję **+ kontener**.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com), przejdź do konta usługi Azure Storage, kliknij pozycję **obiekty blob**, a następnie kliknij pozycję **+ kontener**.
 
 1. [Utwórz kontener obiektów BLOB](../storage/blobs/storage-quickstart-blobs-portal.md) o nazwie **pokoje hotelowe** , aby zapisać przykładowe pliki JSON pokoju hotelowego. Można ustawić poziom dostępu publicznego na dowolną z jego prawidłowych wartości.
 
@@ -306,7 +306,7 @@ private static async Task CreateAndRunBlobIndexerAsync(string indexName, SearchI
     await indexerClient.CreateOrUpdateDataSourceConnectionAsync(blobDataSource);
 ```
 
-Po utworzeniu źródła danych program skonfiguruje obiekt BLOB indeksatora o nazwie **sale-Indexer** , jak pokazano poniżej.
+Po utworzeniu źródła danych program skonfiguruje obiekt BLOB indeksatora o nazwie **sale-Indexer**, jak pokazano poniżej.
 
 Obiekty blob JSON zawierają pole klucza o nazwie **`Id`** zamiast **`HotelId`** . Kod używa klasy, `FieldMapping` Aby określić indeksator do skierowania **`Id`** wartości pola do **`HotelId`** klucza dokumentu w indeksie.
 

@@ -7,23 +7,20 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: 05df2144b892aed764f9606fb19bd6a3242b97f3
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 5e5be79371b640431603409a34b1a7812ed5c2a3
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934904"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746108"
 ---
-<a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Rozwiązywanie problemów z kondycją zaplecza w Application Gateway
+<a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Problemy z kondycją zaplecza w usłudze Application Gateway
 ==================================================
 
 <a name="overview"></a>Omówienie
 --------
 
 Domyślnie usługa Azure Application Gateway sonduje serwery zaplecza, aby sprawdzić ich stan kondycji i sprawdzić, czy są one gotowe do obsłużenia żądań. Użytkownicy mogą również tworzyć niestandardowe sondy, aby wspominać o nazwie hosta, ścieżce do sondowania oraz kodów stanu, które mają być akceptowane w dobrej kondycji. W każdym przypadku, jeśli serwer zaplecza nie odpowie pomyślnie, Application Gateway oznacza, że serwer jest w złej kondycji i przestanie przekazywać przekazywanie żądań do serwera. Po pomyślnym rozpoczęciu odpowiedzi serwer Application Gateway wznawia przekazywanie żądań.
-
-> [!NOTE]
-> Ten artykuł zawiera odwołania do warunku *dozwolonych*, termin, przez który firma Microsoft już nie używa. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
 
 ### <a name="how-to-check-backend-health"></a>Sprawdzanie kondycji zaplecza
 
@@ -160,7 +157,7 @@ Sprawdź również, czy jakakolwiek sieciowej grupy zabezpieczeń/UDR/zapora blo
 
     a.  Otwórz wiersz polecenia (Win + R- \> cmd), wprowadź `netstat` i wybierz ENTER.
 
-    b.  Sprawdź, czy serwer nasłuchuje na skonfigurowanym porcie. Przykład:
+    b.  Sprawdź, czy serwer nasłuchuje na skonfigurowanym porcie. Na przykład:
     ```
             Proto Local Address Foreign Address State PID
             TCP 0.0.0.0:80 0.0.0.0:0 LISTENING 4
@@ -245,7 +242,7 @@ Aby uzyskać więcej informacji na temat wyodrębniania i przekazywania zaufanyc
 
 #### <a name="trusted-root-certificate-mismatch"></a>Niezgodność zaufanych certyfikatów głównych
 
-**Komunikat:** Certyfikat główny certyfikatu serwera używanego w zapleczu nie jest zgodny z zaufanym certyfikatem głównym dodanym do bramy aplikacji. Upewnij się, że dodano prawidłowy certyfikat główny, aby dozwolonych zaplecza
+**Komunikat:** Certyfikat główny certyfikatu serwera używanego w zapleczu nie jest zgodny z zaufanym certyfikatem głównym dodanym do bramy aplikacji. Upewnij się, że dodano prawidłowy certyfikat główny, aby dozwolonych zaplecza.
 
 **Przyczyna:** Kompleksowy protokół SSL z Application Gateway v2 wymaga zweryfikowania certyfikatu serwera wewnętrznej bazy danych w celu uznania kondycji serwera.
 Aby certyfikat TLS/SSL był zaufany, certyfikat serwera wewnętrznej bazy danych musi zostać wystawiony przez urząd certyfikacji, który znajduje się w zaufanym magazynie Application Gateway. Jeśli certyfikat nie został wystawiony przez zaufany urząd certyfikacji (na przykład został użyty certyfikat z podpisem własnym), użytkownicy powinni przekazać certyfikat wystawcy do Application Gateway.
@@ -260,7 +257,7 @@ Aby uzyskać więcej informacji na temat wyodrębniania i przekazywania zaufanyc
 > [!NOTE]
 > Ten błąd może również wystąpić, jeśli serwer wewnętrznej bazy danych nie wymienia kompletnego łańcucha certyfikatu, łącznie z głównym > pośrednią (jeśli dotyczy) > liścia podczas uzgadniania TLS. Aby sprawdzić, można użyć poleceń OpenSSL z dowolnego klienta i połączyć się z serwerem zaplecza przy użyciu skonfigurowanych ustawień sondy Application Gateway.
 
-Przykład:
+Na przykład:
 ```
 OpenSSL> s_client -connect 10.0.0.4:443 -servername www.example.com -showcerts
 ```
@@ -358,7 +355,7 @@ Takie zachowanie może wystąpić z następujących powodów:
 1.  UDR w podsieci Application Gateway jest ustawiona na trasę domyślną (0.0.0.0/0), a następny przeskok nie jest określony jako "Internet".
 1.  Trasa domyślna jest anonsowana przez połączenie ExpressRoute/VPN z siecią wirtualną za pośrednictwem protokołu BGP.
 1.  Niestandardowy serwer DNS jest skonfigurowany w sieci wirtualnej, która nie może rozpoznać nazw domen publicznych.
-1.  Application Gateway jest w złej kondycji.
+1.  Usługa Application Gateway znajduje się w złej kondycji.
 
 **Rozwiązanie:**
 

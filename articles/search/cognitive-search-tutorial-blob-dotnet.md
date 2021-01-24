@@ -7,14 +7,14 @@ author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 10/05/2020
+ms.date: 01/23/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: da7a80842bec68fde8cc44401bb04c2dd061741f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 4bda56f3037469477ddfe059dd20c14cd34586d8
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787962"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745720"
 ---
 # <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>Samouczek: wygenerowane przez program AI zawartość do przeszukiwania z obiektów blob platformy Azure przy użyciu zestawu .NET SDK
 
@@ -23,8 +23,8 @@ Jeśli w usłudze Azure Blob Storage znajduje się tekst lub obrazy bez struktur
 Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Skonfiguruj środowisko programistyczne.
-> * Zdefiniuj potok przeznaczony dla obiektów BLOB przy użyciu OCR, wykrywania języka, rozpoznawania jednostek i fraz kluczy.
+> * Konfigurowanie środowiska programistycznego
+> * Zdefiniuj potok, który używa OCR, wykrywania języka oraz rozpoznawania jednostek i fraz kluczy.
 > * Wykonaj potok, aby wywoływać przekształcenia, i utworzyć i załadować indeks wyszukiwania.
 > * Eksplorowanie wyników przy użyciu wyszukiwania pełnotekstowego i zaawansowanej składni zapytań.
 
@@ -32,13 +32,15 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Otwórz [bezpł
 
 ## <a name="overview"></a>Omówienie
 
-W tym samouczku do tworzenia źródła danych, indeksu, indeksatora i zestawu umiejętności jestAzure.Search.Docstosowana Biblioteka **uments** klienta.
+W tym samouczku do tworzenia źródła danych, indeksu, indeksatora i zestawu umiejętności jest [ **Azure.Search.Doc** stosowana Biblioteka uments klienta](/dotnet/api/overview/azure/search.documents-readme) .
 
-Zestawu umiejętności korzysta z wbudowanych umiejętności opartych na interfejsy API usług Cognitive Services. Kroki w potoku obejmują optyczne rozpoznawanie znaków (OCR) na obrazach, wykrywanie języka dla tekstu, wyodrębnianie kluczowych fraz i rozpoznawanie jednostek (organizacje). Nowe informacje są przechowywane w nowych polach, które mogą być używane w zapytaniach, aspektach i filtrach.
+Indeksator nawiązuje połączenie z kontenerem obiektów BLOB określonym w obiekcie źródła danych i wysyła całą zawartość indeksowaną do istniejącego indeksu wyszukiwania.
+
+Zestawu umiejętności jest dołączona do indeksatora. Używa wbudowanej umiejętności firmy Microsoft do znajdowania i wyodrębniania informacji. Kroki w potoku obejmują optyczne rozpoznawanie znaków (OCR) na obrazach, wykrywanie języka dla tekstu, wyodrębnianie kluczowych fraz i rozpoznawanie jednostek (organizacje). Nowe informacje tworzone przez potok są przechowywane w nowych polach w indeksie. Po wypełnieniu indeksu można użyć pól w zapytaniach, aspektach i filtrach.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Program Visual Studio](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 * [ Pakiet NuGetAzure.Search.Documents 11. x](https://www.nuget.org/packages/Azure.Search.Documents) 
 * [Azure Storage](https://azure.microsoft.com/services/storage/)
 * [Azure Cognitive Search](https://azure.microsoft.com/services/search/)
@@ -52,7 +54,7 @@ Przykładowe dane składają się z 14 plików typu zawartości mieszanej, któr
 
 1. Otwórz ten [folder w usłudze OneDrive](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) i w lewym górnym rogu, kliknij pozycję **Pobierz** , aby skopiować pliki do komputera. 
 
-1. Kliknij prawym przyciskiem myszy plik zip i wybierz polecenie **Wyodrębnij wszystko** . Istnieje 14 plików różnych typów. W tym ćwiczeniu należy użyć 7.
+1. Kliknij prawym przyciskiem myszy plik zip i wybierz polecenie **Wyodrębnij wszystko**. Istnieje 14 plików różnych typów. W tym ćwiczeniu należy użyć 7.
 
 Możesz również pobrać kod źródłowy dla tego samouczka. Kod źródłowy znajduje się w folderze **samouczek — wzbogacanie/v11** w repozytorium [Azure-Search-dotnet-Samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) .
 
@@ -64,7 +66,7 @@ Jeśli to możliwe, Utwórz zarówno w tym samym regionie, jak i w grupie zasob�
 
 ### <a name="start-with-azure-storage"></a>Rozpoczynanie pracy z usługą Azure Storage
 
-1. [Zaloguj się do Azure Portal](https://portal.azure.com/) i kliknij pozycję **+ Utwórz zasób** .
+1. [Zaloguj się do Azure Portal](https://portal.azure.com/) i kliknij pozycję **+ Utwórz zasób**.
 
 1. Wyszukaj *konto magazynu* i wybierz ofertę konta magazynu firmy Microsoft.
 
@@ -72,13 +74,13 @@ Jeśli to możliwe, Utwórz zarówno w tym samym regionie, jak i w grupie zasob�
 
 1. Na karcie podstawowe wymagane są następujące elementy. Zaakceptuj wartości domyślne dla wszystkich innych elementów.
 
-   * **Grupa zasobów** . Wybierz istniejący lub Utwórz nowy, ale Użyj tej samej grupy dla wszystkich usług, aby można było zarządzać nimi zbiorczo.
+   * **Grupa zasobów**. Wybierz istniejący lub Utwórz nowy, ale Użyj tej samej grupy dla wszystkich usług, aby można było zarządzać nimi zbiorczo.
 
-   * **Nazwa konta magazynu** . Jeśli uważasz, że może istnieć wiele zasobów tego samego typu, użyj nazwy, aby odróżnić według typu i regionu, na przykład *blobstoragewestus* . 
+   * **Nazwa konta magazynu**. Jeśli uważasz, że może istnieć wiele zasobów tego samego typu, użyj nazwy, aby odróżnić według typu i regionu, na przykład *blobstoragewestus*. 
 
-   * **Lokalizacja** . Jeśli to możliwe, wybierz tę samą lokalizację, która jest używana dla usługi Azure Wyszukiwanie poznawcze i Cognitive Services. Pojedyncza lokalizacja unieważnia opłaty za przepustowość.
+   * **Lokalizacja**. Jeśli to możliwe, wybierz tę samą lokalizację, która jest używana dla usługi Azure Wyszukiwanie poznawcze i Cognitive Services. Pojedyncza lokalizacja unieważnia opłaty za przepustowość.
 
-   * **Rodzaj konta** . Wybierz wartość domyślną *StorageV2 (ogólnego przeznaczenia w wersji 2)* .
+   * **Rodzaj konta**. Wybierz wartość domyślną *StorageV2 (ogólnego przeznaczenia w wersji 2)*.
 
 1. Kliknij przycisk **Przegląd + Utwórz** , aby utworzyć usługę.
 
@@ -86,7 +88,7 @@ Jeśli to możliwe, Utwórz zarówno w tym samym regionie, jak i w grupie zasob�
 
 1. Kliknij pozycję **obiekty blob** usługa.
 
-1. Kliknij pozycję **+ kontener** , aby utworzyć kontener i nadaj mu nazwę *koło zębate-Search-demonstracyjn* .
+1. Kliknij pozycję **+ kontener** , aby utworzyć kontener i nadaj mu nazwę *koło zębate-Search-demonstracyjn*.
 
 1. Wybierz pozycję *koło zębate-Search-demonstracyjny* , a następnie kliknij pozycję **Przekaż** , aby otworzyć folder, w którym zapisano pliki do pobrania. Zaznacz wszystkie czternaście plików i kliknij przycisk **OK** , aby przekazać.
 
@@ -146,7 +148,7 @@ W przypadku tego projektu Zainstaluj wersję 11 lub nowszą `Azure.Search.Docume
 
 1. Przeglądaj w poszukiwaniu [Azure.Search.Document](https://www.nuget.org/packages/Azure.Search.Documents).
 
-1. Wybierz najnowszą wersję, a następnie kliknij przycisk **Instaluj** .
+1. Wybierz najnowszą wersję, a następnie kliknij przycisk **Instaluj**.
 
 1. Powtórz poprzednie kroki, aby zainstalować [Microsoft.Extensions.Configwersja](https://www.nuget.org/packages/Microsoft.Extensions.Configuration) i [Microsoft.Extensions.Configuration.Js](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Json).
 
@@ -154,11 +156,11 @@ W przypadku tego projektu Zainstaluj wersję 11 lub nowszą `Azure.Search.Docume
 
 1. Kliknij prawym przyciskiem myszy projekt w Eksplorator rozwiązań i wybierz polecenie **Dodaj**  >  **nowy element.** ... 
 
-1. Nazwij plik `appsettings.json` i wybierz pozycję **Dodaj** . 
+1. Nazwij plik `appsettings.json` i wybierz pozycję **Dodaj**. 
 
 1. Dołącz ten plik do katalogu wyjściowego.
-    1. Kliknij prawym przyciskiem myszy `appsettings.json` i wybierz pozycję **Właściwości** . 
-    1. Zmień wartość w polu **Kopiuj do katalogu wyjściowego** na **Kopiuj, jeśli nowszy** .
+    1. Kliknij prawym przyciskiem myszy `appsettings.json` i wybierz pozycję **Właściwości**. 
+    1. Zmień wartość w polu **Kopiuj do katalogu wyjściowego** na **Kopiuj, jeśli nowszy**.
 
 1. Skopiuj poniższy kod JSON do nowego pliku JSON.
 
@@ -285,7 +287,7 @@ Skompiluj i uruchom rozwiązanie. Ponieważ jest to Twoje pierwsze żądanie, sp
 
 ### <a name="step-2-create-a-skillset"></a>Krok 2. Tworzenie elementu zestawu umiejętności
 
-W tej sekcji definiujesz zestaw kroków wzbogacania, które chcesz zastosować do danych. Każdy krok wzbogacania jest nazywany *umiejętnością* i zestawem kroków wzbogacania, *zestawu umiejętności* . W tym samouczku są stosowane [wbudowane umiejętności poznawcze](cognitive-search-predefined-skills.md) dla zestawu umiejętności:
+W tej sekcji definiujesz zestaw kroków wzbogacania, które chcesz zastosować do danych. Każdy krok wzbogacania jest nazywany *umiejętnością* i zestawem kroków wzbogacania, *zestawu umiejętności*. W tym samouczku są stosowane [wbudowane umiejętności poznawcze](cognitive-search-predefined-skills.md) dla zestawu umiejętności:
 
 * [Optyczne rozpoznawanie znaków](cognitive-search-skill-ocr.md) do rozpoznawania tekstu napisanego i odręcznego w plikach obrazów.
 
@@ -580,7 +582,7 @@ W tym ćwiczeniu są używane następujące pola i typy pól:
 
 Pola dla tego indeksu są definiowane przy użyciu klasy modelu. Każda właściwość klasy modelu ma atrybuty, które określają związane z wyszukiwaniem zachowania odpowiedniego pola indeksu. 
 
-Dodamy klasę modelu do nowego pliku C#. Kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Dodaj**  >  **nowy element...** , wybierz pozycję "Klasa" i Nazwij plik `DemoIndex.cs` , a następnie wybierz pozycję **Dodaj** .
+Dodamy klasę modelu do nowego pliku C#. Kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Dodaj**  >  **nowy element...**, wybierz pozycję "Klasa" i Nazwij plik `DemoIndex.cs` , a następnie wybierz pozycję **Dodaj**.
 
 Upewnij się, że chcesz użyć typów z `Azure.Search.Documents.Indexes` `System.Text.Json.Serialization` przestrzeni nazw i.
 
@@ -826,13 +828,13 @@ W samouczku platformy Azure Wyszukiwanie poznawcze aplikacje konsolowe zwykle do
 
 Najprostszym rozwiązaniem jest [Eksplorator wyszukiwania](search-explorer.md) w portalu. Można najpierw uruchomić puste zapytanie zwracające wszystkie dokumenty lub bardziej przeszukiwane wyszukiwanie zwracające nową zawartość pola utworzoną przez potok. 
 
-1. W Azure Portal na stronie Przegląd wyszukiwania wybierz pozycję **indeksy** .
+1. W Azure Portal na stronie Przegląd wyszukiwania wybierz pozycję **indeksy**.
 
 1. Znajdź **`demoindex`** na liście. Powinien on mieć 14 dokumentów. Jeśli liczba dokumentów wynosi zero, indeksator jest nadal uruchomiony lub strona nie została jeszcze odświeżona. 
 
-1. Wybierz pozycję **`demoindex`** . Eksplorator wyszukiwania jest pierwszą kartą.
+1. Wybierz pozycję **`demoindex`**. Eksplorator wyszukiwania jest pierwszą kartą.
 
-1. Zawartość jest przeszukiwana zaraz po załadowaniu pierwszego dokumentu. Aby sprawdzić, czy zawartość istnieje, uruchom nieokreślone zapytanie, klikając pozycję **Wyszukaj** . To zapytanie zwraca wszystkie aktualnie indeksowane dokumenty, co daje pomysł dotyczący tego, co zawiera indeks.
+1. Zawartość jest przeszukiwana zaraz po załadowaniu pierwszego dokumentu. Aby sprawdzić, czy zawartość istnieje, uruchom nieokreślone zapytanie, klikając pozycję **Wyszukaj**. To zapytanie zwraca wszystkie aktualnie indeksowane dokumenty, co daje pomysł dotyczący tego, co zawiera indeks.
 
 1. Następnie wklej następujący ciąg, aby uzyskać więcej możliwości zarządzania: `search=*&$select=id, languageCode, organizations`
 

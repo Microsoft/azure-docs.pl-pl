@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 09/25/2020
-ms.openlocfilehash: b69feec7249c80fc63d803a14f360614bcf880fa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 01/23/2021
+ms.openlocfilehash: 590afe4c396942c5179826cd831908e37f48c3e4
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91399826"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745754"
 ---
 # <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>Szybki Start: Tworzenie aplikacji demonstracyjnej w portalu (Azure Wyszukiwanie poznawcze)
 
@@ -61,7 +61,7 @@ Kreator udostępnia podstawowy układ dla renderowanych wyników wyszukiwania, k
 
 1. W polu Opis wybierz pole, które zawiera szczegółowe informacje, które mogą pomóc komuś zdecydować, czy klikać ten dokument.
 
-   :::image type="content" source="media/search-create-app-portal/configure-results.png" alt-text="Strona źródła danych dla przykładowych danych" border="false":::
+   :::image type="content" source="media/search-create-app-portal/configure-results.png" alt-text="Skonfiguruj wyniki dla przykładowych danych" border="false":::
 
 ## <a name="add-a-sidebar"></a>Dodaj pasek boczny
 
@@ -72,8 +72,9 @@ Na platformie Azure Wyszukiwanie poznawcze Nawigacja aspektowa to skumulowane ś
 > [!TIP]
 > Możesz wyświetlić pełny schemat indeksu w portalu. Poszukaj linku **definicji indeksu (JSON)** na stronie przeglądu każdego indeksu. Pola, które kwalifikują się do nawigacji aspektowej, mają atrybuty "z możliwością filtrowania: true" i "kroju: true".
 
-Zaakceptuj bieżące zaznaczenie aspektów i przejdź do następnej strony.
+1. W kreatorze wybierz kartę **paska bocznego** w górnej części strony. Zostanie wyświetlona lista wszystkich pól, które są przypisywane jako możliwe do przefiltrowania i tworzenia elementów w indeksie.
 
+1. Zaakceptuj bieżące zaznaczenie pól aspektów i przejdź do następnej strony.
 
 ## <a name="add-typeahead"></a>Dodaj typeahead
 
@@ -83,24 +84,48 @@ Sugestie są włączone dla określonych definicji pól. Kreator udostępnia opc
 
 Poniższy zrzut ekranu przedstawia opcje w kreatorze, juxtaposed z renderowaną stroną w aplikacji. Możesz zobaczyć, jak są używane wybory pól i jak "Pokaż nazwę pola" służy do dołączania lub wykluczania etykiet w ramach sugestii.
 
-:::image type="content" source="media/search-create-app-portal/suggestions.png" alt-text="Strona źródła danych dla przykładowych danych":::
+:::image type="content" source="media/search-create-app-portal/suggestions.png" alt-text="Konfiguracja sugestii dotyczących zapytań":::
+
+## <a name="add-suggestions"></a>Dodawanie sugestii
+
+Sugestie odnoszą się do automatycznych monitów o zapytaniach, które są dołączone do pola wyszukiwania. Wyszukiwanie poznawcze obsługuje dwa: *Autouzupełnianie* częściowo wprowadzonego terminu wyszukiwania oraz *sugestie* dotyczące listy rozwijanej o możliwych pasujących dokumentach.
+
+Kreator obsługuje sugestie i pola, które mogą udostępniać sugerowane wyniki, pochodzą z [`Suggesters`](index-add-suggesters.md) konstrukcji w indeksie:
+
+```JSON
+  "suggesters": [
+    {
+      "name": "sg",
+      "searchMode": "analyzingInfixMatching",
+      "sourceFields": [
+        "number",
+        "street",
+        "city",
+        "region",
+        "postCode",
+        "tags"
+      ]
+```
+
+1. W kreatorze wybierz kartę **sugestie** w górnej części strony. Zostanie wyświetlona lista wszystkich pól, które są określone w schemacie indeksu jako dostawcy sugestii.
+
+1. Zaakceptuj bieżące zaznaczenie i przejdź do następnej strony.
 
 ## <a name="create-download-and-execute"></a>Tworzenie, pobieranie i wykonywanie
 
-1. Wybierz pozycję **Utwórz aplikację demonstracyjną** , aby wygenerować plik HTML.
+1. Wybierz pozycję **Utwórz aplikację demonstracyjną** u dołu strony, aby wygenerować plik HTML.
 
 1. Po wyświetleniu monitu wybierz pozycję **Pobierz aplikację** , aby pobrać plik.
 
-1. Otwórz ten plik. Powinna zostać wyświetlona strona podobna do poniższego zrzutu ekranu. Wprowadź termin i Użyj filtrów, aby zawęzić wyniki. 
+1. Otwórz plik i kliknij przycisk Wyszukaj. Ta akcja wykonuje zapytanie, które może być pustym zapytaniem ( `*` ), które zwraca dowolny zestaw wyników. Strona powinna wyglądać podobnie do poniższego zrzutu ekranu. Wprowadź termin i Użyj filtrów, aby zawęzić wyniki. 
 
 Indeks podstawowy składa się z fikcyjnych, wygenerowanych danych, które zostały zduplikowane w dokumentach, a opisy czasami nie pasują do obrazu. Podczas tworzenia aplikacji na podstawie własnych indeksów można spodziewać się bardziej spójnego środowiska.
 
-:::image type="content" source="media/search-create-app-portal/run-app.png" alt-text="Strona źródła danych dla przykładowych danych":::
-
+:::image type="content" source="media/search-create-app-portal/run-app.png" alt-text="Uruchamianie aplikacji":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-W przypadku pracy w ramach własnej subskrypcji warto sprawdzić po zakończeniu projektu, czy dalej potrzebuje się utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
+W przypadku pracy w ramach własnej subskrypcji warto sprawdzić po zakończeniu projektu, czy dalej potrzebuje się utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku **wszystkie zasoby** lub **grupy zasobów** w okienku nawigacji po lewej stronie.
 
@@ -108,7 +133,7 @@ Jeśli używasz bezpłatnej usługi, pamiętaj, że masz ograniczone do trzech i
 
 ## <a name="next-steps"></a>Następne kroki
 
-Gdy aplikacja domyślna jest przydatna do początkowej eksploracji i małych zadań, przeglądanie interfejsów API na początku pomoże Ci zrozumieć koncepcje i przepływ pracy na poziomie bardziej szczegółowym:
+Aplikacja demonstracyjna jest przydatna do tworzenia prototypów, ponieważ można symulować środowisko użytkownika końcowego bez konieczności pisania kodu JavaScript lub frontonu. Aby uzyskać więcej informacji o funkcjach frontonu, Rozpocznij od nawigacji aspektowej:
 
 > [!div class="nextstepaction"]
-> [Tworzenie indeksu przy użyciu zestawu .NET SDK](./search-get-started-dotnet.md)
+> [Jak utworzyć filtr aspektów](search-filters-facets.md)

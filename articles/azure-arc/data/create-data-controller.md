@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: b9a41f4d4bb10599d50e58ad6f08d61aaba7ecfc
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: cd41f740d3cdb8130199a5dda6e73209637d5142
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97608786"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745938"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Utwórz kontroler danych usługi Azure Arc
 
@@ -54,7 +54,7 @@ Bez względu na wybraną opcję, podczas procesu tworzenia należy podać nastę
 - **Nazwa użytkownika kontrolera danych** — dowolna nazwa użytkownika administratora kontrolera danych.
 - **Hasło kontrolera danych** — hasło dla użytkownika administratora kontrolera danych.
 - **Nazwa przestrzeni nazw Kubernetes** — nazwa przestrzeni nazw Kubernetes, w której ma zostać utworzony kontroler danych.
-- **Tryb łączności** — [tryb łączności](./connectivity.md) z klastrem. Obecnie jest obsługiwana tylko wartość "pośredni".
+- **Tryb** łączności — tryb łączności określa stopień łączności ze środowiska usług danych usługi Azure ARC z włączonym systemem Azure. Wersja zapoznawcza obecnie obsługuje tylko bezpośrednie połączone i połączone tryby.  Aby uzyskać więcej informacji, zobacz [tryb łączności](./connectivity.md). 
 - **Identyfikator subskrypcji platformy Azure** — identyfikator GUID subskrypcji platformy Azure, dla którego ma zostać utworzony zasób kontrolera danych na platformie Azure.
 - **Nazwa grupy zasobów platformy Azure** — nazwa grupy zasobów, w której ma zostać utworzony zasób kontrolera danych na platformie Azure.
 - **Lokalizacja platformy Azure** — lokalizacja platformy Azure, w której będą przechowywane metadane zasobów kontrolera danych na platformie Azure. Aby uzyskać listę dostępnych regionów, zobacz [globalna infrastruktura/produkty platformy Azure według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).

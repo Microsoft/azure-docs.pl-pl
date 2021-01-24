@@ -6,12 +6,12 @@ ms.date: 03/29/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 931189a6740009bd26472c186057fa0e6ef5fddf
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 249afa361946e85a8c8ff241f07d7aae608949ae
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624896"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745704"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Monitorowanie aplikacji bezkodu Java Azure Monitor Application Insights
 
@@ -323,8 +323,3 @@ import com.microsoft.applicationinsights.web.internal.ThreadContext;
 RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
 requestTelemetry.setName("myname");
 ```
-
-> [!NOTE]
-> Wszystkie inne operacje `RequestTelemetry` pobrane z programu `ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry()` poza tymi opisanymi powyżej będą działać szybko i zgłosić wyjątek informujący o tym, że jest to niezdefiniowane zachowanie w ramach agenta 3,0.
->
-> Jeśli potrzebujesz współdziałania z innymi metodami, `RequestTelemetry` skontaktuj się z nami, otwierając problem https://github.com/microsoft/ApplicationInsights-Java/issues .

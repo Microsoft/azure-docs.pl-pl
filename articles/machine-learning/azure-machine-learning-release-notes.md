@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: 38f37ff2fe150a9e1998fbe5e963b8737a6e1533
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 11aa739beeb07c3de056d8a2430b556fcc40b178
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737969"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746734"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Informacje o wersji Azure Machine Learning
 
@@ -493,8 +493,8 @@ Dowiedz się więcej o [etykietowaniu segmentacji wystąpień obrazu](how-to-lab
     + Użytkownicy mogą teraz określić częstotliwość szeregów czasowych na potrzeby prognozowania zadań przy użyciu `freq` parametru.
   + **azureml-train-automl-runtime**
     + Ulepszone dane wyjściowe konsoli w przypadku niepowodzenia najlepszych wyjaśnień modelu.
-    + Zmieniono nazwę parametru wejściowego "backlist_models" na "blocked_models".
-      + Zmieniono nazwę parametru wejściowego "whitelist_models" na "allowed_models".
+    + Zmieniono nazwę parametru wejściowego na "blocked_models", aby usunąć poufny termin.
+      + Zmieniono nazwę parametru wejściowego na "allowed_models", aby usunąć poufny termin.
     + Użytkownicy mogą teraz określić częstotliwość szeregów czasowych na potrzeby prognozowania zadań przy użyciu `freq` parametru.
 
   

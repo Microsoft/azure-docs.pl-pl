@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/26/2020
+ms.date: 01/23/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8c4aa608e892867daaf954284a9dfce997a9ae1f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 01c6a2eb53e82965dd96deaa1a09afb1e70dda24
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484281"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746751"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Konfiguracje magazynu maszyn wirtualnych platformy Azure SAP HANA
 
@@ -63,10 +63,22 @@ Niektóre zasady dotyczące identyfikatorów w ramach wybierania konfiguracji ma
 - Wybieranie typu magazynu w oparciu o [typy magazynów platformy Azure dla obciążenia SAP](./planning-guide-storage.md) i [Wybierz typ dysku](../../disks-types.md)
 - Ogólna przepustowość operacji we/wy maszyny wirtualnej i limity liczby operacji wejścia/wyjścia na sekundę podczas ustalania rozmiarów lub podejmowania decyzji dotyczących maszyny wirtualnej. Ogólna przepływność magazynu maszyn wirtualnych jest udokumentowana w [rozmiarze artykułu zoptymalizowanego pod kątem pamięci](../../sizes-memory.md)
 - Podczas decydowania o konfiguracji magazynu spróbuj utrzymać się poniżej ogólnej przepływności maszyny wirtualnej przy użyciu konfiguracji woluminu **/Hana/Data** . Pisanie punktów zapisu, SAP HANA może być agresywne wydawanie I/OS. Podczas pisania punktu zapisu można łatwo wypchnąć do limitów przepływności woluminu **/Hana/Data** . Jeśli dyski, które kompilują wolumin **/Hana/Data** , mają wyższą przepływność niż zezwala na korzystanie z maszyny wirtualnej, można wypróbować sytuacje, w których przepływność wykorzystywana przez zapis punktu zapisu jest zakłócał wymagania dotyczące przepływności w zapisie dziennika wykonaj ponownie. Sytuacja, która może mieć wpływ na przepływność aplikacji
-- W przypadku korzystania z usługi Azure Premium Storage najtańsza konfiguracja polega na użyciu menedżerów woluminów logicznych do kompilowania zestawów rozłożonych w celu kompilowania woluminów **/Hana/Data** i **/Hana/log**
+
 
 > [!IMPORTANT]
 > Sugestie dotyczące konfiguracji magazynu są przeznaczone do rozpoczęcia pracy z programem. Uruchamianie obciążeń i analizowanie wzorców wykorzystania magazynu, można zapamiętać, że nie korzystasz ze wszystkich dostępnych przepustowości magazynu lub operacji we/wy na sekundę. Warto rozważyć downsizing magazynu. Lub w przeciwieństwie do obciążenia może być potrzebna większa przepustowość magazynu niż sugerowane w przypadku tych konfiguracji. W związku z tym może być konieczne wdrożenie większej pojemności, operacji we/wy lub przepływności. W polu napięcia między wymaganą pojemnością magazynu wymagane jest opóźnienie magazynu, wymagana przepustowość magazynu i liczba operacji we/wy i tańsza konfiguracja. platforma Azure oferuje wystarczającą liczbę różnych typów magazynów z różnymi możliwościami i różnymi punktami cenowymi, które umożliwiają znalezienie i dostosowanie odpowiedniego kompromisu dla używanego obciążenia i obciążeń platformy HANA.
+
+
+## <a name="stripe-sets-versus-sap-hana-data-volume-partitioning"></a>Zestawy rozłożone a SAP HANA partycjonowanie woluminów danych
+Korzystając z usługi Azure Premium Storage, można osiągnąć najlepszy współczynnik cen/wydajności podczas rozłożenia woluminu **/Hana/Data** i/lub **/Hana/log** na wiele dysków platformy Azure. Zamiast wdrażać większe woluminy, które zapewniają więcej informacji na temat operacji wejścia/wyjścia na sekundę lub przepływności. Do tej pory zostało osiągnięte przy użyciu LVM i MDADMych menedżerów woluminów, które są częścią systemu Linux. Metoda dysków rozłożonych jest stara i dobrze znana. W miarę jak woluminy rozłożone są dostępne w celu uzyskania możliwości operacji we/wy na sekundę lub przepływności, które mogą być potrzebne, zwiększa się stopień komplikacji związane z zarządzaniem woluminami rozłożonymi. Szczególnie w przypadku, gdy woluminy muszą uzyskać zwiększoną wydajność. Co najmniej dla **/Hana/Data**, system SAP wprowadza alternatywną metodę, która osiąga ten sam cel, co rozłożenie na wiele dysków platformy Azure. Ponieważ SAP HANA 2,0 SPS03, platforma HANA IndexServer jest w stanie rozdzielić aktywność we/wy na wiele plików danych HANA, które znajdują się na różnych dyskach platformy Azure. Zaletą jest to, że nie trzeba już korzystać z tworzenia woluminów rozłożonych i zarządzania nimi na różnych dyskach platformy Azure. SAP HANA funkcji partycjonowania woluminów danych opisano szczegółowo w temacie:
+
+- [Podręcznik administratora platformy HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/40b2b2a880ec4df7bac16eae3daef756.html?q=hana%20data%20volume%20partitioning)
+- [Blog o SAP HANA — partycjonowanie woluminów danych](https://blogs.sap.com/2020/10/07/sap-hana-partitioning-data-volumes/)
+- [#2400005 uwagi SAP](https://launchpad.support.sap.com/#/notes/2400005)
+- [#2700123 uwagi SAP](https://launchpad.support.sap.com/#/notes/2700123)
+
+Odczytywanie szczegółowych informacji jest oczywiste, że korzystanie z tej funkcji jest czasochłonne w zestawach paskowych opartych na programie Volume Manager. Należy również pamiętać, że partycjonowanie woluminu danych HANA nie działa tylko w przypadku magazynu blokowego platformy Azure, takiego jak Azure Premium Storage. Możesz również użyć tej funkcji, aby rozdzielić między udziałami NFS w przypadku, gdy te udziały mają ograniczenia IOPS lub przepływności.  
+
 
 ## <a name="linux-io-scheduler-mode"></a>Tryb harmonogramu we/wy systemu Linux
 System Linux ma kilka różnych trybów planowania operacji we/wy. Typowym zaleceniem za pośrednictwem dostawców systemu Linux i SAP jest ponowna konfiguracja trybu harmonogramu we/wy dla woluminów dysku z trybu **MQ/nieprzekraczalny** lub **kyber** do **aktualizujący nie działa** (poza autokolejką) lub **Brak** dla (wielokolejkowe). Szczegółowe informacje znajdują się w [#1984787 uwagi SAP](https://launchpad.support.sap.com/#/notes/1984787). 

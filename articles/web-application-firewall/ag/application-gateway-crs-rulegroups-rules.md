@@ -8,19 +8,16 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 890e2b972818cf9805623d94709ce5631b50aaf5
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: e2c88091072921f1ca674868e401c34d354418de
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608609"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746513"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Zasady i reguły reguły KSR zapory aplikacji sieci Web
 
 Application Gateway Zapora aplikacji sieci Web (WAF) chroni aplikacje sieci Web przed typowymi lukami w zabezpieczeniach i lukami w zabezpieczeniach. Odbywa się to za pomocą reguł, które są zdefiniowane w oparciu o OWASP podstawowe zestawy reguł 3,1, 3,0 lub 2.2.9. Te reguły można wyłączyć na zasadzie reguły po regule. Ten artykuł zawiera bieżące reguły i oferowane zestawy reguł.
-
-> [!NOTE]
-> Ten artykuł zawiera odwołania do warunku *zabroniony*, termin, który nie jest już wykorzystywany przez firmę Microsoft. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
 
 ## <a name="core-rule-sets"></a>Podstawowe zestawy reguł
 
@@ -262,7 +259,7 @@ Następujące grupy reguł i reguły są dostępne w przypadku używania zapory 
 |941150|Filtr XSS — kategoria 5 = niedozwolone atrybuty HTML|
 |941160|NoScript XSS InjectionChecker: iniekcja kodu HTML|
 |941170|NoScript XSS InjectionChecker: iniekcja atrybutów|
-|941180|Node-Validator słowa kluczowe listy zabronionych|
+|941180|Node-Validator słowa kluczowe listy blokowania|
 |941190|XSS przy użyciu arkuszy stylów|
 |941200|XSS przy użyciu ramek VML|
 |941210|XSS przy użyciu zasłoniętego języka JavaScript|
@@ -490,7 +487,7 @@ Następujące grupy reguł i reguły są dostępne w przypadku używania zapory 
 |941130|Filtr XSS — Kategoria 3 = wektor atrybutu|
 |941140|Filtr XSS — Kategoria 4 = wektor identyfikatora URI JavaScript|
 |941150|Filtr XSS — kategoria 5 = niedozwolone atrybuty HTML|
-|941180|Node-Validator słowa kluczowe listy zabronionych|
+|941180|Node-Validator słowa kluczowe listy blokowania|
 |941190|XSS przy użyciu arkuszy stylów|
 |941200|XSS przy użyciu ramek VML|
 |941210|XSS przy użyciu zasłoniętego języka JavaScript|

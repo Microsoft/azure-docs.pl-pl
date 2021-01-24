@@ -1,23 +1,23 @@
 ---
-title: 'Samouczek: Tworzenie i wdrażanie niestandardowej umiejętności przy użyciu Azure Machine Learning'
+title: 'Przykład: Utwórz i Wdróż niestandardową umiejętność za pomocą Azure Machine Learning'
 titleSuffix: Azure Cognitive Search
-description: W tym samouczku pokazano, jak za pomocą Azure Machine Learning kompilować i wdrażać niestandardową umiejętność potoku wzbogacenia systemu Azure Wyszukiwanie poznawcze.
+description: W tym przykładzie pokazano, jak za pomocą Azure Machine Learning kompilować i wdrażać niestandardową umiejętność potoku wzbogacenia systemu Azure Wyszukiwanie poznawcze.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: fa961a5a6d3a3b827a082fbac2acc3431ac40949
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 98d8395236bf955eed88f36c03c96981fa0e4b6b
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057607"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745637"
 ---
-# <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Samouczek: kompilowanie i wdrażanie niestandardowej umiejętności przy użyciu Azure Machine Learning 
+# <a name="example-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Przykład: Kompiluj i Wdróż niestandardową umiejętność za pomocą Azure Machine Learning 
 
-W tym samouczku zostanie użyty [zestaw danych dla przeglądów hotelu](https://www.kaggle.com/datafiniti/hotel-reviews) (dystrybuowany w ramach licencji Creative Commons attributions [CC według-NC-sa 4,0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)), aby utworzyć [niestandardową umiejętność](./cognitive-search-aml-skill.md) przy użyciu Azure Machine Learning do wyodrębnienia tonacji opartego na aspektach z przeglądów. Pozwala to na przypisanie pozytywnych i ujemnych tonacji w ramach tego samego przeglądu, aby były prawidłowo przypisane do zidentyfikowanych jednostek, takich jak personel, pokój, lobby lub Pula.
+W tym przykładzie zostanie użyty [zestaw danych dla przeglądów hotelowych](https://www.kaggle.com/datafiniti/hotel-reviews) (dystrybuowany w ramach licencji Creative Commons attributions [CC według-NC-sa 4,0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)), aby utworzyć [niestandardową umiejętność](./cognitive-search-aml-skill.md) przy użyciu Azure Machine Learning do wyodrębnienia tonacji opartego na aspektach z przeglądów. Pozwala to na przypisanie pozytywnych i ujemnych tonacji w ramach tego samego przeglądu, aby były prawidłowo przypisane do zidentyfikowanych jednostek, takich jak personel, pokój, lobby lub Pula.
 
 Aby przeprowadzić uczenie modelu tonacji opartego na aspektach w Azure Machine Learning, będziesz używać [repozytorium z przepisami NLP](https://github.com/microsoft/nlp-recipes/tree/master/examples/sentiment_analysis/absa). Model zostanie następnie wdrożony jako punkt końcowy w klastrze usługi Azure Kubernetes. Po wdrożeniu punkt końcowy jest dodawany do potoku wzbogacenia jako umiejętność AML do użycia przez usługę Wyszukiwanie poznawcze.
 
@@ -82,7 +82,7 @@ Sekcja 4 w notesie ma cztery komórki, które aktualizują zestawu umiejętnośc
 
 W portalu przejdź do zestawu umiejętności i wybierz łącze zestawu umiejętności Definition (JSON). W portalu zostanie wyświetlony kod JSON zestawu umiejętności, który został utworzony w pierwszej komórce notesu. Z prawej strony ekranu znajduje się menu rozwijane, w którym można wybrać szablon definicji umiejętności. Wybierz szablon Azure Machine Learning (AML). Podaj nazwę obszaru roboczego usługi Azure ML i punkt końcowy dla modelu wdrożonego w klastrze wnioskowania. Szablon zostanie zaktualizowany przy użyciu identyfikatora URI i klucza punktu końcowego.
 
-> :::image type="content" source="media/cognitive-search-aml-skill/portal-aml-skillset-definition.png" alt-text="Szablon definicji zestawu umiejętności&quot;:::
+> :::image type="content" source="media/cognitive-search-aml-skill/portal-aml-skillset-definition.png" alt-text="Szablon definicji zestawu umiejętności":::
 
 Skopiuj szablon zestawu umiejętności z okna i wklej go do definicji zestawu umiejętności po lewej stronie. Edytuj szablon, aby podać brakujące wartości dla:
 
@@ -90,7 +90,7 @@ Skopiuj szablon zestawu umiejętności z okna i wklej go do definicji zestawu um
 * Opis
 * Kontekst
 * Nazwa i źródło danych wejściowych
-* Nazwa &quot;Outputs" i TargetName
+* Nazwa "Outputs" i TargetName
 
 Zapisz zestawu umiejętności.
 
@@ -98,7 +98,7 @@ Po zapisaniu zestawu umiejętności przejdź do indeksatora i wybierz łącze in
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli pracujesz w ramach własnej subskrypcji, dobrym pomysłem po zakończeniu projektu jest sprawdzenie, czy dalej potrzebujesz utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
+W przypadku pracy w ramach własnej subskrypcji warto sprawdzić po zakończeniu projektu, czy dalej potrzebuje się utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku **wszystkie zasoby** lub **grupy zasobów** w okienku nawigacji po lewej stronie.
 

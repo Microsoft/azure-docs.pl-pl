@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 6584b2ecc54efd257bb30c479fd0f22150e8d9e1
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 2b7ddf6423db4c471ee2065635f4e3e89f7eb7b2
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608592"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745737"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Konfigurowanie funkcji MPIO na hoście StorSimple z systemem CentOS
 W tym artykule opisano kroki wymagane do skonfigurowania wielościeżkowego wejścia/wyjścia (MPIO) na serwerze hosta z systemem CentOS 6,6. Serwer hosta jest połączony z urządzeniem Microsoft Azure StorSimple, aby zapewnić wysoką dostępność za pośrednictwem inicjatorów iSCSI. Szczegółowo opisano automatyczne odnajdowanie urządzeń wielościeżkowych i konkretnej konfiguracji tylko dla woluminów StorSimple.
@@ -21,10 +21,6 @@ Ta procedura ma zastosowanie do wszystkich modeli urządzeń z serii StorSimple 
 
 > [!NOTE]
 > Nie można użyć tej procedury dla urządzenia w chmurze StorSimple. Aby uzyskać więcej informacji, zobacz Jak skonfigurować serwery hosta dla urządzenia w chmurze.
-
-> [!NOTE]
-> Ten artykuł zawiera odwołania do warunku *zabroniony*, termin, który nie jest już wykorzystywany przez firmę Microsoft. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
-
 
 ## <a name="about-multipathing"></a>Informacje o wielu ścieżkach
 Funkcja wielościeżkowego umożliwia skonfigurowanie wielu ścieżek we/wy między serwerem hosta a urządzeniem magazynującym. Te ścieżki we/wy są fizycznymi połączeniami sieci SAN, które mogą obejmować oddzielne kable, przełączniki, interfejsy sieciowe i kontrolery. Funkcja wielościeżkowego agreguje ścieżki we/wy, aby skonfigurować nowe urządzenie skojarzone ze wszystkimi zagregowanymi ścieżkami.
@@ -54,7 +50,7 @@ Wielościeżkowe. conf ma pięć sekcji:
 
 - **Wartości domyślne na poziomie systemu** *(domyślne)*: można przesłonić wartości domyślne na poziomie systemu.
 - **Urządzenia zabronione** *(zabroniony)*: można określić listę urządzeń, które nie powinny być kontrolowane przez funkcję mapowania urządzeń.
-- **Wyjątki zabronionych** elementów *(blacklist_exceptions)*: można zidentyfikować konkretne urządzenia, które mają być traktowane jako urządzenia wielościeżkowe, nawet jeśli są wymienione w liście dozwolonych.
+- **Wyjątki zabronionych** elementów *(blacklist_exceptions)*: można zidentyfikować konkretne urządzenia, które mają być traktowane jako urządzenia wielościeżkowe, nawet jeśli są wymienione w listy blokowania.
 - **Ustawienia specyficzne dla kontrolera magazynu** *(urządzenia)*: można określić ustawienia konfiguracji, które zostaną zastosowane do urządzeń, które mają informacje o dostawcy i o produkcie.
 - **Ustawienia specyficzne dla urządzenia** *(wielościeżkowe)*: możesz użyć tej sekcji, aby dostosować ustawienia konfiguracji poszczególnych jednostek LUN.
 
@@ -215,12 +211,12 @@ Urządzenia z obsługą wielu ścieżek mogą być automatycznie odnajdywane i k
     ```
 
 ### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>Krok 2. Konfigurowanie wielu ścieżek dla woluminów StorSimple
-Domyślnie wszystkie urządzenia są czarne na liście w pliku wielościeżkowym. conf i zostaną pominięte. Należy utworzyć wyjątki listy zablokowanych, aby umożliwić obsługę wielu ścieżek dla woluminów z urządzeń StorSimple.
+Domyślnie wszystkie urządzenia są blocklisted w pliku wielościeżkowym. conf i zostaną pominięte. Należy utworzyć wyjątki listy blokowania, aby umożliwić obsługę wielu ścieżek dla woluminów z urządzeń StorSimple.
 
 1. Edytuj plik `/etc/mulitpath.conf`. Wpisz:
    
     `vi /etc/multipath.conf`
-1. Znajdź sekcję blacklist_exceptions w pliku wielościeżkowego. conf. Urządzenie StorSimple musi być wymienione jako wyjątek dla elementu w tej sekcji. Możesz usunąć komentarz z odpowiednich wierszy w tym pliku, aby zmodyfikować go jak pokazano poniżej (Użyj tylko określonego modelu używanego urządzenia):
+1. Znajdź sekcję blacklist_exceptions w pliku wielościeżkowego. conf. Urządzenie StorSimple musi być wymienione jako wyjątek listy blokowania w tej sekcji. Możesz usunąć komentarz z odpowiednich wierszy w tym pliku, aby zmodyfikować go jak pokazano poniżej (Użyj tylko określonego modelu używanego urządzenia):
    
     ```config
     blacklist_exceptions {

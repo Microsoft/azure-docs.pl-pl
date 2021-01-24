@@ -4,12 +4,12 @@ description: W tym artykule omówiono popularne pytania dotyczące Azure Site Re
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: add5874dc828f05c7c51f0f378988c94cbd42486
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: ca30f9ba190dfa3c7e224e47b90be4d3bc5d47ae
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109559"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746479"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Ogólne pytania dotyczące usługi Azure Site Recovery
 
@@ -345,7 +345,15 @@ Tak. odzyskiwanie lokalizacji alternatywnej można użyć do powrotu po awarii d
 * [Dla maszyn wirtualnych VMware](concepts-types-of-failback.md#alternate-location-recovery-alr)
 * [Dla maszyn wirtualnych funkcji Hyper-V](hyper-v-azure-failback.md#fail-back-to-an-alternate-location)
 
-## <a name="automation"></a>Automatyzacja
+### <a name="what-is-the-difference-between-complete-migration-commit-and-disable-replication"></a>Jaka jest różnica między ukończeniem migracji, zatwierdzaniem i wyłączaniem replikacji?
+
+Gdy maszyna z lokalizacji źródłowej została przełączona w tryb failover do lokalizacji docelowej, dostępne są trzy opcje do wyboru. Wszystkie trzy funkcje w różnych celach —
+
+1.  **Pełna migracja** oznacza, że nie można już wrócić do lokalizacji źródłowej. Przeprowadzono migrację do regionu docelowego i teraz wszystko jest gotowe. Kliknięcie przycisku Ukończ wyzwalacze migracji spowoduje zatwierdzenie, a następnie wyłączenie replikacji wewnętrznie. 
+2.  **Zatwierdzenie** oznacza, że nie jest to koniec procesu replikacji. Element replikacji wraz z całą konfiguracją pozostanie niezmieniony i można ponownie włączyć **ochronę** w późniejszym momencie, aby umożliwić replikację maszyn z powrotem do regionu źródłowego. 
+3.  Wartość **Wyłącz replikację** spowoduje wyłączenie replikacji i usunięcie całej konfiguracji powiązanej. Nie wpłynie to na już istniejący komputer w regionie docelowym.
+
+## <a name="automation"></a>Automation
 
 ### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>Czy można zautomatyzować scenariusze Site Recovery przy użyciu zestawu SDK?
 Tak. Przepływy pracy usługi Site Recovery można zautomatyzować przy użyciu interfejsu API REST, programu PowerShell lub zestawu SDK platformy Azure. Obecnie obsługiwane scenariusze wdrażania Site Recovery przy użyciu programu PowerShell:

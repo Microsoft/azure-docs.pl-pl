@@ -16,12 +16,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57d74272d77183baa2284265aee298967f641250
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: e0b76d2f943f254eb06208e2c190bae4d4088030
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504886"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746074"
 ---
 # <a name="risky-ip-report-public-preview"></a>Raport dotyczący ryzykownych adresów IP (publiczna wersja zapoznawcza)
 AD FS klienci mogą uwidaczniać punkty końcowe uwierzytelniania hasła w Internecie w celu zapewnienia usług uwierzytelniania dla użytkowników końcowych w celu uzyskania dostępu do aplikacji SaaS, takich jak Microsoft 365. W takim przypadku możliwe są nieuprawnione próby logowania przy użyciu systemu AD FS w celu odgadnięcia hasła użytkownika końcowego i uzyskania dostępu do zasobów aplikacji. Od wersji 2012 R2 systemu Windows Server usługi AD FS udostępniają funkcję blokady konta na ekstranecie, która uniemożliwia przeprowadzenie takich ataków. Jeśli korzystasz ze starszej wersji, zdecydowanie zalecamy uaktualnienie systemu AD FS do wersji 2016 systemu Windows Server. <br />
@@ -37,9 +37,6 @@ Ponadto możliwe jest podejmowanie szeregu prób logowania z jednego adresu IP p
 > Aby móc korzystać z tego raportu, należy się upewnić, że inspekcja usług AD FS jest włączona. Aby uzyskać więcej informacji, zobacz [Włączanie inspekcji dla usług AD FS](how-to-connect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
 > W celu uzyskania dostępu do wersji zapoznawczej wymagane są uprawnienia administratora globalnego lub [czytelnika zabezpieczeń](../../role-based-access-control/built-in-roles.md#security-reader).  
 >
-
-> [!NOTE]
-> Ten artykuł zawiera odwołania do warunku *dozwolonych*, termin, przez który firma Microsoft już nie używa. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
 
 ## <a name="what-is-in-the-report"></a>Co znajduje się w raporcie?
 Adresy IP klienta niepowodzenia logowania są agregowane za pomocą serwerów proxy aplikacji sieci Web. Poszczególne elementy raportu ryzykownych adresów IP zawierają zagregowane informacje o nieudanych operacjach logowania za pomocą usług AD FS, przekraczających wyznaczoną wartość progową. Zawiera następujące informacje: ![ zrzut ekranu przedstawiający ryzykowny raport IP z wyróżnionymi nagłówkami kolumn.](./media/how-to-connect-health-adfs/report4a.png)

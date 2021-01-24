@@ -6,21 +6,18 @@ author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 4b88550ad489607bb66eb737067190d45a466a43
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 4abb795335bfcb2c9b335d4fb09ddc9fdb2476b4
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96607079"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746581"
 ---
 # <a name="track-incoming-requests-with-opencensus-python"></a>Śledź przychodzące żądania przy użyciu języka Python OpenCensus
 
 Dane żądania przychodzącego są zbierane przy użyciu języka Python OpenCensus i różnych integracji. Śledź przychodzące dane żądania wysyłane do aplikacji sieci Web utworzonych na podstawie popularnych struktur sieci Web `django` `flask` i `pyramid` . Dane są następnie wysyłane do Application Insights w obszarze Azure Monitor jako dane `requests` telemetryczne.
 
 Najpierw Instrumentacja aplikacji w języku Python przy użyciu najnowszego [zestawu SDK języka Python OpenCensus](./opencensus-python.md).
-
-> [!NOTE]
-> Ten artykuł zawiera odwołania do warunku *zabroniony*, termin, który nie jest już wykorzystywany przez firmę Microsoft. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
 
 ## <a name="tracking-django-applications"></a>Śledzenie aplikacji Django
 
@@ -36,7 +33,7 @@ Najpierw Instrumentacja aplikacji w języku Python przy użyciu najnowszego [zes
     )
     ```
 
-3. Upewnij się, że AzureExporter jest prawidłowo skonfigurowany w `settings.py` ramach użytkownika `OPENCENSUS` . W przypadku żądań z adresów URL, które nie mają być śledzone, Dodaj je do programu `BLACKLIST_PATHS` .
+3. Upewnij się, że AzureExporter jest prawidłowo skonfigurowany w `settings.py` ramach użytkownika `OPENCENSUS` . W przypadku żądań z adresów URL, które nie mają być śledzone, Dodaj je do programu `EXCLUDELIST_PATHS` .
 
     ```python
     OPENCENSUS = {
@@ -45,7 +42,7 @@ Najpierw Instrumentacja aplikacji w języku Python przy użyciu najnowszego [zes
             'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
                 connection_string="InstrumentationKey=<your-ikey-here>"
             )''',
-            'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
+            'EXCLUDELIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
         }
     }
     ```
@@ -77,7 +74,7 @@ Najpierw Instrumentacja aplikacji w języku Python przy użyciu najnowszego [zes
     
     ```
 
-2. Możesz również skonfigurować `flask` aplikację za poorednictwem programu `app.config` . W przypadku żądań z adresów URL, które nie mają być śledzone, Dodaj je do programu `BLACKLIST_PATHS` .
+2. Możesz również skonfigurować `flask` aplikację za poorednictwem programu `app.config` . W przypadku żądań z adresów URL, które nie mają być śledzone, Dodaj je do programu `EXCLUDELIST_PATHS` .
 
     ```python
     app.config['OPENCENSUS'] = {
@@ -86,7 +83,7 @@ Najpierw Instrumentacja aplikacji w języku Python przy użyciu najnowszego [zes
             'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
                 connection_string="InstrumentationKey=<your-ikey-here>",
             )''',
-            'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
+            'EXCLUDELIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
         }
     }
     ```
@@ -103,7 +100,7 @@ Najpierw Instrumentacja aplikacji w języku Python przy użyciu najnowszego [zes
                          '.pyramid_middleware.OpenCensusTweenFactory')
     ```
 
-2. Możesz skonfigurować `pyramid` animację bezpośrednio w kodzie. W przypadku żądań z adresów URL, które nie mają być śledzone, Dodaj je do programu `BLACKLIST_PATHS` .
+2. Możesz skonfigurować `pyramid` animację bezpośrednio w kodzie. W przypadku żądań z adresów URL, które nie mają być śledzone, Dodaj je do programu `EXCLUDELIST_PATHS` .
 
     ```python
     settings = {
@@ -113,7 +110,7 @@ Najpierw Instrumentacja aplikacji w języku Python przy użyciu najnowszego [zes
                 'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
                     connection_string="InstrumentationKey=<your-ikey-here>",
                 )''',
-                'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
+                'EXCLUDELIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
             }
         }
     }

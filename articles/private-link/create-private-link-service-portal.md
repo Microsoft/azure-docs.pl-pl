@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 01/18/2021
 ms.author: allensu
-ms.openlocfilehash: 3e9ade329d2b26d36763db579b0fcec03e938aad
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: d394a475c5121607f70c03437382e104a5d0cbee
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555461"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746411"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>Szybki Start: Tworzenie usługi linku prywatnego przy użyciu Azure Portal
 
@@ -86,7 +86,7 @@ Użyj portalu do utworzenia standardowego wewnętrznego modułu równoważenia o
     | Nazwa                   | Wprowadź **myLoadBalancer**                                   |
     | Region (Region)         | Wybierz pozycję **East US 2** (Wschodnie stany USA 2).                                        |
     | Typ          | wybierz pozycję **Wewnętrzny**.                                        |
-    | Jednostka SKU           | Wybierz pozycję **standardowa** |
+    | SKU           | Wybierz pozycję **standardowa** |
     | Sieć wirtualna | Wybierz **myVNet** utworzone w poprzednim kroku. |
     | Podsieć  | Wybierz pozycję Moja **podsieć** utworzona w poprzednim kroku. |
     | Przypisanie adresu IP | wybierz pozycję **Dynamiczne**. |
@@ -171,7 +171,7 @@ W tej sekcji utworzysz regułę modułu równoważenia obciążenia:
 
 4. Pozostaw pozostałe wartości domyślne, a następnie wybierz przycisk **OK**.
 
-## <a name="create-a-private-link-service"></a>Tworzenie usługi łącza prywatnego
+## <a name="create-a-private-link-service"></a>Tworzenie usługi linku prywatnego
 
 W tej sekcji utworzysz usługę linku prywatnego za pomocą usługi równoważenia obciążenia w warstwie Standardowa.
 
@@ -217,6 +217,112 @@ W tej sekcji utworzysz usługę linku prywatnego za pomocą usługi równoważen
 
 12. Wybierz pozycję **Utwórz** na karcie **Recenzja + tworzenie** .
 
+Usługa link prywatny jest tworzona i może odbierać ruch. Jeśli chcesz zobaczyć przepływy ruchu, skonfiguruj aplikację za usługą równoważenia obciążenia w warstwie Standardowa.
+
+
+## <a name="create-private-endpoint"></a>Utwórz prywatny punkt końcowy
+
+W tej sekcji utworzysz mapowanie prywatnego usługi linku do prywatnego punktu końcowego. Sieć wirtualna zawiera prywatny punkt końcowy usługi link prywatny. Ta sieć wirtualna zawiera zasoby, które będą miały dostęp do prywatnej usługi link.
+
+### <a name="create-private-endpoint-virtual-network"></a>Utwórz prywatną sieć wirtualną punktu końcowego
+
+1. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób > Sieć > Sieć wirtualna** lub wyszukaj frazę **Sieć wirtualna** w polu wyszukiwania.
+
+2. W obszarze **Utwórz sieć wirtualną** wprowadź lub wybierz te informacje na karcie **podstawowe** :
+
+    | **Ustawienie**          | **Wartość**                                                           |
+    |------------------|-----------------------------------------------------------------|
+    | **Szczegóły projektu**  |                                                                 |
+    | Subskrypcja     | Wybierz subskrypcję platformy Azure                                  |
+    | Grupa zasobów   | Wybierz pozycję **CreatePrivLinkService — RG** |
+    | **Szczegóły wystąpienia** |                                                                 |
+    | Nazwa             | Wprowadź **myVNetPE**                                    |
+    | Region (Region)           | Wybierz **Wschodnie stany USA 2** |
+
+3. Wybierz kartę **adresy IP** lub wybierz przycisk **Dalej: adresy IP** w dolnej części strony.
+
+4. Na karcie **adresy IP** wprowadź następujące informacje:
+
+    | Ustawienie            | Wartość                      |
+    |--------------------|----------------------------|
+    | Przestrzeń adresowa IPv4 | Wprowadź **11.1.0.0/16** |
+
+5. W obszarze **Nazwa podsieci** wybierz pozycję **domyślny** wyraz.
+
+6. W obszarze **Edytuj podsieć** wprowadź następujące informacje:
+
+    | Ustawienie            | Wartość                      |
+    |--------------------|----------------------------|
+    | Nazwa podsieci | Wprowadź **mySubnetPE** |
+    | Zakres adresów podsieci | Wprowadź **11.1.0.0/24** |
+
+7. Wybierz pozycję **Zapisz**.
+
+8. Wybierz kartę **Recenzja + tworzenie** lub wybierz przycisk **Recenzja + tworzenie** .
+
+9. Wybierz przycisk **Utwórz**.
+
+### <a name="create-private-endpoint"></a>Utwórz prywatny punkt końcowy
+
+1. W lewym górnym rogu ekranu w portalu wybierz pozycję **Utwórz zasób**  >  **Sieć**  >  **prywatny link** lub w polu wyszukiwania wprowadź **łącze prywatne**.
+
+2. Wybierz przycisk **Utwórz**.
+
+3. W **prywatnym centrum połączenia** wybierz pozycję **prywatne punkty końcowe** w menu po lewej stronie.
+
+4. W obszarze **prywatne punkty końcowe** wybierz pozycję **+ Dodaj**.
+
+5. Na karcie **podstawy** **Utwórz prywatny punkt końcowy**, wprowadź lub wybierz następujące informacje:
+
+    | Ustawienie | Wartość |
+    | ------- | ----- |
+    | **Szczegóły projektu** | |
+    | Subskrypcja | Wybierz subskrypcję. |
+    | Grupa zasobów | Wybierz pozycję **CreatePrivLinkService-RG**. Ta grupa zasobów została utworzona w poprzedniej sekcji.|
+    | **Szczegóły wystąpienia** |  |
+    | Nazwa  | Wprowadź **myPrivateEndpoint**. |
+    | Region (Region) | Wybierz pozycję **East US 2** (Wschodnie stany USA 2). |
+
+6. Wybierz kartę **zasób** lub przycisk **Dalej: zasób** w dolnej części strony.
+    
+7. W obszarze **zasób** wprowadź lub wybierz następujące informacje:
+
+    | Ustawienie | Wartość |
+    | ------- | ----- |
+    | Metoda połączenia | Wybierz pozycję **Połącz z zasobem platformy Azure w moim katalogu**. |
+    | Subskrypcja | Wybierz subskrypcję. |
+    | Typ zasobu | Wybierz pozycję **Microsoft. Network/privateLinkServices**. |
+    | Zasób | Wybierz pozycję **myPrivateLinkService**. |
+
+8. Wybierz kartę **Konfiguracja** lub przycisk **Dalej: Konfiguracja** w dolnej części ekranu.
+
+9. W obszarze **Konfiguracja** wprowadź lub wybierz następujące informacje:
+
+    | Ustawienie | Wartość |
+    | ------- | ----- |
+    | **Sieć** |  |
+    | Virtual Network | Wybierz pozycję **myVNetPE**. |
+    | Podsieć | Wybierz pozycję **mySubnetPE**. |
+
+10. Wybierz kartę **Recenzja + tworzenie** lub przycisk **Przeglądaj + Utwórz** w dolnej części ekranu.
+
+11. Wybierz przycisk **Utwórz**.
+
+### <a name="ip-address-of-private-endpoint"></a>Adres IP prywatnego punktu końcowego
+
+W tej sekcji znajdziesz adres IP prywatnego punktu końcowego, który odnosi się do modułu równoważenia obciążenia i usługi łącza prywatnego.
+
+1. W kolumnie po lewej stronie Azure Portal wybierz pozycję **grupy zasobów**.
+
+2. Wybierz grupę zasobów **CreatePrivLinkService-RG** .
+
+3. W grupie zasobów **CreatePrivLinkService-RG** wybierz pozycję **myPrivateEndpoint**.
+
+4. Na stronie **Przegląd** **myPrivateEndpoint** wybierz nazwę interfejsu sieciowego skojarzonego z prywatnym punktem końcowym.  Nazwa interfejsu sieciowego rozpoczyna się od **myPrivateEndpoint. nic**.
+
+5. Na stronie **Przegląd** prywatnej karty sieciowej punktu końcowego adres IP punktu końcowego jest wyświetlany w polu **prywatny adres IP**.
+    
+
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy skończysz korzystać z usługi link prywatny, Usuń grupę zasobów, aby wyczyścić zasoby używane w tym przewodniku Szybki Start.
@@ -231,7 +337,8 @@ Gdy skończysz korzystać z usługi link prywatny, Usuń grupę zasobów, aby wy
 W ramach tego przewodnika Szybki start wykonasz następujące czynności:
 
 * Utworzono sieć wirtualną i wewnętrzną Azure Load Balancer.
-* Utworzono usługę linku prywatnego
+* Utworzono usługę linku prywatnego.
+* Utworzono sieć wirtualną i prywatny punkt końcowy usługi link prywatny.
 
 Aby dowiedzieć się więcej o prywatnym punkcie końcowym platformy Azure, przejdź do:
 > [!div class="nextstepaction"]

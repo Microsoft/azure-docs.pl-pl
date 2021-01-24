@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/21/2021
+ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 6d656dbb3fb50091fc8721ba40431b37f77c4ad6
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 1b034c0f1c62eecf8139ed908a5a242060f3e886
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98662951"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746564"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Ważne zmiany w Azure Security Center
 
@@ -31,10 +31,40 @@ Jeśli szukasz najnowszych informacji o wersji, znajdziesz je w temacie [co nowe
 
 ## <a name="planned-changes"></a>Planowane zmiany
 
+- [Zalecenia dotyczące ochrony obciążeń Kubernetes są wkrótce udostępniane w celu uzyskania ogólnej dostępności (GA)](#kubernetes-workload-protection-recommendations-will-soon-be-released-for-general-availability-ga)
 - [Dwa zalecenia dotyczące kontroli zabezpieczeń "Zastosuj aktualizacje systemu" są przestarzałe](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
 - [Ulepszenia zalecenia klasyfikacji danych SQL](#enhancements-to-sql-data-classification-recommendation)
 - [35 zaleceń dotyczących wersji zapoznawczej dodano w celu zwiększenia zakresu testów zabezpieczeń platformy Azure](#35-preview-recommendations-being-added-to-increase-coverage-of-azure-security-benchmark)
 
+
+### <a name="kubernetes-workload-protection-recommendations-will-soon-be-released-for-general-availability-ga"></a>Zalecenia dotyczące ochrony obciążeń Kubernetes są wkrótce udostępniane w celu uzyskania ogólnej dostępności (GA)
+
+**Szacowana data zmiany:** Styczeń 2021
+
+Zalecenia dotyczące ochrony obciążeń Kubernetes opisane w artykule [Ochrona obciążeń Kubernetes](kubernetes-workload-protections.md) są obecnie dostępne w wersji zapoznawczej. Mimo że zalecenie jest w wersji zapoznawczej, nie renderuje zasobów w złej kondycji i nie jest uwzględniane w obliczeniach bezpiecznego wyniku.
+
+Te rekomendacje wkrótce zostaną wydane w celu uzyskania ogólnej dostępności, a więc *zostaną* uwzględnione w obliczaniu wyniku. Jeśli jeszcze ich nie skorygowano, może to spowodować niewielki wpływ na bezpieczny wynik.
+
+Skoryguj je wszędzie tam, gdzie to możliwe (Dowiedz się, w jaki sposób [skorygować zalecenia w Azure Security Center](security-center-remediate-recommendations.md)).
+
+Zalecenia dotyczące ochrony obciążeń Kubernetes są następujące:
+
+- Dodatek Azure Policy dla Kubernetes powinien być zainstalowany i włączony w klastrach
+- Należy wymusić limity procesora CPU i pamięci kontenera
+- Należy unikać używania kontenerów uprzywilejowanych
+- Niezmienny (tylko do odczytu) główny system plików powinien zostać wymuszony dla kontenerów
+- Należy unikać kontenera z eskalacją uprawnień
+- Należy unikać uruchamiania kontenerów jako użytkownik główny
+- Należy unikać obsługi kontenerów chronionych przestrzeni nazw hosta
+- W przypadku kontenerów powinny być wymuszane najmniej uprzywilejowane funkcje systemu Linux.
+- Użycie instalacji woluminów HostPath na początku powinno być ograniczone do znanej listy
+- Kontenery powinny nasłuchiwać tylko na dozwolonych portach
+- Usługi powinny nasłuchiwać tylko na dozwolonych portach
+- Użycie sieci i portów hosta powinno być ograniczone
+- Zastępowanie lub wyłączanie profilowania AppArmor profil powinien być ograniczony
+- Obrazy kontenerów powinny być wdrażane tylko z zaufanych rejestrów             
+
+Dowiedz się więcej na temat tych zaleceń w obszarze [Ochrona obciążeń Kubernetes](kubernetes-workload-protections.md).
 
 ### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Dwa zalecenia dotyczące kontroli zabezpieczeń "Zastosuj aktualizacje systemu" są przestarzałe 
 
