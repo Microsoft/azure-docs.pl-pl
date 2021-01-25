@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 09d793f3d8ed544a386a362677f24be6d18673d7
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: 27a97ceb2ca9a7b58df7200930e4e47d89c9ae89
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96748737"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762195"
 ---
 # <a name="workflow"></a>Przepływ pracy
 
@@ -38,6 +38,18 @@ Poniżej przedstawiono ogólne kroki w typowym przepływie pracy zaświadczania 
 
 > [!Note]
 > W przypadku wysyłania żądań zaświadczania w wersji interfejsu API [2018-09-01-Preview](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/attestation/data-plane/Microsoft.Attestation/stable/2018-09-01-preview) klient musi wysyłać do zaświadczania o platformie Azure, a także token dostępu usługi Azure AD.
+
+## <a name="trusted-platform-module-tpm-enclave-validation-work-flow"></a>Przepływ pracy weryfikacji Trusted Platform Module (TPM) enklawy
+
+Poniżej przedstawiono ogólne kroki w typowym przepływie pracy zaświadczania enklawy TPM (przy użyciu zaświadczania platformy Azure):
+
+1.  W przypadku rozruchowego urządzenia/platformy różne moduły ładujące rozruchowe i usługi uruchomieniowe mierzą zdarzenia, które są obsługiwane przez moduł TPM i są bezpiecznie przechowywane (Dziennik TCG).
+2.  Klient zbiera dzienniki TCG z urządzenia i oferty modułu TPM, które są przeznaczone do zaświadczania.
+3.  Klient ma identyfikator URI, który odwołuje się do wystąpienia zaświadczania platformy Azure. Klient wysyła dowód do zaświadczania platformy Azure. Dokładne informacje przesłane do dostawcy zależą od platformy.
+4.  Zaświadczanie platformy Azure weryfikuje przesłane informacje i szacuje je pod kątem skonfigurowanych zasad. Jeśli weryfikacja zakończy się pomyślnie, zaświadczanie platformy Azure wystawia token zaświadczania i zwróci go do klienta. Jeśli ten krok zakończy się niepowodzeniem, zaświadczanie platformy Azure zgłosi błąd klientowi. Komunikacja między klientem a usługą zaświadczania zależy od protokołu TPM zaświadczania platformy Azure.
+5.  Klient wysyła następnie token zaświadczania do jednostki uzależnionej. Jednostka uzależniona wywołuje punkt końcowy metadanych klucza publicznego z zaświadczania platformy Azure w celu pobrania certyfikatów podpisywania. Jednostka uzależniona weryfikuje sygnaturę tokenu zaświadczania i zapewnia wiarygodność platform.
+
+![Przepływ walidacji modułu TPM](./media/tpm-validation-flow.png)
 
 ## <a name="next-steps"></a>Następne kroki
 - [Tworzenie i podpisywanie zasad zaświadczania](author-sign-policy.md)

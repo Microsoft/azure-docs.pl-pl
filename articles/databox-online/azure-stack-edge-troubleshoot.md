@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 08/11/2020
+ms.date: 01/21/2021
 ms.author: alkohli
-ms.openlocfilehash: f668136713024ba57d72bf5a457cd249742a3b11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09325289dd5cb83bfc26dd26b266d50b622fe098
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742030"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98763082"
 ---
 # <a name="troubleshoot-your-azure-stack-edge-pro-issues"></a>Rozwiązywanie problemów z Azure Stack EDGE Pro
 
@@ -26,6 +26,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 > * Uruchamianie diagnostyki
 > * Zbieranie pakietu dla pomocy technicznej
 > * Rozwiązywanie problemów przy użyciu dzienników
+> * Rozwiązywanie problemów z błędami IoT Edge
 
 ## <a name="run-diagnostics"></a>Uruchamianie diagnostyki
 
@@ -81,6 +82,10 @@ Wszelkie błędy występujące podczas procesów przekazywania i odświeżania s
 3. Gdy zostanie wyświetlony błąd w tym pliku (wyróżniony w przykładzie), zanotuj kod błędu, w tym przypadku jest to 16001. Sprawdź opis dla tego kodu błędu w odniesieniu do następujących informacji o błędzie.
 
     [!INCLUDE [data-box-edge-edge-upload-error-reference](../../includes/data-box-edge-gateway-upload-error-reference.md)]
+
+## <a name="troubleshoot-iot-edge-errors"></a>Rozwiązywanie problemów z błędami IoT Edge
+
+[!INCLUDE [Troubleshoot IoT Edge runtime](../../includes/azure-stack-edge-iot-troubleshoot-compute.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 

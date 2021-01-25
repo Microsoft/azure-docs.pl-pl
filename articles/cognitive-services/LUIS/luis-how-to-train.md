@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/15/2019
-ms.openlocfilehash: a53857061110d5a77ac3d166277e7076f4f7f9c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47b006932aace3149dd94e136e334c1b6e5bfcef
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541377"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762703"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>Uczenie aktywnej wersji aplikacji LUIS
 
@@ -40,9 +40,15 @@ Data i godzina szkolenia to GMT + 2.
 
 ## <a name="train-with-all-data"></a>Uczenie ze wszystkimi danymi
 
-Szkolenie zużywa niewielką część próbkowania negatywnego. Jeśli chcesz używać wszystkich danych zamiast małego próbkowania negatywnego, użyj [interfejsu API](#version-settings-api-use-of-usealltrainingdata).
+Szkolenie zużywa niewielką część próbkowania negatywnego. Możesz użyć wszystkich dostępnych danych zamiast portalu lub interfejsu API. 
 
-### <a name="version-settings-api-use-of-usealltrainingdata"></a>Ustawienia wersji użycie interfejsu API UseAllTrainingData
+### <a name="using-the-luis-portal"></a>Korzystanie z portalu LUIS
+
+Zaloguj się do [portalu Luis](https://www.luis.ai/) i kliknij aplikację. Wybierz pozycję **Zarządzaj** w górnej części ekranu, a następnie wybierz pozycję **Ustawienia** , a następnie Włącz lub wyłącz opcję **szkoleniowe użycie-deterministyczna** . Po wyłączeniu szkolenie będzie używać wszystkich dostępnych danych.
+
+![Przycisk służący do włączania lub wyłączania niedeterministycznych szkoleń](./media/non-determinstic-training.png)
+
+### <a name="using-the-version-settings-api"></a>Korzystanie z interfejsu API ustawień wersji
 
 Aby wyłączyć tę funkcję, użyj [interfejsu API ustawień wersji](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) z `UseAllTrainingData` ustawioną wartością true.
 

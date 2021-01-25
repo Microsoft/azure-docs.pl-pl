@@ -4,19 +4,19 @@ description: Dowiedz się, jak skonfigurować szyfrowanie oparte na hoście w kl
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 14ec39272bf2f434aaa57217a90667a62e82901a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 6b23bf285d89a5f3285825feef849b3d168ed62f
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183298"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762039"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Szyfrowanie oparte na hoście w usłudze Azure Kubernetes Service (AKS) (wersja zapoznawcza)
 
 Przy użyciu szyfrowania opartego na hoście dane przechowywane na hoście maszyny wirtualnej maszyn wirtualnych węzłów agenta AKS są szyfrowane w stanie spoczynku i są zaszyfrowane w usłudze Storage. Oznacza to, że dyski tymczasowe są szyfrowane w stanie spoczynku przy użyciu kluczy zarządzanych przez platformę. Pamięć podręczna systemu operacyjnego i dysków z danymi jest szyfrowana przy użyciu kluczy zarządzanych przez platformę lub kluczy zarządzanych przez klienta w zależności od typu szyfrowania ustawionego na tych dyskach. Domyślnie w przypadku korzystania z AKS, dyski systemu operacyjnego i danych są szyfrowane w stanie spoczynku przy użyciu kluczy zarządzanych przez platformę, co oznacza, że pamięć podręczna dla tych dysków jest również domyślnie szyfrowana w stanie spoczynku przy użyciu kluczy zarządzanych przez platformę.  Możesz określić własne klucze zarządzane, aby przystąpić [do własnych kluczy (BYOK) z dyskami platformy Azure w usłudze Azure Kubernetes Service](azure-disk-customer-managed-keys.md). Pamięć podręczna dla tych dysków zostanie również zaszyfrowana przy użyciu klucza określonego w tym kroku.
 
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Tę funkcję można ustawić tylko podczas tworzenia klastra lub tworzenia puli węzłów.
 
@@ -26,34 +26,32 @@ Tę funkcję można ustawić tylko podczas tworzenia klastra lub tworzenia puli 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
 - Upewnij się, że jest `aks-preview` zainstalowany interfejs wiersza polecenia w wersji 0.4.55 lub nowszej
-- Upewnij się, że masz `EncryptionAtHost` flagę funkcji w obszarze `Microsoft.Compute` włączone.
 - Upewnij się, że masz `EnableEncryptionAtHostPreview` flagę funkcji w obszarze `Microsoft.ContainerService` włączone.
 
+Aby można było używać szyfrowania na hoście dla maszyn wirtualnych lub zestawów skalowania maszyn wirtualnych, należy włączyć tę funkcję w ramach subskrypcji. Wyślij wiadomość e-mail na adres encryptionAtHost@microsoft.com z identyfikatorami subskrypcji, aby włączyć funkcję dla subskrypcji.
+
 ### <a name="register-encryptionathost--preview-features"></a>Rejestrowanie `EncryptionAtHost`  funkcji w wersji zapoznawczej
+
+> [!IMPORTANT]
+> Musisz wysłać wiadomość e-mail encryptionAtHost@microsoft . com z identyfikatorami subskrypcji, aby włączyć funkcję dla zasobów obliczeniowych. Nie można włączyć go samodzielnie dla tych zasobów. Możesz samodzielnie włączyć ją w usłudze Container Service.
 
 Aby utworzyć klaster AKS, który korzysta z szyfrowania opartego na hoście, należy włączyć `EnableEncryptionAtHostPreview` `EncryptionAtHost` flagi i funkcji w subskrypcji.
 
 Zarejestruj `EncryptionAtHost` flagę funkcji za pomocą polecenia [AZ Feature Register][az-feature-register] , jak pokazano w następującym przykładzie:
 
 ```azurecli-interactive
-az feature register --namespace "Microsoft.Compute" --name "EncryptionAtHost"
-
 az feature register --namespace "Microsoft.ContainerService"  --name "EnableEncryptionAtHostPreview"
 ```
 
 Wyświetlenie stanu *rejestracji* może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list][az-feature-list] :
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.Compute/EncryptionAtHost')].{Name:name,State:properties.state}"
-
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEncryptionAtHostPreview')].{Name:name,State:properties.state}"
 ```
 
 Gdy wszystko będzie gotowe, Odśwież rejestrację `Microsoft.ContainerService` `Microsoft.Compute` dostawców i zasobów przy użyciu polecenia [AZ Provider Register][az-provider-register] :
 
 ```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-
 az provider register --namespace Microsoft.ContainerService
 ```
 

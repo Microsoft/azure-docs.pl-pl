@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: afe2cf288cd4a15091e8278309b3ecf74a2d35a4
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: eb08bb262806cb662822a75898196546a5c1058e
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98572752"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762548"
 ---
 # <a name="claim-sets"></a>Zestawy oświadczeń
 
@@ -55,6 +55,12 @@ Poniżej oświadczeń, które są zdefiniowane przez tokeny w [organizacji IETF]
 Poniżej oświadczeń, które są zdefiniowane przez [grupę IETF Eat](https://tools.ietf.org/html/draft-ietf-rats-eat-03#page-9) i używane przez zaświadczanie platformy Azure w obiekcie Response:
 - **"Żądania nonce" (identyfikator jednorazowy)**
 
+Poniższe oświadczenia są generowane domyślnie na podstawie oświadczeń przychodzących
+- **x-MS-Ver**: wersja schematu JWT (oczekiwana wartość to "1,0")
+- **x-MS-zaświadczanie-Type**: wartość ciągu reprezentująca typ zaświadczania 
+- **x-MS-Policy-hash**: wartość ciągu zawierająca Skrót SHA256 dla tekstu zasad obliczanego przez BASE64URL (SHA256 (UTF8 (w przypadku tekstu zasad)))
+- **x-MS-Policy-Signer**: zawiera JWK z kluczem publicznym lub łańcuch certyfikatów obecny w podpisanym nagłówku zasad. wartość x-MS-Policy-Signer jest dodawana tylko wtedy, gdy zasady są podpisane
+
 ## <a name="claims-specific-to-sgx-enclaves"></a>Oświadczenia specyficzne dla SGX enclaves
 
 ### <a name="incoming-claims-specific-to-sgx-attestation"></a>Oświadczenia przychodzące specyficzne dla zaświadczania SGX
@@ -71,7 +77,6 @@ Poniższe oświadczenia są generowane przez usługę do zaświadczania SGX i mo
 Poniższe oświadczenia są generowane przez usługę i zawarte w obiekcie odpowiedzi dla zaświadczania SGX:
 - **x-MS-SGX-is-możliwością debugowania**: wartość logiczna, która wskazuje, czy element enklawy ma włączone debugowanie
 - **x-MS-SGX-Product-ID**
-- **x-MS-Ver**
 - **x-MS-SGX-mrsigner**: zakodowana wartość szesnastkowa pola "mrsigner" w ofercie
 - **x-MS-SGX-mrenclave**: zakodowana wartość szesnastkowa pola "mrenclave" w ofercie
 - **x-MS-SGX-SVN**: numer wersji zabezpieczeń zakodowany w ofercie 
@@ -99,36 +104,39 @@ maa-ehd | x-MS-SGX-EHD
 AAS — EHD | x-MS-SGX-EHD
 maa-attestationcollateral | x-MS-SGX-zabezpieczenia
 
-## <a name="claims-issued-specific-to-trusted-platform-module-tpm-attestation"></a>Oświadczenia wystawione specyficzne dla zaświadczania moduł TPM (TPM)
+## <a name="claims-specific-to-trusted-platform-module-tpm-vbs-attestation"></a>Oświadczenia dotyczące Trusted Platform Module (TPM)/VBS zaświadczania
 
-### <a name="incoming-claims-can-also-be-used-as-outgoing-claims"></a>Oświadczenia przychodzące (mogą być również używane jako oświadczenia wychodzące)
+### <a name="incoming-claims-for-tpm-attestation"></a>Oświadczenia przychodzące dla zaświadczania modułu TPM
 
-- **aikValidated**: wartość logiczna zawierająca informacje o tym, czy certyfikat klucza zaświadczania tożsamości (AIK) został zweryfikowany.
-- **aikPubHash**: ciąg zawierający algorytm Base64 (SHA256 (klucz publiczny AIK w formacie der)).
-- **tpmVersion**: wartość całkowita zawierająca wersję główną moduł TPM (TPM).
-- **secureBootEnabled**: wartość logiczna wskazująca, czy bezpieczny rozruch jest włączony.
-- **iommuEnabled**: wartość logiczna wskazująca, czy jest włączona jednostka zarządzania pamięcią podwyjściową (jednostki IOMMU).
-- **bootDebuggingDisabled**: wartość logiczna wskazująca, czy debugowanie rozruchowe jest wyłączone.
-- **notSafeMode**: wartość logiczna określająca, czy system Windows nie działa w trybie awaryjnym.
-- **notWinPE**: wartość logiczna wskazująca, czy system Windows nie działa w trybie WinPE.
-- **vbsEnabled**: wartość logiczna wskazująca, czy funkcja vbs jest włączona.
-- **vbsReportPresent**: wartość logiczna wskazująca, czy raport vbs enklawy jest dostępny.
-- **enclaveAuthorId**: wartość ciągu zawierająca Base64Url wartość zakodowaną identyfikatora autora enklawy — identyfikator autora modułu podstawowego dla enklawy.
-- **enclaveImageId**: wartość ciągu zawierająca Base64Url wartość zakodowaną w identyfikatorze obrazu enklawy — Identyfikator obrazu modułu podstawowego dla enklawy.
-- **enclaveOwnerId**: wartość ciągu zawierająca Base64Url wartość zakodowaną identyfikatora właściciela enklawy — identyfikator właściciela dla enklawy.
-- **enclaveFamilyId**: wartość ciągu zawierająca Base64Url wartość zakodowaną w identyfikatorze rodziny enklawy. Identyfikator rodziny modułu podstawowego dla enklawy.
-- **enclaveSvn**: wartość całkowita zawierająca numer wersji zabezpieczeń modułu podstawowego dla enklawy.
-- **enclavePlatformSvn**: wartość całkowita zawierająca numer wersji zabezpieczeń platformy obsługującej enklawy.
-- **enclaveFlags**: enclaveFlags jest wartością całkowitą zawierającą flagi opisujące zasady czasu wykonywania dla enklawy.
-  
-### <a name="outgoing-claims-specific-to-tpm-attestation"></a>Oświadczenia wychodzące specyficzne dla zaświadczania modułu TPM
+Oświadczenia wystawione przez zaświadczanie platformy Azure na potrzeby zaświadczania modułu TPM. Dostępność oświadczeń zależy od dowodów dostarczonych na potrzeby zaświadczania.
 
-- **policy_hash**: wartość ciągu zawierająca Skrót SHA256 dla tekstu zasad obliczanego przez BASE64URL (SHA256 (BASE64URL ())).
-- **policy_signer**: zawiera JWK z kluczem publicznym lub łańcuch certyfikatów obecny w podpisanym nagłówku zasad.
-- **Ver (wersja)**: wartość ciągu zawierająca wersję raportu. Obecnie 1,0.
-- **CNF (potwierdzenie)**: twierdzenie "CNF" służy do identyfikowania klucza będącego dowodem posiadania. Oświadczenia potwierdzające zgodnie z definicją w dokumencie RFC 7800 zawiera publiczną część zaświadczonego klucza enklawy reprezentowanego jako obiekt klucza internetowego JSON (JWK) (RFC 7517).
-- **rp_data (dane jednostki uzależnionej)**: dane jednostki uzależnionej (jeśli istnieją) określone w żądaniu, używane przez jednostkę uzależnioną jako identyfikator jednorazowy w celu zagwarantowania Aktualności raportu.
-- **"JTI" (identyfikator JWT)**: wartość żądania "JTI" (identyfikator JWT) zapewnia unikatowy identyfikator dla tokenu JWT. Wartość identyfikatora jest przypisywana w sposób, który gwarantuje, że istnieje niewielkie prawdopodobieństwo, że ta sama wartość zostanie przypadkowo przypisana do innego obiektu danych.
+- **aikValidated**: wartość logiczna zawierająca informacje o tym, czy certyfikat klucza zaświadczania tożsamości (AIK) został zweryfikowany
+- **aikPubHash**: ciąg zawierający algorytm Base64 (SHA256 (klucz publiczny AIK w formacie der))
+- **tpmVersion**: wartość całkowita zawierająca wersję główną Trusted Platform Module (TPM)
+- **secureBootEnabled**: wartość logiczna wskazująca, czy włączono bezpieczny rozruch
+- **iommuEnabled**: wartość logiczna wskazująca, czy jest włączona jednostka zarządzania pamięcią podwyjściową (jednostki IOMMU)
+- **bootDebuggingDisabled**: wartość logiczna wskazująca, czy debugowanie rozruchowe jest wyłączone
+- **notSafeMode**: wartość logiczna wskazująca, czy system Windows nie działa w trybie awaryjnym
+- **notWinPE**: wartość logiczna wskazująca, czy system Windows nie działa w trybie WinPE
+- **vbsEnabled**: wartość logiczna wskazująca, czy funkcja vbs jest włączona
+- **vbsReportPresent**: wartość logiczna wskazująca, czy jest dostępny raport vbs enklawy
+
+### <a name="incoming-claims-for-vbs-attestation"></a>Oświadczenia przychodzące dla zaświadczania VBS
+
+Oświadczenia wystawione przez zaświadczanie o platformie Azure dotyczące zaświadczania dotyczącego usługi VBS są uzupełnieniem oświadczeń udostępnianych w celu zaświadczania modułu TPM. Dostępność oświadczeń zależy od dowodów dostarczonych na potrzeby zaświadczania.
+
+- **enclaveAuthorId**: wartość ciągu zawierająca Base64Url wartość zakodowaną identyfikatora autora enklawy — identyfikator autora modułu podstawowego dla enklawy
+- **enclaveImageId**: wartość ciągu zawierająca Base64Url wartość zakodowaną w identyfikatorze obrazu enklawy — Identyfikator obrazu modułu podstawowego dla enklawy
+- **enclaveOwnerId**: wartość ciągu zawierająca Base64Url wartość zakodowaną identyfikatora właściciela enklawy — identyfikator właściciela enklawy
+- **enclaveFamilyId**: wartość ciągu zawierająca Base64Url wartość zakodowaną w identyfikatorze rodziny enklawy. Identyfikator rodziny modułu podstawowego dla enklawy
+- **enclaveSvn**: wartość całkowita zawierająca numer wersji zabezpieczeń modułu podstawowego dla enklawy
+- **enclavePlatformSvn**: wartość całkowita zawierająca numer wersji zabezpieczeń platformy, która hostuje enklawy
+- **enclaveFlags**: enclaveFlags jest wartością całkowitą zawierającą flagi opisujące zasady czasu wykonywania dla enklawy
+
+### <a name="outgoing-claims-specific-to-tpm-and-vbs-attestation"></a>Oświadczenia wychodzące specyficzne dla zaświadczania modułu TPM i VBS
+
+- **CNF (potwierdzenie)**: to twierdzenie "CNF" służy do identyfikowania klucza będącego dowodem posiadania. Twierdzenie potwierdzające zgodnie z definicją w dokumencie RFC 7800 zawiera publiczną część zaświadczonego klucza enklawy reprezentowanego jako obiekt klucza internetowego JSON (JWK) (RFC 7517)
+- **rp_data (dane jednostki uzależnionej)**: dane jednostki uzależnionej (jeśli istnieją) określone w żądaniu, używane przez jednostkę uzależnioną jako identyfikator jednorazowy w celu zagwarantowania Aktualności raportu. rp_data jest dodawana tylko wtedy, gdy rp_data
 
 ### <a name="property-claims"></a>Oświadczenia właściwości
 

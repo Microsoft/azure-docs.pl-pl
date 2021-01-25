@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 49388ee75fa3e5570a906998fdeaa579208fd636
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: f1a1d43f9bfc960628447a3c20e7dab2ac701dc5
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588594"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762581"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Serwer proxy aplikacji usługi Active Directory (Azure AD) — często zadawane pytania
 
@@ -101,6 +101,10 @@ Oto kilka porad dotyczących rozwiązywania tego błędu:
 ### <a name="what-is-the-length-of-the-default-and-long-back-end-timeout-can-the-timeout-be-extended"></a>Jaka jest długość domyślnego i "długiego" limitu czasu zaplecza? Czy limit czasu można rozszerzyć?
 
 Domyślna długość to 85 sekund. Ustawienie "Long" to 180 sekund. Nie można rozszerzyć limitu czasu.
+
+### <a name="can-a-service-principal-manage-application-proxy-using-powershell-or-microsoft-graph-apis"></a>Czy nazwa główna usługi zarządza serwerem proxy aplikacji przy użyciu programu PowerShell lub Microsoft Graph interfejsów API?
+
+Nie. nie jest to obecnie obsługiwane.
 
 ### <a name="how-do-i-change-the-landing-page-my-application-loads"></a>Jak mogę zmienić strony docelowej załadowanej przez aplikację?
 

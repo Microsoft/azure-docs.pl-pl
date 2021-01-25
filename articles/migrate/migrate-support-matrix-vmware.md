@@ -1,17 +1,17 @@
 ---
 title: Obsługa oceny VMware w Azure Migrate
 description: Dowiedz się więcej o obsłudze oceny maszyn wirtualnych VMware za pomocą oceny serwera Azure Migrate.
-author: rashi-ms
-ms.author: rajosh
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: 02757477ca4a07f4526df0339291122eda57c9b5
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: ce8a1d77ae74a3946174ef58abf9add2e81eb90b
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567425"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98763002"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Macierz obsługi dla oceny oprogramowania VMware 
 
@@ -37,7 +37,7 @@ Jeśli chcesz przeprowadzić migrację maszyn wirtualnych VMware na platformę A
 **VMware** | **Szczegóły**
 --- | ---
 **Program vCenter Server** | Komputery, które mają być odnajdywane i oceniane, muszą być zarządzane przez vCenter Server w wersji 5,5, 6,0, 6,5, 6,7 lub 7,0.<br/><br/> Odnajdywanie maszyn wirtualnych VMware przez udostępnienie szczegółów hosta ESXi w urządzeniu nie jest obecnie obsługiwane.
-**Uprawnienia** | Ocena serwera wymaga vCenter Server konta tylko do odczytu na potrzeby odnajdywania i oceny.<br/><br/> Jeśli chcesz przeprowadzić odnajdywanie aplikacji lub wizualizację zależności, konto musi mieć uprawnienia Włącz dla **Virtual Machines**  >  **operacji gościa**.
+**Uprawnienia** | Ocena serwera wymaga vCenter Server konta tylko do odczytu na potrzeby odnajdywania i oceny.<br/><br/> Jeśli chcesz przeprowadzić odnajdywanie aplikacji lub wizualizację zależności, konto wymaga uprawnień włączonych do **Virtual Machines**  >  **operacji gościa**.
 
 ## <a name="vm-requirements"></a>Wymagania dotyczące maszyny wirtualnej
 **VMware** | **Szczegóły**

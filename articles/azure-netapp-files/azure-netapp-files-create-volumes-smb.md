@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: b-juche
-ms.openlocfilehash: cd2a293ebcc35d4884211f50783738a502dcc7de
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 48ee05eebd91c60fa2cfecc80898d3be54367269
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854829"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762673"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Tworzenie woluminu SMB dla usługi Azure NetApp Files
 
 Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików NFS (NFSv3 i NFSv 4.1), protokołu SMB3 lub Dual Protocol (NFSv3 i SMB). Użycie pojemności woluminu jest liczone jako użycie aprowizowanej pojemności puli. W tym artykule pokazano, jak utworzyć wolumin protokołu SMB3.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem 
+## <a name="before-you-begin"></a>Zanim rozpoczniesz 
 Potrzebujesz skonfigurowanej puli pojemności.   
 [Konfigurowanie puli pojemności](azure-netapp-files-set-up-capacity-pool.md)   
 Podsieć musi być delegowana do usługi Azure NetApp Files.  
@@ -74,7 +74,7 @@ Podsieć musi być delegowana do usługi Azure NetApp Files.
 
     Zobacz [projektowanie topologii lokacji](/windows-server/identity/ad-ds/plan/designing-the-site-topology) dotyczącej witryn i usług AD. 
     
-* Można włączyć szyfrowanie AES dla woluminu SMB, sprawdzając pole **szyfrowania AES** w oknie [przyłączanie Active Directory](#create-an-active-directory-connection) . Azure NetApp Files obsługuje typy szyfrowania DES, Kerberos AES 128 i Kerberos AES 256 (od najmniej bezpiecznych do najbezpieczniejszych). W przypadku włączenia szyfrowania AES poświadczenia użytkownika służące do przyłączania Active Directory muszą mieć włączoną opcję najwyższego odpowiadającego konta, która jest zgodna z możliwościami Active Directory.    
+* Szyfrowanie AES można włączyć na potrzeby uwierzytelniania w usłudze AD, sprawdzając pole **szyfrowania AES** w oknie [przyłączanie Active Directory](#create-an-active-directory-connection) . Azure NetApp Files obsługuje typy szyfrowania DES, Kerberos AES 128 i Kerberos AES 256 (od najmniej bezpiecznych do najbezpieczniejszych). W przypadku włączenia szyfrowania AES poświadczenia użytkownika służące do przyłączania Active Directory muszą mieć włączoną opcję najwyższego odpowiadającego konta, która jest zgodna z możliwościami Active Directory.    
 
     Na przykład jeśli Active Directory ma tylko funkcję AES-128, należy włączyć opcję konta AES-128 dla poświadczeń użytkownika. Jeśli Active Directory ma funkcję AES-256, należy włączyć opcję konta AES-256 (która obsługuje również algorytm AES-128). Jeśli Active Directory nie ma żadnej możliwości szyfrowania Kerberos, Azure NetApp Files domyślnie używa algorytmu DES.  
 

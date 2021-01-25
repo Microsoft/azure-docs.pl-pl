@@ -4,17 +4,17 @@ description: W tym artykule opisano sposób rozwiązywania problemów z usługą
 services: automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 01/16/2020
+ms.date: 01/25/2020
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 92020313fccf1b8be0add58a7bafab62b5daa4d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5c2cc014c87a345507e9c0f99c507d151d59b86
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187136"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762120"
 ---
 # <a name="troubleshoot-windows-update-agent-issues"></a>Rozwiązywanie problemów z agentem usługi Windows Update
 
@@ -27,10 +27,10 @@ Może istnieć wiele przyczyn, dla których Twoja maszyna nie jest wyświetlana 
 > [!NOTE]
 > Może istnieć niewielkie opóźnienie między elementami Azure Portal a bieżącym stanem maszyny.
 
-W tym artykule omówiono sposób uruchamiania narzędzia do rozwiązywania problemów dla maszyn platformy Azure z Azure Portal i maszyn spoza platformy Azure w [scenariuszu w trybie offline](#troubleshoot-offline). 
+W tym artykule omówiono sposób uruchamiania narzędzia do rozwiązywania problemów dla maszyn platformy Azure z Azure Portal i maszyn spoza platformy Azure w [scenariuszu w trybie offline](#troubleshoot-offline).
 
 > [!NOTE]
-> Skrypt narzędzia do rozwiązywania problemów zawiera teraz testy dotyczące Windows Server Update Services (WSUS) oraz kluczy autopobierania i instalacji. 
+> Skrypt narzędzia do rozwiązywania problemów zawiera teraz testy dotyczące Windows Server Update Services (WSUS) oraz kluczy autopobierania i instalacji.
 
 ## <a name="start-the-troubleshooter"></a>Uruchom narzędzie do rozwiązywania problemów
 
@@ -59,7 +59,7 @@ Sprawdzenie systemu operacyjnego weryfikuje, czy hybrydowy proces roboczy elemen
 |---------|---------|
 |System Windows Server 2012 lub nowszy |Wymagany jest .NET Framework 4,6 lub nowszy. ([Pobierz .NET Framework](/dotnet/framework/install/guide-for-developers).)<br/> Wymagany jest program Windows PowerShell 5,1.  ([Pobierz system Windows Management Framework 5,1](https://www.microsoft.com/download/details.aspx?id=54616)).        |
 
-### <a name="net-462"></a>4.6.2 .NET
+### <a name="net-462"></a>.NET 4.6.2
 
 .NET Framework sprawdza, czy system ma zainstalowaną [.NET Framework 4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345) lub nowszą.
 
@@ -110,7 +110,7 @@ Sprawdzanie dostępu do folderu kryptograficznego określa, czy konto systemu lo
 
 ## <a name="troubleshoot-offline"></a><a name="troubleshoot-offline"></a>Rozwiązywanie problemów w trybie offline
 
-Aby użyć narzędzia do rozwiązywania problemów z hybrydowym procesem roboczym elementu Runbook, należy uruchomić skrypt lokalnie. Pobierz następujący skrypt z Galeria programu PowerShell: [Rozwiązywanie problemów — WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration). Aby uruchomić skrypt, musisz mieć zainstalowany program WMF 4,0 lub nowszy. Aby pobrać najnowszą wersję programu PowerShell, zobacz [Instalowanie różnych wersji programu PowerShell](/powershell/scripting/install/installing-powershell).
+Aby użyć narzędzia do rozwiązywania problemów z hybrydowym procesem roboczym elementu Runbook, należy uruchomić skrypt lokalnie. Pobierz następujący skrypt z witryny GitHub: [UM_Windows_Troubleshooter_Offline.ps1](https://github.com/Azure/updatemanagement/blob/main/UM_Windows_Troubleshooter_Offline.ps1). Aby uruchomić skrypt, musisz mieć zainstalowany program WMF 4,0 lub nowszy. Aby pobrać najnowszą wersję programu PowerShell, zobacz [Instalowanie różnych wersji programu PowerShell](/powershell/scripting/install/installing-powershell).
 
 Dane wyjściowe tego skryptu wyglądają podobnie jak w poniższym przykładzie:
 

@@ -16,21 +16,18 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eadb20bc570545356508d82c05e1746424a14b71
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 59cc50274b291c23aeec4620ec7a09312cc0c1fb
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504393"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762258"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Active Directory bezproblemowe logowanie jednokrotne: Szybki Start
 
 ## <a name="deploy-seamless-single-sign-on"></a>Wdróż bezproblemowe pojedyncze Sign-On
 
 Azure Active Directory (usługa Azure AD) bezproblemowo pojedyncze Sign-On (bezproblemowe logowanie jednokrotne) automatycznie loguje się do użytkowników, gdy znajdują się na swoich komputerach firmowych, które są połączone z siecią firmową. Bezproblemowe logowanie jednokrotne zapewnia użytkownikom łatwy dostęp do aplikacji opartych na chmurze bez konieczności używania dodatkowych składników lokalnych.
-
-> [!NOTE]
-> Ten artykuł zawiera odwołania do warunku *dozwolonych*, termin, przez który firma Microsoft już nie używa. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
 
 Aby wdrożyć bezproblemową rejestrację jednokrotną, wykonaj następujące kroki.
 
@@ -40,7 +37,7 @@ Upewnij się, że są spełnione następujące wymagania wstępne:
 
 * **Skonfiguruj serwer Azure AD Connect**: Jeśli używasz [uwierzytelniania przekazywanego](how-to-connect-pta.md) jako metody logowania, nie jest wymagane żadne dodatkowe Sprawdzanie wymagań wstępnych. Jeśli używasz [synchronizacji skrótów haseł](how-to-connect-password-hash-synchronization.md) jako metody logowania, a jeśli między Azure AD Connect i usługą Azure AD istnieje Zapora, upewnij się, że:
    - Używasz wersji 1.1.644.0 lub nowszej Azure AD Connect. 
-   - Jeśli zapora lub serwer proxy zezwala, Dodaj połączenia do listy dozwolonych adresów URL **\* msappproxy.NET** na porcie 443. W przeciwnym razie Zezwól na dostęp do [zakresów adresów IP centrum danych platformy Azure](https://www.microsoft.com/download/details.aspx?id=41653), które są aktualizowane co tydzień. To wymaganie wstępne jest stosowane tylko po włączeniu funkcji. Nie jest to wymagane w przypadku rzeczywistych logowań użytkownika.
+   - Jeśli zapora lub serwer proxy zezwala, Dodaj połączenia do listy dozwolonych adresów URL **\* msappproxy.NET** na porcie 443. Jeśli potrzebujesz określonego adresu URL zamiast symbolu wieloznacznego dla konfiguracji serwera proxy, możesz skonfigurować **tenantid.Registration.msappproxy.NET**, gdzie TENANTID jest identyfikatorem GUID dzierżawy, w której konfigurujesz funkcję. Jeśli w Twojej organizacji nie są dostępne wyjątki serwera proxy oparte na adresach URL, możesz zamiast tego zezwolić na dostęp do [zakresów adresów IP centrum danych platformy Azure](https://www.microsoft.com/download/details.aspx?id=41653), które są aktualizowane co tydzień. To wymaganie wstępne jest stosowane tylko po włączeniu funkcji. Nie jest to wymagane w przypadku rzeczywistych logowań użytkownika.
 
     >[!NOTE]
     >Azure AD Connect wersje 1.1.557.0, 1.1.558.0, 1.1.561.0 i 1.1.614.0 mają problem związany z synchronizacją skrótów haseł. Jeśli _nie_ zamierzasz używać synchronizacji skrótów haseł w połączeniu z uwierzytelnianiem przekazującym, przeczytaj informacje o [wersji Azure AD Connect](./reference-connect-version-history.md) , aby dowiedzieć się więcej.

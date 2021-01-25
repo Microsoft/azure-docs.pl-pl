@@ -1,9 +1,9 @@
 ---
 title: Łączność urządzeń w usłudze Azure IoT Central | Microsoft Docs
 description: W tym artykule przedstawiono kluczowe pojęcia związane z łącznością urządzeń w usłudze Azure IoT Central
-author: dominicbetts
-ms.author: dobett
-ms.date: 10/22/2020
+author: TheJasonAndrew
+ms.author: v-anjaso@microsoft.com
+ms.date: 1/15/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 90246459663980de25e301817f651e7719e8f380
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: a0ba695adb25adb6d339535bb9496630eaec70bb
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033186"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762793"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Nawiązywanie połączenia z usługą Azure IoT Central
 
@@ -110,7 +110,7 @@ IoT Central obsługuje następujące mechanizmy zaświadczania dotyczące poszcz
     > [!TIP]
     > Do testowania można użyć [narzędzi dla zestawu SDK urządzenia usługi Azure IoT Device Provisioning dla Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools) w celu wygenerowania certyfikatu z podpisem własnym: `node create_test_cert.js device "mytestdevice"`
 
-- **Zaświadczanie moduł TPM (TPM):** [Moduł TPM](../../iot-dps/concepts-tpm-attestation.md) jest typem sprzętowego modułu zabezpieczeń. Korzystanie z modułu TPM jest jednym z najbardziej bezpiecznych sposobów łączenia urządzeń. W tym artykule przyjęto założenie, że używasz dyskretnego, oprogramowania układowego lub zintegrowanego modułu TPM. Emulowane moduły TPM oprogramowania są dobrze dopasowane do prototypowania lub testowania, ale nie zapewniają tego samego poziomu zabezpieczeń, takiego jak dyskretny, oprogramowanie układowe lub zintegrowane moduły TPM. Nie używaj moduły TPM oprogramowania w środowisku produkcyjnym. Aby utworzyć rejestrację indywidualną korzystającą z modułu TPM, Otwórz stronę **połączenie urządzenia** , wybierz pozycję **Rejestracja indywidualna** jako metoda połączenia i **moduł TPM** jako mechanizm. Wprowadź klucz poręczenia modułu TPM i Zapisz informacje o połączeniu z urządzeniem.
+- **Zaświadczanie Trusted Platform Module (TPM):** [Moduł TPM](../../iot-dps/concepts-tpm-attestation.md) jest typem sprzętowego modułu zabezpieczeń. Korzystanie z modułu TPM jest jednym z najbardziej bezpiecznych sposobów łączenia urządzeń. W tym artykule przyjęto założenie, że używasz dyskretnego, oprogramowania układowego lub zintegrowanego modułu TPM. Emulowane moduły TPM oprogramowania są dobrze dopasowane do prototypowania lub testowania, ale nie zapewniają tego samego poziomu zabezpieczeń, takiego jak dyskretny, oprogramowanie układowe lub zintegrowane moduły TPM. Nie używaj moduły TPM oprogramowania w środowisku produkcyjnym. Aby utworzyć rejestrację indywidualną korzystającą z modułu TPM, Otwórz stronę **połączenie urządzenia** , wybierz pozycję **Rejestracja indywidualna** jako metoda połączenia i **moduł TPM** jako mechanizm. Wprowadź klucz poręczenia modułu TPM i Zapisz informacje o połączeniu z urządzeniem.
 
 ## <a name="device-registration"></a>Rejestracja urządzenia
 
@@ -234,13 +234,18 @@ Zestawy SDK urządzeń platformy Azure oferują najprostszy sposób implementacj
 Cała komunikacja urządzeń z IoT Hub używa następujących opcji łączności IoT Hub:
 
 - [Obsługa komunikatów przesyłanych z urządzeń do chmury](../../iot-hub/iot-hub-devguide-messages-d2c.md)
+- [Obsługa komunikatów z chmury do urządzenia](../../iot-hub/iot-hub-csharp-csharp-c2d.md)
 - [Bliźniaczych reprezentacji urządzenia](../../iot-hub/iot-hub-devguide-device-twins.md)
+
+> [!NOTE]
+> Platforma Azure obsługuje teraz
 
 Poniższa tabela zawiera podsumowanie sposobu mapowania funkcji usługi Azure IoT Central Device na funkcje IoT Hub:
 
 | Azure IoT Central | Azure IoT Hub |
 | ----------- | ------- |
 | Telemetria | Obsługa komunikatów przesyłanych z urządzeń do chmury |
+| Polecenia w trybie offline | Obsługa komunikatów z chmury do urządzenia |
 | Właściwość | Właściwości zgłoszone przez urządzenie |
 | Właściwość (zapisywalny) | Wymagane i zgłoszone właściwości dotyczące sznurka urządzenia |
 | Polecenie | Metody bezpośrednie |

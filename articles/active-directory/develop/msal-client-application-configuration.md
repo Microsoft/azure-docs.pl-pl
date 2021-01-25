@@ -13,12 +13,12 @@ ms.date: 11/20/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 9ec8a5fe5de751e40ebaa17629ff72c5f6b2adca
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 46626c3ebe9d70600be1cc5f73c43677f67bcd09
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94979991"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761375"
 ---
 # <a name="application-configuration-options"></a>Opcje konfiguracji aplikacji
 
@@ -147,8 +147,20 @@ W przypadku aplikacji demonów nie trzeba określać identyfikatora URI przekier
 Ta opcja określa klucz tajny klienta dla poufnej aplikacji klienckiej. Ten wpis tajny (hasło aplikacji) jest udostępniany przez portal rejestracji aplikacji lub dostarczany do usługi Azure AD podczas rejestracji aplikacji przy użyciu programu PowerShell AzureAD, programu PowerShell AzureRM lub interfejsu wiersza polecenia platformy Azure.
 
 ## <a name="logging"></a>Rejestrowanie
+Aby ułatwić debugowanie i rozwiązywanie problemów z błędami uwierzytelniania, biblioteka uwierzytelniania firmy Microsoft zapewnia wbudowaną obsługę rejestrowania. Rejestrowanie to każda biblioteka została omówiona w następujących artykułach:
 
-Inne opcje konfiguracji umożliwiają rejestrowanie i rozwiązywanie problemów. Zobacz artykuł [Rejestrowanie](msal-logging.md) , aby uzyskać szczegółowe informacje na temat korzystania z nich.
+:::row:::
+    :::column:::
+        - [Rejestrowanie na platformie MSAL.NET](msal-logging-dotnet.md)
+        - [Rejestrowanie w bibliotece MSAL dla systemu Android](msal-logging-android.md)
+        - [Rejestrowanie w bibliotece MSAL.js](msal-logging-js.md)
+    :::column-end:::
+    :::column:::
+        - [Rejestrowanie w bibliotece MSAL dla systemu iOS/macOS](msal-logging-ios.md)
+        - [Rejestrowanie w bibliotece MSAL dla języka Java](msal-logging-java.md)
+        - [Rejestrowanie w bibliotece MSAL dla języka Python](msal-logging-python.md)
+    :::column-end:::
+:::row-end:::
 
 ## <a name="next-steps"></a>Następne kroki
 

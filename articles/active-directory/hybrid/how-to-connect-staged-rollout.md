@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d348b8c2325c7bc2cdaa28356151647a9430684f
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 10fe3b895ea5084247822f1c35275e68d80b73fa
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247050"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762973"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrowanie do uwierzytelniania w chmurze przy użyciu wdrożenia etapowego (wersja zapoznawcza)
 
@@ -61,7 +61,10 @@ Poniższe scenariusze są obsługiwane w przypadku wdrażania etapowego. Funkcja
 - Użytkownicy, którzy są obsługiwani do usługi Azure AD za pomocą Azure AD Connect. Nie dotyczy to użytkowników korzystających tylko z chmury.
 
 - Ruch związany z logowaniem użytkowników w przeglądarkach i nowoczesnych klientach *uwierzytelniania* . Aplikacje lub usługi w chmurze korzystające ze starszego uwierzytelniania będą powracać do przepływów uwierzytelniania federacyjnego. Przykładem może być Usługa Exchange Online z wyłączoną funkcją nowoczesnego uwierzytelniania lub program Outlook 2010, który nie obsługuje nowoczesnego uwierzytelniania.
+
 - Rozmiar grupy jest obecnie ograniczony do 50 000 użytkowników.  Jeśli masz grupy, które są większe niż 50 000 użytkowników, zaleca się poddzielenie tej grupy na wiele grup na potrzeby wdrożenia etapowego.
+
+- Dołączanie hybrydowe systemu Windows 10 lub usługa Azure AD Dołącz do podstawowego tokenu odświeżania bez wglądu w dane do serwera federacyjnego dla systemu Windows 10 w wersji 1903 i nowszej, gdy nazwa UPN użytkownika jest w trakcie routingu, a sufiks domeny jest weryfikowany w usłudze Azure AD.
 
 ## <a name="unsupported-scenarios"></a>Nieobsługiwane scenariusze
 
@@ -87,6 +90,10 @@ Następujące scenariusze nie są obsługiwane w przypadku wdrażania etapowego:
 - Przy pierwszym dodawaniu grupy zabezpieczeń do wdrożenia przemieszczanego można ograniczyć do 200 użytkowników, aby uniknąć przekroczenia limitu czasu środowiska. Po dodaniu grupy można do niej dodać kilku użytkowników bezpośrednio, zgodnie z potrzebami.
 
 - Podczas wdrażania etapowego, gdy EnforceCloudPasswordPolicyForPasswordSyncedUsers jest włączona, zasady wygasania haseł są ustawiane na 90 dni bez opcji dostosowywania. 
+
+- Dołączanie hybrydowe systemu Windows 10 lub Azure AD Join — pozyskiwanie podstawowego tokenu odświeżania dla systemu Windows 10 w wersji starszej niż 1903. Ten scenariusz powróci do WS-Trust punktu końcowego serwera federacyjnego, nawet jeśli logowanie użytkownika jest w zakresie wdrożenia etapowego.
+
+- Dołączanie hybrydowe systemu Windows 10 lub usługa Azure AD Join — pozyskiwanie podstawowego tokenu odświeżania dla wszystkich wersji, gdy lokalna nazwa UPN użytkownika nie obsługuje routingu. Ten scenariusz powróci do WS-Trust punktu końcowego w trybie wdrażania etapowego, ale przestanie działać, gdy migracja etapowa zostanie zakończona, a Logowanie użytkownika nie będzie już polegać na serwerze federacyjnym.
 
 
 ## <a name="get-started-with-staged-rollout"></a>Wprowadzenie do wdrożenia przemieszczanego

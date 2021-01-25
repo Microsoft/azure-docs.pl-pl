@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/05/2020
 ms.author: apimpm
-ms.openlocfilehash: 25356e7101293fc27d4107b3a618cfc481aee969
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 223d119786d99eac611ece597fc0e8de4fcaf6bd
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779587"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762412"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Jak zaimplementować odzyskiwanie po awarii przy użyciu funkcji tworzenia i przywracania kopii zapasowych w usłudze Azure API Management
 
@@ -221,8 +221,8 @@ Przywracanie to długotrwała operacja, której ukończenie może potrwać do 30
 
 ## <a name="what-is-not-backed-up"></a>Co nie jest kopią zapasową
 -   **Dane użycia** używane do tworzenia raportów analitycznych **nie są uwzględnione** w kopii zapasowej. Użyj [interfejsu API REST usługi Azure API Management][azure api management rest api] , aby okresowo pobierać raporty analityczne w celu zabezpieczenia.
--   [Niestandardowe certyfikaty protokołu TLS/SSL dla domeny](configure-custom-domain.md)
--   [Niestandardowy certyfikat urzędu certyfikacji](api-management-howto-ca-certificates.md), który obejmuje certyfikaty pośrednie lub główne przekazane przez klienta
+-   [Niestandardowe certyfikaty protokołu TLS/SSL dla domeny](configure-custom-domain.md) .
+-   [Niestandardowy certyfikat urzędu certyfikacji](api-management-howto-ca-certificates.md), który obejmuje certyfikaty pośrednie lub główne przekazane przez klienta.
 -   Ustawienia integracji [sieci wirtualnej](api-management-using-with-vnet.md) .
 -   Konfiguracja [tożsamości zarządzanej](api-management-howto-use-managed-service-identity.md) .
 -   [Diagnostyka Azure monitor](api-management-howto-use-azure-monitor.md) Skonfigurować.

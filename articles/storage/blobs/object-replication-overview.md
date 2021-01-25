@@ -10,12 +10,12 @@ ms.date: 01/13/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ff2408e35d76a6ea0d5221e04c7a41ed6cde7ac9
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: e7fa6b1ee7c92f82c3e15335991f5a240c7acc52
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178980"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762880"
 ---
 # <a name="object-replication-for-block-blobs"></a>Replikacja obiektów dla blokowych obiektów BLOB
 
@@ -88,7 +88,9 @@ Podczas tworzenia reguły replikacji domyślnie kopiowane są tylko nowe blokowe
 
 Można również określić jeden lub więcej filtrów jako część reguły replikacji, aby odfiltrować blokowe obiekty blob według prefiksu. Po określeniu prefiksu tylko obiekty blob pasujące do tego prefiksu w kontenerze źródłowym zostaną skopiowane do kontenera docelowego.
 
-Oba kontenery źródłowe i docelowe muszą istnieć przed określeniem ich w regule. Po utworzeniu zasad replikacji kontener docelowy jest tylko do odczytu. Wszystkie próby zapisu w kontenerze docelowym kończą się niepowodzeniem z kodem błędu 409 (konflikt). Można jednak wywołać operację [ustawiania warstwy obiektów BLOB](/rest/api/storageservices/set-blob-tier) na obiekcie BLOB w kontenerze docelowym, aby przenieść ją do warstwy archiwum. Aby uzyskać więcej informacji o warstwie archiwum, zobacz [Azure Blob Storage: warstwy dostępu gorąca, chłodna i archiwalna](storage-blob-storage-tiers.md#archive-access-tier).
+Oba kontenery źródłowe i docelowe muszą istnieć przed określeniem ich w regule. Po utworzeniu zasad replikacji operacje zapisu w kontenerze docelowym są niedozwolone. Wszystkie próby zapisu w kontenerze docelowym kończą się niepowodzeniem z kodem błędu 409 (konflikt). Aby zapisać do kontenera docelowego, dla którego skonfigurowano regułę replikacji, należy usunąć regułę skonfigurowaną dla tego kontenera lub usunąć zasady replikacji. Operacje odczytu i usuwania do kontenera docelowego są dozwolone, gdy zasady replikacji są aktywne.
+
+Możesz wywołać operację [ustawiania warstwy obiektów BLOB](/rest/api/storageservices/set-blob-tier) na obiekcie BLOB w kontenerze docelowym, aby przenieść ją do warstwy archiwum. Aby uzyskać więcej informacji o warstwie archiwum, zobacz [Azure Blob Storage: warstwy dostępu gorąca, chłodna i archiwalna](storage-blob-storage-tiers.md#archive-access-tier).
 
 ## <a name="replication-status"></a>Stan replikacji
 

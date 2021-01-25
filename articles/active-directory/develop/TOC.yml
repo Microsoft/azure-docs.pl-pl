@@ -329,7 +329,7 @@
               href: msal-error-handling-dotnet.md
               displayName: 'handling, catch'
             - name: Rejestrowanie na platformie MSAL.NET
-              href: msal-logging.md?tabs=dotnet
+              href: msal-logging-dotnet.md
             - name: Uzyskiwanie tokenu z pamięci podręcznej
               href: msal-net-acquire-token-silently.md
             - name: Serializacja pamięci podręcznej tokenu
@@ -371,7 +371,7 @@
               href: msal-error-handling-js.md
               displayName: 'handling, catch'
             - name: Rejestrowanie w bibliotece MSAL.js
-              href: msal-logging.md?tabs=javascript
+              href: msal-logging-js.md
         - name: Biblioteka MSAL dla systemów iOS i macOS
           items:
             - name: Różnice w bibliotece MSAL dla systemów iOS i macOS
@@ -401,7 +401,7 @@
               href: msal-error-handling-ios.md
               displayName: 'handling, catch'
             - name: Rejestrowanie w bibliotece MSAL dla systemu iOS/macOS
-              href: msal-logging.md?tabs=swift
+              href: msal-logging-ios.md
         - name: Biblioteka MSAL dla języka Python
           items:
             - name: Serializacja pamięci podręcznej tokenu niestandardowego
@@ -414,7 +414,7 @@
               href: msal-error-handling-python.md
               displayName: 'handling, catch'
             - name: Rejestrowanie w bibliotece MSAL dla języka Python
-              href: msal-logging.md?tabs=python
+              href: msal-logging-python.md
         - name: Biblioteka MSAL dla języka Java
           items:
             - name: Serializacja pamięci podręcznej tokenu niestandardowego
@@ -429,7 +429,7 @@
               href: msal-error-handling-java.md
               displayName: 'handling, catch'
             - name: Rejestrowanie w bibliotece MSAL dla języka Java
-              href: msal-logging.md?tabs=java
+              href: msal-logging-java.md
         - name: MSAL dla systemu Android
           items:
             - name: Konta i profile dzierżaw
@@ -449,7 +449,7 @@
               href: msal-android-handling-exceptions.md
               displayName: 'android, mobile, handling, catch'
             - name: Rejestrowanie w bibliotece MSAL dla systemu Android
-              href: msal-logging.md?tabs=android
+              href: msal-logging-android.md
     - name: Dostosowywanie tokenów i oświadczeń
       items:
         - name: Konfigurowanie oświadczeń roli

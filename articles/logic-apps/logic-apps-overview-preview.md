@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 12/07/2020
-ms.openlocfilehash: 7c15b3a854b533d93bc05f7e5302671711da75c2
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 01/22/2021
+ms.openlocfilehash: a4d1543c5c4ce7a44825a879b838e7829b8c84fd
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936128"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760630"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Przegląd: Podgląd Azure Logic Apps
 
@@ -138,6 +138,8 @@ Wersja zapoznawcza Azure Logic Apps obejmuje wiele bieżących i dodatkowych mo�
 * Bezpośrednio Publikuj lub Wdrażaj aplikacje logiki oraz ich przepływy pracy z Visual Studio Code do różnych środowisk hostingu, takich jak platforma Azure i [kontenery platformy Docker](/dotnet/core/docker/introduction).
 
 * Włączenie funkcji rejestrowania i śledzenia diagnostyki dla aplikacji logiki przy użyciu [Application Insights](../azure-monitor/app/app-insights-overview.md) , gdy są one obsługiwane przez ustawienia subskrypcji platformy Azure i aplikacji logiki.
+
+* Wygeneruj ponownie klucze dostępu dla połączeń zarządzanych używanych przez poszczególne przepływy pracy w ramach zasobu **aplikacji logiki (wersja zapoznawcza)** . W przypadku tego zadania [wykonaj te same kroki dla zasobu **Logic Apps** , ale na poziomie pojedynczego przepływu pracy, a](logic-apps-securing-a-logic-app.md#regenerate-access-keys)nie na poziomie zasobów aplikacji logiki.
 
 > [!NOTE]
 > Informacje o bieżących znanych problemach można znaleźć na [stronie Logic Apps znane problemy w wersji zapoznawczej w witrynie GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).

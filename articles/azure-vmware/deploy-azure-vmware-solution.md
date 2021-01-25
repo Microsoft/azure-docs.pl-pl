@@ -2,17 +2,20 @@
 title: Wdrażanie i Konfigurowanie rozwiązania VMware platformy Azure
 description: Dowiedz się, jak korzystać z informacji zebranych w fazie planowania, aby wdrożyć chmurę prywatną rozwiązania Azure VMware.
 ms.topic: tutorial
-ms.date: 11/09/2020
-ms.openlocfilehash: 7e31b9236a3c75009d15bde35019036b6db55cab
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.date: 12/24/2020
+ms.openlocfilehash: f2b6f3c4ad82117fee96e0c2e5973a7011384d48
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861526"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760881"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Wdrażanie i Konfigurowanie rozwiązania VMware platformy Azure
 
-W tym artykule przedstawiono informacje z [sekcji Planowanie](production-ready-deployment-steps.md) w celu wdrożenia rozwiązania VMware dla platformy Azure. Jeśli informacje nie zostały zdefiniowane, Wróć do [sekcji Planowanie](production-ready-deployment-steps.md) przed kontynuowaniem.
+W tym artykule przedstawiono informacje z [sekcji Planowanie](production-ready-deployment-steps.md) w celu wdrożenia rozwiązania VMware dla platformy Azure. 
+
+>[!IMPORTANT]
+>Jeśli nie zdefiniowano jeszcze informacji, Wróć do [sekcji Planowanie](production-ready-deployment-steps.md) przed kontynuowaniem.
 
 ## <a name="register-the-resource-provider"></a>Rejestrowanie dostawcy zasobów
 
@@ -36,25 +39,26 @@ Skorzystaj z informacji zebranych w artykule [Planowanie rozwiązania Azure VMwa
 >[!IMPORTANT]
 >Jeśli pozostawiłeś opcję **Virtual Network** pustej w kroku wstępnego inicjowania obsługi administracyjnej na ekranie **Tworzenie chmury prywatnej** , **przed** przejściem do tej sekcji Ukończ samouczek [Konfigurowanie sieci dla chmury prywatnej programu VMware](tutorial-configure-networking.md) .  
 
-Po wdrożeniu rozwiązania Azure VMware można utworzyć pole skoku sieci wirtualnej łączące się z programem vCenter i NSX. Po skonfigurowaniu obwodów usługi ExpressRoute i ExpressRoute Global Reach pole skoku nie jest potrzebne.  Ale warto uzyskać dostęp do programu vCenter i NSX w rozwiązaniu VMware platformy Azure.  
+Po wdrożeniu rozwiązania VMware dla platformy Azure utworzysz pole skoku sieci wirtualnej łączące się z programem vCenter i NSX. Po skonfigurowaniu obwodów usługi ExpressRoute i ExpressRoute Global Reach pole skoku nie jest potrzebne.  Ale warto uzyskać dostęp do programu vCenter i NSX w rozwiązaniu VMware platformy Azure.  
 
 :::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Utwórz pole skoku rozwiązania Azure VMware" border="false" lightbox="media/pre-deployment/jump-box-diagram.png":::
 
-Aby utworzyć maszynę wirtualną w sieci wirtualnej, która została [zidentyfikowana lub utworzona w ramach procesu wdrażania](production-ready-deployment-steps.md#azure-virtual-network-to-attach-azure-vmware-solution), wykonaj następujące instrukcje: 
+Aby utworzyć maszynę wirtualną w sieci wirtualnej, która została [zidentyfikowana lub utworzona w ramach procesu wdrażania](production-ready-deployment-steps.md#attach-virtual-network-to-azure-vmware-solution), wykonaj następujące instrukcje: 
 
 [!INCLUDE [create-avs-jump-box-steps](includes/create-jump-box-steps.md)]
 
 ## <a name="connect-to-a-virtual-network-with-expressroute"></a>Nawiązywanie połączenia z siecią wirtualną za pomocą ExpressRoute
 
-Jeśli nie zdefiniowano sieci wirtualnej w kroku wdrożenia, a zamierzasz połączyć usługę Azure VMware ExpressRoute z istniejącą bramą ExpressRoute, wykonaj poniższe kroki.
+>[!IMPORTANT]
+>Jeśli sieć wirtualna została już zdefiniowana na ekranie wdrożenia na platformie Azure, przejdź do następnej sekcji.
 
-Jeśli sieć wirtualna została już zdefiniowana na ekranie wdrożenia na platformie Azure, przejdź do następnej sekcji.
+Jeśli nie zdefiniowano sieci wirtualnej w kroku wdrożenia, a zamierzasz połączyć usługę Azure VMware ExpressRoute z istniejącą bramą ExpressRoute, wykonaj następujące kroki.
 
 [!INCLUDE [connect-expressroute-to-vnet](includes/connect-expressroute-vnet.md)]
 
 ## <a name="verify-network-routes-advertised"></a>Weryfikowanie tras sieciowych anonsowanych
 
-Pole skoku znajduje się w sieci wirtualnej, w której rozwiązanie Azure VMware nawiązuje połączenie za pośrednictwem obwodu usługi ExpressRoute.  Na platformie Azure przejdź do interfejsu sieciowego pola skoku i [Sprawdź obowiązujące trasy](../virtual-network/manage-route-table.md#view-effective-routes).
+Pole skoku znajduje się w sieci wirtualnej, w której rozwiązanie Azure VMware nawiązuje połączenie za pomocą obwodu usługi ExpressRoute.  Na platformie Azure przejdź do interfejsu sieciowego pola skoku i [Sprawdź obowiązujące trasy](../virtual-network/manage-route-table.md#view-effective-routes).
 
 Na liście efektywne trasy powinny zostać wyświetlone sieci utworzone w ramach wdrożenia rozwiązania Azure VMware. Zobaczysz wiele sieci, które pochodzą z [ `/22` sieci zdefiniowanej](production-ready-deployment-steps.md#ip-address-segment) w [kroku wdrożenia](#deploy-azure-vmware-solution) wcześniej w tym artykule.
 
@@ -70,7 +74,7 @@ W Azure Portal można zidentyfikować adresy IP i poświadczenia konsoli adminis
 
 ## <a name="create-a-network-segment-on-azure-vmware-solution"></a>Tworzenie segmentu sieci w rozwiązaniu VMware platformy Azure
 
-NSX-T służy do tworzenia nowych segmentów sieci w środowisku rozwiązań VMware platformy Azure.  Zdefiniowano sieci, które chcesz utworzyć w [sekcji Planowanie](production-ready-deployment-steps.md).  Jeśli nie zostały one zdefiniowane, Wróć do [sekcji Planowanie](production-ready-deployment-steps.md) przed kontynuowaniem.
+NSX-T służy do tworzenia nowych segmentów sieci w środowisku rozwiązań VMware platformy Azure.  W [sekcji Planowanie](production-ready-deployment-steps.md)zostały zdefiniowane sieci, które chcesz utworzyć.  Jeśli nie zostały one zdefiniowane, Wróć do [sekcji Planowanie](production-ready-deployment-steps.md) przed kontynuowaniem.
 
 >[!IMPORTANT]
 >Upewnij się, że zdefiniowany blok adresów sieciowych CIDR nie nakłada się na wszystkie elementy w środowiskach platformy Azure i lokalnych.  
@@ -79,9 +83,9 @@ Postępuj zgodnie z samouczkiem [Tworzenie segmentu sieci NSX-t w rozwiązaniu A
 
 ## <a name="verify-advertised-nsx-t-segment"></a>Weryfikuj anonsowany segment NSX-T
 
-Wróć do kroku [Weryfikuj trasy sieciowe anonsowane](#verify-network-routes-advertised) . Zostaną wyświetlone dodatkowe trasy na liście reprezentującej segmenty sieci utworzone w poprzednim kroku.  
+Wróć do kroku [Weryfikuj trasy sieciowe anonsowane](#verify-network-routes-advertised) . Na liście będą widoczne inne trasy reprezentujące segmenty sieci utworzone w poprzednim kroku.  
 
-W przypadku maszyn wirtualnych należy przypisać segmenty, które zostały utworzone w kroku [Tworzenie segmentu sieci na platformie Azure VMware](#create-a-network-segment-on-azure-vmware-solution) .  
+W przypadku maszyn wirtualnych należy przypisać segmenty utworzone w kroku [Tworzenie segmentu sieci na platformie Azure VMware](#create-a-network-segment-on-azure-vmware-solution) .  
 
 Ponieważ jest wymagany system DNS, Zidentyfikuj serwer DNS, którego chcesz użyć.  
 
@@ -104,7 +108,7 @@ Po utworzeniu segmentu sieci NSX-T można utworzyć rozwiązanie DHCP i zarządz
 
 ## <a name="add-a-vm-on-the-nsx-t-network-segment"></a>Dodawanie maszyny wirtualnej w segmencie sieci NSX-T
 
-W programie Azure VMware Solution vCenter Wdróż maszynę wirtualną i użyj jej do sprawdzenia łączności z sieci rozwiązań VMware platformy Azure do:
+W programie Azure VMware Solution vCenter Wdróż maszynę wirtualną i użyj jej do sprawdzenia łączności z sieci rozwiązań VMware platformy Azure, aby:
 
 - Internet
 - Sieci wirtualne platformy Azure
@@ -120,14 +124,13 @@ Wdróż maszynę wirtualną w taki sam sposób, jak w dowolnym środowisku vSphe
 Zaloguj się do maszyny wirtualnej utworzonej w poprzednim kroku i sprawdź łączność;
 
 1. Wyślij polecenie ping do adresu IP w Internecie.
-2. Przejdź do witryny internetowej za pośrednictwem przeglądarki sieci Web.
+2. W przeglądarce sieci Web przejdź do witryny internetowej.
 3. Wyślij polecenie ping do pola skoku znajdującego się na Virtual Network platformy Azure.
 
->[!IMPORTANT]
->Na tym etapie rozwiązanie Azure VMware działa i zostało pomyślnie ustanowione połączenie z usługą i z usługi Azure Virtual Network oraz z Internetu.
+Rozwiązanie VMware platformy Azure jest teraz w trakcie pracy i zostało pomyślnie ustanowione połączenie z usługą i z usługi Azure Virtual Network oraz z Internetu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W następnej sekcji nastąpi połączenie rozwiązania Azure VMware z siecią lokalną za pośrednictwem usługi ExpressRoute.
+W następnej sekcji zostanie nawiązane połączenie programu Azure VMware z siecią lokalną za pomocą ExpressRoute.
 > [!div class="nextstepaction"]
 > [Łączenie rozwiązania VMware z platformą Azure z środowiskiem lokalnym](azure-vmware-solution-on-premises.md)

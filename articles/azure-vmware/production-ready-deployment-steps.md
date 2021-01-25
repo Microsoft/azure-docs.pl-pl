@@ -3,12 +3,12 @@ title: Planowanie wdrożenia rozwiązań VMware na platformie Azure
 description: W tym artykule opisano przepływ pracy wdrażania rozwiązań VMware platformy Azure.  Wynik końcowy to środowisko gotowe do tworzenia i migracji maszyn wirtualnych.
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: cdf4ddd6166920fa7461bfd85e01ef0efd6dfbb9
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 8b1d69f3f953b43177a3b1d0611b51ca2cfb1a75
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98704570"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762859"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planowanie wdrożenia rozwiązań VMware na platformie Azure
 
@@ -93,9 +93,9 @@ Należy pamiętać, że:
 - Jeśli planujesz rozszerzoną sieć ze środowiska lokalnego, te sieci muszą łączyć się z [przełącznikiem rozproszonym vSphere (vDS)](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-B15C6A13-797E-4BCB-B9D9-5CBC5A60C3A6.html) w lokalnym środowisku VMware.  
 - Jeśli sieci, które chcesz rozszerzyć na żywo na [przełączniku standardowym vSphere](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-350344DE-483A-42ED-B0E2-C811EE927D59.html), nie można ich rozszerzyć.
 
-## <a name="azure-virtual-network-to-attach-azure-vmware-solution"></a>Virtual Network platformy Azure, aby dołączyć rozwiązanie VMware dla platformy Azure
+## <a name="attach-virtual-network-to-azure-vmware-solution"></a>Dołączanie sieci wirtualnej do rozwiązania VMware platformy Azure
 
-W tym kroku zostanie zidentyfikowana Brama sieci wirtualnej ExpressRoute i obsługa sieci wirtualnej platformy Azure używanej do łączenia obwodu usługi Azure VMware ExpressRoute.  Obwód usługi ExpressRoute umożliwia nawiązywanie połączeń z chmurą prywatną rozwiązania Azure VMware i z niej do innych usług platformy Azure, zasobów platformy Azure i środowisk lokalnych.
+W tym kroku określisz bramę sieci wirtualnej ExpressRoute i obsługujemy Virtual Network platformy Azure służącą do łączenia obwodu usługi Azure VMware ExpressRoute.  Obwód usługi ExpressRoute umożliwia nawiązywanie połączeń z chmurą prywatną rozwiązania Azure VMware i z niej do innych usług platformy Azure, zasobów platformy Azure i środowisk lokalnych.
 
 Możesz użyć *istniejącej* lub *nowej* bramy sieci wirtualnej ExpressRoute.
 
@@ -103,21 +103,23 @@ Możesz użyć *istniejącej* lub *nowej* bramy sieci wirtualnej ExpressRoute.
 
 ### <a name="use-an-existing-expressroute-virtual-network-gateway"></a>Użyj istniejącej bramy sieci wirtualnej ExpressRoute
 
-Jeśli używasz *istniejącej* bramy sieci wirtualnej ExpressRoute, obwód usługi Azure VMware ExpressRoute jest ustanawiany po wdrożeniu chmury prywatnej.  W związku z tym nie musisz wypełnić pola **Virtual Network** .  
+Jeśli używasz *istniejącej* bramy sieci wirtualnej ExpressRoute, obwód usługi Azure VMware ExpressRoute jest ustanawiany po wdrożeniu chmury prywatnej. W takim przypadku pozostaw pole **Virtual Network** puste.  
 
 Zanotuj, której bramy sieci wirtualnej ExpressRoute będziesz używać, i przejdź do następnego kroku.
 
 ### <a name="create-a-new-expressroute-virtual-network-gateway"></a>Tworzenie nowej bramy sieci wirtualnej ExpressRoute
 
-W przypadku tworzenia *nowej* bramy sieci wirtualnej ExpressRoute można użyć istniejącego Virtual Network platformy Azure lub można utworzyć nowe Virtual Network platformy Azure.  
+Podczas tworzenia *nowej* bramy sieci wirtualnej ExpressRoute można użyć istniejącej usługi Azure Virtual Network lub utworzyć nową.  
 
-Jeśli chcesz użyć istniejącego Virtual Network platformy Azure, upewnij się, że w sieci wirtualnej nie ma żadnych istniejących bram sieci wirtualnej ExpressRoute, a następnie wybierz ją na liście rozwijanej Virtual Network ekranu Tworzenie wdrożenia chmury prywatnej.
+- W przypadku istniejącej sieci wirtualnej platformy Azure:
+   1. Sprawdź, czy w sieci wirtualnej nie ma żadnych istniejących bram sieci wirtualnej ExpressRoute. 
+   1. Wybierz z listy **Virtual Network** istniejące Virtual Network platformy Azure.
 
-Jeśli wybrano opcję utworzenia nowego Virtual Network platformy Azure, można utworzyć je przed chwilą lub podczas wdrażania, klikając sekcję Utwórz nową opcję w Virtual Network na ekranie Tworzenie wdrożenia chmury prywatnej.
+- Nowe Virtual Network platformy Azure można utworzyć z wyprzedzeniem lub podczas wdrażania. Wybierz pozycję **Utwórz nowy** link poniżej listy **Virtual Network** .
 
-Poniżej znajduje się obraz ekranu **Tworzenie wdrożenia chmury prywatnej** , który jest wyświetlany w kolorze czerwonym, to pole **Virtual Network** platformy Azure, do którego odnosił się w tej sekcji.
+Na poniższej ilustracji przedstawiono ekran **Tworzenie wdrożenia chmury prywatnej** z wyróżnionym polem **Virtual Network** .
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-deployment-screen-vnet-circle.png" alt-text="Zrzut ekranu przedstawiający ekran wdrożenia rozwiązania VMware platformy Azure z zakreśloną bramą sieci wirtualnej.":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-deployment-screen-vnet-circle.png" alt-text="Zrzut ekranu przedstawiający ekran wdrożenia rozwiązania VMware platformy Azure z wyróżnionym polem Virtual Network.":::
 
 >[!NOTE]
 >Każda sieć wirtualna, która ma być używana lub utworzona, może być widoczna w środowisku lokalnym i w rozwiązaniu Azure VMware, dlatego należy się upewnić, że jakikolwiek segment IP używany w tej sieci wirtualnej i podsieci nie nakładają się na siebie.

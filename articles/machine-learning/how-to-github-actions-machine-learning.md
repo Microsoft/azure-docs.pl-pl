@@ -10,16 +10,16 @@ ms.author: jukullam
 ms.date: 10/19/2020
 ms.topic: conceptual
 ms.custom: github-actions-azure
-ms.openlocfilehash: e7f6066cb7ed5c166d3e2bdc3f895073b05b92b9
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 8bce95b65d9b944505d7f9153159b342e49427cd
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605029"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762918"
 ---
 # <a name="use-github-actions-with-azure-machine-learning"></a>Korzystanie z akcji usługi GitHub z Azure Machine Learning
 
-Rozpocznij pracę z [akcjami usługi GitHub](https://docs.github.com/en/free-pro-team@latest/actions) , aby nauczyć model na Azure Machine Learning. 
+Rozpocznij pracę z [akcjami usługi GitHub](https://docs.github.com/en/actions) , aby nauczyć model na Azure Machine Learning. 
 
 > [!NOTE]
 > Akcje usługi GitHub dla Azure Machine Learning są udostępniane w postaci, w jakiej są i nie są w pełni obsługiwane przez firmę Microsoft. Jeśli wystąpią problemy z konkretną akcją, Otwórz problem w repozytorium dla tej akcji. Na przykład jeśli wystąpi problem z akcją AML-Deploy, zgłoś problem w [https://github.com/Azure/aml-deploy]( https://github.com/Azure/aml-deploy) repozytorium.
@@ -221,7 +221,7 @@ jobs:
 
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli grupa zasobów i repozytorium nie są już potrzebne, Oczyść wdrożone zasoby, usuwając grupę zasobów i repozytorium GitHub. 
 

@@ -7,16 +7,16 @@ ms.date: 12/04/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: github-actions-azure
-ms.openlocfilehash: fec4ba8cba33a1d52d8f330308645fb616921ba4
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 1fe09970bcb9b9432b9b6f22de04bb24f1e84fa8
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98726811"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761764"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Wdrażanie niestandardowego kontenera do App Service przy użyciu akcji GitHub
 
-Dzięki [akcjom GitHub](https://docs.github.com/en/free-pro-team@latest/actions) można utworzyć zautomatyzowany przepływ pracy tworzenia oprogramowania. Za pomocą [akcji Web Deploy platformy Azure](https://github.com/Azure/webapps-deploy)można zautomatyzować przepływ pracy w celu wdrożenia niestandardowych kontenerów do [App Service](overview.md) przy użyciu akcji usługi GitHub.
+Dzięki [akcjom GitHub](https://docs.github.com/en/actions) można utworzyć zautomatyzowany przepływ pracy tworzenia oprogramowania. Za pomocą [akcji Web Deploy platformy Azure](https://github.com/Azure/webapps-deploy)można zautomatyzować przepływ pracy w celu wdrożenia niestandardowych kontenerów do [App Service](overview.md) przy użyciu akcji usługi GitHub.
 
 Przepływ pracy jest definiowany przez plik YAML (. yml) w `/.github/workflows/` ścieżce w repozytorium. Ta definicja zawiera różne kroki i parametry, które znajdują się w przepływie pracy.
 
@@ -39,7 +39,7 @@ W przypadku przepływu pracy kontenera Azure App Service plik ma trzy sekcje:
 
 Zalecanym sposobem uwierzytelniania przy użyciu usługi Azure App Services na potrzeby akcji GitHub jest profil publikowania. Można także uwierzytelnić się za pomocą nazwy głównej usługi, ale proces wymaga większej liczby kroków. 
 
-Zapisz poświadczenia profilu publikowania lub nazwę główną usługi jako [wpis tajny serwisu GitHub](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets) , aby uwierzytelnić się na platformie Azure. Będziesz uzyskiwać dostęp do wpisu tajnego w ramach przepływu pracy. 
+Zapisz poświadczenia profilu publikowania lub nazwę główną usługi jako [wpis tajny serwisu GitHub](https://docs.github.com/en/actions/reference/encrypted-secrets) , aby uwierzytelnić się na platformie Azure. Będziesz uzyskiwać dostęp do wpisu tajnego w ramach przepływu pracy. 
 
 # <a name="publish-profile"></a>[Publikuj profil](#tab/publish-profile)
 
@@ -273,7 +273,7 @@ Zestaw akcji można znaleźć w różnych repozytoriach w usłudze GitHub, z kt�
 
 - [Logowanie/wylogowywanie platformy Docker](https://github.com/Azure/docker-login)
 
-- [Zdarzenia wyzwalające przepływy pracy](https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows)
+- [Zdarzenia wyzwalające przepływy pracy](https://docs.github.com/en/actions/reference/events-that-trigger-workflows)
 
 - [K8s wdrażanie](https://github.com/Azure/k8s-deploy)
 

@@ -7,12 +7,12 @@ ms.date: 05/14/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 1fb17d56c546511fee291f30b103a5310c8015cc
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 12485e07bc3cad9d420141ecc6ee66763ac010b7
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122267"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760760"
 ---
 # <a name="monitor-the-overall-health-of-the-devices-connected-to-an-iot-central-application"></a>Monitorowanie ogólnej kondycji urządzeń podłączonych do aplikacji IoT Central
 
@@ -60,4 +60,4 @@ Metryki mogą różnić się od liczb widocznych na fakturze usługi Azure IoT C
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy wiesz już, jak korzystać z szablonów aplikacji, sugerowanym następnym krokiem jest zapoznanie się z tematem jak [zarządzać IoT Central z Azure Portal](howto-manage-iot-central-from-portal.md)
+Teraz, gdy wiesz już, jak korzystać z szablonów aplikacji, sugerowanym następnym krokiem jest zapoznanie się z tematem jak [zarządzać IoT Central z Azure Portal](howto-manage-iot-central-from-portal.md).

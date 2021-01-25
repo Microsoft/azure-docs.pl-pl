@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: a4a7b7a4008d5cc4636e2d533c225a618f35af05
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: e43c5fb36c5395e12fd0b9c2c67b787a1137f5d0
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611189"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761978"
 ---
 # <a name="troubleshooting-problems-in-itsm-connector"></a>Rozwiązywanie problemów w łączniku ITSM
 
@@ -43,24 +43,23 @@ Jeśli używasz Service Map, możesz wyświetlić elementy pomocy technicznej ut
 
 ![Zrzut ekranu przedstawiający ekran Log Analytics.](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
 
-## <a name="troubleshoot-itsm-connections"></a>Rozwiązywanie problemów z połączeniami narzędzia ITSM
-
-- Jeśli połączenie z systemem narzędzia ITSM nie powiedzie się i **wystąpi błąd podczas zapisywania komunikatu połączenia** , wykonaj następujące czynności:
-   - Dla połączeń usługi ServiceNow, Cherwell i Provance:  
-     - Upewnij się, że poprawnie wprowadzono nazwę użytkownika, hasło, identyfikator klienta i klucz tajny klienta dla każdego połączenia.  
-     - Upewnij się, że masz wystarczające uprawnienia do odpowiedniego produktu narzędzia ITSM, aby nawiązać połączenie.  
-   - Dla połączeń Service Manager:  
-     - Upewnij się, że aplikacja sieci Web została pomyślnie wdrożona, a połączenie hybrydowe zostało utworzone. Aby sprawdzić, czy połączenie zostało pomyślnie nawiązane z lokalnym komputerem Service Manager, przejdź do adresu URL aplikacji sieci Web, zgodnie z opisem w dokumentacji dotyczącej tworzenia [połączenia hybrydowego](./itsmc-connections-scsm.md#configure-the-hybrid-connection).  
-
-- Jeśli Log Analytics alerty są wyzwalane, ale elementy robocze nie są tworzone w produkcie narzędzia ITSM, jeśli elementy konfiguracji nie są tworzone/połączone z elementami roboczymi lub innych informacji, zobacz następujące zasoby:
-   -  ITSMC: rozwiązanie pokazuje [Podsumowanie połączeń](itsmc-dashboard.md), elementów roboczych, komputerów i nie tylko. Wybierz kafelek z etykietą **stanu łącznika** . Wykonanie tej czynności spowoduje przeprowadzenie **rejestrowania wyszukiwania** przy użyciu odpowiedniego zapytania. `LogType_S`Aby uzyskać więcej informacji, zobacz rekordy dziennika z a `ERROR` .
-   Szczegółowe informacje o komunikatach znajdują się w [tabeli.](itsmc-dashboard-errors.md)
-   - Strona **przeszukiwania dzienników** : Wyświetl błędy i powiązane informacje bezpośrednio przy użyciu zapytania `*ServiceDeskLog_CL*` .
-
 ## <a name="common-symptoms---how-should-it-be-resolved"></a>Często spotykane objawy — jak należy je rozwiązać?
 
 Poniższa lista zawiera typowe objawy i sposób ich rozwiązywania:
 
+* **Objaw**: Jeśli połączenie z systemem narzędzia ITSM nie powiedzie się i **wystąpi błąd podczas zapisywania komunikatu połączenia** .
+
+    **Przyczyna**: Przyczyna może być jedną z opcji:
+    * Nieprawidłowe poświadczenia
+     * Niewystarczające uprawnienia
+     * Aplikacja sieci Web powinna zostać wdrożona prawidłowo
+
+    **Rozwiązanie**:
+    * Dla połączeń usługi ServiceNow, Cherwell i Provance:
+        * Upewnij się, że poprawnie wprowadzono nazwę użytkownika, hasło, identyfikator klienta i klucz tajny klienta dla każdego połączenia.  
+        * W przypadku usługi ServiceNow: Upewnij się, że masz wystarczające uprawnienia w odpowiednim produkcie narzędzia ITSM, aby nawiązać połączenie w [określony](itsmc-connections-servicenow.md#install-the-user-app-and-create-the-user-role)sposób.
+  * Dla połączeń Service Manager:  
+      * Upewnij się, że aplikacja sieci Web została pomyślnie wdrożona, a połączenie hybrydowe zostało utworzone. Aby sprawdzić, czy połączenie zostało pomyślnie nawiązane z lokalnym komputerem Service Manager, przejdź do adresu URL aplikacji sieci Web, zgodnie z opisem w dokumentacji dotyczącej tworzenia [połączenia hybrydowego](./itsmc-connections-scsm.md#configure-the-hybrid-connection).  
 * **Objaw**: utworzono zduplikowane elementy robocze
 
     **Przyczyna**: Przyczyna może być jedną z dwóch opcji:

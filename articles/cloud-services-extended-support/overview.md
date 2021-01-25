@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: cf7c4b881697b664403d8c817c3b9e48fb48944d
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 969f60cd92e8c1cbe93f1646cccd08c942ad9923
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746768"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762833"
 ---
 # <a name="about-azure-cloud-services-extended-support"></a>Informacje o usłudze Azure Cloud Services (obsługa rozszerzona)
 
@@ -27,9 +27,11 @@ Wprowadzenie tej zmiany spowoduje zmianę nazwy modelu wdrożenia opartego na us
 
 ## <a name="what-does-not-change"></a>Co nie zmienia 
 - Tworzysz kod, zdefiniujesz konfiguracje i wdrażasz ją na platformie Azure. Platforma Azure konfiguruje środowisko obliczeniowe, uruchamia kod, a następnie monitoruje go i utrzymuje.
-- Cloud Services (obsługa rozszerzona) obsługuje również dwa typy ról, [sieci Web i procesu roboczego](../cloud-services/cloud-services-choose-me.md). 
-- Są przenoszone trzy składniki, definicja usługi (. csdef), konfiguracja usługi (. cscfg) i pakiet usługi (. cspkg) usługi w chmurze, a w ich [formatach](cloud-services-model-and-package.md)nie wprowadzono żadnych zmian. 
-- Do kodu środowiska uruchomieniowego nie są wymagane żadne zmiany, ponieważ płaszczyzna danych jest taka sama, a płaszczyzna kontroli jest zmieniana.  
+- Cloud Services (obsługa rozszerzona) obsługuje również dwa typy ról, [sieci Web i procesu roboczego](../cloud-services/cloud-services-choose-me.md). Nie wprowadzono żadnych zmian dotyczących projektowania, architektury ani składników ról sieci Web i procesu roboczego. 
+- Są przenoszone trzy składniki usługi w chmurze, definicji usługi (. csdef), konfiguracji usługi (. cscfg) i pakietu usługi (. cspkg), a w ich [formatach](cloud-services-model-and-package.md)nie wprowadzono żadnych zmian. 
+- Do kodu środowiska uruchomieniowego nie są wymagane żadne zmiany, ponieważ płaszczyzna danych jest taka sama, a płaszczyzna kontroli jest zmieniana. 
+- Wersje GuestOS platformy Azure i skojarzone aktualizacje są wyrównane z Cloud Services (klasyczne)
+- Podstawowy proces aktualizacji w odniesieniu do domen aktualizacji, sposób uaktualniania, wycofywania i dozwolone zmiany usługi podczas aktualizacji nie zmieniają się
 
 ## <a name="changes-in-deployment-model"></a>Zmiany w modelu wdrażania
 

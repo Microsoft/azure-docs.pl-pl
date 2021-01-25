@@ -2,14 +2,14 @@
 title: Dostępność i spójność — Event Hubs platformy Azure | Microsoft Docs
 description: Jak zapewnić maksymalną ilość dostępności i spójność za pomocą usługi Azure Event Hubs przy użyciu partycji.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 01/25/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7b97d76f29ee8b7e44373c865baa09ba5ea4dd23
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 5ffa2df992eb0c22aafbbb7436250405998d8073
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631923"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762806"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Availability and consistency in Event Hubs (Dostępność i spójność w usłudze Event Hubs)
 
@@ -22,6 +22,11 @@ Brewer theorem definiuje spójność i dostępność w następujący sposób:
 * Tolerancja partycji: możliwość systemu przetwarzania danych kontynuuje przetwarzanie danych, nawet jeśli wystąpi awaria partycji.
 * Dostępność: węzeł niepowodujący awarii zwraca rozsądną odpowiedź w rozsądnym czasie (bez błędów lub przekroczeń limitu czasu).
 * Spójność: Odczyt jest gwarantowany do zwrócenia najnowszej zapis dla danego klienta.
+
+> [!NOTE]
+> Termin **partycji** jest używany w różnych kontekstach w Event HUBS i Cap theorem. 
+> - **Event Hubs** organizuje zdarzenia w co najmniej jednej partycji. Partycje są niezależne i zawierają własną sekwencję danych, ale często rosną przy różnych stawkach. Aby uzyskać więcej informacji, zobacz [partycje](event-hubs-features.md#partitions).
+> - W programie **Cap theorem** partycja to przerwa w komunikacji między węzłami w systemie rozproszonym.
 
 ## <a name="partition-tolerance"></a>Tolerancja partycji
 Event Hubs jest tworzona na podstawie partycjonowanego modelu danych. Można skonfigurować liczbę partycji w centrum zdarzeń podczas instalacji, ale nie można zmienić tej wartości później. Ze względu na to, że należy używać partycji z Event Hubs, należy podjąć decyzję dotyczącą dostępności i spójności aplikacji.

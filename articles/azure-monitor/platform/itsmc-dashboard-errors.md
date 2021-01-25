@@ -6,20 +6,20 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/18/2021
-ms.openlocfilehash: 9521c13b21317bb0a782b0bea0b08312ff24b113
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: c3e6408a6a3473380edbe2966eba41970bd73562
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610356"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762768"
 ---
-# <a name="errors-in-the-connector-status"></a>Błędy w stanie łącznika
+# <a name="errors-in-the-connector-status-section"></a>Błędy w sekcji stan łącznika
 
-Na liście stan łącznika można znaleźć błędy, które mogą pomóc w rozwiązaniu problemów w łączniku narzędzia ITSM.
+W sekcji Lista Stanów łącznika na pulpicie nawigacyjnym można znaleźć błędy, które mogą pomóc w rozwiązaniu problemów z łącznikiem narzędzia ITSM.
 
 ## <a name="status-common-errors"></a>Typowe błędy stanu
 
-w tej sekcji znajdują się typowe błędy, które przedstawiono w sekcji stan łącznika i jak należy rozwiązać ten problem:
+W tej sekcji znajdują się typowe błędy, które przedstawiono w sekcji stan łącznika i jak należy je rozwiązać:
 
 * **Błąd**: "Nieoczekiwana odpowiedź z usługi ServiceNow wraz z kodem stanu sukcesu. Odpowiedź: {"import_set": "{import_set_id}", "staging_table": "x_mioms_microsoft_oms_incident", "result": [{"transform_map": "zdarzenie pakietu OMS", "Tabela": "zdarzenie", "stan": "błąd", "error_message": "{docelowy rekord nie został znaleziony | Nieprawidłowa tabela | Nieprawidłowa tabela przemieszczania "}"
 
@@ -27,7 +27,7 @@ w tej sekcji znajdują się typowe błędy, które przedstawiono w sekcji stan �
   * Skrypt niestandardowy wdrożony w wystąpieniu usługi ServiceNow powoduje ignorowanie zdarzeń.
   * "Aplikacja integratora pakietu OMS" została zmodyfikowana po stronie usługi ServiceNow, np. za pomocą skryptu onbefore.
 
-  **Rozwiązanie**: Wyłącz wszystkie niestandardowe skrypty lub modyfikacje kodu ścieżki importu danych.
+  **Rozwiązanie**: Wyłącz wszystkie niestandardowe skrypty lub modyfikacje kodu.
 
 * **Błąd**: "{" Error ": {" Message ":" operacja nie powiodła się "," Detail ":" Aktualizacja wyjątku listy ACL nie powiodła się z powodu ograniczeń zabezpieczeń "}"
 
@@ -58,7 +58,7 @@ w tej sekcji znajdują się typowe błędy, które przedstawiono w sekcji stan �
     **Przyczyna**: Łącznik ITSM został usunięty.
 
     **Rozwiązanie**: Łącznik ITSM zostało usunięte, ale nie zdefiniowano dla niej grup akcji narzędzia ITSM. Istnieją dwie opcje rozwiązania tego problemu:
-  * Znajdowanie i wyłączanie lub usuwanie tej akcji
+  * Znajdowanie i wyłączanie lub usuwanie tych grup akcji
   * [Skonfiguruj ponownie grupę akcji](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts) , aby użyć istniejącej łącznik ITSM.
   * [Utwórz nowy łącznik narzędzia ITSM](./itsmc-definition.md#create-an-itsm-connection) i [Skonfiguruj ponownie grupę akcji, aby z niej korzystać](itsmc-definition.md#create-itsm-work-items-from-azure-alerts).
 

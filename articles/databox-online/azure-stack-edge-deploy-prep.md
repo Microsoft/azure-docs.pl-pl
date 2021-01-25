@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/06/2021
+ms.date: 01/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: aabc141666fe5c9fb52a3eac5ee1866f390e4551
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 07b526d443b5f1b41bc6f811b7cccc0fbc6165ee
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968502"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761713"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro"></a>Samouczek: przygotowanie do wdrożenia Azure Stack EDGE Pro  
 
@@ -22,7 +22,7 @@ Jest to pierwszy samouczek z serii samouczków dotyczących wdrażania, które s
 
 Do ukończenia procesu instalacji i konfiguracji niezbędne są uprawnienia administratora. Przygotowanie portalu zajmuje mniej niż 10 minut.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -37,7 +37,7 @@ Aby wdrożyć Azure Stack EDGE Pro, zapoznaj się z poniższymi samouczkami w ok
 
 | **#** | **W tym kroku** | **Skorzystaj z tych dokumentów** |
 | --- | --- | --- | 
-| 1. |**[Przygotuj Azure Portal dla Azure Stack EDGE Pro](azure-stack-edge-deploy-prep.md)** |Przed zainstalowaniem urządzenia z systemem Azure Stack Edge należy utworzyć i skonfigurować zasób brzegowy Azure Stack. |
+| 1. |**[Przygotuj Azure Portal dla Azure Stack EDGE Pro](azure-stack-edge-deploy-prep.md)** |Utwórz i skonfiguruj zasób Azure Stack Edge przed zainstalowaniem urządzenia fizycznego z krawędzią okna Azure Stack. |
 | 2. |**[Zainstaluj Azure Stack EDGE Pro](azure-stack-edge-deploy-install.md)**|Rozpakuj, stojak i podłącz kable do urządzenia fizycznego w Azure Stack EDGE Pro.  |
 | 3. |**[Łączenie, Konfigurowanie i aktywowanie Azure Stack EDGE Pro](azure-stack-edge-deploy-connect-setup-activate.md)** |Nawiąż połączenie z lokalnym internetowym interfejsem użytkownika, przeprowadź konfigurację urządzenia i je aktywuj. Urządzenie jest gotowe do skonfigurowania udziałów SMB lub NFS.  |
 | 4. |**[Transferowanie danych za pomocą Azure Stack EDGE Pro](azure-stack-edge-deploy-add-shares.md)** |Dodaj udziały i nawiąż z nimi połączenie za pomocą protokołu SMB lub NFS. |
@@ -53,7 +53,7 @@ Poniżej przedstawiono wymagania wstępne dotyczące konfiguracji dla zasobu us�
 
 Przed rozpoczęciem upewnij się, że:
 
-* Twoja subskrypcja platformy Microsoft Azure obsługuje zasób rozwiązania Azure Stack Edge. Upewnij się, że użyto obsługiwanej subskrypcji, takiej jak [Microsoft Umowa Enterprise (EA)](https://azure.microsoft.com/overview/sales-number/), [dostawca rozwiązań w chmurze (CSP)](/partner-center/azure-plan-lp)lub [dostęp sponsorowany Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0036p/). Subskrypcje z płatnością zgodnie z rzeczywistym użyciem nie są obsługiwane.
+* Twoja subskrypcja platformy Microsoft Azure obsługuje zasób rozwiązania Azure Stack Edge. Upewnij się, że użyto obsługiwanej subskrypcji, takiej jak [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [dostawca rozwiązań w chmurze (CSP)](/partner-center/azure-plan-lp)lub [dostęp sponsorowany Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0036p/). Subskrypcje z płatnością zgodnie z rzeczywistym użyciem nie są obsługiwane.
 
 * Masz uprawnienia właściciela lub współautora na poziomie grupy zasobów dla Azure Stack Edge/Data Box Gateway, IoT Hub i zasobów usługi Azure Storage.
 
@@ -118,14 +118,14 @@ Aby utworzyć zasób Azure Stack Edge, wykonaj następujące czynności w Azure 
 
     |Ustawienie  |Wartość  |
     |---------|---------|
-    |Nazwa   | Przyjazna nazwa identyfikująca zasób.<br>Nazwa może zawierać od 2 do 50 znaków, w tym litery, cyfry i łączniki.<br> Nazwa rozpoczyna się i kończy literą lub cyfrą.        |
+    |Nazwa   | Przyjazna nazwa identyfikująca zasób.<br>Nazwa ma od 2 do 50 znaków, w tym liter, cyfr i łączników.<br> Nazwa rozpoczyna się i kończy literą lub cyfrą.        |
     |Region (Region)     |Aby uzyskać listę wszystkich regionów, w których jest dostępny zasób Azure Stack Edge, zobacz [dostępność produktów platformy Azure według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). W przypadku korzystania z Azure Government wszystkie regiony rządowe są dostępne, jak pokazano w [regionach świadczenia usługi Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Wybierz lokalizację najbliżej regionu geograficznego, w którym chcesz wdrożyć urządzenie.|
 
     ![Szczegóły projektu i wystąpienia](media/azure-stack-edge-deploy-prep/data-box-edge-resource.png)
 
 5. Wybierz pozycję **Dalej: adres wysyłkowy**.
 
-    - Jeśli masz już urządzenie, zaznacz pole kombi dla **urządzenia z Azure Stack EDGE Pro**.
+    - Jeśli masz już urządzenie, zaznacz pole kombi dla **urządzenia z Azure Stack Edge**.
     - Jeśli jest to nowe urządzenie, które ma być uporządkowane, wprowadź nazwę kontaktu, firmę, adres, który ma zostać wysłany do urządzenia, i informacje kontaktowe.
 
     ![Adres wysyłkowy dla nowego urządzenia](media/azure-stack-edge-deploy-prep/data-box-edge-resource1.png)
@@ -138,19 +138,23 @@ Aby utworzyć zasób Azure Stack Edge, wykonaj następujące czynności w Azure 
 
 8. Wybierz przycisk **Utwórz**.
 
-Tworzenie zasobu trwa kilka minut. Po pomyślnym utworzeniu i wdrożeniu zasobu zostanie wyświetlone powiadomienie. Wybierz pozycję **Przejdź do zasobu**.
+   Tworzenie zasobu trwa kilka minut. Po pomyślnym utworzeniu i wdrożeniu zasobu zostanie wyświetlone powiadomienie. Wybierz pozycję **Przejdź do zasobu**.
 
-![Przejdź do zasobu Azure Stack Edge](media/azure-stack-edge-deploy-prep/data-box-edge-resource3.png)
+   ![Przejdź do zasobu Azure Stack Edge](media/azure-stack-edge-deploy-prep/data-box-edge-resource3.png)
 
 Po złożeniu zamówienia firma Microsoft przegląda zamówienie i dotrze do Ciebie (za pośrednictwem poczty e-mail), podając szczegóły dotyczące wysyłki.
 
 ![Powiadomienie o przeglądzie kolejności Pro Azure Stack Edge](media/azure-stack-edge-deploy-prep/data-box-edge-resource4.png)
 
+
+> [!NOTE]
+> Jeśli chcesz utworzyć wiele zamówień w tym samym czasie lub sklonować istniejące zamówienie, możesz użyć [skryptów w przykładach platformy Azure](https://github.com/Azure-Samples/azure-stack-edge-order). Aby uzyskać więcej informacji, zobacz plik Readme.
+
 ## <a name="get-the-activation-key"></a>Uzyskiwanie klucza aktywacji
 
 Po rozpoczęciu i uruchomieniu Azure Stack brzegowej należy uzyskać klucz aktywacji. Ten klucz służy do uaktywniania i łączenia urządzenia Azure Stack EDGE Pro z zasobem. Ten klucz można uzyskać już teraz za pośrednictwem witryny Azure Portal.
 
-1. Przejdź do utworzonego zasobu i wybierz pozycję **Przegląd**. Zobaczysz powiadomienie, że Twoje zamówienie jest przetwarzane.
+1. Przejdź do utworzonego zasobu, a następnie wybierz pozycję **Przegląd**. Zobaczysz powiadomienie, że Twoje zamówienie jest przetwarzane.
 
     ![Wybierz przegląd](media/azure-stack-edge-deploy-prep/data-box-edge-select-devicesetup.png)
 

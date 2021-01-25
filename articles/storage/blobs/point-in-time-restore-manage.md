@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/28/2020
+ms.date: 01/15/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 7bd85c60025475e8208847a12ccc2729743a975a
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: f550f96a8bd2e402556089061604654b11d47844
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803922"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762895"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>Wykonaj przywracanie do punktu w czasie dla danych blokowych obiektów BLOB
 
@@ -23,7 +23,7 @@ Możesz użyć przywracania do punktu w czasie, aby przywrócić jeden lub więc
 Aby dowiedzieć się więcej o przywracaniu do punktu w czasie, zobacz [przywracanie do punktu w czasie dla blokowych obiektów BLOB](point-in-time-restore-overview.md).
 
 > [!CAUTION]
-> Przywracanie do punktu w czasie obsługuje operacje przywracania tylko dla blokowych obiektów BLOB. Nie można przywrócić operacji na kontenerach. W przypadku usunięcia kontenera z konta magazynu przez wywołanie operacji [usuwania kontenera](/rest/api/storageservices/delete-container) nie można przywrócić tego kontenera przy użyciu operacji przywracania. Zamiast usuwać cały kontener, Usuń pojedyncze obiekty blob, jeśli chcesz je później przywrócić.
+> Przywracanie do punktu w czasie obsługuje operacje przywracania tylko dla blokowych obiektów BLOB. Nie można przywrócić operacji na kontenerach. W przypadku usunięcia kontenera z konta magazynu przez wywołanie operacji [usuwania kontenera](/rest/api/storageservices/delete-container) nie można przywrócić tego kontenera przy użyciu operacji przywracania. Zamiast usuwać cały kontener, Usuń pojedyncze obiekty blob, jeśli chcesz je później przywrócić. Ponadto firma Microsoft zaleca włączenie usuwania nietrwałego dla kontenerów i obiektów BLOB w celu ochrony przed przypadkowym usunięciem. Aby uzyskać więcej informacji, zobacz [usuwanie nietrwałe dla kontenerów (wersja zapoznawcza)](soft-delete-container-overview.md) i [usuwanie nietrwałe dla obiektów BLOB](soft-delete-blob-overview.md).
 
 ## <a name="enable-and-configure-point-in-time-restore"></a>Włącz i skonfiguruj przywracanie do punktu w czasie
 
@@ -52,19 +52,16 @@ Na poniższej ilustracji przedstawiono konto magazynu skonfigurowane do przywrac
 
 # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
-Aby skonfigurować przywracanie do punktu w czasie za pomocą programu PowerShell, najpierw zainstaluj moduł [AZ. Storage](https://www.powershellgallery.com/packages/Az.Storage) w wersji 2.6.0 lub nowszej. Następnie Wywołaj polecenie Enable-AzStorageBlobRestorePolicy, aby włączyć przywracanie do punktu w czasie dla konta magazynu.
+Aby skonfigurować przywracanie do punktu w czasie za pomocą programu PowerShell, najpierw zainstaluj moduł [AZ. Storage](https://www.powershellgallery.com/packages/Az.Storage) w wersji 2.6.0 lub nowszej. Następnie Wywołaj polecenie [enable-AzStorageBlobRestorePolicy](/powershell/module/az.storage/enable-azstorageblobrestorepolicy) , aby włączyć przywracanie do punktu w czasie dla konta magazynu.
 
-Poniższy przykład włącza nietrwałe usuwanie i ustawia okres przechowywania nietrwałego, umożliwia tworzenie źródła zmian i przechowywanie wersji, a następnie włącza przywracanie do punktu w czasie.    Podczas uruchamiania przykładu Pamiętaj, aby zastąpić wartości w nawiasach ostrych własnymi wartościami:
+Poniższy przykład włącza nietrwałe usuwanie i ustawia okres przechowywania nietrwałego, umożliwia tworzenie źródła zmian i przechowywanie wersji, a następnie włącza przywracanie do punktu w czasie. Podczas uruchamiania przykładu Pamiętaj, aby zastąpić wartości w nawiasach ostrych własnymi wartościami:
 
 ```powershell
-# Sign in to your Azure account.
-Connect-AzAccount
-
 # Set resource group and account variables.
 $rgName = "<resource-group>"
 $accountName = "<storage-account>"
 
-# Enable soft delete with a retention of 14 days.
+# Enable blob soft delete with a retention of 14 days.
 Enable-AzStorageBlobDeleteRetentionPolicy -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
     -RetentionDays 14
@@ -87,11 +84,33 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
     -StorageAccountName $accountName
 ```
 
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+Aby skonfigurować przywracanie do punktu w czasie za pomocą interfejsu wiersza polecenia platformy Azure, najpierw zainstaluj interfejs wiersza polecenia platformy Azure w wersji 2.2.0 lub nowszej. Następnie Wywołaj polecenie [AZ Storage account BLOB-Service-Properties Update](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_update) , aby włączyć przywracanie do punktu w czasie oraz inne wymagane ustawienia ochrony danych dla konta magazynu.
+
+Poniższy przykład włącza nietrwałe usuwanie i ustawia okres przechowywania nietrwałego do 14 dni, umożliwia tworzenie źródła zmian i przechowywanie wersji oraz włącza przywracanie do punktu w czasie z okresem przywracania wynoszącym 7 dni. Podczas uruchamiania przykładu Pamiętaj, aby zastąpić wartości w nawiasach ostrych własnymi wartościami:
+
+```azurecli
+az storage account blob-service-properties update \
+    --resource-group <resource_group> \
+    --account-name <storage-account> \
+    --enable-delete-retention true \
+    --delete-retention-days 14 \
+    --enable-versioning true \
+    --enable-change-feed true \
+    --enable-restore-policy true \
+    --restore-days 7
+```
+
 ---
 
-## <a name="perform-a-restore-operation"></a>Wykonaj operację przywracania
+## <a name="choose-a-restore-point"></a>Wybierz punkt przywracania
 
-Podczas wykonywania operacji przywracania należy określić punkt przywracania jako wartość **daty i godziny** UTC. Kontenery i obiekty blob zostaną przywrócone do ich stanu w tym dniu i czasie. Wykonanie operacji przywracania może potrwać kilka minut.
+Punkt przywracania to data i godzina przywrócenia danych. Usługa Azure Storage zawsze używa wartości daty/godziny UTC jako punktu przywracania. Jednak Azure Portal umożliwia określenie punktu przywracania w czasie lokalnym, a następnie konwersję tej wartości daty/godziny na wartość daty/godziny UTC w celu wykonania operacji przywracania.
+
+Podczas wykonywania operacji przywracania przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure należy określić punkt przywracania jako wartość daty/godziny UTC. Jeśli punkt przywracania został określony z wartością czasu lokalnego zamiast wartości czasu UTC, operacja przywracania może nadal działać zgodnie z oczekiwaniami w niektórych przypadkach. Na przykład, jeśli czas lokalny jest UTC minus pięć godzin, a następnie określenie wartości czasu lokalnego spowoduje, że punkt przywracania będzie miał 5 godzin wcześniej od podanej wartości. Jeśli nie wprowadzono żadnych zmian w danych w zakresie, który ma zostać przywrócony w tym okresie pięciu godzin, operacja przywracania będzie generować te same wyniki, niezależnie od tego, która wartość czasu została podana. Zaleca się określenie czasu UTC dla punktu przywracania, aby uniknąć nieoczekiwanych wyników.
+
+## <a name="perform-a-restore-operation"></a>Wykonaj operację przywracania
 
 Można przywrócić wszystkie kontenery na koncie magazynu lub można przywrócić szereg obiektów BLOB w jednym lub większej liczbie kontenerów. Zakres obiektów BLOB jest zdefiniowany lexicographically, znaczenie w kolejności słownika. Dla operacji przywracania obsługiwane są maksymalnie dziesięć zakresów lexicographical. Początek zakresu jest włącznie, a koniec zakresu jest na wyłączność.
 
@@ -128,7 +147,7 @@ Aby przywrócić wszystkie kontenery i obiekty blob na koncie magazynu przy uży
 
 # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
-Aby przywrócić wszystkie kontenery i obiekty blob na koncie magazynu przy użyciu programu PowerShell, wywołaj polecenie **Restore-AzStorageBlobRange** . Domyślnie polecenie **Restore-AzStorageBlobRange** jest uruchamiane asynchronicznie i zwraca obiekt typu **PSBlobRestoreStatus** , którego można użyć do sprawdzenia stanu operacji przywracania.
+Aby przywrócić wszystkie kontenery i obiekty blob na koncie magazynu przy użyciu programu PowerShell, wywołaj polecenie **Restore-AzStorageBlobRange** i Podaj punkt przywracania jako wartość daty/godziny UTC. Domyślnie polecenie **Restore-AzStorageBlobRange** jest uruchamiane asynchronicznie i zwraca obiekt typu **PSBlobRestoreStatus** , którego można użyć do sprawdzenia stanu operacji przywracania.
 
 Poniższy przykład asynchronicznie przywraca kontenery na koncie magazynu do ich stanu 12 godzin przed chwilą i sprawdza niektóre właściwości operacji przywracania:
 
@@ -136,7 +155,7 @@ Poniższy przykład asynchronicznie przywraca kontenery na koncie magazynu do ic
 # Specify -TimeToRestore as a UTC value
 $restoreOperation = Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
-    -TimeToRestore (Get-Date).AddHours(-12)
+    -TimeToRestore (Get-Date).ToUniversalTime().AddHours(-12)
 
 # Get the status of the restore operation.
 $restoreOperation.Status
@@ -153,6 +172,22 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
     -TimeToRestore (Get-Date).AddHours(-12) -WaitForComplete
 ```
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+Aby przywrócić wszystkie kontenery i obiekty blob na koncie magazynu przy użyciu interfejsu wiersza polecenia platformy Azure, wywołaj polecenie [AZ Storage BLOB Restore](/cli/azure/storage/blob#az_storage_blob_restore) i Podaj punkt przywracania jako wartość daty/godziny UTC.
+
+Poniższy przykład asynchronicznie przywraca wszystkie kontenery na koncie magazynu do ich stanu 12 godzin przed określoną datą i godziną. Aby sprawdzić stan operacji przywracania, wywołaj [AZ Storage account show](/cli/azure/storage/account#az_storage_account_show):
+
+```azurecli
+az storage blob restore \
+    --resource-group <resource_group> \
+    --account-name <storage-account> \
+    --time-to-restore 2021-01-14T06:31:22Z \
+    --no-wait
+```
+
+Aby uruchomić polecenie **AZ Storage BLOB Restore** synchronicznie i zablokować wykonywanie do momentu ukończenia operacji przywracania, Pomiń `--no-wait` parametr.
 
 ---
 
@@ -244,6 +279,25 @@ $restoreOperation.Parameters.BlobRanges
 ```
 
 Aby uruchomić operację przywracania synchronicznie i zablokować wykonywanie do momentu ukończenia, należy uwzględnić parametr **-WaitForComplete** polecenia.
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+Aby przywrócić zakres obiektów blob, wywołaj polecenie [AZ Storage BLOB Restore](/cli/azure/storage/blob#az_storage_blob_restore) i określ zakres lexicographical nazw kontenerów i obiektów BLOB dla `--blob-range` parametru. Aby określić wiele zakresów, podaj `--blob-range` parametr dla każdego odrębnego zakresu.
+
+Na przykład aby przywrócić obiekty blob w pojedynczym kontenerze o nazwie *container1*, można określić zakres, który rozpoczyna się od *container1* i kończąc na *container2*. Nie ma wymagań dotyczących kontenerów o nazwie w zakresach początkowych i końcowych do istniejących. Ponieważ koniec zakresu ma charakter wyłączny, nawet jeśli konto magazynu zawiera kontener o nazwie *container2*, przywrócony zostanie tylko kontener o nazwie *container1* .
+
+Aby określić podzestaw obiektów BLOB w kontenerze do przywrócenia, użyj ukośnika (/), aby oddzielić nazwę kontenera od wzorca prefiksu obiektu BLOB. Poniższy przykład asynchronicznie przywraca zakres obiektów BLOB w kontenerze, których nazwy zaczynają się od litery `d` `f` .
+
+```azurecli
+az storage blob restore \
+    --account-name <storage-account> \
+    --time-to-restore 2021-01-14T06:31:22Z \
+    --blob-range container1 container2
+    --blob-range container3/d container3/g
+    --no-wait
+```
+
+Aby uruchomić polecenie **AZ Storage BLOB Restore** synchronicznie i zablokować wykonywanie do momentu ukończenia operacji przywracania, Pomiń `--no-wait` parametr.
 
 ---
 

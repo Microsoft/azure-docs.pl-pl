@@ -4,16 +4,16 @@ description: Skonfiguruj akcję GitHub, która automatyzuje kroki do kompilowani
 ms.topic: article
 ms.date: 08/20/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: c6c030e05953dc98c82c573704018c3b482d2fea
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 1409d8fc1430cd9bf67bd735d9826a74979d495b
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814282"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762956"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>Konfigurowanie akcji usługi GitHub w celu utworzenia wystąpienia kontenera
 
-[Akcje GitHub](https://docs.github.com/en/free-pro-team@latest/actions) to zestaw funkcji w usłudze GitHub umożliwiających automatyzację przepływów pracy tworzenia oprogramowania w tym samym miejscu, w którym można przechowywać kod i współpracować nad żądaniami ściągnięcia i problemami.
+[Akcje GitHub](https://docs.github.com/en/actions) to zestaw funkcji w usłudze GitHub umożliwiających automatyzację przepływów pracy tworzenia oprogramowania w tym samym miejscu, w którym można przechowywać kod i współpracować nad żądaniami ściągnięcia i problemami.
 
 Aby zautomatyzować wdrażanie pojedynczego kontenera do Azure Container Instances, użyj akcji [Wdróż do Azure Container Instances](https://github.com/azure/aci-deploy) GitHub. Akcja pozwala ustawić właściwości dla wystąpienia kontenera podobnego do tych w polecenia [AZ Container Create][az-container-create] .
 
@@ -177,7 +177,7 @@ Gdy zatwierdzisz plik przepływu pracy, przepływ pracy zostanie wyzwolony. Aby 
 
 ![Wyświetl postęp przepływu pracy](./media/container-instances-github-action/github-action-progress.png)
 
-Zobacz [Wyświetlanie historii przebiegu przepływu pracy](https://docs.github.com/en/free-pro-team@latest/actions/managing-workflow-runs/viewing-workflow-run-history) , aby uzyskać informacje na temat wyświetlania stanu i wyników każdego kroku w przepływie pracy. Jeśli przepływ pracy nie zostanie ukończony, zobacz [Przeglądanie dzienników w celu diagnozowania błędów](https://docs.github.com/en/free-pro-team@latest/actions/managing-workflow-runs/using-workflow-run-logs#viewing-logs-to-diagnose-failures).
+Zobacz [Wyświetlanie historii przebiegu przepływu pracy](https://docs.github.com/en/actions/managing-workflow-runs/viewing-workflow-run-history) , aby uzyskać informacje na temat wyświetlania stanu i wyników każdego kroku w przepływie pracy. Jeśli przepływ pracy nie zostanie ukończony, zobacz [Przeglądanie dzienników w celu diagnozowania błędów](https://docs.github.com/en/actions/managing-workflow-runs/using-workflow-run-logs#viewing-logs-to-diagnose-failures).
 
 Po pomyślnym ukończeniu przepływu pracy Pobierz informacje o wystąpieniu kontenera o nazwie *ACI-sampleapp* , uruchamiając polecenie [AZ Container show][az-container-show] . Zastąp nazwę grupy zasobów: 
 
@@ -237,7 +237,7 @@ az container app up \
 
 ### <a name="command-progress"></a>Postęp polecenia
 
-* Po wyświetleniu monitu podaj swoje poświadczenia usługi GitHub lub podaj [osobisty token dostępu GitHub](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token) , który ma *repozytorium* i zakresy *użytkowników* do uwierzytelniania na koncie usługi GitHub. Jeśli podano poświadczenia usługi GitHub, polecenie tworzy dla Ciebie dyspozycji. Postępuj zgodnie z dodatkowymi monitami, aby skonfigurować przepływ pracy.
+* Po wyświetleniu monitu podaj swoje poświadczenia usługi GitHub lub podaj [osobisty token dostępu GitHub](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) , który ma *repozytorium* i zakresy *użytkowników* do uwierzytelniania na koncie usługi GitHub. Jeśli podano poświadczenia usługi GitHub, polecenie tworzy dla Ciebie dyspozycji. Postępuj zgodnie z dodatkowymi monitami, aby skonfigurować przepływ pracy.
 
 * Polecenie tworzy wpisy tajne repozytorium dla przepływu pracy:
 
@@ -258,7 +258,7 @@ Workflow succeeded
 Your app is deployed at:  http://acr-build-helloworld-node.eastus.azurecontainer.io:8080/
 ```
 
-Aby wyświetlić stan przepływu pracy i wyniki każdego kroku w interfejsie użytkownika usługi GitHub, zobacz [Wyświetlanie historii przebiegu przepływu pracy](https://docs.github.com/en/free-pro-team@latest/actions/managing-workflow-runs/viewing-workflow-run-history).
+Aby wyświetlić stan przepływu pracy i wyniki każdego kroku w interfejsie użytkownika usługi GitHub, zobacz [Wyświetlanie historii przebiegu przepływu pracy](https://docs.github.com/en/actions/managing-workflow-runs/viewing-workflow-run-history).
 
 ### <a name="validate-workflow"></a>Sprawdź poprawność przepływu pracy
 

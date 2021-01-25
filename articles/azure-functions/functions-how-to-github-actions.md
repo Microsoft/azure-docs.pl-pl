@@ -6,18 +6,18 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, github-actions-azure
-ms.openlocfilehash: bc80a4f5c6c2919f0cb3faa15958fb75eed70270
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: cc356b307a752b10ba6f1c1a7151381c5644ca1e
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98035227"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762721"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Ciągłe dostarczanie za pomocą akcji GitHub
 
 Użyj [akcji usługi GitHub](https://github.com/features/actions) , aby zdefiniować przepływ pracy umożliwiający automatyczne Kompilowanie i wdrażanie kodu w aplikacji funkcji w Azure Functions. 
 
-W akcjach usługi GitHub [przepływ pracy](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) to zautomatyzowany proces zdefiniowany w repozytorium GitHub. Ten proces zawiera informacje dotyczące kompilowania i wdrażania projektu aplikacji funkcji w witrynie GitHub. 
+W akcjach usługi GitHub [przepływ pracy](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) to zautomatyzowany proces zdefiniowany w repozytorium GitHub. Ten proces zawiera informacje dotyczące kompilowania i wdrażania projektu aplikacji funkcji w witrynie GitHub. 
 
 Przepływ pracy jest definiowany przez plik YAML (. yml) w `/.github/workflows/` ścieżce w repozytorium. Ta definicja zawiera różne kroki i parametry wchodzące w skład przepływu pracy. 
 
@@ -40,7 +40,7 @@ W przypadku przepływu pracy Azure Functions plik ma trzy sekcje:
 
 Zalecanym sposobem uwierzytelniania przy użyciu Azure Functions na potrzeby akcji usługi GitHub jest użycie profilu publikowania. Można także uwierzytelnić się za pomocą nazwy głównej usługi. Aby dowiedzieć się więcej, zobacz [to repozytorium akcji](https://github.com/Azure/functions-action)w witrynie GitHub. 
 
-Po zapisaniu poświadczenia profilu publikowania jako [wpisu tajnego usługi GitHub](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets)będziesz używać tego klucza tajnego w ramach przepływu pracy do uwierzytelniania za pomocą platformy Azure. 
+Po zapisaniu poświadczenia profilu publikowania jako [wpisu tajnego usługi GitHub](https://docs.github.com/en/actions/reference/encrypted-secrets)będziesz używać tego klucza tajnego w ramach przepływu pracy do uwierzytelniania za pomocą platformy Azure. 
 
 #### <a name="download-your-publish-profile"></a>Pobieranie profilu publikowania
 

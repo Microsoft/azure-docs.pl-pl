@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/10/2020
+ms.date: 1/25/2021
 ms.author: kenwith
-ms.openlocfilehash: efdbec10c74a6b1892df13b8308538e61f42f679
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 2a27124ea76d6e5aaa7ec4b8ca36c388718ffb94
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98673505"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761310"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Samouczek — Dostosowywanie mapowania atrybutów aprowizacji użytkowników dla aplikacji SaaS w Azure Active Directory
 
@@ -75,7 +75,7 @@ Wraz z tą właściwością mapowania atrybutów obsługują również następuj
   - **Tylko podczas tworzenia** — Zastosuj to mapowanie tylko w przypadku akcji tworzenia użytkownika.
 
 ## <a name="matching-users-in-the-source-and-target--systems"></a>Dopasowanie użytkowników w systemach źródłowych i docelowych
-Usługę Azure AD Provisioning można wdrożyć w obu scenariuszach "greenfield" (w przypadku których użytkownicy nie opuszczają w systemie docelowym) i scenariuszy "brownfield" (w których użytkownicy już istnieją w systemie docelowym). Aby zapewnić obsługę obu scenariuszy, usługa aprowizacji używa koncepcji pasujących atrybutów. Zgodne atrybuty umożliwiają określenie sposobu unikatowego identyfikowania użytkownika w źródle i dopasowania go do użytkownika w miejscu docelowym. W ramach planowania wdrożenia Zidentyfikuj atrybut, którego można użyć do unikatowego identyfikowania użytkownika w systemie źródłowym i docelowym. Kwestie do uwagi:
+Usługę Azure AD Provisioning można wdrożyć zarówno w scenariuszach "zielonych pól" (w przypadku których użytkownicy nie opuszczają w systemie docelowym) i scenariuszy "brownfield" (w których użytkownicy już istnieją w systemie docelowym). Aby zapewnić obsługę obu scenariuszy, usługa aprowizacji używa koncepcji pasujących atrybutów. Zgodne atrybuty umożliwiają określenie sposobu unikatowego identyfikowania użytkownika w źródle i dopasowania go do użytkownika w miejscu docelowym. W ramach planowania wdrożenia Zidentyfikuj atrybut, którego można użyć do unikatowego identyfikowania użytkownika w systemie źródłowym i docelowym. Kwestie do uwagi:
 
 - **Zgodne atrybuty powinny być unikatowe:** Klienci często używają atrybutów, takich jak userPrincipalName, mail lub ID obiektu, jako pasującego atrybutu.
 - **Można użyć wielu atrybutów jako pasujących atrybutów:** Można zdefiniować wiele atrybutów do oceny w przypadku dopasowywania użytkowników i kolejności, w której są oceniane (zdefiniowane jako pierwszeństwo w interfejsie użytkownika). Jeśli na przykład zdefiniujesz trzy atrybuty jako pasujące atrybuty, a użytkownik zostanie jednoznacznie dopasowany po przeprowadzeniu oceny pierwszych dwóch atrybutów, usługa nie będzie szacować trzeciego atrybutu. Usługa oceni pasujące atrybuty w podanej kolejności i Zatrzymaj ocenę, gdy zostanie znalezione dopasowanie.  
@@ -156,6 +156,7 @@ Atrybuty niestandardowe nie mogą być atrybutami referencyjnymi, atrybutami wie
       "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
       "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User"],
      "userName":"bjensen",
+     "id": "48af03ac28ad4fb88478",
      "externalId":"bjensen",
      "name":{
        "formatted":"Ms. Barbara J Jensen III",
