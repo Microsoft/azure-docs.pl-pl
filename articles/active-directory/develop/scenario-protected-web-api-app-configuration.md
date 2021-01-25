@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 9ffb77db4f7bcd5a07e25085eed17e8972aa9a33
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 3a26157949ff6ef69c9c009dfdd40781b47bc761
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683763"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753581"
 ---
 # <a name="protected-web-api-code-configuration"></a>Chroniony internetowy interfejs API: Konfiguracja kodu
 
@@ -55,7 +55,7 @@ HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 ```
 
 > [!IMPORTANT]
-> Aplikacja kliencka żąda tokenu okaziciela do punktu końcowego platformy tożsamości firmy Microsoft *dla internetowego interfejsu API*. Internetowy interfejs API jest jedyną aplikacją, która powinna zweryfikować token i wyświetlić zawarte w nim oświadczenia. Aplikacje klienckie nigdy nie powinny podejmować próby sprawdzenia oświadczeń w tokenach.
+> Aplikacja kliencka żąda tokenu okaziciela do platformy tożsamości firmy Microsoft dla internetowego *interfejsu API*. Internetowy interfejs API jest jedyną aplikacją, która powinna zweryfikować token i wyświetlić zawarte w nim oświadczenia. Aplikacje klienckie nigdy nie powinny podejmować próby sprawdzenia oświadczeń w tokenach.
 >
 > W przyszłości internetowy interfejs API może wymagać szyfrowania tokenu. Ten wymóg uniemożliwia dostęp dla aplikacji klienckich, które mogą wyświetlać tokeny dostępu.
 
@@ -140,7 +140,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
- Obecnie szablony ASP.NET Core tworzą interfejsy API sieci Web Azure Active Directory (Azure AD), które logują użytkowników w organizacji lub dowolnej organizacji. Użytkownicy nie logują się przy użyciu kont osobistych. Można jednak zmienić szablony, aby używać punktu końcowego platformy tożsamości firmy Microsoft przy użyciu [Microsoft. Identity. Web](https://www.nuget.org/packages/Microsoft.Identity.Web) zastępując kod w *Startup.cs*:
+ Obecnie szablony ASP.NET Core tworzą interfejsy API sieci Web Azure Active Directory (Azure AD), które logują użytkowników w organizacji lub dowolnej organizacji. Użytkownicy nie logują się przy użyciu kont osobistych. Można jednak zmienić szablony w taki sposób, aby korzystały z platformy tożsamości firmy Microsoft przy użyciu [Microsoft. Identity. Web](https://www.nuget.org/packages/Microsoft.Identity.Web) zastępując kod w *Startup.cs*:
 
 ```csharp
 using Microsoft.Identity.Web;

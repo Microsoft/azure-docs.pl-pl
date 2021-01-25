@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 0d759b3af097067ba0c9215b65b212d50474d571
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 5bfdf90ddbd500fd9d1c504bd37ed4ac35d8bf70
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178351"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752759"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Samouczek: wywoływanie interfejsu API Microsoft Graph z aplikacji klasycznej systemu Windows
 
@@ -47,7 +47,7 @@ Przykładowa aplikacja utworzona za pomocą tego przewodnika umożliwia aplikacj
 
 ## <a name="handling-token-acquisition-for-accessing-protected-web-apis"></a>Obsługa pozyskiwania tokenu do uzyskiwania dostępu do chronionych interfejsów API sieci Web
 
-Po uwierzytelnieniu użytkownika Przykładowa aplikacja odbiera token, za pomocą którego można wysyłać zapytania do interfejsu API Microsoft Graph lub interfejsu API sieci Web, który jest zabezpieczony przez platformę tożsamości firmy Microsoft dla deweloperów.
+Po uwierzytelnieniu użytkownika Przykładowa aplikacja odbiera token, za pomocą którego można wysyłać zapytania do interfejsu API Microsoft Graph lub internetowego interfejsu API, który jest zabezpieczony przez platformę tożsamości firmy Microsoft.
 
 Interfejsy API, takie jak Microsoft Graph wymagają tokenu, aby zezwolić na dostęp do określonych zasobów. Na przykład token jest wymagany do odczytywania profilu użytkownika, uzyskiwania dostępu do kalendarza użytkownika lub wysyłania wiadomości e-mail. Aplikacja może zażądać tokenu dostępu za pomocą MSAL, aby uzyskać dostęp do tych zasobów, określając zakresy interfejsów API. Ten token dostępu jest następnie dodawany do nagłówka autoryzacji HTTP dla każdego wywołania, które zostało wykonane względem chronionego zasobu.
 

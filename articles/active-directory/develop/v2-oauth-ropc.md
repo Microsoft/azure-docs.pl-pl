@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 39cd25c2c84e92a0b06bc2ee6c6229ecb2d296d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0282e4f52db8557364cdabe197fa0da63204e42
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812543"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752651"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Poświadczenia hasła właściciela zasobu Microsoft Identity platform i OAuth 2,0
 
@@ -29,7 +29,7 @@ Platforma tożsamości firmy Microsoft obsługuje [przyznanie poświadczeń has�
 
 > [!IMPORTANT]
 >
-> * Punkt końcowy platformy tożsamości firmy Microsoft obsługuje tylko ROPC dla dzierżawców usługi Azure AD, a nie konta osobiste. Oznacza to, że należy użyć punktu końcowego określonego dla dzierżawy ( `https://login.microsoftonline.com/{TenantId_or_Name}` ) lub `organizations` punktu końcowego.
+> * Platforma tożsamości firmy Microsoft obsługuje tylko ROPC dla dzierżawców usługi Azure AD, a nie kont osobistych. Oznacza to, że należy użyć punktu końcowego określonego dla dzierżawy ( `https://login.microsoftonline.com/{TenantId_or_Name}` ) lub `organizations` punktu końcowego.
 > * Konta osobiste, które są zapraszane do dzierżawy usługi Azure AD, nie mogą używać ROPC.
 > * Konta, które nie mają haseł, nie mogą się zalogować za poorednictwem ROPC. W tym scenariuszu zalecamy użycie w zamian innego przepływu dla aplikacji.
 > * Jeśli użytkownicy muszą korzystać z [uwierzytelniania wieloskładnikowego (MFA)](../authentication/concept-mfa-howitworks.md) do logowania się do aplikacji, zostaną one zablokowane.
@@ -110,6 +110,6 @@ Jeśli użytkownik nie podał prawidłowej nazwy użytkownika lub hasła lub kli
 | `invalid_grant` | Uwierzytelnianie nie powiodło się | Poświadczenia były nieprawidłowe lub klient nie ma zgody na żądane zakresy. Jeśli zakresy nie zostaną przyznane, `consent_required` zostanie zwrócony błąd. W takim przypadku klient powinien wysłać użytkownika do interakcyjnego monitu przy użyciu widoku WebView lub przeglądarki. |
 | `invalid_request` | Żądanie zostało nieprawidłowo skonstruowane | Typ grantu nie jest obsługiwany w `/common` przypadku `/consumers` kontekstów uwierzytelniania lub.  Użyj `/organizations` zamiast tego identyfikatora dzierżawy. |
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej informacji
 
 Przykład użycia ROPC można znaleźć w przykładowym kodzie [aplikacji konsoli .NET Core](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) w witrynie GitHub.

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: dcb8675350442274418920bb9439b65643f1b046
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 8b12df62a7080e57e47b52cb79ed8a67e12bd526
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178249"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753108"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Samouczek: Dodawanie logowania do firmy Microsoft do aplikacji sieci Web ASP.NET
 
@@ -119,7 +119,7 @@ Poniższe kroki służą do tworzenia klasy startowej OWIN oprogramowania pośre
         // Tenant is the tenant ID (e.g. contoso.onmicrosoft.com, or 'common' for multi-tenant)
         static string tenant = System.Configuration.ConfigurationManager.AppSettings["Tenant"];
 
-        // Authority is the URL for authority, composed by Microsoft identity platform endpoint and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
+        // Authority is the URL for authority, composed of the Microsoft identity platform and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
         string authority = String.Format(System.Globalization.CultureInfo.InvariantCulture, System.Configuration.ConfigurationManager.AppSettings["Authority"], tenant);
 
         /// <summary>
@@ -406,14 +406,13 @@ Gdy wszystko będzie gotowe do uruchomienia testu, użyj konta usługi Azure AD 
 <br/><br/>
 ![Zaloguj się do konto Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
-#### <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Uprawnienia i zgoda w punkcie końcowym platformy tożsamości firmy Microsoft
-
-Aplikacje integrowane z platformą tożsamości firmy Microsoft są zgodne z modelem autoryzacji, który umożliwia użytkownikom i administratorom kontrolę nad sposobem uzyskiwania dostępu do danych. Po uwierzytelnieniu użytkownika przy użyciu platformy tożsamości firmy Microsoft w celu uzyskania dostępu do tej aplikacji zostanie wyświetlony monit o zgodę na uprawnienia wymagane przez aplikację ("Wyświetl swój profil podstawowy" i "Obsługuj dostęp do danych, do których masz dostęp"). Po zaakceptowaniu tych uprawnień użytkownik będzie kontynuował działanie aplikacji. Jednak użytkownik może zamiast tego monitować o **wymaganą stronę zgody administratora** , jeśli wystąpi jeden z następujących sytuacji:
+#### <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Uprawnienia i zgoda na platformie tożsamości firmy Microsoft
+Aplikacje integrowane z platformą tożsamości firmy Microsoft są zgodne z modelem autoryzacji, który umożliwia użytkownikom i administratorom kontrolę nad sposobem uzyskiwania dostępu do danych. Po uwierzytelnieniu użytkownika na platformie tożsamości firmy Microsoft w celu uzyskania dostępu do tej aplikacji zostanie wyświetlony monit o zgodę na uprawnienia wymagane przez aplikację ("Wyświetl swój profil podstawowy" i "Obsługuj dostęp do danych, do których masz dostęp"). Po zaakceptowaniu tych uprawnień użytkownik będzie kontynuował działanie aplikacji. Jednak użytkownik może zamiast tego monitować o **wymaganą stronę zgody administratora** , jeśli wystąpi jeden z następujących sytuacji:
 
 - Deweloper aplikacji dodaje wszelkie dodatkowe uprawnienia, które wymagają **zgody administratora**.
 - Lub dzierżawy są skonfigurowane (w **aplikacjach dla przedsiębiorstw — > ustawienia użytkownika**), w których użytkownicy nie mogą wyrazić zgody na aplikacje uzyskujące dostęp do danych firmy w ich imieniu.
 
-Aby uzyskać więcej informacji, zobacz [uprawnienia i zgody w punkcie końcowym platformy tożsamości firmy Microsoft](./v2-permissions-and-consent.md).
+Aby uzyskać więcej informacji, zobacz [uprawnienia i wyrażanie zgody na platformie tożsamości firmy Microsoft](./v2-permissions-and-consent.md).
 
 ### <a name="view-application-results"></a>Wyświetlanie wyników aplikacji
 

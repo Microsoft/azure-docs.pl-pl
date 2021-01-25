@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 45f2b75be9a0090b883c5cc62a0886366e81a302
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 28c7f2c0a61150b2014f669f37ac84ee3a94aebf
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98744417"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752146"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Wymagania wstępne dotyczące wdrażania usługi Azure Cloud Services (obsługa rozszerzona)
 
@@ -42,12 +42,12 @@ CloudServices           Microsoft.Compute    Registered
 ## <a name="required-service-configuration-cscfg-file-updates"></a>Aktualizacje wymaganego pliku konfiguracji usługi (. cscfg)
 
 ### <a name="1-virtual-network"></a>1) Virtual Network
-Wdrożenia usługi w chmurze (obsługa rozszerzona) muszą znajdować się w sieci wirtualnej. Sieć wirtualną można utworzyć za pomocą [Azure Portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal), [programu PowerShell](https://docs.microsoft.com/azure/virtual-network/quick-create-powershell), [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/virtual-network/quick-create-cli) lub [szablonu ARM](https://docs.microsoft.com/azure/virtual-network/quick-create-template). Do sieci wirtualnej i podsieci muszą być również przywoływane w konfiguracji usługi (. cscfg) w `NetworkConfiguration` sekcji. 
+Wdrożenia usługi w chmurze (obsługa rozszerzona) muszą znajdować się w sieci wirtualnej. Sieć wirtualną można utworzyć za pomocą [Azure Portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal), [programu PowerShell](https://docs.microsoft.com/azure/virtual-network/quick-create-powershell), [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/virtual-network/quick-create-cli) lub [szablonu ARM](https://docs.microsoft.com/azure/virtual-network/quick-create-template). Do sieci wirtualnej i podsieci muszą być również przywoływane w konfiguracji usługi (. cscfg) w sekcji [networkconfiguration](schema-cscfg-networkconfiguration.md) . 
 
 W przypadku sieci wirtualnych należących do tej samej grupy zasobów co usługa w chmurze wystarcza tylko nazwa sieci wirtualnej w pliku konfiguracji usługi (. cscfg). Jeśli sieć wirtualna i usługa w chmurze znajdują się w dwóch różnych grupach zasobów, należy określić pełny identyfikator Azure Resource Manager sieci wirtualnej w pliku konfiguracji usługi (cscfg).
  
 #### <a name="virtual-network-located-in-same-resource-group"></a>Virtual Network znajdujący się w tej samej grupie zasobów
-```json
+```xml
 <VirtualNetworkSite name="<vnet-name>"/> 
 <AddressAssignments> 
 <InstanceAddress roleName="<role-name>"> 
@@ -58,8 +58,8 @@ W przypadku sieci wirtualnych należących do tej samej grupy zasobów co usług
 ```
 
 #### <a name="virtual-network-located-in-different-resource-group"></a>Sieć wirtualna znajdująca się w innej grupie zasobów
-```json
-“/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.Network/virtualNetworks/<vnet-name>/> 
+```xml
+<VirtualNetworkSite name="/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.Network/virtualNetworks/<vnet-name>"/> 
 <AddressAssignments> 
 <InstanceAddress roleName="<role-name>"> 
 <Subnets> 

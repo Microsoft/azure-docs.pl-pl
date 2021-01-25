@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: f60e21f98092df65ef01e68fe9c2e64833a24855
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: a678e8545f761e98abbdf026886afa624f9d2b4e
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063216"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753641"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>Scenariusz: aplikacja mobilna, która wywołuje interfejsy API sieci Web
 
@@ -34,7 +34,7 @@ Jeśli jeszcze tego nie zrobiono, Utwórz swoją pierwszą aplikację, wykonują
 
 ## <a name="overview"></a>Omówienie
 
-Spersonalizowane, bezproblemowe środowisko użytkownika jest niezbędne dla aplikacji mobilnych.  Platforma tożsamości firmy Microsoft umożliwia deweloperom mobilnym tworzenie tego środowiska dla użytkowników systemów iOS i Android. Aplikacja może się zalogować Azure Active Directory użytkowników (Azure AD), użytkowników indywidualnych konto Microsoft i użytkowników Azure AD B2C. Może również uzyskać tokeny do wywoływania internetowego interfejsu API w ich imieniu. Aby zaimplementować te przepływy, użyjemy biblioteki Microsoft Authentication Library (MSAL). MSAL implementuje [przepływ kodu autoryzacji standardu OAuth 2.0](v2-oauth2-auth-code-flow.md)w branży.
+Spersonalizowane, bezproblemowe środowisko użytkownika jest niezbędne dla aplikacji mobilnych. Platforma tożsamości firmy Microsoft umożliwia deweloperom mobilnym tworzenie tego środowiska dla użytkowników systemów iOS i Android. Aplikacja może się zalogować Azure Active Directory użytkowników (Azure AD), użytkowników indywidualnych konto Microsoft i użytkowników Azure AD B2C. Może również uzyskać tokeny do wywoływania internetowego interfejsu API w ich imieniu. Aby zaimplementować te przepływy, użyjemy biblioteki Microsoft Authentication Library (MSAL). MSAL implementuje [przepływ kodu autoryzacji standardu OAuth 2.0](v2-oauth2-auth-code-flow.md)w branży.
 
 ![Aplikacje demona](./media/scenarios/mobile-app.svg)
 

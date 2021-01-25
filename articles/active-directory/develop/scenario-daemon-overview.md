@@ -1,5 +1,6 @@
 ---
-title: Tworzenie aplikacji demona, która wywołuje interfejsy API sieci Web — Microsoft Identity platform | Azure
+title: Tworzenie aplikacji demona, która wywołuje interfejsy API sieci Web | Azure
+titleSuffix: Microsoft identity platform
 description: Dowiedz się, jak utworzyć aplikację demona, która wywołuje interfejsy API sieci Web
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 01/31/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: e63a948260863c93a92e4241044be5e0baf8afca
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 45af940382a261f1793583e471871b9cceed0a57
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443266"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753827"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>Scenariusz: aplikacja demona, która wywołuje interfejsy API sieci Web
 
@@ -45,7 +46,7 @@ Aplikacje, które uzyskują token dla własnych tożsamości:
 
 > [!IMPORTANT]
 >
-> - Użytkownicy nie mogą korzystać z aplikacji demona. Aplikacja demona wymaga własnej tożsamości. Ten typ aplikacji żąda tokenu dostępu przy użyciu tożsamości aplikacji i prezentuje identyfikator aplikacji, poświadczenia (hasło lub certyfikat) i identyfikator URI aplikacji do usługi Azure AD. Po pomyślnym uwierzytelnieniu demon otrzymuje token dostępu (i token odświeżania) z punktu końcowego platformy tożsamości firmy Microsoft. Token ten jest następnie używany do wywoływania internetowego interfejsu API (i jest odświeżany w razie potrzeby).
+> - Użytkownicy nie mogą korzystać z aplikacji demona. Aplikacja demona wymaga własnej tożsamości. Ten typ aplikacji żąda tokenu dostępu przy użyciu tożsamości aplikacji i prezentuje identyfikator aplikacji, poświadczenia (hasło lub certyfikat) i identyfikator URI aplikacji do usługi Azure AD. Po pomyślnym uwierzytelnieniu demon otrzymuje token dostępu (i token odświeżania) z platformy tożsamości firmy Microsoft. Token ten jest następnie używany do wywoływania internetowego interfejsu API (i jest odświeżany w razie potrzeby).
 > - Ze względu na to, że użytkownicy nie mogą korzystać z aplikacji demona, nie jest możliwe przeprowadzenie zgody Przed zarejestrowaniem aplikacji należy skonfigurować wszystkie wymagane uprawnienia interfejsu API. Kod aplikacji po prostu żąda uprawnień zdefiniowanych statycznie. Oznacza to również, że aplikacje demona nie obsługują przyrostowej zgody.
 
 Dla deweloperów kompleksowe środowisko dla tego scenariusza ma następujące aspekty:

@@ -13,16 +13,16 @@ ms.date: 05/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 71e930898f1f86622357f9e02da69be7bf2f8088
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de1fcdc259de3f72e35feb411bcc836354352eb4
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91256589"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752588"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft Identity platform i OpenID Connect Connect Protocol
 
-OpenID Connect Connect (OIDC) to protokół uwierzytelniania oparty na protokole OAuth 2,0, którego można użyć do bezpiecznego logowania użytkownika do aplikacji. W przypadku korzystania z programu OpenID Connect Connect dla punktu końcowego platformy tożsamości firmy Microsoft można dodać funkcję logowania i dostęp do interfejsu API do aplikacji. W tym artykule pokazano, jak wykonać ten niezależny język oraz jak wysyłać i odbierać komunikaty HTTP bez używania [bibliotek typu open source firmy Microsoft](reference-v2-libraries.md).
+OpenID Connect Connect (OIDC) to protokół uwierzytelniania oparty na protokole OAuth 2,0, którego można użyć do bezpiecznego logowania użytkownika do aplikacji. Gdy korzystasz z implementacji OpenID Connect Connect platformy tożsamości firmy Microsoft, możesz dodać do aplikacji funkcję logowania i dostęp do interfejsu API. W tym artykule pokazano, jak wykonać ten niezależny język oraz jak wysyłać i odbierać komunikaty HTTP bez używania [bibliotek typu open source firmy Microsoft](reference-v2-libraries.md).
 
 [OpenID Connect Connect](https://openid.net/specs/openid-connect-core-1_0.html) rozszerza protokół *autoryzacji* OAuth 2,0 do użycia jako protokół *uwierzytelniania* , dzięki czemu można przeprowadzić Logowanie jednokrotne przy użyciu protokołu OAuth. OpenID Connect Connect wprowadza koncepcję *tokenu identyfikatora*, który jest tokenem zabezpieczającym umożliwiającym klientowi zweryfikowanie tożsamości użytkownika. Token identyfikatora pobiera również podstawowe informacje o profilu użytkownika. Wprowadzono również [punkt końcowy UserInfo](userinfo.md), interfejs API, który zwraca informacje o użytkowniku. 
 
@@ -88,7 +88,7 @@ Metadane są prostym dokumentem JavaScript Object Notation (JSON). Zapoznaj się
 
 Jeśli aplikacja ma niestandardowe klucze podpisywania w wyniku użycia funkcji [mapowania oświadczeń](active-directory-claims-mapping.md) , należy dołączyć `appid` parametr zapytania zawierający identyfikator aplikacji, aby `jwks_uri` wskazać informacje o kluczu podpisywania aplikacji. Na przykład: `https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` zawiera `jwks_uri` `https://login.microsoftonline.com/{tenant}/discovery/v2.0/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e` .
 
-Zazwyczaj ten dokument metadanych służy do konfigurowania biblioteki lub zestawu SDK OpenID Connect Connect. Biblioteka będzie używać metadanych do wykonywania swoich zadań. Jeśli jednak nie używasz wstępnie skompilowanej biblioteki OpenID Connect Connect, możesz wykonać czynności opisane w dalszej części tego artykułu, aby wykonać logowanie w aplikacji sieci Web przy użyciu punktu końcowego platformy tożsamości firmy Microsoft.
+Zazwyczaj ten dokument metadanych służy do konfigurowania biblioteki lub zestawu SDK OpenID Connect Connect. Biblioteka będzie używać metadanych do wykonywania swoich zadań. Jeśli jednak nie używasz wstępnie skompilowanej biblioteki OpenID Connect Connect, możesz wykonać czynności opisane w dalszej części tego artykułu, aby wykonać logowanie w aplikacji sieci Web przy użyciu platformy tożsamości firmy Microsoft.
 
 ## <a name="send-the-sign-in-request"></a>Wyślij żądanie logowania
 
@@ -126,13 +126,13 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `nonce` | Wymagane | Wartość uwzględniona w żądaniu wygenerowanym przez aplikację, która zostanie uwzględniona w wyniku id_token wartość jako żądanie. Aplikacja może zweryfikować tę wartość, aby zmniejszyć ataki metodą powtórzeń tokenu. Zwykle jest to losowy, unikatowy ciąg, który może służyć do identyfikowania pochodzenia żądania. |
 | `response_mode` | Zalecane | Określa metodę, która ma zostać użyta do wysłania podanego kodu autoryzacji z powrotem do aplikacji. Możliwe wartości to `form_post` i `fragment`. W przypadku aplikacji sieci Web zalecamy korzystanie z programu w `response_mode=form_post` celu zapewnienia najbezpieczniejszego transferu tokenów do aplikacji. |
 | `state` | Zalecane | Wartość zawarta w żądaniu, która również zostanie zwrócona w odpowiedzi tokenu. Może to być ciąg dowolnej zawartości. Losowo generowana unikatowa wartość jest używana w celu [zapobiegania atakom na fałszerstwo żądań między lokacjami](https://tools.ietf.org/html/rfc6749#section-10.12). Ten stan jest również używany do kodowania informacji o stanie użytkownika w aplikacji przed wystąpieniem żądania uwierzytelnienia, takiego jak strona lub widok użytkownika. |
-| `prompt` | Opcjonalne | Wskazuje typ interakcji użytkownika, która jest wymagana. Jedyne prawidłowe wartości w tym momencie to `login` , `none` , i `consent` . W ramach tego `prompt=login` żądania użytkownik musi wprowadzić swoje poświadczenia, co oznacza negację logowania jednokrotnego. `prompt=none`Jest to przeciwieństwo. To oświadczenia gwarantuje, że użytkownik nie jest wyświetlany z żadnym interakcyjnym monitem. Jeśli żądanie nie może zostać zakończone dyskretnie przy użyciu logowania jednokrotnego, punkt końcowy platformy tożsamości firmy Microsoft zwraca błąd. `prompt=consent`Po zalogowaniu się użytkownika zostaje wyzwolone okno dialogowe zgody na uwierzytelnianie OAuth. Okno dialogowe prosi użytkownika o przyznanie uprawnień aplikacji. |
+| `prompt` | Opcjonalne | Wskazuje typ interakcji użytkownika, która jest wymagana. Jedyne prawidłowe wartości w tym momencie to `login` , `none` , i `consent` . W ramach tego `prompt=login` żądania użytkownik musi wprowadzić swoje poświadczenia, co oznacza negację logowania jednokrotnego. `prompt=none`Jest to przeciwieństwo. To oświadczenia gwarantuje, że użytkownik nie jest wyświetlany z żadnym interakcyjnym monitem. Jeśli żądanie nie może zostać zakończone dyskretnie przy użyciu logowania jednokrotnego, platforma tożsamości firmy Microsoft zwraca błąd. `prompt=consent`Po zalogowaniu się użytkownika zostaje wyzwolone okno dialogowe zgody na uwierzytelnianie OAuth. Okno dialogowe prosi użytkownika o przyznanie uprawnień aplikacji. |
 | `login_hint` | Opcjonalne | Tego parametru można użyć do wstępnego wypełnienia pola Nazwa użytkownika i adres e-mail na stronie logowania użytkownika, jeśli znasz nazwę użytkownika przed czasem. Często aplikacje używają tego parametru podczas ponownego uwierzytelniania, po już wyodrębnieniu nazwy użytkownika z wcześniejszego logowania przy użyciu tego `preferred_username` żądania. |
 | `domain_hint` | Opcjonalne | Obszar użytkownika w katalogu federacyjnym.  Pomija to proces odnajdywania na podstawie poczty e-mail, który użytkownik przechodzi na stronie logowania, aby nieco bardziej usprawnić środowisko użytkownika. W przypadku dzierżawców federacyjnych za pomocą katalogu lokalnego, takiego jak AD FS, często powoduje to bezproblemowe logowanie z powodu istniejącej sesji logowania. |
 
-W tym momencie użytkownik zostanie poproszony o wprowadzenie poświadczeń i zakończenie uwierzytelniania. Punkt końcowy platformy tożsamości firmy Microsoft sprawdza, czy użytkownik wyraził zgodę na uprawnienia wskazane w `scope` parametrze zapytania. Jeśli użytkownik nie wyraził zgody na żadne z tych uprawnień, punkt końcowy platformy tożsamości firmy Microsoft poprosi użytkownika o zgodę na wymagane uprawnienia. Więcej informacji o [uprawnieniach, zgodzie i aplikacjach wielodostępnych](v2-permissions-and-consent.md)można znaleźć w części.
+W tym momencie użytkownik zostanie poproszony o wprowadzenie poświadczeń i zakończenie uwierzytelniania. Platforma tożsamości firmy Microsoft sprawdza, czy użytkownik wyraził zgodę na uprawnienia wskazane w `scope` parametrze zapytania. Jeśli użytkownik nie wyraził zgody na żadne z tych uprawnień, platforma tożsamości firmy Microsoft poprosi użytkownika o zgodę na wymagane uprawnienia. Więcej informacji o [uprawnieniach, zgodzie i aplikacjach wielodostępnych](v2-permissions-and-consent.md)można znaleźć w części.
 
-Po uwierzytelnieniu i udzieleniu zgody przez użytkownika punkt końcowy platformy tożsamości firmy Microsoft zwraca odpowiedź do aplikacji na wskazanym identyfikatorze URI przekierowania przy użyciu metody określonej w `response_mode` parametrze.
+Po uwierzytelnieniu i udzieleniu zgody użytkownik platformy tożsamości firmy Microsoft zwraca odpowiedź do aplikacji na wskazanym identyfikatorze URI przekierowania przy użyciu metody określonej w `response_mode` parametrze.
 
 ### <a name="successful-response"></a>Pomyślna odpowiedź
 
@@ -184,7 +184,7 @@ W poniższej tabeli opisano kody błędów, które mogą być zwracane w `error`
 
 ## <a name="validate-the-id-token"></a>Weryfikowanie tokenu identyfikatora
 
-Tylko otrzymanie id_token nie zawsze wystarcza do uwierzytelnienia użytkownika; może być również konieczne zweryfikowanie podpisu id_token i zweryfikowanie oświadczeń w tokenie zgodnie z wymaganiami aplikacji. Podobnie jak w przypadku wszystkich platform OIDC, punkt końcowy platformy tożsamości firmy Microsoft korzysta z [tokenów sieci Web JSON (JWTs)](https://tools.ietf.org/html/rfc7519) i kryptografii klucza publicznego, aby podpisać tokeny ID i sprawdzać, czy są one prawidłowe.
+Tylko otrzymanie id_token nie zawsze wystarcza do uwierzytelnienia użytkownika; może być również konieczne zweryfikowanie podpisu id_token i zweryfikowanie oświadczeń w tokenie zgodnie z wymaganiami aplikacji. Podobnie jak w przypadku wszystkich platform OIDC, platforma tożsamości firmy Microsoft korzysta z [tokenów sieci Web JSON (JWTs)](https://tools.ietf.org/html/rfc7519) i kryptografii klucza publicznego do podpisywania tokenów identyfikatorów i sprawdzenia, czy są one prawidłowe.
 
 Nie wszystkie aplikacje korzystają z weryfikowania identyfikatorów aplikacji natywnych tokenów i aplikacji jednostronicowych, na przykład rzadko korzystają z weryfikacji tokenu identyfikatora.  Ktoś mający fizyczny dostęp do urządzenia (lub przeglądarki) może pominąć sprawdzanie poprawności na wiele sposobów — od edycji ruchu internetowego do urządzenia w celu zapewnienia fałszywych tokenów i kluczy do po prostu debugowania aplikacji w celu pominięcia logiki walidacji.  Z drugiej strony aplikacje sieci Web i interfejsy API używające tokenu identyfikatora do autoryzacji muszą uważnie sprawdzać token identyfikatora, ponieważ są kontroli dostępu do danych.
 
@@ -283,7 +283,7 @@ Zapoznaj się z [dokumentacją dotyczącą UserInfo](userinfo.md#calling-the-api
 
 ## <a name="send-a-sign-out-request"></a>Wyślij żądanie wylogowania
 
-Gdy chcesz wylogować użytkownika z aplikacji, nie wystarcza do wyczyszczenia plików cookie aplikacji lub zakończenie sesji użytkownika. Musisz również przekierować użytkownika do punktu końcowego platformy tożsamości firmy Microsoft, aby się wylogować. Jeśli tego nie zrobisz, użytkownik ponownie uwierzytelni się w aplikacji bez konieczności ponownego wprowadzania poświadczeń, ponieważ będzie mieć prawidłową sesję logowania jednokrotnego z punktem końcowym platformy tożsamości firmy Microsoft.
+Gdy chcesz wylogować użytkownika z aplikacji, nie wystarcza do wyczyszczenia plików cookie aplikacji lub zakończenie sesji użytkownika. Musisz również przekierować użytkownika na platformę tożsamości firmy Microsoft, aby się wylogować. Jeśli tego nie zrobisz, użytkownik ponownie uwierzytelni się w aplikacji bez konieczności ponownego wprowadzania poświadczeń, ponieważ będzie mieć prawidłową sesję logowania jednokrotnego z platformą tożsamości firmy Microsoft.
 
 Możesz przekierować użytkownika do `end_session_endpoint` listy w dokumencie OpenID Connect Connect Metadata:
 
@@ -294,11 +294,11 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 | Parametr | Warunek | Opis |
 | ----------------------- | ------------------------------- | ------------ |
-| `post_logout_redirect_uri` | Zalecane | Adres URL, do którego użytkownik jest przekierowywany po pomyślnym wylogowaniu. Jeśli parametr nie jest uwzględniony, użytkownik zostanie pokazany komunikat ogólny, który jest generowany przez punkt końcowy platformy tożsamości firmy Microsoft. Ten adres URL musi być zgodny z jednym z identyfikatorów URI przekierowania zarejestrowanych dla aplikacji w portalu rejestracji aplikacji. |
+| `post_logout_redirect_uri` | Zalecane | Adres URL, do którego użytkownik jest przekierowywany po pomyślnym wylogowaniu. Jeśli parametr nie jest uwzględniony, użytkownik zostanie pokazany komunikat ogólny, który jest generowany przez platformę tożsamości firmy Microsoft. Ten adres URL musi być zgodny z jednym z identyfikatorów URI przekierowania zarejestrowanych dla aplikacji w portalu rejestracji aplikacji. |
 
 ## <a name="single-sign-out"></a>Wylogowanie jednokrotne
 
-Po przekierowaniu użytkownika do programu `end_session_endpoint` punkt końcowy platformy tożsamości firmy Microsoft czyści sesję użytkownika z przeglądarki. Jednak użytkownik może nadal być zalogowany do innych aplikacji korzystających z kont Microsoft do uwierzytelniania. Aby umożliwić tym aplikacjom jednoczesne podpisywanie użytkownika, punkt końcowy platformy tożsamości firmy Microsoft wysyła żądanie HTTP GET do zarejestrowanych `LogoutUrl` wszystkich aplikacji, do których użytkownik jest aktualnie zalogowany. Aplikacje muszą odpowiedzieć na to żądanie przez wyczyszczenie każdej sesji identyfikującej użytkownika i zwracającej `200` odpowiedź. Jeśli chcesz obsługiwać Logowanie jednokrotne w aplikacji, musisz zaimplementować takie jak `LogoutUrl` w kodzie aplikacji. Możesz ustawić w `LogoutUrl` portalu rejestracji aplikacji.
+Po przekierowaniu użytkownika do programu `end_session_endpoint` platforma tożsamości firmy Microsoft czyści sesję użytkownika z przeglądarki. Jednak użytkownik może nadal być zalogowany do innych aplikacji korzystających z kont Microsoft do uwierzytelniania. Aby umożliwić tym aplikacjom jednoczesne podpisywanie użytkownika, platforma tożsamości firmy Microsoft wysyła żądanie HTTP GET do zarejestrowanych `LogoutUrl` wszystkich aplikacji, do których użytkownik jest aktualnie zalogowany. Aplikacje muszą odpowiedzieć na to żądanie przez wyczyszczenie każdej sesji identyfikującej użytkownika i zwracającej `200` odpowiedź. Jeśli chcesz obsługiwać Logowanie jednokrotne w aplikacji, musisz zaimplementować takie jak `LogoutUrl` w kodzie aplikacji. Możesz ustawić w `LogoutUrl` portalu rejestracji aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 

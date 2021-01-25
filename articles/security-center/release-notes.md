@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/21/2021
+ms.date: 01/25/2021
 ms.author: memildin
-ms.openlocfilehash: d171e3a7f1f0d63d0a5d130c6e19b246bf0cd795
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 349f0b72ad7f3cb98e8f4ae9105efa9718f0b11b
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661818"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752243"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -33,13 +33,40 @@ Aby dowiedzieć się o *planowanych* zmianach, które wkrótce zostaną udostęp
 
 ## <a name="january-2021"></a>Styczeń 2021 r.
 
-Aktualizacje w grudniu obejmują:
+Aktualizacje w styczniu obejmują:
 
+- [Usługa Azure Security test jest teraz domyślną inicjatywy zasad dla Azure Security Center](#azure-security-benchmark-is-now-the-default-policy-initiative-for-azure-security-center)
 - [Ocena luk w zabezpieczeniach dla maszyn lokalnych i wielochmurowych jest dostępna na potrzeby ogólnie dostępnej wersji](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga)
+- [W wersji zapoznawczej jest teraz dostępna stawka zabezpieczeń dla grup zarządzania](#secure-score-for-management-groups-is-now-available-in-preview)
 - [Interfejs API oceny zabezpieczeń jest publikowany na potrzeby ogólnej dostępności](#secure-score-api-is-released-for-general-availability-ga)
+- [Łączniki z obsługą kilku chmur są udostępniane na potrzeby ogólnej dostępności](#multi-cloud-connectors-are-released-for-general-availability-ga)
+- [Wyłącz wszystkie zalecenia z bezpiecznego wyniku dla subskrypcji i grup zarządzania](#exempt-entire-recommendations-from-your-secure-score-for-subscriptions-and-management-groups)
+- [Użytkownicy mogą teraz zażądać widoczności dla całej dzierżawy od administratora globalnego](#users-can-now-request-tenant-wide-visibility-from-their-global-administrator)
+- [35 zaleceń dotyczących wersji zapoznawczej dodano w celu zwiększenia zakresu testów zabezpieczeń platformy Azure](#35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
 - [Eksport CSV przefiltrowanej listy zaleceń](#csv-export-of-filtered-list-of-recommendations)
 - [Zasoby "nie dotyczy" są teraz zgłaszane jako "zgodne" w Azure Policy oceny](#not-applicable-resources-now-reported-as-compliant-in-azure-policy-assessments)
 
+
+### <a name="azure-security-benchmark-is-now-the-default-policy-initiative-for-azure-security-center"></a>Usługa Azure Security test jest teraz domyślną inicjatywy zasad dla Azure Security Center
+
+Usługa Azure Security test to zestaw wytycznych dotyczących zabezpieczeń i zgodności opartych na platformie Azure, które są stosowane do najlepszych rozwiązań w zakresie bezpieczeństwa i zapewniających zgodność. Ten powszechnie przestrzegany test porównawczy jest oparty na kontrolkach z [centrum na potrzeby zabezpieczeń internetowych (CIS)](https://www.cisecurity.org/benchmark/azure/) i [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) , które koncentrują się na zabezpieczeniach skoncentrowanych na chmurze.
+
+W ostatnich miesiącach Security Center Lista wbudowanych zaleceń dotyczących zabezpieczeń znacznie się zwiększyła, aby zwiększyć nasze pokrycie tego testu porównawczego.
+
+W tej wersji test porównawczy jest podstawą dla zaleceń Security Center i w pełni zintegrowanych jako inicjatywa zasad domyślnych. 
+
+Wszystkie usługi platformy Azure mają stronę odniesienia zabezpieczeń w swojej dokumentacji. Na przykład [jest to Security Center linia bazowa](security-baseline.md). Te linie bazowe są oparte na teście zabezpieczeń platformy Azure.
+
+Jeśli używasz pulpitu nawigacyjnego zgodności z przepisami Security Center, zobaczysz dwa wystąpienia testu porównawczego w okresie przejściowym:
+
+:::image type="content" source="media/release-notes/regulatory-compliance-with-azure-security-benchmark.png" alt-text="Pulpit nawigacyjny zgodności z przepisami Azure Security Center przedstawiający test wydajności usługi Azure Security":::
+
+Istniejące rekomendacje nie wpływają na siebie i w miarę wzrostu wydajności, zmiany zostaną automatycznie odzwierciedlone w Security Center. 
+
+Aby dowiedzieć się więcej, zobacz następujące strony:
+
+- [Dowiedz się więcej o teście zabezpieczeń Azure](../security/benchmarks/introduction.md)
+- [Dostosowywanie zestawu standardów na pulpicie nawigacyjnym zgodności z przepisami](update-regulatory-compliance-packages.md)
 
 ### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga"></a>Ocena luk w zabezpieczeniach dla maszyn lokalnych i wielochmurowych jest dostępna na potrzeby ogólnie dostępnej wersji
 
@@ -63,6 +90,14 @@ Główne możliwości:
 [Dowiedz się więcej o serwerach z obsługą usługi Azure Arc](../azure-arc/servers/index.yml).
 
 
+### <a name="secure-score-for-management-groups-is-now-available-in-preview"></a>W wersji zapoznawczej jest teraz dostępna stawka zabezpieczeń dla grup zarządzania
+
+Na stronie bezpieczny wynik są teraz wyświetlane zagregowane wyniki zabezpieczeń dla grup zarządzania, a także poziom subskrypcji. Teraz można zobaczyć listę grup zarządzania w organizacji i ocenę dla każdej grupy zarządzania.
+
+:::image type="content" source="media/secure-score-security-controls/secure-score-management-groups.png" alt-text="Wyświetlanie zabezpieczonych ocen dla grup zarządzania.":::
+
+Dowiedz się więcej o [bezpiecznych kontrolach oceny i zabezpieczeń w Azure Security Center](secure-score-security-controls.md).
+
 ### <a name="secure-score-api-is-released-for-general-availability-ga"></a>Interfejs API oceny zabezpieczeń jest publikowany na potrzeby ogólnej dostępności
 
 Teraz możesz uzyskać dostęp do oceny za pośrednictwem [interfejsu API protokołu Secure Score](/rest/api/securitycenter/securescores/). Metody interfejsu API zapewniają elastyczność umożliwiającą wykonywanie zapytań dotyczących danych i Tworzenie własnego mechanizmu raportowania z bezpiecznymi wynikami w czasie. Na przykład możesz użyć interfejsu API **Secure Scores** , aby uzyskać ocenę dla określonej subskrypcji. Ponadto można użyć interfejsu API **kontroli** zabezpieczeń, aby wyświetlić listę kontrolek bezpieczeństwa i bieżący wynik subskrypcji.
@@ -70,6 +105,87 @@ Teraz możesz uzyskać dostęp do oceny za pośrednictwem [interfejsu API protok
 Aby zapoznać się z przykładowymi narzędziami zewnętrznymi z bezpiecznym interfejsem API oceny, zapoznaj [się z obszarem "bezpieczeństwo" w naszej społeczności usługi GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score).
 
 Dowiedz się więcej o [bezpiecznych kontrolach oceny i zabezpieczeń w Azure Security Center](secure-score-security-controls.md).
+
+
+### <a name="multi-cloud-connectors-are-released-for-general-availability-ga"></a>Łączniki z obsługą kilku chmur są udostępniane na potrzeby ogólnej dostępności
+
+W przypadku obciążeń w chmurze zwykle obejmujących wiele platform w chmurze usługi zabezpieczeń w chmurze muszą być takie same.
+
+Azure Security Center chroni obciążenia na platformie Azure, Amazon Web Services (AWS) i Google Cloud Platform (GCP).
+
+Połączenie konta AWS lub GCP integruje swoje natywne narzędzia zabezpieczeń, takie jak AWS Security Hub i GCP Security Command Centre do Azure Security Center.
+
+Ta możliwość oznacza, że Security Center zapewnia widoczność i ochronę we wszystkich głównych środowiskach chmurowych. Niektóre zalety tej integracji:
+
+- Automatyczne Inicjowanie obsługi agentów — Security Center używa usługi Azure Arc do wdrożenia agenta Log Analytics do wystąpień AWS
+- Zarządzanie zasadami
+- Zarządzanie lukami w zabezpieczeniach
+- Wykrywanie i odpowiedź osadzonych punktów końcowych (EDR)
+- Wykrywanie niepożądanych konfiguracji zabezpieczeń
+- Pojedynczy widok przedstawiający zalecenia dotyczące zabezpieczeń od wszystkich dostawców chmury
+- Uwzględnianie wszystkich zasobów w ramach obliczeń bezpiecznego wyniku Security Center
+- Oceny zgodności z przepisami dla zasobów AWS i GCP
+
+Z menu Security Center wybierz pozycję **wiele łączników w chmurze** , a zobaczysz opcje tworzenia nowych łączników:
+
+:::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Przycisk dodawania konta AWS na stronie łączników wielochmurowych Security Center":::
+
+Dowiedz się więcej w:
+- [Połącz konta AWS z Azure Security Center](quickstart-onboard-aws.md)
+- [Połącz konta GCP z Azure Security Center](quickstart-onboard-gcp.md)
+
+
+### <a name="exempt-entire-recommendations-from-your-secure-score-for-subscriptions-and-management-groups"></a>Wyłącz wszystkie zalecenia z bezpiecznego wyniku dla subskrypcji i grup zarządzania
+
+Rozszerzamy możliwości wykluczenia, aby uwzględnić wszystkie zalecenia. Udostępnienie dalszych opcji dostosowania zaleceń dotyczących zabezpieczeń, które Security Center dla subskrypcji, grupy zarządzania lub zasobów.
+
+Czasami zasób zostanie wyświetlony jako nieprawidłowy, gdy wiadomo, że problem został rozwiązany przez narzędzie innej firmy, które nie wykryto Security Center. Lub zalecenie będzie widoczne w zakresie, w którym uważasz, że nie należy. Zalecenie może być nieodpowiednie dla określonej subskrypcji. Lub być może Twoja organizacja zdecydowała się na zaakceptowanie ryzyka związanego z konkretnym zasobem lub zaleceniem.
+
+Za pomocą tej funkcji w wersji zapoznawczej można teraz utworzyć wykluczenie dla zalecenia:
+
+- **Zwolnij zasób** , aby upewnić się, że nie znajduje się na liście zasobów w złej kondycji w przyszłości i nie ma wpływu na bezpieczny wynik. Zasób będzie wyświetlany jako nie dotyczy, a powód zostanie wyświetlony jako "zwolniony" z określonym uzasadnieniem.
+
+- **Zwolnij subskrypcję lub grupę zarządzania** , aby upewnić się, że zalecenie nie ma wpływu na Twój bezpieczny wynik i nie będzie wyświetlane dla subskrypcji lub grupy zarządzania w przyszłości. Odnosi się to do istniejących zasobów i wszystkich utworzonych w przyszłości. Zalecenie zostanie oznaczone określonym uzasadnieniem wybranym dla wybranego zakresu.
+
+Dowiedz się więcej na temat [zwalniania zasobów i rekomendacji z poziomu bezpiecznego](exempt-resource.md).
+
+
+
+### <a name="users-can-now-request-tenant-wide-visibility-from-their-global-administrator"></a>Użytkownicy mogą teraz zażądać widoczności dla całej dzierżawy od administratora globalnego
+
+Jeśli użytkownik nie ma uprawnień do wyświetlania Security Center danych, zobaczy teraz uprawnienia do żądania połączenia od administratora globalnego swojej organizacji. Żądanie zawiera rolę, której lubisz, oraz uzasadnienie, dlaczego jest to konieczne.
+
+:::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="Transparent informujący użytkownika, że może zażądać uprawnień na poziomie dzierżawy.":::
+
+Zapoznaj się z dodatkowymi [żądaniami w przypadku braku wystarczających uprawnień](security-center-management-groups.md#request-tenant-wide-permissions-when-yours-are-insufficient) .
+
+
+### <a name="35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>35 zaleceń dotyczących wersji zapoznawczej dodano w celu zwiększenia zakresu testów zabezpieczeń platformy Azure
+
+Usługa Azure Security test jest domyślną inicjatywą zasad w Azure Security Center. 
+
+Aby zwiększyć pokrycie tego testu porównawczego, do Security Center dodano następujące zalecenia dotyczące wersji zapoznawczej 35.
+
+> [!TIP]
+> Zalecenia dotyczące wersji zapoznawczej nie powodują złej kondycji zasobu i nie są uwzględniane w obliczeniach bezpiecznego wyniku. Skoryguj je wszędzie tam, gdzie to możliwe, aby po zakończeniu okresu korzystania z wersji zapoznawczej doczyniły się do oceny. Dowiedz się więcej o tym, jak odpowiedzieć na te zalecenia w temacie [Koryguj zalecenia w Azure Security Center](security-center-remediate-recommendations.md).
+
+| Kontrola zabezpieczeń                     | Nowe rekomendacje                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Włącz szyfrowanie w spoczynku            | — Konta Azure Cosmos DB powinny używać kluczy zarządzanych przez klienta do szyfrowania danych przechowywanych w czasie spoczynku<br>-Azure Machine Learning obszary robocze powinny być szyfrowane za pomocą klucza zarządzanego przez klienta (CMK)<br>— Należy włączyć ochronę danych klucza dla serwerów MySQL<br>— Należy włączyć ochronę danych klucza dla serwerów PostgreSQL<br>-Cognitive Services konta powinny włączać szyfrowanie danych za pomocą klucza zarządzanego przez klienta (CMK)<br>-Rejestry kontenerów powinny być szyfrowane za pomocą klucza zarządzanego przez klienta (CMK)<br>-Wystąpienia zarządzane przez program SQL powinny używać kluczy zarządzanych przez klienta do szyfrowania danych przechowywanych w spoczynku<br>— Serwery SQL powinny używać kluczy zarządzanych przez klienta do szyfrowania danych magazynowanych<br>— Konta magazynu powinny używać klucza zarządzanego przez klienta (CMK) do szyfrowania                                                                                                                                                              |
+| Implementowanie najlepszych rozwiązań w zakresie zabezpieczeń    | -Subskrypcje powinny mieć adres e-mail kontaktu pod kątem problemów z zabezpieczeniami<br> — Funkcja autoaprowizacji agenta Log Analytics powinna być włączona w ramach subskrypcji<br> -Należy włączyć powiadomienia e-mail o alertach o wysokiej ważności<br> -Wyślij powiadomienie e-mail do właściciela subskrypcji w celu uzyskania alertów o wysokiej ważności.<br> -Magazyny kluczy powinny mieć włączoną ochronę przed przeczyszczeniem<br> -Magazyny kluczy powinny mieć włączone usuwanie nietrwałe |
+| Zarządzanie dostępem i uprawnieniami        | -Aplikacje funkcji powinny mieć włączone "certyfikaty klienta (przychodzące certyfikaty klienta)" |
+| Ochrona aplikacji przed atakami DDoS | — Zapora aplikacji sieci Web (WAF) powinna być włączona dla Application Gateway<br> -Zapora aplikacji sieci Web (WAF) powinna być włączona dla usługi Azure Front drzwiczk Service |
+| Ogranicz nieautoryzowany dostęp do sieci | -Zapora powinna być włączona na Key Vault<br> -Prywatny punkt końcowy powinien być skonfigurowany dla Key Vault<br> -Konfiguracja aplikacji powinna używać prywatnego linku<br> -Pamięć podręczna platformy Azure dla Redis powinna znajdować się w sieci wirtualnej<br> -Azure Event Grid domeny powinny używać prywatnego linku<br> -Azure Event Grid tematy powinny używać prywatnego linku<br> -Azure Machine Learning obszary robocze powinny używać prywatnego linku<br> — Usługa Azure sygnalizująca powinna używać prywatnego linku<br> — Chmura Wiosenna platformy Azure powinna używać iniekcji sieci<br> -Rejestr kontenerów nie powinien zezwalać na nieograniczony dostęp do sieci<br> -Rejestry kontenerów powinny używać prywatnego linku<br> -Publiczny dostęp do sieci powinien być wyłączony dla serwerów MariaDB<br> -Publiczny dostęp do sieci powinien być wyłączony dla serwerów MySQL<br> -Publiczny dostęp do sieci powinien być wyłączony dla serwerów PostgreSQL<br> — Konto magazynu powinno korzystać z prywatnego połączenia z linkiem<br> — Konta magazynu powinny ograniczać dostęp do sieci przy użyciu reguł sieci wirtualnej<br> — Szablony konstruktora obrazów maszyn wirtualnych powinny używać prywatnego linku|
+|                                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+
+Powiązane linki:
+
+- [Dowiedz się więcej o teście zabezpieczeń Azure](../security/benchmarks/introduction.md)
+- [Dowiedz się więcej o Azure Database for MariaDB](../mariadb/overview.md)
+- [Dowiedz się więcej o Azure Database for MySQL](../mysql/overview.md)
+- [Dowiedz się więcej o Azure Database for PostgreSQL](../postgresql/overview.md)
+
+
 
 
 ### <a name="csv-export-of-filtered-list-of-recommendations"></a>Eksport CSV przefiltrowanej listy zaleceń 
@@ -439,7 +555,7 @@ Dowiedz się więcej w temacie [usuwanie standardu z pulpitu nawigacyjnego](upda
 
 Azure Resource Graph to usługa platformy Azure, która została zaprojektowana w celu zapewnienia wydajnej eksploracji zasobów dzięki możliwości wykonywania zapytań na dużą skalę w ramach danego zestawu subskrypcji, dzięki czemu możesz efektywnie zarządzać środowiskiem. 
 
-Aby uzyskać Azure Security Center, można użyć ARG i [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) do wykonywania zapytań o szeroki zakres danych stan zabezpieczeń. Przykład:
+Aby uzyskać Azure Security Center, można użyć ARG i [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) do wykonywania zapytań o szeroki zakres danych stan zabezpieczeń. Na przykład:
 
 - Wykorzystanie spisu zasobów (ARG)
 - Zarejestrowano przykładowe zapytanie ARG dotyczące [identyfikowania kont bez włączonej usługi uwierzytelniania wieloskładnikowego (MFA)](security-center-identity-access.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)

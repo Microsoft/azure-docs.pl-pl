@@ -1,6 +1,6 @@
 ---
 title: Typy aplikacji dla platformy tożsamości firmy Microsoft | Azure
-description: Typy aplikacji i scenariuszy obsługiwane przez punkt końcowy platformy tożsamości firmy Microsoft.
+description: Typy aplikacji i scenariuszy obsługiwane przez platformę tożsamości firmy Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,20 +12,20 @@ ms.date: 11/13/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q2
-ms.openlocfilehash: fd1fc59fd1ade6036c57f15415afccfc693f7bff
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 7ec309f016e73642262399bd75e7b5146bc5e497
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029757"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752775"
 ---
-# <a name="application-types-for-microsoft-identity-platform"></a>Typy aplikacji dla platformy tożsamości firmy Microsoft
+# <a name="application-types-for-the-microsoft-identity-platform"></a>Typy aplikacji dla platformy tożsamości firmy Microsoft
 
-Punkt końcowy platformy tożsamości firmy Microsoft obsługuje uwierzytelnianie dla różnych nowoczesnych architektur aplikacji, wszystkie z nich oparte na standardach branżowych [OAuth 2,0 lub OpenID Connect Connect](active-directory-v2-protocols.md). W tym artykule opisano typy aplikacji, które można skompilować przy użyciu platformy tożsamości firmy Microsoft, niezależnie od preferowanego języka lub platformy. Te informacje ułatwiają zrozumienie scenariuszy wysokiego poziomu przed rozpoczęciem pracy z kodem w [scenariuszach aplikacji](authentication-flows-app-scenarios.md#application-scenarios).
+Platforma tożsamości firmy Microsoft obsługuje uwierzytelnianie dla różnorodnych architektur nowoczesnych aplikacji, z których wszystkie są oparte na standardach branżowych [OAuth 2,0 lub OpenID Connect Connect](active-directory-v2-protocols.md). W tym artykule opisano typy aplikacji, które można skompilować przy użyciu platformy tożsamości firmy Microsoft, niezależnie od preferowanego języka lub platformy. Te informacje ułatwiają zrozumienie scenariuszy wysokiego poziomu przed rozpoczęciem pracy z kodem w [scenariuszach aplikacji](authentication-flows-app-scenarios.md#application-scenarios).
 
 ## <a name="the-basics"></a>Podstawy
 
-Należy zarejestrować każdą aplikację korzystającą z punktu końcowego platformy tożsamości firmy Microsoft w [Rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908)Azure Portal. Proces rejestracji aplikacji zbiera i przypisuje te wartości dla aplikacji:
+Należy zarejestrować każdą aplikację korzystającą z platformy tożsamości firmy Microsoft w [Rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908)Azure Portal. Proces rejestracji aplikacji zbiera i przypisuje te wartości dla aplikacji:
 
 * **Identyfikator aplikacji (klienta)** , który jednoznacznie identyfikuje aplikację
 * **Identyfikator URI przekierowania** , za pomocą którego można kierować odpowiedzi z powrotem do aplikacji
@@ -42,7 +42,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 ## <a name="single-page-apps-javascript"></a>Aplikacje jednostronicowe (JavaScript)
 
-Wiele nowoczesnych aplikacji ma fronton aplikacji jednostronicowej oparty głównie na języku JavaScript, często z platformą, taką jak kątowy, reagowanie lub Vue. Punkt końcowy platformy tożsamości firmy Microsoft obsługuje te aplikacje przy użyciu protokołu [OpenID Connect Connect](v2-protocols-oidc.md) na potrzeby uwierzytelniania oraz [niejawnego przepływu OAuth 2,0](v2-oauth2-implicit-grant-flow.md) lub nowszego [kodu autoryzacji OAuth 2,0 + PKCE przepływu](v2-oauth2-auth-code-flow.md) na potrzeby autoryzacji (patrz poniżej).
+Wiele nowoczesnych aplikacji ma fronton aplikacji jednostronicowej oparty głównie na języku JavaScript, często z platformą, taką jak kątowy, reagowanie lub Vue. Platforma tożsamości firmy Microsoft obsługuje te aplikacje przy użyciu protokołu [OpenID Connect Connect](v2-protocols-oidc.md) na potrzeby uwierzytelniania oraz [niejawnego przepływu](v2-oauth2-implicit-grant-flow.md) uwierzytelniania OAuth 2,0 lub nowszego [kodu autoryzacji uwierzytelniania OAuth 2,0 + PKCE przepływu](v2-oauth2-auth-code-flow.md) na potrzeby autoryzacji (patrz poniżej).
 
 Poniższy diagram przepływu przedstawia przyznanie kodu autoryzacji OAuth 2,0 (wraz ze szczegółami dotyczącymi pominiętych PKCE), w którym aplikacja otrzymuje kod z punktu końcowego platformy tożsamości firmy Microsoft i realizuje `authorize` go w celu uzyskania tokenów i tokenów odświeżania przy użyciu żądań sieci Web między lokacjami. Token odświeżania wygasa co 24 godziny, a aplikacja musi zażądać innego kodu. Oprócz tokenu dostępu, `id_token` który reprezentuje zalogowanego użytkownika do aplikacji klienckiej, zazwyczaj żąda również za pomocą tego samego przepływu i/lub oddzielnego żądania połączenia OpenID Connect (nie pokazano tutaj).
 
@@ -73,13 +73,13 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 }
 ```
 
-Dodatkowe szczegóły dotyczące różnych typów tokenów używanych w punkcie końcowym platformy tożsamości firmy Microsoft są dostępne w dokumentacji [tokenu dostępu](access-tokens.md) i [id_token](id-tokens.md)
+Więcej informacji o różnych typach tokenów używanych na platformie tożsamości firmy Microsoft można znaleźć w dokumentacji dotyczącej [tokenów dostępu](access-tokens.md) i [id_token](id-tokens.md)
 
 W aplikacjach serwera sieci Web przepływ uwierzytelniania logowania wykonuje następujące czynności wysokiego poziomu:
 
 ![Pokazuje przepływ uwierzytelniania aplikacji sieci Web](./media/v2-app-types/convergence-scenarios-webapp.svg)
 
-Tożsamość użytkownika można sprawdzić, sprawdzając token identyfikatora przy użyciu publicznego klucza podpisywania otrzymanego z punktu końcowego platformy tożsamości firmy Microsoft. Ustawiono plik cookie sesji, który może służyć do identyfikowania użytkownika na kolejnych żądaniach strony.
+Tożsamość użytkownika można zapewnić, sprawdzając token identyfikatora przy użyciu publicznego klucza podpisywania otrzymanego z platformy tożsamości firmy Microsoft. Ustawiono plik cookie sesji, który może służyć do identyfikowania użytkownika na kolejnych żądaniach strony.
 
 Aby wyświetlić ten scenariusz w działaniu, wypróbuj przykłady kodu w [aplikacji sieci Web, która jest w scenariuszu użytkownika](scenario-web-app-sign-user-overview.md).
 
@@ -87,7 +87,7 @@ Oprócz prostej logowania aplikacja serwera sieci Web może potrzebować dostęp
 
 ## <a name="web-apis"></a>Interfejsy API sieci Web
 
-Możesz użyć punktu końcowego platformy tożsamości firmy Microsoft do zabezpieczenia usług sieci Web, takich jak internetowy interfejs API aplikacji RESTful. Interfejsy API sieci Web można zaimplementować na wielu platformach i w różnych językach. Można je również zaimplementować przy użyciu wyzwalaczy HTTP w Azure Functions. Zamiast tokenów identyfikatorów i plików cookie sesji, internetowy interfejs API używa tokenu dostępu OAuth 2,0 do zabezpieczania danych i uwierzytelniania żądań przychodzących. Obiekt wywołujący interfejs API sieci Web dołącza token dostępu w nagłówku autoryzacji żądania HTTP, tak jak to:
+Platformy tożsamości firmy Microsoft można używać do zabezpieczania usług sieci Web, takich jak internetowy interfejs API aplikacji RESTful. Interfejsy API sieci Web można zaimplementować na wielu platformach i w różnych językach. Można je również zaimplementować przy użyciu wyzwalaczy HTTP w Azure Functions. Zamiast tokenów identyfikatorów i plików cookie sesji, internetowy interfejs API używa tokenu dostępu OAuth 2,0 do zabezpieczania danych i uwierzytelniania żądań przychodzących. Obiekt wywołujący interfejs API sieci Web dołącza token dostępu w nagłówku autoryzacji żądania HTTP, tak jak to:
 
 ```HTTP
 GET /api/items HTTP/1.1
@@ -97,9 +97,9 @@ Accept: application/json
 ...
 ```
 
-Internetowy interfejs API używa tokenu dostępu do weryfikowania tożsamości obiektu wywołującego interfejsu API i wyodrębniania informacji o wywołującym z oświadczeń, które są zakodowane w tokenie dostępu. Dodatkowe szczegóły dotyczące różnych typów tokenów używanych w punkcie końcowym platformy tożsamości firmy Microsoft są dostępne w dokumentacji [tokenu dostępu](access-tokens.md) i [id_token](id-tokens.md) .
+Internetowy interfejs API używa tokenu dostępu do weryfikowania tożsamości obiektu wywołującego interfejsu API i wyodrębniania informacji o wywołującym z oświadczeń, które są zakodowane w tokenie dostępu. Więcej informacji o różnych typach tokenów używanych na platformie tożsamości firmy Microsoft można znaleźć w dokumentacji dotyczącej [tokenów dostępu](access-tokens.md) i [id_token](id-tokens.md) .
 
-Internetowy interfejs API może zapewnić użytkownikom możliwość wyboru lub rezygnacji z określonych funkcji lub danych przez ujawnienie uprawnień, nazywanych również [zakresami](v2-permissions-and-consent.md). Aby aplikacja wywołująca uzyskała uprawnienie do zakresu, użytkownik musi wyrazić zgodę na zakres w przepływie. Punkt końcowy platformy tożsamości firmy Microsoft prosi użytkownika o zgodę, a następnie rejestruje uprawnienia we wszystkich tokenach dostępu odbieranych przez internetowy interfejs API. Internetowy interfejs API sprawdza poprawność tokenów dostępu odbieranych na każdym wywołaniu i wykonuje sprawdzanie autoryzacji.
+Internetowy interfejs API może zapewnić użytkownikom możliwość wyboru lub rezygnacji z określonych funkcji lub danych przez ujawnienie uprawnień, nazywanych również [zakresami](v2-permissions-and-consent.md). Aby aplikacja wywołująca uzyskała uprawnienie do zakresu, użytkownik musi wyrazić zgodę na zakres w przepływie. Platforma tożsamości firmy Microsoft prosi użytkownika o zgodę, a następnie rejestruje uprawnienia we wszystkich tokenach dostępu odbieranych przez internetowy interfejs API. Internetowy interfejs API sprawdza poprawność tokenów dostępu odbieranych na każdym wywołaniu i wykonuje sprawdzanie autoryzacji.
 
 Internetowy interfejs API może odbierać tokeny dostępu z wszystkich typów aplikacji, w tym aplikacji serwera sieci Web, aplikacji klasycznych i mobilnych, aplikacji jednostronicowych, demonów po stronie serwera, a nawet innych interfejsów API sieci Web. Przepływ wysokiego poziomu dla interfejsu API sieci Web wygląda następująco:
 
@@ -113,7 +113,7 @@ W wielu przypadkach interfejsy API sieci Web muszą również wykonywać żądan
 
 Aplikacje zainstalowane na urządzeniu, takie jak aplikacje mobilne i klasyczne, często muszą uzyskiwać dostęp do usług zaplecza lub interfejsów API sieci Web, które przechowują dane i wykonują funkcje w imieniu użytkownika. Te aplikacje mogą dodawać logowanie i autoryzację do usług zaplecza przy użyciu [przepływu kodu autoryzacji OAuth 2,0](v2-oauth2-auth-code-flow.md).
 
-W tym przepływie aplikacja otrzymuje kod autoryzacji z punktu końcowego platformy tożsamości firmy Microsoft po zalogowaniu się użytkownika. Kod autoryzacji reprezentuje uprawnienia aplikacji do wywoływania usług zaplecza w imieniu zalogowanego użytkownika. Aplikacja może wymienić kod autoryzacji w tle dla tokenu dostępu OAuth 2,0 i tokenu odświeżania. Aplikacja może używać tokenu dostępu do uwierzytelniania do interfejsów API sieci Web w żądaniach HTTP i używać tokenu odświeżania do uzyskiwania nowych tokenów dostępu po wygaśnięciu starszych tokenów dostępu.
+W tym przepływie aplikacja otrzymuje kod autoryzacji z platformy tożsamości firmy Microsoft po zalogowaniu się użytkownika. Kod autoryzacji reprezentuje uprawnienia aplikacji do wywoływania usług zaplecza w imieniu zalogowanego użytkownika. Aplikacja może wymienić kod autoryzacji w tle dla tokenu dostępu OAuth 2,0 i tokenu odświeżania. Aplikacja może używać tokenu dostępu do uwierzytelniania do interfejsów API sieci Web w żądaniach HTTP i używać tokenu odświeżania do uzyskiwania nowych tokenów dostępu po wygaśnięciu starszych tokenów dostępu.
 
 ![Pokazuje przepływ uwierzytelniania aplikacji natywnych](./media/v2-app-types/convergence-scenarios-native.svg)
 

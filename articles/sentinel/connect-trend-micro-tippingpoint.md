@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/12/2021
 ms.author: yelevin
-ms.openlocfilehash: 989520e079988e1821d8bb9a936f857e1f62c11a
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 5c7491a0e0ba2a3bf604988c613e1fd8937f277d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567763"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752179"
 ---
 # <a name="connect-your-trend-micro-tippingpoint-solution-to-azure-sentinel"></a>Połącz swoje rozwiązanie Trend Micro TippingPoint z platformą Azure — wskaźnikiem
 
 > [!IMPORTANT]
 > Łącznik Trend Micro TippingPoint jest obecnie w **wersji zapoznawczej**. Zapoznaj się z dodatkowymi [warunkami użytkowania Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) wersji zapoznawczych, aby uzyskać dodatkowe postanowienia prawne dotyczące funkcji systemu Azure, które są w wersji beta, Preview lub w inny sposób nie zostały jeszcze udostępnione publicznie.
 
-W tym artykule wyjaśniono, jak połączyć rozwiązanie systemu ochrony przed zagrożeniami w usłudze Trend Micro TippingPoint z platformą Azure. Łącznik danych Trend Micro TippingPoint pozwala łatwo połączyć Dzienniki systemu zarządzania bezpieczeństwem (SMS) z systemem Azure, dzięki czemu można wyświetlać dane w skoroszytach, używać ich do tworzenia niestandardowych alertów i uwzględniania ich w celu usprawnienia badania. 
+W tym artykule wyjaśniono, jak połączyć rozwiązanie systemu ochrony przed zagrożeniami w usłudze Trend Micro TippingPoint z platformą Azure. Łącznik danych Trend Micro TippingPoint pozwala łatwo połączyć Dzienniki systemu zarządzania bezpieczeństwem (SMS) z systemem Azure, dzięki czemu można wyświetlać dane w skoroszytach, używać ich do tworzenia niestandardowych alertów i uwzględniania ich w celu usprawnienia badania.
 
 > [!NOTE]
 > Dane będą przechowywane w lokalizacji geograficznej obszaru roboczego, w którym jest uruchamiany wskaźnik platformy Azure.
@@ -40,7 +40,7 @@ W tym artykule wyjaśniono, jak połączyć rozwiązanie systemu ochrony przed z
 
 ## <a name="send-trend-micro-tippingpoint-logs-to-azure-sentinel"></a>Wyślij dzienniki Trend Micro TippingPoint do usługi Azure wskaźnikowej
 
-Aby pobrać swoje dzienniki do funkcji wskaźnikowej platformy Azure, skonfiguruj rozwiązanie TPS TippingPoint do wysyłania komunikatów dziennika systemowego w formacie CEF do serwera z przekazywaniem danych dzienników opartych na systemie Linux (z systemem rsyslog lub dziennikiem systemu). Na tym serwerze będzie zainstalowany agent Log Analytics, a agent przekazuje dzienniki do obszaru roboczego wskaźnikowego platformy Azure.
+Aby pobrać swoje dzienniki do funkcji wskaźnikowej platformy Azure, skonfiguruj rozwiązanie TPS TippingPoint do wysyłania komunikatów dziennika systemowego w formacie CEF do serwera z przekazywaniem danych dzienników opartych na systemie Linux (z systemem rsyslog lub dziennikiem systemu). Na tym serwerze będzie zainstalowany agent Log Analytics, a agent przekazuje dzienniki do obszaru roboczego wskaźnikowego platformy Azure. Łącznik korzysta z funkcji analizatora składni, aby przekonwertować dane odbierane w znormalizowanym schemacie. 
 
 1. W menu nawigacji wskaźnikowej platformy Azure wybierz pozycję **Łączniki danych**.
 
@@ -64,11 +64,11 @@ Aby pobrać swoje dzienniki do funkcji wskaźnikowej platformy Azure, skonfiguru
 
 Po pomyślnym nawiązaniu połączenia dane pojawiają się w **dziennikach** w sekcji **wskaźnik platformy Azure** w tabeli *CommonSecurityLog* .
 
-Aby wykonać zapytanie o dane TrendMicro TippingPoint w Log Analytics, Skopiuj następujące elementy do okna zapytania, stosując inne filtry w miarę wyboru:
+Aby uzyskać dane Trend Micro TippingPoint w Log Analytics, zbadasz funkcję parsera zamiast tabeli. Skopiuj następujące elementy do okna zapytania, stosując inne filtry w wybranym przez siebie sposób:
 
 ```kusto
-CommonSecurityLog 
-| where DeviceVendor == "TrendMicroTippingPoint"
+TrendMicroTippingPoint
+| sort by TimeGenerated
 ```
 
 Więcej przykładów zapytań można znaleźć na karcie **następne kroki** na stronie łącznika.
@@ -76,6 +76,7 @@ Więcej przykładów zapytań można znaleźć na karcie **następne kroki** na 
 ## <a name="next-steps"></a>Następne kroki
 
 W tym dokumencie przedstawiono sposób nawiązywania połączenia z Trend Micro TippingPoint z platformą Azure. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
+
 - Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).
 - Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](tutorial-detect-threats-built-in.md).
 - [Używaj skoroszytów](tutorial-monitor-your-data.md) do monitorowania danych.

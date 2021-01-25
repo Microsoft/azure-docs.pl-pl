@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 946908bf28a50bc8b523c4efd853e8720b115c7b
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: c071cb9a8a27964a93e039e4d1536e078730bfc9
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063080"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753623"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Uzyskaj token dla aplikacji mobilnej, która wywołuje interfejsy API sieci Web
 
@@ -28,7 +28,7 @@ Aby aplikacja mogła wywoływać chronione interfejsy API sieci Web, musi mieć 
 
 Podczas żądania tokenu należy zdefiniować zakres. Zakres określa, jakie dane może uzyskać dostęp do aplikacji.
 
-Najprostszym sposobem zdefiniowania zakresu jest połączenie żądanych interfejsów API sieci Web `App ID URI` z zakresem `.default` . Ta definicja instruuje platformę tożsamości firmy Microsoft, że aplikacja wymaga wszystkich zakresów ustawionych w portalu.
+Najprostszym sposobem zdefiniowania zakresu jest połączenie żądanych interfejsów API sieci Web `App ID URI` z zakresem `.default` . Ta definicja informuje platformę tożsamości firmy Microsoft, że aplikacja wymaga wszystkich zakresów ustawionych w portalu.
 
 ### <a name="android"></a>Android
 ```Java
@@ -243,7 +243,7 @@ Klasa definiuje następujące stałe:
 
 ##### <a name="withextrascopetoconsent"></a>WithExtraScopeToConsent
 
-Użyj `WithExtraScopeToConsent` modyfikatora w zaawansowanym scenariuszu, w którym użytkownik powinien zapewnić z góry zgodę na kilka zasobów. Tego modyfikatora można użyć, jeśli nie chcesz używać wyrażenia przyrostowego, które jest zwykle używane z MSAL.NET lub Microsoft Identity platform 2,0. Aby uzyskać więcej informacji, zobacz artykuł czy [użytkownik ma zgodę na dostęp do kilku zasobów](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources).
+Użyj `WithExtraScopeToConsent` modyfikatora w zaawansowanym scenariuszu, w którym użytkownik powinien zapewnić z góry zgodę na kilka zasobów. Tego modyfikatora można użyć, jeśli nie chcesz używać wyrażenia przyrostowego, które jest zwykle używane z MSAL.NET lub platformą tożsamości firmy Microsoft. Aby uzyskać więcej informacji, zobacz artykuł czy [użytkownik ma zgodę na dostęp do kilku zasobów](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources).
 
 Oto przykład kodu:
 

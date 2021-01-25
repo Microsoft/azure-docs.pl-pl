@@ -1,5 +1,6 @@
 ---
-title: Konfigurowanie aplikacji sieci Web, która loguje się do użytkowników — platforma tożsamości firmy Microsoft | Azure
+title: Konfigurowanie aplikacji sieci Web, która loguje się w użytkownikach | Azure
+titleSuffix: Microsoft identity platform
 description: Dowiedz się, jak utworzyć aplikację internetową, która loguje się do użytkowników (Konfiguracja kodu)
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: dad7b0563fd1ca0dbf60403bc6172e7616e278b2
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 45f3a066283a921f60909a4aa3cfdc76f3faad06
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443657"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753275"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>Aplikacja internetowa, która loguje użytkowników: Konfiguracja kodu
 
@@ -202,7 +203,7 @@ SESSION_TYPE = "filesystem"  # So the token cache will be stored in a server-sid
 
 ## <a name="initialization-code"></a>Kod inicjalizacji
 
-Kod inicjalizacji różni się w zależności od platformy. W przypadku ASP.NET Core i ASP.NET Logowanie użytkowników jest delegowane do oprogramowania pośredniczącego OpenID Connect Connect. Szablon ASP.NET lub ASP.NET Core generuje aplikacje sieci Web dla punktu końcowego Azure Active Directory (Azure AD) v 1.0. Aby dostosować je do punktu końcowego Microsoft Identity platform (v 2.0), wymagana jest pewna konfiguracja. W przypadku środowiska Java jest ono obsługiwane przez źródło współpracy aplikacji.
+Kod inicjalizacji różni się w zależności od platformy. W przypadku ASP.NET Core i ASP.NET Logowanie użytkowników jest delegowane do oprogramowania pośredniczącego OpenID Connect Connect. Szablon ASP.NET lub ASP.NET Core generuje aplikacje sieci Web dla punktu końcowego Azure Active Directory (Azure AD) v 1.0. Aby dostosować je do platformy tożsamości firmy Microsoft, wymagana jest pewna konfiguracja. W przypadku środowiska Java jest ono obsługiwane przez źródło współpracy aplikacji.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
@@ -262,7 +263,7 @@ W powyższym kodzie:
 - `AddMicrosoftIdentityWebAppAuthentication`Metoda rozszerzenia jest zdefiniowana w **Microsoft. Identity. Web**. Go
   - Dodaje usługę uwierzytelniania.
   - Konfiguruje opcje odczytywania pliku konfiguracji (w tym miejscu z sekcji "AzureAD")
-  - Konfiguruje opcje połączenia OpenID Connect, dzięki czemu Urząd jest punktem końcowym Microsoft Identity platform.
+  - Konfiguruje opcje połączenia OpenID Connect, aby Urząd był platformą tożsamości firmy Microsoft.
   - Sprawdza poprawność wystawcy tokenu.
   - Zapewnia, że oświadczenia odpowiadające nazwie są mapowane z `preferred_username` oświadczenia w tokenie ID.
 
@@ -291,7 +292,7 @@ Kod związany z uwierzytelnianiem w aplikacji sieci Web ASP.NET i interfejsy API
   app.UseOpenIdConnectAuthentication(
     new OpenIdConnectAuthenticationOptions
     {
-     // `Authority` represents the identity platform endpoint - https://login.microsoftonline.com/common/v2.0.
+     // Authority` represents the identity platform endpoint - https://login.microsoftonline.com/common/v2.0.
      // `Scope` describes the initial permissions that your app will need.
      //  See https://azure.microsoft.com/documentation/articles/active-directory-v2-scopes/.
      ClientId = clientId,

@@ -1,7 +1,7 @@
 ---
 title: 'Szybki Start: wywoływanie Microsoft Graph z demona języka Python | Azure'
 titleSuffix: Microsoft identity platform
-description: W tym przewodniku szybki start dowiesz się, jak proces języka Python może uzyskać token dostępu i wywołać interfejs API chroniony przez punkt końcowy platformy tożsamości firmy Microsoft przy użyciu własnej tożsamości aplikacji
+description: W tym przewodniku szybki start dowiesz się, w jaki sposób proces Python może uzyskać token dostępu i wywołać interfejs API chroniony przez platformę tożsamości firmy Microsoft przy użyciu własnej tożsamości aplikacji
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 47aaf67c9ae2402e0445de60de439b77242bd87d
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 04c3497e41aba301d5cf16cd6cc723409d1f4175
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178232"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754074"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Szybki Start: uzyskiwanie tokenu i wywoływanie Microsoft Graph interfejsu API z aplikacji konsolowej języka Python przy użyciu tożsamości aplikacji
 

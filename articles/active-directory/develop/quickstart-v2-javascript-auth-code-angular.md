@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/14/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: acaa87f44fbd496aea843de673c0b2d7652fe542
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: b6e83f8c4ba00f64bd924ce7b404cd3acfcecd14
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98681047"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754212"
 ---
 # <a name="quickstart-sign-in-and-get-an-access-token-in-an-angular-spa-using-the-auth-code-flow"></a>Szybki Start: Logowanie i uzyskiwanie tokenu dostępu w przypadku SPA, przy użyciu przepływu kodu uwierzytelniania
 
@@ -39,9 +39,7 @@ Ten przewodnik Szybki Start używa MSAL kątowy v2 z przepływem kodu autoryzacj
 >
 > ### <a name="option-1-express-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opcja 1 (Express): Zarejestruj i automatycznie Skonfiguruj aplikację, a następnie Pobierz przykład kodu
 >
-> 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-> 1. Jeśli Twoje konto zapewnia dostęp do więcej niż jednej dzierżawy, wybierz swoje konto w prawym górnym rogu, a następnie ustaw sesję portalu z dzierżawą usługi Azure AD, której chcesz użyć.
-> 1. Wybierz pozycję [Rejestracje aplikacji](https://aka.ms/AAatehv).
+> 1. Przejdź do środowiska szybkiego startu w <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">Azure Portal rejestracje aplikacji <span class="docon docon-navigate-external x-hidden-focus"></span> </a> .
 > 1. Wprowadź nazwę aplikacji.
 > 1. W obszarze **Obsługiwane typy kont** wybierz pozycję **Konta w dowolnym katalogu organizacyjnym i konta osobiste Microsoft**.
 > 1. Wybierz pozycję **Zarejestruj**.
@@ -51,18 +49,17 @@ Ten przewodnik Szybki Start używa MSAL kątowy v2 z przepływem kodu autoryzacj
 >
 > #### <a name="step-1-register-your-application"></a>Krok 1. Rejestrowanie aplikacji
 >
-> 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-> 1. Jeśli Twoje konto zapewnia dostęp do więcej niż jednej dzierżawy, wybierz swoje konto w prawym górnym rogu, a następnie ustaw sesję portalu na dzierżawę usługi Azure Active Directory (Azure AD), której chcesz użyć.
-> 1. Wybierz pozycję [Rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908).
-> 1. Wybierz pozycję **Nowa rejestracja**.
-> 1. Po wyświetleniu strony **Rejestrowanie aplikacji** wprowadź nazwę aplikacji.
+> 1. Zaloguj się do <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+> 1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę, w którym chcesz zarejestrować aplikację.
+> 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
+> 1. W obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**  >  **Nowa rejestracja**.
+> 1. Wprowadź **nazwę** aplikacji. Użytkownicy Twojej aplikacji mogą zobaczyć tę nazwę i można ją później zmienić.
 > 1. W obszarze **Obsługiwane typy kont** wybierz pozycję **Konta w dowolnym katalogu organizacyjnym i konta osobiste Microsoft**.
 > 1. Wybierz pozycję **Zarejestruj**. Na stronie **Przegląd** aplikacji Zanotuj wartość **identyfikatora aplikacji (klienta)** do późniejszego użycia.
-> 1. W lewym okienku zarejestrowanej aplikacji wybierz pozycję **uwierzytelnianie**.
-> 1. W obszarze **konfiguracje platformy** wybierz opcję `Add a platform` .
-> 1. W oknie wyników wybierz pozycję **aplikacja jednostronicowa**.
+> 1. W obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie**.
+> 1. W obszarze **Konfiguracja platformy** wybierz pozycję **Dodaj platformę**. W otwartym okienku wybierz pozycję **aplikacja jednostronicowa**.
 > 1. Ustaw wartość **identyfikatorów URI przekierowania** na `http://localhost:4200/` . Jest to domyślny port NodeJS nasłuchuje na komputerze lokalnym. Po pomyślnym uwierzytelnieniu użytkownika zwrócimy odpowiedź uwierzytelniania do tego identyfikatora URI. 
-> 1. Kliknij przycisk **Konfiguruj** , aby zastosować zmiany.
+> 1. Wybierz pozycję **Konfiguruj** , aby zastosować zmiany.
 > 1. W obszarze **konfiguracje platformy** rozwiń **aplikację jednostronicową**.
 > 1. Upewnij się, że w obszarze **przyznane typy** ![ już skonfigurowano ](media/quickstart-v2-javascript/green-check.png) Identyfikator URI przekierowania jest uprawniony do przepływu kodu autoryzacji z PKCE.
 

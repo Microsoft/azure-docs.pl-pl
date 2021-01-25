@@ -13,12 +13,12 @@ ms.date: 05/19/2020
 ms.author: hirsin
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 064c9a00e1cd7c139f3f42a053dcf8a5db13f161
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: eed4e919684575bb2c63170d91517b661fac4acf
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104584"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753961"
 ---
 # <a name="handle-itp-in-safari-and-other-browsers-where-third-party-cookies-are-blocked"></a>Obsługa ITP w przeglądarce Safari i innych przeglądarkach, w których są blokowane pliki cookie innych firm
 
@@ -77,7 +77,7 @@ Typowym wzorcem w usłudze Web Apps jest użycie elementu IFRAME do osadzenia je
 
 Wystawianie tokenów odświeżania przeglądarki jest traktowane jako problem z zabezpieczeniami. Ataki na skrypty między lokacjami (XSS) lub naruszone pakiety JS mogą wykraść token odświeżania i korzystać z niego zdalnie, dopóki nie wygaśnie lub zostanie odwołany. Aby zminimalizować ryzyko kradzieży tokenów odświeżania, aplikacji jednostronicowych będą wystawiane tokeny, które są ważne tylko przez 24 godziny. Po 24 godzinach aplikacja musi uzyskać nowy kod autoryzacji za pośrednictwem ramki najwyższego poziomu na stronie logowania.
 
-Ten wzorzec tokenów odświeżania o ograniczonym okresie istnienia został wybrany jako równowaga między zabezpieczeniami i zdegradowanym środowiskiem użytkownika. Bez tokenów odświeżania lub plików cookie innych firm przepływ kodu autoryzacji (zgodnie z zaleceniami zalecanymi przez [wersję roboczą najlepszych praktyk dotyczących zabezpieczeń OAuth](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14)) jest uciążliwy, gdy wymagane są nowe lub dodatkowe tokeny. Dla każdego pojedynczego tokenu jest wymagana pełna przekierowanie lub podręczne strony, za każdym razem, gdy token wygasa (co godzinę zazwyczaj dla tokenów platformy tożsamości firmy Microsoft).
+Ten wzorzec tokenów odświeżania o ograniczonym okresie istnienia został wybrany jako równowaga między zabezpieczeniami i zdegradowanym środowiskiem użytkownika. Bez tokenów odświeżania lub plików cookie innych firm przepływ kodu autoryzacji (zgodnie z zaleceniami zalecanymi przez [wersję roboczą najlepszych praktyk dotyczących zabezpieczeń OAuth](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14)) jest uciążliwy, gdy wymagane są nowe lub dodatkowe tokeny. Dla każdego pojedynczego tokenu jest wymagana przekierowanie lub wyskakujące okienko, za każdym razem, gdy token wygaśnie (co godzinę zazwyczaj dla tokenów platformy tożsamości firmy Microsoft).
 
 ## <a name="next-steps"></a>Następne kroki
 

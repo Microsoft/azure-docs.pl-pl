@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2021
 ms.author: memildin
-ms.openlocfilehash: 1e6b66fce6b22dfd12c162d469ce44137c94ab87
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: e881c61d16cd167ace78abb96dca7e714436cfc0
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916375"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752221"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Wskaźnik bezpieczeństwa w usłudze Azure Security Center
 
@@ -54,7 +54,7 @@ Możesz znaleźć ogólny, bezpieczny wynik, a także wynik na subskrypcję za p
 
 ### <a name="get-your-secure-score-from-the-portal"></a>Pobierz swój Bezpieczny wynik z portalu
 
-Security Center wyświetla wyniki w portalu w widocznym miejscu: jest to pierwszy główny kafelek na stronie Przegląd Security Center. Wybranie tego kafelka spowoduje przejście na stronę dedykowanego, bezpiecznego oceny, w której zobaczysz wynik podzielony przez subskrypcję. Wybierz jedną subskrypcję, aby wyświetlić szczegółową listę zaleceń z priorytetami i potencjalny wpływ, który korygowaniem ich na ocenę subskrypcji.
+Security Center wyświetla wyniki w portalu w widocznym miejscu: jest to pierwszy główny kafelek na stronie Przegląd Security Center. Wybranie tego kafelka spowoduje przejście na stronę dedykowanego, bezpiecznego oceny, w której zobaczysz wynik podzielony przez subskrypcję. Wybierz jedną subskrypcję, aby wyświetlić szczegółową listę zaleceń z priorytetami i potencjalny wpływ, który korygowaniem ich na ocenę subskrypcji. 
 
 Aby podsumowanie, Twój bezpieczny wynik jest wyświetlany w następujących lokalizacjach na stronach portalu Security Center.
 
@@ -62,9 +62,14 @@ Aby podsumowanie, Twój bezpieczny wynik jest wyświetlany w następujących lok
 
     :::image type="content" source="./media/secure-score-security-controls/score-on-main-dashboard.png" alt-text="Bezpieczna Ocena na pulpicie nawigacyjnym Security Center":::
 
-- Na stronie dedykowany **wynik bezpiecznego** :
+- Na stronie dedykowany wskaźnik **zabezpieczeń** możesz zobaczyć bezpieczny wynik subskrypcji i grup zarządzania:
 
-    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="Bezpieczna Ocena na stronie bezpiecznego oceny Security Center":::
+    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="Bezpieczna ocena subskrypcji na stronie bezpiecznej oceny Security Center":::
+
+    :::image type="content" source="./media/secure-score-security-controls/secure-score-management-groups.png" alt-text="Bezpieczna ocena grup zarządzania na Security Center stronie zabezpieczonych wyników":::
+
+    > [!NOTE]
+    > Wszystkie grupy zarządzania, dla których nie masz wystarczających uprawnień, będą wyświetlać ich wyniki jako "z ograniczeniami". 
 
 - W górnej części strony **zalecenia** :
 
@@ -125,7 +130,7 @@ Pulpit nawigacyjny zawiera dwa następujące raporty, które ułatwiają Analizo
 - **Podsumowanie zasobów** — zawiera podsumowanie danych dotyczących kondycji zasobów.
 - **Podsumowanie oceny zabezpieczeń** — zawiera podsumowanie danych dotyczących postępu oceny. Aby wyświetlić zmiany w wyniku, użyj wykresu "stawka" w czasie na subskrypcję ". Jeśli zauważysz istotną zmianę w wyniku, sprawdź "wykryte zmiany, które mogą mieć wpływ na tabelę zabezpieczonych wyników" dla możliwych zmian, które mogłyby spowodować zmianę. W tej tabeli przedstawiono usunięte zasoby, nowo wdrożone zasoby lub zasoby, dla których zmieniono stan zabezpieczeń dla jednego z zaleceń.
 
-:::image type="content" source="./media/secure-score-security-controls/power-bi-secure-score-dashboard.png" alt-text="Opcjonalny, bezpieczny wynik na pulpicie nawigacyjnym usługi Power BI do śledzenia bezpiecznego oceny w czasie i badania zmian":::
+:::image type="content" source="./media/secure-score-security-controls/power-bi-secure-score-dashboard.png" alt-text="Opcjonalny bezpieczny wynik na pulpicie nawigacyjnym Power BI czasu na śledzenie bezpiecznego wyniku w czasie i badanie zmian":::
 
 
 
@@ -152,7 +157,7 @@ Maksymalny wynik tej kontrolki, zastosowanie aktualizacji systemu, to zawsze 6. 
 
 ### <a name="calculations---understanding-your-score"></a>Obliczenia — zrozumienie oceny
 
-|Metryka|Formuła i przykład|
+|Metric|Formuła i przykład|
 |-|-|
 |**Bieżący wynik kontroli zabezpieczeń**|<br>![Równanie obliczające wynik kontroli zabezpieczeń](media/secure-score-security-controls/secure-score-equation-single-control.png)<br><br>Każda indywidualna kontrola zabezpieczeń przyczynia się do osiągnięcia oceny zabezpieczeń. Każdy zasób, na który ma wpływ zalecenie w ramach kontroli, przyczynia się do bieżącego wyniku kontrolki. Bieżący wynik dla każdej kontrolki jest miarą stanu zasobów *w* kontrolce.<br>![Etykietki narzędzi pokazujące wartości używane podczas obliczania bieżącego wyniku kontroli zabezpieczeń](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>W tym przykładzie maksymalny wynik 6 zostałby podzielony przez 78, ponieważ to jest suma zasobów w dobrej kondycji i w nieprawidłowych Stanach.<br>6/78 = 0,0769<br>Mnożenie tego przez liczbę zasobów w dobrej kondycji (4) skutkuje bieżącym wynikiem:<br>0,0769 * 4 = **0,31**<br><br>|
 |**Wskaźnik bezpieczeństwa**<br>Subskrypcja pojedyncza|<br>![Równanie obliczania bezpiecznego wyniku subskrypcji](media/secure-score-security-controls/secure-score-equation-single-sub.png)<br><br>![Jeden bezpieczny wynik subskrypcji z włączonymi wszystkimi kontrolkami](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>W tym przykładzie istnieje jedna subskrypcja z wszystkimi dostępnymi wszystkimi kontrolami zabezpieczeń (potencjalną maksymalną wartością wyniku 60 punktów). Wynik pokazuje 28 punktów z możliwego 60, a pozostałe 32 punkty są odzwierciedlone w postaci "potencjalne zwiększenie wyniku" w zakresie kontroli zabezpieczeń.<br>![Lista kontrolek i zwiększenie potencjalnego wyniku](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|

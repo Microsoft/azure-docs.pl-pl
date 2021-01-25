@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 016a2917c02deaecf35c526426cb2a6dbc89e338
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: b294a56a523adaa2629a5d1e72a7ccef532956e0
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173196"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753295"
 ---
 # <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>Aplikacja sieci Web, która wywołuje interfejsy API sieci Web: wywoływanie interfejsu API sieci Web
 
@@ -73,7 +73,7 @@ public class IndexModel : PageModel
 
 #### <a name="option-2-call-a-downstream-web-api-with-the-helper-class"></a>Opcja 2: wywoływanie podrzędnego interfejsu API sieci Web z klasą pomocnika
 
-Chcesz wywołać internetowy interfejs API inny niż Microsoft Graph. W takim przypadku dodano program Startup.cs zgodnie `AddDownstreamWebApi` z *Startup.cs* [konfiguracją kodu](scenario-web-app-call-api-app-configuration.md#option-2-call-a-downstream-web-api-other-than-microsoft-graph)i można bezpośrednio wstrzyknąć `IDownstreamWebApi` usługę do kontrolera lub konstruktora stron i używać jej w akcjach:
+Chcesz wywołać internetowy interfejs API inny niż Microsoft Graph. W takim przypadku dodano program Startup.cs zgodnie `AddDownstreamWebApi` z  [konfiguracją kodu](scenario-web-app-call-api-app-configuration.md#option-2-call-a-downstream-web-api-other-than-microsoft-graph)i można bezpośrednio wstrzyknąć `IDownstreamWebApi` usługę do kontrolera lub konstruktora stron i używać jej w akcjach:
 
 ```CSharp
 [Authorize]

@@ -13,12 +13,12 @@ ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: identityplatformtop40, contperf-fy21q2
-ms.openlocfilehash: e5a9292097933ff35eb8b77445f07f10def6e5c3
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 662523b1544fe3ca9e8bda993efa7b578b9f69cc
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029621"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752579"
 ---
 # <a name="what-is-the-microsoft-identity-platform"></a>Co to jest platforma tożsamości firmy Microsoft?
 
@@ -44,8 +44,8 @@ Korzystając z platformy tożsamości firmy Microsoft, możesz napisać kod jede
 Wybierz [scenariusz aplikacji](authentication-flows-app-scenarios.md) , który chcesz skompilować. Każda z tych ścieżek scenariusza rozpoczyna się od przeglądu i łączy do przewodnika Szybki Start, aby ułatwić rozpoczęcie pracy:
 
 - [Aplikacja jednostronicowa (SPA)](scenario-spa-overview.md)
-- [Aplikacja internetowa z możliwością logowania użytkowników](scenario-web-app-sign-user-overview.md)
-- [Aplikacja internetowa wywołująca internetowe interfejsy API](scenario-web-app-call-api-overview.md)
+- [Aplikacja internetowa, która loguje użytkowników](scenario-web-app-sign-user-overview.md)
+- [Aplikacja internetowa, która wywołuje internetowe interfejsy API](scenario-web-app-call-api-overview.md)
 - [Chroniony internetowy interfejs API](scenario-protected-web-api-overview.md)
 - [Internetowy interfejs API wywołujący internetowe interfejsy API](scenario-web-api-call-api-overview.md)
 - [Aplikacja klasyczna](scenario-desktop-overview.md)
@@ -78,7 +78,7 @@ Dowiedz się, jak uwierzytelnianie podstawowe i pojęcia dotyczące usługi Azur
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli masz już konto platformy Azure, masz dostęp do dzierżawy Azure Active Directory, ale większość deweloperów platformy tożsamości firmy Microsoft potrzebuje własnej dzierżawy usługi Azure AD, która będzie używana podczas tworzenia aplikacji, "dzierżawy dev".
+Jeśli masz konto platformy Azure, masz już dostęp do dzierżawy Azure Active Directory, ale większość deweloperów platformy tożsamości firmy Microsoft potrzebuje własnej dzierżawy usługi Azure AD do użycia podczas opracowywania aplikacji, "dzierżawy dev".
 
 Dowiedz się, jak utworzyć własną dzierżawę do użycia podczas kompilowania aplikacji:
 

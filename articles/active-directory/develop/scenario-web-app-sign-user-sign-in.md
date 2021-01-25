@@ -1,5 +1,6 @@
 ---
-title: Napisz aplikację sieci Web, która loguje się/out użytkowników — platforma tożsamości firmy Microsoft | Azure
+title: Napisz aplikację sieci Web, która loguje użytkowników we/zewnątrz | Azure
+titleSuffix: Microsoft identity platform
 description: Dowiedz się, jak utworzyć aplikację sieci Web, która loguje użytkowników z/z zewnątrz
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: e7397f6d02d71a6344953b8210b0349b9ee26360
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 5b0b86321f7f2b320c3fea8e7c5bfa45bd936b77
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443555"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752995"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Aplikacja internetowa, która loguje użytkowników: Logowanie i wylogowywanie
 
@@ -213,7 +214,7 @@ Po zalogowaniu się użytkownika do aplikacji należy włączyć ich wylogowywan
 Wylogowywanie z aplikacji sieci Web obejmuje więcej niż usuwanie informacji o koncie zalogowanym ze stanu aplikacji sieci Web.
 Aplikacja sieci Web musi również przekierować użytkownika do punktu końcowego platformy tożsamości firmy Microsoft, `logout` Aby się wylogować.
 
-Gdy aplikacja internetowa przekierowuje użytkownika do `logout` punktu końcowego, ten punkt końcowy czyści sesję użytkownika z przeglądarki. Jeśli Twoja aplikacja nie przejdzie do `logout` punktu końcowego, użytkownik będzie ponownie uwierzytelniać się w aplikacji bez konieczności ponownego wprowadzania poświadczeń. Przyczyną jest to, że będzie ona mieć prawidłową sesję logowania jednokrotnego z punktem końcowym platformy tożsamości firmy Microsoft.
+Gdy aplikacja internetowa przekierowuje użytkownika do `logout` punktu końcowego, ten punkt końcowy czyści sesję użytkownika z przeglądarki. Jeśli Twoja aplikacja nie przejdzie do `logout` punktu końcowego, użytkownik będzie ponownie uwierzytelniać się w aplikacji bez konieczności ponownego wprowadzania poświadczeń. Wynika to z faktu, że będzie ona mieć prawidłową sesję logowania jednokrotnego na platformie tożsamości firmy Microsoft.
 
 Aby dowiedzieć się więcej, zobacz sekcję [Wysyłanie żądania wylogowania](v2-protocols-oidc.md#send-a-sign-out-request) z [platformy tożsamości firmy Microsoft i dokumentacji protokołu OpenID Connect Connect](v2-protocols-oidc.md) .
 

@@ -1,6 +1,6 @@
 ---
 title: 'Szybki Start: Logowanie użytkowników i wywoływanie Microsoft Graph w aplikacji klasycznej platforma uniwersalna systemu Windows | Azure'
-description: W tym przewodniku szybki start dowiesz się, w jaki sposób aplikacja Windows Desktop .NET (XAML) może uzyskać token dostępu i wywołać interfejs API chroniony przez punkt końcowy platformy tożsamości firmy Microsoft
+description: W tym przewodniku szybki start dowiesz się, jak aplikacja Windows Desktop .NET (XAML) może uzyskać token dostępu i wywołać interfejs API chroniony przez platformę tożsamości firmy Microsoft.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1cac8ab4ccf23047bd5eb2d15c174a2009f2864a
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: b54438441b0e34cccda7fbec37dc1d1740101e9e
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178300"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753996"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Szybki start: uzyskiwanie tokenu i wywoływanie interfejsu API programu Microsoft Graph z poziomu aplikacji klasycznej w systemie Windows
 
@@ -145,7 +145,7 @@ Biblioteka MSAL oferuje dwie metody uzyskiwania tokenów: `AcquireTokenInteracti
 
 #### <a name="get-a-user-token-interactively"></a>Interaktywne pobieranie tokenu użytkownika
 
-W niektórych sytuacjach należy wymusić, aby użytkownicy korzystali z punktu końcowego platformy tożsamości firmy Microsoft za pomocą okna podręcznego w celu sprawdzenia poprawności poświadczeń lub udzielenia zgody. Oto niektóre przykłady:
+Niektóre sytuacje wymagają wymuszenia, aby użytkownicy korzystali z platformy tożsamości firmy Microsoft za pomocą okna podręcznego do weryfikacji poświadczeń lub wyrazić zgodę. Oto niektóre przykłady:
 
 - Gdy nowi użytkownicy logują się do aplikacji po raz pierwszy.
 - Gdy użytkownicy muszą ponownie wprowadzić poświadczenia, ponieważ hasło wygasło.
