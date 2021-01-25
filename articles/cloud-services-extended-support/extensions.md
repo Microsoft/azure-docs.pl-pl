@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: c2eddf75f99b751773220ae677d66fe8c09abb0e
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: f9029a36dc3b778e139b4553524e8e2ca6b4bbad
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98744829"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757173"
 ---
 # <a name="extensions-for-cloud-services-extended-support"></a>Rozszerzenia dla Cloud Services (obsługa rozszerzona)
 
@@ -35,7 +35,7 @@ W przypadku podstawowego monitorowania dane liczników wydajności z wystąpień
 
 Dzięki zaawansowanemu monitorowaniu dodatkowe metryki są próbkowane i zbierane z interwałem wynoszącym 5 minut, 1 godzina i 12 godzin. Zagregowane dane są przechowywane na koncie magazynu w tabelach i usuwane po upływie 10 dni. Używane konto magazynu jest konfigurowane przez rolę; dla różnych ról można użyć różnych kont magazynu. 
 
-Rozszerzenie systemu Windows Diagnostyka Azure można włączyć dla Cloud Services (obsługa rozszerzona) za pomocą [programu PowerShell](deploy-powershell.md) lub [szablonu ARM](deploy-template.md)
+Aby uzyskać więcej informacji, zobacz [stosowanie rozszerzenia diagnostyki systemu Windows Azure w Cloud Services (obsługa rozszerzona)](enable-wad.md)
 
 
 ## <a name="next-steps"></a>Następne kroki 

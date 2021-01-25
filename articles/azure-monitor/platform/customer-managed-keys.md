@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: f2807501b1e18d4cbffaa34d70bccf8d70565266
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: b6836eee7e0e6ccbfa2628e0e371152f31ddf9d2
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747227"
+ms.locfileid: "98757546"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Klucz zarządzany przez klienta usługi Azure Monitor 
 
@@ -126,7 +126,7 @@ Te ustawienia można aktualizować w Key Vault za pomocą interfejsu wiersza pol
 ## <a name="create-cluster"></a>Tworzenie klastra
 
 Klastry obsługują dwa [zarządzane typy tożsamości](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types): przypisane do systemu i przypisane przez użytkownika, podczas gdy jedna tożsamość może być zdefiniowana w klastrze w zależności od danego scenariusza. 
-- Tożsamość zarządzana przypisana przez system jest prostsza i generowana automatycznie przy użyciu tworzenia klastra, gdy tożsamość `type` jest ustawiona na wartość "*SystemAssigned*". Tej tożsamości można użyć później w celu udzielenia klastrowi dostępu do Key Vault. 
+- Tożsamość zarządzana przypisana przez system jest prostsza i generowana automatycznie przy użyciu tworzenia klastra, gdy tożsamość `type` jest ustawiona na wartość "*SystemAssigned*". Tej tożsamości można użyć później w celu udzielenia dostępu do magazynu Key Vault na potrzeby operacji zawijania i rozwinięcia. 
   
   Ustawienia tożsamości w klastrze dla tożsamości zarządzanej przypisanej do systemu
   ```json
@@ -137,7 +137,7 @@ Klastry obsługują dwa [zarządzane typy tożsamości](../../active-directory/m
   }
   ```
 
-- Jeśli chcesz skonfigurować klucz zarządzany przez klienta podczas tworzenia klastra, musisz wcześniej uzyskać Key Vault tożsamość przypisanej do klucza i użytkownika, a następnie utworzyć klaster z tymi ustawieniami: tożsamość `type` jako "*UserAssigned*" `UserAssignedIdentities` z identyfikatorem zasobu tożsamości.
+- Jeśli chcesz skonfigurować klucz zarządzany przez klienta podczas tworzenia klastra, musisz wcześniej uzyskać Key Vault tożsamość przypisanej do klucza i użytkownika, a następnie utworzyć klaster z tymi ustawieniami: tożsamość `type` jako "*UserAssigned*" `UserAssignedIdentities` z *identyfikatorem zasobu* tożsamości.
 
   Ustawienia tożsamości w klastrze dla tożsamości zarządzanej przypisanej przez użytkownika
   ```json
@@ -151,27 +151,7 @@ Klastry obsługują dwa [zarządzane typy tożsamości](../../active-directory/m
   ```
 
 > [!IMPORTANT]
-> Nie można używać klucza zarządzanego przez klienta z tożsamością zarządzaną przez użytkownika, jeśli Key Vault znajduje się w Private-Link (vNet). W tym scenariuszu można użyć zarządzanej tożsamości przypisanej do systemu.
-
-```json
-{
-  "identity": {
-    "type": "SystemAssigned"
-}
-```
- 
-Tym:
-
-```json
-{
-  "identity": {
-  "type": "UserAssigned",
-    "userAssignedIdentities": {
-      "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft. ManagedIdentity/UserAssignedIdentities/<user-assigned-managed-identity-name>"
-      }
-}
-```
-
+> Nie można użyć tożsamości zarządzanej przypisanej przez użytkownika, jeśli Key Vault znajduje się w Private-Link (vNet). W tym scenariuszu można użyć zarządzanej tożsamości przypisanej do systemu.
 
 Postępuj zgodnie z procedurą przedstawioną w [artykule dedykowane klastry](../log-query/logs-dedicated-clusters.md#creating-a-cluster). 
 

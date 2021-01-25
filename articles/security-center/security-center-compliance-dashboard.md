@@ -11,18 +11,24 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/11/2020
+ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: bbc36dbb2a17d379d31a9a235898500aea36247d
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: b0baa532e8ca986e76cfb938a198d8a8697bd4dd
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533914"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757698"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Samouczek: poprawa zgodności z przepisami
 
-Azure Security Center pomaga usprawnić proces spełnienia wymagań dotyczących zgodności z przepisami przy użyciu **pulpitu nawigacyjnego zgodności z przepisami**. Ten pulpit nawigacyjny usługi Security Center zapewnia wgląd w poziom zgodności w oparciu o ciągłe oceny środowiska platformy Azure. Security Center analizuje czynniki ryzyka w środowisku chmury hybrydowej zgodnie z najlepszymi rozwiązaniami w zakresie zabezpieczeń. Te oceny są mapowane na kontrolki zgodności z obsługiwanego zestawu standardów. Na pulpicie nawigacyjnym zgodności z przepisami można zobaczyć stan wszystkich ocen w danym środowisku w kontekście określonego standardu lub rozporządzenia. Zgodnie z zaleceniami i zmniejszeniem czynników ryzyka w Twoim środowisku stan zgodności.
+Azure Security Center pomaga usprawnić proces spełnienia wymagań dotyczących zgodności z przepisami przy użyciu **pulpitu nawigacyjnego zgodności z przepisami**. 
+
+Security Center wykonuje ciągłe oceny środowiska chmury hybrydowej, aby analizować czynniki ryzyka zgodnie z kontrolkami i najlepszymi rozwiązaniami związanymi ze standardami stosowanymi w ramach subskrypcji. Pulpit nawigacyjny odzwierciedla stan zgodności z tymi standardami. 
+
+Po włączeniu Security Center w ramach subskrypcji platformy Azure zostanie automatycznie przypisany [test porównawczy zabezpieczeń platformy Azure](../security/benchmarks/introduction.md). Ten powszechnie przestrzegany test porównawczy jest oparty na kontrolkach z [centrum na potrzeby zabezpieczeń internetowych (CIS)](https://www.cisecurity.org/benchmark/azure/) i [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) , które koncentrują się na zabezpieczeniach skoncentrowanych na chmurze.
+
+Na pulpicie nawigacyjnym zgodności z przepisami można zobaczyć stan wszystkich ocen w danym środowisku w kontekście określonego standardu lub rozporządzenia. Zgodnie z zaleceniami i zmniejszeniem czynników ryzyka w Twoim środowisku stan zgodności.
 
 Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -41,17 +47,13 @@ Aby przekroczyć funkcje omówione w tym samouczku:
 
 ##  <a name="assess-your-regulatory-compliance"></a>Przeprowadzanie oceny zgodności z przepisami
 
-Usługa Security Center w sposób ciągły ocenia konfigurację zasobów, aby identyfikować problemy dotyczące zabezpieczeń i luki w zabezpieczeniach. Oceny są prezentowane w postaci rekomendacji, które koncentrują się na poprawie stanu zabezpieczeń. Na pulpicie nawigacyjnym zgodności z przepisami można wyświetlić zestaw standardów zgodności ze wszystkimi wymaganiami, w przypadku których obsługiwane wymagania są mapowane na odpowiednie oceny zabezpieczeń. Pozwala to sprawdzać poziom zgodności względem standardu w oparciu o stan tych ocen.
+Pulpit nawigacyjny zgodności z przepisami zawiera wybrane standardy zgodności wraz ze wszystkimi wymaganiami, w których obsługiwane wymagania są mapowane na odpowiednie oceny zabezpieczeń. Stan tych ocen odzwierciedla zgodność ze standardem.
 
-Widok pulpitu nawigacyjnego Zgodność z przepisami ułatwia skoncentrowanie uwagi na lukach w zgodności z ważnym dla Ciebie standardem lub przepisem. Ten skoncentrowany widok umożliwia także stałe monitorowanie oceny zgodności w miarę upływu czasu w chmurze dynamicznej i środowiskach hybrydowych.
+Korzystając z pulpitu nawigacyjnego zgodność z przepisami, można skoncentrować się na lukach w zabezpieczeniach w zakresie zgodności ze standardami i przepisami. Ten skoncentrowany widok umożliwia również ciągłe monitorowanie zgodności w środowiskach w chmurze dynamicznej i hybrydowej.
 
->[!NOTE]
-> Domyślnie Security Center obsługuje następujące standardy prawne: Azure CIS, PCI DSS 3,2, ISO 27001 i SOC TSP. 
->
-> Funkcja [dynamiczne pakiety zgodności (wersja zapoznawcza)](update-regulatory-compliance-packages.md) pozwala uaktualnić standardy widoczne na pulpicie nawigacyjnym zgodności z przepisami do nowych pakietów *dynamicznych* . Możesz także użyć tej samej funkcji w wersji zapoznawczej, aby dodać nowe pakiety zgodności i monitorować swoją zgodność przy użyciu dodatkowych standardów. 
+1. Z menu Security Center wybierz pozycję **zgodność z przepisami**.
 
-1. Z menu Security Center wybierz pozycję **zgodność z przepisami**. <br>
-W górnej części ekranu zostanie wyświetlony pulpit nawigacyjny zawierający przegląd stanu zgodności z zestawem obsługiwanych przepisów dotyczących zgodności. Widoczna jest ogólna ocena zgodności oraz liczba ocen zakończonych powodzeniem i niepowodzeniem skojarzonych z każdym standardem.
+    W górnej części ekranu znajduje się pulpit nawigacyjny z omówieniem stanu zgodności z zestawem obsługiwanych regulacji zgodności. Widoczna jest ogólna ocena zgodności oraz liczba ocen zakończonych powodzeniem i niepowodzeniem skojarzonych z każdym standardem.
 
     :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Pulpit nawigacyjny zgodności z przepisami":::
 
@@ -59,7 +61,7 @@ W górnej części ekranu zostanie wyświetlony pulpit nawigacyjny zawierający 
 
     :::image type="content" source="./media/security-center-compliance-dashboard/compliance-drilldown.png" alt-text="Szczegółowe informacje o zgodności z określonym standardem":::
 
-1. Aby wygenerować i pobrać raport PDF podsumowujący bieżący stan zgodności dla określonego standardu, kliknij przycisk **Pobierz raport**.
+1. Aby wygenerować raport PDF z podsumowaniem bieżącego stanu zgodności dla konkretnego standardu, wybierz pozycję **Pobierz raport**.
 
     Raport zawiera podsumowanie stanu zgodności dla wybranego standardu w oparciu o Security Center oceny danych i jest zorganizowany zgodnie z kontrolkami tego konkretnego standardu. Raport może być współużytkowany z odpowiednimi uczestnikami projektu i może dostarczyć dowód do wewnętrznych i zewnętrznych audytorów.
 
@@ -71,7 +73,7 @@ Mając informacje na pulpicie nawigacyjnym zgodności z przepisami, można zwię
 
 1.  Kliknij dowolną ocenę zakończoną niepowodzeniem, która jest widoczna na pulpicie nawigacyjnym, aby wyświetlić szczegóły dotyczące tej rekomendacji. Każda rekomendacja obejmuje zestaw czynności zaradczych, które należy wykonać, aby rozwiązać problem.
 
-1.  Możesz wybrać określony zasób, aby wyświetlić więcej szczegółów i zastosować rekomendację dotyczącą tego zasobu. <br>Na przykład w **standardzie usługi Azure CIS 1.1.0 (nowy)** można wybrać opcję **szyfrowanie dysków zalecanych na maszynach wirtualnych**.
+1.  Możesz wybrać określony zasób, aby wyświetlić więcej szczegółów i zastosować rekomendację dotyczącą tego zasobu. <br>Na przykład w standardzie **Azure CIS 1.1.0** można wybrać opcję szyfrowanie dysków zalecanych **na maszynach wirtualnych**.
 
     :::image type="content" source="./media/security-center-compliance-dashboard/sample-recommendation.png" alt-text="Wybór zalecenia z standardowego potencjalni klienci bezpośrednio do strony szczegółów rekomendacji":::
 

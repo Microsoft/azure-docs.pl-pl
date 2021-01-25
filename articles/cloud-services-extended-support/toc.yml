@@ -21,10 +21,10 @@
   expanded: true
 - name: Pojęcia
   items:
+    - name: Rozszerzenia
+      href: extensions.md
     - name: Dostępne rozmiary maszyn wirtualnych
       href: available-sizes.md
-    - name: Często zadawane pytania
-      href: faq.md
     - name: Poprawki systemu operacyjnego gościa
       href: ../cloud-services/cloud-services-guestos-msrc-releases.md?toc=/azure/cloud-services-extended-support/toc.json&bc=/azure/cloud-services-extended-support/breadcrumb/toc.json
     - name: Wycofanie systemu operacyjnego gościa
@@ -49,10 +49,10 @@
           href: schema-cscfg-role.md
         - name: Schemat NetworkConfiguration
           href: schema-cscfg-networkconfiguration.md
+    - name: Często zadawane pytania
+      href: faq.md
 - name: Instrukcje
   items:
-    - name: Przegląd rozszerzeń
-      href: extensions.md
     - name: Zastosuj rozszerzenie Pulpit zdalny
       href: enable-rdp.md
     - name: Zastosuj rozszerzenie funkcji wad
@@ -71,7 +71,7 @@
       href: sample-get-cloud-service.md
     - name: Zresetuj usługę w chmurze
       href: sample-reset-cloud-service.md
-- name: Odwołanie
+- name: Dokumentacja
   items:
     - name: Przykładowe pliki wdrożenia
       href: 'https://github.com/Azure-Samples/cloud-services-extended-support'
@@ -83,6 +83,8 @@
       href: 'https://docs.microsoft.com/azure/templates/microsoft.compute/cloudservices'
     - name: REST
       href: 'https://docs.microsoft.com/rest/api/compute/cloudservices'
+    - name: SDK
+      href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/43.0.0-preview'
 - name: Zasoby
   items:
     - name: Harmonogram działania dla platformy Azure

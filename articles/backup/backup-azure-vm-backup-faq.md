@@ -3,12 +3,12 @@ title: Często zadawane pytania — tworzenie kopii zapasowych maszyn wirtualnyc
 description: W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące tworzenia kopii zapasowych maszyn wirtualnych platformy Azure przy użyciu usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: ba2779305302e91f68cb2664c90f53fdf9a9ca55
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: edc48aaf0a05867de81bd7d5f64f8be4e54ddb8a
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008354"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757512"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Często zadawane pytania — tworzenie kopii zapasowych maszyn wirtualnych platformy Azure
 
@@ -113,6 +113,10 @@ Azure Backup teraz obsługuje selektywne tworzenie kopii zapasowych i przywracan
 ### <a name="are-managed-identities-preserved-if-a-tenant-change-occurs-during-backup"></a>Czy zarządzane tożsamości są zachowywane w przypadku zmiany dzierżawy podczas tworzenia kopii zapasowej?
 
 Jeśli nastąpi [zmiana dzierżawy](/azure/devops/organizations/accounts/change-azure-ad-connection) , musisz wyłączyć i ponownie włączyć [zarządzane tożsamości](../active-directory/managed-identities-azure-resources/overview.md) , aby kopie zapasowe działały ponownie.
+
+### <a name="does-azure-backup-support-backing-up-nfs-files-mounted-from-storage"></a>Czy Azure Backup obsługuje wykonywanie kopii zapasowych plików systemu plików NFS zainstalowanych z magazynu?
+
+Azure Backup nie obsługuje tworzenia kopii zapasowych plików systemu plików NFS zainstalowanych z magazynu lub z dowolnego innego serwera NFS do maszyn z systemem Linux lub Windows. Tworzy kopię zapasową tylko dysków podłączonych lokalnie do maszyny wirtualnej.
 
 ## <a name="restore"></a>Przywracanie
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 60e86c7c849bf09b3a5577453a6935466ab447f6
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 4312a819f8fd41805dca095556efdc6189f23af9
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95483917"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757123"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Rozszerzanie usługi Azure Sentinel na obszary robocze i dzierżawy
 
@@ -94,18 +94,18 @@ Funkcja może również uprościć powszechnie używaną Unię. Można na przyk�
 
 Następnie można napisać zapytanie w obu obszarach roboczych, zaczynając od `unionSecurityEvent | where ...` .
 
-#### <a name="scheduled-alerts"></a>Zaplanowane alerty
+#### <a name="cross-workspace-analytics-rules"></a>Reguły analizy między obszarami roboczymi<a name="scheduled-alerts"></a>
+<!-- Bookmark added for backward compatibility with old heading -->
+Zapytania między obszarami roboczymi można teraz dołączać do zaplanowanych reguł analizy, z uwzględnieniem następujących ograniczeń:
 
-Zapytania między obszarami roboczymi można teraz dołączać do zaplanowanych alertów w regułach analizy, które podlegają następującym ograniczeniom:
-
-- Pojedyncze zapytanie może zawierać maksymalnie 10 obszarów roboczych.
+- Pojedyncze zapytanie może zawierać maksymalnie 15 obszarów roboczych.
 - Wszystkie obszary robocze, do których odwołuje się zapytanie, muszą zostać wdrożone na platformie Azure.
 
 > [!NOTE] 
 > Wykonanie zapytania dotyczącego wielu obszarów roboczych w ramach tego samego zapytania może mieć wpływ na wydajność i dlatego jest zalecane tylko wtedy, gdy logika wymaga tej funkcji.
 
-### <a name="using-cross-workspace-workbooks"></a>Korzystanie z skoroszytów między obszarami roboczymi
-
+#### <a name="cross-workspace-workbooks"></a>Skoroszyty między obszarami roboczymi<a name="using-cross-workspace-workbooks"></a>
+<!-- Bookmark added for backward compatibility with old heading -->
 [Skoroszyty](./overview.md#workbooks) zapewniają pulpity nawigacyjne i aplikacje na platformie Azure wskaźnikowej. Podczas pracy z wieloma obszarami roboczymi zapewniają one monitorowanie i akcje w różnych obszarach roboczych.
 
 Skoroszyty mogą udostępniać zapytania między obszarami roboczymi w jednej z trzech metod, z których każdy ma zależeć do różnych poziomów wiedzy użytkowników końcowych:
@@ -117,7 +117,7 @@ Skoroszyty mogą udostępniać zapytania między obszarami roboczymi w jednej z 
 | Interaktywnie Edytuj skoroszyt | Zaawansowany użytkownik modyfikuje istniejący skoroszyt może edytować w nim zapytania, wybierając docelowe obszary robocze przy użyciu selektora obszaru roboczego w edytorze. | Ta opcja umożliwia użytkownikowi zaawansowanemu łatwe modyfikowanie istniejących skoroszytów do pracy z wieloma obszarami roboczymi. |
 |
 
-### <a name="cross-workspace-hunting"></a>Polowa między obszarami roboczymi
+#### <a name="cross-workspace-hunting"></a>Polowa między obszarami roboczymi
 
 Wskaźnik "Azure" obejmuje wstępnie załadowane przykłady zapytań, które umożliwiają rozpoczęcie pracy i zapoznanie się z tabelami oraz językiem zapytań. Te wbudowane zapytania polowania są opracowywane przez badaczy zabezpieczeń firmy Microsoft w sposób ciągły, dodając nowe zapytania i dostrajając istniejące zapytania, aby zapewnić punkt wejścia do wyszukiwania nowych wykryć i zidentyfikować oznaki włamania, które mogły zostać usunięte przez narzędzia zabezpieczeń.  
 

@@ -1,25 +1,25 @@
 ---
 title: Wbudowane definicje zasad dla Azure Security Center
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Security Center. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 01/21/2021
+ms.date: 01/24/2021
 ms.topic: reference
 author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 3f667ed48a5188ce63665025786e990c47a9690b
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 1192e765dc3cc001f8d1a1c6a28fe1a5cf4c9ecc
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98700796"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757275"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-security-center"></a>Wbudowane definicje usługi Azure Policy dla usługi Azure Security Center
 
 Ta strona jest indeksem [Azure Policy](../governance/policy/overview.md) wbudowanych definicji zasad związanych z Azure Security Center. Dostępne są następujące grupy definicji zasad:
 
 - Grupa [inicjatywy](#azure-security-center-initiatives) zawiera listę definicji Azure Policy inicjatyw w kategorii "Security Center".
-- Grupa [inicjatywa domyślna](#azure-security-center-initiatives) zawiera wszystkie definicje Azure Policy, które są częścią [Azure Security Center](./index.yml) inicjatywy domyślnej.
+- Grupa [inicjatywa domyślna](#azure-security-center-initiatives) zawiera wszystkie definicje Azure Policy, które są częścią inicjatywy Security Center, z których korzysta [usługa Azure Security](../security/benchmarks/introduction.md). Ten utworzony przez firmę Microsoft, powszechnie przestrzegany test porównawczy, jest oparty na kontrolkach z [centrum dla zabezpieczeń internetowych (CIS)](https://www.cisecurity.org/benchmark/azure/) i [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) , które koncentrują się na zabezpieczeniach skoncentrowanych na chmurze.
 - Grupa [kategorii](#azure-security-center-category) zawiera wszystkie definicje Azure Policy w kategorii "Security Center".
 
 Aby uzyskać więcej informacji na temat zasad zabezpieczeń, zobacz [Praca z zasadami zabezpieczeń](./tutorial-security-policy.md). Aby uzyskać dodatkowe Azure Policy wbudowane dla innych usług, zobacz [Azure Policy wbudowane definicje](../governance/policy/samples/built-in-policies.md).

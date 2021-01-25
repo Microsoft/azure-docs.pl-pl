@@ -6,16 +6,16 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: de0c48bb775b96052fe16d60aa58049bfd58ca4d
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 750cf0a938fffd4e5bfe25811bb276f7cb1b5583
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567775"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757563"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Tworzenie projektów usługi Azure Migrate i zarządzanie nimi
 
-W tym artykule opisano sposób tworzenia i usuwania [Azure Migrate](migrate-services-overview.md) projektów oraz zarządzania nimi. Jeśli używasz klasycznych projektów Azure Migrate, usuń te projekty i postępuj zgodnie z instrukcjami, aby utworzyć nowy projekt Azure Migrate. Do Azure Migrate nie można uaktualnić klasycznych projektów Azure Migrate ani składników.
+W tym artykule opisano sposób tworzenia i usuwania [Azure Migrate](migrate-services-overview.md) projektów oraz zarządzania nimi. Jeśli używasz klasycznych projektów Azure Migrate, usuń te projekty i postępuj zgodnie z instrukcjami, aby utworzyć nowy projekt Azure Migrate. Do Azure Migrate nie można uaktualnić klasycznych projektów Azure Migrate ani składników. Wyświetlanie [często zadawanych pytań](https://docs.microsoft.com/azure/migrate/resources-faq#i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version) przed rozpoczęciem procesu tworzenia.
 
 Projekt Azure Migrate jest używany do przechowywania metadanych odnajdywania, oceny i migracji zebranych ze środowiska, które oceniasz lub migrujesz. W projekcie można śledzić odnalezione zasoby, tworzyć oceny i organizować migracje na platformie Azure.  
 

@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: c6f0f48df32db0beb9c0a57982d9bc87b26538d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac67e3cf8f057738b76b0de7cbcb821ef290e0cb
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86135153"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757580"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Macierz obsługi odzyskiwania po awarii maszyn wirtualnych VMware i serwerów fizycznych do lokacji dodatkowej
 
@@ -66,7 +66,7 @@ Można replikować tylko maszyny z systemem Linux z następującym magazynem:
 
 ## <a name="network-configuration---hostguest-vm"></a>Konfiguracja sieci-Host/maszyna wirtualna gościa
 
-**Konfiguracja** | **Obsługiwał**  
+**Konfiguracja** | **Obsługiwane**  
 --- | --- 
 Hostowanie — Tworzenie zespołu kart interfejsu sieciowego | Tak 
 Host-sieć VLAN | Tak 
@@ -83,7 +83,7 @@ Maszyna wirtualna gościa — wiele kart sieciowych | Yes
 
 ### <a name="host-storage"></a>Magazyn hosta
 
-**Magazyn (Host)** | **Obsługiwał** 
+**Magazyn (Host)** | **Obsługiwane** 
 --- | --- 
 NFS | Tak 
 SMB 3.0 | Nie dotyczy 
@@ -92,7 +92,7 @@ Wiele ścieżek (MPIO) | Tak
 
 ### <a name="guest-or-physical-server-storage"></a>Magazyn Gości lub serwer fizyczny
 
-**Konfiguracja** | **Obsługiwał** 
+**Konfiguracja** | **Obsługiwane** 
 --- | --- 
 VMDK | Tak 
 DYSK VHD/VHDX | Nie dotyczy 
@@ -112,7 +112,7 @@ Wiele ścieżek (MPIO) | Nie dotyczy
 
 ## <a name="vaults"></a>Magazyny
 
-**Akcja** | **Obsługiwał** 
+**Akcja** | **Obsługiwane** 
 --- | --- 
 Przenoszenie magazynów między grupami zasobów (w ramach subskrypcji lub między subskrypcjami) | Nie 
 Przenoszenie magazynu, sieci, maszyn wirtualnych platformy Azure między grupami zasobów (w ramach subskrypcji lub między subskrypcjami) | Nie 

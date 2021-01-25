@@ -2,164 +2,274 @@
 title: Tworzenie usługi Azure Private link przy użyciu interfejsu wiersza polecenia platformy Azure
 description: Dowiedz się, jak utworzyć usługę prywatnego połączenia platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 services: private-link
-author: malopMSFT
+author: asudbring
 ms.service: private-link
 ms.topic: how-to
-ms.date: 09/16/2019
+ms.date: 01/22/2021
 ms.author: allensu
-ms.openlocfilehash: cfffafaab2e2d4ef6b165ef03beb827342c94608
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 567ed736c52e8b3cbb03edeb19b3c0e2364e4112
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96018056"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757361"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>Tworzenie prywatnej usługi linkowej przy użyciu interfejsu wiersza polecenia platformy Azure
-W tym artykule opisano sposób tworzenia usługi linku prywatnego na platformie Azure przy użyciu interfejsu wiersza polecenia platformy Azure.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+Rozpocznij tworzenie usługi linku prywatnego, która odwołuje się do Twojej usługi.  Udziel prywatnego linku dostępu do usługi lub zasobu wdrożonego za usługa Load Balancer w warstwie Standardowa platformy Azure.  Użytkownicy usługi mają prywatny dostęp z sieci wirtualnej.
 
-- W tym artykule jest wymagana Najnowsza wersja interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-private-link-service"></a>Tworzenie usługi łącza prywatnego
-### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)] 
 
-Przed utworzeniem sieci wirtualnej należy utworzyć grupę zasobów, która będzie hostowała tę sieć wirtualną. Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group). Ten przykład tworzy grupę zasobów o nazwie Moja *zasobów* w lokalizacji *westcentralus* :
+- Ten przewodnik Szybki Start wymaga wersji 2.0.28 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
-```azurecli-interactive
-az group create --name myResourceGroup --location westcentralus
-```
-### <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
-Utwórz sieć wirtualną za pomocą polecenia [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Ten przykład tworzy domyślną sieć wirtualną o nazwie *myVirtualNetwork* z jedną podsiecią o nazwie Moja *podsieć*:
+## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-```azurecli-interactive
-az network vnet create --resource-group myResourceGroup --name myVirtualNetwork --address-prefix 10.0.0.0/16  
-```
-### <a name="create-a-subnet"></a>Tworzenie podsieci
-Utwórz podsieć dla sieci wirtualnej za pomocą [AZ Network VNET Subnet Create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). Ten przykład tworzy podsieć o nazwie Moja *podsieć* w sieci wirtualnej *myVirtualNetwork* :
+Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi.
+
+Utwórz grupę zasobów za pomocą [AZ Group Create](/cli/azure/group#az_group_create):
+
+* O nazwie **CreatePrivLinkService-RG**. 
+* W lokalizacji **wschodniego** .
 
 ```azurecli-interactive
-az network vnet subnet create --resource-group myResourceGroup --vnet-name myVirtualNetwork --name mySubnet --address-prefixes 10.0.0.0/24    
+  az group create \
+    --name CreatePrivLinkService-rg \
+    --location eastus2
+
 ```
-### <a name="create-a-internal-load-balancer"></a>Tworzenie Load Balancer wewnętrznej 
-Utwórz wewnętrzny moduł równoważenia obciążenia za pomocą właściwości [AZ Network lb Create](/cli/azure/network/lb#az-network-lb-create). Ten przykład powoduje utworzenie wewnętrznego modułu równoważenia obciążenia o nazwie *myILB* w grupie zasobów o nazwie Moja *resourceName*. 
+
+## <a name="create-an-internal-load-balancer"></a>Utwórz wewnętrzny moduł równoważenia obciążenia.
+
+W tej sekcji utworzysz sieć wirtualną i wewnętrzną Azure Load Balancer.
+
+### <a name="virtual-network"></a>Sieć wirtualna
+
+W tej sekcji utworzysz sieć wirtualną i podsieć służącą do hostowania modułu równoważenia obciążenia, który uzyskuje dostęp do usługi linków prywatnych.
+
+Utwórz sieć wirtualną za pomocą polecenia [AZ Network VNET Create](/cli/azure/network/vnet#az-network-vnet-create):
+
+* O nazwie **myVNet**.
+* Prefiks adresu **10.1.0.0/16**.
+* Podsieci o nazwie Moja **podsieć**.
+* Prefiks podsieci **10.1.0.0/24**.
+* W grupie zasobów **CreatePrivLinkService-RG** .
+* Lokalizacja elementu **eastus2**.
+* Wyłącz zasady sieci dla usługi łącza prywatnego w podsieci.
 
 ```azurecli-interactive
-az network lb create --resource-group myResourceGroup --name myILB --sku standard --vnet-name MyVirtualNetwork --subnet mySubnet --frontend-ip-name myFrontEnd --backend-pool-name myBackEndPool
+  az network vnet create \
+    --resource-group CreatePrivLinkService-rg \
+    --location eastus2 \
+    --name myVNet \
+    --address-prefixes 10.1.0.0/16 \
+    --subnet-name mySubnet \
+    --subnet-prefixes 10.1.0.0/24
+
 ```
 
-### <a name="create-a-load-balancer-health-probe"></a>Tworzenie sondy kondycji modułu równoważenia obciążenia
+Aby zaktualizować podsieć w celu wyłączenia zasad sieciowych usługi linku prywatnego, użyj polecenie [AZ Network VNET Subnet Update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
 
-Sonda kondycji sprawdza wszystkie wystąpienia maszyny wirtualnej, aby upewnić się, że mogą one odbierać ruch sieciowy. Wystąpienie maszyny wirtualnej, w przypadku którego sprawdzanie kondycji za pomocą sondy nie powiodło się, jest usuwane z modułu równoważenia obciążenia do momentu ponownego przejścia do trybu online i pomyślnego sprawdzenia kondycji. Utwórz sondę kondycji za pomocą polecenia [az network lb probe create](/cli/azure/network/lb/probe?view=azure-cli-latest) w celu monitorowania kondycji maszyn wirtualnych. 
+```azurecli-interactive
+az network vnet subnet update \
+    --name mySubnet \
+    --resource-group CreatePrivLinkService-rg \
+    --vnet-name myVNet \
+    --disable-private-link-service-network-policies true
+```
+
+### <a name="create-standard-load-balancer"></a>Tworzenie usługi równoważenia obciążenia w warstwie Standardowa
+
+W tej sekcji opisano szczegółowo procedurę tworzenia i konfigurowania następujących składników modułu równoważenia obciążenia:
+
+  * Pula adresów IP frontonu, która odbiera przychodzący ruch sieciowy w module równoważenia obciążenia.
+  * Pula adresów IP zaplecza, w której Pula frontonu wysyła ruch sieciowy o zrównoważonym obciążeniu.
+  * Sonda kondycji, która określa kondycję wystąpień maszyn wirtualnych zaplecza.
+  * Reguła modułu równoważenia obciążenia, która definiuje sposób dystrybucji ruchu do maszyn wirtualnych.
+
+### <a name="create-the-load-balancer-resource"></a>Tworzenie zasobu modułu równoważenia obciążenia
+
+Utwórz publiczny moduł równoważenia obciążenia za pomocą [AZ Network lb Create](/cli/azure/network/lb#az-network-lb-create):
+
+* O nazwie **myLoadBalancer**.
+* Pula frontonu o nazwie Moja **fronton**.
+* Pula zaplecza o nazwie **myBackEndPool**.
+* Skojarzone z **myVNet** sieci wirtualnej.
+* Skojarzona z **podsiecią** podsieci zaplecza.
+
+```azurecli-interactive
+  az network lb create \
+    --resource-group CreatePrivLinkService-rg \
+    --name myLoadBalancer \
+    --sku Standard \
+    --vnet-name myVnet \
+    --subnet mySubnet \
+    --frontend-ip-name myFrontEnd \
+    --backend-pool-name myBackEndPool
+```
+
+### <a name="create-the-health-probe"></a>Tworzenie sondy kondycji
+
+Sonda kondycji sprawdza wszystkie wystąpienia maszyn wirtualnych, aby upewnić się, że mogą wysyłać ruch sieciowy. 
+
+Maszyna wirtualna z niepowodzeniem sprawdzaniem sondy jest usuwana z modułu równoważenia obciążenia. Gdy błąd zostanie rozwiązany, maszyna wirtualna zostanie ponownie dodana do modułu równoważenia obciążenia.
+
+Utwórz sondę kondycji za pomocą [AZ Network lb Probe Create](/cli/azure/network/lb/probe#az-network-lb-probe-create):
+
+* Monitoruje kondycję maszyn wirtualnych.
+* O nazwie **myHealthProbe**.
+* Protokół **TCP**.
+* Monitorowanie **portu 80**.
 
 ```azurecli-interactive
   az network lb probe create \
-    --resource-group myResourceGroup \
-    --lb-name myILB \
+    --resource-group CreatePrivLinkService-rg \
+    --lb-name myLoadBalancer \
     --name myHealthProbe \
     --protocol tcp \
-    --port 80   
+    --port 80
 ```
 
-### <a name="create-a-load-balancer-rule"></a>Tworzenie reguły modułu równoważenia obciążenia
+### <a name="create-the-load-balancer-rule"></a>Tworzenie reguły modułu równoważenia obciążenia
 
-Reguła modułu równoważenia obciążenia definiuje konfigurację adresu IP frontonu na potrzeby ruchu przychodzącego oraz pulę adresów IP zaplecza do odbierania ruchu, wraz z wymaganym portem źródłowym i docelowym. Utwórz regułę modułu równoważenia obciążenia *myHTTPRule* za pomocą polecenia [az network lb rule create](/cli/azure/network/lb/rule?view=azure-cli-latest) w celu nasłuchiwania na porcie 80 w puli frontonu *myFrontEnd* i wysyłania ruchu sieciowego o zrównoważonym obciążeniu do puli adresów zaplecza *myBackEndPool*, również przy użyciu portu 80. 
+Reguła modułu równoważenia obciążenia definiuje:
+
+* Konfiguracja adresu IP frontonu dla ruchu przychodzącego.
+* Pula adresów IP zaplecza do odbierania ruchu sieciowego.
+* Wymagany port źródłowy i docelowy. 
+
+Utwórz regułę modułu równoważenia obciążenia za pomocą [AZ Network lb Rule Create](/cli/azure/network/lb/rule#az-network-lb-rule-create):
+
+* O nazwie **myHTTPRule**
+* Nasłuchiwanie na **porcie 80** w elemencie **webfrontonu** puli frontonów.
+* Wysyłanie ruchu sieciowego o zrównoważonym obciążeniu do puli adresów zaplecza **myBackEndPool** przy użyciu **portu 80**. 
+* Korzystanie z sondy kondycji **myHealthProbe**.
+* Protokół **TCP**.
+* Limit czasu bezczynności wynoszący **15 minut**.
+* Włącz Resetowanie protokołu TCP.
 
 ```azurecli-interactive
   az network lb rule create \
-    --resource-group myResourceGroup \
-    --lb-name myILB \
+    --resource-group CreatePrivLinkService-rg \
+    --lb-name myLoadBalancer \
     --name myHTTPRule \
     --protocol tcp \
     --frontend-port 80 \
     --backend-port 80 \
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool \
-    --probe-name myHealthProbe  
+    --probe-name myHealthProbe \
+    --idle-timeout 15 \
+    --enable-tcp-reset true
 ```
-### <a name="create-backend-servers"></a>Tworzenie serwerów zaplecza
 
-W tym przykładzie nie obejmujemy tworzenia maszyn wirtualnych. Można wykonać kroki opisane w [przewodniku szybki start: Tworzenie wewnętrznego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure](../load-balancer/quickstart-load-balancer-standard-internal-cli.md) w celu utworzenia dwóch maszyn wirtualnych, które będą używane jako serwery zaplecza dla modułu równoważenia obciążenia. 
+## <a name="create-a-private-link-service"></a>Tworzenie usługi linku prywatnego
 
+W tej sekcji utworzysz usługę link prywatny, która używa Azure Load Balancer utworzonej w poprzednim kroku.
 
-### <a name="disable-private-link-service-network-policies-on-subnet"></a>Wyłączanie zasad sieciowych usługi linku prywatnego w podsieci 
-Usługa link prywatny wymaga adresu IP z dowolnej podsieci wybranej w ramach sieci wirtualnej. Obecnie nie obsługujemy zasad sieciowych w tych adresach IP.  W związku z tym musimy wyłączyć zasady sieciowe w podsieci. Zaktualizuj podsieć, aby wyłączyć zasady sieciowe usługi linku prywatnego za pomocą [aktualizacji AZ Network VNET Subnet Update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update).
+Tworzenie prywatnej usługi linkowej przy użyciu konfiguracji adresu IP frontonu usługi równoważenia obciążenia za pomocą polecenia [AZ Network Private-Link-Service Create](/cli/azure/network/private-link-service#az-network-private-link-service-create):
 
-```azurecli-interactive
-az network vnet subnet update --resource-group myResourceGroup --vnet-name myVirtualNetwork --name mySubnet --disable-private-link-service-network-policies true 
-```
- 
-## <a name="create-a-private-link-service-using-standard-load-balancer"></a>Tworzenie usługi linku prywatnego przy użyciu usługa Load Balancer w warstwie Standardowa 
- 
-Utwórz usługę linku prywatnego przy użyciu konfiguracji adresu IP frontonu usługa Load Balancer w warstwie Standardowa za pomocą polecenia [AZ Network Private-Link-Service Create](/cli/azure/network/private-link-service#az-network-private-link-service-create). W tym przykładzie tworzona jest usługa linku prywatnego o nazwie *myPLS* przy użyciu usługa Load Balancer w warstwie Standardowa o nazwie *myLoadBalancer* w grupie zasobów o nazwie Moja *resourceName*. 
+* O nazwie **myPrivateLinkService**.
+* W sieci wirtualnej **myVNet**.
+* Skojarzone z **myLoadBalancerem** usługi równoważenia obciążenia **i konfiguracją frontonu**.
+* W lokalizacji **eastus2** .
  
 ```azurecli-interactive
 az network private-link-service create \
---resource-group myResourceGroup \
---name myPLS \
---vnet-name myVirtualNetwork \
---subnet mySubnet \
---lb-name myILB \
---lb-frontend-ip-configs myFrontEnd \
---location westcentralus 
+    --resource-group CreatePrivLinkService-rg \
+    --name myPrivateLinkService \
+    --vnet-name myVNet \
+    --subnet mySubnet \
+    --lb-name myLoadBalancer \
+    --lb-frontend-ip-configs myFrontEnd \
+    --location eastus2
 ```
-Po utworzeniu należy zwrócić uwagę na identyfikator usługi linku prywatnego. Będzie potrzebne później do żądania połączenia z tą usługą.  
- 
-Na tym etapie usługa linku prywatnego została pomyślnie utworzona i będzie gotowa do odbierania ruchu. Należy pamiętać, że powyższy przykład dotyczy tylko tworzenia usługi link prywatny przy użyciu interfejsu wiersza polecenia platformy Azure.  Nie skonfigurowano pul zaplecza modułu równoważenia obciążenia ani żadnej aplikacji w pulach zaplecza do nasłuchiwania ruchu. Jeśli chcesz zobaczyć kompleksowe przepływy ruchu, stanowczo zalecamy skonfigurowanie aplikacji za usługa Load Balancer w warstwie Standardowa.  
- 
-Następnie przedstawimy sposób mapowania tej usługi do prywatnego punktu końcowego w innej sieci wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure. Ponownie Przykładowo można utworzyć prywatny punkt końcowy i połączyć się z usługą linków prywatnych utworzoną powyżej przy użyciu interfejsu wiersza polecenia platformy Azure. Ponadto można tworzyć maszyny wirtualne w sieci wirtualnej w celu wysyłania/odbierania ruchu do prywatnego punktu końcowego.        
- 
-## <a name="private-endpoints"></a>Prywatne punkty końcowe
 
-### <a name="create-the-virtual-network"></a>Tworzenie sieci wirtualnej 
-Utwórz sieć wirtualną za pomocą [AZ Network VNET Create](/cli/azure/network/vnet#az-network-vnet-create). Ten przykład umożliwia utworzenie sieci wirtualnej o nazwie  *myPEVNet*   w grupie zasobów o nazwie Moja *zasobów*: 
+Usługa link prywatny jest tworzona i może odbierać ruch. Jeśli chcesz zobaczyć przepływy ruchu, skonfiguruj aplikację za usługą równoważenia obciążenia w warstwie Standardowa.
+
+
+## <a name="create-private-endpoint"></a>Utwórz prywatny punkt końcowy
+
+W tej sekcji utworzysz mapowanie prywatnego usługi linku do prywatnego punktu końcowego. Sieć wirtualna zawiera prywatny punkt końcowy usługi link prywatny. Ta sieć wirtualna zawiera zasoby, które będą miały dostęp do prywatnej usługi link.
+
+### <a name="create-private-endpoint-virtual-network"></a>Utwórz prywatną sieć wirtualną punktu końcowego
+
+Utwórz sieć wirtualną za pomocą polecenia [AZ Network VNET Create](/cli/azure/network/vnet#az-network-vnet-create):
+
+* O nazwie **myVNetPE**.
+* Prefiks adresu **11.1.0.0/16**.
+* Podsieć o nazwie **mySubnetPE**.
+* Prefiks podsieci **11.1.0.0/24**.
+* W grupie zasobów **CreatePrivLinkService-RG** .
+* Lokalizacja elementu **eastus2**.
+
 ```azurecli-interactive
-az network vnet create \
---resource-group myResourceGroup \
---name myPEVnet \
---address-prefix 10.0.0.0/16  
+  az network vnet create \
+    --resource-group CreatePrivLinkService-rg \
+    --location eastus2 \
+    --name myVNetPE \
+    --address-prefixes 11.1.0.0/16 \
+    --subnet-name mySubnetPE \
+    --subnet-prefixes 11.1.0.0/24
 ```
-### <a name="create-the-subnet"></a>Utwórz podsieć 
-Utwórz podsieć w sieci wirtualnej za pomocą [AZ Network VNET Subnet Create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). Ten przykład tworzy podsieć o nazwie Moja  *podsieć*   w sieci wirtualnej o nazwie *myPEVnet* w grupie zasobów o nazwie Moja *zasobów*: 
 
-```azurecli-interactive 
-az network vnet subnet create \
---resource-group myResourceGroup \
---vnet-name myPEVnet \
---name myPESubnet \
---address-prefixes 10.0.0.0/24 
-```   
-## <a name="disable-private-endpoint-network-policies-on-subnet"></a>Wyłącz zasady sieci prywatnego punktu końcowego w podsieci 
-Prywatny punkt końcowy można utworzyć w dowolnej podsieci w sieci wirtualnej. Obecnie nie obsługujemy zasad sieciowych dla prywatnych punktów końcowych.  W związku z tym musimy wyłączyć zasady sieciowe w podsieci. Zaktualizuj podsieć, aby wyłączyć zasady sieci prywatnego punktu końcowego za pomocą [aktualizacji AZ Network VNET Subnet Update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update). 
+Aby zaktualizować podsieć w celu wyłączenia zasad sieci prywatnych punktów końcowych, użyj polecenie [AZ Network VNET Subnet Update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
 
 ```azurecli-interactive
 az network vnet subnet update \
---resource-group myResourceGroup \
---vnet-name myPEVnet \
---name myPESubnet \
---disable-private-endpoint-network-policies true 
+    --name mySubnetPE \
+    --resource-group CreatePrivLinkService-rg \
+    --vnet-name myVNetPE \
+    --disable-private-endpoint-network-policies true
 ```
-## <a name="create-private-endpoint-and-connect-to-private-link-service"></a>Tworzenie prywatnego punktu końcowego i nawiązywanie połączenia z usługą linku prywatnego 
-Utwórz prywatny punkt końcowy do korzystania z usługi linku prywatnego utworzonego powyżej w sieci wirtualnej:
-  
+
+### <a name="create-endpoint-and-connection"></a>Tworzenie punktu końcowego i połączenia
+
+* Użyj [AZ Network Private-Link-Service show](/cli/azure/network/private-link-service#az_network_private_link_service_show) , aby uzyskać identyfikator zasobu usługi łącza prywatnego. Polecenie umieszcza identyfikator zasobu w zmiennej do późniejszego użycia.
+
+* Użyj [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create) , aby utworzyć prywatny punkt końcowy w utworzonej wcześniej sieci wirtualnej.
+
+* O nazwie **MyPrivateEndpoint**.
+* W grupie zasobów **CreatePrivLinkService-RG** .
+* Nazwa połączenia **myPEconnectiontoPLS**.
+* Lokalizacja elementu **eastus2**.
+* W obszarze **myVNetPE** sieci wirtualnej i **mySubnetPE** podsieci.
+
 ```azurecli-interactive
-az network private-endpoint create \
---resource-group myResourceGroup \
---name myPE \
---vnet-name myPEVnet \
---subnet myPESubnet \
---private-connection-resource-id {PLS_resourceURI} \
---connection-name myPEConnectingPLS \
---location westcentralus 
+  export resourceid=$(az network private-link-service show \
+    --name myPrivateLinkService \
+    --resource-group CreatePrivLinkService-rg \
+    --query id \
+    --output tsv)
+
+  az network private-endpoint create \
+    --connection-name myPEconnectiontoPLS \
+    --name myPrivateEndpoint \
+    --private-connection-resource-id $resourceid \
+    --resource-group CreatePrivLinkService-rg \
+    --subnet mySubnetPE \
+    --manual-request false \
+    --vnet-name myVNetPE 
+
 ```
-Możesz uzyskać *połączenie Private-Connection-Resource-ID* z `az network private-link-service show` usługą link prywatny. Identyfikator będzie wyglądać następująco:   
-/subscriptions/subID/resourceGroups/*ResourceGroupName*/Providers/Microsoft.Network/privateLinkServices/**privatelinkservicename** 
- 
-## <a name="show-private-link-service-connections"></a>Pokaż połączenia usługi link prywatny 
- 
-Zobacz żądania połączeń w usłudze linku prywatnym przy użyciu polecenia [AZ Network Private-Link-Service show](/cli/azure/network/private-link-service#az-network-private-link-service-show).    
-```azurecli-interactive 
-az network private-link-service show --resource-group myResourceGroup --name myPLS 
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Gdy nie jest już potrzebne, użyj polecenia [AZ Group Delete](/cli/azure/group#az-group-delete) , aby usunąć grupę zasobów, usługę link prywatny, moduł równoważenia obciążenia i wszystkie powiązane zasoby.
+
+```azurecli-interactive
+  az group delete \
+    --name CreatePrivLinkService-rg 
 ```
+
 ## <a name="next-steps"></a>Następne kroki
-- Dowiedz się więcej o [usłudze Azure Private Link Service](private-link-service-overview.md)
+
+W ramach tego przewodnika Szybki start wykonasz następujące czynności:
+
+* Utworzono sieć wirtualną i wewnętrzną Azure Load Balancer.
+* Utworzono usługę linku prywatnego
+
+Aby dowiedzieć się więcej o prywatnym punkcie końcowym platformy Azure, przejdź do:
+> [!div class="nextstepaction"]
+> [Szybki Start: Tworzenie prywatnego punktu końcowego przy użyciu interfejsu wiersza polecenia platformy Azure](create-private-endpoint-cli.md)

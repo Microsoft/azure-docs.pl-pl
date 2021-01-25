@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 12943d5d22a9e81c7e99522fa4728f4798549682
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 01a88be9c54a2701130daace26c44159ee364e4c
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499955"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757247"
 ---
 # <a name="configure-ip-firewall-rules-to-allow-indexer-connections-azure-cognitive-search"></a>Konfigurowanie reguł zapory adresów IP w celu zezwalania na połączenia indeksatora (Azure Wyszukiwanie poznawcze)
 
@@ -30,7 +30,7 @@ Uzyskaj w pełni kwalifikowaną nazwę domeny (FQDN) usługi wyszukiwania. Będz
 
    ![Uzyskaj nazwę FQDN usługi](media\search-indexer-howto-secure-access\search-service-portal.png "Uzyskaj nazwę FQDN usługi")
 
-Adres IP usługi wyszukiwania można uzyskać przez wykonanie `nslookup` (lub `ping` ) nazwy FQDN. W poniższym przykładzie dodasz "10.50.10.50" do reguły ruchu przychodzącego w zaporze usługi Azure Storage.
+Adres IP usługi wyszukiwania można uzyskać przez wykonanie `nslookup` (lub `ping` ) nazwy FQDN. W poniższym przykładzie dodasz "150.0.0.1" do reguły ruchu przychodzącego w zaporze usługi Azure Storage. Aktualizacja ustawień zapory dla indeksatora usługi Search może potrwać do 15 minut, aby uzyskać dostęp do konta usługi Azure Storage.
 
 ```azurepowershell
 

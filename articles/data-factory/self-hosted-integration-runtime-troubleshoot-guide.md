@@ -5,14 +5,14 @@ services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/17/2020
+ms.date: 01/25/2021
 ms.author: lle
-ms.openlocfilehash: ccebdbf428180f8ff4ab10dc6007c3ec35a66362
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: e81a12f4c5d817670fe1f7968184bcc97e78a53c
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503577"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757682"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Rozwiązywanie problemów z własnym hostowanym środowiskiem Integration Runtime
 
@@ -67,31 +67,6 @@ Nowe działanie może zgłosić błąd OOM, jeśli maszyna podczerwieni jest w s
 #### <a name="resolution"></a>Rozwiązanie
 
 Sprawdź użycie zasobów i współbieżne wykonywanie działań w węźle IR. Dostosuj czas wewnętrzny i wyzwalanie przebiegów działania, aby uniknąć zbyt wielu operacji na pojedynczym węźle IR w tym samym czasie.
-
-
-### <a name="ssltls-certificate-issue"></a>Problem z certyfikatem SSL/TLS
-
-#### <a name="symptoms"></a>Objawy
-
-Przy próbie włączenia certyfikatu SSL (SSL)/Transport Layer Security (TLS) (Zaawansowane) przez wybranie certyfikatu (po wybraniu opcji samodzielne połączenie **IR Configuration Manager**  >  **dostęp zdalny z intranetu**) zostanie wyświetlony następujący błąd:
-
-"Ustawienia dostępu zdalnego są nieprawidłowe. Nie można sprawdzić tożsamości komunikatu wychodzącego. Oczekiwana tożsamość DNS zdalnego punktu końcowego to "abc.microsoft.com", ale zdalny punkt końcowy podał wartość "microsoft.com" usługi DNS. Jeśli jest to uprawniony zdalny punkt końcowy, można rozwiązać ten problem, jawnie określając tożsamość DNS "microsoft.com" jako właściwość Identity elementu EndpointAddress podczas tworzenia serwera proxy kanału ".
-
-W poprzednim przykładzie do wybranego certyfikatu jest dołączony "microsoft.com".
-
-#### <a name="cause"></a>Przyczyna
-
-Jest to znany problem w programie Windows Communication Foundation (WCF). Walidacja protokołu SSL/TLS programu WCF sprawdza się tylko dla ostatnich DNSName w polu **Alternatywna nazwa podmiotu** (San). 
-
-#### <a name="resolution"></a>Rozwiązanie
-
-Certyfikat wieloznaczny jest obsługiwany w środowisku samoobsługowym środowiska Azure Data Factory v2. Ten problem występuje zwykle z powodu nieprawidłowego certyfikatu SSL. Ostatni DNSName w sieci SAN powinien być prawidłowy. 
-
-Aby sprawdzić i poprawić DNSName, wykonaj następujące czynności: 
-
-1. Otwórz konsolę zarządzania.
-1. W obszarze **Szczegóły certyfikatu** dwukrotnie Sprawdź wartość w polach **podmiot** i **Alternatywna nazwa podmiotu** . Na przykład "nazwa DNS = microsoft.com.com" nie jest prawidłową nazwą.
-1. Skontaktuj się z firmą wystawiającą certyfikaty, aby usunąć niepoprawną DNSName.
 
 ### <a name="concurrent-jobs-limit-issue"></a>Problem z limitem zadań współbieżnych
 
@@ -376,7 +351,7 @@ Aby sprawdzić błąd, przejdź do dziennika zdarzeń środowiska Integration Ru
     
         ![Zrzut ekranu przedstawiający okienko "Logowanie" dla konta usługi.](media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png)
 
-    1. Sprawdź, czy konto usługi logowania ma uprawnienia do **logowania w trybie** usługi, aby uruchomić usługę systemu Windows:
+    1. Sprawdź, czy konto usługi logowania ma uprawnienie **Logowanie jako usługa** , aby uruchomić usługę systemu Windows:
 
         ![Zrzut ekranu przedstawiający okienko właściwości "Logowanie jako usługa".](media/self-hosted-integration-runtime-troubleshoot-guide/logon-as-service.png)
 

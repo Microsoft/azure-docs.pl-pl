@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2020
 ms.author: memildin
-ms.openlocfilehash: d03177e3224bbd3f53320871efc6a0d6b3ea479d
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 5b257e45a86a7b22e9064fcfc6092b3c946ae99b
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922682"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757651"
 ---
 # <a name="organize-management-groups-subscriptions-and-tenant-wide-visibility"></a>Organizowanie grup zarządzania, subskrypcji i widoczności dla całej dzierżawy
 
@@ -107,6 +107,36 @@ Aby przypisać własne uprawnienia na poziomie dzierżawy:
 
 1. Po uzyskaniu podwyższonego poziomu uprawnień Otwórz lub Odśwież Azure Security Center, aby sprawdzić, czy masz wgląd we wszystkie subskrypcje w ramach dzierżawy usługi Azure AD. 
 
+
+## <a name="request-tenant-wide-permissions-when-yours-are-insufficient"></a>Żądaj uprawnień na poziomie dzierżawy, gdy są niewystarczające
+
+Jeśli zalogujesz się do Security Center i zobaczysz transparent informujący o tym, że Twój Widok jest ograniczony, możesz kliknąć pozycję przez, aby wysłać żądanie do administratora globalnego organizacji. W żądaniu możesz dołączyć rolę, która ma zostać przypisana, a Administrator globalny podejmie decyzję o tym, która rola ma zostać przyznana. 
+
+Jest to decyzja administratora globalnego, czy należy akceptować lub odrzucać te żądania. 
+
+> [!IMPORTANT]
+> Jedno żądanie można przesłać co siedem dni.
+
+Aby zażądać podniesionych uprawnień od administratora globalnego:
+
+1. W Azure Portal Otwórz Azure Security Center.
+
+1. Jeśli zobaczysz transparent "widzisz ograniczoną liczbę informacji". Wybierz go.
+
+    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="Transparent informujący użytkownika, że może zażądać uprawnień na poziomie dzierżawy.":::
+
+1. W szczegółowym formularzu żądania wybierz żądaną rolę i uzasadnienie, dlaczego te uprawnienia są potrzebne.
+
+    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-details.png" alt-text="Strona szczegółów do żądania uprawnień na poziomie dzierżawy od administratora globalnego platformy Azure":::
+
+1. Wybierz pozycję **Żądaj dostępu**.
+
+    Wiadomość e-mail jest wysyłana do administratora globalnego. Wiadomość e-mail zawiera link do Security Center, w którym można zatwierdzić lub odrzucić żądanie.
+
+    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-email.png" alt-text="Wyślij wiadomość e-mail do administratora globalnego, aby uzyskać nowe uprawnienia":::
+
+    Po wybraniu przez administratora globalnego **zapoznania się z żądaniem** i zakończeniu procesu decyzja zostaje wysłana pocztą e-mail do żądającego użytkownika. 
+
 ## <a name="assign-azure-roles-to-other-users"></a>Przypisywanie ról platformy Azure do innych użytkowników
 
 ### <a name="assign-azure-roles-to-users-through-the-azure-portal"></a>Przypisywanie ról platformy Azure do użytkowników za pomocą Azure Portal: 
@@ -149,6 +179,7 @@ Aby przypisać własne uprawnienia na poziomie dzierżawy:
     ```
 
 ## <a name="remove-elevated-access"></a>Usuń dostęp z podwyższonym poziomem uprawnień 
+
 Po przypisaniu ról platformy Azure do użytkowników Administrator dzierżawy powinien usunąć siebie z roli administratora dostępu użytkownika.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) lub [Azure Active Directory centrum administracyjnego](https://aad.portal.azure.com).

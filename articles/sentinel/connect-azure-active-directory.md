@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/20/2021
 ms.author: yelevin
-ms.openlocfilehash: e84484990725b0c39b132aead51e9b01dbb7e7ef
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 409a316bd9c4222dd9b8ff30e42e37d23805c38b
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632295"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757766"
 ---
 # <a name="connect-data-from-azure-active-directory-azure-ad"></a>Łączenie danych z Azure Active Directory (Azure AD)
 
@@ -44,12 +44,12 @@ Korzystając z wbudowanego łącznika kontrolki Azure, można zbierać dane z [A
 
 1. Zaznacz pola wyboru obok typów dzienników, które chcesz przesłać strumieniowo do usługi Azure wskaźnikowej, a następnie kliknij przycisk **Połącz**. Oto typy dzienników, spośród których można wybrać:
 
-    - Dzienniki logowania
-    - Dzienniki inspekcji
-    - Dzienniki logowania użytkowników nieinterakcyjnych
-    - Dzienniki logowania nazwy głównej usługi
-    - Dzienniki logowania tożsamości zarządzanej
-    - Dzienniki aprowizowania
+    - **Dzienniki logowania**: informacje na temat użycia zarządzanych aplikacji i działań związanych z logowaniem użytkowników.
+    - **Dzienniki inspekcji**: informacje o aktywności systemu dotyczące zarządzania użytkownikami i grupami, zarządzane aplikacje i działania w katalogu.
+    - **Dzienniki logowania użytkowników nieinterakcyjnych**: informacje dotyczące logowania wykonywane przez klienta w imieniu użytkownika, które nie wymagają interakcji z użytkownikiem ani jej współczynników uwierzytelniania.
+    - **Dzienniki logowania nazwy głównej usługi**: informacje dotyczące logowania przez aplikacje i jednostki usługi, które nie obejmują żadnego użytkownika. W tych logowaniach aplikacja lub usługa udostępnia poświadczenia w swoim imieniu w celu uwierzytelniania lub uzyskiwania dostępu do zasobów.
+    - **Dzienniki logowania tożsamości zarządzanej**: logowania przez zasoby platformy Azure, które mają wpisy tajne zarządzane przez platformę Azure.
+    - **Dzienniki aprowizacji**: informacje o aktywności systemu dotyczące użytkowników, grup i ról, które są obsługiwane przez usługę aprowizacji usługi Azure AD.
 
 ## <a name="find-your-data"></a>Znajdowanie danych
 

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 01/24/2021
 ms.author: allensu
-ms.openlocfilehash: e8d76e12dea27338e965d8e77871427e9dfabf23
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: d48903a05a4e9b530dcd3e83e0c14c37dcc74797
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746683"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757529"
 ---
 # <a name="create-a-private-link-service-using-azure-powershell"></a>Tworzenie usługi linku prywatnego przy użyciu Azure PowerShell
 
@@ -35,7 +35,7 @@ Utwórz grupę zasobów przy użyciu elementu [New-AzResourceGroup](/powershell/
 New-AzResourceGroup -Name 'CreatePrivLinkService-rg' -Location 'eastus2'
 
 ```
----
+
 ## <a name="create-an-internal-load-balancer"></a>Utwórz wewnętrzny moduł równoważenia obciążenia.
 
 W tej sekcji utworzysz sieć wirtualną i wewnętrzną Azure Load Balancer.
@@ -252,7 +252,7 @@ New-AzPrivateEndpoint @par4 -ByManualRequest
 
 W tej sekcji zatwierdzisz połączenie utworzone w poprzednich krokach.
 
-* Aby zatwierdzić połączenie, użyj [Zatwierdź-AzPrivateEndpointConnection](/powershell/module/az.network/approve-azprivateendpointconnnection) .
+* Aby zatwierdzić połączenie, użyj [Zatwierdź-AzPrivateEndpointConnection](/powershell/module/az.network/approve-azprivateendpointconnection) .
 
 ```azurepowershell-interactive
 ## Place the private link service configuration into variable. ##

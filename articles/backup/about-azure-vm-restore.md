@@ -3,12 +3,12 @@ title: Informacje o procesie przywracania maszyny wirtualnej platformy Azure
 description: Dowiedz się, jak usługa Azure Backup przywraca usługi Azure Virtual Machines
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 67af1ed193c289358f929953bc3caa5d04ef7e09
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: f42266e64170b314f10fbfc026873d694ea58b9a
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171760"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757732"
 ---
 # <a name="about-azure-vm-restore"></a>Informacje o przywracaniu maszyny wirtualnej platformy Azure
 
@@ -34,7 +34,7 @@ W tym artykule opisano, jak [usługa Azure Backup](./backup-overview.md) przywra
   - [Magazyn geograficznie nadmiarowy (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) jest ustawieniem domyślnym i zalecaną opcją replikacji. Magazyn GRS replikuje dane do regionu pomocniczego (setki kilometrów od lokalizacji głównej danych źródłowych). GRS koszty więcej niż LRS, ale GRS zapewnia wyższy poziom trwałości danych, nawet jeśli wystąpi awaria regionalna.
   - [Magazyn strefowo nadmiarowy (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replikuje dane w [strefach dostępności](../availability-zones/az-overview.md#availability-zones), gwarantując miejsce zamieszkania i odporność danych w tym samym regionie. ZRS nie ma żadnych przestojów. W związku z tym krytyczne obciążenia wymagające miejsca [zamieszkania](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/)i nie mogą mieć żadnych przestojów, ale można utworzyć kopię zapasową w ZRS.
 
-- **Przywracanie między regionami (CRR)**: ponieważ jedna z [opcji przywracania](./backup-azure-arm-restore-vms.md#restore-options), przywracanie między regionami (CRR) umożliwia przywracanie maszyn wirtualnych platformy Azure w regionie pomocniczym, który jest [sparowanym regionem platformy Azure](../best-practices-availability-paired-regions.md#what-are-paired-regions).
+- **Przywracanie między regionami (CRR)**: ponieważ jedna z [opcji przywracania](./backup-azure-arm-restore-vms.md#restore-options), przywracanie między regionami (CRR) umożliwia przywracanie maszyn wirtualnych platformy Azure w regionie pomocniczym, który jest [sparowanym regionem platformy Azure](../best-practices-availability-paired-regions.md#what-are-paired-regions) , w każdej chwili można przywrócić dane w regionie pomocniczym w dowolnym momencie, podczas częściowej lub pełnej awarii lub dowolnego innego czasu. 
 
 ## <a name="restore-scenarios"></a>Scenariusze przywracania
 
@@ -42,7 +42,7 @@ W tym artykule opisano, jak [usługa Azure Backup](./backup-overview.md) przywra
 
 | **Scenariusz**                                                 | **Co jest gotowe**                                             | **Kiedy stosować**                                              |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [Przywróć, aby utworzyć nową maszynę wirtualną](./backup-azure-arm-restore-vms.md) | Przywraca całą maszynę wirtualną do OLR (jeśli źródłowa maszyna wirtualna nadal istnieje) lub ALR | <li> Jeśli źródłowa maszyna wirtualna zostanie utracona lub uszkodzona, można przywrócić całą maszynę wirtualną  <li> Możesz utworzyć kopię maszyny wirtualnej  <li> Możesz wykonać drążenie przywracania na potrzeby inspekcji lub zgodności  <li> Ta opcja nie będzie działała dla maszyn wirtualnych platformy Azure utworzonych na podstawie obrazów z witryny Marketplace (oznacza to, że nie są one dostępne ze względu na wygaśnięcie licencji). |
+| [Przywracanie w celu utworzenia nowej maszyny wirtualnej](./backup-azure-arm-restore-vms.md) | Przywraca całą maszynę wirtualną do OLR (jeśli źródłowa maszyna wirtualna nadal istnieje) lub ALR | <li> Jeśli źródłowa maszyna wirtualna zostanie utracona lub uszkodzona, można przywrócić całą maszynę wirtualną  <li> Możesz utworzyć kopię maszyny wirtualnej  <li> Możesz wykonać drążenie przywracania na potrzeby inspekcji lub zgodności  <li> Ta opcja nie będzie działała dla maszyn wirtualnych platformy Azure utworzonych na podstawie obrazów z witryny Marketplace (oznacza to, że nie są one dostępne ze względu na wygaśnięcie licencji). |
 | [Przywracanie dysków maszyny wirtualnej](./backup-azure-arm-restore-vms.md#restore-disks) | Przywracanie dysków dołączonych do maszyny wirtualnej                             |  Wszystkie dyski: Ta opcja powoduje utworzenie szablonu i przywrócenie dysku. Można edytować ten szablon z specjalnymi konfiguracjami (na przykład zestawy dostępności), aby spełnić wymagania, a następnie użyć szablonu i przywrócić dysk, aby ponownie utworzyć maszynę wirtualną. |
 | [Przywracanie określonych plików na maszynie wirtualnej](./backup-azure-restore-files-from-vm.md) | Wybierz pozycję punkt przywracania, Przeglądaj, wybierz pozycję pliki i przywróć je do tego samego (lub zgodnego) systemu operacyjnego jako maszyny wirtualnej z kopią zapasową. |  Jeśli wiesz, które określone pliki mają być przywracane, Użyj tej opcji zamiast przywracania całej maszyny wirtualnej. |
 | [Przywracanie zaszyfrowanej maszyny wirtualnej](./backup-azure-vms-encryption.md) | W portalu Przywróć dyski, a następnie utwórz maszynę wirtualną za pomocą programu PowerShell | <li> [Zaszyfrowana maszyna wirtualna z Azure Active Directory](../virtual-machines/windows/disk-encryption-windows-aad.md)  <li> [Zaszyfrowaną maszynę wirtualną bez usługi Azure AD](../virtual-machines/windows/disk-encryption-windows.md) <li> [Zaszyfrowaną maszynę wirtualną *z usługą Azure AD* migrowana do programu *bez usługi Azure AD*](../virtual-machines/windows/disk-encryption-faq.md#can-i-migrate-vms-that-were-encrypted-with-an-azure-ad-app-to-encryption-without-an-azure-ad-app) |

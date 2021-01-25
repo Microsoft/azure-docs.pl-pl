@@ -3,16 +3,16 @@ title: Połącz swoje konto GCP z Azure Security Center
 description: Monitorowanie zasobów GCP z poziomu Azure Security Center
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 01/24/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 1095222f332e7a66f684feddf1fdab17704ca658
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: d5f8278765c3f62fded44e4b89fb5fded6137c94
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573548"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757614"
 ---
 #  <a name="connect-your-gcp-accounts-to-azure-security-center"></a>Połącz konta GCP z Azure Security Center
 
@@ -36,7 +36,7 @@ Na poniższym zrzucie ekranu można zobaczyć GCP projekty wyświetlane na pulpi
 
 |Aspekt|Szczegóły|
 |----|:----|
-|Stan wydania:|Wersja zapoznawcza<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
+|Stan wydania:|Ogólna dostępność (GA)|
 |Wpisaną|Wymaga [usługi Azure Defender dla serwerów](defender-for-servers-introduction.md)|
 |Wymagane role i uprawnienia:|**Właściciel** lub **współautor** w odpowiedniej subskrypcji platformy Azure|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
@@ -75,7 +75,7 @@ Dowiedz się więcej o [interfejsie API centrum poleceń zabezpieczeń](https://
 1. Wybierz pozycję **Utwórz konto usługi**.
 1. Wprowadź nazwę konta, a następnie wybierz pozycję **Utwórz**.
 1. Określ **rolę** jako **Security Center przeglądarką administracyjną**, a następnie wybierz pozycję **Kontynuuj**.
-1. Sekcja **Udziel użytkownikom dostępu do tego konta usługi** jest opcjonalna. Wybierz pozycję **Gotowe**.
+1. Sekcja **Udziel użytkownikom dostępu do tego konta usługi** jest opcjonalna. Kliknij **Gotowe**.
 1. Skopiuj **wartość adres e-mail** utworzonego konta usługi i Zapisz go do późniejszego użycia.
 1. W **menu nawigacji** w obszarze **IAM & Opcje administratora** wybierz pozycję **IAM**
     1. Przejdź do poziomu organizacji.

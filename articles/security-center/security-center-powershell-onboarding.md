@@ -1,6 +1,6 @@
 ---
 title: Dołączanie do Azure Security Center za pomocą programu PowerShell
-description: Ten dokument przeprowadzi Cię przez proces dołączania Azure Security Center przy użyciu poleceń cmdlet programu PowerShell.
+description: Ten dokument przeprowadzi Cię przez proces włączania Azure Security Center przy użyciu poleceń cmdlet programu PowerShell.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/02/2018
+ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 20fce643defd12897eceb1accc7ade8b10548568
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 4979ff0010c1f959e8f8fc16f56da61971faf1e9
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341169"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757072"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatyzowanie dołączania Azure Security Center przy użyciu programu PowerShell
 
@@ -89,7 +89,7 @@ Te kroki należy wykonać przed uruchomieniem Security Center poleceń cmdlet:
 
     ```Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'```
 
-    ```$Policy = Get-AzPolicySetDefinition | where {$_.Properties.displayName -EQ 'Enable Monitoring in Azure Security Center'} New-AzPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'```
+    ```$Policy = Get-AzPolicySetDefinition | where {$_.Properties.displayName -EQ 'Azure Security Benchmark'} New-AzPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'```
 
 Pomyślnie dołączono Azure Security Center za pomocą programu PowerShell.
 
@@ -98,7 +98,7 @@ Teraz można używać tych poleceń cmdlet programu PowerShell ze skryptami auto
 
 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 Aby dowiedzieć się więcej na temat sposobu automatyzowania dołączania do Security Center za pomocą programu PowerShell, zobacz następujący artykuł:
 
 * [AZ. Security](/powershell/module/az.security)
