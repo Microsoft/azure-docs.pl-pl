@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 011acdf98c8430bfb7ba1b02ec24a170f829e48f
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: cefcf6b1bcd7ac5f81fa4e872b30660183a46a82
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063794"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755256"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Najlepsze rozwiązania i zalecenia dotyczące platformy tożsamości firmy Microsoft
 
@@ -104,7 +104,7 @@ Użyj poniższej listy kontrolnej, aby upewnić się, że aplikacja jest efektyw
 
 Uzyskaj szczegółowe informacje na temat wersji 2.0:
 
-* [Microsoft Identity platform (wersja 2.0 — omówienie)](v2-overview.md)
+* [Platforma tożsamości firmy Microsoft (omówienie)](v2-overview.md)
 * [Informacje o protokołach Microsoft Identity platform](active-directory-v2-protocols.md)
 * [Dokumentacja tokenów dostępu](access-tokens.md)
 * [Dokumentacja tokenów identyfikatorów](id-tokens.md)

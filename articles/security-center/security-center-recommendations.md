@@ -11,30 +11,39 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/25/2020
+ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 115d89783a849a9c4c7adb2fceceaf8d1575c785
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: dbda0aecdadd81da0f7681a5fc9b140157d5e8f3
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97795992"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756815"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Zalecenia dotyczące zabezpieczeń w Centrum zabezpieczeń Azure 
+
 W tym temacie wyjaśniono, jak wyświetlać i zrozumieć zalecenia w Azure Security Center, aby pomóc w ochronie zasobów platformy Azure.
 
 
 ## <a name="what-are-security-recommendations"></a>Co to są zalecenia dotyczące zabezpieczeń?
 
-Zalecenia to akcje, które należy wykonać, aby zabezpieczyć zasoby.
-
 Security Center okresowo analizuje stan zabezpieczeń zasobów platformy Azure w celu zidentyfikowania potencjalnych luk w zabezpieczeniach. Następnie zawiera zalecenia dotyczące sposobu korygowania tych luk w zabezpieczeniach.
+
+Zalecenia to akcje, które należy podjąć w celu zabezpieczenia i ograniczenia funkcjonalności zasobów. 
 
 Każde zalecenie oferuje następujące informacje:
 
 - Krótki opis problemu
 - Czynności zaradcze, które należy wykonać w celu wdrożenia zalecenia
 - Zasoby, których to dotyczy
+
+## <a name="how-does-microsoft-decide-what-needs-securing-and-hardening"></a>Jak firma Microsoft decyduje o tym, co wymaga zabezpieczenia i Ograniczanie funkcjonalności?
+
+Zalecenia dotyczące Security Center są oparte na teście zabezpieczeń platformy Azure. 
+
+Usługa Azure Security test to zestaw wytycznych dotyczących zabezpieczeń i zgodności opartych na platformie Azure, które są stosowane do najlepszych rozwiązań w zakresie bezpieczeństwa i zapewniających zgodność. Ten powszechnie przestrzegany test porównawczy jest oparty na kontrolkach z [centrum na potrzeby zabezpieczeń internetowych (CIS)](https://www.cisecurity.org/benchmark/azure/) i [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) , które koncentrują się na zabezpieczeniach skoncentrowanych na chmurze.
+
+Dowiedz się więcej o [teście porównawczym zabezpieczeń platformy Azure](../security/benchmarks/introduction.md).
 
 ## <a name="monitor-recommendations"></a>Zalecenia dotyczące monitorowania <a name="monitor-recommendations"></a>
 

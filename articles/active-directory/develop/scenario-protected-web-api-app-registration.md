@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7a38e2384c5f24bc3a72e1ef8e8f7119b2db0f2f
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: c3d9cd5e710eb263707e87c4afe0f08809b8d50c
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443946"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756461"
 ---
 # <a name="protected-web-api-app-registration"></a>Chroniony internetowy interfejs API: Rejestracja aplikacji
 
@@ -27,11 +27,11 @@ Aby zapoznać się z typowymi krokami rejestracji aplikacji, zobacz [Szybki Star
 
 ## <a name="accepted-token-version"></a>Zaakceptowana wersja tokenu
 
-Punkt końcowy platformy tożsamości firmy Microsoft może wystawiać tokeny 1.0 i tokeny v 2.0. Aby uzyskać więcej informacji na temat tych tokenów, zobacz [tokeny dostępu](access-tokens.md).
+Platforma tożsamości firmy Microsoft może wystawiać tokeny v 1.0 i tokeny v 2.0. Aby uzyskać więcej informacji na temat tych tokenów, zobacz [tokeny dostępu](access-tokens.md).
 
 Wersja tokenu, która może być akceptowana przez interfejs API, zależy od **obsługiwanego wyboru typów kont** podczas tworzenia rejestracji aplikacji internetowego interfejsu api w Azure Portal.
 
-- Jeśli wartość **obsługiwanych typów kont** to **konta w dowolnym katalogu organizacyjnym i osobiste konta Microsoft (np. Skype, Xbox, Outlook.com)** , zaakceptowana wersja tokenu musi mieć wartość v 2.0.
+- Jeśli wartość **obsługiwanych typów kont** to **konta w dowolnym katalogu organizacyjnym i osobiste konta Microsoft (np. Skype, Xbox, Outlook.com)**, zaakceptowana wersja tokenu musi mieć wartość v 2.0.
 - W przeciwnym razie zaakceptowany token może być w wersji 1.0.
 
 Po utworzeniu aplikacji możesz określić lub zmienić zaakceptowaną wersję tokenu, wykonując następujące czynności:
@@ -40,11 +40,11 @@ Po utworzeniu aplikacji możesz określić lub zmienić zaakceptowaną wersję t
 1. Znajdź właściwość **accessTokenAcceptedVersion** w manifeście.
 1. Wartość określa Azure Active Directory (Azure AD), która wersja tokenu akceptuje interfejs API sieci Web.
     - Jeśli wartość jest równa 2, internetowy interfejs API akceptuje tokeny v 2.0.
-    - Jeśli wartość jest **równa null** , internetowy interfejs API akceptuje tokeny v 1.0.
+    - Jeśli wartość jest **równa null**, internetowy interfejs API akceptuje tokeny v 1.0.
 1. Jeśli została zmieniona wersja tokenu, wybierz pozycję **Zapisz**.
 
 > [!NOTE]
-> Internetowy interfejs API określa, która wersja tokenu akceptuje. Gdy klient zażąda tokenu dla internetowego interfejsu API z punktu końcowego Microsoft Identity platform (v 2.0), klient otrzymuje token wskazujący, która wersja tokenu jest akceptowana przez internetowy interfejs API.
+> Internetowy interfejs API określa, która wersja tokenu akceptuje. Gdy klient zażąda tokenu dla internetowego interfejsu API z platformy tożsamości firmy Microsoft, klient otrzymuje token wskazujący, która wersja tokenu jest akceptowana przez internetowy interfejs API.
 
 ## <a name="no-redirect-uri"></a>Brak identyfikatora URI przekierowania
 
@@ -143,9 +143,9 @@ Aby dodać zwiększone zabezpieczenia:
 
    > [!IMPORTANT]
    >
-   > Jeśli ustawisz **przypisanie użytkownika jako wymagane?** na **tak** , usługa Azure AD sprawdzi przypisania roli aplikacji klienta, gdy zażąda tokenu dostępu do interfejsu API sieci Web. Jeśli klient nie jest przypisany do żadnych ról aplikacji, usługa Azure AD zwróci komunikat o błędzie "invalid_client: AADSTS501051: aplikacja \<application name\> nie jest przypisana do roli dla \<web API\> ".
+   > Jeśli ustawisz **przypisanie użytkownika jako wymagane?** na **tak**, usługa Azure AD sprawdzi przypisania roli aplikacji klienta, gdy zażąda tokenu dostępu do interfejsu API sieci Web. Jeśli klient nie jest przypisany do żadnych ról aplikacji, usługa Azure AD zwróci komunikat o błędzie "invalid_client: AADSTS501051: aplikacja \<application name\> nie jest przypisana do roli dla \<web API\> ".
    >
-   > Jeśli jest **wymagane przypisanie użytkownika?** wartość **nie** , usługa Azure AD nie będzie sprawdzać przypisań roli aplikacji, gdy klient zażąda tokenu dostępu dla internetowego interfejsu API. Każdy klient demona, który oznacza dowolnego klienta używający przepływu poświadczeń klienta, może uzyskać token dostępu dla interfejsu API tylko przez określenie jego odbiorców. Każda aplikacja może uzyskać dostęp do interfejsu API bez konieczności żądania uprawnień do niego.
+   > Jeśli jest **wymagane przypisanie użytkownika?** wartość **nie**, usługa Azure AD nie będzie sprawdzać przypisań roli aplikacji, gdy klient zażąda tokenu dostępu dla internetowego interfejsu API. Każdy klient demona, który oznacza dowolnego klienta używający przepływu poświadczeń klienta, może uzyskać token dostępu dla interfejsu API tylko przez określenie jego odbiorców. Każda aplikacja może uzyskać dostęp do interfejsu API bez konieczności żądania uprawnień do niego.
    >
    > Jednak zgodnie z opisem w poprzedniej sekcji internetowy interfejs API może zawsze sprawdzić, czy aplikacja ma odpowiednią rolę, która jest autoryzowana przez administratora dzierżawy. Interfejs API wykonuje tę weryfikację, sprawdzając, czy token dostępu ma rolę i czy wartość tego żądania jest poprawna. W poprzednim przykładzie JSON wartość jest `access_as_application` .
 

@@ -1,5 +1,6 @@
 ---
-title: Przenoszenie aplikacji klasycznych interfejsy API sieci Web do produkcji — platforma tożsamości firmy Microsoft | Azure
+title: Przenoszenie aplikacji klasycznych interfejsy API sieci Web do środowiska produkcyjnego | Azure
+titleSuffix: Microsoft identity platform
 description: Dowiedz się, jak przenieść aplikację klasyczną, która wywołuje interfejsy API sieci Web w środowisku produkcyjnym
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 325f95f2830ef021a4ac79de48695dda570f7817
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 05b93848bff66adc49d2855ee98fff6c9b7a2d3d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629786"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756510"
 ---
 # <a name="desktop-app-that-calls-web-apis-move-to-production"></a>Aplikacja klasyczna, która wywołuje interfejsy API sieci Web: Przenieś do środowiska produkcyjnego
 
@@ -31,7 +32,7 @@ W różnych przepływach wiesz, jak obsłużyć błędy dla przepływów dyskret
 > [!NOTE]
 > Uzyskanie zgody na kilka zasobów działa w przypadku platformy tożsamości firmy Microsoft, ale nie dla Azure Active Directory (Azure AD) B2C. Azure AD B2C obsługuje tylko zgodę z uprawnieniami administratora, a nie za zgodą użytkownika.
 
-Nie można uzyskać tokenu dla kilku zasobów jednocześnie z punktem końcowym Microsoft Identity platform (v 2.0). `scopes`Parametr może zawierać zakresy tylko dla pojedynczego zasobu. Można upewnić się, że użytkownik wstępnie wysłał kilka zasobów przy użyciu `extraScopesToConsent` parametru.
+Nie można uzyskać tokenu dla kilku zasobów jednocześnie z platformą tożsamości firmy Microsoft. `scopes`Parametr może zawierać zakresy tylko dla pojedynczego zasobu. Można upewnić się, że użytkownik wstępnie wysłał kilka zasobów przy użyciu `extraScopesToConsent` parametru.
 
 Przykładowo mogą istnieć dwa zasoby, które mają dwa zakresy:
 

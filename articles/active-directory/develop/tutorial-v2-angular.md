@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: c4c7d021c7c3a5a32d537a50fa45449fdee7e817
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 105353598a2af60c407bacf02b4527b2de84e450
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94979933"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756152"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Samouczek: Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph ze kątowej aplikacji jednostronicowej
 
@@ -264,14 +264,14 @@ this.authService.acquireTokenSilent(requestObj).then(function (tokenResponse) {
 
 W tym kodzie `scopes` zawiera zakresy wymagane do zwrócenia w tokenie dostępu dla interfejsu API.
 
-Przykład:
+Na przykład:
 
 * `["user.read"]` dla Microsoft Graph
 * `["<Application ID URL>/scope"]` w przypadku niestandardowych interfejsów API sieci Web (czyli `api://<Application ID>/access_as_user` )
 
 #### <a name="get-a-user-token-interactively"></a>Interaktywne pobieranie tokenu użytkownika
 
-Czasami potrzebujesz, aby użytkownik mógł korzystać z punktu końcowego platformy tożsamości firmy Microsoft. Przykład:
+Czasami potrzebujesz, aby użytkownik mógł korzystać z platformy tożsamości firmy Microsoft. Na przykład:
 
 * Może być konieczne ponowne wprowadzenie poświadczeń przez użytkowników, ponieważ ich hasło wygasło.
 * Aplikacja żąda dostępu do dodatkowych zakresów zasobów, do których użytkownik musi wyrazić zgodę.
@@ -279,7 +279,7 @@ Czasami potrzebujesz, aby użytkownik mógł korzystać z punktu końcowego plat
 
 Zalecany wzorzec dla większości aplikacji jest najpierw wywoływany `acquireTokenSilent` , a następnie przechwytywany jest wyjątek, a następnie wywoływanie `acquireTokenPopup` (lub `acquireTokenRedirect` ) w celu uruchomienia interakcyjnego żądania.
 
-Wywoływanie `acquireTokenPopup` wyników w oknie podręcznym logowania. Alternatywnie `acquireTokenRedirect` przekierowuje użytkowników do punktu końcowego platformy tożsamości firmy Microsoft. W tym oknie Użytkownicy muszą potwierdzić swoje poświadczenia, wyrazić zgodę na wymagane zasoby lub ukończyć uwierzytelnianie dwuskładnikowe.
+Wywoływanie `acquireTokenPopup` wyników w oknie podręcznym logowania. Alternatywnie `acquireTokenRedirect` przekierowuje użytkowników do platformy tożsamości firmy Microsoft. W tym oknie Użytkownicy muszą potwierdzić swoje poświadczenia, wyrazić zgodę na wymagane zasoby lub ukończyć uwierzytelnianie dwuskładnikowe.
 
 ```javascript
   const requestObj = {

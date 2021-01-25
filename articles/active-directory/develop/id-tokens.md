@@ -14,12 +14,12 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: eec24ca19af8c41a842b1db3db4b9e16f748f029
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 6a1f4a02ebf42c0f181b595aae0a5fa0bcc9b41d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653252"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755915"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Tokeny identyfikatora platformy tożsamości firmy Microsoft
 
@@ -89,7 +89,7 @@ Ta lista przedstawia oświadczenia JWT, które w większości id_tokens są domy
 |`groups:src1`|Obiekt JSON | W przypadku żądań tokenów, które nie mają ograniczonej długości (patrz `hasgroups` powyżej), ale wciąż za duże dla tokenu, zostanie uwzględniony link do listy pełnych grup dla użytkownika. W przypadku JWTs jako roszczeń rozproszonych, w przypadku protokołu SAML jako nowego odszkodowania zamiast `groups` zgłoszenia. <br><br>**Przykładowa wartość JWT**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }`<br><br> Aby uzyskać więcej informacji, zobacz [Group nadwyżkowe żądania](#groups-overage-claim).|
 
 > [!NOTE]
-> W wersji 1.0 i 2.0 id_token istnieją różnice w ilości informacji, które będą się znajdować na podstawie powyższych przykładów. Wersja jest oparta na punkcie końcowym, w którym został żądany. Istniejące aplikacje mogą korzystać z punktu końcowego usługi Azure AD, dlatego nowe aplikacje powinny korzystać z punktu końcowego "Microsoft Identity platform" w wersji 2.0.
+> W wersji 1.0 i 2.0 id_token istnieją różnice w ilości informacji, które będą się znajdować na podstawie powyższych przykładów. Wersja jest oparta na punkcie końcowym, w którym został żądany. Istniejące aplikacje mogą korzystać z punktu końcowego usługi Azure AD, dlatego nowe aplikacje powinny korzystać z "platformy tożsamości firmy Microsoft".
 >
 > - v 1.0: punkty końcowe usługi Azure AD: `https://login.microsoftonline.com/common/oauth2/authorize`
 > - v 2.0: punkty końcowe platformy tożsamości firmy Microsoft: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`

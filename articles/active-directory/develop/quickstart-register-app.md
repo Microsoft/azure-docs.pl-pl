@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 45280ec41a9fd9423e4184b2e1ce593720ab6488
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 6052e2243f8b31aa57d4abf27c24a4b045c9eae2
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232356"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754628"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Szybki Start: rejestrowanie aplikacji na platformie tożsamości firmy Microsoft
 
@@ -84,8 +84,8 @@ Aby skonfigurować ustawienia aplikacji na podstawie docelowej platformy lub urz
 
     | Platforma | Ustawienia konfiguracji |
     | -------- | ---------------------- |
-    | **Sieć Web** | Wprowadź **Identyfikator URI przekierowania** dla aplikacji, lokalizację, w której platforma Microsoft Identity przekierowuje klienta użytkownika i wysyła tokeny zabezpieczające po uwierzytelnieniu.<br/><br/>Wybierz tę platformę dla standardowych aplikacji sieci Web, które są uruchomione na serwerze. |
-    | **Aplikacja jednostronicowa** | Wprowadź **Identyfikator URI przekierowania** dla aplikacji, lokalizację, w której platforma Microsoft Identity przekierowuje klienta użytkownika i wysyła tokeny zabezpieczające po uwierzytelnieniu.<br/><br/>Wybierz tę platformę, jeśli tworzysz aplikację sieci Web po stronie klienta w języku JavaScript lub przy użyciu struktury, takiej jak kątowy, Vue.js, React.js lub Blazor webassembly. |
+    | **Sieć Web** | Wprowadź **Identyfikator URI przekierowania** dla aplikacji, lokalizację, w której platforma tożsamości firmy Microsoft przekierowuje klienta użytkownika i wysyła tokeny zabezpieczające po uwierzytelnieniu.<br/><br/>Wybierz tę platformę dla standardowych aplikacji sieci Web, które są uruchomione na serwerze. |
+    | **Aplikacja jednostronicowa** | Wprowadź **Identyfikator URI przekierowania** dla aplikacji, lokalizację, w której platforma tożsamości firmy Microsoft przekierowuje klienta użytkownika i wysyła tokeny zabezpieczające po uwierzytelnieniu.<br/><br/>Wybierz tę platformę, jeśli tworzysz aplikację sieci Web po stronie klienta w języku JavaScript lub przy użyciu struktury, takiej jak kątowy, Vue.js, React.js lub Blazor webassembly. |
     | **iOS/macOS** | Wprowadź **Identyfikator pakietu** aplikacji, który znajduje się w Xcode w *info. plist* lub Build Settings.<br/><br/>Podczas określania identyfikatora pakietu zostanie wygenerowany identyfikator URI przekierowania. |
     | **Android** | Wprowadź **nazwę pakietu** aplikacji, którą można znaleźć w pliku *AndroidManifest.xml* i wygenerować i wprowadzić **skrót sygnatury**.<br/><br/>Po określeniu tych ustawień zostanie wygenerowany identyfikator URI przekierowania. |
     | **Aplikacje mobilne i klasyczne** | Wybierz jeden z **sugerowanych identyfikatorów URI przekierowania** lub Określ **niestandardowy identyfikator URI przekierowania**.<br/>W przypadku aplikacji klasycznych zalecamy:<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>Wybierz tę platformę dla aplikacji mobilnych, które nie używają najnowszej biblioteki uwierzytelniania firmy Microsoft (MSAL) lub nie korzystają z brokera. Należy również wybrać tę platformę dla aplikacji klasycznych. |

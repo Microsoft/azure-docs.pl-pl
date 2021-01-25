@@ -1,5 +1,6 @@
 ---
-title: Usuwanie kont z pamięci podręcznej tokenu na wylogowaniu — platforma tożsamości firmy Microsoft | Azure
+title: Usuń konta z pamięci podręcznej tokenu przy wylogowaniu | Azure
+titleSuffix: Microsoft identity platform
 description: Dowiedz się, jak usunąć konto z pamięci podręcznej tokeny przy wylogowaniu
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b7f59f235f4baa270b36b01cc4532227ab23fbc8
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 9fc271dfa9edbedac8527009dd2b2180b7c5e7cd
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442535"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756252"
 ---
 # <a name="a-web-app-that-calls-web-apis-remove-accounts-from-the-token-cache-on-global-sign-out"></a>Aplikacja sieci Web, która wywołuje interfejsy API sieci Web: usuwanie kont z pamięci podręcznej tokenów na globalnym wylogowaniu
 

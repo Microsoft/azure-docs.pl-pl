@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: b7d14ee321a1160420d106151276ae6aef513c5b
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 1ec046ca6b42a5ca8f33b0347c562c85abd42684
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064406"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756175"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Samouczek: Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph z aplikacji jednostronicowej JavaScript (SPA) przy użyciu przepływu kodu uwierzytelniania
 
@@ -28,7 +28,7 @@ W tym samouczku:
 > * Wykonywanie przepływu kodu autoryzacji OAuth 2,0 przy użyciu PKCE
 > * Zaloguj się do osobistych kont Microsoft, a także kont służbowych
 > * Uzyskiwanie tokenu dostępu
-> * Wywołaj Microsoft Graph lub własny interfejs API wymagający tokenów dostępu uzyskanych z punktu końcowego platformy tożsamości firmy Microsoft
+> * Wywołaj Microsoft Graph lub własny interfejs API wymagający tokenów dostępu uzyskanych z platformy tożsamości firmy Microsoft
 
 MSAL.js 2,0 usprawnia MSAL.js 1,0 przez obsługę przepływu kodu autoryzacji w przeglądarce zamiast niejawnego przepływu dotacji. MSAL.js 2,0 nie **obsługuje przepływu** niejawnego.
 
@@ -41,7 +41,7 @@ MSAL.js 2,0 usprawnia MSAL.js 1,0 przez obsługę przepływu kodu autoryzacji w 
 
 :::image type="content" source="media/tutorial-v2-javascript-auth-code/diagram-01-auth-code-flow.png" alt-text="Diagram przedstawiający przepływ kodu autoryzacji w aplikacji jednostronicowej":::
 
-Aplikacja, którą tworzysz w tym samouczku, umożliwia skryptom w języku JavaScript Wysyłanie zapytań do interfejsu API Microsoft Graph przez uzyskanie tokenów zabezpieczających z punktu końcowego platformy tożsamości firmy Microsoft. W tym scenariuszu po zalogowaniu się użytkownika token dostępu jest wymagany i dodawany do żądań HTTP w nagłówku autoryzacji. Pozyskiwanie i odnawianie tokenów jest obsługiwane przez bibliotekę uwierzytelniania firmy Microsoft dla języka JavaScript (MSAL.js).
+Aplikacja, którą tworzysz w tym samouczku, umożliwia skryptom w języku JavaScript Wysyłanie zapytań do interfejsu API Microsoft Graph przez uzyskanie tokenów zabezpieczeń z platformy tożsamości firmy Microsoft. W tym scenariuszu po zalogowaniu się użytkownika token dostępu jest wymagany i dodawany do żądań HTTP w nagłówku autoryzacji. Pozyskiwanie i odnawianie tokenów jest obsługiwane przez bibliotekę uwierzytelniania firmy Microsoft dla języka JavaScript (MSAL.js).
 
 W tym samouczku jest stosowana następująca Biblioteka:
 
@@ -558,13 +558,13 @@ SPA, który został utworzony w tym samouczku, wywołuje `acquireTokenSilent` i/
 
 #### <a name="get-a-user-token-interactively"></a>Interaktywne pobieranie tokenu użytkownika
 
-Po wstępnym logowaniu aplikacja nie powinna prosić użytkowników o ponowne uwierzytelnienie za każdym razem, gdy potrzebują dostępu do chronionego zasobu (czyli do żądania tokenu). Aby uniemożliwić takie żądania ponownego uwierzytelniania, wywołaj polecenie `acquireTokenSilent` . Istnieją jednak sytuacje, w których konieczne może być wymuszenie współpracy użytkowników z punktem końcowym platformy tożsamości firmy Microsoft. Na przykład:
+Po wstępnym logowaniu aplikacja nie powinna prosić użytkowników o ponowne uwierzytelnienie za każdym razem, gdy potrzebują dostępu do chronionego zasobu (czyli do żądania tokenu). Aby uniemożliwić takie żądania ponownego uwierzytelniania, wywołaj polecenie `acquireTokenSilent` . Istnieją jednak sytuacje, w których konieczne może być wymuszenie współpracy użytkowników z platformą tożsamości firmy Microsoft. Na przykład:
 
 - Użytkownicy muszą ponownie wprowadzić swoje poświadczenia, ponieważ hasło wygasło.
 - Aplikacja żąda dostępu do zasobu i potrzebujesz zgody użytkownika.
 - Wymagane jest uwierzytelnianie dwuskładnikowe.
 
-Wywołanie `acquireTokenPopup` powoduje otwarcie okna podręcznego (lub `acquireTokenRedirect` przekieruje użytkowników do punktu końcowego platformy tożsamości firmy Microsoft). W tym oknie Użytkownicy muszą mieć możliwość działania przez potwierdzenie poświadczeń, udzielenie zgody na wymagane zasoby lub zakończenie uwierzytelniania dwuskładnikowego.
+Wywołanie `acquireTokenPopup` powoduje otwarcie okna podręcznego (lub `acquireTokenRedirect` przekierowuje użytkowników do platformy tożsamości firmy Microsoft). W tym oknie Użytkownicy muszą mieć możliwość działania przez potwierdzenie poświadczeń, udzielenie zgody na wymagane zasoby lub zakończenie uwierzytelniania dwuskładnikowego.
 
 #### <a name="get-a-user-token-silently"></a>Dyskretne pobieranie tokenu użytkownika
 
@@ -618,7 +618,7 @@ Ukończono tworzenie aplikacji i teraz można jej użyć do uruchomienia serwera
 
 ### <a name="sign-in-to-the-application"></a>Logowanie się do aplikacji
 
-Po załadowaniu przez przeglądarkę pliku *index.html* wybierz pozycję **Zaloguj**. Zostanie wyświetlony monit o zalogowanie się za pomocą punktu końcowego platformy tożsamości firmy Microsoft:
+Po załadowaniu przez przeglądarkę pliku *index.html* wybierz pozycję **Zaloguj**. Zostanie wyświetlony monit o zalogowanie się za pomocą platformy tożsamości firmy Microsoft:
 
 :::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-01-signin-dialog.png" alt-text="Okno dialogowe logowania w przeglądarce sieci Web":::
 

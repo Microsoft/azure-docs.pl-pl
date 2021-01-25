@@ -1,7 +1,7 @@
 ---
 title: Tokeny zabezpieczające | Azure
 titleSuffix: Microsoft identity platform
-description: Poznaj podstawowe informacje na temat tokenów zabezpieczających w programie Microsoft Identity platform (v 2.0).
+description: Poznaj podstawowe informacje na temat tokenów zabezpieczających na platformie tożsamości firmy Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,22 +13,22 @@ ms.date: 05/11/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 88dc4bb86459cd0390c4c01deb871aa93e39c6d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9668d3b0b57e36fb95421f8b502b9b743be8eb31
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84266750"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756225"
 ---
 # <a name="security-tokens"></a>Tokeny zabezpieczające
 
 Scentralizowany dostawca tożsamości jest szczególnie przydatny dla aplikacji, które znajdują się na całym świecie, niekoniecznie logują się z sieci przedsiębiorstwa. Platforma tożsamości firmy Microsoft uwierzytelnia użytkowników i udostępnia tokeny zabezpieczające, takie jak [token dostępu](developer-glossary.md#access-token), [token odświeżania](developer-glossary.md#refresh-token)i [token identyfikatora](developer-glossary.md#id-token), które umożliwiają [aplikacji klienckiej](developer-glossary.md#client-application) dostęp do chronionych zasobów na [serwerze zasobów](developer-glossary.md#resource-server).
 
-**Token dostępu** jest tokenem zabezpieczającym wystawianym przez [serwer autoryzacji](developer-glossary.md#authorization-server) w ramach przepływu [OAuth 2,0](active-directory-v2-protocols.md) . Zawiera informacje o użytkowniku i aplikacji, dla których jest przeznaczony token; służy do uzyskiwania dostępu do interfejsów API sieci Web i innych chronionych zasobów. Aby dowiedzieć się więcej o sposobie, w jaki oprogramowanie Microsoft Identity platform wystawia tokeny dostępu, zobacz [tokeny dostępu](access-tokens.md).
+**Token dostępu** jest tokenem zabezpieczającym wystawianym przez [serwer autoryzacji](developer-glossary.md#authorization-server) w ramach przepływu [OAuth 2,0](active-directory-v2-protocols.md) . Zawiera informacje o użytkowniku i aplikacji, dla których jest przeznaczony token; służy do uzyskiwania dostępu do interfejsów API sieci Web i innych chronionych zasobów. Aby dowiedzieć się więcej o tym, jak platforma tożsamości firmy Microsoft wystawia tokeny dostępu, zobacz [tokeny dostępu](access-tokens.md).
 
 Tokeny dostępu są prawidłowe tylko przez krótki czas, więc serwery autoryzacji czasami wydają **token odświeżenia** w tym samym czasie, gdy token dostępu zostanie wystawiony. Aplikacja kliencka może następnie w razie potrzeby wymienić ten token odświeżania dla nowego tokenu dostępu. Aby dowiedzieć się więcej na temat sposobu odwoływania uprawnień przez platformę Microsoft Identity, zobacz [odwoływanie tokenu](access-tokens.md#token-revocation).
 
-**Tokeny identyfikatorów** są wysyłane do aplikacji klienckiej w ramach przepływu [połączenia OpenID Connect](v2-protocols-oidc.md) . Mogą być wysyłane po stronie lub zamiast tokenu dostępu i są używane przez klienta do uwierzytelniania użytkownika. Aby dowiedzieć się więcej o tym, jak program Microsoft Identity platform generuje tokeny identyfikatorów, zobacz [identyfikatory tokenów](id-tokens.md).
+**Tokeny identyfikatorów** są wysyłane do aplikacji klienckiej w ramach przepływu [połączenia OpenID Connect](v2-protocols-oidc.md) . Mogą być wysyłane po stronie lub zamiast tokenu dostępu i są używane przez klienta do uwierzytelniania użytkownika. Aby dowiedzieć się więcej o tym, jak platforma tożsamości firmy Microsoft wystawia tokeny identyfikatorów, zobacz [identyfikatory tokenów](id-tokens.md).
 
 > [!NOTE]
 > W tym artykule omówiono tokeny zabezpieczające używane przez protokoły połączeń OAuth2 i OpenID Connect. Wiele aplikacji przedsiębiorstwa używa protokołu SAML do uwierzytelniania użytkowników. Aby uzyskać informacje na temat potwierdzeń SAML, zobacz [odwołanie do tokenu SAML usługi Azure AD](reference-saml-tokens.md) .

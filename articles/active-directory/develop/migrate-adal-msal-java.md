@@ -14,12 +14,12 @@ ms.date: 11/04/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev, devx-track-java
-ms.openlocfilehash: 0183471db274bb7fca59ed8f24aa87b2bf997fb6
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 1d1512447b5d0474f8fabe92dbc7a36259f4618c
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063743"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754979"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>Przewodnik migracji biblioteki ADAL do MSAL dla języka Java
 
@@ -29,7 +29,7 @@ Zarówno Biblioteka uwierzytelniania firmy Microsoft dla języka Java (MSAL4J), 
 
 MSAL oferuje następujące korzyści:
 
-- Ponieważ używa ona nowszego punktu końcowego platformy tożsamości firmy Microsoft, można uwierzytelnić szerszy zestaw tożsamości firmy Microsoft, takich jak tożsamości usługi Azure AD, konta Microsoft i konta społecznościowe i lokalne za pośrednictwem usługi Azure AD Business to Consumer (B2C).
+- Ponieważ korzysta ona z nowszej platformy tożsamości firmy Microsoft, można uwierzytelnić szerszy zestaw tożsamości firmy Microsoft, takich jak tożsamości usługi Azure AD, konta Microsoft i konta społecznościowe i lokalne za pośrednictwem usługi Azure AD Business to Consumer (B2C).
 - Użytkownicy będą korzystać z najlepszego środowiska logowania jednokrotnego.
 - Aplikacja może włączyć przyrostową zgodę i ułatwić dostęp warunkowy.
 
@@ -37,13 +37,13 @@ MSAL for Java jest biblioteką uwierzytelniania zalecaną do użycia z platform�
 
 ## <a name="differences"></a>Różnice
 
-Jeśli pracujesz z punktem końcowym usługi Azure AD dla deweloperów (i ADAL4J), warto zapoznać się z [informacjami o tym, co się dzieje w punkcie końcowym platformy Identity platform (v 2.0)?](../azuread-dev/azure-ad-endpoint-comparison.md).
+Jeśli pracujesz z punktem końcowym usługi Azure AD dla deweloperów (i ADAL4J), warto zapoznać się z [informacjami dotyczącymi platformy tożsamości firmy Microsoft?](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 ## <a name="scopes-not-resources"></a>Zakresy nie są zasobami
 
 ADAL4J uzyskuje tokeny dla zasobów, a MSAL for Java uzyskuje tokeny dla zakresów. Liczba MSAL dla klas języka Java wymaga parametru Scopes. Ten parametr jest listą ciągów, które deklarują żądane uprawnienia i żądane zasoby. Zobacz [zakresy Microsoft Graph](/graph/permissions-reference) , aby zobaczyć przykładowe zakresy.
 
-Można dodać `/.default` sufiks zakresu do zasobu, aby ułatwić migrację aplikacji z punktu końcowego v 1.0 (ADAL) do punktu końcowego platformy tożsamości firmy Microsoft (MSAL). Na przykład dla wartości zasobu wartość `https://graph.microsoft.com` równoważna wartość zakresu to `https://graph.microsoft.com/.default` .  Jeśli zasób nie jest w formie adresu URL, ale identyfikator zasobu formularza `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX` , można nadal używać wartości zakresu jako `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default` .
+Do zasobu można dodać `/.default` sufiks zakresu, aby ułatwić migrację aplikacji z biblioteki ADAL do MSAL. Na przykład dla wartości zasobu wartość `https://graph.microsoft.com` równoważna wartość zakresu to `https://graph.microsoft.com/.default` .  Jeśli zasób nie jest w formie adresu URL, ale identyfikator zasobu formularza `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX` , można nadal używać wartości zakresu jako `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default` .
 
 Aby uzyskać więcej informacji na temat różnych typów zakresów, zapoznaj się z [uprawnieniami i wyrażaniem zgody na platformie tożsamości firmy Microsoft](./v2-permissions-and-consent.md) oraz [zakresami dla internetowego interfejsu API akceptujących artykuły tokenów w wersji 1.0](./msal-v1-app-scopes.md) .
 

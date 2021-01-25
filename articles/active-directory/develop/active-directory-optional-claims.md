@@ -12,12 +12,12 @@ ms.date: 1/06/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 6b5c328503a28c6eb92c2c20ca54d4d3d80c9a15
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 6855e8f550c14574795ec00f4fed36762944dca1
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232475"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756036"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Instrukcje: dostarczanie opcjonalnych oświadczeń do aplikacji
 
@@ -31,7 +31,7 @@ Opcjonalne oświadczenia można używać do:
 
 Listę oświadczeń standardowych można znaleźć w dokumentacji [token dostępu](access-tokens.md) i [id_token](id-tokens.md) oświadczenia.
 
-Chociaż opcjonalne oświadczenia są obsługiwane zarówno w tokenach w formacie v 1.0, jak i 2.0, jak również w przypadku tokenów języka SAML, zapewniają większość wartości podczas przechodzenia z wersji 1.0 do wersji 2.0. Jednym z celów [punktu końcowego platformy tożsamości w wersji 2.0 firmy Microsoft](./v2-overview.md) jest mniejszy rozmiar tokenu, aby zapewnić optymalną wydajność przez klientów. W związku z tym kilka oświadczeń wcześniej uwzględnionych w tokenach dostępu i identyfikatorów nie jest już obecny w tokenach v 2.0 i musi być poproszony o odszukanie poszczególnych aplikacji.
+Chociaż opcjonalne oświadczenia są obsługiwane zarówno w tokenach w formacie v 1.0, jak i 2.0, jak również w przypadku tokenów języka SAML, zapewniają większość wartości podczas przechodzenia z wersji 1.0 do wersji 2.0. Jednym z celów [platformy tożsamości firmy Microsoft](./v2-overview.md) jest mniejszy rozmiar tokenu, aby zapewnić optymalną wydajność przez klientów. W związku z tym kilka oświadczeń wcześniej uwzględnionych w tokenach dostępu i identyfikatorów nie jest już obecny w tokenach v 2.0 i musi być poproszony o odszukanie poszczególnych aplikacji.
 
 **Tabela 1: możliwość zastosowania**
 

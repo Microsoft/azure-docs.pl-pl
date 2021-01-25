@@ -1,6 +1,7 @@
 ---
-title: Logowanie jednokrotne między aplikacjami ADAL & MSAL (iOS/macOS) — Microsoft Identity platform | Azure
-description: ''
+title: Logowanie jednokrotne między aplikacjami ADAL & MSAL (iOS/macOS) | Azure
+titleSuffix: Microsoft identity platform
+description: Dowiedz się, jak udostępniać Logowanie jednokrotne między aplikacjami ADAL i MSAL
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -12,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: 7a8a1667ba1ca2a99c053c6941e3ba778299fd53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60189b8ba952bc3315bf514c5d0786601840665a
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80880754"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756211"
 ---
 # <a name="how-to-sso-between-adal-and-msal-apps-on-macos-and-ios"></a>Instrukcje: Logowanie jednokrotne między aplikacjami ADAL i MSAL w systemach macOS i iOS
 
@@ -48,7 +49,7 @@ Poniższa tabela zawiera podsumowanie różnic identyfikatorów kont między bib
 | Identyfikator konta                | BIBLIOTEKA MSAL                                                         | Biblioteka ADAL 2.7. x      | Starsza wersja ADAL (przed ADAL 2.7. x) |
 | --------------------------------- | ------------------------------------------------------------ | --------------- | ------------------------------ |
 | Identyfikator, który ma być odtwarzany            | `username`                                                   | `userId`        | `userId`                       |
-| unikatowy identyfikator, który nie jest odtwarzany | `identifier`                                                 | `homeAccountId` | Brak                            |
+| unikatowy identyfikator, który nie jest odtwarzany | `identifier`                                                 | `homeAccountId` | Nie dotyczy                            |
 | Brak znanego identyfikatora konta               | Wykonywanie zapytania dotyczącego wszystkich kont za poorednictwem `allAccounts:` interfejsu API w `MSALPublicClientApplication` | NIE DOTYCZY             | NIE DOTYCZY                            |
 
 Jest to `MSALAccount` interfejs udostępniający te identyfikatory:

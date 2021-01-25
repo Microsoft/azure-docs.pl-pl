@@ -1,6 +1,6 @@
 ---
 title: Protokoły zgody administratora platformy tożsamości firmy Microsoft
-description: Opis autoryzacji w punkcie końcowym platformy tożsamości firmy Microsoft, w tym zakresów, uprawnień i zgody.
+description: Opis autoryzacji na platformie tożsamości firmy Microsoft, w tym zakresów, uprawnień i zgody.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.date: 12/18/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 353c349ebe348addac60c5f9f7b1bf0fbb1fc425
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 13cff9f3a6037a16d7c3b9cf233d26c6e9518bc1
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97703321"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756105"
 ---
 # <a name="admin-consent-on-the-microsoft-identity-platform"></a>Zgoda administratora na platformę tożsamości firmy Microsoft
 
@@ -27,7 +27,7 @@ Niektóre uprawnienia wymagają zgody administratora, zanim będzie można go ud
 
 Zazwyczaj podczas kompilowania aplikacji korzystającej z punktu końcowego zgody administratora aplikacja musi mieć stronę lub widok, w którym administrator może zatwierdzić uprawnienia aplikacji. Ta strona może należeć do przepływu rejestracji aplikacji, części ustawień aplikacji lub być dedykowanym przepływem "Połącz". W wielu przypadkach ma sens, aby aplikacja pokazywała ten widok "Połącz" tylko po zalogowaniu się użytkownika przy użyciu konto Microsoft służbowego.
 
-Po podpisaniu użytkownika do aplikacji można zidentyfikować organizację, do której należy administrator, przed zaproszeniem ich o zatwierdzenie wymaganych uprawnień. Chociaż nie jest to absolutnie konieczne, może pomóc w tworzeniu bardziej intuicyjnego środowiska dla użytkowników w organizacji. Aby podpisać użytkownika w programie, należy postępować zgodnie z naszymi [samouczkami dotyczącymi protokołów Microsoft Identity platform](active-directory-v2-protocols.md).
+Po podpisaniu użytkownika do aplikacji można zidentyfikować organizację, do której należy administrator, przed zaproszeniem ich o zatwierdzenie wymaganych uprawnień. Chociaż nie jest to absolutnie konieczne, może pomóc w tworzeniu bardziej intuicyjnego środowiska dla użytkowników w organizacji. Aby podpisać użytkownika w programie, postępuj zgodnie z [samouczkami dotyczącymi protokołu Microsoft Identity platform](active-directory-v2-protocols.md).
 
 ## <a name="request-the-permissions-from-a-directory-admin"></a>Żądanie uprawnień od administratora katalogu
 

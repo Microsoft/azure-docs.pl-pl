@@ -13,12 +13,12 @@ ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 9fb5e229882532fed076f2e0d800f32acfcdbf4c
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 0ded249a55e5a59bdcad7407694cbd5ed4cf2352
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013791"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756077"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Instrukcje: Dostosowywanie oświadczeń wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw
 
@@ -50,13 +50,13 @@ Aby edytować NameID (wartość identyfikatora nazwy):
 
 Jeśli żądanie SAML zawiera element NameIDPolicy o określonym formacie, platforma tożsamości firmy Microsoft będzie przestrzegać formatu w żądaniu.
 
-Jeśli żądanie SAML nie zawiera elementu NameIDPolicy, platforma tożsamości firmy Microsoft będzie wydawać NameID z określonym formatem. Jeśli żaden format nie zostanie określony, platforma tożsamości Microsoft będzie używać domyślnego formatu źródłowego skojarzonego z wybranym źródłem żądania.
+Jeśli żądanie SAML nie zawiera elementu NameIDPolicy, platforma tożsamości firmy Microsoft wystawia NameID z określonym formatem. Jeśli żaden format nie zostanie określony, platforma tożsamości firmy Microsoft będzie używać domyślnego formatu źródłowego skojarzonego z wybranym źródłem żądania.
 
 Z listy rozwijanej **Wybierz format identyfikatora nazwy** można wybrać jedną z następujących opcji.
 
 | Format NameID | Opis |
 |---------------|-------------|
-| **Domyślne** | Platforma tożsamości firmy Microsoft będzie używać domyślnego formatu źródła. |
+| **Wartooć** | Platforma tożsamości firmy Microsoft będzie używać domyślnego formatu źródła. |
 | **Stale** | Platforma tożsamości firmy Microsoft będzie używać trwałego formatu NameID. |
 | **EmailAddress (Adres e-mail)** | Platforma tożsamości firmy Microsoft będzie używać EmailAddress jako formatu NameID. |
 | **Nie określono** | Platforma tożsamości firmy Microsoft będzie używać nieokreślone jako formatu NameID. |
@@ -168,9 +168,9 @@ Aby dodać warunek roszczeń:
 
 Kolejność, w której zostały dodane warunki, jest ważna. Usługa Azure AD szacuje warunki od góry do dołu, aby zdecydować, która wartość ma być emitowana w ramach tego żądania. Ostatnia wartość zgodna z wyrażeniem będzie emitowana w ramach tego żądania.
 
-Na przykład Britta Simon jest użytkownikiem-gościem w dzierżawie contoso. Należy do innej organizacji, która również korzysta z usługi Azure AD. Zgodnie z poniższą konfiguracją aplikacji Fabrikam, gdy Britta próbuje zalogować się do firmy Fabrikam, platforma Microsoft Identity platform oceni warunki w następujący sposób.
+Na przykład Britta Simon jest użytkownikiem-gościem w dzierżawie contoso. Należy do innej organizacji, która również korzysta z usługi Azure AD. Zgodnie z poniższą konfiguracją dla aplikacji Fabrikam, gdy Britta próbuje zalogować się do firmy Fabrikam, platforma tożsamości Microsoft będzie szacować warunki w następujący sposób.
 
-Najpierw platforma tożsamości firmy Microsoft sprawdza, czy Britta typ użytkownika to `All guests` . Ponieważ jest to prawdziwe, firma Microsoft Identity platform przypisuje Źródło dla tego żądania `user.extensionattribute1` . Druga platforma tożsamości firmy Microsoft sprawdza, czy Britta typ użytkownika to `AAD guests` , ponieważ jest to również prawdziwe, firma Microsoft Identity platform przypisuje Źródło dla tego żądania `user.mail` . Na koniec zgłoszenie jest emitowane z wartością `user.mail` dla Britta.
+Najpierw platforma tożsamości firmy Microsoft sprawdza, czy Britta typ użytkownika to `All guests` . Ponieważ jest to prawdziwe, platforma tożsamości firmy Microsoft przypisuje Źródło dla tego żądania `user.extensionattribute1` . Druga platforma tożsamości firmy Microsoft sprawdza, czy Britta typ użytkownika to `AAD guests` , ponieważ jest to również prawdziwe, platforma tożsamości firmy Microsoft przypisuje Źródło dla tego żądania `user.mail` . Na koniec zgłoszenie jest emitowane z wartością `user.mail` dla Britta.
 
 ![Konfiguracja warunkowa oświadczeń](./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png)
 

@@ -1,7 +1,7 @@
 ---
 title: Przepływ logowania aplikacji przy użyciu platformy tożsamości firmy Microsoft | Azure
 titleSuffix: Microsoft identity platform
-description: Dowiedz się więcej o przepływie logowania aplikacji internetowych, klasycznych i mobilnych w usłudze Microsoft Identity platform (v 2.0).
+description: Dowiedz się więcej o przepływie logowania aplikacji internetowych, klasycznych i mobilnych na platformie tożsamości firmy Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,14 +13,14 @@ ms.date: 05/18/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: af5b27dc85a276c731a61135ab59ab81f5aaf3c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f9f330ab140fa66b5a66a112c47ca2a68ba56bf
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83772203"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755695"
 ---
-# <a name="app-sign-in-flow-with-microsoft-identity-platform"></a>Przepływ logowania aplikacji przy użyciu platformy tożsamości firmy Microsoft
+# <a name="app-sign-in-flow-with-the-microsoft-identity-platform"></a>Przepływ logowania aplikacji z platformą tożsamości firmy Microsoft
 
 W tym temacie omówiono podstawowy przepływ logowania dla aplikacji internetowych, klasycznych i mobilnych przy użyciu platformy tożsamości firmy Microsoft. Zobacz [przepływy uwierzytelniania i scenariusze aplikacji](authentication-flows-app-scenarios.md) , aby poznać scenariusze logowania obsługiwane przez platformę tożsamości firmy Microsoft.
 
@@ -35,7 +35,7 @@ Gdy użytkownik nawiguje w przeglądarce do aplikacji sieci Web, następuje:
 Po pomyślnym uwierzytelnieniu użytkownika:
 
 * Platforma tożsamości firmy Microsoft wysyła token do aplikacji sieci Web.
-* Plik cookie jest zapisywany, skojarzony z domeną usługi Azure AD, która zawiera tożsamość użytkownika w pliku JAR cookie w przeglądarce. Następnym razem, gdy aplikacja będzie korzystać z przeglądarki w celu przejścia do punktu końcowego autoryzacji platformy tożsamości firmy Microsoft, przeglądarka prezentuje plik cookie, dzięki czemu użytkownik nie musi zalogować się ponownie. Jest to również sposób, w jaki uzyskuje się Logowanie jednokrotne. Plik cookie jest tworzony przez usługę Azure AD i może być zrozumiały tylko dla usługi Azure AD.
+* Plik cookie jest zapisywany, skojarzony z domeną usługi Azure AD, która zawiera tożsamość użytkownika w pliku JAR cookie w przeglądarce. Przy następnym użyciu przeglądarki w celu przejścia do punktu końcowego autoryzacji platformy tożsamości firmy Microsoft przeglądarka prezentuje plik cookie, aby użytkownik nie musiał zalogować się ponownie. Jest to również sposób, w jaki uzyskuje się Logowanie jednokrotne. Plik cookie jest tworzony przez usługę Azure AD i może być zrozumiały tylko dla usługi Azure AD.
 * Następnie aplikacja internetowa sprawdza poprawność tokenu. Jeśli sprawdzanie poprawności zakończy się pomyślnie, aplikacja sieci Web wyświetli chronioną stronę i zapisze plik cookie sesji w pliku cookie w przeglądarce. Gdy użytkownik nawiguje do innej strony, aplikacja sieci Web wie, że użytkownik jest uwierzytelniany w oparciu o plik cookie sesji.
 
 Poniższy diagram sekwencji podsumowuje tę interakcję:
@@ -48,7 +48,7 @@ Deweloperzy aplikacji sieci Web mogą wskazać, czy wszystkie lub tylko niektór
 
 Ten atrybut powoduje, że ASP.NET sprawdza obecność pliku cookie sesji zawierającego tożsamość użytkownika. Jeśli plik cookie nie istnieje, ASP.NET przekierowuje uwierzytelnianie do określonego dostawcy tożsamości. Jeśli dostawca tożsamości to usługa Azure AD, aplikacja sieci Web przekierowuje uwierzytelnianie do programu `https://login.microsoftonline.com` , co spowoduje wyświetlenie okna dialogowego logowania.
 
-### <a name="how-a-web-app-delegates-sign-in-to-microsoft-identity-platform-and-obtains-a-token"></a>Jak aplikacja sieci Web deleguje logowanie do platformy tożsamości firmy Microsoft i uzyskuje token
+### <a name="how-a-web-app-delegates-sign-in-to-the-microsoft-identity-platform-and-obtains-a-token"></a>Jak aplikacja sieci Web deleguje logowanie do platformy tożsamości firmy Microsoft i uzyskuje token
 
 Uwierzytelnianie użytkowników odbywa się za pośrednictwem przeglądarki. Protokół OpenID Connect używa standardowych komunikatów protokołu HTTP.
 

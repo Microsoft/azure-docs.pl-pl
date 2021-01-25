@@ -1,7 +1,7 @@
 ---
 title: Uwierzytelnianie a autoryzacja | Azure
 titleSuffix: Microsoft identity platform
-description: Poznaj podstawowe informacje na temat uwierzytelniania i autoryzacji w usłudze Microsoft Identity platform (v 2.0).
+description: Poznaj podstawowe informacje na temat uwierzytelniania i autoryzacji na platformie tożsamości firmy Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,18 +13,18 @@ ms.date: 05/22/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 5087278e5c89514cd43b7ca871a58f18e0fa98f2
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: b81b34010736bce33085cb1ebf0faa3da6a41bd6
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678150"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755386"
 ---
 # <a name="authentication-vs-authorization"></a>Uwierzytelnianie i autoryzacja
 
 Ten artykuł definiuje uwierzytelnianie i autoryzację. Zawarto również krótko, jak używać platformy tożsamości firmy Microsoft do uwierzytelniania i autoryzowania użytkowników w aplikacjach sieci Web, interfejsach API sieci Web lub aplikacjach wywołujących chronione interfejsy API sieci Web. Jeśli zobaczysz termin, którego nie znasz, wypróbuj nasz [słownik](developer-glossary.md) lub nasze [wideo platformy tożsamości firmy Microsoft](identity-videos.md), które obejmują podstawowe pojęcia.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Uwierzytelnianie
 
 *Uwierzytelnianie* to proces potwierdzania, że jesteś osobą. Czasami jest ona skracana do *AuthN*. Platforma tożsamości firmy Microsoft używa protokołu [Connect OpenID Connect](https://openid.net/connect/) do obsługi uwierzytelniania.
 

@@ -1,6 +1,6 @@
 ---
 title: Przykłady kodu dla platformy tożsamości firmy Microsoft
-description: Zawiera indeks dostępnych przykładów kodu platformy Microsoft Identity platform (Endpoint), zorganizowanych według scenariusza.
+description: Zawiera indeks dostępnych przykładów kodu platformy tożsamości firmy Microsoft zorganizowanych według scenariusza.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 3baeb87bf3fe1cdcd5e9f27aed2587eed060c5a8
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 368a1acdfda66c3714979d27037737a75bbada5a
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064525"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756644"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Przykłady kodu platformy tożsamości firmy Microsoft (punkt końcowy v 2.0)
 
@@ -26,9 +26,9 @@ Platformy tożsamości firmy Microsoft można używać do:
 - Dodawanie uwierzytelniania i autoryzacji do aplikacji sieci Web i interfejsów API sieci Web.
 - Wymagaj tokenu dostępu w celu uzyskania dostępu do chronionego internetowego interfejsu API.
 
-W tym artykule krótko opisano i przedstawiono linki do przykładów dla punktu końcowego platformy tożsamości firmy Microsoft. Te przykłady pokazują, jak to zrobiono, a także zawierają fragmenty kodu, których można używać w aplikacjach. Na stronie przykładowy kod znajdziesz szczegółowe tematy dotyczące pliku Readme, które ułatwiają wymagania, instalację i konfigurację. Komentarze w kodzie pomagają zrozumieć sekcje krytyczne.
+W tym artykule krótko opisano i przedstawiono linki do przykładów dla platformy tożsamości firmy Microsoft. Te przykłady pokazują, jak to zrobiono, a także zawierają fragmenty kodu, których można używać w aplikacjach. Na stronie przykładowy kod znajdziesz szczegółowe tematy dotyczące pliku Readme, które ułatwiają wymagania, instalację i konfigurację. Komentarze w kodzie pomagają zrozumieć sekcje krytyczne.
 
-Aby zrozumieć podstawowy scenariusz dla każdego typu przykładu, zobacz [typy aplikacji dla punktu końcowego platformy tożsamości firmy Microsoft](v2-app-types.md).
+Aby zrozumieć podstawowy scenariusz dla każdego typu przykładu, zobacz [typy aplikacji platformy tożsamości firmy Microsoft](v2-app-types.md).
 
 Możesz również współtworzyć przykłady w witrynie GitHub. Aby dowiedzieć się, jak to zrobić, zobacz [Microsoft Azure Active Directory przykłady i dokumentacja](https://github.com/Azure-Samples?page=3&query=active-directory).
 
@@ -36,7 +36,7 @@ Możesz również współtworzyć przykłady w witrynie GitHub. Aby dowiedzieć 
 
 Te przykłady przedstawiają sposób pisania aplikacji jednostronicowej zabezpieczonej za pomocą platformy tożsamości firmy Microsoft. W tych przykładach użyto jednego z następujących rodzajów MSAL.js.
 
-| Platforma | Opis | Łącze |
+| Platforma | Opis | Link |
 | -------- | --------------------- | -------- |
 | ![Ten obraz pokazuje logo JavaScript ](media/sample-v2-code/logo_js.png) [javascript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | Wywołania SPA Microsoft Graph |[JavaScript-graphapi-v2](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) |
 | ![Ten obraz pokazuje logo JavaScript ](media/sample-v2-code/logo_js.png) [javascript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser) | Wywołania SPA Microsoft Graph przy użyciu przepływu kodu uwierzytelniania w/PKCE |[JavaScript — v2](https://github.com/Azure-Samples/ms-identity-javascript-v2) |
@@ -112,7 +112,7 @@ Poniższy przykład pokazuje publiczną aplikację kliencką działającą na ur
 
 W poniższych przykładach pokazano, jak skonfigurować aplikację do akceptowania logowań z dowolnej dzierżawy usługi Azure Active Directory (Azure AD). Skonfigurowanie aplikacji w taki sposób, aby była *wielodostępna* , oznacza, że możesz zaoferować aplikację **oprogramowanie jako usługa** (SaaS) w wielu organizacjach, umożliwiając użytkownikom zalogowanie się do aplikacji po dodaniu ich do konta.
 
-| Platforma | Opis | Łącze |
+| Platforma | Opis | Link |
 | -------- | --------------------- | -------- |
 | ![Ten obraz pokazuje logo JavaScript ](media/sample-v2-code/logo_js.png) [javascript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser) | Wywołania SPA z wieloma dzierżawcami interfejs API programu Graph |[MS-Identity-JavaScript-skośne-Spa-ASPNET-WebAPI-wielodostępny](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnet-webapi-multitenant/tree/master/Chapter1) |
 | ![Ten obraz pokazuje kątowe logo kątowe ](media/sample-v2-code/logo_angular.png) [(MSAL-kątowy)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular) | Wiele dzierżawców wywołuje niestandardowy internetowy interfejs API z wieloma dzierżawcami |[MS-Identity-JavaScript-skośne-Spa-ASPNET-WebAPI-wielodostępny](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnet-webapi-multitenant/tree/master/Chapter2) |
@@ -121,7 +121,7 @@ W poniższych przykładach pokazano, jak skonfigurować aplikację do akceptowan
 
 ## <a name="web-apis"></a>Interfejsy API sieci Web
 
-W poniższych przykładach pokazano, jak chronić internetowy interfejs API za pomocą punktu końcowego platformy tożsamości firmy Microsoft oraz jak wywołać podrzędny interfejs API z internetowego interfejsu API.
+W poniższych przykładach pokazano, jak chronić internetowy interfejs API za pomocą platformy tożsamości firmy Microsoft oraz jak wywołać podrzędny interfejs API z internetowego interfejsu API.
 
 | Platforma | Przykład |
 | -------- | ------------------- |
@@ -133,7 +133,7 @@ W poniższych przykładach pokazano, jak chronić internetowy interfejs API za p
 
 ## <a name="azure-functions-as-web-apis"></a>Azure Functions jako interfejsy API sieci Web
 
-W poniższych przykładach pokazano, jak chronić funkcję platformy Azure przy użyciu programu HttpTrigger i uwidaczniać internetowy interfejs API za pomocą punktu końcowego platformy tożsamości firmy Microsoft oraz jak wywołać podrzędny interfejs API z internetowego interfejsu API.
+W poniższych przykładach pokazano, jak chronić funkcję platformy Azure przy użyciu HttpTrigger i uwidaczniać internetowy interfejs API za pomocą platformy tożsamości firmy Microsoft oraz jak wywołać podrzędny interfejs API z internetowego interfejsu API.
 
 | Platforma | Przykład |
 | -------- | ------------------- |
@@ -146,6 +146,6 @@ W poniższych przykładach pokazano, jak chronić funkcję platformy Azure przy 
 
 Aby dowiedzieć się więcej na temat [przykładów](https://github.com/microsoftgraph/msgraph-community-samples/tree/master/samples#aspnet) i samouczków demonstrujących różne wzorce użycia dla interfejsu API Microsoft Graph, w tym uwierzytelniania za pomocą usługi Azure AD, zobacz [Microsoft Graph przykłady społeczności & samouczków](https://github.com/microsoftgraph/msgraph-community-samples).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 [Informacje koncepcyjne i informacje o interfejsie API Microsoft Graph](/graph/use-the-api?context=graph%2fapi%2fbeta&view=graph-rest-beta&preserve-view=true)

@@ -1,5 +1,6 @@
 ---
-title: Przenoszenie aplikacji sieci Web, która loguje użytkowników do produkcji — platforma tożsamości firmy Microsoft | Azure
+title: Przenoszenie aplikacji sieci Web, która loguje użytkowników do środowiska produkcyjnego | Azure
+titleSuffix: Microsoft identity platform
 description: Dowiedz się, jak utworzyć aplikację internetową, która loguje użytkowników (Przenieś do środowiska produkcyjnego)
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: fd9890cb94bf6bb4b82ebbb585ab8bbb9d5ba46a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c7abad31c9936729b8d9c19ed2efcb841ac103ca
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169294"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756236"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>Aplikacja internetowa, która loguje użytkowników: Przenieś do środowiska produkcyjnego
 

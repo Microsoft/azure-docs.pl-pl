@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: fb66d8a4bf97a6f8a10534c9c4459123ad6a2654
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 7dc3241198fbc6eeddba059251f28c6dc35c8a29
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107924"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754940"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>Migrowanie aplikacji do MSAL dla systemów iOS i macOS
 
@@ -38,14 +38,14 @@ Platforma tożsamości firmy Microsoft oferuje kilka najważniejszych różnic w
 
 ### <a name="standards-compliance"></a>Zgodność ze standardami
 
-* Punkt końcowy platformy tożsamości firmy Microsoft jest zgodny ze standardami OAuth 2,0 i OpenID Connect Connect.
+* Platforma tożsamości firmy Microsoft jest zgodna ze standardami OAuth 2,0 i OpenID Connect Connect.
 
 ### <a name="incremental-and-dynamic-consent"></a>Poprzednia i dynamiczna zgoda
 
 * Punkt końcowy Azure Active Directory v 1.0 wymaga, aby wszystkie uprawnienia były zgłaszane z wyprzedzeniem podczas rejestracji aplikacji. Oznacza to, że te uprawnienia są statyczne.
 * Platforma tożsamości firmy Microsoft umożliwia dynamiczne żądanie uprawnień. Aplikacje mogą prosić o uprawnienia tylko w razie potrzeby i żądać więcej, jak aplikacja je potrzebuje.
 
-Aby uzyskać więcej informacji o różnicach między Azure Active Directory v 1.0 i platformą tożsamości firmy Microsoft, zobacz [Dlaczego warto zaktualizować platformę tożsamości firmy Microsoft (v 2.0)?](../azuread-dev/azure-ad-endpoint-comparison.md).
+Aby uzyskać więcej informacji o różnicach między Azure Active Directory v 1.0 i platformą tożsamości firmy Microsoft, zobacz [Dlaczego warto zaktualizować platformę tożsamości firmy Microsoft?](../azuread-dev/azure-ad-endpoint-comparison.md)
 
 ## <a name="adal-and-msal-library-differences"></a>Różnice w bibliotece ADAL i MSAL
 

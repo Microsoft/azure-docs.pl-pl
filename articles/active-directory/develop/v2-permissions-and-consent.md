@@ -12,16 +12,16 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: 35499810ae13a8ddc5b7bb6306deafef0ef24e0f
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: aa8c00d1ee2a0dc3d019cc75b4e411ede984e74a
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246795"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756050"
 ---
-# <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Uprawnienia i zgoda w punkcie końcowym platformy tożsamości firmy Microsoft
+# <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Uprawnienia i zgoda na platformie tożsamości firmy Microsoft
 
-Aplikacje integrowane z platformą tożsamości firmy Microsoft są zgodne z modelem autoryzacji, który umożliwia użytkownikom i administratorom kontrolę nad sposobem uzyskiwania dostępu do danych. Implementacja modelu autoryzacji została zaktualizowana w punkcie końcowym platformy tożsamości firmy Microsoft. Zmienia sposób współpracy aplikacji z platformą tożsamości firmy Microsoft. W tym artykule opisano podstawowe koncepcje tego modelu autoryzacji, w tym zakresy, uprawnienia i zgodę.
+Aplikacje integrowane z platformą tożsamości firmy Microsoft są zgodne z modelem autoryzacji, który umożliwia użytkownikom i administratorom kontrolę nad sposobem uzyskiwania dostępu do danych. Implementacja modelu autoryzacji została zaktualizowana na platformie tożsamości firmy Microsoft. Zmienia sposób współpracy aplikacji z platformą tożsamości firmy Microsoft. W tym artykule opisano podstawowe koncepcje tego modelu autoryzacji, w tym zakresy, uprawnienia i zgodę.
 
 ## <a name="scopes-and-permissions"></a>Zakresy i uprawnienia
 
@@ -128,7 +128,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 
 `scope`Parametr jest rozdzielaną spacją listą uprawnień delegowanych, które żąda aplikacja. Każde uprawnienie jest wskazywane przez dołączenie wartości uprawnienia do identyfikatora zasobu (identyfikator URI aplikacji). W przykładzie żądania aplikacja musi mieć uprawnienia do odczytu kalendarza użytkownika i wysyłania poczty jako użytkownik.
 
-Po wprowadzeniu poświadczeń przez użytkownika punkt końcowy platformy tożsamości firmy Microsoft wyszukuje pasujący rekord *zgody użytkownika*. Jeśli użytkownik nie wyraził zgody na jakiekolwiek z żądanych uprawnień w przeszłości, a administrator nie wyraził zgody na te uprawnienia w imieniu całej organizacji, punkt końcowy platformy tożsamości firmy Microsoft prosi użytkownika o przyznanie żądanych uprawnień.
+Po wprowadzeniu poświadczeń przez użytkownika platforma tożsamości firmy Microsoft wyszukuje pasujący rekord *zgody użytkownika*. Jeśli użytkownik nie wyraził zgody na jakiekolwiek z żądanych uprawnień w przeszłości, a administrator nie wyraził zgody na te uprawnienia w imieniu całej organizacji, platforma tożsamości firmy Microsoft prosi użytkownika o przyznanie wymaganych uprawnień.
 
 W tej chwili `offline_access` uprawnienie ("zapewnianie dostępu do danych, do których masz dostęp, do") uprawnienia i `user.read` ("Logowanie użytkownika i odczytanie Twojego profilu") jest automatycznie dołączane do początkowej zgody na aplikację.  Te uprawnienia są zwykle wymagane w celu uzyskania odpowiedniej funkcjonalności aplikacji. `offline_access`Uprawnienie umożliwia aplikacji dostęp do odświeżania tokenów, które mają kluczowe znaczenie dla natywnych aplikacji i aplikacji sieci Web. `user.read`Uprawnienie daje dostęp do tego `sub` żądania. Pozwala klientowi lub aplikacji poprawnie identyfikować użytkownika w czasie i uzyskać dostęp do informacji o użytkowniku podstawowe.
 
@@ -335,7 +335,7 @@ response_type=token            //Code or a hybrid flow is also possible here
 
 Ten przykład kodu tworzy stronę zgody na wszystkie zarejestrowane uprawnienia, jeśli poprzednie opisy wyrazu zgodę i `/.default` dotyczą tego scenariusza. Następnie kod zwraca `id_token` a, a nie token dostępu.  
 
-Takie zachowanie umożliwia uwzględnienie niektórych starszych klientów przenoszonych z biblioteki uwierzytelniania usługi Azure AD (ADAL) do biblioteki uwierzytelniania firmy Microsoft (MSAL). Ta konfiguracja nie *powinna* być używana przez nowych klientów przeznaczonych dla punktu końcowego platformy tożsamości firmy Microsoft.
+Takie zachowanie umożliwia uwzględnienie niektórych starszych klientów przenoszonych z biblioteki uwierzytelniania usługi Azure AD (ADAL) do biblioteki uwierzytelniania firmy Microsoft (MSAL). Ta konfiguracja nie *powinna* być używana przez nowych klientów przeznaczonych dla platformy tożsamości firmy Microsoft.
 
 ### <a name="client-credentials-grant-flow-and-default"></a>Przepływ i/.default przydzielenia poświadczeń klienta  
 
@@ -357,5 +357,5 @@ Aby uzyskać informacje na temat rozwiązywania problemów, zobacz [nieoczekiwan
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [IDENTYFIKATORY tokenów w usłudze Microsoft Identity platform](id-tokens.md)
-* [Tokeny dostępu w usłudze Microsoft Identity platform](access-tokens.md)
+* [IDENTYFIKATORY tokenów na platformie tożsamości firmy Microsoft](id-tokens.md)
+* [Tokeny dostępu na platformie tożsamości firmy Microsoft](access-tokens.md)

@@ -1,7 +1,7 @@
 ---
 title: Model aplikacji | Azure
 titleSuffix: Microsoft identity platform
-description: Dowiedz się więcej o procesie rejestracji aplikacji, aby umożliwić integrację z platformą tożsamości firmy Microsoft (v 2.0).
+description: Dowiedz się więcej o procesie rejestracji aplikacji, aby umożliwić integrację z platformą tożsamości firmy Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.date: 04/28/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 5aca96a9c3bc4e8f1061f677e316565b10014ac9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ba41e36d12b58da2e572cf870195716eacaddef
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88117485"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755687"
 ---
 # <a name="application-model"></a>Model aplikacji
 
@@ -55,7 +55,7 @@ Platforma tożsamości firmy Microsoft:
 
 ## <a name="multi-tenant-apps"></a>Aplikacje z wieloma dzierżawami
 
-W programie Microsoft Identity platform [obiekt aplikacji](developer-glossary.md#application-object) opisuje aplikację. W czasie wdrażania platforma Microsoft Identity platform używa obiektu aplikacji jako planu do tworzenia jednostki [usługi](developer-glossary.md#service-principal-object), która reprezentuje konkretne wystąpienie aplikacji w katalogu lub dzierżawie. Jednostka usługi definiuje, co aplikacja może w rzeczywistości wykonać w konkretnym katalogu docelowym, kto może z niego korzystać, do jakich zasobów ma dostęp i tak dalej. Platforma tożsamości firmy Microsoft tworzy jednostkę usługi z obiektu aplikacji za pomocą [zgody](developer-glossary.md#consent).
+Na platformie tożsamości Microsoft [obiekt aplikacji](developer-glossary.md#application-object) opisuje aplikację. W czasie wdrażania platforma tożsamości firmy Microsoft używa obiektu aplikacji jako planu do utworzenia jednostki [usługi](developer-glossary.md#service-principal-object), która reprezentuje konkretne wystąpienie aplikacji w katalogu lub dzierżawie. Jednostka usługi definiuje, co aplikacja może w rzeczywistości wykonać w konkretnym katalogu docelowym, kto może z niego korzystać, do jakich zasobów ma dostęp i tak dalej. Platforma tożsamości firmy Microsoft tworzy jednostkę usługi z obiektu aplikacji za pomocą [zgody](developer-glossary.md#consent).
 
 Na poniższym diagramie przedstawiono uproszczony przepływ aprowizacji platformy tożsamości firmy Microsoft, który jest oparty na wyrażaniu zgody. Pokazuje dwie dzierżawy *: a* i *B*.
 

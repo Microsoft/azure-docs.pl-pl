@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 88af554faab9479a402dd393b0a7eed0835ce59e
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 7ea871428fffe685cc9d43dd698bfefb8d8a511a
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814350"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756681"
 ---
 # <a name="manage-security-policies"></a>Zarządzanie zasadami zabezpieczeń
 
@@ -33,7 +33,7 @@ Azure Security Center wykonuje zalecenia dotyczące zabezpieczeń w oparciu o wy
 
 Security Center oferuje następujące opcje pracy z zasadami zabezpieczeń:
 
-* **Wyświetlanie i edytowanie wbudowanych zasad domyślnych** — po włączeniu Security Center wbudowana inicjatywa o nazwie "domyślna wartość ASC" jest automatycznie przypisywana do wszystkich Security Center zarejestrowanych subskrypcji. Aby dostosować tę inicjatywę, możesz włączyć lub wyłączyć poszczególne zasady w ramach tego programu. Zapoznaj się z listą [wbudowanych zasad zabezpieczeń](./policy-reference.md) , aby poznać dostępne opcje.
+* **Wyświetlanie i edytowanie wbudowanych zasad domyślnych** — po włączeniu Security Center inicjatywa "Azure Security test" jest automatycznie przypisywana do wszystkich Security Center zarejestrowanych subskrypcji. Aby dostosować tę inicjatywę, możesz włączyć lub wyłączyć poszczególne zasady w ramach tego programu. Zapoznaj się z listą [wbudowanych zasad zabezpieczeń](./policy-reference.md) , aby poznać dostępne opcje.
 
 * **Dodawanie własnych zasad niestandardowych** — Jeśli chcesz dostosować inicjatywy zabezpieczeń stosowane do subskrypcji, możesz to zrobić w ramach Security Center. Następnie otrzymasz zalecenia, jeśli maszyny nie będą zgodne z tworzonymi zasadami. Aby uzyskać instrukcje dotyczące tworzenia i przypisywania zasad niestandardowych, zobacz [Używanie niestandardowych zasad zabezpieczeń](custom-security-policies.md).
 

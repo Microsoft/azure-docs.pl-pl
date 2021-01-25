@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/08/2020
+ms.date: 01/25/2021
 ms.author: marsma
 ms.reviewer: saeeda
-ms.openlocfilehash: 4a902ed53e92cd073d81626e80bdb3c8629ad072
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78932e5852453fe996e26a278f8a1859a8ecf546
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89437874"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755021"
 ---
 # <a name="authentication-flows"></a>Przepływy uwierzytelniania
 
@@ -53,7 +53,7 @@ W zależności od sposobu skompilowania aplikacji klienckiej można użyć co na
 Niektóre z tych przepływów obsługują zarówno interaktywne, jak i nieinteraktywne pozyskiwanie tokenów.
 
   - **Interaktywny** oznacza, że użytkownik może zostać poproszony o podanie danych wejściowych. Na przykład monitowanie użytkownika o zalogowanie się, przeprowadzenie uwierzytelniania wieloskładnikowego (MFA) lub udzielenie dodatkowej zgody na zasoby.
-  - **Nieinteraktywny**lub *dyskretny*uwierzytelnianie próbuje uzyskać token w sposób, w którym serwer logowania *nie może* monitować użytkownika o dodatkowe informacje.
+  - **Nieinteraktywny** lub *dyskretny* uwierzytelnianie próbuje uzyskać token w sposób, w którym serwer logowania *nie może* monitować użytkownika o dodatkowe informacje.
 
 Aplikacja oparta na MSAL powinna najpierw próbować uzyskać token w *trybie dyskretnym*, a następnie interaktywnie, tylko jeśli nieinteraktywna Metoda zakończy się niepowodzeniem. Aby uzyskać więcej informacji na temat tego wzorca, zobacz artykuł [pozyskiwanie i buforowanie tokenów przy użyciu biblioteki uwierzytelniania firmy Microsoft (MSAL)](msal-acquire-cache-tokens.md).
 
@@ -78,7 +78,7 @@ Na powyższym diagramie aplikacja:
 
 ## <a name="client-credentials"></a>Poświadczenia klienta
 
-[Przepływ poświadczeń klienta OAuth 2](v2-oauth2-client-creds-grant-flow.md) umożliwia dostęp do zasobów hostowanych przez sieć Web przy użyciu tożsamości aplikacji. Ten typ dotacji jest często używany w przypadku interakcji między serwerami, które muszą działać w tle bez natychmiastowej interakcji z użytkownikiem. Te typy aplikacji są często określane jako demony lub konta usług.
+[Przepływ poświadczeń klienta OAuth 2](v2-oauth2-client-creds-grant-flow.md) umożliwia dostęp do zasobów hostowanych przez sieć Web przy użyciu tożsamości aplikacji. Ten typ uprawnień jest często używany do interakcji między serwerami, które muszą działać w tle bez natychmiastowej interakcji z użytkownikiem. Takie typy aplikacji są często nazywane demonami lub kontami usług.
 
 Przepływ przyznania poświadczeń klienta umożliwia usłudze sieci Web (poufnemu klienta) użycie własnych poświadczeń zamiast personifikowania użytkownika w celu uwierzytelniania podczas wywoływania innej usługi sieci Web. W tym scenariuszu klient jest zwykle usługą sieci Web warstwy środkowej, usługą demona lub witryną sieci Web. W przypadku wyższego poziomu gwarancji platforma tożsamości firmy Microsoft umożliwia usłudze wywołującej używanie certyfikatu (zamiast wspólnego klucza tajnego) jako poświadczenia.
 
@@ -223,7 +223,7 @@ Oznacza to, że jest spełniony jeden z następujących warunków:
 - Udostępniono sposób, aby użytkownicy mogli wyrazić zgodę na aplikację; Zobacz [żądanie zgody poszczególnych użytkowników](v2-permissions-and-consent.md#requesting-individual-user-consent).
 - Podano sposób, w jaki Administrator dzierżawy wyrazi zgodę na aplikację; Zobacz [zgoda administratora](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
-Przepływ IWA jest włączony dla aplikacji platformy .NET dla komputerów stacjonarnych, platformy .NET Core i systemu Windows. W przypadku platformy .NET Core należy podać nazwę użytkownika IWA, ponieważ .NET Core nie może uzyskać nazw użytkowników z systemu operacyjnego.
+Przepływ IWA jest włączony dla aplikacji platformy .NET dla komputerów stacjonarnych, platformy .NET Core i systemu Windows.
 
 Aby uzyskać więcej informacji na temat zgody, zobacz temat [uprawnienia i zgoda dotyczące programu v 2.0](v2-permissions-and-consent.md).
 

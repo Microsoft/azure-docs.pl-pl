@@ -1,6 +1,6 @@
 ---
 title: Biblioteki uwierzytelniania platformy tożsamości firmy Microsoft
-description: Zgodne biblioteki klienckie i biblioteki pośredniczące serwera oraz powiązane biblioteki, źródła i przykładowe linki dla punktu końcowego platformy tożsamości firmy Microsoft.
+description: Zgodne biblioteki klienckie i biblioteki oprogramowania pośredniczącego serwera oraz powiązane biblioteki, źródła i przykładowe linki dla platformy tożsamości firmy Microsoft.
 services: active-directory
 author: negoe
 manager: CelesteDG
@@ -12,16 +12,16 @@ ms.date: 07/25/2019
 ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: a7792e989444c87ba80088f8a850cacb4aa0dc3c
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 51b60d7b81d7402f69415b79cd575f51915dc38f
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064576"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756657"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Biblioteki uwierzytelniania platformy tożsamości firmy Microsoft
 
-[Punkt końcowy platformy tożsamości firmy Microsoft](../azuread-dev/azure-ad-endpoint-comparison.md) obsługuje standardowe w branży protokoły OAuth 2,0 i openid connect Connect 1,0. Biblioteka Microsoft Authentication Library (MSAL) została zaprojektowana do pracy z punktem końcowym platformy tożsamości firmy Microsoft. Można również użyć bibliotek Open Source, które obsługują uwierzytelnianie OAuth 2,0 i OpenID Connect Connect 1,0.
+[Platforma tożsamości firmy Microsoft](../azuread-dev/azure-ad-endpoint-comparison.md) obsługuje standardowe w branży protokoły OAuth 2,0 i openid connect Connect 1,0. Biblioteka Microsoft Authentication Library (MSAL) została zaprojektowana do pracy z platformą tożsamości firmy Microsoft. Można również użyć bibliotek Open Source, które obsługują uwierzytelnianie OAuth 2,0 i OpenID Connect Connect 1,0.
 
 Zalecamy używanie bibliotek pisanych przez ekspertów domen protokołu, którzy przestrzegają metodologii cyklu projektowania zabezpieczeń (SDL). Takie metodologie obejmują te [, które firma Microsoft stosuje][Microsoft-SDL]. Jeśli kod jest dostępny dla protokołów, należy postępować zgodnie z metodologią, taką jak Microsoft SDL. Zwróć szczególną uwagę na kwestie dotyczące zabezpieczeń w specyfikacjach standardów dla każdego protokołu.
 
@@ -30,7 +30,7 @@ Zalecamy używanie bibliotek pisanych przez ekspertów domen protokołu, którzy
 
 ## <a name="types-of-libraries"></a>Typy bibliotek
 
-Punkt końcowy platformy tożsamości firmy Microsoft współpracuje z dwoma typami bibliotek:
+Platforma tożsamości firmy Microsoft współpracuje z dwoma typami bibliotek:
 
 * **Biblioteki klienckie**: natywni klienci i serwery używają bibliotek klienckich, aby uzyskiwać tokeny dostępu do wywoływania zasobu, takiego jak Microsoft Graph.
 * **Biblioteki oprogramowania pośredniczącego serwera**: aplikacje sieci Web używają bibliotek oprogramowania serwerowego do logowania użytkownika. Interfejsy API sieci Web używają bibliotek oprogramowania pośredniczącego serwera do weryfikowania tokenów wysyłanych przez natywnych klientów lub przez inne serwery.
@@ -40,9 +40,9 @@ Punkt końcowy platformy tożsamości firmy Microsoft współpracuje z dwoma typ
 Biblioteki są dostępne w dwóch kategoriach pomocy technicznej:
 
 * **Obsługiwane przez firmę Microsoft**: Firma Microsoft udostępnia poprawki dla tych bibliotek i w związku z tym ma zakończono staranne podwyższenie do tych bibliotek.
-* **Zgodne**: Firma Microsoft przetestowała te biblioteki w podstawowych scenariuszach i potwierdziła, że współpracują z punktem końcowym platformy tożsamości firmy Microsoft. Firma Microsoft nie udostępnia poprawek dla tych bibliotek i nie przeprowadzono przeglądu tych bibliotek. Problemy i żądania funkcji powinny być kierowane do projektu open-source biblioteki.
+* **Zgodne**: Firma Microsoft przetestowała te biblioteki w podstawowych scenariuszach i potwierdziła, że współpracują z platformą tożsamości firmy Microsoft. Firma Microsoft nie udostępnia poprawek dla tych bibliotek i nie przeprowadzono przeglądu tych bibliotek. Problemy i żądania funkcji powinny być kierowane do projektu open-source biblioteki.
 
-Aby zapoznać się z listą bibliotek, które współpracują z punktem końcowym platformy tożsamości firmy Microsoft, zobacz następujące sekcje.
+Lista bibliotek, które współpracują z platformą tożsamości firmy Microsoft, znajduje się w następujących sekcjach.
 
 ## <a name="microsoft-supported-client-libraries"></a>Biblioteki klienckie obsługiwane przez firmę Microsoft
 
@@ -98,16 +98,16 @@ Zobacz również [scenariusze według obsługiwanych platform i języków](authe
 | ![Ruby](media/sample-v2-code/logo_ruby.png) |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth: 1.3.1<br />omniauth-OAuth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)<br />[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
 | iOS, macOS, & Android  | [Reagowanie na natywną autoryzację aplikacji](https://github.com/FormidableLabs/react-native-app-auth) | [4.2.0 wersja](https://github.com/FormidableLabs/react-native-app-auth/releases/tag/v4.2.0) | [Reagowanie na natywną autoryzację aplikacji](https://github.com/FormidableLabs/react-native-app-auth) | |
 
-W przypadku dowolnej biblioteki zgodnej ze standardami można użyć punktu końcowego platformy tożsamości firmy Microsoft. Ważne jest, aby wiedzieć, gdzie warto uzyskać pomoc techniczną:
+W przypadku dowolnej biblioteki zgodnej ze standardami można użyć platformy tożsamości firmy Microsoft. Ważne jest, aby wiedzieć, gdzie warto uzyskać pomoc techniczną:
 
 * W przypadku problemów i nowych żądań funkcji w kodzie biblioteki należy skontaktować się z właścicielem biblioteki.
 * W przypadku problemów i nowych żądań funkcji w implementacji protokołu po stronie usługi należy skontaktować się z firmą Microsoft.
 * Prześlij [żądanie funkcji](https://feedback.azure.com/forums/169401-azure-active-directory) w celu uzyskania dodatkowych funkcji, które mają być widoczne w protokole.
-* [Utwórz żądanie pomocy technicznej](../../azure-portal/supportability/how-to-create-azure-support-request.md) , jeśli znajdziesz problem polegający na tym, że punkt końcowy platformy tożsamości firmy Microsoft nie jest zgodny z uwierzytelnianiem OAuth 2,0 lub openid connect Connect 1,0.
+* [Utwórz żądanie pomocy technicznej](../../azure-portal/supportability/how-to-create-azure-support-request.md) , jeśli znajdziesz problem polegający na tym, że platforma tożsamości firmy Microsoft nie jest zgodna z uwierzytelnianiem OAuth 2,0 lub openid connect Connect 1,0.
 
 ## <a name="related-content"></a>Zawartość pokrewna
 
-Aby uzyskać więcej informacji na temat punktu końcowego platformy tożsamości firmy Microsoft, zobacz [Omówienie platformy tożsamości firmy Microsoft][AAD-App-Model-V2-Overview].
+Aby uzyskać więcej informacji na temat platformy tożsamości firmy Microsoft, zobacz [Omówienie platformy tożsamości firmy Microsoft][AAD-App-Model-V2-Overview].
 
 <!--Image references-->
 

@@ -1,6 +1,7 @@
 ---
-title: Rozwiązywanie problemów z weryfikacją wydawcy — platforma tożsamości firmy Microsoft | Azure
-description: Opisuje sposób rozwiązywania problemów z weryfikacją wydawcy dla platformy tożsamości firmy Microsoft przez wywoływanie Microsoft Graph interfejsów API.
+title: Rozwiązywanie problemów z weryfikacją wydawcy | Azure
+titleSuffix: Microsoft identity platform
+description: Opisuje sposób rozwiązywania problemów z weryfikacją wydawcy dla platformy tożsamości firmy Microsoft przez wywołanie Microsoft Graph interfejsów API.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +13,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 857659cdd97666dba585c1ec22c750e29bf28879
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 10609f2706d257dbe5d8f43b85da5f06cb986cae
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169175"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756194"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Rozwiązywanie problemów z weryfikacją wydawcy
 Jeśli nie można zakończyć procesu lub występują nieoczekiwane zachowanie podczas [weryfikacji wydawcy](publisher-verification-overview.md), należy zacząć od następującej procedury, Jeśli otrzymujesz błędy lub widzisz nieoczekiwane zachowanie: 
@@ -234,7 +235,7 @@ Wyświetlany jest komunikat o błędzie: "z powodu zmiany konfiguracji wprowadzo
 
 Jeśli zostały sprawdzone wszystkie poprzednie informacje i nadal pojawiają się błędy z Microsoft Graph, Zbierz możliwie najwięcej z poniższych informacji związanych z błędnym żądaniem i [skontaktuj się z pomocą techniczną firmy Microsoft](developer-support-help-options.md#open-a-support-request).
 
-- Timestamp 
+- Znacznik czasu 
 - CorrelationId 
 - ObjectID lub UserPrincipalName zalogowanego użytkownika 
 - Identyfikator obiektu aplikacji docelowej

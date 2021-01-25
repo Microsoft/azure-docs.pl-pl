@@ -3,16 +3,16 @@ title: Połącz swoje konto AWS z Azure Security Center
 description: Monitorowanie zasobów AWS z poziomu Azure Security Center
 author: memildin
 ms.author: memildin
-ms.date: 12/29/2020
+ms.date: 01/24/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 4c919115efb39a8e8c008eab69dc087792f7b105
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 2ad3ab8c39d9f9a29e74bd139fb5ddd1e5faeff9
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814316"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755158"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Połącz konta AWS z Azure Security Center
 
@@ -33,13 +33,13 @@ Dołączanie konta AWS do Security Center integruje się z Centrum zabezpieczeń
 
 Na poniższym zrzucie ekranu można zobaczyć konta AWS wyświetlane na pulpicie nawigacyjnym przeglądu Security Center.
 
-:::image type="content" source="./media/quickstart-onboard-aws/aws-account-in-overview.png" alt-text="3 GCP projekty wymienione na pulpicie nawigacyjnym przeglądu Security Center" lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
+:::image type="content" source="./media/quickstart-onboard-aws/aws-account-in-overview.png" alt-text="Trzy projekty GCP wymienione na pulpicie nawigacyjnym przeglądu Security Center" lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
 
 ## <a name="availability"></a>Dostępność
 
 |Aspekt|Szczegóły|
 |----|:----|
-|Stan wydania:|Wersja zapoznawcza<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
+|Stan wydania:|Ogólna dostępność (GA)|
 |Wpisaną|Wymaga [usługi Azure Defender dla serwerów](defender-for-servers-introduction.md)|
 |Wymagane role i uprawnienia:|**Właściciel** w odpowiedniej subskrypcji platformy Azure<br>**Współautor** może również połączyć konto AWS, jeśli właściciel poda szczegóły jednostki usługi|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
@@ -83,7 +83,7 @@ Istnieją dwa sposoby zezwalania Security Center na uwierzytelnianie AWS:
     - **Wymagaj zewnętrznego identyfikatora** — należy wybrać
     - **Identyfikator zewnętrzny** — wprowadź identyfikator subskrypcji, jak pokazano na stronie łącznika AWS w Security Center 
 
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 1. W sekcji **Dołącz zasady uprawnień** wybierz następujące zasady:
 
     - SecurityAudit
@@ -91,7 +91,7 @@ Istnieją dwa sposoby zezwalania Security Center na uwierzytelnianie AWS:
     - AWSSecurityHubReadOnlyAccess
 
 1. Opcjonalnie dodaj Tagi. Dodawanie tagów do użytkownika nie ma wpływu na połączenie.
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 
 1. Na liście role Wybierz utworzoną rolę
 
@@ -136,14 +136,14 @@ Menedżer systemów AWS jest wymagany do automatyzowania zadań w ramach zasobó
 1. Skonfiguruj opcje na karcie **uwierzytelnianie AWS** :
     1. Wprowadź **nazwę wyświetlaną** dla łącznika.
     1. Upewnij się, że subskrypcja jest poprawna. Jest to subskrypcja obejmująca łącznik i AWS zalecenia dotyczące usługi Centrum zabezpieczeń.
-    1. W zależności od opcji uwierzytelniania wybranej w [kroku 2. Skonfiguruj uwierzytelnianie dla Security Center w AWS](#step-2-set-up-authentication-for-security-center-in-aws):
+    1. W zależności od opcji uwierzytelniania wybrano w [kroku 2. Skonfiguruj uwierzytelnianie dla Security Center w AWS](#step-2-set-up-authentication-for-security-center-in-aws):
         - Wybierz pozycję  **przyjmij rolę** i wklej ARN z elementu [Utwórz rolę usługi IAM dla Security Center](#create-an-iam-role-for-security-center).
-            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Wklejanie pliku ARN w odpowiednim polu Kreatora połączenia AWS w witrynie Azure Portal":::
+            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Wklejanie pliku ARN w odpowiednim polu Kreatora połączenia AWS w Azure Portal":::
 
             LUB
 
         - Wybierz pozycję **poświadczenia** i wklej **klucz dostępu** i **klucz tajny** z pliku CSV zapisanego w temacie [Create a AWS User for Security Center](#create-an-aws-user-for-security-center).
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 1. Skonfiguruj opcje na karcie **Konfiguracja usługi Azure Arc** :
 
     Security Center odnajduje wystąpienia EC2 na połączonym koncie AWS i używa program SSM, aby dołączyć je do usługi Azure Arc. 
@@ -164,7 +164,7 @@ Menedżer systemów AWS jest wymagany do automatyzowania zadań w ramach zasobó
 
 ### <a name="step-6-confirmation"></a>Krok 6. Potwierdzenie
 
-Po pomyślnym utworzeniu łącznika i AWS Centrum zabezpieczeń zostało prawidłowo skonfigurowane:
+Po pomyślnym utworzeniu łącznika, a centrum zabezpieczeń AWS zostało prawidłowo skonfigurowane:
 
 - Security Center skanuje środowisko dla wystąpień AWS EC2, dołączanie ich do usługi Azure ARC, umożliwiając zainstalowanie agenta Log Analytics i zapewnienie ochrony przed zagrożeniami oraz zaleceń dotyczących zabezpieczeń. 
 - Usługa ASC skanuje nowe wystąpienia usługi AWS EC2 co 6 godzin i dołączy je zgodnie z konfiguracją.

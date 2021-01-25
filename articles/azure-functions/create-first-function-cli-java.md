@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-java
 - devx-track-azurecli
-ms.openlocfilehash: 504d3a834760605149c93c0beea84bbe1b59e263
-ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
+ms.openlocfilehash: 5ebb30101d191bb254017db7b0de2f9b8bce145d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97707558"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755169"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>Szybki Start: Tworzenie funkcji języka Java na platformie Azure z poziomu wiersza polecenia
 
@@ -73,7 +73,7 @@ W Azure Functions, projekt funkcji jest kontenerem dla jednej lub kilku poszczeg
     ---
 
     > [!IMPORTANT]
-    > + Użyj `-DjavaVersion=11` , jeśli chcesz, aby funkcje działały w języku Java 11. Aby dowiedzieć się więcej, zobacz [wersje Java](functions-reference-java.md#java-versions). 
+    > + Użyj polecenia `-DjavaVersion=11`, jeśli chcesz, aby funkcje działały w języku Java 11. Aby dowiedzieć się więcej, zobacz [wersje Java](functions-reference-java.md#java-versions). 
     > + `JAVA_HOME`Aby można było ukończyć ten artykuł, zmienna środowiskowa musi być ustawiona na lokalizację instalacji poprawnej wersji JDK.
 
 1. Maven prosi o podanie wartości, które są potrzebne, aby zakończyć Generowanie projektu przy wdrożeniu.   
@@ -113,7 +113,7 @@ Komunikat odpowiedzi jest generowany przez interfejs API [HttpResponseMessage. B
 
 Ustawienia zasobów platformy Azure utworzonych na potrzeby hostowania aplikacji są definiowane w elemencie **konfiguracji** wtyczki z identyfikatorem **grupy** `com.microsoft.azure` w wygenerowanym pliku pom.xml. Na przykład poniższy element konfiguracji instruuje wdrożenie oparte na Maven, aby utworzyć aplikację funkcji w `java-functions-group` grupie zasobów w `westus` regionie. Sama aplikacja funkcji działa w systemie Windows hostowanym w `java-functions-app-service-plan` planie, który domyślnie jest planem zużycia bezserwerowego.
 
-:::code language="java" source="~/azure-functions-samples-java/pom.xml" range="62-102":::
+:::code language="java" source="~/azure-functions-samples-java/pom.xml" range="62-107":::
 
 Możesz zmienić te ustawienia, aby kontrolować sposób tworzenia zasobów na platformie Azure, na przykład przez zmianę `runtime.os` z `windows` na `linux` przed początkowym wdrożeniem. Aby uzyskać pełną listę ustawień obsługiwanych przez wtyczkę Maven, zobacz [szczegóły konfiguracji](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details).
 

@@ -13,18 +13,18 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: c6049bf55e379a2629e8cd4ef1427f91fc31d2cd
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: b437efcfa2b0bb2a725929ae0253f48d97d11552
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063607"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754820"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migrowanie aplikacji do MSAL.NET
 
 Zarówno Biblioteka uwierzytelniania firmy Microsoft dla platformy .NET (MSAL.NET), jak i Biblioteka Azure AD Authentication Library for .NET (ADAL.NET) są używane do uwierzytelniania jednostek usługi Azure AD i żądania tokenów z usługi Azure AD. Do tej pory większość deweloperów pracowała z usługą Azure AD for Developers platform (v 1.0) do uwierzytelniania tożsamości usługi Azure AD (konta służbowe) przez żądanie tokenów przy użyciu biblioteki Azure AD Authentication Library (ADAL). Korzystanie z MSAL:
 
-- można uwierzytelnić szerszy zbiór tożsamości firmy Microsoft (tożsamości usługi Azure AD i konta Microsoft, a także konta społecznościowe i lokalne za pośrednictwem Azure AD B2C), ponieważ korzysta on z punktu końcowego platformy tożsamości firmy Microsoft.
+- można uwierzytelnić szerszy zbiór tożsamości firmy Microsoft (tożsamości usługi Azure AD i kont Microsoft, a także konta społecznościowe i lokalne za pośrednictwem Azure AD B2C), ponieważ korzysta on z platformy tożsamości firmy Microsoft.
 - Użytkownicy będą korzystać z najlepszego środowiska logowania jednokrotnego.
 - Aplikacja może włączyć przyrostową zgodę, a obsługa dostępu warunkowego jest łatwiejsza
 - korzystasz z innowacji.
@@ -35,9 +35,9 @@ W tym artykule opisano różnice między biblioteką uwierzytelniania firmy Micr
 
 ## <a name="differences-between-adal-and-msal-apps"></a>Różnice między aplikacjami ADAL i MSAL
 
-W większości przypadków chcesz korzystać z MSAL.NET i punktu końcowego platformy tożsamości firmy Microsoft, czyli najnowszej generacji bibliotek uwierzytelniania firmy Microsoft. Korzystając z MSAL.NET, uzyskujesz tokeny dla użytkowników logujących się do aplikacji za pomocą usługi Azure AD (konta służbowe), kont Microsoft (osobistych) lub Azure AD B2C.
+W większości przypadków chcesz korzystać z MSAL.NET i platformy tożsamości firmy Microsoft, która jest najnowszą generacji bibliotek uwierzytelniania firmy Microsoft. Korzystając z MSAL.NET, uzyskujesz tokeny dla użytkowników logujących się do aplikacji za pomocą usługi Azure AD (konta służbowe), kont Microsoft (osobistych) lub Azure AD B2C.
 
-Jeśli znasz już punkt końcowy usługi Azure AD dla deweloperów (i ADAL.NET), możesz chcieć zapoznać się z [informacjami o tym, co się dzieje w punkcie końcowym platformy Identity platform (v 2.0)?](../azuread-dev/azure-ad-endpoint-comparison.md).
+Jeśli znasz już punkt końcowy usługi Azure AD dla deweloperów (i ADAL.NET), możesz chcieć zapoznać się z [informacjami na temat platformy tożsamości firmy Microsoft?](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 Jednak nadal musisz używać ADAL.NET, jeśli aplikacja musi zalogować się użytkowników przy użyciu wcześniejszych wersji [Active Directory Federation Services (ADFS)](/windows-server/identity/active-directory-federation-services). Aby uzyskać więcej informacji, zobacz temat [Obsługa usług ADFS](https://aka.ms/msal-net-adfs-support).
 
@@ -266,4 +266,4 @@ Tej metody można również użyć w różnych scenariuszach integracji, w któr
 
 ## <a name="next-steps"></a>Następne kroki
 
-Więcej informacji o zakresach w [zakresach, uprawnieniach i wyrażaniu zgody można znaleźć w punkcie końcowym platformy tożsamości firmy Microsoft](v2-permissions-and-consent.md)
+Więcej informacji o zakresach w [zakresach, uprawnieniach i wyrażaniu zgody można znaleźć na platformie tożsamości firmy Microsoft](v2-permissions-and-consent.md)

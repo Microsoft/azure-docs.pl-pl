@@ -12,12 +12,12 @@ ms.date: 04/24/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: b02329d624eda440230fb99e02e08c841c5580f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77a4e7389952b81df13dae929dc1aec664fcc0b7
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706000"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755652"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Słownik oprogramowania Microsoft Identity platform dla deweloperów
 
@@ -89,7 +89,7 @@ Poświadczenie reprezentujące [autoryzację](#authorization) [właściciela zas
 
 Zgodnie z definicją w [strukturze autoryzacji OAuth2][OAuth2-Role-Def], serwer odpowiedzialny za wystawianie tokenów dostępu do [klienta](#client-application) po pomyślnym uwierzytelnieniu [właściciela zasobu](#resource-owner) i uzyskaniu jego autoryzacji. [Aplikacja kliencka](#client-application) współdziała z serwerem autoryzacji w środowisku uruchomieniowym za pośrednictwem punktów końcowych [autoryzacji](#authorization-endpoint) i [tokenów](#token-endpoint) zgodnie z OAuth2 określonymi [dotacjami autoryzacji](#authorization-grant).
 
-W przypadku integracji aplikacji platformy tożsamości firmy Microsoft platforma Microsoft Identity implementuje rolę serwera autoryzacji dla aplikacji usługi Azure AD i interfejsów API usługi firmy Microsoft, na przykład [Microsoft Graph interfejsów API][Microsoft-Graph].
+W przypadku integracji aplikacji platformy tożsamości firmy Microsoft platforma tożsamości firmy Microsoft implementuje rolę serwera autoryzacji dla aplikacji usługi Azure AD i interfejsów API usługi firmy Microsoft, na przykład [Microsoft Graph interfejsów API][Microsoft-Graph].
 
 ## <a name="claim"></a>rozpatrywan
 
@@ -117,7 +117,7 @@ Aby uzyskać więcej informacji, zobacz [Informacje o tokenach platformy tożsam
 
 ## <a name="microsoft-identity-platform"></a>Platforma tożsamości firmy Microsoft
 
-Platforma tożsamości firmy Microsoft to unowocześnienie platformy deweloperów i usługi tożsamości Azure Active Directory (Azure AD). Dzięki niej deweloperzy mogą tworzyć aplikacje, które logują użytkowników przy użyciu wszystkich tożsamości firmy Microsoft i uzyskują tokeny do wywoływania programu Microsoft Graph, innych interfejsów API firmy Microsoft lub interfejsów API opracowanych przez deweloperów. Jest to w pełni funkcjonalna platforma, która obejmuje usługę uwierzytelniania, biblioteki, rejestrację i konfigurację aplikacji, pełną dokumentację dla deweloperów, przykłady kodu i inną zawartość dla deweloperów. Platforma tożsamości firmy Microsoft obsługuje standardowe protokoły branżowe, takie jak OAuth 2.0 i OpenID Connect.
+Platforma tożsamości firmy Microsoft to ewolucja usługi tożsamości Azure Active Directory (Azure AD) i platformy deweloperskiej. Dzięki niej deweloperzy mogą tworzyć aplikacje, które logują użytkowników przy użyciu wszystkich tożsamości firmy Microsoft i uzyskują tokeny do wywoływania programu Microsoft Graph, innych interfejsów API firmy Microsoft lub interfejsów API opracowanych przez deweloperów. Jest to w pełni funkcjonalna platforma, która obejmuje usługę uwierzytelniania, biblioteki, rejestrację i konfigurację aplikacji, pełną dokumentację dla deweloperów, przykłady kodu i inną zawartość dla deweloperów. Platforma tożsamości firmy Microsoft obsługuje standardowe protokoły branżowe, takie jak OAuth 2.0 i OpenID Connect.
 
 ## <a name="multi-tenant-application"></a>Aplikacja wielodostępna
 
@@ -222,7 +222,7 @@ Typ [aplikacji klienckiej](#client-application) , która wykonuje cały kod na s
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Przewodnik dewelopera platformy tożsamości firmy Microsoft][AAD-Dev-Guide] jest stroną docelową dla wszystkich tematów związanych z programowaniem na platformie Microsoft Identity, w tym omówienie [integracji aplikacji][AAD-How-To-Integrate] oraz podstawy [uwierzytelniania platformy tożsamości firmy Microsoft i obsługiwanych scenariuszy uwierzytelniania][AAD-Auth-Scenarios]. Możesz również znaleźć przykłady kodu, & samouczki, jak szybko rozpocząć pracę w serwisie [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
+[Przewodnik dewelopera platformy tożsamości firmy Microsoft][AAD-Dev-Guide] to strona docelowa, która będzie używana we wszystkich tematach związanych z programowaniem na platformie tożsamości firmy Microsoft, w tym omówienie [integracji aplikacji][AAD-How-To-Integrate] oraz podstawowe scenariusze uwierzytelniania w ramach [platformy tożsamości firmy Microsoft][AAD-Auth-Scenarios]. Możesz również znaleźć przykłady kodu, & samouczki, jak szybko rozpocząć pracę w serwisie [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
 Poniższa sekcja komentarzy zawiera informacje zwrotne i pomoc w zakresie ulepszania i kształtowania zawartości, w tym żądania dotyczące nowych definicji lub aktualizowania istniejących.
 
@@ -235,7 +235,7 @@ Poniższa sekcja komentarzy zawiera informacje zwrotne i pomoc w zakresie ulepsz
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
 [Graph-Perm-Scopes]: /graph/permissions-reference
 [Graph-App-Resource]: /graph/api/resources/application
-[Graph-Sp-Resource]: /graph/api/resources/serviceprincipal?view=graph-rest-beta
+[Graph-Sp-Resource]: /graph/api/resources/serviceprincipal?view=graph-rest-beta&preserve-view=true
 [Graph-User-Resource]: /graph/api/resources/user
 [AAD-How-Subscriptions-Assoc]:../fundamentals/active-directory-how-subscriptions-associated-directory.md
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md

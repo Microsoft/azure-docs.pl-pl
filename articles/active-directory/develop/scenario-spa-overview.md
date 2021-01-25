@@ -1,5 +1,6 @@
 ---
-title: Scenariusz jednostronicowej aplikacji JavaScript — platforma tożsamości firmy Microsoft | Azure
+title: Scenariusz jednostronicowej aplikacji JavaScript
+titleSuffix: Microsoft identity platform
 description: Dowiedz się, jak utworzyć aplikację jednostronicową (omówienie scenariusza), korzystając z platformy tożsamości firmy Microsoft.
 services: active-directory
 author: navyasric
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 17acb2bc5e96a136f31371c0be912c2c758c0f76
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 47b8c8c074a5e0ce3ed73a2a9a4b06aa307cdff3
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443861"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756430"
 ---
 # <a name="scenario-single-page-application"></a>Scenariusz: aplikacja jednostronicowa
 

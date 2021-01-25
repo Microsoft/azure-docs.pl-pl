@@ -3,12 +3,12 @@ title: Omówienie magazynów usługi Recovery Services
 description: Omówienie magazynów Recovery Services.
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: ab6b27bdc7ac9b01385ed43830d0af5900210d43
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0ed37446e1ccf0780f924143c8f063964adf0004
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017325"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755119"
 ---
 # <a name="recovery-services-vaults-overview"></a>Przegląd magazynów usługi Recovery Services
 
@@ -22,7 +22,7 @@ W tym artykule opisano funkcje magazynu Recovery Services. Magazyn Recovery Serv
 
 - **Usuwanie nietrwałe**: usuwanie nietrwałe, nawet jeśli złośliwy aktor usuwa kopię zapasową (lub dane kopii zapasowej są przypadkowo usuwane), dane kopii zapasowej są przechowywane przez 14 dodatkowych dni, co pozwala na odzyskanie tego elementu kopii zapasowej bez utraty danych. Dodatkowe 14 dni przechowywania danych kopii zapasowej w stanie "usuwanie nietrwałe" nie wiążą się z pozostałymi kosztami. [Dowiedz się więcej](backup-azure-security-feature-cloud.md).
 
-- **Przywracanie między regionami**: Przywracanie między regionami (CRR) umożliwia przywracanie maszyn wirtualnych platformy Azure w regionie pomocniczym, który jest sparowanym regionem platformy Azure. Jeśli platforma Azure deklaruje awarię w regionie podstawowym, dane zreplikowane w regionie pomocniczym są dostępne do przywrócenia w regionie pomocniczym w celu ograniczenia rzeczywistego przestoju awaryjnego w regionie podstawowym środowiska. [Dowiedz się więcej](backup-azure-arm-restore-vms.md#cross-region-restore).
+- **Przywracanie między regionami**: Przywracanie między regionami (CRR) umożliwia przywracanie maszyn wirtualnych platformy Azure w regionie pomocniczym, który jest sparowanym regionem platformy Azure. Po włączeniu tej funkcji na [poziomie magazynu](backup-create-rs-vault.md#set-cross-region-restore)można w dowolnym momencie przywrócić zreplikowane dane w regionie pomocniczym. Pozwala to na przywrócenie danych regionu pomocniczego pod kątem zgodności z inspekcją oraz w przypadku scenariuszy przestojów bez oczekiwania na zadeklarować awarię przez platformę Azure (w przeciwieństwie do ustawień GRS magazynu). [Dowiedz się więcej](backup-azure-arm-restore-vms.md#cross-region-restore).
 
 ## <a name="storage-settings-in-the-recovery-services-vault"></a>Ustawienia magazynu w magazynie Recovery Services
 

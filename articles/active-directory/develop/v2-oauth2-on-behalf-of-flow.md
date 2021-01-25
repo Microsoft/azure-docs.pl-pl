@@ -13,12 +13,12 @@ ms.date: 08/7/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 8c8167142876dfac0ae0aeff51e85b66c65c607b
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: ff8e03b813e2cb890192667e3466d920eaabc72c
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208852"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756091"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Platforma tożsamości firmy Microsoft i protokół OAuth 2,0 w imieniu użytkownika
 
@@ -201,7 +201,7 @@ W zależności od architektury lub użycia aplikacji można wziąć pod uwagę r
 
 ### <a name="default-and-combined-consent"></a>/.default i połączona zgoda
 
-Aplikacja warstwy środkowej dodaje klienta do listy znanych aplikacji klienckich w jego manifeście, a następnie klient może wyzwolić połączony przepływ zgody zarówno dla siebie, jak i dla aplikacji warstwy środkowej. W punkcie końcowym platformy tożsamości firmy Microsoft odbywa się to przy użyciu [ `/.default` zakresu](v2-permissions-and-consent.md#the-default-scope). Gdy Wyzwalasz ekran zgody przy użyciu znanych aplikacji klienckich, a `/.default` na ekranie wyrażania zgody zostaną wyświetlone uprawnienia **zarówno** dla klienta, jak i do interfejsu API warstwy środkowej, a także Zażądaj uprawnień wymaganych przez interfejs API warstwy środkowej. Użytkownik wyraża zgodę na obie aplikacje, a następnie przepływ OBO działa.
+Aplikacja warstwy środkowej dodaje klienta do listy znanych aplikacji klienckich w jego manifeście, a następnie klient może wyzwolić połączony przepływ zgody zarówno dla siebie, jak i dla aplikacji warstwy środkowej. Na platformie tożsamości firmy Microsoft odbywa się to przy użyciu [ `/.default` zakresu](v2-permissions-and-consent.md#the-default-scope). Gdy Wyzwalasz ekran zgody przy użyciu znanych aplikacji klienckich, a `/.default` na ekranie wyrażania zgody zostaną wyświetlone uprawnienia **zarówno** dla klienta, jak i do interfejsu API warstwy środkowej, a także Zażądaj uprawnień wymaganych przez interfejs API warstwy środkowej. Użytkownik wyraża zgodę na obie aplikacje, a następnie przepływ OBO działa.
 
 ### <a name="pre-authorized-applications"></a>Wstępnie autoryzowane aplikacje
 

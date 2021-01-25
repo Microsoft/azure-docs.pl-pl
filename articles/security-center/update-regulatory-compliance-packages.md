@@ -11,39 +11,44 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/15/2020
+ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: e7e1567a487dc6cadc94a42f02c597ff0e02665b
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 6fb2e5c0193bc4e66f8fb4215732a69c43731146
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372765"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756613"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Dostosowywanie zestawu standardów na pulpicie nawigacyjnym zgodności z przepisami
 
-Azure Security Center ciągle porównuje konfigurację zasobów z wymaganiami dotyczącymi standardów branżowych, regulacji i testów porównawczych. **Pulpit nawigacyjny zgodności z przepisami** zapewnia wgląd w stan zgodności w zależności od tego, jak spełniasz określone wymagania kontroli zgodności.
+Azure Security Center ciągle porównuje konfigurację zasobów z wymaganiami dotyczącymi standardów branżowych, regulacji i testów porównawczych. **Pulpit nawigacyjny zgodności z przepisami** zapewnia wgląd w stan zgodności w zależności od tego, jak spełniasz określone wymagania dotyczące zgodności.
 
 
-## <a name="overview-of-compliance-packages"></a>Omówienie pakietów zgodności
+## <a name="how-are-regulatory-compliance-standards-represented-in-security-center"></a>Jak są zgodne normy zgodności z przepisami Security Center?
 
-Standardy branżowe, standardy prawne i testy porównawcze są reprezentowane w Security Center jako *pakiety zgodności*.  Każdy pakiet jest inicjatywą zdefiniowaną w Azure Policy. Aby wyświetlić dane zgodności mapowane jako oceny na pulpicie nawigacyjnym, Dodaj pakiet zgodności do grupy zarządzania lub subskrypcji z poziomu strony **zasady zabezpieczeń** . (Dowiedz się więcej na temat Azure Policy i inicjatyw w [pracy z zasadami zabezpieczeń](tutorial-security-policy.md)).
+Standardy branżowe, standardy prawne i testy porównawcze są reprezentowane w Security Center pulpicie nawigacyjnym zgodności z przepisami. Każdy standard jest inicjatywą zdefiniowaną w Azure Policy.
 
-Po dodaniu standardowego lub testu porównawczego do wybranego zakresu przypisujemy inicjatywę do zakresu, a standard pojawia się na pulpicie nawigacyjnym zgodności z przepisami ze wszystkimi skojarzonymi danymi zgodności mapowanymi jako oceny. Można również pobrać raporty podsumowujące dla dowolnych ze standardów, które zostały dołączone.
+Aby wyświetlić dane zgodności mapowane jako oceny na pulpicie nawigacyjnym, należy dodać Standard zgodności do grupy zarządzania lub subskrypcji z poziomu strony **zasady zabezpieczeń** . Aby dowiedzieć się więcej na temat Azure Policy i inicjatyw, zobacz [Praca z zasadami zabezpieczeń](tutorial-security-policy.md).
 
-Firma Microsoft śledzi również same standardy prawne i automatycznie ulepsza jego pokrycie w niektórych pakietach z upływem czasu. Gdy firma Microsoft wystawia nową zawartość dla inicjatywy (nowe zasady, które mapują do większej liczby kontrolek w standardzie), dodatkowa zawartość zostanie automatycznie wyświetlona na pulpicie nawigacyjnym.
+Po przypisaniu standardowego lub testu porównawczego do wybranego zakresu Standard pojawia się na pulpicie nawigacyjnym zgodności z przepisami ze wszystkimi skojarzonymi danymi zgodności mapowanymi jako oceny. Można również pobrać raporty podsumowujące dla dowolnych standardów, które zostały przypisane.
 
-> [!TIP]
-> Jednym standardem, który zwiększa się w miarę upływu czasu, ponieważ wersja firmy Microsoft jest nowością **usługi Azure CIS 1.1.0 (nowość** [Microsoft Azure](https://www.cisecurity.org/benchmark/azure/)) Musisz dodać to do pulpitu nawigacyjnego obok "Azure CIS 1.1.0", reprezentację usługi Azure CIS, która jest domyślnie konfigurowana w każdym środowisku Security Center. Ten pakiet opiera się na statycznym zestawie reguł. Nowszy pakiet zawiera więcej zasad i zostanie automatycznie zaktualizowany w miarę upływu czasu. Zaktualizuj do nowego pakietu dynamicznego zgodnie z poniższym opisem.
+Firma Microsoft śledzi same standardy prawne i automatycznie ulepsza jego pokrycie w niektórych pakietach z upływem czasu. Gdy firma Microsoft wystawia nową zawartość dla tej inicjatywy, zostanie automatycznie wyświetlona na pulpicie nawigacyjnym jako nowe zasady zamapowane na kontrolki w warstwie Standardowa.
 
 
-## <a name="available-packages"></a>Dostępne pakiety
+## <a name="what-regulatory-compliance-standards-are-available-in-security-center"></a>Jakie standardy zgodności są dostępne w Security Center?
 
-Możesz dodać standardy, takie jak NIST SP 800-53 R4, SWIFT CSP CSCF-V2020, Zjednoczone Królestwo brytyjskie i Zjednoczone Królestwo, NHS, Kanada Federal PBMM i Azure CIS 1.1.0 (NOWOŚĆ) — dokładniejszą reprezentację usługi Azure CIS 1.1.0. 
+Domyślnie każda subskrypcja ma przypisany **wzorzec zabezpieczeń Azure** . Jest to opracowane przez firmę Microsoft wskazówki dotyczące zabezpieczeń i zgodności z najlepszymi rozwiązaniami w oparciu o typowe struktury zgodności. [Dowiedz się więcej o teście porównawczym zabezpieczeń platformy Azure](../security/benchmarks/introduction.md).
 
-Ponadto możesz dodać **test wydajności Azure Security** , opracowane przez firmę Microsoft, wytyczne dotyczące zabezpieczeń i zgodności w oparciu o typowe struktury zgodności. ([Dowiedz się więcej o teście zabezpieczeń Azure](../security/benchmarks/introduction.md)).
+Możesz również dodać standardy, takie jak:
 
-Dodatkowe standardy będą obsługiwane na pulpicie nawigacyjnym, gdy staną się dostępne. 
+- NIST SP 800-53 R4
+- SWIFT CSP CSCF-V2020
+- Oficjalne Królestwo brytyjskie i Zjednoczone Królestwo NHS
+- Canada Federal PBMM
+- Azure CIS 1.1.0
+
+Standardy są dodawane do pulpitu nawigacyjnego, gdy staną się dostępne.
 
 
 ## <a name="add-a-regulatory-standard-to-your-dashboard"></a>Dodawanie standardu regulowanego do pulpitu nawigacyjnego
@@ -51,7 +56,7 @@ Dodatkowe standardy będą obsługiwane na pulpicie nawigacyjnym, gdy staną si�
 Poniższe kroki wyjaśniają, jak dodać pakiet do monitorowania zgodności z jednym z obsługiwanych standardów prawnych.
 
 > [!NOTE]
-> Tylko użytkownicy, którzy są właścicielami lub współautorem zasad, mają uprawnienia niezbędne do dodawania standardów zgodności. 
+> Aby dodać standardy do pulpitu nawigacyjnego, subskrypcja musi mieć włączoną usługę Azure Defender. Ponadto tylko użytkownicy, którzy są właścicielami lub współautorem zasad, mają uprawnienia niezbędne do dodawania standardów zgodności. 
 
 1. Na pasku bocznym Security Center wybierz pozycję **zgodność z przepisami** , aby otworzyć pulpit nawigacyjny zgodności z przepisami. W tym miejscu możesz zobaczyć standardy zgodności aktualnie przypisane do aktualnie wybranych subskrypcji.   
 
@@ -64,22 +69,21 @@ Poniższe kroki wyjaśniają, jak dodać pakiet do monitorowania zgodności z je
 
 1. Aby dodać standardy odpowiednie dla organizacji, kliknij pozycję **Dodaj więcej standardów**. 
 
-1. Na stronie **Dodaj standardy zgodności z przepisami** można wyszukać pakiety dla dowolnych dostępnych standardów. Dostępne są następujące standardy:
+1. Na stronie **Dodaj standardy zgodności z przepisami** można wyszukać dowolne dostępne standardy, takie jak:
 
-    - **Test porównawczy zabezpieczeń platformy Azure**
     - **NIST SP 800-53 R4**
     - **NIST SP 800 171 R2**
     - **SWIFT CSP CSCF-V2020**
     - **UKO i Wielka Brytania NHS**
     - **Kanada PBMM**
     
-    ![Dodawanie pakietów wykonawczych do pulpitu nawigacyjnego zgodności z przepisami Azure Security Center](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
+    ![Dodawanie standardów regulacyjnych do pulpitu nawigacyjnego zgodności z przepisami Azure Security Center](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
 
 1. Wybierz pozycję **Dodaj** i wprowadź wszystkie niezbędne szczegóły dotyczące konkretnej inicjatywy, takie jak zakres, parametry i korygowanie.
 
 1. Na pasku bocznym Security Center wybierz ponownie **zgodność z przepisami** , aby wrócić do pulpitu nawigacyjnego zgodności z przepisami.
-    * Twój nowy standard zostanie wyświetlony na liście branżowych & standardów prawnych. 
-    * Po dodaniu **usługi Azure CIS 1.1.0 (NOWOŚĆ)** oryginalny widok *statyczny* zgodności z usługą Azure CIS 1.1.0 również będzie nadal używany razem z nim. Może zostać automatycznie usunięta w przyszłości.
+
+    Twój nowy standard zostanie wyświetlony na liście branżowych & standardów prawnych. 
 
     > [!NOTE]
     > Dodanie nowego standardu do pulpitu nawigacyjnego zgodności może potrwać kilka godzin.
@@ -89,7 +93,7 @@ Poniższe kroki wyjaśniają, jak dodać pakiet do monitorowania zgodności z je
 
 ## <a name="removing-a-standard-from-your-dashboard"></a>Usuwanie standardu z pulpitu nawigacyjnego
 
-Jeśli którekolwiek z podanych norm prawnych nie jest istotne dla Twojej organizacji, jest to prosty proces po prostu usuń je z interfejsu użytkownika. Pozwala to na dalsze dostosowanie pulpitu nawigacyjnego zgodności z przepisami i skoncentrowanie się wyłącznie na standardach, które mają zastosowanie.
+Jeśli którekolwiek z podanych norm prawnych nie jest istotne dla Twojej organizacji, jest to prosty proces usuwania ich z interfejsu użytkownika. Pozwala to na dalsze dostosowanie pulpitu nawigacyjnego zgodności z przepisami i skoncentrowanie się wyłącznie na standardach, które mają zastosowanie.
 
 Aby usunąć standard:
 
@@ -113,9 +117,9 @@ Aby usunąć standard:
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule opisano sposób **dodawania pakietów zgodności** w celu monitorowania zgodności z dodatkowymi standardami. 
+W tym artykule przedstawiono sposób **dodawania standardów zgodności** w celu monitorowania zgodności z przepisami i standardami branżowymi.
 
-Inne powiązane materiały można znaleźć w następujących artykułach: 
+Pokrewnych materiałów można znaleźć na następujących stronach:
 
 - [Test porównawczy zabezpieczeń platformy Azure](../security/benchmarks/introduction.md)
 - [Pulpit nawigacyjny zgodności z przepisami Centrum zabezpieczeń](security-center-compliance-dashboard.md)

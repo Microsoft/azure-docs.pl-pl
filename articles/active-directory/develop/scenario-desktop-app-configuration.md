@@ -1,5 +1,6 @@
 ---
-title: Konfigurowanie aplikacji klasycznych, które wywołują interfejsy API sieci Web — Microsoft Identity platform | Azure
+title: Konfigurowanie aplikacji klasycznych, które wywołują interfejsy API sieci Web | Azure
+titleSuffix: Microsoft identity platform
 description: Dowiedz się, jak skonfigurować kod aplikacji klasycznej, która wywołuje interfejsy API sieci Web
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 27c9f2ab8b02c96d016fea66acd2b3840d79d09d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 5b74c817a974378a7fefc71e4eed67e6564765be
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444133"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756569"
 ---
 # <a name="desktop-app-that-calls-web-apis-code-configuration"></a>Aplikacja klasyczna, która wywołuje interfejsy API sieci Web: Konfiguracja kodu
 
@@ -103,7 +104,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-### <a name="learn-more"></a>Więcej tutaj
+### <a name="learn-more"></a>Więcej informacji
 
 Aby dowiedzieć się więcej o konfigurowaniu aplikacji klasycznej MSAL.NET:
 

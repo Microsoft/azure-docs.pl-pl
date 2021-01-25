@@ -1,5 +1,6 @@
 ---
-title: Wywoływanie internetowego interfejsu API z poziomu aplikacji demona — platforma tożsamości firmy Microsoft | Azure
+title: Wywoływanie interfejsu API sieci Web z poziomu aplikacji demona | Azure
+titleSuffix: Microsoft identity platform
 description: Dowiedz się, jak utworzyć aplikację demona, która wywołuje interfejs API sieci Web.
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0dfd729a48b7e81028078fd035b3b900f4d7b9bc
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: a94cbebffbe2c735515d9758a2353a9857676311
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444124"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756571"
 ---
 # <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>Aplikacja demona, która wywołuje interfejsy API sieci Web — wywołuje interfejs API sieci Web z aplikacji
 

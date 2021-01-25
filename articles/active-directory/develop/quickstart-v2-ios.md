@@ -13,12 +13,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 2fbff2abeb454fe02aa4bd50615033b9a0b7f27b
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: ef2ab6511d80f7f1f836805055e7cc7f48a488e7
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178606"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754295"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Szybki Start: Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph z aplikacji dla systemu iOS lub macOS
 
@@ -64,7 +64,7 @@ Przewodnik Szybki Start dotyczy aplikacji dla systemu iOS i macOS. Niektóre kro
 > 1. W obszarze **Zarządzanie** wybierz pozycję **uwierzytelnianie**  >  **Dodaj platformę**  >  **iOS**.
 > 1. Wprowadź **Identyfikator pakietu** dla swojej aplikacji. Identyfikator pakietu jest unikatowym ciągiem, który jednoznacznie identyfikuje aplikację, na przykład `com.<yourname>.identitysample.MSALMacOS` . Zanotuj wartość, której używasz. Należy pamiętać, że konfiguracja systemu iOS ma również zastosowanie do aplikacji macOS.
 > 1. Wybierz pozycję **Konfiguruj** i Zapisz szczegóły **konfiguracji MSAL** w dalszej części tego przewodnika Szybki Start.
-> 1. Wybierz pozycję **Gotowe**.
+> 1. Kliknij **Gotowe**.
 
 > [!div renderon="portal" class="sxs-lookup"]
 >
@@ -181,7 +181,7 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 > |Gdzie: | Opis |
 > |---------|---------|
 > | `clientId` | Identyfikator aplikacji z aplikacji zarejestrowanej w _portal. Azure. com * |
-> | `authority` | Punkt końcowy platformy tożsamości firmy Microsoft. W większości przypadków będzie to `https://login.microsoftonline.com/common` |
+> | `authority` | Platforma tożsamości firmy Microsoft. W większości przypadków będzie to `https://login.microsoftonline.com/common` |
 > | `redirectUri` | Identyfikator URI przekierowania aplikacji. Można przekazać element "Nil", aby używał wartości domyślnej, lub niestandardowego identyfikatora URI przekierowania. |
 
 ### <a name="for-ios-only-additional-app-requirements"></a>Tylko dla systemu iOS, dodatkowe wymagania dotyczące aplikacji

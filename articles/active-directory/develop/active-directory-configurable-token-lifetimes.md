@@ -13,14 +13,14 @@ ms.date: 01/04/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 33dffa40e0236483d641c2e2bbe318bb62a7724d
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: f4ae26a489b823e2347841cf72690d6cd8462611
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678191"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755303"
 ---
-# <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Konfigurowalne okresy istnienia tokenów na platformie tożsamości firmy Microsoft (wersja zapoznawcza)
+# <a name="configurable-token-lifetimes-in-the-microsoft-identity-platform-preview"></a>Konfigurowalne okresy istnienia tokenów na platformie tożsamości firmy Microsoft (wersja zapoznawcza)
 
 Można określić okres istnienia dostępu, identyfikatora lub tokenu SAML wystawionego przez platformę tożsamości firmy Microsoft. Okresy istnienia tokenów można ustawić dla wszystkich aplikacji w organizacji, dla aplikacji wielodostępnych (dla wielu organizacji) lub dla określonej jednostki usługi w organizacji. Obecnie nie obsługujemy konfigurowania okresów istnienia tokenu dla [podmiotów usługi zarządzania tożsamościami zarządzanymi](../managed-identities-azure-resources/overview.md).
 
@@ -50,7 +50,7 @@ Klienci używają tokenów dostępu w celu uzyskiwania dostępu do chronionego z
 
 ### <a name="saml-tokens"></a>Tokeny języka SAML
 
-Tokeny języka SAML są używane przez wiele aplikacji SAAS opartych na sieci Web i są uzyskiwane Azure Active Directory przy użyciu punktu końcowego protokołu SAML2. Są one również używane przez aplikacje korzystające z protokołu WS-Federation. Domyślny okres istnienia tokenu to 1 godzina. W perspektywie aplikacji okres ważności tokenu jest określany przez wartość NotOnOrAfter `<conditions …>` elementu w tokenie. Po zakończeniu okresu ważności tokenu klient musi zainicjować nowe żądanie uwierzytelniania, które będzie często spełnione bez interakcyjnego logowania w wyniku tokenu sesji logowania jednokrotnego (SSO).
+Tokeny języka SAML są używane przez wiele aplikacji SaaS opartych na sieci Web i są uzyskiwane Azure Active Directory przy użyciu punktu końcowego protokołu SAML2. Są one również używane przez aplikacje korzystające z protokołu WS-Federation. Domyślny okres istnienia tokenu to 1 godzina. W perspektywie aplikacji okres ważności tokenu jest określany przez wartość NotOnOrAfter `<conditions …>` elementu w tokenie. Po zakończeniu okresu ważności tokenu klient musi zainicjować nowe żądanie uwierzytelniania, które będzie często spełnione bez interakcyjnego logowania w wyniku tokenu sesji logowania jednokrotnego (SSO).
 
 Wartość NotOnOrAfter można zmienić przy użyciu `AccessTokenLifetime` parametru w `TokenLifetimePolicy` . Zostanie ona ustawiona na okres istnienia skonfigurowany w ramach zasad, jeśli istnieje, oraz współczynnik pochylenia zegara wynoszący pięć minut.
 
@@ -106,7 +106,7 @@ Klienci publiczni nie mogą bezpiecznie przechowywać hasła klienta (poufne). N
 Właściwość Max Age to długość czasu, przez który można użyć pojedynczego tokenu. 
 
 ### <a name="single-sign-on-session-tokens"></a>Tokeny sesji logowania jednokrotnego
-Gdy użytkownik uwierzytelnia się za pomocą platformy tożsamości firmy Microsoft, sesja logowania jednokrotnego (SSO) jest ustanawiana z użyciem przeglądarki użytkownika i platformy tożsamości firmy Microsoft. Token logowania jednokrotnego w formie pliku cookie reprezentuje tę sesję. Token sesji logowania jednokrotnego nie jest powiązany z określonym zasobem/aplikacją kliencką. Tokeny sesji SSO można odwołać, a ich ważność jest sprawdzana za każdym razem, gdy są używane.
+Podczas uwierzytelniania użytkownika na platformie tożsamości firmy Microsoft jest ustanawiana sesja logowania jednokrotnego (SSO) z przeglądarką użytkownika i platformą tożsamości firmy Microsoft. Token logowania jednokrotnego w formie pliku cookie reprezentuje tę sesję. Token sesji logowania jednokrotnego nie jest powiązany z określonym zasobem/aplikacją kliencką. Tokeny sesji SSO można odwołać, a ich ważność jest sprawdzana za każdym razem, gdy są używane.
 
 Platforma tożsamości firmy Microsoft używa dwóch rodzajów tokenów sesji SSO: trwałych i nietrwałych. Tokeny sesji trwałych są przechowywane jako trwałe pliki cookie w przeglądarce. Tokeny sesji nietrwałych są przechowywane jako pliki cookie sesji. (Pliki cookie sesji są niszczone po zamknięciu przeglądarki). Zwykle jest przechowywany token nietrwałych sesji. Jednak gdy użytkownik wybierze pole wyboru nie wylogowuj **mnie** podczas uwierzytelniania, jest przechowywany token sesji trwałej.
 
@@ -236,9 +236,9 @@ O godzinie 12:00 PM użytkownik uruchamia nową sesję przeglądarki i próbuje 
 
 W 12:15 PM użytkownik próbuje uzyskać dostęp do aplikacji sieci Web B. Przeglądarka przekierowuje do platformy tożsamości firmy Microsoft, która wykrywa plik cookie sesji. Nazwa główna usługi aplikacji sieci Web B jest połączona z zasadą okresu istnienia tokenu 2, ale jest również częścią organizacji nadrzędnej z domyślnymi zasadami ważności tokenu 1. Zasady ważności tokenu 2 obowiązują, ponieważ zasady połączone z jednostkami usługi mają wyższy priorytet niż domyślne zasady organizacji. Token sesji został pierwotnie wydany w ciągu ostatnich 30 minut, więc jest uznawany za ważny. Użytkownik zostanie przekierowany z powrotem do aplikacji sieci Web B z tokenem identyfikatora, który przyznaje im dostęp.
 
-O godzinie 1:00 PM użytkownik próbuje uzyskać dostęp do aplikacji sieci Web A. Użytkownik zostanie przekierowany do platformy tożsamości firmy Microsoft. Aplikacja sieci Web A nie jest połączona z żadną zasadą, ale ponieważ należy do organizacji z domyślnymi zasadami istnienia tokenu 1, ta zasada zacznie obowiązywać. Wykryto plik cookie sesji, który został pierwotnie wystawiony w ciągu ostatnich ośmiu godzin. Użytkownik jest dyskretnie przekierowywany do aplikacji sieci Web A z nowym tokenem ID. Użytkownik nie musi uwierzytelniać się.
+O godzinie 1:00 PM użytkownik próbuje uzyskać dostęp do aplikacji sieci Web A. Użytkownik zostanie przekierowany na platformę tożsamości firmy Microsoft. Aplikacja sieci Web A nie jest połączona z żadną zasadą, ale ponieważ należy do organizacji z domyślnymi zasadami istnienia tokenu 1, ta zasada zacznie obowiązywać. Wykryto plik cookie sesji, który został pierwotnie wystawiony w ciągu ostatnich ośmiu godzin. Użytkownik jest dyskretnie przekierowywany do aplikacji sieci Web A z nowym tokenem ID. Użytkownik nie musi uwierzytelniać się.
 
-Natychmiast użytkownik próbuje uzyskać dostęp do aplikacji sieci Web B. Użytkownik zostanie przekierowany do platformy tożsamości firmy Microsoft. Zgodnie z wcześniejszymi zasadami istnienia tokenu obowiązuje zasada 2. Ponieważ token został wystawiony ponad 30 minut temu, użytkownik jest monitowany o ponowne wprowadzenie poświadczeń logowania. Zostanie wystawiony token nowej sesji i token ID. Użytkownik może następnie uzyskać dostęp do aplikacji sieci Web B.
+Natychmiast użytkownik próbuje uzyskać dostęp do aplikacji sieci Web B. Użytkownik zostanie przekierowany na platformę tożsamości firmy Microsoft. Zgodnie z wcześniejszymi zasadami istnienia tokenu obowiązuje zasada 2. Ponieważ token został wystawiony ponad 30 minut temu, użytkownik jest monitowany o ponowne wprowadzenie poświadczeń logowania. Zostanie wystawiony token nowej sesji i token ID. Użytkownik może następnie uzyskać dostęp do aplikacji sieci Web B.
 
 ## <a name="cmdlet-reference"></a>Dokumentacja poleceń cmdlet
 

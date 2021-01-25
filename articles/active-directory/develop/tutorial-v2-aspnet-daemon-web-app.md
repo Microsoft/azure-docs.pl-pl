@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 5f2560cdc062edb41ecda935eb9b8efe630949dc
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 7d34039a5d56feb42473b1a2b24def5244ec3e04
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015950"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756132"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Samouczek: Tworzenie demona z wieloma dzierżawcami korzystającą z platformy tożsamości firmy Microsoft
 
@@ -49,7 +49,7 @@ Ponieważ aplikacja jest aplikacją z wieloma dzierżawcami dla klientów firmy 
 
 ![Diagram przedstawia aplikację UserSync z trzema elementami lokalnymi, które łączą się z platformą Azure, z uwierzytelnianiem typu "Uruchom jako" w sposób interaktywny, aby połączyć się z platformą Azure A D, elementu AccountController otrzymywanie zgody administratora na łączenie się z platformą Azure A D i SyncController odczytywanie użytkownika w celu połączenia z Microsoft Graph.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 
-Aby uzyskać więcej informacji na temat pojęć użytych w tym przykładzie, Przeczytaj [dokumentację protokołu poświadczeń klienta dla punktu końcowego platformy tożsamości](v2-oauth2-client-creds-grant-flow.md).
+Aby uzyskać więcej informacji na temat pojęć użytych w tym przykładzie, Przeczytaj [dokumentację dotyczącą protokołu poświadczeń klienta dla platformy tożsamości](v2-oauth2-client-creds-grant-flow.md).
 
 ## <a name="clone-or-download-this-repository"></a>Klonuj lub pobrać to repozytorium
 
@@ -216,7 +216,7 @@ Ten projekt zawiera projekty aplikacji sieci Web i interfejsów API sieci Web. W
    1. Kliknij prawym przyciskiem myszy projekt w Eksplorator rozwiązań, a następnie wybierz pozycję **Publikuj**.
    1. Wybierz pozycję **Importuj profil** na dolnym pasku i zaimportuj wcześniej pobrany profil publikacji.
 1. Wybierz pozycję **Konfiguruj**.
-1. Na karcie **połączenie** zaktualizuj docelowy adres URL w taki sposób, aby korzystał z protokołu HTTPS. Użyj na przykład nazwy `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`. Wybierz pozycję **Dalej**.
+1. Na karcie **połączenie** zaktualizuj docelowy adres URL w taki sposób, aby korzystał z protokołu HTTPS. Użyj na przykład nazwy `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`. Wybierz opcję **Dalej**.
 1. Na karcie **Ustawienia** upewnij się, że pole wyboru **Włącz uwierzytelnianie organizacyjne** jest wyczyszczone.
 1. Wybierz pozycję **Zapisz**. Wybierz pozycję **Publikuj** na ekranie głównym.
 
