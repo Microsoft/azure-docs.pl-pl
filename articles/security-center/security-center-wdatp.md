@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 553151aebeadf4ad4764e747b1bf6dcd8c552721
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 9fde0ecd8b6670e43aa3970b2df27a402b9c1a5c
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98126856"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747244"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Ochrona punktów końcowych za pomocą zintegrowanego rozwiązania EDR Security Center: Microsoft Defender for Endpoint
 
@@ -118,6 +118,8 @@ Aby wygenerować niegroźny alert dotyczący programu Microsoft Defender for End
 1. Aby sprawdzić alert w Security Center, przejdź do **alertów zabezpieczeń**  >  **podejrzany wiersz polecenia programu PowerShell**.
 1. W oknie badanie wybierz link, aby przejść do portalu usługi Microsoft Defender dla punktu końcowego.
 
+    > [!TIP]
+    > Alert jest wyzwalany z ważnością **informacyjną** .
 
 ## <a name="faq-for-security-centers-integrated-microsoft-defender-for-endpoint"></a>Często zadawane pytania dotyczące zintegrowanego Security Center usługi Microsoft Defender for Endpoint
 

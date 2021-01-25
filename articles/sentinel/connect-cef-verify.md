@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2021
 ms.author: yelevin
-ms.openlocfilehash: 557f53e39781406674b9903dcf0bb3cb536cd804
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: f9fb1c917a0719cb9d250b997329d3415b5872eb
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97897488"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747478"
 ---
 # <a name="step-3-validate-connectivity"></a>Krok 3. Weryfikowanie łączności
 
@@ -44,7 +44,7 @@ Należy pamiętać, że może upłynąć około 20 minut, dopóki dzienniki nie 
 1. Uruchom następujący skrypt w usłudze przesyłania dalej dzienników (stosując identyfikator obszaru roboczego zamiast symbolu zastępczego), aby sprawdzić łączność między rozwiązaniem zabezpieczeń, usługą przesyłania dalej dzienników i wskaźnikiem kontroli platformy Azure. Ten skrypt sprawdza, czy demon nasłuchuje na prawidłowych portach, że przekazywanie jest prawidłowo skonfigurowane i że nic nie blokuje komunikacji między demonem a agentem Log Analytics. Wysyła również komunikat "TestCommonEventFormat", który umożliwia sprawdzenie kompleksowej łączności. <br>
 
     ```bash
-    sudo wget -O https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]
+    sudo wget -O cef_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]
     ```
 
    - Może zostać wyświetlony komunikat informujący o konieczności uruchomienia polecenia w celu rozwiązania problemu z **mapowaniem pola *komputer***. Aby uzyskać szczegółowe informacje, zobacz [wyjaśnienie w skrypcie walidacji](#mapping-command) .

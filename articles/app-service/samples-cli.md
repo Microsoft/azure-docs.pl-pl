@@ -6,12 +6,12 @@ ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
 ms.date: 07/07/2020
 ms.custom: mvc
-ms.openlocfilehash: beab87618b97da4e61b0525c0c5a6bdd134fb7f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61ce290f8ed5e8ad919a253d426d3278233caa3f
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86169446"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747293"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>Przykłady interfejsu wiersza polecenia dla usługi Azure App Service
 
@@ -40,7 +40,7 @@ Poniższa tabela zawiera linki do skryptów bash utworzonych za pomocą interfej
 | [Łączenie aplikacji z kontem magazynu](./scripts/cli-connect-to-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Tworzy aplikację usługi App Service i konto magazynu, a następnie dodaje parametry połączenia z magazynem do ustawień aplikacji. |
 | [Łączenie aplikacji z usługą Azure Cache for Redis](./scripts/cli-connect-to-redis.md?toc=%2fcli%2fazure%2ftoc.json) | Tworzy aplikację usługi App Service i usługę Azure Cache for Redis, a następnie dodaje szczegóły połączenia z serwerem Redis do ustawień aplikacji. |
 | [Łączenie aplikacji z usługą Cosmos DB](./scripts/cli-connect-to-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | Tworzy aplikację usługi App Service i usługę Cosmos DB, a następnie dodaje szczegóły połączenia z usługą Cosmos DB do ustawień aplikacji. |
-|**Tworzenie i przywracanie kopii zapasowej aplikacji**||
+|**Tworzenie kopii zapasowej i przywracanie aplikacji**||
 | [Tworzenie kopii zapasowej aplikacji](./scripts/cli-backup-onetime.md?toc=%2fcli%2fazure%2ftoc.json) | Tworzy aplikację usługi App Service oraz jej jednorazową kopię zapasową. |
 | [Tworzenie zaplanowanej kopii zapasowej aplikacji](./scripts/cli-backup-scheduled.md?toc=%2fcli%2fazure%2ftoc.json) | Tworzy aplikację usługi App Service oraz jej zaplanowaną kopię zapasową. |
 | [Przywracanie aplikacji z kopii zapasowej](./scripts/cli-backup-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Przywraca aplikację usługi App Service z kopii zapasowej. |

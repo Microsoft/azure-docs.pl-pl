@@ -9,12 +9,12 @@ ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
 ms.date: 02/07/2019
-ms.openlocfilehash: 37086a925d65a80f219c8e0a3358c834a2691701
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: b0acfbf9636c2ad1df7df3197a0a1a83ec91b5c3
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145654"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747343"
 ---
 # <a name="access-azure-api-for-fhir-with-postman"></a>Dostęp do interfejsu API platformy Azure dla usługi FHIR za pomocą programu Poster
 
@@ -32,7 +32,7 @@ Aby można było użyć programu Poster, konieczne są następujące informacje:
 
 - Adres URL serwera FHIR, na przykład `https://MYACCOUNT.azurehealthcareapis.com`
 - Dostawca tożsamości `Authority` dla serwera FHIR, na przykład `https://login.microsoftonline.com/{TENANT-ID}`
-- Skonfigurowane `audience` . Jest to zazwyczaj adres URL serwera FHIR, np. `https://MYACCOUNT.azurehealthcareapis.com` lub tylko `https://azurehealthcareapis.com` .
+- Skonfigurowane `audience` . Jest to zazwyczaj adres URL serwera FHIR, np. `https://<FHIR-SERVER-NAME>.azurehealthcareapis.com` lub tylko `https://azurehealthcareapis.com` .
 - `client_id`(Lub identyfikator aplikacji) [aplikacji klienckiej](register-confidential-azure-ad-client-app.md) , która będzie używana do uzyskiwania dostępu do usługi FHIR.
 - `client_secret`(Lub klucz tajny aplikacji) aplikacji klienckiej.
 

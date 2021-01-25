@@ -1,6 +1,6 @@
 ---
 title: Łączenie danych dziennika systemowego z platformą Azure Microsoft Docs
-description: Połącz wszystkie maszyny lub urządzenia, które obsługują dziennik systemowy na platformie Azure, przy użyciu agenta na komputerze z systemem Linux między urządzeniem a wskaźnikiem kontrolnym. 
+description: Połącz wszystkie maszyny lub urządzenia, które obsługują dziennik systemowy na platformie Azure, przy użyciu agenta na komputerze z systemem Linux między urządzeniem a wskaźnikiem kontrolnym.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 7670d00a2dd25961a51d18c50c102e0f92b30975
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c3cf4c3c135b3f275542af4f531d1071e180ebe
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88566152"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747194"
 ---
 # <a name="collect-data-from-linux-based-sources-using-syslog"></a>Zbieranie danych z źródeł opartych na systemie Linux przy użyciu dziennika systemowego
 
 Zdarzenia z maszyn lub urządzeń obsługujących system Linux można przesyłać strumieniowo do usługi Azure wskaźnikowej przy użyciu agenta Log Analytics dla systemu Linux (dawniej nazywany agentem pakietu OMS). Można to zrobić na dowolnym komputerze, na którym można zainstalować agenta Log Analytics bezpośrednio na komputerze. Natywny demon dziennika systemu maszyny zbiera zdarzenia lokalne z określonych typów i przekazuje je lokalnie do agenta, co spowoduje przesłanie strumieniowo do obszaru roboczego Log Analytics.
 
 > [!NOTE]
-> - Jeśli urządzenie obsługuje program **Common Event format (CEF) za pośrednictwem dziennika**systemowego, zbierany jest bardziej kompletny zestaw danych, a dane są analizowane w kolekcji. Należy wybrać tę opcję i postępować zgodnie z instrukcjami podanymi w temacie [łączenie rozwiązania zewnętrznego przy użyciu CEF](connect-common-event-format.md).
+> - Jeśli urządzenie obsługuje program **Common Event format (CEF) za pośrednictwem dziennika** systemowego, zbierany jest bardziej kompletny zestaw danych, a dane są analizowane w kolekcji. Należy wybrać tę opcję i postępować zgodnie z instrukcjami podanymi w temacie [łączenie rozwiązania zewnętrznego przy użyciu CEF](connect-common-event-format.md).
 >
 > - Log Analytics obsługuje zbieranie komunikatów wysyłanych przez demony **rsyslog** lub **dziennika** systemowego, gdzie rsyslog jest wartością domyślną. Domyślny demon dziennika systemu w wersji 5 Red Hat Enterprise Linux (RHEL), CentOS i wersja Oracle Linux (**sysklog**) nie są obsługiwane w przypadku zbierania zdarzeń dziennika systemu. Aby zebrać dane dziennika systemu z tej wersji dystrybucji, demona rsyslog powinna zostać zainstalowana i skonfigurowana do zastępowania sysklog.
 
@@ -69,7 +69,7 @@ Aby uzyskać więcej informacji, zobacz [źródła danych dziennika systemowego 
 
 1. W dolnej części bloku łącznika dziennika systemowego kliknij link **Otwórz konfigurację ustawień zaawansowanych obszaru roboczego >** .
 
-1. W bloku **Ustawienia zaawansowane** wybierz pozycję Dziennik systemowy **danych**  >  **Syslog**. Następnie Dodaj obiekty do zebrania dla łącznika.
+1. W bloku **Ustawienia zaawansowane** wybierz pozycję Dziennik systemowy **danych**  >  . Następnie Dodaj obiekty do zebrania dla łącznika.
     
     - Dodaj obiekty, które urządzenie dziennika systemu zawiera w jego nagłówkach dziennika. 
     
@@ -118,17 +118,21 @@ To wykrywanie wymaga określonej konfiguracji łącznika danych dziennika system
     > [!div class="mx-imgBorder"]
     > ![Urządzenia wymagane do wykrycia nietypowego logowania SSH](./media/connect-syslog/facilities-ssh-detection.png)
 
-2. Zezwalaj na zbieranie informacji dziennika systemu wystarczająco długo. Następnie przejdź do okna badanie **wskaźnikowe platformy Azure**i skopiuj i wklej następujące zapytanie:
+2. Zezwalaj na zbieranie informacji dziennika systemu wystarczająco długo. Następnie przejdź do okna badanie **wskaźnikowe platformy Azure** i skopiuj i wklej następujące zapytanie:
     
-    ```console
-    Syslog |  where Facility in ("authpriv","auth")| extend c = extract( "Accepted\\s(publickey|password|keyboard-interactive/pam)\\sfor ([^\\s]+)",1,SyslogMessage)| where isnotempty(c) | count 
+    ```kusto
+    Syslog
+    | where Facility in ("authpriv","auth")
+    | extend c = extract( "Accepted\\s(publickey|password|keyboard-interactive/pam)\\sfor ([^\\s]+)",1,SyslogMessage)
+    | where isnotempty(c)
+    | count 
     ```
     
     W razie potrzeby zmień **zakres czasu** , a następnie wybierz pozycję **Uruchom**.
     
     Jeśli wynikowa liczba jest równa zero, Potwierdź konfigurację łącznika i że monitorowane komputery mają działanie pomyślnego logowania dla okresu określonego dla zapytania.
     
-    Jeśli wynikowa liczba jest większa od zera, dane dziennika systemowego są odpowiednie dla nietypowego wykrywania logowania SSH. To wykrywanie można włączyć z **Analytics**  >   **szablonów reguł**analizy  >  **(wersja zapoznawcza) wykrywanie nietypowego logowania SSH**.
+    Jeśli wynikowa liczba jest większa od zera, dane dziennika systemowego są odpowiednie dla nietypowego wykrywania logowania SSH. To wykrywanie można włączyć z   >   **szablonów reguł** analizy  >  **(wersja zapoznawcza) wykrywanie nietypowego logowania SSH**.
 
 ## <a name="next-steps"></a>Następne kroki
 W tym dokumencie przedstawiono sposób łączenia lokalnych urządzeń dziennika systemu z platformą Azure. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:

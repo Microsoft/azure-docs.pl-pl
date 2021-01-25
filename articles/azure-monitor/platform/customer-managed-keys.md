@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: 6061980ec556fccde3de882a291bc390b88c5a24
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: f2807501b1e18d4cbffaa34d70bccf8d70565266
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611087"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747227"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Klucz zarządzany przez klienta usługi Azure Monitor 
 
@@ -125,11 +125,53 @@ Te ustawienia można aktualizować w Key Vault za pomocą interfejsu wiersza pol
 
 ## <a name="create-cluster"></a>Tworzenie klastra
 
-> [!NOTE]
-> Klastry obsługują dwa [zarządzane typy tożsamości](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types): przypisane do systemu i przypisane przez użytkownika, a każdy z nich może być zależny od danego scenariusza. Tożsamość zarządzana przypisana przez system jest prostsza i tworzona automatycznie przy użyciu tworzenia klastra, gdy tożsamość `type` jest ustawiona jako "*SystemAssigned*" — Ta tożsamość może być używana później w celu udzielenia klastrowi dostępu do Key Vault. Jeśli chcesz utworzyć klaster, gdy klucz zarządzany przez klienta jest definiowany podczas tworzenia klastra, należy wcześniej mieć zdefiniowany klucz i tożsamość przypisaną przez użytkownika na Key Vault, a następnie utworzyć klaster z tymi ustawieniami: tożsamość `type` jako "*UserAssigned*", `UserAssignedIdentities` z identyfikatorem zasobu tożsamości oraz `keyVaultProperties` z informacjami o kluczu.
+Klastry obsługują dwa [zarządzane typy tożsamości](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types): przypisane do systemu i przypisane przez użytkownika, podczas gdy jedna tożsamość może być zdefiniowana w klastrze w zależności od danego scenariusza. 
+- Tożsamość zarządzana przypisana przez system jest prostsza i generowana automatycznie przy użyciu tworzenia klastra, gdy tożsamość `type` jest ustawiona na wartość "*SystemAssigned*". Tej tożsamości można użyć później w celu udzielenia klastrowi dostępu do Key Vault. 
+  
+  Ustawienia tożsamości w klastrze dla tożsamości zarządzanej przypisanej do systemu
+  ```json
+  {
+    "identity": {
+      "type": "SystemAssigned"
+      }
+  }
+  ```
+
+- Jeśli chcesz skonfigurować klucz zarządzany przez klienta podczas tworzenia klastra, musisz wcześniej uzyskać Key Vault tożsamość przypisanej do klucza i użytkownika, a następnie utworzyć klaster z tymi ustawieniami: tożsamość `type` jako "*UserAssigned*" `UserAssignedIdentities` z identyfikatorem zasobu tożsamości.
+
+  Ustawienia tożsamości w klastrze dla tożsamości zarządzanej przypisanej przez użytkownika
+  ```json
+  {
+  "identity": {
+  "type": "UserAssigned",
+    "userAssignedIdentities": {
+      "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft. ManagedIdentity/UserAssignedIdentities/<cluster-assigned-managed-identity>"
+      }
+  }
+  ```
 
 > [!IMPORTANT]
-> Obecnie nie można zdefiniować klucza zarządzanego przez klienta przy użyciu tożsamości zarządzanej przypisanej przez użytkownika, jeśli Key Vault znajduje się w Private-Link (vNet) i w tym przypadku można użyć tożsamości zarządzanej przypisanej przez system.
+> Nie można używać klucza zarządzanego przez klienta z tożsamością zarządzaną przez użytkownika, jeśli Key Vault znajduje się w Private-Link (vNet). W tym scenariuszu można użyć zarządzanej tożsamości przypisanej do systemu.
+
+```json
+{
+  "identity": {
+    "type": "SystemAssigned"
+}
+```
+ 
+Tym:
+
+```json
+{
+  "identity": {
+  "type": "UserAssigned",
+    "userAssignedIdentities": {
+      "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft. ManagedIdentity/UserAssignedIdentities/<user-assigned-managed-identity-name>"
+      }
+}
+```
+
 
 Postępuj zgodnie z procedurą przedstawioną w [artykule dedykowane klastry](../log-query/logs-dedicated-clusters.md#creating-a-cluster). 
 
@@ -243,15 +285,13 @@ Postępuj zgodnie z procedurą przedstawioną w [artykule dedykowane klastry](..
 
 ## <a name="key-revocation"></a>Odwoływanie klucza
 
-Dostęp do danych można odwołać, wyłączając klucz lub usuwając zasady dostępu klastra w Key Vault. 
-
 > [!IMPORTANT]
-> - Jeśli klaster jest ustawiony przy użyciu tożsamości zarządzanej przypisanej przez użytkownika, ustawienie `UserAssignedIdentities` with `None` zawiesza klaster i uniemożliwia dostęp do danych, ale nie można cofnąć odwołania i aktywować klastra bez otwierania żądania obsługi. To ograniczenie nie jest stosowane do zarządzanej tożsamości przypisanej do systemu.
-> - Zalecaną akcją odwoływania klucza jest wyłączenie klucza w Key Vault.
+> - Zalecanym sposobem odwołania dostępu do danych jest wyłączenie klucza lub usunięcie zasad dostępu w Key Vault.
+> - Ustawienie klastra na wartość `identity` `type` "none" spowoduje również odwołanie dostępu do danych, ale takie podejście nie jest zalecane, ponieważ nie można cofnąć odwołania podczas ponownego wystawiania `identity` w klastrze bez otwierania żądania obsługi.
 
 Magazyn klastra zawsze będzie uwzględniał zmiany w uprawnieniach klucza w ciągu godziny lub wcześniej, a magazyn stanie się niedostępny. Wszelkie nowe dane pozyskiwane w obszarach roboczych połączonych z klastrem zostaną usunięte i nie będą odzyskiwalne. dane staną się niedostępne i zapytania w tych obszarach roboczych zakończą się niepowodzeniem. Wcześniej pozyskiwane dane pozostają w magazynie, dopóki klaster i Twoje obszary robocze nie zostaną usunięte. Dane niedostępne podlegają zasadom przechowywania danych i zostaną usunięte po osiągnięciu okresu przechowywania. Dane odebrane w ciągu ostatnich 14 dni również są przechowywane w pamięci podręcznej (dysk SSD) w celu wydajnej operacji aparatu zapytań. Spowoduje to usunięcie operacji odwoływania klucza i stanie się niedostępna.
 
-Magazyn klastra okresowo sonduje Key Vault, aby próbować odszyfrować klucz szyfrowania, a następnie uzyskać dostęp do pozyskiwania danych i wznowienia zapytania w ciągu 30 minut.
+Magazyn klastra okresowo sprawdza Key Vault, aby próbować odszyfrować klucz szyfrowania, a po uzyskaniu dostępu do pozyskiwania danych i wykonywania zapytań w ciągu 30 minut.
 
 ## <a name="key-rotation"></a>Wymiana kluczy
 
@@ -259,7 +299,7 @@ Rotacja kluczy zarządzanych przez klienta wymaga jawnej aktualizacji klastra z 
 
 Wszystkie dane pozostają dostępne po operacji rotacji kluczy, ponieważ dane zawsze są szyfrowane przy użyciu klucza szyfrowania konta (AEK), podczas gdy AEK jest teraz szyfrowany przy użyciu nowej wersji klucza szyfrowania kluczy (KEK) w Key Vault.
 
-## <a name="customer-managed-key-for-queries"></a>Klucz zarządzany przez klienta dla zapytań
+## <a name="customer-managed-key-for-saved-queries"></a>Klucz zarządzany przez klienta dla zapisanych zapytań
 
 Język zapytań używany w Log Analytics jest wyraźny i może zawierać poufne informacje w komentarzach, które można dodać do zapytań lub w składni zapytania. Niektóre organizacje wymagają, aby te informacje były chronione w ramach zasad kluczy zarządzanych przez klienta, a wymagane jest zapisanie zaszyfrowanej kwerendy przy użyciu klucza. Azure Monitor umożliwia przechowywanie *zapisywanych* i *zarejestrowań zapytań dotyczących alertów* w postaci zaszyfrowanej przy użyciu klucza na własnym koncie magazynu po nawiązaniu połączenia z obszarem roboczym. 
 
@@ -410,7 +450,7 @@ Klucz Customer-Managed jest udostępniany w dedykowanym klastrze i te operacje s
 
   - Jeśli klaster jest ustawiony przy użyciu tożsamości zarządzanej przypisanej przez użytkownika, ustawienie `UserAssignedIdentities` with `None` zawiesza klaster i uniemożliwia dostęp do danych, ale nie można cofnąć odwołania i aktywować klastra bez otwierania żądania obsługi. To ograniczenie jest ' zostało zastosowane do zarządzanej tożsamości przypisanej do systemu.
 
-  - Obecnie nie można zdefiniować klucza zarządzanego przez klienta przy użyciu tożsamości zarządzanej przypisanej przez użytkownika, jeśli Key Vault znajduje się w Private-Link (vNet) i w tym przypadku można użyć tożsamości zarządzanej przypisanej przez system.
+  - Nie można używać klucza zarządzanego przez klienta z tożsamością zarządzaną przez użytkownika, jeśli Key Vault znajduje się w Private-Link (vNet). W tym scenariuszu można użyć zarządzanej tożsamości przypisanej do systemu.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 

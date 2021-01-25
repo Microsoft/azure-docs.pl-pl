@@ -8,20 +8,21 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: aeb53e722eae588b7d5e2963afe67f299c2c3565
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: dfbae5144ec19b795463bd44f1e84fcf2516c267
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98745181"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747210"
 ---
 # <a name="create-a-cloud-service-extended-support-using-arm-templates"></a>Tworzenie usługi w chmurze (obsługa rozszerzona) przy użyciu szablonów usługi ARM
+
+W tym samouczku wyjaśniono, jak utworzyć wdrożenie usługi w chmurze (obsługa rozszerzona) przy użyciu [szablonów ARM](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview). 
 
 > [!IMPORTANT]
 > Cloud Services (obsługa rozszerzona) jest obecnie dostępna w publicznej wersji zapoznawczej.
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-W tym samouczku wyjaśniono, jak utworzyć wdrożenie usługi w chmurze (obsługa rozszerzona) przy użyciu [szablonów ARM](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview). 
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 1. Zapoznaj się z [wymaganiami wstępnymi](deploy-prerequisite.md) dotyczącymi wdrażania Cloud Services (obsługa rozszerzona) i Utwórz skojarzone zasoby. 

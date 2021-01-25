@@ -93,6 +93,11 @@
           href: export-data.md
         - name: Eksport bez danych identyfikujących
           href: de-identified-export.md
+    - name: Konwertuj dane
+      expanded: false
+      items:
+        - name: Szablony rozszerzenia konwertera danych $convert i FHIR
+          href: convert-data.md
     - name: Znajdowanie identyfikatorów obiektów tożsamości
       href: find-identity-object-ids.md
     - name: Rejestrowanie i metryki diagnostyki

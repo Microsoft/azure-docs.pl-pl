@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2019
+ms.date: 01/24/2021
 ms.author: terrylan
-ms.openlocfilehash: 038f30ee186a5b3a9d87d64054726324051c37b4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d85b1fdd433c372bb41adec6e3d33013f19363f0
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842757"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747177"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Omówienie zarządzania i monitorowania zabezpieczeń platformy Azure
 Ten artykuł zawiera omówienie funkcji zabezpieczeń i usług oferowanych przez platformę Azure w celu ułatwienia zarządzania i monitorowania usług Azure Cloud Services i Virtual Machines.
@@ -62,7 +62,7 @@ Więcej informacji:
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 * [Co to jest usługa Azure AD Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md)
-* [Jak działa Multi-Factor Authentication usługi Azure AD](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [Jak działa usługa uwierzytelniania wieloskładnikowego w usłudze Azure AD](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="expressroute"></a>ExpressRoute
 
@@ -112,20 +112,23 @@ Dostarczając powiadomienia i zalecaną korektę, Ochrona tożsamości pomaga w 
 
 Więcej informacji:
 
-* [Ochrona tożsamości w usłudze Azure Active Directory](../../active-directory/identity-protection/overview-identity-protection.md)
+* [Azure Active Directory Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md)
 * [Channel 9: usługa Azure AD i tożsamość show: wersja zapoznawcza usługi Identity Protection](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="security-center"></a>Security Center
 
-Usługa Azure Security Center pomaga w zapobieganiu zagrożeniom, wykrywaniu ich i reagowaniu na nie. Security Center zapewnia większą widoczność i kontrolę nad bezpieczeństwem zasobów platformy Azure. Zapewnia zintegrowane monitorowanie zabezpieczeń i zarządzanie zasadami w ramach subskrypcji platformy Azure. Pomaga wykrywać zagrożenia, które w przeciwnym razie mogą być niezauważalne i działać z szerokim ekosystemem rozwiązań zabezpieczających.
+Usługa Azure Security Center pomaga w zapobieganiu zagrożeniom, wykrywaniu ich i reagowaniu na nie. Security Center zapewnia większą widoczność i kontrolę nad bezpieczeństwem zasobów platformy Azure, a także w środowisku chmury hybrydowej. 
+
+Security Center wykonuje ciągłe oceny zabezpieczeń połączonych zasobów i porównuje ich konfigurację i wdrożenie z [wzorcem zabezpieczeń platformy Azure](../benchmarks/introduction.md) , aby zapewnić szczegółowe zalecenia dotyczące zabezpieczeń dostosowane do danego środowiska.
 
 Security Center pomaga zoptymalizować i monitorować zabezpieczenia zasobów platformy Azure, wykonując następujące działania:
 
-* Umożliwienie definiowania zasad dla zasobów subskrypcji platformy Azure zgodnie z:
-  * Wymagania dotyczące zabezpieczeń firmy.
-  * Typ aplikacji lub czułość danych w każdej subskrypcji.
-* Monitorowanie stanu maszyn wirtualnych platformy Azure, sieci i aplikacji.
-* Udostępnienie listy alertów zabezpieczeń, w tym alertów z zintegrowanych rozwiązań partnerskich. Zawiera również informacje, które należy wykonać, aby szybko zbadać ataki i zalecenia dotyczące sposobu jego rozwiązania.
+- Umożliwienie definiowania zasad dla zasobów subskrypcji platformy Azure zgodnie z:
+    - Wymagania dotyczące zabezpieczeń w organizacji.
+    - Typ aplikacji lub czułość danych w każdej subskrypcji.
+    - Wszelkie standardy branżowe lub normatywne lub testy porównawcze, które są stosowane do subskrypcji. 
+- Monitorowanie stanu maszyn wirtualnych platformy Azure, sieci i aplikacji.
+- Udostępnienie listy alertów zabezpieczeń, w tym alertów z zintegrowanych rozwiązań partnerskich. Zawiera również informacje, które należy wykonać, aby szybko zbadać ataki i zalecenia dotyczące sposobu jego rozwiązania.
 
 Więcej informacji:
 

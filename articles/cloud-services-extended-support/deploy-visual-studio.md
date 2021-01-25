@@ -9,16 +9,16 @@ ms.workload: azure-vs
 ms.topic: tutorial
 ms.date: 10/5/2020
 ms.author: ghogen
-ms.openlocfilehash: 1c2264cb76e062f5f22c0460572ec01750086a04
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: b12f8beeee054e547a6b58750d8482d32ee14453
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98745074"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747260"
 ---
 # <a name="create-and-deploy-a-azure-cloud-service-extended-support-using-visual-studio"></a>Tworzenie i wdrażanie usługi w chmurze platformy Azure (obsługa rozszerzona) przy użyciu programu Visual Studio
 
-Począwszy od programu Visual Studio 2019 w wersji 16,9 (wersja zapoznawcza 1) można korzystać z Cloud Services (obsługa rozszerzona) przy użyciu Azure Resource Manager, co znacznie upraszcza i modernizacj konserwację zasobów platformy Azure oraz zarządzanie nimi. Istnieje również możliwość konwersji istniejącego projektu usługi w chmurze na projekt usługi w chmurze o rozszerzonej pomocy technicznej.
+Począwszy od [programu Visual Studio 2019 w wersji 16,9](https://visualstudio.microsoft.com/vs/preview/) (obecnie dostępnego w wersji zapoznawczej), możesz współpracować z usługami w chmurze za pomocą Azure Resource Manager (ARM), co znacznie upraszcza i modernizacj konserwację zasobów platformy Azure oraz zarządzanie nimi. Jest to możliwe dzięki nowej usłudze platformy Azure, która jest nazywana Cloud Services (obsługa rozszerzona). Istnieje możliwość opublikowania istniejącej usługi w chmurze w celu Cloud Services (obsługa rozszerzona). Aby uzyskać informacje na temat tej usługi platformy Azure, zobacz [dokumentację dotyczącą Cloud Services (obsługa rozszerzona)](overview.md).
 
 > [!IMPORTANT]
 > Cloud Services (obsługa rozszerzona) jest obecnie dostępna w publicznej wersji zapoznawczej.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 4b34477a40530a0e6f26b59dd9707c019418b2a4
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 6010242e7fbd14aa117c481dee0d05e92928ef1b
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655854"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747495"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Łączenie rozwiązania zewnętrznego przy użyciu typowego formatu zdarzeń
 
@@ -77,6 +77,12 @@ Upewnij się, że maszyna z systemem Linux używana jako usługa przesyłania da
   - Dziennik systemowy RFC 5424
  
 Upewnij się, że komputer spełnia również następujące wymagania: 
+
+- Pojemność
+  - Komputer musi mieć co najmniej **4 rdzenie procesora i 8 GB pamięci RAM**.
+
+    > [!NOTE]
+    > - Pojedyncza maszyna usługi przesyłania dalej dzienników przy użyciu demona **rsyslog** ma obsługiwaną pojemność **do 8500 zdarzeń na sekundę (EPS)** .
 
 - Uprawnienia
   - Musisz mieć podwyższony poziom uprawnień (sudo) na swojej maszynie. 
