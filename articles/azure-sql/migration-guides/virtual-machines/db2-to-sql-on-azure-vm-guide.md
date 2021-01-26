@@ -3,19 +3,19 @@ title: Bazy danych DB2 do SQL Server na maszynach wirtualnych platformy Azure (P
 description: Postępuj zgodnie z tym przewodnikiem, aby przeprowadzić migrację serwera DB2 do SQL Server na maszynach wirtualnych platformy Azure.
 ms.custom: ''
 ms.service: virtual-machines-sql
-ms.subservice: ''
+ms.subservice: migration-guide
 ms.devlang: ''
 ms.topic: how-to
 author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 5312ee08bad9d0b84e13c53fe4b1de59fad896f1
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: c3f3af6a1c114d6587992f79e95dcc0c1ccb41e6
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326050"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797474"
 ---
 # <a name="migration-guide-db2-to-sql-server-on-azure-vms"></a>Przewodnik migracji: DB2 do SQL Server na maszynach wirtualnych platformy Azure
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -63,7 +63,7 @@ Aby utworzyć ocenę, wykonaj następujące kroki:
 
 1. Przejrzyj raport HTML, aby poznać statystyki konwersji oraz błędy lub ostrzeżenia. Możesz również otworzyć raport w programie Excel, aby uzyskać spis obiektów DB2 i nakład pracy wymagany do przeprowadzenia konwersji schematu. Domyślna lokalizacja raportu znajduje się w folderze raportów w SSMAProjects.
 
-   Przykład: `drive:\<username>\Documents\SSMAProjects\MyDB2Migration\report\report_<date>`. 
+   Na przykład: `drive:\<username>\Documents\SSMAProjects\MyDB2Migration\report\report_<date>`. 
 
    :::image type="content" source="media/db2-to-sql-on-azure-vm-guide/report.png" alt-text="Przejrzyj raport, aby zidentyfikować błędy lub ostrzeżenia":::
 
@@ -104,7 +104,7 @@ Aby przekonwertować schemat, wykonaj następujące kroki:
 1. Zapisz projekt lokalnie dla ćwiczenia korygowania schematu w trybie offline. Wybierz pozycję **Zapisz projekt** z menu **plik** . 
 
 
-## <a name="migrate"></a>Migrate (Migracja)
+## <a name="migrate"></a>Migrate
 
 Po zakończeniu oceniania baz danych i rozwiązaniu jakichkolwiek rozbieżności następnym krokiem jest wykonanie procesu migracji.
 

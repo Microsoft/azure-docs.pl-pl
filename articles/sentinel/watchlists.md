@@ -10,14 +10,17 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
-ms.openlocfilehash: fd3c8a08e5512d15be4dfb26ca3eff151d08386f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e31128687cfcc1f4e32879328ad3227182efb9ce
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651366"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797353"
 ---
 # <a name="use-azure-sentinel-watchlists"></a>Korzystanie z platformy Azure — wskaźnik watchlists
+
+> [!IMPORTANT]
+> Funkcja watchlists jest obecnie w **wersji zapoznawczej**. Zapoznaj się z dodatkowymi [warunkami użytkowania Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) wersji zapoznawczych, aby uzyskać dodatkowe postanowienia prawne dotyczące funkcji systemu Azure, które są w wersji beta, Preview lub w inny sposób nie zostały jeszcze udostępnione publicznie.
 
 Platforma Azure watchlists umożliwia zbieranie danych z zewnętrznych źródeł danych w celu korelacji ze zdarzeniami w środowisku wskaźnikowym platformy Azure. Po utworzeniu można użyć watchlists w wyszukiwaniu, regułach wykrywania, pokryciu zagrożeń i elementy PlayBook odpowiedzi. Watchlists są przechowywane w obszarze roboczym usługi Azure wskaźnikowym jako pary nazwa-wartość i są buforowane w celu uzyskania optymalnej wydajności zapytań i małych opóźnień.
 
@@ -33,7 +36,7 @@ Typowe scenariusze używania watchlists obejmują:
 
 ## <a name="create-a-new-watchlist"></a>Utwórz nowy listy do obejrzenia
 
-1. W Azure Portal przejdź do **usługi Azure**  >  **Configuration**  >  **listy do obejrzenia** Configuration, a następnie wybierz pozycję **Dodaj nowe**.
+1. W Azure Portal przejdź do **usługi Azure**  >    >  **listy do obejrzenia** Configuration, a następnie wybierz pozycję **Dodaj nowe**.
 
     > [!div class="mx-imgBorder"]
     > ![Nowy listy do obejrzenia](./media/watchlists/sentinel-watchlist-new.png)
@@ -62,7 +65,7 @@ Typowe scenariusze używania watchlists obejmują:
 
 ## <a name="use-watchlists-in-queries"></a>Używanie watchlists w zapytaniach
 
-1. W Azure Portal przejdź do **usługi Azure**  >  **Configuration**  >  **listy do obejrzenia** Configuration, wybierz listy do obejrzenia, którego chcesz użyć, a następnie wybierz pozycję **Widok w log Analytics**.
+1. W Azure Portal przejdź do **usługi Azure**  >    >  **listy do obejrzenia** Configuration, wybierz listy do obejrzenia, którego chcesz użyć, a następnie wybierz pozycję **Widok w log Analytics**.
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-list.png" alt-text="Używanie watchlists w zapytaniach" lightbox="./media/watchlists/sentinel-watchlist-queries-list.png":::
 
@@ -73,15 +76,47 @@ Typowe scenariusze używania watchlists obejmują:
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-fields.png" alt-text="zapytania z polami listy do obejrzenia" lightbox="./media/watchlists/sentinel-watchlist-queries-fields.png":::
     
+1. Możesz wykonywać zapytania dotyczące danych w dowolnej tabeli względem danych z listy do obejrzenia, traktując listy do obejrzenia jako tabelę dla sprzężeń i odnośników.
+
+    ```kusto
+    Heartbeat
+    | lookup kind=leftouter _GetWatchlist('IPlist') 
+     on $left.ComputerIP == $right.IPAddress
+    ```
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-join.png" alt-text="zapytania względem listy do obejrzenia jako wyszukiwanie":::
+
 ## <a name="use-watchlists-in-analytics-rules"></a>Używanie watchlists w regułach analizy
 
 Aby użyć watchlists w regułach analizy, w Azure Portal przejdź do **usługi Azure wskaźnik**  >  **konfiguracji**  >  **analiz** i Utwórz regułę przy użyciu `_GetWatchlist('<watchlist>')` funkcji w zapytaniu.
 
-:::image type="content" source="./media/watchlists/sentinel-watchlist-analytics-rule.png" alt-text="Używanie watchlists w regułach analizy" lightbox="./media/watchlists/sentinel-watchlist-analytics-rule.png":::
+1. W tym przykładzie Utwórz listy do obejrzenia o nazwie "ipwatchlist" z następującymi wartościami:
+
+    :::image type="content" source="./media/watchlists/create-watchlist.png" alt-text="Lista czterech elementów do listy do obejrzenia":::
+
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-new-2.png" alt-text="Utwórz listy do obejrzenia z czterema elementami":::
+
+1. Następnie utwórz regułę analizy.  W tym przykładzie uwzględniamy tylko zdarzenia z adresów IP w listy do obejrzenia:
+
+    ```kusto
+    //Watchlist as a variable
+    let watchlist = (_GetWatchlist('ipwatchlist') | project IPAddress);
+    Heartbeat
+    | where ComputerIP in (watchlist)
+    ```
+    ```kusto
+    //Watchlist inline with the query
+    Heartbeat
+    | where ComputerIP in ( 
+        (_GetWatchlist('ipwatchlist')
+        | project IPAddress)
+    )
+    ```
+
+:::image type="content" source="./media/watchlists/sentinel-watchlist-analytics-rule-2.png" alt-text="Używanie watchlists w regułach analizy":::
 
 ## <a name="view-list-of-watchlists-aliases"></a>Wyświetlanie listy aliasów watchlists
 
-Aby uzyskać listę aliasów listy do obejrzenia, w Azure Portal przejdź do ogólnych dzienników **usługi Azure wskaźnikowego**  >  **General**  >  **Logs** i uruchom następujące zapytanie: `_GetWatchlistAlias` . Listę aliasów można zobaczyć na karcie **wyniki** .
+Aby uzyskać listę aliasów listy do obejrzenia, w Azure Portal przejdź do ogólnych dzienników **usługi Azure wskaźnikowego**  >    >  i uruchom następujące zapytanie: `_GetWatchlistAlias` . Listę aliasów można zobaczyć na karcie **wyniki** .
 
 > [!div class="mx-imgBorder"]
 > ![watchlists listy](./media/watchlists/sentinel-watchlist-alias.png)

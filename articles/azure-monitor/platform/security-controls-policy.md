@@ -1,18 +1,18 @@
 ---
 title: Azure Policy kontroli zgodności z przepisami dla Azure Monitor
 description: Wyświetla listę Azure Policy kontroli zgodności z przepisami, które są dostępne dla Azure Monitor. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
-ms.date: 01/21/2021
+ms.date: 01/25/2021
 ms.topic: sample
 author: rboucher
 ms.author: robb
 ms.service: azure-monitor
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 31929cbb27cfbfba0d76e417609d98bc29664bfd
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 04d43e40d6faf2cd884b56d342762e4984a2ae57
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98673313"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98795668"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-monitor"></a>Azure Policy kontroli zgodności z przepisami dla Azure Monitor
 

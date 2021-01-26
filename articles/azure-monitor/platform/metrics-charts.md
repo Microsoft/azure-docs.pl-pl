@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: b4feb177abbdbfb9666be0ea0746c8316acdf5ae
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 2f8dc9f53c36f59a152fc34361b3726ea2cc001c
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250761"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797057"
 ---
 # <a name="advanced-features-of-the-azure-metrics-explorer"></a>Zaawansowane funkcje Eksploratora metryk platformy Azure
 
@@ -129,16 +129,19 @@ Filtry można stosować do wykresów, których metryki mają wymiary. Załóżmy
 
    ![Zrzut ekranu pokazujący Wymiary (właściwości), które można filtrować.](./media/metrics-charts/028.png)
 
-3. Wybierz wartości wymiaru, które mają zostać uwzględnione podczas kreolenia wykresu. Poniższy przykład filtruje pomyślne transakcje magazynu:
+3. Wybierz operator, który ma zostać zastosowany względem wymiaru (właściwości). Operator domyślny to = (Equals)
+
+   ![Zrzut ekranu, który pokazuje operatora, którego można używać z filtrem.](./media/metrics-charts/filter-operator.png)
+
+4. Wybierz wartości wymiaru, które mają być stosowane do filtru podczas kreolenia wykresu (w tym przykładzie pokazano, jak odfiltrować pomyślne transakcje magazynu):
 
    ![Zrzut ekranu przedstawiający pomyślne odfiltrowane transakcje magazynu.](./media/metrics-charts/029.png)
 
-4. Wybierz poza **selektorem filtrów** , aby go zamknąć. Teraz wykres pokazuje, ile transakcji magazynu nie powiodło się:
+5. Po wybraniu wartości filtru kliknij poza selektorem filtru, aby go zamknąć. Teraz wykres pokazuje, ile transakcji magazynu nie powiodło się:
 
    ![Zrzut ekranu pokazujący, ile transakcji magazynu zakończyło się niepowodzeniem.](./media/metrics-charts/030.png)
 
-Możesz powtórzyć te kroki, aby zastosować wiele filtrów do tych samych wykresów.
-
+6. Możesz powtórzyć kroki 1-5, aby zastosować wiele filtrów do tych samych wykresów.
 
 
 ## <a name="metric-splitting"></a>Podział metryk
@@ -158,9 +161,18 @@ Można podzielić metrykę według wymiaru, aby wizualizować różne segmenty p
 
    Wykres zawiera teraz wiele wierszy, po jednym dla każdego segmentu wymiaru:
 
-   ![Zrzut ekranu pokazujący wiersze dla każdego segmentu wymiarów.](./media/metrics-charts/032.png)
+   ![Zrzut ekranu pokazujący wiele wierszy, jeden dla każdego segmentu wymiaru.](./media/metrics-charts/segment-dimension.png)
+   
+3. Wybierz limit liczby wartości, które mają być wyświetlane po podzieleniu według wybranego wymiaru. Domyślny limit wynosi 10, jak pokazano na powyższym wykresie. Zakresem limitu jest 1-50.
+   
+   ![Zrzut ekranu pokazujący limit dzielenia, który ogranicza liczbę wartości po rozdzieleniu.](./media/metrics-charts/segment-dimension-limit.png)
+   
+4. Wybierz kolejność sortowania w segmentach: rosnąco lub malejąco. Wybór domyślny to malejąco.
+   
+   ![Zrzut ekranu przedstawiający kolejność sortowania na wartościach podzielonych.](./media/metrics-charts/segment-dimension-sort.png)
 
-3. Wybierz poza **selektorem grupowania** , aby go zamknąć.
+5. Kliknij poza **selektorem grupowania** , aby go zamknąć.
+   
 
    > [!NOTE]
    > Aby ukryć segmenty, które nie są istotne dla danego scenariusza i aby ułatwić odczytywanie wykresów, użyj filtrowania i dzielenia w tym samym wymiarze.

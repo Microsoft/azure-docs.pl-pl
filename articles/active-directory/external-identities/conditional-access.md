@@ -5,46 +5,85 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 09/11/2017
+ms.date: 01/21/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eccbbb22814788aaf06fa6fd10d8c376203c1d49
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 42b3c3d4d474c61cbe472b4122ac2f80f218bf8d
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92892455"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797244"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Dostęp warunkowy dla użytkowników współpracy B2B
 
-## <a name="multi-factor-authentication-for-b2b-users"></a>Uwierzytelnianie wieloskładnikowe dla użytkowników B2B
-Dzięki funkcji współpracy B2B usługi Azure AD organizacje mogą wymuszać zasady uwierzytelniania wieloskładnikowego (MFA) dla użytkowników B2B. Te zasady można wymusić na poziomie dzierżawy, aplikacji lub poszczególnych użytkowników w taki sam sposób, w jaki są one włączone dla pracowników i członków organizacji w pełnym czasie. Zasady usługi MFA są wymuszane w organizacji zasobów.
+W tym artykule opisano, jak organizacje mogą określać zasady dostępu warunkowego (CA) dla użytkowników gościa B2B w celu uzyskania dostępu do zasobów.
+>[!NOTE]
+>Ten przepływ uwierzytelniania lub autoryzacji jest nieco różny dla użytkowników-Gości niż w przypadku istniejących użytkowników tego dostawcy tożsamości (dostawcy tożsamości).
 
-Przykład:
-1. Administrator lub pracownik przetwarzający informacje w firmie A prosi użytkownika od firmy B do aplikacji *foo* w firmie a.
-2. Aplikacja *foo* w firmie A jest skonfigurowana tak, aby wymagać uwierzytelniania wieloskładnikowego w przypadku dostępu.
-3. Gdy użytkownik z firmy B próbuje uzyskać dostęp do aplikacji *foo* w dzierżawie firmy, zostanie poproszony o ukończenie wyzwania usługi MFA.
-4. Użytkownik może skonfigurować uwierzytelnianie wieloskładnikowe za pomocą firmy A i wybrać opcję MFA.
-5. Ten scenariusz działa w przypadku dowolnej tożsamości (Azure AD lub MSA, na przykład jeśli użytkownicy w firmie B uwierzytelniają się przy użyciu identyfikatora społecznościowego)
-6. Firma A musi dysponować wystarczającą licencją usługi Azure AD, która obsługuje uwierzytelnianie wieloskładnikowe. Użytkownik z firmy B używa tej licencji od firmy A.
+## <a name="authentication-flow-for-b2b-guest-users-from-an-external-directory"></a>Przepływ uwierzytelniania dla użytkowników Gości B2B z zewnętrznego katalogu
 
-Dzierżawa zapraszana jest zawsze odpowiedzialna za usługę MFA dla użytkowników z organizacji partnerskiej, nawet jeśli organizacja partnerska ma możliwości usługi MFA.
+Na poniższym diagramie przedstawiono przepływ: ![ obraz przedstawia przepływ uwierzytelniania dla użytkowników gościa B2B z zewnętrznego katalogu](./media/conditional-access-b2b/authentication-flow-b2b-guests.png)
 
-### <a name="setting-up-mfa-for-b2b-collaboration-users"></a>Konfigurowanie uwierzytelniania wieloskładnikowego dla użytkowników współpracy B2B
-Aby dowiedzieć się, jak łatwo jest skonfigurować uwierzytelnianie wieloskładnikowe dla użytkowników współpracy B2B, zobacz jak to zrobić:
+| Krok | Opis |
+|--------------|-----------------------|
+| 1. | Użytkownik-Gość B2B żąda dostępu do zasobu. Zasób przekierowuje użytkownika do dzierżawy zasobów, zaufane dostawcy tożsamości.|
+| 2. | Dzierżawca zasobów identyfikuje użytkownika jako zewnętrznego i przekierowuje użytkownika do dostawcy tożsamości użytkownika-gościa B2B. Użytkownik wykonuje podstawowe uwierzytelnianie w dostawcy tożsamości.
+| 3. | Dostawcy tożsamości użytkownika-gościa B2B wystawia token dla użytkownika. Użytkownik zostanie przekierowany z powrotem do dzierżawy zasobu z tokenem. Dzierżawca zasobów weryfikuje token, a następnie szacuje użytkownika w odniesieniu do jego zasad urzędu certyfikacji. Na przykład dzierżawca zasobów może wymagać od użytkownika przeprowadzenia Multi-Factor Authentication Azure Active Directory (AD).
+| 4. | Po spełnieniu wszystkich zasad urzędu certyfikacji dzierżawcy zasobów dzierżawa zasobów wystawia swój własny token i przekierowuje użytkownika do jego zasobu.
+
+## <a name="authentication-flow-for-b2b-guest-users-with-one-time-passcode"></a>Przepływ uwierzytelniania dla użytkowników Gości B2B z jednorazowym kodem dostępu
+
+Na poniższym diagramie przedstawiono przepływ: ![ obraz przedstawia przepływ uwierzytelniania dla użytkowników gościa B2B z jednorazowym kodem dostępu](./media/conditional-access-b2b/authentication-flow-b2b-guests-otp.png)
+
+| Krok | Opis |
+|--------------|-----------------------|
+| 1. |Użytkownik żąda dostępu do zasobu w innej dzierżawie. Zasób przekierowuje użytkownika do dzierżawy zasobów, zaufane dostawcy tożsamości.|
+| 2. | Dzierżawca zasobów identyfikuje użytkownika jako [zewnętrzną wiadomość e-mail jednorazowy kod dostępu (OTP)](https://docs.microsoft.com/azure/active-directory/external-identities/one-time-passcode) , a następnie wysyła wiadomość E-mail z uwierzytelnianiem OTP do użytkownika.|
+| 3. | Użytkownik pobiera uwierzytelnianie OTP i przesyła kod. Dzierżawca zasobów szacuje użytkownika w odniesieniu do zasad jego urzędu certyfikacji.
+| 4. | Po spełnieniu wszystkich zasad urzędu certyfikacji dzierżawca zasobów wystawia token i przekierowuje użytkownika do jego zasobu. |
+
+>[!NOTE]
+>Jeśli użytkownik należy do dzierżawy zasobów zewnętrznych, nie jest możliwe przeprowadzenie oceny zasad urzędu certyfikacji dostawcy tożsamości użytkownika gościa B2B. Obecnie tylko zasady urzędu certyfikacji dzierżawcy zasobu dotyczą swoich Gości.
+
+## <a name="azure-ad-multi-factor-authentication-for-b2b-users"></a>Multi-Factor Authentication usługi Azure AD dla użytkowników B2B
+
+Organizacje mogą wymuszać wiele zasad Multi-Factor Authentication usługi Azure AD dla użytkowników Gości B2B. Te zasady można wymusić na poziomie dzierżawy, aplikacji lub poszczególnych użytkowników w taki sam sposób, w jaki są one dostępne dla pracowników i członków organizacji w pełnym czasie.
+Dzierżawca zasobów jest zawsze odpowiedzialny za Multi-Factor Authentication usługi Azure AD dla użytkowników, nawet jeśli organizacja użytkownika-gościa ma Multi-Factor Authentication możliwości. Oto przykład —
+
+1. Administrator lub pracownik przetwarzający informacje w firmie o nazwie Fabrikam zaprasza użytkownika z innej firmy o nazwie contoso do korzystania z aplikacji Woodgrove.
+
+2. Aplikacja Woodgrove w firmie Fabrikam jest skonfigurowana tak, aby wymagała Multi-Factor Authentication usługi Azure AD w celu uzyskania dostępu.
+
+3. Gdy użytkownik-Gość B2B firmy Contoso próbuje uzyskać dostęp do Woodgrove w dzierżawie firmy Fabrikam, zostanie poproszony o ukończenie wyzwania usługi Azure AD Multi-Factor Authentication.
+
+4. Użytkownik-gość może następnie skonfigurować swoją Multi-Factor Authentication usługi Azure AD przy użyciu programu Fabrikam i wybrać opcje.
+
+5. Ten scenariusz działa w przypadku każdej tożsamości — usługi Azure AD lub osobistego konta Microsoft (MSA). Na przykład jeśli użytkownik w firmie Contoso uwierzytelnia się przy użyciu identyfikatora społecznościowego.
+
+6. Firma Fabrikam musi mieć wystarczającą liczbę licencji usługi Azure AD, które obsługują usługę Azure AD Multi-Factor Authentication. Użytkownik firmy Contoso używa tej licencji od firmy Fabrikam. Aby uzyskać informacje na temat licencjonowania B2B, zobacz [model rozliczeń dla tożsamości zewnętrznych usługi Azure AD](https://docs.microsoft.com/azure/active-directory/external-identities/external-identities-pricing) .
+
+>[!NOTE]
+>Usługa Azure AD Multi-Factor Authentication jest wykonywana w dzierżawie zasobów, aby zapewnić przewidywalność.
+
+### <a name="set-up-azure-ad-multi-factor-authentication-for-b2b-users"></a>Konfigurowanie Multi-Factor Authentication usługi Azure AD dla użytkowników B2B
+
+Aby skonfigurować usługę Azure AD Multi-Factor Authentication dla użytkowników współpracy B2B, Obejrzyj ten klip wideo:
 
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup/Player]
 
-### <a name="b2b-users-mfa-experience-for-offer-redemption"></a>Środowisko MFA użytkowników B2B dla realizacji oferty
-Zapoznaj się z następującą animacją, aby zobaczyć środowisko wykupu:
+### <a name="b2b-users-azure-ad-multi-factor-authentication-for-offer-redemption"></a>Użytkownicy B2B usługi Azure AD Multi-Factor Authentication na potrzeby wykupu oferty
+
+Aby dowiedzieć się więcej na temat środowiska wykupu usługi Azure AD Multi-Factor Authentication, Obejrzyj ten film wideo:
 
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/MFA-redemption/Player]
 
-### <a name="mfa-reset-for-b2b-collaboration-users"></a>Resetowanie MFA dla użytkowników współpracy B2B
-Obecnie administrator może wymagać, aby użytkownicy współpracy B2B mogli ponownie przeprowadzić weryfikację tylko przy użyciu następujących poleceń cmdlet programu PowerShell:
+### <a name="azure-ad-multi-factor-authentication-reset-for-b2b-users"></a>Resetowanie Multi-Factor Authentication usługi Azure AD dla użytkowników B2B
+
+Teraz następujące polecenia cmdlet programu PowerShell są dostępne do poświadczania użytkowników-Gości B2B:
 
 1. Łączenie z usługą Azure AD
 
@@ -63,52 +102,57 @@ Obecnie administrator może wymagać, aby użytkownicy współpracy B2B mogli po
    Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
    ```
 
-3. Zresetuj metodę MFA dla określonego użytkownika, aby wymagać od użytkownika współpracy B2B, aby ponownie ustawił metody potwierdzania. Przykład:
+3. Zresetuj metodę Multi-Factor Authentication usługi Azure AD dla określonego użytkownika, aby wymagać od użytkownika współpracy B2B, aby ponownie ustawił metody potwierdzania. 
+   Oto przykład:
 
    ```
    Reset-MsolStrongAuthenticationMethodByUpn -UserPrincipalName gsamoogle_gmail.com#EXT#@ WoodGroveAzureAD.onmicrosoft.com
    ```
 
-### <a name="why-do-we-perform-mfa-at-the-resource-tenancy"></a>Dlaczego wykonujemy uwierzytelnianie wieloskładnikowe w dzierżawie zasobu?
+## <a name="conditional-access-for-b2b-users"></a>Dostęp warunkowy dla użytkowników B2B
 
-W bieżącej wersji uwierzytelnianie wieloskładnikowe jest zawsze w dzierżawie zasobów z powodu przewidywalności. Załóżmy na przykład, że użytkownik contoso (Sally) jest zapraszany do firmy Fabrikam, a firma Fabrikam włączyła uwierzytelnianie wieloskładnikowe dla użytkowników B2B.
+Istnieją różne czynniki wpływające na zasady urzędu certyfikacji dla użytkowników gościa B2B.
 
-Jeśli firma Contoso ma włączone zasady MFA dla usługi APP1, ale nie APP2, wtedy, gdy w tokenie zostanie wyświetlona firma Contoso MFA, może zostać wyświetlony następujący problem:
+### <a name="device-based-conditional-access"></a>Dostęp warunkowy oparty na urządzeniach
 
-* Dzień 1: użytkownik ma usługę MFA w firmie Contoso i ma dostęp do usługi APP1, a w firmie Fabrikam nie jest wyświetlany dodatkowy monit usługi MFA.
+W urzędzie certyfikacji istnieje możliwość wymagania [zgodności urządzenia użytkownika z usługą Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#device-state-preview). Użytkownicy-Goście B2B mogą spełnić wymagania dotyczące zgodności tylko wtedy, gdy dzierżawca zasobów może zarządzać swoim urządzeniem. Urządzenia nie mogą być zarządzane jednocześnie przez więcej niż jedną organizację. Użytkownicy-Goście B2B nie mogą zaspokoić hybrydowego sprzężenia usługi Azure AD, ponieważ nie mają lokalnego konta usługi AD. Tylko wtedy, gdy urządzenie użytkownika-gościa jest niezarządzane, może zarejestrować lub zarejestrować swoje urządzenie w dzierżawie zasobu, a następnie zapewnić zgodność urządzenia. Użytkownik może następnie spełnić wartość kontrolki Udziel.
 
-* Dzień 2: użytkownik uzyskał dostęp do aplikacji 2 w firmie Contoso, więc teraz podczas uzyskiwania dostępu do firmy Fabrikam muszą oni zarejestrować się na potrzeby usługi MFA.
+>[!Note]
+>Nie zaleca się wymagać urządzenia zarządzanego dla użytkowników zewnętrznych.
 
-Ten proces może być mylący i może prowadzić do porzucenia zaawansowania logowania.
+### <a name="mobile-application-management-policies"></a>Zasady zarządzania aplikacjami mobilnymi
 
-Ponadto nawet jeśli firma Contoso ma funkcję MFA, nie zawsze jest to konieczne, a firma Fabrikam ufa zasadom usługi MFA firmy Contoso.
+Urząd certyfikacji przyznaje kontrolki, takie jak **Wymagaj zatwierdzonych aplikacji klienckich** i wymaga, aby **Zasady ochrony aplikacji wymagały** zarejestrowania urządzenia w dzierżawie. Te kontrolki można stosować tylko na [urządzeniach z systemami iOS i Android](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#device-platforms). Jednak żadna z tych kontrolek nie może być stosowana dla użytkowników-Gości B2B, jeśli urządzenie użytkownika jest już zarządzane przez inną organizację. Nie można zarejestrować urządzenia przenośnego w więcej niż jednej dzierżawie jednocześnie. Jeśli urządzenie przenośne jest zarządzane przez inną organizację, użytkownik zostanie zablokowany. Tylko wtedy, gdy urządzenie użytkownika-gościa jest niezarządzane, może zarejestrować swoje urządzenie w dzierżawie zasobów. Użytkownik może następnie spełnić wartość kontrolki Udziel.  
 
-Na koniec uwierzytelnianie wieloskładnikowe dzierżawcy zasobów działa również w przypadku identyfikatorów kont MSA i społecznościowych oraz dla partnerów organizacje, dla których nie skonfigurowano usługi MFA.
+>[!NOTE]
+>Nie zaleca się zadawania zasad ochrony aplikacji użytkownikom zewnętrznym.
 
-W związku z tym zalecenie dotyczące usługi MFA dla użytkowników B2B ma zawsze wymagać uwierzytelniania wieloskładnikowego w przypadku zapraszania dzierżawy. To wymaganie może prowadzić do podwójnej MFA w niektórych przypadkach, ale w przypadku uzyskiwania dostępu do dzierżawy zapraszanej środowisko użytkowników końcowych jest przewidywalne: Sally musi zarejestrować się w usłudze MFA przy użyciu zapraszanej dzierżawy.
+### <a name="location-based-conditional-access"></a>Dostęp warunkowy oparty na lokalizacji
 
-### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>Dostęp warunkowy oparty na urządzeniach, lokalizacjach i na podstawie ryzyka dla użytkowników B2B
+[Zasady oparte na lokalizacji](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#locations) oparte na zakresach adresów IP można wymusić, jeśli zapraszana organizacja może utworzyć zakres zaufanego adresu IP, który definiuje ich organizacje partnerskie.
 
-Gdy firma Contoso włącza zasady dostępu warunkowego opartego na urządzeniach dla danych firmowych, dostęp jest zablokowany przez urządzenia, które nie są zarządzane przez firmę Contoso i nie są zgodne z zasadami dotyczącymi urządzeń firmy Contoso.
+Zasady mogą być również wymuszane na podstawie **lokalizacji geograficznych**.
 
-Jeśli urządzenie użytkownika B2B nie jest zarządzane przez firmę Contoso, dostęp użytkowników B2B z organizacji partnerskich jest blokowany w kontekście, w którym te zasady są wymuszane. Firma Contoso może jednak utworzyć listę wykluczeń zawierającą określonych użytkowników partnerskich, aby wykluczyć je z zasad dostępu warunkowego opartego na urządzeniach.
+### <a name="risk-based-conditional-access"></a>Dostęp warunkowy oparty na ryzyku
 
-#### <a name="mobile-application-management-policies-for-b2b"></a>Zasady zarządzania aplikacjami mobilnymi dla B2B
+[Zasady dotyczące ryzyka związanego z logowaniem](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#sign-in-risk) są wymuszane, jeśli użytkownik Gość B2B spełni kontrolę dotacji. Organizacja może na przykład wymagać, aby usługa Azure AD Multi-Factor Authentication w celu zapewnienia średniego lub wysokiego ryzyka związanego z logowaniem. Jeśli jednak użytkownik nie zarejestrował wcześniej usługi Azure AD Multi-Factor Authentication w dzierżawie zasobów, zostanie on zablokowany. Jest to konieczne, aby uniemożliwić złośliwym użytkownikom rejestrowanie własnych poświadczeń usługi Azure AD Multi-Factor Authentication w przypadku naruszenia hasła przez uprawnionych użytkowników.
 
-Zasady ochrony aplikacji dostępu warunkowego nie mogą być stosowane do użytkowników B2B, ponieważ zapraszana organizacja nie ma wglądu w organizację domową użytkownika B2B.
+Nie można jednak rozpoznać [zasad ryzyka użytkownika](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#user-risk) w dzierżawie zasobu. Na przykład jeśli wymagana jest zmiana hasła dla użytkowników-Gości o wysokim ryzyku, będą one blokowane z powodu niezdolności do resetowania haseł w katalogu zasobów.
 
-#### <a name="location-based-conditional-access-for-b2b"></a>Dostęp warunkowy oparty na lokalizacji dla B2B
+### <a name="conditional-access-client-apps-condition"></a>Warunek aplikacji klienta dostępu warunkowego
 
-Zasady dostępu warunkowego oparte na lokalizacji mogą być wymuszane dla użytkowników B2B, jeśli zapraszana organizacja może utworzyć zakres zaufanego adresu IP, który definiuje ich organizacje partnerskie.
+[Warunki aplikacji klienckich](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#client-apps) działają tak samo dla użytkowników Gości B2B, jak w przypadku każdego innego typu użytkownika. Można na przykład uniemożliwić użytkownikom-gościom używanie starszych protokołów uwierzytelniania.
 
-#### <a name="risk-based-conditional-access-for-b2b"></a>Dostęp warunkowy oparty na ryzyku dla B2B
+### <a name="conditional-access-session-controls"></a>Kontrolki sesji dostępu warunkowego
 
-Obecnie zasady logowania oparte na ryzyku nie mogą być stosowane do użytkowników B2B, ponieważ Ocena ryzyka jest wykonywana w organizacji głównej użytkownika B2B.
+[Kontrolki sesji](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-session) działają tak samo dla użytkowników Gości B2B, jak w przypadku każdego innego typu użytkownika.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z następującymi artykułami dotyczącymi współpracy B2B w usłudze Azure AD:
+Aby uzyskać więcej informacji, zobacz następujące artykuły dotyczące współpracy B2B w usłudze Azure AD:
 
-* [Czym jest współpraca B2B w usłudze Azure AD?](what-is-b2b.md)
-* [Cennik tożsamości zewnętrznych](external-identities-pricing.md)
-* [Współpraca B2B w usłudze Active Directory Azure — często zadawane pytania](faq.md)
+- [Czym jest współpraca B2B w usłudze Azure AD?](https://docs.microsoft.com/azure/active-directory/external-identities/what-is-b2b)
+- [Usługa Identity Protection i użytkownicy B2B](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-b2b)
+- [Cennik tożsamości zewnętrznych](https://azure.microsoft.com/pricing/details/active-directory/)
+- [Często zadawane pytania](https://docs.microsoft.com/azure/active-directory/external-identities/faq)
+

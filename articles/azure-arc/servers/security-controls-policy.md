@@ -1,15 +1,15 @@
 ---
 title: Azure Policy kontroli zgodności z przepisami dla serwerów z obsługą usługi Azure ARC (wersja zapoznawcza)
 description: Wyświetla listę kontroli zgodności z przepisami Azure Policy dostępnych dla serwerów z włączonym usługą Azure ARC (wersja zapoznawcza). Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
-ms.date: 01/21/2021
+ms.date: 01/25/2021
 ms.topic: sample
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 54278d4448ed73d4cff2d79ce9e17df8a38806bd
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 25bfe883a764e469876ae9d70b5cd474f2d21e81
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98674774"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98795433"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-arc-enabled-servers"></a>Azure Policy kontroli zgodności z przepisami dla serwerów z obsługą usługi Azure Arc
 

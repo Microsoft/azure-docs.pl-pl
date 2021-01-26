@@ -1,18 +1,18 @@
 ---
 title: Azure Policy kontroli zgodności z przepisami dla Azure Key Vault
 description: Wyświetla listę Azure Policy kontroli zgodności z przepisami, które są dostępne dla Azure Key Vault. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
-ms.date: 01/21/2021
+ms.date: 01/25/2021
 ms.topic: sample
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: key-vault
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: a9ac32da432c359c61156d349e3bdc6b69ad520a
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 5dc305e6b582812072747c2ef090d498c6dace98
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98679038"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797416"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-key-vault"></a>Azure Policy kontroli zgodności z przepisami dla Azure Key Vault
 

@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 08/25/2020
 ms.author: alehall
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2658240e670e617f7296881f733ff369b9bf8f87
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: d4beef9383b8e51e1295639c18e745fd0fdf8588
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219032"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796950"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-cli"></a>Szybki Start: Tworzenie obszaru roboczego usługi Azure Synapse przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -50,31 +50,12 @@ W tym przewodniku szybki start dowiesz się, jak utworzyć obszar roboczy Synaps
     |SqlPassword| Wybierz bezpieczne hasło.|
     |||
 
-2. Utwórz grupę zasobów jako kontener dla obszaru roboczego usługi Azure Synapse:
+1. Utwórz grupę zasobów jako kontener dla obszaru roboczego usługi Azure Synapse:
     ```azurecli
     az group create --name $SynapseResourceGroup --location $Region
     ```
-3. Pobierz klucz konta magazynu ADLS generacji 2:
-    ```azurecli
-    StorageAccountKey=$(az storage account keys list \
-      --account-name $StorageAccountName \
-      | jq -r '.[0] | .value')
-    ```
-4. Pobierz adres URL punktu końcowego magazynu ADLS generacji 2:
-    ```azurecli
-    StorageEndpointUrl=$(az storage account show \
-      --name $StorageAccountName \
-      --resource-group $StorageAccountResourceGroup \
-      | jq -r '.primaryEndpoints | .dfs')
-    ```
 
-5. Obowiązkowe Zawsze możesz sprawdzić, do czego służy klucz konta magazynu ADLS Gen2 i punkt końcowy:
-    ```azurecli
-    echo "Storage Account Key: $StorageAccountKey"
-    echo "Storage Endpoint URL: $StorageEndpointUrl"
-    ```
-
-6. Utwórz obszar roboczy usługi Azure Synapse:
+1. Utwórz obszar roboczy usługi Azure Synapse:
     ```azurecli
     az synapse workspace create \
       --name $SynapseWorkspaceName \
@@ -86,14 +67,14 @@ W tym przewodniku szybki start dowiesz się, jak utworzyć obszar roboczy Synaps
       --location $Region
     ```
 
-7. Pobierz adres URL sieci Web i deweloperski dla obszaru roboczego usługi Azure Synapse:
+1. Pobierz adres URL sieci Web i deweloperski dla obszaru roboczego usługi Azure Synapse:
     ```azurecli
     WorkspaceWeb=$(az synapse workspace show --name $SynapseWorkspaceName --resource-group $SynapseResourceGroup | jq -r '.connectivityEndpoints | .web')
 
     WorkspaceDev=$(az synapse workspace show --name $SynapseWorkspaceName --resource-group $SynapseResourceGroup | jq -r '.connectivityEndpoints | .dev')
     ```
 
-8. Utwórz regułę zapory, aby zezwolić na dostęp do obszaru roboczego usługi Azure Synapse z maszyny:
+1. Utwórz regułę zapory, aby zezwolić na dostęp do obszaru roboczego usługi Azure Synapse z maszyny:
 
     ```azurecli
     ClientIP=$(curl -sb -H "Accept: application/json" "$WorkspaceDev" | jq -r '.message')
@@ -103,7 +84,7 @@ W tym przewodniku szybki start dowiesz się, jak utworzyć obszar roboczy Synaps
     az synapse workspace firewall-rule create --end-ip-address $ClientIP --start-ip-address $ClientIP --name "Allow Client IP" --resource-group $SynapseResourceGroup --workspace-name $SynapseWorkspaceName
     ```
 
-9. Otwórz adres URL sieci Web obszaru roboczego usługi Azure Synapse przechowywany w zmiennej środowiskowej `WorkspaceWeb` , aby uzyskać dostęp do obszaru roboczego:
+1. Otwórz adres URL sieci Web obszaru roboczego usługi Azure Synapse przechowywany w zmiennej środowiskowej `WorkspaceWeb` , aby uzyskać dostęp do obszaru roboczego:
 
     ```azurecli
     echo "Open your Azure Synapse Workspace Web URL in the browser: $WorkspaceWeb"

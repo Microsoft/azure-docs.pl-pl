@@ -1,18 +1,18 @@
 ---
 title: Azure Policy kontroli zgodności z przepisami dla usług sieciowych platformy Azure
 description: Wyświetla listę Azure Policy kontroli zgodności z przepisami, które są dostępne dla usług sieciowych platformy Azure. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
-ms.date: 01/21/2021
+ms.date: 01/25/2021
 ms.topic: sample
 author: KumudD
 ms.author: kumud
 ms.service: virtual-network
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: bc16ee6876cec96a8e650ce29e5cf65bcf7a1b64
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 66c51eff0325fe28c544cbe9dce2ead3492fdd1c
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676436"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797682"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-networking-services"></a>Azure Policy kontroli zgodności z przepisami dla usług sieciowych platformy Azure
 

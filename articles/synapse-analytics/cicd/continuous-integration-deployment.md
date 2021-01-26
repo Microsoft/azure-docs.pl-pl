@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 7a665bf05167a6bdf20c7325c66a5d0e439aa7f1
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: ba5286b16b6e640e968b50174e39a05328e750a4
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223690"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797311"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Ciągła integracja i dostarczanie dla obszaru roboczego usługi Azure Synapse
 
@@ -134,3 +134,13 @@ Jeśli korzystasz z integracji narzędzia Git z obszarem roboczym usługi Synaps
 -   **Przygotuj pule przed migracją artefaktów**. Jeśli masz skrypt SQL lub Notes dołączony do pul w obszarze roboczym programowanie, oczekiwana jest taka sama nazwa pul w różnych środowiskach. 
 -   **Infrastruktura jako kod (IaC)**. Zarządzanie infrastrukturą (sieciami, maszynami wirtualnymi, modułami równoważenia obciążenia i topologią połączenia) w modelu opisowym przy użyciu tej samej wersji, której zespół DevOps używa w przypadku kodu źródłowego. 
 -   **Inne osoby**. Zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi artefaktów ADF](../../data-factory/continuous-integration-deployment.md#best-practices-for-cicd)
+
+## <a name="troubleshooting-artifacts-deployment"></a>Rozwiązywanie problemów z wdrażaniem artefaktów 
+
+### <a name="use-the-synapse-workspace-deployment-task"></a>Korzystanie z zadania wdrażania obszaru roboczego Synapse
+
+W Synapse wszystkie rodzaje artefaktów nie są zasobami ARM, które różnią się funkcją ADF. Nie można użyć zadania wdrażania szablonu ARM do wdrożenia artefaktów Synapse
+ 
+### <a name="unexpected-token-error-in-release"></a>Nieoczekiwany błąd tokenu w wydaniu
+
+Gdy plik parametrów zawiera wartości parametrów, które nie są wyprowadzane, potok wydania nie może przeanalizować pliku z powodu błędu nieoczekiwanego tokenu. Sugerujemy przesłonięcie parametrów lub magazynu kluczy w celu uzyskania parametrów. Możesz również podwójnie wyucieczkć rozwiązanie jako obejście problemu.

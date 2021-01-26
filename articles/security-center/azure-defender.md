@@ -7,16 +7,14 @@ ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d9c8df4fe296bcd40f26847233fcd49bcab573c0
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: 23d00acc03ee879036a823f0c3d7fe2f67902e31
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97709453"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797011"
 ---
 # <a name="introduction-to-azure-defender"></a>Wprowadzenie do usługi Azure Defender
-
-[!INCLUDE [Solorigate banner](../../includes/security-center-solorigate.md)]
 
 Funkcje Azure Security Center obejmują dwa szerokie filary zabezpieczeń w chmurze:
 
@@ -101,4 +99,4 @@ Dowiedz się więcej na następujących stronach:
 Ten artykuł zawiera informacje o korzyściach płynących z usługi Azure Defender. 
 
 > [!div class="nextstepaction"]
-> [Włączanie usługi Azure Defender](security-center-pricing.md)
+> [Włączanie usługi Azure Defender](security-center-pricing.md#enable-azure-defender)

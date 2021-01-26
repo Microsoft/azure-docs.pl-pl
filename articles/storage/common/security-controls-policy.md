@@ -1,18 +1,18 @@
 ---
 title: Azure Policy kontroli zgodności z przepisami dla usługi Azure Storage
 description: Wyświetla listę Azure Policy kontroli zgodności z przepisami, które są dostępne dla usługi Azure Storage. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
-ms.date: 01/21/2021
+ms.date: 01/25/2021
 ms.topic: sample
 author: twooley
 ms.author: twooley
 ms.service: storage
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: fa40d781124d165fb1d2ff3986c10bff2cafa23c
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e75afab48bd4ae18e536b013d9b75f252de641f6
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98673164"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98795413"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-storage"></a>Azure Policy kontroli zgodności z przepisami dla usługi Azure Storage
 

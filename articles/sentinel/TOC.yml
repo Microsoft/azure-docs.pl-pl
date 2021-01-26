@@ -223,14 +223,26 @@
           href: bookmarks.md
         - name: Wyszukiwanie zagrożeń za pomocą transmisji strumieniowej na żywo
           href: livestream.md
-        - name: Zarządzanie zapytaniami do wyszukiwania zagrożeń za pomocą interfejsu REST-API
-          href: hunting-with-rest-api.md
     - name: Usuwanie usługi Azure Sentinel
       href: offboard.md
 - name: Dokumentacja (nowość!)
   items:
+    - name: Role RBAC platformy Azure
+      items:
+        - name: Wszystkie role platformy Azure
+          href: /azure/role-based-access-control/built-in-roles#all
+        - name: Role wskaźnikowe platformy Azure
+          href: /azure/role-based-access-control/built-in-roles#security
     - name: Interfejsy API REST
-      href: /rest/api/securityinsights/
+      items:
+        - name: Interfejs API REST platformy Azure
+          href: /rest/api/securityinsights/
+        - name: Zarządzanie zapytaniami do wyszukiwania zagrożeń za pomocą interfejsu REST-API
+          href: hunting-with-rest-api.md
+        - name: Zarządzanie watchlists za pomocą interfejsu REST API
+          href: watchlist-with-rest-api.md
+    - name: Łącznik usługi Logic Apps dla usługi Azure Sentinel
+      href: /connectors/azuresentinel/
     - name: Schemat normalizacji sieci
       href: normalization-schema.md
     - name: Wzbogacanie z użyciem analizy behawioralnej użytkowników i jednostek

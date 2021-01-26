@@ -1,16 +1,16 @@
 ---
 title: Azure Policy kontroli zgodności z przepisami dla Azure App Service
 description: Wyświetla listę Azure Policy kontroli zgodności z przepisami, które są dostępne dla Azure App Service. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
-ms.date: 01/21/2021
+ms.date: 01/25/2021
 ms.topic: sample
 ms.service: app-service
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 056876ea0dbc7a40de8c979290ac1b20f6fc7bd2
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: af99c000b13aed3a4cb31830d7f4dc8a81553299
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684119"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796172"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-app-service"></a>Azure Policy kontroli zgodności z przepisami dla Azure App Service
 

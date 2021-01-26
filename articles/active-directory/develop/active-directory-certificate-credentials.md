@@ -13,18 +13,18 @@ ms.date: 12/3/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 50a2f56824db67b73199439922e662339ff30872
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 22352f6d0c7dc48b98be5fcb4101f262adc480d6
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755298"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98795623"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Poświadczenia certyfikatu uwierzytelniania aplikacji platformy tożsamości firmy Microsoft
 
 Platforma tożsamości firmy Microsoft umożliwia aplikacji używanie własnych poświadczeń do uwierzytelniania w dowolnym miejscu, w którym można użyć klucza tajnego klienta, na przykład w przepływie  [przydzielenia poświadczeń klienta](v2-oauth2-client-creds-grant-flow.md) OAuth 2,0 i przepływie [w imieniu](v2-oauth2-on-behalf-of-flow.md) (OBO).
 
-Jedną z poświadczeń, których może używać aplikacja do uwierzytelniania, jest potwierdzenie [tokenu sieci Web JSON](./security-tokens.md#json-web-tokens-jwts-and-claims) (JWT) podpisane przy użyciu certyfikatu, którego właścicielem jest aplikacja.
+Jedną z poświadczeń, których może używać aplikacja do uwierzytelniania, jest potwierdzenie [tokenu sieci Web JSON](./security-tokens.md#json-web-tokens-and-claims) (JWT) podpisane przy użyciu certyfikatu, którego właścicielem jest aplikacja.
 
 ## <a name="assertion-format"></a>Format potwierdzenia
 

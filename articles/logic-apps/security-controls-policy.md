@@ -1,18 +1,18 @@
 ---
 title: Azure Policy kontroli zgodności z przepisami dla Azure Logic Apps
 description: Wyświetla listę Azure Policy kontroli zgodności z przepisami, które są dostępne dla Azure Logic Apps. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
-ms.date: 01/21/2021
+ms.date: 01/25/2021
 ms.topic: sample
 author: ecfan
 ms.author: estfan
 ms.service: logic-apps
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 281772eccc1ffcacb766ec75ac33802223845d2c
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 171eeececf6bfa0ab0c18bbc5ab33333c4d31e6a
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684673"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98795851"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-logic-apps"></a>Azure Policy kontroli zgodności z przepisami dla Azure Logic Apps
 

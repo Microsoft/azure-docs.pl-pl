@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: troubleshooting
-ms.date: 04/19/2019
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: b950f80ba8c2bdbaf7a515dc1ce127b934723177
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17b8d6de198746a79a50c4fbda805b364212e3c4
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85558561"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796049"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-blob-storage"></a>Rozwiązywanie problemów związanych z usługą Azure Data Box BLOB Storage
 
@@ -65,6 +65,7 @@ Te błędy nie są specyficzne dla żadnej aplikacji.
 |Komunikat o błędzie  |Zalecana akcja |
 |---------|---------|
 |Upłynął limit czasu połączenia. |Zaloguj się do urządzenia urządzenie Data Box i sprawdź, czy jest on odblokowany. Za każdym razem, gdy urządzenie zostanie ponownie uruchomione, pozostaje ono zablokowane, dopóki ktoś się nie zaloguje.|
+|Uwierzytelnianie interfejsu API REST kończy się niepowodzeniem z powodu błędu: serwer nie może uwierzytelnić żądania. Upewnij się, że wartość nagłówka autoryzacji jest poprawnie sformułowana, łącznie z sygnaturą. ErrorCode: AuthenticationFailed. |Jedną z przyczyn tego problemu jest to, że czas urządzenia nie jest synchronizowany z platformą Azure. W przypadku dużego pochylenia czasu uwierzytelnianie interfejsu API REST zostanie przerwane podczas próby skopiowania danych do urządzenie Data Box za pośrednictwem interfejsu API REST. W takiej sytuacji można otworzyć port wychodzący UDP 123, aby umożliwić dostęp do programu `time.windows.com` . Po zsynchronizowaniu czasu urządzenia z platformą Azure uwierzytelnianie powinno się powieść. |
 
 ## <a name="next-steps"></a>Następne kroki
 

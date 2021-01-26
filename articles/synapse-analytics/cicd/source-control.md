@@ -8,22 +8,18 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 1f1a74f3a26a079039e68eb8e59fac4c18ff0c32
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 3564609d869bef090f0a3db5e6040ba0f5ad80b0
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219746"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796971"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Kontrola źródła w usłudze Azure Synapse Studio
 
-Domyślnie autorzy usługi Azure Synapse Studio bezpośrednio w usłudze Synapse. Jednak to środowisko ma następujące ograniczenia:
+Domyślnie autorzy usługi Azure Synapse Studio bezpośrednio w usłudze Synapse. Jeśli potrzebujesz współpracy przy użyciu narzędzia Git na potrzeby kontroli źródła, Synapse Studio umożliwia skojarzenie obszaru roboczego z repozytorium git, Azure DevOps lub GitHub. 
 
-- Synapse Studio nie obejmuje tymczasowego magazynu do przechowywania zmian. Jedynym sposobem zapisywania i udostępniania zmian jest **Publikowanie** i wszystkie zmiany są publikowane bezpośrednio w usłudze Synapse.
-
-- Synapse Studio nie jest zoptymalizowana pod kątem współpracy i kontroli wersji.
-
-Aby zapewnić możliwość kontroli źródła, program Synapse Studio umożliwia skojarzenie obszaru roboczego z repozytorium git, Azure DevOps lub GitHub. W tym artykule opisano sposób konfigurowania i pracy w obszarze roboczym usługi Synapse z włączonym repozytorium git. Ponadto wyróżniamy niektóre najlepsze rozwiązania i wskazówki dotyczące rozwiązywania problemów.
+W tym artykule opisano sposób konfigurowania i pracy w obszarze roboczym usługi Synapse z włączonym repozytorium git. Ponadto wyróżniamy niektóre najlepsze rozwiązania i wskazówki dotyczące rozwiązywania problemów.
 
 > [!NOTE]
 > Integracja usługi Azure Synapse Studio Git nie jest dostępna w chmurze Azure Government.

@@ -229,3 +229,5 @@
       href: ../../virtual-wan/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi VPN Gateway
       href: ../../vpn-gateway/security-baseline.md
+    - name: Linia bazowa zabezpieczeń systemu Windows Virtual Desktop
+      href: ../../virtual-desktop/security-baseline.md

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 8d24ed014dd66235383b58cbcb7404aaf00f863e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 217872586d09531926b43a13d826efe559c70597
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92308959"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796755"
 ---
 # <a name="tutorial-azure-active-directory-ad-single-sign-on-sso-integration-with-f5"></a>Samouczek: integracja logowania jednokrotnego (SSO) w usłudze Azure Active Directory (AD) za pomocą klawisza F5
 
@@ -303,7 +303,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 | eb46b6b6. Session. SAML. Last. responseIssueInstant | `<ID>` |
 | eb46b6b6. Session. SAML. Last. responseIssuer | `https://sts.windows.net/<TENANT ID>/` |
 | eb46b6b6. Session. SAML. Last. Result | 1 |
-| eb46b6b6. Session. SAML. Last. samlVersion | 2,0 |
+| eb46b6b6. Session. SAML. Last. samlVersion | 2.0 |
 | eb46b6b6. Session. SAML. Last. sessionIndex | `<TENANT ID>` |
 | eb46b6b6. Session. SAML. Last. statusValue | urn: języka Oasis: names: TC: SAML: 2.0: status: sukces |
 | eb46b6b6. Session. SAML. Last. subjectConfirmDataNotOnOrAfter | `<ID>` |
@@ -314,7 +314,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ### <a name="create-f5-test-user"></a>Utwórz użytkownika testowego F5
 
-W tej sekcji utworzysz użytkownika o nazwie B. Simon w F5. Pracuj z [zespołem pomocy technicznej dla klientów F5](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) , aby dodać użytkowników na platformie F5. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego. 
+W tej sekcji utworzysz użytkownika o nazwie B. Simon w F5. Pracuj z [zespołem pomocy technicznej dla klientów F5](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) , aby dodać użytkowników na platformie F5. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego. 
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
@@ -335,3 +335,9 @@ Po kliknięciu kafelka F5 w panelu dostępu należy automatycznie zalogować si�
 - [Konfigurowanie logowania jednokrotnego dla aplikacji na podstawie nagłówka](headerf5-tutorial.md)
 
 - [Konfigurowanie logowania jednokrotnego dla aplikacji Kerberos](kerbf5-tutorial.md)
+
+- [F5 BIG-IP APM i integracja z usługą Azure AD na potrzeby bezpiecznego dostępu hybrydowego](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-integration)
+
+- [Samouczek pozwalający wdrożyć MASZYNę wirtualną z wirtualnym wydaniem F5 BIG-IP w usłudze Azure IaaS na potrzeby bezpiecznego dostępu hybrydowego](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-bigip-deployment-guide)
+
+- [Samouczek dotyczący Azure Active Directory integracji z logowaniem jednokrotnym przy użyciu protokołu F5 BIG-IP dla sieci VPN bez hasła](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-password-less-vpn)

@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: 5f1332255ae83a32f9b71d24d812b00fad9b7fa1
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 34fd595a03f67201b303c94764668bf86a6c244b
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637925"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796892"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Rozwiązywanie problemów z usługą SSIS Integration Runtime Management w programie Azure Data Factory
 
@@ -151,7 +151,7 @@ W tej sytuacji prawdopodobnie masz niestandardową konfigurację ustawień serwe
 
 Jeśli aprowizacja środowiska SSIS IR nie powiedzie się, wszystkie utworzone zasoby zostaną usunięte. Jeśli jednak istnieje blokada usuwania zasobów na poziomie subskrypcji lub grupy zasobów, zasoby sieci wirtualnej nie zostaną usunięte zgodnie z oczekiwaniami. Aby naprawić ten błąd, usuń blokadę usuwania i ponownie uruchom środowisko IR.
 
-### <a name="vnetresourcegrouplockedduringstop"></a>VNetResourceGroupLockedDuringStop
+### <a name="vnetresourcegrouplockedduringstopvnetdeletelock"></a>VNetResourceGroupLockedDuringStop/VNetDeleteLock
 
 Po zatrzymaniu środowiska SSIS IR wszystkie zasoby związane z siecią wirtualną są usuwane. Jednak usuwanie może zakończyć się niepowodzeniem, jeśli istnieje zasób z blokadą usuwania na poziomie subskrypcji lub grupy zasobów. Również w tym miejscu klient kontroluje i ustawia blokadę usuwania. W związku z tym musi on usunąć blokadę usuwania, a następnie ponownie zatrzymać środowisko SSIS IR.
 

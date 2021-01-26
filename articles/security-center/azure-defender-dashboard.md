@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 35469c7a11d47e586187b55bde1e8ad8a0c94f5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc54cc8dfc34db8aa88690c03ef0b18991e60776
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448404"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797112"
 ---
 # <a name="the-azure-defender-dashboard"></a>Pulpit nawigacyjny usługi Azure Defender
 
@@ -49,4 +49,4 @@ W tym artykule przedstawiono informacje o pulpicie nawigacyjnym usługi Azure De
 Aby uzyskać więcej informacji na temat usługi Azure Defender, zobacz [wprowadzenie do usługi Azure Defender](azure-defender.md)
 
 > [!div class="nextstepaction"]
-> [Włączanie usługi Azure Defender](security-center-pricing.md)
+> [Włączanie usługi Azure Defender](security-center-pricing.md#enable-azure-defender)

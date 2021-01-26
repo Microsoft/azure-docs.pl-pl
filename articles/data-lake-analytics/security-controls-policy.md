@@ -1,18 +1,18 @@
 ---
 title: Azure Policy kontroli zgodności z przepisami dla Azure Data Lake Analytics
 description: Wyświetla listę Azure Policy kontroli zgodności z przepisami, które są dostępne dla Azure Data Lake Analytics. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
-ms.date: 01/21/2021
+ms.date: 01/25/2021
 ms.topic: sample
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: data-lake-analytics
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 15e79ad822533adf8bcbb7f032a5877089e4a8c9
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 34657d1bb7c55f11dbfe3a7a42d14e2b6f2cc1cf
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98677696"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98795719"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-data-lake-analytics"></a>Azure Policy kontroli zgodności z przepisami dla Azure Data Lake Analytics
 

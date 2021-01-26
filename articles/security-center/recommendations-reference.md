@@ -1,18 +1,18 @@
 ---
 title: Tabela referencyjna dla wszystkich zaleceń Azure Security Center
-description: Ten artykuł zawiera listę zaleceń dotyczących zabezpieczeń Azure Security Center, które pomagają w ochronie Twoich zasobów.
+description: Ten artykuł zawiera listę zaleceń dotyczących zabezpieczeń Azure Security Center, które pomagają w zabezpieczaniu i ochronie zasobów.
 author: memildin
 ms.service: security-center
 ms.topic: reference
-ms.date: 01/24/2021
+ms.date: 01/26/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: cd72e904f659b7bd9c7e2df86b46fe20bd26ec33
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: f6d881036b0ebaa79d1052e41b8ec649bb1e8d6d
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757101"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797176"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Zalecenia dotyczące zabezpieczeń — przewodnik referencyjny
 

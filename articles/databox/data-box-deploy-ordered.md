@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/13/2021
 ms.author: alkohli
-ms.openlocfilehash: 4c44fca7b443a4d289b7ac7e2e507a3c3f305089
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 26e8f08d4b901a9ea57da826d9441d23508c4a4c
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790786"
+ms.locfileid: "98797615"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Samouczek: Zamawianie urządzenia Azure Data Box
 
@@ -231,7 +231,7 @@ Aby zamówić urządzenie, wykonaj następujące czynności w Azure Portal.
     |Kraj/region źródłowy    |    Wybierz kraj/region, w którym aktualnie znajdują się dane.         |
     |Docelowy region platformy Azure     |     Wybierz region platformy Azure, do którego chcesz przenieść dane. <br> Aby uzyskać więcej informacji, przejdź do sekcji [Dostępność regionalna](data-box-overview.md#region-availability).            |
 
-    ![Uruchamianie Azure Data Box kolejności importu](media/data-box-deploy-ordered/select-data-box-import-04-b.png#lightbox)
+    [![Uruchamianie Azure Data Box kolejności ](media/data-box-deploy-ordered/select-data-box-import-04-b.png) importu](media/data-box-deploy-ordered/select-data-box-import-04-b.png#lightbox)
 
 5. Wybierz pozycję **Data Box**. Maksymalna użyteczna pojemność dla pojedynczej kolejności wynosi 80 TB. W przypadku większych ilości danych możesz utworzyć wiele zamówień.
 

@@ -7,12 +7,12 @@ ms.date: 01/25/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: c6d62cf7b93255336d87cec1d0fef2c567cde9f2
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 200e1fd7bfffef403fa459d3de13dc31145b8a33
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791843"
+ms.locfileid: "98796627"
 ---
 # <a name="introduction-to-azure-defender-for-app-service"></a>Wprowadzenie do usługi Azure Defender dla App Service
 
@@ -62,9 +62,9 @@ Usługa Azure Defender monitoruje wiele zagrożeń dla zasobów App Service. Ale
 
 ### <a name="dangling-dns-detection"></a>Zawieszonego wykrywanie nazw DNS
 
-Usługa Azure Defender dla App Service identyfikuje także wszystkie wpisy DNS pozostały w rejestrze DNS podczas likwidowania witryny sieci App Serviceowej — są one znane jako zawieszonego wpisy DNS. W tej chwili wpis DNS wskazuje na nieistniejący zasób, a poddomena jest narażona na przejęcie. Usługa Azure Defender nie skanuje rejestratora DNS pod kątem *istniejących* wpisów DNS zawieszonego; generuje on alert, gdy witryna sieci Web w App Service zostanie zlikwidowana i jej domena niestandardowa (wpis DNS) nie zostanie usunięta.
+Usługa Azure Defender dla App Service identyfikuje także wszystkie wpisy DNS pozostały w rejestrze DNS podczas likwidowania witryny sieci App Serviceowej — są one znane jako zawieszonego wpisy DNS. Po usunięciu witryny sieci Web i usunięciu jej domeny niestandardowej z rejestratora DNS wpis DNS wskazuje na nieistniejący zasób, a poddomena jest narażona na przejęcie. Usługa Azure Defender nie skanuje rejestratora DNS pod kątem *istniejących* wpisów DNS zawieszonego; generuje on alert, gdy witryna sieci Web w App Service zostanie zlikwidowana i jej domena niestandardowa (wpis DNS) nie zostanie usunięta.
 
-Przejęcia poddomen są typowymi zagrożeniami o wysokiej ważności dla organizacji. Gdy aktor zagrożeń wykryje wpis DNS zawieszonego, tworzy własną witrynę na adresie docelowym. Ruch przeznaczony dla domeny organizacji jest następnie kierowany do witryny aktora zagrożeń i może korzystać z tego ruchu dla szerokiego zakresu złośliwych działań. 
+Przejęcia poddomen są typowymi zagrożeniami o wysokiej ważności dla organizacji. Gdy aktor zagrożeń wykryje wpis DNS zawieszonego, tworzy własną witrynę na adresie docelowym. Ruch przeznaczony dla domeny organizacji jest następnie kierowany do witryny aktora zagrożeń i może korzystać z tego ruchu dla szerokiego zakresu złośliwych działań.
 
 Zawieszonego ochrona DNS jest dostępna niezależnie od tego, czy domeny są zarządzane za pomocą Azure DNS, czy rejestratora domeny zewnętrznej i ma zastosowanie do App Service zarówno w systemie Windows, jak i Linux.
 
@@ -100,4 +100,4 @@ W przypadku pokrewnego materiału zapoznaj się z następującymi artykułami:
 - Listę alertów dotyczących usługi Azure Defender dla App Service można znaleźć w [tabeli referencyjnej alertów](alerts-reference.md#alerts-azureappserv).
 - Aby uzyskać więcej informacji na temat planów App Service, zobacz [plany App Service](https://azure.microsoft.com/pricing/details/app-service/plans/).
 > [!div class="nextstepaction"]
-> [Włączanie usługi Azure Defender](security-center-pricing.md)
+> [Włączanie usługi Azure Defender](security-center-pricing.md#enable-azure-defender)

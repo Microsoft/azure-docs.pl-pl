@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2020
-ms.openlocfilehash: 8bc303f619d145cc280e6caab65781bd42d1b314
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: db80ae66761e49ce90f25a22f0e74cf8a1300796
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489697"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797233"
 ---
 # <a name="choose-the-right-postgresql-server-option-in-azure"></a>Wybierz odpowiednią opcję serwera PostgreSQL na platformie Azure
 
@@ -21,7 +21,7 @@ Dzięki platformie Azure obciążenia serwera PostgreSQL mogą działać w hosto
 Podczas podejmowania decyzji Rozważ następujące trzy opcje w PaaS lub alternatywnie uruchomione na maszynach wirtualnych platformy Azure (IaaS)
 - [Azure Database for PostgreSQL — pojedynczy serwer](./overview-single-server.md)
 - [Serwer elastyczny usługi Azure Database for PostgreSQL](./flexible-server/overview.md)
-- [Azure Database for PostgreSQL — skalowanie (Citus)]()
+- [Azure Database for PostgreSQL — skalowanie (Citus)](hyperscale/index.yml)
 
 Opcja **PostgreSQL na maszynach wirtualnych platformy Azure** znajduje się w kategorii branża IaaS. Za pomocą tej usługi można uruchomić serwer PostgreSQL w ramach w pełni zarządzanej maszyny wirtualnej na platformie Azure w chmurze. Wszystkie najnowsze wersje i wersje programu PostgreSQL można zainstalować na maszynie wirtualnej IaaS. W najbardziej znaczącej różnicy między Azure Database for PostgreSQL PostgreSQL na maszynach wirtualnych platformy Azure oferuje kontrolę nad aparatem bazy danych. Jednak ten formant jest kosztem odpowiedzialności za zarządzanie maszynami wirtualnymi i wieloma zadaniami administracyjnymi bazy danych (DBA). Te zadania obejmują obsługę i stosowanie poprawek do serwerów baz danych, odzyskiwania bazy danych i projektu o wysokiej dostępności.
 

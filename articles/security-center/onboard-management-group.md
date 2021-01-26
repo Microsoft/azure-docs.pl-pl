@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2020
 ms.author: memildin
-ms.openlocfilehash: 4ecd436b548c29c520a7538970d4d703cc8488d2
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 31472b0a0eedee03d5cfcb6ff47a97033a8c78e0
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027571"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796062"
 ---
 # <a name="enable-security-center-on-all-subscriptions-in-a-management-group"></a>Włącz Security Center we wszystkich subskrypcjach w grupie zarządzania
 
@@ -25,20 +25,26 @@ Za pomocą Azure Policy można włączyć Azure Security Center wszystkich subsk
 
 Aby dołączyć grupę zarządzania i wszystkie jej subskrypcje:
 
-1. Jako użytkownik z uprawnieniami **administratora zabezpieczeń** Otwórz Azure Policy i Wyszukaj definicję **Włącz Azure Security Center w subskrypcji** .
+1. Jako użytkownik z uprawnieniami **administratora zabezpieczeń** Otwórz Azure Policy i Wyszukaj definicję **Włącz Azure Security Center w subskrypcji**.
 
     :::image type="content" source="./media/security-center-get-started/enable-security-center-policy.png" alt-text="Definicja Azure Policy włączania Azure Security Center w subskrypcji":::
 
 1. Wybierz pozycję **Przypisz** i upewnij się, że ustawisz zakres na poziomie mg.
 
-    :::image type="content" source="./media/security-center-get-started/assign-policy.png" alt-text="Definicja Azure Policy włączania Azure Security Center w subskrypcji":::
+    :::image type="content" source="./media/security-center-get-started/assign-policy.png" alt-text="Przypisywanie definicji Włącz Azure Security Center w ramach subskrypcji":::
 
     > [!TIP]
     > Poza zakresem nie ma wymaganych parametrów.
 
 1. Wybierz pozycję **Utwórz zadanie korygowania** , aby upewnić się, że wszystkie istniejące subskrypcje, dla których nie włączono Security Center, zostaną dołączone.
 
-    :::image type="content" source="./media/security-center-get-started/remediation-task.png" alt-text="Definicja Azure Policy włączania Azure Security Center w subskrypcji" wszystkie zarejestrowane subskrypcje (niezależnie od tego, czy są one dostępne w usłudze Azure Defender, czy wyłączone).
+    :::image type="content" source="./media/security-center-get-started/remediation-task.png" alt-text="Tworzenie zadania korygowania definicji Azure Policy Włącz Azure Security Center w subskrypcji":::
+
+1. Po przypisaniu definicji:
+
+    1. Wykryj wszystkie subskrypcje w MILIGRAMach, które nie zostały jeszcze zarejestrowane w Security Center.
+    1. Oznacz te subskrypcje jako "niezgodne".
+    1. Oznacz jako "zgodne" wszystkie zarejestrowane subskrypcje (niezależnie od tego, czy są one dostępne w usłudze Azure Defender, czy wyłączone).
 
     Następnie zadanie korygujące umożliwi Security Center bezpłatnie na niezgodnych subskrypcjach.
 
@@ -92,4 +98,4 @@ Istnieje wiele różnych sposobów modyfikowania definicji Azure Policy:
 Teraz, po dodaniu całej grupy zarządzania, Włącz zaawansowaną ochronę usługi Azure Defender. 
 
 > [!div class="nextstepaction"]
-> [Włączanie usługi Azure Defender](security-center-pricing.md)
+> [Włączanie usługi Azure Defender](security-center-pricing.md#enable-azure-defender)
