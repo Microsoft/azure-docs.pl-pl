@@ -3,19 +3,19 @@ title: SQL Server SQL Server na maszynie wirtualnej platformy Azure (Omówienie 
 description: Poznaj różne strategie migracji, gdy chcesz migrować SQL Server do SQL Server na maszynach wirtualnych platformy Azure.
 ms.custom: ''
 ms.service: virtual-machines-sql
-ms.subservice: ''
+ms.subservice: migration-guide
 ms.devlang: ''
 ms.topic: how-to
 author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: d08cb2761a8d8010c455ff959d6c247e8b64ef20
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 0eabb48aabcb50557b342385068807eb67a9b165
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746579"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797846"
 ---
 # <a name="migration-overview-sql-server-to-sql-server-on-azure-vms"></a>Przegląd migracji: SQL Server do SQL Server na maszynach wirtualnych platformy Azure
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -38,7 +38,7 @@ Migruj do [SQL Server na platformie Azure Virtual Machines (VM)](../../virtual-m
 Zaoszczędź na kosztach, wprowadzając własną licencję z [modelem licencjonowania korzyść użycia hybrydowego platformy Azure](../../virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md) lub rozszerzając wsparcie dla SQL Server 2008 i SQL Server 2008 R2, pobierając [bezpłatne aktualizacje zabezpieczeń](../../virtual-machines/windows/sql-server-2008-extend-end-of-support.md). 
 
 
-## <a name="choosing-appropriate-target"></a>Wybieranie odpowiedniego elementu docelowego
+## <a name="choose-appropriate-target"></a>Wybierz odpowiedni element docelowy
 
 Usługa Azure Virtual Machines działa w wielu różnych regionach platformy Azure, a także oferuje różne [rozmiary maszyn](../../../virtual-machines/sizes.md) i [Opcje magazynu](../../../virtual-machines/disks-types.md). Podczas określania poprawnego rozmiaru maszyny wirtualnej i magazynu dla SQL Server obciążenia zapoznaj się z [wytycznymi dotyczącymi wydajności SQL Server na platformie Azure Virtual Machines.](../../virtual-machines/windows/performance-guidelines-best-practices.md#vm-size-guidance) Aby określić rozmiar maszyny wirtualnej i wymagania dotyczące magazynu dla obciążenia. zaleca się, aby były one skalowane przez Performance-Based [Azure Migrate oceny](../../../migrate/concepts-assessment-calculation.md#types-of-assessments). Jeśli ta opcja nie jest dostępna, zapoznaj się z poniższym artykułem dotyczącym tworzenia własnych podstaw [wydajności](https://azure.microsoft.com/services/virtual-machines/sql-server/).
 
@@ -65,7 +65,7 @@ W poniższej tabeli opisano różnice między dwiema strategiami migracji:
 | **Strategia migracji** | **Opis** | **Kiedy stosować** |
 | --- | --- | --- |
 | **Unieś & Shift** | Aby przenieść całą fizyczną lub wirtualną SQL Server z bieżącej lokalizacji na wystąpienie SQL Server na maszynie wirtualnej platformy Azure bez wprowadzania zmian w systemie operacyjnym lub SQL Server wersji, należy użyć strategii migracji i przesunięcia. Aby ukończyć podnieśność i przesunięcia do migracji, zobacz [Azure Migrate](../../../migrate/migrate-services-overview.md). <br /><br /> Serwer źródłowy pozostaje w trybie online i usług, podczas gdy serwer źródłowy i docelowy synchronizują dane, umożliwiając niemal bezproblemowe Migrowanie. | Służy do migracji pojedynczej do bardzo dużej skali, nawet mającej zastosowanie do scenariuszy, takich jak wyjście centrum danych. <br /><br /> Nie jest wymagane wprowadzanie zmian w kodzie do baz danych lub aplikacji SQL użytkownika, co umożliwia szybsze przeprowadzanie migracji. <br /><br />Nie są wymagane żadne dodatkowe kroki do migrowania usług analizy biznesowej, takich jak  [SSIS](/sql/integration-services/sql-server-integration-services), [SSRS](/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports)i [SSAS](/analysis-services/analysis-services-overview). |
-|**Migrate (Migracja)** | Użyj strategii migracji, gdy chcesz uaktualnić SQL Server docelowy i/lub wersję systemu operacyjnego. <br /> <br /> Wybierz maszynę wirtualną platformy Azure z witryny Azure Marketplace lub przygotowanego obrazu SQL Server zgodnego z wersją SQL Server źródłowej. | Należy używać w przypadku, gdy wymagane jest użycie funkcji dostępnych w nowszych wersjach SQL Server lub jeśli istnieje potrzeba uaktualnienia starszych wersji SQL Server i/lub systemu operacyjnego, które nie są już obsługiwane.  <br /> <br /> Może wymagać wprowadzenia zmian w bazie danych aplikacji lub użytkownika w celu obsługi uaktualnienia SQL Server. <br /><br />W przypadku migracji usług [analizy biznesowej](#business-intelligence) mogą wystąpić dodatkowe zagadnienia. |
+|**Migrate** | Użyj strategii migracji, gdy chcesz uaktualnić SQL Server docelowy i/lub wersję systemu operacyjnego. <br /> <br /> Wybierz maszynę wirtualną platformy Azure z witryny Azure Marketplace lub przygotowanego obrazu SQL Server zgodnego z wersją SQL Server źródłowej. | Należy używać w przypadku, gdy wymagane jest użycie funkcji dostępnych w nowszych wersjach SQL Server lub jeśli istnieje potrzeba uaktualnienia starszych wersji SQL Server i/lub systemu operacyjnego, które nie są już obsługiwane.  <br /> <br /> Może wymagać wprowadzenia zmian w bazie danych aplikacji lub użytkownika w celu obsługi uaktualnienia SQL Server. <br /><br />W przypadku migracji usług [analizy biznesowej](#business-intelligence) mogą wystąpić dodatkowe zagadnienia. |
 
 
 ## <a name="lift-and-shift"></a>Migrowanie metodą „lift-and-shift”  
@@ -77,7 +77,7 @@ Poniższa tabela zawiera szczegółowe informacje o dostępnej metodzie dotyczą
 | --- | --- | --- | --- | --- |
 | [Azure Migrate](../../../migrate/index.yml) | SQL Server 2008 z dodatkiem SP4| SQL Server 2008 z dodatkiem SP4| [Limit przestrzeni dyskowej maszyny wirtualnej platformy Azure](../../../index.yml) |  Istniejące SQL Server przenoszone do wystąpienia SQL Server na maszynie wirtualnej platformy Azure. Może skalować obciążenia migracji do 35 000 maszyn wirtualnych. <br /><br /> Serwery źródłowe pozostają w trybie online i obsługują żądania podczas synchronizacji danych serwera, co minimalizuje przestoje. <br /><br /> **Automatyzacja & obsługa skryptów**: [Azure Site Recovery skryptów](../../../migrate/how-to-migrate-at-scale.md) i [Przykładowa migracja skalowana i planowanie na platformie Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)|
 
-## <a name="migrate"></a>Migrate (Migracja)  
+## <a name="migrate"></a>Migrate  
 
 Ze względu na łatwość konfigurowania zalecanym rozwiązaniem migracji jest utworzenie natywnego SQL Server [kopii zapasowej](/sql/t-sql/statements/backup-transact-sql) lokalnie, a następnie skopiowanie pliku na platformę Azure. Ta metoda obsługuje większe bazy danych (>1 TB) dla wszystkich wersji SQL Server począwszy od 2008 i większych kopii zapasowych bazy danych (>1 TB). Jednak w przypadku baz danych, które są uruchamiane w SQL Server 2014, które są mniejsze niż 1 TB i które mają dobrą łączność z platformą Azure, to lepszym rozwiązaniem jest [SQL Server kopia zapasowa do adresu URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) . 
 

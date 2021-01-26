@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: e73126cfc54294a7b9d54ff62c406d5e686ac470
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a8928f9d52fd8e721ac770dda8f0cbf0162a0f61
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95982720"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797910"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Dołączanie środowiska Azure SSIS Integration Runtime do sieci wirtualnej
 
@@ -73,7 +73,10 @@ Jeśli pakiety SSIS mają dostęp do zasobów platformy Azure, które obsługuj�
 
 ## <a name="access-to-data-sources-protected-by-ip-firewall-rule"></a>Dostęp do źródeł danych chronionych przez regułę zapory adresów IP
 
-Jeśli pakiety SSIS mają dostęp do magazynów danych/zasobów, które zezwalają na tylko określone statyczne publiczne adresy IP i chcesz zabezpieczyć dostęp do tych zasobów z Azure-SSIS IR, możesz przenieść własne [publiczne adresy IP](../virtual-network/virtual-network-public-ip-address.md) do Azure-SSIS IR podczas dołączania do sieci wirtualnej, a następnie dodać regułę zapory IP do odpowiednich zasobów, aby zezwolić na dostęp z tych adresów IP.
+Jeśli pakiety SSIS mają dostęp do magazynów danych/zasobów, które zezwalają na tylko określone statyczne publiczne adresy IP i chcesz zabezpieczyć dostęp do tych zasobów z Azure-SSIS IR, możesz skojarzyć [publiczne adresy IP](../virtual-network/virtual-network-public-ip-address.md) z Azure-SSIS IR podczas dołączania do sieci wirtualnej, a następnie dodać regułę zapory IP do odpowiednich zasobów, aby umożliwić dostęp z tych adresów IP. Istnieją dwa alternatywne sposoby wykonania tej czynności: 
+
+- Podczas tworzenia Azure-SSIS IR można przenieść własne publiczne adresy IP i określić je za pomocą [interfejsu użytkownika Data Factory lub zestawu SDK](#join-the-azure-ssis-ir-to-a-virtual-network). Tylko wychodzące połączenie internetowe Azure-SSIS IR będzie używać podanych publicznych adresów IP i innych urządzeń w podsieci nie będzie ich używać.
+- Istnieje również możliwość skonfigurowania [Virtual Network translatora adresów sieciowych](../virtual-network/nat-overview.md) dla podsieci, która Azure-SSIS IR zostanie przyłączona, a wszystkie połączenia wychodzące w tej podsieci będą używały określonych publicznych adresów IP.
 
 We wszystkich przypadkach sieć wirtualna można wdrożyć tylko za pomocą modelu wdrażania Azure Resource Manager.
 
@@ -172,7 +175,7 @@ Jeśli musisz zaimplementować sieciowej grupy zabezpieczeń dla podsieci używa
 | Wychodzący | TCP | VirtualNetwork | * | Internet | 80 | Obowiązkowe Węzły Azure-SSIS IR w sieci wirtualnej używają tego portu do pobierania listy odwołania certyfikatów z Internetu. Jeśli zablokujesz ten ruch, może wystąpić obniżenie wydajności podczas uruchamiania środowiska IR i utrata możliwości sprawdzenia listy odwołania certyfikatów w celu użycia certyfikatu. Jeśli chcesz jeszcze bardziej zawęzić miejsce docelowe do określonych nazw FQDN, zapoznaj się z sekcją **Korzystanie z usługi Azure ExpressRoute lub UDR** .|
 | Wychodzący | TCP | VirtualNetwork | * | Sql | 1433, 11000-11999 | Obowiązkowe Ta reguła jest wymagana tylko wtedy, gdy węzły Azure-SSIS IR w sieci wirtualnej uzyskują dostęp do SSISDB hostowanego przez serwer. Jeśli zasada połączenia serwera jest ustawiona na **serwer proxy** zamiast **przekierowania**, wymagany jest tylko port 1433. <br/><br/> Ta reguła zabezpieczeń dla ruchu wychodzącego nie ma zastosowania do SSISDB hostowanego przez wystąpienie zarządzane SQL w sieci wirtualnej lub SQL Database skonfigurowany za pomocą prywatnego punktu końcowego. |
 | Wychodzący | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 | Obowiązkowe Ta reguła jest wymagana tylko wtedy, gdy węzły Azure-SSIS IR w sieci wirtualnej uzyskują dostęp do SSISDB hostowanego przez wystąpienie zarządzane SQL w sieci wirtualnej lub SQL Database skonfigurowany przy użyciu prywatnego punktu końcowego. Jeśli zasada połączenia serwera jest ustawiona na **serwer proxy** zamiast **przekierowania**, wymagany jest tylko port 1433. |
-| Wychodzący | TCP | VirtualNetwork | * | Storage | 445 | Obowiązkowe Ta reguła jest wymagana tylko wtedy, gdy chcesz uruchomić pakiet SSIS przechowywany w Azure Files. |
+| Wychodzący | TCP | VirtualNetwork | * | Magazyn | 445 | Obowiązkowe Ta reguła jest wymagana tylko wtedy, gdy chcesz uruchomić pakiet SSIS przechowywany w Azure Files. |
 ||||||||
 
 ### <a name="use-azure-expressroute-or-udr"></a><a name="route"></a> Korzystanie z usługi Azure ExpressRoute lub UDR

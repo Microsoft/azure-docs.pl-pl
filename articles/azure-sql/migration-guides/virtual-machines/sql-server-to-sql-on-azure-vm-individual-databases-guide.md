@@ -3,19 +3,19 @@ title: SQL Server SQL Server na maszynach wirtualnych platformy Azure (Przewodni
 description: Postępuj zgodnie z tym przewodnikiem, aby przeprowadzić migrację pojedynczych baz danych SQL Server do SQL Server na platformie Azure Virtual Machines.
 ms.custom: ''
 ms.service: virtual-machines-sql
-ms.subservice: ''
+ms.subservice: migration-guide
 ms.devlang: ''
 ms.topic: how-to
 author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 3b0fdccd3eaf6e6bd94b595107022f738bdd8382
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: cc2a641cb017edace24db5df69bc4adf3a607524
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325925"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797888"
 ---
 # <a name="migration-guide-sql-server-to-sql-server-on-azure-vms"></a>Przewodnik migracji: SQL Server SQL Server na maszynach wirtualnych platformy Azure 
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -109,7 +109,7 @@ Zdecydowanie zaleca się, aby wszystkie poprawki DMA były skryptowe i stosowane
 > Nie wszystkie wersje SQL Server obsługują wszystkie tryby zgodności. Sprawdź, czy [docelowa wersja SQL Server](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level) obsługuje wybraną zgodność bazy danych. Na przykład SQL Server 2019 nie obsługuje baz danych z poziomem zgodności poziomu 90 (czyli SQL Server 2005). Te bazy danych wymagają co najmniej uaktualnienia do poziomu zgodności 100.
 >
 
-## <a name="migrate"></a>Migrate (Migracja)
+## <a name="migrate"></a>Migrate
 
 Po ukończeniu kroków poprzedzających migrację można przystąpić do migracji baz danych i składników użytkownika. Przeprowadź migrację baz danych przy użyciu preferowanej [metody migracji](sql-server-to-sql-on-azure-vm-migration-overview.md#migrate).  
 

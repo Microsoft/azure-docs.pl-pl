@@ -8,15 +8,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 08/10/2020
+ms.date: 01/25/2021
 ms.author: juliako
 ms.custom: devx-track-js
-ms.openlocfilehash: 1bc751ae293abbb7aa330a99a4b66a917d150906
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b13086e11e1181bba91a3255e68e9f8a32e78450
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994982"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797785"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Osadź Video Indexer widżety w aplikacjach
 
@@ -303,6 +303,10 @@ Zobacz repozytorium [przykłady kodu](https://github.com/Azure-Samples/media-ser
 | `embed-both-widgets`              | Osadź program Player i szczegółowe informacje i Komunikuj się między nimi.                      |
 | `url-generator`                   | Generuje niestandardowy adres URL osadzania widżetów na podstawie opcji określonych przez użytkownika.             |
 | `html5-player`                    | Osadź plik VI Insights przy użyciu domyślnego odtwarzacza wideo HTML5.                           |
+
+## <a name="supported-browsers"></a>Obsługiwane przeglądarki
+
+Aby uzyskać więcej informacji, zobacz [obsługiwane przeglądarki](video-indexer-overview.md#supported-browsers).
 
 ## <a name="next-steps"></a>Następne kroki
 

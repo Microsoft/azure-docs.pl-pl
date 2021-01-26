@@ -7,12 +7,12 @@ ms.date: 12/07/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 5594e8225b615bf6e1af5077bd68422edbbeec19
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 9591dae058a19cea73d88513b7c4ff4ab8f88045
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905455"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797747"
 ---
 # <a name="introduction-to-azure-defender-for-resource-manager"></a>Wprowadzenie do usługi Azure Defender dla Menedżer zasobów
 
@@ -75,4 +75,4 @@ W tym artykule przedstawiono informacje o usłudze Azure Defender dla Menedżer 
 - Alerty zabezpieczeń mogą być generowane przez Security Center lub odebrane przez Security Center z różnych produktów zabezpieczeń. Aby wyeksportować wszystkie te alerty do usługi Azure wskaźnikowej, wszelkich SIEM innych firm lub innych zewnętrznych narzędzi, postępuj zgodnie z instrukcjami w temacie [Eksportowanie alertów do Siem](continuous-export.md).
 
 - > [!div class="nextstepaction"]
-    > [Włączanie usługi Azure Defender](security-center-pricing.md)
+    > [Włączanie usługi Azure Defender](security-center-pricing.md#enable-azure-defender)
