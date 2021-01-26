@@ -264,7 +264,7 @@
         - name: Azure Cloud Shell
           href: 'https://shell.azure.com'
         - name: Azure PowerShell
-          href: /powershell/module/az.iothub#iot
+          href: /powershell/azure/
         - name: Azure Portal
           href: 'https://portal.azure.com'
     - name: Dokumentacja kontroli RBAC na platformie Azure

@@ -3,13 +3,12 @@
 - name: Omówienie
   href: overview.md
   items:
-    - name: Co nowego?
-      href: release-notes.md
     - name: Architektura rozwiązania
       href: architecture.md
-- name: Przewodniki Szybki start
-  expanded: true
-  items:
+    - name: Co nowego?
+      href: release-notes.md
+    - name: Przewodniki Szybki start
+      expanded: true
     - name: Rozwiązanie bez agenta dla organizacji
       items:
         - name: Wymagania wstępne systemu
@@ -154,6 +153,16 @@
           href: how-to-gain-insight-into-global-regional-and-local-threats.md
         - name: Praca z alertami w lokalnej konsoli zarządzania
           href: how-to-work-with-alerts-on-premises-management-console.md
+        - name: Tworzenie raportów
+          items:
+            - name: Tworzenie raportów oceny ryzyka
+              href: how-to-create-risk-assessment-reports.md
+            - name: Tworzenie raportów wektorów ataków
+              href: how-to-create-attack-vector-reports.md
+            - name: Tworzenie raportów wyszukiwania danych
+              href: how-to-create-data-mining-queries.md
+            - name: Tworzenie raportów trendów i statystyk
+              href: how-to-create-data-mining-queries.md
         - name: Wzbogacanie informacji o urządzeniu
           items:
             - name: Praca z powiadomieniami urządzeń
@@ -168,8 +177,6 @@
         - name: Śledzenie działania czujnika
           href: how-to-track-sensor-activity.md
           displayName: 'timeline, time line, time-line, event'
-        - name: Generowanie raportów
-          href: how-to-generate-reports.md
         - name: Rozwiązywanie problemów z czujnikiem i lokalną konsolą zarządzania
           href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
         - name: Konfigurowanie monitorowania SNMP MIB

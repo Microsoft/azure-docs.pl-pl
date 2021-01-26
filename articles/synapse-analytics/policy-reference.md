@@ -1,18 +1,18 @@
 ---
 title: Wbudowane definicje zasad
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy usługi Azure Synapse Analytics. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 01/21/2021
+ms.date: 01/25/2021
 ms.topic: reference
 author: julieMSFT
 ms.author: jrasnick
 ms.service: synapse-analytics
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 8d183df7f50df8bdbaef2d4022aaada637802aae
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: fe8c5d1142b42bb7fd9f2e3f5b301b55dcdbad90
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98701329"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806147"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-synapse-analytics"></a>Azure Policy wbudowane definicje usługi Azure Synapse Analytics 
 

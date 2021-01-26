@@ -4,12 +4,12 @@ description: Zablokuj użytkownikom możliwość aktualizowania lub usuwania zas
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 53054f89c992139fbbd4f087d2a0344e26d97efc
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 0e8fc74b2da0c253ec9c5bf34ec7543398aea48f
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610203"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98802449"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Blokowanie zasobów w celu uniemożliwienia nieoczekiwanych zmian
 
@@ -38,7 +38,7 @@ Zastosowanie blokad może prowadzić do nieoczekiwanych wyników, ponieważ niek
 
 * Nie można usunąć blokady **grupy zasobów** uniemożliwia Azure Resource Manager [Automatyczne usuwanie wdrożeń](../templates/deployment-history-deletions.md) w historii. Jeśli w historii osiągniesz 800 wdrożeń, wdrożenia zakończą się niepowodzeniem.
 
-* Nie można usunąć blokady w **grupie zasobów** utworzonej przez **usługę Azure Backup** powoduje niepowodzenie wykonywania kopii zapasowych. Usługa obsługuje maksymalnie 18 punktów przywracania. Po zablokowaniu usługa Backup nie może oczyścić punktów przywracania. Aby uzyskać więcej informacji, zobacz [często zadawane pytania — tworzenie kopii zapasowych maszyn wirtualnych platformy Azure](../../backup/backup-azure-vm-backup-faq.md).
+* Nie można usunąć blokady w **grupie zasobów** utworzonej przez **usługę Azure Backup** powoduje niepowodzenie wykonywania kopii zapasowych. Usługa obsługuje maksymalnie 18 punktów przywracania. Po zablokowaniu usługa Backup nie może oczyścić punktów przywracania. Aby uzyskać więcej informacji, zobacz [często zadawane pytania — tworzenie kopii zapasowych maszyn wirtualnych platformy Azure](../../backup/backup-azure-vm-backup-faq.yml).
 
 * Blokada tylko do odczytu w **ramach subskrypcji** uniemożliwia poprawne działanie **Azure Advisor** . W usłudze Advisor nie można przechowywać wyników zapytań.
 

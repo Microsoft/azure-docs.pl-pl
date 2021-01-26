@@ -191,7 +191,7 @@
           href: luis-how-to-azure-subscription.md
         - name: Ustawienia aplikacji i wersji
           href: how-to-application-settings-portal.md
-        - name: Autorzy i współpracownicy
+        - name: Autorzy i współautorzy
           displayName: 'access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import'
           href: luis-how-to-collaborate.md
         - name: Za pomocą wersji

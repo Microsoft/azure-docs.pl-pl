@@ -1,23 +1,23 @@
 ---
 title: Wdrażaj maszyny wirtualne na urządzeniu z systemem Azure Stack Edge przy użyciu procesora GPU Pro Azure PowerShell
-description: Zawiera opis sposobu tworzenia maszyn wirtualnych i zarządzania nimi na urządzeniu z systemem Azure Stack Edge przy użyciu Azure PowerShell.
+description: W tym artykule opisano sposób tworzenia maszyn wirtualnych i zarządzania nimi na urządzeniu z systemem Azure Stack Edge w systemie GPU przy użyciu Azure PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/23/2020
+ms.date: 01/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 32685207f8d6e81d03c90d01b186337ce79f843a
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 1d286e7661fa14dd63bd55b133c39414e04decc6
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763916"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98802987"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell"></a>Wdrażaj maszyny wirtualne na urządzeniu z systemem Azure Stack Edge przy użyciu procesora GPU Pro Azure PowerShell
 
-W tym artykule opisano sposób tworzenia i zarządzania maszyną wirtualną na urządzeniu Azure Stack EDGE Pro przy użyciu Azure PowerShell. Ten artykuł ma zastosowanie do Azure Stack brzegowych procesorów GPU, Azure Stack EDGE Pro R i Azure Stack Edge mini R urządzeń.
+W tym artykule opisano sposób tworzenia i zarządzania maszyną wirtualną na urządzeniu Azure Stack EDGE Pro przy użyciu Azure PowerShell. Ten artykuł ma zastosowanie do Azure Stack brzegowych procesorów GPU, Azure Stack EDGE Pro R i Azure Stack Edge.
 
 ## <a name="vm-deployment-workflow"></a>Przepływ pracy wdrożenia maszyny wirtualnej
 
@@ -32,12 +32,12 @@ Przepływ pracy wdrażania przedstawiono na poniższym diagramie.
 
 ## <a name="query-for-built-in-subscription-on-the-device"></a>Zapytanie o wbudowaną subskrypcję na urządzeniu
 
-W przypadku Azure Resource Manager obsługiwana jest tylko jedna subskrypcja stałych widocznych dla użytkownika. Ta subskrypcja jest unikatowa dla urządzenia i nie można zmienić jej nazwy lub identyfikatora subskrypcji.
+W przypadku Azure Resource Manager obsługiwana jest tylko jedna subskrypcja stałych widocznych dla użytkownika. Ta subskrypcja jest unikatowa dla urządzenia, a nie można zmienić nazwy subskrypcji lub identyfikatora subskrypcji.
 
 Ta subskrypcja zawiera wszystkie zasoby, które zostały utworzone w celu utworzenia maszyny wirtualnej. 
 
 > [!IMPORTANT]
-> Ta subskrypcja jest tworzona po włączeniu maszyn wirtualnych na podstawie Azure Portal i lokalnie na urządzeniu.
+> Ta subskrypcja jest tworzona po włączeniu maszyn wirtualnych z poziomu Azure Portal i lokalnie na urządzeniu.
 
 Ta subskrypcja służy do wdrażania maszyn wirtualnych.
 
@@ -118,7 +118,7 @@ Successfully created Resource Group:rg191113014333
 
 ## <a name="create-a-storage-account"></a>Tworzenie konta magazynu
 
-Utwórz nowe konto magazynu przy użyciu grupy zasobów utworzonej w poprzednim kroku. Jest to **konto magazynu lokalnego** , które zostanie użyte do przekazania obrazu dysku wirtualnego dla maszyny wirtualnej.
+Utwórz nowe konto magazynu przy użyciu grupy zasobów utworzonej w poprzednim kroku. To konto jest kontem **magazynu lokalnego** , które zostanie użyte do przekazania obrazu dysku wirtualnego dla maszyny wirtualnej.
 
 ```powershell
 New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resource group name> -Location DBELocal -SkuName Standard_LRS
@@ -177,7 +177,7 @@ key2 gd34TcaDzDgsY9JtDNMUgLDOItUU0Qur3CBo6Q...
 
 ## <a name="add-blob-uri-to-hosts-file"></a>Dodaj identyfikator URI obiektu BLOB do pliku hosts
 
-Dodano już identyfikator URI obiektu BLOB w pliku hosts dla klienta używanego do łączenia się z usługą BLOB Storage w sekcji [Modyfikowanie pliku hosta dla rozpoznawania nazw punktów końcowych](azure-stack-edge-j-series-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution). To była pozycja identyfikatora URI obiektu BLOB:
+Identyfikator URI obiektu BLOB w pliku hosts został już dodany przez klienta używanego do łączenia się z usługą BLOB Storage w sekcji [Modyfikowanie pliku hosta dla rozpoznawania nazw punktów końcowych](azure-stack-edge-j-series-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution). Ten wpis został użyty do dodania identyfikatora URI obiektu BLOB:
 
 \<Azure consistent network services VIP \>\<storage name\>. blob. \<appliance name\> .\<dnsdomain\>
 
@@ -256,7 +256,7 @@ $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import –S
 New-AzureRMDisk -ResourceGroupName <Resource group name> -DiskName <Disk name> -Disk $DiskConfig
 ```
 
-Poniżej pokazano przykładowe dane wyjściowe. Aby uzyskać więcej informacji na temat tego polecenia cmdlet, przejdź do pozycji [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk?view=azurermps-6.13.0).
+Poniżej pokazano przykładowe dane wyjściowe. Aby uzyskać więcej informacji na temat tego polecenia cmdlet, przejdź do pozycji [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk?view=azurermps-6.13.0&preserve-view=true).
 
 ```powershell
 Tags               :
@@ -296,7 +296,7 @@ Set-AzureRmImageOsDisk -Image $imageConfig -OsType 'Linux' -OsState 'Generalized
 New-AzureRmImage -Image $imageConfig -ImageName <Image name>  -ResourceGroupName <Resource group name>
 ```
 
-Poniżej pokazano przykładowe dane wyjściowe. Aby uzyskać więcej informacji na temat tego polecenia cmdlet, przejdź do pozycji [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage?view=azurermps-6.13.0).
+Poniżej pokazano przykładowe dane wyjściowe. Aby uzyskać więcej informacji na temat tego polecenia cmdlet, przejdź do pozycji [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage?view=azurermps-6.13.0&preserve-view=true).
 
 ```powershell
 New-AzureRmImage -Image Microsoft.Azure.Commands.Compute.Automation.Models.PSImage -ImageName ig191113014333  -ResourceGroupName rg191113014333
@@ -319,8 +319,8 @@ Przed utworzeniem i wdrożeniem maszyny wirtualnej należy utworzyć jedną sie�
 > [!IMPORTANT]
 > Podczas tworzenia sieci wirtualnej i interfejsu sieci wirtualnej są stosowane następujące reguły:
 > - Można utworzyć tylko jedną sieć wirtualną (nawet w grupach zasobów) i musi ona dokładnie pasować do sieci logicznej pod względem przestrzeni adresowej.
-> -   W sieci wirtualnej będzie dozwolona tylko jedna podsieć. Podsieć musi być dokładną tą samą przestrzenią adresową co sieć wirtualna.
-> -   Podczas tworzenia wirtualnej karty sieciowej będzie dozwolona tylko statyczna metoda alokacji, a użytkownik musi podać prywatny adres IP.
+> - W sieci wirtualnej będzie dozwolona tylko jedna podsieć. Podsieć musi być dokładną tą samą przestrzenią adresową co sieć wirtualna.
+> - Podczas tworzenia wirtualnej karty sieciowej będzie dozwolona tylko statyczna metoda alokacji, a użytkownik musi podać prywatny adres IP.
 
  
 **Zbadaj automatycznie utworzoną sieć wirtualną**
@@ -498,7 +498,7 @@ Uruchom następujące polecenie cmdlet, aby włączyć maszynę wirtualną dzia�
 `Start-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>`
 
 
-Aby uzyskać więcej informacji na temat tego polecenia cmdlet, przejdź do [menu Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0).
+Aby uzyskać więcej informacji na temat tego polecenia cmdlet, przejdź do [menu Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0&preserve-view=true).
 
 ### <a name="suspend-or-shut-down-the-vm"></a>Wstrzymywanie lub wyłączanie maszyny wirtualnej
 
@@ -510,7 +510,7 @@ Stop-AzureRmVM [-Name] <String> [-StayProvisioned] [-ResourceGroupName] <String>
 ```
 
 
-Aby uzyskać więcej informacji na temat tego polecenia cmdlet, przejdź do [polecenia cmdlet Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-6.13.0).
+Aby uzyskać więcej informacji na temat tego polecenia cmdlet, przejdź do [polecenia cmdlet Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-6.13.0&preserve-view=true).
 
 ### <a name="add-a-data-disk"></a>Dodawanie dysku z danymi
 
@@ -530,10 +530,10 @@ Uruchom następujące polecenie cmdlet, aby usunąć maszynę wirtualną z urzą
 Remove-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>
 ```
 
-Aby uzyskać więcej informacji na temat tego polecenia cmdlet, przejdź do [polecenia cmdlet Remove-AzureRmVm](/powershell/module/azurerm.compute/remove-azurermvm?view=azurermps-6.13.0).
+Aby uzyskać więcej informacji na temat tego polecenia cmdlet, przejdź do [polecenia cmdlet Remove-AzureRmVm](/powershell/module/azurerm.compute/remove-azurermvm?view=azurermps-6.13.0&preserve-view=true).
 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Polecenia cmdlet Azure Resource Manager](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Polecenia cmdlet Azure Resource Manager](/powershell/module/azurerm.resources/?view=azurermps-6.13.0&preserve-view=true)

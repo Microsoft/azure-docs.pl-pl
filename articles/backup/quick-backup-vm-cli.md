@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 27294f91fd6c79b10a85678a7acd60de56cf1ca4
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 1a1b11d517fdfea0aa3a0f553b63276bc20f90be
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94562342"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805463"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-azure-cli"></a>Tworzenie kopii zapasowej maszyny wirtualnej na platformie Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -28,8 +28,8 @@ Magazyn usługi Recovery Services jest kontenerem logicznym, który przechowuje 
 
 Utwórz magazyn usługi Recovery Services za pomocą polecenia [az backup vault create](/cli/azure/backup/vault#az-backup-vault-create). Określ taką samą grupę zasobów i lokalizację, jak w przypadku maszyny wirtualnej, która ma być chroniona. Jeśli został przez Ciebie użyty [Szybki start dla maszyny wirtualnej](../virtual-machines/linux/quick-create-cli.md), to masz utworzone:
 
-- grupę zasobów o nazwie *myResourceGroup* ,
-- maszynę wirtualną o nazwie *myVM* ,
+- grupę zasobów o nazwie *myResourceGroup*,
+- maszynę wirtualną o nazwie *myVM*,
 - zasoby w lokalizacji *eastus*.
 
 ```azurecli-interactive
@@ -71,7 +71,7 @@ az backup protection enable-for-vm \
 ```
 
 > [!IMPORTANT]
-> Podczas korzystania z interfejsu wiersza polecenia w celu jednoczesnego włączenia tworzenia kopii zapasowych wielu maszyn wirtualnych upewnij się, że z jednymi zasadami nie są skojarzone więcej niż 100 maszyn wirtualnych. Jest to [zalecane najlepsze rozwiązanie](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy). Obecnie klient programu PowerShell nie jest jawnie blokowany, jeśli istnieje więcej niż 100 maszyn wirtualnych, ale w przyszłości sprawdzanie jest planowane.
+> Podczas korzystania z interfejsu wiersza polecenia w celu jednoczesnego włączenia tworzenia kopii zapasowych wielu maszyn wirtualnych upewnij się, że z jednymi zasadami nie są skojarzone więcej niż 100 maszyn wirtualnych. Jest to [zalecane najlepsze rozwiązanie](./backup-azure-vm-backup-faq.yml#is-there-a-limit-on-number-of-vms-that-can-be-associated-with-the-same-backup-policy). Obecnie klient programu PowerShell nie jest jawnie blokowany, jeśli istnieje więcej niż 100 maszyn wirtualnych, ale w przyszłości sprawdzanie jest planowane.
 
 ## <a name="start-a-backup-job"></a>Uruchamianie zadania tworzenia kopii zapasowej
 
@@ -81,9 +81,9 @@ Do utworzenia kopii zapasowej maszyny wirtualnej używa się następujących par
 
 - `--container-name` to nazwa maszyny wirtualnej
 - `--item-name` to nazwa maszyny wirtualnej
-- `--retain-until` — ta wartość powinna być ustawiona na ostatni dostępny termin, w formacie czasu UTC ( **dd-mm-rrrr** ), do którego punkt odzyskiwania ma być dostępny
+- `--retain-until` — ta wartość powinna być ustawiona na ostatni dostępny termin, w formacie czasu UTC (**dd-mm-rrrr**), do którego punkt odzyskiwania ma być dostępny
 
-W poniższym przykładzie tworzona jest kopia zapasowa maszyny wirtualnej o nazwie *myVM* , a termin wygaśnięcia punktu odzyskiwania jest ustawiony na 18 października 2017 r.:
+W poniższym przykładzie tworzona jest kopia zapasowa maszyny wirtualnej o nazwie *myVM*, a termin wygaśnięcia punktu odzyskiwania jest ustawiony na 18 października 2017 r.:
 
 ```azurecli-interactive
 az backup protection backup-now \
@@ -105,7 +105,7 @@ az backup job list \
     --output table
 ```
 
-Dane wyjściowe są podobne do następującego przykładu informującego, że zadanie tworzenia kopii zapasowej jest w toku ( *InProgress* ):
+Dane wyjściowe są podobne do następującego przykładu informującego, że zadanie tworzenia kopii zapasowej jest w toku (*InProgress*):
 
 ```output
 Name      Operation        Status      Item Name    Start Time UTC       Duration
@@ -114,7 +114,7 @@ a0a8e5e6  Backup           InProgress  myvm         2017-09-19T03:09:21  0:00:48
 fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31.191807
 ```
 
-Gdy *stan* wskaże, że zadanie tworzenia kopii zapasowej jest ukończone ( *Completed* ), maszyna wirtualna jest chroniona za pomocą usługi Recovery Services i przechowywany jest punkt pełnego odzyskiwania.
+Gdy *stan* wskaże, że zadanie tworzenia kopii zapasowej jest ukończone (*Completed*), maszyna wirtualna jest chroniona za pomocą usługi Recovery Services i przechowywany jest punkt pełnego odzyskiwania.
 
 ## <a name="clean-up-deployment"></a>Czyszczenie wdrożenia
 

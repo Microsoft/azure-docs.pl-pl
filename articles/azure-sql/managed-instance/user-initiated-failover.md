@@ -9,13 +9,13 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 01/25/2021
-ms.openlocfilehash: c12e1f4b01b0e2dd7fa21808cf33f45f9a5be59b
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.date: 01/26/2021
+ms.openlocfilehash: 7588ce055ce0df89a7dca87a75a38c8acccf6d46
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789976"
+ms.locfileid: "98806084"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Zainicjowane przez użytkownika ręczne przejście w tryb failover w usłudze SQL Managed Instance
 
@@ -125,7 +125,7 @@ Stan operacji może być śledzony przez przeglądanie odpowiedzi interfejsu API
 
 ## <a name="monitor-the-failover"></a>Monitorowanie trybu failover
 
-Aby monitorować postęp ręcznej pracy awaryjnej zainicjowanej przez użytkownika, wykonaj następujące zapytanie T-SQL w ulubionym kliencie (takim jak SSMS) w wystąpieniu zarządzanym SQL. Spowoduje to odczytanie sys.dm_hadr_fabric_replica_states widoku systemowego i replik raportów dostępnych w wystąpieniu. Odśwież to samo zapytanie po zainicjowaniu ręcznego przełączania do trybu failover.
+Aby monitorować postęp zainicjowanej pracy w trybie failover przez użytkownika dla wystąpienia BC, wykonaj następujące zapytanie T-SQL w ulubionym kliencie (takim jak SSMS) w wystąpieniu zarządzanym SQL. Spowoduje to odczytanie sys.dm_hadr_fabric_replica_states widoku systemowego i replik raportów dostępnych w wystąpieniu. Odśwież to samo zapytanie po zainicjowaniu ręcznego przełączania do trybu failover.
 
 ```T-SQL
 SELECT DISTINCT replication_endpoint_url, fabric_replica_role_desc FROM sys.dm_hadr_fabric_replica_states
@@ -133,7 +133,13 @@ SELECT DISTINCT replication_endpoint_url, fabric_replica_role_desc FROM sys.dm_h
 
 Przed zainicjowaniem trybu failover dane wyjściowe będą wskazywały bieżącą replikę podstawową w warstwie usługi BC, która zawiera jedną podstawową i trzy serwery pomocnicze w grupie dostępności AlwaysOn. Po wykonaniu przejścia w tryb failover ponowne uruchomienie tego zapytania będzie musiało wskazywać zmianę węzła podstawowego.
 
-Nie będzie można zobaczyć tych samych danych wyjściowych z warstwą usługi GP, jak pokazano powyżej. Wynika to z faktu, że warstwa usługi GP opiera się tylko na jednym węźle. Dane wyjściowe zapytania T-SQL dla warstwy usługi GP będą wyświetlać pojedynczy węzeł tylko przed i po przejściu do trybu failover. Utrata łączności z klientem podczas pracy w trybie failover, zazwyczaj trwające na minutę, oznacza wykonanie w trybie failover.
+Nie będzie można zobaczyć tych samych danych wyjściowych z warstwą usługi GP, jak pokazano powyżej. Wynika to z faktu, że warstwa usługi GP opiera się tylko na jednym węźle. Możesz użyć alternatywnego zapytania T-SQL, pokazując czas uruchomienia procesu SQL w węźle dla wystąpienia warstwy usługi GP:
+
+```T-SQL
+SELECT sqlserver_start_time, sqlserver_start_time_ms_ticks FROM sys.dm_os_sys_info
+```
+
+Krótka utrata łączności od klienta podczas pracy w trybie failover, zazwyczaj trwające przez minutę, będzie wskazywać na wykonanie pracy w trybie failover niezależnie od warstwy usług.
 
 > [!NOTE]
 > Zakończenie procesu pracy w trybie failover (nie jest to rzeczywista krótka niedostępna) może potrwać kilka minut w przypadku obciążeń **o wysokiej intensywności** . Wynika to z faktu, że aparat wystąpienia poświęca wszystkie bieżące transakcje na podstawowym serwerze i przechwytuje je w węźle pomocniczym, przed przejściem do trybu failover.

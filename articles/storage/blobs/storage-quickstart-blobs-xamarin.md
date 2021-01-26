@@ -1,6 +1,6 @@
 ---
-title: 'Szybki Start: Biblioteka usługi Azure Blob Storage V12 — Xamarin'
-description: W tym przewodniku szybki start dowiesz się, jak używać biblioteki klienckiej usługi Azure Blob Storage w wersji 12 z platformą Xamarin w celu utworzenia kontenera i obiektu BLOB w magazynie obiektów BLOB (Object). Następnie dowiesz się, jak pobrać obiekt BLOB do urządzenia przenośnego i jak wyświetlić listę wszystkich obiektów BLOB w kontenerze.
+title: 'Szybki Start: Azure Blob Storage Library V12 — Xamarin'
+description: W tym przewodniku szybki start dowiesz się, jak utworzyć kontener i obiekt BLOB w magazynie obiektów BLOB (Object) przy użyciu biblioteki klienta Blob Storage platformy Azure w wersji 12 z platformą Xamarin. Następnie dowiesz się, jak pobrać obiekt BLOB do urządzenia przenośnego i jak wyświetlić listę wszystkich obiektów BLOB w kontenerze.
 author: codemillmatt
 ms.author: masoucou
 ms.date: 10/09/2020
@@ -8,18 +8,18 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 641117414c855a044d3ed55004b6e6ea15b259ac
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: dab938a526aa89f6fe5a014e10869bd8da8b475d
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96004742"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98802363"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Szybki Start: Biblioteka kliencka usługi Azure Blob Storage V12 z platformą Xamarin
+# <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Szybki Start: V12 biblioteki klienta platformy Azure z Blob Storage platformą Xamarin
 
-Rozpocznij pracę z biblioteką klienta usługi Azure Blob Storage V12 za pomocą platformy Xamarin. Azure Blob Storage to rozwiązanie do magazynowania obiektów w chmurze firmy Microsoft. Postępuj zgodnie z instrukcjami, aby zainstalować pakiet, i wypróbuj przykładowy kod dla podstawowych zadań. Magazyn obiektów blob jest zoptymalizowany pod kątem przechowywania olbrzymich ilości danych bez struktury.
+Rozpocznij pracę z biblioteką klienta usługi Azure Blob Storage V12 przy użyciu platformy Xamarin. Usługa Azure Blob Storage to rozwiązanie magazynu obiektów firmy Microsoft dla chmury. Postępuj zgodnie z instrukcjami, aby zainstalować pakiet, i wypróbuj przykładowy kod dla podstawowych zadań. Magazyn obiektów blob jest zoptymalizowany pod kątem przechowywania olbrzymich ilości danych bez struktury.
 
-Użyj biblioteki klienta usługi Azure Blob Storage V12 z platformą Xamarin, aby:
+Użyj usługi Azure Blob Storage Client Library V12 z platformą Xamarin, aby:
 
 * Tworzenie kontenera
 * Przekazywanie obiektu blob do usługi Azure Storage
@@ -44,7 +44,7 @@ Linki odwołań:
 
 ## <a name="setting-up"></a>Konfigurowanie
     
-W tej sekcji omówiono przygotowanie projektu do pracy z biblioteką klienta usługi Azure Blob Storage V12 za pomocą platformy Xamarin.
+W tej sekcji omówiono przygotowywanie projektu do pracy z usługą Azure Blob Storage Client Library V12 z platformą Xamarin.
     
 ### <a name="create-the-project"></a>Tworzenie projektu
 
@@ -99,7 +99,7 @@ Użyj następujących klas platformy .NET do korzystania z tych zasobów:
 
 ## <a name="code-examples"></a>Przykłady kodu
 
-Te przykładowe fragmenty kodu przedstawiają sposób wykonywania następujących zadań z biblioteką klienta usługi Azure Blob Storage dla platformy .NET w aplikacji Xamarin. Forms:
+Te przykładowe fragmenty kodu przedstawiają sposób wykonywania następujących zadań za pomocą biblioteki klienta Blob Storage platformy Azure dla platformy .NET w aplikacji Xamarin. Forms:
 
 * [Utwórz zmienne na poziomie klasy](#create-class-level-variables)
 * [Tworzenie kontenera](#create-a-container)
@@ -110,7 +110,7 @@ Te przykładowe fragmenty kodu przedstawiają sposób wykonywania następującyc
 
 ### <a name="create-class-level-variables"></a>Utwórz zmienne na poziomie klasy
 
-Poniższy kod deklaruje kilka zmiennych na poziomie klasy. Są one konieczne do komunikacji z usługą Azure Blob Storage w dalszej części tego przykładu.
+Poniższy kod deklaruje kilka zmiennych na poziomie klasy. Muszą oni komunikować się z usługą Azure Blob Storage w całej pozostałej części tego przykładu.
 
 Są to oprócz parametrów połączenia dla konta magazynu ustawionych w sekcji [Konfigurowanie parametrów połączenia magazynu](#configure-your-storage-connection-string) .
 
@@ -269,12 +269,12 @@ Po zweryfikowaniu wartości Potwierdź monit o usunięcie kontenera i Zakończ p
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start przedstawiono sposób przekazywania, pobierania i wyświetlania listy obiektów BLOB przy użyciu biblioteki klienta usługi Azure Blob Storage V12 z platformą Xamarin.
+W tym przewodniku szybki start przedstawiono sposób przekazywania, pobierania i wyświetlania listy obiektów BLOB za pomocą usługi Azure Blob Storage Client Library V12 z platformą Xamarin.
 
 Aby wyświetlić przykładowe aplikacje dla magazynu obiektów blob, przejdź do:
 
 > [!div class="nextstepaction"]
-> [Przykład zestawu SDK usługi Azure Blob Storage V12 Xamarin](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
+> [Przykład platformy Azure Blob Storage SDK V12 Xamarin](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
 
 * Samouczki, przykłady, Przewodniki Szybki Start i inne dokumenty można znaleźć w witrynie [Azure for Mobile Developers](/azure/mobile-apps).
 * Aby dowiedzieć się więcej na temat platformy Xamarin, zobacz [wprowadzenie do platformy Xamarin](/xamarin/get-started/).

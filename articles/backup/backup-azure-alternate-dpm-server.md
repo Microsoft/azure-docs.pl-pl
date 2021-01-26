@@ -3,12 +3,12 @@ title: Odzyskiwanie danych z Azure Backup Server
 description: Odzyskaj dane chronione do magazynu Recovery Services z dowolnego Azure Backup Server zarejestrowanego w tym magazynie.
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: 0cce45fbaaedad4cfcee0cda768aae2fa294312b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ed8c937f97ec7a74662a8b46a354b0a6db39a2b0
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002974"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806017"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Odzyskiwanie danych z usługi Azure Backup Server
 
@@ -89,5 +89,5 @@ Aby odzyskać dane z Azure Backup Server:
 
 Zapoznaj się z innymi często zadawanymi pytaniami:
 
-* [Często zadawane pytania](backup-azure-vm-backup-faq.md) dotyczące kopii zapasowych maszyn wirtualnych platformy Azure
+* [Często zadawane pytania](backup-azure-vm-backup-faq.yml) dotyczące kopii zapasowych maszyn wirtualnych platformy Azure
 * [Często zadawane pytania](backup-azure-file-folder-backup-faq.md) dotyczące agenta usługi Azure Backup

@@ -3,12 +3,12 @@ title: Informacje o procesie przywracania maszyny wirtualnej platformy Azure
 description: Dowiedz się, jak usługa Azure Backup przywraca usługi Azure Virtual Machines
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: f42266e64170b314f10fbfc026873d694ea58b9a
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 436859bfb3cee37501e0605465d8e19856a846d6
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757732"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806825"
 ---
 # <a name="about-azure-vm-restore"></a>Informacje o przywracaniu maszyny wirtualnej platformy Azure
 
@@ -50,6 +50,6 @@ W tym artykule opisano, jak [usługa Azure Backup](./backup-overview.md) przywra
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Często zadawane pytania dotyczące przywracania maszyny wirtualnej](./backup-azure-vm-backup-faq.md#restore)
+- [Często zadawane pytania dotyczące przywracania maszyny wirtualnej](https://docs.microsoft.com/azure/backup/backup-azure-vm-backup-faq#restore)
 - [Obsługiwane metody przywracania](./backup-support-matrix-iaas.md#supported-restore-methods)
 - [Rozwiązywanie problemów z przywracaniem](./backup-azure-vms-troubleshoot.md#restore)

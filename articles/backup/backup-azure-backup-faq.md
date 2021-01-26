@@ -3,12 +3,12 @@ title: Odpowiedzi na często zadawane pytania
 description: 'Odpowiedzi na typowe pytania dotyczące funkcji usługi Azure Backup, w tym magazynów usług Recovery Services, elementów, których kopie zapasowe można tworzyć, sposobu działania, szyfrowania i ograniczeń. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: dbe6ce95427b559c037e38525f9f48195a2a76a4
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: f819440001180a3c446f366e61e3ac0f983fa67f
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703423"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806642"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup — często zadawane pytania
 
@@ -70,7 +70,7 @@ W przypadku magazynu [GRS](azure-backup-glossary.md#grs) bez włączonej możliw
 
 ### <a name="where-can-i-find-common-questions-about-the-azure-backup-agent-for-azure-vm-backup"></a>Gdzie można znaleźć często zadawane pytania dotyczące agenta usługi Azure Backup dla kopii zapasowej maszyny wirtualnej platformy Azure?
 
-- W przypadku agenta działającego na maszynach wirtualnych platformy Azure przeczytaj te [często zadawane pytania](backup-azure-vm-backup-faq.md).
+- W przypadku agenta działającego na maszynach wirtualnych platformy Azure przeczytaj te [często zadawane pytania](backup-azure-vm-backup-faq.yml).
 - W przypadku agenta służącego do tworzenia kopii zapasowych folderów plików platformy Azure, przeczytaj te [często zadawane pytania](backup-azure-file-folder-backup-faq.md).
 
 ## <a name="general-backup"></a>Ogólne tworzenie kopii zapasowych
@@ -236,5 +236,5 @@ Klucz używany do szyfrowania danych kopii zapasowej znajduje się tylko w Twoje
 
 Zapoznaj się z innymi często zadawanymi pytaniami:
 
-- [Często zadawane pytania](backup-azure-vm-backup-faq.md) dotyczące tworzenia kopii zapasowych maszyn wirtualnych platformy Azure.
+- [Często zadawane pytania](backup-azure-vm-backup-faq.yml) dotyczące tworzenia kopii zapasowych maszyn wirtualnych platformy Azure.
 - [Często zadawane pytania](backup-azure-file-folder-backup-faq.md) dotyczące agenta usługi Azure Backup
