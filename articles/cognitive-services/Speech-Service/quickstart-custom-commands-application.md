@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.custom: references_regions
-ms.openlocfilehash: 2cc37cc66c06dc9e6997c6a031a9c60ad050c01a
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: ea32358aa86a6093cd72adf959d5fe731cf1e125
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601761"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786880"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Tworzenie asystenta głosowego przy użyciu poleceń niestandardowych
 
@@ -136,4 +136,4 @@ W zakresie tego artykułu będziemy używać klienta asystenta głosowego system
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule użyto istniejącej aplikacji. Następnie w [sekcjach jak](how-to-custom-commands-create-application-with-simple-commands.md)można dowiedzieć się, jak projektować, opracowywać, debugować, testować i integrować aplikację poleceń niestandardowych od podstaw.
+W tym artykule użyto istniejącej aplikacji. Następnie w [sekcjach jak](./how-to-develop-custom-commands-application.md)można dowiedzieć się, jak projektować, opracowywać, debugować, testować i integrować aplikację poleceń niestandardowych od podstaw.

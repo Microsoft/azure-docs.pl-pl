@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 18d36e37554a5d2b37488b7a1525f8290dc03da0
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 50d78e83bbbeb4b0252c83f9f52e94599ea6946c
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763272"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787964"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorowanie, diagnozowanie i rozwiązywanie problemów z usługą Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -70,7 +70,7 @@ Aby zarządzać takimi aplikacjami, należy monitorować je aktywnie i zrozumie�
   * [Dodatek 5: monitorowanie za pomocą Application Insights platformy Azure DevOps]
 
 ## <a name="introduction"></a><a name="introduction"></a>Wprowadzenie
-W tym przewodniku pokazano, jak za pomocą funkcji, takich jak analityka magazynu platformy Azure, rejestrowanie po stronie klienta w bibliotece klienta usługi Azure Storage oraz inne narzędzia innych firm do identyfikowania, diagnozowania i rozwiązywania problemów związanych z usługą Azure Storage.
+W tym przewodniku pokazano, jak za pomocą funkcji, takich jak Azure Storage Analytics, rejestrowanie po stronie klienta w bibliotece klienta usługi Azure Storage oraz inne narzędzia innych firm do identyfikowania, diagnozowania i rozwiązywania problemów związanych z usługą Azure Storage.
 
 ![Diagram przedstawiający przepływ informacji między aplikacjami klienckimi i usługami Azure Storage.][1]
 
@@ -81,9 +81,9 @@ Ten przewodnik jest przeznaczony głównie dla deweloperów Usługi online korzy
 * Aby zapewnić odpowiednie wskazówki dotyczące rozwiązywania problemów związanych z usługą Azure Storage.
 
 ### <a name="how-this-guide-is-organized"></a><a name="how-this-guide-is-organized"></a>Jak zorganizowany jest ten przewodnik
-Sekcja "[monitorowanie usługi magazynu]" opisuje sposób monitorowania kondycji i wydajności usług Azure Storage przy użyciu metryk analityka magazynu platformy Azure (metryki magazynu).
+Sekcja "[monitorowanie usługi magazynu]" opisuje sposób monitorowania kondycji i wydajności usług Azure Storage przy użyciu metryk Azure Storage Analytics (metryki magazynu).
 
-Sekcja "[diagnozowanie problemów z magazynem]" opisuje, jak zdiagnozować problemy przy użyciu rejestrowania analityka magazynu platformy Azure (Rejestrowanie magazynu). Opisano w nim również, jak włączyć rejestrowanie po stronie klienta przy użyciu funkcji w jednej z bibliotek klienckich, takich jak Biblioteka klienta usługi Storage dla platformy .NET lub zestawu Azure SDK dla języka Java.
+Sekcja "[diagnozowanie problemów z magazynem]" opisuje, jak zdiagnozować problemy przy użyciu rejestrowania Azure Storage Analytics (Rejestrowanie magazynu). Opisano w nim również, jak włączyć rejestrowanie po stronie klienta przy użyciu funkcji w jednej z bibliotek klienckich, takich jak Biblioteka klienta usługi Storage dla platformy .NET lub zestawu Azure SDK dla języka Java.
 
 Sekcja "[kompleksowe śledzenie]" opisuje sposób skorelowania informacji zawartych w różnych plikach dziennika i danych metryk.
 
@@ -767,7 +767,7 @@ Możesz również wyświetlić dane TCP, gdy warstwa aplikacji widzi ją, klikaj
 >
 
 ### <a name="appendix-4-using-excel-to-view-metrics-and-log-data"></a><a name="appendix-4"></a>Dodatek 4: używanie programu Excel do wyświetlania metryk i danych dzienników
-Wiele narzędzi umożliwia pobieranie danych metryk magazynu z usługi Azure Table Storage w formacie rozdzielanym, który ułatwia ładowanie danych do programu Excel na potrzeby przeglądania i analizowania. Dane rejestrowania magazynu z usługi Azure Blob Storage mają już format rozdzielany, który można załadować do programu Excel. Należy jednak dodać odpowiednie nagłówki kolumn na podstawie informacji w [formacie dziennika analityka magazynu](/rest/api/storageservices/Storage-Analytics-Log-Format) i [schematu tabeli metryk analityka magazynu](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema).
+Wiele narzędzi umożliwia pobieranie danych metryk magazynu z usługi Azure Table Storage w formacie rozdzielanym, który ułatwia ładowanie danych do programu Excel na potrzeby przeglądania i analizowania. Dane rejestrowania magazynu z usługi Azure Blob Storage są już w formacie rozdzielanym, który można załadować do programu Excel. Należy jednak dodać odpowiednie nagłówki kolumn na podstawie informacji w [formacie dziennika analityka magazynu](/rest/api/storageservices/Storage-Analytics-Log-Format) i [schematu tabeli metryk analityka magazynu](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema).
 
 Aby zaimportować dane rejestrowania magazynu do programu Excel po ich pobraniu z magazynu obiektów blob:
 

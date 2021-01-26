@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.openlocfilehash: ef63bf68fec592b768986a1329663508443c514b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b33f765e936d7c0db301a5b2fcf38ccaf137f771
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535852"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787557"
 ---
 # <a name="testing-example-utterances-in-luis"></a>Przykład testowania wyrażenia długości w LUIS
 
@@ -33,7 +33,7 @@ Zobacz koncepcje [oceny przewidywania](luis-concept-prediction-score.md) , aby d
 Testowanie interaktywne odbywa się z poziomu panelu **testów** portalu Luis. Możesz wprowadzić wypowiedź, aby zobaczyć, jak intencje i jednostki są identyfikowane i oceniane. Jeśli LUIS nie przewidywalna intencji i jednostek, które są oczekiwane w wypowiedź w panelu testowania, skopiuj je na stronę **intencji** jako nową wypowiedź. Następnie Oznacz części tego wypowiedź dla jednostek i pouczenie LUIS. 
 
 ## <a name="batch-testing"></a>Testowanie wsadowe
-Zobacz [test wsadowy](luis-concept-batch-test.md) , jeśli testujesz więcej niż jeden wypowiedź w danym momencie.
+Zobacz [test wsadowy](./luis-how-to-batch-test.md) , jeśli testujesz więcej niż jeden wypowiedź w danym momencie.
 
 ## <a name="endpoint-testing"></a>Testowanie punktu końcowego
 Możesz testować przy użyciu [punktu końcowego](luis-glossary.md#endpoint) z maksymalnie dwiema wersjami aplikacji. Korzystając z swojej wersji głównej lub działającej jako punkt końcowy **produkcji** , należy dodać drugą wersję do punktu końcowego **przemieszczania** . Takie podejście daje trzy wersje wypowiedź: bieżący model w okienku test w witrynie sieci Web [Luis](luis-reference-regions.md) oraz dwie wersje w dwóch różnych punktach końcowych. 

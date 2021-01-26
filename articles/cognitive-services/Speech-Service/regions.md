@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
 ms.custom: seodec18,references_regions
-ms.openlocfilehash: f11ccafd58cc64e6186ef590bbbccbfab3335ea4
-ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
+ms.openlocfilehash: 646d29e72b91cd6afcde8e70ad8fd8715442b88e
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2021
-ms.locfileid: "97854863"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786795"
 ---
 # <a name="speech-service-supported-regions"></a>Obsługiwane regiony usługi Speech
 
@@ -69,7 +69,7 @@ Jest to podzestaw regionów publikowania obsługiwanych przez [usługę Language
 
 ### <a name="voice-assistants"></a>Asystenci głosowi
 
-[Zestaw Speech SDK](speech-sdk.md) obsługuje funkcje **asystenta głosowego** za pośrednictwem [bezpośredniej linii mowy](https://docs.microsoft.com/azure/cognitive-services/speech-service/direct-line-speech) w następujących regionach:
+[Zestaw Speech SDK](speech-sdk.md) obsługuje funkcje **asystenta głosowego** za pośrednictwem [bezpośredniej linii mowy](./direct-line-speech.md) w następujących regionach:
 
 | Region globalny | Region (Region)           | Identyfikator regionu    |
 | ------------- | ---------------- | -------------------- |

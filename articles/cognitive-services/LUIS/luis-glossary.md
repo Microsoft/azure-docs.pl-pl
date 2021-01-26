@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: cc7dac3767ca5c9e2429f4691a458f88ad1af707
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7c65c8272172cab9f5361d16141bf7b229037480
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151975"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786948"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Słownik dotyczący typowego słownictwa i koncepcji
 W słowniku Language Understanding (LUIS) objaśniono warunki, które mogą wystąpić podczas pracy z usługą LUIS.
@@ -50,12 +50,13 @@ Zasób tworzenia ma "rodzaj" platformy Azure `LUIS-Authoring` .
 
 ## <a name="batch-test"></a>Test wsadowy
 
-Testowanie wsadowe to możliwość sprawdzenia, czy bieżące modele aplikacji LUIS mają spójny i znany zestaw testów wyrażenia długości użytkownika. Test wsadowy jest zdefiniowany w [pliku sformatowanym w formacie JSON](luis-concept-batch-test.md#batch-file-format).
+Testowanie wsadowe to możliwość sprawdzenia, czy bieżące modele aplikacji LUIS mają spójny i znany zestaw testów wyrażenia długości użytkownika. Test wsadowy jest zdefiniowany w [pliku sformatowanym w formacie JSON](./luis-how-to-batch-test.md#batch-test-file).
+
 
 Zobacz też:
-* [Pojęcia](luis-concept-batch-test.md)
+* [Pojęcia](./luis-how-to-batch-test.md)
 * [Jak](luis-how-to-batch-test.md) uruchomić test wsadowy
-* [Samouczek](luis-tutorial-batch-testing.md) — tworzenie i uruchamianie testu wsadowego
+* [Samouczek](./luis-how-to-batch-test.md) — tworzenie i uruchamianie testu wsadowego
 
 ### <a name="f-measure"></a>Miara F
 
@@ -69,7 +70,7 @@ W testach wsadowych punkty danych przedstawiają wyrażenia długości, w który
 
 W testach wsadowych punkty danych reprezentują wyrażenia długości, w których aplikacja niepoprawnie przewidywalna istnienie docelowego celu/jednostki.
 
-### <a name="precision"></a>Precyzja
+### <a name="precision"></a>Dokładność
 W testach wsadowych precyzja (zwana również dodatnią wartością predykcyjną) jest częścią odpowiednich wyrażenia długości wśród pobranego wyrażenia długościu.
 
 Przykładem testu partii zwierząt jest liczba owiec przewidzianych przez łączną liczbę zwierząt (owiec i nieowiec).
@@ -109,7 +110,7 @@ Zobacz też:
 
 Deskryptor jest terminem wcześniej używanym dla [funkcji](#features)uczenia maszynowego.
 
-## <a name="domain"></a>Obszar
+## <a name="domain"></a>Domena
 
 W kontekście LUIS domena jest obszarem wiedzy. Twoja domena jest specyficzna dla Twojego scenariusza. Różne domeny używają określonego języka i terminologii mającej znaczenie w kontekście domeny. Na przykład, jeśli tworzysz aplikację do odtwarzania muzyki, aplikacja będzie miała warunki i język specyficzne dla utworów muzycznych — słowa takie jak "utwór, śledzenie, album, teksty, b, wykonawca". Przykłady domen można znaleźć w temacie [prebudowane domeny](#prebuilt-domain).
 
@@ -256,7 +257,7 @@ Na przykład Utwórz model, który służy do identyfikowania, czy część teks
 
 Zmieniono nazwę [klucza tworzenia](#authoring-key).
 
-## <a name="publish"></a>Opublikuj
+## <a name="publish"></a>Publikowanie
 
 [Opublikowanie](luis-how-to-publish-app.md) oznacza, że dostępna jest Luis aktywna wersja na etapie przejściowym [lub produkcyjnym](#endpoint).
 
@@ -305,9 +306,9 @@ Zobacz [Zmiana strefy czasowej prekompilowanej jednostki datetimeV2](luis-concep
 ## <a name="token"></a>Token
 [Token](luis-language-support.md#tokenization) jest najmniejszą jednostką tekstu, którą Luis może rozpoznać. Różni się to nieco w różnych językach.
 
-W przypadku **języka angielskiego**token jest ciągłym zakresem (bez spacji i znaków interpunkcyjnych) liter i cyfr. Spacja nie jest tokenem.
+W przypadku **języka angielskiego** token jest ciągłym zakresem (bez spacji i znaków interpunkcyjnych) liter i cyfr. Spacja nie jest tokenem.
 
-|Fraza|Liczba tokenów|Objaśnienie|
+|Fraza|Liczba tokenów|Wyjaśnienie|
 |--|--|--|
 |`Dog`|1|Pojedynczy wyraz bez znaków interpunkcyjnych ani spacji.|
 |`RMT33W`|1|Numer lokalizatora rekordu. Może zawierać cyfry i litery, ale nie ma żadnych znaków interpunkcyjnych.|

@@ -7,12 +7,12 @@ ms.date: 02/26/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 50e8dfd2998b50bfff7341e49ac4d0770c115166
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2020205357c68e007a1a375c4853e8c04afd2019
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530866"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789064"
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Jak przeprowadzić potwierdzenie dla certyfikatów urzędu certyfikacji X. 509 za pomocą usługi Device Provisioning
 
@@ -40,7 +40,7 @@ Aby zarejestrować certyfikat urzędu certyfikacji przy użyciu usługi aprowiza
 
 5. Kliknij certyfikat dodany w poprzednim kroku.
 
-6. W obszarze **Szczegóły certyfikatu**kliknij przycisk **Generuj kod weryfikacyjny**.
+6. W obszarze **Szczegóły certyfikatu** kliknij przycisk **Generuj kod weryfikacyjny**.
 
 7. Usługa aprowizacji tworzy **kod weryfikacyjny** , którego można użyć do zweryfikowania własności certyfikatu. Skopiuj kod do Schowka. 
 
@@ -58,7 +58,7 @@ Firma Microsoft udostępnia narzędzia i przykłady, które mogą pomóc utworzy
 > [!IMPORTANT]
 > Oprócz wykonywania dowodu istnienia, skrypty programu PowerShell i bash, które zostały wcześniej, również umożliwiają tworzenie certyfikatów głównych, certyfikatów pośrednich i certyfikatów liści, których można użyć do uwierzytelniania i aprowizacji urządzeń. Te certyfikaty powinny być używane tylko do celów deweloperskich. Nie powinny być używane w środowisku produkcyjnym. 
 
-Skrypty programu PowerShell i bash dostępne w dokumentacji i zestawach SDK są zależne od [OpenSSL](https://www.openssl.org/). Możesz również użyć OpenSSL lub innych narzędzi innych firm, aby ułatwić Ci dowód posiadania. Aby uzyskać więcej informacji na temat narzędzi dostarczanych z zestawami SDK, zobacz [jak korzystać z narzędzi dostępnych w](how-to-use-sdk-tools.md)zestawach SDK. 
+Skrypty programu PowerShell i bash dostępne w dokumentacji i zestawach SDK są zależne od [OpenSSL](https://www.openssl.org/). Możesz również użyć OpenSSL lub innych narzędzi innych firm, aby ułatwić Ci dowód posiadania. Przykład korzystania z narzędzi dostarczanych z zestawami SDK można znaleźć w temacie [Tworzenie łańcucha certyfikatów X. 509](tutorial-custom-hsm-enrollment-group-x509.md#create-an-x509-certificate-chain). 
 
 
 ## <a name="upload-the-signed-verification-certificate"></a>Przekaż podpisany certyfikat weryfikacji

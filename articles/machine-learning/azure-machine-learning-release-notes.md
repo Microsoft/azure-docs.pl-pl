@@ -9,16 +9,45 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: 11aa739beeb07c3de056d8a2430b556fcc40b178
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 6e92fb39845944898bebf6446c35f0932e13b5b8
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746734"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788879"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Informacje o wersji Azure Machine Learning
 
 W tym artykule dowiesz się więcej na temat wydań Azure Machine Learning.  Aby uzyskać pełną zawartość referencyjną SDK, odwiedź stronę referencyjną [**głównego zestawu sdk Azure Machine Learning dla języka Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) .
+
+ ## <a name="2021-01-25"></a>2021-01-25
+
+### <a name="azure-machine-learning-sdk-for-python-v1210"></a>Zestaw Azure Machine Learning SDK dla języka Python v 1.21.0
++ **Poprawki i ulepszenia błędów**
+  + **Azure — interfejs wiersza polecenia**
+    + Stały tekst pomocy interfejsu wiersza polecenia w przypadku używania AmlCompute z tożsamością UserAssigned
+  + **Azure-contrib-automl-DNN-Vision**
+    + Przyciski Wdróż i Pobierz staną się widoczne w przypadku uruchomień AutoML, a modele można wdrożyć lub pobrać podobnie jak inne uruchomienia AutoML. Istnieją dwa nowe pliki (scoring_file_v_1_0_0. PR i conda_env_v_1_0_0. yml), które zawierają skrypt służący do uruchamiania inferencing i YML plik do ponownego tworzenia środowiska Conda. Zmieniono także nazwę pliku "model. PTH", aby można było użyć rozszerzenia ". pt".
+  + **azureml-core**
+    + Obsługa MSI dla platformy Azure — CLI-ml
+    + Przypisano obsługę tożsamości zarządzanej przez użytkownika.
+    + W przypadku tej zmiany klienci powinni mieć możliwość udostępnienia tożsamości przypisanej użytkownikowi, która może być używana do pobierania klucza z magazynu kluczy klienta na potrzeby szyfrowania w stanie spoczynku.
+    +  Poprawka row_count = 0 dla profilu bardzo dużych plików — Usuń błąd w podwójnej konwersji dla wartości rozdzielanych z dopełnieniem odstępu
+    + Usuń flagę eksperymentalną dla wyjściowego zestawu danych
+    + Aktualizowanie dokumentacji dotyczącej pobierania określonej wersji modelu
+    + Zezwalaj na aktualizowanie obszaru roboczego na potrzeby dostępu w trybie mieszanym w przypadku linku prywatnego
+    + Napraw, aby usunąć dodatkową rejestrację w magazynie danych dla funkcji uruchamiania wznawiania
+    + Dodano obsługę interfejsu wiersza polecenia/zestawu SDK w celu zaktualizowania tożsamości przypisanego użytkownika podstawowego do obszaru roboczego
+  + **azureml-interpret**
+    + Zaktualizowano usługę Azure — Interpretuj do interpretacji — społeczność 0.16.0
+    + optymalizacje pamięci dla wyjaśnienia klienta w usłudze Azure — interpretacja
+  + **azureml-train-automl-runtime**
+    + Włączono przesyłanie strumieniowe dla uruchomień ADB
+  + **azureml-train-core**
+    + Napraw, aby usunąć dodatkową rejestrację w magazynie danych dla funkcji uruchamiania wznawiania
+  + **azureml-widgets**
+    + Klienci nie powinni widzieć zmian w istniejącej wizualizacji danych uruchomieniowych za pomocą widżetu, a teraz będą mieć pomoc techniczną, jeśli opcjonalnie użyją parametrów warunkowych.
+    + Widżet przebiegu użytkownika zawiera teraz szczegółowe wyjaśnienie dlaczego przebieg znajduje się w kolejce.
 
 
  ## <a name="2021-01-11"></a>2021-01-11
@@ -118,7 +147,7 @@ W tym artykule dowiesz się więcej na temat wydań Azure Machine Learning.  Aby
 ## <a name="2020-11-30"></a>2020-11-30
 ### <a name="azure-machine-learning-studio-notebooks-experience-november-update"></a>Środowisko Azure Machine Learning Studio notesy (Aktualizacja z listopada)
 + **Nowe funkcje**
-   + Terminal macierzysty. Użytkownicy będą mieli teraz dostęp do zintegrowanego terminalu, a także do operacji Git za pośrednictwem [zintegrowanego terminalu.](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#terminal)
+   + Terminal macierzysty. Użytkownicy będą mieli teraz dostęp do zintegrowanego terminalu, a także do operacji Git za pośrednictwem [zintegrowanego terminalu.](./how-to-run-jupyter-notebooks.md#terminal)
   + Zduplikowany folder 
   + Ustalanie kosztów dla listy rozwijanej obliczeń 
   + Pylance obliczeń w trybie offline 
@@ -1935,7 +1964,7 @@ W tej wersji obsługiwane są następujące przeglądarki: Chrome, Firefox, Safa
   + `read_parquet`Ulepszono wydajność programu w przypadku uruchamiania programu Spark.
   + Rozwiązano problem polegający na tym, że `column_type_builder` w przypadku pojedynczej kolumny z niejednoznacznymi formatami daty Wystąpił błąd.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 + **Funkcja wersji zapoznawczej**
   + Przesyłanie strumieniowe plików dziennika i danych wyjściowych jest teraz dostępne dla stron szczegółów uruchamiania. Po włączeniu przełącznika podglądu pliki będą przesyłać strumieniowo aktualizacje w czasie rzeczywistym.
   + Możliwość ustawiania limitu przydziału na poziomie obszaru roboczego jest publikowana w wersji zapoznawczej. Przydziały AmlCompute są przydzielane na poziomie subskrypcji, ale teraz można rozpowszechnić ten przydział między obszarami roboczymi i przydzielić go do sprawiedliwego udostępniania i zarządzania. Po prostu kliknij blok **użycie i limity przydziału** na lewym pasku nawigacyjnym obszaru roboczego i wybierz kartę **Konfigurowanie przydziałów** . Musisz być administratorem subskrypcji, aby móc ustawiać przydziały na poziomie obszaru roboczego, ponieważ jest to operacja między obszarami roboczymi.
@@ -2214,7 +2243,7 @@ Azure Machine Learning zestawu SDK dla języka Python v 1.0.30.
 
 ## <a name="2019-04-15"></a>2019-04-15
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
   + Teraz można ponownie przesłać istniejący skrypt uruchomiony w istniejącym zdalnym klastrze obliczeniowym.
   + Teraz można uruchomić opublikowany potok z nowymi parametrami na karcie potoki.
   + Szczegóły uruchamiania obsługują teraz nową przeglądarkę plików migawek. Możesz wyświetlić migawkę katalogu podczas przesyłania określonego uruchomienia. Możesz również pobrać Notes, który został przesłany w celu uruchomienia uruchomienia.
@@ -2272,7 +2301,7 @@ Azure Machine Learning zestawu SDK dla języka Python v 1.0.30.
 + **Poprawki i ulepszenia błędów**
   + Dodaliśmy obsługę w potokach Azure Machine Learning, aby ustawić właściwość source_directory_data_store na żądany magazyn danych (np. Magazyn obiektów BLOB) w witrynie [RunConfigurations](/python/api/azureml-core/azureml.core.runconfig.runconfiguration?preserve-view=true&view=azure-ml-py) , które są dostarczane do [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?preserve-view=true&view=azure-ml-py). Zgodnie z domyślnymi krokami usługa Azure File Store jest używana jako zapasowy magazyn danych, co może powodować problemy z ograniczaniem wydajności w przypadku wykonywania dużej liczby kroków współbieżnie.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 + **Nowe funkcje**
   + Nowe środowisko edytora tabeli przeciągnij i upuść dla raportów. Użytkownicy mogą przeciągać kolumnę od samego do obszaru tabeli, w którym zostanie wyświetlona wersja zapoznawcza tabeli. Kolumny można zmieniać.

@@ -7,19 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 04/14/2020
-ms.openlocfilehash: d24c63e3a2989173e718cd27fa43cecc50181047
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.date: 01/22/2021
+ms.openlocfilehash: 3aff700493fbdc0c2b8a9a3dcb4dbbafe9b10761
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533499"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788777"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Samouczek: korzystanie z platformy Apache HBase w usłudze Azure HDInsight
 
 W tym samouczku pokazano, jak utworzyć klaster Apache HBase w usłudze Azure HDInsight, utworzyć tabele HBase i tabele zapytań przy użyciu Apache Hive.  Aby uzyskać ogólne informacje o bazie danych HBase, zobacz [Omówienie bazy danych HBase w usłudze HDInsight](./apache-hbase-overview.md).
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie klastra Apache HBase
@@ -50,14 +50,14 @@ Poniższa procedura używa szablonu Azure Resource Manager do utworzenia klastra
     |Grupa zasobów|Utwórz grupę usługi Azure Resource Management lub Użyj istniejącej grupy.|
     |Lokalizacja|Określ lokalizację grupy zasobów. |
     |NazwaKlastra|Wprowadź nazwę dla klastra HBase.|
-    |Nazwa użytkownika i hasło logowania do klastra|Domyślna nazwa logowania to **admin** .|
-    |Nazwa użytkownika i hasło protokołu SSH|Domyślna nazwa użytkownika to **sshuser** .|
+    |Nazwa użytkownika i hasło logowania do klastra|Domyślna nazwa logowania to **admin**.|
+    |Nazwa użytkownika i hasło protokołu SSH|Domyślna nazwa użytkownika to **sshuser**.|
 
     Inne parametry są opcjonalne.  
 
     Każdy klaster zależy od konta usługi Azure Storage. Po usunięciu klastra dane pozostają na koncie magazynu. Domyślna nazwa konta magazynu klastra to nazwa klastra z dołączonym ciągiem „store”. Jest to stałe w sekcji zmienne szablonu.
 
-3. Zaznacz pozycję **Wyrażam zgodę na powyższe warunki i postanowienia** , a następnie kliknij przycisk **Kup** . Utworzenie klastra trwa około 20 minut.
+3. Zaznacz pozycję **Wyrażam zgodę na powyższe warunki i postanowienia**, a następnie kliknij przycisk **Kup**. Utworzenie klastra trwa około 20 minut.
 
 Po usunięciu klastra HBase można utworzyć inny klaster HBase za pomocą tego samego domyślnego kontenera obiektów blob. Nowy klaster przejmuje tabele bazy danych HBase utworzone w oryginalnym klastrze. Aby uniknąć niespójności, zaleca się wyłączenie tabel HBase przed usunięciem klastra.
 
@@ -332,7 +332,7 @@ Baza danych HBase w usłudze HDInsight jest dostarczana z interfejsem użytkowni
 
 1. Z menu po lewej stronie wybierz pozycję **HBase** .
 
-1. W górnej części strony wybierz pozycję **szybkie linki** , wskaż pozycję Active Node dozorcy link, a następnie wybierz pozycję **interfejs użytkownika HBase Master** .  Interfejs użytkownika zostanie otwarty w innej karcie przeglądarki:
+1. W górnej części strony wybierz pozycję **szybkie linki** , wskaż pozycję Active Node dozorcy link, a następnie wybierz pozycję **interfejs użytkownika HBase Master**.  Interfejs użytkownika zostanie otwarty w innej karcie przeglądarki:
 
    ![Interfejs użytkownika usługi HDInsight Apache HBase serwera hmaster](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
@@ -344,15 +344,21 @@ Baza danych HBase w usłudze HDInsight jest dostarczana z interfejsem użytkowni
    - zadania
    - atrybuty oprogramowania
 
+## <a name="cluster-recreation"></a>Tworzenie klastra
+
+Po usunięciu klastra HBase można utworzyć inny klaster HBase za pomocą tego samego domyślnego kontenera obiektów blob. Nowy klaster przejmuje tabele bazy danych HBase utworzone w oryginalnym klastrze. Aby uniknąć niespójności, zaleca się wyłączenie tabel HBase przed usunięciem klastra. 
+
+Można użyć polecenia HBase `disable 'Contacts'` . 
+
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Aby uniknąć niespójności, zaleca się wyłączenie tabel HBase przed usunięciem klastra. Można użyć polecenia HBase `disable 'Contacts'` . Jeśli nie zamierzasz nadal korzystać z tej aplikacji, usuń utworzony klaster bazy danych HBase, wykonując następujące czynności:
+Jeśli nie zamierzasz nadal korzystać z tej aplikacji, usuń utworzony klaster bazy danych HBase, wykonując następujące czynności:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-1. W polu **Wyszukaj** w górnej części wpisz **HDInsight** .
-1. Wybierz pozycję **Klastry usługi HDInsight** w obszarze **Usługi** .
+1. W polu **Wyszukaj** w górnej części wpisz **HDInsight**.
+1. Wybierz pozycję **Klastry usługi HDInsight** w obszarze **Usługi**.
 1. Na wyświetlonej liście klastrów usługi HDInsight kliknij symbol **...** obok klastra utworzonego na potrzeby tego samouczka.
-1. Kliknij polecenie **Usuń** . Kliknij przycisk **Yes** (Tak).
+1. Kliknij polecenie **Usuń**. Kliknij przycisk **Yes** (Tak).
 
 ## <a name="next-steps"></a>Następne kroki
 

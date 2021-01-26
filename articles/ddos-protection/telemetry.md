@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 86e4a111be7585373ecf4c2fe9508f2bfca7de16
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: a3f6c14b7ed2686a262f28510efb37068cfb9cb3
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915083"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787302"
 ---
 # <a name="view-and-configure-ddos-protection-telemetry"></a>Wyświetlanie i konfigurowanie telemetrii ochrony przed atakami DDoS
 
@@ -34,10 +34,10 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!NOTE]
 > W przypadku wyświetlenia wielu opcji **agregacji** w Azure Portal są obsługiwane tylko typy agregacji wymienione w poniższej tabeli. Przepraszamy za to pomyłkę i pracujemy nad rozwiązaniem tego problemu.
 
-Następujące [metryki](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftnetworkpublicipaddresses) są dostępne dla Azure DDoS Protection Standard. Te metryki można również eksportować za pośrednictwem ustawień diagnostycznych (zobacz [Wyświetlanie i Konfigurowanie rejestrowania diagnostycznego DDoS](diagnostic-logging.md)).
+Następujące [metryki](../azure-monitor/platform/metrics-supported.md#microsoftnetworkpublicipaddresses) są dostępne dla Azure DDoS Protection Standard. Te metryki można również eksportować za pośrednictwem ustawień diagnostycznych (zobacz [Wyświetlanie i Konfigurowanie rejestrowania diagnostycznego DDoS](diagnostic-logging.md)).
 
 
-| Metryka | Nazwa wyświetlana metryki | Jednostka | Typ agregacji | Opis |
+| Metric | Nazwa wyświetlana metryki | Jednostka | Typ agregacji | Opis |
 | --- | --- | --- | --- | --- |
 | ByteCount | Liczba bajtów | Liczba | Łącznie | Łączna liczba bajtów przesłanych w okresie |
 | BytesDroppedDDoS | Bajty przychodzące opuszczone DDoS | BytesPerSecond | Maksimum | Bajty przychodzące opuszczone DDoS| 

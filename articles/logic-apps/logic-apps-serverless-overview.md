@@ -8,12 +8,12 @@ ms.author: jehollan
 ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 03/30/2017
-ms.openlocfilehash: 0f20bb5fb249ad6bac862afe2b0e8eee4b32e2a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 470857883144f4bf8c21a1921afacb7ba3f5ca00
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75666554"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788099"
 ---
 # <a name="azure-serverless-overview-for-building-cloud-based-apps-and-solutions-with-azure-logic-apps-and-azure-functions"></a>Bez serwera platformy Azure: omówienie tworzenia aplikacji i rozwiązań opartych na chmurze z użyciem Azure Logic Apps i Azure Functions
 
@@ -35,7 +35,7 @@ Aby rozpocząć pracę z Logic Apps, Zacznij od [utworzenia pierwszej aplikacji 
 
 Azure Functions to usługa służąca do łatwego uruchamiania fragmentów kodu lub "Functions" w chmurze. Można napisać tylko kod niezbędny dla bieżącego problemu, bez obaw o całą aplikację lub wymaganą infrastrukturę. Funkcje mogą jeszcze bardziej zwiększyć produktywność i można korzystać z wybranego języka programowania, takiego jak C#, F #, Node.js, Python lub PHP. Płacisz tylko za czas działania kodu i skalowanie systemu Azure w razie potrzeby.
 
-Aby rozpocząć pracę z Azure Functions, Zacznij od [utworzenia pierwszej funkcji platformy Azure](../azure-functions/functions-create-first-azure-function.md). Aby uzyskać więcej informacji technicznych na temat funkcji, zobacz [Dokumentacja dla deweloperów](../azure-functions/functions-reference.md).
+Aby rozpocząć pracę z Azure Functions, Zacznij od [utworzenia pierwszej funkcji platformy Azure](../azure-functions/functions-get-started.md). Aby uzyskać więcej informacji technicznych na temat funkcji, zobacz [Dokumentacja dla deweloperów](../azure-functions/functions-reference.md).
 
 ## <a name="how-can-i-build-and-deploy-serverless-apps-in-azure"></a>Jak kompilować i wdrażać aplikacje bezserwerowe na platformie Azure?
 

@@ -259,6 +259,8 @@
           href: troubleshoot-diagnostic-logs.md
         - name: Pobieranie zdarzeń dotyczących zasobów
           href: get-resource-events.md
+        - name: Kontrola kondycji
+          href: monitor-instances-health-check.md
         - name: Otwieranie sesji SSH w kontenerze systemu Linux
           href: configure-linux-open-ssh-session.md
     - name: Zarządzanie aplikacją

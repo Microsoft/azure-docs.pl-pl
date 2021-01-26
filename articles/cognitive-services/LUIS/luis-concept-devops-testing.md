@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/3/2020
-ms.openlocfilehash: f002bfdd5aeb784b5b10b549389e663216fa0361
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: cd2fd8dc8c10864089b198db1ca1089f994a3ffb
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561226"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788455"
 ---
 # <a name="testing-for-luis-devops"></a>Testowanie pod kątem LUIS DevOps
 
@@ -28,7 +28,7 @@ Istnieją dwa różne rodzaje testów dla aplikacji LUIS, które należy wykona�
 Ten rodzaj testów jest podobny do [interaktywnego testowania](./luis-concept-test.md) , który można wykonać w [portalu Luis](https://www.luis.ai/).
 
 - **Testy wsadowe** — testowanie wsadowe to kompleksowy test w bieżącym przeszkolonym modelu, który umożliwia mierzenie jego wydajności. W przeciwieństwie do testów jednostkowych, testowanie wsadowe nie przebiega pomyślnie | testowanie nie powiodło się. Oczekiwanie przy testowaniu wsadowym nie jest, że każdy test zwróci oczekiwany cel i oczekiwane jednostki. Zamiast tego test wsadowy ułatwia przeglądanie dokładności poszczególnych założeń i jednostek w aplikacji, a także pomaga w porównaniu z upływem czasu wprowadzania ulepszeń.  
-Tego rodzaju testowanie jest takie samo jak [testy wsadowe](./luis-concept-batch-test.md) , które można wykonać interaktywnie w portalu Luis.
+Tego rodzaju testowanie jest takie samo jak [testy wsadowe](./luis-how-to-batch-test.md) , które można wykonać interaktywnie w portalu Luis.
 
 Testy jednostkowe można zastosować od początku projektu. Testowanie wsadowe ma naprawdę wartość tylko wtedy, gdy opracowano schemat aplikacji LUIS i pracujesz nad zwiększeniem jego dokładności.
 
@@ -42,7 +42,7 @@ Podczas pisania zestawu testów dla każdego testu należy zdefiniować:
 * Oczekiwany cel
 * Oczekiwane jednostki.
 
-Użyj [składni pliku wsadowego](./luis-concept-batch-test.md#batch-syntax-template-for-intents-with-entities) Luis, aby zdefiniować grupę testów w pliku w formacie JSON. Na przykład:
+Użyj [składni pliku wsadowego](./luis-how-to-batch-test.md#batch-syntax-template-for-intents-with-entities) Luis, aby zdefiniować grupę testów w pliku w formacie JSON. Na przykład:
 
 ```JSON
 [
@@ -85,7 +85,7 @@ W testach jednostkowych dobrym pomysłem jest przetestowanie, czy jednostki kluc
 
 #### <a name="designing-batch-tests"></a>Projektowanie testów wsadowych
 
-Zestawy testów wsadowych powinny zawierać dużą liczbę przypadków testowych, które są przeznaczone do testowania między wszystkimi intencjami i wszystkimi jednostkami w aplikacji LUIS. Aby uzyskać informacje na temat definiowania zestawu testów wsadowych [, zobacz test wsadowy w portalu Luis](./luis-concept-batch-test.md) .
+Zestawy testów wsadowych powinny zawierać dużą liczbę przypadków testowych, które są przeznaczone do testowania między wszystkimi intencjami i wszystkimi jednostkami w aplikacji LUIS. Aby uzyskać informacje na temat definiowania zestawu testów wsadowych [, zobacz test wsadowy w portalu Luis](./luis-how-to-batch-test.md) .
 
 ### <a name="running-tests"></a>Uruchamianie testów
 
@@ -93,7 +93,7 @@ Portal LUIS oferuje funkcje ułatwiające testowanie interaktywne:
 
 * [**Testowanie interaktywne**](./luis-concept-test.md) pozwala przesłać przykładową wypowiedźę i uzyskać odpowiedź na LUISe i jednostki. Sprawdzasz sukces testu przez kontrolę wzrokową.
 
-* [**Testy wsadowe**](./luis-concept-batch-test.md) wykorzystują plik testu wsadowego jako dane wejściowe, aby zweryfikować aktywną przeszkolonej wersji, aby zmierzyć jej dokładność przewidywania. Test wsadowy ułatwia przeglądanie dokładności poszczególnych zamierzeń i jednostek w aktywnej wersji, wyświetlając wyniki z wykresem.
+* [**Testy wsadowe**](./luis-how-to-batch-test.md) wykorzystują plik testu wsadowego jako dane wejściowe, aby zweryfikować aktywną przeszkolonej wersji, aby zmierzyć jej dokładność przewidywania. Test wsadowy ułatwia przeglądanie dokładności poszczególnych zamierzeń i jednostek w aktywnej wersji, wyświetlając wyniki z wykresem.
 
 #### <a name="running-tests-in-an-automated-build-workflow"></a>Uruchamianie testów w zautomatyzowanym przepływie pracy kompilacji
 

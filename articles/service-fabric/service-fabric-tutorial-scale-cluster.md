@@ -4,12 +4,12 @@ description: W tym samouczku dowiesz się, jak skalować klaster Service Fabric 
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 063c83818ec2e98491f9062e936b9a1e7b2c4356
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: cdc7ba8d6c83ae72ffb8f1afae3954b3a46dc6ec
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97702178"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788031"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Samouczek: skalowanie klastra usługi Service Fabric na platformie Azure
 
@@ -809,7 +809,7 @@ Po utworzeniu klastra Service Fabric można skalować klaster w poziomie, usuwaj
 > [!WARNING]
 > Nie zaleca się częstego używania Remove-AzServiceFabricNodeType do usuwania typu węzła z klastra produkcyjnego. Jest to niebezpieczne polecenie, ponieważ usuwa zasób zestawu skalowania maszyn wirtualnych za typem węzła. 
 
-Aby usunąć typ węzła, uruchom polecenie cmdlet [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) .  Typ węzła musi być [poziomem trwałości][durability]  Silver lub Gold polecenie cmdlet usuwa zestaw skalowania skojarzony z typem węzła i trwa jakiś czas.  Następnie uruchom polecenie cmdlet [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) w każdym z węzłów do usunięcia, co spowoduje usunięcie stanu węzła i usunięcie węzłów z klastra. Jeśli w węzłach znajdują się usługi, usługi są najpierw przenoszone do innego węzła. Jeśli Menedżer klastra nie może znaleźć węzła dla repliki/usługi, operacja zostanie opóźniona/zablokowana.
+Aby usunąć typ węzła, uruchom polecenie cmdlet [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) .  Typ węzła musi być [poziomem trwałości][durability]  Silver lub Gold polecenie cmdlet usuwa zestaw skalowania skojarzony z typem węzła i trwa jakiś czas.  Następnie uruchom polecenie cmdlet [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate) w każdym z węzłów do usunięcia, co spowoduje usunięcie stanu węzła i usunięcie węzłów z klastra. Jeśli w węzłach znajdują się usługi, usługi są najpierw przenoszone do innego węzła. Jeśli Menedżer klastra nie może znaleźć węzła dla repliki/usługi, operacja zostanie opóźniona/zablokowana.
 
 ```powershell
 $groupname = "sfclustertutorialgroup"

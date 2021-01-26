@@ -3,15 +3,15 @@ title: Diagnostyka Reliable Services Stanów Service Fabric platformy Azure
 description: Funkcje diagnostyczne dla stanowych Reliable Services na platformie Azure Service Fabric
 ms.topic: conceptual
 ms.date: 8/24/2018
-ms.openlocfilehash: 5a3831dd4f8d5402980fac3daf8c35d9884c852d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 774a771d0c9701076a5d6c070963bf6224a571dd
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840765"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789334"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funkcja diagnostyki dla stanowych usług Reliable Services
-Service Fabric stanowa platformy Azure Reliable Services Klasa StatefulServiceBase emituje zdarzenia [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) , które mogą być używane do debugowania usługi, zapewnia wgląd w sposób działania środowiska uruchomieniowego i pomaga w rozwiązywaniu problemów.
+Service Fabric stanowa platformy Azure Reliable Services Klasa StatefulServiceBase emituje zdarzenia [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource) , które mogą być używane do debugowania usługi, zapewnia wgląd w sposób działania środowiska uruchomieniowego i pomaga w rozwiązywaniu problemów.
 
 ## <a name="eventsource-events"></a>Zdarzenia EventSource
 Nazwa elementu EventSource dla klasy stanowej Reliable Services StatefulServiceBase to "Microsoft-servicefabric-Services". Zdarzenia z tego źródła zdarzeń pojawiają się w oknie [zdarzenia diagnostyczne](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) , gdy usługa jest [debugowana w programie Visual Studio](service-fabric-debugging-your-application.md).
@@ -58,7 +58,7 @@ W przypadku kategorii `Service Fabric Transactional Replicator` nazwy wystąpie�
 
 `ServiceFabricPartitionId:ServiceFabricReplicaId`
 
-*ServiceFabricPartitionId* to ciąg reprezentujący identyfikator partycji Service Fabric, z którym jest skojarzone wystąpienie licznika wydajności. Identyfikator partycji jest identyfikatorem GUID, a jego reprezentacja w postaci ciągu jest generowana za pomocą [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) specyfikatora formatu "D".
+*ServiceFabricPartitionId* to ciąg reprezentujący identyfikator partycji Service Fabric, z którym jest skojarzone wystąpienie licznika wydajności. Identyfikator partycji jest identyfikatorem GUID, a jego reprezentacja w postaci ciągu jest generowana za pomocą [`Guid.ToString`](/dotnet/api/system.guid.tostring#System_Guid_ToString_System_String_) specyfikatora formatu "D".
 
 *ServiceFabricReplicaId* to identyfikator skojarzony z daną repliką niezawodnej usługi. IDENTYFIKATOR repliki jest dołączany do nazwy wystąpienia licznika wydajności, aby zapewnić jego unikatowość i uniknąć konfliktu z innymi wystąpieniami liczników wydajności generowanymi przez tę samą partycję. Więcej informacji o replikach i ich roli w niezawodnych usługach można znaleźć [tutaj](service-fabric-concepts-replica-lifecycle.md).
 
@@ -73,7 +73,7 @@ W przypadku kategorii `Service Fabric TStore` nazwy wystąpień liczników mają
 
 `ServiceFabricPartitionId:ServiceFabricReplicaId:StateProviderId_PerformanceCounterInstanceDifferentiator_StateProviderName`
 
-*ServiceFabricPartitionId* to ciąg reprezentujący identyfikator partycji Service Fabric, z którym jest skojarzone wystąpienie licznika wydajności. Identyfikator partycji jest identyfikatorem GUID, a jego reprezentacja w postaci ciągu jest generowana za pomocą [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) specyfikatora formatu "D".
+*ServiceFabricPartitionId* to ciąg reprezentujący identyfikator partycji Service Fabric, z którym jest skojarzone wystąpienie licznika wydajności. Identyfikator partycji jest identyfikatorem GUID, a jego reprezentacja w postaci ciągu jest generowana za pomocą [`Guid.ToString`](/dotnet/api/system.guid.tostring#System_Guid_ToString_System_String_) specyfikatora formatu "D".
 
 *ServiceFabricReplicaId* to identyfikator skojarzony z daną repliką niezawodnej usługi. IDENTYFIKATOR repliki jest dołączany do nazwy wystąpienia licznika wydajności, aby zapewnić jego unikatowość i uniknąć konfliktu z innymi wystąpieniami liczników wydajności generowanymi przez tę samą partycję. Więcej informacji o replikach i ich roli w niezawodnych usługach można znaleźć [tutaj](service-fabric-concepts-replica-lifecycle.md).
 

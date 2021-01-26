@@ -1,18 +1,18 @@
 ---
 title: Metryki niestandardowe w Azure Monitor (wersja zapoznawcza)
 description: Dowiedz się więcej o metrykach niestandardowych w Azure Monitor i sposobach ich modelowania.
-author: ancav
+author: anirudhcavale
 ms.author: ancav
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 01/25/2021
 ms.subservice: metrics
-ms.openlocfilehash: 73c9b2bf8cf88ca5e8576c451c9d9ac5f0eae8a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce081896292ec92c41dabc735df828ed167d86e7
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88639906"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788506"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Metryki niestandardowe w Azure Monitor (wersja zapoznawcza)
 
@@ -61,7 +61,7 @@ Ta właściwość służy do przechwytywania identyfikatora zasobu platformy Azu
 > Nie można emitować metryk niestandardowych względem identyfikatora zasobu grupy zasobów lub subskrypcji.
 
 
-### <a name="region"></a>Region
+### <a name="region"></a>Region (Region)
 Ta właściwość przechwytuje, w jakim regionie platformy Azure jest wdrażany zasób, dla którego są emitowane metryki. Metryki muszą być emitowane do tego samego Azure Monitor regionalnego punktu końcowego, co region, w którym jest wdrożony zasób. Na przykład niestandardowe metryki maszyny wirtualnej wdrożonej w regionie zachodnie stany USA muszą zostać wysłane do regionu punktu końcowego Azure Monitor zachodniej. Informacje o regionie również są kodowane w adresie URL wywołania interfejsu API.
 
 > [!NOTE]  
@@ -69,7 +69,7 @@ Ta właściwość przechwytuje, w jakim regionie platformy Azure jest wdrażany 
 >
 >
 
-### <a name="timestamp"></a>Timestamp
+### <a name="timestamp"></a>Znacznik czasu
 Każdy punkt danych wysyłany do Azure Monitor musi być oznaczony sygnaturą czasową. Ta sygnatura czasowa przechwytuje datę i godzinę, o której wartość metryki jest mierzona lub zbierana. Azure Monitor akceptuje dane metryk z sygnaturami czasowymi w ciągu ostatnich i 5 minut w przyszłości. Sygnatura czasowa musi być w formacie ISO 8601.
 
 ### <a name="namespace"></a>Przestrzeń nazw
@@ -105,7 +105,6 @@ Na przykład jeśli w danej chwili wystąpiło cztery transakcje logowania do ap
 |Transakcja 1|Transakcja 2|Transakcja 3|Transakcja 4|
 |---|---|---|---|
 |7 MS|4 MS|13 MS|16 MS|
-|
 
 Następnie wynikająca z niej publikacja metryk Azure Monitor będzie następująca:
 * Min.: 4
@@ -134,7 +133,8 @@ W poniższym przykładzie utworzysz metrykę niestandardową o nazwie **bajty pa
         "metric": "Memory Bytes in Use",
         "namespace": "Memory Profile",
         "dimNames": [
-          "Process"        ],
+          "Process"
+        ],
         "series": [
           {
             "dimValues": [
@@ -174,7 +174,7 @@ Nie ma potrzeby definiowania wstępnie zdefiniowanej metryki niestandardowej w A
 Po przesłaniu metryk niestandardowych do Azure Monitor można je przeglądać za pośrednictwem Azure Portal i wysyłać do nich zapytania za pośrednictwem Azure Monitor interfejsów API REST. Możesz również utworzyć na nich alerty, aby powiadomić Cię, gdy zostaną spełnione określone warunki.
 
 > [!NOTE]
-> Aby wyświetlić metryki niestandardowe, musisz być rolą czytelnika lub współautora.
+> Aby wyświetlić metryki niestandardowe, musisz być rolą czytelnika lub współautora. Zobacz temat [monitorowanie czytnika](../../role-based-access-control/built-in-roles.md#monitoring-reader). 
 
 ### <a name="browse-your-custom-metrics-via-the-azure-portal"></a>Przeglądaj niestandardowe metryki za pomocą Azure Portal
 1.    Przejdź do witryny [Azure Portal](https://portal.azure.com).
@@ -184,34 +184,19 @@ Po przesłaniu metryk niestandardowych do Azure Monitor można je przeglądać z
 5.    Wybierz przestrzeń nazw metryk dla metryki niestandardowej.
 6.    Wybierz metrykę niestandardową.
 
+> [!NOTE]
+> Zobacz Rozpoczynanie [pracy z usługą Azure Eksplorator metryk](./metrics-getting-started.md) , aby uzyskać więcej informacji na temat wyświetlania metryk w Azure Portal.
+
 ## <a name="supported-regions"></a>Obsługiwane regiony
-W publicznej wersji zapoznawczej możliwość publikowania metryk niestandardowych jest dostępna tylko w podzbiorze regionów świadczenia usługi Azure. To ograniczenie oznacza, że metryki mogą być publikowane tylko dla zasobów w jednym z obsługiwanych regionów. W poniższej tabeli przedstawiono zestaw obsługiwanych regionów świadczenia usługi Azure dla metryk niestandardowych. Wyświetla także odpowiednie punkty końcowe, które metryki dla zasobów w tych regionach powinny być publikowane w:
+W publicznej wersji zapoznawczej możliwość publikowania metryk niestandardowych jest dostępna tylko w podzbiorze regionów świadczenia usługi Azure. To ograniczenie oznacza, że metryki mogą być publikowane tylko dla zasobów w jednym z obsługiwanych regionów. Aby uzyskać więcej informacji na temat regionów platformy Azure, zobacz temat [Azure lokalizacje geograficzne](https://azure.microsoft.com/global-infrastructure/geographies/) . Kod regionu platformy Azure użyty w poniższych punktach końcowych jest tylko nazwą regionu z usuniętym odstępem. w poniższej tabeli przedstawiono zestaw obsługiwanych regionów świadczenia usługi Azure dla metryk niestandardowych. Wyświetla także odpowiednie punkty końcowe, które metryki dla zasobów w tych regionach powinny być publikowane w:
 
 |Region platformy Azure |Prefiks regionu punktu końcowego|
 |---|---|
-| **Stany Zjednoczone i Kanada** | |
-|Zachodnio-środkowe stany USA | https: \/ /westcentralus.Monitoring.Azure.com |
-|Zachodnie stany USA 2       | https: \/ /westus2.Monitoring.Azure.com |
-|Północno-środkowe stany USA | https: \/ /northcentralus.Monitoring.Azure.com
-|South Central US| https: \/ /southcentralus.Monitoring.Azure.com |
-|Central US      | https: \/ /centralus.Monitoring.Azure.com |
-|Kanada Środkowa | https: \/ /canadacentral.Monitoring.Azure.com |
-|East US| https: \/ /eastus.Monitoring.Azure.com |
-|Wschodnie stany USA 2 | https: \/ /eastus2.Monitoring.Azure.com |
-| **Europa** | |
-|Europa Północna    | https: \/ /northeurope.Monitoring.Azure.com |
-|West Europe     | https: \/ /westeurope.Monitoring.Azure.com |
-|Południowe Zjednoczone Królestwo | https: \/ /uksouth.Monitoring.Azure.com
-|Francja Środkowa | https: \/ /francecentral.Monitoring.Azure.com |
-| **Afryka** | |
-|Północna Republika Południowej Afryki | https: \/ /southafricanorth.Monitoring.Azure.com |
-| **Azja** | |
-|Indie Środkowe | https: \/ /centralindia.Monitoring.Azure.com |
-|Australia Wschodnia | https: \/ /australiaeast.Monitoring.Azure.com |
-|Japan East | https: \/ /japaneast.Monitoring.Azure.com |
-|Southeast Asia  | https: \/ /southeastasia.Monitoring.Azure.com |
-|Azja Wschodnia | https: \/ /eastasia.Monitoring.Azure.com |
-|Korea Środkowa   | https: \/ /koreacentral.Monitoring.Azure.com |
+| Wszystkie regiony chmury publicznej | https://<azure_region_code>. monitoring.azure.com |
+| **Azure Government** | |
+| US Gov Arizona | https: \/ /usgovarizona.Monitoring.Azure.us |
+| **Chiny** | |
+| Chiny Wschodnie 2 | https: \/ /chinaeast2.Monitoring.Azure.CN |
 
 ## <a name="latency-and-storage-retention"></a>Opóźnienie i przechowywanie magazynu
 

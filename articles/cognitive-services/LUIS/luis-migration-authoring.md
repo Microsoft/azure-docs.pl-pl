@@ -11,12 +11,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 12/14/2020
-ms.openlocfilehash: 086bc17938064571e8759ecda633fb5f87d1060f
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 3ff48ff5a3f46d8ec0fbf81b4cd20d20c217344b
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616817"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787641"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrowanie do klucza tworzenia zasobów platformy Azure
 
@@ -81,7 +81,7 @@ Należy przeprowadzić migrację z [portalu Luis](https://www.luis.ai). Jeśli t
    > ![Wyeksportuj aplikacje.](./media/migrate-authoring-key/migration-export-apps.png)
 
 
-4. W oknie do migrowania regionów zostanie wyświetlony monit o Migrowanie aplikacji do zasobu platformy Azure w tym samym regionie, w którym zostały utworzone. LUIS ma trzy regiony [i portale](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-authoring-regions)tworzenia. W oknie zostaną wyświetlone regiony, w których posiadane aplikacje zostały utworzone. Wyświetlane regiony migracji mogą się różnić w zależności od używanego portalu regionalnego i aplikacji, które zostały przez Ciebie utworzone. 
+4. W oknie do migrowania regionów zostanie wyświetlony monit o Migrowanie aplikacji do zasobu platformy Azure w tym samym regionie, w którym zostały utworzone. LUIS ma trzy regiony [i portale](./luis-reference-regions.md#luis-authoring-regions)tworzenia. W oknie zostaną wyświetlone regiony, w których posiadane aplikacje zostały utworzone. Wyświetlane regiony migracji mogą się różnić w zależności od używanego portalu regionalnego i aplikacji, które zostały przez Ciebie utworzone. 
 
    > [!div class="mx-imgBorder"]
    > ![Migracja z wieloregionem.](./media/migrate-authoring-key/migration-regional-flow.png)

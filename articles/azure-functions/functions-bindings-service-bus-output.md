@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 2d0b66d2b4d89b512b34cb33a5607b471b7d1e84
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 12e57361b9e275fc441df27a3a1381989d48751c
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040933"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788574"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Azure Service Bus powiązanie danych wyjściowych dla Azure Functions
 
@@ -87,6 +87,41 @@ public static async Task Run(TimerInfo myTimer, ILogger log, IAsyncCollector<str
 }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+Poniższy przykład pokazuje funkcję języka Java, która wysyła komunikat do kolejki Service Bus, `myqueue` gdy wyzwalane przez żądanie HTTP.
+
+```java
+@FunctionName("httpToServiceBusQueue")
+@ServiceBusQueueOutput(name = "message", queueName = "myqueue", connection = "AzureServiceBusConnection")
+public String pushToQueue(
+  @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+  final String message,
+  @HttpOutput(name = "response") final OutputBinding<T> result ) {
+      result.setValue(message + " has been sent.");
+      return message;
+ }
+```
+
+ W [bibliotece środowiska uruchomieniowego funkcji Java](/java/api/overview/azure/functions/runtime)Użyj `@QueueOutput` adnotacji w parametrach funkcji, których wartość zostałaby zapisywana w kolejce Service Bus.  Typem parametru powinien być `OutputBinding<T>` , gdzie T jest dowolnym natywnym typem języka Java Pojo.
+
+Funkcje języka Java mogą również zapisywać w temacie Service Bus. Poniższy przykład używa `@ServiceBusTopicOutput` adnotacji do opisywania konfiguracji dla powiązania danych wyjściowych. 
+
+```java
+@FunctionName("sbtopicsend")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+            @ServiceBusTopicOutput(name = "message", topicName = "mytopicname", subscriptionName = "mysubscription", connection = "ServiceBusConnection") OutputBinding<String> message,
+            final ExecutionContext context) {
+        
+        String name = request.getBody().orElse("Azure Functions");
+
+        message.setValue(name);
+        return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
+        
+    }
+```
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Poniższy przykład przedstawia Service Bus powiązanie danych wyjściowych w *function.js* pliku i [funkcji języka JavaScript](functions-reference-node.md) , która używa powiązania. Funkcja używa wyzwalacza czasomierza do wysyłania komunikatu kolejki co 15 sekund.
@@ -139,6 +174,39 @@ module.exports = function (context, myTimer) {
 };
 ```
 
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+Poniższy przykład przedstawia Service Bus powiązanie danych wyjściowych w *function.js* pliku oraz [funkcję programu PowerShell](functions-reference-powershell.md) , która używa powiązania. 
+
+Oto dane powiązania w *function.js* pliku:
+
+```json
+{
+  "bindings": [
+    {
+      "type": "serviceBus",
+      "direction": "out",
+      "connection": "AzureServiceBusConnectionString",
+      "name": "outputSbMsg",
+      "queueName": "outqueue",
+      "topicName": "outtopic"
+    }
+  ]
+}
+```
+
+Oto środowisko programu PowerShell, które tworzy komunikat jako dane wyjściowe funkcji.
+
+```powershell
+param($QueueItem, $TriggerMetadata) 
+
+Push-OutputBinding -Name outputSbMsg -Value @{ 
+    name = $QueueItem.name 
+    employeeId = $QueueItem.employeeId 
+    address = $QueueItem.address 
+} 
+```
+
 # <a name="python"></a>[Python](#tab/python)
 
 Poniższy przykład ilustruje sposób zapisywania do kolejki Service Bus w języku Python.
@@ -189,41 +257,6 @@ def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
     return 'OK'
 ```
 
-# <a name="java"></a>[Java](#tab/java)
-
-Poniższy przykład pokazuje funkcję języka Java, która wysyła komunikat do kolejki Service Bus, `myqueue` gdy wyzwalane przez żądanie HTTP.
-
-```java
-@FunctionName("httpToServiceBusQueue")
-@ServiceBusQueueOutput(name = "message", queueName = "myqueue", connection = "AzureServiceBusConnection")
-public String pushToQueue(
-  @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
-  final String message,
-  @HttpOutput(name = "response") final OutputBinding<T> result ) {
-      result.setValue(message + " has been sent.");
-      return message;
- }
-```
-
- W [bibliotece środowiska uruchomieniowego funkcji Java](/java/api/overview/azure/functions/runtime)Użyj `@QueueOutput` adnotacji w parametrach funkcji, których wartość zostałaby zapisywana w kolejce Service Bus.  Typem parametru powinien być `OutputBinding<T>` , gdzie T jest dowolnym natywnym typem języka Java Pojo.
-
-Funkcje języka Java mogą również zapisywać w temacie Service Bus. Poniższy przykład używa `@ServiceBusTopicOutput` adnotacji do opisywania konfiguracji dla powiązania danych wyjściowych. 
-
-```java
-@FunctionName("sbtopicsend")
-    public HttpResponseMessage run(
-            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
-            @ServiceBusTopicOutput(name = "message", topicName = "mytopicname", subscriptionName = "mysubscription", connection = "ServiceBusConnection") OutputBinding<String> message,
-            final ExecutionContext context) {
-        
-        String name = request.getBody().orElse("Azure Functions");
-
-        message.setValue(name);
-        return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
-        
-    }
-```
-
 ---
 
 ## <a name="attributes-and-annotations"></a>Atrybuty i adnotacje
@@ -262,29 +295,33 @@ Możesz użyć `ServiceBusAccount` atrybutu, aby określić konto Service Bus do
 
 Atrybuty nie są obsługiwane przez skrypt języka C#.
 
+# <a name="java"></a>[Java](#tab/java)
+
+`ServiceBusQueueOutput` `ServiceBusTopicOutput` Adnotacje i są dostępne do pisania wiadomości jako dane wyjściowe funkcji. Parametr z tymi adnotacjami musi być zadeklarowany jako, `OutputBinding<T>` gdzie `T` jest typem odpowiadającym typowi komunikatu.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Atrybuty nie są obsługiwane przez język JavaScript.
+
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+Atrybuty nie są obsługiwane przez program PowerShell.
 
 # <a name="python"></a>[Python](#tab/python)
 
 Atrybuty nie są obsługiwane przez język Python.
 
-# <a name="java"></a>[Java](#tab/java)
-
-`ServiceBusQueueOutput` `ServiceBusTopicOutput` Adnotacje i są dostępne do pisania wiadomości jako dane wyjściowe funkcji. Parametr z tymi adnotacjami musi być zadeklarowany jako, `OutputBinding<T>` gdzie `T` jest typem odpowiadającym typowi komunikatu.
-
 ---
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `ServiceBus` atrybutu.
 
 |function.jswłaściwości | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|**Wprowadź** | nie dotyczy | Musi być ustawiona na wartość "serviceBus". Ta właściwość jest ustawiana automatycznie podczas tworzenia wyzwalacza w Azure Portal.|
-|**wskazywa** | nie dotyczy | Musi być ustawiona na wartość "out". Ta właściwość jest ustawiana automatycznie podczas tworzenia wyzwalacza w Azure Portal. |
-|**Nazwij** | nie dotyczy | Nazwa zmiennej, która reprezentuje komunikat kolejki lub tematu w kodzie funkcji. Ustaw wartość "$return", aby odwołać się do zwracanej wartości funkcji. |
+|**Wprowadź** | n/d | Musi być ustawiona na wartość "serviceBus". Ta właściwość jest ustawiana automatycznie podczas tworzenia wyzwalacza w Azure Portal.|
+|**wskazywa** | n/d | Musi być ustawiona na wartość "out". Ta właściwość jest ustawiana automatycznie podczas tworzenia wyzwalacza w Azure Portal. |
+|**Nazwij** | n/d | Nazwa zmiennej, która reprezentuje komunikat kolejki lub tematu w kodzie funkcji. Ustaw wartość "$return", aby odwołać się do zwracanej wartości funkcji. |
 |**Zmienną QueueName**|**Zmienną QueueName**|Nazwa kolejki.  Ustawiaj tylko w przypadku wysyłania komunikatów w kolejce, a nie dla tematu.
 |**temat**|**Temat**|Nazwa tematu. Ustawiaj tylko w przypadku wysyłania komunikatów tematu, a nie dla kolejki.|
 |**połączenia**|**Połączenie**|Nazwa ustawienia aplikacji, która zawiera Service Bus parametry połączenia do użycia dla tego powiązania. Jeśli nazwa ustawienia aplikacji zaczyna się od "AzureWebJobs", można określić tylko resztę nazwy. Jeśli na przykład ustawisz wartość `connection` "MyServiceBus", środowisko uruchomieniowe funkcji szuka ustawienia aplikacji o nazwie "AzureWebJobsMyServiceBus". Jeśli pozostawisz `connection` puste, środowisko uruchomieniowe funkcji używa domyślnych parametrów połączenia Service Bus w ustawieniu aplikacji o nazwie "AzureWebJobsServiceBus".<br><br>Aby uzyskać parametry połączenia, wykonaj kroki opisane w sekcji [pobieranie poświadczeń zarządzania](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). Parametry połączenia muszą należeć do Service Bus przestrzeni nazw, a nie ograniczone do określonej kolejki lub tematu.|
@@ -330,15 +367,19 @@ Podczas pracy z funkcjami języka C#:
 
 * Aby uzyskać dostęp do identyfikatora sesji, powiąż z [`Message`](/dotnet/api/microsoft.azure.servicebus.message) typem i Użyj `sessionId` właściwości.
 
+# <a name="java"></a>[Java](#tab/java)
+
+Użyj [zestawu SDK Azure Service Bus](../service-bus-messaging/index.yml) , a nie wbudowanego powiązania danych wyjściowych.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Dostęp do kolejki lub tematu za pomocą programu `context.bindings.<name from function.json>` . Do programu można przypisać ciąg, tablicę bajtową lub obiekt JavaScript (deserializowany w formacie JSON) `context.binding.<name>` .
 
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+Dane wyjściowe do Service Bus są dostępne za pośrednictwem `Push-OutputBinding` polecenia cmdlet, w którym przekazywane są argumenty pasujące do nazwy wskazanej przez parametr Nazwa powiązania w *function.js* pliku.
+
 # <a name="python"></a>[Python](#tab/python)
-
-Użyj [zestawu SDK Azure Service Bus](../service-bus-messaging/index.yml) , a nie wbudowanego powiązania danych wyjściowych.
-
-# <a name="java"></a>[Java](#tab/java)
 
 Użyj [zestawu SDK Azure Service Bus](../service-bus-messaging/index.yml) , a nie wbudowanego powiązania danych wyjściowych.
 
@@ -346,7 +387,7 @@ Użyj [zestawu SDK Azure Service Bus](../service-bus-messaging/index.yml) , a ni
 
 ## <a name="exceptions-and-return-codes"></a>Wyjątki i kody powrotu
 
-| Wiązanie | Tematy pomocy |
+| Wiązanie | Dokumentacja |
 |---|---|
 | Service Bus | [Service Bus kody błędów](../service-bus-messaging/service-bus-messaging-exceptions.md) |
 | Service Bus | [Limity Service Bus](../service-bus-messaging/service-bus-quotas.md) |
@@ -388,7 +429,7 @@ Jeśli `isSessionsEnabled` ustawiono `true` opcję, `sessionHandlerOptions` zost
 |---------|---------|---------|
 |prefetchCount|0|Pobiera lub ustawia liczbę komunikatów, które może jednocześnie wysłać odbiorca wiadomości.|
 |maxAutoRenewDuration|00:05:00|Maksymalny czas, w którym Blokada wiadomości zostanie odnowiona automatycznie.|
-|Wskazówk|true|Określa, czy wyzwalacz ma automatycznie wywoływać zakończenie po przetworzeniu, czy też kod funkcji zostanie wykonany ręcznie.<br><br>Ustawienie `false` jest obsługiwane tylko w języku C#.<br><br>Jeśli jest ustawiona na `true` , wyzwalacz kończy komunikat automatycznie, jeśli wykonanie funkcji zakończy się pomyślnie i porzuca komunikat w przeciwnym razie.<br><br>Po ustawieniu na `false` , użytkownik jest odpowiedzialny za wywoływanie metod [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet) w celu ukończenia, porzucenia lub utraconia wiadomości. Jeśli wyjątek jest zgłaszany (i żadna z `MessageReceiver` metod nie jest wywoływana), blokada pozostaje. Po wygaśnięciu blokady wiadomość zostanie ponownie umieszczona w kolejce z `DeliveryCount` przyrostem, a blokada zostanie automatycznie odnowiona.<br><br>W przypadku funkcji innych niż języka C wyjątki w funkcji powodują wywołania środowiska uruchomieniowego `abandonAsync` w tle. Jeśli żaden wyjątek nie wystąpi, wówczas `completeAsync` jest wywoływana w tle. |
+|Wskazówk|true|Określa, czy wyzwalacz ma automatycznie wywoływać zakończenie po przetworzeniu, czy też kod funkcji zostanie wykonany ręcznie.<br><br>Ustawienie `false` jest obsługiwane tylko w języku C#.<br><br>Jeśli jest ustawiona na `true` , wyzwalacz kończy komunikat automatycznie, jeśli wykonanie funkcji zakończy się pomyślnie i porzuca komunikat w przeciwnym razie.<br><br>Po ustawieniu na `false` , użytkownik jest odpowiedzialny za wywoływanie metod [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet&preserve-view=true) w celu ukończenia, porzucenia lub utraconia wiadomości. Jeśli wyjątek jest zgłaszany (i żadna z `MessageReceiver` metod nie jest wywoływana), blokada pozostaje. Po wygaśnięciu blokady wiadomość zostanie ponownie umieszczona w kolejce z `DeliveryCount` przyrostem, a blokada zostanie automatycznie odnowiona.<br><br>W przypadku funkcji innych niż języka C wyjątki w funkcji powodują wywołania środowiska uruchomieniowego `abandonAsync` w tle. Jeśli żaden wyjątek nie wystąpi, wówczas `completeAsync` jest wywoływana w tle. |
 |maxConcurrentCalls|16|Maksymalna liczba jednoczesnych wywołań wywołania zwrotnego, które pompa komunikatów powinna inicjować na wystąpienie skalowane. Domyślnie środowisko uruchomieniowe funkcji przetwarza wiele komunikatów jednocześnie.|
 |maxConcurrentSessions|2000|Maksymalna liczba sesji, które mogą być obsłużone współbieżnie na wystąpienie skalowane.|
 

@@ -3,12 +3,12 @@ title: Praca z elementami Reliable Collections
 description: Poznaj najlepsze rozwiązania dotyczące pracy z niezawodnymi kolekcjami w aplikacji Service Fabric platformy Azure.
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 2d027dc432d1a0a20888bfca4f59bc41866e358d
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 908f24cc22c969a34a513ff3fd3ceaa788420620
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651910"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787879"
 ---
 # <a name="working-with-reliable-collections"></a>Praca z elementami Reliable Collections
 Service Fabric oferuje model programowania stanowego dostępny dla deweloperów platformy .NET za pośrednictwem niezawodnych kolekcji. W Service Fabric udostępnia niezawodne słowniki i niezawodne klasy kolejek. W przypadku korzystania z tych klas stan jest partycjonowany (na potrzeby skalowalności), replikowany (na potrzeby dostępności) i transakcyjny w ramach partycji (dla semantyki KWASowej). Przyjrzyjmy się typowi użycia niezawodnego obiektu słownika i zobacz, co faktycznie robi.
@@ -226,4 +226,4 @@ Aby poznać najlepsze rozwiązania dotyczące wersji umów dotyczących danych, 
 
 Aby dowiedzieć się, jak zaimplementować Kontrakty danych odporne na wersje, zobacz [wywołania zwrotne serializacji z odpornością na wersje](/dotnet/framework/wcf/feature-details/version-tolerant-serialization-callbacks)
 
-Aby dowiedzieć się, jak zapewnić strukturę danych, która może współdziałać z wieloma wersjami, zobacz [IExtensibleDataObject](/dotnet/api/system.runtime.serialization.iextensibledataobject?view=netcore-3.1)
+Aby dowiedzieć się, jak zapewnić strukturę danych, która może współdziałać z wieloma wersjami, zobacz [IExtensibleDataObject](/dotnet/api/system.runtime.serialization.iextensibledataobject)

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: alexeyo
-ms.openlocfilehash: 61be4b45df94c902c0473b94a6dd83237c72da3c
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 51989a9219cdbfebf833c99849dba67c939cf77a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196127"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786846"
 ---
 # <a name="use-speech-services-through-a-private-endpoint"></a>Korzystanie z usług mowy za pomocą prywatnego punktu końcowego
 
@@ -293,7 +293,7 @@ Usługi mowy mają interfejsy API REST dla [zamiany mowy na tekst](rest-speech-t
 Zamiana mowy na tekst ma dwa interfejsy API REST. Każdy interfejs API pełni różne zastosowania, używa różnych punktów końcowych i wymaga innego podejścia, gdy jest używany w scenariuszu z obsługą prywatnego punktu końcowego.
 
 Interfejsy API REST zamiany mowy na tekst są następujące:
-- [Zamiana mowy na tekst API v 3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30), która jest używana na potrzeby [transkrypcji partii](batch-transcription.md) i [Custom Speech](custom-speech-overview.md). v 3.0 jest [następnikiem w wersji 2.0](/azure/cognitive-services/speech-service/migrate-v2-to-v3)
+- [Zamiana mowy na tekst API v 3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30), która jest używana na potrzeby [transkrypcji partii](batch-transcription.md) i [Custom Speech](custom-speech-overview.md). v 3.0 jest [następnikiem w wersji 2.0](./migrate-v2-to-v3.md)
 - [Interfejs API REST zamiany mowy na tekst dla krótkiego dźwięku](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio), który jest używany na potrzeby transkrypcji online 
 
 Użycie interfejsu API REST zamiany mowy na tekst dla krótkiego dźwięku i interfejsu API REST zamiany tekstu na mowę w scenariuszu prywatnego punktu końcowego jest takie samo. Jest to odpowiednik [przypadku zestawu Speech SDK](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk) opisanego w dalszej części tego artykułu. 
@@ -606,7 +606,7 @@ Po tej modyfikacji aplikacja powinna współpracować z zasobami mowy, które u�
 
 Aby uzyskać szczegółowe informacje o cenach, zobacz [Cennik usługi Azure Private link](https://azure.microsoft.com/pricing/details/private-link).
 
-## <a name="learn-more"></a>Więcej tutaj
+## <a name="learn-more"></a>Więcej informacji
 
 * [Link prywatny platformy Azure](../../private-link/private-link-overview.md)
 * [Zestaw SDK rozpoznawania mowy](speech-sdk.md)

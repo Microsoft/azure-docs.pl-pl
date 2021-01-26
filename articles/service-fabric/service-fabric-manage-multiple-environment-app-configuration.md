@@ -3,12 +3,12 @@ title: Zarządzanie aplikacjami dla wielu środowisk
 description: Aplikacje Service Fabric platformy Azure można uruchamiać w klastrach, które mają zakres wielkości z jednego komputera na tysiące maszyn. W niektórych przypadkach należy skonfigurować aplikację inaczej dla tych różnych środowisk. W tym artykule opisano sposób definiowania różnych parametrów aplikacji dla danego środowiska.
 ms.topic: conceptual
 ms.date: 02/23/2018
-ms.openlocfilehash: 51bc77abca8ce2b3878df1c1859203618d3e2e27
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: c907540c03788ab5f4087a96e301f18ab7ced4ca
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574449"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787981"
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Zarządzanie aplikacjami dla wielu środowisk
 
@@ -38,7 +38,7 @@ Podaną konfigurację można podzielić na dwie kategorie:
 
 Podczas tworzenia nazwanych wystąpień aplikacji w programie Service Fabric istnieje możliwość przekazania parametrów. W ten sposób zależy od sposobu tworzenia wystąpienia aplikacji.
 
-  - W programie PowerShell [`New-ServiceFabricApplication`](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) polecenie cmdlet przyjmuje parametry aplikacji jako tablicę skrótów.
+  - W programie PowerShell [`New-ServiceFabricApplication`](/powershell/module/servicefabric/new-servicefabricapplication) polecenie cmdlet przyjmuje parametry aplikacji jako tablicę skrótów.
   - Przy użyciu sfctl [`sfctl application create`](./service-fabric-sfctl-application.md#sfctl-application-create) polecenie przyjmuje parametry jako ciąg JSON. Skrypt install.sh używa sfctl.
   - Program Visual Studio udostępnia zestaw plików parametrów w folderze Parameters w projekcie aplikacji. Te pliki parametrów są używane podczas publikowania z programu Visual Studio przy użyciu Azure DevOps Services lub Azure DevOps Server. W programie Visual Studio pliki parametrów są przesyłane do skryptu Deploy-FabricApplication.ps1.
 

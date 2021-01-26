@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: deb5f07340f44e7ae4da3372fd17e484d500e6ab
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: 1be7331b0c2309350316d1c88c54e6018400463c
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573262"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789351"
 ---
 # <a name="expressroute-faq"></a>Usługa ExpressRoute — często zadawane pytania
 
@@ -92,7 +92,7 @@ Jeśli obwód usługi ExpressRoute jest włączony dla komunikacji równorzędne
 
 * [Microsoft 365](/microsoft-365/enterprise/azure-expressroute)
 * Power BI — dostępne za pośrednictwem społeczności regionalnej platformy Azure, zobacz [tutaj](/power-bi/service-admin-where-is-my-tenant-located) , jak sprawdzić region dzierżawy Power BI.
-* Usługa Azure Active Directory
+* Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (społeczność usług globalnych platformy Azure)
 * Publiczne adresy IP platformy Azure dla IaaS (Virtual Machines, bram Virtual Network, modułów równoważenia obciążenia itp.)  
 * Obsługiwane są również większość innych usług platformy Azure. Skontaktuj się bezpośrednio z usługą, która ma zostać użyta, aby zweryfikować pomoc techniczną.
@@ -227,7 +227,7 @@ Tak. Możesz połączyć maksymalnie 10 sieci wirtualnych w tej samej subskrypcj
 
 Aby uzyskać więcej informacji, zobacz [udostępnianie obwodu usługi ExpressRoute w wielu subskrypcjach](expressroute-howto-linkvnet-arm.md).
 
-### <a name="i-have-multiple-azure-subscriptions-associated-to-different-azure-active-directory-tenants-or-enterprise-agreement-enrollments-can-i-connect-virtual-networks-that-are-in-separate-tenants-and-enrollments-to-a-single-expressroute-circuit-not-in-the-same-tenant-or-enrollment"></a>Mam wiele subskrypcji platformy Azure skojarzonych z różnymi dzierżawami Azure Active Directory lub Umowa Enterprise rejestracji. Czy można połączyć sieci wirtualne, które znajdują się w osobnych dzierżawcach i rejestracje do pojedynczego obwodu ExpressRoute, nie w tej samej dzierżawie lub rejestracji?
+### <a name="i-have-multiple-azure-subscriptions-associated-to-different-azure-active-directory-tenants-or-enterprise-agreement-enrollments-can-i-connect-virtual-networks-that-are-in-separate-tenants-and-enrollments-to-a-single-expressroute-circuit-not-in-the-same-tenant-or-enrollment"></a>Mam wiele subskrypcji platformy Azure skojarzonych z różnymi dzierżawami Azure Active Directory lub Enterprise Agreement rejestracji. Czy można połączyć sieci wirtualne, które znajdują się w osobnych dzierżawcach i rejestracje do pojedynczego obwodu ExpressRoute, nie w tej samej dzierżawie lub rejestracji?
 
 Tak. Autoryzacje ExpressRoute mogą obejmować granice subskrypcji, dzierżawy i rejestracji bez konieczności dodatkowej konfiguracji. Należy zauważyć, że połączenia i opłaty za przepustowość dedykowanego obwodu będą stosowane do właściciela obwodu usługi ExpressRoute; wszystkie sieci wirtualne mają tę samą przepustowość.
 
@@ -256,7 +256,7 @@ W przypadku anonsowania tras domyślnych Wymuś ruch do usług oferowanych za po
 
 ### <a name="can-virtual-networks-linked-to-the-same-expressroute-circuit-talk-to-each-other"></a>Czy sieci wirtualne połączone z tym samym obwodem ExpressRoute komunikują się ze sobą?
 
-Tak. Maszyny wirtualne wdrożone w sieciach wirtualnych podłączonych do tego samego obwodu ExpressRoute mogą komunikować się ze sobą. Zalecamy skonfigurowanie komunikacji [równorzędnej sieci wirtualnej](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) w celu ułatwienia tej komunikacji.
+Tak. Maszyny wirtualne wdrożone w sieciach wirtualnych podłączonych do tego samego obwodu ExpressRoute mogą komunikować się ze sobą. Zalecamy skonfigurowanie komunikacji [równorzędnej sieci wirtualnej](../virtual-network/virtual-network-peering-overview.md) w celu ułatwienia tej komunikacji.
 
 ### <a name="can-i-use-site-to-site-connectivity-for-virtual-networks-in-conjunction-with-expressroute"></a>Czy można używać łączności między lokacjami dla sieci wirtualnych w połączeniu z usługą ExpressRoute?
 

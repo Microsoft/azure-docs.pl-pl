@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 10/08/2020
 ms.author: victorh
-ms.openlocfilehash: 6c71d9325ff7c1c5d2e7eff03a587a28335efd72
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 69eaf3ca60378afd810d712d85ea7ef732e41e3e
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94652148"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788234"
 ---
 # <a name="azure-firewall-features"></a>Funkcje usługi Azure Firewall
 
@@ -101,7 +101,7 @@ Dzięki temu można wykonać następujące scenariusze:
 
 ## <a name="azure-monitor-logging"></a>Rejestrowanie w usłudze Azure Monitor
 
-Wszystkie zdarzenia są zintegrowane z usługą Azure Monitor, co umożliwia archiwizowanie dzienników na koncie magazynu, przesyłanie strumieniowe zdarzeń do centrum Event Hub lub wysyłanie ich do dzienników usługi Azure Monitor. Przykłady dzienników Azure Monitor można znaleźć w temacie [Azure monitor Logs dla zapory platformy Azure](log-analytics-samples.md).
+Wszystkie zdarzenia są zintegrowane z usługą Azure Monitor, co umożliwia archiwizowanie dzienników na koncie magazynu, przesyłanie strumieniowe zdarzeń do centrum Event Hub lub wysyłanie ich do dzienników usługi Azure Monitor. Przykłady dzienników Azure Monitor można znaleźć w temacie [Azure monitor Logs dla zapory platformy Azure](./firewall-workbook.md).
 
 Aby uzyskać więcej informacji, zobacz [Samouczek: monitorowanie dzienników i metryk zapory platformy Azure](./firewall-diagnostics.md). 
 
@@ -113,7 +113,7 @@ Zaporę platformy Azure można skonfigurować tak, aby rozsyłać cały ruch zwi
 
 ## <a name="certifications"></a>Certyfikaty
 
-Zapora platformy Azure to branżowa karta płatnicza (PCI), kontrolki organizacji usług (SOC), Międzynarodowa Organizacja Normalizacyjna (ISO) i ICSA Labs. Aby uzyskać więcej informacji, zobacz [certyfikaty zgodności zapory platformy Azure](compliance-certifications.md).
+Zapora platformy Azure to branżowa karta płatnicza (PCI), kontrolki organizacji usług (SOC), Międzynarodowa Organizacja Normalizacyjna (ISO) (ISO) i ICSA Labs. Aby uzyskać więcej informacji, zobacz [certyfikaty zgodności zapory platformy Azure](compliance-certifications.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

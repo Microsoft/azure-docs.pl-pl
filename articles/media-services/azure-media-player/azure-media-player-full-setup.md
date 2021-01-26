@@ -7,21 +7,26 @@ ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 15f5918748df80cec01ccf89835a0ef51da64529
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13abe333bcf3f67ea1a1ba823c693deaa60bc723
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91296250"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788811"
 ---
 # <a name="azure-media-player-full-setup"></a>Pełna konfiguracja usługi Azure Media Player #
 
 Azure Media Player można łatwo skonfigurować. Uzyskanie podstawowego odtwarzania zawartości multimedialnej bezpośrednio z konta Azure Media Services trwa zaledwie kilka minut. [Przykłady](https://github.com/Azure-Samples/azure-media-player-samples) są również dostępne w katalogu przykładów wydania.
 
+<!--//aka.ms/ampembed?url=https%3A%2F%2Fxpouyatdemo-euwe.streaming.media.azure.net%2Fc9b6ac82-c187-4882-a3d3-1a67204ac58e%2Fconnect2017-v3.ism%2Fmanifest-->
+
+Oto przykład wideo z AMS.
+
+> [!VIDEO https://aka.ms/ampembed?url=https%3A%2F%2Fxpouyatdemo-euwe.streaming.media.azure.net%2Fc9b6ac82-c187-4882-a3d3-1a67204ac58e%2Fconnect2017-v3.ism%2Fmanifest]
 
 ## <a name="step-1-include-the-javascript-and-css-files-in-the-head-of-your-page"></a>Krok 1. Uwzględnij pliki JavaScript i CSS w nagłówku strony ##
 
-Za pomocą Azure Media Player można uzyskać dostęp do skryptów z hostowanej wersji usługi CDN. Często zaleca się umieszczenie kodu JavaScript przed tagiem treści końcowej `<body>` zamiast `<head>` , ale Azure Media Player zawiera "HTML5 Shiv", który musi znajdować się w nagłówku w przypadku starszych wersji programu IE w celu uwzględnienia znacznika wideo jako prawidłowego elementu.
+Za pomocą Azure Media Player można uzyskać dostęp do skryptów z hostowanej wersji usługi CDN. Często zalecamy teraz umieszczenie kodu JavaScript przed znacznikiem treści końcowej `<body>` zamiast `<head>` , ale usługa Azure Meia Player zawiera element "HTML5 Shiv", który musi znajdować się w sekcji głównej dla starszych wersji programu IE, aby poszanowania tagu wideo jako prawidłowego elementu.
 
 > [!NOTE]
 > Jeśli korzystasz już z Shiv HTML5, takiego jak [modernizacja](https://modernizr.com/) , możesz w dowolnym miejscu umieścić Azure Media Player JavaScript. Upewnij się jednak, że Twoja wersja programu unowocześnienie obejmuje Shiv do wideo.

@@ -3,18 +3,18 @@ title: Zarządzanie projektami migracji na dużą skalę za pomocą Azure Migrat
 description: Dowiedz się, jak efektywnie korzystać z Azure Migrate na delegowanych zasobach klientów.
 ms.date: 12/4/2020
 ms.topic: how-to
-ms.openlocfilehash: 16b92f3aa4dc3bfcb71eb232170c4df30348f8db
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 53f7c390d9f16dcbccbb1d09f46e63fec13eee2d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095393"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788947"
 ---
 # <a name="manage-migration-projects-at-scale-with-azure-migrate"></a>Zarządzanie projektami migracji na dużą skalę za pomocą Azure Migrate
 
 Jako dostawca usług możesz dołączyć wielu dzierżawców klientów do [usługi Azure Lighthouse](../overview.md). Usługa Azure Lighthouse umożliwia dostawcom usług wykonywanie operacji na dużą skalę w wielu dzierżawach Azure Active Directory (Azure AD) jednocześnie, co sprawia, że zadania zarządzania są bardziej wydajne.
 
-[Azure Migrate](../../migrate/migrate-services-overview.md) udostępnia scentralizowany centrum do oceny i migracji do lokalnych serwerów, infrastruktury, aplikacji i danych platformy Azure. Zwykle partnerzy, którzy przeprowadzają oceny i migrację na dużą skalę dla wielu klientów, muszą uzyskać dostęp osobno dla każdej subskrypcji klienta przy użyciu [modelu subskrypcji CSP (dostawcy rozwiązań w chmurze)](/partner-center/customers-revoke-admin-privileges) lub przez [utworzenie użytkownika-gościa w dzierżawie klienta](/azure/active-directory/external-identities/what-is-b2b).
+[Azure Migrate](../../migrate/migrate-services-overview.md) udostępnia scentralizowany centrum do oceny i migracji do lokalnych serwerów, infrastruktury, aplikacji i danych platformy Azure. Zwykle partnerzy, którzy przeprowadzają oceny i migrację na dużą skalę dla wielu klientów, muszą uzyskać dostęp osobno dla każdej subskrypcji klienta przy użyciu [modelu subskrypcji CSP (dostawcy rozwiązań w chmurze)](/partner-center/customers-revoke-admin-privileges) lub przez [utworzenie użytkownika-gościa w dzierżawie klienta](../../active-directory/external-identities/what-is-b2b.md).
 
 Integracja usługi Azure Lighthouse z usługą Azure Migrate umożliwia dostawcom usług wykrywanie, ocenianie i migrowanie obciążeń dla różnych klientów na dużą skalę, a jednocześnie pozwala klientom na pełny wgląd w swoje środowiska i kontrolę nad nimi. Za pośrednictwem zarządzania zasobami delegowanymi przez platformę Azure dostawcy usług mają jeden widok wszystkich projektów Azure Migrate zarządzanych przez wielu dzierżawców klientów.
 
@@ -39,7 +39,7 @@ Takie podejście minimalizuje przełączanie kontekstu dla dostawców usług pra
 Przepływ pracy dla tego modelu będzie podobny do następującego:
 
 1. Klient jest dołączany [do usługi Azure Lighthouse](onboard-customer.md). Rola wbudowana współautor jest wymagana dla tożsamości, która będzie używana z Azure Migrate. Zobacz przykładowy szablon [delegowani-Resource-Management-azmigrate](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate) , aby zapoznać się z przykładem z tą rolą.
-1. Wskazany użytkownik loguje się do dzierżawy zarządzającej w Azure Portal, a następnie przechodzi do Azure Migrate. Ten użytkownik [tworzy projekt Azure Migrate](/azure/migrate/create-manage-projects), wybierając odpowiednią delegowaną subskrypcję klienta.
+1. Wskazany użytkownik loguje się do dzierżawy zarządzającej w Azure Portal, a następnie przechodzi do Azure Migrate. Ten użytkownik [tworzy projekt Azure Migrate](../../migrate/create-manage-projects.md), wybierając odpowiednią delegowaną subskrypcję klienta.
 1. Następnie użytkownik [wykonuje kroki odnajdywania i oceny](../../migrate/tutorial-discover-vmware.md).
 
    W przypadku maszyn wirtualnych VMware przed skonfigurowaniem urządzenia można ograniczyć odnajdywanie do vCenter Server centrów danych, klastrów, folderu klastrów, hostów, folderu hostów lub poszczególnych maszyn wirtualnych. Aby ustawić zakres, przypisz uprawnienia do konta używanego przez urządzenie w celu uzyskania dostępu do vCenter Server. Jest to przydatne, jeśli wiele maszyn wirtualnych klientów jest hostowanych w funkcji hypervisor. Nie można ograniczyć zakresu odnajdywania funkcji Hyper-V.
@@ -61,7 +61,7 @@ Takie podejście umożliwia dostawcom usług szybkie uruchamianie projektów do 
 Przepływ pracy dla tego modelu będzie podobny do następującego:
 
 1. Klient jest dołączany [do usługi Azure Lighthouse](onboard-customer.md). Rola wbudowana współautor jest wymagana dla tożsamości, która będzie używana z Azure Migrate. Zobacz przykładowy szablon [delegowani-Resource-Management-azmigrate](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate) , aby zapoznać się z przykładem z tą rolą.
-1. Wskazany użytkownik loguje się do dzierżawy zarządzającej w Azure Portal, a następnie przechodzi do Azure Migrate. Ten użytkownik [tworzy projekt Azure Migrate](/azure/migrate/create-manage-projects) w ramach subskrypcji należącej do dzierżawy zarządzającej.
+1. Wskazany użytkownik loguje się do dzierżawy zarządzającej w Azure Portal, a następnie przechodzi do Azure Migrate. Ten użytkownik [tworzy projekt Azure Migrate](../../migrate/create-manage-projects.md) w ramach subskrypcji należącej do dzierżawy zarządzającej.
 1. Następnie użytkownik [wykonuje kroki odnajdywania i oceny](../../migrate/tutorial-discover-vmware.md). Lokalne maszyny wirtualne będą odnajdywane i oceniane w projekcie migracji utworzonym w dzierżawie zarządzającej, a następnie migrowane z tej lokalizacji.
 
    Jeśli zarządzasz wieloma klientami na tym samym hoście funkcji Hyper-V, możesz odnaleźć wszystkie obciążenia jednocześnie. Maszyny wirtualne specyficzne dla klienta można wybrać w tej samej grupie, a następnie można utworzyć ocenę i przeprowadzić migrację, wybierając odpowiednią subskrypcję klienta jako lokalizację docelową. Nie ma potrzeby ograniczania zakresu odnajdywania i można zachować pełną przegląd wszystkich obciążeń klientów w jednym projekcie migracji.
@@ -80,4 +80,3 @@ Aby uzyskać więcej informacji, zobacz [Łączenie identyfikatora partnera w ce
 
 - Dowiedz się więcej na temat [Azure Migrate](../../migrate/migrate-services-overview.md).
 - Dowiedz się więcej na temat [środowisk zarządzania między dzierżawcami](../concepts/cross-tenant-management-experience.md).
-

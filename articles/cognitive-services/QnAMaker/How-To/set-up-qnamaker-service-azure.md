@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: af9087f0dd45212ec88b620dcd965c895b86bbce
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: baa071c8967c97cb5df2b8f522b3737436bdb359
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108196"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787709"
 ---
 # <a name="manage-qna-maker-resources"></a>Zarządzanie zasobami QnA Maker
 
@@ -130,12 +130,12 @@ Dowiedz się więcej na temat konfigurowania [ustawień ogólnych](../../../app-
 ### <a name="configure-app-service-environment-to-host-qna-maker-app-service"></a>Konfigurowanie App Service Environment do hostowania QnA Maker App Service
 App Service Environment (ASE) może służyć do hostowania QnA Maker App Service. Wykonaj poniższe kroki:
 
-1. Utwórz App Service Environment i oznacz go jako "zewnętrzny". Aby uzyskać instrukcje, postępuj zgodnie z [samouczkiem](https://docs.microsoft.com/azure/app-service/environment/create-external-ase) .
+1. Utwórz App Service Environment i oznacz go jako "zewnętrzny". Aby uzyskać instrukcje, postępuj zgodnie z [samouczkiem](../../../app-service/environment/create-external-ase.md) .
 2.  Utwórz usługę App Service w ramach App Service Environment.
     * Sprawdź konfigurację usługi App Service i Dodaj element "PrimaryEndpointKey" jako ustawienie aplikacji. Wartość parametru "PrimaryEndpointKey" powinna być równa " \<app-name\> -PrimaryEndpointKey". Nazwa aplikacji jest definiowana w adresie URL usługi App Service. Na przykład jeśli adres URL usługi App Service to "mywebsite.myase.p.azurewebsite.net", nazwa aplikacji to "Witryna sieci Web". W takim przypadku wartość parametru "PrimaryEndpointKey" powinna być równa "PrimaryEndpointKey".
     * Utwórz usługę Azure Search.
     * Upewnij się, że ustawienia Azure Search i aplikacji zostały odpowiednio skonfigurowane. 
-      Postępuj zgodnie z tym [samouczkiem](https://docs.microsoft.com/azure/cognitive-services/qnamaker/reference-app-service?tabs=v1#app-service).
+      Postępuj zgodnie z tym [samouczkiem](../reference-app-service.md?tabs=v1#app-service).
 3.  Aktualizowanie sieciowej grupy zabezpieczeń skojarzonej z App Service Environment
     * Zaktualizuj wstępnie utworzone reguły zabezpieczeń dla ruchu przychodzącego zgodnie z wymaganiami.
     * Dodaj nową regułę zabezpieczeń dla ruchu przychodzącego ze źródłem jako "tag usługi" i tag usługi źródłowej jako "CognitiveServicesManagement".
@@ -170,7 +170,7 @@ Pomysł wysokiego poziomu przedstawiony powyżej jest następujący:
 
 1. Po skonfigurowaniu stosów podstawowych i pomocniczych Użyj usługi [Traffic Manager](../../../traffic-manager/traffic-manager-overview.md) , aby skonfigurować dwa punkty końcowe i skonfigurować metodę routingu.
 
-1. Należy utworzyć Transport Layer Security (TLS), wcześniej znany jako SSL (SSL), certyfikat dla punktu końcowego usługi Traffic Manager. [Powiąż certyfikat TLS/SSL](../../../app-service/configure-ssl-bindings.md) w usługach aplikacji.
+1. Należy utworzyć Transport Layer Security (TLS), wcześniej znany jako Secure Sockets Layer (SSL), certyfikat dla punktu końcowego usługi Traffic Manager. [Powiąż certyfikat TLS/SSL](../../../app-service/configure-ssl-bindings.md) w usługach aplikacji.
 
 1. Na koniec użyj punktu końcowego w usłudze Traffic Manager w bot lub aplikacji.
 

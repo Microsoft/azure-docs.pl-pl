@@ -4,12 +4,12 @@ description: W tym przewodniku Szybki start skompilujesz obraz Docker za pomocą
 ms.topic: quickstart
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 27d9c96643feb805a785e1e535cd8cac2602082b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: f58b8feda0e88d8a5e7cddaabbc650b0f0ab3973
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741915"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788166"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Szybki start: wdrażanie kontenerów systemu Linux w usłudze Service Fabric
 
@@ -25,7 +25,7 @@ Aby ukończyć ten przewodnik Szybki start:
 
 1. Jeśli nie masz subskrypcji, przed rozpoczęciem [utwórz bezpłatne konto platformy Azure](https://azure.microsoft.com/free/).
 
-2. Instalowanie [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli-apt?view=azure-cli-latest)
+2. Instalowanie [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli-apt)
 
 3. Zainstaluj [interfejs wiersza polecenia i zestaw SDK usługi Service Fabric](service-fabric-get-started-linux.md#installation-methods).
 
@@ -89,7 +89,7 @@ Usługa Service Fabric udostępnia kilka narzędzi, których możesz używać do
 
 W tym przewodniku Szybki start jest używany interfejs wiersza polecenia usługi Service Fabric i (internetowe) narzędzie Service Fabric Explorer. Aby użyć narzędzia Service Fabric Explorer, musisz zaimportować do przeglądarki plik PFX certyfikatu. Domyślnie plik PFX nie ma hasła.
 
-domyślną przeglądarką w systemie Ubuntu 16.04 jest Mozilla Firefox. Aby zaimportować certyfikat w przeglądarce Firefox, kliknij przycisk menu w prawym górnym rogu przeglądarki, a następnie kliknij pozycję **Opcje** . Na stronie **Preferencje** użyj pola wyszukiwania, aby wyszukać ciąg „certyfikaty”. Kliknij przycisk **Wyświetl certyfikaty** , wybierz kartę **Twoje certyfikaty** , kliknij pozycję **Importuj** i postępuj zgodnie z monitami, aby zaimportować certyfikat.
+domyślną przeglądarką w systemie Ubuntu 16.04 jest Mozilla Firefox. Aby zaimportować certyfikat w przeglądarce Firefox, kliknij przycisk menu w prawym górnym rogu przeglądarki, a następnie kliknij pozycję **Opcje**. Na stronie **Preferencje** użyj pola wyszukiwania, aby wyszukać ciąg „certyfikaty”. Kliknij przycisk **Wyświetl certyfikaty**, wybierz kartę **Twoje certyfikaty**, kliknij pozycję **Importuj** i postępuj zgodnie z monitami, aby zaimportować certyfikat.
 
    ![Instalowanie certyfikatu w programie Firefox](./media/service-fabric-quickstart-containers-linux/install-cert-firefox.png)
 
@@ -101,13 +101,13 @@ domyślną przeglądarką w systemie Ubuntu 16.04 jest Mozilla Firefox. Aby zaim
     sfctl cluster select --endpoint https://containertestcluster.eastus.cloudapp.azure.com:19080 --pem containertestcluster22019013100.pem --no-verify
     ```
 
-2. Użyj skryptu instalacji, aby skopiować definicję aplikacji do głosowania do klastra, zarejestrować typ aplikacji i utworzyć wystąpienie aplikacji.  Plik certyfikatu PEM powinien znajdować się w tym samym katalogu co plik *install.sh* .
+2. Użyj skryptu instalacji, aby skopiować definicję aplikacji do głosowania do klastra, zarejestrować typ aplikacji i utworzyć wystąpienie aplikacji.  Plik certyfikatu PEM powinien znajdować się w tym samym katalogu co plik *install.sh*.
 
     ```bash
     ./install.sh
     ```
 
-3. Otwórz przeglądarkę internetową i przejdź do punktu końcowego narzędzia Service Fabric Explorer dla Twojego klastra. Punkt końcowy ma następujący format:  **https:// \<my-azure-service-fabric-cluster-url> : 19080/Explorer** ; na przykład `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer` . </br>
+3. Otwórz przeglądarkę internetową i przejdź do punktu końcowego narzędzia Service Fabric Explorer dla Twojego klastra. Punkt końcowy ma następujący format:  **https:// \<my-azure-service-fabric-cluster-url> : 19080/Explorer**; na przykład `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer` . </br>
 
 4. Rozwiń węzeł **aplikacje** , aby zobaczyć, że istnieje teraz wpis dla typu aplikacji do głosowania i utworzonego wystąpienia.
 
@@ -132,7 +132,7 @@ Aby przenieść kontener frontonu do trybu failover, wykonaj następujące czynn
 1. Otwórz narzędzie Service Fabric Explorer w klastrze, na przykład `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer`.
 2. Kliknij węzeł **fabric:/Voting/azurevotefront** w widoku drzewa i rozwiń węzeł partycji (reprezentowany przez identyfikator GUID). W widoku drzewa zwróć uwagę na nazwę węzła przedstawiającą węzły, w których obecnie uruchomiono kontener, na przykład `_nodetype_1`.
 3. Rozwiń węzeł **Węzły** w widoku drzewa. Kliknij wielokropek (...) obok węzła działającego w kontenerze.
-4. Wybierz pozycję **Uruchom ponownie** , aby ponownie uruchomić ten węzeł, i potwierdź akcję ponownego uruchomienia. Ponowne uruchomienie powoduje przeniesienie kontenera do trybu failover w innym węźle klastra.
+4. Wybierz pozycję **Uruchom ponownie**, aby ponownie uruchomić ten węzeł, i potwierdź akcję ponownego uruchomienia. Ponowne uruchomienie powoduje przeniesienie kontenera do trybu failover w innym węźle klastra.
 
     ![Widok węzła w narzędziu Service Fabric Explorer][sfxquickstartshownodetype]
 
@@ -143,13 +143,13 @@ Usługi Service Fabric można łatwo skalować w klastrze w celu uwzględnienia 
 Aby skalować usługę internetową frontonu, wykonaj następujące czynności:
 
 1. Otwórz narzędzie Service Fabric Explorer w klastrze, na przykład `https://containertestcluster.eastus.cloudapp.azure.com:19080`.
-2. Kliknij wielokropek (trzy kropki) obok węzła **fabric:/Voting/azurevotefront** w widoku drzewa i wybierz pozycję **Skaluj usługę** .
+2. Kliknij wielokropek (trzy kropki) obok węzła **fabric:/Voting/azurevotefront** w widoku drzewa i wybierz pozycję **Skaluj usługę**.
 
     ![Rozpoczynanie skalowania usługi w narzędziu Service Fabric Explorer][containersquickstartscale]
 
     Teraz możesz skalować liczbę wystąpień usługi internetowej frontonu.
 
-3. Zmień liczbę na **2** i kliknij pozycję **Skaluj usługę** .
+3. Zmień liczbę na **2** i kliknij pozycję **Skaluj usługę**.
 4. Kliknij węzeł **fabric:/Voting/azurevotefront** w widoku drzewa i rozwiń węzeł partycji (reprezentowany przez identyfikator GUID).
 
     ![Zakończenie skalowania usługi w narzędziu Service Fabric Explorer][containersquickstartscaledone]
@@ -168,7 +168,7 @@ Użyj skryptu odinstalowywania (uninstall.sh) udostępnionego w szablonie, aby u
 
 Najprostszym sposobem na usunięcie klastra i wszystkich wykorzystywanych przez niego zasobów jest usunięcie grupy zasobów.
 
-Zaloguj się do platformy Azure i wybierz identyfikator subskrypcji, z którym chcesz usunąć klaster. Identyfikator subskrypcji można znaleźć po zalogowaniu się w witrynie Azure Portal. Usuń grupę zasobów i wszystkie zasoby klastra, korzystając z [polecenia AZ Group Delete](/cli/azure/group?view=azure-cli-latest).
+Zaloguj się do platformy Azure i wybierz identyfikator subskrypcji, z którym chcesz usunąć klaster. Identyfikator subskrypcji można znaleźć po zalogowaniu się w witrynie Azure Portal. Usuń grupę zasobów i wszystkie zasoby klastra, korzystając z [polecenia AZ Group Delete](/cli/azure/group).
 
 ```azurecli
 az login

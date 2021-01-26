@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: bbc232ed0bc9e9715f481fef8b7b3a1f8eeebe78
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: aa631f4c505200c2c8abc67d4e22ffbab23e015c
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059657"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789030"
 ---
 # <a name="create-and-merge-a-csr-in-key-vault"></a>Tworzenie i scalanie CSR w Key Vault
 
@@ -104,7 +104,7 @@ Wykonaj następujące kroki, aby dodać certyfikat z urzędów certyfikacji, kt�
 ## <a name="add-more-information-to-the-csr"></a>Dodaj więcej informacji do CSR
 
 Jeśli chcesz dodać więcej informacji podczas tworzenia CSR, zdefiniuj je w polu **SubjectName**. Możesz chcieć dodać informacje, takie jak:
-- Kraj
+- Country (Kraj)
 - Miasto/miejscowość
 - Województwo
 - Organizacja
@@ -123,7 +123,7 @@ Przykład
 
 - Jak mogę monitorować mój CSR i zarządzać nim?
 
-     Zobacz [monitorowanie i zarządzanie tworzeniem certyfikatów](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-scenarios).
+     Zobacz [monitorowanie i zarządzanie tworzeniem certyfikatów](./create-certificate-scenarios.md).
 
 - Co zrobić, jeśli widzę **Typ błędu "klucz publiczny certyfikatu jednostki końcowej w określonej zawartości certyfikatu X. 509 nie jest zgodny z publiczną częścią określonego klucza prywatnego. Sprawdź, czy certyfikat jest prawidłowy "**?
 

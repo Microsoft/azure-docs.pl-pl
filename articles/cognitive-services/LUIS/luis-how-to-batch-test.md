@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 12/29/2020
-ms.openlocfilehash: 0834b8f00e4c414b3a36314b80f6c99fb8f2aea2
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: b297330f3562babf9e83d36934827f7b92d5ea35
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955216"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787016"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Testowanie wsadowe z zestawem przykład wyrażenia długości
 
@@ -99,7 +99,7 @@ Przykładowy kod JSON zawiera jeden wypowiedź z etykietą Entity, aby zilustrow
 
 Aby przejrzeć wyniki testów wsadowych, wybierz pozycję **Zobacz wyniki**. Wyniki testu pokazują graficznie, w jaki sposób przewidywalno wyrażenia długości testów względem aktywnej wersji.
 
-Na wykresie wsadowym są wyświetlane cztery ćwiartki wyników. Na prawo od wykresu jest filtrem. Filtr zawiera intencje i jednostki. Po wybraniu [sekcji wykresu](luis-concept-batch-test.md#batch-test-results) lub punktu na wykresie, skojarzone wypowiedź są wyświetlane poniżej wykresu.
+Na wykresie wsadowym są wyświetlane cztery ćwiartki wyników. Na prawo od wykresu jest filtrem. Filtr zawiera intencje i jednostki. Po wybraniu [sekcji wykresu](#review-batch-results-for-intents) lub punktu na wykresie, skojarzone wypowiedź są wyświetlane poniżej wykresu.
 
 Po umieszczeniu wskaźnika na wykresie kółkiem myszy może powiększyć lub zmniejszyć poziom wyświetlania na wykresie. Jest to przydatne w przypadku, gdy wiele punktów na wykresie jest ściśle klastrowane.
 
@@ -166,7 +166,7 @@ Dwie sekcje wykresu w kolorze zielonym pasują do oczekiwanego przewidywania.
 
 ## <a name="batch-testing-using-the-rest-api"></a>Testowanie wsadowe przy użyciu interfejsu API REST 
 
-LUIS umożliwia wsadowe testowanie przy użyciu portalu LUIS i interfejsu API REST. Punkty końcowe interfejsu API REST są wymienione poniżej. Aby uzyskać informacje o testowaniu wsadowym przy użyciu portalu LUIS, zobacz [Samouczek: zestawy danych testów wsadowych](luis-tutorial-batch-testing.md). Użyj pełnych adresów URL poniżej, zastępując wartości symboli zastępczych własnym kluczem i punktem końcowym przewidywania LUIS. 
+LUIS umożliwia wsadowe testowanie przy użyciu portalu LUIS i interfejsu API REST. Punkty końcowe interfejsu API REST są wymienione poniżej. Aby uzyskać informacje o testowaniu wsadowym przy użyciu portalu LUIS, zobacz [Samouczek: zestawy danych testów wsadowych](). Użyj pełnych adresów URL poniżej, zastępując wartości symboli zastępczych własnym kluczem i punktem końcowym przewidywania LUIS. 
 
 Pamiętaj, aby dodać klucz LUIS do `Ocp-Apim-Subscription-Key` nagłówka i ustawić wartość `Content-Type` `application/json` .
 
@@ -265,5 +265,3 @@ Jeśli testowanie wskazuje, że aplikacja LUIS nie rozpoznaje poprawnych intencj
 
 * [Etykieta sugerowanych wyrażenia długości z LUIS](luis-how-to-review-endpoint-utterances.md)
 * [Korzystaj z funkcji, aby zwiększyć wydajność aplikacji LUIS](luis-how-to-add-features.md)
-* [Opis testów wsadowych w tym samouczku](luis-tutorial-batch-testing.md)
-* [Poznaj koncepcje testowania partii](luis-concept-batch-test.md).

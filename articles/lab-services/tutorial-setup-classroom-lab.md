@@ -3,12 +3,12 @@ title: Konfigurowanie laboratorium na potrzeby zajęć przy użyciu usługi Azur
 description: W tym samouczku użyjesz Azure Lab Services, aby skonfigurować laboratorium zajęć z maszynami wirtualnymi, które są używane przez uczniów w klasie.
 ms.topic: tutorial
 ms.date: 12/03/2020
-ms.openlocfilehash: 3abbf5221382b46dbf4e73f9f4dc3b639bc5ecbd
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 8093a1fd270cdba8bdccaf48737bf6737bdd394d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602515"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787421"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Samouczek: konfigurowanie laboratorium na potrzeby zajęć 
 W tym samouczku skonfigurujesz laboratorium na potrzeby zajęć z maszynami wirtualnymi używanymi przez uczniów podczas zajęć.  
@@ -127,7 +127,7 @@ Po dodaniu użytkowników domyślnie opcja **Ogranicz dostęp** jest włączona 
 
 Można zsynchronizować listę użytkowników laboratorium z istniejącą grupą Azure Active Directory (Azure AD), aby nie trzeba było ręcznie dodawać ani usuwać użytkowników. 
 
-Grupę usługi Azure AD można utworzyć w ramach Azure Active Directory organizacji, aby zarządzać dostępem do zasobów organizacji i aplikacji opartych na chmurze. Aby dowiedzieć się więcej, zobacz [grupy usługi Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups). Jeśli Twoja organizacja korzysta z usług Microsoft Office 365 lub Azure, organizacja będzie mieć już administratorów, którzy zarządzają Azure Active Directory. 
+Grupę usługi Azure AD można utworzyć w ramach Azure Active Directory organizacji, aby zarządzać dostępem do zasobów organizacji i aplikacji opartych na chmurze. Aby dowiedzieć się więcej, zobacz [grupy usługi Azure AD](../active-directory/fundamentals/active-directory-manage-groups.md). Jeśli Twoja organizacja korzysta z usług Microsoft Office 365 lub Azure, organizacja będzie mieć już administratorów, którzy zarządzają Azure Active Directory. 
 
 > [!IMPORTANT]
 > Upewnij się, że lista użytkowników jest pusta. Jeśli istnieją użytkownicy w środowisku laboratoryjnym, które zostały dodane ręcznie lub przez zaimportowanie pliku CSV, opcja synchronizowania laboratorium z istniejącą grupą nie zostanie wyświetlona. 
@@ -204,4 +204,3 @@ W tym samouczku utworzysz laboratorium dla swojej klasy na platformie Azure. Aby
 
 > [!div class="nextstepaction"]
 > [Nawiązywanie połączenia z maszyną wirtualną w laboratorium używanym podczas zajęć](tutorial-connect-virtual-machine-classroom-lab.md)
-

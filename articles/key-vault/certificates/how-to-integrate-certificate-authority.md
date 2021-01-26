@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: 4635bcc51d2ab626b16ddcf02e772bf3df3cad4d
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: c36353448c140450044f352062c3349939e3f7b5
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763744"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789014"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integrowanie usługi Key Vault z urzędem certyfikacji DigiCert
 
@@ -38,7 +38,7 @@ Aby ukończyć ten przewodnik, musisz dysponować następującymi zasobami.
 *   Uprawnienia na poziomie administratora na kontach.
 
 
-### <a name="before-you-begin"></a>Przed rozpoczęciem
+### <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Upewnij się, że masz następujące informacje przydatne na koncie usługi DigiCert CertCentral:
 -   Identyfikator konta CertCentral
@@ -48,7 +48,7 @@ Upewnij się, że masz następujące informacje przydatne na koncie usługi Digi
 ## <a name="adding-certificate-authority-in-key-vault"></a>Dodawanie urzędu certyfikacji w Key Vault 
 Po zebraniu powyższych informacji z konta DigiCert CertCentral możesz teraz dodać DigiCert do listy urząd certyfikacji w magazynie kluczy.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 1.  Aby dodać urząd certyfikacji DigiCert, przejdź do magazynu kluczy, który chcesz dodać DigiCert. 
 2.  Na stronie właściwości Key Vault wybierz pozycję **Certyfikaty**.
@@ -129,7 +129,7 @@ Jeśli certyfikat wystawiony w stanie "Disabled" w Azure Portal, należy wyświe
  ![Operacja certyfikatu](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
 
 Komunikat o błędzie "wykonaj scalanie, aby zakończyć to żądanie certyfikatu".
-Aby wykonać to żądanie, należy scalić CSR podpisany przez urząd certyfikacji. Więcej informacji można znaleźć [tutaj](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-signing-request)
+Aby wykonać to żądanie, należy scalić CSR podpisany przez urząd certyfikacji. Dowiedz się więcej [tutaj](./create-certificate-signing-request.md)
 
 Aby uzyskać więcej informacji, zobacz [operacje na certyfikatach w dokumentacji interfejsu API REST Key Vault](/rest/api/keyvault). Aby uzyskać informacje dotyczące ustanawiania uprawnień, zobacz temat [magazyny — Tworzenie lub aktualizowanie](/rest/api/keyvault/vaults/createorupdate) i [magazyny — zasady dostępu aktualizacji](/rest/api/keyvault/vaults/updateaccesspolicy).
 

@@ -3,12 +3,12 @@ title: Azure Lab Services — przekazywanie obrazu niestandardowego do galerii o
 description: Opisuje sposób przekazywania obrazu niestandardowego do galerii obrazów udostępnionych. W szkołach działów IT mogą znaleźć się szczególnie przydatne obrazy.
 ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 93b4141636b629168e9bb7a73e71a9fe4bfc39f5
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 3e2f38b0cab87eab27181ddef79d0c02bd8c9bdb
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654647"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787167"
 ---
 # <a name="upload-a-custom-image-to-shared-image-gallery"></a>Przekazywanie obrazu niestandardowego do usługi Shared Image Gallery
 
@@ -46,7 +46,7 @@ Istnieje wiele opcji tworzenia wirtualnego dysku twardego w środowisku laborato
     Powyższe kroki spowodują utworzenie wyspecjalizowanego obrazu. W przypadku tworzenia uogólnionego obrazu należy również uruchomić program [Sysprep](../virtual-machines/windows/prepare-for-upload-vhd-image.md#determine-when-to-use-sysprep). <br/>
         Należy utworzyć wyspecjalizowany obraz, jeśli chcesz zachować katalog użytkownika (może zawierać pliki, informacje o koncie użytkownika itp.), które są wymagane przez oprogramowanie zawarte w obrazie.
 1. Ponieważ **Funkcja Hyper-V** domyślnie tworzy plik **VHDX** , należy go przekonwertować na plik VHD.
-    1. Przejdź do **akcji Menedżera funkcji Hyper-V**  ->  **Action**  ->  **Edytuj dysk**.
+    1. Przejdź do **akcji Menedżera funkcji Hyper-V**  ->    ->  **Edytuj dysk**.
     1. W tym miejscu będziesz mieć możliwość **przekonwertowania** dysku z pliku VHDX na dysk VHD.
     1. Przy próbie zwiększenia rozmiaru dysku upewnij się, że nie przekroczy 128 GB.        
         :::image type="content" source="./media/upload-custom-image-shared-image-gallery/choose-action.png" alt-text="Wybieranie akcji":::   
@@ -66,5 +66,5 @@ Istnieje wiele opcji tworzenia wirtualnego dysku twardego w środowisku laborato
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Omówienie galerii obrazów udostępnionych](../virtual-machines/windows/shared-image-galleries.md)
+* [Omówienie galerii obrazów udostępnionych](../virtual-machines/shared-image-galleries.md)
 * [Jak korzystać z galerii obrazów udostępnionych](how-to-use-shared-image-gallery.md)

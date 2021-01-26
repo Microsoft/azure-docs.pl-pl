@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 11/04/2020
 ms.author: victorh
-ms.openlocfilehash: 2dd1b51c6bcdbc531661d9ecf45d3d0282eb5b45
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 52c6ef9edfc42bf1ad3b3279e0fa4e19b4cf502c
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358851"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788268"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Monitorowanie dzienników i metryk usługi Azure Firewall
 
@@ -43,9 +43,9 @@ Od wykonania tej procedury w celu włączenia rejestrowania diagnostycznego moż
    * AzureFirewallDnsProxy
 
 
-3. Wybierz pozycję **Dodaj ustawienie diagnostyczne**. Strona **Ustawienia diagnostyczne** zawiera ustawienia dzienników diagnostycznych.
+3. Wybierz pozycję **Dodaj ustawienia diagnostyczne**. Strona **Ustawienia diagnostyczne** zawiera ustawienia dzienników diagnostycznych.
 5. W tym przykładzie dzienniki są przechowywane w dziennikach usługi Azure Monitor, więc wpisz nazwę **Firewall log analytics**.
-6. W **obszarze Dziennik** wybierz pozycję **AzureFirewallApplicationRule** , **AzureFirewallNetworkRule** , **AzureFirewallThreatIntelLog** i **AzureFirewallDnsProxy** , aby zebrać dzienniki.
+6. W **obszarze Dziennik** wybierz pozycję **AzureFirewallApplicationRule**, **AzureFirewallNetworkRule**, **AzureFirewallThreatIntelLog** i **AzureFirewallDnsProxy** , aby zebrać dzienniki.
 7. Wybierz pozycję **Wyślij do log Analytics** , aby skonfigurować obszar roboczy.
 8. Wybierz subskrypcję.
 9. Wybierz pozycję **Zapisz**.
@@ -104,15 +104,15 @@ Aby włączyć rejestrowanie diagnostyczne przy użyciu interfejsu wiersza polec
 
 Dane dziennika aktywności można wyświetlać i analizować przy użyciu dowolnej z następujących metod:
 
-* **Narzędzia platformy Azure** : pobierz informacje z dziennika aktywności przy użyciu programu Azure PowerShell, interfejsu wiersza polecenia platformy Azure, interfejsu API REST platformy Azure lub witryny Azure Portal. Instrukcje krok po kroku dla każdej metody są szczegółowo opisane w artykule [Activity operations with Resource Manager (Operacje działań przy użyciu usługi Resource Manager)](../azure-resource-manager/management/view-activity-logs.md).
-* **Usługa Power BI** : jeśli nie masz jeszcze konta usługi [Power BI](https://powerbi.microsoft.com/pricing), możesz ją wypróbować bezpłatnie. Korzystając z [pakietu zawartości dzienników aktywności platformy Azure dla usługi Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/), możesz analizować dane przy użyciu wstępnie skonfigurowanych pulpitów nawigacyjnych, których możesz używać bez zmian lub po dostosowaniu.
-* **Azure — wskaźnik** : możesz połączyć Dzienniki zapory platformy Azure z badaniem wskaźnikowym platformy Azure, umożliwiając wyświetlanie danych dziennika w skoroszytach, korzystanie z nich do tworzenia alertów niestandardowych i uwzględnianie go w celu usprawnienia badania. Łącznik danych zapory platformy Azure w usłudze Azure wskaźnikowej jest obecnie w publicznej wersji zapoznawczej. Aby uzyskać więcej informacji, zobacz [łączenie danych z zapory platformy Azure](../sentinel/connect-azure-firewall.md).
+* **Narzędzia platformy Azure**: pobierz informacje z dziennika aktywności przy użyciu programu Azure PowerShell, interfejsu wiersza polecenia platformy Azure, interfejsu API REST platformy Azure lub witryny Azure Portal. Instrukcje krok po kroku dla każdej metody są szczegółowo opisane w artykule [Activity operations with Resource Manager (Operacje działań przy użyciu usługi Resource Manager)](../azure-resource-manager/management/view-activity-logs.md).
+* **Usługa Power BI**: jeśli nie masz jeszcze konta usługi [Power BI](https://powerbi.microsoft.com/pricing), możesz ją wypróbować bezpłatnie. Korzystając z [pakietu zawartości dzienników aktywności platformy Azure dla usługi Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/), możesz analizować dane przy użyciu wstępnie skonfigurowanych pulpitów nawigacyjnych, których możesz używać bez zmian lub po dostosowaniu.
+* **Azure — wskaźnik**: możesz połączyć Dzienniki zapory platformy Azure z badaniem wskaźnikowym platformy Azure, umożliwiając wyświetlanie danych dziennika w skoroszytach, korzystanie z nich do tworzenia alertów niestandardowych i uwzględnianie go w celu usprawnienia badania. Łącznik danych zapory platformy Azure w usłudze Azure wskaźnikowej jest obecnie w publicznej wersji zapoznawczej. Aby uzyskać więcej informacji, zobacz [łączenie danych z zapory platformy Azure](../sentinel/connect-azure-firewall.md).
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>Wyświetlanie i analizowanie dzienników reguł sieci i aplikacji
 
 [Dzienniki usługi Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md) zbierają pliki dzienników liczników i zdarzeń. Obejmuje ona wizualizacje oraz zaawansowane możliwości wyszukiwania na potrzeby analizowania dzienników.
 
-Przykładowe zapytania analizy dzienników w usłudze Azure Firewall można znaleźć w temacie [Przykłady analizy dzienników w usłudze Azure Firewall](log-analytics-samples.md).
+Przykładowe zapytania analizy dzienników w usłudze Azure Firewall można znaleźć w temacie [Przykłady analizy dzienników w usłudze Azure Firewall](./firewall-workbook.md).
 
 [Skoroszyt zapory platformy Azure](firewall-workbook.md) zapewnia elastyczną kanwę do analizy danych w zaporze platformy Azure. Można go użyć do tworzenia rozbudowanych raportów wizualnych w Azure Portal. Możesz wybrać wiele zapór wdrożonych na platformie Azure i połączyć je w ujednolicone interaktywne środowiska.
 

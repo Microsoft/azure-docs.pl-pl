@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b190bf0c474640c07d84971069072d3af2faa66d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c5827a0e07e537b66684f852d8f3e1500cd9febb
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321909"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788845"
 ---
 # <a name="sample-data-in-azure-blob-storage"></a><a name="heading"></a>Przykładowe dane w usłudze Azure Blob Storage
 
-W tym artykule opisano dane próbkowania przechowywane w usłudze Azure Blob Storage przez pobranie go programowo, a następnie próbkowanie przy użyciu procedur utworzonych w języku Python.
+W tym artykule opisano dane próbkowania przechowywane w usłudze Azure Blob Storage przez pobranie jej programowo, a następnie próbkowanie ich przy użyciu procedur utworzonych w języku Python.
 
 **Dlaczego warto Przykładowo dane?**
 Jeśli zestaw danych, który planujesz analizować jest duży, zazwyczaj dobrym pomysłem jest Przepróbkowanie danych w celu zmniejszenia ich do mniejszej, ale reprezentatywnej i większej możliwej do zarządzania wielkości. Próbkowanie ułatwia zrozumienie, eksplorację i inżynierowanie danych. Jej rolą w procesie Cortany Analytics jest umożliwienie szybkiego tworzenia prototypów funkcji przetwarzania danych i modeli uczenia maszynowego.
