@@ -3,15 +3,15 @@ title: Używanie galerii obrazów udostępnionych w Azure Lab Services | Microso
 description: Dowiedz się, jak skonfigurować konto laboratorium do korzystania z galerii obrazów udostępnionych, aby użytkownik mógł udostępnić obraz innym osobom, a inny użytkownik może użyć obrazu, aby utworzyć szablon maszyny wirtualnej w laboratorium.
 ms.topic: article
 ms.date: 09/11/2020
-ms.openlocfilehash: d9f4e75163f591680cc8f85ac42c1b6ada5f2365
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 984cb4c47099928ffab327895a728cbe8a8f9604
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94647770"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791394"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Używanie galerii obrazów udostępnionych w Azure Lab Services
-W tym artykule pokazano, jak wykładowcy/Administratorzy laboratorium mogą zapisywać obraz maszyny wirtualnej szablonu w [galerii obrazów udostępnionych](../virtual-machines/windows/shared-image-galleries.md) , aby mógł być używany przez inne osoby do tworzenia laboratoriów. 
+W tym artykule pokazano, jak wykładowcy/Administratorzy laboratorium mogą zapisywać obraz maszyny wirtualnej szablonu w [galerii obrazów udostępnionych](../virtual-machines/shared-image-galleries.md) , aby mógł być używany przez inne osoby do tworzenia laboratoriów. 
 
 > [!IMPORTANT]
 > W przypadku korzystania z galerii obrazów udostępnionych Azure Lab Services obsługuje tylko obrazy z mniej niż 128 GB miejsca na dysku systemu operacyjnego. Obrazy zawierające więcej niż 128 GB miejsca na dysku lub wiele dysków nie będą wyświetlane na liście obrazów maszyn wirtualnych podczas tworzenia laboratorium.
@@ -48,7 +48,7 @@ Po dołączeniu udostępnionej galerii obrazów administrator konta laboratorium
     Po zapisaniu obrazu do galerii obrazów udostępnionych możesz użyć tego obrazu z galerii podczas tworzenia kolejnego laboratorium. Możesz również przekazać obraz do galerii obrazów udostępnionych poza kontekstem laboratorium. Aby uzyskać więcej informacji, zobacz [Omówienie galerii obrazów udostępnionych](../virtual-machines/shared-images-powershell.md). 
 
     > [!IMPORTANT]
-    > Gdy [zapisujesz obraz szablonu laboratorium](how-to-use-shared-image-gallery.md#save-an-image-to-the-shared-image-gallery) w Azure Lab Services do galerii obrazów udostępnionych, obraz zostanie przekazany do galerii jako **obraz wyspecjalizowany**. [Wyspecjalizowane obrazy](../virtual-machines/windows/shared-image-galleries.md#generalized-and-specialized-images) przechowują informacje specyficzne dla maszyn i profile użytkowników. Nadal możesz bezpośrednio przekazać uogólniony obraz do galerii poza Azure Lab Services.    
+    > Gdy [zapisujesz obraz szablonu laboratorium](how-to-use-shared-image-gallery.md#save-an-image-to-the-shared-image-gallery) w Azure Lab Services do galerii obrazów udostępnionych, obraz zostanie przekazany do galerii jako **obraz wyspecjalizowany**. [Wyspecjalizowane obrazy](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) przechowują informacje specyficzne dla maszyn i profile użytkowników. Nadal możesz bezpośrednio przekazać uogólniony obraz do galerii poza Azure Lab Services.    
 
 ## <a name="use-an-image-from-the-shared-image-gallery"></a>Korzystanie z obrazu z galerii obrazów udostępnionych
 Nauczycieli może wybrać niestandardowy obraz dostępny w galerii obrazów udostępnionych dla szablonu podczas tworzenia nowego laboratorium.
@@ -60,4 +60,4 @@ Nauczycieli może wybrać niestandardowy obraz dostępny w galerii obrazów udos
 
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji na temat udostępnionych galerii obrazów, zobacz [Galeria obrazów udostępnionych](../virtual-machines/windows/shared-image-galleries.md).
+Aby uzyskać więcej informacji na temat udostępnionych galerii obrazów, zobacz [Galeria obrazów udostępnionych](../virtual-machines/shared-image-galleries.md).

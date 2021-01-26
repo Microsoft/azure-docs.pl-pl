@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 25d084b8af148707685b2cbb4368394a12d99db2
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 64064a584681d84eb6ba023c4777c0fdc4e6ec3d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97005311"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791933"
 ---
 # <a name="tutorial-provision-multiple-x509-devices-using-enrollment-groups"></a>Samouczek: Inicjowanie obsługi wielu urządzeń X. 509 przy użyciu grup rejestracji
 
@@ -46,7 +46,7 @@ W tym samouczku wykonasz następujące cele:
 
 Poniższe wymagania wstępne dotyczą środowiska projektowego systemu Windows. W systemie Linux lub macOS zapoznaj się z odpowiednią sekcją w sekcji [Przygotowywanie środowiska deweloperskiego](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) w dokumentacji zestawu SDK.
 
-* [Program Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 z włączonym obciążeniem ["Programowanie aplikacji klasycznych w języku C++"](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) . Obsługiwane są również programy Visual Studio 2015 i Visual Studio 2017.
+* [Program Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 z włączonym obciążeniem ["Programowanie aplikacji klasycznych w języku C++"](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) . Obsługiwane są również programy Visual Studio 2015 i Visual Studio 2017.
 
 * Zainstalowana najnowsza wersja usługi[Git](https://git-scm.com/download/).
 
@@ -56,7 +56,7 @@ W tej sekcji przygotujesz środowisko deweloperskie używane do opracowania [zes
 
 1. Pobierz [system kompilacji CMAKE](https://cmake.org/download/).
 
-    **Przed** rozpoczęciem instalacji należy pamiętać, że wymagania wstępne programu Visual Studio ([Visual Studio](https://visualstudio.microsoft.com/vs/) i ["Programowanie aplikacji klasycznych w języku C++"](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) ) są zainstalowane na komputerze `CMake` . Gdy wymagania wstępne zostaną spełnione, a pobrane pliki zweryfikowane, zainstaluj system kompilacji CMake.
+    **Przed** rozpoczęciem instalacji należy pamiętać, że wymagania wstępne programu Visual Studio ([Visual Studio](https://visualstudio.microsoft.com/vs/) i ["Programowanie aplikacji klasycznych w języku C++"](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) ) są zainstalowane na komputerze `CMake` . Gdy wymagania wstępne zostaną spełnione, a pobrane pliki zweryfikowane, zainstaluj system kompilacji CMake.
 
 2. Znajdź nazwę tagu dla [najnowszej wersji](https://github.com/Azure/azure-iot-sdk-c/releases/latest) zestawu SDK języka C usługi Azure IoT.
 
@@ -87,7 +87,7 @@ W tej sekcji przygotujesz środowisko deweloperskie używane do opracowania [zes
     $ cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=/d/azure-iot-sdk-c/cmake/provisioning_client/samples/custom_hsm_example/Debug/custom_hsm_example.lib ..
     ```
 
-    Jeśli program `cmake` nie znajdzie kompilatora języka C++, mogą występować błędy kompilacji podczas uruchamiania powyższego polecenia. Jeśli tak się stanie, spróbuj uruchomić to polecenie w [wierszu polecenia programu Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs).
+    Jeśli program `cmake` nie znajdzie kompilatora języka C++, mogą występować błędy kompilacji podczas uruchamiania powyższego polecenia. Jeśli tak się stanie, spróbuj uruchomić to polecenie w [wierszu polecenia programu Visual Studio](/dotnet/framework/tools/developer-command-prompt-for-vs).
 
     Po pomyślnym zakończeniu kompilacji w katalogu zostanie wygenerowane rozwiązanie programu Visual Studio `cmake` . Ostatnie linie wyjściowe wyglądają podobnie do następujących danych wyjściowych:
 
@@ -351,7 +351,7 @@ Aby zaktualizować niestandardowy kod stub modułu HSM dla tego samouczka:
 
 Na urządzeniach z systemem innym niż Windows można przekazać łańcuch certyfikatów z kodu jako magazyn certyfikatów.
 
-Na urządzeniach z systemem Windows należy dodać certyfikaty podpisywania (główne i pośrednie) do [magazynu certyfikatów](https://docs.microsoft.com/windows/win32/secauthn/certificate-stores)systemu Windows. W przeciwnym razie certyfikaty podpisywania nie będą transportowane do platformy DPS za pośrednictwem bezpiecznego kanału z usługą Transport Layer Security (TLS).
+Na urządzeniach z systemem Windows należy dodać certyfikaty podpisywania (główne i pośrednie) do [magazynu certyfikatów](/windows/win32/secauthn/certificate-stores)systemu Windows. W przeciwnym razie certyfikaty podpisywania nie będą transportowane do platformy DPS za pośrednictwem bezpiecznego kanału z usługą Transport Layer Security (TLS).
 
 Aby dodać certyfikaty podpisywania do magazynu certyfikatów na urządzeniach z systemem Windows:
 

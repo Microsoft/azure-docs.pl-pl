@@ -6,18 +6,18 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: srrengar
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: f9ad0f443b1647499f7085693f34f4da9ec85398
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ecd05a838425d57e0eaff2fa571d72b5a87e92a6
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331995"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791781"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Samouczek: monitorowanie klastra Service Fabric na platformie Azure
 
 Monitorowanie i Diagnostyka mają kluczowe znaczenie dla opracowywania, testowania i wdrażania obciążeń w dowolnym środowisku chmury. Ten samouczek jest drugą częścią serii i pokazuje, jak monitorować i diagnozować klaster Service Fabric przy użyciu zdarzeń, liczników wydajności i raportów kondycji.   Aby uzyskać więcej informacji, zapoznaj się z omówieniem [monitorowanie klastra](service-fabric-diagnostics-overview.md#platform-cluster-monitoring) i [monitorowanie infrastruktury](service-fabric-diagnostics-overview.md#infrastructure-performance-monitoring).
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Wyświetlanie zdarzeń Service Fabric
@@ -240,7 +240,7 @@ Wybierz wykres **metryki kontenera** , aby wyświetlić dodatkowe szczegóły. M
 ## <a name="query-the-eventstore-service"></a>Wysyłanie zapytań do usługi EventStore
 [Usługa EventStore](service-fabric-diagnostics-eventstore.md) zapewnia sposób zrozumienia stanu klastra lub obciążeń w danym punkcie w czasie. EventStore jest usługą stanową Service Fabric, która przechowuje zdarzenia z klastra. Zdarzenia są udostępniane za pomocą [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), REST i interfejsów API. EventStore wysyła zapytanie bezpośrednio do klastra w celu uzyskania danych diagnostycznych w dowolnej jednostce w klastrze, aby wyświetlić pełną listę zdarzeń dostępnych w EventStore, zobacz [Service Fabric Events](service-fabric-diagnostics-event-generation-operational.md).
 
-Do interfejsów API EventStore można wykonywać zapytania programowo przy użyciu [biblioteki klienta Service Fabric](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet#client-library).
+Do interfejsów API EventStore można wykonywać zapytania programowo przy użyciu [biblioteki klienta Service Fabric](/dotnet/api/overview/azure/service-fabric#client-library).
 
 Oto przykładowe żądanie dotyczące wszystkich zdarzeń klastra między 2018 r-04-03T18:00:00Z i 2018 r-04-04T18:00:00Z, za pomocą funkcji GetClusterEventListAsync.
 
@@ -299,10 +299,10 @@ Service Fabric wprowadza [model kondycji](service-fabric-health-introduction.md)
 
 Klaster jest automatycznie wypełniany raportami kondycji wysyłanymi przez składniki systemowe. Więcej informacji można znaleźć w tematach [dotyczących rozwiązywania problemów przy użyciu raportów kondycji systemu](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
 
-Service Fabric udostępnia zapytania dotyczące kondycji dla każdego z obsługiwanych [typów jednostek](service-fabric-health-introduction.md#health-entities-and-hierarchy). Dostęp do nich uzyskuje się za pośrednictwem interfejsu API, przy użyciu metod w [FabricClient. HealthManager](/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet), poleceń cmdlet programu POWERSHELL i REST. Te zapytania zwracają kompletne informacje o kondycji jednostki: zagregowany stan kondycji, zdarzenia kondycji jednostki, podrzędne Stany kondycji (gdy ma to zastosowanie), oceny w złej kondycji (gdy jednostka nie jest w dobrej kondycji) i podrzędne statystyki kondycji (jeśli ma to zastosowanie).
+Service Fabric udostępnia zapytania dotyczące kondycji dla każdego z obsługiwanych [typów jednostek](service-fabric-health-introduction.md#health-entities-and-hierarchy). Dostęp do nich uzyskuje się za pośrednictwem interfejsu API, przy użyciu metod w [FabricClient. HealthManager](/dotnet/api/system.fabric.fabricclient.healthmanager), poleceń cmdlet programu POWERSHELL i REST. Te zapytania zwracają kompletne informacje o kondycji jednostki: zagregowany stan kondycji, zdarzenia kondycji jednostki, podrzędne Stany kondycji (gdy ma to zastosowanie), oceny w złej kondycji (gdy jednostka nie jest w dobrej kondycji) i podrzędne statystyki kondycji (jeśli ma to zastosowanie).
 
 ### <a name="get-cluster-health"></a>Pobierz kondycję klastra
-[Polecenie cmdlet Get-ServiceFabricClusterHealth](/powershell/module/servicefabric/get-servicefabricclusterhealth) zwraca kondycję jednostki klastra i zawiera Stany kondycji aplikacji i węzłów (elementy podrzędne klastra).  Najpierw Połącz się z klastrem przy użyciu [polecenia cmdlet Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps).
+[Polecenie cmdlet Get-ServiceFabricClusterHealth](/powershell/module/servicefabric/get-servicefabricclusterhealth) zwraca kondycję jednostki klastra i zawiera Stany kondycji aplikacji i węzłów (elementy podrzędne klastra).  Najpierw Połącz się z klastrem przy użyciu [polecenia cmdlet Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster).
 
 Stan klastra to 11 węzłów, aplikacja systemowa i sieć szkieletowa:/głos skonfigurowany zgodnie z opisem.
 
@@ -454,7 +454,7 @@ HealthEvents            : None
 ```
 
 ### <a name="get-node-health"></a>Pobierz kondycję węzła
-[Polecenie cmdlet Get-ServiceFabricNodeHealth](/powershell/module/servicefabric/get-servicefabricnodehealth) zwraca kondycję jednostki węzła i zawiera zdarzenia kondycji zgłoszone w węźle. Najpierw Połącz się z klastrem przy użyciu [polecenia cmdlet Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps). Poniższy przykład pobiera kondycję określonego węzła przy użyciu domyślnych zasad kondycji:
+[Polecenie cmdlet Get-ServiceFabricNodeHealth](/powershell/module/servicefabric/get-servicefabricnodehealth) zwraca kondycję jednostki węzła i zawiera zdarzenia kondycji zgłoszone w węźle. Najpierw Połącz się z klastrem przy użyciu [polecenia cmdlet Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster). Poniższy przykład pobiera kondycję określonego węzła przy użyciu domyślnych zasad kondycji:
 
 ```powershell
 Get-ServiceFabricNodeHealth _nt1vm_3

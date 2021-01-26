@@ -3,12 +3,12 @@ title: Omówienie funkcji — Azure Event Hubs | Microsoft Docs
 description: Ten artykuł zawiera szczegółowe informacje o funkcjach i terminologii Event Hubs platformy Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 60dc964d1b827eec75ee4f65a5776710e57fd6eb
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 8860a8aa83a17b12236dd47d79479a82846fa8a8
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98195793"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791950"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funkcje i terminologia w usłudze Azure Event Hubs
 
@@ -56,7 +56,7 @@ Opublikowane zdarzenia są usuwane z centrum zdarzeń na podstawie konfigurowaln
 >
 > [Przechwytywanie Event Hubs](event-hubs-capture-overview.md) jest integrowane bezpośrednio z usługą Azure Blob Storage i Azure Data Lake Storage i za pomocą tej integracji umożliwia również [przepływ zdarzeń bezpośrednio do usługi Azure Synapse](store-captured-data-data-warehouse.md).
 >
-> Jeśli chcesz użyć wzorca określania [źródła zdarzeń](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) dla aplikacji, należy wyrównać strategię migawki z limitami przechowywania Event Hubs. Nie należy dążyć do odbudowywania widoków z nieprzetworzonych zdarzeń, zaczynając od początku czasu. Należy pamiętać, aby zamienić tę strategię, gdy aplikacja jest w trakcie produkcji przez pewien czas i jest dobrze użyta, a Twój Konstruktor projekcji ma być zmieniany przez lata zdarzeń zmiany podczas próby przechwycenia do najnowszych i bieżących zmian. 
+> Jeśli chcesz użyć wzorca określania [źródła zdarzeń](/azure/architecture/patterns/event-sourcing) dla aplikacji, należy wyrównać strategię migawki z limitami przechowywania Event Hubs. Nie należy dążyć do odbudowywania widoków z nieprzetworzonych zdarzeń, zaczynając od początku czasu. Należy pamiętać, aby zamienić tę strategię, gdy aplikacja jest w trakcie produkcji przez pewien czas i jest dobrze użyta, a Twój Konstruktor projekcji ma być zmieniany przez lata zdarzeń zmiany podczas próby przechwycenia do najnowszych i bieżących zmian. 
 
 
 ### <a name="publisher-policy"></a>Zasady wydawcy

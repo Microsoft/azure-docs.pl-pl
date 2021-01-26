@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: mcoskun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a60ebff06562c12415b2a106a9a11127feb94dab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2674d1285544e4bc9b6fcb3d0b2e6f4b607786a2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021990"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791615"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Tworzenie kopii zapasowych i przywracanie Reliable Services i Reliable Actors
 Azure Service Fabric to platforma o wysokiej dostępności, która replikuje stan w wielu węzłach w celu zapewnienia wysokiej dostępności.  W takim przypadku, nawet jeśli jeden węzeł w klastrze ulegnie awarii, usługi będą nadal dostępne. Chociaż ta wbudowana nadmiarowość dostarczana przez platformę może być wystarczająca dla niektórych, w niektórych przypadkach jest pożądane, aby usługa mogła tworzyć kopie zapasowe danych (w magazynie zewnętrznym).
@@ -150,7 +150,7 @@ Na przykład, jeśli zawiera pełną kopię zapasową, pierwsze przyrostowe i tr
 > 
 
 ## <a name="deleted-or-lost-service"></a>Usunięta lub utracona usługa
-W przypadku usunięcia usługi należy najpierw ponownie utworzyć usługę, aby można było przywrócić dane.  Ważne jest, aby utworzyć usługę z tą samą konfiguracją, na przykład schemat partycjonowania, dzięki czemu można bezproblemowo przywrócić dane.  Po uruchomieniu usługi, interfejs API do przywracania danych ( `OnDataLossAsync` powyżej) musi być wywoływany na każdej partycji tej usługi. Jednym ze sposobów osiągnięcia tego jest użycie [FabricClient. TestManagementClient. StartPartitionDataLossAsync](/dotnet/api/system.fabric.fabricclient.testmanagementclient?view=azure-dotnet#System_Fabric_FabricClient_TestManagementClient_StartPartitionDataLossAsync_System_Guid_System_Fabric_PartitionSelector_System_Fabric_DataLossMode_) na każdej partycji.  
+W przypadku usunięcia usługi należy najpierw ponownie utworzyć usługę, aby można było przywrócić dane.  Ważne jest, aby utworzyć usługę z tą samą konfiguracją, na przykład schemat partycjonowania, dzięki czemu można bezproblemowo przywrócić dane.  Po uruchomieniu usługi, interfejs API do przywracania danych ( `OnDataLossAsync` powyżej) musi być wywoływany na każdej partycji tej usługi. Jednym ze sposobów osiągnięcia tego jest użycie [FabricClient. TestManagementClient. StartPartitionDataLossAsync](/dotnet/api/system.fabric.fabricclient.testmanagementclient#System_Fabric_FabricClient_TestManagementClient_StartPartitionDataLossAsync_System_Guid_System_Fabric_PartitionSelector_System_Fabric_DataLossMode_) na każdej partycji.  
 
 W tym momencie implementacja jest taka sama jak w powyższym scenariuszu. Każda partycja musi przywrócić najnowszą odpowiednią kopię zapasową ze sklepu zewnętrznego. Jedno zastrzeżenie polega na tym, że identyfikator partycji może ulec zmianie, ponieważ środowisko uruchomieniowe tworzy dynamicznie identyfikatory partycji. W tym celu usługa musi przechowywać odpowiednie informacje o partycji i nazwę usługi w celu zidentyfikowania poprawnej najnowszej kopii zapasowej, która ma zostać przywrócona dla każdej partycji.
 
@@ -259,5 +259,5 @@ Dopóki usługa nie ukończy pomyślnie tego interfejsu API (zwracając wartoś�
   - [Reliable Services — Szybki Start](service-fabric-reliable-services-quick-start.md)
   - [Powiadomienia Reliable Services](service-fabric-reliable-services-notifications.md)
   - [Konfiguracja Reliable Services](service-fabric-reliable-services-configuration.md)
-  - [Dokumentacja dla deweloperów dla niezawodnych kolekcji](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
+  - [Dokumentacja dla deweloperów dla niezawodnych kolekcji](/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)
   - [Okresowe wykonywanie kopii zapasowej i przywracanie w usłudze Azure Service Fabric](service-fabric-backuprestoreservice-quickstart-azurecluster.md)

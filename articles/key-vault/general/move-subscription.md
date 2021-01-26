@@ -11,14 +11,14 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: d881394391b7967fe602155eefc9844e013de34e
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 23be8e667d435c2d91d32ebeac30b1e96b45a77e
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724752"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790295"
 ---
-# <a name="moving-an-azure-key-vault-to-another-subscription"></a>Przeniesienie Azure Key Vault do innej subskrypcji
+# <a name="moving-an-azure-key-vault-to-another-subscription"></a>Przenoszenie magazynu kluczy platformy Azure do innej subskrypcji
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -29,7 +29,7 @@ ms.locfileid: "97724752"
 > Upewnij się, że rozumiesz wpływ tej zmiany i postępuj zgodnie ze wskazówkami w tym artykule, uważnie, zanim zdecydujesz się przenieść magazyn kluczy do nowej subskrypcji.
 > Jeśli używasz tożsamości usługi zarządzanej (MSI), przeczytaj instrukcje po przeniesieniu na końcu dokumentu. 
 
-[Azure Key Vault](overview.md) jest automatycznie wiązana z domyślnym identyfikatorem dzierżawy [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) dla subskrypcji, w której został utworzony. Identyfikator dzierżawy skojarzony z subskrypcją można znaleźć, wykonując czynności opisane w tym [przewodniku](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-to-find-tenant). Wszystkie wpisy zasad dostępu i przypisane role są również powiązane z tym IDENTYFIKATORem dzierżawy.  Jeśli przeniesiesz subskrypcję platformy Azure z dzierżawy A do dzierżawy B, istniejące magazyny kluczy będą niedostępne dla podmiotów usługi (użytkowników i aplikacji) w dzierżawie B. Aby rozwiązać ten problem, należy:
+[Azure Key Vault](overview.md) jest automatycznie wiązana z domyślnym identyfikatorem dzierżawy [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) dla subskrypcji, w której został utworzony. Identyfikator dzierżawy skojarzony z subskrypcją można znaleźć, wykonując czynności opisane w tym [przewodniku](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md). Wszystkie wpisy zasad dostępu i przypisane role są również powiązane z tym IDENTYFIKATORem dzierżawy.  Jeśli przeniesiesz subskrypcję platformy Azure z dzierżawy A do dzierżawy B, istniejące magazyny kluczy będą niedostępne dla podmiotów usługi (użytkowników i aplikacji) w dzierżawie B. Aby rozwiązać ten problem, należy:
 
 * Zmień identyfikator dzierżawy skojarzony ze wszystkimi istniejącymi magazynami kluczy w subskrypcji na dzierżawcę B.
 * usunąć wszystkie istniejące wpisy zasad dostępu,
@@ -37,8 +37,8 @@ ms.locfileid: "97724752"
 
 Aby uzyskać więcej informacji na temat Azure Key Vault i Azure Active Directory, zobacz
 - [Informacje o usłudze Azure Key Vault](overview.md)
-- [Co to jest Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
-- [Jak znaleźć identyfikator dzierżawy](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-to-find-tenant)
+- [Co to jest Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)
+- [Jak znaleźć identyfikator dzierżawy](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md)
 
 ## <a name="limitations"></a>Ograniczenia
 
@@ -49,11 +49,11 @@ Niektóre jednostki usługi (Użytkownicy i aplikacje) są powiązane z określo
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Dostęp na poziomie [współautora](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) lub wyższy do bieżącej subskrypcji, w której znajduje się magazyn kluczy. Rolę można przypisywać przy użyciu [Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)lub [programu PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
-* Dostęp na poziomie [współautor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) lub wyższy do subskrypcji, w której chcesz przenieść magazyn kluczy. Rolę można przypisywać przy użyciu [Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)lub [programu PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
-* Grupa zasobów w nowej subskrypcji. Można go utworzyć przy użyciu [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal), [programu PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-powershell)lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-cli).
+* Dostęp na poziomie [współautora](../../role-based-access-control/built-in-roles.md#contributor) lub wyższy do bieżącej subskrypcji, w której znajduje się magazyn kluczy. Rolę można przypisywać przy użyciu [Azure Portal](../../role-based-access-control/role-assignments-portal.md), [interfejsu wiersza polecenia platformy Azure](../../role-based-access-control/role-assignments-cli.md)lub [programu PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+* Dostęp na poziomie [współautor](../../role-based-access-control/built-in-roles.md#contributor) lub wyższy do subskrypcji, w której chcesz przenieść magazyn kluczy. Rolę można przypisywać przy użyciu [Azure Portal](../../role-based-access-control/role-assignments-portal.md), [interfejsu wiersza polecenia platformy Azure](../../role-based-access-control/role-assignments-cli.md)lub [programu PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+* Grupa zasobów w nowej subskrypcji. Można go utworzyć przy użyciu [Azure Portal](../../azure-resource-manager/management/manage-resource-groups-portal.md), [programu PowerShell](../../azure-resource-manager/management/manage-resource-groups-powershell.md)lub [interfejsu wiersza polecenia platformy Azure](../../azure-resource-manager/management/manage-resource-groups-cli.md).
 
-Istniejące role można sprawdzać za pomocą [Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-portal), [programu PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-powershell), interfejsu [wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-cli)lub [API REST](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-rest).
+Istniejące role można sprawdzać za pomocą [Azure Portal](../../role-based-access-control/role-assignments-list-portal.md), [programu PowerShell](../../role-based-access-control/role-assignments-list-powershell.md), interfejsu [wiersza polecenia platformy Azure](../../role-based-access-control/role-assignments-list-cli.md)lub [API REST](../../role-based-access-control/role-assignments-list-rest.md).
 
 
 ## <a name="moving-a-key-vault-to-a-new-subscription"></a>Przeniesienie magazynu kluczy do nowej subskrypcji
@@ -96,7 +96,7 @@ az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Upd
 ### <a name="update-access-policies-and-role-assignments"></a>Aktualizowanie zasad dostępu i przypisań ról
 
 > [!NOTE]
-> Jeśli Key Vault korzysta z modelu uprawnień [RBAC platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) . Należy również usunąć przypisania roli magazynu kluczy. Przypisania ról można usunąć za pomocą witryny [Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)lub [programu PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell). 
+> Jeśli Key Vault korzysta z modelu uprawnień [RBAC platformy Azure](../../role-based-access-control/overview.md) . Należy również usunąć przypisania roli magazynu kluczy. Przypisania ról można usunąć za pomocą witryny [Azure Portal](../../role-based-access-control/role-assignments-portal.md), [interfejsu wiersza polecenia platformy Azure](../../role-based-access-control/role-assignments-cli.md)lub [programu PowerShell](../../role-based-access-control/role-assignments-powershell.md). 
 
 Teraz, gdy magazyn jest skojarzony z prawidłowym IDENTYFIKATORem dzierżawy i zostaną usunięte stare wpisy zasad dostępu lub przypisania ról, Ustaw nowe wpisy zasad dostępu lub przypisania ról.
 
@@ -106,9 +106,9 @@ Aby przypisywać zasady, zobacz:
 - [Przypisywanie zasad dostępu przy użyciu programu PowerShell](assign-access-policy-powershell.md)
 
 Aby dodać przypisania ról, zobacz:
-- [Dodawanie przypisania roli przy użyciu portalu](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
-- [Dodawanie przypisania roli przy użyciu interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
-- [Dodawanie przypisania roli przy użyciu programu PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell)
+- [Dodawanie przypisania roli przy użyciu portalu](../../role-based-access-control/role-assignments-portal.md)
+- [Dodawanie przypisania roli przy użyciu interfejsu wiersza polecenia platformy Azure](../../role-based-access-control/role-assignments-cli.md)
+- [Dodawanie przypisania roli przy użyciu programu PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
 
 ### <a name="update-managed-identities"></a>Aktualizowanie tożsamości zarządzanych

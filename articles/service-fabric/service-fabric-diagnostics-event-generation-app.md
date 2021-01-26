@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: e1871df962a26def8c12000f8b8bc0cf31bae9a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1df5d033701195f4fe5f6b7174f3883b84393ab
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86247663"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791277"
 ---
 # <a name="application-logging"></a>Rejestrowanie aplikacji
 
@@ -22,11 +22,11 @@ Aby zapoznać się z przykładami dotyczącymi sposobu korzystania z tych sugest
 
 ## <a name="application-insights-sdk"></a>Zestaw SDK Application Insights
 
-Application Insights ma rozbudowaną integrację z Service Fabricem. Użytkownicy mogą dodawać pakiety NuGet Service Fabric AI i odbierać dane oraz dzienniki utworzone i zebrane w Azure Portal. Ponadto użytkownicy są zachęcani do dodawania własnych danych telemetrycznych w celu diagnozowania i debugowania aplikacji oraz śledzenia, które usługi i części ich aplikacji są używane. Klasa [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) w zestawie SDK zapewnia wiele sposobów śledzenia danych telemetrycznych w aplikacjach. Zapoznaj się z przykładem, jak instrumentować i dodawać usługi Application Insights do aplikacji w naszym samouczku dotyczącym [monitorowania i diagnozowania aplikacji .NET](service-fabric-tutorial-monitoring-aspnet.md)
+Application Insights ma rozbudowaną integrację z Service Fabricem. Użytkownicy mogą dodawać pakiety NuGet Service Fabric AI i odbierać dane oraz dzienniki utworzone i zebrane w Azure Portal. Ponadto użytkownicy są zachęcani do dodawania własnych danych telemetrycznych w celu diagnozowania i debugowania aplikacji oraz śledzenia, które usługi i części ich aplikacji są używane. Klasa [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient) w zestawie SDK zapewnia wiele sposobów śledzenia danych telemetrycznych w aplikacjach. Zapoznaj się z przykładem, jak instrumentować i dodawać usługi Application Insights do aplikacji w naszym samouczku dotyczącym [monitorowania i diagnozowania aplikacji .NET](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="eventsource"></a>EventSource
 
-W przypadku tworzenia rozwiązania Service Fabric na podstawie szablonu w programie Visual Studio generowana jest Klasa pochodna elementu**ServiceEventSource** **EventSource**lub **ActorEventSource**). Tworzony jest szablon, w którym można dodawać zdarzenia dla aplikacji lub usługi. Nazwa **EventSource** elementu EventSource **musi** być unikatowa i powinna być zmieniona z domyślnego ciągu szablonu &lt; &gt; - &lt; &gt; . Posiadanie wielu definicji elementu **EventSource** , które używają tej samej nazwy, powoduje problem w czasie wykonywania. Każde zdefiniowane zdarzenie musi mieć unikatowy identyfikator. Jeśli identyfikator nie jest unikatowy, wystąpi błąd w czasie wykonywania. Niektóre organizacje często przypisują zakresy wartości dla identyfikatorów, aby uniknąć konfliktów między oddzielnymi zespołami programistycznymi. Aby uzyskać więcej informacji, zobacz [blog Vance](/archive/blogs/vancem/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource) lub [dokumentację MSDN](/previous-versions/msp-n-p/dn774985(v=pandp.20)).
+W przypadku tworzenia rozwiązania Service Fabric na podstawie szablonu w programie Visual Studio generowana jest Klasa pochodna elementu **EventSource** lub **ActorEventSource**). Tworzony jest szablon, w którym można dodawać zdarzenia dla aplikacji lub usługi. Nazwa  elementu EventSource **musi** być unikatowa i powinna być zmieniona z domyślnego ciągu szablonu &lt; &gt; - &lt; &gt; . Posiadanie wielu definicji elementu **EventSource** , które używają tej samej nazwy, powoduje problem w czasie wykonywania. Każde zdefiniowane zdarzenie musi mieć unikatowy identyfikator. Jeśli identyfikator nie jest unikatowy, wystąpi błąd w czasie wykonywania. Niektóre organizacje często przypisują zakresy wartości dla identyfikatorów, aby uniknąć konfliktów między oddzielnymi zespołami programistycznymi. Aby uzyskać więcej informacji, zobacz [blog Vance](/archive/blogs/vancem/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource) lub [dokumentację MSDN](/previous-versions/msp-n-p/dn774985(v=pandp.20)).
 
 ## <a name="aspnet-core-logging"></a>Rejestrowanie ASP.NET Core
 

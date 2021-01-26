@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/02/2020
-ms.openlocfilehash: b6fcc294c2b8c131d9a4a058c653ae1f64652ccf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31885eba16d59e2e48a08f84c56271b84e6c565f
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324862"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790922"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testowanie aplikacji LUIS w portalu LUIS
 
@@ -40,7 +40,7 @@ Test wypowiedź nie powinien być dokładnie taki sam, jak w przypadku każdego 
     > [!div class="mx-imgBorder"]
     > ![Strona uczenie & aplikacji testowej](./media/luis-how-to-interactive-test/test.png)
 
-1. Wprowadź wypowiedź w polu tekstowym, a następnie wybierz klawisz ENTER. W **teście**można wpisać dowolną liczbę wyrażenia długości testowych, ale tylko jeden wypowiedź jednocześnie.
+1. Wprowadź wypowiedź w polu tekstowym, a następnie wybierz klawisz ENTER. W **teście** można wpisać dowolną liczbę wyrażenia długości testowych, ale tylko jeden wypowiedź jednocześnie.
 
 1. Wypowiedź, jego górny cel i Ocena są dodawane do listy wyrażenia długości w polu tekstowym.
 
@@ -119,7 +119,7 @@ Jeśli masz kilka punktów końcowych LUIS, Użyj linku **Ustawienia dodatkowe**
 
 
 ## <a name="batch-testing"></a>Testowanie wsadowe
-Zobacz [koncepcje](luis-concept-batch-test.md) testowania partii i Dowiedz się, [jak](luis-how-to-batch-test.md) przetestować partię wyrażenia długości.
+Zobacz [koncepcje](./luis-how-to-batch-test.md) testowania partii i Dowiedz się, [jak](luis-how-to-batch-test.md) przetestować partię wyrażenia długości.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: 09859be61029242e987603e01b5c3fba8dffb2ca
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: fc85eec008ef099d63d538e4871a1a84573f5a18
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483890"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790449"
 ---
 # <a name="what-is-a-voice-assistant"></a>Co to jest asystent głosowy?
 
@@ -66,7 +66,7 @@ Przykładowy kod służący do tworzenia asystenta głosowego jest dostępny w w
 
 * [Przykłady asystenta głosowego w witrynie GitHub](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant)
 * [Samouczek: Włączanie głosu przez asystenta utworzonego przy użyciu Azure Bot Service z zestawem SDK mowy C#](tutorial-voice-enable-your-bot-speech-sdk.md)
-* [Samouczek: Tworzenie aplikacji poleceń niestandardowych przy użyciu prostych poleceń głosowych](how-to-custom-commands-create-application-with-simple-commands.md)
+* [Samouczek: Tworzenie aplikacji poleceń niestandardowych przy użyciu prostych poleceń głosowych](./how-to-develop-custom-commands-application.md)
 
 ## <a name="customization"></a>Dostosowywanie
 

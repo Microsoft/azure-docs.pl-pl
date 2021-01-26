@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: a78bfc2b4f0c372c915647c0afa40263079af8e5
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 8b10e850fd3ae0282785164596f537652148a716
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746062"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791007"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>Równoważenie obciążenia dla wielu konfiguracji adresów IP przy użyciu programu PowerShell
 
@@ -46,7 +46,7 @@ Postępuj zgodnie z poniższymi instrukcjami, aby osiągnąć scenariusz opisany
     $myResourceGroup = "contosofabrikam"
     ```
 
-    Aby uzyskać więcej informacji, zobacz krok 2 [tworzenia grupy zasobów](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fazure%2fload-balancer%2ftoc.json).
+    Aby uzyskać więcej informacji, zobacz krok 2 [tworzenia grupy zasobów](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm?toc=%2fazure%2fload-balancer%2ftoc.json).
 
 3. [Utwórz zestaw dostępności](../virtual-machines/windows/tutorial-availability-sets.md?toc=%2fazure%2fload-balancer%2ftoc.json) zawierający maszyny wirtualne. W tym scenariuszu Użyj następującego polecenia:
 
@@ -54,14 +54,14 @@ Postępuj zgodnie z poniższymi instrukcjami, aby osiągnąć scenariusz opisany
     New-AzAvailabilitySet -ResourceGroupName "contosofabrikam" -Name "myAvailset" -Location "West Central US"
     ```
 
-4. Wykonaj instrukcje od 3 do 5 w artykule [Tworzenie maszyny wirtualnej z systemem Windows](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fazure%2fload-balancer%2ftoc.json) , aby przygotować Tworzenie maszyny wirtualnej z jedną kartą sieciową. Wykonaj krok 6,1 i użyj poniższego zamiast kroku 6,2:
+4. Wykonaj instrukcje od 3 do 5 w artykule [Tworzenie maszyny wirtualnej z systemem Windows](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm?toc=%2fazure%2fload-balancer%2ftoc.json) , aby przygotować Tworzenie maszyny wirtualnej z jedną kartą sieciową. Wykonaj krok 6,1 i użyj poniższego zamiast kroku 6,2:
 
     ```powershell
     $availset = Get-AzAvailabilitySet -ResourceGroupName "contosofabrikam" -Name "myAvailset"
     New-AzVMConfig -VMName "VM1" -VMSize "Standard_DS1_v2" -AvailabilitySetId $availset.Id
     ```
 
-    Następnie ukończ [Tworzenie kroków maszyn wirtualnych z systemem Windows od](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fazure%2fload-balancer%2ftoc.json) 6,3 do 6,8.
+    Następnie ukończ [Tworzenie kroków maszyn wirtualnych z systemem Windows od](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm?toc=%2fazure%2fload-balancer%2ftoc.json) 6,3 do 6,8.
 
 5. Dodaj drugą konfigurację adresu IP do każdej z maszyn wirtualnych. Postępuj zgodnie z instrukcjami w artykule [przypisywanie wielu adresów IP do maszyn wirtualnych](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md#add) . Użyj następujących ustawień konfiguracji:
 

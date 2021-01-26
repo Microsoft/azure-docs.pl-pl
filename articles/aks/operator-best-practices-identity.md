@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: a63a756448f9c7202c79c3b4625fc99d4a90dc52
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8e0c7324f5b73b3a2ac5e5fd6fa256202035077a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014061"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790973"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące uwierzytelniania i autoryzacji w usłudze Azure Kubernetes Service (AKS)
 
@@ -98,39 +98,42 @@ Aby dowiedzieć się, jak kontrolować dostęp do zasobu AKS i kubeconfig, zobac
 2. Dostęp do interfejsu API Kubernetes. Ten poziom dostępu jest kontrolowany przez [KUBERNETES RBAC](#use-kubernetes-role-based-access-control-kubernetes-rbac) (tradycyjnie) lub przez integrację usługi Azure RBAC z usługą AKS dla autoryzacji Kubernetes.
 Aby dowiedzieć się, jak szczegółowo udzielić uprawnień do interfejsu API Kubernetes przy użyciu funkcji RBAC platformy Azure, zobacz [Korzystanie z usługi Azure RBAC na potrzeby autoryzacji Kubernetes](manage-azure-rbac.md).
 
-## <a name="use-pod-identities"></a>Użyj tożsamości pod
+## <a name="use-pod-managed-identities"></a>Korzystanie z tożsamości zarządzanych przez program
 
 **Wskazówki dotyczące najlepszych** rozwiązań — nie używaj stałych poświadczeń w obrębie zasobników ani obrazów kontenerów, ponieważ są one zagrożone ekspozycją lub nadużyciami. Zamiast tego należy użyć tożsamości pod, aby automatycznie żądać dostępu przy użyciu centralnego rozwiązania do obsługi tożsamości usługi Azure AD. Tożsamości pod są przeznaczone wyłącznie do użytku z magazynem systemu Linux i obrazami kontenerów.
 
+> [!NOTE]
+> Obsługa tożsamości zarządzanych przez usługi w przypadku kontenerów systemu Windows jest dostępna wkrótce.
+
 Gdy wymagane jest uzyskanie dostępu do innych usług platformy Azure, takich jak Cosmos DB, Key Vault lub Blob Storage, wymaga to poświadczeń dostępu. Te poświadczenia dostępu można zdefiniować za pomocą obrazu kontenera lub wstrzyknąć jako wpis tajny Kubernetes, ale należy go ręcznie utworzyć i przypisać. Często poświadczenia są ponownie używane między zasobnikami i nie są regularnie obracane.
 
-Zarządzane tożsamości dla zasobów platformy Azure (obecnie zaimplementowane jako skojarzony projekt AKS Open Source) pozwalają na automatyczne zażądanie dostępu do usług za pomocą usługi Azure AD. Nie Definiuj ręcznie poświadczeń dla zasobników, zamiast tego żądają tokenu dostępu w czasie rzeczywistym i mogą używać go do uzyskiwania dostępu do przypisanych do nich usług. W programie AKS dwa składniki są wdrażane przez operatora klastra w celu zezwolenia na używanie tożsamości zarządzanych przez y:
+Tożsamości zarządzane pod kątem zasobów platformy Azure umożliwiają automatyczne zażądanie dostępu do usług za pomocą usługi Azure AD. Tożsamości zarządzane w systemie są obecnie dostępne w wersji zapoznawczej usługi Azure Kubernetes. Aby rozpocząć pracę, zapoznaj się z dokumentacją dotyczącą [Azure Active Directory używania tożsamości zarządzanych w usłudze Azure Kubernetes Service (wersja zapoznawcza)]( https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) . Za pomocą tożsamości zarządzanych przez usługę, nie należy ręcznie definiować poświadczeń dla zasobników, zamiast tego żądają tokenu dostępu w czasie rzeczywistym i mogą używać go do uzyskiwania dostępu tylko do przypisanych do nich usług. W programie AKS istnieją dwa składniki, które obsługują operacje zezwalające na używanie tożsamości w modułach zarządzania:
 
 * **Serwer tożsamości zarządzania węzłami (NMI)** jest systemem, który działa jako elementu daemonset w każdym WĘŹLE klastra AKS. Serwer NMI nasłuchuje żądań pod względem usług platformy Azure.
-* **Zarządzany kontroler tożsamości (MIC)** jest centralnym pod względem uprawnień do wysyłania zapytań do serwera interfejsu API Kubernetes i sprawdza mapowanie tożsamości platformy Azure, które odnosi się do pod.
+* **Dostawca zasobów platformy Azure** wysyła zapytanie do serwera interfejsu API Kubernetes i sprawdza mapowanie tożsamości platformy Azure, które odnosi się do pod.
 
-Gdy usługa podst żąda dostępu do usługi platformy Azure, reguły sieci przekierowują ruch do serwera tożsamości zarządzania węzłami (NMI). Serwer NMI identyfikuje zasobniki, które żądają dostępu do usług platformy Azure na podstawie ich adresów zdalnych, a następnie wysyła zapytanie do zarządzanego kontrolera tożsamości (MIC). MIKROFON sprawdza mapowania tożsamości platformy Azure w klastrze AKS, a następnie serwer NMI żąda tokenu dostępu od Azure Active Directory (AD) w oparciu o mapowanie tożsamości pod. Usługa Azure AD zapewnia dostęp do serwera NMI, który jest zwracany do usługi pod. Ten token dostępu może być używany przez usługę pod, a następnie żądać dostępu do usług na platformie Azure.
+Gdy usługa podst żąda dostępu do usługi platformy Azure, reguły sieci przekierowują ruch do serwera tożsamości zarządzania węzłami (NMI). Serwer NMI identyfikuje zasobniki, które żądają dostępu do usług platformy Azure na podstawie ich adresów zdalnych, a następnie wysyła zapytanie do dostawcy zasobów platformy Azure. Dostawca usługi Azure zasobów sprawdza mapowania tożsamości platformy Azure w klastrze AKS, a następnie serwer NMI żąda tokenu dostępu od Azure Active Directory (AD) w oparciu o mapowanie tożsamości pod. Usługa Azure AD zapewnia dostęp do serwera NMI, który jest zwracany do usługi pod. Ten token dostępu może być używany przez usługę pod, a następnie żądać dostępu do usług na platformie Azure.
 
 W poniższym przykładzie deweloper tworzy pod, który używa tożsamości zarządzanej, aby zażądać dostępu do Azure SQL Database:
 
 ![Tożsamości pod pozwalają na automatyczne zażądanie dostępu do innych usług](media/operator-best-practices-identity/pod-identities.png)
 
 1. Operator klastra najpierw tworzy konto usługi, które może służyć do mapowania tożsamości, gdy identyfikatory zasobów żądają dostępu do usług.
-1. Serwer NMI i mikrofon są wdrażane w celu przekazywania żądań dostępu do usługi Azure AD na żądanie.
+1. Serwer NMI został wdrożony w celu przekazywania dowolnych żądań pod względem dostawcy zasobów platformy Azure, aby uzyskać tokeny dostępu do usługi Azure AD.
 1. Deweloper wdraża usługę pod za pomocą tożsamości zarządzanej, która żąda tokenu dostępu za pomocą serwera NMI.
 1. Token jest zwracany do i używany do uzyskiwania dostępu do Azure SQL Database
 
 > [!NOTE]
-> Tożsamości zarządzane pod to projekt open source, który nie jest obsługiwany przez pomoc techniczną platformy Azure.
+> Tożsamości zarządzane w ramach programu są obecnie w stanie wersji zapoznawczej.
 
-Aby korzystać z tożsamości pod, zobacz [Azure Active Directory tożsamości dla aplikacji Kubernetes][aad-pod-identity].
+Aby korzystać z tożsamości zarządzanych przez program, zobacz [Azure Active Directory korzystanie z tożsamości zarządzanych w usłudze Azure Kubernetes Service (wersja zapoznawcza)]( https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity).
 
 ## <a name="next-steps"></a>Następne kroki
 
 W tym artykule dotyczącym najlepszych rozwiązań opisano uwierzytelnianie i autoryzację klastra i zasobów. Aby zaimplementować niektóre z tych najlepszych rozwiązań, zobacz następujące artykuły:
 
 * [Integracja Azure Active Directory z usługą AKS][aks-aad]
-* [Korzystanie z tożsamości zarządzanych dla zasobów platformy Azure z usługą AKS][aad-pod-identity]
+* [Korzystanie z Azure Active Directory tożsamości zarządzanych w usłudze Azure Kubernetes Service (wersja zapoznawcza)]( https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity)
 
 Aby uzyskać więcej informacji na temat operacji klastra w programie AKS, zobacz następujące najlepsze rozwiązania:
 

@@ -3,18 +3,18 @@ title: Service Fabric uaktualniania aplikacji
 description: Ten artykuł zawiera wprowadzenie do uaktualniania aplikacji Service Fabric, w tym wybierania trybów uaktualniania i przeprowadzania kontroli kondycji.
 ms.topic: conceptual
 ms.date: 8/5/2020
-ms.openlocfilehash: 8eecd923b009ecbe9f4e607ad57a99b3f20955b9
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: f3fad8d0ede92004706d9a1f4e14353715361b63
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309849"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98792018"
 ---
 # <a name="service-fabric-application-upgrade"></a>Service Fabric uaktualniania aplikacji
 Aplikacja Service Fabric platformy Azure to zbiór usług. Podczas uaktualniania Service Fabric porównuje nowy [manifest aplikacji](service-fabric-application-and-service-manifests.md) z poprzednią wersją i określa, które usługi w aplikacji wymagają aktualizacji. Service Fabric porównuje numery wersji w manifestach usługi z numerami wersji w poprzedniej wersji. Jeśli usługa nie uległa zmianie, ta usługa nie zostanie uaktualniona.
 
 > [!NOTE]
-> [ApplicationParameter](/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s nie są zachowywane podczas uaktualniania aplikacji. Aby zachować bieżące parametry aplikacji, użytkownik powinien najpierw pobrać parametry i przekazać je do wywołania interfejsu API uaktualniania, takiego jak poniżej:
+> [ApplicationParameter](/dotnet/api/system.fabric.description.applicationdescription.applicationparameters#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s nie są zachowywane podczas uaktualniania aplikacji. Aby zachować bieżące parametry aplikacji, użytkownik powinien najpierw pobrać parametry i przekazać je do wywołania interfejsu API uaktualniania, takiego jak poniżej:
 ```powershell
 $myApplication = Get-ServiceFabricApplication -ApplicationName fabric:/myApplication
 $appParamCollection = $myApplication.ApplicationParameters
@@ -52,7 +52,7 @@ Tryb, który zalecamy w przypadku uaktualniania aplikacji jest trybem monitorowa
 Niemonitorowany tryb ręczny wymaga ręcznej interwencji po każdym uaktualnieniu w domenie aktualizacji, aby rozpocząć uaktualnianie do następnej domeny aktualizacji. Nie są wykonywane żadne kontrole kondycji Service Fabric. Administrator przeprowadza Sprawdzanie kondycji lub stanu przed rozpoczęciem uaktualniania w następnej domenie aktualizacji.
 
 ## <a name="upgrade-default-services"></a>Uaktualnij domyślne usługi
-Niektóre domyślne parametry usługi zdefiniowane w [manifeście aplikacji](service-fabric-application-and-service-manifests.md) mogą być również uaktualniane w ramach uaktualnienia aplikacji. Tylko parametry usługi, które obsługują zmiany za pomocą [Update-ServiceFabricService](/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) , mogą zostać zmienione w ramach uaktualnienia. Zachowanie zmian domyślnych usług podczas uaktualniania aplikacji jest następujące:
+Niektóre domyślne parametry usługi zdefiniowane w [manifeście aplikacji](service-fabric-application-and-service-manifests.md) mogą być również uaktualniane w ramach uaktualnienia aplikacji. Tylko parametry usługi, które obsługują zmiany za pomocą [Update-ServiceFabricService](/powershell/module/servicefabric/update-servicefabricservice) , mogą zostać zmienione w ramach uaktualnienia. Zachowanie zmian domyślnych usług podczas uaktualniania aplikacji jest następujące:
 
 1. Tworzone są domyślne usługi w manifeście nowej aplikacji, które nie istnieją jeszcze w klastrze.
 2. Domyślne usługi, które znajdują się w poprzednich i nowych manifestach aplikacji, są aktualizowane. Parametry usługi domyślnej w nowym manifeście aplikacji zastępują parametry istniejącej usługi. Uaktualnienie aplikacji zostanie automatycznie wycofane, jeśli aktualizacja usługi domyślnej nie powiedzie się.
@@ -64,14 +64,14 @@ Po wycofaniu uaktualnienia aplikacji domyślne parametry usługi są przywracane
 > Ustawienie konfiguracji klastra [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) musi mieć *wartość true* , aby włączyć reguły 2) i 3) powyżej (domyślna aktualizacja i usuwanie usługi). Ta funkcja jest obsługiwana w Service Fabric wersja 5,5.
 
 ## <a name="upgrading-multiple-applications-with-https-endpoints"></a>Uaktualnianie wielu aplikacji za pomocą punktów końcowych HTTPS
-Należy zachować ostrożność, aby nie używać tego **samego portu** dla różnych wystąpień tej samej aplikacji podczas korzystania z protokołu HTTP**S**. Przyczyną jest to, że Service Fabric nie będzie można uaktualnić certyfikatu dla jednego z wystąpień aplikacji. Na przykład jeśli aplikacja 1 lub aplikacja 2 chcą uaktualnić certyfikat 1 do certyfikatu 2. Po uaktualnieniu program Service Fabric mógł oczyścić rejestrację certyfikatu 1 z http.sys nawet wtedy, gdy nadal używa jej inna aplikacja. Aby temu zapobiec, Service Fabric wykryje, że na porcie jest już zarejestrowane inne wystąpienie aplikacji z certyfikatem (ze względu na http.sys) i operacja zakończy się niepowodzeniem.
+Należy zachować ostrożność, aby nie używać tego **samego portu** dla różnych wystąpień tej samej aplikacji podczas korzystania z protokołu HTTP **S**. Przyczyną jest to, że Service Fabric nie będzie można uaktualnić certyfikatu dla jednego z wystąpień aplikacji. Na przykład jeśli aplikacja 1 lub aplikacja 2 chcą uaktualnić certyfikat 1 do certyfikatu 2. Po uaktualnieniu program Service Fabric mógł oczyścić rejestrację certyfikatu 1 z http.sys nawet wtedy, gdy nadal używa jej inna aplikacja. Aby temu zapobiec, Service Fabric wykryje, że na porcie jest już zarejestrowane inne wystąpienie aplikacji z certyfikatem (ze względu na http.sys) i operacja zakończy się niepowodzeniem.
 
 Dlatego Service Fabric nie obsługuje uaktualniania dwóch różnych usług przy użyciu tego **samego portu** w różnych wystąpieniach aplikacji. Innymi słowy, nie można używać tego samego certyfikatu w różnych usługach na tym samym porcie. Jeśli musisz mieć współużytkowany certyfikat na tym samym porcie, musisz się upewnić, że usługi są umieszczone na różnych komputerach z ograniczeniami umieszczania. Lub Rozważ użycie Service Fabric portów dynamicznych, jeśli jest to możliwe dla każdej usługi w każdym wystąpieniu aplikacji. 
 
 Jeśli zobaczysz, że uaktualnienie nie powiedzie się, zostanie wyświetlone ostrzeżenie informujące o błędzie "interfejs API serwera HTTP systemu Windows nie obsługuje wielu certyfikatów dla aplikacji, które współużytkują port".
 
 ## <a name="application-upgrade-flowchart"></a>Schemat blokowy uaktualniania aplikacji
-Schemat blokowy następujący po tym akapicie może pomóc w zrozumieniu procesu uaktualniania aplikacji Service Fabric. W szczególności przepływ opisuje sposób, w jaki przekroczenia limitu czasu, w tym *HealthCheckStableDuration*, *HealthCheckRetryTimeout*i *UpgradeHealthCheckInterval*, kontrolują, kiedy uaktualnienie w jednej domenie aktualizacji jest uznawane za powodzenie lub awarię.
+Schemat blokowy następujący po tym akapicie może pomóc w zrozumieniu procesu uaktualniania aplikacji Service Fabric. W szczególności przepływ opisuje sposób, w jaki przekroczenia limitu czasu, w tym *HealthCheckStableDuration*, *HealthCheckRetryTimeout* i *UpgradeHealthCheckInterval*, kontrolują, kiedy uaktualnienie w jednej domenie aktualizacji jest uznawane za powodzenie lub awarię.
 
 ![Proces uaktualniania dla aplikacji Service Fabric][image]
 

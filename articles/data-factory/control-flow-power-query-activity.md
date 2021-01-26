@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/18/2021
-ms.openlocfilehash: 3314053e5b81c597d6d29015a5ebda6e171731d1
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: c0ad769ceba4fc3fa7f602d70188ea1942ca73aa
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98634228"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791698"
 ---
 # <a name="power-query-activity-in-data-factory"></a>Działanie dodatku PowerShell w usłudze Data Factory
 
@@ -22,6 +22,8 @@ Działanie Power Query umożliwia kompilowanie i wykonywanie Power Query różny
 ![Zrzut ekranu przedstawiający Power Query w okienku zasoby fabryki.](media/data-flow/power-query-wrangling.png)
 
 Wcześniej przetwarzanie danych w Azure Data Factory został utworzony przy użyciu opcji menu przepływ danych. Ten element został zmieniony na tworzenie z poziomu nowego działania Power Query. Możesz współpracować bezpośrednio z Power Query edytora różny, aby wykonać interaktywną eksplorację danych, a następnie zapisać swoją służbę. Po zakończeniu możesz wykonać działanie Power Query i dodać je do potoku. Azure Data Factory automatycznie przeskaluje ją i operacjonalizować przetwarzanie danych za pomocą środowiska Spark przepływu danych Azure Data Factory.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4MFYn]
 
 ## <a name="translation-to-data-flow-script"></a>Tłumaczenie na skrypt przepływu danych
 

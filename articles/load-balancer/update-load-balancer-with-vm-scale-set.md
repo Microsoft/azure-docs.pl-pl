@@ -1,5 +1,5 @@
 ---
-title: Zaktualizuj lub Usuń istniejące Azure Load Balancer używane przez zestaw skalowania maszyn wirtualnych
+title: Aktualizowanie lub usuwanie istniejącej usługi Azure Load Balancer używanej przez zestaw skalowania maszyn wirtualnych
 titleSuffix: Update or delete existing Azure Load Balancer used by Virtual Machine Scale Set
 description: Korzystając z tego artykułu, Rozpocznij pracę z usługą Azure usługa Load Balancer w warstwie Standardowa i Virtual Machine Scale Sets.
 services: load-balancer
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/30/2020
 ms.author: irenehua
-ms.openlocfilehash: f8f664375e53a1cef28b0c7b95207770434f67fa
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: d5614490bfd2cfb67b6b7afd7b7b8643bbf754bd
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97893282"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790093"
 ---
 # <a name="how-to-updatedelete-azure-load-balancer-used-by-virtual-machine-scale-sets"></a>Jak aktualizować/usuwać Azure Load Balancer używane przez Virtual Machine Scale Sets
 
 ## <a name="how-to-set-up-azure-load-balancer-for-scaling-out-virtual-machine-scale-sets"></a>Jak skonfigurować Azure Load Balancer skalowania w górę Virtual Machine Scale Sets
-  * Upewnij się, że Load Balancer ma skonfigurowaną [pulę NAT dla ruchu przychodzącego](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest) i że zestaw skalowania maszyn wirtualnych jest umieszczony w puli zaplecza Load Balancer. Azure Load Balancer automatycznie utworzy nowe reguły NAT dla ruchu przychodzącego w puli NAT dla ruchu przychodzącego, gdy nowe wystąpienia maszyn wirtualnych zostaną dodane do zestawu skalowania maszyn wirtualnych. 
+  * Upewnij się, że Load Balancer ma skonfigurowaną [pulę NAT dla ruchu przychodzącego](/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest) i że zestaw skalowania maszyn wirtualnych jest umieszczony w puli zaplecza Load Balancer. Azure Load Balancer automatycznie utworzy nowe reguły NAT dla ruchu przychodzącego w puli NAT dla ruchu przychodzącego, gdy nowe wystąpienia maszyn wirtualnych zostaną dodane do zestawu skalowania maszyn wirtualnych. 
   * Aby sprawdzić, czy pula NAT dla ruchu przychodzącego jest prawidłowo skonfigurowana, 
   1. Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
   
@@ -35,7 +35,7 @@ Jeśli widzisz w okienku po prawej stronie, zostanie wyświetlona lista reguł u
 ## <a name="how-to-add-inbound-nat-rules"></a>Jak dodać reguły NAT dla ruchu przychodzącego? 
   * Nie można dodać indywidualnej reguły NAT dla ruchu przychodzącego. Można jednak dodać zestaw reguł NAT dla ruchu przychodzącego ze zdefiniowanym zakresem portów frontonu i portem zaplecza dla wszystkich wystąpień w zestawie skalowania maszyn wirtualnych.
   * Aby dodać do Virtual Machine Scale Sets cały zestaw reguł NAT dla ruchu przychodzącego, należy najpierw utworzyć pulę NAT dla ruchu przychodzącego w Load Balancer, a następnie odwołać się do puli NAT dla ruchu przychodzącego z profilu sieciowego zestawu skalowania maszyn wirtualnych. Poniżej przedstawiono pełny przykład użycia interfejsu wiersza polecenia.
-  * Nowa pula NAT dla ruchu przychodzącego nie powinna mieć nakładających się zakresów portów frontonu z istniejącymi przychodzącymi pulami NAT. Aby wyświetlić istniejące skonfigurowane pule NAT dla ruchu przychodzącego, możesz użyć tego [polecenia interfejsu CLI](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest#az_network_lb_inbound_nat_pool_list)
+  * Nowa pula NAT dla ruchu przychodzącego nie powinna mieć nakładających się zakresów portów frontonu z istniejącymi przychodzącymi pulami NAT. Aby wyświetlić istniejące skonfigurowane pule NAT dla ruchu przychodzącego, możesz użyć tego [polecenia interfejsu CLI](/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest#az_network_lb_inbound_nat_pool_list)
 ```azurecli-interactive
 az network lb inbound-nat-pool create 
         -g MyResourceGroup 
@@ -92,7 +92,7 @@ az network lb inbound-nat-pool update
    
 1. Na stronie **Dodawanie adresu IP frontonu** wpisz wartości, a następnie wybierz **przycisk OK** .
 
-1. Postępuj zgodnie z [krokami 5](https://docs.microsoft.com/azure/load-balancer/load-balancer-multiple-ip#step-5-configure-the-health-probe) i [6](https://docs.microsoft.com/azure/load-balancer/load-balancer-multiple-ip#step-5-configure-the-health-probe) w tym samouczku, jeśli są potrzeby nowe reguły równoważenia obciążenia
+1. Postępuj zgodnie z [krokami 5](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe) i [6](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe) w tym samouczku, jeśli są potrzeby nowe reguły równoważenia obciążenia
 
 1. Utwórz nowy zestaw reguł NAT dla ruchu przychodzącego przy użyciu nowo utworzonych konfiguracji adresu IP frontonu w razie konieczności. Przykład można znaleźć w tym miejscu w [poprzedniej sekcji].
 

@@ -4,12 +4,12 @@ description: Dowiedz się więcej o pakowaniu aplikacji Service Fabric platformy
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 11a3fdd5dbaef53af321342952f786ed8119689c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 168e6d6dc7ab5bfeccc4e1dabc7bd50efcbe8f34
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021065"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789706"
 ---
 # <a name="package-an-application"></a>Tworzenie pakietu aplikacji
 
@@ -75,7 +75,7 @@ D:\Temp> msbuild HelloWorld.sfproj /t:Package
 
 ## <a name="test-the-package"></a>Testowanie pakietu
 
-Strukturę pakietu można sprawdzić lokalnie za pomocą programu PowerShell za pomocą polecenia [test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) .
+Strukturę pakietu można sprawdzić lokalnie za pomocą programu PowerShell za pomocą polecenia [test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage) .
 To polecenie sprawdza, czy występują problemy z analizowaniem manifestu i weryfikują wszystkie odwołania. To polecenie weryfikuje tylko prawidłowość strukturalną katalogów i plików w pakiecie.
 Nie sprawdza ona żadnego kodu ani zawartości pakietu danych poza sprawdzeniem, czy istnieją wszystkie niezbędne pliki.
 
@@ -121,7 +121,7 @@ Test-ServiceFabricApplicationPackage .\MyApplicationType
 True
 ```
 
-Jeśli aplikacja ma zdefiniowane [Parametry aplikacji](service-fabric-manage-multiple-environment-app-configuration.md) , można przekazać je w [test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) w celu sprawdzenia poprawności.
+Jeśli aplikacja ma zdefiniowane [Parametry aplikacji](service-fabric-manage-multiple-environment-app-configuration.md) , można przekazać je w [test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage) w celu sprawdzenia poprawności.
 
 Jeśli znasz klaster, w którym aplikacja zostanie wdrożona, zalecamy przekazanie `ImageStoreConnectionString` parametru. W takim przypadku pakiet jest również sprawdzany pod kątem wcześniejszych wersji aplikacji, która jest już uruchomiona w klastrze. Na przykład sprawdzanie poprawności może wykryć, czy pakiet z tą samą wersją, ale z inną zawartością, został już wdrożony.  
 
@@ -135,9 +135,9 @@ W przypadku skompresowanego pakietu aplikacji [przekazywanie pakietu aplikacji](
 Mechanizm wdrażania jest taki sam dla skompresowanych i nieskompresowanych pakietów. Jeśli pakiet jest skompresowany, jest przechowywany w postaci, w której znajduje się w magazynie obrazów klastra, i nie jest kompresowany w węźle przed uruchomieniem aplikacji.
 Kompresja zastępuje prawidłowy pakiet Service Fabric ze skompresowaną wersją. Folder musi zezwalać na uprawnienia do zapisu. Wykonywanie kompresji na już skompresowanym pakiecie nie powoduje żadnych zmian.
 
-Pakiet można skompresować, uruchamiając polecenie PowerShell [copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) z `CompressPackage` przełącznikiem. Możesz zdekompresować pakiet za pomocą tego samego polecenia, używając `UncompressPackage` przełącznika.
+Pakiet można skompresować, uruchamiając polecenie PowerShell [copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) z `CompressPackage` przełącznikiem. Możesz zdekompresować pakiet za pomocą tego samego polecenia, używając `UncompressPackage` przełącznika.
 
-Następujące polecenie kompresuje pakiet bez kopiowania go do magazynu obrazów. Możesz skopiować skompresowany pakiet do jednego lub kilku klastrów Service Fabric, w razie potrzeby, za pomocą polecenia [copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) bez `SkipCopy` flagi.
+Następujące polecenie kompresuje pakiet bez kopiowania go do magazynu obrazów. Możesz skopiować skompresowany pakiet do jednego lub kilku klastrów Service Fabric, w razie potrzeby, za pomocą polecenia [copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) bez `SkipCopy` flagi.
 Pakiet zawiera teraz pliki spakowane dla `code` `config` pakietów, i `data` . Manifest aplikacji i manifesty usługi nie są spakowane, ponieważ są one zbędne dla wielu operacji wewnętrznych. Na przykład udostępnianie pakietów, nazwa typu aplikacji i wyodrębnianie wersji dla niektórych walidacji muszą mieć dostęp do manifestów. Zapakowywanie manifestów spowodowałoby niewydajne wykonywanie tych operacji.
 
 ```
@@ -179,7 +179,7 @@ D:\TEMP\MYAPPLICATIONTYPE
 
 ```
 
-Alternatywnie można skompresować i skopiować pakiet za pomocą [copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) w jednym kroku.
+Alternatywnie można skompresować i skopiować pakiet za pomocą [copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) w jednym kroku.
 Jeśli pakiet jest duży, podaj wystarczająco dużo czasu, aby zezwolić na czas na kompresję pakietu i przekazywanie do klastra.
 
 ```powershell
@@ -212,7 +212,7 @@ W przypadku tej opcji pakiet aplikacji nie musi być kopiowany do magazynu obraz
 `sfpkg`Plik jest plikiem ZIP, który zawiera początkowy pakiet aplikacji i ma rozszerzenie ". sfpkg".
 W pliku zip pakiet aplikacji może być skompresowany lub nieskompresowany. Kompresja pakietu aplikacji wewnątrz pliku zip odbywa się przy użyciu kodu, konfiguracji i poziomów pakietów danych, jak [wspomniano wcześniej](service-fabric-package-apps.md#compress-a-package).
 
-Aby utworzyć `sfpkg` , należy rozpocząć od folderu zawierającego oryginalny pakiet aplikacji, skompresowany lub nie. Następnie użyj dowolnego narzędzia do ZIP folderu z rozszerzeniem ". sfpkg". Na przykład użyj [zipfile. CreateFromDirectory](/dotnet/api/system.io.compression.zipfile.createfromdirectory?view=netcore-3.1#System_IO_Compression_ZipFile_CreateFromDirectory_System_String_System_String_System_IO_Compression_CompressionLevel_System_Boolean_).
+Aby utworzyć `sfpkg` , należy rozpocząć od folderu zawierającego oryginalny pakiet aplikacji, skompresowany lub nie. Następnie użyj dowolnego narzędzia do ZIP folderu z rozszerzeniem ". sfpkg". Na przykład użyj [zipfile. CreateFromDirectory](/dotnet/api/system.io.compression.zipfile.createfromdirectory#System_IO_Compression_ZipFile_CreateFromDirectory_System_String_System_String_System_IO_Compression_CompressionLevel_System_Boolean_).
 
 ```csharp
 ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);

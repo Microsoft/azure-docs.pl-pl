@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: fd04e5a7f084de7a95f20b54b99a9e4590f10cd7
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 7df9f7d072af7c5f6523fd1be0432ce51954fa10
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034768"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791883"
 ---
 # <a name="call-functions-from-azure-logic-apps"></a>Wywoływanie funkcji z Azure Logic Apps
 
@@ -31,7 +31,7 @@ Aby uruchomić fragmenty kodu bez używania Azure Functions, Dowiedz się, jak [
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/).
 
-* Aplikacja funkcji, która jest kontenerem dla funkcji utworzonej w Azure Functions, wraz z utworzoną funkcją. Jeśli nie masz aplikacji funkcji, [najpierw Utwórz aplikację funkcji](../azure-functions/functions-create-first-azure-function.md). Następnie możesz utworzyć funkcję spoza aplikacji logiki w Azure Portal lub [z poziomu aplikacji logiki](#create-function-designer) w Projektancie aplikacji logiki.
+* Aplikacja funkcji, która jest kontenerem dla funkcji utworzonej w Azure Functions, wraz z utworzoną funkcją. Jeśli nie masz aplikacji funkcji, [najpierw Utwórz aplikację funkcji](../azure-functions/functions-get-started.md). Następnie możesz utworzyć funkcję spoza aplikacji logiki w Azure Portal lub [z poziomu aplikacji logiki](#create-function-designer) w Projektancie aplikacji logiki.
 
 * Podczas pracy z usługą Logic Apps te same wymagania dotyczą aplikacji funkcji i funkcji, niezależnie od tego, czy są one istniejące, czy nowe:
 
@@ -102,9 +102,9 @@ Teraz, po utworzeniu funkcji na platformie Azure, wykonaj kroki, aby [dodać fun
 
 ## <a name="create-functions-inside-logic-apps"></a>Tworzenie funkcji w usłudze Logic Apps
 
-Możesz tworzyć funkcje bezpośrednio z przepływu pracy aplikacji logiki przy użyciu wbudowanej akcji Azure Functions w Projektancie aplikacji logiki, ale tej metody można używać tylko w przypadku funkcji pisanych w języku JavaScript. W przypadku innych języków można tworzyć funkcje za pomocą środowiska Azure Functions w Azure Portal. Aby uzyskać więcej informacji, zobacz [Tworzenie pierwszej funkcji w Azure Portal](../azure-functions/functions-create-first-azure-function.md).
+Możesz tworzyć funkcje bezpośrednio z przepływu pracy aplikacji logiki przy użyciu wbudowanej akcji Azure Functions w Projektancie aplikacji logiki, ale tej metody można używać tylko w przypadku funkcji pisanych w języku JavaScript. W przypadku innych języków można tworzyć funkcje za pomocą środowiska Azure Functions w Azure Portal. Aby uzyskać więcej informacji, zobacz [Tworzenie pierwszej funkcji w Azure Portal](../azure-functions/functions-get-started.md).
 
-Jednak zanim będzie można utworzyć funkcję na platformie Azure, musisz mieć już aplikację funkcji, która jest kontenerem dla funkcji. Jeśli nie masz aplikacji funkcji, najpierw Utwórz tę aplikację funkcji. Zobacz [Tworzenie pierwszej funkcji w Azure Portal](../azure-functions/functions-create-first-azure-function.md).
+Jednak zanim będzie można utworzyć funkcję na platformie Azure, musisz mieć już aplikację funkcji, która jest kontenerem dla funkcji. Jeśli nie masz aplikacji funkcji, najpierw Utwórz tę aplikację funkcji. Zobacz [Tworzenie pierwszej funkcji w Azure Portal](../azure-functions/functions-get-started.md).
 
 1. W [Azure Portal](https://portal.azure.com)Otwórz aplikację logiki w Projektancie aplikacji logiki.
 

@@ -8,12 +8,12 @@ ms.author: mbaldwin
 author: msmbaldwin
 manager: rkarlin
 ms.date: 09/30/2020
-ms.openlocfilehash: 4a6b3e4c6354c292d000a307bc25f8532aa9a096
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: a8e8e791f0dbe18322ad43364ae4ffd09b430caf
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250795"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790388"
 ---
 # <a name="azure-key-vault-recovery-management-with-soft-delete-and-purge-protection"></a>Azure Key Vault zarządzanie odzyskiwaniem z użyciem nietrwałego usuwania i przeczyszczania ochrony
 
@@ -26,10 +26,15 @@ Aby uzyskać więcej informacji na temat Key Vault, zobacz
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/dotnet)
-* [Moduł programu PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+* [Moduł programu PowerShell](/powershell/azure/install-az-ps).
 * [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli)
 * Key Vault — można go utworzyć przy użyciu [Azure Portal](../general/quick-create-portal.md) [interfejsu wiersza polecenia platformy Azure](../general/quick-create-cli.md)lub [Azure PowerShell](../general/quick-create-powershell.md)
-* Użytkownik będzie potrzebować następujących uprawnień (na poziomie subskrypcji) do wykonywania operacji na magazynach usuniętych nietrwale: | Microsoft./Magazyn kluczy/lokalizacji/deletedVaults/odczyt | Wyświetlanie właściwości nietrwałego usuniętego magazynu kluczy | | Microsoft./Magazyn kluczy/lokalizacje/deletedVaults/przeczyszczanie/akcja | Przeczyść usunięty nietrwale Magazyn kluczy |
+* Użytkownik musi mieć następujące uprawnienia (na poziomie subskrypcji), aby wykonywać operacje na magazynach usuniętych nietrwale:
+
+  | Uprawnienie | Opis |
+  |---|---|
+  |Microsoft./Magazyn kluczy/lokalizacji/deletedVaults/odczyt|Wyświetl właściwości usuniętego nietrwałego magazynu kluczy|
+  |Microsoft./Magazyn kluczy/lokalizacji/deletedVaults/przeczyszczanie/akcja|Przeczyść usunięty nietrwale Magazyn kluczy|
 
 
 ## <a name="what-are-soft-delete-and-purge-protection"></a>Co to są operacje usuwania nietrwałego i przeczyszczania
@@ -390,8 +395,8 @@ Aby uzyskać więcej informacji na temat usuwania nietrwałego, zobacz [Azure Ke
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Azure Key Vault polecenia cmdlet programu PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault)
-- [Key Vault poleceń interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/keyvault)
+- [Azure Key Vault polecenia cmdlet programu PowerShell](/powershell/module/az.keyvault)
+- [Key Vault poleceń interfejsu wiersza polecenia platformy Azure](/cli/azure/keyvault)
 - [Azure Key Vault kopia zapasowa](backup.md)
 - [Jak włączyć rejestrowanie Key Vault](howto-logging.md)
 - [Bezpieczny dostęp do magazynu kluczy](secure-your-key-vault.md)

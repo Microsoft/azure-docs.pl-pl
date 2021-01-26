@@ -4,12 +4,12 @@ description: Wprowadzenie do tworzenia aplikacji Microsoft Azure Service Fabric 
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: sfrev, devx-track-csharp
-ms.openlocfilehash: 1de77f870bce5766ab704249034d6d7b6c8b098e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45341c98a40cbcabfa8b96f2016f02f1755fe2b3
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89012742"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791531"
 ---
 # <a name="get-started-with-reliable-services"></a>Wprowadzenie do usług Reliable Services
 
@@ -169,11 +169,11 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 ```
 
-[IReliableDictionary](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliabledictionary_2) to implementacja słownika, której można użyć do niezawodnego przechowywania stanu usługi. Za pomocą Service Fabric i niezawodnych kolekcji można przechowywać dane bezpośrednio w usłudze bez potrzeby zewnętrznego magazynu trwałego. Niezawodne kolekcje sprawiają, że dane są wysoce dostępne. Service Fabric to osiągnąć przez utworzenie wielu *replik* usługi i zarządzanie nimi. Udostępnia również interfejs API, który stanowi streszczenie złożoności zarządzania tymi replikami i ich przejścia stanu.
+[IReliableDictionary](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2#microsoft_servicefabric_data_collections_ireliabledictionary_2) to implementacja słownika, której można użyć do niezawodnego przechowywania stanu usługi. Za pomocą Service Fabric i niezawodnych kolekcji można przechowywać dane bezpośrednio w usłudze bez potrzeby zewnętrznego magazynu trwałego. Niezawodne kolekcje sprawiają, że dane są wysoce dostępne. Service Fabric to osiągnąć przez utworzenie wielu *replik* usługi i zarządzanie nimi. Udostępnia również interfejs API, który stanowi streszczenie złożoności zarządzania tymi replikami i ich przejścia stanu.
 
 Niezawodne kolekcje mogą przechowywać dowolny typ .NET, w tym typy niestandardowe, z kilkoma zastrzeżeniami:
 
-* Service Fabric zapewnia wysoką dostępność stanu przez *replikowanie* stanu między węzłami, a niezawodne kolekcje przechowują dane na dysku lokalnym na każdej replice. Oznacza to, że wszystkie elementy, które są przechowywane w niezawodnych kolekcjach, muszą być *serializowane*. Domyślnie niezawodne kolekcje używają [schematu DataContract](/dotnet/api/system.runtime.serialization.datacontractattribute?view=netcore-3.1) do serializacji, dlatego ważne jest, aby upewnić się, że typy są [obsługiwane przez serializator kontraktu danych](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer) w przypadku użycia serializatora domyślnego.
+* Service Fabric zapewnia wysoką dostępność stanu przez *replikowanie* stanu między węzłami, a niezawodne kolekcje przechowują dane na dysku lokalnym na każdej replice. Oznacza to, że wszystkie elementy, które są przechowywane w niezawodnych kolekcjach, muszą być *serializowane*. Domyślnie niezawodne kolekcje używają [schematu DataContract](/dotnet/api/system.runtime.serialization.datacontractattribute) do serializacji, dlatego ważne jest, aby upewnić się, że typy są [obsługiwane przez serializator kontraktu danych](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer) w przypadku użycia serializatora domyślnego.
 * Obiekty są replikowane w celu zapewnienia wysokiej dostępności podczas zatwierdzania transakcji dla niezawodnych kolekcji. Obiekty przechowywane w niezawodnych kolekcjach są przechowywane w pamięci lokalnej w usłudze. Oznacza to, że masz lokalne odwołanie do obiektu.
   
    Należy pamiętać, że nie można zmodyfikować wystąpień lokalnych tych obiektów bez wykonywania operacji aktualizacji dla niezawodnej kolekcji transakcji. Dzieje się tak dlatego, że zmiany lokalnych wystąpień obiektów nie będą replikowane automatycznie. Należy ponownie wstawić obiekt do słownika lub użyć jednej z metod *aktualizacji* w słowniku.
@@ -198,7 +198,7 @@ Niezawodne kolekcje mają wiele operacji wykonywanych przez ich `System.Collecti
 Niezawodne operacje zbierania danych są *transakcyjne*, dzięki czemu można zachować spójność stanu w wielu niezawodnych kolekcjach i operacjach. Na przykład można usunąć z kolejki element roboczy z niezawodnej kolejki, wykonać na nim operację i zapisać wynik w niezawodnym słowniku, a wszystko to w ramach jednej transakcji. Jest to traktowane jako operacja niepodzielna i gwarantuje, że cała operacja zakończy się powodzeniem lub cała operacja zostanie wycofana. Jeśli wystąpi błąd po cofnięciu kolejki elementu, ale przed zapisaniem wyniku, cała transakcja zostanie wycofana, a element pozostaje w kolejce do przetworzenia.
 
 ## <a name="run-the-application"></a>Uruchamianie aplikacji
-Teraz powrócimy do aplikacji *HelloWorld* . Teraz możesz kompilować i wdrażać usługi. Po naciśnięciu klawisza **F5**aplikacja zostanie skompilowana i wdrożona w klastrze lokalnym.
+Teraz powrócimy do aplikacji *HelloWorld* . Teraz możesz kompilować i wdrażać usługi. Po naciśnięciu klawisza **F5** aplikacja zostanie skompilowana i wdrożona w klastrze lokalnym.
 
 Po uruchomieniu usług można wyświetlić wygenerowane zdarzenia śledzenia zdarzeń systemu Windows (ETW) w oknie **zdarzeń diagnostycznych** . Należy zauważyć, że wyświetlane zdarzenia pochodzą z usługi bezstanowej i usługi stanowej w aplikacji. Strumień można wstrzymać, klikając przycisk **Wstrzymaj** . Następnie można przeanalizować szczegóły komunikatu, rozszerzając ten komunikat.
 

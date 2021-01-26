@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 01/21/2021
 ms.author: alkohli
-ms.openlocfilehash: 09325289dd5cb83bfc26dd26b266d50b622fe098
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: e6fd69d7016a364d92e1873e0df1521a27612b79
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98763082"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791480"
 ---
 # <a name="troubleshoot-your-azure-stack-edge-pro-issues"></a>Rozwiązywanie problemów z Azure Stack EDGE Pro
 
@@ -89,4 +89,4 @@ Wszelkie błędy występujące podczas procesów przekazywania i odświeżania s
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [znanych problemach w tej wersji](data-box-gateway-release-notes.md).
+* Dowiedz się więcej o [znanych problemach w tej wersji](../databox-gateway/data-box-gateway-release-notes.md).

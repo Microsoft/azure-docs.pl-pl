@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 11/23/2020
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: fb36ab8a86a89d6383f93ad58c23956472841de2
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: f21a2cc8218dde8b0cf7203a1fcb1f5cfb9424a2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95539264"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790871"
 ---
 # <a name="what-is-language-understanding-luis"></a>Co to jest usługa Language Understanding (LUIS)?
 
@@ -66,7 +66,7 @@ Zaprojektuj model przy użyciu kategorii zamiarów użytkownika o nazwie **[inte
 |`When does your store open?`|StoreHoursAndLocation|open|
 |`Schedule a meeting at 1pm with Bob in Distribution`|ScheduleMeeting|1pm, Bob|
 
-Skompiluj model przy użyciu interfejsów API [tworzenia](https://go.microsoft.com/fwlink/?linkid=2092087 "authoring") lub **[portalu Luis](https://www.luis.ai "Portal usługi LUIS")** lub obu. Dowiedz się więcej o tym, jak skompilować przy użyciu [portalu](get-started-portal-build-app.md "portal") i [bibliotek klienckich SDK](azure-sdk-quickstart.md "Biblioteki klienckie SDK").
+Skompiluj model przy użyciu interfejsów API [tworzenia](https://go.microsoft.com/fwlink/?linkid=2092087 "authoring") lub **[portalu Luis](https://www.luis.ai "Portal usługi LUIS")** lub obu. Dowiedz się więcej o tym, jak skompilować przy użyciu [portalu](get-started-portal-build-app.md "portal") i [bibliotek klienckich SDK](./client-libraries-rest-api.md?pivots=rest-api "Biblioteki klienckie SDK").
 
 ## <a name="step-2-get-the-query-prediction"></a>Krok 2. Uzyskiwanie prognozowania zapytań
 
@@ -128,7 +128,7 @@ LUIS zapewnia funkcjonalność analiza tekstu w ramach istniejących zasobów LU
 
 ## <a name="learn-with-the-quickstarts"></a>Zapoznaj się z przewodnikami Szybki Start
 
-Dowiedz się więcej na temat LUIS z przewodnikami Szybki Start przy użyciu [portalu](get-started-portal-build-app.md "portal") i [bibliotek klienckich SDK](azure-sdk-quickstart.md "Biblioteki klienckie SDK").
+Dowiedz się więcej na temat LUIS z przewodnikami Szybki Start przy użyciu [portalu](get-started-portal-build-app.md "portal") i [bibliotek klienckich SDK](./client-libraries-rest-api.md?pivots=rest-api "Biblioteki klienckie SDK").
 
 
 ## <a name="deploy-on-premises-using-docker-containers"></a>Wdrażanie lokalnie przy użyciu kontenerów platformy Docker

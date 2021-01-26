@@ -6,17 +6,17 @@ ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: motanv
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9e9127d9776169131c2ed7f4778052646e84f8b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34ec43593d50e359f09059cd3d51522df62cf567
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89013116"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789655"
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Chaos kontrolowane w klastrach Service Fabric
 Systemy rozproszone o dużej skali, takie jak infrastruktury chmury, są z natury zawodowe. Dzięki platformie Azure Service Fabric deweloperzy mogą pisać niezawodne usługi rozproszone w oparciu o niezawodną infrastrukturę. Aby pisać niezawodne usługi rozproszone w oparciu o niezawodną infrastrukturę, deweloperzy muszą mieć możliwość przetestowania stabilności usług, podczas gdy podstawowa zawodna infrastruktura przechodzi przez skomplikowane przejścia stanu z powodu błędów.
 
-[Iniekcja błędów i usługa analizy klastrów](./service-fabric-testability-overview.md) (znana również jako usługa błędu analizy) oferuje deweloperom możliwość wywołania błędów w celu przetestowania ich usług. Te wystąpienia symulowanych błędów, takich jak [Ponowne uruchamianie partycji](/powershell/module/servicefabric/start-servicefabricpartitionrestart?view=azureservicefabricps), mogą pomóc w wykonywaniu najczęstszych przejść między Stanami. Jednak ukierunkowane błędy symulowane są rozdzielone przez definicję i w związku z tym mogą pominąć usterki, które są wyświetlane tylko w trudnej do przewidywania, długotrwałej i skomplikowanej sekwencji przejść stanu. W przypadku testowania nieobciążonego można użyć chaos.
+[Iniekcja błędów i usługa analizy klastrów](./service-fabric-testability-overview.md) (znana również jako usługa błędu analizy) oferuje deweloperom możliwość wywołania błędów w celu przetestowania ich usług. Te wystąpienia symulowanych błędów, takich jak [Ponowne uruchamianie partycji](/powershell/module/servicefabric/start-servicefabricpartitionrestart), mogą pomóc w wykonywaniu najczęstszych przejść między Stanami. Jednak ukierunkowane błędy symulowane są rozdzielone przez definicję i w związku z tym mogą pominąć usterki, które są wyświetlane tylko w trudnej do przewidywania, długotrwałej i skomplikowanej sekwencji przejść stanu. W przypadku testowania nieobciążonego można użyć chaos.
 
 Chaos symuluje okresowe, przeplatane błędy (zarówno bezpieczne, jak i nieprolongaty) w całym klastrze przez dłuższy czas. Płynna awaria składa się z zestawu Service Fabric wywołań interfejsu API, na przykład ponowne uruchomienie błędu repliki jest bezpieczne, ponieważ jest to zamknięcie, a następnie otwarty w replice. Usuń replikę, Przenieś replikę podstawową i Przenieś replikę pomocniczą na inne bezpieczne błędy wykonywane przez chaos. Błędne błędy to wyjścia procesów, takie jak ponowne uruchomienie węzła i ponowne uruchomienie pakietu kodu. 
 

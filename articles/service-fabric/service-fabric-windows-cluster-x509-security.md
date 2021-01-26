@@ -3,12 +3,12 @@ title: Zabezpieczanie klastra w systemie Windows przy użyciu certyfikatów
 description: Bezpieczna komunikacja w ramach autonomicznego lub lokalnego klastra usługi Azure Service Fabric, a także między klientami a klastrem.
 ms.topic: conceptual
 ms.date: 10/15/2017
-ms.openlocfilehash: 34ba457ce0f39705393962d5c5ec8fa11668f413
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: d75c644be47ea44f6a8a6ccac91b785af0132833
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686127"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791041"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Zabezpieczanie klastra autonomicznego w systemie Windows za pomocą certyfikatów X. 509
 W tym artykule opisano sposób zabezpieczania komunikacji między różnymi węzłami autonomicznego klastra systemu Windows. Opisano w nim również sposób uwierzytelniania klientów łączących się z tym klastrem za pomocą certyfikatów X. 509. Uwierzytelnianie zapewnia, że tylko autoryzowani użytkownicy mogą uzyskiwać dostęp do klastra i wdrożonych aplikacji oraz wykonywać zadania zarządzania. Zabezpieczenia certyfikatów należy włączyć w klastrze podczas tworzenia klastra.  
@@ -348,14 +348,14 @@ Po skonfigurowaniu sekcji Zabezpieczenia ClusterConfig.X509.MultiMachine.jsw pli
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json
 ```
 
-Po pomyślnym uruchomieniu bezpiecznego autonomicznego klastra systemu Windows i skonfigurowaniu uwierzytelnionych klientów w celu nawiązania z nim połączenia wykonaj kroki opisane w sekcji [nawiązywanie połączenia z klastrem przy użyciu programu PowerShell](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-powershell) . Przykład:
+Po pomyślnym uruchomieniu bezpiecznego autonomicznego klastra systemu Windows i skonfigurowaniu uwierzytelnionych klientów w celu nawiązania z nim połączenia wykonaj kroki opisane w sekcji [nawiązywanie połączenia z klastrem przy użyciu programu PowerShell](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-powershell) . Na przykład:
 
 ```powershell
 $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $True;  StoreLocation = 'LocalMachine';  StoreName = "MY";  ServerCertThumbprint = "057b9544a6f2733e0c8d3a60013a58948213f551";  FindType = 'FindByThumbprint';  FindValue = "057b9544a6f2733e0c8d3a60013a58948213f551"   }
 Connect-ServiceFabricCluster $ConnectArgs
 ```
 
-Następnie można uruchomić inne polecenia programu PowerShell, aby pracować z tym klastrem. Na przykład można uruchomić polecenie [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) , aby wyświetlić listę węzłów w tym bezpiecznym klastrze.
+Następnie można uruchomić inne polecenia programu PowerShell, aby pracować z tym klastrem. Na przykład można uruchomić polecenie [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode) , aby wyświetlić listę węzłów w tym bezpiecznym klastrze.
 
 
 Aby usunąć klaster, Połącz się z węzłem w klastrze, w którym został pobrany pakiet Service Fabric, Otwórz wiersz polecenia i przejdź do folderu pakietu. Teraz uruchom następujące polecenie:

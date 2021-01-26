@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: bf79fe8766d36fe59595be43250341d49b5460c8
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: ba50def51bcea4f477bea5cecbe5b1ed0409b01a
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95562144"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98792392"
 ---
 Możesz zarządzać szyfrowaniem na poziomie każdego dysku zarządzanego przy użyciu własnych kluczy. Szyfrowanie po stronie serwera dla dysków zarządzanych z kluczami zarządzanymi przez klienta oferuje zintegrowane środowisko pracy z Azure Key Vault. Możesz zaimportować [klucze RSA](../articles/key-vault/keys/hsm-protected-keys.md) do Key Vault lub wygenerować nowe klucze rsa w Azure Key Vault. 
 
@@ -22,8 +22,6 @@ Usługa Azure Managed disks obsługuje szyfrowanie i odszyfrowywanie w pełni pr
 #### <a name="full-control-of-your-keys"></a>Pełna kontrola nad kluczami
 
 Musisz udzielić dostępu do dysków zarządzanych w Key Vault, aby użyć kluczy do szyfrowania i odszyfrowywania danych. Pozwala to na pełną kontrolę nad danymi i kluczami. Możesz w dowolnym momencie wyłączyć klucze lub odwołać dostęp do dysków zarządzanych. Możesz również przeprowadzić inspekcję użycia klucza szyfrowania przy użyciu monitorowania Azure Key Vault, aby upewnić się, że tylko zarządzane dyski lub inne zaufane usługi platformy Azure uzyskują dostęp do kluczy.
-
-Po wyłączeniu lub usunięciu klucza wszystkie maszyny wirtualne z dyskami używające tego klucza zostaną automatycznie zamknięte. Następnie maszyny wirtualne nie będą używane, chyba że klucz zostanie włączony ponownie lub przypiszesz nowy klucz.
 
 W przypadku wersji Premium dysków SSD, standard dysków SSD i Standard HDD: po wyłączeniu lub usunięciu klucza wszystkie maszyny wirtualne z dyskami korzystającymi z tego klucza zostaną automatycznie zamknięte. Następnie maszyny wirtualne nie będą używane, chyba że klucz zostanie włączony ponownie lub przypiszesz nowy klucz.    
 

@@ -4,12 +4,12 @@ description: Wprowadzenie do czasomierzy i przypomnień dla Reliable Actors Serv
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2b97b15ca4eb287f8d8f2c1af932f22acafae546
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f77eb29c9146fe66d5d2b6073c33e30fbab649c2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89016550"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791798"
 ---
 # <a name="actor-timers-and-reminders"></a>Czasomierze aktora i przypomnienia
 Aktory mogą zaplanować okresowe prace na siebie przez zarejestrowanie czasomierza lub przypomnień. W tym artykule przedstawiono sposób korzystania z czasomierzy i przypomnień oraz wyjaśniono różnice między nimi.
@@ -131,7 +131,7 @@ Przypomnienia są mechanizmem do wyzwalania trwałych wywołań zwrotnych w akto
 > [!NOTE]
 > Niezawodność przypomnień jest związana z gwarancją niezawodności stanu zapewnioną przez dostawcę stanu aktora. Oznacza to, że dla uczestników, których stan trwałości jest ustawiony na *none*, przypomnienia nie będą wyzwalane po przejściu w tryb failover.
 
-Aby zarejestrować przypomnienie, aktor wywołuje [`RegisterReminderAsync`](/dotnet/api/microsoft.servicefabric.actors.runtime.actorbase.registerreminderasync?view=azure-dotnet#remarks) metodę dostarczoną z klasą bazową, jak pokazano w następującym przykładzie:
+Aby zarejestrować przypomnienie, aktor wywołuje [`RegisterReminderAsync`](/dotnet/api/microsoft.servicefabric.actors.runtime.actorbase.registerreminderasync#remarks) metodę dostarczoną z klasą bazową, jak pokazano w następującym przykładzie:
 
 ```csharp
 protected override async Task OnActivateAsync()

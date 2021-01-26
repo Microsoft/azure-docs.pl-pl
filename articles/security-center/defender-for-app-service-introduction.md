@@ -1,26 +1,24 @@
 ---
 title: Usługa Azure Defender dla App Service — korzyści i funkcje
-description: Dowiedz się więcej o zaletach i funkcjach usługi Azure Defender dla App Service.
+description: Dowiedz się więcej na temat możliwości usługi Azure Defender dla App Service i sposobu włączania jej w ramach subskrypcji
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 01/25/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: bb0e073d5ccf73434d05c801b9a8727c1d19fa47
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: c6d62cf7b93255336d87cec1d0fef2c567cde9f2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122235"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791843"
 ---
 # <a name="introduction-to-azure-defender-for-app-service"></a>Wprowadzenie do usługi Azure Defender dla App Service
 
-Azure App Service to w pełni zarządzana platforma do tworzenia i hostowania aplikacji i interfejsów API sieci Web bez obaw o zarządzanie infrastrukturą. Umożliwia zarządzanie, monitorowanie i wgląd w dane operacyjne w celu spełnienia wymagań dotyczących wydajności, zabezpieczeń i zgodności klasy korporacyjnej. Aby uzyskać więcej informacji, zobacz [Azure App Service](https://azure.microsoft.com/services/app-service/).
+Azure App Service to w pełni zarządzana platforma do tworzenia i hostowania aplikacji i interfejsów API sieci Web. Ponieważ platforma jest w pełni zarządzana, nie trzeba martwić się o infrastrukturę. Umożliwia zarządzanie, monitorowanie i wgląd w dane operacyjne w celu spełnienia wymagań dotyczących wydajności, zabezpieczeń i zgodności klasy korporacyjnej. Aby uzyskać więcej informacji, zobacz [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
 **Usługa Azure Defender dla App Service** używa skali chmury, aby identyfikować ataki ukierunkowane na aplikacje działające przez App Service. Osoby atakujące mogą wykrywać słabe i luki w zabezpieczeniach aplikacji sieci Web. Przed skierowaniem do określonych środowisk żądania do aplikacji uruchomionych na platformie Azure przechodzą przez kilka bram, gdzie są kontrolowane i rejestrowane. Te dane są następnie używane do identyfikowania luk w zabezpieczeniach i ataków oraz do uczenia się nowych wzorców, które będą używane później.
-
-Korzystając z widoczności platformy Azure jako dostawcy chmury, Security Center analizuje App Service dzienników wewnętrznych w celu zidentyfikowania metodologii ataków na wiele obiektów docelowych. Na przykład metodologia obejmuje szerokie skanowanie i rozproszone ataki. Ten typ ataku zwykle pochodzi z małego podzbioru adresów IP i pokazuje wzorce przeszukiwania do podobnych punktów końcowych na wielu hostach. Ataki są wyszukiwaniem zagrożonej strony lub wtyczki i nie mogą być zidentyfikowane z punktu widzenia jednego hosta.
 
 
 ## <a name="availability"></a>Dostępność
@@ -28,34 +26,68 @@ Korzystając z widoczności platformy Azure jako dostawcy chmury, Security Cente
 |Aspekt|Szczegóły|
 |----|:----|
 |Stan wydania:|Ogólnie dostępna (GA)|
-|Wpisaną|[Usługa Azure Defender dla App Service](azure-defender.md) jest rozliczana zgodnie z opisem na [stronie cennika](security-center-pricing.md)|
+|Wpisaną|[Usługa Azure Defender dla App Service](azure-defender.md) jest rozliczana zgodnie z opisem na [stronie cennika](security-center-pricing.md)<br>Na stronie Cennik i ustawienia wyświetlana jest liczba wystąpień dla **ilości zasobów**. Ta liczba to łączna liczba wystąpień obliczeniowych w ramach wszystkich App Service planów w ramach tej subskrypcji, uruchomiona w momencie otwarcia strony warstwy cenowej.<br>Aby sprawdzić poprawność liczby, Otwórz **App Service plany** w Azure Portal i sprawdź liczbę wystąpień obliczeniowych używanych przez każdy plan.|
 |Obsługiwane App Service plany:|![Tak — ](./media/icons/yes-icon.png) podstawowa, standardowa, Premium, izolowany lub Linux<br>![Brak ](./media/icons/no-icon.png) wolnego, współdzielonego lub zużycia<br>[Dowiedz się więcej o planach App Service](https://azure.microsoft.com/pricing/details/app-service/plans/)|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
 |||
 
-## <a name="what-does-azure-defender-for-app-service-protect"></a>Co to jest usługa Azure Defender dla App Service ochrony?
+## <a name="what-are-the-benefits-of-azure-defender-for-app-service"></a>Jakie korzyści ma usługa Azure Defender dla App Service?
 
-Po włączeniu planu App Service Security Center ocenia zasoby objęte planem App Service i generuje zalecenia dotyczące zabezpieczeń na podstawie ich wyników. Security Center chroni wystąpienie maszyny wirtualnej, w której jest uruchomiony App Service i interfejs zarządzania. Monitoruje również żądania i odpowiedzi wysyłane do i z aplikacji uruchamianych w App Service.
+Po włączeniu usługi Azure Defender dla App Service od razu skorzystasz z następujących usług oferowanych przez ten plan usługi Azure Defender:
 
-Jeśli używasz planu App Service opartego na systemie Windows, Security Center również ma dostęp do podstawowych piaskownic i maszyn wirtualnych. Wraz z danymi dzienników wymienionymi powyżej infrastruktura może powiedzieć historię, od nowego ataku w przypadku komputerów klienckich. W związku z tym nawet jeśli Security Center zostanie wdrożona po wykorzystaniu aplikacji sieci Web, może być możliwe wykrycie trwających ataków.
+- **Zabezpieczenia** Security Center oceniają zasoby objęte planem App Service i generują zalecenia dotyczące zabezpieczeń na podstawie ich wyników. Aby zabezpieczyć zasoby App Service, Skorzystaj z szczegółowych instrukcji przedstawionych w tych zaleceniach.
+
+- **Wykrywanie** — usługa Azure Defender wykrywa wiele zagrożeń dla zasobów App Service przez monitorowanie:
+    - wystąpienie maszyny wirtualnej, w której działa App Service, a jej interfejs zarządzania
+    - żądania i odpowiedzi wysyłane do i z aplikacji App Service
+    - podstawowe Piaskownice i maszyny wirtualne
+    - App Service dzienniki wewnętrzne — dostępne w celu zapewnienia widoczności platformy Azure jako dostawcy chmury
+
+Jako rozwiązanie natywne w chmurze usługa Azure Defender może identyfikować metodologie ataków mające zastosowanie do wielu celów. Na przykład z jednego hosta trudno jest zidentyfikować rozproszonego ataku z małego podzbioru adresów IP, przeszukiwanie do podobnych punktów końcowych na wielu hostach.
+
+Dane dziennika i infrastruktury mogą poinformowania o tym scenariuszu: od nowego ataku w sieci dzikiej w celu naruszenia kompromisów na komputerach klienckich. W związku z tym nawet jeśli Security Center zostanie wdrożona po wykorzystaniu aplikacji sieci Web, może być możliwe wykrycie trwających ataków.
 
 
-## <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Chronienie aplikacji internetowych i interfejsów API w usłudze Azure App Service
+## <a name="what-threats-can-azure-defender-for-app-service-detect"></a>Jakie zagrożenia może wykryć usługa Azure Defender App Service?
+
+### <a name="threats-by-mitre-attck-tactics"></a>Zagrożenia według MITRE ATT&taktykę
+
+Usługa Azure Defender monitoruje wiele zagrożeń dla zasobów App Service. Alerty obejmują prawie kompletną listę MITRE ATT&taktykę przed atakiem na polecenie i kontrolę. Usługa Azure Defender może wykryć:
+
+- **Zagrożenia przed atakami** — usługa Defender może wykryć wykonywanie wielu typów skanerów luk w zabezpieczeniach, których osoby atakujące często używają do sondowania aplikacji pod kątem słabych liter.
+
+- **Początkowe zagrożenia dostępu**  -  [Analiza zagrożeń firmy Microsoft](https://go.microsoft.com/fwlink/?linkid=2128684) przygotowuje te alerty, które obejmują wyzwalanie alertu, gdy znany złośliwy adres IP nawiązuje połączenie z interfejsem FTP Azure App Service.
+
+- **Zagrożenia związane z wykonywaniem** — usługa Defender może wykryć próby uruchomienia poleceń o wysokim poziomie uprawnień, poleceń systemu Linux w systemie Windows App Service, zachowania ataku bezplikowego, narzędzi wyszukiwania w walutach cyfrowych oraz wielu innych podejrzanych i złośliwych działań wykonywania kodu.
+
+### <a name="dangling-dns-detection"></a>Zawieszonego wykrywanie nazw DNS
+
+Usługa Azure Defender dla App Service identyfikuje także wszystkie wpisy DNS pozostały w rejestrze DNS podczas likwidowania witryny sieci App Serviceowej — są one znane jako zawieszonego wpisy DNS. W tej chwili wpis DNS wskazuje na nieistniejący zasób, a poddomena jest narażona na przejęcie. Usługa Azure Defender nie skanuje rejestratora DNS pod kątem *istniejących* wpisów DNS zawieszonego; generuje on alert, gdy witryna sieci Web w App Service zostanie zlikwidowana i jej domena niestandardowa (wpis DNS) nie zostanie usunięta.
+
+Przejęcia poddomen są typowymi zagrożeniami o wysokiej ważności dla organizacji. Gdy aktor zagrożeń wykryje wpis DNS zawieszonego, tworzy własną witrynę na adresie docelowym. Ruch przeznaczony dla domeny organizacji jest następnie kierowany do witryny aktora zagrożeń i może korzystać z tego ruchu dla szerokiego zakresu złośliwych działań. 
+
+Zawieszonego ochrona DNS jest dostępna niezależnie od tego, czy domeny są zarządzane za pomocą Azure DNS, czy rejestratora domeny zewnętrznej i ma zastosowanie do App Service zarówno w systemie Windows, jak i Linux.
+
+:::image type="content" source="media/defender-for-app-service-introduction/dangling-dns-alert.png" alt-text="Przykład alertu usługi Azure Defender dotyczący wykrytego wpisu DNS zawieszonego. Włącz usługę Azure Defender dla App Service, aby otrzymywać te i inne alerty dla danego środowiska." lightbox="media/defender-for-app-service-introduction/dangling-dns-alert.png":::
+
+Dowiedz się więcej o usłudze DNS zawieszonego i zagrożeniu przejęcia poddomeny, w obszarze [Zapobiegaj wpisom DNS zawieszonego i unikaj przejęcia domen podrzędnych](../security/fundamentals/subdomain-takeover.md).
+
+Pełną listę alertów Azure App Service można znaleźć w [tabeli referencyjnej alertów](alerts-reference.md#alerts-azureappserv).
+
+> [!NOTE]
+> Usługa Defender może nie wyzwolić alertów DNS zawieszonego, jeśli domena niestandardowa nie wskazuje bezpośrednio na zasób App Service lub jeśli usługa Defender nie przekazała ruchu do witryny sieci Web od momentu włączenia ochrony DNS zawieszonego (ponieważ nie będzie dzienników w celu ułatwienia identyfikacji domeny niestandardowej).
+
+## <a name="how-to-protect-your-azure-app-service-web-apps-and-apis"></a>Jak chronić Azure App Service aplikacje sieci Web i interfejsy API
+
 Aby chronić plan Azure App Service za pomocą usługi Azure Defender dla App Service:
 
-- Upewnij się, że masz plan App Service, który jest skojarzony z dedykowanymi maszynami. Obsługiwane plany są wymienione powyżej w obszarze [dostępność](#availability).
+1. Upewnij się, że masz plan App Service, który jest skojarzony z dedykowanymi maszynami. Obsługiwane plany są wymienione powyżej w obszarze [dostępność](#availability).
 
-- Włącz **usługę Azure Defender** w ramach subskrypcji (można opcjonalnie włączyć tylko **usługę azure Defender for App Service** plan) zgodnie z opisem w [cenniku Azure Security Center](security-center-pricing.md)
+2. Włącz **usługę Azure Defender** w ramach subskrypcji zgodnie z opisem w [cenniku Azure Security Center](security-center-pricing.md).
 
-Security Center jest natywnie zintegrowana z App Service, eliminując konieczność wdrażania i dołączania — integracja jest niewidoczna.
+    Opcjonalnie można włączyć poszczególne plany w usłudze Azure Defender (na przykład usługa Azure Defender dla App Service).
 
->[!NOTE]
-> Na stronie Cennik i ustawienia znajduje się lista wystąpień **zasobów**. Przedstawia ona łączną liczbę wystąpień obliczeniowych w ramach wszystkich App Service planów w ramach tej subskrypcji, uruchomionych w momencie otwarcia strony warstwy cenowej.
->
-> Azure App Service oferuje różne plany. Plan App Service definiuje zestaw zasobów obliczeniowych dla aplikacji sieci Web do uruchomienia. Są one równoważne farmom serwerów w konwencjonalnym hostingu w sieci Web. Co najmniej jedna aplikacja może być skonfigurowana do uruchamiania w tych samych zasobach obliczeniowych (lub w tym samym planie App Service).
->
->Aby sprawdzić poprawność liczby, przejdź do obszaru "App Service plany" w witrynie Azure Portal, gdzie możesz zobaczyć liczbę wystąpień obliczeniowych używanych przez poszczególne plany. 
-
+    Security Center jest natywnie zintegrowana z App Service, eliminując konieczność wdrażania i dołączania — integracja jest niewidoczna.
 
 
 ## <a name="next-steps"></a>Następne kroki
@@ -64,8 +96,8 @@ W tym artykule przedstawiono informacje o usłudze Azure Defender dla App Servic
 
 W przypadku pokrewnego materiału zapoznaj się z następującymi artykułami: 
 
-- Czy alert jest generowany przez Security Center, czy odbierany przez Security Center z innego produktu zabezpieczeń, można go wyeksportować. Aby wyeksportować alerty do platformy Azure, wszelkich SIEM innych firm lub innych zewnętrznych narzędzi, postępuj zgodnie z instrukcjami zawartymi w [alertach przesyłania strumieniowego do Siem, o lub rozwiązania do zarządzania usługami IT](export-to-siem.md).
-- Listę alertów Azure App Service można znaleźć w [tabeli referencyjnej alertów](alerts-reference.md#alerts-azureappserv).
+- Aby wyeksportować alerty do platformy Azure, wszelkich SIEM innych firm lub innych zewnętrznych narzędzi, postępuj zgodnie z instrukcjami zawartymi w [alertach przesyłania strumieniowego do Siem, o lub rozwiązania do zarządzania usługami IT](export-to-siem.md).
+- Listę alertów dotyczących usługi Azure Defender dla App Service można znaleźć w [tabeli referencyjnej alertów](alerts-reference.md#alerts-azureappserv).
 - Aby uzyskać więcej informacji na temat planów App Service, zobacz [plany App Service](https://azure.microsoft.com/pricing/details/app-service/plans/).
-- > [!div class="nextstepaction"]
-    > [Włączanie usługi Azure Defender](security-center-pricing.md)
+> [!div class="nextstepaction"]
+> [Włączanie usługi Azure Defender](security-center-pricing.md)

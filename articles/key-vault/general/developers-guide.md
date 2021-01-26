@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e92b17a5743e983ca3e77ad18c0973b9f056dfbd
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 40ce5f55b4109fee0099110c17f02b33c3eff808
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611172"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791428"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Przewodnik dewelopera usługi Azure Key Vault
 
@@ -74,7 +74,7 @@ Aby uzyskać więcej informacji na temat usługi Azure Identity Client libarary,
 |[Azure Identity SDK .NET](/dotnet/api/overview/azure/identity-readme)|[Zestaw Azure Identity SDK Python](/python/api/overview/azure/identity-readme)|[Zestaw Azure Identity SDK Java](/java/api/overview/azure/identity-readme)|[Azure Identity SDK JavaScript](/javascript/api/overview/azure/identity-readme)|     
 
 >[!Note]
-> [Biblioteka uwierzytelniania aplikacji](https://docs.microsoft.com/dotnet/api/overview/azure/service-to-service-authentication) zalecana dla Key Vault .NET SDK w wersji 3, która jest obecnie depracated. Skorzystaj z [AppAuthentication na platformie Azure. wskazówki dotyczące migracji tożsamości](https://docs.microsoft.com/dotnet/api/overview/azure/app-auth-migration) do migracji do Key Vault .NET SDK w wersji 4.
+> [Biblioteka uwierzytelniania aplikacji](/dotnet/api/overview/azure/service-to-service-authentication) zalecana dla Key Vault .NET SDK w wersji 3, która jest obecnie depracated. Skorzystaj z [AppAuthentication na platformie Azure. wskazówki dotyczące migracji tożsamości](/dotnet/api/overview/azure/app-auth-migration) do migracji do Key Vault .NET SDK w wersji 4.
 
 Aby zapoznać się z samouczkami dotyczącymi uwierzytelniania Key Vault w aplikacjach, zobacz:
 - [Uwierzytelnianie w Key Vault w aplikacji hostowanej w maszynie wirtualnej na platformie .NET](./tutorial-net-virtual-machine.md)
@@ -89,7 +89,7 @@ Dostęp do kluczy, wpisów tajnych i certyfikatów jest kontrolowany przez płas
 
 | Interfejs wiersza polecenia platformy Azure | PowerShell | Interfejs API REST | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[Odwołanie](/cli/azure/keyvault/key)<br>[Szybki start](../keys/quick-create-cli.md)|[Odwołanie](/powershell/module/az.keyvault/)<br>[Szybki start](../keys/quick-create-powershell.md)|[Odwołanie](/rest/api/keyvault/#key-operations)|[Odwołanie](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/keys)<br>[Szybki start](../keys/quick-create-template.md)|[Odwołanie](/dotnet/api/azure.security.keyvault.keys)<br>[Szybki start](../keys/quick-create-net.md)|[Odwołanie](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br>[Szybki start](../keys/quick-create-python.md)|[Odwołanie](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)<br>[Szybki start](../keys/quick-create-java.md)|[Odwołanie](/javascript/api/@azure/keyvault-keys/)<br>[Szybki start](../keys/quick-create-node.md)|
+|[Odwołanie](/cli/azure/keyvault/key)<br>[Szybki start](../keys/quick-create-cli.md)|[Odwołanie](/powershell/module/az.keyvault/)<br>[Szybki start](../keys/quick-create-powershell.md)|[Odwołanie](/rest/api/keyvault/#key-operations)|[Odwołanie](/azure/templates/microsoft.keyvault/vaults/keys)<br>[Szybki start](../keys/quick-create-template.md)|[Odwołanie](/dotnet/api/azure.security.keyvault.keys)<br>[Szybki start](../keys/quick-create-net.md)|[Odwołanie](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br>[Szybki start](../keys/quick-create-python.md)|[Odwołanie](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)<br>[Szybki start](../keys/quick-create-java.md)|[Odwołanie](/javascript/api/@azure/keyvault-keys/)<br>[Szybki start](../keys/quick-create-node.md)|
 
 **Interfejsy API i zestawy SDK certyfikatów**
 

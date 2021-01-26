@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 01/07/2021
 ms.author: alkohli
-ms.openlocfilehash: 5bbd02f9e15a4ee29e244b2a0307accd151ba487
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 411757f4ef4e33ccbc8a69ca2b40598b51c6d13b
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033952"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790837"
 ---
 # <a name="open-a-support-ticket-for-azure-stack-edge-pro-and-azure-data-box-gateway"></a>Otwórz bilet pomocy technicznej dla usługi Azure Stack EDGE Pro i Azure Data Box Gateway
 
@@ -57,7 +57,7 @@ Wykonaj następujące kroki, aby utworzyć żądanie obsługi:
 
         ![Problem](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-2.png)
 
-4. Na karcie **Przegląd i tworzenie** zapoznaj się z informacjami dotyczącymi biletu pomocy technicznej. Wybierz pozycję **Utwórz**. 
+4. Na karcie **Przegląd i tworzenie** zapoznaj się z informacjami dotyczącymi biletu pomocy technicznej. Wybierz przycisk **Utwórz**. 
 
     ![Problem 2](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-3.png)
 
@@ -99,4 +99,4 @@ Po utworzeniu biletu pomocy technicznej możesz zarządzać jego cyklem życia z
 ## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się, jak [rozwiązywać problemy związane z usługą Azure Stack EDGE Pro](azure-stack-edge-troubleshoot.md).
-Dowiedz się, jak [rozwiązywać problemy związane z Data Box Gateway](data-box-gateway-troubleshoot.md).
+Dowiedz się, jak [rozwiązywać problemy związane z Data Box Gateway](../databox-gateway/data-box-gateway-troubleshoot.md).

@@ -3,30 +3,22 @@ title: Ponowne Inicjowanie obsługi administracyjnej urządzeń na platformie Az
 description: Dowiedz się, jak ponownie zainicjować obsługę administracyjną urządzeń za pomocą wystąpienia usługi Device Provisioning (DPS) i dlaczego trzeba to zrobić.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/04/2019
+ms.date: 01/25/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: e5cc5b557aa4dff793f7e87093eeb65028da4f8c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d704e8f9687f3987d80018d84b41c0fd519da172
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010949"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791900"
 ---
 # <a name="how-to-reprovision-devices"></a>Jak ponownie zainicjować obsługę urządzeń
 
-W trakcie cyklu życia rozwiązania IoT typowe jest przenoszenie urządzeń między centrami IoT. Przyczyny tego przeniesienia mogą obejmować następujące scenariusze:
+W trakcie cyklu życia rozwiązania IoT typowe jest przenoszenie urządzeń między centrami IoT. Ten temat został zapisany w celu ułatwienia operatorom rozwiązań konfigurowania zasad ponownego inicjowania obsługi administracyjnej.
 
-* **Geolokalizacja**: w miarę przemieszczania się urządzenia między lokalizacjami opóźnienie sieci jest ulepszane, ponieważ urządzenie jest migrowane do centrum IoT Hub bliżej każdej lokalizacji.
-
-* **Wielodostępność**: urządzenie może być używane w ramach tego samego rozwiązania IoT, ale ponownie przypisane lub wydzierżawione do nowego klienta lub do lokacji klienta. Ten nowy klient może być serwisowany przy użyciu innego Centrum IoT Hub.
-
-* **Zmiana rozwiązania**: urządzenie można przenieść do nowego lub zaktualizowanego rozwiązania IoT. To ponowne przypisanie może wymagać, aby urządzenie komunikuje się z nowym centrum IoT, które jest połączone z innymi składnikami zaplecza. 
-
-* **Kwarantanna**: podobnie jak w przypadku zmiany rozwiązania. Urządzenie, które jest uszkodzone, naruszone lub nieaktualne, może zostać ponownie przypisane do centrum IoT Hub, gdzie wszystkie te czynności mogą zostać zaktualizowane i zawracają do zgodności. Po poprawnym działaniu urządzenie zostanie zmigrowane z powrotem do głównego centrum.
-
-Aby zapoznać się z bardziej szczegółowym omówieniem ponownego inicjowania obsługi administracyjnej, zobacz temat IoT Hub reaprowizacji [urządzeń](concepts-device-reprovision.md).
+Aby zapoznać się z bardziej szczegółowym omówieniem scenariuszy ponownego inicjowania obsługi administracyjnej, zobacz temat IoT Hub reaprowizacji [urządzeń](concepts-device-reprovision.md).
 
 
 ## <a name="configure-the-enrollment-allocation-policy"></a>Konfigurowanie zasad alokacji rejestracji

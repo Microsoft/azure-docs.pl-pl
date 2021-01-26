@@ -3,12 +3,12 @@ title: Model zasobów aplikacji Service Fabric platformy Azure
 description: Ten artykuł zawiera omówienie zarządzania aplikacją Service Fabric platformy Azure przy użyciu Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 10/21/2019
-ms.openlocfilehash: f4fbd775ab479437c350dc24b9b5511f7a614c8b
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 0019f154f301d2b688d4c16c9adb36ec386adef2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576098"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790727"
 ---
 # <a name="service-fabric-application-resource-model"></a>Model zasobów aplikacji Service Fabric
 
@@ -171,13 +171,13 @@ Możesz uaktualnić aplikację, która została już wdrożona w klastrze Servic
 
 Aby usunąć aplikację, która została wdrożona przy użyciu modelu zasobów aplikacji w Menedżer zasobów:
 
-1. Użyj polecenia cmdlet [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-2.5.0) , aby uzyskać identyfikator zasobu dla aplikacji:
+1. Użyj polecenia cmdlet [Get-AzResource](/powershell/module/az.resources/get-azresource) , aby uzyskać identyfikator zasobu dla aplikacji:
 
     ```powershell
     Get-AzResource  -Name <String> | f1
     ```
 
-1. Użyj polecenia cmdlet [Remove-AzResource](/powershell/module/az.resources/remove-azresource?view=azps-2.5.0) , aby usunąć zasoby aplikacji:
+1. Użyj polecenia cmdlet [Remove-AzResource](/powershell/module/az.resources/remove-azresource) , aby usunąć zasoby aplikacji:
 
     ```powershell
     Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]

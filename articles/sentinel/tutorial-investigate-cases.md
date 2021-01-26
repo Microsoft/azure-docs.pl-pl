@@ -12,20 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 01/25/2021
 ms.author: yelevin
-ms.openlocfilehash: aa9160f01ed0040123bd8ac932cfd2443f557bb6
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 8853f3774bb35361746c8b706f38bc54079d74f7
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511733"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790990"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Samouczek: badanie zdarzeń za pomocą platformy Azure — wskaźnik
 
 > [!IMPORTANT]
-> Wykres badania jest obecnie w **wersji zapoznawczej**. Zapoznaj się z dodatkowymi [warunkami użytkowania Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) wersji zapoznawczych, aby uzyskać dodatkowe postanowienia prawne dotyczące funkcji systemu Azure, które są w wersji beta, Preview lub w inny sposób nie zostały jeszcze udostępnione publicznie.
-
+> Graf badania jest teraz **ogólnie dostępny**. 
 
 Ten samouczek ułatwia badanie zdarzeń za pomocą platformy Azure. Po nawiązaniu połączenia ze źródłami danych z platformą Azure — użytkownik chce otrzymywać powiadomienia o wystąpieniu podejrzanych sytuacji. Aby można było to zrobić, badanie wskaźnikowe platformy Azure umożliwia tworzenie zaawansowanych reguł alertów, które generują zdarzenia, które można przypisać i zbadać.
 
@@ -113,11 +112,11 @@ Aby użyć grafu badania:
 
 Po rozwiązaniu konkretnego zdarzenia (na przykład po osiągnięciu jego wniosku) należy ustawić stan zdarzenia na **zamknięte**. Gdy to zrobisz, zostanie wyświetlony monit o sklasyfikowanie zdarzenia przez określenie przyczyny zamknięcia. Ten krok jest obowiązkowy. Kliknij pozycję **Wybierz klasyfikację** i wybierz z listy rozwijanej jedną z następujących opcji:
 
-- Prawdziwe, pozytywne — podejrzane działanie
-- Niegroźne dodatnie — podejrzane, ale oczekiwane
-- Fałszywie dodatnia — nieprawidłowa logika alertu
-- Fałszywie dodatnie — nieprawidłowe dane
-- Nieokreślony
+- Wynik prawdziwie dodatni — podejrzana aktywność
+- Wynik nieszkodliwie dodatni — podejrzane, ale oczekiwane
+- Wynik fałszywie dodatni — nieprawidłowa logika alertu
+- Wynik fałszywie dodatni — nieprawidłowe dane
+- Nieokreślone
 
 :::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="Zrzut ekranu, który wyróżnia klasyfikacje dostępne na liście wybierz klasyfikację.":::
 

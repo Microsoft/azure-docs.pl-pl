@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 12/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 9d1d22d57464266239aea96f427020351eb749d5
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 22d7ee518a458143fe25b677b680a964c538904f
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740661"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791564"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>Samouczek: Inicjowanie obsługi Azure Data Box Gateway w funkcji Hyper-V
 
@@ -84,7 +84,7 @@ Do utworzenia urządzenia wirtualnego potrzebne są następujące elementy:
 ## <a name="bitlocker-considerations"></a>Uwagi dotyczące funkcji BitLocker
 
 * Zalecamy włączenie funkcji BitLocker na Data Box Gateway maszynie wirtualnej. Domyślnie funkcja BitLocker nie jest włączona. Aby uzyskać więcej informacji, zobacz:
-  * [Ustawienia szyfrowania pomocy technicznej w Menedżerze funkcji Hyper-V](hhttps://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
+  * [Ustawienia szyfrowania pomocy technicznej w Menedżerze funkcji Hyper-V](/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
   * [Obsługa funkcji BitLocker na maszynie wirtualnej](https://kb.vmware.com/s/article/2036142)
 
 ## <a name="provision-a-virtual-device-in-hypervisor"></a>Aprowizowanie urządzenia wirtualnego w funkcji hypervisor

@@ -3,12 +3,12 @@ title: Przygotowanie wdrożenia klastra autonomicznego
 description: Dokumentacja dotycząca przygotowania środowiska i tworzenia konfiguracji klastra do uwzględnienia przed wdrożeniem klastra przeznaczonego do obsługi obciążeń produkcyjnych.
 ms.topic: conceptual
 ms.date: 9/11/2018
-ms.openlocfilehash: 277c7e047815b3b4171f7cced203ecbe5b68b155
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 18b8b0ce8c0e877bf9dd274596b19f85b1febe12
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509176"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790956"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planowanie i przygotowywanie Service Fabric wdrożenia klastra autonomicznego
 
@@ -57,7 +57,7 @@ Poniżej przedstawiono zalecane specyfikacje dotyczące maszyn w klastrze Servic
 * Łączność z bezpieczną siecią lub sieciami dla wszystkich maszyn
 * Zainstalowany system operacyjny Windows Server (prawidłowe wersje: 2012 R2, 2016, 1709 lub 1803). Service Fabric w wersji 6.4.654.9590 i nowszych również obsługuje serwer 2019 i 1809.
 * [.NET Framework 4.5.1 lub nowszy](https://www.microsoft.com/download/details.aspx?id=40773), pełna instalacja
-* [Windows PowerShell 3.0](/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-7)
+* [Windows PowerShell 3.0](/powershell/scripting/windows-powershell/install/installing-windows-powershell)
 * [Usługa RemoteRegistry](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754820(v=ws.11)) powinna być uruchomiona na wszystkich maszynach
 * **Dysk instalacji Service Fabric musi mieć system plików NTFS**
 * **Dzienniki wydajności usług systemu Windows, *& alerty* i *Dziennik zdarzeń systemu Windows* , muszą [być włączone](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc755249(v=ws.11))**.
@@ -79,7 +79,7 @@ Otwórz jeden z ClusterConfig.jsplików z pobranego pakietu i zmodyfikuj następ
 | **Ustawienie konfiguracji** | **Opis** |
 | --- | --- |
 | **Elementów NodeType** |Typy węzłów umożliwiają rozdzielenie węzłów klastra do różnych grup. Klaster musi mieć co najmniej jedną NodeType. Wszystkie węzły w grupie mają następujące typowe cechy: <br> **Nazwa** — nazwa typu węzła. <br>**Porty punktów końcowych** — są to różne nazwane punkty końcowe (porty), które są skojarzone z tym typem węzła. Możesz użyć dowolnego numeru portu, o ile nie są one sprzeczne z żadnym innym w tym manifeście i nie są jeszcze używane przez żadną inną aplikację uruchomioną na komputerze/maszynie wirtualnej. <br> **Właściwości umieszczania** — te informacje opisują właściwości tego typu węzła, które są używane jako ograniczenia umieszczania dla usług systemowych lub usług. Te właściwości to zdefiniowane przez użytkownika pary klucz/wartość, które zapewniają dodatkowe metadane dla danego węzła. Przykładami właściwości węzła jest to, czy węzeł ma dysk twardy, czy kartę graficzną, liczbę jednostek na dysku twardym, rdzenie i inne właściwości fizyczne. <br> **Pojemności** — pojemności węzłów definiują nazwę i ilość określonego zasobu, który jest dostępny do użycia w określonym węźle. Na przykład węzeł może zdefiniować, że ma pojemność dla metryki o nazwie "MemoryInMb" i że ma ona domyślnie dostępne 2048 MB. Te pojemności są używane w czasie wykonywania w celu zapewnienia, że usługi wymagające określonych ilości zasobów są umieszczane w węzłach, w których te zasoby są dostępne w wymaganych ilościach.<br>**Isprimary** — Jeśli masz więcej niż jeden NodeType, upewnij się, że tylko jeden z nich jest ustawiony na wartość *true*, co oznacza, że usługi systemowe są uruchamiane. Dla wszystkich innych typów węzłów należy ustawić wartość *false* . |
-| **Nich** |Są to szczegółowe informacje dotyczące każdego z węzłów, które są częścią klastra (typu węzła, nazwy węzła, adresu IP, domeny błędów i domeny uaktualnienia węzła). Komputery, na których ma zostać utworzone klaster, muszą być wymienione w tym miejscu przy użyciu adresów IP. <br> Jeśli używasz tego samego adresu IP dla wszystkich węzłów, zostanie utworzony klaster jednokrotny, którego można użyć do celów testowych. Nie należy używać jednobox klastrów do wdrażania obciążeń produkcyjnych. |
+| **Węzły** |Są to szczegółowe informacje dotyczące każdego z węzłów, które są częścią klastra (typu węzła, nazwy węzła, adresu IP, domeny błędów i domeny uaktualnienia węzła). Komputery, na których ma zostać utworzone klaster, muszą być wymienione w tym miejscu przy użyciu adresów IP. <br> Jeśli używasz tego samego adresu IP dla wszystkich węzłów, zostanie utworzony klaster jednokrotny, którego można użyć do celów testowych. Nie należy używać jednobox klastrów do wdrażania obciążeń produkcyjnych. |
 
 Po skonfigurowaniu wszystkich ustawień środowiska przez konfigurację klastra można je przetestować względem środowiska klastra (krok 7).
 

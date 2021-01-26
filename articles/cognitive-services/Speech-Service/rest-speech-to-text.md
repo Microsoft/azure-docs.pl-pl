@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1577d63822bdb21eff7fcbb3e1343243a3004409
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 70c5593f29b5e83d5d3f318179d365a9235849ca
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033646"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790617"
 ---
 # <a name="speech-to-text-rest-api"></a>Interfejs API REST zamiany mowy na tekst
 
 Zamiana mowy na tekst ma dwa różne interfejsy API REST. Każdy interfejs API pełni swój specjalny cel i używa różnych zestawów punktów końcowych.
 
 Interfejsy API REST zamiany mowy na tekst są następujące:
-- Funkcja [zamiany mowy na tekst "API REST v 3.0"](#speech-to-text-rest-api-v30) jest używana na potrzeby [transkrypcji](batch-transcription.md) i [Custom Speech](custom-speech-overview.md)partii. v 3.0 jest [następnikiem w wersji 2.0](/azure/cognitive-services/speech-service/migrate-v2-to-v3).
+- Funkcja [zamiany mowy na tekst "API REST v 3.0"](#speech-to-text-rest-api-v30) jest używana na potrzeby [transkrypcji](batch-transcription.md) i [Custom Speech](custom-speech-overview.md)partii. v 3.0 jest [następnikiem w wersji 2.0](./migrate-v2-to-v3.md).
 - [Interfejs API REST zamiany mowy na tekst dla krótkiego dźwięku](#speech-to-text-rest-api-for-short-audio) jest używany do transkrypcji online jako alternatywy dla [zestawu Speech SDK](speech-sdk.md). Żądania korzystające z tego interfejsu API mogą przesyłać do 60 sekund audio na żądanie. 
 
 ## <a name="speech-to-text-rest-api-v30"></a>Zamiana mowy na tekst interfejsu API REST v 3.0
@@ -45,7 +45,7 @@ Interfejs API REST v 3.0 obejmuje następujące funkcje:
 
 Zapoznaj się z przykładami dotyczącymi używania interfejsu API REST v 3.0 z transkrypcją [partii.](batch-transcription.md)
 
-Jeśli używasz funkcji zamiany mowy na tekst API v 2.0, zobacz jak można przeprowadzić migrację do wersji 3.0 w [tym przewodniku](/azure/cognitive-services/speech-service/migrate-v2-to-v3).
+Jeśli używasz funkcji zamiany mowy na tekst API v 2.0, zobacz jak można przeprowadzić migrację do wersji 3.0 w [tym przewodniku](./migrate-v2-to-v3.md).
 
 W [tym miejscu](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)zapoznaj się z pełnym odwołaniem do interfejsu API REST w wersji 3.0.
 

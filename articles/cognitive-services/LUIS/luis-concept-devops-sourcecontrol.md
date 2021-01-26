@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 1f5c0c7a877964eeb480fa958c7e76eb5706122f
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 0466105ab99d191b5dd9beab1d5d5b61f4b3225e
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561277"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790888"
 ---
 # <a name="devops-practices-for-luis"></a>DevOps praktyk dla LUIS
 
@@ -72,7 +72,7 @@ Następujące typy plików dla aplikacji LUIS powinny być utrzymywane pod kontr
 
 - [Pliki definicji testów jednostkowych](luis-concept-devops-testing.md#writing-tests) (wyrażenia długości i oczekiwane wyniki)
 
-- [Pliki testów wsadowych](./luis-concept-batch-test.md#batch-file-format) (wyrażenia długości i oczekiwane wyniki) używane do testowania wydajności
+- [Pliki testów wsadowych](./luis-how-to-batch-test.md#batch-test-file) (wyrażenia długości i oczekiwane wyniki) używane do testowania wydajności
 
 ### <a name="credentials-and-keys-are-not-checked-in"></a>Poświadczenia i klucze nie są zaewidencjonowane
 

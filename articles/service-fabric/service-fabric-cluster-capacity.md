@@ -4,12 +4,12 @@ description: Typy węzłów, trwałość, niezawodność i inne zagadnienia, kt�
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
-ms.openlocfilehash: 731dcfdf25efc4b2f44669dacd8a400037ed47f4
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 03ec9b411f13f22a74b864a745acfed922e78b12
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576336"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790702"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Zagadnienia dotyczące planowania pojemności klastra Service Fabric
 
@@ -146,7 +146,7 @@ Poniżej przedstawiono zalecenia dotyczące wyboru warstwy niezawodności. Liczb
 | 7 lub 8 | Złoty |
 | 9 i w górę | Platyn |
 
-W przypadku zwiększenia lub zmniejszenia rozmiaru klastra (suma wystąpień maszyn wirtualnych we wszystkich typach węzłów) należy rozważyć aktualizację niezawodności klastra z jednej warstwy do innej. Spowoduje to wyzwolenie uaktualnień klastra wymaganych do zmiany liczby zestawów replik usług systemowych. Poczekaj na zakończenie uaktualniania przed wprowadzeniem jakichkolwiek innych zmian w klastrze, takich jak Dodawanie węzłów.  Postęp uaktualniania można monitorować na Service Fabric Explorer lub przez uruchomienie [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
+W przypadku zwiększenia lub zmniejszenia rozmiaru klastra (suma wystąpień maszyn wirtualnych we wszystkich typach węzłów) należy rozważyć aktualizację niezawodności klastra z jednej warstwy do innej. Spowoduje to wyzwolenie uaktualnień klastra wymaganych do zmiany liczby zestawów replik usług systemowych. Poczekaj na zakończenie uaktualniania przed wprowadzeniem jakichkolwiek innych zmian w klastrze, takich jak Dodawanie węzłów.  Postęp uaktualniania można monitorować na Service Fabric Explorer lub przez uruchomienie [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade)
 
 ### <a name="capacity-planning-for-reliability"></a>Planowanie wydajności dla niezawodności
 

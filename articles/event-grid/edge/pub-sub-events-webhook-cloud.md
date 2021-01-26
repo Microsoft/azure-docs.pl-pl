@@ -8,12 +8,12 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 12bcb54f4bfdf17209324febeba380ff7789fc0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec7ecb77d37ed1cdf1d13aa7191f5d50e0008c20
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88998989"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790803"
 ---
 # <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>Samouczek: publikowanie, subskrybowanie zdarzeń w chmurze
 
@@ -31,7 +31,7 @@ Aby można było ukończyć ten samouczek, potrzebne są:
 
 ## <a name="create-an-azure-function-in-the-azure-portal"></a>Utwórz funkcję platformy Azure w Azure Portal
 
-Wykonaj kroki opisane w [samouczku](../../azure-functions/functions-create-first-azure-function.md) , aby utworzyć funkcję platformy Azure. 
+Wykonaj kroki opisane w [samouczku](../../azure-functions/functions-get-started.md) , aby utworzyć funkcję platformy Azure. 
 
 Zastąp fragment kodu następującym kodem:
 

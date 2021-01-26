@@ -3,12 +3,12 @@ title: Dowiedz się Azure Policy Kubernetes
 description: Dowiedz się, w jaki sposób Azure Policy rego i Otwórz agenta zasad, aby zarządzać klastrami z systemem Kubernetes na platformie Azure lub lokalnie.
 ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: e2b9253d8ce60d5dc77d406e3c9d0469539f2c77
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: f25b64bc28535d125c7883f16c9e747d6250ca96
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511335"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789742"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Opis usługi Azure Policy dla klastrów Kubernetes
 
@@ -22,19 +22,19 @@ Azure Policy for Kubernetes obsługuje następujące środowiska klastra:
 
 - [Azure Kubernetes Service (AKS)](../../../aks/intro-kubernetes.md)
 - [Platforma Kubernetes z włączoną usługą Azure Arc](../../../azure-arc/kubernetes/overview.md)
-- [Aparat AKS](https://github.com/Azure/aks-engine/blob/master/docs/README.md)
+- [Aparat usługi AKS](https://github.com/Azure/aks-engine/blob/master/docs/README.md)
 
 > [!IMPORTANT]
 > Dodatki dla aparatu AKS i Kubernetes z funkcją Arc są w **wersji zapoznawczej**. Azure Policy for Kubernetes obsługuje tylko pule węzłów systemu Linux i wbudowane definicje zasad. Wbudowane definicje zasad znajdują się w kategorii **Kubernetes** . Definicje zasad z ograniczeniami w wersji zapoznawczej ze skutkami **EnforceOPAConstraint** i **EnforceRegoPolicy** oraz pokrewną kategorią **usługi Kubernetes** są _przestarzałe_. Zamiast tego należy użyć trybu _inspekcji_ efektów i _Odmów_ przy użyciu dostawcy zasobów `Microsoft.Kubernetes.Data` .
 
-## <a name="overview"></a>Przegląd
+## <a name="overview"></a>Omówienie
 
 Aby włączyć i użyć Azure Policy z klastrem Kubernetes, wykonaj następujące czynności:
 
 1. Skonfiguruj klaster Kubernetes i zainstaluj dodatek:
    - [Azure Kubernetes Service (AKS)](#install-azure-policy-add-on-for-aks)
    - [Platforma Kubernetes z włączoną usługą Azure Arc](#install-azure-policy-add-on-for-azure-arc-enabled-kubernetes)
-   - [Aparat AKS](#install-azure-policy-add-on-for-aks-engine)
+   - [Aparat usługi AKS](#install-azure-policy-add-on-for-aks-engine)
 
    > [!NOTE]
    > Aby zapoznać się z typowymi problemami z instalacją, zobacz [Rozwiązywanie problemów — dodatek Azure Policy](../troubleshoot/general.md#add-on-for-kubernetes-installation-errors).
@@ -411,7 +411,7 @@ Znajdź wbudowane definicje zasad służące do zarządzania klastrem za pomocą
 
    - Aby wykluczyć przestrzenie nazw Kubernetes z oceny zasad, określ listę przestrzeni nazw w **wykluczeniach przestrzeni nazw** parametrów. Zaleca się wykluczenie: _polecenia-system_, _strażnik-system_ i _Azure-Arc_.
 
-1. Wybierz pozycję **Przeglądanie + tworzenie**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
 
 Alternatywnie możesz znaleźć i przypisać zasady Kubernetes przy użyciu [przystawki przypisywanie zasad —](../assign-policy-portal.md) szybki start dla portalu. Wyszukaj definicję zasad Kubernetes zamiast przykładu "Inspekcja maszyn wirtualnych".
 
@@ -463,7 +463,7 @@ Aby uzyskać więcej informacji, zobacz [debugowanie strażnika](https://github.
 
 ## <a name="troubleshooting-the-add-on"></a>Rozwiązywanie problemów z dodatkiem
 
-Aby uzyskać więcej informacji na temat rozwiązywania problemów z dodatkiem do Kubernetes, zobacz [sekcję Kubernetes](/azure/governance/policy/troubleshoot/general#add-on-for-kubernetes-general-errors) Azure Policy w artykule dotyczącym rozwiązywania problemów.
+Aby uzyskać więcej informacji na temat rozwiązywania problemów z dodatkiem do Kubernetes, zobacz [sekcję Kubernetes](../troubleshoot/general.md#add-on-for-kubernetes-general-errors) Azure Policy w artykule dotyczącym rozwiązywania problemów.
 
 ## <a name="remove-the-add-on"></a>Usuń dodatek
 

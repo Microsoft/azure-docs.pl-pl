@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5a4586c9c1be51b0ebbdebcf0c23289fc39f9eda
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 263e45928642aa74d682fc490e424a24deeb8076
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485505"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790685"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Zasady umieszczania dla usług Service Fabric
 Zasady umieszczania są dodatkowymi regułami, które mogą służyć do zarządzania umieszczaniem usługi w określonych, mniej typowych scenariuszach. Oto kilka przykładów tych scenariuszy:
@@ -150,7 +150,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 >
 
 > [!NOTE]
-> Obecnie zasady są obsługiwane tylko w przypadku usług bezstanowych z [trybem aktywacji pakietu usługi](/dotnet/api/system.fabric.description.servicepackageactivationmode?view=azure-dotnet)ExclusiveProcess.
+> Obecnie zasady są obsługiwane tylko w przypadku usług bezstanowych z [trybem aktywacji pakietu usługi](/dotnet/api/system.fabric.description.servicepackageactivationmode)ExclusiveProcess.
 >
 
 > [!WARNING]
@@ -158,7 +158,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 >
 
 > [!NOTE]
-> Użycie wysokiej wartości [MinInstanceCount](/dotnet/api/system.fabric.description.statelessservicedescription.mininstancecount?view=azure-dotnet) z tymi zasadami umieszczania może prowadzić do zablokowanych uaktualnień aplikacji. Na przykład jeśli masz klaster z pięcioma węzłami i ustawisz InstanceCount = 10, na każdym węźle będą dostępne dwa wystąpienia. Jeśli ustawisz MinInstanceCount = 9, próba uaktualnienia aplikacji może zostać zablokowana; w przypadku MinInstanceCount = 8 można to uniknąć.
+> Użycie wysokiej wartości [MinInstanceCount](/dotnet/api/system.fabric.description.statelessservicedescription.mininstancecount) z tymi zasadami umieszczania może prowadzić do zablokowanych uaktualnień aplikacji. Na przykład jeśli masz klaster z pięcioma węzłami i ustawisz InstanceCount = 10, na każdym węźle będą dostępne dwa wystąpienia. Jeśli ustawisz MinInstanceCount = 9, próba uaktualnienia aplikacji może zostać zablokowana; w przypadku MinInstanceCount = 8 można to uniknąć.
 >
 
 ## <a name="next-steps"></a>Następne kroki

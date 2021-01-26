@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 9c258d8d0a7aa26c96ab4f64017770ebdd153e60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d99b4d1fbf227d850de387b7ca24dcd3fd40646
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86257513"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791159"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Odzyskiwanie po awarii na platformie Azure Service Fabric
 Krytyczna część dostarczania wysokiej dostępności zapewnia, że usługi mogą przetrwać wszystkie różne typy awarii. Jest to szczególnie ważne w przypadku nieplanowanych awarii i poza formantem. 
@@ -172,7 +172,7 @@ Następujące akcje mogą spowodować utratę danych. Sprawdź przed wykonaniem 
 >
 
 - Użyj `Repair-ServiceFabricPartition -PartitionId` `System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)` interfejsu API lub. Ten interfejs API umożliwia określenie identyfikatora partycji, która ma zostać przeniesiona z utraty kworum, oraz do utraty danych.
-- Jeśli klaster napotyka częste błędy, które powodują, że usługi przechodzą w stan utraty kworum, a potencjalną _utratą danych jest akceptowalna_, określenie odpowiedniej wartości [QuorumLossWaitDuration](/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) może ułatwić automatyczne odzyskanie usługi. Service Fabric będzie oczekiwać na podaną `QuorumLossWaitDuration` wartość (domyślnie nieskończoną) przed wykonaniem odzyskiwania. Ta metoda *nie* jest zalecana, ponieważ może to spowodować nieoczekiwane straty danych.
+- Jeśli klaster napotyka częste błędy, które powodują, że usługi przechodzą w stan utraty kworum, a potencjalną _utratą danych jest akceptowalna_, określenie odpowiedniej wartości [QuorumLossWaitDuration](/powershell/module/servicefabric/update-servicefabricservice) może ułatwić automatyczne odzyskanie usługi. Service Fabric będzie oczekiwać na podaną `QuorumLossWaitDuration` wartość (domyślnie nieskończoną) przed wykonaniem odzyskiwania. Ta metoda *nie* jest zalecana, ponieważ może to spowodować nieoczekiwane straty danych.
 
 ## <a name="availability-of-the-service-fabric-cluster"></a>Dostępność klastra Service Fabric
 Ogólnie rzecz biorąc, klaster Service Fabric jest wysoce rozproszonym środowiskiem bez pojedynczych punktów awarii. Awaria jednego z węzłów nie powoduje problemów z dostępnością lub niezawodnością klastra, głównie ponieważ usługi systemu Service Fabric są zgodne z tymi samymi wskazówkami opisanymi wcześniej. Oznacza to, że zawsze są domyślnie uruchamiane z co najmniej trzema replikami, a usługi systemowe, które są bezstanowe uruchamiane na wszystkich węzłach. 

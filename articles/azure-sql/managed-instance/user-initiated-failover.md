@@ -9,13 +9,13 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 12/16/2020
-ms.openlocfilehash: 4b1c98d8621267b300a82b697bce66a6b94e82f3
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.date: 01/25/2021
+ms.openlocfilehash: c12e1f4b01b0e2dd7fa21808cf33f45f9a5be59b
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825903"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789976"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Zainicjowane przez użytkownika ręczne przejście w tryb failover w usłudze SQL Managed Instance
 
@@ -143,6 +143,7 @@ Nie będzie można zobaczyć tych samych danych wyjściowych z warstwą usługi 
 > - Może istnieć jeden (1) tryb failover zainicjowany w tym samym wystąpieniu zarządzanym co **15 minut**.
 > - W przypadku wystąpień usługi BC musi istnieć kworum replik dla żądania trybu failover, które ma zostać zaakceptowane.
 > - W przypadku wystąpień usługi BC nie można określić, która odczytana replika pomocnicza ma inicjować tryb failover.
+> - Tryb failover nie będzie dozwolony do momentu ukończenia pierwszej pełnej kopii zapasowej nowej bazy danych przez automatyczne systemy tworzenia kopii zapasowych.
 
 ## <a name="next-steps"></a>Następne kroki
 

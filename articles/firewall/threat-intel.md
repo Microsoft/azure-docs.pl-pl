@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: victorh
-ms.openlocfilehash: e51cc8905a7b4a88bb7f7dabaf24bb30159ff86c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77e36d5ab98f1177b5a0b89ee10b3e6bd22560c2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83655072"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791463"
 ---
 # <a name="azure-firewall-threat-intelligence-based-filtering"></a>Filtrowanie na podstawie analizy zagrożeń zapory platformy Azure
 
@@ -27,7 +27,7 @@ Można wybrać opcję rejestrowania alertu, gdy reguła jest wyzwalana, lub wybr
 
 Domyślnie filtrowanie oparte na analizie zagrożeń jest włączone w trybie alertu. Nie można wyłączyć tej funkcji ani zmienić trybu do momentu udostępnienia interfejsu portalu w Twoim regionie.
 
-:::image type="content" source="media/threat-intel/threat-intel-ui.png" alt-text="Analiza zagrożeń zapory":::
+:::image type="content" source="media/threat-intel/threat-intel-ui.png" alt-text="Interfejs portalu filtrowania oparty na analizie zagrożeń":::
 
 ## <a name="logs"></a>Dzienniki
 
@@ -53,6 +53,6 @@ Poniższy fragment dziennika przedstawia wyzwalaną regułę:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz [przykłady log Analytics zapory platformy Azure](log-analytics-samples.md)
+- Zobacz [przykłady log Analytics zapory platformy Azure](./firewall-workbook.md)
 - Dowiedz się [, jak wdrożyć i skonfigurować zaporę platformy Azure](tutorial-firewall-deploy-portal.md)
 - Przejrzyj [Raport analizy zabezpieczeń firmy Microsoft](https://www.microsoft.com/en-us/security/operations/security-intelligence-report)

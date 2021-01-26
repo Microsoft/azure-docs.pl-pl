@@ -3,12 +3,12 @@ title: 'Szybki Start: wysyłanie zdarzeń niestandardowych do funkcji platformy 
 description: 'Szybki Start: Użyj Azure Event Grid i interfejsu wiersza polecenia platformy Azure w celu opublikowania tematu i zasubskrybowania tego zdarzenia. Funkcja platformy Azure jest używana w punkcie końcowym.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: aea52bcaa94d6f288e86e44e1a0f294796d8e4a3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4fe4753de41443a0537636933364c7b69b25cb27
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996353"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791731"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Szybki Start: kierowanie zdarzeń niestandardowych do funkcji platformy Azure za pomocą Event Grid
 
@@ -19,7 +19,7 @@ Azure Event Grid to usługa obsługi zdarzeń dla chmury. Azure Functions jest j
 ## <a name="create-azure-function"></a>Tworzenie funkcji platformy Azure
 Przed zasubskrybowaniem tematu niestandardowego Utwórz funkcję do obsługi zdarzeń. 
 
-1. Tworzenie aplikacji funkcji przy użyciu instrukcji z [tworzenia aplikacji funkcji](../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
+1. Tworzenie aplikacji funkcji przy użyciu instrukcji z [tworzenia aplikacji funkcji](../azure-functions/functions-get-started.md).
 2. Utwórz funkcję przy użyciu **wyzwalacza Event Grid**. Wybierz, jeśli używasz tego wyzwalacza po raz pierwszy, aby zainstalować rozszerzenie, może być konieczne kliknięcie przycisku "Zainstaluj".
     1. Na stronie **aplikacja funkcji** wybierz pozycję **funkcje** w menu po lewej stronie, Wyszukaj pozycję **Event Grid** w obszarze szablony, a następnie wybierz pozycję **Azure Event Grid wyzwalacz**. 
 
@@ -52,7 +52,7 @@ Temat usługi Event Grid udostępnia zdefiniowany przez użytkownika punkt końc
     5. Zachowaj wartość domyślną **Event Grid schemacie** dla pola **schemat zdarzenia** . 
 
        ![Utwórz stronę tematu](./media/custom-event-to-function/create-custom-topic.png)
-    6. Wybierz pozycję **Utwórz**. 
+    6. Wybierz przycisk **Utwórz**. 
 
 5. Po utworzeniu tematu niestandardowego zostanie wyświetlone powiadomienie z informacją o powodzeniu. Wybierz pozycję **Przejdź do grupy zasobów**. 
 

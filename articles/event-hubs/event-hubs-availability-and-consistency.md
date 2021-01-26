@@ -4,12 +4,12 @@ description: Jak zapewnić maksymalną ilość dostępności i spójność za po
 ms.topic: article
 ms.date: 01/25/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5ffa2df992eb0c22aafbbb7436250405998d8073
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 884fe878b9524dcf8d97d1123dce35e02af34a24
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762806"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790753"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Availability and consistency in Event Hubs (Dostępność i spójność w usłudze Event Hubs)
 
@@ -26,7 +26,7 @@ Brewer theorem definiuje spójność i dostępność w następujący sposób:
 > [!NOTE]
 > Termin **partycji** jest używany w różnych kontekstach w Event HUBS i Cap theorem. 
 > - **Event Hubs** organizuje zdarzenia w co najmniej jednej partycji. Partycje są niezależne i zawierają własną sekwencję danych, ale często rosną przy różnych stawkach. Aby uzyskać więcej informacji, zobacz [partycje](event-hubs-features.md#partitions).
-> - W programie **Cap theorem** partycja to przerwa w komunikacji między węzłami w systemie rozproszonym.
+> - W programie **Cap theorem** partycja jest przerwaniem komunikacji między węzłami w systemie rozproszonym.
 
 ## <a name="partition-tolerance"></a>Tolerancja partycji
 Event Hubs jest tworzona na podstawie partycjonowanego modelu danych. Można skonfigurować liczbę partycji w centrum zdarzeń podczas instalacji, ale nie można zmienić tej wartości później. Ze względu na to, że należy używać partycji z Event Hubs, należy podjąć decyzję dotyczącą dostępności i spójności aplikacji.

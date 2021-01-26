@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 35f4aae246f105d832aaf92c5c5797c8a65b44f1
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 3336a086fbe8f4291f752836a610cd80b773ec2d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938550"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790820"
 ---
 # <a name="azure-digital-twins-high-availability-and-disaster-recovery"></a>Azure Digital bliźniaczych reprezentacji — wysoka dostępność i odzyskiwanie po awarii
 
@@ -41,7 +41,7 @@ Zdarza się sytuacje, w których wystąpiły przerwy w działaniu centrum danych
 
 ## <a name="monitor-service-health"></a>Monitorowanie kondycji usługi
 
-Ponieważ wystąpienia usługi Azure Digital bliźniaczych reprezentacji są w trybie failover i zostały odzyskane, można monitorować ten proces za pomocą narzędzia [Azure Service Health](https://docs.microsoft.com/azure/service-health/service-health-overview) . Service Health śledzi kondycję usług platformy Azure w różnych regionach i subskrypcjach, a następnie udostępnia komunikację wpływającą na usługę na temat przestoju i przerw w działaniu.
+Ponieważ wystąpienia usługi Azure Digital bliźniaczych reprezentacji są w trybie failover i zostały odzyskane, można monitorować ten proces za pomocą narzędzia [Azure Service Health](../service-health/service-health-overview.md) . Service Health śledzi kondycję usług platformy Azure w różnych regionach i subskrypcjach, a następnie udostępnia komunikację wpływającą na usługę na temat przestoju i przerw w działaniu.
 
 Podczas pracy w trybie failover Service Health może wskazywać, kiedy usługa nie działa, i po utworzeniu kopii zapasowej.
 

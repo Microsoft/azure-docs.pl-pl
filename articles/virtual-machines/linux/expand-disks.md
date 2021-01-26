@@ -7,19 +7,19 @@ ms.topic: how-to
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: bbb959b6b1d71c81f7b920b3962f693716041e16
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d1d433c7db36a3f4fe5f528b7fbd17549bc08e4a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016237"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791497"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Rozszerzanie wirtualnych dysków twardych na maszynę wirtualną z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure
 
 W tym artykule opisano sposób rozszerzania dysków zarządzanych dla maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure. Można [dodać dyski danych](add-disk.md) , aby zapewnić dodatkowe miejsce do magazynowania, i można również rozszerzyć istniejący dysk danych. Domyślny rozmiar wirtualnego dysku twardego dla systemu operacyjnego (OS) jest zwykle 30 GB na maszynie wirtualnej z systemem Linux na platformie Azure. 
 
 > [!WARNING]
-> Zawsze upewnij się, że system plików jest w dobrej kondycji, typ tabeli partycji dysku będzie obsługiwał nowy rozmiar i upewnij się, że kopie zapasowe danych zostały wykonane przed wykonaniem operacji zmiany rozmiaru dysku. Aby uzyskać więcej informacji, zobacz [Tworzenie kopii zapasowych maszyn wirtualnych z systemem Linux na platformie Azure](tutorial-backup-vms.md). 
+> Zawsze upewnij się, że system plików jest w dobrej kondycji, typ tabeli partycji dysku będzie obsługiwał nowy rozmiar i upewnij się, że kopie zapasowe danych zostały wykonane przed wykonaniem operacji zmiany rozmiaru dysku. Aby uzyskać więcej informacji, zobacz [Azure Backup przewodnika Szybki Start](../../backup/quick-backup-vm-portal.md). 
 
 ## <a name="expand-an-azure-managed-disk"></a>Rozszerzanie dysku zarządzanego platformy Azure
 Upewnij się, że zainstalowano najnowszy [interfejs wiersza polecenia platformy Azure](/cli/azure/install-az-cli2) i są one zalogowane do konta platformy Azure przy użyciu polecenia [AZ login](/cli/azure/reference-index#az-login).
@@ -133,7 +133,7 @@ Aby użyć rozszerzonego dysku, rozwiń podstawową partycję i system plików.
     sudo mount /dev/sdc1 /datadrive
     ```
 
-1. Aby sprawdzić, czy rozmiar dysku danych został zmieniony, użyj `df -h` . Następujące przykładowe dane wyjściowe przedstawiają teraz 200 */dev/sdc1* GB:
+1. Aby sprawdzić, czy rozmiar dysku danych został zmieniony, użyj `df -h` . Następujące przykładowe dane wyjściowe przedstawiają teraz 200  GB:
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on

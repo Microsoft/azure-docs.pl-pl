@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 5025c4ad81433b6eb18f5beded860625791ffce5
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 4747c958b5e592458c14bbf4244953564c252678
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445102"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790127"
 ---
 # <a name="about-azure-key-vault"></a>Informacje o usłudze Azure Key Vault
 
@@ -23,9 +23,9 @@ Usługa Azure Key Vault pomaga rozwiązać następujące problemy:
 
 - **Zarządzanie wpisami tajnymi** — usługa Azure Key Vault może służyć do bezpiecznego przechowywania i ścisłego kontrolowania dostępu do tokenów, haseł, certyfikatów, kluczy interfejsu API i innych wpisów tajnych.
 - **Zarządzanie kluczami** — usługa Azure Key Vault może być także używana jako rozwiązanie do zarządzania kluczami. Usługa Azure Key Vault ułatwia tworzenie i kontrolowanie kluczy szyfrowania używanych do szyfrowania danych. 
-- **Zarządzanie certyfikatami** — Azure Key Vault to również usługa, która umożliwia łatwe inicjowanie obsługi i wdrażanie publicznych i prywatnych certyfikatów Transport Layer Security/SSL (TLS/SSL) do użycia z platformą Azure i wewnętrznymi zasobami połączonymi.
+- **Zarządzanie certyfikatami** — Azure Key Vault to również usługa, która umożliwia łatwe inicjowanie obsługi i wdrażanie publicznych i prywatnych certyfikatów Transport Layer Security/Secure SOCKETS Layer (TLS/SSL) do użycia z platformą Azure i wewnętrznymi zasobami połączonymi.
 
-Azure Key Vault ma dwie warstwy usług: standardowa, która szyfruje za pomocą klucza programowego i warstwy Premium, która obejmuje klucze chronione przez moduł HSM. Aby wyświetlić porównanie warstw standardowa i Premium, zobacz [stronę z cennikiem Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
+Azure Key Vault ma dwie warstwy usług: standardowa, która szyfruje za pomocą klucza programowego i warstwy Premium, która obejmuje klucze chronione przez sprzętowy moduł zabezpieczeń (HSM). Aby wyświetlić porównanie warstw standardowa i Premium, zobacz [stronę z cennikiem Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## <a name="why-use-azure-key-vault"></a>Jakie są zalety korzystania z usługi Azure Key Vault?
 

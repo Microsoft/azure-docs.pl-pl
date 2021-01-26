@@ -17,16 +17,14 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
-ms.openlocfilehash: 1d4fcc280ba2e34d2fa81584846441ad6fe81431
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8e300c9be8f3e59dc9443bf1f1806e4228992ad
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84708199"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790397"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-azure-powershell"></a>Zarządzanie eksfiltracjiami danych na kontach usługi Azure Storage za pomocą zasad punktu końcowego usług sieci wirtualnej przy użyciu Azure PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Zasady punktu końcowego usługi sieci wirtualnej umożliwiają stosowanie kontroli dostępu do kont usługi Azure Storage z poziomu sieci wirtualnej za pośrednictwem punktów końcowych usługi. Jest to klucz służący do zabezpieczania obciążeń, zarządzania tym, jakie konta magazynu są dozwolone i gdzie eksfiltracji danych jest dozwolony.
 W tym artykule omówiono sposób wykonywania następujących zadań:
@@ -38,6 +36,8 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 * Wdróż maszynę wirtualną w podsieci.
 * Potwierdź dostęp do dozwolonego konta magazynu z podsieci.
 * Upewnij się, że dostęp do konta magazynu niedozwolonego z podsieci zostanie odrzucony.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 

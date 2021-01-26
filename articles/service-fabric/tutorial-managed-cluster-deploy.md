@@ -4,12 +4,12 @@ description: W tym samouczku zostanie wdrożony Service Fabric zarządzany klast
 ms.topic: tutorial
 ms.date: 08/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 0265a1393c697cbd767de13df1064a5eea957380
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: fd54e6f8c5272c3a8fe0e0162ca2e57968b24642
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316171"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791714"
 ---
 # <a name="tutorial-deploy-a-service-fabric-managed-cluster-preview"></a>Samouczek: Wdrażanie klastra zarządzanego Service Fabric (wersja zapoznawcza)
 
@@ -37,7 +37,7 @@ Przed rozpoczęciem tego samouczka:
 
 * Zainstaluj [zestaw Service Fabric SDK i moduł programu PowerShell](service-fabric-get-started.md).
 
-* Zainstaluj [Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps?preserve-view=true&view=azps-4.7.0#azservicefabric) (lub nowszy).
+* Zainstaluj [Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps#azservicefabric) (lub nowszy).
 
 ## <a name="connect-to-your-azure-account"></a>Nawiąż połączenie z kontem platformy Azure
 

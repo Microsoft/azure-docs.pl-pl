@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 985f9e741a1491a812c1d2b20de96381f8af3fa4
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 084ca039e7f388a11e15b29c579606c6ed3086db
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359850"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790431"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Wdrażanie przykładowego narzędzia do oznaczania etykietami
 
@@ -34,10 +34,10 @@ Najszybszą metodą uruchamiania etykietowania danych jest uruchomienie lokalneg
 
 Przed rozpoczęciem należy zauważyć, że istnieją dwa sposoby wdrożenia przykładowego narzędzia do tworzenia etykiet do wystąpienia kontenera platformy Azure (ACI). Obie opcje służą do uruchamiania przykładowego narzędzia do etykietowania z ACI: 
 
-* [Za pomocą witryny Azure Portal](#azure-portal)
+* [Korzystanie z witryny Azure Portal](#azure-portal)
 * [Przy użyciu interfejsu wiersza polecenia platformy Azure](#azure-cli)
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 Wykonaj następujące kroki, aby utworzyć nowy zasób przy użyciu Azure Portal: 
 
@@ -101,7 +101,7 @@ Wykonaj następujące kroki, aby utworzyć nowy zasób przy użyciu Azure Portal
 > Podczas tworzenia aplikacji sieci Web można również skonfigurować autoryzację/uwierzytelnianie. Nie jest to konieczne, aby rozpocząć pracę. 
 
 > [!IMPORTANT]
-> Może być konieczne włączenie protokołu TLS dla aplikacji sieci Web w celu wyświetlenia jej w `https` adresie. Postępuj zgodnie z instrukcjami w temacie [Włączanie punktu końcowego protokołu TLS](https://docs.microsoft.com/azure/container-instances/container-instances-container-group-ssl) w celu skonfigurowania kontenera przyczepki niż włączenie protokołu TLS/SSL dla aplikacji sieci Web.
+> Może być konieczne włączenie protokołu TLS dla aplikacji sieci Web w celu wyświetlenia jej w `https` adresie. Postępuj zgodnie z instrukcjami w temacie [Włączanie punktu końcowego protokołu TLS](../../container-instances/container-instances-container-group-ssl.md) w celu skonfigurowania kontenera przyczepki niż włączenie protokołu TLS/SSL dla aplikacji sieci Web.
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 

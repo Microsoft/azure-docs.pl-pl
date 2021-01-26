@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.author: tisande
-ms.openlocfilehash: c78e15a0656abd510bbc241d39ffd026afddfd96
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c687b5b18c9cf7b0920b23f49e3c7a2607e0a89f
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353667"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791024"
 ---
 # <a name="getting-started-with-sql-queries"></a>Wprowadzenie do zapytań SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -187,7 +187,7 @@ W powyższych przykładach przedstawiono kilka aspektów języka zapytań Cosmos
 
 * Usługa Azure Cosmos DB obsługuje tylko ścisłe elementy JSON. System typów i wyrażenia są ograniczone do obsługi tylko typów JSON. Aby uzyskać więcej informacji, zobacz [specyfikację JSON](https://www.json.org/).  
 
-* Kontener Cosmos to niezależna od schematu Kolekcja elementów JSON. Relacje między elementami kontenera i między nimi są niejawnie przechwytywane przez zawieranie, a nie według klucza podstawowego i relacji klucza obcego. Ta funkcja jest ważna dla sprzężeń wewnątrz elementu omówionych w dalszej części tego artykułu.
+* Kontener Cosmos to niezależna od schematu Kolekcja elementów JSON. Relacje między elementami kontenera i między nimi są niejawnie przechwytywane przez zawieranie, a nie według klucza podstawowego i relacji klucza obcego. Ta funkcja jest ważna dla sprzężeń wewnątrz elementu, które są opisane w [sprzężeniach w Azure Cosmos DB](sql-query-join.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

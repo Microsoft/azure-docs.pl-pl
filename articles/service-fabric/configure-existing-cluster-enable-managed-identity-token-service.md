@@ -3,12 +3,12 @@ title: Konfigurowanie obsługi tożsamości zarządzanej w istniejącym klastrze
 description: Poniżej przedstawiono sposób włączania obsługi tożsamości zarządzanych w istniejącym klastrze Service Fabric platformy Azure
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: 7bcba34e941f6fee038aa475d7c0869eb65aca2e
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: dc341688cae6d98f53be10351e4e4572a3539e4e
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574704"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790043"
 ---
 # <a name="configure-managed-identity-support-in-an-existing-service-fabric-cluster"></a>Konfigurowanie obsługi tożsamości zarządzanej w istniejącym klastrze Service Fabric
 
@@ -39,7 +39,7 @@ Aby włączyć usługę tokenu tożsamości zarządzanej w istniejącym klastrze
 ]
 ```
 
-Aby zmiany zaczęły obowiązywać, należy również zmienić zasady uaktualniania, aby określić wymuszenie ponownego uruchomienia Service Fabric środowiska uruchomieniowego na każdym węźle w miarę postępu uaktualniania przez klaster. To ponowne uruchomienie zapewnia, że nowo włączona usługa systemu zostanie uruchomiona i uruchomiona w każdym węźle. W poniższym fragmencie kodu `forceRestart` jest to podstawowe ustawienie umożliwiające ponowne uruchomienie. W przypadku pozostałych parametrów należy użyć wartości opisanych poniżej lub użyć istniejących wartości niestandardowych już określonych dla zasobu klastra. Ustawienia niestandardowe dla zasad uaktualniania sieci szkieletowej ("upgradeDescription") można wyświetlić w witrynie Azure Portal, wybierając opcję "Ustawienia sieci szkieletowej" w zasobie Service Fabric lub resources.azure.com. Domyślne opcje dla zasad uaktualniania ("upgradeDescription") nie są widoczne w programie PowerShell lub resources.azure.com. Aby uzyskać dodatkowe informacje, zobacz [ClusterUpgradePolicy](/dotnet/api/microsoft.azure.management.servicefabric.models.clusterupgradepolicy?view=azure-dotnet) .  
+Aby zmiany zaczęły obowiązywać, należy również zmienić zasady uaktualniania, aby określić wymuszenie ponownego uruchomienia Service Fabric środowiska uruchomieniowego na każdym węźle w miarę postępu uaktualniania przez klaster. To ponowne uruchomienie zapewnia, że nowo włączona usługa systemu zostanie uruchomiona i uruchomiona w każdym węźle. W poniższym fragmencie kodu `forceRestart` jest to podstawowe ustawienie umożliwiające ponowne uruchomienie. W przypadku pozostałych parametrów należy użyć wartości opisanych poniżej lub użyć istniejących wartości niestandardowych już określonych dla zasobu klastra. Ustawienia niestandardowe dla zasad uaktualniania sieci szkieletowej ("upgradeDescription") można wyświetlić w witrynie Azure Portal, wybierając opcję "Ustawienia sieci szkieletowej" w zasobie Service Fabric lub resources.azure.com. Domyślne opcje dla zasad uaktualniania ("upgradeDescription") nie są widoczne w programie PowerShell lub resources.azure.com. Aby uzyskać dodatkowe informacje, zobacz [ClusterUpgradePolicy](/dotnet/api/microsoft.azure.management.servicefabric.models.clusterupgradepolicy) .  
 
 ```json
 "upgradeDescription": {

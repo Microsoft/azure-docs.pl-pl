@@ -3,12 +3,12 @@ title: Aktualizowanie delegacji
 description: Dowiedz się, jak zaktualizować delegowanie dla klienta, który został wcześniej dołączony do usługi Azure Lighthouse.
 ms.date: 12/03/2020
 ms.topic: how-to
-ms.openlocfilehash: e204d1f3546e6e978f91c7e808065a388a4af4b3
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: eec5d1f2d34e8e3c9e0ded59cb111624b1981873
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093421"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791343"
 ---
 # <a name="update-a-delegation"></a>Aktualizowanie delegacji
 
@@ -58,9 +58,9 @@ Po zakończeniu wdrażania [upewnij się, że zakończyło się pomyślnie](onbo
 
 ## <a name="updating-managed-service-offers"></a>Aktualizowanie ofert usług zarządzanych
 
-Jeśli klient został dołączony do oferty usługi zarządzanej opublikowanej w portalu Azure Marketplace i chcesz zaktualizować autoryzacje, możesz zaktualizować delegowanie, [publikując nową wersję oferty](../../marketplace/partner-center-portal/update-existing-offer.md) przy użyciu [autoryzacji](../../marketplace/partner-center-portal/create-new-managed-service-offer.md#authorization) , które mają zostać zaktualizowane w planie dla tego klienta. Klient będzie mógł następnie zaktualizować do najnowszej wersji w Azure Portal.
+Jeśli klient został dołączony do oferty usługi zarządzanej opublikowanej w portalu Azure Marketplace i chcesz zaktualizować autoryzacje, możesz zaktualizować delegowanie, [publikując nową wersję oferty](../../marketplace/partner-center-portal/update-existing-offer.md) przy użyciu [autoryzacji](../../marketplace/plan-managed-service-offer.md) , które mają zostać zaktualizowane w planie dla tego klienta. Klient będzie mógł następnie zaktualizować do najnowszej wersji w Azure Portal.
 
-Jeśli chcesz zmienić dzierżawę zarządzającą, musisz [utworzyć i opublikować nową ofertę usługi zarządzanej](../../marketplace/partner-center-portal/create-new-managed-service-offer.md) , która zostanie zaakceptowana przez klienta.
+Jeśli chcesz zmienić dzierżawę zarządzającą, musisz [utworzyć i opublikować nową ofertę usługi zarządzanej](../../marketplace/plan-managed-service-offer.md) , która zostanie zaakceptowana przez klienta.
 
 > [!TIP]
 > Jak wspomniano wcześniej, zalecamy, aby nie używać wielu różnych ofert między tym samym klientem i zarządzaniem dzierżawcą. Jeśli opublikujesz nową ofertę dla tego samego klienta, który używa tej samej dzierżawy zarządzającej, upewnij się, że wcześniejsza oferta została usunięta, zanim klient zaakceptuje nowszą ofertę.

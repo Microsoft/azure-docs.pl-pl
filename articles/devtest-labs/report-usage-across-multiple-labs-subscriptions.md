@@ -3,12 +3,12 @@ title: Azure DevTest Labs użycie w wielu laboratoriach i subskrypcjach
 description: Dowiedz się, jak raportować użycie Azure DevTest Labs w wielu laboratoriach i subskrypcjach.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 9640dc3fd74095a737f382994201dc5610af921a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d789b9849ec798a396e99420649792937422470f
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152205"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789942"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>Raportowanie użycia Azure DevTest Labs w wielu laboratoriach i subskrypcjach
 
@@ -82,5 +82,5 @@ Po skonfigurowaniu systemu i przeniesieniu danych do magazynu długoterminowego 
     Czy użytkownicy wybierają Wysokie rozmiary maszyn wirtualnych?
 -   Które obrazy z portalu Marketplace są używane?
 
-    Są obrazami niestandardowymi najbardziej typową bazą maszyn wirtualnych, w przypadku których wspólny magazyn obrazów jest kompilowany jako [Galeria obrazów udostępnionych](../virtual-machines/windows/shared-image-galleries.md) lub [fabryka obrazów](image-factory-create.md).
+    Są obrazami niestandardowymi najbardziej typową bazą maszyn wirtualnych, w przypadku których wspólny magazyn obrazów jest kompilowany jako [Galeria obrazów udostępnionych](../virtual-machines/shared-image-galleries.md) lub [fabryka obrazów](image-factory-create.md).
 -   Które obrazy niestandardowe są używane lub nie są używane?
