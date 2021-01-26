@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 43eae43d11a48ee6c395e4a86b8e8c1353843991
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 7173efd3dab0e8d2fd3c948a3a9bac07641e78f3
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131456"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98792086"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>Model odbioru prekompilowanego aparatu rozpoznawania formularzy
 
-Aparat rozpoznawania formularzy platformy Azure umożliwia analizowanie i wyodrębnianie informacji z przyjęć sprzedaży przy użyciu wbudowanego modelu paragonów. Łączy nasze zaawansowane funkcje [rozpoznawania znaków optycznych (OCR)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) z opcją odbioru, która umożliwia zrozumienie modeli uczenia głębokiego w celu wyodrębnienia najważniejszych informacji z przyjęć w języku angielskim. Interfejs API paragonu wyodrębnia najważniejsze informacje z przyjęć sprzedaży w języku angielskim, takie jak nazwa handlowa, Data transakcji, Suma transakcji, elementy wiersza itd. 
+Aparat rozpoznawania formularzy platformy Azure umożliwia analizowanie i wyodrębnianie informacji z przyjęć sprzedaży przy użyciu wbudowanego modelu paragonów. Łączy nasze zaawansowane funkcje [rozpoznawania znaków optycznych (OCR)](../computer-vision/concept-recognizing-text.md) z opcją odbioru, która umożliwia zrozumienie modeli uczenia głębokiego w celu wyodrębnienia najważniejszych informacji z przyjęć w języku angielskim. Interfejs API paragonu wyodrębnia najważniejsze informacje z przyjęć sprzedaży w języku angielskim, takie jak nazwa handlowa, Data transakcji, Suma transakcji, elementy wiersza itd. 
 
 ## <a name="understanding-receipts"></a>Informacje o potwierdzeniach 
 
@@ -44,7 +44,7 @@ Wstępnie utworzona usługa paragonów wyodrębnia zawartość otrzymanych danyc
 | Sprzedawcy | ciąg | Nazwa sprzedawcy, który wystawił potwierdzenie | Contoso |  |
 | MerchantPhoneNumber | phoneNumber | Numer telefonu handlowego na liście | 987-654-3210 | + 19876543210 |
 | MerchantAddress | ciąg | Na liście adres handlowca | 123, główny St Redmond WA 98052 |  |
-| TransactionDate | date | Data wystawienia potwierdzenia | 06, 2019 | 2019-06-26  |
+| TransactionDate | data | Data wystawienia potwierdzenia | 06, 2019 | 2019-06-26  |
 | TransactionTime | time | Godzina wystawienia potwierdzenia | 4:49 PM | 16:49:00  |
 | Łącznie | liczba | Całkowita suma przychodów | $14,34 | 14,34 |
 | Suma częściowa | liczba | Suma częściowa przychodu, często przed opodatkowaniem, jest stosowana | $12,34 | 12.34 |
@@ -52,7 +52,7 @@ Wstępnie utworzona usługa paragonów wyodrębnia zawartość otrzymanych danyc
 | Porada | liczba | Porada dołączona przez kupującego | $1,00 | 1,00 |
 | Elementy | Tablica obiektów | Wyodrębnione elementy wiersza, z nazwami, ilością, ceną jednostkową i łączną ceną wyekstrahowaną | |
 | Nazwa | ciąg | Nazwa elementu | Surface Pro 6 | |
-| Ilość | liczba | Ilość każdego elementu | 1 | |
+| Liczba | liczba | Ilość każdego elementu | 1 | |
 | Cena | liczba | Indywidualna cena każdej jednostki elementu | $999,00 | 999,00 |
 | Cena łączna | liczba | Łączna cena elementu wiersza | $999,00 | 999,00 |
 

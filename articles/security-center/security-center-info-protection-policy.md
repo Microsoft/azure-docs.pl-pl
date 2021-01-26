@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2020
 ms.author: memildin
-ms.openlocfilehash: 0a487f778693e87e680033edd0d80c55d1a85f66
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 34d2e8116b7b914803d1bb68b350c9aadd78439f
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013789"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98792069"
 ---
 # <a name="sql-information-protection-policy-in-azure-security-center"></a>Zasady dotyczące programu SQL Information Protection w Azure Security Center
  
@@ -58,7 +58,7 @@ Każda z nich jest wyświetlana na odpowiedniej karcie poniżej.
 Na stronie **cennika i ustawienia** usługi Security Center wybierz pozycję **SQL Information Protection**.
 
 > [!NOTE]
-> Ta opcja jest wyświetlana tylko dla użytkowników z uprawnieniami na poziomie dzierżawy. 
+> Ta opcja jest wyświetlana tylko dla użytkowników z uprawnieniami na poziomie dzierżawy. [Przyznaj sobie uprawnienia do samego siebie](https://docs.microsoft.com/azure/security-center/security-center-management-groups#grant-tenant-wide-permissions-to-yourself).
 
 :::image type="content" source="./media/security-center-info-protection-policy/pricing-settings-link-to-information-protection.png" alt-text="Uzyskiwanie dostępu do zasad usługi SQL Information Protection ze strony cen i ustawień Azure Security Center":::
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 386e0051a64f73b18c1ff76ed33af5f9eebe8aa0
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 90443a898ffdebf33a0c967719ba25a2ccc6f9a7
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121417"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98792103"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnostyka usługi Load Balancer w warstwie Standardowa przy użyciu metryk, alertów i kondycji zasobów
 
@@ -35,7 +35,7 @@ Azure Load Balancer udostępniają wielowymiarowe metryki za pośrednictwem metr
 
 Różne konfiguracje usługa Load Balancer w warstwie Standardowa zapewniają następujące metryki:
 
-| Metryka | Typ zasobu | Opis | Zalecana agregacja |
+| Metric | Typ zasobu | Opis | Zalecana agregacja |
 | --- | --- | --- | --- |
 | Dostępność ścieżki danych | Publiczny i wewnętrzny moduł równoważenia obciążenia | Usługa Load Balancer w warstwie Standardowa stale wykonuje ścieżkę danych z regionu do frontonu modułu równoważenia obciążenia, aż do stosu SDN, który obsługuje maszynę wirtualną. Tak długo, jak wystąpienia w dobrej kondycji, pomiar jest zgodny z tą samą ścieżką, co ruch o zrównoważonym obciążeniu aplikacji. Ścieżka danych używana przez klientów również jest sprawdzana. Pomiar jest niewidoczny dla aplikacji i nie zakłóca innych operacji.| Średnia |
 | Stan sondy kondycji | Publiczny i wewnętrzny moduł równoważenia obciążenia | Usługa Load Balancer w warstwie Standardowa używa rozproszonej usługi badania kondycji, która monitoruje kondycję punktu końcowego aplikacji zgodnie z ustawieniami konfiguracji. Ta metryka zawiera zagregowany widok lub widok filtrowany dla każdego punktu końcowego wystąpienia w puli modułu równoważenia obciążenia. Możesz zobaczyć, jak moduł równoważenia obciążenia przegląda kondycję aplikacji, zgodnie z konfiguracją sondy kondycji. |  Średnia |
@@ -239,8 +239,8 @@ Stan kondycji zasobów usługa Load Balancer w warstwie Standardowa jest udostę
 | Stan kondycji zasobu | Opis |
 | --- | --- |
 | Dostępne | Zasób standardowego modułu równoważenia obciążenia jest w dobrej kondycji i jest dostępny. |
-| Obniżona wydajność | Moduł równoważenia obciążenia w warstwie Standardowa ma zdarzenia zainicjowane przez platformę lub użytkownika, które mają wpływ na wydajność. Metryka Dostępność ścieżki danych od co najmniej dwóch minut zgłasza kondycję niższą niż 90%, ale wyższą niż 25%. Zostanie napotkany umiarkowany wpływ na wydajność. [Postępuj zgodnie z przewodnikiem rozwiązywania problemów z systemie RHC występuje,](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) aby ustalić, czy istnieją zdarzenia zainicjowane przez użytkownika, które powodują wpływ na dostępność.
-| Niedostępny | Zasób standardowego modułu równoważenia obciążenia nie jest w dobrej kondycji. Metryka dostępności ścieżki datapath zgłosiła mniej niż 25% kondycji przez co najmniej dwie minuty. Wystąpi znaczny wpływ na wydajność lub brak dostępności dla łączności przychodzącej. Mogą istnieć zdarzenia użytkownika lub platformy powodujące niedostępność. [Postępuj zgodnie z przewodnikiem rozwiązywania problemów z systemie RHC występuje,](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) aby ustalić, czy istnieją zdarzenia zainicjowane przez użytkownika, które mają wpływ na dostępność. |
+| Obniżona wydajność | Moduł równoważenia obciążenia w warstwie Standardowa ma zdarzenia zainicjowane przez platformę lub użytkownika, które mają wpływ na wydajność. Metryka Dostępność ścieżki danych od co najmniej dwóch minut zgłasza kondycję niższą niż 90%, ale wyższą niż 25%. Zostanie napotkany umiarkowany wpływ na wydajność. [Postępuj zgodnie z przewodnikiem rozwiązywania problemów z systemie RHC występuje,](./troubleshoot-rhc.md) aby ustalić, czy istnieją zdarzenia zainicjowane przez użytkownika, które powodują wpływ na dostępność.
+| Niedostępny | Zasób standardowego modułu równoważenia obciążenia nie jest w dobrej kondycji. Metryka dostępności ścieżki datapath zgłosiła mniej niż 25% kondycji przez co najmniej dwie minuty. Wystąpi znaczny wpływ na wydajność lub brak dostępności dla łączności przychodzącej. Mogą istnieć zdarzenia użytkownika lub platformy powodujące niedostępność. [Postępuj zgodnie z przewodnikiem rozwiązywania problemów z systemie RHC występuje,](./troubleshoot-rhc.md) aby ustalić, czy istnieją zdarzenia zainicjowane przez użytkownika, które mają wpływ na dostępność. |
 | Nieznane | Stan kondycji zasobu dla zasobu standardowego modułu równoważenia obciążenia nie został jeszcze zaktualizowany lub nie otrzymał informacji o dostępności ścieżki danych dla ostatnich 10 minut. Ten stan powinien występować przejściowo i zmienić się na prawidłowy stan po otrzymaniu danych. |
 
 Aby wyświetlić kondycję publicznych zasobów usługa Load Balancer w warstwie Standardowa:
