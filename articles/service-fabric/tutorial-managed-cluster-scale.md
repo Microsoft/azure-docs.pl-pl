@@ -3,12 +3,12 @@ title: Skalowanie w poziomie Service Fabric klastra zarządzanego (wersja zapozn
 description: W tym samouczku dowiesz się, jak skalować typ węzła w klastrze zarządzanym Service Fabric.
 ms.topic: tutorial
 ms.date: 09/28/2020
-ms.openlocfilehash: 01b299744d462496296884211eff08b7a9c64687
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 769bcb339b2cc1419c7a3d92d0f08130029a9f95
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316139"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785434"
 ---
 # <a name="tutorial-scale-out-a-service-fabric-managed-cluster-preview"></a>Samouczek: skalowanie w poziomie Service Fabric klastra zarządzanego (wersja zapoznawcza)
 
@@ -28,7 +28,7 @@ Ta część serii obejmuje następujące elementy:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Klaster zarządzany Service Fabric (zobacz [*wdrażanie zarządzanego klastra*](tutorial-managed-cluster-deploy.md)).
-* [Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps?preserve-view=true&view=azps-4.7.0#azservicefabric) lub nowszy (zobacz [*Install Azure PowerShell*](/powershell/azure/install-az-ps?preserve-view=true&view=azps-4.7.0)).
+* [Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps#azservicefabric) lub nowszy (zobacz [*Install Azure PowerShell*](/powershell/azure/install-az-ps)).
 
 ## <a name="scale-a-service-fabric-managed-cluster"></a>Skalowanie klastra zarządzanego Service Fabric
 Zmień liczbę wystąpień, aby zwiększyć lub zmniejszyć liczbę węzłów w typie węzła, który ma być skalowany. Nazwy typów węzłów można znaleźć w szablonie Azure Resource Manager (szablon ARM) we wdrożeniu klastra lub w Service Fabric Explorer.  

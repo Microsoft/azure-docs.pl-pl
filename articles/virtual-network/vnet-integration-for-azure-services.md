@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: kumud
-ms.openlocfilehash: a29454f09268406511730c63dcc3bc3063b909c6
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 2c0c4bec93b8fa61275c376fbae2a3a063e72a6f
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218658"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785536"
 ---
 # <a name="integrate-azure-services-with-virtual-networks-for-network-isolation"></a>Integrowanie usług platformy Azure z sieciami wirtualnymi na potrzeby izolacji sieci
 
@@ -76,6 +76,6 @@ Aby uzyskać więcej informacji na temat tagów usługi i usług platformy Azure
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się [, jak zintegrować aplikację z siecią platformy Azure](../app-service/web-sites-integrate-with-vnet.md).
+- Dowiedz się, jak [zintegrować aplikację z siecią platformy Azure](../app-service/web-sites-integrate-with-vnet.md).
 - Dowiedz się, jak [ograniczyć dostęp do zasobów przy użyciu tagów usługi](tutorial-restrict-network-access-to-resources.md).
 - Dowiedz się, jak [połączyć się prywatnie z kontem usługi Azure Cosmos przy użyciu prywatnego linku platformy Azure](../private-link/tutorial-private-endpoint-cosmosdb-portal.md).

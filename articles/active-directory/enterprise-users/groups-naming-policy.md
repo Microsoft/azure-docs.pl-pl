@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4c1c30e4651136ada7264cad8ff4d3921c3aeeb
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 894a90c50f968c892a76160a7375f11fe09390d6
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547920"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785003"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Wymuś zasady nazewnictwa w grupach Microsoft 365 w Azure Active Directory
 
@@ -72,6 +72,7 @@ Zablokowane reguły listy słów:
 Aby skonfigurować zasady nazewnictwa, wymagana jest jedna z następujących ról:
 - Administrator globalny
 - Administrator grupy
+- Zapisywarka katalogów
 
 
 Wybrani Administratorzy mogą być wykluczeni z tych zasad, we wszystkich obciążeniach grup i punktach końcowych, dzięki czemu mogą tworzyć grupy przy użyciu zablokowanych słów i własnych konwencji nazewnictwa. Poniżej znajduje się lista ról administratorów wykluczonych z zasad nazewnictwa grup.

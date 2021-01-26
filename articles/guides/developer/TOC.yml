@@ -15,7 +15,7 @@
         - name: Windows
           href: ../../virtual-machines/windows/quick-create-portal.md
     - name: Praca bezserwerowa
-      href: ../../azure-functions/functions-create-first-azure-function.md
+      href: ../../azure-functions/functions-get-started.md
     - name: Mikrousługi
       items:
         - name: Service Fabric
@@ -53,17 +53,17 @@
         - name: Web Apps
           href: ../../app-service/samples-cli.md
         - name: Maszyna wirtualna z systemem Linux
-          href: ../../virtual-machines/linux/cli-samples.md
+          href: 'https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine'
         - name: Maszyna wirtualna z systemem Windows
-          href: ../../virtual-machines/windows/cli-samples.md
+          href: 'https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine'
     - name: Azure PowerShell
       items:
         - name: Web Apps
           href: ../../app-service/samples-powershell.md
         - name: Maszyna wirtualna z systemem Linux
-          href: ../../virtual-machines/linux/powershell-samples.md
+          href: 'https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine'
         - name: Maszyna wirtualna z systemem Windows
-          href: ../../virtual-machines/windows/powershell-samples.md
+          href: 'https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine'
 - name: Pojęcia
   items:
     - name: Rozliczenia i subskrypcje

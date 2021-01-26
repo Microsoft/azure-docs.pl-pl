@@ -4,12 +4,12 @@ description: Konfigurowanie certyfikatów dla aplikacji za pomocą środowiska u
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: pepogors
-ms.openlocfilehash: a97c8b8315fe3be405aed9c6570004afb8fafd1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70f9cc38d84681f68c10882889214648a4dd2624
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258674"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785570"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Certyfikaty i zabezpieczenia w klastrach systemu Linux
 
@@ -21,7 +21,7 @@ Service Fabric zazwyczaj oczekuje, że certyfikaty X. 509 mają być obecne w ka
 
 W przypadku klastrów systemu Linux Service Fabric oczekuje, że certyfikaty mają być obecne jako plik PEM zawierający zarówno certyfikat, jak i klucz prywatny, albo plik CRT zawierający certyfikat i plik klucza, który zawiera klucz prywatny. Wszystkie pliki powinny mieć format PEM. 
 
-W przypadku instalowania certyfikatu z Azure Key Vault przy użyciu [szablonu Menedżer zasobów](./service-fabric-cluster-creation-create-template.md) lub poleceń [programu PowerShell](/powershell/module/az.servicefabric/?view=azps-2.6.0) certyfikat zostanie zainstalowany w poprawnym formacie w katalogu */var/lib/sfcerts* w każdym węźle. Jeśli certyfikat jest instalowany za pomocą innej metody, należy się upewnić, że certyfikat jest prawidłowo zainstalowany w węzłach klastra.
+W przypadku instalowania certyfikatu z Azure Key Vault przy użyciu [szablonu Menedżer zasobów](./service-fabric-cluster-creation-create-template.md) lub poleceń [programu PowerShell](/powershell/module/az.servicefabric/) certyfikat zostanie zainstalowany w poprawnym formacie w katalogu */var/lib/sfcerts* w każdym węźle. Jeśli certyfikat jest instalowany za pomocą innej metody, należy się upewnić, że certyfikat jest prawidłowo zainstalowany w węzłach klastra.
 
 ## <a name="certificates-referenced-in-the-application-manifest"></a>Certyfikaty, do których odwołuje się manifest aplikacji
 

@@ -1,7 +1,7 @@
 ---
 title: Obliczanie rozmiaru kontenera obiektów BLOB za pomocą programu PowerShell
 titleSuffix: Azure Storage
-description: Obliczanie rozmiaru kontenera w usłudze Azure Blob Storage przez zsumowanie rozmiaru wszystkich zawartych w nim obiektów blob.
+description: Oblicz rozmiar kontenera w usłudze Azure Blob Storage, sumując rozmiar każdego z obiektów BLOB.
 services: storage
 author: tamram
 ms.service: storage
@@ -11,16 +11,16 @@ ms.topic: sample
 ms.date: 12/04/2019
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: de275bcca1644750532809b35ae85d954d3cac6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87ef18530c549396b7d8fe1ec4ff0e08cb8535e8
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89076909"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784278"
 ---
 # <a name="calculate-the-size-of-a-blob-container-with-powershell"></a>Obliczanie rozmiaru kontenera obiektów BLOB za pomocą programu PowerShell
 
-Ten skrypt oblicza rozmiar kontenera w usłudze Azure Blob Storage przez zsumowanie rozmiaru obiektów blob w tym kontenerze.
+Ten skrypt oblicza rozmiar kontenera w usłudze Azure Blob Storage przez zsumowanie rozmiaru obiektów BLOB w kontenerze.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 

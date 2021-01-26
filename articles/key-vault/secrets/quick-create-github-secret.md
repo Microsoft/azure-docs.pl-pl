@@ -8,12 +8,12 @@ ms.date: 11/24/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 9509f84b14a42180189a529282b5db348deab279
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c1e8062210de1d7d99f57a4e0b155492f7dfdd9a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95920284"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785980"
 ---
 # <a name="use-key-vault-secrets-in-github-actions-workflows"></a>Używanie Key Vault wpisów tajnych w przepływach pracy akcji usługi GitHub
 
@@ -25,7 +25,7 @@ Dzięki akcjom Key Vault i GitHub masz zalety scentralizowanego narzędzia do za
 ## <a name="prerequisites"></a>Wymagania wstępne 
 - Konto usługi GitHub. Jeśli nie masz takiego konta, zarejestruj się [bezpłatnie](https://github.com/join).  
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Aplikacja platformy Azure połączona z repozytorium GitHub. W tym przykładzie zastosowano [kontenery wdrażania do Azure App Service](https://docs.microsoft.com/azure/developer/javascript/tutorial-vscode-docker-node-01). 
+- Aplikacja platformy Azure połączona z repozytorium GitHub. W tym przykładzie zastosowano [kontenery wdrażania do Azure App Service](/azure/developer/javascript/tutorial-vscode-docker-node-01). 
 - Magazyn kluczy platformy Azure.  Azure Key Vault można utworzyć przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure lub Azure PowerShell.
 
 ## <a name="workflow-file-overview"></a>Omówienie pliku przepływu pracy
@@ -39,7 +39,7 @@ Plik ma na celu uwierzytelnianie przy użyciu dwóch sekcji akcji usługi GitHub
 |**Authentication** | 1. Zdefiniuj nazwę główną usługi. <br /> 2. Utwórz wpis tajny usługi GitHub. <br /> 3. Dodaj przypisanie roli. |
 |**Usługa Key Vault** | 1. Dodaj akcję magazynu kluczy. <br /> 2. odwołuje się do wpisu tajnego magazynu kluczy. |
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Uwierzytelnianie
 
 Za pomocą polecenia [AZ AD Sp Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) można utworzyć jednostkę [usługi](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) [.](/cli/azure/) Uruchom to polecenie z [Azure Cloud Shell](https://shell.azure.com/) w Azure Portal lub wybierając przycisk **Wypróbuj** .
 

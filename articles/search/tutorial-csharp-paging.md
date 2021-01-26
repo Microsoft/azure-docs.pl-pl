@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/26/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: a08756a1e3153aa69bd0e79dc23e88d4bf211e5d
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: bad4bc4d0016b2898b315bfb9799dc8972be7b12
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950690"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785873"
 ---
 # <a name="tutorial-add-paging-to-search-results-using-the-net-sdk"></a>Samouczek: Dodawanie stronicowania do wyników wyszukiwania przy użyciu zestawu .NET SDK
 
@@ -304,7 +304,7 @@ Ma otwarte rozwiązanie podstawowego strony wyszukiwania.
     }
     ```
 
-1. Metoda **RunQueryAsync** wprowadzona w poprzedniej lekcji wymaga modyfikacji w celu rozpoznania błędu składni. Używamy pól **Skip**, **size**i **IncludeTotalCount** klasy [**SearchOptions zawierają**](/dotnet/api/azure.search.documents.searchoptions) , aby żądać tylko jednej strony wyników, zaczynając od ustawienia **pomijania** . Musimy również obliczyć zmienne stronicowania dla tego widoku. Zastąp całą metodę poniższym kodem.
+1. Metoda **RunQueryAsync** wprowadzona w poprzedniej lekcji wymaga modyfikacji w celu rozpoznania błędu składni. Używamy pól **Skip**, **size** i **IncludeTotalCount** klasy [**SearchOptions zawierają**](/dotnet/api/azure.search.documents.searchoptions) , aby żądać tylko jednej strony wyników, zaczynając od ustawienia **pomijania** . Musimy również obliczyć zmienne stronicowania dla tego widoku. Zastąp całą metodę poniższym kodem.
 
     ```csharp
     private async Task<ActionResult> RunQueryAsync(SearchData model, int page, int leftMostPage)
@@ -439,9 +439,9 @@ Aby zaimplementować nieskończoność przewijania, Zacznijmy od projektu przed 
 
 ### <a name="add-a-vertical-scroll-bar-to-the-view"></a>Dodaj pionowy pasek przewijania do widoku
 
-1. Zlokalizuj sekcję pliku index. cshtml, który wyświetla wyniki (zaczyna się od ** @if (model! = null)**).
+1. Zlokalizuj sekcję pliku index. cshtml, który wyświetla wyniki (zaczyna się od **@if (model! = null)**).
 
-1. Zastąp sekcję poniższym kodem. Nowa sekcja ** &lt; DIV &gt; ** znajduje się wokół obszaru, który powinien być przewijalny i dodaje zarówno atrybut **overflow-y** , jak i wywołanie funkcji **OnScroll** o nazwie "scrolled ()", tak jak to zrobić.
+1. Zastąp sekcję poniższym kodem. Nowa sekcja **&lt; DIV &gt;** znajduje się wokół obszaru, który powinien być przewijalny i dodaje zarówno atrybut **overflow-y** , jak i wywołanie funkcji **OnScroll** o nazwie "scrolled ()", tak jak to zrobić.
 
     ```csharp
     @if (Model != null)
@@ -582,7 +582,7 @@ Istnieją tylko trzy akcje, które muszą zostać wysłane do kontrolera: pierws
     }
     ```
 
-1. Jeśli wystąpi błąd składniowy w ** &lt; ciągu &gt; listy**, Dodaj następującą dyrektywę **using** do nagłówka pliku kontrolera.
+1. Jeśli wystąpi błąd składniowy w **&lt; ciągu &gt; listy**, Dodaj następującą dyrektywę **using** do nagłówka pliku kontrolera.
 
     ```csharp
     using System.Collections.Generic;
@@ -597,7 +597,7 @@ Teraz wybierz pozycję **Uruchom bez debugowania** (lub naciśnij klawisz F5).
     ![Nieskończone przewijanie w wyniku "puli"](./media/tutorial-csharp-create-first-app/azure-search-infinite-scroll.png)
 
     > [!Tip]
-    > Aby mieć pewność, że na pierwszej stronie pojawi się pasek przewijania, pierwsza strona wyników musi nieco przekroczyć wysokość obszaru, w którym są wyświetlane. W naszym przykładzie **. BOX1** ma wysokość 30 pikseli, **. box2** ma wysokość 100 pikseli _i_ dolny margines 24 pikseli. Dlatego każdy wpis używa 154 pikseli. Trzy wpisy zajmieją 3 x 154 = 462 pikseli. Aby mieć pewność, że zostanie wyświetlony pionowy pasek przewijania, Wysokość do obszaru wyświetlania musi być mniejsza niż 462 pikseli, nawet 461. Ten problem występuje tylko na pierwszej stronie, gdy pasek przewijania jest widoczny. Wierszem do zaktualizowania jest: ** &lt; DIV ID = "myDiv" Style = "width: 800px; Height: 450px; overflow-y: Scroll;" OnScroll = "scrolled () &gt; "**.
+    > Aby mieć pewność, że na pierwszej stronie pojawi się pasek przewijania, pierwsza strona wyników musi nieco przekroczyć wysokość obszaru, w którym są wyświetlane. W naszym przykładzie **. BOX1** ma wysokość 30 pikseli, **. box2** ma wysokość 100 pikseli _i_ dolny margines 24 pikseli. Dlatego każdy wpis używa 154 pikseli. Trzy wpisy zajmieją 3 x 154 = 462 pikseli. Aby mieć pewność, że zostanie wyświetlony pionowy pasek przewijania, Wysokość do obszaru wyświetlania musi być mniejsza niż 462 pikseli, nawet 461. Ten problem występuje tylko na pierwszej stronie, gdy pasek przewijania jest widoczny. Wierszem do zaktualizowania jest: **&lt; DIV ID = "myDiv" Style = "width: 800px; Height: 450px; overflow-y: Scroll;" OnScroll = "scrolled () &gt; "**.
 
 1. Przewiń w dół do końca wyników. Zwróć uwagę na to, jak wszystkie informacje są teraz na stronie jednego widoku. Można przewijać wszystko z powrotem do góry bez wyzwalania wywołań serwera.
 

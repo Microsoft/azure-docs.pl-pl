@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 10/05/2020
+ms.date: 01/22/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 202a7f6b01423045fe7c72db5b42c29ae58f648d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 06c0b25bcf64cfce01b4144550ef69da8c96ee0e
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013840"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785857"
 ---
 # <a name="tutorial-add-autocomplete-and-suggestions-using-the-net-sdk"></a>Samouczek: Dodawanie funkcji Autouzupełnianie i sugestii przy użyciu zestawu .NET SDK
 
@@ -317,7 +317,7 @@ Istnieją biblioteki, które oferują tę funkcję — często nazywane "wbudowa
 
     Jedna opcja autouzupełniania jest zwracana u góry listy **wyników** , a następnie wszystkie sugestie.
 
-1. W widoku najpierw implementujemy lewę, aby jasne, szare słowo uzupełniające jest renderowane bezpośrednio w obszarze tekstu pogrubionego przez użytkownika. Język HTML zawiera Pozycjonowanie względne do tego celu. Zmień instrukcję **TextBoxFor** (i jej otaczające &lt; &gt; instrukcje DIV) na następujące polecenie, zwracając uwagę, że drugie pole wyszukiwania identyfikowane **underneath** jako część jest bezpośrednio pod naszym normalnym polem wyszukiwania, pobierając to pole wyszukiwania 39 pikseli z lokalizacji domyślnej.
+1. W widoku najpierw implementujemy lewę, aby jasne, szare słowo uzupełniające jest renderowane bezpośrednio w obszarze tekstu pogrubionego przez użytkownika. Język HTML zawiera Pozycjonowanie względne do tego celu. Zmień instrukcję **TextBoxFor** (i jej otaczające &lt; &gt; instrukcje DIV) na następujące polecenie, zwracając uwagę, że drugie pole wyszukiwania identyfikowane  jako część jest bezpośrednio pod naszym normalnym polem wyszukiwania, pobierając to pole wyszukiwania 39 pikseli z lokalizacji domyślnej.
 
     ```cs
     <div id="underneath" class="searchBox" style="position: relative; left: 0; top: 0">

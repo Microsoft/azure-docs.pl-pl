@@ -1,5 +1,5 @@
 ---
-title: Konfigurowanie ochrony tożsamości i dostępu warunkowego w Azure AD B2C
+title: Konfigurowanie ochrony tożsamości i dostępu warunkowego w usłudze Azure AD B2C
 description: Dowiedz się, jak skonfigurować ochronę tożsamości i dostęp warunkowy dla Azure AD B2C dzierżawy, aby wyświetlić ryzykowne logowania i inne zdarzenia związane z ryzykiem oraz utworzyć zasady na podstawie wykrytych zagrożeń.
 services: active-directory
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2472183673e5f06f5664a306a69d14c2eaf5f82d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 654206bccd25bf09fcdc5c3e7ee72ba97c75af2a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949772"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785485"
 ---
-# <a name="set-up-identity-protection-and-conditional-access-in-azure-ad-b2c"></a>Konfigurowanie ochrony tożsamości i dostępu warunkowego w Azure AD B2C
+# <a name="set-up-identity-protection-and-conditional-access-in-azure-ad-b2c"></a>Konfigurowanie ochrony tożsamości i dostępu warunkowego w usłudze Azure AD B2C
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -94,9 +94,7 @@ Aby dodać zasady dostępu warunkowego oparte na wykryciu ryzyka ochrony tożsam
 
 1. W obszarze **zabezpieczenia** wybierz pozycję **dostęp warunkowy (wersja zapoznawcza)**. Zostanie otwarta strona **zasady dostępu warunkowego** . 
 
-1. Wybierz pozycję **nowe zasady** i postępuj zgodnie z dokumentacją dostępu warunkowego usługi Azure AD, aby utworzyć nowe zasady. Poniżej przedstawiono przykład:
-
-   - [Dostęp warunkowy na podstawie ryzyka związanego z logowaniem: Włączanie przy użyciu zasad dostępu warunkowego](../active-directory/conditional-access/howto-conditional-access-policy-risk.md#enable-with-conditional-access-policy)
+1. Wybierz pozycję **nowe zasady** i postępuj zgodnie z dokumentacją dostępu warunkowego usługi Azure AD, aby utworzyć nowe zasady. W przypadku zasad opartych na ryzyku należy skonfigurować oddzielne zasady na podstawie [ryzyka użytkownika](../active-directory/conditional-access/howto-conditional-access-policy-risk-user.md#enable-with-conditional-access-policy) lub [ryzyka związanego z logowaniem](../active-directory/conditional-access/howto-conditional-access-policy-risk.md#enable-with-conditional-access-policy) w zależności od typu ryzyka, które ma być używane jako warunek. Nie zaleca się używania obu typów ryzyka w ramach jednej zasady.
 
    > [!IMPORTANT]
    > Wybierając użytkowników, do których chcesz zastosować zasady, nie zaznaczaj tylko opcji **Wszyscy użytkownicy** lub Zablokuj logowanie się.

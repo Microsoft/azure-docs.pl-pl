@@ -3,12 +3,12 @@ title: Transakcje i tryby blokowania w niezawodnych kolekcjach
 description: Usługa Azure Service Fabric niezawodny Menedżer stanu i niezawodne transakcje kolekcji oraz blokowanie.
 ms.topic: conceptual
 ms.date: 5/1/2017
-ms.openlocfilehash: 57ca46047641b79d5e4c50ede4a27e16dcec5d89
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 5d2cbb517ea5ca45697cd9124b82e9ef13dd32db
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576727"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784346"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transakcje i tryby blokowania w usłudze Azure Service Fabric niezawodne Kolekcje
 
@@ -18,7 +18,7 @@ Transakcja to sekwencja operacji wykonywanych w ramach pojedynczej jednostki log
 
 * **Niepodzielność**: transakcja musi być niepodzielną jednostką pracy. Innymi słowy, wszystkie modyfikacje danych są wykonywane lub żadne z nich nie są wykonywane.
 * **Spójność**: po zakończeniu transakcji należy pozostawić wszystkie dane w spójnym stanie. Wszystkie wewnętrzne struktury danych muszą być poprawne na końcu transakcji.
-* **Izolacja**: modyfikacje dokonane przez współbieżne transakcje muszą być odizolowane od zmian wprowadzonych przez inne współbieżne transakcje. Poziom izolacji użyty dla operacji w ramach metody [ITransaction](/dotnet/api/microsoft.servicefabric.data.itransaction?view=azure-dotnet) jest określany przez [IReliableState](/dotnet/api/microsoft.servicefabric.data.ireliablestate?view=azure-dotnet) wykonujący operację.
+* **Izolacja**: modyfikacje dokonane przez współbieżne transakcje muszą być odizolowane od zmian wprowadzonych przez inne współbieżne transakcje. Poziom izolacji użyty dla operacji w ramach metody [ITransaction](/dotnet/api/microsoft.servicefabric.data.itransaction) jest określany przez [IReliableState](/dotnet/api/microsoft.servicefabric.data.ireliablestate) wykonujący operację.
 * **Trwałość**: po zakończeniu transakcji jego skutki mają stałe miejsce w systemie. Modyfikacje są zachowywane nawet w przypadku awarii systemu.
 
 ### <a name="isolation-levels"></a>Poziomy izolacji
@@ -84,4 +84,4 @@ W takim przypadku jedna lub obie operacje przekroczą limit czasu. W tym scenari
 * [Powiadomienia Reliable Services](service-fabric-reliable-services-notifications.md)
 * [Reliable Services kopii zapasowej i przywracania (odzyskiwanie po awarii)](service-fabric-reliable-services-backup-restore.md)
 * [Konfiguracja niezawodnego menedżera stanu](service-fabric-reliable-services-configuration.md)
-* [Dokumentacja dla deweloperów dla niezawodnych kolekcji](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
+* [Dokumentacja dla deweloperów dla niezawodnych kolekcji](/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)

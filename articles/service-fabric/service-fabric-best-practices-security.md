@@ -5,18 +5,18 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 90ffd1c01411982f56aed3332c499aa0c10b8a94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7af0a4c26a47644973e936eb37e221853d74c03
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86257602"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784667"
 ---
 # <a name="azure-service-fabric-security"></a>Zabezpieczenia usługi Azure Service Fabric 
 
 Aby uzyskać więcej informacji na temat najlepszych rozwiązań dotyczących [zabezpieczeń platformy Azure](../security/index.yml), zobacz [najlepsze rozwiązania dotyczące usługi Azure Service Fabric Security](../security/fundamentals/service-fabric-best-practices.md)
 
-## <a name="key-vault"></a>Usługa Key Vault
+## <a name="key-vault"></a>Key Vault
 
 [Azure Key Vault](../key-vault/index.yml) to zalecana usługa zarządzania kluczami tajnymi dla aplikacji i klastrów usługi Azure Service Fabric.
 > [!NOTE]
@@ -56,7 +56,7 @@ Aby wdrożyć certyfikaty z podwyższego poziomu magazynu kluczy do zestawu skal
 
 ## <a name="apply-an-access-control-list-acl-to-your-certificate-for-your-service-fabric-cluster"></a>Stosowanie listy Access Control (ACL) do certyfikatu dla klastra Service Fabric
 
-[Rozszerzenia zestawu skalowania maszyn wirtualnych](/cli/azure/vmss/extension?view=azure-cli-latest) Wydawca Microsoft. Azure. servicefabric służy do skonfigurowania zabezpieczeń węzłów.
+[Rozszerzenia zestawu skalowania maszyn wirtualnych](/cli/azure/vmss/extension) Wydawca Microsoft. Azure. servicefabric służy do skonfigurowania zabezpieczeń węzłów.
 Aby zastosować listę ACL do certyfikatów dla procesów klastra Service Fabric, użyj następujących właściwości szablonu Menedżer zasobów:
 
 ```json

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: memildin
-ms.openlocfilehash: 349f0b72ad7f3cb98e8f4ae9105efa9718f0b11b
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: ee9a20d3e5bb6974676d6d7a8285a56247756f64
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752243"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784952"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -39,6 +39,7 @@ Aktualizacje w styczniu obejmują:
 - [Ocena luk w zabezpieczeniach dla maszyn lokalnych i wielochmurowych jest dostępna na potrzeby ogólnie dostępnej wersji](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga)
 - [W wersji zapoznawczej jest teraz dostępna stawka zabezpieczeń dla grup zarządzania](#secure-score-for-management-groups-is-now-available-in-preview)
 - [Interfejs API oceny zabezpieczeń jest publikowany na potrzeby ogólnej dostępności](#secure-score-api-is-released-for-general-availability-ga)
+- [Zawieszonego ochronę DNS dodaną do usługi Azure Defender dla App Service](#dangling-dns-protections-added-to-azure-defender-for-app-service)
 - [Łączniki z obsługą kilku chmur są udostępniane na potrzeby ogólnej dostępności](#multi-cloud-connectors-are-released-for-general-availability-ga)
 - [Wyłącz wszystkie zalecenia z bezpiecznego wyniku dla subskrypcji i grup zarządzania](#exempt-entire-recommendations-from-your-secure-score-for-subscriptions-and-management-groups)
 - [Użytkownicy mogą teraz zażądać widoczności dla całej dzierżawy od administratora globalnego](#users-can-now-request-tenant-wide-visibility-from-their-global-administrator)
@@ -107,13 +108,28 @@ Aby zapoznać się z przykładowymi narzędziami zewnętrznymi z bezpiecznym int
 Dowiedz się więcej o [bezpiecznych kontrolach oceny i zabezpieczeń w Azure Security Center](secure-score-security-controls.md).
 
 
+### <a name="dangling-dns-protections-added-to-azure-defender-for-app-service"></a>Zawieszonego ochronę DNS dodaną do usługi Azure Defender dla App Service
+
+Przejęcia poddomen są typowymi zagrożeniami o wysokiej ważności dla organizacji. Przejęcie poddomeny może wystąpić, gdy istnieje rekord DNS wskazujący na niezainicjowaną witrynę sieci Web. Takie rekordy DNS są również znane jako wpisy "zawieszonego DNS". Rekordy CNAME są szczególnie zagrożone tym zagrożeniem. 
+
+Przejęcia poddomeny umożliwiają uczestnikom zagrożeń przekierowywanie ruchu przeznaczonego dla domeny organizacji do lokacji wykonującej złośliwe działanie.
+
+Usługa Azure Defender dla App Service teraz wykrywa wpisy DNS zawieszonego podczas likwidowania witryny sieci App Service. Jest to moment, w którym wpis DNS wskazuje na nieistniejący zasób, a witryna sieci Web jest narażona na przejęcie poddomeny. Te zabezpieczenia są dostępne niezależnie od tego, czy domeny są zarządzane za pomocą Azure DNS, czy rejestratora domeny zewnętrznej i ma zastosowanie do obu App Service w systemie Windows i App Service na komputerze z systemem Linux.
+
+Więcej informacji:
+
+- [Tabela referencyjna alertów App Service](alerts-reference.md#alerts-azureappserv) — zawiera dwa nowe alerty usługi Azure Defender wyzwalane po wykryciu wpisu DNS zawieszonego
+- [Zapobiegaj zawieszonego wpisów DNS i unikaj przejęcia domen podrzędnych](../security/fundamentals/subdomain-takeover.md) — Poznaj zagrożenie związane z przejęciem poddomeny i aspektem DNS zawieszonego
+- [Wprowadzenie do usługi Azure Defender dla App Service](defender-for-app-service-introduction.md)
+
+
 ### <a name="multi-cloud-connectors-are-released-for-general-availability-ga"></a>Łączniki z obsługą kilku chmur są udostępniane na potrzeby ogólnej dostępności
 
 W przypadku obciążeń w chmurze zwykle obejmujących wiele platform w chmurze usługi zabezpieczeń w chmurze muszą być takie same.
 
 Azure Security Center chroni obciążenia na platformie Azure, Amazon Web Services (AWS) i Google Cloud Platform (GCP).
 
-Połączenie konta AWS lub GCP integruje swoje natywne narzędzia zabezpieczeń, takie jak AWS Security Hub i GCP Security Command Centre do Azure Security Center.
+Połączenie konta AWS lub GCP integruje swoje natywne narzędzia zabezpieczeń, takie jak AWS Security Hub i GCP Security Command Center w Azure Security Center.
 
 Ta możliwość oznacza, że Security Center zapewnia widoczność i ochronę we wszystkich głównych środowiskach chmurowych. Niektóre zalety tej integracji:
 
@@ -153,7 +169,7 @@ Dowiedz się więcej na temat [zwalniania zasobów i rekomendacji z poziomu bezp
 
 ### <a name="users-can-now-request-tenant-wide-visibility-from-their-global-administrator"></a>Użytkownicy mogą teraz zażądać widoczności dla całej dzierżawy od administratora globalnego
 
-Jeśli użytkownik nie ma uprawnień do wyświetlania Security Center danych, zobaczy teraz uprawnienia do żądania połączenia od administratora globalnego swojej organizacji. Żądanie zawiera rolę, której lubisz, oraz uzasadnienie, dlaczego jest to konieczne.
+Jeśli użytkownik nie ma uprawnień do wyświetlania Security Center danych, zobaczy teraz link umożliwiający zażądanie uprawnień od administratora globalnego swojej organizacji. Żądanie zawiera rolę, której lubisz, oraz uzasadnienie, dlaczego jest to konieczne.
 
 :::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="Transparent informujący użytkownika, że może zażądać uprawnień na poziomie dzierżawy.":::
 
@@ -369,7 +385,7 @@ Te narzędzia zostały ulepszone i rozszerzane w następujący sposób:
 
 - **Ulepszone zaawansowane zasady deployifnotexistymi eksportu**. Zasady teraz:
 
-    - **Sprawdź, czy konfiguracja jest włączona.** Jeśli tak nie jest, zasady będą widoczne jako niezgodne i tworzą zgodne zasoby. Dowiedz się więcej o dostarczonych szablonach Azure Policy na karcie "wdrażanie w skali przy użyciu Azure Policy" w temacie [Konfigurowanie eksportu ciągłego](continuous-export.md#set-up-a-continuous-export).
+    - **Sprawdź, czy konfiguracja jest włączona.** Jeśli tak nie jest, zasady będą widoczne jako niezgodne i tworzą zgodne zasoby. Dowiedz się więcej o dostarczonych szablonach Azure Policy na karcie "wdrażanie w skali przy użyciu Azure Policy" w temacie [Konfigurowanie ciągłego eksportowania](continuous-export.md#set-up-a-continuous-export).
 
     - **Obsługa eksportowania wyników dotyczących zabezpieczeń.** Korzystając z szablonów Azure Policy, można skonfigurować eksport ciągły w taki sposób, aby zawierał wyniki. Jest to istotne w przypadku eksportowania zaleceń, które mają zalecenia "Sub", takie jak wyniki z skanerów oceny luk w zabezpieczeniach lub aktualizacje systemu dla zaleceń "nadrzędnej", należy zainstalować na swoich maszynach.
     
@@ -389,7 +405,7 @@ Aktualizacje w listopadzie obejmują:
 - [Lista rekomendacji zawiera teraz filtry](#recommendations-list-now-includes-filters)
 - [Ulepszone i rozszerzone środowisko aprowizacji](#auto-provisioning-experience-improved-and-expanded)
 - [Ocena zabezpieczeń jest teraz dostępna w przypadku eksportu ciągłego (wersja zapoznawcza)](#secure-score-is-now-available-in-continuous-export-preview)
-- [Zalecenie "aktualizacje systemu powinny być zainstalowane na Twoich komputerach" obejmuje teraz zalecenia podrzędne](#system-updates-should-be-installed-on-your-machines-recommendation-now-includes-sub-recommendations)
+- [Zalecenie "aktualizacje systemu powinny być zainstalowane na Twoich komputerach" obejmuje teraz podzalecenia](#system-updates-should-be-installed-on-your-machines-recommendation-now-includes-subrecommendations)
 - [Na stronie Zarządzanie zasadami w Azure Portal teraz jest wyświetlany stan domyślnych przypisań zasad](#policy-management-page-in-the-azure-portal-now-shows-status-of-default-policy-assignments)
 
 ### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>29 zaleceń dotyczących wersji zapoznawczej dodanych w celu zwiększenia zakresu testów zabezpieczeń platformy Azure
@@ -468,13 +484,13 @@ Za pomocą ciągłego eksportowania zabezpieczeń można przesyłać strumieniow
 Dowiedz się więcej o tym, jak [ciągle eksportować Security Center dane](continuous-export.md).
 
 
-### <a name="system-updates-should-be-installed-on-your-machines-recommendation-now-includes-sub-recommendations"></a>Zalecenie "aktualizacje systemu powinny być zainstalowane na Twoich komputerach" obejmuje teraz zalecenia podrzędne
+### <a name="system-updates-should-be-installed-on-your-machines-recommendation-now-includes-subrecommendations"></a>Zalecenie "aktualizacje systemu powinny być zainstalowane na Twoich komputerach" obejmuje teraz podzalecenia
 
-**Aktualizacje systemu powinny być zainstalowane na** zalecanych komputerach. Nowa wersja zawiera zalecenia podrzędne dla każdej brakującej aktualizacji i oferuje następujące udoskonalenia:
+**Aktualizacje systemu powinny być zainstalowane na** zalecanych komputerach. Nowa wersja obejmuje podzalecenia dla każdej brakującej aktualizacji i oferuje następujące udoskonalenia:
 
 - Ponownie zaprojektowane środowisko na Azure Security Center stronach Azure Portal. **Na swoich maszynach należy zainstalować na** stronie Szczegóły rekomendacji zawierającej listę wyników, jak pokazano poniżej. Po wybraniu pojedynczego wyszukiwania zostanie otwarte okienko Szczegóły z linkiem do informacji o korygowaniu oraz z listą zasobów, których to dotyczy.
 
-    :::image type="content" source="./media/upcoming-changes/system-updates-should-be-installed-subassessment.png" alt-text="Otwieranie jednego z zaleceń w portalu w celu uzyskania zaktualizowanego zalecenia":::
+    :::image type="content" source="./media/upcoming-changes/system-updates-should-be-installed-subassessment.png" alt-text="Otwieranie jednego z podstanowień w portalu w celu uzyskania zaktualizowanego zalecenia":::
 
 - Wzbogacone dane dla zalecenia z grafu zasobów platformy Azure (ARG). ARG to usługa platformy Azure, która została zaprojektowana w celu zapewnienia wydajnej eksploracji zasobów. Za pomocą argumentu ARG można wykonywać zapytania na dużą skalę w ramach danego zestawu subskrypcji, dzięki czemu można efektywnie zarządzać środowiskiem. 
 
@@ -560,7 +576,7 @@ Aby uzyskać Azure Security Center, można użyć ARG i [Kusto Query Language (K
 - Wykorzystanie spisu zasobów (ARG)
 - Zarejestrowano przykładowe zapytanie ARG dotyczące [identyfikowania kont bez włączonej usługi uwierzytelniania wieloskładnikowego (MFA)](security-center-identity-access.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)
 
-W ciągu ARG istnieją tabele danych, których można używać w zapytaniach.
+W ciągu ARG istnieją tabele danych, które mogą być używane w zapytaniach.
 
 :::image type="content" source="./media/release-notes/azure-resource-graph-tables.png" alt-text="Eksplorator usługi Azure Resource Graph i dostępne tabele":::
 
@@ -716,7 +732,7 @@ Dowiedz się więcej w [usłudze Azure Defender dla Key Vault](defender-for-key-
 
 Obsługa [Azure Files](../storage/files/storage-files-introduction.md) i [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) jest teraz ogólnie dostępna.
 
-Od 1 października 2020 rozpocznie się naliczanie opłat za ochronę zasobów w tych usługach.
+Od 1 października 2020 rozpocznie się naliczanie opłat za ochronę zasobów przy użyciu tych usług.
 
 Dowiedz się więcej w [usłudze Azure Defender dla magazynu](defender-for-storage-introduction.md).
 
@@ -826,7 +842,7 @@ Udoskonalono następujące zalecenia dotyczące zabezpieczeń dotyczące sieciow
 
 Zalecenia dotyczące wersji zapoznawczej muszą być zdefiniowane w usługach Kubernetes Services są przestarzałe zgodnie z opisem w dokumentacji [usługi Azure Kubernetes](../aks/use-pod-security-policies.md) .
 
-Funkcja zasad zabezpieczeń (wersja zapoznawcza) jest ustawiana jako przestarzała i nie będzie już dostępna po 15 października Azure Policy 2020 AKS.
+Funkcja zasad zabezpieczeń (wersja zapoznawcza) jest ustawiana jako przestarzała i nie będzie już dostępna po 15 października 2020 Azure Policy AKS.
 
 Gdy zasady zabezpieczeń (wersja zapoznawcza) są przestarzałe, należy wyłączyć tę funkcję w przypadku wszystkich istniejących klastrów przy użyciu przestarzałej funkcji w celu przeprowadzania przyszłych uaktualnień klastra i pozostawania w ramach pomocy technicznej systemu Azure.
 
@@ -973,4 +989,4 @@ Wczesna Faza tego projektu obejmuje prywatną wersję zapoznawczą oraz dodanie 
 Można bezpiecznie zignorować te zasady i nie będzie to miało wpływu na Twoje środowisko. Jeśli chcesz je włączyć, Utwórz konto w wersji zapoznawczej, https://aka.ms/SecurityPrP a następnie wybierz jedną z następujących opcji:
 
 1. **Pojedynczej wersji zapoznawczej** — aby dołączyć tylko do tej prywatnej wersji zapoznawczej. Jawnie wskaż "ciągłe skanowanie ASC" jako wersję zapoznawczą, do której chcesz dołączyć.
-1. **Program** będący w toku — zostanie dodany do tego i przyszłych wersji zapoznawczych. Konieczne będzie ukończenie profilu i umowy dotyczącej ochrony prywatności.
+1. **Program** będący w toku — zostanie dodany do tego i przyszłych wersji zapoznawczych. Musisz ukończyć profil i umowę o ochronie prywatności.

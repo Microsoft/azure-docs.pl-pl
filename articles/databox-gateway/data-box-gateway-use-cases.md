@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 10/14/2020
 ms.author: alkohli
-ms.openlocfilehash: f6daee6d4cfc3c074e004fb3835f62218e48d9ff
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 3bf137f968082e677f45c20947793232b9181220
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96583112"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786616"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Przypadki użycia dla Azure Data Box Gateway
 
@@ -40,7 +40,7 @@ Gdy urządzenie jest wypełniane danymi, zaczyna ograniczać szybkość transfer
 
 Użyj Data Box Gateway, jeśli chcesz przechowywać dane przez długi czas w chmurze. Możesz użyć warstwy archiwum magazynu do długoterminowego przechowywania.
 
-Warstwa archiwum jest zoptymalizowana pod kątem przechowywania rzadko używanych danych przez co najmniej 180 dni. Warstwa archiwum zapewnia najniższe koszty magazynowania, ale ma największe koszty dostępu. Aby uzyskać więcej informacji, przejdź do [warstwy dostępu archiwizowanie](/azure/storage/blobs/storage-blob-storage-tiers#archive-access-tier).
+Warstwa archiwum jest zoptymalizowana pod kątem przechowywania rzadko używanych danych przez co najmniej 180 dni. Warstwa archiwum zapewnia najniższe koszty magazynowania, ale ma największe koszty dostępu. Aby uzyskać więcej informacji, przejdź do [warstwy dostępu archiwizowanie](../storage/blobs/storage-blob-storage-tiers.md#archive-access-tier).
 
 ### <a name="move-data-to-the-archive-tier"></a>Przenoszenie danych do warstwy Archiwum
 
@@ -48,14 +48,14 @@ Przed rozpoczęciem upewnij się, że masz uruchomione urządzenie Data Box Gate
 
 - Za pomocą urządzenia Data Box Gateway Przekaż dane na platformę Azure, postępując zgodnie z opisem w temacie [transfer danych za pośrednictwem Data Box Gateway](data-box-gateway-deploy-add-shares.md).
 - Po przekazaniu danych należy przenieść je do warstwy archiwum. Warstwę obiektów BLOB można ustawić na dwa sposoby: za pomocą skryptu Azure PowerShell lub zasad zarządzania cyklem życia usługi Azure Storage.  
-    - W przypadku używania Azure PowerShell wykonaj następujące [kroki](/azure/databox/data-box-how-to-set-data-tier#use-azure-powershell-to-set-the-blob-tier) , aby przenieść dane do warstwy archiwum.
+    - W przypadku używania Azure PowerShell wykonaj następujące [kroki](../databox/data-box-how-to-set-data-tier.md#use-azure-powershell-to-set-the-blob-tier) , aby przenieść dane do warstwy archiwum.
     - W przypadku korzystania z zarządzania cyklem życia platformy Azure wykonaj następujące kroki, aby przenieść dane do warstwy archiwum.
-        - [Zarejestruj](/azure/storage/common/storage-lifecycle-management-concepts) się, aby uzyskać podgląd usługi zarządzania cyklem życia obiektów BLOB do korzystania z warstwy archiwum.
-        - Użyj następujących zasad, aby [zarchiwizować dane dotyczące](/azure/storage/blobs/storage-lifecycle-management-concepts#archive-data-after-ingest)pozyskiwania.
+        - [Zarejestruj](../storage/blobs/storage-lifecycle-management-concepts.md) się, aby uzyskać podgląd usługi zarządzania cyklem życia obiektów BLOB do korzystania z warstwy archiwum.
+        - Użyj następujących zasad, aby [zarchiwizować dane dotyczące](../storage/blobs/storage-lifecycle-management-concepts.md#archive-data-after-ingest)pozyskiwania.
 - Gdy obiekty blob są oznaczone jako archiwalne, nie mogą być już modyfikowane przez bramę, chyba że są przenoszone do warstwy gorąca lub zimna. Jeśli plik znajduje się w magazynie lokalnym, wszelkie zmiany wprowadzone w lokalnej kopii (w tym usunięcia) nie są przekazywane do warstwy archiwum.
 - Aby odczytywać dane w magazynie archiwalnym, należy je zmienić, zmieniając warstwę obiektów BLOB na gorącą lub chłodną. [Odświeżanie udziału](data-box-gateway-manage-shares.md#refresh-shares) w bramie nie powoduje odświeżenia obiektu BLOB.
 
-Aby uzyskać więcej informacji, Dowiedz się więcej na temat [zarządzania cyklem życia usługi Azure Blob Storage](/azure/storage/common/storage-lifecycle-management-concepts).
+Aby uzyskać więcej informacji, Dowiedz się więcej na temat [zarządzania cyklem życia usługi Azure Blob Storage](../storage/blobs/storage-lifecycle-management-concepts.md).
 
 ## <a name="initial-bulk-transfer-followed-by-incremental-transfer"></a>Początkowy transfer zbiorczy, po którym następuje transfer przyrostowy
 
@@ -65,10 +65,10 @@ Używaj urządzenie Data Box i Data Box Gateway razem, gdy chcesz wykonać zbior
 
 Wykonaj następujące kroki, aby skopiować dane do urządzenie Data Box i przekazać je do usługi Azure Storage.
 
-1. [Zamów urządzenie Data Box](/azure/databox/data-box-deploy-ordered).
-2. [Skonfiguruj urządzenie Data Box](/azure/databox/data-box-deploy-set-up).
-3. [Skopiuj dane do urządzenie Data Box za pośrednictwem protokołu SMB](/azure/databox/data-box-deploy-copy-data).
-4. [Zwróć urządzenie Data Box, zweryfikuj przekazywanie danych na platformę Azure](/azure/databox/data-box-deploy-picked-up).
+1. [Zamów urządzenie Data Box](../databox/data-box-deploy-ordered.md).
+2. [Skonfiguruj urządzenie Data Box](../databox/data-box-deploy-set-up.md).
+3. [Skopiuj dane do urządzenie Data Box za pośrednictwem protokołu SMB](../databox/data-box-deploy-copy-data.md).
+4. [Zwróć urządzenie Data Box, zweryfikuj przekazywanie danych na platformę Azure](../databox/data-box-deploy-picked-up.md).
 5. Po zakończeniu przekazywania danych do platformy Azure wszystkie dane powinny znajdować się w kontenerach usługi Azure Storage. Na koncie magazynu dla urządzenie Data Box przejdź do kontenera obiektów BLOB (i plików), aby upewnić się, że wszystkie dane zostały skopiowane. Zanotuj nazwę kontenera, ponieważ będziesz używać tej nazwy później. Na przykład na poniższym zrzucie ekranu `databox` kontener będzie używany do transferu przyrostowego.
 
     ![Kontener z danymi na urządzenie Data Box](media/data-box-gateway-use-cases/data-container.png)

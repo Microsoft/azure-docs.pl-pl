@@ -4,12 +4,12 @@ description: Użyj interfejsów API FabricClient, aby wdrażać i usuwać aplika
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 565e6b8f23f159a5c231295694830917217a3d19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 343a37c983b1d64a4b1986913d9d6fd648a113fe
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89009305"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785553"
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Wdrażanie i usuwanie aplikacji przy użyciu FabricClient
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ FabricClient fabricClient = new FabricClient();
 ## <a name="upload-the-application-package"></a>Przekaż pakiet aplikacji
 Załóżmy, że tworzysz aplikację i pakujesz ją *w programie* Visual Studio. Domyślnie nazwa typu aplikacji wymieniona w ApplicationManifest.xml to "noapplicationtype".  Pakiet aplikacji, który zawiera wymagany manifest aplikacji, manifesty usług i kod/pakiety danych, znajduje się w lokalizacji *C:\Users \& lt; username &gt; \Documents\Visual Studio 2019 \ Projects\MyApplication\MyApplication\pkg\Debug*.
 
-Przekazywanie pakietu aplikacji umieszcza go w lokalizacji dostępnej dla wewnętrznych składników Service Fabric. Service Fabric sprawdza pakiet aplikacji podczas rejestracji pakietu aplikacji. Jeśli jednak chcesz zweryfikować pakiet aplikacji lokalnie (czyli przed przekazaniem), użyj polecenia cmdlet [test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) .
+Przekazywanie pakietu aplikacji umieszcza go w lokalizacji dostępnej dla wewnętrznych składników Service Fabric. Service Fabric sprawdza pakiet aplikacji podczas rejestracji pakietu aplikacji. Jeśli jednak chcesz zweryfikować pakiet aplikacji lokalnie (czyli przed przekazaniem), użyj polecenia cmdlet [test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage) .
 
 Interfejs API [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) przekazuje pakiet aplikacji do magazynu obrazów klastra. 
 
@@ -92,7 +92,7 @@ Jeśli określona wersja typu aplikacji nie jest już wymagana, należy wyrejest
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Copy-ServiceFabricApplicationPackage prosi o ImageStoreConnectionString
-Środowisko zestawu SDK Service Fabric powinno mieć już skonfigurowane poprawne ustawienia domyślne. Ale w razie potrzeby ImageStoreConnectionString dla wszystkich poleceń powinna być zgodna z wartością używaną przez klaster Service Fabric. ImageStoreConnectionString można znaleźć w manifeście klastra pobranym przy użyciu poleceń [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest?view=azureservicefabricps) i Get-ImageStoreConnectionStringFromClusterManifest:
+Środowisko zestawu SDK Service Fabric powinno mieć już skonfigurowane poprawne ustawienia domyślne. Ale w razie potrzeby ImageStoreConnectionString dla wszystkich poleceń powinna być zgodna z wartością używaną przez klaster Service Fabric. ImageStoreConnectionString można znaleźć w manifeście klastra pobranym przy użyciu poleceń [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest) i Get-ImageStoreConnectionStringFromClusterManifest:
 
 ```powershell
 PS C:\> Get-ImageStoreConnectionStringFromClusterManifest(Get-ServiceFabricClusterManifest)

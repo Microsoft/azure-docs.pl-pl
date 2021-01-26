@@ -7,12 +7,12 @@ ms.date: 1/20/2021
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b7947eab93ebc8e523e163af601893522132e06a
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 4612e1236af5fbe47db9a3569e2f4da2378017e2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98745671"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784901"
 ---
 # <a name="build-and-deploy-the-iot-plug-and-play-bridge"></a>Kompilowanie i wdrażanie mostka Plug and Play IoT
 
@@ -212,7 +212,7 @@ Aby ukończyć tę sekcję, potrzebujesz bezpłatnej lub standardowej warstwy us
 
 W krokach w tej sekcji założono, że masz następujące środowisko programistyczne na komputerze z systemem Windows 10. Te narzędzia umożliwiają kompilowanie i wdrażanie modułu IoT Edge na urządzeniu IoT Edge:
 
-- Podsystem Windows dla systemu Linux (WSL) 2 z uruchomioną Ubuntu 18,04 LTS. Aby dowiedzieć się więcej, zobacz [Przewodnik instalacji systemu Windows w systemie Linux dla systemu Windows 10](https://docs.microsoft.com/windows/wsl/install-win10).
+- Podsystem Windows dla systemu Linux (WSL) 2 z uruchomioną Ubuntu 18,04 LTS. Aby dowiedzieć się więcej, zobacz [Przewodnik instalacji systemu Windows w systemie Linux dla systemu Windows 10](/windows/wsl/install-win10).
 - Program Docker Desktop dla systemu Windows skonfigurowany do korzystania z WSL 2. Aby dowiedzieć się więcej, zobacz [Docker Desktop WSL 2 zaplecza](https://docs.docker.com/docker-for-windows/wsl/).
 - [Visual Studio Code zainstalowane w środowisku systemu Windows](https://code.visualstudio.com/docs/setup/windows) z następującymi trzema zainstalowanymi rozszerzeniami:
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 9999b2fa116a2336f8e50fb166e5d870ae4b5a5f
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: a193ccd060c75cf4031449ddf3318af6e4691436
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165063"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786473"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Wprowadzenie — przewodnik dla deweloperów platformy Azure
 
@@ -84,7 +84,7 @@ Zamiast martwić się o tworzenie całej aplikacji lub infrastruktury do urucham
 
 > **Kiedy używać**: Użyj Azure Functions, gdy masz kod, który jest wyzwalany przez inne usługi platformy Azure, za pośrednictwem zdarzeń opartych na sieci Web lub zgodnie z harmonogramem. Możesz również użyć funkcji, jeśli nie potrzebujesz nakładu pracy kompletnego hostowanego projektu lub jeśli chcesz zanieść tylko za czas działania kodu. Aby dowiedzieć się więcej, zobacz [Azure Functions Omówienie](../../azure-functions/functions-overview.md).
 >
-> **Wprowadzenie**: Postępuj zgodnie z samouczkiem Szybki Start, aby [utworzyć pierwszą funkcję](../../azure-functions/functions-create-first-azure-function.md) z portalu.
+> **Wprowadzenie**: Postępuj zgodnie z samouczkiem Szybki Start, aby [utworzyć pierwszą funkcję](../../azure-functions/functions-get-started.md) z portalu.
 >
 > **Wypróbuj teraz**: Azure Functions umożliwia uruchomienie kodu bez konieczności rejestrowania się w celu uzyskania konta platformy Azure. Wypróbuj teraz i [Utwórz pierwszą funkcję platformy Azure](https://tryappservice.azure.com/).
 
@@ -173,7 +173,7 @@ Platforma Azure oferuje kilka sposobów korzystania z kontenerów w aplikacjach.
   >
   > **Wprowadzenie**: [Użyj niestandardowego obrazu platformy docker dla App Service w systemie Linux](../../app-service/quickstart-custom-container.md?pivots=platform-linux%253fpivots%253dplatform-linux).
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Uwierzytelnianie
 
 Niezwykle ważne jest, aby nie tylko wiedzieć, kto korzysta z aplikacji, ale również aby uniemożliwić nieautoryzowany dostęp do zasobów. Platforma Azure oferuje kilka metod uwierzytelniania klientów aplikacji.
 
@@ -248,7 +248,7 @@ Platforma Azure oferuje dwa sposoby zarządzania aplikacjami i usługami z pozio
 
 -   [Azure PowerShell](/powershell/azure/): zawiera zestaw modułów z poleceniami cmdlet, które umożliwiają zarządzanie zasobami platformy Azure przy użyciu programu Windows PowerShell.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 [Azure Portal](https://portal.azure.com) jest aplikacją opartą na sieci Web. Za pomocą Azure Portal można tworzyć i usuwać zasoby i usługi platformy Azure oraz zarządzać nimi. Obejmuje:
 

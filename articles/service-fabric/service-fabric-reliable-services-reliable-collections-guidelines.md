@@ -3,12 +3,12 @@ title: Wskazówki dotyczące niezawodnych kolekcji
 description: Wskazówki i zalecenia dotyczące używania Service Fabric niezawodnych kolekcji w aplikacji Service Fabric platformy Azure.
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 63e6de436bdaceed7f1d2a78e8385dd14bfc0ed6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f12db76f324d07c178b49150d4e574476e7d9929
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260915"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784329"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Wskazówki i zalecenia dotyczące niezawodnych kolekcji na platformie Azure Service Fabric
 Ta sekcja zawiera wskazówki dotyczące używania niezawodnego menedżera stanu i niezawodnych kolekcji. Celem jest ułatwienie użytkownikom unikania typowych pułapek.
@@ -58,10 +58,10 @@ Podczas decydowania o korzystaniu z niezawodnych kolekcji nietrwałych należy w
 * [Praca z elementami Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Transakcje i blokady](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * Zarządzanie danymi
-  * [Tworzenie kopii zapasowej i przywracanie](service-fabric-reliable-services-backup-restore.md)
+  * [Wykonywanie kopii zapasowych i przywracanie](service-fabric-reliable-services-backup-restore.md)
   * [Powiadomienia](service-fabric-reliable-services-notifications.md)
   * [Serializacja i uaktualnienie](service-fabric-application-upgrade-data-serialization.md)
   * [Konfiguracja niezawodnego menedżera stanu](service-fabric-reliable-services-configuration.md)
 * Inne
   * [Reliable Services — Szybki Start](service-fabric-reliable-services-quick-start.md)
-  * [Dokumentacja dla deweloperów dla niezawodnych kolekcji](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
+  * [Dokumentacja dla deweloperów dla niezawodnych kolekcji](/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)

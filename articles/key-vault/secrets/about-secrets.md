@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4ded48fe8f04d2cdba40650974fd5002d659e381
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 78e9c50cb0601f6be69ae61f3a8e02621c7dd808
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705272"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786043"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Informacje o kluczach tajnych Azure Key Vault
 
@@ -84,7 +84,7 @@ W postaci tagów można określić dodatkowe metadane specyficzne dla aplikacji.
 
 ## <a name="azure-storage-account-key-management"></a>Zarządzanie kluczami konta usługi Azure Storage
 
-Key Vault może zarządzać kluczami [konta usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-overview) :
+Key Vault może zarządzać kluczami [konta usługi Azure Storage](../../storage/common/storage-account-overview.md) :
 
 - Wewnętrznie, Key Vault mogą wyświetlać (synchronizować) klucze za pomocą konta usługi Azure Storage. 
 - Key Vault regeneruje ponownie klucze (obraca) okresowo.
@@ -92,7 +92,7 @@ Key Vault może zarządzać kluczami [konta usługi Azure Storage](https://docs.
 - Key Vault zarządza kluczami obu kont magazynu i klasycznych kont magazynu.
 
 Aby uzyskać więcej informacji, zobacz:
-- [Klucze dostępu konta magazynu](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage)
+- [Klucze dostępu konta magazynu](../../storage/common/storage-account-keys-manage.md)
 - [Zarządzanie kluczami kont magazynu w Azure Key Vault](../secrets/overview-storage-keys.md))
 
 

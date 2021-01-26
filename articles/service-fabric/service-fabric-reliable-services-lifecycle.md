@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 162ad87f79109cf38d3d0013608812155c6988a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ea8fa6933052374721d8d205d5b07386c807ae2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86252253"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784600"
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Przegląd cyklu życia Reliable Services
 > [!div class="op_single_selector"]
@@ -113,7 +113,7 @@ Service Fabric zmienia podstawową usługę stanową z różnych powodów. Najcz
 
 Usługi, które nie obsługują czyszczenia anulowania mogą napotkać kilka problemów. Te operacje są wolne, ponieważ Service Fabric czeka, aż usługi przestaną być bezpieczne. Może to ostatecznie prowadzić do nieudanych uaktualnień, których przekroczenie limitu czasu i wycofanie. Niepowodzenie honorowania tokenu anulowania może również spowodować niezrównoważone klastry. Klastry stają się niezrównoważone, ponieważ węzły uzyskują gorącą, ale nie można zrównoważyć ich w innym miejscu. 
 
-Ponieważ usługi są stanowe, prawdopodobnie korzystają z [niezawodnych kolekcji](service-fabric-reliable-services-reliable-collections.md). W Service Fabric, gdy podstawowa jest obniżana, jeden z pierwszych rzeczy jest taki, że dostęp do zapisu do podstawowego stanu jest odwołany. Prowadzi to do drugiego zestawu problemów, które mogą wpływać na cykl usługi. Kolekcje zwracają wyjątki na podstawie chronometrażu i tego, czy replika jest przenoszona, czy wyłączona. Te wyjątki powinny być prawidłowo obsługiwane. Wyjątki zgłoszone przez Service Fabric należą do trwałych kategorii [( `FabricException` )](/dotnet/api/system.fabric.fabricexception?view=azure-dotnet) i przejściowych [( `FabricTransientException` )](/dotnet/api/system.fabric.fabrictransientexception?view=azure-dotnet) . Stałe wyjątki powinny być rejestrowane i zgłaszane, podczas gdy przejściowe wyjątki mogą być ponawiane na podstawie jakiejś logiki ponawiania.
+Ponieważ usługi są stanowe, prawdopodobnie korzystają z [niezawodnych kolekcji](service-fabric-reliable-services-reliable-collections.md). W Service Fabric, gdy podstawowa jest obniżana, jeden z pierwszych rzeczy jest taki, że dostęp do zapisu do podstawowego stanu jest odwołany. Prowadzi to do drugiego zestawu problemów, które mogą wpływać na cykl usługi. Kolekcje zwracają wyjątki na podstawie chronometrażu i tego, czy replika jest przenoszona, czy wyłączona. Te wyjątki powinny być prawidłowo obsługiwane. Wyjątki zgłoszone przez Service Fabric należą do trwałych kategorii [( `FabricException` )](/dotnet/api/system.fabric.fabricexception) i przejściowych [( `FabricTransientException` )](/dotnet/api/system.fabric.fabrictransientexception) . Stałe wyjątki powinny być rejestrowane i zgłaszane, podczas gdy przejściowe wyjątki mogą być ponawiane na podstawie jakiejś logiki ponawiania.
 
 Obsługa wyjątków, które są używane `ReliableCollections` w połączeniu z zdarzeniami cyklu życia usługi, jest ważną częścią testowania i weryfikacji niezawodnej usługi. Zalecamy, aby zawsze uruchamiać usługę pod obciążeniem podczas przeprowadzania uaktualnień i [testowania chaos](service-fabric-controlled-chaos.md) przed wdrożeniem w środowisku produkcyjnym. Te podstawowe kroki pomagają upewnić się, że usługa jest prawidłowo zaimplementowana i prawidłowo obsługuje zdarzenia cyklu życia.
 

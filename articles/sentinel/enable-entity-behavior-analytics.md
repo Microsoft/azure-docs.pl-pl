@@ -12,25 +12,20 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2020
+ms.date: 01/25/2021
 ms.author: yelevin
-ms.openlocfilehash: 140228a65be166bc172e81267c4449b49621e02c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 0dccd8ac4f852688bf7e59e7ed96c4458c08d18b
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425783"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784732"
 ---
 # <a name="enable-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Włącz analizę zachowań użytkowników i jednostek (UEBA) na platformie Azure — wskaźnik 
 
 > [!IMPORTANT]
 >
-> - Funkcje UEBA i strony jednostki są teraz **ogólnie dostępne** w następujących regionach i obszarach lokalizacje geograficzne platformy Azure:
->    - Stany Zjednoczone Geografia
->    - Region Zachodni Europa
->    - Geografia Australia
->
-> - We wszystkich innych lokalizacje geograficzne i regionach te funkcje pozostają na czas w **wersji zapoznawczej**. Zapoznaj się z dodatkowymi [warunkami użytkowania Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) wersji zapoznawczych, aby uzyskać dodatkowe postanowienia prawne dotyczące funkcji systemu Azure, które są w wersji beta, Preview lub w inny sposób nie zostały jeszcze udostępnione publicznie.
+> - Funkcje UEBA i strony jednostki są teraz **ogólnie dostępne** w programie **_All_* _ lokalizacje geograficzne i regiony.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -38,9 +33,9 @@ Aby włączyć lub wyłączyć tę funkcję (te wymagania wstępne nie są wymag
 
 - Użytkownik musi być członkiem Azure Active Directory organizacji, a nie użytkownikiem-gościem.
 
-- Użytkownik musi mieć przypisane role **administratora globalnego** lub **administratora zabezpieczeń** w usłudze Azure AD.
+- Użytkownik musi mieć przypisaną rolę "_ *administrator globalny*" lub " **administrator zabezpieczeń** " w usłudze Azure AD.
 
-- Użytkownik musi mieć przypisaną co najmniej jedną z następujących **ról platformy Azure** ( [Dowiedz się więcej o funkcji RBAC na platformie Azure](roles.md)):
+- Użytkownik musi mieć przypisaną co najmniej jedną z następujących **ról platformy Azure** ([Dowiedz się więcej o funkcji RBAC na platformie Azure](roles.md)):
     - **Współautor Azure wskaźnikowego** na poziomie obszaru roboczego lub grupy zasobów.
     - **Log Analytics współautor** na poziomach grupy zasobów lub subskrypcji.
 

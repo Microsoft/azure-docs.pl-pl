@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: 39081bc7bec7cfd76ccfc9107d5c2286affb7df0
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: e7e63ea56edc2b76383ee4c034fd39dd8b8259c1
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913774"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786008"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-have-two-sets-of-authentication-credentials"></a>Automatyzowanie obrotu wpisu tajnego dla zasobów, które mają dwa zestawy poświadczeń uwierzytelniania
 
@@ -234,8 +234,8 @@ Szablon funkcji rotacji dla dwóch zestawów poświadczeń i kilku gotowych do u
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Samouczek: [rotacja kluczy tajnych dla jednego zestawu poświadczeń](https://docs.microsoft.com/azure/key-vault/secrets/tutorial-rotation)
+- Samouczek: [rotacja kluczy tajnych dla jednego zestawu poświadczeń](./tutorial-rotation.md)
 - Przegląd: [monitorowanie Key Vault z Azure Event Grid](../general/event-grid-overview.md)
-- Instrukcje: [Tworzenie pierwszej funkcji w Azure Portal](../../azure-functions/functions-create-first-azure-function.md)
+- Instrukcje: [Tworzenie pierwszej funkcji w Azure Portal](../../azure-functions/functions-get-started.md)
 - Instrukcje: [otrzymywanie wiadomości e-mail po zmianie Key Vault tajnego](../general/event-grid-logicapps.md)
 - Odwołanie: [schemat zdarzeń Azure Event Grid dla Azure Key Vault](../../event-grid/event-schema-key-vault.md)

@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: aa68b746ef5c22c97fcfdcca889bf71577c19479
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: adb0e12b81701acbdb33018f055bfe8fda2efc52
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96583849"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786643"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>Co to jest Azure Data Box Gateway?
 
@@ -89,7 +89,7 @@ Rozwiązanie Data Box Gateway składa się z zasobu rozwiązania Data Box Gatewa
 
 Data Box Gateway urządzenie fizyczne, zasób platformy Azure i docelowe konto magazynu, do którego dane są transferowane, nie muszą znajdować się w tym samym regionie.
 
-- **Dostępność zasobów** — Aby uzyskać listę wszystkich regionów, w których dostępny jest zasób Azure Data Box Gateway, przejdź do pozycji [dostępne produkty platformy Azure według regionów](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). Data Box Gateway można również wdrożyć w chmurze Azure Government. Aby uzyskać więcej informacji, zobacz [co to jest Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+- **Dostępność zasobów** — Aby uzyskać listę wszystkich regionów, w których dostępny jest zasób Azure Data Box Gateway, przejdź do pozycji [dostępne produkty platformy Azure według regionów](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). Data Box Gateway można również wdrożyć w chmurze Azure Government. Aby uzyskać więcej informacji, zobacz [co to jest Azure Government?](../azure-government/documentation-government-welcome.md).
 
 - **Docelowe konta magazynu** — konta magazynu, w których są przechowywane dane, są dostępne we wszystkich regionach platformy Azure.
 
@@ -101,4 +101,3 @@ Data Box Gateway urządzenie fizyczne, zasób platformy Azure i docelowe konto m
 - Przejrzyj [wymagania systemowe usługi Data Box Gateway](data-box-gateway-system-requirements.md).
 - Zapoznaj się z [limitami usługi Data Box Gateway](data-box-gateway-limits.md).
 - Wdróż rozwiązanie [Azure Data Box Gateway](data-box-gateway-deploy-prep.md) w witrynie Azure Portal.
-

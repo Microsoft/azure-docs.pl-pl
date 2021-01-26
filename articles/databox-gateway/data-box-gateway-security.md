@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 10/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 11122b57a1971f328a8a83c3dea136813426c060
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 13d3809611714992f24a66a96c22074e69fba9bd
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96583076"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786660"
 ---
 # <a name="azure-data-box-gateway-security-and-data-protection"></a>Azure Data Box Gateway zabezpieczenia i ochrona danych
 
@@ -85,7 +85,7 @@ W tej sekcji opisano funkcje zabezpieczeń Data Box Gateway chroniące dane prze
 
 Aby zabezpieczyć dyski wirtualne na maszynie wirtualnej Data Box Gateway, zalecamy włączenie funkcji BitLocker. Domyślnie funkcja BitLocker nie jest włączona. Aby uzyskać więcej informacji, zobacz:
 
-- [Ustawienia szyfrowania pomocy technicznej w Menedżerze funkcji Hyper-V](hhttps://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
+- [Ustawienia szyfrowania pomocy technicznej w Menedżerze funkcji Hyper-V](/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
 - [Obsługa funkcji BitLocker na maszynie wirtualnej](https://kb.vmware.com/s/article/2036142)
 
 ## <a name="manage-personal-information"></a>Zarządzanie informacjami osobistymi

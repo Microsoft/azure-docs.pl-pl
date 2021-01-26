@@ -3,12 +3,12 @@ title: Wprowadzenie do niezawodnych kolekcji
 description: Service Fabric usługi stanowe udostępniają niezawodne kolekcje, które umożliwiają pisanie aplikacji w chmurze o wysokiej dostępności i skalowalności.
 ms.topic: conceptual
 ms.date: 3/10/2020
-ms.openlocfilehash: 6e0f39b994087fe44038e62e85326945589c719a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d705f81b4ad31559886e43226febcd4cf1d345d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86245130"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784380"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Wprowadzenie do niezawodnych kolekcji w usłudze Azure Service Fabric stanowe usługi
 
@@ -40,8 +40,8 @@ Niezawodne interfejsy API kolekcji to ewolucja współbieżnych kolekcji interfe
 
 Dzisiaj **firma Microsoft. servicefabric. Data. Collections** zawiera trzy Kolekcje:
 
-* [Niezawodny słownik](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliabledictionary_2): reprezentuje replikowany, transakcyjny i asynchroniczny zbiór par klucz/wartość. Podobnie jak w przypadku **ConcurrentDictionary**, zarówno klucz, jak i wartość mogą być dowolnego typu.
-* [Niezawodna Kolejka](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliablequeue_1): reprezentuje kolejkę z wbudowaną, transakcyjną i asynchroniczną, pierwszą kolejką (FIFO). Podobnie jak w przypadku **ConcurrentQueue**, wartość może być dowolnego typu.
+* [Niezawodny słownik](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2#microsoft_servicefabric_data_collections_ireliabledictionary_2): reprezentuje replikowany, transakcyjny i asynchroniczny zbiór par klucz/wartość. Podobnie jak w przypadku **ConcurrentDictionary**, zarówno klucz, jak i wartość mogą być dowolnego typu.
+* [Niezawodna Kolejka](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1#microsoft_servicefabric_data_collections_ireliablequeue_1): reprezentuje kolejkę z wbudowaną, transakcyjną i asynchroniczną, pierwszą kolejką (FIFO). Podobnie jak w przypadku **ConcurrentQueue**, wartość może być dowolnego typu.
 * [Niezawodna Kolejka współbieżna](service-fabric-reliable-services-reliable-concurrent-queue.md): reprezentuje zreplikowaną, transakcyjną i asynchroniczną kolejkę kolejności, w której ma być duża przepływność. Podobnie jak w przypadku **ConcurrentQueue**, wartość może być dowolnego typu.
 
 ## <a name="next-steps"></a>Następne kroki
@@ -50,11 +50,11 @@ Dzisiaj **firma Microsoft. servicefabric. Data. Collections** zawiera trzy Kolek
 * [Praca z elementami Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Transakcje i blokady](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * Zarządzanie danymi
-  * [Tworzenie kopii zapasowej i przywracanie](service-fabric-reliable-services-backup-restore.md)
+  * [Wykonywanie kopii zapasowych i przywracanie](service-fabric-reliable-services-backup-restore.md)
   * [Powiadomienia](service-fabric-reliable-services-notifications.md)
   * [Serializacja elementu Reliable Collection](service-fabric-reliable-services-reliable-collections-serialization.md)
   * [Serializacja i uaktualnienie](service-fabric-application-upgrade-data-serialization.md)
   * [Konfiguracja niezawodnego menedżera stanu](service-fabric-reliable-services-configuration.md)
 * Inne
   * [Reliable Services — Szybki Start](service-fabric-reliable-services-quick-start.md)
-  * [Dokumentacja dla deweloperów dla niezawodnych kolekcji](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
+  * [Dokumentacja dla deweloperów dla niezawodnych kolekcji](/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: fcfd3da30ef9ace723b4204f5924591b1e2717f8
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 59359cdd3e3c035d4cb6789295d41bb3908019bb
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503169"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785824"
 ---
 # <a name="azure-monitor-logs-for-azure-standard-load-balancer"></a>Dzienniki Azure Monitor dla usługi Azure usługa Load Balancer w warstwie Standardowa
 
@@ -74,7 +74,7 @@ Rejestrowanie aktywności jest automatycznie włączone dla wszystkich zasobów 
 
 ## <a name="view-and-analyze-the-activity-log"></a>Wyświetlanie i analizowanie dziennika aktywności
 
-Dziennik aktywności jest domyślnie generowany. Możesz skonfigurować go do eksportowania na poziomie subskrypcji, wykonując [instrukcje przedstawione w tym artykule](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log). Więcej informacji na temat tych dzienników można znaleźć w artykule [Wyświetlanie dzienników aktywności w celu monitorowania akcji dotyczących zasobów](../azure-resource-manager/management/view-activity-logs.md) .
+Dziennik aktywności jest domyślnie generowany. Możesz skonfigurować go do eksportowania na poziomie subskrypcji, wykonując [instrukcje przedstawione w tym artykule](../azure-monitor/platform/activity-log.md). Więcej informacji na temat tych dzienników można znaleźć w artykule [Wyświetlanie dzienników aktywności w celu monitorowania akcji dotyczących zasobów](../azure-resource-manager/management/view-activity-logs.md) .
 
 Dane dziennika aktywności można wyświetlać i analizować za pomocą jednej z następujących metod:
 
@@ -112,5 +112,5 @@ Funkcja eksportu metryk do dzienników dla Azure Load Balancer ma następujące 
 * Metryki dla używanych portów i przyznanych portów przydziałów adresów sieciowych nie są obecnie dostępne do eksportu jako dzienniki.
 
 ## <a name="next-steps"></a>Następne kroki
-* [Przeglądanie dostępnych metryk dla modułu równoważenia obciążenia](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics)
-* [Twórz i Testuj zapytania według następujących instrukcji Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
+* [Przeglądanie dostępnych metryk dla modułu równoważenia obciążenia](./load-balancer-standard-diagnostics.md)
+* [Twórz i Testuj zapytania według następujących instrukcji Azure Monitor](../azure-monitor/log-query/log-query-overview.md)

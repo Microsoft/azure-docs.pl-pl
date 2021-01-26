@@ -4,12 +4,12 @@ description: Dowiedz się więcej na temat serializacji niezawodnych kolekcji ob
 ms.topic: conceptual
 ms.date: 5/8/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1d29f5d3391bdea0b21997a392d4d2e053b7ec65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29bb9a2dfb028d223d63559b35735e78d7e6bcf8
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018624"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784363"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Serializacja niezawodnych obiektów kolekcji na platformie Azure Service Fabric
 Niezawodne kolekcje "Replikuj i utrwalają swoje elementy", aby upewnić się, że są one trwałe przez awarie maszyn i przestoje.
@@ -20,7 +20,7 @@ Niezawodny Menedżer stanu zawiera wbudowane serializatory i umożliwia zarejest
 
 ## <a name="built-in-serializers"></a>Wbudowane serializatory
 
-Niezawodny Menedżer stanu zawiera wbudowany serializator dla niektórych typów wspólnych, dzięki czemu mogą one być efektywnie serializowane domyślnie. W przypadku innych typów niezawodny Menedżer stanu powraca do korzystania z [DataContractSerializer](/dotnet/api/system.runtime.serialization.datacontractserializer?view=netcore-3.1).
+Niezawodny Menedżer stanu zawiera wbudowany serializator dla niektórych typów wspólnych, dzięki czemu mogą one być efektywnie serializowane domyślnie. W przypadku innych typów niezawodny Menedżer stanu powraca do korzystania z [DataContractSerializer](/dotnet/api/system.runtime.serialization.datacontractserializer).
 Wbudowane serializatory są bardziej wydajne, ponieważ wiedzą, że ich typy nie mogą ulec zmianie i nie muszą zawierać informacji o typie, takim jak nazwa jego typu.
 
 Niezawodny Menedżer stanu ma wbudowany serializator dla następujących typów: 
@@ -140,7 +140,7 @@ W ten sposób każda wersja może odczytywać tyle, ile może i przeskoczyć do 
 
 ## <a name="next-steps"></a>Następne kroki
   * [Serializacja i uaktualnienie](service-fabric-application-upgrade-data-serialization.md)
-  * [Dokumentacja dla deweloperów dla niezawodnych kolekcji](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
+  * [Dokumentacja dla deweloperów dla niezawodnych kolekcji](/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)
   * [Uaktualnianie aplikacji przy użyciu programu Visual Studio](service-fabric-application-upgrade-tutorial.md) przeprowadzi Cię przez proces uaktualniania aplikacji przy użyciu programu Visual Studio.
   * [Uaktualnianie aplikacji przy użyciu programu PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) przeprowadzi Cię przez proces uaktualniania aplikacji przy użyciu programu PowerShell.
   * Kontroluj sposób uaktualniania aplikacji przy użyciu [parametrów uaktualnienia](service-fabric-application-upgrade-parameters.md).

@@ -8,12 +8,12 @@ ms.author: jehollan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 2fae7d2526e6c95efe83ca8fa742a6d92457b897
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22e0c7304f7a53a86bc5c6739a2061352d738d29
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86520753"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784816"
 ---
 # <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Utwórz pulpit nawigacyjny usługi przesyłania strumieniowego na platformie Customer Insights zawierający Azure Logic Apps i Azure Functions
 
@@ -54,7 +54,7 @@ Aby wykryć tonacji za jakiś tekst, możesz użyć [usługi Azure Cognitive Ser
 
 4. Jeśli zostanie wyświetlony monit, Podaj prawidłowy klucz Cognitive Services dla usługi analiza tekstu.
 
-5. W obszarze **treść żądania**wybierz pole **tekst tweetu** , które zawiera tekst tweetu jako dane wejściowe dla analizy.
+5. W obszarze **treść żądania** wybierz pole **tekst tweetu** , które zawiera tekst tweetu jako dane wejściowe dla analizy.
 
 Po otrzymaniu danych tweetów i szczegółowych informacji dotyczących tweetu możesz teraz użyć kilku innych odpowiednich łączników i ich działań:
 
@@ -67,7 +67,7 @@ Możesz również utworzyć i funkcję platformy Azure, aby umożliwić wykonywa
 
 ## <a name="process-data-with-azure-functions"></a>Przetwarzanie danych za pomocą Azure Functions
 
-Przed utworzeniem funkcji Utwórz aplikację funkcji w ramach subskrypcji platformy Azure. Ponadto w celu bezpośredniego wywołania funkcji przez aplikację logiki funkcja musi mieć powiązanie wyzwalacza HTTP, na przykład użyć szablonu **HttpTrigger** . Dowiedz się [, jak utworzyć pierwszą aplikację funkcji i funkcję w Azure Portal](../azure-functions/functions-create-first-azure-function.md).
+Przed utworzeniem funkcji Utwórz aplikację funkcji w ramach subskrypcji platformy Azure. Ponadto w celu bezpośredniego wywołania funkcji przez aplikację logiki funkcja musi mieć powiązanie wyzwalacza HTTP, na przykład użyć szablonu **HttpTrigger** . Dowiedz się [, jak utworzyć pierwszą aplikację funkcji i funkcję w Azure Portal](../azure-functions/functions-get-started.md).
 
 W tym scenariuszu tekst tweetu jest używany jako treść żądania dla funkcji platformy Azure. W kodzie funkcji Zdefiniuj logikę, która określa, czy tekst tweetu zawiera słowo kluczowe lub frazę. Zachowanie funkcji jako prostej lub złożonej w miarę potrzeb dla scenariusza.
 Na końcu funkcji Zwróć odpowiedź do aplikacji logiki z niektórymi danymi, na przykład prostą wartością logiczną, taką jak `containsKeyword` lub obiektem złożonym.
@@ -83,7 +83,7 @@ Gdy wszystko będzie gotowe, Zapisz funkcję, a następnie Dodaj funkcję jako a
 
 2. Znajdź łącznik **Azure Functions** , a następnie wybierz utworzoną funkcję.
 
-3. W obszarze **treść żądania**wybierz pozycję **tekst tweetu**.
+3. W obszarze **treść żądania** wybierz pozycję **tekst tweetu**.
 
 ![Skonfigurowany krok funkcji platformy Azure][2]
 

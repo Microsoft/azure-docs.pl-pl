@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: d749c901b21651eec7b3e25ce111fb107e09b754
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 5c414a11085a6a37dee6be522dcf513e8990e5e2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883354"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786355"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Informacje o wersji usługi Azure HDInsight
 
@@ -48,7 +48,7 @@ Począwszy od listopada 16 2020, Usługa HDInsight będzie blokować nowym klien
 
 ## <a name="behavior-changes"></a>Zmiany zachowania
 ### <a name="add-nsg-rule-checking-before-scaling-operation"></a>Dodaj sprawdzanie reguły sieciowej grupy zabezpieczeń przed operacją skalowania
-Usługa HDInsight dodała sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) i trasy zdefiniowane przez użytkownika (UDR) przy użyciu operacji skalowania. Takie samo sprawdzanie poprawności jest wykonywane na potrzeby skalowania klastra Poza tworzeniem klastra. Ta weryfikacja pomaga zapobiegać nieprzewidywalnym błędom. Jeśli walidacja nie zostanie przekazana, skalowanie kończy się niepowodzeniem. Dowiedz się więcej o tym, jak poprawnie skonfigurować sieciowych grup zabezpieczeń i UDR, zapoznaj się z tematem [adresy IP zarządzania usługą HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
+Usługa HDInsight dodała sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) i trasy zdefiniowane przez użytkownika (UDR) przy użyciu operacji skalowania. Takie samo sprawdzanie poprawności jest wykonywane na potrzeby skalowania klastra Poza tworzeniem klastra. Ta weryfikacja pomaga zapobiegać nieprzewidywalnym błędom. Jeśli walidacja nie zostanie przekazana, skalowanie kończy się niepowodzeniem. Dowiedz się więcej o tym, jak poprawnie skonfigurować sieciowych grup zabezpieczeń i UDR, zapoznaj się z tematem [adresy IP zarządzania usługą HDInsight](./hdinsight-management-ip-addresses.md).
 
 ## <a name="upcoming-changes"></a>Nadchodzące zmiany
 Następujące zmiany zostaną wykonane w przyszłych wydaniach.
@@ -72,7 +72,7 @@ Usługa HDInsight kontynuuje zwiększanie niezawodności i wydajności klastrów
 Brak zmian wersji składnika dla tej wersji. Bieżące wersje składników usługi HDInsight 4,0 i HDInsight 3,6 można znaleźć w [tym dokumencie](./hdinsight-component-versioning.md).
 
 ## <a name="known-issues"></a>Znane problemy
-### <a name="prevent-hdinsight-cluster-vms-from-rebooting-periodically"></a>Okresowe Zapobieganie ponownemu uruchamianiu maszyn wirtualnych klastra usługi HDInsight
+### <a name="prevent-hdinsight-cluster-vms-from-rebooting-periodically"></a>Zapobieganie okresowemu ponownemu uruchamianiu maszyn wirtualnych klastra usługi HDInsight
 
 Począwszy od połowy listopada 2020, mogą być regularnie uruchamiane maszyny wirtualne klastra usługi HDInsight. Może to być spowodowane przez:
 
@@ -84,4 +84,3 @@ Usługa HDInsight wdraża poprawki i stosuje poprawkę dla wszystkich uruchomion
 https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/replace_cacert_script.sh
 https://healingscriptssa.blob.core.windows.net/healingscripts/ChangeOOMPolicyAndApplyLatestConfigForClamav.sh
 ```
-

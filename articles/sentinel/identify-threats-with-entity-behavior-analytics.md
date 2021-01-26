@@ -12,25 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/19/2020
+ms.date: 01/25/2021
 ms.author: yelevin
-ms.openlocfilehash: 2326746d274c68225cd4c8569df6a20d6050ec1a
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 7944ea48feaca1eb8312e01d876bf9627af429d1
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900896"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784799"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identyfikowanie zaawansowanych zagrożeń przy użyciu funkcji analizy zachowań użytkowników i jednostek (UEBA) na platformie Azure — wskaźnik
 
 > [!IMPORTANT]
 >
-> - Funkcje UEBA i strony jednostki są teraz **ogólnie dostępne** w następujących regionach i obszarach lokalizacje geograficzne platformy Azure:
->    - Stany Zjednoczone Geografia
->    - Region Zachodni Europa
->    - Geografia Australia
->
-> - We wszystkich innych lokalizacje geograficzne i regionach te funkcje pozostają na czas w **wersji zapoznawczej**. Zapoznaj się z dodatkowymi [**warunkami użytkowania Microsoft Azure**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) wersji zapoznawczych, aby uzyskać dodatkowe postanowienia prawne dotyczące funkcji systemu Azure, które są w wersji beta, Preview lub w inny sposób nie zostały jeszcze udostępnione publicznie.
+> - Funkcje UEBA i strony jednostki są teraz **ogólnie dostępne** w programie **_All_* _ lokalizacje geograficzne i regiony.
 
 ## <a name="what-is-user-and-entity-behavior-analytics-ueba"></a>Co to jest Analiza zachowań użytkowników i jednostek (UEBA)?
 
@@ -50,7 +45,7 @@ Ponieważ wskaźnik na platformie Azure zbiera dzienniki i alerty ze wszystkich 
 
 Inspirowany modelem firmy Gartner dla rozwiązań UEBA, wskaźnik na platformie Azure zawiera podejście "zewnętrzne", w oparciu o trzy ramki odniesienia:
 
-- **Przypadki użycia:** Dzięki wykorzystaniu priorytetów dla odpowiednich wektorów ataków i scenariuszy opartych na badaniach bezpieczeństwa, które są wyrównane z MITRE ATT&taktykę, technikami i technikami podrzędnymi, które umieszczają różne jednostki jako ofiary, samodziałania lub punkty obrotu w łańcuchu kasowania; Platforma Azure wskaźnikowego koncentruje się w szczególności na najbardziej cennych dziennikach, które mogą być obsługiwane przez źródło danych.
+- _ *Przypadki użycia:** przez wyznaczanie priorytetów dla odpowiednich wektorów ataków i scenariuszy opartych na badaniach bezpieczeństwa, które są wyrównane z MITRE ATT&taktykę, technikami i technikami podrzędnymi, które umieszczają różne jednostki jako ofiary, sprawcy lub punkty obrotu w łańcuchu kasowania; Platforma Azure wskaźnikowego koncentruje się w szczególności na najbardziej cennych dziennikach, które mogą być obsługiwane przez źródło danych.
 
 - **Źródła danych:** Podczas pierwszej i najwyższego poziomu obsługi źródeł danych platformy Azure wskaźnik Thoughtfully na platformie Azure wybiera źródła danych innych firm, aby zapewnić dane zgodne z naszymi scenariuszami zagrożeń.
 

@@ -3,12 +3,12 @@ title: Tworzenie autonomicznego klastra usługi Azure Service Fabric
 description: Utwórz klaster Service Fabric platformy Azure na dowolnym komputerze (fizycznym lub wirtualnym) z systemem Windows Server, niezależnie od tego, czy jest on lokalny, czy w dowolnej chmurze.
 ms.topic: conceptual
 ms.date: 2/21/2019
-ms.openlocfilehash: 36883f2c8b09fa3f8f013e0267dafa2a8220e5d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41af655be07ccae2b66e75f5bfe87629cdb54924
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843196"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785688"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Tworzenie klastra autonomicznego działającego w systemie Windows Server
 Za pomocą usługi Azure Service Fabric można tworzyć klastry Service Fabric na wszystkich maszynach wirtualnych lub komputerach z systemem Windows Server. Oznacza to, że można wdrażać i uruchamiać aplikacje Service Fabric w dowolnym środowisku zawierającym zestaw połączonych komputerów z systemem Windows Server, być lokalnym lub dowolnym dostawcą chmury. Service Fabric udostępnia pakiet instalacyjny do tworzenia klastrów Service Fabric o nazwie autonomiczny pakiet systemu Windows Server. Tradycyjne Service Fabric klastrów na platformie Azure są dostępne jako usługa zarządzana, natomiast autonomiczne klastry Service Fabric są samoobsługowe. Aby uzyskać więcej informacji na temat różnic, zobacz [porównywanie klastrów na platformie Azure i autonomicznych Service Fabric](./service-fabric-deploy-anywhere.md).
@@ -25,7 +25,7 @@ W tym artykule omówiono procedurę tworzenia klastra autonomicznego Service Fab
 ## <a name="get-support-for-the-service-fabric-for-windows-server-package"></a>Uzyskaj pomoc techniczną dotyczącą pakietu Service Fabric dla systemu Windows Server
 * Zapoznaj się ze społecznością Service Fabric pakiet autonomiczny dla systemu Windows Server na [stronie pytań i odpowiedzi Microsoft&pytań i odpowiedzi na platformie Azure Service Fabric](/answers/topics/azure-service-fabric.html).
 * Otwórz bilet dla [profesjonalnej pomocy technicznej dla Service Fabric](https://support.microsoft.com/oas/default.aspx?prid=16146).  Dowiedz się więcej na temat profesjonalnej pomocy technicznej firmy Microsoft [tutaj](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
-* Możesz również uzyskać pomoc techniczną dotyczącą tego pakietu w ramach [programu Microsoft Pomoc techniczna Premier](https://support.microsoft.com/en-us/premier).
+* Możesz również uzyskać pomoc techniczną dotyczącą tego pakietu w ramach [programu Microsoft Pomoc techniczna premium](https://support.microsoft.com/en-us/premier).
 * Aby uzyskać więcej informacji, zobacz [Opcje pomocy technicznej platformy Azure Service Fabric](./service-fabric-support.md).
 * Aby zbierać dzienniki do celów pomocy technicznej, uruchom [Service Fabric autonomiczny moduł zbierający dzienniki](service-fabric-cluster-standalone-package-contents.md).
 
@@ -116,7 +116,7 @@ Pakiet środowiska uruchomieniowego można pobrać oddzielnie, z innej maszyny p
 *.\ClusterConfig.json* i *.\MicrosoftAzureServiceFabric.cab* są ścieżkami do konfiguracji klastra i pliku Runtime. cab odpowiednio.
 
 ### <a name="step-2-connect-to-the-cluster"></a>Krok 2. Nawiązywanie połączenia z klastrem
-Połącz się z klastrem, aby sprawdzić, czy klaster działa i jest dostępny. Moduł ServiceFabric programu PowerShell został zainstalowany w środowisku uruchomieniowym.  Można nawiązać połączenie z klastrem z jednego z węzłów klastra lub z komputera zdalnego przy użyciu środowiska uruchomieniowego Service Fabric.  Polecenie cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) umożliwia ustanowienie połączenia z klastrem.
+Połącz się z klastrem, aby sprawdzić, czy klaster działa i jest dostępny. Moduł ServiceFabric programu PowerShell został zainstalowany w środowisku uruchomieniowym.  Można nawiązać połączenie z klastrem z jednego z węzłów klastra lub z komputera zdalnego przy użyciu środowiska uruchomieniowego Service Fabric.  Polecenie cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) umożliwia ustanowienie połączenia z klastrem.
 
 Aby nawiązać połączenie z niezabezpieczonym klastrem, uruchom następujące polecenie programu PowerShell:
 
@@ -129,7 +129,7 @@ Na przykład:
 Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.234:19000
 ```
 
-Inne przykłady łączenia z klastrem można znaleźć w temacie [Nawiązywanie połączenia z zabezpieczonym klastrem](service-fabric-connect-to-secure-cluster.md). Po nawiązaniu połączenia z klastrem użyj polecenia cmdlet [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps), aby wyświetlić listę węzłów w klastrze oraz informacje o stanie każdego węzła. Element **HealthState** powinien mieć wartość *OK* dla każdego węzła.
+Inne przykłady łączenia z klastrem można znaleźć w temacie [Nawiązywanie połączenia z zabezpieczonym klastrem](service-fabric-connect-to-secure-cluster.md). Po nawiązaniu połączenia z klastrem użyj polecenia cmdlet [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode), aby wyświetlić listę węzłów w klastrze oraz informacje o stanie każdego węzła. Element **HealthState** powinien mieć wartość *OK* dla każdego węzła.
 
 ```powershell
 PS C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer> Get-ServiceFabricNode |Format-Table

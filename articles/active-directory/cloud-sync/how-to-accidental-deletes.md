@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/19/2020
+ms.date: 01/25/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ef7b6d9495b1431e03808b830671e839b90d436
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 0da54bd28c1d9ea933e88b6c86cf6092c10d036a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98613803"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785189"
 ---
 # <a name="accidental-delete-prevention"></a>Zapobieganie przypadkowemu usuwaniu
 
@@ -24,9 +24,9 @@ W poniższym dokumencie opisano funkcję przypadkowego usuwania Azure AD Connect
 
 - Skonfiguruj możliwość automatycznego usuwania przypadkowych usunięć. 
 - Ustaw liczbę obiektów (próg), po których ta konfiguracja zacznie obowiązywać 
-- Skonfiguruj adres e-mail powiadomienia, aby móc otrzymywać powiadomienia e-mail, gdy w danym zadaniu synchronizacji zostanie umieszczona Kwarantanna w tym scenariuszu 
+- Skonfiguruj adres e-mail powiadomienia, aby móc otrzymywać powiadomienia e-mail, gdy zadanie synchronizacji w danym scenariuszu zostanie umieszczone w kwarantannie dla tego scenariusza 
 
-Aby użyć tej funkcji, należy ustawić wartość progową liczby obiektów, które zostały usunięte, synchronizacja powinna zostać zatrzymana.  Dlatego jeśli ta liczba zostanie osiągnięta, synchronizacja zostanie zatrzymana, a powiadomienie zostanie wysłane do określonego adresu e-mail.  Dzięki temu można sprawdzić, co się dzieje.
+Aby użyć tej funkcji, należy ustawić wartość progową liczby obiektów, które zostały usunięte, synchronizacja powinna zostać zatrzymana.  Dlatego jeśli ta liczba zostanie osiągnięta, synchronizacja zostanie zatrzymana, a powiadomienie zostanie wysłane do określonego adresu e-mail.  To powiadomienie umożliwi zbadanie tego, co się dzieje.
 
 
 ## <a name="configure-accidental-delete-prevention"></a>Skonfiguruj zapobieganie przypadkowemu usuwaniu
@@ -40,13 +40,53 @@ Aby skorzystać z nowej funkcji, wykonaj poniższe kroki.
 5. W obszarze **Ustawienia** wypełnij następujące elementy:
     - **Wiadomość e-mail z powiadomieniem** — wiadomość e-mail używana do powiadomień
     - **Zapobiegaj przypadkowemu usuwaniu** — zaznacz to pole, aby włączyć tę funkcję
-    - **Próg przypadkowego usunięcia** — wprowadź liczbę obiektów, aby wyzwolić zatrzymanie synchronizacji i powiadomienia
+    - **Próg przypadkowego usunięcia** — wprowadź liczbę obiektów do zatrzymania synchronizacji i Wyślij powiadomienie
 
 ![Przypadkowe usunięcie](media/how-to-accidental-deletes/accident-1.png)
 
+## <a name="recovering-from-an-accidental-delete-instance"></a>Odzyskiwanie z wystąpienia przypadkowego usuwania
+W przypadku wystąpienia przypadkowego usunięcia zostanie on wyświetlony w obszarze stan konfiguracji agenta aprowizacji.  Zostanie wyświetlony komunikat o **przekroczonym progu usuwania**.
+ 
+![Stan przypadkowego usuwania](media/how-to-accidental-deletes/delete-1.png)
+
+Po kliknięciu **wartości progu usuwania** zostanie wyświetlony informacja o stanie synchronizacji.  Spowoduje to dostarczenie dodatkowych informacji. 
+ 
+ ![Stan synchronizacji](media/how-to-accidental-deletes/delete-2.png)
+
+Klikając prawym przyciskiem myszy wielokropek, zostaną wyświetlone następujące opcje:
+ - Wyświetl dziennik aprowizacji
+ - Wyświetl agenta
+ - Zezwalaj na usuwanie
+
+ ![Kliknij prawym przyciskiem myszy](media/how-to-accidental-deletes/delete-3.png)
+
+Za pomocą **widoku dziennik aprowizacji** można zobaczyć wpisy **StagedDelete** i przejrzeć informacje podane dla użytkowników, którzy zostali usunięci.
+ 
+ ![Dzienniki aprowizowania](media/how-to-accidental-deletes/delete-7.png)
+
+### <a name="allowing-deletes"></a>Zezwalanie na usuwanie
+
+Akcja **Zezwalaj na** usuwanie spowoduje usunięcie obiektów, które wyzwoliły próg przypadkowego usunięcia.  Aby zaakceptować usunięcia, należy wykonać poniższą procedurę.  
+
+1. Kliknij prawym przyciskiem myszy wielokropek i wybierz polecenie **Zezwalaj na usuwanie**.
+2. Kliknij przycisk **tak** w potwierdzeniu, aby zezwolić na usuwanie.
+ 
+ ![Tak po potwierdzeniu](media/how-to-accidental-deletes/delete-4.png)
+
+3. Zostanie wyświetlone potwierdzenie, że usunięcia zostały zaakceptowane, a stan powróci do dobrej kondycji z następnym cyklem. 
+ 
+ ![Zaakceptuj usunięcia](media/how-to-accidental-deletes/delete-8.png)
+
+### <a name="rejecting-deletions"></a>Odrzucanie usunięć
+
+Aby nie zezwalać na usuwanie, należy wykonać następujące czynności:
+- Zbadaj Źródło usunięć
+- Rozwiąż problem (przykład: jednostka organizacyjna została przeniesiona poza zakres przypadkowo i teraz ponownie dodaliśmy ją z powrotem do zakresu)
+- Uruchom **synchronizację ponowną** w konfiguracji agenta
+
 ## <a name="next-steps"></a>Następne kroki 
 
-- [Co to jest Azure AD Connect Sync Cloud?](what-is-cloud-sync.md)
-- [Jak zainstalować Azure AD Connect synchronizacji w chmurze](how-to-install.md)
+- [Azure AD Connect Rozwiązywanie problemów z synchronizacją w chmurze?](how-to-troubleshoot.md)
+- [Azure AD Connect kody błędów synchronizacji w chmurze](reference-error-codes.md)
  
 

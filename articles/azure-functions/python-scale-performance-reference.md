@@ -4,12 +4,12 @@ description: Dowiedz się, jak opracowywać aplikacje Azure Functions przy użyc
 ms.topic: article
 ms.date: 10/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: baa362f029678f266f154df912a9178a6626667d
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: e3bbdb8819062d45d071633e0208fb58a003da54
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935873"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786110"
 ---
 # <a name="improve-throughput-performance-of-python-apps-in-azure-functions"></a>Zwiększenie wydajności przepływności aplikacji w języku Python w Azure Functions
 
@@ -22,10 +22,10 @@ Domyślnie Azure Functions automatycznie monitoruje obciążenie aplikacji i two
 
 Konfiguracje domyślne są odpowiednie dla większości Azure Functions aplikacji. Można jednak zwiększyć wydajność przepływności aplikacji, używając konfiguracji opartych na Twoim profilu obciążenia. Pierwszym krokiem jest zrozumienie typu obciążenia, które jest uruchomione.
 
-|| Obciążenie związane we/wy | Obciążenie związane z PROCESORem |
-|--| -- | -- |
-|Charakterystyka aplikacji funkcji| <ul><li>Aplikacja musi obsługiwać wiele współbieżnych wywołań.</li> <li> Aplikacja przetwarza dużą liczbę zdarzeń we/wy, takich jak wywołania sieciowe i odczyt/zapis na dysku.</li> </ul>| <ul><li>Aplikacja wykonuje długotrwałe obliczenia, takie jak zmienianie rozmiarów obrazów.</li> <li>Aplikacja wykonuje transformację danych.</li> </ul> |
-|Przykłady| <ul><li>Interfejsy API sieci Web</li><ul> | <ul><li>Przetwarzanie danych</li><li> Wnioskowanie dotyczące uczenia maszynowego</li><ul>|
+| Typ obciążenia | Charakterystyka aplikacji funkcji       | Przykłady                                          |
+| ------------- | ---------------------------------- | ------------------------------------------------- |
+| **We/wy — powiązane**     | • Aplikacja musi obsługiwać wiele współbieżnych wywołań.<br>• Aplikacja przetwarza dużą liczbę zdarzeń we/wy, takich jak wywołania sieciowe i odczyt/zapis na dysku. | • Interfejsy API sieci Web                                          |
+| **Powiązane z PROCESORem**     | • Aplikacja wykonuje długotrwałe obliczenia, takie jak zmienianie rozmiarów obrazów.<br>• Aplikacja wykonuje transformację danych.                                                | • Przetwarzanie danych<br>• Wnioskowanie o uczeniu maszynowym<br> |
 
  
 Ponieważ rzeczywiste obciążenia funkcji są zwykle kombinacją operacji we/wy i procesora CPU, należy profilować aplikację w ramach realistycznych obciążeń produkcyjnych.

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: alkohli
-ms.openlocfilehash: 730774f33d43754d4ca198ed170159fa4f872e09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c35bde40cac9629f084d69d52f119651b5655f7
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903672"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784481"
 ---
 # <a name="return-your-azure-stack-edge-pro-device"></a>Zwróć urządzenie Azure Stack Edge w wersji Pro
 
@@ -59,7 +59,7 @@ Alternatywnie można nawiązać połączenie z interfejsem programu PowerShell u
 
 Aby rozpocząć proces powrotu, wykonaj następujące czynności.
 
-1. Przejdź do zasobu Azure Stack EDGE Pro/Data Box Gateway w Azure Portal. W oknie **Przegląd**przejdź do paska poleceń w okienku po prawej stronie i wybierz pozycję **Zwróć urządzenie**. 
+1. Przejdź do zasobu Azure Stack EDGE Pro/Data Box Gateway w Azure Portal. W oknie **Przegląd** przejdź do paska poleceń w okienku po prawej stronie i wybierz pozycję **Zwróć urządzenie**. 
 
     ![Zwróć urządzenie 1](media/azure-stack-edge-return-device/return-device-1.png)  
 
@@ -101,7 +101,7 @@ Aby rozpocząć proces powrotu, wykonaj następujące czynności.
 Aby zaplanować odbiór, wykonaj następujące czynności.
 
 1. Zamknij urządzenie. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja > ustawienia zarządzania**.
-2. Wybierz pozycję **Zamknij**. Po wyświetleniu monitu o potwierdzenie kliknij przycisk **tak** , aby kontynuować. Aby uzyskać więcej informacji, zobacz [zarządzanie mocą](data-box-gateway-manage-access-power-connectivity-mode.md#manage-power).
+2. Wybierz pozycję **Zamknij**. Po wyświetleniu monitu o potwierdzenie kliknij przycisk **tak** , aby kontynuować. Aby uzyskać więcej informacji, zobacz [zarządzanie mocą](../databox-gateway/data-box-gateway-manage-access-power-connectivity-mode.md#manage-power).
 3. Odłącz kable zasilające i Usuń wszystkie kable sieciowe z urządzenia.
 4. Przygotuj pakiet wysyłki przy użyciu własnego pola lub pustego pola otrzymanego z platformy Azure. Umieść urządzenie i zasilacze, które zostały dostarczone z urządzeniem w polu.
 5. Należy umieścić etykietę wysyłkową uzyskaną z platformy Azure w pakiecie.
